@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48888f9ca840888310aebcc82d38d2af351a8611
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277897"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114452562"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -38,6 +38,9 @@ Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실�
 포함된 모듈 및 cmdlet의 수로 인해 지원되지 않는 호출을 만드는 cmdlet을 미리 파악하기가 어렵습니다. 일반적으로 권한이 상승된 액세스를 필요로 하거나 매개 변수로 자격 증명이 필요하거나 네트워킹과 관련된 cmdlet에 대한 문제가 있었습니다. AIPService PowerShell 모듈의 [Connect-AipService](/powershell/module/aipservice/connect-aipservice) 및 DNSClient 모듈의 [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname)을 포함하여 완전한 스택 네트워크 작업을 수행하는 모든 cmdlet은 샌드박스에서 지원되지 않습니다.
 
 이는 샌드박스와 관련하여 알려진 제한 사항입니다. 권장 해결 방법은 [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)를 배포하거나 [Azure Functions](../../azure-functions/functions-overview.md)를 사용하는 것입니다.
+
+> [!IMPORTANT] 
+> Az 모듈을 통해 실행되도록 설계된 스크립트에는 "AzureRm" 키워드를 포함하지 마세요. 주석에도 키워드를 포함하면 AzureRm이 로드된 다음, Az 모듈과 충돌할 수 있습니다.
 
 ## <a name="default-modules"></a>기본 모듈
 

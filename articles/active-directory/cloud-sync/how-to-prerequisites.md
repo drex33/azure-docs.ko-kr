@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc0eed20ee392b668078425946b39ac6c6440c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2ad99f677cde82f461eee6396d945fb3cd030245
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536485"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306111"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 동기화를 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -33,9 +33,9 @@ Azure AD Connect 클라우드 동기화를 사용하려면 다음이 필요합�
 그룹 관리 서비스 계정은 자동 암호 관리, 간소화된 SPN(서비스 사용자 이름) 관리, 다른 관리자에게 관리를 위임하는 기능 및 여러 서버에서 이 기능을 확장하는 관리되는 도메인 계정입니다.  Azure AD Connect Cloud Sync는 에이전트를 실행하는 데 gMSA을 지원 및 사용합니다.  이 계정을 만들기 위해 설치 도중 관리자 자격 증명을 입력하라는 메시지가 표시됩니다.  계정이 (domain\provAgentgMSA$)로 표시됩니다.  gMSA에 대한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)을 참조하세요. 
 
 ### <a name="prerequisites-for-gmsa"></a>gMSA에 대한 필수 구성 요소:
-1.  gMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2016으로 업데이트해야 합니다.
+1.  gMSA 도메인 포리스트의 Active Directory 스키마를 Windows Server 2012 이상으로 업데이트해야 합니다.
 2.  도메인 컨트롤러의 [PowerShell RSAT 모듈](/windows-server/remote/remote-server-administration-tools)
-3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 2016을 실행 중이어야 합니다.
+3.  도메인에 있는 하나 이상의 도메인 컨트롤러가 Windows Server 2012 이상을 실행 중이어야 합니다.
 4.  에이전트가 설치되는 도메인 가입 서버가 Windows Server 2016 이상이어야 합니다.
 
 ### <a name="custom-gmsa-account"></a>사용자 지정 gMSA 계정
@@ -133,6 +133,9 @@ Azure AD Connect 프로비저닝 에이전트를 실행하는 Windows Server에�
 OU 범위 지정 필터를 사용하는 경우
 - 지정된 구성에 대해 최대 59개의 개별 OU만 동기화할 수 있습니다. 
 - 중첩 OU가 지원됩니다(즉, 130개의 중첩된 OU가 있는 OU를 **동기화할 수 있지** 만 동일한 구성에서 60개의 개별 OU를 동기화할 수는 **없음**). 
+
+### <a name="password-hash-sync"></a>암호 해시 동기화
+- 암호 해시 동기화를 InetOrgPerson과 함께 사용하는 기능은 지원되지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계 

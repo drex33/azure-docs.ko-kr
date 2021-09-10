@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 �
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d629ef1bc7d2086f85bbb08105041a0457b133c5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 99da4f3134d8e646ba8decbc986ceb082860ca57
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954879"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463750"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
@@ -246,7 +246,7 @@ $Resource | Set-AzResource -Force
 
 ### <a name="setting-data-retention-using-rest"></a>REST를 사용하여 데이터 보존 기간 설정
 
-Application Insights 리소스의 현재 데이터 보존 기간을 확인하려면 OSS 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하면 됩니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)가 작성한 문서에서 ARMClient에 대해 자세히 알아보세요.  현재 보존을 확인하기 위해 `ARMClient`를 사용하는 예는 다음과 같습니다.
+Application Insights 리소스의 현재 데이터 보존 기간을 확인하려면 OSS 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하면 됩니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 Daniel Bowbyes가 작성한 문서에서 ARMClient에 대해 자세히 알아보세요. 현재 보존을 확인하기 위해 `ARMClient`를 사용하는 예는 다음과 같습니다.
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -472,4 +472,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [웹 테스트 만들기](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
-* [릴리스 주석 만들기](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [릴리스 주석 만들기](annotations.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bebae71179153479d66891924ba2f7679838d8bc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814362"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112297048"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -132,9 +132,9 @@ SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. C
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>새 적응형 SAP 시스템 프로비전
 
-새 가상 머신을 수동으로 배포하거나 [빠른 시작 리포지토리](https://github.com/Azure/azure-quickstart-templates)에 있는 Azure 템플릿 중 하나를 사용할 수 있습니다. [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver Application Server](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) 및 [데이터베이스](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database)에 대한 템플릿을 포함합니다. 이 템플릿을 사용하여 시스템 복사/복제 등의 일환으로 새 호스트를 프로비전할 수 있습니다.
+새 가상 머신을 수동으로 배포하거나 [빠른 시작 리포지토리](https://github.com/Azure/azure-quickstart-templates)에 있는 Azure 템플릿 중 하나를 사용할 수 있습니다. [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), [SAP NetWeaver Application Server](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps) 및 [데이터베이스](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database)에 대한 템플릿을 포함합니다. 이 템플릿을 사용하여 시스템 복사/복제 등의 일환으로 새 호스트를 프로비전할 수 있습니다.
 
-SAP LaMa로 관리하려는 모든 가상 머신에 대해 별도의 서브넷을 사용하는 것이 좋으며 새 가상 머신을 배포할 때 및 SAP 인스턴스가 준비가 되지 않은 경우에는 IP 주소가 "도용"되지 않도록 동적 IP 주소를 사용하지 마십시오.
+SAP LaMa로 관리하려는 모든 가상 머신에 대해 별도의 서브넷을 사용하는 것이 좋으며, 새 가상 머신을 배포할 때 및 SAP 인스턴스가 준비가 되지 않은 경우에는 IP 주소가 "도용"되지 않도록 동적 IP 주소를 사용하지 마십시오.
 
 > [!NOTE]
 > 가능하면 모든 가상 머신 확장을 제거합니다. 가상 머신에서 디스크를 분리하는 데 긴 런타임이 발생할 수 있기 때문입니다.

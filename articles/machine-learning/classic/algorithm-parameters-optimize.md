@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 최적화 알고리즘 - Azure'
-description: Azure Machine Learning Studio(클래식)에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
+description: Machine Learning Studio(클래식)에서 알고리즘에 대한 최적의 매개변수 집합을 선택하는 방법을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a133f9b8d1ae22114a78be8e4d22d6293c94c7cd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519306"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582981"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 알고리즘을 최적화하는 매개 변수 선택
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-이 항목에서는 Azure Machine Learning Studio(클래식)에서 알고리즘에 맞는 하이퍼 매개 변수 집합을 선택하는 방법을 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택* 이라고 합니다.
+이 항목에서는 Machine Learning Studio(클래식)에서 알고리즘에 대해 올바른 하이퍼파라미터 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택* 이라고 합니다.
 
 
 
-모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서는 교차 유효성 검사가 모델 선택에 가장 널리 사용되는 방법 중 하나이며, Azure Machine Learning Studio(클래식)의 기본 모델 선택 메커니즘입니다. Azure Machine Learning Studio(클래식)에서는 R과 Python을 둘 다 지원하므로 언제든지 R 또는 Python을 사용하여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
+모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검증은 모델 선택에 가장 널리 사용되는 방법 중 하나이며 Machine Learning Studio(클래식)의 기본 모델 선택 메커니즘입니다. Machine Learning Studio(클래식)는 R과 Python을 모두 지원하므로 R 또는 Python을 사용하여 항상 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
 최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
 

@@ -6,24 +6,22 @@ services: notification-hubs
 documentationcenter: nodejs
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: eb41593938c670199be38140118f276142ceed43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44e6156d472200c818520fbba7e0618100f4344b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453226"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769155"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -100,6 +98,9 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **iOS** - `notificationHubService.apns`에서 액세스할 수 있는 `ApnsService` 개체를 사용합니다.
 - **Windows Phone** - `notificationHubService.mpns`에서 사용할 수 있는 `MpnsService` 개체를 사용합니다.
 - **유니버설 Windows 플랫폼** - `notificationHubService.wns`에서 사용할 수 있는 `WnsService` 개체를 사용합니다.
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 사용되지 않으며 더 이상 지원되지 않습니다.
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>방법: Android 애플리케이션에 푸시 알림 보내기
 

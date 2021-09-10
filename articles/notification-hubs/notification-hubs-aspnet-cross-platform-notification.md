@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01d6d1cffaa0ae9928c24015570f882036b1e783
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92313895"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771439"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 플랫폼 간 알림 보내기
 
@@ -36,6 +36,9 @@ ms.locfileid: "92313895"
 > Notification Hubs를 사용하면 디바이스가 동일한 태그로 여러 템플릿을 등록할 수 있습니다. 이 경우 해당 태그를 대상으로 들어오는 메시지가 있으면 각 템플릿에 대해 하나씩 여러 개의 알림이 디바이스에 전달됩니다. 이 프로세스로 Windows 스토어 앱에 알림 메시지와 배지 둘 다로 표시하는 등 여러 시각적 알림에 동일한 메시지를 표시할 수 있습니다.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>템플릿을 사용하여 플랫폼 간 알림 보내기
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 사용되지 않으며 더 이상 지원되지 않습니다.
 
 이 섹션에서는 [Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기] 자습서에서 빌드한 샘플 코드를 사용합니다. [전체 샘플은 GitHub에서 다운로드](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)할 수 있습니다.
 

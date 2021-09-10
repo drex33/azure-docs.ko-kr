@@ -5,15 +5,16 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
-ms.openlocfilehash: 2e732cf11627c9bf9be2610d32dc324f548b82ed
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 06/04/2021
+ms.openlocfilehash: b5d28b5e625bc7822469511ae83d5dabd5824fa0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986411"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642666"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -35,7 +36,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 모니터링 작업
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 스토리지를 *원본* 및 *싱크* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
@@ -73,9 +74,9 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 이 단계에서는 데이터 흐름 작업을 포함하는 파이프라인을 만듭니다.
 
-1. **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **TransformMovies** 를 입력합니다.
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.

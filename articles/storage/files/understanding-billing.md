@@ -4,15 +4,15 @@ description: Azure 파일 공유에 대해 프로비저닝된 종량제 청구 �
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9d0079ac85980f97a0241780b23e639e2359c65d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 7f133600f800881f462583ca5bee2972a5c914fa
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787224"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530671"
 ---
 # <a name="understand-azure-files-billing"></a>Azure Files 청구 이해
 Azure Files는 프로비저닝과 종량제라는 두 가지 고유한 청구 모델을 제공합니다. 프로비저닝 모델은 **FileStorage** 스토리지 계정 종류에 배포된 파일 공유인 프리미엄 파일 공유에만 사용할 수 있습니다. 종량제 모델은 **범용 버전 2(GPv2)** 스토리지 계정 종류에 배포된 파일 공유인 표준 파일 공유에만 사용할 수 있습니다. 이 문서에서는 월간 Azure Files 청구를 이해하는 데 도움이 되도록 두 모델의 작동 방식을 설명합니다.
@@ -27,6 +27,13 @@ Azure Files는 프로비저닝과 종량제라는 두 가지 고유한 청구 �
 :::row-end:::
 
 Azure Files 가격 책정 정보는 [Azure Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 ## <a name="storage-units"></a>스토리지 단위    
 Azure Files은 2가지 측정 단위를 사용하여 스토리지 용량(KiB, MiB, GiB 및 TiB)을 나타냅니다. 운영 체제는 동일한 측정 단위 또는 계산 시스템을 사용하거나 사용하지 않을 수 있습니다.
@@ -52,7 +59,7 @@ Azure Files는 스토리지 용량 예약을 지원하여 사용자는 스토리
 
 - **용량 크기**: 용량 예약은 10TiB 또는 100TiB 중 하나일 수 있으며, 더 높은 용량 예약을 구매에는 더 큰 할인이 제공됩니다. 워크로드 요구 사항에 맞게 다양한 용량 크기의 예약을 포함하여 여러 예약을 구매할 수 있습니다. 예를 들어 프로덕션 배포에 120TiB의 파일 공유가 있는 경우 총 용량 요구 사항을 충족하기 위해 100TiB 예약과 10TiB 예약 2개를 구매할 수 있습니다.
 - **기간**: 예약은 1년 또는 3년 동안 구매할 수 있으며, 더 긴 예약 기간을 구매하면 더 큰 할인을 받을 수 있습니다. 
-- **계층**: 용량 예약에 대한 Azure Files 계층입니다. Azure Files에 대한 예약은 현재 핫 및 쿨 계층에서 사용할 수 있습니다.
+- **계층**: 용량 예약에 대한 Azure Files 계층입니다. Azure Files에 대한 예약은 현재 프리미엄, 핫 및 쿨 계층에서 사용할 수 있습니다.
 - **위치**: 용량 예약을 위한 Azure 지역입니다. Azure 지역의 하위 집합에서 용량 예약을 사용할 수 있습니다.
 - **중복성**: 용량 예약에 대한 스토리지 중복성입니다. 예약은 LRS, ZRS, GRS 및 GZRS를 포함하여 Azure Files가 지원하는 모든 중복에 대해 지원됩니다.
 
@@ -63,29 +70,34 @@ Azure Files는 스토리지 용량 예약을 지원하여 사용자는 스토리
 ## <a name="provisioned-model"></a>프로비저닝된 모델
 Azure Files는 프리미엄 파일 공유에 프로비저닝된 모델을 사용합니다. 프로비저닝 비즈니스 모델에서 사용하는 내용에 따라 비용이 청구되는 것이 아니라 Azure Files 서비스에 스토리지 요구 사항을 사전에 지정합니다. 이는 특정 양의 스토리지로 Azure 파일 공유를 프로비저닝할 때, 공간을 사용할 때 온-프레미스의 물리적 미디어의 비용 결제를 시작하지 않는 것처럼 사용 여부에 관계없이 해당 스토리지에 대한 비용을 결제한다는 점에서 온-프레미스 하드웨어 구매와 유사합니다. 온-프레미스에서 물리적 미디어를 구매하는 것과 달리 프로비저닝된 파일 공유는 스토리지 및 IO 성능 특성에 따라 동적으로 확장 또는 축소할 수 있습니다.
 
-프리미엄 파일 공유를 프로비저닝할 때 워크로드에 필요한 GiB 수를 지정합니다. 프로비저닝하는 각 GiB는 고정 비율로 추가 IOPS 및 처리량을 제공합니다. 보장되는 기준 IOPS 외에도 각 프리미엄 파일 공유는 최상의 수준으로 버스팅을 지원합니다. IOPS 및 처리량에 대한 수식은 다음과 같습니다.
-
-- 기준 IOPS = 400 + 1 * 프로비저닝된 GiB. (최대 100,000 IOPS).
-- 버스트 제한 = 최대(4000, 3 * 기준 IOPS).
-- 송신율 = 60MiB/s + 0.06 * 프로비저닝된 GiB.
-- 수신율 = 40MiB/s + 0.04 * 프로비저닝된 GiB.
-
 프로비저닝된 파일 공유 크기는 언제든지 늘릴 수 있지만 마지막으로 늘린 후 24시간이 지나야 줄일 수 있습니다. 할당량을 늘리지 않고 24시간을 기다린 후 다시 늘릴 때까지 공유 할당량을 원하는 만큼 줄일 수 있습니다. IOPS/처리량 크기 조정은 프로비저닝된 크기 변경 후 몇 분 이내에 적용됩니다.
 
 프로비저닝된 공유의 크기를 사용된 GiB 이하로 줄일 수 있습니다. 이렇게 하면 데이터가 손실되지 않지만 여전히 사용된 크기에 대해 요금이 청구되고 사용된 크기가 아닌 프로비저닝된 공유의 성능(기준 IOPS, 처리량 및 버스트 IOPS)을 받습니다.
 
+### <a name="provisioning-method"></a>프로비저닝 방법
+프리미엄 파일 공유를 프로비저닝할 때 워크로드에 필요한 GiB 수를 지정합니다. 프로비저닝하는 각 GiB는 고정 비율로 추가 IOPS 및 처리량을 제공합니다. 보장되는 기준 IOPS 외에도 각 프리미엄 파일 공유는 최상의 수준으로 버스팅을 지원합니다. IOPS 및 처리량에 대한 수식은 다음과 같습니다.
+
+| 항목 | 값 |
+|-|-|
+| 파일 공유의 최소 크기 | 100GiB |
+| 프로비저닝 단위 | 1GiB |
+| 기준 IOPS 수식 | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
+| 버스트 한도 | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| 수신 속도 | `40 MiB/sec + 0.04 * ProvisionedGiB` |
+| 송신 속도 | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+
 다음 표는 프로비저닝된 공유 크기에 대한 이러한 공식의 몇 가지 예를 보여줍니다.
 
-|용량(GiB) | 기준 IOPS | 버스트 IOPS | 송신(MiB/s) | 수신(MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | 최대 4,000     | 66   | 44   |
-|500         | 900     | 최대 4,000  | 90   | 60   |
-|1,024       | 1,424   | 최대 4,000   | 122   | 81   |
-|5,120       | 5,520   | 최대 15,360  | 368   | 245   |
-|10,240      | 10,640  | 최대 30,720  | 675   | 450   |
-|33,792      | 34,192  | 최대 100,000 | 2,088 | 1,392   |
-|51,200      | 51,600  | 최대 100,000 | 3,132 | 2,088   |
-|102,400     | 100,000 | 최대 100,000 | 6,204 | 4,136   |
+| 용량(GiB) | 기준 IOPS | 버스트 IOPS | 송신(MiB/s) | 수신(MiB/s) |
+|-|-|-|-|-|
+| 100 | 500 | 최대 4,000 | 66 | 44 |
+| 500 | 900 | 최대 4,000 | 90 | 60 |
+| 1,024 | 1,424 | 최대 4,000 | 122 | 81 |
+| 5,120 | 5,520 | 최대 15,360 | 368 | 245 |
+| 10,240 | 10,640 | 최대 30,720 | 675 | 450 |
+| 33,792 | 34,192 | 최대 100,000 | 2,088 | 1,392 |
+| 51,200 | 51,600 | 최대 100,000 | 3,132 | 2,088 |
+| 102,400 | 100,000 | 최대 100,000 | 6,204 | 4,136 |
 
 효과적인 파일 공유 성능은 다른 여러 요인 중에서도 머신 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리의 영향을 받습니다. 예를 들어, 8KiB 읽기/쓰기 IO 크기의 내부 테스트에서 SMB 다중 채널이 활성화되지 않은 단일 Windows 가상 머신, *표준 F16s_v2* , SMB를 통한 프리미엄 파일 공유에 연결된 경우 20K 읽기 IOPS 및 15K 쓰기 IOPS를 달성할 수 있습니다. 512MiB 읽기/쓰기 IO 크기의 경우, 동일한 VM이 1.1GiB/s 송신 및 370MiB/s 수신 처리량을 달성할 수 있습니다. 프리미엄 공유에서 SMB 다중 채널을 사용하는 경우 동일한 클라이언트에서 최대 \~3배의 성능을 달성할 수 있습니다. 최대 성능 확장을 실현하려면 [SMB 다중 채널 사용하고](storage-files-enable-smb-multichannel.md) 부하를 여러 VM에 분산합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [SMB 다중 채널 성능](storage-files-smb-multichannel-performance.md) 및 [문제 해결 가이드](storage-troubleshooting-files-performance.md)를 참조하세요.
 
@@ -127,8 +139,8 @@ Azure Files는 표준 파일 공유에 종량제 비즈니스 모델을 사용�
 
 | 작업 유형 | 쓰기 트랜잭션 | 나열 트랜잭션 | 읽기 트랜잭션 | 기타 트랜잭션 | 삭제 트랜잭션 |
 |-|-|-|-|-|-|
-| 관리 작업 | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| 데이터 작업 | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`SetShareACL`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| 관리 작업 | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
+| 데이터 작업 | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
 
 > [!Note]  
 > NFS 4.1은 프로비저닝된 청구 모델을 사용하는 프리미엄 파일 공유에만 사용할 수 있으며, 트랜잭션은 프리미엄 파일 공유에 대한 청구에 영향을 주지 않습니다.

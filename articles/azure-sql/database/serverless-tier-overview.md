@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein
-ms.date: 4/16/2021
-ms.openlocfilehash: 514e7e229ba1b72f2c357f6cefdd272889ed46b9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.reviewer: mathoma, wiassaf
+ms.date: 7/29/2021
+ms.openlocfilehash: ac1241b28ae85f19aa4bfdbc1a92310b64d88462
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536638"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 서버리스 및 프로비저닝된 컴퓨팅 데이터베이스 모두에서 사용 가능한 메모리가 모두 사용되면 캐시 항목이 제거될 수 있습니다.
 
-CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지되므로 메모리 재사용을 방지할 수 있습니다.  또한 이전 사용자 활동에 응답하는 정기적인 백그라운드 프로세스로 인해 사용자 활동이 중지된 후 메모리 재사용이 발생하기 전에 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업 및 QDS 정리 태스크는 삭제할 레코드를 생성하지만, 데이터 페이지를 캐시로 읽어 들일 수 있는 고스트 정리 프로세스가 실행될 때까지 물리적으로 삭제되지 않습니다.
+CPU 사용률이 낮은 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지되므로 메모리 재사용을 방지할 수 있습니다.  또한 이전 사용자 활동에 응답하는 정기적인 백그라운드 프로세스로 인해 사용자 활동이 중지된 후 메모리 재사용이 발생하기 전에 다른 지연이 발생할 수 있습니다.  예를 들어 삭제 작업과 쿼리 저장소 정리 태스크는 삭제하도록 표시되지만 고스트 정리 프로세스가 실행될 때까지 물리적으로 삭제되지 않는 삭제할 레코드를 생성합니다. 고스트 정리에는 추가 데이터 페이지를 캐시로 읽어오는 작업이 포함될 수 있습니다.
 
 #### <a name="cache-hydration"></a>캐시 하이드레이션
 
@@ -110,19 +110,58 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식과 동�
 자동 일시 중지는 자동 일시 중지 지연 기간 동안 다음 조건이 모두 참이면 트리거됩니다.
 
 - 세션 수 = 0
-- CPU = 0(사용자 풀에서 실행되는 사용자 워크로드의 경우)
+- CPU = 0(사용자 리소스 풀에서 실행되는 사용자 워크로드의 경우)
 
 원하는 경우 자동 일시 중지를 사용하지 않도록 설정하는 옵션이 제공됩니다.
 
-다음 기능은 자동 일시 중지를 지원하지 않지만 자동 크기 조정은 지원합니다.  다음 기능 중 하나를 사용하는 경우 자동 일시 중지를 사용하지 않도록 설정해야 하며, 데이터베이스 비활성 기간에 관계없이 데이터베이스가 온라인 상태로 유지됩니다.
+다음 기능은 자동 일시 중지를 지원하지 않지만 자동 크기 조정은 지원합니다. 다음 기능 중 하나를 사용하는 경우 자동 일시 중지를 사용하지 않도록 설정해야 하며, 데이터베이스 비활성 기간에 관계없이 데이터베이스가 온라인 상태로 유지됩니다.
 
-- 지역 복제(활성 지역 복제 및 자동 장애 조치 그룹)
-- LTR(장기 백업 보존)
-- SQL 데이터 동기화에 사용되는 동기화 데이터베이스입니다. 동기화 데이터베이스와 달리, 허브 및 구성원 데이터베이스는 자동 일시 중지를 지원합니다.
-- DNS 별칭 지정
-- 탄력적 작업에 사용되는 작업 데이터베이스입니다(미리 보기).
+- 지역 복제([활성 지역 복제](active-geo-replication-overview.md) 및 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md))
+- [LTR(장기 백업 보존)](long-term-retention-overview.md)
+- [SQL 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)에서 사용되는 동기화 데이터베이스. 동기화 데이터베이스와 달리 허브 및 구성원 데이터베이스는 자동 일시 중지를 지원합니다.
+- 서버리스 데이터베이스가 포함된 논리 서버에 대해 생성된 [DNS 별칭](dns-alias-overview.md)
+- [탄력적 작업(미리 보기)](elastic-jobs-overview.md)(작업 데이터베이스가 서버리스 데이터베이스인 경우). 탄력적 작업의 대상 데이터베이스는 자동 일시 중지를 지원하며 작업 연결을 통해 다시 시작됩니다.
 
 데이터베이스가 온라인 상태여야 하는 일부 서비스 업데이트를 배포하는 동안에는 자동 일시 중지가 일시적으로 차단됩니다.  이런 경우 서비스 업데이트가 완료되면 자동 일시 중지가 다시 허용됩니다.
+
+#### <a name="auto-pause-troubleshooting"></a>자동 일시 중지 문제 해결
+
+자동 일시 중지가 사용하도록 설정되었지만 지연 기간 후 데이터베이스가 자동으로 일시 중지되지 않고 위에 나열된 기능이 사용되지 않는 경우 애플리케이션 또는 사용자 세션에서 자동 일시 중지를 차단한 것일 수 있습니다. 현재 데이터베이스에 연결된 애플리케이션 또는 사용자 세션이 있는지 확인하려면 클라이언트 도구를 사용하여 데이터베이스에 연결한 후 다음 쿼리를 실행합니다.
+
+```sql
+SELECT session_id,
+       host_name,
+       program_name,
+       client_interface_name,
+       login_name,
+       status,
+       login_time,
+       last_request_start_time,
+       last_request_end_time
+FROM sys.dm_exec_sessions AS s
+INNER JOIN sys.dm_resource_governor_workload_groups AS wg
+ON s.group_id = wg.group_id
+WHERE s.session_id <> @@SPID
+      AND
+      (
+      (
+      wg.name like 'UserPrimaryGroup.DB%'
+      AND
+      TRY_CAST(RIGHT(wg.name, LEN(wg.name) - LEN('UserPrimaryGroup.DB') - 2) AS int) = DB_ID()
+      )
+      OR
+      wg.name = 'DACGroup'
+      );
+```
+
+> [!TIP]
+> 쿼리를 실행한 후 데이터베이스 연결을 끊어야 합니다. 그러지 않으면 쿼리에서 사용 중인 열린 세션으로 인해 자동 일시 중지가 차단됩니다.
+
+결과 집합이 비어 있지 않으면 현재 자동 일시 중지를 차단하는 세션이 있는 것입니다. 
+
+결과 집합이 비어 있는 경우에도 이전에 자동 일시 중지 지연 기간 중 짧은 시간 동안 세션이 열렸을 수 있습니다. 지연 기간 동안 해당 활동이 발생했는지 확인하려면 [Azure SQL 감사](auditing-overview.md)를 사용하여 관련 기간의 감사 데이터를 검사할 수 있습니다.
+
+동시 CPU 사용률 여부에 관계없이 사용자 리소스 풀에 열린 세션이 있는 경우가 서버리스 데이터베이스가 예상대로 자동 일시 중지되지 않는 가장 일반적인 이유입니다. 일부 [기능](#auto-pausing)은 자동 일시 중지를 지원하지 않지만 자동 스케일링을 지원합니다.
 
 ### <a name="auto-resuming"></a>자동 다시 시작
 
@@ -142,7 +181,7 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식과 동�
 |자동 튜닝|자동 인덱싱과 같은 자동 튜닝 권장 사항 적용 및 확인|
 |데이터베이스 복사|데이터베이스를 복사본으로 만들기<br>BACPAC 파일로 내보내기|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
-|특정 데이터베이스 메타데이터 수정|새 데이터베이스 태그 추가,<br>최대 vCore 수, 최소 vCore 수 또는 자동 일시 중지 지연의 변경|
+|특정 데이터베이스 메타데이터 수정|새 데이터베이스 태그 추가,<br>최대 vCore 수, 최소 vCore 수 또는 자동 일시 중지 지연 변경|
 |SSMS(SQL Server Management Studio)|18.1 이전의 SSMS 버전을 사용하고 서버의 데이터베이스에 대한 새 쿼리 창을 열면 동일한 서버에서 자동으로 일시 중지된 데이터베이스가 다시 시작됩니다. SSMS 버전 18.1 이상을 사용하는 경우 이 문제가 발생하지 않습니다.|
 
 위에 나열된 작업을 수행하는 모니터링, 관리 또는 기타 솔루션은 자동 재개를 트리거합니다.
@@ -155,11 +194,11 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식과 동�
 
 ### <a name="latency"></a>대기 시간
 
-서버리스 데이터베이스가 자동으로 다시 시작될 때까지 대기하는 시간과 자동으로 일시 중지되기까지 대기하는 시간은 일반적으로 각각 1분, 1~10분입니다.
+서버리스 데이터베이스가 자동으로 다시 시작되기까지의 대기 시간과 자동으로 일시 중지되기까지의 대기 시간은 일반적으로 각각 1분, 지연 기간 만료 후 1~10분입니다.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>고객 관리형 투명 데이터 암호화(BYOK)
 
-[고객 관리형 투명 데이터 암호화](transparent-data-encryption-byok-overview.md)(BYOK)를 사용하고 키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 자동 일시 중지된 경우에는 데이터베이스가 자동 일시 중지 상태로 유지됩니다.  이 경우 다음에 데이터베이스를 다시 시작하면 약 10분 내에 데이터베이스에 액세스할 수 없게 됩니다.  데이터베이스에 액세스할 수 없게 되면 복구 프로세스가 프로비저닝된 컴퓨팅 데이터베이스와 동일합니다.  키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 온라인이면, 프로비저닝된 컴퓨팅 데이터베이스와 동일한 방식으로 약 10분 내에 데이터베이스에 액세스할 수 없게 됩니다.
+[고객 관리형 투명 데이터 암호화](transparent-data-encryption-byok-overview.md)(BYOK)를 사용하고 키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 자동 일시 중지된 경우에는 데이터베이스가 자동 일시 중지 상태로 유지됩니다.  이 경우 다음에 데이터베이스를 다시 시작하면 약 10분 내에 데이터베이스에 액세스할 수 없게 됩니다. 데이터베이스에 액세스할 수 없게 되면 복구 프로세스가 프로비저닝된 컴퓨팅 데이터베이스와 동일합니다. 키 삭제 또는 해지가 발생할 때 서버리스 데이터베이스가 온라인이면, 프로비저닝된 컴퓨팅 데이터베이스와 동일한 방식으로 약 10분 내에 데이터베이스에 액세스할 수 없게 됩니다.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>서버리스 컴퓨팅 계층으로 온보딩
 
@@ -168,7 +207,7 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식과 동�
 1. 서비스 목표를 지정합니다. 서비스 목표는 서비스 계층, 하드웨어 세대 및 최대 vCore를 지정합니다. 서비스 목표 옵션은 [서버리스 리소스 제한](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.
 
 
-2. 필요에 따라 최소 vCore 및 자동 일시 중지 지연을 지정하여 해당 기본값을 변경합니다. 다음 표에는 이러한 매개 변수에 사용할 수 있는 값이 나와 있습니다.
+2. 필요에 따라 최소 vCore 수와 자동 일시 중지 지연을 지정하여 기본값을 변경합니다. 다음 표에는 이러한 매개 변수에 사용할 수 있는 값이 나와 있습니다.
 
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
@@ -180,7 +219,7 @@ SQL 캐시는 프로비저닝된 데이터베이스와 동일한 방식과 동�
 
 다음 예에서는 서버리스 컴퓨팅 계층에 새 데이터베이스를 만듭니다.
 
-#### <a name="use-the-azure-portal"></a>Azure Portal 사용
+#### <a name="use-azure-portal"></a>Azure Portal 사용
 
 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조하세요.
 
@@ -192,7 +231,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-the-azure-cli"></a>Azure CLI 사용
+#### <a name="use-azure-cli"></a>Azure CLI 사용
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -202,7 +241,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>T-SQL(Transact-SQL) 사용
 
-T-SQL을 사용하는 경우 최소 vCore 및 자동 일시 중지 지연에 기본값이 적용됩니다.
+T-SQL을 사용하는 경우 최소 vCore 및 자동 일시 중지 지연에 기본값이 적용됩니다. 나중에 포털에서 또는 다른 관리 API(PowerShell, Azure CLI, REST API)를 통해 변경할 수 있습니다.
 
 ```sql
 CREATE DATABASE testdb
@@ -217,24 +256,22 @@ CREATE DATABASE testdb
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-the-azure-cli"></a>Azure CLI 사용
+#### <a name="use-azure-cli"></a>Azure CLI 사용
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-
 #### <a name="use-transact-sql-t-sql"></a>T-SQL(Transact-SQL) 사용
 
-T-SQL을 사용하는 경우 최소 vCore 및 자동 일시 중지 지연에 기본값이 적용됩니다.
+T-SQL을 사용하는 경우 최소 vCore 및 자동 일시 중지 지연에 기본값이 적용됩니다. 나중에 포털에서 또는 다른 관리 API(PowerShell, Azure CLI, REST API)를 통해 변경할 수 있습니다.
 
 ```sql
 ALTER DATABASE testdb 
@@ -253,10 +290,9 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 최대 또는 최소 vCore 및 자동 일시 중지 지연을 수정하는 작업은 PowerShell에서 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) 명령을 사용하고 `MaxVcore`, `MinVcore`, `AutoPauseDelayInMinutes` 인수를 사용하여 수행됩니다.
 
-### <a name="use-the-azure-cli"></a>Azure CLI 사용
+### <a name="use-azure-cli"></a>Azure CLI 사용
 
 최대 또는 최소 vCore 및 자동 일시 중지 지연을 수정하는 작업은 Azure CLI에서 [az sql db update](/cli/azure/sql/db#az_sql_db_update) 명령을 사용하고 `capacity`, `min-capacity`, `auto-pause-delay` 인수를 사용하여 수행됩니다.
-
 
 ## <a name="monitoring"></a>모니터링
 
@@ -266,26 +302,26 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 #### <a name="app-package"></a>앱 패키지
 
-데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 앱 패키지는 데이터베이스의 가장 외부에 있는 리소스 관리 경계입니다. 앱 패키지에는 SQL Database의 데이터베이스에서 사용하는 모든 사용자 및 시스템 리소스를 모두 검색하는 전체 텍스트 검색 같은 SQL 인스턴스와 외부 서비스가 포함되어 있습니다. SQL 인스턴스는 일반적으로 앱 패키지 전체의 전체 리소스 사용률을 제어합니다.
+데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 앱 패키지는 데이터베이스의 가장 외부에 있는 리소스 관리 경계입니다. 앱 패키지에는 SQL Database의 데이터베이스에서 사용 중인 모든 사용자 및 시스템 리소스를 검색하는 전체 텍스트 검색과 같은 외부 서비스와 SQL 인스턴스가 포함됩니다. SQL 인스턴스는 일반적으로 앱 패키지 전체의 전체 리소스 사용률을 제어합니다.
 
 #### <a name="user-resource-pool"></a>사용자 리소스 풀
 
-데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀은 DDL 쿼리(예: CREATE, ALTER) 및 DML 쿼리(예: SELECT, INSERT, UPDATE, DELETE)에 의해 생성된 사용자 워크로드에 대한 CPU 및 IO의 범위를 지정합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
+데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 내부 리소스 관리 경계입니다. 사용자 리소스 풀은 DDL 쿼리(예: CREATE, ALTER), DML 쿼리(예: INSERT, UPDATE, DELETE, MERGE), SELECT 쿼리에서 생성된 사용자 워크로드에 대한 CPU와 IO의 범위를 지정합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
 
 ### <a name="metrics"></a>메트릭
 
-서버리스 데이터베이스의 사용자 풀 및 앱 패키지의 리소스 사용량을 모니터링하는 메트릭이 다음 표에 나와 있습니다.
+다음 표에는 서버리스 데이터베이스 앱 패키지 및 사용자 리소스 풀의 리소스 사용량을 모니터링하기 위한 메트릭이 나와 있습니다.
 
 |엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
 |앱 패키지|app_memory_percent|앱에 허용되는 최대 메모리에 대한 앱에서 사용한 메모리의 백분율입니다.|백분율|
-|사용자 풀|cpu_percent|사용자 워크로드에 허용되는 최대 vCore 수에 대한 사용자 워크로드에서 사용한 vCore 수의 백분율입니다.|백분율|
-|사용자 풀|data_IO_percent|사용자 워크로드에 허용되는 최대 데이터 IOPS에 대한 사용자 워크로드에서 사용한 데이터 IOPS의 백분율입니다.|백분율|
-|사용자 풀|log_IO_percent|사용자 워크로드에 허용되는 최대 로그 MB/초에 대한 사용자 워크로드에서 사용한 로그 MB/초의 백분율입니다.|백분율|
-|사용자 풀|workers_percent|사용자 워크로드에 허용되는 최대 작업자 수에 대한 사용자 워크로드에서 사용한 작업자 수의 백분율입니다.|백분율|
-|사용자 풀|sessions_percent|사용자 워크로드에 허용되는 최대 세션 수에 대한 사용자 워크로드에서 사용한 세션 수의 백분율입니다.|백분율|
+|사용자 리소스 풀|cpu_percent|사용자 워크로드에 허용되는 최대 vCore 수에 대한 사용자 워크로드에서 사용한 vCore 수의 백분율입니다.|백분율|
+|사용자 리소스 풀|data_IO_percent|사용자 워크로드에 허용되는 최대 데이터 IOPS에 대한 사용자 워크로드에서 사용한 데이터 IOPS의 백분율입니다.|백분율|
+|사용자 리소스 풀|log_IO_percent|사용자 워크로드에 허용되는 최대 로그 MB/초에 대한 사용자 워크로드에서 사용한 로그 MB/초의 백분율입니다.|백분율|
+|사용자 리소스 풀|workers_percent|사용자 워크로드에 허용되는 최대 작업자 수에 대한 사용자 워크로드에서 사용한 작업자 수의 백분율입니다.|백분율|
+|사용자 리소스 풀|sessions_percent|사용자 워크로드에 허용되는 최대 세션 수에 대한 사용자 워크로드에서 사용한 세션 수의 백분율입니다.|백분율|
 
 ### <a name="pause-and-resume-status"></a>일시 중지 및 다시 시작 상태
 
@@ -300,12 +336,11 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-the-azure-cli"></a>Azure CLI 사용
+#### <a name="use-azure-cli"></a>Azure CLI 사용
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
-
 
 ## <a name="resource-limits"></a>리소스 제한
 
@@ -342,7 +377,7 @@ vCore 단가는 초당 vCore당 비용입니다. 지정된 지역의 특정 단�
 
 ### <a name="example-scenario"></a>예제 시나리오
 
-최소 vCore 1개 최대 vCore 4개로 구성된 서버리스 데이터베이스를 생각해 보면,  약 3GB 최소 메모리와 12GB 최대 메모리에 해당합니다.  자동 일시 중지 지연이 6시간으로 설정되고 데이터베이스 워크로드는 24시간 중 처음 2시간 동안 활성 상태이고 그 외에는 비활성 상태라고 가정합니다.    
+최소 vCore 1개 최대 vCore 4개로 구성된 서버리스 데이터베이스를 생각해 보면,  약 3GB의 최소 메모리와 12GB의 최대 메모리에 해당합니다.  자동 일시 중지 지연이 6시간으로 설정되고 데이터베이스 워크로드는 24시간 중 처음 2시간 동안 활성 상태이고 그 외에는 비활성 상태라고 가정합니다.    
 
 이 경우 데이터베이스는 처음 8시간 동안 컴퓨팅 및 스토리지 비용이 청구됩니다.  2시간 지난 후부터는 데이터베이스가 비활성 상태이지만, 데이터베이스가 온라인 상태일 때 프로비저닝된 최소 컴퓨팅에 기반하여 나머지 6시간에 대해 컴퓨팅 비용이 청구됩니다.  데이터베이스가 일시 중지되어 있는 동안 24시간 중 나머지 시간은 스토리지 비용만 청구됩니다.
 
@@ -356,7 +391,7 @@ vCore 단가는 초당 vCore당 비용입니다. 지정된 지역의 특정 단�
 |8:00-24:00|0|0|일시 중지되어 있는 동안 청구된 컴퓨팅 없음|0 vCore 초|
 |24시간 동안 청구된 총 vCore 초||||50400 vCore 초|
 
-컴퓨팅 단가가 $0.000145/vCore/초라고 가정합니다.  그러면 24시간에 대해 청구된 컴퓨팅은 컴퓨팅 단가와 vCore 초를 곱한 값 즉, $0.000145/vCore/초 * 50400 vCore 초 ~ $7.31입니다.
+컴퓨팅 단가가 $0.000145/vCore/초라고 가정합니다.  그러면 24시간 기간에 대해 청구되는 컴퓨팅은 컴퓨팅 단가와 청구되는 vCore 초를 곱한 값($0.000145/vCore/second * 50400 vCore 초 ~ $7.31)입니다.
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure 하이브리드 혜택 및 예약된 용량
 

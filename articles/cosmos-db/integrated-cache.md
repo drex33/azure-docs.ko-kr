@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 2642f1e85e12ce0251e9b7bfff84b5d468a342d2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 29a97d3f68d9b097bfe5c67f0b5832271fa983e1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361408"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031120"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Azure Cosmos DB 통합 캐시 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -177,3 +177,6 @@ Azure Cosmos DB 통합 캐시는 요청 볼륨이 증가할 때 비용을 관리
 - [통합 캐시 FAQ](integrated-cache-faq.md)
 - [통합 캐시 구성](how-to-configure-integrated-cache.md)
 - [전용 게이트웨이](dedicated-gateway.md)
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

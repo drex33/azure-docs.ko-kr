@@ -2,17 +2,28 @@
 title: Azure VMware Solution에 대한 플랫폼 업데이트
 description: Azure VMware Solution에 대한 플랫폼 업데이트에 대해 알아봅니다.
 ms.topic: reference
-ms.date: 05/26/2021
-ms.openlocfilehash: 38cd183b783989f6a682b68e92e490354b032750
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.date: 07/23/2021
+ms.openlocfilehash: 01667e4a22dc220e9895071d047210e8487ff2bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538067"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567334"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 플랫폼 업데이트
 
 Azure VMware Solution은 2021년 3월부터 중요 업데이트를 적용합니다. 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다. 자세한 내용은 [호스트 유지 관리 및 수명 주기 관리](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management)를 참조하세요.
+
+## <a name="july-23-2021"></a>2021년 7월 23일
+
+완전히 새로운 Azure VMware Solution 프라이빗 클라우드가 NSX-T 버전 [!INCLUDE [nsxt-version](includes/nsxt-version.md)]와 함께 배포됩니다. 기존 프라이빗 클라우드의 NSX-T 버전은 2021년 9월까지 NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] 릴리스로 업그레이드됩니다.
+ 
+계획된 유지 관리 날짜 및 시간이 포함된 메일을 받게 됩니다. 업그레이드를 다시 예약할 수 있습니다. 또한 메일은 업그레이드된 구성 요소에 대한 세부 정보, 워크로드에 대한 영향, 프라이빗 클라우드 액세스 및 기타 Azure 서비스를 제공합니다. 
+
+이 NSX-T 버전에 대한 자세한 내용은 [VMware NSX-T 데이터 센터 [!INCLUDE [nsxt-version](includes/nsxt-version.md)] 릴리스 정보](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html)를 참조하세요.
+
+
+
 
 ## <a name="may-25-2021"></a>2021년 5월 25일
 VMware 보안 권고 [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html)에 따라 VMware ESXi 및 vSphere Client(HTML5)의 여러 취약성이 VMware에 보고되었습니다. 
@@ -25,7 +36,7 @@ VMware 보안 권고 [VMSA-2021-0010](https://www.vmware.com/security/advisories
  
 Azure VMware Solution 서비스는 프라이빗 클라우드의 vCenter Server에 중요 업데이트를 적용하기 위해 2021년 5월 23일을 통해 유지 관리 작업을 수행합니다.  프라이빗 클라우드를 위한 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다.
  
-이 시간 동안에는 VMware vCenter를 사용할 수 없으며 VM을 관리(중지, 시작, 만들기 또는 삭제)할 수 없습니다. 이 시간 동안 프라이빗 클라우드에서 스케일 업, 새 네트워크 만들기와 같은 다른 작업을 프라이빗 클라우드에서 계획하지 않는 것이 좋습니다.
+이 시간 동안에는 VMware vCenter를 사용할 수 없으며 VM을 관리(중지, 시작, 만들기 또는 삭제)할 수 없습니다. 이 시간 동안에는 프라이빗 클라우드 스케일 업, 새 네트워크 만들기 등의 다른 작업을 프라이빗 클라우드에서 계획하지 않는 것이 좋습니다.
  
 프라이빗 클라우드에서 실행되는 워크로드에는 영향을 주지 않습니다.
 

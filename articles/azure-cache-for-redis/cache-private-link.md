@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: e479a743a54e0cf3d7350fa87c3cc5ad8bf332be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 37955c748135768701fd3429c2e4182f5d18e70c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696518"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566230"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Private Link를 사용하는 Azure Cache for Redis
 
@@ -24,7 +24,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> 현재, 영역 중복, 포털 콘솔 지원 및 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
+> 현재 포털 콘솔 지원과 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
 >
 >
 
@@ -44,7 +44,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -77,7 +77,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
    
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
    
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 이 캐시 이름은 1~63자 사이의 문자열이어야 합니다. 문자열에는 숫자, 문자 또는 하이픈만 포함해야 합니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. | 
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
@@ -134,7 +134,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -173,7 +173,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 5. **프라이빗 엔드포인트 만들기 페이지** 에서 프라이빗 엔드포인트에 대한 설정을 구성합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 프라이빗 엔드포인트를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 프라이빗 엔드포인트 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -212,7 +212,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?
 
-현재, 영역 중복, 포털 콘솔 지원 및 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
+현재 포털 콘솔 지원과 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?
 
@@ -238,6 +238,10 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache"></a>내 VNet에 삽입된 캐시를 프라이빗 링크 캐시로 마이그레이션하려면 어떻게 해야 하나요?
+
+VNet에 삽입된 캐시를 프라이빗 링크 캐시로 마이그레이션하는 방법에 대한 다양한 접근 방식은 [마이그레이션 가이드](cache-vnet-migration.md)를 참조하세요. 
+
 ### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>서로 다른 가상 네트워크에 여러 엔드포인트를 사용하려면 어떻게 해야 하나요?
 
 서로 다른 가상 네트워크에 여러 프라이빗 엔드포인트를 사용하려면 프라이빗 엔드포인트를 만들기 _전에_ 프라이빗 DNS 영역을 여러 가상 네트워크에 수동으로 구성해야 합니다. 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요. 
@@ -256,9 +260,6 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 
 프라이빗 엔드포인트 인스턴스는 VNet에만 연결됩니다 해당 인스턴스가 VNet에 없으므로 종속 엔드포인트에 대한 NSG 규칙을 수정하지 않아도 됩니다.
 
-### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>VNet에 주입된 캐시를 프라이빗 엔드포인트 캐시로 마이그레이션하려면 어떻게 해야 하나요?
-
-VNet에 삽입된 캐시를 삭제하고 프라이빗 엔드포인트를 사용하여 새 캐시 인스턴스를 만듭니다. 자세한 내용은 [Azure Cache for Redis로 마이그레이션하기](cache-migration-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

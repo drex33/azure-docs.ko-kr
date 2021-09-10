@@ -1,15 +1,15 @@
 ---
 title: 참조 - Linux의 Azure Policy 게스트 구성 기준
 description: Azure Policy 게스트 구성을 통해 구현되는 Azure의 Linux 기준에 대한 세부 정보입니다.
-ms.date: 08/03/2021
+ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4fe3e374b39c880940fa61b84342d2d8cbf94d12
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d3b360a3a87c08e457e02829d1938193631e74f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566532"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779325"
 ---
 # <a name="linux-security-baseline"></a>Linux 보안 기준
 

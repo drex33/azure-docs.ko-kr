@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 86aa53be03e8e79cdf4e909dda632749028f03f0
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 564593dd6c3fe7e30d1e3a362f4c11c52adbc82c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597186"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689721"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. 이 기능은 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 Azure VM(Virtual Machines)의 OS 및 데이터 디스크에 볼륨 암호화를 제공하며, 디스크 암호화 키 및 비밀을 제어하고 관리하는 데 유용한 [Azure Key Vault](../../key-vault/index.yml)와 통합됩니다.
 

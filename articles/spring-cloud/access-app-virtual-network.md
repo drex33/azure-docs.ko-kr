@@ -1,18 +1,18 @@
 ---
 title: 가상 네트워크에서 Azure Spring Cloud 액세스
 description: 가상 네트워크에서 Azure Spring Cloud 앱에 액세스하십시오.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 593065b200ab0dc98e5fa97299c137aedfd1be63
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 68cac51ba9d54abc6514cf493077740339ac56c5
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129318"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537479"
 ---
 # <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
 
@@ -26,9 +26,12 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 1. Azure Portal을 엽니다. 위쪽 검색 상자에서 **프라이빗 DNS 영역** 을 검색하고 결과에서 **프라이빗 DNS 영역** 을 선택합니다.
 
-2. **프라이빗 DNS 영역** 페이지에서 **+ 추가** 를 선택합니다.
+2. **프라이빗 DNS 영역** 페이지에서 **추가** 를 선택합니다.
 
 3. **프라이빗 DNS 영역 만들기** 페이지에서 양식을 작성합니다. 영역 **이름** 으로 **<span>private.azuremicroservices.io</span>** 를 입력합니다.
+
+    >[!NOTE]
+    > Azure China를 사용하는 경우, 전체 문서에서 `private.azuremicroservices.io`을 `private.microservices.azure.cn`로 바꿉니다. [자세히 알아보기](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 4. **검토 + 만들기** 를 선택합니다.
 
@@ -40,7 +43,7 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 가상 네트워크에 프라이빗 DNS 영역을 연결하려면 가상 네트워크 링크를 만들어야 합니다.
 
-1. 위에서 만든 프라이빗 DNS 영역 리소스를 선택합니다. **<span>private.azuremicroservices.io</span>** 
+1. 위에서 만든 프라이빗 DNS 영역 리소스를 선택합니다. **<span>private.azuremicroservices.io</span>**
 
 2. 왼쪽 창에서 **가상 네트워크 링크** 를 선택합니다.
 
@@ -52,7 +55,7 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
     ![가상 네트워크 링크 추가](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
-6. **확인** 을 클릭합니다.
+6. **확인** 을 선택합니다.
 
 ## <a name="create-dns-record"></a>DNS 레코드 만들기
 
@@ -81,7 +84,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 4. 위에서 만든 프라이빗 DNS 영역 리소스를 선택합니다. **<span>private.azuremicroservices.io</span>** .
 
-5. **+ 레코드 집합** 을 선택합니다.
+5. **레코드 집합** 을 선택합니다.
 
 6. **레코드 집합 추가** 에서 다음 정보를 입력하거나 선택합니다.
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a95f83dbfa0574aa88b964538f329c7d9075a50b
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: d0bed89f56d41c6613080e84d743d245243bb507
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111593955"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336032"
 ---
 현재 울트라 디스크에는 다음과 같은 추가 제한 사항이 있습니다.
 
@@ -82,6 +82,6 @@ ms.locfileid: "111593955"
 - 현재 디스크 스냅샷, 디스크 내보내기, 디스크 형식 변경, VM 이미지, 가용성 집합, Azure 전용 호스트 또는 Azure 디스크 암호화를 지원하지 않습니다.
 - 현재 Azure Backup 또는 Azure Site Recovery와의 통합을 지원하지 않습니다.
 - 캐시되지 않은 읽기와 캐시되지 않은 쓰기만 지원합니다.
-- GA VM의 IOPS에 대한 현재 최대 제한은 80,000입니다.
+- 현재 일반 공급 크기의 단일 VM에 대한 IOPS의 최대 한도는 80,000입니다. IOPS가 더 큰 울트라 디스크를 공유 디스크로 사용하여 여러 VM을 지원할 수 있습니다.
 
 Azure 울트라 디스크는 기본적으로 구독당 지역별 최대 32TiB를 제공하지만, 울트라 디스크는 요청에 따라 더 많은 용량을 지원합니다. 용량 증가를 요청하려면 할당량 증가를 요청하거나 Azure 지원에 문의하세요.

@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: rsethur
 ms.author: seramasu
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.reviewer: laobri
-ms.openlocfilehash: b8162a9770aea9d8cb3d1220f0ab81169151f781
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 97cfd7a5121094af9fc1663fcdddcd4c620b77cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747602"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536438"
 ---
 # <a name="deploy-models-with-rest-preview"></a>REST를 사용하여 모델 배포(미리 보기)
 
@@ -34,7 +35,7 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [평가판 또는 유료 개인 구독](https://aka.ms/AMLFree)을 사용해 보세요.
+- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [평가판 또는 유료 개인 구독](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 - 작업 영역의 서비스 사용자. 관리 REST 요청은 [서비스 사용자 인증](how-to-setup-authentication.md#use-service-principal-authentication)을 사용합니다.
 - 서비스 사용자 인증 토큰. [서비스 사용자 인증 토큰 검색](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token)의 단계에 따라 이 토큰을 검색하세요. 
@@ -50,7 +51,7 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 ## <a name="azure-machine-learning-managed-online-endpoints"></a>Azure Machine Learning 관리형 온라인 엔드포인트
 관리형 온라인 엔드포인트(미리 보기)를 사용하면 기본 인프라를 만들고 관리할 필요 없이 모델을 배포할 수 있습니다. 이 문서에서는 온라인 엔드포인트 및 배포를 만들고 호출하여 유효성을 검사합니다. 그러나 먼저 모델, 코드 및 환경을 포함하여 배포에 필요한 자산을 등록해야 합니다.
 
-[CLI를 포함](how-to-deploy-managed-online-endpoints.md)하여 [스튜디오](how-to-use-managed-online-endpoint-studio.md)를 통해 Azure Machine Learning 온라인 엔드포인트를 만드는 방법에는 여러 가지가 있습니다. 다음 예제에서는 REST API를 사용하여 관리형 온라인 엔드포인트를 만듭니다.
+[Azure CLI를 포함](how-to-deploy-managed-online-endpoints.md)하고 [Studio](how-to-use-managed-online-endpoint-studio.md)를 사용하여 시각적으로 Azure Machine Learning 온라인 엔드포인트를 만드는 방법에는 여러 가지가 있습니다. 다음 예제에서는 REST API를 사용하여 관리형 온라인 엔드포인트를 만듭니다.
 
 ## <a name="create-machine-learning-assets"></a>기계 학습 자산 만들기
 
@@ -154,6 +155,12 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 ## <a name="next-steps"></a>다음 단계
 
-* [CLI를 사용](how-to-deploy-managed-online-endpoints.md)하여 모델을 배포하는 방법을 알아봅니다.
+* [Azure CLI를 사용](how-to-deploy-managed-online-endpoints.md)하여 모델을 배포하는 방법을 알아봅니다.
 * [스튜디오를 사용](how-to-use-managed-online-endpoint-studio.md)하여 모델을 배포하는 방법을 알아봅니다.
+* [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)에 대해 알아봅니다.
+* [관리형 온라인 엔드포인트 및 시스템 관리형 ID(미리보기)로 Azure 리소스에 액세스](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)하는 방법 알아봅니다
 * [온라인 엔드포인트를 모니터링](how-to-monitor-online-endpoints.md)하는 방법을 알아봅니다.
+* [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)에 대해 알아봅니다.
+* [Azure Machine Learning 관리형 온라인 엔드포인트 비용 보기(미리보기)](how-to-view-online-endpoints-costs.md).
+* [관리형 온라인 엔드포인트 SKU 목록(미리 보기)](reference-managed-online-endpoints-vm-sku-list.md)
+* [Azure Machine Learning으로 리소스 할당량 관리 및 늘리기](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)에서 관리형 온라인 엔드포인트에 대한 제한에 대해 알아보세요.

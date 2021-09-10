@@ -4,28 +4,27 @@ description: Azure Marketplace에 게시된 제품에 대한 모든 사용량 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/28/2021
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: fca763f307c8ae1437009b282e460fc249c40b60
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
+ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540971"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567309"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
 이 문서에서는 파트너 센터의 사용량 대시보드에 대한 정보를 제공합니다. 이 대시보드는 모든 VM(가상 머신)에서 표준화된 사용량, 가공되지 않은 사용량 및 요금제 청구 메트릭을 3개의 별도 탭(VM 정규화된 사용량, VM 원시 사용량 및 요금제 청구 사용량)으로 표시합니다.
 
-파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **사용량** 을 선택합니다.
-
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.
 
 ## <a name="usage-dashboard"></a>사용량 대시보드
 
-**분석** 메뉴의 **사용량** 대시보드에는 모든 SaaS(Software as a Service) 제품에 대한 현재 주문이 표시됩니다. 다음 항목에 대한 그래픽 표현을 볼 수 있습니다.
+[사용량 대시보드](https://go.microsoft.com/fwlink/?linkid=2166106)에는 모든 SaaS(software as a Service) 제품에 대한 현재 주문이 표시됩니다. 다음 항목에 대한 그래픽 표현을 볼 수 있습니다.
 
 - 사용량 추세
 - 제품별 정규화된 사용량
@@ -40,6 +39,8 @@ ms.locfileid: "111540971"
 ## <a name="elements-of-the-usage-dashboard"></a>사용량 대시보드의 요소
 
 다음 섹션에서는 사용량 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
+
+파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **사용량** 을 선택합니다.
 
 ### <a name="month-range"></a>월 범위
 
@@ -122,7 +123,7 @@ _**표 1: 데이터 용어 사전**_
 | Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상업용 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. | MarketplaceSubscriptionId |
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. | MonthStartDate |
 | 제품 유형 | 제품 유형 | 상업용 Marketplace 제품의 유형입니다. | OfferType |
-| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ui><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li></ul> | AzureLicenseType |
+| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li></ul> | AzureLicenseType |
 | Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 가능한 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>사용자 라이선스 필요</li><li>무료</li><li>Microsoft 대리점</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | 제품에 연결된 플랜입니다. | SKU |
 | 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
@@ -162,6 +163,7 @@ _**표 1: 데이터 용어 사전**_
 | 작업 수행 시간 | 작업 수행 시간 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>게시자가 제안의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 시간을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenAt |
 | 작업 수행자 | 작업 수행자 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 사람을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenBy |
 | 예상 재무 영향(USD) | 예상 재무 영향(USD) | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>파트너 센터에서 제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 비정상으로 표시할 경우, 이 필드에서는 비정상적인 초과 사용에 대한 예상 재무 영향(USD)을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식의 수단을 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | EstimatedFinancialImpactUSD |
+| 해당 없음 | 리소스 ID | 리소스 이름과 리소스 종류를 포함하여 리소스의 정규화된 ID입니다. 이 필드는 보고서 다운로드에서만 사용할 수 있는 데이터 필드입니다.<br>다음 형식을 사용합니다.<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name} | 해당 없음 |
 |||||
 
 ### <a name="usage-page-filters"></a>사용량 페이지 필터
@@ -200,4 +202,4 @@ VM 가공되지 않은 사용량에 대한 위젯 및 내보내기 보고서는 
 - VM(가상 머신) 제품 사용량 및 요금 청구 메트릭에 관한 내용은 [상업용 Marketplace 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 Microsoft AppSource에서 제품에 대한 고객 피드백 통합 보기를 확인하려면 [파트너 센터의 평점 및 리뷰 분석 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 Marketplace 분석에 관해 자주 묻는 질문 및 데이터 용어의 종합 사전에 관한 내용은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+- 상업용 Marketplace 분석에 관해 자주 묻는 질문 및 데이터 용어의 종합 사전에 관한 내용은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.

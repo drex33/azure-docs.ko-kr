@@ -10,12 +10,13 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
-ms.openlocfilehash: 65b7446602c8b7202ba7ccf56115edfc5de333db
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750734"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448323"
 ---
 # <a name="train-models-with-rest-preview"></a>REST를 사용하여 모델 학습(미리 보기)
 
@@ -34,7 +35,7 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [평가판 또는 유료 개인 구독](https://aka.ms/AMLFree)을 사용해 보세요.
+- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [평가판 또는 유료 개인 구독](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 - 작업 영역의 서비스 사용자. 관리 REST 요청은 [서비스 사용자 인증](how-to-setup-authentication.md#use-service-principal-authentication)을 사용합니다.
 - 서비스 사용자 인증 토큰. [서비스 사용자 인증 토큰 검색](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token)의 단계에 따라 이 토큰을 검색하세요. 
@@ -47,7 +48,7 @@ REST API는 표준 HTTP 동사를 사용하여 리소스를 만들고, 검색하
 - 실행 방법
 - 실행 위치
 
-SDK, CLI 및 시각적 도구인 스튜디오를 사용하여 Azure Machine Learning 작업을 제출하는 여러 가지 방법이 있습니다. 다음 예제에서는 REST API를 사용하여 LightGBM 학습 작업을 제출합니다.
+SDK, Azure CLI 및 시각적 도구인 스튜디오를 사용하여 Azure Machine Learning 작업을 제출하는 여러 가지 방법이 있습니다. 다음 예제에서는 REST API를 사용하여 LightGBM 학습 작업을 제출합니다.
 
 ## <a name="create-machine-learning-assets"></a>기계 학습 자산 만들기
 

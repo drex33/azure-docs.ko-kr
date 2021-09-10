@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 06/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 5fad2a9e1789b98ac541e8a0d95c77131905544d
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 93d12db01c71d078ab25cf0745d5ae661220153c
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364733"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106584"
 ---
 # <a name="back-up-vm-disks-on-azure-stack-edge-pro-gpu-via-azure-powershell"></a>Azure PowerShell을 통해 Azure Stack Edge Pro GPU에서 VM 디스크 백업
 
@@ -46,6 +46,156 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
 [!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 ## <a name="back-up-a-vm-disk"></a>VM 디스크 백업
+
+### <a name="az"></a>[Az](#tab/az)
+
+1. 디바이스에서 실행 중인 VM 목록을 가져옵니다. 중지하려는 VM과 해당 리소스 그룹을 확인합니다.
+
+    ```powershell
+    Get-AzVM
+    ```
+
+    출력의 예제는 다음과 같습니다.
+
+    ```powershell
+    PS C:\Users\user> Get-AzVM
+    
+    ResourceGroupName            Name Location         VmSize OsType                NIC
+    -----------------            ---- --------         ------ ------                ---
+    MYASEAZRG                  myazvm dbelocal Standard_D1_v2  Linux           myaznic1
+    MYASERG           myasewindowsvm2 dbelocal Standard_D1_v2  Linux myasewindowsvm2nic
+    
+    PS C:\Users\user> 
+    ```
+
+1. 일부 매개 변수를 설정합니다.
+
+    ```powershell
+    $ResourceGroupName = "<Resource group name>"
+    $VmName = "<VM name>"
+    ```   
+1. VM을 중지합니다.
+
+    ```powershell
+    Stop-AzVM –ResourceGroupName $ResourceGroupName -Name $VmName
+    ```
+
+    출력의 예제는 다음과 같습니다.
+
+    ```powershell
+    PS C:\Users\user> Stop-AzVM -ResourceGroupName myaserg -Name myasewindowsvm2      
+    Virtual machine stopping operation
+    This cmdlet will stop the specified virtual machine. Do you want to continue?
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+        
+    OperationId : 8a2fa7ea-99d0-4f9f-b8ca-e37389cd8413
+    Status      : Succeeded
+    StartTime   : 6/28/2021 11:51:33 AM
+    EndTime     : 6/28/2021 11:51:50 AM
+    Error       :
+    
+    PS C:\Users\user>
+    ```
+
+    Azure Portal에서 VM을 중지할 수도 있습니다.
+ 
+
+2. VM 디스크의 스냅샷을 만들고 로컬 리소스 그룹에 저장합니다. OS 및 데이터 디스크 모두에 대해 이 절차를 사용할 수 있습니다.
+
+   1. 디바이스의 디스크 또는 특정 리소스 그룹에서 목록을 가져옵니다. 백업할 디스크의 이름을 적어둡니다.
+
+        ```powershell
+        $Disk = Get-AzDisk -ResourceGroupName $ResourceGroupName
+        $Disk.Name
+        ```   
+        출력의 예제는 다음과 같습니다.
+
+        ```output
+        PS C:\Users\user> $Disk = Get-AzDisk -ResourceGroupName myaserg
+        PS C:\Users\user> $Disk.Name
+        myasewindowsvm2_disk1_2a066432056446669368969835d5e3b3
+        myazdisk1
+        myvmdisk2
+        PS C:\Users\user>
+        ```
+   1. VM 스냅샷의 대상으로 사용할 로컬 리소스 그룹을 만듭니다. 위치는 `dbelocal`로 설정됩니다.
+
+        ```powershell
+        New-AzResourceGroup -ResourceGroupName <Resource group name> -Location dbelocal 
+        ``` 
+
+        ```output
+        PS C:\Users\user> New-AzResourceGroup -ResourceGroupName myaseazrg1 -Location dbelocal
+        
+        ResourceGroupName : myaseazrg1
+        Location          : dbelocal
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/.../resourceGroups/myaseazrg1
+        
+        PS C:\Users\user>
+        ```
+
+   1. 일부 매개 변수를 설정합니다.
+
+      ```powershell
+      $DiskResourceGroup = <Disk resource group>
+      $DiskName = <Disk name>
+      $SnapshotName = <Snapshot name>
+      $DestinationRG = <Snapshot destination resource group>
+      ```
+
+   3. 스냅샷 구성을 설정하고 스냅샷을 만듭니다.
+
+        ```powershell
+        $Disk = Get-AzDisk -ResourceGroupName $DiskResourceGroup -DiskName $DiskName
+        $SnapshotConfig = New-AzSnapshotConfig -SourceUri $Disk.Id -CreateOption Copy -Location 'dbelocal'
+        $Snapshot = New-AzSnapshot -Snapshot $SnapshotConfig -SnapshotName $SnapshotName -ResourceGroupName $DestinationRG
+        ```
+        스냅샷이 대상 리소스 그룹에 만들어졌는지 확인합니다.
+
+        ```powershell
+        Get-AzSnapshot -ResourceGroupName $DestinationRG
+        ```
+        출력의 예제는 다음과 같습니다.
+
+        ```output
+        PS C:\Users\user> $DiskResourceGroup = "myaserg"
+        PS C:\Users\user> $DiskName = "myazdisk1"
+        PS C:\Users\user> $SnapshotName = "myasdisk1ss"
+        PS C:\Users\user> $DestinationRG = "myaseazrg1"
+        PS C:\Users\user> $Disk = Get-AzDisk -ResourceGroupName $DiskResourceGroup -DiskName $DiskName
+        PS C:\Users\user> $SnapshotConfig = New-AzSnapshotConfig -SourceUri $Disk.Id -CreateOption Copy -Location 'dbelocal'
+        PS C:\Users\user> $Snapshot=New-AzSnapshot -Snapshot $SnapshotConfig -SnapshotName $SnapshotName -ResourceGroupName $DestinationRG
+        PS C:\Users\user> Get-AzSnapshot -ResourceGroupName $DestinationRG
+                
+        ResourceGroupName            : myaseazrg1
+        ManagedBy                    :
+        Sku                          : Microsoft.Azure.Management.Compute.Models.SnapshotSku
+        TimeCreated                  : 6/28/2021 6:57:40 PM
+        OsType                       :
+        HyperVGeneration             :
+        CreationData                 : Microsoft.Azure.Management.Compute.Models.CreationDat
+                                       a
+        DiskSizeGB                   : 10
+        DiskSizeBytes                : 10737418240
+        UniqueId                     : fbc1cfac-8bbb-44d8-8aa4-9e8811950fcc
+        EncryptionSettingsCollection :
+        ProvisioningState            : Succeeded
+        Incremental                  : False
+        Encryption                   : Microsoft.Azure.Management.Compute.Models.Encryption
+        Id                           : /subscriptions/.../r
+                                       esourceGroups/myaseazrg1/providers/Microsoft.Compute/
+                                       snapshots/myasdisk1ss
+        Name                         : myasdisk1ss
+        Type                         : Microsoft.Compute/snapshots
+        Location                     : DBELocal
+        Tags                         : {}
+                
+        PS C:\Users\user>
+        ```
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
 
 1. 디바이스에서 실행 중인 VM 목록을 가져옵니다. 중지할 VM을 식별합니다.
 
@@ -118,7 +268,7 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
         Location          : dbelocal
         ProvisioningState : Succeeded
         Tags              :
-        ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg3
+        ResourceId        : /subscriptions/.../resourceGroups/myaserg3
         
         PS C:\Users\user>
         ```
@@ -165,7 +315,7 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
         DiskSizeGB         : 10
         EncryptionSettings :
         ProvisioningState  : Succeeded
-        Id                 : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg3/providers/Microsoft.Compute/snapshots/myasetestdisk1_ss
+        Id                 : /subscriptions/.../resourceGroups/myaserg3/providers/Microsoft.Compute/snapshots/myasetestdisk1_ss
         Name               : myasetestdisk1_ss
         Type               : Microsoft.Compute/snapshots
         Location           : DBELocal
@@ -173,10 +323,176 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
         
         PS C:\Users\user>
         ```
+---
 
 ## <a name="copy-the-snapshot-into-a-local-storage-account"></a>로컬 스토리지 계정에 스냅샷 복사
 
-   디바이스에서 로컬 스토리지 계정에 스냅샷을 복사합니다. 
+디바이스에서 로컬 스토리지 계정에 스냅샷을 복사합니다. 
+
+### <a name="az"></a>[Az](#tab/az)
+
+1. 일부 매개 변수를 설정합니다. 
+
+    ```powershell
+    $StorageAccountRG = <Local storage account resource group>
+    $StorageAccountName = <Storage account name>
+    $StorageEndpointSuffix = <Connection string in format: DeviceName.DnsDomain.com>
+    $DestStorageContainer = <Destination storage container>
+    $DestFileName = <Blob file name> 
+    ```
+
+1. 디바이스에서 로컬 스토리지 계정을 만듭니다. 
+
+    ```powershell
+    New-AzStorageAccount -Name  $StorageAccountName -ResourceGroupName $StorageAccountRG -Location DBELocal -SkuName Standard_LRS
+    ```
+
+    출력의 예제는 다음과 같습니다. 
+
+    ```output
+    PS C:\Users\user> New-AzStorageAccount -Name  $StorageAccountName -ResourceGroupName $StorageAccountRG -Location DBELocal -SkuName Standard_LRS
+    
+    StorageAccountName ResourceGroupName PrimaryLocation SkuName      Kind    AccessTier
+    ------------------ ----------------- --------------- -------      ----    ----------
+    myaseazsa1         myaseazrg2        DBELocal        Standard_LRS Storage
+    PS C:\Users\user>
+    ```
+
+1. 만든 로컬 스토리지 계정에 컨테이너를 만듭니다. 
+
+    ```powershell
+    $keys = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountRG -Name $StorageAccountName
+    $keyValue = $keys[0].Value
+    $storageContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue -Protocol Http -Endpoint $StorageEndpointSuffix;
+    $container = New-AzStorageContainer -Name $DestStorageContainer -Context $storageContext -Permission Container -ErrorAction Ignore;    
+    ```
+    출력의 예제는 다음과 같습니다.
+
+    ```output
+    PS C:\Users\user> $StorageAccountRG = "myaseazrg2"
+    PS C:\Users\user> $StorageAccountName = "myaseazsa1"
+    PS C:\Users\user> $StorageEndpointSuffix = "myasegpu.wdshcsso.com"
+    PS C:\Users\user> $DestStorageContainer = "testcont1"
+    PS C:\Users\user> $DestFileName = "testfile1"
+
+    PS C:\Users\user> $keys = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountRG -Name $StorageAccountName
+    PS C:\Users\user> $keyValue = $keys[0].Value
+    PS C:\Users\user> $storageContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue -Protocol Http -Endpoint $StorageEndpointSuffix;                                                                                   
+    PS C:\Users\user> $storagecontext
+    
+    StorageAccountName  : myaseazsa1
+    BlobEndPoint        : http://myaseazsa1.blob.myasegpu.wdshcsso.com/
+    TableEndPoint       : http://myaseazsa1.table.myasegpu.wdshcsso.com/
+    QueueEndPoint       : http://myaseazsa1.queue.myasegpu.wdshcsso.com/
+    FileEndPoint        : http://myaseazsa1.file.myasegpu.wdshcsso.com/
+    Context             : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
+    Name                :
+    StorageAccount      : BlobEndpoint=http://myaseazsa1.blob.myasegpu.wdshcsso.com/;Que
+                          ueEndpoint=http://myaseazsa1.queue.myasegpu.wdshcsso.com/;Tabl
+                          eEndpoint=http://myaseazsa1.table.myasegpu.wdshcsso.com/;FileE
+                          ndpoint=http://myaseazsa1.file.myasegpu.wdshcsso.com/;AccountN
+                          ame=myaseazsa1;AccountKey=[key hidden]
+    TableStorageAccount : BlobEndpoint=http://myaseazsa1.blob.myasegpu.wdshcsso.com/;Que
+                          ueEndpoint=http://myaseazsa1.queue.myasegpu.wdshcsso.com/;Tabl
+                          eEndpoint=http://myaseazsa1.table.myasegpu.wdshcsso.com/;FileE
+                          ndpoint=http://myaseazsa1.file.myasegpu.wdshcsso.com/;DefaultE
+                          ndpointsProtocol=https;AccountName=myaseazsa1;AccountKey=[key
+                          hidden]
+    Track2OauthToken    :
+    EndPointSuffix      : myasegpu.wdshcsso.com/
+    ConnectionString    : BlobEndpoint=http://myaseazsa1.blob.myasegpu.wdshcsso.com/;Que
+                          ueEndpoint=http://myaseazsa1.queue.myasegpu.wdshcsso.com/;Tabl
+                          eEndpoint=http://myaseazsa1.table.myasegpu.wdshcsso.com/;FileE
+                          ndpoint=http://myaseazsa1.file.myasegpu.wdshcsso.com/;AccountN
+                          ame=myaseazsa1;AccountKey=itOn5Awjh3hnoGKL7EDQ681zhIKG/szCt05Z
+                          IWAxP/T22gwEXb5l0sKjI833Hqpc0MsBiSH2rM6NuuwnJyEO1Q==
+    ExtendedProperties  : {}
+    
+    
+    
+    PS C:\Users\user> $container = New-AzStorageContainer -Name $DestStorageContainer -Context $storageContext -Permission Container -ErrorAction Ignore;
+    PS C:\Users\user> $container
+    Blob End Point: http://myaseazsa1.blob.myasegpu.wdshcsso.com/
+    
+    Name                 PublicAccess         LastModified
+    ----                 ------------         ------------
+    testcont1           Container            6/28/2021 2:46:03 PM +00:00
+    
+    PS C:\Users\user>
+    ```    
+
+    Azure Storage Explorer를 사용하여 [로컬 스토리지 계정을 만든](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#create-a-storage-account) 다음 디바이스에서 [로컬 스토리지 계정에 컨테이너를 만들 수도](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) 있습니다. 
+
+
+
+1. 로컬 스토리지 계정에 스냅샷을 다운로드합니다.
+
+   ```powershell
+   $sassnapshot = Grant-AzSnapshotAccess -ResourceGroupName $DestinationRG -SnapshotName $SnapshotName -Access 'Read' -DurationInSecond 3600
+   $destContext = New-AzStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $keyValue 
+   Start-AzStorageBlobCopy -AbsoluteUri $sassnapshot.AccessSAS -DestContainer $DestStorageContainer -DestContext $destContext -DestBlob $DestFileName
+   ```
+
+    출력의 예제는 다음과 같습니다.
+
+    ```output
+    PS C:\Users\user> $sassnapshot
+    
+    AccessSAS : https://md-2.blob.myasegpu.wdshcsso.com/22615edc48654bb8b77e383d3a7649ac
+    /abcd.vhd?sv=2017-04-17&sr=b&si=43ca8395-6942-496b-92d7-f0d6dc68ab63&sk=system-1&sig
+    =K%2Bc34uq7%2BLcTetG%2Bj9loOH440e03vDkD24Ug0Gf%2Bex8%3D
+       
+    PS C:\Users\user> $destContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $keyValue
+    PS C:\Users\user> $destContext
+    
+    
+    StorageAccountName  : myaseazsa1
+    BlobEndPoint        : https://myaseazsa1.blob.myasegpu.wdshcsso.com/
+    TableEndPoint       : https://myaseazsa1.table.myasegpu.wdshcsso.com/
+    QueueEndPoint       : https://myaseazsa1.queue.myasegpu.wdshcsso.com/
+    FileEndPoint        : https://myaseazsa1.file.myasegpu.wdshcsso.com/
+    Context             : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
+    Name                :
+    StorageAccount      : BlobEndpoint=https://myaseazsa1.blob.myasegpu.wdshcsso.com/;Qu
+                          eueEndpoint=https://myaseazsa1.queue.myasegpu.wdshcsso.com/;Ta
+                          bleEndpoint=https://myaseazsa1.table.myasegpu.wdshcsso.com/;Fi
+                          leEndpoint=https://myaseazsa1.file.myasegpu.wdshcsso.com/;Acco
+                          untName=myaseazsa1;AccountKey=[key hidden]
+    TableStorageAccount : BlobEndpoint=https://myaseazsa1.blob.myasegpu.wdshcsso.com/;Qu
+                          eueEndpoint=https://myaseazsa1.queue.myasegpu.wdshcsso.com/;Ta
+                          bleEndpoint=https://myaseazsa1.table.myasegpu.wdshcsso.com/;Fi
+                          leEndpoint=https://myaseazsa1.file.myasegpu.wdshcsso.com/;Defa
+                          ultEndpointsProtocol=https;AccountName=myaseazsa1;AccountKey=[
+                          key hidden]
+    Track2OauthToken    :
+    EndPointSuffix      : myasegpu.wdshcsso.com/
+    ConnectionString    : BlobEndpoint=https://myaseazsa1.blob.myasegpu.wdshcsso.com/;Qu
+                          eueEndpoint=https://myaseazsa1.queue.myasegpu.wdshcsso.com/;Ta
+                          bleEndpoint=https://myaseazsa1.table.myasegpu.wdshcsso.com/;Fi
+                          leEndpoint=https://myaseazsa1.file.myasegpu.wdshcsso.com/;Acco
+                          untName=myaseazsa1;AccountKey=itOn5Awjh3hnoGKL7EDQ681zhIKG/szC
+                          t05ZIWAxP/T22gwEXb5l0sKjI833Hqpc0MsBiSH2rM6NuuwnJyEO1Q==
+    ExtendedProperties  : {}
+            
+    PS C:\Users\user> Start-AzStorageBlobCopy -AbsoluteUri $sassnapshot.AccessSAS -DestContainer $DestStorageContainer -DestContext $destContext -DestBlob $DestFileName    
+    
+       AccountName: myaseazsa1, ContainerName: testcont1
+    
+    Name                 BlobType  Length          ContentType                    LastMo
+                                                                                  dified
+    ----                 --------  ------          -----------                    ------
+    testfile1            BlockBlob -1                                             202...
+       
+    PS C:\Users\user>
+    ```
+
+    Storage Explorer를 사용하여 스냅샷이 스토리지 계정에 올바르게 복사되었는지 확인할 수도 있습니다.
+
+    ![로컬 스토리지 계정의 컨테이너에 있는 백업을 표시하는 Storage Explorer](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-2.png)
+
+### <a name="azurerm"></a>[AzureRM](#tab/azurerm)
+
+디바이스에서 로컬 스토리지 계정에 스냅샷을 복사합니다. 
 
 1. 일부 매개 변수를 설정합니다. 
 
@@ -196,7 +512,7 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
 
     출력의 예제는 다음과 같습니다. 
 
-    ```powershell
+    ```output
     PS C:\Users\user> New-AzureRmStorageAccount -Name myasesa4 -ResourceGroupName myaserg4 -Location DBELocal -SkuName Standard_LRS
     StorageAccountName ResourceGroupName Location SkuName     Kind    AccessTier CreationTime        ProvisioningState EnableHttpsTrafficOnly
     ------------------ ----------------- -------- -------     ----    ---------- ------------        ----------------- ---------------
@@ -215,7 +531,7 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
     ```
     출력의 예제는 다음과 같습니다.
 
-    ```powershell
+    ```output
     PS C:\Users\user> $StorageAccountName = "myasesa4"                                                              
     PS C:\Users\user> $StorageAccountRG = "myaserg4"
     PS C:\Users\user> $DestStorageContainer = "myasecont2"
@@ -269,7 +585,7 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
 
     출력의 예제는 다음과 같습니다.
 
-    ```powershell
+    ```output
     PS C:\Users\user> $sassnapshot= Grant-AzureRmSnapshotAccess -ResourceGroupName $DestinationRG -SnapshotName $SnapshotName -Access 'Read' -DurationInSecond 3600
     PS C:\Users\user> $sassnapshot
        
@@ -308,6 +624,8 @@ VM을 백업하기 전에 다음 사항을 확인합니다.
     Storage Explorer를 사용하여 스냅샷이 스토리지 계정에 올바르게 복사되었는지 확인할 수도 있습니다.
 
     ![로컬 스토리지 계정의 컨테이너에 있는 백업을 표시하는 Storage Explorer](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
+
+---
 
 ## <a name="download-vhd-to-external-target"></a>외부 대상에 VHD 다운로드
 

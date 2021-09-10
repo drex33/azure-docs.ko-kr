@@ -10,20 +10,22 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 498c7bd16cc314316c67c202f55c7ce3dcac67c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2d4c640695395963a83629fbeea87c96b4a31aad
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668149"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688217"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 명령 실행 기능은 VM(가상 머신) 에이전트를 사용하여 Azure Linux VM 내에서 셸 스크립트를 실행합니다. 이러한 스크립트는 일반 머신 또는 애플리케이션 관리에 사용할 수 있습니다. 이를 통해 VM 액세스 및 네트워크 문제를 신속하게 진단 및 수정하고 VM을 정상 상태로 되돌릴 수 있습니다.
 
 ## <a name="benefits"></a>이점
 
-여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke)를 통해 사용합니다.
+여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Linux VM용 Azure Portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command) 또는 [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke)를 통해 사용합니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 모든 시나리오에서 유용합니다. 네트워크 또는 관리 사용자 구성이 잘못되어 RDP 또는 SSH 포트가 열려 있지 않은 가상 머신의 문제를 해결 및 수정하는 유일한 방법 중 하나입니다.
 
@@ -69,7 +71,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
+[Azure Portal](https://portal.azure.com)의 VM으로 이동하여 왼쪽 메뉴의 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
 
 ![명령 목록](./media/run-command/run-command-list.png)
 

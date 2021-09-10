@@ -1,18 +1,20 @@
 ---
 title: Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/02/2021
-ms.openlocfilehash: a45de693f6818966eaf79fc8f636b27e8cb0c1da
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: synapse
+ms.date: 07/30/2021
+ms.openlocfilehash: 2155e39da58650fb5ce14c56d7a3564f211a2cdd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642575"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
@@ -188,6 +190,7 @@ SAP BW Open Hub에서 데이터를 복사하기 위해 복사 작업 **source** 
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
 | baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값 **보다 큰** 데이터만 검색됩니다.  | 예 |
 | customRfcReadTableFunctionModule | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다. <br/> 사용자 지정 RFC 함수 모듈을 사용하여 SAP 시스템에서 데이터를 검색 후 Data Factory로 반환하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용하는 기본 인터페이스인 `/SAPDS/RFC_READ_TABLE2` 인터페이스와 비슷하게 구현된 인터페이스 (가져오기, 내보내기, 테이블)가 있어야 합니다. | 예 |
+| sapDataColumnDelimiter | 출력 데이터를 분할하기 위해 SAP RFC에 전달되어 구분 기호로 사용하는 단일 문자입니다. | 예 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.

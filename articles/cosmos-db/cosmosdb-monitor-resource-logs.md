@@ -1,279 +1,181 @@
 ---
-title: Azure 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
-description: Azure 진단 설정을 사용 하 여에 저장 된 데이터의 성능 및 가용성을 모니터링 하는 방법에 대해 알아봅니다 Azure Cosmos DB
+title: Azure에서 진단 설정을 사용하여 Azure Cosmos DB 데이터 모니터링
+description: Azure 진단 설정을 사용하여 Azure Cosmos DB에 저장된 데이터의 성능 및 가용성을 모니터링하는 방법을 알아봅니다
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 05/20/2021
 ms.author: sngun
-ms.openlocfilehash: 1e551fc12da5e25ba54df5a6a38a49b76f7c376e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2f25cfa8f2c9c70b6cc97dc96d504b41078f5b5f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181876"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667675"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용하여 Azure Cosmos DB 데이터 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. Azure 리소스 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이러한 로그는 요청당 캡처되고 "데이터 평면 로그" 라고도 합니다. 데이터 평면 작업의 몇 가지 예로는 delete, insert 및 readFeed 있습니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
+Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. Azure 리소스 로그를 리소스에서 내보내고, 해당 리소스의 작업에 대한 풍부하고 빈도 높은 데이터를 제공합니다. 이러한 로그는 요청별로 캡처되며 “데이터 평면 로그”라고도 불립니다. 데이터 평면 작업의 몇 가지 예로는 delete, insert 및 readFeed가 있습니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 
-플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 리소스 로그를 수집 하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. 다음 단계를 사용 하 여 Azure Cosmos 계정에 대 한 진단 설정을 켤 수 있습니다.
+플랫폼 메트릭과 활동 로그는 자동으로 수집되지만 리소스 로그를 수집하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. Azure Cosmos DB 계정에 대한 진단 설정을 활성화하고 다음 원본에 리소스 로그를 보낼 수 있습니다.
+- Log Analytics 작업 영역
+  - Log Analytics로 전송된 데이터를 **Azure 진단(레거시)** 또는 **리소스 관련(미리 보기)** 표에 쓸 수 있습니다 
+- 이벤트 허브
+- 스토리지 계정
+  
+> [!NOTE]
+> [REST API를 통한 진단 설정 생성에 대한 지침](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting)에 따라 리소스별 모드(Table API를 제외한 모든 API에 대해)에서 진단 설정을 생성하는 것이 좋습니다. 이 옵션은 데이터 처리를 위한 향상된 보기를 통해 추가 비용 최소화를 이끌어 냅니다.
+
+## <a name="create-diagnostics-settings-via-the-azure-portal"></a><a id="create-setting-portal"></a> Azure Portal을 통해 진단 설정 생성하기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Cosmos 계정으로 이동합니다. **진단 설정** 창을 열고 **진단 설정 추가** 옵션을 선택 합니다.
+2. Azure Cosmos 계정으로 이동합니다. **모니터링 섹션** 아래에서 **진단 설정** 창을 열고 **진단 설정 추가** 옵션을 선택합니다.
 
-1. **진단 설정** 창에서 다음 세부 정보로 양식을 채웁니다. 
+   :::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="진단 선택":::
 
-    * **이름**: 만들 로그에 대한 이름을 입력합니다.
 
-    * **저장소 계정에 보관** 하는 로그를 저장 하 고, **이벤트 허브에 스트림** 하거나, **로 보낼** 수 있습니다 Log Analytics
+3. **진단 설정** 창에서 원하는 범주로 양식을 채웁니다.
 
-1. 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Cosmos DB에서 지 원하는 로그의 범주는 아래에 나열 된 샘플 로그와 함께 아래에 나열 되어 있습니다.
+### <a name="choose-log-categories"></a>로그 범주 선택
 
- * **DataPlaneRequests**: AZURE COSMOS DB의 SQL API 계정에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 주의 해야 할 주요 속성은 `Requestcharge` , `statusCode` , `clientIPaddress` , `partitionID` , `resourceTokenPermissionId` 및 `resourceTokenPermissionMode` 입니다.
+   |범주  |API   | 정의  | 키 속성   |
+   |---------|---------|---------|---------|
+   |DataPlaneRequests     |  모든 API        |     백엔드 요청을 데이터 평면 작업으로 로그해 계정 내의 데이터를 작성, 업데이트, 삭제 및 검색 실행하도록 요청합니다.   |   `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode`      |
+   |MongoRequests     |    Mongo    |   프런트 엔드에서 사용자 개시 요청을 로그해 MongoDB용 Azure Cosmos DB API 요청을 처리합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.      |  `Requestcharge`, `opCode`, `retryCount`, `piiCommandText`      |
+   |CassandraRequests     |   Cassandra      |    프런트 엔드에서 사용자 개시 요청을 로그해 Cassandra를 위한 Azure Cosmos DB API 요청을 처리합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.     |     `operationName`, `requestCharge`, `piiCommandText`    |
+   |GremlinRequests     |    Gremlin    |     프런트 엔드에서 사용자 개시 요청을 로그해 Gremlin을 위한 Azure Cosmos DB API 요청을 처리합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.    |   `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting`       |
+   |QueryRuntimeStatistics     |   SQL      |     이 표에서는 SQL API 계정에 대해 실행되는 쿼리 작업에 대해 자세히 설명합니다. 기본값으로, 쿼리 텍스트와 해당 매개 변수는 요청에 의해 사용할 수 있는 전체 텍스트 쿼리 로깅으로 개인 데이터를 로깅하지 않도록 난독 처리됩니다.    |    `databasename`, `partitionkeyrangeid`, `querytext`    |
+   |PartitionKeyStatistics     |    모든 API     |   파티션 키의 스토리지 크기(KB)를 나타내 논리 파티션 키의 통계를 로그합니다. 이 표는 스토리지 기울이기 문제 해결에 유용합니다. 이 PartitionKeyStatistics 로그는 다음 조건이 충족되는 경우에만 내보내집니다. <br/><ul><li> 문서의 1% 이상에 동일한 논리 파티션 키가 있습니다. </li><li> 모든 키 중에서 스토리지 크기가 가장 큰 상위 3개 키는 PartitionKeyStatistics 로그에 의해 캡처됩니다. </li></ul> 이전 조건이 충족되지 않으면, 파티션 키 통계 데이터를 사용할 수 없습니다. 위의 조건이 계정에 대해 충족되지 않아도 괜찮습니다. 이는 일반적으로 논리 파티션 스토리지 기울이기가 없음을 의미합니다. |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
+   |PartitionKeyRUConsumption     |   SQL API    |     파티션 키의 집계된 초당 RU/s 소비를 로그합니다. 이 표는 핫 파티션 문제 해결에 유용합니다. 현재 Azure Cosmos DB SQL API 계정 및 포인트 읽기/쓰기 및 저장 프로시저 작업에 대해서만 파티션 키를 보고합니다.   |     `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId`   |
+   |ControlPlaneRequests     |   모든 API       |    컨트롤 플레인 작업(예: 계정 만들기, 지역 추가 또는 제거, 계정 복제 설정 업데이트 등)에 대한 세부 정보를 로그합니다.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
+   |TableApiRequests     |   Table API    |     프런트 엔드에서 사용자가 시작한 요청을 로그하여 테이블에 쓸 Azure Cosmos DB API를 제공합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.       |    `operationName`, `requestCharge`, `piiCommandText`     |
 
-   ```json
-    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+4. **범주 세부 정보** 를 선택한 후, 원하는 대상으로 로그를 보냅니다. **Log Analytics 작업 영역** 에 로그를 보내는 경우, 대상 테이블로 **특정 리소스** 를 선택해야 합니다.
+
+    :::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="리소스별 사용을 선택합니다":::
+
+## <a name="create-diagnostic-setting-via-rest-api"></a><a id="create-diagnostic-setting"></a> REST API를 통해 진단 설정 만들기
+대화형 콘솔을 통해 진단 설정을 만드는 데 [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
+> [!Note]
+> 리소스별 테이블을 사용하도록 설정하기 위해 **logAnalyticsDestinationType** 속성을 **Dedicated** 로 설정하는 것이 좋습니다.
+
+### <a name="request"></a>요청
+
+   ```HTTP
+   PUT
+   https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
    ```
+
+### <a name="headers"></a>헤더
+
+   |매개 변수/헤더  | 값/설명  |
+   |---------|---------|
+   |name     |  진단 설정의 이름입니다.      |
+   |resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
+   |api-version     |    2017-05-01-미리 보기     |
+   |콘텐츠 형식     |    application/json     |
+
+### <a name="body"></a>본문
+
+```json
+{
+    "id": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}",
+    "type": "Microsoft.Insights/diagnosticSettings",
+    "name": "name",
+    "location": null,
+    "kind": null,
+    "tags": null,
+    "properties": {
+        "storageAccountId": null,
+        "serviceBusRuleId": null,
+        "workspaceId": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}",
+        "eventHubAuthorizationRuleId": null,
+        "eventHubName": null,
+        "logs": [
+            {
+                "category": "DataPlaneRequests",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "QueryRuntimeStatistics",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "PartitionKeyStatistics",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "PartitionKeyRUConsumption",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            },
+            {
+                "category": "ControlPlaneRequests",
+                "categoryGroup": null,
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": false,
+                    "days": 0
+                }
+            }
+        ],
+        "logAnalyticsDestinationType": "Dedicated"
+    },
+    "identity": null
+}
+```
+
+## <a name="create-diagnostic-setting-via-azure-cli"></a>Azure CLI를 통해 진단 설정 만들기
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 Azure CLI를 통해 진단 설정을 만듭니다. 매개 변수에 대한 설명은 이 명령에 대한 설명서를 참조하세요.
+
+> [!Note]
+> SQL API를 사용하는 경우 **리소스 별 내보내기** 속성을 **true** 로 설정하기를 권합니다.
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
+   ```
+## <a name="enable-full-text-query-for-logging-query-text"></a><a id="full-text-query"></a> 쿼리 텍스트 로깅에 전체 텍스트 쿼리 사용
+
+> [!Note]
+> 이 기능을 사용하도록 설정하면 추가 로깅 비용이 발생할 수 있습니다. 가격 세부 정보는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요. 문제 해결 후 이 기능을 사용하지 않도록 설정하는 것이 좋습니다.
+
+Azure Cosmos DB는 자세한 문제 해결을 위한 고급 로깅을 제공합니다. 전체 텍스트 쿼리를 사용하도록 설정하면, Azure Cosmos DB 계정 내의 모든 요청에 대해 난독 분석된 쿼리를 볼 수 있습니다.  또한 Azure Cosmos DB가 로그에 이 데이터에 액세스하고 이 데이터를 표면화할 수 있는 권한을 부여합니다. 
+
+1. 이 기능을 사용하도록 설정하려면 Cosmos DB 계정의 `Features` 블레이드로 이동합니다.
    
-   다음 쿼리를 사용 하 여 데이터 평면 요청에 해당 하는 로그를 가져옵니다.
-  
-   ```kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-   ```
+   :::image type="content" source="./media/monitor-cosmos-db/full-text-query-features.png" alt-text="기능 블레이드로 이동합니다":::
 
-* **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의 해야 할 주요 속성은 `Requestcharge` , `opCode` 입니다. 진단 로그에서 MongoRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
-
-    ```json
-    { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
-    ```
-  
-  다음 쿼리를 사용 하 여 MongoDB 요청에 해당 하는 로그를 가져옵니다.
-  
-  ```kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="MongoRequests"
-  ```
-
-* **CassandraRequests**: 프런트 엔드에서 사용자가 시작한 요청을 CASSANDRA의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName` , `requestCharge` , `piiCommandText` 입니다. 진단 로그에서 CassandraRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
-
-   ```json
-   { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
-   ```
+2. `Enable`을 선택하면 이 설정이 다음 몇 분 내에 적용됩니다. 새로 검색된 모든 로그에는 각 요청에 대한 전체 텍스트 또는 PIICommand 텍스트가 있습니다.
    
-  다음 쿼리를 사용 하 여 Cassandra 요청에 해당 하는 로그를 가져옵니다.
-  
-  ```kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="CassandraRequests"
-  ```
+    :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="전체 텍스트 사용을 선택합니다":::
 
-* **GremlinRequests**: 프런트 엔드에서 사용자가 시작한 요청을 GREMLIN의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 다른 API 계정에 사용할 수 없습니다. 주의할 핵심 속성은 `operationName` 및 `requestCharge` 입니다. 진단 로그에서 GremlinRequests를 사용 하도록 설정 하는 경우 DataPlaneRequests를 해제 해야 합니다. API에 대 한 모든 요청에 대해 하나의 로그가 표시 됩니다.
-
-  ```json
-  { "time": "2021-01-06T19:36:58.2554534Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "GremlinRequests", "operationName": "eval", "properties": {"activityId": "b16bd876-0e5c-4448-90d1-7f3134c6b5ff", "errorCode": "200", "duration": "9.6036", "requestCharge": "9.059999999999999", "databaseName": "GraphDemoDatabase", "collectionName": "GraphDemoContainer", "authorizationTokenType": "PrimaryMasterKey", "address": "98.225.2.189", "estimatedDelayFromRateLimitingInMilliseconds": "0", "retriedDueToRateLimiting": "False", "region": "Australia East", "requestLength": "266", "responseLength": "364", "userAgent": "<empty>"}}
-  ```
-  
-  다음 쿼리를 사용 하 여 Gremlin 요청에 해당 하는 로그를 가져옵니다.
-  
-  ```kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="GremlinRequests"
-  ```
-
-* **Queryruntimestatistics**: 실행 된 쿼리 텍스트를 기록 하려면이 옵션을 선택 합니다. 이 로그 유형은 SQL API 계정에만 사용할 수 있습니다.
-
-    ```json
-    { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
-    ```
-
-* 파티션 **키 통계를** 기록 하려면이 옵션을 선택 합니다. 이는 현재 파티션 키의 저장소 크기 (KB)로 표시 됩니다. 이 문서의 [Azure 진단 쿼리를 사용 하 여 문제 해결](#diagnostic-queries) 섹션을 참조 하세요. 예를 들어 "파티션"을 사용 하는 쿼리를 사용 합니다. 대부분의 데이터 저장소를 차지 하는 처음 세 개의 파티션 키에 대해 로그를 내보냅니다. 이 로그에는 구독 ID, 지역 이름, 데이터베이스 이름, 컬렉션 이름, 파티션 키, 저장소 크기 (KB) 등의 데이터가 포함 됩니다.
-
-    ```json
-    { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
-    ```
-
-* 분할:이 로그는 파티션 키의 초당 집계 된 사용량을 보고 **합니다.** 현재 Azure Cosmos DB은 SQL API 계정에 대 한 파티션 키와 지점 읽기/쓰기 및 저장 프로시저 작업에 대 한 파티션 키를 보고 합니다. 다른 Api 및 작업 유형은 지원 되지 않습니다. 다른 Api의 경우 진단 로그 테이블의 파티션 키 열이 비어 있게 됩니다. 이 로그에는 구독 ID, 지역 이름, 데이터베이스 이름, 컬렉션 이름, 파티션 키, 작업 유형, 요청 요금 등의 데이터가 포함 됩니다. 이 문서의 [Azure 진단 쿼리를 사용 하 여 문제 해결](#diagnostic-queries) 섹션을 참조 하세요. 예를 들어 "파티션"을 사용 하는 쿼리를 사용 합니다. 
-
-* **ControlPlaneRequests**:이 로그에는 계정 만들기, 지역 추가 또는 제거, 계정 복제 설정 업데이트 등의 제어 평면 작업에 대 한 세부 정보가 포함 됩니다. 이 로그 유형은 SQL (Core), MongoDB, Gremlin, Cassandra, Table API를 포함 하는 모든 API 유형에 사용할 수 있습니다.
-
-* **요청**: Azure Cosmos DB에서 진단 설정의 대상으로 메트릭 데이터를 수집 하려면이 옵션을 선택 합니다. Azure 메트릭에 의해 자동으로 수집 되는 동일한 데이터입니다. 리소스 로그를 사용 하 여 메트릭 데이터를 수집 하 여 두 종류의 데이터를 함께 분석 하 고 Azure Monitor 외부에서 메트릭 데이터를 보냅니다.
-
-Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조 하세요.
-
-
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> 진단 쿼리와 관련 된 문제 해결
-
-1. 실행 하는 데 3 밀리초 보다 오래 걸리는 작업을 쿼리 하는 방법:
-
-   ```Kusto
-   AzureDiagnostics 
-   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-   | summarize count() by clientIpAddress_s, TimeGenerated
-   ```
-
-1. 작업을 실행 하는 사용자 에이전트를 쿼리 하는 방법:
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-   | summarize count() by OperationName, userAgent_s
-   ```
-
-1. 장기 실행 작업을 쿼리 하는 방법:
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-   | project TimeGenerated , duration_s 
-   | summarize count() by bin(TimeGenerated, 5s)
-   | render timechart
-   ```
-    
-1. 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 기울기를 평가 하는 파티션 키 통계를 가져오는 방법:
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
-   ```
-
-1. 비용이 많이 드는 쿼리에 대 한 요청 요금을 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 10.0
-   | project activityId_g, requestCharge_s
-   | join kind= inner (
-   AzureDiagnostics
-   | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
-   | project activityId_g, querytext_s
-   ) on $left.activityId_g == $right.activityId_g
-   | order by requestCharge_s desc
-   | limit 100
-   ```
-
-1. 많은 작업을 수행 하는 작업을 찾는 방법
-
-    ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-   | where TimeGenerated >= ago(2h) 
-   | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
-   ```
-
-1. **DataPlaneRequests** 및 **queryruntimestatistics** 의 데이터와 조인 된 100 o s/s를 사용 하는 모든 쿼리를 가져오는 방법입니다.
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
-   | project activityId_g, requestCharge_s
-   | join kind= inner (
-           AzureDiagnostics
-           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
-           | project activityId_g, querytext_s
-   ) on $left.activityId_g == $right.activityId_g
-   | order by requestCharge_s desc
-   | limit 100
-   ```
-
-1. 요청 요금 및 쿼리 실행 기간을 가져오는 방법
-
-   ```kusto
-   AzureDiagnostics
-   | where TimeGenerated >= ago(24hr)
-   | where Category == "QueryRuntimeStatistics"
-   | join (
-   AzureDiagnostics
-   | where TimeGenerated >= ago(24hr)
-   | where Category == "DataPlaneRequests"
-   ) on $left.activityId_g == $right.activityId_g
-   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
-   ```
-
-
-1. 여러 작업에 대 한 배포를 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-   | where TimeGenerated >= ago(2h) 
-   | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
-   ```
-
-1. 파티션이 사용한 최대 처리량은 무엇 인가요?
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-   | where TimeGenerated >= ago(2h) 
-   | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
-   ```
-
-1. 초당 파티션 키/s 사용에 대 한 정보를 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-   | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s, TimeGenerated 
-   | order by TimeGenerated asc 
-   ```
-
-1. 특정 파티션 키에 대 한 요청 요금을 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-   | where parse_json(partitionKey_s)[0] == "2" 
-   ```
-
-1. 특정 기간에 사용 되는 대부분의 o s/s를 사용 하 여 상위 파티션 키를 가져오는 방법 
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-   | where TimeGenerated >= datetime("11/26/2019, 11:20:00.000 PM") and TimeGenerated <= datetime("11/26/2019, 11:30:00.000 PM") 
-   | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s 
-   | order by total desc
-    ```
-
-1. 저장소 크기가 8gb 보다 큰 파티션 키에 대 한 로그를 가져오는 방법
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics"
-   | where todouble(sizeKb_d) > 8000000
-   ```
-
-1. 작업, 요청 요금 또는 응답의 길이에 대 한 P 99 또는 P50 복제 대기 시간을 얻는 방법
-
-   ```Kusto
-   AzureDiagnostics
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-   | where TimeGenerated >= ago(2d)
-   | summarize
-   percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
-   percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
-   percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
-   count()
-   by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
-   ```
- 
-1. ControlPlane 로그를 가져오는 방법
- 
-   [키 기반 메타 데이터 쓰기 액세스 사용 안 함](audit-control-plane-logs.md#disable-key-based-metadata-write-access) 문서에 설명 된 대로 플래그를 전환 하 고 Azure PowerShell, Azure CLI 또는 Azure Resource Manager를 사용 하 여 작업을 실행 해야 합니다.
- 
-   ```Kusto  
-   AzureDiagnostics 
-   | where Category =="ControlPlaneRequests"
-   | summarize by OperationName 
-   ```
+새로 활성화된 이 기능을 사용하여 쿼리하는 방법을 알아보려면 [고급 쿼리](cosmos-db-advanced-queries.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+* 리소스 관련 테이블을 쿼리하는 방법에 대한 자세한 정보는 [리소스 관련 테이블을 사용하여 문제 해결하는 방법](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries)을 참조하세요.
 
-* [Azure Cosmos DB용 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
-* [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)
+* AzureDiagnostics 테이블을 쿼리하는 방법에 대한 자세한 정보는 [AzureDiagnostics 테이블을 사용하여 문제 해결](cosmosdb-monitor-logs-basic-queries.md#azure-diagnostics-queries)을 참조하세요.
+
+* Azure Portal, CLI 또는 PowerShell을 사용하여 진단 설정을 만드는 방법에 대한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조하세요.

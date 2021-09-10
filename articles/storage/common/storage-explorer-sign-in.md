@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: chuye
-ms.openlocfilehash: 26ce15bfe474f96aaef17f186f56e36ce42b7239
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7ef07280d65f3533e1def6475e40a65b16f0f6c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950535"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568004"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
 
@@ -50,7 +50,7 @@ Storage Explorer에 로그인하려면 **연결 대화 상자** 를 엽니다. �
 
 **설정(왼쪽의 기어 아이콘)**  > **애플리케이션** > **로그인** 에서 **다음으로 로그인** 설정을 찾습니다. 세 개의 옵션이 있습니다.
 - **기본 웹 브라우저**: 로그인은 OS의 **기본 웹 브라우저** 에서 수행됩니다. 이 옵션을 사용하는 것이 좋습니다.
-- **통합 로그인**: 로그인이 Storage Explorer 창에서 수행됩니다. 이 옵션은 한 번에 여러 MSA(Microsoft 계정)를 사용하여 로그인하려는 경우 유용할 수 있습니다. 이 옵션을 선택하면 일부 CA 정책과 관련된 문제가 발생할 수 있습니다.
+- **통합 로그인**: 로그인이 Storage Explorer 창에서 수행됩니다. 이 옵션은 **기본 웹 브라우저** 를 사용하여 로그인하는 데 문제가 있는 경우 유용할 수 있습니다.
 - **디바이스 코드 흐름**: Storage Explorer가 브라우저 창에 입력할 코드를 제공합니다. 이 옵션은 권장되지 않습니다. 디바이스 코드 흐름은 많은 CA 정책과 호환되지 않습니다.
 
 ## <a name="troubleshooting-sign-in-issues"></a>로그인 문제 해결

@@ -1,18 +1,21 @@
 ---
 title: 매핑 데이터 흐름의 식 작성기
-description: Azure Data Factory의 매핑 데이터 흐름에서 식 작성기를 사용하여 식 작성
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics의 매핑 데이터 흐름에서 식 작성기를 사용하여 식 작성
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: e335176b5cd7c6c35477ac9318cf20ce4b64b82d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 32f5a7d845f979f50cea35ae6e2145ca65fa4e17
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291013"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642233"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
@@ -20,7 +23,7 @@ ms.locfileid: "108291013"
 
 매핑 데이터 흐름에서 많은 변환 속성이 식으로 입력됩니다. 이러한 식은 런타임에 Spark 데이터 유형으로 평가되는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성됩니다. 매핑 데이터 흐름에는 **식 작성기** 라는 이러한 식을 작성하는 데 도움이 되는 전용 환경이 있습니다. 강조 표시, 구문 검사 및 자동 완성을 위해 [IntelliSense](/visualstudio/ide/using-intellisense) 코드 완성을 활용하는 식 작성기는 데이터 흐름을 쉽게 구축할 수 있도록 설계되었습니다. 이 문서에서는 식 작성기를 사용하여 비즈니스 논리를 효과적으로 구축하는 방법을 설명합니다.
 
-![식 작성기](media/data-flow/expresion-builder.png "식 작성기")
+:::image type="content" source="media/data-flow/expresion-builder.png" alt-text="식 작성기":::
 
 ## <a name="open-expression-builder"></a>식 작성기 열기
 
@@ -173,7 +176,7 @@ toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd 
 ### <a name="data-flow-time-evaluation"></a>데이터 흐름 시간 평가
 
 데이터 흐름은 밀리초까지 처리합니다. *2018-07-31T20:00:00.2170000* 의 경우 출력에 *2018-07-31T20:00:00.217* 이 표시됩니다.
-ADF 포털에서 타임스탬프는 217을 제거할 수 있는 **현재 브라우저 설정** 에 표시되지만 데이터 흐름을 엔드투엔드로 실행할 때는 217(밀리초 부분도 처리됨)입니다. toString(myDateTimeColumn)을 식으로 사용하고 미리 보기에서 전체 자릿수 데이터를 볼 수 있습니다. 모든 실용적인 목적을 위해 날짜 시간을 문자열이 아닌 날짜 시간으로 처리합니다.
+서비스의 포털에서 타임스탬프는 217을 제거할 수 있는 **현재 브라우저 설정** 에 표시되지만 데이터 흐름을 엔드투엔드로 실행할 때는 217(밀리초 부분도 처리됨)입니다. toString(myDateTimeColumn)을 식으로 사용하고 미리 보기에서 전체 자릿수 데이터를 볼 수 있습니다. 모든 실용적인 목적을 위해 날짜 시간을 문자열이 아닌 날짜 시간으로 처리합니다.
  
 
 ## <a name="next-steps"></a>다음 단계

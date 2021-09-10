@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 142c8b1439447da4d535dd97e191a0ada503fe94
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632604"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536178"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 ACL(액세스 제어 목록)
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)
 
 ## <a name="about-acls"></a>ACL 정보
 
-[보안 주체](../../role-based-access-control/overview.md#security-principal)를 파일 및 디렉터리에 대한 액세스 수준과 연결할 수 있습니다. 해당 연결은 *ACL(액세스 제어 목록)* 에 캡처됩니다. 스토리지 계정의 각 파일과 디렉터리에는 액세스 제어 목록이 있습니다. 보안 주체가 파일이나 디렉터리에 대한 작업을 시도하는 경우 ACL 검사는 해당 보안 주체(사용자, 그룹, 서비스 주체 또는 관리 ID)에게 작업을 수행할 수 있는 올바른 권한 수준이 있는지 확인합니다.
+[보안 주체](../../role-based-access-control/overview.md#security-principal)를 파일 및 디렉터리에 대한 액세스 수준과 연결할 수 있습니다. 각 연결은 ‘ACL(액세스 제어 목록)’에 항목으로 캡처됩니다. 스토리지 계정의 각 파일과 디렉터리에는 액세스 제어 목록이 있습니다. 보안 주체가 파일이나 디렉터리에 대한 작업을 시도하는 경우 ACL 검사는 해당 보안 주체(사용자, 그룹, 서비스 주체 또는 관리 ID)에게 작업을 수행할 수 있는 올바른 권한 수준이 있는지 확인합니다.
 
 > [!NOTE]
 > ACL은 동일한 테넌트의 보안 주체에만 적용되며 공유 키 또는 SAS(공유 액세스 서명) 토큰 인증을 사용하는 사용자에게는 적용되지 않습니다. 이는 ID가 호출자와 연결되어 있지 않으며 따라서 보안 주체 권한 기반 권한 부여를 수행할 수 없기 때문입니다.  
@@ -34,7 +34,7 @@ Azure Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)
 
 파일 및 디렉터리 수준 권한을 설정하려면 다음 문서 중 하나를 참조하세요.
 
-| Environment | 아티클 |
+| 환경 | 아티클 |
 |--------|-----------|
 |Azure Storage Explorer |[Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-explorer-acl.md)|
 |Azure portal |[Azure Portal을 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-acl-azure-portal.md)|
@@ -94,7 +94,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 보안 주체가 **작업** 열에 나열된 작업을 수행할 수 있도록 하는 데 필요한 ACL 항목을 보여 줍니다. 
 
-다음 표의 열은 가상 디렉터리 계층 구조의 각 수준을 나타냅니다. 컨테이너(`\`)의 루트 디렉터리에 대한 열, **Oregon** 이라는 하위 디렉터리, Oregon 디렉터리의 **Portland** 라는 하위 디렉터리, Portland 디렉터리의 **Data.txt** 라는 텍스트 파일이 있습니다. 
+다음 표의 열은 가상 디렉터리 계층 구조의 각 수준을 나타냅니다. 컨테이너(`/`)의 루트 디렉터리에 대한 열, **Oregon** 이라는 하위 디렉터리, Oregon 디렉터리의 **Portland** 라는 하위 디렉터리, Portland 디렉터리의 **Data.txt** 라는 텍스트 파일이 있습니다. 
 
 > [!IMPORTANT]
 > 이 표에서는 Azure 역할 할당 없이 ACL **만** 사용한다고 가정합니다. Azure RBAC와 ACL을 결합하는 비슷한 표를 보려면 [권한 표: AZURE RBAC와 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조하세요.
@@ -154,11 +154,21 @@ POSIX ACL에서 모든 사용자는 *주 그룹* 과 연결됩니다. 예를 들
 > [!NOTE]
 > 소유 그룹은 파일 또는 디렉터리의 ACL을 변경할 수 없습니다.  루트 디렉터리의 경우 소유 그룹은 계정을 만든 사용자로 설정되지만, 위의 **사례 1** 에서 단일 사용자 계정은 소유 그룹을 통해 권한을 제공하는 데 적합하지 않습니다. 해당하는 경우 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
 
-## <a name="access-check-algorithm"></a>액세스 검사 알고리즘
+## <a name="how-permissions-are-evaluated"></a>권한 평가 방법
 
-다음 의사 코드는 스토리지 계정에 대한 액세스 검사 알고리즘을 나타냅니다.
+ID는 다음 순서로 평가됩니다. 
 
-```console
+1. 슈퍼 사용자
+2. 소유 사용자
+3. 명명된 사용자, 서비스 주체 또는 관리 ID
+4. 소유 그룹 또는 명명된 그룹
+5. 기타 모든 사용자
+
+둘 이상의 ID가 보안 주체에 적용되는 경우 첫 번째 ID와 연결된 권한 수준이 부여됩니다. 예를 들어 보안 주체가 소유 사용자이자 명명된 사용자인 경우 소유 사용자와 연결된 권한 수준이 적용됩니다.
+
+다음 의사 코드는 스토리지 계정에 대한 액세스 검사 알고리즘을 나타냅니다. 이 알고리즘은 ID가 평가되는 순서를 보여 줍니다.
+
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -206,7 +216,7 @@ def access_check( user, desired_perms, path ) :
 
 |엔터티|디렉터리|파일|
 |--|--|--|
-|소유 사용자|`rwx`|`r-w`|
+|소유 사용자|`rwx`|`rw-`|
 |소유 그룹|`r-x`|`r--`|
 |기타|`---`|`---`|
 
@@ -348,6 +358,6 @@ Azure Storage REST API에는 [Set Container ACL](/rest/api/storageservices/set-c
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 01/20/2021
+ms.date: 08/26/2021
 ms.author: mjbrown
-ms.openlocfilehash: 5810247e93c21a9b992c00ecc2ce8ffd04623281
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f30f265a3e4865ea68782088661f9153662d1e5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787669"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039716"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB에 대한 Azure PowerShell 샘플
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -40,3 +40,9 @@ ms.locfileid: "121787669"
 |[처리량 작업](../scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 데이터베이스 또는 컬렉션에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](../scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

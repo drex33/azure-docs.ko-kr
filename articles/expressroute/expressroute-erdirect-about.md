@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: fd890c8e8d72609d109fa466e260dd7315fd553b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: c6f06df11e0e17f37d7cfcbba6ed4fb8c224f824
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441225"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029864"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -48,7 +48,7 @@ ExpressRoute Direct를 사용하려면 먼저 구독을 등록해야 합니다. 
 
 1. 구독에서 **리소스 공급자** 에 대해 **Microsoft.Network** 공급자가 **등록됨** 상태로 표시되는지 확인합니다. Microsoft.Network 리소스 공급자가 등록된 공급자 목록에 없는 경우 추가합니다.
 
-ExpressRoute Direct 사용을 시작했는데 선택한 피어링 위치에 사용 가능한 포트가 없는 경우, ExpressRouteDirect@microsoft.com으로 메일을 보내 인벤토리를 추가로 요청합니다.
+ExpressRoute Direct 사용을 시작했는데 선택한 피어링 위치에 사용 가능한 포트가 없는 경우, 지원 요청을 로그하여 인벤토리를 추가로 요청합니다.
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>서비스 공급자 및 ExpressRoute Direct를 사용하는 ExpressRoute
 

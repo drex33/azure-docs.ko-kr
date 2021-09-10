@@ -7,18 +7,35 @@ ms.service: data-science-vm
 ms.author: mimarusa
 ms.date: 07/16/2021
 ms.topic: reference
-ms.openlocfilehash: b74b535a6d6e00f83dd659728bb1ed930e1fb7dd
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: e256382b4d1e397be6d11a3660a4c4fe73eafb23
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371383"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778326"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Azure Data Science Virtual Machine 릴리스 정보
 
 본 문서에서는 Azure Data Science Virtual Machine 릴리스에 대해 알아봅니다. 버전 번호와 함께 포함된 도구 전체 목록은 [관련 페이지](./tools-included.md)를 확인하세요.
 
 알려진 버그 및 해결 방법에 대해 알아보려면 [알려진 문제 목록](reference-known-issues.md)을 참조하세요.
+
+
+## <a name="2021-08-11"></a>2021-08-11
+
+[Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)용 새로운 이미지입니다.
+
+버전: 21.08.11
+
+주요 변경 사항은 다음과 같습니다.
+
+- Windows 보안 이벤트
+- NVIDIA CuDNN를 8.1.0로 업데이트
+- Jupyter Lab을 3.0.16으로 업데이트
+- 실험 추적을 위해 MLFLow 추가
+- 안정성 개선 및 사소한 버그 수정 
+
+
 
 ## <a name="2021-07-12"></a>2021-07-12
 

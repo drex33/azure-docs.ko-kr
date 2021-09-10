@@ -8,18 +8,19 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6a14d5a7ae7da5eff16ba57aa6bbf3459c2ad909
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953809"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691688"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 스토리지 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 참조하세요.
 
-갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/documentation/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
+갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/resources/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
 
  
 
@@ -33,7 +34,7 @@ ms.locfileid: "111953809"
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -217,7 +218,7 @@ ms.locfileid: "111953809"
 
 ```json
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ac9708e496fd0ee84d6e225ff8a63807bbe34fcd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a0ac8a344bc48a9d1ce14b326724236c229d096
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468394"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528649"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -62,19 +62,23 @@ Azure와 Azure 외부의 인덱서 크롤링 데이터 저장소.
 
 초기 실행 시 인덱스가 비어 있으면 인덱서는 테이블이나 컨테이너에 제공된 모든 데이터를 읽습니다. 후속 실행에서 인덱서는 일반적으로 변경된 데이터만 검색할 수 있습니다. Blob 데이터의 경우 변경 검색은 자동으로 검색됩니다. Azure SQL 또는 Cosmos DB 같은 다른 데이터 원본의 경우 변경 검색을 사용하도록 설정해야 합니다.
 
-인덱서는 수신하는 각 문서에 대하여, 인덱싱을 위한 문서 검색에서 최종 검색 엔진 ‘전달’까지 여러 단계를 구현하거나 조정합니다. 필요에 따라 기술 세트가 정의되어 있다고 가정하고, 기술 세트 실행 및 출력을 구동하는 경우에도 인덱서는 중요합니다.
+인덱서는 수신하는 각 문서에 대하여, 인덱싱을 위한 문서 검색에서 최종 검색 엔진 ‘전달’까지 여러 단계를 구현하거나 조정합니다. 필요에 따라 기술 세트가 정의되어 있다고 가정하고, 인덱서는 [기술 세트 실행 및 출력](cognitive-search-concept-intro.md)을 구동합니다.
 
 :::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="인덱서 스테이지" border="false":::
 
+<a name="document-cracking"></a>
+
 ### <a name="stage-1-document-cracking"></a>스테이지 1: 문서 크래킹
 
-문서 크래킹은 파일을 열고 콘텐츠를 추출하는 프로세스입니다. 데이터 원본 유형에 따라 인덱서는 잠재적으로 인덱싱 가능한 콘텐츠를 추출하기 위해 다른 작업을 수행합니다.  
+문서 크래킹은 파일을 열고 콘텐츠를 추출하는 프로세스입니다. 텍스트 기반 콘텐츠는 서비스의 파일, 테이블의 행, 컨테이너, 컬렉션의 항목에서 추출할 수 있습니다. 기술 및 [이미지 기술](cognitive-search-concept-image-scenarios.md)을 인덱서에 추가하는 경우, 문서 크래킹은 이미지를 추출하고 처리를 위해 큐에 대기할 수도 있습니다.
 
-예:  
+데이터 원본에 따라 인덱서는 잠재적으로 인덱싱 가능한 콘텐츠를 추출하기 위해 다른 작업을 수행합니다.
 
-+ 문서가 [Azure SQL 데이터 원본](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)의 기록인 경우 인덱서는 기록에 대한 각 필드를 추출합니다.
-+ 문서가 [Azure Blob Storage 데이터 원본](search-howto-indexing-azure-blob-storage.md)의 PDF 파일이면 인덱서가 문자, 이미지 및 메타데이터를 추출합니다.
-+ 문서가 [Cosmos DB 데이터 원본](search-howto-index-cosmosdb.md)의 기록인 경우 인덱서는 Cosmos DB 문서에서 필드 및 하위 필드를 추출합니다.
++ 문서가 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#supported-document-formats) 내의 PDF 또는 기타 지원되는 파일 형식과 같은 파일인 경우, 인덱서가 파일을 열고 텍스트, 이미지, 메타데이터를 추출합니다. 인덱서가 [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) 및 [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats)에서 파일을 열 수도 있습니다.
+
++ 문서가 [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) 레코드인 경우, 인덱서가 각 레코드의 각 필드에서 이진이 아닌 콘텐츠를 추출합니다.
+
++ 문서가 [Cosmos DB](search-howto-index-cosmosdb.md)의 기록인 경우, 인덱서는 Cosmos DB 문서의 필드 및 하위 필드에서 이진이 아닌 콘텐츠를 추출합니다.
 
 ### <a name="stage-2-field-mappings"></a>스테이지 2: 필드 매핑 
 

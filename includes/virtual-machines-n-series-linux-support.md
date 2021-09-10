@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4bfac9be5041fdf4ebfe7ea56f064b8b85806703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52082c22053a5a54a4462fb01012bdceff848a96
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98860127"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364891"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -33,7 +33,7 @@ Azure에서 재배포한 GRID 드라이버는 NC, NCv2, NCv3, ND 및 NDv2 시리
 
 |배포|드라이버|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7~7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.0, 드라이버 분기 [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7~7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.2, 드라이버 분기 [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 이전 Nvidia GRID 드라이버 링크의 전체 목록은 [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)를 참조하세요.
 

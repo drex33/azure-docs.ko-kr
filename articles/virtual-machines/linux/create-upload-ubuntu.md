@@ -1,26 +1,26 @@
 ---
 title: Azure에서 Ubuntu Linux VHD 만들기 및 업로드
 description: Ubuntu Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/06/2020
-ms.author: danis
-ms.openlocfilehash: 92ceecd16a428593764fe5ab6478cc4ea7ab91d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/28/2021
+ms.author: srijangupta
+ms.openlocfilehash: f0417c156de07cd5a6fd45bdd63ed9134078966f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566564"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
 
 이제 Ubuntu는 [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/)에서 다운로드할 수 있도록 공식 Azure VHD를 게시합니다. Azure에 대해 특수한 사용자 고유의 Ubuntu 이미지를 빌드해야 하는 경우 아래 수동 절차 대신 이러한 알려진 작업 VHD를 시작하고 필요에 따라 사용자 지정하는 것이 좋습니다. 최신 이미지 릴리스는 항상 다음 위치에서 제공됩니다.
 
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
@@ -51,7 +51,7 @@ ms.locfileid: "102554618"
     # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
-    Ubuntu 16.04 및 Ubuntu 18.04:
+    Ubuntu 18.04 및 Ubuntu 20.04:
 
     ```console
     # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
@@ -61,7 +61,7 @@ ms.locfileid: "102554618"
 
 4. 이제 Ubuntu Azure 이미지가 [Azure 맞춤형 커널](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)을 사용하고 있습니다. 다음 명령을 실행하여 운영 체제를 최신 Azure 맞춤형 커널로 업데이트하고 Azure Linux 도구(Hyper-v 종속성 포함)를 설치합니다.
 
-    Ubuntu 16.04 및 Ubuntu 18.04:
+    Ubuntu 18.04 및 Ubuntu 20.04:
 
     ```console
     # sudo apt update
@@ -81,7 +81,7 @@ ms.locfileid: "102554618"
 
 6. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-7. cloud-init(프로비저닝 에이전트)와 Azure Linux 에이전트(게스트 확장 처리기)를 설치합니다. 프로비저닝되고 이후에 부팅되는 도중에 Cloud-init은 netplan을 사용하여 시스템 네트워크 구성을 구성합니다.
+7. cloud-init(프로비저닝 에이전트)와 Azure Linux 에이전트(게스트 확장 처리기)를 설치합니다. 프로비저닝되고 이후에 부팅되는 도중에 Cloud-init은 `netplan`을 사용하여 시스템 네트워크 구성을 구성합니다.
 
     ```console
     # sudo apt update
@@ -91,17 +91,17 @@ ms.locfileid: "102554618"
    > [!Note]
    >  `walinuxagent` 패키지는 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거할 수 있습니다.
 
-8. Azure에서 cloud-init 프로비저닝과 충돌할 수 있는 cloud-init 기본 구성 및 나머지 netplan 아티팩트를 제거합니다.
+8. Azure에서 cloud-init 프로비저닝과 충돌할 수 있는 cloud-init 기본 구성 및 나머지 `netplan` 아티팩트를 제거합니다.
 
     ```console
-    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
     ```
 
 9. Azure 데이터 소스를 사용하여 시스템을 프로비저닝하도록 cloud-init을 구성합니다.
 
-    ```console
+    ```bash
     # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
     datasource_list: [ Azure ]
     EOF
@@ -163,7 +163,7 @@ ms.locfileid: "102554618"
 12. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     > [!NOTE]
-    > `sudo waagent -force -deprovision+user` 명령은 시스템을 정리하고 다시 프로비저닝하기에 적합하도록 합니다. `+user` 옵션은 마지막으로 프로비저닝된 사용자 계정 및 관련 데이터를 삭제합니다.
+    > `sudo waagent -force -deprovision+user` 명령은 시스템을 정리하고 다시 프로비저닝하는 데 적합하도록 하여 이미지를 일반화합니다. `+user` 옵션은 마지막으로 프로비저닝된 사용자 계정 및 관련 데이터를 삭제합니다.
 
     > [!WARNING]
     > 위의 명령을 사용하여 프로비저닝을 해제하더라도 이미지에서 중요한 정보가 모두 지워져 다시 배포하기에 적합해진다고 보증할 수는 없습니다.

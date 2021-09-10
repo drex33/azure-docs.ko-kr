@@ -1,18 +1,20 @@
 ---
-title: Azure Site Recovery의 장애 조치(failover) 및 장애 복구(failback) 정보
-description: Azure Site Recovery의 장애 조치 및 장애 복구에 관해 알아봅니다.
+title: Azure Site - 클래식의 장애 조치(failover) 및 장애 복구(failback) 정보
+description: Azure Site Recovery - 클래식의 장애 조치(failover) 및 장애 복구(failback)에 대해 알아보기
 ms.topic: conceptual
-ms.date: 12/24/2019
-ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/30/2021
+ms.openlocfilehash: 97465622afb1a8b59601799ed14a625f49073a43
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98070747"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568299"
 ---
-# <a name="about-on-premises-disaster-recovery-failoverfailback"></a>온-프레미스 재해 복구 장애 조치/장애 복구 정보
+# <a name="about-on-premises-disaster-recovery-failoverfailback---classic"></a>온-프레미스 재해 복구 장애 조치(failover)/장애 복구(failback) 정보 - 클래식
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 머신을 Azure에 재해 복구하는 동안 장애 조치 및 장애 복구를 간략하게 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) - 클래식을 사용하여 온-프레미스 머신을 Azure에 재해 복구하는 동안 장애 조치(failover) 및 장애 복구(failback)를 간략하게 설명합니다.
+
+Azure Site Recovery 미리 보기 릴리스의 장애 조치 및 장애 복구에 대한 내용은 [관련 문서를 참조](failover-failback-overview-preview.md)하세요.
 
 ## <a name="recovery-stages"></a>복구 단계
 
@@ -45,7 +47,7 @@ RDP/SSH를 사용하여 장애 조치 후 생성된 Azure VM에 연결하려면 
 
 **장애 조치(Failover)** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치 전에 온-프레미스 머신에서: | **인터넷을 통해 액세스**: RDP를 사용하도록 설정합니다. **퍼블릭** 에 대해 TCP 및 UDP 규칙이 추가되고 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> **사이트 간 VPN을 통해 액세스**: 머신에서 RDP를 사용하도록 설정합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능** 에서 **도메인 또는 프라이빗** 네트워크에 대해 허용되는지 확인합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세히 알아봅니다](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트가 완료될 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행하는 Azure VM** | 장애 조치 전에 온-프레미스 머신에서: | **인터넷을 통해 액세스**: RDP를 사용하도록 설정합니다. **퍼블릭** 에 대해 TCP 및 UDP 규칙이 추가되고 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> **사이트 간 VPN을 통해 액세스**: 머신에서 RDP를 사용하도록 설정합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능** 에서 **도메인 또는 프라이빗** 네트워크에 대해 허용되는지 확인합니다.<br/><br/>  운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세한 정보를 알아보세요](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트가 완료될 때까지 VM에 로그인할 수 없습니다.
 **Windows를 실행하는 Azure VM** | 장애 조치 후 Azure VM에서 |  VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> 장애 조치된 VM(및 해당 VM이 연결된 Azure 서브넷)에 대한 네트워크 보안 그룹 규칙은 RDP 포트에 대한 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단** 을 확인하여 VM에 대한 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치 전에 온-프레미스 머신에서: | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 **Linux를 실행하는 Azure VM** | 장애 조치 후 Azure VM에서 | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> **부트 진단** 에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>

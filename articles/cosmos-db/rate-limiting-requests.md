@@ -4,16 +4,17 @@ description: 이 문서에서는 개발자에게 Azure Cosmos DB에 대한 속�
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/26/2021
 ms.author: pelasne
-ms.openlocfilehash: f9130808da0f833246e013e56f081b92fa461ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0677a3f4180ab429dc51a4e40c969e32e6e8f655
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566249"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098142"
 ---
 # <a name="optimize-your-azure-cosmos-db-application-using-rate-limiting"></a>속도 제한을 사용하여 Azure Cosmos DB 애플리케이션 최적화
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 개발자에게 Azure Cosmos DB에 대한 속도 제한 요청에 대한 방법론을 제공합니다. 이 패턴을 구현하면 대상 데이터베이스 또는 컨테이너의 프로비저닝된 처리량을 초과하는 워크로드에 대한 오류를 줄이고 전체 성능을 향상시킬 수 있습니다.
 
@@ -160,3 +161,6 @@ Azure Cosmos DB에서 프로비저닝된 처리량 자동 크기 조정 기능�
 * Azure Cosmos DB의 [분할 및 수평적 크기 조정](partitioning-overview.md)에 대해 자세히 알아봅니다.
 * Azure Cosmos DB의 [인덱싱 정책](index-policy.md)에 대해 알아봅니다.
 * Azure Cosmos DB의 [자동 크기 조정](provision-throughput-autoscale.md)에 대해 알아봅니다.
+* Azure Cosmos DB로 마이그레이션하기 위해 용량 계획을 하려고 하십니까? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우, [vCore 또는 vCPU를 사용하여 요청 단위 추정](convert-vcore-to-request-unit.md)을 참조하세요 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB Capacity Planner를 사용하여 요청 단위 추정](estimate-ru-with-capacity-planner.md)을 읽어보세요

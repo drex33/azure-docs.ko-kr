@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: b037f82b0d56f09000c5fb9e2814ff80aa6f1a82
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: ccd194df39f0fff4bdabe4ae91e911dd030673e6
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530551"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662174"
 ---
 # <a name="azure-monitor-agent-overview"></a>Azure Monitor 에이전트 개요
 AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서는 Azure Monitor 에이전트에 대한 개요를 제공하고 설치 방법 및 데이터 수집 구성 방법에 대한 정보를 포함하고 있습니다.
@@ -35,9 +35,10 @@ Azure Monitor 에이전트는 현재 Azure Monitor에서 가상 머신으로부�
 - **Log Analytics 에이전트(MMA/OMS)와 비교**
     - 현재 모든 Log Analytics 솔루션이 지원되는 것은 아닙니다. [지원되는 기능](#supported-services-and-features)을 참조하세요.
     - Azure Private Links를 지원하지 않습니다.
-    - 사용자 지정 로그 또는 IIS 로그 수집을 지원하지 않습니다.
+    - 파일 기반 로그 또는 IIS 로그 수집을 지원하지 않습니다.
 - **Azure Diagnostics 확장(WAD/LAD)과 비교:**
     - 대상으로 Event Hubs 및 스토리지 계정을 지원하지 않습니다.
+    - 파일 기반 로그, IIS 로그, ETW 이벤트, .NET 이벤트, 크래시 덤프 수집을 지원하지 않습니다.
 
 ### <a name="changes-in-data-collection"></a>데이터 수집 변경
 기존 에이전트에 대한 데이터 수집을 정의하는 방법은 서로 분명히 다릅니다. 각 방법에는 Azure Monitor 에이전트로 해결되는 문제가 있습니다.
@@ -66,7 +67,11 @@ Azure Monitor 에이전트는 [Azure Monitor용 레거시 에이전트](agents-o
 Azure Virtual Machines, Microsoft Azure Virtual Machine Scale Sets 및 Azure Arc 사용 서버는 현재 지원됩니다. Azure Kubernetes Service 및 기타 컴퓨팅 리소스 종류는 지원되지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
-Azure Monitor 에이전트는 Log Analytics를 지원하는 모든 공용 지역에서 사용할 수 있습니다. 현재 정부 영역 및 클라우드는 지원되지 않습니다.
+Azure Monitor 에이전트는 Azure 정부 및 중국 클라우드뿐만 아니라 Log Analytics를 지원하는 모든 퍼블릭 지역에서 사용할 수 있습니다. 에어 갭(Air-Gap) 클라우드는 아직 지원되지 않습니다.
+
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
+현재 Azure Monitor 에이전트에서 지원하는 Windows 및 Linux 운영 체제 버전의 목록은 [지원되는 운영 체제](agents-overview.md#supported-operating-systems)를 참조하세요.
+
 ## <a name="supported-services-and-features"></a>지원되는 서비스 및 기능
 다음 표에는 다른 Azure 서비스를 통한 Azure Monitor 에이전트에 대한 현재 지원이 나와 있습니다.
 
@@ -113,9 +118,6 @@ Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로�
 
 <sup>1</sup> 현재 Linux용 Azure Monitor 에이전트에는 제한이 있습니다. Azure Monitor 메트릭을 *유일한* 대상으로 사용하는 것은 지원되지 않습니다. Azure Monitor 로그와 함께 사용하면 작동합니다. 이러한 제한은 다음 확장 업데이트에서 해결됩니다.
 
-## <a name="supported-operating-systems"></a>지원되는 운영 체제
-현재 Azure Monitor 에이전트에서 지원하는 Windows 및 Linux 운영 체제 버전의 목록은 [지원되는 운영 체제](agents-overview.md#supported-operating-systems)를 참조하세요.
-
 ## <a name="security"></a>보안
 Azure Monitor 에이전트에는 키가 필요하지 않지만 대신 [시스템이 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)가 필요합니다. 에이전트를 배포하기 전에 각 가상 머신에 시스템이 할당한 관리 ID를 사용하도록 설정해야 합니다.
 
@@ -131,7 +133,7 @@ Windows 및 Linux용 Azure Monitor 에이전트 확장은 HTTPS 프로토콜을 
    ![확장을 사용하도록 설정할 때 setting 및 protectedSetting 매개 변수의 값을 결정하는 순서도.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 
-1. *setting* 및 *protectedSetting* 매개 변수의 값이 결정되면 PowerShell 명령을 사용하여 Azure Monitor 에이전트를 배포할 때 이러한 추가 매개 변수를 제공합니다. 다음 예는 Azure 가상 머신에 대한 것입니다.
+2. *setting* 및 *protectedSetting* 매개 변수의 값이 결정되면 PowerShell 명령을 사용하여 Azure Monitor 에이전트를 배포할 때 이러한 추가 매개 변수를 제공합니다. 다음 예는 Azure 가상 머신에 대한 것입니다.
 
     | 매개 변수 | 값 |
     |:---|:---|

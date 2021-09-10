@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305058"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733703"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -182,7 +182,7 @@ Blob 스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 복사본입�
 
 다음 방법 중 하나를 사용하여 Blob 버전에 대한 액세스 권한을 부여할 수 있습니다.
 
-- Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure AD(Azure Active Directory) 보안 주체에 사용 권한을 부여합니다. Microsoft에서는 강화된 보안과 사용 편의성을 위해 Azure AD의 사용을 권장합니다. Azure AD를 이용한 Blob 작동에 대한 자세한 내용은 [Azure Active Directory를 사용한 Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad.md)를 참조하세요.
+- Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure AD(Azure Active Directory) 보안 주체에 사용 권한을 부여합니다. Microsoft에서는 강화된 보안과 사용 편의성을 위해 Azure AD의 사용을 권장합니다. Blob 작업에서 Azure AD를 사용하는 방법에 관한 자세한 내용은 [Azure Storage에서 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)를 참조하세요.
 - SAS(공유 액세스 서명)를 사용하여 Blob 버전에 대한 액세스를 위임할 수 있습니다. 특정 버전의 작업에 대한 SAS 토큰을 만들기 위해 Blob 버전을 나타내는 서명된 리소스 종류 `bv`의 버전 ID를 지정합니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요.
 - 계정 액세스 키를 사용하여 공유 키로 Blob 버전에 작업 권한을 부여합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 
@@ -192,7 +192,7 @@ Blob 버전 관리는 실수로 인한 삭제 또는 악의적인 삭제에서 �
 
 다음 표에서는 Blob 또는 Blob 버전 삭제를 지원하는 Azure RBAC 작업을 보여 줍니다.
 
-| Description | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| 설명 | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | 현재 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 이전 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/BlobServices/containers/Blobs/deleteBlobVersion/action** | Storage Blob 데이터 소유자 |
@@ -298,7 +298,7 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용하는 경우 | 계층에 관계 없이 모든 기존 버전의 전체 콘텐츠 길이 |
 | Blob 일시 삭제를 사용하도록 설정했지만 버전 관리를 사용하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅샷 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

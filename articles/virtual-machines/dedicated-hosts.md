@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: e9e233aa5a4d32a1f298889b0a98c3a85d9cf4e5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: bbc2cda053a2a9fafd88f974eaf10be4ae0c1784
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456320"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687527"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합
 
 Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 이상의 가상 머신을 호스트)를 제공하는 서비스입니다. 전용 호스트는 리소스로 제공되는, 데이터 센터에서 사용되는 것과 동일한 물리적 서버입니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로비저닝할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합한 구성으로 프로비저닝된 호스트에 직접 VM을 배치할 수 있습니다.
 

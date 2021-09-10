@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
-ms.openlocfilehash: 683ec2b75cad36e4f4745b74ec3207bde9af9ac3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a3cbfa17d3b063ddcef90820dc31a080a768cbcd
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760952"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493766"
 ---
 # <a name="best-practices-for-device-development"></a>디바이스 개발을 위한 모범 사례
 
@@ -56,6 +56,38 @@ DPS를 사용하여 디바이스를 프로비전하려면 IoT Central 애플리�
 - 서비스의 내부 오류 500.
 
 디바이스 오류 코드에 대해 자세히 알아보려면 [디바이스 연결 문제 해결](troubleshoot-connection.md)을 참조하세요.
+
+## <a name="test-failover-capabilities"></a>테스트 장애 조치 기능
+
+Azure CLI를 사용하여 장치 클라이언트 코드의 장애 조치 기능을 테스트할 수 있습니다. CLI 명령은 장치 등록을 일시적으로 다른 내부 IoT hub로 전환하는 방식으로 작동합니다. 장치가 여전히 원격 분석을 보내고 IoT Central 애플리케이션의 명령에 응답하는지 확인하여 장치 장애 조치가 작동하는지 확인할 수 있습니다.
+
+장치에 대한 장애 조치 테스트를 실행하려면 다음 명령을 실행합니다.
+
+```azurecli
+az iot central device manual-failover \
+    --app-id {Application ID of your IoT Central application} \
+    --device-id {Device ID of the device you're testing} \
+    --ttl-minutes {How to wait before moving the device back to it's original IoT hub}
+```
+
+> [!TIP]
+> **애플리케이션 ID** 를 찾으려면, IoT Central 애플리케이션에서 **관리 > 애플리케이션** 으로 이동합니다.
+
+명령이 성공하면 다음과 유사한 출력이 표시됩니다.
+
+```output
+Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+{
+  "hubIdentifier": "6bd4...bafa",
+  "message": "Success! This device is now being failed over. You can check your device'’'s status using 'iot central device registration-info' command. The device will revert to its original hub at Tue, 18 May 2021 11:03:45 GMT. You can choose to failback earlier using device-manual-failback command. Learn more: https://aka.ms/iotc-device-test"
+}
+```
+
+CLI 명령에 대해 자세히 알아보려면 [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover)를 참조하세요.
+
+이제 장치의 원격 분석이 IoT Central 애플리케이션에 도달하고 있는지 확인할 수 있습니다.
+
+다양한 프로그래밍 언어에서 장애 조치를 처리하는 샘플 장치 코드를 보려면 [IoT 고가용성 클라이언트](https://github.com/iot-for-all/iot-central-high-availability-clients)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d97287657b1e1fe7d540e8811c90794aaa5fece
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6502779c4d301e760e10be8cf1a1766834ec2038
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739569"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604153"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>IoT Hub 에이전트에 대한 디바이스 업데이트 개요
 
 디바이스 업데이트 에이전트는 다음과 같은 두 가지 개념적 계층으로 구성됩니다.
 
-* 인터페이스 계층은 디바이스가 디바이스 업데이트 에이전트와 디바이스 업데이트 서비스 간에 전달될 수 있도록 하는 [Azure IoT 플러그 앤 플레이(PnP)](../iot-pnp/overview-iot-plug-and-play.md)를 기반으로 빌드됩니다.
+* 인터페이스 계층은 디바이스가 디바이스 업데이트 에이전트와 디바이스 업데이트 서비스 간에 전달될 수 있도록 하는 [Azure IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md)를 기반으로 빌드됩니다.
 * 플랫폼 계층은 플랫폼 또는 디바이스별 다운로드, 설치 및 적용의 상위 수준 업데이트 작업을 담당합니다.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="에이전트 구현." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::

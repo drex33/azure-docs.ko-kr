@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 05/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: de8a03fd9d843f91872ddab7bd13db70f7297cb0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fac7da74ee31f1bd775daa5446f4dec9b9bc2b79
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469231"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695660"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>격리된 네트워크의 Azure Disk Encryption
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 방화벽, 프록시 요구 사항 또는 NSG(네트워크 보안 그룹) 설정으로 연결이 제한되면 필요한 작업을 수행할 수 있는 확장의 기능이 중단될 수 있습니다. 이로 인해 "VM에서 사용할 수 없는 확장 상태"와 같은 상태 메시지가 표시됩니다.
 

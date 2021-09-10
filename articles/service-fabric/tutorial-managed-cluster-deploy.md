@@ -2,14 +2,14 @@
 title: Service Fabric 관리형 클러스터 배포
 description: 이 자습서에서는 테스트를 위해 Service Fabric 관리형 클러스터를 배포합니다.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: f87e45dcaab5e42607f24decc5897471a74e90b5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3117c4c248aa073fb961dc031342d8b3d9489bbd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666932"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867407"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "110666932"
 > * Service Fabric 관리형 클러스터 배포
 > * 클러스터에 기본 노드 유형 추가
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -52,9 +52,6 @@ Set-AzContext -SubscriptionId <your-subscription>
 ## <a name="create-a-new-resource-group"></a>새 리소스 그룹 만들기
 
 그런 다음, `<your-rg>` 및 `<location>`을 원하는 그룹 이름과 위치로 바꾼 관리형 Service Fabric 클러스터에 대한 리소스 그룹을 만듭니다.
-
-> [!NOTE]
-> 공개 미리 보기에 대해 지원되는 지역에는 `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` 및 `eastus2`가 포함됩니다.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

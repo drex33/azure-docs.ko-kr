@@ -36,7 +36,7 @@
       href: quickstart-arc.md
 - name: 자습서
   items:
-    - name: 보안 앱이 스토리지 및 Microsoft Graph에 액세스
+    - name: 보안 앱에서 스토리지 및 Microsoft Graph에 액세스
       items:
         - name: 개요
           href: scenario-secure-app-overview.md

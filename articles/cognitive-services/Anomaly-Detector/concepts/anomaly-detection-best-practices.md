@@ -1,5 +1,5 @@
 ---
-title: Anomaly Detector API를 사용하는 경우 모범 사례
+title: Anomaly Detector 일변량 API를 사용하는 경우의 모범 사례
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API를 사용하여 변칙 검색을 수행할 때의 모범 사례에 대해 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1662fd39030082dfbfef4d38d1803b3d6f82e5
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98936208"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297301"
 ---
-# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Anomaly Detector API 사용에 대한 모범 사례
+# <a name="best-practices-for-using-the-anomaly-detector-univariate-api"></a>Anomaly Detector 일변량 API를 사용하는 경우의 모범 사례
 
 Anomaly Detector API는 상태 비저장 변칙 검색 서비스입니다. 결과의 정확성 및 성능은 다음과 같은 사항에 영향을 받을 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b5f4314afa17f245c36417916bc9af59aa7493a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634717"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237536"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>FIM(파일 무결성 모니터링)을 사용하여 기준 비교
 
@@ -36,7 +36,7 @@ FIM(파일 무결성 모니터링)은 리소스의 중요한 영역이 변경될
 
 FIM 레지스트리 하이브 기본값은 일반적인 보안 영역 내에서 재귀적 변경 내용을 모니터링하는 편리한 방법을 제공합니다.  예를 들어 악의적 사용자는 시작 또는 종료 시 실행을 구성하여 LOCAL_SYSTEM 컨텍스트에서 실행되도록 스크립트를 구성할 수 있습니다.  이 유형의 변경 내용을 모니터링하려면 기본 제공 검사를 사용하도록 설정하세요.  
 
-![레지스트리](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![레지스트리.](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > 재귀 검사는 권장 보안 하이브에만 적용되고 사용자 지정 레지스트리 경로에는 적용되지 않습니다.  
@@ -70,14 +70,14 @@ FIM 기준은 운영 체제 및 지원 애플리케이션의 알려진 정상 �
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     ```
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="레지스트리에서 FIM 사용":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="레지스트리에서 FIM 사용.":::
 
 ## <a name="track-changes-to-windows-files"></a>Windows 파일 변경 내용 추적
 
 1. **변경 내용 추적을 위해 Windows 파일 추가** 창의 **경로 입력** 텍스트 상자에 추적하려는 파일이 있는 폴더를 입력합니다. 다음 그림의 예에서 **Contoso 웹앱** 은 **ContosWebApp** 폴더 구조 내의 D:\ 드라이브에 있습니다.  
 1. 설정 클래스의 이름을 제공하고, 재귀를 사용하도록 설정하고, 와일드 카드(*) 접미사로 최상위 폴더를 지정하여 사용자 지정 Windows 파일 항목을 만듭니다.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="파일에서 FIM 사용":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="파일에서 FIM 사용.":::
 
 ## <a name="retrieve-change-data"></a>변경 데이터 검색
 
@@ -117,4 +117,4 @@ FIM 기준은 운영 체제 및 지원 애플리케이션의 알려진 정상 �
 
 보고서는 보관을 위해 CSV로 내보내거나 Power BI 보고서로 보낼 수 있습니다.  
 
-![FIM 데이터](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+![FIM 데이터.](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

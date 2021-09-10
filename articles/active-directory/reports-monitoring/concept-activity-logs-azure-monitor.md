@@ -17,19 +17,19 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c731648c144d4b25896260e5cf276a97b9e731
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965778"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733433"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
 장기 보존 및 데이터 인사이트를 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. 이 기능을 사용하여 다음을 할 수 있습니다.
 
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
-* Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
+* Splunk, QRadar, Azure Sentinel 같은 인기 있는 보안 정보 및 이벤트 관리(SIEM) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
 * Azure AD 활동 로그를 이벤트 허브로 스트리밍하여 고유한 사용자 지정 로그 솔루션과 통합합니다.
 * Azure AD 활동 로그를 Azure Monitor 로그에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 사용합니다.
 
@@ -53,10 +53,10 @@ ms.locfileid: "111965778"
 이 기능을 사용하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
-* Azure Portal에서 Azure AD 감사 로그에 액세스할 수 있는 Azure AD Free, Basic, Premium 1 또는 Premium 2 [라이선스](https://azure.microsoft.com/pricing/details/active-directory/). 
+* Azure Portal에서 Azure AD 감사 로그에 액세스할 수 있는 Azure AD Free, Basic, Premium 1 또는 Premium 2 [라이선스](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). 
 * Azure AD 테넌트.
 * Azure AD 테넌트의 **글로벌 관리자** 또는 **보안 관리자** 인 사용자.
-* Azure Portal에서 Azure AD 로그인 로그에 액세스할 수 있는 Azure AD Premium 1 또는 Premium 2 [라이선스](https://azure.microsoft.com/pricing/details/active-directory/). 
+* Azure Portal에서 Azure AD 로그인 로그에 액세스할 수 있는 Azure AD Premium 1 또는 Premium 2 [라이선스](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). 
 
 감사 로그 데이터를 라우팅하려는 위치에 따라 다음 둘 중 하나가 필요합니다.
 

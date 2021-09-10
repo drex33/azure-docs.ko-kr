@@ -3,14 +3,14 @@ title: 지속성 함수의 진단 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.author: azfuncdf
-ms.openlocfilehash: d1125c2de0f548f1a6086819573acf1a2ac9c3c9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf446b435bc84649d102150b8e0f092c25a85d07
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370895"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113087381"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -72,34 +72,12 @@ Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는
 }
 ```
 
-기본적으로 모든 재생되지 않는 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다.
-
-자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 다음에 표시된 대로 `durableTask` 아래의 `host.json` 파일에서 `LogReplayEvents`를 `true`로 설정할 수 있습니다.
-
-#### <a name="functions-10"></a>Functions 1.0
-
-```json
-{
-    "durableTask": {
-        "logReplayEvents": true
-    }
-}
-```
-
-#### <a name="functions-20"></a>Functions 2.0
-
-```json
-{
-    "extensions": {
-        "durableTask": {
-            "logReplayEvents": true
-        }
-    }
-}
-```
+기본적으로 모든 _재생되지 않는_ 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다. 자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 [host.json](durable-functions-bindings.md#host-json) 구성 파일에서 `logReplayEvents`를 `true`로 설정합니다.
 
 > [!NOTE]
 > 기본적으로 데이터를 너무 자주 내보내지 않도록 방지하기 위해 Azure Functions 런타임에서 Application Insights 원격 분석을 샘플링합니다. 이로 인해 짧은 기간 동안 많은 수명 주기 이벤트가 발생하면 추적 정보가 손실될 수 있습니다. [Azure Functions 모니터링 문서](../configure-monitoring.md#configure-sampling)에서는 이 동작을 구성하는 방법에 대해 설명합니다.
+
+오케스트레이터, 작업 및 엔터티 함수의 입력 및 출력은 기본적으로 기록되지 않습니다. 입력 및 출력 로깅으로 인해 Application Insights 비용이 증가할 수 있으므로 이 기본 동작이 권장됩니다. 함수 입력 및 출력 페이로드에도 중요한 정보가 포함될 수 있습니다. 대신, 함수 입력 및 출력의 바이트 수가 기본적으로 실제 페이로드 대신 기록됩니다. Durable Functions 확장에서 전체 입력 및 출력 페이로드를 기록하도록 하려면 [host.json](durable-functions-bindings.md#host-json) 구성 파일에서 `traceInputsAndOutputs` 속성을 `true`로 설정합니다.
 
 ### <a name="single-instance-query"></a>단일 인스턴스 쿼리
 

@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 미디어 처리 크기 조정 | Microsoft D
 description: 이 자습서에서는 Azure Portal을 사용하여 미디어 처리의 크기를 조정하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali
 manager: femila
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 08/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 49c3899b912a88605e9269cdb1c34c7e18ed5247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1040ffa8bc3af3734a5c37961676b0914f72e991
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009728"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835874"
 ---
 # <a name="change-the-reserved-unit-type"></a>예약 단위 유형 변경
 
@@ -36,19 +36,15 @@ ms.locfileid: "103009728"
 
 ## <a name="overview"></a>개요
 
-Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 형식과 연결됩니다. **S1**, **S2**, **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다.
-
-예약 단위 유형을 지정하는 것 외에도 계정에 **RU(예약 단위)** 를 프로비전하도록 지정할 수 있습니다. 프로비전되는 RU의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다.
-
->[!NOTE]
->RU는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다. 그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
+기본값으로 미디어 예약 단위는 더 이상 사용할 필요가 없으며 Azure Media Services에서 지원하지 않습니다. 호환성을 위해, 현재 Azure Portal에는 MRU를 관리하고 크기를 조정할 수 있는 옵션이 있습니다. 그러나, 기본값으로 설정한 MRU 구성은 인코딩 동시성 또는 성능을 제어하는 데 사용되지 않습니다.
 
 > [!IMPORTANT]
 > 미디어 처리 크기 조정에 대해 자세히 알아보려면 이 [개요](media-services-scale-media-processing-overview.md) 항목을 참조하세요.
-> 
-> 
 
 ## <a name="scale-media-processing"></a>미디어 처리 크기 조정
+>[!NOTE]
+>MRU를 선택하면 Azure Media Services V3의 동시성 또는 성능에 영향을 주지 않습니다. 
+
 예약 단위 유형 및 예약 단위 수를 변경하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.

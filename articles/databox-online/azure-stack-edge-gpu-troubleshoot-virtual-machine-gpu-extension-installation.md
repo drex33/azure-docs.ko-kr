@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 256902ef26328050b4ed52053f465571974ffefe
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: a2e6996bd2b86da470b364da1349248e26b2fa58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422159"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536722"
 ---
 # <a name="troubleshoot-gpu-extension-issues-for-gpu-vms-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 GPU VM에 대한 GPU 확장 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "111422159"
 
 **권장 솔루션:** GPU 확장이 지원하는 운영 체제가 있는 새 VM 이미지를 준비합니다. 
 
-* 지원되는 운영체제 목록은 [GPU VM에 지원되는 OS 및 GPU 드라이버](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers)를 참조하세요.
+* 지원되는 운영체제 목록은 [GPU VM에 지원되는 OS 및 GPU 드라이버](./azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-and-gpu-drivers)를 참조하세요.
 
 * GPU VM에 대한 이미지 준비 요구 사항은 [GPU VM 만들기](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms)를 참조하세요.
 
@@ -52,7 +52,7 @@ ms.locfileid: "111422159"
 
 **오류 설명:** 확장 설치 중 또는 사용 상태에서 확장 프로비저닝에 실패했습니다.
 
-1. 게스트 로그에서 관련 오류를 확인합니다. <!--To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+1. 게스트 로그에서 관련 오류를 확인합니다. 게스트 로그를 수집하려면 [Azure Stack Edge Pro에서 VM에 대한 게스트 로그 수집](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)을 참조하세요.
 
    Linux VM에서:
    * `/var/log/waagent.log` 또는 `/var/log/azure/nvidia-vmext-status`에서 찾습니다.
@@ -78,7 +78,7 @@ ms.locfileid: "111422159"
 
 **제안된 솔루션:** 문제를 해결하려면 다음 단계를 수행합니다.
 
-1.  잠금을 적용하는 프로세스를 확인하려면 \var\log\azure\nvidia-vmext-status 로그에서 “dpkg가 다른 프로세스에서 사용됨” 또는 “다른 앱이 yum 잠금을 보유하고 있음”과 같은 오류를 검색합니다.
+1.  잠금을 적용하는 프로세스를 확인하려면 \var\log\azure\nvidia-vmext-status 로그에서 "dpkg가 다른 프로세스에서 사용됨" 또는 "다른 앱이 `yum lock` 잠금을 보유하고 있음"과 같은 오류를 검색합니다.
 
 1. 프로세스가 완료되기를 기다리거나 프로세스를 종료합니다.
 
@@ -89,5 +89,4 @@ ms.locfileid: "111422159"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [GPU 확장 설치](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux)<!--Temporary link until next one can be restored.-->
-<!-- Remove link while cmdlet is fixed. - [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
+[게스트 로그 수집 및 지원 패키지 만들기](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

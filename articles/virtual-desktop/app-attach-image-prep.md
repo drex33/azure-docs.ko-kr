@@ -6,16 +6,18 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f80d123a96a24ef9e9402cc2b142e94448468ea1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b3e33fecc1df930cf4fb01808b2a8400a210fce8
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745640"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707152"
 ---
 # <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 MSIX 이미지 준비
 
 MSIX 앱 연결은 MSIX 패키지의 앱을 사용자 세션에 동적으로 연결하는 데 사용할 수 있는 애플리케이션 계층화 솔루션입니다. MSIX 패키지 시스템은 운영 체제에서 앱을 분리하여 가상 머신에 대한 이미지를 더 쉽게 빌드할 수 있습니다. 또한 MSIX 패키지를 사용하면 사용자가 가상 머신에서 액세스할 수 있는 앱을 보다 세부적으로 제어할 수 있습니다. 마스터 이미지에서 앱을 분리하여 나중에 사용자에게 제공할 수도 있습니다.
+
+데스크톱 설치 프로그램(예: MSI, EXE, ClickOnce, App-V 또는 Script)을 MSIX로 변환하는 방법에 대한 지침은 [모든 데스크톱 설치 프로그램(MSI, EXE, ClickOnce 또는 App-V)에서 MSIX 패키지 만들기](/windows/msix/packaging-tool/create-app-package)에서 확인할 수 있습니다.
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>MSIX용 VHD 또는 VHDX 패키지 만들기
 
@@ -106,4 +108,4 @@ MSIX 패키지를 만든 후에는 결과 VHD, VHDX 또는 CIM 파일을 업로�
 다음은 도움이 될 수 있는 다른 문서입니다.
 
 - [MSIX 앱 연결 용어](app-attach-glossary.md)
-- [MSIX 앱 연결 FAQ](app-attach-faq.md)
+- [MSIX 앱 연결 FAQ](app-attach-faq.yml)

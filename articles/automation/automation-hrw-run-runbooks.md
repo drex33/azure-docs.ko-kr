@@ -3,15 +3,15 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용하여 로컬 데이터 센터 또는 기타 클라우드 공급자에 있는 머신에서 Runbook을 실행하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/27/2021
+ms.date: 08/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef4c688fbe41db046b77d45090d77200d1c782cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f27f9366b388c090ca689a2011c777973b8a894
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535626"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968056"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -21,13 +21,18 @@ Hybrid Runbook Worker에서 실행되도록 Runbook을 작성하는 경우, 해�
 
 ## <a name="plan-for-azure-services-protected-by-firewall"></a>방화벽으로 보호되는 Azure 서비스 계획
 
-[Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) 또는 [Azure SQL](../azure-sql/database/firewall-configure.md)에서 Azure Firewall을 사용하도록 설정하면 해당 서비스에 대한 Azure Automation Runbook의 액세스가 차단됩니다. Automation이 신뢰할 수 있는 서비스 목록에 포함되지 않기 때문에 신뢰할 수 있는 Microsoft 서비스를 허용하는 방화벽 예외가 사용하도록 설정된 경우에도 액세스가 차단됩니다. 방화벽을 사용하도록 설정한 경우에는 Hybrid Runbook Worker 및 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 통해서만 액세스할 수 있습니다.
+[Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) 또는 [Azure SQL](../azure-sql/database/firewall-configure.md)에서 Azure Firewall을 사용하도록 설정하면 해당 서비스에 대한 Azure Automation Runbook의 액세스가 차단됩니다. Automation이 신뢰할 수 있는 서비스 목록에 포함되어 있지 않기 때문에, 신뢰할 수 있는 Microsoft 서비스를 허용하는 방화벽 예외가 사용하도록 설정된 경우에도 액세스가 차단됩니다. 방화벽을 사용하도록 설정한 경우에는 Hybrid Runbook Worker 및 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 통해서만 액세스할 수 있습니다.
 
 ## <a name="plan-runbook-job-behavior"></a>Runbook 작업 동작 계획
 
 Azure Automation은 Azure 샌드박스에서 실행되는 작업과 다른 방식으로 Hybrid Runbook Worker에 대한 작업을 처리합니다. 장기 실행 Runbook의 경우 다시 시작할 수 있는 복원력이 있는지 확인해야 합니다. 작업 동작에 대한 자세한 내용은 [Hybrid Runbook Worker 작업](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)을 참조하세요.
 
-Hybrid Runbook Worker 작업은 Windows의 경우 로컬 **시스템** 계정으로 실행되고, Linux의 경우 **nxautomation** 계정으로 실행됩니다. Linux의 경우 **nxautomation** 계정에 Runbook 모듈이 저장된 위치에 대한 액세스 권한이 있는지 확인하세요. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때는 **nxautomation** 계정이 액세스 권한을 갖도록 `Scope` 매개 변수에 AllUsers를 지정하세요. Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/what-s-new-in-powershell-70)를 참조하세요.
+Hybrid Runbook Worker 작업은 Windows의 경우 로컬 **시스템** 계정으로 실행되고, Linux의 경우 **nxautomation** 계정으로 실행됩니다. Linux의 경우 **nxautomation** 계정에 Runbook 모듈이 저장된 위치에 대한 액세스 권한이 있는지 확인하세요. **nxautomation** 계정 액세스를 보장하려면 다음을 수행합니다.
+
+- [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용하는 경우 `Scope` 매개 변수에 `AllUsers`를 지정해야 합니다.
+- `pip install`, `apt install` 또는 Linux에 패키지를 설치하는 다른 방법을 사용하는 경우, 패키지가 모든 사용자에 대패 설치되었는지 확인하세요. 예: `sudo -H pip install <package_name>`.
+
+Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/what-s-new-in-powershell-70)를 참조하세요.
 
 ## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 
@@ -315,7 +320,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 gpg --clear-sign <runbook name>
 ```
 
-서명된 Runbook을 **<runbook name>.asc** 라고 합니다.
+서명된 Runbook을 **\<runbook name>.asc** 라고 합니다.
 
 이제 서명된 Runbook을 Azure Automation에 업로드하여 일반 Runbook처럼 실행할 수 있습니다.
 

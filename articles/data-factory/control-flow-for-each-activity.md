@@ -1,23 +1,26 @@
 ---
-title: Azure Data Factory의 ForEach 작업
-description: ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 컬렉션에 대한 반복 작업에 사용되며 특정 작업을 실행합니다.
+title: ForEach 작업
+titleSuffix: Azure Data Factory & Azure Synapse
+description: For Each 작업은 Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 반복 제어 흐름을 정의합니다. For Each 작업은 컬렉션을 반복하여 컬렉션의 각 항목에 대해 개별적으로 작업을 실행하는 데 사용됩니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 28c67640a65e44fb9c6d6791229796c614993fa1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 5325999fc844a23aeea3795527396709d2e7a730
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906299"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825082"
 ---
-# <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
+# <a name="foreach-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 ForEach 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
+ForEach 작업은 Azure Data Factory 또는 Synapse 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
 
 ## <a name="syntax"></a>Syntax
 속성은 이 문서의 뒷부분에서 설명합니다. 항목 속성은 컬렉션이며 컬렉션의 각 항목은 다음 구문에서처럼 `@item()`를 사용하여 참조합니다.  
@@ -70,13 +73,13 @@ ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. �
 -------- | ----------- | -------------- | --------
 name | for-each 작업의 이름입니다. | String | 예
 type | **ForEach** 로 설정되어야 합니다. | String | 예
-isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential** 이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
+isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 50개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential** 이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
 batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 동시성 상한이지만 for-each 작업이 항상 이 숫자에서 실행되는 것은 아닙니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
 Items | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | Yes
 활동 | 실행할 작업 | 작업 목록 | Yes
 
 ## <a name="parallel-execution"></a>병렬 실행
-**isSequential** 이 false로 설정된 경우 최대 20개의 동시 반복에서 병렬로 작업이 반복됩니다. 이 설정은 주의해서 사용해야 합니다. 동시 반복을 동일한 폴더의 다른 파일에 쓰는 것은 괜찮습니다. 동시 반복을 동시에 정확히 동일한 파일에 쓸 경우 오류가 발생할 가능성이 높습니다. 
+**isSequential** 이 false로 설정된 경우 최대 50개의 동시 반복에서 병렬로 작업이 반복됩니다. 이 설정은 주의해서 사용해야 합니다. 동시 반복을 동일한 폴더의 다른 파일에 쓰는 것은 괜찮습니다. 동시 반복을 동시에 정확히 동일한 파일에 쓸 경우 오류가 발생할 가능성이 높습니다. 
 
 ## <a name="iteration-expression-language"></a>반복 식 언어
 ForEach 작업에서 **items** 속성에 대해 반복될 배열을 제공합니다. `@item()`를 사용하여 ForEach 작업에서 단일 열거에 대해 반복합니다. 예를 들어 **항목** 이 배열: [1, 2, 3]인 경우 `@item()`는 첫 번째 반복에서 1, 두 번째 반복에서 2, 세 번째 반복에서 3을 반환합니다. `@range(0,10)`와 같은 식을 사용하여 0부터 9까지 10회 반복할 수도 있습니다.
@@ -487,7 +490,7 @@ ForEach 작업 및 제안된 해결 방법의 몇 가지 제한 사항은 다음
 | | |
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+지원되는 다른 제어 흐름 작업을 참조하세요. 
 
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)

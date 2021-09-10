@@ -10,14 +10,16 @@ ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af2293e9a9c5d3dcbed5dc737ad7785be9221913
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: af1aa7ceb0784b58f9878befeae7c6ee26742061
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673842"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696638"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets에 사용자 지정 스케일 인 정책 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일 확장 집합
 
 가상 머신 확장 집합 배포는 플랫폼 및 사용자 정의 사용자 지정 메트릭을 포함하여 메트릭 배열에 따라 확장 또는 축소할 수 있습니다. 스케일 아웃은 확장 집합 모델을 기반으로 새 가상 머신을 만들지만 실행 중인 가상 머신에는 스케일 인이 적용되며 확장 집합의 워크로드가 진화함에 따라 구성 및/또는 기능이 다를 수 있습니다. 
 

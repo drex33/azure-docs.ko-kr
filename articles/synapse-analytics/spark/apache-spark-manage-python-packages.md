@@ -9,12 +9,13 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: d440940d98b33ae5906fe5a4a112939682196e57
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1b69aed711100eead6e7669c7d57e2f8faac25ad
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467415"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539154"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark용 Python 라이브러리 관리
 
@@ -42,7 +43,7 @@ Spark 애플리케이션에 사용할 Python 라이브러리를 확인한 후에
 > [!IMPORTANT]
 > - 설치하는 패키지가 크거나 설치하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
 > - PySpark, Python, Scala/Java, .NET 또는 Spark 버전 변경은 지원되지 않습니다.
-> - PyPI, Conda-Forge 또는 기본 Conda 채널과 같은 외부 리포지토리에서 패키지를 설치하는 작업은 DEP 사용 작업 영역 내에서 지원되지 않습니다.
+> - PyPI, Conda-Forge 또는 기본 Conda 채널과 같은 외부 리포지토리에서 패키지를 설치하는 작업은 데이터 반출 방지 지원 작업 영역 내에서 지원되지 않습니다.
 
 ### <a name="install-python-packages"></a>Python 패키지 설치
 환경 사양 파일을 제공하여 PyPI 및 Conda-Forge 같은 리포지토리에서 Python 패키지를 설치할 수 있습니다. 
@@ -52,7 +53,7 @@ Spark 애플리케이션에 사용할 Python 라이브러리를 확인한 후에
 ##### <a name="pip-requirementstxt"></a>PIP requirements.txt
 *requirements.txt* 파일(`pip freeze` 명령에서 출력)을 사용하여 환경을 업그레이드할 수 있습니다. 풀이 업데이트되면 이 파일에 나열된 패키지가 PyPI에서 다운로드됩니다. 그런 다음 풀을 나중에 다시 사용할 수 있도록 전체 종속성이 캐시되어 저장됩니다. 
 
-다음 조각에서는 요구 사항 파일의 형식을 설명합니다. PyPI 패키지 이름은 정확한 버전과 함께 나열됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/reference/pip_freeze/) 참조 설명서에 설명된 형식을 따릅니다. 
+다음 조각에서는 요구 사항 파일의 형식을 설명합니다. PyPI 패키지 이름은 정확한 버전과 함께 나열됩니다. 이 파일은 [pip 고정](https://pip.pypa.io/en/stable/cli/pip_freeze/) 참조 설명서에 설명된 형식을 따릅니다. 
 
 이 예제에서는 특정 버전을 고정합니다. 
 ```

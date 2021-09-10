@@ -9,12 +9,12 @@ ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 2f92733fd440ebe9b9c6bc1c22de7c2bc8412599
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: aa745b9a5c19f45563b6fe30b80f67a776660d39
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464972"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272424"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션
 
@@ -37,7 +37,7 @@ ms.locfileid: "114464972"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
@@ -266,8 +266,8 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
     - 온-프레미스 머신에 대한 복제를 중지합니다.
     - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.
-1. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.
-1. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+1. [Azure VM에서 모든 Windows 정품 인증 문제를 확인하고 해결합니다.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. 호스트 이름, 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 1. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
 1. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
 1. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.

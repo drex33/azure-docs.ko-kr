@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 73e42ac1f076b67d31cbad0823ea63db40045c1e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 584e200beac484ea742d51341a9cb93f0cfc4a41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746036"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529133"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅 사용
 
@@ -47,6 +47,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 
 ```objc
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
 config 개체에서 인식기를 만들 수 있습니다. 이렇게 하면 모든 인식기에서 로깅을 사용할 수 있습니다.
@@ -141,6 +147,31 @@ self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.
 ```
 
 iOS 파일 시스템에 대한 자세한 내용은 [여기에서](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) 확인할 수 있습니다.
+
+## <a name="logging-with-multiple-recognizers"></a>여러 인식기를 사용하여 로깅
+
+로그 파일 출력 경로가 `SpeechRecognizer` 또는 기타 SDK 객체에 대한 구성 속성으로 지정되더라도 SDK 로깅은 개별 인스턴스의 개념이 없는 단일 *프로세스 전체* 기능입니다. 이를 `SpeechRecognizer` 생성자(또는 이와 유사한 것)가 해당 `SpeechConfig`에서 사용 가능한 속성 데이터로 정적 및 내부 "글로벌 로깅 구성" 루틴을 암시적으로 호출하는 것으로 생각할 수 있습니다.
+
+이는 예를 들어 6개의 병렬 인식기를 6개의 개별 파일에 동시에 출력하도록 구성할 수 없음을 의미합니다. 대신 생성된 최신 인식기는 구성 속성에 지정된 파일로 출력하도록 전역 로깅 인스턴스를 구성하고 모든 SDK 로깅은 해당 파일로 내보내집니다.
+
+이는 또한 로깅을 구성한 개체의 수명이 로깅 기간과 관련이 없음을 의미합니다. 로깅은 SDK 개체 릴리스에 대한 응답으로 중지되지 않으며 새 로깅 구성이 제공되지 않는 한 계속됩니다. 일단 시작되면 새 개체를 생성할 때 로그 파일 경로를 빈 문자열로 설정하여 프로세스 전체의 로깅을 중지할 수 있습니다.
+
+여러 인스턴스에 대한 로깅을 구성할 때 잠재적인 혼란을 줄이기 위해 실제 작업을 수행하는 개체에서 로깅 제어를 추상화하는 것이 유용할 수 있습니다. 도우미 루틴의 예:
+
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
+{
+    auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+    configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+    auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+    auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
+}
+
+void DisableSpeechSdkLogging()
+{
+    EnableSpeechSdkLogging("");
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

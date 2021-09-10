@@ -165,6 +165,8 @@
         - name: 공용 IP 주소가 없는 풀 만들기
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: 임시 OS 디스크 노드가 있는 풀 만들기
+          href: create-pool-ephemeral-os-disk.md
         - name: 풀과 함께 확장 사용
           href: create-pool-extensions.md
         - name: 관리되는 ID 구성

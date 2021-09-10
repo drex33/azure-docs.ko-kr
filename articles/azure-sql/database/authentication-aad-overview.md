@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 04/23/2020
-ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: vanto
+ms.date: 08/11/2021
+ms.openlocfilehash: 51494c02ea56c68945377b50869a1bad2be6718f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454297"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566740"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
 
@@ -152,6 +152,7 @@ Azure AD 서버 보안 주체(로그인)에 대해 지원되는 인증 방법은
 - SQL Database 또는 Azure Synapse의 서버에서는 언제든지 Azure AD 관리자를 하나만(사용자 한 명 또는 그룹 하나) 구성할 수 있습니다.
   - SQL Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)를 여러 개 만들 수 있습니다.
 - 서버에 대한 Azure AD 관리자만 Azure Active Directory 계정을 사용하여 서버 또는 관리되는 인스턴스에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.
+- 2,048개 이상의 Azure AD 보안 그룹의 멤버인 Azure AD 사용자와 서비스 주체(Azure AD 애플리케이션)는 SQL Database, Managed Instance, Azure Synapse의 데이터베이스에 로그인할 수 없습니다.
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
 - SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.
 - 버전 15.0.1부터 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 및 [bcp 유틸리티](/sql/tools/bcp-utility)는 다단계 인증을 사용하는 Active Directory 대화형 인증을 지원합니다.

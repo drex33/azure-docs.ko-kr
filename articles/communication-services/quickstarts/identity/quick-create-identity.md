@@ -3,18 +3,18 @@ title: 빠른 시작 - 테스트를 위해 신속하게 Azure Communication Serv
 titleSuffix: An Azure Communication Services quickstart
 description: Azure Portal의 ID 및 액세스 토큰 도구를 샘플과 함께 문제 해결을 위해 사용하는 방법을 알아봅니다.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 ms.author: manoskow
 ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 20984666878b94a914770b8afd17ad8f3fdd3ff1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d61fb99787bc2e934ce2f1abc9bedff0c21bc64d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481806"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251123"
 ---
 # <a name="quickstart-quickly-create-azure-communication-services-access-tokens-for-testing"></a>빠른 시작: 테스트를 위해 신속하게 Azure Communication Services 액세스 토큰 만들기
 
@@ -32,7 +32,11 @@ ms.locfileid: "114481806"
 
 액세스 토큰의 범위를 선택합니다. 없음, 1개 또는 여러 개를 선택할 수 있습니다. **생성** 을 클릭합니다.
 
-ID와 해당 사용자 액세스 토큰이 생성되는 것을 확인할 수 있습니다. 이 문자열을 복사하여 [샘플 앱](https://docs.microsoft.com/azure/communication-services/samples/overview)과 기타 테스트 시나리오에서 사용할 수 있습니다.
+![ID 및 액세스 토큰의 범위를 선택합니다.](../media/quick-create-identity-choose-scopes.png)
+
+ID와 해당 사용자 액세스 토큰이 생성되는 것을 확인할 수 있습니다. 이 문자열을 복사하여 [샘플 앱](../../samples/overview.md)과 기타 테스트 시나리오에서 사용할 수 있습니다.
+
+![ID 및 액세스 토큰이 생성되고 만료 날짜가 표시됩니다.](../media/quick-create-identity-generated.png)
 
 ## <a name="next-steps"></a>다음 단계
 

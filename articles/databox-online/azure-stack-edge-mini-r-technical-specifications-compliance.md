@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f57e7f25a9e34a88c9ae279083a2cf1d9be2ff1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8b2da6b75ec495fe96b0c65e312a91d0dd30a2d2
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099427"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091504"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Azure Stack Edge Mini R 기술 사양
 
@@ -138,10 +138,10 @@ Azure Stack Edge Mini R 디바이스에는 전원 공급 장치가 충전하는 
 
 |     사양             |     Description                                                          |
 |--------------------------------|--------------------------------------------------------------------------|
-|     온도 범위          |     0 ~ 43°C(작동)                                              |
+|     온도 범위          |     0 ~ 40°C(작동)                                              |
 |     Vibration                  |     MIL-STD-810 방법 514.7*<br> 프로시저 I CAT 4, 20                  |
 |     충격                      |     MIL-STD-810 방법 516.7*<br> 프로시저 IV, 로지스틱                 |
-|     고도                   |     작동: 1만 피트<br> 비작동: 4만 피트          |
+|     고도                   |     작동: 15,000피트<br> 비작동: 4만 피트          |
 
 **모든 참조는 MIL-STD-810G Change 1(2014)을 따릅니다.*
 

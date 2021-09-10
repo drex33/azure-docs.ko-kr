@@ -8,14 +8,16 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: c122907ffc43f8e7e108773330b64da8c6acd96e
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 588e32e2a531f08319a3120a99ca70048c4c24b2
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593673"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770413"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Image Builder는 GitHub 및 Azure Storage 등 다양한 위치에서 스크립트를 사용하거나 파일을 복사하도록 지원합니다. 해당 기능을 사용하려면 스크립트나 파일이 외부에서 Azure Image Builder에 액세스할 수 있어야 하지만, Azure Storage blob을 SAS 토큰을 사용하여 보호할 수 있습니다.
 
@@ -77,10 +79,10 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
+구독 ID에 대한 변수를 만듭니다.
 
 ```console
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 이미지와 스크립트 스토리지 둘 모두를 위한 리소스 그룹을 만듭니다.
@@ -102,7 +104,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName

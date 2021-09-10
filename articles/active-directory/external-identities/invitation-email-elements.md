@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc80c208b5a48a45b8c47d640dc381f5559c3d4d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 324b37931fff91779b8d25c744ae63671bae315c
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304769"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224313"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
@@ -40,7 +40,8 @@ ms.locfileid: "107304769"
 보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다. 이 패턴은 이메일이 invites@microsoft.com에서 제공되더라도 초대는 다른 조직에서 온 것이라는 것을 명확하게 해야 합니다. 형식은 Microsoft Invitations <invites@microsoft.com> 또는 &lt;tenantname&gt; <invites@microsoft.com>을 대신한 Microsoft Invitations입니다. 
 
 > [!NOTE]
-> 중국의 21Vianet에서 운영하는 Azure 서비스의 경우 발신자 주소는 Invites@oe.21vianet.com입니다.
+> 중국의 21Vianet에서 운영하는 Azure 서비스의 경우 발신자 주소는 Invites@oe.21vianet.com입니다.  
+> Azure AD Government의 경우 발신자 주소는 invites@azuread.us입니다.
 
 ### <a name="reply-to"></a>회신
 

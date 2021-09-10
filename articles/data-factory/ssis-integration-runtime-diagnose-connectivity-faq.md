@@ -2,17 +2,18 @@
 title: SSIS Integration Runtime에서 연결 진단 기능 사용
 description: 연결 진단 기능을 사용하여 SSIS Integration Runtime에서 연결 이슈를 해결합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
-ms.date: 06/07/2020
-ms.openlocfilehash: 1fb9a0c77a7cdc286c7c206d6eb33e43917ee719
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/21/2021
+ms.openlocfilehash: 1d501a461caab23fb45441473fda60e13c7e8334
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535946"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>SSIS Integration Runtime에서 연결 진단 기능 사용
 
@@ -101,6 +102,6 @@ SSIS Integration Runtime에서 SSIS(SQL Server Integration Services) 패키지�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [SSMS를 사용하여 Azure에 SSIS 프로젝트 배포](/sql/integration-services/ssis-quickstart-deploy-ssms)를 참조합니다.
-- [SSMS를 사용하여 Azure에서 SSIS 패키지 실행](/sql/integration-services/ssis-quickstart-run-ssms)
-- [Azure에서 SSIS 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)
+- [SSMS를 사용하여 SSIS 작업 마이그레이션](how-to-migrate-ssis-job-ssms.md)
+- [SSDT를 사용하여 Azure에서 SSIS 패키지 실행](how-to-invoke-ssis-package-ssdt.md)
+- [Azure에서 SSIS 패키지 예약](how-to-schedule-azure-ssis-integration-runtime.md)

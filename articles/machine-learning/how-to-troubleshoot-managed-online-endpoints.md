@@ -10,12 +10,13 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 8a68538657762417c5b6e23e455efa43fed0450a
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480948"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568104"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -33,9 +34,9 @@ Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)의 배
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * [Azure CLI](/cli/azure/install-azure-cli)
-* [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md).
+* [CLI(v2) 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)
 
 ## <a name="deploy-locally"></a>로컬로 배포
 
@@ -51,7 +52,7 @@ az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
 - Docker는 새 컨테이너 이미지를 빌드하거나 로컬 Docker 캐시에서 기존 이미지를 풀합니다. 기존 이미지가 사양 파일의 환경 부분과 일치하는 경우 해당 이미지가 사용됩니다.
 - Docker는 모델 및 코드 파일과 같은 탑재된 로컬 아티팩트로 새 컨테이너를 시작합니다.
 
-자세한 내용은 [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점에서 로컬 배포](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints)를 참조하세요.
+자세한 내용은 [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점에서 로컬 배포](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)를 참조하세요.
 
 ## <a name="get-container-logs"></a>컨테이너 로그 가져오기
 
@@ -96,6 +97,10 @@ az ml endpoint get-logs -h
 모델을 배포하기 전에 충분한 컴퓨팅 할당량이 있어야 합니다. 이 할당량은 구독, 작업 영역, SKU 및 지역별로 사용할 수 있는 가상 코어의 양을 정의합니다. 각 배포는 사용 가능한 할당량에서 차감하고 SKU 유형에 따라 삭제 후 다시 추가합니다.
 
 이를 완화할 수 있는 한 가지 방법은 사용되지 않은 배포를 삭제할 수 있는지 확인하는 것입니다. 또는 [할당량 증가 요청](./how-to-manage-quotas.md)을 제출할 수 있습니다.
+
+### <a name="err_1101-out-of-capacity"></a>ERR_1101: 용량 부족
+
+Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로비저닝하지 못했습니다. 나중에 다시 시도하거나 다른 지역에 배포해 보세요.
 
 ### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200: 사용자 컨테이너 이미지를 다운로드할 수 없음
 
@@ -150,6 +155,10 @@ az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
+### <a name="err_1350-unable-to-download-user-model-not-enough-space-on-the-disk"></a>ERR_1350: 사용자 모델을 다운로드할 수 없습니다. 디스크 공간이 부족합니다.
+
+이 문제는 모델의 크기가 사용 가능한 디스크 공간보다 큰 경우에 발생합니다. 더 많은 디스크 공간이 있는 SKU를 사용해 보세요.
+
 ### <a name="err_2100-unable-to-start-user-container"></a>ERR_2100: 사용자 컨테이너를 시작할 수 없음
 
 배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다.
@@ -196,8 +205,7 @@ REST 요청으로 관리형 온라인 엔드포인트에 액세스할 때 반환
 
 ## <a name="next-steps"></a>다음 단계
 
-배포에 대해 자세히 알아보세요.
-
-* [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)
-* [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)
+- [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)
+- [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)
+- [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-yaml-endpoint-managed-online.md)
 

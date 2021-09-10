@@ -3,18 +3,18 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790391"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537195"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -22,7 +22,7 @@ Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [A
 
 직접 파트너 및 간접 공급자의 경우 전역 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스하고 송장이 발부된 가격으로 비용을 관리할 수 있습니다.
 
-재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시되는 구독에 대한 소비 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 Azure RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
+재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시되는 각 개별 구독에 대한 소비 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 Azure RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
 
 고객은 CSP 파트너가 사용하도록 설정한 경우 Cost Management 기능을 사용할 수 있습니다.
 
@@ -167,7 +167,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
-파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)하고 데이터를 [CSV 및 PNG 파일](quick-acm-cost-analysis.md#download-usage-data)로 내보낼 수도 있습니다.
+파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)할 수도 있습니다.
 
 고객 테넌트의 구독에 액세스할 수 있는 Azure RBAC 사용자는 고객 테넌트의 구독에 대한 소매 비용을 분석하고, 보기를 저장하고, 데이터를 CSV 및 PNG 파일로 내보낼 수도 있습니다.
 

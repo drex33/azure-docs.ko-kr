@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689928"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835736"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -167,7 +167,10 @@ Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https:/
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-트윈 및 관계에 대한 업데이트 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용합니다. Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용하여 패치를 만들 수 있습니다. 다음은 예제입니다.
+>[!NOTE]
+> 이 예제에서는 기존 속성의 값을 대체하는 JSON 패치 `replace` 작업을 보여 줍니다. `add` 및 `remove`를 비롯하여 사용할 수 있는 JSON 패치 작업의 전체 목록은 [JSON 패치 작업](http://jsonpatch.com/#operations)을 참조하세요. 
+
+.NET SDK를 사용하여 코드 프로젝트에서 트윈을 업데이트하는 경우 Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용하여 JSON 패치를 만들 수 있습니다. 다음은 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

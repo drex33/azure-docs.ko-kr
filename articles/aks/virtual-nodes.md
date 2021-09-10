@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78be2edacdcf72a6274755413810fe1308510a79
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634450"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669127"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 만들기 및 가상 노드를 사용하도록 구성
 
@@ -23,7 +23,7 @@ AKS용 가상 노드 추가 항목은 오픈 소스 프로젝트인 [Virtual Kub
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-ACI가 VNET SKU를 지원하는 모든 지역은 가상 노드 배포를 지원합니다.
+ACI가 VNET SKU를 지원하는 모든 지역은 가상 노드 배포를 지원합니다. 자세한 내용은 [Azure 지역의 Azure Container Instances에 대한 리소스 가용성](../container-instances/container-instances-region-availability.md)을 참조하세요.
 
 각 지역에서 사용 가능한 CPU 및 메모리 SKU는 [Azure 지역 Azure Container Instances의 Azure Container Instances 리소스 가용성 - Linux 컨테이너 그룹](../container-instances/container-instances-region-availability.md#linux-container-groups)을 확인하세요.
 

@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2021
-ms.openlocfilehash: f7a44ae2033d75c81f80bc9a37e17ed8fe2786b2
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2b7392af7a00ec68ad263b7c930842714c94fe1d
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110501399"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967720"
 ---
 # <a name="quickstart-transform-data-using-apache-spark-job-definition"></a>빠른 시작: Apache Spark 작업 정의를 사용하여 데이터 변환
 
@@ -42,13 +42,13 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 Apache Spark 작업 정의 활동이 포함된 파이프라인을 만듭니다.
 
-1. **통합** 탭으로 이동합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘, [파이프라인]을 차례로 선택합니다.
+1. **통합** 탭으로 이동합니다. 파이프라인 헤더 옆의 더하기 아이콘을 선택한 다음, **파이프라인** 을 선택합니다.
 
      ![새 파이프라인 만들기](media/doc-common-process/new-pipeline.png)
 
 2. 파이프라인의 **속성** 설정 페이지에서 **이름** 에 **demo** 를 입력합니다.
 
-3. *활동* 창의 *Synapse* 아래에서 **Spark 작업 정의** 를 파이프라인 캔버스로 끌어다 놓습니다.
+3. **활동** 창의 **Synapse** 아래에서 **Spark 작업 정의** 를 파이프라인 캔버스로 끌어다 놓습니다.
 
      ![spark 작업 정의 끌기](media/quickstart-transform-data-using-spark-job-definition/drag-spark-job-definition.png)
 
@@ -61,7 +61,7 @@ Apache Spark 작업 정의를 만들면 Spark 작업 정의 캔버스로 자동�
 
 1. 캔버스에서 Spark 작업 정의 모듈을 선택합니다.
 
-2. 일반 탭에서 **이름** 으로 **sample** 을 입력합니다.
+2. **일반** 탭에서 **이름** 으로 **sample** 을 입력합니다.
 
 3. (옵션) 설명을 입력할 수도 있습니다.
 
@@ -81,9 +81,9 @@ Apache Spark 작업 정의를 만들면 Spark 작업 정의 캔버스로 자동�
 
 이 패널에서 실행할 Spark 작업 정의를 참조할 수 있습니다.
 
-* Spark 작업 정의 목록을 확장하면 기존 Apache Spark 작업 정의를 선택할 수 있습니다. 실행할 Spark 작업 정의를 참조하는 새 단추를 클릭하여 새 Apache Spark 작업 정의를 만들 수도 있습니다.
+* Spark 작업 정의 목록을 확장하면 기존 Apache Spark 작업 정의를 선택할 수 있습니다. 실행할 Spark 작업 정의를 참조하는 **신규** 단추를 클릭하여 새 Apache Spark 작업 정의를 생성할 수도 있습니다.
 
-* **새로 만들기** 단추를 클릭하여 명령줄 인수를 추가할 수 있습니다. 이렇게 하면 Spark 작업 정의에 의해 정의된 명령줄 인수가 다시 정의됩니다. <br> *샘플: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* **새로 만들기** 단추를 클릭하여 명령줄 인수를 추가할 수 있습니다. 명령줄 인수를 추가하면 Spark 작업 정의에 의해 정의된 명령줄 인수가 다시 정의됩니다. <br> *샘플: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![spark 작업 정의 파이프라인 설정](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 

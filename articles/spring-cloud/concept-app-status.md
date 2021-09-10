@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud의 앱 상태
 description: Azure 스프링 클라우드의 앱 상태 범주에 대해 알아봅니다.
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 93ceb1f006b39ebaae95bb77fd3fcb474e006eb9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2ab7e8b548df93c5b28a3265e71ff383765bcd0d
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878700"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567524"
 ---
 # <a name="app-status-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 상태
 
@@ -21,14 +21,14 @@ ms.locfileid: "104878700"
 Azure 스프링 클라우드 UI는 실행중인 애플리케이션의 상태에 대한 정보를 제공합니다.  애플리케이션 유형의 일반적인 상태를 표시하는 구독에서 각 리소스 그룹에 대한 **앱** 옵션이 있습니다.  각 애플리케이션 유형에 대해 **애플리케이션 인스턴스** 를 표시합니다.
 
 ## <a name="apps-status"></a>앱 상태
+
 애플리케이션 유형의 일반적인 상태를 보려면 리소스 그룹의 왼쪽 탐색 창에서 **앱** 을 선택합니다. 결과는 배포된 앱의 상태를 표시합니다.
 
 * **프로비전 상태** 는 배포의 프로비전 상태를 표시합니다.
 * **실행 중인 인스턴스** 는 실행 중인 앱 인스턴스의 수/필요한 앱 인스턴스의 수를 표시합니다. 애플리케이션을 중지해야 하는 경우 이 열에 *중지됨* 이 표시됩니다.
 * **등록된 인스턴스** 는 Eureka에 등록된 앱 인스턴스의 수/필요한 앱 인스턴스의 수를 표시합니다. 애플리케이션을 중지해야 하는 경우 이 열에 *중지됨* 이 표시됩니다.
 
-
- ![앱 상태](media/spring-cloud-concept-app-status/apps-ui-status.png)
+![앱 상태](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
 **배포 상태는 다음 값 중 하나로 보고됩니다.**
 
@@ -49,11 +49,12 @@ Azure 스프링 클라우드 UI는 실행중인 애플리케이션의 상태에 
 
 ## <a name="app-instances-status"></a>앱 인스턴스 상태
 
-배포된 앱의 특정 인스턴스 상태를 보려면 **앱** UI에서 앱의 **이름** 을 클릭합니다. 결과는 다음과 같이 표시됩니다.
+배포된 앱의 특정 인스턴스 상태를 보려면 **앱** UI에서 앱의 **이름** 을 선택합니다. 결과는 다음과 같이 표시됩니다.
+
 * **상태**: 인스턴스가 실행 중인지 또는 해당 상태인지 여부
 * **DiscoveryStatus**: Eureka 서버에서 앱 인스턴스의 등록된 상태입니다.
 
- ![앱 인스턴스 상태](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
+![앱 인스턴스 상태](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
 **인스턴스 상태는 다음 값 중 하나로 보고됩니다.**
 
@@ -72,6 +73,6 @@ Azure 스프링 클라우드 UI는 실행중인 애플리케이션의 상태에 
 | OUT_OF_SERVICE | 앱 인스턴스가 Eureka에 등록되어 있으며 트래픽을 받을 수 있습니다. 그러나 의도적으로 트래픽을 종료합니다. |
 | 아래로 | 앱 인스턴스가 Eureka에 등록되어 있지 않거나 등록되어 있지만 트래픽을 수신할 수 없습니다. |
 
-
 ## <a name="see-also"></a>참고 항목
+
 * [Azure Spring Cloud에서 배포용 Spring이나 Steeltoe 애플리케이션 준비](how-to-prepare-app-deployment.md)

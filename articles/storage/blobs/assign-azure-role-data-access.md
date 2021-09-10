@@ -6,37 +6,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b417bff98b7e48154c96ede973a8b8bc7256f128
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 34c3f19ebb48bef3ece00b6413af2c1d7e585cf5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984575"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566836"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Blob 데이터에 액세스하기 위한 Azure 역할 할당
 
-Azure AD(Azure Active Directory)는 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 통해 보안 리소스에 대한 액세스 권한을 부여합니다. Azure Storage는 컨테이너에 액세스하는 데 사용되는 일반 권한 집합을 포함하는 Azure 기본 제공 역할의 집합을 정의합니다.
+Azure AD(Azure Active Directory)는 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 통해 보안 리소스에 대한 액세스 권한을 부여합니다. Azure Storage는 Blob 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure 기본 제공 역할 집합을 정의합니다.
 
-Azure AD 보안 주체에 Azure 역할을 할당하는 경우 Azure는 해당 보안 주체의 해당 리소스에 대한 액세스 권한을 부여합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 사용자 또는 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+Azure AD 보안 주체에 Azure 역할을 할당하는 경우 Azure는 해당 보안 주체의 해당 리소스에 대한 액세스 권한을 부여합니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 사용자 또는 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-이 문서에서는 Blob에 대한 데이터 액세스를 위해 Azure 역할을 할당하는 방법을 보여 줍니다.
+Azure AD를 사용하여 Blob 데이터에 대한 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [Azure Active Directory 사용하여 Blob에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조하세요.
 
-## <a name="azure-roles-for-blobs"></a>Blob를 위한 Azure 역할
-
-[!INCLUDE [storage-auth-rbac-roles-blob-include](../../../includes/storage-auth-rbac-roles-blob-include.md)]
-
-## <a name="determine-resource-scope"></a>리소스 범위 결정
-
-[!INCLUDE [storage-auth-resource-scope-blob-include](../../../includes/storage-auth-resource-scope-blob-include.md)]
+> [!NOTE]
+> 이 문서에서는 스토리지 계정의 Blob 데이터에 액세스하기 위해 Azure 역할을 할당하는 방법을 보여줍니다. Azure Storage 관리 작업에 대한 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Storage 리소스 공급자를 사용하여 관리 리소스에 액세스](../common/authorization-resource-provider.md)를 참조하세요.
 
 ## <a name="assign-an-azure-role"></a>Azure 역할 할당
 
-Azure Portal, PowerShell 또는 Azure CLI를 사용하여 데이터 액세스에 대한 역할을 할당할 수 있습니다.
+Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿을 사용하여 데이터 액세스에 대한 역할을 할당할 수 있습니다.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -62,7 +57,7 @@ Azure AD 자격 증명으로 Azure Portal을 사용하려면 사용자에게 **�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Azure 역할을 보안 주체에 할당하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 호출합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다.
+PowerShell을 사용하여 Azure 역할을 보안 주체에 할당하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 호출합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다.
 
 컨테이너에 범위가 지정된 역할을 할당하려면 `--scope` 매개 변수의 컨테이너 범위를 포함하는 문자열을 지정합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
@@ -82,7 +77,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure 역할을 보안 주체에 할당하려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다.
+Azure CLI를 사용하여 Azure 역할을 보안 주체에 할당하려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다.
 
 컨테이너에 범위가 지정된 역할을 할당하려면 `--scope` 매개 변수의 컨테이너 범위를 포함하는 문자열을 지정합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
@@ -101,12 +96,17 @@ az role assignment create \
 
 구독, 리소스 그룹 또는 스토리지 계정 범위에서 PowerShell을 사용하여 역할을 할당하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-cli.md)을 참조하세요.
 
+# <a name="template"></a>[템플릿](#tab/template)
+
+Azure Resource Manager 템플릿을 사용하여 Azure 역할을 할당하는 방법을 알아보려면, [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조하세요.
+
 ---
 
 Azure Storage의 Azure 역할 할당에 대한 다음 사항에 유의하세요.
 
 - Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지 않습니다. Azure Storage에 Azure 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너 수준으로 지정할 수 있습니다.
 - 스토리지 계정이 Azure Resource Manager 읽기 전용 잠금으로 잠긴 경우, 잠금으로 인해 스토리지 계정 또는 컨테이너로 범위가 지정된 Azure 역할을 할당할 수 없습니다.
+- Azure AD를 통해 데이터에 액세스할 수 있는 적절한 허용 권한을 설정했으며 데이터에 액세스할 수 없는 경우, "AuthorizationPermissionMismatch" 오류가 발생합니다. Azure AD에서 변경한 사용 권한을 복제하는 데 충분한 시간을 허용하고 액세스를 차단하는 거부 할당이 없는지 확인해야 합니다. [Azure 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

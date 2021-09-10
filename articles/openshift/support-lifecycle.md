@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/06/2021
-ms.openlocfilehash: 22ae9bdbee4b9d6f66d08d0e3ffc37675bc5d3da
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/16/2021
+ms.openlocfilehash: 17cf2b839a3673477b651084f52475f9ade47b39
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143560"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289588"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4 지원 수명 주기
 
@@ -97,10 +97,10 @@ Azure Red Hat OpenShift SRE 팀은 사전 공지 없이 프로덕션 환경에 �
 
 |OCP 버전|업스트림 릴리스|Azure Red Hat OpenShift 일반 공급|수명 종료|
 |-|-|-|-|
-|4.3|2020년 1월|2020년 4월| 2020년 8월|
 |4.4.|2020년 5월|2020년 7월|4.6 GA|
 |4.5.|2020년 7월| 2020년 11월|4.7 GA
 |4.6|2020년 10월| 2021년 2월|4.8 GA|
+|4.7|2021년 2월| 2021년 7월|4.9 GA|
 
 ## <a name="faq"></a>FAQ
 

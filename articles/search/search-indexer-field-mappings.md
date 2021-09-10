@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: e1af69db6f70d5a6a977c6e3fa715e84cbc2673b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99430448"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528650"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용한 필드 매핑 및 변환
 
@@ -28,8 +28,10 @@ Azure Cognitive Search 인덱서를 사용할 때 입력 데이터가 대상 인
 * 두 개 이상의 데이터 원본에 있는 데이터를 사용하여 인덱스 필드를 채우려고 합니다. 데이터 원본은 각각 다른 필드 이름을 사용합니다.
 * 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수** 를 지원합니다.
 
+인덱서의 필드 매핑은 경량 데이터 변환 기능을 사용하여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡한 데이터는 인덱싱이 용이한 형식으로 변형하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](../data-factory/index.yml)입니다.
+
 > [!NOTE]
-> 인덱서의 필드 매핑은 경량 데이터 변환 기능을 사용하여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡한 데이터는 인덱싱이 용이한 형식으로 변형하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](../data-factory/index.yml)입니다.
+> 필드 매핑은 검색 인덱스에만 적용됩니다. [정보 저장소](knowledge-store-concept-intro.md)를 생성하는 인덱서의 경우, 필드 매핑이 무시됩니다.
 
 ## <a name="set-up-field-mappings"></a>필드 매핑 설정
 

@@ -4,12 +4,12 @@ description: 최신 릴리스 정보, 버전, 알려진 문제 및 예정된 변
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea44366dd88ae1b98865727c9a3d3e038c924120
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94335029"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642097"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Azure Blockchain Service의 새로운 기능
 
@@ -22,6 +22,10 @@ Azure Blockchain Service는 지속적으로 향상되고 있습니다. 최신 �
 - 알려진 문제
 
 ---
+
+## <a name="may-2021"></a>2021년 5월
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="june-2020"></a>2020년 6월
 
@@ -73,7 +77,7 @@ Quorum v2.6.0에서 추가 *값* 매개 변수를 제공하지 않고 *eth.estim
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>유효성 검사기 노드가 4개 미만이면 채굴이 중지됩니다.
 
-프로덕션 네트워크에는 최소 4개의 유효성 검사기 노드가 있어야 합니다. Quorum은 IBFT 크래시 내 결함성(3F+1)을 충족하기 위해 최소 4개의 유효성 검사기 노드가 필요하다고 권장합니다. 4개의 유효성 검사기 노드를 얻으려면 Azure Blockchain Service *표준* 계층 노드가 2개 이상 있어야 합니다. 표준 노드는 두 개의 유효성 검사기 노드로 프로비저닝됩니다.  
+프로덕션 네트워크에는 최소 4개의 유효성 검사기 노드가 있어야 합니다. Quorum은 IBFT 크래시 내 결함성(3F+1)을 충족하기 위해 최소 4개의 유효성 검사기 노드가 필요하다고 권장합니다. 4개의 유효성 검사기 노드를 얻으려면 Azure Blockchain Service *표준* 계층 노드가 2개 이상 있어야 합니다. 표준 노드는 두 개의 유효성 검사기 노드로 프로비저닝됩니다.
 
 Azure Blockchain Service의 블록체인 네트워크에 4개의 유효성 검사기 노드가 없으면 네트워크에서 채굴이 중지될 수 있습니다. 처리된 블록에 대한 경고를 설정하여 채굴이 중지된 것을 감지할 수 있습니다. 정상 네트워크에서 처리된 블록은 5분마다 노드당 60블록으로 처리됩니다.
 
@@ -97,7 +101,7 @@ geth 크래시를 식별하기 위해 애플리케이션 로그의 블록체인 
 
 문제를 완화하려면 계정 잠금을 해제하는 명령을 사용하여 서명되지 않은 트랜잭션을 보내는 대신 서명된 트랜잭션을 보냅니다. 이미 외부에서 서명된 거래의 경우 계정을 잠금 해제할 필요가 없습니다.
 
-서명되지 않은 트랜잭션을 보내려면 잠금 해제 명령에서 시간 매개 변수로 0을 전송하여 무한 시간 동안 계정을 잠금 해제합니다. 모든 트랜잭션이 전송된 후에 다시 계정을 잠글 수 있습니다.  
+서명되지 않은 트랜잭션을 보내려면 잠금 해제 명령에서 시간 매개 변수로 0을 전송하여 무한 시간 동안 계정을 잠금 해제합니다. 모든 트랜잭션이 전송된 후에 다시 계정을 잠글 수 있습니다.
 
 다음은 Azure Blockchain Service에서 사용하는 geth 매개 변수입니다. 이 매개 변수는 조정할 수 없습니다.
 

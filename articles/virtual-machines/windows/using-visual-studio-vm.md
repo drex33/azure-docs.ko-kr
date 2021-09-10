@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: b37c8bde959822dfcb1b3db2ec96b377217d2bfc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: de2c782b7b311256e287f49f931ed6ab1de09c55
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138214"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688539"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
+**:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
+
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
 
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).

@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365283ebc45c0f85a56d27d4cc90807de9a88fb4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529010"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768907"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -575,7 +575,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 **사용자가 브라우저 확장에서 앱을 열 수 있도록 합니다.**
 
-사용자는 [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox](https://addons.mozilla.org/firefox/addon/access-panel-extension/) 또는 [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab)에서 [MyApps 보안 로그인 확장을 다운로드](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab)할 수 있으며 브라우저 표시줄에서 바로 앱을 시작할 수 있습니다.
+사용자는 [Chrome](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) 또는 [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab)에서 [MyApps 보안 로그인 확장을 다운로드](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab)할 수 있으며, 브라우저 표시줄에서 바로 앱을 시작할 수 있습니다.
 
 - **앱을 검색하고 가장 최근에 사용된 앱을 표시하도록 합니다.**
 
@@ -623,7 +623,7 @@ Azure AD는 마이그레이션된 앱을 관리하는 중앙 액세스 위치를
 
 수많은 [배포 계획](../fundamentals/active-directory-deployment-plans.md)을 사용할 수 있으며, 점점 더 다양해질 것입니다.
 
-### <a name="contact-support"></a>지원에 문의
+### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
 
 지원 티켓을 만들거나 추적하고 상태를 모니터링하려면 다음 지원 링크를 방문하세요.
 

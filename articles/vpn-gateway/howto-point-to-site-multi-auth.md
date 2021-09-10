@@ -6,24 +6,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8141d44aa4da394726d8c45a1f8514bdcaac09aa
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f3a19958770e157ed31dc3104331bcf5f860041d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229381"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719600"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>여러 인증 유형을 사용하여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
 
 이 문서는 Windows, Linux 또는 macOS를 실행하는 개별 클라이언트를 Azure VNet에 안전하게 연결하는 데 도움이 됩니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. 또한 VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우 사이트 간 VPN 대신 P2S를 사용할 수도 있습니다. P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol) 또는 IKEv2를 통한 VPN 연결을 만듭니다. 지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="컴퓨터에서 Azure VNet-지점 및 사이트 간 연결로의 연결을 보여 주는 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="컴퓨터에서 Azure VNet-지점-사이트 간 연결로의 연결을 보여 주는 다이어그램":::
 
-지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요. Azure PowerShell을 사용하여 해당 구성을 만들려면 [Azure PowerShell을 사용하여 지점 및 사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
+지점 및 사이트 간 VPN에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요. Azure PowerShell을 사용하여 해당 구성을 만들려면 [Azure PowerShell을 사용하여 지점-사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 
@@ -41,7 +41,8 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **리소스 그룹:** TestRG1
 * **위치:** 미국 동부
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **가상 네트워크 게이트웨이 이름:** VNet1GW
+* **SKU:** VpnGw2
+* **세대:** 2세대
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
 * **공용 IP 주소 이름:** VNet1GWpip
@@ -66,13 +67,18 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다. 종종 게이트웨이에서 완전히 만들고 배포하는 데 45분 이상 걸릴 수 있습니다. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="client-address-pool"></a><a name="addresspool"></a>클라이언트 주소 풀
 
 클라이언트 주소 풀은 사용자가 지정한 개인 IP 주소 범위입니다. 지점 및 사이트 간 VPN을 통해 연결하는 클라이언트는 동적으로 이 범위의 IP 주소를 수신합니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다. 여러 프로토콜을 구성하고 SSTP가 프로토콜 중 하나인 경우 구성된 주소 풀이 구성된 프로토콜 간에 동일하게 분할됩니다.
 
-1. 가상 네트워크 게이트웨이가 생성된 후에는 가상 네트워크 게이트웨이 페이지의 **설정** 섹션으로 이동합니다. **설정** 에서 **지점 및 사이트 간 구성** 을 선택합니다. **지금 구성** 을 선택하여 구성 페이지를 엽니다.
+1. 가상 네트워크 게이트웨이가 생성된 후에는 가상 네트워크 게이트웨이 페이지의 **설정** 섹션으로 이동합니다. **설정** 에서 **지점-사이트 간 구성** 을 선택합니다. **지금 구성** 을 선택하여 구성 페이지를 엽니다.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="지점 및 사이트 간 구성 페이지 스크린샷" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
 1. **지점 및 사이트 간 구성** 페이지에서 다양한 설정을 구성할 수 있습니다. **주소 풀** 상자에 사용하려는 개인 IP 주소 범위를 추가합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. 최소 서브넷 마스크는 활성/수동 구성의 경우 29비트이고 활성/활성 구성의 경우 28비트입니다.
@@ -83,7 +89,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ## <a name="authentication-and-tunnel-types"></a><a name="type"></a>인증 및 터널 종류
 
-이 섹션에서는 인증 유형과 터널 종류를 구성합니다. **지점 및 사이트 간 구성** 페이지에서 **터널 종류** 또는 **인증 유형** 이 표시되지 않으면 게이트웨이에서 기본 SKU를 사용하고 있는 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다. 해당 설정을 사용하려면 다른 게이트웨이 SKU를 사용하여 게이트웨이를 삭제하고 다시 만들어야 합니다.
+이 섹션에서는 인증 유형과 터널 종류를 구성합니다. **지점-사이트 간 구성** 페이지에서 **터널 종류** 또는 **인증 유형** 이 표시되지 않으면 게이트웨이에서 기본 SKU를 사용하고 있는 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다. 해당 설정을 사용하려면 다른 게이트웨이 SKU를 사용하여 게이트웨이를 삭제하고 다시 만들어야 합니다.
 
    :::image type="content" source="./media/howto-point-to-site-multi-auth/multiauth.jpg" alt-text="인증 유형 스크린샷":::
 
@@ -118,7 +124,7 @@ VPN 클라이언트 구성 파일을 생성하고 설치하는 방법에 대한 
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>지점 및 사이트 간 FAQ
 
-이 섹션에는 지점 및 사이트 간 구성과 관련된 FAQ 정보가 포함되어 있습니다. VPN Gateway에 대한 추가 정보는 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조할 수 있습니다.
+이 섹션에는 지점-사이트 간 구성과 관련된 FAQ 정보가 포함되어 있습니다. VPN Gateway에 대한 추가 정보는 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조할 수 있습니다.
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

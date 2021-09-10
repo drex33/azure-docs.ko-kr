@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: ae041bd8780524d24c360412232ec77ae60aa3c4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884717"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607132"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -34,7 +34,7 @@ ms.locfileid: "107884717"
 
 필요한 사항:
 
-- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 - [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
 
@@ -171,16 +171,8 @@ dataprep_step = PythonScriptStep(
     )
 ```
 
-실행이 끝날 때 `OutputFileDatasetConfig` 개체의 콘텐츠를 업로드하도록 선택할 수 있습니다. 이 경우에는 `OutputFileDatasetConfig` 개체와 함께 `as_upload()` 함수를 사용하고 대상에 있는 기존 파일을 덮어쓸지 여부를 지정합니다. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
-```
-
 > [!NOTE]
-> `OutputFileDatasetConfig`에 대한 동시 쓰기가 실패하게 됩니다. 단일 `OutputFileDatasetConfig`를 동시에 사용하지 않아야 합니다. 분산 학습을 사용하는 경우와 같이 다중 처리 상황에서는 단일 `OutputFileDatasetConfig`를 공유하지 않도록 합니다. 
+> `OutputFileDatasetConfig`에 대한 동시 쓰기가 실패하게 됩니다. 단일 `OutputFileDatasetConfig`를 동시에 사용하지 않아야 합니다. [분산 학습](how-to-train-distributed-gpu.md)을 사용하는 경우와 같이 다중 처리 상황에서는 단일 `OutputFileDatasetConfig`를 공유하지 않도록 합니다. 
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>학습 단계의 출력으로 `OutputFileDatasetConfig` 사용
 

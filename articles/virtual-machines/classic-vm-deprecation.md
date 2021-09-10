@@ -9,16 +9,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 2fb710bab03d595d6e54bc8dd8fbda38c57123e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69a0a856c501675c64b486f2104c4603b3472324
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668193"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687677"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>IaaS 리소스를 2023년 3월 1일까지 Azure Resource Manager로 마이그레이션합니다. 
 
-2014년에 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에서 IaaS(서비스로써의 인프라)를 시작했습니다. 그때부터 계속해서 기능을 발전해 왔습니다. 이제 Azure Resource Manager가 모든 IaaS 기능과 기타 고급 기능을 갖추고 있기 때문에 [ASM](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic)(Azure Service Manager)을 통한 IaaS VM(가상 머신)의 관리는 2020년 2월 28일부로 사용되지 않습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다. 
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VM
+
+2014년에 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에서 IaaS(서비스로써의 인프라)를 시작했습니다. 그때부터 계속해서 기능을 발전해 왔습니다. 이제 Azure Resource Manager가 모든 IaaS 기능과 기타 고급 기능을 갖추고 있기 때문에 [ASM](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic)(Azure Service Manager)을 통한 IaaS VM(가상 머신)의 관리는 2020년 2월 28일부로 사용되지 않습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다. 
 
 현재 IaaS VM의 90%가량이 Azure Resource Manager를 사용하고 있습니다. ASM을 통해 IaaS 리소스를 사용하고 계시다면 이제 마이그레이션 계획을 시작하세요. [Azure Resource Manager](../azure-resource-manager/management/index.yml)를 활용하려면 2023년 3월 1일까지 이를 완료하세요.
 
@@ -56,7 +58,7 @@ ms.locfileid: "101668193"
    - 플래그가 지정된 VM(클래식) 전체 목록 및 선택된 구독 관련 정보를 확인하기 위해 [포털](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22)이나 [PowerShell](../governance/resource-graph/concepts/work-with-data.md)을 사용하여 Azure Resource Graph에 쿼리할 수도 있습니다. 
    - 구독 중인 고객들에게 2020년 2월 8일과 9월 2일에 "IaaS VM을 Azure Resource Manager로 마이그레이션 하기 위한 계획을 시작하세요"라는 제목의 메일을 보냈습니다. 메일을 통해 전체 구독 목록 및 포함된 VM(클래식) VM을 제공했습니다. 목록 작성에 사용하세요. 
 
-1. [Linux](./migration-classic-resource-manager-plan.md) 및 [Windows](./migration-classic-resource-manager-plan.md) VM(클래식)을 Azure Resource Manager로 마이그레이션하는 데 대해 [자세히 알아보세요](./migration-classic-resource-manager-overview.md). 자세한 내용은 [클래식에서 Azure Resource Manager로의 마이그레이션 관련 자주 묻는 질문](./migration-classic-resource-manager-faq.md)을 확인하세요.
+1. [Linux](./migration-classic-resource-manager-plan.md) 및 [Windows](./migration-classic-resource-manager-plan.md) VM(클래식)을 Azure Resource Manager로 마이그레이션하는 데 대해 [자세히 알아보세요](./migration-classic-resource-manager-overview.md). 자세한 내용은 [클래식에서 Azure Resource Manager로의 마이그레이션 관련 자주 묻는 질문](./migration-classic-resource-manager-faq.yml)을 확인하세요.
 
 1. 계획을 시작할 때는 [플랫폼 지원 마이그레이션 도구](./migration-classic-resource-manager-overview.md)를 활용하여 기존의 VM을 마이그레이션할 때 유효성 검사, 준비, 커밋의 세 단계를 따라 손쉽게 진행할 수 있도록 하는 것이 좋습니다. 해당 도구는 가동 중지 시간이 거의 없도록 VM을 마이그레이션할 수 있게 설계되었습니다. 
 
@@ -66,6 +68,6 @@ ms.locfileid: "101668193"
 
    마이그레이션 도구가 마이그레이션에 적합하지 않은 경우, 마이그레이션을 위해 [기타 컴퓨팅 제품](/azure/architecture/guide/technology-choices/compute-decision-tree)을 살펴볼 수 있습니다. Azure Compute는 제품군이 다양하므로 이들에 대해 플랫폼에서 지원하는 마이그레이션 경로를 제공할 수는 없습니다.  
 
-1. 허용 목록에 구독을 추가하는 것과 관련된 기술 관련 질문, 문제, 도움말을 확인하려면 [고객 지원팀에 문의하세요](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+1. 허용 목록에 구독을 추가하는 것과 관련된 기술 관련 질문, 문제, 도움말을 확인하려면 [고객 지원팀에 문의](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"})하세요.
 
-1. 마이그레이션을 최대한 빨리 완료하여 사업에 미치는 영향을 막고 Azure Resource Manager의 향상된 성능, 보안 및 새로운 기능을 활용하세요. 
+1. 마이그레이션을 최대한 빨리 완료하여 사업에 미치는 영향을 막고 Azure Resource Manager의 향상된 성능, 보안 및 새로운 기능을 활용하세요.

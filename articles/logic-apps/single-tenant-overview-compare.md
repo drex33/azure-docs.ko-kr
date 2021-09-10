@@ -1,17 +1,17 @@
 ---
-title: 개요 - 단일 테넌트 Azure Logic Apps
+title: 단일 테넌트 대 다중 테넌트 Azure Logic Apps
 description: Azure Logic Apps에서 단일 테넌트, 다중 테넌트 및 ISE(통합 서비스 환경) 사이의 차이점을 알아봅니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 08/18/2021
+ms.openlocfilehash: 72e16387901ee11b902c5b0bec34e1bd058ffc0c
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441243"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539587"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Azure Logic Apps의 단일 테넌트 및 다중 테넌트와 통합 서비스 환경
 
@@ -38,7 +38,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 ## <a name="logic-app-standard-resource"></a>논리 앱(표준) 리소스
 
-**논리 앱(표준)** 리소스 종류는 새롭게 설계된 단일 테넌트 Azure Logic Apps 런타임으로 구동됩니다. 컨테이너화된 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md)을 사용하며 Azure Functions 런타임에 확장으로 호스트됩니다. 이러한 설계는 논리 앱을 위한 이식성, 유연성 및 더 우수한 성능과 Azure Functions 플랫폼 및 Azure App Service 에코시스템에서 상속된 기타 기능 및 이점을 제공합니다.
+**논리 앱(표준)** 리소스 종류는 새롭게 설계된 단일 테넌트 Azure Logic Apps 런타임으로 구동됩니다. 이 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md)을 사용하며 Azure Functions 런타임에 확장으로 호스트됩니다. 이러한 설계는 논리 앱을 위한 이식성, 유연성 및 더 우수한 성능과 Azure Functions 플랫폼 및 Azure App Service 에코시스템에서 상속된 기타 기능 및 이점을 제공합니다.
 
 예를 들어 Azure 함수 앱 및 해당 함수를 실행할 수 있는 곳이라면 어디든지 단일 테넌트 기반 논리 앱 및 해당 워크플로를 실행할 수 있습니다. 표준 리소스 종류는 Azure 함수 앱이 여러 함수를 호스트하는 방법과 비슷하게 여러 워크플로를 호스트할 수 있는 리소스 구조를 도입합니다. 일대다 매핑을 통해 동일한 논리 앱 및 테넌트에서 워크플로가 컴퓨팅 및 처리 리소스를 공유하므로 근접성으로 인해 더 우수한 성능을 제공합니다. 이 구조는 논리 앱 리소스와 워크플로 간에 일대일 매핑되는 **Logic App(소비)** 리소스와 다릅니다.
 
@@ -55,7 +55,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 **논리 앱(표준)** 리소스 종류를 사용하여 논리 앱을 만들 때 단일 테넌트 서비스 환경뿐만 아니라 Azure 함수 앱 및 해당 함수를 실행할 수 있는 곳이라면 어디든지 워크플로를 실행할 수 있습니다.
 
-**Azure Logic Apps(표준)** 확장과 함께 Visual Studio Code를 사용하는 경우 Azure에 배포하지 않고도 개발 환경에서 워크플로를 *로컬로* 개발, 빌드 및 실행할 수 있습니다. 예를 들어, 시나리오에 컨테이너가 필요한 경우 논리 앱을 컨테이너화하고 컨테이너로 배포할 수 있습니다.
+**Azure Logic Apps(표준)** 확장과 함께 Visual Studio Code를 사용하는 경우 Azure에 배포하지 않고도 개발 환경에서 워크플로를 *로컬로* 개발, 빌드 및 실행할 수 있습니다. 시나리오에 컨테이너가 필요한 경우 [Azure Arc 지원 Logic Apps를 사용하여 단일 테넌트 기반 논리 앱을 만듭니다](azure-arc-enabled-logic-apps-create-deploy-workflows.md). 자세한 내용은 [Azure Arc 지원 Logic Apps란?](azure-arc-enabled-logic-apps-overview.md)을 검토하세요.
 
 이러한 기능은 Azure에서 기존의 실행 중인 리소스를 토대로 개발을 진행해야 하는 다중 테넌트 모델에 비해 크게 개선된 것으로 상당한 이점을 제공합니다. 또한 **Logic App(소비)** 리소스 배포를 자동화하기 위한 다중 테넌트 모델은 앱과 인프라 모두에 대한 리소스 프로비전을 결합하고 처리하는 ARM 템플릿(Azure Resource Manager 템플릿)을 완전한 기반으로 합니다.
 
@@ -95,7 +95,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 | Azure portal | **Logic App(소비)** 리소스 종류 | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 - Azure Portal](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [**Azure Logic Apps(사용량)** 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [**Logic Apps Azure CLI** 확장](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 관리 - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure 리소스 관리자 | [**논리 앱 만들기** ARM(Azure Resource Manager) 템플릿](https://azure.microsoft.com/resources/templates/logic-app-create/) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 배포 - ARM 템플릿](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure 리소스 관리자 | [**논리 앱 만들기** ARM 템플릿](https://azure.microsoft.com/resources/templates/logic-app-create/) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 배포 - ARM 템플릿](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az. LogicApp 모듈](/powershell/module/az.logicapp) | [Azure PowerShell 시작](/powershell/azure/get-started-azureps) |
 | Azure REST API | [Azure Logic Apps REST API](/rest/api/logic) | [Azure REST API 시작하기 참조](/rest/api/azure) |
 ||||
@@ -119,11 +119,14 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 * *상태 저장*
 
-  이전 이벤트의 데이터를 유지, 검토 또는 참조해야 하는 경우 상태 저장 워크플로를 만듭니다. 이러한 워크플로는 각 작업에 대한 입출력과 해당 상태를 외부 스토리지에 저장하므로, 각 실행이 완료된 후 실행 정보 및 기록을 검토할 수 있습니다. 상태 저장 워크플로는 중단이 발생할 때 높은 복원력을 제공합니다. 서비스 및 시스템이 복원된 후에는 저장된 상태로부터 중단된 실행을 다시 생성하고 워크플로를 다시 실행하여 완료할 수 있습니다. 상태 저장 워크플로는 상태 비저장 워크플로보다 훨씬 긴 시간 동안 계속해서 실행 가능합니다.
+  이전 이벤트의 데이터를 유지, 검토 또는 참조해야 하는 경우 상태 저장 워크플로를 만듭니다. 이 워크플로는 각 작업의 모든 입출력과 해당 상태를 외부 스토리지에 저장하고 전송하므로, 각 실행이 완료된 후 실행 세부 정보와 기록을 검토할 수 있습니다. 상태 저장 워크플로는 중단이 발생할 때 높은 복원력을 제공합니다. 서비스 및 시스템이 복원된 후에는 저장된 상태로부터 중단된 실행을 다시 생성하고 워크플로를 다시 실행하여 완료할 수 있습니다. 상태 저장 워크플로는 상태 비저장 워크플로보다 훨씬 긴 시간 동안 계속해서 실행 가능합니다.
 
 * *상태 비저장*
 
-  나중에 검토할 수 있도록 이전 이벤트의 데이터를 외부 스토리지에 저장하고 검토 또는 참조할 필요가 없는 경우에는 상태 비저장 워크플로를 만듭니다. 이러한 워크플로는 이 데이터를 외부 스토리지에 전송하는 대신 각 작업에 대한 입출력과 해당 상태를 *메모리에만* 저장합니다. 결과적으로 상태 비저장 워크플로는 실행 시간이 더 짧고(일반적으로 5분을 넘지 않음), 응답 시간이 더 짧아서 더욱 빠르고, 처리량이 더 많고, 실행 정보 및 기록을 외부 스토리지에 보관하지 않으므로 실행 비용이 절감됩니다. 그러나 중단이 발생하면 중단된 실행이 자동으로 복원되지 않으므로 호출자는 중단된 실행을 수동으로 다시 제출해야 합니다. 이러한 워크플로는 동기적으로만 실행할 수 있습니다.
+  나중에 검토할 수 있도록 각 실행이 완료된 후 외부 스토리지에서 이전 이벤트의 데이터를 유지, 검토 또는 참조할 필요가 없는 경우에는 상태 비저장 워크플로를 만듭니다. 이 워크플로는 외부 스토리지가 아니라 ‘메모리 내에만’ 각 작업의 모든 입출력과 해당 상태를 저장합니다. 결과적으로 상태 비저장 워크플로는 실행 시간이 더 짧고(일반적으로 5분 미만), 응답 시간이 더 짧아서 성능이 더욱 빠르고, 처리량이 더 많고, 실행 세부 정보와 기록이 외부 스토리지에 저장되지 않으므로 실행 비용이 절감됩니다. 그러나 중단이 발생하면 중단된 실행이 자동으로 복원되지 않으므로 호출자는 중단된 실행을 수동으로 다시 제출해야 합니다. 이러한 워크플로는 동기적으로만 실행할 수 있습니다.
+
+  > [!IMPORTANT]
+  > 상태 비저장 워크플로는 ‘총’ 크기가 64KB를 초과하지 않는 파일과 같은 데이터 또는 콘텐츠를 처리할 때 최상의 성능을 제공합니다. 여러 개의 큰 첨부 파일과 같이 콘텐츠 크기가 더 커지면 워크플로 성능이 크게 저하되거나 메모리 부족 예외로 인해 워크플로가 충돌할 수도 있습니다. 워크플로가 더 큰 콘텐츠 크기를 처리해야 하는 경우에는 상태 저장 워크플로를 대신 사용합니다.
 
   간편한 디버깅을 위해 상태 비저장 워크플로에 실행 기록을 사용하도록 설정하고, 모두 마친 후 실행 기록을 사용하지 않도록 설정할 수 있습니다. 실행 기록을 사용하면 성능에 약간의 영향이 있습니다. 자세한 내용은 [Visual Studio Code에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) 또는 [Azure Portal에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless)를 참조하세요.
 
@@ -179,20 +182,25 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
     제작 기능은 현재 Visual Studio Code에서만 사용할 수 있지만, 기본적으로 사용하도록 설정되어 있지 않습니다. 이러한 커넥터를 만들려면 [프로젝트를 확장 번들 기반(Node.js)에서 NuGet 패키지 기반(.NET)으로 변환](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)해야 합니다. 자세한 내용은 [어디서나 실행되는 Azure Logic Apps - 기본 제공 커넥터 확장성](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)을 참조하세요.
 
-  * 통합 계정 없이 Liquid 작업 및 XML 작업에 B2B 작업을 사용할 수 있습니다. 이러한 작업을 사용하려면 Liquid 맵, XML 맵 또는 XML 스키마가 필요하며, Azure Portal에서 각 작업을 통해 업로드하거나 각각 **Maps** 및 **Schemas** 폴더를 사용하여 Visual Studio Code 프로젝트의 **Artifacts** 폴더에 추가할 수 있습니다.
+  * 통합 계정 없이 Liquid 작업과 XML 작업에 다음 작업을 사용할 수 있습니다. 이 작업에는 다음 작업이 포함됩니다.
 
-  * Azure Logic Apps 서비스는 클라우드 연결 런타임 엔드포인트에 요청을 보내는 데 사용할 수 있는 SAS(공유 액세스 서명) 연결 문자열을 생성하기 때문에 **논리 앱(표준)** 을 어디서나 실행할 수 있습니다. Logic Apps 서비스는 Azure에 배포할 때 연결 문자열을 Azure Key Vault에 쉽게 저장할 수 있도록 연결 문자열을 다른 애플리케이션 함께 저장합니다.
+    * XML: **XML 변환**, **XML 유효성 검사**
+
+    * Liquid: **JSON 간 변환**, **JSON에서 텍스트로 변환**, **XML에서 JSON으로 변환**, **XML에서 텍스트로 변환**
+
+    > [!NOTE]
+    > 단일 테넌트 Azure Logic Apps(표준)에서 이 작업을 사용하려면 Liquid 맵, XML 맵 또는 XML 스키마가 있어야 합니다. **스키마** 및 **맵** 섹션이 포함된 **아티팩트** 아래 논리 앱 리소스 메뉴의 Azure Portal에서 이 아티팩트를 업로드할 수 있습니다. 또는 각 **Mpas** 및 **Schemas** 폴더를 사용하여 Visual Studio Code 프로젝트의 **Artifacts** 폴더에 이 아티팩트를 추가할 수 있습니다. 그런 다음, ‘동일한 논리 앱 리소스’ 내의 여러 워크플로에서 이 아티팩트를 사용할 수 있습니다.
+
+  * Azure Logic Apps는 클라우드 연결 런타임 엔드포인트에 요청을 보내는 데 사용할 수 있는 SAS(공유 액세스 서명) 연결 문자열을 생성하기 때문에 **논리 앱(표준)** 리소스를 어디서나 실행할 수 있습니다. Azure Logic Apps 서비스는 Azure에 배포할 때 관련 값을 Azure Key Vault에 쉽게 저장할 수 있도록 이 연결 문자열을 다른 애플리케이션과 함께 저장합니다.
 
     > [!NOTE]
     > 기본적으로 **논리 앱(표준)** 리소스에는 실행 시 연결을 인증하기 위해 자동으로 사용하도록 설정되는 [시스템이 할당한 관리 ID](../logic-apps/create-managed-service-identity.md)가 있습니다. 이 ID는 연결을 만들 때 사용하는 인증 자격 증명이나 연결 문자열과는 다릅니다. 이 ID를 사용하지 않도록 설정하면 실행 시 연결이 작동하지 않습니다. 이 설정을 보려면 논리 앱 메뉴의 **설정** 에서 **ID** 를 선택합니다.
-
-* 상태 비저장 워크플로는 메모리에서만 실행되므로 작업 간 실행 기록과 데이터가 외부 스토리지에 보관되지 않아 더 빠르게 완료되고, 더 빠르게 응답하고, 처리량이 더 많고, 실행 비용이 절감됩니다. 필요에 따라 용이한 디버깅을 위해 실행 기록을 사용할 수 있습니다. 자세한 내용은 [상태 저장 워크플로와 상태 비저장 워크플로의 차이점](#stateful-stateless)을 참조하세요.
 
 * Visual Studio Code 개발 환경에서 논리 앱 및 워크플로를 로컬로 실행, 테스트 및 디버그할 수 있습니다.
 
   논리 앱을 실행하고 테스트하기 전에 워크플로에 대한 **workflow.json** 파일 내에 중단점을 추가하고 사용하면 디버깅을 더 쉽게 수행할 수 있습니다. 하지만 현재는 트리거가 아닌 작업에만 중단점이 지원됩니다. 자세한 내용은 [Visual Studio Code에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints)를 참조하세요.
 
-* Visual Studio Code에서 Azure 및 컨테이너와 같은 다양한 호스팅 환경에 논리 앱 및 워크플로를 직접 게시하거나 배포합니다.
+* Visual Studio Code에서 Azure, Azure Arc 지원 Logic Apps 등의 다양한 호스팅 환경에 논리 앱과 워크플로를 직접 게시하거나 배포합니다.
 
 * Azure 구독 및 논리 앱 설정에서 지원하는 경우 [Application Insights](../azure-monitor/app/app-insights-overview.md)를 사용하여 논리 앱에 진단 로깅 및 추적 기능을 사용하도록 설정합니다.
 
@@ -230,11 +238,11 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
       >
       > 다중 테넌트 모델과 마찬가지로 이 키를 갱신하는 경우(예: 포털의 Azure Functions 환경을 통해) 잘못된 키로 인해 함수 작업이 더 이상 작동하지 않습니다. 이 문제를 해결하려면 호출하려는 함수에 대한 연결을 다시 만들거나 앱의 설정을 새 키로 업데이트해야 합니다.
 
-    * 기본 제공 [인라인 코드 동작의](logic-apps-add-run-inline-code.md) 이름이 **인라인 코드 작업으로** 바뀌었으며, 더 이상 통합 계정이 필요하지 않고, [제한 사항이 업데이트되었습니다.](logic-apps-limits-and-config.md)
+    * 기본 제공 작업 [인라인 코드](logic-apps-add-run-inline-code.md)의 이름이 **인라인 코드 작업** 으로 바뀌고, 더 이상 통합 계정이 필요하지 않고, [제한 사항이 업데이트](logic-apps-limits-and-config.md)되었습니다.
 
     * 기본 제공 작업 [Azure Logic Apps - 논리 앱 워크플로 선택](logic-apps-http-endpoint.md)은 이제 **워크플로 작업 - 이 워크플로 앱의 워크플로 호출** 입니다.
 
-    * [통합 계정에 대한 일부 기본 제공 B2B 트리거 및 작업](../connectors/managed.md#integration-account-connectors)은 사용할 수 없습니다(예: **플랫 파일** 인코딩 및 디코딩 작업).
+    * [통합 계정의 일부 기본 제공 트리거와 작업](../connectors/managed.md#integration-account-connectors)은 사용할 수 없습니다(예: **플랫 파일** 인코딩 및 디코딩 작업).
 
     * [사용자 지정 관리형 커넥터는](../connectors/apis-list.md#custom-apis-and-connectors) 현재 지원되지 않습니다. 하지만 Visual Studio Code를 사용하는 경우에는 *사용자 지정 기본 제공 작업* 을 만들 수 있습니다. 자세한 내용은 [Visual Studio Code를 사용하여 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)를 참조하세요.
 

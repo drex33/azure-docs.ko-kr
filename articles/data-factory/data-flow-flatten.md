@@ -1,18 +1,21 @@
 ---
 title: 데이터 흐름 매핑의 평면화 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 평면화 변환을 사용하여 계층 구조 데이터 비정규화
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81413686"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642434"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 평면화 변환
 
@@ -39,6 +42,28 @@ ms.locfileid: "81413686"
 선택 변환과 마찬가지로 들어오는 필드와 비정규화된 배열의 새 구조 프로젝션을 선택합니다. 비정규화된 배열이 매핑되는 경우 출력 열은 배열과 동일한 데이터 형식이 됩니다. 언롤 기준 언롤이 하위 배열을 포함한 복합 개체의 배열인 경우 하위 배열의 항목을 매핑하면 하나의 배열이 출력됩니다.
 
 매핑 출력을 확인하려면 검사 탭 및 데이터 미리 보기를 참조하세요.
+
+## <a name="rule-based-mapping"></a>규칙 기반 매핑
+
+평면화 변환은 규칙 기반 매핑을 지원하여 규칙에 따라 배열을 평면화하고 계층 수준을 기반으로 구조를 평면화하는 동적 및 유연한 변환을 생성할 수 있습니다.
+
+![평면화 패턴](media/data-flow/flatten-pattern.png "평면화 패턴")
+
+### <a name="matching-condition"></a>일치 조건
+
+정확한 일치 또는 패턴을 사용하여 평면화할 열에 대한 패턴 일치 조건을 입력합니다. 예: ```like(name,'cust%')```
+
+### <a name="deep-column-traversal"></a>심도 있는 열 통과
+
+복잡한 개체를 전체 열로 처리하는 대신 ADF에 복잡한 개체의 모든 하위 열을 개별적으로 처리하도록 지시하는 선택적 설정입니다.
+
+### <a name="hierarchy-level"></a>계층 구조 수준
+
+확장할 계층 구조 수준을 선택합니다.
+
+### <a name="name-matches-regex"></a>이름 일치(regex)
+
+필요에 따라 위의 일치 조건을 사용하는 대신 이 상자에서 이름 일치를 정규식으로 표현하도록 선택합니다.
 
 ## <a name="examples"></a>예
 

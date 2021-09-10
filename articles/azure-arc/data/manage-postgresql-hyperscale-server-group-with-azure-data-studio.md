@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1849e317c4245eb1aa96ff96f0ffac8bd8425299
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92320230"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536983"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용하여 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 관리
 
@@ -29,7 +29,10 @@ ms.locfileid: "92320230"
 
 - [azdata, Azure Data Studio, Azure CLI 설치](install-client-tools.md)
 - Azure Data Studio에서 **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** , **Azure Arc**, **PostgreSQL** 확장을 설치합니다.
-- [Azure Arc 데이터 컨트롤러](create-data-controller-using-azdata.md) 만들기
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
+- [Azure Arc 데이터 컨트롤러](./create-data-controller-indirect-cli.md) 만들기
 - Azure Data Studio 시작
 
 ## <a name="connect-to-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에 연결
@@ -47,7 +50,7 @@ Azure 데이터 컨트롤러에 대한 연결 정보를 입력합니다.
     ```
 - **사용자 이름:**
 
-    컨트롤러에 연결하는 데 사용하는 사용자 계정의 이름입니다. `azdata login`을 실행할 때 일반적으로 사용하는 이름입니다. 일반적으로 psql에서 PostgreSQL 데이터베이스 엔진에 연결하는 데 사용하는 PostgreSQL 사용자의 이름은 아닙니다.
+    컨트롤러에 연결하는 데 사용하는 사용자 계정의 이름입니다. `az login`을 실행할 때 일반적으로 사용하는 이름입니다. 일반적으로 psql에서 PostgreSQL 데이터베이스 엔진에 연결하는 데 사용하는 PostgreSQL 사용자의 이름은 아닙니다.
 - **암호:** 컨트롤러에 연결하는 데 사용하는 사용자 계정의 암호입니다.
 
 
@@ -75,13 +78,13 @@ Azure Data Studio 창의 왼쪽에서 **서버** 노드를 확장합니다.
 - **서버 이름:** PostgreSQL 인스턴스의 이름을 입력합니다. 예: postgres01
 - **인증 유형:** 암호
 - **사용자 이름:** 예를 들어 표준/기본 PostgreSQL 관리 사용자 이름을 사용할 수 있습니다. 이 필드는 대/소문자를 구분합니다.
-- **암호:** `azdata postgres server endpoint -n postgres01` 명령 출력의 psql 연결 문자열에서 PostgreSQL 사용자 이름의 암호를 찾을 수 있습니다.
+- **암호:** `az postgres arc-server endpoint -n postgres01` 명령 출력의 psql 연결 문자열에서 PostgreSQL 사용자 이름의 암호를 찾을 수 있습니다.
 - **데이터베이스 이름:** 연결하려는 데이터베이스의 이름을 설정합니다. __기본값__ 으로 설정되도록 할 수 있습니다.
 - **서버 그룹:** __기본값__ 으로 설정되도록 할 수 있습니다.
 - **이름(선택 사항):** 비워 둘 수 있습니다.
 - **고급:**
     - **호스트 IP 주소:** Kubernetes 클러스터의 공용 IP 주소입니다.
-    - **포트:** PostgreSQL 인스턴스가 수신하는 포트입니다. 이 포트는 `azdata postgres server endpoint -n postgres01` 명령 출력의 psql 연결 문자열 끝에서 확인할 수 있습니다. Kubernetes에서 수신하고 Azure Data Studio의 Azure 데이터 컨트롤러에 연결할 때 입력한 포트 30080은 아닙니다.
+    - **포트:** PostgreSQL 인스턴스가 수신하는 포트입니다. 이 포트는 `az postgres arc-server endpoint -n postgres01` 명령 출력의 psql 연결 문자열 끝에서 확인할 수 있습니다. Kubernetes에서 수신하고 Azure Data Studio의 Azure 데이터 컨트롤러에 연결할 때 입력한 포트 30080은 아닙니다.
     - **기타 매개 변수:** 자체 명시적이어야 하며, 함께 표시되는 기본값/빈 값과 같이 사용할 수 있습니다.
 
 **[확인]을 선택하고 [연결]** 을 선택하여 서버에 연결합니다.

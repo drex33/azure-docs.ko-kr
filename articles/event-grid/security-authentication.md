@@ -2,31 +2,41 @@
 title: 이벤트 처리기에 대한 이벤트 전달 인증(Azure Event Grid)
 description: 이 문서에서는 Azure Event Grid의 이벤트 처리기에 대한 전달을 인증하는 다양한 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 7db258ee152e4b1c46362e74e0246b80513ca9f2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/28/2021
+ms.openlocfilehash: 01383809e6aab895ff4ed42763c57004a6ee02a8
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777260"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003236"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>이벤트 처리기에 대한 이벤트 전달 인증(Azure Event Grid)
-이 문서에서는 이벤트 처리기에 이벤트 전달 인증에 대한 정보를 제공합니다. Azure AD(Azure Active Directory) 또는 공유 비밀을 사용하여 Event Grid에서 이벤트를 수신하는 데 사용되는 웹후크 엔드포인트를 보호하는 방법도 보여줍니다.
+이 문서에서는 이벤트 처리기에 이벤트 전달 인증에 대한 정보를 제공합니다. 
+
+## <a name="overview"></a>개요
+Azure Event Grid는 다양한 인증 방법을 사용하여 이벤트 처리기에 이벤트를 전달합니다. `
+
+| 인증 방법 | 지원되는 처리기 | 설명  |
+|--|--|--|
+액세스 키 | <p>Event Hubs</p><p>Service Bus</p><p>Storage 큐</p><p>릴레이 하이브리드 연결</p><p>Azure 기능</p><p>Storage Blob(Deadletter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> | 액세스 키는 Event Grid 서비스 주체의 자격 증명을 사용하여 가져옵니다. Azure 구독에 Event Grid 리소스 공급자를 등록하면 Event Grid에 권한이 부여됩니다. |  
+관리형 시스템 ID <br/>&<br/> 역할 기반 액세스 제어 | <p>Event Hubs</p><p>Service Bus</p><p>Storage 큐</p><p>Storage Blob(Deadletter)</p></li></ul> | 토픽에 대해 관리형 시스템 ID를 사용하도록 설정하고 대상의 적절한 역할에 추가합니다. 자세한 내용은 [이벤트 전달에 시스템 할당 ID 사용](#use-system-assigned-identities-for-event-delivery)을 참조하세요.  |
+|Azure AD로 보호된 웹후크를 사용하는 전달자 토큰 인증 | 웹후크 | 자세한 내용은 [웹후크 엔드포인트에 대한 이벤트 전달 인증](#authenticate-event-delivery-to-webhook-endpoints) 섹션을 참조하세요. |
+클라이언트 암호를 쿼리 매개 변수로 | 웹후크 | 자세한 내용은 [클라이언트 암호를 쿼리 매개 변수로 사용](#using-client-secret-as-a-query-parameter) 섹션을 참조하세요. |
 
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>이벤트 전달에 시스템 할당 ID 사용
 항목 또는 도메인에 대해 시스템 할당 관리 ID를 사용하도록 설정하고 이 ID를 사용하여 Service Bus 큐 및 항목, 이벤트 허브, 스토리지 계정과 같은 지원되는 대상으로 이벤트를 전달할 수 있습니다.
 
 실행할 단계는 다음과 같습니다. 
 
-1. 시스템 할당 ID를 사용하여 항목 또는 도메인을 만들거나, 기존 항목 또는 도메인을 업데이트하여 ID를 사용하도록 설정합니다. 
-1. 대상(예: Service Bus 큐)의 적절한 역할(예: Service Bus 데이터 보낸 사람)에 ID를 추가합니다.
-1. 이벤트 구독을 만들 때 ID를 사용하여 대상에 이벤트를 전달하도록 설정합니다. 
+1. 시스템 할당 ID를 사용하여 항목 또는 도메인을 만들거나, 기존 항목 또는 도메인을 업데이트하여 ID를 사용하도록 설정합니다. 자세한 내용은 [시스템 토픽에 관리 ID 사용](enable-identity-system-topics.md) 또는 [사용자 지정 토픽 또는 도메인에 관리 ID 사용](enable-identity-custom-topics-domains.md)을 참조하세요.
+1. 대상(예: Service Bus 큐)의 적절한 역할(예: Service Bus 데이터 보낸 사람)에 ID를 추가합니다. 자세한 내용은 [ID에 Event Grid 대상에 대한 액세스 권한 부여](add-identity-roles.md)를 참조하세요.
+1. 이벤트 구독을 만들 때 ID를 사용하여 대상에 이벤트를 전달하도록 설정합니다. 자세한 내용은 [ID를 사용하는 이벤트 구독 만들기](managed-service-identity.md)를 참조하세요. 
 
 자세한 단계별 지침은 [관리 ID를 사용하여 이벤트 전달](managed-service-identity.md)을 참조하세요.
 
 
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>웹후크 엔드포인트에 대한 이벤트 전달 인증
-다음 섹션에서는 웹후크 엔드포인트에 대한 이벤트 전달을 인증하는 방법을 설명합니다. 사용하는 방법에 관계 없이 유효성 검사 핸드셰이크 메커니즘을 사용해야 합니다. 자세한 내용은 [웹후크 이벤트 전달](webhook-event-delivery.md)을 참조하세요. 
+다음 섹션에서는 웹후크 엔드포인트에 대한 이벤트 전달을 인증하는 방법을 설명합니다. 사용하는 방법에 관계 없이 유효성 검사 핸드셰이크 메커니즘을 사용합니다. 자세한 내용은 [웹후크 이벤트 전달](webhook-event-delivery.md)을 참조하세요. 
 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory) 사용

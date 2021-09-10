@@ -2,7 +2,6 @@
 title: Azure IoT Hub(노드)를 사용하여 작업 예약 | Microsoft 문서
 description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. Node.js용 Azure IoT SDK를 사용하여 시뮬레이션된 디바이스 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 7812e06b445bba77d8ebd4ff5bf86662ef81ddc9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 591e7c43b26bbd8668bbe50bc78965f04f194c36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887435"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528444"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트(Node.js)
 
@@ -33,7 +32,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 * 디바이스 쌍 및 속성: [ 디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md) 및 [자습서: 디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
 
-* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드](quickstart-control-device-node.md)
+* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [빠른 시작: 직접 메서드](./quickstart-control-device.md?pivots=programming-language-nodejs)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

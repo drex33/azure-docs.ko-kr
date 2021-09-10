@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: b6f9570c04b9182e756560a23ffb6bbbdc079cd1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8841c3abae51de0cfcd1391940f9232c4585c02f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536567"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 
@@ -31,12 +31,12 @@ ms.locfileid: "111407749"
 데이터 베이스를 저장하는 디스크를 암호화하고/하거나 삽입 또는 업데이트하는 데이터를 암호화하는 데이터베이스 기능을 이용하여 미사용 암호화를 구현할 수 있습니다.
 
 ### <a name="hardware-linux-host-volume-encryption"></a>하드웨어: Linux 호스트 볼륨 암호화
-시스템 데이터 암호화를 구현하여 Azure Arc 지원 데이터 서비스 설정에서 사용하는 디스크 내의 모든 데이터를 보호합니다. 해당 토픽에 대한 자세한 설명은 다음을 확인하세요.
+시스템 데이터 암호화를 구현하여 Azure Arc 지원 Data Services 설정에서 사용하는 디스크 내의 모든 데이터를 보호합니다. 해당 토픽에 대한 자세한 설명은 다음을 확인하세요.
 - Linux의 일반적인 [미사용 데이터 암호화](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) 
-- LUKS `cryptsetup` 암호화 명령을 사용한 디스크 암호화(Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) 특히 내가 제공 중인 물리 인프라에서 Azure Arc 지원 데이터 서비스가 실행되므로, 해당 인프라 보호의 책임은 본인에게 있습니다.
+- `cryptsetup`암호화 명령(Linux)을 사용한 디스크 암호화(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) 특히 Azure Arc 지원 데이터 서비스는 귀하가 제공하는 물리적 인프라에서 실행되기 때문에 인프라 보안을 담당해야 합니다.
 
 ### <a name="software-use-the-postgresql-pgcrypto-extension-in-your-server-group"></a>소프트웨어: 서버 그룹에 PostgreSQL `pgcrypto` 확장 사용하기
-Azure Arc 설정을 호스트하는 데 사용할 디스크 암호화 외에, Azure Arc 지원 PostgreSQL Hyperscale 서버 그룹이 데이터베이스에서 데이터를 암호화할 때 애플리케이션이 사용할 수 있는 메커니즘을 공개하도록 구성할 수 있습니다. `pgcrypto` 확장은 Postgres의 `contrib` 확장 중 일부로, Azure Arc 지원 PostgreSQL Hyperscale 서버 그룹에서 사용할 수 있습니다. 해당`pgcrypto` 확장[에 대한 자세한 내용은 여기](https://www.postgresql.org/docs/current/pgcrypto.html)를 참조하세요.
+Azure Arc 설정을 호스팅하는 데 사용되는 디스크를 암호화하는 것 외에도 애플리케이션이 데이터베이스의 데이터를 암호화하는 데 사용할 수 있는 메커니즘을 노출하도록 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 구성할 수 있습니다. `pgcrypto`확장은 Postgres의`contrib` 확장 중 일부로, Azure Arc 지원 PostgreSQL Hyperscale 서버 그룹에서 사용할 수 있습니다. 해당`pgcrypto` 확장[에 대한 자세한 내용은 여기](https://www.postgresql.org/docs/current/pgcrypto.html)를 참조하세요.
 요약하면, 다음 명령을 통하여 확장을 사용하도록 설정하고, 생성하여, 사용할 수 있습니다.
 
 
@@ -147,7 +147,7 @@ select * from mysecrets;
    (1 row)
    ```
 
-소규모인 해당 예제는 Postgres `pgcrypto` 확장을 사용하여 Azure Arc 지원 PostgreSQL Hyperscale의 미사용 데이터를 암호화(암호화된 데이터를 저장)할 수 있고 애플리케이션은 이렇게 암호화된 데이터를 조종하기 위하여 `pgcrypto`가 제공한 함수를 사용할 수 있다는 것을 보여 줍니다.
+소규모인 해당 예제는 Postgres `pgcrypto` 확장을 사용하여 Azure Arc 지원 PostgreSQL Hyperscale의 미사용 데이터를 암호화(암호화된 데이터를 저장)할 수 있고 애플리케이션은 이렇게 암호화된 데이터를 조종하기 위하여 `pgcrypto`가 제공한 함수를 사용할 수 있다는 것을 보여줍니다.
 
 ## <a name="user-management"></a>사용자 관리
 ### <a name="general-perspectives"></a>일반적인 큐브 뷰
@@ -156,8 +156,8 @@ select * from mysecrets;
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>_postgres_ 관리 사용자의 암호 변경
 Azure Arc 지원 PostgreSQL 하이퍼스케일에는 서버 그룹을 만들 때 암호를 설정할 표준 Postgres 관리 사용자 _postgres_ 가 제공됩니다.
 암호를 변경하는 명령의 일반적인 형식은 다음과 같습니다.
-```console
-azdata arc postgres server edit --name <server group name> --admin-password
+```azurecli
+az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
 ```
 
 여기서 `--admin-password`는 AZDATA_PASSWORD **세션** 환경 변수 내 값의 존재와 관련된 부울입니다.
@@ -169,12 +169,13 @@ AZDATA_PASSWORD **세션** 환경 변수의 값이 존재하되 값이 없거나
 
 1. AZDATA_PASSWORD **세션** 환경 변수를 삭제하거나 그 값을 삭제
 2. 명령 실행:
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    예
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    암호를 입력하고 확인하라는 메시지가 표시됩니다.
    ```console
@@ -191,12 +192,12 @@ AZDATA_PASSWORD **세션** 환경 변수의 값이 존재하되 값이 없거나
 #### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>AZDATA_PASSWORD **세션** 환경 변수를 사용하여 postgres 관리 사용자의 암호를 변경합니다.
 1. 암호로 원하는 값으로 AZDATA_PASSWORD **세션** 환경 변숫값을 설정합니다.
 2. 다음 명령을 실행합니다.
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    예
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    
    암호를 업데이트하는 동안 해당 명령이 다음과 같이 출력됩니다.

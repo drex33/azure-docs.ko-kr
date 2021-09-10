@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92124679"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220262"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy 관련된 문제 해결
 
@@ -31,9 +31,10 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약됩니다.
 | 컨테이너 또는 공유 크기 제한 | 컨테이너 또는 공유의 총 데이터가 Azure 제한을 초과합니다.   |오류 목록을 다운로드합니다. <br> 컨테이너 또는 공유의 전체 데이터를 줄입니다. [자세히 알아봅니다](#container-or-share-size-limit-errors).|
 | 개체 또는 파일 크기 제한 | 컨테이너 또는 공유의 개체 또는 파일이 Azure 제한을 초과합니다.|오류 목록을 다운로드합니다. <br> 컨테이너 또는 공유에서 파일 크기를 줄입니다. [자세히 알아봅니다](#object-or-file-size-limit-errors). |    
 | 데이터 또는 파일 형식 | 데이터 형식 또는 파일 형식은 지원되지 않습니다. |오류 목록을 다운로드합니다. <br> 페이지 Blob 또는 관리 디스크의 경우, 데이터가 512바이트 정렬되어 미리 만들어진 폴더에 복사되었는지 확인합니다. [자세히 알아봅니다](#data-or-file-type-errors). |
+| 폴더 또는 파일 내부 오류 | 파일이나 폴더에 내부 오류가 있습니다. |오류 목록을 다운로드합니다. <br> 파일을 제거하고 다시 복사합니다. 이름을 바꾸거나 파일을 추가하거나 삭제하여 폴더를 수정합니다. 오류는 30분 이내에 사라집니다.  [자세히 알아봅니다](#folder-or-file-internal-errors). |
 | 심각하지 않은 blob 또는 파일 오류  | Blob 또는 파일 이름이 Azure 명명 규칙을 따르지 않거나 파일 형식이 지원되지 않습니다. | 이러한 blob 또는 파일은 복사되지 않거나 이름이 변경될 수 있습니다. [이러한 오류를 해결하는 방법을 알아봅니다](#non-critical-blob-or-file-errors). |
 
-\* 처음 네 개의 오류 범주는 심각한 오류이며, 배송 준비를 진행하기 전에 수정해야 합니다.
+\* 처음 다섯 개의 오류 범주는 심각한 오류이며, 배송 준비를 진행하기 전에 수정해야 합니다.
 
 
 ## <a name="container-or-share-name-errors"></a>컨테이너 또는 공유 이름 오류
@@ -119,8 +120,8 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약됩니다.
 - 오류 로그에서 이 문제가 있는 폴더를 확인하고 해당 폴더의 파일이 5TiB 미만인지 확인합니다.
 - 5TiB 제한은 대량 파일 공유를 허용하는 스토리지 계정에는 적용되지 않습니다. 그러나 주문을 할 때 대량 파일 공유를 구성해야 합니다. 
   - [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하여 새 배송 레이블을 요청합니다.
-  - [스토리지 계정에서 대량 파일 공유를 사용하도록 설정합니다.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
-  - [스토리지 계정에서 파일 공유를 확장](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares)하고 할당량을 100TiB로 설정합니다.
+  - [스토리지 계정에서 대량 파일 공유를 사용하도록 설정합니다](../storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [스토리지 계정에서 파일 공유를 확장](../storage/files/storage-how-to-create-file-share.md#expand-existing-file-shares)하고 할당량을 100TiB로 설정합니다.
   
   
 ## <a name="object-or-file-size-limit-errors"></a>개체 또는 파일 크기 제한 오류
@@ -176,6 +177,11 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약됩니다.
 
 **권장 해결 방법:** 바로가기 링크는 일반적으로 링크, 파이프, 기타 유사한 파일입니다. 링크를 제거하거나 링크를 확인하고 데이터를 복사합니다.
 
+## <a name="folder-or-file-internal-errors"></a>폴더 또는 파일 내부 오류
+
+**오류 설명:** 파일이나 폴더가 내부 오류 상태에 있습니다.
+
+**권장 해결 방법:** 파일의 경우, 파일을 제거하고 다시 복사합니다. 폴더의 경우, 폴더를 수정합니다. 폴더의 이름을 바꾸거나 폴더에서 파일을 추가하거나 삭제합니다. 오류는 30분 내에 자체적으로 해결되어야 합니다. 오류가 지속되면 Microsoft 지원에 문의하세요.
 
 ## <a name="non-critical-blob-or-file-errors"></a>심각하지 않은 blob 또는 파일 오류
 

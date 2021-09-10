@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/06/2021
-ms.openlocfilehash: eabe675bd3d1ecc488490604b7c06abae3dacf60
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 08/30/2021
+ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605302"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224706"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -192,51 +192,55 @@ SSH 액세스는 기본적으로 사용하지 않도록 설정되어 있습니�
 
 ### <a name="create-a-schedule-with-a-resource-manager-template"></a>Resource Manager 템플릿으로 일정 만들기
 
-Resource Manager 템플릿을 사용하여 컴퓨팅 인스턴스의 자동 시작 및 중지를 예약할 수 있습니다.  Resource Manager 템플릿에서 cron 또는 LogicApps 식을 사용하여 인스턴스를 시작하거나 중지하는 일정을 정의합니다.  
+Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)을 사용하여 컴퓨팅 인스턴스의 자동 시작 및 중지를 예약할 수 있습니다.
 
+Resource Manager 템플릿에서 다음을 추가합니다.
+
+```
+"schedules": "[parameters('schedules')]"
+```
+
+그런 다음 cron 또는 LogicApps 식을 사용하여 매개 변수 파일에서 인스턴스를 시작 또는 중지하는 일정을 정의합니다.
+ 
 ```json
-"schedules": {
-  "computeStartStop": [
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 18 * * *"
-      },
-      "action": "Stop",
-      "status": "Enabled"
-      },
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 8 * * *"
-      },
-      "action": "Start",
-      "status": "Enabled"
-      },
-      { 
-      "triggerType": "Recurrence", 
-      "recurrence": { 
-          "frequency": "Day", 
-          "interval": 1,
-          "timeZone": "Pacific Standard Time", 
-        "schedule": { 
-          "hours": [18], 
-          "minutes": [0], 
-          "weekDays": [ 
-              "Saturday", 
-              "Sunday"
-          ] 
+        "schedules": {
+        "value": {
+        "computeStartStop": [
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 18 * * *"
+            },
+            "action": "Stop",
+            "status": "Enabled"
+          },
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 8 * * *"
+            },
+            "action": "Start",
+            "status": "Enabled"
+          },
+          { 
+            "triggerType": "Recurrence", 
+            "recurrence": { 
+              "frequency": "Day", 
+              "interval": 1, 
+              "timeZone": "UTC", 
+              "schedule": { 
+                "hours": [17], 
+                "minutes": [0]
+              } 
+            }, 
+            "action": "Stop", 
+            "status": "Enabled" 
           } 
-      }, 
-      "action": "Stop", 
-      "status": "Enabled" 
-      } 
-  ]
-}
+        ]
+      }
+    }
 ```
 
 * 작업은 시작 또는 중지 값을 가질 수 있습니다.
@@ -294,23 +298,11 @@ Azure Policy를 사용하여 구독의 모든 컴퓨팅 인스턴스에 대해 �
 
 스크립트가 conda 환경 또는 jupyter 커널을 설치하는 등 azureuser와 관련된 작업을 수행하는 경우 다음과 같이 *sudo -u azureuser* 블록 내에 배치해야 합니다.
 
-```shell
-#!/bin/bash
+:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
 
-set -e
-
-# This script installs a pip package in compute instance azureml_py38 environment
-
-sudo -u azureuser -i <<'EOF'
-# PARAMETERS
-PACKAGE=numpy
-ENVIRONMENT=azureml_py38 
-conda activate "$ENVIRONMENT"
-pip install "$PACKAGE"
-conda deactivate
-EOF
-```
 *sudo -u azureuser* 명령은 현재 작업 디렉터리를 */home/azureuser* 로 변경합니다. 또한 이 블록의 스크립트 인수에 액세스할 수 없습니다.
+
+다른 예제 스크립트는 [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci)를 참조하세요.
 
 스크립트에서 다음 환경 변수를 사용할 수도 있습니다.
 
@@ -319,7 +311,8 @@ EOF
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. azureuser를 가리킵니다.
 
-Azure Policy와 함께 설정 스크립트를 사용하여 모든 컴퓨팅 인스턴스 생성에 대해 설정 스크립트를 적용하거나 기본 설정할 수 있습니다.
+설정 스크립트를 **Azure Policy와 함께 사용하여 모든 컴퓨팅 인스턴스 생성에 대해 설정 스크립트를 적용 또는 기본 설정** 할 수 있습니다. 설치 스크립트 시간 제한은 기본값이 15분입니다. 이 값은 Studio UI를 통해 변경하거나 DURATION 매개 변수를 사용하여 ARM 템플릿을 통해 변경할 수 있습니다.
+DURATION은 다음의 선택적 접미사를 사용하는 부동 소수점 숫자입니다. 's'는 초(기본값), ‘m’은 분, ‘h'는 시간, ‘d’는 일.
 
 ### <a name="use-the-script-in-the-studio"></a>스튜디오에서 스크립트 사용
 

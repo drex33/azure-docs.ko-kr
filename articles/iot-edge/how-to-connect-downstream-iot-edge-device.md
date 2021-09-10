@@ -2,7 +2,6 @@
 title: 다운스트림 IoT Edge 디바이스 연결 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 디바이스를 구성하여 Azure IoT Edge 게이트웨이 디바이스에 연결하는 방법입니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cdc7ce9fbb24dc593ebd4dedc7c2c4ce82afa3f0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094824"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535476"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -148,7 +147,11 @@ Azure CLI에 대한 [azure-iot](/cli/azure/iot) 확장은 IoT 리소스를 관�
    ```
 
    >[!TIP]
-   >구성 파일이 디바이스에 아직 없는 경우 `/etc/aziot/config.toml.edge.template`을 템플릿으로 사용하여 만듭니다.
+   >구성 파일이 아직 디바이스에 존재하지 않는 경우 다음 명령을 사용하여 템플릿 파일을 기준으로 구성 파일을 만듭니다.
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. 구성 파일의 섹션에서 **호스트 이름** 을 찾습니다. `hostname` 매개 변수가 포함된 줄에서 주석 처리를 제거하고, 값을 IoT Edge 디바이스의 FQDN(정규화된 도메인 이름) 또는 IP 주소로 업데이트합니다.
 
@@ -385,7 +388,7 @@ API 프록시 모듈은 대부분의 일반 게이트웨이 시나리오를 처�
                        "edgeAgent": {
                            "settings": {
                                "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
-                               "createOptions": ""
+                               "createOptions": "{}"
                            },
                            "type": "docker"
                        },

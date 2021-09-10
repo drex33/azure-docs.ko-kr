@@ -6,21 +6,19 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f4066f466b6dd9e8cb41bf68592aa88c192c44d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786586"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536498"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>서버 종속성 분석(에이전트 없음)
 
 이 문서에서는 Azure Migrate: 검색 및 평가 도구를 사용하여 에이전트 없는 종속성 분석을 설정하는 방법에 대해 설명합니다. [종속성 분석](concepts-dependency-visualization.md)을 사용하면 평가 및 Azure로의 마이그레이션을 위한 서버 간의 종속성을 파악하고 이해하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
-> 에이전트 없는 종속성 분석은 현재 VMware 환경에서 실행되는 서버에 대해 미리 보기로 제공되며, Azure Migrate: 검색 및 평가 도구를 사용하여 검색할 수 있습니다.
-> 해당 미리 보기는 고객 지원에 포함되며 프로덕션 워크로드에 사용할 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>에이전트 없는 종속성 분석은 현재 VMware 환경에서 실행되는 서버에 대해서만 제공되며, Azure Migrate: 검색 및 평가 도구를 사용하여 검색할 수 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 7b60913753580027d050770bc9d4909b5686bb46
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7eede4af994bab1ca2dfa06bea20d9c79c6e96a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888449"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528867"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -32,9 +32,9 @@ Azure Security Center는 Azure 리소스의 보안 상태를 정기적으로 분
 | Azure Resource Manager 배포 모델 사용 | Azure RBAC(역할 기반 액세스 제어) 및 감사, Resource Manager 기반 배포 및 거버넌스, 관리 ID 액세스, 비밀에 대한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대한 액세스 권한 부여를 비롯하여 중요한 보안 향상을 위해 Azure Resource Manager 배포 모델을 사용하여 새 스토리지 계정을 만듭니다. 가능하면 클래식 배포 모델을 사용하는 기존 스토리지 계정을 마이그레이션하여 Azure Resource Manager를 사용합니다. Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요. | - |
 | 모든 스토리지 계정에 대해 Azure Defender를 사용하도록 설정합니다. | Azure Storage용 Azure Defender는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 감지하는 추가 보안 인텔리전스 계층을 제공합니다. 보안 경고는 활동 중인 변칙이 발생할 때 Azure Security Center에서 트리거되며, 의심스러운 활동에 대한 세부 정보 및 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 구독 관리자에게 이메일로도 전송됩니다. 자세한 내용은 [Azure Storage용 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조하세요. | [예](../../security-center/security-center-remediate-recommendations.md) |
 | Blob에 대한 일시 삭제 설정 | Blob에 대한 일시 삭제를 통해 Blob 데이터를 삭제한 후 복구할 수 있습니다. Blob의 일시 삭제에 대한 자세한 내용은 [Azure Storage Blob의 일시 삭제](./soft-delete-blob-overview.md)를 참조하세요. | - |
-| 컨테이너에 대해 일시 삭제 사용 | 컨테이너에 대해 일시 삭제를 사용하면 컨테이너를 삭제한 후 복구할 수 있습니다. 컨테이너의 일시 삭제에 대한 자세한 내용은 [컨테이너의 일시 삭제(미리 보기)](./soft-delete-container-overview.md)를 참조하세요. | - |
+| 컨테이너에 대해 일시 삭제 사용 | 컨테이너에 대해 일시 삭제를 사용하면 컨테이너를 삭제한 후 복구할 수 있습니다. 컨테이너의 일시 삭제에 대한 자세한 내용은 [컨테이너의 일시 삭제](./soft-delete-container-overview.md)를 참조하세요. | - |
 | 실수로 또는 악의적으로 삭제 또는 구성 변경 내용을 방지하기 위해 스토리지 계정 잠금 | Azure Resource Manager 잠금을 스토리지 계정에 적용하여 우발적이거나 악의적인 삭제 또는 구성 변경으로부터 계정을 보호합니다. 스토리지 계정을 잠그면 해당 계정의 데이터가 삭제되는 것을 방지할 수 없습니다. 계정 자체가 삭제되는 것을 방지할 뿐입니다. 자세한 내용은 [스토리지 계정에 Azure Resource Manager 잠금 적용](../common/lock-account-resource.md)을 참조하세요.
-| 변경할 수 없는 Blob에 중요한 비즈니스 데이터 저장 | WORM(한 번 쓰기, 여러 번 읽기) 상태로 Blob 데이터를 저장하도록 법적 보존 및 시간 기반 보존 정책을 구성합니다. 불변으로 저장된 Blob은 읽을 수 있지만 보존 간격 동안 수정하거나 삭제할 수 없습니다. 자세한 내용은 [변경이 불가능한 스토리지로 업무상 중요한 Blob 데이터 저장](storage-blob-immutable-storage.md)을 참조하세요. | - |
+| 변경할 수 없는 Blob에 중요한 비즈니스 데이터 저장 | WORM(한 번 쓰기, 여러 번 읽기) 상태로 Blob 데이터를 저장하도록 법적 보존 및 시간 기반 보존 정책을 구성합니다. 불변으로 저장된 Blob은 읽을 수 있지만 보존 간격 동안 수정하거나 삭제할 수 없습니다. 자세한 내용은 [변경이 불가능한 스토리지로 업무상 중요한 Blob 데이터 저장](immutable-storage-overview.md)을 참조하세요. | - |
 | 스토리지 계정에 대한 보안 전송(HTTPS) 필요 | 스토리지 계정에 대한 보안 전송이 필요한 경우 스토리지 계정에 대한 모든 요청은 HTTPS를 통해 이루어져야 합니다. HTTP를 통해 수행된 모든 요청은 거부됩니다. 모든 스토리지 계정에 대해 항상 보안 전송을 요구하는 것이 좋습니다. 자세한 내용은 [보안 연결을 위해 보안 전송 필요](../common/storage-require-secure-transfer.md)를 참조하세요. | - |
 | SAS(공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트가 SAS 토큰을 사용하여 Blob 데이터에 액세스할 때 HTTPS를 요구하면 도청 위험을 최소화하는 데 도움이 됩니다. 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요. | - |
 
@@ -42,7 +42,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 정기적으로 분
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-| Azure AD(Azure Active Directory)를 사용하여 Blob 데이터에 대한 액세스 권한 부여 | Azure AD는 Blob Storage에 대한 요청에 권한을 부여하기 위해 공유 키보다 뛰어난 보안과 사용 편의성을 제공합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad.md)를 참조하세요. | - |
+| Azure AD(Azure Active Directory)를 사용하여 Blob 데이터에 대한 액세스 권한 부여 | Azure AD는 Blob Storage에 대한 요청에 권한을 부여하기 위해 공유 키보다 뛰어난 보안과 사용 편의성을 제공합니다. 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)를 참조하세요. | - |
 | Azure RBAC를 통해 Azure AD 보안 주체에 권한을 할당하는 경우 최소 권한의 주체에 유의 | 사용자, 그룹 또는 애플리케이션에 역할을 할당할 때 해당 보안 주체에게 작업을 수행하는 데 필요한 권한만 부여합니다. 리소스에 대한 액세스를 제한하면 의도하지 않은 데이터의 악의적인 오용을 방지할 수 있습니다. | - |
 | 사용자 위임 SAS를 사용하여 Blob 데이터에 대한 제한된 액세스 권한을 클라이언트에 부여합니다. | 사용자 위임 SAS는 Azure AD(Azure Active Directory) 자격 증명으로 보호되며, SAS에 지정된 권한으로도 보호됩니다. 사용자 위임 SAS는 범위 및 기능 측면에서 서비스 SAS와 유사하지만 서비스 SAS에 비해 보안 혜택을 제공합니다. 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. | - |
 | Azure Key Vault를 사용하여 계정 액세스 키 보호 | Azure AD를 사용하여 Azure Storage에 대한 요청을 승인하는 것이 좋습니다. 그러나 공유 키 인증을 사용해야 하는 경우에는 Azure Key Vault를 사용하여 계정 키를 보호합니다. 애플리케이션에 키를 저장하는 대신 런타임에 키 자격 증명 모음에서 키를 검색할 수 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault 모음 개요](../../key-vault/general/overview.md)를 참조하세요. | - |

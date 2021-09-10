@@ -11,14 +11,16 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d2e23b202957018ee80186dd28b6b2360698fc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 68aaf58230ebadd7283e62baf232b84743bba535
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528865"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692417"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 관리 디스크로 마이그레이션
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 관리 디스크를 사용하는 VM(가상 머신)을 만들 수 있습니다. Azure 관리 디스크를 사용하면 Azure IaaS VM의 스토리지 계정을 관리할 필요가 없습니다. 디스크 유형과 필요한 디스크 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
 

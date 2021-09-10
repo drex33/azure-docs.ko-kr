@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 32391dc2106f0ebab73faaa857a1b53392f0416d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 4a88e8353d8f6ac0890f449060041ad54bda852d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903260"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "122642226"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Python)
 
@@ -26,7 +26,7 @@ ms.locfileid: "111903260"
 
 * Python 클라이언트를 사용하여 IoT 허브를 통해 파일을 업로드합니다.
 
-[디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md) 빠른 시작에서는 IoT Hub의 기본 디바이스-클라우드 메시지 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
+[디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) 빠른 시작에서는 IoT Hub의 기본 디바이스-클라우드 메시지 기능을 보여 줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 이 자습서의 끝 부분에서 Python 콘솔 앱을 실행합니다.
 
@@ -48,7 +48,11 @@ GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-d
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
@@ -183,7 +187,7 @@ GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-d
 
     * **notify_blob_upload_status** 는 Blob Storage 작업의 상태를 IoT Hub에 알립니다. **get_storage_info_for_blob** 메서드로 얻은 correlation_id를 전달합니다. IoT Hub에서 파일 업로드 작업의 상태에 대한 알림을 수신할 수 있는 서비스를 알리는 데 사용됩니다.
 
-1. **UploadFile.py** 파일을 저장하고 닫습니다.
+1. **FileUpload.py** 파일을 저장하고 닫습니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

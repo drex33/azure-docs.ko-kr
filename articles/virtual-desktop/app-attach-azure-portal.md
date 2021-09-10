@@ -1,34 +1,33 @@
 ---
-title: Windows Virtual Desktop MSIX 앱 연결 포털 - Azure
-description: Azure Portal을 사용하여 Windows Virtual Desktop에 대한 MSIX 앱 연결을 설정하는 방법입니다.
+title: Azure Virtual Desktop MSIX 앱 연결 포털 - Azure
+description: Azure Portal을 사용하여 Azure Virtual Desktop에 대한 MSIX 앱 연결을 설정하는 방법.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: da084bfab39eb0e12d90f25f3658dc4507ca63dc
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: ec462d04402f20d801c43cebd7f4561eb6177f1c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906659"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707115"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal을 사용하여 MSIX 앱 연결 설정
 
-이 문서에서는 Windows Virtual Desktop 환경에서 MSIX 앱 연결을 설정하는 방법을 안내합니다.
+이 문서에서는 Azure Virtual Desktop 환경에서 MSIX 앱 연결을 설정하는 방법을 안내합니다.
 
 ## <a name="requirements"></a>요구 사항
 
 MSIX 앱 연결을 구성하는 데 필요한 사항은 다음과 같습니다.
 
-- 작동하는 Windows Virtual Desktop 배포 Windows Virtual Desktop(클래식)을 배포하는 방법을 알아보려면 [Windows Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요. Azure Resource Manager 통합을 사용하여 Windows Virtual Desktop을 배포하는 방법을 알아보려면 [Azure Portal을 사용하여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조하세요.
-- 하나 이상의 활성 세션 호스트를 포함하는 Windows Virtual Desktop 호스트 풀
-- MSIX 패키징 도구.
+- 작동하는 Azure Virtual Desktop 배포 Azure Virtual Desktop(클래식)을 배포하는 방법을 알아보려면 [Azure Virtual Desktop에서 테넌트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조하세요. Azure Resource Manager 통합을 사용하여 Azure Virtual Desktop을 배포하는 방법을 알아보려면 [Azure Portal을 사용하여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조하세요.
+- 하나 이상의 활성 세션 호스트를 포함하는 Azure Virtual Desktop 호스트 풀.
+- MSIX 패키징 도구
 - MSIX 패키지 애플리케이션은 파일 공유에 업로드된 MSIX 이미지로 확장됩니다.
-- MSIX 패키지를 저장할 Windows Virtual Desktop 배포의 파일 공유.
+- MSIX 패키지를 저장할 Azure Virtual Desktop 배포의 파일 공유.
 - MSIX 이미지를 업로드한 파일 공유도 호스트 풀의 모든 VM(가상 머신)에 액세스할 수 있어야 합니다. 사용자는 이미지에 액세스하기 위한 읽기 전용 권한이 필요합니다.
 - 인증서를 공개적으로 신뢰할 수 없는 경우 [인증서 설치](app-attach.md#install-certificates)의 지침을 따릅니다.
-- Azure Government 클라우드는 현재 MSIX 앱 연결을 지원하지 않습니다.
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>MSIX 앱 연결 애플리케이션의 자동 업데이트 끄기
 
@@ -70,10 +69,7 @@ MSIX를 추가하려면
 
 1. Azure Portal을 엽니다.
 
-2. 검색 창에 **Windows Virtual Desktop** 을 입력하고 서비스 이름을 선택합니다.
-
-      > [!div class="mx-imgBorder"]
-      > ![Azure Portal의 검색 창 드롭다운 메뉴에서 "Windows Virtual Desktop"을 선택하는 사용자의 스크린샷. "Windows Virtual Desktop"이 빨강으로 강조 표시됩니다.](media/find-and-select.png)
+2. 검색 창에 **Azure Virtual Desktop** 을 입력한 다음, 서비스 이름을 선택합니다.
 
 3. MSIX 앱을 배치할 호스트 풀을 선택합니다.
 
@@ -101,7 +97,7 @@ MSIX를 추가하려면
 
 7.  **상태** 에서 기본 설정 상태를 선택합니다.
     -  **활성** 상태는 사용자가 패키지와 상호 작용할 수 있도록 합니다.
-    -  **비활성** 상태를 설정하면 Windows Virtual Desktop이 패키지를 무시하고 사용자에게 배달하지 않습니다.
+    -  **비활성** 상태를 설정하면 Azure Virtual Desktop이 패키지를 무시하고 사용자에게 전달하지 않습니다.
 
 8. 완료되면 **추가** 를 선택합니다.
 
@@ -113,7 +109,7 @@ MSIX 이미지가 이미 있는 경우 [앱 그룹에 MSIX 앱 게시](#publish-
 
 앱을 게시하려면
 
-1. Windows Virtual Desktop 리소스 공급자에서 **애플리케이션 그룹** 탭을 선택합니다.
+1. Azure Virtual Desktop 리소스 공급자에서 **애플리케이션 그룹** 탭을 선택합니다.
 
 2. 앱을 게시할 애플리케이션 그룹을 선택합니다.
 
@@ -167,7 +163,7 @@ MSIX 이미지가 이미 있는 경우 [앱 그룹에 MSIX 앱 게시](#publish-
 
 ## <a name="change-msix-package-state"></a>MSIX 패키지 상태 변경
 
-이제 패키지로 수행하려는 작업에 따라 MSIX 패키지 상태를 **활성** 또는 **비활성** 으로 변경해야 합니다. 활성 패키지는 게시되면 사용자가 상호 작용할 수 있는 패키지입니다. 비활성 패키지는 Windows Virtual Desktop에서 무시되므로 사용자가 그 안의 앱과 상호 작용할 수 없습니다.
+이제 패키지로 수행하려는 작업에 따라 MSIX 패키지 상태를 **활성** 또는 **비활성** 으로 변경해야 합니다. 활성 패키지는 게시되면 사용자가 상호 작용할 수 있는 패키지입니다. 비활성 패키지는 Azure Virtual Desktop에서 무시되므로 사용자가 그 안의 앱과 상호 작용할 수 없습니다.
 
 ### <a name="change-state-with-the-applications-list"></a>애플리케이션 목록으로 상태 변경
 
@@ -219,11 +215,11 @@ MSIX 이미지가 이미 있는 경우 [앱 그룹에 MSIX 앱 게시](#publish-
 
 ## <a name="next-steps"></a>다음 단계
 
-[Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 질문합니다.
+[Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 커뮤니티에 질문합니다.
 
-[Windows Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Windows Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
+[Azure Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Azure Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
 
 다음은 도움이 될 수 있는 다른 문서입니다.
 
-- [MSIX 앱 연결 용어집](app-attach-glossary.md)
-- [MSIX 앱 연결 FAQ](app-attach-faq.md)
+- [MSIX 앱 연결 용어](app-attach-glossary.md)
+- [MSIX 앱 연결 FAQ](app-attach-faq.yml)

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 3786ac149847c61974fb079409d7d18beb16bdd8
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e61a7084a0dd05468716c7f94fb85b6968faf558
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536797"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126557"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
 
@@ -19,29 +19,81 @@ ms.locfileid: "110536797"
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-event-grid.md)를 참조하세요.
 
+> [!NOTE]
+> Event Grid 트리거는 내부 부하 분산 장치 App Service Environment에서 기본적으로 지원되지 않습니다. 트리거는 가상 네트워크에 게이트웨이 없이 함수 앱에 연결할 수 없는 HTTP 요청을 사용합니다.
+
 ## <a name="example"></a>예제
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 HTTP 트리거 예제는 [HTTP 엔드포인트에서 이벤트 수신](../event-grid/receive-events.md)을 참조하세요.
 
+### <a name="version-3x"></a>버전 3.x
+
+다음 예제에서는 `CloudEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+
+```cs
+using Azure.Messaging;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class CloudEventTriggerFunction
+    {
+        [FunctionName("CloudEventTriggerFunction")]
+        public static void Run(
+            ILogger logger,
+            [EventGridTrigger] CloudEvent e)
+        {
+            logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
+        }
+    }
+}
+```
+
+다음 예제에서는 `EventGridEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Azure.Messaging.EventGrid;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridEventTriggerFunction
+    {
+        [FunctionName("EventGridEventTriggerFunction")]
+        public static void Run(
+            ILogger logger,
+            [EventGridTrigger] EventGridEvent e)
+        {
+            logger.LogInformation("Event received {type} {subject}", e.EventType, e.Subject);
+        }
+    }
+}
+```
+
 ### <a name="c-2x-and-higher"></a>C#(2.x 이상)
 
 다음 예제에서는 `EventGridEvent`에 바인딩되는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
 ```cs
-using Microsoft.Azure.EventGrid.Models;
+using System;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
-    public static class EventGridTriggerCSharp
+    public static class EventGridTriggerDemo
     {
-        [FunctionName("EventGridTest")]
-        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+        [FunctionName("EventGridTriggerDemo")]
+        public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.Data.ToString());
         }
@@ -71,54 +123,6 @@ namespace Company.Function
         public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
-
-### <a name="version-3x-preview"></a>버전 3.x(미리 보기)
-
-다음 예제에서는 `CloudEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
-
-```cs
-using Azure.Messaging;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-
-namespace Azure.Extensions.WebJobs.Sample
-{
-    public static class CloudEventTriggerFunction
-    {
-        [FunctionName("CloudEventTriggerFunction")]
-        public static void Run(
-            ILogger logger,
-            [EventGridTrigger] CloudEvent e)
-        {
-            logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
-        }
-    }
-}
-```
-
-다음 예제에서는 `EventGridEvent`에 바인딩되는 Functions 3.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Azure.Messaging.EventGrid;
-using Microsoft.Extensions.Logging;
-
-namespace Azure.Extensions.WebJobs.Sample
-{
-    public static class EventGridEventTriggerFunction
-    {
-        [FunctionName("EventGridEventTriggerFunction")]
-        public static void Run(
-            ILogger logger,
-            [EventGridTrigger] EventGridEvent e)
-        {
-            logger.LogInformation("Event received {type} {subject}", e.EventType, e.Subject);
         }
     }
 }
@@ -404,9 +408,10 @@ Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매�
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
-> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다.
+> `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우, 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다.
 
-### <a name="additional-types"></a>추가 형식 
+### <a name="additional-types"></a>추가 형식
+
 Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent) 네임스페이스의 `EventGridEvent` 유형을 사용합니다. 또한 [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent) 네임스페이스의 `CloudEvent` 유형에 바인딩할 수 있습니다.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
@@ -421,7 +426,7 @@ Azure Functions 2.x 이상의 경우 Event Grid 트리거에 대해 다음 매�
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
-> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
+> `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우, 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
 ### <a name="additional-types"></a>추가 형식 
 Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent) 네임스페이스의 `EventGridEvent` 유형을 사용합니다. 또한 [Azure.Messaging](/dotnet/api/azure.messaging.cloudevent) 네임스페이스의 `CloudEvent` 유형에 바인딩할 수 있습니다.

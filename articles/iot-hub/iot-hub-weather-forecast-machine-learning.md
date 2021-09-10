@@ -1,41 +1,39 @@
 ---
-title: Azure Machine Learning 스튜디오(클래식)에서 IoT Hub 데이터를 사용하여 날씨 예측
-description: Azure Machine Learning 스튜디오(클래식)를 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
+title: Machine Learning Studio(클래식)에서 IoT Hub 데이터를 사용하여 날씨 예측
+description: ML Studio(클래식)를 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
 author: robinsh
-manager: philmea
 keywords: 일기 예보 기계 학습
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 455d78ed21403952046448dd4447b5ec54f77c00
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1a85456c6227df1f32387ff92746e0efb8c721ca
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566982"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597452"
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning 스튜디오(클래식)에서 IoT Hub의 센서 데이터를 사용한 일기 예보
+# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
 ![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-기계 학습은 컴퓨터에서 기존 데이터로부터 학습하여 미래 동작, 결과 및 추세를 예측하는 데 유용한 데이터 과학 기술입니다. Azure Machine Learning Studio(클래식)는 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 클라우드 예측 분석 서비스입니다. 이 문서에서는 Azure Machine Learning Studio(클래식)를 사용하여 Azure IoT 허브의 온도 및 습도 데이터를 통해 일기 예보(강우 확률)를 수행하는 방법에 대해 알아봅니다. 강우 확률은 준비된 날씨 예측 모델의 결과입니다. 모델에서는 기록 데이터를 기반으로 하여 온도 및 습도에 따라 강우 확률을 예측합니다.
+기계 학습은 컴퓨터에서 기존 데이터로부터 학습하여 미래 동작, 결과 및 추세를 예측하는 데 유용한 데이터 과학 기술입니다. ML Studio(클래식)는 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 클라우드 예측 분석 서비스입니다. 이 문서에서는 ML Studio(클래식)를 사용하여 Azure IoT 허브의 온도 및 습도 데이터를 통해 일기 예보(강우 확률)를 수행하는 방법에 대해 알아봅니다. 강우 확률은 준비된 날씨 예측 모델의 결과입니다. 모델에서는 기록 데이터를 기반으로 하여 온도 및 습도에 따라 강우 확률을 예측합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
+- [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
   - 활성화된 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
-- [Azure Machine Learning Studio(클래식)](https://studio.azureml.net/) 계정입니다.
+- [ML Studio(클래식)](https://studio.azureml.net/) 계정.
 - [Azure Storage 계정](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), **범용 v2** 계정을 선호하지만 Azure Blob Storage를 지원하는 Azure Storage 계정도 모두 작동합니다.
 
 > [!Note]
-> 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용합니다. 추가 요금은 Azure 지역 간에 데이터를 전송해야 하는 경우 Azure Stream Analytics에 발생합니다. 따라서 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 이 자습서의 뒷부분에 추가된 Machine Learning 스튜디오(클래식) 작업 영역, Azure Stream Analytics 작업을 확인하는 것이 좋습니다. 이들은 모두 동일한 Azure 지역에 있습니다. [지역별 Azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 Azure Machine Learning 스튜디오(클래식) 및 기타 Azure 서비스에 대한 지역별 지원을 확인할 수 있습니다.
+> 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용합니다. 추가 요금은 Azure 지역 간에 데이터를 전송해야 하는 경우 Azure Stream Analytics에 발생합니다. 따라서 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 이 자습서의 뒷부분에 추가된 Machine Learning 스튜디오(클래식) 작업 영역, Azure Stream Analytics 작업을 확인하는 것이 좋습니다. 이들은 모두 동일한 Azure 지역에 있습니다. [지역별 Azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 ML Studio(클래식) 및 기타 Azure 서비스에 대한 지역별 지원을 확인할 수 있습니다.
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>날씨 예측 모델을 웹 서비스로 배포
 
@@ -43,21 +41,21 @@ ms.locfileid: "107566982"
 
 ### <a name="get-the-weather-prediction-model"></a>날씨 예측 모델 가져오기
 
-이 섹션에서는 Azure AI Gallery에서 날씨 예측 모델을 가져와 Azure Machine Learning Studio(클래식)에서 엽니다.
+이 섹션에서는 Azure AI Gallery에서 날씨 예측 모델을 가져와 ML Studio(클래식)에서 엽니다.
 
 1. [날씨 예측 모델 페이지](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1)로 이동합니다.
 
    ![Azure AI Gallery에서 날씨 예측 모델 페이지 열기](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. **스튜디오(클래식)에서 열기** 를 클릭하여 Microsoft Azure Machine Learning 스튜디오(클래식)에서 모델을 엽니다. IoT hub 근처의 지역을 선택하고 **갤러리에서 실험 복사** 팝업의 올바른 작업 영역을 선택합니다.
+1. **Studio(클래식)에서 열기** 를 클릭하여 Microsoft ML Studio(클래식)에서 모델을 엽니다. IoT hub 근처의 지역을 선택하고 **갤러리에서 실험 복사** 팝업의 올바른 작업 영역을 선택합니다.
 
-   ![Azure Machine Learning Studio(클래식)에서 날씨 예측 모델 열기](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
+   ![ML Studio(클래식)에서 날씨 예측 모델 열기](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
 ### <a name="add-an-r-script-module-to-clean-temperature-and-humidity-data"></a>온도 및 습도 데이터를 정리하는 R 스크립트 모듈 추가
 
 모델이 올바르게 동작하려면 온도 및 습도 데이터를 숫자 데이터로 변환할 수 있어야 합니다. 이 섹션에서는 숫자 값으로 변환할 수 없는 온도 또는 습도 데이터 값이 있는 행을 모두 제거하는 R 스크립트 모듈을 날씨 예측 모델에 추가합니다.
 
-1. Azure Machine Learning 스튜디오(클래식) 창의 왼쪽에서 화살표를 선택하여 도구 패널을 확장합니다. 검색 상자에 "실행"을 입력합니다. **R 스크립트 실행** 모듈을 선택합니다.
+1. ML Studio(클래식) 창의 왼쪽에서 화살표를 선택하여 도구 패널을 확장합니다. 검색 상자에 "실행"을 입력합니다. **R 스크립트 실행** 모듈을 선택합니다.
 
    ![R 스크립트 실행 모듈 선택](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -94,11 +92,11 @@ ms.locfileid: "107566982"
 
 1. **웹 서비스 설정** > **예측형 웹 서비스** 를 선택합니다. 예측 실험 다이어그램이 열립니다.
 
-   ![Azure Machine Learning Studio(클래식)에서 날씨 예측 모델 배포](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
+   ![ML Studio(클래식)에서 날씨 예측 모델 배포](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
 1. 예측 실험 다이어그램에서 **웹 서비스 입력** 모듈과 상단의 **데이터 세트의 열 선택** 간의 연결을 삭제합니다. 그런 다음 **웹 서비스 입력** 모듈을 **모델 점수 매기기** 모듈 가까이 끌어 놓고 그림과 같이 연결합니다.
 
-   ![Azure Machine Learning Studio(클래식)에서 두 모듈 연결](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
+   ![ML Studio(클래식)에서 두 모듈 연결](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
 1. **실행** 을 선택하여 모델의 단계에 대한 유효성을 검사합니다.
 
@@ -232,10 +230,10 @@ Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택합니다. **�
 1. 구독 > **스토리지 계정** > 사용자의 스토리지 계정 > **Blob 컨테이너** > 사용자의 컨테이너를 차례로 선택합니다.
 1. .csv 파일을 다운로드하여 결과를 확인합니다. 마지막 열은 강우 확률을 기록하고 있습니다.
 
-   ![Azure Machine Learning 스튜디오(클래식)를 사용하여 날씨 예측 결과 가져오기](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![ML Studio(클래식)를 사용하여 날씨 예측 결과 가져오기](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>요약
 
-IoT Hub에서 수신하는 온도 및 습도 데이터를 기반으로 Azure Machine Learning 스튜디오(클래식)를 성공적으로 사용하여 강우 확률을 생성했습니다.
+IoT Hub에서 수신하는 온도 및 습도 데이터를 기반으로 ML Studio(클래식)를 성공적으로 사용하여 강우 확률을 생성했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

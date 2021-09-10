@@ -8,14 +8,16 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 85f41327476ae96af8dcc28eaaa3e49ef3ce80e5
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: ef783ba32cde3522f5b3cca9e0aa42bdd3fdf5f5
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596536"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770422"
 ---
 # <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
 
@@ -66,10 +68,10 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
+구독 ID에 대한 변수를 만듭니다.
 
 ```console
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 업데이트하려는 이미지 버전을 가져옵니다.
@@ -79,7 +81,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정

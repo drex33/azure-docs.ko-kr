@@ -41,7 +41,7 @@
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: 라이선스 관리
       href: isv-app-license.md
-    - name: 프라이빗 제품
+    - name: 비공개 플랜
       href: private-plans.md
     - name: 플랜 및 가격 책정
       href: plans-pricing.md
@@ -341,6 +341,10 @@
               href: power-bi-app-technical-configuration.md
             - name: 추가 콘텐츠
               href: power-bi-app-supplemental-content.md
+    - name: Power BI 시각적 개체 제품
+      items:
+        - name: 파트너 센터로의 마이그레이션에 대한 FAQ
+          href: power-bi-visual-faq.yml
     - name: SaaS 제품
       items:
         - name: 제품 계획

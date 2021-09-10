@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: decc66d2d5abd16c084aa19443dbac54e87a9560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce24fa1e3956d1ebfe7365a89e312bf8586ce770
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667234"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695438"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Azure Stack에서 OKD 또는 OpenShift Container Platform 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Stack에서 OpenShift를 배포할 수 있습니다. Azure와 Azure Stack 간에는 몇 가지 주요 차이점이 있으므로 배포가 약간 다르고 기능도 약간 다릅니다.
 

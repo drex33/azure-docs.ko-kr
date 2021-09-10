@@ -3,19 +3,18 @@ title: Azure Image Builder 템플릿 만들기
 description: Azure Image Builder에서 사용할 템플릿을 만드는 방법을 알아봅니다.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0c8869bbe2751ee945ab05c5daf8bcf07cc4c3f4
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967250"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568219"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
@@ -98,19 +97,9 @@ Azure VM Image Builder 서비스는 고객이 해당 지역에서 빌드를 요�
 2. Windows 빌드를 실행하는 경우 “Standard_D2_v2” 또는 해당 VM 크기를 사용해야 합니다.
 3. [VM 격리](../isolation.md)가 필요합니다.
 4. 특정 하드웨어가 필요한 이미지를 사용자 지정합니다. 예를 들어, GPU VM의 경우 GPU VM 크기가 필요합니다. 
-5. 빌드 VM에서 엔드투엔드 미사용 암호화가 필요합니다. 로컬 임시 디스크를 사용하지 않는 지원 빌드 [VM 크기](../azure-vms-no-temp-disk.md)를 지정해야 합니다.
+5. 빌드 VM에서 엔드투엔드 미사용 암호화가 필요합니다. 로컬 임시 디스크를 사용하지 않는 지원 빌드 [VM 크기](../azure-vms-no-temp-disk.yml)를 지정해야 합니다.
  
 선택 사항입니다.
-
-
-## <a name="proxy-vm-size"></a>프록시 VM 크기
-프록시 VM은 Azure Image Builder 서비스와 빌드 VM 간에 명령을 전송하는 데 사용됩니다. 이는 기존 VNET을 지정하는 경우에만 배포됩니다. 자세한 내용은 네트워킹 옵션 [설명서](image-builder-networking.md#why-deploy-a-proxy-vm)를 검토하세요.
-```json
- {
-    "proxyVmSize": "Standard A1_v2"
- },
-```
-이 구성 요소는 선택 사항입니다.
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
@@ -181,7 +170,7 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 > 기존 Windows 사용자 지정 이미지를 사용하는 경우 단일 Windows 7 또는 Windows Server 2008 R2 이미지에서 Sysprep 명령을 최대 3회 실행하거나, 이후 버전의 단일 Windows 이미지에서 1,001회 실행할 수 있습니다. 자세한 내용은 [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조하세요.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
-Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../image-builder-overview.md#os-support)를 참조하세요. 
+Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [Azure Image Builder 알아보기](../image-builder-overview.md#os-support)를 참조하세요. 
 
 ```json
         "source": {
@@ -264,6 +253,8 @@ buildTimeoutInMinutes 값을 지정하지 않거나 0으로 설정하면 기본�
 
 사용자 지정을 완료하는 데 시간이 더 필요한 것으로 판단되는 경우 약간의 오버헤드를 고려하여 필요한 값을 설정합니다. 그러나 오류가 발생하기 전에 시간이 초과될 때까지 기다려야 할 수도 있으므로 너무 높게 설정하지 마세요. 
 
+> [!NOTE]
+> 값을 0으로 설정하지 않으면, 지원되는 최소값은 6분입니다. 값 1~5를 사용하면 실패합니다.
 
 ## <a name="properties-customize"></a>속성: customize
 
@@ -725,3 +716,4 @@ az resource invoke-action \
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder)에 다양한 시나리오에 대한 샘플 .json 파일이 있습니다.
+

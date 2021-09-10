@@ -4,28 +4,27 @@ description: 파트너 센터의 요약 대시보드에서 Marketplace 활동을
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 8b76469697da62ed379d6854d2977e841080781d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
+ms.openlocfilehash: b9b3a1e651e6207cc037ab8e4c70f81a176c3d82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539893"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529199"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 요약 대시보드
 
 이 문서에서는 파트너 센터의 요약 대시보드에 대한 정보를 제공합니다. 이 대시보드는 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값을 표시합니다.
 
-파트너 센터에서 요약 대시보드에 액세스하려면 **상업용 마켓플레이스** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **요약** 을 선택합니다.
-
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.
 
 ## <a name="summary-dashboard"></a>요약 대시보드
 
-요약 대시보드에는 Azure Marketplace에 대한 개요와 Microsoft AppSource의 제품의 비즈니스 성과가 표시됩니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
+[요약 대시보드](https://go.microsoft.com/fwlink/?linkid=2165765)에는 Azure Marketplace에 대한 개요와 Microsoft AppSource의 제품의 비즈니스 성과가 표시됩니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
 
 - 고객의 주문
 - 고객
@@ -35,6 +34,8 @@ ms.locfileid: "111539893"
 ## <a name="elements-of-the-summary-dashboard"></a>요약 대시보드의 요소
 
 다음 섹션에서는 요약 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
+
+파트너 센터에서 요약 대시보드에 액세스하려면 **상업용 마켓플레이스** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **요약** 을 선택합니다.
 
 ### <a name="month-range"></a>월 범위
 
@@ -47,7 +48,7 @@ ms.locfileid: "111539893"
 
 ### <a name="orders-widget"></a>주문 위젯
 
-요약** 대시보드의 주문 위젯에는 모든 트랜잭션 기반 제품에 대한 현재 주문이 표시됩니다. 주문 위젯은 선택한 계산 기간에 대해 구매한 주문(취소한 주문 제외)의 수와 추세를 표시합니다. 백분율 값 **주문** 은 선택한 계산 기간 동안의 증가량을 나타냅니다.
+**요약** 대시보드의 주문 위젯에는 모든 트랜잭션 기반 제품에 대한 현재 주문이 표시됩니다. 주문 위젯은 선택한 계산 기간에 대해 구매한 주문(취소한 주문 제외)의 수와 추세를 표시합니다. 백분율 값 **주문** 은 선택한 계산 기간 동안의 증가량을 나타냅니다.
 
 [![요약 대시보드의 주문 위젯을 보여 줍니다.](./media/summary-dashboard/orders-widget.png)](./media/summary-dashboard/orders-widget.png#lightbox)
 
@@ -109,4 +110,4 @@ Marketplace 인사이트에는 Azure Marketplace 및 AppSource에서 제품의 �
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.

@@ -1,12 +1,9 @@
 ---
 title: GPT 파티션이 있는 OS 디스크 크기 조정
 description: 이 문서에서는 Linux에서 GPT(GUID 파티션 테이블) 파티션이 있는 OS 디스크의 크기를 조정하는 방법에 대한 지침을 제공합니다.
-services: virtual-machines
-ms.topic: article
+ms.topic: how-to
 author: kailashmsft
 manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
@@ -15,14 +12,16 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 0db79728bbb963aa360743afc70aecc213bfb7bc
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ca7a018accb0410c2656d7aeb4282b42f2756e39
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011684"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688226"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 > [!NOTE]
 > 이 문서는 GPT(GUID 파티션 테이블) 파티션이 있는 OS 디스크에만 적용됩니다.

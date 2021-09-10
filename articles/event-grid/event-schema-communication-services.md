@@ -2,14 +2,14 @@
 title: Event Grid 원본으로 사용되는 Azure Communication Services
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure Communication Services를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/11/2021
 ms.author: mikben
-ms.openlocfilehash: 72941faf122be50d2c721fd4c8421ae4339d5d2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e4245d9f38c00ec337d689a11d185299d71891
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656246"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529291"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure Communication Services에서 이벤트 처리
 
@@ -17,7 +17,7 @@ Azure Communication Services는 [Azure Event Grid](https://azure.microsoft.com/s
 
 Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../azure-functions/functions-overview.md)와 같은 Azure 서비스에 대한 지원이 기본적으로 제공됩니다. 웹후크를 사용하여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](overview.md)를 참조하세요.
 
-:::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Azure Event Grid의 이벤트 모델을 보여 주는 다이어그램.":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Azure Event Grid의 이벤트 모델을 보여 주는 다이어그램.":::
 
 > [!NOTE]
 > 데이터 보존과 이벤트 처리의 관계에 대한 자세한 내용은 [데이터 보존 개념 설명서](../communication-services/concepts/privacy.md)를 참조하세요.
@@ -50,6 +50,7 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 | Microsoft.Communication.ChatThreadPropertiesUpdated| 토픽과 같은 채팅 스레드의 속성을 업데이트할 때 게시됩니다.|    
 | Microsoft.Communication.ChatMessageEditedInThread | 채팅 스레드에서 메시지가 편집될 때 게시됩니다. |  
 | Microsoft.Communication.ChatMessageDeletedInThread | 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.  |  
+| Microsoft.Communication.RecordingFileStatusUpdated | 기록 파일을 사용할 수 있을 때 게시됨 |
 
 Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스에서 내보낸 이벤트를 구독할 수 있습니다. [Communication Services에서 SMS 이벤트를 처리하는 방법](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)을 확인하여 이벤트 처리를 시작합니다.
 
@@ -141,6 +142,10 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
     "data": {
       "messageBody": "Welcome to Azure Communication Services",
       "messageId": "1613694358927",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -181,6 +186,10 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
       "editTime": "2021-02-19T00:28:20.784Z",
       "messageBody": "Let's Chat about new communication services.",
       "messageId": "1613694357917",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -730,6 +739,10 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
     "data": {
       "messageBody": "Talk about new Thread Events in commuication services",
       "messageId": "1613783230064",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613783230064",
       "senderDisplayName": "Bob",
@@ -762,6 +775,10 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
       "editTime": "2021-02-20T00:59:10.464+00:00",
       "messageBody": "8effb181-1eb2-4a58-9d03-ed48a461b19b",
       "messageId": "1613782685964",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613782750464",
       "senderDisplayName": "Scott",
@@ -814,7 +831,40 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
   }
 ]
 ```
+> [!IMPORTANT]
+> 통화 녹음/녹화 기능이 아직 공개 미리 보기 상태입니다.
 
+### <a name="microsoftcommunicationrecordingfilestatusupdated"></a>Microsoft.Communication.RecordingFileStatusUpdated
+
+```json
+[
+ {
+  "id": "7283825e-f8f1-4c61-a9ea-752c56890500",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/}{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/recording/call/{call-id}/recordingId/{recording-id}",
+  "data": {
+    "recordingStorageInfo": {
+      "recordingChunks": [
+        {
+          "documentId": "0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8",
+          "index": 0,
+          "endReason": "SessionEnded",
+          "contentLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/video",
+          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata"
+        }
+      ]
+    },
+    "recordingStartTime": "2021-07-27T15:20:23.6089755Z",
+    "recordingDurationMs": 6620,
+    "sessionEndReason": "CallEnded"
+  },
+  "eventType": "Microsoft.Communication.RecordingFileStatusUpdated",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-27T15:20:34.2199328Z"
+ }
+]
+```
 
 ## <a name="quickstarts-and-how-tos"></a>빠른 시작 및 방법
 

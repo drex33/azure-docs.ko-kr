@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: fcad6b0079a612e6e30861fa9af17704e43231f8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 79be8f9d98816690171476d9c5764884e1b4e0f7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459492"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567467"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀을 위한 PolyBase 데이터 로드 전략 설계
 
@@ -85,7 +85,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 서비스는 네트워크 처리량, 성능 및 예측 가능성을 개선합니다. ExpressRoute는 Azure에 대한 전용 프라이빗 연결을 통해 데이터를 라우팅하는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 통해 데이터를 라우팅하지 않습니다. 이 연결은 공용 인터넷을 통한 일반적인 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 - [AzCopy 유틸리티](../../storage/common/storage-use-azcopy-v10.md)는 공용 인터넷을 통해 Azure Storage로 데이터를 이동합니다. 이는 데이터 크기가 10TB 미만인 경우에 작동합니다. AzCopy를 사용하여 정기적으로 로드를 수행하려면 네트워크 속도를 테스트하여 작업이 가능한지 확인하세요.
-- [ADF(Azure Data Factory)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. 전용 SQL 풀과 함께 Data Factory를 사용하려면 [전용 SQL 풀로 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+- [ADF(Azure Data Factory)](../../data-factory/introduction.md)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. 전용 SQL 풀과 함께 Data Factory를 사용하려면 [전용 SQL 풀로 데이터 로드](../../data-factory/load-azure-sql-data-warehouse.md)를 참조하세요.
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. 로드할 데이터 준비
 
@@ -120,7 +120,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 
 - [T-SQL을 이용한 PolyBase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
 - [PolyBase와 SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)는 원본 데이터가 SQL Server에 있을 때 원활하게 작동합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
-- [ADF(Azure Data Factory)를 이용한 PolyBase](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
+- [ADF(Azure Data Factory)를 이용한 PolyBase](../../data-factory/load-azure-sql-data-warehouse.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
 - [PolyBase와 Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)는 PolyBase를 사용하여 Azure Synapse Analytics 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하거나 Databricks 데이터 프레임에서 Azure Synapse Analytics 테이블로 데이터를 씁니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
@@ -139,7 +139,7 @@ ETL 프로세스를 설계할 때 작은 테스트 샘플에서 프로세스를 
 
 ## <a name="partner-loading-solutions"></a>파트너 로드 솔루션
 
-상당수의 파트너에게는 로드 솔루션이 있습니다. 자세한 내용을 알아보려면 [솔루션 파트너](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 목록을 참조하세요.
+상당수의 파트너에게는 로드 솔루션이 있습니다. 자세한 내용을 알아보려면 [솔루션 파트너](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context) 목록을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

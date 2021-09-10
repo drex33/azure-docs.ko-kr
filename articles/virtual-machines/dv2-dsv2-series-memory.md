@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b3a3feb844d9c29aa63c0a85d3b3391c8ab654a6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c2010bdb442112af6e62ed30abc8323b669b5166
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566957"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688338"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 최적화된 Dv2 및 DSv2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 원래 D 시리즈의 후속판인 Dv2 및 DSv2 시리즈는 더 강력한 CPU가 특징입니다. DSv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4GHz(Haswell) 프로세서에서 실행됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 

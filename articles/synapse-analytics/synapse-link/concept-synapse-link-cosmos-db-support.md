@@ -10,12 +10,12 @@ ms.date: 06/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: f3cd12c6c2e03dbf68a70cac13a75cde0847a593
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 8400a479b45770570c43ec906a192bf4f05a71a0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019038"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110397"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
 
@@ -42,7 +42,7 @@ Synapse Link를 사용하지 않고 Azure Cosmos DB 컨테이너에 연결할 �
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Spark에 대해 지원되는 코드 생성 작업
 
-| 제스처              | Description |OLTP |HTAP  |
+| 제스처              | 설명 |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **DataFrame에 로드** |Spark DataFrame에 데이터 로드 및 읽기 |✓| ✓ |
 | **Spark 테이블 만들기** |Azure Cosmos DB 컨테이너를 가리키는 테이블 만들기|✓| ✓ |
@@ -52,7 +52,7 @@ Synapse Link를 사용하지 않고 Azure Cosmos DB 컨테이너에 연결할 �
 
 ## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>서버리스 SQL 풀에 지원되는 코드 생성 작업
 
-| 제스처              | Description |OLTP |HTAP |
+| 제스처              | 설명 |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **데이터 살펴보기** |친숙한 T-SQL 구문 및 자동 스키마 유추를 사용하여 컨테이너에서 데이터를 탐색합니다.|X| ✓ |
 | **보기 만들기 및 BI 보고서 작성** |SQL 보기를 만들어 서버리스 SQL 풀을 통해 BI용 컨테이너에 직접 액세스할 수 있습니다. |X| ✓ |
@@ -61,4 +61,5 @@ Synapse Link를 사용하지 않고 Azure Cosmos DB 컨테이너에 연결할 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB용 Synapse Link에 연결](../quickstart-connect-synapse-link-cosmos-db.md)하는 방법을 참조하세요.
-* [Spark를 사용하여 Cosmos DB 분석 저장소를 쿼리하는 방법 알아보기](how-to-query-analytical-store-spark.md)
+* [Spark 3을 사용하여 Cosmos DB Analytical Store를 쿼리하는 방법 알아보기](how-to-query-analytical-store-spark-3.md)
+* [Spark 2를 사용하여 Cosmos DB Analytical Store를 쿼리하는 방법 알아보기](how-to-query-analytical-store-spark.md)

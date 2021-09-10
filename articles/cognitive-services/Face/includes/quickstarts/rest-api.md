@@ -9,18 +9,18 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 87871be12310782abe172fe308782825ba8e09d0
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 6520c9514ee8fbf950437026c1d2712683e58151
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858046"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442508"
 ---
 Face REST API를 사용하여 얼굴 인식을 시작합니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
 Face REST API를 사용하여 다음을 수행합니다.
 
-* [이미지에서 얼굴 감지](#detect-faces-in-an-image)
+* [얼굴 감지 및 분석](#detect-and-analyze-faces)
 * [유사 얼굴 찾기](#find-similar-faces)
 
 > [!NOTE]
@@ -29,13 +29,14 @@ Face REST API를 사용하여 다음을 수행합니다.
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 생성한 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 * [PowerShell 버전 6.0 이상](/powershell/scripting/install/installing-powershell-core-on-windows) 또는 유사한 명령줄 애플리케이션.
 
 
-## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
+## <a name="detect-and-analyze-faces"></a>얼굴 감지 및 분석
 
 다음과 같은 명령을 사용하여 Face API를 호출하고 이미지에서 얼굴 특성 데이터를 가져옵니다. 먼저, 텍스트 편집기에 코드를 복사합니다. 코드를 명령의 특정 부분으로 변경해야 실행할 수 있습니다.&mdash;
 
@@ -175,7 +176,7 @@ Face REST API를 사용하여 다음을 수행합니다.
 
 ### <a name="detect-faces-for-comparison"></a>비교할 얼굴 감지
 
-먼저 이미지에서 얼굴을 감지해야 이를 비교할 수 있습니다. [얼굴 감지](#detect-faces-in-an-image) 섹션에서 했던 것처럼 이 명령을 실행합니다. 이 검색 방법은 비교 작업에 최적화되어 있습니다. 위의 섹션과 같이 자세한 얼굴 특성을 추출하지 않으며 다른 검색 모델을 사용합니다.
+먼저 이미지에서 얼굴을 감지해야 이를 비교할 수 있습니다. [감지 및 분석](#detect-and-analyze-faces) 섹션에서와 같이 이 명령을 실행합니다. 이 검색 방법은 비교 작업에 최적화되어 있습니다. 위의 섹션과 같이 자세한 얼굴 특성을 추출하지 않으며 다른 검색 모델을 사용합니다.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 

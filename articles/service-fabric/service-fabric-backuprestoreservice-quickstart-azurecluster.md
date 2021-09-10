@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 정기적인 백업 및 복원
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 애플리케이션 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: dbbeac5e5efad4e19561ba5f812e29d029de8317
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6a9eef80b78f95a4941b3795f86b44511ee8a50b
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059773"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568230"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기적인 백업 및 복원
 > [!div class="op_single_selector"]
@@ -119,7 +119,12 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
     }
     ```
 
-4. 위와 같은 변경 내용으로 클러스터 템플릿을 업데이트한 후 변경 내용을 적용하고 배포/업그레이드가 완료되도록 합니다. 완료된 후에는 클러스터에서 _Backup 및 Restore 서비스_ 실행이 시작됩니다. 이 서비스의 URI는 `fabric:/System/BackupRestoreService`이고 서비스는 Service Fabric Explorer의 시스템 서비스 섹션 아래에 있을 수 있습니다.
+    > [!NOTE]
+    > \[지문\]을 암호화에 사용할 올바른 인증서 지문으로 대체해야 합니다.
+    >
+    
+4. 위와 같은 변경 내용으로 클러스터 템플릿을 업데이트한 후 변경 내용을 적용하고 배포/업그레이드가 완료되도록 합니다. 완료된 후에는 클러스터에서 _Backup 및 Restore 서비스_ 실행이 시작됩니다. 이 서비스의 URI는 `fabric:/System/BackupRestoreService`이고 서비스는 Service Fabric Explorer의 시스템 서비스 섹션 아래에 있을 수 있습니다. 
+
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용
 Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 사용하도록 설정하는 단계를 살펴보겠습니다. 이러한 단계에서는 다음을 가정합니다.

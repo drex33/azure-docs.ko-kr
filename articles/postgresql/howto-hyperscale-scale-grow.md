@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 9746c6509673d3268a4afa15bcbeee9fa676d8c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/03/2021
+ms.openlocfilehash: 12c4cd7848b0d58fd6b91e27e254ccc613ff5676
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554411"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567405"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>하이퍼스케일(Citus) 서버 그룹 스케일링
 
@@ -24,8 +24,7 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 늘어난 부하를
 
 > [!NOTE]
 >
-> [기본 계층(미리 보기)을](concepts-hyperscale-tiers.md) 사용하여 만든 하이퍼스케일(Citus) 서버 그룹에는 작업자가 없습니다. 작업자 수를 늘리면 서버 그룹이 표준 계층으로 자동 변경됩니다.
-> 서버 그룹을 표준 계층으로 업그레이드한 후에는 기본 계층으로 다시 다운그레이드할 수 없습니다.
+> [기본 계층](concepts-hyperscale-tiers.md)을 사용하여 만든 하이퍼스케일(Citus) 서버 그룹에는 작업자가 없습니다. 작업자 수를 늘리면 서버 그룹이 표준 계층으로 자동 변경됩니다.  서버 그룹을 표준 계층으로 업그레이드한 후에는 기본 계층으로 다시 다운그레이드할 수 없습니다.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="리소스 슬라이더":::
 
@@ -35,7 +34,7 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 늘어난 부하를
 > 작업자 노드 수를 늘리고 저장한 다음에는 슬라이더를 사용하여 줄일 수 없습니다.
 
 > [!NOTE]
-> 새로 추가된 노드를 활용하려면 [분산 테이블 분할된 데이터베이스를 리밸런스](howto-hyperscale-scale-rebalance.md)해야 합니다. 이는 일부 [분할된 데이터베이스](concepts-hyperscale-distributed-data.md#shards)를 기존 노드에서 새 노드로 이동하는 것을 의미합니다.
+> 새로 추가된 노드를 활용하려면 [분산 테이블 분할된 데이터베이스를 리밸런스](howto-hyperscale-scale-rebalance.md)해야 합니다. 이는 일부 [분할된 데이터베이스](concepts-hyperscale-distributed-data.md#shards)를 기존 노드에서 새 노드로 이동하는 것을 의미합니다. 리밸런싱은 백그라운드에서 작동할 수 있으며 가동 중지 시간이 필요하지 않습니다.
 
 ## <a name="increase-or-decrease-vcores-on-nodes"></a>노드에서 vCore 늘리기 또는 줄이기
 

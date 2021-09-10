@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 7d77431f5caa1a2ac67428326dcd6d4ce75a4a93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6d89fd1aa0cb0047057340dd85ec1c0d318016b7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625843"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106793"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB용 Azure Synapse Link에 연결
 
@@ -68,4 +68,5 @@ Azure Cosmos DB 데이터베이스는 Azure Cosmos DB 섹션의 **연결** 탭 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Synapse와 Azure Cosmos DB 간에 지원되는 항목 알아보기](./synapse-link/concept-synapse-link-cosmos-db-support.md)
-* [Azure Synapse Analytics용 Apache Spark를 사용하여 분석 저장소를 쿼리하는 방법 알아보기](synapse-link/how-to-query-analytical-store-spark.md)
+* [Azure Synapse Analytics용 Apache Spark 3을 사용하여 분석 저장소를 쿼리하는 방법 알아보기](synapse-link/how-to-query-analytical-store-spark-3.md)
+* [Azure Synapse Analytics용 Apache Spark 2를 사용하여 분석 저장소를 쿼리하는 방법 알아보기](synapse-link/how-to-query-analytical-store-spark.md)

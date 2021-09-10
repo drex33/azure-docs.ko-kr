@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: e7ff59c3c6ba75321c63db81d34ea4c7d46a841a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db2eb3bf906ffebe67489ab83cb7e13595b601d5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748630"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112757"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS 클러스터 배포
 
@@ -145,6 +145,9 @@ kube-system     sgx-device-plugin-xxxx     1/1     Running
 이제 테스트 애플리케이션을 배포할 준비가 되었습니다. 
 
 *hello-world-enclave.yaml* 이라는 파일을 만들고, 다음 YAML 매니페스트를 붙여넣습니다. [Open Enclave 프로젝트](https://github.com/openenclave/openenclave/tree/master/samples/helloworld)에서 이 애플리케이션 예제 코드를 찾을 수 있습니다. 이 배포에서는 사용자가 *confcom* 추가 항목을 배포했다고 가정합니다.
+
+> [!NOTE]
+> 다음 예제에서는 Docker 허브에서 공용 컨테이너 이미지를 가져옵니다. 익명의 끌어오기 요청을 하는 대신 Docker Hub 계정을 사용하여 인증하도록 끌어오기 비밀을 설정하는 것이 좋습니다. 공용 콘텐츠를 사용할 때 신뢰성을 향상시키려면 개인 Azure Container Registry에서 이미지를 가져오고 관리하세요. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).
 
 ```yaml
 apiVersion: batch/v1

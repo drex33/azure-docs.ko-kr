@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: ea256292510f662236fe8b9507009c8418849c5e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3a8ec174cb1be02389487c442b4e1b3ff35dbf27
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772642"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536686"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>프라이빗 Azure DNS 영역이란?
 

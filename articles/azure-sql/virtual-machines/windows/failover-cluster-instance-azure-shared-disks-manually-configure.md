@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.subservice: hadr
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 7742b39fae9390a5baa7f58dbb25eeff45384dc2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 49a369c439465a7a93cba1aea983d23a54da206e
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769546"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569509"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크(Azure VM의 SQL Server)를 사용하여 FCI 만들기
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +141,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="configure-quorum"></a>쿼럼 구성
 
-비즈니스 요구에 가장 적합한 쿼럼 솔루션을 구성합니다. [디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), [클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness) 또는 [파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)를 구성할 수 있습니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-cluster-best-practices.md#quorum)을 참조하세요. 
+디스크 감시는 가장 복원력 있는 쿼럼 옵션이고 FCI 솔루션은 Azure 공유 디스크를 사용하므로 디스크 감시를 쿼럼 솔루션으로 구성하는 것이 좋습니다. 
+
+클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
 
 ## <a name="validate-cluster"></a>클러스터의 유효성 검사
 UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
@@ -208,9 +211,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절하게 라우팅하려면 사용자 환경에 적합한 연결 옵션을 구성합니다. [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 만들거나, SQL Server 2019 CU2 이상 및 Windows Server 2016 이상을 사용하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다.  
-
-클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
+장애 조치(failover) 클러스터 인스턴스의 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.  
 
 ## <a name="limitations"></a>제한 사항
 
@@ -224,6 +225,10 @@ Azure 공유 디스크가 적합한 FCI 스토리지 솔루션이 아닌 경우 
 
 자세히 알아보려면 [Azure VMs에서 SQL Server를 사용한 FCI](failover-cluster-instance-overview.md) 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요.
 
-자세한 내용은 다음을 참조하세요. 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

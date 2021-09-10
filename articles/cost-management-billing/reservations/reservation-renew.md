@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2021
 ms.author: banders
-ms.openlocfilehash: bf7945c56fc05c33ae3cfed1c67085b3b28f847f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690513"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634205"
 ---
 # <a name="automatically-renew-reservations"></a>예약 자동 갱신
 
@@ -27,16 +27,16 @@ ms.locfileid: "88690513"
 
 ## <a name="set-up-renewal"></a>갱신 설정
 
-Azure Portal > **Reservations**로 이동합니다.
+Azure Portal > **Reservations** 로 이동합니다.
 
 1. 예약을 선택합니다.
-2. **갱신**을 클릭합니다.
-3. **만료 시 자동으로 새 예약 구매**를 선택합니다.  
+2. **갱신** 을 클릭합니다.
+3. **만료 시 자동으로 새 예약 구매** 를 선택합니다.  
   ![예약 갱신을 보여주는 예](./media/reservation-renew/reservation-renewal.png)
 
 ## <a name="if-you-dont-renew"></a>계정하지 않는 경우
 
-서비스는 계속 정상적으로 실행됩니다. 예약이 만료된 후 사용량에 대한 종량제 요금이 청구됩니다.
+서비스는 계속 정상적으로 실행됩니다. 예약이 만료된 후 사용량에 대한 종량제 요금이 청구됩니다. 만료 전에 자동 갱신을 위해 예약을 설정하지 않은 경우, 만료된 예약을 갱신할 수 없습니다. 절감을 계속 받으려면 새 예약을 구입할 수 있습니다.
 
 ## <a name="required-renewal-permissions"></a>필요한 갱신 권한
 
@@ -84,6 +84,8 @@ Azure는 만료되는 예약에서 새 예약으로 권한을 복사합니다. �
 위의 조건 중 하나라도 발생하고 갱신이 비활성화되면 이메일 알림이 전송됩니다.
 
 ## <a name="renewal-notification"></a>갱신 알림
+
+갱신 알림 이메일은 만료 30일 전과 만료 날짜에 다시 전송됩니다. 보내는 이메일 주소는 `azure-noreply@microsoft.com`입니다. 이메일 주소를 안전한 보낸 사람 또는 허용 목록에 추가할 수 있습니다.
 
 이메일은 구매 방법에 따라 다른 사람에게 전송됩니다.
 

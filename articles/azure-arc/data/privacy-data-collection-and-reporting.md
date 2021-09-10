@@ -7,20 +7,19 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 ms.custom: template-concept
-ms.openlocfilehash: 46c2addc8c844e2fe909bccddfa4927feef5a34a
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 189021997362da8508d2e60c23cc3acb1238ca55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495779"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535725"
 ---
 # <a name="azure-arc-data-services-data-collection-and-reporting"></a>Azure Arc 데이터 서비스 데이터 수집 및 보고
 
-이 문서에서는 Azure Arc 지원 데이터 서비스가 Microsoft로 전송하는 데이터를 설명합니다. 
+이 문서에서는 Azure Arc 지원 데이터 서비스가 Microsoft에 전송하는 데이터에 대해 설명합니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="related-products"></a>관련 제품
 
@@ -29,6 +28,9 @@ Azure Arc 지원 데이터 서비스는 다음 제품의 일부 또는 전부를
 - SQL MI – Azure Arc 
 - PostgreSQL 하이퍼스케일 – Azure Arc
 - Azure Data Studio
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - Azure CLI(az)
 - Azure Data CLI(`azdata`) 
 
@@ -60,7 +62,7 @@ CEIP(Customer Experience Improvement Program)|[CEIP 요약](/sql/sql-server/usag
 
 ## <a name="detailed-description-of-data"></a>데이터에 대한 자세한 설명
 
-이 섹션에서는 Azure Arc 지원 데이터 서비스에 포함된 정보의 Microsoft 전송에 대해 자세히 설명합니다.
+이 섹션에서는 Azure Arc 지원 데이터 서비스가 Microsoft에 전송하는 정보에 대해 자세히 설명합니다.
 
 ### <a name="operational-data"></a>운영 데이터
 
@@ -86,12 +88,12 @@ CEIP(Customer Experience Improvement Program)|[CEIP 요약](/sql/sql-server/usag
 
 - Azure Arc 지원 SQL Managed Instance 
 - Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 
-- Azure Arc 지원 SQL Server 
+- Azure Arc 사용 서버의 SQL Server 
 - 데이터 컨트롤러 
 
 다음 섹션에서는 각 리소스 종류에 대해 수집 및 저장되는 속성, 형식, 설명을 보여 줍니다. 
 
-### <a name="arc-enabled-sql-server"></a>Azure Arc 지원 SQL Server 
+### <a name="sql-server-on-azure-arc-enabled-servers"></a>Azure Arc 사용 서버의 SQL Server 
 - SQL Server 에디션입니다. 
    - `string: Edition` 
 - 컨테이너 리소스의 리소스 ID입니다(서버의 경우 Azure Arc). 
@@ -256,10 +258,6 @@ CEIP(Customer Experience Improvement Program)|[CEIP 요약](/sql/sql-server/usag
 |보기    |보기는 고객 데이터를 포함할 수 있지만 사용자가 제한 및 공유할 수 있습니다.     |
 |크래시 덤프 - 고객 데이터 | 크래시 덤프 최대 30일 보존 – 액세스 제어 데이터를 포함할 수 있습니다. <br/><br/> 고객 크래시 덤프에 통계 개체, 행 내 데이터 값, 쿼리 텍스트가 있을 수 있습니다.    |
 |크래시 덤프 – 개인 데이터 | 머신, 로그인/사용자 이름, 메일, 위치 정보, 고객 ID – 사용자 동의가 포함되어야 함  |
-
-### <a name="customer-experience-improvement-program-ceip-telemetry"></a>CEIP(사용자 환경 개선 프로그램)(원격 분석) 
-
-원격 분석은 제품 사용 메트릭과 환경 정보를 추적하는 데 사용됩니다. [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy/)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Monitor에 사용량 데이터 업로드](upload-usage-data.md)

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 25371e04e4e229786ca96fbc0f72b4bea0dccd96
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 0c1871921160b0b5862e7655a3826949406ac111
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896419"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777804"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 등록 및 로그인 흐름 설정
 
@@ -46,11 +46,12 @@ ms.locfileid: "107896419"
 등록 및 로그인 사용자 흐름은 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 애플리케이션 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 아래에서 **사용자 흐름** 을 선택한 다음, **새 사용자 흐름** 을 선택합니다.
 
-    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-user-flow.png)
+    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/add-sign-up-and-sign-in-policy/sign-up-sign-in-user-flow.png)
 
 1. **사용자 흐름 만들기** 탭에서 **가입 및 로그인** 사용자 흐름을 선택합니다.
 
@@ -61,13 +62,21 @@ ms.locfileid: "107896419"
     ![속성이 강조 표시된 Azure Portal의 사용자 흐름 만들기 페이지](./media/add-sign-up-and-sign-in-policy/select-version.png)
 
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *signupsignin1* 과 같습니다.
-1. **ID 공급자** 에서 **이메일 등록** 을 선택합니다.
-1. **사용자 특성 및 클레임** 에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기** 를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호** 의 특성 및 클레임을 선택합니다. **확인** 을 클릭합니다.
+1. **ID 공급자** 에서 하나 이상의 ID 공급자를 선택합니다.
+
+   * **로컬 계정** 에서 **이메일 등록**, **사용자 ID 등록**, **전화 등록**, **전화/이메일 등록** 또는 **없음** 중 하나를 선택합니다. [자세한 정보](sign-in-options.md).
+   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세한 정보](add-identity-provider.md).
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세한 정보](multi-factor-authentication.md).
+1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세한 정보](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. **사용자 특성 및 토큰 클레임** 에서 등록 중에 사용자로부터 수집하려는 속성과 토큰에서 반환하려는 클레임을 선택합니다. 전체 값 목록에서 **자세히 표시** 를 선택하고 값, **확인** 을 차례로 선택합니다.
+
+   > [!NOTE]
+   > Azure AD B2C 테넌트에서 사용할 [사용자 지정 특성을 만들 수](user-flow-custom-attributes.md?pivots=b2c-user-flow)도 있습니다.
 
     ![세 개의 클레임이 선택된 특성 및 클레임 선택 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
-1. **만들기** 를 클릭하여 사용자 흐름을 추가합니다. *B2C_1* 이라는 접두사가 이름 앞에 자동으로 붙습니다.
-2. 등록 또는 로그인 정책 내에서 ["암호를 잊으셨나요?" 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended)하려면 단계에 따릅니다.
+1. **만들기** 를 선택하여 사용자 흐름을 추가합니다. *B2C_1* 이라는 접두사가 이름 앞에 자동으로 붙습니다.
+1. 등록 또는 로그인 정책 내에서 ["암호를 잊으셨나요?" 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended)하려면 단계에 따릅니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -91,7 +100,7 @@ ms.locfileid: "107896419"
 
 ## <a name="create-a-sign-up-and-sign-in-policy"></a>등록 및 로그인 정책 만들기
 
-사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 등록 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)을 참조하세요.
+사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 가입 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)를 참조하세요.
 
 ::: zone-end
 

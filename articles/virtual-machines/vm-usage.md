@@ -10,14 +10,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: bc8cd7e3c52f6d9dd247c62590bef358afe06306
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 776daa5b97d5e6957956e1bccabb8c8b1fe5917f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528538"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694351"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
 Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
 
 ## <a name="download-your-usage-details"></a>사용 세부 정보 다운로드

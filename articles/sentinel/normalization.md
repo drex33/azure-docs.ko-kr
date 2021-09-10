@@ -1,10 +1,10 @@
 ---
-title: Azure Sentinel의 데이터 정규화 | Microsoft Docs
-description: 이 문서에서는 Azure Sentinel에서 다양한 원본으로부터 데이터를 정규화하고 정규화 스키마에 대해 자세히 설명합니다.
+title: 정규화 및 ASIM(Azure Sentinel 정보 모델) | Microsoft Docs
+description: 이 문서에서는 Azure Sentinel이 ASIM(Azure Sentinel 정보 모델)을 사용하여 다양한 원본의 데이터를 정규화하는 방법을 설명합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 ms.assetid: ''
 ms.service: azure-sentinel
@@ -13,145 +13,103 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.author: yelevin
-ms.openlocfilehash: 08f7f7998fce5c3361ec8d89a7ae4da4a43db832
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/15/2021
+ms.author: bagol
+ms.openlocfilehash: e03f343444aed0c3aafac28deccb0f38c35e2478
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466636"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539597"
 ---
-# <a name="normalization-in-azure-sentinel"></a>Azure Sentinel의 정규화
+# <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>정규화 및 ASIM(Azure Sentinel 정보 모델)(퍼블릭 미리 보기)
 
-이 문서에서는 Azure Sentinel의 데이터 스키마 정규화와 특히 링크를 포함하는 네트워크 연결 및 세션 스키마에 대해 설명합니다.
+Azure Sentinel은 많은 원본에서 데이터를 수집합니다. 다양한 데이터 형식과 테이블을 함께 사용하려면 각 데이터 형식을 이해하고 각 형식 또는 스키마의 분석 규칙, 통합 문서, 헌팅 쿼리 등에 관한 고유한 데이터 세트를 작성하고 사용해야 합니다.
 
-## <a name="what-is-normalization"></a>정규화란?
 
-다양한 데이터 형식 및 테이블을 함께 사용하면 문제가 발생합니다. 다양한 데이터 형식 및 스키마에 대해 잘 알고 있어야 합니다. 공통점(예: 방화벽 디바이스와 관련됨)을 공유하는 경우에도 각각에 대해 고유한 분석 규칙, 통합 문서 및 헌팅 쿼리 집합을 작성하고 사용할 수 있습니다. 조사 및 헌팅에 필요한 여러 데이터 형식 간의 상관 관계 역시 어렵습니다. Azure Sentinel은 일관적인 정규화된 보기에서 다양한 원본의 데이터를 처리하기 위한 원활한 환경을 제공합니다.
+경우에 따라 데이터 형식이 방화벽 디바이스와 같은 공통 요소를 공유하는 경우에도 별도의 규칙, 통합 문서, 쿼리가 필요합니다. 조사 및 헌팅 중에 다양한 데이터 형식 간에 상관 관계를 지정하는 것은 어려울 수도 있습니다.
 
-Azure Sentinel **공통 정보 모델** 은 세 가지 측면으로 구성됩니다.
-
-- **정규화된 스키마** 에서는 작업하기 쉽고 통합 기능(예: 네트워킹 테이블)을 구축할 수 있는 예측 가능한 이벤트 유형(테이블)의 일반 세트를 다룹니다. 이 스키마에는 정규화된 열 규칙, 값 및 형식 표준화에 대한 정의(IP 주소와 같은 데이터의 표준 일관성 표현)도 포함되어 있습니다.
-
-- **파서** 는 다양한 유형의 기존 데이터를 정규화된 스키마에 매핑합니다. 모델에 따라 쿼리 시간(함수 사용) 또는 수집 시간에 정규화된 스키마로 데이터를 구문 분석할 수 있습니다. 지금은 쿼리 시간 구문 분석만 지원됩니다.
-
-- **정규화된 각 스키마의 콘텐츠** 에는 분석 규칙, 대화형 통합 문서, 헌팅 쿼리 및 추가 콘텐츠가 포함됩니다.
-
-### <a name="current-release"></a>현재 릴리스
-
-이 릴리스에서는 [정규화된 네트워크 연결 및 세션 스키마](./normalization-schema.md)(v1.0.0)를 공개 미리 보기로 사용할 수 있습니다. 이 스키마는 방화벽, 유선 데이터, NSG, Netflow, 프록시 시스템 및 웹 보안 게이트웨이에서 기록하는 것과 같은 네트워크 연결 또는 세션을 설명합니다.  선택한 쿼리 시간 파서 및 분석 규칙은 스키마와 함께 사용할 수 있으며 이를 사용합니다.
-
-현재 스키마는 쿼리 시간 파서(파서 섹션 참조)를 통해서만 사용할 수 있습니다.
-
-데이터를 추가 표현으로 구문 분석하고 [OSSEM 엔터티 이름 지정 모델](https://ossemproject.com/cdm/entities/intro.html#)을 사용하여 기존 및 향후 정규화된 테이블과 일치하는 열을 만들 수 있습니다.
-
-## <a name="normalized-schema-and-parsing"></a>정규화된 스키마 및 구문 분석
-
-### <a name="how-our-normalized-schemas-are-defined"></a>정규화된 스키마를 정의하는 방법
-
-Azure Sentinel은 [OSSEM(오픈 소스 보안 이벤트 메타데이터)](https://ossemproject.com/intro.html) 일반 정보 모델과 일치하여 정규화된 테이블에서 예측 가능한 엔터티 상관 관계를 허용합니다. OSSEM은 다양한 데이터 원본 및 운영 체제에서 보안 이벤트 로그의 설명서 및 표준화에 주로 중점을 둔 커뮤니티 주도 프로젝트입니다. 또한 이 프로젝트는 보안 분석가가 다양한 데이터 원본에서 데이터를 쿼리하고 분석할 수 있도록 데이터 정규화 절차 중에 데이터 엔지니어에게 사용할 수 있는 CIM(일반 정보 모델)을 제공합니다.
-
-[OSSEM CIM](https://ossemproject.com/cdm/intro.html)은 엔터티 세트(예: 파일, 호스트, IP, 프로세스)를 정의하고 각 엔터티에 대한 속성 세트를 정의합니다. 또한 CIM은 이러한 엔터티의 관련 속성을 사용하는 테이블 세트(예: [네트워크 세션](https://ossemproject.com/cdm/tables/network_session.html) 테이블)를 정의하여 원활하고 예측 가능한 상관 관계를 허용합니다. 엔터티를 중첩할 수 있습니다(예: 원본 엔터티에 name 특성이 있는 파일 엔터티를 포함할 수 있습니다).
-
-OSSEM 엔터티 구조에 대한 자세한 내용은 [공식 OSSEM 참조](https://ossemproject.com/cdm/guidelines/entity_structure.html)를 방문하세요.
-
-### <a name="how-the-normalized-schemas-are-implemented-in-azure-sentinel"></a>Azure Sentinel에 정규화된 스키마를 구현하는 방법
-
-Azure Sentinel의 OSSEM CIM 구현에서는 이 표현이 기본 제공 테이블인지 아니면 쿼리 시간 파서 또는 기존 데이터를 이 표현에 매핑하는 함수를 사용하여 만들어졌는지 여부에 관계없이 OSSEM 표현을 Log Analytics 테이블 형식 표현에 프로젝션합니다. 테이블 형식 표현의 경우 OSSEM 엔터티 이름 및 특성 이름을 연결하고 이를 단일 열 이름에 집합적으로 매핑합니다. 예를 들어 md5 특성을 포함하는 해시 엔터티를 포함하는 파일 엔터티가 포함된 원본 엔터티는 다음 Log Analytics 열로 구현됩니다. SrcFileHashMd5. (OSSEM은 기본적으로 *snake_case* 를 사용하고 Azure Sentinel 및 Log Analytics는 *PascalCase* 를 사용합니다. OSSEM에서는 이러한 열은 src_file_hash_md5입니다.)
-
-Log Analytics 플랫폼 요구 사항과 Azure Sentinel 고객과 관련된 사용 사례로 인해 Azure Sentinel 구현에 추가 사용자 지정 필드가 있을 수 있습니다.
-
-### <a name="schema-reference"></a>스키마 참조
-
-자세한 내용은 [스키마 참조 문서](./normalization-schema.md)와 공식 [OSSEM 프로젝트 설명서](https://ossemproject.com/cdm/intro.html)를 참조하세요.
-
-스키마 참조에는 값 및 형식 표준화도 포함됩니다. 원본 필드, 원본 또는 구문 분석은 표준 형식이 아니거나 스키마 표준 값 목록을 사용할 수 있으며, 따라서 완전히 정규화되려면 스키마 표준 표현으로 변환해야 합니다.
-
-## <a name="parsers"></a>파서
-
-- [구문 분석이란?](#what-is-parsing)
-- [쿼리 시간 파서 사용](#using-query-time-parsers)
-
-### <a name="what-is-parsing"></a>구문 분석이란?
-
-정의된 정규화된 테이블의 기본 집합을 사용할 수 있으므로 데이터를 이러한 테이블로 변환(구문 분석/매핑)해야 합니다. 즉, 원시 형식에서 정규화된 스키마의 잘 알려진 열로 특정 데이터를 추출합니다. Azure Sentinel의 구문 분석은 **쿼리 시점** 에 발생합니다. 파서는 기존 테이블(예: CommonSecurityLog, 사용자 지정 로그 테이블, syslog)의 데이터를 정규화된 테이블 스키마로 변환하는 Log Analytics 사용자 함수(KQL(Kusto Query Language) 사용)로 빌드됩니다.
-
-Azure Sentinel에서 아직 지원되지 않는 다른 종류의 구문 분석은 **수집 시점** 에 발생합니다. 데이터 원본에서 수집될 때 데이터를 정규화된 테이블로 직접 수집할 수 있습니다. 수집 시간 구문 분석은 함수를 사용할 필요 없이 데이터 모델을 직접 쿼리할 때 향상된 성능을 제공합니다.
-
-### <a name="using-query-time-parsers"></a>쿼리 시간 파서 사용
-
-- [파서 설치](#installing-a-parser)
-- [파서 사용](#using-the-parsers)
-- [파서 사용자 지정](#customizing-parsers)
-
-#### <a name="installing-a-parser"></a>파서 설치
-
-사용 가능한 쿼리 시간 파서는 Azure Sentinel [공식 GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/Normalized%20Schema%20-%20Networking%20(v1.0.0))에서 사용할 수 있습니다. 각 파서의 버전은 고객이 향후 업데이트를 쉽게 사용하고 모니터링할 수 있도록 지정됩니다. 파서를 설치하려면:
-
-1. 위의 GitHub 링크에 있는 각 관련 KQL 파일의 관련 파서 콘텐츠를 클립보드에 복사합니다.
-
-1. Azure Sentinel 포털에서 로그 페이지를 열고 KQL 파일의 콘텐츠를 로그 화면에 붙여넣고 **저장** 을 클릭합니다.
-
-    :::image type="content" source="./media/normalization/install-new-parser.png" alt-text="새 파서 설치":::
-
-1. 저장 대화 상자에서 다음과 같이 필드를 채웁니다.
-    1. **이름**: **함수 별칭** 필드에 사용된 것과 동일한 값을 사용하는 것이 좋습니다(위 예에서는 *CheckPoint_Network_NormalizedParser*).
-    
-    1. **다른 이름으로 저장**: **함수** 를 선택합니다.
-
-    1. **함수 별칭**: 다음 이름 지정 규칙에 따라 이름을 지정해야 합니다. *PRODUCT_Network_NormalizedParser*(위의 예에서는 *CheckPoint_Network_NormalizedParser*)
-
-    1. **범주**: 기존 범주를 선택하거나 새 범주를 만들 수 있습니다(예: *NormalizedNetworkSessionsParsers*).
-    
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="파서 저장":::
-
-파서를 올바르게 사용하려면 빈 네트워크 스키마 파서(모든 네트워크 세션 스키마 필드의 빈 테이블 형식 보기를 생성함)와 네트워크 메타 파서(사용하는 모든 파서를 통합하여 네트워킹 스키마에 있는 다양한 원본의 데이터의 단일 보기를 생성함)도 설치해야 합니다. 이러한 두 파서 설치는 앞서 언급한 단계와 비슷한 방식으로 수행됩니다.
-
-쿼리 함수를 저장할 때 쿼리 탐색기를 닫고 새 함수를 반영하려면 다시 열어야 할 수 있습니다.
-
-#### <a name="using-the-parsers"></a>파서 사용
-
-사용하도록 설정된 후에는 메타 파서를 사용하여 현재 사용할 수 있는 모든 파서에서 통합 보기를 쿼리할 수 있습니다. 이렇게 하려면 Azure Sentinel 로그 페이지로 이동하여 메타 파서를 쿼리합니다.
-
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="파서 쿼리":::
- 
-또한 ‘쿼리 탐색기’를 클릭하여 로그 페이지에서 쿼리 탐색기를 사용하여 메타 파서 또는 개별 파서에 액세스할 수 있습니다.
-
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="쿼리 탐색기":::
-
-오른쪽 창에서 “저장된 쿼리” 섹션을 확장하고 ‘NormalizedNetworkParsers’ 폴더(또는 파서를 만들 때 선택한 범주 이름)를 찾습니다.
-
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="파서 찾기":::
-
-각 개별 파서를 클릭하고, 사용하는 기본 함수를 확인하여 실행하거나, 위에 설명된 대로 해당 별칭으로 직접 액세스할 수 있습니다. 일부 파서는 편의를 위해 원래 필드를 정규화된 필드와 나란히 유지할 수 있습니다. 이는 파서의 쿼리에서 쉽게 편집할 수 있습니다.
+이 문서에서는 여러 형식의 데이터를 처리하는 문제에 대한 솔루션을 제공하는 ASIM(Azure Sentinel 정보 모델)의 개요를 제공합니다.
 
 > [!TIP]
-> 헌팅 및 검색 쿼리를 비롯한 모든 쿼리에서 Azure Sentinel 테이블 대신 저장된 함수를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+> 또한 [ASIM 웨비나](https://www.youtube.com/watch?v=WoGD-JeC7ng)를 시청하거나 [웨비나 슬라이드](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)를 검토하세요. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
 >
-> - [Azure Sentinel의 데이터 정규화](normalization.md#parsers)
-> - [Azure Monitor 로그에서 텍스트 구문 분석](../azure-monitor/logs/parse-text.md)
+
+> [!IMPORTANT]
+> ASIM은 현재 미리 보기 상태입니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
-#### <a name="customizing-parsers"></a>파서 사용자 정의
 
-위의 단계를 반복하여(쿼리 탐색기에서 파서 찾기) 관련 파서를 클릭하고 함수 구현을 확인합니다.
-예를 들어, 메타 파서를 편집하여 개별 파서를 추가/제거하도록 결정할 수 있습니다.
+## <a name="common-asim-usage"></a>일반적인 ASIM 사용
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="파서 사용자 지정":::
- 
-함수가 변경되면 “저장”을 다시 클릭하고 동일한 이름, 별칭 및 범주를 사용합니다. 재정의 대화 상자가 열립니다. “확인”을 누릅니다.
+ASIM(Azure Sentinel 정보 모델)은 다음 기능을 제공하여 균일하고 정규화된 보기에서 다양한 원본을 처리할 수 있는 원활한 환경을 제공합니다.
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="계속하시겠어요?":::
+- **원본 간 검색**. 정규화된 분석 규칙은 원본, 온-프레미스, 클라우드에서 작동하며 무차별 암호 대입(brute force)과 같은 공격이나 OKTA, AWS, Azure를 비롯한 시스템 간 불가능한 이동을 탐지합니다.
 
-#### <a name="additional-information"></a>추가 정보
+- **원본 중립적 콘텐츠**. ASIM을 사용하는 기본 제공 및 사용자 지정 콘텐츠의 적용 범위는 콘텐츠가 생성된 후 원본이 추가된 경우에도 ASIM을 지원하는 모든 원본으로 자동으로 확장됩니다. 예를 들어, 프로세스 이벤트 분석은 엔드포인트용 Microsoft Defender, Windows 이벤트, Sysmon과 같이 고객이 데이터를 가져오는 데 사용할 수 있는 모든 원본을 지원합니다.
 
-JSON, XML 및 CSV는 쿼리 시 구문 분석에 특히 유용합니다. Azure Sentinel에는 json, XML 및 CSV에 대한 기본 제공 구문 분석 함수뿐만 아니라 JSON 구문 분석 도구도 있습니다.  자세한 내용은 [Azure Sentinel에서 JSON 필드 사용](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747)(블로그)을 참조하세요. 
+- 기본 제공 분석에서 **사용자 지정 원본에 대한 지원**
 
-Log Analytics의 [저장된 쿼리](../azure-monitor/logs/queries.md)(쿼리 시간 파서 구현)에 대해 자세히 알아봅니다.
+- **사용 편의성** 분석가가 ASIM을 학습한 후에는 필드 이름이 항상 동일하기 때문에 쿼리 작성이 훨씬 더 간단합니다.
 
+### <a name="asim-and-the-open-source-security-events-metadata"></a>ASIM 및 오픈 소스 보안 이벤트 메타데이터
+
+Azure Sentinel 정보 모델은 [OSSEM(오픈 소스 보안 이벤트 메타데이터)](https://ossemproject.com/intro.html) 일반 정보 모델에 맞게 조정되므로 정규화된 테이블에서 예측 가능한 엔터티 상관 관계를 허용합니다.
+
+OSSEM은 다양한 데이터 원본 및 운영 체제에서 보안 이벤트 로그의 설명서 및 표준화에 주로 중점을 둔 커뮤니티 주도 프로젝트입니다. 또한 이 프로젝트는 보안 분석가가 다양한 데이터 원본에서 데이터를 쿼리하고 분석할 수 있도록 데이터 정규화 절차 중에 데이터 엔지니어에게 사용할 수 있는 CIM(Common Information Model)을 제공합니다.
+
+자세한 내용은 [OSSEM 참조 설명서](https://ossemproject.com/cdm/guidelines/entity_structure.html)를 참조하세요.
+
+## <a name="asim-components"></a>ASIM 구성 요소
+
+다음 이미지는 정규화되지 않은 데이터를 정규화된 콘텐츠로 변환하고 Azure Sentinel에서 사용할 수 있는 방법을 보여 줍니다. 예를 들어, 사용자 지정 제품별 정규화가 아닌 테이블로 시작하고 파서와 정규화 스키마를 사용하여 해당 테이블을 정규화된 데이터로 변환할 수 있습니다. Microsoft 및 사용자 지정 분석, 규칙, 통합 문서, 쿼리 등에서 둘 다 정규화된 데이터를 사용합니다.
+
+ :::image type="content" source="media/normalization/sentinel-information-model-components.png" alt-text="Azure Sentinel에서 정규화되지 않은 데이터를 정규화된 데이터로 변환 흐름 및 사용":::
+
+Azure Sentinel 정보 모델에는 다음 구성 요소가 포함됩니다.
+
+|구성 요소  |설명  |
+|---------|---------|
+|**정규화된 스키마**     |   통합 기능을 빌드할 때 사용할 수 있는 예측 가능한 이벤트 유형의 표준 세트를 포함합니다. <br><br>각 스키마는 이벤트, 정규화된 열 명명 규칙, 필드 값의 표준 형식을 나타내는 필드를 정의합니다. <br><br> ASIM은 현재 다음 스키마를 정의합니다.<br> - [네트워크 세션](normalization-schema.md)<br> - [DNS 작업](dns-normalization-schema.md)<br> - [프로세스 이벤트](process-events-normalization-schema.md)<br> - [인증 이벤트](authentication-normalization-schema.md)<br> - [레지스트리 이벤트](registry-event-normalization-schema.md)<br> - [파일 활동](file-event-normalization-schema.md)  <br><br>자세한 내용은 [Azure Sentinel 정보 모델 스키마](normalization-about-schemas.md)를 참조하세요.  |
+|**파서**     |  [KQL 함수](/azure/data-explorer/kusto/query/functions/user-defined-functions)를 사용하여 기존 데이터를 정규화된 스키마에 매핑합니다. <br><br>[Azure Sentinel GitHub Parsers 폴더](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers)에서 Microsoft에서 개발한 정규화 파서를 배포합니다. 정규화된 파서는 **ASim***으로 시작하는 하위 폴더에 있습니다.  <br><br>자세한 내용은 [Azure Sentinel 정보 모델 파서](normalization-about-parsers.md)를 참조하세요.     |
+|**각 정규화된 스키마의 콘텐츠**     |    분석 규칙, 통합 문서, 헌팅 쿼리 등이 포함됩니다. 각 정규화된 스키마의 콘텐츠는 원본별 콘텐츠를 만들지 않고도 모든 정규화된 데이터에서 작동합니다. <br><br>자세한 내용은 [Azure Sentinel 정보 모델 콘텐츠](normalization-content.md)를 참조하세요.   |
+| | |
+
+### <a name="asim-terminology"></a>ASIM 용어
+
+Azure Sentinel 정보 모델은 다음 용어를 사용합니다.
+
+|용어  |설명  |
+|---------|---------|
+|**보고 디바이스**     |   Azure Sentinel로 레코드를 보내는 시스템입니다. 이 시스템은 전송되는 레코드의 주체 시스템이 아닐 수 있습니다.      |
+|**레코드**     |보고 디바이스에서 전송되는 데이터의 단위입니다. 레코드는 `log`, `event` 또는 `alert`라고도 하지만 다른 형식일 수도 있습니다.         |
+|**콘텐츠** 또는 **콘텐츠 항목**     |Azure Sentinel에서 사용할 수 있는 다른 사용자 지정 가능한 아티팩트 또는 사용자가 만든 아티팩트입니다. 해당 아티팩트에는 분석 규칙, 헌팅 쿼리, 통합 문서 등이 포함됩니다. 콘텐츠 항목은 이러한 아티팩트 중 하나입니다.|
+| | |
+
+<br>
+
+## <a name="getting-started-with-asim"></a>ASIM 시작
+
+ASIM 사용을 시작하려면 다음을 수행합니다.
+
+1. `ASim*`로 시작하는 폴더의 [Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers)에서 ASIM 파서를 배포합니다.
+
+1. ASIM을 사용하는 분석 규칙 템플릿을 활성화합니다. 자세한 내용은 [ASIM(Azure Sentinel 정보 모델) 콘텐츠 목록](normalization-content.md#builtin)을 참조하세요.
+
+1. 다음 방법을 사용하여 작업 영역에서 ASIM을 사용합니다.
+
+    - Azure Sentinel **로그** 페이지에서 KQL로 로그를 쿼리하는 경우 Azure Sentinel GitHub 리포지토리의 ASIM 헌팅 쿼리를 사용합니다. 자세한 내용은 [ASIM(Azure Sentinel 정보 모델) 콘텐츠 목록](normalization-content.md#builtin)을 참조하세요.
+
+    - ASIM을 사용하여 고유한 분석 규칙을 작성하거나 [기존 규칙을 변환](normalization-content.md#builtin)합니다.
+
+    - 사용자 지정 원본의 [파서를 작성](normalization-about-parsers.md)하고 관련 원본 중립적 파서에 [추가](normalization-about-parsers.md#include)하여 기본 제공 분석을 사용하기 위해 사용자 지정 데이터를 사용하도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel의 정규화 스키마에 대해 알아보았습니다. 참조 스키마 자체는 [Azure Sentinel 데이터 정규화 스키마 참조](./normalization-schema.md)를 참조하세요.
+이 문서에서는 Azure Sentinel 정규화와 Azure Sentinel 정보 모델의 정규화 개요를 제공합니다.
 
-* [Azure Sentinel 블로그](https://aka.ms/azuresentinelblog). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+자세한 내용은 다음을 참조하세요.
+
+- [ASIM 웨비나](https://www.youtube.com/watch?v=WoGD-JeC7ng)를 시청하거나 [슬라이드](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)를 검토
+- [Azure Sentinel 정보 모델 스키마](normalization-about-schemas.md)
+- [Azure Sentinel 정보 모델 파서](normalization-about-parsers.md)
+- [Azure Sentinel 정보 모델 콘텐츠](normalization-content.md)

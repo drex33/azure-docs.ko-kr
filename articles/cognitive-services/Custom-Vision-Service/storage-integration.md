@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951073"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982369"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure Storage 통합
 
@@ -35,12 +35,11 @@ Custom Vision 프로젝트를 Azure Blob Storage 큐와 통합하여 프로젝�
 
 Azure Portal에서 Custom Vision 학습 리소스로 이동하여 **ID** 페이지를 선택하고 시스템이 할당한 관리 ID를 사용하도록 설정합니다.
 
-다음으로 Azure Portal의 스토리지 리소스로 이동합니다. **액세스 제어(IAM)** 페이지로 이동하여 각 통합 기능에 대한 역할 할당을 추가합니다.
-* 모델 백업 기능을 사용할 계획인 경우 Custom Vision 학습 리소스를 선택하고 **Storage Blob 데이터 기여자** 역할을 할당합니다. 
-* 그런 다음 알림 큐 기능을 사용할 계획인 경우 Custom Vision 학습 리소스를 선택하고 **Storage 큐 데이터 기여자** 를 할당합니다.
+다음으로 Azure Portal의 스토리지 리소스로 이동합니다. 리소스의 **액세스 제어(IAM)** 페이지로 이동한 후 **+ 역할 할당 추가(미리 보기)** 를 선택합니다. 그런 다음, 통합 기능 중 하나 또는 둘 모두에 대한 역할 할당을 추가합니다.
+* 모델 백업 기능을 사용할 계획인 경우 **Storage Blob 데이터 기여자** 역할을 선택하고 Custom Vision 학습 리소스를 구성원으로 추가합니다. **검토 및 게시** 를 선택하여 완료합니다.
+* 알림 큐 기능을 사용할 계획인 경우 **Storage Queue 데이터 기여자** 역할을 선택하고 Custom Vision 학습 리소스를 구성원으로 추가합니다. **검토 및 게시** 를 선택하여 완료합니다.
 
-> [!div class="mx-imgBorder"]
-> ![스토리지 계정 역할 할당 추가 페이지](./media/storage-integration/storage-access.png)
+역할 할당에 대한 도움말을 보려면 [Azure Portal을 사용하여 Azure 역할 할당](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
 
 ### <a name="get-integration-urls"></a>통합 URL 가져오기
 

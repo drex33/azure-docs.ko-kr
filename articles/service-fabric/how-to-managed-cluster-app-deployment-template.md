@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 사용하여 Azure Service Fabr
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f2561b182689467598f2c939589295d9af72e4d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6a40dc23b0eeda4c680d0151b08cb1c8f1a84053
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671223"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290154"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포
 
@@ -55,7 +55,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 공용 액세스 수준을 **개인** 으로 설정하여 클러스터의 리소스를 보호할 수 있습니다. 액세스 권한은 여러 가지 방법으로 부여할 수 있습니다.
 
 * [Azure Active Directory](../storage/common/storage-auth-aad-app.md)를 사용하여 Blob 및 큐에 대한 액세스 권한을 부여합니다.
-* [Azure Portal에서 Azure RBAC](../storage/common/storage-auth-aad-rbac-portal.md)를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한을 부여합니다.
+* [Azure Portal에서 Azure RBAC](../storage/blobs/assign-azure-role-data-access.md)를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한을 부여합니다.
 * [공유 액세스 서명](/rest/api/storageservices/delegate-access-with-shared-access-signature)을 사용하여 액세스를 위임합니다.
 
 다음 스크린샷 예제에서는 Blob에 대한 익명 읽기 액세스를 사용합니다.
@@ -91,7 +91,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 >
 >
 
-| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |
@@ -179,6 +179,17 @@ Resource Manager에서 애플리케이션 리소스 모델을 사용하여 배�
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+
+## <a name="migration-from-classic-to-managed-clusters"></a>클래식에서 관리형 클러스터로 마이그레이션
+
+클래식에서 관리형 클러스터로 애플리케이션을 마이그레이션하는 경우 형식이 올바르게 지정되었는지 확인해야 하며 그렇지 않으면 오류가 발생합니다. 
+
+다음 항목은 사용 빈도로 인해 특별히 호출되지만 전용 차이점 목록으로는 사용되지 않습니다. 
+
+* upgradeReplicaSetCheckTimeout은 이제 관리되는 정수이지만 클래식 SFRP에서는 문자열입니다. 
+
+속성 및 형식의 전체 목록은 [관리형 클러스터 애플리케이션 리소스 형식](/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

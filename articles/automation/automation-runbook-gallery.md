@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2df019888d293cd8a25a34e6f0f4e7dd215c6a41
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 1f7a3f31ed67817252f7ba33b9f4a83ef8ccd5c6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030636"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455625"
 ---
 # <a name="use-existing-runbooks-and-modules"></a>기존 Runbook 및 모듈 사용
 
@@ -57,6 +57,9 @@ PowerShell 갤러리에서 직접 가져오는 것은 Azure Portal을 사용하�
 PowerShell 모듈에는 Runbook에서 사용할 수 있는 cmdlet이 포함되어 있습니다. Azure Automation에 설치할 수 있는 기존 모듈은 [PowerShell 갤러리](https://www.powershellgallery.com)에서 사용할 수 있습니다. Azure Portal에서 이 갤러리를 시작하여 모듈을 Azure Automation에 직접 설치하거나, 수동으로 다운로드하여 설치할 수 있습니다.
 
 또한 Azure Portal에서 가져올 모듈을 찾을 수 있습니다. 이것들은 **공유 리소스** 아래의 **모듈 갤러리** 에서 해당 Automation 계정에 대해 나열되어 있습니다.
+
+> [!IMPORTANT] 
+> Az 모듈을 통해 실행되도록 설계된 스크립트에는 "AzureRm" 키워드를 포함하지 마십시오. 주석에도 키워드를 포함하면 AzureRm이 로드된 다음, Az 모듈과 충돌할 수 있습니다.
 
 ## <a name="common-scenarios-available-in-the-powershell-gallery"></a>PowerShell 갤러리에서 사용 가능한 일반 시나리오
 

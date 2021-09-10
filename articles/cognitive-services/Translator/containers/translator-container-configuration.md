@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: fa31cafb414792a5feef7207156ecfb2c0b68778
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f298a4593ef5aa8af9b7f62f48b4e32075429dbf
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652864"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539595"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Translator Docker 컨테이너 구성(미리 보기)
 
@@ -28,7 +28,7 @@ Cognitive Services는 각 컨테이너에 공통 구성 프레임워크를 제�
 
 컨테이너에는 다음 구성 설정이 있습니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
 |예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적합니다.|
 |예|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
@@ -62,7 +62,7 @@ Cognitive Services는 각 컨테이너에 공통 구성 프레임워크를 제�
 
 * Azure Portal: **Translator** 개요 페이지, 레이블이 지정된 `Endpoint`
 
-| 필수 | 이름 | 데이터 형식 | Description |
+| 필수 | Name | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
 | 예 | `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI를 얻는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](translator-how-to-install-container.md#required-elements)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../../cognitive-services-custom-subdomains.md)을 참조하세요. |
 

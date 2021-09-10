@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 545125877f8ef8e3b01aa24f6d65dbff6756c391
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601545"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539262"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -99,7 +99,7 @@ ms.locfileid: "103601545"
 **Microsoft의 Azure CDN 표준** 프로필의 경우에는 적합한 파일만 압축됩니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
 - [압축용으로 구성된](#enabling-compression) MIME 형식.
 - 1KB 초과
-- 8MB 미만
+- 8MB보다 작아야 합니다
 
 이러한 프로필은 다음과 같은 압축 인코딩을 지원합니다.
 - gzip(GNU zip)
@@ -121,11 +121,8 @@ ms.locfileid: "103601545"
 - gzip(GNU zip)
 - DEFLATE
 - bzip2
-- brotli 
 
-요청에서 두 가지 이상의 압축 형식을 지원하는 경우 해당 압축 형식은 brotli 압축보다 우선합니다.
-
-자산에 대한 요청이 brotli 압축(HTTP 헤더는 `Accept-Encoding: br`임)을 지정하고 캐시의 요청 결과가 누락된 경우 Azure CDN은 POP 서버에서 직접 자산의 brotli 압축을 수행합니다. 이후 압축된 파일은 캐시에서 제공됩니다.
+Verizon의 Azure CDN은 brotli 압축을 지원하지 않습니다. HTTP 요청에 `Accept-Encoding: br` 헤더가 있으면 CDN은 압축되지 않은 응답으로 응답합니다.
 
 ### <a name="azure-cdn-standard-from-akamai-profiles"></a>Akamai의 Azure CDN 표준 프로필
 

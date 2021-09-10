@@ -4,14 +4,15 @@ description: Azure Data Factory의 데이터 랭글링 개요
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98738172"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535549"
 ---
 # <a name="what-is-data-wrangling"></a>데이터 랭글링이 무엇인가요?
 
@@ -60,9 +61,9 @@ Data Factory는 M을 Azure Data Factory 데이터 흐름으로 변환하여 파�
 
 현재 모든 파워 쿼리 M 함수가 제작 중에도 사용할 수 있는 데이터 랭글링을 지원하는 것은 아닙니다. 파워 쿼리 작업을 빌드하는 동안 함수가 지원되지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Power Query Spark Runtime does not support the function`
 
-지원되는 변환에 대한 자세한 내용은 [데이터 랭글링 함수](wrangling-functions.md)를 참조하세요.
+지원되는 변환에 대한 자세한 내용은 [파워 쿼리 데이터 랭글링 함수](wrangling-functions.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

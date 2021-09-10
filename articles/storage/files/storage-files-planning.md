@@ -8,12 +8,12 @@ ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1736d94c50d5c145a66fc845936c5c26a8725cb
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 1d3688e4051f2883c5316a13e59f5629481799e2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113224061"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864563"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md)는 서버리스 Azure 파일 공유를 직접 탑재하거나 Azure 파일 동기화를 사용하여 온-프레미스로 Azure 파일 공유를 캐싱하는 두 가지 방법으로 배포할 수 있습니다. 선택한 배포 옵션에 따라 배포 계획에서 고려해야 할 측면이 달라집니다. 
@@ -111,7 +111,7 @@ Azure 스토리지 계정에 대해 전송 중 암호화를 사용하지 않도�
 Azure Files에는 데이터를 백업하고 복구하며 보안 위협으로부터 보호할 수 있도록 하는 다중 계층화된 접근 방식이 있습니다.
 
 ### <a name="soft-delete"></a>일시 삭제
-파일 공유의 일시 삭제(미리 보기)는 파일 공유를 실수로 삭제한 경우 복구할 수 있도록 하는 스토리지 계정 수준 설정입니다. 파일 공유가 삭제되면 영구적으로 삭제되는 대신 일시 삭제된 상태로 전환됩니다. 일시 삭제된 데이터를 영구적으로 삭제하기 전에 복구할 수 있는 시간을 설정하고, 이 보존 기간 동안 언제든지 공유 삭제를 취소할 수 있습니다. 
+파일 공유의 일시 삭제는 파일 공유를 실수로 삭제한 경우 복구할 수 있도록 하는 스토리지 계정 수준 설정입니다. 파일 공유가 삭제되면 영구적으로 삭제되는 대신 일시 삭제된 상태로 전환됩니다. 일시 삭제된 데이터를 영구적으로 삭제하기 전에 복구할 수 있는 시간을 설정하고, 이 보존 기간 동안 언제든지 공유 삭제를 취소할 수 있습니다. 
 
 대부분의 파일 공유에 일시 삭제를 설정하기를 권합니다. 공유 삭제를 자주 할 것으로 예상되는 워크플로가 있는 경우에는 보존 기간을 짧게 설정하거나 일시 삭제를 사용하지 않도록 설정할 수 있습니다.
 

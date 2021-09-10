@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c5d0bf7f209683668ddbffff7be11f932f3eeaee
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d5de598c71cda0010869da709e8f6290ccdf03cc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359035"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771997"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - 서버 측 암호화를 사용하여 고객 관리형 키 사용 - 관리 디스크
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형에 대한 SSE 개념 정보는 디스크 암호화 문서의 [고객 관리형 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조하세요.
 
@@ -27,53 +29,12 @@ Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)해야 합니다.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>자동 키 회전 없이 Azure Key Vault 및 DiskEncryptionSet를 설정합니다.
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation"></a>필요에 따라 자동 키 순환으로 Azure Key Vault 및 DiskEncryptionSet 설정
 
 SSE로 고객 관리형 키를 사용하려면 Azure Key Vault 및 DiskEncryptionSet 리소스를 설정해야 합니다.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>자동 키 회전 없이 Azure Key Vault 및 DiskEncryptionSet 설정(미리 보기)
-
-1. 최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치했으며 `Connect-AzAccount`를 사용하여 Azure 계정에 로그인했는지 확인합니다.
-1. Azure Key Vault 및 암호화 키의 인스턴스를 만듭니다.
-
-    Key Vault 인스턴스를 만드는 경우 제거 보호를 사용하도록 설정해야 합니다. 제거 보호를 사용하면 보존 기간이 지날 때까지 삭제된 키를 영구 삭제할 수 없습니다. 이 설정은 실수로 인한 삭제로 데이터가 손실되는 것을 방지하고 관리 디스크를 암호화하는 데 필수적입니다.
-    
-    ```powershell
-    $ResourceGroupName="yourResourceGroupName"
-    $LocationName="westcentralus"
-    $keyVaultName="yourKeyVaultName"
-    $keyName="yourKeyName"
-    $keyDestination="Software"
-    $diskEncryptionSetName="yourDiskEncryptionSetName"
-
-    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
-
-    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
-    ```
-
-1.  API 버전 `2020-12-01`을 사용하고 Azure Resource Manager 템플릿 [CreateDiskEncryptionSetWithAutoKeyRotation.json](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)을 통해 속성 `rotationToLatestKeyVersionEnabled`를 true로 설정하여 DiskEncryptionSet를 만듭니다.
-    
-    ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json" `
-    -diskEncryptionSetName $diskEncryptionSetName `
-    -keyVaultId $($keyVault.ResourceId) `
-    -keyVaultKeyUrl $($key.Key.Kid) `
-    -encryptionType "EncryptionAtRestWithCustomerKey" `
-    -region $LocationName
-    ```
-
-1.  Key Vault에 대해 DiskEncryptionSet 리소스 액세스 권한을 부여합니다.
-
-    > [!NOTE]
-    > Azure가 Azure Active Directory에서 DiskEncryptionSet의 ID를 만드는 데는 몇 분 정도 걸릴 수 있습니다. 다음 명령을 실행할 때 "Active Directory 개체를 찾을 수 없습니다"와 같은 오류가 발생하면 몇 분 정도 기다린 후 다시 시도하세요.
-
-    ```powershell
-    $des=Get-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-    ```
 
 ## <a name="examples"></a>예제
 

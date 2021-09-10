@@ -1,23 +1,25 @@
 ---
 title: Azure Communication Services란?
 description: Azure Communication Services를 사용하여 실시간 통신을 통해 풍부한 사용자 환경을 개발하는 방법을 알아봅니다.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 12e0c9c277bbf162797d52692add208ce921569b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 4e8ec31fc28014e404ae69f2746eb02099e83842
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360922"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967848"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
-Azure Communication Services는 애플리케이션에 통신을 통합하는 데 도움이 되는 REST API 및 클라이언트 라이브러리 SDK가 포함된 클라우드 기반 서비스입니다. 미디어 인코딩 및 실시간 네트워킹과 같은 통신 기술 전문가가 아니어도 애플리케이션에 통신 기능을 추가할 수 있습니다. Azure Communication Services는 다양한 통신 형식을 지원합니다.
+Azure Communication Services는 애플리케이션에 통신을 통합하는 데 도움이 되는 REST API 및 클라이언트 라이브러리 SDK가 포함된 클라우드 기반 서비스입니다. 미디어 인코딩 및 실시간 네트워킹과 같은 통신 기술 전문가가 아니어도 애플리케이션에 통신 기능을 추가할 수 있습니다. 이 기능은 정부용 Azure에서도 지원됩니다.
+
+Azure Communication Services는 다양한 통신 형식을 지원합니다.
 
 1. 음성 및 비디오 통화
 1. 서식 있는 텍스트 채팅

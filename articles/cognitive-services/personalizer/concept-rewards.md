@@ -1,16 +1,19 @@
 ---
 title: 보상 점수 - Personalizer
 description: 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 RewardActionID가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다. Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69e5aeff345bdf66d1b171738a2fbf14c7f8b15c
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: ec2c9ba7e700a79cffc70cfd4eab7ea780527cff
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453487"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867042"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
@@ -97,7 +100,7 @@ Rank(순위) 호출 이후의 기간인 [보상 대기 시간](#reward-wait-time
 
 Personalizer는 Rank 호출의 정보와 모델 학습을 위한 Reward 호출에서 보낸 보상을 상호 연결시킵니다. 이러한 작업은 다른 시간에 수행될 수 있습니다. Rank 호출이 비활성 이벤트로 수행되고 나중에 활성화된 경우에도 Personalizer는 Rank 호출이 수행되면 시작하는 제한 시간 동안 기다립니다.
 
-**보상 대기 시간** 이 만료되고 보상 정보가 없는 경우 학습을 위해 기본 보상이 해당 이벤트에 적용됩니다. 최대 대기 기간은 6일입니다.
+**보상 대기 시간** 이 만료되고 보상 정보가 없는 경우 학습을 위해 기본 보상이 해당 이벤트에 적용됩니다. 최대 대기 기간은 2일입니다. 시나리오에 더 긴 보상 대기 시간이 필요한 경우(예: 마케팅 메일 캠페인) 대기 시간이 더 긴 프라이빗 미리 보기를 제공합니다. Azure Portal에서 지원 티켓을 열어 팀과 연락하고 사용자의 자격과 제공 가능 여부를 확인합니다.
 
 ## <a name="best-practices-for-reward-wait-time"></a>보상 대기 시간에 대한 모범 사례
 

@@ -3,13 +3,13 @@ title: Azure Site Recovery를 사용하여 물리적 온-프레미스 서버에 
 description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 Windows 및 Linux 서버에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
-ms.openlocfilehash: 0197d3f505edef0890ed076e15f89d14ad5ab5d4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/14/2021
+ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968703"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290274"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -19,7 +19,7 @@ ms.locfileid: "111968703"
 
 > [!div class="checklist"]
 > * Azure 및 온-프레미스 필수 조건 설정
-> * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기 
+> * Site Recovery에 대한 Recovery Services 자격 증명 모음 만들기
 > * 원본 및 대상 복제 환경 설정
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
@@ -36,7 +36,7 @@ ms.locfileid: "111968703"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- Azure로 장애 조치한 후에는 물리적 서버를 온-프레미스 물리적 컴퓨터에 장애 복구할 수 없습니다. VMware VM에만 장애 복구할 수 있습니다. 
+- Azure로 장애 조치한 후에는 물리적 서버를 온-프레미스 물리적 컴퓨터에 장애 복구할 수 없습니다. VMware VM에만 장애 복구할 수 있습니다.
 - 이 자습서는 가장 간단한 설정을 사용하여 Azure에 대한 물리적 서버 재해 복구를 설정합니다. 다른 옵션에 대해 알아보려면 방법 가이드를 읽어보시기 바랍니다.
     - Site Recovery 구성 서버를 포함하여 [복제 원본](physical-azure-set-up-source.md)을 설정합니다.
     - [복제 대상](physical-azure-set-up-target.md)을 설정합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "111968703"
 Microsoft [Azure 계정](https://azure.microsoft.com/)을 얻습니다.
 
 - [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
-- [Site Recovery 가격 책정](/azure/site-recovery/site-recovery-faq.yml#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
+- [Site Recovery 가격 책정](/azure/site-recovery/site-recovery-faq#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.
 - Site Recovery에 대해 [지원되는 지역](https://azure.microsoft.com/pricing/details/site-recovery/)을 알아보세요.
 
 ### <a name="verify-azure-account-permissions"></a>Azure 계정 권한 확인
@@ -56,7 +56,7 @@ Microsoft [Azure 계정](https://azure.microsoft.com/)을 얻습니다.
 Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합니다.
 
 - Azure에 컴퓨터를 복제하는 데 필요한 [권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)을 검토합니다.
-- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한을 확인하고 수정합니다. 
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한을 확인하고 수정합니다.
 
 
 
@@ -102,24 +102,25 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 구성 서버를 설정하고 자격 증명 모음에 등록한 후 VM을 검색합니다.
 
-1. **Site Recovery** > **인프라 준비** > **원본** 을 클릭합니다.
-2. 구성 서버가 없는 경우 **+구성 서버** 를 클릭합니다.
-3. **서버 추가** 에서 **구성 서버** 가 **서버 형식** 에 표시되는지 확인합니다.
-4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
+1. **Site Recovery** > **인프라 준비** 를 클릭합니다.
+2. 배포 계획을 완료하고 Deployment Planner를 실행하여 다양한 요구 사항을 예측하는지 확인합니다. **다음** 을 클릭합니다.
+3. **머신이 가상화되었나요?** 옵션에서 가상 머신인지 물리적 머신인지를 선택합니다.
+4. 구성 서버가 없는 경우 **+구성 서버** 를 클릭합니다.
+5. 가상 머신에 대한 보호를 사용하도록 설정하는 경우 구성 서버 가상 머신 템플릿을 다운로드합니다.
+6. 물리적 머신에 대한 보호를 사용하도록 설정하는 경우 Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다. 자격 증명 모음 등록 키도 다운로드해야 합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
    ![설치 파일 및 등록 키 다운로드 옵션이 표시된 스크린샷입니다.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>자격 증명 모음에 구성 서버 등록
 
-시작하기 전에 다음을 수행하세요. 
+시작하기 전에 다음을 수행하세요.
 
 #### <a name="verify-time-accuracy"></a>시간 정확도 확인
 구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](/windows-server/networking/windows-time-service/windows-time-service-top)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
 
 #### <a name="verify-connectivity"></a>연결 확인
-컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다. 
+컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -170,12 +171,12 @@ IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열�
 3. **컴퓨터 형식** 에서 **물리적 컴퓨터** 를 선택합니다.
 4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK** 를 클릭합니다.
 5. **대상** 에서 장애 조치(failover) 후 Azure VM을 만들 구독 및 리소스 그룹을 선택합니다. Azure(클래식 또는 리소스 관리)에서 사용할 배포 모델을 선택합니다.
-6. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다. 
+6. 데이터 복제에 사용할 Azure Storage 계정을 선택합니다.
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
-8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 
-9. **물리적 컴퓨터** 에서 **+물리적 컴퓨터** 를 클릭합니다. 이름 및 IP 주소를 지정합니다. 복제하려는 컴퓨터의 운영 체제를 선택합니다. 서버가 검색된 후 나열되는 데 몇 분 정도 걸립니다. 
+8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
+9. **물리적 컴퓨터** 에서 **+물리적 컴퓨터** 를 클릭합니다. 이름 및 IP 주소를 지정합니다. 복제하려는 컴퓨터의 운영 체제를 선택합니다. 서버가 검색된 후 나열되는 데 몇 분 정도 걸립니다.
 10. **속성** > **속성 구성** 에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
-11. **복제 설정** > **복제 설정 구성** 에서 올바른 복제 정책이 선택되어 있는지 확인합니다. 
+11. **복제 설정** > **복제 설정 구성** 에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
 12. **복제 사용** 을 클릭합니다. **설정** > **작업** > **Site Recovery 작업** 에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 

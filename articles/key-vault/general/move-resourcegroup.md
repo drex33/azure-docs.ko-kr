@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 14ecbcaa35153438601a3dabb70f5b38006ded1b
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 508a6aebe581df1c4fcaa634bdcb1d870f319f84
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749567"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606209"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>리소스 그룹 간에 Azure Key Vault 이동
 
@@ -32,7 +32,7 @@ ms.locfileid: "107749567"
 
 ### <a name="example"></a>예제
 
-2년 동안 유효한 인증서를 생성하는 키 자격 증명 모음에 연결된 애플리케이션이 있습니다. 키 자격 증명 모음을 이동하려는 리소스 그룹에는 1년 이상 유효한 인증서 생성을 차단하는 정책 할당이 있습니다. 키 자격 증명 모음을 새 리소스 그룹으로 이동하면, 2년 동안 유효한 인증서를 만드는 작업은 Azure 정책 할당에 의해 차단됩니다.
+2년 동안 유효한 인증서를 생성하는 키 자격 증명 모음에 연결된 애플리케이션이 있습니다. 키 자격 증명 모음을 이동하려는 리소스 그룹에는 1년 이상 유효한 인증서 생성을 차단하는 정책 할당이 있습니다. 키 자격 증명 모음을 새 리소스 그룹으로 이동하면, 2년 동안 유효한 인증서를 만드는 작업은 Azure Policy 할당에 의해 차단됩니다.
 
 ### <a name="solution"></a>해결 방법
 

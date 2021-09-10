@@ -4,12 +4,12 @@ description: Azure App Service의 지속적인 배포 기능을 사용하여 함
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0018f1c74708035206a8a2bb9a540f00f98f43a4
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83123685"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112321032"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 
@@ -62,7 +62,7 @@ Azure에서 함수에 대한 배포 단위는 함수 앱입니다. 함수 앱의
 프로세스가 완료되면 지정된 원본의 모든 코드가 앱에 배포됩니다. 이때 배포 원본의 변경 내용은 Azure의 함수 앱에 대한 변경 내용 배포를 트리거합니다.
 
 > [!NOTE]
-> 지속적인 통합을 구성한 후에는 Functions 포털에서 더 이상 원본 파일을 편집할 수 없습니다.
+> 지속적인 통합을 구성한 후에는 Functions 포털에서 더 이상 원본 파일을 편집할 수 없습니다. 원래 로컬 컴퓨터에서 코드를 게시한 경우 함수 앱의 `WEBSITE_RUN_FROM_PACKAGE` 설정을 `0` 값으로 변경해야 할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

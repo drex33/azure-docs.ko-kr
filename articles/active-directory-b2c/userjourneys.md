@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2021
+ms.date: 08/31/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee0fbab517a34f6986d20ea3271cb4325bf6aabd
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 2a935e88f1127f27e3f779fb88447466c470fd32
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981019"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271920"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -113,11 +113,6 @@ ms.locfileid: "112981019"
 
 오케스트레이션 단계에 정의된 전제 조건에 따라 오케스트레이션 단계를 조건부로 실행하면 됩니다. `Preconditions` 요소에는 평가할 사전 조건 목록이 포함됩니다. 사전 조건 평가가 충족되면 연결된 오케스트레이션 단계는 다음 오케스트레이션 단계로 건너뜁니다. 
 
-각 사전 조건은 단일 클레임을 평가합니다. 다음과 같은 두 가지 유형의 사전 조건이 있습니다.
- 
-- **클레임이 있음** - 지정된 클레임이 사용자의 현재 클레임 모음에 있는 경우 작업을 수행하도록 지정합니다.
-- **클레임이 같음** - 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 지정합니다. 검사는 대/소문자 구분 서수 비교를 수행합니다. 부울 클레임 유형을 확인하는 경우 `True` 또는 `False`를 사용합니다.
-
 Azure AD B2C는 사전 조건을 목록 순서대로 평가합니다. 순서 기반 사전 조건을 사용하여 사전 조건이 적용되는 순서를 설정할 수 있습니다. 충족된 첫 번째 사전 조건은 모든 후속 사전 조건을 재정의합니다. 오케스트레이션 단계는 일부 사전 조건이 충족되지 않은 경우에만 실행됩니다. 
 
 **Preconditions** 요소에는 다음과 같은 요소가 포함됩니다.
@@ -141,6 +136,31 @@ Azure AD B2C는 사전 조건을 목록 순서대로 평가합니다. 순서 기
 | ------- | ----------- | ----------- |
 | 값 | 1:2 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의되어 있습니다. 사전 조건이 `ClaimEquals` 유형인 경우 두 번째 `Value` 요소에는 확인할 값이 포함됩니다. |
 | 작업 | 1:1 | 사전 조건 평가가 충족되는 경우 수행해야 하는 작업입니다. 가능한 값: `SkipThisOrchestrationStep`. 연결된 오케스트레이션 단계는 다음 단계로 건너뜁니다. |
+  
+각 사전 조건은 단일 클레임을 평가합니다. 다음과 같은 두 가지 유형의 사전 조건이 있습니다.
+ 
+- **ClaimsExist** - 지정된 클레임이 사용자의 현재 클레임 모음에 있는 경우 작업을 수행하도록 지정합니다.
+- **ClaimEquals** - 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 지정합니다. 검사는 대/소문자 구분 서수 비교를 수행합니다. 부울 클레임 유형을 확인하는 경우 `True` 또는 `False`를 사용합니다. 
+
+    클레임이 null이거나 초기화되지 않은 경우 `ExecuteActionsIf`가 `true`인지 또는 `false`인지 관계없이 사전 조건이 무시됩니다. 모범 사례로 클레임이 존재하고 값과 같은지 확인하는 것이 좋습니다.
+
+예를 들어 사용자가 `MfaPreference`를 `Phone`으로 설정한 경우 사용자에게 MFA 챌린지를 확인합니다. 이 조건부 논리를 수행하려면 `MfaPreference` 클레임이 있는지 확인하고 클레임 값이 `Phone`과 같은지 확인합니다. 다음 XML에서는 사전 조건을 사용하여 이 논리를 구현하는 방법을 보여 줍니다. 
+  
+```xml
+<Preconditions>
+  <!-- Skip this orchestration step if MfaPreference doesn't exist. -->
+  <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+  <!-- Skip this orchestration step if MfaPreference doesn't equal to Phone. -->
+  <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+    <Value>MfaPreference</Value>
+    <Value>Phone</Value>
+    <Action>SkipThisOrchestrationStep</Action>
+  </Precondition>
+</Preconditions>
+```
 
 #### <a name="preconditions-examples"></a>Preconditions 예제
 

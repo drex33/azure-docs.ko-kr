@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: c7f8f46cf8d6195df7d47663cae809c7074129e4
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a1b9c8f81de706fb53839a241115947d6cf8d0bc
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903944"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726917"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여
 
@@ -62,7 +62,7 @@ Azure Storage는 다음 세 가지 유형의 공유 액세스 서명을 지원�
 계정 SAS에 대한 자세한 내용은 [계정 SAS(REST API) 만들기](/rest/api/storageservices/create-account-sas)를 참조하세요.
 
 > [!NOTE]
-> Microsoft는 더 쉽게 손상될 수 있는 계정 키 대신에 가능하면 Azure AD 자격 증명을 사용하는 것을 보안 모범 사례로 추천합니다. 애플리케이션 설계에 Blob 스토리지 액세스를 위한 공유 액세스 서명이 필요한 경우, 보안을 강화하기 위해 가능한 경우 Azure AD 자격 증명을 사용하여 사용자 위임 SAS를 만듭니다. 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)를 참조하세요.
+> Microsoft는 더 쉽게 손상될 수 있는 계정 키 대신에 가능하면 Azure AD 자격 증명을 사용하는 것을 보안 모범 사례로 추천합니다. 애플리케이션 설계에 Blob 스토리지 액세스를 위한 공유 액세스 서명이 필요한 경우, 보안을 강화하기 위해 가능한 경우 Azure AD 자격 증명을 사용하여 사용자 위임 SAS를 만듭니다. 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](authorize-data-access.md)를 참조하세요.
 
 공유 액세스 서명은 다음 두 가지 양식 중 하나를 사용할 수 있습니다.
 

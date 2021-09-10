@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: c05ab2b89a275b4e33774cca34c0e971657eddb2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a32fdd1da872c45c0e2402cdddd0685ef4296c7a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537178"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691216"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4 및 Dsv4 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며 대부분의 범용 워크로드에 대해 더 나은 가치 제안을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다. 
 

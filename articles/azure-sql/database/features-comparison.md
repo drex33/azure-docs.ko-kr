@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 05/18/2021
-ms.openlocfilehash: 1f645b8d62bc3e0acdbdd12a21b335deea3cd53e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 08/12/2021
+ms.openlocfilehash: 302b6e6cdce7fb95962b66a593ae02b9fe3922a1
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690018"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568315"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database와 Azure SQL Managed Instance
 
@@ -93,7 +93,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | [연산자](/sql/t-sql/language-elements/operators-transact-sql) | 대부분 - 개별 연산자 참조 |예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
 | [Polybase](/sql/relational-databases/polybase/polybase-guide) | 아니요. `OPENROWSET` 함수를 사용하여 Azure Blob Storage에 있는 파일의 데이터를 쿼리하거나 [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)을 사용할 수 있습니다. | 아니요. `OPENROWSET` 함수, [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 연결된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server나 [Synapse Analytics에서 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)을 참조하는 외부 테이블(공개 미리 보기)을 사용하여 Azure Blob Storage에 있는 파일의 데이터를 쿼리할 수 있습니다. |
 | [쿼리 알림](/sql/relational-databases/native-client/features/working-with-query-notifications) | 예 | 예 |
-| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_이전의 R Services_)| 예, [공개 미리 보기 상태](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | 예 |
+| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_이전의 R Services_)| No | 예, [Azure SQL Managed Instance의 Machine Learning Services](../managed-instance/machine-learning-services-overview.md)를 참조하세요. |
 | [복구 모델](/sql/relational-databases/backup-restore/recovery-models-sql-server) | 고가용성을 보장하는 전체 복구만 지원됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. | 고가용성을 보장하는 전체 복구만 지원됩니다. 단순 및 대량 로그 복구 모델을 사용할 수 없습니다. |
 | [리소스 관리자](/sql/relational-databases/resource-governor/resource-governor) | 예 | 예 |
 | [RESTORE 문](/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 예 | 예, Azure Blob Storage에 배치된 백업 파일에 대한 필수 `FROM URL` 옵션 포함. [복원 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#restore-statement) 참조 |
@@ -137,14 +137,14 @@ Azure 플랫폼은 표준 데이터베이스 기능에 추가 값으로 추가�
 | 파일 시스템 액세스 | 아니요. 대안으로 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 또는 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage)를 사용하여 Azure Blob Storage의 데이터를 액세스하고 로드합니다. | 아니요. 대안으로 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 또는 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage)를 사용하여 Azure Blob Storage의 데이터를 액세스하고 로드합니다. |
 | [지역 복원](recovery-using-backups.md#geo-restore) | 예 | 예 |
 | [하이퍼스케일 아키텍처](service-tier-hyperscale.md) | 예 | 예 |
-| [LTR(장기 백업 보존)](long-term-retention-overview.md) | 예, 자동으로 가져온 백업을 최대 10년까지 보관합니다. | 아직은 연결할 수 없습니다. 임시 해결 방법으로 `COPY_ONLY` [수동 백업](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup)을 사용합니다. |
+| [LTR(장기 백업 보존)](long-term-retention-overview.md) | 예, 자동으로 가져온 백업을 최대 10년까지 보관합니다. | 예, 자동으로 가져온 백업을 최대 10년까지 보관합니다. |
 | 일시 중지/다시 시작 | 예, [서버리스 모델](serverless-tier-overview.md)에서 | 예 |
 | [정책 기반 관리](/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 예 | 예 |
 | 공용 IP 주소 | 예. 방화벽 또는 서비스 엔드포인트를 사용하여 액세스를 제한할 수 있습니다.  | 예. 명시적으로 사용하도록 설정해야 하며, NSG 규칙에서 포트 3342를 사용하도록 설정해야 합니다. 필요한 경우 공용 IP를 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [공용 엔드포인트](../managed-instance/public-endpoint-overview.md)를 참조하세요. |
 | [지정 시간 데이터베이스 복원](/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 예 - 하이퍼스케일 이외의 모든 서비스 계층 - [SQL Database 복구](recovery-using-backups.md#point-in-time-restore) 참조 | 예 - [SQL Database 복구](recovery-using-backups.md#point-in-time-restore) 참조 |
 | 리소스 풀 | 예, [탄력적 풀](elastic-pool-overview.md)로 | 예. SQL Managed Instance의 단일 인스턴스에 동일한 리소스 풀을 공유하는 여러 데이터베이스가 있을 수 있습니다. 또한 리소스를 공유할 수 있는 [인스턴스 풀(미리 보기)](../managed-instance/instance-pools-overview.md)에 SQL Managed Instance의 여러 인스턴스를 배포할 수 있습니다. |
 | 확장 또는 축소(온라인) | 예, 최소 가동 중지 시간으로 DTU, 예약 vCore 또는 최대 스토리지를 변경할 수 있습니다. | 예, 최소 가동 중지 시간으로 예약 vCore 또는 최대 스토리지를 변경할 수 있습니다. |
-| [SQL 별칭](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 아니요, [DNS 별칭](dns-alias-overview.md) 사용 | 아니요, [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022)를 사용하여 클라이언트 컴퓨터에서 별칭을 설정합니다. |
+| [SQL 별칭](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 아니요, [DNS 별칭](dns-alias-overview.md) 사용 | 아니요, [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022)를 사용하여 클라이언트 머신에서 별칭을 설정합니다. |
 | [SQL Analytics](../../azure-monitor/insights/azure-sql.md) | 예 | 예 |
 | [SQL 데이터 동기화](sql-data-sync-sql-server-configure.md) | 예 | 예 |
 | [SSAS(SQL Server Analysis Services)](/sql/analysis-services/analysis-services) | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)는 별도의 Azure 클라우드 서비스입니다. | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)는 별도의 Azure 클라우드 서비스입니다. |
@@ -154,7 +154,7 @@ Azure 플랫폼은 표준 데이터베이스 기능에 추가 값으로 추가�
 | [VNet](../../virtual-network/virtual-networks-overview.md) | 부분적, [VNet 엔드포인트](vnet-service-endpoint-rule-overview.md)를 사용하여 제한된 액세스 사용. | 예, SQL Managed Instance는 고객의 VNet에 삽입됨. [서브넷](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) 및 [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) 참조 |
 | VNet 서비스 엔드포인트 | [예](vnet-service-endpoint-rule-overview.md) | 예 |
 | VNet 글로벌 피어링 | 예, [개인 IP 및 서비스 엔드포인트](vnet-service-endpoint-rule-overview.md) 사용 | 예, [가상 네트워크 피어링](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913) 사용. |
-| [프라이빗 연결](../../private-link/private-link-overview.md) | 예. [프라이빗 링크](/database/private-endpoint-overview.md)를 사용합니다. | 예. VNet을 사용합니다. | 
+| [프라이빗 연결](../../private-link/private-link-overview.md) | 예. [프라이빗 링크](../../private-link/private-endpoint-overview.md)를 사용합니다. | 예. VNet을 사용합니다. | 
 
 ## <a name="tools"></a>도구
 

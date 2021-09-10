@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff3c052e2e9e745c59947cda43d12b46786fbd62
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: ff38cf413f6e1812c72d410c31088b965af1b3dd
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707596"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123213925"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -48,11 +48,11 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
     * 필요한 경우 [이전 자습서를 완료하여 Azure AD SSPR을 사용하도록 설정](tutorial-enable-sspr.md)합니다.
 * 현재 버전의 Azure AD Connect를 사용하여 구성된 기존 온-프레미스 AD DS 환경
     * 필요한 경우 [기본](../hybrid/how-to-connect-install-express.md) 또는 [사용자 지정](../hybrid/how-to-connect-install-custom.md) 설정을 사용하여 Azure AD Connect를 구성합니다.
-    * 비밀번호 쓰기 저장을 사용하려면 도메인 컨트롤러가 Windows Server 2012 이상이어야 합니다.
+    * 비밀번호 쓰기 저장을 사용하려면 도메인 컨트롤러가 Windows Server 2016 이상이어야 합니다.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Azure AD Connect에 대한 계정 권한 구성
 
-Azure AD Connect를 사용하면 온-프레미스 AD DS 환경과 Azure AD 간에 사용자, 그룹 및 자격 증명을 동기화할 수 있습니다. 일반적으로 온-프레미스 AD DS 도메인에 조인된 Windows Server 2012 이상 컴퓨터에 Azure AD Connect를 설치합니다.
+Azure AD Connect를 사용하면 온-프레미스 AD DS 환경과 Azure AD 간에 사용자, 그룹 및 자격 증명을 동기화할 수 있습니다. 일반적으로 온-프레미스 AD DS 도메인에 조인된 Windows Server 2016 이상 컴퓨터에 Azure AD Connect를 설치합니다.
 
 SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 계정에 적절한 권한과 옵션이 설정되어 있어야 합니다. 현재 사용하는 계정을 잘 모르는 경우 Azure AD Connect를 열고 **현재 구성 보기** 옵션을 선택합니다. 권한을 추가해야 하는 계정은 **동기화된 디렉터리** 아래에 나열됩니다. 계정에 설정해야 하는 권한과 옵션은 다음과 같습니다.
 

@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f4ae0dfb8e03add64f450d98c15f85da33eaef3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528825"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696468"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure Disk Storage의 서버 쪽 암호화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 대부분의 Azure 관리 디스크는 SSE(서버 측 암호화)를 사용하여 데이터를 보호하고 조직의 보안 및 규정 준수 약정을 준수하는 Azure Storage 암호화를 사용하여 암호화됩니다. Azure Storage 암호화는 Azure 관리 디스크(OS 및 데이터 디스크)에 저장된 미사용 데이터를 클라우드에 보존할 때 기본적으로 자동으로 암호화합니다. 하지만 호스트에서 암호화가 설정된 디스크는 Azure Storage를 통해 암호화되지 않습니다. 호스트에서 암호화가 사용 설정되는 디스크의 경우 VM을 호스트하는 서버에서 데이터에 대한 암호화를 제공하고, 이 암호화된 데이터는 Azure Storage로 흐릅니다.
 
@@ -55,7 +57,7 @@ Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
 
-관리 디스크에 대해 고객 관리형 키를 사용하도록 설정하려면 [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) 또는 [Azure Portal](disks-enable-customer-managed-keys-portal.md) 중 하나를 통해 이를 사용 설정하는 방법에 대한 문서를 참조하세요. 자동 키 교체를 통해 고객 관리형 키를 사용 설정하는 방법을 알아보려면 [자동 키 회전 없이 Azure Key Vault 및 DiskEncryptionSet 설정(미리 보기)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview)을 참조하세요.
+관리 디스크에 대해 고객 관리형 키를 사용하도록 설정하려면 [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) 또는 [Azure Portal](disks-enable-customer-managed-keys-portal.md) 중 하나를 통해 이를 사용 설정하는 방법에 대한 문서를 참조하세요. 
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>호스트에서의 암호화 - VM 데이터의 엔드투엔드 암호화
 

@@ -1,23 +1,23 @@
 ---
 title: Azure의 테넌트 간에 갤러리 이미지 공유
 description: 공유 이미지 갤러리 및 PowerShell을 사용하여 Azure 테넌트 간에 VM 이미지를 공유하는 방법을 알아봅니다.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eee27866c7108ed6f1c1ef039ebb1aeafb0cbc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: eb432b486815b9b2269eabb2631d4d4cb909df11
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677704"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225989"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>PowerShell을 사용하여 Azure 테넌트 간에 갤러리 VM 이미지 공유
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 공유 이미지 갤러리를 사용하면 Azure RBAC를 사용하여 이미지를 공유할 수 있습니다. Azure RBAC를 사용하여 테넌트 내에서 이미지를 공유하고 테넌트 외부의 개인에게도 이미지를 공유할 수 있습니다. 이 간단한 공유 옵션에 대한 자세한 내용은 [갤러리 공유](./shared-images-portal.md#share-the-gallery)를 참조하세요.
 

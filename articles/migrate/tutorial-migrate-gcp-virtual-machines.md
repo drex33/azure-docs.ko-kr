@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 16735c2d8e77c23156e23aade7a1d42bd7504e71
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: aa51a489fd1dc7a3e7188239ea200b6fb95b3ed1
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765633"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123271974"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 검색, 평가 및 마이그레이션
 
@@ -348,12 +348,11 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     - GCP VM 복제를 중지합니다.
     - Azure Migrate: 서버 마이그레이션의 **복제 중 서버** 수에서 GCP VM을 Server Migration에 연결합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.
-2. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.
-3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
-4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
-6. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
-
+1. [Azure VM에서 모든 Windows 정품 인증 문제를 확인하고 해결합니다.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. 호스트 이름, 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+1. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
+1. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
+1. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 
 

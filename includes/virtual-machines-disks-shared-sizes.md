@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 08/03/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d7d9389e00b3b0f23d590563a242ae0c12e2463
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81008351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536326"
 ---
 현재는 울트라 디스크와 프리미엄 SSD만 공유 디스크를 활성화할 수 있습니다. 디스크 크기에 따라 `maxShares` 제한이 다를 수 있으므로 `maxShares` 값을 설정할 때 초과할 수 없습니다. 프리미엄 SSD의 경우 디스크 공유를 지원하는 디스크 크기는 P15 이상입니다.
 
@@ -24,15 +24,27 @@ ms.locfileid: "81008351"
 
 ### <a name="premium-ssd-ranges"></a>프리미엄 SSD 범위
 
-다음 표에서는 프리미엄 디스크 크기별로 `maxShares`에 허용되는 최댓값을 보여줍니다.
+다음 표에서는 프리미엄 SSD 크기별로 `maxShares`에 허용되는 최댓값을 보여줍니다.
 
 |디스크 크기  |maxShares 제한  |
 |---------|---------|
-|P15, P20     |2         |
+|P1,P2,P3,P4,P6,P10,P15,P20     |3         |
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
 
 디스크의 IOPS 및 대역폭 제한은 `maxShares` 값에 의해 영향을 받지 않습니다. 예를 들어 P15 디스크의 최대 IOPS는 maxShares = 1 또는 maxShares > 1이든 상관없이 1100입니다.
+
+### <a name="standard-ssd-ranges"></a>표준 SSD 범위
+
+다음 표에서는 표준 SSD 크기별로 `maxShares`에 허용되는 최댓값을 보여줍니다.
+
+|디스크 크기  |maxShares 제한  |
+|---------|---------|
+|E1,E2,E3,E4,E6,E10,E15,E20     |3         |
+|E30, E40, E50     |5         |
+|E60, E70, E80     |10         |
+
+디스크의 IOPS 및 대역폭 제한은 `maxShares` 값에 의해 영향을 받지 않습니다. 예를 들어 E15 디스크의 최대 IOPS는 maxShares = 1 또는 maxShares > 1이든 상관없이 500입니다.
 
 ### <a name="ultra-disk-ranges"></a>울트라 디스크 범위
 

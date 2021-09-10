@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: a8356b863323511951ddd5eae463e0f07d65e61c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: f205f66adc2c875e271a85efc2e48763c260dfa0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061977"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237687"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 경고 및 인시던트
 
@@ -56,7 +56,7 @@ Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니�
 
 실제 위혐을 검색하고 가양성을 줄이기 위해 Security Center는 Azure 리소스 및 네트워크에서 로그 데이터를 수집, 분석 및 취합합니다. 또한 방화벽 및 엔드포인트 보호 솔루션처럼 연결된 파트너 솔루션과도 연동합니다. Security Center는 위협 식별을 위해 종종 여러 원본의 정보를 상호 연결하여 이 정보를 분석합니다.
 
-![보안 센터 데이터 수집 및 프레젠테이션](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
+![Security Center 데이터 수집 및 프레젠테이션](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
 보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 수동 접근 방법을 사용하고 공격의 발전을 예측하여 식별할 수 없는 위협을 감지하도록 전체 클라우드 패브릭에 대한 이벤트를 평가하는 데 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 돌파구를 활용합니다. 이러한 보안 분석은 다음과 같습니다.
 

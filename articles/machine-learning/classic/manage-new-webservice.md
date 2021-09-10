@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 웹 서비스 관리 - Azure'
-description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리합니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
+description: Machine Learning 웹 서비스 포털을 사용하여 Machine Learning Studio(클래식) 웹 서비스 관리
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,27 +9,28 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: d3aea23c816b9d8b32b0563d3116cdc2b92e080f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6833763ad38bd821067432aa63b166826442ed2f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101094314"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695521"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Azure Machine Learning Studio(클래식) 웹 서비스 포털을 사용하여 웹 서비스 관리
+# <a name="manage-a-web-service-using-the-machine-learning-studio-classic-web-services-portal"></a>Machine Learning Studio(클래식) 웹 서비스 포털을 사용하여 웹 서비스 관리
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
+Machine Learning 웹 서비스 포털을 사용하여 Machine Learning Studio(클래식) 웹 서비스를 관리할 수 있습니다. 
 
 Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다음과 같습니다.
 
 * 웹 서비스가 사용되는 방식을 모니터링합니다
 * 설명을 구성하고, 웹 서비스 키 및 스토리지 계정 키를 업데이트하며(새 서비스에만 해당), 로깅을 사용하도록 설정하고, 샘플 데이터를 사용하거나 사용하지 않도록 설정합니다.
 * 웹 서비스를 삭제합니다.
-* 청구 계획을 만들거나 삭제하거나 업데이트합니다(새 서비스에만 해당).
-* 엔드포인트를 추가하거나 삭제 합니다(기존 서비스에만 해당).
+* 청구 계획을 만들거나 삭제 또는 업데이트합니다([Azure Machine Learning만 해당](../index.yml)).
+* 엔드포인트를 추가, 삭제합니다(ML Studio(클래식)만 해당).
 
 >[!NOTE]
 >**웹 서비스** 탭의 [Machine Learning Studio(클래식)](https://studio.azureml.net)에서 기존 웹 서비스를 관리할 수도 있습니다.
@@ -38,11 +39,11 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 새 웹 서비스는 Azure 리소스로 배포됩니다. 따라서 새 웹 서비스를 배포하고 관리하기 위한 올바른 권한이 있어야 합니다.  새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
 
-사용자에게 Azure Machine Learning 웹 서비스 포털에서 리소스에 액세스할 수 있는 올바른 권한이 없으면 웹 서비스를 배포하려고 할 때 다음과 같은 오류가 발생합니다.
+사용자에게 Machine Learning 웹 서비스 포털에서 리소스에 액세스할 수 있는 올바른 권한이 없으면 웹 서비스를 배포하려고 할 때 다음과 같은 오류가 발생합니다.
 
 '웹 서비스 배포에 실패했습니다. 이 계정은 작업 영역을 포함하는 Azure 구독에 대한 충분한 액세스 권한이 없습니다. 웹 서비스를 Azure에 배포하려면 같은 계정을 작업 영역에 초대하여 작업 영역을 포함하는 Azure 구독에 액세스할 권한이 이 계정에 제공되어야 합니다.'
 
-작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio(클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만드는 방법에 대한 자세한 내용은 [Machine Learning Studio(클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
 액세스 권한 설정에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
@@ -50,7 +51,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 ## <a name="manage-new-web-services"></a>새 웹 서비스 관리
 새 웹 서비스를 관리하려면
 
-1. Microsoft Azure 계정을 사용하여 [Microsoft Azure Machine Learning 웹 서비스 ](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
+1. Microsoft Azure 계정을 사용하여 [Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
 2. 메뉴에서 **웹 서비스** 를 클릭합니다.
 
 그러면 구독에 배포된 웹 서비스의 목록이 표시됩니다. 
@@ -111,13 +112,13 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
-> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio(클래식) 및 Azure Portal을 통해 기존 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio(클래식) 작업 영역 관리](manage-workspace.md)를 참조하세요.
+> 이 섹션의 절차는 Machine Learning 웹 서비스 포털을 통해 클래식 웹 서비스를 관리하는 것과 관련 있습니다. Machine Learning Studio(클래식) 및 Azure Portal을 통해 클래식 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Machine Learning Studio(클래식) 작업 영역 관리](manage-workspace.md)를 참조하세요.
 > 
 > 
 
 기존 웹 서비스를 관리하려면
 
-1. Microsoft Azure 계정을 사용하여 [Microsoft Azure Machine Learning 웹 서비스 ](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
+1. Microsoft Azure 계정을 사용하여 [Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
 2. 메뉴에서 **기존 웹 서비스** 를 클릭합니다.
 
 **기존 웹 서비스** 를 클릭하면 해당 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스 페이지에서 수행할 수 있는 작업은 다음과 같습니다.

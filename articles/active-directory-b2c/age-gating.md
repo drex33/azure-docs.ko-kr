@@ -11,12 +11,12 @@ ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f7aac30ec8cb5aa2707217183a7612f4eb5b27c3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f0502f11c9a6e900ae8f25209b6897f8384c2773
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530594"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777759"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -44,7 +44,8 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 사용자 흐름에서 나이 제한을 사용하려면 추가 속성을 포함하도록 테넌트를 구성해야 합니다.
 
 1. [이 링크](https://portal.azure.com/?Microsoft_AAD_B2CAdmin_agegatingenabled=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview)를 사용하여 연령 제한 미리 보기를 사용해 보세요.
-1. 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+1. **포털 설정 | 디렉터리 + 구독**  페이지의 **디렉터리 이름**  목록에서 Azure AD B2C 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스** 를 선택하고, **Azure AD B2C** 를 검색하여 선택합니다.
 1. 왼쪽 메뉴에서 테넌트에 대한 **속성** 을 선택합니다.
 1. **나이 제한** 아래에서 **구성** 을 선택합니다.
@@ -70,7 +71,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 ## <a name="test-your-user-flow"></a>사용자 흐름 테스트
 
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 이름의 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 로컬 또는 소셜 계정으로 로그인합니다. 그런 다음, 거주 국가를 선택하고 미성년자의 생년월일을 선택합니다. 
 1. 테스트를 반복하여 성인의 생년월일을 선택합니다.  

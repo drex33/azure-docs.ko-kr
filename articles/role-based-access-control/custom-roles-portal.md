@@ -8,14 +8,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de888e76e9ba27fa653905084193e6f8e25d2a81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369229"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315382"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
@@ -48,7 +48,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
     다음 스크린샷은 구독에 대해 열려 있는 액세스 제어(IAM) 페이지를 보여 줍니다.
 
-    ![구독의 액세스 제어(IAM) 페이지](./media/custom-roles-portal/access-control-subscription.png)
+    ![구독의 액세스 제어(IAM) 페이지](./media/shared/sub-access-control.png)
 
 1. **역할** 탭을 클릭하여 모든 기본 제공 역할 및 사용자 지정 역할 목록을 봅니다.
 
@@ -176,13 +176,13 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
     리소스 공급자 카드의 목록이 검색 문자열에 따라 표시됩니다. Azure 서비스와 일치하는 리소스 공급자의 목록은 [Azure 서비스용 리소스 공급자](../azure-resource-manager/management/azure-services-resource-providers.md)를 참조하세요.
 
-    ![리소스 공급자를 사용하여 권한 창 추가](./media/custom-roles-portal/add-permissions-provider.png)
+    ![리소스 공급자를 사용하여 권한 창 추가](./media/shared/add-permissions-provider.png)
 
 1. **Microsoft 청구** 와 같이 사용자 지정 역할에 추가하려는 권한이 있을 수 있는 리소스 공급자 카드를 클릭합니다.
 
     해당 리소스 공급자에 대한 관리 권한 목록이 검색 문자열에 따라 표시됩니다.
 
-    ![권한 목록 추가](./media/custom-roles-portal/add-permissions-list.png)
+    ![권한 목록 추가](./media/shared/add-permissions-list.png)
 
 1. 데이터 평면에 적용되는 권한을 찾고 있는 경우 **데이터 작업** 을 클릭합니다. 그렇지 않고 관리 평면에 적용되는 권한을 나열하려면 작업 토글을 **Actions** 상태로 둡니다. 관리 평면과 데이터 평면 간의 차이점에 대한 자세한 내용은 [관리 및 데이터 작업](role-definitions.md#management-and-data-operations)을 참조하세요.
 
@@ -241,7 +241,9 @@ Microsoft.CostManagement/exports/delete
 
 ## <a name="step-5-assignable-scopes"></a>5단계: 할당 가능한 범위
 
-**할당 가능한 범위** 탭에서 사용자 지정 역할을 할당할 수 있는 위치(예: 구독 또는 리소스 그룹)를 지정합니다. 선택한 시작 방법에 따라 이 탭에는 액세스 제어(IAM) 페이지를 연 범위가 나열될 수 있습니다. 할당 가능한 범위를 루트 범위("/")로 설정하는 것은 지원되지 않습니다. 현재, 관리 그룹을 할당 가능한 범위로 추가할 수 없습니다.
+**할당 가능한 범위** 탭에서 관리 그룹, 구독 또는 리소스 그룹과 같이 할당에 사용자 지정 역할을 사용할 수 있는 위치를 지정합니다. 선택한 시작 방법에 따라 이 탭에는 액세스 제어(IAM) 페이지를 연 범위가 이미 나열될 수 있습니다.
+
+ 할당 가능한 범위에는 하나의 관리 그룹만 정의할 수 있습니다. 할당 가능한 범위에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다. 할당 가능한 범위를 루트 범위("/")로 설정하는 것은 지원되지 않습니다.
 
 1. **할당 가능한 범위 추가** 를 클릭하여 할당 가능한 범위 추가 창을 엽니다.
 

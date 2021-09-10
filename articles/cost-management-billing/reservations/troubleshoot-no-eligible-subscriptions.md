@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 12/15/2020
-ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.date: 06/27/2021
+ms.openlocfilehash: 40002ab69c39481393654629a44a038dfc9d01af
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561208"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988934"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>적격 구독 없음 문제 해결
 
@@ -86,13 +86,17 @@ You can only purchase reservations using subscriptions on which you have owner o
 
 현재 예약 주문 소유자 또는 예약 소유자는 다음 단계를 사용하여 액세스 권한을 위임할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **모든 서비스** > **예약** 을 선택하여 액세스할 수 있는 예약을 나열합니다.
-1. 다른 사용자에게 액세스 권한을 위임하려는 예약을 선택합니다.
-1. **액세스 제어(IAM)** 를 선택합니다.
-1. **역할 할당 추가** > **역할** > **소유자** 를 선택합니다. 또는 제한된 액세스 권한을 부여하려는 경우 다른 역할을 선택합니다.
-1. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
-1. 사용자를 선택한 다음 **저장** 을 선택합니다.
+다른 사용자가 예약을 관리할 수 있게 하려면 다음 두 가지 옵션을 사용하면 됩니다.
+
+- 예약 주문의 리소스 범위에 있는 사용자에게 소유자 역할을 할당하여 개별 예약 주문에 대한 액세스 관리를 위임합니다. 제한된 액세스 권한을 부여하려면 다른 역할을 선택합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+
+- 기업계약 또는 Microsoft 고객 계약에 사용자를 청구 관리자로 추가합니다.
+    - 기업계약의 경우 _엔터프라이즈 관리자_ 역할이 있는 사용자를 추가하여 기업계약에 적용되는 모든 예약 주문을 보고 관리합니다. _엔터프라이즈 관리자(읽기 전용)_ 역할이 있는 사용자는 예약만 볼 수 있습니다. 부서 관리자 및 계정 소유자는 액세스 제어(IAM)를 사용하여 명시적으로 추가하지 _않는 한_ 예약을 볼 수 없습니다. 자세한 내용은 [Azure Enterprise 역할 관리](../manage/understand-ea-roles.md)를 참조하세요.
+
+        _엔터프라이즈 관리자는 예약 주문의 소유권을 가질 수 있으며, 액세스 제어(IAM)를 사용하여 예약에 다른 사용자를 추가할 수 있습니다._
+    - Microsoft 고객 계약의 경우 청구 프로필 소유자 역할 또는 청구 프로필 기여자 역할을 가진 사용자는 청구 프로필을 사용하여 이루어진 모든 예약 구매를 관리할 수 있습니다. 청구 프로필 리더와 청구서 관리자는 청구 프로필로 지불되는 모든 예약을 볼 수 있습니다. 그러나 예약을 변경할 수는 없습니다.
+    자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
 
 자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)을 참조하세요.
 

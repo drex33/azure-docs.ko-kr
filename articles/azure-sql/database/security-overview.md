@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 10/26/2020
-ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 08/23/2021
+ms.openlocfilehash: 9326797e16190b3570ed6faca4d724bec432bc86
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812987"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767917"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -69,9 +69,9 @@ Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-ov
 
 ## <a name="authorization"></a>권한 부여
 
-권한 부여란 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 내에서 사용자에게 할당되는 권한을 지칭하며 사용자가 수행할 수 있는 작업을 결정합니다. 권한은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)에 사용자 계정을 추가하고 해당 역할에 데이터베이스 수준 권한을 할당하거나, 사용자에게 특정 [개체 수준 권한](/sql/relational-databases/security/permissions-database-engine)을 부여하는 방식으로 권한을 제어합니다. 자세한 내용은 [로그인 및 사용자](logins-create-manage.md)를 참조하세요.
+권한 부여는 데이터베이스 내의 리소스 및 명령에 대한 액세스 제어를 의미합니다. 이 작업은 Azure SQL Database 또는 Azure SQL Managed Instance 데이터베이스 내의 사용자에게 권한을 할당함으로써 이루어집니다. 권한은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)에 사용자 계정을 추가하고 해당 역할에 데이터베이스 수준 권한을 할당하는 방식으로 관리합니다. 또는 개별 사용자에게 특정 [개체 수준 사용 권한](/sql/relational-databases/security/permissions-database-engine)을 부여할 수도 있습니다. 자세한 내용은 [로그인 및 사용자](logins-create-manage.md)를 참조하세요.
 
-필요한 경우 사용자 지정 역할을 만드는 것이 가장 좋습니다. 작업을 수행하는 데 필요한 최소한의 권한을 가진 역할에 사용자를 추가합니다. 사용자에게 직접 권한을 할당하지 마십시오. 서버 관리자 계정은 광범위한 권한이 있는 기본 제공 db_owner 역할의 구성원이므로 관리 업무를 담당하는 소수의 사용자에게만 부여해야 합니다. 애플리케이션의 경우 [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql)를 사용하여 호출된 모듈의 실행 컨텍스트를 지정하거나 제한된 권한으로 [애플리케이션 역할](/sql/relational-databases/security/authentication-access/application-roles)을 사용합니다. 이렇게 하면 데이터베이스에 연결되는 애플리케이션에 필요한 최소 권한만 제공됩니다. 이러한 모범 사례를 따르면 업무 분리에 유용합니다.
+필요한 경우 사용자 지정 역할을 만드는 것이 가장 좋습니다. 작업을 수행하는 데 필요한 최소한의 권한을 가진 역할에 사용자를 추가합니다. 사용자에게 직접 권한을 할당하지 마십시오. 서버 관리자 계정은 광범위한 권한이 있는 기본 제공 db_owner 역할의 구성원이므로 관리 업무를 담당하는 소수의 사용자에게만 부여해야 합니다. 사용자가 수행할 수 있는 범위를 더 제한하려면 [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql)를 사용하여 호출된 모듈의 실행 컨텍스트를 지정할 수 있습니다. 이러한 모범 사례를 따르는 것은 의무 분리를 위한 기본 단계이기도 합니다.
 
 ### <a name="row-level-security"></a>행 수준 보안
 
@@ -140,7 +140,7 @@ TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryp
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 
-데이터 검색 및 분류(현재 미리 보기)는 Azure SQL Database 및 SQL Managed Instance에 고급 기능을 기본으로 제공하여 데이터베이스에 있는 중요한 데이터를 검색, 분류, 레이블 지정 및 보호합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
+데이터 검색 및 분류(현재 미리 보기)는 Azure SQL Database 및 SQL Managed Instance에 기본 기능을 기본으로 제공하여 데이터베이스에 있는 중요한 데이터를 검색, 분류, 레이블 지정합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 액세스 제어 및 보안 강화.

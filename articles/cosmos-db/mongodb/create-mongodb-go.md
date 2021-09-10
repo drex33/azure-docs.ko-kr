@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 04/24/2020
-ms.openlocfilehash: ca06f5a106da38e724325f3de66d76c1c8f4f4b0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: f474ac853c9196d36af6aa832b0c455db6a08b73
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788159"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032270"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Go 애플리케이션을 Azure Cosmos DB의 API for MongoDB에 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -453,6 +453,10 @@ ID를 사용하여 `todo` 삭제
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 Azure Cosmos DB MongoDB API 계정을 만들고, Go 명령줄 앱을 만들고 실행하여 `todo`를 관리하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
+
+Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 MongoDB 데이터 가져오기](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

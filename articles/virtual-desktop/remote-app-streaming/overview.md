@@ -3,15 +3,15 @@ title: Azure Virtual Desktop 원격 앱 스트리밍이란 무엇인가요? - Az
 description: Azure Virtual Desktop 원격 앱 스트리밍의 개요
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 88bc4c94612a69be8a9d7aad7bbad983b687235a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: e1ff4cba43c1e57c39b5e47e2485a262f66bbb5f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799181"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032983"
 ---
 # <a name="what-is-azure-virtual-desktop-remote-app-streaming"></a>Azure Virtual Desktop 원격 앱 스트리밍이란 무엇인가요?
 
@@ -27,13 +27,15 @@ Azure Virtual Desktop에 익숙하지 않는 경우(일반적으로 앱 가상�
 
 - 사용자 지정 앱. Azure Virtual Desktop이 지원하는 앱 유형 및 고객에게 이러한 앱을 제공하는 방법에 대한 자세한 내용을 보려면 [Azure Virtual Desktop을 사용하여 사용자 지정 앱을 호스트하는 방법](custom-apps.md)을 참조하세요.
 
-- 도메인 조인 자격 증명 Azure Virtual Desktop과 호환되는 ID 관리 시스템이 아직 없는 경우 호스트 풀에 대한 ID 관리를 설정해야 합니다.
+- 도메인 조인 자격 증명 Azure Virtual Desktop과 호환되는 ID 관리 시스템이 아직 없는 경우 호스트 풀에 대한 ID 관리를 설정해야 합니다. 자세한 내용은 [관리 ID 설정](identities.md)을 참조하세요.
 
 - Azure 구독 아직 구독이 없는 경우 [계정을 만들어야](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 합니다.
 
 ## <a name="get-started"></a>시작
 
-이제 준비가 완료되었으므로 Azure Virtual Desktop 배포를 설정하는 방법을 살펴보겠습니다.
+이제 준비가 완료되었으므로 Azure Virtual Desktop 배포를 설정하는 방법을 살펴보겠습니다. 성공을 위한 두 가지 옵션이 있습니다. 수동 또는 자동으로 배포를 설정할 수 있습니다. 다음 두 섹션에서는 이 두 가지 방법의 차이점에 대해 설명합니다.
+
+### <a name="set-up-azure-virtual-desktop-manually"></a>수동으로 Azure Virtual Desktop 설정
 
 다음 자습서에 따라 배포를 수동으로 설정할 수 있습니다.
 
@@ -44,6 +46,13 @@ Azure Virtual Desktop에 익숙하지 않는 경우(일반적으로 앱 가상�
 3. [서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기](../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 4. [서비스 경고 설정](../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+
+### <a name="set-up-azure-virtual-desktop-automatically"></a>자동으로 Azure Virtual Desktop 설정
+
+자동 프로세스를 선호하는 경우 시작하기 기능을 사용하여 배포를 설정할 수 있습니다. 자세한 내용은 다음 문서를 확인하세요.
+
+- [시작하기 기능을 사용하여 Azure Virtual Desktop 배포](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)(이 지침을 따를 때 [Azure AD DS 또는 AD DS 구독의 경우](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds)의 지침을 따라야 합니다. 이 방법을 사용하면 더 나은 ID 관리 및 앱 호환성을 제공하는 동시에 ID 관련 인프라 비용을 조정할 수 있습니다. Azure AD DS 또는 AD DS가 없는 구독 방법은 이러한 이점을 제공하지 않습니다.)
+- [시작하기 기능 문제 해결](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="customize-and-manage-azure-virtual-desktop"></a>Azure Virtual Desktop 사용자 지정 및 관리
 
@@ -58,6 +67,7 @@ Azure Virtual Desktop을 설정하고 나면 조직 또는 고객의 요구에 �
 - [비즈니스 연속성 및 재해 복구 계획 설정](../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Automation을 사용하여 세션 호스트 크기 조정](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [유니버설 인쇄 설정](/universal-print/fundamentals/universal-print-getting-started)
+- [연결 시 VM 시작 기능 설정](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="get-to-know-your-azure-virtual-desktop-deployment"></a>Azure Virtual Desktop 배포 알아보기
 
@@ -69,7 +79,9 @@ Azure Virtual Desktop 배포를 만들고 관리하는 데 필요한 개념을 �
 - [Azure Virtual Desktop용 Azure Monitor 용어집](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [기업용 Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [총 배포 비용 예상](total-costs.md)
+- [사용자별 앱 스트리밍 비용 예측](streaming-costs.md)
 - [아키텍처 권장 사항](architecture-recs.md)
+- [연결 시 VM 시작 FAQ](../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## <a name="next-steps"></a>다음 단계
 

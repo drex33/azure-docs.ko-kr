@@ -1,31 +1,31 @@
 ---
 title: AKS(Azure Kubernetes Service)로 Apache Spark 작업 실행
-description: AKS (Azure Kubernetes Service)를 사용 하 여 대규모 데이터 처리를 위한 Apache Spark 작업을 만들고 실행 합니다.
+description: AKS(Azure Kubernetes Service)를 사용하여 대규모 데이터 처리를 위한 Apache Spark 작업을 만들고 실행합니다.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 74a3fe79291f3a5c7f5bbd664bf6d55a5fb77eae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: dbb807881a3fe9974eae5cfe7288e188a31b7ecb
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181196"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287963"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
-[Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-kubernetes-earliest-version]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
+[Apache Spark][apache-spark]는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-kubernetes-earliest-version]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
 * Kubernetes 및 [Apache Spark][spark-quickstart]에 대한 기본적인 이해.
 * [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create].
-* Azure CLI 개발 시스템에 [설치][azure-cli] 됩니다.
+* 개발 시스템에 [설치된][azure-cli] Azure CLI
 * 시스템에 설치된 [JDK 8][java-install].
-* 시스템에 설치 된 [Apache Maven][maven-install] .
+* 시스템에 설치된 [Apache Maven][maven-install]
 * 시스템에 설치된 SBT([Scala 빌드 도구][sbt-install]).
 * 시스템에 설치된 Git 명령줄 도구
 
@@ -41,13 +41,13 @@ Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기�
 az group create --name mySparkCluster --location eastus
 ```
 
-클러스터에 대 한 서비스 주체를 만듭니다. 만든 후에는 다음 명령에 대 한 서비스 사용자 appId 및 암호가 필요 합니다.
+클러스터의 서비스 주체를 만듭니다. 생성되면 다음 명령에 대한 서비스 주체 appId 및 암호가 필요합니다.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-크기, appId 및 암호 값으로 전달 되는 노드를 사용 하 여 AKS 클러스터를 만들고, `Standard_D3_v2` 서비스 주체 및 클라이언트 암호 매개 변수로 전달 합니다.
+크기가 `Standard_D3_v2`이고, appId 및 암호 값이 서비스 주체 및 클라이언트 암호 매개 변수로 전달된 노드를 사용하여 AKS 클러스터를 만듭니다.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -218,7 +218,7 @@ Spark 리포지토리의 루트로 돌아갑니다.
 cd $sparkdir
 ```
 
-작업을 실행 하는 데 충분 한 권한이 있는 서비스 계정을 만듭니다.
+작업을 실행하기 위한 충분한 권한이 있는 서비스 계정을 만듭니다.
 
 ```bash
 kubectl create serviceaccount spark
@@ -294,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 위의 예제에서는 Spark jar 파일을 Azure Storage에 업로드했습니다. 또 다른 옵션은 jar 파일을 사용자 지정된 Docker 이미지로 패키징하는 것입니다.
 
-이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `ADD`및 선언 사이에 Spark 작업에 대 한 문을 추가 `jar` `WORKDIR` `ENTRYPOINT` 합니다.
+이렇게 하려면 `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` 디렉터리에서 Spark 이미지에 대한 `dockerfile`을 찾습니다. `WORKDIR` 및 `ENTRYPOINT` 선언 사이에 Spark 작업 `jar`에 대한 `ADD` 문을 추가합니다.
 
 jar 경로를 개발 시스템의 `SparkPi-assembly-0.1.0-SNAPSHOT.jar` 파일 위치로 업데이트합니다. 개발자 고유의 사용자 지정 jar 파일을 사용해도 됩니다.
 
@@ -340,7 +340,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: /azure/developer/java/fundamentals/java-jdk-long-term-support
+[java-install]: /azure/developer/java/fundamentals/java-support-on-azure
 [maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html

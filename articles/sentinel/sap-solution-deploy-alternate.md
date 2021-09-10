@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel SAP 데이터 커넥터 온-프레미스 배포
-description: 온-프레미스 머신을 사용하여 SAP 환경용 Azure Sentinel 데이터 커넥터를 배포하는 방법을 알아봅니다.
+title: Azure Sentinel SAP 데이터 커넥터 전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본 | Microsoft Docs
+description: 전문가 구성 옵션과 온-프레미스 머신을 사용하여 SAP 환경용 Azure Sentinel 데이터 커넥터를 배포하는 방법을 알아봅니다. SAPControl 로그 원본에 관해서도 자세히 알아봅니다.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: c2917d23c08c24ca4f96aca33c7160ba8834561a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0dbdc6be4eb5dd61545bbf761d1805824690ebc7
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958374"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681371"
 ---
-# <a name="deploy-the-azure-sentinel-sap-data-connector-on-premises"></a>Azure Sentinel SAP 데이터 커넥터 온-프레미스 배포
+# <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본
 
 이 문서에서는 온-프레미스 머신과 Azure Key Vault를 사용하여 자격 증명을 저장하는 등의 전문가 또는 사용자 지정 프로세스에서 Azure Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "111958374"
 
 Azure Sentinel SAP 데이터 커넥터를 배포하기 위한 기본 필수 조건은 배포 방법에 관계 없이 동일합니다.
 
-시작하기 전에 시스템에서 주 [SAP 데이터 커넥터 배포 자습서](sap-deploy-solution.md#prerequisites)에 설명된 필수 조건을 준수하는지 확인합니다.
+시작하기 전에 시스템이 주 [SAP 데이터 커넥터 배포 프로시저](sap-deploy-solution.md#prerequisites)에 설명된 사전 요구 사항을 충족하는지 확인합니다.
 
 자세한 내용은 [Azure Sentinel sap 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)](sap-solution-detailed-requirements.md)을 참조하세요.
 
@@ -254,10 +254,10 @@ osuser = <SET_YOUR_SAPADM_LIKE_USER>
 ospasswd = <SET_YOUR_SAPADM_PASS>
 x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-appserver = <SET_YOUR_SAPCTRL_SERVER>
-instance = <SET_YOUR_SAP_INSTANCE>
-abapseverity = <SET_ABAP_SEVERITY>
-abaptz = <SET_ABAP_TZ>
+appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
+instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
+abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -266,10 +266,10 @@ javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
 javaospasswd = <SET_YOUR_JAVAADM_PASS>
 javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
-javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER>
-javainstance = <SET_YOUR_JAVA_SAP_INSTANCE>
-javaseverity = <SET_JAVA_SEVERITY>
-javatz = <SET_JAVA_TZ>
+javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
+javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
+javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### <a name="define-the-sap-logs-that-are-sent-to-azure-sentinel"></a>Azure Sentinel로 전송되는 SAP 로그 정의
@@ -331,6 +331,28 @@ timechunk = 60
 |**timechunk**     |   시스템에서 데이터 추출 간격으로 특정 시간(분) 동안 대기하는지 결정합니다. 많은 양의 데이터가 예상되는 경우 이 매개 변수를 사용합니다. <br><br>예를 들어, 처음 24시간 동안 초기 데이터를 로드할 때 각 데이터를 추출하는 데 충분한 시간을 주기 위해 데이터 추출이 30분마다 실행되도록 할 수 있습니다. 이러한 경우에는 이 값을 **30** 으로 설정합니다.  |
 |     |         |
 
+### <a name="configuring-an-abap-sap-control-instance"></a>ABAP SAP Control 인스턴스 구성
+
+NW RFC와 SAP Control 웹 서비스 기반 로그를 포함하여 모든 ABAP 로그를 Azure Sentinel에 수집하려면 다음 ABAP SAP Control 세부 정보를 구성합니다.
+
+|Setting  |Description  |
+|---------|---------|
+|**javaappserver**     |SAP Control ABAP 서버 호스트를 입력합니다. <br>예: `contoso-erp.appserver.com`         |
+|**javainstance**     |SAP Control ABAP 인스턴스 번호를 입력합니다. <br>예: `00`         |
+|**abaptz**     |SAP Control ABAP 서버에서 구성된 표준 시간대를 GMT 형식으로 입력합니다. <br>예: `GMT+3`         |
+|**abapseverity**     |ABAP 로그를 Azure Sentinel에 수집하려는 가장 낮은 심각도 수준(포함)을 입력합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
+
+
+### <a name="configuring-a-java-sap-control-instance"></a>Java SAP Control 인스턴스 구성
+
+SAP Control 웹 서비스 로그를 Azure Sentinel에 수집하려면 다음 JAVA SAP Control 인스턴스 세부 정보를 구성합니다.
+
+|매개 변수  |Description  |
+|---------|---------|
+|**javaappserver**     |SAP Control Java 서버 호스트를 입력합니다. <br>예: `contoso-java.server.com`         |
+|**javainstance**     |SAP Control ABAP 인스턴스 번호를 입력합니다. <br>예: `10`         |
+|**javatz**     |SAP Control Java 서버에서 구성된 표준 시간대를 GMT 형식으로 입력합니다. <br>예: `GMT+3`         |
+|**javaseverity**     |웹 서비스 로그를 Azure Sentinel에 수집하려는 가장 낮은 심각도 수준(포함)을 입력합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -340,6 +362,8 @@ SAP 데이터 커넥터를 설치한 후 SAP 관련 보안 콘텐츠를 추가�
 
 자세한 내용은 다음을 참조하세요.
 
+- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
 - [Azure Sentinel SAP 솔루션: 보안 콘텐츠 참조](sap-solution-security-content.md)
+- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

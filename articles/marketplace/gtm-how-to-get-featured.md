@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2021
-ms.openlocfilehash: 4ffbca8e4e70a5201b374d4fac9bdb136c860573
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7c3a2a00c0323bc9e80b1d94d445f873d5b86d34
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144964"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541341"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Microsoft AppSource 및 Azure Marketplace에서 추천 앱으로 소개되는 방법
 
@@ -38,7 +38,7 @@ Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기�
 추천 앱 프로모션은 검색 알고리즘과 별도로 작동합니다.
 
 >[!Note]
->솔루션이 검색 결과에 올바르게 표시되지 않는 경우 [파트너 센터](https://partner.microsoft.com/)의 도움말 메뉴를 통해 지원 티켓을 제출합니다.
+>솔루션이 검색 결과에 올바르게 표시되지 않는 경우 파트너 센터의 **[지원 티켓](https://go.microsoft.com/fwlink/?linkid=2165533)** 을 제출합니다.
 
 GTM 지원에는 목록과 비즈니스의 추가 홍보에 도움이 되는 자가 진단 템플릿, 웹 콘텐츠, 교육 및 도구의 전체 라이브러리도 포함되어 있습니다.
 
@@ -46,6 +46,4 @@ GTM 지원에는 목록과 비즈니스의 추가 홍보에 도움이 되는 자
 
 [상업용 Marketplace 혜택](gtm-your-marketplace-benefits.md)에 대해 자세히 알아보세요.
 
-[파트너 센터](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)에 로그인하여 제품을 만들고 구성합니다.
-
----
+[파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인하여 제품을 만들고 구성합니다. 파트너 센터에 아직 등록하지 않은 경우 [계정을 만듭니다](create-account.md).

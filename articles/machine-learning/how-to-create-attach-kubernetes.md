@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 96d6897efd010393f0480d17ba5e4a1d252e0ff2
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901610"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597269"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -86,6 +86,9 @@ AKS 클러스터를 만드는 이러한 방법에서는 클러스터의 __기본
 
 기존 AKS 클러스터를 **연결** 하는 경우 현재 지원되는 모든 AKS 버전을 지원합니다.
 
+> [!IMPORTANT]
+> Azure Kubernetes Service는 버전 1.16 이상의 [Blobfuse FlexVolume 드라이버](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md)와 버전 1.17 이하의 [Blob CSI 드라이버](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md)를 사용합니다. 따라서 클러스터 버전에 올바른 blobfuse 방법으로 배포하려면 클러스터 업그레이드 후 웹 서비스를 다시 배포하거나 [업데이트](how-to-deploy-update-web-service.md)하는 것이 중요합니다.
+
 > [!NOTE]
 > 더 이상 지원되지 않는 이전 클러스터가 있는 극단적인 경우가 있을 수 있습니다. 이 경우 연결 작업에서 오류를 반환하고 현재 지원되는 버전을 나열합니다.
 >
@@ -128,7 +131,7 @@ Result
 1.16.13
 ```
 
-**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 - 오케스트레이터 나열](/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용합니다. 사용 가능한 버전을 확인하려면 `orchestratorType`이 `Kubernetes`인 항목을 확인합니다. 연결된 `orchestrationVersion` 항목에는 작업 영역에 **연결** 할 수 있는 사용 가능한 버전이 포함되어 있습니다.
+**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 - 오케스트레이터 나열](/rest/api/container-service/container-service-client/list-orchestrators) REST API를 사용합니다. 사용 가능한 버전을 확인하려면 `orchestratorType`이 `Kubernetes`인 항목을 확인합니다. 연결된 `orchestrationVersion` 항목에는 작업 영역에 **연결** 할 수 있는 사용 가능한 버전이 포함되어 있습니다.
 
 Azure Machine Learning을 통해 클러스터를 **만들** 때 사용되는 기본 버전을 확인하려면 `orchestratorType`이 `Kubernetes`이고 `default`가 `true`인 항목을 찾습니다. 연결된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각에서는 항목 예를 보여 줍니다.
 
@@ -198,7 +201,7 @@ aks_target.wait_for_completion(show_output = True)
 az ml computetarget create aks -n myaks
 ```
 
-자세한 내용은 [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks)를 참조하세요.
+자세한 내용은 [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -225,7 +228,7 @@ Azure CLI 또는 포털을 사용하여 AKS 클러스터를 만드는 방법에 
 
 * [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [AKS 클러스터 만들기(포털)](../aks/kubernetes-walkthrough-portal.md)
-* [AKS 클러스터 만들기(Azure 빠른 시작 템플릿의 ARM 템플릿)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
+* [AKS 클러스터 만들기(Azure 빠른 시작 템플릿의 ARM 템플릿)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 다음 예제에서는 기존 AKS 클러스터를 작업 영역에 연결하는 방법을 보여 줍니다.
 
@@ -275,7 +278,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-자세한 내용은 [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks) 참조를 참조하세요.
+자세한 내용은 [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach_aks) 참조를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

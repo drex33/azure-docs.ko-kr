@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2270f514f20d4bbe0fbd4382925b485cdc236a67
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c5831672b1c7ae3dc214221cdf51c789e773a223
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751940"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587466"
 ---
 # <a name="deploy-a-azure-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Virtual Desktop(클래식) 관리 도구 배포
 

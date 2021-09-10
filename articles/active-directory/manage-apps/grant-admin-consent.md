@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397b55bccde5781de5b9e53922e31281b3ec855c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ee3ff6fc063de5eebd4a7cc300fdc0a5ceeba560
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529307"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038394"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -46,7 +46,10 @@ ms.locfileid: "122529307"
 1. 관리자 동의를 부여할 수 있는 역할로 [Azure Portal](https://portal.azure.com)에 로그인합니다([필수 조건](#prerequisites) 참조).
 2. **Azure Active Directory** 를 선택한 다음 **엔터프라이즈 애플리케이션** 을 선택합니다.
 3. 테넌트 전체 관리자 동의를 부여하려는 애플리케이션을 선택합니다.
-4. **권한** 을 선택한 다음 **관리자 동의 부여** 를 클릭합니다.
+4. **권한** 을 선택한 다음 **관리자 동의 부여** 를 클릭합니다. 이 예제에서는 10,000ft Plans 애플리케이션을 사용합니다.
+
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="테넌트 전체 관리자 동의를 부여하는 방법을 보여 주는 스크린샷":::
+
 5. 애플리케이션에 필요한 권한을 신중하게 검토합니다.
 6. 애플리케이션에 필요한 권한에 동의하면 동의를 부여합니다. 그렇지 않으면 **취소** 를 클릭하거나 창을 닫습니다.
 

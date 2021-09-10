@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b35706c48ff78e81ef339ee838cc4259090e56c
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 8fb21f3173225d36fcdb2290c74a2c7805455342
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987635"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529157"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -70,7 +70,7 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 - Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.
 
-이 충돌을 해결하려면 계획 중 두 가지를 사용하지 않도록 설정해야 합니다. 사용자에게 직접 할당되지 않은 E1 라이선스를 해제할 수 있습니다. 또는 전체 그룹 라이선스 할당을 수정하고 E3 라이선스에서 계획을 사용하지 않도록 설정해야 합니다. 또는 E1 라이선스가 E3 라이선스의 컨텍스트에서 중복될 경우 사용자에게서 E1 라이선스를 제거하기로 결정할 수 있습니다.
+이 충돌을 해결하려면 계획 중 하나를 사용하지 않도록 설정해야 합니다. 사용자에게 직접 할당되지 않은 E1 라이선스를 해제할 수 있습니다. 또는 전체 그룹 라이선스 할당을 수정하고 E3 라이선스에서 계획을 사용하지 않도록 설정해야 합니다. 또는 E1 라이선스가 E3 라이선스의 컨텍스트에서 중복될 경우 사용자에게서 E1 라이선스를 제거하기로 결정할 수 있습니다.
 
 충돌하는 제품 라이선스 문제를 해결하는 방법은 항상 관리자가 결정합니다. Azure AD는 라이선스 충돌을 자동으로 해결하지 않습니다.
 

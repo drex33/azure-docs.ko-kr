@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e5e0b563b2701a8b5ddbffbf485a3127d52ece0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585901"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769897"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Automation 계정에서 변경 내용 추적 및 인벤토리 사용
 
@@ -78,6 +78,6 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 먼저 머신�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 해당 기능의 사용 방법 관련 세부 정보는 [변경 내용 추적 관리](manage-change-tracking.md) 및 [인벤토리 관리](manage-inventory-vms.md)를 참조하세요.
+* 이 기능을 사용하는 방법에 대한 자세한 내용은 [변경 내용 추적](manage-change-tracking.md) 및 [인벤토리 관리](manage-inventory-vms.md)를 참조하세요.
 
 * 이 기능의 일반적인 문제를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](../troubleshoot/change-tracking.md)을 참조하세요.

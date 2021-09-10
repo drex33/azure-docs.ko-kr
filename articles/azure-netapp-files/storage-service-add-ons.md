@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/15/2021
 ms.author: b-juche
-ms.openlocfilehash: c37d67b6f090314343376237dce3b107b52ee3eb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: dfb4de158cbaf63f2a41932e630036831643fcf6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082913"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122233"
 ---
 # <a name="storage-service-add-ons-for-azure-netapp-files"></a>Azure NetApp Files에 대한 스토리지 서비스 추가 기능
 
-Azure NetApp Files의 **스토리지 서비스 추가 기능** 메뉴는 Azure NetApp Files 스토리지 서비스에 대해 지원되는 타사 에코시스템 추가 기능을 위한 Azure Portal "실행 공간"을 제공합니다. 
+Azure NetApp Files의 **스토리지 서비스 추가 기능** 메뉴는 Azure NetApp Files 스토리지 서비스에 대해 사용 가능한 타사 에코시스템 추가 기능을 위한 Azure Portal "실행 공간"을 제공합니다. 
 
 ## <a name="access-storage-service-add-ons"></a>스토리지 서비스 추가 기능 액세스  
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: cb53bad331e511ea2daacc2a0fbc9c178a193a2f
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 7e28211792013fbe97a672ad5a14a089b7c94449
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655139"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568153"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -34,7 +34,7 @@ ms.locfileid: "110655139"
 
 ### <a name="oracle"></a>Oracle
 
-* [Azure NetApp Files를 사용하는 Azure의 Oracle 배포 모범 사례 가이드](https://www.netapp.com/us/media/tr-4780.pdf)
+* [Azure NetApp Files를 사용하는 Microsoft Azure의 Oracle Database](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Microsoft Azure의 Oracle VM 이미지 및 배포: 공유 스토리지 구성 옵션](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능](performance-oracle-single-volumes.md)
 * [Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점](solutions-benefits-azure-netapp-files-oracle-database.md)
@@ -90,6 +90,7 @@ ms.locfileid: "110655139"
 
 * [SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포 - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Azure NetApp Files를 사용하여 SAP AnyDB(Oracle 19c) 배포](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
+* [Azure NetApp Files를 사용하여 SAP 워크로드용 IBM Db2 Azure Virtual Machines DBMS 배포](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
 
@@ -116,14 +117,19 @@ ms.locfileid: "110655139"
 
 이 섹션에서는 가상 데스크톱 인프라 솔루션에 대한 참조를 제공합니다.
 
-### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
+### <a name="azure-virtual-desktop"></a><a name="windows-virtual-desktop"></a>Azure Virtual Desktop
 
-* [Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점](solutions-windows-virtual-desktop.md)
-* [Windows Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
+* [Azure Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점](solutions-windows-virtual-desktop.md)
+* [Azure Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
 * [Azure NetApp Files를 사용하여 호스트 풀에 대한 FSLogix 프로필 컨테이너 만들기](../virtual-desktop/create-fslogix-profile-container.md)
-* [엔터프라이즈 규모의 Windows Virtual Desktop](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [엔터프라이즈 규모의 Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [엔터프라이즈용 Microsoft FSLogix - Azure NetApp Files 모범 사례](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 * [MSIX 앱 연결에 대한 Azure NetApp Files 설정](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
+
+### <a name="citrix"></a>Citrix   
+
+* [Azure NetApp Files 모범 사례 가이드를 사용한 Citrix 프로필 관리](https://www.netapp.com/pdf.html?item=/media/55973-tr-4901.pdf)
+
 
 ## <a name="hpc-solutions"></a>HPC 솔루션
 
@@ -151,6 +157,7 @@ ms.locfileid: "110655139"
 * [Azure NetApp Files: Microsoft Azure의 SAS 그리드에 사용하는 공유 파일 시스템](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files: MS Azure의 SAS 그리드에 사용하는 공유 파일 시스템 - RHEL8.3/nconnect 업데이트](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [SAS®에서의 Microsoft Azure 사용에 대한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
+* [Azure의 SAS 아키텍처 가이드 - Azure 아키텍처 센터 | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 
 ## <a name="azure-platform-services-solutions"></a>Azure 플랫폼 서비스 솔루션
 
@@ -158,6 +165,7 @@ ms.locfileid: "110655139"
 
 ### <a name="azure-kubernetes-services-and-kubernetes"></a>Azure Kubernetes Services 및 Kubernetes
 
+* [Astra: Azure NetApp Files에서 AKS 워크로드 보호, 복구 및 관리](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Azure NetApp Files와 Azure Kubernetes Service의 통합](../aks/azure-netapp-files.md)
 * [Azure NetApp Files를 사용하여 Azure에서 뛰어난 Kubernetes 성능](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Kubernetes용 동적 및 영구 스토리지](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)

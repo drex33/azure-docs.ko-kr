@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1151981eb96862493eb6a1740e46845c98f7e2ea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789198"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567413"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>자습서: Azure Data Box에 대한 내보내기 주문 만들기
 
@@ -273,6 +273,11 @@ Azure Data Box는 Azure에서 사용자의 위치로 데이터를 이동할 수 
 Data Box는 원본 스토리지 계정에서 데이터를 복사합니다. 데이터 복사가 완료되면 Data Box가 잠기고 Portal에서 **복사 완료됨** 상태의 주문을 표시합니다.
 
 ![Data Box 내보내기 주문, 데이터 복사 완료](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
+
+Azure Storage에서 Data Box로 데이터 내보내기가 실패할 수 있습니다. 이러한 Blob 내보내기는 지원되지 않으므로 Blob이 보관 Blob이 아닌지 확인합니다. 
+
+> [!NOTE]
+> 보관 Blob의 경우 Azure Storage 계정에서 Data Box로 내보내기 전에 해당 Blob을 리하이드레이션해야 합니다. 자세한 내용은 [보관 Blob을 리하이드레이션]( ../storage/blobs/storage-blob-rehydration.md)을 참조하세요.
 
 디바이스를 사용할 수 없는 경우 알림이 수신됩니다. 디바이스를 사용할 수 있으면 Microsoft에서는 배송할 디바이스를 확인하고 배송을 준비합니다. 디바이스를 준비하는 동안 다음 작업이 수행됩니다.
 

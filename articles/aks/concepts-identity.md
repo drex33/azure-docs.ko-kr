@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 77b35d776b8fcd71f26278a6fda8a102113bd570
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 13fe269431a84a00a8af073849cbd17d188c5175
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109844973"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535573"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -78,6 +78,16 @@ AKS 클러스터 ID에서 사용되는 사용 권한은 AKS 클러스터에 만�
 | `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | 사용자 지정 경로 테이블이 있는 사용자 지정 VNET과 같은 다른 리소스 그룹의 경로 테이블과 연결된 서브넷을 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 서브넷이 이미 존재하는지 확인하는 데 필요. |
 | `Microsoft.Network/virtualNetworks/subnets/read` | 다른 리소스 그룹에서 내부 부하 분산 장치를 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 내부 부하 분산 장치가 이미 존재하는지 확인하는 데 필요. |
 | `Microsoft.Network/privatednszones/*` | 사용자 지정 privateDNSZone 같은 다른 리소스 그룹에서 프라이빗 DNS 영역을 사용하는 경우 필요. |
+
+## <a name="aks-node-access"></a>AKS 노드 액세스
+
+기본적으로 AKS에는 노드 액세스가 필요하지 않습니다.  특정 구성 요소를 활용하는 경우 노드에 대해 다음 액세스가 필요합니다.
+
+| Access | 이유 |
+|---|---|
+| `kubelet` | 고객이 MSI에 ACR에 대한 액세스 권한을 부여하는 데 필요합니다. |
+| `http app routing` | "random name".aksapp.io에 대한 쓰기 권한에 필요합니다. |
+| `container insights` | 고객이 Log Analytics 작업 영역에 대한 권한을 부여하는 데 필요합니다. |
 
 ## <a name="kubernetes-rbac"></a>Kubernetes RBAC
 

@@ -6,18 +6,18 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9fcb8567d9f7593a059567df6edc279b6fa701c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598555"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782948"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>예약된 용량의 Azure Cache for Redis 컴퓨팅 리소스 선불
 
-종량제 가격에 비해 컴퓨팅 리소스 비용을 선 결제하면 Azure Cache for Redis에서의 비용을 절감할 수 있습니다. Azure Cache for Redis 예약된 용량을 사용하면 캐시에 대해 1년 또는 3년 동안 선불 약정을 하여 컴퓨팅 비용을 크게 할인 받을 수 있습니다. Azure Cache for Redis 예약된 용량을 구매하려면 Azure 지역, 서비스 계층, 용어를 지정해야 합니다.
+종량제 가격에 비해 컴퓨팅 리소스 비용을 선 결제하면 Azure Cache for Redis에서의 비용을 절감할 수 있습니다. Azure Cache for Redis 예약된 용량을 사용하면 캐시에 대해 1년 또는 3년 동안 선불 약정을 하여 컴퓨팅 비용을 크게 할인받을 수 있습니다. Azure Cache for Redis 예약된 용량을 구매하려면 Azure 지역, 서비스 계층, 용어를 지정해야 합니다.
 
-특정 Azure Cache for Redis 인스턴스에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포된 Azure Cache for Redis가 예약된 캐시 크기 한도에서 예약된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구입하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제하게 됩니다. 예약을 구매하는 즉시, 예약 특성과 일치하는 Azure Cache for Redis 컴퓨팅은 더 이상 종량제 요금으로 부과되지 않습니다. 예약에는 캐시와 연결된 네트워킹 또는 스토리지 요금이 포함되지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 Azure Cache for Redis은 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [ 예약 용량 제품](https://azure.microsoft.com/pricing/details/cache)을 참조하세요.
+특정 Azure Cache for Redis 인스턴스에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포된 Azure Cache for Redis가 예약된 캐시 크기 한도에서 예약된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구매하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제하게 됩니다. 예약을 구매하는 즉시, 예약 특성과 일치하는 Azure Cache for Redis 컴퓨팅은 더 이상 종량제 요금으로 부과되지 않습니다. 예약에는 캐시와 연결된 네트워킹 또는 스토리지 요금이 포함되지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 Azure Cache for Redis은 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [ 예약 용량 제품](https://azure.microsoft.com/pricing/details/cache)을 참조하세요.
 
 [Azure Portal](https://portal.azure.com/)에서 Azure Cache for Redis 예약된 용량을 구매할 수 있습니다. 예약된 용량을 구매하려면 다음과 같이 수행합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "98598555"
 
 예약의 크기는 특정 지역 내에서 기존 또는 곧 배포될 캐시에서 사용되는 총 메모리 크기를 기준으로 해야 하며, 동일한 서비스 계층을 사용해야 합니다.
 
-예를 들어, 13GB와 26GB의 캐시를 하나씩 실행한다고 가정해 보겠습니다. 두 캐시 모두 1년 넘게 필요합니다. 또한 계절적 수요를 충족하기 위해 한 달 동안 기존 13GB 캐시를 26GB로 확장했다가 다시 축소할 계획입니다. 이 경우 1년 예약에서 1개의 P2 캐시와 1개의 P3 캐시 또는 3개의 P2 캐시를 구매하여 비용 절감을 최대화할 수 있습니다. 캐시에 할당된 양에 상관없이 예약한 총 캐시 메모리 양에 대해 할인을 받게 됩니다.
+예를 들어 13GB와 26GB의 캐시를 하나씩 실행한다고 가정해 보겠습니다. 두 캐시 모두 1년 넘게 필요합니다. 또한 계절적 수요를 충족하기 위해 한 달 동안 기존 13GB 캐시를 26GB로 확장했다가 다시 축소할 계획입니다. 이 경우 1년 예약에서 1개의 P2 캐시와 1개의 P3 캐시 또는 3개의 P2 캐시를 구매하여 비용 절감을 최대화할 수 있습니다. 캐시에 할당된 양에 상관없이 예약한 총 캐시 메모리 양에 대해 할인을 받게 됩니다.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Azure Cache for Redis 예약된 용량 구입
@@ -57,7 +57,7 @@ ms.locfileid: "98598555"
 | 지역 | Azure Cache for Redis 예약된 용량 예약에 포함되는 Azure 지역입니다.
 | 가격 책정 계층 | Azure Cache for Redis 서버를 위한 서비스 계층입니다.
 | 용어 | 1년 또는 3년
-| 수량 | Azure Cache for Redis 예약된 용량 예약 내에서 구매한 계산 리소스의 양입니다. 수량은 선택된 Azure 지역 및 예약 중인 서비스 계층의 캐시 개수이며, 청구 할인 혜택을 받을 수 있습니다. 예를 들어 미국 동부 지역에서 26GB의 총 캐시 용량을 사용하여 zure Cache for Redis 서버를 실행 중이거나 실행할 계획인 경우 모든 캐시에 대한 혜택을 최대화하려면 26GB에 해당하는 수량을 지정합니다. 1개의 P3 또는 2개의 P2 캐시일 수 있습니다.
+| 수량 | Azure Cache for Redis 예약된 용량 예약 내에서 구매한 계산 리소스의 양입니다. 수량은 선택된 Azure 지역 및 예약 중인 서비스 계층의 캐시 개수이며, 청구 할인 혜택을 받을 수 있습니다. 예를 들어 미국 동부 지역에서 26GB의 총 캐시 용량을 사용하여 Azure Cache for Redis 서버를 실행 중이거나 실행할 계획인 경우 모든 캐시에 대한 혜택을 최대화하려면 26GB에 해당하는 수량을 지정합니다. 수량은 1개의 P3 캐시 또는 2개의 P2 캐시일 수 있습니다.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 

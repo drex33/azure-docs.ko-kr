@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
-ms.openlocfilehash: bfd63e048d2783d84dbc37710851492134b6d0e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 5d07ecedbc8fe4ff0670c9e8aa96fdf2a92359d3
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566808"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098952"
 ---
 # <a name="templates"></a>템플릿
 
@@ -27,15 +27,15 @@ ms.locfileid: "122566808"
 
 1.  Data Factory 홈페이지의 **자세히 알아보기** 섹션에서 **파이프라인 템플릿** 을 선택하여 템플릿 갤러리를 엽니다.
 
-    ![개요 페이지에서 템플릿 갤러리 열기](media/doc-common-process/home-page-pipeline-templates-tile.png)
+    ![Data Factory 홈페이지에서 템플릿 갤러리를 여는 방법을 보여주는 스크린샷](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
-1.  리소스 탐색기의 작성자 탭에서 **+** , **템플릿에서 파이프라인 만들기** 를 차례로 선택하여 템플릿 갤러리를 엽니다.
+1.  리소스 탐색기의 작성자 탭에서 **+** 를 선택한 다음 **템플릿의 파이프라인** 을 선택하여 템플릿 갤러리를 엽니다.
 
-    ![작성자 탭에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image2.png)
+    ![작성자 탭에서 템플릿 갤러리를 여는 방법을 보여주는 스크린샷](media/solution-templates-introduction/templates-introduction-image-2.png)
 
 ## <a name="template-gallery"></a>템플릿 갤러리
 
-![템플릿 갤러리](media/solution-templates-introduction/templates-intro-image3.png)
+![템플릿 갤러리 페이지를 보여주는 스크린샷](media/solution-templates-introduction/templates-introduction-image-3.png)
 
 ### <a name="out-of-the-box-data-factory-templates"></a>기본 제공 Data Factory 템플릿
 
@@ -81,11 +81,11 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
 파이프라인 탭에서 **템플릿으로 저장** 을 선택하여 파이프라인을 템플릿으로 저장할 수도 있습니다.
 
-![파이프라인을 템플릿으로 저장](media/solution-templates-introduction/templates-intro-image4.png)
+![파이프라인을 템플릿으로 저장하는 방법을 보여주는 스크린샷](media/solution-templates-introduction/templates-introduction-image-4.png)
 
-템플릿 갤러리의 **내 템플릿** 섹션에서 템플릿으로 저장된 파이프라인을 볼 수 있습니다. 리소스 탐색기의 **템플릿** 섹션에서도 확인할 수 있습니다.
+**템플릿 갤러리** 페이지에서 **내 템플릿** 상자를 확인한 후 이 페이지의 오른쪽 창에서 템플릿으로 저장된 파이프라인을 볼 수 있습니다. 
 
-![내 템플릿](media/solution-templates-introduction/templates-intro-image5.png)
+![내 템플릿 창을 보여주는 스크린샷](media/solution-templates-introduction/templates-introduction-image-5.png)
 
 > [!NOTE]
 > 내 템플릿 기능을 사용하려면 GIT 통합을 사용하도록 설정해야 합니다. Azure DevOps GIT 및 GitHub가 둘 다 지원됩니다.

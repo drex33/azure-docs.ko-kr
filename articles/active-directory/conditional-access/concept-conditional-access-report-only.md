@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f4e4851d406b14ed38665274401b96446ac6a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ac2304ffd8f45d2147822f55f35c965da2db7a9
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579079"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113005225"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>조건부 액세스 보고 전용 모드란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "104579079"
 
 보고 전용 모드는 관리자가 정책을 환경에 사용하도록 설정하기 전에 조건부 액세스 정책의 영향을 평가할 수 있도록 하는 새 조건부 액세스 정책 상태입니다.  보고 전용 모드의 릴리스 사용
 
-- 조건부 액세스 정책은 보고 전용 모드에서 사용하도록 설정할 수 있습니다.
+- 조건부 액세스 정책은 보고서 전용 모드에서 사용하도록 설정할 수 있습니다. 이러한 특성이 "사용자 작업" 범위에는 적용되지 않습니다.
 - 로그인하는 동안 보고 전용 모드의 정책은 평가되지만 적용되지 않습니다.
 - 결과는 로그인 로그 세부 정보에 대한 **조건부 액세스** 및 **보고 전용** 탭에 기록됩니다.
 - Azure Monitor 구독이 있는 고객은 조건부 액세스 인사이트 통합 문서를 사용하여 조건부 액세스 정책의 영향을 모니터링할 수 있습니다.

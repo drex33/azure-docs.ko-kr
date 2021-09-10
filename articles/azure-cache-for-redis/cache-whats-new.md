@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
-ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21ee51ac53147482210aa0bda410e11d12e5f479
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91492537"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413792"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>Azure Cache for Redis의 새로운 기능
 
 ## <a name="azure-tls-certificate-change"></a>Azure TLS 인증서 변경
 
-Microsoft는 다른 CA(인증 기관) 집합의 TLS 서버 인증서를 사용하도록 Azure 서비스를 업데이트하고 있습니다. 이 변경은 2020년 8월 13일부터 2020년 10월 26일(예상)까지부터 단계적으로 배포됩니다. Azure에서 이렇게 변경하는 이유는 [현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951) 때문입니다. 이 문제는 2020년 7월 1일에 보고되었으며, 전 세계적으로 인기 있는 여러 PKI(공개 키 인프라) 공급자에게 적용됩니다. 현재 Azure 서비스에서 사용하는 대부분의 TLS 인증서는 *Baltimore CyberTrust Root* PKI에서 제공됩니다. Azure Cache for Redis 서비스는 Baltimore CyberTrust Root에 계속 연결됩니다. 그러나 2020년 10월 12일부터는 새로운 ICA(중간 인증 기관)가 해당 TLS 서버 인증서를 발급합니다.
+Microsoft는 다른 CA(인증 기관) 집합의 TLS 서버 인증서를 사용하도록 Azure 서비스를 업데이트하고 있습니다. 이 변경은 2020년 8월 13일부터 2020년 10월 26일(예상)까지부터 단계적으로 배포됩니다. [현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나가 아니기](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951) 때문에 Azure에서 이 변경을 수행합니다. 이 문제는 2020년 7월 1일에 보고되었으며, 전 세계적으로 인기 있는 여러 PKI(공개 키 인프라) 공급자에게 적용됩니다. 현재 Azure 서비스에서 사용하는 대부분의 TLS 인증서는 *Baltimore CyberTrust Root* PKI에서 제공됩니다. Azure Cache for Redis 서비스는 Baltimore CyberTrust Root에 계속 연결됩니다. 그러나 2020년 10월 12일부터는 새로운 ICA(중간 인증 기관)가 해당 TLS 서버 인증서를 발급합니다.
 
 > [!NOTE]
 > 이 변경은 퍼블릭 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)의 서비스로 제한됩니다. 소버린(예: 중국) 또는 정부 클라우드는 제외됩니다.
@@ -37,7 +37,9 @@ Microsoft는 다른 CA(인증 기관) 집합의 TLS 서버 인증서를 사용�
 
 ### <a name="what-actions-should-i-take"></a>어떤 작업을 수행해야 하나요?
 
-애플리케이션에서 운영 체제 인증서 저장소를 사용하거나 다른 인증서 중에서 Baltimore 루트를 고정하는 경우에는 아무 작업도 필요하지 않습니다. 반면에, 애플리케이션에서 중간 또는 리프 TLS 인증서를 고정하는 경우 다음 루트를 고정하는 것이 좋습니다.
+애플리케이션에서 운영 체제 인증서 저장소를 사용하거나 다른 인증서 중에서 Baltimore 루트를 고정하는 경우에는 아무 작업도 필요하지 않습니다. 
+
+애플리케이션에서 중간 또는 리프 TLS 인증서를 고정하는 경우 다음 루트를 고정하는 것이 좋습니다.
 
 | 인증서 | Thumbprint |
 | ----- | ----- |
@@ -50,7 +52,7 @@ Microsoft는 다른 CA(인증 기관) 집합의 TLS 서버 인증서를 사용�
 >
 >
 
-중간 인증서를 계속 고정하려면 고정된 중간 인증서 목록에 다음 항목을 추가합니다. 향후 변경을 최소화하기 위해 추가 항목은 목록에 거의 포함되어 있지 않습니다.
+중간 인증서를 계속 고정하려면 고정된 중간 인증서 목록에 다음 항목을 추가합니다. 향후 변경을 최소화하기 위해 추가 항목은 목록에 몇 가지 더 포함됩니다.
 
 | CA의 일반 이름 | Thumbprint |
 | ----- | ----- |
@@ -65,4 +67,4 @@ Microsoft는 다른 CA(인증 기관) 집합의 TLS 서버 인증서를 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 문의는 [지원](https://azure.microsoft.com/support/options/)을 통해 하시기 바랍니다.  
+추가 질문이 있는 경우 [지원](https://azure.microsoft.com/support/options/)을 통해 문의하세요.  

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 47a6649c154ed3fed5ba444a58bae93ac0398bbc
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867256"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676837"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 
@@ -56,7 +56,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>6단계 온-프레미스 VPN 디바이스 외부 인터페이스 주소 확인
 
-VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크 게이트웨이** 정의에 포함된 경우 이따금 연결 끊김이 발생할 수 있습니다.
+VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크 게이트웨이 주소 공간** 정의에 포함된 경우 간헐적으로 연결 끊김이 발생할 수 있습니다.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>7단계 온-프레미스 VPN 디바이스에 PFS(Perfect Forward Secrecy)가 사용하도록 설정되어 있는지 확인
 

@@ -9,14 +9,15 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f94b69614c32c09be275780b3a56e1e8f9a2d687
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 369f0df05ff31eca2bf3323c672a7ff8b0ab42eb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668096"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689667"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Azure PowerShell을 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 자습서에서는 가용성 집합을 사용하여 VM(Virtual Machine)의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합은 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되어 있는지 확인합니다. 
 

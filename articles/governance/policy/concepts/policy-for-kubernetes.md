@@ -4,12 +4,12 @@ description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure
 ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20b3362823644ab478e2069fbc610079820302c3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 615145c7267d580d7a22dd34452e68c9cd905cdc
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538663"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965134"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -407,10 +407,10 @@ Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 Azure RBAC
 추가 기능은 Azure Policy 서비스를 통해 체크 인하여 15분마다 정책 할당에 변경 사항이 있는지 확인합니다.
 새로 고침 주기 동안 추가 기능은 변경 사항이 있는지 확인합니다. 이러한 변경 사항은 제약 조건 템플릿 및 제약 조건에 대한 생성, 업데이트 또는 삭제를 트리거합니다.
 
-Kubernetes 클러스터에서 네임스페이스에 다음 레이블 중 하나가 있으면 위반이 있는 허용 요청이 거부되지 않습니다. 규정 준수 평가 결과는 계속 제공됩니다.
+Kubernetes 클러스터에서 네임스페이스에 cluster-appropriate 레이블이 있으면 위반이 있는 허용 요청이 거부되지 않습니다. 규정 준수 평가 결과는 계속 제공됩니다.
 
-- `control-plane`
-- `admission.policy.azure.com/ignore`
+- Azure Arc 지원 Kubernetes 클러스터: `admission.policy.azure.com/ignore`
+- Azure Kubernetes Service 클러스터: `control-plane`
 
 > [!NOTE]
 > 클러스터 관리자는 Azure Policy 추가 기능에서 설치한 제약 조건 템플릿 및 제약 조건 리소스를 만들고 업데이트할 수 있는 권한이 있지만 수동 업데이트가 덮어써 있으므로 지원되지 않는 시나리오입니다. Gatekeeper는 추가 기능을 설치하고 Azure Policy 정책 정의를 할당하기 전에 있었던 정책을 계속해서 평가합니다.

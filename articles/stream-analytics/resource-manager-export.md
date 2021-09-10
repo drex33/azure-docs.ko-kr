@@ -7,12 +7,12 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: aa17d83dcc14675db5ff6aa4597314baffbffdbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c67d6895fe4dde54992c7a79067a45dcdff18305
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015422"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586422"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 
@@ -42,11 +42,11 @@ Visual Studio Code를 사용하여 Stream Analytics 작업을 관리하는 방�
 
 1. Stream Analytics 작업 영역에 **배포** 폴더가 표시됨을 유의합니다.
 
-1. 배포에 사용되는 Azure Resource Management 템플릿인  *JobTemplate.json* 파일을 탐색합니다.
+1. 배포에 사용되는 Azure Resource Manager 템플릿인 *JobTemplate.json* 파일을 탐색합니다.
 
 ## <a name="complete-the-parameters-file"></a>매개 변수 파일을 완료합니다
 
-다음으로, Azure 리소스 관리 템플릿 매개 변수 파일을 완성합니다.
+다음으로, Azure Resource Manager 템플릿 매개 변수 파일을 완성합니다.
 
 1. Visual Studio Code에서 Stream Analytics 작업 영역의 **배포** 폴더에 있는 *JobTemplate.parameters.json* 파일을 엽니다.
 

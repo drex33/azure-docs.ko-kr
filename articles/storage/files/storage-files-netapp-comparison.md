@@ -6,14 +6,14 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 8/25/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 7cd1b08b572dc000ac3346e493302437eb32ae98
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 1cc88641f93a29c2436b5ce579c2f3e5dcc73d0d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529577"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864302"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Azure Files 및 Azure NetApp Files 비교
 
@@ -49,7 +49,7 @@ ms.locfileid: "122529577"
 | 최대 파일 크기 | 4TiB | 16TiB |
 | 파일당 최대 IOPS | Premium<br><ul><li>최대 8,000</li></ul><br>Standard<br><ul><li>1,000</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
 | 파일당 최대 처리량 | Premium<br><ul><li>300MiB/퍼(SMB 다중 채널로 최대 1GiB/초)</li></ul><br>Standard<br><ul><li>60MiB/초</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
-| SMB 다중 채널 | 예([미리 보기](./storage-files-smb-multichannel-performance.md)) | 예 |
+| SMB 다중 채널 | 예 | 예 |
 | 대기 시간 | 단일 밀리초 최소 대기 시간(작은 IO의 경우 2ms ~ 3ms) | 밀리초 미만의 최소 대기 시간(임의 IO의 경우 1ms 미만)<br><br>자세한 내용은 [성능 벤치마크](../../azure-netapp-files/performance-benchmarks-linux.md)를 참조하세요. |
 
 확장성 및 성능 목표에 대한 자세한 내용은 [Azure Files](./storage-files-scale-targets.md#azure-files-scale-targets) 및 [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-resource-limits.md)를 참조하세요.

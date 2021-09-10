@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63e726c98922b789977a884bf747f12186707d57
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d6a67edc093660dd7082b9f0c3a0f783de2cf618
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782710"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538886"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -21,8 +21,8 @@ ms.locfileid: "104782710"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -67,7 +67,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |

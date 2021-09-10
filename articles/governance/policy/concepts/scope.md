@@ -1,14 +1,14 @@
 ---
 title: Azure Policy의 범위 이해
 description: Azure Resource Manager의 범위 개념과 Azure Policy에서 평가할 리소스를 제어하는 Azure Policy에 적용하는 방법에 대해 설명합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b83acebe3f24b7dac1c506a598c641035132fb30
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167739"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567906"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Azure Policy의 범위 이해
 
@@ -22,7 +22,7 @@ Azure Policy에서 사용하는 첫 번째 인스턴스 범위는 정책 정의�
 정의 위치는 다음과 같습니다.
 
 - **구독** - 해당 구독 내의 리소스만 정책 정의에 할당할 수 있습니다.
-- **관리 그룹**  - 자식 관리 그룹과 자식 구독 내의 리소스만 정책 정의에 할당할 수 있습니다. 정책 정의를 여러 구독에 적용하려는 경우 위치는 각 구독이 포함된 관리 그룹이어야 합니다.
+- **관리 그룹** - 자식 관리 그룹과 자식 구독 내의 리소스만 정책 정의에 할당할 수 있습니다. 정책 정의를 여러 구독에 적용하려는 경우 위치는 각 구독이 포함된 관리 그룹이어야 합니다.
 
 위치는 정책 정의를 사용하려는 모든 리소스에서 공유하는 리소스 컨테이너여야 합니다. 해당 리소스 컨테이너는 일반적으로 루트 관리 그룹 근처의 관리 그룹입니다.
 

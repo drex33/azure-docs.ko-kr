@@ -1,6 +1,6 @@
 ---
 title: 'ML 스튜디오(클래식): 웹 서비스 배포 - Azure'
-description: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning 스튜디오(클래식) 웹 서비스로 배포하는 방법입니다.
+description: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Machine Learning 스튜디오(클래식) 웹 서비스로 배포하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 018e292abc7050f5d71c6bf9065618fecf8b5668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f57a5a30823b5d08afffafcff552121a34717bd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520445"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581757"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning 스튜디오(클래식) 웹 서비스 배포하기
 
-**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Azure Machine Learning 스튜디오(클래식)를 사용하면 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
+Machine Learning 스튜디오(클래식)를 사용하면 예측 분석 솔루션을 빌드 및 테스트할 수 있습니다. 그런 다음, 솔루션을 웹 서비스로 배포할 수 있습니다.
 
 Machine Learning 스튜디오(클래식) 웹 서비스는 애플리케이션과 Machine Learning 스튜디오(클래식) 워크플로 채점 모델 간의 인터페이스를 제공합니다. 외부 애플리케이션은 Machine Learning 스튜디오(클래식) 워크플로 채점 모델과 실시간으로 통신할 수 있습니다. Machine Learning 스튜디오(클래식) 웹 서비스를 호출하면 외부 애플리케이션에 예측 결과를 반환합니다. 웹 서비스를 호출하려면 웹 서비스를 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 스튜디오(클래식) 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
-Azure Machine Learning 스튜디오(클래식)에는 다음 두 가지 형식의 웹 서비스가 있습니다.
+Machine Learning 스튜디오(클래식)에는 다음 두 가지 형식의 웹 서비스가 있습니다.
 
 * RRS(요청-응답 서비스): 단일 데이터 레코드의 점수를 매기는 서비스로, 대기 시간이 짧고 스케일링 성능이 뛰어납니다.
 * BES(일괄 처리 실행 서비스): 데이터 레코드 일괄 처리의 점수를 매기는 비동기 서비스입니다.
@@ -44,10 +44,10 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 학습 실험을 만들고 관리하는 프로세스는 다른 부분에서 더욱 철저히 다룹니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Machine Learning 스튜디오(클래식)에서 간단한 실험 만들기](create-experiment.md)
-* [Azure Machine Learning 스튜디오(클래식)를 사용하여 예측 솔루션 개발하기](tutorial-part1-credit-risk.md)
-* [Azure Machine Learning 스튜디오(클래식)에 학습 데이터 가져오기](import-data.md)
-* [Azure Machine Learning 스튜디오(클래식)에서 실험 반복 관리하기](manage-experiment-iterations.md)
+* [Machine Learning 스튜디오(클래식)에서 간단한 실험 만들기](create-experiment.md)
+* [Machine Learning 스튜디오(클래식)를 사용하여 예측 솔루션 개발하기](tutorial-part1-credit-risk.md)
+* [Machine Learning 스튜디오(클래식)에 학습 데이터 가져오기](import-data.md)
+* [Machine Learning 스튜디오에서 반복 실험 관리](manage-experiment-iterations.md)
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>학습 실험에서 예측 실험으로 변환
 
@@ -130,7 +130,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 웹 서비스 매개 변수를 정의하여 하나 이상의 모듈 매개 변수와 연결하고 이러한 매개 변수가 필수인지 또는 선택 사항인지 지정할 수 있습니다. 웹 서비스의 사용자는 서비스에 액세스할 때 이러한 매개 변수의 값을 제공하며, 이에 따라 모듈 작업이 수정됩니다.
 
-웹 서비스 매개 변수 및 사용 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 매개 변수 사용][webserviceparameters]을 참조하세요.
+웹 서비스 매개 변수 및 사용 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스 매개 변수 사용][webserviceparameters]을 참조하세요.
 
 다음 단계에서는 예측 실험을 새 웹 서비스로 배포하는 방법을 설명합니다. 실험을 기존 웹 서비스로 배포할 수도 있습니다.
 
@@ -141,7 +141,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행** 을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포** 를 클릭하고 **웹 서비스 배포 [신규]** 를 선택합니다.  Machine Learning 스튜디오(클래식) 웹 서비스 포털의 배포 페이지가 열립니다.
 
 > [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
 
 ### <a name="web-service-portal-deploy-experiment-page"></a>웹 서비스 포털 실험 배포 페이지
 
@@ -190,7 +190,7 @@ Machine Learning 스튜디오(클래식)에서 웹 서비스를 배포하면 서
 
 **사용** 페이지에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대한 권한이 부여된 액세스를 허용하도록 API 키를 제공합니다.
 
-Machine Learning 스튜디오(클래식) 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
+Machine Learning 스튜디오(클래식) 웹 서비스 액세스에 대한 자세한 내용은 [Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
 
 ### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
 
@@ -204,7 +204,7 @@ Machine Learning 스튜디오(클래식) 웹 서비스 포털을 사용하여 �
 
 #### <a name="create-a-plan-in-another-region"></a>다른 지역에서 계획 만들기
 
-1. [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/)에 로그인합니다.
+1. [Machine Learning 웹 서비스](https://services.azureml.net/)에 로그인합니다.
 2. **계획** 메뉴 옵션을 클릭합니다.
 3. 보기 페이지의 계획에서 **새로 만들기** 를 클릭합니다.
 4. **구독** 드롭다운에서 새 계획이 상주할 구독을 선택합니다.
@@ -216,7 +216,7 @@ Machine Learning 스튜디오(클래식) 웹 서비스 포털을 사용하여 �
 
 #### <a name="deploy-the-web-service-to-another-region"></a>다른 지역에 웹 서비스 배포
 
-1. Microsoft Azure Machine Learning 웹 서비스 페이지에서 **웹 서비스** 메뉴 옵션을 클릭합니다.
+1. Machine Learning 웹 서비스 페이지에서 **웹 서비스** 메뉴 옵션을 클릭합니다.
 2. 새 지역에 배포하는 웹 서비스를 선택합니다.
 3. **복사** 를 클릭합니다.
 4. **웹 서비스 이름** 에 웹 서비스의 새 이름을 입력합니다.
@@ -242,7 +242,7 @@ Machine Learning 스튜디오(클래식) 웹 서비스 포털 또는 Machine Lea
 
 리소스 요청 웹 서비스를 테스트하려면 웹 서비스 대시보드에서 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이러한 열이 점수 매기기 실험에 필요합니다. 데이터 집합을 입력하고 **확인** 을 클릭합니다. 웹 서비스에서 생성된 결과가 대시보드 아래쪽에 표시됩니다.
 
-이전에 새 웹 서비스 섹션에서 설명한 것처럼 Azure Machine Learning 스튜디오(클래식) 웹 서비스 포털에서 **테스트** 미리 보기 링크를 클릭하여 서비스를 테스트할 수 있습니다.
+이전에 새 웹 서비스 섹션에서 설명한 것처럼 Machine Learning 스튜디오(클래식) 웹 서비스 포털에서 **테스트** 미리 보기 링크를 클릭하여 서비스를 테스트할 수 있습니다.
 
 Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning 스튜디오(클래식)를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 세트를 다운로드하여 사용할 수 있습니다.
 
@@ -256,21 +256,21 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 ![웹 서비스 포털에서 로깅 사용](./media/publish-a-machine-learning-web-service/figure-4.png)
 
-또한 앞서 새 웹 서비스 섹션에 나온 절차와 유사하게 Azure Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 엔드포인트를 구성할 수 있습니다. 옵션은 여러 가지가 있습니다. 서비스 설명을 추가하거나 변경하고, 로깅을 사용하도록 설정하고, 테스트에 사용할 샘플 데이터를 사용하도록 설정할 수 있습니다.
+또한 앞서 새 웹 서비스 섹션에 나온 절차와 유사하게 Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 엔드포인트를 구성할 수 있습니다. 옵션은 여러 가지가 있습니다. 서비스 설명을 추가하거나 변경하고, 로깅을 사용하도록 설정하고, 테스트에 사용할 샘플 데이터를 사용하도록 설정할 수 있습니다.
 
 ### <a name="access-your-classic-web-service"></a>기존 웹 서비스 액세스
 
-Azure Machine Learning 스튜디오(클래식)에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
+Machine Learning 스튜디오(클래식)에서 웹 서비스를 배포하면 서비스에 데이터를 보내고 프로그래밍 방식으로 응답을 받을 수 있습니다.
 
 대시보드에서는 웹 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다. 예를 들어, 서비스에 대해 권한 부여된 액세스가 가능하도록 API 키가 제공되고, 코드 작성을 시작하는 데 도움이 되도록 API 도움말 페이지가 제공됩니다.
 
-Machine Learning 스튜디오(클래식) 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
+Machine Learning 스튜디오(클래식) 웹 서비스 액세스에 대한 자세한 내용은 [Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
 
 ### <a name="manage-your-classic-web-service"></a>기존 웹 서비스 관리
 
 다양한 작업을 통해 웹 서비스를 모니터링할 수 있습니다. 업데이트 및 삭제할 수 있습니다. 배포할 때 생성되는 기본 엔드포인트 외에, 기존 웹 서비스에 추가 엔드포인트도 추가할 수 있습니다.
 
-자세한 내용은 [Azure Machine Learning 스튜디오(클래식) 작업 영역 관리](manage-workspace.md) 및 [Azure Machine Learning 스튜디오(클래식) 웹 서비스 포털을 사용하여 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
+자세한 내용은 [Machine Learning 스튜디오(클래식) 작업 영역 관리](manage-workspace.md) 및 [Machine Learning 스튜디오(클래식) 웹 서비스 포털을 사용하여 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 
 ## <a name="update-the-web-service"></a>웹 서비스 업데이트
 추가 학습 데이터로 모델 업데이트와 같은 방식으로 웹 서비스를 변경하고 다시 배포하여 원래 웹 서비스를 덮어쓸 수 있습니다.
@@ -288,9 +288,9 @@ Machine Learning 스튜디오(클래식) 웹 서비스 액세스에 대한 자�
 
 * 배포 방식에 대한 자세한 기술 정보는 [실험에서 조작 가능한 웹 서비스까지 Machine Learning 스튜디오(클래식) 모델의 진행 과정](model-progression-experiment-to-web-service.md)을 참조하세요.
 
-* 모델 배포를 준비하는 방법에 대한 자세한 내용은 [Azure Machine Learning 스튜디오(클래식)에서 모델을 배포하기 위해 준비하는 방법](deploy-a-machine-learning-web-service.md)을 참조하세요.
+* 모델 배포를 준비하는 방법에 대한 자세한 내용은 [Machine Learning 스튜디오(클래식)에서 모델을 배포하기 위해 준비하는 방법](deploy-a-machine-learning-web-service.md)을 참조하세요.
 
-* REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. [Azure Machine Learning 스튜디오(클래식) 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
+* REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. [Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
 
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment

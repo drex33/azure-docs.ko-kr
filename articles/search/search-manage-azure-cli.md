@@ -2,19 +2,18 @@
 title: az search 모듈을 사용하여 Azure CLI 스크립트 작성
 titleSuffix: Azure Cognitive Search
 description: Azure CLI를 사용하여 Azure Cognitive Search 서비스를 만들고 구성합니다. 서비스를 스케일 업 또는 스케일 다운하고, 관리 및 쿼리 API 키를 관리하고, 시스템 정보를 쿼리할 수 있습니다.
-manager: luisca
 author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 456aaf20c0b6d198ae353490d961a69a319b6601
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 08/03/2021
+ms.openlocfilehash: b5689b17bf2e4eace52e7c3cb28c40dc05e58ade
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045113"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537771"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -58,7 +57,7 @@ az resource list --resource-type Microsoft.Search/searchServices --output table
 서비스 목록에서 특정 리소스에 대한 정보를 반환합니다.
 
 ```azurecli-interactive
-az resource list --name <service-name>
+az resource list --name <search-service-name>
 ```
 
 ## <a name="list-all-az-search-commands"></a>모든 az search 명령 나열
@@ -103,10 +102,10 @@ az search service create --help
 
 ## <a name="get-search-service-information"></a>검색 서비스 정보 가져오기
 
-검색 서비스를 포함하는 리소스 그룹을 알고 있는 경우 [**az search service show**](/cli/azure/search/service#az_search_service_show)를 실행하여 이름, 지역, 계층, 복제본 및 파티션 개수를 포함한 서비스 정의를 반환할 수 있습니다.
+검색 서비스를 포함하는 리소스 그룹을 알고 있는 경우 [**az search service show**](/cli/azure/search/service#az_search_service_show)를 실행하여 이름, 지역, 계층, 복제본 및 파티션 개수를 포함한 서비스 정의를 반환할 수 있습니다. 이 명령의 경우 검색 서비스를 포함하는 리소스 그룹을 제공합니다.
 
 ```azurecli-interactive
-az search service show --name <service-name> --resource-group <resource-group-name>
+az search service show --name <service-name> --resource-group <search-service-resource-group-name>
 ```
 
 ## <a name="create-or-delete-a-service"></a>서비스 만들기 또는 삭제
@@ -116,7 +115,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 ```azurecli-interactive
 az search service create \
     --name <service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1
@@ -158,8 +157,8 @@ az search service create \
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -168,12 +167,12 @@ az search service create \
 
 ### <a name="create-a-service-with-a-system-assigned-managed-identity"></a>시스템이 할당한 관리 ID를 사용하여 서비스 만들기
 
-[관리 ID를 사용하여 데이터 원본에 연결](search-howto-managed-identities-storage.md)하는 경우와 같은 일부의 경우 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정해야 합니다. 명령에 `--identity-type SystemAssigned`를 추가하면 이를 수행할 수 있습니다.
+[관리 ID를 사용하여 데이터 원본에 연결](search-howto-managed-identities-storage.md)하는 경우와 같은 일부의 경우 [시스템 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정해야 합니다. 명령에 `--identity-type SystemAssigned`를 추가하면 이를 수행할 수 있습니다.
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -190,8 +189,8 @@ Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -203,7 +202,7 @@ az search service create \
 ```azurecli-interactive
 # Create the virtual network
 az network vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --location "West US" \
     --name <virtual-network-name> \
     --address-prefixes 10.1.0.0/16 \
@@ -213,21 +212,21 @@ az network vnet create \
 # Update the subnet to disable private endpoint network policies
 az network vnet subnet update \
     --name <subnet-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --disable-private-endpoint-network-policies true
 
 # Get the id of the search service
 id=$(az search service show \
-    --resource-group <resource-group-name> \
-    --name <service-name> \
+    --resource-group <search-service-resource-group-name> \
+    --name <search-service-name> \
     --query [id] \
     --output tsv)
 
 # Create the private endpoint
 az network private-endpoint create \
     --name <private-endpoint-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <private-endpoint-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --subnet <subnet-name> \
     --private-connection-resource-id $id \
@@ -240,12 +239,12 @@ az network private-endpoint create \
 ```azurecli-interactive
 ## Create private DNS zone
 az network private-dns zone create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --name "privatelink.search.windows.net"
 
 ## Create DNS network link
 az network private-dns link vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --zone-name "privatelink.search.windows.net" \
     --name "myLink" \
     --virtual-network <virtual-network-name> \
@@ -253,7 +252,7 @@ az network private-dns link vnet create \
 
 ## Create DNS zone group
 az network private-endpoint dns-zone-group create \
-   --resource-group <resource-group-name>\
+   --resource-group <private-endpoint-resource-group-name>\
    --endpoint-name <private-endpoint-name> \
    --name "myZoneGroup" \
    --private-dns-zone "privatelink.search.windows.net" \
@@ -272,7 +271,7 @@ PowerShell에서 프라이빗 엔드포인트를 만드는 방법에 대한 자�
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 연결을 업데이트하려면 [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_update)를 사용합니다. 다음 예제에서는 프라이빗 엔드포인트 연결을 거부됨으로 설정합니다.
@@ -281,7 +280,7 @@ az search private-endpoint-connection show \
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
     --status Rejected \
     --description "Rejected" \
     --actions-required "Please fix XYZ"
@@ -293,22 +292,22 @@ az search private-endpoint-connection show \
 az search private-endpoint-connection delete \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 ## <a name="regenerate-admin-keys"></a>관리자 키 다시 생성
 
-관리 [API 키](search-security-api-keys.md)를 배포하려면 [**az search admin-key renew**](/cli/azure/search/admin-key#az_search_admin_key_renew)를 사용합니다. 각 서비스에서 인증된 액세스에 대해 두 개의 관리 키가 생성됩니다. 모든 요청에 키가 필요합니다. 두 관리 키는 기능적으로 동일하며, 정보를 검색하거나 개체를 만들고 삭제할 수 있도록 검색 서비스에 완전한 쓰기 권한을 부여합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
+관리 [API 키](search-security-api-keys.md)를 배포하려면 [**az search admin-key renew**](/cli/azure/search/admin-key#az_search_admin_key_renew)를 사용합니다. 각 서비스에서 인증된 액세스에 대해 두 개의 관리 키가 생성됩니다. 모든 요청에 키가 필요합니다. 두 개의 관리자 키는 기능적으로 동일하며, 정보를 검색하거나 개체를 만들고 삭제할 수 있도록 검색 서비스에 완전한 쓰기 권한을 부여합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
 
 `primary` 또는 `secondary`로 지정된 키를 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 교체하는 동안 보조 키를 사용하도록 모든 클라이언트 코드를 업데이트해야 합니다. 작업이 진행되는 동안에는 키를 변경하지 마세요.
 
 짐작할 수 있듯이 클라이언트 코드를 업데이트하지 않고 키를 다시 생성하면 이전 키를 사용하는 요청이 실패합니다. 새 키를 모두 다시 생성하더라도 서비스에 영구적으로 액세스하지 못하는 것은 아니며, 포털을 통해 서비스에 계속 액세스할 수 있습니다. 기본 및 보조 키를 다시 생성한 후 새 키를 사용하도록 클라이언트 코드를 업데이트할 수 있으며 그에 따라 작업이 다시 시작됩니다.
 
-API 키 값은 서비스에 의해 생성됩니다. 사용할 Azure Cognitive Search에 대한 사용자 지정 키를 제공할 수 없습니다. 이와 마찬가지로, 관리 API 키에 대한 사용자 정의 이름이 없습니다. 키에 대한 참조는 `primary` 또는 `secondary`의 고정 문자열입니다. 
+API 키 값은 서비스에 의해 생성됩니다. 사용할 Azure Cognitive Search에 대한 사용자 지정 키를 제공할 수 없습니다. 이와 마찬가지로, 관리자 API 키에 대한 사용자 정의 이름이 없습니다. 키에 대한 참조는 `primary` 또는 `secondary`의 고정 문자열입니다. 
 
 ```azurecli-interactive
 az search admin-key renew \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name> \
     --key-kind primary
 ```
@@ -331,24 +330,24 @@ az search admin-key renew \
 ```azurecli-interactive
 az search query-key create \
     --name myQueryKey \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name>
 ```
 
 ## <a name="scale-replicas-and-partitions"></a>복제본 및 파티션 스케일링
 
-[복제본 및 파티션을 늘리거나 줄이려면](search-capacity-planning.md) [**az search service update**](/cli/azure/search/service#az_search_service_update)를 사용합니다. 복제본 또는 파티션을 늘리면 청구 요금이 증가하며, 이 요금에는 고정 요금과 변동 요금이 둘 다 포함되어 있습니다. 추가 처리 성능이 일시적으로 필요한 경우에는 복제본과 파티션을 늘려 워크로드를 처리할 수 있습니다. 개요 포털 페이지의 모니터링 영역에는 쿼리 대기 시간, 초당 쿼리 수 및 제한(현재 용량이 충분한지를 나타냄)에 대한 타일이 있습니다.
+[복제본 및 파티션을 늘리거나 줄이려면](search-capacity-planning.md) [**az search service update**](/cli/azure/search/service#az_search_service_update)를 사용합니다. 복제본 또는 파티션을 늘리면 청구 요금이 증가하며, 이 요금에는 고정 요금과 변동 요금이 둘 다 포함되어 있습니다. 추가 처리 성능이 일시적으로 필요한 경우에는 복제본과 파티션을 늘려 워크로드를 처리할 수 있습니다. 개요 포털 페이지의 모니터링 영역에는 쿼리 대기 시간, 초당 쿼리 수 및 제한(현재 용량이 충분한지 여부를 나타냄)에 대한 타일이 있습니다.
 
 리소스를 추가하거나 제거하는 데 시간이 걸릴 수 있습니다. 용량에 대한 조정 작업은 백그라운드에서 발생하므로 기존 작업을 계속할 수 있습니다. 추가 구성할 필요 없이, 추가 용량이 준비되는 즉시 들어오는 요청에 사용됩니다. 
 
-용량 제거는 지장을 초래할 수 있습니다. 요청 실패를 방지하기 위해 용량을 줄이기 전, 모든 인덱싱 및 인덱서 작업을 중지하는 것이 좋습니다. 그렇게 할 수 없는 경우에는 새 대상 수준에 도달할 때까지 한 번에 하나의 복제본과 파티션을 증분 방식으로 줄이는 것이 좋습니다.
+용량 제거로 인해 장애를 초래할 수 있습니다. 요청 실패를 방지하기 위해 용량을 줄이기 전, 모든 인덱싱 및 인덱서 작업을 중지하는 것이 좋습니다. 그렇게 할 수 없는 경우에는 새 대상 수준에 도달할 때까지 한 번에 하나의 복제본과 파티션을 증분 방식으로 용량을 줄이는 것이 좋습니다.
 
 명령을 제출한 후에는 도중에 종료할 수 있는 방법이 없습니다. 개수를 수정하기 전에 명령이 완료될 때까지 기다려야 합니다.
 
 ```azurecli-interactive
 az search service update \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --partition-count 6 \
     --replica-count 6
 ```
@@ -357,9 +356,9 @@ az search service update \
 
 ## <a name="create-a-shared-private-link-resource"></a>공유 프라이빗 링크 리소스 만들기
 
-Azure Cognitive Search API를 통해 생성된 보안 리소스의 프라이빗 엔드포인트를 ‘공유 프라이빗 링크 리소스’라고 합니다. 이는 [Azure Private Link 서비스](https://azure.microsoft.com/services/private-link/)와 통합된 스토리지 계정과 같이, 리소스에 대한 액세스를 “공유”하는 것이기 때문입니다.
+Azure Cognitive Search API를 통해 생성된 보안 리소스의 프라이빗 엔드포인트를 *공유 프라이빗 링크 리소스* 라고 합니다. 이는 [Azure Private Link 서비스](https://azure.microsoft.com/services/private-link/)와 통합된 스토리지 계정과 같이, 리소스에 대한 액세스를 “공유”하는 것이기 때문입니다.
 
-인덱서를 사용하여 Azure Cognitive Search에서 데이터를 인덱싱하는 경우 데이터 원본이 개인 네트워크에 있으면 아웃바운드 [프라이빗 엔드포인트 연결](../private-link/private-endpoint-overview.md)을 만들어 데이터에 연결할 수 있습니다.
+인덱서를 사용하여 Azure Cognitive Search에서 데이터를 인덱싱하는 경우 데이터 원본이 프라이빗 네트워크에 있으면 아웃바운드 [프라이빗 엔드포인트 연결](../private-link/private-endpoint-overview.md)을 만들어 데이터에 연결할 수 있습니다.
 
 Azure Cognitive Search에서 아웃바운드 프라이빗 엔드포인트를 만들 수 있는 Azure 리소스의 전체 목록은 [여기](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) 에서 관련된 **그룹 ID** 값과 함께 찾을 수 있습니다.
 
@@ -369,7 +368,7 @@ Azure Cognitive Search에서 아웃바운드 프라이빗 엔드포인트를 만
 az search shared-private-link-resource create \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --group-id blob \
     --resource-id "/subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage"  \
     --request-message "Please approve" 
@@ -381,7 +380,7 @@ az search shared-private-link-resource create \
 ```azurecli-interactive
 az search shared-private-link-resource list \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 다음 명령을 사용하여 연결을 승인해야 이를 사용할 수 있습니다. 자식 리소스에서 프라이빗 엔드포인트 연결 ID를 검색해야 합니다. 이 경우 az storage에서 연결 ID를 가져옵니다.
@@ -398,7 +397,7 @@ az network private-endpoint-connection approve --id $id
 az search shared-private-link-resource delete \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 공유 프라이빗 링크 리소스를 설정하는 방법에 대한 자세한 내용은 [프라이빗 엔드포인트를 통한 인덱서 연결 만들기](search-indexer-howto-access-private.md)에 대한 설명서를 참조하세요.

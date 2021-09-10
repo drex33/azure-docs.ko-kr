@@ -1,24 +1,26 @@
 ---
-title: Azure Data Factory 커넥터 문제 해결
-description: Azure Data Factory의 커넥터 문제를 해결하는 방법을 알아봅니다.
+title: 커넥터 문제 해결
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics의 커넥터 문제를 해결하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref
-ms.openlocfilehash: 7407a28c442ce2ddc7fe9df3fdd71c5af4c488bc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: has-adal-ref, synapse
+ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971900"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864149"
 ---
-# <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
+# <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Azure Data Factory 및 Azure Synapse Analytics 커넥터 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 커넥터의 문제를 해결하는 일반적인 방법을 설명합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse 커넥터의 문제를 해결하는 일반적인 방법을 설명합니다.
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -39,6 +41,31 @@ ms.locfileid: "111971900"
 
 - **해결 방법**: 데이터 세트 또는 파이프라인 JSON 정의를 편집하여 유형이 일치하도록 만든 다음 배포를 다시 실행합니다.
 
+### <a name="error-code-fipsmodeisnotsupport"></a>오류 코드: FIPSModeIsNotSupport
+
+- **메시지**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+
+- **원인**: 자체 호스팅 통합 런타임이 설치된 VM에서 FIPS 정책을 사용하도록 설정되어 있습니다.
+
+- **권장 사항**: 자체 호스팅 통합 런타임이 설치된 VM에서 FIPS 모드를 사용하지 않도록 설정합니다. Windows에서는 FIPS 모드가 권장되지 않습니다.
+
+### <a name="error-code-azureblobinvalidblocksize"></a>오류 코드: AzureBlobInvalidBlockSize
+
+- **메시지**: `Block size should between %minSize; MB and 100 MB.`
+
+- **원인**: 블록 크기가 blob 제한을 초과합니다.
+
+### <a name="error-code-azurestorageoperationfailedconcurrentwrite"></a>오류 코드: AzureStorageOperationFailedConcurrentWrite
+
+- **메시지**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+- **원인**: 동시 복사 작업이 여러 개 실행되고 있거나 애플리케이션이 동일한 파일에 쓰고 있습니다.
+
+### <a name="error-code-azureappendblobconcurrentwriteconflict"></a>오류 코드: AzureAppendBlobConcurrentWriteConflict
+
+- **메시지**: `Detected concurrent write to the same append blob file, it's possible because you have multiple concurrent copy activities runs or applications writing to the same file '%name;'. Please check your ADF configuration and retry.`
+
+- **원인**: 동시 쓰기 요청이 여러 개 발생하고 있으므로 파일 내용에 충돌이 발생합니다.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
@@ -85,7 +112,7 @@ ms.locfileid: "111971900"
 
 - **증상**: Azure Cosmos DB에 대해 열 매핑을 위한 스키마를 가져올 때 일부 열이 누락됩니다. 
 
-- **원인**: Data Factory는 처음 10개의 Azure Cosmos DB 문서로부터 스키마를 유추합니다. 일부 문서 열 또는 속성이 값을 포함하지 않을 경우 Data Factory가 스키마를 감지하지 못하여 스키마가 표시되지 않습니다.
+- **원인**: Azure Data Factory 및 Synapse 파이프라인은 처음 10개의 Azure Cosmos DB 문서에서 스키마를 유추합니다. 일부 문서 열 또는 속성이 값을 포함하지 않을 경우 스키마를 감지하지 못하여 스키마가 표시되지 않습니다.
 
 - **해결 방법**: 다음 코드에 나와 있는 것처럼 쿼리를 수정하여 결과 세트에 열 값이 빈 값으로 표시되도록 할 수 있습니다. (처음 10개의 문서에서 *impossible* 열이 누락되었다고 가정합니다.) 또는 매핑을 위한 열을 수동으로 추가할 수 있습니다.
 
@@ -139,7 +166,7 @@ ms.locfileid: "111971900"
 
 - **원인**: 한 가지 가능한 원인은 사용자가 사용하는 서비스 주체 또는 관리 ID에 특정 폴더 또는 파일에 대한 액세스 권한이 없는 것입니다.
 
-- **해결 방법**: 복사하려는 모든 폴더와 하위 폴더에 적절한 권한을 부여합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사](connector-azure-data-lake-store.md#linked-service-properties)를 참조하세요.
+- **해결 방법**: 복사하려는 모든 폴더와 하위 폴더에 적절한 권한을 부여합니다. 자세한 내용은 [Azure Data Lake Storage Gen1 간에 데이터 복사](connector-azure-data-lake-store.md#linked-service-properties)를 참조하세요.
 
 ### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>오류 메시지: 서비스 주체를 사용하여 토큰에 액세스하지 못했습니다. ADAL 오류: service_unavailable
 
@@ -164,7 +191,7 @@ ms.locfileid: "111971900"
   | 원인 분석                                               | 권장                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Azure Data Lake Storage Gen2가 작업이 실패했다는 오류를 throw하는 경우.| Azure Data Lake Storage Gen2에서 throw한 상세한 오류 메시지를 확인합니다. 일시적인 오류인 경우 작업을 다시 시도합니다. 추가 도움이 필요한 경우 Azure Storage 지원으로 문의하세요. 이때 오류 메시지에 표시된 요청 ID를 알려 주세요. |
-  | 오류 메시지에 “Forbidden”이라는 문자열이 포함된 경우, 사용 중인 서비스 주체 또는 관리 ID에 Azure Data Lake Storage Gen2에 대한 액세스 권한이 없을 수 있습니다. | 오류를 해결하려면 [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](./connector-azure-data-lake-storage.md#service-principal-authentication)을 참조하세요. |
+  | 오류 메시지에 “Forbidden”이라는 문자열이 포함된 경우, 사용 중인 서비스 주체 또는 관리 ID에 Azure Data Lake Storage Gen2에 대한 액세스 권한이 없을 수 있습니다. | 오류를 해결하려면 [Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](./connector-azure-data-lake-storage.md#service-principal-authentication)을 참조하세요. |
   | 오류 메시지에 “InternalServerError”라는 문자열이 포함된 경우, 이 오류는 Azure Data Lake Storage Gen2에서 반환한 것입니다. | 일시적인 오류로 인해 오류가 발생한 것일 수 있습니다. 그렇다면 작업을 다시 시도합니다. 문제가 지속되면 Azure Storage 지원에 문의하고 오류 메시지에 표시된 요청 ID를 알려 주세요. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>Azure Data Lake Storage Gen2 계정에 대한 요청에서 시간 제한 오류가 발생함
@@ -195,6 +222,20 @@ ms.locfileid: "111971900"
         }
         ```
 
+        
+## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+
+### <a name="error-code-azurepostgresqlnpgsqldatatypenotsupported"></a>오류 코드: AzurePostgreSqlNpgsqlDataTypeNotSupported
+
+- **메시지**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
+
+- **권장 사항**: int, bigint, smallint, serial, bigserial, smallserial, 표준 시간대가 있거나 없는 타임스탬프, 표준 시간대 또는 날짜 데이터 형식이 없는 시간을 사용하여 파티션 열을 선택합니다.
+
+### <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a>오류 코드: AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+
+- **메시지**: `Partition column name must be specified.`
+
+- **원인**: 파티션 열 이름이 제공되지 않았으며 자동으로 결정될 수 없습니다.
                   
 ## <a name="azure-files-storage"></a>Azure Files 스토리지
 
@@ -220,7 +261,7 @@ ms.locfileid: "111971900"
     | Azure SQL의 경우 오류 메시지에 “SqlErrorNumber=[errorcode]”와 같은 SQL 오류 코드가 포함된 경우 Azure SQL 문제 해결 가이드를 참조하세요. | 권장 사항을 보려면 [Azure SQL Database 및 Azure SQL Managed Instance 연결 문제 및 기타 오류 문제 해결](../azure-sql/database/troubleshoot-common-errors-issues.md)을 참조하세요. |
     | 방화벽 허용 목록에 포트 1433이 있는지 확인합니다. | 자세한 내용은 [SQL Server에서 사용하는 포트](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-)를 참조하세요. |
     | 오류 메시지에 “SqlException”이라는 문자열이 포함되어 있으면 SQL Database는 특정 작업이 실패했음을 나타내는 오류를 발생시킵니다. | 자세한 내용을 보려면 [데이터베이스 엔진 오류](/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색하세요. 추가 도움이 필요한 경우 Azure SQL 지원으로 문의하세요. |
-    | 일시적인 문제(예: 불안정한 네트워크 연결)인 경우 작업 정책에 retry를 추가해 봅니다. | 자세한 내용은 [Azure Data Factory의 파이프라인 및 작업](./concepts-pipelines-activities.md#activity-policy)을 참조하세요. |
+    | 일시적인 문제(예: 불안정한 네트워크 연결)인 경우 작업 정책에 retry를 추가해 봅니다. | 자세한 내용은 [파이프라인 및 활동](./concepts-pipelines-activities.md#activity-policy)을 참조하세요. |
     | Azure SQL Database에 연결하려고 할 때 오류 메시지가 “IP 주소가 ‘...’인 클라이언트가 서버에 액세스할 수 없습니다”라는 문자열을 포함하는 경우 이 오류는 일반적으로 Azure SQL Database 방화벽 문제 때문에 발생합니다. | Azure SQL Server 방화벽 구성에서 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 옵션을 사용하도록 설정합니다. 자세한 내용은 [Azure SQL Database 및 Azure Synapse IP 방화벽 규칙](../azure-sql/database/firewall-configure.md)을 참조하세요. |
     
 ### <a name="error-code-sqloperationfailed"></a>오류 코드: SqlOperationFailed
@@ -233,7 +274,7 @@ ms.locfileid: "111971900"
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | 오류 메시지에 “SqlException”이라는 문자열이 포함되어 있으면 SQL Database는 특정 작업이 실패했음을 나타내는 오류를 throw합니다. | SQL 오류가 명확하지 않은 경우 데이터베이스를 최신 호환성 수준 ‘150’으로 변경해 보세요. 최신 버전의 SQL 오류를 throw할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조하세요. <br/> SQL 문제를 해결하는 방법에 대한 자세한 내용을 보려면 [데이터베이스 엔진 오류](/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색하세요. 추가 도움이 필요한 경우 Azure SQL 지원으로 문의하세요. |
     | 오류 메시지에 “PdwManagedToNativeInteropException”이라는 문자열이 포함된 경우 이 오류는 일반적으로 원본 및 싱크 열 크기의 불일치로 인해 발생합니다. | 원본 및 싱크 열의 크기를 확인합니다. 추가 도움이 필요한 경우 Azure SQL 지원으로 문의하세요. |
-    | 오류 메시지에 “InvalidOperationException”이라는 문자열이 포함된 경우 일반적으로 이 오류는 잘못된 입력 데이터로 인해 발생합니다. | 문제가 발생한 행을 확인하려면 복사 작업에서 내결함성 기능을 사용하도록 설정하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 스토리지로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업 내결함성](./copy-activity-fault-tolerance.md)을 참조하세요. |
+    | 오류 메시지에 “InvalidOperationException”이라는 문자열이 포함된 경우 일반적으로 이 오류는 잘못된 입력 데이터로 인해 발생합니다. | 문제가 발생한 행을 확인하려면 복사 작업에서 내결함성 기능을 사용하도록 설정하세요. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 스토리지로 리디렉션할 수 있습니다. 자세한 내용은 [복사 작업 내결함성](./copy-activity-fault-tolerance.md)을 참조하세요. |
 
 
 ### <a name="error-code-sqlunauthorizedaccess"></a>오류 코드: SqlUnauthorizedAccess
@@ -331,7 +372,7 @@ ms.locfileid: "111971900"
 
 - **원인**: SQL 대량 복사가 bcp(대량 복사 프로그램) 유틸리티 클라이언트로부터 잘못된 열 길이를 받아서 대량 복사가 실패했습니다.
 
-- **권장 사항**: 문제가 발생한 행을 확인하려면 복사 작업에서 내결함성 기능을 사용하도록 설정합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 스토리지로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업 내결함성](./copy-activity-fault-tolerance.md)을 참조하세요.
+- **권장 사항**: 문제가 발생한 행을 확인하려면 복사 작업에서 내결함성 기능을 사용하도록 설정합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 스토리지로 리디렉션할 수 있습니다. 자세한 내용은 [복사 작업 내결함성](./copy-activity-fault-tolerance.md)을 참조하세요.
 
 
 ### <a name="error-code-sqlconnectionisclosed"></a>오류 코드: SqlConnectionIsClosed
@@ -342,6 +383,37 @@ ms.locfileid: "111971900"
 
 - **권장 사항**: 연결을 다시 시도합니다. 문제가 지속되면 Azure SQL 지원으로 문의하세요.
 
+### <a name="error-code-sqlserverinvalidlinkedservicecredentialmissing"></a>오류 코드: SqlServerInvalidLinkedServiceCredentialMissing
+
+- **메시지**: `The SQL Server linked service is invalid with its credential being missing.`
+
+- **원인**: 연결된 서비스가 올바르게 구성되지 않았습니다.
+
+- **권장 사항**: SQL 서버 연결된 서비스의 유효성을 검사하고 수정합니다. 
+
+### <a name="error-code-sqlparallelfailedtodetectpartitioncolumn"></a>오류 코드: SqlParallelFailedToDetectPartitionColumn
+
+- **메시지**: `Failed to detect the partition column with command '%command;', %message;.`
+
+- **원인**: 테이블에 기본 키 또는 고유 키가 없습니다.
+
+- **권장 사항**: 테이블에서 기본 키 또는 고유 인덱스가 생성되었는지 확인합니다. 
+
+### <a name="error-code-sqlparallelfailedtodetectphysicalpartitions"></a>오류 코드: SqlParallelFailedToDetectPhysicalPartitions
+
+- **메시지**: `Failed to detect the physical partitions with command '%command;', %message;.`
+
+- **원인**: 테이블에 대한 실제 파티션이 생성되지 않았습니다. 데이터베이스를 확인합니다.
+
+- **권장 사항**: 이 문제를 해결하려면 [분할된 테이블 및 인덱스 만들기](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15&preserve-view=true)를 참조하세요.
+
+### <a name="error-code-sqlparallelfailedtogetpartitionrangesynapse"></a>오류 코드: SqlParallelFailedToGetPartitionRangeSynapse
+
+- **메시지**: `Failed to get the partitions for azure synapse with command '%command;', %message;.`
+
+- **원인**: 테이블에 대한 실제 파티션이 생성되지 않았습니다. 데이터베이스를 확인합니다.
+
+- **권장 사항**: 이 문제를 해결하려면 [전용 SQL 풀에서 테이블 분할](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md)을 참조하세요.
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>오류 메시지: 문자열을 uniqueIDentifier로 변환하지 못했습니다.
 
@@ -450,6 +522,12 @@ ms.locfileid: "111971900"
 
     3. 결과에 따라 테이블 스키마를 업데이트합니다.
 
+### <a name="error-code-faileddboperation"></a>오류 코드: FailedDbOperation
+
+- **메시지**: `User does not have permission to perform this action.`
+
+- **권장 사항**: PolyBase를 사용하여 데이터를 로드하는 동안 Azure Synapse Analytics 커넥터에 구성된 사용자에게 대상 데이터베이스에 대한 'CONTROL' 권한이 있어야 합니다. 자세한 내용은 이 [문서](./connector-azure-sql-data-warehouse.md#required-database-permission)를 참조하세요.
+
 
 ## <a name="azure-table-storage"></a>Azure Table Storage
 
@@ -470,7 +548,7 @@ ms.locfileid: "111971900"
 
 - **메시지**: `Error thrown from driver. Sql code: '%code;'`
 
-- **원인**: 오류 메시지에 “SQLSTATE=51002 SQLCODE=-805”이라는 문자열이 포함된 경우 [Azure Data Factory를 사용하여 DB2에서 데이터 복사](./connector-db2.md#linked-service-properties)의 “팁”을 따릅니다.
+- **원인**: 오류 메시지에 “SQLSTATE=51002 SQLCODE=-805”이라는 문자열이 포함된 경우 [DB2에서 데이터 복사](./connector-db2.md#linked-service-properties)의 “팁”을 따릅니다.
 
 - **권장 사항**: `packageCollection` 속성에서 “NULLID”를 설정해 봅니다.
 
@@ -495,7 +573,7 @@ ms.locfileid: "111971900"
   | 원인 분석                                               | 권장                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수보다 큽니다. 데이터 문제 또는 잘못된 열 구분 기호나 따옴표 문자 설정으로 인한 문제일 수 있습니다. | 오류 메시지에서 행 개수를 확인하고 행의 열을 확인한 후 데이터를 수정합니다. |
-  | 예상 열 개수가 오류 메시지에 “1”로 표시된다면 잘못된 압축 또는 형식 설정을 지정했기 때문에 Data Factory에서 파일을 잘못 구문 분석한 것일 수 있습니다. | 형식 설정이 원본 파일과 일치하는지 확인합니다. |
+  | 예상 열 개수가 오류 메시지에 “1”로 표시된다면 잘못된 압축 또는 형식 설정을 지정했기 때문에 파일을 잘못 구문 분석한 것일 수 있습니다. | 형식 설정이 원본 파일과 일치하는지 확인합니다. |
   | 원본이 폴더인 경우 지정된 폴더에 있는 파일의 스키마가 다를 수 있습니다. | 지정된 폴더의 파일이 동일한 스키마를 갖는지 확인합니다. |
 
 
@@ -514,7 +592,7 @@ ms.locfileid: "111971900"
 
 - **증상**: 스키마를 가져오거나 데이터를 미리 볼 때 열이 누락됩니다. 오류 메시지: `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **원인**: Data Factory는 처음 10개의 레코드에 값이 없는 열을 표시할 수 없습니다. 따라서 이 문제는 의도적으로 발생하는 문제입니다. 추가한 열이 올바른 형식인지 확인하세요. 
+- **원인**: Data Factory 및 Synapse 파이프라인은 처음 10개의 레코드에 값이 없는 열을 표시할 수 없습니다. 따라서 이 문제는 의도적으로 발생하는 문제입니다. 추가한 열이 올바른 형식인지 확인하세요. 
 
 - **권장 사항**: 매핑 탭에서 열을 수동으로 추가합니다.
 
@@ -561,59 +639,18 @@ ms.locfileid: "111971900"
  
  - **메시지**: `Failed to connect to Dynamics: %message;` 
  
- - **원인**: 사용 사례가 다음 세 가지 조건을 **모두** 충족하는 경우 `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 또는 `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`이 표시됩니다.
-    - Dynamics 365, Common Data Service 또는 Dynamics CRM에 연결하고 있습니다.
-    - Office365 인증을 사용하고 있습니다.
-    - 테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 다단계 인증을 위해 Azure Active Directory에 구성되어 있습니다(Dataverse 문서는 이 [링크](/powerapps/developer/data-platform/authenticate-office365-deprecation) 참조).
-    
-    이러한 상황에서는 연결이 2021년 6월 8일 이전에 성공했습니다.
-    2021년 6월 9일부터 지역 검색 서비스의 사용 중단으로 인해 연결이 실패하기 시작합니다(이 [링크](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)참조).
- 
- -  **권장 사항**:  
-    테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 Multi-Factor Authentication이 필요한 Azure Active Directory에 구성된 경우, 2021년 6월 8일 이후에 인증하려면 'Azure AD 서비스 사용자'를 사용해야 합니다. 자세한 단계는 이 [링를](./connector-dynamics-crm-office-365.md#prerequisites)를 참조하세요.
+ - **원인 및 권장 사항**: 오류의 원인이 여러 가지일 수 있습니다. 아래 목록에서 가능한 원인 분석과 권장 사항을 확인하세요.
 
+    | 원인 분석                                               | 권장                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | 사용 사례가 다음 세 가지 조건을 **모두** 충족하는 경우 `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 또는 `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'`이 표시됩니다. <br/> 1. Dynamics 365, Common Data Service 또는 Dynamics CRM에 연결하고 있습니다.<br/>  2. Office365 인증을 사용하고 있습니다.<br/>  3. 테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 다단계 인증을 위해 Azure Active Directory에 구성되어 있습니다(Dataverse 문서는 이 [링크](/powerapps/developer/data-platform/authenticate-office365-deprecation) 참조).<br/>  이러한 상황에서는 연결이 2021년 6월 8일 이전에 성공했습니다. 2021년 6월 9일부터 지역 검색 서비스의 사용 중단으로 인해 연결이 실패하기 시작합니다(이 [링크](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)참조).| 테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 Multi-Factor Authentication이 필요한 Azure Active Directory에 구성된 경우, 2021년 6월 8일 이후에 인증하려면 'Azure AD 서비스 주체'를 사용해야 합니다. 자세한 단계는 이 [링를](./connector-dynamics-crm-office-365.md#prerequisites)를 참조하세요.|
+    |오류 메시지에 `Office 365 auth with OAuth failed`라고 표시된다면 서버에 OAuth와 호환되지 않는 구성이 있는 것임을 의미합니다.| 1. Dynamics 지원 팀에 연락하여 상세한 오류 메시지를 제공하고 도움을 받습니다. <br/> 2. 서비스 주체 인증을 사용하세요. [예: Azure AD 서비스 주체 및 인증서 인증을 사용하는 Dynamics Online](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication)을 참조할 수도 있습니다. 
+    |오류 메시지에 `Unable to retrieve authentication parameters from the serviceUri`라고 표시된다면 Dynamics 서비스 URL을 잘못 입력했거나 프록시/방화벽이 트래픽을 인터셉트하도록 설정된 것임을 의미합니다. |1. 연결된 서비스에 올바른 서비스 URI를 입력했는지 확인합니다.<br/> 2. 자체 호스팅 IR을 사용하는 경우 방화벽/프록시가 Dynamics 서버로 전송되는 요청을 인터셉트하지 않는지 확인합니다. |
+    |오류 메시지에 `An unsecured or incorrectly secured fault was received from the other party`라고 표시된다면 서버 쪽에서 예기치 않은 응답을 수신했음을 의미합니다.  | 1. Office 365 인증을 사용하는 경우 사용자 이름과 암호가 올바른지 확인합니다. <br/> 2. 올바른 서비스 URI를 입력했는지 확인합니다. <br/> 3. 지역 CRM URL(‘crm’ 뒤에 숫자가 있는 URL)을 사용하는 경우 올바른 지역 식별자를 사용했는지 확인합니다.<br/> 4. 도움이 필요하면 Dynamics 지원 팀으로 문의하세요. |
+    |오류 메시지에 `No Organizations Found`라고 표시된다면 조직 이름이 잘못되었거나 서비스 URL에 잘못된 CRM 지역 식별자를 사용했음을 의미합니다.|1. 올바른 서비스 URI를 입력했는지 확인합니다.<br/>2. 지역 CRM URL(‘crm’ 뒤에 숫자가 있는 URL)을 사용하는 경우 올바른 지역 식별자를 사용했는지 확인합니다. <br/> 3. 도움이 필요하면 Dynamics 지원 팀으로 문의하세요. |
+    | `401 Unauthorized` 및 AAD 관련 오류 메시지가 표시된다면 서비스 주체에 문제가 있음을 의미합니다. |오류 메시지의 지침에 따라 서비스 주체 문제를 해결합니다. |
+   |그 밖의 오류의 경우, 보통 서버 쪽에 문제가 있는 것입니다. |[XrmToolBox](https://www.xrmtoolbox.com/)를 사용하여 연결을 설정합니다. 오류가 지속되면 Dynamics 지원 팀으로 문의하여 도움을 받으세요. |
 
- - **원인**: 오류 메시지에 `Office 365 auth with OAuth failed`라고 표시된다면 서버에 OAuth와 호환되지 않는 구성이 있는 것임을 의미합니다. 
- 
- - **권장 사항**: 
-    1. Dynamics 지원 팀에 연락하여 상세한 오류 메시지를 제공하고 도움을 받습니다.  
-    1. 서비스 주체 인증을 사용하세요. [예: Azure AD 서비스 주체 및 인증서 인증을 사용하는 Dynamics Online](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication)을 참조할 수도 있습니다. 
- 
-
- - **원인**: 오류 메시지에 `Unable to retrieve authentication parameters from the serviceUri`라고 표시된다면 Dynamics 서비스 URL을 잘못 입력했거나 프록시/방화벽이 트래픽을 인터셉트하도록 설정된 것임을 의미합니다. 
- 
- - **권장 사항**:
-    1. 연결된 서비스에 올바른 서비스 URI를 입력했는지 확인합니다. 
-    1. 자체 호스팅 IR을 사용하는 경우 방화벽/프록시가 Dynamics 서버로 전송되는 요청을 인터셉트하지 않는지 확인합니다. 
-   
- 
- - **원인**: 오류 메시지에 `An unsecured or incorrectly secured fault was received from the other party`라고 표시된다면 서버 쪽에서 예기치 않은 응답을 수신했음을 의미합니다. 
- 
- - **권장 사항**: 
-    1. Office 365 인증을 사용하는 경우 사용자 이름과 암호가 올바른지 확인합니다. 
-    1. 올바른 서비스 URI를 입력했는지 확인합니다. 
-    1. 지역 CRM URL(‘crm’ 뒤에 숫자가 있는 URL)을 사용하는 경우 올바른 지역 식별자를 사용했는지 확인합니다.
-    1. 도움이 필요하면 Dynamics 지원 팀으로 문의하세요. 
- 
-
- - **원인**: 오류 메시지에 `No Organizations Found`라고 표시된다면 조직 이름이 잘못되었거나 서비스 URL에 잘못된 CRM 지역 식별자를 사용했음을 의미합니다. 
- 
- - **권장 사항**: 
-    1. 올바른 서비스 URI를 입력했는지 확인합니다.
-    1. 지역 CRM URL(‘crm’ 뒤에 숫자가 있는 URL)을 사용하는 경우 올바른 지역 식별자를 사용했는지 확인합니다. 
-    1. 도움이 필요하면 Dynamics 지원 팀으로 문의하세요. 
-
- 
- - **원인**: `401 Unauthorized` 및 AAD 관련 오류 메시지가 표시된다면 서비스 주체에 문제가 있음을 의미합니다. 
-
- - **권장 사항**: 오류 메시지의 지침에 따라 서비스 주체 문제를 해결합니다.  
- 
- 
- - **원인**: 그 밖의 오류의 경우, 보통 서버 쪽에 문제가 있는 것입니다. 
-
- - **권장 사항**: [XrmToolBox](https://www.xrmtoolbox.com/)를 사용하여 연결을 설정합니다. 오류가 지속되면 Dynamics 지원 팀으로 문의하여 도움을 받으세요. 
- 
- 
 ### <a name="error-code-dynamicsoperationfailed"></a>오류 코드: DynamicsOperationFailed 
  
 - **메시지**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
@@ -680,6 +717,14 @@ ms.locfileid: "111971900"
 
 - **권장 사항**: 대상 서버의 포트를 확인합니다. FTP는 포트 21을 사용합니다.
 
+### <a name="error-code-ftpfailedtoreadftpdata"></a>오류 코드: FtpFailedToReadFtpData
+
+- **메시지**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
+
+- **원인**: 데이터 팩터리 또는 Synapse 파이프라인에서 지원하는 수동 모드에서 데이터 전송에 대해 1024에서 65535 사이의 포트 범위가 열려 있지 않습니다.
+
+- **권장 사항**: 대상 서버의 방화벽 설정을 확인합니다. 포트 1024-65535 또는 FTP 서버에 지정된 포트 범위를 SHIR/Azure IR IP 주소로 엽니다.
+
 
 ## <a name="http"></a>HTTP
 
@@ -687,7 +732,7 @@ ms.locfileid: "111971900"
 
 - **메시지**: `Failed to read data from http server. Check the error from http server：%message;`
 
-- **원인**: 이 오류는 Azure Data Factory가 HTTP 서버와 통신하는데 HTTP 요청 작업이 실패한 경우 발생합니다.
+- **원인**: 이 오류는 데이터 팩터리 또는 Synapse 파이프라인이 HTTP 서버와 통신하는데 HTTP 요청 작업이 실패한 경우 발생합니다.
 
 - **권장 사항**: 오류 메시지에서 HTTP 상태 코드를 확인하고 원격 서버 문제를 해결합니다.
 
@@ -698,11 +743,11 @@ ms.locfileid: "111971900"
 
 - **메시지**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
-- **원인**: Data Factory에서 DateTime 값은 0001-01-01 00:00:00~9999-12-31 23:59:59 범위에서 지원됩니다. 그러나 Oracle은 이보다 큰 범위의 DateTime 값을 지원하므로(예: 기원전 세기, min/sec>59 등), 이로 인해 Data Factory에서 오류가 발생하게 됩니다.
+- **원인**: Azure Data Factory 및 Synapse 파이프라인에서 DateTime 값은 0001-01-01 00:00:00~9999-12-31 23:59:59 범위에서 지원됩니다. 그러나 Oracle은 이보다 큰 범위의 DateTime 값을 지원하므로(예: 기원전 세기, min/sec>59 등), 이로 인해 오류가 발생하게 됩니다.
 
 - **권장 사항**: 
 
-    Oracle의 값이 Data Factory의 범위 안에 있는지 확인하려면 `select dump(<column name>)`을 실행합니다. 
+    Oracle의 값이 지원되는 날짜 범위 안에 있는지 확인하려면 `select dump(<column name>)`을 실행합니다. 
 
     결과에서 바이트 시퀀스를 확인하려면 [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle)(Oracle에서 날짜가 저장되는 방식)을 참조하세요.
 
@@ -758,9 +803,9 @@ ms.locfileid: "111971900"
 
 - **메시지**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **원인**: Azure Data Factory에서는 Parquet 형식이 지원되지 않습니다.
+- **원인**: Azure Data Factory 및 Synapse 파이프라인에서는 Parquet 형식이 지원되지 않습니다.
 
-- **권장 사항**: [Azure Data Factory에서 복사 작업을 통해 지원되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)으로 이동하여 원본 데이터를 재차 확인합니다.
+- **권장 사항**: [복사 작업을 통해 지원되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)으로 이동하여 원본 데이터를 재차 확인합니다.
 
 
 ### <a name="error-code-parquetmisseddecimalprecisionscale"></a>오류 코드: ParquetMissedDecimalPrecisionScale
@@ -796,7 +841,7 @@ ms.locfileid: "111971900"
 
 - **원인**: 데이터를 mappings.source에 지정된 형식으로 변환할 수 없습니다.
 
-- **권장 사항**: 원본 데이터를 재차 확인하거나 복사 작업 열 매핑에서 이 열에 올바른 데이터 형식을 지정합니다. 자세한 내용은 [Azure Data Factory의 복사 작업별로 지원되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)을 참조하세요.
+- **권장 사항**: 원본 데이터를 재차 확인하거나 복사 작업 열 매핑에서 이 열에 올바른 데이터 형식을 지정합니다. 자세한 내용은 [복사 활동에서 지원되는 파일 형식 및 압축 코덱](./supported-file-formats-and-compression-codecs.md)을 참조하세요.
 
 
 ### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>오류 코드: ParquetDataCountNotMatchColumnCount
@@ -881,6 +926,21 @@ ms.locfileid: "111971900"
     - 공백이 있는 첫 번째 행이 열 이름으로 사용되었습니다.
     - OriginalType 형식이 지원됩니다. `,;{}()\n\t=`와 같은 특수 문자는 사용하지 않습니다. 
 
+### <a name="error-code-parquetdatetimeexceedlimit"></a>오류 코드: ParquetDateTimeExceedLimit
+
+- **메시지**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **원인**: datetime 값이 ‘0001-01-01 00:00:00’인 경우 율리우스력과 그레고리력의 차이가 원인일 수 있습니다. 자세한 내용은 [율리우스력 날짜와 그레고리력 날짜 간의 차이](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates)를 참조하세요.
+
+- **해결 방법**: 틱 값을 확인하고 datetime 값 ‘0001-01-01 00:00:00’을 사용하지 않습니다.
+
+### <a name="error-code-parquetinvalidcolumnname"></a>오류 코드: ParquetInvalidColumnName
+
+- **메시지**: `The column name is invalid. Column name cannot contain these character:[,;{}()\n\t=]`
+
+- **원인**: 열 이름에 잘못된 문자가 있습니다.
+
+- **해결 방법**: 열 매핑을 추가하거나 수정하여 싱크 열 이름을 유효하게 만듭니다.
 
 ## <a name="rest"></a>REST
 
@@ -888,9 +948,23 @@ ms.locfileid: "111971900"
 
 - **메시지**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
-- **원인**: 이 오류는 Azure Data Factory가 HTTP 프로토콜을 통해 REST 엔드포인트와 통신하는데 요청 작업이 실패한 경우 발생합니다.
+- **원인**: 이 오류는 데이터 팩터리 또는 Synapse 파이프라인이 HTTP 프로토콜을 통해 REST 엔드포인트와 통신하는데 요청 작업이 실패한 경우 발생합니다.
 
 - **권장 사항**: 오류 메시지에서 HTTP 상태 코드 또는 메시지를 확인하고 원격 서버 문제를 해결합니다.
+
+### <a name="error-code-restsourcecallfailed"></a>오류 코드: RestSourceCallFailed
+
+- **메시지**: `The HttpStatusCode %statusCode; indicates failure.&#xA;Request URL: %requestUri;&#xA;Response payload:%payload;`
+
+- **원인**: 이 오류는 Azure Data Factory가 HTTP 프로토콜을 통해 REST 엔드포인트와 통신하는데 요청 작업이 실패한 경우 발생합니다.
+
+- **권장 사항**: 오류 메시지에서 HTTP 상태 코드 또는 요청 URL이나 응답 페이로드를 확인하고 원격 서버 문제를 해결합니다.
+
+### <a name="error-code-restsinkunsupportedcompressiontype"></a>오류 코드: RestSinkUNSupportedCompressionType
+
+- **메시지**: `User Configured CompressionType is Not Supported By Azure Data Factory：%message;`
+
+- **권장 사항**: REST 싱크에 대해 지원되는 압축 유형을 확인합니다.
 
 ### <a name="unexpected-network-response-from-the-rest-connector"></a>REST 커넥터로부터 예기치 않은 네트워크 응답 수신됨
 
@@ -907,7 +981,7 @@ ms.locfileid: "111971900"
 
       ‘curl--help’를 사용하면 명령의 고급 사용법을 확인할 수 있습니다.
 
-    - Data Factory REST 커넥터가 예기치 않은 응답을 반환하는 경우에만 추가 문제 해결을 위해 Microsoft 지원으로 문의하세요.
+    - REST 커넥터가 예기치 않은 응답을 반환하는 경우에만 추가 문제 해결을 위해 Microsoft 지원으로 문의하세요.
     
     - ‘curl’은 SSL 인증서 유효성 검사 문제를 재현하는 데 적합하지 않을 수 있습니다. 일부 시나리오에서는 SSL 인증서 유효성 검사 문제없이 ‘curl’ 명령이 성공적으로 실행됩니다. 하지만 동일한 URL이 브라우저에서 실행될 경우, 클라이언트가 서버와 신뢰를 설정할 수 있도록 하기 위한 SSL 인증서가 반환되지 않습니다.
 
@@ -944,7 +1018,7 @@ ms.locfileid: "111971900"
 
     프라이빗 키 콘텐츠가 사용자의 키 자격 증명 모음에서 가져온 것인 경우, SFTP 연결된 서비스에 직접 업로드한다면 원본 키 파일이 작동할 수 있습니다.
 
-    자세한 내용은 [Azure Data Factory를 사용하여 SFTP 서버 간에 데이터 복사](./connector-sftp.md#use-ssh-public-key-authentication)를 참조하세요. 프라이빗 키 콘텐츠는 base64로 인코딩된 SSH 프라이빗 키 콘텐츠입니다.
+    자세한 내용은 [데이터 팩터리 또는 Synapse 파이프라인을 사용하여 SFTP 서버 간에 데이터 복사](./connector-sftp.md#use-ssh-public-key-authentication)를 참조하세요. 프라이빗 키 콘텐츠는 base64로 인코딩된 SSH 프라이빗 키 콘텐츠입니다.
 
     원본 프라이빗 키 파일 ‘전체’를 base64 인코딩으로 변환하고 인코딩된 문자열을 사용자의 키 자격 증명 모음에 저장하세요. 원본 프라이빗 키 파일은 파일에서 **업로드** 를 선택하면 SFTP 연결된 서비스에서 작동할 수 있는 키 파일입니다.
 
@@ -973,7 +1047,7 @@ ms.locfileid: "111971900"
 
 - **권장 사항**:  
 
-    PKCS#8 형식 SSH 프라이빗 키(“-----BEGIN ENCRYPTED PRIVATE KEY-----”로 시작)는 현재 Data Factory의 SFTP 서버에 액세스하는 용도로 지원되지 않습니다. 
+    PKCS#8 형식 SSH 프라이빗 키(“-----BEGIN ENCRYPTED PRIVATE KEY-----”로 시작)는 현재 SFTP 서버에 액세스하는 용도로 지원되지 않습니다. 
 
     키를 “-----BEGIN RSA PRIVATE KEY-----”로 시작하는 기존 SSH 키 형식으로 변환하려면 다음 명령을 실행합니다.
 
@@ -1006,7 +1080,7 @@ ms.locfileid: "111971900"
 
 - **권장 사항**: 대상 서버의 포트를 확인합니다. 기본적으로 SFTP는 포트 22를 사용합니다.
 
-- **원인**: 오류 메시지에 “Server response does not contain SSH protocol identification”이라는 문자열이 포함된 경우 SFTP 서버가 연결을 제한하고 있는 것이 한 가지 가능한 원인일 수 있습니다. Data Factory는 SFTP 서버에서 병렬로 다운로드하기 위해 여러 연결을 만들며, 때로는 이로 인해 SFTP 서버 제한이 발생할 수 있습니다. 보통은 서버마다 제한이 발생한 경우 표시되는 오류가 서로 다릅니다.
+- **원인**: 오류 메시지에 “Server response does not contain SSH protocol identification”이라는 문자열이 포함된 경우 SFTP 서버가 연결을 제한하고 있는 것이 한 가지 가능한 원인일 수 있습니다. SFTP 서버에서 병렬로 다운로드하기 위해 여러 연결이 생성되며, 때로는 이로 인해 SFTP 서버 제한이 발생할 수 있습니다. 보통은 서버마다 제한이 발생한 경우 표시되는 오류가 서로 다릅니다.
 
 - **권장 사항**:  
 
@@ -1017,6 +1091,40 @@ ms.locfileid: "111971900"
     * 자체 호스팅 IR을 사용하는 경우 허용 목록에 자체 호스팅 IR 컴퓨터의 IP를 추가합니다.
     * Azure IR을 사용하는 경우 [Azure Integration Runtime IP 주소](./azure-integration-runtime-ip-addresses.md)를 추가합니다. SFTP 서버 허용 목록에 IP 범위를 추가하지 않으려면 자체 호스팅 IR을 대신 사용합니다.
 
+
+#### <a name="error-code-sftppermissiondenied"></a>오류 코드: SftpPermissionDenied
+
+- **메시지**: `Permission denied to access '%path;'`
+
+- **원인**: 작업을 수행할 때 지정된 사용자에게 폴더 또는 파일에 대한 읽기 또는 쓰기 권한이 없습니다.
+
+- **권장 사항**: 사용자에게 SFTP 서버의 폴더 또는 파일을 읽거나 쓸 수 있는 권한을 부여합니다.
+ 
+### <a name="error-code-sftpauthenticationfailure"></a>오류 코드: SftpAuthenticationFailure
+
+- **메시지**: `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
+
+- **원인**: 지정된 자격 증명(암호 또는 프라이빗 키)이 잘못되었습니다.
+
+- **권장 사항**: 자격 증명을 확인합니다.
+
+- **원인**: 지정된 인증 유형이 허용되지 않거나 SFTP 서버에서 인증을 완료하는 데 충분하지 않습니다.
+
+- **권장 사항**: 올바른 인증 유형을 사용하려면 다음 옵션을 적용합니다.
+    - 서버에 암호가 필요한 경우 "기본"을 사용합니다.
+    - 서버에 프라이빗 키가 필요한 경우 "SSH 퍼블릭 키 인증"을 사용합니다.
+    - 서버에 "암호"와 "프라이빗 키"가 모두 필요한 경우 "다단계 인증"을 사용합니다.
+
+- **원인**: SFTP 서버는 인증을 위해 "키보드 대화형"이 필요하지만 "암호"를 제공했습니다.
+
+- **권장 사항**: 
+
+    "키보드 대화형"은 "암호"와 다른 특수 인증 방법입니다. 즉, 서버에 로그인할 때 암호를 수동으로 입력해야 하며 이전에 저장된 암호를 사용할 수 없습니다. 그러나 ADF(Azure Data Factory)는 예약된 데이터 전송 서비스이며 런타임에 암호를 제공할 수 있는 팝업 입력 상자가 없습니다. <br/> 
+    
+    절충안으로 실제 수동 입력 대신 백그라운드에서 입력을 시뮬레이션하는 옵션이 제공됩니다. 이 방식은 "키보드 대화형"을 "암호"로 변경할 때와 같은 결과를 나타냅니다. 이 보안 문제를 수락할 수 있는 경우 아래 단계에 따라 사용하도록 설정합니다.<br/> 
+    1. ADF 포털에서 SFTP 연결된 서비스를 마우스로 가리키고 코드 단추를 선택하여 해당 페이로드를 엽니다.
+    1. typeProperties 섹션에서 `"allowKeyboardInteractiveAuth": true`를 추가합니다.
+ 
 ## <a name="sharepoint-online-list"></a>SharePoint Online 목록
 
 ### <a name="error-code-sharepointonlineauthfailed"></a>오류 코드: SharePointOnlineAuthFailed
@@ -1094,7 +1202,7 @@ ms.locfileid: "111971900"
 
 - **해결 방법**: [Microsoft에서 더 이상 “FIPS 모드”를 권장하지 않는 이유](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037)를 알아보고 자체 호스팅 IR 머신에서 FIPS를 사용하지 않을 수 있는지 검토합니다.
 
-    또는 Azure Data Factory가 FIPS를 우회하도록만 설정하여 작업 실행이 성공하도록 하려는 경우에는 다음을 수행합니다.
+    또는 FIPS를 우회하여 활동 실행이 성공적으로 진행되도록 하려는 경우에는 다음을 수행합니다.
 
     1. 자체 호스팅 IR이 설치된 폴더를 엽니다. 경로는 보통 *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared* 입니다.
 
@@ -1104,13 +1212,170 @@ ms.locfileid: "111971900"
 
     3. 파일을 저장하고 자체 호스팅 IR 머신을 다시 시작합니다.
 
+### <a name="error-code-jniexception"></a>오류 코드: JniException
+
+- **메시지**: `An error occurred when invoking Java Native Interface.`
+
+- **원인**: 오류 메시지에 "JVM을 만들 수 없습니다. JNI 반환 코드 [-6][JNI 호출 실패: 잘못된 인수]"가 포함된 경우 가능한 원인은 일부 잘못된(전역) 인수가 설정되어 있으므로 JVM을 만들 수 없다는 것입니다.
+
+- **권장 사항**: 자체 호스팅 통합 런타임의 ‘각 노드’를 호스트하는 머신에 로그인합니다. 시스템 변수가 `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`와 같이 올바르게 설정되었는지 확인합니다. 모든 통합 런타임 노드를 다시 시작한 다음, 파이프라인을 다시 실행합니다.
+
+### <a name="error-code-getoauth2accesstokenerrorresponse"></a>오류 코드: GetOAuth2AccessTokenErrorResponse
+
+- **메시지**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
+
+- **원인**: 클라이언트 ID 또는 클라이언트 암호가 잘못되었으며 권한 부여 서버에서 인증이 실패했습니다.
+
+- **권장 사항**: 권한 부여 서버의 OAuth2 클라이언트 자격 증명 흐름 설정을 모두 수정합니다.
+
+### <a name="error-code-failedtogetoauth2accesstoken"></a>오류 코드: FailedToGetOAuth2AccessToken
+
+- **메시지**: `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
+
+- **원인**: OAuth2 클라이언트 자격 증명 흐름 설정이 잘못되었습니다.
+
+- **권장 사항**: 권한 부여 서버의 OAuth2 클라이언트 자격 증명 흐름 설정을 모두 수정합니다.
+
+### <a name="error-code-oauth2accesstokentypenotsupported"></a>오류 코드: OAuth2AccessTokenTypeNotSupported
+
+- **메시지**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+
+- **원인**: 권한 부여 서버가 지원되지 않습니다.
+
+- **권장 사항**: 지원되는 토큰 형식의 토큰을 반환할 수 있는 권한 부여 서버를 사용합니다.
+
+### <a name="error-code-oauth2clientidcolonnotallowed"></a>오류 코드: OAuth2ClientIdColonNotAllowed
+
+- **메시지**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
+
+- **원인**: 클라이언트 ID에 잘못된 문자 콜론(`:`)이 포함되어 있습니다.
+
+- **권장 사항**: 유효한 클라이언트 ID를 사용합니다.
+
+### <a name="error-code-managedidentitycredentialobjectnotsupported"></a>오류 코드: ManagedIdentityCredentialObjectNotSupported
+
+- **메시지**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **권장 사항**: 지원되는 버전을 확인하고 통합 런타임을 더 높은 버전으로 업그레이드합니다.
+
+### <a name="error-code-querymissingformatsettingsindataset"></a>오류 코드: QueryMissingFormatSettingsInDataset
+
+- **메시지**: `The format settings are missing in dataset %dataSetName;.`
+
+- **원인**: 데이터 세트 형식이 이진이며 지원되지 않습니다.
+
+- **권장 사항**: 대신 DelimitedText, Json, Avro, Orc 또는 Parquet 데이터 세트를 사용합니다.
+
+- **원인**: 파일 스토리지의 경우 데이터 세트에 형식 설정이 없습니다.
+
+- **권장 사항**: 데이터 세트에서 "이진 복사"를 선택 취소하고 올바른 형식 설정으로 지정합니다.
+
+### <a name="error-code-queryunsupportedcommandbehavior"></a>오류 코드: QueryUnsupportedCommandBehavior
+
+- **메시지**: `The command behavior "%behavior;" is not supported.`
+
+- **권장 사항**: 명령 동작을 미리 보기 또는 GetSchema API 요청 URL에 대한 매개 변수로 추가하지 마세요.
+
+### <a name="error-code-dataconsistencyfailedtogetsourcefilemetadata"></a>오류 코드: DataConsistencyFailedToGetSourceFileMetadata
+
+- **메시지**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
+
+- **원인**: 싱크 데이터 저장소에서 일시적인 문제가 발생했거나 싱크 데이터 저장소에서 메타데이터를 검색할 수 없습니다.
+
+### <a name="error-code-dataconsistencyfailedtogetsinkfilemetadata"></a>오류 코드: DataConsistencyFailedToGetSinkFileMetadata
+
+- **메시지**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
+
+- **원인**: 싱크 데이터 저장소에서 일시적인 문제가 발생했거나 싱크 데이터 저장소에서 메타데이터를 검색할 수 없습니다.
+
+### <a name="error-code-dataconsistencyvalidationnotsupportedfornondirectbinarycopy"></a>오류 코드: DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `Data consistency validation is not supported in current copy activity settings.`
+
+- **원인**: 데이터 일관성 유효성 검사는 직접 이진 복사 시나리오에서만 지원됩니다.
+
+- **권장 사항**: 복사 작업 페이로드에서 'validateDataConsistency' 속성을 제거합니다.
+
+### <a name="error-code-dataconsistencyvalidationnotsupportedforlowversionselfhostedintegrationruntime"></a>오류 코드: DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
+
+- **메시지**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **권장 사항**: 지원되는 통합 런타임 버전을 확인하고 더 높은 버전으로 업그레이드하거나 복사 활동에서 'validateDataConsistency' 속성을 제거합니다.
+
+### <a name="error-code-skipmissingfilenotsupportedfornondirectbinarycopy"></a>오류 코드: SkipMissingFileNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'fileMissing'을 제거합니다.
+
+### <a name="error-code-skipinconsistencydatanotsupportedfornondirectbinarycopy"></a>오류 코드: SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'dataInconsistency'를 제거합니다.
+
+### <a name="error-code-skipforbiddenfilenotsupportedfornondirectbinarycopy"></a>오류 코드: SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'fileforbidden'을 제거합니다.
+
+### <a name="error-code-skipforbiddenfilenotsupportedforthisconnector"></a>오류 코드: SkipForbiddenFileNotSupportedForThisConnector
+
+- **메시지**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'fileforbidden'을 제거합니다.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedfornondirectbinarycopy"></a>오류 코드: SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'invalidFileName'을 제거합니다.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedforsource"></a>오류 코드: SkipInvalidFileNameNotSupportedForSource
+
+- **메시지**: `Skip invalid file name is not supported for '%connectorName;' source.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'invalidFileName'을 제거합니다.
+
+### <a name="error-code-skipinvalidfilenamenotsupportedforsink"></a>오류 코드: SkipInvalidFileNameNotSupportedForSink
+
+- **메시지**: `Skip invalid file name is not supported for '%connectorName;' sink.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'invalidFileName'을 제거합니다.
+
+### <a name="error-code-skipallerrorfilenotsupportedfornonbinarycopy"></a>오류 코드: SkipAllErrorFileNotSupportedForNonBinaryCopy
+
+- **메시지**: `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
+
+- **권장 사항**: 복사 활동 페이로드에서 skipErrorFile 설정의 'allErrorFile'을 제거합니다.
+
+### <a name="error-code-deletefilesaftercompletionnotsupportedfornondirectbinarycopy"></a>오류 코드: DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
+
+- **메시지**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
+
+- **권장 사항**: 'deleteFilesAfterCompletion' 설정을 제거하거나 직접 이진 복사를 사용합니다.
+
+### <a name="error-code-deletefilesaftercompletionnotsupportedforthisconnector"></a>오류 코드: DeleteFilesAfterCompletionNotSupportedForThisConnector
+
+- **메시지**: `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
+
+- **권장 사항**: 복사 활동 페이로드에서 'deleteFilesAfterCompletion' 설정을 제거합니다.
+
+### <a name="error-code-failedtodownloadcustomplugins"></a>오류 코드: FailedToDownloadCustomPlugins
+
+- **메시지**: `Failed to download custom plugins.`
+
+- **원인**: 잘못된 다운로드 링크 또는 일시적인 연결 문제입니다.
+
+- **권장 사항**: 일시적인 문제라는 메시지가 표시되면 다시 시도합니다. 문제가 지속되면 지원 팀에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)

@@ -10,14 +10,16 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 45748ac5c21993e6df69950e03de9e90180c4ab0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fdda25ecc9d111d626b7c9836757c31d4972c25f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472080"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692452"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Windows Virtual Desktop 이미지 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서에서는 다음과 같은 사용자 지정으로 Windows Virtual Desktop 이미지를 만드는 방법을 보여 줍니다.
 

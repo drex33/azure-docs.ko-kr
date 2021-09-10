@@ -4,23 +4,23 @@ description: Azure Functions에 대해 특정 가상 네트워킹 작업을 수�
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 1e04a43a7a9b2eb8b3d29be6ced0d92d8bcc8308
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718434"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202925"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>가상 네트워크를 사용하여 Azure Functions를 구성하는 방법
 
-이 문서에서는 함수 앱이 가상 네트워크에 연결되어 실행되도록 함수 앱 구성 관련 작업을 수행하는 방법을 보여줍니다. Azure Functions 및 네트워킹에 대해 자세히 알아보려면 [Azure Functions 네트워킹 옵션](functions-networking-options.md)을 참조하세요.
+이 문서에서는 함수 앱이 가상 네트워크에 연결되어 실행되도록 함수 앱 구성 관련 작업을 수행하는 방법을 보여줍니다. 저장소 계정을 보호하는 방법에 대한 자세한 자습서는 [Virtual Network에 연결 자습서](functions-create-vnet.md)를 참조하세요. Azure Functions 및 네트워킹에 대해 자세히 알아보려면 [Azure Functions 네트워킹 옵션](functions-networking-options.md)을 참조하세요.
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 스토리지 계정은 서비스 엔드포인트 또는 프라이빗 엔드포인트로 보호되는 계정으로 바꿀 수 있습니다. 
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 스토리지 계정은 서비스 엔드포인트 또는 프라이빗 엔드포인트로 보호되는 계정으로 바꿀 수 있습니다. 프라이빗 엔드포인트로 저장소 계정을 구성하면 함수 앱에 대한 공용 액세스가 자동으로 사용하지 않도록 설정되며, 가상 네트워크를 통해서만 함수 앱에 액세스할 수 있습니다. 
 
 > [!NOTE]  
-> 현재 이 기능은 전용(App Service) 요금제로 모든 Windows 가상 네트워크 지원 SKU에서 작동하며 프리미엄 요금제에서 작동합니다. 사용량 요금제는 지원되지 않습니다. 
+> 현재 이 기능은 전용(App Service) 플랜으로 모든 Windows 가상 네트워크 지원 SKU에서 작동하며 Windows 탄력적 프리미엄 플랜에서 작동합니다. Linux 가상 네트워크 지원 SKU에 대한 프라이빗 DNS에서도 지원됩니다. Linux 플랜에 대한 사용량과 사용자 지정 DNS는 지원되지 않습니다. 
 
 프라이빗 네트워크로 제한된 스토리지 계정을 사용하여 함수를 설정하려면 다음을 수행합니다.
 

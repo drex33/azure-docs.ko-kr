@@ -6,14 +6,14 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 06/30/2021
-ms.custom: template-quickstart, references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 1464f7f2c9d38b859823ab99e52499642fa4af4b
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 16e271cf6183dce74fad3075a2e8336030960a08
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113595843"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966642"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결
 
@@ -25,7 +25,13 @@ ms.locfileid: "113595843"
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+* 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](/cli/azure/install-azure-cli)
+
+* 버전 1.0.0 이상의 **connectedk8s** Azure CLI 확장을 설치합니다.
+
+  ```console
+  az extension add --name connectedk8s
+  ```
 
 * 실행 중인 Kubernetes 클러스터. 클러스터가 없는 경우 이러한 옵션 중 하나를 사용하여 클러스터를 만들 수 있습니다.
     * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
@@ -45,25 +51,19 @@ ms.locfileid: "113595843"
 
 * [Helm 3의 최신 릴리스](https://helm.sh/docs/intro/install)를 설치합니다.
 
-* 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](/cli/azure/install-azure-cli)
-* `connectedk8s` Azure CLI 확장 버전 >= 1.0.0을 설치합니다.
-
-  ```console
-  az extension add --name connectedk8s
-  ```
->[!NOTE]
-> 클러스터의 [**사용자 지정 위치**](./custom-locations.md)의 경우 미국 동부 또는 서유럽 지역을 사용합니다. 다른 모든 Azure Arc 지원 Kubernetes 기능의 경우 [이 목록에서 지역을 선택합니다](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
-
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
-> [!IMPORTANT]
-> **Az.ConnectedKubernetes** PowerShell 모듈이 미리 보기로 제공되는 동안 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다.
+* [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.9.0 이상.
 
-```azurepowershell-interactive
-Install-Module -Name Az.ConnectedKubernetes
-```
+* **Az.ConnectedKubernetes** PowerShell 모듈을 설치합니다.
+
+    ```azurepowershell-interactive
+    Install-Module -Name Az.ConnectedKubernetes
+    ```
+
+    > [!IMPORTANT]
+    > **Az.ConnectedKubernetes** PowerShell 모듈이 미리 보기로 제공되는 동안 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다.
 
 * 실행 중인 Kubernetes 클러스터. 클러스터가 없는 경우 이러한 옵션 중 하나를 사용하여 클러스터를 만들 수 있습니다.
     * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
@@ -83,12 +83,7 @@ Install-Module -Name Az.ConnectedKubernetes
 
 * [Helm 3의 최신 릴리스](https://helm.sh/docs/intro/install)를 설치합니다.
 
-* [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.9.0 이상.
-
 ---
-
->[!NOTE]
-> 클러스터의 [**사용자 지정 위치**](./custom-locations.md)의 경우 미국 동부 또는 서유럽 지역을 사용합니다. 다른 모든 Azure Arc 지원 Kubernetes 기능의 경우 [이 목록에서 지역을 선택합니다](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 ## <a name="meet-network-requirements"></a>네트워크 요구 사항 충족
 
@@ -100,43 +95,47 @@ Install-Module -Name Az.ConnectedKubernetes
 | ----------------- | ------------- |
 | `https://management.azure.com`(Azure 클라우드의 경우), `https://management.usgovcloudapi.net`(Azure 미국 정부의 경우) | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com`(Azure 클라우드의 경우), `https://<region>.dp.kubernetesconfiguration.azure.us`(Azure 미국 정부의 경우) | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트. |
-| `https://login.microsoftonline.com`(Azure 클라우드의 경우), `https://login.microsoftonline.us`(Azure 미국 정부의 경우) | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다. |
+| `https://login.microsoftonline.com`, `login.windows.net`(Azure 클라우드의 경우), `https://login.microsoftonline.us`(Azure 미국 정부의 경우) | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다. |
 | `https://mcr.microsoft.com` | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
 | `https://gbl.his.arc.azure.com` |  시스템 할당 MSI(Managed Service Identity) 인증서를 끌어오기 위한 지역 엔드포인트를 가져오는 데 필요합니다. |
-| `https://<region-code>.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다. Azure 클라우드 지역에 대한 `<region-code>` 매핑: `eus`(미국 동부), `weu`(서유럽), `wcus`(미국 중서부), `scus`(미국 중남부), `sea`(동남 아시아), `uks`(영국 남부), `wus2`(미국 서부 2), `ae`(오스트레일리아 동부), `eus2`(미국 동부 2), `ne`(북유럽), `fc`(프랑스 중부). |
+| `https://*.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다. |
+|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | [클러스터 연결](cluster-connect.md) 및 [사용자 지정 위치](custom-locations.md) 기반 시나리오의 경우. |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Azure Arc 지원 Kubernetes에 공급자 등록
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. 다음 명령을 입력합니다.
-    ```console
+    ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. 등록 프로세스를 모니터링합니다. 등록은 10분 정도 걸릴 수 있습니다.
-    ```console
+    ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
     az provider show -n Microsoft.KubernetesConfiguration -o table
     az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
+    등록되면 이러한 네임스페이스의 `RegistrationState` 상태가 `Registered`로 변경되는 것을 확인해야 합니다.
+
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 1. 다음 명령을 입력합니다.
-    ```azurepowershell-interactive
+    ```azurepowershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
     Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
     Register-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
     ```
 1. 등록 프로세스를 모니터링합니다. 등록은 10분 정도 걸릴 수 있습니다.
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
     Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
     Get-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
     ```
 
+    등록되면 이러한 네임스페이스의 `RegistrationState` 상태가 `Registered`로 변경되는 것을 확인해야 합니다.
 ---
 
 ## <a name="2-create-a-resource-group"></a>2. 리소스 그룹 만들기
@@ -145,7 +144,7 @@ Install-Module -Name Az.ConnectedKubernetes
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az group create --name AzureArcTest --location EastUS --output table
 ```
 
@@ -158,7 +157,7 @@ eastus      AzureArcTest
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup -Name AzureArcTest -Location EastUS
 ```
 
@@ -179,7 +178,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -227,7 +226,7 @@ Helm release deployment succeeded
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArcTest -Location eastus
 ```
 
@@ -240,42 +239,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ---
 
-## <a name="4-verify-cluster-connection"></a>4. 클러스터 연결 확인
-
-다음 명령을 실행합니다.
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```console
-az connectedk8s list --resource-group AzureArcTest --output table
-```
-
-출력:
-<pre>
-Name           Location    ResourceGroup
--------------  ----------  ---------------
-AzureArcTest1  eastus      AzureArcTest
-</pre>
-
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
-```
-
-출력:
-<pre>
-Location Name          Type
--------- ----          ----
-eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
-</pre>
-
----
-
-> [!NOTE]
-> 클러스터를 온보드한 후 Azure Portal의 Azure Arc 지원 Kubernetes 리소스의 개요 페이지에 클러스터 메타데이터(클러스터 버전, 에이전트 버전, 노드 수 등)가 표시되는 데 약 5~10분이 걸립니다.
-
-## <a name="5-connect-using-an-outbound-proxy-server"></a>5. 아웃바운드 프록시 서버를 사용하여 연결
+## <a name="4a-connect-using-an-outbound-proxy-server"></a>4a. 아웃바운드 프록시 서버를 사용하여 연결
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -301,13 +265,13 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 2. 프록시 매개 변수를 지정하여 connect 명령을 실행합니다.
 
-    ```console
+    ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
-> [!NOTE]
-> * 에이전트에 대한 클러스터 내 통신이 끊어지지 않도록 `--proxy-skip-range` 아래에 `excludedCIDR`을 지정합니다.
-> * 대부분의 아웃바운드 프록시 환경에서 `--proxy-http`, `--proxy-https` 및 `--proxy-skip-range`가 필요합니다. `--proxy-cert`는 프록시에서 예상되는 신뢰할 수 있는 인증서를 에이전트 Pod의 신뢰할 수 있는 인증서 저장소에 삽입해야 하는 경우에 *만* 필요합니다.
+    > [!NOTE]
+    > * 클러스터 내 서비스 간 통신과 관련된 일부 네트워크 요청은 아웃바운드 통신을 위해 프록시 서버를 통해 라우팅되는 트래픽과 분리되어야 합니다. `--proxy-skip-range` 매개 변수를 사용하여 에이전트에서 이러한 엔드포인트로의 통신이 아웃바운드 프록시를 거치지 않도록 CIDR 범위와 엔드포인트를 쉼표로 구분하여 지정할 수 있습니다. 최소한 클러스터에 있는 서비스의 CIDR 범위는 이 매개 변수의 값으로 지정되어야 합니다. 예를 들어, `kubectl get svc -A`가 모든 서비스에 `10.0.0.0/16` 범위의 ClusterIP 값이 있는 서비스 목록을 반환한다고 가정해 보겠습니다. 그러면 `--proxy-skip-range`에 지정할 값은 '10.0.0.0/16,kubernetes.default.svc'입니다.
+    > * 대부분의 아웃바운드 프록시 환경에서 `--proxy-http`, `--proxy-https` 및 `--proxy-skip-range`가 필요합니다. `--proxy-cert`는 프록시에서 예상되는 신뢰할 수 있는 인증서를 에이전트 Pod의 신뢰할 수 있는 인증서 저장소에 삽입해야 하는 경우에 *만* 필요합니다.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -325,11 +289,46 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 2. 프록시 매개 변수를 지정하여 connect 명령을 실행합니다.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
     ```
 
 ---
+
+## <a name="5-verify-cluster-connection"></a>5. 클러스터 연결 확인
+
+다음 명령을 실행합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az connectedk8s list --resource-group AzureArcTest --output table
+```
+
+출력:
+<pre>
+Name           Location    ResourceGroup
+-------------  ----------  ---------------
+AzureArcTest1  eastus      AzureArcTest
+</pre>
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
+```
+
+출력:
+<pre>
+Location Name          Type
+-------- ----          ----
+eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
+</pre>
+
+---
+
+> [!NOTE]
+> 클러스터를 온보드한 후 Azure Portal의 Azure Arc 지원 Kubernetes 리소스의 개요 페이지에 클러스터 메타데이터(클러스터 버전, 에이전트 버전, 노드 수 등)가 표시되는 데 약 5~10분이 걸립니다.
 
 ## <a name="6-view-azure-arc-agents-for-kubernetes"></a>6. Kubernetes용 Azure Arc 에이전트 보기
 
@@ -371,7 +370,7 @@ Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 소수
 
 다음 명령을 사용하여 Azure Arc 지원 Kubernetes 리소스, 모든 관련 구성 리소스 *그리고* Azure CLI를 사용하여 클러스터에서 실행 중인 모든 에이전트를 삭제할 수 있습니다.
 
-```console
+```azurecli
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -382,7 +381,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 다음 명령을 사용하여 Azure Arc 지원 Kubernetes 리소스, 모든 관련 구성 리소스, *그리고* Azure PowerShell을 사용하여 클러스터에서 실행 중인 모든 에이전트를 삭제할 수 있습니다.
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArcTest
 ```
 

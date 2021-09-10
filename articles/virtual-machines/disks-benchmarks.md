@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: a6e156350be0de13b6c6bfea3f8d220830c3480e
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: c57047cdaf848bc27805d8819be515636d492676
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360778"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687554"
 ---
 # <a name="benchmark-a-disk"></a>디스크 벤치마크
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 벤치마킹은 애플리케이션에서 다양한 작업을 시뮬레이션하고 각 작업에 대한 애플리케이션 성능을 측정하는 과정입니다. [고성능을 위한 디자인 문서](premium-storage-performance.md)에 설명된 단계를 사용하여 애플리케이션 성능 요구 사항을 수집했습니다. 애플리케이션을 호스팅하는 VM에서 벤치마킹 도구를 실행하여 프리미엄 SSD를 통해 애플리케이션이 얻을 수 있는 성능 수준을 확인할 수 있습니다. 이 문서에서는 Azure 프리미엄 SSD로 프로비전된 Standard_D8ds_v4 VM을 벤치마킹하는 예제를 제공합니다.
 

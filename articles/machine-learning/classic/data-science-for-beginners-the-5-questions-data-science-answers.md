@@ -1,6 +1,6 @@
 ---
 title: 'ML 스튜디오(클래식): 초급자를 위한 데이터 과학 - Azure'
-description: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning
+description: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef1d8586dc79d529df56e5d0e3101ba69e7a2cab
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520394"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695004"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학* 에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
 
@@ -136,4 +138,4 @@ ms.locfileid: "100520394"
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)
+* [Azure Machine Learning 소개 가져오기](../overview-what-is-azure-machine-learning.md)

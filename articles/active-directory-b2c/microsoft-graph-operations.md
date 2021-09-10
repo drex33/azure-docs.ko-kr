@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 834afe8d0f0c5c53c2cb300d666dbcccbee46ec0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9157b6212adac3c9bfa5f5c00a9c580a615bf8cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962427"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566297"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph로 Azure AD B2C 관리
 
@@ -40,7 +40,7 @@ MS Graph API를 사용하고 Azure AD B2C 테넌트의 리소스와 상호 작�
 
 ## <a name="user-phone-number-management-beta"></a>사용자 전화 번호 관리(베타)
 
-사용자가 [SMS 또는 음성 통화](identity-provider-local.md#phone-sign-in)를 또는 [다단계 인증](multi-factor-authentication.md)을 사용하여 로그인하는 데 사용할 수 있는 전화 번호입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/phoneauthenticationmethod)를 참조하세요.
+사용자가 [SMS 또는 음성 통화](sign-in-options.md#phone-sign-in)를 또는 [다단계 인증](multi-factor-authentication.md)을 사용하여 로그인하는 데 사용할 수 있는 전화 번호입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/phoneauthenticationmethod)를 참조하세요.
 
 - [추가](/graph/api/authentication-post-phonemethods)
 - [목록](/graph/api/authentication-list-phonemethods)
@@ -57,7 +57,7 @@ MS Graph API를 사용하고 Azure AD B2C 테넌트의 리소스와 상호 작�
 
 ## <a name="self-service-password-reset-email-address-beta"></a>셀프 서비스 암호 재설정 이메일 주소(베타)
 
-[사용자 이름 로그인 계정](identity-provider-local.md#username-sign-in)에서 암호를 재설정하는 데 사용할 수 있는 이메일 주소입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/emailauthenticationmethod)를 참조하세요.
+[사용자 이름 로그인 계정](sign-in-options.md#username-sign-in)에서 암호를 재설정하는 데 사용할 수 있는 이메일 주소입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/emailauthenticationmethod)를 참조하세요.
 
 - [추가](/graph/api/emailauthenticationmethod-post)
 - [목록](/graph/api/emailauthenticationmethod-list)
@@ -152,6 +152,12 @@ Azure AD B2C 감사 로그에 액세스하는 방법에 대한 자세한 내용�
 - [조건부 액세스 정책 업데이트](/graph/api/conditionalaccesspolicy-update)
 - [조건부 액세스 정책 삭제](/graph/api/conditionalaccesspolicy-delete)
 
+## <a name="how-to-programmatically-manage-microsoft-graph"></a>프로그래밍 방식으로 Microsoft Graph를 관리하는 방법
+
+Microsoft Graph를 관리하려는 경우 애플리케이션 권한을 사용하여 애플리케이션으로 수행하거나 위임된 권한을 사용할 수 있습니다. 위임된 권한을 사용하는 경우 사용자 또는 관리자가 앱이 요청하는 권한에 동의합니다. 이 앱은 대상 리소스를 호출할 때 로그인한 사용자 역할을 할 수 있는 권한을 위임받습니다. 애플리케이션 권한은 로그인한 사용자가 없어서 애플리케이션 권한이 필요한 앱에서 사용됩니다. 따라서 관리자만 애플리케이션 권한에 동의할 수 있습니다.
+
+> [!NOTE]
+> 사용자 흐름 또는 사용자 지정 정책을 통해 로그인하는 사용자의 위임된 권한은 Microsoft Graph의 위임된 권한에 대해 사용할 수 없습니다.
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>코드 샘플: 프로그래밍 방식으로 사용자 계정을 관리하는 방법
 
 이 코드 샘플은 [Microsoft Graph SDK](/graph/sdks/sdks-overview)를 사용하여 Microsoft Graph API와 상호 작용하는 .Net Core 콘솔 애플리케이션입니다. 이 코드에서는 API를 호출하여 Azure AD B2C 테넌트에서 사용자를 프로그래밍 방식으로 관리하는 방법을 보여줍니다.
@@ -181,6 +187,9 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 애플리케이션은 실행할 수 있는 명령 목록을 표시합니다. 예를 들어 모든 사용자를 가져오고, 단일 사용자를 가져오고, 사용자를 삭제하고, 사용자 암호를 업데이트하고, 대량으로 가져오기를 합니다.
 
+> [!NOTE]
+> 애플리케이션에서 사용자 계정 암호를 업데이트하려면 애플리케이션에 [사용자 관리자 역할을 부여](microsoft-graph-get-started.md#optional-grant-user-administrator-role)해야 합니다.
+ 
 ### <a name="code-discussion"></a>코드 토론
 
 샘플 코드는 [Microsoft Graph SDK](/graph/sdks/sdks-overview)를 사용하며, 이는 Microsoft Graph에 액세스하는 고품질의 효율적이고 복원력 있는 애플리케이션 구축을 간소화하도록 설계되었습니다.

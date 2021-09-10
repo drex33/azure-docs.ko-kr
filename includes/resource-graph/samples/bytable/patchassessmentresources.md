@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1b1c91ac00a359b9fc33ebacca26c2e2ebfae5e3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2e2695f2c2b193e77b286b30b5300aa09d099358
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456848"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308865"
 ---
 ### <a name="count-of-os-update-installation-done"></a>완료된 OS 업데이트 설치 수
 
-최근 7일 동안 머신에 대해 완료된 OS 업데이트 설치 상태 목록을 반환합니다.
+최근 7일 동안 머신에서 완료된 OS 업데이트 설치 실행의 상태 목록을 반환합니다.
 
 ```kusto
 PatchAssessmentResources
@@ -48,9 +48,9 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ---
 
-### <a name="list-available-os-updates-for-all-your-machines-grouped-by-update-category"></a>모든 머신에 대해 사용 가능한 OS 업데이트를 업데이트 범주를 기준으로 나열
+### <a name="list-available-os-updates-for-all-your-machines-grouped-by-update-category"></a>모든 머신에 사용 가능한 OS 업데이트를 업데이트 범주별로 나열
 
-머신에 대해 대기 중인 OS 목록을 반환합니다.
+컴퓨터에서 보류 중인 OS 목록을 반환합니다.
 
 ```kusto
 PatchAssessmentResources
@@ -85,7 +85,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### <a name="list-of-linux-os-update-installation-done"></a>완료된 Linux OS 업데이트 설치 목록
 
-최근 7일 동안 머신에서 수행된 Windows Server OS 업데이트 설치 실행 상태의 목록을 반환합니다.
+최근 7일 동안 머신에서 완료된 Linux Server - OS 업데이트 설치 실행의 상태 목록을 반환합니다.
 
 ```kusto
 PatchAssessmentResources
@@ -122,7 +122,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ### <a name="list-of-windows-server-os-update-installation-done"></a>완료된 Windows Server OS 업데이트 설치 목록
 
-최근 7일 동안 머신에서 수행된 Windows Server OS 업데이트 설치 실행 상태의 목록을 반환합니다.
+최근 7일 동안 머신에서 완료된 Windows Server - OS 업데이트 설치 실행의 상태 목록을 반환합니다.
 
 ```kusto
 PatchAssessmentResources

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: feb6462fef89a73a8e7a1d0df6808f0c58817b35
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a959a7b424a855f47a2e128b5c77727d21a9e0aa
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982163"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449780"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 로컬 개발 설정
 
-Azure Static Web Apps 사이트에는 클라우드에 게시될 때 동일한 애플리케이션처럼 함께 작동하는 서비스가 많습니다. 이러한 서비스에는 다음이 포함됩니다.
+Azure Static Web Apps 사이트는 클라우드에 게시될 때 동일한 애플리케이션인 것처럼 함께 작동하는 많은 서비스를 함께 연결합니다. 이러한 서비스에는 다음이 포함됩니다.
 
 - 정적 웹앱
 - Azure Functions API
@@ -64,6 +64,9 @@ Azure에서 제공하는 것과 유사한 환경을 제공하기 위해 [Azure S
 - **npm이 있는 [Node.js](https://nodejs.org)** : [npm](https://www.npmjs.com/)에 대한 액세스를 포함하는 [Node.js LTS](https://nodejs.org) 버전을 실행합니다.
 - **[Visual Studio Code](https://code.visualstudio.com/)** : API 애플리케이션을 디버깅하는 데 사용되지만 CLI에는 필요하지 않습니다.
 
+> [!NOTE]
+> [로컬 API](add-api.md#run-the-frontend-and-api-locally)를 사용하여 `swa`를 실행하려면 Azure Functions Core Tools가 필요합니다.
+
 ## <a name="get-started"></a>시작
 
 기존 Azure Static Web Apps 사이트의 루트 폴더에 대한 터미널을 엽니다.
@@ -106,7 +109,7 @@ Static Web Apps CLI는 Azure에 구현된 [보안 흐름](./authentication-autho
 
 에뮬레이터는 다음과 같은 [클라이언트 보안 주체](./user-information.md#client-principal-data) 값을 제공할 수 있는 페이지를 제공합니다.
 
-| 값 | Description |
+| 값 | 설명 |
 | --- | --- |
 | **사용자 이름** | 보안 공급자와 연결된 계정 이름입니다. 이 값은 클라이언트 보안 주체의 `userDetails` 속성으로 나타나며 값을 제공하지 않으면 자동으로 생성됩니다. |
 | **사용자 ID** | CLI에서 자동으로 생성되는 값입니다.  |

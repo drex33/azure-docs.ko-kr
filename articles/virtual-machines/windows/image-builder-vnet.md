@@ -10,14 +10,16 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ae5fddf35136046fae6d1dff9938700740bee01
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: cb089d643953848e1441bc3b1d6707e7e5f9d6fa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594700"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690677"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>기존 Azure VNET에 액세스를 허용하는 Windows VM용 Azure Image Builder 사용
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서에서는 Azure Image Builder를 사용하여 VNET의 기존 리소스에 대한 액세스 권한이 있는 기본 사용자 지정 Windows 이미지를 만드는 방법을 보여줍니다. 만드는 빌드 VM은 구독에서 지정하는 새 VNET 또는 기존 VNET에 배포됩니다. 기존 Azure VNET을 사용하는 경우, Azure Image Builder 서비스에는 공용 네트워크 연결이 필요하지 않습니다.
 

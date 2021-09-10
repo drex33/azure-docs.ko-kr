@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 08/16/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 4273e69e3143c25fb78961c5b6b128b69b69dbd1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 625df6ed5147b77a9829b6e7b3396f4855068d62
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068126"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538498"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -44,6 +44,8 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 * 일본 동부 및 일본 서부
 * 북유럽 및 서유럽
 * 영국 남부 및 영국 서부
+* 아랍에미리트 북부 및 아랍에미리트 중부
+* 노르웨이 동부 및 노르웨이 서부
 
 ### <a name="azure-regional-non-standard-pairs"></a>Azure 지역 비표준 쌍
 
@@ -56,14 +58,15 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 *   오스트레일리아 동부 및 동남아시아 
 *   독일 중서부 및 영국 남부
 *   독일 중서부 및 유럽 서부
+*   독일 중서부 및 프랑스 중부
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 
-RPO(복구 지점 목표) 또는 허용 가능한 최대 데이터 손실은 복제 일정의 두 배로 정의됩니다.  관찰되는 실제 RPO는 총 데이터 세트 크기와 변경률, 데이터 덮어쓰기 비율 및 전송에 사용할 수 있는 복제 대역폭 등의 요소에 따라 달라질 수 있습니다.   
+RPO(복구 지점 목표)는 데이터를 복구할 수 있는 시점을 나타냅니다. RPO 대상은 일반적으로 복제 일정의 두 배 미만이지만 달라질 수 있습니다. 경우에 따라 총 데이터 세트 크기, 변경률, 데이터 덮어쓰기 비율, 전송에 사용할 수 있는 복제 대역폭 등의 요소에 따라 대상 RPO를 초과할 수 있습니다.   
 
-* 10분 복제 일정의 경우 최대 RPO는 20분입니다.  
-* 매시간 복제 일정의 경우 최대 RPO는 2시간입니다.  
-* 일별 복제 일정의 경우 최대 RPO는 2일입니다.  
+* 10분 복제 일정의 경우 일반적인 RPO는 20분 미만입니다.  
+* 매시간 복제 일정의 경우 일반적인 RPO는 2시간 미만입니다.  
+* 매일 복제 일정의 경우 일반적인 RPO는 2일 미만입니다.  
 
 RTO(복구 시간 목표) 또는 허용 가능한 최대 비즈니스 애플리케이션 가동 중지 시간은 애플리케이션을 실행하고 두 번째 사이트의 데이터에 대한 액세스를 제공하는 요인에 따라 결정됩니다. 피어링 관계를 분리하여 대상 볼륨을 활성화하고 두 번째 사이트에서 읽기 및 쓰기 데이터 액세스를 제공하는 RTO의 스토리지 부분은 1분 내에 완료될 것으로 예상됩니다.
 

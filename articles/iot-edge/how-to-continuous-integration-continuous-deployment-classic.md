@@ -3,22 +3,22 @@ title: Azure IoT Edge 디바이스에 연속 통합 및 지속적인 배포(클�
 description: 클래식 편집기를 사용하여 연속 통합 및 지속적인 배포 설정 - Azure IoT Edge 및 Azure DevOps, Azure Pipelines
 author: kgremban
 ms.author: kgremban
-ms.date: 08/26/2020
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 757ae7f71e5b03a5dc38b6e5438cdf22a0083965
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5af2216423e625d2ba9545a37e58bb08529ebd55
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528883"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032027"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Azure IoT Edge 디바이스에 연속 통합 및 지속적인 배포(클래식 편집기)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 애플리케이션을 사용하여 DevOps를 손쉽게 채택할 수 있습니다. 이 문서에서는 Azure Pipelines의 연속 통합 및 지속적인 배포 기능을 사용하여 애플리케이션을 빠르고 효율적으로 빌드하고 테스트한 다음, 클래식 편집기를 사용하여 Azure IoT Edge에 배포하는 방법을 설명합니다. 또는 [YAML을 사용](how-to-continuous-integration-continuous-deployment.md)할 수 있습니다.
+Azure Pipelines에는 Azure IoT Edge 애플리케이션에서 DevOps를 채택하는 데 도움이 되는 기본 제공 Azure IoT Edge 작업이 포함되어 있습니다. 이 문서에서는 Azure Pipelines의 연속 통합 및 지속적인 배포 기능을 사용하여 애플리케이션을 빠르고 효율적으로 빌드하고 테스트한 다음, 클래식 편집기를 사용하여 Azure IoT Edge에 배포하는 방법을 설명합니다. 또는 [YAML을 사용](how-to-continuous-integration-continuous-deployment.md)할 수 있습니다.
 
 ![다이어그램 - 개발 및 프로덕션을 위한 CI 및 CD 분기](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
@@ -39,7 +39,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 * [환경 변수](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
 * [출력 변수](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](/azure/devops/repos/git/create-new-repo) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo** 라는 리포지토리를 만들었습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](./how-to-visual-studio-develop-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule** 이라는 모듈에 대한 코드를 포함하는 **IoTEdgeSolution** 이라는 리포지토리에 솔루션을 만들었습니다.
@@ -86,21 +86,21 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
    파이프라인 설명에서 대상 플랫폼에 따라 올바른 에이전트 사양을 선택합니다.
 
-   * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **ubuntu-16.04** 를 선택합니다.
+   * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **ubuntu-18.04** 를 선택합니다.
 
    * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](/azure/devops/pipelines/agents/v2-windows)해야 합니다.
 
    * Linux 컨테이너용 플랫폼 arm32v7 또는 arm64에서 모듈을 빌드하려는 경우에는 [Linux에서 자체 호스팅 에이전트를 설치](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent)해야 합니다.
 
-    ![빌드 에이전트 사양 구성](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png" alt-text="빌드 에이전트 사양 구성.":::
 
 6. 파이프라인은 **에이전트 작업 1** 이라는 작업으로 미리 구성됩니다. 더하기 기호( **+** )를 선택하여 작업에 4개의 작업을 추가합니다. **Azure IoT Edge** 를 두 번 추가하고, **파일 복사** 를 한 번 추가하고, **빌드 아티팩트 게시** 를 한 번 추가합니다. 각 작업을 검색하고 작업 이름 위로 마우스를 이동하면 **추가** 단추를 표시할 수 있습니다.
 
-   ![Azure IoT Edge 작업 추가](./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png" alt-text="Azure IoT Edge 작업 추가.":::
 
    네 개의 작업(task)이 모두 추가되면 에이전트 작업(job)이 다음 예제와 같이 표시됩니다.
 
-   ![빌드 파이프라인에 있는 네 개의 작업](./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png" alt-text="빌드 파이프라인에 있는 네 개의 작업.":::
 
 7. 첫 번째 **Azure IoT Edge** 작업을 선택하여 편집합니다. 이 작업은 사용자가 지정한 대상 플랫폼을 사용하여 솔루션의 모든 모듈을 빌드합니다. 다음 값을 사용하여 작업을 편집합니다.
 
@@ -116,7 +116,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
    해당 구성은 `module.json` 파일에 정의된 이미지 리포지토리 및 태그를 사용하여 모듈 이미지의 이름 및 태그를 지정합니다. 또한 **모듈 이미지 빌드** 를 사용하면 변수를 `module.json` 파일에서 정의한 정확한 값으로 바꿀 수 있습니다. Visual Studio 또는 Visual Studio Code에서 `.env` 파일의 실제 값을 지정합니다. Azure Pipelines에서 **파이프라인 변수** 탭의 값을 설정합니다. 파이프라인 편집기 메뉴에서 **변수** 탭을 선택하고 이름 및 값을 다음과 같이 구성합니다.
 
-   * **ACR_ADDRESS**: 실제 Azure Container Registry **로그인 서버** 이름으로 바꿉니다. Azure Portal에 있는 컨테이너 레지스트리의 개요 페이지에서 Login 서버 값을 검색할 수 있습니다.
+   * **ACR_ADDRESS**: 실제 Azure Container Registry **로그인 서버** 이름으로 바꿉니다. Azure Portal의 컨테이너 레지스트리 개요 페이지에서 로그인 서버 값을 찾을 수 있습니다.
 
    프로젝트에 다른 변수가 있는 경우 이 탭에서 이름 및 값을 지정할 수 있습니다. **모듈 이미지 빌드** 는 `${VARIABLE}` 형식의 변수만 인식합니다. `**/module.json` 파일에서 이 형식을 사용하는지 확인합니다.
 

@@ -1,19 +1,21 @@
 ---
 title: 매핑 데이터 흐름의 싱크 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 매핑 데이터 흐름에서 싱크 변환을 구성하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/06/2021
-ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/24/2021
+ms.openlocfilehash: 39c8ed3f8d8b11839964ac376ac35badd6546411
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789665"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824627"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 싱크 변환
 
@@ -21,7 +23,7 @@ ms.locfileid: "110789665"
 
 데이터 변환을 완료한 후에는 싱크 변환을 사용하여 대상 저장소에 데이터를 씁니다. 모든 데이터 흐름에는 하나 이상의 싱크 변환이 필요하지만 변환 흐름을 완료하는 데 필요한 수 만큼의 싱크에 쓸 수 있습니다. 추가 싱크에 쓰려면 새 분기 및 조건부 분할을 통해 새 스트림을 만듭니다.
 
-각 싱크 변환은 정확히 하나의 Azure Data Factory 데이터 세트 개체 또는 연결된 서비스와 연결됩니다. 싱크 변환은 작성하려는 데이터의 셰이프와 위치를 결정합니다.
+각 싱크 변환은 정확히 하나의 데이터 세트 개체나 연결된 서비스와 연결됩니다. 싱크 변환은 작성하려는 데이터의 셰이프와 위치를 결정합니다.
 
 ## <a name="inline-datasets"></a>인라인 데이터 세트
 
@@ -35,11 +37,20 @@ ms.locfileid: "110789665"
 
 ![선택된 인라인을 보여 주는 스크린샷.](media/data-flow/inline-selector.png "선택된 인라인을 보여 주는 스크린샷.")
 
+## <a name="workspace-db-synapse-workspaces-only"></a>작업 영역 DB(Synapse 작업 영역에만 해당)
+
+Azure Synapse 작업 영역에서 데이터 흐름을 사용하는 경우 Synapse 작업 영역 내에 있는 데이터베이스 형식으로 직접 데이터를 싱크하는 추가 옵션이 제공됩니다. 이 옵션을 사용하면 해당 데이터베이스에 대한 연결된 서비스 또는 데이터 세트를 추가할 필요성이 줄어듭니다.
+
+> [!NOTE]
+> Azure Synapse 작업 영역 DB 커넥터는 현재 퍼블릭 미리 보기로 제공되며 지금은 Spark Lake 데이터베이스에서만 사용할 수 있습니다.
+
+![선택된 작업 영역 DB를 보여 주는 스크린샷](media/data-flow/syms-sink.png "선택된 인라인을 보여 주는 스크린샷.")
+
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> 지원되는 싱크 형식
 
 매핑 데이터 흐름은 ELT(추출, 로드, 변환) 접근 방식을 따르며 Azure에 모두 있는 *준비* 데이터 세트와 작동합니다. 현재 원본 변환에서 다음 데이터 세트를 사용할 수 있습니다.
 
-| 커넥터 | 형식 | 데이터 세트/인라인 |
+| 커넥터 | 서식 | 데이터 세트/인라인 |
 | --------- | ------ | -------------- |
 | [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties) <br>[델타](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>✓/- <br>-/✓ <br>✓/- <br>✓/✓<br>✓/- |
 | [Azure Cosmos DB(SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
@@ -55,7 +66,7 @@ ms.locfileid: "110789665"
 
 이러한 커넥터와 관련된 설정은 **설정** 탭에 있습니다. 이러한 설정에 대한 정보 및 데이터 흐름 스크립트 예는 커넥터 설명서에 있습니다.
 
-Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-overview.md)를 통해 액세스할 수 있습니다. 데이터 흐름에서 다른 원본으로 데이터를 쓰려면 복사 작업을 사용하여 지원되는 싱크에서 해당 데이터를 로드합니다.
+이 서비스는 [90가지가 넘는 네이티브 커넥터](connector-overview.md)에 액세스할 수 있습니다. 데이터 흐름에서 다른 원본으로 데이터를 쓰려면 복사 작업을 사용하여 지원되는 싱크에서 해당 데이터를 로드합니다.
 
 ## <a name="sink-settings"></a>싱크 설정
 
@@ -67,7 +78,7 @@ Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-over
 
 ![싱크 설정을 보여 주는 스크린샷.](media/data-flow/sink-settings.png "싱크 설정을 보여 주는 스크린샷.")
 
-**스키마 드리프트**: [스키마 드리프트](concepts-data-flow-schema-drift.md)는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리하는 Data Factory 기능입니다. **스키마 드리프트 허용** 을 사용하도록 설정하여 싱크 데이터 스키마에 정의된 내용 위에 추가 열을 씁니다.
+**스키마 드리프트**: [스키마 드리프트](concepts-data-flow-schema-drift.md)는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리하는 서비스의 기능입니다. **스키마 드리프트 허용** 을 사용하도록 설정하여 싱크 데이터 스키마에 정의된 내용 위에 추가 열을 씁니다.
 
 **스키마 유효성 검사**: 스키마 유효성 검사를 선택한 경우, 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치하지 않으면 데이터 흐름이 실패합니다. 이 설정을 사용하여 원본 데이터가 정의된 프로젝션의 계약을 충족하도록 적용합니다. 데이터베이스 원본 시나리오에서 열 이름이 또는 형식이 변경되었다는 신호를 보내는 데 유용합니다.
 
@@ -88,7 +99,7 @@ Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-over
 예를 들어, `cacheExample`이라는 캐시 싱크에 `column1`의 단일 키 열을 지정하는 경우, `cacheExample#lookup()`를 호출하면 하나의 매개 변수가 캐시 싱크에서 일치시킬 행을 지정합니다. 함수는 매핑되는 각 열에 대해 하위 열이 있는 단일 복합 열을 출력합니다.
 
 > [!NOTE]
-> 캐시 싱크는 캐시 조회를 통해 참조하는 모든 변환에서 완전히 독립적인 데이터 스트림에 있어야 합니다. 캐시 싱크도 첫 번째 싱크에 써야 합니다. 
+> 캐시 싱크는 캐시 조회를 통해 참조하는 모든 변환에서 완전히 독립적인 데이터 스트림에 있어야 합니다. 또한 캐시 싱크는 작성된 첫 번째 싱크여야 합니다. 
 
 **작업 출력에 쓰기** 캐시된 싱크는 필요에 따라 출력 데이터를 다음 파이프라인 작업의 입력에 쓸 수 있습니다. 이렇게 하면 데이터 저장소에 데이터를 유지할 필요 없이 데이터 흐름 작업에서 데이터를 빠르고 쉽게 전달할 수 있습니다.
 
@@ -111,11 +122,11 @@ Azure Data Factory는 [90가지 이상의 네이티브 커넥터](connector-over
 
 ### <a name="sink-groups"></a>싱크 그룹
 
-일련의 싱크에 동일한 순서 번호를 적용하여 싱크를 함께 그룹화할 수 있습니다. ADF는 이러한 싱크를 병렬로 실행할 수 있는 그룹으로 처리합니다. 병렬 실행 옵션은 파이프라인 데이터 흐름 작업에 노출됩니다.
+일련의 싱크에 동일한 순서 번호를 적용하여 싱크를 함께 그룹화할 수 있습니다. 이 서비스는 해당 싱크를 병렬로 실행할 수 있는 그룹으로 처리합니다. 병렬 실행 옵션은 파이프라인 데이터 흐름 작업에 노출됩니다.
 
 ## <a name="error-row-handling"></a>오류 행 처리
 
-데이터베이스에 쓸 때 대상에서 설정된 제약 조건으로 인해 특정 데이터 행이 실패할 수 있습니다. 기본적으로 첫 번째 오류가 발생할 때 데이터 흐름 실행이 실패합니다. 특정 커넥터에서 **오류 발생 시 계속** 을 선택하여 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료되도록 할 수 있습니다. 현재 Azure SQL Database에서는 해당 기능을 사용할 수 없습니다. 자세한 내용은 [Azure SQL DB의 오류 행 처리](connector-azure-sql-database.md#error-row-handling)를 참조하세요.
+데이터베이스에 쓸 때 대상에서 설정된 제약 조건으로 인해 특정 데이터 행이 실패할 수 있습니다. 기본적으로 첫 번째 오류가 발생할 때 데이터 흐름 실행이 실패합니다. 특정 커넥터에서 **오류 발생 시 계속** 을 선택하여 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료되도록 할 수 있습니다. 현재 이 기능은 Azure SQL Database와 Azure Synapse에서만 사용할 수 없습니다. 자세한 내용은 [Azure SQL DB의 오류 행 처리](connector-azure-sql-database.md#error-row-handling)를 참조하세요.
 
 다음은 싱크 변환에서 자동으로 데이터베이스 오류 행 처리를 사용하는 방법에 대한 비디오 자습서입니다.
 

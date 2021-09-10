@@ -8,19 +8,19 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d3b956803e9a796c49288f90873e88c3b69f1c7b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502898"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303079"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>AzCopy에서 로그 및 플랜 파일을 사용하여 오류 찾기 및 작업 계속하기
 
 AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서는 로그를 사용하여 오류를 진단한 다음, 플랜 파일을 사용하여 작업을 계속하는 데 도움이 됩니다. 또한 이 문서에서는 로그 및 플랜 파일의 세부 정보 표시 수준과 저장되는 기본 위치를 변경하여 로그 및 플랜 파일을 구성하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> AzCopy를 시작하는 데 도움이 되는 콘텐츠를 찾고 있다면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요.
+> AzCopy를 시작하는 데 도움이 되는 콘텐츠를 찾고 있다면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요. 이 문서는 현재 지원되는 AzCopy 버전이므로 AzCopy **V10** 에 적용됩니다. 이전 버전의 AzCopy를 사용해야 하는 경우, [이전 버전의 AzCopy 사용](storage-use-azcopy-v10.md#previous-version)을 참조하세요.
 
 ## <a name="log-and-plan-files"></a>로그 및 계획 파일
 
@@ -74,8 +74,7 @@ azcopy jobs show <job-id> --with-status=Failed
 다음 명령을 사용하여 실패/취소된 작업을 계속합니다. 이 명령은 보안상의 이유로 영구적이지 않기 때문에 SAS 토큰과 함께 식별자를 사용합니다.
 
 ```
-azcopy jobs resume <job-id> --source-sas="<sas-token>"
-azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-token>"
 ```
 
 > [!TIP]

@@ -1,6 +1,6 @@
 ---
 title: 'ML 스튜디오(클래식): Excel에서 웹 서비스 사용 - Azure'
-description: Azure Machine Learning 스튜디오(클래식)를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
+description: Machine Learning Studio(클래식)를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,18 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e8e7404a2b643cf90866253e5a7453381b66f73e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52fe23315bc6f455460e8e3727d263e14799b186
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517861"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582838"
 ---
-# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Excel에서 Azure Machine Learning 스튜디오(클래식) 웹 서비스 사용
+# <a name="consuming-an-machine-learning-studio-classic-web-service-from-excel"></a>Excel에서 Machine Learning Studio(클래식) 웹 서비스 사용
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Azure Machine Learning 스튜디오(클래식)를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
+Machine Learning Studio(클래식)를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
 
 Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추가 기능](excel-add-in-for-web-services.md)을 사용하는 것이 좋습니다.
 
@@ -40,7 +40,7 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 
 **새 웹 서비스**
 
-1. Azure Machine Learning 웹 서비스 포털에서 **사용** 을 선택합니다.
+1. Machine Learning 웹 서비스 포털에서 **사용** 을 선택합니다.
 2. 사용 페이지의 **웹 서비스 사용 옵션** 섹션에서 Excel 아이콘을 클릭합니다.
 
 **통합 문서 사용**

@@ -10,23 +10,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 08/09/2021
 ms.author: yelevin
-ms.openlocfilehash: fb947b6f5930e3a0d81d53a1660885ebf1c51cca
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: b68d2a8219e7aa23aac3187333160dfd4276e7b8
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810501"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567713"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Azure Sentinel의 고급 다단계 공격 감지
 
 > [!IMPORTANT]
 > 일부 Fusion 감지(아래 참조)는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Azure Sentinel은 기계 학습 기반의 Fusion 기술을 사용하면 킬 체인의 다양한 단계에서 관찰되는 비정상 동작과 의심스러운 활동을 식별하여 자동으로 다단계 공격을 감지할 수 있습니다. 이렇게 찾은 내용을 기반으로 Azure Sentinel은 놓치기 쉬운 인시던트를 생성합니다. 이러한 인시던트는 둘 이상의 경고 또는 활동으로 구성됩니다. 설계 의도에 따라 이러한 인시던트는 볼륨이 작고, 충실도가 높고, 심각도가 높습니다.
 
 환경에 맞게 사용자 지정되는 이 감지 기술은 [가양성](false-positives.md) 비율을 줄일 뿐 아니라 정보가 제한되거나 누락된 공격도 감지할 수 있습니다.
+
+
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>고급 다단계 공격 검색 구성
 
@@ -57,7 +61,7 @@ Azure Sentinel은 기계 학습 기반의 Fusion 기술을 사용하면 킬 체�
 >
 > - 분석 규칙 경고를 사용하는 Fusion 기반 검색은 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-**Fusion** 은 [예약된 분석 규칙](tutorial-detect-threats-custom.md) 집합에 의해 생성된 경고를 사용하여 다단계 공격을 검색할 수 있습니다. Azure Sentinel의 Fusion 기능을 최대한 활용할 수 있도록 다음 단계를 수행하여 이러한 규칙을 구성하고 사용하는 것이 좋습니다.
+**Fusion** 은 [예약된 분석 규칙](detect-threats-custom.md) 집합에 의해 생성된 경고를 사용하여 다단계 공격을 검색할 수 있습니다. Azure Sentinel의 Fusion 기능을 최대한 활용할 수 있도록 다음 단계를 수행하여 이러한 규칙을 구성하고 사용하는 것이 좋습니다.
 
 1. **분석** 블레이드의 **규칙 템플릿** 탭에서 찾을 수 있는 다음 **예약된 분석 규칙 템플릿** 을 사용하여 새 규칙을 만듭니다. 템플릿 갤러리에서 규칙 이름을 클릭하고 미리 보기 창에서 **규칙 만들기** 를 클릭합니다.
 
@@ -737,6 +741,26 @@ Azure Sentinel은 기계 학습 기반의 Fusion 기술을 사용하면 킬 체�
 
 - **자격 증명이 유출된 사용자에서 로그인 이벤트 발생 후 클라우드 앱의 랜섬웨어**
 
+### <a name="multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview"></a>랜섬웨어 활동과 관련된 여러 경고가 검색됨(퍼블릭 미리 보기)
+
+Azure Sentinel은 다음 데이터 원본에서 다양한 유형의 여러 경고가 검색되고 랜섬웨어 활동과 관련될 수 있는 경우 인시던트를 생성합니다.
+
+- [Azure Defender(Azure Security Center)](connect-azure-security-center.md)
+- [엔드포인트에 대한 Microsoft Defender](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Azure Sentinel 예약된 분석 규칙](detect-threats-built-in.md#scheduled). Fusion은 전술 정보가 포함된 예약된 분석 규칙만 고려합니다.
+
+이러한 Fusion 인시던트를 **랜섬웨어 활동과 관련된 여러 경고가 검색됨** 이라고 하며, 관련 경고가 특정 기간 내에 검색되고 공격의 **실행** 및 **방어 우회** 단계와 연결된 경우에 생성됩니다.
+
+예를 들어 다음 경고가 특정 기간 내에 동일한 호스트에서 트리거되는 경우 Azure Sentinel은 가능한 랜섬웨어 활동에 대해 인시던트를 생성합니다.
+
+- Azure Sentinel 예약된 경고(정보): **Windows 오류 및 경고 이벤트**
+- Azure Defender(보통): **‘GandCrab’ 랜섬웨어가 차단됨**
+- 엔드포인트용 Microsoft Defender(정보): **‘Emotet’ 맬웨어가 검색됨**
+- Azure Defender(낮음): **‘Tofsee’ 백도어가 검색됨**
+- 엔드포인트용 Microsoft Defender(정보): **‘Parite’ 맬웨어가 검색됨**
+
 ## <a name="remote-exploitation"></a>원격 익스플로잇
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>의심스러운 공격 프레임워크 사용 후 Palo Alto Networks 방화벽이 비정상적인 트래픽에 플래그 지정
@@ -779,6 +803,6 @@ Azure Sentinel은 기계 학습 기반의 Fusion 기술을 사용하면 킬 체�
 
 ## <a name="next-steps"></a>다음 단계
 
-고급 다단계 공격 감지에 대해 자세히 알아보았으므로, [Azure Sentinel 시작](quickstart-get-visibility.md) 빠른 시작을 통해 데이터 및 잠재적 위협에 대한 가시성을 얻는 방법을 알아볼 수 있습니다.
+고급 다단계 공격 감지에 대해 자세히 알아보았으므로, [Azure Sentinel 시작](get-visibility.md) 빠른 시작을 통해 데이터 및 잠재적 위협에 대한 가시성을 얻는 방법을 알아볼 수 있습니다.
 
-준비된 인시던트를 조사할 준비가 되었으면 [Azure Sentinel을 사용하여 인시던트 조사](tutorial-investigate-cases.md) 자습서를 살펴보세요.
+준비된 인시던트를 조사할 준비가 되었으면 [Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md) 자습서를 살펴보세요.

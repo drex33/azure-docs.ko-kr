@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b6b0fa5e1af60b65c513fd3fa6250dba2a978879
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142984"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965899"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -57,11 +57,11 @@ SAP Netweaver 및 SAP HANA에 Azure NetApp Files를 고려하는 경우 다음�
 
 Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 크기와 서비스 수준의 함수입니다. 
 
-크기 및 성능 관계와 SVM(스토리지 가상 머신)의 LIF(논리 인터페이스)에 대한 물리적 제한이 있다는 점을 이해하는 것이 중요합니다.
+크기 및 성능 관계와 서비스의 스토리지 엔드포인트에 대한 물리적 제한이 있다는 점을 이해하는 것이 중요합니다. 각 스토리지 엔드포인트는 볼륨을 만들 때 [위임된 서브넷 Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)에 동적으로 삽입되며 IP 주소를 받습니다. Azure NetApp Files 볼륨은 사용 가능한 용량 및 배포 논리에 따라 스토리지 엔드포인트를 공유합니다
 
-아래 표는 단일 LIF의 물리적 대역폭 용량을 초과하기 때문에 백업을 저장하기 위해 큰 "Standard" 볼륨을 만드는 것이 합리적이며 12TB 이상의 "Ultra" 볼륨을 만드는 것은 의미가 없음을 보여줍니다. 
+아래 표는 단일 용량의 최대 물리적 대역폭 용량을 초과하기 때문에 백업을 저장하기 위해 큰 "Standard" 볼륨을 만드는 것이 합리적이며 12TB 이상의 "Ultra" 볼륨을 만드는 것은 의미가 없음을 보여줍니다. 
 
-LIF와 단일 Linux 세션의 최대 처리량은 1.2~1.4GB/초입니다. /hana/data에 대해 더 많은 처리량이 필요한 경우 SAP HANA 데이터 볼륨 파티셔닝을 사용하여 데이터를 다시 로드하는 동안 I/O 작업을 스트라이핑하거나 여러 NFS 공유에 있는 여러 HANA 데이터 파일에 대해 HANA 저장점을 스트라이핑할 수 있습니다. HANA 데이터 볼륨 스트라이핑에 대한 자세한 내용은 다음 문서를 참조하세요.
+용량과 단일 Linux 세션의 최대 쓰기 처리량은 1.2~1.4GB/초입니다. /hana/data에 대해 더 많은 처리량이 필요한 경우 SAP HANA 데이터 볼륨 파티셔닝을 사용하여 데이터를 다시 로드하는 동안 I/O 작업을 스트라이핑하거나 여러 NFS 공유에 있는 여러 HANA 데이터 파일에 대해 HANA 저장점을 스트라이핑할 수 있습니다. HANA 데이터 볼륨 스트라이핑에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [HANA 관리자 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [SAP HANA - 데이터 볼륨 분할에 대한 블로그](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -95,7 +95,7 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 높은 대역폭이 필요하지 않은 HANA 시스템의 경우 ANF 볼륨 크기가 더 작을 수 있습니다. HANA 시스템에 더 많은 처리량이 필요한 경우 온라인으로 용량 크기를 조정하여 볼륨을 조정할 수 있습니다. 백업 볼륨에 대해 정의된 KPI는 없습니다. 그러나 백업 볼륨 처리량은 성능이 좋은 환경에 필수적입니다. 로그 및 데이터 볼륨 성능은 고객의 기대에 맞게 설계되어야 합니다.
 
 > [!IMPORTANT]
-> 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 가상 머신의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
+> 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 단일 세션의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
 
 데이터 및 로그에 대한 SAP 최소 처리량 요구 사항을 충족하기 위해 또한 **/hana/shared** 에 대한 지침에 따라 권장 크기는 다음과 같습니다.
 
@@ -104,7 +104,7 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 | /hana/log/ | 4TiB | 2TiB | v4.1 |
 | /hana/data | 6.3TiB | 3.2TiB | v4.1 |
 | /hana/shared scale-up | 최소(1TB, 1 x RAM)  | 최소(1TB, 1 x RAM) | v3 또는 v4.1 |
-| /hana/shared scale-out | 작업자 노드의 1 x RAM<br /> 작업자 노드 4개당  | 작업자 노드의 1 x RAM<br /> 작업자 노드 4개당  | v3 또는 v4.1 |
+| /hana/shared scale-out | 작업자 노드의 1 x RAM<br /> 4개 작업자 노드 당  | 작업자 노드의 1 x RAM<br /> 4개 작업자 노드 당  | v3 또는 v4.1 |
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 또는 v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 또는 v4.1 |
 
@@ -128,10 +128,10 @@ ANF 시스템 업데이트 및 업그레이드는 고객 환경에 영향을 주
 
 
 ## <a name="volumes-and-ip-addresses-and-capacity-pools"></a>볼륨, IP 주소 및 용량 풀
-ANF를 사용하는 경우, 기본 인프라가 구축되는 방식을 이해하는 것이 중요합니다. 용량 풀은 구조일 뿐이므로 ANF에 대한 청구 모델을 보다 간단하게 만들 수 있습니다. 용량 풀은 기본 인프라와 물리적 관계가 없습니다. 용량 풀을 만드는 경우 더 이상 요금을 청구할 수 없는 셸만 만들어집니다. 볼륨을 만들면 첫 번째 SVM(스토리지 가상 머신)이 여러 NetApp 시스템의 클러스터에 만들어집니다. 이 SVM이 볼륨에 액세스할 수 있도록 단일 IP가 만들어집니다. 여러 볼륨을 만드는 경우 모든 볼륨이 이 다중 컨트롤러 NetApp 클러스터를 통해 이 SVM에 배포됩니다. 하나의 IP만 얻더라도 데이터는 여러 컨트롤러에 분산됩니다. ANF에는 구성된 스토리지의 볼륨 또는/및 용량이 사전 정의된 내부 수준에 도달하면 고객 워크로드를 자동으로 배포하는 논리가 있습니다. 볼륨에 액세스하기 위해 새 IP 주소가 할당되기 때문에 이러한 경우가 발생할 수 있습니다.
+ANF를 사용하는 경우, 기본 인프라가 구축되는 방식을 이해하는 것이 중요합니다. 용량 풀은 용량 풀 서비스 수준에 따라 용량과 성능 예산과 청구 단위를 제공하는 구문입니다. 용량 풀은 기본 인프라와 물리적 관계가 없습니다. 서비스에서 볼륨을 만들 때 스토리지 엔드포인트가 만들어집니다. 볼륨에 대한 데이터 액세스를 제공하기 위해 이 스토리지 엔드포인트에 단일 IP 주소가 할당됩니다. 여러 볼륨을 만드는 경우, 모든 볼륨이 이 스토리지 엔드포인트에 연결된 기본 운영 체제 미설치 장치로 분산됩니다. ANF에는 구성된 스토리지의 볼륨 또는/및 용량이 사전 정의된 내부 수준에 도달하면 고객 워크로드를 자동으로 배포하는 논리가 있습니다. 새 IP 주소를 사용하는 새 스토리지 엔드포인트는 볼륨에 액세스하기 위해 자동으로 생성되기 때문에 이러한 경우를 알 수 있습니다. ANF 서비스는 이 배포 논리에 대해 고객 제어를 제공하지 않습니다.
 
-##<a name="log-volume-and-log-backup-volume"></a>로그 볼륨 및 로그 백업 볼륨
-"로그 볼륨"( **/hana/log**)은 온라인 다시 실행 로그를 작성하는 데 사용됩니다. 따라서 이 볼륨에 열려 있는 파일이 있으므로 이 볼륨을 스냅샷하는 것은 의미가 없습니다. 온라인 다시 실행 로그 파일은 온라인 다시 실행 로그 파일이 가득 차거나 다시 실행 로그 백업이 실행되면 로그 백업 볼륨에 보관되거나 백업됩니다. 적절한 백업 성능을 제공하려면 로그 백업 볼륨에 양호한 처리량이 필요합니다. 스토리지 비용을 최적화하려면 여러 HANA 인스턴스의 로그 백업 볼륨을 통합하는 것이 좋습니다. 따라서 여러 HANA 인스턴스가 동일한 볼륨을 활용하고 백업을 다른 디렉터리에 기록합니다. 이러한 통합을 사용하면 볼륨을 조금 더 크게 만들어야 하므로 더 많은 처리량을 얻을 수 있습니다. 
+## <a name="log-volume-and-log-backup-volume"></a>로그 볼륨 및 로그 백업 볼륨
+"로그 볼륨"( **/hana/log**)은 온라인 다시 실행 로그를 작성하는 데 사용됩니다. 따라서 이 볼륨에 열려 있는 파일이 있으므로 이 볼륨을 스냅샷하는 것은 의미가 없습니다. 온라인 다시 실행 로그 파일은 온라인 다시 실행 로그 파일이 가득 차거나 다시 실행 로그 백업이 실행되면 로그 백업 볼륨에 보관되거나 백업됩니다. 적절한 백업 성능을 제공하려면 로그 백업 볼륨에 양호한 처리량이 필요합니다. 스토리지 비용을 최적화하려면 여러 HANA 인스턴스의 로그 백업 볼륨을 통합하는 것이 좋습니다. 따라서, 여러 HANA 인스턴스는 동일한 볼륨을 활용하고 백업을 다른 디렉터리에 기록합니다. 이러한 통합을 사용하면 볼륨을 조금 더 크게 만들어야 하므로 더 많은 처리량을 얻을 수 있습니다. 
 
 전체 HANA 데이터베이스 백업 쓰기를 사용하는 볼륨에도 동일하게 적용됩니다.  
  
@@ -182,8 +182,8 @@ Commvault 백업 제품 사용자의 경우, Commvault IntelliSnap V.11.21 이�
 
 
 ### <a name="back-up-the-snapshot-using-azure-blob-storage"></a>Azure Blob 스토리지를 사용하여 스냅샷 백업
-Azure Blob 스토리지에 백업은 ANF 기반 HANA 데이터베이스 스토리지 스냅샷 백업을 비용 효율적이고 빠르게 저장할 수 있는 방법입니다. 스냅샷을 Azure Blob 스토리지에 저장하려면 Azcopy 도구를 사용하는 것이 좋습니다. 이 도구의 최신 버전을 다운로드하여 GitHub의 python 스크립트가 설치된 bin 디렉터리에 설치합니다.
-최신 azcopy 도구를 다운로드합니다.
+Azure Blob 스토리지에 백업은 ANF 기반 HANA 데이터베이스 스토리지 스냅샷 백업을 비용 효율적이고 빠르게 저장할 수 있는 방법입니다. 스냅샷을 Azure Blob 스토리지에 저장하려면 AzCopy 도구를 사용하는 것이 좋습니다. 이 도구의 최신 버전을 다운로드하여 GitHub의 python 스크립트가 설치된 bin 디렉터리에 설치합니다.
+최신 AzCopy 도구를 다운로드합니다.
 
 ```
 root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 295dfa5a02ce3f46049805339a4f7918ce20361e
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565197"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452929"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대한 개발자 정보
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 ## <a name="terms-for-features-in-public-preview"></a>공개 미리 보기 기능에 대한 사용 조건
 
 - 공개 미리 보기 기능은 평가 목적으로만 사용하는 것이 좋습니다.
-- SLA(서비스 수준 약정)는 공개 미리 보기 기능에 적용되지 않습니다.
+- [서비스 수준 계약(SLA)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c)은 공개 미리 보기 기능에 적용되지 않습니다.
 - 공개 미리 보기 기능에 대한 지원 요청은 정식 지원 채널을 통해 제출할 수 있습니다.
 
 ## <a name="user-flows"></a>사용자 흐름

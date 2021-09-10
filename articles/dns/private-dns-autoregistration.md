@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: c9ed45d452f2a6ed89ee71826fbee5e107a395ae
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0854412a83f941e43e79ebcde2f70ae62dabdf15
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761636"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965164"
 ---
 # <a name="what-is-the-auto-registration-feature-in-azure-dns-private-zones"></a>Azure DNS 프라이빗 영역의 자동 등록 기능이란?
 
@@ -30,6 +30,7 @@ Azure DNS 프라이빗 영역 자동 등록 기능을 사용하면 가상 네트
 * DNS 레코드는 주 가상 머신 NIC에 대해서만 자동으로 생성됩니다. 가상 머신에 NIC가 둘 이상 있는 경우 다른 네트워크 인터페이스에 대한 DNS 레코드를 수동으로 만들 수 있습니다.
 * 주 가상 머신 NIC에서 DHCP를 사용하는 경우에만 DNS 레코드가 자동으로 생성됩니다. [Azure에서 여러 IP 주소가](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config) 포함된 구성 등, 고정 IP를 사용할 경우 자동 등록에서 해당 가상 머신에 대한 레코드를 만들지 않습니다.
 * IPv6에 대한 자동 등록(AAAA 레코드)은 지원되지 않습니다.
+* 프라이빗 DNS 영역에 대한 자동 등록은 단일 VNET으로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

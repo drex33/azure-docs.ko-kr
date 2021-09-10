@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Linux용 그래픽 원격 데스크톱을 사용
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 활성화하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604cde661fb566851d3eacdb42dd41f4effded7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647956"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566850"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Azure Lab Services에서 Linux 가상 머신에 대해 그래픽 원격 데스크톱을 사용하도록 설정
 이 문서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -25,12 +25,15 @@ ms.locfileid: "94647956"
 강사는 RDP를 사용하기 위해 다음을 수행해야 합니다.
   - 원격 데스크톱 연결을 사용하도록 설정합니다. 이 설정은 특히 RDP의 VM 포트를 여는 데 필요합니다.
   - RDP 원격 데스크톱 서버를 설치합니다.
-  - MATE, XFCE 등의 Linux 그래픽 데스크톱 환경을 설치합니다.
+  - XFCE, MATE 등의 Linux 그래픽 데스크톱 환경을 설치합니다.
+
+> [!WARNING]
+>  [GNOME](https://www.gnome.org/) 이외의 다른 그래픽 데스크톱 환경을 사용하는 것이 좋습니다.  GNOME는 Azure Lab Services에서 VM이 제대로 작동하는 데 필요한 Azure Linux 에이전트와 충돌하므로 랩 VM에 GNOME를 설치하지 않아야 합니다.  위에서 설명한 대로 XFCE 또는 MATE 같은 그래픽 데스크톱 환경을 사용하는 것이 좋습니다.
 
 ### <a name="x2go-setup"></a>X2Go 설정
 강사는 X2Go를 사용하기 위해 다음을 수행해야 합니다.
 - X2Go 원격 데스크톱 서버를 설치합니다.
-- MATE, XFCE 등의 Linux 그래픽 데스크톱 환경을 설치합니다.
+- XFCE, MATE 등의 Linux 그래픽 데스크톱 환경을 설치합니다.
 
 X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트를 사용합니다.  따라서 X2Go용 VM에서 포트를 여는 데 필요한 추가 구성은 없습니다.
 

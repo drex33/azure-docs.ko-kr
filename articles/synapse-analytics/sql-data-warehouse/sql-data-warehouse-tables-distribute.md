@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f85a8d539c8f841bafaae9d877446c5e6ecb416
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673572"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538823"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용하여 분산 테이블을 디자인하기 위한 지침
 
-전용 SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+이 문서에는 전용 SQL 풀의 해시 분산 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항이 포함됩니다.
 
 이 문서에서는 사용자가 전용 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure Synapse Analytics 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요.
 
@@ -28,7 +28,7 @@ ms.locfileid: "98673572"
 
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
 
-이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블** 에 중점을 둡니다. **라운드 로빈 테이블** 은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
+이 문서에서는 대규모 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산** 에 중점을 둡니다. **라운드 로빈 분산** 은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요.
 
@@ -107,7 +107,7 @@ WITH
   
 병렬 처리의 균형을 맞추려면 다음과 같은 배포 열을 선택합니다.
 
-- **고유 값이 많음.** 열에 일부 중복 값이 있을 수 있습니다. 그러나 값이 동일한 모든 행은 동일한 배포에 할당됩니다. 60개의 배포가 있으므로 열에 적어도 60개의 고유 값이 있어야 합니다.  일반적으로 고유 값 수는 이보다 훨씬 큽니다.
+- **고유 값이 많음.** 열에 중복 값이 있을 수 있습니다.  값이 동일한 모든 행은 동일한 배포에 할당됩니다. 60개 배포가 있기 때문에 일부 배포에는 고유한 값이 1개를 초과(> 1)할 수 있지만 다른 배포는 0 값으로 끝날 수 있습니다.  
 - **NULL이 없거나 소수의 NULL만 있음.** 극단적인 예로, 열에 있는 모든 값이 NULL이면 모든 행이 동일한 배포에 할당됩니다. 결과적으로 쿼리 처리가 하나의 배포에 기울어져 병렬 처리의 이점이 없습니다.
 - **날짜 열이 아님**. 동일한 날짜에 대한 모든 데이터는 동일한 배포에 할당됩니다. 여러 사용자가 모두 같은 날짜에 필터링할 경우에는 60개 배포 중 하나만 모든 처리 작업을 수행합니다.
 

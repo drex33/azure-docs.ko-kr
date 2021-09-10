@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 07/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e2eafae185551c79d651ec6dcf39ad11eb8534
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a945afeedbd57f33163489a149c8d7da9c3925
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567074"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
 
@@ -83,7 +83,7 @@ RADIUS 클라이언트를 구성하려면 지침을 따르십시오.
 
 * Azure Multi-Factor Authentication 서버의 IP 주소에 RADIUS를 통해 인증하도록 어플라이언스/서버를 구성합니다. 그러면 RADIUS 서버의 역할을 담당합니다.
 * 이전에 구성된 동일한 공유 암호를 사용합니다.
-* 사용자 자격 증명의 유효성을 검사하고, 2단계 인증을 수행하고, 응답을 받은 다음, RADIUS 액세스 요청에 응답할 시간이 있도록 30~60초의 RADIUS 시간 제한을 구성합니다.
+* 사용자 자격 증명의 유효성을 검사하고, 2단계 인증을 수행하고, 응답을 받은 다음, RADIUS 액세스 요청에 응답할 시간이 있도록 RADIUS 시간 제한을 60초로 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

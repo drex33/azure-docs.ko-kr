@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 Azure Files가 포함된 볼륨을 수동으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 7f3c8ae63e908f440740277084293a011b80b9d7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/08/2021
+ms.openlocfilehash: c68783cd614ca5dc1a569f17365992a378d225b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776091"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566548"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## <a name="mount-file-share-as-an-inline-volume"></a>파일 공유를 인라인 볼륨으로 탑재
-> 참고: 인라인 `azureFile` 볼륨에서 1.18.15, 1.19.7, 1.20.2, 1.21.0으로 시작하는 비밀 네임스페이스는 `default` 네임스페이스로만 설정할 수 있습니다. 다른 비밀 네임스페이스를 지정하려면 아래 영구 볼륨 예제를 대신 사용하세요.
+> 참고: 인라인 `azureFile` 볼륨은 Pod와 같은 네임스페이스의 비밀에만 액세스할 수 있습니다. 다른 비밀 네임스페이스를 지정하려면 대신 다음 영구 볼륨 예제를 사용하세요.
 
 Azure Files 공유를 Pod에 탑재하려면 컨테이너 사양에서 볼륨을 구성합니다. 다음 내용이 포함된 `azure-files-pod.yaml`이라는 새 파일을 만듭니다. 파일 공유 이름 또는 비밀 이름을 변경한 경우 *shareName* 및 *secretName* 을 업데이트하세요. 원하는 경우, 파일 공유가 Pod에 마운트되는 경로인 `mountPath`를 업데이트하세요. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
 
@@ -226,6 +226,14 @@ azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
   - name: azure
     persistentVolumeClaim:
       claimName: azurefile
+```
+
+Pod 사양을 현재 위치에서 업데이트할 수 없으므로 `kubectl` 명령을 사용하여 Pod를 삭제한 후 다시 만들어야 합니다.
+
+```console
+kubectl delete pod mypod
+
+kubectl apply -f azure-files-pod.yaml
 ```
 
 ## <a name="next-steps"></a>다음 단계

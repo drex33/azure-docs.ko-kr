@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 Azure로 Azure Stack VM 복제 | Micr
 description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 300b239de74c7d21e03eb0c3b059663b5074964c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 386eae05ea06b59aac290d5f1f51d643d7952b6a
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728388"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580425"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -82,7 +82,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 **운영 체제** | **세부 정보**
 --- | ---
-**64비트 Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2(SP1)
+**64비트 Windows** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2(SP1부터)
 **CentOS** | 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.3
 **Ubuntu** | 14.04 LTS 서버, 16.04 LTS 서버. [지원되는 커널](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions) 검토
 

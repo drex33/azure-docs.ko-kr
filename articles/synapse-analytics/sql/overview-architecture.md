@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f342f39b62956cd85f269918e8e1ef1a2478a3d8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e279aea4bdf0ae3bc18c2ece1556d7ad8483a2de
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566361"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217110"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL 아키텍처 
 
@@ -115,4 +115,4 @@ DMS(데이터 이동 서비스)는 컴퓨팅 노드 간의 데이터 이동을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Synapse SQL에 대해 어느 정도 이해했으므로, 신속하게 [전용 SQL 풀을 만드는 방법](../quickstart-create-sql-pool-portal.md)과 [샘플 데이터를 로드하는 방법](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)(./sql-data-warehouse-load-sample-databases.md)을 알아봅니다. 또는 [서버리스 SQL 풀 사용](../quickstart-sql-on-demand.md)을 시작합니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md) 을 유용하게 사용할 수 있습니다. 
+이제 Synapse SQL에 대해 어느 정도 알게 되었으므로 빠르게 [전용 SQL 풀을 만들고](../quickstart-create-sql-pool-portal.md) [샘플 데이터를 로드](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)하는 방법을 알아보세요. 또는 [서버리스 SQL 풀 사용](../quickstart-sql-on-demand.md)을 시작합니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집](../../azure-glossary-cloud-terminology.md) 을 유용하게 사용할 수 있습니다. 

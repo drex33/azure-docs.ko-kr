@@ -2,13 +2,13 @@
 title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용하여 Azure VM 백업을 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/02/2020
-ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/27/2021
+ms.openlocfilehash: 015ce2a16359f3a99fcd71c8ea7f97142c2d54e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372575"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535754"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용하여 Azure VM 백업 관리
 
@@ -140,6 +140,10 @@ VM 보호를 중지하는 방법은 두 가지가 있습니다.
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
 
 VM의 보호를 중지하고 데이터를 삭제하려면 다음 단계를 수행합니다.
+
+>[!Note]
+>보관 계층에서 180일간 유지되지 않은 보관의 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다. [자세히 알아보기](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
+
 
 1. [자격 증명 모음 항목의 대시보드](#view-vms-on-the-dashboard)에서 **백업 중지** 를 선택합니다.
 2. **백업 데이터 삭제** 를 선택하고 필요에 따라 선택 내용을 확인합니다. 원하는 경우 백업 항목의 이름을 입력하고 주석을 추가합니다.

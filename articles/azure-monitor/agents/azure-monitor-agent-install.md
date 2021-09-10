@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f787a01cb4e83b05b30a1e802658ed95a983e6a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9414ea2574737cdad2551442a2d1ce7c844b04b6
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461043"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662340"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
 이 문서에서는 Azure 가상 머신과 Azure Arc 사용 서버 모두에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md)를 설치하는 데 사용할 수 있는 다양한 옵션을 제공하며, 에이전트가 수집해야 하는 데이터를 정의하는 [데이터 수집 규칙을 사용하여 연결](data-collection-rule-azure-monitor-agent.md)을 만드는 옵션도 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가 필요합니다.
 
 - Azure 가상 머신에서 [관리형 시스템 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 합니다. Azure Arc 사용 서버에는 필요하지 않습니다. [Azure Portal을 사용하여 데이터 수집 규칙을 만들고 할당](#install-with-azure-portal)하는 프로세스의 일부로 에이전트가 설치된 경우 시스템 ID를 사용하도록 자동으로 설정됩니다.
@@ -37,6 +37,15 @@ Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | 형식      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
+
+## <a name="extension-versions"></a>확장 버전
+미리 보기 버전을 사용하는 대신 GA+ 버전으로 업데이트하는 것을 적극 권장합니다.
+
+| 출시 날짜 | 릴리스 정보 | Windows | Linux |
+|:---|:---|:---|:---|:---|
+| 2021년 6월 | 일반 공급 지원을 발표했습니다. <ul><li>이제 메트릭 대상을 제외한 모든 기능 공급됨</li><li>프로덕션 품질, 보안 및 규정 준수</li><li>모든 공용 지역에서 사용 가능</li><li>더 높은 EPS의 성능 및 확장성 향상</li></ul> [자세한 정보](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
+| 2021년 7월 | <ul><li>직접 프록시 지원</li><li>Log Analytics 게이트웨이 지원</li></ul> [자세한 정보](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
+| 2021년 8월 | Azure Monitor 메트릭을 유일한 대상으로 허용하는 문제 해결 | 1.1.2.0 | 1.10.9.0(1.10.7.0 사용 금지) |
 
 
 ## <a name="install-with-azure-portal"></a>Azure Portal을 사용하여 설치

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 680563e0688d11e02f79f3c184b38d5a80bafeb0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 01d8f23331525443a9f83245b8eec2b402e92d6e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480360"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443025"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
@@ -29,11 +29,11 @@ ms.locfileid: "110480360"
 
 ## <a name="considerations"></a>고려 사항
 
+* 볼륨을 만드는 동안에만 확장 그룹 기능으로 LDAP를 사용하도록 설정할 수 있습니다. 기존 볼륨에서는 이 기능을 소급해서 사용할 수 없습니다.  
+
 * 확장 그룹을 사용하는 LDAP는 ADDS(Active Directory Domain services) 또는 AADDS(Azure Active Directory Domain services)에서만 지원됩니다. OpenLDAP 또는 기타 타사 LDAP 디렉터리 서비스는 지원되지 않습니다. 
 
 * AADDS(Azure Active Directory Domain Services)를 사용하는 경우 LDAP over TLS를 사용하지 *않아야* 합니다.  
-
-* 확장 그룹 기능이 포함된 LDAP를 사용하도록 설정하면 LDAP 사용 [Kerberos 볼륨](configure-kerberos-encryption.md)이 LDAP 사용자에 대한 파일 소유권을 올바르게 표시하지 않습니다. LDAP 사용자가 만든 파일 또는 디렉터리의 소유자는 실제 LDAP 사용자 대신 기본적으로 `root`가 설정됩니다. 그러나 `root` 계정은 `chown <username> <filename>` 명령을 사용하여 파일 소유권을 수동으로 변경할 수 있습니다. 
 
 * 볼륨을 만든 후에는 LDAP 옵션 설정(사용 또는 사용 안 함)을 수정할 수 없습니다.  
 
@@ -61,7 +61,7 @@ ms.locfileid: "110480360"
     2. 기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapExtendedGroups

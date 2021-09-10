@@ -14,11 +14,13 @@
   items:
     - name: Automation 계정 만들기 - Azure Portal
       href: quickstarts/create-account-portal.md
+    - name: 관리 ID를 사용하도록 설정 - Azure Portal
+      href: quickstarts/enable-managed-identity.md
     - name: 머신의 Desired State Configuration 사용
       href: quickstarts/dsc-configuration.md
 - name: 자습서
   items:
-    - name: PowerShell Runbook에서 관리 ID 사용
+    - name: 관리 ID를 사용하여 PowerShell Runbook 만들기
       href: learn/powershell-runbook-managed-identity.md
     - name: PowerShell 워크플로 Runbook 만들기
       href: learn/automation-tutorial-runbook-textual.md

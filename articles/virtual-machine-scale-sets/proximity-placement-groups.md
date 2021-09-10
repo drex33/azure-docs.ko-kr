@@ -9,14 +9,16 @@ ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 767ce9c132c7ca5f322175c54875a6870490052e
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b5533f14a239e3e2d01c597d57ab2b2726e930b9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556049"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693267"
 ---
 # <a name="creating-and-using-proximity-placement-groups-using-powershell"></a>PowerShell을 사용하여 근접 배치 그룹 만들기 및 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일 확장 집합
 
 VM을 가능한 가깝게 유지하여 가장 낮은 대기 시간을 달성하려면 [근접 배치 그룹](../virtual-machines/co-location.md#proximity-placement-groups) 내에 확장 집합을 배포해야 합니다.
 

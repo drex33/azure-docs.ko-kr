@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0042d12941107c4704364dc261f95d3521b8208f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f73951e34ada242dd70b9e9f99839d3072a52f76
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464151"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223746"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -220,7 +220,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri`  | required  | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다. |
 | `grant_type` | required   | 인증 코드 흐름에 대한 `authorization_code` 여야 합니다.   |
 | `code_verifier` | 권장  | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
-| `client_secret` | 기밀 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스 또는 웹 페이지에 client_secrets를 안정적으로 저장할 수 없기 때문에 네이티브 앱 또는 단일 페이지 앱에서 애플리케이션 암호를 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  여기에 설명된 모든 매개 변수와 마찬가지로 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 하며, 이는 일반적으로 SDK에서 수행하는 단계입니다. URI 인코딩에 대한 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요. |
+| `client_secret` | 기밀 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스 또는 웹 페이지에 client_secrets를 안정적으로 저장할 수 없기 때문에 네이티브 앱 또는 단일 페이지 앱에서 애플리케이션 암호를 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  여기에 설명된 모든 매개 변수와 마찬가지로 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 하며, 이는 일반적으로 SDK에서 수행하는 단계입니다. URI 인코딩에 대한 자세한 내용은 [URI 일반 구문 사양](https://tools.ietf.org/html/rfc3986#page-12)을 참조하세요.  대신 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1)에 따라 권한 부여 헤더에 자격 증명을 제공하는 기본 인증 패턴도 지원됩니다. |
 
 ### <a name="request-an-access-token-with-a-certificate-credential"></a>인증서 자격 증명을 사용하여 액세스 토큰 요청
 

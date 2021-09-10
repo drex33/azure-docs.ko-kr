@@ -23,6 +23,8 @@
 - name: 자습서
   expanded: false
   items:
+    - name: Azure Defender for IoT 평가판 설치
+      href: tutorial-onboarding.md
     - name: Splunk 통합
       href: tutorial-splunk.md
     - name: ServiceNow 통합

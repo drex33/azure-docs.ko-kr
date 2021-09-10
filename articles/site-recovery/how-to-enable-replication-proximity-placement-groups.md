@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 4c37aab00f838de24e96e6f509ae8484df2c6715
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: abcb233665d6c6074ff50d1bb53e553ed9eb99ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904967"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528955"
 ---
 # <a name="replicate-virtual-machines-running-in-a-proximity-placement-group-to-another-region"></a>근접 배치 그룹에서 실행되는 가상 머신을 다른 지역에 복제
 
@@ -28,7 +28,7 @@ Site Recovery는 데이터를 한 Azure 지역에서 다른 지역으로 복제�
 
 ## <a name="considerations"></a>고려 사항
 
-- 최선의 노력은 가상 머신을 근접 배치 그룹으로 장애 조치(failover)하고 장애 복구(failback)하는 것입니다. 근접 배치 그룹 내에서 VM을 가져올 수 없는 경우 장애 조치(failover) 및 장애 복구(failback)가 계속 수행되지만 VM은 근접 배치 그룹 외부에 만들어집니다.
+- 최선의 노력은 가상 머신을 근접 배치 그룹으로 장애 조치(failover)하고 장애 복구(failback)하는 것입니다. 근접 배치 그룹 내에서 VM을 가져올 수 없어서 용량 할당 제약 조건이 있는 경우 장애 조치 및 장애 복구는 계속 실행되지만 근접 배치 그룹 외부에서 VM이 생성됩니다.
 - 가용성 집합이 근접 배치 그룹에 고정되어 있고 장애 조치(failover) 또는 장애 복구(failback) 중에 가용성 집합의 VM에 할당 제약 조건이 있는 경우 VM은 가용성 집합과 근접 배치 그룹 모두의 외부에 만들어집니다.
 - 근접 배치 그룹에 대한 Site Recovery는 비관리 디스크를 지원하지 않습니다.
 

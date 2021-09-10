@@ -3,12 +3,12 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용하여 지정된 범위의 모든 자격 증명 모음에 대한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b0cac710833e1d1b29060aa37425d2e57ae828
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92171526"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303764"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
@@ -26,17 +26,15 @@ Azure Backup은 LA를 대상으로 사용하는 대규모 진단 설정을 간�
 
 * 관리 그룹 범위는 현재 지원되지 않습니다.
 
-* 기본 제공 정책은 현재 국가별 클라우드에서 사용할 수 없습니다.
-
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>범위에 기본 제공 정책 할당
 
 필요한 범위에서 자격 증명 모음에 대한 정책을 할당하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에 로그인하고 **정책** 대시보드로 이동합니다.
-2. 왼쪽 메뉴에서 **정의** 를 선택하여 Azure 리소스의 모든 기본 제공 정책 목록을 가져옵니다.
-3. **Category=Backup** 의 목록을 필터링합니다. **[미리 보기]: Recovery Services 자격 증명 모음에 대한 진단 설정을 리소스별 범주의 Log Analytics 작업 영역에 배포** 라는 정책을 찾습니다.
+1. Azure Portal에 로그인하고 **백업 센터** 대시보드로 이동합니다.
+2. 왼쪽 메뉴에서 **백업을 위한 Azure 정책** 을 선택하여 Azure 리소스에서 기본 제공되는 모든 정책 목록을 가져옵니다.
+3. **리소스별 범주에 대한 Log Analytics 작업 영역에 자격 증명 모음에 대한 진단 설정 배포** 라는 정책을 찾습니다.
 
     ![정책 정의 창](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

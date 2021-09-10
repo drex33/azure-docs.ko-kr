@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/06/2021
+ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dce2e30f5177a26229f6c20d9500bbf5c824c3e
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104283"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539423"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -51,24 +51,25 @@ ms.locfileid: "100104283"
 
 | Name                       |  Description   | 토큰 형식 | 사용자 유형 | 메모  |
 |----------------------------|----------------|------------|-----------|--------|
+| `acct`                | 테넌트의 사용자 계정 상태 | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
-| `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
+| `ctry`                     | 사용자의 국가/지역 | JWT |  | `ctry` 선택적 클레임이 존재하고 필드의 값이 FR, JP, SZ 등과 같은 표준 2자 국가/지역 번호인 경우 Azure AD는 해당 선택적 클레임을 반환합니다. |
+| `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, Azure AD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부 사용자)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|
+| `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
+| `groups`| 그룹 클레임에 대한 선택적 서식 지정 |JWT, SAML| |함께 설정해야 하는 [애플리케이션 매니페스트](reference-app-manifest.md)의 GroupMembershipClaims 설정과 함께 사용됩니다. 자세한 내용은 아래 [그룹 클레임](#configuring-groups-optional-claims)을 참조하세요. 그룹 클레임에 대한 자세한 내용은 [그룹 클레임을 구성하는 방법](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
+| `idtyp`                    | 토큰 형식   | JWT 액세스 토큰 | 특수: 앱 전용 액세스 토큰에만 |  토큰이 앱 전용 토큰인 경우 값은 `app`입니다. 이것은 API에서 토큰이 앱 토큰인지 또는 앱+사용자 토큰인지를 확인하는 가장 정확한 방법입니다.|
+| `login_hint`               | 로그인 힌트   | JWT | MSA, Azure AD | 불투명하고 신뢰할 수 있는 로그인 힌트 클레임입니다.  이 클레임은 SSO를 가져오기 위해 모든 흐름에서 `login_hint` OAuth 매개 변수에 사용할 수 있는 가장 적합한 값입니다.  이는 애플리케이션 간에 전달되어 애플리케이션이 자동 SSO하는 데도 도움이 됩니다. 애플리케이션 A는 사용자를 로그인시키고, `login_hint` 클레임을 읽은 다음, 사용자가 애플리케이션 B로 이동하는 링크를 클릭할 때 쿼리 문자열이나 조각에서 클레임과 현재 테넌트 컨텍스트를 애플리케이션 B에 보낼 수 있습니다. 경합 상태와 안정성 문제를 방지하기 위해 `login_hint` 클레임은 사용자에 대한 현재 테넌트를 포함하지 ‘않으며’ 사용될 경우 기본적으로 사용자의 홈 테넌트로 설정됩니다.  사용자가 다른 테넌트에 있는 게스트 시나리오에서 작업하는 경우에도 로그인 요청에서 테넌트 식별자를 제공하고 파트너 앱에 동일하게 전달해야 합니다. 하지만 이 클레임은 클레임이 노출하는 SDK의 기존 `login_hint` 기능과 함께 사용해야 합니다. |
 | `sid`                      | 세션 단위 사용자 로그아웃에 사용되는 세션 ID | JWT        |  개인 및 Azure AD 계정   |         |
+| `tenant_ctry`              | 리소스 테넌트의 국가/지역 | JWT | | 관리자가 테넌트 수준에서 설정하는 것을 제외하고는 `ctry`와 동일합니다. 또한 표준 2자로 된 값이어야 합니다. |
+| `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니므로 사용자 정보를 고유하게 식별하는 데 사용할 수 없습니다(예: 데이터베이스 키). 대신 사용자 개체 ID(`oid`)를 데이터베이스 키로 사용합니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md)를 사용하여 로그인하는 사용자는 UPN(사용자 계정 이름)으로 표시되어서는 안 됩니다. 대신 `preferred_username` 또는 `unique_name`(v1 토큰의 경우)이나 `preferred_username`(v2 토큰의 경우) ID 토큰 클레임을 사용하여 로그인 상태를 사용자에게 표시합니다. 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. `login_hint` 사용의 경우 `login_hint` 클레임을 사용해야 합니다. UPN과 같이 사람이 읽을 수 있는 식별자는 불안정합니다.|
 | `verified_primary_email`   | 사용자의 PrimaryAuthoritativeEmail에서 소싱됩니다.      | JWT        |           |         |
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
 | `vnet`                     | VNET 지정자 정보입니다. | JWT        |           |      |
-| `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
-| `ctry`                     | 사용자의 국가/지역 | JWT |  | `ctry` 선택적 클레임이 존재하고 필드의 값이 FR, JP, SZ 등과 같은 표준 2자 국가/지역 번호인 경우 Azure AD는 해당 선택적 클레임을 반환합니다. |
-| `tenant_ctry`              | 리소스의 테넌트 국가 | JWT | | 관리자가 테넌트 수준에서 설정하는 것을 제외하고는 `ctry`와 동일합니다. 또한 표준 2자로 된 값이어야 합니다. |
 | `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us")입니다. |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en")입니다. |
 | `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
-| `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, Azure AD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부 사용자)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|
-| `acct`                | 테넌트의 사용자 계정 상태 | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
-| `groups`| 그룹 클레임에 대한 선택적 서식 지정 |JWT, SAML| |함께 설정해야 하는 [애플리케이션 매니페스트](reference-app-manifest.md)의 GroupMembershipClaims 설정과 함께 사용됩니다. 자세한 내용은 아래 [그룹 클레임](#configuring-groups-optional-claims)을 참조하세요. 그룹 클레임에 대한 자세한 내용은 [그룹 클레임을 구성하는 방법](../hybrid/how-to-connect-fed-group-claims.md)을 참조하세요.
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니므로 사용자 정보를 고유하게 식별하는 데 사용할 수 없습니다(예: 데이터베이스 키). 대신 사용자 개체 ID(`oid`)를 데이터베이스 키로 사용합니다. [대체 로그인 ID](../authentication/howto-authentication-use-email-signin.md)를 사용하여 로그인하는 사용자는 UPN(사용자 계정 이름)으로 표시되어서는 안 됩니다. 대신 `preferred_username` 또는 `unique_name`(v1 토큰의 경우)이나 `preferred_username`(v2 토큰의 경우) ID 토큰 클레임을 사용하여 로그인 상태를 사용자에게 표시합니다. 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
-| `idtyp`                    | 토큰 형식   | JWT 액세스 토큰 | 특수: 앱 전용 액세스 토큰에만 |  토큰이 앱 전용 토큰인 경우 값은 `app`입니다. 이것은 API에서 토큰이 앱 토큰인지 또는 앱+사용자 토큰인지를 확인하는 가장 정확한 방법입니다.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v2.0 특정 선택적 클레임 세트
 
@@ -201,7 +202,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| 속성          | 유형                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |

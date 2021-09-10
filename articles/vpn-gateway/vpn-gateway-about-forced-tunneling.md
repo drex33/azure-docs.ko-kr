@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 61f42ac26f5890ff8ab611e81406d3607b8d5005
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 24c2643da85527a3ff4b2392d607540e2c2801fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292165"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566486"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "108292165"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. Resource Manager 배포 모델에 대한 강제 터널링을 구성하려면 다음 드롭다운 목록에서 Resource Manager 문서를 선택합니다.
+이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성하는 과정을 안내합니다. 강제 터널링은 포털을 통해서가 아닌 PowerShell을 사용하여 구성할 수 있습니다. [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 대한 강제 터널링을 구성하려면 다음 드롭다운 목록에서 Resource Manager 문서를 선택합니다.
 
 > [!div class="op_single_selector"]
 > * [클래식](vpn-gateway-about-forced-tunneling.md)

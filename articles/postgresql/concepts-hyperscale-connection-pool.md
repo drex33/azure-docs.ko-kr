@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: d611698bcc72a4a8ceaafb6cfe43f7da362acf71
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8331cd2f0fa0df52f550acfdac1d8d3506e415f2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536332"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318614"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-connection-pooling"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus) 연결 폴링
 
@@ -30,6 +30,11 @@ PgBouncer와 같은 연결 풀러를 사용하면 더 많은 클라이언트가 
 
 1. Azure Portal에서 서버 그룹에 대한 **연결 문자열** 페이지로 이동합니다.
 2. **PgBouncer 연결 문자열** 확인란을 사용하도록 설정합니다. 나열되는 연결 문자열이 변경됩니다.
+
+   > [!IMPORTANT]
+   >
+   > 이 확인란이 존재하지 않는 경우 PgBouncer가 아직 서버 그룹에 대해 사용하도록 설정하지 않았다는 뜻입니다. 관리되는 PgBouncer는 모든 [지원되는 지역](concepts-hyperscale-configuration-options.md#regions)에 롤아웃됩니다.  지역에서 사용하도록 설정되면 관리되는 PgBouncer는 [예약된 유지 관리](concepts-hyperscale-maintenance.md) 이벤트 도중 지역에 있는 기존 서버 그룹에 추가됩니다.
+
 3. 새 문자열로 연결하도록 클라이언트 애플리케이션을 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계

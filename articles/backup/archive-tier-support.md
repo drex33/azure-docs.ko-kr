@@ -1,23 +1,23 @@
 ---
-title: 보관 계층 지원(미리 보기)
+title: 보관 계층 지원
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c817e5e0fbed7ebe6c659a91e180820de3fdc677
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410102"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566224"
 ---
-# <a name="archive-tier-support-preview"></a>보관 계층 지원(미리 보기)
+# <a name="archive-tier-support"></a>보관 계층 지원
 
 고객은 조직의 준수 규칙에 따라 정의되는 보존 요구 사항이 있는 LTR(장기 보존) 백업 데이터 등의 백업 데이터를 저장하기 위해 Azure Backup을 사용합니다. 대부분의 경우 이전 백업 데이터는 거의 액세스되지 않고 준수 요구 사항에 한해 저장됩니다.
 
 Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 보존 지점의 백업을 지원합니다.
 
-## <a name="scope-for-preview"></a>미리 보기 범위
+## <a name="scope"></a>범위
 
 지원되는 워크로드:
 
@@ -36,8 +36,8 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
 - 기능은 PowerShell을 사용하여 제공됩니다.
 
->[!NOTE]
->Azure VM의 보관 계층 지원 및 Azure VM의 SQL Server는 등록이 제한적인 제한된 공개 미리 보기로 제공됩니다. 보관 지원에 등록하려면 이 [링크](https://aka.ms/ArchivePreviewInterestForm)를 사용합니다.
+>[!Note]
+>Azure VM의 SQL Server에 대한 보관 계층 지원은 이제 북유럽, 인도 중부, 동남아시아 및 오스트레일리아 동부에서 일반 공급됩니다. 지원되는 지역에 대한 자세한 목록은 [지원 매트릭스](#support-matrix)를 참조하세요.    <br><br>    Azure VM의 SQL Server에 대한 나머지 지역의 경우 보관 계층 지원은 제한된 공개 미리 보기로 제공됩니다. Azure Virtual Machines에 대한 보관 계층 지원도 제한된 공개 미리 보기로 제공됩니다. 제한된 공개 미리 보기에 등록하려면 이 [링크](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u)를 사용합니다.
 
 ## <a name="get-started-with-powershell"></a>PowerShell 시작
 
@@ -46,7 +46,7 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 1. PowerShell에서 다음 명령을 실행합니다.
   
     ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
     ```
 
 1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure에 연결합니다.
@@ -86,7 +86,7 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
     ```
     >[!NOTE]
-    >시작 날짜와 종료 날짜의 범위는 30일 이하여야 합니다.<br><br>다른 시간 범위에 대한 복구 지점을 표시하려면 시작 날짜와 종료 날짜를 적절하게 수정합니다.
+    >다른 시간 범위에 대한 복구 지점을 표시하려면 시작 날짜와 종료 날짜를 적절하게 수정합니다.
 ## <a name="use-powershell"></a>PowerShell 사용
 
 ### <a name="check-archivable-recovery-points"></a>보관 가능 복구 지점 확인
@@ -207,6 +207,13 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 보호를 중지하고 데이터를 삭제하면 모든 복구 지점이 삭제됩니다. 보관 계층에서 180일간 유지되지 않은 보관의 복구 지점에서 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다.
 
+## <a name="support-matrix"></a>지원 매트릭스
+
+| 워크로드 | 미리 보기 | 일반 공급 |
+| --- | --- | --- |
+| Azure VM의 SQL Server | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부 | 오스트레일리아 동부, 인도 중부, 북유럽, 동남아시아 |
+| Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동남아시아, 오스트레일리아 동부, 인도 중부, 북유럽 | None |
+
 ## <a name="error-codes-and-troubleshooting-steps"></a>오류 코드 및 문제 해결 단계
 
 복구 지점을 보관으로 이동할 수 없는 경우에 발생하는 오류 코드가 몇 가지 있습니다.
@@ -217,7 +224,7 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 **설명** - 이 오류 코드는 선택한 복구 지점 유형을 보관으로 이동하기에 적합하지 않은 경우에 표시됩니다.
 
-**권장 작업** – [여기](#scope-for-preview)에서 복구 지점의 자격을 확인합니다.
+**권장 작업** – [여기](#scope)에서 복구 지점의 자격을 확인합니다.
 
 ### <a name="recoverypointhaveactivedependencies"></a>RecoveryPointHaveActiveDependencies
 
@@ -225,7 +232,7 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 **설명** – 선택한 복구 지점에 활성 종속성이 있으므로 보관으로 이동할 수 없습니다.
 
-**권장 작업** – [여기](#scope-for-preview)에서 복구 지점의 자격을 확인합니다.
+**권장 작업** – [여기](#scope)에서 복구 지점의 자격을 확인합니다.
 
 ### <a name="minlifespaninstandardrequiredforarchive"></a>MinLifeSpanInStandardRequiredForArchive
 
@@ -233,7 +240,7 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 **설명** – 복구 지점은 Azure Virtual Machines의 경우 최소 3개월간, Azure Virtual Machines의 SQL Server의 경우 45일간 표준 계층에 있어야 합니다.
 
-**권장 작업** – [여기](#scope-for-preview)에서 복구 지점의 자격을 확인합니다.
+**권장 작업** – [여기](#scope)에서 복구 지점의 자격을 확인합니다.
 
 ### <a name="minremaininglifespaninarchiverequired"></a>MinRemainingLifeSpanInArchiveRequired
 
@@ -241,7 +248,7 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 **설명** – 보관 이동 자격의 복구 지점에 필요한 최소 수명은 6개월입니다.
 
-**권장 작업** – [여기](#scope-for-preview)에서 복구 지점의 자격을 확인합니다.
+**권장 작업** – [여기](#scope)에서 복구 지점의 자격을 확인합니다.
 
 ### <a name="usererrorrecoverypointalreadyinarchivetier"></a>UserErrorRecoveryPointAlreadyInArchiveTier
 

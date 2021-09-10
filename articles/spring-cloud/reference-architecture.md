@@ -1,17 +1,17 @@
 ---
 ms.date: 02/16/2021
 ms.topic: reference-architecture
-author: kriation
+author: karlerickson
 title: Azure Spring Cloud 참조 아키텍처
 ms.author: akaleshian
 ms.service: spring-cloud
 description: 이 참조 아키텍처는 Azure Spring Cloud를 사용하기 위한 일반적인 엔터프라이즈 허브 및 스포크 설계를 사용하는 기반입니다.
-ms.openlocfilehash: d45d70227be2d88ca69e8a88bbc116a7f8045e74
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0cc7a1345ff15a63c7cb9b0ebca51863fdf2791
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132686"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538558"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Azure Spring Cloud 참조 아키텍처
 
@@ -19,7 +19,7 @@ ms.locfileid: "108132686"
 
 이 아키텍처의 구현에 대한 자세한 내용은 GitHub의 [Azure Spring Cloud 참조 아키텍처][10] 리포지토리를 참조하세요.
 
-이 아키텍처에 대한 배포 옵션에는 ARM(Azure Resource Manager), Terraform 및 Azure CLI가 있습니다. 이 리포지토리의 아티팩트는 환경에 맞게 사용자 지정할 수 있는 토대를 제공합니다. Azure Firewall 또는 Application Gateway와 같은 리소스를 다른 리소스 그룹 또는 구독으로 그룹화할 수 있습니다. 이 그룹화를 사용하면 IT 인프라, 보안, 비즈니스 애플리케이션 팀 등 다양한 기능을 별도로 유지할 수 있습니다.
+이 아키텍처의 배포 옵션에는 ARM(Azure Resource Manager), Terraform, Azure CLI, Bicep 등이 있습니다. 이 리포지토리의 아티팩트는 환경에 맞게 사용자 지정할 수 있는 토대를 제공합니다. Azure Firewall 또는 Application Gateway와 같은 리소스를 다른 리소스 그룹 또는 구독으로 그룹화할 수 있습니다. 이 그룹화를 사용하면 IT 인프라, 보안, 비즈니스 애플리케이션 팀 등 다양한 기능을 별도로 유지할 수 있습니다.
 
 ## <a name="planning-the-address-space"></a>주소 공간 계획
 

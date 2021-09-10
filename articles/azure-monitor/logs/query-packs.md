@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: 59df6fa8624a19b611515551839076a511fe717f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef34ec8531242dfdb20e984c4c6d8f86d08b8fcf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482961"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566286"
 ---
 # <a name="query-packs-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 쿼리 팩(미리 보기)
 쿼리 팩은 로그 쿼리를 저장하고 여러 작업 영역 및 다른 컨텍스트를 Log Analytics에서 공유하는 방법을 제공하는 Azure Monitor의 로그 쿼리 컨테이너 역할을 하는 리소스 관리자 개체입니다. 
@@ -25,7 +25,7 @@ Azure Portal 쿼리 팩을 보고 관리하려면 **Log Analytics 쿼리 팩** �
 Azure Portal에서 볼 때 쿼리 팩의 사용 권한을 설정할 수 있습니다. 사용자가 쿼리 팩을 사용하려면 다음 사용 권한이 필요합니다.
 
 - **읽기 권한자** - 사용자는 쿼리 팩의 모든 쿼리를 보고 실행할 수 있습니다.
-- **기여자** - 사용자는 기존 쿼리를 수정하고 쿼리 팩에 새 쿼리를 추가할 수 있습니다.
+- **Contributor** - 사용자는 기존 쿼리를 수정하고 쿼리 팩에 새 쿼리를 추가할 수 있습니다.
 
 ## <a name="default-query-pack"></a>기본 쿼리 팩
 첫 번째 쿼리를 저장하면 **DefaultQueryPack** 쿼리 팩이 **LogAnalyticsDefaultResources** 리소스 그룹의 각 구독에 자동으로 생성됩니다. 요구 사항에 따라 이 쿼리 팩에 쿼리를 만들거나 추가 쿼리 팩을 만들 수 있습니다.
@@ -71,7 +71,7 @@ API를 사용하여 새 쿼리 팩을 만드는 경우 비즈니스 요구 사�
 쿼리 팩의 각 쿼리에는 다음과 같은 속성이 있습니다.
 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:---|:---|
 | displayName | 각 쿼리에 대한 Log Analytics에 나열된 표시 이름입니다. | 
 | description | 각 쿼리에 대해 Log Analytics에 표시되는 쿼리에 대한 설명입니다. |

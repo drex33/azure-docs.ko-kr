@@ -7,14 +7,13 @@ ms.date: 06/14/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: 63e9702f8bebb449518002e18a824c65d81fab80
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076459"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528286"
 ---
 # <a name="facility-ontology"></a>Facility Ontology
 
@@ -62,7 +61,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v1"
 
-| 속성           | Type                        | 필수 | Description                                                  |
+| 속성           | 형식                        | 필수 | Description                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -85,7 +84,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v2"
 
-| 속성           | Type                        | 필수 | Description                                                  |
+| 속성           | 형식                        | 필수 | Description                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -111,7 +110,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: Polygon
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -130,7 +129,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: Polygon
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -148,7 +147,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: MultiPolygon
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -168,14 +167,13 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: MultiPolygon
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`categoryId`        | [category.Id](#category)      |true      | [`category`](#category) 기능의 ID입니다.|
 |`occupants`         | [directoryInfo.Id](#directoryinfo)의 배열 |    false |    [directoryInfo](#directoryinfo) 기능의 ID입니다. 기능에서 하나 이상의 점유자를 나타내는 데 사용됩니다. |
 |`addressId`         | [directoryInfo.Id](#directoryinfo)  | true     | [directoryInfo](#directoryinfo) 기능의 ID입니다. 기능의 주소를 나타내는 데 사용됩니다.|
-|`addressRoomNumber`         |  [directoryInfo.Id](#directoryinfo)| true     | 단위의 방/단위/콘도/스위트룸 번호입니다.|
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다. 허용되는 최대 길이는 1000입니다. |
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
@@ -191,7 +189,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v1"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -210,7 +208,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v2"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -233,7 +231,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v1"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -250,7 +248,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v2"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -266,7 +264,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: 없음
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -278,7 +276,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다. 허용되는 최대 길이는 1000입니다. |
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`phoneNumber` |    문자열 |    false |    전화 번호 |
+|`phoneNumber` |    문자열 |    false |    전화 번호 허용되는 최대 길이는 1000입니다. |
 |`website` |    문자열 |    false |  웹 사이트 URL입니다. 허용되는 최대 길이는 1000입니다. |
 |`hoursOfOperation` |    문자열 |    false |   [Open Street Map 사양](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification)에 따른 작업 시간(텍스트)입니다. 허용되는 최대 길이는 1000입니다. |
 
@@ -288,7 +286,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: MultiPoint
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -305,7 +303,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: LinearMultiString
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -324,7 +322,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 **기하 도형 형식**: MultiPolygon
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -345,7 +343,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v1"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 범주의 원래 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 범주와 범주를 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
@@ -357,7 +355,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 
 :::zone pivot="facility-ontology-v2"
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`originalId`        | 문자열     |true      | 클라이언트 데이터에서 파생된 범주의 원래 ID입니다.  허용되는 최대 길이는 1000입니다.|
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 범주와 범주를 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|

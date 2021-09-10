@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: a18ee02b5e91b628a25655949a652270bd7436c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0f35290aa653d5b9e9be9f1a9a0184854509889
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100575147"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537383"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
@@ -24,12 +24,12 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 > [!TIP]
 > 이 문서의 정보는 Azure Machine Learning Service 및 연결된 Azure 서비스에 대한 모니터링을 설명하므로 주로 __관리자__ 를 위한 것입니다. __데이터 과학자__ 또는 __개발자__ 로서 '모델 학습 실행'과 관련된 정보를 모니터링하려는 경우 다음 문서를 참조하세요.
 >
-> * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
-> * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
+> * [학습 실행 시작, 모니터링 및 취소](how-to-track-monitor-analyze-runs.md)
+> * [학습 실행에 대한 메트릭 로그](how-to-log-view-metrics.md)
 > * [MLflow로 실험 추적](how-to-use-mlflow.md)
 > * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
 >
-> 웹 서비스로 배포된 모델 또는 IoT Edge 모듈에서 생성된 정보를 모니터링하려는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조하세요.
+> 웹 서비스로 배포된 모델에서 생성된 정보를 모니터링하려는 경우 [모델 데이터 수집](how-to-enable-data-collection.md)과 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조하세요.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 
@@ -60,9 +60,9 @@ Azure Machine Learning에서 만든 로그 및 메트릭에 대한 자세한 내
 
 플랫폼 메트릭 및 활동 로그는 자동으로 수집되고 저장되지만 진단 설정을 사용하여 다른 위치로 라우팅할 수 있습니다.  
 
-리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장되지 않습니다.
+리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장되지 않습니다. 여러 Azure Machine Learning 작업 영역을 관리해야 하는 경우 모든 작업 영역에 대한 로그를 동일한 로깅 대상으로 라우팅하고 한곳에서 모든 로그를 쿼리할 수 있습니다.
 
-Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Azure Machine Learning의 범주는 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md#resource-logs)에 나열되어 있습니다.
+Azure Portal, Azure CLI 또는 PowerShell을 사용하여 진단 설정을 만드는 방법의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Azure Machine Learning의 범주는 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md#resource-logs)에 나열되어 있습니다.
 
 > [!IMPORTANT]
 > 이러한 설정을 사용하려면 추가 Azure 서비스(스토리지 계정, 이벤트 허브 또는 Log Analytics)가 필요하므로 비용이 늘어날 수 있습니다. 예상 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator)를 방문하세요.
@@ -74,6 +74,7 @@ Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 | AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
 | AmlComputeJobEvent | Azure Machine Learning 컴퓨팅에서 실행되는 작업에서 발생한 이벤트입니다. |
+
 
 > [!NOTE]
 > 진단 설정에서 메트릭을 사용하도록 설정하면 현재는 스토리지 계정, 이벤트 허브 또는 Log Analytics로 전송되는 정보에 차원 정보가 포함되지 않습니다.
@@ -111,9 +112,20 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 | 테이블 | 설명 |
 |:---|:---|
-| AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다. |
+| AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다.|
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
 | AmlComputeJobEvent | Azure Machine Learning 컴퓨팅에서 실행되는 작업에서 발생한 이벤트입니다. |
+| AmlComputeInstanceEvent | ML 컴퓨팅 인스턴스에 액세스(읽기/쓰기)할 때 발생하는 이벤트입니다. 범주에는 ComputeInstanceEvent(대화량이 많음)가 포함됩니다. |
+| AmlDataLabelEvent | 데이터 레이블이나 해당 프로젝트에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 DataLabelReadEvent, DataLabelChangeEvent가 포함됩니다.  |
+| AmlDataSetEvent | 등록되었거나 등록되지 않은 ML 데이터 세트에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 DataSetReadEvent, DataSetChangeEvent가 포함됩니다. |
+| AmlDataStoreEvent | ML 데이터 저장소에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 DataStoreReadEvent, DataStoreChangeEvent가 포함됩니다. |
+| AmlDeploymentEvent | ACI 또는 AKS에서 모델을 배포할 때 발생하는 이벤트입니다. 범주에는 DeploymentReadEvent, DeploymentEventACI, DeploymentEventAKS가 포함됩니다. |
+| AmlInferencingEvent | AKS 또는 ACI 컴퓨팅 형식에 대한 유추 또는 관련 작업의 이벤트입니다. 범주에는 InferencingOperationACI(대화량이 많음), InferencingOperationAKS(대화량이 많음)가 포함됩니다. |
+| AmlModelsEvent | ML 모델에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 모델 및 자산 패키징이 즉시 빌드할 수 있는 패키지를 생성할 때 발생하는 이벤트를 포함합니다. 범주에는 ModelsReadEvent, ModelsActionEvent가 포함됩니다.|
+| AmlPipelineEvent | ML 파이프라인 초안, 엔드포인트 또는 모듈에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 PipelineReadEvent, PipelineChangeEvent가 포함됩니다. |
+| AmlRunEvent | ML 실험에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 RunReadEvent, RunEvent가 포함됩니다. |
+| AmlEnvironmentEvent | ML 환경 구성에 액세스(읽기, 생성 또는 삭제)할 때 발생하는 이벤트입니다. 범주에는 EnvironmentReadEvent(대화량이 많음), EnvironmentChangeEvent가 포함됩니다. |
+
 
 > [!IMPORTANT]
 > Azure Machine Learning 메뉴에서 **로그** 를 선택하면 쿼리 범위가 현재 작업 영역으로 설정된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 Azure 서비스의 데이터 또는 다른 데이터베이스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../azure-monitor/logs/scope.md)를 참조하세요.
@@ -157,6 +169,17 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
     AmlComputeClusterNodeEvent
     | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
     | distinct NodeId
+    ```
+
+여러 Azure Machine Learning 작업 영역을 동일한 Log Analytics 작업 영역에 연결하는 경우 모든 리소스를 쿼리할 수 있습니다. 
+
++ 마지막 날 작업 영역과 클러스터에서 실행 중인 노드 수를 가져옵니다.
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(1d)
+    | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
+             by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
 ## <a name="alerts"></a>경고

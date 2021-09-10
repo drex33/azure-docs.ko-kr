@@ -3,20 +3,21 @@ title: Azure Resource Manager 템플릿을 사용하여 환경 관리 - Azure Ti
 description: Azure Resource Manager를 사용하여 프로그래밍 방식으로 Azure Time Series Insights 환경을 관리하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 493750e69b1fdc935b04d6dc705cfd046b6b086e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b7906a7035ebb8af0558dcd28952aa3fb71c0b
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011662"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136187"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure Time Series Insights Gen 1 리소스 만들기
 
@@ -40,7 +41,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 - [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights 리소스 종류](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-[201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Azure Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
+[timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Azure Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,13 +51,13 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. [Azure PowerShell 시작하기](/powershell/azure/get-started-azureps)의 지침을 따라서 Azure PowerShell을 설치합니다.
 
-1. GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) 템플릿을 복제하거나 복사합니다.
+1. GitHub에서 [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.json) 템플릿을 복제하거나 복사합니다.
 
    - 매개 변수 파일 만들기
 
-     매개 변수 파일을 만들려면 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) 파일을 복사합니다.
+     매개 변수 파일을 만들려면 [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) 파일을 복사합니다.
 
-      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
@@ -249,7 +250,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
    - GitHub에서 빠른 시작 템플릿의 홈페이지에는 **Azure에 배포** 단추도 포함됩니다. 이 단추를 클릭하면 Azure Portal에서 사용자 지정 배포 페이지를 엽니다. 이 페이지의 [필수 매개 변수](#required-parameters) 또는 [선택적 매개 변수](#optional-parameters) 테이블에서 각 매개 변수에 대한 값을 입력하거나 선택할 수 있습니다. 설정을 입력한 후에 **구매** 단추를 클릭하면 템플릿 배포를 시작합니다.
     </br>
     </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
        <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 4c3b33400340fc4dd13e74437aa9fddf6921e710
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 8a86c3d9c81d332fdd1072f937d8e222d5a6436d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804505"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529172"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -107,11 +107,11 @@ Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 * **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
 * **Azure Sentinel**: Azure Firewall 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다. Azure Sentinel의 Azure Firewall 데이터 커넥터는 현재 공용 미리 보기로 제공됩니다. 자세한 내용은 [Azure Firewall에서 데이터 연결](../sentinel/connect-azure-firewall.md)을 참조하세요.
 
+   개요는 Mohit Kumar의 다음 비디오를 참조하십시오.
+   > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]
+
+
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 애플리케이션 규칙 로그 보기 및 분석
-
-[Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
-
-Azure Firewall 로그 분석 샘플 쿼리는 [Azure Firewall 로그 분석 샘플](./firewall-workbook.md)을 참조하세요.
 
 [Azure Firewall 통합 문서](firewall-workbook.md)는 Azure Firewall 데이터를 분석할 수 있도록 유연한 캔버스를 제공합니다. 이 캔버스를 사용하여 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있습니다. Azure에 걸쳐 배포된 여러 방화벽을 탭하여 통합된 대화형 환경으로 결합할 수 있습니다.
 

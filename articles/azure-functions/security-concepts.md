@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 97a58c38f08e3b22f25ca2834a26692452fcff9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467926"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529183"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -78,9 +78,9 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 |Location  |설정 | 값 | 설명  |
 |---------|---------|---------|---------|
-|다른 스토리지 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 제공된 SAS URL에 따라, 두 번째 스토리지 계정의 Blob Storage에 키를 저장합니다. 키는 함수 앱에 고유한 비밀을 사용하여 저장하기 전에 암호화됩니다. |
+|다른 스토리지 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | 제공된 SAS URL에 따라, 두 번째 스토리지 계정의 Blob Storage에 키를 저장합니다. 키는 함수 앱에 고유한 비밀을 사용하여 저장하기 전에 암호화됩니다. |
 |파일 시스템   | `AzureWebJobsSecretStorageType`   |  `files`       | 키는 함수 앱에 고유한 비밀을 사용하여 저장 전 암호화된 상태로 파일 시스템에 유지됩니다. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | 자격 증명 모음에는 반드시 호스팅 리소스의 시스템 할당 관리 ID에 해당하는 액세스 정책이 있어야 합니다. 액세스 정책은 ID에 `Get`,`Set`, `List`, `Delete`의 비밀 권한을 부여하도록 합니다. <br/>로컬로 실행하는 경우, 개발자 ID가 사용되며 설정은 반드시 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 있어야 합니다. | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | 자격 증명 모음에는 반드시 호스팅 리소스의 시스템 할당 관리 ID에 해당하는 액세스 정책이 있어야 합니다. 액세스 정책은 ID에 `Get`,`Set`, `List`, `Delete`의 비밀 권한을 부여하도록 합니다. <br/>로컬로 실행하는 경우, 개발자 ID가 사용되며 설정은 반드시 [local.settings.json 파일](functions-develop-local.md#local-settings-file)에 있어야 합니다. | 
 |Kubernetes 비밀  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName`(선택 사항) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Kubernetes에서 함수 런타임을 실행하는 경우에만 지원됩니다. `AzureWebJobsKubernetesSecretName`이 설정되지 않은 경우, 리포지토리는 읽기 전용으로 간주됩니다. 이 경우, 배포 전에 값이 생성되어야 합니다. Azure Functions Core Tools는 Kubernetes에 배포할 때 값을 자동으로 생성합니다.|
 
 ### <a name="authenticationauthorization"></a>인증/권한 부여
@@ -131,7 +131,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 앱 설정 및 연결 문자열은 Azure에 암호화되어 저장됩니다. 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 암호 해독됩니다. 암호화 키는 정기적으로 회전합니다. 대신 비밀의 보안 스토리지를 관리하려면 앱 설정이 Azure Key Vault에 대한 참조여야 합니다. 
 
-로컬 컴퓨터에서 함수를 개발할 때 local.settings.json 파일에서 설정을 기본값으로 암호화할 수도 있습니다. 자세한 사항은 [로컬 설정 파일](functions-run-local.md#local-settings-file)에서 `IsEncrypted` 속성을 참조하세요.  
+로컬 컴퓨터에서 함수를 개발할 때 local.settings.json 파일에서 설정을 기본값으로 암호화할 수도 있습니다. 자세한 사항은 [로컬 설정 파일](functions-develop-local.md#local-settings-file)에서 `IsEncrypted` 속성을 참조하세요.  
 
 #### <a name="key-vault-references"></a>Key Vault 참조
 
@@ -213,7 +213,7 @@ FTP 사용을 계획하지 않은 경우 포털에서 사용하지 않도록 설
 
 ### <a name="set-access-restrictions"></a>액세스 제한 설정
 
-액세스 제한을 통해 앱에 대한 트래픽을 제어하는 허용/거부 규칙의 목록을 정의할 수 있습니다. 규칙은 우선 순위에 따라 평가됩니다. 규칙이 정의되어 있지 않은 경우 앱은 모든 주소의 트래픽을 허용합니다. 자세히 알아보려면 [Azure App Service 액세스 제한 #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json)을 참조하세요.
+액세스 제한을 통해 앱에 대한 트래픽을 제어하는 허용/거부 규칙의 목록을 정의할 수 있습니다. 규칙은 우선 순위에 따라 평가됩니다. 규칙이 정의되어 있지 않은 경우 앱은 모든 주소의 트래픽을 허용합니다. 자세히 알아보려면 [Azure App Service 액세스 제한](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json)을 참조하세요.
 
 ### <a name="private-site-access"></a>프라이빗 사이트 액세스
 

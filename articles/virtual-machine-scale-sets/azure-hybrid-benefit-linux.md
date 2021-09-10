@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: 71d585d16f4026ac605e7a61e64af89df806fed8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d8671cab8e81b47316d14c9cabb4b803111643be
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950026"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768484"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 균일 확장 집합
 
 **Linux 가상 머신 확장 집합에 대한 Azure 하이브리드 혜택이 현재 GA 상태입니다**. AHB 혜택은 RHEL 및 SLES [가상 머신 확장 집합](./overview.md) 실행 비용을 줄이는 데 도움이 될 수 있습니다.
 

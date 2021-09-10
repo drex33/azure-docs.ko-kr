@@ -3,12 +3,12 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 0c1c053378c8c2dec1f769fe489eb823ea81390f
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: d786b3d0e9afbf7ab4e895c6788209644d9f921f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438741"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092758"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -52,7 +52,7 @@ AMQP는 통신하는 프로그램을 *컨테이너* 라고 합니다. 여기에�
 
 따라서 네트워크 연결은 컨테이너에 고정됩니다. 이러한 연결은 클라이언트 역할의 컨테이너가 인바운드 TCP 연결을 수신하고 수락하는 수신자 역할의 컨테이너에 대해 아웃바운드 TCP 소켓 연결을 설정하는 것부터 시작됩니다. 연결 핸드셰이크에는 프로토콜 버전 협상, 전송 수준 보안(TLS/SSL) 사용에 대한 선언 또는 협상, SASL을 기반으로 하는 연결 범위의 인증/권한 부여 핸드셰이크가 포함됩니다.
 
-Azure Service Bus에서는 항상 TLS를 사용해야 합니다. TLS는 TCP 포트 5671을 통한 연결을 지원하지만, TCP 연결은 AMQP 프로토콜 핸드셰이크를 시작하기 전에 먼저 TLS에 오버레이됩니다. 또한 TLS는 TCP 포트 5672를 통한 연결을 지원하지만 서버는 AMQP 규정 모델을 사용하여 TLS에 대한 필수 연결 업그레이드를 즉시 제공합니다. AMQP WebSocket 바인딩은 AMQP 5671 연결에 해당하는 TCP 포트 443을 통해 터널을 만듭니다.
+Azure Service Bus 또는 Azure Event Hubs에서는 항상 TLS를 사용해야 합니다. TLS는 TCP 포트 5671을 통한 연결을 지원하지만, TCP 연결은 AMQP 프로토콜 핸드셰이크를 시작하기 전에 먼저 TLS에 오버레이됩니다. 또한 TLS는 TCP 포트 5672를 통한 연결을 지원하지만 서버는 AMQP 규정 모델을 사용하여 TLS에 대한 필수 연결 업그레이드를 즉시 제공합니다. AMQP WebSocket 바인딩은 AMQP 5671 연결에 해당하는 TCP 포트 443을 통해 터널을 만듭니다.
 
 Service Bus는 연결 및 TLS를 설정한 후 다음과 같은 두 가지 SASL 메커니즘 옵션을 제공합니다.
 

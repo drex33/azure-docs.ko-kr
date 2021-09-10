@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607418"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688966"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Azure Dedicated Host 예약을 사용하여 비용 절감
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Azure Dedicated Host의 예약 인스턴스로 커밋하면 비용을 절감할 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 전용 호스트의 수에 자동으로 적용됩니다. 할인을 받기 위해 예약을 전용 호스트에 할당할 필요가 없습니다. 예약 인스턴스를 구입하면 사용량 중 컴퓨팅 부분만 보장되며 소프트웨어 라이선스 비용이 포함됩니다. [가상 머신용 Azure Dedicated Host 개요](./dedicated-hosts.md)를 참조하세요.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/24/2021
 ms.author: b-juche
-ms.openlocfilehash: 06be68fb1de224bbbcad13e71e7f4069e44f8309
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b05b934b4dc57b4db941755cfcfb2f8d21fc2c6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566330"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824988"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -90,68 +90,50 @@ Azure NetApp Files 볼륨에는 *maxfiles* 라는 한도가 있습니다. Maxfil
 |    > 3TiB <= 4TiB    |    8천만     |
 |    > 4TiB                 |    1억    |
 
-볼륨에 이미 4TiB 이상의 할당량을 할당한 경우 [지원 요청](#limit_increase)을 시작하여 maxfiles(inodes) 한도를 1억 개 이상으로 늘릴 수 있습니다. 1억 개 파일(또는 그 일부)마다 해당 볼륨 할당량을 4TiB씩 늘려야 합니다.  예를 들어 maxfiles 한도를 1억 개에서 2억 개 파일(또는 그 사이에 있는 모든 수)로 늘리면 볼륨 할당량을 4TiB에서 8TiB로 늘려야 하는 것입니다.
+볼륨에 이미 4TiB 이상의 할당량을 할당한 경우 [지원 요청](#request-limit-increase)을 시작하여 maxfiles(inodes) 한도를 1억 개 이상으로 늘릴 수 있습니다. 1억 개 파일(또는 그 일부)마다 해당 볼륨 할당량을 4TiB씩 늘려야 합니다.  예를 들어 maxfiles 한도를 1억 개에서 2억 개 파일(또는 그 사이에 있는 모든 수)로 늘리면 볼륨 할당량을 4TiB에서 8TiB로 늘려야 하는 것입니다.
 
 볼륨 할당량이 20TiB 이상인 경우 maxfiles 한도를 5억 개로 늘릴 수 있습니다. <!-- ANF-11854 --> 
 
 ## <a name="regional-capacity-quota"></a>지역 용량 할당량
 
-Azure NetApp Files에는 용량에 따라 지역 제한이 있습니다. 각 구독에 대한 표준 용량 제한은 모든 서비스 수준에서 지역당 25TiB입니다.   
+Azure NetApp Files의 설정에서 **할당량** 을 클릭하여 지역의 현재 및 기본 할당량 크기를 표시할 수 있습니다. 
 
-다음과 같이 특정 **서비스 및 구독 한도(할당량)** 지원 티켓을 제출하여 용량 증가를 요청할 수 있습니다.
+예를 들면 다음과 같습니다. 
 
-1. 포털에서 **지원 + 문제 해결** 로 이동하여 지원 요청 프로세스를 시작합니다.  
+![할당량 정보를 표시하는 방법을 보여주는 스크린샷.](../media/azure-netapp-files/quota-display.png) 
 
-    ![지원 문제 해결 메뉴를 보여 주는 스크린샷.](../media/azure-netapp-files/support-troubleshoot-menu.png)   
+추가 비용 없이 지원 용량 할당량을 늘리기 위해 [지원 요청을 제출](#request-limit-increase)할 수 있습니다. 제출한 지원 요청은 처리를 위해 Azure 용량 관리 팀에 전송됩니다. 일반적으로 영업일 기준 2일 이내에 응답을 받게 됩니다. 대용량 요청이 있는 경우 Azure 용량 관리 팀에서 연락할 수 있습니다.  
 
-2.  **서비스 및 구독 한도(할당량)** 문제 유형을 선택하고 모든 관련 세부 정보를 입력합니다.
-
-    ![서비스 및 구독 제한 메뉴를 보여 주는 스크린샷.](../media/azure-netapp-files/service-subscription-limits-menu.png)   
-
-3. 세부 정보 탭에서 **세부 정보 입력** 링크를 클릭한 다음 **구독당 TiB** 할당량 유형을 선택합니다.   
-
-    ![세부 정보 탭의 세부 정보 입력 링크를 보여 주는 스크린샷.](../media/azure-netapp-files/support-details.png)   
-
-    ![할당량 세부 정보 창을 보여 주는 스크린샷.](../media/azure-netapp-files/support-quota-details.png)   
-
-4.  지원 방법 페이지에서 **심각도 수준 B - 보통 영향** 을 선택해야 합니다.  
-
-    ![지원 방법 창을 보여 주는 스크린샷.](../media/azure-netapp-files/support-method-severity.png)   
-
-5. 요청 프로세스를 완료하여 요청을 발행합니다. 
- 
-티켓이 제출되면 처리를 위해 요청이 Azure 용량 관리 팀으로 전송됩니다. 일반적으로 영업일 기준 2일 이내에 응답을 받게 됩니다. Azure 용량 관리 팀에서 대규모 요청을 처리하기 위해 연락할 수 있습니다.
- 
 지역 용량 할당량 증가는 청구 증가를 발생시키지 않습니다. 요금은 여전히 프로비저닝된 용량 풀을 기반으로 합니다.
+예를 들어 현재 프로비저닝된 용량이 25TiB인 경우 35TiB로 할당량 증가를 요청할 수 있습니다.  영업일 2일 이내에 할당량 증가가 요청된 지역에 적용됩니다. 할당량 증가가 적용되면 현재 프로비저닝된 용량(25TiB)에 대해서만 비용을 지불합니다. 하지만 추가 10TiB를 실제로 프로비저닝하는 경우 35TiB에 대한 요금이 청구됩니다.
 
-## <a name="request-limit-increase"></a>요청 한도 증가 <a name="limit_increase"></a> 
+Azure NetApp Files에 대한 현재 [리소스 제한](#resource-limits)은 변경되지 않습니다. 여전히 500TiB 용량 풀을 프로비저닝할 수 있습니다. 하지만 그 전에 지역 용량 할당량을 500TiB로 늘려야 합니다.
+
+## <a name="request-limit-increase"></a>제한 증가 요청
 
 Azure 지원 요청을 만들어 [리소스 제한](#resource-limits) 표에서 조정 가능한 한도를 늘릴 수 있습니다. 
 
-Azure Portal 탐색 화면에서: 
+1. **지원 + 문제 해결** 아래의 **새 지원 요청** 으로 이동합니다.
+1. **문제 설명** 탭에서 요청된 정보를 입력합니다.
+1. **추가 세부 정보** 탭에서 요청 정보 필드에 **세부 정보 입력** 을 클릭합니다.  
 
-1. **도움말 + 지원** 을 클릭합니다.
-2. **+ 새 지원 요청** 을 클릭합니다.
-3. 기본 탭에서 다음 정보를 제공합니다. 
-    1. 문제 유형: **서비스 및 구독 한도(할당량)** 를 선택합니다.
-    2. 구독: 할당량을 늘려야 하는 리소스의 구독을 선택합니다.
-    3. 할당량 유형: **스토리지: Azure NetApp Files 한도** 를 선택합니다.
-    4. **다음: 솔루션** 을 클릭합니다.
-4. 세부 정보 탭에서:
-    1. 아래 표에서 해당 리소스 종류에 대한 다음 정보를 제공합니다.
+    ![세부 정보 탭과 세부 정보 입력 필드를 보여주는 스크린샷.](../media/azure-netapp-files/quota-additional-details.png)
 
-        |  리소스  |    부모 리소스      |    요청된 새 제한     |    할당량 증가 이유       |
-        |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  계정 |  *구독 ID*   |  요청된 새 최대 **계정** 수    |  어떤 시나리오 또는 사용 사례를 계기로 요청하게 되었나요?  |
-        |  풀    |  구독 ID, NetApp 계정 URI  |  요청된 새 최대 **풀** 수   |  어떤 시나리오 또는 사용 사례를 계기로 요청하게 되었나요?  |
-        |  볼륨  |  구독 ID, NetApp 계정 URI, 용량 풀 URI   |  요청된 새 최대 **볼륨** 수     |  어떤 시나리오 또는 사용 사례를 계기로 요청하게 되었나요?  |
-        |  Maxfiles  |  구독 ID, NetApp 계정 URI, 용량 풀 URI, 볼륨 URI   |  요청된 새 최대 **maxfiles** 수     |  어떤 시나리오 또는 사용 사례를 계기로 요청하게 되었나요?  |    
-        |  지역 간 복제 데이터 보호 볼륨  |  구독 ID, 대상 NetApp 계정 URI, 대상 용량 풀 URI, 원본 NetApp 계정 URI, 원본 용량 풀 URI, 원본 볼륨 URI   |  *요청된 새 최대 **지역 간 복제 데이터 보호 볼륨(대상 볼륨)** 수_     |  _어떤 시나리오 또는 사용 사례를 계기로 요청하게 되었나요?*  |    
+1. 표시되는 할당량 세부 정보 창에서:  
 
-    2. 적절한 지원 방법을 지정하고 계약 정보를 제공합니다.
+    1. 할당량 유형에서 증가시킬 리소스의 유형을 선택합니다.  
+        예를 들면 다음과 같습니다.  
+        * 구독당 지역 용량 할당량(TiB)
+        * *구독당 Azure 지역별 NetApp 계정 수*
+        * *구독당 볼륨 수*
 
-    3. **다음: 검토 + 만들기** 를 클릭하여 요청을 만듭니다. 
+    1. 요청된 지역에서 지역을 선택합니다.   
+        현재 및 기본 크기는 할당량 상태 아래에 표시됩니다.
+    1. 지정한 할당량 유형의 증가를 요청하는 값을 입력합니다.
+    
+    ![지역별 할당량에 대한 증가를 표시하고 요청하는 방법을 보여주는 스크린샷.](../media/azure-netapp-files/quota-details-regional-request.png)
 
+1. **다음** 과 **검토 + 만들기** 를 클릭하여 요청을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계  
 

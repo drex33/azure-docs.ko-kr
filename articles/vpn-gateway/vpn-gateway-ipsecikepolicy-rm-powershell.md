@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe50cc3b8387b8cf377a1dce7cdcd69d174bd6ef
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6bbea74f635375785f325f48a2babb01af7c8228
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671877"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463194"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 
@@ -63,7 +63,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5  |
 | DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, 없음 |
 | IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음    |
-| IPsec 무결성  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
+| IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS 그룹        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음 
 | QM SA 수명   | (**선택 사항**: 지정되지 않으면 기본값이 사용됨)<br>초(정수, **최소 300**/기본값 27,000초)<br>KB(정수, **최소 1,024**/기본값 102,400,000KB)   |
 | 트래픽 선택기 | UsePolicyBasedTrafficSelectors** ($True/$False - **선택 사항**, 지정되지 않으면 기본값 $False)    |
@@ -84,8 +84,8 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 > 3. 위 표에서:
 >    * IKEv2는 기본 모드 또는 1단계에 해당합니다.
 >    * IPsec은 빠른 모드 또는 2단계에 해당합니다.
->    * DH 그룹은 기본 모드 또는 1단계에서 사용되는 Diffie-Hellmen 그룹을 지정합니다.
->    * PFS 그룹은 빠른 모드 또는 2단계에서 사용되는 Diffie-Hellmen 그룹을 지정했습니다.
+>    * DH 그룹은 기본 모드 또는 1단계에서 사용되는 Diffie-Hellman 그룹을 지정합니다.
+>    * PFS 그룹은 빠른 모드 또는 2단계에서 사용되는 Diffie-Hellman 그룹을 지정했습니다.
 > 4. IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.
 > 5. 연결에 대해 “UsePolicyBasedTrafficSelectors”를 $True로 설정하면 온-프레미스의 정책 기반 VPN 방화벽에 연결되도록 Azure VPN Gateway가 구성됩니다. PolicyBasedTrafficSelectors를 사용하도록 설정한 경우 VPN 디바이스에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사 및 Azure Virtual Network 접두사 간의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 예를 들어 온-프레미스 네트워크 접두사가 10.1.0.0/16 및 10.2.0.0/16이고 가상 네트워크 접두사가 192.168.0.0/16 및 172.16.0.0/16이면 다음 트래픽 선택기를 지정해야 합니다.
 >    * 10.1.0.0/16 <====> 192.168.0.0/16

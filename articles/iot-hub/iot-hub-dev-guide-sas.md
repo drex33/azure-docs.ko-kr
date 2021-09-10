@@ -6,7 +6,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 08/24/2021
 ms.custom:
 - amqp
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 032f67427f070818aa6874d33414c857fa6ca39c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528384"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867185"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>공유 액세스 서명 및 보안 토큰을 사용하여 IoT Hub에 대한 액세스 제어
 
@@ -282,6 +282,14 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 ### <a name="supported-x509-certificates"></a>지원되는 X.509 인증서
 
 인증서 지문 또는 CA(인증 기관)를 Azure IoT Hub에 업로드하면 모든 X.509 인증서를 사용하여 IoT Hub로 디바이스를 인증할 수 있습니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT 허브에서 인증 기관을 업로드하고 확인하는 방법에 대한 자세한 내용은 [Azure IoT 허브에서 X.509 보안 설정](./tutorial-x509-scripts.md)을 참조하세요.
+
+### <a name="enforcing-x509-authentication"></a>X.509 인증 적용
+
+보안을 강화하기 위해 디바이스 및 모듈에 대한 SAS 인증을 허용하지 않도록 IoT Hub를 구성할 수 있으며, 그러면 X.509가 유일하게 허용되는 인증 옵션입니다. 현재 이 기능은 Azure Portal에서 사용할 수 없습니다. 구성하려면 IoT Hub 리소스 속성에서 `disableDeviceSAS` 및 `disableModuleSAS`를 `true`로 설정합니다.
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --set properties.disableDeviceSAS=true properties.disableModuleSAS=true
+```
 
 ### <a name="use-sas-tokens-as-a-device"></a>디바이스로 SAS 토큰 사용
 

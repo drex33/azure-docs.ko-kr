@@ -1,23 +1,23 @@
 ---
-title: Azure NFS 파일 공유 탑재 - Azure Files
+title: Azure NFS 파일 공유 탑재(미리 보기) - Azure Files
 description: 네트워크 파일 시스템 공유를 탑재하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 9b537509d83c680fc9edb014acc13b41a8ca1466
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 8f3565f05fc04a74e761b1070f0374677703d225
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810529"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113225273"
 ---
-# <a name="how-to-mount-an-nfs-file-share"></a>NFS 파일 공유를 탑재하는 방법
+# <a name="how-to-mount-an-nfs-file-share-preview"></a>NFS 파일 공유를 마운트하는 방법(미리 보기)
 
-[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB(서버 메시지 블록) 프로토콜 또는 NFS(네트워크 파일 시스템) 프로토콜을 사용하여 Linux 배포에 탑재할 수 있습니다. 이 문서에서는 NFS를 사용하여 탑재하는 방법을 설명합니다. SMB를 사용하여 탑재하는 방법은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 각 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조하세요.
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 SMB(서버 메시지 블록 프로토콜) 또는 NFS(네트워크 파일 시스템) 프로토콜(미리 보기)을 사용하여 Linux 배포에 탑재할 수 있습니다. 이 문서에서는 NFS를 사용하여 탑재하는 방법을 설명합니다. SMB를 사용하여 탑재하는 방법은 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조하세요. 각 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-planning.md#available-protocols)을 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 

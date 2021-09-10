@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 1d96bb01cde5edbe4bff06de43d66b785da9cd98
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6a5f21153936313a209bb5971c1a7c6bd7a9e973
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748397"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969389"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -49,7 +49,7 @@ Azure RM(Resource Manager) 템플릿을 사용하여 모든 리소스를 만들�
 
 **subscriptionId**: 이 필드는 템플릿을 배포하는 구독에 대해 설정됩니다. 이 필드는 설정되어 있으므로 매개 변수 파일에 없습니다.
 
-**IoTHubName_in**: 이 필드는 기본 IoT Hub 이름이며, randomValue와 연결되어 전역적으로 고유합니다.
+**IoTHubName_in**: 이 필드는 기본 IoT Hub 이름이며, randomValue와 연결되므로 전역적으로 고유합니다.
 
 **location**: 이 필드는 배포할 Azure 영역(예: "westus")입니다.
 

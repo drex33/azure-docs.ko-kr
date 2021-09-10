@@ -7,15 +7,15 @@ manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 150daaa834cefbb3f74e6711fea500138774f2de
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 23be7352c1a9b8ca5e0ec60240cf29c863926a20
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111090"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255082"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 
@@ -71,12 +71,12 @@ Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 
 
 다음 표에서는 전화 번호 유형과 연결된 인바운드/아웃바운드 통화 및 SMS 기능과 함께 이러한 다양한 유형의 전화 번호를 얻을 수 있는 위치를 보여 줍니다.
 
-|전화 번호 유형| 전화 번호 획득 위치 | 통화 수신 지역                                        | 통화 발신 지역                                    |메시지 수신 지역       | 메시지 발신 지역 |
+|전화 번호 유형| 전화 번호 획득 위치 | 통화 수신 지역                                        | 통화 발신 지역*                                    |메시지 수신 지역       | 메시지 발신 지역 |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| 현지(지역)  | US                 | 미국, 캐나다, 영국, 독일, 프랑스 등*| 미국, 캐나다, 영국, 독일, 프랑스 등* |사용할 수 없음| 사용할 수 없음 |
+| 현지(지역)  | US                 | 미국, 캐나다, 영국, 독일, 프랑스 +자세히**| 미국, 캐나다, 영국, 독일, 프랑스 +자세히** |사용할 수 없음| 사용할 수 없음 |
 | 수신자 부담 | US                 | US                                                   | US                                                    |US                | US |
 
-*통화 대상 및 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](../pricing.md)를 참조하세요.
+*현재는 통신 채널 봇에 할당된 Microsoft 번호로만 전화를 받을 수 있습니다. 통신 채널에 대한 자세한 내용은 [여기](/azure/bot-service/bot-service-channel-connect-telephony)를 참조하세요. **통화 대상 및 가격에 대한 자세한 내용은 [가격 페이지](../pricing.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

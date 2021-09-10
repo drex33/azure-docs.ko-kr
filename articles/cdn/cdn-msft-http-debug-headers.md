@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
-ms.openlocfilehash: 159c4ac852e1caee3794962a262f84baee8b3487
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 56f9b5b33600947920ff928eac53c0149afef682
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959234"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568238"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN에 대한 HTTP 헤더 디버그
 디버그 응답 헤더인 `X-Cache`는 콘텐츠가 제공된 CDN 스택의 계층에 대한 세부 정보를 제공합니다. 해당 헤더는 Microsoft의 Azure CDN에만 적용됩니다.
@@ -30,6 +30,9 @@ ms.locfileid: "111959234"
 -------|------------
 X-Cache: TCP_HIT | 해당 헤더는 CDN 에지 캐시에서 콘텐츠를 제공할 때 반환됩니다. 
 X-Cache: TCP_REMOTE_HIT | 해당 헤더는 CDN 지역 캐시(원본 방패 계층)에서 콘텐츠를 제공할 때 반환됩니다.
-X-Cache: TCP_MISS | 캐시 누락이 있는 경우 해당 헤더가 반환되고 원본에서 콘텐츠가 제공됩니다. 
+X-Cache: TCP_MISS | 캐시 누락이 있는 경우 해당 헤더가 반환되고 원본에서 콘텐츠가 제공됩니다.
+X-Cache: PRIVATE_NOSTORE | 이 헤더는 Cache-Control 응답 헤더가 프라이빗 또는 저장소 없음으로 설정되어 요청을 캐시할 수 없는 경우 반환됩니다.
+X-Cache: CONFIG_NOCACHE | 요청이 CDN 프로필에 캐시되지 않도록 구성된 경우 이 헤더가 반환됩니다.
+X-Cache: 해당 없음 | 이 헤더는 서명된 URL 및 규칙 집합에서 요청을 거부할 때 반환됩니다.
 
 Azure CDN에서 지원되는 HTTP 헤더에 대한 자세한 내용은 [Front Door-백 엔드](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend)를 참조하세요.

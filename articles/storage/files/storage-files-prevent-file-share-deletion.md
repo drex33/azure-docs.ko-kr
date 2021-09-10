@@ -8,19 +8,24 @@ ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a879aff7c3fcaa7ac2c15be295c6c5bdca25ccdf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7841fcafff49dab43d944cfa6fd84e9b7119080
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937297"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259999"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>실수로 인한 Azure 파일 공유 삭제 방지
+이제 Azure Files에서는 파일 공유에 대해 일시 삭제 기능을 제공합니다. 일시 삭제를 사용하면 애플리케이션 또는 다른 스토리지 계정 사용자가 실수로 삭제한 파일 공유를 복구할 수 있습니다.
 
-이제 Azure Storage에서는 파일 공유에 대해 일시 삭제 기능을 제공합니다. 일시 삭제를 사용하면 애플리케이션 또는 다른 스토리지 계정 사용자가 실수로 삭제한 파일 공유를 복구할 수 있습니다.
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="how-soft-delete-works"></a>일시 삭제 작동 방식
-
 Azure 파일 공유에 일시 삭제를 사용으로 설정한 경우 파일 공유를 삭제하면 영구적으로 지우는 대신 일시 삭제 상태로 전환합니다. 일시 삭제된 데이터를 영구적으로 삭제하기 전에 복구할 수 있는 시간을 설정하고, 이 보존 기간 동안 언제든지 공유 삭제를 취소할 수 있습니다. 삭제가 취소되면 공유 및 스냅샷을 포함한 모든 콘텐츠가 삭제 이전 상태로 복원됩니다. 일시 삭제는 파일 공유 수준에서만 작동합니다. 삭제된 개별 파일은 계속 ​​영구적으로 지웁니다.
 
 새 파일 공유 또는 기존 파일 공유에 대해 일시 삭제를 사용하도록 설정할 수 있습니다. 일시 삭제도 이전 버전과 호환되므로 일시 삭제의 보호 기능을 활용하기 위해 애플리케이션을 변경할 필요가 없습니다. 
@@ -45,7 +50,7 @@ Azure 파일 공유에 일시 삭제를 사용으로 설정한 경우 파일 공
 
 표준 및 프리미엄 파일 공유는 모두 프로비저닝된 용량이 아닌, 일시 삭제될 때 사용된 용량에 대해 요금이 청구됩니다. 또한 프리미엄 파일 공유는 일시 삭제 상태에 있는 동안 스냅샷 요금으로 청구됩니다. 표준 파일 공유는 일시 삭제 상태에 있는 동안 일반 요금으로 청구됩니다. 구성된 보존 기간 후 영구적으로 삭제되는 데이터에 대한 비용은 청구되지 않습니다.
 
-일반적인 Azure File Storage 가격에 대한 자세한 내용은 [Azure File Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
+일반적인 Azure Files 가격에 대한 자세한 내용은 [Azure Files 가격 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
 
 일시 삭제를 처음 사용하도록 설정할 때 기능이 요금에 영향을 주는 방법을 더 잘 이해할 수 있도록 작은 보존 기간을 사용하는 것이 좋습니다.
 

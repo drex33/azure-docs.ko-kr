@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 0c01e797d74cd058bed94ee3bf8d52b927fd36cc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 053f1372067284e2b2d10bac508156b6ef38e4af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889811"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535764"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -31,6 +31,7 @@ ms.locfileid: "111889811"
 | 서비스 인스턴스당 최대 API 수<sup>8</sup> | 50 |
 | 서비스 인스턴스당 최대 API 관리 작업 수<sup>8</sup> | 1,000 |
 | 최대 총 요청 기간<sup>8</sup> | 30초 |
+| 최대 요청 페이로드 크기<sup>8</sup> | 1GiB |
 | 최대 버퍼링된 페이로드 크기<sup>8</sup> | 2MiB |
 | 최대 요청 URL 크기<sup>9</sup> | 4,096바이트 |
 | URL 경로 세그먼트의 최대 길이<sup>10</sup> | 260자 |
@@ -48,4 +49,4 @@ ms.locfileid: "111889811"
 <sup>8</sup>이 제한은 소비 계층에만 적용됩니다. 이러한 범주에는 다른 계층에 대한 제한이 없습니다.<br/>
 <sup>9</sup>소비 계층에만 적용됩니다. 최대 2,048바이트 길이의 쿼리 문자열을 포함합니다.<br/>
 <sup>10</sup> 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요.<br/>
-<sup>11</sup> 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2019-12-01/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.
+<sup>11</sup> 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2020-06-01-preview/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.

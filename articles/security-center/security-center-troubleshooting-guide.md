@@ -5,20 +5,28 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 08/15/2021
 ms.author: memildin
-ms.openlocfilehash: 96cd715a16c06dd6e35d042a6938de083ec262a9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ffa0970fe86ea832cb2c1df019bf5b0c65c70bba
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556787"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567755"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
 
 Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](./security-center-enable-data-collection.md)을 참조하세요. 이 문서의 정보는 Log Analytics 에이전트로 전환된 후의 Security Center 기능을 나타냅니다.
+
+> [!TIP]
+> Azure Portal에 있는 Security Center 페이지의 전용 영역인 A는 Security Center 및 Azure Defender와 관련된 일반적인 문제를 해결하기 위해 지속적으로 증가하는 자가 도움말 자료 세트를 제공합니다.
+> 
+> 문제가 발생하거나 지원 팀의 조언을 구하는 경우 **문제 진단 및 해결** 을 통해 솔루션을 찾는 것이 좋습니다.
+> 
+> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Security Center의 '문제 진단 및 해결' 페이지":::
+
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -59,11 +67,11 @@ Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 �
 
 서비스 관리 콘솔(services.msc)을 열 경우 다음과 같이 실행 중인 Log Analytics 에이전트 서비스가 나타납니다.
 
-![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![권한 부여.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 설치된 에이전트의 버전을 확인하려면 **작업 관리자** 를 열고, **프로세스** 탭에서 **Log Analytics 에이전트 서비스** 를 찾고, 마우스 오른쪽 단추로 클릭하고, **속성** 을 클릭합니다. **세부 정보** 탭에서 아래와 같이 파일 버전을 확인합니다.
 
-![파일](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+![파일.](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
 ## <a name="log-analytics-agent-installation-scenarios"></a>Log Analytics 에이전트 설치 시나리오
 
@@ -86,11 +94,11 @@ Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 �
 | 전원 상태 끄기 | VM이 중지됩니다.  Log Analytics 에이전트는 실행 중인 VM에만 설치할 수 있습니다. | VM을 다시 시작합니다. |
 | 누락되었거나 잘못된 Azure VM 에이전트 | Log Analytics 에이전트가 아직 설치되지 않았습니다.  Security Center에서 확장을 설치하려면 유효한 Azure VM 에이전트가 필요합니다. | Azure VM 에이전트를 VM에 설치, 다시 설치 또는 업그레이드합니다. |
 | 설치할 준비가 되지 않은 VM 상태  | VM을 설치할 준비가 되지 않았기 때문에 Log Analytics 에이전트가 아직 설치되지 않았습니다. VM 에이전트 또는 VM 프로비전 문제로 인해 VM을 설치할 준비가 되지 않았습니다. | VM의 상태를 확인합니다. 포털의 **Virtual Machines** 로 돌아가서 상태 정보에 대한 VM을 선택합니다. |
-|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | [수동으로 확장을 설치](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하거나 확장을 제거하여 Security Center에서 설치를 다시 시도합니다. |
-| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Security Center에서 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
+|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | [수동으로 확장을 설치](../azure-monitor/vm/monitor-virtual-machine.md#agents)하거나 확장을 제거하여 Security Center에서 설치를 다시 시도합니다. |
+| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Security Center에서 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/vm/monitor-virtual-machine.md#agents)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
 | 에이전트에서 작업 영역에 연결할 수 없음 | Log Analytics 에이전트가 설치되었지만 네트워크 연결로 인해 실패했습니다.  인터넷 액세스가 있는지 또는 에이전트에 대해 유효한 HTTP 프록시가 구성되어 있는지 확인합니다. | [모니터링 에이전트 네트워크 요구 사항]을 참조하세요. |
 | 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Security Center에서 VM에 설치된 Log Analytics 에이전트가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 에이전트를 올바른 작업 영역으로 다시 설치하거나, 에이전트를 제거하고 Security Center에서 자동 프로비전 설치를 수행하도록 합니다. 두 번째 경우는 작업 영역이 Security Center에 대한 권한이 없는 구독의 일부입니다. Security Center에는 Microsoft 보안 리소스 공급자가 액세스할 수 있게 하는 구독이 필요합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털을 통하거나 Security Center **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
-| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support)을 참조하세요. |
+| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support)을 참조하세요. |
 | 에이전트가 설치되지 않음 | 데이터 수집을 사용하지 않도록 설정되었습니다. | 보안 정책에서 데이터 수집을 설정하거나 Log Analytics 에이전트를 수동으로 설치합니다. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결 <a name="mon-network-req"></a>

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4eba226fbbe3ef6d9791f2f098a24fdf217debaa
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575377"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378145"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>시나리오: 사용자 지정 설정을 사용하여 NVA를 통해 트래픽 라우팅
 
@@ -177,6 +177,7 @@ NVA를 통해 라우팅을 설정하려면 다음 단계를 고려하세요.
    > * 포털 사용자가 연결(VPN/ER/P2S/VNet)에 ‘기본 경로로 전파’를 사용하도록 설정해야 0.0.0.0/0 경로가 적용됩니다.
    > * PS/CLI/REST 사용자가 ‘enableinternetsecurity’ 플래그를 true로 설정해야 0.0.0.0/0 경로가 적용됩니다.
    > * 다음 홉 IP를 사용하는 경로 중 하나가 공용 IP 주소 또는 0.0.0.0/0(인터넷)으로 표시되는 ‘경우’ 가상 네트워크 연결은 스포크 VNet의 ‘동일한’ 네트워크 가상 어플라이언스에 대한 ‘여러/고유한’ 다음 홉 IP를 지원하지 않습니다.
+   > * 0\.0.0.0/0이 Virtual Network 연결에서 정적 경로로 구성된 경우 해당 경로는 스포크 자체 내의 리소스를 포함하여 모든 트래픽에 적용됩니다. 즉, 모든 트래픽이 정적 경로(NVA 개인 IP)의 다음 홉 IP 주소로 전달됩니다. 따라서 다음 홉 NVA IP 주소가 스포크 Virtual Network 연결에 구성된 0.0.0.0/0 경로를 통한 배포에서 NVA와 동일한 Virtual Network 워크로드에 직접 액세스하려면(즉, 트래픽이 NVA를 통과하지 않도록) 스포크 Virtual Network 연결에 /32 경로를 지정하세요. 예를 들어, 10.1.3.1에 직접 액세스하려면 스포크 Virtual Network 연결에서 10.1.3.1/32 다음 홉 10.1.3.1을 지정하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

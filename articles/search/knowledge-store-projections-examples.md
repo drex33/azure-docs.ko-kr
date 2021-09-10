@@ -1,49 +1,38 @@
 ---
-title: 지식 저장소에서 프로젝션 정의
+title: 프로젝션 정의
 titleSuffix: Azure Cognitive Search
-description: Power BI 또는 Azure ML과 함께 사용하기 위해 풍부한 문서를 지식 저장소에 프로젝션하는 방법에 대한 일반적인 패턴의 예입니다.
+description: 지식 저장소에 테이블, 개체 및 파일 프로젝션을 만들어 인덱서 및 기술 자료 보강 파이프라인에서 보강된 콘텐츠를 저장합니다.
 manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 83837ebc464c1168bd71cd616d0483459c8ae2cc
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/10/2021
+ms.openlocfilehash: aeb236b0b016cd86b492ce5bf0f64b14d1443fca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557147"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536183"
 ---
-# <a name="how-to-shape-and-export-enrichments"></a>강화 셰이프 및 내보내기 방법
+# <a name="define-projections-in-a-knowledge-store"></a>지식 저장소에서 프로젝션 정의
 
-프로젝션은 지식 저장소에 있는 보강 문서의 물리적 식입니다. 보강 문서를 효과적으로 사용하려면 구조가 필요합니다. 이 문서에서는 구조와 관계를 모두 살펴보고, 프로젝션 속성을 구축하는 방법과 생성된 프로젝션 유형 간에 데이터를 연결하는 방법을 알아봅니다. 
+[프로젝션](knowledge-store-projection-overview.md)은 [지식 저장소](knowledge-store-concept-intro.md)에 있는 강화 문서의 물리적 표현이며 Azure Storage의 테이블, 개체 또는 파일 형식을 취합니다. 보강 문서를 효과적으로 사용하려면 구조가 필요합니다. 이 문서에서는 구조와 관계를 모두 살펴보고, 프로젝션 속성을 구축하는 방법과 생성된 프로젝션 유형 간에 데이터를 연결하는 방법을 알아봅니다.
 
-프로젝션을 만들기 위해 데이터는 [Shaper 기술](cognitive-search-skill-shaper.md)을 사용하여 사용자 지정 개체를 만들거나 프로젝션 정의 내에서 인라인 셰이핑 구문을 사용하여 모양을 만듭니다. 
+[Shaper 기술 또는 인라인 모양](knowledge-store-projection-shape.md)을 사용하여 보강을 정의하고 데이터를 형성한 후 투영은 [knowledgeStore 정의](knowledge-store-concept-intro.md)에 지정됩니다. 컨텍스트의 경우 이 문서에서는 프로젝션에 적합한 도형을 생성하는 쉐이퍼 기술을 포함하여 보강을 정의하는 기술 예제를 참조합니다.
 
-데이터 셰이프에는 프로젝션할 모든 데이터가 포함되며 노드 계층 구조로 형성됩니다. 이 문서에서는 보고, 분석 또는 다운스트림 처리에 도움이 되는 물리적 구조로 프로젝션할 수 있도록 데이터를 셰이핑하는 몇 가지 기술을 보여줍니다. 
+## <a name="enable-caching"></a>캐싱 설정
 
-이 문서에 나온 예제는 이 [REST API 샘플](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json)에서 찾을 수 있습니다. 이 샘플은 HTTP 클라이언트에서 다운로드하여 실행할 수 있습니다.
+프로젝션을 개발할 때 비용 제어를 보장하도록 [인덱서 캐시 속성을 설정](search-howto-incremental-index.md)하는 것이 유용합니다. 인덱서 캐시가 설정되지 않은 경우 프로젝션을 편집하면 전체 문서가 다시 보강됩니다. 캐시가 설정되고 프로젝션만 업데이트되면 이전에 보강된 문서에 대한 기술 세트 실행으로 인해 새로운 Cognitive Services 요금이 발생하지 않습니다.
 
-## <a name="introduction-to-projection-examples"></a>프로젝션 예제 소개
+## <a name="example-enrichments"></a>보강 예제
 
-다음과 같은 세 가지 유형의 [프로젝션](knowledge-store-projection-overview.md)이 있습니다.
-
-+ 테이블
-+ 개체
-+ 파일
-
-테이블 프로젝션은 Azure Table Storage에 저장됩니다. 개체 및 파일 프로젝션은 Blob Storage에 기록되며, 여기서 개체 프로젝션은 JSON 파일로 저장되고 원본 문서의 콘텐츠는 물론 모든 기술 출력 또는 보강을 포함할 수 있습니다. 또한 보강 파이프라인은 이미지와 같은 이진 파일을 추출할 수 있습니다. 이러한 이진 파일은 파일 프로젝션으로 프로젝션됩니다. 이진 개체를 개체 프로젝션으로 프로젝션하면 연결된 메타데이터만 JSON Blob으로 저장됩니다. 
-
-데이터 셰이핑과 프로젝션의 교차를 이해하기 위해 다양한 구성을 탐색하기 위한 기준으로 다음 기술 세트를 사용합니다. 이 기술 세트는 원시 이미지 및 텍스트 콘텐츠를 처리합니다. 프로젝션은 원하는 시나리오에 대해 문서의 내용과 기술의 출력을 통해 정의됩니다.
-
-> [!IMPORTANT] 
-> 프로젝션을 시험해 볼 때 비용 제어를 보장하도록 [인덱서 캐시 속성을 설정](search-howto-incremental-index.md)하는 것이 유용합니다. 인덱서 캐시가 설정되지 않은 경우 프로젝션을 편집하면 전체 문서가 다시 보강됩니다. 캐시가 설정되고 프로젝션만 업데이트되면 이전에 보강된 문서에 대한 기술 세트 실행으로 인해 새로운 Cognitive Services 요금이 발생하지 않습니다.
+데이터 셰이핑과 프로젝션의 교차를 이해하기 위해 다양한 구성을 탐색하기 위한 기준으로 다음 기술 세트를 사용합니다. 이 기술 세트는 원시 이미지와 텍스트를 모두 처리하여 모양과 투영에서 참조할 출력을 생성합니다.
 
 ```json
 {
     "name": "azureblob-skillset",
-    "description": "Skillset created from the portal. skillsetName: azureblob-skillset; contentField: merged_content; enrichmentGranularity: document; knowledgeStoreStorageAccount: confdemo;",
+    "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -190,36 +179,22 @@ ms.locfileid: "111557147"
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "DemosCS",
-        "key": "<COGNITIVE SERVICES KEY>"
+        "description": "A Cognitive Services resource in the same region as Search.",
+        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
     },
     "knowledgeStore": null
 }
 ```
 
-null `knowledgeStore`를 기반으로 하는 이 기술 세트를 사용하여 첫 번째 예제에서는 다른 시나리오에서 사용할 수 있는 표 형식 데이터 구조를 만드는 프로젝션으로 구성된 `knowledgeStore` 개체를 채웁니다. 
+## <a name="example-shaper-skill"></a>쉐이퍼 기술 예제
 
-## <a name="projecting-to-tables"></a>테이블에 프로젝션
+쉐이퍼 기술은 콘텐츠를 만드는 대신 보강된 콘텐츠로 작업하기 위한 유틸리티입니다. 기술 테이블에 쉐이퍼를 추가하면 Table Storage에 프로젝션할 수 있는 사용자 지정 셰이프를 만들 수 있습니다. 사용자 지정 셰이프가 없으면 프로젝션은 테이블에 적합하지 않은 단일 노드(출력당 하나의 프로젝션)를 참조하는 것으로 제한됩니다. 사용자 지정 셰이프를 만들면 다양한 요소가 단일 테이블로 프로젝션되거나 테이블 컬렉션에 분할 및 분산될 수 있는 새 논리적 전체로 집계됩니다. 
 
-Azure Storage의 테이블에 프로젝션하는 것은 Power BI 같은 도구를 사용하여 보고하고 분석하는 데 유용합니다. Power BI는 테이블에서 읽고 프로젝션 중에 생성된 키를 기반으로 관계를 검색할 수 있습니다. 대시보드를 빌드하려는 경우 관련 데이터가 있으면 해당 작업이 간소화됩니다. 
+이 예에서 사용자 지정 셰이프는 Blob 메타데이터와 식별된 엔터티 및 핵심 구를 결합합니다. 사용자 지정 셰이프는 `projectionShape`라고 하며 `/document` 아래에서 부모로 지정됩니다. 
 
-문서에서 추출한 핵심 문구를 단어 클라우드로 시각화하는 대시보드를 빌드해 보겠습니다. 올바른 데이터 구조를 만들려면 기술 세트에 쉐이퍼 기술을 추가하여 문서별 세부 정보 및 핵심 구가 있는 사용자 지정 셰이프를 만듭니다. 사용자 지정 셰이프가 `document` 루트 노드에서 `pbiShape`로 호출됩니다.
+셰이핑의 한 가지 용도는 모든 보강 노드가 잘 구성된 JSON으로 표현되도록 하는 것입니다. 이는 지식 저장소로 프로젝션하는 데 필요합니다. 보강 트리에 잘 구성된 JSON이 아닌 노드가 포함된 경우(예: 보강이 문자열과 같은 기본 요소의 부모로 지정된 경우) 특히 그렇습니다.
 
-> [!NOTE] 
-> 테이블 프로젝션은 Azure Storage에서 적용하는 스토리지 제한에 따라 관리되는 Azure Storage 테이블입니다. 자세한 내용은 [테이블 스토리지 제한](/rest/api/storageservices/understanding-the-table-service-data-model)을 참조하세요. 엔터티 크기는 1MB를 초과할 수 없으며 단일 속성은 64KB를 초과할 수 없습니다. 이러한 제약 조건으로 인해 테이블은 많은 수의 작은 엔터티를 저장하는 데 좋은 솔루션이 됩니다.
-
-### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>쉐이퍼 기술을 사용하여 사용자 지정 셰이프 만들기
-
-테이블 스토리지에 프로젝션할 수 있는 사용자 지정 셰이프를 만듭니다. 사용자 지정 셰이프가 없으면 프로젝션은 단일 노드(출력당 하나의 프로젝션)만 참조할 수 있습니다. 사용자 지정 셰이프를 만들면 다양한 요소가 단일 테이블로 프로젝션되거나 테이블 컬렉션에 분할 및 분산될 수 있는 새 논리적 전체로 집계됩니다. 
-
-이 예제에서 사용자 지정 도형은 메타데이터와 식별된 엔터티 및 핵심 구를 결합합니다. 개체는 `pbiShape`라고 하며 `/document` 아래에서 부모로 지정됩니다. 
-
-> [!IMPORTANT] 
-> 셰이핑의 한 가지 용도는 모든 보강 노드가 잘 구성된 JSON으로 표현되도록 하는 것입니다. 이는 지식 저장소로 프로젝션하는 데 필요합니다. 보강 트리에 잘 구성된 JSON이 아닌 노드가 포함된 경우(예: 보강이 문자열과 같은 기본 요소의 부모로 지정된 경우) 특히 그렇습니다.
->
-> 마지막 두 개의 노드인 `KeyPhrases` 및 `Entities`를 확인합니다. 이러한 노드는 `sourceContext`를 사용하여 유효한 JSON 개체에 래핑됩니다. `keyphrases` 및 `entities`는 기본 요소에 대한 보강이며 프로젝션되기 전에 유효한 JSON으로 변환되어야 하므로 필수 항목입니다.
->
-
+마지막 두 개의 노드인 `KeyPhrases` 및 `Entities`를 확인합니다. 이러한 노드는 `sourceContext`를 사용하여 유효한 JSON 개체에 래핑됩니다. `keyphrases` 및 `entities`는 기본 요소에 대한 보강이며 프로젝션되기 전에 유효한 JSON으로 변환되어야 하므로 필수 항목입니다.
 
 ```json
 {
@@ -280,7 +255,7 @@ Azure Storage의 테이블에 프로젝션하는 것은 Power BI 같은 도구�
     "outputs": [
         {
             "name": "output",
-            "targetName": "pbiShape"
+            "targetName": "projectionShape"
         }
     ]
 }
@@ -301,7 +276,24 @@ Azure Storage의 테이블에 프로젝션하는 것은 Power BI 같은 도구�
 }  
 ```
 
-이제 테이블에 프로젝션하는 데 필요한 모든 데이터를 확보했으므로 테이블 정의로 지식 저장소 개체를 업데이트합니다. 이 예제에는 `tableName`, `source` 및 `generatedKeyName` 속성을 설정하여 정의된 세 개의 테이블이 있습니다.
+## <a name="projecting-to-tables"></a>테이블에 프로젝션
+
+Azure Storage의 테이블에 프로젝션은 테이블에서 읽고 프로젝션 중에 생성된 키를 기반으로 관계를 검색할 수 있는 Power BI와 같은 도구를 사용하여 보고 및 분석하는 데 유용합니다. 대시보드를 빌드하려는 경우 관련 데이터가 있으면 해당 작업이 간소화됩니다.
+
+테이블의 스키마는 부분적으로 프로젝션(테이블 이름 및 키)과 테이블의 모양(열)을 제공하는 소스에 의해 지정됩니다.
+
+> [!NOTE] 
+> 테이블 프로젝션은 Azure Storage에서 적용하는 스토리지 제한에 따라 관리되는 Azure Storage 테이블입니다. 자세한 내용은 [테이블 스토리지 제한](/rest/api/storageservices/understanding-the-table-service-data-model)을 참조하세요. 엔터티 크기는 1MB를 초과할 수 없으며 단일 속성은 64KB를 초과할 수 없습니다. 이러한 제약 조건으로 인해 테이블은 많은 수의 작은 엔터티를 저장하는 데 좋은 솔루션이 됩니다.
+
+위의 예를 참조하면 테이블 프로젝션에서 참조할 수 있는 보강 및 데이터 모양의 알려진 양이 있습니다. 아래 테이블 프로젝션에서 `tableName`, `source` 및 `generatedKeyName` 속성을 설정하여 세 개의 테이블을 정의합니다.
+
+| 속성 | 설명 |
+|----------|-------------|
+| tableName | (필수) Azure Table Storage 만든 새 테이블의 이름을 결정합니다. 테이블은 partitionKey 및 rowKey 열로 만들어집니다. |
+| source | 보강 트리의 노드에 대한 경로입니다. 테이블 프로젝션은 복잡하기 때문에(여러 열을 채우는 여러 노드가 있는 경우) 경로는 노드를 포함하는 데이터 셰이프로 확인되어야 합니다. 쉐이퍼 기술의 출력은 이 속성의 가장 일반적인 값이지만 프로젝션 내에서 인라인 셰이핑을 사용하여 도형을 만들 수도 있습니다. |
+| generatedKeyName | 모든 행은 시스템에서 생성된 값으로 고유하게 식별됩니다. 이 속성은 해당 값을 포함하는 열의 이름을 결정합니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
+
+이러한 세 테이블은 모두 생성된 키와 공유 부모`/document/projectionShape`를 통해 관련됩니다.
 
 ```json
 "knowledgeStore" : {
@@ -310,19 +302,19 @@ Azure Storage의 테이블에 프로젝션하는 것은 Power BI 같은 도구�
         {
             "tables": [
                 {
-                    "tableName": "pbiDocument",
+                    "tableName": "tblDocument",
                     "generatedKeyName": "Documentid",
-                    "source": "/document/pbiShape"
+                    "source": "/document/projectionShape"
                 },
                 {
-                    "tableName": "pbiKeyPhrases",
+                    "tableName": "tblKeyPhrases",
                     "generatedKeyName": "KeyPhraseid",
-                    "source": "/document/pbiShape/keyPhrases/*"
+                    "source": "/document/projectionShape/keyPhrases/*"
                 },
                 {
-                    "tableName": "pbiEntities",
+                    "tableName": "tblEntities",
                     "generatedKeyName": "Entityid",
-                    "source": "/document/pbiShape/Entities/*"
+                    "source": "/document/projectionShape/Entities/*"
                 }
             ],
             "objects": [],
@@ -334,129 +326,127 @@ Azure Storage의 테이블에 프로젝션하는 것은 Power BI 같은 도구�
 
 다음 단계를 수행하여 작업을 처리할 수 있습니다.
 
-1. ```storageConnectionString``` 속성을 유효한 V2 범용 스토리지 계정 연결 문자열로 설정합니다.  
+1. 지식 저장소의 `storageConnectionString` 속성을 유효한 V2 범용 저장소 계정 연결 문자열로 설정합니다.  
 
 1. PUT 요청을 실행하여 기술 세트를 업데이트합니다.
 
 1. 기술 세트를 업데이트한 후 인덱서를 실행합니다. 
 
-이제 세 개의 테이블이 있는 작업 프로젝션이 있습니다. 해당 테이블을 Power BI로 가져오면 Power BI가 관계를 자동으로 검색합니다.
+이제 세 개의 테이블이 있는 작업 프로젝션이 있습니다. [이러한 테이블을 Power BI로 가져오면](knowledge-store-connect-power-bi.md) Power BI가 관계를 자동으로 검색해야 합니다.
 
 다음 예제로 이동하기 전에 테이블 프로젝션의 측면을 다시 살펴보고 데이터 조각화 및 관련 메커니즘을 이해해 보겠습니다.
 
-### <a name="slicing"></a>조각화 
+### <a name="slicing-a-table-into-multiple-child-tables"></a>테이블을 여러 자식 테이블로 자르기
 
 조각화는 전체 통합 셰이프를 구성 부분으로 세분화하는 기술입니다. 결과는 개별적으로 작업할 수 있는 별도의 관련 테이블로 구성됩니다.
 
-예제에서 `pbiShape`는 통합 셰이프(또는 보강 노드)입니다. 프로젝션 정의에서 `pbiShape`는 추가 테이블로 분리되며, 이를 통해 도형(```keyPhrases``` 및 ```Entities```)의 일부를 끌어올 수 있습니다. Power BI에서 이 기능은 여러 엔터티와 keyPhrases가 각 문서에 연결되어 있으므로 유용하며, 엔터티와 keyPhrases를 범주화된 데이터로 볼 수 있으면 더 많은 정보를 얻을 수 있습니다.
+예제에서 `projectionShape`는 통합 셰이프(또는 보강 노드)입니다. 프로젝션 정의에서 `projectionShape`는 추가 테이블로 분리되며, 이를 통해 도형(`keyPhrases` 및 `Entities`)의 일부를 끌어올 수 있습니다. Power BI에서 이 기능은 여러 엔터티와 keyPhrases가 각 문서에 연결되어 있으므로 유용하며, 엔터티와 keyPhrases를 범주화된 데이터로 볼 수 있으면 더 많은 정보를 얻을 수 있습니다.
 
-조각화는 부모 테이블과 자식 테이블 간의 관계를 암시적으로 생성하며, 부모 테이블의 ```generatedKeyName```을 사용하여 자식 테이블에 동일한 이름의 열을 생성합니다. 
+조각화는 부모 테이블과 자식 테이블 간의 관계를 암시적으로 생성하며, 부모 테이블의 `generatedKeyName`을 사용하여 자식 테이블에 동일한 이름의 열을 생성합니다. 
 
 ### <a name="naming-relationships"></a>관계 이름 지정
 
-```generatedKeyName```및 ```referenceKeyName``` 속성은 여러 테이블 또는 프로젝션 형식 간에 데이터를 연관하는 데 사용됩니다. 자식 테이블/프로젝션의 각 행에는 부모를 가리키는 속성이 있습니다. 자식의 열 또는 속성 이름은 부모에서 ```referenceKeyName```입니다. ```referenceKeyName```이 제공되지 않은 경우 서비스에서 기본값을 부모의 ```generatedKeyName```으로 지정합니다. 
+`generatedKeyName`및 `referenceKeyName` 속성은 여러 테이블 또는 프로젝션 형식 간에 데이터를 연관하는 데 사용됩니다. 자식 테이블/프로젝션의 각 행에는 부모를 가리키는 속성이 있습니다. 자식의 열 또는 속성 이름은 부모에서 `referenceKeyName`입니다. `referenceKeyName`이 제공되지 않은 경우 서비스에서 기본값을 부모의 `generatedKeyName`으로 지정합니다. 
 
-Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 검색합니다. 자식 테이블의 열이 다른 이름으로 지정 되어야 하는 경우 부모 테이블에서 ```referenceKeyName``` 속성을 설정합니다. 한 가지 예를 들면 ```generatedKeyName```을 pbiDocument 테이블의 ID로 설정하고 ```referenceKeyName```을 DocumentID로 설정하는 것입니다. 그러면 문서 ID가 포함된 pbiEntities 및 pbiKeyPhrases 테이블의 열이 DocumentID로 명명됩니다.
+Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 검색합니다. 자식 테이블의 열이 다른 이름으로 지정 되어야 하는 경우 부모 테이블에서 `referenceKeyName` 속성을 설정합니다. 한 가지 예를 들면 `generatedKeyName`을 pbiDocument 테이블의 ID로 설정하고 `referenceKeyName`을 DocumentID로 설정하는 것입니다. 그러면 문서 ID가 포함된 pbiEntities 및 pbiKeyPhrases 테이블의 열이 DocumentID로 명명됩니다.
 
 ## <a name="projecting-to-objects"></a>개체에 프로젝션
 
-개체 프로젝션은 테이블 프로젝션과 동일한 제한이 없으며 큰 문서를 프로젝션하는 데 더 적합합니다. 이 예제에서 전체 문서는 개체 프로젝션으로 전송됩니다. 개체 프로젝션은 컨테이너의 단일 프로젝션으로 제한되며 조각화할 수 없습니다.
+개체 프로젝션은 더 간단하게 정의할 수 있으며 전체 문서를 프로젝션할 때 사용됩니다. 개체 프로젝션은 컨테이너의 단일 프로젝션으로 제한되며 조각화할 수 없습니다.
 
-개체 프로젝션을 정의하려면 프로젝션에서 ```objects``` 배열을 사용합니다. 쉐이퍼 기술을 사용하여 새 도형을 생성하거나 개체 프로젝션의 인라인 셰이핑을 사용할 수 있습니다. 테이블 예제에서는 도형을 만들고 자르는 방법을 보여주지만, 이 예제에서는 인라인 셰이핑을 사용하는 방법을 보여줍니다. 
+객체 투영을 정의하려면 `projections`에서 `objects` 배열을 사용하십시오. 쉐이퍼 기술을 사용하여 새 도형을 생성하거나 개체 프로젝션의 인라인 셰이핑을 사용할 수 있습니다. 테이블 예제에서는 도형을 만들고 자르는 방법을 보여주지만, 이 예제에서는 인라인 셰이핑을 사용하는 방법을 보여줍니다. 
 
-인라인 셰이핑은 프로젝션에 대한 입력 정의에서 새 도형을 만드는 기능입니다. 인라인 셰이핑은 쉐이퍼 기술이 생성하는 것과 동일한 익명 개체를 만듭니다(이 경우 `pbiShape`). 인라인 셰이핑은 다시 사용할 계획이 없는 도형을 정의하는 경우에 유용합니다.
+인라인 셰이핑은 프로젝션에 대한 입력 정의에서 새 도형을 만드는 기능입니다. 인라인 셰이핑은 셰이퍼 기술이 생성하는 것과 동일한 익명 개체를 생성합니다(이 경우 `projectionShape`). 인라인 셰이핑은 다시 사용할 계획이 없는 도형을 정의하는 경우에 유용합니다.
 
 프로젝션 속성은 배열입니다. 이 예제에서는 knowledgeStore 정의에 인라인 프로젝션이 포함된 새 프로젝션 인스턴스를 배열에 추가합니다. 인라인 프로젝션을 사용하는 경우 셰이퍼 기술을 생략할 수 있습니다.
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-             {
-                "tables": [ ],
-                "objects": [
-                    {
-                        "storageContainer": "sampleobject",
-                        "source": null,
-                        "generatedKeyName": "myobject",
-                        "sourceContext": "/document",
-                        "inputs": [
-                            {
-                                "name": "metadata_storage_name",
-                                "source": "/document/metadata_storage_name"
-                            },
-                            {
-                                "name": "metadata_storage_path",
-                                "source": "/document/metadata_storage_path"
-                            },
-                            {
-                                "name": "content",
-                                "source": "/document/content"
-                            },
-                            {
-                                "name": "keyPhrases",
-                                "source": "/document/merged_content/keyphrases/*"
-                            },
-                            {
-                                "name": "entities",
-                                "source": "/document/merged_content/entities/*/name"
-                            },
-                            {
-                                "name": "ocrText",
-                                "source": "/document/normalized_images/*/text"
-                            },
-                            {
-                                "name": "ocrLayoutText",
-                                "source": "/document/normalized_images/*/layoutText"
-                            }
-                        ]
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [ ],
+            "objects": [
+                {
+                    "storageContainer": "sampleobject",
+                    "source": null,
+                    "generatedKeyName": "myobject",
+                    "sourceContext": "/document",
+                    "inputs": [
+                        {
+                            "name": "metadata_storage_name",
+                            "source": "/document/metadata_storage_name"
+                        },
+                        {
+                            "name": "metadata_storage_path",
+                            "source": "/document/metadata_storage_path"
+                        },
+                        {
+                            "name": "content",
+                            "source": "/document/content"
+                        },
+                        {
+                            "name": "keyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        },
+                        {
+                            "name": "entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        },
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        },
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
 
-                    }
-                ],
-                "files": []
-            }
-        ]
-    }
+                }
+            ],
+            "files": []
+        }
+    ]
+}
 ```
 
 ## <a name="projecting-to-file"></a>파일에 프로젝션
 
 파일 프로젝션은 원본 문서에서 추출된 이미지이거나 보강 프로세스에서 프로젝션될 수 있는 보강의 출력입니다. 개체 프로젝션과 비슷한 파일 프로젝션은 Azure Storage에서 Blob으로 구현되고 이미지를 포함합니다. 
 
-파일 프로젝션을 생성하려면 프로젝션 개체에서 `files` 배열을 사용합니다. 이 예제에서는 문서에서 추출한 모든 이미지를 `samplefile`라는 컨테이너로 프로젝션합니다.
+파일 프로젝션을 생성하려면 프로젝션 개체에서 `files` 배열을 사용합니다. 이 예제에서는 문서에서 추출한 모든 이미지를 `myImages`라는 컨테이너로 프로젝션합니다.
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files": [
-                    {
-                        "storageContainer": "samplefile",
-                        "source": "/document/normalized_images/*"
-                    }
-                ]
-            }
-        ]
-    }
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+        {
+            "tables": [ ],
+            "objects": [ ],
+            "files": [
+                {
+                    "storageContainer": "myImages",
+                    "source": "/document/normalized_images/*"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ## <a name="projecting-to-multiple-types"></a>여러 형식으로 프로젝션
 
 복잡한 시나리오에서는 프로젝션 형식 간에 콘텐츠를 프로젝션해야 할 수 있습니다. 예를 들어 핵심 문구 및 엔터티와 같은 일부 데이터를 테이블에 프로젝션해야 하는 경우 텍스트 및 레이아웃 텍스트의 OCR 결과를 개체로 저장한 후에 이미지를 파일로 프로젝션합니다. 
 
-이 예제에서는 기술 세트를 다음과 같은 변경 내용으로 업데이트합니다.
+여러 프로젝션 형식에 대한 단계:
 
 1. 각 문서에 행이 있는 테이블을 만듭니다.
 1. 이 테이블에서 행으로 식별되는 각 키 구문을 사용하여 문서 테이블과 관련된 테이블을 만듭니다.
 1. 이 테이블에서 행으로 식별되는 각 엔터티를 사용하여 문서 테이블과 관련된 테이블을 만듭니다.
 1. 각 이미지에 대한 레이아웃 텍스트를 사용하여 개체 프로젝션을 만듭니다.
 1. 추출된 각 이미지를 프로젝션하는 파일 프로젝션을 만듭니다.
-1. 문서 테이블에 대한 참조, 레이아웃 텍스트가 있는 개체 프로젝션 및 파일 프로젝션이 포함된 상호 참조 테이블을 만듭니다.
-
-이러한 변경 내용은 지식 저장소 정의에 추가로 반영됩니다. 
+1. 문서 테이블에 대한 참조, 레이아웃 텍스트가 있는 개체 투영 및 파일 투영을 포함하는 상호 참조 테이블을 만듭니다.
 
 ### <a name="shape-data-for-cross-projection"></a>교차 프로젝션을 위한 셰이프 데이터
 
@@ -465,7 +455,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "ShaperForCross",
+    "name": "ShaperForCrossProjection",
     "description": null,
     "context": "/document",
     "inputs": [
@@ -535,59 +525,59 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-             {
-                "tables": [
-                    {
-                        "tableName": "crossDocument",
-                        "generatedKeyName": "Id",
-                        "source": "/document/crossProjection"
-                    },
-                    {
-                        "tableName": "crossEntities",
-                        "generatedKeyName": "EntityId",
-                        "source": "/document/crossProjection/entities/*"
-                    },
-                    {
-                        "tableName": "crossKeyPhrases",
-                        "generatedKeyName": "KeyPhraseId",
-                        "source": "/document/crossProjection/keyPhrases/*"
-                    },
-                    {
-                        "tableName": "crossReference",
-                        "generatedKeyName": "CrossId",
-                        "source": "/document/crossProjection/images/*"
-                    }
-                     
-                ],
-                "objects": [
-                    {
-                        "storageContainer": "crossobject",
-                        "generatedKeyName": "crosslayout",
-                        "source": null,
-                        "sourceContext": "/document/crossProjection/images/*/layoutText",
-                        "inputs": [
-                            {
-                                "name": "OcrLayoutText",
-                                "source": "/document/crossProjection/images/*/layoutText"
-                            }
-                        ]
-                    }
-                ],
-                "files": [
-                    {
-                        "storageContainer": "crossimages",
-                        "generatedKeyName": "crossimages",
-                        "source": "/document/crossProjection/images/*/image"
-                    }
-                ]
-            }
-        ]
-    }
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [
+                {
+                    "tableName": "crossDocument",
+                    "generatedKeyName": "Id",
+                    "source": "/document/crossProjection"
+                },
+                {
+                    "tableName": "crossEntities",
+                    "generatedKeyName": "EntityId",
+                    "source": "/document/crossProjection/entities/*"
+                },
+                {
+                    "tableName": "crossKeyPhrases",
+                    "generatedKeyName": "KeyPhraseId",
+                    "source": "/document/crossProjection/keyPhrases/*"
+                },
+                {
+                    "tableName": "crossReference",
+                    "generatedKeyName": "CrossId",
+                    "source": "/document/crossProjection/images/*"
+                }
+                    
+            ],
+            "objects": [
+                {
+                    "storageContainer": "crossobject",
+                    "generatedKeyName": "crosslayout",
+                    "source": null,
+                    "sourceContext": "/document/crossProjection/images/*/layoutText",
+                    "inputs": [
+                        {
+                            "name": "OcrLayoutText",
+                            "source": "/document/crossProjection/images/*/layoutText"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                {
+                    "storageContainer": "crossimages",
+                    "generatedKeyName": "crossimages",
+                    "source": "/document/crossProjection/images/*/image"
+                }
+            ]
+        }
+    ]
+}
 ```
 
-개체 프로젝션에는 각 프로젝션에 대한 컨테이너 이름이 필요하며, 개체 프로젝션 또는 파일 프로젝션은 컨테이너를 공유할 수 없습니다. 
+개체 투영에는 각 투영에 대한 컨테이너 이름이 필요합니다. 개체 프로젝션 및 파일 프로젝션에서는 컨테이너를 공유할 수 없습니다. 
 
 ### <a name="relationships-among-table-object-and-file-projections"></a>테이블, 개체 및 파일 프로젝션 간의 관계
 
@@ -601,56 +591,56 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-            {
-                "tables": [
-                    {
-                        "tableName": "unrelatedDocument",
-                        "generatedKeyName": "Documentid",
-                        "source": "/document/pbiShape"
-                    },
-                    {
-                        "tableName": "unrelatedKeyPhrases",
-                        "generatedKeyName": "KeyPhraseid",
-                        "source": "/document/pbiShape/keyPhrases"
-                    }
-                ],
-                "objects": [
-                    
-                ],
-                "files": []
-            }, 
-            {
-                "tables": [],
-                "objects": [
-                    {
-                        "storageContainer": "unrelatedocrtext",
-                        "source": null,
-                        "sourceContext": "/document/normalized_images/*/text",
-                        "inputs": [
-                            {
-                                "name": "ocrText",
-                                "source": "/document/normalized_images/*/text"
-                            }
-                        ]
-                    },
-                    {
-                        "storageContainer": "unrelatedocrlayout",
-                        "source": null,
-                        "sourceContext": "/document/normalized_images/*/layoutText",
-                        "inputs": [
-                            {
-                                "name": "ocrLayoutText",
-                                "source": "/document/normalized_images/*/layoutText"
-                            }
-                        ]
-                    }
-                ],
-                "files": []
-            }
-        ]
-    }
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+        {
+            "tables": [
+                {
+                    "tableName": "unrelatedDocument",
+                    "generatedKeyName": "Documentid",
+                    "source": "/document/projectionShape"
+                },
+                {
+                    "tableName": "unrelatedKeyPhrases",
+                    "generatedKeyName": "KeyPhraseid",
+                    "source": "/document/projectionShape/keyPhrases"
+                }
+            ],
+            "objects": [
+                
+            ],
+            "files": []
+        }, 
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "unrelatedocrtext",
+                    "source": null,
+                    "sourceContext": "/document/normalized_images/*/text",
+                    "inputs": [
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        }
+                    ]
+                },
+                {
+                    "storageContainer": "unrelatedocrlayout",
+                    "source": null,
+                    "sourceContext": "/document/normalized_images/*/layoutText",
+                    "inputs": [
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
+                }
+            ],
+            "files": []
+        }
+    ]
+}
 ```
 
 ## <a name="common-issues"></a>일반적인 문제
@@ -659,7 +649,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 + 문자열 보강을 유효한 JSON으로 셰이핑하지 않습니다. 예를 들어 키 구로 보강된 `merged_content` 문자열이 보강되면 보강된 속성은 보강 트리 내에서 `merged_content`의 자식으로 표시됩니다. 기본 표현은 잘 구성된 JSON이 아닙니다. 따라서 프로젝션 시 이름과 값이 있는 유효한 JSON 개체로 보강을 변환해야 합니다.
 
-+ 원본 경로의 끝에 ```/*```를 생략합니다. 프로젝션의 원본이 `/document/pbiShape/keyPhrases`인 경우 키 구 배열은 단일 개체/행으로 프로젝션됩니다. 대신의 원본 경로를 `/document/pbiShape/keyPhrases/*`로 설정하여 각 키 구에 대해 단일 행 또는 개체를 생성합니다.
++ 원본 경로의 끝에 ```/*```를 생략합니다. 프로젝션의 원본이 `/document/projectionShape/keyPhrases`인 경우 키 구 배열은 단일 개체/행으로 프로젝션됩니다. 대신의 원본 경로를 `/document/projectionShape/keyPhrases/*`로 설정하여 각 키 구에 대해 단일 행 또는 개체를 생성합니다.
 
 + 경로 구문 오류입니다. 경로 선택기는 대/소문자를 구분 하며 선택기에 대해 정확한 대/소문자를 사용하지 않는 경우 입력 경고가 누락될 수 있습니다.
 
@@ -670,9 +660,4 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 새 기능을 탐색할 때 다음 단계로 증분 보강을 고려합니다. 증분 보강은 캐싱을 기반으로 하므로 모든 보강을 다시 사용할 수 있으며 기술 세트 수정의 영향을 받지 않습니다. 이는 OCR 및 이미지 분석이 포함된 파이프라인에 특히 유용합니다.
 
 > [!div class="nextstepaction"]
-> [증분 보강 및 캐싱 소개](cognitive-search-incremental-indexing-conceptual.md)
-
-프로젝션에 대한 개요의 경우 그룹 및 조각화와 같은 기능 및 [기술 세트에서 정의](knowledge-store-projection-overview.md)하는 방법을 자세히 알아보세요.
-
-> [!div class="nextstepaction"]
-> [지식 저장소의 프로젝션](knowledge-store-projection-overview.md)
+> [증분 보강을 위한 캐싱 구성](search-howto-incremental-index.md)

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
-ms.openlocfilehash: 5ca20d4ebbaf1711b63f9329b2391c3a6f94b618
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: afd401e71f7f369987ca165c66f5a5b33e55cb24
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642818"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314026"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Databricks Delta Lake 간에 데이터 복사
 
@@ -70,6 +70,30 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-databricks-delta-lake-using-ui"></a>UI를 사용하여 Azure Databricks Delta Lake에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Databricks Delta Lake에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷.":::
+
+2. delta를 검색하고 Azure Databricks Delta Lake 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/azure-databricks-delta-lake-connector.png" alt-text="Azure Databricks Delta Lake 커넥터의 스크린샷.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/configure-azure-databricks-delta-lake-linked-service.png" alt-text="Azure Databricks Delta Lake 연결된 서비스의 구성 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
 다음 섹션에서는 Azure Databricks Delta Lake 커넥터에 고유한 엔터티를 정의하는 속성에 관해 자세히 설명합니다.
 

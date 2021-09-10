@@ -1,6 +1,6 @@
 ---
-title: Android maps에 대 한 데이터 원본 만들기 | Microsoft Azure 맵
-description: 지도의 데이터 원본을 만드는 방법에 대해 알아보세요. Azure Maps Android SDK에서 사용 하는 데이터 원본에 대해 알아봅니다. GeoJSON 원본 및 벡터 타일.
+title: Android maps에 대 한 데이터 원본 만들기 | Microsoft Azure 지도
+description: 지도에 대한 데이터 원본을 만드는 방법을 알아봅니다. Azure Maps Android SDK에서 사용하는 데이터 원본(GeoJSON 원본 및 벡터 타일)에 대해 알아보세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 2/26/2021
@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: e870134e2ecd431aa3e5c02638120027f0d47df2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9ea96613425ec3802080277da9ac674af4e87c52
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101463"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669092"
 ---
 # <a name="create-a-data-source-android-sdk"></a>데이터 원본 만들기 (Android SDK)
 
-Azure Maps Android SDK 데이터 원본에 데이터를 저장 합니다. 데이터 원본을 사용 하 여 쿼리 및 렌더링을 위한 데이터 작업을 최적화 합니다. 현재 다음과 같은 두 가지 유형의 데이터 원본이 있습니다.
+Azure Maps Android SDK 데이터 원본에 데이터를 저장합니다. 데이터 원본을 사용하면 쿼리 및 렌더링을 위해 데이터 작업이 최적화됩니다. 현재 다음 두 가지 유형의 데이터 원본이 지원됩니다.
 
-- **GeoJSON source**: 로컬에서 GeoJSON 형식의 원시 위치 데이터를 관리 합니다. 중소 규모의 데이터 집합에 적합 합니다 (수천 개의 셰이프).
-- **벡터 타일 원본**: 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일로 형식이 지정 된 데이터를 로드 합니다. 대규모 데이터 집합 (수백만 또는 수십억 개의 도형)에 이상적입니다.
+- **GeoJSON 원본**: GeoJSON 형식의 원시 위치 데이터를 로컬로 관리합니다. 중소 규모의 데이터 세트에 적합합니다(수십만 개 이상의 형태).
+- **벡터 타일 원본**: 지도 바둑판식 배열 시스템을 기반으로 현재 지도 보기의 벡터 타일 형식의 데이터를 로드합니다. 대규모 데이터 세트에 이상적입니다(수백만 또는 수십억 개의 형태).
 
 ## <a name="geojson-data-source"></a>GeoJSON 데이터 원본
 
-Azure Maps은 기본 데이터 모델 중 하나로 GeoJSON를 사용 합니다. GeoJSON는 지리 공간적 데이터를 JSON 형식으로 나타내는 데 사용할 수 있는 지리 공간적 표준 방식입니다. Azure Maps Android SDK에서 사용할 수 있는 GeoJSON 클래스를 사용 하 여 GeoJSON 데이터를 쉽게 만들고 serialize 할 수 있습니다. GeoJSON 데이터를 로드 하 고 클래스에 저장 `DataSource` 한 다음 레이어를 사용 하 여 렌더링 합니다. 다음 코드는 Azure Maps에서 GeoJSON 개체를 만드는 방법을 보여 줍니다.
+Azure Maps은 기본 데이터 모델 중 하나로 GeoJSON를 사용합니다. GeoJSON는 지리 공간적 데이터를 JSON 형식으로 나타내는 데 사용할 수 있는 지리 공간적 표준 방식입니다. Azure Maps Android SDK에서 GeoJSON 클래스를 사용하여 GeoJSON 데이터를 쉽게 만들고 직렬화할 수 있습니다. `DataSource` 클래스에 GeoJSON 데이터를 로드 및 저장하고 레이어를 사용하여 렌더링합니다. 다음 코드는 Azure Maps에서 GeoJSON 개체를 만드는 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -87,9 +87,12 @@ feature.addStringProperty("custom-property", "value")
 source.add(feature)
 ```
 
+> [!TIP]
+> GeoJSON 데이터는 세 가지 메서드 중 하나를 사용하여 `DataSource` 인스턴스에 추가할 수 있습니다. `add`, `importDataFromUrl` 및 `setShapes`. `setShapes` 메서드는 데이터 소스의 모든 데이터를 덮어쓰는 효율적인 방법을 제공합니다. `clear` 와 `add` 메서드를 호출하여 데이터 소스의 모든 데이터를 바꾸면 지도에 대해 두 번의 렌더링 호출이 수행됩니다. `setShape` 메서드는 지도에 대한 단일 렌더링 호출로 데이터를 지우고 데이터 소스에 추가합니다.
+
 ::: zone-end
 
-또는 아래와 같이 먼저 속성을 JsonObject로 로드 한 다음이를 만들 때 기능에 전달할 수 있습니다.
+또는 아래와 같이 속성을 먼저 JsonObject에 로드한 다음 생성할 때 기능에 전달할 수 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -115,7 +118,7 @@ val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties)
 
 ::: zone-end
 
-GeoJSON 기능을 만든 후에는 맵의 속성을 통해 지도에 데이터 원본을 추가할 수 있습니다 `sources` . 다음 코드에서는를 만들고 `DataSource` 맵에 추가 하 고 데이터 원본에 기능을 추가 하는 방법을 보여 줍니다.
+GeoJSON 기능을 만든 후에는 지도의 속성을 통해 데이터 원본을 맵에 추가할 수 `sources` 있습니다. 다음 코드는 `DataSource`을 만들고 지도에 추가하고 데이터 소스에 지형지물을 추가하는 방법을 보여줍니다.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -126,7 +129,7 @@ map.sources.add(source);
 source.add(feature);
 ```
 
-다음 코드에서는 GeoJSON 기능, FeatureCollection 및 geometry를 만드는 여러 가지 방법을 보여 줍니다.
+다음 코드는 GeoJSON 기능, FeatureCollection 및 지오메트리를 생성하는 여러 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -208,9 +211,9 @@ val featureCollection = FeatureCollection.fromFeatures(listOfFeatures)
 
 ::: zone-end
 
-### <a name="serialize-and-deserialize-geojson"></a>GeoJSON Serialize 및 deserialize
+### <a name="serialize-and-deserialize-geojson"></a>GeoJSON 직렬화 및 역직렬화
 
-기능 컬렉션, 기능 및 geometry 클래스에는 모두 `fromJson()` `toJson()` serialization에 도움이 되는 정적 메서드가 있습니다. 메서드를 통해 전달 된 형식이 지정 된 유효한 JSON 문자열은 `fromJson()` geometry 개체를 만듭니다. `fromJson()`또한이 메서드는 Gson 또는 기타 serialization/deserialization 전략을 사용할 수 있음을 의미 합니다. 다음 코드에서는 문자열 형식 GeoJSON 기능을 사용 하 고이를 Feature 클래스로 deserialize 한 다음 다시 GeoJSON 문자열로 serialize 하는 방법을 보여 줍니다.
+지형지물 컬렉션, 지형지물 및 기하학 클래스에는 모두 직렬화에 도움이 되는 `fromJson()` 및 `toJson()` 정적 메서드가 있습니다. `fromJson()` 메서드를 통해 전달된 형식이 지정된 유효한 JSON 문자열은 기하학 객체를 생성합니다. 또한 이 `fromJson()` 메서드는 Gson 또는 기타 직렬화/역직렬화 전략을 사용할 수 있음을 의미합니다. 다음 코드는 문자열화된 GeoJSON 기능을 가져와 Feature 클래스로 역직렬화한 다음 다시 GeoJSON 문자열로 직렬화하는 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -262,9 +265,51 @@ val featureString = feature.toJson()
 
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>웹 또는 자산 폴더에서 GeoJSON 데이터 가져오기
 
-대부분의 GeoJSON 파일은 FeatureCollection을 포함 합니다. GeoJSON 파일을 문자열로 읽고 메서드를 사용 `FeatureCollection.fromJson` 하 여 deserialize 합니다.
+대부분의 GeoJSON 파일에는 FeatureCollection이 포함되어 있습니다. GeoJSON 파일을 문자열로 읽고 `FeatureCollection.fromJson` 메서드를 사용하여 역직렬화했습니다.
 
-다음 코드는 웹 또는 로컬 자산 폴더에서 문자열로 데이터를 가져오고 콜백 함수를 통해 UI 스레드에 반환 하는 다시 사용할 수 있는 클래스입니다.
+`DataSource` 클래스에는 웹 또는 자산 폴더의 파일에 대한 URL을 사용하여 GeoJSON 파일에서 로드할 수 있는 `importDataFromUrl`라는 내장 메서드가 있습니다. 이 메소드는 데이터 소스가 지도에 추가되기 전에 **반드시** 호출되어야 합니다.
+
+zone_pivot_groups: azure-maps-android
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data");
+
+//Examples:
+//source.importDataFromUrl("asset://sample_file.json");
+//source.importDataFromUrl("https://example.com/sample_file.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+var source = new DataSource()
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data")
+
+//Examples:
+//source.importDataFromUrl("asset://sample_file.json")
+//source.importDataFromUrl("https://example.com/sample_file.json")
+
+//Add data source to the map.
+map.sources.add(source)
+```
+
+::: zone-end
+
+`importDataFromUrl` 메서드는 GeoJSON 피드를 데이터 소스에 쉽게 로드할 수 있는 방법을 제공하지만 데이터가 로드되는 방식과 로드된 후 발생하는 일에 대한 제한된 제어를 제공합니다. 다음 코드는 웹 또는 자산 폴더에서 데이터를 가져오고 콜백 함수를 통해 UI 스레드로 반환하기 위한 재사용 가능한 클래스입니다. 그런 다음 콜백에서 추가 포스트 로드 로직을 추가하여 데이터를 처리하고, 지도에 추가하고, 경계 상자를 계산하고, 지도 카메라를 업데이트할 수 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -510,14 +555,14 @@ class Utils {
 
 ::: zone-end
 
-아래 코드에서는이 유틸리티를 사용 하 여 GeoJSON 데이터를 문자열로 가져오고 콜백을 통해 UI 스레드에 반환 하는 방법을 보여 줍니다. 콜백에서 문자열 데이터를 GeoJSON 기능 컬렉션으로 serialize 하 고 데이터 원본에 추가할 수 있습니다. 필요에 따라 지도 카메라를 업데이트 하 여 데이터에 초점을 맞출 수 있습니다.
+아래 코드에서는이 유틸리티를 사용 하 여 GeoJSON 데이터를 문자열로 가져오고 콜백을 통해 UI 스레드에 반환 하는 방법을 보여 줍니다. 콜백에서 문자열 데이터는 GeoJSON 기능 컬렉션으로 직렬화되고 데이터 소스에 추가될 수 있습니다. 필요에 따라 지도 카메라를 업데이트 하 여 데이터에 초점을 맞출 수 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
-DataSource dataSource = new DataSource();
-map.sources.add(dataSource);
+DataSource source = new DataSource();
+map.sources.add(source);
 
 //Import the geojson data and add it to the data source.
 Utils.importData("URL_or_FilePath_to_GeoJSON_data",
@@ -527,7 +572,7 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
         FeatureCollection fc = FeatureCollection.fromJson(result);
 
         //Add the feature collection to the data source.
-        dataSource.add(fc);
+        source.add(fc);
 
         //Optionally, update the maps camera to focus in on the data.
 
@@ -576,26 +621,169 @@ Utils.importData("SamplePoiDataSet.json", this) {
 
 ::: zone-end
 
-## <a name="vector-tile-source"></a>벡터 타일 원본
+### <a name="update-a-feature"></a>기능 상태 업데이트
 
-벡터 타일 소스는 벡터 타일 계층에 액세스 하는 방법을 설명 합니다. 클래스를 사용 `VectorTileSource` 하 여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 계층은 타일 계층과 비슷하지만 동일 하지는 않습니다. 타일 계층은 래스터 이미지입니다. 벡터 타일 계층은 압축 파일 ( **Pf** 형식)입니다. 이 압축 파일은 벡터 맵 데이터 및 하나 이상의 계층을 포함 합니다. 각 계층의 스타일에 따라 파일을 클라이언트에서 렌더링 하 고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 요소, 선 및 다각형 형식의 지리적 기능이 포함 되어 있습니다. 래스터 타일 계층 대신 벡터 타일 계층을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
+`DataSource` 클래스를 사용하면 기능을 쉽게 추가 및 제거할 수 있습니다. 기능의 기하 도형 또는 속성을 업데이트 하려면 데이터 원본의 기능을 바꾸어야 합니다. 다음 두 가지 방법을 사용하여 기능을 업데이트할 수 있습니다.
 
-- 벡터 타일의 파일 크기는 일반적으로 해당 하는 래스터 타일 보다 훨씬 작습니다. 따라서 대역폭이 줄어듭니다. 낮은 대기 시간, 더 빠른 맵 및 더 나은 사용자 환경을 의미 합니다.
-- 벡터 타일은 클라이언트에서 렌더링 되므로 표시 되는 장치의 해상도에 맞게 조정 됩니다. 따라서 렌더링 된 맵은 명확 하 고 명확한 레이블이 있는 잘 정의 된 것으로 나타납니다.
-- 클라이언트에 새 스타일을 적용할 수 있으므로 벡터 맵에서 데이터의 스타일을 변경 하는 경우 데이터를 다시 다운로드할 필요가 없습니다. 반면 래스터 타일 계층의 스타일을 변경 하는 경우 일반적으로 서버에서 타일을 로드 한 다음 새 스타일을 적용 해야 합니다.
-- 데이터가 벡터 형식으로 전달 되므로 데이터를 준비 하는 데 필요한 서버 쪽 처리가 줄어듭니다. 따라서 최신 데이터를 더 빨리 사용할 수 있습니다.
+1. 원하는 업데이트로 새 기능을 만들고 `setShapes` 메서드를 사용하여 데이터 소스의 모든 기능을 바꿉니다. 이 방법은 데이터 소스의 모든 기능을 업데이트하려는 경우에 적합합니다.
 
-Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수 합니다. Azure Maps는 플랫폼의 일부로 다음 벡터 타일 서비스를 제공 합니다.
+::: zone pivot="programming-language-java-android"
 
-- 도로 타일 [설명서](/rest/api/maps/renderv2/getmaptilepreview)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile)  |  [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps 작성자는 또한 [Get 타일 렌더링 V2](/rest/api/maps/renderv2/getmaptilepreview) 를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수 있습니다.
+``` java
+DataSource source;
+
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
+
+    //Create a feature and add it to the data source.
+    Feature myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
+
+    source.add(myFeature);
+}
+
+private void updateFeature(){
+    //Create a new replacement feature with an updated geometry and property value.
+    Feature myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10));
+    myNewFeature.addStringProperty("Name", "New value");
+
+    //Replace all features to the data source with the new one.
+    source.setShapes(myNewFeature);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+var source: DataSource? = null
+
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
+
+    //Create a feature and add it to the data source.
+    val myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
+
+private fun updateFeature() {
+    //Create a new replacement feature with an updated geometry and property value.
+    val myNewFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0))
+    myNewFeature.addStringProperty("Name", "New value")
+
+    //Replace all features to the data source with the new one.
+    source!!.setShapes(myNewFeature)
+}
+```
+
+::: zone-end
+
+2. 변수의 기능 인스턴스를 추적하고 데이터 소스 `remove` 메서드에 전달하여 제거합니다. 원하는 업데이트로 새 기능을 만들고 변수 참조를 업데이트한 다음 `add` 메서드를 사용하여 데이터 소스에 추가합니다.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+DataSource source;
+Feature myFeature;
+
+private void onReady(AzureMap map) {
+    //Create a data source and add it to the map.
+    source = new DataSource();
+    map.sources.add(source);
+
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0,0));
+    myFeature.addStringProperty("Name", "Original value");
+
+    source.add(myFeature);
+}
+
+private void updateFeature(){
+    //Remove the feature instance from the data source.
+    source.remove(myFeature);
+
+    //Get properties from original feature.
+    JsonObject props = myFeature.properties();
+
+    //Update a property.
+    props.addProperty("Name", "New value");
+
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10, 10), props);
+
+    //Re-add the feature to the data source.
+    source.add(myFeature);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+var source: DataSource? = null
+var myFeature: Feature? = null
+
+private fun onReady(map: AzureMap) {
+    //Create a data source and add it to the map.
+    source = DataSource()
+    map.sources.add(source)
+
+    //Create a feature and add it to the data source.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(0.0, 0.0))
+    myFeature.addStringProperty("Name", "Original value")
+    source!!.add(myFeature)
+}
+
+private fun updateFeature() {
+    //Remove the feature instance from the data source.
+    source!!.remove(myFeature)
+
+    //Get properties from original feature.
+    val props = myFeature!!.properties()
+
+    //Update a property.
+    props!!.addProperty("Name", "New value")
+
+    //Create a new replacement feature with an updated geometry.
+    myFeature = Feature.fromGeometry(Point.fromLngLat(-10.0, 10.0), props)
+
+    //Re-add the feature to the data source.
+    source!!.add(myFeature)
+}
+```
+
+::: zone-end
 
 > [!TIP]
-> 웹 SDK를 사용 하 여 Azure Maps render service에서 벡터 또는 래스터 이미지 타일을 사용 하는 경우를 `atlas.microsoft.com` 자리 표시자로 바꿀 수 있습니다 `azmapsdomain.invalid` . 이 자리 표시자는 맵에 사용 되는 동일한 도메인으로 바뀌고 동일한 인증 세부 정보도 자동으로 추가 됩니다. 이렇게 하면 Azure Active Directory 인증을 사용 하는 경우 렌더링 서비스에 대 한 인증이 매우 간단해 집니다.
+> 정기적으로 업데이트될 일부 데이터와 거의 변경되지 않을 다른 데이터가 있는 경우 이러한 데이터를 별도의 데이터 원본 인스턴스로 분할하는 것이 가장 좋습니다. 데이터 소스에서 업데이트가 발생하면 맵이 데이터 소스의 모든 기능을 다시 그리도록 합니다. 이 데이터를 분할 하면 해당 데이터 원본에서 업데이트가 발생 하는 동안 다른 데이터 원본의 기능을 다시 그릴 필요가 없는 경우 정기적으로 업데이트 되는 기능만 다시 그려집니다. 따라서 성능 향상에 도움이 됩니다.
 
-지도에 벡터 타일 원본의 데이터를 표시 하려면 데이터 렌더링 계층 중 하나에 원본을 연결 합니다. 벡터 원본을 사용 하는 모든 계층은 옵션에 값을 지정 해야 합니다 `sourceLayer` . 다음 코드는 Azure Maps traffic flow vector 타일 서비스를 벡터 타일 원본으로 로드 한 다음 선 계층을 사용 하 여 지도에 표시 합니다. 이 벡터 타일 원본에는 원본 계층에서 "트래픽 흐름" 이라는 단일 데이터 집합이 있습니다. 이 데이터 집합의 줄 데이터에는 `traffic_level` 이 코드에서 색을 선택 하 고 선의 크기를 조정 하는 데 사용 되는 라는 속성이 있습니다.
+## <a name="vector-tile-source"></a>벡터 타일 원본
+
+벡터 타일 원본은 벡터 타일 레이어에 액세스하는 방법을 설명합니다. `VectorTileSource` 클래스를 사용하여 벡터 타일 소스를 인스턴스화합니다. 벡터 타일 레이어는 타일 레이어와 비슷하지만 동일하지는 않습니다. 타일 레이어는 래스터 이미지입니다. 벡터 타일 레이어는 **PBF** 형식의 압축 파일입니다. 이 압축 파일은 벡터 지도 데이터 및 하나 이상의 레이어를 포함합니다. 각 레이어의 스타일에 따라 클라이언트에서 파일을 렌더링하고 스타일을 지정할 수 있습니다. 벡터 타일의 데이터에는 점, 선 및 다각형 형식의 지리적 피처가 포함되어 있습니다. 래스터 타일 레이어 대신 벡터 타일 레이어를 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
+
+- 벡터 타일의 파일 크기는 일반적으로 해당하는 래스터 타일보다 훨씬 작습니다. 따라서 더 적은 대역폭이 사용됩니다. 이것은 낮은 대기 시간, 더 빠른 지도 및 더 나은 사용자 환경을 의미합니다.
+- 벡터 타일이 클라이언트에서 렌더링된 후에는 표시되는 디바이스의 해상도에 맞게 조정됩니다. 따라서 렌더링된 지도는 명확한 레이블을 포함하여 잘 정의된 것으로 나타납니다.
+- 클라이언트에 새 스타일을 적용할 수 있으므로 벡터 지도에서 데이터의 스타일을 변경하려면 데이터를 다시 다운로드할 필요가 없습니다. 반면, 래스터 타일 레이어의 스타일을 변경하려면 일반적으로 서버에서 타일을 로드한 다음, 새 스타일을 적용해야 합니다.
+- 데이터가 벡터 형식으로 전달되므로 데이터를 준비하는 데 필요한 서버 쪽 처리가 줄어듭니다. 따라서 최신 데이터를 더 빨리 사용할 수 있습니다.
+
+Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수합니다. Azure Maps는 플랫폼의 일부로 다음 벡터 타일 서비스를 제공합니다.
+
+- 도로 타일 [설명서](/rest/api/maps/render-v2/get-map-tile) | [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile) | [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile) | [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps Creator를 사용하면 [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile)를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수도 있습니다.
+
+> [!TIP]
+> Web SDK를 사용하여 Azure Maps 렌더링 서비스에서 벡터 또는 래스터 이미지 타일을 사용하는 경우 `atlas.microsoft.com`을 자리 표시자 `azmapsdomain.invalid`르로 바꿀 수 있습니다. 이 자리 표시자는 지도에서 사용하는 동일한 도메인으로 대체되고 동일한 인증 세부 정보도 자동으로 추가됩니다. 이를 통해 Azure Active Directory 인증을 사용할 때 렌더링 서비스에 대한 인증이 크게 간소화됩니다.
+
+지도에 벡터 타일 원본의 데이터를 표시하려면 원본을 데이터 렌더링 레이어 중 하나에 연결합니다. 벡터 원본을 사용하는 모든 레이어는 옵션에서 `sourceLayer` 값을 지정해야 합니다. 다음 코드는 Azure Maps 트래픽 흐름 벡터 타일 서비스를 벡터 타일 원본으로 로드한 다음, 선 레이어를 사용하여 지도에 표시합니다. 이 벡터 타일 원본에는 "트래픽 흐름"이라는 원본 레이어에 단일 데이터 세트가 있습니다. 이 데이터 세트의 선 데이터에는 이 코드에서 선 색을 선택하고 스케일링하는 데 사용되는 `traffic_level`이라는 속성이 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -687,49 +875,33 @@ map.layers.add(layer, "labels")
 
 ![트래픽 흐름 수준을 표시 하는 색으로 구분 된 이동 선이 있는 지도](media/create-data-source-android-sdk/android-vector-tile-source-line-layer.png)
 
-## <a name="connecting-a-data-source-to-a-layer"></a>계층에 데이터 원본 연결
+## <a name="connecting-a-data-source-to-a-layer"></a>레이어에 데이터 원본 연결
 
-데이터는 렌더링 레이어를 사용 하 여 맵에서 렌더링 됩니다. 하나 이상의 렌더링 레이어에서 단일 데이터 원본을 참조할 수 있습니다. 다음 렌더링 계층에는 데이터 원본이 필요 합니다.
+데이터는 렌더링 레이어를 사용하여 지도에 렌더링됩니다. 단일 데이터 원본이 하나 이상의 렌더링 레이어에서 참조될 수 있습니다. 다음 렌더링 레이어에는 데이터 원본이 필요합니다.
 
-- [거품형 계층](map-add-bubble-layer-android.md) -지도에서 점 데이터를 크기가 조정 된 원으로 렌더링 합니다.
-- [기호 계층](how-to-add-symbol-to-android-map.md) -지점 데이터를 아이콘이 나 텍스트로 렌더링 합니다.
-- [열 지도 계층](map-add-heat-map-layer-android.md) -점 데이터를 밀도 열 맵으로 렌더링 합니다.
-- [선 계층](android-map-add-line-layer.md) -선을 렌더링 하거나 다각형의 윤곽선을 렌더링 합니다.
-- [다각형 계층](how-to-add-shapes-to-android-map.md) -단색 또는 이미지 패턴으로 다각형 영역을 채웁니다.
+- [거품형 레이어](map-add-bubble-layer-android.md) - 지도에서 점 데이터를 스케일링된 원으로 렌더링합니다.
+- [기호 레이어](how-to-add-symbol-to-android-map.md) - 점 데이터를 아이콘 또는 텍스트로 렌더링합니다.
+- [열 지도 레이어](map-add-heat-map-layer-android.md) - 점 데이터를 고밀도 열 지도로 렌더링합니다.
+- [선 레이어](android-map-add-line-layer.md) - 선을 렌더링하거나 다각형의 윤곽선을 렌더링합니다.
+- [다각형 레이어](how-to-add-shapes-to-android-map.md) - 단색 또는 이미지 패턴으로 다각형 영역을 채웁니다.
 
-다음 코드에서는 데이터 원본을 만들고 지도에 추가한 다음 거품형 계층에 연결 하는 방법을 보여 줍니다. 그런 다음 원격 위치에서 데이터 원본으로 GeoJSON point 데이터를 가져옵니다.
+다음 코드에서는 데이터 원본을 만들고 지도에 추가한 다음, 거품형 레이어에 연결하는 방법을 보여 줍니다. 그런 다음, 원격 위치에서 데이터 원본으로 GeoJSON 점 데이터를 가져옵니다.
 
 ::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data");
+
+//Add data source to the map.
 map.sources.add(source);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
 BubbleLayer layer = new BubbleLayer(source);
 map.layers.add(layer);
-
-//Import the geojson data and add it to the data source.
-Utils.importData("URL_or_FilePath_to_GeoJSON_data",
-    this,
-    (String result) -> {
-        //Parse the data as a GeoJSON Feature Collection.
-        FeatureCollection fc = FeatureCollection.fromJson(result);
-
-        //Add the feature collection to the data source.
-        dataSource.add(fc);
-
-        //Optionally, update the maps camera to focus in on the data.
-
-        //Calculate the bounding box of all the data in the Feature Collection.
-        BoundingBox bbox = MapMath.fromData(fc);
-
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20));
-    });
 ```
 
 ::: zone-end
@@ -739,48 +911,29 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
-map.sources.add(source)
-
-//Create a layer that defines how to render points in the data source and add it to the map.
-val layer = BubbleLayer(source)
-map.layers.add(layer)
 
 //Import the geojson data and add it to the data source.
-Utils.importData("URL_or_FilePath_to_GeoJSON_data", this) { 
-    result: String? ->
-        //Parse the data as a GeoJSON Feature Collection.
-        val fc = FeatureCollection.fromJson(result!!)
-    
-        //Add the feature collection to the data source.
-        dataSource.add(fc)
-    
-        //Optionally, update the maps camera to focus in on the data.
-        //Calculate the bounding box of all the data in the Feature Collection.
-        val bbox = MapMath.fromData(fc)
-    
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20)
-        )
-    }
+source.importDataFromUrl("URL_or_FilePath_to_GeoJSON_data")
+
+//Add data source to the map.
+map.sources.add(source)
 ```
 
 ::: zone-end
 
-이러한 데이터 소스에 연결 하지 않는 추가 렌더링 계층이 있지만 렌더링을 위해 데이터를 직접 로드 합니다.
+이러한 데이터 원본에 연결되지 않지만 렌더링을 위해 데이터를 직접 로드하는 추가 렌더링 레이어가 있습니다.
 
-- [타일 계층](how-to-add-tile-layer-android-map.md) -수퍼는 지도 위에 래스터 타일 계층을 적용 합니다.
+- [타일 레이어](how-to-add-tile-layer-android-map.md) - 지도 위에 래스터 타일 레이어를 겹쳐 놓습니다.
 
-## <a name="one-data-source-with-multiple-layers"></a>여러 계층이 있는 하나의 데이터 원본
+## <a name="one-data-source-with-multiple-layers"></a>여러 레이어가 있는 하나의 데이터 원본
 
-여러 레이어는 단일 데이터 원본에 연결할 수 있습니다. 이 옵션이 유용 하 게 사용할 수 있는 여러 가지 시나리오가 있습니다. 예를 들어 사용자가 다각형을 그리는 시나리오를 생각해 보겠습니다. 사용자가 지도에 점이 추가 될 때 다각형 영역을 렌더링 하 고 채워야 합니다. 스타일이 지정 된 선을 추가 하 여 다각형을 윤곽선으로 만들면 사용자가 그릴 때 다각형의 가장자리를 더 쉽게 볼 수 있습니다. 다각형의 개별 위치를 편리 하 게 편집 하기 위해 각 위치 위에 핀 이나 표식 같은 핸들을 추가할 수 있습니다.
+여러 레이어를 단일 데이터 원본에 연결할 수 있습니다. 이 옵션이 유용할 수 있는 여러 가지 시나리오가 있습니다. 예를 들어, 사용자가 다각형을 그리는 시나리오를 생각해 보겠습니다. 사용자가 지도에 점이 추가할 때 다각형 영역을 렌더링하고 채워야 합니다. 스타일이 지정된 선을 추가하여 다각형의 윤곽을 만들면 사용자가 그릴 때 다각형의 가장자리를 더 쉽게 볼 수 있습니다. 다각형의 개별 위치를 편리하게 편집하기 위해 각 위치 위에 핀이나 표식 같은 핸들을 추가할 수 있습니다.
 
-![단일 데이터 원본에서 데이터를 렌더링 하는 여러 레이어를 보여 주는 지도](media/create-data-source-android-sdk/multiple-layers-one-datasource.png)
+![단일 데이터 원본에서 데이터를 렌더링하는 여러 레이어를 보여 주는 지도](media/create-data-source-android-sdk/multiple-layers-one-datasource.png)
 
-대부분의 매핑 플랫폼에서 다각형 개체, 선 개체 및 다각형의 각 위치에 대 한 pin이 필요 합니다. 다각형이 수정 될 때 줄과 핀을 수동으로 업데이트 해야 하며,이는 빠르게 복잡 해질 수 있습니다.
+대부분의 매핑 플랫폼에서 다각형 개체, 선 개체 및 다각형의 각 위치에 대한 핀이 필요합니다. 다각형이 수정될 때 선과 핀을 수동으로 업데이트해야 하며, 이 작업은 빠르게 복잡해질 수 있습니다.
 
-Azure Maps를 사용 하는 경우 아래 코드와 같이 데이터 소스에 단일 다각형이 필요 합니다.
+Azure Maps를 사용하는 경우 아래 코드와 같이 데이터 원본에 단일 다각형이 필요합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -856,10 +1009,10 @@ map.layers.add(arrayOf<Layer>(polygonLayer, lineLayer, bubbleLayer))
 ::: zone-end
 
 > [!TIP]
-> 메서드를 사용 하 여 지도에 레이어를 추가 하는 경우 `map.layers.add` 기존 계층의 ID 또는 인스턴스를 두 번째 매개 변수로 전달할 수 있습니다. 그러면 기존 계층 아래에 추가 되는 새 계층이 삽입 됩니다. 계층 ID를 전달 하는 것 외에도이 메서드는 다음 값도 지원 합니다.
+> `map.layers.add` 메서드를 사용하여 지도에 레이어를 추가할 때 기존 레이어의 ID 또는 인스턴스를 두 번째 매개변수로 전달할 수 있습니다. 그러면 지도에 기존 레이어 아래에 새 레이어를 삽입하도록 지시됩니다. 레이어 ID를 전달하는 것 외에도 이 방법은 다음 값을 지원합니다.
 >
-> - `"labels"` -지도 레이블 계층 아래에 새 계층을 삽입 합니다.
-> - `"transit"` -지도 이동 및 전송 계층 아래에 새 계층을 삽입 합니다.
+> - `"labels"` - 지도 레이블 레이어 아래에 새 레이어를 삽입합니다.
+> - `"transit"` - 지도 도로 및 교통 레이어 아래에 새 레이어를 삽입합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -867,6 +1020,9 @@ map.layers.add(arrayOf<Layer>(polygonLayer, lineLayer, bubbleLayer))
 
 > [!div class="nextstepaction"]
 > [데이터 기반 스타일 식 사용](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [클러스터 지점 데이터](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [기호 계층 추가](how-to-add-symbol-to-android-map.md)

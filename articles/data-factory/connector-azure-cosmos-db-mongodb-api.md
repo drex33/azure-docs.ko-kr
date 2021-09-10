@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/20/2019
-ms.openlocfilehash: e87b714aae9e9429f4987f740643e4d21a51315b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 0147782482308ac8b625926e51c59315f084237d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642831"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304668"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 
@@ -39,6 +39,30 @@ MongoDB용 Azure Cosmos DB API 커넥터를 사용하여 다음을 수행할 수
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-azure-cosmos-dbs-api-for-mongodb-using-ui"></a>UI를 사용하여 Azure Cosmos DB의 MongoDB용 API에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Cosmos DB의 MongoDB용 API에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+2. Cosmos를 검색하고 Azure Cosmos DB의 MongoDB용 API 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/azure-cosmos-db-mongodb-api-connector.png" alt-text="Azure Cosmos DB의 MongoDB 커넥터용 API를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/configure-azure-cosmos-db-mongodb-api-linked-service.png" alt-text="Azure Cosmos DB의 MongoDB용 API에 연결된 서비스를 구성합니다":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 MongoDB용 Azure Cosmos DB API 전용 Data Factory 엔터티를 정의하는 데 사용할 수 있는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
@@ -48,8 +72,9 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성을 **CosmosDbMongoDbApi** 로 설정해야 합니다. | 예 |
-| connectionString |MongoDB용 Azure Cosmos DB API의 연결 문자열을 지정합니다. Azure Portal -> Cosmos DB 블레이드 -> `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` 패턴의 기본 또는 보조 연결 문자열에서 찾을 수 있습니다. <br/><br />Azure Key Vault에 암호를 넣고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.|예 |
+| connectionString |MongoDB용 Azure Cosmos DB API의 연결 문자열을 지정합니다. Azure Portal -> Cosmos DB 블레이드 -> 기본 또는 보조 연결 문자열에서 찾을 수 있습니다. <br/>3\.2 서버 버전의 경우 문자열 패턴은 `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`입니다. <br/>3\.6 + 서버 버전의 경우 문자열 패턴은 `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<cosmosdb-name>@`입니다.<br/><br />Azure Key Vault에 암호를 넣고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.|예 |
 | 데이터베이스 | 액세스하려는 데이터베이스 이름입니다. | 예 |
+| isServerVersionAbove32 | 서버 버전이 3.2 이상인지 여부를 지정합니다. 허용되는 값은 **true** 및 **false**(기본값)입니다. 이를 통해 서비스에서 사용할 드라이버를 결정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 **예제**
@@ -61,7 +86,8 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
         "type": "CosmosDbMongoDbApi",
         "typeProperties": {
             "connectionString": "mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
-            "database": "myDatabase"
+            "database": "myDatabase",
+            "isServerVersionAbove32": "false"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

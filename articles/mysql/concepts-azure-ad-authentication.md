@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 5fb4e8e4b204653c3d78f89a42220dd78b0eec1f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: ea70b094c1b53a5ec4a7c80705e4ac795e6d8629
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570955"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598451"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>MySQL 인증에 Azure Active Directory 사용
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Microsoft Azure AD(Azure Active Directory) 인증은 Azure AD에 정의된 ID를 사용하여 Azure Database for MySQL에 연결하기 위한 방법입니다.
 Azure AD 인증을 사용하면 중앙 위치에서 데이터베이스 사용자 ID 및 기타 Microsoft 서비스를 관리할 수 있으므로, 권한 관리가 간소화됩니다.

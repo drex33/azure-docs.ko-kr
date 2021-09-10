@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 8d38e3f58de0fc4cc1e963c18b002dc1e16852ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1bec93d8001287c3ac57a5073b3f8b40a1a4f658
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556012"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689309"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Lsv2 시리즈 Windows 가상 머신에서 성능 최적화
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Lsv2 시리즈 가상 머신은 광범위한 애플리케이션과 업계에서 로컬 스토리지에 대한 높은 I/O와 처리량이 필요한 다양한 워크로드를 지원합니다.  Lsv2 시리즈는 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 Cassandra, MongoDB, Cloudera, Redis 등의 대규모 트랜잭션 데이터베이스에 적합합니다.
 

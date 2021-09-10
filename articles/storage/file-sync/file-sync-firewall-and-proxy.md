@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7803d14a46978c21d5fea65211abe0506c4cc1c8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6af10befe614ecd353bd5bd2185fcd9c7097f058
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677065"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539259"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -42,7 +42,7 @@ Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expr
 
 Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
-## <a name="proxy"></a>프록시
+## <a name="proxy"></a>Proxy (프록시)
 Azure 파일 동기화는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
 **앱별 프록시 설정** 을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 4.0.1.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
@@ -120,7 +120,7 @@ Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용 |
+| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용량 |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
@@ -137,7 +137,7 @@ Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential
 
 &ast;.afs.azure.net 또는 &ast;.one.microsoft.com이 너무 광범위한 경우 Azure 파일 동기화 서비스의 명시적 지역 인스턴스로만 통신을 허용하여 서버의 통신을 제한할 수 있습니다. 선택할 인스턴스는 서버를 배포 및 등록한 스토리지 동기화 서비스의 지역에 따라 다릅니다. 이 지역을 아래 표에서는 "기본 엔드포인트 URL"이라고 부릅니다.
 
-BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지) 스토리지 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 스토리지 계정을 사용하는 경우 서버가 Azure 파일 동기화의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이를 "쌍을 이루는 지역"이라고 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
+BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스토리지)용으로 구성된 스토리지 계정에 Azure 파일 공유를 만들었을 수 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 스토리지로 사용합니다. 따라서 GRS 스토리지 계정을 사용하는 경우 서버가 Azure 파일 동기화의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이를 "쌍을 이루는 지역"이라고 합니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
 | 클라우드  | 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
 |--------|--------|----------------------|---------------|---------------|
@@ -173,9 +173,9 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 정부 | US Gov 애리조나 | https:\//usgovarizona01.afs.azure.us | US Gov 텍사스 | https:\//tm-usgovarizona01.afs.azure.us |
 | 정부 | US Gov 텍사스 | https:\//usgovtexas01.afs.azure.us | US Gov 애리조나 | https:\//tm-usgovtexas01.afs.azure.us |
 
-- LRS(로컬 중복 스토리지) 또는 ZRS(영역 중복 스토리지) 스토리지 계정을 사용하는 경우 &quot;기본 엔드포인트 URL&quot; 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
+- LRS(로컬 중복 스토리지) 또는 ZRS(영역 중복 스토리지)용으로 구성된 스토리지 계정을 사용하는 경우 "기본 엔드포인트 URL"에 나열된 URL만 사용하도록 설정해야 합니다.
 
-- GRS(전역 중복 스토리지) 스토리지 계정을 사용하는 경우 세 URL을 사용하도록 설정합니다.
+- GRS용으로 구성된 스토리지 계정을 사용하는 경우 세 가지 URL을 사용하도록 설정합니다.
 
 **예:**`"West US"`에 스토리지 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 

@@ -6,21 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
-ms.openlocfilehash: baa3508917180ebbaccb9ef8863fd4c5bf68ed74
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/05/2021
+ms.openlocfilehash: 39f7af59a808fbe0c4141e17cb709c014c91dd4d
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129372"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594898"
 ---
 # <a name="create-and-edit-plans-for-an-azure-container-offer"></a>Azure Container 제품에 대한 플랜 만들기 및 편집
 
-이 개요 페이지를 사용하면 동일한 제품 내에서 다양한 플랜 옵션을 만들 수 있습니다. 플랜(이전의 SKU)은 사용 가능한 위치(Azure Global 또는 Azure Government)와 플랜에서 참조하는 이미지 측면에서 다를 수 있습니다. 제품에는 하나 이상의 플랜이 포함되어야 합니다.
+이 개요 페이지를 사용하면 동일한 제품 내에서 다양한 플랜 옵션을 만들 수 있습니다. 플랜(이전의 SKU)은 사용 가능한 위치(Azure Global 또는 Azure Government) 및 플랜에서 참조하는 이미지에 따라 다를 수 있습니다. 제품에는 플랜이 하나 이상 포함되어야 합니다.
 
-각 제품에 대해 최대 100개의 계획을 만들 수 있습니다.이 중 최대 45개는 프라이빗이 될 수 있습니다. [Microsoft 상업용 Marketplace의 프라이빗 제품](private-offers.md)에서 프라이빗 플랜에 대해 자세히 알아봅니다.
+각 제품에 대해 최대 100개의 계획을 만들 수 있습니다.이 중 최대 45개는 프라이빗이 될 수 있습니다. [Microsoft 상업용 Marketplace의 프라이빗 제품](private-offers.md)에서 프라이빗 계획에 대해 자세히 알아봅니다.
 
-플랜을 만들고 나면 **플랜 개요** 페이지에 다음이 표시됩니다.
+플랜을 만들면 **플랜 개요** 페이지에 다음이 표시됩니다.
 
 - 플랜 이름
 - 가격 책정 모델
@@ -28,10 +28,10 @@ ms.locfileid: "108129372"
 - 현재 게시 상태
 - 모든 사용 가능한 작업
 
-계획에 사용할 수 있는 작업은 계획의 현재 상태에 따라 다릅니다. 다음과 같은 변경 내용이 해당됩니다.
+플랜에 사용 가능한 작업은 플랜의 현재 상태에 따라 다릅니다. 다음과 같은 변경 내용이 해당됩니다.
 
-- **초안 삭제** 플랜 상태가 초안인 경우입니다.
-- **판매 플랜 중지** 플랜 상태가 실시간으로 게시된 경우입니다.
+- **초안 삭제** – 플랜 상태가 초안인 경우입니다.
+- **배포 중지** – 플랜 상태가 실시간으로 게시된 경우입니다.
 
 ## <a name="edit-a-plan"></a>플랜 편집
 

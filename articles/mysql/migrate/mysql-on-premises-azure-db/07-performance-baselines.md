@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 성능 기준
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 성능 기준'
 description: 기존 MySQL 워크로드를 이해하는 일은 성공적인 마이그레이션을 위해 수행할 수 있는 가장 좋은 투자 중 하나입니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9948eef759ff44468c8a9b70e790c8376b40ff16
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 2077ef62ddabf7910d5a634c07262c9d29905cf4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082948"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084969"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-performance-baselines"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 성능 기준
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-performance-baselines"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 성능 기준
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -96,6 +98,8 @@ MySQL 5.5.60 기본 설치된 서버 매개 변수는 [부록](15-appendix.md#de
 WWI는 해당 Conference 데이터베이스 워크로드를 검토하고 매우 작은 부하가 발생했음을 확인했습니다. 기본 계층 서버를 작동하고 있지만 나중에 다른 계층으로 마이그레이션하는 작업을 수행하지 않으려고 합니다. 배포 중인 서버는 결과적으로 다른 MySQL 데이터 워크로드를 호스트하게 될 예정이므로 `General Performance` 계층을 선택했습니다.
 
 MySQL 데이터베이스를 검토하면 MySQL 5.5 서버가 초기 설치 중에 설정된 기본값 서버 매개 변수를 사용하여 실행되고 있는 것을 알 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [데이터 마이그레이션](./08-data-migration.md)

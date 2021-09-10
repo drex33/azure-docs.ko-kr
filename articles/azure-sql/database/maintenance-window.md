@@ -7,15 +7,15 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
-ms.openlocfilehash: 765c6c79bf28ad01ab0253e85affd5d4cd95ed78
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/22/2021
+ms.openlocfilehash: 9f058cfc97821dc9ddcbedeeed1acf9ebb9919d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031910"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537090"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "112031910"
 
 ## <a name="overview"></a>개요
 
-Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 관리](planned-maintenance.md)를 정기적으로 수행합니다. Azure SQL 유지 관리 이벤트 중에는 데이터베이스를 완전히 사용할 수 있지만 [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) 및 [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance)에 대한 각 가용성 SLA 내에서 간단히 재구성될 수 있습니다.
+Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 관리](planned-maintenance.md)를 정기적으로 수행합니다. Azure SQL 유지 관리 이벤트 중에는 데이터베이스를 완전히 사용할 수 있지만 [SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database) 및 [SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance)에 대한 각 가용성 SLA 내에서 간단히 재구성될 수 있습니다.
 
 유지 관리 기간은 데이터베이스 또는 인스턴스 재구성에 대해 복원력이 없으며 계획된 유지 관리 이벤트로 인해 발생하는 짧은 연결 중단을 수용할 수 없는 프로덕션 작업을 위해 고안되었습니다. 원하는 유지 관리 기간을 선택하여 사용량이 많은 업무 시간 외에 발생하는 계획된 유지 관리의 영향을 최소화할 수 있습니다. 복원력 있는 워크로드와 비프로덕션 워크로드는 Azure SQL의 기본 유지 관리 정책을 사용합니다.
 
@@ -80,21 +80,28 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 - 오스트레일리아 남동부
 - 브라질 남부
 - 캐나다 중부
+- 캐나다 동부
+- 인도 중부
 - 미국 중부
 - 미국 동부
 - 미국 동부2
 - 동아시아
+- 프랑스 남부
 - 독일 중서부
 - 일본 동부
+- 한국 중부*
 - 미국 중북부
 - 북유럽
 - 미국 중남부
 - 동남아시아
 - 영국 남부
 - 영국 서부
+- 미국 중서부
 - 서유럽
 - 미국 서부
 - 미국 서부2
+
+*Azure SQL Managed Instance에만 사용할 수 있습니다.
 
 ## <a name="gateway-maintenance-for-azure-sql-database"></a>Azure SQL Database에 대한 게이트웨이 유지 관리
 
@@ -120,7 +127,7 @@ Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 
 > 유지 관리 작업이 끝나면 짧은 재구성이 발생하며 일반적으로 중단된 장기 실행 트랜잭션의 경우에도 최대 8초 동안 지속됩니다. 재구성의 영향을 최소화하려면 사용량이 많은 시간 외에 작업을 예약해야 합니다.
 
 ### <a name="ip-address-space-requirements"></a>IP 주소 공간 요구 사항
-[가상 클러스터 IP 주소 할당](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size)에 따라 서브넷의 새 가상 클러스터마다 추가 IP 주소가 필요합니다. 또한 기존의 관리되는 인스턴스에 대한 유지 관리 기간을 변경하려면 해당 서비스 계층에 대한 vCores 스케일링 시나리오에서와 마찬가지로 [임시 추가 IP 용량](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios)이 필요합니다.
+[가상 클러스터 IP 주소 할당](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size)에 따라 서브넷의 새 가상 클러스터마다 추가 IP 주소가 필요합니다. 또한 기존의 관리되는 인스턴스에 대한 유지 관리 기간을 변경하려면 해당 서비스 계층에 대한 vCores 스케일링 시나리오에서와 마찬가지로 [임시 추가 IP 용량](../managed-instance/vnet-subnet-determine-size.md#update-scenarios)이 필요합니다.
 
 ### <a name="ip-address-change"></a>IP 주소 변경
 유지 관리 기간을 구성하고 변경하면 서브넷의 IP 주소 범위 내에서 인스턴스의 IP 주소가 변경됩니다.

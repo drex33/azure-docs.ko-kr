@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01a8ec38ac6a52a2181834c416431c73285ac191
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519986"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581631"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning 스튜디오(클래식)에서 Python 기계 학습 스크립트 실행
+# <a name="execute-python-machine-learning-scripts-in-machine-learning-studio-classic"></a>Machine Learning 스튜디오(클래식)에서 Python 기계 학습 스크립트 실행
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python은 여러 데이터 과학자들의 도구 상자 중에서 유용하게 쓰이는 도구입니다. 데이터 탐색, 기능 추출, 모델 학습 및 유효성 검사, 배포 등 일반적인 기계 학습 워크플로의 모든 단계에서 사용됩니다.
 
-이 문서에서는 Python 스크립트 실행 모듈을 사용하여 Azure Machine Learning 스튜디오(클래식) 실험 및 웹 서비스에서 Python 코드를 사용하는 방법을 설명합니다.
+이 문서에서는 Python 스크립트 실행 모듈을 사용하여 Machine Learning 스튜디오(클래식) 실험 및 웹 서비스에서 Python 코드를 사용하는 방법을 설명합니다.
 
 ## <a name="using-the-execute-python-script-module"></a>Python 스크립트 실행 모듈 사용
 
@@ -155,7 +155,7 @@ Pandas에서 scatter_matrix 함수를 사용하여 산점도 플롯 매트릭스
 
 ![점수별로 기능의 순위를 지정하는 함수](./media/execute-python-scripts/figure8.png)
 
-다음 실험은 Azure Machine Learning 스튜디오(클래식)의 “Pima Indian Diabetes” 데이터 세트에 있는 기능의 중요도 점수를 계산하여 반환합니다.
+다음 실험은 Machine Learning 스튜디오(클래식)의 "Pima Indian Diabetes" 데이터 세트에 있는 기능의 중요도 점수를 컴퓨팅하여 반환합니다.
 
 ![Pima Indian Diabetes 데이터 세트에서 Python을 사용하여 기능의 순위를 지정하는 실험](./media/execute-python-scripts/figure9a.png)
 

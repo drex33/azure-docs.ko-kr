@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c637f22a21b73450746a90b83ea7c87249da1d45
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772681"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507432"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-규칙은 나열된 순서대로 처리됩니다. 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
+규칙 우선 순위 필드를 사용하지 않는 경우 규칙은 나열된 순서대로 처리됩니다. 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다.
 
 이 예제에서는 애플리케이션 게이트웨이가 배포되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create)를 사용하여 규칙을 추가할 수 있습니다.
 
@@ -171,6 +171,29 @@ az network application-gateway rule delete \
   --gateway-name myAppGateway \
   --name rule1 \
   --resource-group myResourceGroupAG
+```
+### <a name="add-priority-to-routing-rules"></a>라우팅 규칙에 우선 순위 추가
+
+보다 구체적인 규칙이 먼저 처리되도록 하려면 규칙 우선 순위 필드를 사용하여 우선 순위가 더 높은지 확인합니다. 모든 기존 요청 라우팅 규칙에 대해 규칙 우선 순위 필드를 설정해야 하며 나중에 생성되는 새 규칙에도 규칙 우선 순위 값이 있어야 합니다.
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name wccontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener wccontosoListener \
+  --rule-type Basic \
+  --priority 200 \
+  --address-pool wccontosoPool
+
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name shopcontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener shopcontosoListener \
+  --rule-type Basic \
+  --priority 100 \
+  --address-pool shopcontosoPool
+
 ```
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기

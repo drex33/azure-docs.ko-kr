@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: fee0ded96a8f1ea9c4be0d7a1409fc3fe3f0ea85
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 1fe59e3541760eb00c1c520004a2076cfc9a2c97
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539607"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779361"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -63,7 +63,7 @@ Kubernetes는 버전 1.12부터 Azure 가용성 영역을 인식합니다. Azure
 
 AKS 클러스터를 *생성* 할 때 `"availabilityZones": null`와 같은 구문을 사용하여 [템플릿에 null 값][arm-template-null]을 명시적으로 정의하면 Resource Manager 템플릿은 속성이 존재하지 않는 것처럼 속성을 처리합니다. 이는 클러스터의 가용성 영역이 사용하도록 설정되지 않았음을 의미합니다. 또한 가용성 영역 속성을 생략하는 Resource Manager 템플릿을 사용하여 클러스터를 만드는 경우 가용성 영역이 사용하지 않도록 설정됩니다.
 
-기존 클러스터의 가용성 영역에 대한 설정을 업데이트할 수 없으므로 Resource Manager 템플릿으로 AKS 클러스터를 업데이트할 때 동작이 다릅니다.  가용성 영역에 대한 템플릿에서 명시적으로 null 값을 설정하고 클러스터를 *업데이트* 하는 경우 가용성 영역에 대한 클러스터 변경 사항이 없습니다. 그러나 `"availabilityZones": []`와 같은 구문으로 가용성 영역 속성을 생략하면 배포가 기존 AKS 클러스터에서 가용성 영역을 사용하지 않도록 하고 **실패** 합니다.
+기존 클러스터의 가용성 영역에 대한 설정을 업데이트할 수 없으므로 Resource Manager 템플릿으로 AKS 클러스터를 업데이트할 때는 동작이 다릅니다.  가용성 영역에 대한 템플릿에서 명시적으로 null 값을 설정하고 클러스터를 *업데이트* 하는 경우 가용성 영역에 대한 클러스터 변경 사항이 없습니다. 그러나 `"availabilityZones": []`와 같은 구문으로 가용성 영역 속성을 생략하면 배포가 기존 AKS 클러스터에서 가용성 영역을 사용하지 않도록 하고 **실패** 합니다.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터의 가용성 영역 개요
 

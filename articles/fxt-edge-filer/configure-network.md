@@ -6,12 +6,12 @@ ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: fbbb9837a54d323b568e42c90132c799c3927c30
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8d349a0faa2cfc97f029e496b9bd92b1e5057018
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414532"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867506"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>자습서: 클러스터의 네트워크 설정 구성
 
@@ -108,8 +108,8 @@ DNS 서버의 사용 여부를 결정할 때 다음 사항에 유의하세요.
 
 vserver 클러스터는 왼쪽에 표시되고, IP 주소는 가운데와 오른쪽에 표시되어 있습니다. 그림과 같이 A 레코드와 포인터를 사용하여 각 클라이언트 액세스 지점을 구성합니다.
 
-![클러스터 라운드 로빈 DNS 다이어그램 - 이미지 뒤에 오는 자세한 대체 텍스트 링크](media/fxt-cluster-config/fxt-rrdns-diagram.png)
-[자세한 텍스트 설명](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="클러스터 라운드 로빈 DNS 구성을 보여 주는 다이어그램.":::
+   <이 다이어그램은 단일 가상 서버(왼쪽), 세 개의 IP 주소(가운데 열) 및 세 개의 클라이언트 인터페이스(오른쪽 열)의 세 가지 범주 요소 간의 연결을 보여 줍니다. "vserver1"이라는 레이블이 지정된 왼쪽의 단일 원은 IP 주소(10.0.0.10, 10.0.0.11, 10.0.0.12)가 있는 레이블이 지정된 세 개의 원을 가리키는 화살표로 연결됩니다. vserver 원에서 세 개의 IP 원으로 가는 화살표에는 "A"라는 캡션이 있습니다. 각 IP 주소 원은 클라이언트 인터페이스로 레이블이 지정된 원에 두 개의 화살표로 연결됩니다. IP가 10.0.0.10인 원은 "vs1-client-IP-10"에 연결되고, IP가 10.0.0.11인 원은 "vs1-client-IP-11"에 연결되고, IP가 10.0.0.12인 원은 "vs1-client-IP-11"에 연결됩니다. IP 주소 원과 클라이언트 인터페이스 원 사이는 두 개의 화살표로 연결됩니다. 하나는 IP 주소 원에서 클라이언트 인터페이스 원을 가리키는 "PTR"로 레이블이 지정된 화살표이고 다른 하나는 클라이언트 인터페이스 원에서 IP 주소 원을 가리키는 "A"로 레이블이 지정된 화살표입니다.> :::image-end:::
 
 각 클라이언트 측 IP 주소에는 클러스터에서 내부적으로 사용할 수 있도록 고유한 이름이 있어야 합니다. (이 다이어그램에서 클라이언트 IP는 명확성을 위해 vs1-client-IP-*로 명명되었지만, 프로덕션에서는 client*와 같이 좀 더 간결하게 사용해야 합니다.)
 

@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: cc636c60ee88d69e263ae5a2d9d599e2230184cd
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537583"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037192"
 ---
 # <a name="authorization-basics"></a>권한 부여 기본 사항
 
@@ -59,6 +59,8 @@ ABAC(특성 기반 액세스 제어)는 더욱 세분화된 액세스 제어 메
 ABAC의 한 가지 장점은 매우 구체적인 역할이나 RBAC 할당을 많이 만들 필요 없이 규칙과 조건 평가를 통해 더욱 세분화된 동적 액세스 제어를 달성할 수 있다는 점입니다.
 
 Azure Active Directory를 사용하여 ABAC를 달성하는 한 가지 방법은 [동적 그룹](../enterprise-users/groups-create-rule.md)을 사용하는 것입니다. 동적 그룹을 사용하면 관리자가 원하는 값을 가진 특정 사용자 특성에 따라 동적으로 사용자를 그룹에 할당할 수 있습니다.  예를 들어 Author라는 직위가 있는 모든 사용자가 Authos 그룹에 동적으로 할당되는 Authors 그룹을 만들 수 있습니다.  역할을 그룹에 매핑하고 사용자를 동적으로 그룹에 할당하는 권한 부여에 RBAC와 함께 동적 그룹을 사용할 수 있습니다.
+
+[Azure ABAC](../../role-based-access-control/conditions-overview.md)는 현재 사용 가능한 ABAC 솔루션의 예입니다. Azure ABAC는 특정 작업의 맥락에서 특성을 기반으로 역할 할당 조건을 추가하여 Azure RBAC에서 빌드됩니다. 
 
 ## <a name="implementing-authorization"></a>권한 부여 구현
 

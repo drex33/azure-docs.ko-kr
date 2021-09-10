@@ -3,20 +3,20 @@ title: Elastic Database 작업(미리 보기)
 description: 탄력적 데이터베이스 작업(미리 보기)이 Transact-SQL(T-SQL) 스크립트를 하나 이상의 Azure SQL Database 데이터베이스 간에 실행하도록 구성
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aacb8863fcb26f5551459e0fe7ad2d4faeede4e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792177"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536562"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>탄력적 작업 만들기, 구성 및 관리(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,25 +78,25 @@ ms.locfileid: "92792177"
 
 SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 리소스에 작업 부하를 주지 않도록 하려면 작업이 동시에 실행될 수 있는 데이터베이스의 수를 제한하도록 작업을 구성할 수 있습니다.
 
-T-SQL에서 `sp_add_jobstep` 저장 프로시저의 `@max_parallelism` 매개 변수를 설정하거나 PowerShell에서 `Add-AzSqlElasticJobStep -MaxParallelism`을 설정하여 하나의 작업에서 동시에 실행하는 데이터베이스의 수를 설정합니다.
+T-SQL에서 `sp_add_jobstep` 저장 프로시저의 `@max_parallelism` 매개 변수를 설정하여 하나의 작업에서 동시에 실행하는 데이터베이스의 수를 설정합니다.
 
 ## <a name="best-practices-for-creating-jobs"></a>작업을 만들기 위한 모범 사례
 
 ### <a name="idempotent-scripts"></a>Idempotent 스크립트
 작업의 T-SQL 스크립트는 [idempotent](https://en.wikipedia.org/wiki/Idempotence)여야 합니다. **Idempotent** 는 스크립트가 성공한 경우를 나타내고 다시 실행하면 동일한 결과가 발생합니다. 일시적인 네트워크 문제로 인해 스크립트가 실패할 수 있습니다. 이 경우 작업에서 중지하기 전에 스크립트 실행을 미리 설정된 횟수 만큼 자동으로 다시 시도합니다. idempotent 스크립트는 성공적으로 두 번(이상) 실행된 경우에도 동일한 결과를 포함합니다.
 
-간단한 방법은 만들기 전에 개체의 존재 여부를 테스트하는 것입니다.
-
+간단한 방법은 만들기 전에 개체의 존재 여부를 테스트하는 것입니다. 다음은 가상의 예제입니다.
 
 ```sql
-IF NOT EXISTS (some_object)
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE [name] = N'some_object')
+    print 'Object does not exist'
     -- Create the object
+ELSE
+    print 'Object exists'
     -- If it exists, drop the object before recreating it.
 ```
 
 마찬가지로 스크립트는 논리적으로 테스트하고 발견된 모든 조건을 고려하여 성공적으로 실행할 수 있어야 합니다.
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

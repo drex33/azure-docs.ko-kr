@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366354"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105366"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 
@@ -51,7 +51,7 @@ ms.locfileid: "107366354"
 
 네트워크 성능 모니터에서 연결 모니터로 테스트를 마이그레이션하려면 다음을 수행합니다.
 
-1. Network Watcher에서 **연결 모니터** 를 선택하고 **NPM에서 테스트 마이그레이션** 탭을 선택합니다. 
+1. Network Watcher에서 **연결 모니터** 를 선택하고 **NPM에서 테스트 가져오기** 탭을 선택합니다. 
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="네트워크 성능 모니터에서 연결 모니터로 테스트 마이그레이션" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
@@ -77,6 +77,23 @@ ms.locfileid: "107366354"
 * 수동으로 NPM에서 테스트를 사용하지 않도록 설정합니다. 그렇지 않으면 요금이 계속 청구됩니다. 
 * NPM을 사용하지 않도록 설정하는 한편 NWConnectionMonitorTestResult 및 NWConnectionMonitorPathResult 테이블 또는 메트릭을 사용하여 경고를 다시 만듭니다. 
 * 모든 외부 통합을 NWConnectionMonitorTestResult 및 NWConnectionMonitorPathResult 테이블로 마이그레이션합니다. 외부 통합의 예로는 Power BI 및 Grafana의 대시보드와 SIEM(보안 정보 및 이벤트 관리) 시스템과의 통합이 있습니다.
+
+## <a name="common-errors-encountered"></a>일반적인 오류 발생
+
+다음은 마이그레이션 중에 발생하는 몇 가지 일반적인 오류입니다. 
+
+| Error  |    이유   |
+|---|---|
+| 유효한 NPM 구성을 찾을 수 없습니다. NPM UI로 이동하여 구성을 확인합니다     |     사용자가 NPM에서 테스트 가져오기를 선택하여 테스트를 마이그레이션하지만 작업 영역에서 NPM을 사용하도록 설정하지 않은 경우에 이 오류가 발생합니다   |
+|선택한 작업 영역에 '서비스 연결 모니터' 구성이 없습니다    |       사용자가 NPM의 서비스 연결 모니터 연결 모니터 테스트를 마이그레이션하지만 서비스 연결 모니터에 구성된 테스트가 없는 경우에 이 오류가 발생합니다 |
+|선택한 작업 영역에 'ExpressRoute 모니터' 구성이 없습니다    |     사용자가 NPM의 ExpressRoute 모니터에서 연결 모니터 테스트를 마이그레이션하지만 ExpressRoute 모니터에 구성된 테스트가 없는 경우에 이 오류가 발생합니다  |
+|선택한 작업 영역에 '성능 모니터' 구성이 없습니다    |      사용자가 NPM의 성능 모니터에서 연결 모니터 테스트를 마이그레이션하지만 성능 모니터에 구성된 테스트가 없는 경우에 이 오류가 발생합니다 |
+|선택한 작업 영역에 유효한 '{0}' 테스트가 없습니다    |      사용자가 NPM에서 연결 모니터 테스트를 마이그레이션하지만 마이그레이션할 사용자가 선택한 기능에 유효한 테스트가 없는 경우에 이 오류가 발생합니다  |
+|마이그레이션을 시도하기 전에 구독 선택 및 선택한 LA 작업 영역의 위치에서 Network Watcher 확장을 사용하도록 설정하세요      |      사용자가 NPM에서 연결 모니터 테스트를 마이그레이션하고 선택한 LA 작업 영역에서 Network Watcher 확장을 사용하도록 설정하지 않은 경우에 이 오류가 발생합니다. 테스트를 마이그레이션하기 전에 사용자가 NW 확장을 사용하도록 설정해야 합니다 |
+|일부 {1} 테스트에 더 이상 활성 상태가 아닌 에이전트가 포함되어 있습니다. 비활성 에이전트 목록- {0}. 이러한 에이전트는 이전에 실행되었을 수 있지만 종료되었거나 더 이상 실행되지 않습니다. 에이전트를 사용하도록 설정하고 연결 모니터로 마이그레이션합니다. 활성 상태가 아닌 에이전트 없이 테스트를 마이그레이션하려면 계속을 클릭하십시오       |    이 오류는 사용자가 NPM에서 연결 모니터 테스트를 마이그레이션하고 선택한 일부 테스트에 비활성 Network Watcher 에이전트 또는 더 이상 활성화되지 않았지만 과거에 활성화되어 종료된 NW 에이전트가 포함된 경우에 발생합니다. 사용자는 이러한 테스트를 선택 취소하고 이러한 비활성 에이전트를 포함하지 않는 테스트를 선택하여 마이그레이션할 수 있습니다  |
+|{1} 테스트에는 더 이상 활성화되지 않는 에이전트가 포함됩니다. 비활성 에이전트 목록 - {0}. 이러한 에이전트는 이전에 실행되었을 수 있지만 종료되었거나 더 이상 실행되지 않습니다. 에이전트를 사용하도록 설정하고 연결 모니터로 마이그레이션합니다     | 이 오류는 사용자가 NPM에서 연결 모니터 테스트를 마이그레이션하고 선택한 일부 테스트에 비활성 Network Watcher 에이전트 또는 더 이상 활성화되지 않았지만 과거에 활성화되어 종료된 NW 에이전트가 포함된 경우에 발생합니다. 사용자는 에이전트를 사용하도록 설정한 다음, 이러한 테스트를 연결 모니터로 마이그레이션해야 합니다    |
+|테스트를 연결 모니터로 가져오는 동안 오류가 발생했습니다     |    이 오류는 사용자가 NPM에서 CM으로 테스트를 마이그레이션하려고 하지만 오류로 인해 마이그레이션에 성공하지 못한 경우에 발생합니다 |
+
 
 
 ## <a name="next-steps"></a>다음 단계

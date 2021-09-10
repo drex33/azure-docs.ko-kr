@@ -2,17 +2,19 @@
 title: Azure Site Recovery 구성/프로세스/마스터 대상 서버
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware와 Azure 간 재해 복구를 설정할 때 사용되는 구성, 프로세스 및 마스터 대상 서버에 대한 개요를 제공합니다
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/19/2021
+ms.openlocfilehash: ad8cdbdf9d051ac9b0e5a7fd47660811e4a285e3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80062085"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539431"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Site Recovery 구성 요소(구성,프로세스,마스터 대상) 정보
 
-이 문서에서는 [Site Recovery](site-recovery-overview.md) 서비스에서 VMware VM 및 물리적 서버를 Azure에 복제하는데 사용되는 구성, 프로세스 및 마스터 대상 서버에 대해 설명합니다.
+이 문서에서는 [Site Recovery](site-recovery-overview.md) 서비스에서 VMware VM 및 물리적 서버를 Azure에 복제하는데 사용되는 구성, 프로세스 및 마스터 대상 서버에 대해 설명합니다. 이 문서는 클래식 릴리스에 적용됩니다.
+
+미리 보기에서 VM을 복제하려면 Azure Site Recovery 복제 서버를 만들어 사용해야 합니다. Azure Site Recovery 복제 서버 및 해당 구성 요소에 대한 자세한 내용은 [이 문서](vmware-azure-architecture-preview.md)를 참조하세요.
 
 ## <a name="configuration-server"></a>구성 서버
 

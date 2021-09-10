@@ -10,16 +10,22 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: ce04187cb513712998b6c4ba26d5210bb56ca5df
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b7292206aacbbca5c8e76ce573dc6fd0b3e32578
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453759"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835759"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="image-tagging-language-expansion"></a>이미지 태깅 언어 확장
+
+이미지 태거의 [최신 버전(v3.2)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)은 이제 50개 언어로 된 태그를 지원합니다. 자세한 내용은 [언어 지원](language-support.md) 페이지를 참조하세요.
 
 ## <a name="may-2021"></a>2021년 5월
 

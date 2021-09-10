@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 06/30/2021
   ms.author: amgowda
-  ms.openlocfilehash: b89afc3890d67af877f7b192173e547236fe2981
-  ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+  ms.openlocfilehash: 21a4b0fdd3a000469339e6ac49df0a43dc56e451
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/02/2021
-  ms.locfileid: "113233533"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123101603"
 title: AKS(Azure Kubernetes Service)의 기밀 컴퓨팅 노드에 대한 질문과 대답
 summary: >
   이 문서에서는 AKS(Azure Kubernetes Service)의 Intel SGX 기반 기밀 컴퓨팅 노드에 대해 자주 묻는 질문을 해결합니다. 추가 질문이 있는 경우 **acconaks@microsoft.com** 으로 문의하세요.
@@ -69,38 +69,7 @@ sections:
     answer: >
       증명은 특정 하드웨어 플랫폼에서 소프트웨어의 일부가 올바르게 인스턴스화되었는지 확인하고 유효성을 검사하는 프로세스입니다. 또한 보안 플랫폼에서 실행 중이고 변조되지 않았다는 보증을 제공하기 위해 증명 정보를 확인할 수 있도록 합니다. Enclave 앱에 대해 증명을 수행하는 방법에 대해 [자세히 알아보세요](attestation.md).
   - question: 컨테이너 크기가 사용 가능한 EPC 메모리보다 많은 경우는 어떻게 되나요?
-    answer: >
-      EPC 메모리는 enclave에서 실행하도록 프로그래밍된 애플리케이션의 일부에 적용됩니다. 컨테이너의 총 크기는 사용 가능한 최대 EPC 메모리와 비교할 수 있는 올바른 방법이 아닙니다. 실제로 SGX를 사용하는 DCSv2 머신은 신뢰할 수 없는 애플리케이션 부분이 활용하는 32GB의 최대 VM 메모리를 허용합니다. 그러나 컨테이너가 사용 가능한 EPC 메모리 이상을 사용하는 경우 enclave에서 실행되는 프로그램 부분의 성능이 영향을 받을 수 있습니다.
-
-
-      작업자 노드에서 EPC 메모리를 보다 효율적으로 관리하려면 Kubernetes를 통해 EPC 메모리 기반 제한 관리를 고려합니다. 아래 예제를 참조로 사용합니다.
-
-
-      ```yaml
-
-      apiVersion: batch/v1
-
-      kind: Job
-
-      metadata:
-        name: sgx-test
-        labels:
-          app: sgx-test
-      spec:
-        template:
-          metadata:
-            labels:
-              app: sgx-test
-          spec:
-            containers:
-            - name: sgxtest
-              image: oeciteam/sgx-test:1.0
-              resources:
-                limits:
-                  sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to nodepools
-            restartPolicy: Never
-        backoffLimit: 0
-      ```
+    answer: "EPC 메모리는 enclave에서 실행하도록 프로그래밍된 애플리케이션의 일부에 적용됩니다. 컨테이너의 총 크기는 사용 가능한 최대 EPC 메모리와 비교할 수 있는 올바른 방법이 아닙니다. 실제로 SGX를 사용하는 DCSv2 머신은 신뢰할 수 없는 애플리케이션 부분이 활용하는 32GB의 최대 VM 메모리를 허용합니다. 그러나 컨테이너가 사용 가능한 EPC 메모리 이상을 사용하는 경우 enclave에서 실행되는 프로그램 부분의 성능이 영향을 받을 수 있습니다.\n\n작업자 노드에서 EPC 메모리를 보다 효율적으로 관리하려면 Kubernetes를 통해 EPC 메모리 기반 제한 관리를 고려합니다. 아래 예제를 참조로 사용합니다.\n\n> [!NOTE] \n> 다음 예제에서는 Docker 허브에서 공용 컨테이너 이미지를 가져옵니다. 익명의 끌어오기 요청을 하는 대신 Docker Hub 계정을 사용하여 인증하도록 끌어오기 비밀을 설정하는 것이 좋습니다. 공용 콘텐츠를 사용할 때 신뢰성을 향상시키려면 개인 Azure Container Registry에서 이미지를 가져오고 관리하세요. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).\n\n```yaml\napiVersion: batch/v1\nkind: Job\nmetadata:\n  name: sgx-test\n  labels:\n    app: sgx-test\nspec:\n  template:\n    metadata:\n      labels:\n        app: sgx-test\n    spec:\n      containers:\n      - name: sgxtest\n        image: oeciteam/sgx-test:1.0\n        resources:\n          limits:\n            sgx.intel.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively, you can target deployment to nodepools\n      restartPolicy: Never\n  backoffLimit: 0\n```\n"
   - question: enclave에서 사용 가능한 최대 EPC 메모리 이상을 사용하는 경우 어떻게 되나요?
     answer: "사용 가능한 총 EPC 메모리는 동일한 VM 또는 작업자 노드의 enclave 애플리케이션 간에 공유됩니다. 애플리케이션에서 사용 가능한 것보다 많은 EPC 메모리를 사용하는 경우 애플리케이션 성능에 영향을 줄 수 있습니다. 이러한 이유로 위의 예제에 표시된 것처럼 작업자 노드당 사용 가능한 EPC 메모리를 보다 효율적으로 관리하려면 배포 yaml 파일에서 애플리케이션당 toleration을 설정하는 것이 좋습니다. 또는 언제든지 작업자 노드 풀 VM 크기를 위로 이동하거나 노드를 더 추가하도록 선택할 수 있습니다. \n"
   - question: enclave 애플리케이션에서 여러 프로세스를 실행하기 위해 포크() 및 exec를 수행할 수 없는 이유는 무엇입니까?

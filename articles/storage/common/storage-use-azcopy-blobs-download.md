@@ -1,5 +1,5 @@
 ---
-title: AzCopy v10을 사용하여 Azure Blob Storage에서 blbo 다운로드 | Microsoft Docs
+title: AzCopy v10을 사용하여 Azure Blob Storage에서 Blob 다운로드 | Microsoft Docs
 description: 이 문서에는 Azure Blob Storage에서 blob을 다운로드하는 데 도움이 되는 AzCopy 예제 명령 컬렉션이 포함되어 있습니다.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 56bb36cfda9d0cf1a8882950c862a73ad1e77898
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c57744817e26cc79c101246f146d32d3db061ed5
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502949"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361482"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage에서 Blob 다운로드
 
@@ -28,7 +28,7 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ## <a name="download-a-blob"></a>Blob 다운로드
 
@@ -217,7 +217,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFil
 ```
 
 > [!NOTE]
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하는 경우 SAS 토큰 뒤에 스냅샷 **DateTime** 을 추가합니다. 예를 들면 `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`와 같습니다.
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하는 경우 SAS 토큰 뒤에 스냅샷 **DateTime** 을 추가합니다. 예: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`
 
 ## <a name="download-with-optional-flags"></a>선택적 플래그를 사용하여 다운로드
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/04/2021
 ms.author: aahi
-ms.openlocfilehash: e25851bc9d3cba6e71056a6fb6a24ff9a0cee6ce
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6a7dca4fd7fe74515f7532b457ce9e1aaad65b57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968048"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567127"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics를 사용하여 핵심 구를 추출하는 방법
 
-[핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다.
+[핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다.
 
 이 기능은 문서 컬렉션에서 주요 지점을 빠르게 식별해야 하는 경우에 유용합니다. 예를 들어 "음식이 맛있고 훌륭한 직원이 있었습니다"라는 입력 텍스트가 제공되면 서비스에서 "음식" 및 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "111968048"
 
 ID, 텍스, 언어 형식의 JSON 문서가 있어야 합니다.
 
-문서 크기는 문서당 5,120자 이하여야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 가질 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다. 
+문서 크기는 문서당 5,120자 이하여야 하며, 컬렉션당 최대 10개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다. 
 
 요청 및 응답 개체에 대한 자세한 내용은 [Text Analytics API를 호출하는 방법](text-analytics-how-to-call-api.md)을 참조하세요.  
 
@@ -76,7 +76,7 @@ ID, 텍스, 언어 형식의 JSON 문서가 있어야 합니다.
 
 ### <a name="example-asynchronous-request-object"></a>비동기 요청 개체 예
 
-`v3.1-preview.3`부터 `/analyze` 엔드포인트를 사용하여 NER 요청을 비동기적으로 보낼 수 있습니다.
+`v3.1`부터 `/analyze` 엔드포인트를 사용하여 NER 요청을 비동기적으로 보낼 수 있습니다.
 
 
 ```json
@@ -108,16 +108,16 @@ ID, 텍스, 언어 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [Text Analytics API를 호출하는 방법](text-analytics-how-to-call-api.md)을 참조하세요. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. [핵심 구 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 요청에 대한 API 설명서를 검토합니다.
++ **POST** 요청을 만듭니다. [핵심 구 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases) 요청에 대한 API 설명서를 검토합니다.
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 핵심 구 추출을 위한 HTTP 엔드포인트를 설정합니다. API를 동기적으로 사용하는 경우 URL에 `/text/analytics/v3.0/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 핵심 구 추출을 위한 HTTP 엔드포인트를 설정합니다. API를 동기적으로 사용하는 경우 URL에 `/text/analytics/v3.1/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔** 을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases)에서 **API 테스트 콘솔** 을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -131,67 +131,64 @@ ID, 텍스, 언어 형식의 JSON 문서가 있어야 합니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
-v3.1-preview 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 다음과 같습니다.
+v3.1 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 다음과 같습니다.
 
 ### <a name="synchronous-result"></a>동기 결과
 
 ```json
-    {
-       "documents":[
-          {
-             "id":"1",
-             "keyPhrases":[
-                "year",
+{
+    "documents": [
+        {
+            "id": "1",
+            "keyPhrases": [
                 "trail",
                 "trip",
                 "views",
                 "hike"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"2",
-             "keyPhrases":[
-                "marked trails",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "keyPhrases": [
                 "Worst hike",
-                "goners"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"3",
-             "keyPhrases":[
-                "trail",
+                "trails"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "keyPhrases": [
+                "less athletic",
                 "small children",
-                "family"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"4",
-             "keyPhrases":[
+                "Everyone",
+                "family",
+                "trail"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "keyPhrases": [
                 "spectacular views",
                 "trail",
-                "Worth",
                 "area"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"5",
-             "keyPhrases":[
-                "places",
-                "beautiful views",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "keyPhrases": [
                 "favorite trail",
-                "rest"
-             ],
-             "warnings":[]
-          }
-       ],
-       "errors":[],
-       "modelVersion":"2020-07-01"
-    }
-
+                "beautiful views",
+                "many places"
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
 ```
 앞에서 설명한 대로 분석기에서 필요하지 않은 단어는 찾아서 버리고, 문장의 주체 또는 개체로 보이는 단일 용어 또는 구는 유지합니다.
 
@@ -201,51 +198,46 @@ v3.1-preview 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "fa813c9a-0d96-4a34-8e4f-a2a6824f9190",
+    "lastUpdateDateTime": "2021-07-07T18:16:45Z",
+    "createdDateTime": "2021-07-07T18:16:15Z",
+    "expirationDateTime": "2021-07-08T18:16:15Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "keyPhraseExtractionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-07T18:16:45.0623454Z",
+                "taskName": "KeyPhraseExtraction_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "keyPhrases": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "keyPhrases": [
+                                "Pike place market",
+                                "Seattle attraction",
+                                "favorite"
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ]
+    }
 }
 ```
 
@@ -254,14 +246,14 @@ v3.1-preview 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 
 
 이 문서에서는 Cognitive Services의 Text Analytics를 사용하여 핵심 구 추출에 대한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
-+ [핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)는 선택한 언어로 사용할 수 있습니다.
++ [핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases)는 선택한 언어로 사용할 수 있습니다.
 + 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/keyphrases` 또는 `/analyze` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대한 핵심 단어와 구로 구성된 응답 출력은 Microsoft Office Excel 및 Power BI를 포함하여 JSON을 허용하는 모든 앱으로 스트리밍할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 
- [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
+ [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.yml)</br>
  [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>다음 단계

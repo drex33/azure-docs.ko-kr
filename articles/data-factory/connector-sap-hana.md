@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/22/2020
-ms.openlocfilehash: c06f9e375508af0ae3a8ae6bf819b6ec53a98636
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 4fad9fac55c56bc7de59992a594e992978cbddf9
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642299"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307789"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -57,13 +57,38 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-sap-hana-using-ui"></a>UI를 사용하여 SAP HANA에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 SAP HANA에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+2. SAP를 검색하고 SAP HANA 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-sap-hana/sap-hana-connector.png" alt-text="SAP HANA 커넥터의 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-sap-hana/configure-sap-hana-linked-service.png" alt-text="SAP HANA에 연결된 서비스 구성의 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+
 다음 섹션에서는 SAP HANA 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapHana** 로 설정해야 합니다. | 예 |
 | connectionString | **기본 인증** 또는 **Windows 인증** 을 사용하여 SAP HANA 연결에 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br>연결 문자열에서 서버/포트는 필수(기본 포트는 30015)이고, 기본 인증을 사용하는 경우 사용자 이름 및 암호는 필수입니다. 추가 고급 설정은 [SAP HANA ODBC 연결 속성](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)을 참조하세요.<br/>Azure Key Vault에 암호를 넣고 연결 문자열에서 암호 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -144,7 +169,7 @@ SAP HANA 연결된 서비스에 다음 속성이 지원됩니다.
 
 SAP HANA의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SapHanaTable** 로 설정해야 합니다. | 예 |
 | 스키마 | SAP HANA 데이터베이스의 스키마 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -183,7 +208,7 @@ SAP HANA의 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 SAP HANA에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 type 속성을 **SapHanaSource** 로 설정해야 합니다. | 예 |
 | Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |

@@ -4,14 +4,15 @@ description: Azure Data Factory에서 SSIS(SQL Server Integration Services)와 �
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 18f73a379c32bf80893e00ff0e95cb9edf905724
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564148"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607762"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Managed Instance 사용
 
@@ -93,7 +94,7 @@ ms.locfileid: "105564148"
 
     1. 가상 네트워크가 속한 리소스 그룹/구독에 [리소스 잠금](../azure-resource-manager/management/lock-resources.md)이 없는지 확인합니다. 읽기 전용/삭제 잠금을 구성하는 경우 Azure-SSIS IR 시작 및 중지에 실패하거나 응답이 중지됩니다.
 
-    1. 가상 네트워크가 속한 리소스 그룹/구독에 다음 리소스를 만들 수 없도록 하는 Azure 정책이 없는지 확인합니다.
+    1. 가상 네트워크가 속한 리소스 그룹/구독에 다음 리소스를 만들 수 없도록 하는 Azure Policy 정의가 없는지 확인합니다.
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

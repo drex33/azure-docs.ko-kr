@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb40946bc01b6bd241f542b3987e8a2e7d570794
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331667"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609546"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -162,7 +162,7 @@ Azure 제품 유형을 확인하여 조직의 청구 방식을 파악합니다. 
 
 마찬가지로, 다른 팀이 소유한 여러 구독에서 리소스를 사용하는 웹앱 또는 환경(예: 테스트 또는 프로덕션)이 있을 수도 있습니다. 워크로드의 전체 비용을 보다 잘 이해하려면 워크로드에 사용되는 리소스에 태그를 지정합니다. 태그가 제대로 적용되면 비용 분석에서 해당 태그를 필터로 적용하여 추세를 보다 잘 이해할 수 있습니다.
 
-리소스 태그 지정을 계획한 후 리소스에 태그를 적용하도록 Azure 정책을 구성할 수 있습니다. 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+리소스 태그 지정을 계획한 후 리소스에 태그를 적용하도록 Azure Policy 정의를 구성할 수 있습니다. 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

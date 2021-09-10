@@ -3,12 +3,12 @@ title: Azure VMware Solution용 cloudadmin 자격 증명 회전
 description: Azure VMware Solution 프라이빗 클라우드용 vCenter Server 및 NSX-T Manager 자격 증명을 회전하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 305447f8eac40a08564b9b57d82709f223f6086d
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 884e3f09e429fff39c0dfafcb5d0c9a7b4915e03
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021504"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538835"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Azure VMware Solution용 cloudadmin 자격 증명 회전
 
@@ -18,7 +18,7 @@ ms.locfileid: "112021504"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-HCX, vRealize Orchestrator, vRealize Operations Manager 또는 VMware Horizon과 같은 연결된 서비스에 cloudadmin 자격 증명을 사용하는 경우 암호를 업데이트하면 연결이 중지됩니다.  암호 순환을 시작하기 전에 해당 서비스를 중지합니다. 그러지 않으면 서비스에서 이전 자격 증명을 사용하여 계속 호출하기 때문에 vCenter CloudAdmin 및 NSX-T 관리자 계정이 일시적으로 잠깁니다.  연결된 서비스에 대해 별도의 계정을 설정하는 방법에 대한 자세한 내용은 [액세스 및 ID 개념](./concepts-identity.md)을 참조하세요.
+HCX, vRealize Orchestrator, vRealize Operations Manager 또는 VMware Horizon과 같은 연결된 서비스에 cloudadmin 자격 증명을 사용하는 경우 암호를 업데이트하면 연결이 중지됩니다.  따라서 암호 순환을 시작하기 전에 해당 서비스를 중지합니다. 그러지 않으면 서비스에서 이전 자격 증명을 사용하여 계속 호출하기 때문에 vCenter CloudAdmin 및 NSX-T 관리자 계정이 일시적으로 잠깁니다.  연결된 서비스에 대해 별도의 계정을 설정하는 방법에 대한 자세한 내용은 [액세스 및 ID 개념](./concepts-identity.md)을 참조하세요.
 
 ## <a name="reset-your-azure-vmware-solution-cloudadmin-credentials"></a>Azure VMware Solution cloudadmin 자격 증명 다시 설정
 
@@ -61,6 +61,5 @@ HCX, vRealize Orchestrator, vRealize Operations Manager 또는 VMware Horizon과
 
 이제 Azure VMware Solution에 대한 vCenter Server 및 NSX-T Manager 자격 증명 다시 설정을 다루었으므로 다음 사항을 알아볼 수 있습니다.
 
-- [Azure VMware Solution에서 NSX 네트워크 구성 요소 구성](configure-nsx-network-components-azure-portal.md)
 - [Azure VMware Solution에서 Azure 네이티브 서비스 통합](integrate-azure-native-services.md)
 - [VMware HCX를 사용하여 Azure VMware Solution 워크로드에 대한 재해 복구 배포](deploy-disaster-recovery-using-vmware-hcx.md)

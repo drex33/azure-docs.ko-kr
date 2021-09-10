@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50bf5f3188728db41f74b6fefe5946ef2127efe3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062311"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564377"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -513,11 +513,12 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 | ID | 기본값 |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |확인을 위해 제공한 일회용 암호가 최대 시도 횟수를 초과했습니다. |
-|UserMessageIfSessionDoesNotExist |일회용 암호 확인 세션이 만료되었습니다. |
-|UserMessageIfSessionConflict |일회용 암호 확인 세션이 충돌되었습니다. |
-|UserMessageIfInvalidCode |확인을 위해 제공한 일회용 암호가 잘못되었습니다. |
-|UserMessageIfVerificationFailedRetryAllowed |해당 코드가 잘못되었습니다. 나중에 다시 시도하세요. | 
+| UserMessageIfSessionDoesNotExist | 예 | 코드 확인 세션이 만료된 경우 사용자에게 표시할 메시지입니다. 코드가 만료되었거나 지정된 식별자에 대한 코드가 생성되지 않았습니다. |
+| UserMessageIfMaxRetryAttempted | 예 | 허용되는 최대 확인 시도 횟수를 초과하는 경우 사용자에게 표시할 메시지입니다. |
+| UserMessageIfMaxNumberOfCodeGenerated | 예 | 코드 생성이 허용되는 최대 횟수를 초과하는 경우 사용자에게 표시할 메시지입니다. |
+| UserMessageIfInvalidCode | 예 | 잘못된 코드를 제공한 경우 사용자에게 표시할 메시지입니다. |
+| UserMessageIfVerificationFailedRetryAllowed | 예 | 사용자가 잘못된 코드를 제공하였으며, 사용자가 올바른 코드를 제공할 수 있는 경우 사용자에게 표시할 메시지입니다.  |
+|UserMessageIfSessionConflict|예| 코드를 확인할 수 없는 경우 사용자에게 표시할 메시지입니다.|
 
 ### <a name="one-time-password-example"></a>일회성 암호 예제
 
@@ -526,9 +527,10 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

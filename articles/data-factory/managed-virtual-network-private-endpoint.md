@@ -4,17 +4,16 @@ description: Azure Data Factory의 관리형 가상 네트워크 및 관리형 �
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom:
-- seo-lt-2019
-- references_regions
-ms.date: 07/15/2020
-ms.openlocfilehash: 7804279f3d5d95e36918a7c5d3cae543d59e6d9c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
+ms.date: 07/20/2021
+ms.openlocfilehash: 29bd9cf165ef8247a4185b17d479b01c4e14fa87
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470767"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642366"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리형 가상 네트워크(미리 보기)
 
@@ -45,13 +44,13 @@ Azure Data Factory 관리형 가상 네트워크(VNET) 내에 Azure IR(Integrati
 >기존 퍼블릭 Azure Integration Runtime은 Azure Data Factory 관리형 가상 네트워크에서 Azure Integration Runtime으로 전환할 수 없으며 그 반대의 경우도 마찬가지입니다.
  
 
-![ADF 관리형 가상 네트워크 아키텍처](./media/managed-vnet/managed-vnet-architecture-diagram.png)
+:::image type="content" source="./media/managed-vnet/managed-vnet-architecture-diagram.png" alt-text="ADF 관리형 가상 네트워크 아키텍처":::
 
 ## <a name="managed-private-endpoints"></a>관리형 프라이빗 엔드포인트
 
 관리형 프라이빗 엔드포인트는 Azure Data Factory 관리형 가상 네트워크에 생성되는 프라이빗 엔드포인트이며, Azure 리소스에 대한 프라이빗 링크를 설정합니다. Azure Data Factory는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다. 
 
-![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="새 관리형 프라이빗 엔드포인트":::
 
 Azure Data Factory는 프라이빗 링크를 지원합니다. 프라이빗 링크를 사용하면 Azure(PaaS) 서비스(예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics)에 액세스할 수 있습니다.
 
@@ -67,21 +66,21 @@ Azure Data Factory는 프라이빗 링크를 지원합니다. 프라이빗 링�
 
 프라이빗 엔드포인트 연결은 Azure Data Factory에서 관리형 프라이빗 엔드포인트를 만들 때 “보류 중” 상태로 생성됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 
-![프라이빗 엔드포인트 관리](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="프라이빗 엔드포인트 관리":::
 
 소유자가 연결을 승인하면 프라이빗 링크가 설정됩니다. 거부하면 프라이빗 링크가 설정되지 않습니다. 어떤 경우든 관리형 프라이빗 엔드포인트는 연결 상태로 업데이트 됩니다.
 
-![관리형 프라이빗 엔드포인트 승인](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+:::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="관리형 프라이빗 엔드포인트 승인":::
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
 
 ## <a name="interactive-authoring"></a>대화형 작성
 대화형 작성 기능은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기, 데이터 미리 보기 등의 기능에 사용됩니다. ADF 관리형 가상 네트워크에 있는 Azure Integration Runtime을 만들거나 편집할 때 대화형 작성을 사용하도록 설정할 수 있습니다. 백 엔드 서비스는 대화형 작성 기능에 대한 컴퓨팅을 미리 할당합니다. 그러지 않으면 대화형 작업이 수행될 때마다 컴퓨팅이 할당되어 더 많은 시간이 걸립니다. 대화형 작성의 TTL(Time To Live)은 60분입니다. 즉, 마지막 대화형 작성 작업 60분 후에 자동으로 사용하지 않도록 설정됩니다.
 
-![대화형 작성](./media/managed-vnet/interactive-authoring.png)
+:::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="대화형 작성":::
 
 ## <a name="activity-execution-time-using-managed-virtual-network"></a>관리형 가상 네트워크를 사용한 작업 실행 시간
-기본적으로 관리형 가상 네트워크의 Azure Integration Runtime은 데이터 팩터리당 하나의 컴퓨팅 노드를 예약하지 않으므로 퍼블릭 Azure Integration Runtime보다 시간이 더 오래 걸립니다. 따라서 각 작업을 시작하기 위해 준비가 필요하며, 이는 Azure Integration Runtime보다는 가상 네트워크 조인에서 주로 발생합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 훨씬 단축됩니다. 
+기본적으로 관리형 가상 네트워크의 Azure Integration Runtime은 데이터 팩터리당 하나의 컴퓨팅 노드를 예약하지 않으므로 퍼블릭 Azure Integration Runtime보다 시간이 더 오래 걸립니다. 따라서 각 작업을 시작하기 위해 준비가 필요하며, 이는 Azure Integration Runtime보다는 가상 네트워크 조인에서 주로 발생합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 단축됩니다. 
 > [!NOTE]
 > 복사 작업은 아직 TTL을 지원하지 않습니다.
 
@@ -100,7 +99,7 @@ $privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${r
 $integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
 
 # Create managed Virtual Network resource
-New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}" -Properties @{}
 
 # Create managed private endpoint resource
 New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
@@ -145,6 +144,16 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
+- Azure Machine Learning
+
+> [!Note]
+> 공용 네트워크를 통해 Data Factory에서 지 원하는 모든 데이터 원본에 계속 액세스할 수 있습니다.
+
+> [!NOTE]
+> Azure SQL Managed Instance는 현재 기본 프라이빗 엔드포인트를 지원하지 않으므로 프라이빗 연결된 서비스 및 부하 분산 장치를 사용하여 관리되는 Virtual Network에서 액세스할 수 있습니다. [프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 SQL Managed Instance에 액세스하는 방법](tutorial-managed-virtual-network-sql-managed-instance.md)을 참조하세요.
+
+### <a name="on-premises-data-sources"></a>온-프레미스 데이터 원본
+프라이빗 엔드포인트를 사용하여 관리되는 Virtual Network에서 온-프레미스 데이터 소스에 액세스하려면 [프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 온-프레미스 SQL Server에 액세스하는 방법](tutorial-managed-virtual-network-on-premise-sql-server.md)을 참조하세요.
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory 관리형 가상 네트워크는 다음 Azure 지역에서 사용할 수 있습니다.
 - 오스트레일리아 동부
@@ -154,12 +163,17 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 - 캐나다 동부
 - 인도 중부
 - 미국 중부
+- 중국 동부2
+- 중국 북부2
+- 동아시아
 - 미국 동부
 - 미국 동부2
 - 프랑스 중부
+- 독일 중서부
 - 일본 동부
 - 일본 서부
 - 한국 중부
+- 미국 중북부
 - 북유럽
 - 노르웨이 동부
 - 남아프리카 북부
@@ -167,6 +181,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 - 동남아시아
 - 스위스 북부
 - 아랍에미리트 북부
+- US Gov 애리조나
+- US Gov 텍사스
+- US Gov 버지니아
 - 영국 남부
 - 영국 서부
 - 미국 중서부
@@ -183,7 +200,11 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 - Azure Key Vault에 대한 연결된 서비스를 만들 때 Azure Integration Runtime 참조가 없습니다. 따라서 Azure Key Vault의 연결된 서비스를 만드는 동안에는 프라이빗 엔드포인트를 만들 수 없습니다. 그러나 Azure Key Vault 연결된 서비스를 참조하는 데이터 저장소에 대한 연결된 서비스를 만들 때 이 연결된 서비스는 관리형 가상 네트워크가 사용하도록 설정된 Azure Integration Runtime을 참조하면 만드는 동안 Azure Key Vault 연결된 서비스에 대한 프라이빗 엔드포인트를 만들 수 있습니다. 
 - Azure Key Vault의 연결된 서비스에 대한 **연결 테스트** 작업은 URL 형식에 대해서만 유효성을 검사하고 네트워크 작업은 수행하지 않습니다.
 - **프라이빗 엔드포인트 사용** 열은 Azure Key Vault의 프라이빗 엔드포인트를 만드는 경우에도 항상 빈 값으로 표시됩니다.
-![AKV의 프라이빗 엔드포인트](./media/managed-vnet/akv-pe.png)
+
+### <a name="linked-service-creation-of-azure-hdi"></a>Azure HDI의 연결된 서비스 만들기
+- 프라이빗 링크 서비스 및 부하 분산 장치와 포트 전달을 사용하여 HDI용 프라이빗 엔드포인트를 만드는 경우에도 **프라이빗 엔드포인트 사용** 열은 항상 공백으로 표시됩니다.
+
+:::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="AKV의 프라이빗 엔드포인트":::
 
 ## <a name="next-steps"></a>다음 단계
 

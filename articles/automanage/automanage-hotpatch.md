@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5de4c52015a8282591edeee6de9fd27aae042324
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528128"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770665"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 머신에 대한 핫패치(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "122528128"
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 > [!NOTE]
-> 핫패치 기능은 다음 _Windows Server Azure 버전_ 이미지 중 하나에서 찾을 수 있습니다. Windows Server 2019 Datacenter: Azure 버전(Core), Windows Server 2022 Datacenter: Azure 버전(Core)
+> 핫패치는 Windows Server 2022 Datacenter: Azure Edition(Core) 미리 보기에서 평가할 수 있습니다.  Windows Server 2019 Datacenter: Azure Edition 미리 보기에 대한 핫패치는 더 이상 평가할 수 없습니다.
 
 핫패칭은 설치 후 다시 부팅할 필요가 없는 지원되는 _Windows Server Azure 버전_ VM(가상 머신)에 업데이트를 설치하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공하는 지원되는 _Windows Server Azure 버전_ VM에 대한 핫패치 정보를 다룹니다.
 * 더 적은 다시 부팅으로 인해 워크로드 영향을 줄입니다.
@@ -218,7 +218,7 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>기존 Windows Server OS에서 업그레이드할 수 있나요?
 
-* 기존 버전의 Windows Server(즉, Windows Server 2016 또는 2019 비 Azure 버전)에서 _Windows Server 2022 Datacenter: Azure 버전_ 으로의 업그레이드가 지원됩니다. _Windows Server 2019 Datacenter: Azure 버전_ 으로의 업그레이드는 지원되지 않습니다.
+* 예. 기존 버전의 Windows Server(즉, Windows Server 2016 또는 Windows Server 2019 버전)에서 Windows Server 2022 Datacenter: Azure 버전으로의 업그레이드가 지원됩니다. 
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>미리 보기 중에 프로덕션 작업에 핫패치를 사용할 수 있나요?
 

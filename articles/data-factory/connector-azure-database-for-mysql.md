@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/10/2021
-ms.openlocfilehash: 338405fd04617d3b1d563b7ac95d7233d23a8678
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 5495feb3e4cfe8080b9be4ee1ec0bc3804232089
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642415"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314339"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-mysql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Database for MySQL에서 데이터 복사 및 변환
 
@@ -36,13 +36,38 @@ ms.locfileid: "122642415"
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-azure-database-for-mysql-using-ui"></a>UI를 사용하여 Azure Database for MySQL에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Database for MySQL에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+2. MySQL을 검색하고 Azure Database for MySQL 커넥터를 선택합니다.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/azure-database-for-mysql-connector.png" alt-text="Azure Database for MySQL 커넥터를 선택합니다.":::    
+
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+   :::image type="content" source="media/connector-azure-database-for-mysql/configure-azure-database-for-mysql-linked-service.png" alt-text="Azure Database for MySQL에 연결된 서비스를 구성합니다.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Azure Database for MySQL 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureMySql** 로 설정되어야 합니다. | 예 |
 | connectionString | Azure Database for MySQL 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -105,7 +130,7 @@ Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다
 
 Azure Database for MySQL에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **AzureMySqlTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **AzureMySqlTable** 로 설정해야 합니다. | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -136,7 +161,7 @@ Azure Database for MySQL에서 데이터를 복사하려면 데이터 세트의 
 
 Azure Database for MySQL에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원하는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **AzureMySqlSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -178,7 +203,7 @@ Azure Database for MySQL에서 데이터를 복사하기 위해 복사 작업 **
 
 Azure Database for MySQL로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원하는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **AzureMySqlSink** 로 설정해야 합니다. | 예 |
 | preCopyScript | 각 실행 시 Azure Database for MySQL에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
@@ -226,7 +251,7 @@ Azure Database for MySQL로 데이터를 복사하기 위해 복사 작업 **싱
 
 다음 표에서는 Azure Database for MySQL 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |*(인라인 데이터 세트에만 해당)*<br>tableName |
 | 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `select * from mytable where customerId > 1000 and customerId < 2000` 또는 `select * from "MyTable"`| 예 | String | Query |
@@ -249,7 +274,7 @@ source(allowSchemaDrift: true,
 
 다음 표에서는 Azure Database for MySQL 싱크에서 지원하는 속성을 나열합니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |

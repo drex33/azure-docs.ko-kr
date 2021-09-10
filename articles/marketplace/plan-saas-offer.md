@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/31/2021
+ms.openlocfilehash: 7afdd852bebc4eeff24671d8d60cb8805f86f29c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692016"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566789"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 SaaS 제품을 계획하는 방법
 
@@ -27,10 +27,10 @@ ms.locfileid: "110692016"
 
 | 목록 옵션 | 트랜잭션 프로세스 |
 | ------------ | ------------- |
-| 연락처 | 고객이 목록의 정보로 직접 연락합니다.``*`` |
-| 평가판 | 고객이 Azure AD(Azure Active Directory)를 통해 대상 URL로 리디렉션됩니다.``*`` |
-| 지금 받기(무료) | 고객이 Azure AD를 통해 대상 URL로 리디렉션됩니다.``*`` |
-| Microsoft를 통해 판매  | Microsoft를 통해 판매되는 제품을 _거래 가능_ 제품이라고 합니다. 거래 가능한 제품은 Microsoft가 파트너 대신 소프트웨어 라이선스 대금 교환을 용이하게 할 수 있는 제품입니다. Microsoft는 파트너가 선택하는 가격 책정 모델을 사용하여 SaaS 제품 대금을 청구하고, 파트너 대신 고객 트랜잭션을 관리합니다. Azure 인프라 사용 대금은 파트너에게 직접 청구됩니다. 파트너는 현재 가격 책정 모델에 인프라 비용을 포함해야 해야 합니다. 자세한 내용은 아래의 [SaaS 청구](#saas-billing)에 설명되어 있습니다.  |
+| 연락처 | 고객이 목록의 정보로 직접 연락합니다.``*``<br>제안을 게시한 후 다른 목록 옵션으로 변경할 수 있습니다. |
+| 평가판 | 고객이 Azure AD(Azure Active Directory)를 통해 대상 URL로 리디렉션됩니다.``*``<br>제안을 게시한 후 다른 목록 옵션으로 변경할 수 있습니다. |
+| 지금 받기(무료) | 고객이 Azure AD를 통해 대상 URL로 리디렉션됩니다.``*``<br>제안을 게시한 후 다른 목록 옵션으로 변경할 수 있습니다. |
+| Microsoft를 통해 판매  | Microsoft를 통해 판매되는 제품을 _거래 가능_ 제품이라고 합니다. 거래 가능한 제품은 Microsoft가 파트너 대신 소프트웨어 라이선스 대금 교환을 용이하게 할 수 있는 제품입니다. Microsoft는 파트너가 선택하는 가격 책정 모델을 사용하여 SaaS 제품 대금을 청구하고, 파트너 대신 고객 트랜잭션을 관리합니다. Azure 인프라 사용 대금은 파트너에게 직접 청구됩니다. 파트너는 현재 가격 책정 모델에 인프라 비용을 포함해야 해야 합니다. 자세한 내용은 아래의 [SaaS 청구](#saas-billing)에 설명되어 있습니다.<br><br>**참고**: 제안이 게시되면 이 옵션을 변경할 수 없습니다.  |
 |||
 
 ``*`` 게시자는 주문, 이행, 계량, 대금 청구, 청구서 발행, 결제 및 수금을 포함하여 소프트웨어 라이선스 트랜잭션의 모든 것을 지원할 책임이 있습니다.
@@ -182,7 +182,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 

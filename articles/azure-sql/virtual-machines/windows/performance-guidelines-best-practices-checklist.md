@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/06/2021
+ms.date: 06/01/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: e658a2ceed031ea68bce17b87887fd42f24756d6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 474954faebe62138e234f5bb7a7c1bee7bdcf95b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079934"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538919"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>검사 목록: Azure VM의 SQL Server에 대한 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,6 +47,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 - 중요 업무용 및 데이터 웨어하우스 워크로드에 대한 메모리 대 vCore 비율을 높이는 것이 좋습니다. 
 - 최적의 SQL Server 성능을 위해 SQL Server 설정 및 스토리지 옵션이 구성되었으므로 Azure Virtual Machine Marketplace 이미지를 사용합니다. 
 - 대상 워크로드의 성능 특성을 수집하고 수집한 정보를 사용하여 비즈니스에 적합한 VM 크기를 결정합니다.
+- [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU 권장 사항](/sql/dma/dma-sku-recommend-sql-db) 도구를 사용하여 기존 SQL Server 워크로드에 적합한 VM 크기를 찾습니다.
 
 자세히 알아보려면 포괄적인 [VM 크기 모범 사례](performance-guidelines-best-practices-vm-size.md)를 참조하세요. 
 
@@ -114,7 +115,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
 - [Azure Security Center](../../../security-center/index.yml)를 활용하여 가상 머신 배포의 전반적인 보안 상태를 향상시킵니다.
 - 취약성 평가 및 Just-In-Time 액세스를 비롯한 특정 [SQL Server VM 검사](../../../security-center/defender-for-sql-introduction.md)에 대해 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합된 [Azure Defender](../../../security-center/azure-defender.md)를 활용하여 필요한 경우 합법적인 사용자가 가상 머신에 액세스할 수 있도록 허용하는 동시에 공격 서비스를 줄일 수 있습니다. 자세한 내용은 [취약성 평가](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [SQL Server VM에 대한 취약성 평가 사용](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) 및 [Just-In-Time 액세스](../../../security-center/just-in-time-explained.md)를 참조하세요. 
 - [Azure Advisor](../../../advisor/advisor-overview.md)를 활용하여 [성능](../../../advisor/advisor-performance-recommendations.md), [비용](../../../advisor/advisor-cost-recommendations.md), [안정성](../../../advisor/advisor-high-availability-recommendations.md), [운영 효율성](../../../advisor/advisor-operational-excellence-recommendations.md) 및 [보안 권장 사항](../../../advisor/advisor-security-recommendations.md)을 해결합니다.
-- [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md)를 활용하여 SQL Server 환경에서 원격 분석 데이터를 수집, 분석 및 조치합니다. 여기에는 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)를 사용하여 인프라 문제를 식별하고 심층 진단을 위해 [Log Analytics](../../../azure-monitor/logs/log-query-overview.md)로 데이터를 모니터링하는 작업이 포함됩니다.
+- [Azure Monitor](../../../azure-monitor/vm/monitor-virtual-machine.md)를 활용하여 SQL Server 환경에서 원격 분석 데이터를 수집, 분석 및 조치합니다. 여기에는 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)를 사용하여 인프라 문제를 식별하고 심층 진단을 위해 [Log Analytics](../../../azure-monitor/logs/log-query-overview.md)로 데이터를 모니터링하는 작업이 포함됩니다.
 - 개발 및 테스트 환경에 대해 [자동 종료](../../../automation/automation-solution-vm-management.md)를 사용하도록 설정합니다. 
 - 비즈니스 연속성 SLA를 충족하는 HADR(고가용성 및 재해 복구) 솔루션을 구현합니다. Azure VM에서 SQL Server에 사용할 수 있는 [HADR 옵션](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures)을 참조하세요. 
 - Azure Portal(지원 + 문제 해결)을 사용하여 [리소스 상태](../../../service-health/resource-health-overview.md) 및 기록을 평가합니다. 필요한 경우 새 지원 요청을 제출합니다.

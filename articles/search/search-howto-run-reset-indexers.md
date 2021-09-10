@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667671"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583152"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서를 실행하거나 다시 설정하는 방법
 
@@ -73,7 +73,7 @@ ms.locfileid: "101667671"
 ## <a name="reset-skills-preview"></a>기술 다시 설정(미리 보기)
 
 > [!IMPORTANT] 
-> [기술 다시 설정](/rest/api/searchservice/preview-api/reset-skills)은 퍼블릭 미리 보기로 제공되며 미리 보기 REST API를 통해서만 이용할 수 있습니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 그대로 제공됩니다.
+> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills)는 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기 상태입니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기능을 지원합니다.
 
 기술 세트가 있는 인덱서의 경우 특정 기술을 다시 설정하여 해당 기술 및 그 출력에 의해 좌우되는 모든 다운스트림 기술의 처리를 강제할 수 있습니다. [캐시 강화](search-howto-incremental-index.md)도 새로 고쳐집니다. 기술을 다시 설정하면 캐시 결과가 무효화되며, 이는 기술의 새로운 버전이 배포되어 있는 상태에서 인덱서가 해당 기술을 전체 문서에 다시 실행하고자 할 때 유용합니다. 
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Cosmos DB의 Azure 역할 기반 액세스 제어
 description: Active Directory 통합(Azure RBAC)을 사용하여 Azure Cosmos DB에서 데이터베이스 보호를 제공하는 방법을 알아봅니다.
-author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.author: mjbrown
+ms.date: 06/17/2021
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a305dc7b6f40883231ebf243624e5d4e0fcfa607
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fa99ba28bacd2132191679c614c2be73fc0a80a8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964196"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123107856"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 Azure 역할 기반 액세스 제어
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!NOTE]
-> 이 문서에서는 Azure Cosmos DB의 관리 평면 작업을 위한 역할 기반 액세스 제어에 대해 설명합니다. 데이터 평면 작업을 사용하는 경우 [데이터 평면 작업에 적용되는 역할 기반 액세스 제어는 Azure Cosmos DB RBAC](how-to-setup-rbac.md)를 참조하세요.
+> Azure Cosmos DB의 Azure RBAC 지원은 관리 평면 작업에만 적용됩니다. 이 문서에서는 Azure Cosmos DB의 관리 평면 작업을 위한 역할 기반 액세스 제어에 대해 설명합니다. 데이터 평면 작업을 사용하는 경우 데이터는 기본 키, 리소스 토큰 또는 Azure Cosmos DB RBAC를 사용하여 보호됩니다. 데이터 평면 작업에 적용되는 역할 기반 액세스 제어에 대해 자세히 알아보려면 [데이터에 대한 보안 액세스](secure-access-to-data.md) 및 [Azure Cosmos DB RBAC](how-to-setup-rbac.md) 문서를 참조하세요.
 
 Azure Cosmos DB는 Azure Cosmos DB의 일반적인 관리 시나리오에 대한 Azure RBAC(Azure 역할 기반 액세스 제어)를 기본적으로 제공합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 ID에 할당하여 리소스 및 Azure Cosmos DB 리소스 작업에 대한 액세스를 부여하거나 거부할 수 있습니다. 역할 할당은 컨트롤 플레인 액세스 전용으로 범위가 지정됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제품(처리량)에 대한 액세스가 포함됩니다.
 
@@ -33,9 +33,6 @@ Azure Cosmos DB에서 지원하는 기본 제공 역할은 다음과 같습니�
 |[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| 정기적 백업 사용 데이터베이스 또는 컨테이너의 Azure Portal에 대한 복원 요청을 제출할 수 있습니다. Azure Portal의 백업 간격 및 보존을 수정할 수 있습니다. 데이터에 액세스하거나 데이터 탐색기를 사용할 수 없습니다.  |
 | [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | 연속 백업 모드를 사용하여 Azure Cosmos DB 계정에 대해 복원 작업을 수행할 수 있습니다.|
 |[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로비저닝할 수 있습니다. 데이터에 액세스하거나 데이터 탐색기를 사용할 수 없습니다.|
-
-> [!IMPORTANT]
-> Azure Cosmos DB의 Azure RBAC 지원은 컨트롤 플레인 작업에만 적용됩니다. 데이터 영역 작업은 기본 키, 리소스 토큰 또는 Cosmos DB RBAC를 사용하여 보호됩니다. 자세한 내용은 [Azure Cosmos DB에서 데이터 액세스 보호](secure-access-to-data.md)를 참조하세요.
 
 ## <a name="identity-and-access-management-iam"></a>IAM(ID 및 액세스 관리)
 
@@ -52,7 +49,7 @@ Azure Portal의 **액세스 제어(IAM)** 창은 Azure Cosmos 리소스에 대�
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Azure Cosmos DB SDK에서 변경 방지
 
-계정 키를 사용하여 연결하는 클라이언트(즉, Azure Cosmos SDK를 통해 연결하는 애플리케이션)에서 리소스를 변경하는 것을 방지하기 위해 Azure Cosmos DB 리소스 공급자를 잠글 수 있습니다. 여기에는 Azure Portal에서 수행된 변경 내용도 포함됩니다. 이 기능은 프로덕션 환경에 대한 더 많은 제어 및 관리를 원하는 사용자에게 적합할 수 있습니다. 또한 SDK를 변경하지 못하게 하면 컨트롤 플레인 작업에 대한 리소스 잠금 및 진단 로그와 같은 기능을 사용할 수 있습니다. Azure Cosmos DB SDK에서 연결하는 클라이언트는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량에 대한 속성을 변경할 수 없습니다. Cosmos 컨테이너 자체에 대한 데이터 읽기 및 쓰기와 관련된 작업은 영향을 받지 않습니다.
+계정 키를 사용하여 연결하는 클라이언트(즉, Azure Cosmos SDK를 통해 연결하는 애플리케이션)에서 리소스를 변경하는 것을 방지하기 위해 Azure Cosmos DB 리소스 공급자를 잠글 수 있습니다. 이 기능은 프로덕션 환경에 대한 더 많은 제어 및 관리를 원하는 사용자에게 적합할 수 있습니다. 또한 SDK를 변경하지 못하게 하면 컨트롤 플레인 작업에 대한 리소스 잠금 및 진단 로그와 같은 기능을 사용할 수 있습니다. Azure Cosmos DB SDK에서 연결하는 클라이언트는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 처리량에 대한 속성을 변경할 수 없습니다. Cosmos 컨테이너 자체에 대한 데이터 읽기 및 쓰기와 관련된 작업은 영향을 받지 않습니다.
 
 이 기능을 사용하도록 설정하면 관리되는 서비스 ID를 비롯한 Azure Active Directory 자격 증명 및 올바른 Azure 역할이 있는 사용자만 리소스를 변경할 수 있습니다.
 
@@ -73,7 +70,7 @@ Azure Portal의 **액세스 제어(IAM)** 창은 Azure Cosmos 리소스에 대�
 
 - 저장 프로시저, 트리거 또는 사용자 정의 함수 수정
 
-애플리케이션(또는 Azure Portal을 통한 사용자)이 이러한 작업을 수행하는 경우 [ARM 템플릿](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행하도록 마이그레이션해야 합니다. Azure Management는 [여러 언어](/azure/index.yml?product=developer-tools#languages-and-tools)로 제공됩니다.
+애플리케이션(또는 Azure Portal을 통한 사용자)이 이러한 작업을 수행하는 경우 [ARM 템플릿](sql/manage-with-templates.md), [PowerShell](sql/manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), REST 또는 [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행하도록 마이그레이션해야 합니다. Azure Management는 [여러 언어](/azure/?product=featured#languages-and-tools)로 제공됩니다.
 
 ### <a name="set-via-arm-template"></a>ARM 템플릿을 통해 설정
 

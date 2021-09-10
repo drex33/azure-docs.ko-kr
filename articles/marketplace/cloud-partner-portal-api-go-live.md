@@ -7,17 +7,17 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec036878cf9412bcc612917fa7a104db3a2e8dd0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87292946"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240312"
 ---
-# <a name="go-live"></a>Go Live
+# <a name="go-live-api"></a>Go live API
 
 > [!NOTE]
-> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며 계속 파트너 센터에서 작동합니다. 이러한 전환으로 인해 몇 가지 사소한 사항이 변경되었습니다. [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 사항을 검토하여 파트너 센터로 전환한 후에도 코드가 계속 작동하는지 확인하세요. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
+> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며, 계속 파트너 센터에서 작동합니다. 이 전환으로 인해 몇 가지 사소한 사항이 변경되었습니다. 파트너 센터로 전환한 후에도 코드가 계속 작동하도록 [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 내용을 검토합니다. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
 
 이 API는 앱을 프로덕션 환경으로 푸시하는 프로세스를 시작합니다. 이 작업은 대개 오랫동안 실행됩니다. 이 호출에서는 [게시](./cloud-partner-portal-api-publish-offer.md) API 작업의 알림 전자 메일 목록을 사용합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "87292946"
 
 |  **이름**             |      **값**                                                            |
 |  --------             |      ----------                                                           |
-| Location    |  이 작업의 상태를 검색할 상대 경로입니다.            |
+| Location    |  이 작업의 상태를 검색할 상대 경로            |
 |  |  |
 
 ### <a name="response-status-codes"></a>응답 상태 코드

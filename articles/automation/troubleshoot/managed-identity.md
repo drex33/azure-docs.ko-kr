@@ -3,18 +3,32 @@ title: Azure Automation 관리 ID 문제 해결(미리 보기)
 description: 이 문서에서는 Automation 계정으로 관리 ID를 사용할 때 문제를 해결하는 방법을 설명합니다.
 services: automation
 ms.subservice: ''
-ms.date: 04/28/2021
+ms.date: 06/28/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 719b20190194779b834eb3de996c0920d50ad313
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 89d3785ef527eebc822eefbbae2c887dd40108ee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787357"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687500"
 ---
 # <a name="troubleshoot-azure-automation-managed-identity-issues-preview"></a>Azure Automation 관리 ID 문제 해결(미리 보기)
 
 이 문서에서는 Automation 계정으로 관리 ID를 사용할 때 발생할 수 있는 문제에 대한 솔루션에 대해 설명합니다. Automation 계정에서 관리 ID를 사용하는 방법에 대한 일반적인 정보는 [Azure Automation 계정 인증 개요](../automation-security-overview.md#managed-identities-preview)를 참조하세요.
+
+## <a name="scenario-fail-to-get-msi-token-for-account"></a>시나리오: 계정에 대한 MSI 토큰을 가져오지 못함
+
+### <a name="issue"></a>문제
+
+Automation 계정에서 사용자 할당 관리 ID로 작업하는 경우 `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`와 유사한 오류가 표시됩니다.
+
+### <a name="cause"></a>원인
+
+Automation 계정에 대해 시스템 할당 관리 ID를 사용하도록 설정하기 전에 사용자 할당 관리 ID를 사용합니다.
+
+### <a name="resolution"></a>해결 방법
+
+Automation 계정에 대해 시스템 할당 관리 ID를 사용하도록 설정합니다. 그런 다음, 사용자 할당 관리 ID를 사용합니다.  
 
 ## <a name="scenario-attempt-to-use-managed-identity-with-automation-account-fails"></a>시나리오: Automation 계정으로 관리되는 ID를 사용하지 못했습니다.
 

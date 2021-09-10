@@ -8,14 +8,16 @@ ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 9fc618480b4c00ab65f4300a66747acdc2a11f74
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 3417288a0ed765d1ff53c47282379ae6cbb85254
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359014"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694696"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 통해 호스트에서 암호화를 사용하여 엔드투엔드 암호화를 사용하도록 설정합니다.
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 호스트에서 암호화를 사용하도록 설정하면 VM 호스트에 저장된 데이터는 미사용 및 스토리지 서비스로 암호화된 흐름으로 암호화됩니다. 호스트에서 암호화 및 기타 관리 디스크 암호화 유형에 대한 개념 정보는 [호스트에서 암호화 - VM 데이터에 대한 엔드투엔드 암호화](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)를 참조하세요.
 

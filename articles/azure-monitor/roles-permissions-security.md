@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5ba7c9505e49b8d0b35ee592bb0c3bafafad416a
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 077b247b4d8f40cc84b491ba26d78cd614ce15bf
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319398"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105420"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure Monitor의 역할, 권한 및 보안
 
@@ -24,7 +24,7 @@ Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세
 ### <a name="monitoring-reader"></a>Monitoring Reader
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
-* 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
+* 포털에서 모니터링 대시보드를 봅니다.
 * [Azure 경고](alerts/alerts-overview.md)에 정의된 경고 규칙 보기
 * [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](powershell-samples.md) 또는 [플랫폼 간 CLI](cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
@@ -48,7 +48,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 ### <a name="monitoring-contributor"></a>Monitoring Contributor
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
-* 공유 대시보드로 모니터링 대시보드를 게시합니다.
+* 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
 * 리소스에 대한 [진단 설정](essentials/diagnostic-settings.md)을 구성합니다.\*
 * 구독에 대한 [로그 프로필](essentials/activity-log.md#legacy-collection-methods)을 설정합니다.\*
 * [Azure 경고](alerts/alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.

@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 08/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a7b43f52fee66579beb0c91f0b76d313cd4bcdaa
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: b0fcfba6f72ef5e87be5c3301338a2c09598accf
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112522212"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253440"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,44 +24,69 @@ Azure Cosmos DB는 데이터에 대한 액세스를 제어하는 세 가지 방�
 
 | 액세스 제어 형식 | 특징 |
 |---|---|
-| [기본 키](#primary-keys) | 관리 또는 데이터 작업을 허용하는 공유 비밀입니다. 읽기/쓰기 및 읽기 전용 변형 모두에서 제공됩니다. |
+| [기본/보조 키](#primary-keys) | 관리 또는 데이터 작업을 허용하는 공유 비밀입니다. 읽기/쓰기 및 읽기 전용 변형 모두에서 제공됩니다. |
 | [역할 기반 액세스 제어](#rbac) | 인증을 위해 AAD(Azure Active Directory) ID를 사용하는 세분화되어 있는 역할 기반 권한 모델입니다. |
 | [리소스 토큰](#resource-tokens)| 네이티브 Azure Cosmos DB 사용자 및 권한을 기반으로 하는 세분화된 권한 모델입니다. |
 
-## <a name="primary-keys"></a><a id="primary-keys"></a> 기본 키
+## <a name="primarysecondary-keys"></a><a id="primary-keys"></a> 기본/보조 키
 
-기본 키는 데이터베이스 계정에 대한 모든 관리 리소스에 대한 액세스를 제공합니다. 각 계정은 두 개의 기본 키(기본 키와 보조 키)로 구성됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다. 기본 키에 대한 자세한 내용은 [데이터베이스 보안](database-security.md#primary-keys) 문서를 참조하세요.
+기본/보조 키는 데이터베이스 계정의 모든 관리 리소스에 대한 액세스 권한을 제공합니다. 각 계정은 두 개의 키(주 키와 보조 키)로 구성됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다. 기본/보조 키에 대한 자세한 내용은 [데이터베이스 보안](database-security.md#primary-keys) 문서를 참조하세요.
 
-### <a name="key-rotation"></a><a id="key-rotation"></a> 키 회전
+### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> 키 순환 및 다시 생성
 
-기본 키를 회전하는 프로세스는 간단합니다. 
+> [!NOTE]
+> Azure Cosmos DB API for Mongo DB, Cassandra API, Gremlin API 또는 Table API에서 키를 순환하고 다시 생성하려면 [여기](database-security.md#key-rotation)에 설명된 지침을 따르세요.
 
-1. Azure Portal로 이동하여 보조 키를 검색합니다.
-2. 애플리케이션에서 기본 키를 보조 키로 바꿉니다. 모든 배포에 대한 모든 Cosmos DB 클라이언트가 즉시 다시 시작되고 업데이트된 키를 사용하여 시작되는지 확인합니다.
-3. Azure Portal에서 기본 키를 회전합니다.
-4. 새 기본 키가 모든 리소스에 대해 작동하는지 확인합니다. 키 회전 프로세스는 Cosmos DB 계정의 크기에 따라 1분에서 몇 시간까지 걸릴 수 있습니다.
-5. 보조 키를 새 기본 키로 바꿉니다.
+키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure Portal에서 기본 키 회전 - NoSQL 데이터베이스 보안 설명" border="false":::
+# <a name="if-your-application-is-currently-using-the-primary-key"></a>[애플리케이션이 현재 기본 키를 사용 중인 경우](#tab/using-primary-key)
+
+1. Azure Portal에서 Azure Cosmos DB 계정으로 이동합니다.
+
+1. 왼쪽 메뉴에서 **키** 를 선택한 다음 보조 키 오른쪽에 있는 줄임표에서 **보조 키 다시 생성** 을 선택합니다.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="보조 키를 다시 생성하는 방법을 보여 주는 Azure Portal 스크린샷" border="true":::
+
+1. 새 보조 키가 Azure Cosmos DB 계정에 대해 일관되게 작동하는지 확인합니다. 키 다시 생성은 Cosmos DB 계정의 크기에 따라 1분에서 몇 시간까지 걸릴 수 있습니다.
+
+1. 애플리케이션에서 기본 키를 보조 키로 바꿉니다.
+
+1. Azure Portal로 돌아가서 기본 키 다시 생성을 트리거합니다.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="기본 키를 다시 생성하는 방법을 보여 주는 Azure Portal 스크린샷" border="true":::
+
+# <a name="if-your-application-is-currently-using-the-secondary-key"></a>[애플리케이션이 현재 보조 키를 사용 중인 경우](#tab/using-secondary-key)
+
+1. Azure Portal에서 Azure Cosmos DB 계정으로 이동합니다.
+
+1. 왼쪽 메뉴에서 **키** 를 선택한 다음 기본 키 오른쪽에 있는 줄임표에서 **기본 키 다시 생성** 을 선택합니다.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="기본 키를 다시 생성하는 방법을 보여 주는 Azure Portal 스크린샷" border="true":::
+
+1. 새 기본 키가 Azure Cosmos DB 계정에 대해 일관되게 작동하는지 확인합니다. 키 다시 생성은 Cosmos DB 계정의 크기에 따라 1분에서 몇 시간까지 걸릴 수 있습니다.
+
+1. 애플리케이션에서 보조 키를 기본 키로 바꿉니다.
+
+1. Azure Portal로 돌아가서 보조 키 다시 생성을 트리거합니다.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="보조 키를 다시 생성하는 방법을 보여 주는 Azure Portal 스크린샷" border="true":::
+
+---
 
 ### <a name="code-sample-to-use-a-primary-key"></a>기본 키를 사용할 코드 샘플
 
-다음 코드 샘플에서는 Cosmos DB 계정 엔드포인트 및 기본 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다.
+다음 코드 샘플에서는 Cosmos DB 계정 엔드포인트 및 기본 키를 사용해서 CosmosClient를 인스턴스화합니다.
 
 ```csharp
-//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
-//Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
+// Read the Azure Cosmos DB endpointUrl and authorization keys from config.
+// These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
+// Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
 private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
-
-다음 코드 샘플에서는 Azure Cosmos DB 계정 엔드포인트 및 기본 키를 사용해서 `CosmosClient` 개체를 인스턴스화합니다.
-
-:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="role-based-access-control"></a><a id="rbac"></a> 역할 기반 액세스 제어
 

@@ -1,19 +1,19 @@
 ---
 title: 관리 디스크 버스팅
 description: Azure 디스크 및 Azure 가상 머신의 디스크 버스팅에 대해 알아봅니다.
-author: albecker1
-ms.author: albecker
-ms.date: 06/03/2021
+author: roygara
+ms.author: rogarana
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f9fd7d892eea43edf71da212fdba8cc1ac11c798
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 6af3d66afe107bae470f4081407f2293fe04f0fb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528325"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356967"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
 
@@ -31,8 +31,8 @@ Azure VM에 대한 버스팅과 디스크 리소스에 대한 버스팅은 서�
 
 현재 버스트할 수 있는 관리 디스크 유형에는 [프리미엄 SSD](disks-types.md#premium-ssd)와 [표준 SSD](disks-types.md#standard-ssd)의 두 가지가 있습니다. 기타 디스크 유형은 현재 버스트할 수 없습니다. 디스크 버스트에는 두 가지 모델이 있습니다.
 
-- 필요량이 현재 용량을 초과할 때마다 디스크가 버스트되는 주문형 버스트 모델(미리 보기)입니다. 이 모델은 디스크가 버스트될 때마다 추가 요금이 발생합니다. 크레딧 기반이 아닌 버스트는 512GiB 이상의 디스크에서만 사용할 수 있습니다.
-- 크레딧 기반 모델입니다. 이 모델을 사용하면 버스트 크레딧을 크레딧 버킷에 축적한 경우에만 디스크가 버스트됩니다. 이 모델은 디스크가 버스트될 때 추가 요금이 발생하지 않습니다. 크레딧 기반 버스트는 512GiB 이하의 디스크에서만 사용할 수 있습니다.
+- 필요량이 현재 용량을 초과할 때마다 디스크가 버스트되는 주문형 버스트 모델(미리 보기)입니다. 이 모델은 디스크가 버스트될 때마다 추가 요금이 발생합니다. 주문형 버스트는 512GiB보다 큰 프리미엄 SSD에만 사용할 수 있습니다.
+- 크레딧 기반 모델입니다. 이 모델을 사용하면 버스트 크레딧을 크레딧 버킷에 축적한 경우에만 디스크가 버스트됩니다. 이 모델은 디스크가 버스트될 때 추가 요금이 발생하지 않습니다. 크레딧 기반 버스트는 프리미엄 및 표준 SSD 512GiB 이하에만 사용할 수 있습니다.
 
 Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 버스팅 모델을 모두 사용할 수 있지만 [표준 SSD](disks-types.md#standard-ssd)는 현재 크레딧 기반 버스팅만 제공합니다.
 
@@ -42,12 +42,13 @@ Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 버스팅 모델을 
 |---------|---------|---------|---------|
 | **시나리오**|단기 크기 조정(30분 이내)에 이상적입니다.|단기 크기 조정(시간 제한 없음)에 이상적입니다.|워크로드가 계속해서 버스트 상태로 실행되는 경우 이상적입니다.|
 |**비용**     |무료         |비용은 가변적입니다. 자세한 내용은 [청구](#billing) 섹션을 참조하세요.        |각 성능 계층의 비용은 고정되어 있습니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.         |
-|**가용성**     |512GiB 이하의 프리미엄 SSD에만 사용할 수 있습니다.         |512GiB 이상의 프리미엄 SSD에만 사용할 수 있습니다.         |모든 프리미엄 SSD 크기에서 사용할 수 있습니다.         |
+|**가용성**     |512GiB 이하의 프리미엄 및 표준 SSD에만 사용할 수 있습니다.         |512GiB 이상의 프리미엄 SSD에만 사용할 수 있습니다.         |모든 프리미엄 SSD 크기에서 사용할 수 있습니다.         |
 |**사용 여부**     |적격 디스크에서 기본적으로 사용됩니다.         |사용자가 사용하도록 설정해야 합니다.         |사용자는 계층을 수동으로 변경해야 합니다.         |
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-주문형 버스트를 사용하도록 설정하려면 [주문형 버스트 사용](disks-enable-bursting.md)을 참조하세요.
-버스트 리소스를 파악하는 방법을 알아보려면 [Disk 버스팅 메트릭](disks-metrics.md)을 참조하세요.
+- 주문형 버스트를 사용하도록 설정하려면 [주문형 버스트 사용](disks-enable-bursting.md)을 참조하세요.
+- 버스트 리소스를 파악하는 방법을 알아보려면 [Disk 버스팅 메트릭](disks-metrics.md)을 참조하세요.
+- 해당되는 각 디스크 크기가 버스트될 수 있는 크기를 정확하게 확인하려면 [VM 디스크의 확장성 및 성능 목표](disks-scalability-targets.md)를 참조하세요.

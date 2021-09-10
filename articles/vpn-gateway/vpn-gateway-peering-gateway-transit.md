@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1fe78687b8cd200bce6eb0ce75f54fb603aa13ae
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d4eef7e7470e9dbdd37613165f0ea5cb3b295762
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535784"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "110671860"
 
 ![게이트웨이 전송 다이어그램](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-다이어그램에서 피어링된 가상 네트워크는 게이트웨이 전송을 통해 Hub-RM에서 Azure VPN 게이트웨이를 사용할 수 있습니다. S2S, P2S 및 VNet 대 VNet 연결을 포함한 VPN 게이트웨이에서 가능한 연결은 세 개의 가상 네트워크 모두에 적용됩니다. 전송 옵션은 같거나 다른 배포 모델 간의 피어링에 사용할 수 있습니다. 서로 다른 배포 모델 간에 전송을 구성하는 경우 허브 가상 네트워크 및 가상 네트워크 게이트웨이는 클래식 배포 모델이 아닌 Resource Manager 배포 모델에 있어야 합니다.
+다이어그램에서 피어링된 가상 네트워크는 게이트웨이 전송을 통해 Hub-RM에서 Azure VPN 게이트웨이를 사용할 수 있습니다. S2S, P2S 및 VNet 대 VNet 연결을 포함한 VPN 게이트웨이에서 가능한 연결은 세 개의 가상 네트워크 모두에 적용됩니다. 전송 옵션은 같거나 다른 배포 모델 간의 피어링에 사용할 수 있습니다. 서로 다른 배포 모델 간에 전송을 구성하는 경우 허브 가상 네트워크와 가상 네트워크 게이트웨이는 클래식 배포 모델이 아닌 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 있어야 합니다.
 >
 
 허브 및 스포크 네트워크 아키텍처에서 스포크 가상 네트워크는 게이트웨이 전송을 통해 모든 스포크 가상 네트워크에서 VPN 게이트웨이를 배포하는 대신 허브에서 VPN 게이트웨이를 공유할 수 있습니다. 게이트웨이에 연결된 가상 네트워크 또는 온-프레미스 네트워크에 대한 경로는 게이트웨이 전송을 사용하여 피어링된 가상 네트워크에 대한 라우팅 테이블에 전파됩니다. VPN 게이트웨이에서 자동 경로 전파를 비활성화할 수 있습니다. “**BGP 경로 전파를 사용하지 않도록 설정**” 옵션을 선택한 라우팅 테이블을 만들고, 경로 테이블을 서브넷에 연결하여 해당 서브넷에 대한 경로 배포를 방지합니다. 자세한 내용은 [Virtual Network 라우팅 테이블](../virtual-network/manage-route-table.md)을 참조하세요.

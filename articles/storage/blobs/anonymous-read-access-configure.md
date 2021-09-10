@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba46c98a97b1ef7576cd54ab6227a18bb9cb059f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f8149be4e7e22366cf5d2ce130d3b6ec596ac782
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664934"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567890"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 권한 구성
 
@@ -36,10 +36,10 @@ Azure Storage는 컨테이너 및 Blob에 대한 선택적 익명 퍼블릭 읽�
 
 다음 표에는 두 설정이 컨테이너에 대한 퍼블릭 액세스에 어떻게 영향을 주는지 요약되어 있습니다.
 
-| 퍼블릭 액세스 설정 | 컨테이너는 기본값 설정으로 퍼블릭 액세스가 비활성화되어 있습니다. | 컨테이너에 대한 퍼블릭 액세스를 컨테이너로 설정합니다. | 컨테이너에 퍼블릭 액세스를 Blob으로 설정합니다. |
+|   | 컨테이너에 대한 공용 액세스 수준이 프라이빗(기본 설정)으로 설정됩니다. | 컨테이너에 대한 공용 액세스 수준이 컨테이너로 설정되었습니다. | 컨테이너에 대한 공용 액세스 수준이 Blob으로 설정됩니다. |
 |--|--|--|--|
-| 스토리지 계정에 대한 퍼블릭 액세스는 허용되지 않습니다. | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 스토리지 계정 설정은 컨테이너 설정을 재정의합니다. | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 스토리지 계정 설정은 컨테이너 설정을 재정의합니다. |
-| 스토리지 계정은 기본값 설정으로 퍼블릭 액세스를 허용합니다. | 이 컨테이너에 대한 퍼블릭 액세스 권한 없음(기본값 구성) | 이 컨테이너 및 해당 Blob에 대한 퍼블릭 액세스가 허용됩니다. | 이 컨테이너의 Blob에는 퍼블릭 액세스가 허용되지만 컨테이너 자체에는 허용되지 않습니다. |
+| **스토리지 계정에 대한 퍼블릭 액세스는 허용되지 않습니다.** | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 스토리지 계정 설정은 컨테이너 설정을 재정의합니다. | 스토리지 계정의 모든 컨테이너에 대한 퍼블릭 액세스 권한 없음 스토리지 계정 설정은 컨테이너 설정을 재정의합니다. |
+| **스토리지 계정은 기본값 설정으로 퍼블릭 액세스를 허용합니다.** | 이 컨테이너에 대한 퍼블릭 액세스 권한 없음(기본값 구성) | 이 컨테이너 및 해당 Blob에 대한 퍼블릭 액세스가 허용됩니다. | 이 컨테이너의 Blob에는 퍼블릭 액세스가 허용되지만 컨테이너 자체에는 허용되지 않습니다. |
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>스토리지 계정에 대한 퍼블릭 읽기 권한을 허용하거나 허용하지 않습니다.
 
@@ -79,7 +79,7 @@ $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess set to true (or null).
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS
     -AllowBlobPublicAccess $false
@@ -89,7 +89,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Set AllowBlobPublicAccess set to false
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property.
@@ -209,7 +209,7 @@ Azure Portal에서 하나 이상의 기존 컨테이너에 대한 퍼블릭 액�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요.
+PowerShell을 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations)을 참조하세요.
 
 다음 예제에서는 퍼블릭 액세스를 사용할 수 없는 컨테이너를 만든 다음 컨테이너의 퍼블릭 액세스 설정을 업데이트하여 컨테이너 및 해당 Blob에 대한 익명 액세스를 허용합니다. 대괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -240,7 +240,7 @@ Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요.
+Azure CLI를 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations)을 참조하세요.
 
 다음 예제에서는 퍼블릭 액세스를 사용할 수 없는 컨테이너를 만든 다음 컨테이너의 퍼블릭 액세스 설정을 업데이트하여 컨테이너 및 해당 Blob에 대한 익명 액세스를 허용합니다. 대괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -301,4 +301,4 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 - [컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 권한 방지](anonymous-read-access-prevent.md).
 - [퍼블릭 컨테이너 및 Blob에 .NET을 사용하여 익명으로 액세스](anonymous-read-access-client.md)
-- [Azure Storage에 대한 액세스 권한 부여](../common/storage-auth.md)
+- [Azure Storage에 대한 액세스 권한 부여](../common/authorize-data-access.md)

@@ -1,8 +1,8 @@
 ---
-title: Java에서 Azure Service Bus 큐 사용
-description: 이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다.
-ms.date: 06/23/2020
-ms.topic: quickstart
+title: Java(이전 버전)에서 Azure Service Bus 큐 사용
+description: 이 문서에서는 Azure Service Bus 큐와 메시지를 보내고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,24 +10,24 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: 38657f333fea4ca18fb76eb5832649067bfd01b4
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 28b57d309c673cfe57bd6d743d876c07685b6353
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538260"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566763"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages-old-package"></a>Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기(이전 패키지)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다. 
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+이 문서에서는 Azure Service Bus 큐와 메시지를 보내고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
 > [!WARNING]
->  이 빠른 시작에서는 이전 `azure-servicebus` 패키지를 사용합니다. 최신 `azure-messaging-servicebus` 패키지를 사용하는 빠른 시작은 [`azure-messaging-servicebus`를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
+>  이 문서에서는 이전 `azure-servicebus` 패키지를 사용합니다. 최신 `azure-messaging-servicebus` 패키지를 사용하는 문서는 [`azure-messaging-servicebus`를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
-1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+1. Azure 구독 이 문서의 단계를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
     1. Service Bus **큐** 의 빠른 **개요** 를 읽습니다. 
     2. Service Bus **네임스페이스** 를 만듭니다. 

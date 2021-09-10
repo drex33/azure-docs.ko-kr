@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 7bddb61bbbab008fad4e538400bbe4396ac744b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723459"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681411"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -35,13 +35,16 @@ Azure Sentinel로 SAP 로그를 수집하려면 SAP 환경에 Azure Sentinel SAP
 
 SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를 배포하여 조직의 SAP 환경을 원활하게 파악하고 관련 보안 작업 기능을 향상합니다.
 
-이 자습서에서는 다음에 대해 알아봅니다.
+이 문서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * SAP 데이터 커넥터 배포를 위해 SAP 시스템을 준비하는 방법
 > * Docker 컨테이너 및 Azure VM을 사용하여 SAP 데이터 커넥터를 배포하는 방법
 > * Azure Sentinel에서 SAP 솔루션 보안 콘텐츠를 배포하는 방법
 
+> [!NOTE]
+> 보안 SNC 연결을 통해 SAP 데이터 커넥터를 배포하려면 추가 단계가 필요합니다. 자세한 내용은 [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)를 참조하세요.
+>
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 대로 Azure Sentinel SAP 데이터 커넥터 및 보안 콘텐츠를 배포하려면 다음 필수 조건이 있어야 합니다.
@@ -83,7 +86,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
     |- 700~702<br>- 710~711, 730, 731, 740<br>- 750~752     | 2502336: CD(변경 문서): RSSCD100 - 데이터베이스가 아닌 보관 계층에서 읽기 전용        |
     |     |         |
 
-    이후 버전에는 추가 노트가 필요하지 않습니다. 자세한 내용은 [SAP 지원 실행 패드 사이트](https://support.sap.com/en/index.html), SAP 사용자 계정으로 로그인을 참조하세요.
+    이후 버전에는 추가 참고 사항이 필요하지 않습니다. 자세한 내용은 [SAP 지원 실행 패드 사이트](https://support.sap.com/en/index.html), SAP 사용자 계정으로 로그인을 참조하세요.
 
 1. Azure Sentinel GitHub 리포지토리(https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR: )에서 다음 SAP 변경 요청 중 하나를 다운로드하여 설치합니다.
 
@@ -299,7 +302,20 @@ Docker 컨테이너가 이전 버전의 SAP 데이터 커넥터에서 이미 실
     ./ sapcon-instance-update.sh
     ```
 
-머신의 SAP 데이터 커넥터 Docker 컨테이너가 업데이트됩니다.
+1. Docker 컨테이너 다시 시작:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
+
+머신의 SAP 데이터 커넥터 Docker 컨테이너가 업데이트됩니다. 
+
+사용 가능한 다른 업데이트를 확인해야 합니다.
+
+- [Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR)의 관련 SAP 변경 요청.
+- **Azure Sentinel Continuous Threat Monitoring for SAP** 솔루션의 Azure Sentinel SAP 보안 콘텐츠
+- [Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)의 관련 관심 목록
+
 
 ## <a name="collect-sap-hana-audit-logs"></a>SAP HANA 감사 로그 수집
 
@@ -336,7 +352,8 @@ Syslog를 사용하여 SAP HANA 데이터베이스 감사 로그를 구성한 �
 
 Azure Sentinel SAP 솔루션에 대해 자세히 알아보세요.
 
-- [전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본](sap-solution-deploy-alternate.md)
+- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
 - [Azure Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)

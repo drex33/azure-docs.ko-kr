@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/31/2020
+ms.date: 08/10/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: dcab70d75ca5a46242b1d43d28e148dc5f54b2d2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e17f5e53a2ab58ec7fe8edbe1d2b7e64953cf689
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888965"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566493"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용하여 Azure ML 리소스 만들기, 실행 및 삭제
 
@@ -35,7 +35,7 @@ ms.locfileid: "107888965"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)을 사용해 보세요.
+- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](./how-to-manage-workspace.md)
 - 관리 REST 요청은 서비스 사용자 인증을 사용합니다. [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)의 단계에 따라 작업 영역에서 서비스 주체를 만듭니다.
 - **curl** 유틸리티. **curl** 프로그램은 [Linux용 Windows 하위 시스템](/windows/wsl/install-win10) 또는 모든 UNIX에서 사용할 수 있습니다. PowerShell에서 **curl** 은 **Invoke-WebRequest** 의 별칭으로, `curl -d "key=val" -X POST uri`는 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`가 됩니다. 
@@ -48,18 +48,18 @@ ms.locfileid: "107888965"
 - 클라이언트 ID(생성된 토큰과 연결됨)
 - 클라이언트 암호(보호해야 함)
 
-서비스 사용자 생성에 대한 응답에 이 값이 있어야 합니다. 이러한 값을 가져오는 방법은 [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)에서 설명합니다. 회사 구독을 사용할 경우 서비스 사용자를 만들 권한이 없을 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 중 하나를 사용해야 합니다.
+서비스 사용자 생성에 대한 응답에 이 값이 있어야 합니다. 이러한 값을 가져오는 방법은 [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)에서 설명합니다. 회사 구독을 사용할 경우 서비스 사용자를 만들 권한이 없을 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://azure.microsoft.com/free/) 중 하나를 사용해야 합니다.
 
 토큰을 검색하려면:
 
 1. 터미널 창 열기
 1. 명령줄에서 다음 코드를 입력합니다.
-1. `{your-tenant-id}`, `{your-client-id}` 및 `{your-client-secret}`에 대한 고유한 값을 대체합니다. 이 문서 전체에서 중괄호로 묶은 문자열은 적절한 고유의 값으로 바꿔야 하는 변수입니다.
+1. `<YOUR-TENANT-ID>`, `<YOUR-CLIENT-ID>` 및 `<YOUR-CLIENT-SECRET>`에 대한 고유한 값을 대체합니다. 이 문서 전체에서 꺾쇠괄호로 묶인 문자열은 적절한 고유의 값으로 바꿔야 하는 변수입니다.
 1. 명령 실행
 
 ```bash
-curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
--d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id={your-client-id}&client_secret={your-client-secret}" \
+curl -X POST https://login.microsoftonline.com/<YOUR-TENANT-ID>/oauth2/token \
+-d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=<YOUR-CLIENT-ID>&client_secret=<YOUR-CLIENT-SECRET>" \
 ```
 
 응답은 1시간 동안 유효한 액세스 토큰을 제공할 것입니다.
@@ -72,27 +72,28 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
     "expires_on": "1578523094",
     "not_before": "1578519194",
     "resource": "https://management.azure.com/",
-    "access_token": "your-access-token"
+    "access_token": "YOUR-ACCESS-TOKEN"
 }
 ```
 
-이 토큰을 사용하여 이후의 모든 관리 요청을 인증해야 하므로 토큰을 기록해 둡니다. 모든 요청에서 권한 부여 헤더를 설정하여 이 작업을 수행하게 됩니다.
+이 토큰은 모든 추가 관리 요청을 인증하는 데 사용되므로 기록해 둡니다. 모든 요청에서 권한 부여 헤더를 설정하여 이 작업을 수행하게 됩니다.
 
 ```bash
-curl -h "Authorization:Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
 ```
 
-토큰을 추가하기 전에 단일 공백을 포함하여 문자열 "전달자"로 시작하는 값을 확인합니다.
+> [!NOTE]
+> 값은 토큰을 추가하기 전에 단일 공백을 포함하여 문자열 “Bearer”로 시작합니다.
 
 ## <a name="get-a-list-of-resource-groups-associated-with-your-subscription"></a>구독과 연결된 리소스 그룹 목록 가져오기
 
 구독과 연결된 리소스 그룹 목록을 가져오려면 다음을 실행합니다.
 
 ```bash
-curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups?api-version=2021-03-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-Azure 전체에서 많은 REST API가 게시됩니다. 각 서비스 공급자는 자체 케이던스에 대해 API를 업데이트하지만 기존 프로그램을 중단하지는 않습니다. 서비스 공급자는 `api-version` 인수를 사용하여 호환성을 보장합니다. `api-version` 인수는 서비스마다 다릅니다. 예를 들어 Machine Learning Service의 경우 최신 API 버전은 `2019-11-01`입니다. 스토리지 계정의 경우에는 `2019-06-01`입니다. 키 자격 증명 모음의 경우 `2019-09-01`이 됩니다. 모든 REST 호출은 `api-version` 인수를 기대값으로 설정해야 합니다. API가 계속 진화하더라도 지정된 버전의 구문 및 의미 체계를 사용할 수 있습니다. `api-version` 인수 없이 공급자에게 요청을 보내는 경우 응답에는 지원되는 값의 사람이 읽을 수 있는 목록이 포함됩니다. 
+Azure 전체에서 많은 REST API가 게시됩니다. 각 서비스 공급자는 자체 케이던스에 대해 API를 업데이트하지만 기존 프로그램을 중단하지는 않습니다. 서비스 공급자는 `api-version` 인수를 사용하여 호환성을 보장합니다. `api-version` 인수는 서비스마다 다릅니다. 예를 들어 Machine Learning Service의 경우 최신 API 버전은 `2021-03-01-preview`입니다. 스토리지 계정의 경우에는 `2019-08-01`입니다. 키 자격 증명 모음의 경우 `2019-09-01`이 됩니다. 모든 REST 호출은 `api-version` 인수를 기대값으로 설정해야 합니다. API가 계속 진화하더라도 지정된 버전의 구문 및 의미 체계를 사용할 수 있습니다. `api-version` 인수 없이 공급자에게 요청을 보내는 경우 응답에는 지원되는 값의 사람이 읽을 수 있는 목록이 포함됩니다. 
 
 위 호출의 결과는 다음과 같은 양식의 압축된 JSON 응답입니다. 
 
@@ -124,11 +125,11 @@ Azure 전체에서 많은 REST API가 게시됩니다. 각 서비스 공급자�
 
 ## <a name="drill-down-into-workspaces-and-their-resources"></a>작업 영역 및 해당 리소스 드릴다운
 
-리소스 그룹에서 작업 영역 집합을 검색하려면 `{your-subscription-id}` `{your-resource-group}` 및 `{your-access-token}`을 대체하여 다음을 실행합니다. 
+리소스 그룹에서 작업 영역 세트를 검색하려면 `<YOUR-SUBSCRIPTION-ID>`, `<YOUR-RESOURCE-GROUP>`, `<YOUR-ACCESS-TOKEN>`을 대체하여 다음을 실행합니다. 
 
 ```
-curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
--H "Authorization:Bearer {your-access-token}"
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2021-03-01-preview \
+-H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
 여기서도 JSON 목록을 받게 되지만 이번에는 각 항목이 작업 영역을 상세히 설명하는 목록이 포함됩니다.
@@ -184,20 +185,20 @@ curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceG
 }
 ```
 
-응답의 `api` 값은 추가 요청에 사용할 서버의 URL입니다. 예를 들어 실험을 나열하려면 다음 명령을 보냅니다. `api` 응답의 값으로 `regional-api-server`를 바꿉니다(예: `centralus.api.azureml.ms`). 평소와 같이 `your-subscription-id`, `your-resource-group`, `your-workspace-name` 및 `your-access-token`도 바꿉니다.
+`api` 응답의 값은 추가 요청에 사용할 서버의 URL입니다. 예를 들어 실험을 나열하려면 다음 명령을 보냅니다. `api` 응답의 값으로 `REGIONAL-API-SERVER`를 바꿉니다(예: `centralus.api.azureml.ms`). 평소와 같이 `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME` 및 `YOUR-ACCESS-TOKEN`도 바꿉니다.
 
 ```bash
-curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments?api-version=2019-11-01 \
--H "Authorization:Bearer {your-access-token}"
+curl https://<REGIONAL-API-SERVER>/history/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/experiments?api-version=2021-03-01-preview \
+-H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
 마찬가지로 작업 영역에서 등록된 모델을 검색하려면 다음을 보냅니다.
 
 ```bash
-curl https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models?api-version=2019-11-01 \
--H "Authorization:Bearer {your-access-token}"
+curl https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models?api-version=2021-03-01-preview \
+-H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
 실험을 나열하려면 경로가 `history/v1.0`으로 시작하지만 모델을 나열할 때는 `modelmanagement/v1.0`으로 시작합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분됩니다. 
@@ -215,10 +216,10 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 |URL 구성 요소|예제|
 |-|-|
 | https://| |
-| regional-api-server/ | centralus.api.azureml.ms/ |
+| REGIONAL-API-SERVER/ | centralus.api.azureml.ms/ |
 | operations-path/ | history/v1.0/ |
-| subscriptions/{your-subscription-id}/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
-| resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
+| subscriptions/YOUR-SUBSCRIPTION-ID/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
+| resourceGroups/YOUR-RESOURCE-GROUP/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
 | provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
@@ -231,20 +232,20 @@ REST API는 GET 동사를 통한 리소스 검색 외에도 ML 솔루션의 교�
 ML 모델을 학습 및 실행하려면 컴퓨팅 리소스가 필요합니다. 다음을 통해 작업 영역의 컴퓨팅 리소스를 나열할 수 있습니다. 
 
 ```bash
-curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes?api-version=2019-11-01 \
--H "Authorization:Bearer {your-access-token}"
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes?api-version=2021-03-01-preview \
+-H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-명명된 컴퓨팅 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용합니다. 다음에서 친숙하지 않은 `your-subscription-id`, `your-resource-group`, `your-workspace-name` 및 `your-access-token`을 대체하고 `your-compute-name`와 `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName` 및 `adminUserPassword`에 대한 값도 대체합니다. [Machine Learning 컴퓨팅 - SDK 참조 만들기 또는 업데이트](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)의 참조에서 명시한 것처럼 다음 명령은 30분 후 규모가 축소되는 전용 단일 노드 Standard_D1(기본 CPU 컴퓨팅 리소스)을 만듭니다.
+명명된 컴퓨팅 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용합니다. 다음에서 익숙한 `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, `YOUR-ACCESS-TOKEN`을 대체하고 `YOUR-COMPUTE-NAME`과 `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName` 및 `adminUserPassword`에 대한 값도 대체합니다. [Machine Learning 컴퓨팅 - SDK 참조 만들기 또는 업데이트](/rest/api/azureml/workspaces/createorupdate)의 참조에서 명시한 것처럼 다음 명령은 30분 후 규모가 축소되는 전용 단일 노드 Standard_D1(기본 CPU 컴퓨팅 리소스)을 만듭니다.
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/computes/{your-compute-name}?api-version=2019-11-01' \
-  -H 'Authorization:Bearer {your-access-token}' \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "location": "{your-azure-location}",
+    "location": "eastus",
     "properties": {
         "computeType": "AmlCompute",
         "properties": {
@@ -258,8 +259,8 @@ curl -X PUT \
         }
     },
     "userAccountCredentials": {
-        "adminUserName": "{adminUserName}",
-        "adminUserPassword": "{adminUserPassword}"
+        "adminUserName": "<ADMIN_USERNAME>",
+        "adminUserPassword": "<ADMIN_PASSWORD>"
     }
 }'
 ```
@@ -269,83 +270,9 @@ curl -X PUT \
 
 요청에 성공하면 `201 Created` 응답을 받지만 이 응답은 단순히 프로비저닝 프로세스가 시작되었음을 의미합니다. 성공적으로 완료되었는지 확인하려면 폴링을 수행하거나 포털을 사용해야 합니다.
 
-### <a name="create-an-experimental-run"></a>실험 실행 만들기
+### <a name="train-a-model"></a>모델 학습
 
-실험 내에서 실행을 시작하려면 학습 스크립트와 관련 파일을 포함하는 zip 폴더와 실행 정의 JSON 파일이 필요합니다. zip 폴더의 루트 디렉터리에는 Python 항목 파일이 있어야 합니다. 예를 들어 다음과 같은 간단한 Python 프로그램을 **train.zip** 라는 폴더에 압축합니다.
-
-```python
-# hello.py
-# Entry file for run
-print("Hello, REST!")
-```
-
-다음 코드 조각을 **definition.json** 으로 저장합니다. "스크립트" 값이 방금 압축한 Python 파일의 이름과 일치하는지 확인합니다. "대상" 값이 사용 가능한 컴퓨팅 리소스의 이름과 일치하는지 확인합니다. 
-
-```json
-{
-    "Configuration":{  
-       "Script":"hello.py",
-       "Arguments":[  
-          "234"
-       ],
-       "SourceDirectoryDataStore":null,
-       "Framework":"Python",
-       "Communicator":"None",
-       "Target":"cpu-compute",
-       "MaxRunDurationSeconds":1200,
-       "NodeCount":1,
-       "Environment":{  
-          "Python":{  
-             "InterpreterPath":"python",
-             "UserManagedDependencies":false,
-             "CondaDependencies":{  
-                "name":"project_environment",
-                "dependencies":[  
-                   "python=3.6.2",
-                   {  
-                      "pip":[  
-                         "azureml-defaults"
-                      ]
-                   }
-                ]
-             }
-          },
-          "Docker":{  
-             "BaseImage":"mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
-          }
-      },
-       "History":{  
-          "OutputCollection":true
-       }
-    }
-}
-```
-
-`multipart/form-data` 콘텐츠를 사용하여 서버에 파일을 게시합니다.
-
-```bash
-curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
-  -X POST \
-  -H "Content-Type: multipart/form-data" \
-  -H "Authorization:Bearer {your-access-token}" \
-  -F projectZipFile=@train.zip \
-  -F runDefinitionFile=@runDefinition.json
-```
-
-POST 요청에 성공하면 `200 OK` 상태가 생성되며 응답 본문에는 만든 실행의 식별자가 포함됩니다.
-
-```json
-{
-  "runId": "my-first-experiment_1579642222877"
-}
-```
-
-이제 친숙한 REST 패턴을 사용하여 실행을 모니터링할 수 있습니다.
-
-```bash
-curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
-  -H 'Authorization:Bearer {your-access-token}'
-```
+REST를 사용하여 모델을 학습시키려면 [REST를 사용하여 모델 학습(미리 보기)](how-to-train-with-rest.md)을 참조하세요. 
 
 ### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요하지 않은 리소스 삭제
 
@@ -354,46 +281,39 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 ```bash
 curl
   -X DELETE \
-'https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/models/{your-model-id}?api-version=2019-11-01' \
-  -H 'Authorization:Bearer {your-access-token}' 
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
 ```
 
 ## <a name="use-rest-to-score-a-deployed-model"></a>REST를 사용하여 배포된 모델 채점
 
-서비스 사용자로 인증되도록 모델을 배포할 수 있지만 대부분의 클라이언트 측 배포에서는 키 기반 인증을 사용합니다. 배포 페이지에서, Studio의 **엔드포인트** 탭 안에 있는 적합한 키를 확인할 수 있습니다. 엔드포인트의 채점 URI도 같은 위치에 표시됩니다. 모델의 입력은 이름이 `data`인 JSON 배열로 모델링되어야 합니다.
-
-```bash
-curl 'https://{scoring-uri}' \
- -H 'Authorization:Bearer {your-key}' \
- -H 'Content-Type: application/json' \
-  -d '{ "data" : [ {model-specific-data-structure} ] }
-```
+REST를 사용하여 배포된 모델을 채점하려면 [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)을 참조하세요.
 
 ## <a name="create-a-workspace-using-rest"></a>REST를 사용하여 작업 영역 만들기 
 
-모든 Azure ML 작업 영역은 관리를 사용하도록 설정된 컨테이너 레지스트리, 키 자격 증명 모음, Application Insights, 스토리지 계정 등 다른 4개의 Azure 리소스와 종속 관계가 있습니다. 이러한 리소스가 있어야 작업 영역을 만들 수 있습니다. 각각의 리소스를 만드는 방법에 대한 자세한 내용은 REST API 참조에서 확인하세요.
+모든 Azure ML 작업 영역은 관리를 사용하도록 설정된 컨테이너 레지스트리, 키 자격 증명 모음, Application Insights, 스토리지 계정 등 다른 4개의 Azure 리소스와 종속 관계가 있습니다. 작업 영역을 만들려면 이러한 리소스가 있어야 합니다. 각각의 리소스를 만드는 방법에 대한 자세한 내용은 REST API 참조에서 확인하세요.
 
 작업 영역을 만들려면 `management.azure.com`에 대해 다음과 유사한 호출을 PUT 합니다. 이 호출에서는 대규모 변수를 설정해야 하지만 이 문서에서 논의하는 다른 호출과 구조적으로는 동일합니다. 
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
-/providers/Microsoft.MachineLearningServices/workspaces/{your-new-workspace-name}?api-version=2019-11-01' \
-  -H 'Authorization: Bearer {your-access-token}' \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "location": "{desired-region}",
+    "location": "AZURE-LOCATION>",
     "properties": {
-        "friendlyName" : "{your-workspace-friendly-name}",
-        "description" : "{your-workspace-description}",
-        "containerRegistry" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.ContainerRegistry/registries/{your-registry-name}",
-        keyVault" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}\
-/providers/Microsoft.Keyvault/vaults/{your-keyvault-name}",
-        "applicationInsights" : "subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.insights/components/{your-application-insights-name}",
-        "storageAccount" : "/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
-providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
+        "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+        "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
+        "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+        keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+        "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+        "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
     },
     "identity" : {
         "type" : "systemAssigned"

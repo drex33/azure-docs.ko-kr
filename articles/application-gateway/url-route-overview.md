@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e38f590628381710afec1d7bbf1ceb0daf9f77a2
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032216"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504876"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -27,7 +27,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 http\://contoso.com/video/*에 대한 요청은 VideoServerPool로 라우팅되고 http\://contoso.com/images/*에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
 
 > [!IMPORTANT]
-> v1 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. v2 SKU에서는 정확한 일치의 우선 순위가 더 높습니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
+> v1 및 v2 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap 구성 요소
 
@@ -76,9 +76,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |아니요|
+|`/*.jpg`     |아니요|
+|`/Repos/*/Comments/*`     |아니요|
 |`/CurrentUser/Comments/*`     |예|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |아니요|
+|`/*.jpg`     |아니요|
+|`/Repos/*/Comments/*`     |아니요|
 |`/CurrentUser/Comments/*`     |예|
 
 자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing)을 참조하세요.

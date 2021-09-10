@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: e6582aedbc8357715f4e49cc8d5a780859ef3929
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: a3dc221ff4fa1caebad9dea601e208280b928558
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062079"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530626"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -52,7 +52,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 이 예제에서:
 
-| #  | 속성                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| #  | 속성                                           | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | **취약성 보안 제어 수정** | 이 컨트롤은 알려진 취약성 검색 및 해결과 관련된 여러 권장 사항을 그룹화합니다.                                                                                                                                                                                                                                                                                                                                   |
 | 2 | **최대 점수**                                  | 컨트롤 내의 모든 권장 사항을 완료하여 얻을 수 있는 최대 포인트입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타내며 모든 환경에 대해 고정됩니다. 가장 먼저 작업할 이슈를 심사하려면 최대 점수 값을 사용합니다.<br>모든 컨트롤 및 해당 최대 점수 목록은 [보안 제어 및 해당 권장 사항](#security-controls-and-their-recommendations)을 참조하세요. |
@@ -80,7 +80,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 권장 사항":::
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 
@@ -124,12 +124,13 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 보안 점수와 해당 점수가 적용되는 보안 컨트롤에 대해 설명했습니다. 관련 자료는 다음 문서를 참조하세요.
+이 문서에서는 보안 점수와 포함된 보안 컨트롤에 대해 설명했습니다. 
+
+> [!div class="nextstepaction"]
+> [보안 점수 액세스 및 추적](secure-score-access-and-track.md)
+
+관련 자료는 다음 문서를 참조하세요.
 
 - [권장 사항의 다양한 요소에 대해 알아보기](security-center-recommendations.md)
 - [권장 사항을 수정하는 방법 알아보기](security-center-remediate-recommendations.md)
 - [보안 점수를 사용하여 프로그래밍 방식으로 작업하기 위한 GitHub 기반 도구 보기](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
-
-
-> [!div class="nextstepaction"]
-> [보안 점수 액세스 및 추적](secure-score-access-and-track.md)

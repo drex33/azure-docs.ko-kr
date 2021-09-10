@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 03d29f6f6265c214427e208de4bc9177659bb473
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438003"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823906"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Azure Cognitive Search의 성능 향상을 위한 팁
 
@@ -67,7 +67,9 @@ ms.locfileid: "111438003"
 
 + **부분 용어 검색 사용.** 접두사 검색, 퍼지 검색 및 정규식 검색과 같은 [부분 용어 검색](search-query-partial-matching.md)은 결과를 생성하기 위해 전체 인덱스 검색을 수행해야 하므로 일반적인 키워드 검색보다 계산 비용이 더 많이 듭니다.
 
-+ **패싯 수.** 패싯을 쿼리에 추가하려면 각 쿼리에 대한 집계가 필요합니다. 일반적으로 앱에서 렌더링하려는 패싯만 추가합니다.
++ **패싯 수.** 패싯을 쿼리에 추가하려면 각 쿼리에 대한 집계가 필요합니다. 패싯에 대해 더 많은 “개수”를 요청하면 서비스에서 추가 작업을 해야 합니다. 일반적으로 앱에서 렌더링하려는 패싯만 추가하고 필요한 경우가 아니면 패싯에 대해 높은 수를 요청하지 않도록 합니다.
+
++ **큰 skip 값.** $skip 매개 변수를 큰 값(예: 천 단위)으로 설정하면 엔진에서 각 요청에 대해 더 큰 문서를 검색하고 순위를 지정하기 때문에 검색 대기 시간이 증가합니다. 성능상의 이유로, 큰 $skip 값을 피하고 필터링과 같은 다른 기술을 사용하여 많은 수의 문서를 검색하는 것이 가장 좋습니다.
 
 + **높은 카디널리티 필드 제한.**  *높은 카디널리티 필드* 는 상당히 많은 수의 고유 값이 있는 패싯 가능 또는 필터링 가능한 필드를 나타내며, 결과적으로 결과를 계산할 때 상당한 리소스를 소비합니다. 예를 들어 제품 ID 또는 설명 필드를 패싯 가능 및 필터링 가능으로 설정하면 문서 간에 대부분의 값이 고유하므로 높은 카디널리티 필드로 간주됩니다.
 

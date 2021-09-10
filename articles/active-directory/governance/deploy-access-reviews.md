@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9acbe5d7b57906c894021ec4e4f83633433b3c3b
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970910"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530294"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -82,7 +82,7 @@ ms.locfileid: "111970910"
 
 전역 관리자 또는 사용자 관리자 외에도 액세스 검토를 만들거나 수행할 수 있는 유효한 Azure AD Premium(P2) 라이선스가 필요합니다. 자세한 내용은 [액세스 검토 라이선스 요구 사항](access-reviews-overview.md)을 참조하세요.
 
-또한 [자격 수명 주기 관리](entitlement-management-overview.md) 또는 특권 ID 관리 같은 다른 ID 거버넌스 기능이 필요할 수 있습니다. 이 경우 관련 라이선스가 필요할 수도 있습니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+또한 [자격 수명 주기 관리](entitlement-management-overview.md) 또는 특권 ID 관리 같은 다른 ID 거버넌스 기능이 필요할 수 있습니다. 이 경우 관련 라이선스가 필요할 수도 있습니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 ## <a name="plan-the-access-reviews-deployment-project"></a>액세스 검토 배포 프로젝트 계획
 

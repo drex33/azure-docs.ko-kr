@@ -1,27 +1,34 @@
 ---
-title: Azure Cognitive Search 인덱서(미리 보기)를 사용하여 Azure MySQL 콘텐츠에 연결 및 인덱싱
+title: Azure MySQL에서 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
-description: Azure MySQL에서 Azure Cognitive Search의 검색 가능한 인덱스로 데이터를 가져옵니다. 인덱서는 MySQL과 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
+description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 Azure MySQL에 저장된 데이터를 인덱싱하도록 검색 인덱서를 설정합니다.
 author: markheff
-manager: luisca
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 4dee2250d49d437d47148b873cfe8c7ce1e8f5ea
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c4ac7266f61596490805c00af079dfe7bdee76aa
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754442"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530050"
 ---
-# <a name="connect-to-and-index-azure-mysql-content-using-an-azure-cognitive-search-indexer-preview"></a>Azure Cognitive Search 인덱서(미리 보기)를 사용하여 Azure MySQL 콘텐츠에 연결 및 인덱싱
+# <a name="index-data-from-azure-mysql"></a>Azure MySQL에서 데이터 인덱싱
 
 > [!IMPORTANT] 
-> MySQL 지원은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [이 양식](https://aka.ms/azure-cognitive-search/indexer-preview)을 작성하여 미리 보기에 대한 액세스를 요청할 수 있습니다. 이 기능은 [REST API 버전 2020-06-30-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 SDK 지원 및 포털 지원이 없습니다.
+> MySQL 지원은 현재 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. 이 기능에 대한 [액세스를 요청](https://aka.ms/azure-cognitive-search/indexer-preview)하고 액세스가 활성화된 후 [미리 보기 REST API(2020-06-30-preview 이상)](search-api-preview.md)를 사용하여 콘텐츠를 인덱싱합니다. 현재 SDK 지원 및 포털 지원이 없습니다.
 
-MySQL용 Azure Cognitive Search 인덱서는 Azure에서 MySQL 데이터베이스를 크롤링하고, 검색 가능한 데이터를 추출하고, Azure Cognitive Search에서 인덱싱합니다. 인덱서는 MySQL 데이터베이스에 대한 모든 변경 내용, 업로드 및 삭제를 수행하고 이러한 변경 내용을 Azure Cognitive Search에 반영합니다.
+MySQL용 Azure Cognitive Search 인덱서는 Azure에서 MySQL 데이터베이스를 크롤링하고, 검색 가능한 데이터를 추출하고, Azure Cognitive Search에서 인덱싱합니다. 인덱서는 MySQL 데이터베이스에 대한 모든 변경 사항, 업로드 및 삭제를 수행하고 이러한 변경 사항을 검색 인덱스에 반영합니다.
+
+다음 클라이언트를 중 하나를 사용하여 Azure MySQL 인덱서를 설정할 수 있습니다.
+
+* [Azure Portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
+
+이 문서에서는 REST API를 사용합니다. 
 
 ## <a name="create-an-azure-mysql-indexer"></a>Azure MySQL 인덱서 만들기
 

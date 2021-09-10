@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3defd1bf3e3052f45f00eeeec0078ce0f6bbde
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528136"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Windows 로그인 화면에서 Azure Active Directory 셀프 서비스 암호 재설정을 사용하도록 설정
 
@@ -45,6 +45,7 @@ Windows 로그인 화면에서 SSPR을 사용하는 경우 다음과 같은 제�
     - *HideFastUserSwitching* 이 사용하도록 설정 또는 1로 설정됨
     - *DontDisplayLastUserName* 이 사용하도록 설정 또는 1로 설정됨
     - *NoLockScreen* 이 사용하도록 설정 또는 1로 설정됨
+    - ‘BlockNonAdminUserInstall’이 사용하도록 설정 또는 1로 설정됨
     - *EnableLostMode* 가 디바이스에서 설정됨
     - Explorer.exe는 사용자 지정 셸로 바뀜
 - 다음 3개의 특정 설정을 조합하면 이 기능이 작동하지 않을 수 있습니다.

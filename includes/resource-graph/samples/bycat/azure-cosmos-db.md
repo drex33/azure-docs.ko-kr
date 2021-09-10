@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b2facd700fa0bf5943cca679f9dac6616f27b8f8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 176c75922fdeae6f1984330a40cbdc38a4d8404b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457219"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309432"
 ---
-### <a name="list-cosmos-db-with-specific-write-locations"></a>특정 쓰기 위치를 사용하여 Cosmos DB 나열
+### <a name="list-azure-cosmos-db-with-specific-write-locations"></a>특정 쓰기 위치를 사용하여 Azure Cosmos DB 나열
 
-다음 쿼리는 Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations** 와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, '미국 동부' 또는 '미국 서부'와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
+다음 쿼리는 Azure Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations** 와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, ‘미국 동부’ 또는 ‘미국 서부’와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
 
 ```kusto
 Resources

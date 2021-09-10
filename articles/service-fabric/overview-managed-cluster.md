@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터
 description: Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 ms.topic: overview
 ms.date: 5/10/2021
-ms.openlocfilehash: a412899f4aa37ce2257a3351c3e27da4d5d3add2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685264"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866921"
 ---
 # <a name="service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터
 
@@ -33,12 +33,15 @@ Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경�
 | 스토리지 계정 | |
 | 가상 네트워크 | |
 
-Service Fabric 관리형 클러스터는 기존 클러스터에 비해 여러 가지 이점을 제공합니다.
+## <a name="service-fabric-managed-cluster-advantages"></a>Service Fabric 관리형 클러스터 장점
+Service Fabric 관리형 클러스터는 기존 클러스터에 비해 다음과 같은 여러 가지 이점을 제공합니다.
 
 **간소화된 클러스터 배포 및 관리**
 - 단일 Azure 리소스 배포 및 관리
-- 인증서 관리 및 자동 순환
+- 클러스터 인증서 관리 및 90일 자동 순환
 - 간소화된 크기 조정 작업
+- 자동 OS 이미지 업그레이드 지원
+- 현재 위치 OS SKU 변경 지원
 
 **작업 오류 방지**
 - 기본 리소스와의 구성 불일치 방지
@@ -60,7 +63,7 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 | ------- | ----- | -------- |
 | 네트워크 리소스([Load Balancer](../load-balancer/skus.md), [공용 IP](../virtual-network/public-ip-addresses.md)용 SKU) | Basic | Standard |
 | 최소 노드(VM 인스턴스) 수 | 3 | 5 |
-| 노드 유형별 최대 노드 수 | 100 | 100 |
+| 노드 유형별 최대 노드 수 | 100 | 1000 |
 | 최대 노드 유형 개수 | 1 | 20 |
 | 노드 형식 추가/제거 | 예 | 예 |
 | 영역 중복 | 예 | 예 |
@@ -85,6 +88,8 @@ Service Fabric 관리형 클러스터를 시작하려면 빠른 시작:
 
 > [!div class="nextstepaction"]
 > [Service Fabric 관리형 클러스터 만들기](quickstart-managed-cluster-template.md)
+
+그리고 [관리형 클러스터를 구성하는 방법](how-to-managed-cluster-configuration.md)을 참조하세요.
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

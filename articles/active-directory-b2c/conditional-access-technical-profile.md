@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/13/2021
+ms.date: 06/18/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 55e63e232a804519baeeeeee3ebef84777ee1d38
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 902d9251c7393d3f6e693ba37c587398136493e6
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060781"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112368951"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에서 조건부 액세스 기술 프로필 정의
 
@@ -73,8 +73,8 @@ Azure AD B2C는 모든 로그인에 대해 모든 정책을 평가하고 사용�
 
 | ClaimReferenceId | 필수 | 데이터 형식 | 설명 |
 | --------- | -------- | ----------- |----------- |
-| 과제 | 예 |stringCollection | 식별된 위협을 수정하는 작업 목록입니다. 가능한 값: `block` |
-| MultiConditionalAccessStatus | 예 | stringCollection |  |
+| 과제 | 예 |stringCollection | 식별된 위협을 수정하는 작업 목록입니다. 가능한 값: `block`, `mfa` 및 `chg_pwd`. |
+| MultiConditionalAccessStatus | 예 | stringCollection | 조건부 액세스 평가 상태입니다.  |
 
 **OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 

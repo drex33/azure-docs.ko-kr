@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ce593d8f4e29ecbe0873381b2a1cf028f03e212b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cc31c8af40e064e9a320f93ec4ccbd5fe0f051c6
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529144"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771784"
 ---
 # <a name="create-azure-arc-data-controller-from-azure-portal---indirect-connectivity-mode"></a>Azure Portal에서 Azure Arc 데이터 컨트롤러 만들기 - 간접 연결 모드
 

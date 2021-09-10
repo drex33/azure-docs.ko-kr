@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1042b33dd0e753b8706bed8ab77a57d65c63fb4b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518286"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583341"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio(클래식) 웹 서비스에서 로깅 사용
+# <a name="enable-logging-for-machine-learning-studio-classic-web-services"></a>Machine Learning Studio(클래식) 웹 서비스에 로깅 사용
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -25,9 +25,9 @@ ms.locfileid: "100518286"
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
 
-[Azure Machine Learning Studio(클래식) 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용하도록 설정합니다. 
+[Machine Learning Studio(클래식) 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용하도록 설정합니다. 
 
-1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning Studio(클래식) 웹 서비스 포털에 로그인합니다. 클래식 웹 서비스의 경우 Studio(클래식)의 Machine Learning Studio(클래식) 웹 서비스 페이지에서 **새 웹 서비스 환경** 을 클릭하여 포털로 가져올 수도 있습니다.
+1. [https://services.azureml.net](https://services.azureml.net)에서 Machine Learning Studio(클래식) 웹 서비스 포털에 로그인합니다. 클래식 웹 서비스의 경우 Studio(클래식)의 Machine Learning Studio(클래식) 웹 서비스 페이지에서 **새 웹 서비스 환경** 을 클릭하여 포털로 가져올 수도 있습니다.
 
    ![새 웹 서비스 환경 링크](./media/web-services-logging/new-web-services-experience-link.png)
 

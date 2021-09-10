@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aa866706a181014e104f7f9e7f8cded520f4ac9
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152276"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711823"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -60,6 +60,8 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 Cloud Shell은 지정된 구독 내에 있는 스토리지 계정의 Azure 파일 공유를 사용합니다. 상속된 권한으로 인해 구독에 대한 충분한 액세스 권한이 있는 사용자는 구독에 포함된 모든 스토리지 계정 및 파일 공유에 액세스할 수 있습니다.
 
 사용자는 스토리지 계정 또는 구독 수준에서 사용 권한을 설정하여 파일에 대한 액세스를 잠가야 합니다.
+
+Cloud Shell 스토리지 계정에는 Cloud Shell 사용자가 홈 디렉터리에 만든 파일이 포함되며, 여기에는 액세스 토큰 또는 자격 증명을 비롯한 중요한 정보가 포함될 수 있습니다.
 
 ## <a name="supported-storage-regions"></a>지원되는 스토리지 지역
 현재 영역을 찾으려면 Bash에서 `env`을(를) 실행하여 `ACC_LOCATION` 변수를 찾거나 PowerShell에서 `$env:ACC_LOCATION`을(를) 실행할 수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.

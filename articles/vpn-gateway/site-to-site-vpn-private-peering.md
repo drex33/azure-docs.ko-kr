@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 68dee7e8d00f3f1b6853a7be5c9328647d96371d
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229039"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272082"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>ExpressRoute 개인 피어링을 통한 사이트 간 VPN 구성
 
@@ -22,6 +22,8 @@ RFC 1918 IP 주소를 사용하여 ExpressRoute 개인 피어링을 통해 사�
 * 개인 피어링을 통한 트래픽이 암호화됩니다.
 
 * 가상 네트워크 게이트웨이에 연결하는 지점 및 사이트 간 사용자는 ExpressRoute(사이트 간 터널을 통해)를 사용하여 온-프레미스 리소스에 액세스할 수 있습니다.
+
+* ExpressRoute 개인 피어링을 통해 사이트 간 VPN 연결을 동일한 VPN 게이트웨이에서 인터넷을 통한 사이트 간 VPN 연결과 동시에 배포할 수 있습니다.
 
 >[!NOTE]
 >이 기능은 영역 중복 게이트웨이에서만 지원됩니다. 예: VpnGw1AZ, VpnGw2AZ 등

@@ -2,18 +2,18 @@
 title: Azure Communication Services의 문제 해결
 description: Communication Services 솔루션 문제를 해결하는 데 필요한 정보를 수집하는 방법을 알아봅니다.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 ms.author: manoskow
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8e3dbc012e49b69e766d0551c0a91dcbb92660b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cd19094b876203569df83cf3bc165968d9051a2
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739582"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257994"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -77,7 +77,28 @@ chat_client = ChatClient(
 ```
 ---
 
-## <a name="access-your-call-id"></a>호출 ID에 액세스
+## <a name="access-your-server-call-id"></a>서버 호출 ID에 액세스
+통화 녹음/녹화 및 통화 관리 문제와 같은 통화 자동화 SDK 문제를 해결할 때 서버 통화 ID를 수집해야 합니다. 이 ID는 ```getServerCallId``` 메서드를 사용하여 수집할 수 있습니다.
+
+#### <a name="javascript"></a>JavaScript
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+
+## <a name="access-your-client-call-id"></a>클라이언트 호출 ID에 액세스
 
 음성 또는 화상 통화 문제를 해결할 때 `call ID`를 제공하라는 메시지가 표시될 수 있습니다. 이는 `call` 개체의 `id` 속성을 통해 액세스할 수 있습니다.
 

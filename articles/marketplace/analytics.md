@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: rajap
 ms.author: rajap
+ms.reviewer: sroy
 ms.date: 06/01/2021
-ms.openlocfilehash: c3588ff5946af766e8046d37d97dab3950499756
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: be65d22ca33e68d7ccec50dd3cd8617bb6ee1ad7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542969"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567257"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터에서 상업용 마켓플레이스에 대한 분석 보고서에 액세스
 
@@ -20,10 +21,10 @@ Microsoft 파트너 센터의 분석 보고서에 액세스하여 판매를 모�
 
 ## <a name="partner-center-analytics-tools"></a>파트너 센터 분석 도구
 
-파트너 센터 분석 도구에 액세스하려면 상업용 마켓플레이스에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
+파트너 센터 분석 도구에 액세스하려면 **[요약](https://go.microsoft.com/fwlink/?linkid=2165765)** 대시보드로 이동합니다.
 
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.md)를 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -31,6 +32,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스하여 판매를 모�
 - 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
+- 자세한 내용은 [상업용 마켓플레이스 분석의 라이선스 대시보드](license-dashboard.md)를 참조하세요
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 보려면 [상업용 Marketplace 분석의 평가 및 검토 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.md)를 참조하세요.
+- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.

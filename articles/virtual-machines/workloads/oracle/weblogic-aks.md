@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 63a902d57c8a3ec5d9876e0682674cdbea70a4cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8aae65432ad904b4964febb2e69774597c9b5ae1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528291"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688452"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 페이지에서는 Azure Kubernetes Service (AKS)에서 Oracle WebLogic Server (WLS)를 실행하기 위한 솔루션에 대해 설명합니다. 이러한 솔루션은 Oracle과 Microsoft에서 공동으로 개발하고 지원합니다.
 

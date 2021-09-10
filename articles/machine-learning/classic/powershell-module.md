@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): PowerShell 모듈 - Azure'
-description: PowerShell을 사용하여 Azure Machine Learning Studio(클래식) 작업 영역, 실험, 웹 서비스 등을 만들고 관리하는 방법을 설명합니다.
+description: PowerShell을 사용하여 Machine Learning Studio(클래식) 작업 영역, 실험, 웹 서비스 등을 만들고 관리합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -8,17 +8,18 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 684299d61ba6e9e27e16a162c9f226a7ea3b5f58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 662a550145ece8821a8cdbed0533696b265f7952
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518014"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690013"
 ---
-# <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)용 PowerShell 모듈
+# <a name="powershell-modules-for-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)용 PowerShell 모듈
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 PowerShell 모듈을 사용하면 Studio(클래식) 리소스 및 작업 영역/데이터 세트/웹 서비스 등의 자산을 프로그래밍 방식으로 관리할 수 있습니다.
 
@@ -26,7 +27,7 @@ PowerShell 모듈을 사용하면 Studio(클래식) 리소스 및 작업 영역/
 
 * [Azure PowerShell Az](#az-rm)(2018년 출시) - cmdlet 이름은 다르지만 AzureRM의 모든 기능이 포함되어 있습니다.
 * [AzureRM](#az-rm)(2016년 출시) - PowerShell Az로 바뀌었습니다.
-* [Azure Machine Learning PowerShell 클래식](#classic)(2016년 출시)
+* [Machine Learning PowerShell 클래식](#classic)(2016년 출시)
 
 이러한 PowerShell 모듈은 다소 비슷하기는 하지만 각각 특정 시나리오용으로 설계되었습니다. 이 문서에서는 PowerShelll 모듈 간의 차이점을 설명하고 선택해야 하는 모듈을 결정하는 데 도움이 되는 정보를 제공합니다.  
 

@@ -2,27 +2,27 @@
 title: Azure Communication Services 통화 녹화 개요
 titleSuffix: An Azure Communication Services concept document
 description: 통화 녹화 기능 및 API를 간략히 설명합니다.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464340"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254759"
 ---
 # <a name="calling-recording-overview"></a>통화 녹화 개요
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> 통화 녹음/녹화는 현재 미국 지역에서 만든 Communication Services 리소스에만 사용할 수 있습니다.
+> 통화 녹음/녹화는 미국, 영국, 유럽, 아시아 및 호주 지역에서 만들어진 통신 서비스 리소스에 사용할 수 있습니다.
 
 통화 녹화는 녹화를 시작, 중지, 일시 중지, 다시 시작하는 API 세트를 제공합니다. 이러한 API는 서버 쪽 비즈니스 논리에서 또는 사용자 동작에 의해 트리거되는 이벤트를 통해 액세스할 수 있습니다. 녹화된 미디어 출력은 MP4 오디오+비디오 형식으로, Teams에서 미디어를 녹화하는 데 사용하는 형식과 동일합니다. 미디어 및 메타데이터와 관련된 알림은 Event Grid를 통해 내보내집니다. 녹화는 선택한 장기 스토리지 솔루션을 검색하고 이동하기 위해 기본 제공 임시 스토리지에 48시간 동안 저장됩니다. 
 

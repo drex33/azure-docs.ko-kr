@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2661e73b5ef1a820d28d71b93fd96db034e8daf6
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96519045"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675336"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에 대한 데이터 암호화
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure CLI를 사용하여 Azure Database for MySQL 데이터 암호화를 설정하고 관리하는 방법을 알아봅니다.
 
@@ -41,7 +43,7 @@ Azure CLI를 사용하여 Azure Database for MySQL 데이터 암호화를 설정
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [제거 방지](../key-vault/general/soft-delete-overview.md#purge-protection)
+  * [제거 보호](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -63,6 +65,7 @@ Azure CLI를 사용하여 Azure Database for MySQL 데이터 암호화를 설정
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
+* Azure Database for MySQL - 단일 서버는 범용 또는 메모리 최적화 가격 책정 계층 및 범용 스토리지 v2에 있어야 합니다. 계속 진행하기 전에 [고객 관리형 키를 사용한 데이터 암호화](concepts-data-encryption-mysql.md#limitations) 제한 사항을 참조하세요.
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대한 올바른 사용 권한 설정
 
@@ -280,4 +283,7 @@ Azure Portal 외에도 새 서버 및 기존 서버에 대해 Azure Resource Man
 
 ## <a name="next-steps"></a>다음 단계
 
- 데이터 암호화에 대한 자세한 내용은 [고객 관리형 키를 사용하는 Azure Database for MySQL 데이터 암호화](concepts-data-encryption-mysql.md)를 참조하세요.
+* [Azure Database for MySQL에 대한 데이터 암호화 유효성 검사](howto-data-encryption-validation.md)
+* [Azure Database for MySQL에서 데이터 암호화 문제 해결](howto-data-encryption-troubleshoot.md)
+* [고객 관리형 키 개념을 사용한 데이터 암호화](concepts-data-encryption-mysql.md).
+

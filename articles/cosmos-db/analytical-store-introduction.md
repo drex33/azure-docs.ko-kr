@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: fed7f84ed86e4543c74073811ccbafcdf8736c77
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: cc12626747aa7ce8a294695e27239fac36ce5cd0
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568124"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824932"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,19 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * 컬렉션의 모든 문서를 삭제해도 분석 저장소 스키마가 다시 설정되지는 않습니다.
   * 스키마의 버전은 관리되지 않습니다. 트랜잭션 저장소에서 유추된 마지막 버전을 분석 저장소에서 볼 수 있습니다.
 
-* 현재, 이름에 공백이 포함된 속성을 읽는 Azure Synapse Spark는 지원되지 않습니다. Spark DataFrame에 데이터를 로드하려면 `cast` 또는 `replace`와 같은 Spark 함수를 사용해야 합니다.
+* 현재 Azure Synapse Spark는 아래 나열된 이름에 특수 문자가 일부 포함된 속성을 읽을 수 없습니다. 이러한 경우에는 자세한 내용은 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의하세요.
+  * :(콜론)
+  * `(억음 악센트 기호)
+  * ,(쉼표)
+  * ;(세미콜론)
+  * {}
+  * ()
+  * \n
+  * \t
+  * =(등호)
+  * "(따옴표)
+ 
+* Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다.
 
 ### <a name="schema-representation"></a>스키마 표현
 

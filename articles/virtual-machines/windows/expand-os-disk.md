@@ -1,30 +1,25 @@
 ---
 title: Azure에서 Windows VM의 OS 드라이브 확장
 description: Resource Manager 배포 모델에서 Azure PowerShell을 사용하여 가상 머신의 OS 드라이브 크기를 확장합니다.
-services: virtual-machines
-documentationcenter: ''
 author: kirpasingh
 manager: roshar
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74ce4cf27f8a8be8fd86bad3e3f03589cf3640ea
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113600535"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692482"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 [Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 이미지를 배포하여 리소스 그룹에 새 VM(가상 머신)을 만드는 경우 기본 OS 드라이브는 종종 127GB입니다(일부 이미지의 경우 OS 디스크 크기가 기본적으로 더 작음). VM에 데이터 디스크를 추가할 수 있지만(숫자가 선택한 SKU에 따라 다름), 이러한 추록 디스크에는 애플리케이션 및 CPU 집약적 워크로드를 설치하는 것이 좋습니다. 고객은 다음과 같은 특정 시나리오를 특정 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 많습니다.
 

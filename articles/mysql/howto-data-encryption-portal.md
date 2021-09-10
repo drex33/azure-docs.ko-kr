@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5522f07ce9543af330b3526c4021a5916a3c80df
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96519062"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674455"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal를 사용하는 Azure Database for MySQL 데이터 암호화
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Portal을 사용하여 Azure Database for MySQL에 대한 데이터 암호화를 설정하고 관리하는 방법을 알아봅니다.
 
@@ -34,7 +36,7 @@ Azure Portal을 사용하여 Azure Database for MySQL에 대한 데이터 암호
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
-  * 보존 일 수를 90일로 설정
+  * 보존 일수를 90일로 설정
   
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
@@ -44,7 +46,7 @@ Azure Portal을 사용하여 Azure Database for MySQL에 대한 데이터 암호
   * 만료 날짜 없음
   * 사용 안 함 없음
   * **가져오기**, **래핑**, **래핑 해제** 작업 수행
-  * recoverylevel 특성이 **복구 가능** 으로 설정(이 경우 보존 기간이 90일로 설정되고 일시 삭제를 사용해야 함)
+  * recoverylevel 특성이 **복구 가능** 으로 설정됨(보존 기간이 90일로 설정된 일시 삭제를 사용해야 함)
   * 제거 보호 사용
 
 다음 명령을 사용하여 키의 특성을 확인할 수 있습니다.
@@ -52,7 +54,7 @@ Azure Portal을 사용하여 Azure Database for MySQL에 대한 데이터 암호
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
-
+* Azure Database for MySQL - 단일 서버는 범용 또는 메모리 최적화 가격 책정 계층 및 범용 스토리지 v2에 있어야 합니다. 계속 진행하기 전에 [고객 관리형 키를 사용한 데이터 암호화](concepts-data-encryption-mysql.md#limitations) 제한 사항을 참조하세요.
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대한 올바른 권한 설정
 
 1. Key Vault에서 **액세스 정책** > **액세스 정책 추가** 를 선택합니다.
@@ -91,7 +93,7 @@ Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for M
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="복제가 강조 표시된 Azure Database for MySQL의 스크린샷":::
 
-2. 복원 작업이 완료되면 새로 만든 서버가 주 서버 키로 암호화됩니다. 그러나 서버에서 기능 및 옵션을 사용할 수 없으며 서버에 액세스할 수 없습니다. 그러면 새 서버의 ID에 키 자격 증명 모음에 대한 액세스 권한이 아직 제공되지 않았기 때문에 데이터 조작을 방지할 수 있습니다.
+2. 복원 작업이 완료되면 새로 만든 서버가 주 서버 키로 암호화됩니다. 하지만 서버에서 기능 및 옵션을 사용할 수 없으며 서버에 액세스할 수 없습니다. 그러면 새 서버의 ID에 키 자격 증명 모음에 대한 액세스 권한이 아직 제공되지 않았기 때문에 데이터 조작을 방지할 수 있습니다.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="액세스할 수 없음 상태가 강조 표시된 Azure Database for MySQL의 스크린샷":::
 
@@ -110,4 +112,6 @@ Key Vault에 저장된 고객 관리형 키를 사용하여 Azure Database for M
 
 ## <a name="next-steps"></a>다음 단계
 
- 데이터 암호화에 대한 자세한 내용은 [고객 관리형 키를 사용하는 Azure Database for MySQL 데이터 암호화](concepts-data-encryption-mysql.md)를 참조하세요.
+* [Azure Database for MySQL에 대한 데이터 암호화 유효성 검사](howto-data-encryption-validation.md)
+* [Azure Database for MySQL에서 데이터 암호화 문제 해결](howto-data-encryption-troubleshoot.md)
+* [고객 관리형 키 개념을 사용한 데이터 암호화](concepts-data-encryption-mysql.md).

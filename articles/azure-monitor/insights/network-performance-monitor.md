@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: fab7a613a040a57b65ecb8cb2372fff37f35c84a
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: bd0fb0720218b938b8c10454afeafba85887fa2c
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392564"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779127"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -123,7 +123,7 @@ Linux 컴퓨터의 경우 사용할 portNumber를 수동으로 변경해야 합�
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md)에서 설명한 과정을 사용할 수도 있습니다. 
+1. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md#install-a-monitoring-solution)에 설명된 절차에 따라 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. 연결 모니터 내에서 비 Azure 엔드포인트를 사용하려는 경우에 필요합니다.
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3. *솔루션에 추가 구성이 필요합니다* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 

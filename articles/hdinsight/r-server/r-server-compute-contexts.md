@@ -3,20 +3,22 @@ title: HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션 - Azure
 description: HDInsight의 ML Services 사용자에게 제공되는 다양한 컴퓨팅 컨텍스트 옵션에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: efdf410ac566297668a06b0e7da457fcd49bfb59
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943952"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299342"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션
 
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
 Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출을 실행하는 방법을 제어합니다. 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션을 간략히 설명합니다.
 
-클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
+클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services
 

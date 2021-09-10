@@ -1,18 +1,20 @@
 ---
 title: Hadoop Pig 작업을 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2020
-ms.openlocfilehash: 1d0f5ce9dfbf09023b57accb761b5dd85b0f3599
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3ece45a6770532292d487e35024d54fc34727c9
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375717"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538591"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Pig 작업을 사용하여 데이터 변환
 
@@ -76,5 +78,5 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

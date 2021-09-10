@@ -3,12 +3,12 @@ title: 규정 비준수의 원인 확인
 description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: e09bdaee974e77a3afecaaa35a37c56ed3cd56ec
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 886ef03e0170f5605f047cdde08384e1bc2786f0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530722"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769834"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -110,7 +110,7 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대한 구성 요소 규정 준수 탭 및 규정 준수 세부 정보의 스크린샷." border="false":::
 
-## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대한 준수 세부 정보
+## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대한 규정 준수 세부 정보
 
 _게스트 구성_ 범주의 _auditIfNotExists_ 정책의 경우 가상 머신 내에서 여러 설정이 평가될 수 있으며, 설정별 세부 정보를 확인해야 합니다. 예를 들어 암호 정책 목록에 대한 감사를 수행하고 그 중 하나에만 _규정 비준수_ 상태가 있는 경우 준수하지 않는 특정 암호 정책 및 이유를 알아야 합니다.
 

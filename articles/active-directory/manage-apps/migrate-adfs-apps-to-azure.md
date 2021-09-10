@@ -2,21 +2,21 @@
 title: AD FS에서 Azure Active Directory로 애플리케이션 인증 이동
 description: Azure Active Directory를 사용하여 AD FS(Active Directory Federation Services)를 대체하고 사용자에게 모든 애플리케이션에 대한 Single Sign-On을 제공하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: mtillman
-ms.reviewer: baselden
-ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567044"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
@@ -135,7 +135,7 @@ AD FS와 Azure AD는 애플리케이션으로 이동하는 SAML 보안 어설션
 Azure AD SAML 토큰 암호화 및 구성 방법에 대한 자세한 내용은 [방법: Azure AD SAML 토큰 암호화 구성](howto-saml-token-encryption.md)을 참조하세요.  
 
 > [!NOTE]
-> 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+> 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 ### <a name="apps-and-configurations-that-can-be-moved-today"></a>바로 이동할 수 있는 앱 및 구성
 
@@ -154,8 +154,8 @@ Azure AD SAML 토큰 암호화 및 구성 방법에 대한 자세한 내용은 [
 * 여러 개의 회신 URL 엔드포인트가 있는 앱. PowerShell 또는 Azure Portal 인터페이스를 사용하여 Azure AD에서 구성합니다.
 * SAML 버전 1.1 토큰이 필요한 WS-Federation 앱(예: SharePoint 앱). PowerShell을 사용하여 수동으로 구성할 수 있습니다. 갤러리에서 SharePoint 및 SAML 1.1 애플리케이션용으로 사전 통합된 일반 템플릿을 추가할 수도 있습니다. SAML 2.0 프로토콜을 지원합니다.
 * 복잡한 클레임 발급 변환 규칙. 지원되는 클레임 매핑에 대한 자세한 내용은 다음을 참조하세요.
-   *  [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md)
-   * [Azure Active Directory의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)
+  * [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md)
+  * [Azure Active Directory의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)
 
 ### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>현재 Azure AD에서 지원되지 않는 앱 및 구성
 
@@ -308,7 +308,7 @@ Azure AD에서 사용자 또는 그룹에 대한 MFA 규칙을 지정합니다.
 
     ‎![액세스 권한을 부여할 수 있는 권한 부여 창을 보여주는 스크린샷.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
- #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>예제 2: 등록되지 않은 디바이스에 MFA 적용
+#### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>예제 2: 등록되지 않은 디바이스에 MFA 적용
 
 Azure AD에서 등록되지 않은 디바이스에 대한 MFA 규칙을 지정합니다.
 

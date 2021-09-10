@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6f2a9502074543272b69f01b567da89b421f6fa6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 563cbf412fa8bb522b835fe41849f8358f5303fb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227761"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689244"
 ---
 # <a name="enable-infiniband"></a>InfiniBand 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 [RDMA 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM은 낮은 대기 시간과 높은 대역폭 InfiniBand 네트워크를 통해 통신합니다. 이러한 상호 연결에 대한 RDMA 기능은 분산 노드 HPC 및 AI 워크로드의 확장성과 성능을 향상하는 데 매우 중요합니다. InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 최적화되고 일관적인 RDMA 성능을 제공하기 위해 지름이 작은 비중단 팻 트리에서 연결됩니다.
 

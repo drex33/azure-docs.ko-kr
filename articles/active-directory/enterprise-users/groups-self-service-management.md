@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 724f63792c71e59b071e1851a013cbf94933008b
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: bff97bd767bb9045c5fa018bbcbffc2cb7445ca1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721529"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778056"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 그룹 관리 설정 
 
@@ -79,7 +79,7 @@ Azure Portal 또는 Azure AD PowerShell을 사용하여 보안 그룹을 만들 
 
  다음 표에서는 선택할 값을 결정하는 데 도움이 됩니다.
 
-| 설정 | 값 | 테넌트에게 미치는 영향 |
+| Setting | 값 | 테넌트에게 미치는 영향 |
 | --- | :---: | --- |
 | 사용자가 Azure Portal, API 또는 PowerShell에서 보안 그룹을 만들 수 있음 | Yes | Azure AD 조직의 모든 사용자는 새 보안 그룹을 만들고 Azure Portal, API 또는 PowerShell에서 이러한 그룹에 구성원을 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹에 대한 정책 설정에서 허용하는 경우 다른 사용자가 이러한 그룹에 가입하도록 요청할 수 있습니다. |
 |  | No | 사용자는 보안 그룹을 만들 수 없으며 자신이 소유자인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다. |

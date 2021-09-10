@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a5bc3ebfb58a41761b4a41439b6482592c58a7b0
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760142"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037314"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 작업 영역 리소스 만들기
 
@@ -44,10 +44,10 @@ ms.locfileid: "113760142"
 나머지 자습서 및 빠른 시작을 위해 *컴퓨팅 인스턴스* 를 만들어 이 개발 환경을 사용합니다.
 
 1. 이전 섹션에서 **작업 영역으로 가기** 를 선택하지 않은 경우 [Azure Machine Learning 스튜디오](https://ml.azure.com)에 로그인하고 작업 영역을 선택합니다.
-1. 왼쪽에 **관리** 에서 **컴퓨팅** 을 선택합니다.
+1. 왼쪽에서 **컴퓨팅** 을 선택합니다.
 1. 새 컴퓨팅 인스턴스를 만들려면 **+ 새로 만들기** 를 선택합니다.
-1. 첫 번째 페이지의 모든 기본값을 유지하고 **다음** 을 선택합니다.
-1. 이름을 제공하고 **만들기** 를 선택합니다.
+1. 이름을 제공하고 첫 페이지의 모든 기본값을 유지합니다.
+1. **만들기** 를 선택합니다.
  
 약 2분 후에 컴퓨팅 인스턴스 변경의 **상태** 가 *만드는 중* 에서 *실행 중* 으로 표시됩니다.  이제 모든 준비가 되었습니다.  
 
@@ -86,6 +86,10 @@ ms.locfileid: "113760142"
 * 스튜디오의 **자산** 섹션은 작업을 실행할 때 만드는 자산을 추적하는 데 도움이 됩니다.  새 작업 영역이 있는 경우 이러한 섹션에는 아직 아무것도 없습니다.
 
 * 이미 스튜디오의 **관리** 섹션을 사용하여 컴퓨팅 리소스를 만들었습니다.  또한 이 섹션에서는 작업 영역에 연결하는 데이터 및 외부 서비스를 만들고 관리할 수 있습니다.  
+
+### <a name="workspace-diagnostics"></a>작업 영역 진단
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="clean-up-resources"></a><a name="clean-up"></a>리소스 정리
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: apimpm
-ms.openlocfilehash: a8199f88527cfd1417997c12f9d682be1c60a810
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f17d271315bc537f916cb4d9addfa7ea1eaec995
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784542"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115834"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대한 로컬 메트릭 및 로그 구성
 
@@ -212,12 +212,13 @@ kubectl logs <pod-name>
 | 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | 표준 스트림에 로깅을 사용하도록 설정합니다. 값은 `none`, `text`, `json`이 될 수 있습니다. |
-| telemetry.logs.local  | `none` | 로컬 로깅을 사용합니다. 값은 `none`, `auto`, `localsyslog`, `rfc5424`, `journal`가 될 수 있습니다.  |
+| telemetry.logs.local  | `auto` | 로컬 로깅을 사용합니다. 값은 `none`, `auto`, `localsyslog`, `rfc5424`, `journal` `json`이 될 수 있습니다.  |
 | telemetry.logs.local.localsyslog.endpoint  | 해당 없음 | localsyslog 엔드포인트를 지정합니다.  |
 | telemetry.logs.local.localsyslog.facility  | 해당 없음 | localsyslog [기능 코드](https://en.wikipedia.org/wiki/Syslog#Facility)를 지정합니다. 예: `7`
 | telemetry.logs.local.rfc5424.endpoint  | 해당 없음 | rfc5424 엔드포인트를 지정합니다.  |
 | telemetry.logs.local.rfc5424.facility  | 해당 없음 | 각 [rfc5424](https://tools.ietf.org/html/rfc5424)의 기능 코드를 지정합니다. 예: `7`  |
 | telemetry.logs.local.journal.endpoint  | 해당 없음 | 업무 일지 엔드포인트를 지정합니다.  |
+| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | 파일 경로, IP:포트 또는 호스트 이름:포트와 같은 JSON 데이터를 허용하는 UDP 엔드포인트를 지정합니다.
 
 로컬 로깅의 샘플 구성은 다음과 같습니다.
 

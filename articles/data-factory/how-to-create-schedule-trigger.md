@@ -1,19 +1,21 @@
 ---
-title: Azure Data Factory에서 일정 트리거 만들기
-description: 일정에 따라 파이프라인을 실행하는 Azure Data Factory에서 트리거를 만드는 방법에 대해 알아봅니다.
+title: 일정 트리거 만들기
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics의 일정에 따라 파이프라인을 실행하는 트리거를 만드는 방법을 알아봅니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 96a6b82afb7d3d71b0dd8ce392fa308a3611aa94
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 08/24/2021
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675025"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824617"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -25,18 +27,24 @@ ms.locfileid: "110675025"
 
 다음 섹션에서는 다양한 방식으로 일정 트리거를 만드는 단계를 제공합니다. 
 
-## <a name="data-factory-ui"></a>Data Factory UI
+## <a name="ui-experience"></a>UI 환경
 
 **스케줄러 트리거** 를 만들어 파이프라인이 주기적으로(매시간, 매일 등) 실행되도록 예약할 수 있습니다. 
 
 > [!NOTE]
 > 트리거와 파이프라인을 연결하고 파이프라인을 실행/모니터링하는 파이프라인 및 일정 트리거를 만드는 방법에 대한 전체 연습은 [빠른 시작: Data Factory UI를 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)를 참조하세요.
 
-1. 연필 기호와 함께 표시되는 **편집** 탭으로 전환합니다. 
+1. Data Factory의 **편집** 탭 또는 Azure Synapse의 통합 탭으로 전환합니다. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     ![편집 탭으로 전환](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. 메뉴에서 **트리거** 를 선택한 다음 **새로 만들기/편집** 을 선택합니다. 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![편집 탭으로 전환](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+
+---
+    
+2. 메뉴에서 **트리거** 를 선택한 다음 **새로 만들기/편집** 을 선택합니다. 
 
     ![새 트리거 메뉴](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -54,7 +62,9 @@ ms.locfileid: "110675025"
         > 일광 절약 시간제가 적용되는 표준 시간대의 경우, 일 년에 두 차례 변경하면 트리거 시간이 자동으로 조정됩니다. 일광 절약 시간제 변경을 옵트아웃하려면 일광 절약 시간제가 적용되지 않는 표준 시간대(예: UTC)를 선택하세요.
 
     1. 트리거에 대한 **되풀이** 를 지정합니다. 드롭다운 목록에서 값 중 하나를 선택합니다(매분, 매시간, 매일, 매주 및 매월). 텍스트 상자에서 승수를 입력합니다. 예를 들어 트리거를 15분마다 한 번 실행하려는 경우 **매분** 을 선택하고, 텍스트 상자에 **15** 를 입력합니다. 
-    1. 종료 날짜 시간을 지정하려면 **종료 날짜 지정** 을 선택하고 _종료 날짜_ 를 지정한 다음 **확인** 을 선택합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 Data Factory에 솔루션을 게시한 후에만 적용됩니다.
+    1. **되풀이** 에서 "일, 주 또는 월"을 선택하는 경우 "고급 되풀이 옵션"을 찾을 수 있습니다.
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="일, 주 또는 월의 고급 되풀이 옵션":::
+    1. 종료 날짜 시간을 지정하려면 **종료 날짜 지정** 을 선택하고 _종료 날짜_ 를 지정한 다음 **확인** 을 선택합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 솔루션을 게시한 후에만 적용됩니다.
 
         ![트리거 설정](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -68,17 +78,31 @@ ms.locfileid: "110675025"
 
     ![트리거 설정 - 마침 단추](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. **모두 게시** 를 선택하여 변경 내용을 Data Factory에 게시합니다. 변경 내용을 Data Factory에 게시할 때까지 트리거는 파이프라인 실행 트리거를 시작하지 않습니다. 
+1. **모두 게시** 를 선택하여 변경 내용을 게시합니다. 변경 내용을 게시할 때까지 트리거는 파이프라인 실행 트리거를 시작하지 않습니다. 
 
     ![게시 단추](./media/how-to-create-schedule-trigger/publish-2.png)
 
 1. 왼쪽의 **파이프라인 실행** 탭으로 전환하고 **새로 고침** 을 선택하여 목록을 새로 고칩니다. 예약된 트리거에 의해 트리거된 파이프라인 실행이 표시됩니다. **트리거 기준** 열의 값을 확인합니다. **지금 트리거** 옵션을 사용하는 경우 목록에서 수동 트리거 실행이 표시됩니다. 
 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
     ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. **트리거 실행** \ **일정** 보기로 전환합니다. 
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    
+---
+
+9. **트리거 실행** \ **일정** 보기로 전환합니다. 
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
     ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -286,7 +310,7 @@ Azure Resource Manager 템플릿을 사용하여 트리거를 만들 수 있습�
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>파이프라인에 트리거 시작 시간 전달
 
-Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd** 를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 현재 버전에서는 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime** 에 값으로 전달됩니다.
+Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd** 를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 및 Synapse 파이프라인의 현재 버전에서는 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime** 에 값으로 전달됩니다.
 
 ```json
 "parameters": {
@@ -391,7 +415,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 | IST(인도 표준시) | +5:30 | `India Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중국 표준시 | +8 | `China Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 
-이 목록은 완전하지 않습니다. 전체 표준 시간대 옵션 목록은 Data Factory 포털 [트리거 만들기 페이지](#data-factory-ui)에서 살펴보세요.
+이 목록은 완전하지 않습니다. 전체 표준 시간대 옵션 목록은 포털 [트리거 만들기 페이지](#ui-experience)에서 살펴보세요.
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.

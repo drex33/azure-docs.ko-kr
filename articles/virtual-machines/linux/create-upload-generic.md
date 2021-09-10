@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: 5a62bae8881f20eb7778f179cbecce77f102f6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0ab2da9f6e301f1a39ee1dde65e9e0cb6a5d05b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554635"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689838"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 [보증 배포판](endorsed-distros.md) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 머신에 Azure 플랫폼 SLA가 적용됩니다. 이러한 보증 배포판의 경우 미리 구성된 Linux 이미지가 Azure Marketplace에 제공됩니다.
 

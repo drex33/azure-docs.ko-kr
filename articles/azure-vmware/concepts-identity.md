@@ -2,27 +2,21 @@
 title: 개념 - ID 및 액세스
 description: Azure VMware Solution의 ID 및 액세스 개념에 대해 알아보기
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 832e2906656ef4da6cc9ad054927f17611fbbaf4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/29/2021
+ms.openlocfilehash: e09a69ae1e3a9e8cba5d1027af1fc3ad57c73446
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953166"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252561"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>AVS(Azure VMware Solution) ID 개념
 
-Azure VMware Solution 프라이빗 클라우드는 vCenter Server 및 NSX-T Manager로 프로비저닝됩니다. vCenter를 사용하여 가상 머신(VM) 워크로드 및 NSX-T Manager를 관리하여 프라이빗 클라우드를 관리하고 확장할 수 있습니다. 액세스 및 ID 관리는 vCenter에서 CloudAdmin 역할을, NSX-T Manager에서 제한된 관리자 권한을 사용합니다. 
+Azure VMware Solution 프라이빗 클라우드는 vCenter Server 및 NSX-T Manager로 프로비저닝됩니다. vCenter를 사용하여 VM(가상 머신) 워크로드를 관리하고 NSX-T Manager를 사용하여 프라이빗 클라우드를 관리 및 확장합니다. vCenter에는 CloudAdmin 역할이 사용되고 NSX-T Manager에는 제한된 관리자 권한이 사용됩니다. 
 
 ## <a name="vcenter-access-and-identity"></a>vCenter 액세스 및 ID
 
-Azure VMware Solution에서 vCenter는 cloudadmin이라는 기본 제공 로컬 사용자를 포함하고 CloudAdmin 역할에 할당됩니다. 로컬 cloudadmin 사용자는 AD(Active Directory)에서 사용자를 설정하는 데 사용 됩니다. 일반적으로 CloudAdmin 역할은 프라이빗 클라우드에서 워크로드를 만들고 관리합니다. 그러나 Azure VMware Solution에서 CloudAdmin 역할에는 다른 VMware 클라우드 솔루션과 다른 vCenter 권한이 있습니다.     
-
-- vCenter 및 ESXi 온-프레미스 배포에서 관리자는 vCenter 관리자 \@ vsphere.local 계정에 액세스할 수 있습니다. 또한 더 많은 AD 사용자 및 그룹이 할당됩니다. 
-
-- Azure VMware Solution 배포에서 관리자는 관리자 사용자 계정에 액세스할 수 없습니다. 그러나 AD 사용자 및 그룹을 vCenter의 CloudAdmin 역할에 할당할 수 있습니다.  
-
-프라이빗 클라우드 사용자는 Microsoft에서 지원되고 관리되는 특정 관리 구성 요소를 액세스하거나 구성할 수 없습니다. 예를 들어 클러스터, 호스트, 데이터 저장소 및 분산 가상 스위치가 있습니다.
+[!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!IMPORTANT]
 > Azure VMware Solution은 vCenter에서 사용자 지정 역할을 제공하지만 현재 Azure VMware Solution 포털에서는 제공하지 않습니다. 자세한 내용은 이 문서의 뒷부분에서 [vCenter에서 사용자 지정 역할 만들기](#create-custom-roles-on-vcenter) 섹션을 참조하세요. 
@@ -37,7 +31,7 @@ Azure VMware Solution 프라이빗 클라우드 vCenter의 Azure VMware Solution
 
 1. 역할 목록에서 **CloudAdmin** 을 선택한 다음, **권한** 을 선택합니다. 
 
-   :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="vSphere 클라이언트에서 CloudAdmin 역할 권한을 보는 방법":::
+   :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="vSphere 클라이언트에서 CloudAdmin의 역할 및 권한을 보여 주는 스크린샷":::
 
 Azure VMware Solution의 CloudAdmin 역할에는 vCenter에 대한 다음 권한이 있습니다. 자세한 내용은 [VMware 제품 설명서](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)를 참조하세요.
 
@@ -91,7 +85,7 @@ CloudAdmin 역할을 사용하여 현재 역할보다 적거나 같은 권한이
 
 1. 개체를 마우스 오른쪽 단추로 클릭하고 **사용 권한 추가** 를 선택합니다.
 
-1. **권한 추가** 창의 **사용자** 에서 ID 원본을 선택하고 그룹 또는 사용자를 찾을 수 있는 위치에 드롭다운합니다.
+1. 그룹 또는 사용자를 찾을 수 있는 **사용자** 드롭다운에서 ID 원본을 선택합니다.
 
 1. **사용자** 섹션에서 ID 원본을 선택한 후 사용자 또는 그룹을 검색합니다. 
 
@@ -102,17 +96,21 @@ CloudAdmin 역할을 사용하여 현재 역할보다 적거나 같은 권한이
 ## <a name="nsx-t-manager-access-and-identity"></a>NSX-T Manager 액세스 및 ID
 
 >[!NOTE]
->NSX-T 2.5는 현재 모든 새 프라이빗 클라우드에서 지원됩니다.
+>NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)]는 현재 모든 새 프라이빗 클라우드에서 지원됩니다.
 
-‘관리자’ 계정을 사용하여 NSX-T Manager에 액세스합니다. 전체 권한을 가지며 계층 1(T1) 게이트웨이, 세그먼트(논리 스위치) 및 모든 서비스를 만들고 관리할 수 있습니다. 권한은 NSX-T 계층 0(T0) 게이트웨이에 대한 액세스를 제공합니다. T0 게이트웨이를 변경하면 네트워크 성능이 저하되거나 프라이빗 클라우드 액세스가 없어질 수 있습니다. Azure Portal에서 지원 요청을 열어 NSX-T T0 게이트웨이에 대한 변경 내용을 요청합니다.
+‘관리자’ 계정을 사용하여 NSX-T Manager에 액세스합니다. 전체 권한을 가지며 T1(계층 1) 게이트웨이, 세그먼트(논리 스위치), 모든 서비스를 만들고 관리할 수 있습니다. 또한 권한은 NSX-T T0(계층 0) 게이트웨이에 대한 액세스를 제공합니다. T0 게이트웨이를 변경하면 네트워크 성능이 저하되거나 프라이빗 클라우드 액세스가 없어질 수 있습니다. Azure Portal에서 지원 요청을 열어 NSX-T T0 게이트웨이에 대한 변경 내용을 요청합니다.
 
  
 ## <a name="next-steps"></a>다음 단계
 
 이제 Azure VMware Solution 액세스 및 ID 개념을 살펴보았으므로 다음에 대해 알아볼 수 있습니다.
 
-- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [vCenter에 대한 외부 ID 원본을 구성하는 방법](configure-identity-source-vcenter.md)
+
+- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+
 - [각 권한의 세부 정보](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+
 - [Azure VMware Solution이 프라이빗 클라우드를 모니터링하고 복구하는 방법](./concepts-private-clouds-clusters.md#host-monitoring-and-remediation)
 
 

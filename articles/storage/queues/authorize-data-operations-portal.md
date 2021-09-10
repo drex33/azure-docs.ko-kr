@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 35f4e76a437c5ea5926a95b199e433c6e5b1eb76
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: da6dfb018885ce55323e4a05e738501692c68a58
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901262"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727979"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Azure Portal에서 큐 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -28,7 +28,7 @@ Azure Portal에서 큐 데이터에 대한 액세스 권한을 부여하려는 �
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용하여 큐 데이터에 액세스하려면, Azure RBAC 작업 **Microsoft.Storage/storageAccounts/listkeys/action** 이 포함된 Azure 역할을 할당받아야 합니다. Azure 역할은 기본 제공 또는 사용자 지정 역할일 수 있습니다. **Microsoft.Storage/storageAccounts/listkeys/action** 을 지원하는 기본 제공 역할에는 다음이 포함됩니다(최소 권한에서 최대 권한 순).
+계정 액세스 키를 사용하여 큐 데이터에 액세스하려면, Azure RBAC 작업 **Microsoft.Storage/storageAccounts/listkeys/action** 이 포함된 Azure 역할을 할당받아야 합니다. Azure 역할은 기본 제공 또는 사용자 지정 역할일 수 있습니다. **Microsoft.Storage/storageAccounts/listkeys/action** 을 지원하는 기본 제공 역할에는 최소 권한에서 최대 권한 순으로 다음이 포함됩니다.
 
 - [읽기 권한자 및 데이터 액세스](../../role-based-access-control/built-in-roles.md#reader-and-data-access) 역할
 - [스토리지 계정 Contributor 역할](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
@@ -50,9 +50,9 @@ Azure AD 계정을 사용하여 Azure Portal에서 큐 데이터에 액세스하
 - 큐 데이터에 대한 액세스를 제공하는 기본 제공 또는 사용자 지정 역할을 할당 받았습니다.
 - 최소한 스토리지 계정 수준 이상으로 범위가 지정된 Azure Resource Manager [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할을 할당받았습니다. **Reader** 역할은 가장 제한된 사용 권한을 부여하지만, 스토리지 계정 관리 리소스에 대한 액세스 권한을 부여하는 다른 Azure Resource Manager 역할도 허용됩니다.
 
-Azure Resource Manager **읽기 권한자** 역할을 통해 사용자는 저장소 계정 리소스를 볼 수 있지만 수정할 수는 없습니다. Azure Storage에서 데이터에 대한 읽기 권한은 제공하지 않고 계정 관리 리소스에 대해서만 제공합니다. 사용자가 Azure Portal의 큐로 이동할 수 있도록 하는 데 **읽기 권한자** 역할이 필요합니다.
+Azure Resource Manager **읽기 권한자** 역할은 사용자가 스토리지 계정 리소스를 볼 수 있지만 수정할 수는 없도록 허용합니다. Azure Storage에서 데이터에 대한 읽기 권한은 제공하지 않고 계정 관리 리소스에 대해서만 제공합니다. 사용자가 Azure Portal의 큐로 이동할 수 있도록 하는 데 **읽기 권한자** 역할이 필요합니다.
 
-큐 데이터에 대한 액세스를 지원하는 기본 제공 역할에 대한 자세한 내용은 [에 대한 Azure 역할](assign-azure-role-data-access.md#azure-roles-for-queues)을 참조하세요.
+대기열 데이터에 대한 액세스를 지원하는 기본 제공 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 대기열에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조하세요.
 
 사용자 지정 역할은 기본 제공 역할이 제공하는 권한과 동일하되 다른 조합으로 지원합니다. Azure 사용자 지정 역할을 생성하는 방법에 대해 자세히 알고 싶다면, [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 및 [Azure 리소스에 대한 역할 정의 이해](../../role-based-access-control/role-definitions.md)를 참조하세요.
 
@@ -93,5 +93,5 @@ Azure AD 계정을 사용하여 인증하려는 경우, 포털에서 인증 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 인증](../common/storage-auth-aad.md)
+- [Azure Storage의 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)
 - [ 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)

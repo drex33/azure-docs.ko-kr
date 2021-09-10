@@ -3,17 +3,17 @@ title: Azure Portal을 사용하여 WebSocket API 가져오기 | Microsoft Docs
 titleSuffix: ''
 description: API Management WebSocket을 지원하는 방법, WebSocket API 추가 및 WebSocket 제한에 대해 알아봅니다.
 ms.service: api-management
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c179aaca2d5d80686340c36dc271f4d5bb0fa40
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b3eb368184eceeabc6af46bac8ca08254560e252
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482893"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097873"
 ---
 # <a name="import-a-websocket-api-preview"></a>WebSocket API 가져오기(미리 보기)
 
@@ -29,12 +29,14 @@ API Management의 WebSocket API 솔루션을 사용하면, API Management를 사
 > [!div class="checklist"]
 > * Websocket 통과 흐름을 이해합니다.
 > * API Management 인스턴스에 WebSocket API를 추가합니다.
+> * WebSocket API를 테스트합니다.
+> * WebSocket API에 대한 메트릭 및 로그를 봅니다.
 > * WebSocket API의 제한에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 기존 API Management 인스턴스. [없다면 하나 생성합니다](get-started-create-service-instance.md).
-- [WebSocket API](https://www.websocket.org/echo.html).
+- WebSocket API. 
 
 ## <a name="websocket-passthrough"></a>WebSocket 통과
 
@@ -75,11 +77,41 @@ WebSocket 통과 중에 클라이언트 애플리케이션은 API Management 게
     |----------------|-------|
     | 표시 이름 | WebSocket API가 표시되는 이름입니다. |
     | 이름 | WebSocket API의 원시 이름입니다. 표시 이름을 입력하면 자동으로 채워집니다. |
-    | WebSocket URL | websocket 이름을 가진 기본 URL입니다. 예: ws://example.com/your-socket-name |
+    | WebSocket URL | websocket 이름을 가진 기본 URL입니다. 예: *ws://example.com/your-socket-name* |
+    | URL 구성표 | 기본값 적용 |
+    | API URL 접미사| URL 접미사를 추가하여 이 API Management 인스턴스에서 이 API를 식별합니다. 이 APIM 인스턴스 내에서 고유해야 합니다. |
     | 제품 | WebSocket API를 제품과 연결하여 게시합니다. |
     | 게이트웨이 | WebSocket API를 기존 게이트웨이와 연결합니다. |
  
 1. **만들기** 를 클릭합니다.
+
+## <a name="test-your-websocket-api"></a>WebSocket API 테스트
+
+1. WebSocket API로 이동합니다.
+1. WebSocket API 내에서 onHandshake 작업을 선택합니다.
+1. **테스트** 탭을 선택하여 테스트 콘솔에 액세스합니다. 
+1. 필요에 따라 WebSocket 핸드셰이크에 필요한 쿼리 문자열 매개 변수를 제공합니다.
+
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="테스트 API 예제":::
+
+1. **연결** 을 클릭합니다.
+1. **출력** 에서 연결 상태를 봅니다.
+1. **페이로드** 에 값을 입력합니다. 
+1. **보내기** 를 클릭합니다.
+1. **출력** 에서 수신된 메시지를 봅니다.
+1. 이전 단계를 반복하여 다른 페이로드를 테스트합니다.
+1. 테스트가 완료되면 **연결 끊기** 를 선택합니다.
+
+## <a name="view-metrics-and-logs"></a>메트릭 및 로그 보기
+
+표준 API Management 및 Azure Monitor 기능을 사용하여 WebSocket API를 [모니터링](api-management-howto-use-azure-monitor.md)합니다.
+
+* Azure Monitor의 API 메트릭 보기
+* 선택 사항으로, 진단 설정을 사용하도록 설정하여 WebSocket API 작업을 포함하는 API Management 게이트웨이 로그를 수집 및 확인
+
+예를 들어 다음 스크린샷에서는 **ApiManagementGatewayLogs** 테이블의 코드 `101`을 사용하는 최신 WebSocket API 리소스를 확인할 수 있습니다. 이러한 결과는 요청이 TCP에서 WebSocket 프로토콜로 성공적으로 전환되었음을 나타냅니다.
+
+:::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="WebSocket API 요청에 대한 쿼리 로그":::
 
 ## <a name="limitations"></a>제한 사항
 

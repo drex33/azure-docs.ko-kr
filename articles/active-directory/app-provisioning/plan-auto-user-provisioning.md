@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8b2378949e0ead4d05651fc28919aceecd4c542
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9e58650a98539b815173040cf0e47c200045b2bb
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785028"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728501"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Azure Active Directory에서 자동 사용자 프로비저닝 배포 계획
 
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory) 자동 사용자 프로비저닝은 비즈니�
 
 ### <a name="licensing"></a>라이선스
 
-Azure AD는 애플리케이션 갤러리 메뉴에 제공된 템플릿을 사용하여 모든 애플리케이션의 셀프 서비스 통합을 제공합니다. 라이선스 요구 사항의 전체 목록은 [Azure AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+Azure AD는 애플리케이션 갤러리 메뉴에 제공된 템플릿을 사용하여 모든 애플리케이션의 셀프 서비스 통합을 제공합니다. 라이선스 요구 사항의 전체 목록은 [Azure AD 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 #### <a name="application-licensing"></a>애플리케이션 라이선스
 
@@ -312,9 +312,9 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로비�
 
 * [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
 
-* [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
+* [범위를 벗어난 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 
-* [Azure AD Connect 프로비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)
+* [Azure AD Connect 프로비저닝 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>리소스
 

@@ -1,23 +1,24 @@
 ---
 title: App Service 인스턴스의 상태 모니터링
 description: 상태 검사를 사용하여 App Service 인스턴스의 상태를 모니터링하는 방법을 알아봅니다.
-keywords: Azure App Service, 웹앱, 상태 검사, 트래픽 라우팅, 정상 인스턴스, 경로, 모니터링,
+keywords: Azure App Service, 웹앱, 상태 검사, 경로 트래픽, 정상 인스턴스, 경로, 모니터링, 잘못된 인스턴스 제거, 비정상 인스턴스, 작업자 제거
 author: msangapu-msft
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 07/19/2021
 ms.author: msangapu
-ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 571f273d54989b0ea2f014294cd570c26b5e6931
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566985"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
-![상태 검사 오류][2]
+이 문서에서는 Azure Portal의 상태 검사를 사용하여 App Service 인스턴스를 모니터링합니다. 상태 검사는 비정상 인스턴스에서 요청을 다시 라우팅하고 비정상 상태로 유지되는 경우 인스턴스를 대체하여 애플리케이션의 가용성을 높입니다. 상태 검사를 완전히 활용하려면 [App Service 플랜](./overview-hosting-plans.md)을 둘 이상의 인스턴스로 확장해야 합니다. 상태 검사 경로에서는 애플리케이션의 중요한 구성 요소를 확인해야 합니다. 예를 들어 애플리케이션이 데이터베이스 및 메시지 시스템에 종속된 경우 상태 검사 엔드포인트는 해당 구성 요소에 연결해야 합니다. 애플리케이션에서 중요한 구성 요소에 연결할 수 없는 경우 이 경로는 앱이 비정상임을 나타내는 500 수준 응답 코드를 반환해야 합니다.
 
-이 문서에서는 Azure Portal의 상태 검사를 사용하여 App Service 인스턴스를 모니터링합니다. 상태 검사를 사용하면 비정상 인스턴스를 제거하여 애플리케이션의 가용성을 높일 수 있습니다. 상태 검사를 사용하려면 [App Service 계획](./overview-hosting-plans.md)을 둘 이상의 인스턴스로 확장해야 합니다. 상태 검사 경로에서는 애플리케이션의 중요한 구성 요소를 확인해야 합니다. 예를 들어 애플리케이션이 데이터베이스 및 메시지 시스템에 종속된 경우 상태 검사 엔드포인트는 해당 구성 요소에 연결해야 합니다. 애플리케이션에서 중요한 구성 요소에 연결할 수 없는 경우 이 경로는 앱이 비정상임을 나타내는 500 수준 응답 코드를 반환해야 합니다.
+![상태 검사 오류][1]
 
 ## <a name="what-app-service-does-with-health-checks"></a>App Service에서 상태 검사를 통해 수행하는 기능
 
@@ -50,14 +51,14 @@ ms.locfileid: "104871200"
 
 | 앱 설정 이름 | 허용되는 값 | Description |
 |-|-|-|
-|`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | 최대 ping 실패 수입니다. 예를 들어 `2`로 설정하면 인스턴스가 ping `2`회 실패 후 제거됩니다. 또한 스케일 업하거나 스케일 아웃할 때 App Service는 새 인스턴스가 준비되도록 Health check 경로를 ping합니다. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | 정상 상태의 인스턴스가 너무 많아지는 것을 방지하기 위해 인스턴스 중 절반 이하만 제외됩니다. 예를 들어 App Service 계획이 4개의 인스턴스로 확장되고 3개가 비정상이면 최대 2개가 제외됩니다. 나머지 두 인스턴스(정상 1 및 비정상 1)에서는 계속해서 요청을 받습니다. 모든 인스턴스가 비정상인 최악의 시나리오에서는 인스턴스가 제외되지 않습니다. 이 동작을 재정의하려면 앱 설정을 `0` - `100` 사이의 값으로 설정합니다. 값이 높을수록 더 비정상 인스턴스가 많이 제거됩니다(기본값은 50). |
+|`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | 인스턴스가 비정상으로 간주되고 부하 분산 장치에서 제거되는 데 필요한 실패한 요청 수입니다. 예를 들어 `2`로 설정하면 인스턴스가 ping `2`회 실패 후 제거됩니다. 기본값은 `10`입니다. |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | 기본적으로 나머지 정상 인스턴스가 너무 많아지지 않도록 하기 위해 인스턴스의 절반 이하가 한꺼번에 부하 분산 장치에서 제외됩니다. 예를 들어, App Service 계획이 4개의 인스턴스로 확장되고 3개가 비정상이면 2개가 제외됩니다. 나머지 두 인스턴스(정상 1 및 비정상 1)에서는 계속해서 요청을 받습니다. 모든 인스턴스가 비정상인 최악의 시나리오에서는 인스턴스가 제외되지 않습니다. <br /> 이 동작을 재정의하려면 앱 설정을 `0` - `100` 사이의 값으로 설정합니다. 값이 높을수록 더 비정상 인스턴스가 많이 제거됩니다(기본값은 `50`). |
 
 #### <a name="authentication-and-security"></a>인증 및 보안
 
-상태 검사는 App Service의 인증 및 권한 부여 기능과 통합됩니다. 이러한 보안 기능을 사용하도록 설정한 경우에는 추가 설정이 필요하지 않습니다. 그러나 사용자 고유의 인증 시스템을 사용하는 경우 상태 검사 경로에서 익명 액세스를 허용해야 합니다. 사이트가 HTTP **S** 인 경우에만 사용하도록 설정된 경우 상태 검사 요청은 HTTP **S** 를 통해 전송됩니다.
+상태 검사는 App Service의 [인증 및 권한 부여 기능](overview-authentication-authorization.md)과 통합됩니다. 이러한 보안 기능을 사용하도록 설정한 경우에는 추가 설정이 필요하지 않습니다.
 
-대규모 엔터프라이즈 개발 팀은 일반적으로 노출된 API에 대한 보안 요구 사항을 준수해야 합니다. 상태 검사 엔드포인트를 보호하려면 먼저 [IP 제한](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](app-service-ip-restrictions.md#set-an-ip-address-based-rule) 또는 Virtual Network와 같은 기능을 사용하여 애플리케이션 액세스를 제한해야 합니다. 들어오는 요청 일치 `HealthCheck/1.0`의 `User-Agent`를 요구하여 상태 검사 엔드포인트를 보호할 수 있습니다. 이전 보안 기능으로 인해 요청이 이미 보호되고 있으므로 User-Agent는 스푸핑될 수 없습니다.
+사용자 고유의 인증 시스템을 사용하는 경우 상태 검사 경로에서 익명 액세스를 허용해야 합니다. 상태 검사 엔드포인트를 보호하려면 먼저 [IP 제한](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](app-service-ip-restrictions.md#set-an-ip-address-based-rule) 또는 Virtual Network와 같은 기능을 사용하여 애플리케이션 액세스를 제한해야 합니다. 들어오는 요청 일치 `HealthCheck/1.0`의 `User-Agent`를 요구하여 상태 검사 엔드포인트를 보호할 수 있습니다. 이전 보안 기능으로 인해 요청이 이미 보호되고 있으므로 User-Agent는 스푸핑될 수 없습니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -65,12 +66,45 @@ ms.locfileid: "104871200"
 
 ## <a name="limitations"></a>제한 사항
 
-프리미엄 함수 사이트에서 상태 검사를 사용하도록 설정하면 안 됩니다. 프리미엄 함수의 빠른 크기 조정으로 인해 상태 검사 요청이 HTTP 트래픽의 불필요한 변동을 야기할 수 있습니다. 프리미엄 기능에는 확장 결정을 알리는 데 사용되는 자체 내부 상태 프로브가 있습니다.
+- 프리미엄 함수 사이트에서 상태 검사를 사용하도록 설정하면 안 됩니다. 프리미엄 함수의 빠른 크기 조정으로 인해 상태 검사 요청이 HTTP 트래픽의 불필요한 변동을 야기할 수 있습니다. 프리미엄 기능에는 확장 결정을 알리는 데 사용되는 자체 내부 상태 프로브가 있습니다.
+- **무료** 및 **공유** App Service 플랜에 대해 상태 검사를 사용하도록 설정하여 사이트 상태에 대한 메트릭을 유지하고 경고를 설정할 수 있지만 **무료** 및 **공유** 사이트는 스케일 아웃될 수 없으므로 비정상 인스턴스는 대체되지 않습니다. 2개 이상의 인스턴스로 스케일 아웃하고 상태 검사의 모든 이점을 활용할 수 있도록 **기본** 계층 이상으로 스케일 업해야 합니다. 앱의 가용성과 성능이 향상될 수 있기 때문에 프로덕션 관련 애플리케이션에 권장됩니다.
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+### <a name="what-happens-if-my-app-is-running-on-a-single-instance"></a>내 앱이 단일 인스턴스에서 실행되면 어떻게 되나요?
+
+앱이 하나의 인스턴스로만 스케일되고 비정상 상태가 되면 애플리케이션이 완전히 중단되므로 부하 분산 장치에서 제거되지 않습니다. 둘 이상의 인스턴스로 스케일 아웃하여 상태 검사의 재라우팅 이점을 얻을 수 있습니다. 앱이 단일 인스턴스에서 실행되는 경우에도 상태 검사의 [모니터링](#monitoring) 기능을 사용하여 애플리케이션의 상태를 추적할 수 있습니다.
+ 
+### <a name="why-are-the-health-check-request-not-showing-in-my-frontend-logs"></a>내 프런트 엔드 로그에 상태 검사 요청이 표시되지 않는 이유는 무엇인가요?
+
+상태 검사 요청은 내부적으로 사이트로 전송되므로 [프런트 엔드 로그](troubleshoot-diagnostic-logs.md#enable-web-server-logging)에 요청이 표시되지 않습니다. 즉, 요청이 내부적으로 전송되는 요청이므로 `127.0.0.1`의 원본이 됩니다. 상태 검사 코드에 로그 문을 추가하여 상태 검사 경로가 ping될 때의 로그를 유지할 수 있습니다.
+
+### <a name="are-the-health-check-requests-sent-over-http-or-https"></a>상태 검사 요청이 HTTP와 HTTPS 중에서 어떤 프로토콜을 통해 전송되나요?
+
+사이트에 대해 [HTTPS 전용](configure-ssl-bindings.md#enforce-https)이 사용하도록 설정된 경우 상태 검사 요청은 HTTPS를 통해 전송됩니다. 그렇지 않으면 HTTP를 통해 전송됩니다.
+
+### <a name="what-if-i-have-multiple-apps-on-the-same-app-service-plan"></a>동일한 App Service 플랜에 여러 앱이 있는 경우 어떻게 되나요?
+
+비정상 인스턴스는 App Service 플랜의 다른 앱에 관계없이 항상 부하 분산 장치 순환에서 제거됩니다([`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`](#configuration)에 지정된 비율까지). 인스턴스의 앱이 1시간 넘게 비정상 상태로 유지되는 경우 상태 검사를 사용하도록 설정된 다른 모든 앱도 비정상 상태인 경우에만 인스턴스가 대체됩니다. 상태 검사를 사용하도록 설정되지 않은 앱은 고려되지 않습니다. 
+
+#### <a name="example"></a>예 
+
+상태 검사를 사용하도록 설정한 두 애플리케이션(또는 슬롯이 있는 하나의 앱) 앱 A와 앱 B가 있다고 가정해보겠습니다. 이러한 애플리케이션은 동일한 App Service 플랜에 있고 해당 플랜은 4개의 인스턴스로 스케일 아웃됩니다. 두 인스턴스에서 앱 A가 비정상 상태가 되면 부하 분산 장치는 해당하는 두 인스턴스에서 앱 A로의 요청 전송을 중지합니다. 앱 B가 정상이라고 가정하면 해당 인스턴스에서 요청은 여전히 앱 B로 라우팅됩니다. 해당 두 인스턴스에서 앱 A가 1시간 넘게 비정상 상태로 유지되는 경우 해당 인스턴스에서 앱 B **또한** 비정상 상태인 경우에만 인스턴스가 대체됩니다. 앱 B가 정상이면 인스턴스가 대체되지 않습니다.
+
+![위의 예제 시나리오를 설명하는 시각적 다이어그램][2]
+
+> [!NOTE]
+> 플랜(사이트 C)에 상태 검사를 사용하도록 설정하지 않은 다른 사이트 또는 슬롯이 있는 경우 인스턴스 교체는 고려되지 않습니다.
+
+### <a name="what-if-all-my-instances-are-unhealthy"></a>내 인스턴스가 모두 비정상이면 어떻게 되나요?
+
+애플리케이션의 모든 인스턴스가 비정상인 시나리오에서 App Service는 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`에 지정된 비율까지 부하 분산 장치에서 인스턴스를 제거합니다. 이 시나리오에서 모든 비정상 앱 인스턴스를 부하 분산 장치 순환에서 제외하면 애플리케이션이 효과적으로 중단됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)
 
-[1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
-[2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png
+[1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
+[2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png
 [3]: ./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png

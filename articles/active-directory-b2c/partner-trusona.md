@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03ed6d53908b1daf8e027ee0143cc06d803a24cd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2efd5fdc49f5ae6724b9d1dc3b45d54329f17a61
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257826"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223953"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Azure Active Directory B2C와 Trusona 통합
 
@@ -24,7 +24,7 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작하려면 다음 사항이 필요합니다.
+시작하려면 다음이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)
@@ -40,7 +40,7 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
 
 ![Trusona 아키텍처 다이어그램](media/partner-trusona/trusona-architecture-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 |1     | 사용자가 애플리케이션에 로그인하거나 등록하려고 합니다. 사용자는 Azure AD B2C 등록 및 로그인 정책을 통해 인증됩니다. 등록하는 동안 Trusona 앱에서 이전에 확인된 사용자의 이메일 주소가 사용됩니다.     |
 |2     | Azure B2C는 암시적 흐름을 사용하여 사용자를 Trusona OIDC(OpenID Connect) ID 공급자로 리디렉션합니다.     |
@@ -148,15 +148,17 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
 
 ### <a name="test-the-policy"></a>정책 테스트
 
-1. 새로 만든 정책을 선택합니다.
+1. 만든 정책을 선택합니다.
 
-2. **사용자 흐름 실행** 을 선택합니다.
+1. **사용자 흐름 실행** 을 선택하고 설정을 선택합니다.
 
-3. 양식에서 회신 URL을 입력합니다.
+   1. **애플리케이션**: 등록된 앱을 선택합니다.
+ 
+   1. **회신 URL**: 리디렉션 URL을 선택합니다.
+   
+1. **사용자 흐름 실행** 을 선택합니다. Trusona OIDC 게이트웨이로 리디렉션해야 합니다. Trusona 게이트웨이에서 Trusona 모바일 SDK를 사용하여 Trusona 앱 또는 사용자 지정 앱으로 표시된 보안 QR 코드를 검사합니다.
 
-4. **사용자 흐름 실행** 을 선택합니다. Trusona OIDC 게이트웨이로 리디렉션해야 합니다. Trusona 게이트웨이에서 Trusona 모바일 SDK를 사용하여 Trusona 앱 또는 사용자 지정 앱으로 표시된 보안 QR 코드를 검사합니다.
-
-5. 보안 QR 코드를 검사한 후 3단계에서 정의한 회신 URL로 리디렉션해야 합니다.
+1. 보안 QR 코드를 검사한 후 정의한 회신 URL로 리디렉션해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계  
 

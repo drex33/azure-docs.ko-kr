@@ -1,18 +1,21 @@
 ---
-title: Azure Data Factory에서 연속 창 트리거 만들기
-description: 연속 창에 따라 파이프라인을 실행하는 Azure Data Factory에서 트리거를 만드는 방법을 알아봅니다.
+title: 연속 창 트리거 만들기
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics의 연속 창에서 파이프라인을 실행하는 트리거를 만드는 방법을 알아봅니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2020
-ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: b4a2e86c66584f555dd88dfd8e3d3b8b0fac5858
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779820"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822745"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -22,13 +25,19 @@ ms.locfileid: "104779820"
 
 연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다. 연속 창 트리거는 파이프라인과 1:1 관계이며 단일 파이프라인만 참조할 수 있습니다. 연속 창 트리거는 복잡한 시나리오에 대한 기능 모음을 제공하는 일정 트리거([다른 연속 창 트리거에 대한 종속성](#tumbling-window-trigger-dependency), [실패한 작업 재실행](tumbling-window-trigger-dependency.md#monitor-dependencies) 및 [파이프라인에 대한 사용자 재시도 설정](#user-assigned-retries-of-pipelines))의 보다 뛰어난 대안입니다. 일정 트리거와 연속 창 트리거의 차이점을 자세히 이해하려면 [여기](concepts-pipeline-execution-triggers.md#trigger-type-comparison)를 방문하세요.
 
-## <a name="data-factory-ui"></a>Data Factory UI
+## <a name="ui-experience"></a>UI 환경
 
-1. Data Factory UI에서 연속 창 트리거를 만들려면 **트리거** 탭을 선택한 다음 **새로 만들기** 를 선택합니다. 
+1. UI에서 연속 창 트리거를 만들려면 **트리거** 탭을 선택한 다음, **새로 만들기** 를 선택합니다. 
 1. 트리거 구성 창이 열리면 **연속 창** 을 선택한 다음 연속 창 트리거 속성을 정의합니다. 
 1. 완료되면 **저장** 을 선택합니다.
 
-![Azure Portal에서 연속 창 트리거 만들기](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Azure Portal에서 연속 창 트리거 만들기":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Azure Portal에서 연속 창 트리거 만들기":::
+
+---
 
 ## <a name="tumbling-window-trigger-type-properties"></a>연속 창 트리거 형식 속성
 
@@ -168,11 +177,27 @@ ms.locfileid: "104779820"
 * 창이 **실행 중** 상태에 있는 경우 연결된 ‘파이프라인 실행’을 취소하면 트리거 실행이 ‘취소됨’으로 표시됩니다. 
 * 창이 **대기 중** 또는 **종속성 대기 중** 상태에 있는 경우 다음과 같이 모니터링에서 창을 취소할 수 있습니다.
 
-![모니터링 페이지에서 연속 창 트리거 취소](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="모니터링 페이지에서 연속 창 트리거 취소":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="모니터링 페이지에서 연속 창 트리거 취소":::
+
+---
 
 취소된 창을 다시 실행할 수도 있습니다. 재실행은 트리거의 ‘최신’ 게시된 정의를 사용하며, 지정된 창에 대한 종속성이 재실행 시에 ‘재평가’됩니다. 
 
-![이전에 취소된 실행에 대한 연속 창 트리거 재실행](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="이전에 취소된 실행에 대한 연속 창 트리거 재실행":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="이전에 취소된 실행에 대한 연속 창 트리거 재실행":::
+
+---
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell의 샘플
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c71a0ddece95eb7d6a651da9c307912a1a24c800
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795604"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259461"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
@@ -61,7 +61,7 @@ Azure 스토리지 계정을 배포한 후 파일 공유를 만듭니다.
 
     ![파일 공유 추가 단추 선택](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. 새 파일 공유의 이름을 _afsfileshare_ 로 지정합니다. **할당량** 에 대해 "1"을 입력한 다음, **만들기** 를 선택합니다. 할당량은 최대 5TiB까지 가능하지만 이 자습서에서는 1GB만 필요합니다.
+1. 새 파일 공유의 이름을 _afsfileshare_ 로 지정합니다. **할당량** 에 대해 "5120"을 입력한 다음, **만들기** 를 선택합니다. 할당량은 최대 100TiB까지 가능하지만 이 자습서에서는 5TiB만 필요합니다.
 
     ![새 파일 공유에 대해 이름과 할당량 입력](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -97,7 +97,7 @@ Azure 스토리지 계정을 배포한 후 파일 공유를 만듭니다.
    1. **디스크** 탭의 **디스크 옵션** 에서 기본값을 그대로 둡니다.
    1. **데이터 디스크** 에서 **새 디스크 만들기 및 연결** 을 선택합니다.
 
-   1. 이 자습서의 경우 **1GB** 로 변경할 수 있는 **크기(GiB)** 를 제외하고 기본 설정을 사용합니다.
+   1. 이 자습서의 경우 **1GiB** 로 변경할 수 있는 **크기(GiB)** 를 제외하고 기본 설정을 사용합니다.
 
       ![데이터 디스크 세부 정보](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -156,7 +156,7 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
 
     ![데이터 디스크](media/storage-sync-files-extend-servers/your-disk.png)
 
-1. 이름이 **Msft 가상 디스크** 인 1GB 디스크를 마우스 오른쪽 단추로 클릭하고 **새 볼륨** 을 선택합니다.
+1. 이름이 **Msft 가상 디스크** 인 1GiB 디스크를 마우스 오른쪽 단추로 클릭하고 **새 볼륨** 을 선택합니다.
 1. 마법사를 완료합니다. 기본 설정을 사용하고 지정된 드라이브 문자를 기록합니다.
 1. **만들기** 를 선택합니다.
 1. **닫기** 를 선택합니다.

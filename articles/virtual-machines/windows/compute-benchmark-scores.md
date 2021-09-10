@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: fd2ab3926cfe8357bdb3a28fd833bfd6e91d5da0
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479562"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689712"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
 다음 CoreMark 벤치마크 점수는 Windows Server 2019를 실행하는 일부 Azure VM에 대한 컴퓨팅 성능을 보여 줍니다. [Linux VM](../linux/compute-benchmark-scores.md)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
 
 | 형식 | 제품군 |

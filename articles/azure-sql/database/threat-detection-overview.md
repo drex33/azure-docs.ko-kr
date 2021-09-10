@@ -12,17 +12,17 @@ ms.author: datrigan
 ms.reviewer: vanto, sstein
 ms.date: 06/09/2021
 tags: azure-synapse
-ms.openlocfilehash: 688a171b7f84b1aeb91adcd45115389c92e652d0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c3b2d31a2351e90be2a30b146dd12d02b90ac16b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970682"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236376"
 ---
 # <a name="sql-advanced-threat-protection"></a>SQL Advanced Threat Protection
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)] :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure VM의 SQL Server :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Arc 지원 SQL Server
 
-[Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md), [Azure Arc 지원 SQL Server](/sql/sql-server/azure-arc/overview.ms)의 Advanced Threat Protection은 데이터베이스를 악용하거나 액세스하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 탐지합니다.
+[Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md), [Azure Arc 지원 SQL Server](/sql/sql-server/azure-arc/overview)의 Advanced Threat Protection은 데이터베이스를 악용하거나 액세스하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 탐지합니다.
 
 Advanced Threat Protection은 고급 SQL 보안 기능용 통합 패키지인 [Azure Defender for SQL](../../security-center/defender-for-sql-introduction.md) 제품에 포함되어 있습니다. Azure Defender for SQL 중앙 포털을 통해 Advanced Threat Protection에 액세스하고 관리할 수 있습니다.
 
@@ -68,5 +68,4 @@ Advanced Threat Protection은 경고를 [Azure 보안 센터](https://azure.micr
 - [Azure SQL Managed Instance의 Advanced Threat Protection](../managed-instance/threat-detection-configure.md)에 관해 자세히 알아봅니다.
 - [Azure Defender for SQL](azure-defender-for-sql.md)에 대해 자세히 알아봅니다.
 - [Azure SQL Database 감사](../../azure-sql/database/auditing-overview.md)에 대한 자세한 정보
-- [Azure Security Center](../../security-center/security-center-introduction.md)에 대해 자세히 알아봅니다.
-- 가격 책정에 관한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+- [Azure Security Center](../../security-center/security-center-introduction.md)에 대해 자세히 알아봅니다. 가격 책정에 대한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.

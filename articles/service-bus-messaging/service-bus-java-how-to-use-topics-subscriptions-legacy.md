@@ -1,8 +1,8 @@
 ---
 title: Java에서 Azure Service Bus 토픽 및 구독 사용
-description: 이 빠른 시작에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다.
-ms.date: 06/23/2020
-ms.topic: quickstart
+description: 이 문서에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
 ms.custom:
 - seo-java-july2019
@@ -10,23 +10,23 @@ ms.custom:
 - seo-java-september2019
 - devx-track-java
 - mode-api
-ms.openlocfilehash: c20a9372ddc951b7d4184a7abeda9537006c4865
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f6f0520797a5c221f1c3e1ea60c22d1576bad07e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533368"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "121736240"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>빠른 시작: Java에서 Service Bus 토픽 및 구독 사용
-이 빠른 시작에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다. 
+# <a name="use-service-bus-topics-and-subscriptions-with-java-old-package"></a>Java에서 Service Bus 토픽 및 구독 사용
+이 문서에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다. 
 
 > [!WARNING]
->  이 빠른 시작에서는 이전 azure-servicebus 패키지를 사용합니다. 최신 azure-messaging-servicebus 패키지를 사용하는 빠른 시작은 [azure-messaging-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-topics-subscriptions.md)를 참조하세요.
+>  이 문서에서는 이전 azure-servicebus 패키지를 사용합니다. 최신 azure-messaging-servicebus 패키지를 사용하는 문서는 [azure-messaging-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-topics-subscriptions.md)를 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+1. Azure 구독 이 문서의 단계를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 항목 및 해당 항목에 대한 하나 이상의 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md): 다음 작업을 수행합니다.
     1. Service Bus **네임스페이스** 를 만듭니다.
     2. **연결 문자열** 을 가져옵니다.

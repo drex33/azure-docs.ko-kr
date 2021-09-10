@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399ce5e8714eb6935e3c2eac06ed44b712a14e35
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609418"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536395"
 ---
 지역 VNet 통합을 사용하면 앱에서 다음에 액세스할 수 있습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "105609418"
 1. **저장** 을 선택합니다.
 
 > [!NOTE]
-> 모든 아웃바운드 트래픽을 VNet으로 라우팅하면 통합 서브넷에 적용되는 NSG 및 UDR이 적용됩니다. `WEBSITE_VNET_ROUTE_ALL`을 `1`로 설정하면 트래픽을 다른 곳으로 전달하는 경로를 제공하지 않는 한 아웃바운드 트래픽은 앱 속성에 나열된 주소에서 계속 전송됩니다.
+> 모든 아웃바운드 트래픽을 VNet으로 라우팅하면 통합 서브넷에 적용되는 NSG 및 UDR이 적용됩니다. `WEBSITE_VNET_ROUTE_ALL`을 `1`로 설정하면 트래픽을 다른 곳으로 보내는 경로를 제공하지 않는 한 앱 속성에 나열된 주소에서 공용 IP 주소에 대한 아웃바운드 트래픽이 계속 전송됩니다.
 > 
 > 지역 VNet 통합은 포트 25를 사용할 수 없습니다.
 

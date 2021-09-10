@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/30/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7bdad6175de60eaee602d8f91842a1b742196688
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: dce411e6359a760f50dd4bbbbeba369e2a67f386
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609076"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254217"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 Blob에 대한 개체 복제
 
@@ -68,7 +68,11 @@ ms.locfileid: "122609076"
 
 ### <a name="immutable-blobs"></a>변경이 불가능한 Blob
 
-개체 복제는 변경할 수 없는 Blob을 지원하지 않습니다. 원본 또는 대상 컨테이너에 시간 기반 보존 정책이나 법적 보류가 있는 경우 개체 복제가 실패합니다. 변경이 불가능한 Blob에 대한 자세한 내용은 [비즈니스에 중요한 Blob 데이터를 변경이 불가능한 스토리지에 저장](immutable-storage-overview.md)을 참조하세요.
+Azure Blob Storage에 대한 불변성 정책에는 시간 기반 보존 정책 및 법적 보존이 포함됩니다. 대상 계정에 불변성 정책이 적용되면 개체 복제가 영향을 받을 수 있습니다. 불변성 정책에 대한 자세한 내용은 [비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](immutable-storage-overview.md)을 참조하세요.
+
+컨테이너 수준의 불변성 정책이 대상 계정의 컨테이너에 적용되고 원본 컨테이너의 개체가 업데이트되거나 삭제되는 경우, 원본 컨테이너에 대한 작업은 성공할 수 있지만 대상 컨테이너에 대한 해당 작업의 복제는 실패합니다. 컨테이너로 범위가 지정된 불변성 정책으로 금지되는 작업에 대한 자세한 내용은 [컨테이너 수준 범위의 시나리오](immutable-storage-overview.md#scenarios-with-container-level-scope)를 참조하세요.
+
+버전 수준 불변성 정책이 대상 계정의 Blob 버전에 적용되고 원본 컨테이너의 Blob 버전에 대한 삭제 또는 업데이트 작업이 수행되는 경우 원본 개체에 대한 작업은 성공할 수 있지만 대상 개체에 대한 해당 작업의 복제는 실패합니다. 컨테이너로 범위가 지정된 불변성 정책으로 금지되는 작업에 대한 자세한 내용은 [버전 수준 범위의 시나리오](immutable-storage-overview.md#scenarios-with-version-level-scope)를 참조하세요.
 
 ## <a name="object-replication-policies-and-rules"></a>개체 복제 정책 및 규칙
 

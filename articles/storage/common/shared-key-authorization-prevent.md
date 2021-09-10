@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679273"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537683"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 공유 키 권한 부여 방지
 
 Azure Storage 계정에 대한 모든 보안 요청에는 권한이 있어야 합니다. 기본적으로 요청은 Azure AD(Azure Active Directory) 자격 증명을 사용하거나 공유 키 권한 부여를 위한 계정 액세스 키를 사용하여 권한을 부여할 수 있습니다. 이러한 두 가지 유형의 권한 부여 중 Azure AD는 공유 키보다 뛰어난 보안과 사용 편의성을 제공하며 Microsoft에서 권장합니다. 클라이언트가 Azure AD를 사용하여 요청을 승인하도록 하려면 공유 키로 권한이 부여된 저장소 계정에 대한 요청을 허용하지 않으면 됩니다.
 
-스토리지 계정에 대한 공유 키 권한 부여를 허용하지 않으면 Azure Storage는 계정 액세스 키로 권한이 부여된 계정에 대한 모든 후속 요청을 거부합니다. Azure AD로 권한이 부여된 보안 요청만 성공합니다. Azure AD 사용에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)를 참조하세요.
+스토리지 계정에 대한 공유 키 권한 부여를 허용하지 않으면 Azure Storage는 계정 액세스 키로 권한이 부여된 계정에 대한 모든 후속 요청을 거부합니다. Azure AD로 권한이 부여된 보안 요청만 성공합니다. Azure AD를 사용하는 방법에 관한 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](authorize-data-access.md)를 참조하세요.
 
 이 문서에서는 공유 키 권한 부여를 사용하여 보낸 요청을 검색하는 방법과 스토리지 계정에 대한 공유 키 권한 부여를 수정하는 방법을 설명합니다.
 
@@ -107,7 +107,7 @@ StorageBlobLogs
 
 ## <a name="remediate-authorization-via-shared-key"></a>공유 키를 통해 권한 부여 수정
 
-스토리지 계정에 대한 요청에 권한이 부여되는 방식을 분석한 후 공유 키를 통한 액세스를 막는 조치를 취할 수 있습니다. 하지만 먼저, Azure AD를 대신 사용하려면 공유 키 권한 부여를 사용하는 모든 애플리케이션을 업데이트해야 합니다. [클라이언트 애플리케이션에 사용되는 권한 부여 유형 검색](#detect-the-type-of-authorization-used-by-client-applications)의 설명대로 로그 및 메트릭을 모니터링하여 전환을 추적할 수 있습니다. Blob 및 큐 데이터와 함께 Azure AD를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)를 참조하세요.
+스토리지 계정에 대한 요청에 권한이 부여되는 방식을 분석한 후 공유 키를 통한 액세스를 막는 조치를 취할 수 있습니다. 하지만 먼저, Azure AD를 대신 사용하려면 공유 키 권한 부여를 사용하는 모든 애플리케이션을 업데이트해야 합니다. [클라이언트 애플리케이션에 사용되는 권한 부여 유형 검색](#detect-the-type-of-authorization-used-by-client-applications)의 설명대로 로그 및 메트릭을 모니터링하여 전환을 추적할 수 있습니다. Azure AD를 사용하여 스토리지 계정의 데이터에 액세스하는 방법에 대한 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](authorize-data-access.md)를 참조하세요.
 
 공유 키로 권한이 부여된 요청을 안전하게 거부할 수 있다고 확신하는 경우 스토리지 계정에 대한 **AllowSharedKeyAccess** 속성을 **false** 로 설정할 수 있습니다.
 
@@ -247,6 +247,6 @@ Azure Storage는 Blob 및 Queue Storage에 대한 요청에 대해서만 Azure A
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Storage의 데이터에 대한 액세스 권한 부여](storage-auth.md)
-- [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](storage-auth-aad.md)
+- [Azure Storage의 데이터에 대한 액세스 권한 부여](./authorize-data-access.md)
+- [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](authorize-data-access.md)
 - [공유 키로 권한 부여](/rest/api/storageservices/authorize-with-shared-key)

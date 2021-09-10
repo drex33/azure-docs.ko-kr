@@ -8,39 +8,41 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb616bce2f169061a6384148e3cbbe463c83be8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c14580790891190f40dd2866aaac25ad2c286137
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085909"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536423"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
-'isAssignableToRole' 속성을 True로 설정하여 만든 그룹에만 역할을 할당할 수 있으며, **Azure AD 역할이 그룹** 에 설정된 Azure Portal에서만 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수한 종류의 그룹을 만드는 방법을 설명합니다. **참고:** isAssignableToRole 속성이 true로 설정된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [Azure AD 역할 할당 관리를 위한 그룹 사용](groups-concept.md)을 참조하세요.
+'isAssignableToRole' 속성을 True로 설정하여 만든 그룹에만 역할을 할당할 수 있으며, **Azure AD 역할이 그룹** 에 설정된 Azure Portal에서만 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수한 종류의 그룹을 만드는 방법을 설명합니다. **참고:** isAssignableToRole 속성이 true로 설정된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P1 또는 P2 라이선스
 - 권한 있는 역할 관리자 또는 전역 관리자
-- PowerShell 사용 시 AzureADPreview 모듈
+- PowerShell을 사용하는 경우 AzureAD 모듈
 - Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
-1. **그룹**  >  **모든 그룹**  >  **새 그룹** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **그룹** > **모든 그룹** > **새 그룹** 을 선택합니다.
 
     [![Azure Active Directory에 액세스하여 새 그룹 만들기.](./media/groups-create-eligible/new-group.png "Azure Active Directory를 열고 새 그룹 만들기.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. **새 그룹** 탭에서 그룹 형식, 이름 및 설명을 입력합니다.
+
 1. **Azure AD 역할을 그룹에 할당하기** 를 켭니다. 이 스위치는 스위치를 설정할 수 있는 두 개의 역할만 있으므로 권한 있는 역할 관리자 및 전역 관리자에게만 표시됩니다.
 
     [![새 그룹을 역할 할당에 적합하도록 설정](./media/groups-create-eligible/eligible-switch.png "새 그룹을 역할 할당에 적합하도록 설정")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
@@ -69,9 +71,9 @@ $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Desc
 
 ```powershell
 #Basic set up
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-Get-Module -Name AzureADPreview
+Install-Module -Name AzureAD
+Import-Module -Name AzureAD
+Get-Module -Name AzureAD
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -123,6 +125,6 @@ POST https://graph.microsoft.com/beta/groups
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹에 역할 할당](groups-assign-role.md)
-- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
-- [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)
+- [그룹에 Azure AD 역할 할당](groups-assign-role.md)
+- [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)
+- [그룹에 할당된 Azure AD 역할 문제 해결](groups-faq-troubleshooting.yml)

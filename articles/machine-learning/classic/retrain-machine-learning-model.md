@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 웹 서비스 다시 학습 - Azure'
-description: Azure Machine Learning Studio(클래식)에서 새로 학습한 기계 학습 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+description: Machine Learning Studio(클래식)에서 새로 학습한 기계 학습 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp, devx-track-azurepowershell
 ms.date: 02/14/2019
-ms.openlocfilehash: a1bf9582c73eb168c0f32e713f8308096edcf603
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5234611c99a58cefcb98d02c87d257055f603b4c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704802"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579633"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
@@ -51,7 +51,7 @@ ms.locfileid: "110704802"
     다음으로, 학습 실험을 학습된 모델 및 모델 평가 결과를 출력하는 재학습 웹 서비스로 배포합니다.
 
 1. 실험 캔버스 맨 아래에서 **웹 서비스 설정** 을 클릭합니다.
-1. **웹 서비스 배포[신규]** 를 선택합니다. Azure Machine Learning Web Services 포털은 **웹 서비스 배포** 페이지에 열립니다.
+1. **웹 서비스 배포[신규]** 를 선택합니다. Machine Learning Web Services 포털은 **웹 서비스 배포** 페이지에 열립니다.
 1. 웹 서비스의 이름을 입력하고 결제 방식을 선택합니다.
 1. **배포** 를 선택합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "110704802"
 
 설명에서 지정된 대로 NuGet 패키지인 Microsoft.AspNet.WebApi.Client를 추가합니다. Microsoft.WindowsAzure.Storage.dll에 참조를 추가하려면 [Azure Storage 서비스용 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)를 설치해야 합니다.
 
-다음 스크린 샷은 Azure Machine Learning Web Services 포털의 **사용** 페이지를 보여줍니다.
+다음 스크린샷은 Machine Learning Web Services 포털의 **사용** 페이지를 보여줍니다.
 
 ![사용 페이지](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -161,7 +161,7 @@ Type : Microsoft.MachineLearning/webServices
 Tags : {}
 ```
 
-또는 기존 웹 서비스의 리소스 그룹 이름을 결정하려면 Azure Machine Learning Web Services 포털에 로그인합니다. 웹 서비스를 선택합니다. 리소스 그룹 이름은 웹 서비스 URL의 다섯 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
+또는 기존 웹 서비스의 리소스 그룹 이름을 결정하려면 Machine Learning Web Services 포털에 로그인합니다. 웹 서비스를 선택합니다. 리소스 그룹 이름은 웹 서비스 URL의 다섯 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
 
 `https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 

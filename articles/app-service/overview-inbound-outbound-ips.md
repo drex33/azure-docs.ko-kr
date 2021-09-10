@@ -4,12 +4,12 @@ description: 인바운드 및 아웃바운드 IP 주소가 Azure App Service에�
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 1dda487d23c9f955aea8e35d16e5a560a890a173
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834483"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538986"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -51,7 +51,7 @@ nslookup <app-name>.azurewebsites.net
 
 - 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다(배포 단위가 바뀔 수 있음).
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다(배포 단위가 바뀔 수 있음).
-- 하위 계층(**기본**, **표준** 및 **프리미엄**)과 **프리미엄 V2** 계층(IP 주소를 집합에 추가하거나 집합에서 뺄 수 있음) 사이에 앱 크기를 스케일링합니다.
+- 하위 계층(**기본**, **표준**, **프리미엄**), **프리미엄V2** 계층, **프리미엄V3** 계층 사이에 앱을 스케일링합니다(IP 주소를 세트에 추가하거나 세트에서 뺄 수 있음).
 
 가격 책정 계층에 관계 없이 앱에서 사용할 수 있는 모든 아웃바운드 IP 주소 집합을 찾을 수 있습니다. 이는 `possibleOutboundIpAddresses` 속성이나 Azure Portal의 **추가 아웃바운드 IP 주소** 필드(위치는 **속성** 블레이드)에서 찾을 수 있습니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 
@@ -80,6 +80,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```azurepowershell
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
+
+## <a name="get-a-static-outbound-ip"></a>고정 아웃바운드 IP 가져오기
+가상 네트워크 NAT 게이트웨이와 함께 지역 VNet 통합을 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 앱에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [지역 VNet 통합](/azure/app-service/web-sites-integrate-with-vnet)은 **표준**, **프리미엄**, **프리미엄V2**, **프리미엄V3** App Service 요금제에서 사용할 수 있습니다. 이 설정에 관한 자세한 내용은 [NAT 게이트웨이 통합](./networking/nat-gateway-integration.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

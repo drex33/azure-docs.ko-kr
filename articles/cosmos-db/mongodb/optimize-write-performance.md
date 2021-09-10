@@ -5,14 +5,14 @@ author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 08/26/2021
 ms.author: gahllevy
-ms.openlocfilehash: 1b25211f3b25d2878ca5edee05c1c723a30d97db
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2e04953e766c76275079731751cb006fe46712e7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529082"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039555"
 ---
 # <a name="optimize-write-performance-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB용 Azure Cosmos DB API에서 쓰기 성능 최적화
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -60,3 +60,6 @@ db.collection.insertMany(
 * [MongoDB용 API의 인덱싱](../mongodb-indexing.md)에 관해 자세히 알아보세요.
 * [Azure Cosmos DB의 분할/파티셔닝](../partitioning-overview.md)에 관해 자세히 알아보세요.
 * [일반 문제 해결](error-codes-solutions.md)에 관해 자세히 알아보세요.
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

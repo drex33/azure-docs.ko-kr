@@ -8,13 +8,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 06/07/2021
-ms.openlocfilehash: 606b24662fba30e68a9195f19d63ec31f51f9221
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 1595d2984c4130fa89c52aec615941051fa1bb82
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642934"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099357"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -25,10 +25,6 @@ Azure Data Factory 및 Synapse 파이프라인의 매핑 데이터 흐름은 대
 아래 비디오는 데이터 흐름을 사용하여 데이터를 변환하는 몇 가지 샘플 타이밍을 보여줍니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
-
-## <a name="testing-data-flow-logic"></a>데이터 흐름 논리 테스트
-
-UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드에서 라이브 Spark 클러스터를 대화형으로 테스트할 수 있습니다. 이렇게 하면 클러스터가 준비될 때까지 기다리지 않고 데이터를 미리 보고 데이터 흐름을 실행할 수 있습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
 ## <a name="monitoring-data-flow-performance"></a>데이터 흐름 성능 모니터링
 
@@ -45,11 +41,15 @@ UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드�
 
 ![데이터 흐름 모니터링](media/data-flow/monitoring-performance.png "데이터 흐름 모니터 3")
 
-클러스터 시작 시간은 Apache Spark 클러스터를 가동하는 데 걸리는 시간입니다. 이 값은 모니터링 화면의 오른쪽 위 모서리에 있습니다. 데이터 흐름은 각 작업이 격리된 클러스터를 사용하는 Just-In-Time 모델에서 실행됩니다. 이 시작 시간은 일반적으로 3-5입니다. 순차적 작업의 경우 Time to Live 값을 사용하여 이 시간을 줄일 수 있습니다. 자세한 내용은 [Azure Integration Runtime 최적화](#ir)를 참조하세요.
+클러스터 시작 시간은 Apache Spark 클러스터를 가동하는 데 걸리는 시간입니다. 이 값은 모니터링 화면의 오른쪽 위 모서리에 있습니다. 데이터 흐름은 각 작업이 격리된 클러스터를 사용하는 Just-In-Time 모델에서 실행됩니다. 이 시작 시간은 일반적으로 3-5입니다. 순차적 작업의 경우 Time to Live 값을 사용하여 이 시간을 줄일 수 있습니다. 자세한 내용은 [통합 런타임 성능](concepts-integration-runtime-performance.md#time-to-live)의 **TTL(Time to live)** 섹션을 참조하세요.
 
 데이터 흐름은 '스테이지'의 비즈니스 논리를 다시 정렬하고 실행하여 최대한 수행하는 Spark 최적화 프로그램을 활용합니다. 데이터 흐름에서 기록하는 각 싱크의 경우 모니터링 출력에는 싱크에 데이터를 쓰는 데 걸리는 시간과 함께 각 변환 단계의 기간이 나열됩니다. 가장 긴 시간은 데이터 흐름의 병목 상태를 의미할 수 있습니다. 가장 오래 걸리는 변환 단계에 원본이 포함된 경우 좀 더 자세히 살펴보고 읽기 시간을 최적화할 수 있습니다. 변환이 오래 걸리는 경우 통합 런타임을 다시 분할하거나 크기를 늘려야 할 수 있습니다. 싱크 처리가 오래 걸리는 경우 데이터베이스를 스케일 업하거나 단일 파일에 출력하고 있지는 않은지 확인해야 할 수 있습니다.
 
 데이터 흐름의 병목 상태를 확인한 후에는 아래 최적화 전략을 사용하여 성능을 향상합니다.
+
+## <a name="testing-data-flow-logic"></a>데이터 흐름 논리 테스트
+
+UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드에서 라이브 Spark 클러스터를 대화형으로 테스트할 수 있습니다. 이렇게 하면 클러스터가 준비될 때까지 기다리지 않고 데이터를 미리 보고 데이터 흐름을 실행할 수 있습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
 ## <a name="optimize-tab"></a>최적화 탭
 
@@ -95,54 +95,6 @@ UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드�
 
 ![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Azure Integration Runtime 최적화
-
-데이터 흐름은 런타임에 스핀업된 Spark 클러스터에서 실행됩니다. 사용되는 클러스터의 구성은 활동의 IR(통합 런타임)에 정의되어 있습니다. 통합 런타임을 정의할 때 클러스터 유형, 클러스터 크기 및 Time to Live의 세 가지 성능을 고려해야 합니다.
-
-통합 런타임을 만드는 방법에 대한 자세한 내용은 [통합 런타임](concepts-integration-runtime.md)을 참조하세요.
-
-### <a name="cluster-type"></a>클러스터 유형
-
-Spark 클러스터 스핀업 유형에 사용할 수 있는 세 가지 옵션은 범용, 메모리 최적화 및 컴퓨팅 최적화입니다.
-
-**범용** 클러스터는 기본적으로 선택되며 대부분의 데이터 흐름 워크로드에 이상적입니다. 성능과 비용의 균형이 가장 좋습니다.
-
-데이터 흐름에서 조인과 조회가 많이 발생하는 경우 **메모리 최적화** 클러스터를 사용하는 것이 좋습니다. 메모리 최적화 클러스터는 메모리에 더 많은 데이터를 저장할 수 있으며 발생할 수 있는 메모리 부족 오류를 최소화합니다. 메모리 최적화 옵션은 코어당 가격이 가장 높지만 보다 성공적인 파이프라인을 만들 수 있습니다. 데이터 흐름을 실행할 때 메모리 부족 오류가 발생하면 메모리 최적화 Azure IR 구성으로 전환하세요. 
-
-**컴퓨팅 최적화** 는 ETL 워크플로에 적합하지 않으며 대부분의 프로덕션 워크로드에 권장하지 않습니다. 데이터 필터링 또는 파생 열 추가와 같이 메모리를 많이 사용하지 않는 간단한 데이터 변형의 경우 코어당 가격이 저렴한 컴퓨팅 최적화 클러스터를 사용해도 됩니다.
-
-### <a name="cluster-size"></a>클러스터 크기
-
-데이터 흐름은 데이터 처리를 Spark 클러스터의 여러 노드에 분산하여 작업을 병렬로 수행합니다. 더 많은 코어가 있는 Spark 클러스터는 컴퓨팅 환경에서 노드 수를 늘립니다. 노드가 많을수록 데이터 흐름의 처리 성능이 향상됩니다. 클러스터 크기를 늘리면 처리 시간이 단축되는 경우가 많습니다.
-
-기본 클러스터 크기는 드라이버 노드 4개와 작업자 노드 4개입니다.  더 많은 데이터를 처리하는 경우 더 큰 클러스터를 사용하는 것이 좋습니다. 아래는 사용 가능한 크기 옵션입니다.
-
-| 작업자 코어 | 드라이버 코어 | 총 코어 | 참고 |
-| ------------ | ------------ | ----------- | ----- |
-| 4 | 4 | 8 | 컴퓨팅 최적화에는 사용할 수 없음 |
-| 8 | 8 | 16 | |
-| 16 | 16 | 32 | |
-| 32 | 16 | 48 | |
-| 64 | 16 | 80 | |
-| 128 | 16 | 144 | |
-| 256 | 16 | 272 | |
-
-데이터 흐름은 vCore-시간으로 가격이 책정됩니다. 즉, 클러스터 크기와 실행 시간을 모두 고려합니다. 스케일 업하면 분당 클러스터 비용이 증가하지만 전체 시간이 감소합니다.
-
-> [!TIP]
-> 클러스터 크기가 데이터 흐름의 성능에 영향을 미치는 한계가 있습니다. 데이터의 크기에 따라 클러스터 크기를 늘려도 성능이 더 이상 향상되지 않는 지점이 있습니다. 예를 들어 데이터 파티션보다 노드가 더 많은 경우 노드를 더 추가해도 도움이 되지 않습니다. 작게 시작하고 이후에 성능 요구 사항에 맞게 스케일 업하는 것이 가장 좋습니다. 
-
-### <a name="time-to-live"></a>TTL(Time to live)
-
-기본적으로 모든 데이터 흐름 작업은 Azure IR 구성에 따라 새 Spark 클러스터를 스핀업합니다. 콜드 클러스터 시작 시간은 몇 분 정도 걸리며 완료될 때까지 데이터 처리를 시작할 수 없습니다. 파이프라인에 여러 개의 **순차적** 데이터 흐름이 포함된 경우 TTL(Time to Live) 값을 사용할 수 있습니다. Time to Live 값을 지정하면 실행이 완료된 후에도 특정 기간 동안 클러스터가 활성 상태로 유지됩니다. TTL 시간 동안 IR을 사용하여 새 작업이 시작되면 기존 클러스터를 다시 사용하므로 시작 시간이 크게 단축됩니다. 두 번째 작업이 완료되면 클러스터는 다시 TTL 시간 동안 활성 상태로 유지됩니다.
-
-데이터 흐름 속성 아래의 Azure 통합 런타임에 있는 “빠른 다시 사용” 옵션을 설정하여 웜 클러스터의 시작 시간을 추가로 최소화할 수 있습니다. 이를 참으로 설정하면 각 작업 후에 기존 클러스터를 해체하지 않고 기존 클러스터를 다시 사용하도록, 특히 Azure IR에서 설정한 컴퓨팅 환경을 TTL에 지정된 기간까지 활성 상태로 유지하도록 서비스에 지시하게 됩니다. 이 옵션을 사용하면 파이프라인에서 실행될 때 데이터 흐름 활동의 시작 시간이 가장 짧습니다.
-
-그러나 대부분의 데이터 흐름이 병렬로 실행되는 경우 해당 활동에 사용하는 IR에 대해 TTL을 사용하지 않는 것이 좋습니다. 단일 클러스터에서 한 번에 하나의 작업만 실행할 수 있습니다. 사용 가능한 클러스터가 있지만 두 개의 데이터 흐름이 시작되면 하나만 라이브 클러스터를 사용합니다. 두 번째 작업은 자체 격리된 클러스터를 스핀업합니다.
-
-> [!NOTE]
-> 자동 해결 통합 런타임을 사용하는 경우 Time to Live를 사용할 수 없습니다.
- 
 ## <a name="optimizing-sources"></a>원본 최적화
 
 Azure SQL Database를 제외한 모든 원본은 **현재 분할 사용** 을 계속 유지하는 것이 좋습니다. 다른 모든 원본 시스템에서 데이터를 읽을 때 데이터 흐름은 데이터 크기에 따라 자동으로 데이터를 균등하게 분할합니다. 128MB 데이터마다 새 파티션이 만들어집니다. 데이터 크기가 증가하면 파티션 수도 증가합니다.
@@ -171,7 +123,7 @@ Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics 원본
 
-Azure Synapse Analytics를 사용하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이 설정을 사용하면 서비스가 ```Staging```을 사용하여 Azure Synapse의 데이터를 읽을 수 있으므로 읽기 성능이 크게 향상됩니다. ```Staging```을 사용하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정해야 합니다.
+Azure Synapse Analytics를 사용하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 서비스가 ```Staging```을 사용하여 Synapse에서 읽을 수 있으며, 이는 가장 성능이 좋은 대량 로드 기능을 위해 [Synapse COPY 문](/sql/t-sql/statements/copy-into-transact-sql.md) 명령을 사용하여 읽기 성능을 크게 향상시킵니다. ```Staging```을 사용하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정해야 합니다.
 
 ![준비 사용](media/data-flow/enable-staging.png "준비 사용")
 
@@ -179,7 +131,7 @@ Azure Synapse Analytics를 사용하는 경우 원본 옵션에 **준비 사용*
 
 데이터 흐름은 다양한 파일 형식을 지원하지만 읽기 및 쓰기 시간이 최적화되도록 Spark 네이티브 Parquet 형식을 사용하는 것이 좋습니다.
 
-파일 세트에서 동일한 데이터 흐름을 실행하는 경우 와일드 카드 경로를 사용하여 폴더에서 읽거나 파일 목록에서 읽는 것이 좋습니다. 단일 데이터 흐름 활동 실행은 모든 파일을 일괄 처리로 처리할 수 있습니다. 이러한 설정을 지정하는 방법에 대한 자세한 내용은 [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation)와 같은 커넥터 설명서에서 찾을 수 있습니다.
+파일 세트에서 동일한 데이터 흐름을 실행하는 경우 와일드 카드 경로를 사용하여 폴더에서 읽거나 파일 목록에서 읽는 것이 좋습니다. 단일 데이터 흐름 활동 실행은 모든 파일을 일괄 처리로 처리할 수 있습니다. 이러한 설정을 구성하는 방법에 대한 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#source-transformation) 문서의 **원본 변환** 섹션에서 찾을 수 있습니다.
 
 되도록이면 For-Each 활동을 사용하여 파일 세트에 대한 데이터 흐름을 실행하지 마세요. 이렇게 하면 for-each의 각 반복이 자체 Spark 클러스터를 스핀업하게 되는데, 필요 없는 경우가 많고 비용이 많이 발생할 수 있습니다. 
 
@@ -210,7 +162,7 @@ SQL 데이터베이스에 로드하기 전에 인덱스를 비활성화하면 �
 ![인덱스 사용 안 함](media/data-flow/disable-indexes-sql.png "인덱스 사용 안 함")
 
 > [!WARNING]
-> 인덱스를 사용하지 않도록 설정하면 데이터 흐름이 데이터베이스를 효과적으로 제어하며 이 시점에는 쿼리가 성공할 가능성이 거의 없습니다. 결과적으로 이 충돌을 방지하기 위해 많은 ETL 작업이 야간에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints)을 참조하세요.
+> 인덱스를 사용하지 않도록 설정하면 데이터 흐름이 데이터베이스를 효과적으로 제어하며 이 시점에는 쿼리가 성공할 가능성이 거의 없습니다. 결과적으로 이 충돌을 방지하기 위해 많은 ETL 작업이 야간에 트리거됩니다. 자세한 내용은 [SQL 인덱스를 사용하지 않도록 설정하는 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints)을 참조하세요.
 
 #### <a name="scaling-up-your-database"></a>데이터베이스 스케일 업
 
@@ -218,7 +170,7 @@ SQL 데이터베이스에 로드하기 전에 인덱스를 비활성화하면 �
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics 싱크
 
-Azure Synapse Analytics에 쓸 때 **준비 사용** 을 true로 설정해야 합니다. 이렇게 하면 서비스가 대량의 데이터를 효과적으로 로드하는 [SQL 복사 명령](/sql/t-sql/statements/copy-into-transact-sql)을 사용하여 쓸 수 있습니다. 준비를 사용하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조해야 합니다.
+Azure Synapse Analytics에 쓸 때 **준비 사용** 을 true로 설정해야 합니다. 이렇게 하면 서비스가 대량의 데이터를 효과적으로 로드하는 [SQL COPY 명령](/sql/t-sql/statements/copy-into-transact-sql)을 사용하여 쓸 수 있습니다. 준비를 사용하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조해야 합니다.
 
 준비 외에도, Azure SQL Database와 동일한 모범 사례가 Azure Synapse Analytics에 적용됩니다.
 
@@ -276,7 +228,7 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 ### <a name="window-transformation-performance"></a>창 변환 성능
 
-[창 변환](data-flow-window.md)은 변환 설정의 ```over()``` 절에서 선택하는 열 값을 기준으로 데이터를 분할합니다. Windows 변환에는 많은 사람들이 사용하는 다양한 집계 및 분석 함수가 있습니다. 그러나 순위 지정 ```rank()``` 또는 행 번호 ```rowNumber()```를 목적으로 전체 데이터 세트에 대한 창을 생성해야 하는 경우에는 [순위 변환](data-flow-rank.md) 및 [서로게이트 키 변환](data-flow-surrogate-key.md)을 대신 사용하는 것이 좋습니다. 이러한 변환은 해당 함수를 사용하여 전체 데이터 세트 작업을 보다 효율적으로 다시 수행합니다.
+[매핑 데이터 흐름의 창 변환](data-flow-window.md)은 변환 설정의 ```over()``` 절에서 선택하는 열 값을 기준으로 데이터를 분할합니다. Windows 변환에는 많은 사람들이 사용하는 다양한 집계 및 분석 함수가 있습니다. 그러나 순위 지정 ```rank()``` 또는 행 번호 ```rowNumber()```를 목적으로 전체 데이터 세트에 대한 창을 생성해야 하는 경우에는 [순위 변환](data-flow-rank.md) 및 [서로게이트 키 변환](data-flow-surrogate-key.md)을 대신 사용하는 것이 좋습니다. 이러한 변환은 해당 함수를 사용하여 전체 데이터 세트 작업을 보다 효율적으로 다시 수행합니다.
 
 ### <a name="repartitioning-skewed-data"></a>기울어진 데이터 다시 분할
 
@@ -326,3 +278,4 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 - [데이터 흐름 작업](control-flow-execute-data-flow-activity.md)
 - [데이터 흐름 성능 모니터링](concepts-data-flow-monitoring.md)
+- [Integration Runtime 성능](concepts-integration-runtime-performance.md)

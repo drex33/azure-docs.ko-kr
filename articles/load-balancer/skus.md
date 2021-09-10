@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc474bf8a6df613a8dc1e95169b4730251ff22b7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94698090"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472853"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -39,7 +39,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 | **[상태 프로브](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[상태 프로브 다운 동작](./load-balancer-custom-probe-overview.md#probedown)** | TCP 연결은 인스턴스 프로브 __및__ 모든 프로브가 다운되어 있을 때 그대로 유지됩니다. | TCP 연결은 인스턴스 프로브가 다운되어 있을 때 그대로 유지됩니다. 모든 프로브가 중지되면 모든 TCP 연결은 종료됩니다. |
 | **가용성 영역** | 인바운드 및 아웃바운드 트래픽에 대한 영역 중복 및 영역 프런트 엔드가 있습니다. | 사용할 수 없음 |
-| **진단** | [Azure Monitor 다차원 메트릭](./load-balancer-standard-diagnostics.md) | [Azure Monitor 로그](./load-balancer-monitor-log.md) |
+| **진단** | [Azure Monitor 다차원 메트릭](./load-balancer-standard-diagnostics.md) | 지원되지 않음 |
 | **HA 포트** | [내부 Load Balancer에 사용 가능](./load-balancer-ha-ports-overview.md) | 사용할 수 없음 |
 | **기본적으로 보안 적용** | 네트워크 보안 그룹에서 허용하지 않는 한 인바운드 흐름으로 종결됩니다. 가상 네트워크에서 내부 부하 분산 장치에 대한 내부 트래픽은 허용됩니다. | 기본적으로 엽니다. 네트워크 보안 그룹 옵션입니다. |
 | **아웃바운드 규칙** | [선언적 아웃바운드 NAT 구성](./load-balancer-outbound-connections.md#outboundrules) | 사용할 수 없음 |
@@ -47,6 +47,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 | **[여러 프론트 엔드](./load-balancer-multivip-overview.md)** | 인바운드 및 [아웃바운드](./load-balancer-outbound-connections.md) | 인바운드 전용 |
 | **관리 작업** | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | 사용할 수 없음 | 
+| **글로벌 VNet 피어링 지원** | 표준 ILB는 글로벌 VNet 피어링을 통해 지원됩니다. | 지원되지 않음 | 
 
 자세한 내용은 [Load Balancer 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)을 참조하세요. 표준 Load Balancer 세부 내용은 [개요](./load-balancer-overview.md), [가격](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 참조하세요.
 

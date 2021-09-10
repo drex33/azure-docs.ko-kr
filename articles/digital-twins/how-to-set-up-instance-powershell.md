@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c52cd013d1a5d2cbde0ab88eac24d2fd3ef77d46
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613530"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468714"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Azure Digital Twins 인스턴스 및 인증 설정(PowerShell)
 
@@ -23,8 +23,8 @@ ms.locfileid: "110613530"
 
 이 문서의 버전은 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 사용하여 이러한 단계를 하나씩 수동으로 진행합니다.
 
-* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
-* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [방법: 인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md) 을 참조하세요.
+* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 [인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md)에서 이 문서의 포털 버전을 참조하세요.
+* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 [인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md)에서 이 문서의 스크립팅된 버전을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -145,4 +145,4 @@ New-AzRoleAssignment @Params
 ## <a name="next-steps"></a>다음 단계
 
 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)
+* [앱 인증 코드 쓰기](how-to-authenticate-client.md)

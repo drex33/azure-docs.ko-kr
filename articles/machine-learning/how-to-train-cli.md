@@ -1,5 +1,5 @@
 ---
-title: 2\.0 CLI를 사용한 모델 학습(작업 만들기)
+title: CLI(v2)를 사용한 모델 학습(작업 만들기)
 titleSuffix: Azure Machine Learning
 description: Machine Learning에 대한 Azure CLI 확장을 사용한 모델 학습(작업 만들기) 방법을 알아봅니다.
 services: machine-learning
@@ -8,40 +8,57 @@ ms.subservice: core
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 06/08/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 141f1ac9cefa91c93a6f2e0cb8500f378ae4700b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: devx-track-azurecli, devplatv2
+ms.openlocfilehash: 9f3a91f9abc472f285139bfac04af7dff5c63e9f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008024"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568203"
 ---
-# <a name="train-models-create-jobs-with-the-20-cli-preview"></a>2\.0 CLI를 사용한 모델 학습(작업 만들기) (미리 보기)
+# <a name="train-models-create-jobs-with-the-cli-v2"></a>CLI(v2)를 사용한 모델 학습(작업 만들기)
 
-Machine Learning에 대한 Azure 2.0 CLI 확장(미리 보기)을 사용하면 추적 및 감사 가능한 모델 수명 주기를 통해 Azure 컴퓨팅을 스케일 업 및 아웃하는 동시에 모델 학습 프로세스를 가속화할 수 있습니다.
+Azure CLI 확장인 Azure Machine Learning CLI(v2)를 사용하면 추적 및 감사 가능한 모델 수명 주기를 통해 Azure 컴퓨팅을 스케일 업 및 아웃하는 동시에 모델 학습 프로세스를 가속화할 수 있습니다.
 
 기계 학습 모델을 학습시키는 과정은 반복 프로세스입니다. 최신 도구를 사용하면 더 많은 모델에 더 많은 데이터를 전보다 훨씬 더 빠르게 학습시킬 수 있습니다. 하이퍼 매개 변수 튜닝과 알고리즘 선택 같은 이전의 지루한 수동 프로세스가 자동화되는 경우가 많습니다. Azure Machine Learning CLI를 사용하면 하이퍼 매개 변수 스윕을 통해 [작업 영역](concept-workspace.md)에서 작업(및 모델)을 추적하고, 고성능 Azure 컴퓨팅을 스케일 업하고, 분산 학습을 활용하여 스케일 아웃할 수 있습니다.
-
-> [!TIP]
-> 모든 기능을 갖춘 개발 환경을 위해서는 Visual Studio Code 및 [Azure Machine Learning 확장](how-to-setup-vs-code.md)을 사용하여 [Azure Machine Learning 리소스를 관리](how-to-manage-resources-vscode.md)하고 [기계 학습 모델을 학습](tutorial-train-deploy-image-classification-model-vscode.md)시킵니다.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 - [Machine Learning에 대한 Azure CLI 확장 설치 및 설정](how-to-configure-cli.md)
-- 다음과 같이 예제 리포지토리를 복제합니다.
 
-    ```azurecli-interactive
-    git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
-    ```
+> [!TIP]
+> 모든 기능을 갖춘 개발 환경을 위해서는 Visual Studio Code 및 [Azure Machine Learning 확장](how-to-setup-vs-code.md)을 사용하여 [Azure Machine Learning 리소스를 관리](how-to-manage-resources-vscode.md)하고 [기계 학습 모델을 학습](tutorial-train-deploy-image-classification-model-vscode.md)시킵니다.
+
+### <a name="clone-examples-repository"></a>예제 리포지토리 복제
+
+학습 예제를 실행하려면 먼저 예제 리포지토리를 복제하고 `cli` 디렉터리로 변경합니다.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+
+`--depth 1`은 리포지토리에 대한 최신 커밋만 복제하여 작업을 완료하는 시간을 줄입니다.
+
+### <a name="create-compute"></a>컴퓨팅 만들기
+
+명령줄에서 Azure Machine Learning 컴퓨팅 클러스터를 만들 수 있습니다. 예를 들어 다음 명령은 `cpu-cluster`라는 클러스터 하나와 `gpu-cluster`라는 클러스터 하나를 만듭니다.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
+
+이때 컴퓨팅 요금은 청구되지 않습니다. `cpu-cluster` 및 `gpu-cluster`는 작업이 제출될 때까지 0개 노드에 유지되기 때문입니다. [AmlCompute의 비용을 관리하고 최적화](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
+
+이 문서의 다음 예제 작업은 `cpu-cluster` 또는 `gpu-cluster` 중 하나를 사용합니다. 필요에 따라 클러스터의 이름으로 조정합니다.
+
+컴퓨팅 만들기 옵션에 대한 자세한 내용을 보려면 `az ml compute create -h`를 사용하세요.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## <a name="introducing-jobs"></a>작업 소개
 
-Azure Machine Learning CLI에서 작업은 YAML 형식으로 작성됩니다. 작업은 다음을 집계합니다.
+Azure Machine Learning CLI(v2)에서 작업은 YAML 형식으로 작성됩니다. 작업은 다음을 집계합니다.
 
 - 실행할 버전
 - 실행 방법
@@ -49,7 +66,11 @@ Azure Machine Learning CLI에서 작업은 YAML 형식으로 작성됩니다. �
 
 "hello world" 작업에는 세 항목이 모두 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
+
+다음을 실행할 수 있습니다.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
 
 이는 로그 파일에서 한 줄만 출력하는 예제 작업입니다. 일반적으로 시스템 생성 로그 외에 모델 이진 파일 및 함께 제공되는 메타데이터와 같은 추가 아티팩트를 생성하는 것이 좋습니다.
 
@@ -64,50 +85,25 @@ Azure Machine Learning은 다음 아티팩트를 자동으로 캡처합니다.
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-이 디렉터리에는 conda 환경 파일과 소스 코드 하위 디렉터리인 `src`라는 두 개의 작업 파일이 포함되어 있습니다. 이 예제에서는 `src` 아래에 파일이 하나만 있지만 전체 하위 디렉터리가 재귀적으로 업로드되며 작업에 사용할 수 있습니다.
+이 디렉터리에는 소스 코드 하위 디렉터리인 `src`라는 두 개의 작업 파일이 포함되어 있습니다. 이 예제에서는 `src` 아래에 파일이 하나만 있지만 전체 하위 디렉터리가 재귀적으로 업로드되며 작업에 사용할 수 있습니다.
 
-기본 명령 작업은 `job.yml`을 통해 구성됩니다.
+명령 작업은 `job.yml`을 통해 구성됩니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
-이 작업은 `--file/-f` 매개 변수를 사용하는 `az ml job create`를 통해 만들고 실행할 수 있습니다. 그러나 이 작업은 아직 존재하지 않는 `cpu-cluster`라는 컴퓨팅을 대상으로 합니다. 작업을 로컬에서 먼저 실행하려면 `--set`를 사용하여 컴퓨팅 대상을 재정의하면 됩니다.
+다음을 실행할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
-
-이 작업을 로컬로 실행할 경우 필요한 패키지가 설치된 로컬 Python 환경에서 `python main.py`를 실행하는 것보다 속도가 느리지만 위에서는 다음을 수행할 수 있습니다.
-
-- 실행 기록을 Azure Machine Learning 스튜디오에 저장
-- 원격 컴퓨팅 대상에서 실행 재현(스케일 업, 스케일 아웃, 하이퍼 매개 변수 스윕)
-- 소스 코드 git 리포지토리 및 커밋을 포함한 실행 제출 세부 정보 추적
-- 모델 메트릭, 메타데이터 및 아티팩트 추적
-- 로컬 환경에서 설치 및 패키지 관리 방지
-
-> [!IMPORTANT]
-> [Docker](https://docker.io)는 로컬에서 설치하고 실행해야 합니다. Python은 작업 환경에 설치해야 합니다. `inputs`를 사용하는 로컬 실행의 경우 작업 환경에 Python 패키지 `azureml-dataprep`를 설치해야 합니다.
-
-> [!TIP]
-> 기본 Docker 이미지를 풀하고 이를 기반으로 conda 환경을 만드는 데 몇 분 정도 걸립니다. 이미지 빌드 시간을 방지하려면 미리 빌드된 Docker 이미지를 사용합니다.
-
-## <a name="create-compute"></a>컴퓨팅 만들기
-
-명령줄에서 Azure Machine Learning 컴퓨팅 클러스터를 만들 수 있습니다. 예를 들어 다음 명령은 `cpu-cluster`라는 클러스터 하나와 `gpu-cluster`라는 클러스터 하나를 만듭니다.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
-
-이때 컴퓨팅 요금은 청구되지 않습니다. `cpu-cluster` 및 `gpu-cluster`는 작업이 제출될 때까지 0개 노드에 유지되기 때문입니다. [AmlCompute의 비용을 관리하고 최적화](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
-
-컴퓨팅 만들기 옵션에 대한 자세한 내용을 보려면 `az ml compute create -h`를 사용하세요.
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 ## <a name="basic-python-training-job"></a>기본 Python 학습 작업
 
-`cpu-cluster`가 생성되면 모델 및 해당 메타데이터를 출력하는 기본 학습 작업을 실행할 수 있습니다. 작업 YAML 파일을 자세히 살펴보겠습니다.
+작업 YAML 파일을 자세히 살펴보겠습니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -167,7 +163,7 @@ lightgbm/iri 학습 작업을 실행하려면 다음을 수행합니다.
 
 ## <a name="distributed-training"></a>분산 학습
 
-명령 작업에 `distributed` 섹션을 지정할 수 있습니다. Azure ML은 PyTorch, Tensorflow 및 MPI 호환 프레임워크에 대한 분산 학습을 지원합니다. PyTorch 및 TensorFlow는 TensorFlow용 `tf.distributed.Strategy` API와 같은 관련 프레임워크에 대해 네이티브 분산 학습을 지원합니다.
+명령 작업에 `distribution` 섹션을 지정할 수 있습니다. Azure ML은 PyTorch, Tensorflow 및 MPI 호환 프레임워크에 대한 분산 학습을 지원합니다. PyTorch 및 TensorFlow는 TensorFlow용 `tf.distributed.Strategy` API와 같은 관련 프레임워크에 대해 네이티브 분산 학습을 지원합니다.
 
 `compute.instance_count`(기본값 1인)를 작업에 대해 원하는 노드 수로 설정해야 합니다.
 

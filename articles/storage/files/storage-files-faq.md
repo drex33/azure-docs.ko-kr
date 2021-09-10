@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ff5d891b4374a61c8806666a48505a2ee4682a67
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094477"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729581"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -200,7 +200,7 @@ ms.locfileid: "110094477"
 
     - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. 
     
-    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
+    Azure Storage 서비스에서 지원되는 모든 프로토콜을 포괄적으로 보려면 [Azure Storage 액세스 권한 부여](../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
     
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
@@ -330,7 +330,7 @@ ms.locfileid: "110094477"
 * <a id="when-to-use-nfs"></a>
 **Azure Files NFS는 언제 사용해야 하나요?**
 
-    [NFS 공유(미리 보기)](storage-files-compare-protocols.md#nfs-shares-preview)를 참조하세요.
+    [NFS 공유(미리 보기)](files-nfs-protocol.md)를 참조하세요.
 
 * <a id="backup-nfs-data"></a>
 **NFS 공유에 저장된 데이터는 어떻게 백업하나요?**
@@ -451,7 +451,7 @@ ms.locfileid: "110094477"
 
 * <a id="need-larger-share"></a>
 **Azure 파일 공유에 사용할 수 있는 크기는 얼만큼인가요?**  
-    Azure 파일 공유 크기(프리미엄 및 표준)는 최대 100TiB까지 확장 가능합니다. 표준 계층에서 더 큰 파일 공유로의 온보딩 지침은 계획 지침의 [더 큰 파일 공유로 온보딩(표준 계층)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 섹션을 참조하세요.
+    Azure 파일 공유 크기(프리미엄 및 표준)는 최대 100TiB까지 확장 가능합니다. 자세한 내용은 [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
 
 * <a id="lfs-performance-impact"></a>
 **내 파일 공유 할당량을 확장하면 워크로드 또는 Azure 파일 동기화에 영향을 미치나요?**

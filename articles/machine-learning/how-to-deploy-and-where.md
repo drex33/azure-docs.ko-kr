@@ -1,7 +1,7 @@
 ---
 title: 기계 학습 모델 배포 방법
 titleSuffix: Azure Machine Learning
-description: 기계 학습 모델을 배포하는 방법과 위치에 대해 알아봅니다. Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 FPGA에 배포
+description: 기계 학습 모델을 배포하는 방법과 위치에 대해 알아봅니다. Azure Container Instances, Azure Kubernetes Service 및 FPGA에 배포합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 0592577040d411d3ecad395d8697828a5c4bc516
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 22161ee49c2527b92b11b4c1fe197fa06d48fcb9
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081374"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122661984"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 기계 학습 모델 배포 
 
@@ -37,6 +37,8 @@ Azure 클라우드의 웹 서비스로 기계 학습 또는 딥 러닝 모델을
 1. 결과 웹 서비스 테스트
 
 기계 학습 배포 워크플로와 관련한 개념에 대한 자세한 내용은 [Azure Machine Learning을 사용한 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -178,7 +180,10 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 
 아래 유추 구성에서는 기계 학습 배포가 `./source_dir` 디렉터리의 `echo_score.py` 파일을 사용하여 들어오는 요청을 처리하고, `project_environment` 환경에서 지정한 Python 패키지에 Docker 이미지를 사용합니다.
 
-프로젝트 환경을 만들 때 [Azure Machine Learning 큐레이팅된 환경](./resource-curated-environments.md)을 기본 Docker 이미지로 사용할 수 있습니다. 위에서 필요한 종속성을 설치하고 결과 Docker 이미지를 작업 영역과 연결된 리포지토리에 저장합니다.
+프로젝트 환경을 만들 때 [Azure Machine Learning 추론 큐레이트 환경](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference)을 기본 Docker 이미지로 사용할 수 있습니다. 위에서 필요한 종속성을 설치하고 결과 Docker 이미지를 작업 영역과 연결된 리포지토리에 저장합니다.
+
+> [!NOTE]
+> Azure 기계 학습 [추론 원본 디렉터리](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) 업로드는 **.gitignore** 또는 **.amlignore** 를 준수하지 않습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -410,7 +415,7 @@ Deploy your service again: null
 
 작업 영역에서 등록된 모델을 삭제하려면 `az ml model delete <model id>`를 사용합니다.
 
-[웹 서비스 삭제](/cli/azure/ml/service#az_ml_service_delete) 및 [모델 삭제](/cli/azure/ml/model#az_ml_model_delete)에 대해 자세히 알아보세요.
+[웹 서비스 삭제](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) 및 [모델 삭제](/cli/azure/ml/model#az_ml_model_delete)에 대해 자세히 알아보세요.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a9867f46baf0fb1cae6f53acccef0be3fe9901
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 190a5c7df833137fdbc13dc6a09e7c19a34dce0a
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567289"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866493"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -78,7 +78,7 @@ Azure AD 및 Microsoft Endpoint Manager를 결합하여 최전방 직원 디바�
 ### <a name="public-preview---assign-cloud-groups-to-azure-ad-custom-roles-and-admin-unit-scoped-roles"></a>퍼블릭 미리 보기 - Azure AD 사용자 지정 역할 및 관리 단위 범위 역할에 클라우드 그룹 할당
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 고객은 Azure AD 사용자 지정 역할 또는 관리 단위 범위가 지정된 역할에 클라우드 그룹을 할당할 수 있습니다. 이 기능을 사용하는 방법을 알아보려면 [클라우드 그룹을 사용하여 Azure Active Directory에서 역할 할당 관리](../roles/groups-concept.md)를 참조하세요.
@@ -99,7 +99,7 @@ Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동�
 ### <a name="general-availability---attack-simulation-administrator-and-attack-payload-author-built-in-roles"></a>일반 공급 - 공격 시뮬레이션 관리자 및 공격 페이로드 작성자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 역할 기반 액세스 제어의 새로운 두 역할은 사용자, 공격 시뮬레이션 관리자, 공격 페이로드 작성자에게 할당하는 데 사용할 수 있습니다. 
@@ -116,7 +116,7 @@ Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동�
 ### <a name="general-availability---usage-summary-reports-reader-built-in-role"></a>일반 공급 - 사용 요약 보고서 구독자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 사용 요약 보고서 구독자 역할을 가진 사용자는 사용 및 생산성 점수를 위한 Microsoft 365 관리 센터에서 테넌트 수준 집계 데이터 및 관련 인사이트에 액세스할 수 있습니다. 그러나 사용자 수준 세부 정보 또는 인사이트에는 액세스할 수 없습니다. 
@@ -605,7 +605,7 @@ Azure Active Directory는 2021년 3월 31일부터 다음 프로토콜을 사용
 ### <a name="assign-applications-to-roles-on-administrative-unit-and-object-scope"></a>관리 단위 및 개체 범위의 역할에 애플리케이션 할당
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 이 기능을 사용하면 관리 단위 범위에 대한 관리자 역할에 애플리케이션(SPN)을 할당할 수 있습니다. 자세한 내용은 [관리 단위에 범위가 지정된 역할 할당](../roles/admin-units-assign-roles.md)을 참조하세요.
@@ -851,7 +851,7 @@ IT 관리자 또는 최종 사용자가 액세스할 수 있는 BitLocker 복구
 ### <a name="teams-devices-administrator-built-in-role"></a>팀 디바이스 관리자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 [팀 디바이스 관리자](../roles/permissions-reference.md#teams-devices-administrator) 역할을 가진 사용자는 팀 관리 센터에서 [팀 인증 디바이스](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices)를 관리할 수 있습니다. 
@@ -1309,7 +1309,7 @@ Azure AD 앱 갤러리에서 애플리케이션을 나열하려면 여기 https:
 ### <a name="azure-active-directory-multi-factor-authentication-software-development-azure-mfa-sdk-deprecation"></a>Azure Active Directory Multi-factor Authentication 소프트웨어 개발(Azure MFA SDK) 사용 중단
 
 **유형:** 사용되지 않음  
-**서비스 범주:** MFA  
+**서비스 카테고리:** MFA  
 **제품 기능:** ID 보안 및 보호
  
 Azure Active Directory Multi-factor Authentication 소프트웨어 개발(Azure MFA SDK)은 2017년 11월에 처음 발표된 대로 2018년 11월 14일에 수명이 종료되었습니다. Microsoft는 2020년 9월 30일부터 SDK 서비스를 종료할 예정입니다. SDK에 대한 모든 호출은 실패할 것입니다.
@@ -4945,7 +4945,7 @@ Azure AD 사용 약관의 관리 작업에 대한 Microsoft Graph API가 추가�
 
 **유형:** 새 기능 **서비스 범주:** 내 앱 **제품 기능:** SSO
 
-사용자는 이제 Azure AD에 대한 내 앱 보안 로그인 확장을 사용하여 회사 네트워크 외부에서도 내부 URL을 통해 애플리케이션에 액세스할 수 있습니다. 이는 액세스 패널 브라우저 확장이 설치되어 있는 모든 브라우저에서 Azure AD 애플리케이션 프록시를 사용하여 게시한 모든 애플리케이션에 사용할 수 있습니다. URL 리디렉션 기능은 사용자가 확장에 로그인하면 자동으로 활성화됩니다. 확장은 [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) 및 [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)에서 다운로드에 사용할 수 있습니다.
+사용자는 이제 Azure AD에 대한 내 앱 보안 로그인 확장을 사용하여 회사 네트워크 외부에서도 내부 URL을 통해 애플리케이션에 액세스할 수 있습니다. 이는 액세스 패널 브라우저 확장이 설치되어 있는 모든 브라우저에서 Azure AD 애플리케이션 프록시를 사용하여 게시한 모든 애플리케이션에 사용할 수 있습니다. URL 리디렉션 기능은 사용자가 확장에 로그인하면 자동으로 활성화됩니다. 확장은 [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)에서 다운로드할 수 있습니다.
 
 ---
 

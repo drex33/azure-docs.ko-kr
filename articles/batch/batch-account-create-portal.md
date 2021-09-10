@@ -2,14 +2,14 @@
 title: Azure Portal에서 계정 만들기
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/31/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 745a2fc2e1279d05fa380b7bc053171d20a3fa4c
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 037ada644f60eabf498c59047513f4ad8292f239
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213276"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308698"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -85,7 +85,7 @@ Batch 계정 및 시나리오에 대한 자세한 내용은 [Batch 서비스 워
 
 1. **구독** 페이지에서 **액세스 제어(IAM)** 를 선택합니다.
 
-1. Batch API에 **기여자** 또는 **소유자** 역할을 할당합니다. **Microsoft Azure Batch** 또는 **MicrosoftAzureBatch** 를 검색하여 이 계정을 찾을 수 있습니다. (Batch API의 개체 ID는 **f520d84c-3fd3-4cc8-88d4-2ed25b00d27a** 이고 애플리케이션 ID는 **ddbf3205-c6bd-46ae-8127-60eb93363864** 입니다.)
+1. Batch API에 **기여자** 또는 **소유자** 역할을 할당합니다. **Microsoft Azure Batch** 를 검색하여 이 계정을 찾을 수 있습니다. (이 계정의 애플리케이션 ID는 **ddbf3205-c6bd-46ae-8127-60eb93363864** 입니다.)
 
    세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 

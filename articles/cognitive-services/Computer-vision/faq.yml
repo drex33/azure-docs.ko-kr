@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: f03dd44b1ea37f5103ca9aa4eff26b3b7b080312
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.openlocfilehash: 2509338fac06a182864777e2ff5825f1092f758c
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113311626"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122968831"
 title: Computer Vision API 질문과 대답
 summary: >
   > [!TIP]
@@ -27,9 +27,28 @@ sections:
 - name: 무시됨
   questions:
   - question: >
+      서비스에서 허용하는 TPS(초당 트랜잭션)를 늘리려면 어떻게 해야 하나요?
+    answer: >
+      무료(S0) 계층은 분당 20개의 트랜잭션만 허용합니다. 초당 최대 10개의 트랜잭션을 얻으려면 S1 계층으로 업그레이드합니다. 오류 코드 429와 "요청이 너무 많습니다." 오류 메시지가 표시되는 경우 TPS를 50 이상으로 높이려면 간단한 비즈니스 근거와 함께 [Azure 지원 티켓을 제출](https://azure.microsoft.com/support/create-ticket/)하세요. [Computer Vision 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+  - question: "내 이미지 파일이 너무 커서 서비스에서 오류가 발생합니다. 이를 어떻게 해결할 수 있나요? \n"
+    answer: >
+      대부분의 Computer Vision 기능에 대한 파일 크기 제한은 4MB이지만 클라이언트 라이브러리 SDK는 최대 6MB의 파일을 처리할 수 있습니다. 여러 페이지 문서를 처리하는 OCR(광학 인식)의 경우 최대 파일 크기는 50MB입니다. 자세한 내용은 이미지 [분석 입력 제한](overview-image-analysis.md#image-requirements) 및 [OCR 입력 제한](overview-ocr.md#input-requirements)을 참조하세요.
+  - question: >
+      한 번의 호출로 OCR로 여러 페이지 문서를 처리하려면 어떻게 해야 하나요?
+    answer: >
+      광학 인식, 특히 읽기 작업은 여러 페이지 문서를 API 입력으로 지원합니다. 10페이지 문서로 API를 호출하면 10페이지에 대한 요금이 청구되며 각 페이지는 청구 가능한 거래로 계산됩니다. 무료(S0) 계층이 있는 경우 한 번에 두 페이지만 처리할 수 있습니다.
+  - question: >
+      Computer Vision 서비스에 대한 단일 API 호출로 여러 이미지를 보낼 수 있나요?
+    answer: >
+      이 기능은 현재 사용할 수 없습니다.
+  - question: >
+      이미지 분석 및 OCR에 지원되는 언어는 몇 개인가요?
+    answer: >
+      이미지 분석 및 OCR이 지원되는 언어 목록은 [언어 지원](language-support.md) 페이지를 참조하세요.
+  - question: >
       사용자 지정 태그를 사용하도록 Computer Vision API를 학습할 수 있나요?  예를 들어 고양이 품종 사진을 주고 AI를 '교육'한 다음, AI 요청에서 품종 값을 받고 싶습니다.
     answer: >
-      이 기능은 현재 이용할 수 없습니다. 하지만 Computer Vision에 이 기능을 도입하기 위해 엔지니어들이 열심히 작업 중입니다.
+      이 기능은 현재 이용할 수 없습니다. [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/overview)을 사용하여 사용자 정의 시각적 특징을 감지하도록 모델을 학습시킬 수 있습니다.
   - question: >
       OCR(읽기) 기능을 온-프레미스로 배포할 수 있나요?
     answer: >

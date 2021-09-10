@@ -7,20 +7,29 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 08/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 623799b894846034dcf3f58a4bd6e53c56d526df
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 7b0b5a35a85a8b0564112d62401c722e65505f2e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690489"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186230"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 청구 모델
 
 Azure AD B2C(Azure Active Directory B2C) 가격 책정은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD B2C 테넌트 및 [Azure AD 게스트 사용자 협업(B2B)](../active-directory/external-identities/external-identities-pricing.md)에 모두 적용됩니다. MAU 청구는 무료 계층 및 유연하고 예측 가능한 가격을 제공하므로 비용을 절감할 수 있습니다. 이 문서에서는 MAU 청구, Azure AD B2C 테넌트와 구독 연결, 가격 책정 계층 변경에 대해 알아봅니다.
+
+## <a name="mau-overview"></a>MAU 개요
+
+MAU(월간 활성 사용자)는 지정 된 월 내에 인증을 수행하는 고유 사용자입니다. 지정된 월 내에 여러 번 인증하는 사용자는 하나의 MAU로 계산 됩니다. 고객은 해당 월 중에 MAU의 후속 인증에 대한 요금이나 비활성 사용자에 대한 요금이 부과되지 않습니다. 인증은 다음을 포함할 수 있습니다.
+
+- [등록 또는 로그인](add-sign-up-and-sign-in-policy.md), [셀프 서비스 암호 재설정](add-password-reset-policy.md), [프로필 편집](add-profile-editing-policy.md), [사용자 흐름](user-flow-overview.md) 또는 [사용자 지정 정책](custom-policy-overview.md) 등을 통해 사용자가 활성화한 대화형 로그인.
+- [SSO(Single Sign-On)](session-behavior.md)와 같은 수동, 비 대화형 로그인, 또는 인증 코드 흐름, 토큰 새로 고침 등 모든 유형의 토큰 획득 또는 [ROPC(리소스 소유자 암호 자격 증명)](add-ropc-policy.md).
+
+음성 및 SMS에 대해 MFA(다단계 인증)를 사용하여 더 높은 수준의 보증을 제공하는 것을 선택하는 경우 로그인 성공 또는 실패 여부와 관계 없이 해당 월의 각 MFA 시도에 대해 전 세계 고정 요금이 부과됩니다. 
 
 > [!IMPORTANT]
 > 이 문서에는 가격 책정 정보가 포함되어 있지 않습니다. 사용 요금 청구 및 가격 책정에 대한 최신 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조하세요. Azure AD B2C 서비스를 사용할 수 있는 위치 및 사용자 데이터가 저장되는 위치에 대한 자세한 내용은 [Azure AD B2C 지역 가용성 및 데이터 보존](data-residency.md)을 참조하세요.

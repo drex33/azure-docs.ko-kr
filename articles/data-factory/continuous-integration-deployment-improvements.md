@@ -2,17 +2,18 @@
 title: 연속 통합 및 지속적인 업데이트에 대한 자동화된 게시
 description: 연속 통합 및 지속적인 업데이트를 자동으로 게시하는 방법에 대해 알아봅니다.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 9056dd0be8e84fdff6934b2aecbd4a553f540811
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.date: 08/23/2021
+ms.openlocfilehash: 38e1d89a6934c603fa15c4b50e2309c57dc28622
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331579"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771811"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>연속 통합 및 지속적인 업데이트에 대한 자동화된 게시
 
@@ -35,7 +36,7 @@ Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법�
 
 ## <a name="continuous-deployment-improvements"></a>지속적인 배포 개선 사항
 
-자동화된 게시 기능을 사용하면 Data Factory 사용자 환경에서 **모두 유효성 검사** 및 **ARM 템플릿 내보내기** 기능을 사용하여 공개적으로 사용 가능한 npm 패키지를 통해 논리를 사용할 수 있게 됩니다[@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). 따라서 Data Factory UI로 이동하여 단추를 수동으로 선택하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 이 기능은 CI/CD 파이프라인에 더욱 신뢰할 수 있는 연속 통합 환경을 제공합니다.
+자동화된 게시 기능을 사용하면 Data Factory 사용자 환경에서 **모두 유효성 검사** 및 **ARM 템플릿 내보내기** 기능을 사용하여 공개적으로 사용 가능한 npm 패키지를 통해 논리를 사용할 수 있게 됩니다 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). 따라서 Data Factory UI로 이동하여 단추를 수동으로 선택하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 이 기능은 CI/CD 파이프라인에 더욱 신뢰할 수 있는 연속 통합 환경을 제공합니다.
 
 ### <a name="current-cicd-flow"></a>현재 CI/CD 흐름
 
@@ -78,25 +79,25 @@ Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법�
 
 ### <a name="export-arm-template"></a>ARM 템플릿 내보내기
 
-지정된 폴더의 리소스를 사용하여 ARM 템플릿을 내보내려면 `npm run start export <rootFolder> <factoryId> [outputFolder]`를 실행합니다. 이 명령은 ARM 템플릿을 생성하기 전에 유효성 검사도 실행합니다. 예를 들면 다음과 같습니다.
+지정된 폴더의 리소스를 사용하여 ARM 템플릿을 내보내려면 `npm run build export <rootFolder> <factoryId> [outputFolder]`를 실행합니다. 이 명령은 ARM 템플릿을 생성하기 전에 유효성 검사도 실행합니다. 예를 들면 다음과 같습니다.
 
-```
-npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
+```dos
+npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
 ```
 
 - `RootFolder`은 Data Factory 리소스가 있는 위치를 나타내는 필수 필드입니다.
 - `FactoryId`은 포맷 `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`에 있는 Data Factory 리소스 ID를 나타내는 필수 필드입니다.
 - `OutputFolder`은 생성된 ARM 템플릿을 저장할 상대 경로를 지정하는 선택적 매개 변수입니다.
- 
+
 > [!NOTE]
 > 생성된 ARM 템플릿은 팩터리의 라이브 버전에 게시되지 않습니다. 배포는 CI/CD 파이프라인을 사용하여 수행해야 합니다.
- 
+
 ### <a name="validate"></a>유효성 검사
 
-`npm run start validate <rootFolder> <factoryId>`을 실행하여 지정된 폴더의 모든 리소스에 대한 유효성을 검사합니다. 예를 들면 다음과 같습니다.
+`npm run build validate <rootFolder> <factoryId>`을 실행하여 지정된 폴더의 모든 리소스에 대한 유효성을 검사합니다. 예를 들면 다음과 같습니다.
 
-```
-npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
+```dos
+npm run build validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory
 ```
 
 - `RootFolder`은 Data Factory 리소스가 있는 위치를 나타내는 필수 필드입니다.
@@ -104,91 +105,90 @@ npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-x
 
 ## <a name="create-an-azure-pipeline"></a>Azure 파이프라인 만들기
 
-npm 패키지는 다양한 방식으로 사용될 수 있지만 [Azure 파이프라인](https://nam06.safelinks.protection.outlook.com/?url=https:%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fget-started%2Fwhat-is-azure-pipelines%3Fview%3Dazure-devops%23:~:text%3DAzure%2520Pipelines%2520is%2520a%2520cloud%2Cit%2520available%2520to%2520other%2520users.%26text%3DAzure%2520Pipelines%2520combines%2520continuous%2520integration%2Cship%2520it%2520to%2520any%2520target.&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000268277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=jo%2BkIvSBiz6f%2B7kmgqDN27TUWc6YoDanOxL9oraAbmA%3D&reserved=0)을 통해 주요 이점 중 하나가 사용되고 있습니다. 협업 분기에 대한 각 병합에서는 먼저 모든 코드의 유효성을 검사한 다음 릴리스 파이프라인에서 사용될 수 있는 [빌드 아티팩트](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2F%2Fazure%2Fdevops%2Fpipelines%2Fartifacts%2Fbuild-artifacts%3Fview%3Dazure-devops%26tabs%3Dyaml%23how-do-i-consume-artifacts&data=04%7C01%7Cabnarain%40microsoft.com%7C5f064c3d5b7049db540708d89564b0bc%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C1%7C637423607000278113%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=dN3t%2BF%2Fzbec4F28hJqigGANvvedQoQ6npzegTAwTp1A%3D&reserved=0)로 ARM 템플릿을 내보내는 파이프라인을 트리거할 수 있습니다. 현재 CI/CD 프로세스와의 차이는 기존 *분기`adf_publish` 대신 이 아티팩트에서 릴리스 파이프라인을* 가리킨다는 것입니다.
+npm 패키지는 다양한 방식으로 사용될 수 있지만 [Azure 파이프라인](/azure/devops/pipelines/get-started/)을 통해 주요 이점 중 하나가 사용되고 있습니다. 협업 분기에 대한 각 병합에서는 먼저 모든 코드의 유효성을 검사한 다음 릴리스 파이프라인에서 사용될 수 있는 [빌드 아티팩트](/azure/devops/pipelines/artifacts/build-artifacts)로 ARM 템플릿을 내보내는 파이프라인을 트리거할 수 있습니다. 현재 CI/CD 프로세스와의 차이는 기존 *분기`adf_publish` 대신 이 아티팩트에서 릴리스 파이프라인을* 가리킨다는 것입니다.
 
 시작하려면 다음 단계를 수행하세요.
 
-1.  Azure DevOps 프로젝트를 열고 **파이프라인** 으로 이동합니다. **새 파이프라인** 을 선택합니다.
+1. Azure DevOps 프로젝트를 열고 **파이프라인** 으로 이동합니다. **새 파이프라인** 을 선택합니다.
 
-    ![새 파이프라인 버튼을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/new-pipeline.png)
-    
-1.  파이프라인 YAML 스크립트를 저장하려는 리포지토리를 선택합니다. Data Factory 리소스의 동일한 리포지토리에 있는 빌드 폴더에 저장하는 것이 좋습니다. 다음 예제와 같이 패키지 이름을 포함하는 *package.json* 파일이 리포지토리에 있는지 확인합니다.
+   ![새 파이프라인 버튼을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/new-pipeline.png)
 
-    ```json
-    {
-        "scripts":{
-            "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
-        },
-        "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.5"
-        }
-    } 
-    ```
-    
-1.  **시작 파이프라인** 을 선택합니다. 다음 예제와 같이 YAML 파일을 업로드하거나 병합한 경우에는 해당 파일을 직접 가리키고 편집할 수도 있습니다.
+2. 파이프라인 YAML 스크립트를 저장하려는 리포지토리를 선택합니다. Data Factory 리소스의 동일한 리포지토리에 있는 빌드 폴더에 저장하는 것이 좋습니다. 다음 예제와 같이 패키지 이름을 포함하는 *package.json* 파일이 리포지토리에 있는지 확인합니다.
 
-    ![시작 파이프라인을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/starter-pipeline.png)
+   ```json
+   {
+       "scripts":{
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
+       },
+       "dependencies":{
+           "@microsoft/azure-data-factory-utilities":"^0.1.5"
+       }
+   } 
+   ```
 
-    ```yaml
-    # Sample YAML file to validate and export an ARM template into a build artifact
-    # Requires a package.json file located in the target repository
-    
-    trigger:
-    - main #collaboration branch
-    
-    pool:
-      vmImage: 'ubuntu-latest'
-    
-    steps:
-    
-    # Installs Node and the npm packages saved in your package.json file in the build
-    
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    
-    - task: Npm@1
-      inputs:
-        command: 'install'
-        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
-        verbose: true
-      displayName: 'Install npm package'
-    
-    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-    # Enter the appropriate subscription and name for the source factory.
-    
-    - task: Npm@1
-      inputs:
-        command: 'custom'
-        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
-        customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
-      displayName: 'Validate'
-    
-    # Validate and then generate the ARM template into the destination folder, which is the same as selecting "Publish" from the UX.
-    # The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline. 
-    
-    - task: Npm@1
-      inputs:
-        command: 'custom'
-        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
-        customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName "ArmTemplate"'
-      displayName: 'Validate and Generate ARM template'
-    
-    # Publish the artifact to be used as a source for a release pipeline.
-    
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>/ArmTemplate' #replace with the package.json folder
-        artifact: 'ArmTemplates'
-        publishLocation: 'pipeline'
-    ```
+3. **시작 파이프라인** 을 선택합니다. 다음 예제와 같이 YAML 파일을 업로드하거나 병합한 경우에는 해당 파일을 직접 가리키고 편집할 수도 있습니다.
 
-1.  YAML 코드를 입력합니다. YAML 파일을 시작점으로 사용하는 것이 좋습니다.
-1.  저장 및 실행합니다. YAML을 사용하는 경우 기본 분기가 업데이트될 때마다 트리거됩니다.
+   ![시작 파이프라인을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/starter-pipeline.png)
+
+   ```yaml
+   # Sample YAML file to validate and export an ARM template into a build artifact
+   # Requires a package.json file located in the target repository
+   
+   trigger:
+   - main #collaboration branch
+   
+   pool:
+     vmImage: 'ubuntu-latest'
+   
+   steps:
+   
+   # Installs Node and the npm packages saved in your package.json file in the build
+   
+   - task: NodeTool@0
+     inputs:
+       versionSpec: '10.x'
+     displayName: 'Install Node.js'
+   
+   - task: Npm@1
+     inputs:
+       command: 'install'
+       workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+       verbose: true
+     displayName: 'Install npm package'
+   
+   # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
+   # Enter the appropriate subscription and name for the source factory.
+   
+   - task: Npm@1
+     inputs:
+       command: 'custom'
+       workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+       customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+     displayName: 'Validate'
+   
+   # Validate and then generate the ARM template into the destination folder, which is the same as selecting "Publish" from the UX.
+   # The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline. 
+   
+   - task: Npm@1
+     inputs:
+       command: 'custom'
+       workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+       customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName "ArmTemplate"'
+     displayName: 'Validate and Generate ARM template'
+   
+   # Publish the artifact to be used as a source for a release pipeline.
+   
+   - task: PublishPipelineArtifact@1
+     inputs:
+       targetPath: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>/ArmTemplate' #replace with the package.json folder
+       artifact: 'ArmTemplates'
+       publishLocation: 'pipeline'
+   ```
+
+4. YAML 코드를 입력합니다. YAML 파일을 시작점으로 사용하는 것이 좋습니다.
+
+5. 저장 및 실행합니다. YAML을 사용하는 경우 기본 분기가 업데이트될 때마다 트리거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory의 연속 통합 및 업데이트에 대해 자세히 알아보세요.
-
-- [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](continuous-integration-deployment.md).
+[Azure Data Factory의 지속적인 통합 및 전달](continuous-integration-deployment.md)에서 Data Factory의 지속적인 통합 및 전달에 대해 자세히 알아봅니다.

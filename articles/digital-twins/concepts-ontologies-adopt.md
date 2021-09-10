@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e31ee4ed9b7baa074f59bc615b9044cbf314a47d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 51a35f13b8f9328abaad44b112acf4e2176796d6
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438517"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771187"
 ---
 # <a name="adopting-an-industry-ontology"></a>업계 온톨로지 채택
 
-빈 페이지에서 시작하는 것보다 오픈 소스 DTDL 온톨로지로 시작하는 것이 더 쉬울 수 있기 때문에 Microsoft는 도메인 전문가와 협력하여 온톨로지를 게시하고 있습니다. 이러한 온톨로지는 널리 허용되는 업계 규칙을 나타내며 다양한 고객 사용 사례를 지원합니다. 
+빈 페이지에서 시작하는 것보다 오픈 소스 DTDL(Digital Twins 정의 언어) 온톨로지로 시작하는 것이 더 쉬울 수 있기 때문에, Microsoft는 도메인 전문가와 협력하여 온톨로지를 게시하고 있습니다. 이러한 온톨로지는 널리 허용되는 업계 규칙을 나타내며 다양한 고객 사용 사례를 지원합니다. 
 
 그 결과 업계 표준을 빌드 또는 직접 사용하는 오픈 소스 DTDL 기반 온톨로지 세트가 만들어졌습니다. 온톨로지는 업계에서 널리 채택하고 확장할 수 있는 다운스트림 개발자의 요구 사항을 충족하도록 설계되었습니다.
 
-현재 Microsoft는 파트너와 협력하여 [스마트 빌딩](#realestatecore-smart-building-ontology), [스마트 도시](#smart-cities-ontology) 및 [에너지 그리드](#energy-grid-ontology)를 위한 온톨로지를 개발했습니다. 이 온톨로지는 재귀의 필요성을 피하기 위해 이러한 업계 표준에 기초한 모델링을 위한 공통 기반을 제공합니다. 
+현재 Microsoft는 파트너와 협력하여 [스마트 빌딩](#realestatecore-smart-building-ontology), [스마트 도시](#smart-cities-ontology) 및 [에너지 그리드](#energy-grid-ontology)를 위한 온톨로지를 개발했습니다. 이 온톨로지는 재귀의 필요성을 방지하기 위해 이러한 업계 표준에 기초한 모델링을 위한 공통 기반을 제공합니다. 
 
 각 온톨로지는 초기 모델 세트에 초점을 맞추고 있습니다. 온톨로지 작성자는 초기 사용 사례 세트를 확장하고 기존 모델을 개선하는 데 기여해 주시기를 바랍니다. 
 
@@ -28,7 +28,7 @@ ms.locfileid: "114438517"
 
 *다음 리포지토리에서 온톨로지 가져오기:*  [스마트 빌딩에 대한 Digital Twins 정의 언어 기반 RealEstateCore 온톨로지](https://github.com/Azure/opendigitaltwins-building).
 
-Microsoft는 부동산 소유자, 소프트웨어 공급업체 및 연구 기관의 스웨덴 컨소시엄인 [RealEstateCore](https://www.realestatecore.io/)와 협력하여 이 오픈 소스 DTDL 온톨로지를 부동산 업계에 제공합니다.
+Microsoft는 [RealEstateCore](https://www.realestatecore.io/)와 협력하여 부동산 업계에 이 오픈 소스 DTDL 온톨로지를 제공했습니다. [RealEstateCore](https://www.realestatecore.io/)는 스웨덴의 부동산 소유자, 소프트웨어 공급업체 및 연구 기관 컨소시엄입니다.
 
 이 스마트 빌딩 온톨로지는 업계 표준(예: [BRICK 스키마](https://brickschema.org/ontology/) 또는  [W3C 빌딩 토폴로지 온톨로지)](https://w3c-lbd-cg.github.io/bot/index.html)을 사용하여 스마트 빌딩을 모델링하기 위한 공통 기반을 제공하여 재귀를 방지합니다. 또한 온톨로지에는 사용 및 적절한 확장 방법에 대한 모범 사례가 함께 제공됩니다. 
 
@@ -50,7 +50,7 @@ Microsoft는 [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim)부터 스마
 
 *다음 리포지토리에서 온톨로지 가져오기:*  [에너지 그리드에 대한 DTDL(Digital Twins 정의 언어) 온톨로지](https://github.com/Azure/opendigitaltwins-energygrid/).
 
-이 온톨로지는 솔루션 공급자가 에너지 사용 사례(그리드 자산 모니터링, 가동 중단 및 영향 분석, 시뮬레이션 및 예측 유지 관리)에 대한 디지털 트윈 솔루션 개발을 가속화하고 에너지 그리드의 디지털 변환 및 현대화를 지원하기 하기 위해 만들어졌습니다. 에너지 그리드 자산 관리, 전원 시스템 운영 모델링 및 물리적 에너지 상품 시장용 글로벌 표준인 [CIM(Common Information Model)](https://cimug.ucaiug.org/)에서 채택되었습니다.
+이 온톨로지는 솔루션 공급자가 에너지 사용 사례(그리드 자산 모니터링, 가동 중단 및 영향 분석, 시뮬레이션 및 예측 유지 관리)에 대한 디지털 트윈 솔루션 개발을 가속화하기 위해 만들어졌습니다. 또한 온톨로지를 에너지 그리드의 디지털 변환 및 현대화 지원에 활용할 수 있습니다. 에너지 그리드 자산 관리, 전원 시스템 운영 모델링 및 물리적 에너지 상품 시장용 글로벌 표준인 [CIM(Common Information Model)](https://cimug.ucaiug.org/)에서 채택되었습니다.
 
 온톨로지, 사용 방법 및 기여 방법에 대해 자세히 알아보려면 GitHub의 온톨로지의 리포지토리인 [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/)를 방문하세요. 
 

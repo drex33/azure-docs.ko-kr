@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 66efe0015e0ca85ac793100ee6d8d0944e3614c1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 49ca89112f011f8f1c6d411ab187697b29523eeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690871"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566433"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
@@ -29,10 +29,6 @@ Azure Active Directory의 관리자 역할 목록을 보려면 [Azure Active Dir
 
 Azure Portal의 모든 역할을 나열하려면 다음 단계를 수행합니다.
 
-**역할** 탭은 최근 몇 가지 추가 기능으로 업데이트되었습니다. 이전 환경을 보려면 **역할(클래식)** 탭을 참조하세요. 역할 탭을 사용하여 역할 작업을 수행할 수 있지만 사용자 지정 역할을 만들거나 삭제하는 경우 페이지를 수동으로 새로 고쳐 최신 변경 내용을 확인해야 할 수도 있습니다.
-
-#### <a name="roles"></a>[역할](#tab/roles/)
-
 1. Azure Portal에서 **모든 서비스** 를 클릭하고 임의의 범위를 선택합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
 
 1. 특정 리소스를 클릭합니다.
@@ -43,6 +39,9 @@ Azure Portal의 모든 역할을 나열하려면 다음 단계를 수행합니�
 
    ![새 환경을 사용하는 역할 목록을 보여 주는 스크린샷](./media/shared/roles-list.png)
 
+    > [!TIP]
+    > 이전 역할 목록 환경을 보려면 **Use classic experience**(클래식 환경 사용)를 클릭합니다.
+  
 1. 특정 역할에 대한 권한을 보려면 **자세히** 열에서 **보기** 링크를 클릭합니다.
 
     권한 창이 표시됩니다.
@@ -50,22 +49,6 @@ Azure Portal의 모든 역할을 나열하려면 다음 단계를 수행합니�
 1. **권한** 탭을 클릭하여 선택한 역할에 대한 권한을 확인하고 검색합니다.
 
    ![새 환경을 사용하는 역할 권한을 보여 주는 스크린샷](./media/role-definitions-list/role-permissions.png)
-
-#### <a name="roles-classic"></a>[역할(클래식)](#tab/roles-classic/)
-
-1. Azure Portal에서 **모든 서비스** 를 클릭하고 임의의 범위를 선택합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
-
-1. 특정 리소스를 클릭합니다.
-
-1. **액세스 제어(IAM)** 를 클릭합니다.
-
-1. **역할(클래식)** 탭을 클릭하여 모든 기본 제공 역할 및 사용자 지정 역할 목록을 봅니다.
-
-   현재 범위의 각 역할에 할당된 사용자 및 그룹 수를 볼 수 있습니다.
-
-   ![역할 목록](./media/role-definitions-list/roles-list-classic.png)
-
----
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -366,10 +349,10 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. URI 내에서 *{scope}* 를 역할 정의를 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
@@ -451,10 +434,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 1. URI 내에서 *{scope}* 를 역할 정의를 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | 유형 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
      

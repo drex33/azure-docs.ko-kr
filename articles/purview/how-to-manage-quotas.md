@@ -8,12 +8,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 422c096533e8b470446a29b6d45f9127d963f913
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938837"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568027"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Azure Purview를 사용하여 리소스 할당량 관리 및 증가
  
@@ -27,8 +27,10 @@ Azure Purview는 데이터 사용자가 사용할 수 있는 클라우드 서비
 |계정당 검사에 사용할 수 있는 vCore*|160|160|
 |지정된 지점에 있는 계정당 동시 검색입니다. 이 제한은 검사된 데이터 원본의 유형에 따라 달라집니다.*|5 | 10 |
 |검사를 실행할 수 있는 최대 시간|7 일|7 일|
-|계정당 API 호출|4개 용량 단위 플랫폼 크기의 경우 10M API/월 <br>16개 용량 단위 플랫폼 크기의 경우 40M API/월 |4개 용량 단위 플랫폼 크기의 경우 10M API/월 <br>16개 용량 단위 플랫폼 크기의 경우 40M API/월|
-|계정당 스토리지|4개 용량 단위 플랫폼 크기의 경우 10GB <br>16개 용량 단위 플랫폼 크기의 경우 40GB |4개 용량 단위 플랫폼 크기의 경우 10GB <br> 16개 용량 단위 플랫폼 크기의 경우 40GB |
+|[데이터 맵 CU(용량 단위)](concept-elastic-data-map.md) |1CU(25개 작업/초 처리량 및 2GB 메타데이터 스토리지) | 100CU(더 높은 CU에 대한 지원 문의)|
+|데이터 맵 작업 처리량 |각 용량 단위에 대해 25개 작업/초 | 100CU의 경우 2,500개 작업/초(추가 처리량에 대한 지원 문의)| 
+|데이터 맵 스토리지 |각 용량 단위당 2GB | 100CU의 경우 200GB(추가 스토리지에 대한 지원 문의) |
+|데이터 맵 탄력성 기간 | 1~8CU(데이터 맵은 탄력성 기간 내의 처리량에 따라 자동 스케일 업/다운할 수 있음) | 더 높은 탄력성 기간을 얻으려면 지원팀에 문의하세요. |
 |계정당 자산 크기|100M 물리적 자산 |지원에 문의|
 |카탈로그에 있는 자산의 최대 크기|2MB|2MB|
 |자산 이름과 분류 이름의 최대 길이|4KB|4KB|
@@ -40,6 +42,9 @@ Azure Purview는 데이터 사용자가 사용할 수 있는 클라우드 서비
  
 ## <a name="next-steps"></a>다음 단계
  
+> [!div class="nextstepaction"]
+>[개념: Azure Purview의 탄력적 데이터 맵](concept-elastic-data-map.md)
+
 > [!div class="nextstepaction"]
 >[자습서: Azure Purview를 사용하여 데이터 검사](tutorial-scan-data.md)
 

@@ -9,26 +9,26 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b4a5073994da972a4999a82dd9bb0790bad0342
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520513"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582351"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML 스튜디오(클래식) 및 PowerShell을 사용한 실험에서 여러 웹 서비스 엔드포인트 만들기
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Azure Machine Learning 스튜디오(클래식)에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
+일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Machine Learning 스튜디오(클래식)에서 대규모로 이 작업을 수행하는 방법을 보여줍니다.
 
 예를 들어, 글로벌 자전거 임대 프랜차이즈 업체를 소유하고 있다고 가정해 보겠습니다. 기록 데이터를 기반으로 임대 수요를 예측하는 회귀 모델을 구축하려고 합니다. 전 세계에 1,000개의 임대 위치가 있으며 각 위치에 대한 데이터 세트를 수집했습니다. 여기에는 각 위치와 관련된 날짜, 시간, 날씨 및 트래픽과 같은 중요한 특징이 포함됩니다.
 
 모든 위치의 모든 데이터 세트에 대한 병합된 버전을 사용하여 모델을 한 번 학습할 수 있습니다. 하지만 위치마다 환경이 고유하므로 각 위치에 대한 데이터 세트를 사용하여 회귀 모델을 별도로 학습하는 것이 더 나은 방법입니다. 이렇게 하면 학습된 각 모델이 서로 다른 저장소 크기, 볼륨, 지리, 인구, 자전거 친화적인 교통 환경 등을 고려할 수 있습니다.
 
-이것이 가장 좋은 방법일 수 있지만 Azure Machine Learning 스튜디오(클래식)에서 각각 고유한 위치를 나타내는 1,000개의 학습 실험을 만들고 싶지는 않을 것입니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
+이것이 가장 좋은 방법일 수 있지만 Machine Learning 스튜디오(클래식)에서 각각 고유한 위치를 나타내는 1,000개의 학습 실험을 만들고 싶지는 않을 것입니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
 
-다행히 [Azure Machine Learning 스튜디오(클래식) 다시 학습 API](./retrain-machine-learning-model.md)를 사용하고 [Azure Machine Learning 스튜디오(클래식) PowerShell](powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
+다행히 [Machine Learning 스튜디오(클래식) 다시 학습 API](./retrain-machine-learning-model.md)를 사용하고 [Machine Learning 스튜디오(클래식) PowerShell](powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
 
 > [!NOTE]
 > 샘플이 더 빨리 실행되도록 위치 수를 1,000개에서 10개로 줄입니다. 하지만 동일한 원리와 절차가 1,000개의 위치에 적용됩니다. 그러나 1,000개 데이터 세트에서 학습하려는 경우 다음 PowerShell 스크립트를 병렬로 실행하는 것이 좋습니다. 이 작업을 수행하는 방법은 이 문서의 범위를 벗어나는 내용이지만 인터넷에서 PowerShell 다중 스레딩의 예제를 찾을 수 있습니다.  
@@ -36,7 +36,7 @@ ms.locfileid: "100520513"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>학습 실험 설정
-[Cortana Intelligence 갤러리](https://gallery.azure.ai)에 있는 예제 [학습 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning 스튜디오(클래식)](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
+[Cortana Intelligence 갤러리](https://gallery.azure.ai)에 있는 예제 [학습 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Machine Learning 스튜디오(클래식)](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
 
 > [!NOTE]
 > 이 예제를 함께 수행하려면 무료 작업 영역보다는 표준 작업 영역을 사용하는 것이 좋습니다. 고객당 엔드포인트 하나(총 10개 엔드포인트)를 만들고 체험 작업 영역은 3개 엔드포인트로 제한되므로 이 경우 표준 작업 영역이 필요합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "100520513"
 
 이제 점수 매기기 웹 서비스를 배포해야 합니다.
 이 작업을 수행하려면 캔버스 아래에서 **웹 서비스 설정** 을 클릭하고 **예측 웹 서비스** 를 선택합니다. 점수 매기기 실험을 만듭니다.
-웹 서비스로 작동하려면 몇 가지 사소한 측면을 조정해야 합니다. 입력 데이터에서 레이블 열 “cnt”를 제거하고 출력을 인스턴스 ID 및 해당 예측 값으로만 제한합니다.
+웹 서비스로 작동하려면 몇 가지 사소한 측면을 조정해야 합니다. 입력 데이터에서 레이블 열 "cnt"를 제거하고 출력을 인스턴스 ID 및 해당 예측 값으로만 제한합니다.
 
 해당 작업을 직접 저장하려면 미리 준비된 갤러리에서 [예측 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1)을 열면 됩니다.
 

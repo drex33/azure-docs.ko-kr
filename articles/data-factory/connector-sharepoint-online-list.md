@@ -1,22 +1,25 @@
 ---
-title: Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SharePoint Online 목록에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
+title: SharePoint Online 목록에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 복사 작업을 사용하여 SharePoint Online 목록에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jianleishen
-ms.openlocfilehash: c6ce2d796bbe679f73804fef91079db2ca44c28b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 56ccc468b4576a8911091622d4e9b6810e58cd36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642907"
 ---
-# <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
+# <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SharePoint Online 목록에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업을 사용하여 SharePoint Online 목록에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업](copy-activity-overview.md)을 기준으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -68,7 +71,7 @@ SharePoint Online 목록 커넥터는 서비스 주체 인증을 사용하여 Sh
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 SharePoint Online 목록 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 SharePoint Online 목록 커넥터에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -79,7 +82,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 | type                | type 속성은  **SharePointOnlineList** 로 설정해야 합니다.  | 예          |
 | siteUrl             | SharePoint Online 사이트 URL(예: `https://contoso.sharepoint.com/sites/siteName`) | 예          |
 | servicePrincipalId  | Azure Active Directory에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. | 예          |
-| servicePrincipalKey | 애플리케이션의 키입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예          |
+| servicePrincipalKey | 애플리케이션의 키입니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예          |
 | tenantId            | 애플리케이션이 있는 테넌트 ID입니다.          | 예          |
 | connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 이 문서 앞부분의 [필수 구성 요소](#prerequisites)에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. | 예           |
 
@@ -107,7 +110,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 SAP 테이블 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource** 로 설정해야 합니다. | 예 |
 | listName | SharePoint Online 목록의 이름입니다. | 예 |
@@ -140,7 +143,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링을 위한 사용자 지정 OData 쿼리 옵션입니다. 예: `"$top=10&$select=Title,Number"`. | 예 |
@@ -179,13 +182,13 @@ SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **
 ```
 
 > [!NOTE]
-> Azure Data Factory에서 SharePoint Online 목록 원본에 대해 두 개 이상의 선택 데이터 형식을 선택할 수 없습니다.
+> SharePoint Online 목록 원본에 대해 두 개 이상의 *선택* 데이터 형식을 선택할 수 없습니다.
 
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>SharePoint Online 목록에 대한 데이터 형식 매핑
 
-SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Online 목록 데이터 형식과 Azure Data Factory 중간 데이터 형식 사이에서 다음 매핑이 사용됩니다. 
+SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Online 목록 데이터 형식과 서비스 내부에서 사용되는 중간 데이터 형식 사이에서 다음 매핑이 사용됩니다.
 
-| **SharePoint Online 데이터 형식**                 | **OData 데이터 형식**                                  | **Azure Data Factory 중간 데이터 형식** |
+| **SharePoint Online 데이터 형식**                 | **OData 데이터 형식**                                  | **중간 데이터 형식** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
 | 한 줄의 텍스트                             | Edm.String                                           | String                                   |
 | 여러 줄 텍스트                          | Edm.String                                           | String                                   |
@@ -242,4 +245,4 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.

@@ -1,36 +1,25 @@
 ---
 title: 사용자 지정 엔터티 조회 인식 검색 기술
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 인지 검색 파이프라인의 텍스트에서 다른 사용자 지정 엔터티를 추출합니다. 이 기술은 현재 공개 미리 보기로 제공됩니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+description: Azure Cognitive Search 인지 검색 파이프라인의 텍스트에서 다른 사용자 지정 엔터티를 추출합니다.
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 68e4949fe0ef0b10018cd3827e259028c37d5b5c
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 08/12/2021
+ms.openlocfilehash: 977ac567f195e0ab8053d7b8bd98543801a3b6a4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112019092"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537274"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill"></a>사용자 지정 엔터티 조회 인식 기술
+# <a name="custom-entity-lookup-cognitive-skill"></a>사용자 지정 엔터티 조회 인식 기술
 
 **사용자 지정 엔터티 조회** 기술은 사용자 지정된 단어 및 구의 사용자 정의 목록에서 텍스트를 찾습니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다.  
 
-이 기술은 Cognitive Services API에 바인딩되지 않습니다. 그러나 일일 보강 한도를 재정의하려면 [Cognitive Services 리소스를 연결](./cognitive-search-attach-cognitive-services.md)해야 합니다. Azure Cognitive Search를 통해 액세스할 때 Cognitive Services 액세스에 일일 한도가 적용됩니다.
-
-## <a name="pricing-details"></a>가격 정보
-
-텍스트 레코드는 기술에 대한 입력으로 제공되는 문서 내의 1,000자 단위 수에 해당합니다.
-
-|  가격 책정 계층  |        가격  |
-|--------------|----------------------|
-| 0-500,000개 텍스트 레코드 | 텍스트 레코드 1,000개당 1달러 |
-| 0.5M-2.5M 텍스트 레코드 | 텍스트 레코드 1,000개당 0.75달러 |
-| 2.5M-10.0M 텍스트 레코드 | 텍스트 레코드 1,000개당 0.30달러 |
-| 10M 이상의 텍스트 레코드 | 텍스트 레코드 1,000개당 0.25달러 |
+> [!NOTE]
+> 이 기술은 Cognitive Services API에 바인딩되지 않지만 20개를 초과하는 트랜잭션을 허용하려면 Cognitive Services 키가 필요합니다. 이 기술은 [Cognitive Search를 통해 측정](https://azure.microsoft.com/pricing/details/search/#pricing)됩니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -175,13 +164,12 @@ JSON 정의의 좀 더 복잡한 예는 필요에 따라 각 엔터티의 ID, �
 | `accentSensitive` | (선택 사항) 위의 루트 엔터티 “accentSensitive” 매개 변수와 동일하게 작동하지만 이 별칭 하나에만 적용됩니다. |
 | `fuzzyEditDistance` | (선택 사항) 위의 루트 엔터티 “fuzzyEditDistance” 매개 변수와 동일하게 작동하지만 이 별칭 하나에만 적용됩니다. |
 
-
 ### <a name="inline-format"></a>인라인 형식
 
 기술 정의에 직접 인라인으로 일치시킬 사용자 지정 엔터티 목록을 제공하는 것이 더 편리한 경우도 있습니다. 이 경우 위에서 설명한 것과 비슷한 JSON 형식을 사용할 수 있지만 기술 정의에서 인라인됩니다.
 크기가 10KB 미만(직렬화된 크기)인 구성만 인라인으로 정의될 수 있습니다. 
 
-##    <a name="sample-definition"></a>샘플 정의
+## <a name="sample-definition"></a>샘플 정의
 
 인라인 형식을 사용하는 샘플 기술 정의는 다음과 같습니다.
 
@@ -221,6 +209,7 @@ JSON 정의의 좀 더 복잡한 예는 필요에 따라 각 엔터티의 ID, �
     ]
   }
 ```
+
 또는 엔터티 정의 파일에 대한 포인터를 제공하려는 경우 `entitiesDefinitionUri` 형식을 사용한 샘플 기술 정의가 아래에 나와 있습니다.
 
 ```json
@@ -244,7 +233,7 @@ JSON 정의의 좀 더 복잡한 예는 필요에 따라 각 엔터티의 ID, �
 
 ```
 
-##    <a name="sample-input"></a>샘플 입력
+## <a name="sample-input"></a>샘플 입력
 
 ```json
 {
@@ -261,7 +250,7 @@ JSON 정의의 좀 더 복잡한 예는 필요에 따라 각 엔터티의 ID, �
 }
 ```
 
-##    <a name="sample-output"></a>샘플 출력
+## <a name="sample-output"></a>샘플 출력
 
 ```json
   { 

@@ -6,14 +6,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 4427071edf237d82e8a99d44678d77d23e180fff
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 59707cfb6e54329017e36914bccf9b565ec9643c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865246"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690255"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성의 리소스를 다른 지역으로 이동
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 이 문서에 따라 유지 관리 제어 구성과 연결된 리소스를 다른 Azure 지역으로 이동합니다. 여러 가지 이유로 구성을 이동하는 것이 좋습니다. 예를 들어 새 지역을 활용하거나, 특정 지역에서 사용할 수 있는 기능이나 서비스를 배포하거나, 내부 정책 및 거버넌스 요구 사항을 충족하거나, 용량 계획에 대응하기 위해 리소스를 이동할 수 있습니다.
 

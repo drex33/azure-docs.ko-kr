@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796c9563de794b22d47dacee4c93e7bfde73fb2a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678656"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221804"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure portal을 사용하여 Azure Data Box 및 Azure Data Box Heavy 관리
 
@@ -206,7 +206,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 주문 가져오기의 상태는 다음과 같습니다.
 
-|주문 상태 |Description |
+|주문 상태 |설명 |
 |---------|---------|
 |주문됨     | 주문을 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |처리됨     | 주문 처리가 완료되었습니다. 주문에 따라 데이터 센터에서 디바이스 배송이 준비됩니다.         |
@@ -225,7 +225,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 
 주문 내보내기의 상태는 다음과 같습니다.
 
-|주문 상태 |Description |
+|주문 상태 |설명 |
 |---------|---------|
 |주문됨     | 주문 내보내기를 성공적으로 배치했습니다. <br>디바이스 재고가 있으면 Microsoft에서 배송할 디바이스를 확인하여 준비합니다. <br> 디바이스를 즉시 배송할 수 없는 경우에는 디바이스가 배송 가능해지면 주문이 처리됩니다. 주문 처리 과정은 며칠에서 몇 달까지 걸릴 수 있습니다. 90일 이내에 처리할 수 없는 주문은 취소되며 취소 알림이 전송됩니다.         |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나(주문이 처리되기 전에만 취소 가능) 오류가 발생하여 서비스에서 주문을 취소했습니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
@@ -255,8 +255,18 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 |Azure 데이터 센터에서 받을 준비     |Azure 데이터 센터에서 디바이스를 받을 준비가 되었습니다.        |
 |수신됨     |Azure 데이터 센터에서 디바이스를 받았습니다.      |
 
+## <a name="get-device-password"></a>장치 암호 받기
 
+디바이스를 주문할 때 기본 시스템 생성 장치 암호나 사용자가 지정한 암호를 사용하도록 선택할 수 있습니다. 어느 쪽이든 장치 암호는 팩터리에서 설정되며 변경할 수 없습니다. 
 
+Azure Portal에서 주문을 확인하여 장치 암호를 확인할 수 있습니다.
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
+> [!NOTE]
+> 잘못된 암호를 사용하여 몇 번의 로그인 시도가 실패한 후에는 사용자의 관리자 계정이 디바이스에서 잠깁니다. 계정 잠금은 몇 분 후에 해제되고 다시 연결할 수 있습니다.  
+> - Data Box 4.1 이상: 로그인 시도를 5회 실패한 후 15분 동안 계정이 잠깁니다. 
+> - Data Box 4.0 이전: 로그인 시도를 3회 실패한 후 30분 동안 계정이 잠깁니다.
 
 
 ## <a name="next-steps"></a>다음 단계

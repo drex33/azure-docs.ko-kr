@@ -2,13 +2,13 @@
 title: Azure Blob에 대한 운영 백업 구성
 description: Azure Blob에 대한 운영 백업을 구성하고 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: cb2bc525018b33eb3441a8ed949d3e808c5051d8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/06/2021
+ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767504"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566222"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Azure Blob에 대한 운영 백업 구성
 
@@ -27,6 +27,7 @@ Azure Backup를 사용하면 스토리지 계정에서 블록 Blob을 보호하�
 - 이 솔루션을 사용하면 복원용 데이터를 최대 360일 동안 유지할 수 있습니다. 그러나 보존 기간이 길면 복원 작업이 더 오래 걸릴 수 있습니다.
 - 이 솔루션은 원본 스토리지 계정에 복원하는 데만 사용할 수 있으며 데이터를 덮어쓰게 될 수 있습니다.
 - 컨테이너 삭제 작업을 호출하여 스토리지 계정에서 컨테이너를 삭제하면 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제하는 대신 개별 BLOB을 삭제해야 나중에 복원할 수 있습니다. 또한 컨테이너를 실수로 삭제하는 일이 없도록 운영 백업뿐 아니라 컨테이너에도 일시 삭제를 사용하도록 설정하는 것이 좋습니다.
+- **Microsoft.DataProtection** 공급자가 구독에 등록되어 있는지 확인합니다.
 - 지원되는 시나리오, 제한 사항 및 가용성에 대한 자세한 내용은 [지원 매트릭스](blob-backup-support-matrix.md)를 참조하세요.
 
 ## <a name="create-a-backup-vault"></a>Backup 자격 증명 모음 만들기

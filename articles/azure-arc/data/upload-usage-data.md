@@ -1,30 +1,29 @@
 ---
-title: Azure Monitor에 사용량 현황 데이터 업로드
-description: Azure Monitor에 Azure Arc 지원 데이터 서비스 사용량 현황 데이터 업로드
+title: Azure에 사용량 데이터 업로드
+description: Azure에 Azure Arc 지원 데이터 서비스 사용량 데이터 업로드
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df592db61e4c9c50f9b199d7803fb8e1481878
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104669511"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535896"
 ---
-# <a name="upload-usage-data-to-azure-monitor"></a>Azure Monitor에 사용량 현황 데이터 업로드
+# <a name="upload-usage-data-to-azure"></a>Azure에 사용량 데이터 업로드
 
 사용량 정보는 주기적으로 내보낼 수 있습니다. 사용량 정보를 내보내고 업로드하면 Azure의 데이터 컨트롤러, SQL 관리형 인스턴스 및 PostgreSQL Hyperscale 서버 그룹 리소스가 생성되고 업데이트됩니다.
 
 > [!NOTE] 
 > 미리 보기 기간에는 Azure Arc 지원 데이터 서비스를 무료로 사용할 수 있습니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 > [!NOTE]
@@ -40,24 +39,21 @@ ms.locfileid: "104669511"
 
 인벤토리 및 리소스 사용량과 같은 사용량 정보는 다음 두 단계를 따라 Azure에 업로드할 수 있습니다.
 
-1. 데이터 컨트롤러에 로그인합니다. 프롬프트에서 값을 입력합니다. 
+1. 다음과 같이 `az arcdata dc export` 명령을 사용하여 사용량 현황 데이터를 내보냅니다.
 
-   ```console
-   azdata login
-   ```
+> [!NOTE]
+> `az arcdata dc export` 명령을 사용하여 사용량/결제 정보, 메트릭 및 로그를 내보내려면 현재로서는 SSL 확인을 바이패스해야 합니다.  SSL 확인을 바이패스하라는 메시지가 표시되거나 메시지가 표시되지 않도록 `AZDATA_VERIFY_SSL=no` 환경 변수를 설정할 수 있습니다.  현재 데이터 컨트롤러 내보내기 API에 대한 SSL 인증서를 구성할 수 있는 방법이 없습니다.
 
-1. 다음과 같이 `azdata arc dc export` 명령을 사용하여 사용량 현황 데이터를 내보냅니다.
-
-   ```console
-   azdata arc dc export --type usage --path usage.json
+   ```azurecli
+   az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
    이 명령은 데이터 컨트롤러에 생성된 모든 Azure Arc 지원 데이터 리소스(예: SQL 관리형 인스턴스 및 PostgreSQL 하이퍼스케일 인스턴스 등)를 사용하여 `usage.json` 파일을 만듭니다.
 
-2. ```azdata upload``` 명령을 사용하여 사용량 현황 데이터를 업로드합니다.
+2. `upload` 명령을 사용하여 사용량 데이터를 업로드합니다.
 
-   ```console
-   azdata arc dc upload --path usage.json
+   ```azurecli
+   az arcdata dc upload --path usage.json
    ```
 
 ## <a name="automating-uploads-optional"></a>업로드 자동화(선택 사항)
@@ -66,9 +62,9 @@ ms.locfileid: "104669511"
 
 자주 사용하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가하고 `.sh`(Linux/Mac) 또는 `.cmd`, `.bat`, `.ps1`과 같은 스크립트 실행 파일로 저장합니다.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload --path usage.json
 ```
 
 스크립트 파일을 실행 가능하도록 설정합니다.
@@ -77,7 +73,7 @@ azdata arc dc upload --path metrics.json
 chmod +x myuploadscript.sh
 ```
 
-20분마다 스크립트를 실행합니다.
+사용량에 대해 매일 스크립트를 실행합니다.
 
 ```console
 watch -n 1200 ./myuploadscript.sh

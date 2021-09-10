@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4fcbcf145dc417d2a7f78913e70429c3929cd902
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: edd90071125c65b7d4af3d0065e92b30f35e5f65
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508991"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114436956"
 ---
 # <a name="azcopy-v10-configuration-settings-azure-storage"></a>AzCopy v10 구성 설정(Azure Storage)
 
@@ -37,6 +37,8 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 | AZCOPY_CONCURRENCY_VALUE | 발생할 수 있는 동시 요청 수를 지정합니다. 이 변수를 사용하여 처리량을 늘릴 수 있습니다. 컴퓨터에 5개 미만의 CPU가 있는 경우 이 변수의 값은 `32`로 설정됩니다. 그렇지 않으면 기본값은 16에 CPU 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `3000`이지만 수동으로 이 값을 더 높거나 낮게 설정할 수 있습니다. [동시성 향상](storage-use-azcopy-optimize.md#increase-concurrency)을 참조하세요. |
 | AZCOPY_CONCURRENT_FILES | 동시에 전송을 시작하는 파일 수를 제어하여 한 번에 진행 중인 대략적인 파일 수를 재정의합니다. |
 | AZCOPY_CONCURRENT_SCAN | 검색 중에 사용되는 최대 병렬 처리 수준을 제어합니다. Azure Files/Blob 및 로컬 파일 시스템을 포함하는 병렬 처리된 열거자에만 영향을 줍니다. |
+| AZCOPY_CONTENT_TYPE_MAP  | 운영 체제에서 정의한 하나 이상의 기본 MIME 형식 매핑을 재정의합니다. 매핑을 정의하는 JSON 파일의 경로로 이 변수를 설정합니다.  예제 JSON 파일의 내용은 다음과 같습니다. <br><br> {<br>&nbsp;&nbsp;"MIMETypeMapping": { <br>&nbsp;&nbsp;&nbsp;&nbsp;".323": "text/h323",<br>&nbsp;&nbsp;&nbsp;&nbsp;".aaf": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp; ".aca": "application/octet-stream",<br>&nbsp;&nbsp;&nbsp;&nbsp;".accdb": "application/msaccess",<br>&nbsp;&nbsp;&nbsp;&nbsp;  }<br>}
+|
 | AZCOPY_DEFAULT_SERVICE_API_VERSION | AzCopy가 Azure Stack과 같은 사용자 지정 환경을 수용할 수 있도록 서비스 API 버전을 재정의합니다. |
 | AZCOPY_DISABLE_HIERARCHICAL_SCAN | Azure Blob이 원본인 경우에만 적용됩니다. 동시 검사는 더 빠르지만 계층 목록 API를 사용하므로 더 많은 IO/비용이 발생할 수 있습니다. 성능이 저하되지만 비용을 절감하려면 ‘true’를 지정합니다. |
 | AZCOPY_JOB_PLAN_LOCATION | 디스크를 채우지 않도록 작업 계획 파일(진행률 추적 및 다시 시작에 사용됨)이 저장되는 위치를 재정의합니다. |
@@ -68,13 +70,13 @@ AzCopy에 대한 프록시 설정을 구성하려면 `HTTPS_PROXY` 환경 변수
 | **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 | **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
-현재 AzCopy는 NTLM 또는 Kerberos를 사용한 인증을 요구하는 프록시를 지원하지 않습니다.
+현재 AzCopy는 NTLM 또는 Kerberos 인증을 요구하는 프록시를 지원하지 않습니다.
 
-### <a name="bypassing-a-proxy"></a>프록시 무시
+### <a name="bypassing-a-proxy"></a>프록시 우회
 
-AzCopy on Windows를 실행 중이고 설정을 자동 검색하는 대신 프록시를 전혀 사용하지 ‘않도록’ 지시하려면 다음 명령을 사용합니다. 이 설정을 사용하면 AzCopy가 프록시를 조회하거나 사용하지 않습니다.
+Windows에서 AzCopy를 실행 중이고 설정을 자동 검색하는 대신 프록시를 전혀 사용하지 _않도록_ 지시하려면 다음 명령을 사용합니다. 이 설정을 사용하면 AzCopy에서 프록시를 조회하거나 사용하지 않습니다.
 
-| 운영 체제 | Environment | 명령  |
+| 운영 체제 | 환경 | 명령  |
 |--------|-----------|----------|
 | **Windows** | CMD(명령 프롬프트) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|

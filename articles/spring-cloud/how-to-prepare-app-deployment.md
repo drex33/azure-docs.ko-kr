@@ -1,31 +1,31 @@
 ---
 title: Azure Spring Cloud에 배포할 애플리케이션을 준비하는 방법
 description: Azure Spring Cloud에 배포할 애플리케이션을 준비하는 방법을 알아봅니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 09/08/2020
-ms.author: brendm
+ms.date: 07/06/2021
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5afdc2e46e4c234204a27261ae87061a3631071c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: faa4c57a4fc5e75d0e6262833c27833e9069fb30
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134756"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568077"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
 ::: zone pivot="programming-language-csharp"
-Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다. 
+Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다.
 
 이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)를 참조하세요.
 
 >[!Note]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
-##  <a name="supported-versions"></a>지원되는 버전
+## <a name="supported-versions"></a>지원되는 버전
 
 Azure Spring Cloud는 다음을 지원합니다.
 
@@ -119,6 +119,7 @@ using (var client = new HttpClient(discoveryHandler, false))
     };
 }
 ```
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -126,7 +127,8 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 이 예제를 실행하기 전에 [기본 빠른 시작](./quickstart.md)을 시도해 볼 수 있습니다.
 
-다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
+다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다.
+
 * [첫 번째 앱 시작](./quickstart.md)
 * [마이크로서비스 빌드 및 실행](./quickstart-sample-app-introduction.md)
 
@@ -142,16 +144,18 @@ Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 �
 
 Azure Spring Cloud에 배포할 기존 Spring Boot 애플리케이션을 준비하려면 다음 섹션에 표시된 대로 애플리케이션 POM 파일에 Spring Boot 및 Spring Cloud 종속성을 포함합니다.
 
-Azure Spring Cloud는 Spring Boot 버전 2.2, 2.3, 2.4를 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
+Azure Spring Cloud는 출시 후 1개월 이내에 최신 Spring Boot 또는 Spring Cloud 릴리스를 지원합니다. 지원되는 Spring Boot 버전은 [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases)에서, Spring Cloud 버전은 [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases)에서 얻을 수 있습니다. 
+
+아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
-2.2 | Hoxton.SR8
-2.3 | Hoxton.SR8
-2.4.1+ | 2020.0.0
+2.3.x | Hoxton.SR8+
+2.4.x, 2.5.x | 2020.0(즉, Ilford +)
 
 > [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에 대한 스프링 부팅 2.4.0 문제가 확인되었습니다. 2.4.1이상을 사용하십시오. 2\.4.0을 계속 사용하고자 하는 경우 해결 방법에 대한 [FAQ](./faq.md?pivots=programming-language-java#development)를 참조하세요.
+> - Spring Boot를 2.5.2 또는 2.4.8로 업그레이드하여 CVE 보고서 [CVE-2021-22119: spring-security-oauth2-client를 사용한 서비스 거부 공격](https://tanzu.vmware.com/security/cve-2021-22119)을 해결하세요. Spring Security를 ​​사용하는 경우 5.5.1, 5.4.7, 5.3.10 또는 5.2.11로 업그레이드하세요.
+> - 앱과 Spring Cloud Service Registry 간의 TLS 인증을 통해 Spring Boot 2.4.0에서 문제가 확인되었습니다. 2.4.1 이상을 사용하세요. 2\.4.0을 계속 사용하는 경우 해결 방법은 [FAQ](./faq.md?pivots=programming-language-java#development)를 참조하세요.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>Spring Boot 버전 2.2/2.3에 대한 종속성
 
@@ -188,7 +192,7 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1.RELEASE</version>
+        <version>2.4.8</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -197,7 +201,7 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.0</version>
+                <version>2020.0.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -225,14 +229,16 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
 
 서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
 
-
 #### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient 주석
 
 애플리케이션 소스 코드에 다음 주석을 추가합니다.
+
 ```java
 @EnableDiscoveryClient
 ```
+
 예를 들어 이전 예제의 piggymetrics 애플리케이션을 참조하세요.
+
 ```java
 package com.piggymetrics.gateway;
 
@@ -261,6 +267,10 @@ public class GatewayApplication {
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-config-client</artifactId>
 </dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
 ```
 
 > [!WARNING]
@@ -287,6 +297,7 @@ public class GatewayApplication {
 또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [분산 추적에 대한 설명서](./how-to-distributed-tracing.md)를 참조하세요.
 
 #### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
+
 pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
 
 ```xml
@@ -301,7 +312,8 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 ```
 
 #### <a name="spring-boot-24"></a>Spring Boot 2.4
-pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속성을 포함합니다.
+
+*pom.xml* 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속성을 포함합니다.
 
 ```xml
 <dependency>
@@ -311,6 +323,7 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속
 ```
 
 ## <a name="see-also"></a>참고 항목
+
 * [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)
 * [구성 서버 설정](./how-to-config-server.md)
 * [Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)

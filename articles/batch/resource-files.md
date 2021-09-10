@@ -1,14 +1,14 @@
 ---
 title: 리소스 파일 생성 및 사용
 description: 다양한 입력 소스에서 Batch 리소스 파일을 만드는 방법을 알아봅니다. 이 문서에서는 이를 만들고 VM에 추가하는 몇 가지 일반적인 방법을 설명합니다.
-ms.date: 05/25/2021
+ms.date: 08/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 1ef8cde8c345cebeb166cddd67a1951d71eea810
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a4939cc6c60d226d8b75569ab08447973968735a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467696"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568306"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 생성 및 사용
 
@@ -33,7 +33,9 @@ Azure Batch 태스크를 처리하려면 일부 데이터 형식이 필요한 �
 
 스토리지 컨테이너 URL을 사용하면 올바른 권한을 가지고 Azure의 모든 스토리지 컨테이너 파일에 액세스할 수 있습니다.
 
-이 C# 예제에서는 Blob Storage인 Azure 스토리지 컨테이너에 파일이 이미 업로드되었습니다. 리소스 파일을 만드는 데 필요한 데이터에 액세스하려면 먼저 스토리지 컨테이너에 액세스할 수 있어야 합니다.
+이 C# 예제에서는 Blob Storage인 Azure 스토리지 컨테이너에 파일이 이미 업로드되었습니다. 리소스 파일을 만드는 데 필요한 데이터에 액세스하려면 먼저 스토리지 컨테이너에 액세스할 수 있어야 합니다. 이 작업은 몇 가지 방법으로 수행할 수 있습니다.
+
+#### <a name="shared-access-signature"></a>공유 액세스 서명
 
 스토리지 컨테이너에 액세스할 수 있는 올바른 권한을 사용하여 SAS(공유 액세스 서명) URI를 만듭니다. SAS의 만료 시간 및 사용 권한을 설정합니다. 이 경우 시작 시간은 지정되지 않으므로 SAS가 즉시 유효해지고 생성 후 2시간이 지나면 만료됩니다.
 
@@ -65,7 +67,19 @@ ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
 ```
 
-SAS URL을 생성하는 대신 컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 SAS를 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다. 공용 읽기 권한은 일반적으로 특정 Blob을 항상 익명 읽기 액세스에 사용할 수 있게 하려는 경우에 사용됩니다. 이 시나리오가 솔루션에 적합한 경우 [Blob에 대한 익명 액세스](../storage/blobs/anonymous-read-access-configure.md) 문서를 참조하여 Blob 데이터에 대한 액세스 관리에 대해 자세히 알아보세요.
+#### <a name="managed-identity"></a>관리 ID
+
+[사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)를 만들어 Azure Storage 컨테이너에 대한 `Storage Blob Data Reader` 역할에 할당합니다. 그런 다음, VM이 해당 ID에 액세스할 수 있도록 [풀에 관리 ID를 할당](managed-identity-pools.md)합니다. 마지막으로, Batch에서 사용할 ID를 지정하여 컨테이너의 파일에 액세스할 수 있습니다.
+
+```csharp
+CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(container.Uri, identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" });
+```
+
+#### <a name="public-access"></a>퍼블릭 액세스
+
+SAS URL을 생성하거나 관리 ID를 사용하는 대신 컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 SAS를 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다. 퍼블릭 액세스 권한은 일반적으로 특정 Blob을 항상 익명 읽기 액세스에 사용할 수 있게 하려는 경우에 사용됩니다. 이 시나리오가 솔루션에 적합한 경우 [컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 액세스 구성](../storage/blobs/anonymous-read-access-configure.md)에서 Blob 데이터에 대한 액세스 관리에 대해 자세히 알아보세요.
 
 ### <a name="storage-container-name-autostorage"></a>사용자 스토리지 컨테이너 이름(autostorage)
 
@@ -100,6 +114,18 @@ URL로 정의한 문자열(또는 함께 파일에 대한 전체 URL을 만드�
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourDomain + yourFile, filePath);
 ```
+
+파일이 Azure Storage에 있는 경우 리소스 파일에 대한 공유 액세스 서명을 생성하는 대신 관리 ID를 사용할 수 있습니다.
+
+```csharp
+ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage, 
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"},
+    filePath: filepath
+);
+```
+
+> [!Note]
+> 관리 ID 인증은 Azure Storage의 파일에만 적용됩니다. 관리 ID에는 파일이 들어 있는 컨테이너에 대해 `Storage Blob Data Reader` 역할 할당이 필요하며 [Batch 풀에도 할당](managed-identity-pools.md)되어야 합니다.
 
 ## <a name="tips-and-suggestions"></a>팁 및 제안 사항
 

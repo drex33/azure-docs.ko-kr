@@ -7,16 +7,21 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/10/2021
 ms.author: mialdrid
-ms.openlocfilehash: 43e30ddd601640b61c42c5ba5d6bb2aaf41eb73d
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 93335c6f163e016c619fd4803a595ffcc3418a9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109739018"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528664"
 ---
 # <a name="how-to-view-and-configure-alerts-for-azure-expressroute-circuit-maintenance"></a>Azure ExpressRoute 회로 유지 관리 경고를 보고 구성하는 방법
 
 ExpressRoute는 Azure Service Health를 사용하여 계획되고 예정된 ExpressRoute 회로 유지 관리를 알립니다. Service Health를 사용하면 Azure Portal에서 계획된 유지 관리와 과거 유지 관리를 보고 요구 사항에 가장 적합한 경고와 알림을 구성할 수 있습니다. Azure Service Health에 대한 자세한 내용은 [Azure Service Health란?](../service-health/overview.md)을 참조하세요.
+
+> [!NOTE]
+> * 유지 관리 작업 중이거나 하나의 연결에 영향을 미치는 계획되지 않은 이벤트의 경우 트래픽을 정상 연결로 드레이닝하기 위해 AS 경로 앞에 추가하는 것이 좋습니다. Microsoft에서 경로 앞에 추가를 구성하고 서비스 중단을 방지하기 위해 필요한 경로 보급을 적절하게 구성한 경우 트래픽이 정상적인 경로를 통해 라우팅할 수 있는지 확인해야 합니다. 
+> * 상태 저장 디바이스에서 ExpressRoute BGP 연결을 종료하면 Microsoft 또는 ExpressRoute 공급자의 계획되거나 계획되지 않은 유지 관리 중에 장애 조치(failover) 문제가 발생할 수 있습니다. 트래픽이 올바르게 장애 조치되는지 확인하고 가능한 경우 상태 비저장 디바이스에서 BGP 세션을 종료하도록 설정을 테스트해야 합니다.
+>
 
 ## <a name="view-planned-maintenance"></a>계획된 유지 관리 보기
 
@@ -32,7 +37,7 @@ ExpressRoute는 Azure Service Health를 사용하여 계획되고 예정된 Expr
 
 1. ExpressRoute 관련 유지 관리만 보려면 *서비스* 드롭다운에서 **ExpressRoute** 를 선택합니다. 그런 다음, 목록에서 이슈를 선택하여 이벤트 요약을 봅니다. 진행 중인 유지 관리에 대한 자세한 내용을 보려면 **Issues updates(이슈 업데이트)** 탭을 선택합니다.
 
-    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="ExpressRoute 유지 관리 요약의 스크린샷." lightbox="./media/maintenance-alerts/summary-expanded.png"::: 
+    :::image type="content" source="./media/maintenance-alerts/summary.png" alt-text="ExpressRoute 유지 관리 요약의 스크린샷." lightbox="./media/maintenance-alerts/summary-expanded.png":::
 
 ## <a name="view-past-maintenance"></a>과거 유지 관리 보기
 

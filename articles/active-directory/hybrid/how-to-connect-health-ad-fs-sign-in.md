@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42326cd4080fe6737fd14f8dc2c5a2028c20077f
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 890bf61eb98218df53a6aa66c9e8562881b8d2df
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854543"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895601"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Connect Health를 사용하여 Azure AD에서 AD FS 로그인 - 미리 보기
 
@@ -48,7 +48,7 @@ AD FS용 Connect Health 에이전트는 서버 버전에 따라 AD FS의 여러 
 #### <a name="authentication-method-information"></a>인증 방법 정보
 다음 값이 인증 탭에 표시될 수 있습니다. 인증 방법은 AD FS 감사 로그에서 가져옵니다.
 
-|인증 방법|Description|
+|인증 방법|설명|
 |-----|-----|
 |양식|사용자 이름/암호 인증|
 |Windows|Windows 통합 인증|
@@ -102,6 +102,9 @@ AD FS에 대한 Azure AD Connect Health 에이전트는 서버 버전에 따라 
 
 ***일부 AD FS 로그인에 대한 애플리케이션 ID/이름에 NotSet 또는 NotApplicable가 표시되는 이유는 무엇인가요?***
 AD FS Sign-In 보고서는 OAuth 로그인을 위한 애플리케이션 ID 필드에 OAuth ID를 표시합니다. WS-Fed, WS-Trust 로그인 시나리오에서는 애플리케이션 ID가 NotSet 또는 NotApplicable이고 리소스 ID 및 신뢰 당사자 식별자가 리소스 ID 필드에 표시됩니다.
+
+***리소스 ID 및 리소스 이름 필드가 "설정되지 않음"으로 표시되는 이유는 무엇인가요?***
+"사용자 이름 및 암호가 잘못됨" 및 WSTrust 기반의 실패한 로그인과 같은 일부 오류 발생 상황에서 ResourceId/Name 필드에 "NotSet"이 표시됩니다.
 
 ***미리 보기에서 보고서에 대해 알려진 문제가 더 있나요?***
 이 보고서에는 알려진 문제가 있습니다. 여기에는 "기본 정보" 탭의 "인증 요구 사항" 필드가 로그인 여부에 관계 없이 AD FS 로그인에 대한 단일 요소 인증 값으로 채워집니다. 또한 인증 세부 정보 탭에는 요구 사항 필드 아래에 "기본 또는 보조"가 표시되고, 기본 또는 보조 인증 유형을 구분하기 위해 진행 중인 수정이 표시됩니다.

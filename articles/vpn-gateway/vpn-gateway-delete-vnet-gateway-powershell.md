@@ -9,12 +9,12 @@ ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 259d5776e6f9a2ce431743fe8dd3d9160b9f657d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: fcce91b5914318157ca4263504d46c992294d153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671894"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535790"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ VNet 이름: VNet1<br>
 리소스 그룹 이름: RG1<br>
 가상 네트워크 게이트웨이 이름: GW1<br>
 
-다음 단계는 Resource Manager 배포 모델에 적용됩니다.
+다음 단계는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용됩니다.
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. 삭제할 가상 네트워크 게이트웨이를 가져옵니다.
 
@@ -148,7 +148,7 @@ VNet 이름: VNet1<br>
 리소스 그룹 이름: RG1<br>
 가상 네트워크 게이트웨이 이름: GW1<br>
 
-다음 단계는 Resource Manager 배포 모델에 적용됩니다.
+다음 단계는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용됩니다.
 
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. 삭제할 가상 네트워크 게이트웨이를 가져옵니다.
 
@@ -236,7 +236,7 @@ VNet 이름: VNet1<br>
 리소스 그룹 이름: RG1<br>
 가상 네트워크 게이트웨이 이름: GW1<br>
 
-다음 단계는 Resource Manager 배포 모델에 적용됩니다.
+다음 단계는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용됩니다.
 
 
 >[!NOTE]
@@ -289,7 +289,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>리소스 그룹을 삭제하여 VPN 게이트웨이 삭제
 
-리소스 그룹에 리소스를 유지하지 않고 새로 시작하려는 경우 전체 리소스 그룹을 삭제하면 됩니다. 모든 항목을 제거하는 빠른 방법입니다. 다음 단계는 Resource Manager 배포 모델에만 적용됩니다.
+리소스 그룹에 리소스를 유지하지 않고 새로 시작하려는 경우 전체 리소스 그룹을 삭제하면 됩니다. 모든 항목을 제거하는 빠른 방법입니다. 다음 단계는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에만 적용됩니다.
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. 구독에 있는 모든 리소스 그룹 목록을 가져옵니다.
 

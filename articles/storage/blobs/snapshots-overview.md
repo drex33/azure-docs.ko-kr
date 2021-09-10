@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: debce0a1b4c09bb89cdceb1cd29e59e1976c939a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58120c05e4ee0c3310a5da75377cd941aa289de7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539158"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453071"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅샷
 
@@ -25,7 +25,12 @@ ms.locfileid: "99539158"
 
 ## <a name="about-blob-snapshots"></a>Blob 스냅샷 정보
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+> [!IMPORTANT]
+> 계층 구조 네임스페이스 기능이 사용하도록 설정된 계정의 스냅숏은 현재 미리 보기로 제공됩니다.
+> 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
+>
+> 미리 보기에 등록하려면 [이 양식](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u)을 참조하세요.
 
 Blob URI에 스냅샷이 만들어진 시점의 시간을 나타내는 Blob URI에 추가된 **DateTime** 값이 있다는 점을 제외하고 Blob의 스냅샷은 해당 Blob와 동일합니다. 예를 들어 페이지 Blob URI가 `http://storagesample.core.blob.windows.net/mydrives/myvhd`이면 스냅샷 URI는 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`과 유사합니다.
 
@@ -148,10 +153,10 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 다음 표에서는 버전 관리의 사용 여부에 따라 일시 삭제된 Blob에 대한 청구를 설명합니다. 버전 관리를 사용한 경우 Blob이 일시 삭제되면 새로운 버전이 만들어집니다. 버전 관리를 사용하지 않는 경우 Blob을 일시 삭제하면 일시 삭제 스냅샷이 만들어집니다.
 
-| 계층을 명시적으로 설정하고 기본 Blob을 덮어쓸 경우 | 다음에 대한 요금이 청구됩니다. |
+| 계층을 명시적으로 설정하고 기본 Blob을 덮어 쓸 경우. | 다음에 대한 요금이 청구됩니다. |
 |-|-|
-| Blob 일시 삭제와 버전 관리를 모두 사용하는 경우 | 계층에 관계없이 모든 기존 버전이 전체 콘텐츠 길이에 포함됩니다. |
-| Blob 일시 삭제를 사용했지만 버전 관리를 사용하지 않는 경우 | 계층과 관계없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
+| Blob 일시 삭제 및 버전 관리를 모두 사용하는 경우 | 계층에 관계 없이 모든 기존 버전의 전체 콘텐츠 길이 |
+| Blob 일시 삭제를 사용하도록 설정했지만 버전 관리를 사용하지 않는 경우 | 계층과 관계없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

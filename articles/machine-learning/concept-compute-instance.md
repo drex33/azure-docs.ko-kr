@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: 966b471efc7fcadbb4207fe94bb11e5333bfb0a0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: fccbd763818facfa429451ce0c53d74ee8f6b8a4
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095449"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609269"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -28,6 +28,11 @@ Azure Machine Learning 컴퓨팅 인스턴스는 데이터 과학자를 위한 �
 
 컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *.instances.azureml.net 및 *.instances.azureml.ms에 대한 WebSocket 연결이 허용되는지 확인합니다.
 
+> [!IMPORTANT]
+> 이 문서에 표시된 항목(미리 보기)은 현재 퍼블릭 미리 보기에서 확인할 수 있습니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 ## <a name="why-use-a-compute-instance"></a>컴퓨팅 인스턴스를 사용하는 이유
 
 컴퓨팅 인스턴스는 기계 학습 개발 환경에 최적화된 완전 관리형 클라우드 기반 워크스테이션입니다. 다음과 같은 이점을 제공합니다.
@@ -39,16 +44,12 @@ Azure Machine Learning 컴퓨팅 인스턴스는 데이터 과학자를 위한 �
 |ML&nbsp;용&nbsp;으로 미리 구성|사전 구성된 최신 ML 패키지, 딥 러닝 프레임워크 및 GPU 드라이버를 통해 설치 작업에 드는 시간을 절약할 수 있습니다.|
 |완전한 사용자 지정 기능|GPU를 비롯한 Azure VM 형식에 대한 광범위한 지원과 패키지 및 드라이버 설치와 같은 지속형의 하위 수준 사용자 지정을 통해 고급 시나리오를 간편하게 만들 수 있습니다. |
 
-사용자가 직접 [컴퓨팅 인스턴스 만들거나](how-to-create-manage-compute-instance.md?tabs=python#create) 관리자가 **[사용자를 대신하여 컴퓨팅 인스턴스 만들 수 있습니다](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
-
-또한 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 필요에 따라 컴퓨팅 인스턴스를 사용자 지정하고 구성할 수 있습니다.
+* 컴퓨팅 인스턴스는 컴퓨팅 클러스터와 유사한 보안 학습 컴퓨팅 대상이기도 하지만 단일 노드입니다.
+* 사용자가 직접 [컴퓨팅 인스턴스 만들거나](how-to-create-manage-compute-instance.md?tabs=python#create) 관리자가 **[사용자를 대신하여 컴퓨팅 인스턴스 만들 수 있습니다](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
+* 또한 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 필요에 따라 컴퓨팅 인스턴스를 사용자 지정하고 구성할 수 있습니다.
+* 비용을 절감하려면 컴퓨팅 인스턴스를 자동으로 시작하고 중지하는 **[일정을 만듭니다(미리 보기)](how-to-create-manage-compute-instance.md#schedule)** .
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>도구 및 환경
-
-> [!IMPORTANT]
-> 이 문서에 표시된 항목(미리 보기)은 현재 퍼블릭 미리 보기에서 확인할 수 있습니다.
-> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 완전 통합형 Notebook 환경에서 모델을 작성, 학습 및 배포할 수 있습니다.
 
@@ -73,7 +74,6 @@ SSH가 필요 없는 컴퓨팅 인스턴스를 원격 서버로 사용하여 [VS
 |----|:----:|
 |RStudio Server 오픈 소스 버전(미리 보기)||
 |R 커널||
-|R용 Azure Machine Learning SDK|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK 샘플|
 
 |**PYTHON** 도구 및 환경|세부 정보|
 |----|----|
@@ -85,7 +85,7 @@ SSH가 필요 없는 컴퓨팅 인스턴스를 원격 서버로 사용하여 [VS
 |Conda 패키지|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |딥 러닝 패키지|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX 패키지|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
-|Azure Machine Learning Python 및 R SDK 샘플||
+|Azure Machine Learning Python 샘플||
 
 Python 패키지는 **Python 3.8 - AzureML** 환경에 모두 설치됩니다. 컴퓨팅 인스턴스는 Ubuntu 18.04를 기본 OS로 포함합니다.
 
@@ -101,15 +101,7 @@ Notebook 및 R 스크립트는 Azure 파일 공유에서 작업 영역의 기본
 
 네트워크 드라이브에서 작은 파일을 작성하는 것이 컴퓨팅 인스턴스 로컬 디스크 자체에 작성하는 것에 비해 느릴 수 있습니다.  많은 작은 파일을 작성하는 경우 `/tmp` 디렉터리와 같이 컴퓨팅 인스턴스에서 직접 디렉터리를 사용해보세요. 이러한 파일은 다른 컴퓨팅 인스턴스에서 액세스할 수 없습니다.
 
-Notebooks 파일 공유에 학습 데이터를 저장하지 마세요. 임시 데이터에 대해 컴퓨팅 인스턴스의 `/tmp` 디렉터리를 사용할 수 있습니다.  그러나 컴퓨팅 인스턴스의 OS 디스크에 매우 큰 데이터 파일은 작성하지 마세요. 컴퓨팅 인스턴스의 OS 디스크 용량은 128GB입니다. /mnt에 탑재된 임시 디스크에 임시 학습 데이터를 저장할 수도 있습니다. 임시 디스크 크기는 선택한 VM 크기에 따라 구성할 수 있으며 더 큰 크기의 VM을 선택한 경우 더 많은 양의 데이터를 저장할 수 있습니다. [데이터 저장소 및 데이터 세트](concept-azure-machine-learning-architecture.md#datasets-and-datastores)를 탑재할 수도 있습니다.
-
-## <a name="managing-a-compute-instance"></a>컴퓨팅 인스턴스 관리
-
-Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스** 를 선택합니다.
-
-![컴퓨팅 인스턴스 관리](./media/concept-compute-instance/manage-compute-instance.png)
-
-컴퓨팅 인스턴스 관리에 대한 자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조하세요.
+Notebooks 파일 공유에 학습 데이터를 저장하지 마세요. 임시 데이터에 대해 컴퓨팅 인스턴스의 `/tmp` 디렉터리를 사용할 수 있습니다.  그러나 컴퓨팅 인스턴스의 OS 디스크에 매우 큰 데이터 파일은 작성하지 마세요. 컴퓨팅 인스턴스의 OS 디스크 용량은 128GB입니다. /mnt에 탑재된 임시 디스크에 임시 학습 데이터를 저장할 수도 있습니다. 임시 디스크 크기는 선택한 VM 크기에 따라 구성할 수 있으며 더 큰 크기의 VM을 선택한 경우 더 많은 양의 데이터를 저장할 수 있습니다. [데이터 저장소 및 데이터 세트](concept-azure-machine-learning-architecture.md#datasets-and-datastores)를 탑재할 수도 있습니다. 설치하는 모든 소프트웨어 패키지는 컴퓨팅 인스턴스의 OS 디스크에 저장됩니다. 고객 관리 키 암호화는 현재 OS 디스크에 대해 지원되지 않습니다. 컴퓨팅 인스턴스용 OS 디스크는 Microsoft 관리형 키로 암호화됩니다. 
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>컴퓨팅 인스턴스 생성
 
@@ -117,7 +109,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 컴퓨팅 인스턴스를 자동으로 사용자 지정하고 구성할 수도 있습니다.
 
-직접 컴퓨팅 인스턴스를 만들려면 Azure Machine Learning 스튜디오의 작업 영역을 사용하고 **컴퓨팅** 섹션 또는 **Notebooks** 섹션(Notebooks 중 하나를 실행할 준비가 된 경우)에서 [새 컴퓨팅 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance).
+직접 컴퓨팅 인스턴스를 만들려면 Azure Machine Learning 스튜디오의 작업 영역을 사용하고 **컴퓨팅** 섹션 또는 **Notebooks** 섹션(Notebooks 중 하나를 실행할 준비가 된 경우)에서 [새 컴퓨팅 인스턴스를 만듭니다](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
 인스턴스를 만들 수도 있습니다.
 * [통합 Notebook 환경](tutorial-train-models-with-aml.md#azure)에서 직접 만들기
@@ -139,7 +131,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 * 작업 큐가 있습니다.
 * 기업에서 SSH 포트를 열지 않고도 가상 네트워크 환경에서 안전하게 작업을 실행합니다. 작업은 컨테이너화된 환경에서 실행되며 모델 종속성을 Docker 컨테이너로 패키지합니다.
 * 여러 작은 작업을 병렬로 실행할 수 있습니다(미리 보기).  나머지 작업이 큐에 있는 동안 코어당 두 개의 작업을 병렬로 실행할 수 있습니다.
-* 단일 노드 다중 GPU 분산 학습 작업 지원
+* 단일 노드 다중 GPU [분산 학습](how-to-train-distributed-gpu.md) 작업 지원
 
 컴퓨팅 인스턴스는 테스트/디버그 시나리오에 대한 로컬 추론 배포 대상으로 사용할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 91b6f1ed06fbf1f5575650f96f4622b3df9ca083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28c3ccbd7dc0aae27cd64c0c213869cf968c0a9f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98187434"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969358"
 ---
 <!-- This is the instructions for creating a simulated device you can use for testing routing.-->
 
@@ -25,7 +25,7 @@ ms.locfileid: "98187434"
 
 3. 리소스 목록에서 IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub** 를 사용합니다. 허브 창에서 **IoT 디바이스** 를 선택합니다.
 
-4. **+새로 만들기** 를 선택합니다. 추가 디바이스 창에서 디바이스 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device** 를 사용합니다. 키를 비워 두고 **키 자동 생성** 을 선택합니다. **IoT Hub에 디바이스 연결** 이 사용하도록 설정되어 있는지 확인합니다. **저장** 을 선택합니다.
+4. **IoT 디바이스** 창에서 **+디바이스 추가** 를 선택합니다. 추가 디바이스 창에서 디바이스 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device** 를 사용합니다. 키를 비워 두고 **키 자동 생성** 을 선택합니다. **IoT Hub에 디바이스 연결** 이 사용하도록 설정되어 있는지 확인합니다. **저장** 을 선택합니다.
 
    ![디바이스 추가 화면](./media/iot-hub-include-create-simulated-device-portal/add-device.png)
 

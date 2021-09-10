@@ -3,12 +3,12 @@ title: ARG(Azure Resource Graph)를 사용하여 백업 쿼리
 description: ARG(Azure Resource Group)를 사용하여 Azure 리소스에 대한 백업 정보를 쿼리하는 방법에 대해 자세히 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.openlocfilehash: c464e95b9b6b45a49655b8f5f4659a262f9097ee
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 252c921ce911777315ab043501359b5eb74cf176
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483446"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566611"
 ---
 # <a name="query-your-backups-using-azure-resource-graph-arg"></a>ARG(Azure Resource Graph)를 사용하여 백업 쿼리
 
@@ -47,7 +47,7 @@ ARG를 사용하여 백업 쿼리를 시작하려면 다음 단계를 수행합�
 
 ### <a name="list-all-azure-vms-that-have-been-configured-for-backup"></a>백업용으로 구성된 모든 Azure VM 나열
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupInstances',split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -66,7 +66,7 @@ RecoveryServicesResources
 
 ### <a name="list-all-backup-jobs-on-azure-databases-for-postgresql-servers-in-the-last-one-week"></a>지난 1주 동안 Azure Database for PostgreSQL 서버의 모든 백업 작업 나열
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/backupVaults/backupJobs')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupJobs',properties.vaultName,type =~ 'Microsoft.RecoveryServices/vaults/backupJobs',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -86,7 +86,7 @@ RecoveryServicesResources
 
 ### <a name="list-all-azure-vms-that-have-not-been-configured-for-backup"></a>백업하도록 구성되지 않은 모든 Azure VM 나열
 
-```dotnetcli
+```kusto
 Resources
 | where type in~ ('microsoft.compute/virtualmachines','microsoft.classiccompute/virtualmachines') 
 | extend resourceId=tolower(id) 
@@ -100,9 +100,20 @@ Resources
 
 ```
 
+### <a name="list-all-backup-policies-used-for-azure-vms"></a>Azure VM에 사용되는 모든 백업 정책 나열
+
+```kusto
+RecoveryServicesResources
+| where type == 'microsoft.recoveryservices/vaults/backuppolicies'
+| extend vaultName = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],'--')
+| extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
+| project id,name,vaultName,resourceGroup,properties,datasourceType
+| where datasourceType == 'AzureIaasVM'
+```
+
 ### <a name="list-all-backup-policies-used-for-azure-databases-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버에 사용되는 모든 백업 정책 나열
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/BackupVaults/backupPolicies')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupPolicies', split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'microsoft.recoveryservices/vaults/backupPolicies', split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')

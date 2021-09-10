@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97812777"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528364"
 ---
 * 격리 계층을 제외한 모든 범위의 요금제를 지원하는 다중 테넌트 시스템입니다.
 * App Service Environment는 VNet에 배포되고 격리된 가격 책정 계획 앱을 지원합니다.
@@ -30,7 +30,7 @@ VNet 통합 기능에는 다음이 적용됩니다.
 VNet 통합에서 지원하지 않는 다음과 같은 몇 가지 항목이 있습니다.
 
 * 드라이브 탑재
-* Active Directory 통합.
+* Windows Server Active Directory 통합.
 * NetBIOS.
 
 게이트웨이 필수 VNet 통합은 대상 VNet 또는 피어링 또는 VPN을 사용하여 대상 VNet에 연결된 네트워크에서만 리소스에 액세스할 수 있도록 지원합니다. 게이트웨이 필수 VNet 통합은 Azure ExpressRoute 연결에서 사용할 수 있는 리소스에 액세스할 수 없거나 서비스 엔드포인트를 사용할 수 없습니다.

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/19/2020
 ms.reviewer: ManojRaheja
 author: midesa
-ms.openlocfilehash: 5b7707354d7bf63671e21d1adbaebc2ef8d71d0e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 82310e14b3eac25be038a7748d1992daef72d83f
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952244"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516678"
 ---
 # <a name="azure-data-explorer-kusto-connector-for-apache-spark"></a>Apache Spark용 Azure Data Explorer(Kusto) 커넥터
 Apache Spark용 Azure Data Explorer(Kusto) 커넥터는 Kusto 클러스터와 Spark 간에 데이터를 효율적으로 전송하도록 설계되었습니다. 이 커넥터는 Python, Java 및 .NET에서 사용할 수 있습니다. Azure Synapse Apache Spark 2.4 런타임에 기본 제공됩니다.
@@ -29,7 +29,7 @@ Azure Synapse Pipelines의 경우 인증은 서비스 주체 이름을 사용합
 
 ## <a name="limitations"></a>제한 사항
   - Azure Data Explorer(Kusto) 커넥터는 현재 Azure Synapse Apache Spark 2.4 런타임에서만 지원됩니다.
-  - Azure Data Explorer 연결된 서비스는 서비스 사용자 이름으로만 구성할 수 있습니다.
+  - Azure Data Explorer 연결된 서비스는 서비스 주체 이름으로만 구성할 수 있습니다.
   - Azure Synapse Notebooks 또는 Apache Spark 작업 정의 내에서 Azure Data Explorer 커넥터는 AAD 통과를 사용하여 Kusto 클러스터에 연결합니다.
 
 

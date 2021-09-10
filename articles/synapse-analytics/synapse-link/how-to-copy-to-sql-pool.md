@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: ff04d43e72d4eca9800b330d5a4721ba951c85f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2a061e5db3e4a6b6aef193449abcd41d0b8eaf76
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627645"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097538"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Apache Spark를 사용하여 Azure Cosmos DB에서 전용 SQL 풀로 데이터 복사
 
@@ -101,4 +101,5 @@ SELECT  [productCode]
 쿼리는 차트 모드에서 다음과 같은 결과를 제공합니다. [![Spark에서 SQL 2단계로](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
-* [Apache Spark를 사용하여 Azure Cosmos DB Analytical Store 쿼리](./how-to-query-analytical-store-spark.md)
+* [Apache Spark 3을 사용하여 Azure Cosmos DB 분석 저장소 쿼리](./how-to-query-analytical-store-spark-3.md)
+* [Apache Spark 2를 사용하여 Azure Cosmos DB 분석 저장소 쿼리](./how-to-query-analytical-store-spark.md)

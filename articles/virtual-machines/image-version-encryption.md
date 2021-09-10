@@ -1,22 +1,24 @@
 ---
-title: 미리 보기 - 사용자 고유 키로 암호화된 이미지 버전 만들기
+title: 사용자 고유 키로 암호화된 이미지 버전 만들기
 description: 고객 관리형 암호화 키를 사용하여 Shared Image Gallery에서 이미지 버전을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/3/2020
-ms.author: cynthn
+ms.date: 7/1/2021
+ms.author: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e5d4f0d9d3f8f8ab168ca7699f99bc40919b32
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 69e3fa87d55dcedc95ac4fec7fa92f53449ece46
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669481"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768718"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 공유 이미지 갤러리의 이미지는 스냅샷으로 저장되므로 서버 쪽 암호화를 통해 자동으로 암호화됩니다. 서버 쪽 암호화는 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. 서버 쪽 암호화는 FIPS 140-2 규격이기도 합니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
@@ -28,7 +30,7 @@ ms.locfileid: "110669481"
 
 이 문서에서는 이미지를 복제하려는 각 영역에 디스크 암호화가 이미 설정되어 있어야 합니다.
 
-- 고객 관리형 키만 사용하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation)을 사용하여 서버 쪽 암호화에 고객 관리형 키를 사용하는 방법에 대한 문서를 참조하세요.
+- 고객 관리형 키만 사용하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation)을 사용하여 서버 쪽 암호화에 고객 관리형 키를 사용하는 방법에 대한 문서를 참조하세요.
 
 - 플랫폼 관리형 키 및 고객 관리형 키를 모두 사용하려면(이중 암호화의 경우) [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) 또는 [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)을 사용하여 미사용 데이터에 이중 암호화를 사용하도록 설정하는 방법에 대한 문서를 참조하세요.
 
@@ -48,40 +50,9 @@ ms.locfileid: "110669481"
 - 사용자 고유의 키를 사용하여 디스크 또는 이미지를 암호화한 후에는 플랫폼 관리형 키를 사용하여 해당 디스크나 이미지를 암호화할 수 없습니다.
 
 
-> [!IMPORTANT]
-> 고객 관리형 키를 통한 암호화는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-
 ## <a name="powershell"></a>PowerShell
 
-공개 미리 보기의 경우 먼저 기능을 등록해야 합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
-```
-
-등록을 완료하려면 몇 분 정도 걸립니다. `Get-AzProviderFeature`을(를) 사용하여 기능 등록 상태를 확인합니다.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
-```
-
-`RegistrationState`이(가) `Registered`을(를) 반환하면 다음 단계로 이동할 수 있습니다.
-
-공급자 등록을 확인합니다. `Registered`를 반환하는지 확인합니다.
-
-```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
-```
-
-`Registered`를 반환하지 않는 경우 다음 코드를 사용하여 공급자를 등록합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-이미지 버전에 대한 디스크 암호화 집합을 지정하려면 [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 `-TargetRegion` 매개 변수와 함께 사용합니다. 
+이미지 버전에 대한 디스크 암호화 집합을 지정하려면 [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)을 `-TargetRegion` 매개 변수와 함께 사용합니다. 
 
 ```azurepowershell-interactive
 
@@ -136,33 +107,6 @@ Shared Image Gallery에서 VM(가상 머신)을 만들고, 고객 관리형 키�
 
 ## <a name="cli"></a>CLI 
 
-공개 미리 보기의 경우 먼저 기능을 등록해야 합니다. 등록은 30분 정도 걸립니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name SIGEncryption
-```
-
-기능 등록 상태를 확인합니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
-```
-
-이 코드가 `"state": "Registered"`을(를) 반환하면 다음 단계로 이동할 수 있습니다.
-
-등록을 확인합니다.
-
-```azurecli-interactive
-az provider show -n Microsoft.Compute | grep registrationState
-```
-
-등록되지 않은 경우 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az provider register -n Microsoft.Compute
-```
-
-
 이미지 버전에 대해 디스크 암호화를 지정하려면 [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create)을 `--target-region-encryption` 매개 변수와 함께 사용합니다. `--target-region-encryption`의 형식은 OS 및 데이터 디스크를 암호화하기 위한 콤마로 구분된 키 목록입니다. `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`와 비슷한 형식이어야 합니다. 
 
 OS 디스크의 원본이 관리 디스크 또는 VM인 경우 `--managed-image`를 사용하여 이미지 버전의 원본을 지정합니다. 이 예제에서 원본은 OS 디스크 및 LUN 0 수준 데이터 디스크를 포함하는 관리형 이미지입니다. OS 디스크는 DiskEncryptionSet1을 사용하여 암호화되고 데이터 디스크는 DiskEncryptionSet2를 사용하여 암호화됩니다.
@@ -206,10 +150,6 @@ Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여
 ## <a name="portal"></a>포털
 
 포털에서 이미지 버전을 만들 때 **암호화** 탭을 사용하여 스토리지 암호화 집합을 적용할 수 있습니다.
-
-> [!IMPORTANT]
-> 이중 암호화를 사용하려면 [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) 링크를 사용하여 Azure Portal에 액세스해야 합니다. 링크를 사용하지 않으면 미사용 데이터 이중 암호화가 공용 Azure Portal에 표시되지 않습니다.
-
 
 1. **이미지 버전 만들기** 페이지에서 **암호화** 탭을 선택합니다.
 2. **암호화 유형** 에서 **고객 관리형 키로 미사용 데이터 암호화** 를 선택하거나 **플랫폼 관리형 및 고객 관리형 키를 사용한 이중 암호화** 를 선택합니다. 

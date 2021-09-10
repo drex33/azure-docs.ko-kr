@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: f56d1c305f5d18d82ae79781a7b60fd6b429357b
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 6344e83593509b2828b41b8e9074211aa83fc2d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613821"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440212"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 설정(스크립팅됨)
 
@@ -22,8 +22,8 @@ ms.locfileid: "110613821"
 이 문서에서는 인스턴스를 만들고 인증을 설정하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명합니다. 이 문서를 완료한 후에는 Azure Digital Twins 인스턴스에 대한 프로그래밍을 시작할 수 있습니다.
 
 이 버전의 이 문서에서는 프로세스를 간소화하는 [자동화된 배포 스크립트 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)을 실행하여 이러한 단계를 완료합니다. 
-* 백그라운드에서 스크립트를 실행하는 수동 CLI 단계를 보려면 이 문서의 CLI 버전: [방법: 인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md) 을 참조하세요.
-* Azure Portal에 따라 수동 단계를 보려면 이 문서의 포털 버전: [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
+* 백그라운드에서 스크립트를 실행하는 수동 CLI 단계를 보려면 [인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md)에서 이 문서의 CLI 버전을 참조하세요.
+* Azure Portal에 따라 수동 단계를 보려면 [인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md)에서 이 문서의 포털을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -126,7 +126,7 @@ Cloud Shell에서 배포 스크립트를 실행하는 단계는 다음과 같습
 
 Azure Digital Twins CLI 명령을 사용하여 인스턴스에서 개별 REST API 호출을 테스트합니다. 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [개념: Azure Digital Twins CLI 명령 집합](concepts-cli.md)
+* [Azure Digital Twins CLI 명령 집합](concepts-cli.md)
 
 또는 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)
+* [앱 인증 코드 쓰기](how-to-authenticate-client.md)

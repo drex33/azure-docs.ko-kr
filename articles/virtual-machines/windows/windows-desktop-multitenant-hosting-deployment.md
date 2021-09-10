@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 9a2b93a951b9aa2056ee547d8d74c90eb7d96f71
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 08193cc933bfd7c1d183df119b1602270ecf6f74
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983837"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688508"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
+
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 다중 테넌트 호스팅 권한은 Windows 10(버전 1703 이상)에서만 사용할 수 있습니다.
 
 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
@@ -30,7 +32,7 @@ Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Acce
 [Microsoft admin center](/microsoft-365/admin/admin-overview/about-the-admin-center)를 사용하여 사용자에게 Windows 10 지원 라이선스가 할당되었는지 확인할 수 있습니다.
 
 > [!IMPORTANT]
-> 사용자는 Azure에서 Windows 10 이미지를 사용하기 위해 아래 구독 라이선스 중 하나가 있어야 합니다. 이러한 구독 라이선스 중 하나가 없는 경우 [클라우드 서비스 파트너](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)를 통하거나 [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1)를 통해 직접 구매할 수 있습니다.
+> 사용자가 프로덕션 워크로드에 Azure의 Windows 10 이미지를 사용하려면 다음 구독 라이선스 중 하나가 **반드시** 있어야 합니다. 이러한 구독 라이선스 중 하나가 없는 경우 [클라우드 서비스 파트너](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)를 통하거나 [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1)를 통해 직접 구매할 수 있습니다.
 
 **적격 구독 라이선스:**
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd1a5ff9fbf85fbce4c4ae7a79b745589b3596e1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3fc896daef7e42c1574f8ba92ead76ddb1b7205e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528391"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966064"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -142,6 +142,9 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 - 포트 53(아웃바운드)의 공용 DNS 확인
 
 > [!NOTE]
+> 프록시는 iSCSI 프로토콜을 지원하지 않거나 포트 3260에 대한 액세스를 제공하지 않을 수 있습니다. 따라서 프록시로 리디렉션할 컴퓨터가 아닌 위의 필수 항목에 직접 액세스하는 컴퓨터에서는 이 스크립트를 실행하는 것이 좋습니다.
+
+> [!NOTE]
 >
 > 백업된 VM이 Windows인 경우 생성된 암호에서 지역 이름이 언급됩니다.<br><br>
 > 예를 들어 생성된 암호가 *ContosoVM_wcus_GUID* 인 경우 지역 이름은 wcus이고 URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>입니다.<br><br>
@@ -187,10 +190,10 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
     ![레지스트리 키 변경](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
 ```
 
 ### <a name="for-linux"></a>Linux의 경우

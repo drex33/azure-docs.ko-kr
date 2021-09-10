@@ -9,17 +9,20 @@ ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32de7c963a7b82c70f4225e35a4e9acb8d429717
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6ef288e776daaf7aa266d13068647bea1c5a4c27
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568206"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691890"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure Image Builder Service 문제 해결
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서는 Azure Image Builder Service를 사용할 때 발생할 수 있는 일반적인 문제를 확인하고 해결하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 빌드를 만들 때 빌드가 다음 필수 구성 요소를 충족하는지 확인합니다.
     
 - 이미지 빌더 서비스는 WinRM 또는 SSH를 사용하여 빌드 VM과 통신합니다. 빌드의 일부로 이러한 설정을 사용하지 마세요.

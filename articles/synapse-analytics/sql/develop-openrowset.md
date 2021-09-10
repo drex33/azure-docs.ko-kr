@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 578ff0997375b62b3fd5a90ec44967ead1b9cd63
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913782"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253808"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -113,10 +113,10 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 **'unstructured_data_path'**
 
 데이터에 대한 경로를 설정하는 unstructured_data_path는 절대 또는 상대 경로일 수 있습니다.
-- '\<prefix>://\<storage_account_path>/\<storage_path>' 형식의 절대 경로를 사용하면 사용자가 파일을 직접 읽을 수 있습니다.
-- '<storage_path>' 형식의 상대 경로는 `DATA_SOURCE` 매개 변수와 함께 사용해야 하며 `EXTERNAL DATA SOURCE`에 정의된 <storage_account_path> 위치 내의 파일 패턴을 설명합니다. 
+- `\<prefix>://\<storage_account_path>/\<storage_path>` 형식의 절대 경로를 사용하면 사용자가 파일을 직접 읽을 수 있습니다.
+- `<storage_path>` 형식의 상대 경로는 `DATA_SOURCE` 매개 변수와 함께 사용해야 하며 `EXTERNAL DATA SOURCE`에 정의된 <storage_account_path> 위치 내의 파일 패턴을 설명합니다. 
 
-아래에는 특정 외부 데이터 소스에 연결되는 관련 <storage account path> 값이 있습니다. 
+아래에는 특정 외부 데이터 소스에 연결되는 관련 \<storage account path> 값이 있습니다. 
 
 | 외부 데이터 원본       | 접두사 | 스토리지 계정 경로                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |

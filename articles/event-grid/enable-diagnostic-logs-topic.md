@@ -2,13 +2,13 @@
 title: Azure Event Grid - 토픽 또는 도메인에 대한 진단 로그 사용
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 진단 로그를 사용하도록 설정하는 방법에 대한 단계별 지침을 제공합니다.
 ms.topic: how-to
-ms.date: 04/22/2021
-ms.openlocfilehash: 78dfeed0cedfe96d9a0d70411aecc7c7f2c51a72
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/25/2021
+ms.openlocfilehash: 7ae1900c08b78ac5d84f4d36ef48319cd42ebce2
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897778"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969854"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 항목 또는 도메인에 대한 진단 로그 사용
 이 문서에서는 Event Grid 토픽 또는 도메인에 대한 진단 설정을 사용하도록 설정하는 단계별 지침을 제공합니다.  이러한 설정을 사용하면 **게시 및 전송 실패** 로그를 캡처하고 볼 수 있습니다. 
@@ -109,5 +109,99 @@ ms.locfileid: "107897778"
         "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
+
+## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
+다음은 Event Grid 항목에 대한 진단 설정을 사용하도록 설정하는 샘플 Azure Resource Manager 템플릿입니다. 샘플 템플릿을 배포하면 다음 리소스가 생성됩니다.
+
+- Event Grid 토픽
+- Log Analytics 작업 영역
+
+그런 다음, 진단 정보를 Log Analytics 작업 영역으로 보내는 항목에 대한 진단 설정을 생성합니다. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "topic_name": {
+            "defaultValue": "spegrid0917topic",
+            "type": "String"
+        },
+        "log_analytics_workspace_name": {
+            "defaultValue": "splogaw0625",
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "sku": {
+            "defaultValue": "Free",
+            "type": "String"
+        }               
+    },  
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.EventGrid/topics",
+            "apiVersion": "2020-10-15-preview",
+            "name": "[parameters('topic_name')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Basic"
+            },
+            "kind": "Azure",
+            "identity": {
+                "type": "None"
+            },
+            "properties": {
+                "inputSchema": "EventGridSchema",
+                "publicNetworkAccess": "Enabled"
+            }
+        },
+        {
+            "apiVersion": "2017-03-15-preview",
+            "name": "[parameters('log_analytics_workspace_name')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.EventGrid/topics/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('topic_name'), '/', 'Microsoft.Insights/', parameters('log_analytics_workspace_name'))]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.EventGrid/topics', parameters('topic_name'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]"          
+            ],
+            "properties": {
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]",
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "DeliveryFailures",
+                        "enabled": true
+                    },
+                    {
+                        "category": "PublishFailures",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 토픽 또는 도메인의 진단 로그에 대한 로그 스키마 및 기타 개념 정보는 [진단 로그](diagnostic-logs.md)를 참조하세요.

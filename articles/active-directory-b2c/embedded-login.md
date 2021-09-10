@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7874224304f5466c8b166c1e5bd709b915a5d325
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639920"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567918"
 ---
-# <a name="embedded-sign-in-experience"></a>포함된 로그인 환경
+# <a name="embedded-sing-up-or-sign-in-experience"></a>포함된 가입 또는 로그인 환경
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -32,7 +32,10 @@ ms.locfileid: "105639920"
 
 ::: zone pivot="b2c-custom-policy"
 
-더 간단한 로그인 환경을 위해 사용자를 별도의 로그인 페이지로 리디렉션하거나 팝업 창을 생성하지 않도록 방지할 수 있습니다. 인라인 프레임 요소 `<iframe>`을 사용하여 Azure AD B2C 로그인 사용자 인터페이스를 웹 애플리케이션에 직접 포함할 수 있습니다.
+더 간단한 가입 또는 로그인 환경을 위해 사용자를 별도의 가입 또는 로그인 페이지로 리디렉션하거나 팝업 창을 생성하지 않도록 방지할 수 있습니다. 인라인 프레임 &lt;iframe&gt; HTML 요소를 사용하여 Azure AD B2C 로그인 사용자 인터페이스를 웹 애플리케이션에 직접 포함할 수 있습니다. 
+
+> [!TIP]
+> &lt;iframe&gt; HTML 요소를 사용하여 [가입 또는 로그인](add-sign-up-and-sign-in-policy.md), [프로필 편집](add-profile-editing-policy.md) 또는 [암호 변경](add-password-change-policy.md) 사용자 지정 정책을 웹 또는 단일 페이지 앱에 포함합니다.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -44,12 +47,12 @@ ms.locfileid: "105639920"
 
 iframe을 사용하는 경우 다음 사항을 고려하세요.
 
-- 포함된 로그인은 로컬 계정만 지원합니다. 대부분의 소셜 ID 공급자(예: Google 및 Facebook)는 로그인 페이지가 인라인 프레임에서 렌더링되지 않도록 차단합니다.
+- 포함된 가입 또는 로그인에서 로컬 계정만 지원합니다. 대부분의 소셜 ID 공급자(예: Google 및 Facebook)는 로그인 페이지가 인라인 프레임에서 렌더링되지 않도록 차단합니다.
 - iframe 내의 Azure AD B2C 세션 쿠키는 타사 쿠키로 간주되기 때문에 특정 브라우저(예: Safari 또는 시크릿 모드의 Chrome)는 이러한 쿠키를 차단하거나 지워 바람직하지 않은 사용자 환경이 됩니다. 이 문제를 방지하려면 애플리케이션 도메인 이름과 Azure AD B2C 도메인의 *원본이 동일한지* 확인합니다. 동일한 원본을 사용하려면 Azure AD B2C 테넌트에 대해 [사용자 지정 도메인을 사용하도록 설정한](custom-domain.md) 다음 동일한 원본으로 웹앱을 구성합니다. 예를 들어 'https://app.contoso.com '에서 호스팅되는 애플리케이션의 원본은 'https://login.contoso.com '에서 실행되는 Azure AD B2C와 동일합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
+* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)에 있는 단계를 완료합니다.
 * 정책에 대해 [사용자 지정 도메인을 사용하도록 설정](custom-domain.md)합니다.
 
 ## <a name="configure-your-policy"></a>정책 구성
@@ -107,7 +110,7 @@ window.parent.postMessage("signUp", '*');
 
 ## <a name="configure-a-web-application"></a>웹앱 구성
 
-사용자가 로그인 단추를 선택하면 [웹앱](code-samples.md#web-apps-and-apis)은 사용자에게 Azure AD B2C 로그인 환경을 제공하기 위한 권한 부여 요청을 생성합니다. 로그인이 완료되면 Azure AD B2C는 애플리케이션 내의 구성된 리디렉션 URI에 ID 토큰 또는 권한 부여 코드를 반환합니다.
+사용자가 로그인 단추를 선택하면 [웹앱](integrate-with-app-code-samples.md#web-apps-and-apis)은 사용자에게 Azure AD B2C 로그인 환경을 제공하기 위한 권한 부여 요청을 생성합니다. 로그인이 완료되면 Azure AD B2C는 애플리케이션 내의 구성된 리디렉션 URI에 ID 토큰 또는 권한 부여 코드를 반환합니다.
 
 포함된 로그인을 지원하기 위해 iframe **src** 속성은 권한 부여 요청을 생성하고 사용자를 Azure AD B2C 정책으로 리디렉션하는 로그인 컨트롤러(예: `/account/SignUpSignIn`)를 가리킵니다.
 
@@ -168,6 +171,6 @@ function logOut()
 - [사용자 인터페이스 사용자 지정](customize-ui.md)
 - [RelyingParty](relyingparty.md) 요소 참조
 - [JavaScript에 대한 정책 사용 설정](./javascript-and-page-layout.md)
-- [코드 샘플](code-samples.md)
+- [코드 샘플](integrate-with-app-code-samples.md)
 
 ::: zone-end

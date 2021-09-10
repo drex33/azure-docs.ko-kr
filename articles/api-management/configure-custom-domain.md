@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0e8dfaf4c03ee3cfd47271b2044a7d0d9480643
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92311148"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538579"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Azure API Management 인스턴스에 대한 사용자 지정 도메인 이름 구성
 
@@ -37,7 +37,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure에서는 `azure-
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
--   API Management 인스턴스 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
+-   API Management 인스턴스. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 -   사용자 또는 사용자의 조직에서 소유하고 있는 사용자 지정 도메인 이름입니다. 이 항목은 사용자 지정 도메인 이름을 확보하는 방법에 대한 지침은 제공하지 않습니다.
 -   사용자 지정 도메인 이름을 API Management 인스턴스의 기본 도메인 이름에 매핑하는 DNS 서버에서 호스트되는 CNAME 레코드. 이 항목은 CNAME 레코드를 호스트하는 방법에 대한 지침은 제공하지 않습니다.
 -   공개 및 프라이빗 키(.PFX)가 있는 유효한 인증서가 있어야 합니다. 주체 또는 SAN(주체 대체 이름)이 도메인 이름과 일치해야 합니다(이렇게 하면 API Management 인스턴스에서 TLS를 통해 URL을 안전하게 공개할 수 있음).
@@ -59,7 +59,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure에서는 `azure-
     > **게이트웨이** 엔드포인트만 소비 계층의 구성에 사용할 수 있습니다.
     > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객이 **게이트웨이**(이 URL은 API Management를 통해 노출된 API를 호출하는 데 사용됨) 및 **포털**(개발자 포털 URL)을 업데이트합니다.
     > **관리** 및 **SCM** 엔드포인트는 API Management 인스턴스 소유자만 내부적으로 사용하며 따라서 사용자 지정 도메인 이름은 자주 할당되지 않습니다.
-    > **프리미엄** 계층은 **게이트웨이** 엔드포인트에 대한 여러 호스트 이름 설정을 지원합니다.
+    > **프리미엄** alc **개발자** 계층은 **게이트웨이** 엔드포인트에 대한 여러 호스트 이름 설정을 지원합니다.
 
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정** 을 클릭합니다.
@@ -93,7 +93,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure에서는 `azure-
 -   API Management 게이트웨이 IP 주소를 가리키는 A 레코드를 구성합니다.
 
 > [!NOTE]
-> API Managment 인스턴스 IP 주소는 정적이지만 몇 가지 시나리오에서 변경될 수 있습니다. 따라서 사용자 지정 도메인을 구성하는 경우 CNAME를 사용하는 것이 좋습니다. DNS 구성 방법을 선택할 때 이를 고려하십시오. 자세한 내용은 [IP 설명서 문서](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) 및 [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)를 참조하세요.
+> API Managment 인스턴스 IP 주소는 정적이지만 몇 가지 시나리오에서 변경될 수 있습니다. 따라서 사용자 지정 도메인을 구성하는 경우 CNAME를 사용하는 것이 좋습니다. DNS 구성 방법을 선택할 때 이를 고려하십시오. 자세한 내용은 [IP 설명서 문서](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) 및 [API Management FAQ](api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

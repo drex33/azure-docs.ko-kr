@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 547889b63bcaa7e8a43d62c639ac40715949e89d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cc30139e0fade80da1185c009d162c7e5fc9f9ff
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528463"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771070"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure Private Link를 사용하여 네트워크를 Azure Automation에 안전하게 연결
 
@@ -62,7 +62,7 @@ Automation를 위한 프라이빗 엔드포인트를 만든 후에는 각 퍼블
 
 ### <a name="hybrid-runbook-worker-scenario"></a>Hybrid Runbook Worker 시나리오
 
-Azure Automation의 사용자 Hybrid Runbook Worker 기능을 사용하면 Azure Arc 사용 서버에 등록된 서버를 포함하여 Azure 또는 비 Azure 머신에서 직접 Runbook을 실행할 수 있습니다. 역할을 호스트하는 머신 또는 서버에서 직접 Runbook을 실행하고 환경의 리소스에 대해 해당 로컬 리소스를 관리할 수 있습니다.
+Azure Automation의 사용자 Hybrid Runbook Worker 기능을 사용하면 Azure Arc 지원 서버에 등록된 서버를 포함하여 Azure 또는 비 Azure 머신에서 직접 Runbook을 실행할 수 있습니다. 역할을 호스트하는 머신 또는 서버에서 직접 Runbook을 실행하고 환경의 리소스에 대해 해당 로컬 리소스를 관리할 수 있습니다.
 
 JRDS 엔드포인트는 Hybrid Worker가 Runbook을 시작/중지하고, Runbook을 작업자에 다운로드하고, 작업 로그 스트림을 Automation 서비스로 다시 보내는 데 사용됩니다.JRDS 엔드포인트를 사용하도록 설정한 후 URL은 `https://<automationaccountID>.jrds.<region>.privatelink.azure-automation.net`과 같습니다. 이렇게 하면 Azure Virtual Network에 연결된 Hybrid Worker에서 Runbook을 실행하여 인터넷에 대한 아웃바운드 연결을 열지 않고도 작업을 실행할 수 있습니다.  
 

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 12/26/2018
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: e2e469e5b42ef5820f26401e2f4c0d98ba80ecd7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9edcb24280db6c3fb102b9d1c28d7b2a0e537294
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785748"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031621"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 앱 빌드 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "121785748"
 > * [.NET Core](../sql-api-get-started.md)
 > * [Java](../create-sql-api-java.md)
 > * [MongoDB용 Node.js](nodejs-console-app.md)
-> * [Node.js](../sql-api-nodejs-get-started.md)
+> * [Node.JS](../sql-api-nodejs-get-started.md)
 >
 
 이 예제에서는 Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 콘솔 앱을 빌드하는 방법을 보여줍니다.
@@ -177,3 +177,6 @@ ms.locfileid: "121785748"
 - Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](connect-using-mongochef.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](connect-using-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

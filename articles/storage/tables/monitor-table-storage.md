@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b10e1d1c903f306668e051633467ba15079dcaca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 448a646b4fd615967e63c6d13b16940441478971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664328"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536266"
 ---
 # <a name="monitoring-azure-table-storage"></a>Azure Table Storage 모니터링
 
@@ -64,7 +64,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 ## <a name="creating-a-diagnostic-setting"></a>진단 설정 만들기
 
-Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용하여 진단 설정을 만들 수 있습니다. 
+Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azure Policy를 사용하여 진단 설정을 만들 수 있습니다. 
 
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
@@ -261,6 +261,10 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 ### <a name="template"></a>[템플릿](#tab/template)
 
 진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대한 진단 설정](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage)을 참조하세요.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. [Azure Storage에 대한 Azure Policy 기본 제공 정의](../common/policy-reference.md)를 참조하세요.
 
 ---
 
@@ -474,6 +478,10 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 ```
 
 ### <a name="template"></a>[템플릿](#tab/template)
+
+해당 없음.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 해당 없음.
 

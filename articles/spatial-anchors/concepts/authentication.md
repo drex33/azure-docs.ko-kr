@@ -8,13 +8,13 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, subject-rbac-steps
+ms.openlocfilehash: ef49c6ebd356c97466b9b5a744cc58584c42bcb7
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97722966"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126035"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
@@ -97,20 +97,14 @@ Azure Active Directory 사용자를 대상으로 하는 애플리케이션의 �
 **Azure Portal에서**
 1.    Azure AD에서 애플리케이션을 네이티브 애플리케이션으로 등록합니다. 등록하는 과정에서 애플리케이션이 다중 테넌트인지 여부를 확인해야 합니다. 또한 애플리케이션에 허용되는 리디렉션 URL도 제공해야 합니다.
 1.  **API 사용 권한** 탭으로 이동합니다.
-2.  **사용 권한 추가** 를 선택합니다.
+1.  **사용 권한 추가** 를 선택합니다.
     1.  **내 조직에서 사용하는 API** 탭에서 **혼합 현실 리소스 공급자** 를 선택합니다.
     2.  **위임된 권한** 을 선택합니다.
     3.  **mixedreality** 아래에서 **mixedreality.signin** 을 선택합니다.
     4.  **권한 추가** 를 선택합니다.
-3.  **관리자 동의 허용** 을 선택합니다.
+1.  **관리자 동의 허용** 을 선택합니다.
 
-2. 리소스에 애플리케이션 또는 사용자 액세스 권한을 부여합니다.
-   1.    Azure Portal의 Spatial Anchors 리소스로 이동합니다.
-   2.    **액세스 제어(IAM)** 탭으로 이동합니다.
-   3.    **역할 할당 추가** 를 선택합니다.
-   1.    [역할을 선택합니다.](#azure-role-based-access-control)
-   2.    **선택** 상자에서 액세스 권한을 할당하려는 사용자, 그룹 및/또는 애플리케이션의 이름을 입력합니다.
-   3.    **저장** 을 선택합니다.
+1. 리소스에 대한 액세스 권한을 부여할 애플리케이션 또는 사용자에게 [ASA RBAC 역할](#azure-role-based-access-control)을 할당합니다. 애플리케이션의 사용자에게 ASA 계정에 다른 역할을 지정하려면 Azure AD에 여러 애플리케이션을 등록하고 각 사용자에게 별도 역할을 할당합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다. 자세한 역할 할당 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 **코드에서**
 1.    Azure AD 애플리케이션의 애플리케이션 ID 및 리디렉션 URI를 MSAL의 **클라이언트 ID** 및 **RedirectUri** 매개 변수로 사용해야 합니다.
@@ -177,18 +171,8 @@ Azure AD 액세스 토큰은 [MSAL](../../active-directory/develop/msal-overview
         1.    Azure Portal에서 **Azure Active Directory** 를 선택한 다음, **앱 등록** 을 선택합니다.
         2.    **새 등록** 을 선택합니다.
         3.    애플리케이션 이름을 입력하고 애플리케이션 유형으로 **웹앱/API** 를 선택한 후 서비스의 인증 URL을 입력합니다. **만들기** 를 선택합니다.
-2.    애플리케이션에서 **설정** 을 선택한 다음 **인증서 및 암호** 탭을 선택합니다. 새 클라이언트 암호를 만들고 기간을 선택한 다음 **추가** 를 선택합니다. 암호 값을 저장해야 합니다. 웹 서비스의 코드에 포함해야 합니다.
-3.    애플리케이션 및/또는 사용자에게 리소스에 대한 액세스 권한을 부여합니다.
-        1.    Azure Portal의 Spatial Anchors 리소스로 이동합니다.
-        2.    **액세스 제어(IAM)** 탭으로 이동합니다.
-        3.    **역할 할당 추가** 를 선택합니다.
-        4.    [역할을 선택합니다.](#azure-role-based-access-control)
-        5.    **선택** 상자에서 액세스 권한을 할당하려는 애플리케이션의 이름을 입력합니다. 앱의 사용자에게 Spatial Anchors 계정에 다른 역할을 지정하려면 Azure AD에서 여러 애플리케이션을 등록하고 각 사용자에게 별도 역할을 할당합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
-
-              > [!NOTE]
-              > **역할 할당 추가** 창의 **다음에 대한 액세스 할당** 에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 를 선택합니다.
-
-        6.    **저장** 을 선택합니다.
+1.    애플리케이션에서 **설정** 을 선택한 다음 **인증서 및 암호** 탭을 선택합니다. 새 클라이언트 암호를 만들고 기간을 선택한 다음 **추가** 를 선택합니다. 암호 값을 저장해야 합니다. 웹 서비스의 코드에 포함해야 합니다.
+1. 리소스에 대한 액세스 권한을 부여할 애플리케이션 또는 사용자에게 [ASA RBAC 역할](#azure-role-based-access-control)을 할당합니다. 애플리케이션의 사용자에게 ASA 계정에 다른 역할을 지정하려면 Azure AD에 여러 애플리케이션을 등록하고 각 사용자에게 별도 역할을 할당합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다. 자세한 역할 할당 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 **코드에서**
 

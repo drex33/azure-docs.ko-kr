@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e1753391c7b61b6e9bd9e6ac0d142b4ee94502d8
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f67e02d0da3d7f7c1083cdb96436c8b82cae2cef
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363974"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728069"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Microsoft ID 플랫폼의 구성 가능한 토큰 수명(미리 보기)
 
@@ -36,7 +36,7 @@ Azure AD에서 정책 개체는 개별 애플리케이션 또는 조직의 모�
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
-이 기능을 사용하려면 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [체험판 및 프리미엄 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+이 기능을 사용하려면 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [체험판 및 프리미엄 버전의 일반적으로 사용할 수 있는 기능 비교](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 [Microsoft 365 Business 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다.
 
@@ -62,7 +62,7 @@ ID 토큰은 웹 사이트 및 기본 클라이언트에 전달됩니다. ID 토
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>새로 고침 토큰 및 세션 토큰에 대한 토큰 수명 정책
 
-새로 고침 토큰 및 세션 토큰에 대한 토큰 수명 정책을 설정할 수 없습니다.
+새로 고침 토큰 및 세션 토큰에 대한 토큰 수명 정책을 설정할 수 없습니다. 새로 고침 토큰에 대한 수명, 시간 제한 및 해지 정보는 [새로 고침 토큰](refresh-tokens.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 2021년 1월 30일부터 새로 고침 및 세션 토큰 수명을 구성할 수 없습니다. Azure Active Directory는 기존 정책의 새로 고침 및 세션 토큰 구성을 더 이상 적용하지 않습니다.  기존 토큰이 만료된 후 발급된 새 토큰은 이제 [기본 구성](#configurable-token-lifetime-properties)으로 설정됩니다. 새로 고침 및 세션 토큰 구성의 사용이 중지된 후에도 액세스, SAML 및 ID 토큰 수명을 구성할 수 있습니다.

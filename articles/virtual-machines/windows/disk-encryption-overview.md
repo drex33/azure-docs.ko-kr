@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bd75896654711a1188ca260abbe1a076baab1db
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: fc3c40e9f4bad9a15b94ee7aa529438f45b97498
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597356"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692612"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows VM을 위한 Azure Disk Encryption
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Disk Encryption은 조직의 보안 및 규정 준수 약정에 따라 데이터를 안전하게 보호하는 데 도움이 됩니다. 이 기능은 Windows의 [BitLocker](https://en.wikipedia.org/wiki/BitLocker) 기능을 사용하여 Azure VM(가상 머신)의 데이터 디스크 및 OS에 볼륨 암호화를 제공하며, [Azure Key Vault](../../key-vault/index.yml)와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리하는 데 도움을 줍니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f984eaa49539890b8ae4d5132f9a03594e2f19f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1c0a7768c0f5e30d9d5ab3b0fa32b0eb6f4946c3
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073795"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428420"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>계획된 유지 관리를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 유지 관리 기간 예약(미리 보기)
 
@@ -49,6 +49,8 @@ az extension update --name aks-preview
 유지 관리 기간을 추가하려면 `az aks maintenanceconfiguration add` 명령을 사용할 수 있습니다.
 
 > [!IMPORTANT]
+> 지금은 `default`을 `--name`에 대한 값으로 설정해야 합니다. 다른 이름을 사용 하면 유지 관리 기간이 실행되지 않습니다.
+>
 > 계획된 유지 관리 기간은 협정 세계시(UTC)로 지정됩니다.
 
 ```azurecli-interactive

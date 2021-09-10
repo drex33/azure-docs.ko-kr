@@ -1,14 +1,15 @@
 ---
 title: 서명된 이미지 관리
 description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 신뢰는 Docker 콘텐츠 신뢰를 구현하며 프리미엄 서비스 계층의 기능입니다.
-ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.date: 06/25/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148584"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983620"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -80,11 +81,19 @@ Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal에서 레지스트리로 이동한 다음, **액세스 제어(IAM)**  > **역할 할당 추가** 를 차례로 선택합니다. **역할 할당 추가** 의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택** 한 다음, **저장** 합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
 
-이 예제에서는 두 엔터티, 즉, “service-principal”이라는 서비스 주체와 “Azure User”라는 사용자에게 `AcrImageSigner` 역할을 할당했습니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
 
-![Azure Portal에서 ACR 이미지 서명 권한 부여][content-trust-02-portal]
+1. 다음 역할을 할당합니다. 이 예제에서 역할은 개별 사용자에게 할당됩니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | AcrImageSigner |
+    | 다음에 대한 액세스 할당 | 사용자 |
+    | 멤버 | Alain |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -220,4 +229,4 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az_acr_config_content_trust_update

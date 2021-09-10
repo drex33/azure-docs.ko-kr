@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 759dcafe3d1c98b73d9ddcaf079cba952b9a95ca
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99584417"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777903"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 API를 호출하는 데스크톱 앱 - 프로덕션으로 이동
 
@@ -110,7 +110,7 @@ Microsoft 개인 계정 사용자의 경우 권한 부여를 위해 각 네이�
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 샘플을 시도하려면 [데스크톱 및 모바일 공용 클라이언트 앱](sample-v2-code.md#desktop-and-mobile-public-client-apps)을 참조하세요.
+추가 샘플을 시도하려면 [데스크톱 퍼블릭 클라이언트 애플리케이션](sample-v2-code.md#desktop)을 참조하세요.
 
 
 

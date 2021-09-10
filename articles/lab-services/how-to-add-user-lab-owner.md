@@ -2,49 +2,56 @@
 title: Azure Lab Services의 랩에 소유자를 추가하는 방법
 description: 이 문서에서는 관리자가 Azure Lab Services의 랩에 사용자를 소유자로 추가하는 방법을 보여 줍니다.
 ms.topic: article
-ms.date: 09/04/2020
-ms.openlocfilehash: 4b46dd08a3b9527cdfc7bdf766ee4976e67656d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/03/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: e8dd21a140e1c519f09d661c776e5c84c47da925
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89482672"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635014"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Azure Lab Services의 기존 랩에 소유자를 추가하는 방법
 이 문서에서는 관리자가 기존 랩에 소유자를 추가하는 방법을 보여 줍니다.
 
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>랩 계정의 읽기 권한자 역할에 사용자 추가
-사용자를 기존 랩에 추가 소유자로 추가하려면 먼저 사용자에게 랩 계정에 대한 **읽기** 권한을 부여해야 합니다.
+1. **랩 계정** 페이지로 돌아가서 왼쪽 메뉴에서 **모든 랩** 을 선택합니다.
+2. 사용자를 소유자로 추가할 **랩** 을 선택합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스** 를 선택합니다. **Lab Services** 를 검색한 다음 선택합니다.
-3. 목록에서 **랩 계정** 을 선택합니다. 
-2. **랩 계정 페이지** 의 왼쪽 메뉴에서 **IAM(액세스 제어)** 을 선택합니다. 
-2. **IAM(액세스 제어)** 페이지의 툴바에서 **추가** 를 선택하고 **역할 할당 추가** 를 선택합니다.
+    ![랩 선택 ](./media/how-to-add-user-lab-owner/select-lab.png)  
+1. 탐색 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 
-    ![랩 계정에 대한 역할 할당 ](./media/how-to-add-user-lab-owner/lab-account-access-control-page.png)
-3. **역할 할당 추가** 페이지에서 다음 단계를 수행합니다. 
-    1. **역할** 에 대해 **읽기 권한자** 를 선택합니다. 
-    2. 사용자를 선택합니다. 
-    3. **저장** 을 선택합니다. 
+1. **추가** > **역할 할당 추가(미리 보기)** 를 선택합니다.
 
-        ![랩 계정의 읽기 권한자 역할에 사용자 추가 ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
+    ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
+1. **역할** 탭에서 **읽기 권한자** 역할을 선택합니다.
+
+    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. **구성원** 탭에서 읽기 권한자 역할에 추가할 사용자를 선택합니다.
+
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
 ## <a name="add-user-to-the-owner-role-for-the-lab"></a>랩의 소유자 역할에 사용자 추가
 
 > [!NOTE]
-> 사용자에게 랩에 대한 읽기 권한자 액세스 권한만 있는 경우 랩은 labs.azure.com에 표시되지 않습니다.
+> 사용자에게 랩에 대한 읽기 권한자 액세스 권한만 있는 경우 랩은 labs.azure.com에 표시되지 않습니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-1. **랩 계정** 페이지로 돌아가서 왼쪽 메뉴에서 **모든 랩** 을 선택합니다.
-2. 사용자를 소유자로 추가할 **랩** 을 선택합니다. 
-    
-    ![랩 선택 ](./media/how-to-add-user-lab-owner/select-lab.png)    
-3. **랩** 페이지의 왼쪽 메뉴에서 **IAM(액세스 제어)** 을 선택합니다.
-4. **IAM(액세스 제어)** 페이지의 툴바에서 **추가** 를 선택하고 **역할 할당 추가** 를 선택합니다.
-5. **역할 할당 추가** 페이지에서 다음 단계를 수행합니다. 
-    1. **역할** 에 대해 **소유자** 를 선택합니다. 
-    2. 사용자를 선택합니다. 
-    3. **저장** 을 선택합니다. 
+
+1. **랩 계정 페이지** 에서 **액세스 제어(IAM)** 를 선택합니다.
+
+1. **추가** > **역할 할당 추가(미리 보기)** 를 선택합니다.
+
+    ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. **역할** 탭에서 **소유자** 역할을 선택합니다.
+
+    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. **구성원** 탭에서 소유자 역할에 추가할 사용자를 선택합니다.
+
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 사용자가 [랩 서비스 포털](https://labs.azure.com)에 로그인할 때 랩이 표시되는지 확인합니다.

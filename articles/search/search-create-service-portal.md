@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 713d2216029fb88716d157d9db7b2010d3f32720
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 08/24/2021
+ms.openlocfilehash: 4a77ca4a3318e9ea583bd113d373815860e8d591
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526275"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767836"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>포털에서 Azure Cognitive Search서비스 만들기
 
@@ -28,16 +28,20 @@ ms.locfileid: "111526275"
 다음 서비스 속성은 서비스의 수명 동안 고정되어 있습니다. 이 중 하나를 변경하려면 새로운 서비스가 필요합니다. 이러한 속성은 고정되어 있으므로 각 속성을 입력할 때 사용하는 영향을 고려합니다.
 
 + 서비스 이름은 URL 엔드포인트의 일부가 됩니다. 유용한 서비스 이름에 대한 [팁을 검토](#name-the-service)하세요.
-+ [서비스 계층](search-sku-tier.md)은 청구에 영향을 주고 용량의 상향 제한을 설정합니다. 일부 기능은 체험 계층에서 사용할 수 없습니다.
++ [서비스 계층](search-sku-tier.md)(기본, 표준 등)은 기본 물리적 하드웨어의 특성을 결정합니다. 따라서 계층의 선택은 청구에 영향을 주고 용량의 상향 제한을 설정합니다. 일부 기능은 체험 계층에서 사용할 수 없습니다.
 + 서비스 지역에 따라 특정 시나리오의 가용성이 달라질 수 있습니다. [강력한 보인 기능](search-security-overview.md) 또는 [AI 보강](cognitive-search-concept-intro.md)이 필요한 경우 다른 서비스와 동일한 지역 또는 필요한 기능을 제공하는 지역에 Azure Cognitive Search를 만들어야 합니다. 
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 
-[무료 Azure 계정을 열고](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 무료 크레딧을 사용하여 유료 Azure 서비스를 사용해보세요. 크레딧이 소진되더라도 계정이 유지되므로 Websites와 같은 무료 Azure 서비스를 계속 사용하세요. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+무료로 검색을 시도하려면 다음 두 가지 옵션을 사용할 수 있습니다.
 
-아니면 [MSDN 구독자 혜택을 활성화합니다](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
++ [무료 Azure 계정을 열고](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 무료 크레딧을 사용하여 유료 Azure 서비스를 사용해보세요. 크레딧이 소진되더라도 계정이 유지되므로 Websites와 같은 무료 Azure 서비스를 계속 사용하세요. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
 
-## <a name="find-azure-cognitive-search"></a>Azure Cognitive Search 찾기
++ 또는 [Visual Studio 구독에서 Azure 크레딧을 활성화합니다](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Visual Studio 구독은 매달 유료 Azure 서비스에 사용할 수 있는 크레딧을 제공합니다. 
+
+유료 (또는 청구 가능한) 검색은 청구 가능 계층(기본 이상)을 선택하고 리소스를 만들 때 적용됩니다.
+
+## <a name="find-the-azure-cognitive-search-offering"></a>Azure Cognitive Search 제품 찾기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -117,11 +121,11 @@ Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.mic
 
 ## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
 
-포털을 사용하지 않는 경우 새 서비스에 프로그래밍 방식으로 액세스하려면 URL 엔드포인트와 인증 API 키를 제공해야 합니다.
+포털을 사용하지 않는 한 새 서비스에 프로그래밍 방식으로 액세스하려면 URL 엔드포인트와 인증 API 키를 제공해야 합니다.
 
 1. **개요** 페이지의 오른쪽에서 URL 엔드포인트를 찾아 복사합니다.
 
-1. **키** 페이지에서 관리 키(동급임) 중 하나를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다. 반대로 쿼리 키는 인덱스 콘텐츠에 대한 읽기 액세스를 제공합니다.
+1. **키** 페이지에서 관리 키(동급임) 중 하나를 복사합니다. 관리자 API 키는 서비스에서 개체를 생성·업데이트·삭제하는 데 필요합니다. 반대로 쿼리 키는 인덱스 콘텐츠에 대한 읽기 액세스를 제공합니다.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="URL 엔드포인트를 사용하는 서비스 개요 페이지" border="false":::
 

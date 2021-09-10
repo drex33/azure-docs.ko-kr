@@ -1,18 +1,18 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 06/11/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9a9d6b937256787d0457f150d5f3dfaca81d9cd
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 7d23a8958ebfa90658ec5769b077f07091eff89d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020244"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567466"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
-Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원합니다. 각각은 [KQL(Kusto Query Language)](/azure/kusto/query/index)을 기반으로 작동합니다. Resource Graph에서 사용하는 쿼리 언어에 대해 알아보려면 [KQL에 대한 자습서](/azure/kusto/query/tutorial)로 시작하세요.
+Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원합니다. 각각은 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/index)을 기반으로 작동합니다. Resource Graph에서 사용하는 쿼리 언어에 대해 알아보려면 [KQL에 대한 자습서](/azure/data-explorer/kusto/query/tutorial)로 시작하세요.
 
 이 문서에서는 Resource Graph에서 지원하는 언어 구성 요소에 대해 설명합니다.
 
@@ -29,19 +29,20 @@ Resource Graph는 Azure Resource Manager 리소스 종류 및 해당 속성에 �
 |Resource Graph 테이블 |다른 테이블을 `join`할 수 있나요? |Description |
 |---|---|---|
 |리소스 |예 |쿼리에 정의된 내용이 없는 경우 기본 테이블입니다. 대부분의 Resource Manager 리소스 종류 및 속성이 포함되어 있습니다. |
-|ResourceContainers |예 |subscription(미리 보기에서는 --`Microsoft.Resources/subscriptions`) 및 resource group(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
+|ResourceContainers |예 |관리 그룹(`Microsoft.Management/managementGroups`), 구독(`Microsoft.Resources/subscriptions`) 및 리소스 그룹(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
 |AdvisorResources |예(미리 보기) |`Microsoft.Advisor` _관련_ 리소스를 포함합니다. |
 |AlertsManagementResources |예(미리 보기) |`Microsoft.AlertsManagement` _관련_ 리소스를 포함합니다. |
 |ExtendedLocationResources |예 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
 |GuestConfigurationResources |예 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
+|HealthResources|Yes |`Microsoft.ResourceHealth/availabilitystatuses` _관련_ 리소스를 포함합니다. |
 |KubernetesConfigurationResources |예 |`Microsoft.KubernetesConfiguration` _관련_ 리소스를 포함합니다. |
 |MaintenanceResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
 |PatchAssessmentResources|예 |Azure Virtual Machines 패치 평가와 _관련된_ 리소스를 포함합니다. |
 |PatchInstallationResources|예 |Azure Virtual Machines 패치 설치와 _관련된_ 리소스를 포함합니다. |
-|PolicyResources |예 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**) |
+|PolicyResources |Yes |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. |
 |RecoveryServicesResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.DataProtection` 및 `Microsoft.RecoveryServices` _관련_ 리소스를 포함합니다. |
 |SecurityResources |예(미리 보기) |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
-|ServiceHealthResources |아니요(미리 보기) |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
+|ServiceHealthResources |아니요(미리 보기) |`Microsoft.ResourceHealth/events` _관련_ 리소스를 포함합니다. |
 |WorkloadMonitorResources |예 |`Microsoft.WorkloadMonitor` _관련_ 리소스를 포함합니다. |
 
 리소스 종류를 비롯한 전체 목록은 [참조: 지원되는 테이블 및 리소스 종류](../reference/supported-tables-resources.md)를 참조하세요.
@@ -121,7 +122,7 @@ Resources
 
 ## <a name="supported-kql-language-elements"></a>지원되는 KQL 언어 요소
 
-Resource Graph는 모든 KQL [데이터 형식](/azure/kusto/query/scalar-data-types/), [스칼라 함수](/azure/kusto/query/scalarfunctions), [스칼라 연산자](/azure/kusto/query/binoperators) 및 [집계 함수](/azure/kusto/query/any-aggfunction)의 하위 집합을 지원합니다. Resource Graph는 특정 [테이블 형식 연산자](/azure/kusto/query/queries)를 지원하며, 그 중 일부는 동작이 서로 다릅니다.
+Resource Graph는 모든 KQL [데이터 형식](/azure/data-explorer/kusto/query/scalar-data-types/), [스칼라 함수](/azure/data-explorer/kusto/query/scalarfunctions), [스칼라 연산자](/azure/data-explorer/kusto/query/binoperators) 및 [집계 함수](/azure/data-explorer/kusto/query/any-aggfunction)의 하위 집합을 지원합니다. Resource Graph는 특정 [테이블 형식 연산자](/azure/data-explorer/kusto/query/queries)를 지원하며, 그 중 일부는 동작이 서로 다릅니다.
 
 ### <a name="supported-tabulartop-level-operators"></a>지원되는 테이블 형식/최상위 수준 연산자
 
@@ -129,22 +130,23 @@ Resource Graph에서 지원하는 KQL 테이블 형식 연산자와 특정 샘�
 
 |KQL |Resource Graph 샘플 쿼리 |메모 |
 |---|---|---|
-|[count](/azure/kusto/query/countoperator) |[키 자격 증명 모음 계수](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/kusto/query/distinctoperator) |[스토리지를 포함하는 리소스 표시](../samples/starter.md#show-storage) | |
-|[extend](/azure/kusto/query/extendoperator) |[OS 유형별 가상 머신 개수 계산](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[구독 이름이 있는 키 자격 증명 모음](../samples/advanced.md#join) |지원되는 조인 버전: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 3개의 `join` 제한이 있으며, 그 중 1개는 크로스 테이블 `join`일 수 있습니다. 모든 테이블 간 `join` 사용이 _Resource_ 와 _ResourceContainers_ 사이에 있는 경우 3 개의 크로스 테이블 `join`이 허용됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용되지 않습니다. `join`을 사용할 수 있는 테이블에 대해서는 [Resource Graph 테이블](#resource-graph-tables)을 참조하세요. |
-|[limit](/azure/kusto/query/limitoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`take`의 동의어입니다. [Skip](./work-with-data.md#skipping-records)에서 작동하지 않습니다. |
-|[mvexpand](/azure/kusto/query/mvexpandoperator) | | 레거시 연산자. `mv-expand`를 대신 사용합니다. _RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. 단일 쿼리의 `mv-expand`은 2개로 제한됩니다.|
-|[order](/azure/kusto/query/orderoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`sort`의 동의어 |
-|[project](/azure/kusto/query/projectoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) | |
-|[project-away](/azure/kusto/query/projectawayoperator) |[결과에서 열 제거](../samples/advanced.md#remove-column) | |
-|[sort](/azure/kusto/query/sortoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`order`의 동의어 |
-|[summarize](/azure/kusto/query/summarizeoperator) |[Azure 리소스 개수 계산](../samples/starter.md#count-resources) |간소화된 첫 페이지만 |
-|[take](/azure/kusto/query/takeoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`limit`의 동의어입니다. [Skip](./work-with-data.md#skipping-records)에서 작동하지 않습니다. |
-|[top](/azure/kusto/query/topoperator) |[이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[두 쿼리의 결과를 단일 결과로 결합](../samples/advanced.md#unionresults) |단일 테이블 허용: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. 단일 쿼리의 `union` 레그는 3개로 제한됩니다. `union` 레그 테이블의 유사 항목 확인은 허용되지 않습니다. 단일 테이블 내에서 사용하거나 _Resources_ 테이블과 _ResourceContainers_ 테이블 간에 사용할 수 있습니다. |
-|[where](/azure/kusto/query/whereoperator) |[스토리지를 포함하는 리소스 표시](../samples/starter.md#show-storage) | |
+|[count](/azure/data-explorer/kusto/query/countoperator) |[키 자격 증명 모음 계수](../samples/starter.md#count-keyvaults) | |
+|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[스토리지를 포함하는 리소스 표시](../samples/starter.md#show-storage) | |
+|[extend](/azure/data-explorer/kusto/query/extendoperator) |[OS 유형별 가상 머신 개수 계산](../samples/starter.md#count-os) | |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[구독 이름이 있는 키 자격 증명 모음](../samples/advanced.md#join) |지원되는 조인 버전: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 3개의 `join` 제한이 있으며, 그 중 1개는 크로스 테이블 `join`일 수 있습니다. 모든 테이블 간 `join` 사용이 _Resource_ 와 _ResourceContainers_ 사이에 있는 경우 3 개의 크로스 테이블 `join`이 허용됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용되지 않습니다. `join`을 사용할 수 있는 테이블에 대해서는 [Resource Graph 테이블](#resource-graph-tables)을 참조하세요. |
+|[limit](/azure/data-explorer/kusto/query/limitoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`take`의 동의어입니다. [Skip](./work-with-data.md#skipping-records)에서 작동하지 않습니다. |
+|[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | 레거시 연산자. `mv-expand`를 대신 사용합니다. _RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. |
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. 단일 쿼리의 `mv-expand`은 2개로 제한됩니다.|
+|[order](/azure/data-explorer/kusto/query/orderoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`sort`의 동의어 |
+|[parse](/azure/data-explorer/kusto/query/parseoperator) |[네트워크 인터페이스의 가상 네트워크 및 서브넷 가져오기](../samples/advanced.md#parse-subnets) |속성이 있는 경우 `parse`를 사용하는 대신 속성에 직접 액세스하는 것이 적합합니다. |
+|[project](/azure/data-explorer/kusto/query/projectoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) | |
+|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[결과에서 열 제거](../samples/advanced.md#remove-column) | |
+|[sort](/azure/data-explorer/kusto/query/sortoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`order`의 동의어 |
+|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Azure 리소스 개수 계산](../samples/starter.md#count-resources) |간소화된 첫 페이지만 |
+|[take](/azure/data-explorer/kusto/query/takeoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`limit`의 동의어입니다. [Skip](./work-with-data.md#skipping-records)에서 작동하지 않습니다. |
+|[top](/azure/data-explorer/kusto/query/topoperator) |[이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시](../samples/starter.md#show-sorted) | |
+|[union](/azure/data-explorer/kusto/query/unionoperator) |[두 쿼리의 결과를 단일 결과로 결합](../samples/advanced.md#unionresults) |단일 테이블 허용: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. 단일 쿼리의 `union` 레그는 3개로 제한됩니다. `union` 레그 테이블의 유사 항목 확인은 허용되지 않습니다. 단일 테이블 내에서 사용하거나 _Resources_ 테이블과 _ResourceContainers_ 테이블 간에 사용할 수 있습니다. |
+|[where](/azure/data-explorer/kusto/query/whereoperator) |[스토리지를 포함하는 리소스 표시](../samples/starter.md#show-storage) | |
 
 단일 리소스 그래프 SDK 쿼리의 기본 제한은 3개의 `join` 및 3개의 `mv-expand` 연산자입니다. **도움말 + 지원** 을 통해 테넌트에 대한 이 제한을 늘리도록 요청할 수 있습니다.
 
@@ -152,17 +154,16 @@ Resource Graph에서 지원하는 KQL 테이블 형식 연산자와 특정 샘�
 
 ## <a name="query-scope"></a>쿼리 범위
 
-쿼리가 반환하는 리소스의 구독 범위는 Resource Graph에 액세스하는 방법에 따라 달라집니다. Azure CLI 및 Azure PowerShell은 권한 있는 사용자의 컨텍스트를 기반으로 요청에 포함할 구독 목록을 채웁니다. **subscriptions** 및 **Subscription** 매개 변수를 사용하여 각각에 대해 구독 목록을 수동으로 정의할 수 있습니다.
-REST API 및 기타 모든 SDK에서 리소스를 포함하는 구독 목록은 요청의 일부로 명시적으로 정의되어야 합니다.
+쿼리에서 리소스가 반환되는 구독 또는 [관리 그룹](../../management-groups/overview.md)의 범위는 기본적으로 권한 있는 사용자의 컨텍스트에 따라 구독 목록으로 설정됩니다. 관리 그룹 또는 구독 목록이 정의되지 않은 경우 쿼리 범위는 [Azure Lighthouse](../../../lighthouse/overview.md) 위임 리소스를 포함하는 모든 리소스입니다.
 
-**미리 보기** 로 REST API 버전 `2020-04-01-preview`는 [관리 그룹](../../management-groups/overview.md)에 대한 쿼리 범위를 관리하는 속성을 추가합니다. 또한 이 미리보기 API를 사용하면 구독 속성을 선택할 수 있습니다. 관리 그룹 또는 구독 목록을 정의하지 않으면 쿼리 범위는 인증된 사용자가 액세스할 수 있는 [Azure Lighthouse](../../../lighthouse/overview.md) 위임 리소스를 포함하는 모든 리소스입니다. 새 `managementGroupId` 속성은 관리 그룹의 이름과 다른 관리 그룹 ID를 사용합니다. `managementGroupId`가 지정되면 지정된 관리 그룹 계층 구조 내 또는 아래에 있는 처음 5,000개 구독의 리소스가 포함됩니다. `managementGroupId`는 `subscriptions`와 동시에 사용할 수 없습니다.
+쿼리할 구독 또는 관리 그룹 목록을 수동으로 정의하여 결과의 범위를 변경할 수 있습니다. 예를 들어 REST API `managementGroups` 속성은 관리 그룹의 이름과 다른 관리 그룹 ID를 사용합니다. `managementGroups`가 지정되면 지정된 관리 그룹 계층 구조 내 또는 아래에 있는 처음 5,000개 구독의 리소스가 포함됩니다. `managementGroups`는 `subscriptions`와 동시에 사용할 수 없습니다.
 
 예: ID가 'myMG'인 'My Management Group'이라는 관리 그룹의 계층 내에 있는 모든 리소스를 쿼리합니다.
 
 - REST API URI
 
   ```http
-  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
   ```
 
 - 요청 본문
@@ -170,7 +171,7 @@ REST API 및 기타 모든 SDK에서 리소스를 포함하는 구독 목록은 
   ```json
   {
       "query": "Resources | summarize count()",
-      "managementGroupId": "myMG"
+      "managementGroups": ["myMG"]
   }
   ```
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552765"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528638"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Lsv2 시리즈 Linux 가상 머신에서 성능 최적화
 
@@ -32,7 +32,7 @@ Lsv2 시리즈 Virtual Machines(VM)의 디자인은 AMD EPYC™ 7551 프로세�
 
 이 문서에서는 워크로드와 애플리케이션이 VM에 설계된 최대 성능을 얻을 수 있는 팁과 제안을 제공합니다. Lsv2 최적화 이미지가 Microsoft Azure Marketplace에 더 추가됨에 따라 이 페이지의 정보는 계속 업데이트될 예정입니다.
 
-## <a name="amd-eypc-chipset-architecture"></a>AMD EYPC™ 칩셋 아키텍처
+## <a name="amd-epyc-chipset-architecture"></a>AMD EPYC™ 칩셋 아키텍처
 
 Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYPC™ 서버 프로세서를 사용합니다. AMD는 온다이, 온패키지 및 멀티패키지 통신에 사용할 수 있는 NUMA 모델을 위한 확장 가능한 상호 연결로 Infinity Fabric(IF) for EYPC™를 개발했습니다. Intel의 최신 모놀리식 다이 프로세서에 사용되는 QPI(Quick-Path Interconnect) 및 UP(Ultra-Path Interconnect)와 비교하여, AMD의 “NUMA는 많고 다이는 작은” 아키텍처는 성능상의 이점과 문제를 모두 가져올 수 있습니다. 메모리 대역폭과 대기 시간 제약 조건의 실제 영향은 실행 중인 워크로드의 유형에 따라 달라질 수 있습니다.
 

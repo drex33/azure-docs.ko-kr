@@ -1,19 +1,19 @@
 ---
 title: Synapse Studio에서 Synapse RBAC 할당을 관리하는 방법
 description: 이 문서에서는 AAD 보안 주체에 Synapse RBAC 역할을 할당하고 취소하는 방법을 설명합니다.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01f923828f0b83280d033b9bc6e5c7b6bbebae35
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8bbb6185368b438376529d69409d301c0cdd9c97
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566565"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Synapse Studio에서 Synapse RBAC 역할 할당을 관리하는 방법
 
@@ -33,7 +33,7 @@ Synapse RBAC는 사용자, 그룹 및 기타 보안 주체에 Synapse 리소스 
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기  
 
-사용자, 그룹, 서비스 주체 또는 관리 ID에 역할을 할당하려면 먼저 [Synapse Studio를 열고](https://web.azuresynapse.net/) 작업 영역을 선택합니다. 
+사용자, 그룹, 서비스 주체 또는 관리 ID에 역할을 할당하려면 먼저 [Synapse Studio를 열고](https://web.azuresynapse.net/) 작업 영역에 로그인합니다. 
 
 ![작업 영역에 로그인](./media/common/login-workspace.png) 
  

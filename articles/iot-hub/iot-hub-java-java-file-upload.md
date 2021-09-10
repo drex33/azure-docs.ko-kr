@@ -2,23 +2,22 @@
 title: Java를 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
 description: Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 06/28/2017
+ms.date: 07/18/2021
 ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: dc87ad0af7eac71d7f2835b2b0d582fe8d1ec1b9
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a280e7b156ebb31269e4a65508596f8ba03c3caf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985385"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528330"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Java)
 
@@ -26,7 +25,7 @@ ms.locfileid: "111985385"
 
 이 자습서는 Java를 사용하여 IoT Hub의 파일 업로드 기능을 사용하는 방법을 보여 줍니다. 파일 업로드 프로세스에 대한 개요는 [IoT Hub를 사용하여 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
 
-[디바이스에서 IoT Hub로 원격 분석 보내기](quickstart-send-telemetry-java.md) 빠른 시작 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md) 자습서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
+[디바이스에서 IoT Hub로 원격 분석 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) 빠른 시작 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-java-java-c2d.md) 자습서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
 
 * 이미지가 포함된 대형 파일
 * 동영상
@@ -54,7 +53,11 @@ ms.locfileid: "111985385"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="create-a-project-using-maven"></a>Maven을 사용하여 프로젝트 만들기
 
@@ -165,10 +168,9 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -Darchety
 
 ```
 
+## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-## <a name="upload-a-file"></a>파일 업로드
-
-프로젝트 트리의 `my-app` 폴더에 업로드할 파일을 복사합니다. 텍스트 편집기를 사용하여 App.java를 다음 코드로 바꿉니다. 명시된 연결 문자열 및 파일 이름을 입력합니다.
+프로젝트 트리의 `my-app` 폴더에 업로드할 파일을 복사합니다. 텍스트 편집기를 사용하여 App.java를 다음 코드로 바꿉니다. 명시된 디바이스 연결 문자열 및 파일 이름을 입력합니다. 디바이스를 등록할 때 디바이스 연결 문자열을 복사했습니다.
 
 ```java
 package com.mycompany.app;
@@ -284,22 +286,7 @@ public class App
     }
 }
 ```
-## <a name="get-the-device-connection-string"></a>디바이스 연결 문자열 가져오기
 
-Azure Cloud Shell에서 다음 명령을 실행하여 디바이스의 _디바이스 연결 문자열_ 을 가져옵니다. 아래 자리 표시자를 IoT Hub에 대해 선택한 이름 및 디바이스 이름으로 바꿉니다.
-
-```azurecli-interactive
-az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
-```
-    
-다음과 같은 디바이스 연결 문자열을 복사하고 명시된 대로 코드 샘플에 추가합니다.
-  
-```cmd/sh
-HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
-```
-
-업로드할 파일 경로를 명시된 대로 코드 샘플에 추가합니다.
-    
 ## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
 `my-app` 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.

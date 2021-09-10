@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e27eb64139c20ac2b8c776edc2d0840b80fddb62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 742e96d07a059c933e6293912c364a230b0ddb27
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558341"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695474"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure AD(Active Directory)를 포함한 Azure Disk Encryption(이전 릴리스)
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Disk Encryption의 새 릴리스에서는 VM 디스크 암호화를 사용하도록 설정하기 위해 Azure AD(Azure Active Directory) 애플리케이션 매개 변수를 제공할 필요가 없습니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용하여 Azure AD 애플리케이션 매개 변수 없이 모든 새 VM을 암호화해야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 사용하도록 설정하는 방법에 대한 지침은 [Linux VM에 대한 Azure Disk Encryption](disk-encryption-overview.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.
 

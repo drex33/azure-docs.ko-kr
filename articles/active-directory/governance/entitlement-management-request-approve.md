@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd47a623700c495a571bc4ca6b949d1a2229178a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f44390d042f12336c6556d05c4fe1332e822e068
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469164"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963765"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -49,7 +49,7 @@ Azure AD 자격 관리를 사용하여 액세스 패키지에 대한 승인을 �
 
 1. **보류 중** 탭에서 요청을 찾습니다.
 
-## <a name="view-requestors-answers-to-questions-preview"></a>요청자의 질문에 대한 답변 보기(미리 보기)
+## <a name="view-requestors-answers-to-questions"></a>요청자의 질문에 대한 답변 보기
 
 1. 내 액세스에서 **승인** 탭으로 이동합니다.
 

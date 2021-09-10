@@ -1,18 +1,19 @@
 ---
 title: 예제를 통해 Azure Data Factory 가격 책정 이해
 description: 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
-author: dcstwh
-ms.author: weetok
+author: shirleywangmsft
+ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 3bb9574c74aaa3c2589d0ca93fb906168ca99095
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567317"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -184,22 +185,22 @@ ms.locfileid: "104783373"
 | 파이프라인 만들기 | 6개의 읽기/쓰기 엔터티(파이프라인 만들기에 대해 2개, 데이터 세트 참조에 대해 4개) |
 | 파이프라인 가져오기 | 2개의 읽기/쓰기 엔터티 |
 | 파이프라인 실행 | 6개의 활동 실행(트리거 실행에 대해 2개, 활동 실행에 대해 4개) |
-| 활동 삭제 실행: 각 실행 시간은 5분입니다. 첫 번째 파이프라인에서의 활동 삭제 실행은 오전 10:00(UTC)부터 오전 10:05(UTC)까지입니다. 두 번째 파이프라인에서 활동 삭제 실행은 오전 10:02(UTC)부터 오전 10:07(UTC)까지입니다.|관리 VNET에서 총 7분 간 파이프라인 활동 실행. 파이프라인 활동은 관리 VNET에서 최대 50개의 동시 작업을 지원합니다. |
-| 데이터 복사 가정: 각 실행 시간은 10 분입니다. 첫 번째 파이프라인의 복사 실행은 오전 10:06(UTC)부터 오전 10:15(UTC)까지입니다. 두 번째 파이프라인에서 활동 삭제 실행은 오전 10:08(UTC)부터 오전 10:17(UTC)까지입니다. | 10 * 4 Azure Integration Runtime(기본 DIU 설정 = 4) 데이터 통합 단위 및 복사 성능 최적화에 대한 자세한 내용은 [이 문서](copy-activity-performance.md)를 참조하세요. |
+| 활동 삭제 실행: 각 실행 시간은 5분입니다. 첫 번째 파이프라인에서의 활동 삭제 실행은 오전 10:00(UTC)부터 오전 10:05(UTC)까지입니다. 두 번째 파이프라인에서 활동 삭제 실행은 오전 10:02(UTC)부터 오전 10:07(UTC)까지입니다.|관리 VNET에서 총 7분 간 파이프라인 활동 실행. 파이프라인 활동은 관리 VNET에서 최대 50개의 동시 작업을 지원합니다. 파이프라인 작업에 대해 60분 TTL(Time To Live)이 있습니다.|
+| 데이터 복사 가정: 각 실행 시간은 10 분입니다. 첫 번째 파이프라인의 복사 실행은 오전 10:06(UTC)부터 오전 10:15(UTC)까지입니다. 두 번째 파이프라인에서 복사 작업 실행은 오전 10:08(UTC)부터 오전 10:17(UTC)까지입니다. | 10 * 4 Azure Integration Runtime(기본 DIU 설정 = 4) 데이터 통합 단위 및 복사 성능 최적화에 대한 자세한 내용은 [이 문서](copy-activity-performance.md)를 참조하세요. |
 | 파이프라인 모니터링 가정: 2개의 실행만 발생했습니다. | 다시 시도되는 6개의 모니터링 실행 기록(파이프라인 실행에 대해 2개, 활동 실행에 대해 4개) |
 
 
-**총 시나리오 가격 책정: $0.45523**
+**총 시나리오 가격 책정: $1.45523**
 
 - Data Factory 작업 = $0.00023
   - 읽기/쓰기 = 20*00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
   - 모니터링 = 6*000005 = $0.00003 [1 모니터링 = $0.25/50000 = 0.000005]
-- 파이프라인 오케스트레이션 및 실행 = $0.455
+- 파이프라인 오케스트레이션 및 실행 = $1.455
   - 활동 실행 = 0.001*6 = 0.006 [1 실행 = $1/1000 = 0.001]
   - 데이터 이동 활동 = $0.333(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
-  - 파이프라인 활동 = $0.116(실행 시간의 7분에 대해 비례합니다. Azure Integration Runtime에서 $1/시간)
+  - 파이프라인 작업 = $1.116(7분의 실행 시간에 60분 TTL을 더한 시간에 대해 비례합니다. Azure Integration Runtime에서 $1/시간)
 
-> [!NOTE]
+> [!NOTE] 
 > 이러한 가격은 설명을 돕기 위한 예시일 뿐입니다.
 
 **FAQ**

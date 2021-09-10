@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/16/2021
+ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538250"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825059"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,7 +114,27 @@ ms.locfileid: "122538250"
 
 분류의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL 감사](../../azure-sql/database/auditing-overview.md) 기능이 개선되어 `data_sensitivity_information`이라는 감사 로그에 새 필드가 포함되었습니다. 이 필드는 쿼리에 의해 반환된 데이터의 민감도 분류(레이블)를 기록합니다. 예를 들면 다음과 같습니다.
 
-![감사 로그](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+[ ![감사 로그](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+
+이러한 활동은 실제로 민감도 정보를 사용하여 감사할 수 있습니다.
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- Delete
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+[sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 사용하여 Azure Storage 계정에 저장된 감사 파일에서 정보를 반환합니다.
 
 ## <a name="permissions"></a><a id="permissions"></a>권한
 
@@ -126,15 +146,25 @@ ms.locfileid: "122538250"
 - SQL 보안 관리자
 - 사용자 액세스 관리자
 
+데이터베이스의 데이터 분류를 읽는 데 필요한 작업은 다음과 같습니다.
+
+- Microsoft.Sql/servers/databases/currentSensitivityLabels/*
+- Microsoft.Sql/servers/databases/recommendedSensitivityLabels/*
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 이러한 기본 제공 역할은 데이터베이스의 데이터 분류를 수정할 수 있습니다.
 
 - 소유자
 - 참가자
 - SQL 보안 관리자
 
+데이터베이스의 데이터 분류를 수정하는 데 필요한 작업은 다음과 같습니다.
+
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 [Azure RBAC](../../role-based-access-control/overview.md)의 역할 기반 권한에 대해 자세히 알아보세요.
 
-## <a name="manage-classifications"></a><a id="manage-classification"></a>분류 관리
+## <a name="manage-classifications"></a>분류 관리
 
 T-SQL, REST API 또는 PowerShell을 사용하여 분류를 관리할 수 있습니다.
 
@@ -184,14 +214,21 @@ REST API를 사용하여 분류 및 권장 사항을 프로그래밍 방식으�
 - [데이터베이스별 최신 목록](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
 - [데이터베이스별 권장되는 목록](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): 지정된 데이터베이스의 권장되는 민감도 레이블을 가져옵니다.
 
+## <a name="retrieve-classifications-metadata-using-sql-drivers"></a>SQL 드라이버를 사용하여 분류 메타데이터 검색
+
+다음 SQL 드라이버를 사용하여 분류 메타데이터를 검색할 수 있습니다.
+
+- [ODBC 드라이버](https://docs.microsoft.com/sql/connect/odbc/data-classification)
+- [OLE DB 드라이버](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
+- [JDBC 드라이버](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>FAQ - 고급 분류 기능
 
 **질문**: SQL 데이터 검색 및 분류가 [Azure Purview](../../purview/overview.md)로 대체되거나 곧 사용 중지되나요?
 **답변**: SQL 데이터 검색 및 분류를 계속 지원하며 고급 분류 기능 및 데이터 거버넌스를 구동할 수 있는 더 다양한 기능을 갖춘 [Azure Purview](../../purview/overview.md)를 채택할 것을 권장합니다. 서비스, 기능, API 또는 SKU를 사용 중지하기로 결정되면 마이그레이션 또는 전환 경로가 포함된 사전 통지를 보내드립니다. 여기에서 Microsoft 수명 주기 정책에 대한 자세한 내용을 살펴봅니다.
 
-
-## <a name="next-steps"></a><a id="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL 감사](../../azure-sql/database/auditing-overview.md)를 구성하는 것이 좋습니다.
 - 데이터 검색 및 분류를 포함하는 프레젠테이션은 [SQL 데이터 검색, 분류, 레이블 지정 및 보호 | 데이터 노출](https://www.youtube.com/watch?v=itVi9bkJUNc)을 참조하세요.

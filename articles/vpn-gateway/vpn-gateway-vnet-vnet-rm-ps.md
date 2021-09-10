@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6baf0342f5fea5ee4ec062c5eed07d9761e72c1d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 87a2a658b37f199c8e5b6c92543cc9c70a8ae42c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289465"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566468"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
 이 문서에서는 VNet-VNet 연결 형식을 사용하여 가상 네트워크를 연결합니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독은 동일한 Active Directory 테넌트와 연결될 필요가 없습니다.
 
-이 문서의 단계는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서의 단계는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용되며 PowerShell을 사용합니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -80,7 +80,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 게이트웨이를 만드는 데 최대 45분이 소요되므로 이 연습을 진행하는 동안 Azure Cloud Shell이 주기적으로 시간 초과됩니다. 터미널의 왼쪽 위를 클릭하여 Cloud Shell을 다시 시작할 수 있습니다. 터미널을 다시 시작할 때 변수를 다시 선언해야 합니다.
+* 게이트웨이를 만드는 데 45분 이상이 소요되므로 이 연습을 진행하는 동안 Azure Cloud Shell이 주기적으로 시간 초과됩니다. 터미널의 왼쪽 위를 클릭하여 Cloud Shell을 다시 시작할 수 있습니다. 터미널을 다시 시작할 때 변수를 다시 선언해야 합니다.
 
 * 최신 버전의 Azure PowerShell 모듈을 로컬로 설치하려면 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
@@ -204,7 +204,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-명령을 완료하면 45분 이내에 이 게이트웨이가 만들어집니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭한 다음, TestVNet4를 구성하여 CloudShell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
+명령을 완료한 후 이 게이트웨이를 만드는 데 45분 이상이 소요됩니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭한 다음, TestVNet4를 구성하여 CloudShell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>3단계 - TestVNet4 만들기 및 구성
 

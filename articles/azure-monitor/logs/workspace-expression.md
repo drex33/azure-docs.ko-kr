@@ -4,13 +4,13 @@ description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/10/2018
-ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 08/19/2021
+ms.openlocfilehash: 7eee3f0133a629fb5c1669ba8dbdc36fe95bf252
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035571"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122568383"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
@@ -19,7 +19,7 @@ ms.locfileid: "102035571"
 
 ## <a name="syntax"></a>구문
 
-`workspace(`*한정자*`)`
+`workspace(`*Identifier*`)`
 
 ## <a name="arguments"></a>인수
 
@@ -27,7 +27,7 @@ ms.locfileid: "102035571"
 
 | ID | Description | 예제
 |:---|:---|:---|
-| 리소스 이름 | 사용자가 읽을 수 있는 작업 영역의 이름(즉, “구성 요소 이름”) | workspace(“contosoretail”) |
+| 리소스 이름 | 사람이 읽을 수 있는 작업 영역 이름( “구성 요소 이름”이라고도 함) | workspace(“contosoretail”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 작업 영역의 전체 이름 | workspace(‘Contoso/ContosoResource/ContosoWorkspace’) |
 | ID | 작업 영역의 GUID | workspace(“b438b3f6-912a-46d5-9db1-b42069242ab4”) |
 | Azure 리소스 ID | Azure 리소스의 식별자 | workspace(“/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail”) |
@@ -63,6 +63,6 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱을 참조 하려면 [앱 식](./app-expression.md) 을 참조 하세요.
+- Application Insights 앱을 가리키는 [app 식](./app-expression.md)을 참조하세요.
 - [Azure Monitor 데이터](./log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
 - [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

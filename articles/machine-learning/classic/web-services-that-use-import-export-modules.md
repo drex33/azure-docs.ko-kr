@@ -10,14 +10,14 @@ ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bd35487bcd11aeacae019acf0b87e4e1e716a66
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520564"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583305"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure Machine Learning Studio(클래식) 웹 서비스 배포
+# <a name="deploy-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Machine Learning Studio(클래식) 웹 서비스 배포
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -77,7 +77,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 9. **데이터 테이블 이름 필드** 에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.
 10. **쉼표로 구분된 데이터베이스 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 
-최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana Intelligence 및 Machine Learning 블로그에서 [Azure Machine Learning Studio Web Service Parameters entry](/archive/blogs/machinelearning/azureml-web-service-parameters)(Azure Machine Learning Studio 웹 서비스 매개 변수 항목)를 참조하세요.
+최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana Intelligence 및 Machine Learning 블로그에서 [Machine Learning Studio(클래식) 웹 서비스 매개 변수 항목](/archive/blogs/machinelearning/azureml-web-service-parameters)을 참조하세요.
 
 가져오기 쿼리 및 대상 테이블에 대한 웹 서비스 매개 변수를 구성하려면
 
@@ -124,7 +124,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 ### <a name="deploy-a-new-web-service"></a>새 웹 서비스 배포
 
 > [!NOTE]
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요.
 
 새 웹 서비스로 배포하고 해당 서비스를 사용하기 위한 애플리케이션을 만들려면
 

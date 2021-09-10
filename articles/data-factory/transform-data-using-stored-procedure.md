@@ -1,18 +1,20 @@
 ---
 title: 저장 프로시저 작업을 이용한 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: SQL Server 저장 프로시저 작업을 사용하여 Data Factory 파이프라인의 Azure SQL Database/Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/27/2018
-ms.openlocfilehash: b9ba2f9de82522d4348fa341ad0b41d43c3eebcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375649"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538570"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -74,17 +76,12 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 | storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 예       |
 
 ## <a name="parameter-data-type-mapping"></a>매개 변수 데이터 형식 매핑
-매개 변수에 지정하는 데이터 형식은 사용하는 데이터 원본의 데이터 형식에 매핑되는 Azure Data Factory 유형입니다. 커넥터 영역에서 데이터 원본에 대한 데이터 형식 매핑을 찾을 수 있습니다. 그 예시로는
+매개 변수에 지정하는 데이터 형식은 사용하는 데이터 원본의 데이터 형식에 매핑되는 Azure Data Factory 유형입니다. 커넥터 설명서에서 설명된 데이터 원본의 데이터 형식 매핑을 찾을 수 있습니다. 예를 들면 다음과 같습니다.
 
-| 데이터 원본          | 데이터 형식 매핑 |
-| ---------------------|-------------------|
-| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
-
-
-
+- [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
+- [Azure SQL Database 데이터 형식 매핑](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+- [Oracle 데이터 형식 매핑](connector-oracle.md#data-type-mapping-for-oracle)
+- [SQL Server 데이터 형식 매핑](connector-sql-server.md#data-type-mapping-for-sql-server)
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
@@ -96,5 +93,5 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
+* [ML 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5c8e9a7d2d9989ef3080741753f604b9eb5d4289
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: ea55522714beea9274f27bec36232d9e50c90332
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362182"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688051"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Azure Managed Disks는 현재 4가지 디스크 유형을 제공하며, 각 유형은 특정 고객 시나리오를 대상으로합니다.
 

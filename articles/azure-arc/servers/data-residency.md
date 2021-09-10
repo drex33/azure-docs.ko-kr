@@ -4,12 +4,12 @@ description: Azure Arc 지원 서버에 대한 데이터 상주 및 정보.
 ms.topic: reference
 ms.date: 08/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b32cb56658020f4464522db621155ebe03c5583
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05dbea8ce3d91e46bbb566f9d9989dec648c9853
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528627"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770971"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Azure Arc 지원 서버: 데이터 상주
 
@@ -32,7 +32,7 @@ Azure Arc 지원 서버는 연결된 서버에서 사용하도록 설정하기 �
 * Connected Machine 에이전트 하트비트
 * Connected Machine 에이전트 버전
 * 관리 ID에 대한 공개 키
-* 정책 규정 준수 상태 및 세부 정보(Azure Policy 게스트 구성 정책을 사용하는 경우)
+* 정책 준수 상태 및 세부 정보(게스트 구성 정책을 사용하는 경우)
 
 Arc 지원 서버를 사용하면 데이터가 저장되는 지역을 지정할 수 있습니다. Microsoft는 데이터 복원력을 위해 다른 지역에 복제할 수 있지만, Microsoft는 지리 외부로 데이터를 복제하거나 이동하지 않습니다. 이 데이터는 Azure Arc 머신 리소스가 구성된 지역에 저장됩니다. 예를 들어 머신이 미국 동부 지역에 있는 Arc에 등록된 경우 이 데이터는 미국 지역에 저장됩니다.
 

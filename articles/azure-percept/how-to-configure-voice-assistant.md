@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 514bee115ee0e01910fe726ee8ae378352f89d99
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 01e7fd180448639f9dc2440b546746046d9097aa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567053"
 ---
-# <a name="configure-voice-assistant-application-using-azure-iot-hub"></a>Azure IoT Hub를 사용하여 음성 도우미 애플리케이션 구성
+# <a name="configure-your-voice-assistant-application-using-azure-iot-hub"></a>Azure IoT Hub를 사용하여 음성 도우미 애플리케이션 구성
 
 이 문서에서는 IoT Hub를 사용하여 음성 도우미 애플리케이션을 구성하는 방법을 설명합니다. 음성 도우미를 만드는 프로세스에 대한 단계별 자습서는 [Azure Percept Studio 및 Azure Percept Audio를 사용하여 코드 없는 음성 도우미 빌드](./tutorial-no-code-speech.md)를 참조하세요.
 

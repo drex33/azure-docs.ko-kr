@@ -1,29 +1,31 @@
 ---
 title: Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
-description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터를 복사하고 Azure Data Lake Storage Gen2에서 데이터를 변환하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인을 사용하여 Azure Data Lake Storage Gen2 간에 데이터를 복사하고 Azure Data Lake Storage Gen2에서 데이터를 변환하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: a4dc1f71dd58280bacda1f90ba73b48cb8c8367c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: e568c2c8056c0d33be5fe1f748092ae2639be360
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480422"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314709"
 ---
-# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
+# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2(ADLS Gen2)는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용 기능 집합입니다. 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작하는 데 이 기능을 이용할 수 있습니다.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Data Lake Storage Gen2 간에 데이터를 복사하고, Data Flow를 사용하여 Azure Data Lake Storage Gen2에서 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 복사 작업을 사용하여 Azure Data Lake Storage Gen2 간에 데이터를 복사하고, Data Flow를 사용하여 Azure Data Lake Storage Gen2에서 데이터를 변환하는 방법을 설명합니다. 자세한 내용은 [Azure Data Factory](introduction.md) 또는 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)의 소개 문서를 참조하세요.
 
 >[!TIP]
->데이터 레이크 또는 데이터 웨어하우스 마이그레이션 시나리오를 통해 [Azure Data Factory를 사용하여 데이터 레이크 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션하는 방법](data-migration-guidance-overview.md)에 대해 알아보세요.
+>데이터 레이크 또는 데이터 웨어하우스 마이그레이션 시나리오의 경우 [데이터 레이크 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션](data-migration-guidance-overview.md)에서 자세히 알아보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -49,7 +51,31 @@ Azure Data Lake Storage Gen2(ADLS Gen2)는 [Azure Blob Storage](../storage/blobs
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Data Lake Storage Gen2에 지정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대한 정보를 제공합니다.
+## <a name="create-an-azure-data-lake-storage-gen2-linked-service-using-ui"></a>UI를 사용하여 Azure Data Lake Storage Gen2 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Data Lake Storage Gen2 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+2. Data Lake를 검색하고 Azure Data Lake Storage Gen2 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-data-lake-storage/azure-data-lake-storage-connector.png" alt-text="Azure Data Lake Storage Gen2 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Azure Data Lake Storage Gen2 연결된 서비스 구성 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+다음 섹션에서는 Data Lake Storage Gen2에 지정된 Data Factory 및 Synapse 파이프라인 엔터티를 정의하는 데 사용되는 속성에 대한 정보를 제공합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -57,11 +83,12 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 
 - [계정 키 인증](#account-key-authentication)
 - [서비스 주체 인증](#service-principal-authentication)
-- [Azure 리소스 인증용 관리 ID](#managed-identity)
-
+- [시스템 할당 관리 ID 인증](#managed-identity)
+- [사용자 할당 관리 ID 인증](#user-assigned-managed-identity-authentication)
+- 
 >[!NOTE]
 >- 퍼블릭 Azure 통합 런타임을 사용하여 Azure Storage 방화벽에서 사용하도록 설정된 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용** 옵션을 활용하여 Data Lake Storage Gen2에 연결하려면 [관리 ID 인증](#managed-identity)을 사용해야 합니다.
->- PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 데이터를 로드할 때 원본 또는 스테이징 Data Lake Storage Gen2가 Azure Virtual Network 엔드포인트로 구성된 경우 Synapse에서 요구하는 대로 관리 ID 인증을 사용해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
+>- PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 데이터를 로드할 때 원본 또는 스테이징 Data Lake Storage Gen2가 Azure Virtual Network 엔드포인트로 구성된 경우 Azure Synapse에서 요구하는 대로 관리 ID 인증을 사용해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
@@ -71,7 +98,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
-| accountKey | Data Lake Storage Gen2의 계정 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| accountKey | Data Lake Storage Gen2의 계정 키입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 >[!NOTE]
@@ -115,7 +142,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
     - **싱크로**: Storage Explorer에서 싱크 폴더에 대한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 기여자** 역할을 부여합니다.
 
 >[!NOTE]
->Data Factory UI를 사용하여 작성하고 서비스 주체를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자"로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
+>UI를 사용하여 작성하고 서비스 주체를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자"로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
@@ -125,10 +152,10 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalCredentialType | 서비스 주체 인증에 사용할 자격 증명 유형입니다. 허용되는 값은 **ServicePrincipalKey** 및 **ServicePrincipalCert** 입니다. | 예 |
-| servicePrincipalCredential | 서비스 주체 자격 증명입니다. <br/> **ServicePrincipalKey** 를 자격 증명 유형으로 사용하는 경우 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. <br/> **ServicePrincipalCert** 를 자격 증명으로 사용하는 경우 Azure Key Vault에서 인증서를 참조합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. <br/> 이 속성은 `servicePrincipalId`  +  `servicePrincipalKey`에 대해 있는 그대로 계속 지원됩니다. ADF가 새 서비스 주체 인증서 인증을 추가할 경우 서비스 주체 인증의 새 모델은 `servicePrincipalId`  +  `servicePrincipalCredentialType`  +  `servicePrincipalCredential`입니다. | 예 |
+| servicePrincipalCredential | 서비스 주체 자격 증명입니다. <br/> **ServicePrincipalKey** 를 자격 증명 유형으로 사용하는 경우 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. <br/> **ServicePrincipalCert** 를 자격 증명으로 사용하는 경우 Azure Key Vault에서 인증서를 참조합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. <br/> 이 속성은 `servicePrincipalId`  +  `servicePrincipalKey`에 대해 있는 그대로 계속 지원됩니다. ADF가 새 서비스 주체 인증서 인증을 추가할 경우 서비스 주체 인증의 새 모델은 `servicePrincipalId`  +  `servicePrincipalCredentialType`  +  `servicePrincipalCredential`입니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
-| azureCloudType | 서비스 주체 인증의 경우 Azure Active Directory 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 Azure Active Directory 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리 또는 Synapse 파이프라인의 클라우드 환경이 사용됩니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 **예: 서비스 주체 키 인증 사용**
@@ -186,24 +213,18 @@ Azure Key Vault에 서비스 주체 키를 저장할 수도 있습니다.
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> 시스템 할당 관리 ID 인증
 
-특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 고유한 서비스 주체를 사용하는 것과 유사하게 Data Lake Store Gen2 인증에 이 관리 ID를 직접 사용할 수 있습니다. 이 지정된 팩터리는 Data Lake Store Gen2 간에서 데이터에 액세스하고 이를 복사할 수 있습니다.
+데이터 팩터리 또는 Synapse 작업 영역은 [시스템이 할당한 관리 ID](data-factory-service-identity.md)와 연결될 수 있습니다.  고유한 서비스 주체를 사용하는 것과 유사하게 Data Lake Storage Gen2 인증에 이 시스템이 할당한 관리 ID를 직접 사용할 수 있습니다. 이 지정된 팩터리 또는 작업 영역은 Data Lake Store Gen2 간에서 데이터에 액세스하고 이를 복사할 수 있습니다.
 
-Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행합니다.
+시스템이 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행합니다.
 
-1. 팩터리와 함께 생성된 **관리 ID개체 ID** 의 값을 복사하여 [Data Factory 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
+1. 데이터 팩터리 또는 Synapse 작업 영역과 함께 생성된 **관리 ID 개체 ID** 값을 복사하여 [시스템 할당 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
 
-2. 적절한 사용 권한을 관리 ID에 부여합니다. [파일 및 디렉터리의 액세서 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)에서 Data Lake Storage Gen2의 권한 작동 방식에 대한 예제를 참조하세요.
+2. 적절한 사용 권한을 시스템 할당 관리 ID에 부여합니다. [파일 및 디렉터리의 액세서 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)에서 Data Lake Storage Gen2의 권한 작동 방식에 대한 예제를 참조하세요.
 
     - **원본으로**: Storage Explorer에서 복사할 파일에 대한 **읽기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 읽기 권한자** 역할을 부여합니다.
     - **싱크로**: Storage Explorer에서 싱크 폴더에 대한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 기여자** 역할을 부여합니다.
-
->[!NOTE]
->Data Factory UI를 사용하여 작성하고 관리 ID를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자" 역할로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
-
->[!IMPORTANT]
->PolyBase 또는 COPY 문을 사용하여 Data Lake Storage Gen2에서 Azure Synapse Analytics로 데이터를 로드하는 경우 Data Lake Storage Gen2에 대해 관리 ID 인증을 사용할 때 [이 안내](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)의 1~3단계를 따르세요. 이러한 단계는 Azure AD에 서버를 등록하고 Storage Blob Data 기여자 역할을 서버에 할당합니다. 나머지는 Data Factory에서 처리합니다. Azure Virtual Network 엔드포인트로 Blob Storage를 구성하는 경우 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 Synapse에서 요구하는 대로 액세스하도록 허용** 을 설정해야 합니다.
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
@@ -230,6 +251,56 @@ Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행�
     }
 }
 ```
+
+### <a name="user-assigned-managed-identity-authentication"></a>사용자 할당 관리 ID 인증
+
+데이터 팩터리는 하나 이상의 [사용자가 할당한 관리 ID](data-factory-service-identity.md#user-assigned-managed-identity)로 할당할 수 있습니다. Blob 스토리지 인증 시 이 사용자가 할당한 관리 ID를 사용할 수 있습니다. 이 ID를 사용하면 Data Lake Storage Gen2 사이에서 데이터에 액세스하고 이를 복사할 수 있습니다. Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+
+사용자가 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행합니다.
+
+1. [사용자가 할당한 관리 ID를 하나 이상 만들고](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) Azure Data Lake Storage Gen2에 액세스 권한을 부여합니다. [파일 및 디렉터리의 액세서 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)에서 Data Lake Storage Gen2의 권한 작동 방식에 대한 예제를 참조하세요.
+
+    - **원본으로**: Storage Explorer에서 복사할 파일에 대한 **읽기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 읽기 권한자** 역할을 부여합니다.
+    - **싱크로**: Storage Explorer에서 싱크 폴더에 대한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 기여자** 역할을 부여합니다.
+    
+2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials). 
+
+연결된 서비스에 지원되는 속성은 다음과 같습니다.
+
+| 속성 | Description | 필수 |
+|:--- |:--- |:--- |
+| type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
+| url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
+| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+**예:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+                },
+            },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+>[!NOTE]
+>Data Factory UI를 사용하여 작성하고 관리 ID를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자" 역할로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
+
+>[!IMPORTANT]
+>PolyBase 또는 COPY 문을 사용하여 Data Lake Storage Gen2에서 Azure Synapse Analytics로 데이터를 로드하는 경우 Data Lake Storage Gen2에 대해 관리 ID 인증을 사용할 때 [이 안내](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)의 1~3단계를 따르세요. 이러한 단계는 Azure AD에 서버를 등록하고 Storage Blob Data 기여자 역할을 서버에 할당합니다. 나머지는 Data Factory에서 처리합니다. Azure Virtual Network 엔드포인트로 Blob Storage를 구성하는 경우 Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 Azure Synapse에서 요구하는 대로 액세스하도록 허용** 을 설정해야 합니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -359,6 +430,7 @@ ADLS Gen2에서 데이터를 복사할 수 있는 옵션이 몇 가지 있습니
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
 | blockSizeInMB | ADLS Gen2에 데이터를 쓰는 데 사용되는 블록 크기(MB)를 지정합니다. [블록 Blob에 대해](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 자세히 알아보세요. <br/>허용되는 값은 **4~100MB** 입니다. <br/>기본적으로 ADF는 원본 저장소 유형과 데이터에 따라 블록 크기를 자동으로 결정합니다. ADLS Gen2에 대한 비이진 복사본의 경우 기본 블록 크기가 100MB이므로 최대 4.95TB의 데이터에 적합합니다. 데이터가 크지 않은 경우, 특히 네트워크 상태가 불량하여 작업 시간 초과 또는 성능 문제가 발생하는 자체 호스팅 IR을 사용하는 경우에는 최적이 아닐 수 있습니다. 블록 크기를 명시적으로 지정할 수는 있지만 blockSizeInMB*50000이 데이터를 저장할 수 있을 만큼 커야 합니다. 그러지 않으면 복사 작업 실행에 실패합니다. | 예 |
 | maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예       |
+| metadata |싱크로 복사할 때 사용자 지정 메타데이터를 설정합니다. `metadata` 배열의 각 개체는 추가 열을 나타냅니다. `name`은 메타데이터 키 이름을 정의하고 `value`는 해당 키의 데이터 값을 나타냅니다. [특성 유지 기능](./copy-activity-preserve-metadata.md#preserve-metadata)을 사용하는 경우 지정된 메타데이터는 원본 파일 메타데이터와 통합/덮어씁니다.<br/><br/>허용되는 데이터 값은 다음과 같습니다.<br/>- `$$LASTMODIFIED`: 예약된 변수는 원본 파일의 마지막으로 수정된 시간을 저장함을 나타냅니다. 이진 형식만 사용하는 파일 기반 원본에 적용합니다.<br/><b>- 식<b><br/>- <b>정적 값<b>| 예       |
 
 **예:**
 
@@ -387,7 +459,21 @@ ADLS Gen2에서 데이터를 복사할 수 있는 옵션이 몇 가지 있습니
                 "type": "ParquetSink",
                 "storeSettings":{
                     "type": "AzureBlobFSWriteSettings",
-                    "copyBehavior": "PreserveHierarchy"
+                    "copyBehavior": "PreserveHierarchy",
+                    "metadata": [
+                        {
+                            "name": "testKey1",
+                            "value": "value1"
+                        },
+                        {
+                            "name": "testKey2",
+                            "value": "value2"
+                        },
+                        {
+                            "name": "lastModifiedKey",
+                            "value": "$$LASTMODIFIED"
+                        }
+                    ]
                 }
             }
         }
@@ -439,7 +525,7 @@ Amazon S3/Azure Blob/Azure Data Lake Storage Gen2의 파일을 Azure Data Lake S
 Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터와 함께 POSIX ACL(액세스 제어 목록)을 유지하도록 선택할 수 있습니다. [Data Lake Storage Gen1/Gen2의 ACL을 Gen2에 유지](copy-activity-preserve-metadata.md#preserve-acls)에서 자세히 알아보세요.
 
 >[!TIP]
->일반적으로 Azure Data Lake Storage Gen1의 데이터를 Gen2에 복사하려면 연습 및 모범 사례에서 [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1의 데이터를 Gen2에 복사](load-azure-data-lake-storage-gen2-from-gen1.md)를 참조하세요.
+>일반적으로 Azure Data Lake Storage Gen1의 데이터를 Gen2에 복사하려면, 연습 및 모범 사례에서 [ Azure Data Lake Storage Gen1의 데이터를 Gen2에 복사](load-azure-data-lake-storage-gen2-from-gen1.md)를 참조하세요.
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
@@ -674,4 +760,4 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

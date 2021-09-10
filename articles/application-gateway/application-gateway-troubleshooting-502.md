@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f1892ab7cafae0b344026ed73a801ca30f4d9ee
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 62433a284cb271ed31427ff867cb14223443d404
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421547"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090424"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 

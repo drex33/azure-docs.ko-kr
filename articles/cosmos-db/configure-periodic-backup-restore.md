@@ -4,15 +4,15 @@ description: 이 문서에서는 백업 간격과 보존 기간이 지정된 정
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 08/30/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69677ed419fa9bac2cbcb06c394c92f68d0b7777
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 56e9bfe95a78c8bf0771acdc98c761df9994a708
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930932"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221057"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>정기 백업을 사용하여 Azure Cosmos DB 계정 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,7 +32,7 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 * 백업은 애플리케이션의 성능이나 가용성에 영향을 주지 않고 수행됩니다. Azure Cosmos DB는 추가로 프로비전된 처리량(RU)을 사용하지 않으며 데이터베이스의 성능 및 가용성에 영향을 주지 않고 백그라운드에서 데이터 백업을 수행합니다.
 
 > [!Note]
-> Synapse Link가 설정된 계정은 지원되지 않습니다.
+> Azure Synapse Link 사용 계정의 경우 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다. 현재, 분석 저장소의 데이터 자동 백업 및 복원이 지원되지 않습니다.
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>백업 스토리지 중복성
 
@@ -49,7 +49,7 @@ Azure Cosmos DB의 백업 데이터는 주 지역에서 3번 복제됩니다. �
 * **로컬 중복 백업 스토리지:** 이 옵션은 기본 지역의 단일 물리적 위치 내에서 데이터를 비동기적으로 3번 복사합니다.
 
 > [!NOTE]
-> 영역 중복 스토리지는 현재 [특정 지역](high-availability.md#availability-zone-support)에서만 사용할 수 있습니다. 선택한 지역에 따라 이 옵션은 신규 또는 기존 계정에 사용할 수 없습니다.
+> 영역 중복 스토리지는 현재 [특정 지역](high-availability.md#availability-zone-support)에서만 사용할 수 있습니다. 새 계정에 대해 선택한 지역 또는 기존 계정에 대해 보유한 지역에 따라 영역 중복 옵션을 사용할 수 없습니다.
 >
 > 백업 스토리지 중복성을 업데이트해도 백업 스토리지 가격 책정에는 영향이 없습니다.
 
@@ -176,5 +176,7 @@ Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하�
 ## <a name="next-steps"></a>다음 단계
 
 * 복원 요청을 수행하려면 Azure 지원에 문의하여 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
-* [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) 또는 [Azure Resource Manager](continuous-backup-restore-template.md)를 사용하여 지속적인 백업을 구성하고 관리합니다.
+* [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
+* [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 지속적인 백업 계정을 복원합니다.
+* [정기적 백업에서 지속적인 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * 지속적인 백업 모드를 사용하여 데이터를 복원하는 데 필요한 [권한을 관리](continuous-backup-restore-permissions.md)합니다.

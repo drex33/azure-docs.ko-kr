@@ -8,37 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/08/2021
+ms.date: 08/25/2021
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 69026d9abd8e0f3a978d9c327e9cb9c2e0140d04
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 8eeac06c4db34a7aa2452ae9fda51890ac1b91a1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565781"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864863"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>빠른 시작: Text Analytics 클라이언트 라이브러리 및 REST API 사용
 
-이 문서를 사용하여 Text Analytics 클라이언트 라이브러리 및 REST API를 시작합니다. 다음 단계에 따라 텍스트 마이닝을 위한 예제 코드를 사용해 봅니다.
-
-* 감정 분석
-* 오피니언 마이닝
-* 언어 검색
-* 엔터티 인식
-* 개인 식별 정보 인식
-* 핵심 문구 추출
+이 문서를 사용하여 Text Analytics 클라이언트 라이브러리 및 REST API를 시작합니다. 다음 단계에 따라 텍스트 마이닝을 위한 코드 예를 사용해 봅니다.
 
 
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Text Analytics API의 안정적인 최신 버전은 `3.1`입니다.
->    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
-> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
-> * Text Analytics for health 또는 비동기 작업을 사용하려면 [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) 또는 [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)에 대한 Github의 예를 참조하세요.
+> * 이 빠른 시작에서는 v3.1 및 v3.2-preview API 버전만 다룹니다.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -49,7 +39,8 @@ ms.locfileid: "113565781"
 > [!IMPORTANT]
 > * Text Analytics API의 안정적인 최신 버전은 `3.1`입니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
-Text Analytics for health 또는 비동기 작업을 사용하려면 [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) 또는 [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)에 대한 Github의 예를 참조하세요.
+> * 클라이언트 라이브러리의 최신 미리 보기 버전을 사용하여 추출 요약을 사용할 수도 있습니다. [GitHub에서](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java) 다음 샘플을 참조하세요.
+
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -70,9 +61,7 @@ Text Analytics for health 또는 비동기 작업을 사용하려면 [C#](https:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Text Analytics API의 안정적인 최신 버전은 `3.1`입니다.
->    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
-> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요. Text Analytics for health 또는 비동기 작업을 사용하려면 [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) 또는 [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)에 대한 Github의 예를 참조하세요.
+> * 이 빠른 시작에서는 v3.1 및 v3.2-preview API 버전만 다룹니다.
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 

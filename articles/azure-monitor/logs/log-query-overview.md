@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: cb4f074cb9487c22fc340b2e7b2941cd7b69ca98
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 272c146c71e9caf6d7ba6a1ba165a6157f5b6de0
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459056"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531174"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
 Azure Monitor 로그는 Azure Data Explorer를 기반으로 하며 로그 쿼리는 동일한 KQL(Kusto 쿼리 언어)을 사용하여 작성됩니다. 쉽게 읽고 제작할 수 있도록 설계된 풍부한 언어이므로 몇 가지 기본 지침에 따라 쿼리 작성을 시작할 수 있어야 합니다.
@@ -22,7 +22,7 @@ Azure Monitor 로그는 Azure Data Explorer를 기반으로 하며 로그 쿼리
 - [통합 문서](../visualize/workbooks-overview.md). Azure Portal의 대화형 시각적 보고서에서 다양한 시각화를 사용하는 로그 쿼리의 결과가 포함됩니다.
 - [Azure 대시보드](../visualize/tutorial-logs-dashboards.md). 쿼리 결과를 Azure 대시보드에 고정하여 로그 및 메트릭 데이터를 함께 시각화하고 다른 Azure 사용자와 선택적으로 공유합니다.
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Logic Apps를 사용하여 자동화된 워크플로에서 로그 쿼리의 결과를 사용합니다.
-- [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Get-AzOperationalInsightsSearchResults를 사용하는 Azure Automation Runbook 또는 명령줄에서 PowerShell 스크립트의 로그 쿼리 결과를 사용합니다.
+- [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery). Invoke-AzOperationalInsightsQuery를 사용하는 Azure Automation Runbook 또는 명령줄에서 PowerShell 스크립트의 로그 쿼리 결과를 사용합니다.
 - [Azure Monitor Logs API](https://dev.loganalytics.io). REST API 클라이언트의 작업 영역에서 로그 데이터를 검색합니다.  API 요청에는 검색할 데이터를 확인하기 위해 Azure Monitor에 대해 실행되는 쿼리가 포함됩니다.
 
 ## <a name="getting-started"></a>시작

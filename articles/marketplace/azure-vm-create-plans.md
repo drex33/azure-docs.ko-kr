@@ -4,15 +4,15 @@ description: Azure Marketplace에서 가상 머신 제품 플랜을 만듭니다
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 05/20/2021
-ms.openlocfilehash: f0e05f06258cc30253fefdc7113fce045009f500
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/26/2021
+ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527625"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529200"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>가상 머신 제품 플랜 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "111527625"
 이 창에서 사용할 수 있는 작업은 플랜의 현재 상태에 따라 달라집니다.
 
 - 플랜 상태가 초안인 경우 **초안 삭제** 를 선택합니다.
-- 플랜 상태가 라이브로 게시되는 경우 **플랜 판매 중지** 또는 **프라이빗 대상 그룹 동기화** 를 선택합니다.
+- 플랜 상태가 라이브로 게시되는 경우 **플랜 사용 중지** 또는 **프라이빗 대상 그룹 동기화** 를 선택합니다.
 
 ## <a name="create-a-new-plan"></a>새 플랜 만들기
 
@@ -149,7 +149,7 @@ CSP(클라우드 솔루션 공급자 프로그램)의 재판매인을 통해 설
 
 모든 Azure 고객은 PowerShell 또는 CLI를 사용하여 제품을 배포할 수 있습니다.  제한된 고객만 이 제품을 사용할 수 있게 하려면 플랜을 **프라이빗** 으로 설정합니다. 
 
-숨겨진 플랜은 미리 보기 링크를 생성하지 않습니다. 그러나 [다음 단계를 수행](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image)하여 테스트할 수 있습니다. 
+숨겨진 플랜은 미리 보기 링크를 생성하지 않습니다. 그러나 [다음 단계를 수행](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-)하여 테스트할 수 있습니다. 
 
 왼쪽 탐색 플랜 메뉴의 다음 탭인 **기술 구성** 을 계속 진행하기 전에 **초안 저장** 을 선택하세요.
 
@@ -179,7 +179,23 @@ Windows **릴리스** 또는 Linux **공급업체** 를 선택합니다.
 
 ### <a name="properties"></a>속성
 
-VM이 **가속화된 네트워킹을 지원** 하는지 선택합니다. 자세한 내용은 [가속화된 네트워킹](https://go.microsoft.com/fwlink/?linkid=2124513)을 참조하세요.
+다음은 VM에 대해 선택할 수 있는 속성 목록입니다.
+
+- **백업 지원**: 이미지에서 Azure VM 백업을 지원하는 경우, 이 속성을 사용하도록 설정합니다. [Azure VM 백업](../backup/backup-azure-vms-introduction.md)에 대해 자세히 알아보세요.
+
+- **가속화된 네트워킹 지원**: 이 플랜의 VM 이미지가 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 지원할 경우, 이 속성을 사용하도록 설정하여 네트워크 인터페이스에서 짧은 대기 시간 및 높은 처리량을 가능하게 합니다. [가속화된 네트워킹](https://go.microsoft.com/fwlink/?linkid=2124513)에 대해 자세히 알아봅니다.
+
+- **클라우드 초기화 구성 지원**: 이 플랜의 이미지가 클라우드 초기화 배포 후 스크립트를 지원하면, 이 속성을 사용하도록 설정합니다. [cloud-init 구성](../virtual-machines/linux/using-cloud-init.md)에 대해 자세히 알아봅니다.
+
+- **핫패치 지원**: Windows Server Azure Editions는 핫패치를 지원합니다. [핫패치](../automanage/automanage-hotpatch.md)에 대해 자세히 알아보세요.
+
+- **확장 지원**: 이 플랜의 이미지가 확장을 지원하는 경우, 이 속성을 사용하도록 설정합니다. 확장은 Azure VM에서 배포 후 구성 및 자동화를 제공하는 작은 애플리케이션입니다. [Azure 가상 머신 확장](./azure-vm-create-certification-faq.yml#vm-extensions)에 대해 자세히 알아보세요.
+
+- **네트워크 가상 어플라이언스**: 이 제품이 네트워크 가상 어플라이언스인 경우, 이 속성을 사용하도록 설정합니다. 네트워크 가상 어플라이언스는 Load Balancer, VPN Gateway, Firewall, Application Gateway와 같은 하나 이상의 네트워크 기능을 수행하는 제품입니다. [네트워크 가상 어플라이언스](https://go.microsoft.com/fwlink/?linkid=2155373)에 대해 자세히 알아보세요.
+
+- **원격 데스크톱 또는 SSH 사용 안 함**: 이러한 이미지를 사용하여 배포된 가상 컴퓨터에서 원격 데스크톱 또는 SSH를 사용하여 액세스할 수 없는 경우, 이 속성을 사용하도록 설정합니다. [잠긴 VM 이미지](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer)에 대해 자세히 알아보세요.
+
+- **배포용 사용자 지정 ARM 템플릿 필요**:이 플랜의 이미지를 사용자 지정 ARM 템플릿만 사용하여 배포할 수 있는 경우, 이 속성을 사용하도록 설정합니다. 자세히 알아보려면 [가상 컴퓨터 인증 문제 해결의 사용자 지정 템플릿 섹션](./azure-vm-create-certification-faq.yml#custom-templates)을 참조하세요.
 
 ### <a name="generations"></a>세대
 

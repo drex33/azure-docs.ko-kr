@@ -5,15 +5,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/14/2021
-ms.openlocfilehash: e51b9667e3bb20a6bd463d3286888085a927f2c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: c83e8a93d41cde3c7a3debbbcfa9d3522ffe2939
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109661"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568036"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버의 읽기 복제본
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버의 읽기 복제본은 미리 보기 상태입니다.
@@ -30,7 +32,6 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
->
 
 ## <a name="common-use-cases-for-read-replica"></a>읽기 복제본의 일반적인 사용 사례
 
@@ -44,13 +45,13 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 복제본은 읽기 전용이기 때문에 원본에 대한 쓰기 용량 부담을 직접적으로 줄이지는 못합니다. 이 기능은 쓰기 작업이 많은 워크로드를 대상으로 하지 않습니다.
 
-읽기 복제본 기능은 MySQL 동기식 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 원본과 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 마스터의 원본과 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
+읽기 복제본 기능은 MySQL 동기식 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 원본과 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 원본의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
 
 ## <a name="create-a-replica"></a>복제본 만들기
 
 원본 서버에 기존 복제본 서버가 없는 경우 원본은 먼저 자체적으로 복제를 위한 준비를 위해 다시 시작됩니다.
 
-복제본 만들기 워크플로를 시작하면 빈 Azure Database for MySQL 서버가 만들어집니다. 새 서버는 원본 서버에 있는 데이터로 채워집니다. 생성 시간은 원본의 데이터 양과 지난 주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
+복제본 만들기 워크플로를 시작하면 빈 Azure Database for MySQL 서버가 만들어집니다. 새 서버는 원본 서버에 있던 데이터로 채워집니다. 생성 시간은 원본의 데이터 양과 마지막 매주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
 
 > [!NOTE]
 > 읽기 복제본은 원본과 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본 서버는 항상 원본 서버와 동일한 리소스 그룹, 동일한 위치 및 동일한 구독에 생성됩니다. 다른 리소스 그룹 또는 다른 구독에 복제본 서버를 만들려면 복제본 서버를 만든 후에 [이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)할 수 있습니다. 복제본이 원본과 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 원본의 구성 값 이상으로 유지하는 것이 좋습니다.
@@ -84,7 +85,7 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에 **복제 지연 �
 복제본에 대한 복제를 중지하도록 선택하면 이전 원본 및 기타 복제본에 대한 모든 링크가 끊깁니다. 원본과 해당 복제본 사이에는 자동화된 장애 조치(failover)가 없습니다.
 
 > [!IMPORTANT]
-> 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
+>독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 > 읽기 복제본에서 복제를 중지하기 전에 복제본에 필요한 모든 데이터가 있는지 확인하십시오.
 
 [복제본에 대한 복제를 중지](how-to-read-replicas-portal.md)하는 방법을 알아봅니다.
@@ -108,7 +109,33 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에 **복제 지연 �
 2. 애플리케이션이 (이전) 복제본을 가리키도록 합니다.<br/>
    각 서버에는 고유한 연결 문자열이 있습니다. 원본 대신 (이전) 복제본을 가리키도록 애플리케이션을 업데이트합니다.
 
-애플리케이션이 읽기 및 쓰기를 성공적으로 처리하면 장애 조치(failover)를 완료한 것입니다. 애플리케이션의 가동 중지 시간은 문제를 감지하고 위의 1단계와 2단계를 완료하는 시기에 따라 달라집니다.
+애플리케이션이 읽기 및 쓰기를 성공적으로 처리하면 장애 조치(failover)를 완료한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지하고 위의 1단계와 2단계를 완료하는 시기에 따라 달라집니다.
+
+## <a name="global-transaction-identifier-gtid"></a>GTID(전역 트랜잭션 식별자)
+
+GTID(전역 트랜잭션 식별자)는 원본 서버에서 커밋된 각 트랜잭션을 사용하여 생성되는 고유 식별자이며 Azure Database for MySQL 유연한 서버에서 기본적으로 해제되어 있습니다. GTID는 버전 5.7 및 8.0에서 지원됩니다. GTID 및 GTID가 복제에 사용되는 방법에 대한 자세한 내용은 MySQL의 [GTID를 사용하는 복제](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) 설명서를 참조하세요.
+
+GTID를 구성하는 데 사용할 수 있는 서버 매개 변수는 다음과 같습니다. 
+
+|**서버 매개 변수**|**설명**|**기본값**|**값**|
+|--|--|--|--|
+|`gtid_mode`|GTID가 트랜잭션을 식별하는 데 사용되는지 여부를 나타냅니다. 모드 간 변경 작업은 오름차순으로 한 번에 한 단계씩만 진행될 수 있습니다. (예: `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF*`|`OFF`: 새 트랜잭션과 복제 트랜잭션은 모두 익명이어야 합니다. <br> `OFF_PERMISSIVE`: 새 트랜잭션은 익명입니다. 복제된 트랜잭션은 익명 또는 GTID 트랜잭션이 될 수 있습니다. <br> `ON_PERMISSIVE`: 새 트랜잭션은 GTID 트랜잭션입니다. 복제된 트랜잭션은 익명 또는 GTID 트랜잭션이 될 수 있습니다. <br> `ON`: 신규 및 복제된 트랜잭션은 모두 GTID 트랜잭션이어야 합니다.|
+|`enforce_gtid_consistency`|트랜잭션 측면에서 안전하게 기록될 수 있는 문만 실행하도록 허용하여 GTID 일관성을 적용합니다. GTID 복제를 사용하도록 설정하려면 먼저 이 값을 `ON`으로 설정해야 합니다. |`OFF*`|`OFF`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있습니다.  <br> `ON`: 어떠한 트랜잭션도 GTID 일관성을 위반해서는 안 됩니다. <br> `WARN`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있지만 경고가 생성됩니다. | 
+
+**고가용성 기능을 사용하는 MySQL 유연한 서버용 Azure Database의 경우 기본값은 `ON`* 으로 설정됩니다.
+> [!NOTE]
+>
+> * GTID를 사용하도록 설정한 후에는 다시 해제할 수 없습니다. GTID를 해제해야 하는 경우 고객 지원팀에 문의하세요. 
+>
+> * GTID의 값을 변경하려면 모드의 오름차순으로 한 번에 한 단계씩만 수행할 수 있습니다. 예를 들어 gtid_mode가 현재 OFF_PERMISSIVE로 설정되어 있는 경우 ON_PERMISSIVE로 변경할 수 있지만 ON으로는 변경할 수 없습니다.
+>
+> * 복제를 일관되게 유지하기 위해 마스터/복제본 서버에 대해 업데이트할 수 없습니다.
+>
+> * gtid_mode=ON을 설정하기 전에 enforce_gtid_consistency를 ON으로 설정하는 것이 좋습니다.
+
+GTID를 사용하도록 설정하고 일관성 동작을 구성하려면 [Azure Portal](how-to-configure-server-parameters-portal.md), [Azure CLI](how-to-configure-server-parameters-cli.md)을 사용하여 `gtid_mode` 및 `enforce_gtid_consistency` 서버 매개 변수를 업데이트합니다.
+
+원본 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 복제를 사용합니다. GTID를 사용하도록 설정하고 마스터 또는 복제본 서버를 만든 다음에는 복제를 일관되게 유지하기 위해 `gtid_mode`를 변경할 수 없습니다.
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
@@ -123,7 +150,8 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에 **복제 지연 �
 | 중지된 복제본 | 원본 서버와 읽기 복제본 간의 복제를 중지하면 중지된 복제본은 읽기와 쓰기를 모두 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다. |
 | 삭제된 원본 및 독립 실행형 서버 | 원본 서버가 삭제되면 모든 읽기 복제본에 대한 복제가 중지됩니다. 이러한 복제본은 자동으로 독립 실행형 서버가 되며 읽기와 쓰기를 모두 허용할 수 있습니다. 원본 서버 자체는 삭제됩니다. |
 | 사용자 계정 | 원본 서버의 사용자는 읽기 복제본으로 복제됩니다. 원본 서버에서 사용 가능한 사용자 계정을 사용하여 읽기 복제본에만 연결할 수 있습니다. |
-| 서버 매개 변수 | 데이터가 동기화되지 않고 데이터가 손실 또는 손상될 가능성으로부터 데이터를 보호하기 위해 읽기 복제본을 사용하는 경우 일부 서버 매개 변수는 업데이트할 수 없도록 잠깁니다. <br> 다음 서버 매개 변수는 원본 서버와 복제 서버 모두에서 잠깁니다.<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다. <br> 원본 서버에서 위의 매개 변수 중 하나를 업데이트하려면 복제본 서버를 삭제하고, 원본의 매개 변수 값을 업데이트하고, 복제본을 다시 만듭니다. |
+| 서버 매개 변수 | 데이터가 동기화되지 않고 데이터가 손실 또는 손상될 가능성으로부터 데이터를 보호하기 위해 읽기 복제본을 사용하는 경우 일부 서버 매개 변수는 업데이트할 수 없도록 잠깁니다. <br> 다음 서버 매개 변수는 원본 서버와 복제 서버에서 모두 잠깁니다.<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다. <br> 원본 서버에서 위의 매개 변수 중 하나를 업데이트하려면 복제본 서버를 삭제하고, 원본의 매개 변수 값을 업데이트하고, 복제본을 다시 만듭니다. 
+<br> 읽기 복제본에 'foreign_keys_checks'와 같은 세션 수준 매개 변수를 구성할 때 읽기 복제본에 설정되는 매개 변수 값이 원본 서버의 값과 일치하는지 확인합니다.|
 | 기타 | - 복제본의 복제본 만들기는 지원되지 않습니다. <br> - 메모리 내 테이블이 있으면 복제본이 동기화되지 않을 수 있기 때문입니다. 이것은 MySQL 복제 기술의 제한 사항입니다. 자세한 내용은 [MySQL 참조 문서](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)를 참조하세요. <br>- 원본 서버 테이블에 기본 키가 있는지 확인합니다. 기본 키가 없는 경우 원본 및 복제본 간의 복제 대기 시간이 발생할 수 있습니다.<br>- [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)에서 MySQL 복제 제한 사항의 전체 목록을 검토하세요. |
 
 ## <a name="next-steps"></a>다음 단계

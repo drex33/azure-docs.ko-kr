@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0497f35b1b0d1df05c1e64f092ff45ebb9678390
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98601313"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594574"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob Storage에 대한 비용 계획 및 관리
 
@@ -40,8 +40,61 @@ Blob Storage 비용은 Azure 청구서의 월별 비용 중 일부일 뿐임에 
 
 4. 나머지 옵션을 수정하여 예상 값에 대한 영향을 확인합니다.
 
-   > [!NOTE]
-   > Azure 선불(이전에는 현금 약정 금액이라고 함) 크레딧을 사용하여 Azure Blob Storage 요금을 지불할 수 있습니다. 단, Azure 선불 크레딧을 사용하여 Azure Marketplace에 있는 항목을 포함한 타사 제품 및 서비스에 대한 요금을 지불할 수는 없습니다.
+## <a name="understand-the-full-billing-model-for-azure-blob-storage"></a>Azure Blob Storage에 대한 전체 청구 모델 이해
+
+Azure Blob Storage는 새 리소스를 배포할 때 비용이 발생하는 Azure 인프라에서 실행됩니다. 다른 추가 인프라 비용이 발생할 수도 있다는 점을 이해하는 것이 중요합니다.
+
+### <a name="how-youre-charged-for-azure-blob-storage"></a>Azure Blob Storage 요금 청구 방식
+
+Azure Blob Storage 리소스를 만들거나 사용할 때 다음 측정 단위에 대해 요금이 청구됩니다. 
+
+| 미터 | 단위 | 
+|---|---|
+| 데이터 스토리지 | GB당/매월|
+| 작업 | 트랜잭션당 |
+| 데이터 전송 | GB당 |
+| 메타데이터 | GB당/매월<sup>1 |
+| Blob 인덱스 태그 | 태그당<sup>2  |
+| 변경 피드 | 기록된 변경당<sup>2 |
+| 암호화 범위 | 매월<sup>2 |
+| 쿼리 가속 | 검사한 GB당 및 반환된 GB당 |
+
+<sup>1</sup> 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.<br />
+<sup>2</sup> 기능을 사용하도록 설정한 경우에만 적용됩니다<br />
+
+데이터 트래픽으로 인해 네트워킹 비용이 발생할 수도 있습니다. [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+
+청구 주기가 끝날 때 각 측정 단위의 요금이 합산됩니다. 청구서 또는 송장에 모든 Azure Blob Storage 비용에 대한 섹션이 표시됩니다. 각 측정 단위에 대한 별도의 줄 항목이 있습니다.
+
+데이터 저장소 및 메타데이터는 매월 GB당 청구됩니다. 한 달 미만 동안 저장된 데이터 및 메타데이터의 경우, 하루에 각 GB의 비용을 계산하여 월별 청구서에 미치는 영향을 예상할 수 있습니다. 비슷한 접근 방식을 사용하여 한 달 미만으로 사용 중인 암호화 범위의 비용을 예측할 수 있습니다. 지정된 월의 일 수는 다릅니다. 따라서 지정된 월의 비용에 대한 최상의 근사값을 얻으려면 월별 비용을 해당 월에 발생하는 일 수를 기준으로 나누어야 합니다. 
+
+### <a name="finding-the-unit-price-for-each-meter"></a>미터당 단가 찾기
+
+단가를 찾으려면 올바른 가격 책정 페이지를 엽니다. 계정에서 계층 구조 네임스페이스 기능을 사용하도록 설정한 경우 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/) 페이지를 참조하세요. 이 기능을 사용하도록 설정하지 않은 경우에는 [블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지를 참조하세요.
+
+가격 책정 페이지에서 적절한 중복성, 지역 및 통화 필터를 적용합니다. 각 미터의 가격은 테이블에 표시됩니다. 가격은 데이터 중복 옵션, 액세스 계층, 성능 계층 등 계정의 다른 설정에 따라 다릅니다. 
+
+### <a name="flat-namespace-accounts-and-transaction-pricing"></a>단일 구조 네임스페이스 계정 및 트랜잭션 가격 책정
+
+클라이언트는 계정의 Blob Storage 엔드포인트 또는 Data Lake Storage 엔드포인트를 사용하여 요청할 수 있습니다. 스토리지 계정 엔드포인트를 자세히 알아보려면 [스토리지 계정 개요](storage-account-overview.md#storage-account-endpoints)를 참조하세요.
+
+[블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지에 표시되는 트랜잭션 가격은 Blob Storage 엔드포인트(예: `https://<storage-account>.blob.core.windows.net`)를 사용하는 요청에만 적용됩니다. 나열된 가격은 Data Lake Storage Gen2 엔드포인트(예: `https://<storage-account>.dfs.core.windows.net`)를 사용하는 요청에는 적용되지 않습니다. 이러한 요청의 트랜잭션 가격의 경우 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/) 페이지를 열고 **단일 구조 네임스페이스** 옵션을 선택합니다. 
+
+> [!div class="mx-imgBorder"]
+> ![단일 구조 네임스페이스 옵션](media/storage-plan-manage-costs/select-flat-namespace.png)
+
+Data Lake Storage Gen2 엔드포인트에 대한 요청은 다음 원본 중 하나에서 시작될 수 있습니다.
+
+- Azure Blob File System 드라이버 또는 [ABFS 드라이버](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)를 사용하는 워크로드
+
+- [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)를 사용하는 REST 호출
+
+- Azure Storage 클라이언트 라이브러리에서 Data Lake Storage Gen2 API를 사용하는 애플리케이션  
+
+
+### <a name="using-azure-prepayment-with-azure-blob-storage"></a>Azure Blob Storage와 함께 Azure 선불 사용
+
+Azure 선불(이전에는 현금 약정 금액이라고 함) 크레딧을 사용하여 Azure Blob Storage 요금을 지불할 수 있습니다. 단, Azure 선불 크레딧을 사용하여 Azure Marketplace에 있는 항목을 포함한 타사 제품 및 서비스에 대한 요금을 지불할 수는 없습니다.
 
 ## <a name="optimize-costs"></a>비용 최적화
 
@@ -59,7 +112,7 @@ Blob Storage 비용은 Azure 청구서의 월별 비용 중 일부일 뿐임에 
 
 Azure Storage 예약된 용량을 사용하여 Blob 데이터에 대한 스토리지 비용을 절감할 수 있습니다. Azure Storage 예약된 용량은 1년 또는 3년 예약을 약정하면 표준 스토리지 계정의 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 할인을 제공합니다. 예약은 예약 기간 동안 고정된 양의 스토리지 용량을 제공합니다. Azure Storage 예약된 용량은 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 비용을 크게 줄일 수 있습니다. 
 
-자세한 내용은 [예약된 용량으로 Blob 스토리지에 대한 비용 최적화](../blobs/storage-blob-reserved-capacity.md)를 참조하세요.
+자세한 내용은 [예약된 용량으로 Blob Storage에 대한 비용 최적화](../blobs/storage-blob-reserved-capacity.md)를 참조하세요.
 
 #### <a name="organize-data-into-access-tiers"></a>액세스 계층으로 데이터 구성
 
@@ -106,11 +159,18 @@ Azure Storage를 사용하여 Azure 리소스를 사용하는 경우 비용이 �
 
 스토리지 계정으로 [비용 데이터를 내보낼](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 직접 수행해야 하거나 다른 사용자가 수행하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터 세트를 검색하려면 비용 데이터를 내보내는 것이 좋습니다.
 
+## <a name="faq"></a>FAQ
+
+**Azure Storage를 한 달에 며칠만 사용하는 경우 비용이 일별로 계산되나요?**
+
+스토리지 용량은 한 달 동안 저장된 평균 일일 데이터 양(GB)을 단위로 요금이 청구됩니다. 예를 들어 매월 첫 15일은 10GB의 스토리지를 지속적으로 사용하고 나머지 15일은 사용하지 않은 경우 평균 5GB의 스토리지 사용량에 대해 요금이 청구됩니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Storage를 사용한 가격 책정의 작동 방법에 대해 자세히 알아봅니다. [Azure Storage 개요 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
-- [예약된 용량으로 Blob 스토리지에 대한 비용을 최적화](../blobs/storage-blob-reserved-capacity.md)합니다.
-- [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)에 대해 알아보세요.
-- [비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대해 자세히 알아보세요.
-- [예기치 않은 비용 방지](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 방법에 대해 알아보세요.
+- [예약된 용량으로 Blob Storage에 대한 비용을 최적화](../blobs/storage-blob-reserved-capacity.md)합니다.
+- [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 알아봅니다.
+- [비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대해 알아봅니다.
+- [예기치 않은 비용을 방지](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법을 알아봅니다.
 - [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수강합니다.

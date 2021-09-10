@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76ee3371134c66d6dcc5b4b07436e5c30a15f144
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 7c06903720db4315bad04e88dfdb9c7cad604697
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111449797"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820806"
 ---
 사용자 고유의 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리할 수 있습니다. 고객 관리형 키를 사용하는 관리 디스크에 대한 서버 쪽 암호화는 Azure Key Vault와의 통합 환경을 제공합니다. [사용자의 RSA 키](../articles/key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다. 
 
@@ -42,6 +42,6 @@ DEK를 암호화 및 암호 해독하는 데 키를 사용하려면 키 자격 �
 
 고객 관리형 키에 대한 액세스를 취소하려면 [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) 및 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 암호화 키에 액세스할 수 없으므로 스토리지 계정의 모든 데이터에 대한 액세스가 효과적으로 차단됩니다.
 
-#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>고객 관리형 키의 자동 키 회전(미리 보기)
+#### <a name="automatic-key-rotation-of-customer-managed-keys"></a>고객 관리형 키의 자동 키 순환
 
-최신 키 버전으로 자동 키 회전을 사용하도록 선택할 수 있습니다. 디스크는 디스크 암호화 집합을 통해 키를 참조합니다. 디스크 암호화 집합에 대해 자동 회전을 사용하는 경우 시스템은 디스크 암호화 집합을 참조하는 모든 관리 디스크, 스냅숏 및 이미지가 1시간 이내에 새 버전의 키를 사용하도록 자동으로 업데이트합니다. 이 기능은 현재 제한된 지역에서 미리 보기로 제공됩니다. 지역별 가용성은 [지원되는 지역](#supported-regions) 섹션을 참조하세요.
+최신 키 버전으로 자동 키 회전을 사용하도록 선택할 수 있습니다. 디스크는 디스크 암호화 집합을 통해 키를 참조합니다. 디스크 암호화 집합에 대해 자동 회전을 사용하는 경우 시스템은 디스크 암호화 집합을 참조하는 모든 관리 디스크, 스냅숏 및 이미지가 1시간 이내에 새 버전의 키를 사용하도록 자동으로 업데이트합니다. 자동 키 순환을 통해 고객 관리형 키를 사용하도록 설정하는 방법을 알아보려면 [자동 키 순환으로 Azure Key Vault 및 DiskEncryptionSet 설정](../articles/virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation)을 참조하세요.

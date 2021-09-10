@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 951f641c9bded27929a1308d7dfe826a797ae08f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685723"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037144"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,3 +59,6 @@ Azure Cosmos 컨테이너를 만들 때만 고유 키를 정의할 수 있습니
 
 * [논리 파티션](partitioning-overview.md)에 대한 자세한 정보
 * 컨테이너를 만들 때 [고유 키를 정의하는 방법](how-to-define-unique-keys.md)을 알아봅니다.
+* Azure Cosmos DB로 마이그레이션하기 위해 용량 계획을 하려고 하십니까? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우, [vCore 또는 vCPU를 사용하여 요청 단위 추정](convert-vcore-to-request-unit.md)을 참조하세요 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB Capacity Planner를 사용하여 요청 단위 추정](estimate-ru-with-capacity-planner.md)을 읽어보세요

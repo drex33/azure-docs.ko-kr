@@ -3,27 +3,30 @@ title: Azure VMware Solution에 대한 호스트 할당량 요청
 description: Azure VMware Solution에 대한 호스트 할당량/용량을 요청하는 방법을 알아봅니다. 기존 Azure VMware Solution 프라이빗 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 05/13/2021
-ms.openlocfilehash: ceb32d7e09e6c595a6cddf844c713093253b8994
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 08/06/2021
+ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421655"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567924"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 호스트 할당량 요청
 
-이 방법에서는 [Azure VMware Solution](introduction.md)에 대한 호스트 할당량/용량을 요청합니다. 호스트를 할당하기 위해 지원 티켓을 제출합니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
+이 방법에서는 [Azure VMware Solution](introduction.md)에 대한 호스트 할당량/용량을 요청합니다. 새 배포용이든 기존 배포용이든 관계없이 호스트가 할당되도록 지원 티켓을 제출합니다. 
+
+기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 >[!IMPORTANT]
->요청된 수에 따라 호스트를 할당하는 데 며칠이 걸릴 수 있습니다.  따라서 프로비저닝에 필요한 항목을 요청하여 자주 할당량 증가를 요청할 필요가 없도록 하세요.
+>요청된 수에 따라 호스트를 할당하는 데 최대 5일(영업일)이 걸릴 수 있습니다.  따라서 프로비저닝에 필요한 항목을 요청하여 자주 할당량 증가를 요청할 필요가 없도록 하세요.
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
-Azure 구독의 Azure 계정이 필요합니다. Azure 구독은 다음 조건 중 하나를 따라야 합니다.
+다음 조건 중 하나를 준수하는 Azure 구독에 Azure 계정이 필요합니다.
 
 - Microsoft와의 [Azure EA](../cost-management-billing/manage/ea-portal-agreements.md)(기업계약)에 따른 구독.
 - 기존 CSP(클라우드 솔루션 공급자) Azure 제품 계약 또는 Azure 플랜에 따른 CSP 관리 구독.
+- Microsoft와의 [현대 상거래 계약](../cost-management-billing/understand/mca-overview.md)
 
 ## <a name="request-host-quota-for-ea-customers"></a>EA 고객을 위한 호스트 할당량 요청
 
@@ -62,11 +65,11 @@ CSP는 [Microsoft 파트너 센터](https://partner.microsoft.com)를 사용해�
 
    1. **파트너 센터** 에서 **CSP** 를 선택하여 **고객** 영역에 액세스합니다.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Microsoft 파트너 센터 고객 영역" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Microsoft 파트너 센터 고객 영역을 보여주는 스크린샷" lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. 고객을 선택하고 **제품 추가** 를 선택합니다.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Microsoft 파트너 센터" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Microsoft 파트너 센터에서 선택한 Azure 플랜을 보여주는 스크린샷" lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. **Azure 플랜** 을 선택한 다음 **카트에 추가** 를 선택합니다. 
    
@@ -105,5 +108,4 @@ CSP는 [Microsoft 파트너 센터](https://partner.microsoft.com)를 사용해�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure VMware Solution을 배포하려면 먼저 구독에 [리소스 공급자를 등록](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)하여 서비스를 사용하도록 설정해야 합니다.   
-
+Azure VMware Solution을 배포하려면 먼저 구독에 [리소스 공급자를 등록](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)하여 서비스를 사용하도록 설정해야 합니다.   

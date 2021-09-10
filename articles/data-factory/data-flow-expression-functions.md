@@ -1,18 +1,20 @@
 ---
 title: 매핑 데이터 흐름의 식 함수
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 매핑 데이터 흐름의 식 함수에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/01/2021
-ms.openlocfilehash: deabcc9170e8b025e91dace47ce9e6a70bd385bb
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.date: 08/24/2021
+ms.openlocfilehash: c0f0f36694e4eadccc4f7b2e9298e2a5ef27d31f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809259"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825184"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -20,7 +22,7 @@ ms.locfileid: "109809259"
 
 ## <a name="expression-functions"></a>식 함수
 
-Data Factory에서 매핑 데이터 흐름 기능의 식 언어를 사용하여 데이터 변환을 구성합니다.
+Data Factory 및 Synapse 파이프라인에서 매핑 데이터 흐름 기능의 식 언어를 사용하여 데이터 변환을 구성합니다.
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -238,8 +240,16 @@ ___
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 숫자 쌍을 나눕니다. `/` 연산자와 같습니다.  
 * ``divide(20, 10) -> 2``  
-* ``20 / 10 -> 2``  
+* ``20 / 10 -> 2``
 ___
+### <code>dropLeft</code>
+<code><b>dropLeft(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
+문자열 왼쪽에서 문자를 최대한 제거합니다. 요청된 삭제가 문자열의 길이를 초과하면 빈 문자열이 반환됩니다.
+*   dropLeft('bojjus', 2) => 'jjus' *   dropLeft('cake', 10) => '' ___
+### <code>dropRight</code>
+<code><b>dropRight(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
+문자열의 오른쪽에서 문자를 최대한 제거합니다. 요청된 삭제가 문자열의 길이를 초과하면 빈 문자열이 반환됩니다.
+*   dropRight('bojjus', 2) => 'bojj' *   dropRight('cake', 10) => '' ___
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
 문자열이 제공된 문자열로 끝나는지 확인합니다.  
@@ -286,7 +296,7 @@ ___
 ___
 ### <code>fromBase64</code>
 <code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-base64에서 지정된 문자열을 인코딩합니다.  
+지정된 base64로 인코딩된 문자열을 디코딩합니다.
 * ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
 ___
 ### <code>fromUTC</code>
@@ -405,6 +415,11 @@ ___
 행이 삽입용으로 표시되어 있는지 확인합니다. 둘 이상의 입력 스트림을 사용하는 변환은 스트림의 인덱스(1부터 시작)를 제공할 수 있습니다. 스트림 인덱스는 1 또는 2여야 하며 기본값은 1입니다.  
 * ``isUpsert()``  
 * ``isUpsert(1)``  
+___
+### <code>jaroWinkler</code>
+<code><b>jaroWinkler(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => double</b></code><br/><br/>
+두 문자열 간의 JaroWinkler 거리를 가져옵니다. 
+* ``jaroWinkler('frog', 'frog') => 1.0``  
 ___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
@@ -607,6 +622,10 @@ ___
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 한 수를 다른 수의 승수로 거듭제곱합니다.  
 * ``power(10, 2) -> 100``  
+___
+### <code>radians</code>
+<code><b>radians(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
+도를 라디안으로 변환합니다.* ``radians(180) => 3.141592653589793``  
 ___
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
@@ -830,6 +849,12 @@ ___
 
 ## <a name="aggregate-functions"></a>집계 함수
 다음 함수는 집계, 피벗, 피벗 해제 및 창 변환에서만 사용할 수 있습니다.
+
+___
+### <code>approxDistinctCount</code>
+<code><b>approxDistinctCount(<i>&lt;value1&gt;</i> : any, [ <i>&lt;value2&gt;</i> : double ]) => long</b></code><br/><br/>
+열에 대한 고유 값의 대략적인 집계 수를 가져옵니다. 선택적 두 번째 매개 변수는 예측 오류를 제어하는 것입니다.
+* ``approxDistinctCount(ProductID, .05) => long``  
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1052,11 +1077,27 @@ ___
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>at</code>
+<code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
+배열 인덱스에서 요소를 찾습니다. 인덱스는 1부터 시작합니다. 인덱스가 범위를 벗어나면 null 값이 발생합니다. 키가 지정된 맵에서 값을 찾습니다. 키를 찾을 수 없으면 null이 반환됩니다.
+*   ``at(['apples', 'pears'], 1) => 'apples'``
+*   ``at(['fruit' -> 'apples', 'vegetable' -> 'carrot'], 'fruit') => 'apples'``
+___
 ### <code>contains</code>
 <code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
 제공된 배열의 요소가 제공된 조건자에서 true로 평가되면 true를 반환합니다. Contains는 조건자 함수의 한 요소에 대한 참조를 #item으로 예상합니다.  
 * ``contains([1, 2, 3, 4], #item == 3) -> true``  
 * ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
+### <code>distinct</code>
+<code><b>distinct(<i>&lt;value1&gt;</i> : array) => array</b></code><br/><br/>
+배열의 고유 항목 집합을 반환합니다.
+* ``distinct([10, 20, 30, 10]) => [10, 20, 30]``
+___
+### <code>except</code>
+<code><b>except(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+삭제하는 다른 중복 항목에서 한 배열의 차이 집합을 반환합니다.
+* ``except([10, 20, 30], [20, 40]) => [10, 30]``  
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
@@ -1097,10 +1138,19 @@ ___
       )
     ``  
 ___
+### <code>flatten</code>
+<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolean) => array</b></code><br/><br/> 배열을 단일 배열로 평면화합니다. 원자성 항목의 배열은 변경되지 않은 상태로 반환됩니다. 마지막 인수는 선택 사항이며 one level deep.
+*   ``flatten([['bojjus', 'girl'], ['gunchus', 'boy']]) => ['bojjus', 'girl', 'gunchus', 'boy']``
+*   ``flatten([[['bojjus', 'gunchus']]] , true) => ['bojjus', 'gunc보다 재귀적으로 평면화하기 위해 false로 기본 설정됩니다.hus']``
+___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/> 항목이 있는지 확인합니다. is in the array.  
 * ``in([10, 20, 30], 10) -> true``  
 * ``in(['good', 'kid'], 'bad') -> false``  
+___
+### <code>intersect</code>
+<code><b>intersect(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/> 고유 항목의 교차 집합을 반환합니다.s from 2 arrays.
+* ``intersect([10, 20, 30], [20, 40]) => [20]``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/> 제공된 식을 사용하여 배열의 각 요소를 새 요소에 매핑합니다. 맵은 식 함수의 한 요소에 대한 참조를 예상합니다. nction as #item.  
@@ -1141,7 +1191,17 @@ ___
 ### <code>sort</code>
 <code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/> 제공된 조건자 함수를 사용하여 배열을 정렬합니다. 정렬은 식 함수의 두 연속 요소에 대한 참조를 #item1 and #item2.  
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
-* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``* ``
+* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a로 예상합니다.3']``  
+___
+### <code>unfold</code>
+<code><b>unfold (<i>&lt;value1&gt;</i>: array) => any</b></code><br/><br/> 배열을 일련의 행으로 펼치고 나머지 열에 대해 값을 반복합니다.ns in every row.
+*   ``unfold(addresses) => any``
+*   ``unfold( @(name = salesPerson, sales = salesAmount) ) => any``
+___  
+### <code>union</code>
+<code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/> 고유 항목의 통합 집합을 반환합니다.s from 2 arrays.
+* ``union([10, 20, 30], [20, 40]) => [10, 20, 30, 40]``
+___* ``
  @(
        name = 'Mark',
        types = [
@@ -1151,11 +1211,22 @@ ___
   )
 ``  
 ___
+### <code>flatten</code>
+<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolean) => array</b></code><br/><br/>
+Flattens array or arrays into a single array. Arrays of atomic items are returned unaltered. The last argument is optional and is defaulted to false to flatten recursively more than one level deep.
+*   ``flatten([['bojjus', 'girl'], ['gunchus', 'boy']]) => ['bojjus', 'girl', 'gunchus', 'boy']``
+*   ``flatten([[['bojjus', 'gunchus']]] , true) => ['bojjus', 'gunchus']``
+___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
 Checks if an item is in the array.  
 * ``in([10, 20, 30], 10) -> true``  
 * ``in(['good', 'kid'], 'bad') -> false``  
+___
+### <code>intersect</code>
+<code><b>intersect(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns an intersection set of distinct items from 2 arrays.
+* ``intersect([10, 20, 30], [20, 40]) => [20]``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1204,8 +1275,20 @@ ___
 <code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
 Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2.  
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
-* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``로 예상합니다.  
-
+* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
+___
+### <code>unfold</code>
+<code><b>unfold (<i>&lt;value1&gt;</i>: array) => any</b></code><br/><br/>
+Unfolds an array into a set of rows and repeats the values for the remaining columns in every row.
+*   ``unfold(addresses) => any``
+*   ``unfold( @(name = salesPerson, sales = salesAmount) ) => any``
+___  
+### <code>union</code>
+<code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns a union set of distinct items from 2 arrays.
+* ``union([10, 20, 30], [20, 40]) => [10, 20, 30, 40]``
+___  
+  
 ## <a name="cached-lookup-functions"></a>캐시된 조회 함수
 다음 함수는 캐시된 싱크를 포함한 경우 캐시된 조회를 사용하는 경우에만 사용할 수 있습니다.
 ___
@@ -1227,7 +1310,6 @@ ___
 <code><b>output() => any</b></code><br/><br/>
 캐시 싱크 결과의 전체 출력 행 세트를 반환합니다. * ``cacheSink#outputs()``
 ___
-
 
 ## <a name="conversion-functions"></a>변환 함수
 
@@ -1255,41 +1337,46 @@ ___
 * ``isByte('chocolate') -> false``
 ___
 ### <code>isDate</code>
-<code><b>isDate (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 바이트 값인지 확인합니다.<br/><br/>
+<code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 바이트 값인지 확인합니다.<br/><br/>
 입력 날짜 문자열이 선택적 입력 날짜 형식을 사용하는 날짜인지 확인합니다. 사용 가능한 형식을 알아보려면 Java의 SimpleDateFormat을 참조하세요. 입력 날짜 형식이 생략된 경우 기본 형식은 ``yyyy-[M]M-[d]d``입니다. 허용되는 형식은 ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
 ### <code>isShort</code>
-<code><b>isShort (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code>입니다.<br/><br/>
+<code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code>입니다.<br/><br/>
 문자열 값이 ``toShort()``
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
 ___
 ### <code>isInteger</code>
-<code><b>isInteger (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 short 값인지 검사합니다.<br/><br/>
+<code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 short 값인지 검사합니다.<br/><br/>
 문자열 값이 ``toInteger()``
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
 ___
 ### <code>isLong</code>
-<code><b>isLong (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 integer 값인지 검사합니다.<br/><br/>
+<code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 integer 값인지 검사합니다.<br/><br/>
 문자열 값이 ``toLong()``
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
 ___
+### <code>isNan</code>
+<code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 long 값인지 검사합니다.<br/><br/>
+숫자가 아닌지 확인합니다.
+* ``isNan(10.2) => false``
+___
 ### <code>isFloat</code>
-<code><b>isFloat (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 long 값인지 검사합니다.<br/><br/>
+<code><b>isFloat (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 문자열 값이 ``toFloat()``
 * ``isFloat('123') -> true``
 * ``isFloat('$123.45' -> '$###.00') -> true``
 * ``isFloat('icecream') -> false``
 ___
 ### <code>isDouble</code>
-<code><b>isDouble (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 float 값인지 검사합니다.<br/><br/>
+<code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 float 값인지 검사합니다.<br/><br/>
 문자열 값이 ``toDouble()``
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
@@ -1302,7 +1389,7 @@ ___
 * ``isDecimal('12/12/2000') -> false``
 ___
 ### <code>isTimestamp</code>
-<code><b>isTimestamp (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 decimal 값인지 검사합니다.<br/><br/>
+<code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code> 규칙에 따라 지정된 선택적 형식의 decimal 값인지 검사합니다.<br/><br/>
 입력 날짜 문자열이 선택적 입력 타임스탬프 형식을 사용하는 타임스탬프인지 확인합니다. 사용 가능한 형식은 Java의 SimpleDateFormat을 참조하세요. 타임스탬프를 생략하면 기본 패턴인 ``yyyy-[M]M-[d]d hh:mm:ss[.f...]``가 사용됩니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 타임스탬프는 999 값으로 최대 밀리 초 정확도를 지원합니다. 사용 가능한 형식은 Java의 SimpleDateFormat을 참조하세요.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
@@ -1411,6 +1498,31 @@ ___
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 
+## <a name="map-functions"></a>Map 함수
+  
+Map 함수는 맵 데이터 형식에 대한 작업을 수행합니다.
+
+### <code>associate</code>
+<code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
+키/값의 맵을 만듭니다. 모든 키 및 값은 동일한 형식이어야 합니다. 항목을 지정하지 않으면 문자열 형식에 대한 문자열 맵으로 기본 설정됩니다. ```[ -> ]``` 생성 연산자와 동일합니다. 키와 값은 서로 대체되어야 합니다.
+*   ``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
+___
+### <code>keyValues</code>
+<code><b>keyValues(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => map</b></code><br/><br/>
+키/값의 맵을 만듭니다. 첫 번째 매개 변수는 키의 배열이고 두 번째 매개 변수는 값의 배열입니다. 두 배열의 길이는 같아야 합니다.
+*   ``keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']``
+___ 
+### <code>mapAssociation</code>
+<code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
+키를 새 값에 연결하여 맵을 변환합니다. 배열을 반환합니다. 항목을 #key로, 현재 값을 #value로 지정할 수 있는 매핑 함수를 사용합니다. 
+*   ``mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]``
+___ 
+### <code>reassociate</code>
+<code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
+키를 새 값에 연결하여 맵을 변환합니다. 항목을 #key로, 현재 값을 #value로 지정할 수 있는 매핑 함수를 사용합니다.  
+* ``reassociate(['fruit' -> 'apple', 'vegetable' -> 'tomato'], substring(#key, 1, 1) + substring(#value, 1, 1)) => ['fruit' -> 'fa', 'vegetable' -> 'vt']``
+___
+  
 ## <a name="metafunctions"></a>Metafunctions
 
 Metafunctions는 주로 데이터 흐름의 메타데이터에서 작동합니다.
@@ -1473,7 +1585,12 @@ ___
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
 특정 계층 경로가 스트림에 이름별로 존재하는지 확인합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 디자인 타임에 알려진 열 이름/경로는 이름 또는 점 표기법 경로로만 지정해야 합니다. 계산된 입력은 지원되지 않지만 매개 변수 대체를 사용할 수 있습니다.  
 * ``hasPath('grandpa.parent.child') => boolean``
-___
+___  
+### <code>originColumns</code>
+<code><b>originColumns(<i>&lt;streamName&gt;</i> : string) => any</b></code><br/><br/>
+열을 만든 원본 스트림에 대한 모든 출력 열을 가져옵니다. 다른 함수로 묶어야 합니다.
+* ``array(toString(originColumns('source1')))``
+___  
 ### <code>hex</code>
 <code><b>hex(<i>\<value1\></i>: binary) => string</b></code><br/><br/>
 이진 값를 16진 문자열 표현으로 반환합니다. * ``hex(toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])) -> '1fadbe'``

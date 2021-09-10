@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 07/05/2021
 ms.author: mimart
-ms.openlocfilehash: f21c0a37d169885e60ae9dea34663dc0a86e161f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7196d4596a3e67f1482fe2955a933fbf9efc8d47
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802161"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227656"
 ---
 로그아웃 흐름에 포함되는 단계는 다음과 같습니다.
 

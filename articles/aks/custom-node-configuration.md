@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a280a191d25a2d41173b30c56447b1ece7077206
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d9b3a6d3a5178354cced3cd5e4a49f7113ecdce
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528362"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220023"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>AKS(Azure Kubernetes Service) 노드 풀의 노드 구성 사용자 지정(미리 보기)
 
@@ -68,6 +68,8 @@ az extension update --name aks-preview
 | `imageGcLowThreshold` | 0-100, `imageGcHighThreshold`보다 높지 않음 | 80 | 이미지 가비지 수집이 실행되기 이전의 디스크 사용 백분율입니다. 가비지 수집이 **트리거될 수 있는** 최소 디스크 사용량입니다. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | 없음 | NUMA 노드 맞춤 최적화에 대한 자세한 내용은 [여기](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/)를 참조하세요. kubernetes v1.18+만 해당합니다. |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | 없음 | 안전하지 않은 sysctl 또는 sysctls 패턴의 허용된 목록입니다. | 
+| `containerLogMaxSizeMB` | 크기(MB) | 10MB | 회전되기 전의 컨테이너 로그 파일의 최대 크기입니다(예: 10MB). | 
+| `containerLogMaxFiles` | ≥ 2 | 5 | 컨테이너에 제공할 수 있는 컨테이너 로그 파일의 최대 수입니다. | 
 
 ### <a name="linux-os-custom-configuration"></a>Linux OS 사용자 지정 구성
 

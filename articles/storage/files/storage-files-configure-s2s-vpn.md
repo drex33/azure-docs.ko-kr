@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a08ca4142876a5a92adbe8b1c3fce9ec7953019
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7436cb2a2dc85a41ae42f15d6df7574a6bb2d5cf
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778016"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224507"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Azure Files에서 사용할 사이트 간 VPN 구성
-S2S(사이트 간) VPN 연결을 사용하여 445 포트를 열지 않고 온-프레미스 네트워크에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 사이트 간 VPN은 VPN 서비스를 제공하는 Azure 리소스이며 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포되는 [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)를 사용하여 설정할 수 있습니다.
+S2S(사이트 간) VPN 연결을 사용하여 열린 인터넷을 통해 데이터를 보내지 않고 온-프레미스 네트워크에서 Azure 파일 공유를 탑재할 수 있습니다. 사이트 간 VPN은 VPN 서비스를 제공하는 Azure 리소스이며 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포되는 [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)를 사용하여 설정할 수 있습니다.
 
 ![S2S VPN을 사용하여 Azure 파일 공유를 온-프레미스 사이트에 연결하는 Azure VPN Gateway의 토폴로지를 보여 주는 토폴로지 차트](media/storage-files-configure-s2s-vpn/s2s-topology.png)
 
@@ -23,7 +23,14 @@ Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알�
 
 이 문서에서는 Azure 파일 공유를 온-프레미스에 직접 탑재하도록 사이트 간 VPN을 구성하는 단계에 대해 자세히 설명합니다. 사이트 간 VPN을 통해 Azure 파일 동기화의 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](../file-sync/file-sync-firewall-and-proxy.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+
+## <a name="prerequisites"></a>필수 구성 요소
 - 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
 
 - 온-프레미스에 탑재하려는 Azure 파일 공유가 포함된 스토리지 계정의 프라이빗 엔드포인트입니다. 프라이빗 엔드포인트를 만드는 방법에 대한 자세한 내용은 [Azure Files 네트워크 엔드포인트 구성](storage-files-networking-endpoints.md?tabs=azure-portal)을 참조하세요. 
@@ -94,7 +101,8 @@ S2S VPN을 구성하는 마지막 단계는 이 VPN이 Azure Files에서 작동�
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
-- [Linux](storage-how-to-use-files-linux.md)
+- [Linux(NFS)](storage-files-how-to-mount-nfs-shares.md)
+- [Linux(SMB)](storage-how-to-use-files-linux.md)
 
 ## <a name="see-also"></a>참조
 - [Azure Files 네트워킹 개요](storage-files-networking-overview.md)

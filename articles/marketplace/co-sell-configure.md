@@ -7,13 +7,13 @@ ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: d38123aef6ac51423b90fa06d720574bb595bb14
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/13/2021
+ms.openlocfilehash: 74bc41fb84f63f4705da95f80d6f27dea009ea43
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133460"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866738"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>상업용 마켓플레이스 제품에 대한 공동 판매 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "108133460"
 - Azure Container
 - Azure Virtual Machine
 - 컨설팅 서비스
-- Dynamics 365 for Customer Engagement 및 PowerApps
+- Dynamics 365 for Customer Engagement 및 Power Apps
 - Dynamics 365 for operations
 - Dynamics 365 Business Central
 - IoT Edge 모듈
@@ -104,7 +104,7 @@ ms.locfileid: "108133460"
 | *고객 사례 연구*(선택 사항)| [사례 연구 템플릿](https://aka.ms/GTM_Case_Study_Template)을 사용하여 사용자의 고객 사례 연구를 만들 수 있습니다. 이 정보는 잠재적 고객에게 사용자와 Microsoft가 이전 사례에서 성공적으로 제품을 배포한 방법을 보여 줍니다. |
 | *확인할 수 있는 고객 획득*(선택 사항) | 제품을 배포한 후 고객 성공의 구체적인 예를 제공합니다. |
 | *채널 pitch deck*(선택 사항) | 채널 재판매인이 제품에 대한 자세한 정보를 얻고 판매 팀이 판매를 준비할 수 있도록 돕는 정보를 포함하는 슬라이드 데크입니다. 보통 이 데크에는 엘리베이터 피치(Elevator Pitch), 대상 고객에 대한 정보, 고객 대상 질문, 대화 요점, 그리고 비디오, 설명서 및 지원 정보에 대한 링크가 포함됩니다. |
-| *참조 아키텍처 다이어그램*(Azure IP 공동 판매 인센티브 상태에 필요함) | 제품 및 이와 관련된 Microsoft 클라우드 서비스와의 관계를 나타내는 다이어그램입니다. 또한 이것은 제품이 Azure IP 공동 판매 인센티브 상태에 대한 기술 요구 사항을 충족하는 방법을 보여 줄 수 있습니다. [참조 아키텍처 다이어그램에 대해 자세히 알아봅니다.](reference-architecture-diagram.md) |
+| *참조 아키텍처 다이어그램*(Azure IP 공동 판매 인센티브 상태에 필요함) | 제품 및 이와 관련된 Microsoft 클라우드 서비스와의 관계를 나타내는 다이어그램입니다. 이는 제품이 Azure IP 공동 판매 인센티브 상태에 대한 기술 요구 사항을 충족하는 방법을 보여줄 수도 있습니다. [참조 아키텍처 다이어그램에 대해 자세히 알아봅니다.](reference-architecture-diagram.md) |
 | *기타 문서*(선택 사항) | Microsoft 영업팀 및 채널 재판매인이 제품, 조직 및 다른 제품과의 차이점을 자세히 알 수 있도록 최대 5개의 추가 문서 또는 비디오를 업로드할 수 있습니다. |
 |||
 

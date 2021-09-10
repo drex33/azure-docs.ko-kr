@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 2e39a2dcdf0f6e3b56665ca7be415c567ca770e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135630"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866295"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -111,6 +111,7 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | IoT Edge 자동 배포<sup>1</sup> | 배포당 50개 모듈입니다. 유료 SKU 허브당 100개 배포(계층화된 배포 포함)입니다. 무료 SKU 허브당 10개 배포입니다. |
 | 쌍<sup>1</sup> | 원하는 속성과 보고된 속성 섹션의 최대 크기는 각각 32KB입니다. 태그 섹션의 최대 크기는 8KB입니다. |
 | 공유 액세스 정책 | 공유 액세스 정책의 최대 수는 16개입니다. |
+| 아웃바운드 네트워크 액세스 제한 | FQDN은 20개까지 허용됩니다. |
 | x509 CA 인증서 | IoT Hub에 등록할 수 있는 x509 CA 인증서의 최대 수는 25개입니다. |
 
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.

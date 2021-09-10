@@ -4,12 +4,12 @@ description: Azure RBAC(Role Based Access Control)를 사용하여 Recovery Serv
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdde385ca49a61a8fb2c2bba81311035dca3e324
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613445"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215189"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure RBAC(Role Based Access Control)를 사용하여 Azure Backup 복구 지점 관리
 
@@ -86,10 +86,10 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 세 가지 기본 �
 | 관리 작업 | 필요 역할 | 리소스 |
 | --- | --- | --- |
 | Azure 파일 공유의 백업 사용 | Backup 참가자 |Recovery Services 자격 증명 모음 |
-| |스토리지 계정 | 참가자 스토리지 계정 리소스 |
+| | 스토리지 계정 백업 기여자 | 스토리지 계정 리소스 |
 | VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | 파일 공유 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | Storage 계정 참가자 | 복원 원본 및 대상 파일 공유가 있는 스토리지 계정 리소스 |
+| | 스토리지 계정 백업 기여자 | 복원 원본 및 대상 파일 공유가 있는 스토리지 계정 리소스 |
 | 개별 파일 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | |Storage 계정 참가자|복원 원본 및 대상 파일 공유가 있는 스토리지 계정 리소스 |
 | 보호 중지 |Backup 참가자 | Recovery Services 자격 증명 모음 |
@@ -98,7 +98,7 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 세 가지 기본 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure RBAC(Role Based Access Control)](../role-based-access-control/role-assignments-portal.md): Azure Portal에서Azure RBAC를 시작합니다.
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 Azure RBAC를 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

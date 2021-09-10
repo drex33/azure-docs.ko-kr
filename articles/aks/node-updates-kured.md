@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 kured를 사용하여 Linux 노
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a81d778b8346a03622ef837b6732e7d50e807652
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88164243"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567227"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Linux 노드에 보안 및 커널 업데이트 적용
 
@@ -39,6 +39,12 @@ AKS 클러스터에서 Kubernetes 노드는 Azure VM(가상 머신)으로 실행
 
 사용자 고유의 워크플로 및 프로세스를 사용하여 노드 다시 부팅을 처리하거나 `kured`를 사용하여 프로세스를 오케스트레이션할 수 있습니다. `kured`를 사용하여 클러스터의 각 Linux 노드에서 Pod를 실행하는 [DaemonSet][DaemonSet]이 배포됩니다. DaemonSet의 이 Pod는 */var/run/reboot-required* 파일이 있는지 살펴본 다음 프로세스를 시작하여 노드를 다시 부팅합니다.
 
+### <a name="node-image-upgrades"></a>노드 이미지 업그레이드
+
+자동 업그레이드는 Linux 노드 OS에 업데이트를 적용하지만 클러스터에 대한 노드를 만드는 데 사용되는 이미지는 변경되지 않습니다. 새 Linux 노드가 클러스터에 추가되면 원래 이미지를 사용하여 노드를 만듭니다. 이 새 노드는 매일 밤 자동 검사 중에 사용 가능한 모든 보안 및 커널 업데이트를 받지만 모든 검사와 다시 시작이 완료될 때까지 패치되지 않습니다.
+
+또는 노드 이미지 업그레이드를 사용하여 클러스터에서 사용하는 노드 이미지를 검사하고 업데이트할 수 있습니다. 노드 이미지 업그레이드에 관한 자세한 내용은 [AKS(Azure Kubernetes Service) 노드 이미지 업그레이드][node-image-upgrade]를 참조하세요.
+
 ### <a name="node-upgrades"></a>노드 업그레이드
 
 AKS에 클러스터를 *업그레이드* 할 수 있는 추가 프로세스가 있습니다. 업그레이드는 일반적으로 노드 보안 업데이트를 적용하는 것 뿐만 아니라 Kubernetes의 최신 버전으로 이동하는 것입니다. AKS 업그레이드는 다음 작업을 수행합니다.
@@ -65,7 +71,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."kubernetes\.io/os"=linux
 ```
 
 Prometheus 또는 Slack과 통합과 같은 `kured`에 대한 추가 매개 변수를 구성할 수도 있습니다. 추가 구성 매개 변수에 대한 자세한 내용은 [kured Helm 차트][kured-install]를 참조하세요.
@@ -118,3 +124,4 @@ Windows Server 노드를 사용하는 AKS 클러스터는 [AKS에서 노드 풀 
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[node-image-upgrade]: node-image-upgrade.md

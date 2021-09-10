@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2021
-ms.openlocfilehash: a0d28be0bc9754ab678792f2dca294b4fb185bf0
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 08/12/2021
+ms.openlocfilehash: 6a371d3a9edf537e78f5a889139a053cb925518f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018642"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770836"
 ---
-# <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 비용 예측 및 관리 방법
+# <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 비용 예측 및 관리
 
 이 문서에서는 Azure Cognitive Search 서비스를 실행하는 비용 관리를 위한 가격 책정 모델, 청구 가능 이벤트 및 팁에 대해 알아봅니다.
 
@@ -48,13 +48,14 @@ Azure Cognitional Search를 기반으로 구축된 솔루션으로 다음과 같
 
 + 대역폭 요금(아웃바운드 데이터 전송)
 
-+ 특정 기능 또는 기능에 필요한 애드온 서비스:
++ 특정 기능 또는 프리미엄 기능에 필요한 애드온 서비스:
 
-  + AI 보강([Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) 필요)
+  + 청구 가능한 기술을 사용하는 AI 강화([Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) 필요). 이미지 추출도 청구 가능합니다.
   + 지식 저장소([Azure Storage](https://azure.microsoft.com/pricing/details/storage/) 필요)
   + 증분 보강([Azure Storage](https://azure.microsoft.com/pricing/details/storage/) 필요, AI 보강에 적용)
   + 고객 관리 키 및 이중 암호화([Azure Key Vault ](https://azure.microsoft.com/pricing/details/key-vault/) 필요)
   + 비 인터넷 액세스 모델의 프라이빗 엔드포인트([Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/) 필요)
+  + 의미 체계 검색은 표준 계층의 프리미엄 기능입니다(비용은 [Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/) 참조). 실수로 사용되는 것을 방지하기 위해 [의미 체계 검색을 사용하지 않도록 설정](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)할 수 있습니다.
 
 ### <a name="service-costs"></a>서비스 비용
 
@@ -80,16 +81,19 @@ Azure 데이터 원본이 Azure Cognitive Search과 다른 지역에 있는 경�
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Cognitive Search를 통한 AI 보강
 
-[AI 보강](cognitive-search-concept-intro.md)의 경우, Azure Cognitive Search와 동일한 지역에서 종량제 프로세스에 대해 S0 가격 계층으로 청구 가능 [Azure Cognitive Services 리소스](cognitive-search-attach-cognitive-services.md)를 연결하도록 계획해야 합니다. Cognitive Services 연결과 관련된 고정 비용은 없습니다. 필요한 처리량에 따른 비용만 지불합니다.
+청구 가능한 기술을 사용하는 [AI 보강](cognitive-search-concept-intro.md)의 경우, Azure Cognitive Search와 동일한 지역에서 종량제 프로세스에 대해 S0 가격 계층으로 [청구 가능 Azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획해야 합니다. Cognitive Services 연결과 관련된 고정 비용은 없습니다. 필요한 처리량에 따른 비용만 지불합니다.
 
 | 작업 | 청구 영향 |
 |-----------|----------------|
 | 문서 크래킹, 문자 추출 | 무료 |
-| 문서 크래킹, 이미지 추출 | 문서에서 추출한 이미지 수에 따라 요금이 청구됩니다. [인덱서 구성](/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageAction** 은 이미지 추출을 트리거하는 매개 변수입니다. **imageAction** 이 "없음"(기본값)으로 설정된 경우 이미지 추출에 대한 요금이 청구되지 않습니다. 이미지 추출 비율은 Azure Cognitive Search에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명되어 있습니다.|
-| [기본 제공 인지 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용하여 작업을 수행한 것과 동일한 비율로 요금이 청구됩니다. |
-| 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 미터링 서비스 호출 여부에 따라 전적으로 달라집니다. |
+| 문서 크래킹, 이미지 추출 | 문서에서 추출한 이미지 수에 따라 요금이 청구됩니다. [인덱서 구성](/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageAction** 은 이미지 추출을 트리거하는 매개 변수입니다. **imageAction** 이 "없음"(기본값)으로 설정된 경우 이미지 추출에 대한 요금이 청구되지 않습니다. 이미지 추출 요금은 [가격 책정](https://azure.microsoft.com/pricing/details/search/) 페이지를 참조하세요. |
+| Cognitive Services를 기반으로 하는 [기본 제공 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용하여 작업을 수행한 것과 동일한 비율로 요금이 청구됩니다. 인덱서당 하루에 20개의 문서를 무료로 처리할 수 있습니다. 더 크거나 빈번한 워크로드에는 키가 필요합니다. |
+| 강화를 추가하지 않는 [기본 제공 기술](cognitive-search-predefined-skills.md) | 없음 청구할 수 없는 유틸리티 기술에는 조건부, 쉐이퍼, 텍스트 병합, 텍스트 분할 등이 있습니다. 청구 영향, Cognitive Services 키 요구 사항 및 20개 문서 제한이 없습니다. |
+| 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 미터링 서비스 호출 여부에 따라 전적으로 달라집니다.  Cognitive Services 키 요구 사항은 없으며 사용자 지정 기술에 대한 20가지 문서 제한이 없습니다.|
+| [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md) | Azure Cognitive Search에서 측정합니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/search/#pricing) 페이지를 참조하세요. |
 
-[증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 기능을 사용하면 나중에 기술 세트를 수정할 때 필요한 인식 기술만 인덱서가 더욱 효율적으로 실행할 수 있도록 캐시를 제공할 수 있으므로 시간과 비용이 절약됩니다.
+> [!TIP]
+> [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)은 기술 세트의 변경 내용에 영향을 받지 않는 보강을 캐싱하고 다시 사용하여 기술 세트 처리 비용을 낮춥니다. 캐싱에는 Azure Storage([가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 참조)가 필요합니다. 그러나 기존 보강을 다시 사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
 
 ## <a name="tips-for-managing-costs"></a>비용 관리를 위한 팁
 

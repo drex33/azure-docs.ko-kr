@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 210213321dfba3bf734af498db6567cf1c6b4281
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889709"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771025"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 NIST 인증자 보증 수준 3 달성
 
@@ -44,7 +44,7 @@ Microsoft는 필요한 NIST 인증 유형을 충족할 수 있는 인증 방법�
 
 다단계 암호화 하드웨어 인증을 사용하여 AAL3을 달성하는 것이 좋습니다. 암호 없는 인증은 가장 큰 공격 표면(암호)을 제거하고 사용자에게 간소화된 인증 방법을 제공합니다. 완전히 클라우드에 기반을 둔 조직에서는 FIDO2 보안 키를 사용하는 것이 좋습니다.
 
-FIDO2 키 및 비즈니스용 Windows Hello는 필수 FIPS 140 보안 수준에서 유효성이 검사되지 않았습니다. 따라서 연방 고객은 이러한 인증자를 AAL3로 수락하기 전에 위험 평가 및 사정을 수행해야 합니다.
+비즈니스용 Windows Hello는 필수 FIPS 140 보안 수준에서 유효성이 검사되지 않았으므로 이를 AAL3으로 수락하기 전에 위험 평가 및 평가를 수행해야 합니다. .
 
 자세한 참고 자료는 [Azure Active Directory에서 암호 없는 인증 배포 계획](../authentication/howto-authentication-passwordless-deployment.md)을 참조하세요.
 

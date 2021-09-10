@@ -1,31 +1,31 @@
 ---
 title: B2B 게스트 사용자의 속성 - Azure Active Directory | Microsoft Docs
-description: 초대 사용 전후의 Azure Active Directory B2B 게스트 사용자 속성 및 상태
+description: 초대 사용 전후의 Azure Active Directory B2B 초대 게스트 사용자 속성 및 상태
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 954515335badba8e3ea649cb66bbc7d41e6328c0
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 9a0cda7edf93578e95ee9a6f15cc8c3c26274b49
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110584964"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823717"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
-이 문서에서는 초대 사용 전후에 Azure AD(Azure Active Directory)에서 B2B 게스트 사용자 개체의 속성 및 상태를 설명합니다. Azure AD B2B(Business-to-Business) 협업 사용자는 UserType이 Guest인 사용자입니다. 이 게스트 사용자는 일반적으로 파트너 조직에 소속되어 있으며, 기본적으로 초대 디렉터리에서 제한된 권한을 가집니다.
+이 문서에서는 초대 사용 전후에 초대된 Azure AD B2B(Azure Active Directory B2B) 공동 작업 사용자 개체의 속성 및 상태에 대해 설명합니다. Azure AD B2B 공동 작업 사용자는 개인 자격 증명을 사용하여 Azure AD 조직에 로그인하도록 초대하는 외부 사용자로, 일반적으로 파트너 조직의 사용자입니다. 이 B2B 공동작업 사용자(일반적으로 *게스트 사용자* 라고도 함)는 공유하려는 앱과 리소스에 액세스할 수 있습니다. B2B 공동 작업 사용자에 대한 사용자 개체는 직원과 동일한 디렉터리에 만들어집니다. B2B 공동 작업 사용자 개체는 기본적으로 디렉터리에서 제한된 권한을 가지며 직원처럼 관리하거나 그룹에 추가하는 등의 작업을 수행할 수 있습니다.
 
 초대 조직의 요구에 따라 Azure AD B2B 협업 사용자는 다음 계정 상태 중 하나일 수 있습니다.
 
-- 상태 1: Azure AD의 외부 인스턴스에 속하며 초대하는 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 초대된 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 파트너 조직이 Azure AD를 사용하지 않는 경우에도 Azure AD에서 게스트 사용자는 여전히 생성됩니다. 단, 본인의 초대를 사용해야 합니다. Azure AD에서는 해당 사용자의 전자 메일 주소를 확인합니다. 이것을 JIT(Just In Time) 테넌트 또는 “바이럴” 테넌트라고도 합니다.
+- 상태 1: Azure AD의 외부 인스턴스에 속하며 초대하는 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 초대된 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 파트너 조직이 Azure AD를 사용하지 않는 경우에도 Azure AD에서 게스트 사용자는 여전히 생성됩니다. 단, 본인의 초대를 사용해야 합니다. Azure AD에서는 해당 사용자의 전자 메일 주소를 확인합니다. 이것을 JIT(Just In Time) 테넌시, ‘바이럴’ 테넌시, 또는 관리되지 않는 Azure AD 테넌시라고도 합니다.
 
    > [!IMPORTANT]
    > **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "110584964"
 
 ![제안 상환 후 상태 2 게스트 사용자](media/user-properties/after-redemption-state2.png)
 
-상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory** 로 설정됩니다.
+상태 3 및 상태 4에서 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server AD** 로 설정됩니다.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 협업 사용자의 주요 속성
 ### <a name="usertype"></a>UserType
@@ -82,7 +82,7 @@ ms.locfileid: "110584964"
 
 - Microsoft 계정: 이 사용자는 Microsoft 계정에 속하며 Microsoft 계정을 사용하여 인증합니다. 이 유형의 로그인은 상태 2에 해당합니다.
 
-- Windows Server Active Directory: 이 사용자는 이 조직에 속한 온-프레미스 Active Directory에서 로그인됩니다. 이 유형의 로그인은 상태 3에 해당합니다.
+- Windows Server AD: 이 사용자는 이 조직에 속한 온-프레미스 Active Directory에서 로그인됩니다. 이 유형의 로그인은 상태 3에 해당합니다.
 
 - Azure Active Directory: 이 사용자는 이 조직에 속한 Azure AD 계정을 사용하여 인증합니다. 이 유형의 로그인은 상태 4에 해당합니다.
   > [!NOTE]
@@ -96,7 +96,7 @@ ms.locfileid: "110584964"
 ![게스트 사용자에 대한 필터를 보여 주는 스크린샷](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>UserType 변환
-PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대로 변환할 수 있습니다. 그러나 UserType 속성은 사용자와 조직 사이의 관계를 나타냅니다. 따라서 사용자와 조직의 관계가 변할 때에만 이 속성을 변경해야 합니다. 사용자의 관계가 변경되면 UPN(사용자 계정 이름)을 변경해야 합니까? 사용자가 같은 리소스에 대한 액세스 권한을 계속 가져야 합니까? 사서함을 할당해야 합니까?와 같은 다른 질문에 답변해야 합니다. PowerShell을 사용하여 UserType을 원자성 작업으로 변경하지 않는 것이 좋습니다. 또한 PowerShell을 사용하여 이 속성을 변경 불가능하게 만드는 경우 이 값에 의존하지 않는 것이 좋습니다.
+PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대로 변환할 수 있습니다. 그러나 UserType 속성은 사용자와 조직 사이의 관계를 나타냅니다. 따라서 사용자와 조직의 관계가 변할 때에만 이 속성을 변경해야 합니다. 사용자의 관계가 변경되면 UPN(사용자 계정 이름)을 변경해야 합니까? 사용자가 같은 리소스에 대한 액세스 권한을 계속 가져야 합니까? 사서함을 할당해야 합니까?와 같은 다른 질문에 답변해야 합니다. 
 
 ## <a name="remove-guest-user-limitations"></a>게스트 사용자 제한 제거
 게스트 사용자에게 더 높은 권한을 부여하려는 경우가 있을 수 있습니다. 게스트 사용자를 모든 역할에 추가하고 디렉터리에서 기본 게스트 사용자 제한을 제거하여 사용자에게 구성원과 동일한 권한을 부여할 수 있습니다.

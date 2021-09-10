@@ -11,12 +11,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: dc0e8b0affcb89058e95bc7ce1c3cafb5882921f
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 3f0e2baa7ac30e0e75167dc603de73fdd1df8d73
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552807"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215358"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -185,6 +185,9 @@ Azure Marketplace에서 첫 번째 모듈을 배포하려면 다음 단계를 �
 
 1. 디바이스 목록에서 대상 디바이스의 디바이스 ID를 선택합니다.
 
+   새 IoT Edge 디바이스를 만들면 Azure Portal에 상태 코드 `417 -- The device's deployment configuration is not set`가 표시됩니다. 이 상태는 정상이며 디바이스가 모듈 배포를 수신할 준비가 되었음을 의미합니다.
+
+
 1. 위쪽 막대에서 **모듈 설정** 을 선택합니다.
 
    ![모듈 설정 선택을 보여 주는 스크린샷](./media/quickstart/select-set-modules.png)
@@ -291,7 +294,7 @@ Windows Admin Center의 대시보드 확장을 사용하여 Windows의 Linux용 
 
 이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.
 
-다음으로 비즈니스 논리를 실행하는 IoT Edge를 만들기 시작할 수 있도록 로컬 개발 환경을 설정하세요.
+다음 자습서에서는 Azure Portal에서 디바이스의 활동 및 상태를 모니터링하는 방법을 배웁니다.
 
 > [!div class="nextstepaction"]
-> [IoT Edge 모듈 개발 시작](tutorial-develop-for-linux.md)
+> [IoT Edge 디바이스 모니터링](tutorial-monitor-with-workbooks.md)

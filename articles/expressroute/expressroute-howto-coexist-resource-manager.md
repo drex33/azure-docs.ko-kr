@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574172"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835832"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -37,6 +37,7 @@ ms.locfileid: "103574172"
 
 ## <a name="limits-and-limitations"></a>제한 및 제한 사항
 * **경로 기반 VPN Gateway만 지원됩니다.** 경로 기반 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 사용해야 합니다. [여러 정책 기반 VPN 디바이스에 연결](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)에 설명된 대로 '정책 기반 트래픽 선택기'용으로 구성된 VPN 연결을 통해 경로 기반 VPN 게이트웨이를 사용할 수도 있습니다.
+* **ExpressRoute-VPN Gateway 공존 구성은 기본 SKU에서 지원되지 않습니다**.
 * **Azure VPN Gateway의 ASN은 65515로 설정해야 합니다.** Azure VPN Gateway는 BGP 라우팅 프로토콜을 지원합니다. ExpressRoute와 Azure VPN이 함께 작동하려면 Azure VPN 게이트웨이의 자율 시스템 번호를 기본값인 65515로 유지해야 합니다. 이전에 65515 이외의 ASN을 선택하고 설정을 65515로 변경하는 경우 설정을 적용하려면 VPN 게이트웨이를 다시 설정해야 합니다.
 * **게이트웨이 서브넷은 /27 또는 더 짧은 접두사(예: /26, /25)여야 합니다**. 그렇지 않으면 ExpressRoute 가상 네트워크 게이트웨이를 추가할 때 오류 메시지가 표시됩니다.
 * **이중 스택 vnet에서의 공존은 지원되지 않습니다.** ExpressRoute IPv6 지원 및 이중 스택 ExpressRoute 게이트웨이를 사용하는 경우 VPN Gateway와 함께 사용할 수 없습니다.

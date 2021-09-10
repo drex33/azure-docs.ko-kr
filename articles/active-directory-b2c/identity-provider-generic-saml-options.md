@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/25/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c245fef005be5937887a3b8af1a5264e6520a6e8
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798241"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967786"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 SAML ID 공급자 옵션 구성
 
@@ -219,6 +219,32 @@ Azure AD B2C은 기본적으로 `AllowCreate` 속성을 생략합니다. 이 동
 </samlp:AuthnRequest>
 ```
 
+### <a name="force-authentication"></a>인증 강제 적용
+
+SAML 인증 요청에 `ForceAuthN` 속성을 전달하여 외부 SAML IDP가 사용자에게 인증하라는 메시지를 표시하도록 강제할 수 있습니다. 사용자의 ID 공급자도 이 속성을 지원해야 합니다.
+
+`ForceAuthN` 속성은 부울 `true` 또는 `false` 값입니다. 기본값으로 Azure AD B2C는 ForceAuthN 값을 `false`로 설정합니다. 그 후 세션이 초기화되면 경우(OIDC에서 `prompt=login`를 사용하는 예제) ForceAuthN 값이 `true`로 설정됩니다. 아래 표시된 것처럼 메타데이터 항목을 설정하면 외부 IDP에 대한 모든 요청 값이 강제로 적용됩니다.
+
+다음 예제에서는 `ForceAuthN` 속성 집합을 `true`로 설정하는 방법을 보여줍니다.
+
+```xml
+<Metadata>
+  ...
+  <Item Key="ForceAuthN">true</Item>
+  ...
+</Metadata>
+```
+
+다음 예제에서는 권한 부여 요청에서 `ForceAuthN` 속성을 보여줍니다.
+
+
+```xml
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
+                    ForceAuthN="true">
+  ...
+</samlp:AuthnRequest>
+```
+
 ### <a name="include-authentication-context-class-references"></a>인증 컨텍스트 클래스 참조 포함
 
 SAML 권한 부여 요청에는 권한 부여 요청 컨텍스트를 지정하는 **AuthnContext** 요소가 포함될 수 있습니다. 이 요소는 인증 컨텍스트 클래스 참조를 포함할 수 있습니다. 인증 컨텍스트 클래스 참조는 사용자에게 제공할 인증 메커니즘을 SAML ID 공급자에게 알려 줍니다.
@@ -248,7 +274,7 @@ SAML 권한 부여 요청에는 권한 부여 요청 컨텍스트를 지정하�
 
 ## <a name="include-custom-data-in-the-authorization-request"></a>권한 부여 요청에 사용자 지정 데이터 포함하기
 
-Azure AD BC와 ID 공급자 모두가 동의한 프로토콜 메시지 확장 요소를 선택에 따라 포함시킬 수 있습니다. 확장은 XML 형식으로 표시됩니다. CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 XML 데이터를 추가하여 확장 요소를 포함합니다. ID 공급자의 설명서를 확인하여 확장 요소가 지원되는지 검토합니다.
+Azure AD BC와 ID 공급자 모두가 동의한 프로토콜 메시지 확장 요소를 선택에 따라 포함시킬 수 있습니다. 확장은 XML 형식으로 표시됩니다. CDATA 요소 `<![CDATA[Your Custom XML]]>` 내에 XML 데이터를 추가하여 확장 요소를 포함합니다. ID 공급자의 설명서를 확인하여 확장 요소가 지원되는지 검토합니다.
 
 다음 예제에서는 확장 데이터를 사용하는 방법을 보여 줍니다.
 
@@ -262,6 +288,9 @@ Azure AD BC와 ID 공급자 모두가 동의한 프로토콜 메시지 확장 �
             </ext:MyCustom>]]></Item>
 </Metadata>
 ```
+
+> [!NOTE]
+> SAML 사양에 따라 확장 데이터는 네임스페이스로 한정된 XML(예: 위의 샘플에 표시된 'urn:ext:custom')이어야 하며 SAML 관련 네임스페이스 중 하나가 아니어야 합니다.
 
 SAML 프로토콜 메시지 확장을 사용하는 경우 SAML 응답은 다음 예제와 같습니다.
 

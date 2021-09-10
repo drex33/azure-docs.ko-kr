@@ -2,14 +2,14 @@
 title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
-ms.date: 03/25/2021
+ms.date: 08/27/2021
 ms.custom: contperf-fy21q1,contperf-fy21q3-portal
-ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ecb9c163728536b56d119ffa5d67aa6650dbc7e7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608547"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106502"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -62,6 +62,8 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 ![관리 수준](./media/overview/scope-levels.png)
 
 이러한 범위 수준에서 관리 설정을 적용합니다. 선택한 수준은 설정이 적용되는 범위를 결정합니다. 하위 수준은 상위 수준의 설정을 상속합니다. 예를 들어 구독에 [정책](../../governance/policy/overview.md)을 적용하면 해당 정책이 구독의 모든 리소스 그룹 및 리소스에 적용됩니다. 리소스 그룹에 정책을 적용하면 해당 정책이 리소스 그룹 및 모든 리소스에 적용됩니다. 그러나 다른 리소스 그룹에는 해당 정책 할당이 적용되지 않습니다.
+
+ID 및 액세스 관리에 대한 자세한 내용은 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)를 참조하세요.
 
 테넌트, 관리 그룹, 구독 또는 리소스 그룹에 템플릿을 배포할 수 있습니다.
 

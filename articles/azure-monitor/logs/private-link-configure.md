@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: cdbfd69da09bb3f55f0cdf87bb545e2c6bb40a79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dfc0601dddddd89559d2a7bb28d6f3d86dcdf40c
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528324"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272370"
 ---
 # <a name="configure-your-private-link"></a>Private Link 구성
 Private Link를 구성하려면 몇 가지 단계가 필요합니다. 
@@ -20,9 +20,10 @@ Private Link를 구성하려면 몇 가지 단계가 필요합니다.
 
 이 문서에서는 Azure Portal을 통해 수행되는 방법을 검토하고 프로세스를 자동화하기 위한 ARM(Azure Resource Manager) 템플릿 예를 제공합니다. 
 
-## <a name="create-a-private-link-connection"></a>Private Link 연결 만들기
+## <a name="create-a-private-link-connection-through-the-azure-portal"></a>Azure Portal을 통해 Private Link 연결 만들기
+이 섹션에서는 Azure Portal을 통해 Private Link를 설정하는 프로세스를 단계별로 검토합니다. 명령줄 또는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Private Link를 만들고 관리하려면 [API 및 명령줄 사용](#use-apis-and-command-line)을 참조하세요.
 
-먼저 Azure Monitor Private Link 범위 리소스를 만듭니다.
+### <a name="create-an-azure-monitor-private-link-scope"></a>Azure Monitor Private Link 범위 만들기
 
 1. Azure Portal에서 **리소스 만들기** 로 이동하여 **Azure Monitor Private Link 범위** 를 검색합니다.
 
@@ -115,81 +116,51 @@ Azure Portal로 이동합니다. 리소스 메뉴의 왼쪽에는 **네트워크
 **쿼리에 대한 공개 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 클라이언트(컴퓨터, SDK 등)가 리소스의 데이터를 쿼리할 수 없습니다. 이 데이터에는 로그, 메트릭 및 라이브 메트릭 스트림에 대한 액세스뿐만 아니라 통합 문서, 대시보드, 쿼리 API 기반 클라이언트 환경, Azure Portal의 인사이트 등을 기반으로 하는 환경도 포함됩니다. Azure Portal 외부에서 실행 중인 경험과 이 쿼리 로그 분석 데이터도 프라이빗 링크된 VNET 내에서 실행되어야 합니다.
 
 
-### <a name="exceptions"></a>예외
-
-#### <a name="diagnostic-logs"></a>진단 로그
-[진단 설정](../essentials/diagnostic-settings.md)을 통해 작업 영역에 업로드된 로그 및 메트릭은 안전한 프라이빗 Microsoft 채널을 통해 이동하며 이러한 설정으로 제어되지 않습니다.
-
-#### <a name="azure-resource-manager"></a>Azure Resource Manager
-위에서 설명한 액세스 제한은 리소스의 데이터에 적용됩니다. 이러한 액세스 설정의 켜기 또는 끄기를 포함한 구성 변경은 Azure Resource Manager에서 관리합니다. 이 설정을 제어하려면 적절한 역할, 권한, 네트워크 제어 및 감사를 통해 리소스에 대한 액세스를 제한해야 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
-
-또한 특정 환경(예: LogicApp 커넥터, 업데이트 관리 솔루션 및 포털의 작업 영역 요약 블레이드, 솔루션 대시보드 표시)은 Azure Resource Manager를 통해 데이터를 쿼리하므로 Private Link 설정이 Resource Manager에도 적용되지 않으면 데이터를 쿼리할 수 없습니다.
-
-
-## <a name="review-and-validate-your-private-link-setup"></a>프라이빗 링크 설정 검토 및 유효성 검사
-
-### <a name="reviewing-your-endpoints-dns-settings"></a>엔드포인트의 DNS 설정 검토
-만든 프라이빗 엔드포인트에는 5개의 DNS 영역이 구성되어 있어야 합니다.
-
-* privatelink-monitor-azure-com
-* privatelink-oms-opinsights-azure-com
-* privatelink-ods-opinsights-azure-com
-* privatelink-agentsvc-azure-automation-net
-* privatelink-blob-core-windows-net
-
-> [!NOTE]
-> 이러한 각 영역은 특정 Azure Monitor 엔드포인트를 VNet의 IP 풀에서 프라이빗 IP에 매핑합니다. 아래 이미지에 표시된 IP 주소는 예시일 뿐입니다. 대신 구성에 사용자 네트워크의 프라이빗 IP가 표시되어야 합니다.
-
-#### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
-이 영역에는 Azure Monitor에서 사용하는 전역 엔드포인트가 포함되어 있으며, 이러한 엔드포인트는 특정 리소스가 아닌 모든 리소스를 고려하는 요청을 처리합니다. 이 영역에는 다음에 대한 엔드포인트가 매핑되어야 합니다.
-* `in.ai` - Application Insights 수집 엔드포인트(글로벌 항목과 지역 항목 모두)
-* `api` - Application Insights 및 Log Analytics API 엔드포인트
-* `live` - Application Insights 라이브 메트릭 엔드포인트
-* `profiler` - Application Insights 프로파일러 엔드포인트
-* `snapshot` - Application Insights 스냅샷 엔드포인트 [![프라이빗 DNS 영역 모니터의 스크린샷-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded.png#lightbox)
-
-#### <a name="privatelink-oms-opinsights-azure-com"></a>privatelink-oms-opinsights-azure-com
-이 영역에서는 OMS 엔드포인트에 대한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
-[![프라이빗 DNS 영역의 스크린샷 oms-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
-
-#### <a name="privatelink-ods-opinsights-azure-com"></a>privatelink-ods-opinsights-azure-com
-이 영역에서는 Log Analytics의 수집 엔드포인트와 ODS 엔드포인트에 특정한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
-[![프라이빗 DNS 영역의 스크린샷 ods-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com-expanded.png#lightbox)
-
-#### <a name="privatelink-agentsvc-azure-automation-net"></a>privatelink-agentsvc-azure-automation-net
-이 영역에서는 에이전트 서비스 자동화 엔드포인트에 특정한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
-[![프라이빗 DNS 영역 에이전트의 스크린샷 svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
-
-#### <a name="privatelink-blob-core-windows-net"></a>privatelink-blob-core-windows-net
-이 영역은 글로벌 에이전트의 솔루션 팩 저장소 계정에 대한 연결을 구성합니다. 이를 통해 에이전트는 새 솔루션 팩 또는 업데이트된 솔루션 팩(관리 팩이라고도 함)을 다운로드할 수 있습니다. 사용된 작업 영역 수에 관계없이 Log Analytics 에이전트를 처리하려면 하나의 항목만 필요합니다.
-[![프라이빗 DNS 영역 blob-core-windows-net의 스크린샷](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
-> [!NOTE]
-> 이 항목은 2021년 4월 19일 이후에(또는 Azure 소버린 클라우드에서 2021년 6월부터) 만든 프라이빗 링크 설정에만 추가됩니다.
-
-
-### <a name="validating-you-are-communicating-over-a-private-link"></a>프라이빗 링크를 통해 통신하고 있는지 확인
-* 이제 프라이빗 엔드포인트를 통해 요청이 전송되어 있는지 확인하려면 네트워크 추적 도구 또는 브라우저를 사용하여 검토할 수 있습니다. 예를 들어, 작업 영역 또는 애플리케이션을 쿼리하려는 경우 요청이 API 엔드포인트에 매핑되는 프라이빗 IP로 전송되었는지 확인해야 하며, 이 예제에서는 *172.17.0.9* 입니다.
-
-    참고: 일부 브라우저는 다른 DNS 설정을 사용할 수도 있습니다 ( [브라우저 DNS 설정](./private-link-design.md#browser-dns-settings)참조). DNS 설정이 적용되는지 확인합니다.
-
-* 작업 영역 또는 구성 요소가 공용 네트워크에서 요청을 받지 않도록 하려면(AMPLS을 통해 연결되지 않음), [리소스에 대한 액세스 구성](#configure-access-to-your-resources)에 설명된 대로 리소스의 공개 수집 및 쿼리 플래그를 *아니요* 로 설정합니다.
-
-* 보호된 네트워크의 클라이언트에서 `nslookup` DNS 영역에 나열된 엔드포인트 중 하나를 사용합니다. DNS 서버에서 기본적으로 확인되는 공용 IP 대신 매핑된 프라이빗 IP로 확인되어야 합니다.
-
-
 ## <a name="use-apis-and-command-line"></a>API 및 명령줄 사용
 
 Azure Resource Manager 템플릿과 명령 줄 인터페이스를 사용하여 앞에서 설명한 프로세스를 자동화할 수 있습니다.
 
+### <a name="create-and-manage-azure-monitor-private-link-scopes-ampls"></a>AMPLS(Azure Monitor Private Link 범위) 만들기 및 관리
 프라이빗 링크 범위를 생성하고 관리하려면 [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) 혹은 [Azure CLI(az monitor private-link-scope)](/cli/azure/monitor/private-link-scope)를 사용합니다.
 
-작업 영역 또는 구성 요소에서 네트워크 액세스 플래그를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 또는 [Application Insights 구성 요 소](/cli/azure/ext/application-insights/monitor/app-insights/component)에 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
+#### <a name="create-ampls-with-open-access-modes---cli-example"></a>공개 액세스 모드로 AMPLS 만들기 - CLI 예제
+아래 CLI 명령은 쿼리 및 수집 액세스 모드가 모두 Open으로 설정된 ‘my-scope’라는 새 AMPLS 리소스를 만듭니다.
+```
+az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
+```
 
-### <a name="example-azure-resource-manager-template-arm-template"></a>Azure Resource Manager 템플릿 예(ARM 템플릿)
+#### <a name="create-ampls-with-mixed-access-modes---powershell-example"></a>혼합 액세스 모드를 사용하여 AMPLS 만들기 - PowerShell 예제
+아래 PowerShell 스크립트는 쿼리 액세스 모드는 Open으로 설정되지만 수집 액세스 모드는 PrivateOnly(AMPLS의 리소스로만 수집을 허용한다는 의미)로 설정된 ‘my-scope’라는 새 AMPLS 리소스를 만듭니다.
+
+```
+# scope details
+$scopeSubscriptionId = "ab1800bd-ceac-48cd-...-..."
+$scopeResourceGroup = "my-resource-group"
+$scopeName = "my-scope"
+$scopeProperties = @{
+    accessModeSettings = @{
+        queryAccessMode     = "Open"; 
+        ingestionAccessMode = "PrivateOnly"
+    } 
+}
+
+# login
+Connect-AzAccount
+
+# select subscription
+Select-AzSubscription -SubscriptionId $scopeSubscriptionId
+
+# create private link scope resource
+$scope = New-AzResource -Location "Global" -Properties $scopeProperties -ResourceName $scopeName -ResourceType "Microsoft.Insights/privateLinkScopes" -ResourceGroupName $scopeResourceGroup -ApiVersion "2021-07-01-preview" -Force
+```
+
+#### <a name="create-ampls---azure-resource-manager-template-arm-template"></a>AMPLS 만들기 - ARM 템플릿(Azure Resource Manager 템플릿)
 아래 Azure Resource Manager 템플릿은 다음을 만듭니다.
 * 이름이 "my-scope"인 프라이빗 링크 범위(AMPLS)
 * 이름이 "my-workspace"인 Log Analytics 작업 영역
 * 범위 리소스를 "my-scope" AMPLS(이름: "my-workspace-connection")에 추가
+> [!NOTE]
+> 아래 ARM 템플릿은 AMPLS 액세스 모드 설정을 지원하지 않는 이전 API 버전을 사용합니다. 아래 템플릿을 사용하면 결과 AMPLS는 QueryAccessMode="Open" 및 IngestionAccessMode="PrivateOnly"로 설정됩니다. 즉, AMPLS 안팎의 리소스에서 쿼리를 실행할 수 있지만 Private Link 리소스에만 도달하도록 허용합니다.
 
 ```
 {
@@ -242,6 +213,85 @@ Azure Resource Manager 템플릿과 명령 줄 인터페이스를 사용하여 �
     ]
 }
 ```
+
+### <a name="set-ampls-access-flags---powershell-example"></a>AMPLS 액세스 플래그 설정 - PowerShell 예제
+AMPLS에서 액세스 모드 플래그를 설정하려면 다음 PowerShell 스크립트를 사용할 수 있습니다. 다음 스크립트는 플래그를 Open으로 설정합니다. 프라이빗 전용 모드를 사용하려면 ‘PrivateOnly’ 값을 사용합니다.
+
+```
+# scope details
+$scopeSubscriptionId = "ab1800bd-ceac-48cd-...-..."
+$scopeResourceGroup = "my-resource-group-name"
+$scopeName = "my-scope"
+
+# login
+Connect-AzAccount
+
+# select subscription
+Select-AzSubscription -SubscriptionId $scopeSubscriptionId
+
+# get private link scope resource
+$scope = Get-AzResource -ResourceType Microsoft.Insights/privateLinkScopes -ResourceGroupName $scopeResourceGroup -ResourceName $scopeName -ApiVersion "2021-07-01-preview"
+
+# set access mode settings
+$scope.Properties.AccessModeSettings.QueryAccessMode = "Open";
+$scope.Properties.AccessModeSettings.IngestionAccessMode = "Open";
+$scope | Set-AzResource -Force
+```
+
+### <a name="set-resource-access-flags"></a>리소스 액세스 플래그 설정
+작업 영역 또는 구성 요소 액세스 플래그를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 또는 [Application Insights 구성 요 소](/cli/azure/ext/application-insights/monitor/app-insights/component)에 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
+
+
+## <a name="review-and-validate-your-private-link-setup"></a>프라이빗 링크 설정 검토 및 유효성 검사
+
+### <a name="reviewing-your-endpoints-dns-settings"></a>엔드포인트의 DNS 설정 검토
+만든 프라이빗 엔드포인트에는 5개의 DNS 영역이 구성되어 있어야 합니다.
+
+* privatelink-monitor-azure-com
+* privatelink-oms-opinsights-azure-com
+* privatelink-ods-opinsights-azure-com
+* privatelink-agentsvc-azure-automation-net
+* privatelink-blob-core-windows-net
+
+> [!NOTE]
+> 이러한 각 영역은 특정 Azure Monitor 엔드포인트를 VNet의 IP 풀에서 프라이빗 IP에 매핑합니다. 아래 이미지에 표시된 IP 주소는 예시일 뿐입니다. 대신 구성에 사용자 네트워크의 프라이빗 IP가 표시되어야 합니다.
+
+#### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
+이 영역에는 Azure Monitor에서 사용하는 전역 엔드포인트가 포함되어 있으며, 이러한 엔드포인트는 특정 리소스가 아닌 모든 리소스를 고려하는 요청을 처리합니다. 이 영역에는 다음에 대한 엔드포인트가 매핑되어야 합니다.
+* `in.ai` - Application Insights 수집 엔드포인트(글로벌 항목과 지역 항목 모두)
+* `api` - Application Insights 및 Log Analytics API 엔드포인트
+* `live` - Application Insights 라이브 메트릭 엔드포인트
+* `profiler` - Application Insights 프로파일러 엔드포인트
+* `snapshot` - Application Insights 스냅샷 엔드포인트 [![프라이빗 DNS 영역 모니터의 스크린샷-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-oms-opinsights-azure-com"></a>privatelink-oms-opinsights-azure-com
+이 영역에서는 OMS 엔드포인트에 대한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
+[![프라이빗 DNS 영역의 스크린샷 oms-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-ods-opinsights-azure-com"></a>privatelink-ods-opinsights-azure-com
+이 영역에서는 Log Analytics의 수집 엔드포인트와 ODS 엔드포인트에 특정한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
+[![프라이빗 DNS 영역의 스크린샷 ods-opinsights-azure-com.](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-agentsvc-azure-automation-net"></a>privatelink-agentsvc-azure-automation-net
+이 영역에서는 에이전트 서비스 자동화 엔드포인트에 특정한 작업 영역별 매핑을 다룹니다. 이 프라이빗 엔드포인트와 연결된 AMPLS에 연결된 각 작업 영역에 대한 항목이 표시됩니다.
+[![프라이빗 DNS 영역 에이전트의 스크린샷 svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
+
+#### <a name="privatelink-blob-core-windows-net"></a>privatelink-blob-core-windows-net
+이 영역은 글로벌 에이전트의 솔루션 팩 저장소 계정에 대한 연결을 구성합니다. 이를 통해 에이전트는 새 솔루션 팩 또는 업데이트된 솔루션 팩(관리 팩이라고도 함)을 다운로드할 수 있습니다. 사용된 작업 영역 수에 관계없이 Log Analytics 에이전트를 처리하려면 하나의 항목만 필요합니다.
+[![프라이빗 DNS 영역 blob-core-windows-net의 스크린샷](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
+> [!NOTE]
+> 이 항목은 2021년 4월 19일 이후에(또는 Azure 소버린 클라우드에서 2021년 6월부터) 만든 프라이빗 링크 설정에만 추가됩니다.
+
+
+### <a name="validating-you-are-communicating-over-a-private-link"></a>프라이빗 링크를 통해 통신하고 있는지 확인
+* 이제 프라이빗 엔드포인트를 통해 요청이 전송되어 있는지 확인하려면 네트워크 추적 도구 또는 브라우저를 사용하여 검토할 수 있습니다. 예를 들어, 작업 영역 또는 애플리케이션을 쿼리하려는 경우 요청이 API 엔드포인트에 매핑되는 프라이빗 IP로 전송되었는지 확인해야 하며, 이 예제에서는 *172.17.0.9* 입니다.
+
+    참고: 일부 브라우저는 다른 DNS 설정을 사용할 수도 있습니다 ( [브라우저 DNS 설정](./private-link-design.md#browser-dns-settings)참조). DNS 설정이 적용되는지 확인합니다.
+
+* 작업 영역 또는 구성 요소가 공용 네트워크에서 요청을 받지 않도록 하려면(AMPLS을 통해 연결되지 않음), [리소스에 대한 액세스 구성](#configure-access-to-your-resources)에 설명된 대로 리소스의 공개 수집 및 쿼리 플래그를 *아니요* 로 설정합니다.
+
+* 보호된 네트워크의 클라이언트에서 `nslookup` DNS 영역에 나열된 엔드포인트 중 하나를 사용합니다. DNS 서버에서 기본적으로 확인되는 공용 IP 대신 매핑된 프라이빗 IP로 확인되어야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,18 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/25/2019
+ms.date: 07/28/2019
 ms.author: duau
-ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 135c949afaeaa50a743869138a05acd2321332ec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571039"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536285"
 ---
-# <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
+# <a name="configure-network-performance-monitor-for-expressroute-deprecated"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성(사용되지 않음)
 
 이 문서에서는 ExpressRoute를 모니터링하도록 네트워크 성능 모니터 확장을 구성하는 방법에 대해 설명합니다. NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Azure Monitor 로그의 일부입니다. NPM은 프라이빗 피어링 또는 Microsoft 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다. 이 서비스는 Azure Government 클라우드에서 사용할 수도 있습니다.
+
+> [!IMPORTANT]
+> 2021년 7월 1일부터 기존 작업 영역에 새 테스트를 추가하거나 네트워크 성능 모니터에서 새 작업 영역을 사용하도록 설정할 수 없습니다. 또한 연결 모니터(클래식)에서 새 연결 모니터를 추가할 수 없습니다. 2021년 7월 1일 이전에 만든 테스트 및 연결 모니터는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단을 최소화하려면 2024년 2월 29일 이전에 [네트워크 성능 모니터에서 테스트를 마이그레이션](../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md)하거나 [연결 모니터(클래식)에서 Azure Network Watcher의 새 연결 모니터로 마이그레이션](../network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic.md)합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -83,7 +86,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **Log Analytics 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 2. 이제 **작업 영역 ID** 및 **기본 키** 를 메모장에 복사합니다.
-3. **TCP 프로토콜을 사용하여 모니터링할 Log Analytics 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
+3. **TCP 프로토콜을 사용하여 모니터링할 Log Analytics 에이전트 구성** 섹션에서 PowerShell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
 
    ![PowerShell 스크립트](./media/how-to-npm/7.png)
 

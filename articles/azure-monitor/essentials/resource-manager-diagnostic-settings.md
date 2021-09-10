@@ -5,12 +5,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 5b6e83909d3a8ccd224169e1571def422c7456c4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: b422bbad06b419f35e8f4a1107c60e4312abba4d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006332"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304033"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Azure Monitor의 진단 설정에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure 리소스에 대한 진단 설정을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -127,6 +127,9 @@ Azure 리소스에 대한 진단 설정을 만들려면 `<resource namespace>/pr
 
 ## <a name="diagnostic-setting-for-azure-key-vault"></a>Azure Key Vault에 대한 진단 설정 
 다음 샘플에서는 `Microsoft.KeyVault/vaults/providers/diagnosticSettings` 형식의 리소스를 템플릿에 추가하여 Azure Key Vault에 대한 진단 설정을 만듭니다.
+
+> [!IMPORTANT]
+> Azure Key Vault의 경우 이벤트 허브는 키 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
 ### <a name="template-file"></a>템플릿 파일
 

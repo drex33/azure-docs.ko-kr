@@ -1,25 +1,26 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 06/18/2020
+ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: b4701260a7d8da030f9f3019060aaa83e7a3a483
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5e633bc71da050f3d580a6f0d0a4db25102ac360
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122262001"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
 | 포함된 스토리지<sup>1</sup>(GiB) | 10 | 100 | 500 |
 | 스토리지 한도(TiB) | 20| 20 | 20 |
 | 최대 이미지 레이어 크기(GiB) | 200 | 200 | 200 |
+| 최대 매니페스트 크기(MiB) | 4 | 4 | 4 |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 다운로드 대역폭<sup>2</sup>(Mbps) | 30 | 60 | 100 |

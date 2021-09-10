@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4642b8f9f1ede65766a0026940c0af0f01ec2
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 48d424a64df215a7506130a44d57fc45d638255d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111086"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566950"
 ---
 # <a name="best-practices-for-azure-ad-roles"></a>Azure AD 역할 모범 사례
 
@@ -32,7 +32,9 @@ ms.locfileid: "106111086"
 
 다음 단계를 수행하여 적합한 역할을 찾을 수 있습니다.
 
-1. Azure Portal에서 [역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)를 열어 Azure AD 역할 목록을 확인합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택하여 Azure AD 역할 목록을 확인합니다.
 
 1. **서비스** 필터를 사용하여 역할 목록의 범위를 좁힙니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "106111086"
 
 ## <a name="2-use-privileged-identity-management-to-grant-just-in-time-access"></a>2. Privileged Identity Management를 사용하여 Just-In-Time 액세스 권한 부여
 
-최소 권한의 원칙 중 하나는 특정 기간 동안만 액세스 권한을 부여하는 것입니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md)을 사용하여 관리자에게 Just-In-Time 액세스 권한을 부여할 수 있습니다. Azure AD에서 PIM을 사용하도록 설정하는 것이 좋습니다. PIM을 사용하면 사용자를 Azure AD 역할의 적격 멤버로 설정할 수 있습니다. 그러면 역할을 사용해야 할 때마다 제한된 기간 동안 해당 역할을 활성화할 수 있습니다. 기간이 만료되면 권한 있는 액세스가 자동으로 제거됩니다. 또한 사용자가 역할 할당을 활성화할 때 승인이 필요하거나 알림 메일을 받도록 [PIM 설정을 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)할 수 있습니다. 새로운 사용자가 권한이 높은 역할에 추가되면 알림이 경고를 제공합니다. 
+최소 권한의 원칙 중 하나는 특정 기간 동안만 액세스 권한을 부여하는 것입니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md)을 사용하여 관리자에게 Just-In-Time 액세스 권한을 부여할 수 있습니다. Azure AD에서 PIM을 사용하도록 설정하는 것이 좋습니다. PIM을 사용하면 사용자를 Azure AD 역할의 적격 멤버로 만들 수 있습니다. 그러면 필요할 때 제한된 시간 동안 역할을 활성화할 수 있습니다. 기간이 만료되면 권한 있는 액세스가 자동으로 제거됩니다. 또한 사용자가 역할 할당을 활성화할 때 승인이 필요하거나 알림 메일을 받도록 [PIM 설정을 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)할 수 있습니다. 새로운 사용자가 권한이 높은 역할에 추가되면 알림이 경고를 제공합니다. 
 
 ## <a name="3-turn-on-multi-factor-authentication-for-all-your-administrator-accounts"></a>3. 모든 관리자 계정에 대해 다단계 인증 켜기
 
@@ -74,7 +76,7 @@ ms.locfileid: "106111086"
 
 그룹을 활용하는 외부 거버넌스 시스템이 있는 경우 개별 사용자 대신 Azure AD 그룹에 역할을 할당하는 것을 고려해야 합니다. PIM에서 역할 할당 가능 그룹을 관리하여 이 권한 있는 그룹에 지속적인 소유자 또는 멤버가 없는지 확인할 수도 있습니다. 자세한 내용은 [권한 있는 액세스 Azure AD 그룹의 관리 기능](../privileged-identity-management/groups-features.md)을 참조하세요.
 
-역할 할당 가능 그룹에 소유자를 할당할 수 있습니다. 해당 소유자는 그룹에서 추가되거나 제거되는 사용자를 결정하므로 역할 할당을 받는 사용자를 간접적으로 결정합니다. 이 방식으로 전역 관리자 또는 권한 있는 역할 관리자는 그룹을 사용하여 역할별로 역할 관리를 위임할 수 있습니다. 자세한 내용은 [클라우드 그룹을 사용하여 Azure Active Directory에서 역할 할당 관리](groups-concept.md)를 참조하세요.
+역할 할당 가능 그룹에 소유자를 할당할 수 있습니다. 해당 소유자는 그룹에서 추가되거나 제거되는 사용자를 결정하므로 역할 할당을 받는 사용자를 간접적으로 결정합니다. 이 방식으로 전역 관리자 또는 권한 있는 역할 관리자는 그룹을 사용하여 역할별로 역할 관리를 위임할 수 있습니다. 자세한 내용은 [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)를 참조하세요.
 
 ## <a name="7-activate-multiple-roles-at-once-using-privileged-access-groups"></a>7. 권한 있는 액세스 그룹을 사용하여 한 번에 여러 역할 활성화
 

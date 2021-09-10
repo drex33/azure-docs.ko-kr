@@ -3,15 +3,17 @@ title: StartupServices.xml에서 Service Fabric 애플리케이션에 대한 서
 description: StartupServices.xml을 사용하여 ApplicationManifest.xml에서 서비스 수준 구성을 분리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 2b11e1dfdfec357d48ee95cabb35c87e71123bc8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 69ec795bab910f8f2b030ab5758698d3fdbae824
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483065"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681380"
 ---
 # <a name="introducing-startupservicesxml-in-service-fabric-application"></a>Service Fabric 애플리케이션의 StartupServices.xml 도입
 이 기능은 Service Fabric 애플리케이션 디자인에 StartupServices.xml 파일을 도입합니다. 이 파일은 ApplicationManifest.xml의 DefaultServices 섹션을 호스트합니다. 이 구현을 사용하면 DefaultServices 및 서비스 정의 관련 매개 변수가 기존 ApplicationManifest.xml에서 StartupServices.xml이라는 새 파일로 이동됩니다. 이 파일은 Visual Studio에서 각 기능(Build/Rebuild/F5/Ctrl+F5/Publish)에 사용됩니다.
+
+참고 - StartupServices.xml은 Visual Studio 배포에만 사용할 수 있으며, Visual Studio와 함께 배포된 패키지(StartupServices.xml 포함)가 ARM 배포 서비스와 충돌하지 않게 하기 위한 것입니다. StartupServices.xml은 애플리케이션 패키지의 일부로 패키지되지 않습니다. DevOps 파이프라인에서 지원되지 않으며, 고객은 ARM을 통하거나 원하는 구성의 cmdlet을 통해 애플리케이션에 개별 서비스를 배포해야 합니다.
 
 ## <a name="existing-service-fabric-application-design"></a>기존 Service Fabric 애플리케이션 디자인
 각 Service Fabric 애플리케이션에 대해 ApplicationManifest.xml은 애플리케이션에 대한 모든 서비스 관련 정보의 원본입니다. ApplicationManifest.xml은 모든 매개 변수, ServiceManifestImport, DefaultServices로 구성됩니다. 구성 매개 변수는 ApplicationParameters의 Cloud.xml/Local1Node.xml/Local5Node.xml 파일에 기재되어 있습니다.

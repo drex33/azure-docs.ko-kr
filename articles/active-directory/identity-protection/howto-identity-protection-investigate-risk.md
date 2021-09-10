@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5caf348b1865b47521ec9df776fd08cc36db47fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0151f4de30c3bf96fa8c0dca77c90282115c70d7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566951"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864374"
 ---
 # <a name="how-to-investigate-risk"></a>방법: 위험 조사
 
@@ -76,7 +76,7 @@ Identity Protection은 조직의 사용자 환경에서 ID 위험을 조사하�
 - 로그인 보안 확인
 
 > [!NOTE] 
-> Identity Protection은 대화형인지 여부에 관계없이 모든 인증 흐름의 위험을 평가합니다. 그러나 로그인 보고서는 대화형 로그인만 표시합니다. 비대화형 로그인에서 발생한 위험한 로그인을 볼 수 있지만 Azure AD 로그인 보고서에는 해당 로그인이 표시되지 않습니다.
+> Identity Protection은 대화형인지 여부에 관계없이 모든 인증 흐름의 위험을 평가합니다. 이제 위험한 로그인 보고서에 대화형 및 비 대화형 로그인이 모두 표시됩니다. 이 보기를 수정하려면 "로그인 유형" 필터를 사용하세요.
 
 ## <a name="risk-detections"></a>위험 탐지
 

@@ -6,23 +6,20 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 0666cce0668d315c34a9d6cade1f8d6e087f20dc
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 3f9c22a690859b459b6bb748c3b1001c4aa7660d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674404"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "93241755"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL용 인프라 이중 암호화
-
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL용 인프라 이중 암호화를 설정하고 관리하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
-* Azure Database for MySQL - 단일 서버는 범용 또는 메모리 최적화 가격 책정 계층 및 범용 스토리지 v2에 있어야 합니다. 계속 진행하기 전에 [인프라 이중 암호화](concepts-infrastructure-double-encryption.md#limitations)에 대한 제한 사항을 참조하세요.
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---portal"></a>인프라 이중 암호화를 사용하여 Azure Database for MySQL 서버 만들기-포털
 

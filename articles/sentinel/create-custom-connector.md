@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: d964dc25fd450f244e34140080e77cdc0e319941
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b0a0b8cb4d3ff5ce10348608d66a451517b60016
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749432"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539578"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
 
@@ -198,11 +198,13 @@ RESTful API 및 [PowerShell](../azure-functions/functions-reference-powershell.m
 예를 들면 다음과 같습니다.
 
 - **Logstash를 사용한 경우** [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) 필터 플러그 인을 사용하여 데이터를 구문 분석합니다.
-- **Azure 함수를 사용한 경우에는** 코드를 사용하여 데이터를 구문 분석합니다. 자세한 내용은 [구문 분석](normalization.md#parsers)을 참조하세요.
+- **Azure 함수를 사용한 경우에는** 코드를 사용하여 데이터를 구문 분석합니다.
 
-Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문 분석을 사용하면 데이터를 원래 형식으로 푸시한 다음, 필요할 때 구문 분석할 수 있습니다.
+Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문 분석을 사용하면 데이터를 원래 형식으로 푸시한 다음, 필요할 때 구문 분석할 수 있습니다. 
 
 쿼리 시 구문 분석은 사용자 지정 커넥터를 만들 때 또는 추출해야 하는 정보까지도 데이터의 정확한 구조를 미리 알 필요가 없음을 의미하기도 합니다. 대신, 조사 중이라도 언제든지 데이터를 구문 분석합니다.
+
+쿼리 시 파싱에 대한 자세한 내용은 [파서](normalization-about-parsers.md)를 참조하세요.
 
 > [!NOTE]
 > 구문 분석 업데이트는 이미 Azure Sentinel에 수집한 데이터에도 적용됩니다.
@@ -211,9 +213,11 @@ Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문
 
 다음 프로세스 중 하나를 사용하여 Azure Sentinel에 수집된 데이터를 사용하여 환경을 보호합니다.
 
-- [경고 표시](quickstart-get-visibility.md)
-- [데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)
-- [인시던트 조사](tutorial-investigate-cases.md)
-- [위협 탐지](tutorial-detect-threats-built-in.md)
+- [경고 표시](get-visibility.md)
+- [데이터 시각화 및 모니터링](monitor-your-data.md)
+- [인시던트 조사](investigate-cases.md)
+- [위협 탐지](detect-threats-built-in.md)
 - [위협 방지 자동화](tutorial-respond-threats-playbook.md)
 - [위협에 대한 헌팅](hunting.md)
+
+또한 Zoom을 모니터링하기 위한 사용자 지정 커넥터를 만드는 한 가지 예인 [Azure Sentinel로 Zoom 모니터링](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516)에 대해 알아보세요.

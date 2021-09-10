@@ -7,12 +7,12 @@ ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: f69b7174ec37a38fd972f53daaaf09776a279cea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846431"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529102"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>보안 점수에서 리소스 및 권장 사항 제외 
 
@@ -36,7 +36,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 검토하는 �
 | 가격 책정:                        | 추가 비용 없이 Azure Defender 고객에게 제공되는 프리미엄 Azure Policy 기능입니다. 다른 사용자에게는 나중에 요금이 부과될 수 있습니다.                                                                                                                                                                 |
 | 필요한 역할 및 권한: | 예외를 만들기 위한 **소유자** 또는 **리소스 정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요합니다.<br>[Azure Policy에서 Azure RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.                                            |
 | 제한 사항:                    | 예외는 Security Center의 기본 이니셔티브, [Azure 보안 벤치마크](/security/benchmark/azure/introduction) 또는 제공된 규제 표준 이니셔티브에 포함된 권장 사항에 대해서만 만들 수 있습니다. 사용자 지정 이니셔티브에서 생성된 권장 사항은 제외될 수 없습니다. [정책, 이니셔티브 및 권장 사항](security-policy-concept.md) 간의 관계에 대해 자세히 알아보세요. |
-| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)                                                                                                                                                                                         |
+| 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>예외 정의
@@ -77,7 +77,7 @@ Security Center에서 구독, 관리 그룹 또는 리소스에 대해 제공하
     1. 선택적으로 설명을 입력합니다.
     1. **만들기** 를 선택합니다.
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="구독 또는 관리 그룹에서 권장 사항을 제외하는 예외 규칙을 만드는 단계":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="구독 또는 관리 그룹에서 권장 사항을 제외하는 예외 규칙을 만드는 단계.":::
 
     예외가 적용되는 경우(최대 30분이 걸릴 수 있음):
     - 권장 사항 또는 리소스는 보안 점수에 영향을 주지 않습니다.
@@ -88,11 +88,11 @@ Security Center에서 구독, 관리 그룹 또는 리소스에 대해 제공하
 
     - 권장 사항 세부 정보 페이지의 상단에 있는 정보 스트립은 제외된 리소스 수를 업데이트합니다.
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="제외된 리소스 수":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="제외된 리소스 수.":::
 
 1. 제외된 리소스를 검토하려면 **해당 없음** 탭을 엽니다.
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="예외 수정":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="예외 수정.":::
 
     각 예외에 대한 이유는 테이블 (1)에 포함됩니다.
 

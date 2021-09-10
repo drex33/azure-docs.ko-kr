@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bc87b0ec9cf41b2ddc5746a9734463f544b0cc2a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c785bec3fc403a1090d5604d0954271992aea1f3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550691"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689649"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지로 여러 VM(가상 머신)을 만들 수 있습니다. 관리 VM 이미지는 OS 및 데이터 디스크를 비롯하여 VM을 만드는 데 필요한 정보를 포함하고 있습니다. OS 디스크와 데이터 디스크를 포함하여 이미지를 구성하는 VHD(가상 하드 디스크)는 관리 디스크로 저장됩니다. 
 

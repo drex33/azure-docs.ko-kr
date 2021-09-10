@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center의 SQL information protection 정책
+title: Azure Security Center의 SQL 정보 보호 정책
 description: Azure Security Center에서 정보 보호 정책을 사용자 지정하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
@@ -11,141 +11,146 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2020
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 86edda1fa9aff73a5f6daca1494a81ab94aa9e3b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099406"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538650"
 ---
-# <a name="sql-information-protection-policy-in-azure-security-center"></a>Azure Security Center의 SQL information protection 정책
+# <a name="sql-information-protection-policy-in-azure-security-center"></a>Azure Security Center의 SQL 정보 보호 정책
  
-SQL information protection의 [데이터 검색 및 분류 메커니즘](../azure-sql/database/data-discovery-and-classification-overview.md) 은 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하기 위한 고급 기능을 제공 합니다. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 기본 제공 됩니다.
+SQL 정보 보호의 [데이터 검색 및 분류 메커니즘](../azure-sql/database/data-discovery-and-classification-overview.md)은 데이터베이스의 중요한 데이터를 검색, 분류, 레이블 지정, 보고하기 위한 고급 기능을 제공합니다. [Azure SQL Database,](../azure-sql/database/sql-database-paas-overview.md)[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 기본 제공됩니다.
 
-분류 메커니즘은 다음 두 가지 요소를 기반으로 합니다.
+분류 메커니즘은 다음 두 요소를 기반으로 합니다.
 
-- **레이블** – 열에 저장 된 *데이터의 민감도 수준을* 정의 하는 데 사용 되는 기본 분류 특성입니다. 
-- **정보 유형** – 열에 저장 된 *데이터의 유형에 대* 한 추가 세분성을 제공 합니다.
+- **레이블** - 열에 저장된 *데이터의 민감도 수준* 을 정의하는 데 사용되는 주 분류 특성입니다. 
+- **정보 형식** – 열에 저장된 *데이터의 형식* 에 추가 세분성을 제공합니다.
 
-Security Center 내의 information protection 정책 옵션은 분류 엔진의 기본값으로 사용 되는 미리 정의 된 레이블 집합 및 정보 유형을 제공 합니다. 아래에 설명 된 대로 조직의 요구 사항에 따라 정책을 사용자 지정할 수 있습니다.
+Security Center 내의 정보 보호 정책 옵션은 분류 엔진의 기본값 역할을 하는 사전 정의된 레이블 및 정보 유형 집합을 제공합니다. 아래 설명된 대로 조직의 필요에 따라 정책을 사용자 지정할 수 있습니다.
 
-> [!IMPORTANT]
-> Azure 테 넌 트에 대 한 정보 보호 정책을 사용자 지정 하려면 테 넌 트의 루트 관리 그룹에 대 한 관리 권한이 필요 합니다. [권한 부여 및 요청 테 넌 트 전체 표시 유형에](tenant-wide-permissions-management.md)대해 자세히 알아보세요.
-
-:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="SQL information protection 정책을 표시 하는 페이지":::
+:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="SQL 정보 보호 정책을 보여주는 페이지.":::
  
 
 
 
-## <a name="how-do-i-access-the-sql-information-protection-policy"></a>SQL information protection 정책에 액세스 어떻게 할까요??
+## <a name="how-do-i-access-the-sql-information-protection-policy"></a>SQL 정보 보호 정책에 액세스하려면 어떻게 하나요?
 
-Information protection 정책에 액세스 하는 방법에는 다음 세 가지가 있습니다.
+다음 세 가지 방법으로 정보 보호 정책에 액세스할 수 있습니다.
 
-- **(권장)** Security Center의 가격 책정 및 설정 페이지에서
-- 보안 권장 사항에서 "SQL 데이터베이스의 중요 한 데이터를 분류 해야 합니다."
-- Azure SQL DB 데이터 검색 페이지에서
+- **(권장)** Security Center의 가격 및 설정 페이지
+- 보안 권장 사항의 "SQL 데이터베이스의 중요한 데이터를 분류해야 합니다"
+- Azure SQL DB 데이터 검색 페이지
 
-각각의 관련 탭에는 아래와 같은 관련 탭이 표시 됩니다.
+각 내용은 아래 관련 탭에 표시됩니다.
 
 
 
-### <a name="from-security-centers-settings"></a>[**Security Center 설정에서**](#tab/sqlip-tenant)
+### <a name="from-security-centers-settings"></a>[**Security Center 설정**](#tab/sqlip-tenant)
 
-### <a name="access-the-policy-from-security-centers-pricing-and-settings-page"></a>Security Center의 가격 책정 및 설정 페이지에서 정책에 액세스 합니다. <a name="sqlip-tenant"></a>
+### <a name="access-the-policy-from-security-centers-pricing-and-settings-page"></a>Security Center 가격 및 설정 페이지에서 정책에 액세스합니다<a name="sqlip-tenant"></a>
 
-Security Center의 **가격 책정 및 설정** 페이지에서 **SQL information protection** 을 선택 합니다.
+Security Center의 **가격 및 설정** 페이지에서 **SQL 정보 보호** 를 선택합니다.
 
 > [!NOTE]
-> 이 옵션은 테 넌 트 수준의 사용 권한이 있는 사용자에 대해서만 표시 됩니다. [자신에 게 테 넌 트 전체 사용 권한을 부여](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)합니다.
+> 이 옵션은 테넌트 수준 권한이 있는 사용자에게만 표시됩니다. [자신에게 테넌트 전체 권한을 부여합니다](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Azure Security Center의 가격 책정 및 설정 페이지에서 SQL Information Protection 정책에 액세스":::
-
-
-
-### <a name="from-security-centers-recommendation"></a>[**Security Center 권장 사항**](#tab/sqlip-db)
-
-### <a name="access-the-policy-from-the-security-center-recommendation"></a>Security Center 권장 사항에서 정책 액세스 <a name="sqlip-db"></a>
-
-데이터베이스에 대 한 데이터 검색 및 분류 페이지를 보려면 Security Center의 권장 사항 인 "SQL 데이터베이스의 중요 한 데이터를 분류 해야 합니다."를 사용 합니다. 또한 분류 하는 데 권장 되는 정보를 포함 하는 검색 된 열도 표시 됩니다.
-
-1. Security Center의 **권장 사항** 페이지에서 **SQL 데이터베이스의 중요 한 데이터** 를 검색 하 여 분류 해야 합니다.
-
-    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="SQL information protection 정책에 대 한 액세스를 제공 하는 권장 사항 찾기":::
-
-1. 권장 사항 세부 정보 페이지의 **정상** 또는 **비정상** 탭에서 데이터베이스를 선택 합니다.
-
-1. **데이터 검색 & 분류** 페이지가 열립니다. **구성** 을 선택합니다.
-
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Azure Security Center의 관련 권장 사항에서 SQL information protection 정책 열기":::
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Azure Security Center의 가격 및 설정 페이지에서 SQL 정보 보호 정책에 액세스.":::
 
 
 
-### <a name="from-azure-sql"></a>[**Azure SQL에서**](#tab/sqlip-azuresql)
+### <a name="from-security-centers-recommendation"></a>[**Security Center의 권장 사항**](#tab/sqlip-db)
 
-### <a name="access-the-policy-from-azure-sql"></a>Azure SQL에서 정책 액세스 <a name="sqlip-azuresql"></a>
+### <a name="access-the-policy-from-the-security-center-recommendation"></a>Security Center의 권장 사항에서 정책에 액세스합니다<a name="sqlip-db"></a>
+
+Security Center의 권장 사항인 "SQL 데이터베이스의 중요한 데이터를 분류해야 합니다"를 사용하여 데이터베이스의 데이터 검색 및 분류 페이지를 봅니다. 또한 분류하는 것이 권장되는 정보를 포함하는 것으로 검색된 열도 표시됩니다.
+
+1. Security Center의 **권장 사항** 페이지에서 **SQL 데이터베이스의 중요한 데이터를 분류해야 합니다** 를 검색합니다.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="SQL 정보 보호 정책에 대한 액세스를 제공하는 권장 사항 찾기.":::
+
+1. 권장 사항 세부 정보 페이지의 **정상** 또는 **비정상** 탭에서 데이터베이스를 선택합니다.
+
+1. **데이터 검색 및 분류** 페이지가 열립니다. **구성** 을 선택합니다.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Azure Security Center의 관련 권장 사항에서 SQL 정보 보호 정책 열기":::
+
+
+
+### <a name="from-azure-sql"></a>[**Azure SQL**](#tab/sqlip-azuresql)
+
+### <a name="access-the-policy-from-azure-sql"></a>Azure SQL에서 정책에 액세스합니다<a name="sqlip-azuresql"></a>
 
 1. Azure Portal에서 Azure SQL을 엽니다.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Azure Portal에서 Azure SQL 열기":::
+    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Azure Portal에서 Azure SQL 열기.":::
 
-1. 데이터베이스를 선택 합니다.
+1. 데이터베이스를 선택합니다.
 
-1. 메뉴의 **보안** 영역에서 **데이터 검색 & 분류** 페이지 (1)를 열고 **구성** (2)을 선택 합니다.
+1. 메뉴의 **보안** 영역에서 **데이터 검색 및 분류** 페이지 (1)을 열고 **구성** (2)를 선택합니다.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Azure SQL에서 SQL information protection 정책 열기":::
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Azure SQL에서 SQL 정보 보호 정책 열기.":::
 
 --- 
 
 
-## <a name="customize-your-information-types"></a>정보 형식 사용자 지정
+## <a name="customize-your-information-types"></a>정보 유형 사용자 지정
 
-정보 유형을 관리 하 고 사용자 지정 하려면:
+정보 유형을 관리하고 사용자 지정하려면 다음을 수행합니다.
 
-1. **정보 유형 관리** 를 선택 합니다.
+1. **정보 유형 관리** 를 선택합니다.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Information protection 정책에 대 한 정보 형식 관리":::
+    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="정보 보호 정책에 대한 정보 형식을 관리합니다.":::
 
-1. 새 형식을 추가 하려면 **정보 유형 만들기** 를 선택 합니다. 정보 형식에 대 한 이름, 설명 및 검색 패턴 문자열을 구성할 수 있습니다. 필요에 따라 검색 패턴 문자열은 열의 메타데이터에 따라 와일드 카드 문자('%' 문자 사용)와 함께 키워드를 사용할 수 있습니다. 이 항목은 자동화된 검색 엔진이 데이터베이스에서 중요한 데이터를 식별하는 데 사용합니다.
+1. 새 형식을 추가하려면 **정보 유형 생성하기** 를 선택합니다. 정보 형식에 대한 이름, 설명, 검색 패턴 문자열을 구성할 수 있습니다. 필요에 따라 검색 패턴 문자열은 열의 메타데이터에 따라 와일드 카드 문자('%' 문자 사용)와 함께 키워드를 사용할 수 있습니다. 이 항목은 자동화된 검색 엔진이 데이터베이스에서 중요한 데이터를 식별하는 데 사용합니다.
  
-    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Information protection 정책에 대 한 새 정보 유형 구성":::
+    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="정보 보호 정책에 대한 새 정보 유형을 구성합니다.":::
 
-1. 추가 검색 패턴 문자열을 추가 하거나, 기존 문자열 중 일부를 사용 하지 않도록 설정 하거나, 설명을 변경 하 여 기본 제공 형식을 수정할 수도 있습니다. 
+1. 검색 패턴 문자열을 추가하거나, 기존 문자열 중 일부를 사용하지 않도록 하거나, 설명을 변경하여 기본 제공 형식을 수정할 수도 있습니다. 
 
     > [!TIP]
-    > 기본 제공 형식을 삭제 하거나 이름을 변경할 수 없습니다. 
+    > 기본 제공 형식을 삭제하거나 이름을 변경할 수 없습니다. 
 
 1. **정보 형식** 은 검색 순위 오름차순으로 나열됩니다. 즉, 목록의 위에 있는 형식을 먼저 일치시킵니다. 정보 형식 간의 순위를 변경하려면 형식을 테이블의 오른쪽으로 끌어오거나 **위로 이동** 및 **아래로 이동** 단추를 사용하여 순서를 변경합니다. 
 
-1. 작업이 완료 되 면 **확인을** 선택 합니다.
+1. 완료되면 **확인** 을 선택합니다.
 
 1. 정보 형식 관리를 완료하면 특정 레이블에 대한 **구성** 을 클릭하고, 적절하게 정보 형식을 추가하거나 삭제하여 적절한 레이블과 관련 형식을 연결하도록 합니다.
 
-1. 변경 내용을 적용 하려면 기본 **레이블** 페이지에서 **저장** 을 선택 합니다.
+1. 변경 내용을 적용하려면, 기본 **레이블** 페이지에서 **저장** 을 선택합니다.
  
 
 ## <a name="exporting-and-importing-a-policy"></a>정책 내보내기 및 가져오기
 
-정의 된 레이블 및 정보 유형을 사용 하 여 JSON 파일을 다운로드 하 고 선택한 편집기에서 파일을 편집한 다음 업데이트 된 파일을 가져올 수 있습니다. 
+정의된 레이블 및 정보 형식이 있는 JSON 파일을 다운로드하고 원하는 편집기에서 파일을 편집한 다음 업데이트된 파일을 가져올 수 있습니다. 
 
-:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Information protection 정책 내보내기 및 가져오기":::
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="정보 보호 정책 내보내기 및 가져오기.":::
 
 > [!NOTE]
-> 정책 파일을 가져오려면 테 넌 트 수준 권한이 필요 합니다. 
+> 정책 파일을 가져오려면 테넌트 수준 권한이 필요합니다. 
 
 
-## <a name="manage-sql-information-protection-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 SQL information protection 관리
+## <a name="permissions"></a>사용 권한
 
-- [AzSqlInformationProtectionPolicy](/powershell/module/az.security/get-azsqlinformationprotectionpolicy): 유효한 테 넌 트 SQL information protection 정책을 검색 합니다.
-- [AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): 유효한 테 넌 트 SQL information protection 정책을 설정 합니다.
+Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면, 테넌트의 루트 관리 그룹에 대해 다음을 수행해야 합니다.
+  - Microsoft.Security/informationProtectionPolicies/read
+  - Microsoft.Security/informationProtectionPolicies/write 
+
+[테넌트 전체 표시 권한 부여 및 요청](tenant-wide-permissions-management.md)에서 자세히 알아보세요.
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL 정보 보호 관리
+
+- [Get-AzSqlInformationProtectionPolicy](/powershell/module/az.security/get-azsqlinformationprotectionpolicy): 실행 중인 테넌트 SQL 정보 보호 정책을 검색합니다.
+- [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): 실행 중인 테넌트 SQL 정보 보호 정책을 설정합니다.
  
 
 ## <a name="next-steps"></a>다음 단계
  
-이 문서에서는 Azure Security Center에서 정보 보호 정책을 정의 하는 방법을 배웠습니다. SQL Information Protection을 사용하여 SQL 데이터베이스에서 중요한 데이터를 분류하고 보호하는 방법에 대해 자세히 알아보려면 [Azure SQL Database 데이터 검색 및 분류](../azure-sql/database/data-discovery-and-classification-overview.md)를 참조하세요.
+이 문서에서는 Azure Security Center 정보 보호 정책을 정의하는 것에 대해 배웠습니다. SQL Information Protection을 사용하여 SQL 데이터베이스에서 중요한 데이터를 분류하고 보호하는 방법에 대해 자세히 알아보려면 [Azure SQL Database 데이터 검색 및 분류](../azure-sql/database/data-discovery-and-classification-overview.md)를 참조하세요.
 
-Security Center의 보안 정책 및 데이터 보안에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+Azure Security Center의 보안 정책 및 데이터 보안에 대한 자세한 내용은 다음 문서를 참조하세요.
  
 - [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [Azure Security Center 데이터 보안](security-center-data-security.md): Security Center에서 데이터를 관리하고 보호하는 방법을 알아봅니다.

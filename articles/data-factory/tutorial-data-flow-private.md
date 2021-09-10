@@ -5,15 +5,16 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ac868fdf3ca80d489d479b5be0c57bd14a90ccbb
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: e73b2a96d2b051dbb208bb9614569c423f99d8f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905705"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536930"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>매핑 데이터 흐름을 사용하여 안전하게 데이터 변환
 
@@ -86,7 +87,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 이 단계에서는 데이터 흐름 작업을 포함하는 파이프라인을 만듭니다.
 
-1. **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
    ![파이프라인 만들기를 보여주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
@@ -98,7 +99,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
     ![매핑 데이터 흐름을 보여주는 스크린샷.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. 속성 창에서 데이터 흐름의 이름을 **TransformMovies** 로 지정합니다.
-1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 먼저 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
+1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
     ![데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.](media/tutorial-data-flow-private/dataflow-debug.png)
 

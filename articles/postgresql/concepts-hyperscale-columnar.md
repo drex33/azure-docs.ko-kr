@@ -1,25 +1,20 @@
 ---
-title: 열 형식 테이블 스토리지 미리 보기 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL
-description: 열 형식 스토리지(미리 보기)를 사용하여 데이터 압축
+title: 열 형식 테이블 스토리지 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL
+description: 열 형식 스토리지를 사용하여 데이터 압축
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/04/2021
-ms.openlocfilehash: c42cfcc35edf33cf30c4d69b4a1fb15d39dd4009
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/03/2021
+ms.openlocfilehash: 557fe7d2242b67f8fa53541aef25cfc44090e48b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773686"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536592"
 ---
-# <a name="columnar-table-storage-preview"></a>열 형식 테이블 스토리지(미리 보기)
-
-> [!IMPORTANT]
-> 하이퍼스케일(Citus)의 열 형식 테이블 스토리지는 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
+# <a name="columnar-table-storage"></a>열 형식 테이블 스토리지
 
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 분석 및 데이터 웨어하우징 워크로드에 대해 추가 전용 열 형식 테이블 스토리지를 지원합니다. 행이 아닌 열이 디스크에 연속적으로 저장되면 데이터를 더 압축할 수 있고 쿼리는 열의 하위 집합을 더 빨리 요청할 수 있습니다.
 

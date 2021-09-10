@@ -8,28 +8,25 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 912ad0b1cbb7814774a06cf890e3618ee06b2c0a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f9a298a311ac30b03be569a35aa59c0c6157601e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382732"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287608"
 ---
-# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning-preview"></a>MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습(미리 보기)
+# <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습
 
-이 문서에서는 [MLflow 프로젝트](https://www.mlflow.org/docs/latest/projects.html) 및 Azure Machine Learning 백 엔드 지원(미리 보기)을 사용하여 학습 작업을 제출하기 위해 MLflow의 추적 URI 및 로깅 API(총칭하여 [MLflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api))를 사용하는 방법을 알아봅니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](./how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
+이 문서에서는 [MLflow 프로젝트](https://www.mlflow.org/docs/latest/projects.html) 및 Azure Machine Learning 백 엔드 지원을 사용하여 학습 작업을 제출하기 위해 MLflow의 추적 URI 및 로깅 API(총칭하여 [MLflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api))를 사용하는 방법을 알아봅니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](./how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
 
 [MLflow 프로젝트](https://mlflow.org/docs/latest/projects.html)를 사용하면 다른 데이터 과학자(또는 자동화된 도구)가 코드를 실행할 수 있도록 코드를 구성하고 설명할 수 있습니다. Azure Machine Learning을 사용하는 MLflow 프로젝트를 사용하면 작업 영역에서 학습 실행을 추적하고 관리할 수 있습니다.
 
 [MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 실험 환경에 관계없이(컴퓨터에서 로컬로, 원격 컴퓨팅 대상, 가상 머신 또는 [Azure Databricks 클러스터](how-to-use-mlflow-azure-databricks.md)에서) 학습 실행 메트릭과 모델 아티팩트를 로깅하고 추적하는 MLflow의 구성 요소입니다.
 
 [MLflow 및 Azure Machine Learning 통합에 대해 자세히 알아보세요](how-to-use-mlflow.md).
-
->[!NOTE]
-> 오픈 소스 라이브러리로 MLflow는 자주 변경됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공되는 기능은 미리 보기로 간주해야 하며 Microsoft에서 완벽하게 지원되지 않습니다.
 
 > [!TIP]
 > 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링하려는 데이터 과학자와 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.

@@ -4,16 +4,16 @@ description: Studio 3T를 사용하여 Azure Cosmos DB의 MongoDB API에 연결�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18
-ms.openlocfilehash: 98020bb69da6f9719a465e50b5da79248750b17e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aab468bbc53eec0d6caacc02956b58080f430031
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528265"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029350"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Studio 3T를 사용하여 Azure Cosmos DB 계정에 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -121,3 +121,6 @@ Studio 3T를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](connect-using-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    - 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)을 참조하세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)을 읽어보세요.

@@ -4,18 +4,18 @@ description: Azure Site Recovery를 사용하여 VM을 보호하는 정책 지�
 author: rishjai-msft
 ms.author: rishjai
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3fe6ec7baba3e075f5c5026732b10fab81f3bd42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1c936df9ffb467d732e0c07651e7c6fb31f28b5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536268"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>정책 및 Azure Site Recovery 사용(퍼블릭 미리 보기)
 
-이 문서에서는 Azure Policy를 사용하여 리소스에 대해 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 설정하는 방법을 설명합니다. [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)는 Azure 리소스에 특정 비즈니스 규칙을 적용하고 해당 리소스의 규정 준수를 평가하는 데 도움이 됩니다.
+이 문서에서는 Azure Policy를 사용하여 리소스에 대해 [Azure Site Recovery](./site-recovery-overview.md)를 설정하는 방법을 설명합니다. [Azure Policy](../governance/policy/overview.md)는 Azure 리소스에 특정 비즈니스 규칙을 적용하고 해당 리소스의 규정 준수를 평가하는 데 도움이 됩니다.
 
 ## <a name="disaster-recovery-with-azure-policy"></a>Azure Policy를 사용한 재해 복구
 Site Recovery는 계획되거나 계획되지 않은 영역/지역 중단이 발생하는 경우 애플리케이션 가동 및 실행을 유지하는 데 도움이 됩니다. Azure Portal를 통해 대규모로 머신에서 Site Recovery를 사용하도록 설정하는 것은 어려울 수 있습니다. 이제 포털을 통해 특정 리소스 그룹(정책 ‘범위’)에 대한 Site Recovery를 일괄적으로 사용하도록 설정할 수 있습니다.
@@ -27,8 +27,8 @@ Azure Policy에서 이 문제를 해결합니다. 리소스 그룹에 대한 재
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 정책 할당 방법은 [여기](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal)를 참조하세요.
-- Azure 간 재해 복구 아키텍처는 [여기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture)에서 자세히 알아보세요.
+- 정책 할당 방법은 [여기](../governance/policy/assign-policy-portal.md)를 참조하세요.
+- Azure 간 재해 복구 아키텍처는 [여기](./azure-to-azure-architecture.md)에서 자세히 알아보세요.
 - Azure Site Recovery 정책 지원에 대한 지원 매트릭스를 검토합니다.
 
 **시나리오** | **지원 정책**
@@ -48,7 +48,7 @@ Azure Resource Manager 배포 모델 | 지원됨
 Azure에서 기본값으로 적용되는 다른 정책과의 상호 운용성(있는 경우) | 지원됨
 
 >[!NOTE]
->다음과 같은 경우에는 Site Recovery가 활성화되지 않습니다. 하지만 리소스 규정 준수에서 _미준수_ 로 반영됩니다. 
+>다음과 같은 경우에는 Site Recovery가 활성화되지 않습니다. 그러나 리소스 규정 준수에 _비준수_ 로 반영됩니다.
 >1. 지원되지 않는 VM이 정책 범위 내에서 만들어진 경우
 >1. VM이 PPG뿐만 아니라 가용성 집합의 일부인 경우
 
@@ -77,11 +77,11 @@ Azure에서 기본값으로 적용되는 다른 정책과의 상호 운용성(�
     - **원본 지역**: 정책을 적용할 수 있는 Virtual Machines의 원본 지역입니다.
     >[!NOTE]
     >정책 범위의 원본 지역에 속하는 모든 Virtual Machines에 정책이 적용됩니다. 원본 지역에 없는 Virtual Machines는 ‘리소스 규정 준수’에 포함되지 않습니다.
-    - **대상 지역**: 원본 가상 머신 데이터가 복제될 위치입니다. Site Recovery는 선택한 머신의 위치에 따라 적절한 대상 지역의 목록을 제공합니다. Recovery Services 자격 증명 모음의 위치와 동일한 위치를 사용하는 것이 좋습니다.
+    - **대상 지역**: 원본 가상 머신 데이터가 복제될 위치입니다. Site Recovery는 고객이 복제할 수 있는 대상 지역 목록을 제공합니다. Recovery Services 자격 증명 모음의 위치와 동일한 위치를 사용하는 것이 좋습니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속한 리소스 그룹입니다. Site Recovery는 기본적으로 대상 지역에 새 리소스 그룹을 만듭니다.
     - **자격 증명 모음 리소스 그룹**: Recovery Services 자격 증명 모음이 있는 리소스 그룹입니다.
-    - **Recovery Services 자격 증명 모음**: 범위의 모든 VM을 보호할 자격 증명 모음입니다.
-    - **복구 가상 네트워크**: 대상 지역에서 복구 가상 머신에 사용할 기존 가상 네트워크를 선택합니다.
+    - **Recovery Services 자격 증명 모음**: 범위의 모든 VM을 보호할 자격 증명 모음입니다. 필요한 경우 정책에서 사용자를 대신하여 새 볼트를 생성할 수 있습니다.
+    - **복구 가상 네트워크**: 대상 지역에서 복구 가상 머신에 사용할 기존 가상 네트워크를 선택합니다. 필요한 경우 정책에서 새 가상 네트워크도 만들 수 있습니다.
     - **대상 가용성 영역**: 가상 머신이 장애 조치(failover)할 대상 지역의 가용성 영역을 입력합니다.
     >[!NOTE]
     >영역 간 시나리오의 경우 원본 지역과 동일한 대상 지역을 선택하고 ‘대상 가용성 영역’에서 다른 가용성 영역을 선택해야 합니다.     
@@ -93,7 +93,7 @@ Azure에서 기본값으로 적용되는 다른 정책과의 상호 운용성(�
 ## <a name="remediation-and-other-properties"></a>수정 및 기타 속성
 1. Azure Site Recovery에 대한 대상 속성이 구성되었습니다. 하지만 이 정책은 정책 범위에서 새로 만든 가상 머신에만 적용됩니다. 정책이 할당된 후 수정 작업을 통해 기존 리소스에 정책을 적용할 수 있습니다. 여기에서 ‘수정 작업 만들기’ 확인란을 선택하여 수정 작업을 만들 수 있습니다.
 
-1. Azure Policy는 범위의 리소스에 대해 Azure Site Recovery를 사용하도록 설정할 수 있는 소유자 권한이 있는 [관리 ID](https://aka.ms/arm-policy-identity)를 만듭니다.
+1. Azure Policy는 범위의 리소스에 대해 Azure Site Recovery를 사용하도록 설정할 수 있는 소유자 권한이 있는 [관리 ID](../governance/policy/how-to/remediate-resources.md)를 만듭니다.
 
 1. ‘미준수 메시지’ 탭에서 정책에 대한 사용자 지정 미준수 메시지를 구성할 수 있습니다.
 

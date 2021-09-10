@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 5d8be9493b7a312270301e3520f301f797fe2167
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7df838cdc036e482bc97d9ca0bb76dd648eb0a46
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565294"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695575"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Azure에 미리 빌드된 Flatcar 이미지 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Flatcar가 지원하는 각 채널에 대해 Flatcar Container Linux의 미리 빌드된 Azure 가상 하드 디스크 이미지를 다운로드할 수 있습니다.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 737fce0dff06e8af5599158bb7b6e795bf43ba0c
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 4b906e9c9fc72cd44513969c316900b190aa5a76
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811811"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689224"
 ---
 # <a name="customize-activities-on-entity-page-timelines"></a>엔터티 페이지 타임라인에서 활동 사용자 지정
 
@@ -45,6 +45,13 @@ ms.locfileid: "109811811"
 
 1. **내 활동** 탭에서 만든 활동 목록이 있는 페이지가 표시됩니다. **활동 템플릿** 탭에는 Microsoft 보안 연구원이 기본 제공하는 활동 모음이 표시됩니다. 엔터티 페이지의 타임라인에서 이미 추적되고 표시되는 활동입니다.
 
+    > [!NOTE]
+    > - 사용자 정의 활동을 생성하지 않은 한 엔터티 페이지에는 **활동 템플릿** 탭에 나열된 모든 활동이 표시됩니다.
+    >
+    > - 단일 사용자 지정 활동을 정의하면 **내 활동** 탭에 나타나는 활동 **만** 엔터티 페이지에 표시됩니다.
+    >
+    > - 엔터티 페이지에서 즉시 가능한 활동을 계속 보려면 추적 및 표시할 각 템플릿에 대한 활동을 생성해야 합니다. 아래의 "템플릿에서 활동 만들기"의 지침을 따르세요.
+
 ## <a name="create-an-activity-from-a-template"></a>템플릿에서 활동 만들기
 
 1. **활동 템플릿** 탭을 클릭하면 기본적으로 사용 가능한 다양한 활동을 볼 수 있습니다. 엔터티 형식 및 데이터 원본별로 목록을 필터링할 수 있습니다. 목록에서 활동을 선택하면 미리 보기 창에 다음 세부 정보가 표시됩니다.
@@ -57,9 +64,11 @@ ms.locfileid: "109811811"
 
     - 이 활동을 검색하도록 하는 쿼리
 
-1. 미리 보기 창 하단에 있는 **활동 만들기** 단추를 클릭하여 활동 만들기 마법사를 시작합니다. 
+1. 미리 보기 창 하단에 있는 **활동 만들기** 단추를 클릭하여 활동 만들기 마법사를 시작합니다.
 
-1. **활동 마법사 - 템플릿에서 새 활동 만들기** 가 열리고 해당 필드가 템플릿에서 이미 채워집니다. **일반** 및 **활동 구성** 탭에서 원하는 대로 변경할 수 있습니다.
+    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="활동 세부 정보 보기":::
+
+1. **활동 마법사 - 템플릿에서 새 활동 만들기** 가 열리고 해당 필드가 템플릿에서 이미 채워집니다. **일반** 및 **활동 구성** 탭에서 원하는 대로 변경하거나 모든 항목을 그대로 유지하여 기본 활동을 계속 볼 수 있습니다.
 
 1. 만족스러우면 **검토 및 만들기** 탭을 선택합니다. **유효성 검사 통과** 메시지가 표시되면 하단의 **만들기** 단추를 클릭합니다.
 
@@ -79,6 +88,10 @@ ms.locfileid: "109811811"
 1. 쿼리를 구체화하고 성능을 최적화하는 데 도움이 되는 추가 매개 변수를 기준으로 필터링할 수 있습니다. 예를 들어 **IsDomainJoined** 매개 변수를 선택하고 값을 **True** 로 설정하여 Active Directory 사용자를 필터링할 수 있습니다.
 
 1. 활동의 초기 상태를 **사용** 또는 **사용 안 함** 으로 선택할 수 있습니다.
+
+1. **다음: 활동 구성** 을 선택하여 다음 탭으로 이동합니다.
+
+    :::image type="content" source="./media/customize-entity-activities/create-new-activity.png" alt-text="스크린샷 - 새 활동 만들기":::
 
 ### <a name="activity-configuration-tab"></a>활동 구성 탭
 
@@ -113,26 +126,62 @@ ms.locfileid: "109811811"
 선택한 엔터티에 따라 사용 가능한 식별자가 표시됩니다. 관련 식별자를 클릭하여 커서의 위치에 있는 쿼리에 식별자를 붙여넣습니다.
 
 > [!NOTE]
-> - 검색된 활동을 엔터티의 타임라인에 배치하려면 쿼리에 **TimeGenerated** 필드가 포함되어야 합니다.
+> - 쿼리에는 **최대 10개의 필드** 가 포함될 수 있으므로 원하는 필드를 예상해야 합니다.
 >
-> - 쿼리에서 **최대 10개의 필드** 를 프로젝션할 수 있습니다.
+> - 검색된 활동을 엔터티의 타임라인에 배치하려면 예상한 필드에 **TimeGenerated** 필드가 포함되어야 합니다.
+
+```kusto
+SecurityEvent
+| where EventID == "4728"
+| where (SubjectUserSid == '{{Account_Sid}}' ) or (SubjectUserName == '{{Account_Name}}' and SubjectDomainName == '{{Account_NTDomain}}' )
+| project TimeGenerated, SubjectUserName, MemberName, MemberSid, GroupName=TargetUserName
+```
+
+:::image type="content" source="./media/customize-entity-activities/new-activity-query.png" alt-text="스크린샷 - 활동을 검색하는 쿼리 입력":::
 
 #### <a name="presenting-the-activity-in-the-timeline"></a>타임라인에 활동 표시
 
-사용자 편의에 따라 활동을 타임라인에서 표시하는 방법을 결정할 수 있습니다.
+편의를 위해 활동 출력에 동적 매개 변수를 추가하여 활동이 타임라인에 표시되는 방식을 결정할 수 있습니다.
 
-다음 형식으로 활동 출력에 동적 매개 변수를 추가할 수 있습니다. `{{ParameterName}}`
+Azure Sentinel은 사용할 기본 제공 매개 변수를 제공하며 쿼리에서 예상한 필드를 기반으로 다른 매개 변수를 사용할 수도 있습니다.
 
-다음 매개 변수를 추가할 수 있습니다. 
+`{{ParameterName}}` 매개 변수에 다음 형식을 사용합니다.
 
-- 쿼리에서 프로젝션한 모든 필드  
-- Count – 이 매개 변수를 사용하여 KQL 쿼리 출력의 수를 요약합니다. 
-- StartTimeUTC – 활동 시작 시간(UTC) 
-- EndTimeUTC – 활동의 종료 시간(UTC) 
+활동 쿼리가 유효성 검사를 통과하고 쿼리 창 아래에 **쿼리 결과 보기** 링크가 표시되면 **사용 가능한 값** 섹션을 확장하여 동적 활동 제목을 만들 때 사용할 수 있는 매개 변수를 볼 수 있습니다.
 
-**예**: "`{{SubjectUsername}}`이(가) 사용자 `{{TargetUsername}}`을(를) 그룹 `{{GroupName}}`에 추가했습니다."
+특정 매개 변수 옆에 있는 **복사** 아이콘을 선택하여 해당 매개 변수를 클립보드에 복사해 위의 **작업 제목** 입력란에 붙여넣을 수 있습니다.
 
-### <a name="review-and-create-tab"></a>검토 및 만들기 탭 
+쿼리에 다음 매개 변수를 추가합니다.
+
+- 쿼리에서 예상한 모든 필드
+
+- 쿼리에 언급된 엔터티의 엔터티 식별자
+
+- `StartTimeUTC`, 활동 시작 시간(UTC 시간)을 추가합니다.
+
+- `EndTimeUTC`, 활동 종료 시간(UTC 시간)을 추가합니다.
+
+- `Count`, 여러 KQL 쿼리 출력을 단일 출력으로 요약합니다.
+
+    `count` 매개 변수는 편집기에 완전히 표시되지 않더라도 백그라운드에서 쿼리에 다음 명령을 추가합니다.
+
+    ```kql
+    Summarize count() by <each parameter you’ve projected in the activity>
+    ```
+
+    그런 다음, 항목 페이지에서 **버킷 크기** 필터를 사용하면 백그라운드에서 실행되는 쿼리에 다음 명령어도 추가됩니다.
+
+    ```kql
+    Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
+    ```
+
+예를 들면 다음과 같습니다.
+
+:::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="스크린샷 - 활동 제목에 사용 가능한 값 확인":::
+
+쿼리 및 활동 제목이 만족스러우면 **다음: 검토** 를 선택합니다.
+
+### <a name="review-and-create-tab"></a>검토 및 만들기 탭
 
 1. 사용자 지정 활동의 모든 구성 정보를 확인합니다.
 

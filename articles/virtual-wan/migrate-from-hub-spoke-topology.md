@@ -1,18 +1,18 @@
 ---
 title: '아키텍처: Azure Virtual WAN으로 마이그레이션'
-description: 기존의 고객 관리형 허브 및 스포크 토폴로지에서 Microsoft 관리형 Virtual WAN 허브를 활용하는 설계로 마이그레이션하는 방법을 알아봅니다.
+description: Azure Virtual WAN으로 마이그레이션하는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3fa07445b667d59fba81040c70a111c4a0f94670
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110580047"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91839642"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Azure Virtual WAN으로 마이그레이션
 

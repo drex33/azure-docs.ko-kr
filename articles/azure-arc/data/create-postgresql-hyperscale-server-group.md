@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ebc8405a2afe9a6e2d802b68c59142f6fbf01de5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 24e81f9d83212b674b50acdb24042b6d29a9c266
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288115"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536404"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -35,25 +35,6 @@ ms.locfileid: "108288115"
 전체 환경을 직접 프로비전하지 않고 작업을 시도하려면 AKS(Azure Kubernetes Service), AWS Elastic Kubernetes Service(EKS), Google Cloud Kubernetes Engine(GKE) 또는 Azure VM에서 [Azure Arc 빠른 시작](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)을 사용하여 빠르게 시작하세요.
 
 
-## <a name="login-to-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에 로그인
-
-인스턴스를 만들려면 먼저 Azure Arc 데이터 컨트롤러에 로그인해야 합니다. 데이터 컨트롤러에 이미 로그인되어 있는 경우 이 단계를 건너뛸 수 있습니다.
-
-```console
-azdata login
-```
-
-그런 다음, 사용자 이름, 암호 및 시스템 네임스페이스를 묻는 메시지가 표시됩니다.  
-
-> 스크립트를 사용하여 데이터 컨트롤러를 만든 경우 네임스페이스는 **arc** 이어야 합니다.
-
-```console
-Namespace: arc
-Username: arcadmin
-Password:
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
-
 ## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>OpenShift 사용자만을 위한 임시 예비 단계
 다음 단계로 이동하기 전에 이 단계를 구현합니다. PostgreSQL 하이퍼스케일 서버 그룹을 기본 프로젝트가 아닌 프로젝트의 Red Hat OpenShift에 배포하려면 클러스터에 대해 다음 명령을 실행하여 보안 제약 조건을 업데이트해야 합니다. 이 명령은 PostgreSQL 하이퍼스케일 서버 그룹을 실행하는 서비스 계정에 필요한 권한을 부여합니다. SCC(보안 컨텍스트 제약 조건) arc-data-scc는 Azure Arc 데이터 컨트롤러를 배포할 때 추가한 제약 조건입니다.
 
@@ -68,11 +49,11 @@ OpenShift의 SCC에 대한 자세한 내용은 [OpenShift 설명서](https://doc
 
 ## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
-Arc 데이터 컨트롤러에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 만들려면 여러 매개 변수를 전달할 명령 `azdata arc postgres server create`을 사용합니다.
+Arc 데이터 컨트롤러에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 만들려면 `az postgres arc-server create` 명령을 사용하고 여러 매개 변수를 전달합니다.
 
 만들 때 설정할 수 있는 모든 매개 변수에 대한 자세한 내용은 다음 명령의 출력을 검토합니다.
-```console
-azdata arc postgres server create --help
+```azurecli
+az postgres arc-server create --help
 ```
 
 고려해야 할 주요 매개 변수는 다음과 같습니다.
@@ -80,22 +61,33 @@ azdata arc postgres server create --help
 
 - 배포하려는 **PostgreSQL 엔진의 버전** 은 기본적으로 버전 12입니다. 버전 12를 배포하려면 이 매개 변수를 생략하거나 `--engine-version 12` 또는 `-ev 12` 매개 변수 중 하나를 전달할 수 있습니다. 버전 11을 배포하려면 `--engine-version 11` 또는 `-ev 11`을 지정합니다.
 
-- 확장하고 잠재적으로 더 나은 성능에 도달하기 위해 배포하려는 **작업자 노드의 수**. 계속하기 전에 [Postgres 하이퍼스케일에 대한 개념](concepts-distributed-postgres-hyperscale.md)을 읽어보세요. 배치할 작업자 노드 수를 지정하려면 매개 변수 `--workers` 또는 `-w` 뒤에 2 이상의 정수를 사용합니다. 예를 들어, 2개의 작업자 노드가 있는 서버 그룹을 배치하려면 `--workers 2` 또는 `-w 2`를 지정합니다. 이렇게 하면 코디네이터 노드/인스턴스에 대해 하나씩, 작업자 노드/인스턴스에 대해 두 개(각 작업자에 대해 하나씩) 세 개의 Pod가 만들어집니다.
+- 확장하고 잠재적으로 더 나은 성능에 도달하기 위해 배포하려는 **작업자 노드의 수**. 계속하기 전에 [Postgres 하이퍼스케일에 대한 개념](concepts-distributed-postgres-hyperscale.md)을 읽어보세요. 배포할 작업자 노드 수를 지정하려면 `--workers` 또는 `-w` 매개 변수 뒤에 정수를 사용합니다. 아래 표는 지원되는 값의 범위와 이러한 값과 함께 얻을 수 있는 Postgres 배포의 형식을 나타냅니다. 예를 들어, 2개의 작업자 노드가 있는 서버 그룹을 배치하려면 `--workers 2` 또는 `-w 2`를 지정합니다. 이렇게 하면 코디네이터 노드/인스턴스에 대해 하나씩, 작업자 노드/인스턴스에 대해 두 개(각 작업자에 대해 하나씩) 세 개의 Pod가 만들어집니다.
+
+
+
+|다음 항목이 필요합니다.   |배포할 서버 그룹의 모양   |사용할 -w 매개 변수   |참고   |
+|---|---|---|---|
+|애플리케이션의 확장성 요구를 충족하기 위해 확장된 형태의 Postgres입니다.   |3개 이상의 Postgres 인스턴스, 1개는 코디네이터, n은 n >=2의 작업자입니다.   |-w n 사용, n>=2.   |하이퍼스케일 기능을 제공하는 Citus 확장이 로드됩니다.   |
+|최소한의 비용으로 애플리케이션의 기능 유효성 검사를 수행할 수 있는 기본 형태의 Postgres 하이퍼스케일입니다. 성능 및 확장성 유효성 검사에는 유효하지 않습니다. 이를 위해 위에서 설명한 배포 유형을 사용해야 합니다.   |코디네이터 및 작업자인 1 Postgres 인스턴스.   |-w 0 사용, Citus 확장 로드. 명령줄에서 배포하는 경우 -w 0 --extensions Citus 매개 변수를 사용합니다.   |하이퍼스케일 기능을 제공하는 Citus 확장이 로드됩니다.   |
+|필요할 때 확장할 준비가 된 Postgres의 간단한 인스턴스입니다.   |1 Postgres 인스턴스. 코디네이터 및 작업자에 대한 의미 체계는 아직 인식되지 않습니다. 배포 후 규모를 확장하려면 구성을 편집하고 작업자 노드 수를 늘리고 데이터를 배포합니다.   |-w 0 사용, -w 지정 안 함.   |하이퍼스케일 기능을 제공하는 Citus 확장은 배포에 있지만 아직 로드되지 않았습니다.   |
+|   |   |   |   |
+
+-w 1을 사용할 수도 있지만 사용하지 않는 것이 좋습니다. 이 배포는 많은 가치를 제공하지 않습니다. 이를 통해 Postgres 인스턴스 2개(코디네이터 1개 및 작업자 1개)를 얻게 됩니다. 이 설정을 사용하면 단일 작업자를 배포하기 때문에 실제로 데이터를 확장하지 않습니다. 따라서 성능 및 확장성 수준이 향상되지 않습니다. 이후 릴리스에서 이 배포에 대한 지원을 제거합니다.
 
 - 서버 그룹에서 사용하려는 **스토리지 클래스**. 배포 후에는 변경할 수 없으므로 서버 그룹을 배포할 때 바로 스토리지 클래스를 설정하는 것이 중요합니다. 배포 후 스토리지 클래스를 변경하려면 데이터를 추출하고, 서버 그룹을 삭제하고, 새 서버 그룹을 만들고, 데이터를 가져와야 합니다. 데이터, 로그 및 백업에 사용할 스토리지 클래스를 지정할 수 있습니다. 기본적으로 스토리지 클래스를 지정하지 않으면 데이터 컨트롤러의 스토리지 클래스가 사용됩니다.
     - 데이터에 대한 스토리지 클래스를 설정하려면 매개 변수 `--storage-class-data` 또는 `-scd` 뒤에 스토리지 클래스 이름을 지정합니다.
     - 로그에 대한 스토리지 클래스를 설정하려면 매개 변수 `--storage-class-logs` 또는 `-scl` 뒤에 스토리지 클래스 이름을 지정합니다.
     - 백업에 대한 스토리지 클래스를 설정하려면 이 Azure Arc 지원 PostgreSQL 하이퍼스케일 미리 보기에서 수행하려는 백업/복원 작업 유형에 따라 스토리지 클래스를 설정하는 두 가지 방법이 있습니다. 이 경험을 단순화하기 위해 노력하고 있습니다. 스토리지 클래스 또는 볼륨 클레임 탑재를 지정합니다. 볼륨 클레임 탑재는 콜론으로 구분된 기존 영구 볼륨 클레임(동일한 네임스페이스에 있음) 및 볼륨 유형(및 볼륨 유형에 따른 선택적 메타데이터)의 쌍입니다. 영구 볼륨은 PostgreSQL 서버 그룹의 각 Pod에 탑재됩니다.
         - 전체 데이터베이스 복원만 수행하려면 매개 변수 `--storage-class-backups` 또는 `-scb` 뒤에 스토리지 클래스 이름을 설정합니다.
-        - 전체 데이터베이스 복원과 특정 시점 복원을 모두 수행하려는 경우 매개 변수 `--volume-claim-mounts` 또는 `-vcm` 뒤에 볼륨 클레임 이름 및 볼륨 유형을 설정합니다.
+        - 전체 데이터베이스 복원과 특정 시점 복원을 모두 수행하려는 경우 매개 변수 `--volume-claim-mounts` 또는 `--volume-claim-mounts` 뒤에 볼륨 클레임 이름 및 볼륨 유형을 설정합니다.
 
 create 명령을 실행할 때 기본 `postgres` 관리 사용자의 암호를 입력하라는 프롬프트가 표시됩니다. 이 미리 보기에서는 해당 사용자의 이름을 변경할 수 없습니다. create 명령을 실행하기 전에 `AZDATA_PASSWORD` 세션 환경 변수를 설정하여 대화형 프롬프트를 건너뛸 수 있습니다.
 
 ### <a name="examples"></a>예
 
 **데이터 컨트롤러와 동일한 스토리지 클래스를 사용하는 작업자 노드가 2개 있는 postgres01이라는 Postgres 버전 12의 서버 그룹을 배포하려면 다음 명령을 실행합니다.**
-```console
-azdata arc postgres server create -n postgres01 --workers 2
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
 
 **데이터 및 로그용 데이터 컨트롤러와 동일한 스토리지 클래스를 사용하지만 전체 복원과 특정 시점 복원을 모두 수행하는 특정 스토리지 클래스를 사용하는 작업자 노드가 2개 있는 postgres01이라는 이름의 Postgres 버전 12 서버 그룹을 배포하려면 다음 단계를 사용합니다.**
@@ -127,8 +119,8 @@ kubectl create -f e:\CreateBackupPVC.yml -n arc
 
 그 다음, 서버 그룹을 만듭니다.
 
-```console
-azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:backup
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!IMPORTANT]
@@ -145,8 +137,8 @@ azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:back
 
 Arc 데이터 컨트롤러에 배포된 PostgreSQL 하이퍼스케일 서버 그룹을 나열하려면 다음 명령을 실행합니다.
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -160,8 +152,8 @@ postgres01  Ready     2
 
 PostgreSQL 서버 그룹의 엔드포인트를 보려면 다음 명령을 실행합니다.
 
-```console
-azdata arc postgres endpoint list -n <server group name>
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 예를 들면 다음과 같습니다.
 ```console
@@ -183,6 +175,8 @@ azdata arc postgres endpoint list -n <server group name>
 
 PostgreSQL 인스턴스 엔드포인트를 사용하여 선호하는 도구([Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin 등)에서 PostgreSQL 하이퍼스케일 서버 그룹에 연결할 수 있습니다. 이렇게 하면 분산 테이블을 만든 경우 쿼리를 적절한 작업자 노드/인스턴스로 라우팅하는 코디네이터 노드/인스턴스에 연결합니다. 자세한 내용은 [Azure Arc 지원 PostgreSQL 하이퍼스케일의 개념](concepts-distributed-postgres-hyperscale.md)을 참조하세요.
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## <a name="special-note-about-azure-virtual-machine-deployments"></a>Azure 가상 머신 배포에 대한 특별 메모
 
 Azure 가상 머신을 사용하는 경우 엔드포인트 IP 주소는 _공용_ IP 주소를 표시하지 않습니다. 공용 IP 주소를 찾으려면 다음 명령을 사용합니다.
@@ -203,7 +197,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 NSG의 이름을 보유한 경우 다음 명령을 사용하여 방화벽 규칙을 추가할 수 있습니다. 이 예제 값에서는 포트 30655에 대한 NSG 규칙을 만들고 **모든** 원본 IP 주소에서 연결할 수 있도록 허용합니다.  이 방법은 보안 모범 사례가 아닙니다.  팀 또는 조직의 IP 주소를 포함하는 IP 주소 범위 또는 클라이언트 IP 주소와 관련된 -source-address-prefixes 값을 지정하면 더 잘 잠글 수 있습니다.
 
-아래의 --destination-port-ranges 매개 변수 값을 위의 'azdata arc postgres server list' 명령에서 가져온 포트 번호로 바꿉니다.
+아래의 --destination-port-ranges 매개 변수 값을 위의 ‘az postgres arc-server list’ 명령에서 가져온 포트 번호로 바꿉니다.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
@@ -246,7 +240,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* 위 문서에서는 **Azure Portal에 로그인** 과 **Azure Database for PostgreSQL 만들기 – 하이퍼스케일(Citus)** 섹션을 건너뛰었습니다. Azure Arc 배포의 나머지 단계를 구현합니다. 이 섹션은 Azure 클라우드에서 PaaS 서비스로 제공되는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에 한정되지만, 문서의 다른 부분은 Azure Arc 지원 PostgreSQL 하이퍼스케일에 직접 적용할 수 있습니다.
 
-- [Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-in-postgresql-hyperscale-server-group.md)
 - [스토리지 구성 및 Kubernetes 스토리지 개념](storage-configuration.md)
 - [영구 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

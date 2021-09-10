@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a03031640bd116e2901ff123b5fec13d36151fd4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 63ca9c2a76b5daaf576992f715a7ec112ac98b25
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528168"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681527"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)
 
@@ -28,6 +28,9 @@ ms.locfileid: "122528168"
 > Azure Sentinel SAP 솔루션은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
+> [!NOTE]
+> 보안 SNC 연결을 사용하여 SAP 데이터 커넥터를 배포하는 경우의 추가 요구 사항이 나열되어 있습니다. 자세한 내용은 [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)를 참조하세요.
+>
 ## <a name="recommended-virtual-machine-sizing"></a>권장되는 가상 머신 크기
 
 다음 표에서는 의도한 사용량에 따라 가상 머신의 크기를 조정하는 권장 방법을 설명합니다.
@@ -139,6 +142,7 @@ SAP Basis 버전이 7.50 이하인 경우 다음 SAP 노트를 설치합니다.
 자세한 내용은 다음을 참조하세요.
 
 - [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
+- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
 - [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
 - [Azure Sentinel SAP 솔루션: 제공되는 보안 콘텐츠](sap-solution-security-content.md)

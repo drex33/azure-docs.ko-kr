@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 224b0685b922e6ddd833637ddc1b628f0479ec70
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96168681"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200819"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Azure Active Directory를 사용하여 LDAP 동기화
 
@@ -59,5 +59,6 @@ Azure AD(Azure Active Directory)는 Azure AD Connect를 사용하여 LDAP 동기
 * [LDAP 커넥터 개요 및 만들기](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
-   > LDAP 커넥터는 Forefront Identity Manager 및/또는 Microsoft Identity Manager에 관해 잘 알고 있어야 하는 고급 구성입니다. 프로덕션에서 사용되는 경우 이 구성에 관한 질문이 있으면 [프리미어 지원](https://support.microsoft.com/premier) 또는 Microsoft 파트너 네트워크를 확인해야 합니다.
-
+   > LDAP 커넥터를 배포하려면 고급 구성이 필요하며 이 커넥터는 제한된 지원으로 제공됩니다. 이 커넥터를 구성하려면 Microsoft Identity Manager 및 특정 LDAP 디렉터리에 대해 잘 알고 있어야 합니다. 
+   >
+   > 프로덕션 환경에서 이 구성을 배포해야 하는 고객은 이 구성에 대한 도움말, 지침 및 지원을 위해 Microsoft Consulting Services와 같은 파트너와 함께 작업하는 것이 좋습니다.

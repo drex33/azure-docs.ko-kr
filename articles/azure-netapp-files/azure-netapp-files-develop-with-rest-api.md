@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용한 Azure NetApp Files용 개발 | Microsoft Docs
-description: Azure NetApp Files 서비스에 대 한 REST API NetApp 계정, 용량 풀, 볼륨 및 스냅숏과 같은 리소스에 대 한 HTTP 작업을 정의 합니다.
+description: Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅샷과 같은 리소스에 대한 HTTP 작업을 정의합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 06/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c5993dc1dc645319e272ab310a97bc3ff8ac495d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8d10304ecf43654c0713961f62621505af73fbd1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174243"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112152"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
@@ -27,10 +27,17 @@ Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 �
 
 ## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp Files REST API 사양
 
-Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)를 통해 게시 됩니다.
+Azure NetApp Files용 REST API 사양은 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)를 통해 게시됩니다.
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 
+## <a name="considerations"></a>고려 사항
+
+* API 제한을 초과하는 경우 HTTP 응답 코드는 **429** 입니다.  예를 들면 다음과 같습니다.
+
+   `"Microsoft.Azure.ResourceProvider.Common.Exceptions.ResourceProviderException: Error getting Pool. Rate limit exceeded for this endpoint - try again later ---> CloudVolumes.Service.Client.Client.ApiException: Error calling V2DescribePool: {\"code\":429,\"message\":\"Rate limit exceeded for this endpoint - try again later\"}`
+   
+   이 응답 코드는 제한 또는 임시 상태에서 발생할 수 있습니다. 자세한 내용은 [Azure Resource Manager HTTP 429 응답 코드](../azure-resource-manager/management/request-limits-and-throttling.md#error-code)를 참조하세요.
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Azure NetApp Files REST API 액세스  
 
@@ -115,7 +122,7 @@ curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: applicati
 
 ### <a name="put-request-examples"></a>PUT 요청 예제
 
-다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문에는 변경 내용에 대 한 JSON 형식의 데이터가 포함 될 수 있습니다. 이 파일은 텍스트 또는 참조로 말아 넘기기 명령에 포함 되어야 합니다. 파일의 본문을 참조 하려면 json 예를 파일에 저장 하 고 `-d @<filename>` 를 말아 명령에 추가 합니다.
+다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문에는 변경 내용에 대한 JSON 형식의 데이터가 포함될 수 있습니다. curl 명령에 텍스트로 포함되거나 파일로 참조되어야 합니다. 본문을 파일로 참조하려면 json 예제를 파일에 저장하고 curl 명령에 `-d @<filename>`을(를) 추가합니다.
 
 ```azurecli
 #create a NetApp account  
@@ -167,7 +174,7 @@ curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-
 }
 ```
 
-다음 예에서는 새 볼륨을 만드는 방법을 보여 줍니다. 볼륨의 기본 프로토콜은 NFSV3입니다. 
+다음 예제에서는 새 볼륨을 만드는 방법을 보여 줍니다. 볼륨의 기본 프로토콜은 NFSV3입니다. 
 
 ```json
 {

@@ -1,19 +1,22 @@
 ---
-title: Azure Data Factory의 JSON 형식
-description: 이 항목에서는 Azure Data Factory에서 JSON 형식을 처리하는 방법에 대해 설명합니다.
+title: JSON 형식
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 이 항목에서는 Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 JSON 형식을 처리하는 방법에 대해 설명합니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
-ms.openlocfilehash: c537fac2466edeba8573e6e7c97d65c6d57788dd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 44f4dd722d6617ff3fd38f798af52334fdfa168e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090157"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642380"
 ---
-# <a name="json-format-in-azure-data-factory"></a>Azure Data Factory의 JSON 형식
+# <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 JSON 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -82,8 +85,8 @@ JSON 파일에서 데이터를 추출하고 [스키마 매핑](copy-activity-sch
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **JsonReadSettings** 로 설정해야 합니다. | 예      |
 | compressionProperties | 지정된 압축 코덱에 대한 데이터의 압축을 푸는 방법에 대한 속성 그룹입니다. | 예       |
-| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로)  | **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source zip file>/`에 압축을 푼 파일을 씁니다.<br>- **False** 로 설정하면 Data Factory가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
-| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로) | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source compressed file>/`에 압축을 푼 파일을 씁니다. <br>- **False** 로 설정하면 Data Factory가 압축 해제한 파일을 직접 `<path specified in dataset>`에 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
+| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로)  | **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>/<folder named as source zip file>/`에 씁니다.<br>- **false** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
+| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로) | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>/<folder named as source compressed file>/`에 씁니다. <br>- **false** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
 
 ### <a name="json-as-sink"></a>싱크로서의 JSON
 
@@ -201,7 +204,7 @@ JSON 파일에서 데이터를 복사하는 경우 복사 작업은 다음과 �
 
 다음 표에는 json 원본에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -254,7 +257,7 @@ File3.json
 
 ``` json
 File1.json
-{"json": "record 1 }
+{"json": "record 1"}
 
 File2.json
  {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

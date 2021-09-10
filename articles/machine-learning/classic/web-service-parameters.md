@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 웹 서비스 매개 변수 - Azure'
-description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
+description: Machine Learning 웹 서비스 매개 변수를 사용하여 웹 서비스에 액세스할 때 모델의 동작을 수정하는 방법입니다.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -10,19 +10,20 @@ ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f26a6541fc3c5720043d5b00578bea374cfcb959
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518337"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689508"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio(클래식) 웹 서비스 매개 변수 사용
+# <a name="use-machine-learning-studio-classic-web-service-parameters"></a>Machine Learning Studio(클래식) 웹 서비스 매개 변수 사용
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수* 를 통해 이 태스크를 수행할 수 있습니다. 
+Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수* 를 통해 이 태스크를 수행할 수 있습니다. 
 
 일반적인 예는 게시된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][reader] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][writer] 모듈을 구성하는 것입니다. 다른 예로는 [기능 해싱][feature-hashing] 모듈에 대한 비트 수 변경 또는 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에 대한 원하는 기능 수가 있습니다. 
 
@@ -40,7 +41,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 웹 서비스에 대한 API 설명서에는 웹 서비스에 액세스할 때 프로그래밍 방식으로 웹 서비스 매개 변수를 지정하는 방법과 관련해서 웹 서비스 사용자를 위한 정보가 포함됩니다.
 
 > [!NOTE]
-> 클래식 웹 서비스에 대한 API 설명서는 Machine Learning Studio(클래식)에서 웹 서비스 **대시보드** 의 **API 도움말 페이지** 링크를 통해 제공됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Azure Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
+> 클래식 웹 서비스에 대한 API 설명서는 Machine Learning Studio(클래식)에서 웹 서비스 **대시보드** 의 **API 도움말 페이지** 링크를 통해 제공됩니다. 새 웹 서비스에 대한 API 설명서는 웹 서비스에 대한 **사용** 및 **Swagger API** 페이지의 [Machine Learning 웹 서비스](https://services.azureml.net/Quickstart) 포털을 통해 제공됩니다.
 > 
 > 
 
@@ -69,14 +70,14 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 7. **웹 서비스 배포** 를 클릭하고 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]** 를 선택하여 웹 서비스를 배포합니다.
 
 > [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
 
 이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 
 ## <a name="more-information"></a>자세한 정보
 자세한 예제는 [Machine Learning 블로그](/archive/blogs/machinelearning/azureml-web-service-parameters)의 [웹 서비스 매개 변수](/archive/blogs/machinelearning/azureml-web-service-parameters) 항목을 참조하세요.
 
-Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
+Machine Learning 웹 서비스에 액세스하는 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.
 
 <!-- Module References -->
 [feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing

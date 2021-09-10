@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4bf27ffc888e189f15e1c435309cbeddb1c11fec
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: aa655e442ecc120ec6537ad7f43dd8591e59408e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830343"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608549"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -63,7 +63,7 @@ Hybrid Runbook Worker에 대한 네트워킹 요구 사항의 경우 [네트워�
 
 ### <a name="adding-a-machine-to-a-hybrid-runbook-worker-group"></a>머신을 Hybrid Runbook Worker 그룹에 추가
 
-Automation 계정 중 하나에 있는 Hybrid Runbook Worker 그룹에 작업자 머신을 추가할 수 있습니다. 업데이트 관리에 의해 관리되는 시스템 Hybrid Runbook Worker를 호스트하는 머신의 경우 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 단, 업데이트 관리 및 Hybrid Runbook Worker 그룹 멤버 자격 모두에 대해 동일한 Automation 계정을 사용해야 합니다.
+Automation 계정 중 하나에 있는 Hybrid Runbook Worker 그룹에 작업자 머신을 추가할 수 있습니다. 업데이트 관리에 의해 관리되는 시스템 Hybrid Runbook Worker를 호스트하는 컴퓨터는 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 단, 업데이트 관리 및 Hybrid Runbook Worker 그룹 멤버 자격 모두에 대해 동일한 Automation 계정을 사용해야 합니다.
 
 >[!NOTE]
 >Azure Automation [업데이트 관리](./update-management/overview.md)는 업데이트 관리에 대해 사용하도록 설정된 Azure 또는 비 Azure 머신에서 시스템 Hybrid Runbook Worker를 자동으로 설치합니다. 그러나 이 작업자는 Automation 계정의 어떠한 Hybrid Runbook Worker 그룹에도 등록되지 않습니다. 이러한 머신에서 Runbook을 실행하려면 Hybrid Runbook Worker 그룹에 추가해야 합니다. [수동 배포](#manual-deployment) 섹션에 있는 6단계를 수행하여 그룹에 추가합니다.
@@ -94,7 +94,7 @@ Runbook은 다음 매개 변수를 사용합니다.
 
 | 매개 변수 | 상태 | Description |
 | ------- | ----- | ----------- |
-| `Location` | 필수 | Log Analytics 작업 영역의 위치입니다. |
+| `Location` | 필수 | 스크립트가 실행되는 자동화 계정의 위치입니다. |
 | `ResourceGroupName` | 필수 | Automation 계정에 대한 리소스 그룹입니다. |
 | `AccountName` | 필수 | Hybrid Run Worker가 등록되는 Automation 계정 이름입니다. |
 | `CreateLA` | 필수 | True인 경우 `WorkspaceName`의 값을 사용하여 Log Analytics 작업 영역을 만듭니다. False인 경우 `WorkspaceName`의 값이 기존 작업 영역을 참조해야 합니다. |
@@ -169,13 +169,13 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수
 
 1. Log Analytics 에이전트를 대상 머신에 배포합니다.
 
-    * Azure VM의 경우 [Windows용 가상 머신 확장](../virtual-machines/extensions/oms-windows.md)을 사용하여 Windows용 Log Analytics 에이전트를 설치합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. Azure Resource Manager 템플릿, PowerShell 또는 Azure Policy를 사용하여 [*Linux* 또는 *Windows* VM에 대한 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책을 할당할 수 있습니다. 에이전트가 설치되면 머신을 Automation 계정의 Hybrid Runbook Worker 그룹에 추가할 수 있습니다.
+    * Azure VM의 경우 [Windows용 가상 머신 확장](../virtual-machines/extensions/oms-windows.md)을 사용하여 Windows용 Log Analytics 에이전트를 설치합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. Azure Resource Manager 템플릿, PowerShell 또는 Azure Policy를 사용하여 [*Linux* 또는 *Windows* VM에 대한 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 할당할 수 있습니다. 에이전트가 설치되면 머신을 Automation 계정의 Hybrid Runbook Worker 그룹에 추가할 수 있습니다.
     
     * 비 Azure 머신의 경우 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다. Arc 사용 서버는 다음 방법을 사용한 Log Analytics 에이전트 배포를 지원합니다.
     
         - VM 확장 프레임워크 사용.
         
-            Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. VM 확장은 하이브리드 컴퓨터 또는 Arc 사용 서버에 의해 관리되는 서버에서 다음 방법을 이용하여 관리할 수 있습니다.
+            Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. 하이브리드 머신 또는 Arc 지원 서버에서 관리하는 서버에서 다음 방법을 사용하여 VM 확장을 관리할 수 있습니다.
         
             - [Azure Portal](../azure-arc/servers/manage-vm-extensions-portal.md)
             - [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
@@ -184,7 +184,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수
         
         - Azure Policy 사용.
         
-            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책을 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
+            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사를 수행합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
 
     Azure Policy를 사용하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치하는 것이 좋습니다.
 

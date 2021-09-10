@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/25/2021
-ms.custom: how-to
-ms.openlocfilehash: 53fa68fdffd27c1d48322104c541894c6f9c4dd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 8/11/2021
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751256"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568110"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "111751256"
 > [!div class="checklist"]
 > * MLflow 모델에 대한 코드 없는 환경을 사용하여 일괄 처리 엔드포인트 만들기
 > * 일괄 처리 엔드포인트 세부 정보 확인
-> * CLI를 사용하여 일괄 처리 채점 작업 시작
+> * Azure CLI를 사용하여 일괄 처리 채점 작업 시작
 > * 일괄 처리 채점 작업 실행 진행률 모니터링 및 채점 결과 확인
 > * 일괄 처리 엔드포인트에 새 배포 추가
 > * REST를 사용하여 일괄 처리 채점 작업 시작
@@ -36,7 +36,7 @@ ms.locfileid: "111751256"
 
 ## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * Azure CLI(명령줄 인터페이스) 및 ML 앱.
 
@@ -64,7 +64,7 @@ Azure ML 확장을 추가하고 구성합니다.
 az extension add -n ml
 ```
 
-ML 확장 구성에 대한 자세한 내용은 [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
+ML 확장 구성에 대한 자세한 내용은 [CLI(v2) 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
 
 * 예제 리포지토리
 
@@ -77,22 +77,20 @@ ML 확장 구성에 대한 자세한 내용은 [2.0 CLI 설치, 설정 및 사�
 다음 코드를 실행하여 범용 [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) 대상을 만듭니다. 컴퓨팅 대상에 대한 자세한 내용은 [Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?](./concept-compute-target.md)를 참조하세요.
 
 ```azurecli
-az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type amlcompute --min-instances 0 --max-instances 5
 ```
 
 ## <a name="create-a-batch-endpoint"></a>일괄 처리 엔드포인트 만들기
 
 MLflow 모델을 사용하는 경우 코드 없는 일괄 처리 엔드포인트 만들기를 사용할 수 있습니다. 즉, 채점 스크립트 및 환경을 준비할 필요가 없으며 둘 다 자동 생성될 수 있습니다. 자세한 내용은 [MLflow 및 Azure Machine Learning을 통해 ML 모델 학습 및 추적(미리 보기)](how-to-use-mlflow.md)를 참조하세요.
 
-```azurecli
-az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 다음은 MLFlow 일괄 처리 엔드포인트를 정의하는 YAML 파일입니다.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
-| 키 | Description |
+| 키 | 설명 |
 | --- | ----------- |
 | $schema | [선택 사항] YAML 스키마입니다. 위 예제의 스키마를 브라우저에서 보면 일괄 처리 엔드포인트 YAML 파일에서 사용할 수 있는 모든 옵션을 볼 수 있습니다. |
 | name | 일괄 처리 엔드포인트의 이름으로, 영역 전체에서 고유해야 합니다. `name` 값은 채점 URI의 일부로 사용됩니다. 값은 영어 문자로 시작하고 숫자, 문자 및 `-` 기호를 혼합하여 사용해야 하며 숫자나 문자로 끝나야 합니다. 3자 이상이어야 합니다. 검증 정규식: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
@@ -103,7 +101,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 배포 특성:
 
-| 키 | Description |
+| 키 | 설명 |
 | --- | ----------- |
 | name | 배포의 이름입니다. |
 | model | 일괄 처리 채점에 사용할 모델입니다. `name`, `version` 및 `local_path`를 사용하여 로컬 컴퓨터에서 모델을 업로드합니다. `azureml:` 접두사를 사용하여 작업 영역에서 기존 모델 리소스를 참조합니다. 예를 들어 `azureml: autolog:1`은 이름이 `autolog`인 모델의 버전 1을 가리킵니다. |
@@ -120,15 +118,13 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 일괄 처리 엔드포인트를 만든 후 `show`를 사용하여 세부 정보를 확인할 수 있습니다. 반환된 데이터에서 특정 특성만 가져오려면 [`--query parameter`](/cli/azure/query-azure-cli)를 사용합니다.
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
-## <a name="start-a-batch-scoring-job-using-cli"></a>CLI를 사용하여 일괄 처리 채점 작업 시작
+## <a name="start-a-batch-scoring-job-using-the-azure-cli"></a>Azure CLI를 사용하여 일괄 처리 채점 작업 시작
 
-일괄 처리 채점 작업은 오프라인 작업으로 실행됩니다. 일괄 처리 채점은 대량 데이터를 처리하도록 설계되었습니다. 입력은 컴퓨팅 클러스터에서 병렬로 처리됩니다. 데이터 파티션은 노드의 프로세스에 할당됩니다. 여러 프로세스가 있는 단일 노드는 여러 파티션을 병렬로 실행합니다. 기본적으로 일괄 처리 채점 출력은 Blob 스토리지에 저장됩니다. 데이터 입력을 전달하면 CLI를 사용하여 일괄 처리 채점 작업을 시작할 수 있습니다. 또한 출력 위치를 구성하고 최상의 성능을 얻기 위해 일부 설정을 덮어쓸 수도 있습니다.
+일괄 처리 채점 작업은 오프라인 작업으로 실행됩니다. 일괄 처리 채점은 대량 데이터를 처리하도록 설계되었습니다. 입력은 컴퓨팅 클러스터에서 병렬로 처리됩니다. 데이터 파티션은 노드의 프로세스에 할당됩니다. 여러 프로세스가 있는 단일 노드는 여러 파티션을 병렬로 실행합니다. 기본적으로 일괄 처리 채점 출력은 Blob 스토리지에 저장됩니다. 데이터 입력을 전달하면 Azure CLI를 사용하여 일괄 처리 채점 작업을 시작할 수 있습니다. 또한 출력 위치를 구성하고 최상의 성능을 얻기 위해 일부 설정을 덮어쓸 수도 있습니다.
 
-### <a name="start-a-bath-scoring-job-with-different-inputs-options"></a>다른 입력 옵션을 사용하여 일괄 처리 채점 작업 시작
+### <a name="start-a-batch-scoring-job-with-different-input-options"></a>다른 입력 옵션을 사용하여 일괄 채점 작업 시작
 
 데이터 입력을 지정하는 세 가지 옵션이 있습니다.
 
@@ -187,30 +183,26 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="check-batch-scoring-job-execution-progress"></a>일괄 처리 채점 작업 실행 진행률 확인
 
 일괄 처리 채점 작업은 일반적으로 전체 입력 집합을 처리하는 데 다소 시간이 소요됩니다. Azure Machine Learning 스튜디오에서 작업 진행 상황을 모니터링할 수 있습니다. 스튜디오 링크는 `invoke`의 응답에 `interactionEndpoints.Studio.endpoint`의 값으로 제공됩니다.
 
-CLI를 사용하여 상태와 함께 작업 세부 정보를 확인할 수도 있습니다.
+Azure CLI를 사용하여 상태와 함께 작업 세부 정보를 확인할 수도 있습니다.
 
 호출 응답에서 작업 이름을 가져옵니다.
 
-```azurecli
-job_name=$(az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 일괄 처리 채점 작업의 세부 정보 및 상태를 확인하려면 `job show`를 사용합니다.
 
-```azurecli
-az ml job show --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 `job stream`을 사용하여 작업 로그를 스트리밍합니다.
 
-```azurecli
-az ml job stream --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="stream_job_logs_to_console" :::
+
 
 ## <a name="check-batch-scoring-results"></a>일괄 처리 채점 결과 확인
 
@@ -234,9 +226,7 @@ az ml job stream --name $job_name
 
 다음 명령을 사용하여 기존 일괄 처리 엔드포인트에 새 배포를 추가합니다.
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" range="65" :::
 
 이 샘플에서는 비 MLflow 모델을 사용합니다. 비 MLflow를 사용하는 경우 YAML 파일에서 환경 및 채점 스크립트를 지정해야 합니다.
 
@@ -252,29 +242,21 @@ az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpo
 
 배포 세부 정보를 검토하려면 다음을 실행합니다.
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### <a name="activate-the-new-deployment"></a>새 배포를 활성화합니다.
 
 일괄 처리 유추의 경우 원하는 배포에 문의를 100% 보내야 합니다. 새로 만든 배포를 대상으로 설정하려면 다음을 사용합니다.
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="switch_traffic" :::
 
 배포 세부 정보를 다시 검사하면 변경 내용이 표시됩니다.
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 이제 이 새 배포를 통해 일괄 처리 채점 작업을 호출할 수 있습니다.
 
-```azurecli
-az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="start-a-batch-scoring-job-using-rest"></a>REST를 사용하여 일괄 처리 채점 작업 시작
 
@@ -282,28 +264,17 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 1. `scoring_uri`를 가져옵니다.  
 
-```azurecli
-scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_scoring_uri" :::
 
 2. 액세스 토큰을 가져옵니다.
 
-```azurecli
-auth_token=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
+
 
 3. `scoring_uri`, 액세스 토큰 및 JSON 데이터를 사용하여 요청을 게시하고 일괄 처리 채점 작업을 시작합니다.
 
-```bash
-curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
-"properties": {
-  "dataset": {
-    "dataInputType": "DataUrl",
-    "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
-    }
-  }
-}'
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_rest":::
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -321,3 +292,4 @@ curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $a
 이 문서에서는 많은 양의 데이터를 채점할 수 있도록 배치 엔드포인트를 만들고 호출하는 방법을 배웠습니다. Azure Machine Learning에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [일괄 처리 엔드포인트 문제 해결](how-to-troubleshoot-batch-endpoints.md)
+* [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)

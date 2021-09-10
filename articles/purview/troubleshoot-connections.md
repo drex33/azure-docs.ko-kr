@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/04/2021
-ms.openlocfilehash: 812c7871a6fd9501164530f0e9feee92f275426b
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: ab622cd2d8d88c79a4dd0098beded490f9e76a36
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526491"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539571"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Azure Purview 연결 관련 문제 해결
 
@@ -63,7 +63,7 @@ Azure Blog Storage 또는 Azure SQL 데이터베이스와 같은 단일 데이�
 > [!IMPORTANT]
 > _공용 네트워크 액세스 거부_ 를 사용하여 Azure SQL 데이터베이스로 데이터베이스를 포함하는 여러 데이터 원본을 검사하면 실패합니다. 프라이빗 엔드포인트를 사용하여 이러한 데이터 원본을 검사하려면 대신 단일 데이터 원본 등록 옵션을 사용합니다.
 
-자체 호스팅 통합 런타임 설정에 대한 자세한 내용은 [프라이빗 네트워크, VNet에서, 프라이빗 엔드포인트 뒤의 수집 프라이빗 엔드포인트 및 검사 원본](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints)을 참조하세요.
+자체 호스팅 통합 런타임 설정에 관한 자세한 내용은 [수집 프라이빗 엔드포인트 및 검사 원본](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources)을 참조하세요.
 
 Azure Purview에서 새 자격 증명을 만드는 방법에 대한 자세한 내용은 [Azure Purview에서 원본 인증을 위한 자격 증명](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)을 참조하세요.
 

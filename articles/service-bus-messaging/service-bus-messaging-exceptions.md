@@ -2,13 +2,13 @@
 title: Azure Service Bus - 메시징 예외 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 메시징 예외 및 예외 발생 시 수행해야 할 권장 작업 목록을 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 6c980b81d18dbbcb5764b3d8c4ed040f930bce4f
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 08/04/2021
+ms.openlocfilehash: 1535ae6e125ee11d30fab1aeaa12afe57a66b0e5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160982"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528697"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
 
@@ -48,7 +48,7 @@ ms.locfileid: "108160982"
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |비활성화된 엔터티의 런타임 작업에 대한 요청입니다. |엔터티를 활성화합니다. |그 사이에 엔터티가 활성화된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |사전 필터링이 활성화되었으며 일치하는 필터가 없는 항목에 메시지를 보내는 경우 Service Bus가 이 예외를 반환합니다. |하나 이상의 필터가 일치하는지 확인합니다. |다시 시도해도 소용이 없습니다. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |메시지 페이로드가 256KB 제한을 초과합니다. 256KB 제한은 총 메시지 크기입니다. 여기에는 시스템 속성과 모든 .NET 오버헤드가 포함됩니다. |메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. |다시 시도해도 소용이 없습니다. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception) |앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | |다시 시도해도 소용이 없습니다. |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |앰비언트 트랜잭션(`Transaction.Current`)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | |다시 시도해도 소용이 없습니다. |
 | [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |의심스러운 트랜잭션에서 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하는데 해당 트랜잭션의 상태가 확실하지 않습니다. |트랜잭션이 이미 커밋되었을 수 있으므로 애플리케이션에서 이 예외를 처리해야 합니다(특수한 경우). |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -189,6 +189,17 @@ Aliases:  <mynamespace>.servicebus.windows.net
 
    * **일시적인 문제**(이 경우 **_isTransient_*가* _true_ 로 설정됨 *) 또는* 제한 문제** 의 경우 작업을 다시 시도하면 문제가 해결될 수 있습니다. 이 경우 SDK에 대한 기본 재시도 정책을 활용할 수 있습니다.
    * 다른 문제의 경우 예외의 세부 정보를 보면 문제 및 해결 단계를 추론할 수 있습니다.
+
+## <a name="storagequotaexceededexception"></a>StorageQuotaExceededException
+
+### <a name="cause"></a>원인
+
+**StorageQuotaExceededException** 은 프리미엄 네임스페이스에 있는 항목의 총 크기가 [메시징 단위](service-bus-premium-messaging.md)당 한도인 1TB를 초과할 때 생성됩니다.
+
+### <a name="resolution"></a>해결 방법
+
+- 프리미엄 네임스페이스에 할당된 메시징 단위의 수 늘리기
+- 네임스페이스에 대해 허용되는 최대 메시징 단위를 이미 사용하고 있는 경우 별도의 네임스페이스를 만듭니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

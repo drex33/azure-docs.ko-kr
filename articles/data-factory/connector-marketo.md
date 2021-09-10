@@ -6,15 +6,15 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 08/30/2021
 ms.author: chez
 author: chez-charlie
-ms.openlocfilehash: 9583a4ac0cb4150d7896a0c11696aeb2a8f4c328
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 195b99bc9c64c986a0a6e17cb82deae2fb360fda
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642306"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306355"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,13 +42,38 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-marketo-using-ui"></a>UI를 사용하여 Marketo에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Marketo에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+2. Marketo를 검색하고 Marketo 커넥터를 선택합니다.
+
+   :::image type="content" source="media/connector-marketo/marketo-connector.png" alt-text="Marketo 커넥터의 스크린샷":::    
+
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+   :::image type="content" source="media/connector-marketo/configure-marketo-linked-service.png" alt-text="Marketo에 연결된 서비스 구성의 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Marketo 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 다음은 Marketo 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Marketo** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 예 |
@@ -83,7 +108,7 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **MarketoObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -113,7 +138,7 @@ Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MarketoSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **MarketoSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

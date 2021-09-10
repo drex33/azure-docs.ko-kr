@@ -9,16 +9,18 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 1c428d693690d6b215552d0261dcb73547476885
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 41b449e9d4216d591a76815ba7c930b5c23fdfc6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634362"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695669"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 샘플 스크립트
 
-이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하기 위한 샘플 스크립트를 제공합니다.
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
+이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하기 위한 샘플 스크립트를 제공합니다.  
 
 > [!NOTE]
 > 모든 스크립트는 달리 명시된 경우를 제외하면 AAD가 아닌 ADE 최신 버전을 참조합니다.

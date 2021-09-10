@@ -2,32 +2,34 @@
 title: 관리 ID를 사용하여 Azure SQL Database에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결을 설정하는 방법 알아보기
-manager: luisca
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/02/2021
+ms.openlocfilehash: c0bff947d0f5b58a956d05959dd49bbea1f942ab
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358425"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538131"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure SQL Database에 인덱서 연결을 설정하는 방법을 설명합니다.
+
+시스템 할당 관리 ID 또는 사용자 할당 관리 ID(미리 보기)를 사용할 수 있습니다.
 
 이 기능을 학습하기 전에 인덱서가 무엇인지와 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
 
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-## <a name="set-up-a-connection-using-a-managed-identity"></a>관리 ID를 사용하여 연결 설정
+## <a name="1---set-up-a-managed-identity"></a>1 - 관리 ID 설정
 
-### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
+다음 옵션 중 하나를 사용하여 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정합니다.
+
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템 할당 관리 ID 켜기
 
 시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
@@ -36,16 +38,59 @@ ms.locfileid: "94358425"
 **저장** 을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
+ 
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>옵션 2 - 사용자 할당 관리 ID를 검색 서비스(미리 보기)에 할당
 
-### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 - SQL Server의 Azure Active Directory 관리자 프로비저닝
+사용자 할당 관리 ID를 아직 만들지 않은 경우, 새로 만들어야 합니다. 사용자 할당 관리 ID는 Azure 상의 리소스입니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. **+ 리소스 만들기** 를 선택합니다.
+1. "검색 서비스 및 마켓플레이스" 검색 창에서 "사용자 할당 관리 ID"를 검색 한 후, **생성하기** 를 선택합니다.
+1. ID에 설명이 포함된 이름을 지정합니다.
+
+그런 다음, 사용자 할당 관리 ID를 검색 서비스에 할당합니다. [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 이 작업을 수행할 수 있습니다.
+
+ID 속성은 형식 및 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
+
+* **type** 는 ID 유형입니다. 둘 다 사용하려는 경우, 유효한 값은 "SystemAssigned", "UserAssigned", "SystemAssigned, UserAssigned"입니다. "None" 값은 검색 서비스에서 이전에 할당된 ID를 모두 지웁니다.
+* **userAssignedIdentities** 에는 사용자 할당 관리 ID의 세부 정보가 포함됩니다.
+    * 사용자 할당 관리 ID 형식: 
+        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
+
+사용자 할당 관리 ID를 검색 서비스에 할당하는 방법의 예:
+
+```http
+PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+Content-Type: application/json
+
+{
+  "location": "[region]",
+  "sku": {
+    "name": "[sku]"
+  },
+  "properties": {
+    "replicaCount": [replica count],
+    "partitionCount": [partition count],
+    "hostingMode": "default"
+  },
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+    }
+  }
+} 
+```
+
+## <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 - SQL Server의 Azure Active Directory 관리자 프로비저닝
 
 다음 단계에서 데이터베이스에 연결하는 경우 데이터베이스에 대한 액세스 권한을 검색 서비스에 부여하기 위해 데이터베이스에 대한 관리자 액세스 권한이 있는 Azure AD(Active Directory) 계정에 연결해야 합니다.
 
-[여기](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) 지침에 따라 Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을 부여합니다.
+Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을 부여하려면 [Azure SQL를 사용하여 Azure AD 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)를 살펴보세요.
 
-### <a name="3---assign-the-search-service-permissions"></a>3 - 검색 서비스 사용 권한 할당
+## <a name="3---assign-permissions-to-read-the-database"></a>3 - 데이터베이스를 읽을 수 있는 권한 할당
 
-아래 단계에 따라 검색 서비스에 데이터베이스를 읽을 수 있는 사용 권한을 할당합니다.
+아래 단계에 따라 데이터베이스를 읽을 수 있는 권한을 검색 서비스 또는 사용자 할당 관리 ID에 할당합니다.
 
 1. Visual Studio에 연결
 
@@ -53,15 +98,15 @@ ms.locfileid: "94358425"
 
 2. Azure AD 계정을 사용하여 인증
 
-    ![인증](./media/search-managed-identities/visual-studio-authentication.png "Authenticate")
+    ![인증](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
 
 3. 다음 명령을 실행합니다.
 
-    검색 서비스 이름 주위에 대괄호를 포함합니다.
+    검색 서비스 이름 또는 사용자 할당 관리 ID 이름 주위에 대괄호를 포함합니다.
     
     ```
-    CREATE USER [your search service name here] FROM EXTERNAL PROVIDER;
-    EXEC sp_addrolemember 'db_datareader', [your search service name here];
+    CREATE USER [insert your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
+    EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
 
     ![새 쿼리](./media/search-managed-identities/visual-studio-new-query.png "새 쿼리")
@@ -69,14 +114,14 @@ ms.locfileid: "94358425"
     ![쿼리 실행](./media/search-managed-identities/visual-studio-execute-query.png "쿼리 실행")
 
 >[!NOTE]
-> 이 단계를 완료한 후 1단계의 검색 서비스 ID가 변경된 경우에는 역할 멤버 자격을 제거하고 SQL 데이터베이스에서 해당 사용자를 제거한 다음 3단계를 다시 수행하여 사용 권한을 다시 추가해야 합니다.
+> 이 단계를 완료한 후 1단계의 검색 서비스 ID 또는 사용자 할당 ID가 변경된 경우에는 역할 멤버 자격을 제거하고 SQL 데이터베이스에서 해당 사용자를 제거한 다음 3단계를 다시 수행하여 사용 권한을 다시 추가해야 합니다.
 > 다음 명령을 실행하면 역할 멤버 자격 및 사용자를 제거할 수 있습니다.
 > ```
-> sp_droprolemember 'db_datareader', [your search service name];
-> DROP USER IF EXISTS [your search service name];
+> sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
+> DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];
 > ```
 
-### <a name="4---add-a-role-assignment"></a>4 - 역할 할당 추가
+## <a name="4---add-a-role-assignment"></a>4 - 역할 할당 추가
 
 이 단계에서는 Azure Cognitive Search 서비스에 SQL Server에서 데이터를 읽을 수 있는 사용 권한을 부여합니다.
 
@@ -88,13 +133,19 @@ ms.locfileid: "94358425"
 
 4. 적절한 **읽기 권한자** 역할을 선택합니다.
 5. **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 사용자** 로 둡니다.
-6. 검색 서비스를 검색하고 선택한 다음 **저장** 을 선택합니다.
+6. 시스템 할당 관리 ID를 사용하는 경우, 검색 서비스를 검색해 선택합니다. 사용자 할당 관리 ID를 사용하는 경우, 사용자 할당 관리 ID의 이름을 검색해 선택합니다. **저장** 을 선택합니다.
+
+    시스템 할당 관리 ID를 사용하는 Azure SQL 예제:
 
     ![읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-sql-server-reader-role.png "읽기 권한자 역할 할당 추가")
 
-### <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
+## <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 관리 ID 연결 문자열을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
+데이터 원본을 생성하고 시스템 할당 관리 ID 또는 사용자 할당 관리 ID를 제공합니다(미리 보기). 아래 단계에서는 더 이상 관리 REST API을 사용하지 않습니다.
+
+### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>옵션 1 - 시스템 할당 관리 ID를 사용하여 데이터 원본 생성하기
+
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal, [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 시스템 할당 관리 ID를 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
 
 [REST API](/rest/api/searchservice/create-data-source)사용하여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -116,12 +167,57 @@ api-key: [admin key]
 {
     "name" : "sql-datasource",
     "type" : "azuresql",
-    "credentials" : { "connectionString" : "Database=sql-database;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azure-sql-resource-group/providers/Microsoft.Sql/servers/sql-server-search-demo;Connection Timeout=30;" },
-    "container" : { "name" : "my-table" }
+    "credentials" : { 
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
+    },
+    "container" : { 
+        "name" : "my-table" 
+    }
 } 
 ```
 
-### <a name="6---create-the-index"></a>6 - 인덱스 만들기
+### <a name="option-2---create-the-data-source-with-a-user-assigned-managed-identity"></a>옵션 2 - 사용자 할당 관리 ID를 사용하여 데이터 원본 생성하기
+
+2021-04-30-preview REST API는 사용자 할당 관리 ID를 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source), 관리 ID 연결 문자열, 사용자 할당 관리 ID를 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 생성하는 방법의 예입니다.
+
+데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
+
+* **name** 은 검색 서비스 내 데이터 원본의 고유 이름입니다.
+* **type** 은 `azuresql`입니다.
+* **credentials**
+    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceID에는 Azure SQL 데이터베이스의 구독 ID, SQL 데이터베이스의 리소스 그룹 및 SQL 데이터베이스의 이름이 포함되어야 합니다. 
+    * 관리 ID 연결 문자열 형식:
+        * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
+* **container** 에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
+* **identity** 는 사용자 할당 관리 ID의 컬렉션을 포함합니다. 데이터 원본을 생성할 때, 사용자 할당 관리 ID는 하나만 제공해야 합니다.
+    * **userAssignedIdentities** 에는 사용자 할당 관리 ID의 세부 정보가 포함됩니다.
+        * 사용자 할당 관리 ID 형식: 
+            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
+
+다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Blob 데이터 원본 개체를 만드는 방법의 예입니다.
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "sql-datasource",
+    "type" : "azuresql",
+    "credentials" : { 
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
+    },
+    "container" : { 
+        "name" : "my-table" 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]"
+    }
+}   
+```
+
+## <a name="6---create-the-index"></a>6 - 인덱스 만들기
 
 인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.
 
@@ -135,15 +231,15 @@ api-key: [admin key]
 {
     "name" : "my-target-index",
     "fields": [
-    { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
     ]
 }
 ```
 
 인덱스 만들기에 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index)를 참조하세요.
 
-### <a name="7---create-the-indexer"></a>7 - 인덱서 만들기
+## <a name="7---create-the-indexer"></a>7 - 인덱서 만들기
 
 인덱서는 데이터 원본을 대상 검색 인덱스와 연결하고 데이터 새로 고침을 자동화하는 일정을 제공합니다.
 

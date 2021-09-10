@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ed79831559802efdf7e3813f48b74c2fd3c63e87
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: bfcbdeb2755f76d5391de4a3c64a934b43e8f0f2
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581874"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982945"
 ---
 # <a name="monitor-indexer-status-and-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 상태 및 결과 모니터링
 
@@ -25,7 +25,7 @@ Azure Portal에서 또는 REST 호출 또는 Azure SDK를 통해 프로그래밍
 
    ![인덱서 목록](media/search-monitor-indexers/indexers-list.png "인덱서 목록")
 
-| 상태 | Description |
+| 상태 | 설명 |
 |--------|-------------|
 | **진행 중** | 활성 실행을 나타냅니다. 포털에서 부분적인 정보를 보고합니다. 인덱싱이 진행됨에 따라 응답으로 **문서 성공** 값이 증가하는 것을 볼 수 있습니다. 대량의 데이터를 처리하는 인덱서는 실행하는 데 시간이 오래 걸릴 수 있습니다. 예를 들어 수백만 개의 원본 문서를 처리하는 인덱서는 24시간 동안 실행된 다음 거의 즉시 다시 시작할 수 있습니다. 대용량 인덱서의 상태는 포털에서 항상 **진행 중** 이라고 표시될 수 있습니다. 인덱서를 실행하는 경우에도 진행 중인 진행률과 이전 실행에 대한 세부 정보를 확인할 수 있습니다. |
 | **Success** | 실행이 성공했음을 나타냅니다. 오류 수가 인덱서의 **최대 실패 항목** 설정보다 적으면 개별 문서에 오류가 있어도 인덱서 실행이 성공할 수 있습니다. |
@@ -48,7 +48,7 @@ Azure Portal에서 또는 REST 호출 또는 Azure SDK를 통해 프로그래밍
 
 경고는 일부 인덱서 유형에서 일반적이며, 항상 문제를 나타내는 것은 아닙니다. 예를 들어 인식 서비스를 사용하는 인덱서는 이미지 또는 PDF 파일에 처리할 텍스트가 포함되지 않은 경우 경고를 보고할 수 있습니다. 
 
-인덱서 오류 및 경고를 조사하는 방법에 대한 자세한 내용은 [Azure Cognitive Search의 일반적인 인덱서 문제 해결](search-indexer-troubleshooting.md)을 참조하세요.
+인덱서 오류 및 경고를 조사하는 방법에 대한 자세한 내용은 [인덱서 문제 해결 가이드](search-indexer-troubleshooting.md)를 참조하세요.
 
 ## <a name="monitor-using-get-indexer-status-rest-api"></a>인덱서 상태 가져오기를 사용하여 모니터링(REST API)
 

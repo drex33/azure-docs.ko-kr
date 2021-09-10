@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 7dd11143e3852d17787de5e20ebe53290f5af96f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e7780f2214cd603bbf4bd7955a8be7bc7128b89
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528491"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777624"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -62,7 +62,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 퍼블릭 또는 Azure Government 클라우드용 물리적 어플라이언스를 설정할 수 있습니다.

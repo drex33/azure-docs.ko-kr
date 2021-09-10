@@ -17,12 +17,12 @@ ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce8adf65eba2586440d490860f13a6c5aa1f626
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a5fbc6789fe83f07e0a22239e93a08eb9bd8cf4f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088177"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830768"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>방법: Azure AD의 비활성 사용자 계정 관리
 
@@ -44,7 +44,7 @@ ms.locfileid: "110088177"
     
 ## <a name="how-to-detect-inactive-user-accounts"></a>비활성 사용자 계정을 검색하는 방법
 
-**Microsoft Graph** API의 **signInActivity** 리소스 종류에 의해 노출되는 **lastSignInDateTime** 속성을 평가하여 비활성 계정을 검색합니다. 이 속성을 사용하여 다음 시나리오에 대한 솔루션을 구현할 수 있습니다.
+**Microsoft Graph** API의 **signInActivity** 리소스 종류에 의해 노출되는 **lastSignInDateTime** 속성을 평가하여 비활성 계정을 검색합니다. **LastSignInDateTime** 속성은 사용자가 Azure AD에 성공적으로 대화형 로그인을 수행한 마지막 시간을 보여 줍니다. 이 속성을 사용하여 다음 시나리오에 대한 솔루션을 구현할 수 있습니다.
 
 - **이름 기준 사용자**: 이 시나리오에서는 이름으로 특정 사용자를 검색합니다. 그러면 lastSignInDateTime을 평가할 수 있습니다. `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
@@ -61,6 +61,9 @@ ms.locfileid: "110088177"
 ### <a name="how-can-i-access-this-property"></a>이 속성에 액세스하려면 어떻게 해야 하나요?
 
 **lastSignInDateTime** 속성은 [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph)의 [signInActivity 리소스 종류](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true)에 의해 노출됩니다.   
+
+> [!NOTE]
+> signInActivity Graph API 엔드포인트는 아직 미국 정부 GCC High 환경에서 지원되지 않습니다.
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>Get-AzureAdUser cmdlet을 통해 lastSignInDateTime 속성을 사용할 수 있나요?
 

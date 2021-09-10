@@ -4,15 +4,16 @@ description: Azure Data Factory 매핑 데이터 흐름을 만드는 방법
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: eaf36cc2690b3c0f8922c05432b3197b4ff30d9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/05/2021
+ms.openlocfilehash: 1ab0a225cc38290ef8f42eb8375ddc2f1f67c677
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93026057"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566719"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Azure Data Factory Data Flow 만들기
 
@@ -20,11 +21,11 @@ ms.locfileid: "93026057"
 
 ADF의 Mapping Data Flow는 코딩하지 않고도 대규모 데이터를 변환할 수 있는 방법을 제공합니다. 일련의 변환을 생성하여 데이터 흐름 디자이너에서 데이터 변환 작업을 설계할 수 있습니다. 임의 개수의 원본 변환으로 시작한 다음, 데이터 변환 단계를 수행합니다. 데이터 흐름을 싱크로 완료하여 결과를 대상으로 이동합니다.
 
-먼저 Azure Portal에서 새 V2 Data Factory를 만듭니다. 새 팩터리를 만든 후 “작성자 및 모니터” 타일을 클릭하여 Data Factory UI를 시작합니다.
+먼저 Azure Portal에서 새 V2 Data Factory를 만듭니다. 새 팩터리를 생성한 후, "Azure Data Factory Studio 열기" 타일에서 "열기"를 선택하여 Data Factory UI를 시작합니다.
 
 ![버전으로 V2가 선택된 새 데이터 팩터리 창을 보여 주는 스크린샷](media/data-flow/v2portal.png "데이터 흐름 만들기")
 
-Data Factory UI가 표시되면 샘플 데이터 흐름을 사용할 수 있습니다. 이 샘플은 ADF 템플릿 갤러리에서 제공됩니다. ADF에서 “템플릿에서 파이프라인”을 만들고 템플릿 갤러리에서 데이터 흐름 범주를 선택합니다.
+Data Factory UI가 표시되면 샘플 데이터 흐름을 사용할 수 있습니다. 이 샘플은 ADF 템플릿 갤러리에서 제공됩니다. ADF에서, 홈페이지의 '더 알아보기' 섹션에 있는 "파이프라인 템플릿" 타일을 선택하고 템플릿 갤러리에서 Data Flow 범주를 선택합니다.
 
 ![데이터 흐름을 사용하여 데이터 변환이 선택된 데이터 흐름 탭을 보여 주는 스크린샷](media/data-flow/template.png "데이터 흐름 만들기")
 

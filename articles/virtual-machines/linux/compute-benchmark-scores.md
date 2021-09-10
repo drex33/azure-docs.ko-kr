@@ -7,18 +7,18 @@ ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 57892c7648be1bf05a84dcd7de5d4503fa412a3b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 2a00c966d7a1ba40d0ba27dc4f4ca3b386a44601
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483744"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587862"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
 다음 CoreMark 벤치마크 점수는 Ubuntu 18.04를 실행하는 Azure의 고성능 VM 목록에 대한 컴퓨팅 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
 
 ## <a name="azure-coremark-toc"></a>Azure (CoreMark) 목차
-| 형식 | 계열 |
+| 형식 | 제품군 |
 | ---- | -------- |
 | [컴퓨팅 최적화](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage)  |
 | [범용](#general-purpose) | [B](#b---burstable) [Dsv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DC](#dcs---confidential-compute-series) [DCv2](#dcsv2) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
@@ -614,6 +614,7 @@ ms.locfileid: "107483744"
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_M208ms_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 5,700.0 | 3,009,120 | 58,843 | 1.96% | 42 |
 | Standard_M208ms_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 8 | 5,700.0 | 3,093,184 | 33,253 | 1.08% | 42 |
+| Standard_M208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 2,850.0 | 3,020,762 | 55,134 | 1.83% | 84 |
 | Standard_M416s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 416 | 8 | 5,700.0 | 5,959,252 | 93,933 | 1.58% | 84 |
 | Standard_M416-208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 5,700.0 | 2,992,729 | 52,652 | 1.76% | 14 |
 | Standard_M416-208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 8 | 5,700.0 | 3,085,232 | 36,568 | 1.19% | 70 |
@@ -689,11 +690,11 @@ ms.locfileid: "107483744"
 
 ## <a name="about-coremark"></a>CoreMark 정보
 
-[CoreMark](https://www.eembc.org/coremark/faq.php)는 MCU(마이크로 컨트롤러) 또는 CPU(중앙 처리 장치)의 기능을 테스트하는 벤치마크입니다. CoreMark는 시스템에 종속되지 않으므로 플랫폼에 관계없이 동일하게 작동합니다(예: big 또는 little endian, 고사양 또는 저사양 프로세서). 
+[CoreMark](https://www.eembc.org/coremark/faq.php)는 MCU(마이크로 컨트롤러) 또는 CPU(중앙 처리 단위)의 기능을 테스트하는 벤치마크입니다. CoreMark는 시스템에 종속되지 않으므로 플랫폼에 관계없이 동일하게 작동합니다(예: big 또는 little endian, 고사양 또는 저사양 프로세서). 
 
 Linux 번호는 Ubuntu 18.04에서 CoreMark를 실행하여 계산되었습니다. CoreMark는 스레드 수를 가상 CPU 수로 설정하고 동시성을 `PThreads`로 설정하여 구성되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 위에 표시된 테스트 실행 날짜 실행된 날짜에서 VM이 지원된 Azure 공용 지역의 여러 VM에 대한 테스트 실행 
 
-### <a name="running-coremark-on-azure-vms"></a>Azure VM에서 CoreMark 실행
+### <a name="running-coremark-on-azure-vms"></a>Azure VM에서 Coremark 실행
 
 **다운로드:**
 
@@ -705,17 +706,17 @@ CoreMark는 [GitHub](https://github.com/eembc/coremark)에서 다운로드할 �
 
 ```> make```
 
-전체 결과는 ```run1.log``` 및 ```run2.log``` 파일에서 사용할 수 있습니다. 
-```run1.log```에는 CoreMark 결과가 포함되어 있습니다. 이러한 결과는 성능 매개변수를 사용한 벤치마크 결과입니다.
-```run2.log```에는 유효성 검사 매개변수를 사용한 벤치마크 결과가 포함되어 있습니다. 
+전체 결과는 ```run1.log``` 및 ```run2.log``` 파일에서 볼 수 있습니다. 
+```run1.log```에는 CoreMark 결과가 포함됩니다. 성능 매개 변수를 사용한 벤치마크 결과입니다.
+```run2.log```에는 유효성 검사 매개 변수를 사용한 벤치마크 결과가 포함됩니다. 
 
 **런타임:**
 
-기본적으로 벤치마크는 10~100초 사이에 실행됩니다. 재정의하려면 ```ITERATIONS=N```을 사용합니다.
+기본적으로 벤치마크는 10-100초 사이에 실행됩니다. 재정의하려면 ```ITERATIONS=N```을 사용합니다.
 
 ```% make ITERATIONS=10```
 
-위의 플래그는 10회 반복에 대한 벤치마크를 실행합니다. 
+위의 플래그는 10번의 반복에 대한 벤치마크를 실행합니다. 
 **결과는 벤치마크가 10초 이상 실행된 경우에만 보고에 유효합니다!**
 
 **병렬 실행:**
@@ -724,13 +725,13 @@ CoreMark는 [GitHub](https://github.com/eembc/coremark)에서 다운로드할 �
 
 ```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
 
-위에서는 4개의 코어에서 실행하기 위한 벤치마크를 컴파일합니다.
+위의 내용은 4개 코어에서 실행하기 위한 벤치마크를 컴파일합니다.
 
 **최상의 결과를 위한 권장 사항**
 
-- 벤치마크는 10초 이상 실행해야 하며 더 큰 시스템에서는 더 오래 걸릴 수 있습니다.
-- 모든 원본 파일은 동일한 플래그를 사용하여 컴파일해야 합니다.
-- ```core_portme*``` 이외의 원본 파일은 변경하지 않습니다(```make check```를 사용하여 유효성 검사).
+- 벤치마크는 최소 10초 동안 실행해야 하며 더 큰 시스템에서는 더 오래 실행해야 합니다.
+- 모든 원본 파일은 동일한 플래그로 컴파일되어야 합니다.
+- ```core_portme*``` 이외의 원본 파일을 변경하지 마세요(```make check```를 사용하여 확인).
 - 최상의 결과를 얻으려면 여러 번 실행하는 것이 좋습니다.
 
 ## <a name="coverage"></a>적용 범위

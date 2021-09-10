@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f45bc134c656701ff02beca464ac00fdf222f88
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92172268"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830206"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Azure Synapse Analytics용 Apache Spark를 사용하여 Azure Data Explorer에 연결
 
@@ -57,6 +57,8 @@ Azure Data Explorer 데이터베이스를 작업 영역에 연결하는 작업�
 1. Azure Data Explorer 클러스터 및 데이터베이스는 **Azure Data Explorer** 섹션의 **연결됨** 탭에 표시됩니다.
 
     ![클러스터 탐색을 보여주는 스크린샷](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
+
+1. Notebook에서 연결된 서비스와 상호 작용하려면 먼저 작업 영역에 게시해야 합니다. 도구 모음에서 **게시** 를 클릭하고 보류 중인 변경 내용을 검토한 다음 **확인** 을 클릭합니다.
 
     > [!NOTE]
     > 현재 릴리스에서 데이터베이스 개체는 Azure Data Explorer 데이터베이스에 대한 Azure AD 계정 권한에 따라 채워집니다. Apache Spark Notebook 또는 통합 작업을 실행하면 연결된 서비스의 자격 증명(예: 서비스 주체)이 사용됩니다.

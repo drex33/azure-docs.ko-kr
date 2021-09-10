@@ -2,25 +2,25 @@
 title: Azure Active Directory에서 애플리케이션에 대한 동의 관리 및 동의 요청 평가
 description: 사용자 동의가 사용하지 않도록 설정되거나 제한되는 경우 동의 요청을 관리하는 방법 및 Azure Active Directory 애플리케이션에 대한 테넌트 전체 관리자 동의에 대한 요청을 평가하는 방법에 대해 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 4b533c7e12cf62ac633b4988774d7cff71b3e677
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079268"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568517"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>애플리케이션에 대한 동의 관리 및 동의 요청 평가
 
-애플리케이션에 최종 사용자 동의를 사용하지 않도록 설정하는 것이 [좋습니다](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations). 이렇게 하면 조직의 보안 및 ID 관리자 팀과 의사 결정 프로세스를 중앙 집중화할 수 있습니다.
+Microsoft는 사용자가 선택한 권한과 확인된 게시자의 앱에 대해서만 동의할 수 있도록 [사용자 동의를 제한](../../active-directory/manage-apps/configure-user-consent.md)할 것을 권장합니다. 이 정책을 충족하지 않는 앱의 경우 의사 결정 프로세스는 조직의 보안 및 ID 관리자 팀과 함께 중앙 집중화됩니다.
 
 최종 사용자 동의를 사용하지 않도록 설정하거나 제한한 후에는 업무상 중요한 애플리케이션을 계속 사용할 수 있는 동시에 조직이 안전하게 유지되도록 하기 위해 몇 가지 중요한 고려 사항이 있습니다. 이러한 단계는 조직의 지원 팀과 IT 관리자에게 미치는 영향을 최소화하는 동시에 타사 애플리케이션에서 관리되지 않는 계정을 사용하지 못하도록 하는 데 중요합니다.
 
@@ -94,28 +94,34 @@ ms.locfileid: "112079268"
 ## <a name="granting-consent-as-an-administrator"></a>관리자로서 권한 부여
 
 ### <a name="granting-tenant-wide-admin-consent"></a>테넌트 전체 관리자 동의 부여
+
 Azure Portal, Azure AD PowerShell 또는 동의 확인 프롬프트 자체에서 테넌트 전체 관리자 동의를 부여하는 단계별 지침은 [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)를 참조하세요.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>특정 사용자를 대신하여 동의 부여
+
 관리자는 전체 조직에 대한 동의를 부여하는 대신 [Microsoft Graph API](/graph/use-the-api)를 사용하여 단일 사용자 대신 위임된 권한에 대한 동의를 부여할 수도 있습니다. 자세한 내용은 [사용자를 대신하여 액세스 권한 가져오기](/graph/auth-v2-user)를 참조하세요.
 
 ## <a name="limiting-user-access-to-applications"></a>애플리케이션에 대한 사용자 액세스 제한
+
 테넌트 전체 관리자 동의가 부여된 경우에도 애플리케이션에 대한 사용자 액세스는 계속 제한될 수 있습니다. 애플리케이션에 사용자 할당을 요구하는 방법에 대한 자세한 내용은 [사용자 및 그룹을 할당하는 방법](./assign-user-or-group-access-portal.md)을 참조하세요.
 
 추가적인 복잡한 시나리오를 처리하는 방법을 비롯한 광범위한 개요는 [애플리케이션 액세스 관리에 Azure AD 사용](what-is-access-management.md)을 참조하세요.
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 사용하지 않도록 설정
+
 전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](../develop/howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
 
 전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화하려면 다음 단계를 따릅니다.
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스** 를 클릭하여 **Azure Active Directory 확장** 을 엽니다.
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-4.  탐색 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-5.  **사용자 설정** 을 선택합니다.
-6.  **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요** 로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
+
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스** 를 클릭하여 **Azure Active Directory 확장** 을 엽니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+4. 탐색 메뉴에서 **사용자 및 그룹** 을 선택합니다.
+5. **사용자 설정** 을 선택합니다.
+6. **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요** 로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)

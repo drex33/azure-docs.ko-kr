@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 1c3bcfea0e703de28c79048380f8389fa93014b3
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 5f7bd55cfbdd0e38e2c53784dd24760fb051c0f1
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585343"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112233586"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Enterprise Azure Cache for Redis 인스턴스에 대해 활성 지역 복제 구성(미리 보기)
 
@@ -33,13 +33,13 @@ ms.locfileid: "110585343"
 
     ![활성 지역 복제 구성](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
 
-1. **구성** 을 클릭하여 **활성 지역 복제** 를 설정합니다.
+1. **구성** 을 선택하여 **활성 지역 복제** 를 설정합니다.
 
 1. 첫 번째 캐시 인스턴스에 대해 새 복제 그룹을 만들거나 목록에서 기존 복제 그룹을 선택합니다.
 
     ![캐시 연결](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-new-group.png)
 
-1. **구성** 을 클릭하여 완료합니다.
+1. **구성** 을 선택하여 완료합니다.
 
     ![활성 지역 복제가 구성됨](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 

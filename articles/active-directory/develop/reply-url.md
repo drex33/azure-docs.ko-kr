@@ -5,32 +5,42 @@ description: Microsoft ID 플랫폼에서 적용하는 리디렉션 URI(회신 U
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/23/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 96fe21b4f1df662e72ec88abc68d74db25257de1
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112966467"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662040"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI(회신 URL) 제한 사항
 
 리디렉션 URI 또는 회신 URL은 앱이 성공적으로 인증되고 인증 코드 또는 액세스 토큰이 부여된 후 권한 부여 서버가 사용자를 보내는 위치입니다. 권한 부여 서버는 코드 또는 토큰을 리디렉션 URI로 보내므로 앱 등록 프로세스의 일부로 올바른 위치를 등록하는 것이 중요합니다.
 
- 리디렉션 URI에는 다음 제한 사항이 적용됩니다.
+Azure AD(Azure Active Directory) 애플리케이션 모델은 이러한 제한을 지정하여 리디렉션 URI를 제한합니다.
 
 * 리디렉션 URI는 스키마 `https`로 시작해야 합니다. [Localhost 리디렉션 URI에 대한 몇 가지 예외](#localhost-exceptions)가 있습니다.
 
-* 리디렉션 URI는 대/소문자를 구분합니다. 해당 사례는 실행 중인 애플리케이션의 URL 경로에 대한 대/소문자와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 리디렉션 URI에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분으로 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
+* 리디렉션 URI는 대/소문자가 구분되며 실행 중인 애플리케이션의 URL 경로와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 리디렉션 URI에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분으로 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
 
-* 패스 세그먼트가 없는 리디렉션 URI는 응답의 URI에 후행 슬래시를 추가합니다. 예를 들어 https://contoso.com 및 http://localhost:7071 과 같은 URI는 각각 https://contoso.com/ 및 http://localhost:7071/ 로 반환됩니다. 이는 응답 모드가 쿼리 또는 조각일 때만 적용됩니다.
+* 패스 세그먼트로 구성되지 않은 리디렉션 URI는 응답에서 후행 슬래시('`/`')와 함께 반환됩니다. 이는 응답 모드가 `query` 또는 `fragment`인 경우만 해당합니다.
 
-* 패스 세그먼트를 포함하는 리디렉션 URI는 후행 슬래시를 추가하지 않습니다. (예: https://contoso.com/abc , https://contoso.com/abc/response-oidc 는 응답에 그대로 사용됨)
+    예:
+
+    * `https://contoso.com`이 `https://contoso.com/`으로 반환됨
+    * `http://localhost:7071`이 `http://localhost:7071/`로 반환됨
+
+* 패스 세그먼트가 포함된 리디렉션 URI의 경우, 응답에 후행 슬래시가 포함되지 않습니다.
+
+    예:
+
+    * `https://contoso.com/abc`가 `https://contoso.com/abc`로 반환됨
+    * `https://contoso.com/abc/response-oidc`가 `https://contoso.com/abc/response-oidc`로 반환됨
 
 ## <a name="maximum-number-of-redirect-uris"></a>최대 리디렉션 URI 수
 
@@ -47,11 +57,20 @@ ms.locfileid: "112966467"
 
 ## <a name="supported-schemes"></a>지원되는 스키마
 
-현재 Azure AD(Azure Active Directory) 애플리케이션 모델은 모든 조직의 Azure AD 테넌트에서 회사 또는 학교 계정에 로그인하는 앱에 HTTP 및 HTTPS 스키마를 모두 지원합니다. 이러한 계정 유형은 애플리케이션 매니페스트의 `signInAudience` 필드에서 `AzureADMyOrg` 및 `AzureADMultipleOrgs` 값으로 지정됩니다. 개인 Microsoft 계정(MSA) *및* 학교 계정(`signInAudience`이 `AzureADandPersonalMicrosoftAccount`로 설정됨)에 로그인하는 앱의 경우 HTTPS 스키마만 허용됩니다.
+**HTTPS**: HTTPS 스키마(`https://`)는 모든 HTTP 기반 리디렉션 URI에 대해 지원됩니다.
 
-HTTP 스키마를 사용하는 리디렉션 URI를 회사 또는 학교 계정에 로그인하는 앱 등록에 추가하려면 Azure Portal에서 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)의 애플리케이션 매니페스트 편집기를 사용합니다. 그러나 매니페스트 편집기를 사용하여 HTTP 기반 리디렉션 URI를 설정할 수 있지만, 리디렉션 URI에는 HTTPS 체계를 사용하는 것이 *좋습니다*.
+**HTTP**: HTTP 스키마(`http://`)는 localhost URI에 대해서만 지원되며, 활성 로컬 애플리케이션 개발 및 테스트 도중에만 사용해야 합니다.
 
-## <a name="localhost-exceptions"></a>Localhost 예외
+| 리디렉션 URI 예제                    | 유효성 검사 |
+|-----------------------------------------|----------|
+| `https://contoso.com`                   | Valid    |
+| `https://contoso.com/abc/response-oidc` | Valid    |
+| `https://localhost`                     | Valid    |
+| `http://contoso.com/abc/response-oidc`  | 올바르지 않음  |
+| `http://localhost`                      | Valid    |
+| `http://localhost/abc`                  | Valid    |
+
+### <a name="localhost-exceptions"></a>Localhost 예외
 
 [RFC 8252 섹션 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) 및 [7.3](https://tools.ietf.org/html/rfc8252#section-7.3)에 대하여, "루프백" 또는 "localhost" 리디렉션 URI는 다음과 같은 두 가지 특별 고려 사항과 함께 제공됩니다.
 

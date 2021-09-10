@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db4b08b4403345d7926ec07e94f75cc779fce843
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92057623"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536184"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
 
@@ -33,7 +33,7 @@ ms.locfileid: "92057623"
 
 ## <a name="creating-a-debug-session"></a>디버그 세션 만들기
 
-디버그 세션을 시작하려면 데이터 원본, 기술 세트, 인덱서 및 인덱스가 포함된 기존 AI 보강 파이프라인이 있어야 합니다. 디버그 세션을 구성하려면 세션의 이름을 지정하고 인덱서 실행 중에 기술 실행을 캐시하는 데 사용될 범용 스토리지 계정을 제공해야 합니다. 실행할 인덱서도 선택해야 합니다. 인덱서에는 데이터 원본, 기술 세트 및 인덱스에 저장된 참조가 있습니다. 디버그 세션에서 데이터 원본의 첫 번째 문서가 기본적으로 지정되거나 데이터 원본에서 문서를 단계별로 지정할 수 있습니다.
+Azure Portal에 있는 검색 서비스의 **개요** 페이지에서 디버그 세션을 만들 수 있습니다. 디버그 세션을 시작하려면 데이터 원본, 기술 세트, 인덱서 및 인덱스가 포함된 기존 AI 보강 파이프라인이 있어야 합니다. 디버그 세션을 구성하려면 세션의 이름을 지정하고 인덱서 실행 중에 기술 실행을 캐시하는 데 사용될 범용 스토리지 계정을 제공해야 합니다. 실행할 인덱서도 선택해야 합니다. 인덱서에는 데이터 원본, 기술 세트 및 인덱스에 저장된 참조가 있습니다. 디버그 세션에서 데이터 원본의 첫 번째 문서가 기본적으로 지정되거나 데이터 원본에서 문서를 단계별로 지정할 수 있습니다.
 
 > :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="디버그 세션 만들기":::
 
@@ -43,7 +43,7 @@ ms.locfileid: "92057623"
 
 ## <a name="ai-enrichments"></a>AI 보강
 
-기술이 문서를 나타내는 보강 트리를 실행할수록 커집니다. 트리를 사용하여 보강 또는 기술에 대한 출력을 시각화하면 수행된 모든 보강 사항을 포괄적으로 살펴볼 수 있습니다. 전체 문서를 살펴보고 보강 트리의 각 노드를 점검할 수 있습니다. 이렇게 큐브 뷰를 사용하면 개체를 쉽게 형성할 수 있습니다. 이 형식은 트리에 있는 각 노드의 유형, 경로 및 내용에 대한 시각적 신호도 제공합니다.
+기술이 실행됨에 따라 문서를 나타내는 보강 트리가 커집니다. 트리를 사용하여 보강 또는 기술에 대한 출력을 시각화하면 수행된 모든 보강 사항을 포괄적으로 살펴볼 수 있습니다. 전체 문서를 살펴보고 보강 트리의 각 노드를 점검할 수 있습니다. 이렇게 큐브 뷰를 사용하면 개체를 쉽게 형성할 수 있습니다. 이 형식은 트리에 있는 각 노드의 유형, 경로 및 내용에 대한 시각적 신호도 제공합니다.
 
 ## <a name="skill-graph"></a>기술 그래프
 
@@ -85,7 +85,7 @@ ms.locfileid: "92057623"
 
 ## <a name="limitations"></a>제한 사항
 
-디버그 세션은 출시된 모든 데이터 원본과 대부분의 미리 보기 데이터 원본에서 작동합니다. Cosmos DB의 MongoDB API(미리 보기) 및 Cassandra API(미리 보기)는 현재 지원되지 않습니다.
+디버그 세션은 일반 공급된 모든 데이터 원본과 대부분의 미리 보기 데이터 원본에서 작동합니다. Cosmos DB의 MongoDB API(미리 보기)는 현재 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

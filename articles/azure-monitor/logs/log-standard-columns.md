@@ -4,13 +4,13 @@ description: Azure Monitor 로그에서 여러 데이터 형식에 공통적인 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2021
-ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 08/16/2021
+ms.openlocfilehash: 909c02c53f753579d6788933277bca8f75f53859
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562249"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539589"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 열
 Azure Monitor 로그의 데이터는 각각 고유한 열 세트가 포함된 특정 데이터 형식을 사용하여 [Log Analytics 작업 영역 또는 Application Insights 애플리케이션에 레코드 세트로 저장](../logs/data-platform-logs.md)됩니다. 대부분 데이터 형식에는 여러 형식에 공통적인 표준 열이 있습니다. 이 문서에서는 해당 열에 관해 설명하고 쿼리에 속성을 사용하는 방법의 예제를 제공합니다.
@@ -24,10 +24,13 @@ Application Insights의 작업 영역 기반 애플리케이션은 Log Analytics
 ## <a name="tenantid"></a>TenantId
 **TenantId** 열에는 Log Analytics 작업 영역의 작업 영역 ID가 포함됩니다.
 
-## <a name="timegenerated-and-timestamp"></a>TimeGenerated 및 timestamp
-**TimeGenerated**(Log Analytics 작업 영역)와 **timestamp**(Application Insights 애플리케이션) 열에는 데이터 원본에서 레코드를 만든 날짜 및 시간이 포함됩니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../logs/data-ingestion-time.md)을 참조하세요.
+## <a name="timegenerated"></a>TimeGenerated
+**TimeGenerated** 열은 데이터 원본에서 레코드가 생성된 시간과 날짜를 포함합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../logs/data-ingestion-time.md)을 참조하세요.
 
-**TimeGenerated** 및 **timestamp** 는 시간별 필터링 또는 요약에 사용할 공통 열을 제공합니다. Azure Portal에서 보기 또는 대시보드의 시간 범위를 선택하면 보기 또는 대시보드가 TimeGenerated 및 timestamp를 사용하여 결과를 필터링합니다. 
+**TimeGenerated** 는 시간별 필터링 또는 요약에 사용할 공통 열을 제공합니다. Azure Portal에서 보기 또는 대시보드의 시간 범위를 선택하면 보기 또는 대시보드는 **TimeGenerated** 를 사용하여 결과를 필터링합니다. 
+
+> [!NOTE]
+> 클래식 Application Insights 리소스를 지원하는 테이블은 **TimeGenerated** 열 대신 **timestamp** 열을 사용합니다.
 
 ### <a name="examples"></a>예제
 
@@ -40,16 +43,6 @@ Event
 | summarize count() by bin(TimeGenerated, 1day) 
 | sort by TimeGenerated asc 
 ```
-
-다음 쿼리는 이전 주의 각 날짜에 생성된 예외 수를 반환합니다.
-
-```Kusto
-exceptions
-| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
-| summarize count() by bin(TimeGenerated, 1day) 
-| sort by timestamp asc 
-```
-
 ## <a name="_timereceived"></a>\_TimeReceived
 **\_ TimeReceived** 열에는 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간이 포함됩니다. 이는 데이터 원본과 클라우드 간 대기 시간 문제를 식별하는 데 유용할 수 있습니다. 예를 들어, 네트워킹 문제로 인해 에이전트에서 데이터가 전송되는 데 지연이 발생할 수 있습니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../logs/data-ingestion-time.md)을 참조하세요.
 
@@ -68,8 +61,11 @@ Event
 | summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
 ``` 
 
-## <a name="type-and-itemtype"></a>Type 및 itemType
-**Type**(Log Analytics 작업 영역)과 **itemType**(Application Insights 애플리케이션) 열에는 레코드 형식으로 간주할 수도 있는 레코드가 검색된 테이블의 이름이 포함됩니다. 이 열은 `search` 연산자를 사용하여 여러 형식의 레코드를 구분하는 쿼리처럼 여러 테이블의 레코드를 결합하는 쿼리에 유용합니다. 경우에 따라 **Type** 대신 **$table** 을 사용할 수도 있습니다.
+## <a name="type"></a>형식
+**Type** 열은 레코드가 검색된 테이블 이름을 포함하며 테이블 이름을 레코드 유형이라고 생각해도 됩니다. 이 열은 `search` 연산자를 사용하여 여러 형식의 레코드를 구분하는 쿼리처럼 여러 테이블의 레코드를 결합하는 쿼리에 유용합니다. 일부 쿼리에서는 **Type** 대신 **$table** 을 사용할 수 있습니다.
+
+> [!NOTE]
+> 클래식 Application Insights 리소스를 지원하는 테이블은 **Type** 열 대신 **itemType** 열을 사용합니다.
 
 ### <a name="examples"></a>예제
 다음 쿼리는 지난 시간 동안 수집된 레코드 수를 유형별로 반환합니다.
@@ -145,7 +141,7 @@ Azure 리소스의 경우 **__SubscriptionId** 값은 [Azure 리소스 ID URL](.
 ```Kusto
 Perf 
 | where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
-| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| where _SubscriptionId == "ebb79bc0-aa86-44a7-8111-cabbe0c43993"
 | summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
 ```
 

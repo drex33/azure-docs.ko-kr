@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 04/08/2021
-ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/15/2021
+ms.openlocfilehash: b3e30a4914ac52c9d9661d3b6d6e07f54f0afdc6
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379271"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114230418"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 컴퓨팅 인스턴스에 연결(미리 보기)
 
@@ -35,25 +35,10 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 * Azure Machine Learning 작업 영역. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용하여 새 작업 영역을 만듭니다](how-to-manage-resources-vscode.md#create-a-workspace).
 * Azure Machine Learning 컴퓨팅 인스턴스. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용하여 새 컴퓨팅 인스턴스를 만듭니다](how-to-manage-resources-vscode.md#create-compute-instance).
 
+> [!IMPORTANT]
+> 방화벽 뒤의 컴퓨팅 인스턴스에 연결하려면 [Azure Machine Learning 방화벽 뒤에 있는 작업 영역 사용](how-to-access-azureml-behind-firewall.md#visual-studio-code-hosts)을 참조하세요.
+
 원격 컴퓨팅 인스턴스에 연결하려면:
-
-# <a name="vs-code"></a>[VS 코드](#tab/extension)
-
-### <a name="azure-machine-learning-extension"></a>Azure Machine Learning 확장
-
-1. VS Code에서 Azure Machine Learning 확장을 시작합니다.
-1. 확장에서 **컴퓨팅 인스턴스** 노드를 확장합니다.
-1. 연결하려는 컴퓨팅 인스턴스를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 인스턴스에 연결** 을 선택합니다.
-
-:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="컴퓨팅 인스턴스 Visual Studio Code Azure ML 확장에 연결" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
-
-### <a name="command-palette"></a>명령 팔레트
-
-1. VS Code에서 **보기 > 명령 팔레트** 를 선택하여 명령 팔레트를 엽니다.
-1. **AZURE ML: 컴퓨팅 인스턴스에 연결** 텍스트 상자에 입력합니다.
-1. 구독을 선택합니다.
-1. 작업 영역을 선택합니다.
-1. 컴퓨팅 인스턴스를 선택하거나 새로운 컴퓨팅 인스턴스를 만듭니다.
 
 # <a name="studio"></a>[스튜디오](#tab/studio)
 
@@ -76,6 +61,24 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 1. **편집기 > VS Code에서 편집(미리 보기)** 을 선택합니다.
 
 :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="컴퓨팅 인스턴스 VS Code Azure ML Notebook에 연결" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+# <a name="vs-code"></a>[VS 코드](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Azure Machine Learning 확장
+
+1. VS Code에서 Azure Machine Learning 확장을 시작합니다.
+1. 확장에서 **컴퓨팅 인스턴스** 노드를 확장합니다.
+1. 연결하려는 컴퓨팅 인스턴스를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 인스턴스에 연결** 을 선택합니다.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="컴퓨팅 인스턴스 Visual Studio Code Azure ML 확장에 연결" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>명령 팔레트
+
+1. VS Code에서 **보기 > 명령 팔레트** 를 선택하여 명령 팔레트를 엽니다.
+1. **AZURE ML: 컴퓨팅 인스턴스에 연결** 텍스트 상자에 입력합니다.
+1. 구독을 선택합니다.
+1. 작업 영역을 선택합니다.
+1. 컴퓨팅 인스턴스를 선택하거나 새로운 컴퓨팅 인스턴스를 만듭니다.
 
 ---
 

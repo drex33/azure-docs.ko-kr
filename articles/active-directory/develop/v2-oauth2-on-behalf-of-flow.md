@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ae74589dbbde2402d3acd916f2c5c1f58a7a5c7c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 15f62d7d0fa05a925878683af1b41ca3421d1765
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464134"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222686"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -66,7 +66,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
-| `client_secret` | 필수 | Azure Portal - 앱 등록 페이지에서 앱에 대해 생성한 클라이언트 암호입니다. |
+| `client_secret` | 필수 | Azure Portal - 앱 등록 페이지에서 앱에 대해 생성한 클라이언트 암호입니다.  대신 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1)에 따라 권한 부여 헤더에 자격 증명을 제공하는 기본 인증 패턴도 지원됩니다. |
 | `assertion` | 필수 | 중간 계층 API에 전송된 액세스 토큰입니다.  이 토큰에는 해당 OBO 요청을 수행하는 앱(`client-id` 필드로 표시된 앱)의 대상 그룹(`aud`) 클레임이 있어야 합니다. 애플리케이션은 다른 앱의 토큰을 사용할 수 없습니다. 예를 들어, 클라이언트가 MS Graph용 토큰을 전송하는 경우 API는 OBO를 통해 해당 토큰을 사용할 수 없습니다.  대신 토큰을 거부해야 합니다.  |
 | `scope` | 필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
@@ -203,7 +203,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 | grant_type |required | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer** 이어야 합니다. |
 | 어설션 |required | 요청에 사용된 액세스 토큰 값입니다.|
 | client_id |required | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
-| client_secret |required | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
+| client_secret |required | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다.  대신 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1)에 따라 권한 부여 헤더에 자격 증명을 제공하는 기본 인증 패턴도 지원됩니다. |
 | scope |required | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. 예: ‘ https://testapp.contoso.com/user_impersonation openid’ |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of** 여야 합니다. |
 | requested_token_type | required | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1** 입니다. |

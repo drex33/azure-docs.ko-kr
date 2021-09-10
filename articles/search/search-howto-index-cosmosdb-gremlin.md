@@ -1,34 +1,32 @@
 ---
-title: Azure Cosmos DB Gremlin API 데이터 검색(미리 보기)
+title: Gremlin API에서 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
-description: Azure Cosmos DB Gremlin API에서 Azure Cognitive Search의 검색 가능한 인덱스로 데이터를 가져옵니다. 인덱서는 Azure Cosmos DB와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
-author: vkurpad
-manager: luisca
-ms.author: vikurpad
+description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 Gremlin API 콘텐츠 인덱싱을 자동화하도록 Azure Cosmos DB 인덱서를 설정합니다.
+author: MarkHeff
+ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: d54432b482e952327083996b486ce27fc56a1c88
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 69642aa1b9d977591bee6dbb8464cdf74ca7be1e
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949078"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731013"
 ---
-# <a name="how-to-index-data-available-through-cosmos-db-gremlin-api-using-an-indexer-preview"></a>인덱서를 사용하여 Cosmos DB Gremlin API를 통해 제공되는 데이터를 인덱싱하는 방법(미리 보기)
+# <a name="index-data-using-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API를 사용하여 데이터 인덱싱
 
 > [!IMPORTANT]
-> Cosmos DB Gremlin API 인덱서는 현재 미리 보기로 제공됩니다. 미리 보기 기능은 Service Level Agreement(서비스 수준 약정) 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> [이 양식](https://aka.ms/azure-cognitive-search/indexer-preview)을 작성하여 미리 보기 액세스를 요청할 수 있습니다.
-> 이 미리 보기의 경우 [REST API 버전 2020-06-30-Preview](search-api-preview.md)를 사용하는 것이 좋습니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
+> Cosmos DB Gremlin API 인덱서는 현재 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. 이 기능에 대한 [액세스를 요청](https://aka.ms/azure-cognitive-search/indexer-preview)하고 액세스가 활성화된 후 [미리 보기 REST API(2020-06-30-preview 이상)](search-api-preview.md)를 사용하여 콘텐츠를 인덱싱합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-> [!WARNING]
-> Azure Cognitive Search에서 Gremlin API를 통해 Cosmos DB의 데이터를 인덱싱하도록 하려면 [Cosmos DB의 자체 인덱싱](../cosmos-db/index-overview.md)도 사용하도록 설정하고 [일관됨](../cosmos-db/index-policy.md#indexing-mode)으로 설정해야 합니다. 이것이 Cosmos DB의 기본 구성입니다. Cosmos DB 인덱싱이 이미 사용하도록 설정되어 있지 않으면 Azure Cognitive Search 인덱싱이 작동하지 않습니다.
+이 문서에서는 콘텐츠를 추출하고 Azure Cognitive Search에서 검색할 수 있도록 Azure Cosmos DB 인덱서를 구성하는 방법을 보여 줍니다. 이 워크플로에서는 Azure Cognitive Search에서 검색 인덱스를 만들고 Gremlin API를 사용하여 Azure Cosmos DB에서 추출한 기존 텍스트로 로드합니다.
 
-[Azure Cosmos DB 인덱싱](../cosmos-db/index-overview.md) 및 [Azure Cognitive Search 인덱싱](search-what-is-an-index.md)은 각 서비스에 고유한 별개의 작업입니다. Azure Cognitive Search 인덱싱을 시작하기 전에 Azure Cosmos DB 데이터베이스가 이미 있어야 합니다.
+용어가 혼동될 수 있기 때문에 [Azure Cosmos DB 인덱싱](../cosmos-db/index-overview.md) 및 [Azure Cognitive Search 인덱싱](search-what-is-an-index.md)은 각 서비스에 고유한 별개의 작업이라는 점에 유의해야 합니다. Azure Cognitive Search 인덱싱을 시작하기 전에 Azure Cosmos DB 데이터베이스가 이미 존재하고 데이터를 포함해야 합니다.
 
-이 문서에서는 Azure Cognitive Search가 Gremlin API를 사용하여 Azure Cosmos DB의 콘텐츠를 인덱싱하도록 구성하는 방법을 보여 줍니다. 이 워크플로에서는 Azure Cognitive Search 인덱스를 만들고 Gremlin API를 사용하여 Azure Cosmos DB에서 추출한 기존 텍스트로 해당 인덱스를 로드합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+
+Azure Cognitive Search에서 Gremlin API를 통해 Cosmos DB의 데이터를 인덱싱하도록 하려면 [Cosmos DB의 자체 인덱싱](../cosmos-db/index-overview.md)도 사용하도록 설정하고 [일관됨](../cosmos-db/index-policy.md#indexing-mode)으로 설정해야 합니다. 이것이 Cosmos DB의 기본 구성입니다. Cosmos DB 인덱싱이 이미 사용하도록 설정되어 있지 않으면 Azure Cognitive Search 인덱싱이 작동하지 않습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -77,7 +75,7 @@ Azure Portal에서 해당 값을 찾을 수 있습니다.
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | Description |
+| 필드   | 설명 |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |

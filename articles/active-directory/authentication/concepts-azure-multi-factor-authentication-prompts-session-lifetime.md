@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47898b1708ebecc43ace9888dfd237fa72079c6b
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 93f5af54992189d553c9e5c5c141a6ca08b7018e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590363"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567447"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication의 재인증 프롬프트를 최적화하고 세션 수명 이해하기
 
@@ -34,8 +34,8 @@ IT 정책을 위반하면 세션이 해지되긴 하지만, 사용자가 다시 
 
 * Azure AD Premium이 있는 경우, 다음을 수행합니다.
     * [관리 디바이스](../devices/overview.md) 또는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 사용하여 애플리케이션에서 SSO(Single Sign-On)를 사용하도록 설정합니다.
-    * 재인증이 필요한 경우, 조건부 액세스 [로그인 빈도 정책](../conditional-access/howto-conditional-access-session-lifetime.md)을 사용합니다.
-    * 관리되지 않는 디바이스 또는 모바일 디바이스 시나리오에서 로그인하는 사용자의 경우, 조건부 액세스를 사용하여 영구 브라우저 세션 및 로그인 빈도 정책을 사용하도록 설정합니다.
+    * 재인증이 필요한 경우 조건부 액세스 [로그인 빈도 정책](../conditional-access/howto-conditional-access-session-lifetime.md)을 사용합니다.
+    * 비관리 디바이스 또는 모바일 디바이스 시나리오에서 로그인하는 사용자의 경우 영구 브라우저 세션이 바람직하지 않을 수 있으며 조건부 액세스를 사용하여 로그인 빈도 정책을 통해 영구 브라우저 세션을 사용하도록 설정할 수 있습니다. 위험 수준이 낮은 사용자의 세션 기간이 더 긴 로그인 위험에 따라 적절한 시간으로 기간을 제한합니다.
 * Microsoft 365 앱 라이선스 또는 무료 Azure AD 계층이 있는 경우, 다음을 수행합니다.
     * [관리 디바이스](../devices/overview.md) 또는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 사용하여 애플리케이션에서 SSO(Single Sign-On)를 사용하도록 설정합니다.
     * *로그인 유지* 옵션을 계속 사용하도록 설정하고, 사용자에게 동의하도록 안내합니다.

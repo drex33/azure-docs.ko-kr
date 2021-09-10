@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 92ee092f50b334ac1be05ea4d37cf42d3dc91a62
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: 17d6120a951af052c82f06ed62025279011018a6
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114361440"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867555"
 ---
 # <a name="translator-language-support"></a>Translator 언어 지원
 
@@ -43,6 +43,7 @@ ms.locfileid: "114361440"
 | 불가리아어 | `bg` |✔|✔|✔|✔|✔|
 | 광둥어(번체) | `yue` |✔|✔||||
 | 카탈로니아어 | `ca` |✔|✔|✔|✔|✔|
+| 중국어(문어체) | `lzh` |✔|||||
 | 중국어 간체 | `zh-Hans` |✔|✔|✔|✔|✔|
 | 중국어 번체 | `zh-Hant` |✔|✔|✔|✔||
 | 크로아티아어 | `hr` |✔|✔|✔|✔|✔|

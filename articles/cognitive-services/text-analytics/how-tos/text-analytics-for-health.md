@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 37dd6eddc302062d756df79a03bd13cfc8c881e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5b1883b06ae234ed8a4f9adf949cf26919f7b877
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757178"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550159"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 의료 분야 Text Analytics(미리 보기)
+# <a name="how-to-use-text-analytics-for-health"></a>의료분야 Text Analytics 사용 방법
 
 > [!IMPORTANT] 
-> 의료 분야 Text Analytics는 "있는 그대로" 및 "모든 오류 포함"으로 제공되는 미리 보기 기능입니다. 따라서 의료 분야 Text Analytics(미리 보기)는 프로덕션 환경에서 구현하거나 배포해서는 안 됩니다. 의료 분야 Text Analytics는 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 의료 분야 Text Analytics 사용의 책임은 전적으로 고객에게 있습니다. 고객은 해당 [UMLS Metathesaurus 라이선스 계약 부록](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) 또는 향후 동등한 링크에 설정된 조건에 따라 사용하려는 모든 소스 어휘에 대해 별도로 라이선스를 취득해야 합니다. 고객은 지리적 또는 기타 적용 가능한 제한 사항을 포함하여 해당 사용 조건을 준수할 책임이 있습니다.
+> 의료분야 Text Analytics는 ‘있는 그대로’ 및 ‘모든 오류 포함’으로 제공되는 미리 보기 기능입니다. 의료 분야 Text Analytics는 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 의료 분야 Text Analytics 사용의 책임은 전적으로 고객에게 있습니다. 고객은 해당 [UMLS Metathesaurus 라이선스 계약 부록](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) 또는 향후 동등한 링크에 설정된 조건에 따라 사용하려는 모든 소스 어휘에 대해 별도로 라이선스를 취득해야 합니다. 고객은 지리적 또는 기타 적용 가능한 제한 사항을 포함하여 해당 사용 조건을 준수할 책임이 있습니다.
 
 
 의료 분야 Text Analytics는 의사의 메모, 퇴원 요약, 임상 문서 및 전자 의료 레코드 같은 구조화되지 않은 텍스트에서 관련 의료 정보를 추출하고 레이블을 지정하는 Text Analytics API 서비스 기능입니다.  이 서비스를 활용하는 방법에는 두 가지가 있습니다. 
@@ -94,17 +94,15 @@ Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용하�
 
 ### <a name="preparation"></a>준비
 
-의료 분야 Text Analytics에서는 사용할 텍스트를 더 작은 크기로 제공하면 더 높은 품질의 결과를 얻을 수 있습니다. 이는 더 큰 텍스트 블록에서 더 나은 성능을 제공하는 핵심 구 추출 등의 다른 Text Analytics 기능과는 반대입니다. 이러한 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
-
 다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트 및 언어. 
 
-문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용되는 최대 문서 수는 개념 아래의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조하세요. 컬렉션은 요청 본문에 제출됩니다.
+문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용되는 최대 문서 수는 개념 아래의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조하세요. 컬렉션은 요청 본문에 제출됩니다. 텍스트가 이 제한을 초과 하는 경우,텍스트를 별도의 요청으로 분할하는 것이 좋습니다. 최상의 결과를 위해서는 텍스트는 문장 사이에서 분할합니다.
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스팅된 비동기 웹 API에 대한 API 요청 구성
 
-컨테이너와 호스팅된 웹 API 모두에 대해 POST 요청을 만들어야 합니다. [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health)에서 [Postman](text-analytics-how-to-call-api.md), cURL 명령 또는 **API 테스트 콘솔** 을 사용하여 원하는 지역의 호스팅된 웹 API에 POST 요청을 빠르게 구성하고 보낼 수 있습니다. API v3.1-preview.5 엔드포인트에서 `loggingOptOut` 부울 쿼리 매개 변수를 사용하여 문제 해결을 위해 로깅을 사용하도록 설정할 수 있습니다.  요청 쿼리에 지정하지 않으면 기본값은 TRUE입니다.
+컨테이너와 호스팅된 웹 API 모두에 대해 POST 요청을 만들어야 합니다. [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health)에서 [Postman](text-analytics-how-to-call-api.md), cURL 명령 또는 **API 테스트 콘솔** 을 사용하여 원하는 지역의 호스팅된 웹 API에 POST 요청을 빠르게 구성하고 보낼 수 있습니다. API v3.1 엔드포인트에서 `loggingOptOut` 부울 쿼리 매개 변수를 사용하여 문제 해결을 위해 로깅을 사용할 수 있습니다.  요청 쿼리에 지정하지 않으면 기본값은 TRUE입니다.
 
-아래 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs`에 POST 요청 전송은 상태 API 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
+아래 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs`에 POST 요청 전송은 상태 API 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -124,20 +122,20 @@ example.json
 
 이 POST 요청은 비동기 작업(operation)에 대한 작업(job)을 제출하는 데 사용되므로 응답 개체에 텍스트가 없습니다.  그러나 작업 및 출력의 상태를 확인하기 위해 GET 요청을 하려면 응답 헤더에 작업-위치 키 값이 필요합니다.  다음은 POST 요청의 응답 헤더에 있는 작업-위치 KEY 값의 예입니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs/<jobID>`
 
 작업 상태를 확인하려면 POST 응답의 작업-위치 KEY 헤더 값에 있는 URL에 GET 요청을 수행합니다.  작업 상태를 반영하는 데는 `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` 및 `cancelled` 등의 상태가 사용됩니다.  
 
-GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotStarted` 또는 `running` 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대한 자세한 내용은 [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/CancelHealthJob)에서 확인할 수 있습니다.
+GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotStarted` 또는 `running` 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대한 자세한 내용은 [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/CancelHealthJob)에서 확인할 수 있습니다.
 
 다음은 GET 요청 응답의 예입니다.  출력은 `expirationDateTime`(작업이 생성된 시간부터 24시간)이 경과되어 출력이 제거될 때까지 검색에 사용할 수 있습니다.
 
 ```json
 {
-    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
-    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
-    "createdDateTime": "2021-03-11T05:42:32Z",
-    "expirationDateTime": "2021-03-12T05:42:32Z",
+    "jobId": "69081148-055b-4f92-977d-115df343de69",
+    "lastUpdateDateTime": "2021-07-06T19:06:03Z",
+    "createdDateTime": "2021-07-06T19:05:41Z",
+    "expirationDateTime": "2021-07-07T19:05:41Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -219,14 +217,14 @@ GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotSta
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0
+                        "confidenceScore": 0.99
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.94
+                        "confidenceScore": 0.98
                     }
                 ],
                 "relations": [
@@ -274,7 +272,7 @@ GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotSta
             }
         ],
         "errors": [],
-        "modelVersion": "2021-03-01"
+        "modelVersion": "2021-05-15"
     }
 }
 ```
@@ -285,7 +283,7 @@ GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotSta
 [Postman을 사용](text-analytics-how-to-call-api.md)하거나 아래의 cURL 요청 예를 사용하여 배포한 컨테이너에 쿼리를 제출하고 `serverURL` 변수를 적절한 값으로 바꿀 수 있습니다.  컨테이너의 URL에 있는 API 버전은 호스팅된 API와 다릅니다.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -484,17 +482,17 @@ example.json
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty": "negative"
+                            "certainty&quot;: &quot;negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0013404"
+                                "id&quot;: &quot;C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id": "0000005442"
+                                "id&quot;: &quot;0000005442"
                             },
     ...
 ```

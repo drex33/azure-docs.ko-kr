@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/26/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e62f2a07b4266671bb055e6a672e13f69e2a0bab
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99987890"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982819"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 가격 책정 계층 선택
 
-[검색 서비스를 만드는](search-create-service-portal.md) 과정에서 서비스 수명 동안 고정된 가격 책정 계층(또는 SKU)을 선택해야 합니다. 서비스를 실행하는 가격 또는 월별 예상 비용은 서비스를 만들 때 포털의 **가격 책정 계층 선택** 페이지에 표시됩니다. PowerShell 또는 Azure CLI를 통해 프로비전하는 경우 계층은 **`-Sku`** 매개 변수를 통해 지정되며 [서비스 가격 책정](https://azure.microsoft.com/pricing/details/search/)을 확인하여 예상 비용을 알아보아야 합니다.
+[검색 서비스를 만드는](search-create-service-portal.md) 과정에서 서비스 수명 동안 고정된 가격 책정 계층(또는 SKU)을 선택해야 합니다. Portal에서 서비스를 만들 때 **가격 책정 계층 선택** 페이지에 계층이 지정됩니다. PowerShell 또는 Azure CLI를 통해 프로비저닝하는 경우 계층은 **`-Sku`** 매개 변수를 통해 지정됩니다.
 
 선택하는 계층에 따라 다음이 결정됩니다.
 
@@ -27,6 +27,8 @@ ms.locfileid: "99987890"
 + 고정된 월별 비용으로 청구 가능하고 용량을 추가하는 경우에는 증분 비용이 청구됩니다.
 
 일부 인스턴스에서는 선택하는 계층에 따라 [프리미엄 기능](#premium-features)의 가용성이 결정됩니다.
+
+서비스를 실행하는 가격 또는 월별 예상 비용은 Portal의 **가격 책정 계층 선택** 페이지에 표시됩니다. 예상 비용에 대해 알아보려면 [서비스 가격 책정](https://azure.microsoft.com/pricing/details/search/)을 확인해야 합니다.
 
 > [!NOTE]
 > 'Azure SKU'에 대한 정보를 찾고 있나요? [Azure 가격 책정](https://azure.microsoft.com/pricing/)에서 시작한 후 아래로 스크롤하여 서비스별 가격 페이지에 대한 링크로 이동합니다.
@@ -56,12 +58,13 @@ ms.locfileid: "99987890"
 | 기능 | 제한 사항 |
 |---------|-------------|
 | [인덱서](search-indexer-overview.md) | 인덱서는 S3 HD에서 사용할 수 없습니다.  |
-| [AI 보강](search-security-manage-encryption-keys.md) | 무료 계층에서 실행되지만 권장하지 않습니다. |
+| [AI 보강](cognitive-search-concept-intro.md) | 무료 계층에서 실행되지만 권장하지 않습니다. |
 | [아웃바운드(인덱서) 액세스를 위한 관리 또는 신뢰할 수 있는 ID](search-howto-managed-identities-data-sources.md) | 무료 계층에서는 사용할 수 없습니다.|
 | [고객 관리형 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
 | [IP 방화벽 액세스](service-configure-firewall.md) | 무료 계층에서는 사용할 수 없습니다. |
 | [프라이빗 엔드포인트(Azure Private Link와 통합)](service-create-private-endpoint.md) | 검색 서비스에 대한 인바운드 연결의 경우 무료 계층에서 사용할 수 없습니다. 인덱서를 사용한 다른 Azure 리소스에 대한 아웃바운드 연결의 경우 무료 또는 S3 HD에서 사용할 수 없습니다. 기술 세트를 사용하는 인덱서의 경우 무료, 기본, S1 또는 S3 HD에서 사용할 수 없습니다.| 
-| [가용성 영역](search-performance-optimization.md) | 무료 계층 및 기본 계층에서 사용할 수 없습니다. |
+| [가용성 영역](search-performance-optimization.md) | 무료 계층 또는 기본 계층에서 사용할 수 없습니다. |
+| [의미 체계 검색(미리 보기)] | 무료 계층 또는 기본 계층에서 사용할 수 없습니다. |
 
 리소스 집약적 기능은 충분한 용량을 제공하지 않으면 제대로 작동하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md)에는 데이터 세트가 작은 경우를 제외하고 무료 서비스에서는 시간 초과되는 장기 실행 기술이 있습니다.
 

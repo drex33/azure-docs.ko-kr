@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7206b035724027f346fe49c8834c2fd35ec83af9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 95081b661d4f33577df07420ab194ec48488221a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752966"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768088"
 ---
 # <a name="required-url-list"></a>필수 URL 목록
 
@@ -42,7 +42,7 @@ Azure Virtual Desktop을 배포하고 사용하려면 VM(가상 머신)에서 �
 필수 URL 확인 도구를 사용하려면 다음을 수행합니다.
 
 1. VM에서 관리자 권한으로 명령 프롬프트를 엽니다.
-2. 다음 명령을 실행하여 디렉터리를 빌드 에이전트와 동일한 폴더로 변경합니다.
+2. 다음 명령을 실행하여 디렉터리를 현재 빌드 에이전트와 동일한 폴더(이 예제에서는 RDAgent_1.0.2944.1200)로 변경합니다.
 
     ```console
     cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
@@ -152,4 +152,4 @@ Azure Virtual Desktop용으로 생성한 Azure 가상 머신은 Azure Government
 >[!IMPORTANT]
 >이러한 URL을 여는 것은 신뢰할 수 있는 클라이언트 환경을 위해 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다.
 >
->이러한 URL은 클라이언트 사이트 및 리소스에만 해당합니다. 이 목록에는 Azure Active Directory와 같은 다른 서비스에 대한 URL이 포함되지 않습니다. Azure Active Directory URL은 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)의 ID 56에서 찾을 수 있습니다.
+>이러한 URL은 클라이언트 사이트 및 리소스에만 해당합니다. 이 목록에는 Azure Active Directory와 같은 다른 서비스에 대한 URL이 포함되지 않습니다. Azure Active Directory URL은 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)의 ID 56, 59 및 125에서 찾을 수 있습니다.

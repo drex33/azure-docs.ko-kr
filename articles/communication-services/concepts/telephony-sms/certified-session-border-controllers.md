@@ -6,14 +6,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 7251e97209e9cca1b4c86a6ab8c829c8f0346525
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: 8b2468b13f7093129c137019d8ec7f60e4fd5e4f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674902"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258005"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록
 이 문서에는 Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록이 포함되어 있습니다. 알려진 제한 사항도 제공됩니다.
@@ -37,8 +37,8 @@ Communication Services 직접 라우팅용 SBC 인증 프로그램에 대한 질
 
 |Vendor|제품|소프트웨어 버전|
 |:--- |:--- |:--- 
+|AudioCodes|중앙값 SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
-
 
 주 버전에 부여된 인증을 확인합니다. 즉, 주 버전 뒤에 있는 SBC 펌웨어의 숫자를 포함하는 펌웨어가 지원됩니다.
 
@@ -47,7 +47,7 @@ Communication Services 직접 라우팅용 SBC 인증 프로그램에 대한 질
 ### <a name="conceptual-documentation"></a>개념 설명서
 
 - [Azure Communication Services의 전화 번호 유형](./plan-solution.md)
-- [Azure 직접 라우팅 계획](./sip-interface-infrastructure.md)
+- [Azure 직접 라우팅 계획](./direct-routing-infrastructure.md)
 - [세션 테두리 컨트롤러 페어링 및 음성 라우팅 구성](./direct-routing-provisioning.md)
 - [가격](../pricing.md)
 

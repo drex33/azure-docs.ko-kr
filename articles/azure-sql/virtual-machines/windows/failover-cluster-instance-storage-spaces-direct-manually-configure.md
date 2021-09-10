@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.custom: na
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9a6b2673694d7290d964302de2a91795c3d9bd3c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7c15dad5d82f538f6c6e81b0b99fed23d9bb0ae9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769600"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226763"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>스토리지 공간 다이렉트를 사용하여 FCI 만들기(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,37 +87,6 @@ ms.locfileid: "108769600"
 
 다음 단계에 대한 자세한 내용은 [Windows Server 2016에서 스토리지 공간 다이렉트를 사용하는 하이퍼 컨버지드 솔루션](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct)의 "3단계: 스토리지 공간 다이렉트 구성" 섹션의 지침을 참조하세요.
 
-
-## <a name="validate-the-cluster"></a>클러스터 유효성 검사
-
-UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
-
-UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음을 수행합니다.
-
-1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
-1. **다음** 을 선택합니다.
-1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
-1. **다음** 을 선택합니다.
-1. **테스트 선택** 에서 다음과 같이 **스토리지** 를 제외한 모든 테스트를 선택합니다.
-
-   ![클러스터 유효성 검사 테스트 선택](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
-
-1. **다음** 을 선택합니다.
-1. **확인** 에서 **다음** 을 선택합니다.
-
-    **구성 유효성 검사** 마법사가 유효성 검사 테스트를 실행합니다.
-
-PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
-
-   ```powershell
-   Test-Cluster –Node ("<node1>&quot;,&quot;<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-   ```
-
-클러스터의 유효성을 검사한 후에 장애 조치 클러스터를 만듭니다.
-
-
 ## <a name="create-failover-cluster"></a>장애 조치 클러스터 만들기
 
 장애 조치 클러스터를 만들려면 다음이 필요합니다.
@@ -150,7 +119,37 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="configure-quorum"></a>쿼럼 구성
 
-비즈니스 요구에 가장 적합한 쿼럼 솔루션을 구성합니다. [디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), [클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness) 또는 [파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)를 구성할 수 있습니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-cluster-best-practices.md#quorum)을 참조하세요. 
+디스크 감시는 가장 복원력 있는 쿼럼 옵션이지만 직접 스토리지 공간으로 구성된 장애 조치(failover) 클러스터 인스턴스에는 지원되지 않습니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 이 유형의 클러스터 구성에 권장되는 쿼럼 솔루션입니다. 그렇지 않으면 파일 공유 감시를 구성합니다. 
+
+클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
+
+## <a name="validate-the-cluster"></a>클러스터 유효성 검사
+
+UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사합니다.
+
+UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음을 수행합니다.
+
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 다음과 같이 **스토리지** 를 제외한 모든 테스트를 선택합니다.
+
+   ![클러스터 유효성 검사 테스트 선택](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
+
+1. **다음** 을 선택합니다.
+1. **확인** 에서 **다음** 을 선택합니다.
+
+    **구성 유효성 검사** 마법사가 유효성 검사 테스트를 실행합니다.
+
+PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   ```
+
 
 ## <a name="add-storage"></a>스토리지 추가
 
@@ -221,7 +220,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록
 
-포털에서 SQL Server VM을 관리하려면 현재 Azure VMs의 SQL Server 및 FCI에서 지원되는 유일한 모드인 [경량 관리 모드](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)로 SQL IaaS 에이전트 확장(RP)에 등록합니다. 
+포털에서 SQL Server VM을 관리하려면 현재 Azure VMs의 SQL Server 및 FCI에서 지원되는 유일한 모드인 [경량 관리 모드](sql-agent-extension-manually-register-single-vm.md#lightweight-mode)로 SQL IaaS 에이전트 확장(RP)에 등록합니다. 
 
 
 PowerShell을 사용하여 SQL Server VM을 경량 모드로 등록합니다.  
@@ -237,15 +236,14 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절하게 라우팅하려면 사용자 환경에 적합한 연결 옵션을 구성합니다. [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 만들거나, SQL Server 2019 CU2 이상 및 Windows Server 2016 이상을 사용하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
-
-클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
+장애 조치(failover) 클러스터 인스턴스의 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.  
 
 ## <a name="limitations"></a>제한 사항
 
 - Azure 가상 머신은 가상 머신 CSV의 스토리지와 [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)가 있는 Windows Server 2019에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다.
 - NTFS로 형식의 디스크로 연결된 디스크는 스토리지가 클러스터에 추가될 때 디스크 적격성 옵션이 선택 취소되거나 지워진 경우에만 스토리지 공간 다이렉트와 함께 사용할 수 있습니다. 
 - [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)로만 SQL IaaS 에이전트 확장에 등록할 수 있습니다.
+- 직접 스토리지 공간을 공유 스토리지로 사용하는 장애 조치(failover) 클러스터 인스턴스는 클러스터의 쿼럼에 대한 디스크 감시 사용을 지원하지 않습니다. 대신 클라우드 감시를 사용합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -253,8 +251,9 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 스토리지 공간 다이렉트가 적합한 FCI 스토리지 솔루션이 아닌 경우 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 또는 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md)를 대신 사용하여 FCI를 만드는 것이 좋습니다. 
 
-자세히 알아보려면 [Azure VMs에서 SQL Server를 사용한 FCI](failover-cluster-instance-overview.md) 및 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
+자세한 내용은 다음을 참조하세요.
 
-자세한 내용은 다음을 참조하세요. 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

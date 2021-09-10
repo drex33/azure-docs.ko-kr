@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079916"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635205"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>스토리지: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ Azure 가상 머신은 임시 디스크(`D:\` 드라이브로 레이블이 지�
 
 임시 스토리지 드라이브는 원격 스토리지에 유지되지 않으므로 사용자 데이터베이스 파일, 트랜잭션 로그 파일 또는 보존되어야 하는 항목을 저장해서는 안 됩니다. 
 
-로컬 캐시를 사용하는 데 문제가 있는 경우를 제외하고 SQL Server 워크로드에 대한 로컬 임시 SSD `D:\` 드라이브에 tempdb를 넣습니다. [임시 디스크가 없는](../../../virtual-machines/azure-vms-no-temp-disk.md) 가상 머신을 사용하는 경우, 캐싱을 읽기 전용으로 설정하여 자체 격리된 디스크 또는 스토리지 풀에 tempdb를 저장하는 것이 좋습니다. 자세한 내용은 [tempdb 데이터 캐싱 정책](performance-guidelines-best-practices-storage.md#data-file-caching-policies)을 참조하세요.
+로컬 캐시를 사용하는 데 문제가 있는 경우를 제외하고 SQL Server 워크로드에 대한 로컬 임시 SSD `D:\` 드라이브에 tempdb를 넣습니다. [임시 디스크가 없는](../../../virtual-machines/azure-vms-no-temp-disk.yml) 가상 머신을 사용하는 경우, 캐싱을 읽기 전용으로 설정하여 자체 격리된 디스크 또는 스토리지 풀에 tempdb를 저장하는 것이 좋습니다. 자세한 내용은 [tempdb 데이터 캐싱 정책](performance-guidelines-best-practices-storage.md#data-file-caching-policies)을 참조하세요.
 
 ### <a name="data-disks"></a>데이터 디스크
 
@@ -193,10 +193,12 @@ VM에 사용할 수 있는 캐시되지 않은 IOPS 및 처리량의 양은 가�
 |---------|---------|
 | **데이터 디스크** | SQL Server 데이터 파일을 호스트하는 디스크에 `Read-only` 캐싱을 사용하도록 설정합니다. <br/> 캐시에서 읽기는 데이터 디스크에서 캐시되지 않은 읽기를 수행하는 것보다 빠릅니다. <br/> 캐시되지 않은 IOPS 및 처리량 외에도 캐시된 IOPS 및 처리량은 VM 한도 내의 가상 머신에서 사용할 수 있는 총 성능을 제공하지만 실제 성능은 캐시를 사용하는 워크로드의 기능 (캐시 적중률)에 따라 달라집니다. <br/>|
 |**트랜잭션 로그 디스크**|트랜잭션 로그를 호스팅하는 디스크에 대한 캐싱 정책을 `None`으로 설정합니다.  트랜잭션 로그 디스크에 캐싱을 사용하도록 설정하는 경우, 성능의 이점을 얻을 수 없으며 실제로, 로그 드라이브에서 `Read-only` 또는 `Read/Write` 캐싱을 사용하도록 설정하면 드라이브에 대한 쓰기 성능이 저하되고 데이터 드라이브에서 읽기에 사용할 수 있는 캐시의 양이 줄어듭니다.  |
-|**운영 OS 디스크** | OS 드라이브의 기본 캐싱 정책은 `Read-only` 또는 `Read/write`일 수 있습니다. <br/> OS 드라이브의 캐싱 수준을 변경하지 않는 것이 좋습니다.  |
+|**운영 OS 디스크** | 기본 캐싱 정책은 OS 드라이브에 대해 `Read/write`입니다. <br/> OS 드라이브의 캐싱 수준을 변경하지 않는 것이 좋습니다.  |
 | **tempdb**| 용량이 부족하여 임시 드라이브 `D:\`에 tempdb를 배치할 수 없는 경우, 더 큰 임시 드라이브를 가져오도록 가상 머신의 크기를 조정하거나 `Read-only` 캐싱이 구성된 별도의 데이터 드라이브에 tempdb를 배치하세요. <br/> 가상 머신 캐시와 임시 드라이브 모두 로컬 SSD를 사용하므로 tempdb I/O로 크기를 조정하면 임시 드라이브에 호스팅될 때 캐시된 IOPS 및 처리량 가상 머신 한도에 대해 이를 염두에 두어야 합니다.| 
 | | | 
 
+> [!IMPORTANT]
+> Azure 디스크의 캐시 설정이 변경되면 대상 디스크를 분리하고 다시 연결합니다. SQL Server 데이터, 로그 또는 애플리케이션 파일을 호스트하는 디스크에 대한 캐시 설정을 변경하는 경우 데이터 손상 방지를 위해 다른 관련 서비스와 함께 SQL Server 서비스를 중지해야 합니다.
 
 자세히 알아보려면 [디스크 캐싱](../../../virtual-machines/premium-storage-performance.md#disk-caching)을 참조하세요. 
 

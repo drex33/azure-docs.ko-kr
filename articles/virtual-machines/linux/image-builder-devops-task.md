@@ -9,14 +9,16 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c3785f20c47656304f7d40b67c9d90c54cb3072
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c700170e59792dc6f782ded02960962c7b21d946
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696924"
 ---
 # <a name="azure-image-builder-service-devops-task-preview"></a>Azure Image Builder Service DevOps 작업(미리 보기)
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합
 
 이 문서에서는 애플리케이션과 OS를 설치하고 구성할 수 있도록 Azure DevOps 작업을 사용하여 VM 이미지에 빌드 아티팩트를 넣는 방법을 보여줍니다.
 

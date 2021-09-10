@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2744a1dd36751175e7bd421210bdb5b92b53dfe5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456924"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301315"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -193,7 +193,9 @@ requests
 | 00:15 | TRUE  | 경고가 실행되고 작업 그룹이 호출됩니다. 새 경고 ACTIVE 상태.
 | 00:20 | FALSE | 경고가 발생하지 않습니다. 호출된 작업이 없습니다. 이전 경고 상태는 활성 상태로 유지됩니다.
 
-상태 저장 경고는 인시던트마다 한 번씩 발생하고 해결됩니다. 이 기능은 현재 Azure 퍼블릭 클라우드에서 미리 보기 상태입니다. 경고 세부 정보 섹션에서 **경고 자동 해결** 을 사용하여 이를 설정할 수 있습니다.
+상태 저장 경고는 인시던트마다 한 번씩 발생하고 해결됩니다. 경고 규칙은 특정 평가 기간(로그 수집 지연 고려)에 대해 경고 조건이 30분 동안 충족되지 않을 때 해결되며 플래핑 조건이 있는 경우 노이즈를 줄이기 위해 3회 연속 평가됩니다. 예를 들어 빈도가 5분이면 경고가 40분 후에 해결되거나 빈도가 1분이면 경고가 32분 후에 해결됩니다. 해결된 알림은 웹 후크 또는 이메일을 통해 전송되며 Azure Portal의 경고 인스턴스 상태(모니터 상태라고 함)도 해결됨으로 설정됩니다.
+
+상태 저장 경고 기능은 현재 Azure 공용 클라우드에서 미리 보기로 제공됩니다. 경고 세부 정보 섹션에서 **경고 자동 해결** 을 사용하여 이를 설정할 수 있습니다.
 
 ## <a name="location-selection-in-log-alerts"></a>로그 경고의 위치 선택
 

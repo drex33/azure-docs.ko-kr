@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91fd04f24989df64aa294690fdedfd472c79f379
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c69e8a5030717dd76a887968f40034595b9cd939
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677252"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536265"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>스토리지 계정에 대한 요청에 대해 필요한 최소 버전의 TLS(전송 계층 보안)를 적용합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "110677252"
 
 현재 Azure Storage는 세 가지 버전의 TLS 프로토콜(1.0, 1.1 및 1.2)을 지원합니다. Azure storage는 퍼블릭 HTTPS 엔드포인트에서 TLS 1.2를 사용하지만, TLS 1.0 및 TLS 1.1은 이전 버전과의 호환성을 위해 계속 지원됩니다.
 
-기본적으로 Azure Storage 계정은 클라이언트에서 가장 오래된 TLS 버전인 TLS 1.0 이상을 사용하여 데이터를 보내고 받을 수 있도록 허용합니다. 보다 엄격한 보안 조치를 적용하기 위해 클라이언트가 최신 버전의 TLS를 사용하여 데이터를 보내고 받도록 스토리지 계정을 구성할 수 있습니다. 스토리지 계정에 최소 버전의 TLS가 필요한 경우 이전 버전을 사용하여 수행한 요청은 실패합니다.
+Azure Storage 계정은 클라이언트에서 가장 오래된 TLS 버전인 TLS 1.0 이상을 사용하여 데이터를 보내고 받을 수 있도록 허용합니다. 보다 엄격한 보안 조치를 적용하기 위해 클라이언트가 최신 버전의 TLS를 사용하여 데이터를 보내고 받도록 스토리지 계정을 구성할 수 있습니다. 스토리지 계정에 최소 버전의 TLS가 필요한 경우 이전 버전을 사용하여 수행한 요청은 실패합니다.
 
 이 문서에서는 스토리지 계정에 대한 보안 TLS를 지속적으로 관리하기 위해 DRAG(검색-수정-감사-거버넌스) 프레임워크를 사용하는 방법을 설명합니다.
 
@@ -94,7 +94,9 @@ StorageBlobLogs
 
 스토리지 계정에 대한 최소 TLS 버전을 구성하려면 계정에 대한 **MinimumTlsVersion** 을 설정합니다. Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 이 속성을 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대한 자세한 내용은 [스토리지 계정 개요](storage-account-overview.md)를 참조하세요.
 
-이 **MinimumTlsVersion** 속성은 기본적으로 설정되어 있지 않으며 명시적으로 설정할 때까지 값을 반환하지 않습니다.  속성 값이 **null** 이면 스토리지 계정에서 TLS 버전 1.0 이상을 사용하여 전송된 요청을 허용합니다.
+**MinimumTlsVersion** 속성의 기본값은 설정 방법에 따라 다릅니다. Azure Portal을 사용하여 스토리지 계정을 만드는 경우 최소 TLS 버전은 기본적으로 1.2로 설정됩니다. PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용하여 스토리지 계정을 만들 때 **MinimumTlsVersion** 속성은 기본적으로 설정되지 않으며 명시적으로 설정할 때까지 값을 반환하지 않습니다.
+
+**MinimumTlsVersion** 속성이 설정되지 않은 경우 해당 값은 컨텍스트에 따라 **null** 또는 빈 문자열로 표시될 수 있습니다. 속성이 설정되지 않은 경우 스토리지 계정은 TLS 버전 1.0 이상을 사용하여 전송된 요청을 허용합니다.
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -121,7 +123,7 @@ $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
@@ -131,7 +133,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.

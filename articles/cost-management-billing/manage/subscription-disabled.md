@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/15/2021
 ms.author: banders
-ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e669a794abe848d326a6d08156621dcf3883ec5
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331739"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292240"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -60,6 +60,10 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비�
 ## <a name="after-reactivation"></a>재활성화 후
 
 구독을 다시 활성화한 후에는 리소스를 만들거나 관리하는 데 지연이 발생할 수 있습니다. 지연 시간이 30분을 초과하는 경우 [Azure 청구 지원](https://go.microsoft.com/fwlink/?linkid=2083458)에 도움을 요청하세요. 대부분의 Azure 리소스는 자동으로 다시 시작되며 어떤 조치도 필요하지 않습니다. 그러나 Azure 서비스 리소스를 확인하고 자동으로 다시 시작되지 않는 모든 리소스를 다시 시작하는 것이 좋습니다.
+
+## <a name="upgrade-a-disabled-free-account"></a>사용하지 않는 무료 계정 업그레이드
+
+무료가 아닌 리소스를 사용하고 크레딧이 부족하여 구독을 사용하지 않도록 설정한 다음 구독을 업그레이드하면, 업그레이드 후에 리소스가 사용하도록 설정됩니다. 이 경우 사용된 리소스에 대한 요금이 청구됩니다. 무료 계정 업그레이드에 대한 자세한 내용은 [Azure 계정 업그레이드](upgrade-azure-subscription.md)를 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

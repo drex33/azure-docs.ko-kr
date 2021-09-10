@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: bbf9ab64e1214a5b7676a8e5f506ba627a362198
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5aac5704463b28ea9bb124f9fb3120d7a1da52b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567059"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102078"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Azure Arc에서 Azure SQL Managed Instance 만들기
 

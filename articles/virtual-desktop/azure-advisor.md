@@ -1,23 +1,23 @@
 ---
-title: Azure Advisor와 Windows Virtual Desktop 통합 - Azure
-description: Windows Virtual Desktop 배포에서 Azure Advisor를 사용하는 방법입니다.
+title: Azure Advisor와 Azure Virtual Desktop 통합 - Azure
+description: Azure Virtual Desktop 배포에서 Azure Advisor를 사용하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b141d3829e9d98cb793d2038e93331804d2e6b8f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 25bdeb3db8872550a4f1f03e7165cd24653272c1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448290"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745352"
 ---
-# <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Azure Advisor 사용
+# <a name="use-azure-advisor-with-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Azure Advisor 사용
 
 Azure Advisor는 지원 사례를 제출하지 않고도 사용자가 일반적인 문제를 스스로 해결하는 데 도움이 될 수 있습니다. 권장 사항은 지원 요청을 제출할 필요성을 줄여 시간과 비용을 절약합니다.
 
-이 문서에서는 사용자를 돕기 위해 Windows Virtual Desktop 배포에서 Azure Advisor를 설정하는 방법을 알려 줍니다.
+이 문서에서는 사용자를 돕기 위해 Azure Virtual Desktop 배포에서 Azure Advisor를 설정하는 방법을 알려줍니다.
 
 ## <a name="what-is-azure-advisor"></a>Azure Advisor란?
 
@@ -56,7 +56,7 @@ Azure Advisor를 열면 다음 5개 범주가 표시됩니다.
 
 - 권장 사항이 표시되는 이유를 확인하고 자신이나 사용자에게 부정적인 영향을 주지 않을 때까지 권장 사항을 해제하지 마세요. 항상 **자세한 정보** 를 선택하여 문제가 무엇인지 확인합니다. Azure Advisor의 지침에 따라 문제를 해결하면 문제가 목록에서 자동으로 사라집니다. 반복해서 연기하는 것보다 문제를 해결하는 것이 더 좋습니다.
 
-- Windows Virtual Desktop에서 문제가 발생할 때마다 항상 먼저 Azure Advisor를 확인합니다. Azure Advisor는 문제를 해결하는 방법에 관한 지침을 제공하거나 최소한 도움이 될 수 있는 리소스를 제공합니다.
+- Azure Virtual Desktop에서 문제가 발생할 때마다 항상 먼저 Azure Advisor를 확인합니다. Azure Advisor는 문제를 해결하는 방법에 관한 지침을 제공하거나 최소한 도움이 될 수 있는 리소스를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

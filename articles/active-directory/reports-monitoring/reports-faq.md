@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 07/28/2021
+ms.date: 08/26/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64c33619eae16cb08b9ccdc1b4fd5265813d9ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0aa1f44d8cc6184932d2aaf1b69fb31e303d605f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536311"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969130"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -109,6 +109,37 @@ ms.locfileid: "122536311"
 **A:** Azure Portal에서 최대 5,000개의 레코드를 다운로드할 수 있습니다. 레코드는 *가장 최근* 순으로 정렬되며, 기본적으로 가장 최근의 5,000개 레코드를 가져옵니다.
 
 ---
+
+## <a name="sign-in-logs"></a>로그인 로그
+
+**Q: CSV 파일에 포함된 데이터 중 Azure Portal의 Azure AD 로그인 로그 블레이드에서 다운로드할 수 있는 데이터는 무엇입니까?** 
+**A:** CSV에는 사용자와 서비스 주체의 로그인 로그가 포함됩니다. 그러나 로그인 로그에 대한 MS Graph API에서 중첩된 배열로 표현되는 데이터는 CSV 다운로드에 포함되지 않습니다. 예를 들어 CA 정책 및 보고 전용 정보는 CSV 다운로드에 포함되지 않습니다. 로그인 로그에 포함된 모든 정보를 내보내야 하는 경우에는 Azure AD 로그인 로그 블레이드의 데이터 내보내기 설정 단추를 사용하여 모든 데이터를 내보낼 수 있습니다.
+
+---
+ 
+**Q: 게스트가 제 테넌트에 로그인할 때 클라이언트 앱이 채워지지 않는 이유는 무엇입니까?** 
+**A:** 고객 개인 정보 보호를 유지하기 위해, 게스트 사용자가 테넌트에 로그인해도 사용자의 클라이언트 앱 정보가 테넌트의 로그인 로그에 표시되지 않습니다. 사용자의 클라이언트 앱은 사용자가 액세스하려 하는 다른 테넌트에 표시되지 않습니다. 
+
+---
+
+**Q: 게스트가 제 테넌트에 로그인할 때 디바이스 ID가 채워지지 않는 이유는 무엇입니까?** 
+**A:** 사용자가 다른 테넌트로 등록한 디바이스를 이용해 여러분의 테넌트에 로그인하면, 고객 개인 정보 보호를 유지하기 위해 해당 디바이스의 디바이스 ID는 테넌트의 로그인 로그에 표시되지 않습니다. 사용자의 디바이스 ID는 사용자가 액세스하려 하는 다른 테넌트에 표시되지 않습니다. 
+
+---
+
+**Q: 일부 중단된 로그인에서 사용자의 UPN 대신 개체 ID가 표시되는 이유는 무엇인가요?**  
+**A:** 로그인이 중단되거나 로그인에 실패해 서비스의 사용자의 UPN을 확인할 수 없다면, 개체 ID가 대신 표시될 수 있습니다. 
+
+---
+
+**Q: isInteractive 속성이 False인 경우에도 사용자의 로그인이 대화형 로그인으로 표시되는 이유는 무엇인가요?** 
+**A:** 이 속성은 더 이상 사용되지 않습니다. 이 속성은 대화형과 비대화형 로그인 이벤트를 정확하게 표시하지 못합니다. 
+
+Azure Portal의 Azure AD 로그인 로그 블레이드에서는 사용자 로그인(대화형) 탭에서는 대화형 로그인을, 사용자 로그인(비대화형) 탭에서는 비대화형 로그인을 찾을 수 있습니다. MS Graph API에서는 signInEventTypes 속성을 사용하여 대화형인 로그인을 결정해야 합니다. 예를 들면 다음과 같습니다. 
+
+`"signInEventTypes":["interactiveUser"],`
+
+MS Graph API에서 로그인 로그를 요청할 때 $filter 매개 변수를 사용하여 필터링할 수도 있습니다. 
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 

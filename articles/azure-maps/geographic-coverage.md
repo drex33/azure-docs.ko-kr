@@ -1,19 +1,19 @@
 ---
-title: 지리적 적용 범위 정보 | Microsoft Azure Maps
+title: Microsoft Azure Maps의 지리적 범위 정보
 description: Microsoft Azure Maps 내에서 지리적 데이터를 사용할 수 있는 위치에 대한 세부 정보입니다.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 6/11/2020
+ms.date: 6/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2e6392de1eedde122567d9ffa1c8bfdd6d9c5522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 321888d2b2f3917cde0fdeb91b049578c94f601b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84739584"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579806"
 ---
 # <a name="geographic-coverage-information"></a>지리적 적용 범위 정보
 
@@ -23,7 +23,6 @@ ms.locfileid: "84739584"
 * [트래픽 검사](traffic-coverage.md)
 * [렌더링 검사](render-coverage.md)
 * [라우팅 검사](routing-coverage.md)
-* [Mobility 검사](mobility-coverage.md)
 * [Weather 검사](weather-coverage.md)
 
 ## <a name="next-steps"></a>다음 단계

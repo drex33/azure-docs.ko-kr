@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 89091f8914acea62370290e25a2f98f5bcb220a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084685"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536619"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Text Analytics API 출력의 텍스트 오프셋
 
@@ -26,7 +26,7 @@ ms.locfileid: "110084685"
 
 ## <a name="offsets-in-the-api-response"></a>API 응답의 오프셋 
 
-오프셋이 [명명된 엔터티 인식](../how-tos/text-analytics-how-to-entity-linking.md) 또는 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md)과 같은 API 응답을 반환할 때마다 다음 사항을 기억하세요.
+오프셋이 [명명된 엔터티 인식](../how-tos/text-analytics-how-to-entity-linking.md) 또는 [감정 분석](../how-tos/text-analytics-how-to-sentiment-analysis.md)과 같은 API 응답을 반환할 때마다 다음 사항에 유의하세요.
 
 * 응답의 요소는 호출된 엔드포인트에 특정될 수 있습니다. 
 * HTTP POST/GET 페이로드는 [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp)로 인코딩되며, 이는 클라이언트 측 컴파일러 또는 운영 체제의 기본 문자 인코딩일 수도 있고, 아닐 수도 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "110084685"
 
 Text Analytics API는 편의를 위해 이러한 텍스트 요소도 반환합니다.
 
-## <a name="offsets-in-api-version-31-preview"></a>API 버전 3.1-preview의 오프셋
+## <a name="offsets-in-api-version-31"></a>API 버전 3.1의 오프셋
 
 API 버전 3.1에서는 오프셋을 반환하는 모든 Text Analytics API 엔드포인트는 `stringIndexType` 매개 변수를 지원합니다. 이 매개 변수는 요청된 문자열 반복 체계와 일치하도록 API 출력의 `offset` 및 `length` 특성을 조정합니다. 현재는 다음과 같은 세 가지 형식을 지원합니다.
 

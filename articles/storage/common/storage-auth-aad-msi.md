@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15d5e1d68dce69b5b2f68a02f8b4832393cdd59c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a41cd57e64d1c3b9e6a88924805b1f2a6e77361a
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713471"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726899"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여
 
@@ -48,10 +48,10 @@ Azure ID 클라이언트 라이브러리의 장점은 동일한 코드를 사용
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>데이터 액세스를 위한 Azure 역할 할당
 
-Azure AD 보안 주체가 Blob 또는 큐 데이터에 액세스하려는 경우 해당 보안 주체에게 리소스에 대한 권한이 있어야 합니다. 보안 주체가 Azure의 관리 ID 또는 개발 환경에서 코드를 실행하는 Azure AD 사용자 계정이면 보안 주체는 Azure Storage의 Blob 또는 큐 데이터에 대한 액세스 권한을 부여하는 Azure 역할을 할당받아야 합니다. Azure RBAC를 통한 권한 할당에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights)의 **액세스 권한에 대한 Azure 역할 할당** 섹션을 참조하세요.
+Azure AD 보안 주체가 Blob 또는 큐 데이터에 액세스하려는 경우 해당 보안 주체에게 리소스에 대한 권한이 있어야 합니다. 보안 주체가 Azure의 관리 ID 또는 개발 환경에서 코드를 실행하는 Azure AD 사용자 계정이면 보안 주체는 Azure Storage의 Blob 또는 큐 데이터에 대한 액세스 권한을 부여하는 Azure 역할을 할당받아야 합니다. Azure RBAC를 통해 권한을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Storage 계정을 만들어도 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지는 않습니다. Azure Storage에 Azure 역할을 자신에게 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지 않습니다. Azure Storage에 Azure 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
 >
 > Azure Portal에서 데이터 액세스를 위한 계정 키를 사용할 수도 있으므로 사용자가 데이터 액세스 역할을 자신에게 할당하기 전에 Azure Portal을 통해 스토리지 계정의 데이터에 액세스할 수 있습니다. 자세한 내용은 [Azure Portal에서 Blob 데이터에 대한 액세스 권한을 부여하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조하세요.
 
@@ -168,7 +168,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC를 사용하여 스토리지 데이터에 대한 액세스 권한 관리](./storage-auth-aad-rbac-portal.md)
+- [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)
 - [스토리지 애플리케이션과 함께 Azure AD를 사용](storage-auth-aad-app.md)
 - [Azure AD 자격 증명을 통해 PowerShell 명령을 실행하여 Blob 데이터에 액세스하기](../blobs/authorize-data-operations-powershell.md)
 - [자습서: 관리 ID를 사용하여 App Service의 스토리지에 액세스](../../app-service/scenario-secure-app-access-storage.md)

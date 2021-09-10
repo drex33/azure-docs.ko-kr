@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 011b04e8e7931726b2585c5cbc606855001675fa
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: df7ec7aa9fe6fb73cd7d6871fe9b6a698e324899
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531198"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219701"
 ---
 # <a name="what-is-risk"></a>위험이란?
 
-Azure AD ID 보호의 위험 검색에는 디렉터리에서 사용자 계정과 관련하여 식별된 의심스러운 작업이 포함됩니다.
+Azure AD ID 보호의 위험 검색에는 디렉터리에서 사용자 계정과 관련하여 식별된 의심스러운 작업이 포함됩니다. 위험 검색(사용자 및 로그인 연결 모두)은 위험 사용자 보고서에 있는 전체 사용자 위험 점수에 영향을 미칩니다.
 
 각 조직은 ID 보호를 사용해 강력한 리소스에 액세스하여 이러한 의심스러운 작업을 신속하게 확인하고 대응할 수 있습니다. 
 
@@ -31,13 +31,13 @@ Azure AD ID 보호의 위험 검색에는 디렉터리에서 사용자 계정과
 
 ## <a name="risk-types-and-detection"></a>위험 유형 및 검색
 
-위험에는 **사용자** 와 **로그인** 의 두 유형이 있으며, 검색 또는 계산에는 **실시간** 과 **오프라인** 두 유형이 있습니다.
+위험은 **사용자** 및 **로그인** 수준에서 검색할 수 있으며 검색 또는 계산은 **실시간** 및 **오프라인** 두 유형이 있습니다.
 
 실시간 검색은 5~10분 동안 보고에 표시되지 않을 수 있습니다. 오프라인 검색은 2~24시간 동안 보고에 표시되지 않을 수 있습니다.
 
-### <a name="user-risk"></a>사용자 위험
+### <a name="user-linked-detections"></a>사용자 연결 검색
 
-사용자 위험은 주어진 ID 또는 계정이 손상될 확률을 나타냅니다. 
+특정 악성 로그인에 연결되지 않았지만 사용자 자체에 연결된 사용자에 대해 위험한 활동을 검색할 수 있습니다. 이러한 위험 검색은 보안 연구원, 사법 전문가, Microsoft의 보안 팀 및 기타 신뢰할 수 있는 출처를 비롯해 Microsoft 내부 및 외부 위협 인텔리전스 소스를 사용하여 오프라인에서 계산됩니다.
 
 이러한 위험은 보안 연구원, 사법 전문가, Microsoft의 보안 팀 및 기타 신뢰할 수 있는 출처를 비롯해 Microsoft 내부 및 외부 위협 인텔리전스 소스를 사용하여 오프라인에서 계산됩니다.
 

@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 컴퓨팅 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택하는 방법
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/27/2021
 ms.custom: seodec18
-ms.openlocfilehash: b5314d3672da87ac1d2fadca61046348a369e218
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bff6ef88345b280e2c977661814630af38fbe9d5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789120"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224824"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -35,10 +35,11 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
 | Eav4, Easv4 | 모든 크기 |
-| Edv4, Edsv4 |  Standard_E20d_v4, Standard_E20ds_v4 Standard_E80ids_v4를 제외한 모든 크기 |
+| Edv4, Edsv4 | 모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
+| FX<sup>1</sup> | 모든 크기 |
 | G, Gs | 모든 크기 |
 | H | 모든 크기 |
 | HB | 모든 크기 |
@@ -54,6 +55,7 @@ VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md
 | NCv3 | 모든 크기 |
 | NCasT4_v3 | 모든 크기 |
 | ND | 모든 크기 |
+| NDv4 | 모든 크기 |
 | NDv2 | 없음 - 아직 사용할 수 없습니다. |
 | NP | 모든 크기 |
 | NV | 모든 크기 |

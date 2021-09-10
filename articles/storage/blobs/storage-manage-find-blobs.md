@@ -3,18 +3,18 @@ title: Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾
 description: Blob 인덱스 태그를 사용하여 Blob 개체를 분류, 관리 및 쿼리하는 방법에 대해 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 06/14/2021
+ms.date: 08/25/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: c4ff918be67d74d536159ebbd3e707c1d7e68e8b
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 95262d66be9300cc1c88ec80e3da4a5367705c76
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730751"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969418"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 
@@ -23,8 +23,11 @@ ms.locfileid: "113730751"
 Blob 인덱스 태그를 통해 다음을 수행할 수 있습니다.
 
 - 키-값 인덱스 태그를 사용하여 Blob을 동적으로 분류
+
 - 전체 스토리지 계정에서 태그가 지정된 특정 Blob 빠르게 찾기
+
 - 인덱스 태그 평가를 기반으로 Blob API에 대한 조건부 동작 지정
+
 - [Blob 수명 주기 관리](storage-lifecycle-management-concepts.md)와 같은 기능에 대한 고급 컨트롤을 위해 인덱스 태그 사용
 
 스토리지 계정에 수백만 개의 Blob이 있고 여기에 다양한 애플리케이션이 액세스하는 시나리오를 생각해 보겠습니다. 단일 프로젝트에서 관련된 모든 데이터를 찾으려고 합니다. 데이터가 서로 다른 명명 규칙을 사용하여 여러 컨테이너에 분산되어 있을 수 있기 때문에 범위에 무엇이 있는지 확실하지 않습니다. 그런데 애플리케이션은 모든 데이터를 프로젝트에 기반한 태그와 함께 업로드합니다. 수백만 개의 Blob을 검색하고 이름과 속성을 비교하는 대신 `Project = Contoso`를 검색 기준으로 사용할 수 있습니다. Blob 인덱스는 전체 스토리지 계정에서 모든 컨테이너를 필터링하여 `Project = Contoso`에서 Blob 집합을 50개만 빠르게 찾아서 반환합니다.
@@ -38,9 +41,13 @@ Blob 인덱스 사용 방법에 대한 예제를 시작하려면 [Blob 인덱스
 스토리지 계정에서 다음 5가지 Blob을 살펴보겠습니다.
 
 - *container1/transaction.csv*
+
 - *container2/campaign.docx*
+
 - *photos/bannerphoto.png*
+
 - *archives/completed/2019review.pdf*
+
 - *logs/2020/01/01/logfile.txt*
 
 이러한 Blob은 *container/virtual folder/blob name* 접두사를 사용하여 구분됩니다. 5가지 Blob에 대한 인덱스 태그 특성을 `Project = Contoso`로 설정하면 현재 접두사 구성을 유지하면서 함께 범주화할 수 있습니다. 인덱스 태그를 추가하면 인덱스를 사용하여 데이터를 필터링하고 찾는 기능을 노출하여 데이터를 이동할 필요가 없습니다.
@@ -65,20 +72,30 @@ Blob에 여러 태그를 적용하여 데이터를 더 자세히 설명할 수 �
 > "Status" = 'Unprocessed'  
 > "Priority" = '01'
 
-기존 인덱스 태그 특성을 수정하려면 기존 태그 특성을 검색하고, 태그 특성을 수정한 후 [Set Blob Tags](/rest/api/storageservices/set-blob-tags) 작업으로 바꿉니다. Blob에서 모든 인덱스 태그를 제거하려면 태그 속성을 지정하지 않고 `Set Blob Tags` 작업을 호출합니다. Blob 인덱스 태그는 Blob 데이터 콘텐츠에 대한 하위 리소스이므로 `Set Blob Tags`는 기본 콘텐츠를 수정하지 않으며 Blob의 마지막 수정 시간 또는 eTag를 변경하지 않습니다. 모든 현재 기본 Blob 및 이전 버전에 대한 인덱스 태그를 만들거나 수정할 수 있습니다. 단, 스냅샷 또는 일시 삭제된 Blob의 태그는 수정할 수 없습니다.
+기존 인덱스 태그 특성을 수정하려면 기존 태그 특성을 검색하고, 태그 특성을 수정한 후 [Set Blob Tags](/rest/api/storageservices/set-blob-tags) 작업으로 바꿉니다. Blob에서 모든 인덱스 태그를 제거하려면 태그 속성을 지정하지 않고 `Set Blob Tags` 작업을 호출합니다. Blob 인덱스 태그는 Blob 데이터 콘텐츠에 대한 하위 리소스이므로 `Set Blob Tags`는 기본 콘텐츠를 수정하지 않으며 Blob의 마지막 수정 시간 또는 eTag를 변경하지 않습니다. 모든 현재 기본 Blob에 대한 인덱스 태그를 만들거나 수정할 수 있습니다. 인덱스 태그는 이전 버전에 대해서도 유지되지만 Blob 인덱스 엔진에는 전달되지 않으므로 인덱스 태그를 쿼리하여 이전 버전을 검색할 수 없습니다. 스냅샷 또는 일시 삭제된 Blob의 태그는 수정할 수 없습니다.
 
 Blob 인덱스 태그에는 다음과 같은 제한이 적용됩니다.
 
 - 각 Blob에는 최대 10개의 Blob 인덱스 태그가 있을 수 있습니다.
+
 - 태그 키는 1 ~ 128자 사이여야 합니다.
+
 - 태그 값은 0 ~ 256자 사이여야 합니다.
+
 - 태그 키 및 값은 대/소문자를 구분합니다.
+
 - 태그 키 및 값은 문자열 데이터 형식만 지원합니다. 숫자, 날짜, 시간 또는 특수 문자는 문자열로 저장됩니다.
+
 - 태그 키 및 값은 다음 명명 규칙을 따라야 합니다.
+
   - 영숫자 문자:
+
     - **a**~**z**(소문자)
+
     - **A**~**Z**(대문자)
+
     - **0**~**9**(숫자)
+
   - 유효한 특수 문자: 공백, 더하기, 빼기, 마침표, 콜론, 같음, 밑줄, 슬래시(` +-.:=_/`)
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Blob 인덱스 태그 가져오기 및 나열
@@ -106,11 +123,17 @@ Blob 인덱스 태그가 하나 이상 있는 Blob의 경우 `x-ms-tag-count`는
 Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 
 - 태그 키는 큰따옴표(")로 묶어야 합니다.
+
 - 태그 값과 컨테이너 이름은 작은따옴표(')로 묶어야 합니다.
+
 - @ 문자는 특정 컨테이너 이름(예: `@container = 'ContainerName'`)에 대한 필터링에만 허용됩니다.
+
 - 필터는 문자열에 사전식 정렬을 사용하여 적용됩니다.
+
 - 동일한 키에 대한 동일 방향 범위 연산은 유효하지 않습니다(예: `"Rank" > '10' AND "Rank" >= '15'`).
+
 - REST를 사용하여 필터 식을 만들 때 문자는 URI로 인코딩해야 합니다.
+
 - 태그 쿼리는 단일 태그(예: StoreID = "100")를 사용하는 같음 일치에 대해 최적화됩니다.  >, >=, <, <=을 비롯한 단일 태그를 사용하는 범위 쿼리도 효율적입니다. 둘 이상의 태그와 함께 AND를 사용하는 쿼리는 효율적이지 않습니다.  예를 들어 Cost > "01" AND Cost <= "100"은 효율적입니다. Cost > "01 AND StoreID = "2"는 효율적이지 않습니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
@@ -220,7 +243,9 @@ Blob 인덱스 일치를 수명 주기 규칙의 독립 실행형 필터 집합�
 Blob 인덱스 태그에 대한 액세스 권한은 다음 방식 중 하나를 사용하여 부여할 수 있습니다.
 
 - Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure AD(Azure Active Directory) 보안 주체에 권한을 부여합니다. 탁월한 보안과 사용 편의성을 위해 Azure AD를 사용합니다. Blob 작업에서 Azure AD를 사용하는 방법에 관한 자세한 내용은 [Azure Storage에서 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)를 참조하세요.
+
 - SAS(공유 액세스 서명)를 사용하여 Blob 인덱스에 대한 액세스를 위임합니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요.
+
 - 계정 액세스 키를 사용하여 공유 키로 작업에 권한을 부여합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 
 Blob 인덱스 태그는 Blob 데이터에 대한 하위 리소스입니다. Blob에서 읽거나 쓸 수 있는 권한 또는 SAS 토큰이 있는 사용자에게 Blob 인덱스 태그에 대한 액세스 권한이 없을 수 있습니다.
@@ -292,19 +317,22 @@ Blob 인덱스 태그는 현재 모든 공용 지역에서 사용할 수 있습�
 시작하려면 [Blob 인덱스 태그를 사용하여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 스토리지 계정에서 Blob 인덱스를 사용하려면 먼저 구독을 등록해야 합니다. 이 문서의 [조건 및 알려진 문제](#conditions-and-known-issues) 섹션을 참조하세요.
+> 이 문서의 [조건 및 알려진 문제](#conditions-and-known-issues) 섹션을 참조하세요.
 
 ## <a name="conditions-and-known-issues"></a>조건 및 알려진 문제
 
 이 섹션에서는 알려진 문제와 상태를 설명합니다.
 
 - 범용 v2 계정만 지원됩니다. 프리미엄 블록 Blob, 레거시 Blob, 계층 구조 네임스페이스가 사용되는 계정은 지원되지 않습니다. 범용 v1 계정은 지원되지 않습니다.
+
 - 인덱스 태그가 있는 페이지 Blob을 업로드하면 태그가 유지되지 않습니다. 페이지 Blob을 업로드한 후 태그를 설정하세요.
-- 필터링 범위가 단일 컨테이너로 지정되면 필터 식의 모든 인덱스 태그가 같음 검사(키= 값)인 경우에만 `@container`를 전달할 수 있습니다.
-- `AND` 조건과 함께 범위 연산자를 사용하는 경우에는 동일한 인덱스 태그 키 이름만 지정할 수 있습니다(`"Age" > '013' AND "Age" < '100'`).
-- 버전 관리가 사용되는 경우 현재 버전에서도 인덱스 태그를 사용할 수 있습니다. 이전 버전의 경우 인덱스 태그는 버전에 대해 유지되지만 Blob 인덱스 엔진에 전달되지 않습니다. 인덱스 태그를 쿼리하여 이전 버전을 검색할 수 없습니다.
+
+- Blob 스토리지 버전 관리가 사용되는 경우 현재 버전에서도 인덱스 태그를 사용할 수 있습니다. 인덱스 태그는 이전 버전에 대해 유지되지만 이러한 태그는 Blob 인덱스 엔진에는 전달되지 않으므로 이전 버전을 검색할 수 없습니다. 이전 버전을 현재 버전으로 승격하는 경우 이전 버전의 태그가 현재 버전의 태그가 됩니다. 이러한 태그는 현재 버전과 연결되어 있으므로 Blob 인덱스 엔진에 전달되고 쿼리할 수 있습니다. 
+
 - 인덱스 태그가 인덱싱되었는지 확인하는 API는 없습니다.
+
 - 수명 주기 관리는 Blob 인덱스 일치를 사용한 같음 검사만 지원합니다.
+
 - `Copy Blob`은 원본 Blob에서 새 대상 Blob으로 Blob 인덱스 태그를 복사하지 않습니다. 대상 Blob에 적용할 태그는 복사 작업 중에 지정할 수 있습니다.
 
 ## <a name="faq"></a>FAQ

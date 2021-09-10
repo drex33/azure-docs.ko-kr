@@ -3,14 +3,14 @@ title: VM 시작/중지(미리 보기) 문제 해결
 description: 이 문서에서는 Azure VM의 시작/중지(미리 보기) 기능에서 발생하는 문제를 해결하는 방법을 설명합니다.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/31/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2908f9a8383897ae0bda162e6f980e02d6c81bc1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791693"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966992"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>VM 시작/중지(미리 보기)와 관련된 일반적인 문제 해결
 
@@ -65,3 +65,5 @@ Azure Functions 및 논리 앱 모니터링에 대한 자세한 내용을 알아
 * [Azure Functions에 대한 모니터링을 구성하는 방법](../../azure-functions/configure-monitoring.md)
 
 * [논리 앱 모니터링](../../logic-apps/monitor-logic-apps.md)
+
+* 배포 중에 문제가 발생하거나 VM 시작/중지 v2(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 

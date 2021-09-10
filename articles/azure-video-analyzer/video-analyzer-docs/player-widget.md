@@ -4,12 +4,12 @@ description: 이 참조 문서에서는 애플리케이션에 Video Analyzer 플
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 6896ea43b480c973daa87576ddf9fc8ea5d7cda2
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: b70bfc9a10e357c6f1e64c1737fdb4c049b505f5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567895"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037446"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Azure Video Analyzer 플레이어 위젯 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "122567895"
 > * 플레이어를 사용하여 페이지 만들기
 > * 스트리밍 엔드포인트와 토큰을 플레이어에게 전달
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에는 다음이 필요합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "122567895"
 
 - `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
-나중에 사용할 수 있도록 이러한 값을 복사해야 합니다.
+**나중에 사용할 수 있도록 이러한 값을 복사하여 저장해야 합니다.**
 
 ## <a name="create-an-access-policy"></a>액세스 정책 만들기
 

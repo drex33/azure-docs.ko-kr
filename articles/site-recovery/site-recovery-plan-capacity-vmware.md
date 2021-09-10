@@ -6,21 +6,23 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
-ms.date: 05/27/2021
-ms.openlocfilehash: 9a8706ee361ea7cb34b1e843b3bdd29ce381d48e
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 08/19/2021
+ms.openlocfilehash: b8161a10e958fe15ef8797e54585acb3612c6c41
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577364"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539419"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
-이 문서를 통해 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 물리적 서버를 Azure에 복제할 때 적용할 용량 및 크기 조정을 계획할 수 있습니다.
+이 문서를 통해 [Azure Site Recovery](site-recovery-overview.md) - Classic를 사용하여 온-프레미스 VMware VM 및 물리적 서버를 Azure에 복제할 때 적용할 용량 및 크기 조정을 계획할 수 있습니다.
+
+미리 보기에서 [Azure Site Recovery 복제 어플라이언스/여러 어플라이언스를 만들고 사용](deploy-vmware-azure-replication-appliance-preview.md)하여 용량을 계획해야 합니다.
 
 ## <a name="how-do-i-start-capacity-planning"></a>용량 계획을 시작하려면 어떻게 해야 하나요?
 
-Azure Site Recovery 인프라 요구 사항을 알아보려면 VMware 복제를 위해 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 실행하여 자신의 복제 환경에 대한 정보를 수집하세요. 자세한 내용은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요. 
+Azure Site Recovery 인프라 요구 사항을 알아보려면 VMware 복제를 위해 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 실행하여 자신의 복제 환경에 대한 정보를 수집하세요. 자세한 내용은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요.
 
 Site Recovery Deployment Planner는 호환 및 호환되지 않는 VM, VM당 디스크 및 디스크당 데이터 변동에 대한 전체 정보가 포함된 보고서를 제공합니다. 이 도구는 대상 RPO를 충족하기 위한 네트워크 대역폭 요구 사항과 성공적인 복제 및 테스트 장애 조치(failover)에 필요한 Azure 인프라에 대해서도 요약합니다.
 
@@ -160,7 +162,7 @@ Windows 기반 가상 머신에 대해 마스터 대상 서버를 추가하려�
 6. 마스터 대상을 구성 서버에 등록하려면 **Proceed To Configuration**(구성으로 계속 진행)을 선택합니다.
 
     ![Proceed To Configuration(구성으로 계속 진행) 단추를 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
-7. 구성 서버의 IP 주소를 입력한 다음, 암호를 입력합니다. 암호를 생성하는 방법을 알아보려면 [구성 서버 암호 생성](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)을 참조하세요. 
+7. 구성 서버의 IP 주소를 입력한 다음, 암호를 입력합니다. 암호를 생성하는 방법을 알아보려면 [구성 서버 암호 생성](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)을 참조하세요.
 
     ![구성 서버에 대한 IP 주소와 암호를 입력하는 곳을 보여주는 스크린샷](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. **등록** 을 선택합니다. 등록을 마치면 **마침** 을 선택합니다.

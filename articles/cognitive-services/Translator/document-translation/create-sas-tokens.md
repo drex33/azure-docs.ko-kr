@@ -6,14 +6,14 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: e40fc569ad1c8ec5894f06915422bea37cfc40ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a91829ce79c5cd9e32efefc809dd23a19382f49
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102489636"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360274"
 ---
-# <a name="create-sas-tokens-for-document-translation-processing"></a>문서 번역 처리를 위한 SAS 토큰 만들기
+# <a name="create-sas-tokens-for-your-storage-containers"></a>스토리지 컨테이너에 대한 SAS 토큰 만들기
 
 이 문서에서는 Azure Storage Explorer 또는 Azure Portal을 사용하여 공유 액세스 서명(SAS) 토큰을 만드는 방법을 알아봅니다. SAS 토큰은 Azure 스토리지 계정의 리소스에 대한 안전한 위임된 액세스를 제공합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "102489636"
 
 * 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**체험 계정을 만들 수 있습니다**](https://azure.microsoft.com/free/).
 * [**Translator**](https://ms.portal.azure.com/#create/Microsoft) 서비스 리소스(Cognitive Services 다중 서비스 리소스 **아님**).  [새 Azure 리소스 만들기](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource)를 참조하세요.  
-* [**Azure BLOB 스토리지 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 BLOB 데이터를 저장하고 구성하는 컨테이너를 만듭니다.
+* [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) 스토리지 계정 내에서 BLOB 데이터를 저장하고 구성하는 컨테이너를 만듭니다.
 
 ### <a name="create-your-tokens"></a>토큰 만들기
 

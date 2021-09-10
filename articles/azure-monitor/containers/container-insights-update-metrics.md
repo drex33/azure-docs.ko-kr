@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너 인사이트를 업데이트하여
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1921a0cc0aa15a5e877d64cbe2c7ad094f9e144f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708274"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536648"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용하도록 컨테이너 인사이트를 업데이트하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "101708274"
 각 프로세스는 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할을 할당하여, 에이전트에서 수집된 데이터를 클러스터 리소스에 게시할 수 있습니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경하거나, 리소스를 업데이트하거나, 데이터를 읽을 수는 없습니다. 역할에 대한 자세한 내용은 [Monitoring Metrics Publisher](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)를 참조하세요. 모니터링 메트릭 게시자 역할 요구 사항은 Azure Arc 사용 Kubernetes 클러스터에는 적용되지 않습니다.
 
 > [!IMPORTANT]
-> Azure Arc 사용 Kubernetes 클러스터에는 필요한 최소 에이전트 버전이 이미 있기 때문에 업그레이드가 필요하지 않습니다.
+> Azure Arc 사용 Kubernetes 클러스터에는 필요한 최소 에이전트 버전이 이미 있기 때문에 업그레이드가 필요하지 않습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할이 자동으로 할당됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

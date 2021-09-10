@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3db33f994c70d2c471ec8147672be5704406157d
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 8f653f8e41d45310cf6d90aebf0484b2a0ea7360
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765367"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272982"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -35,7 +35,7 @@ ms.locfileid: "113765367"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -193,13 +193,14 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
 1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지** 를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
-2. 마이그레이션 중에 Windows VM 및 Linux용 VM 에이전트를 자동으로 설치합니다. 머신에 Linux OS가 있는 경우 마이그레이션된 머신에서 Azure VM Linux 에이전트 [요구 사항](../virtual-machines/extensions/agent-linux.md#requirements)을 검토하여 Linux VM 에이전트 설치가 제대로 완료되었는지 확인합니다.
-3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
-4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
-6. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
-7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
-8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
+1. 마이그레이션 중에 Windows VM 및 Linux용 VM 에이전트를 자동으로 설치합니다.
+1. [Azure VM에서 모든 Windows 정품 인증 문제를 확인하고 해결합니다.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. 호스트 이름, 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+1. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
+1. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
+1. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
+1. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
+1. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 

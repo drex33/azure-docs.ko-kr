@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: fcc7ac002c9d1024abc17dc26ba0b231213ceb53
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/18/2021
+ms.openlocfilehash: 731fe8f29fc4e67e2d74d46702768e642928ae09
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386549"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539565"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에서 논리 앱의 호스트 및 앱 설정 편집
 
@@ -45,7 +45,7 @@ ms.locfileid: "110386549"
 
 Visual Studio Code의 논리 앱 프로젝트의 루트 수준에서 **local.settings.json** 파일에는 로컬 개발 환경에서 실행되는 동안 해당 논리 앱의 *모든 워크플로* 에 영향을 주는 전역 구성 옵션이 포함됩니다. 워크플로가 로컬에서 실행될 때 이러한 설정은 로컬 환경 변수로 액세스되며, 워크플로를 실행하는 다양한 환경 간에 해당 값이 바뀔 수 있습니다. 이러한 설정을 보고 관리하려면 [앱 설정 관리 - local.settings.json](#manage-app-settings)을 참조하세요.
 
-Azure Logic Apps의 앱 설정은 Azure Functions 또는 Azure Web Apps의 앱 설정과 유사하게 작동합니다. 이러한 다른 서비스를 이전에 사용한 적이 있다면 앱 설정에 이미 익숙할 수 있습니다. 자세한 내용은 [Azure Functions의 앱 설정 참조](../azure-functions/functions-app-settings.md) 및 [Azure Functions Core Tools 작업 - 로컬 설정 파일](../azure-functions/functions-run-local.md#local-settings-file)을 참조하세요.
+Azure Logic Apps의 앱 설정은 Azure Functions 또는 Azure Web Apps의 앱 설정과 유사하게 작동합니다. 이러한 다른 서비스를 이전에 사용한 적이 있다면 앱 설정에 이미 익숙할 수 있습니다. 자세한 내용은 [Azure Functions의 앱 설정 참조](../azure-functions/functions-app-settings.md) 및 [Azure Functions Core Tools 작업 - 로컬 설정 파일](../azure-functions/functions-develop-local.md#local-settings-file)을 참조하세요.
 
 | 설정 | 기본값 | 설명 |
 |---------|---------------|-------------|
@@ -295,6 +295,7 @@ Visual Studio Code에서는 논리 앱 프로젝트의 루트 수준에서 **hos
 
 | 설정 | 기본값 | 설명 |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1분) | 기본 제공 Service Bus 작업을 통해 메시지를 보내기 위한 시간 제한을 설정합니다. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | 메시지 보낸 사람 `64`명 | 메시지 보낸 사람 풀에서 사용할 프로세서 코어당 Azure Service Bus 메시지 보낸 사람의 수를 설정합니다. |
 ||||
 

@@ -3,12 +3,12 @@ title: Azure Functions에서 사용 플랜 비용 예측
 description: Azure의 사용 플랜에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확하게 예측하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9544dded7516b07ad7d919d08b0b9cd4e12d0607
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578562"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567326"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
@@ -18,7 +18,7 @@ ms.locfileid: "100578562"
 | ---- | ----------- |
 | [**Consumption**](consumption-plan.md) | 함수 앱이 실행되는 시간에 대해서만 요금이 청구됩니다. 이 플랜에는 구독별로 [체험판 부여][가격 책정 페이지]가 포함되어 있습니다.|
 | [**Premium**](functions-premium-plan.md) | 사용 플랜과 동일한 기능 및 스케일링 메커니즘을 제공하지만 성능 및 VNET 액세스는 향상되었습니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 정보는 [Azure Functions 프리미엄 플랜](functions-premium-plan.md)을 참조하세요. |
-| [**전용(App Service)** ](dedicated-plan.md) <br/>(기본 계층 이상) | 전용 VM 또는 격리에서 실행해야 하는 경우 사용자 지정 이미지를 사용하거나 과도한 App Service 요금제 용량을 사용하려고 합니다. [정기적인 App Service 요금 청구](https://azure.microsoft.com/pricing/details/app-service/)를 사용합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다.|
+| [**전용(App Service)**](dedicated-plan.md) <br/>(기본 계층 이상) | 전용 VM 또는 격리에서 실행해야 하는 경우 사용자 지정 이미지를 사용하거나 과도한 App Service 요금제 용량을 사용하려고 합니다. [정기적인 App Service 요금 청구](https://azure.microsoft.com/pricing/details/app-service/)를 사용합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다.|
 
 함수 성능 및 비용 요구 사항을 가장 잘 지원하는 플랜을 선택했습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
 
@@ -67,138 +67,17 @@ HTTP 트리거 함수의 경우 함수 코드가 실행되기 전에 오류가 �
 
 ### <a name="function-app-level-metrics"></a>함수 앱-수준 메트릭
 
-함수의 비용 영향을 보다 잘 이해하기 위해 Azure Monitor를 사용하여 함수 앱에서 현재 생성하고 있는 비용 관련 메트릭을 볼 수 있습니다. [Azure Portal] 또는 REST API에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/essentials/metrics-getting-started.md)를 사용하여 이 데이터를 가져올 수 있습니다.
+함수의 비용 영향을 보다 잘 이해하기 위해 Azure Monitor를 사용하여 함수 앱에서 현재 생성하고 있는 비용 관련 메트릭을 볼 수 있습니다. 
 
-#### <a name="monitor-metrics-explorer"></a>메트릭 탐색기 모니터링
-
-[Azure Monitor 메트릭 탐색기](../azure-monitor/essentials/metrics-getting-started.md)를 사용하여 사용 플랜 함수 앱에 대한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
-
-1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor`를 검색하고 **서비스** 아래의 **모니터링** 을 선택합니다.
-
-1. 왼쪽에서 **메트릭** > 을 선택하고 **리소스를 선택** 한 다음, 이미지 아래의 설정을 사용하여 함수 앱을 선택합니다.
-
-    ![함수 앱 리소스를 선택합니다.](media/functions-consumption-costing/select-a-resource.png)
-
-      
-    |설정  |제안 값  |설명  |
-    |---------|---------|---------|
-    | Subscription    |  사용자의 구독  | 함수 앱을 사용하는 구독입니다.  |
-    | Resource group     | 리소스 그룹  | 함수 앱을 포함하는 리소스 그룹입니다.   |
-    | 리소스 종류     |  App Services | 함수 앱은 모니터링의 App Services 인스턴스로 표시됩니다. |
-    | 리소스     |  함수 앱  | 모니터링할 함수 앱입니다.        |
-
-1. **적용** 을 선택하여 모니터링할 리소스로 함수 앱을 선택합니다.
-
-1. **메트릭** 에서 **함수 실행 수** 및 **집계** 에 대한 **합계** 를 선택합니다. 이렇게 하면 선택한 기간 동안의 실행 수 합계가 차트에 추가됩니다.
-
-    ![차트에 추가할 함수 앱 메트릭을 정의합니다.](media/functions-consumption-costing/monitor-metrics-add-metric.png)
-
-1. **메트릭 추가** 를 선택하고 2-4단계를 반복하여 차트에 **함수 실행 단위** 를 추가합니다. 
-
-결과 차트에는 선택한 시간 범위의 두 실행 메트릭의 합계가 모두 포함됩니다(이 경우 2시간).
-
-![함수 실행 수 및 실행 단위의 그래프](media/functions-consumption-costing/monitor-metrics-execution-sum.png)
-
-실행 단위 수가 실행 수보다 훨씬 크므로 차트에는 실행 단위만 표시됩니다.
-
-이 차트에서는 2시간 동안 사용된 총 11억1000만 `Function Execution Units`(MB-밀리초)를 표시합니다. GB-초로 변환하려면 1024000으로 나눕니다. 이 예제에서 함수 앱은 `1110000000 / 1024000 = 1083.98` GB-초를 사용했습니다. 실행 시간에 대한 체험판 부여를 이미 사용하고 있다고 가정하고, 이 값을 사용하여 두 시간에 대한 비용을 제공하는 [함수 가격 책정 페이지][가격 책정 페이지]에서 실행 시간의 현재 가격을 곱합니다. 
-
-#### <a name="azure-cli"></a>Azure CLI
-
-[Azure CLI](/cli/azure/)에는 메트릭을 검색하는 명령이 있습니다. CLI는 로컬 명령 환경에서 사용하거나 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용하여 포털에서 직접 사용할 수 있습니다. 예를 들어 다음 [Az Monitor 메트릭 목록](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령은 이전에 사용된 것과 동일한 기간에 대한 시간별 데이터를 반환합니다.
-
-`<AZURE_SUBSCRIPTON_ID>`을 명령을 실행하는 Azure 구독 ID로 바꾸어야 합니다.
-
-```azurecli-interactive
-az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
-```
-
-이 명령은 다음 예제와 같은 JSON 페이로드를 반환합니다.
-
-```json
-{
-  "cost": 0.0,
-  "interval": "1:00:00",
-  "namespace": "Microsoft.Web/sites",
-  "resourceregion": "centralus",
-  "timespan": "2019-09-11T21:46:00Z/2019-09-11T23:18:00Z",
-  "value": [
-    {
-      "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionUnits",
-      "name": {
-        "localizedValue": "Function Execution Units",
-        "value": "FunctionExecutionUnits"
-      },
-      "resourceGroup": "metrics-testing-consumption",
-      "timeseries": [
-        {
-          "data": [
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T21:46:00+00:00",
-              "total": 793294592.0
-            },
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T22:46:00+00:00",
-              "total": 316576256.0
-            }
-          ],
-          "metadatavalues": []
-        }
-      ],
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    },
-    {
-      "id": "/subscriptions/XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionCount",
-      "name": {
-        "localizedValue": "Function Execution Count",
-        "value": "FunctionExecutionCount"
-      },
-      "resourceGroup": "metrics-testing-consumption",
-      "timeseries": [
-        {
-          "data": [
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T21:46:00+00:00",
-              "total": 33538.0
-            },
-            {
-              "average": null,
-              "count": null,
-              "maximum": null,
-              "minimum": null,
-              "timeStamp": "2019-09-11T22:46:00+00:00",
-              "total": 13040.0
-            }
-          ],
-          "metadatavalues": []
-        }
-      ],
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    }
-  ]
-}
-```
-이 특정 응답은 `2019-09-11T21:46`에서 `2019-09-11T23:18`로 앱이 11억 1000만 MB-밀리초(1083.98GB-초)를 사용하는 것을 보여 줍니다.
+[!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]
 
 ### <a name="function-level-metrics"></a>함수 수준 메트릭
 
 함수 실행 단위는 실행 시간과 메모리 사용량의 조합으로, 이를 통해 메모리 사용을 이해하는 데 어려운 메트릭을 사용할 수 있습니다. 메모리 데이터는 현재 Azure Monitor를 통해 사용할 수 있는 메트릭이 아닙니다. 그러나 앱의 메모리 사용량을 최적화하려는 경우는 Application Insights에서 수집된 성능 카운터 데이터를 사용할 수 있습니다.  
 
 이를 아직 수행하지 않은 경우 [함수 앱에서 Application Insights를 사용하도록 설정](configure-monitoring.md#enable-application-insights-integration)합니다. 이 통합을 사용하도록 설정하면 [포털에서 이 원격 분석 데이터를 쿼리](analyze-telemetry-data.md#query-telemetry-data)할 수 있습니다. 
+
+[Azure Portal] 또는 REST API에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/essentials/metrics-getting-started.md)를 사용하여 Monitor 메트릭 데이터를 가져올 수 있습니다.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 

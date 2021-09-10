@@ -4,25 +4,20 @@ description: 지속적인 백업 계정에 대한 복원 권한을 특정 역할
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d566a2ee66df4adb810cb5908da3c47657fab418
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100648606"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528573"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 복원하는 권한 관리
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> Azure Cosmos DB에 대한 특정 시점 복원 기능(지속적인 백업 모드)은 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-Azure Cosmos DB를 사용하면 지속적인 백업(미리 보기) 계정에 대한 복원 권한을 특정 역할 또는 보안 주체로 분리하고 제한할 수 있습니다. 계정의 소유자는 복원을 트리거하고 다른 보안 주체에 역할을 할당하여 복원 작업을 수행할 수 있습니다. 이러한 권한은 다음 이미지에 표시된 것처럼 구독 범위나 더 세부적으로 원본 계정 범위에 적용될 수 있습니다.
+Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권한을 특정 역할 또는 보안 주체로 분리하고 제한할 수 있습니다. 계정의 소유자는 복원을 트리거하고 다른 보안 주체에 역할을 할당하여 복원 작업을 수행할 수 있습니다. 이러한 권한은 다음 이미지에 표시된 것처럼 구독 범위나 더 세부적으로 원본 계정 범위에 적용될 수 있습니다.
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="복원 작업을 수행하는 데 필요한 역할의 목록입니다." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 
@@ -52,19 +47,22 @@ Azure Cosmos DB를 사용하면 지속적인 백업(미리 보기) 계정에 대
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB 복원 가능한 계정 리소스 | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-복원 가능한 계정 리소스는 `az cosmosdb restorable-database-account list --name <accountname>` CLI의 명령이나 PowerShell의 `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet의 출력에서 추출할 수 있습니다. 출력의 이름 특성은 복원 가능한 계정의 `instanceID`를 나타냅니다. 자세히 알아보려면 [PowerShell](continuous-backup-restore-powershell.md) 또는 [CLI](continuous-backup-restore-command-line.md) 문서를 참조하세요.
+복원 가능한 계정 리소스는 `az cosmosdb restorable-database-account list --name <accountname>` CLI의 명령이나 PowerShell의 `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet의 출력에서 추출할 수 있습니다. 출력의 이름 특성은 복원 가능한 계정의 `instanceID`를 나타냅니다. 
 
 ## <a name="permissions"></a>권한
 
 지속적인 백업 모드 계정을 복원과 관련된 여러 작업을 수행하려면 다음 권한이 필요합니다.
 
+> [!NOTE]
+> 계정 범위 또는 구독 범위에서 복원 가능한 데이터베이스 계정에 사용 권한을 할당할 수 있습니다. 리소스 그룹 범위에서 사용 권한을 할당하는 것은 지원되지 않습니다.
+
 |사용 권한  |영향  |최소 범위  |최대 범위  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | 이러한 권한은 ARM 템플릿 배포에서 복원된 계정을 만드는 데 필요합니다. 이 역할을 설정하는 방법은 아래의 샘플 권한 [RestorableAction](#custom-restorable-action)을 참조하세요. | 해당 없음 | 해당 없음  |
 |`Microsoft.DocumentDB/databaseAccounts/write` | 계정을 리소스 그룹으로 복원하려면 이 권한이 필요합니다. | 복원된 계정이 만들어진 리소스 그룹입니다. | 복원된 계정이 만들어진 구독 |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |이 권한은 원본 복원이 가능한 데이터베이스 계정 범위에서 복원 동작을 수행할 수 있도록 하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* 입니다 | 복원 가능한 데이터베이스 계정이 포함된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다.  |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |이 권한은 복원 가능한 원본 데이터베이스 계정 범위에서 복원할 수 있는 데이터베이스 계정을 나열하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* 입니다| 복원 가능한 데이터베이스 계정이 포함된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다.  |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | 이 권한은 원본 복원이 가능한 계정 범위에서 복원 가능한 계정에 대한 데이터베이스 및 컨테이너 목록과 같은 복원 가능한 리소스를 읽을 수 있도록 하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* 입니다| 복원 가능한 데이터베이스 계정이 포함된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다. |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` </br> 권한 범위로 리소스 그룹을 선택할 수 없습니다. |이 권한은 원본 복원이 가능한 데이터베이스 계정 범위에서 복원 동작을 수행할 수 있도록 하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>* 입니다. | 복원 가능한 데이터베이스 계정이 포함된 구독입니다.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` </br> 권한 범위로 리소스 그룹을 선택할 수 없습니다. |이 권한은 복원 가능한 원본 데이터베이스 계정 범위에서 복원할 수 있는 데이터베이스 계정을 나열하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>* 입니다.| 복원 가능한 데이터베이스 계정이 포함된 구독입니다. |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` </br> 권한 범위로 리소스 그룹을 선택할 수 없습니다. | 이 권한은 원본 복원이 가능한 계정 범위에서 복원 가능한 계정에 대한 데이터베이스 및 컨테이너 목록과 같은 복원 가능한 리소스를 읽을 수 있도록 하는 데 필요합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 복원 가능한 데이터베이스 계정 리소스의 `ID` 속성에도 제공됩니다. 복원 가능한 계정의 예시 중 하나인 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>* 입니다.| 복원 가능한 데이터베이스 계정이 포함된 구독입니다. |
 
 ## <a name="azure-cli-role-assignment-scenarios-to-restore-at-different-scopes"></a>다른 범위에서 복원하는 Azure CLI 역할 할당 시나리오
 
@@ -131,5 +129,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) 또는 [Azure Resource Manager](continuous-backup-restore-template.md)를 사용하여 지속적인 백업을 구성하고 관리합니다.
+* [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
+* [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 계정을 복원합니다.
+* [정기적 백업에서 지속적인 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * [지속적인 백업 모드의 리소스 모델](continuous-backup-restore-resource-model.md)

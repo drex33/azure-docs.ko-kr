@@ -3,19 +3,19 @@ title: 오디오 콘텐츠 만들기 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 오디오 콘텐츠 만들기는 앱 및 제품에 대한 Microsoft의 텍스트-음성 변환 출력을 사용자 지정하고 미세 조정할 수 있는 온라인 도구입니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: trbye
-ms.openlocfilehash: 94e060176b921529a42e28e8c735b0f1cdda5293
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 087459b5831aa69c6e30e1dbe824d1902facbc2d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075081"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539050"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 만들기 도구를 사용한 합성 향상
 
@@ -103,7 +103,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>
@@ -141,9 +141,10 @@ Welcome to use Audio Content Creation to customize audio output for your product
 2. **액세스 제어(IAM)** 를 클릭합니다. **역할 할당** 탭을 클릭하여 이 구독의 모든 역할 할당을 봅니다.
     :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="역할 할당 탭":::
 3. **추가** > **역할 할당 추가** 를 클릭하여 역할 할당 추가 창을 엽니다. 역할 드롭다운 목록에서 **Cognitive Service 사용자** 역할을 선택합니다. 사용자에게 이 음성 리소스의 소유권을 부여하려면 **소유자** 역할을 선택할 수 있습니다.
-4. 목록에서 사용자를 선택합니다. 목록에 사용자가 표시되지 않으면 선택 상자에 직접 입력하여 표시 이름 및 이메일 주소에 대한 디렉터리를 검색할 수 있습니다. 사용자가 이 디렉터리에 없는 경우 Azure Active Directory에서 신뢰할 수 있는 사용자의 [Microsoft 계정](https://account.microsoft.com/account)을 입력할 수 있습니다.
-5. **저장** 을 클릭하여 역할을 할당합니다. 사용자는 이메일 초대를 받게 됩니다. 이메일에서 **초대 수락** > **Azure 조인에 동의** 를 클릭하여 초대를 수락합니다. 그러면 사용자가 Azure Portal로 리디렉션됩니다. 사용자는 Azure Portal에서 추가 작업을 수행할 필요가 없습니다.
-6. 잠시 후 사용자에게 음성 리소스 범위의 Cognitive Service 사용자 역할이 할당됩니다. 사용자는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 페이지를 방문하거나 새로 고침하고 시작할 음성 리소스를 선택할 수 있습니다. 
+4. 사용자의 메일 주소를 입력하고 디렉터리에서 사용자를 선택합니다. 메일 주소는 Azure Active Directory에서 신뢰할 수 있는 **Microsoft 계정** 이어야 합니다. 사용자는 개인 메일 주소를 사용하여 [Microsoft 계정](https://account.microsoft.com/account)에 쉽게 가입할 수 있습니다. 
+5. **저장** 을 클릭하여 역할을 할당합니다. 
+6. 사용자는 이메일 초대를 받게 됩니다. 이메일에서 **초대 수락** > **Azure 조인에 동의** 를 클릭하여 초대를 수락합니다. 그러면 사용자가 Azure Portal로 리디렉션됩니다. 사용자는 Azure Portal에서 추가 작업을 수행할 필요가 없습니다. 잠시 후 사용자는 음성 리소스 범위의 역할이 할당되고 이 음성 리소스에 액세스할 수 있게 됩니다. 사용자가 초대 메일을 받지 못한 경우 “역할 할당”에서 사용자 계정을 검색하고 사용자 프로필 내부로 이동할 수 있습니다. “ID” -> “초대가 수락됨”을 찾고 **(관리)** 를 클릭하여 메일 초대를 다시 보냅니다. 사용자에게 초대 링크를 복사할 수도 있습니다. 
+7. 이제 사용자는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 제품 페이지를 방문하거나 새로 고치고 사용자의 Microsoft 계정으로 로그인합니다. 모든 음성 제품 중에서 **오디오 콘텐츠 만들기** 블록을 선택합니다. 팝업 창 또는 페이지 오른쪽 위에 있는 설정에서 음성 리소스를 선택합니다. 사용자가 사용 가능한 음성 리소스를 찾을 수 없는 경우 적합한 디렉터리에 있는지 확인합니다. 적합한 디렉터리를 확인하려면 오른쪽 위에 있는 계정 프로필을 클릭하고 “현재 디렉터리” 옆에 있는 **전환** 을 클릭합니다. 사용 가능한 디렉터리가 두 개 이상 있는 경우 여러 디렉터리에 액세스할 수 있음을 의미합니다. 다른 디렉터리로 전환하고 설정으로 이동하여 적합한 음성 리소스를 사용할 수 있는지 확인합니다. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="역할 추가 대화 상자":::
 
@@ -162,9 +163,9 @@ Welcome to use Audio Content Creation to customize audio output for your product
 사용자 중 한 명에게 다른 사용자에 대한 액세스 권한을 부여하려면 사용자에게 음성 리소스에 대한 소유자 역할을 부여하고 사용자를 Azure 디렉터리 읽기 권한자로 설정해야 합니다.
 1. 사용자를 음성 리소스의 소유자로 추가합니다. [음성 리소스에 사용자를 추가하는 방법](#add-users-to-a-speech-resource)을 참조하세요.
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="역할 소유자 필드":::
-1. [Azure Portal](https://portal.azure.com/)에서 왼쪽 위에 있는 축소된 메뉴를 선택합니다. **Azure Active Directory** 를 클릭한 다음, **사용자** 를 클릭합니다.
-1. 사용자의 Microsoft 계정을 검색하고 사용자의 세부 정보 페이지로 이동합니다. **할당된 역할** 을 클릭합니다.
-1. **할당 추가** -> **디렉터리 읽기 권한자** 를 클릭합니다.
+2. [Azure Portal](https://portal.azure.com/)에서 왼쪽 위에 있는 축소된 메뉴를 선택합니다. **Azure Active Directory** 를 클릭한 다음, **사용자** 를 클릭합니다.
+3. 사용자의 Microsoft 계정을 검색하고 사용자의 세부 정보 페이지로 이동합니다. **할당된 역할** 을 클릭합니다.
+4. **할당 추가** -> **디렉터리 읽기 권한자** 를 클릭합니다. “할당 추가” 단추가 회색으로 표시되면 액세스할 수 없음을 의미입니다. 이 디렉터리의 전역 관리자만 사용자에게 할당을 추가할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 

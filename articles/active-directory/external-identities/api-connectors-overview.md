@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a5563ff1f57f6b3684834a2488fc0665ac5eddd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ead99d955fbd82099b4ad577e99026e8e66aea5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102610045"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442417"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>API 커넥터를 사용하여 셀프 서비스 등록 사용자 지정 및 확장 
 
@@ -35,15 +35,15 @@ API 커넥터는 HTTP 엔드포인트 URL 및 API 호출 인증을 정의하여 
 
 다음과 같이 사용자 흐름에는 API 커넥터를 사용할 수 있는 두 개의 위치가 있습니다.
 
-- ID 공급자를 사용하여 로그인한 후
+- 등록 하는 동안 id 공급자와 페더레이션 한 후
 - 사용자를 만들기 전
 
 > [!IMPORTANT]
 > 두 경우 모두, 사용자 로그인이 아닌 사용자 **등록** 중에 API 커넥터가 호출됩니다.
 
-### <a name="after-signing-in-with-an-identity-provider"></a>ID 공급자를 사용하여 로그인한 후
+### <a name="after-federating-with-an-identity-provider-during-sign-up"></a>등록 하는 동안 id 공급자와 페더레이션 한 후
 
-API 커넥터는 등록 프로세스의 이 단계에서 ID 공급자(예: Google, Facebook, Azure AD)를 이용하여 사용자를 인증한 직후에 호출됩니다. 이 단계는 사용자 특성을 수집하기 위해 사용자에게 표시되는 형식인 ***특성 모음 페이지*** 앞에 나옵니다. 이 단계는 사용자가 로컬 계정으로 등록하는 경우에는 호출되지 않습니다. 다음은 이 단계에서 사용할 수 있는 API 커넥터 시나리오의 예입니다.
+API 커넥터는 로그인 프로세스의 해당 절차에서 ID 공급자(예: Google, Facebook, Azure AD)를 사용한 사용자 인증 후 즉시 호출됩니다. 이 단계는 사용자 특성을 수집하기 위해 사용자에게 표시되는 형식인 ***특성 모음 페이지*** 앞에 나옵니다. 이 단계는 사용자가 로컬 계정으로 등록하는 경우에는 호출되지 않습니다. 다음은 이 단계에서 사용할 수 있는 API 커넥터 시나리오의 예입니다.
 
 - 사용자가 제공한 메일 또는 페더레이션 ID를 사용하여 기존 시스템에서 클레임을 조회합니다. 기존 시스템에서 해당 클레임을 반환하고 특성 모음 페이지를 미리 채운 다음 토큰에서 반환할 수 있도록 합니다.
 - 소셜 ID를 토대로 허용 또는 차단 목록을 구현합니다.

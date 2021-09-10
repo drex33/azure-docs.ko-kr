@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 9fdcd8a82b901e00e28f0ddd89ba53d9a2e3fbae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9a51d7266be8c8565ddd84afa0989951896af1b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952689"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032906"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>자습서: uniFLOW Online과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "104952689"
 * 사용자가 해당 Azure AD 계정으로 uniFLOW Online에 로그인할 수 있도록 합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -73,30 +73,34 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **식별자** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
-    - `https://<tenant_domain_name>.eu.uniflowonline.com`
-    - `https://<tenant_domain_name>.us.uniflowonline.com`
-    - `https://<tenant_domain_name>.sg.uniflowonline.com`
-    - `https://<tenant_domain_name>.jp.uniflowonline.com`
-    - `https://<tenant_domain_name>.au.uniflowonline.com`
+    | **URL에 로그인** |
+    |---------|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com` |
+    | `https://<tenant_domain_name>.us.uniflowonline.com` |
+    | `https://<tenant_domain_name>.sg.uniflowonline.com` |
+    | `https://<tenant_domain_name>.jp.uniflowonline.com` |
+    | `https://<tenant_domain_name>.au.uniflowonline.com` |
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [uniFLOW Online 클라이언트 지원 팀](mailto:support@nt-ware.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조하거나 uniFLOW Online 테넌트에 표시된 회신 URL을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [uniFLOW Online 클라이언트 지원 팀](mailto:support@nt-ware.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조하거나 uniFLOW Online 테넌트에 표시된 회신 URL을 참조할 수도 있습니다.
 
-1. uniFLOW Online 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+1. uniFLOW Online 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성 목록을 보여 주지만, **nameidentifier** 는 **user.userprincipalname** 과 매핑됩니다. uniFLOW Online 애플리케이션에서는 **nameidentifier** 가 **user.objectid** 와 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하여 특성 매핑을 편집하여 특성 매핑을 변경해야 합니다.
 
-    ![이미지](common/default-attributes.png)
+    ![스크린샷은 편집 아이콘이 강조 표시된 사용자 특성 창을 보여줍니다.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도 uniFLOW Online 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
@@ -145,21 +149,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 패널에서 **User**(사용자)를 클릭합니다.
 
-    ![스크린샷은 uniflow Online 사이트에서 선택한 사용자를 보여줍니다.](./media/uniflow-online-tutorial/configure-1.png)
+    ![스크린샷은 uniflow Online 사이트에서 선택한 사용자를 보여줍니다.](./media/uniflow-online-tutorial/user.png)
 
 1. **ID 공급자** 를 클릭합니다.
 
-    ![스크린샷은 선택된 ID 공급자를 보여줍니다.](./media/uniflow-online-tutorial/configure-2.png)
+    ![스크린샷은 선택된 ID 공급자를 보여줍니다.](./media/uniflow-online-tutorial/profile.png)
 
 1. **Add identity provider**(ID 공급자 추가)를 클릭합니다.
 
-    ![스크린샷은 선택된 ID 공급자 추가를 보여줍니다.](./media/uniflow-online-tutorial/configure-3.png)
+    ![스크린샷은 선택된 ID 공급자 추가를 보여줍니다.](./media/uniflow-online-tutorial/add-profile.png)
 
 1. **ADD IDENTITY PROVIDER**(ID 공급자 추가) 섹션에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 설명된 값을 입력할 수 있는 ID 공급자 추가 섹션을 보여줍니다.](./media/uniflow-online-tutorial/configure-4.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 ID 공급자 추가 섹션을 보여줍니다.](./media/uniflow-online-tutorial/configuration.png)
 
-    a. Display name(표시 이름)을 입력합니다(예: *AzureAD SSO*).
+    a. Display name(표시 이름)을 입력합니다(예: **AzureAD SSO**).
 
     b. **Provider type**(공급자 유형)의 드롭다운에서 **WS-Fed** 옵션을 선택합니다.
 
@@ -169,9 +173,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **General**(일반) 탭에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 설명된 값을 입력할 수 있는 일반 탭을 보여줍니다.](./media/uniflow-online-tutorial/configure-5.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 일반 탭을 보여줍니다.](./media/uniflow-online-tutorial/general-tab.png)
 
-    a. Display name(표시 이름)을 입력합니다(예: *AzureAD SSO*).
+    a. Display name(표시 이름)을 입력합니다(예: **AzureAD SSO**).
 
     b. **ADFS 페더레이션 메타데이터** 에 대해 **From URL** 옵션을 선택합니다.
 

@@ -8,14 +8,16 @@ ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: 15da7300018d563ed9919c145ca3e7f08a07f619
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 7693bc23e68880346c09d3c55c84858283c735ba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190646"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696600"
 ---
 # <a name="proximity-placement-groups"></a>근접 배치 그룹
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 VM을 단일 지역에 배치하면 인스턴스 간의 물리적 거리가 줄어듭니다. 단일 가용성 영역 내에 배치하면 물리적으로 더 가까워집니다. 그러나 Azure 공간이 증가함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며, 이로 인해 애플리케이션에 영향을 미치는 네트워크 대기 시간이 발생할 수 있습니다. 
 

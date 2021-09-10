@@ -10,19 +10,21 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bae85c009bb382ee79526fb547af5e475a7ed785
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: c1c6937f3b532b94b3b82fcd17bb6591f4887b96
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594844"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690704"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder-using-powershell"></a>PowerShell을 사용하여 Azure Image Builder로 Windows VM 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서에서는 Azure VM Image Builder PowerShell 모듈을 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

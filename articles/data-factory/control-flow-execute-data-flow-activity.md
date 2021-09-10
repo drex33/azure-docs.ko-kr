@@ -1,19 +1,22 @@
 ---
 title: 데이터 흐름 작업
-description: 데이터 팩터리 파이프라인 내에서 데이터 흐름을 실행하는 방법입니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인 내에서 데이터 흐름을 실행하는 방법입니다.
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 05/20/2021
-ms.openlocfilehash: 3793fb3495ca9df9ab8ed408090a8f285f6488b0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/24/2021
+ms.openlocfilehash: b5fdb41c84d97c5a4ba544c299eb183c704fa3d8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464650"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822214"
 ---
-# <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
+# <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -71,7 +74,7 @@ traceLevel | 데이터 흐름 작업 실행의 로깅 수준을 설정합니다.
 코어 수 및 컴퓨팅 유형 속성을 런타임에 들어오는 원본 데이터의 크기에 맞춰 동적으로 설정할 수 있습니다. 조회 또는 메타데이터 가져오기와 같은 파이프라인 작업을 사용하여 원본 데이터 세트 데이터의 크기를 찾습니다. 그런 다음 데이터 흐름 작업 속성에서 동적 콘텐츠 추가를 사용합니다.
 
 > [!NOTE]
-> Synapse 데이터 흐름에서 드라이버 및 작업자 노드 코어를 선택할 때, 최소 3 개의 노드가 항상 사용됩니다.
+> Azure Synapse 데이터 흐름에서 드라이버 및 작업자 노드 코어를 선택할 때, 최소 3 개의 노드가 항상 사용됩니다.
 
 ![동적 데이터 흐름](media/data-flow/dyna1.png "동적 데이터 흐름")
 
@@ -79,7 +82,7 @@ traceLevel | 데이터 흐름 작업 실행의 로깅 수준을 설정합니다.
 
 ### <a name="data-flow-integration-runtime"></a>데이터 흐름 통합 런타임
 
-데이터 흐름 작업 실행에 사용할 통합 런타임을 선택합니다. 기본값으로 Data Factory는 4개의 작업자 코어와 함께 Azure Integration Runtime 자동 해결을 사용합니다. 이 IR은 범용 컴퓨팅 유형을 사용하며 팩터리와 동일한 지역에서 실행됩니다. 작업 가능 파이프라인의 경우, 데이터 흐름 활동 실행을 위한 특정 지역, 계산 유형, 코어 수, TTL을 정의하는 고유한 Azure Integration Runtime을 만드는 것이 좋습니다.
+데이터 흐름 작업 실행에 사용할 통합 런타임을 선택합니다. 기본값으로 이 서비스는 4개의 작업자 코어와 함께 Azure Integration Runtime 자동 해결을 사용합니다. 이 IR은 범용 컴퓨팅 유형을 사용하며 서비스 인스턴스와 동일한 지역에서 실행됩니다. 작업 가능 파이프라인의 경우, 데이터 흐름 활동 실행을 위한 특정 지역, 계산 유형, 코어 수, TTL을 정의하는 고유한 Azure Integration Runtime을 만드는 것이 좋습니다.
 
 8+8(총 16개 v-코어) 구성의 범용(컴퓨팅 최적화는 큰 규모의 워크로드에는 권장되지 않음) 최소 컴퓨팅 형식 및 10분이 대부분의 프로덕션 워크로드에 대한 최소 권장 사항입니다. Azure IR는 소형 TTL을 설정하여 콜드 클러스터에 대해 몇 분의 시작 시간을 발생시키지 않는 웜 클러스터를 유지할 수 있습니다. Azure IR 데이터 흐름 구성에서 “빠른 다시 사용”을 선택하여 데이터 흐름의 실행 속도를 높일 수 있습니다. 자세한 내용은 [Azure 통합 런타임](concepts-integration-runtime.md)을 참조하세요.
 
@@ -94,7 +97,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 ## <a name="logging-level"></a>로깅 수준
 
-데이터 흐름 활동의 모든 파이프라인 실행에서 모든 자세한 원격 분석 로그를 완전히 기록할 필요가 없는 경우 필요에 따라 로깅 수준을 ‘기본’ 또는 ‘없음’으로 설정할 수 있습니다. ‘자세한 정보’ 모드(기본값)에서 데이터 흐름을 실행하는 경우 ADF에게 데이터 변환 중 각 개별 파티션 수준에서 작업을 완전히 기록하도록 요청하는 것입니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결하는 경우에만 자세한 정보를 사용하면 전체 데이터 흐름 및 파이프라인 성능을 향상시킬 수 있습니다. ‘기본’ 모드에서는 변환 기간만 기록하고, ‘없음’의 경우 기간 요약만 제공합니다.
+데이터 흐름 활동의 모든 파이프라인 실행에서 모든 자세한 원격 분석 로그를 완전히 기록할 필요가 없는 경우 필요에 따라 로깅 수준을 ‘기본’ 또는 ‘없음’으로 설정할 수 있습니다. '자세한 정보' 모드(기본값)에서 데이터 흐름을 실행하는 경우 서비스에 데이터 변환 중 각 개별 파티션 수준에서 작업을 완전히 기록하도록 요청하는 것입니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결하는 경우에만 자세한 정보를 사용하면 전체 데이터 흐름 및 파이프라인 성능을 향상시킬 수 있습니다. ‘기본’ 모드에서는 변환 기간만 기록하고, ‘없음’의 경우 기간 요약만 제공합니다.
 
 ![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
 
@@ -120,7 +123,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 ### <a name="parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름
 
-데이터 흐름에 매개 변수가 있는 경우 **매개 변수** 탭에서 데이터 흐름 매개 변수의 동적 값을 설정합니다. ADF 파이프라인 식 언어 또는 데이터 흐름 식 언어를 사용하여 동적 또는 리터럴 매개 변수 값을 할당할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](parameters-data-flow.md)를 참조하세요.
+데이터 흐름에 매개 변수가 있는 경우 **매개 변수** 탭에서 데이터 흐름 매개 변수의 동적 값을 설정합니다. 파이프라인 식 언어 또는 데이터 흐름 식 언어를 사용하여 동적 또는 리터럴 매개 변수 값을 할당할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](parameters-data-flow.md)를 참조하세요.
 
 ### <a name="parameterized-compute-properties"></a>매개 변수가 있는 컴퓨팅 속성
 
@@ -179,7 +182,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory에서 지원하는 제어 흐름 작업을 참조하세요. 
+지원되는 다음 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)

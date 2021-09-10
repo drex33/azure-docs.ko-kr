@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 006d30839e16ea303b684fb0ee1be7f40dcbdfb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b18de633d586b6b32bc11b4eb6cb1a65928550
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822357"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222629"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>자습서: Concur와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "99822357"
 * 사용자가 자신의 Azure AD 계정으로 Concur에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,7 +38,8 @@ ms.locfileid: "99822357"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Concur에서 **SP** 시작 SSO를 지원합니다.
-* Concur에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Concur에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Concur는 [자동 사용자 프로비저닝](concur-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-concur-from-the-gallery"></a>갤러리에서 Concur 추가
 
@@ -134,6 +135,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 ### <a name="create-concur-test-user"></a>Concur 테스트 사용자 만들기
 
 이 섹션에서는 Concur에서 B.Simon이라는 사용자를 만듭니다. Concur는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. Concur에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+Concur는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./concur-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

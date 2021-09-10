@@ -3,12 +3,12 @@ title: Azure Video Analyzer를 사용하여 라이브 비디오에서 개체가 
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에서 개체가 선과 교차할 때 감지하는 방법을 보여줍니다.
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604662"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185960"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>자습서: 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 
@@ -113,7 +113,7 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
    }
 ```
 
-여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. 라이브 비디오의 프레임 속도가 초당 30프레임이면 매 초마다 추론을 위해 두 개 이상의 프레임을 HTTP 서버로 보내야 합니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
+여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
 
 선 교차 노드 매개 변수 자리 표시자 `linecrossingName` 및 `lineCoordinates`도 살펴봅니다. 두 매개 변수의 기본값이 제공되었지만 operations.json을 사용하여 기본값을 덮어쓰겠습니다. operations.json 파일의 다른 매개 변수(예: rtsp url)를 토폴로지에 전달하는 방법을 살펴봅니다.  
 
@@ -251,6 +251,9 @@ HTTP 확장 프로세서 노드는 0번째, 15번째, 30번째, …번째 프레
 * `clockwiseTotal`교차 수.
 * `counterclockwiseTotal` 교차 수.
 * `direction`에 이 이벤트의 방향이 포함되어 있습니다.
+
+> [!NOTE] 
+> 이 자습서의 원클릭 배포를 사용하여 Azure 리소스를 배포한 경우 표준 DS1 가상 머신이 만들어집니다. 그러나 YOLO와 같은 리소스 집약적 AI 모델에서 정확한 결과를 얻으려면 VM 크기를 늘려야 할 수 있습니다. [VM 크기를 조정](../../virtual-machines/windows/resize-vm.md)하여 요구 사항에 따라 vcpus 및 메모리 수를 늘립니다. 그런 다음 라이브 파이프라인을 다시 활성화하여 추론을 확인합니다.
 
 ## <a name="customize-for-your-own-environment"></a>환경에 맞게 사용자 지정
 

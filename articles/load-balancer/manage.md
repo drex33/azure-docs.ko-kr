@@ -1,22 +1,18 @@
 ---
 title: Azure Load Balancer 포털 설정
 description: Azure Load Balancer 포털 설정에 대한 학습을 시작합니다.
-services: load-balancer
-documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/8/2020
+ms.date: 08/16/2021
 ms.author: allensu
-ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b13a4cde0d4c0278698100cde0d5cd9993465a3
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89596310"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538359"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Azure Load Balancer 포털 설정
 
@@ -24,13 +20,11 @@ Azure Load Balancer를 만들 때 이 문서의 정보는 개별 설정 및 사�
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-Azure Load Balancer는 백 엔드 풀의 VM 인스턴스 간에 트래픽을 배포하는 네트워크 부하 분산 장치입니다.
+Azure Load Balancer는 백 엔드 풀의 VM 인스턴스 간에 트래픽을 배포하는 네트워크 부하 분산 장치입니다. Portal에서 부하 분산 장치를 만들려면 페이지 맨 위에 있는 검색 상자를 선택합니다. **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다. **부하 분산 장치** 페이지에서 **+ 만들기** 를 선택합니다.
 
 ### <a name="basics"></a>기본 사항
 
 부하 분산 장치 만들기 포털 페이지의 **기본 사항** 탭에는 다음 정보가 표시됩니다.
-
-
 
 | Setting |  세부 정보 |
 | ---------- | ---------- |
@@ -40,36 +34,187 @@ Azure Load Balancer는 백 엔드 풀의 VM 인스턴스 간에 트래픽을 배
 | 지역 | 부하 분산 장치를 배포할 Azure 지역을 선택합니다. |
 | 유형 | 부하 분산 장치에는 다음 두 가지 유형이 있습니다. </br> **내부(프라이빗)** </br> **퍼블릭(외부)** .</br> ILB(내부 부하 분산 장치)는 개인 IP 주소를 통해 트래픽을 백 엔드 풀 멤버로 라우팅합니다.</br> 퍼블릭 부하 분산 장치는 인터넷을 통해 클라이언트의 요청을 백 엔드 풀로 보냅니다.</br> [부하 분산 장치 유형](components.md#frontend-ip-configuration-)에 대해 자세히 알아보세요.|
 | SKU  | **표준** 을 선택합니다. </br> 부하 분산 장치에는 **기본** 및 **표준** 이라는 두 가지 SKU가 있습니다. </br> 기본은 기능이 제한됩니다. </br> **표준** 은 프로덕션 워크로드에 권장됩니다. </br> [SKU](skus.md)에 대해 자세히 알아보세요. |
+| 서비스 계층 | 부하 분산 장치에는 다음 두 가지 계층이 있습니다. </br> **Regional** </br> **Global** </br> 지역 부하 분산 장치는 지역 내의 부하 분산으로 제한됩니다. 글로벌은 지역 간에 부하를 분산하는 지역 간 부하 분산 장치를 나타냅니다. </br> **글로벌** 계층에 대한 자세한 내용은 [지역 간 부하 분산 장치(미리 보기)](cross-region-overview.md)를 참조하세요.
+
+:::image type="content" source="./media/manage/create-public-load-balancer-basics.png" alt-text="부하 분산 장치를 퍼블릭으로 만들기 스크린샷" border="true":::
+
+### <a name="frontend-ip-configuration"></a>프런트 엔드 IP 구성
+
+부하 분산 장치 만들기 포털 페이지의 **프런트 엔드 IP 구성** 탭에서 **+ 프런트 엔드 IP 주소 추가** 를 선택하여 만들기 페이지를 엽니다.
+
+:::image type="content" source="./media/manage/create-frontend.png" alt-text="프런트 엔드 IP 구성 만들기 스크린샷" border="true":::
+
+#### <a name="-add-a-frontend-ip"></a>**+ 프런트 엔드 IP 추가**
+##### <a name="public"></a>공용
 
 유형으로 **퍼블릭** 을 선택하면 다음 정보가 표시됩니다.
 
-| Setting |  세부 정보 |
-| ---------- | ---------- |
-| 공용 IP 주소 | 퍼블릭 부하 분산 장치의 공용 IP 주소를 만들려면 **새로 만들기** 를 선택합니다. </br> 기존 공용 IP가 있는 경우 **기존 항목 사용** 을 선택합니다.  |
-| 공용 IP 주소 이름 | 공용 IP 주소의 이름입니다.|
-| 공용 IP 주소 SKU | 공용 IP 주소에는 **기본** 및 **표준** 이라는 두 가지 SKU가 있습니다. </br> 기본은 영역 복원력 및 영역 특성을 지원하지 않습니다. </br> **표준** 은 프로덕션 워크로드에 권장됩니다. </br> 부하 분산 장치 및 공용 IP 주소 SKU는 **일치해야 합니다**. |
+| Setting | 세부 정보 |
+| ------- | ------- |
+| 이름 | 부하 분산 장치에 추가되는 프런트 엔드의 이름입니다. |
+| IP 버전 | **IPv4** </br> **IPv6** </br> 부하 분산 장치는 IPv4 및 IPv6 프런트 엔드를 지원합니다. </br> 자세한 내용은 [부하 부산 장치 및 IPv6](load-balancer-ipv6-overview.md)를 참조하세요. |
+| IP 유형 | **IP 주소** </br> **IP 접두사** </br> 부하 분산 장치는 프런트 엔드 IP 주소에 대한 IP 주소 또는 IP 접두사를 지원합니다. 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 참조하세요. |
+
+:::image type="content" source="./media/manage/add-frontend-public.png" alt-text="프런트 엔드 IP 구성 추가 스크린샷" border="true":::
+
+**IP 유형** 에 대한 **IP 주소** 를 선택하면 다음 정보가 표시됩니다.
+
+| Setting | 세부 정보 |
+| ------- | ------- |
+| 공용 IP 주소 | 퍼블릭 부하 분산 장치의 공용 IP 주소를 만들려면 **새로 만들기** 를 선택합니다. </br> 기존 공용 IP가 있는 경우 풀다운 상자에서 선택합니다. |
+| Name | 공용 IP 주소 리소스의 이름입니다. |
+| SKU | 공용 IP 주소에는 **기본** 및 **표준** 이라는 두 가지 SKU가 있습니다. </br> 기본은 영역 복원력 및 영역 특성을 지원하지 않습니다. </br> **표준** 은 프로덕션 워크로드에 권장됩니다. </br> 부하 분산 장치 및 공용 IP 주소 SKU는 **일치해야 합니다**. |
+| 서비스 계층 | **Regional** </br> **Global** </br> 부하 분산 장치 계층의 유형에 따라 선택하는 항목이 결정됩니다. 기존 부하 분산 장치의 경우 지역이고, 지역 간 부하 분산 장치의 경우 글로벌입니다. |
 | 할당 | 표준의 경우 **고정** 이 자동 선택됩니다. </br> 기본 공용 IP에는 **동적** 및 **고정** 이라는 두 가지 유형이 있습니다. </br> 동적 공용 IP 주소는 생성될 때까지 할당되지 않습니다. </br> 리소스를 삭제하면 IP가 손실될 수 있습니다. </br> 고정 IP 주소를 사용하는 것이 좋습니다. |
 | 가용성 영역 | **영역 중복** 을 선택하여 복원력 있는 부하 분산 장치를 만듭니다. </br> 영역 부하 분산 장치를 만들려면 **1**, **2** 또는 **3** 에서 특정 영역을 선택합니다. </br> 표준 부하 분산 장치 및 공용 IP 지원 영역. </br> [부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아보세요. </br> 기본의 경우 영역 선택이 표시되지 않습니다. 기본 부하 분산 장치는 영역을 지원하지 않습니다. |
-| 공용 IPv6 주소 추가 | 부하 분산 장치는 프런트 엔드에 대해 **IPv6** 주소를 지원합니다. </br> [부하 분산 장치 및 IPv6](load-balancer-ipv6-overview.md)에 대해 자세히 알아보세요.
 | 라우팅 기본 설정 | **Microsoft 네트워크** 를 선택합니다. </br> Microsoft 네트워크는 Microsoft 글로벌 네트워크를 통해 트래픽이 라우팅됨을 의미합니다. </br> 인터넷은 인터넷 서비스 공급자 네트워크를 통해 트래픽이 라우팅됨을 의미합니다. </br> [라우팅 기본 설정](../virtual-network/routing-preference-overview.md)에 대해 자세히 알아보세요.|
 
-:::image type="content" source="./media/manage/create-public-load-balancer-basics.png" alt-text="부하 분산 장치 만들기 퍼블릭" border="true":::
+:::image type="content" source="./media/manage/create-public-ip.png" alt-text="공용 IP 만들기 스크린샷" border="true":::
 
-유형에서 **내부** 를 선택하면 다음 정보가 표시됩니다.
+**IP 유형** 에 대한 **IP 접두사** 를 선택하면 다음 정보가 표시됩니다.
+
+| Setting | 세부 정보 |
+| ------- | ------- |
+| 공용 IP 접두사 | 퍼블릭 부하 분산 장치의 공용 IP 접두사를 만들려면 **새로 만들기** 를 선택합니다. </br> 기존 공용 접두사가 있는 경우 풀다운 상자에서 선택합니다. |
+| Name | 공용 IP 접두사 리소스의 이름입니다. |
+| SKU | 공용 IP 접두사에는 하나의 SKU인 **표준** 이 있습니다. |
+| IP 버전 | **IPv4** 또는 **IPv6**. </br> 표시되는 버전은 위에서 선택한 버전에 해당합니다. |
+| 접두사 크기 | IPv4 또는 IPv6 접두사는 위의 선택 항목에 따라 표시됩니다. </br> **IPv4** </br> /24(256개 주소) </br> /25(128개 주소) </br> /26(64개 주소) </br> /27(32개 주소) </br> /28(16개 주소) </br> /29(8개 주소) </br> /30(4개 주소) </br> /31(2개 주소) </br> **IPv6** </br> /124(16개 주소) </br> /125(8개 주소) </br> 126개(4개 주소) </br> 127(2개 주소) |
+| 가용성 영역 | **영역 중복** 을 선택하여 복원력 있는 부하 분산 장치를 만듭니다. </br> 영역 부하 분산 장치를 만들려면 **1**, **2** 또는 **3** 에서 특정 영역을 선택합니다. </br> 표준 부하 분산 장치 및 공용 IP 접두사 지원 영역. </br> [부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아보세요.
+
+:::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="공용 IP 접두사 만들기 스크린샷" border="true":::
+
+##### <a name="internal"></a>내부
+
+**기본 사항** 에서 유형으로 **내부** 를 선택하면 다음 정보가 표시됩니다.
 
 | Setting |  세부 정보 |
 | ---------- | ---------- |
 | 가상 네트워크 | 내부 부하 분산 장치를 포함할 가상 네트워크입니다. </br> 내부 부하 분산 장치에 대해 선택하는 개인 프런트 엔드 IP 주소는 이 가상 네트워크에서 가져온 것입니다. |
-| IP 주소 할당 | 옵션은 **고정** 또는 **동적** 입니다. </br> 고정은 IP가 변경되지 않도록 합니다. 동적 IP는 변경될 수 있습니다. |
+| 서브넷 | 프런트 엔드 IP의 IP 주소에 사용할 수 있는 서브넷이 여기에 표시됩니다. |
+| 할당 | 옵션은 **고정** 또는 **동적** 입니다. </br> 고정은 IP가 변경되지 않도록 합니다. 동적 IP는 변경될 수 있습니다. |
 | 가용성 영역 | 옵션은 다음과 같습니다. </br> **영역 중복** </br> **영역 1** </br> **영역 2** </br> **영역 3** </br> 가용성 성능이 뛰어나고 가용성 영역 오류에 대한 복원력이 있는 부하 분산 장치를 만들려면 **영역 중복** IP를 선택합니다. |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="부하 분산 장치 만들기 내부" border="true":::
+:::image type="content" source="./media/manage/add-frontend-internal.png" alt-text="내부 프런트 엔드 추가 스크린샷" border="true":::
+### <a name="backend-pools"></a>백 엔드 풀
 
-## <a name="frontend-ip-configuration"></a>프런트 엔드 IP 구성
+부하 분산 장치 만들기 포털 페이지의 **백 엔드 풀** 탭에서 **+ 백 엔드 풀 추가** 를 선택하여 만들기 페이지를 엽니다.
+
+:::image type="content" source="./media/manage/create-backend-pool.png" alt-text="백 엔드 풀 만들기 탭 스크린샷" border="true":::
+
+#### <a name="-add-a-backend-pool"></a>**+ 백 엔드 풀 추가**
+
+다음은 **+ 백 엔드 풀 추가** 만들기 페이지에 표시됩니다.
+
+| Setting | 세부 정보 |
+| ---------- |  ---------- |
+| 속성 | 백 엔드 풀의 이름입니다. |
+| 가상 네트워크 | 백 엔드 인스턴스가 있는 가상 네트워크입니다. |
+| 백 엔드 풀 구성 | 옵션은 다음과 같습니다. </br> **NIC** </br> **IP 주소** </br> NIC는 가상 머신의 네트워크 인터페이스 카드를 사용하도록 백 엔드 풀을 구성합니다. </br> IP 주소는 가상 머신의 IP 주소를 사용하도록 백 엔드 풀을 구성합니다. </br> 백 엔드 풀 구성에 대한 자세한 내용은 [백 엔드 풀 관리](backend-pool-management.md)를 참조하세요.
+| IP 버전 | 옵션은 **IPv4** 또는 **IPv6** 입니다. |
+
+Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확장 집합을 추가할 수 있습니다. 먼저 가상 머신 또는 가상 머신 확장 집합을 만듭니다. 
+
+:::image type="content" source="./media/manage/add-backend-pool.png" alt-text="백 엔드 풀 추가 스크린샷" border="true":::
+
+### <a name="inbound-rules"></a>인바운드 규칙
+
+**인바운드 규칙** 탭에는 **부하 분산 규칙** 및 **인바운드 NAT 규칙** 이라는 두 섹션이 있습니다.
+
+부하 분산 장치 만들기 포털의 **인바운드 규칙** 탭에서 **+ 부하 분산 규칙 추가** 를 선택하여 만들기 페이지를 엽니다.
+
+:::image type="content" source="./media/manage/inbound-rules.png" alt-text="인바운드 규칙 추가 페이지 스크린샷" border="true":::
+
+#### <a name="-add-a-load-balancing-rule"></a>**+ 부하 분산 규칙 추가**
+
+**+ 부하 분산 규칙 추가** 만들기 페이지에 다음이 표시됩니다.
+
+| Setting | 세부 정보 |
+| ---------- | ---------- |
+| 속성 | 부하 분산 장치 규칙의 이름입니다. |
+| IP 버전 | 옵션은 **IPv4** 또는 **IPv6** 입니다.  |
+| 프런트 엔드 IP 주소 | 프런트 엔드 IP 주소를 선택합니다. </br> 부하 분산 장치 규칙을 연결할 부하 분산 장치의 프런트 엔드 IP 주소입니다.|
+| 프로토콜 | Azure Load Balancer는 계층 4 네트워크 부하 분산 장치입니다. </br> 옵션은 **TCP** 또는 **UDP** 입니다. |
+| 포트 | 이 설정은 부하 분산 규칙에 따라 트래픽을 배포할 프런트 엔드 IP와 연결된 포트입니다. |
+| 백 엔드 포트 | 이 설정은 부하 분산 장치에서 트래픽을 전송할 백 엔드 풀의 인스턴스 포트입니다. 이 설정은 프런트 엔드 포트와 동일하거나, 애플리케이션에 유연성이 필요한 경우 프런트 엔드 포트와 다를 수 있습니다. |
+| 백 엔드 풀 | 이 부하 분산 장치 규칙을 적용할 백 엔드 풀입니다. |
+| 상태 프로브 | **새로 만들기** 를 선택하여 새 프로브를 만듭니다.  </br> 정상 인스턴스만 새 트래픽을 받게 됩니다. |
+| 세션 지속성 |  옵션은 다음과 같습니다. </br> **없음** </br> **클라이언트 IP** </br> **클라이언트 IP 및 프로토콜**</br> </br> 클라이언트에서 백 엔드 풀의 동일한 가상 머신으로 전달되는 트래픽을 유지 관리합니다. 이 트래픽은 세션 기간 동안 유지 관리됩니다. </br> **없음** 을 지정하면 동일한 클라이언트의 후속 요청이 모든 가상 머신에서 처리될 수 있습니다. </br> **클라이언트 IP** 를 지정하면 동일한 클라이언트 IP 주소의 후속 요청이 동일한 가상 머신에서 처리됩니다. </br> **클라이언트 IP 및 프로토콜** 을 지정하면 동일한 클라이언트 IP 주소 및 프로토콜의 후속 요청이 동일한 가상 머신에서 처리됩니다. </br> [배포 모드](load-balancer-distribution-mode.md)에 대해 자세히 알아보세요. |
+| 유휴 제한 시간(분) | 클라이언트를 사용하여 연결 유지 메시지를 보내지 않고 **TCP** 또는 **HTTP** 연결을 열린 상태로 유지합니다. |  
+| TCP 재설정 | Load Balancer는 연결이 유휴 상태일 때 보다 예측 가능한 애플리케이션 동작을 만들기 위해 **TCP 재설정** 을 보낼 수 있습니다. </br> [TCP 재설정](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요.|
+| 부동 IP | 부동 IP는 **DSR(Direct Server Return)** 로 알려진 것의 일부를 나타내는 Azure 용어입니다. </br> DSR은 다음과 같은 두 부분으로 구성됩니다. <br> 1. 흐름 토폴로지 </br> 2. 플랫폼 수준의 IP 주소 매핑 구성표 </br></br> Azure Load Balancer는 부동 IP의 사용 여부에 관계없이 DSR 흐름 토폴로지에서 항상 작동합니다. </br> 이 작업은 흐름의 아웃바운드 부분이 다시 원본으로 바로 전달되도록 항상 올바르게 다시 작성됨을 의미합니다. </br> 부동 IP가 없으면 Azure는 기존 부하 분산 IP 주소 매핑 구성표인 VM 인스턴스의 IP를 노출합니다. </br> 부동 IP를 사용하도록 설정하면 유연성이 향상되도록 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경됩니다. </br> 자세한 내용은 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 참조하세요.|
+| 아웃바운드 SNAT(Source Network Address Translation) | 옵션은 다음과 같습니다. </br> **(권장) 아웃바운드 규칙을 사용하여 백 엔드 풀 멤버에 인터넷 액세스 권한 제공** </br> **암시적 아웃바운드 규칙 사용. SNAT 포트 소모가 발생할 수 있으므로 권장되지 않습니다.** </br> SNAT 포트 소모를 방지하려면 **권장** 옵션을 선택합니다. 백 엔드 풀 구성원에 대해 SNAT를 제공하려면 **NAT 게이트웨이** 또는 **아웃바운드 규칙** 이 필요합니다. **NAT 게이트웨이** 에 대한 자세한 내용은 [Virtual Network NAT이란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요. </br> Azure의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결에 SNAT(원본 네트워크 주소 변환) 사용](load-balancer-outbound-connections.md)을 참조하세요. |
+
+:::image type="content" source="./media/manage/add-load-balancing-rule.png" alt-text="부하 분산 규칙 추가 스크린샷" border="true":::
+
+#### <a name="create-health-probe"></a>상태 프로브 만들기
+
+위의 부하 분산 규칙의 상태 프로브 구성에서 **새로 만들기** 를 선택한 경우 다음 옵션이 표시됩니다.
+
+| Setting | 세부 정보 |
+| ---------- | ---------- |
+| 속성 | 상태 프로브의 이름입니다. |
+| 프로토콜 | 선택한 프로토콜에 따라 백 엔드 인스턴스가 정상인지 확인하는 데 사용되는 검사 유형이 결정됩니다. </br> 옵션은 다음과 같습니다. </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> 올바른 프로토콜을 사용하고 있는지 확인합니다. 이 선택은 애플리케이션의 특성에 따라 달라집니다. </br> 상태 프로브 및 프로브 응답의 구성에 따라 새 흐름을 수신할 백 엔드 풀 인스턴스가 결정됩니다. </br> 상태 프로브를 사용하여 백 엔드 엔드포인트에서 애플리케이션 오류를 검색할 수 있습니다. </br> [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요. |
+| 포트 | 상태 프로브의 대상 포트입니다. </br> 이 설정은 상태 프로브가 인스턴스 상태를 확인하는 데 사용하는 백 엔드 인스턴스의 포트입니다. |
+| 간격 | 프로브 시도 간격(초)입니다. </br> 간격에 따라 상태 프로브가 백 엔드 인스턴스에 연결을 시도하는 빈도가 결정됩니다. </br> 5를 선택하면 5초 후에 두 번째 프로브 시도가 수행됩니다. |
+| 비정상 임계값 | VM이 비정상으로 간주되기 전에 발생해야 하는 연속된 프로브 실패 횟수입니다.</br> 2를 선택하면 두 번 연속해서 실패한 후에는 이 백 엔드 인스턴스에 대해 새 흐름이 설정되지 않습니다. |
+
+:::image type="content" source="./media/manage/add-health-probe.png" alt-text="상태 프로브 추가 스크린샷" border="true":::
+
+부하 분산 장치 만들기 포털 페이지의 **인바운드 규칙** 탭에서 **+ 인바운드 NAT 규칙 추가** 를 선택하여 만들기 페이지를 엽니다.
+
+#### <a name="-add-a-an-inbound-nat-rule"></a>**+ 인바운드 NAT 규칙 추가**
+
+**+ 인바운드 NAT 규칙 추가** 만들기 페이지에 다음이 표시됩니다.
+
+| Setting | 세부 정보 |
+| ---------- | ---------- |
+| 속성 | 인바운드 NAT 규칙의 이름입니다. |
+| 프런트 엔드 IP 주소 | 프런트 엔드 IP 주소를 선택합니다. </br> 인바운드 NAT 규칙을 연결할 부하 분산 장치의 프런트 엔드 IP 주소입니다. |
+| IP 버전 | 옵션은 IPv4 및 IPv6입니다. |
+| 서비스 | Azure Load Balancer에서 실행할 서비스 유형입니다. </br> 여기서 선택한 유형에 따라 포트 정보가 적절하게 업데이트됩니다. |
+| 프로토콜 | Azure Load Balancer는 계층 4 네트워크 부하 분산 장치입니다. </br> 옵션은 TCP 또는 UDP입니다. |
+| 유휴 제한 시간(분) | 클라이언트를 사용하여 연결 유지 메시지를 보내지 않고 TCP 또는 HTTP 연결을 열린 상태로 유지합니다. |
+| TCP 재설정 | Load Balancer는 연결이 유휴 상태일 때 보다 예측 가능한 애플리케이션 동작을 만들기 위해 TCP 재설정을 보낼 수 있습니다. </br> [TCP 재설정](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요. |
+| 포트 | 이 설정은 인바운드 NAT 규칙에 따라 트래픽을 배포할 프런트 엔드 IP와 연결된 포트입니다. |
+| 대상 가상 머신 | 이 규칙을 연결할 백 엔드 풀의 가상 머신 부분입니다. |
+| 포트 매핑 | 이 설정은 애플리케이션 기본 설정에 따라 기본값이나 사용자 지정일 수 있습니다. |
+
+:::image type="content" source="./media/manage/add-inbound-nat-rule.png" alt-text="인바운드 NAT 규칙 추가 스크린샷" border="true":::
+
+### <a name="outbound-rules"></a>아웃바운드 규칙
+
+부하 분산 장치 만들기 포털 페이지의 **아웃바운드 규칙** 탭에서 **+ 아웃바운드 규칙 추가** 를 선택하여 만들기 페이지를 엽니다.
+
+> [!NOTE]
+> 아웃바운드 규칙 탭은 퍼블릭 표준 부하 분산 장치에만 유효합니다. 아웃바운드 규칙은 내부 또는 기본 부하 분산 장치에서 지원되지 않습니다. Azure Virtual Network NAT는 백 엔드 풀에 대해 아웃바운드 인터넷 액세스를 제공하기 위해 권장되는 방법입니다. **Azure Virtual Network NAT** 및 NAT 게이트웨이 리소스에 대한 자세한 내용은 **[Azure Virtual Network NAT란?](../virtual-network/nat-gateway/nat-overview.md)** 을 참조하세요.
+
+:::image type="content" source="./media/manage/create-outbound-rule.png" alt-text="아웃바운드 규칙 만들기 스크린샷" border="true":::
+
+#### <a name="-add-an-outbound-rule"></a>**+ 아웃바운드 규칙 추가**
+
+**+ 아웃바운드 규칙 추가** 만들기 페이지에 다음이 표시됩니다.
+
+| Setting | 세부 정보 |
+| ------- | ------ |
+| 속성 | 아웃바운드 규칙의 이름입니다. |
+| 프런트 엔드 IP 주소 | 프런트 엔드 IP 주소를 선택합니다. </br> 아웃바운드 규칙을 연결할 부하 분산 장치의 프런트 엔드 IP 주소입니다. |
+| 프로토콜 | Azure Load Balancer는 계층 4 네트워크 부하 분산 장치입니다. </br> 옵션은 **모두**, **TCP** 또는 **UDP** 입니다. |
+| 유휴 제한 시간(분) | 클라이언트를 사용하여 연결 유지 메시지를 보내지 않고 **TCP** 또는 **HTTP** 연결을 열린 상태로 유지합니다. |
+| TCP 재설정 | Load Balancer는 연결이 유휴 상태일 때 보다 예측 가능한 애플리케이션 동작을 만들기 위해 **TCP 재설정** 을 보낼 수 있습니다. </br> [TCP 재설정](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요. |
+| 백 엔드 풀 | 이 아웃바운드 규칙을 적용할 백 엔드 풀입니다. |
+| **포트 할당** |   |
+| 포트 할당 | 선택 사항은 다음과 같습니다. </br> **아웃바운드 포트 수 수동 선택** </br> **기본 아웃바운드 포트 수 사용** </br> SNAT 포트 소모를 방지하려면 기본값인 **아웃바운드 포트 수 수동 선택** 을 선택하는 것이 좋습니다. **기본 아웃바운드 포트 수 사용** 을 선택하면 **아웃바운드 포트** 선택 옵션이 사용하지 않도록 설정됩니다. |
+| 아웃바운드 포트 | 선택 사항은 다음과 같습니다. </br> **인스턴스당 포트 수** </br> **최대 백 엔드 인스턴스 수** </br> **인스턴스당 포트 수** 를 선택하고 **10,000** 을 입력하는 것이 좋습니다. |
+
+:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="아웃바운드 규칙 추가 스크린샷" border="true":::
+
+## <a name="portal-settings"></a>포털 설정
+### <a name="frontend-ip-configuration"></a>프런트 엔드 IP 구성
 
 Azure Load Balancer의 IP 주소입니다. 클라이언트의 연락 지점입니다. 
 
-하나 또는 여러 개의 프런트 엔드 IP 구성을 사용할 수 있습니다. 위의 기본 사항 섹션을 수행했다면 부하 분산 장치의 프런트 엔드를 이미 만들었을 것입니다. 
+하나 또는 여러 개의 프런트 엔드 IP 구성을 사용할 수 있습니다. 위의 만들기 섹션을 수행했다면 부하 분산 장치의 프런트 엔드가 이미 만들어졌을 것입니다. 
 
 부하 분산 장치에 프런트 엔드 IP 구성을 추가하려면 Azure Portal에서 해당 부하 분산 장치로 이동한 다음 **프런트 엔드 IP 구성**, **+추가** 를 차례로 선택합니다.
 
@@ -82,7 +227,7 @@ Azure Load Balancer의 IP 주소입니다. 클라이언트의 연락 지점입�
 
 :::image type="content" source="./media/manage/frontend.png" alt-text="프런트 엔드 IP 구성 만들기 페이지" border="true":::
 
-## <a name="backend-pools"></a>백 엔드 풀
+### <a name="backend-pools"></a>백 엔드 풀
 
 백 엔드 주소 풀에는 백 엔드 풀에 있는 가상 네트워크 인터페이스의 IP 주소가 포함됩니다. 
 
@@ -92,13 +237,14 @@ Azure Load Balancer의 IP 주소입니다. 클라이언트의 연락 지점입�
 | ---------- |  ---------- |
 | 속성 | 백 엔드 풀의 이름입니다. |
 | 가상 네트워크 | 백 엔드 인스턴스가 있는 가상 네트워크입니다. |
+| 백 엔드 풀 구성 | 옵션은 다음과 같습니다. </br> **NIC** </br> **IP 주소** </br> NIC는 가상 머신의 네트워크 인터페이스 카드를 사용하도록 백 엔드 풀을 구성합니다. </br> IP 주소는 가상 머신의 IP 주소를 사용하도록 백 엔드 풀을 구성합니다. </br> 백 엔드 풀 구성에 대한 자세한 내용은 [백 엔드 풀 관리](backend-pool-management.md)를 참조하세요. |
 | IP 버전 | 옵션은 **IPv4** 또는 **IPv6** 입니다. |
 
 Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확장 집합을 추가할 수 있습니다. 먼저 가상 머신 또는 가상 머신 확장 집합을 만듭니다. 그런 다음 포털에서 부하 분산 장치에 추가합니다.
 
 :::image type="content" source="./media/manage/backend.png" alt-text="백 엔드 풀 만들기 페이지" border="true":::
 
-## <a name="health-probes"></a>상태 프로브
+### <a name="health-probes"></a>상태 프로브
 
 상태 프로브는 백 엔드 VM 또는 인스턴스의 상태를 모니터링하는 데 사용됩니다. 상태 프로브 상태는 상태 검사에 따라 새 연결이 인스턴스로 전송되는 시기를 결정합니다. 
 
@@ -112,9 +258,9 @@ Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확�
 | 간격 | 프로브 시도 간격(초)입니다. </br> 간격에 따라 상태 프로브가 백 엔드 인스턴스에 연결을 시도하는 빈도가 결정됩니다. </br> 5를 선택하면 5초 후에 두 번째 프로브 시도가 수행됩니다. |
 | 비정상 임계값 | VM이 비정상으로 간주되기 전에 발생해야 하는 연속된 프로브 실패 횟수입니다.</br> 2를 선택하면 두 번 연속해서 실패한 후에는 이 백 엔드 인스턴스에 대해 새 흐름이 설정되지 않습니다. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="상태 프로브 추가" border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="상태 프로브 추가 만들기 스크린샷" border="true":::
 
-## <a name="load-balancing-rules"></a>부하 분산 규칙
+### <a name="load-balancing-rules"></a>부하 분산 규칙
 
 들어오는 트래픽이 백 엔드 풀 내의 모든 인스턴스에 배포되는 방법을 정의합니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
 
@@ -134,11 +280,11 @@ Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확�
 | 유휴 제한 시간(분) | 클라이언트를 사용하여 연결 유지 메시지를 보내지 않고 **TCP** 또는 **HTTP** 연결을 열린 상태로 유지합니다. |  
 | TCP 재설정 | Load Balancer는 연결이 유휴 상태일 때 보다 예측 가능한 애플리케이션 동작을 만들기 위해 **TCP 재설정** 을 보낼 수 있습니다. </br> [TCP 재설정](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요.|
 | 부동 IP | 부동 IP는 **DSR(Direct Server Return)** 로 알려진 것의 일부를 나타내는 Azure 용어입니다. </br> DSR은 다음과 같은 두 부분으로 구성됩니다. <br> 1. 흐름 토폴로지 </br> 2. 플랫폼 수준의 IP 주소 매핑 구성표 </br></br> Azure Load Balancer는 부동 IP의 사용 여부에 관계없이 DSR 흐름 토폴로지에서 항상 작동합니다. </br> 이 작업은 흐름의 아웃바운드 부분이 다시 원본으로 바로 전달되도록 항상 올바르게 다시 작성됨을 의미합니다. </br> 부동 IP가 없으면 Azure는 기존 부하 분산 IP 주소 매핑 구성표인 VM 인스턴스의 IP를 노출합니다. </br> 부동 IP를 사용하도록 설정하면 유연성이 향상되도록 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경됩니다. </br> 자세한 내용은 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 참조하세요.|
-| 암시적 아웃바운드 규칙 만들기 | **아니오** 를 선택합니다. </br> 기본값: **disableOutboundSnat = false**  </br> 이 경우 아웃바운드가 동일한 프런트 엔드 IP를 통해 발생합니다. </br></br> **disableOutboundSnat = true** </br>이 경우 아웃바운드에 아웃바운드 규칙이 필요합니다. |
+| 아웃바운드 SNAT(Source Network Address Translation) | 옵션은 다음과 같습니다. </br> **(권장) 아웃바운드 규칙을 사용하여 백 엔드 풀 멤버에 인터넷 액세스 권한 제공** </br> **암시적 아웃바운드 규칙 사용. SNAT 포트 소모가 발생할 수 있으므로 권장되지 않습니다.** </br> SNAT 포트 소모를 방지하려면 **권장** 옵션을 선택합니다. 백 엔드 풀 구성원에 대해 SNAT를 제공하려면 **NAT 게이트웨이** 또는 **아웃바운드 규칙** 이 필요합니다. **NAT 게이트웨이** 에 대한 자세한 내용은 [Virtual Network NAT이란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요. </br> Azure의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결에 SNAT(원본 네트워크 주소 변환) 사용](load-balancer-outbound-connections.md)을 참조하세요. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="부하 분산 규칙 추가" border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="부하 분산 규칙 추가 스크린샷" border="true":::
 
-## <a name="inbound-nat-rules"></a>인바운드 NAT 규칙
+### <a name="inbound-nat-rules"></a>인바운드 NAT 규칙
 
 인바운드 NAT 규칙은 프런트 엔드 IP 주소 및 포트 조합으로 전송되어 들어오는 트래픽을 전달합니다. 
 
@@ -163,9 +309,9 @@ Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확�
 | 대상 가상 머신 | 이 규칙을 연결할 백 엔드 풀의 가상 머신 부분입니다. |
 | 포트 매핑 | 이 설정은 애플리케이션 기본 설정에 따라 기본값이나 사용자 지정일 수 있습니다. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="인바운드 NAT 규칙 추가" border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="인바운드 NAT 규칙 추가 스크린샷" border="true":::
 
-## <a name="outbound-rules"></a>아웃바운드 규칙
+### <a name="outbound-rules"></a>아웃바운드 규칙
 
 부하 분산 디바이스 아웃바운드 규칙은 백 엔드 풀의 VM에 대한 아웃바운드 SNAT를 구성합니다.
 
@@ -180,24 +326,11 @@ Azure Load Balancer의 백 엔드 풀에 가상 머신 또는 가상 머신 확�
 | TCP 재설정 | Load Balancer는 연결이 유휴 상태일 때 보다 예측 가능한 애플리케이션 동작을 만들기 위해 **TCP 재설정** 을 보낼 수 있습니다. </br> [TCP 재설정](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요. |
 | 백 엔드 풀 | 이 아웃바운드 규칙을 적용할 백 엔드 풀입니다. |
 
-### <a name="port-allocation"></a>포트 할당
-
-| Setting | 세부 정보 |
-| ------- | ------ |
-| 포트 할당 | **아웃바운드 포트 수 수동 선택** 을 선택하는 것이 좋습니다.|
-
-### <a name="outbound-ports"></a>아웃바운드 포트
-
-| Setting | 세부 정보 |
-| ------- | ------ |
-| 선택 기준 | **인스턴스당 포트 수** 선택 |
-| 인스턴스당 포트 수 | **10,000** 을 입력합니다. |
-
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="인바운드/아웃바운드 규칙 추가" border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="인바운드 아웃바운드 규칙 추가 스크린샷" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Load Balancer와 관련된 Azure Portal의 다양한 용어와 설정에 대해 배웠습니다.
 
 * Azure Load Balancer에 대해 자세히 [알아봅니다](./load-balancer-overview.md).
-* Azure Load Balancer에 대한 [FAQ](./load-balancer-faqs.md)
+* Azure Load Balancer에 대한 [FAQ](./load-balancer-faqs.yml)

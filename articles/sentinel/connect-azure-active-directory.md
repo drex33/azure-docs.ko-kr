@@ -15,14 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: cc499e54ebc700f87edbc904165000155211ca1b
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 5faf675d4e5d188840b3e9ab457ec28829f52dc0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007127"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528237"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Azure Sentinel에 Azure AD(Azure Active Directory) 데이터 연결
+
+> [!IMPORTANT]
+> 아래 표시된 대로 사용 가능한 로그 유형 중 일부는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Azure Sentinel의 기본 제공 커넥터를 사용하여 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)에서 데이터를 수집하고 Azure Sentinel로 스트리밍할 수 있습니다. 커넥터를 사용하면 다음 로그 유형을 스트리밍할 수 있습니다.
 
@@ -40,8 +45,7 @@ Azure Sentinel의 기본 제공 커넥터를 사용하여 [Azure Active Director
 
 - [**프로비저닝 로그**](../active-directory/reports-monitoring/concept-provisioning-logs.md)(또한 **미리 보기** 로 제공): Azure AD 프로비저닝 서비스에서 프로비전된 사용자, 그룹 및 역할에 대한 시스템 작업 정보를 포함합니다. 
 
-> [!IMPORTANT]
-> 위에서 표시된 대로 사용 가능한 로그 유형 중 일부는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 로그인 로그를 Azure Sentinel에 수집하려면 Azure Active Directory P1 또는 P2 라이선스가 필요합니다. 모든 Azure AD 라이선스(Free/O365/P1/P2)는 다른 로그 유형을 수집하기에 충분합니다. Azure Monitor(Log Analytics)와 Azure Sentinel에 대해 기가바이트 당 요금이 추가 적용될 수 있습니다.
@@ -75,5 +79,5 @@ Azure AD 로그를 쿼리하려면 쿼리 창의 맨 위에 관련 테이블 이
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Active Directory를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.

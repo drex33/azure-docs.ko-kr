@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: f2771284925e35cea975febdabe2ca377a192df8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 10639653c00fc5e781a9edd2b49c60f659d00966
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127122"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567141"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -46,6 +46,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 | SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+| Debian 10    | 4.19.0-1-cloud+              |
 
 명시된 버전은 최소 요구 사항입니다. 최신 버전도 지원됩니다.
 
@@ -61,7 +62,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. 관리 인터페이스에서 가속화된 네트워킹을 사용하도록 설정하는 것은 권장되지 않습니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
 
-## <a name="install-dpdk"></a>DPDK 설치
+## <a name="install-dpdk-via-system-package-recommended"></a>시스템 패키지를 통해 DPDK 설치(권장)
 
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
@@ -83,15 +84,39 @@ sudo apt-get install -y dpdk
 sudo apt-get install -y dpdk
 ```
 
-### <a name="rhel75centos-75"></a>RHEL7.5/CentOS 7.5
+## <a name="install-dpdk-manually-not-recommended"></a>수동으로 DPDK 설치(권장되지 않음)
+
+### <a name="install-build-dependencies"></a>빌드 종속성 설치
+
+#### <a name="ubuntu-1804"></a>Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### <a name="ubuntu-2004-and-newer"></a>Ubuntu 20.04 이상
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### <a name="debian-10-and-newer"></a>Debian 10 이상
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### <a name="rhel75centos-75"></a>RHEL7.5/CentOS 7.5
 
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel meson
 ```
 
-### <a name="sles-15-sp1"></a>SLES 15 SP1
+#### <a name="sles-15-sp1"></a>SLES 15 SP1
 
 **Azure 커널**
 
@@ -99,7 +124,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel 
 zypper  \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
 **기본 커널**
@@ -108,16 +133,15 @@ zypper  \
 zypper \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
-## <a name="set-up-the-virtual-machine-environment-once"></a>가상 머신 환경 설정(한 번)
+### <a name="compile-and-install-dpdk-manually"></a>수동으로 DPDK 컴파일 및 설치
 
-1. [최신 DPDK 다운로드](https://core.dpdk.org/download). Azure에는 18.11 LTS 또는 19.11 LTS 버전이 필요합니다.
-2. `make config T=x86_64-native-linuxapp-gcc`로 기본 구성을 빌드합니다.
-3. `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`로 생성된 구성에서 Mellanox PMD를 사용하도록 설정합니다.
-4. `make`를 사용하여 컴파일합니다.
-5. `make install DESTDIR=<output folder>`를 사용하여 설치합니다.
+1. [최신 DPDK 다운로드](https://core.dpdk.org/download). Azure에는 19.11 LTS 이상 버전이 필요합니다.
+2. `meson builddir`로 기본 구성을 빌드합니다.
+3. `ninja -C builddir`를 사용하여 컴파일합니다.
+4. `DESTDIR=<output folder> ninja -C builddir install`를 사용하여 설치합니다.
 
 ## <a name="configure-the-runtime-environment"></a>런타임 환경 구성
 

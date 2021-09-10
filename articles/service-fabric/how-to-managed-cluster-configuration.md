@@ -2,13 +2,13 @@
 title: Service Fabric 관리형 클러스터 구성
 description: 자동 OS 업그레이드, NSG 규칙 등에 대해 Service Fabric 관리 클러스터를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 5fd2736917517f20d3d093492c6011d6fcf716cf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 8/23/2021
+ms.openlocfilehash: 5be6422af6a1611bb8978ff4f0b76122cb146eb7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067441"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864356"
 ---
 # <a name="service-fabric-managed-cluster-configuration-options"></a>Service Fabric 관리 클러스터 구성 옵션
 
@@ -16,7 +16,8 @@ ms.locfileid: "110067441"
 
 * 노드 유형에 [가상 머신 확장 집합 확장](how-to-managed-cluster-vmss-extension.md) 추가
 * 클러스터 [가용성 영역 스패닝](how-to-managed-cluster-availability-zones.md) 구성
-* 클러스터 [NSG 규칙 및 기타 네트워킹 옵션](how-to-managed-cluster-networking.md) 구성
+* 클러스터 [네트워크 설정](how-to-managed-cluster-networking.md) 구성
+* [대규모 가상 머신 확장 집합](how-to-managed-cluster-large-virtual-machine-scale-sets.md)에 대한 노드 유형 구성
 * 클러스터 노드 유형에서 [관리 ID](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) 구성
 * 클러스터 노드에 대해 [자동 OS 업그레이드](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) 사용
 * 클러스터 노드에서 [OS 및 데이터 디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md) 사용

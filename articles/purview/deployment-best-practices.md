@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104949841"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566913"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview 배포 모범 사례
 
@@ -201,7 +201,7 @@ Purview에는 카탈로그 관리자가 수명 주기 동안 일관성 및 유�
 |자산에 연락처 추가|상위 자산의 경우 다른 가상 사용자가 연락처를 할당하거나 REST API를 통해 가져올 수 있도록 하는 프로세스를 설정할 수 있습니다.|1주|
 |중요한 레이블 및 검색 추가|M365의 레이블링 사용에 따라 일부 조직에서는 선택 사항일 수 있습니다.|1~2주|
 |분류 및 중요한 정보 얻기|Purview의 보고 및 인사이트를 위해 이 기능에 액세스하여 다양한 보고서를 얻고 경영진에게 프레젠테이션을 제공할 수 있습니다.|1일|
-|Purview 관리 사용자를 사용하는 온보딩 추가 사용자|이 단계에서는 Purview 관리자가 Azure Active Directory 관리자와 협력하여 Purview에 대한 액세스 권한을 부여할 새 보안 그룹을 설정해야 합니다.|1주|
+|Purview 관리형 사용자를 사용하여 추가 사용자 온보딩|이 단계에서는 Purview 관리자가 Azure Active Directory 관리자와 협력하여 Purview에 대한 액세스 권한을 부여할 새 보안 그룹을 설정해야 합니다.|1주|
 
 ### <a name="acceptance-criteria"></a>승인 기준
 

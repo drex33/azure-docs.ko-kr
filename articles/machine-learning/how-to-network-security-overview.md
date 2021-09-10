@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 06dc1a34f35434019d1b992c12502577aa470360
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: f68550d6e72f0c2bd162c10d1d5340edcca61f6f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653494"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039027"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
@@ -89,7 +89,7 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 ### <a name="limitations"></a>제한 사항
 
 가상 네트워크 내에서 작업 영역 및 연결된 리소스를 보호하는 경우 다음과 같은 제한 사항이 있습니다.
-- Azure Government 또는 Azure 중국 21Vianet 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
+- Azure 중국 21Vianet 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 - 모든 리소스는 동일한 VNet 뒤에 있어야 합니다. 그러나 동일한 VNet 내의 서브넷은 허용됩니다.
 
 ## <a name="secure-the-training-environment"></a>학습 환경 보호

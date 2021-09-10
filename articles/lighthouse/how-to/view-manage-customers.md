@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 고객과 위임된 리소스 보기 및 관리
 description: Azure Lighthouse를 사용하는 서비스 공급자는 Azure Portal의 내 고객으로 이동하여 위임된 모든 고객 리소스 및 구독을 볼 수 있습니다.
-ms.date: 03/12/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 78344015ee027b9844b6339fa7cd95d348488a54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537334"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Azure Portal에서 고객과 위임된 리소스 보기 및 관리
 
@@ -41,6 +41,9 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 - 제품 및 해당 위임에 대한 자세한 내용을 보려면 제품 이름을 선택합니다.
 - 위임된 구독 또는 리소스 그룹의 역할 할당에 대한 자세한 내용을 보려면 **위임** 열의 항목을 선택합니다.
 
+> [!NOTE]
+> 고객이 위임된 후 구독의 이름을 바꾸면 업데이트된 구독 이름이 표시됩니다. 테넌트의 이름을 바꾸는 경우 Azure Portal의 일부 위치에서는 이전 테넌트 이름이 계속 표시될 수 있습니다.
+
 ## <a name="view-and-manage-delegations"></a>위임 보기 및 관리
 
 위임에는 위임된 구독 또는 리소스 그룹과 해당 액세스 권한이 있는 사용자 및 권한이 함께 표시됩니다. 이 정보를 보려면 **내 고객** 페이지의 왼쪽에서 **위임** 을 선택합니다.
@@ -67,15 +70,18 @@ Azure Lighthouse에 고객을 온보딩할 때 [관리형 서비스 등록 할�
 
 로그인한 디렉터리에서 전환하지 않고도 Azure Portal 내의 위임된 구독 컨텍스트에서 직접 작업할 수 있습니다. 이를 수행하려면:
 
-1. Azure Portal 위쪽에 있는 **디렉터리 + 구독** 아이콘을 선택합니다.
-2. **기본 구독 필터** 에서 위임된 구독에 대한 확인란만 선택되어 있는 것을 확인합니다. **현재 + 위임된 디렉터리** 드롭다운 상자를 사용하여 특정 디렉터리 내의 구독만 표시할 수 있습니다. (디렉터리가 로그인된 디렉터리로 변경되므로 **디렉터리 전환** 을 사용하지 마세요.)
+1. Azure Portal 위쪽에서 **디렉터리 + 구독** 또는 **설정** 아이콘을 선택합니다.
+1. [디렉터리 + 구독 설정 페이지](../../azure-portal/set-preferences.md#directories--subscriptions)에서 **고급 필터** 토글이 [꺼져 있는지](../../azure-portal/set-preferences.md#subscription-filters) 확인합니다.
+1. **기본 구독 필터** 섹션에서 적절한 디렉터리와 구독을 선택합니다.
 
-그런 다음, [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)을 지원하는 서비스에 액세스하는 경우 이 서비스는 기본적으로 사용자가 선택한 위임된 구독의 컨텍스트가 됩니다. 위의 단계를 수행하고 **모두 선택** 확인란을 선택하여 변경하거나 대신 사용할 하나 이상의 구독을 선택할 수 있습니다.
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="하나의 위임된 구독을 표시하는 필터 스크린샷":::
+
+그런 다음, [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)을 지원하는 서비스에 액세스하면 서비스는 기본적으로 필터에 포함한 위임된 구독의 컨텍스트로 설정됩니다. 위의 단계를 수행하고 **모두 선택** 확인란을 선택하여 변경하거나 대신 사용할 하나 이상의 구독을 선택할 수 있습니다.
 
 > [!NOTE]
-> 전체 구독에 액세스하는 대신, 하나 이상의 리소스 그룹에 대한 액세스 권한이 부여된 경우, 해당 리소스 그룹이 속한 구독을 선택합니다. 그런 다음, 해당 구독의 컨텍스트에서 작업하게 되지만 지정된 리소스 그룹에만 액세스할 수 있습니다.
+> 전체 구독에 액세스하는 대신, 하나 이상의 리소스 그룹에 대한 액세스 권한이 부여된 경우, 해당 리소스 그룹이 속한 구독을 선택합니다. 그러면 해당 구독의 컨텍스트에서 작업하게 되지만 지정된 리소스 그룹에만 액세스할 수 있습니다.
 
-또한 해당 서비스 내에서 구독 또는 리소스 그룹을 선택하여 테넌트 간 관리 환경을 지원하는 서비스 내에서 위임된 구독 또는 리소스 그룹과 관련된 기능에 액세스할 수도 있습니다.
+개별 서비스 내에서 구독이나 리소스 그룹을 선택하여 테넌트 간 관리 환경을 지원하는 서비스 내에서 위임된 구독이나 리소스 그룹과 관련된 기능에 액세스할 수도 있습니다.
 
 ## <a name="cloud-solution-provider-preview"></a>클라우드 솔루션 공급자(미리 보기)
 

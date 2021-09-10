@@ -1,15 +1,15 @@
 ---
 title: Azure에 하이브리드 머신을 대규모로 연결
 description: 이 문서에서는 서비스 주체를 사용하여 Azure Arc 지원 서버를 통해 Azure에 머신을 연결하는 방법을 알아봅니다.
-ms.date: 03/04/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4aad01fd6991c059b2cf891fd4f06ae83a78a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: fb78440bf03970616d3d608dcea2de1dc86681bd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831603"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567956"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -89,7 +89,7 @@ PowerShell을 사용하여 서비스 주체를 만들려면 다음 단계를 수
     1. **리소스 그룹** 드롭다운 목록에서 머신을 관리할 리소스 그룹을 선택합니다.
     1. **지역** 드롭다운 목록에서 서버 메타데이터를 저장할 Azure 지역을 선택합니다.
     1. **운영 체제** 드롭다운 목록에서 스크립트가 실행되도록 구성된 운영 체제를 선택합니다.
-    1. 머신이 인터넷에 연결하기 위해 프록시 서버를 통해 통신하는 경우 프록시 IP 주소 또는 머신에서 프록시 서버와 통신하는 데 사용할 이름과 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
+    1. 머신이 인터넷에 연결하기 위해 프록시 서버를 통해 통신하는 경우 프록시 IP 주소 또는 머신에서 프록시 서버와 통신하는 데 사용할 이름과 포트 번호를 지정합니다. 이 구성을 사용하여 에이전트는 HTTP 프로토콜을 사용하는 프록시 서버를 통해 통신합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
     1. **다음: 인증** 을 선택합니다.
 
 1. **인증** 페이지의 **서비스 주체** 드롭다운 목록에서 **Arc-for-servers** 를 선택합니다.  그런 다음, **다음: 태그** 를 선택합니다.
@@ -130,6 +130,6 @@ Windows의 경우 컴퓨터에 `OnboardingScript.ps1`을 저장하라는 메시�
 
 - 문제 해결 정보는 [Connected Machine 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
 
-- [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).
+- [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.
 
-- [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. VM용 Azure Monitor를 사용하여 운영 체제 및 워크로드 모니터링 데이터를 수집하거나, Automation Runbook 또는 업데이트 관리 등의 기능을 사용해 운영 체제를 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md)와 같은 다른 Azure 서비스를 사용하려면 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+- [Azure Policy](../../governance/policy/overview.md)를 사용하여 VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md)과 머신을 관리하는 방법을 알아봅니다. 머신이 예상되는 Log Analytics 작업 영역에 보고되는지, [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 사용하는지 그리고 기타 등등을 확인하세요.

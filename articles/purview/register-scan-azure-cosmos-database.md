@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 23825bd3ab41891f775f26e2ee2b052e3a041401
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5cbf179cd28a36705379049a66010d02d2e7cf24
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536274"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Azure Cosmos Database(SQL API) 등록 및 검색
 
@@ -52,7 +52,7 @@ Azure Cosmos Database(SQL API)에 대한 인증을 설정하는 방법은 다음
 새 Azure Cosmos Database(SQL API)를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 1. **등록** 을 선택합니다.
 1. **원본 등록** 에서 **Azure Cosmos DB(SQL API)** 를 선택합니다.
 1. **계속** 을 선택합니다.

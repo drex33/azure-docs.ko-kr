@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
-ms.openlocfilehash: 19b4b7407468b19419e2f85193b1f8fb6ace39c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359407"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572350"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>AG 및 DNN 수신기와의 기능 상호 운용성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,6 +27,13 @@ ms.locfileid: "97359407"
 
 이 문서에서는 가용성 그룹 DNN 수신기와 SQL Server 기능 및 상호 운용성에 대해 자세히 설명합니다. 
 
+## <a name="behavior-differences"></a>동작 차이점
+
+VNN 수신기 및 DNN 수신기의 기능 간에는 주의해야 할 몇 가지 동작 차이점이 있습니다. 
+
+- **장애 조치 시간**: 네트워크 부하 분산 장치가 오류 이벤트를 감지하고 라우팅을 변경할 때까지 기다릴 필요가 없으므로 DNN 수신기를 사용할 때 장애 조치 시간이 더 단축됩니다. 
+- **기존 연결**: 장애 조치 가용성 그룹 내의 *특정 데이터베이스* 에 대한 연결이 끊어지지만 장애 조치 프로세스 중에 DNN이 온라인 상태를 유지하므로 주 복제본에 대한 다른 연결은 열린 상태로 유지됩니다. 이것은 가용성 그룹이 장애 조치되고 수신기가 오프라인으로 전환되고 주 복제본이 보조 역할로 전환되어 주 복제본에 대한 모든 연결이 닫히게 되는 기존 VNN 환경과는 다릅니다. DNN 수신기를 사용하는 경우 장애 조치 시 연결이 새 주 복제본으로 리디렉션되도록 애플리케이션 연결 문자열을 조정해야 할 수 있습니다.
+- **트랜잭션 열기**: 장애 조치 가용성 그룹의 데이터베이스에 대해 열린 트랜잭션이 닫히고 롤백되며 *수동으로* 다시 연결해야 합니다. 예를 들어, SQL Server Management Studio에서 쿼리 창을 닫고 새 창을 엽니다. 
 
 ## <a name="client-drivers"></a>클라이언트 드라이버
 
@@ -125,8 +132,10 @@ AG DNN 수신기 이름 및 포트를 사용하여 연결된 서버를 구성합
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음을 참조하세요. 
+자세한 내용은 다음을 참조하세요.
 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 

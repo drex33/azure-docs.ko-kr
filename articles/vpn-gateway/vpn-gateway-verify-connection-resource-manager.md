@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3616c425f191c9ff7788cb5f4333fa69d65e5728
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: eaeb77e1dafe7b2791537190d0b4d220363280a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204606"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528416"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>VPN Gateway 연결 확인
 
-이 문서에서는 클래식 및 Resource Manager 배포 모델에 대한 VPN Gateway 연결을 확인하는 방법을 보여 줍니다.
+이 문서에서는 클래식 및 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 대한 VPN 게이트웨이 연결을 확인하는 방법을 보여줍니다.
 
 ## <a name="azure-portal"></a>Azure portal
 

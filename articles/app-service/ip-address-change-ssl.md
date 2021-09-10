@@ -1,21 +1,21 @@
 ---
-title: SSL IP 주소 변경 준비
-description: SSL IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
+title: TLS/SSL IP 주소 변경 준비
+description: TLS/SSL IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3712931f73463ec1a799f003b82197752a735136
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020962"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895286"
 ---
-# <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>SSL IP 주소 변경 준비하는 방법
+# <a name="how-to-prepare-for-a-tlsssl-ip-address-change"></a>TLS/SSL IP 주소 변경을 준비하는 방법
 
-Azure App Service 앱의 SSL IP 주소가 변경된다는 알림을 받은 경우 이 문서의 지침을 따라 기존 SSL IP 주소를 릴리스하고 새 주소를 할당합니다.
+Azure App Service 앱의 TLS/SSL IP 주소가 변경된다는 알림을 받은 경우 이 문서의 지침을 따라 기존 TLS/SSL IP 주소를 릴리스하고 새 주소를 할당합니다.
 
-## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>SSL IP 주소를 릴리스하고 새 주소를 할당
+## <a name="release-tlsssl-ip-addresses-and-assign-new-ones"></a>TLS/SSL IP 주소를 릴리스하고 새 주소 할당
 
 1.  [Azure Portal](https://portal.azure.com)을 엽니다.
 

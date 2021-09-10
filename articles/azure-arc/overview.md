@@ -3,12 +3,12 @@ title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: ddab135ffe98675a498c4a364bc9e04ce57b92fe
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 878e1b9166a10a071d3870edcc70d1775fbcd914
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732047"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867128"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -30,7 +30,7 @@ Azure Arc는 일관적인 다중 클라우드 및 온-프레미스 관리 플랫
 * 서버 - Windows 또는 Linux를 실행하는 물리적 머신 및 가상 머신
 * Kubernetes 클러스터 - 여러 Kubernetes 배포 지원
 * Azure 데이터 서비스 - Azure SQL Managed Instance 및 PostgreSQL 하이퍼스케일 서비스
-* SQL Server - 모든 위치에서 인스턴스를 등록합니다.
+* SQL Server - [Azure Arc 지원 서버에서 SQL Server](/sql/sql-server/azure-arc/overview)를 사용하여 모든 위치에서 인스턴스를 등록합니다.
 
 ## <a name="what-does-azure-arc-deliver"></a>Azure Arc는 어떤 기능을 제공하나요?
 
@@ -78,14 +78,16 @@ Azure Security Center 또는 Azure Monitor와 같이 Arc 지원 Kubernetes에서
 
 ### <a name="azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스
 
-현재 미리 보기 단계에서 Azure Arc 지원 데이터 서비스는 추가 비용 없이 제공됩니다.
+자세한 내용은 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Arc 지원 서버에 대한 자세한 내용은 다음 [개요](./servers/overview.md)를 참조하세요.
+* Azure Arc 지원 서버에 대한 자세한 내용은 다음 [개요](./servers/overview.md)를 참조하세요.
 
-* Arc 지원 Kubernetes에 대한 자세한 내용은 다음 [개요](./kubernetes/overview.md)를 참조하세요.
+* Azure Arc 지원 Kubernetes에 대한 자세한 내용은 다음 [개요](./kubernetes/overview.md)를 참조하세요.
 
-* Arc 지원 데이터 서비스에 대한 자세한 내용은 다음 [개요](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)를 참조하세요.
+* Azure Arc 지원 데이터 서비스에 대한 자세한 내용은 다음 [개요](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)를 참조하세요.
 
-* [Jumpstart 개념 증명](https://azurearcjumpstart.io/azure_arc_jumpstart/)에서 Arc 지원 서비스를 경험하세요.
+* Azure Arc 지원 서버의 SQL Server에 대해 자세히 알아보려면 다음 [개요](/sql/sql-server/azure-arc/overview)를 참조하세요.
+
+* [Jumpstart 개념 증명](https://azurearcjumpstart.io/azure_arc_jumpstart/)에서 Azure Arc 지원 서비스를 경험하세요.

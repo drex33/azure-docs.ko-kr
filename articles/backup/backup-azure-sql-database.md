@@ -2,13 +2,13 @@
 title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: b6daf631248958948e799b20284d84a1e59e5dfe
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 08/20/2021
+ms.openlocfilehash: aae8493579c96607c5623bb04495ec21c99cf667
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518867"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101442"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -18,6 +18,9 @@ ms.locfileid: "107518867"
 2. 로그 백업이 빈번한 15분 RPO(복구 지점 목표)
 3. 지정 시간 복구 최대 1초
 4. 개별 데이터베이스 수준 백업 및 복원
+
+>[!Note]
+>Azure VM에서 SQL 데이터베이스에 대한 스냅샷 기반 백업이 이제 미리 보기로 제공됩니다. 이 고유한 제품은 스냅샷의 장점을 결합하여, RTO를 개선하고 서버에 미치는 영향을 줄이며, 낮은 RPO에 대한 잦은 로그 백업의 이점을 제공합니다. 모든 쿼리/액세스는 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)으로 문의해주세요.
 
 현재 지원되는 백업 및 복원 시나리오를 보려면 [지원 매트릭스](sql-support-matrix.md#scenario-support)를 참조하세요.
 
@@ -91,7 +94,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 1. 개체 탐색기에서 SQL Server 인스턴스로 이동합니다.
 2. 보안 -> 로그인으로 이동합니다.
-3. 로그인을 마우스 오른쪽 단추로 클릭하고 *새 로그인...* 을 선택합니다.
+3. 로그인을 마우스 오른쪽 단추를 클릭하여 *새 로그인...* 을 선택합니다.
 
     ![SSMS를 사용한 새 로그인](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 

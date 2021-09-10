@@ -7,15 +7,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 7500490115ed360e838dc30038e3e8e602b33449
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1eb42cc923ea5acd23165e9dfa778e35748e4d2e
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081644"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567963"
 ---
 # <a name="performance-tune-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -46,7 +46,7 @@ Azure Synapse의 전용 SQL 풀은 표준 및 구체화된 뷰를 지원합니�
 
 - JOIN 및 집계 함수를 사용하여 복잡한 쿼리의 실행 시간을 줄입니다. 쿼리가 복잡할수록 실행 시간 절감 가능성이 높아집니다. 쿼리의 컴퓨팅 비용이 높고 결과 데이터 세트가 작은 경우 가장 많은 이점을 얻을 수 있습니다.  
 - 전용 SQL 풀의 최적화 프로그램은 배포된 구체화된 뷰를 자동으로 사용하여 쿼리 실행 플랜을 향상시킬 수 있습니다.  이 프로세스는 사용자에게 투명하게 진행되어 더 빠른 쿼리 성능을 제공하며 쿼리에 구체화된 뷰에 대한 직접 참조를 수행하도록 요구하지 않습니다.
-- 뷰에 대한 유지 관리 부담이 낮아집니다.  기본 테이블의 모든 증분 데이터 변경 내용은 동기화 방식으로 구체화된 뷰에 자동으로 추가됩니다.  이 디자인에서는 구체화된 뷰를 쿼리하여 기본 테이블을 직접 쿼리하는 것과 동일한 데이터를 반환할 수 있습니다.
+- 뷰에 대한 유지 관리 부담이 낮아집니다.  기본 테이블의 모든 증분 데이터 변경 사항은 동기 방식으로 구체화된 뷰에 자동으로 추가됩니다. 즉, 기본 테이블과 구체화된 뷰가 동일한 트랜잭션에서 업데이트됩니다.  이 디자인에서는 구체화된 뷰를 쿼리하여 기본 테이블을 직접 쿼리하는 것과 동일한 데이터를 반환할 수 있습니다.  
 - 구체화된 뷰의 데이터를 기본 테이블과 다르게 배포할 수 있습니다.  
 - 구체화된 뷰의 데이터는 일반 테이블의 데이터와 동일한 고가용성 및 복원력 혜택을 얻습니다.  
 
@@ -56,7 +56,7 @@ Azure Synapse의 전용 SQL 풀은 표준 및 구체화된 뷰를 지원합니�
 
 - 기본 테이블의 데이터 변경 내용으로 자동 및 동기식 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
 - 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)를 참조하세요.
-- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
+- 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)을 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오  
 

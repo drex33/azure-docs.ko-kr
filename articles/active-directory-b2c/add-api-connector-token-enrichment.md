@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 08/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 524315a0fa07b6c965d473688942c6e69be38494
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 20473d6a5dcbdc826605d46928a7bfbb90792e0e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535920"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186068"
 ---
 # <a name="enrich-tokens-with-claims-from-external-sources-using-api-connectors"></a>API 커넥터를 사용하여 외부 소스의 클레임으로 토큰 보강
 
@@ -92,7 +92,6 @@ Content-type: application/json
  "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
  "step": "PreTokenIssuance",
  "ui_locales":"en-US"
@@ -323,7 +322,8 @@ REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **ID 경험 프레임워크** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택한 후 변경한 정책 파일을 업로드합니다. *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*. 

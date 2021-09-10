@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 31c5be9ce48ffea8ebd23e893e2d77e6365d2327
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467670"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566319"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "110467670"
 
 ## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
-Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로토콜 호환 API를 기본적으로 지원합니다. 여기에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table Storage가 포함됩니다. Gremlin API 및 Table API를 사용하는 경우 Azure Cosmos 계정에서 구성된 기본 일관성 수준을 사용합니다. Cassandra API 또는 MongoDB용 API 간의 일관성 수준 매핑과 Azure Cosmos DB의 일관성 수준에 대한 자세한 내용은 [Cassandra API 일관성 매핑](cassandra-consistency.md) 및 [MongoDB용 API 일관성 매핑](mongodb-consistency.md)을 참조하세요.
+Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로토콜 호환 API를 기본적으로 지원합니다. 여기에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table Storage가 포함됩니다. Gremlin API 및 Table API를 사용하는 경우 Azure Cosmos 계정에서 구성된 기본 일관성 수준을 사용합니다. Cassandra API 또는 MongoDB용 API 간의 일관성 수준 매핑과 Azure Cosmos DB의 일관성 수준에 대한 자세한 내용은 [Cassandra API 일관성 매핑](cassandra/apache-cassandra-consistency-mapping.md) 및 [MongoDB용 API 일관성 매핑](mongodb/consistency-mapping.md)을 참조하세요.
 
 ## <a name="scope-of-the-read-consistency"></a>읽기 일관성 범위
 
@@ -43,6 +43,9 @@ Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로�
 ## <a name="configure-the-default-consistency-level"></a>기본 일관성 수준 구성
 
 언제든지 Azure Cosmos 계정의 기본 일관성 수준을 구성할 수 있습니다. 계정에 구성된 기본 일관성 수준은 해당 계정의 모든 Azure Cosmos 데이터베이스 및 컨테이너에 적용됩니다. 컨테이너 또는 데이터베이스에 대해 실행된 모든 읽기 및 쿼리는 기본적으로 지정된 일관성 수준을 사용합니다. 자세히 알아보려면 [기본 일관성 수준을 구성](how-to-manage-consistency.md#configure-the-default-consistency-level)하는 방법을 참조하세요. 특정 요청에 대한 기본 일관성 수준을 재정의할 수도 있습니다. 자세한 내용은 [기본 일관성 수준을 재정의](how-to-manage-consistency.md?#override-the-default-consistency-level)하는 방법 문서를 참조하세요.
+
+> [!TIP]
+> 기본 일관성 수준 재정의는 SDK 클라이언트 내의 읽기에만 적용됩니다. 기본적으로 강력한 일관성으로 구성된 계정은 계정의 모든 지역에 동기적으로 데이터를 쓰고 복제합니다. SDK 클라이언트 인스턴스 또는 요청이 이를 Session 또는 약한 일관성으로 재정의하면 단일 복제본을 사용하여 읽기가 수행됩니다. 자세한 내용은 [일관성 수준 및 처리량](consistency-levels.md#consistency-levels-and-throughput)을 참조하세요.
 
 > [!IMPORTANT]
 > 기본 일관성 수준을 변경한 후에는 모든 SDK 인스턴스를 다시 만들어야 합니다. 이 작업은 애플리케이션을 다시 시작하여 수행할 수 있습니다. 이렇게 하면 SDK가 새로운 기본 일관성 수준을 사용합니다.

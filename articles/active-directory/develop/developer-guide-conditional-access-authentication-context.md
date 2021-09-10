@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: kkrishna
 ms.workload: identity
 ms.custom: aaddev
-ms.openlocfilehash: c632b19daf52fd2af4d2c2920c3a61519da6c85c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0a310df6793d2caecda095f0c89244ffee5e46eb
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408068"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728033"
 ---
 # <a name="developers-guide-to-conditional-access-authentication-context"></a>조건부 액세스 인증 컨텍스트에 대한 개발자 가이드
 
@@ -45,7 +45,7 @@ IT 관리자와 규제자는 사용자에게 인증에 대한 추가 요소를 �
 
 **먼저** 인증 및 권한 부여를 위해 [OpenID Connect](v2-protocols-oidc.md)/ [OAuth 2.0](v2-oauth2-auth-code-flow.md) 프로토콜을 사용하여 앱을 Microsoft ID 플랫폼과 통합해야 합니다. [Microsoft ID 플랫폼 인증 라이브러리](reference-v2-libraries.md)를 사용하여 Azure Active Directory로 애플리케이션을 통합하고 보호하는 것이 좋습니다. [Microsoft ID 플랫폼 설명서](index.yml)는 앱을 Microsoft ID 플랫폼과 통합하는 방법에 대한 학습을 시작하는 데 적합합니다. 조건부 액세스 인증 컨텍스트 기능 지원은 업계 표준 [OpenID Connect](v2-protocols-oidc.md) 프로토콜에서 제공하는 프로토콜 확장을 기반으로 합니다. 개발자는 [클레임 요청](claims-challenge.md) 매개 변수와 함께 [조건부 액세스 인증 컨텍스트 참조](/graph/api/resources/authenticationcontextclassreference) **값** 을 사용하여 앱에 정책을 트리거하고 충족하는 방법을 제공합니다.
 
-**두 번째로** [조건부 액세스](../conditional-access/overview.md)에는 Azure AD Premium P1 라이선스가 필요합니다. 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
+**두 번째로** [조건부 액세스](../conditional-access/overview.md)에는 Azure AD Premium P1 라이선스가 필요합니다. 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에서 확인할 수 있습니다.
 
 **세 번째로**, 현재 사용자가 로그인하는 애플리케이션에서만 사용할 수 있습니다. 자체로 인증하는 애플리케이션은 지원되지 않습니다. [인증 흐름 및 애플리케이션 시나리오 가이드](authentication-flows-app-scenarios.md)를 사용하여 Microsoft ID 플랫폼에서 지원되는 인증 앱 유형 및 흐름에 대해 알아보세요.
 
@@ -221,6 +221,7 @@ IT 관리자와 규제자는 사용자에게 인증에 대한 추가 요소를 �
 - [중요한 데이터 및 작업에 대한 세분화된 조건부 액세스(블로그)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
 - [Microsoft ID 플랫폼을 사용하는 제로 트러스트](/security/zero-trust/identity-developer)
 - [Microsoft ID 플랫폼을 사용하여 제로 트러스트 지원 앱 빌드](/security/zero-trust/identity-developer)
+- [조건부 액세스 인증 컨텍스트를 사용하여 웹앱의 높은 권한 작업을 위한 버전 업그레이드 인증 수행](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [웹 API의 높은 권한 작업을 위한 조건부 액세스 인증 컨텍스트를 사용한 단계별 인증 수행](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
 - [조건부 액세스 인증 컨텍스트](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
 - [authenticationContextClassReference 리소스 유형 - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)

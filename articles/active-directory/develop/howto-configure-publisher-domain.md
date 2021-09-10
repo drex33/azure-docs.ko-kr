@@ -13,14 +13,14 @@ ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: contperf-fy21q4, aaddev
-ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 7cf9918216c70bcbabf9c64c9b0ebf91c02b45fd
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579975"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029245"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 애플리케이션의 게시자 도메인 구성
+# <a name="configure-an-applications-publisher-domain"></a>애플리케이션의 게시자 도메인 구성
 
 [애플리케이션의 동의 프롬프트](application-consent-experience.md)에서 자신의 정보가 전송되는 위치를 알려주는 애플리케이션의 게시자 도메인이 사용자에게 표시됩니다. 2019년 5월 21일 이후에 등록된 다중 테넌트 애플리케이션 중 게시자 도메인이 없을 경우 **확인되지 않음** 으로 표시됩니다. 다중 테넌트 애플리케이션은 단일 조직 디렉터리 외부의 계정을 지원하는 애플리케이션입니다. 예를 들어 모든 Azure AD 계정을 지원하거나 모든 Azure AD 계정 및 개인 Microsoft 계정을 지원합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "112579975"
 
 앱이 테넌트에 등록된 경우 두 개의 탭, 즉 **확인된 도메인 선택** 및 **새 도메인 확인** 이 표시됩니다.
 
-앱이 테넌트에 등록되지 않은 경우 애플리케이션에 대한 새 도메인을 확인하는 옵션만 표시됩니다.
+도메인이 테넌트에 등록되지 않은 경우 애플리케이션에 대한 새 도메인을 확인하는 옵션만 표시됩니다.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>앱에 대한 새 도메인 확인
 

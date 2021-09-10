@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 73621e7ef9f68747edde9cfb16289fb6dc82695a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: e1962ebc42c688adfecd18f7d46ce4957147ac7e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201375"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967909"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -49,7 +49,7 @@ dotnet build
 .NET용 Azure Communication 채팅 SDK 설치
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0
+dotnet add package Azure.Communication.Chat
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -136,9 +136,19 @@ await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
 - `content`를 사용하여 메시지 콘텐츠를 제공합니다. 이는 필수입니다.
 - 'Text' 또는 'Html'과 같은 메시지의 콘텐츠 형식에 `type`을 사용합니다. 지정되지 않는 경우 ‘Text’가 설정됩니다.
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다. 지정되지 않는 경우 빈 문자열이 설정됩니다.
+- 선택적으로 `metadata`를 사용하여 메시지와 함께 보내려는 추가 데이터를 포함합니다. 이 필드는 개발자가 채팅 메시지 기능을 확장하고 사용 사례에 대한 사용자 지정 정보를 추가할 수 있는 메커니즘을 제공합니다. 예를 들어 메시지에서 파일 링크를 공유할 때 메타데이터에 'hasAttachment:true'를 추가하여 수신자의 애플리케이션이 이를 구문 분석하고 그에 따라 표시할 수 있습니다.
 
 ```csharp
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
+{
+    Content = "Please take a look at the attachment",
+    MessageType = ChatMessageType.Text
+};
+sendChatMessageOptions.Metadata["hasAttachment"] = "true";
+sendChatMessageOptions.Metadata["attachmentUrl"] = "https://contoso.com/files/attachment.docx";
+
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
+
 string messageId = sendChatMessageResult.Id;
 ```
 

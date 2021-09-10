@@ -1,6 +1,6 @@
 ---
 title: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 구성 표시
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 구성 표시
 services: azure-arc
 ms.service: azure-arc
@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 12631adea948c6a59f935ba409dcc925268c6319
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 727c792daa20c392a87f7c57100b72ae79a971f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412262"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566626"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 구성 표시
 
@@ -28,7 +28,7 @@ ms.locfileid: "111412262"
 
 ## <a name="from-a-kubernetes-point-of-view"></a>Kubernetes 관점에서
 
-### <a name="how-many-pods-are-used-by-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 Pod를 몇 개 사용합니까?
+### <a name="how-many-pods-are-used-by-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 사용하는 Pod는 몇 개인가요?
 
 Postgres 형식의 Kubernetes 리소스를 나열합니다. 명령 실행:
 
@@ -46,7 +46,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 
 이 예에서는 2개의 서버 그룹이 만들어지고 각각 3개의 Pod(코디네이터 1개 + 작업자 2개)에서 실행되는 것을 보여 줍니다. 즉, 이 Azure Arc 데이터 컨트롤러에서 만들어진 서버 그룹은 6개의 Pod를 사용합니다.
 
-### <a name="what-pods-are-used-by-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 어떤 Pod가 사용되나요?
+### <a name="what-pods-are-used-by-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 사용하는 Pod는 무엇인가요?
 
 다음을 실행합니다.
 
@@ -127,7 +127,7 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   193
 ```
 
 
-## <a name="from-an-azure-arc-enabled-data-services-point-of-view"></a>Azure Arc 지원 데이터 서비스 관점에서:
+## <a name="from-an-azure-arc-enabled-data-services-point-of-view"></a>Azure Arc 지원 데이터 서비스 관점에서
 
 * Arc 데이터 컨트롤러에서 생성되는 서버 그룹은 몇 개입니까?
 * 이름은 무엇인가요?
@@ -155,12 +155,12 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   193
 
    각 항목은 3개의 노드/Pod: 1개의 코디네이터와 2개의 작업자에서 실행됩니다.
 
-- **azdata 사용:**
+- **Azure CLI(az) 사용:**
 
 다음 명령을 실행합니다. 출력은 다음과 같이 kubectl에서 표시하는 것과 비슷한 정보를 표시합니다.
 
-   ```console
-   azdata arc postgres server list
+   ```azurecli
+   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
    `output
    Name        State    Workers
@@ -281,18 +281,18 @@ Events:               <none>
    >  State:              Ready
    > ```
 
-**azdata 사용:**
+**Azure CLI(az) 사용:**
 
 이 명령의 일반적인 형식은 다음과 같습니다.
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server show -n postgres02
+```azurecli
+az postgres arc-server show -n postgres02 --k8s-namespace <namespace> --use-k8s
 ```
 
 kubectl에서 반환하는 것과 매우 유사한 형식 및 내용으로 아래 출력을 반환합니다.

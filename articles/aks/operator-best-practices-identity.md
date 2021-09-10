@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: de84e3e2a8da3e1b5195978a8a2204fdfa2108d7
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a29bd1513f021be03cf6c6bd4aa83d13062de170
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105105"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567678"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -127,14 +127,29 @@ AKS 클러스터를 완전히 운영하려면 다음과 같이 두 가지 수준
 
 Cosmos DB, Key Vault 또는 Blob Storage와 같은 다른 Azure 서비스에 액세스하려면 Pod에 액세스 자격 증명이 필요합니다. 컨테이너 이미지로 액세스 자격 증명을 정의하거나 Kubernetes 비밀로 삽입할 수 있습니다. 어느 쪽이든 수동으로 만들고 할당해야 합니다. 일반적으로 이러한 자격 증명은 Pod 전체에 다시 사용되며 정기적으로 교체되지 않습니다.
 
-Azure 리소스의 Pod 관리 ID를 사용하면 Azure AD를 통해 서비스에 대한 액세스를 자동으로 요청할 수 있습니다. Pod 관리 ID는 현재 AKS에 대해 미리 보기로 제공됩니다. 시작하려면 [Azure Kubernetes Service에서 Azure Active Directory Pod 관리 ID 사용(미리 보기)[(https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) 설명서를 참조하세요. 
+Azure 리소스의 Pod 관리 ID를 사용하면 Azure AD를 통해 서비스에 대한 액세스를 자동으로 요청할 수 있습니다. Pod 관리 ID는 현재 AKS에 대해 미리 보기로 제공됩니다. 시작하려면 [Azure Kubernetes Service에서 Azure Active Directory Pod 관리 ID 사용(미리 보기)](./use-azure-ad-pod-identity.md) 설명서를 참조하세요. 
+
+Azure Active Directory Pod ID는 두 가지 작업 모드를 지원합니다.
+
+1. 표준 모드: 이 모드에서는 다음 두 가지 구성 요소가 AKS 클러스터에 배포됩니다. 
+    * [MIC(Managed Identity Controller)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): Kubernetes API Server를 통해 Pod, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) 및 [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/)의 변경을 감시하는 Kubernetes 컨트롤러입니다. 관련 변경 내용이 검색되면 MIC는 필요에 따라 [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/)를 추가하거나 삭제합니다. 특히 Pod가 예약되면 MIC는 만들기 단계 중 노드 풀에서 사용하는 기본 VMSS에 Azure의 관리 ID를 할당합니다. ID를 사용하는 모든 Pod가 삭제되면 동일한 관리 ID가 다른 Pod에서 사용되지 않는 한 노드 풀의 VMSS에서 ID를 제거합니다. MIC는 AzureIdentity 또는 AzureIdentityBinding을 만들거나 삭제할 때도 유사한 작업을 수행합니다.
+    * [NMI(Node Managed Identity)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): AKS 클러스터의 각 노드에서 DaemonSet로 실행되는 Pod입니다. NMI는 각 노드에서 [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux)에 대한 보안 토큰 요청을 가로채고, 해당 요청을 자신에게 리디렉션하고, Pod가 토큰을 요청하는 ID에 액세스하고 애플리케이션을 대신하여 Azure Active Directory 테넌트에서 토큰을 가져올 수 있는지 확인합니다.
+2. 관리형 모드: 이 모드에는 NMI만 있습니다. 사용자가 ID를 수동으로 할당하고 관리해야 합니다. 자세한 내용은 [Pod Identity in Managed Mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/)(관리형 모드의 Pod ID)를 참조하세요. 이 모드에서 [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) 명령을 사용하여 Azure Kubernetes Service(AKS) 클러스터에 Pod ID를 추가하면 `--namespace` 매개 변수로 지정된 네임스페이스에 [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) 및 [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/)을 만들고 AKS 리소스 공급자는 `--identity-resource-id` 매개 변수로 지정된 관리 ID를 AKS 클러스터에서 각 노드 풀의 VMSS(가상 머신 확장 집합)에 할당합니다.
+
+> [!NOTE]
+> 대신 [AKS 클러스터 추가 기능](./use-azure-ad-pod-identity.md)을 사용하여 Azure Active Directory Pod ID를 설치하기로 결정하면 설치 프로그램에서 `managed` 모드를 사용합니다.
+
+`managed` 모드는 `standard` 모드에 비해 다음과 같은 이점이 있습니다.
+
+1. 노드 풀의 VMSS에서 ID를 할당하려면 40~60초 걸릴 수 있습니다. ID에 대한 액세스 권한이 필요하고 할당 지연을 허용할 수 없는 애플리케이션이나 cronjobs의 경우 ID가 수동으로 또는 [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) 명령을 통해 노드 풀의 VMSS에 미리 할당되는 `managed` 모드를 사용하는 것이 가장 좋습니다.
+2. `standard` 모드에서 MIC에는 AKS 클러스터에서 사용하는 VMSS에 대한 쓰기 권한과 사용자가 할당한 관리 ID에 대한 `Managed Identity Operator` 권한이 필요합니다. `managed mode`에서 실행되면 MIC가 없기 때문에 역할 할당이 필요하지 않습니다.
 
 Pod에 대한 자격 증명을 수동으로 정의하는 대신 Pod 관리 ID는 실시간으로 액세스 토큰을 요청하여 할당된 서비스에만 액세스합니다. AKS에는 Pod가 관리 ID를 사용할 수 있도록 작업을 처리하는 두 가지 구성 요소가 있습니다.
 
 * **NMI(노드 관리 ID) 서버** 는 AKS 클러스터의 각 노드에서 DaemonSet으로 실행되는 Pod입니다. NMI 서버는 Azure 서비스에 대한 Pod 요청을 수신 대기합니다.
 * **Azure 리소스 공급자** 는 Kubernetes API 서버를 쿼리하고 Pod에 해당하는 Azure ID 매핑을 확인합니다.
 
-Pod가 Azure 서비스에 대한 액세스를 요청하면 네트워크 규칙이 트래픽을 NMI 서버로 리디렉션합니다. 
+Pod가 Azure 서비스에 액세스하기 위해 Azure Active Directory에서 보안 토큰을 요청하면 네트워크 규칙은 트래픽을 NMI 서버로 리디렉션합니다. 
 1. NMI 서버:
     * 원격 주소를 기반으로 Azure 서비스에 대한 액세스를 요청하는 Pod를 식별합니다.
     * Azure 리소스 공급자를 쿼리합니다. 

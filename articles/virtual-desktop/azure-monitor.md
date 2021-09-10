@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1ce4dcb4f180d952004d592e35bc64c5ba93dfa
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b985ec9e88f4285da326fcf41e19141e61a0dd10
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754586"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564197"
 ---
 # <a name="use-azure-monitor-for-azure-virtual-desktop-to-monitor-your-deployment"></a>Azure Monitor for Azure Virtual Desktop을 사용하여 배포 모니터링
 
@@ -195,3 +195,4 @@ Microsoft는 Azure Monitor 서비스를 사용하여 사용 현황 및 성능 �
 - Azure Monitor for Azure Virtual Desktop과 관련된 용어 및 개념에 대해 자세히 알아보려면 [용어집](azure-monitor-glossary.md)을 확인하세요.
 - 데이터 스토리지 비용을 예측, 측정 및 관리하려면 [예상 Azure Monitor 비용](azure-monitor-costs.md)을 참조하세요.
 - 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-azure-monitor.md)에서 도움말과 알려진 문제를 확인하세요.
+- 각 버전 업데이트의 새로운 내용을 보려면 [Azure Virtual Desktop용 Azure Monitor의 새로운 내용](whats-new-azure-monitor.md)을 참조하세요.

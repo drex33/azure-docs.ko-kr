@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: ef6b23cf7564cff57f398c76162f9c25efac7075
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 19e10b43fbf0dac05da531570376b77d22840312
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081283"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538819"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -134,7 +134,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 * 클러스터를 만든 후 VNET을 확장하는 경우 원래 cidr 외부에 서브넷을 추가하기 전에 클러스터를 업데이트해야 합니다(관리형 클러스터 작업을 수행하지만 노드 풀 작업은 카운트하지 않음). 이제 AKS는 처음에 허용했던 에이전트 풀 추가에 대해 오류를 표시합니다. 클러스터 파일을 조정하는 방법을 모르는 경우 지원 티켓을 제출하세요. 
 * Calico 네트워크 정책은 지원되지 않습니다. 
 * Azure 네트워크 정책은 지원되지 않습니다.
-* Kube-proxy는 단일 연속 cidr을 필요로 하며 다음과 같은 세 가지 최적화에 단일 연속 cidr을 사용합니다. 자세한 내용은 [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) 및 --cluster-cidr 관련 정보가 있는 [여기](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)서 확인할 수 있습니다. Azure cni에서 첫 번째 노드 풀의 서브넷이 kube-proxy에 제공됩니다. 
+* Kube-proxy는 단일 연속 cidr을 필요로 하며 다음과 같은 세 가지 최적화에 단일 연속 cidr을 사용합니다. 자세한 내용은 [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) 및 --cluster-cidr 관련 정보가 있는 [여기](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)서 확인할 수 있습니다. Azure CNI에서 첫 번째 노드 풀의 서브넷이 kube-proxy에 제공됩니다. 
 
 전용 서브넷을 사용하여 노드 풀을 만들려면 노드 풀을 만들 때 서브넷 리소스 ID를 추가 매개 변수로 전달합니다.
 
@@ -959,7 +959,7 @@ Windows Server 컨테이너 노드 풀을 만들고 사용하려면 [AKS에서 W
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2

@@ -2,14 +2,14 @@
 title: Azure VM의 SQL Server 백업에 대한 Azure Backup 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM에서 SQL Server를 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 06/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 678a3e63205d986681016fe64971e9bd874f9c71
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714149"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119939"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server Backup에 대한 지원 매트릭스
 
@@ -20,7 +20,7 @@ Azure Backup을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 **지원** | **세부 정보**
 --- | ---
 **지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | 오스트레일리아 남동부(ASE), 오스트레일리아 동부(AE), 오스트레일리아 중부(AC), 오스트레일리아 중부 2(AC) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS), 인도 서부 <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부 <br> 독일 북부, 독일 중서부 <br> 스위스 북부, 스위스 서부 <br> 프랑스 중부 <br> 중국 동부, 중국 동부 2, 중국 북부, 중국 북부 2
+**지원되는 지역** | SQL Server 데이터베이스용 Azure Backup은 프랑스 남부(FRS), 영국 북부(UKN), 영국 남부 2(UKS2), 미국 아이오와(UGI) 및 독일(Black Forest)을 제외한 모든 지역에서 사용할 수 있습니다.
 **지원되는 운영 체제** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2019, SQL Server 2017, [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express<br><br>Express Local DB 버전은 지원되지 않습니다.
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상

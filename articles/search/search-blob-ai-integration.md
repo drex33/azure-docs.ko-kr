@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bdf5f2708daee0a3dc05ec8bc3d861633a3b7b7f
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 083a568f6fad664c59073e2f6858900302e9d971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590579"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528434"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>AI를 사용하여 Azure Cognitive Search의 Blob 콘텐츠 처리 및 분석
 
@@ -62,7 +62,7 @@ AI 보강은 인덱싱 파이프라인에 대한 추가 기능이며, Azure Cogn
 
 Azure Storage의 Blob은 [Blob 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용하여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 SDK를 사용하여 이 인덱서를 호출할 수 있습니다. 인덱서에서 사용하는 데이터 원본이 Azure Blob 컨테이너인 경우 Blob 인덱서가 호출됩니다. 가상 디렉터리를 만들어 매개 변수로 전달하거나 파일 형식 확장에서 필터링하여 Blob의 하위 집합을 인덱싱할 수 있습니다.
 
-인덱서는 “문서 크래킹”을 수행하여 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, Office 문서, 이미지, 기타 콘텐츠 형식이 검색됩니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. 이미지 추출을 이용한 문서 크래킹 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)의 요율로 부과됩니다.
+인덱서는 [“문서 크랙”](search-indexer-overview.md#document-cracking)을 발생시켜 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, Office 문서, 이미지, 기타 콘텐츠 형식이 검색됩니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. 이미지 추출을 이용한 문서 크래킹 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)의 요율로 부과됩니다.
 
 모든 문서가 크래킹되지만, 보강은 보강 기술을 명시적으로 제공하는 경우에만 수행됩니다. 예를 들어 파이프라인이 이미지 분석으로만 구성된 경우 컨테이너 또는 문서의 텍스트는 무시됩니다.
 
@@ -82,7 +82,7 @@ Azure Cognitive Search에서 ‘기술’은 단독으로 또는 다른 기술�
 
 사용자 지정 기술은 복잡해 보일 수 있지만 구현 측면에서 간단하고 단순할 수 있습니다. 패턴 일치 또는 분류 모델을 제공하는 기존 패키지가 있는 경우 Blob에서 추출한 콘텐츠를 이러한 모델에 전달하여 처리할 수 있습니다. AI 보강은 Azure 기반이므로 모델도 Azure에 있어야 합니다. 몇 가지 일반적인 호스팅 방법론에는 [Azure Functions](cognitive-search-create-custom-skill-example.md) 또는 [컨테이너](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 사용이 포함됩니다.
 
-Cognitive Services로 지원되는 기본 제공 기술을 사용하려면 리소스에 대한 액세스 권한을 제공하는 [연결된 Cognitive Services](cognitive-search-attach-cognitive-services.md) 범용 구독 키가 필요합니다. 범용 키는 이미지 분석, 언어 감지, 텍스트 번역, 텍스트 분석을 제공합니다. 다른 기본 제공 기술은 Azure Cognitive Search 기능이며 추가 서비스 또는 키가 필요하지 않습니다. 텍스트 쉐이퍼, 분할기, 병합기는 파이프라인을 디자인할 때 필요한 도우미 기술의 예입니다.
+Cognitive Services로 지원되는 기본 제공 기술을 사용하려면 리소스에 대한 액세스 권한을 제공하는 [연결된 Cognitive Services](cognitive-search-attach-cognitive-services.md) 범용 구독 키가 필요합니다. 범용 키는 이미지 분석, 언어 감지, 텍스트 번역, 텍스트 분석을 제공합니다. 다른 기본 제공 기술은 Azure Cognitive Search 기능이며 추가 서비스 또는 키가 필요하지 않습니다. 쉐이퍼, 분할기, 병합기는 파이프라인을 디자인할 때 필요한 도우미 기술의 예입니다.
 
 사용자 지정 기술 및 기본 제공 유틸리티 기술만 사용하는 경우 Cognitive Services에 관련된 종속성 또는 비용이 없습니다.
 

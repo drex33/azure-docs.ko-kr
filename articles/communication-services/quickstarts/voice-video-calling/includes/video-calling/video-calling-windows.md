@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa934ea2dc29004057ffbd3bad7c5f7b5afe935
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593290"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123122512"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하여 1:1 화상 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -161,8 +161,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -334,5 +333,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 Visual Studio에서 코드를 빌드하고 실행할 수 있습니다. 솔루션 플랫폼의 경우 `ARM64`, `x64` 및 `x86`이 지원됩니다. 
 
 텍스트 필드에 사용자 ID를 지정하고 `Start Call` 단추를 클릭하여 아웃바운드 비디오 호출을 수행할 수 있습니다. 
+
+참고: 에코 봇은 동영상 스트리밍을 지원하지 않으므로 `8:echo123`을 호출하면 동영상 스트리밍이 중지됩니다. 
 
 사용자 ID에 대한 자세한 내용은 [사용자 액세스 토큰](../../../access-tokens.md) 가이드를 확인하세요. 

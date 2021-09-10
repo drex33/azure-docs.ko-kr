@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 63f5b8be29d3b1e9468016afba618261684e1bca
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: ef855102f4877d26c1b6d16d73e99719e3e97ed1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567470"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance의 특징 및 기능
 
@@ -26,19 +26,14 @@ Azure Arc 지원 SQL Managed Instance는 안정적인 최신 버전의 SQL Serve
 - 다중 모델 기능 - [Graph 처리](/sql/relational-databases/graphs/sql-graph-overview), [JSON 데이터](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [공간](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), [XML 인덱스](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## <a name="features-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 기능
-
-###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
+## <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
 |기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
-|Always On 장애 조치(failover) 클러스터 인스턴스<sup>1</sup>| 해당 사항 없음. 비슷한 기능 사용 가능 |
-|Always On 가용성 그룹<sup>2</sup>|HA 기능이 계획되어 있습니다.|
-|기본 가용성 그룹 <sup>2</sup>|HA 기능이 계획되어 있습니다.|
-|최소 복제본 커밋 가용성 그룹<sup>2</sup>|HA 기능이 계획되어 있습니다.|
+|Always On 장애 조치(failover) 클러스터 인스턴스<sup>1</sup>| 해당 사항 없음. 비슷한 기능 사용 가능|
+|Always On 가용성 그룹<sup>2</sup>|중요 비즈니스 서비스 계층 미리 보기 상태.|
+|기본 가용성 그룹 <sup>2</sup>|해당 사항 없음. 비슷한 기능 사용 가능|
+|최소 복제본 커밋 가용성 그룹<sup>2</sup>|중요 비즈니스 서비스 계층 미리 보기 상태.|
 |클러스터가 없는 가용성 그룹|예|
 |데이터베이스 백업 | 예 - `COPY_ONLY` [백업 - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 참조|
 |백업 압축|예|
@@ -48,7 +43,7 @@ Azure Arc 지원 SQL Managed Instance는 안정적인 최신 버전의 SQL Serve
 |데이터베이스 스냅샷|예|
 |빠른 복구|예|
 |Hot Add 메모리 및 CPU|예|
-|로그 전달|예| 
+|로그 전달|아직 사용할 수 없습니다.|
 |온라인 페이지 및 파일 복원|예|
 |온라인 인덱싱|예|
 |온라인 스키마 변경|예|
@@ -56,10 +51,7 @@ Azure Arc 지원 SQL Managed Instance는 안정적인 최신 버전의 SQL Serve
 
 <sup>1</sup> Pod가 실패한 시나리오에서 새 SQL Managed Instance가 시작되고 데이터가 포함된 영구 볼륨에 다시 연결됩니다. [여기에서 Kubernetes 영구 볼륨에 대해 자세한 정보를 알아봅니다](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> 향후 릴리스는 AG 기능을 제공합니다. 
-
-
-###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
+## <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
 | 기능 | Azure Arc 지원 SQL Managed Instance |
 |--|--|
@@ -81,7 +73,7 @@ Azure Arc 지원 SQL Managed Instance는 안정적인 최신 버전의 SQL Serve
 | 다중 문 테이블 반환 함수에 대한 인터리브 실행 | 예 |
 | 대량 삽입 기능 개선 | 예 |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
+## <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
 
 | 기능 | Azure Arc 지원 SQL Managed Instance |
 |--|--|
@@ -95,8 +87,11 @@ Azure Arc 지원 SQL Managed Instance는 안정적인 최신 버전의 SQL Serve
 | 사용자 정의 역할 | 예 |
 | 포함된 데이터베이스 | 예 |
 | 백업을 위한 암호화 | 예 |
+| SQL Server 인증 | 예 |
+| Azure Active Directory 인증 | No |
+| Windows 인증 | No |
 
-###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
+## <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
 
 | 기능 | Azure Arc 지원 SQL Managed Instance |
 |--|--|
@@ -142,9 +137,9 @@ Azure Arc 지원 SQL Managed Instance는 데이터를 관리하는 데 도움이
 | **도구** | Azure Arc 지원 SQL Managed Instance|
 | --- | --- | --- |
 | Azure Portal <sup>1</sup> | 아니요 |
-| Azure CLI | 아니요 |
+| Azure CLI | 예 |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | 예 |
-| Azure PowerShell | 예 |
+| Azure PowerShell | No |
 | [BACPAC 파일(내보내기)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 |
 | [BACPAC 파일(가져오기)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 예 |
 | [SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) | 예 |
@@ -152,8 +147,9 @@ Azure Arc 지원 SQL Managed Instance는 데이터를 관리하는 데 도움이
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | 예 |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | 예 |
 
-<sup>1</sup> Azure Portal은 미리 보기 중에 읽기 전용 모드에서 Azure Arc 지원 SQL Managed Instance를 확인하는 데만 사용됩니다.
+<sup>1</sup> Azure Portal은 Azure Arc 지원 SQL Managed Instance를 만들고, 확인하고, 삭제하는 데 사용할 수 있습니다.  현재 Azure Portal를 통해 업데이트를 수행할 수 없습니다.
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### <a name="unsupported-features--services"></a><a name="Unsupported"></a> 지원되지 않는 기능 및 서비스
 

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 2d68a74332ef77694d44597e6f879858fa0051bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 808f7a23a0be389703f2a805407b6ce725ce920a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535652"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315555"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>물리적 서버 검색 및 평가를 위한 지원 매트릭스 
 
@@ -34,6 +34,10 @@ ms.locfileid: "122535652"
 
 **물리 서버 배포:** 물리 서버는 독립 실행형이거나 클러스터에서 배포할 수 있습니다.
 
+**서버 유형:** 운영 체제 미설치 서버, 온-프레미스 또는 AWS, GCP, Xen 등의 다른 클라우드에서 실행되는 가상화된 서버
+>[!Note]
+> 현재 Azure Migrate는 반가상화된 서버의 검색을 지원하지 않습니다. 
+
 **운영 체제:** 마이그레이션을 위해 모든 Windows 및 Linux 운영 체제를 평가할 수 있습니다.
 
 **사용 권한:**
@@ -46,7 +50,7 @@ ms.locfileid: "122535652"
 - 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. 
 - 원격 관리 사용자 그룹이 없는 경우 **WinRMRemoteWMIUsers_** 그룹에 사용자 계정을 추가합니다.
 - 어플라이언스가 서버에 대한 CIM 연결을 만들고 [여기](migrate-appliance.md#collected-data---physical)에 나열된 WMI 클래스에서 필요한 구성 및 성능 메타데이터를 가져오려면 계정에 이러한 권한이 필요합니다.
-- 계정이 [UAC](/windows/win32/wmisdk/user-account-control-and-wmi)에서 필터링될 수 있으므로 그룹에 계정을 추가해도 WMI 클래스에서 필요한 데이터가 반환되지 않는 경우도 있습니다. UAC 필터링을 방지하려면 대상 서버의 CIMV2 네임스페이스와 하위 네임스페이스에서 사용자 계정에 필요한 권한이 있어야 합니다. [여기](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation)에 설명된 단계를 수행하면 필요한 권한을 사용하도록 설정할 수 있습니다.
+- 계정이 [UAC](/windows/win32/wmisdk/user-account-control-and-wmi)에서 필터링될 수 있으므로 그룹에 계정을 추가해도 WMI 클래스에서 필요한 데이터가 반환되지 않는 경우도 있습니다. UAC 필터링을 방지하려면 대상 서버의 CIMV2 네임스페이스와 하위 네임스페이스에서 사용자 계정에 필요한 권한이 있어야 합니다. [여기](troubleshoot-appliance.md#access-is-denied-error-occurs-when-you-connect-to-physical-servers-during-validation)에 설명된 단계를 수행하면 필요한 권한을 사용하도록 설정할 수 있습니다.
 
     > [!Note]
     > Windows Server 2008과 2008 R2의 경우 서버에 WMF 3.0이 설치되어 있는지 확인합니다.

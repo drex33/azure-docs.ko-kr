@@ -2,22 +2,22 @@
 title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리 - Azure AD
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/2/2021
-ms.author: mtillman
-ms.reviewer: hpsin
+ms.date: 7/30/2021
+ms.author: davidmu
+ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d013d383192b206fdc05f36f320b01fe57526bb8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528744"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -53,7 +53,7 @@ ms.locfileid: "112082238"
 
 ### <a name="urls-and-ip-addresses"></a>URL 및 IP 주소
 
-테넌트 제한을 사용하려면 클라이언트는 인증을 받기 위해 Azure AD URL [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) 및 [login.windows.net](https://login.windows.net/)에 연결할 수 있어야 합니다. 또한 Office 365에 액세스하려면 클라이언트는 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 정의된 FQDN(정규화된 도메인 이름)/URL에 연결할 수 있어야 합니다. 
+테넌트 제한을 사용하려면 클라이언트는 인증을 받기 위해 Azure AD URL [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) 및 [login.windows.net](https://login.windows.net/)에 연결할 수 있어야 합니다. 또한 Office 365에 액세스하려면 클라이언트는 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 정의된 FQDN(정규화된 도메인 이름)/URL에 연결할 수 있어야 합니다.
 
 ### <a name="proxy-configuration-and-requirements"></a>프록시 구성 및 요구 사항
 
@@ -81,9 +81,9 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 나�
 - *Restrict-Access-Context* 의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어, Contoso를 테넌트 제한 정책을 설정하는 테넌트로 선언하기 위해 이름/값 쌍은 `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` 같이 표시됩니다.  이러한 인증을 위해 로그를 가져오려면 이 스폿에서 사용자의 디렉터리 ID를 **사용해야** 합니다.
 
 > [!TIP]
-> [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory** 를 선택하고 **속성** 을 선택합니다. 
+> [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory** 를 선택하고 **속성** 을 선택합니다.
 >
-> 디렉터리 ID 또는 도메인 이름이 동일한 테넌트를 참조하는지 확인하려면 이 URL`https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`에서 <tenant> 대신 해당 ID나 도메인을 사용합니다.  도메인 및 ID를 포함하는 결과가 동일한 경우 동일한 테넌트를 나타내는 것입니다. 
+> 디렉터리 ID 또는 도메인 이름이 동일한 테넌트를 참조하는지 확인하려면 이 URL`https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`에서 <tenant> 대신 해당 ID나 도메인을 사용합니다.  도메인 및 ID를 포함하는 결과가 동일한 경우 동일한 테넌트를 나타내는 것입니다.
 
 사용자가 승인되지 않은 테넌트에 와 자체 HTTP 헤더를 삽입하지 못하도록 하기 위해 프록시는 *Restrict-Access-To-Tenants* 헤더가 들어오는 요청에 이미 있는 경우 바꾸어야 합니다.
 
@@ -111,11 +111,11 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 나�
 
 Restricted-Access-Context 테넌트로 지정된 테넌트의 관리자는 이 보고서를 사용하여 사용된 ID 및 대상 디렉터리 ID를 비롯하여 테넌트 제한 정책으로 인해 차단된 로그인을 확인할 수 있습니다. 이러한 제한을 설정하는 테넌트가 로그인에 대해 사용자 테넌트이거나 리소스 테넌트인 경우 로그인이 포함됩니다.
 
-Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 이름과 사용자 계정 이름 같은 사용자 식별 가능 정보는 마스킹되어 다른 테넌트의 사용자 데이터를 보호합니다(사용자 이름과 개체 ID 대신 "{PII Removed}@domain.com" 또는 00000000-0000-0000-0000-000000000000). 
+Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 이름과 사용자 계정 이름 같은 사용자 식별 가능 정보는 마스킹되어 다른 테넌트의 사용자 데이터를 보호합니다(사용자 이름과 개체 ID 대신 "{PII Removed}@domain.com" 또는 00000000-0000-0000-0000-000000000000).
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 애플리케이션, 클라이언트 또는 상태에 따라 필터링할 수 있습니다. **열** 단추를 선택하는 경우 다음 필드를 조합하여 데이터를 표시하도록 선택할 수 있습니다.
 
-- **사용자** - 이 필드는 개인 데이터를 삭제할 수 있으며, 이 경우 `00000000-0000-0000-0000-000000000000`로 설정됩니다. 
+- **사용자** - 이 필드는 개인 데이터를 삭제할 수 있으며, 이 경우 `00000000-0000-0000-0000-000000000000`로 설정됩니다.
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -133,7 +133,7 @@ Microsoft 365 애플리케이션은 테넌트 제한을 완전히 지원하기 �
 1. 사용되는 클라이언트에서 최신 인증을 지원해야 합니다.
 2. 최신 인증이 클라우드 서비스에 대한 기본 인증 프로토콜로 사용되어야 합니다.
 
-현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. SharePoint Online에서는 이미 최신 인증이 사용하도록 설정되어 있습니다.
+현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. SharePoint Online에서는 이미 최신 인증이 사용하도록 설정되어 있습니다. Teams는 최신 인증만 지원하고 레거시 인증은 지원하지 않으므로 이 바이패스 문제는 Teams에 적용되지 않습니다. 
 
 현재 Microsoft 365 브라우저 기반 애플리케이션(Office 포털, Yammer, SharePoint 사이트, 웹용 Outlook 등)에서 테넌트 제한을 지원합니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등)는 최신 인증을 사용하는 경우에만 테넌트 제한을 적용할 수 있습니다.  
 
@@ -157,7 +157,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
 
    1. Fiddler Web Debugger 도구에서 **Rules** 메뉴를 선택하고 **Customize Rules...** 를 선택하여 CustomRules 파일을 엽니다.
 
-   2. `OnBeforeRequest` 함수의 시작 부분에 다음 줄을 추가합니다. \<List of tenant identifiers\>를 테넌트에 등록된 도메인(예: `contoso.onmicrosoft.com`)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.  로고를 테넌트에 표시하려면 정확한 GUID 식별자를 **포함시켜야** 합니다. 
+   2. `OnBeforeRequest` 함수의 시작 부분에 다음 줄을 추가합니다. \<List of tenant identifiers\>를 테넌트에 등록된 도메인(예: `contoso.onmicrosoft.com`)으로 바꿉니다. \<directory ID\>를 테넌트의 Azure AD GUID 식별자로 바꿉니다.  로고를 테넌트에 표시하려면 정확한 GUID 식별자를 **포함시켜야** 합니다.
 
    ```JScript.NET
     // Allows access to the listed tenants.

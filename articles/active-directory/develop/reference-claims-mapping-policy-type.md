@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 567c9172317a15ef2b3bd18e46909fb444d34c65
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 52de257461c796f7a477091801f4bdc52f46f5c8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214634"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101535"
 ---
 # <a name="claims-mapping-policy-type"></a>클레임 매핑 정책 유형
 
@@ -270,6 +270,9 @@ Source 요소는 다음 중 하나로 설정합니다.
 원본이 변환인 경우 **TransformationID** 요소도 이 클레임 정의에 포함되어야 합니다.
 
 ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 다음 표는 각 Source 값에 유효한 ID 값을 나열합니다.
+
+> [!WARNING]
+> 현재 사용자 개체의 사용 가능한 다중값 클레임 원본은 AADConnect에서 동기화된 다중값 확장 특성이 유일합니다.  OtherMails 및 태그와 같은 다른 속성은 다중값이지만 원본으로 선택하는 경우에는 하나의 값만 내보내집니다.
 
 #### <a name="table-3-valid-id-values-per-source"></a>표 3: 원본별 유효한 ID 값
 

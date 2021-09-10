@@ -1,0 +1,86 @@
+### YamlMime:FAQ
+metadata:
+  title: Service Fabric 관리형 클러스터 FAQ
+  description: 기능, 사용 사례, 일반적인 시나리오를 포함해 Service Fabric 관리형 클러스터에 대한 질문과 대답입니다.
+  ms.topic: article
+  ms.author: micraft
+  author: craftyhouse
+  ms.service: service-fabric
+  ms.date: 7/14/2021
+  ms.custom: references_regions
+  ms.openlocfilehash: 6b77924cd499eec27175eba1f690c2429420c625
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122538455"
+title: Service Fabric 관리형 클러스터 질문과 대답
+summary: Service Fabric 관리형 클러스터에 대한 FAQ와 그 답변입니다.
+sections:
+- name: 일반
+  questions:
+  - question: >
+      Service Fabric 관리형 클러스터란 무엇인가요?
+    answer: >
+      Service Fabric 관리형 클러스터는 클러스터를 보다 쉽게 배포하고 관리할 수 있도록 설계된 Service Fabric 클러스터 리소스 모델의 진화형입니다. Service Fabric 관리형 클러스터는 Azure Resource Manager 캡슐화 모델을 사용하여, 현재 사용자가 배포해야 하는 다수의 독립 리소스(가상 머신 확장 집합, 부하 분산 장치, IP 등)에 비해 단일 클러스터 리소스만 정의하고 배포할 수 있게 해줍니다.
+  - question: >
+      지원되는 지역은 어떻게 되나요?
+    answer: >
+      Service Fabric 관리형 클러스터는 모든 클라우드 지역에서 지원됩니다.
+  - question: >
+      기존 Service Fabric 클러스터를 관리형 클러스터 리소스로 현재 위치 마이그레이션을 할 수 있나요?
+    answer: >
+      아니요. 새 Service Fabric 관리형 클러스터 리소스 유형을 사용하기 위해 새 Service Fabric 클러스터 리소스를 만들어야 합니다.
+  - question: >
+      Service Fabric 관리형 클러스터에 추가 비용이 들어가나요?
+    answer: >
+      아니요. 클러스터에 필요한 기본 컴퓨팅, 스토리지, 네트워킹 리소스 비용 외에 Service Fabric 관리형 클러스터에 대한 추가 비용은 없습니다.
+  - question: >
+      Service Fabric 관리형 클러스터 리소스에서 도입된 새로운 SLA(서비스 수준 약정)가 있나요?
+    answer: >
+      SLA는 현재 Service Fabric 리소스 모델에서 변경되지 않았습니다.
+  - question: >
+      기본과 표준 SKU 클러스터 간의 차이점은 무엇인가요?
+    answer: >
+      기본 SKU 클러스터는 대부분의 구성이 Service Fabric 리소스 공급자에 의해 제공됩니다. 기본 SKU 클러스터는 테스트 및 사전 프로덕션 환경에 사용하기 위한 클러스터입니다. 표준 SKU 클러스터를 사용하면 사용자의 특정한 요구를 충족하는 클러스터를 구성할 수 있습니다. 자세한 내용은 [Service Fabric 관리형 클러스터 SKU](./overview-managed-cluster.md#service-fabric-managed-cluster-skus)를 참조하세요.
+  - question: >
+      계획된 기능을 보거나 추천할 수 있는 위치는 어디인가요?
+    answer: "[관리형 클러스터](https://github.com/microsoft/service-fabric/projects/17)용 github 프로젝트를 참조하세요.      \n"
+- name: 클러스터 배포 및 관리
+  questions:
+  - question: >
+      가상 머신 확장 집합에서 사용자 지정 스크립트 확장을 실행하고 있습니다. 관리형 Service Fabric 리소스로도 계속 그렇게 진행할 수 있나요?
+    answer: >
+      예, 관리형 클러스터 노드 형식에서 VM 확장을 지정할 수 있습니다. 자세한 내용은 [Service Fabric 관리형 클러스터 노드 형식에 확장 집합 확장 추가](./how-to-managed-cluster-vmss-extension.md)를 참조하세요.
+  - question: >
+      내부 전용 부하 분산 장치를 사용할 수 있나요?
+    answer: >
+      현재는 내부 전용 부하 분산 장치를 사용할 수 없습니다. 원치 않는 인바운드/아웃바운드 트래픽을 차단하도록 NSG(네트워크 보안 그룹) 규칙을 잠그는 것을 권장합니다.
+  - question: >
+      내 클러스터 크기를 자동으로 조정할 수 있나요?
+    answer: >
+      자동 크기 조정은 현재 지원되지 않습니다.
+  - question: >
+      가용성 영역에서 클러스터를 배포할 수 있나요?
+    answer: >
+      예, 가용성 영역에 걸쳐 있는 Service Fabric 관리형 클러스터는 가용성 영역을 지원하는 Azure 지역에서 지원됩니다. 자세한 내용은 [가용성 영역에 걸친 Service Fabric 관리형 클러스터](./how-to-managed-cluster-availability-zones.md)를 참조하세요.
+  - question: "Service Fabric 관리형 클러스터에 상태 비저장 노드 유형을 배포할 수 있나요? \n"
+    answer: >
+      예, Service Fabric 관리형 클러스터는 모든 보조 노드 유형에 대해 상태 비저장 노드 유형을 지원합니다. 자세한 내용은 [Service Fabric 관리형 클러스터 상태 비저장 노드 유형](./how-to-managed-cluster-stateless-node-type.md)을 참조하세요.
+  - question: >
+      내 클러스터 런타임에 대해 자동 업그레이드와 수동 업그레이드 중에서 선택할 수 있나요?
+    answer: >
+      예, 자동 및 수동 업그레이드 중에서 선택할 수 있습니다. 자세한 내용은 [클러스터 업그레이드](./how-to-managed-cluster-upgrades.md)를 참조하세요.
+- name: 애플리케이션
+  questions:
+  - question: >
+      Service Fabric 관리형 클러스터에서 사용할 수 있는 로컬 개발 환경이 있나요?
+    answer: >
+      로컬 개발 환경은 기존 Service Fabric 클러스터에서 변경되지 않은 상태로 유지됩니다. 자세한 내용은 [개발 환경 설정](./service-fabric-get-started.md)에서 로컬 개발 환경에 대한 자세한 내용을 참조하세요.
+  - question: >
+      애플리케이션을 Azure Resource Manager 리소스로 배포할 수 있나요?
+    answer: >
+      예. PowerShell 및 CLI를 사용하는 배포 외에도, 애플리케이션을 Azure Resource Manager 리소스로 배포하기 위한 지원이 추가되었습니다. 시작하려면 [ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포](./how-to-managed-cluster-app-deployment-template.md)를 참조하세요.
+  - question: >
+      관리 ID로 애플리케이션을 배포할 수 있나요?
+    answer: 예, 관리 ID가 있는 애플리케이션은 Service Fabric 관리형 클러스터에 배포할 수 있습니다. 자세한 내용은 [애플리케이션 관리 ID](./concepts-managed-identity.md)를 참조하세요.

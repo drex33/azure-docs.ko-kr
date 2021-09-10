@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 1118e44e822068566579fdc516479afeda294cf6
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: eeba36b200028d4e90e22cd32c9bab6dbe3799e0
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789500"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492868"
 ---
 # <a name="azure-digital-twins-query-language-reference-select-clause"></a>Azure Digital Twins 쿼리 언어 참조: SELECT 절
 
@@ -35,7 +35,7 @@ SELECT 문에 `*` 문자를 사용하여 결과 집합의 속성에 할당하지
 
 ### <a name="returns"></a>반환
 
-쿼리에서 반환되는 속성 집합입니다.
+쿼리에서 반환되는 속성 세트입니다.
 
 ### <a name="example"></a>예제
 
@@ -219,7 +219,7 @@ SELECT 절에서 프로젝션을 사용하여 쿼리에서 반환되는 열을 �
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyNotPresentExample":::
 
-결과는 트윈에 이 속성이 없는 결과의 일부 쌍에서 누락된 `age` 속성으로 표시될 수 있습니다.
+결과는 트윈에 이 속성이 없는 결과의 일부 트윈에서 누락된 `age` 속성으로 표시될 수 있습니다.
 
 ```json
 {
@@ -268,7 +268,7 @@ SELECT 절에서 프로젝션을 사용하여 쿼리에서 반환되는 열을 �
 
 ## <a name="select-top"></a>SELECT TOP
 
-이 메서드를 사용하여 쿼리 요구 사항을 충족하는 특정 개수의 상위 항목만 반환합니다.
+이 메서드를 사용하여 쿼리 요구 사항을 충족하는 상위 항목 중 일부만 반환합니다.
 
 ### <a name="syntax"></a>구문
 

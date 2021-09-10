@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 958edc8a5e9874efd8add4b74a3dc56a54651e11
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 32241529dc97f97fe3dfce2f1b7cb015dc952475
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667618"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688479"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
 
 다음은 WinRM 연결을 사용하여 VM을 설정하는 데 필요한 단계입니다.
 

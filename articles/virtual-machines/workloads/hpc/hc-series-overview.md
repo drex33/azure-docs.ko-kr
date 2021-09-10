@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0db18bf162ee91ddccc070d7250a2ee35b05f5a9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802824"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689208"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Intel Xeon 확장 가능 프로세서에서 HPC 애플리케이션 성능을 최대화하려면 이 새로운 아키텍처에 프로세스를 배치하기 위한 신중한 접근 방식이 필요합니다. 여기에서는 HPC 애플리케이션을 위해 Azure HC 시리즈 VM에서 이를 구현하는 방법을 간략하게 설명합니다. “pNUMA”라는 용어는 물리적인 NUMA 도메인을, “vNUMA”는 가상화된 NUMA 도메인을 의미합니다. 마찬가지로 "pCore"라는 용어는 물리적인 CPU 코어를, "vCore"는 가상화된 CPU 코어를 의미합니다.
 

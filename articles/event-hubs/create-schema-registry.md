@@ -2,14 +2,14 @@
 title: Azure Event Hubs 스키마 레지스트리 만들기
 description: 이 문서에서는 Azure Event Hubs 네임스페이스에서 스키마 레지스트리를 만드는 방법을 보여 줍니다.
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: c9794d1521b8b16b99a108517bfd19a3c9e29b21
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1155ef818cf6c82d3159c146006b16d811efeac8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373619"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788442"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Azure Event Hubs 스키마 레지스트리 만들기
 이 문서에서는 Azure Event Hubs에서 호스트하는 스키마 레지스트리에서 스키마를 사용하여 스키마 그룹을 만드는 방법을 보여 줍니다. Azure Event Hubs의 스키마 레지스트리 기능에 대한 개요는 [Event Hubs의 Azure 스키마 레지스트리](schema-registry-overview.md)를 참조하세요.
@@ -26,18 +26,20 @@ ms.locfileid: "110373619"
 1. **Event Hubs 네임스페이스** 페이지로 이동합니다. 
 1. 왼쪽 메뉴에서 **스키마 레지스트리** 를 선택합니다. 스키마 그룹을 만들려면 도구 모음에서 **+ 스키마 그룹** 을 선택합니다. 
 
-    :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="스키마 레지스트리 페이지":::
+    :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="Azure Portal의 스키마 레지스트리 페이지를 보여 주는 이미지":::
 1. **스키마 그룹 만들기** 페이지에서 다음 단계를 수행합니다.
     1. 스키마 그룹의 **이름** 을 입력합니다.
     1. **Serialization 형식** 에서 스키마 그룹의 모든 스키마에 적용되는 serialization 형식을 선택합니다. 현재는 **Avro** 형식만 지원되므로 **Avro** 를 선택합니다. 
     1. 그룹의 모든 스키마에 대해 **호환성 모드** 를 선택합니다. **Avro** 의 경우 향후 및 이전 버전과의 호환성 모드가 지원됩니다. 
     1. 그런 다음, **만들기** 를 선택하여 스키마 그룹을 만듭니다. 
+    
+        :::image type="content" source="./media/create-schema-registry/create-schema-group-page.png" alt-text="스키마 그룹을 만들기 위한 페이지를 보여 주는 이미지":::
 1. 스키마 그룹 목록에서 **스키마 그룹** 의 이름을 선택합니다.
 
-    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="목록에서 스키마 그룹 선택":::    
+    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="선택한 목록의 스키마 그룹을 보여 주는 이미지":::    
 1. 그룹에 대한 **스키마 그룹** 페이지가 표시됩니다.
 
-    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="스키마 그룹 페이지":::
+    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="스키마 그룹 페이지를 보여 주는 이미지":::
     
 
 ## <a name="add-a-schema-to-the-schema-group"></a>스키마 그룹에 스키마 추가
@@ -68,27 +70,25 @@ ms.locfileid: "110373619"
     1. **만들기** 를 선택합니다. 
 1. 스키마 목록에서 **스키마** 를 선택합니다. 
 
-    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="스키마 선택":::
+    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="선택한 스키마를 보여 주는 이미지":::
 1. 스키마에 대한 **스키마 개요** 페이지가 표시됩니다. 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="스키마 개요 페이지":::    
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="스키마 개요 페이지를 보여 주는 이미지":::    
 1. 여러 버전의 스키마가 있는 경우 **버전** 드롭다운 목록에 표시됩니다. 버전을 선택하여 해당 버전 스키마로 전환합니다. 
 
 ## <a name="create-a-new-version-of-schema"></a>새 버전의 스키마 만들기
 
 1. 텍스트 상자에서 스키마를 업데이트하고 **유효성 검사** 를 선택합니다. 다음 예에서는 새 필드 `id`가 스키마에 추가되었습니다. 
 
-    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="스키마 업데이트":::    
+    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="스키마 업데이트 페이지를 보여 주는 이미지":::    
     
 1. 유효성 검사 상태 및 변경 내용을 검토하고 **저장** 을 선택합니다. 
 
-    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="유효성 검사 상태, 변경 내용 확인 및 저장":::     
+    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="유효성 검사 상태, 변경 내용, 저장이 있는 검토 페이지를 보여 주는 이미지":::     
 1. **스키마 개요** 페이지의 **버전** 에 대해 `2`가 선택된 것을 볼 수 있습니다. 
 
-    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="새 버전의 스키마":::    
+    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="새 버전의 스키마를 보여 주는 이미지":::    
 1. 스키마의 버전 1을 표시하려면 `1`을 선택합니다. 
-
-    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="버전 선택":::    
 
 
 ## <a name="next-steps"></a>다음 단계

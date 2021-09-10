@@ -7,19 +7,19 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 7b1c270f83565e2968e6677f07b81968dcf61ac7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 57f0d5ed33bf662867ce7a4323f5f69d889e6653
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528637"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688912"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 비관리 디스크를 사용하는 기존 Windows VM(가상 머신)이 있는 경우 [Azure Managed Disks](../managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS(운영 체제) 디스크와 연결된 데이터 디스크를 변환합니다.
 
-
- 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

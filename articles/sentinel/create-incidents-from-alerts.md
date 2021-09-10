@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc47d8744b59a175b37eb571646ae5ef3a42454
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807295"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529328"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Microsoft 보안 경고에서 인시던트 자동 생성
 
@@ -29,6 +29,7 @@ Azure Sentinel에 연결된 Microsoft 보안 솔루션(예: Microsoft Cloud App 
 이 문서의 지침에 따라, 연결된 Microsoft 보안 솔루션에서 경고가 트리거될 때마다 인시던트가 자동으로 생성되도록 Azure Sentinel을 쉽게 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
 보안 서비스 경고에서 인시던트가 생성되려면 [Microsoft 보안 솔루션을 연결](connect-data-sources.md#data-connection-methods)해야 합니다.
 
 ## <a name="using-microsoft-security-incident-creation-analytics-rules"></a>Microsoft 보안 인시던트 생성 분석 규칙 사용
@@ -55,10 +56,11 @@ Azure Sentinel에 기본 제공되는 규칙을 사용하여 Azure Sentinel 인�
 
     ![인시던트 생성 규칙](media/incidents-from-alerts/incident-creation-rule.png)
 
-  **Microsoft 보안 서비스** 유형별로 둘 이상의 **Microsoft Security** 분석 규칙을 만들 수 있습니다. 각 규칙이 필터로 사용되기 때문에 중복 인시던트는 생성되지 않습니다. 경고가 둘 이상의 **Microsoft Security** 분석 규칙과 일치하더라도 Azure Sentinel 인시던트는 하나만 생성됩니다.
+    **Microsoft 보안 서비스** 유형별로 둘 이상의 **Microsoft Security** 분석 규칙을 만들 수 있습니다. 각 규칙이 필터로 사용되기 때문에 중복 인시던트는 생성되지 않습니다. 경고가 둘 이상의 **Microsoft Security** 분석 규칙과 일치하더라도 Azure Sentinel 인시던트는 하나만 생성됩니다.
 
 ## <a name="enable-incident-generation-automatically-during-connection"></a>연결 중에 인시던트 자동 생성이 가능하도록 설정
- Microsoft 보안 솔루션을 연결할 때 보안 솔루션의 경고가 Azure Sentinel에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다.
+
+Microsoft 보안 솔루션을 연결할 때 보안 솔루션의 경고가 Azure Sentinel에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다.
 
 1. Microsoft 보안 솔루션 데이터 원본을 연결합니다. 
 
@@ -69,4 +71,4 @@ Azure Sentinel에 기본 제공되는 규칙을 사용하여 Azure Sentinel 인�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Sentinel을 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
-- [Azure Sentinel에 데이터를 등록](quickstart-onboard.md)하고 [데이터 및 잠재적 위협을 표시](quickstart-get-visibility.md)하는 방법에 대해 알아봅니다.
+- [Azure Sentinel에 데이터를 등록](quickstart-onboard.md)하고 [데이터 및 잠재적 위협을 표시](get-visibility.md)하는 방법에 대해 알아봅니다.

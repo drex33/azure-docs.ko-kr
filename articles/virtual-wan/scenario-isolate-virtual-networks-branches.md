@@ -3,17 +3,17 @@ title: '시나리오: 가상 네트워크 및 분기에 대한 사용자 지정 
 titleSuffix: Azure Virtual WAN
 description: 선택한 VNet과 분기가 서로 연결할 수 없도록 하는 Virtual WAN 라우팅 시나리오에 대해 알아봅니다.
 services: virtual-wan
-author: wellee
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: wellee
-ms.openlocfilehash: c5c85d2d24a6e1c49dd2787eeb14caabd0e3f941
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.author: cherylmc
+ms.openlocfilehash: 49e6a65bf14b3d7678a996685efde1b1a2c0a9d3
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579245"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114719689"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>시나리오: 가상 네트워크 및 분기에 대한 사용자 지정 격리
 

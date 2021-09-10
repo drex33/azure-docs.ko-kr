@@ -6,15 +6,15 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
-ms.topic: conceptual
-ms.date: 08/16/2021
+ms.topic: how-to
+ms.date: 08/31/2021
 tags: connectors
-ms.openlocfilehash: 35922d20eda51d2a94748ac3a2b9fb135c993836
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 0266e1fd000640aa4931dcc86f3c91a7ab7cc898
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567879"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104790"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -66,7 +66,7 @@ ms.locfileid: "122567879"
 
   * [플랫 파일 디코딩 작업](logic-apps-enterprise-integration-flatfile.md)과 함께 **FlatFile** 로 설정된 **IDOC 형식** 매개 변수와 함께 이 SAP 트리거를 사용하는 경우 이 값을 `true`로 설정하여 플랫 파일 스키마에서 `early_terminate_optional_fields` 속성을 사용해야 합니다.
 
-    이 요구 사항은 tRFC 호출 `IDOC_INBOUND_ASYNCHRONOUS`에서 SAP가 보낸 플랫 파일 IDOC 데이터 레코드가 전체 SDATA 필드 길이로 채워지지 않기 때문에 필요합니다. Azure Logic Apps는 SAP에서 받은 대로 패딩 없이 플랫 파일 IDOC 원본 데이터를 제공합니다. 또한 이 SAP 트리거를 플랫 파일 디코딩 작업과 결합할 때 작업에 제공된 스키마가 일치해야 합니다.
+    이 요구 사항은 tRFC 호출 `IDOC_INBOUND_ASYNCHRONOUS`에서 SAP가 보낸 플랫 파일 IDoc 데이터 레코드가 전체 SDATA 필드 길이로 채워지지 않기 때문에 필요합니다. Azure Logic Apps는 SAP에서 받은 대로 패딩 없이 플랫 파일 IDoc 원본 데이터를 제공합니다. 또한 이 SAP 트리거를 플랫 파일 디코딩 작업과 결합할 때 작업에 제공된 스키마가 일치해야 합니다.
 
   > [!NOTE]
   > 이 SAP 트리거는 동일한 URI 위치를 사용하여 webhook 구독을 갱신하고 구독 취소합니다. 갱신 작업에는 HTTP `PATCH` 메서드가 사용되고, 구독 취소 작업에는 HTTP `DELETE` 메서드가 사용됩니다. 이 동작으로 인해 갱신 작업이 트리거 기록에 구독 취소 작업으로 표시될 수 있지만, 트리거는 `DELETE`가 아닌 `PATCH`를 HTTP 메서드로 사용하므로 작업은 여전히 갱신 작업입니다.
@@ -122,20 +122,20 @@ SAP 커넥터는 [SAP .NET Connector(NCo) 라이브러리](https://support.sap.c
   > 게이트웨이에 문제가 발생하면 [최신 버전으로 업그레이드](https://aka.ms/on-premises-data-gateway-installer)합니다. 문제를 해결하는 업데이트가 포함되어 있을 수 있습니다.
 
 1. 온-프레미스 데이터 게이트웨이와 동일한 로컬 컴퓨터에서 [최신 SAP 클라이언트 라이브러리를 다운로드하여 설치](#sap-client-library-prerequisites)합니다.
-   
+
 1. 온-프레미스 데이터 게이트웨이를 설치한 호스트 시스템에 대한 네트워크 호스트 이름 및 서비스 이름 확인을 구성합니다.
 
   Azure Logic Apps에서 연결하기 위해 호스트 이름 또는 서비스 이름을 사용하려는 경우 이름 확인을 위해 서비스와 함께 각 SAP 애플리케이션, 메시지 및 게이트웨이 서버를 설정해야 합니다. 네트워크 호스트 이름 확인은 `%windir%\System32\drivers\etc\hosts` 파일 또는 온-프레미스 데이터 게이트웨이 호스트 시스템에서 사용할 수 있는 DNS 서버에서 구성됩니다. 서비스 이름 확인은 `%windir%\System32\drivers\etc\services`에서 구성됩니다. 연결에 네트워크 호스트 이름이나 서비스 이름을 사용하지 않으려면 호스트 IP 주소와 서비스 포트 번호를 대신 사용할 수 있습니다.
-   
+
    SAP 시스템에 대한 DNS 항목이 없는 경우 다음 예는 호스트 파일에 대한 샘플 항목을 보여 줍니다.
-   
+
    ```text
    10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
    10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
    ```
-   
+
    서비스 파일에 대한 샘플 항목 집합은 다음과 같습니다.
-   
+
    ```text
    sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
    sapgw00            3300/tcp              # SAP system instance 00 gateway service port
@@ -320,9 +320,9 @@ SAP 커넥터의 ISE 버전은 SNC X.509를 지원합니다. 다음 단계에 �
 
    1. **SNC 사용** 의 확인란을 선택합니다.
 
-   1. **SNC 라이브러리** 에 SNC 라이브러리의 이름을 입력합니다. `sapcrypto.dll`)을 입력합니다.
+   1. **SNC 라이브러리** 에 SNC 라이브러리의 이름을 입력합니다. 예: `sapcrypto.dll`.
 
-   1. **SNC 파트너 이름** 에 백엔드의 SNC 이름을 입력합니다. `p:CN=DV3, OU=LA, O=MS, C=US`)을 입력합니다.
+   1. **SNC 파트너 이름** 에 백엔드의 SNC 이름을 입력합니다. 예: `p:CN=DV3, OU=LA, O=MS, C=US`.
 
    1. **SNC 인증서** 에 SNC 클라이언트의 공개 인증서를 base64로 인코딩된 형식으로 입력합니다. PEM 머리글이나 바닥글을 포함하지 마세요.
 
@@ -475,7 +475,7 @@ SAP 커넥터의 ISE 버전은 SNC X.509를 지원합니다. 다음 단계에 �
 
 1. 논리 앱 워크플로 저장 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
-#### <a name="send-flat-file-idocs"></a>플랫 파일 IDoc 보내기
+### <a name="send-flat-file-idocs"></a>플랫 파일 IDoc 보내기
 
 IDoc를 XML 봉투에 래핑하는 경우 플랫 파일 스키마에 IDoc를 사용할 수 있습니다. 플랫 파일 IDoc를 보내려면 [IDoc 메시지를 보내는 SAP 작업 만들기](#create-sap-action-to-send-message) 일반 지침을 따르고 다음과 같이 변경합니다.
 
@@ -616,7 +616,7 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 1. 논리 앱 워크플로 저장
 
-#### <a name="create-rfc-request-response"></a>RFC 요청-응답 만들기
+### <a name="create-rfc-request-response"></a>RFC 요청-응답 만들기
 
 Azure Logic Apps에 대한 RFC(원격 함수 호출)를 사용하여 SAP ABAP에서 응답을 수신해야 하는 경우 요청-응답 패턴을 만들어야 합니다. 논리 앱 워크플로에서 IDoc를 수신하려면 워크플로의 첫 번째 작업을 상태 코드가 `200 OK`이고 콘텐츠가 없는 [응답 작업](../connectors/connectors-native-reqres.md#add-a-response-action)으로 만들어야 합니다. 이 권장 단계에서는 tRFC를 통해 즉시 SAP LUW(Logical Unit of Work) 비동기 전송을 완료합니다. 그러면 SAP CPIC 대화를 다시 사용할 수 있습니다. 그런 다음, 더 이상 전송을 차단하지 않고 수신된 IDoc를 처리하도록 논리 앱 워크플로에 작업을 추가할 수 있습니다.
 
@@ -636,7 +636,7 @@ Azure Logic Apps에 대한 RFC(원격 함수 호출)를 사용하여 SAP ABAP에
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
 ```
 
-### <a name="test-your-logic-app-workflow"></a>논리 앱 워크플로 테스트 
+### <a name="test-your-logic-app-workflow"></a>논리 앱 워크플로 테스트
 
 1. 논리 앱을 사용할 수 없는 경우 논리 앱 메뉴에서 **개요** 를 선택합니다. 도구 모음에서 **사용** 을 선택합니다.
 
@@ -712,7 +712,7 @@ Azure Logic Apps에 대한 RFC(원격 함수 호출)를 사용하여 SAP ABAP에
 
    * 동일한 SAP 트리거를 사용하여 IDoc를 플랫 파일로 수신하려면 **IDOC 형식** 매개 변수를 추가하고 **FlatFile** 로 설정합니다. [플랫 파일 디코딩 작업](logic-apps-enterprise-integration-flatfile.md)도 사용하는 경우 플랫 파일 스키마에서 `early_terminate_optional_fields` 속성을 사용하고 값을 `true`로 설정해야 합니다.
 
-     이 요구 사항은 tRFC 호출 `IDOC_INBOUND_ASYNCHRONOUS`에서 SAP가 보낸 플랫 파일 IDOC 데이터 레코드가 전체 SDATA 필드 길이로 채워지지 않기 때문에 필요합니다. Azure Logic Apps는 SAP에서 받은 대로 패딩 없이 플랫 파일 IDOC 원본 데이터를 제공합니다. 또한 이 SAP 트리거를 플랫 파일 디코딩 작업과 결합할 때 작업에 제공된 스키마가 일치해야 합니다.
+     이 요구 사항은 tRFC 호출 `IDOC_INBOUND_ASYNCHRONOUS`에서 SAP가 보낸 플랫 파일 IDoc 데이터 레코드가 전체 SDATA 필드 길이로 채워지지 않기 때문에 필요합니다. Azure Logic Apps는 SAP에서 받은 대로 패딩 없이 플랫 파일 IDoc 원본 데이터를 제공합니다. 또한 이 SAP 트리거를 플랫 파일 디코딩 작업과 결합할 때 작업에 제공된 스키마가 일치해야 합니다.
 
    * [SAP 서버에서 받은 메시지를 필터링하려면 SAP 작업 목록을 지정합니다](#filter-with-sap-actions).
 
@@ -775,7 +775,7 @@ SAP 애플리케이션 서버 또는 메시지 서버 이름이 IP 주소로 확
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
 ```
 
-#### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>매개 변수
 
 SAP 커넥터는 간단한 문자열 및 숫자 입력과 함께 다음 테이블 매개 변수(`Type=ITAB` 입력)를 허용합니다.
 
@@ -785,9 +785,9 @@ SAP 커넥터는 간단한 문자열 및 숫자 입력과 함께 다음 테이�
 
 * 계층적 테이블 매개 변수
 
-#### <a name="filter-with-sap-actions"></a>SAP 작업으로 필터링
+### <a name="filter-with-sap-actions"></a>SAP 작업으로 필터링
 
-필요에 따라 단일 또는 여러 SAP 작업을 사용하여 목록 또는 배열을 제공하면 논리 앱 워크플로가 SAP 서버에서 수신하는 메시지를 필터링할 수 있습니다. 기본적으로 이 배열은 비어 있습니다. 즉, 논리 앱이 필터링 없이 SAP 서버의 모든 메시지를 수신합니다. 
+필요에 따라 단일 또는 여러 SAP 작업을 사용하여 목록 또는 배열을 제공하면 논리 앱 워크플로가 SAP 서버에서 수신하는 메시지를 필터링할 수 있습니다. 기본적으로 이 배열은 비어 있습니다. 즉, 논리 앱이 필터링 없이 SAP 서버의 모든 메시지를 수신합니다.
 
 배열 필터를 설정하면 트리거는 지정된 SAP 작업 유형의 메시지만 수신하고 SAP 서버에서 보내는 그 외의 모든 메시지를 거부합니다. 그러나 이 필터는 수신한 페이로드의 형식 지정이 강한지 아니면 약한지에는 영향을 주지 않습니다.
 
@@ -795,7 +795,7 @@ SAP 작업 필터링은 온-프레미스 데이터 게이트웨이의 SAP 어댑
 
 SAP에서 논리 앱 워크플로의 트리거로 IDoc 패킷을 보낼 수 없는 경우 SAP tRFC(T-코드 SM58) 대화 상자에서 tRFC(트랜잭션 RFC) 호출 거부 메시지를 검토하세요. SAP 인터페이스에 다음과 같은 오류 메시지가 나타날 수 있습니다. 이 오류 메시지는 **상태 텍스트** 필드의 부분 문자열 제한으로 인해 잘립니다.
 
-##### <a name="the-requestcontext-on-the-ireplychannel-was-closed-without-a-reply-being-sent"></a>IReplyChannel의 RequestContext가 회신 전송 없이 닫혔습니다.
+#### <a name="the-requestcontext-on-the-ireplychannel-was-closed-without-a-reply-being-sent"></a>IReplyChannel의 RequestContext가 회신 전송 없이 닫혔습니다.
 
 이 오류 메시지는 채널에 대한 모든 catch-all 처리기가 오류로 인해 종료되면 예기치 않은 오류가 발생하며 다른 메시지를 처리하기 위해 채널을 다시 만든다는 것을 의미합니다.
 
@@ -813,7 +813,7 @@ IDoc를 거부하려면 `200 OK` 이외의 HTTP 상태 코드로 응답합니다
 
 1. 변경 내용을 저장합니다. 온-프레미스 데이터 게이트웨이 다시 시작
 
-##### <a name="the-segment-or-group-definition-e2edk36001-was-not-found-in-the-idoc-meta"></a>IDoc 메타에서 세그먼트 또는 그룹 정의 E2EDK36001을 찾을 수 없습니다.
+#### <a name="the-segment-or-group-definition-e2edk36001-was-not-found-in-the-idoc-meta"></a>IDoc 메타에서 세그먼트 또는 그룹 정의 E2EDK36001을 찾을 수 없습니다.
 
 이 오류 메시지는 예상한 오류가 다른 오류와 함께 발생했다는 뜻입니다. 예를 들어 해당 세그먼트를 SAP에서 해제하지 않았기 때문에 IDoc XML 페이로드를 생성할 수 없습니다. 따라서 변환에 필요한 세그먼트 형식 메타데이터가 없습니다.
 
@@ -821,7 +821,7 @@ SAP에서 이러한 세그먼트를 해제하게 하려면 SAP 시스템의 ABAP
 
 ### <a name="asynchronous-request-reply-for-triggers"></a>트리거에 대한 비동기 요청-회신
 
-SAP 커넥터는 Azure Logic Apps 트리거에 Azure의 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply)을 지원합니다. 이 패턴을 사용하여 성공적인 요청을 만들 수 있으며, 사용하지 않으면 기본 동기 요청-회신 패턴으로 인해 요청이 실패합니다. 
+SAP 커넥터는 Azure Logic Apps 트리거에 Azure의 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply)을 지원합니다. 이 패턴을 사용하여 성공적인 요청을 만들 수 있으며, 사용하지 않으면 기본 동기 요청-회신 패턴으로 인해 요청이 실패합니다.
 
 > [!TIP]
 > 응답 작업이 여러 개 있는 논리 앱 워크플로에서 모든 응답 작업에서 동일한 요청-회신 패턴을 사용해야 합니다. 예를 들어 여러 응답 작업을 사용할 수 있는 스위치 컨트롤을 논리 앱 워크플로에서 사용하는 경우 동일한 요청-응답 패턴(동기 또는 비동기)을 사용하도록 모든 응답 작업을 구성해야 합니다.
@@ -844,27 +844,25 @@ SAP 커넥터를 사용하여 논리 앱 워크플로에 대한 비동기 요청
 
 전체 오류 메시지를 보려면 SAP 어댑터의 확장 로그를 확인합니다. [SAP 커넥터에 확장 로그 파일을 사용하도록 설정](#extended-sap-logging-in-on-premises-data-gateway)할 수도 있습니다.
 
-2020년 6월 이후에 출시된 온-프레미스 데이터 게이트웨이 릴리스의 경우 [앱 설정에서 게이트웨이 로그를 사용하도록 설정](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app)할 수 있습니다.
+* 2020년 4월 이전에 출시된 온-프레미스 데이터 게이트웨이 릴리스에서는 기본적으로 로그가 사용되지 않습니다.
 
-* 기본 로깅 수준은 **경고** 입니다.
+* 2020년 6월 이후에 출시된 온-프레미스 데이터 게이트웨이 릴리스의 경우 [앱 설정에서 게이트웨이 로그를 사용하도록 설정](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app)할 수 있습니다.
 
-* 온-프레미스 데이터 게이트웨이 앱의 **진단** 설정에서 **추가 로깅** 을 사용하도록 설정하면 로깅 수준이 **정보** 로 상향됩니다.
+  * 기본 로깅 수준은 **경고** 입니다.
 
-* 로깅 수준을 **자세히** 로 상향하려면 구성 파일에서 다음 설정을 업데이트합니다.
+  * 온-프레미스 데이터 게이트웨이 앱의 **진단** 설정에서 **추가 로깅** 을 사용하도록 설정하면 로깅 수준이 **정보** 로 상향됩니다.
 
-  ```xml
-  <setting name="SapTraceLevel" serializeAs="String">
-     <value>Verbose</value>
-  </setting>
-  ```
+  * 로깅 수준을 **자세히** 로 상향하려면 구성 파일에서 다음 설정을 업데이트합니다. 일반적으로 구성 파일은 `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`에 있습니다.
 
-  일반적으로 구성 파일은 `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`에 있습니다.
-
-2020년 4월 이전에 출시된 온-프레미스 데이터 게이트웨이 릴리스에서는 기본적으로 로그가 사용되지 않습니다.
+    ```xml
+    <setting name="SapTraceLevel" serializeAs="String">
+       <value>"Verbose"</value>
+    </setting>
+    ```
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이의 확장된 SAP 로깅
 
-[Azure Logic Apps에 온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)를 사용하는 경우 SAP 커넥터에 대한 확장 로그 파일을 구성할 수 있습니다. 온-프레미스 데이터 게이트웨이를 사용하여 ETW(Windows용 이벤트 추적) 이벤트를 게이트웨이의 로깅 .zip 파일에 포함된 순환 로그 파일로 리디렉션할 수 있습니다. 
+[Azure Logic Apps에 온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)를 사용하는 경우 SAP 커넥터에 대한 확장 로그 파일을 구성할 수 있습니다. 온-프레미스 데이터 게이트웨이를 사용하여 ETW(Windows용 이벤트 추적) 이벤트를 게이트웨이의 로깅 .zip 파일에 포함된 순환 로그 파일로 리디렉션할 수 있습니다.
 
 게이트웨이 앱의 설정에서 [게이트웨이의 모든 구성 및 서비스 로그를 .zip 파일로 내보낼 수 있습니다](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
@@ -885,17 +883,17 @@ SAP 커넥터를 사용하여 논리 앱 워크플로에 대한 비동기 요청
 
 1. 문제를 재현하거나 분석 데이터를 충분히 수집한 다음, **수집 중지** 를 선택합니다.
 
-Azure 지원 엔지니어와 같은 다른 사람과 데이터를 공유하려면 ETL 파일을 압축합니다.
+1. Azure 지원 엔지니어와 같은 다른 사람과 데이터를 공유하려면 ETL 파일을 압축합니다.
 
-추적의 내용을 보려면 다음을 수행합니다.
+1. 추적의 내용을 보려면 다음을 수행합니다.
 
-1. PerfView에서 **파일** &gt; **열기** 를 선택하고 방금 생성한 ETL 파일을 선택합니다.
+   1. PerfView에서 **파일** &gt; **열기** 를 선택하고 방금 생성한 ETL 파일을 선택합니다.
 
-1. PerfView 사이드바의 ETL 파일 아래에서 **이벤트** 섹션을 선택합니다.
+   1. PerfView 사이드바의 ETL 파일 아래에서 **이벤트** 섹션을 선택합니다.
 
-1. **필터** 에서 `Microsoft-LobAdapter`로 필터링하여 관련 이벤트 및 게이트웨이 프로세스만 표시합니다.
+   1. **필터** 에서 `Microsoft-LobAdapter`로 필터링하여 관련 이벤트 및 게이트웨이 프로세스만 표시합니다.
 
-### <a name="test-your-logic-app-workflow"></a>논리 앱 워크플로 테스트
+### <a name="test-your-workflow"></a>워크플로 테스트
 
 1. 논리 앱 워크플로를 트리거하기 위해, SAP 시스템에서 메시지를 보냅니다.
 
@@ -931,10 +929,10 @@ SAP에서 논리 앱 워크플로로 IDoc를 보내려면 다음과 같은 최�
 1. **TCP/IP 연결** > **만들기** 를 선택합니다.
 
 1. 다음 설정을 사용하여 새 RFC 대상을 만듭니다.
-    
+
     1. **RFC 대상** 에 이름을 입력합니다.
-    
-    1. **기술 설정** 탭의 **정품 인증 유형** 에서 **등록된 서버 프로그램** 을 선택합니다. 
+
+    1. **기술 설정** 탭의 **정품 인증 유형** 에서 **등록된 서버 프로그램** 을 선택합니다.
 
     1. **프로그램 ID** 에 값을 입력합니다. SAP에서 논리 앱 워크플로의 트리거는 이 식별자를 사용하여 등록됩니다.
 
@@ -945,14 +943,14 @@ SAP에서 논리 앱 워크플로로 IDoc를 보내려면 다음과 같은 최�
        > * **ABAP RFC가 아닌 클라이언트(파트너 유형)는 지원되지 않음**
        >
        > SAP에 대한 자세한 내용은 다음 참고 사항을 검토하세요(로그인 필요).
-       > 
+       >
        > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
        > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
 
     1. **유니코드** 탭에서 **대상 시스템과 통신 형식** 으로 **유니코드** 를 선택합니다.
 
        > [!NOTE]
-       > SAP .NET 클라이언트 라이브러리는 유니코드 문자 인코딩만 지원합니다. SAP에서 Azure Logic Apps로 IDOC를 보낼 때 `Non-ABAP RFC client (partner type ) not supported` 오류가 발생하면 **대상 시스템이 있는 통신 유형** 값이 **유니코드** 로 설정되어 있는지 확인하세요.
+       > SAP .NET 클라이언트 라이브러리는 유니코드 문자 인코딩만 지원합니다. SAP에서 Azure Logic Apps로 IDoc을 보낼 때 `Non-ABAP RFC client (partner type ) not supported` 오류가 발생하면 **대상 시스템이 있는 통신 유형** 값이 **유니코드** 로 설정되어 있는지 확인하세요.
 
 1. 변경 내용을 저장합니다.
 
@@ -990,7 +988,7 @@ SAP에서 논리 앱 워크플로로 IDoc를 보내려면 다음과 같은 최�
 
 #### <a name="create-sender-port"></a>송신 포트 만들기
 
-1.  **IDOC 처리 포트** 설정을 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we21** 트랜잭션 코드(T-코드)를 사용합니다.
+1. **IDOC 처리 포트** 설정을 열려면 SAP 인터페이스에서 **/n** 접두사와 함께 **we21** 트랜잭션 코드(T-코드)를 사용합니다.
 
 1. **포트** > **트랜잭션 RFC** > **만들기** 를 선택합니다.
 
@@ -1058,7 +1056,7 @@ SAP에서 논리 앱 워크플로로 IDoc를 보내려면 다음과 같은 최�
 
 1. 아웃바운드 IDoc 처리를 시작하려면 **계속** 을 선택합니다. 처리가 완료되면 **IDoc sent to SAP system or external program(IDoc를 SAP 시스템 또는 외부 프로그램으로 보냈습니다)** 메시지가 표시됩니다.
 
-1.  처리 오류를 확인하려면 **/n** 접두사와 함께 **sm58** 트랜잭션 코드(T-코드)를 사용합니다.
+1. 처리 오류를 확인하려면 **/n** 접두사와 함께 **sm58** 트랜잭션 코드(T-코드)를 사용합니다.
 
 ## <a name="receive-idoc-packets-from-sap"></a>SAP에서 IDoc 패킷 수신
 
@@ -1170,6 +1168,9 @@ IDoc 일괄 처리 또는 그룹인 [패킷으로 IDoc를 보내도록](https://
    </TCPICDAT>
 </STFC_WRITE_TO_TCPIC>
 ```
+
+> [!NOTE]
+> SAP Logon의 데이터 브라우저(T-Code SE16)를 사용하여 RFC **STFC_WRITE_TO_TCPIC** 의 결과를 확인합니다. 테이블 이름 **TCPIC** 를 사용합니다.
 
 다음 예제는 익명 필드가 있는 테이블 매개 변수가 포함된 RFC 호출입니다. 익명 필드는 이름이 할당되지 않은 필드입니다. 복합 형식은 별도의 네임스페이스에 선언되며, 이 선언을 통해 현재 노드와 모든 자식 요소의 새로운 기본값이 설정됩니다. 이 예제에서는 */* 기호의 이스케이프 문자로 16진수 코드 `x002F`를 사용합니다. 이 기호는 SAP 필드 이름에 예약되어 있기 때문입니다.
 
@@ -1426,7 +1427,7 @@ tRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. SAP �
 
 기본적으로 강력한 형식 지정은 스키마에 대해 XML 유효성 검사를 수행하여 잘못된 값을 확인하는 데 사용됩니다. 이 동작은 이전에 발생한 문제를 검색하는 데 도움이 될 수 있습니다. **안전한 형식 지정** 옵션은 이전 버전과의 호환성을 위해 제공되며 문자열 길이만 확인합니다. [안전한 형식 지정 옵션](#safe-typing)에 대해 자세히 알아보세요.
 
-### <a name="test-your-logic-app-workflow"></a>논리 앱 워크플로 테스트
+### <a name="test-your-workflow"></a>워크플로 테스트
 
 1. 디자이너 도구 모음에서 **실행** 을 선택하여 논리 앱 워크플로에 대한 실행을 트리거합니다.
 
@@ -1469,7 +1470,7 @@ tRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. SAP �
 
 1. 논리 앱 워크플로 저장 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
-### <a name="test-your-logic-app-workflow"></a>논리 앱 워크플로 테스트
+### <a name="test-your-workflow"></a>워크플로 테스트
 
 1. 디자이너 도구 모음에서 **실행** 을 선택하여 논리 앱 워크플로를 수동으로 트리거합니다.
 
@@ -1546,6 +1547,171 @@ tRFC와 함께 사용할 IDoc 식별자를 만드는 것이 좋습니다. SAP �
 <DATE>99991231</DATE>
 <TIME>235959</TIME>
 ```
+
+## <a name="send-sap-telemetry-foron-premises-data-gateway-to-azure-application-insights"></a>온-프레미스 데이터 게이트웨이에 대한 SAP 원격 분석을 Azure Application Insights로 보내기
+
+온-프레미스 데이터 게이트웨이에 대한 2021년 8월 업데이트에서는 SAP 커넥터 작업이 SAP 클라이언트 라이브러리의 원격 분석 데이터와 Microsoft SAP 어댑터의 추적을 Azure Monitor의 한 기능인 [Application Insights](../azure-monitor/app/app-insights-overview.md)로 전송할 수 있습니다. 이 원격 분석에는 주로 다음 데이터가 포함됩니다.
+
+* SAP NCo 메트릭 및 모니터를 기반으로 하는 메트릭 및 추적
+
+* Microsoft SAP 어댑터의 추적
+
+### <a name="metrics-and-traces-from-sap-client-library"></a>SAP 클라이언트 라이브러리의 메트릭 및 추적
+
+메트릭은 온-프레미스 데이터 게이트웨이의 리소스 사용 현황 및 가용성에 따라 경시적으로 변동할 수 있는 숫자 값입니다. 이러한 메트릭을 사용하여 시스템 상태를 보다 잘 이해하고 다음과 같은 작업에 대한 경고를 만들 수 있습니다.
+
+* 시스템 상태가 저하되는지 여부
+
+* 비정상적인 이벤트
+
+* 높은 시스템 부하
+
+이 정보는 `customMetrics`라는 Application Insights 테이블로 전송됩니다. 기본적으로 메트릭은 30초 간격으로 전송됩니다.
+
+SAP NCo 메트릭 및 추적은 SAP NCo 메트릭, 특히 다음과 같은 NCo 클래스를 기반으로 합니다.
+
+* RfcDestinationMonitor.
+
+* RfcConnectionMonitor.
+
+* RfcServerMonitor.
+
+* RfcRepositoryMonitor.
+
+각 클래스에서 제공하는 메트릭에 대한 자세한 내용은 [SAP NCo 설명서(로그인 필요)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546)를 참조하세요.
+
+추적에는 메트릭에 사용되는 텍스트 정보가 포함됩니다. 이 정보는 `traces`라는 Application Insights 테이블로 전송됩니다. 기본적으로 추적은 10분 간격으로 전송됩니다.
+
+### <a name="set-up-sap-telemetry-for-application-insights"></a>Application Insights에 대한 SAP 원격 분석​ 설정
+
+게이트웨이 설치에 대한 SAP 원격 분석을 Application Insights에 보내려면 먼저 Application Insights 리소스를 만들고 설정해야 합니다. 자세한 내용은 다음 설명서를 검토하세요.
+
+* [Application Insights 리소스 만들기(클래식)](../azure-monitor/app/create-new-resource.md)
+
+* [작업 영역 기반 Application Insights 리소스](../azure-monitor/app/create-workspace-resource.md)
+
+SAP 원격 분석을 Application insights로 보내도록 설정하려면 다음 단계를 수행합니다.
+
+1. 다음 위치에서 **Microsoft.ApplicationInsights.EventSourceListener.dll** 의 NuGet 패키지를 다운로드합니다. [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
+
+1. 온-프레미스 데이터 게이트웨이 설치 디렉터리에 다운로드한 파일을 추가합니다.
+
+1. 온-프레미스 데이터 게이트웨이 설치 디렉터리에서 **Microsoft.ApplicationInsights.dll** 파일의 버전 번호가 추가한 **Microsoft.ApplicationInsights.EventSourceListener.dll** 파일과 동일한지 확인합니다. 게이트웨이는 현재 2.14.0 버전을 사용합니다.
+
+1. **ApplicationInsights.config** 파일에서 `<InstrumentationKey></Instrumentation>` 요소를 사용하여 줄을 주석 처리하여 [Application Insights 계측 키](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work)를 추가합니다. 자리 표시자 *your-Application-Insights-instrumentation-key* 를 사용자의 키로 바꿉니다. 예를 들면 다음과 같습니다.
+
+      ```xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <ApplicationInsights schemaVersion="2014-05-30" xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+         <!-- Uncomment this element and insert your Application Insights key to receive ETW telemetry about your gateway <InstrumentationKey>*your-instrumentation-key-placeholder*</InstrumentationKey> -->
+         <TelemetryModules>
+            <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
+               <IsHeartbeatEnabled>false</IsHeartbeatEnabled>
+            </Add>
+            <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+               <Sources>
+                  <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+               </Sources>
+            </Add>
+         </TelemetryModules>
+      </ApplicationInsights>
+      ```
+
+1. **ApplicationInsights.config** 파일에서 요구 사항에 따라 SAP 커넥터 작업에 필요한 추적 `Level` 값을 변경할 수 있습니다. 예를 들면 다음과 같습니다.
+
+   ```xml
+   <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+         <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+      </Sources>
+   </Add>
+   ```
+
+   자세한 내용은 다음 설명서를 검토하세요.
+
+   * `Level` 값: [EventLevel 열거형](/dotnet/api/system.diagnostics.tracing.eventlevel)
+
+   * [EventSource 추적](../azure-monitor/app/configuration-with-applicationinsights-config.md#eventsource-tracking)
+
+   * [EventSource 이벤트](../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
+
+1. 변경 내용을 적용한 후 온-프레미스 데이터 게이트웨이 서비스를 다시 시작합니다.
+
+### <a name="review-metrics-in-application-insights"></a>Application Insights에서 메트릭 검토
+
+논리 앱 워크플로에서 SAP 작업을 실행한 후 Application Insights로 전송된 원격 분석을 검토할 수 있습니다.
+
+1. Azure Portal에서 Application Insights 리소스를 엽니다.
+
+1. 리소스 메뉴의 **모니터링** 에서 **로그** 를 선택합니다.
+
+   다음 스크린샷은 Application Insights가 **로그** 창에 열려 있는 Azure Portal을 보여 줍니다.
+
+   [![Application Insights가 쿼리를 만들기 위한 ‘로그’ 창으로 열린 Azure Portal을 보여 주는 스크린샷](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
+
+1. **로그** 창에서 특정 요구 사항에 따라 [KQL(Kusto Query Language)](/data-explorer/kusto/concepts)을 사용하여 [쿼리](/data-explorer/kusto/query)를 만들 수 있습니다.
+
+   다음 예제 쿼리와 유사한 쿼리 패턴을 사용할 수 있습니다.
+
+   ```Kusto
+   customMetrics
+   | extend DestinationName = tostring(customDimensions["DestinationName"])
+   | extend MetricType = tostring(customDimensions["MetricType"])
+   | where customDimensions contains "RfcDestinationMonitor"
+   | where name contains "MaxUsedCount"
+   ```
+
+1. 쿼리를 실행한 후 결과를 검토합니다.
+
+   다음 스크린샷은 예제 쿼리의 메트릭 결과 테이블을 보여 줍니다.
+
+   [![Application Insights의 메트릭 결과 테이블을 보여 주는 스크린샷](./media/logic-apps-using-sap-connector/application-insights-metrics.png)](./media/logic-apps-using-sap-connector/application-insights-metrics.png#lightbox)
+
+   * **MaxUsedCount** 는 ‘모니터링되는 대상에서 동시에 사용되는 최대 클라이언트 연결 수’입니다. [SAP NCo 설명서(로그인 필요)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546)에 설명된 것과 같습니다. 이 값을 사용하여 동시에 열린 연결 수를 파악할 수 있습니다.
+
+   * **valueCount** 열에는 각 읽기에 대해 **2** 가 표시됩니다. 메트릭은 30초 간격으로 생성되고 Application Insights는 이러한 메트릭을 분 단위로 집계하기 때문입니다.
+
+   * **DestinationName** 열에는 Microsoft SAP 어댑터 내부 이름인 문자열이 포함됩니다.
+
+     이 RFC(원격 함수 호출) 대상을 보다 잘 이해하려면 이 값을 `traces`와 함께 사용합니다. 예를 들면 다음과 같습니다.
+
+     ```Kusto
+     customMetrics
+     | extend DestinationName = tostring(customDimensions["DestinationName"])
+     | join kind=inner (traces
+        | extend DestinationName = tostring(customDimensions["DestinationName"]),
+        AppServerHost = tostring(customDimensions["AppServerHost"]),
+        SncMode = tostring(customDimensions["SncMode"]),
+        SapClient = tostring(customDimensions["Client"])
+        | where customDimensions contains "RfcDestinationMonitor"
+        )
+        on DestinationName , $left.DestinationName == $right.DestinationName
+     | where customDimensions contains "RfcDestinationMonitor"
+     | where name contains "MaxUsedCount"
+     | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
+     ```
+
+Application Insights에서 이러한 기능을 사용하여 메트릭 차트 또는 경고를 만들 수도 있습니다. 예를 들면 다음과 같습니다.
+
+[![Application Insights의 차트 형식 결과를 보여 주는 스크린샷](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
+
+### <a name="traces-from-microsoft-sap-adapter"></a>Microsoft SAP 어댑터의 추적
+
+Microsoft SAP 어댑터에서 전송된 추적을 사용하여 문제 사후 분석을 수행하고 SAP 커넥터 작업에서 노출될 수도 있고 노출되지 않을 수도 있는 기존 내부 시스템 오류를 찾을 수 있습니다. 이러한 추적은 Application Insights 이전의 이벤트 소스 프레임워크에서 발생하므로 `message`가 `"n\a"`로 설정됩니다. 예를 들면 다음과 같습니다.
+
+```Kusto
+traces
+| where message == "n/a"
+| where severityLevel > 0
+| extend ActivityId = tostring(customDimensions["ActivityId"])
+| extend fullMessage = tostring(customDimensions["fullMessage"])
+| extend shortMessage = tostring(customDimensions["shortMessage"])
+| where ActivityId contains "8ad5952b-371e-4d80-b355-34e28df9b5d1"
+```
+
+다음 스크린샷은 예제 쿼리의 추적 결과 테이블을 보여 줍니다.
+
+[![Application Insights의 추적 결과 테이블을 보여 주는 스크린샷](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
 
 ## <a name="advanced-scenarios"></a>고급 시나리오
 
@@ -1640,13 +1806,13 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
-다음은 관리형(비 ISE) SAP 커넥터에 대해 현재 알려진 문제와 제한 사항입니다. 
+다음은 관리형(비 ISE) SAP 커넥터에 대해 현재 알려진 문제와 제한 사항입니다.
 
 * 일반적으로 SAP 트리거는 데이터 게이트웨이 클러스터를 지원하지 않습니다. 일부 장애 조치(failover)에서는 SAP 시스템과 통신하는 데이터 게이트웨이 노드가 활성 노드와 달라서 예기치 않은 동작이 발생할 수 있습니다.
 
-  * 보내기 시나리오의 경우 장애 조치(failover) 모드의 데이터 게이트웨이 클러스터가 지원됩니다. 
+  * 보내기 시나리오의 경우 장애 조치(failover) 모드의 데이터 게이트웨이 클러스터가 지원됩니다.
 
-  * 상태 저장 [SAP 작업](#actions)에서는 부하 분산 모드의 데이터 게이트웨이 클러스터가 지원되지 않습니다. 이러한 작업에는 **\[BAPI - RFC] 상태 저장 세션 만들기**, **\[BAPI] 트랜잭션 커밋**, **\[BAPI] 트랜잭션 롤백**, **\[BAPI - RFC] 상태 저장 세션 닫기** 및 **세션 ID** 값을 지정하는 모든 작업이 포함됩니다. 상태 저장 통신은 동일한 데이터 게이트웨이 클러스터 노드에 유지되어야 합니다. 
+  * 상태 저장 [SAP 작업](#actions)에서는 부하 분산 모드의 데이터 게이트웨이 클러스터가 지원되지 않습니다. 이러한 작업에는 **\[BAPI - RFC] 상태 저장 세션 만들기**, **\[BAPI] 트랜잭션 커밋**, **\[BAPI] 트랜잭션 롤백**, **\[BAPI - RFC] 상태 저장 세션 닫기** 및 **세션 ID** 값을 지정하는 모든 작업이 포함됩니다. 상태 저장 통신은 동일한 데이터 게이트웨이 클러스터 노드에 유지되어야 합니다.
 
   * 상태 저장 SAP 작업의 경우 비 클러스터 모드에서 또는 장애 조치(failover)용으로만 설정된 클러스터에서 데이터 게이트웨이를 사용합니다.
 
@@ -1654,7 +1820,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
 
 * [ISE의 논리 앱에서는](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)를 대신 사용합니다.
 
-## <a name="connector-reference"></a>커넥터 참조 
+## <a name="connector-reference"></a>커넥터 참조
 
 SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)를 검토하세요. SAP 커넥터, 트리거 및 작업에 대한 제한, 매개 변수 및 반환에 대한 세부 정보를 찾을 수 있습니다.
 
@@ -1665,7 +1831,7 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
         [**SAP에서 메시지가 수신될 때**](/connectors/sap/#when-a-message-is-received)
     :::column-end:::
     :::column span="3":::
-        SAP에서 메시지가 수신될 때 수행합니다. 
+        SAP에서 메시지가 수신될 때 수행합니다.
     :::column-end:::
 :::row-end:::
 
@@ -1706,7 +1872,7 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
         **입력 BAPI 매개 변수**(`body`): 여기서는 호출에 대한 BAPI 메서드 입력 매개 변수 값이 포함된 XML 문서를 호출하거나 BAPI 매개 변수가 포함된 스토리지 Blob의 URI를 호출합니다.
         \
         \
-        **[BAPI] SAP에서 메서드 호출** 작업을 사용하는 방법에 대한 자세한 예는 [BAPI 요청의 XML 샘플](#xml-samples-for-bapi-requests)을 검토하세요. 
+        **[BAPI] SAP에서 메서드 호출** 작업을 사용하는 방법에 대한 자세한 예는 [BAPI 요청의 XML 샘플](#xml-samples-for-bapi-requests)을 검토하세요.
         \
         워크플로 디자이너를 사용하여 BAPI 요청을 편집하는 경우 다음 검색 함수를 사용할 수 있습니다.     \
         \
@@ -1769,7 +1935,7 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
         **선택적 확장이 포함된 IDOC 유형**(`idocType`): 검색 가능한 드롭다운 메뉴입니다.
         \
         \
-        **입력 IDOC 메시지**(`body`): 여기서 IDoc 페이로드가 포함된 XML 문서 또는 IDoc XML 문서가 포함된 스토리지 Blob의 URI를 호출합니다. 이 문서는 WE60 IDoc 설명서에 따른 SAP IDOC XML 스키마 또는 일치하는 SAP IDoc 작업 URI에 대해 생성된 스키마를 준수해야 합니다.
+        **입력 IDOC 메시지**(`body`): 여기서 IDoc 페이로드가 포함된 XML 문서 또는 IDoc XML 문서가 포함된 스토리지 Blob의 URI를 호출합니다. 이 문서는 WE60 IDoc 설명서에 따른 SAP IDoc XML 스키마 또는 일치하는 SAP IDoc 작업 URI에 대해 생성된 스키마를 준수해야 합니다.
         \
         \
         선택적 매개 변수 **SAP 릴리스 버전**(`releaseVersion`)은 사용자가 IDoc 유형을 선택한 후 값을 채우며, 사용자가 선택한 IDoc 유형에 따라 달라집니다.
@@ -1786,7 +1952,7 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
         [ **[RFC] 트랜잭션에 RFC 추가**](/connectors/sap/#[rfc]-add-rfc-to-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        RFC 호출을 트랜잭션에 추가합니다. 
+        RFC 호출을 트랜잭션에 추가합니다.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1810,7 +1976,7 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
         [ **[RFC] 트랜잭션 만들기**](/connectors/sap/#[rfc]-create-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        식별자 및/또는 큐 이름을 기준으로 새 트랜잭션을 만듭니다. 트랜잭션이 있는 경우 세부 정보를 가져옵니다. 
+        식별자 및/또는 큐 이름을 기준으로 새 트랜잭션을 만듭니다. 트랜잭션이 있는 경우 세부 정보를 가져옵니다.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1848,6 +2014,6 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Logic Apps에서 [온-프레미스 시스템에 연결](logic-apps-gateway-connection.md)합니다.
-* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)을 사용하여 다른 메시지 작업의 유효성을 검사하고, 변환하고, 사용하는 방법을 알아봅니다.
+* Azure Logic Apps에서 [온-프레미스 시스템에 연결](logic-apps-gateway-connection.md)
+* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)을 사용하여 다른 메시지 작업의 유효성을 검사하고, 변환하고, 사용하는 방법 알아보기
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

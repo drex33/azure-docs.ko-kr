@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 292c23398950a367f77c4200925007f660702a34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 85a8b539d40aac11d0ce39ba4329b7466f48c009
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566855"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835467"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -154,7 +154,6 @@ ms.locfileid: "122566855"
 
     ```python
     import time
-    import threading
     from azure.iot.device import IoTHubModuleClient
     ```
 
@@ -164,49 +163,55 @@ ms.locfileid: "122566855"
     CONNECTION_STRING = "[IoTHub Device Connection String]"
     ```
 
-5. 다음 코드를 **ReportConnectivity.py** 파일에 추가하여 디바이스 쌍 기능을 구현합니다.
+5. 다음 코드를 **ReportConnectivity.py** 파일에 추가하여 클라이언트를 인스턴스화하고 디바이스 쌍 기능을 구현합니다.
 
     ```python
-    def twin_update_listener(client):
-        while True:
-            patch = client.receive_twin_desired_properties_patch()  # blocking call
-            print("Twin patch received:")
-            print(patch)
-
-    def iothub_client_init():
+    def create_client():
+        # Instantiate client
         client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
-        return client
 
-    def iothub_client_sample_run():
+        # Define behavior for receiving twin desired property patches
+        def twin_patch_handler(twin_patch):
+            print("Twin patch received:")
+            print(twin_patch)
+
         try:
-            client = iothub_client_init()
+            # Set handlers on the client
+            client.on_twin_desired_properties_patch_received = twin_patch_handler
+        except:
+            # Clean up in the event of failure
+            client.shutdown()
 
-            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
-            twin_update_listener_thread.daemon = True
-            twin_update_listener_thread.start()
+        return client
+    ```
 
-            # Send reported 
+6. **ReportConnectivity.py** 의 끝부분에 다음 코드를 추가하여 애플리케이션을 실행합니다.
+
+    ```python
+    def main():
+        print ( "Starting the Python IoT Hub Device Twin device sample..." )
+        client = create_client()
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+
+        try:
+            # Update reported properties with cellular information
             print ( "Sending data as reported property..." )
             reported_patch = {"connectivity": "cellular"}
             client.patch_twin_reported_properties(reported_patch)
             print ( "Reported properties updated" )
 
+            # Wait for program exit
             while True:
                 time.sleep(1000000)
         except KeyboardInterrupt:
-            print ( "IoT Hub Device Twin device sample stopped" )
-    ```
+            print ("IoT Hub Device Twin device sample stopped")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
 
-    **IoTHubModuleClient** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **IoTHubModuleClient** 개체를 초기화한 다음, 디바이스에 대한 디바이스 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
-
-6. **ReportConnectivity.py** 의 끝부분에 다음 코드를 추가하고 **iothub_client_sample_run** 함수를 구현합니다.
-
-    ```python
     if __name__ == '__main__':
-        print ( "Starting the Python IoT Hub Device Twin device sample..." )
-        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
-
-        iothub_client_sample_run()
+        main()
     ```
 
 7. 디바이스 앱 실행:

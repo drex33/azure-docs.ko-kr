@@ -8,14 +8,14 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0b73c1cc510156e0db7518c2d377a6a5cc9b921
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98757246"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377299"
 ---
-# <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>인덱서 연결을 허용하도록 IP 방화벽 규칙 구성(Azure Cognitive Search)
+# <a name="configure-ip-firewall-rules-to-allow-indexer-connections-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 연결을 허용하도록 IP 방화벽 규칙 구성
 
 스토리지 계정, Cosmos DB 계정 및 Azure SQL Server와 같은 Azure 리소스에 대한 IP 방화벽 규칙은 특정 IP 범위에서 시작된 트래픽만 데이터에 액세스하도록 허용합니다.
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 977284ba735eef4f02907d63ee1ae65332d7990f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916153"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778443"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-In-Time 액세스를 사용하여 관리 포트 보호
 
@@ -35,9 +35,9 @@ JIT 작동 방식 및 기본 논리에 대한 전체 설명은 [Just-In-Time 설
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
-|지원되는 VM:|![예](./media/icons/yes-icon.png) Azure Resource Manager를 통해 배포된 VM<br>![아니요](./media/icons/no-icon.png) 클래식 배포 모델을 사용하여 배포된 VM. [이러한 배포 모델에 대한 자세한 정보](../azure-resource-manager/management/deployment-models.md)<br>![아니요](./media/icons/no-icon.png) [Azure Firewall Manager](../firewall-manager/overview.md)에서 제어하는 Azure Firewall로 보호되는 VM|
-|필요한 역할 및 권한:|**읽기 권한자** 및 **보안 읽기 권한자** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 [JIT를 구성하고 사용하는 데 필요한 권한은 무엇인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조하세요.<br>VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)를 사용합니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|지원되는 VM:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Resource Manager를 통해 배포된 VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: 클래식 배포 모델을 사용하여 배포된 VM [이러한 배포 모델에 대한 자세한 정보](../azure-resource-manager/management/deployment-models.md)<br>:::image type="icon" source="./media/icons/no-icon.png"::: [Azure Firewall Manager](../firewall-manager/overview.md)에서 제어하는 Azure Firewall로 보호되는 VM|
+|필요한 역할 및 권한:|**읽기 권한자** 및 **보안 읽기 권한자** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 [JIT를 구성하고 사용하는 데 필요한 권한은 무엇인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조하세요.<br>VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role)를 사용합니다.|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 
@@ -107,7 +107,7 @@ Security Center에서 JIT VM 액세스를 사용하도록 설정하고 구성할
 
 VM에 대한 기존 JIT 규칙을 편집하려면
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응형 애플리케이션 제어** 를 선택합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **Just-In-Time VM 액세스** 를 선택합니다.
 
 1. **구성됨** 탭에서 포트를 추가하려는 VM을 마우스 오른쪽 단추로 클릭하고 편집을 선택합니다. 
 
@@ -125,7 +125,7 @@ VM에 대한 기존 JIT 규칙을 편집하려면
 
 Azure Portal의 Azure 가상 머신 페이지에서 VM에 대해 JIT를 사용하도록 설정할 수 있습니다.
 
-![Azure 가상 머신에서 JIT VM 액세스 구성](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+![Azure Virtual Machines에서 JIT VM 액세스 구성](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 > [!TIP]
 > VM에 이미 Just-In-Time이 사용 설정된 경우 구성 페이지로 이동하면 Just-In-Time이 사용하도록 설정되었으며 링크를 사용해 Security Center에서 Just-In-Time VM 액세스 페이지를 연 후 설정을 보고 변경할 수 있음을 확인할 수 있습니다.
@@ -333,13 +333,6 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 ---
 
-
-
-
-
-
-
-
 ## <a name="audit-jit-access-activity-in-security-center"></a>Security Center에서 JIT 액세스 작업 감사
 
 로그 검색을 사용하여 VM 활동에 대한 정보를 얻을 수 있습니다. 로그를 보려면:
@@ -358,14 +351,9 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 
 
-
-
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Just-In-Time VM 액세스를 설정하고 사용하는 방법을 알아보았습니다. JIT를 사용해야 하는 이유를 알아보려면 방어 중인 위협을 설명하는 개념 문서를 참조하세요.
+이 문서에서는 Just-In-Time VM 액세스를 구성하고 사용하는 _방법_ 을 알아보았습니다. JIT를 사용해야 하는 _이유_ 를 알아보려면 JIT가 방어하는 위협을 설명하는 개념 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [JIT 설명이 포함된 문서](just-in-time-explained.md)

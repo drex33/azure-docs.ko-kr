@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: 674fcd1fc7ad6035278448b46528cc939b5e8a6e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294633"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253104"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>ASP.NET 앱 컨테이너화 및 Azure App Service로 마이그레이션
 
@@ -227,7 +227,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
          - Azure Key Vault가 없거나 새 Key Vault를 만들려는 경우 **새 Azure Key Vault 만들기** 를 클릭하여 도구에서 만들도록 선택할 수 있습니다.
          - 이 도구는 Key Vault를 통해 비밀을 관리하는 데 필요한 권한을 자동으로 할당합니다.
 
-3. **Azure 파일 공유 지정**: 디렉터리/폴더를 더 추가하고 영구 스토리지에 대해 Azure 파일 공유 옵션을 선택한 경우 배포 프로세스 중에 Azure Migrate: 앱 컨테이너화 도구에서 사용할 Azure 파일 공유를 지정합니다. 이 도구는 Azure 파일 스토리지로 구성된 애플리케이션 디렉터리/폴더를 복사하고, 배포 중에 애플리케이션 컨테이너에 탑재합니다. 
+3. **Azure 파일 공유 지정**: 디렉터리/폴더를 더 추가하고 영구 스토리지에 대해 Azure 파일 공유 옵션을 선택한 경우 배포 프로세스 중에 Azure Migrate: 앱 컨테이너화 도구에서 사용할 Azure 파일 공유를 지정합니다. 이 도구는 Azure Files에 대해 구성된 애플리케이션 디렉터리/폴더를 복사하고, 배포 중에 애플리케이션 컨테이너에 탑재합니다. 
 
      - Azure 파일 공유가 없거나 새 Azure 파일 공유를 만들려는 경우 **새 스토리지 계정 및 파일 공유 만들기** 를 클릭하여 도구에서 만들도록 선택할 수 있습니다.  
 

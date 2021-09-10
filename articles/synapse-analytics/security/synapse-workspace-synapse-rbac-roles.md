@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 386045fef1081034c5a1c31904107b6537873eb8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cc516b917d56d6b41f83e0c81354453dafc41f42
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528296"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822925"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -39,7 +39,7 @@ ms.locfileid: "122528296"
 
 |역할 |사용 권한|범위|
 |---|---|-----|
-|Synapse 관리자  |서버리스 SQL 풀, Apache Spark 풀, 통합 런타임에 대한 전체 Synapse 액세스입니다.  게시된 모든 코드 아티팩트에 대한 만들기, 읽기, 업데이트, 삭제 액세스를 포함합니다.  작업 영역 시스템 ID 자격 증명에 대한 컴퓨팅 운영자, 연결된 데이터 관리자, 자격 증명 사용자 권한을 포함합니다.  Synapse RBAC 역할 할당을 포함합니다. Synapse 관리자 외에도 Azure 소유자는 Synapse RBAC 역할을 할당할 수 있습니다. 컴퓨팅 리소스를 만들고, 삭제하고, 관리하려면 Azure 권한이 필요합니다. </br></br>_아티팩트를 읽고 쓸 수 있습니다</br> Spark 작업에 대한 모든 동작을 할 수 있습니다.</br> Spark 풀 로그를 볼 수 있습니다</br> 저장된 Notebooks 및 파이프라인 출력을 볼 수 있습니다 </br> 연결된 서비스 또는 자격 증명에서 저장한 비밀을 사용할 수 있습니다</br>SQL로 SQL 서버리스 엔드포인트에 연결할 수 있습니다`db_datareader`, `db_datawriter`, `connect`, `grant` 권한 </br>현재 범위에서 Synapse RBAC 역할을 할당 및 철회할 수 있습니다_|작업 영역 </br> Spark 풀<br/>통합 런타임 </br>연결된 서비스</br>자격 증명 |
+|Synapse 관리자  |서버리스 SQL 풀, Apache Spark 풀, 통합 런타임에 대한 전체 Synapse 액세스입니다.  게시된 모든 코드 아티팩트에 대한 만들기, 읽기, 업데이트, 삭제 액세스를 포함합니다.  작업 영역 시스템 ID 자격 증명에 대한 컴퓨팅 운영자, 연결된 데이터 관리자, 자격 증명 사용자 권한을 포함합니다.  Synapse RBAC 역할 할당을 포함합니다. Synapse 관리자 외에도 Azure 소유자는 Synapse RBAC 역할을 할당할 수 있습니다. 컴퓨팅 리소스를 만들고, 삭제하고, 관리하려면 Azure 권한이 필요합니다. </br></br>아티팩트를 읽고 쓸 수 있습니다.</br> Spark 작업에 대한 모든 동작을 할 수 있습니다.</br> Spark 풀 로그를 볼 수 있습니다.</br> 저장된 Notebooks 및 파이프라인 출력을 볼 수 있습니다. </br> 연결된 서비스 또는 자격 증명에서 저장한 비밀을 사용할 수 있습니다.</br>현재 범위에서 Synapse RBAC 역할을 할당하고 철회할 수 있습니다.|작업 영역 </br> Spark 풀<br/>통합 런타임 </br>연결된 서비스</br>자격 증명 |
 |Synapse Apache Spark 관리자</br>|Apache Spark 풀에 대한 전체 Synapse 액세스입니다.  게시된 Spark 작업 정의, Notebooks 및 해당 출력, 라이브러리, 연결된 서비스, 자격 증명에 대한 액세스를 만들고, 읽고, 업데이트하고, 삭제합니다.  다른 모든 게시된 코드 아티팩트에 대한 읽기 권한을 포함합니다. 자격 증명을 사용하고 파이프라인을 실행할 수 있는 권한을 포함하지 않습니다. 액세스 부여는 포함하지 않습니다. </br></br>_Spark 아티팩트의 모든 작업을 수행할 수 있습니다</br>Spark 작업에 대한 모든 작업을 수행할 수 있습니다_|작업 영역</br>Spark 풀|
 |Synapse SQL 관리자|서버리스 SQL 풀에 대한 전체 Synapse 액세스입니다.  게시된 SQL 스크립트, 자격 증명, 연결된 서비스에 대한 액세스를 만들고, 읽고, 업데이트하고, 삭제합니다.  다른 모든 게시된 코드 아티팩트에 대한 읽기 권한을 포함합니다.  자격 증명을 사용하고 파이프라인을 실행할 수 있는 권한을 포함하지 않습니다. 액세스 부여는 포함하지 않습니다. </br></br>*SQL 스크립트에 대한 모든 작업을 수행할 수 있습니다<br/>SQL로 SQL 서버리스 엔드포인트에 연결할 수 있습니다 `db_datareader`, `db_datawriter`, `connect`, `grant` 권한*|작업 영역|
 |Synapse Contributor|Apache Spark 풀 및 통합 런타임에 대한 전체 Synapse 액세스입니다. 자격 증명 및 연결된 서비스를 비롯하여 게시된 모든 코드 아티팩트와 해당 출력에 대한 액세스를 만들고, 읽고, 업데이트하고 삭제하는 것이 포함됩니다.  컴퓨팅 운영자 권한을 포함합니다. 자격 증명을 사용하고 파이프라인을 실행할 수 있는 권한을 포함하지 않습니다. 액세스 부여는 포함하지 않습니다. </br></br>_아티팩트를 읽고 쓸 수 있습니다</br>저장된 Notebooks 및 파이프라인 출력을 볼 수 있습니다</br>Spark 작업에 대한 모든 작업을 수행할 수 있습니다</br>Spark 풀 로그를 볼 수 있습니다_|작업 영역 </br> Spark 풀<br/> 통합 런타임|

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 08/11/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec237af8cd0c79d5a7b62aad0bc6521e5cf3d7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7a3cf21ef2493ef6a93397e6d6601e326d0ef0d3
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059244"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538339"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 Azure AD Connect 자동 업그레이드는 Azure AD Connect 최신 버전을 정기적으로 확인하는 기능입니다. 서버가 자동 업그레이드를 사용하도록 설정되어 있고 서버에 적합한 최신 버전이 발견되면 해당 최신 버전으로 자동 업그레이드를 수행합니다.
@@ -50,6 +50,22 @@ Azure AD Connect 자동 업그레이드는 Azure AD Connect 최신 버전을 정
 
 
 **Synchronization Service Manager** UI가 서버에서 실행되고 있는 경우에는 UI를 닫을 때까지 업그레이드가 일시 중단됩니다.
+
+>[!NOTE]
+> 일부 릴리스의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드에 사용하거나 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 사용된 경우 해당 서버는 자동 업그레이드에 대해 **해당 구성이 [적격](#auto-upgrade-eligibility)** 한 경우 자동 업그레이드용으로 릴리스된 최신 버전의 Azure AD Connect로 자동으로 업그레이드됩니다. 자세한 내용은 [Azure AD Connect: 버전 릴리스 기록](reference-connect-version-history.md)을 참조하세요.
+
+## <a name="auto-upgrade-eligibility"></a>자동 업그레이드 자격
+자동 업그레이드에 적격하려면 다음 조건 중 하나에 해당하면 안 됩니다.
+
+| 결과 메시지 | Description |
+| --- | --- |
+|UpgradeNotSupportedCustomizedSyncRules|사용자 지정 규칙을 구성에 추가했습니다.|
+|UpgradeNotSupportedInvalidPersistedState|설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다.|
+|UpgradeNotSupportedNonLocalDbInstall|SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다.|
+|UpgradeNotSupportedLocalDbSizeExceeded|로컬 DB 크기가 8GB이상입니다.|
+|UpgradeNotSupportedAADHealthUploadDisabled|상태 데이터 업로드가 포털에서 사용되지 않도록 설정되었습니다.|
+
+
 
 ## <a name="troubleshooting"></a>문제 해결
 Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음 단계에 따라 문제점을 확인합니다.

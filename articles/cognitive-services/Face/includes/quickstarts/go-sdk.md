@@ -9,21 +9,21 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 57c152546bfdbcdfbeba45536990c6c204106e7a
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5534fc3b82119295dc744e98054fead2f12d4a7d
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858091"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442318"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
 Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* [이미지에서 얼굴 감지](#detect-faces-in-an-image)
-* [유사 얼굴 찾기](#find-similar-faces)
-* [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)
+* [얼굴 감지 및 분석](#detect-and-analyze-faces)
 * [얼굴 식별](#identify-a-face)
+* [얼굴 확인](#verify-faces)
+* [유사 얼굴 찾기](#find-similar-faces)
 
 [참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK 다운로드](https://github.com/Azure/azure-sdk-for-go)
 
@@ -31,6 +31,7 @@ Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 �
 
 * 최신 버전의 [Go](https://golang.org/dl/)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Face 리소스 만들기"  target="_blank">Face 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Face API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
@@ -104,10 +105,10 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 다음 코드 샘플에서는 Go용 Face 서비스 클라이언트 라이브러리를 사용하여 기본 작업을 완료하는 방법을 보여줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
-* [이미지에서 얼굴 감지](#detect-faces-in-an-image)
-* [유사 얼굴 찾기](#find-similar-faces)
-* [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)
+* [얼굴 감지 및 분석](#detect-and-analyze-faces)
 * [얼굴 식별](#identify-a-face)
+* [얼굴 확인](#verify-faces)
+* [유사 얼굴 찾기](#find-similar-faces)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -119,7 +120,10 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_main_client)]
 
 
-## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
+## <a name="detect-and-analyze-faces"></a>얼굴 감지 및 분석
+
+얼굴 감지는 얼굴 분석 및 ID 검증의 첫 번째 단계로 필요합니다. 이 섹션에서는 추가 얼굴 특성 데이터를 반환하는 방법을 보여 줍니다. 얼굴 식별 또는 확인을 위해 얼굴만 감지하려면 이후 섹션으로 건너뜁니다.
+
 
 **main** 메서드에 다음 코드를 추가합니다. 이 코드는 원격 샘플 이미지를 정의하고 이미지에서 추출할 얼굴 특징을 지정합니다. 또한 감지된 얼굴에서 데이터를 추출하는 데 사용할 AI 모델을 지정합니다. 이러한 옵션에 대한 자세한 내용은 [인식 모델 지정](../../Face-API-How-to-Topics/specify-recognition-model.md)을 참조하세요. 마지막으로, **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** 메서드는 이미지에서 얼굴 검색 작업을 수행하고 그 결과를 프로그램 메모리에 저장합니다.
 
@@ -134,40 +138,21 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect_display)]
 
-## <a name="find-similar-faces"></a>유사 얼굴 찾기
-
-다음 코드에서는 감지된 하나의 얼굴(원본)을 가져오고, 다른 얼굴(대상) 세트를 검색하여 일치 항목을 찾습니다(이미지별 얼굴 검색). 일치 항목을 찾으면 일치하는 얼굴의 ID를 콘솔에 출력합니다.
-
-### <a name="detect-faces-for-comparison"></a>비교할 얼굴 감지
-
-먼저 [이미지에서 얼굴 감지](#detect-faces-in-an-image) 섹션에서 감지한 얼굴의 참조를 저장합니다. 이 얼굴이 원본입니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
-
-그런 다음, 다른 이미지에서 얼굴 세트를 감지할 다음 코드를 입력합니다. 여기서 감지되는 얼굴이 대상입니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
-
-### <a name="find-matches"></a>일치 항목 찾기
-
-다음 코드는 **[FindSimilar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.FindSimilar)** 메서드를 사용하여 원본 얼굴과 일치하는 모든 대상 얼굴을 찾습니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar)]
-
-### <a name="print-matches"></a>일치 항목 출력
-
-다음 코드에서는 일치 항목 세부 정보를 콘솔에 출력합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## <a name="create-and-train-a-persongroup"></a>PersonGroup 만들기 및 학습
+
+
+## <a name="identify-a-face"></a>얼굴 식별
+
+Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다.
+
+### <a name="get-person-images"></a>사람 이미지 가져오기
 
 이 시나리오를 단계별로 실행하려면 https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 의 이미지를 프로젝트의 루트 디렉터리에 저장해야 합니다.
 
 이 이미지 그룹에는 서로 다른 세 명의 사람과 일치하는 세 개의 단일 얼굴 이미지 세트가 포함되어 있습니다. 이 코드는 세 개의 **PersonGroup Person** 개체를 정의하고, `woman`, `man` 및 `child`로 시작하는 이미지 파일에 이 개체를 연결합니다.
 
-### <a name="create-persongroup"></a>PersonGroup 만들기
+### <a name="create-a-persongroup"></a>PersonGroup 만들기
 
 이미지를 다운로드한 후에는 **main** 메서드의 맨 아래에 다음 코드를 추가합니다. 이 코드는 **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** 개체를 인증 한 다음, 이 개체를 사용하여 새 **PersonGroup** 을 정의합니다.
 
@@ -188,7 +173,7 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 > [!TIP]
 > URL에서 참조하는 원격 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) 메서드(예: **AddFaceFromURL**)를 참조하세요.
 
-### <a name="train-persongroup"></a>PersonGroup 학습
+### <a name="train-the-persongroup"></a>PersonGroup 학습
 
 얼굴을 할당한 후에는 각 **Person** 개체와 관련된 시각적 특징을 식별할 수 있도록 **PersonGroup** 을 학습시켜야 합니다. 다음 코드는 비동기 **train** 메서드를 호출하고, 결과를 폴링하여 상태를 콘솔에 출력합니다.
 
@@ -197,16 +182,9 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 > [!TIP]
 > Face API는 기본적으로 정적인 사전 빌드된 모델 세트에서 실행됩니다(서비스가 실행될 때 모델의 성능이 저하되거나 향상되지 않음). Microsoft에서 완전히 새로운 모델 버전으로 마이그레이션하지 않고 모델의 백엔드를 업데이트하면 모델이 생성하는 결과가 변경될 수 있습니다. 최신 버전의 모델을 사용하려면 **PersonGroup** 을 동일한 등록 이미지를 가진 매개 변수로 지정하여 다시 학습할 수 있습니다.
 
-## <a name="identify-a-face"></a>얼굴 식별
-
-Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup** 과 비교합니다.
-
-> [!IMPORTANT]
-> 이 예제를 실행하려면 먼저 [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup)에서 코드를 실행해야 합니다.
-
 ### <a name="get-a-test-image"></a>테스트 이미지 가져오기
 
-다음 코드는 프로젝트의 루트에서 _test-image-person-group.jpg_ 이미지를 찾아 프로그램 메모리에 로드합니다. 이 이미지는 [PersonGroup 만들기 및 학습](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 에 사용한 이미지와 동일한 리포지토리에서 찾을 수 있습니다.
+다음 코드는 프로젝트의 루트에서 _test-image-person-group.jpg_ 이미지를 찾아 프로그램 메모리에 로드합니다. **PersonGroup**: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images 을 만드는 데 사용된 이미지와 동일한 리포지토리에서 이 이미지를 찾을 수 있습니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -216,7 +194,7 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_detect)]
 
-### <a name="identify-faces"></a>얼굴 식별
+### <a name="identify-faces-from-source-image"></a>원본 이미지에서 얼굴 식별
 
 **[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** 메서드는 감지된 얼굴 배열을 가져와서 지정된 (이전 섹션에서 정의하고 학습시킨) **PersonGroup** 과 비교합니다. 감지된 얼굴을 **Person** 과 매칭할 수 있으면 결과가 저장됩니다.
 
@@ -227,9 +205,9 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_print)]
 
 
-## <a name="verify-faces"></a>얼굴 확인
+### <a name="verify-faces"></a>얼굴 확인
 
-확인 작업은 얼굴 ID와 다른 얼굴 ID 또는 **Person** 개체를 가져와서 동일한 사람에게 속하는지 여부를 확인합니다.
+확인 작업은 얼굴 ID와 다른 얼굴 ID 또는 **Person** 개체를 가져와서 동일한 사람에게 속하는지 여부를 확인합니다. 식별 작업에서 반환된 얼굴 일치를 다시 확인할 수 있습니다.
 
 다음 코드는 두 개의 원본 이미지에서 얼굴을 감지한 다음, 대상 이미지에서 검색된 각 얼굴과 대조합니다.
 
@@ -252,6 +230,33 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 다음 코드는 각 원본 이미지를 대상 이미지와 비교하고 동일한 사람에 속하는지 여부를 나타내는 메시지를 출력합니다.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
+
+## <a name="find-similar-faces"></a>유사 얼굴 찾기
+
+다음 코드에서는 감지된 하나의 얼굴(원본)을 가져오고, 다른 얼굴(대상) 세트를 검색하여 일치 항목을 찾습니다(이미지별 얼굴 검색). 일치 항목을 찾으면 일치하는 얼굴의 ID를 콘솔에 출력합니다.
+
+### <a name="detect-faces-for-comparison"></a>비교할 얼굴 감지
+
+먼저 [감지 및 분석](#detect-and-analyze-faces) 섹션에서 감지한 얼굴의 참조를 저장합니다. 이 얼굴이 원본입니다.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
+
+그런 다음, 다른 이미지에서 얼굴 세트를 감지할 다음 코드를 입력합니다. 여기서 감지되는 얼굴이 대상입니다.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
+
+### <a name="find-matches"></a>일치 항목 찾기
+
+다음 코드는 **[FindSimilar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.FindSimilar)** 메서드를 사용하여 원본 얼굴과 일치하는 모든 대상 얼굴을 찾습니다.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar)]
+
+### <a name="print-matches"></a>일치 항목 출력
+
+다음 코드에서는 일치 항목 세부 정보를 콘솔에 출력합니다.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
+
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

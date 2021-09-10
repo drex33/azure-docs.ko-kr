@@ -1,6 +1,6 @@
 ---
 title: 배포 계획 - Azure Active Directory | Microsoft Docs
-description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 엔드투엔드 지침입니다.
+description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 지침입니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,24 +12,24 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c521752558e58f19b408b5e85e84863cb4cad2f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8d2a64ec05fb3f6d353374684c14733dda9b302d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966180"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443053"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
-Azure AD(Azure Active Directory) 기능 배포에 대한 엔드투엔드 지침을 찾고 계신가요? Azure AD 배포 플랜은 보다 일반적인 Azure AD 기능을 성공적으로 배포하기 위해 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내합니다.
+Azure AD(Azure Active Directory) 기능 배포에 대한 완전한 지침을 찾고 계신가요? Azure AD 배포 플랜은 보다 일반적인 Azure AD 기능을 성공적으로 배포하기 위해 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내합니다.
 
 플랜 페이지에서 브라우저의 PDF로 인쇄 기능을 사용하여 설명서의 최신 오프라인 버전을 만듭니다.
 
 
 ## <a name="deploy-authentication"></a>인증 배포
 
-| 기능 | Description|
+| 기능 | 설명|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD MFA(Multi-Factor Authentication)는 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure AD MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다. [테넌트에서 다단계 인증을 구성하고 적용하는 방법](https://www.youtube.com/watch?v=qNndxl7gqVM)을 알아보려면 이 비디오를 시청하세요.|
+| [Azure AD 다단계 인증](../authentication/howto-mfa-getstarted.md)| Azure AD MFA(Multi-Factor Authentication)는 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure AD MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다. [테넌트에서 다단계 인증을 구성하고 적용하는 방법](https://www.youtube.com/watch?v=qNndxl7gqVM)을 알아보려면 이 비디오를 시청하세요.|
 | [조건부 액세스](../conditional-access/plan-conditional-access.md)| 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다. |
 | [셀프 서비스 암호 재설정](../authentication/howto-sspr-deployment.md)| 셀프 서비스 암호 재설정을 사용하면 사용자가 필요할 때 필요한 장소에서 관리자 개입 없이 자신의 암호를 재설정할 수 있습니다. |
 | [암호 없음](../authentication/howto-authentication-passwordless-deployment.md) | 조직의 Microsoft Authenticator 앱 또는 FIDO2 보안 키를 사용하여 암호 없는 인증 구현 |
@@ -43,12 +43,11 @@ Azure AD(Azure Active Directory) 기능 배포에 대한 엔드투엔드 지침�
 | [디바이스](../devices/plan-device-deployment.md) | 이 문서를 통해 디바이스를 Azure AD와 통합하는 방법을 평가하고, 구현 계획을 선택하고, 지원되는 디바이스 관리 도구에 대한 주요 링크를 제공할 수 있습니다. |
 
 
-## <a name="deploy-hybrid-scenarios"></a>하이브리드 시나리오 배포
+## <a name="deploy-hybrid-scenarios"></a>하이브리드 시나리오 배포  
 
-| 기능 | Description|
+| 기능 | 설명|
 | -| -|
-| [암호 해시 동기화에 ADFS 사용](../hybrid/plan-migrate-adfs-password-hash-sync.md)| 암호 해시 동기화를 사용하면 사용자 암호의 해시가 온-프레미스 Active Directory에서 Azure AD로 동기화되므로, 온-프레미스 Active Directory와 상호 작용 없이 Azure AD가 사용자를 인증할 수 있습니다. |
-| [통과 인증에 ADFS 사용](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 애플리케이션 둘 다에서 동일한 암호로 로그인할 수 있습니다. 이 기능은 하나 적은 기억할 암호로 사용자에게 더 나은 환경을 제공하고 사용자는 로그인하는 방법을 잊을 가능성이 적기 때문에 IT 기술 지원팀 비용을 줄입니다. 사람들이 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다. |
+| [AD FS에서 클라우드로의 사용자 인증](../hybrid/migrate-from-federation-to-cloud-authentication.md)| 패스스루 인증 또는 암호 해시 동기화를 사용하여 페더레이션에서 클라우드 인증으로 사용자 인증을 마이그레이션하는 방법을 알아봅니다.
 | [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy-deployment-plan.md) |요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다. |
 | [매끄러운 SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하면 사용자가 Azure AD에 로그인하기 위해 암호를 입력할 필요가 없으며, 일반적으로 사용자 이름도 입력할 필요가 있습니다. 추가 온-프레미스 구성 요소가 없어도 인증된 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다. |
 
@@ -92,10 +91,9 @@ Azure AD(Azure Active Directory) 기능 배포에 대한 엔드투엔드 지침�
 
 - 프로젝트 계획 및 결과에 대해 **I** formed(알림을 받음)
 
-
 ## <a name="best-practices-for-a-pilot"></a>파일럿에 대한 모범 사례
-파일럿을 활용하면 모든 사용자를 위해 기능을 설정하기 전에 소규모 그룹으로 테스트할 수 있습니다. 테스트의 일환으로 조직 내 각 사용 사례를 철저하게 테스트해야 합니다. 기능을 조직 전체에 배포하기 전에 특정 파일럿 사용자 그룹을 대상으로 지정하는 것이 가장 좋습니다.
+파일럿을 활용하면 모든 사용자를 위해 기능을 설정하기 전에 소규모 그룹으로 테스트할 수 있습니다. 테스트의 일환으로 조직 내 각 사용 사례를 철저하게 테스트해야 합니다. 이 배포를 조직 전체에 롤아웃하기 전에 특정 파일럿 사용자 그룹을 대상으로 지정하는 것이 가장 좋습니다.
 
-첫 번째 단계에서는 테스트를 수행하고 피드백을 제공할 수 있는 IT, 편리성 및 기타 적절한 사용자를 대상으로 합니다. 이 피드백을 사용하여 사용자에게 보내는 통신 및 지침을 추가로 개발하고 지원 담당자가 볼 수 있는 문제 유형에 대한 인사이트를 제공하는 것이 좋습니다. 
+첫 번째 단계에서는 테스트를 수행하고 피드백을 제공할 수 있는 IT, 편리성 및 기타 적절한 사용자를 대상으로 합니다. 이 피드백을 사용하여 사용자에게 보내는 통신 및 지침을 추가로 개발하고 지원 담당자가 볼 수 있는 문제 유형에 대한 인사이트를 제공합니다. 
 
 대상 그룹의 범위를 늘려서 더 큰 사용자 그룹으로 롤아웃을 확장해야 합니다. 이 작업은 [동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가하여 수행할 수 있습니다.

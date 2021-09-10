@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 95f69f04ec1aa0fb0c5588647709d8d938ad2a53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554422"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441373"
 ---
 ### <a name="neural-and-standard-voices"></a>인공신경망 및 표준 음성
 
@@ -77,8 +77,8 @@ ms.locfileid: "106554422"
 |---|---|
 | 음성 모델 호스팅 | 미국 동부, 미국 서부 2, 미국 중남부, 동남 아시아, 영국 남부, 서유럽, 오스트레일리아 동부 |
 | 실시간 문자 | 미국 동부, 미국 서부 2, 미국 중남부, 동남 아시아, 영국 남부, 서유럽, 오스트레일리아 동부 |
-| 긴 오디오 문자 | 미국 동부, 서유럽, 영국 남부, 동남 아시아, 인도 중부 |
-| 사용자 지정 신경망 학습 | 미국 동부, 영국 남부 |
+| 긴 오디오 문자 | 미국 동부, 서유럽, 동남 아시아, 영국 남부, 인도 중부 |
+| 사용자 지정 신경망 학습 | 미국 동부, 동남 아시아, 영국 남부 |
 
 ### <a name="long-audio-api"></a>긴 오디오 API
 

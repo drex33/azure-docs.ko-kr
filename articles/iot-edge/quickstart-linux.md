@@ -2,19 +2,18 @@
 title: '빠른 시작: Linux에서 Azure IoT Edge 디바이스 만들기 | Microsoft Docs'
 description: 이 빠른 시작에서는 Linux에서 IoT Edge 디바이스를 만든 다음, Azure Portal에서 원격으로 미리 빌드된 코드를 배포하는 방법을 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cdc5dd2df0dc6ac682d37aea3328545fcb7e5ad2
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d06a4af7d9280eb3bab076ff103968d94fd38839
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728611"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215393"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -279,6 +278,8 @@ Azure IoT Edge의 주요 기능 중 하나는 클라우드의 IoT Edge 디바이
 
 1. 디바이스 목록에서 대상 디바이스의 디바이스 ID를 선택합니다.
 
+   새 IoT Edge 디바이스를 만들면 Azure Portal에 상태 코드 `417 -- The device's deployment configuration is not set`가 표시됩니다. 이 상태는 정상이며 디바이스가 모듈 배포를 수신할 준비가 되었음을 의미합니다.
+
 1. 위쪽 막대에서 **모듈 설정** 을 선택합니다.
 
    ![모듈 설정 선택을 보여 주는 스크린샷](./media/quickstart/select-set-modules.png)
@@ -394,7 +395,7 @@ az group list
 
 이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.
 
-다음 단계는 비즈니스 논리를 실행하는 IoT Edge를 만들기 시작할 수 있도록 로컬 개발 환경을 설정하는 것입니다.
+다음 자습서에서는 Azure Portal에서 디바이스의 활동 및 상태를 모니터링하는 방법을 배웁니다.
 
 > [!div class="nextstepaction"]
-> [Linux 디바이스를 위한 IoT Edge 모듈 개발 시작](tutorial-develop-for-linux.md)
+> [IoT Edge 디바이스 모니터링](tutorial-monitor-with-workbooks.md)

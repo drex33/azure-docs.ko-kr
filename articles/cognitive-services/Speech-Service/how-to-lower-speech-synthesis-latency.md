@@ -12,12 +12,12 @@ ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 8aaa087d1de85b77c9407f8d39e029e3bf2696f2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 38af8d1ffd422b151bebc2fea42c575f181cc72e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614850"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536378"
 ---
 # <a name="lower-speech-synthesis-latency-using-speech-sdk"></a>Speech SDK를 사용하여 음성 합성 대기 시간 낮추기
 
@@ -343,7 +343,8 @@ Speech SDK의 성능을 향상시킬 수 있으므로 애플리케이션에서 �
 부하 테스트를 사용하여 음성 합성 서비스 용량과 대기 시간을 테스트할 수 있습니다.
 다음은 몇 가지 지침입니다.
 
- - 음성 합성 서비스는 자동 크기 조정 기능을 제공하지만 규모를 확장하는 데 시간이 걸립니다. 짧은 시간 내에 동시성이 증가하는 경우 클라이언트는 긴 대기 시간 또는 `429` 오류 코드(너무 많은 요청)를 받을 수 있습니다. 따라서 부하 테스트의 단계별 동시성 단계를 늘리는 것이 좋습니다. 자세한 내용은 [이 문서를 참조](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling)하세요.
+ - 음성 합성 서비스는 자동 크기 조정 기능을 제공하지만 규모를 확장하는 데 시간이 걸립니다. 짧은 시간 내에 동시성이 증가하는 경우 클라이언트는 긴 대기 시간 또는 `429` 오류 코드(너무 많은 요청)를 받을 수 있습니다. 따라서 부하 테스트의 단계별 동시성 단계를 늘리는 것이 좋습니다. 자세한 내용과 특히 [워크로드 패턴 예제](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice)를 보려면 [이 문서를 참조](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling)하세요.
+ - 개체 풀([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) 및 [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java))을 부하 테스트에 사용하고 대기 시간 수치를 얻어 샘플을 활용할 수 있습니다. 대상 동시성에 맞게 샘플의 테스트 차례와 동시성을 수정할 수 있습니다.
  - 서비스에는 실제 트래픽에 따른 할당량 제한이 있으므로 실제 트래픽보다 큰 동시성을 사용하여 부하 테스트를 수행하려면 테스트 전에 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050b4011dbc46b6b6567965ed94847dbaf3560c6
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94616895"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982315"
 ---
 # <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
@@ -29,13 +29,12 @@ Azure RBAC는 Custom Vision 리소스에 할당할 수 있습니다. Azure 리�
    > [!NOTE]
    > 또한 전체 리소스 그룹, 구독 또는 관리 그룹에 대해 Azure RBAC를 설정할 수 있습니다. 원하는 범위 수준을 선택한 다음 원하는 항목으로 이동하여 이 작업을 수행합니다(예: **리소스 그룹** 을 선택하고 원하는 리소스 그룹으로 클릭하여 선택).
 1. 왼쪽 탐색 창에서 **액세스 제어(IAM)** 를 선택합니다.
-1. **역할 할당** 탭을 선택하여 이 범위에 대한 역할 할당을 봅니다.
 1. **추가** -> **역할 할당 추가** 를 선택합니다.
-1. **역할** 드롭다운 목록에서 추가하려는 역할을 선택합니다.
-1. **선택** 목록에서 사용자, 그룹, 서비스 주체 또는 관리 ID르 선택합니다. 목록에 보안 주체가 보이지 않으면 선택 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
-1. **저장** 을 선택하여 역할을 할당합니다.
+1. 다음 화면의 **역할** 탭에서 추가할 역할을 선택합니다.
+1. **구성원** 탭에서 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다.
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
 
-몇 분 이내에 선택한 범위에서 선택한 역할이 대상에 할당됩니다.
+몇 분 이내에 선택한 범위에서 선택한 역할이 대상에 할당됩니다. 이 단계에 대한 도움말은 [Azure Portal을 사용하여 Azure 역할 할당](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
 
 ## <a name="custom-vision-role-types"></a>Custom Vision 역할 유형
 

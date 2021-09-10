@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 manager: lizross
 ms.author: kgremban
-ms.date: 07/19/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 69ac8ca51fb4bf418af3569e2d294053c1956134
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e7ded6eb8b3e8ee44594e75eb22b920c4e0649b6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447429"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037596"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -48,7 +48,7 @@ Visual Studio 2019가 준비되면 다음 도구와 구성 요소도 필요합�
 
 * [Docker Community Edition](https://docs.docker.com/install/)을 개발 머신에 다운로드 및 설치하여 모듈 이미지를 빌드하고 실행합니다. 개발 중인 모듈 유형에 따라 Linux 컨테이너 모드 또는 Windows 컨테이너 모드에서 실행되도록 Docker CE를 설정해야 합니다.
 
-* [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)을 설치하여 IoT Edge 솔루션을 디버그, 실행 및 테스트할 로컬 개발 환경을 설정합니다. [Python(2.7/3.6+) 및 Pip](https://www.python.org/)를 설치한 후 터미널에서 다음 명령을 실행하여 **iotedgehubdev** 패키지를 설치합니다. Azure IoT EdgeHub Dev Tool 버전이 0.3.0보다 높아야 합니다.
+* [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)을 설치하여 IoT Edge 솔루션을 디버그, 실행 및 테스트할 로컬 개발 환경을 설정합니다. [Python(3.5/3.6/3.7/3.8) 및 Pip](https://www.python.org/)를 설치한 후 터미널에서 다음 명령을 실행하여 **iotedgehubdev** 패키지를 설치합니다. Azure IoT EdgeHub Dev Tool 버전이 0.3.0보다 높아야 합니다.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -103,7 +103,7 @@ Visual Studio의 IoT Edge 프로젝트 템플릿은 IoT Edge 디바이스에 배
 
 1. **새 프로젝트 만들기** 페이지에서 **Azure IoT Edge** 를 검색합니다. IoT Edge 디바이스의 플랫폼 및 아키텍처와 일치하는 프로젝트를 선택하고 **다음** 을 클릭합니다.
 
-   ![새 프로젝트 만들기](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="새 프로젝트 만들기":::
 
 1. **새 프로젝트 구성** 페이지에서 프로젝트 이름을 입력하고 위치를 지정한 다음 **만들기** 를 선택합니다.
 
@@ -122,6 +122,18 @@ Visual Studio의 IoT Edge 프로젝트 템플릿은 IoT Edge 디바이스에 배
 프로젝트 폴더에는 해당 프로젝트에 포함된 모든 모듈의 목록이 포함되어 있습니다. 지금은 하나의 모듈만 표시해야 하지만 더 추가할 수 있습니다. 프로젝트에 모듈을 추가하는 방법에 대한 자세한 내용은 이 문서 뒷부분의 [여러 모듈 빌드 및 디버그](#build-and-debug-multiple-modules) 섹션을 참조하세요.
 
 프로젝트 폴더에는 `deployment.template.json`이라는 파일도 포함되어 있습니다. 이 파일은 IoT Edge 배포 매니페스트의 템플릿으로, 서로 통신하는 방법과 함께 디바이스에서 실행될 모든 모듈을 정의합니다. 배포 매니페스트에 대한 자세한 내용은 [모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요. 이 배포 템플릿을 열면 이 Visual Studio 프로젝트에서 만든 사용자 지정 모듈과 함께 두 개의 런타임 모듈인 **edgeAgent** 및 **edgeHub** 가 포함되어 있음을 알 수 있습니다. **SimulatedTemperatureSensor** 라는 네 번째 모듈도 포함되어 있습니다. 이 기본 모듈은 모듈을 테스트하는 데 사용할 수 있는 시뮬레이션된 데이터를 생성하거나 필요하지 않은 경우 삭제할 수 있습니다. 시뮬레이션된 온도 센서의 작동 방법을 확인하려면 [SimulatedTemperatureSensor.csproj 소스 코드](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)를 확인합니다.
+
+### <a name="set-iot-edge-runtime-version"></a>IoT Edge 런타임 버전을 확인합니다.
+
+IoT Edge 확장은 배포 자산을 만들 때 IoT Edge 런타임의 최신 안정화 버전으로 기본 설정됩니다. 현재 최신 안정화 버전은 버전 1.2입니다. 1\.1 장기 지원 버전 또는 이전 1.0 버전을 실행하는 디바이스용 모듈을 개발하는 경우 일치하도록 Visual Studio에서 IoT Edge 런타임 버전을 업데이트합니다.
+
+1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 런타임 버전 설정** 을 선택합니다.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 IoT Edge 런타임 버전 설정을 선택합니다.":::
+
+1. 드롭다운 메뉴를 사용하여 IoT Edge 디바이스에서 실행 중인 런타임 버전을 선택한 다음 **확인** 을 선택하여 변경 사항을 저장합니다.
+
+1. 새 런타임 버전으로 배포 매니페스트를 다시 생성합니다. 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **IoT Edge에 대한 배포 생성** 을 선택합니다.
 
 ## <a name="develop-your-module"></a>모듈 개발
 

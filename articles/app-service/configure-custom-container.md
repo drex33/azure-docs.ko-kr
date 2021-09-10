@@ -2,15 +2,15 @@
 title: 사용자 지정 컨테이너 구성
 description: Azure App Service에서 사용자 지정 컨테이너를 구성하는 방법을 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 22a953058084b4f828160cc9ba99c14a5313c9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536751"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865076"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -34,8 +34,8 @@ ms.locfileid: "122536751"
 
 사용자 지정 Windows 이미지의 경우 원하는 프레임워크에 적합한 [부모 이미지(기본 이미지)](https://docs.docker.com/develop/develop-images/baseimages/)를 선택해야 합니다.
 
-- .NET Framework 앱을 배포하려면 Windows Server Core [LTSC(장기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 릴리스를 기반으로 하는 부모 이미지를 사용합니다. 
-- .NET Core 앱을 배포하려면 Windows Server Nano [SAC(반기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 릴리스를 기반으로 하는 부모 이미지를 사용합니다. 
+- .NET Framework 앱을 배포하려면 Windows Server 2019 Core [LTSC(장기 서비스 채널)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) 릴리스를 기반으로 하는 부모 이미지를 사용합니다. 
+- .NET Core 앱을 배포하려면 Windows Server 2019 Nano [SAC(반기 서비스 채널)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) 릴리스를 기반으로 하는 부모 이미지를 사용합니다. 
 
 앱을 시작하는 동안 부모 이미지를 다운로드하는 데 다소 시간이 걸립니다. 그러나 Azure App Service에서 이미 캐시된 다음 부모 이미지 중 하나를 사용하여 시작 시간을 줄일 수 있습니다.
 

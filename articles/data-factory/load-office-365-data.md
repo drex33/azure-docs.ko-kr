@@ -3,15 +3,16 @@ title: Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 description: Azure Data Factory를 사용하여 Office 365에서 데이터 복사
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: eae3a83a5354c61db27f38b7b73a396923427073
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a7c809803df1e84528cc7cd8eb41574591aab8c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642515"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -38,15 +39,15 @@ ms.locfileid: "109485624"
 3. **만들기** 를 선택합니다.
 4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다.
    
-   ![데이터 팩터리 홈페이지](./media/load-office-365-data/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
 
-5. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
+5. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-1. "시작하기" 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
  
-    ![파이프라인 만들기](./media/load-office-365-data/create-pipeline-entry.png)
+    ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 2. 파이프라인의 **일반 탭** 에서 파이프라인의 **이름** 으로 "CopyPipeline"을 입력합니다.
 

@@ -9,14 +9,16 @@ ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
 ms.custom: contperf-fy21q3-portal, devx-track-azurecli
-ms.openlocfilehash: db21cf9e4dc28a83b98f58e73db9a5d76f80aef2
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b0df8d446716363f21c468838523ffe4804f2e9c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886679"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691908"
 ---
 # <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace 이미지 정보 찾기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 항목에서는 Azure CLI를 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 프로그래밍 방식으로 VM을 생성할 때 이 정보를 사용하여 Marketplace 이미지를 지정합니다.
 
@@ -195,7 +197,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ## <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image/terms) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들어:
+사용 조건을 확인하고 동의하려면 [az vm image terms](/cli/azure/vm/image/terms) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예를 들어:
 
 ```azurecli
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest

@@ -11,12 +11,12 @@ ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab94a83a64ca9770f0c216ddf42145b262629c6d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 8a05599efd58acb71534bef41a881de9170811af
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598995"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568126"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
@@ -59,7 +59,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id;
 모든 패턴이 포함된 쿼리는 일반적으로 순서가 지정된 CCI를 사용하여 더 빠르게 실행됩니다.  
 1. 쿼리에는 같음, 같지 않음 또는 범위 조건자가 포함됩니다.
 1. 조건자 열과 순서가 지정된 CCI 열은 동일합니다.  
-1. 조건자 열은 순서가 지정된 CCI 열의 열 서수와 동일한 순서로 사용됩니다.  
  
 이 예제에서 테이블 T1에는 Col_C, Col_B 및 Col_A 시퀀스로 순서가 지정된 클러스터형 columnstore 인덱스가 있습니다.
 
@@ -70,7 +69,7 @@ ORDER (Col_C, Col_B, Col_A);
 
 ```
 
-쿼리 1의 성능에는 다른 세 개의 쿼리보다 순서가 지정된 CCI가 더 유용할 수 있습니다. 
+쿼리 1 및 쿼리 2의 성능은 정렬된 모든 CCI 열을 참조하므로 다른 쿼리보다 정렬된 CCI를 통해 가장 많은 이점을 얻을 수 있습니다. 
 
 ```sql
 -- Query #1: 

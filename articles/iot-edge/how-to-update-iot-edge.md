@@ -3,20 +3,19 @@ title: 디바이스에서 IoT Edge 버전 업데이트 - Azure IoT Edge | Micros
 description: 최신 버전의 보안 디먼 및 IoT Edge 런타임을 실행하도록 IoT Edge 디바이스를 업데이트하는 방법
 keywords: ''
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 04/07/2021
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fae824df8c8947198fe0d214cf3db5f71c55c98f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 798a46d2d77a3363a5540c3c490fd625fba3a9ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759584"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535748"
 ---
-# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
+# <a name="update-iot-edge"></a>IoT Edge 업데이트
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
@@ -32,10 +31,10 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 패키지 관리자를 사
 
 `iotedge version` 명령을 사용하여 디바이스에서 실행 중인 보안 디먼의 버전을 확인합니다. Windows에서 Linux용 IoT Edge를 사용하는 경우 버전을 확인하려면 Linux 가상 머신에 SSH로 연결해야 합니다.
 
+# <a name="linux"></a>[Linux](#tab/linux)
+
 >[!IMPORTANT]
 >버전 1.0 또는 1.1에서 버전 1.2로 디바이스를 업데이트하는 경우 설치 및 구성 프로세스에 차이점이 있어 추가 단계가 필요합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 단계([특수 사례: 1.0 또는 1.1에서 1.2로 업데이트](#special-case-update-from-10-or-11-to-12))를 참조하세요.
-
-# <a name="linux"></a>[Linux](#tab/linux)
 
 Linux x64 디바이스에서는 apt-get 또는 해당 패키지 관리자를 사용하여 보안 디먼을 최신 버전으로 업데이트합니다.
 
@@ -130,7 +129,18 @@ curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 :::moniker-end
 <!-- end 1.2 -->
 
-IoT Edge for Linux on Windows를 사용할 경우 IoT Edge는 Windows 디바이스에 호스트된 Linux 가상 머신에서 실행됩니다. 이 가상 머신은 IoT Edge와 함께 미리 설치되며 자동으로 해당 구성 요소를 최신 상태로 유지할 수 있도록 Microsoft 업데이트를 통해 관리됩니다.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+>[!IMPORTANT]
+>Windows 상의 Linux용 IoT Edge의 공개 미리 보기 버전에서 일반적으로 사용 가능한 버전으로 장치를 업데이트하는 경우에는 Azure IoT Edge를 제거하고 다시 설치해야 합니다.
+>
+>현재 공개 미리 보기 버전을 사용하고 있는지 확인하려면 Windows 장치에서 **설정** > **Apps** 로 이동합니다. 앱 및 기능 목록에서 **Azure IoT Edge** 를 찾습니다. 표시된 버전이 1.0.x인 경우, 공개 미리 보기 버전을 실행하고 있는 것입니다. 앱을 제거한 후 [Windows 상의 Linux용 IoT Edge를 설치하고 프로 비전](how-to-install-iot-edge-on-windows.md)합니다. 표시된 버전이 1.1.x 인 경우, 일반적으로 사용 가능한 버전을 실행하고 있는 것이며, Microsoft 업데이트를 통해 업데이트를 받을 수 있습니다.
+
+IoT Edge for Linux on Windows를 사용할 경우 IoT Edge는 Windows 디바이스에 호스트된 Linux 가상 머신에서 실행됩니다. 이 가상 머신은 IoT Edge와 함께 미리 설치되어 있으므로 IoT Edge 구성 요소를 수동으로 업데이트하거나 변경할 수 없습니다. 대신, 가상 머신은 자동으로 해당 구성 요소를 최신 상태로 유지할 수 있도록 Microsoft 업데이트를 통해 관리됩니다. 
+
+Windows 상의 Linux용 Azure IoT Edge의 최신 버전을 찾으려면, [EFLOW 릴리스](https://aka.ms/AzEFLOW-Releases)를 참조하세요.
+
 
 Windows 업데이트에서 Linux용 IoT Edge를 받으려면 다른 Microsoft 제품에 대한 업데이트를 받도록 Windows 호스트를 구성해야 합니다. 다음 단계를 수행하여 이 옵션을 설정할 수 있습니다.
 
@@ -141,6 +151,9 @@ Windows 업데이트에서 Linux용 IoT Edge를 받으려면 다른 Microsoft �
 1. **고급 옵션** 을 선택합니다.
 
 1. *Receive updates for other Microsoft products when you update Windows(Windows를 업데이트할 때 다른 Microsoft 제품에 대한 업데이트 받기)* 단추를 **켜기** 로 전환합니다.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -153,7 +166,13 @@ Windows 업데이트에서 Linux용 IoT Edge를 받으려면 다른 Microsoft �
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 IoT Edge for Windows를 사용할 경우 IoT Edge가 Windows 디바이스에서 직접 실행됩니다. PowerShell 스크립트를 사용한 업데이트 지침은 [Azure IoT Edge for Windows 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)를 참조하세요.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ---
 

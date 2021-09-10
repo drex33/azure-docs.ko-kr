@@ -2,24 +2,22 @@
 title: 증분 보강 개념(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Storage의 AI 보강 파이프라인에서 중간 콘텐츠 및 증분 변경 내용을 캐시하여 기존의 처리된 문서에 대한 투자를 보존합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
-manager: nitinme
-author: Vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 7b3d0fc85afbff58641edea332576f921c96b672
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539823"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727789"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
 > [!IMPORTANT] 
-> 증분 보강은 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
-> [REST API 미리 보기 버전](search-api-preview.md)에서 이 기능을 제공합니다. 지금은 포털 또는 .NET SDK 지원이 없습니다.
+> 이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)는 이 기능을 지원합니다.
 
 증분 보강은 [기술 세트](cognitive-search-working-with-skillsets.md)를 대상으로 하는 기능입니다. Azure Storage 활용하여 보강 파이프라인에서 내보낸 처리 출력을 이후 인덱서 실행에서 재사용할 수 있도록 저장합니다. 인덱서는 가능할 경우 여전히 유효한 캐시된 출력을 모두 재사용합니다. 
 
@@ -37,12 +35,12 @@ ms.locfileid: "111539823"
 
 ## <a name="indexer-cache"></a>인덱서 캐시
 
-증분 보강은 보강 파이프라인에 캐시를 추가합니다. 인덱서는 문서 크래킹의 결과와 모든 문서에 대한 각 기술의 출력을 캐시합니다. 기술 세트가 업데이트되면 변경된 기술 또는 다운스트림 기술만 다시 실행됩니다. 업데이트된 결과는 캐시에 기록되고, 문서는 검색 인덱스 또는 지식 저장소에서 업데이트됩니다.
+증분 보강은 보강 파이프라인에 캐시를 추가합니다. 인덱서는 [문서 크래킹](search-indexer-overview.md#document-cracking) 결과와 모든 문서에 대한 각 기술의 출력을 캐시합니다. 기술 세트가 업데이트되면 변경된 기술 또는 다운스트림 기술만 다시 실행됩니다. 업데이트된 결과는 캐시에 기록되고, 문서는 검색 인덱스 또는 지식 저장소에서 업데이트됩니다.
 
 실제로 캐시는 Azure Storage 계정의 Blob 컨테이너에 저장됩니다. 또한 캐시는 업데이트 처리에 대한 내부 기록에도 테이블 스토리지를 사용합니다. 검색 서비스 내의 모든 인덱스는 인덱서 캐시에 대해 동일한 스토리지 계정을 공유할 수 있습니다. 각 인덱서에는 사용 중인 컨테이너에 대해 고유하고 변경할 수 없는 캐시 식별자가 할당됩니다.
 
 > [!NOTE]
-> 인덱서 캐시에는 범용 저장소 계정이 필요합니다. 자세한 내용은 [다양한 유형의 저장소 계정](/storage/common/storage-account-overview#types-of-storage-accounts)을 참조하세요.
+> 인덱서 캐시에는 범용 저장소 계정이 필요합니다. 자세한 내용은 [다양한 유형의 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
 
 ## <a name="cache-configuration"></a>캐시 구성
 

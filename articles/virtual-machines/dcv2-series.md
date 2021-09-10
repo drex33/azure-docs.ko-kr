@@ -7,15 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 474478c03586866f28d02c4e1cb219bd6df65dea
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0d37e8308afd75b310893272f338fb5a3245a8ce
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530127"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696524"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처리되는 동안 데이터 및 코드의 기밀성 및 무결성을 보호할 수 있습니다. DCsv2 시리즈는 Intel® Software Guard Extensions를 활용하므로, 고객이 보호를 위해 보안 Enclave를 사용할 수 있습니다.
 

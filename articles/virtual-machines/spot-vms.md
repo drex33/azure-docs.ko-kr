@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: b85855238beb9887a35369011ff8daaaf58bef9e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ce20b7815c89a45a2677029a28fd205499751e30
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787242"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695402"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Azure 스폿 가상 머신 사용 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Azure 스폿 가상 머신을 사용하면 대폭 절감된 비용으로 사용되지 않은 용량을 활용할 수 있습니다. Azure에 용량이 다시 필요한 경우 언제든지 인프라에서 Azure 스폿 가상 머신을 제거합니다. 따라서 Azure 스폿 가상 머신은 일괄 처리 작업, 개발/테스트 환경, 대용량 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
 

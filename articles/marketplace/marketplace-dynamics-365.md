@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: de9f88d7505f91c9075167a5adf81e3e5463cf0b
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: f83fb2b1dbcadf9d40431c7670a1d8618557b047
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537659"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866960"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Dynamics 365 제품 플랜
 
-이 문서에서는 상업용 Marketplace에 있는 Microsoft AppSource의 Dynamics 365 제품에 대한 다양한 옵션 및 기능을 설명합니다. AppSource는 Microsoft 365, Dynamics 365, PowerApps 및 Power BI를 기반으로 하거나 확장하는 제품을 포함합니다.
+이 문서에서는 상업용 Marketplace에 있는 Microsoft AppSource의 Dynamics 365 제품에 대한 다양한 옵션 및 기능을 설명합니다. AppSource는 Microsoft 365, Dynamics 365, Power Apps 및 Power BI를 기반으로 하거나 확장하는 제품을 포함합니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다. [게시 프로세스 및 지침](/office/dev/store/submit-to-appsource-via-partner-center)을 검토합니다.
 

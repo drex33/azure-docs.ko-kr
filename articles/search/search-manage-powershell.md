@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f25e83644c78328d866751a71e15a9658932e66f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 65df8c53522bb971bcd089967047f8a86de55f44
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689263"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529336"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell 스크립트를 사용하여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -166,7 +166,7 @@ Update-Module -Name Az.Search
 
 ## <a name="get-search-service-information"></a>검색 서비스 정보 가져오기
 
-**Az.Search** 를 가져오고 검색 서비스를 포함하는 리소스 그룹을 알게 된 이후, [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice)를 실행하여 이름, 지역, 계층, 복제본 및 파티션 개수를 포함한 서비스 정의를 반환할 수 있습니다.
+**Az.Search** 를 가져오고 검색 서비스를 포함하는 리소스 그룹을 알게 된 이후, [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice)를 실행하여 이름, 지역, 계층, 복제본 및 파티션 개수를 포함한 서비스 정의를 반환할 수 있습니다. 이 명령의 경우 검색 서비스를 포함하는 리소스 그룹을 제공합니다.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
@@ -241,15 +241,15 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ## <a name="create-a-service-with-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하여 서비스 만들기
 
-Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷으로부터의 노출을 제거합니다. 자세한 내용은 [Azure Cognitive Search용 프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)에 대한 설명서를 참조하세요.
+Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷에서 공개되지 않도록 합니다. 자세한 내용은 [Azure Cognitive Search용 프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)를 참조하세요.
 
-다음 예제에서는 프라이빗 엔드포인트를 사용하여 검색 서비스를 만드는 방법을 보여 줍니다.
+다음 예제에서는 프라이빗 엔드포인트를 사용하여 검색 서비스를 만드는 방법을 보여 줍니다. 
 
 먼저 `PublicNetworkAccess`가 `Disabled`로 설정된 검색 서비스를 배포합니다.
 
 ```azurepowershell-interactive
 $searchService = New-AzSearchService `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <search-service-resource-group-name> `
     -Name <search-service-name> `
     -Sku Standard `
     -Location "West US" `
@@ -269,7 +269,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
 
 # Create the virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <vm-resource-group-name> `
     -Location "West US" `
     -Name <virtual-network-name> `
     -AddressPrefix 10.1.0.0/16 `
@@ -284,7 +284,7 @@ $privateLinkConnection = New-AzPrivateLinkServiceConnection `
 # Create the private endpoint
 $privateEndpoint = New-AzPrivateEndpoint `
     -Name <private-endpoint-name> `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-endpoint-resource-group-name> `
     -Location "West US" `
     -Subnet $virtualNetwork.subnets[0] `
     -PrivateLinkServiceConnection $privateLinkConnection
@@ -295,12 +295,12 @@ $privateEndpoint = New-AzPrivateEndpoint `
 ```azurepowershell-interactive
 ## Create private dns zone
 $zone = New-AzPrivateDnsZone `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-resource-group-name> `
     -Name "privatelink.search.windows.net"
 
 ## Create dns network link
 $link = New-AzPrivateDnsVirtualNetworkLink `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-link-resource-group-name> `
     -ZoneName "privatelink.search.windows.net" `
     -Name "myLink" `
     -VirtualNetworkId $virtualNetwork.Id
@@ -312,7 +312,7 @@ $config = New-AzPrivateDnsZoneConfig `
 
 ## Create DNS zone group
 New-AzPrivateDnsZoneGroup `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <private-dns-zone-resource-group-name> `
     -PrivateEndpointName <private-endpoint-name> `
     -Name 'myZoneGroup' `
     -PrivateDnsZoneConfig $config
@@ -327,19 +327,19 @@ PowerShell에서 프라이빗 엔드포인트를 만드는 방법에 대한 자�
 [Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Get-AzSearchPrivateEndpointConnection)은 프라이빗 엔드포인트 연결을 검색하고 해당 상태를 확인하는 데 사용됩니다.
 
 ```azurepowershell-interactive
-Get-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+Get-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name>
 ```
 
 [Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Set-AzSearchPrivateEndpointConnection)은 연결을 업데이트하는 데 사용됩니다. 다음 예제에서는 프라이빗 엔드포인트 연결을 거부됨으로 설정합니다.
 
 ```azurepowershell-interactive
-Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
+Set-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
 ```
 
 [Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Remove-AzSearchPrivateEndpointConnection)은 프라이빗 엔드포인트 연결을 삭제하는 데 사용됩니다.
 
 ```azurepowershell-interactive
- Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
+ Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
 ```
 
 ## <a name="regenerate-admin-keys"></a>관리자 키 다시 생성
@@ -353,7 +353,7 @@ Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -
 API 키 값은 서비스에 의해 생성됩니다. 사용할 Azure Cognitive Search에 대한 사용자 지정 키를 제공할 수 없습니다. 이와 마찬가지로, 관리자 API 키에 대한 사용자 정의 이름이 없습니다. 키에 대한 참조는 `primary` 또는 `secondary`의 고정 문자열입니다. 
 
 ```azurepowershell-interactive
-New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
+New-AzSearchAdminKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
 ```
 
 결과는 다음 출력과 비슷합니다. 한 번에 하나씩만 변경하더라도 두 키가 모두 반환됩니다.
@@ -371,7 +371,7 @@ Primary                    Secondary
 사용할 Azure Cognitive Search에 대한 키를 제공할 수 없습니다. API 키는 서비스에 의해 생성됩니다.
 
 ```azurepowershell-interactive
-New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
+New-AzSearchQueryKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
 ```
 
 ## <a name="scale-replicas-and-partitions"></a>복제본 및 파티션 스케일링
@@ -385,7 +385,7 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 명령을 제출한 후에는 도중에 종료할 수 있는 방법이 없습니다. 개수를 수정하기 전에 명령이 완료될 때까지 기다려야 합니다.
 
 ```azurepowershell-interactive
-Set-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
+Set-AzSearchService -ResourceGroupName <search-service-resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
 ```
 
 결과는 다음 출력과 비슷합니다.
@@ -412,13 +412,13 @@ Azure Cognitive Search에서 아웃바운드 프라이빗 엔드포인트를 만
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource)는 공유 프라이빗 링크 리소스를 만드는 데 사용됩니다. 이 명령을 실행하기 전에 일부 구성이 데이터 원본에 필요할 수 있습니다.
 
 ```azurepowershell-interactive
-New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-serviceresource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
 [Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource)를 사용하면 공유 프라이빗 링크 리소스를 검색하고 해당 상태를 볼 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
+Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
 ```
 
 다음 명령을 사용하여 연결을 승인해야 이를 사용할 수 있습니다.
@@ -427,14 +427,14 @@ Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -
 Approve-AzPrivateEndpointConnection `
     -Name <spl-name> `
     -ServiceName <search-service-name> `
-    -ResourceGroupName <resource-group-name> `
+    -ResourceGroupName <search-service-resource-group-name> `
     -Description = "Approved"
 ```
 
 [Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Remove-AzSearchSharedPrivateLinkResource)는 공유 프라이빗 링크 리소스를 삭제하는 데 사용됩니다.
 
 ```azurepowershell-interactive
-$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
+$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
 
 $job | Get-Job
 ```

@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e02e49b781d19e115ca2c39eead3aa7c693aef7
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889487"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223038"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Azure App Service용 ASP.NET Core 앱 구성
 
@@ -74,7 +74,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-빌드 자동화가 설정된 상태에서 Git 또는 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+Git을 사용하여 앱을 배포하거나 [빌드 자동화가 활성화된](deploy-zip.md#enable-build-automation-for-zip-deploy) 압축 패키지를 배포하는 경우 App Service 빌드 자동화 단계는 다음 순서입니다.
 
 1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 1. `dotnet restore`를 실행하여 모든 NuGet 종속성을 복원합니다.
@@ -136,7 +136,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="deploy-multi-project-solutions"></a>다중 프로젝트 솔루션 배포
 
-Visual Studio 솔루션에 여러 프로젝트가 포함된 경우 Visual Studio 게시 프로세스에는 배포할 프로젝트 선택이 이미 포함되어 있습니다. 빌드 자동화가 설정된 상태에서 Git 또는 ZIP 배포를 사용하여 App Service 배포 엔진에 배포하는 경우 App Service 배포 엔진은 App Service 앱으로 찾은 첫 번째 웹 사이트 또는 웹 애플리케이션 프로젝트를 선택합니다. `PROJECT` 앱 설정을 지정하여 App Service가 사용해야 하는 프로젝트를 지정할 수 있습니다. 예를 들어 [Cloud Shell](https://shell.azure.com)에서 다음을 실행합니다.
+Visual Studio 솔루션에 여러 프로젝트가 포함된 경우 Visual Studio 게시 프로세스에는 배포할 프로젝트 선택이 이미 포함되어 있습니다. Git 또는 [빌드 자동화가 활성화](deploy-zip.md#enable-build-automation-for-zip-deploy)된 ZIP 배포와 같이 App Service 배포 엔진에 배포하는 경우 App Service 배포 엔진은 App Service 앱으로 찾은 첫 번째 웹 사이트 또는 웹 애플리케이션 프로젝트를 선택합니다. `PROJECT` 앱 설정을 지정하여 App Service가 사용해야 하는 프로젝트를 지정할 수 있습니다. 예를 들어 [Cloud Shell](https://shell.azure.com)에서 다음을 실행합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화되었는지를 앱 논리가 알고 있어야 하는 경우에는 *Startup.cs* 에서 전달된 헤더 미들웨어를 구성합니다.
+App Service에서 [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화되었는지를 앱 논리가 알고 있어야 하는 경우에는 *Startup.cs* 에서 전달된 헤더 미들웨어를 구성합니다.
 
 - `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달하도록 [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가합니다.
@@ -229,6 +229,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+또는 다음 추가 리소스를 참조하세요.
+
+[환경 변수 및 앱 설정 참조](reference-app-settings.md)

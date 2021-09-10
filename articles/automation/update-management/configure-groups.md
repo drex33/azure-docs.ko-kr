@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에서 동적 그룹 사용
 description: 이 문서에서는 Azure Automation 업데이트 관리에서 동적 그룹을 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 06/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 318b5498c826b1e29baa35850594cebca72c4f3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b09def53b32d9616ddab541b3448f863b6ec781a
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575931"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112520535"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
 
@@ -46,6 +46,9 @@ Azure 머신에 대한 동적 그룹 쿼리를 정의할 때 다음 항목을 �
 Azure가 아닌 머신에 대한 동적 그룹은 컴퓨터 그룹이라고도 하는 저장된 검색을 사용합니다. 저장된 검색을 만드는 방법에 대한 자세한 내용은 [컴퓨터 그룹 만들기](../../azure-monitor/logs/computer-groups.md#creating-a-computer-group)를 참조하세요. 저장된 검색을 만든 후에는 Azure Portal의 **업데이트 관리** 에 있는 저장된 검색 목록에서 선택할 수 있습니다. 저장된 검색의 컴퓨터를 미리 보려면 **미리 보기** 를 클릭합니다.
 
 ![Azure가 아닌 그룹 선택 페이지(미리 보기)와 오른쪽의 미리 보기 창을 보여 주는 스크린샷.](./media/configure-groups/select-groups-2.png)
+
+> [!NOTE]
+> [여러 Log Analytics 작업 영역에 저장된 데이터를 쿼리](../../azure-monitor/logs/cross-workspace-query.md)하는 저장된 검색은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

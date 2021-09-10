@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: fe194101c42974e4822c088f7255bfcec5e7a65d
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 779f39afa7ac9b9890013db546223274cdf37ad6
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982639"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867668"
 ---
 # <a name="genome-aggregation-database-gnomad"></a>gnomAD(Genome Aggregation Database)
 
@@ -34,18 +34,32 @@ ms.locfileid: "112982639"
 
 ## <a name="data-access"></a>데이터 액세스
 
-스토리지 계정: ‘ https://azureopendatastorage.blob.core.windows.net/gnomad ’
+스토리지 계정: ‘ https://datasetgnomad.blob.core.windows.net/dataset/ ’
 
-이 데이터는 제한 없이 공개적으로 사용할 수 있으며, 대량 작업에는 azcopy 도구를 사용하는 것이 좋습니다. 예를 들어 gnomAD 릴리스 3.0에서 VCF를 보려면:
+이 데이터는 제한 없이 공개적으로 사용할 수 있으며, 대량 작업에는 AzCopy 도구를 사용하는 것이 좋습니다. 예를 들어 gnomAD 릴리스 3.0에서 VCF를 보려면:
 
 ```powershell
-$ azcopy ls https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes
+$ azcopy ls https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes
 ```
 
 모든 VCF를 재귀적으로 다운로드하려면:
 
 ```powershell
-$ azcopy cp --recursive=true https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes .
+$ azcopy cp --recursive=true https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes .
+```
+
+**신규: gnomAD v2.1.1 VCF 파일의 Parquet 형식(exomes 및 genomes)**
+
+Parquet 파일을 보려면:
+
+```powershell
+$ azcopy ls https://datasetgnomadparquet.blob.core.windows.net/dataset
+```
+
+모든 Parquet 파일을 재귀적으로 다운로드하려면:
+
+```powershell
+$ cp --recursive=true https://datasetgnomadparquet.blob.core.windows.net/dataset
 ```
 
 또한 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 gnomAD 릴리스의 파일 목록을 검색하는 데 유용한 도구입니다.

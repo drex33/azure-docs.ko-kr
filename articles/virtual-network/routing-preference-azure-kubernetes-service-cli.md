@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 9eaad12e254150109498be0fac2f285f33a5965c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 491572ceaac3e4bc401d5bd6c3a5401966d0c528
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776576"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463647"
 ---
 # <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Azure CLI를 사용하여 Kubernetes 클러스터에 대한 라우팅 기본 설정 구성
 
-이 문서에서는 Azure CLI를 사용하여 Kubernetes 클러스터에 대해 ISP 네트워크(**인터넷** 옵션)를 통해 라우팅 기본 설정을 구성하는 방법을 보여줍니다. 라우팅 기본 설정은 라우팅 기본 설정 유형 **Internet****에 대한 공용 IP 주소를 만든 다음 이를 AKS 클러스터를 만드는 동안 사용하는 방법으로 설정됩니다.
+이 문서에서는 Azure CLI를 사용하여 Kubernetes 클러스터에 대해 ISP 네트워크(**인터넷** 옵션)를 통해 라우팅 기본 설정을 구성하는 방법을 보여줍니다. 라우팅 기본 설정은 라우팅 기본 설정 유형 **Internet** 에 대한 공용 IP 주소를 만든 다음, 이를 AKS 클러스터를 만드는 동안 사용하는 방법으로 설정됩니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

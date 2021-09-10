@@ -10,12 +10,13 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 557c2591b0bd5406266e5f833ca8c5c4fb581e47
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 9923a2bd2e36975fe1af77fddb4bb484a4eb87c6
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125358"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217776"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -25,15 +26,28 @@ Microsoft Spark 유틸리티(MSSparkUtils)는 일반적인 작업을 쉽게 할 
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대한 액세스 구성 
 
-Synapse Notebook는 AAD(Azure Active Airectory) 통과를 사용하여 ADLS Gen2 계정에 액세스합니다. ADLS Gen2 계정(또는 폴더)에 액세스하려면 **Storage Blob 데이터 기여자** 여야 합니다. 
+Synapse Notebook는 Azure Active Directory(Azure AD) 통과를 사용하여 ADLS Gen2 계정에 액세스합니다. ADLS Gen2 계정(또는 폴더)에 액세스하려면 **Storage Blob 데이터 기여자** 여야 합니다. 
 
 Synapse 파이프라인은 작업 영역의 MSI(관리 서비스 ID)를 사용하여 스토리지 계정에 액세스합니다. 파이프라인 활동에서 MSSparkUtils를 사용하려면 작업 영역 ID가 **Storage Blob 데이터 기여자로** 이어야 ADLS Gen2 계정(또는 폴더)에 액세스할 수 있습니다.
 
 다음 단계를 수행하여 Azure AD 및 작업 영역 MSI가 ADLS Gen2 계정에 액세스할 수 있도록 합니다.
 1. [Azure Portal](https://portal.azure.com/) 및 액세스하려는 스토리지 계정을 엽니다. 액세스하려는 특정 컨테이너를 탐색할 수 있습니다.
-2. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-3. **Azure AD 계정** 및 **작업 영역 ID**(작업 영역 이름과 동일)를 스토리지 계정의 **Storage Blob 데이터 기여자** 역할에 할당합니다(아직 할당되지 않은 경우). 
-4. **저장** 을 선택합니다.
+1. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 데이터 기여자 |
+    | 다음에 대한 액세스 할당 | USER 및 MANAGEDIDENTITY |
+    | 멤버 | Azure AD 계정 및 작업 영역 ID |
+
+    > [!NOTE]
+    > 관리 ID 이름은 작업 영역 이름이기도 합니다.
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ 
+1. **저장** 을 선택합니다.
 
 Synapse Spark를 사용하여 다음 URL을 통해 ADLS Gen2의 데이터에 액세스할 수 있습니다.
 
@@ -41,7 +55,7 @@ Synapse Spark를 사용하여 다음 URL을 통해 ADLS Gen2의 데이터에 액
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대한 액세스 구성  
 
-Synapse는 [**SAS(공유 액세스 서명)** ](../../storage/common/storage-sas-overview.md)를 사용하여 Azure Blob Storage에 액세스합니다. 코드에서 SAS 키를 노출하지 않으려면 Synapse 작업 영역에서 액세스하려는 Azure Blob Storage 계정에 연결된 새 서비스를 만드는 것이 좋습니다.
+Synapse는 [**SAS(공유 액세스 서명)**](../../storage/common/storage-sas-overview.md)를 사용하여 Azure Blob Storage에 액세스합니다. 코드에서 SAS 키를 노출하지 않으려면 Synapse 작업 영역에서 액세스하려는 Azure Blob Storage 계정에 연결된 새 서비스를 만드는 것이 좋습니다.
 
 Azure Blob Storage 계정을 위한 새 연결된 서비스를 추가하려면 다음 단계를 수행합니다.
 

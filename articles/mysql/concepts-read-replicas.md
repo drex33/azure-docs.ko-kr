@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: c380a3edb556adb72d067cb2910c8afbf66b99a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250267"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567253"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 읽기 복제본 기능을 사용하면 Azure Database for MySQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 원본 서버에서 최대 5개의 복제본으로 복제할 수 있습니다. 읽복제본은 MySQL 엔진의 네이티브 이진 로그(binlog) 파일의 위치 기반 복제 기술을 사용하여 비동기식으로 업데이트됩니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
@@ -23,7 +25,7 @@ ms.locfileid: "98250267"
 MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 언급이 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
@@ -48,7 +50,38 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 원본 서버가 있는 위치에 관계 없이 다음 지역에서 읽기 복제본을 만들 수 있습니다. 지원되는 유니버설 복제본 지역에는 다음이 포함됩니다.
 
-오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남주, 캐나다 중부, 캐나다 동부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 서유럽, 미국 서부, 미국 서부2, 미국 중서부
+| 지역 | 복제본 가용성 | 
+| --- | --- | 
+| 오스트레일리아 동부 | :heavy_check_mark: | 
+| 오스트레일리아 동남부 | :heavy_check_mark: | 
+| 브라질 남부 | :heavy_check_mark: | 
+| 캐나다 중부 | :heavy_check_mark: |
+| 캐나다 동부 | :heavy_check_mark: |
+| 미국 중부 | :heavy_check_mark: | 
+| 미국 동부 | :heavy_check_mark: | 
+| 미국 동부 2 | :heavy_check_mark: |
+| 동아시아 | :heavy_check_mark: | 
+| 일본 동부 | :heavy_check_mark: | 
+| 일본 서부 | :heavy_check_mark: | 
+| 한국 중부 | :heavy_check_mark: |
+| 한국 남부 | :heavy_check_mark: |
+| 북유럽 | :heavy_check_mark: | 
+| 미국 중북부 | :heavy_check_mark: | 
+| 미국 중남부 | :heavy_check_mark: | 
+| 동남 아시아 | :heavy_check_mark: | 
+| 영국 남부 | :heavy_check_mark: | 
+| 영국 서부 | :heavy_check_mark: | 
+| 미국 중서부 | :heavy_check_mark: | 
+| 미국 서부 | :heavy_check_mark: | 
+| 미국 서부 2 | :heavy_check_mark: | 
+| 서유럽 | :heavy_check_mark: | 
+| 인도 중부* | :heavy_check_mark: | 
+| 프랑스 중부* | :heavy_check_mark: | 
+| 아랍에미리트 북부* | :heavy_check_mark: | 
+| 남아프리카 북부* | :heavy_check_mark: |
+
+> [!Note] 
+> \* Azure Database for MySQL에 퍼블릭 미리 보기로 제공되는 범용 스토리지 v2가 있는 지역입니다.  <br /> \* 이러한 Azure 지역의 경우 범용 스토리지 v1 및 v2 모두에 서버를 만들 수 있습니다. 퍼블릭 미리 보기에서 범용 스토리지 v2를 사용하여 만든 서버의 경우 범용 스토리지 v2를 지원하는 Azure 지역에만 복제본 서버를 만들 수 있습니다.
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
 
@@ -141,11 +174,18 @@ GTID를 구성하는 데 사용할 수 있는 서버 매개 변수는 다음과 
 |`enforce_gtid_consistency`|트랜잭션 측면에서 안전하게 기록될 수 있는 문만 실행하도록 허용하여 GTID 일관성을 적용합니다. GTID 복제를 사용하도록 설정하려면 먼저 이 값을 `ON`으로 설정해야 합니다. |`OFF`|`OFF`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있습니다.  <br> `ON`: 어떠한 트랜잭션도 GTID 일관성을 위반해서는 안 됩니다. <br> `WARN`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있지만 경고가 생성됩니다. | 
 
 > [!NOTE]
-> GTID를 사용하도록 설정한 후에는 다시 해제할 수 없습니다. GTID를 해제해야 하는 경우 고객 지원팀에 문의하세요. 
+> * GTID를 사용하도록 설정한 후에는 다시 해제할 수 없습니다. GTID를 해제해야 하는 경우 고객 지원팀에 문의하세요. 
+>
+> * GTID의 값을 변경하려면 모드의 오름차순으로 한 번에 한 단계씩만 수행할 수 있습니다. 예를 들어 gtid_mode가 현재 OFF_PERMISSIVE로 설정되어 있는 경우 ON_PERMISSIVE로 변경할 수 있지만 ON으로는 변경할 수 없습니다.
+>
+> * 복제를 일관되게 유지하기 위해 마스터/복제본 서버에 대해 업데이트할 수 없습니다.
+>
+> * gtid_mode=ON을 설정하기 전에 enforce_gtid_consistency를 ON으로 설정하는 것이 좋습니다.
+
 
 GTID를 사용하도록 설정하고 일관성 동작을 구성하려면 [Azure Portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [PowerShell](howto-configure-server-parameters-using-powershell.md)을 사용하여 `gtid_mode` 및 `enforce_gtid_consistency` 서버 매개 변수를 업데이트합니다.
 
-원본 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 복제를 사용합니다. 복제 일관성을 유지하려면 원본 또는 복제 서버에서 `gtid_mode`를 업데이트할 수 없습니다.
+원본 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 복제를 사용합니다. GTID를 사용하도록 설정하고 마스터 또는 복제본 서버를 만든 다음에는 복제를 일관되게 유지하기 위해 `gtid_mode`를 변경할 수 없습니다. 
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 

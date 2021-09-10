@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1ecf963f965fe215a510c7d24d2ecffc9027baf7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: b2675f6633da27c12e067cf93463f6cba94b473c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608739"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769393"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -89,7 +89,7 @@ Python2 실행 파일은 *python* 으로 별칭을 지정해야 합니다.
 
 - 하나 이상의 Azure 및 비 Azure 머신의 경우 [Automation 계정](enable-from-automation-account.md)에서
 
-- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 컴퓨터 또는 서버를 포함한 비 Azure 컴퓨터의 경우 수동으로. 하이브리드 머신의 경우 먼저 머신을 [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Log Analytics 배포 에이전트를 *Linux* 또는 *Windows* Azure Arc 머신](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의에 할당하는 것이 좋습니다. VM용 Azure Monitor를 사용하여 머신을 모니터링하려는 경우에는 대신 [VM용 Azure Monitor 사용 설정](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 사용합니다.
+- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 머신 또는 서버를 포함한 비 Azure 머신의 경우 수동으로. 하이브리드 머신의 경우 먼저 머신을 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Log Analytics 배포 에이전트를 *Linux* 또는 *Windows* Azure Arc 머신](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책에 할당하는 것이 좋습니다. VM용 Azure Monitor를 사용하여 머신을 모니터링하려는 경우에는 대신 [VM용 Azure Monitor 사용 설정](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 사용합니다.
 
 - 단일 Azure VM의 경우 Azure Portal의 [가상 머신 페이지](enable-from-vm.md)에서. 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
 

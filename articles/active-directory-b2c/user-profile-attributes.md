@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 523212e0f63453e78967eb9a4716febb754ea5d6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 76a7fa3cfeafa20dd81f043d67388bdfb281b6d4
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315276"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232524"
 ---
 # <a name="user-profile-attributes"></a>사용자 프로필 특성
 
@@ -39,7 +39,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 - 사용자 흐름에서 특성을 사용할 수 있는지 여부
 - 사용자 지정 정책 [Azure AD 기술 프로필](active-directory-technical-profile.md)에서 특성을 사용할 수 있는지 여부와 사용할 수 있는 섹션(&lt;InputClaims&gt;, &lt;OutputClaims&gt; 또는 &lt;PersistedClaims&gt;)
 
-|속성     |유형     |Description|Azure portal|사용자 흐름|사용자 지정 정책|
+|속성     |유형     |설명|Azure portal|사용자 흐름|사용자 지정 정책|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |부울|사용자 계정이 사용하도록 설정되었는지 여부: **true** - 계정이 사용하도록 설정됨, **false** - 계정이 사용하도록 설정되지 않음.|예|예|지속형, 출력|
 |ageGroup        |String|사용자의 나이 그룹입니다. 가능한 값: Null, Undefined, Minor, Adult, NotAdult.|예|예|지속형, 출력|
@@ -89,6 +89,16 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 
 <sup>1 </sup>Microsoft Graph에서 지원하지 않음<br><sup>2 </sup>자세한 내용은 [MFA 전화 번호 특성](#mfa-phone-number-attribute)을 참조하세요.<br><sup>3 </sup>Azure AD B2C와 함께 사용해서는 안 됩니다.
 
+## <a name="required-attributes"></a>필수 특성
+
+Azure AD B2C 디렉터리에 사용자 계정을 생성하려면 다음 필수 특성을 입력합니다. 
+
+- [표시 이름](#display-name-attribute)
+
+- [ID](#display-name-attribute) - 하나 이상의 엔터티(로컬 또는 페더레이션 계정) 포함.
+
+- [암호 프로필](#password-policy-attribute)- 로컬 계정을 생성하는 경우, 암호 프로필을 입력합니다.
+
 ## <a name="display-name-attribute"></a>이름 특성 표시
 
 `displayName`은 사용자에 대한 Azure Portal 사용자 관리에서 표시하는 이름이며, 액세스 토큰에서 Azure AD B2C가 애플리케이션에 반환합니다. 이 속성은 필수입니다.
@@ -104,7 +114,7 @@ Azure AD B2C 사용자 프로필에서 사용할 수 있는 대부분의 특성�
 
 Microsoft Graph API에서 로컬 및 페더레이션 ID는 모두 [objectIdentity](/graph/api/resources/objectidentity) 형식의 사용자 `identities` 특성에 저장됩니다. `identities` 컬렉션은 사용자 계정에 로그인하는 데 사용되는 ID 세트를 나타냅니다. 사용자는 이 컬렉션을 사용하여 연결된 모든 ID로 사용자 계정에 로그인할 수 있습니다. ID 특성에는 최대 10개의 [objectIdentity](/graph/api/resources/objectidentity) 개체가 포함될 수 있습니다. 각 개체에는 다음 속성이 포함되어 있습니다.
 
-| 이름   | 유형 |Description|
+| 이름   | 유형 |설명|
 |:---------------|:--------|:----------|
 |signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정합니다. 로컬 계정: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName` 또는 기타 원하는 다른 모든 형식. 소셜 계정 `federated`로 설정되어야 합니다.|
 |발급자|문자열|ID의 발급자를 지정합니다. 로컬 계정(**signInType** 이 `federated`가 아닌 경우)의 경우, 이 속성은 로컬 B2C 테넌트 기본 도메인 이름입니다(예: `contoso.onmicrosoft.com`). 소셜 ID(**signInType** 이 `federated`인 경우)의 경우, 값은 발급자의 이름입니다(예: `facebook.com`).|

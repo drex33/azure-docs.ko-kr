@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-ms.openlocfilehash: 7b383c4fdc0d1b5a04c100a574b814938ed83f2b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2b589f24c5338dde503d21a71fcbb9863f8da5b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087781"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566688"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -136,6 +136,8 @@ v1.1 스키마가 권장되며 AAD(Azure Active Directory) 속성은 필요하�
 
 ### <a name="property-values"></a>속성 값
 
+참고: 모든 속성 값은 대/소문자를 구분합니다.
+
 | Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -158,7 +160,7 @@ v1.1 스키마가 권장되며 AAD(Azure Active Directory) 속성은 필요하�
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)를 참조하세요.
+스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad)를 참조하세요.
 
 스키마 v0.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)을 참조하세요.
 

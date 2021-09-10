@@ -1,45 +1,53 @@
 ---
 title: 기술 세트에 Cognitive Services 연결
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 AI 보강 파이프라인에 Cognitive Services 올인원 구독을 연결하는 방법에 대해 알아봅니다.
-author: LuisCabrer
-ms.author: luisca
+description: Azure Cognitive Search의 AI 보강 파이프라인에 다중 서비스 Cognitive Services 리소스를 연결하는 방법을 알아보세요.
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: c1ba8ce3e84439a3f9419e0c038b93fb298370b9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/12/2021
+ms.openlocfilehash: 0fe9a87e82ab391fc0e1ccfca95ad48a0ef5dc61
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591335"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772468"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
-Azure Cognitive Search에서 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 구성하는 경우 제한된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 더 빈번한 워크로드의 경우 청구 가능한 "올인원" Cognitive Services 리소스를 연결해야 합니다. "올인원" 구독은 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스 대신 제품으로 "Cognitive Services"를 참조합니다.
+Azure Cognitive Search에서 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 구성하는 경우 제한된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 빈번한 워크로드의 경우 청구 가능한 [다중 서비스 Cognitive Services 리소스](../cognitive-services/cognitive-services-apis-create-account.md)를 연결해야 합니다. 다중 서비스 리소스는 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스가 아닌 제공으로 ‘Cognitive Services’를 참조합니다.
 
-"올인원" Cognitive Services 리소스는 기술 세트에 포함할 수 있는 [미리 정의된 기술](cognitive-search-predefined-skills.md)을 구동합니다.
+리소스 키는 기술 세트에 지정되며 Microsoft는 다음 API 사용에 대해 요금을 부과할 수 있습니다.
 
 + 이미지 분석 및 OCR(광학 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
 + 언어 검색, 엔터티 인식, 감정 분석 및 핵심 구 추출을 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 + [텍스트 번역](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-기술 세트 정의에서 "올인원" Cognitive Services 키는 선택 사항입니다. 일일 트랜잭션 수가 하루에 20개 미만이면 비용이 흡수됩니다. 그러나 트랜잭션이 이 수를 초과하는 경우 처리를 계속하려면 유효한 리소스 키가 필요합니다.
+키는 요금 청구에 사용 되지만 연결에는 사용 되지 않습니다. 내부적으로 검색 서비스는 [동일한 물리적 지역](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 같은 위치에 있는 Cognitive Services 리소스에 연결합니다.
 
-모든 "올인원" 리소스 키가 유효합니다. 내부적으로 검색 서비스는 "올인원" 키가 다른 지역의 리소스에 대한 키인 경우에도 동일한 물리적 지역에 함께 배치된 리소스를 사용합니다. [제품 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지에는 국가별 가용성이 나란히 표시됩니다.
+## <a name="key-requirements"></a>핵심 요구 사항
 
-> [!NOTE]
-> 기술 세트에서 미리 정의된 기술을 생략하면 Cognitive Services에 액세스할 수 없으며 기술 세트가 키를 지정하는 경우에도 요금이 부과되지 않습니다.
+동일한 인덱서에서 하루에 20번 이상 사용되는 청구 가능한 [기본 제공 기술](cognitive-search-predefined-skills.md)에는 리소스 키가 필요합니다. Cognitive Services에 대한 백엔드 호출을 수행하는 기술에는 엔티티 연결, 엔티티 인식, 이미지 분석, 핵심 구문 추출, 언어 감지, OCR, PII 감지, 감정 또는 텍스트 번역이 포함됩니다.
+
+[사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 Cognitive Services가 아닌 Azure Cognitive Search에 의해 측정되지만 하루에 인덱서당 20개를 초과하는 트랜잭션을 잠금 해제하려면 Cognitive Services 리소스 키가 필요합니다. 이 기술의 경우에만 리소스 키는 트랜잭션 수를 차단 해제하지만 청구와는 관련이 없습니다.
+
+사용자 지정 기술 또는 유틸리티 기술(조건부, 문서 추출, 셰이퍼, 텍스트 병합, 텍스트 분할)만으로 구성된 기술 세트의 경우 키 및 Cognitive Services 섹션을 생략할 수 있습니다. 청구 가능한 기술 사용이 하루에 인덱서 당 20 개의 트랜잭션 미만으로 사용 되는 경우 섹션을 생략할 수도 있습니다.
 
 ## <a name="how-billing-works"></a>청구 방법
 
 + Azure Cognitive Search는 기술 세트에서 제공하는 Cognitive Services 리소스 키를 사용하여 이미지 및 텍스트 보강에 대한 요금을 청구합니다. 청구 가능 기술 세트를 실행하는 요금은 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
 
-+ 이미지 추출은 보강 전에 문서가 깨진 경우 발생하는 Azure Cognitive Search 작업입니다. 이미지 추출은 청구 가능합니다. 이미지 추출 가격 책정은 [Azure Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
++ 이미지 추출은 보강 전에 문서가 깨진 경우 발생하는 Azure Cognitive Search 작업입니다. 이미지 추출은 무료 계층에서 20개의 무료 일일 추출을 제외하고 모든 계층에서 청구 가능합니다. 이미지 추출 비용은 Blob 내부의 이미지 파일, 다른 파일(PDF 및 기타 앱 파일)에 포함된 이미지, [문서 추출](cognitive-search-skill-document-extraction.md)을 사용하여 추출한 이미지에 적용됩니다. 이미지 추출 가격 책정은 [Azure Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 
-+ 텍스트 추출은 문서 크래킹 구문 중에도 발생합니다. 청구되지 않습니다.
++ 텍스트 추출은 [문서 크래킹](search-indexer-overview.md#document-cracking) 구문 중에도 발생합니다. 청구되지 않습니다.
 
-+ Conditional, Shaper, Text Merge 및 Text Split 기술 세트를 포함하여 Cognitive Services를 호출하지 않는 기술은 청구되지 않습니다.
++ Conditional, Shaper, Text Merge 및 Text Split 기술 세트를 포함하여 Cognitive Services를 호출하지 않는 기술은 청구되지 않습니다. 
+
+  언급한 바와 같이 [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 키가 필요하지만 [Cognitive Search로 측정](https://azure.microsoft.com/pricing/details/search/#pricing)된다는 점에서 특별한 경우입니다.
+
+> [!TIP]
+> 스킬셋 처리 비용을 낮추려면 [증분 보강(미리보기)](cognitive-search-incremental-indexing-conceptual.md)을 활성화하여 기술 세트 변경의 영향을 받지 않는 보강을 캐시하고 재사용합니다. 캐싱에는 Azure Storage가 필요합니다([가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 참조). 특히 이미지 추출 및 분석을 사용하는 기술 세트의 경우 기존 강화를 재사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
 
 ## <a name="same-region-requirement"></a>동일한 지역 요구 사항
 
@@ -62,9 +70,7 @@ AI 보강에 대해 **데이터 가져오기** 마법사를 사용하는 경우 
 
 ## <a name="use-billable-resources"></a>유료 리소스 사용
 
-하루에 20개보다 많은 보강을 만드는 작업의 경우 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services API를 호출하지 않으려는 경우에도 항상 청구 가능 Cognitive Services 리소스를 연결하는 것이 좋습니다. 리소스를 연결하면 일일 한도가 재정의됩니다.
-
-Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구됩니다. [사용자 지정 기술](cognitive-search-create-custom-skill-example.md) 또는 API 기반이 아닌 [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md) 및 [쉐이퍼](cognitive-search-skill-shaper.md)와 같은 기술에 대한 요금이 청구 되지 않습니다.
+하루에 20개 이상의 청구 가능한 강화를 생성하는 워크로드의 경우 Cognitive Services 리소스를 연결해야 합니다. 
 
 **데이터 가져오기** 마법사를 사용하는 경우 **AI 보강 추가(선택 사항)** 페이지에서 청구 가능 리소스를 구성할 수 있습니다.
 
@@ -119,7 +125,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [

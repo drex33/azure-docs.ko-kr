@@ -2,14 +2,14 @@
 title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 08/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: be9db68720f8af1fa3c00e3919b1acd7a63969c0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: af008e8f14e3df60f0ce48a23cb32d45716645d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410264"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535753"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -153,7 +153,8 @@ Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/u
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure VM으로 스폿 VM을 복원합니다.
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | 지원됨<br></br>[새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 통해 Azure VM을 복원하는 동안 복원에 성공하더라도 전용 호스트에서 Azure VM을 복원할 수 없습니다. 이를 위해 디스크로 복원하는 것이 좋습니다. 템플릿을 사용하여 [디스크로 복원](backup-azure-arm-restore-vms.md#restore-disks)하는 동안 전용 호스트에서 VM을 만든 다음, 디스크를 연결합니다.<br></br>[지역 간 복원](backup-azure-arm-restore-vms.md#cross-region-restore)을 수행하는 동안 보조 지역에는 적용되지 않습니다.
 독립 실행형 Azure VM의 Windows Storage 공간 구성 | 지원됨
-[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | 단일 Azure VM을 백업 및 복원하기 위해 일관되고 유연한 오케스트레이션 모델 모두에 대해 지원됩니다.
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | 단일 Azure VM을 백업하고 복원하는 유연한 오케스트레이션 모델에서 지원됩니다.
+관리 ID로 복원 | 예, 관리형 Azure VM에서는 지원되고 클래식 및 비관리형 Azure VM에서는 지원되지 않습니다.  <br><br> 관리 ID를 사용한 지역 간 복원은 지원되지 않습니다. <br><br> 현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.   <br><br> [자세히 알아보기](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 
@@ -164,7 +165,7 @@ Azure VM 데이터 디스크 수 | 디스크가 최대 32개인 Azure VM의 백�
 스토리지 유형 | 표준 HDD, 표준 SSD 및 프리미엄 SSD
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption을 사용하도록 설정된 Azure VM을 백업할 수 있습니다(Azure AD 앱 사용 또는 사용 안 함).<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
-Write Accelerator가 설정된 디스크 | 2020년 11월 23일부터는 제한된 수의 구독(제한된 미리 보기)에 대해 KRC(한국 중부) 및 SAN(남아프리카 공화국 북부) 지역에서만 지원됩니다. 지원되는 구독의 경우 Azure Backup은 백업 중에 WA(Write Accelerated)가 사용하도록 설정된 디스크가 있는 가상 머신을 백업합니다.<br><br>지원되지 않는 지역에서는 WA가 사용하도록 설정된 Virtual Machines의 스냅샷을 만들기 위해 VM에 인터넷 연결이 필요합니다.<br><br> **중요 참고**: 이러한 지원되지 않는 지역에서 WA 디스크를 사용하는 가상 머신은 이 디스크가 백업에서 제외된 경우에도 성공적인 백업을 위해 인터넷 연결이 필요합니다.
+Write Accelerator가 설정된 디스크 | 현재 WA 디스크 백업이 있는 Azure VM은 모든 Azure 퍼블릭 지역에서 미리 보기로 제공됩니다. <br><br> 할당량이 초과되면 GA까지 승인된 목록을 더 이상 변경할 수 없습니다. <br><br> 지원되지 않는 구독에 대한 WA 디스크 스냅샷은 WA 디스크가 제외되기 때문에 스냅샷에 포함되지 않습니다. <br><br>**중요** <br> WA 디스크가 있는 가상 머신을 성공적으로 백업하려면 해당 디스크가 백업에서 제외된 경우에도 인터넷 연결이 필요합니다.
 중복 제거된 VM/디스크 백업 및 복원 | Azure Backup은 중복 제거를 지원하지 않습니다. 자세한 내용은 관련 [문서](./backup-support-matrix.md#disk-deduplication-support)를 참조하세요. <br/> <br/>  - Azure Backup은 Recovery Services 자격 증명 모음의 VM 간에 중복 제거되지 않습니다. <br/> <br/>  - 복원 중에 중복 제거 상태의 VM이 있는 경우 자격 증명 모음에서 형식을 인식하지 않기 때문에 파일을 복원할 수 없습니다. 그러나 전체 VM 복원은 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.

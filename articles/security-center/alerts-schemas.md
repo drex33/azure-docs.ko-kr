@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2020
+ms.date: 07/18/2021
 ms.author: memildin
-ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e65fd5a0c672e500a0a4bc08f45e9ced32d89047
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558001"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463507"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -37,27 +37,9 @@ Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같�
 ## <a name="the-schemas"></a>스키마 
 
 
-### <a name="workflow-automation-and-continuous-export-to-event-hub"></a>[워크플로 자동화 및 Event Hub로 연속 내보내기](#tab/schema-continuousexport)
+### <a name="azure-sentinel"></a>[Azure Sentinel](#tab/schema-sentinel)
 
-### <a name="sample-json-for-alerts-sent-to-logic-apps-event-hub-and-third-party-siems"></a>Logic Apps, Event Hub, 타사 SIEM으로 전송되는 경고에 대한 샘플 JSON
-
-아래에서 전달된 경고 이벤트의 스키마를 찾을 수 있습니다.
-
-- Security Center의 워크플로 자동화에서 구성된 Azure 논리 앱 인스턴스
-- Security Center의 연속 내보내기 기능을 사용하는 Azure Event Hub
-
-워크플로 자동화 기능에 대한 자세한 내용은 [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)를 참조하세요.
-
-연속 내보내기에 대한 자세한 내용은 [Security Center 데이터 연속 내보내기](continuous-export.md)를 참조하세요.
-
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
-
-
-
-
-### <a name="azure-sentinel-and-log-analytics-workspaces"></a>[Azure Sentinel 및 Log Analytics 작업 영역](#tab/schema-sentinel)
-
-Sentinel Connector는 Azure Security Center에서 경고를 수신하여 Azure Sentinel의 Log Analytics 작업 영역으로 전송합니다. 
+Sentinel Connector는 Azure Security Center에서 경고를 수신하여 Azure Sentinel의 Log Analytics 작업 영역으로 전송합니다.
 
 Security Center 경고를 사용하여 Sentinel 사례 또는 인시던트를 만들려면 아래에 표시된 경고에 대한 스키마가 필요합니다. 
 
@@ -66,15 +48,13 @@ Azure Sentinel에 관한 자세한 내용은 [문서](../sentinel/index.yml)를 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
-
-
 ### <a name="azure-activity-log"></a>[Azure 활동 로그](#tab/schema-activitylog)
 
 Azure Security Center는 생성된 보안 경고를 Azure 활동 로그의 이벤트로 감사합니다.
 
 다음과 같이 경고 활성화 이벤트를 검색하여 활동 로그에서 보안 경고 이벤트를 볼 수 있습니다.
 
-[![활동 로그에서 활성화 경고 이벤트 검색](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![활동 로그에서 활성화 경고 이벤트 검색.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
 ### <a name="sample-json-for-alerts-sent-to-azure-activity-log"></a>Azure 활동 로그로 전송되는 경고 샘플 JSON
@@ -165,6 +145,18 @@ Azure Security Center는 생성된 보안 경고를 Azure 활동 로그의 이�
 |**relatedEvents**|상수 - 빈 배열|
 |||
 
+
+### <a name="workflow-automation"></a>[워크플로 자동화](#tab/schema-workflow-automation)
+
+워크플로 자동화를 사용하는 경우 경고 스키마는 [커넥터 설명서](/connectors/ascalert/)를 참조하세요.
+
+
+### <a name="continuous-export"></a>[연속 내보내기](#tab/schema-continuousexport)
+
+Security Center 연속 내보내기 기능은 경고 데이터를 다음으로 전달합니다.
+
+- [경고 API](/rest/api/securitycenter/alerts)와 동일한 스키마를 사용하는 Azure Event Hub.
+- Azure Monitor 데이터 참조 설명서의 [SecurityAlert 스카마](/azure/azure-monitor/reference/tables/SecurityAlert)에 따른 Log Analytics 작업 영역.
 
 
 

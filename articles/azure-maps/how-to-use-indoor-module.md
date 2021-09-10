@@ -3,18 +3,17 @@ title: Microsoft Creator 서비스를 갖춘 Azure Maps Indoor Maps 사용하기
 description: Microsoft Azure Maps Indoor Maps 모듈을 사용하여 모듈의 JavaScript 라이브러리를 포함하여 맵을 렌더링하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/20/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 59521aa0be652ef37c39f45bb323fbc49a93b99d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 32df2b3805d5c79504380676a72d43467ff2092d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030416"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535688"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
@@ -50,8 +49,8 @@ Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다
   2. HTML 파일의 `<head>` 요소에서 *Azure Maps Indoor* 모듈 JavaScript 및 스타일시트를 참조합니다.
 
       ```html
-      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
-      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
+      <link rel="stylesheet" href="node_modules/azure-maps-indoor/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-indoor/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Map 개체 인스턴스화
@@ -103,6 +102,14 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
+```
+
+## <a name="geographic-settings-optional"></a>지리적 설정(선택 사항)
+
+이 가이드에서는 미국 Creator 서비스를 만들었다고 가정합니다. 이 섹션을 건너뛸 수 있습니다. 그러나 Creator 서비스가 유럽에서 만들어진 경우에는 다음 코드를 추가합니다.
+
+```javascript
+  indoorManager.setOptions({ geography: 'eu' });.
 ```
 
 ## <a name="indoor-level-picker-control"></a>Indoor Level Picker 컨트롤

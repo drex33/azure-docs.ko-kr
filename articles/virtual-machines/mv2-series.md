@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: bafae485c16923f3a4f7f5db6db0456f4b2f3bf7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 75a9a8f9888c0e3773135aa407938601b74bab0e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109844955"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690273"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Mv2 시리즈는 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5GHz(Skylake) 프로세서에서 실행되는, 높은 처리량과 낮은 대기 시간을 가진 플랫폼을 갖추고 있으며 2.5GHz의 전체 코어 기본 주파수와 3.8GHz의 최대 터보 주파수를 자랑합니다. 모든 Mv2 시리즈 가상 머신 크기에서 표준 및 프리미엄 영구적 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리에 최적화된 VM 크기로, 탁월한 컴퓨팅 성능을 바탕으로 대규모 메모리 내 데이터베이스 및 워크로드를 지원하며, 메모리 대 CPU 비율이 높아 관계형 데이터베이스 서버, 대규모 캐시, 메모리 내 분석에 적합합니다.
 

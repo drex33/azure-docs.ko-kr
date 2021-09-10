@@ -7,12 +7,12 @@ ms.author: dahellem
 ms.date: 5/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: db195f845a9e2f19108b0e40d569d76939dd6b6b
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: b191bdb1303ae0210573d295ffb5b371cc81ddfb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111373078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567274"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Azure Digital Twins를 사용하여 OPC UA 데이터 수집
 
@@ -63,7 +63,7 @@ OPC UA 서버 데이터를 Azure Digital Twins에 흐르게 하려면 여러 디
 * [Azure IoT Edge에서 OPC 게시자를 설치하기 위한 단계별 가이드](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Linux에 IoT Edge 설치](../iot-edge/how-to-install-iot-edge.md) 
 * [GitHub의 OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)
-* [OPC 게시자 구성](../iot-accelerators/howto-opc-publisher-configure.md)
+* [OPC 게시자 구성](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
 ### <a name="set-up-opc-ua-server"></a>OPC UA 서버 설정
 
@@ -163,7 +163,7 @@ OPC UA 서버 데이터를 IoT Hub로 가져오려면 OPC 게시자 모듈을 �
 
 #### <a name="install-iot-edge-container"></a>IoT Edge 컨테이너 설치
 
-지침에 따라 [Linux에 IoT Edge를 설치](../virtual-machines/linux/use-remote-desktop.md)합니다.
+지침에 따라 [Linux에 IoT Edge를 설치](../iot-edge/how-to-install-iot-edge.md)합니다.
 
 설치가 완료되면 다음 명령을 실행하여 설치 상태를 확인합니다.
 
@@ -263,7 +263,7 @@ az iot hub monitor-events -n <iot-hub-instance> -t 0
 ```
 
 > [!TIP]
-> [Azure IoT 탐색기](../iot-pnp/howto-use-iot-explorer.md)를 사용하여 IoT Hub 메시지를 모니터링해 보세요.
+> [Azure IoT 탐색기](../iot-fundamentals/howto-use-iot-explorer.md)를 사용하여 IoT Hub 메시지를 모니터링해 보세요.
 
 #### <a name="verify-completion"></a>확인 완료
 
@@ -288,7 +288,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 ### <a name="create-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 만들기
 
-먼저 [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침을 사용하여 새 Azure Digital Twins 인스턴스를 배포합니다.
+먼저 [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침을 사용하여 새 Azure Digital Twins 인스턴스를 배포합니다.
 
 ### <a name="upload-model-and-create-twin"></a>모델 업로드 및 트윈 만들기
 
@@ -334,7 +334,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 항목에 대한 스키마는 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | NodeId | OPC UA 노드의 값입니다. 예: ns=3;i={value} | ✔ |
 | TwinId | 원격 분석 값을 저장하려는 트윈의 TwinId($dtId)입니다. | ✔ |
@@ -358,23 +358,18 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 이 섹션에서는 OPC UA 데이터를 처리하고 Azure Digital Twins를 업데이트하는 [필수 구성 요소](#prerequisites)에서 다운로드한 Azure 함수를 게시합니다.
 
-#### <a name="step-1-open-the-function-in-visual-studio"></a>1단계: Visual Studio에서 함수 열기
+1. 로컬 컴퓨터에 다운로드한 [OPC UA에서 Azure Digital Twins로](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) 프로젝트로 이동한 후 *Azure Functions/OPCUAFunctions* 폴더로 이동합니다. Visual Studio에서 **OPCUAFunctions.sln** 솔루션을 엽니다.
+2. Azure의 함수 앱에 프로젝트를 게시합니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
-로컬 컴퓨터에 다운로드한 [OPC UA에서 Azure Digital Twins로](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) 프로젝트로 이동한 후 *Azure Functions/OPCUAFunctions* 폴더로 이동합니다. Visual Studio에서 **OPCUAFunctions.sln** 솔루션을 엽니다.
+#### <a name="configure-the-function-app"></a>함수 앱 구성
 
-#### <a name="step-2-publish-the-function"></a>2단계: 함수 게시
+다음으로, 함수에 대한 **액세스 역할을 할당** 하고 **애플리케이션 설정을 구성** 하여 Azure Digital twins 인스턴스에 액세스할 수 있도록 합니다.
 
-Azure의 함수 앱에 함수 프로젝트를 게시합니다.
+[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
 
-이 작업을 수행하는 방법에 관한 지침은 *방법: 데이터 처리를 위한 함수 설정* 문서의 [Azure에 함수 앱 게시](how-to-create-azure-function.md#publish-the-function-app-to-azure) 섹션을 참조하세요.
+#### <a name="add-application-settings"></a>애플리케이션 설정 추가
 
-#### <a name="step-3-configure-the-function-app"></a>3단계: 함수 앱 구성
-
-함수에 대한 **액세스 역할을 할당** 하고 **애플리케이션 설정을 구성** 하여 Azure Digital Twins 인스턴스에 액세스할 수 있도록 합니다. 이 작업을 수행하는 방법에 대한 지침은 방법: 데이터 처리를 위한 함수 설정 문서의 *[함수 앱에 대한 보안 액세스 설정](how-to-create-azure-function.md#set-up-security-access-for-the-function-app)* 섹션을 참조하세요.
-
-#### <a name="step-4-add-application-settings"></a>4단계: 애플리케이션 설정 추가
-
-또한 환경을 완전히 설정하려면 일부 애플리케이션 설정을 추가해야 합니다. [Azure Portal](https://portal.azure.com)로 이동하여 포털 검색 창에서 해당 이름을 검색하여 새로 만든 Azure 함수로 이동합니다.
+또한 환경 및 Azure 함수를 완전히 설정하려면 일부 애플리케이션 설정을 추가해야 합니다. [Azure Portal](https://portal.azure.com)로 이동하여 포털 검색 창에서 해당 이름을 검색하여 새로 만든 Azure 함수로 이동합니다.
 
 함수의 왼쪽 탐색 메뉴에서 구성을 선택합니다. **+ 새 애플리케이션 설정** 단추를 사용하여 새 설정 만들기를 시작합니다.
 
@@ -382,7 +377,7 @@ Azure의 함수 앱에 함수 프로젝트를 게시합니다.
 
 세 가지 애플리케이션 설정을 만들어야 합니다.
 
-| 설정 | Description | 필수 |
+| 설정 | 설명 | 필수 |
 | --- | --- | --- |
 | ADT_SERVICE_URL | Azure Digital Twins 인스턴스에 대한 URL입니다. 예: `https://example.api.eus.digitaltwins.azure.net` | ✔ |
 | JSON_MAPPINGFILE_URL | opcua-mapping.json에 대한 공유 액세스 서명의 URL | ✔ |
@@ -395,7 +390,7 @@ Azure의 함수 앱에 함수 프로젝트를 게시합니다.
 
 ### <a name="create-event-subscription"></a>이벤트 구독 만들기
 
-마지막으로 함수 앱 및 ProcessOPCPublisherEventsToADT 함수를 IoT Hub에 연결하는 이벤트 구독을 만듭니다. 게이트웨이 디바이스에서 함수를 통해 IoT Hub로 데이터가 흐를 수 있도록 이벤트 구독이 필요합니다. 그러면 Azure Digital Twins가 업데이트됩니다.
+마지막으로 함수 앱 및 *ProcessOPCPublisherEventsToADT* 함수를 IoT Hub에 연결하는 이벤트 구독을 생성합니다. 게이트웨이 디바이스에서 함수를 통해 IoT Hub로 데이터가 흐를 수 있도록 이벤트 구독이 필요합니다. 그러면 Azure Digital Twins가 업데이트됩니다.
 
 지침은 Azure Digital Twins *자습서: 엔드투엔드 솔루션 연결* 에서 [Azure 함수에 IoT 허브 연결](tutorial-end-to-end.md#connect-the-iot-hub-to-the-azure-function)에 사용된 것과 동일한 단계를 따릅니다.
 
@@ -405,9 +400,18 @@ Azure의 함수 앱에 함수 프로젝트를 게시합니다.
 
 이 단계가 끝나면 모든 필수 구성 요소를 설치하고 실행해야 합니다. 데이터는 OPC UA 시뮬레이션 서버에서 Azure IoT Hub를 통해 Azure Digital Twins 인스턴스로 흐릅니다. 
 
+### <a name="verify-completion"></a>확인 완료
+
+이 섹션에서는 OPC UA 데이터를 Azure Digital Twins에 연결하는 Azure 함수를 설정합니다. 다음 검사 목록을 완료했는지 확인합니다.
+> [!div class="checklist"]
+> * *opcua-mapping.json* 파일을 만들고 Blob Storage 컨테이너로 가져왔습니다. 
+> * 샘플 함수 *ProcessOPCPublisherEventsToADT* 를 Azure의 함수 앱에 게시했습니다.
+> * Azure Functions 앱에 세 가지 새 애플리케이션 설정이 추가되었습니다.
+> * 함수 앱에 IoT Hub 이벤트를 보내는 이벤트 구독을 만들었습니다.
+
 다음 섹션에서는 이벤트를 모니터링하고 모든 것이 성공적으로 작동하는지 확인하기 위해 실행할 수 있는 몇 가지 Azure CLI 명령을 제공합니다.
 
-### <a name="verify-and-monitor"></a>확인 및 모니터링
+## <a name="verify-and-monitor"></a>확인 및 모니터링
 
 이 섹션의 명령은 [Azure Cloud Shell](https://shell.azure.com)또는 [로컬 Azure CLI 창](/cli/azure/install-azure-cli)에서 실행할 수 있습니다.
 
@@ -425,16 +429,6 @@ az webapp log tail –name <function-name> --resource-group <resource-group-name
 
 :::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Azure Digital Twins Explorer를 사용하여 트윈 속성 업데이트를 모니터링하는 스크린샷.":::
 
-### <a name="verify-completion"></a>확인 완료
-
-이 섹션에서는 OPC UA 데이터를 Azure Digital Twins에 연결하는 Azure 함수를 설정합니다. 다음 검사 목록을 완료했는지 확인합니다.
-> [!div class="checklist"]
-> * *opcua-mapping.json* 파일을 만들고 Blob Storage 컨테이너로 가져왔습니다. 
-> * 샘플 함수 ProcessOPCPublisherEventsToADT를 Azure의 함수 앱에 게시했습니다.
-> * Azure Functions 앱에 세 가지 새 애플리케이션 설정이 추가되었습니다.
-> * 함수 앱에 IoT Hub 이벤트를 보내는 이벤트 구독을 만들었습니다.
-> * Azure CLI 명령을 사용하여 최종 데이터 흐름을 확인했습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 시뮬레이션된 OPC UA 서버 데이터를 디지털 트윈의 속성을 업데이트하는 Azure Digital Twins로 보내기 위해 전체 데이터 흐름을 설정합니다.
@@ -444,6 +438,6 @@ az webapp log tail –name <function-name> --resource-group <resource-group-name
 * [Azure IoT Edge에서 OPC 게시자를 설치하기 위한 단계별 가이드](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Linux에 IoT Edge 설치](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)
-* [OPC 게시자 구성](../iot-accelerators/howto-opc-publisher-configure.md)
+* [OPC 게시자 구성](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 
 * [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL)

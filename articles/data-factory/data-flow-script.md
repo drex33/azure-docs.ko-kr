@@ -4,15 +4,16 @@ description: Data Factory의 데이터 흐름 스크립트 코드 숨김 언어 
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2021
-ms.openlocfilehash: 7dd58a7d4a94b832e52930f8ac6507cdd8f7a20e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0860d59d7d04354b6236d02126492468dec5921b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100534824"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642383"
 ---
 # <a name="data-flow-script-dfs"></a>DFS(데이터 흐름 스크립트)
 
@@ -269,6 +270,13 @@ window(over(stocksymbol),
     startRowOffset: -7L,
     endRowOffset: 7L,
     FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
+```
+
+### <a name="distinct-count-of-all-column-values"></a>모든 열 값의 고유 개수
+이 스크립트를 사용하여 키 열을 확인하고 단일 스크립트 조각으로 스트림에 있는 모든 열의 카디널리티를 볼 수 있습니다. 이 스크립트를 집계 변환으로 데이터 흐름에 추가하면 자동으로 모든 열의 고유 개수가 제공됩니다.
+
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ## <a name="next-steps"></a>다음 단계

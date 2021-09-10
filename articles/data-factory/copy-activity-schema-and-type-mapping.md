@@ -1,17 +1,20 @@
 ---
 title: 복사 활동의 스키마 및 데이터 형식 매핑
-description: Azure Data Factory의 복사 작업이 어떻게 원본 데이터의 스키마와 데이터 형식을 싱크 데이터에 매핑하는지 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인의 복사 작업이 어떻게 원본 데이터의 스키마와 데이터 형식을 싱크 데이터에 매핑하는지 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jianleishen
-ms.openlocfilehash: 2bd616ddec207d2aad47608c6f0200c7b629471e
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1070a9c59141dc5427c561faa9123410be2f7bb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482528"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642875"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>복사 활동의 스키마 및 데이터 형식 매핑
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,20 +43,20 @@ ms.locfileid: "109482528"
 - [계층 구조 원본에서 테이블 형식 싱크로](#hierarchical-source-to-tabular-sink)
 - [테이블 형식/계층 구조 원본에서 계층 구조 싱크로](#tabularhierarchical-source-to-hierarchical-sink)
 
-Data Factory 제작 UI -> 복사 작업 -> 매핑 탭 또는 복사 작업에서 프로그래밍 방식으로 매핑 지정 -> `translator` 속성에서 매핑을 구성할 수 있습니다. 다음 속성은 `translator` -> `mappings` 배열 -> 개체 -> 맵 데이터에 특정 열/필드를 가리키는 `source` 및 `sink`에서 지원됩니다.
+작성 UI -> 복사 작업 -> 매핑 탭 또는 복사 작업에서 프로그래밍 방식으로 매핑 지정 -> `translator` 속성에서 매핑을 구성할 수 있습니다. 다음 속성은 `translator` -> `mappings` 배열 -> 개체 -> 맵 데이터에 특정 열/필드를 가리키는 `source` 및 `sink`에서 지원됩니다.
 
-| 속성 | Description                                                  | 필수 |
+| 속성 | 설명                                                  | 필수 |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | 원본 또는 싱크 열/필드의 이름입니다. 테이블 형식 소스 및 싱크에 적용됩니다. | 예      |
 | ordinal  | 열 인덱스입니다. 1부터 시작합니다. <br>헤더 줄이 없는 분리된 텍스트를 사용하는 경우 적용되며 필요합니다. | 예       |
 | 경로     | 추출하거나 매핑할 각 필드의 JSON 경로 식입니다. 계층 구조 원본 및 싱크에 적용합니다(예: Cosmos DB, MongoDB 또는 REST 커넥터).<br>루트 개체 아래에 있는 필드의 경우 JSON 경로는 루트 `$`로 시작하고, `collectionReference` 속성으로 선택한 배열 내에 있는 필드의 경우 JSON 경로는 `$` 없이 배열 요소에서 시작합니다. | 예       |
-| type     | 원본 또는 싱크 열의 Data Factory 중간 데이터 형식입니다. 일반적으로 이 속성을 지정하거나 변경할 필요가 없습니다. [데이터 형식 매핑](#data-type-mapping)에 대한 자세한 정보를 알아봅니다. | 예       |
+| type     | 원본 또는 싱크 열의 중간 데이터 형식입니다. 일반적으로 이 속성을 지정하거나 변경할 필요가 없습니다. [데이터 형식 매핑](#data-type-mapping)에 대한 자세한 정보를 알아봅니다. | 예       |
 | culture  | 원본 또는 싱크 열의 문화권입니다. 형식이 `Datetime` 또는 `Datetimeoffset`인 경우에 적용됩니다. 기본값은 `en-us`입니다.<br>일반적으로 이 속성을 지정하거나 변경할 필요가 없습니다. [데이터 형식 매핑](#data-type-mapping)에 대한 자세한 정보를 알아봅니다. | 예       |
 | format   | 형식이 `Datetime` 또는 `Datetimeoffset`일 때 사용할 형식 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. 일반적으로 이 속성을 지정하거나 변경할 필요가 없습니다. [데이터 형식 매핑](#data-type-mapping)에 대한 자세한 정보를 알아봅니다. | 예       |
 
 다음은 `mappings` 외에도 `translator`에서 지원되는 속성입니다.
 
-| 속성            | Description                                                  | 필수 |
+| 속성            | 설명                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | 계층 구조 원본에서 데이터를 복사하는 경우(예: Cosmos DB, MongoDB 또는 REST 커넥터)에 적용됩니다.<br>동일한 패턴으로 **배열 필드 내부** 의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 예       |
 
@@ -175,11 +178,11 @@ Data Factory 제작 UI -> 복사 작업 -> 매핑 탭 또는 복사 작업에서
 
 Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니다.
 
-1. 복사 작업 -> 매핑 탭에서 **스키마 가져오기** 단추를 클릭하여 원본 및 싱크 스키마를 모두 가져옵니다. 스키마를 가져오면서 Data Factory가 최상위 개체를 샘플링할 때 필드가 표시되지 않는 경우, 기존 필드 이름을 마우스로 가리킨 다음 노드, 개체 또는 배열을 추가하도록 선택하여 이를 계층 구조 내에서 올바른 레이어에 추가할 수 있습니다.
+1. 복사 작업 -> 매핑 탭에서 **스키마 가져오기** 단추를 클릭하여 원본 및 싱크 스키마를 모두 가져옵니다. 스키마를 가져오면서 서비스가 최상위 개체를 샘플링할 때 필드가 표시되지 않는 경우, 기존 필드 이름을 마우스로 가리킨 다음 노드, 개체 또는 배열을 추가하도록 선택하여 이를 계층 구조 내에서 올바른 레이어에 추가할 수 있습니다.
 
 2. 데이터를 반복하고 추출하려는 배열을 선택합니다. 이는 자동으로 **컬렉션 참조** 로 채워집니다. 이러한 작업에는 단일 배열만 지원된다는 점에 유의하세요.
 
-3. 필요한 필드를 싱크에 매핑합니다. Data Factory는 계층 구조 쪽에 해당하는 JSON 경로를 자동으로 결정합니다.
+3. 필요한 필드를 싱크에 매핑합니다. 이 서비스는 계층 구조 쪽에 해당하는 JSON 경로를 자동으로 결정합니다.
 
 > [!NOTE]
 > 컬렉션 참조로 표시된 배열이 비어 있고 확인란이 선택된 레코드의 경우 전체 레코드를 건너뜁니다.
@@ -273,9 +276,9 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 
 복사 작업은 다음 흐름에 따라 원본 형식에서 싱크 형식으로 매핑합니다. 
 
-1. 원본 원시 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 변환합니다.
+1. 원본 원시 데이터 형식에서 Azure Data Factory 및 Synapse 파이프라인에서 사용하는 중간 데이터 형식으로 변환합니다.
 2. [기본 매핑](#default-mapping)과 [명시적 매핑](#explicit-mapping)에 적용되는 해당 싱크 형식을 일치시키는 데 필요한 대로 중간 데이터 형식을 자동으로 변환합니다.
-3. Azure Data Factory 중간 데이터 형식을 싱크 원시 데이터 형식으로 변환합니다.
+3. 중간 데이터 형식을 싱크 원시 데이터 형식으로 변환합니다.
 
 복사 작업은 현재 부울, 바이트, 바이트 배열, 날짜/시간, DatetimeOffset, Decimal, Double, GUID, Int16, Int32, Int64, SByte, Single, 문자열, Timespan, UInt16, UInt32, UInt64와 같은 중간 데이터 형식을 지원합니다.
 
@@ -305,9 +308,9 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 
 다음은 데이터 형식 변환에 대한 복사 작업에서 지원되는 속성입니다(프로그램 방식으로 제작의 `translator` 섹션 아래).
 
-| 속성                         | Description                                                  | 필수 |
+| 속성                         | 설명                                                  | 필수 |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
-| typeConversion                   | 새 데이터 형식 변환 환경을 사용하도록 설정합니다. <br>이전 버전과의 호환성으로 인해 기본값은 false입니다.<br><br>2020년 6월 하순 이후 Data Factory 제작 UI를 통해 만들어진 새 복사 작업의 경우, 해당 데이터 형식 변환은 기본적으로 최상의 환경에서 사용하도록 설정되며, 해당 시나리오에 대한 복사 작업 -> 매핑 탭에서 다음과 같은 형식 변환 설정을 확인할 수 있습니다. <br>파이프라인을 프로그래밍 방식으로 만들려면 `typeConversion` 속성을 true로 명시적으로 설정하여 사용하도록 설정해야 합니다.<br>이 기능을 릴리스하기 전에 만든 기존 복사 작업의 경우 이전 버전과의 호환성을 위해 Data Factory 제작 UI에 대한 형식 변환 옵션이 표시되지 않습니다. | 예       |
+| typeConversion                   | 새 데이터 형식 변환 환경을 사용하도록 설정합니다. <br>이전 버전과의 호환성으로 인해 기본값은 false입니다.<br><br>2020년 6월 하순 이후 Data Factory 제작 UI를 통해 만들어진 새 복사 작업의 경우, 해당 데이터 형식 변환은 기본적으로 최상의 환경에서 사용하도록 설정되며, 해당 시나리오에 대한 복사 작업 -> 매핑 탭에서 다음과 같은 형식 변환 설정을 확인할 수 있습니다. <br>파이프라인을 프로그래밍 방식으로 만들려면 `typeConversion` 속성을 true로 명시적으로 설정하여 사용하도록 설정해야 합니다.<br>이 기능을 릴리스하기 전에 만든 기존 복사 작업의 경우 이전 버전과의 호환성을 위해 작성 UI에 대한 형식 변환 옵션이 표시되지 않습니다. | 예       |
 | typeConversionSettings           | 형식 변환 설정 그룹입니다. `typeConversion`이 `true`로 설정된 경우에 적용됩니다. 다음 속성은 모두 이 그룹 아래에 있습니다. | 예       |
 | *`typeConversionSettings` 아래* |                                                              |          |
 | allowDataTruncation              | 복사 중에 원본 데이터를 다른 유형의 싱크로 변환할 때 데이터 잘림을 허용합니다(예: decimal에서 정수로, DatetimeOffset에서 날짜/시간으로). <br>기본값은 true입니다. | 예       |
@@ -350,7 +353,7 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 ## <a name="legacy-models"></a>레거시 모델
 
 > [!NOTE]
-> 원본 열/필드를 싱크로 매핑하기 위한 다음 모델은 이전 버전과의 호환성을 위해 계속 지원됩니다. [스키마 매핑](#schema-mapping)에서 언급된 새 모델을 사용하는 것이 좋습니다. 새 모델을 생성하도록 Data Factory 제작 UI가 전환되었습니다.
+> 원본 열/필드를 싱크로 매핑하기 위한 다음 모델은 이전 버전과의 호환성을 위해 계속 지원됩니다. [스키마 매핑](#schema-mapping)에서 언급된 새 모델을 사용하는 것이 좋습니다. 새 모델을 생성하도록 작성 UI가 전환되었습니다.
 
 ### <a name="alternative-column-mapping-legacy-model"></a>대체 열 매핑(레거시 모델)
 
@@ -450,7 +453,7 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 
 계층 구조 모양의 데이터 및 테이블 형식 모양의 데이터 사이에 매핑을 하기 위해 복사 작업 -> `translator` -> `schemaMapping`을 지정할 수 있습니다(예: MongoDB/REST에서 텍스트 파일로 복사 및 Oracle에서 MongoDB에 대한 Azure Cosmos DB의 API로 복사) 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
 
-| 속성            | Description                                                  | 필수 |
+| 속성            | 설명                                                  | 필수 |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | 복사 작업 번역기의 형식 속성은 **TabularTranslator** 로 설정되어 있어야 합니다. | 예      |
 | schemaMapping       | **원본 쪽에서 싱크 쪽으로** 의 매핑 관계를 보여 주는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 원본을 나타냅니다. **테이블 형식 원본** 의 경우, 데이터 세트 구조에 정의된 열 이름을 지정합니다. **계층 구조 원본** 의 경우, 추출 및 매핑할 각 필드에 대한 JSON 경로 식을 지정합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크** 의 경우, 데이터 집합 구조에 정의된 열 이름을 지정합니다. **계층 구조 싱크** 의 경우, 추출 및 매핑할 각 필드에 대한 JSON 경로 식을 지정합니다. <br>계층 구조 데이터의 경우 루트 개체 아래의 필드에 대한 JSON 경로는 root $로 시작합니다. `collectionReference` 속성에 의해 선택된 배열 내에 있는 필드의 경우 JSON 경로는 배열 요소에서 시작합니다. | 예      |

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: d4b619476908ad6799b5060cfedf7f55a566afea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: ef7a8ffa73fe03776be38debc523f9d616bda7b1
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642582"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316828"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce Service Cloud 간에 데이터 복사
 
@@ -55,13 +55,37 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-salesforce-service-cloud-using-ui"></a>UI를 사용하여 Salesforce 서비스 클라우드로 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Salesforce 서비스 클라우드로 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+
+2. Salesforce를 검색하고 Salesforce 서비스 클라우드 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-salesforce-service-cloud/salesforce-service-cloud-connector.png" alt-text="Salesforce 서비스 클라우드 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-salesforce-service-cloud/configure-salesforce-service-cloud-linked-service.png" alt-text="Salesforce 서비스 클라우드로 연결된 서비스를 구성 합니다.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Salesforce Service Cloud 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **SalesforceServiceCloud** 로 설정되어야 합니다. |예 |
 | environmentUrl | Salesforce Service Cloud 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |예 |
@@ -137,7 +161,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceServiceCloudObject** 으로 설정되어야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -166,7 +190,7 @@ Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 �
 }
 ```
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **RelationalTable** 로 설정해야 합니다. | 예 |
 | tableName | Salesforce Service Cloud에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -179,7 +203,7 @@ Salesforce Service Cloud 간에 데이터를 복사하려는 경우 다음과 �
 
 Salesforce Service Cloud 간에 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **SalesforceServiceCloudSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce Service Cloud 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
@@ -226,7 +250,7 @@ Salesforce Service Cloud 간에 데이터를 복사하기 위해 복사 작업 *
 
 Salesforce Service Cloud에 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **SalesforceServiceCloudSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert** 입니다. | 아니요(기본값: 삽입) |

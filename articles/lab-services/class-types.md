@@ -3,12 +3,12 @@ title: Azure Lab Services의 클래스 유형 예제 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩을 설정할 수 있는 몇 가지 유형의 클래스를 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 81b3426446894b9dd7bfccc942e04c3d9a7ea492
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 0bdbca13fa699d12b566d9943e9e14efa3f37d51
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278761"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037511"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
@@ -25,7 +25,7 @@ Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [ArcMap\ArcGIS Desktop을 위한 랩 설정](class-type-arcgis.md)을 참조하세요.
 
 ## <a name="autodesk"></a>Autodesk
-[AutoDesk](https://www.autodesk.com/)는 아키텍처, 엔지니어링, 건설, 설계, 제조 등에 대한 소프트웨어 솔루션을 제공합니다.  이러한 솔루션은 일반적으로 엔지니어링 수업 및 [Project Lead the Way](class-type-pltw.md) 커리큘럼에서 사용됩니다.
+[Autodesk](https://www.autodesk.com/)는 아키텍처, 엔지니어링, 건설, 설계, 제조 등에 대한 소프트웨어 솔루션을 제공합니다.  이러한 솔루션은 일반적으로 엔지니어링 수업 및 [Project Lead the Way](class-type-pltw.md) 커리큘럼에서 사용됩니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Autodesk](class-type-autodesk.md)를 참조하세요.
 
@@ -44,12 +44,19 @@ Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점
 
 이러한 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Azure Lab Services를 사용한 자연어 처리의 딥 러닝에 초점을 맞춘 랩 설정](class-type-deep-learning-natural-language-processing.md)을 참조하세요.
 
-## <a name="ethical-hacking"></a>윤리적 해킹
+## <a name="ethical-hacking-with-hyper-v"></a>Hyper-V를 사용하여 윤리적 해킹
 윤리적 해킹의 법적 고지에 초점을 맞춘 클래스에 대해 랩을 설정할 수 있습니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다.
 
 윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 [Metasploitable3](https://github.com/rapid7/metasploitable3) 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적으로 사용됩니다.  Kali Linux 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스를 제공합니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [윤리적 해킹 클래스를 가르치기 위한 랩 설정](class-type-ethical-hacking.md)을 참조하세요.
+
+## <a name="ethical-hacking-with-virtualbox"></a>VirtualBox를 사용하여 윤리적 해킹
+윤리적 해킹의 법적 고지에 초점을 맞춘 클래스에 대해 랩을 설정할 수 있습니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다.
+
+윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 [SEED Labs](https://seedsecuritylabs.org/) 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. SEED 가상 머신은 악용 목적으로 사용됩니다.  Kali Linux 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스를 제공합니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [윤리적 해킹 클래스를 가르치기 위한 랩 설정](class-type-ethical-hacking-virtualbox.md)을 참조하세요.
 
 ## <a name="matlab"></a>MATLAB
 [MATLAB](https://www.mathworks.com/products/matlab.html)은 행렬 실험실을 의미하는 것으로, [MathWorks](https://www.mathworks.com/)의 프로그래밍 플랫폼입니다.  계산 기능과 시각화 기능이 결합되어 있어 수학, 엔지니어링, 물리학, 화학 분야에서 널리 사용되는 도구입니다.
@@ -74,7 +81,7 @@ Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점
 ## <a name="shell-scripting-on-linux"></a>Linux에서 셸 스크립팅
 Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상된 스크립트를 포함합니다. 향상된 스크립트는 bash 명령과 Ruby를 결합하는 스크립트입니다. 이 접근 방식을 사용하면 Ruby에서 데이터를 전달하고, bash 명령이 셸과 상호 작용할 수 있습니다.
 
-이러한 스크립팅 클래스를 수강하는 학생은 Linux 가상 머신을 통해 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신은 원격 데스크톱 액세스를 사용하도록 설정되어 있고 [gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치 되어 있습니다.
+이러한 스크립팅 클래스를 수강하는 학생은 Linux 가상 머신을 통해 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신에는 원격 데스크톱 액세스가 사용하도록 설정되어 있고 [Gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치되어 있습니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Linux에서 셸 스크립팅](class-type-shell-scripting-linux.md)을 참조하세요.
 

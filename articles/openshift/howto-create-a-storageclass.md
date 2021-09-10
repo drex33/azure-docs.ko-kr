@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure 파일
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b7d40ecd22a66e1f4327f9147061ce4befd21e67
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: e25a56b1d31ca9ef2c076ccc812b14043b798642
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109848000"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969593"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 
@@ -117,18 +117,21 @@ oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.
 
 새 애플리케이션을 만들고 스토리지를 할당합니다.
 
+> [!NOTE]
+> `httpd-example`템플릿을 사용 하려면 풀 암호를 사용하도록 설정하여 ARO 클러스터를 배포해야 합니다. 자세한 내용은[Red Hat 풀 암호 가져오기](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional)를 참조하세요.
+
 ```bash
 oc new-project azfiletest
-oc new-app -template httpd-example
+oc new-app httpd-example
 
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
 
-oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data
+#If you have set the storage class by default, you can omit the --claim-class parameter
+oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data --claim-class='azure-file'
 
 #Wait for the new deployment to rollout
 export POD=$(oc get pods --field-selector=status.phase==Running -o jsonpath={.items[].metadata.name})
-oc exec $POD -- bash -c "mkdir ./data"
 oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 
 oc exec $POD -- bash -c "cat /data/test.txt"

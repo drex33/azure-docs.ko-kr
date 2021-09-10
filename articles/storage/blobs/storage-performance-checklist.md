@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 249d2e266c0f72336091133a52426602491b3c68
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544754"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900740"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 스토리지에 대한 성능 및 확장성 검사 목록
 
@@ -66,7 +66,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대한 확장�
 특정 구독/지역 조합에 허용되는 최대 스토리지 계정 수와 가까워지는 경우 시나리오를 평가하고 다음 조건이 적용되는지 여부를 확인합니다.
 
 - 스토리지 계정을 사용하여 비관리 디스크를 저장하고 해당 디스크를 VM(가상 머신)에 추가하고 있나요? 이 시나리오에서 Microsoft는 관리 디스크 사용을 권장합니다. 관리 디스크는 개별 스토리지 계정을 만들고 관리할 필요 없이 자동으로 스케일링됩니다. 자세한 내용은 [Azure Managed Disks 소개](../../virtual-machines/managed-disks-overview.md)를 참조하세요.
-- 데이터 격리 목적으로 고객당 하나의 스토리지 계정을 사용하고 있나요? 이 시나리오에서 Microsoft는 전체 스토리지 계정 대신 각 고객에 대한 Blob 컨테이너 사용을 권장합니다. 이제 Azure Storage를 사용하여 컨테이너별로 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)을 참조하세요.
+- 데이터 격리 목적으로 고객당 하나의 스토리지 계정을 사용하고 있나요? 이 시나리오에서 Microsoft는 전체 스토리지 계정 대신 각 고객에 대한 Blob 컨테이너 사용을 권장합니다. 이제 Azure Storage를 사용하여 컨테이너별로 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 - 수신, 송신, IOPS(초당 I/O 작업) 또는 용량을 늘리기 위해 여러 스토리지 계정을 사용하여 분할하고 있나요? 이 시나리오에서는 가능한 경우 워크로드에 필요한 스토리지 계정 수를 줄이기 위해 스토리지 계정에 대한 제한을 늘리는 것이 좋습니다. 스토리지 계정에 대한 제한을 늘리도록 요청하려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자세한 내용은 [더 크고 더 높은 규모의 스토리지 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조하세요.
 
 ### <a name="capacity-and-transaction-targets"></a>용량 및 트랜잭션 목표

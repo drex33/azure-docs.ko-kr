@@ -4,17 +4,20 @@ description: App Service Environment에서 앱을 작성, 게시 및 스케일�
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594058"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568283"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 ASE(App Service Environment)는 Azure App Service를 고객의 Azure Virtual Network 인스턴스의 서브넷에 배포한 것입니다. ASE는 다음과 같은 요소로 구성됩니다.
 
@@ -88,9 +91,9 @@ ASE는 최대 100개의 인스턴스를 포함하도록 App Service 플랜을 �
 
 ## <a name="ip-addresses"></a>IP 주소
 
-App Service로 앱에 전용 IP 주소를 할당할 수 있습니다. 해당 기능은 [Azure App Service에 기존 사용자 지정 TLS/SSL 인증서 바인딩하기][ConfigureSSL]에 설명된 대로 IP 기반 SSL을 구성한 후에 사용할 수 있습니다. ILB ASE에서 IP 기반 SSL에 사용할 IP 주소를 더 추가할 수 없습니다.
+App Service로 앱에 전용 IP 주소를 할당할 수 있습니다. 해당 기능은 [Azure App Service에 기존 사용자 지정 TLS/SSL 인증서 바인딩][ConfigureSSL]에 설명된 대로 IP 기반 TLS/SSL 바인딩을 구성한 후에 사용할 수 있습니다. ILB ASE에서 IP 기반 TLS/SSL 바인딩에 사용할 IP 주소를 더 추가할 수 없습니다.
 
-외부 ASE를 사용하여 다중 테넌트 App Service와 동일한 방식으로 앱에 대한 IP 기반 SSL을 구성할 수 있습니다. ASE에는 항상 하나의 여분의 주소가 있습니다(최대 IP 주소 30개). IP 주소를 사용할 때마다 다른 주소가 추가되므로 항상 주소를 즉시 사용할 수 있습니다. 다른 IP 주소를 할당하려면 시간이 지연됩니다. 해당 시간 지연으로 인해 IP 주소를 연속으로 빠르게 추가할 수 없습니다.
+외부 ASE를 사용하여 다중 테넌트 App Service와 동일한 방식으로 앱에 대한 IP 기반 TLS/SSL 바인딩을 구성할 수 있습니다. ASE에는 항상 하나의 여분의 주소가 있습니다(최대 IP 주소 30개). IP 주소를 사용할 때마다 다른 주소가 추가되므로 항상 주소를 즉시 사용할 수 있습니다. 다른 IP 주소를 할당하려면 시간이 지연됩니다. 해당 시간 지연으로 인해 IP 주소를 연속으로 빠르게 추가할 수 없습니다.
 
 ## <a name="front-end-scaling"></a>프런트 엔드 확장
 
@@ -141,7 +144,7 @@ Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합�
 
 ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음 *contoso.net* 이라는 영역을 만들려는 경우 해당 작업을 수행하고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. scm 사이트는 *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net* 에서만 사용할 수 있습니다. 
 
-*.&lt;asename&gt;.appserviceenvironment.net* 이라는 영역은 전역적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *.contoso.com* 을 사용하려는 경우 해당 작업을 수행할 수 있었으며 scm 사이트를 포함하였습니다. 이 모델에는 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
+*.&lt;asename&gt;.appserviceenvironment.net* 이라는 영역은 전역적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 *.contoso.com* 을 사용하려는 경우 해당 작업을 수행할 수 있었으며 scm 사이트를 포함하였습니다. 이 모델에는 기본 TLS/SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
 
 ## <a name="publishing"></a>게시
 
@@ -207,22 +210,15 @@ Log Analytics와 통합하는 경우 ASE 포털에서 **로그** 를 선택하�
 
 ## <a name="upgrade-preference"></a>업그레이드 기본 설정
 
-ASE가 여러 개 있는 경우 일부 ASE를 다른 ASE보다 먼저 업그레이드해야 할 수 있습니다. ASE **HostingEnvironment Resource Manager** 개체 내에서 **upgradePreference** 에 대한 값을 설정할 수 있습니다. **upgradePreference** 설정은 템플릿, ARMClient 또는 https://resources.azure.com 을 사용하여 구성할 수 있습니다. 가능한 세 가지 값은 다음과 같습니다.
+ASE가 여러 개 있는 경우 일부 ASE를 다른 ASE보다 먼저 업그레이드해야 할 수 있습니다. 이 동작은 ASE 포털을 통해 사용하도록 설정할 수 있습니다.  **구성** 아래 **업그레이드 기본 설정** 을 지정하는 옵션이 있습니다. 가능한 세 가지 값은 다음과 같습니다.
 
 - **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드합니다. 이 값은 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 초반부에서 업그레이드됩니다.
 - **후기**: ASE는 App Service 업그레이드의 후반부에서 업그레이드됩니다.
 
-https://resources.azure.com 을 사용하는 경우 다음 단계를 따라 **upgradePreferences** 값을 설정합니다.
+원하는 값을 선택하고 **저장** 을 선택합니다.  모든 ASE의 기본값은 **없음** 입니다.
 
-1. resources.azure.com으로 이동하여 Azure 계정으로 로그인합니다.
-1. 구독\/\[구독 이름\]\/resourceGroups\/\[리소스 그룹 이름\]\/공급자\/Microsoft.Web\/hostingEnvironments\/\[ASE 이름\]에 대한 리소스를 살펴봅니다.
-1. 상단에서 **읽기/쓰기** 를 선택합니다.
-1. **편집** 을 선택합니다.
-1. **upgradePreference** 를 원하는 세 개의 값 중 하나로 설정합니다.
-1. **패치** 를 선택합니다.
-
-![azure com이 표시하는 리소스][5]
+![ASE 구성 포털][5]
 
 **upgradePreferences** 기능을 사용하면 “초기” ASE가 “후기” ASE 이전에 업그레이드되기 때문에 여러 개의 ASE가 있는 경우에 가장 적합합니다. 여러 ASE가 있는 경우 개발 및 테스트 ASE를 “초기”로 설정하고 프로덕션 ASE는 “후기”로 설정해야 합니다.
 

@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 576bc21791d088a736044a0111c25dc97c57b059
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854813"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676611"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -149,6 +149,11 @@ Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러
 Linux 머신에서 실행할 업데이트를 예약하는 경우, 예를 들어 **보안** 분류와 일치하는 업데이트만 설치하도록 구성되었다면 설치된 업데이트는 해당 분류와 일치하는 업데이트의 하위 집합이거나 이와 다를 수 있습니다. Linux 머신에 대해 보류 중인 OS 업데이트의 평가를 수행하는 경우 업데이트 관리에서 분류를 위해 Linux 배포판 공급 업체에서 제공하는 [OVAL](https://oval.mitre.org/)(Open Vulnerability and Assessment Language) 파일을 사용합니다.
 
 분류는 보안 문제나 취약성을 해결하는 업데이트를 포함하는 OVAL 파일을 기반으로 Linux 업데이트의 경우 **보안** 또는 **기타** 방식으로 수행됩니다. 하지만 업데이트 일정을 실행하면 해당 패키지 관리자(예: YUM, APT 또는 ZYPPER)를 사용하여 설치하기 위해 Linux 머신에서 실행됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류하는 다른 메커니즘을 사용할 수 있습니다. 이 경우 업데이트 관리를 사용하여 OVAL 파일에서 가져온 것과 다를 수 있습니다. 머신을 수동으로 확인하고 패키지 관리자의 보안 관련 업데이트가 무엇인지 이해하려면 [Linux 업데이트 배포 문제 해결](../troubleshoot/update-management.md#updates-linux-installed-different)을 참조하세요.
+
+>[!NOTE]
+> 업데이트 분류별로 업데이트를 배포하면 업데이트 관리에서 지원하는 Linux 배포판에서 제대로 작동하지 않을 수 있습니다. 이는 OVAL 파일의 명명 스키마로 식별된 문제의 결과이며, 이로 인해 업데이트 관리가 필터링 규칙에 따라 분류를 적절하게 일치시킬 수 없습니다. 보안 업데이트 평가에 사용되는 논리가 다르기 때문에 배포 중에 적용되는 보안 업데이트와 결과가 다를 수 있습니다. 분류가 **중요** 및 **보안** 으로 설정된 경우 업데이트 배포가 예상대로 작동합니다. 평가 중 *업데이트 분류* 만 영향을 받습니다.
+>
+> Windows Server 컴퓨터용 업데이트 관리 영향을 받지 않으며 업데이트 분류 및 배포는 변경되지 않습니다.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Configuration Manager와 업데이트 관리 통합
 

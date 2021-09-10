@@ -5,13 +5,13 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/16/2020
-ms.openlocfilehash: 5b0a5d2117ea17ec003eb20084a0742e81d12ecb
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 07/27/2021
+ms.openlocfilehash: b2bdd5ee189d4fe350171d37e51d0f88b3e3ac20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804091"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536714"
 ---
 # <a name="set-up-an-appliance-for-servers-in-a-vmware-environment"></a>VMware 환경에서 서버의 어플라이언스 설정
 
@@ -125,7 +125,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 복사하고 로그인하는 위치를 보여주는 스크린샷":::
 
-1. 브라우저의 새 탭에서 디바이스 코드를 붙여 넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다. PIN을 사용한 로그인은 지원되지 않습니다.
+1. 브라우저의 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다. PIN을 사용한 로그인은 지원되지 않습니다.
 
     실수로 로그인하지 않고 로그인 탭을 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 디바이스 코드와 **코드 복사 및 로그인** 단추를 표시합니다.
 1. 성공적으로 로그인한 후에는 어플라이언스 구성 관리자가 표시된 브라우저 탭으로 돌아갑니다. 로그인하는 데 사용한 Azure 사용자 계정에 키 생성 중에 만든 Azure 리소스에 필요한 권한이 있으면 어플라이언스 등록이 시작됩니다.
@@ -152,7 +152,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
 
 ### <a name="provide-server-credentials"></a>서버 자격 증명 입력
 
-**3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색을 수행하는 데 필요한 서버 자격 증명 제공** 에서 여러 서버 자격 증명을 제공할 수 있습니다. 이러한 어플라이언스 기능을 사용하지 않으려면 이 단계를 건너뛰고 vCenter Server 검색으로 진행하면 됩니다. 이 옵션은 언제든지 변경할 수 있습니다.
+**3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색, VMware 환경에서 ASP.NET 웹앱 검색을 수행하는 데 필요한 서버 자격 증명 제공** 에서 여러 서버 자격 증명을 제공할 수 있습니다. 이러한 어플라이언스 기능을 사용하지 않으려면 이 단계를 건너뛰고 vCenter Server 검색으로 진행하면 됩니다. 이 옵션은 언제든지 변경할 수 있습니다.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="소프트웨어 인벤토리, 종속성 분석 및 SQL Server 검색을 위한 자격 증명 제공을 보여주는 스크린샷":::
 
@@ -171,7 +171,7 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
     **저장** 을 선택합니다.
 
     도메인 자격 증명을 선택하는 경우 도메인에 대한 FQDN도 입력해야 합니다. FQDN은 해당 도메인의 Active Directory 인스턴스에서 자격 증명의 신뢰성에 대한 유효성을 검사하는 데 필요합니다.
-1. 설치된 애플리케이션의 검색, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스의 검색을 위해 계정에 [필요한 권한](add-server-credentials.md#required-permissions)을 검토합니다.
+1. 3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색, ASP.NET 웹앱 검색을 수행하는 데 필요한 서버 자격 증명 제공을 위해 계정에 [필요한 권한](add-server-credentials.md#required-permissions)을 검토합니다.
 1. 여러 자격 증명을 한 번에 추가하려면 **더 추가** 를 선택하여 더 많은 자격 증명을 저장하고 추가합니다.
     **저장** 또는 **더 추가** 를 선택하면 어플라이언스가 인증을 위해 도메인의 Active Directory 인스턴스에서 도메인 자격 증명의 유효성을 검사합니다. 어플라이언스가 반복되어 자격 증명을 각 서버에 매핑할 때 계정 잠금을 방지하기 위해 각 추가 후에 유효성 검사가 이루어집니다.
 
@@ -185,16 +185,17 @@ OVA 파일을 배포하기 전에 파일이 안전한지 확인합니다.
 
 ### <a name="start-discovery"></a>검색 시작
 
-vCenter Server 검색을 시작하려면 **3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색을 수행하기 위해 서버 자격 증명 제공** 에서 **검색 시작** 을 선택합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
+vCenter Server 검색을 시작하려면 **3단계: 소프트웨어 인벤토리, 에이전트 없는 종속성 분석, SQL Server 인스턴스 및 데이터베이스 검색, VMware 환경에서 ASP.NET 웹앱 검색을 수행하는 데 필요한 서버 자격 증명 제공** 에서 **검색 시작** 을 선택합니다. 검색이 성공적으로 시작되면 원본 테이블에서 vCenter Server IP 주소/FQDN에 대한 검색 상태를 확인할 수 있습니다.
 
 ## <a name="how-discovery-works"></a>검색의 작동 원리
 
 * 검색된 서버의 인벤토리가 Azure Portal에 표시되는 데 약 15분 정도 걸립니다.
 * 서버 자격 증명을 제공한 경우 vCenter Server를 실행하는 서버의 검색이 완료된 후 소프트웨어 인벤토리(설치된 애플리케이션의 검색)가 자동으로 시작됩니다. 소프트웨어 인벤토리는 12시간마다 한 번씩 수행됩니다.
 * [소프트웨어 인벤토리](how-to-discover-applications.md)는 서버에서 실행되는 SQL Server 인스턴스를 식별합니다. 어플라이언스는 수집한 정보를 사용하여 어플라이언스에서 제공된 SQL Server 인증 자격 증명 또는 Windows 인증 자격 증명을 통해 SQL Server 인스턴스에 연결하려고 시도합니다. 그런 다음, SQL Server 데이터베이스 및 해당 속성에 대한 데이터를 수집합니다. SQL 검색은 24시간마다 한 번씩 수행됩니다.
+* [소프트웨어 인벤토리](how-to-discover-applications.md)는 서버의 웹 서버 역할을 식별합니다. 어플라이언스는 수집한 정보를 사용하여 어플라이언스에서 제공된 Windows 인증 자격 증명을 통해 IIS 웹 서버에 연결하려고 시도합니다. 그런 다음, 웹앱에서 데이터를 수집합니다. 웹앱 검색은 24시간마다 한 번씩 수행됩니다.
 * 설치된 애플리케이션을 검색하는 데 15분 이상 걸릴 수 있습니다. 소요 시간은 검색할 서버 수에 따라 달라집니다. 서버가 500개인 경우 검색된 인벤토리가 포털의 Azure Migrate 프로젝트에 표시될 때까지 약 1시간 정도 걸립니다.
 * 소프트웨어 인벤토리 중에 추가된 서버 자격 증명은 서버에 대해 반복되고, 에이전트 없는 종속성 분석을 위해 유효성이 검사됩니다. 서버 검색이 완료되면 포털에서 서버에 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다. 유효성 검사에 성공한 서버만 선택하여 에이전트 없는 종속성 분석을 사용하도록 설정할 수 있습니다.
-* SQL Server 인스턴스 및 데이터베이스 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
+* SQL Server 인스턴스 및 데이터베이스 데이터와 웹앱 데이터는 검색을 시작한 후 24시간 이내에 포털에 표시되기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

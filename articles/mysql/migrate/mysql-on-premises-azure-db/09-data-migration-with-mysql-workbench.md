@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션 가이드 MySQL Workbench를 사용하여 데이터 마이그레이션
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션: MySQL Workbench를 사용하여 데이터 마이그레이션'
 description: 설치 가이드의 모든 단계에 따라 다음 단계를 지원하는 환경을 만듭니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 485a377decee390701cb43a99bd47e96f29f1f55
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 2b3dc8702251a6fcc53386cb17cbe44a45e59db2
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082929"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292967"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-data-migration-with-mysql-workbench"></a>MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션 가이드 MySQL Workbench를 사용하여 데이터 마이그레이션
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-data-migration-with-mysql-workbench"></a>MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션: MySQL Workbench를 사용하여 데이터 마이그레이션
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,7 +34,7 @@ ms.locfileid: "112082929"
 
 ## <a name="configuring-server-parameters-target"></a>서버 매개 변수 구성(대상)
 
-Azure Database for MySQL로의 가져오기 프로세스를 시작하기 전에 서버 매개 변수를 검토합니다. 서버 매개 변수는 [Azure Portal](/azure/mysql/howto-server-parameters)을 사용하거나 [Azure PowerShell for MySQL cmdlet](/azure/mysql/howto-configure-server-parameters-using-powershell)을 호출하여 변경하는 방식으로 검색하고 설정할 수 있습니다.
+Azure Database for MySQL로의 가져오기 프로세스를 시작하기 전에 서버 매개 변수를 검토합니다. 서버 매개 변수는 [Azure Portal](../../howto-server-parameters.md)을 사용하거나 [Azure PowerShell for MySQL cmdlet](../../howto-configure-server-parameters-using-powershell.md)을 호출하여 변경하는 방식으로 검색하고 설정할 수 있습니다.
 
 다음 PowerShell 스크립트를 실행하여 모든 매개 변수를 가져옵니다.
 
@@ -50,7 +52,7 @@ Get-AzMySqlConfiguration -ResourceGroupName $rgName -ServerName $serverName
 - mysql 도구로 동일한 작업을 수행하려면 [CA 루트 인증](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)을 c:\\temp로 다운로드합니다(이 디렉터리 만들기).
 
     > [!NOTE]
-    > 이 인증서는 변경될 수 있습니다. 최신 인증서 정보에 대해서는 [Azure Database for MySQL에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](/azure/mysql/howto-configure-ssl)을 참조하세요.
+    > 이 인증서는 변경될 수 있습니다. 최신 인증서 정보에 대해서는 [Azure Database for MySQL에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](../../howto-configure-ssl.md)을 참조하세요.
     
 - 명령 프롬프트에서 다음을 실행합니다. 토큰을 업데이트해야 합니다.
 
@@ -66,7 +68,7 @@ mysql --host {servername}.mysql.database.azure.com --database mysql --user
 
 - `max\_allowed\_packet` – 긴 행으로 인한 오버플로 문제를 방지하기 위해 매개 변수를 `1073741824`(즉, 1GB) 또는 데이터베이스에 있는 행의 최대 크기로 설정합니다. 끌어오거나 읽어야 하는 큰 BLOB 행이 있는 경우 이 매개 변수를 조정하는 것이 좋습니다.
 
-- `innodb\_buffer\_pool\_size` – 마이그레이션 중에 포털의 가격 책정 계층에서 서버를 32개의 vCore 메모리 최적화 SKU로 확장하여 innodb\_buffer\_pool\_size를 늘립니다. Innodb\_buffer\_pool\_size는 Azure Database for MySQL 서버에 대한 컴퓨팅을 확장해야만 늘릴 수 있습니다. 계층의 최댓값에 대해서는 [Azure Database for MySQL의 서버 매개 변수](/azure/mysql/concepts-server-parameters#innodb_buffer_pool_size)를 참조하세요. 메모리 최적화 32 vCore 시스템의 최댓값은 `132070244352`입니다.
+- `innodb\_buffer\_pool\_size` – 마이그레이션 중에 포털의 가격 책정 계층에서 서버를 32개의 vCore 메모리 최적화 SKU로 확장하여 innodb\_buffer\_pool\_size를 늘립니다. Innodb\_buffer\_pool\_size는 Azure Database for MySQL 서버에 대한 컴퓨팅을 확장해야만 늘릴 수 있습니다. 계층의 최댓값에 대해서는 [Azure Database for MySQL의 서버 매개 변수](../../concepts-server-parameters.md#innodb_buffer_pool_size)를 참조하세요. 메모리 최적화 32 vCore 시스템의 최댓값은 `132070244352`입니다.
 
 - `innodb\_io\_capacity` & `innodb\_io\_capacity\_max` - 매개 변수를 `9000`으로 변경하여 마이그레이션 속도를 최적화하도록 IO 사용률을 개선합니다.
 
@@ -180,7 +182,7 @@ Update-AzMySqlConfiguration -Name log\_bin\_trust\_function\_creators
 
 ## <a name="revert-server-parameters"></a>서버 매개 변수 되돌리기
 
-Azure Database for MySQL 대상 인스턴스에서 다음 매개 변수를 변경할 수 있습니다. 이러한 매개 변수는 Azure Portal을 사용하거나 [Azure PowerShell for MySQL cmdlet](/azure/mysql/howto-configure-server-parameters-using-powershell)을 사용하여 설정할 수 있습니다.
+Azure Database for MySQL 대상 인스턴스에서 다음 매개 변수를 변경할 수 있습니다. 이러한 매개 변수는 Azure Portal을 사용하거나 [Azure PowerShell for MySQL cmdlet](../../howto-configure-server-parameters-using-powershell.md)을 사용하여 설정할 수 있습니다.
 
 ```
 $rgName = "YourRGName";
@@ -215,6 +217,8 @@ az webapp restart -g $rgName -n $app\_name
 ```
 온-프레미스에서 Azure Database for MySQL로의 마이그레이션을 완료했습니다\!  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [마이그레이션 후 관리](./10-post-migration-management.md)

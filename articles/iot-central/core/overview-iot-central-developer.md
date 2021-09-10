@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 90e1b951cd3990df3615cdcf33a4d659f693b5ee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6aab9cbb91f2a419b9c6be5378bd8238b0d841d8
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064885"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609278"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
@@ -27,7 +27,7 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 - _속성_ 은 디바이스가 IoT Central에 보고하는 상태 값입니다. 디바이스의 현재 펌웨어 버전을 예로 들 수 있습니다. IoT Central이 대상 온도와 같이 디바이스에서 업데이트할 수 있는 쓰기 가능 속성도 사용할 수 있습니다.
 - _명령_ 은 디바이스의 동작을 제어하기 위해 IoT Central에서 호출됩니다. 예를 들어 IoT Central 애플리케이션에서 디바이스 재부팅 명령을 호출할 수 있습니다.
 
-솔루션 빌더는 원격 분석 데이터를 시각화하고, 속성을 관리하고, 명령을 호출할 수 있도록 IoT Central 웹 UI에서 대시보드와 보기를 구성하는 역할을 담당합니다.
+솔루션 빌더는 원격 분석 데이터를 시각화하고, 속성을 관리하고, 명령을 호출할 수 있도록 IoT Central 웹 UI에서 대시보드및 디바이스는 보기를 구성하는 역할을 담당합니다.
 
 ## <a name="types-of-device"></a>디바이스 유형
 
@@ -85,7 +85,7 @@ IoT Central 디바이스 템플릿에는 해당 유형의 디바이스에서 구
 
 각 모델에는 `dtmi:com:example:Thermostat;1`과 같은 고유한 _DTMI(디바이스 쌍 모델 식별자)_ 가 있습니다. 디바이스가 IoT Central에 연결되면 해당 디바이스에서 구현하는 모델의 DTMI를 보냅니다. 그러면 IoT Central에서 올바른 디바이스 템플릿을 디바이스에 연결할 수 있습니다.
 
-[IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)는 디바이스에서 DTDL 모델을 구현할 때 따라야 하는 규칙 세트를 정의합니다.
+[IoT 플러그 앤 플레이](../../iot-develop/overview-iot-plug-and-play.md)는 디바이스에서 DTDL 모델을 구현할 때 따라야 하는 [규칙](../../iot-develop/concepts-convention.md) 세트를 정의합니다.
 
 [Azure IoT 디바이스 SDK](#languages-and-sdks)에는 IoT 플러그 앤 플레이 규칙에 대한 지원이 포함되어 있습니다.
 
@@ -100,10 +100,10 @@ IoT Central 디바이스 템플릿에는 해당 유형의 디바이스에서 구
 
 DTDL 모델은 _구성 요소가 없는 모델_ 또는 _다중 구성 요소 모델_ 일 수 있습니다.
 
-- 구성 요소가 없는 모델: 단순 모델은 포함 구성 요소 또는 계단식 구성 요소를 사용하지 않습니다. 모든 원격 분석, 속성 및 명령은 단일 _기본 구성 요소_ 로 정의됩니다. 예제는 [자동 온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) 모델을 참조하세요.
-- 다중 구성 요소 모델: 둘 이상의 구성 요소가 포함된 더 복잡한 모델입니다. 이러한 구성 요소에는 단일 기본 구성 요소 및 하나 이상의 추가 중첩 구성 요소가 포함됩니다. 예제는 [온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) 모델을 참조하세요.
+- 구성 요소가 없는 모델: 단순 모델은 포함 구성 요소 또는 계단식 구성 요소를 사용하지 않습니다. 모든 원격 분석, 속성 및 명령은 단일 _루트 구성 요소_ 로 정의됩니다. 예제는 [자동 온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) 모델을 참조하세요.
+- 다중 구성 요소 모델: 둘 이상의 구성 요소가 포함된 더 복잡한 모델입니다. 이러한 구성 요소에는 단일 루트 구성 요소 및 하나 이상의 추가 중첩 구성 요소가 포함됩니다. 예제는 [온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) 모델을 참조하세요.
 
-자세히 알아보려면 [IoT 플러그 앤 플레이 모델링 가이드](../../iot-pnp/concepts-modeling-guide.md)를 참조하세요.
+자세히 알아보려면 [IoT 플러그 앤 플레이 모델링 가이드](../../iot-develop/concepts-modeling-guide.md)를 참조하세요.
 
 ### <a name="conventions"></a>규칙
 
@@ -119,7 +119,7 @@ DTDL 모델은 _구성 요소가 없는 모델_ 또는 _다중 구성 요소 모
 
 디바이스에서 IoT Central과 교환하는 JSON 메시지의 형식에 대한 자세한 내용은 [원격 분석, 속성 및 명령 페이로드](concepts-telemetry-properties-commands.md)를 참조하세요.
 
-IoT 플러그 앤 플레이 규칙에 대한 자세한 내용은 [IoT 플러그 앤 플레이 규칙](../../iot-pnp/concepts-convention.md)을 참조하세요.
+IoT 플러그 앤 플레이 규칙에 대한 자세한 내용은 [IoT 플러그 앤 플레이 규칙](../../iot-develop/concepts-convention.md)을 참조하세요.
 
 ### <a name="device-sdks"></a>디바이스 SDK
 

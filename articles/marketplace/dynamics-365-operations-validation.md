@@ -7,16 +7,16 @@ ms.topic: article
 author: vamahtan
 ms.author: vamahtan
 ms.date: 05/19/2021
-ms.openlocfilehash: 45bdf3e0006aeaf24b8c3ede0f7090aabfe85808
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 05b7c223823522b7c511df7cfa66c7dffa2a8b4b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483353"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281290"
 ---
 # <a name="dynamics-365-for-operations-functional-validation"></a>Dynamics 365 for Operations 기능 유효성 검사
 
-[파트너 센터](https://partner.microsoft.com/dashboard/home)에서 Dynamics 365 for Operations 제품을 게시하려면 두 가지 기능 유효성 검사가 필요합니다.
+[파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에서 Dynamics 365 for Operations 제품을 게시하려면 두 가지 기능 유효성 검사가 필요합니다.
 
 - 기본 기능을 보여 주는 Dynamics 365 환경의 데모 비디오를 업로드합니다.
 - 솔루션의 [LCS](https://lcs.dynamics.com/)(Lifecycle Services) 환경을 보여 주는 스크린샷을 제공합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "110483353"
 기능 유효성 검사에는 두 가지 옵션이 있습니다.
 
 - PST(태평양 표준시) 업무 시간 동안 30분가량의 컨퍼런스 통화를 개최하여 [LCS](https://lcs.dynamics.com/) 환경 및 솔루션을 시연하고 녹화합니다.
-- 파트너 센터에서 [상업용 Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **개요** 로 이동하고 제품 추가 콘텐츠 탭에서 데모 비디오 URL 및 LCS 스크린샷을 업로드합니다.
+- 파트너 센터에서 [상용 마켓플레이스](https://go.microsoft.com/fwlink/?linkid=2165290)로 이동하고 제품 추가 콘텐츠 탭에서 데모 비디오 URL 및 LCS 스크린샷을 업로드합니다.
 
 Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인하거나 다음 단계에 대해 메일을 전송합니다.
 
@@ -70,7 +70,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인
 3. 파트너 센터에 업로드합니다.
 
     1. 데모 비디오 주소 및 스크린샷을 포함하는 텍스트 문서를 만들거나 스크린샷을 별도의 JPG 파일로 저장합니다.
-    2. 제품의 **보조 콘텐츠** 탭에 있는 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에서 .zip 파일에 텍스트와 이미지를 추가합니다.
+    2. 제품의 **보조 콘텐츠** 탭에 있는 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에서 .zip 파일에 텍스트와 이미지를 추가합니다.
 
     [![프로젝트 라이브러리 창을 표시합니다.](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
 

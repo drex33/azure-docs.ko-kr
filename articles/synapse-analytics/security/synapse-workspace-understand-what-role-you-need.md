@@ -1,19 +1,19 @@
 ---
 title: Synapse에서 일반적인 작업을 수행하는 데 필요한 역할 이해
 description: 이 문서에서는 특정 작업을 수행하는 데 필요한 기본 제공 Synapse RBAC 역할에 대해 설명합니다.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87156914769c2cb76b7509b74ebfeb13b15af95e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2d913d0312b75542fa52e73e68170e9a3b91cf5d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784198"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823347"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse에서 일반적인 작업을 수행하는 데 필요한 역할 이해
 
@@ -76,7 +76,7 @@ SQL 풀|
 SQL 스크립트 만들기</br>|Synapse 사용자 또는 </br>작업 영역에 대한 Azure 소유자 또는 기여자 </br>SQL 스크립트를 실행하거나, 게시하거나, 변경 내용을 커밋하려면 추가 SQL 권한이 필요합니다.|
 게시된 SQL 스크립트 나열 및 열기| Synapse 아티팩트 사용자, 아티팩트 게시자, Synapse 기여자|artifacts/read
 서버리스 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한(Synapse 관리자에게 자동으로 부여됨)|없음
-전용 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한|없음
+전용 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한(Synapse 관리자에게 자동으로 부여됨)|없음
 새, 업데이트된 또는 삭제된 SQL 스크립트 게시|Synapse 아티팩트 게시자, Synapse 기여자|sqlScripts/write, delete
 SQL 스크립트에 대한 변경 내용을 Git 리포지토리에 커밋|리포지토리에 대한 Git 권한이 필요|
 작업 영역에 Active Directory 관리자 할당(Azure Portal의 작업 영역 속성을 통해)|작업 영역에 대한 Azure 소유자 또는 기여자 |
@@ -92,7 +92,7 @@ Notebook 또는 작업 정의(출력 포함)를 서비스에 게시 또는 삭�
 Notebook 또는 작업 정의에 대한 변경 내용을 Git 리포지토리에 커밋|Git 권한|없음
 파이프라인, 통합 런타임, 데이터 흐름, 데이터 세트 및 트리거|
 통합 런타임 만들기, 업데이트 또는 삭제|작업 영역에 대한 Azure 소유자 또는 기여자|
-통합 런타임 상태 모니터링|Synapse 사용자|read, pipelines/viewOutputs
+통합 런타임 상태 모니터링|Synapse 컴퓨팅 운영자|read, integrationRuntimes/viewLogs
 파이프라인 실행 검토|Synapse 아티팩트 게시자/Synapse 기여자|read, pipelines/viewOutputs 
 파이프라인 만들기 |Synapse 사용자</br>디버그하거나, 트리거를 추가하거나, 게시하거나, 변경 내용을 커밋하려면 추가 Synapse 권한이 필요합니다.|읽기
 데이터 흐름 또는 데이터 세트 만들기 |Synapse 사용자</br>게시하거나 변경 내용을 커밋하려면 추가 Synapse 권한이 필요합니다.|읽기

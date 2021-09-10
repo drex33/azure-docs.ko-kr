@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea502deee0caf5418bf5554473180eb405792567
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ff1c0d1e552ad26832b2c142f5ca1506654a9a0c
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287053"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219541"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>dsregcmd 명령을 사용하여 디바이스 문제 해결
 
@@ -56,7 +56,7 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
 
 ## <a name="device-details"></a>디바이스 세부 정보
 
-디바이스가 Azure AD에 조인된 경우 또는 하이브리드 Azure AD에 조인된 경우에만 표시됩니다(Azure AD 등록됨이 아님). 이 섹션에는 클라우드에 저장된 디바이스 식별 정보가 나열됩니다.
+디바이스가 Azure AD에 조인된 경우 또는 하이브리드 Azure AD에 조인된 경우에만 표시됩니다(Azure AD 등록됨이 아님). 이 섹션에는 Azure AD에 저장된 장치 식별 세부 정보가 나열됩니다.
 
 - **DeviceId:** Azure AD 테넌트에서 디바이스의 고유 ID입니다.
 - **Thumbprint:** 디바이스 인증서의 지문입니다.
@@ -64,6 +64,14 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
 - **KeyContainerId:** - 디바이스 인증서와 연결된 디바이스 프라이빗 키의 ContainerId입니다.
 - **KeyProvider:** 디바이스 프라이빗 키를 저장하는 데 사용되는 KeyProvider(하드웨어/소프트웨어)입니다.
 - **TpmProtected:** 디바이스 프라이빗 키가 하드웨어 TPM에 저장되는 경우 “YES”입니다.
+
+> [!NOTE]
+> **DeviceAuthStatus** 필드가 **Windows 10 2021년 5월 업데이트(버전 21H1)** 에 추가되었습니다.
+
+- **DeviceAuthStatus:** Azure AD에서 기기의 상태를 확인하기 위해 검사를 수행합니다.  
+장치가 있고 Azure AD에서 활성화된 경우 ‘성공’입니다.  
+‘실패. 기기가 비활성화되었거나 삭제되었습니다"라는 메시지가 표시되며 기기가 비활성화되거나 삭제된 경우 [추가 정보](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices)를 참조하세요.  
+‘실패. 오류" - 테스트를 실행할 수 없는 경우 이 테스트에는 Azure AD에 대한 네트워크 연결이 필요합니다.  
 
 ### <a name="sample-device-details-output"></a>샘플 디바이스 세부 정보 출력
 
@@ -78,6 +86,7 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
             KeyContainerId : 13e68a58-xxxx-xxxx-xxxx-a20a2411xxxx
                KeyProvider : Microsoft Software Key Storage Provider
               TpmProtected : NO
+          DeviceAuthStatus : SUCCESS
 +----------------------------------------------------------------------+
 ```
 
@@ -134,7 +143,7 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
 - **CanReset:** 사용자가 Windows Hello 키를 다시 설정할 수 있는지 여부를 나타냅니다.
 - **가능한 값:** 오류가 발생한 경우 DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive 또는 Unknown입니다.
 - **WorkplaceJoined:** Azure AD 등록된 계정이 현재 NTUSER 컨텍스트의 디바이스에 추가된 경우 “YES”로 설정합니다.
-- **WamDefaultSet:** 로그인한 사용자에 대해 WAM default WebAccount가 생성되면 “YES”로 설정합니다. 관리자 권한 명령 프롬프트에서 dsreg /status를 실행하는 경우 이 필드에 오류가 표시될 수 있습니다.
+- **WamDefaultSet:** 로그인한 사용자에 대해 WAM default WebAccount가 생성되면 “YES”로 설정합니다. dsregcmd /status가 관리자 권한 명령 프롬프트에서 실행되는 경우 이 필드에 오류가 표시될 수 있습니다.
 - **WamDefaultAuthority:** Azure AD의 “조직”으로 설정합니다.
 - **WamDefaultId:** Azure AD의 경우 항상 “https://login.microsoft.com”입니다.
 - **WamDefaultGUID:** 기본 WAM WebAccount에 대한 WAM 공급자(Azure AD/Microsoft 계정)의 GUID입니다.
@@ -174,6 +183,34 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
 - **EnterprisePrtExpiryTime:** 갱신되지 않은 경우 PRT가 만료되는 시간을 UTC로 설정합니다.
 - **EnterprisePrtAuthority:** ADFS 기관 URL입니다.
 
+>[!NOTE]
+> 다음 PRT 진단 필드가 **Windows 10 2021년 5월 업데이트(버전 21H1)** 에 추가되었습니다.
+
+>[!NOTE]
+> **AzureAdPrt** 필드에 표시되는 진단 정보는 AzureAD PRT 획득/새로 고침에 대한 정보이고 **EnterprisePrt** 에 표시되는 진단 정보는 Enterprise PRT 획득/새로고침에 대한 정보입니다.
+
+>[!NOTE]
+>진단 정보는 마지막으로 성공한 PRT 업데이트 시간(AzureAdPrtUpdateTime/EnterprisePrtUpdateTime) 이후에 획득/새로 고침 실패가 발생한 경우에만 표시됩니다.  
+>공유 장치에서 이 진단 정보는 다른 사용자의 로그온 시도를 형성할 수 있습니다.
+
+- **AcquirePrtDiagnostics:** PRT 진단 정보 획득이 로그에 있는 경우 ‘표시’로 설정합니다.  
+진단 정보를 사용할 수 없는 경우 이 필드를 건너뜁니다.
+- **이전 PRT 시도:** 실패한 PRT 시도가 발생한 UTC의 현지 시간입니다.  
+- **Client ErrorCode:** 클라이언트 오류 코드가 반환되었습니다(HRESULT).
+- **사용자 ID:** PRT 시도가 발생한 사용자의 UPN입니다.
+- **자격 증명 유형:** PRT를 획득/새로고침하는 데 사용되는 자격 증명입니다. 일반적인 자격 증명 유형은 암호 및 NGC(Windows Hello)입니다.
+- **상관 관계 ID:** 실패한 PRT 시도에 대해 서버에서 보낸 상관 관계 ID입니다.
+- **엔드포인트 URI:** 실패 전에 액세스한 마지막 엔드포인트입니다.
+- **HTTP 메서드:** 엔드포인트에 액세스하는 데 사용되는 HTTP 메서드입니다.
+- **HTTP 오류:** WinHttp 전송 오류 코드입니다. WinHttp 오류는 [여기에서](/windows/win32/winhttp/error-messages)찾을 수 있습니다.
+- **HTTP 상태:** 엔드포인트에서 반환된 HTTP 상태
+- **서버 오류 코드:** 서버의 오류 코드입니다.  
+- **서버 오류 설명:** 서버의 오류 메시지입니다.
+- **AcquirePrtDiagnostics:** PRT 진단 정보 획득이 로그에 있는 경우 ‘표시’로 설정합니다.  
+진단 정보를 사용할 수 없는 경우 이 필드를 건너뜁니다.
+진단 정보 필드는 **AcquirePrtDiagnostics와 동일합니다.**
+
+
 ### <a name="sample-sso-state-output"></a>샘플 SSO 상태 출력
 
 ```
@@ -181,10 +218,20 @@ dsregcmd/status 유틸리티는 도메인 사용자 계정으로 실행해야 �
 | SSO State                                                            |
 +----------------------------------------------------------------------+
 
-                AzureAdPrt : YES
-      AzureAdPrtUpdateTime : 2019-01-24 19:15:26.000 UTC
-      AzureAdPrtExpiryTime : 2019-02-07 19:15:26.000 UTC
+                AzureAdPrt : NO
        AzureAdPrtAuthority : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-07-18 20:10:33.789 UTC
+            Attempt Status : 0xc000006d
+             User Identity : john@contoso.com
+           Credential Type : Password
+            Correlation ID : 63648321-fc5c-46eb-996e-ed1f3ba7740f
+              Endpoint URI : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx/oauth2/token/
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
              EnterprisePrt : YES
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC
@@ -313,7 +360,7 @@ Default (No Key): Enabled
 > 사용자가 이미 WHFB를 구성한 경우 dsregcmd/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
 
 - **IsDeviceJoined:** 디바이스가 Azure AD에 조인되어 있는 경우 “YES”로 설정합니다.
-- **IsUserAzureAD:** 로그인한 사용자가 Azure AD에 있는 경우 “YES”로 설정합니다.
+- **IsUserAzureAD:** 로그인한 사용자가 Azure AD에 있는 경우 "YES"로 설정합니다.
 - **PolicyEnabled:** WHFB 정책이 디바이스에서 사용되도록 설정된 경우 “YES”로 설정합니다.
 - **PostLogonEnabled:** WHFB 등록이 플랫폼에 의해 기본적으로 트리거되는 경우 “YES”로 설정합니다. “NO”로 설정된 경우 비즈니스용 Windows Hello 등록이 사용자 지정 메커니즘에 의해 트리거됨을 나타냅니다.
 - **DeviceEligible:** 디바이스가 WHFB를 사용하여 등록하기 위한 하드웨어 요구 사항을 충족하는 경우 “YES”로 설정합니다.

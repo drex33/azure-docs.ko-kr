@@ -3,12 +3,12 @@ title: 개념 - 프라이빗 클라우드와 클러스터
 description: Azure VMware Solution 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: 7b32752e368f9aac003a45f96f7c0477e9221481
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 97f31c18fd753c89f2201fddfff4d31c8501bae2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089617"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535758"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution 프라이빗 클라우드 및 클러스터 개념
 
@@ -16,7 +16,7 @@ Azure VMware Solution은 Azure에서 VMware 기반 프라이빗 클라우드를 
 
 프라이빗 클라우드에는 다음을 사용하는 클러스터가 포함되어 있습니다.
 
-- VMware ESXi 하이퍼바이저로 프로비저닝된 전용 베어메탈(bare-metal) 서버 노드 
+- VMware ESXi 하이퍼바이저로 프로비저닝된 전용 베어메탈 서버 호스트 
 - ESXi 및 vSAN을 관리하기 위한 vCenter Server 
 - vSphere 워크로드 VM을 위한 VMware NSX-T 소프트웨어 방식 네트워킹  
 - vSphere 워크로드 VM용 VMware vSAN 데이터 저장소  
@@ -27,7 +27,7 @@ Azure VMware Solution은 Azure에서 VMware 기반 프라이빗 클라우드를 
 
 이 다이어그램은 개발 및 프로덕션 환경을 나타내는 두 프라이빗 클라우드를 포함하는 단일 Azure 구독에 대해 보여 줍니다. 각 프라이빗 클라우드에서는 두 개의 클러스터가 있습니다. 
 
-:::image type="content" source="media/hosts-clusters-private-clouds-final.png" alt-text="고객 구독의 두 프라이빗 클라우드를 보여 주는 이미지.":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="개발 및 프로덕션 환경을 나타내는 두 프라이빗 클라우드를 포함하는 단일 Azure 구독을 보여주는 다이어그램." border="false":::
 
 ## <a name="hosts"></a>호스트
 
@@ -85,7 +85,7 @@ Azure VMware 솔루션은 언더레이 및 VMware 구성 요소의 상태를 지
 
 - [Azure VMware Solution 네트워킹 및 상호 연결 개념](concepts-networking.md)
 - [Azure VMware Solution 스토리지 개념](concepts-storage.md)
-- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

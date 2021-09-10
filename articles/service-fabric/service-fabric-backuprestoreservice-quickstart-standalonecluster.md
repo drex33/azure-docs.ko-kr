@@ -3,12 +3,12 @@ title: 독립 실행형 Azure Service Fabric의 정기 백업/복원
 description: 독립 실행형 Service Fabric의 주기적 백업 및 복원 기능을 사용하면 애플리케이션 데이터에 대한 데이터 백업이 주기적으로 실행되도록 할 수 있습니다.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d78a627c0c50a3e2ec57138e40cb5bc97486d6f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78a906e1e2261b0d117c7042b1ac387e2e98f045
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198703"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539235"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>독립 실행형 Azure Service Fabric의 정기 백업 및 복원
 > [!div class="op_single_selector"]
@@ -112,7 +112,9 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
         ...
     }
     ```
-
+    > [!NOTE]
+    > \[지문\]을 암호화에 사용할 올바른 인증서 지문으로 대체해야 합니다.
+    >
 4. 위와 같은 변경 내용으로 클러스터 구성 파일을 업데이트한 후 변경 내용을 적용하고 배포/업그레이드가 완료되도록 합니다. 완료된 후에는 클러스터에서 _Backup 및 Restore 서비스_ 실행이 시작됩니다. 이 서비스의 URI는 `fabric:/System/BackupRestoreService`이고 서비스는 Service Fabric Explorer의 시스템 서비스 섹션 아래에 있을 수 있습니다. 
 
 
@@ -285,12 +287,12 @@ FailureError            :
 
 #### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용하기
 
-Service Fabric Explorer에서 백업을 보려면 파티션으로 이동한 다음 백업 탭을 선택합니다.
+Service Fabric Explorer에서 백업을 보려면 파티션으로 이동한 후 백업 탭을 선택합니다.
 
 ![백업 열거][5]
 
 ## <a name="limitation-caveats"></a>제한/주의 사항
-- Service Fabric PowerShell cmdlet은 미리 보기 모드로 제공됩니다.
+- Service Fabric PowerShell cmdlet은 미리 보기 모드입니다.
 - Linux에서 Service Fabric 클러스터에 대한 지원이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 07/03/2021
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5513aff9bed85293978061f8989c1389e9e7a9c4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 47815bcca9c6630392cb86284d8e8c3cf4d08e67
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954960"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733199"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Microsoft 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
 
 >[!NOTE]
->사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1 또는 Premium 2 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet이 운영하는 Azure 서비스에서는 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
+>사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1, Premium 2 또는 Office 365(Office 365 앱의 경우) 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet이 운영하는 Azure 서비스에서는 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: `https://outlook.com/contoso.com`)에 로그인하거나 도메인 변수(예: `https://passwordreset.microsoftonline.com/?whr=contoso.com`)를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "111954960"
 사용자 지정 브랜딩은 사용자가 www\.office.com과 같은 사이트로 이동할 때 즉시 표시되지 않습니다. 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다. 사용자가 로그인한 후 브랜딩이 나타나는 데 15분 이상이 걸릴 수 있습니다. 
 
 > [!NOTE]
-> 모든 브랜딩 요소는 선택 사항입니다. 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Microsoft 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정에 적용되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
+> **모든 브랜딩 요소는 선택 사항이며 변경되지 않은 경우 기본값으로 유지됩니다.** 예를 들어 배경 이미지가 없는 배너 로고를 지정하는 경우 로그인 페이지는 대상 사이트(예: Microsoft 365)의 기본 배경 이미지를 사용하여 로고를 표시합니다.<br><br>또한 로그인 페이지 브랜딩은 개인 Microsoft 계정에 적용되지 않습니다. 사용자 또는 비즈니스 게스트가 개인 Microsoft 계정을 사용하여 로그인하는 경우 로그인 페이지는 조직의 브랜딩을 반영하지 않습니다.
 
 ### <a name="to-customize-your-branding"></a>브랜딩을 사용자 지정하려면
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "111954960"
 
         - **언어** 언어는 기본값으로 자동 설정되고 변경될 수 없습니다.
         
-        - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 이미지는 브라우저 중앙에 고정되고 표시 가능한 공간의 크기에 맞게 조정됩니다. 크기가 1920x1080픽셀보다 크거나 파일 크기가 300KB보다 큰 이미지는 선택할 수 없습니다.
+        - **로그인 페이지 배경 이미지** .png 또는 .jpg 이미지 파일을 선택하여 로그인 페이지의 배경으로 표시합니다. 이미지는 브라우저 중앙에 고정되고 표시 가능한 공간의 크기에 맞게 조정됩니다. 크기가 1920x1080픽셀보다 크거나 파일 크기가 300,000바이트보다 큰 이미지는 선택할 수 없습니다.
         
             강한 주체 포커스가 없는 이미지를 사용하는 것이 좋습니다. 예를 들어 불투명 흰색 상자가 화면 가운데에 나타나며, 표시 가능한 공간의 크기에 따라 이미지의 모든 부분을 처리할 수 있습니다.
 
@@ -140,7 +140,9 @@ ms.locfileid: "111954960"
     ![Contoso - 새 언어 구성이 표시된 회사 브랜딩 페이지](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>페이지에 사용자 지정 브랜딩 추가
-`?whr=yourdomainname` 텍스트에서 URL의 끝을 수정하여 페이지에 사용자 지정 브랜딩을 추가합니다. 이 수정은 MFA(Multi-Factor Authentication) 설정 페이지, SSPR(셀프 서비스 암호 재설정) 설정 페이지 및 로그인 페이지를 비롯한 여러 페이지에서 작동합니다.
+`?whr=yourdomainname` 텍스트에서 URL의 끝을 수정하여 페이지에 사용자 지정 브랜딩을 추가합니다. 이 특정 수정은 MFA(Multi-Factor Authentication) 설정 페이지, SSPR(셀프 서비스 암호 재설정) 설정 페이지 및 로그인 페이지를 비롯한 다양한 페이지에서 작동합니다.
+
+애플리케이션에서 브랜딩을 위해 사용자 지정된 URL을 지원하는지 여부는 특정 애플리케이션에 따라 달라지며, 페이지에 사용자 지정 브랜딩을 추가하기 전에 확인해야 합니다.
 
 **예:**
 

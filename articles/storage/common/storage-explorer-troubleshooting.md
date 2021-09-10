@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 2baf8c99161d000b92aa10f02a26018bdb7264f4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950589"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093880"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -89,21 +89,30 @@ Storage Explorer를 사용하는 데 필요한 권한을 제공할 수 있는 �
 > [!NOTE]
 > 소유자, 기여자 및 스토리지 계정 기여자 역할은 계정 키 액세스 권한을 부여합니다.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명된 인증서(및 유사 오류)
+## <a name="ssl-certificate-issues"></a>SSL 인증서 문제
 
-인증서 오류는 일반적으로 다음 상황 중 하나에서 발생합니다.
+### <a name="understanding-ssl-certificate-issues"></a>SSL 인증서 문제 이해하기
 
-- 앱이 _투명 프록시_ 를 통해 연결되어 있습니다. 이는 서버(예: 회사 서버)가 HTTPS 트래픽을 가로채서 해독한 다음 자체 서명된 인증서를 사용하여 암호화함을 의미합니다.
-- 수신한 HTTPS 메시지에 자체 서명된 TLS/SSL 인증서를 삽입하는 애플리케이션을 실행하고 있습니다. 인증서를 삽입하는 애플리케이션의 예로는 바이러스 백신 및 네트워크 트래픽 검사 소프트웨어가 있습니다.
+계속하기 전에 Storage Explorer 네트워킹 문서의 [SSL 인증서 섹션](./storage-explorer-network.md#ssl-certificates)을 읽었는지 확인하십시오.
 
-Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계에 따라 Storage Explorer가 이를 신뢰하게 할 수 있습니다.
+### <a name="use-system-proxy"></a>시스템 프록시 사용
+
+**시스템 프록시 사용** 설정을 지원하는 기능만 사용하는 경우 해당 설정을 사용해 보십시오. **시스템 프록시** 설정에 대한 자세한 내용은 [여기](./storage-explorer-network.md#use-system-proxy-preview)를 참조하세요.
+
+### <a name="importing-ssl-certificates"></a>SSL 인증서 내보내기
+
+자체 서명된 인증서의 복사본이 있으면 다음 단계에 따라 Storage Explorer가 이를 신뢰하게 할 수 있습니다.
 
 1. 인증서의 Base-64 인코딩 X.509(.cer) 사본 가져오기
 2. **편집** > **SSL 인증서** > **인증서 가져오기** 로 이동한 다음, 파일 선택기를 사용하여 해당 .cer 파일을 찾아 선택하고 엽니다.
 
 이 문제는 여러 인증서(루트 및 중간)가 있는 경우에도 발생할 수 있습니다. 이 오류를 해결하려면 두 인증서를 모두 추가해야 합니다.
 
-인증서의 출처가 확실하지 않은 경우 다음 단계에 따라 확인합니다.
+### <a name="finding-ssl-certificates"></a>SSL 인증서 찾기
+
+자체 서명된 인증서 사본이 없는 경우 IT 관리자에게 도움을 요청하십시오.
+
+이러한 단계를 수행 하 여 찾을 수 있습니다.
 
 1. OpenSSL을 설치합니다.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 라이트 버전이면 충분합니다.
@@ -111,18 +120,20 @@ Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서
 2. OpenSSL을 실행합니다.
     * Windows: 설치 디렉터리를 열고 **/bin/** 을 선택한 다음 **openssl.exe** 를 두 번 클릭합니다.
     * Mac 및 Linux: 터미널에서 `openssl`을 실행합니다.
-3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
-4. 자체 서명된 인증서를 찾습니다. 자체 서명된 인증서가 확실하지 않은 경우 주체 `("s:")` 및 발급자 `("i:")`가 동일한 모든 위치를 기록해 둡니다.
-5. 자체 서명된 인증서를 찾으면 각각에 대해 `-----BEGIN CERTIFICATE-----`부터 `-----END CERTIFICATE-----`까지 모두 복사하여 새 .cer 파일에 붙여넣습니다.
+3. 스토리지 리소스가 뒤에 있는 Microsoft 또는 Azure 호스트 이름에 대해 `s_client -showcerts -connect <hostname>:443` 명령을 실행합니다. 여기에서 Storage Explorer에서 자주 액세스하는 호스트 이름 목록을 찾을 수 있습니다.
+4. 자체 서명된 인증서를 찾습니다. 제목 `("s:")` 및 발급자 `("i:")`가 동일한 경우 인증서가 자체 서명되었을 가능성이 큽니다.
+5. 자체 서명된 인증서를 찾으면 각 인증서에 대해 `-----BEGIN CERTIFICATE-----`에서 `-----END CERTIFICATE-----`까지(및 포함) 모든 항목을 복사하여 새 .cer 파일에 붙여넣습니다.
 6. Storage Explorer를 열고 **편집** > **SSL 인증서** > **인증서 가져오기** 로 이동합니다. 그런 다음 파일 선택기를 사용하여 생성한 .cer 파일을 찾아 선택하고 엽니다.
 
-다음 단계에 따라 자체 서명된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 문의하세요. `--ignore-certificate-errors` 플래그를 사용하여 명령줄에서 Storage Explorer를 열 수도 있습니다. 이 플래그를 사용하여 열면 Storage Explorer에서 인증서 오류를 무시합니다.
+### <a name="disabling-ssl-certificate-validation"></a>SSL 인증서 유효성 검사 비활성화
+
+다음 단계에 따라 자체 서명된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 문의하세요. `--ignore-certificate-errors` 플래그를 사용하여 명령줄에서 Storage Explorer를 열 수도 있습니다. 이 플래그를 사용하여 열면 Storage Explorer에서 인증서 오류를 무시합니다. **이 플래그는 권장되지 않습니다.**
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
 ### <a name="understanding-sign-in"></a>로그인 이해
 
-[Storage Explorer 로그인](./storage-explorer-sign-in.md) 문서를 참조하세요.
+계속하기 전에 [Storage Explorer에 로그인](./storage-explorer-sign-in.md) 문서를 읽었는지 확인하십시오.
 
 ### <a name="frequently-having-to-reenter-credentials"></a>자격 증명을 자주 다시 입력해야 함
 
@@ -139,7 +150,7 @@ Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서
 
 ### <a name="browser-complains-about-http-redirect-during-sign-in"></a>로그인하는 동안 브라우저에서 HTTP 리디렉션에 대해 불만을 제기함
 
-Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 프로세스가 끝날 때 `localhost`로 리디렉션됩니다. 브라우저에서 리디렉션이 HTTPS 대신 HTTP를 통해 수행되고 있다는 경고 또는 오류를 표시하는 경우가 있습니다. 일부 브라우저에서는 HTTPS를 사용하여 리디렉션을 강제로 수행하려고 할 수도 있습니다. 이 중 하나가 발생하는 경우 브라우저에 따라 다음과 같은 다양한 옵션이 있습니다.
+Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 프로세스가 끝날 때 `localhost`로 리디렉션됩니다. 브라우저에서 리디렉션이 HTTPS 대신 HTTP를 통해 수행되고 있다는 경고 또는 오류를 표시하는 경우가 있습니다. 일부 브라우저에서는 HTTPS를 사용하여 리디렉션을 강제로 수행하려고 할 수도 있습니다. 이 중 하나가 발생하면 브라우저에 따라 다양한 옵션이 있습니다.
 - 경고를 무시합니다.
 - `localhost`에 대한 예외를 추가합니다.
 - 전역적으로 또는 `localhost`에 대해서만 HTTPS 강제 적용을 사용하지 않도록 설정합니다.
@@ -148,7 +159,7 @@ Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 �
 
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>테넌트가 필터링되어 토큰을 가져올 수 없음
 
-테넌트가 필터링되어 토큰을 가져올 수 없다는 오류 메시지가 표시되면 필터링된 테넌트에 있는 리소스에 액세스하려고 한다는 의미입니다. 테넌트의 필터링을 해제하려면 **계정 패널** 로 이동하여 오류에 지정된 테넌트의 확인란이 선택되어 있는지 확인합니다. Storage Explorer에서의 테넌트 필터링에 대한 자세한 내용은 [계정 관리](./storage-explorer-sign-in.md#managing-accounts)를 참조하세요.
+테넌트가 필터링되어 토큰을 얻을 수 없다는 오류 메시지가 표시되면 필터링한 테넌트에 있는 리소스에 액세스하려고 시도하고 있음을 의미합니다. 테넌트를 필터링 해제하려면 **계정 패널** 로 이동하여 오류에 지정된 테넌트의 확인란이 선택되어 있는지 확인합니다. Storage Explorer에서의 테넌트 필터링에 대한 자세한 내용은 [계정 관리](./storage-explorer-sign-in.md#managing-accounts)를 참조하세요.
 
 ### <a name="authentication-library-failed-to-start-properly"></a>인증 라이브러리가 제대로 시작되지 않음
 

@@ -1,7 +1,7 @@
 ---
-title: 방화벽 사용
+title: 인바운드 및 아웃바운드 네트워크 트래픽 구성
 titleSuffix: Azure Machine Learning
-description: Azure Firewall을 사용하여 Azure Machine Learning 작업 영역에 대한 액세스를 제어합니다. 방화벽을 통해 허용해야 하는 호스트에 대해 알아봅니다.
+description: 보안 Azure Machine Learning 작업 영역을 사용할 때 필요한 인바운드 및 아웃바운드 네트워크 트래픽을 구성하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 790b5a3e34d36d674511507bc5e9ed452c5ba74e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bcc1a9fdd930a8c9dd85604528a276f9de8d6e8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567113"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123113109"
 ---
-# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Azure Machine Learning에 대해 방화벽 뒤의 작업 영역 사용
+# <a name="configure-inbound-and-outbound-network-traffic"></a>인바운드 및 아웃바운드 네트워크 트래픽 구성
 
-이 문서에서는 Azure Machine Learning 작업 영역 및 공용 인터넷에 대한 액세스를 제어하도록 Azure Firewall을 구성하는 방법에 대해 알아봅니다. Azure Machine Learning 보안 설정에 대한 자세한 내용은 [Azure Machine Learning 엔터프라이즈 보안](concept-enterprise-security.md)을 참조하세요.
+이 문서에서는 VNet(가상 네트워크)에서 Azure Machine Learning 작업 영역을 보호할 때의 네트워크 통신 요구 사항에 대해 알아봅니다. 여기에는 Azure Machine Learning 작업 영역 및 공용 인터넷에 대한 액세스를 제어하도록 Azure Firewall을 구성하는 방법이 포함됩니다. Azure Machine Learning 보안 설정에 대한 자세한 내용은 [Azure Machine Learning 엔터프라이즈 보안](concept-enterprise-security.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 정보는 프라이빗 엔드포인트 또는 서비스 엔드포인트를 사용하는지 여부에 관계없이 Azure Machine Learning 작업 영역에 적용됩니다.
@@ -73,7 +73,7 @@ ms.locfileid: "122567113"
     > [!TIP]
     > * ContainerRegistry.region은 사용자 지정 Docker 이미지에만 필요합니다. 여기에는 Microsoft에서 제공하는 기본 이미지에 대한 약간의 수정(예: 추가 패키지)이 포함됩니다.
     > * MicrosoftContainerRegistry.region은 _Microsoft에서 제공하는 기본 Docker 이미지_ 를 사용하고 _사용자 관리 종속성을 사용하도록 설정_ 하려는 경우에만 필요합니다.
-    > * `region`이 포함된 항목의 경우 사용 중인 Azure 지역으로 바꿉니다. `ContainerRegistry.westus`)을 입력합니다.
+    > * `region`이 포함된 항목의 경우 사용 중인 Azure 지역으로 바꿉니다. 예: `ContainerRegistry.westus`.
 
 1. 다음 호스트에 대한 __애플리케이션 규칙__ 을 추가합니다.
 
@@ -99,6 +99,14 @@ ms.locfileid: "122567113"
 
 1. AKS(Azure Kubernetes Service)에 배포된 모델의 아웃바운드 트래픽을 제한하려면 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 및 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서를 참조하세요.
 
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Services
+
+Azure Machine Learning에서 Azure Kubernetes Service를 사용하는 경우 다음 트래픽이 허용되어야 합니다.
+
+* [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 문서에 설명된 AKS에 대한 일반적인 인바운드/아웃바운드 요구 사항입니다.
+* mcr.microsoft.com으로의 __아웃바운드__.
+* AKS 클러스터에 모델을 배포하는 경우 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서의 지침을 사용하세요.
+
 ### <a name="diagnostics-for-support"></a>지원을 위한 진단
 
 Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우 다음 단계를 사용합니다.
@@ -111,6 +119,7 @@ Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우
     + **dc.services.visualstudio.com**
 
     Azure Monitor 호스트의 IP 주소 목록은 [Azure Monitor에서 사용하는 IP 주소](../azure-monitor/app/ip-addresses.md)를 참조하세요.
+
 ## <a name="other-firewalls"></a>기타 방화벽
 
 각 방화벽에는 고유한 용어 및 특정 구성이 있으므로 이 섹션의 지침은 일반적입니다. 질문이 있는 경우 사용 중인 방화벽에 대한 설명서를 확인합니다.
@@ -149,19 +158,19 @@ Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우
 
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| 컴퓨팅 클러스터/인스턴스 | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
 | 컴퓨팅 클러스터/인스턴스 | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.ms |  |  |
+| Azure Storage 계정 | \*.blob.core.windows.net</br>\*.table.core.windows.net</br>\*.queue.core.windows.net | \*.blob.core.usgovcloudapi.net</br>\*.table.core.usgovcloudapi.net</br>\*.queue.core.usgovcloudapi.net | \*blob.core.chinacloudapi.cn</br>\*.table.core.chinacloudapi.cn</br>\*.queue.core.chinacloudapi.cn |
+| Azure Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net | \*.vault.azure.cn |
 
 > [!IMPORTANT]
 > 방화벽은 __TCP__ 포트 __18881, 443 및 8787__ 을 통해 \*.instances.azureml.ms와의 통신을 허용해야 합니다.
 
-**Azure Machine Learning에서 사용하는 연결된 리소스**
+**Azure Machine Learning에서 유지 관리하는 Docker 이미지**
 
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Azure Storage 계정 | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Azure Machine Learning 미리 빌드된 이미지 | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
@@ -204,9 +213,13 @@ AKS에 배포된 모델에 대한 액세스 제한에 대한 자세한 내용은
 | ---- | ---- |
 | **cloud.r-project.org** | CRAN 패키지를 설치할 때 사용됩니다. |
 
-### <a name="azure-kubernetes-services-hosts"></a>Azure Kubernetes Services 호스트
+### <a name="azure-kubernetes-services"></a>Azure Kubernetes Services
 
-AKS가 통신해야 하는 호스트에 대한 정보는 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 및 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서를 참조하세요.
+Azure Machine Learning에서 Azure Kubernetes Service를 사용하는 경우 다음 트래픽이 허용되어야 합니다.
+
+* [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 문서에 설명된 AKS에 대한 일반적인 인바운드/아웃바운드 요구 사항입니다.
+* mcr.microsoft.com으로의 __아웃바운드__.
+* AKS 클러스터에 모델을 배포하는 경우 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서의 지침을 사용하세요.
 
 ### <a name="visual-studio-code-hosts"></a>Visual Studio Code 호스트
 

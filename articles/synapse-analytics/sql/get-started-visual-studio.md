@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d534794737f93cd71ee9820f72e6c5ead08ca2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451589"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537326"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 Synapse SQL에 연결
 
@@ -36,9 +36,10 @@ Visual Studio를 사용하여 Azure Synapse Analytics를 사용하여 전용 SQL
 
 이 자습서를 사용하려면 다음 구성 요소가 있어야 합니다.
 
-* 기존의 전용 SQL 풀. 없는 경우 [전용 SQL 풀 만들기](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하여 이 필수 구성 요소를 완료합니다.
-* Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 이 구성 요소가 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
-* 정규화된 SQL 서버 이름. 이 서버 이름을 찾으려면 [전용 SQL 풀에 연결](connect-overview.md)을 참조하세요.
+- 기존 Synapse 작업 영역. 새로 만들어야 하는 경우 [Synapse 작업 영역 만들기](../get-started-create-workspace.md)를 참조하세요.
+- 전용 SQL 풀. 없는 경우 [전용 SQL 풀 만들기](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool)를 참조하세요.
+- Visual Studio용 SSDT. Visual Studio가 있는 경우 이미 이 구성 요소가 있을 것입니다. 설치 지침 및 옵션은 [Visual Studio 및 SSDT 설치](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context)를 참조하세요.
+- 정규화된 SQL 서버 이름. 이 서버 이름을 찾으려면 [전용 SQL 풀에 연결](connect-overview.md)을 참조하세요.
 
 ## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. 전용 SQL 풀에 연결
 1. Visual Studio 2019를 엽니다.
@@ -81,5 +82,5 @@ Visual Studio를 사용하여 Azure Synapse Analytics를 사용하여 전용 SQL
 
 ## <a name="next-steps"></a>다음 단계
 이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화](get-started-power-bi-professional.md)를 시도해 보세요.
-Azure Active Directory 인증을 위한 환경을 구성하려면 [전용 SQL 풀에 대한 인증](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+Azure Active Directory 인증을 위한 환경을 구성하려면 [전용 SQL 풀에 대한 인증](sql-authentication.md?tabs=provisioned)을 참조하세요.
  

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e385dec04db44e88ef5759cf8e2391b19b77dccc
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652109"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237531"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -31,19 +31,19 @@ Azure Security Center는 [분석](./security-center-alerts-overview.md)을 통�
 
 1. Security Center의 경고 페이지에서 **필터 추가** 단추를 사용하여 경고 이름을 기준으로 **여러 리소스에서 검색된 보안 인시던트** 를 필터링합니다. 
 
-    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Azure Security Center의 경고 페이지에서 인시던트 찾기":::
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Azure Security Center의 경고 페이지에서 인시던트 찾기.":::
 
     이제 인시던트만 표시되도록 목록이 필터링됩니다. 보안 인시던트에는 보안 경고와 다른 아이콘이 있습니다.
 
-    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Azure Security Center 경고 페이지의 인시던트 목록":::
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Azure Security Center 경고 페이지의 인시던트 목록.":::
 
 1. 인시던트의 세부 정보를 보려면 목록에서 인시던트를 선택합니다. 인시던트의 자세한 세부 정보가 있는 측면 창이 표시됩니다.
 
-    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="인시던트의 세부 정보를 보여 주는 측면 창":::
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="인시던트의 세부 정보를 보여 주는 측면 창.":::
 
 1. 자세한 내용을 보려면 **전체 세부 정보 보기** 를 선택합니다.
 
-    [![Azure Security Center에서 보안 인시던트에 대응](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
+    [![Azure Security Center에서 보안 인시던트에 대응.](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
     보안 인시던트 페이지의 왼쪽 창에는 보안 인시던트에 대한 높은 수준의 정보(제목, 심각도, 상태, 작업 시간, 설명, 영향을 받는 리소스)가 표시됩니다. 영향을 받는 리소스 옆에서 관련 Azure 태그를 볼 수 있습니다. 해당 태그를 사용하여 경고를 조사할 때 리소스의 조직 컨텍스트를 유추합니다.
 
@@ -52,7 +52,7 @@ Azure Security Center는 [분석](./security-center-alerts-overview.md)을 통�
     >[!TIP]
     > 특정 경고에 대한 자세한 내용을 보려면 해당 경고를 선택합니다. 
 
-    [![인시던트의 작업 수행 탭](media/security-center-incident/incident-take-action-tab.png)](media/security-center-incident/incident-take-action-tab.png#lightbox)
+    [![인시던트의 작업 수행 탭.](media/security-center-incident/incident-take-action-tab.png)](media/security-center-incident/incident-take-action-tab.png#lightbox)
 
     **작업 수행** 탭으로 전환하려면 탭이나 오른쪽 창 아래의 단추를 선택합니다. 이 탭을 사용하여 다음과 같은 추가 작업을 수행할 수 있습니다.
     - 위협 완화 - 이 보안 인시던트에 대한 수동 수정 단계를 제공합니다.

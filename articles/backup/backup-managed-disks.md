@@ -3,12 +3,12 @@ title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업하는 방법을 알아보세요.
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9bbb29aa4741f71448876a0af947964f728b0fb0
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653634"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300739"
 ---
 # <a name="back-up-azure-managed-disks"></a>Azure Managed Disks 백업
 
@@ -121,7 +121,7 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
 
    - 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹은 변경할 수 없습니다.
 
-   - 백업 작업 중에 Azure Backup 서비스는 스냅숏이 저장되는 스냅숏 리소스 그룹에 저장소 계정을 만듭니다. 스냅숏 리소스 그룹당 하나의 저장소 계정만 생성됩니다. 계정은 스냅숏 리소스 그룹과 동일한 리소스 그룹을 사용하는 여러 디스크 백업 인스턴스에서 다시 사용됩니다.
+   - 백업 작업 중에 Azure Backup은 스냅숏 리소스 그룹에 스토리지 계정을 생성합니다. 스냅숏 리소스 그룹당 하나의 저장소 계정만 생성됩니다. 계정은 스냅숏 리소스 그룹과 동일한 리소스 그룹을 사용하는 여러 디스크 백업 인스턴스에서 다시 사용됩니다.
      
      - 스냅숏은 저장소 계정에 저장되지 않습니다. 관리 디스크의 증분 스냅숏은 저장소 계정이 아닌 리소스 그룹에 생성되는 ARM 리소스입니다. 
      
@@ -182,7 +182,7 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
    ![백업할 디스크 선택](./media/backup-managed-disks/select-disks-to-backup.png)
 
    >[!NOTE]
-   >포털에서는 여러 디스크를 선택하고 백업을 구성할 수 있지만 각 디스크는 개별 백업 인스턴스입니다. 현재 Azure Disk Backup은 개별 디스크의 백업만 지원합니다. 가상 디스크에 연결된 여러 디스크의 특정 시점 백업은 지원되지 않습니다.
+   >포털에서는 여러 디스크를 선택하고 백업을 구성할 수 있지만 각 디스크는 개별 백업 인스턴스입니다. 현재 Azure Disk Backup은 개별 디스크의 백업만 지원합니다. 가상 머신에 연결된 여러 디스크의 특정 시점 백업은 지원되지 않습니다.
    >
    >포털을 사용할 때 동일한 구독 내에서 디스크 선택으로 제한됩니다. 백업할 디스크가 여러 개이거나 디스크가 서로 다른 구독에 분산되어 있는 경우 스크립트를 사용하여 자동화할 수 있습니다.
    >

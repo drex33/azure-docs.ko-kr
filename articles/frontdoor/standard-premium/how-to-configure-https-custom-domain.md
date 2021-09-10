@@ -6,14 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/10/2021
+ms.date: 08/26/2021
 ms.author: amsriva
-ms.openlocfilehash: ea6361f22ad90c0bc5f7a7f93be4a155206d930c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 79674febe7f43f8ae57d8c0420d6c8500506506e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606589"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965677"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Azure Portal을 사용하여 Front Door Standard/Premium SKU(미리 보기) 사용자 지정 도메인에서 HTTPS 구성
 
@@ -78,7 +78,7 @@ PowerShell을 통해 Azure Active Directory에서 Azure Front Door의 서비스 
 
 1. PowerShell에서 다음 명령을 실행합니다.
 
-     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
 
 #### <a name="grant-azure-front-door-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door 액세스 권한 부여
  
@@ -86,7 +86,7 @@ Azure Key Vault 계정의 인증서에 액세스하기 위한 Azure Front Door �
 
 1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책** 을 선택합니다. 그런 다음, **새로 추가** 를 선택하여 새 정책을 만듭니다.
 
-1. **주체 선택** 에서 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** 을 검색하고 Microsoft.AzureFrontDoor-Cdn을 선택합니다. **선택** 을 클릭합니다.
+1. **보안 주체 선택** 에서 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** 을 검색하고 **Microsoft.AzureFrontDoor-Cdn** 을 선택합니다. **선택** 을 클릭합니다.
 
 1. **비밀 사용 권한** 에서 **가져오기** 를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
 

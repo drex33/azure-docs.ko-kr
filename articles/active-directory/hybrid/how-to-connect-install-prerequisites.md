@@ -16,12 +16,12 @@ ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e01dd7c32c822f03b8f47147826e085321eeacf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a2ff57c06fba085fd28e7e0b13ec6e503517cab7
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472403"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768682"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD(Azure Active Directory) Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -87,7 +87,6 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 - 조직의 정보 시스템에 대해 권한 있는 액세스가 있는 모든 직원에 대해 전용 [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)을 구현합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)에 따라 Active Directory 환경의 공격 표면을 줄입니다.
 - [페더레이션 구성에 대한 변경 내용 모니터링](how-to-connect-monitor-federation-changes.md)에 따라 경고를 설정하여 Idp와 Azure AD 간에 설정된 트러스트의 변경 내용을 모니터링합니다. 
-
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2019 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 합니다. SQL Server 설치 유형은 [Azure AD Connect 성능](./plan-connect-performance-factors.md#sql-database-factors)에 영향을 줄 수 있습니다.

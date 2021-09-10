@@ -4,18 +4,21 @@ description: 정책 정의 및 정책 할당과 같은 Azure Policy 리소스를
 ms.date: 08/17/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7eb7cbfcd568eeebcb03979c51d26e8f6231298f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 170c619d41a416ac337edabcf3d4c0e0b5f24d4e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122568016"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965149"
 ---
 # <a name="export-azure-policy-resources"></a>Azure Policy 리소스 내보내기
 
 이 문서에서는 기존 Azure Policy 리소스를 내보내는 방법에 관한 정보를 제공합니다. 리소스 내보내기는 유용하고 백업에 권장되지만, 사용자 경험에서 클라우드 거버넌스를 사용하고 [policy-as-code](../concepts/policy-as-code.md)를 처리하는 중요한 단계이기도 합니다. Azure Policy 리소스는 [Azure Portal](#export-with-azure-portal), [Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell) 그리고 지원되는 각각의 SDK를 통해 내보낼 수 있습니다.
 
 ## <a name="export-with-azure-portal"></a>Azure Portal로 내보내기
+
+> [!NOTE]
+> Azure Portal에서 Azure Policy 리소스 내보내기는 Azure 소 버린 클라우드에서 사용할 수 없습니다.
 
 Azure Portal에서 정책 정의를 내보내려면 다음 단계를 수행합니다.
 

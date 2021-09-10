@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 2c37f49478e5c762e72fd8569828853e29ba07f5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 105f3e55999d433f4d9a160ef93d789b23200dfe
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737576"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251924"
 ---
 # <a name="what-is-azure-sentinel"></a>Azure Sentinel이란?
 
@@ -43,7 +43,11 @@ Azure Sentinel은 점점 더 정교해지는 공격, 점점 늘어나는 경고�
 
 ## <a name="connect-to-all-your-data"></a>모든 데이터에 연결
 
-Azure Sentinel을 온보딩하려면 먼저 [보안 원본](connect-data-sources.md)에 연결해야 합니다. Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protection) 솔루션과 Microsoft 365 원본(Office 365, Azure AD, Microsoft Defender for Identity(이전에는 Azure ATP), Microsoft Cloud App Security 등)을 포함하여 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 솔루션용 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 일반적인 이벤트 형식, Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다. 
+Azure Sentinel을 온보딩하려면 먼저 [보안 원본](connect-data-sources.md)에 연결해야 합니다. 
+
+Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protection) 솔루션과 Microsoft 365 원본(Office 365, Azure AD, Microsoft Defender for Identity(이전에는 Azure ATP), Microsoft Cloud App Security 등)을 포함하여 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 솔루션용 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 일반적인 이벤트 형식, Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다. 
+
+자세한 내용은 [데이터 커넥터 찾기](data-connectors-reference.md)를 참조하세요.
 
 ![데이터 수집기](./media/collect-data/collect-data-page.png)
 

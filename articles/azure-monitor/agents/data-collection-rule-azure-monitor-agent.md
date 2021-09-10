@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/16/2021
-ms.openlocfilehash: 749caf37ee09f9dc794dee60c6d4a5b93da43c6e
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 81c82152bf87944c7aed191c12e067567ec2b086
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114386320"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662248"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성
 
@@ -89,6 +89,7 @@ Windows 이벤트 로그에서 지원되는 XPath의 제한 사항 목록은 [XP
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **위의 cmdlet에서 '-LogName' 매개 변수의 값은 '!'까지 XPath 쿼리의 초기 부분이며, XPath 쿼리의 나머지 부분은 $XPath 매개 변수로 들어갑니다.**
 > - 이벤트가 반환되면 쿼리가 유효합니다.
 > - *지정된 선택 조건과 일치하는 이벤트를 찾을 수 없다* 는 메시지가 표시되는 경우 쿼리는 유효하지만 로컬 컴퓨터에 일치하는 이벤트가 없습니다.
 > - *지정된 쿼리가 잘못되었습니다* 메시지를 받으면 쿼리 구문이 잘못된 것입니다. 

@@ -4,25 +4,27 @@ description: Azure CLI를 사용하여 Azure Active Directory 지원 AKS(Azure K
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/20/2020
-ms.author: thomasge
-ms.openlocfilehash: cb92f84560a88d406f0d519459c27b5d916ec5ad
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/29/2021
+ms.author: miwithro
+ms.openlocfilehash: 2075c4ce9bf01d4843de2037259fec2670d5dc06
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769574"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566987"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Azure CLI를 사용하여 Azure Kubernetes Service와 Azure Active Directory 통합(레거시)
+
+> [!WARNING]
+> **이 문서에서 설명하는 Azure AD 통합(레거시)의 기능은 2024년 2월 29일부터 더 이상 사용되지 않습니다.
+>
+> AKS에는 서버 또는 클라이언트 애플리케이션을 관리하지 않아도 되는 새롭고 향상된 [AKS 관리형 Azure AD][managed-aad] 환경이 포함됩니다. 마이그레이션하려면 [여기][managed-aad-migrate]에 있는 지침을 따릅니다.
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용하여 AKS 클러스터에 로그인할 수 있습니다. 클러스터 운영자는 사용자의 ID 또는 디렉터리 그룹 멤버 자격에 따라 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 구성할 수도 있습니다.
 
 이 문서에서는 필요한 Azure AD 구성 요소를 만든 다음, Azure AD 지원 클러스터를 배포하고, AKS 클러스터에서 기본 Kubernetes 역할을 만드는 방법을 보여 줍니다.
 
 이 문서에서 사용되는 전체 샘플 스크립트는 [Azure CLI 샘플 - Azure AD와 AKS 통합][complete-script]을 참조하세요.
-
-> [!Important]
-> AKS에는 서버 또는 클라이언트 애플리케이션을 관리하지 않아도 되는 새롭고 향상된 [AKS 관리형 Azure AD][managed-aad] 환경이 포함됩니다. 마이그레이션하려면 [여기][managed-aad-migrate]에 있는 지침을 따릅니다.
 
 ## <a name="the-following-limitations-apply"></a>다음과 같은 제한 사항이 적용됩니다.
 
@@ -246,6 +248,7 @@ error: You must be logged in to the server (Unauthorized)
 * 사용자 계정이 동일한 Azure AD 테넌트에 있는지 여부에 따라 적절한 개체 ID 또는 UPN을 정의했습니다.
 * 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
 * 서버의 애플리케이션 등록에 정의된 비밀은 `--aad-server-app-secret`을 사용하여 구성된 값과 일치합니다.
+* 컴퓨터에 한 번에 한 버전의 kubectl만 설치되어 있어야 합니다. 충돌하는 버전은 권한 부여 중에 문제를 일으킬 수 있습니다. 최신 버전을 설치하려면, [az aks install-cli][az-aks-install-cli]를 사용하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -266,6 +269,7 @@ ID 및 리소스 제어에 관한 모범 사례는 [AKS의 인증 및 권한 부
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show

@@ -1,0 +1,197 @@
+### YamlMime:FAQ
+metadata:
+  title: 음성 텍스트 변환에 대한 질문과 대답
+  titleSuffix: Azure Cognitive Services
+  description: 음성을 텍스트로 변환 서비스에 대한 FAQ(질문과 대답)를 가져옵니다.
+  services: cognitive-services
+  author: PanosPeriorellis
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: speech-service
+  ms.topic: conceptual
+  ms.date: 02/01/2021
+  ms.author: panosper
+  ms.openlocfilehash: f175467ac7075c2f10c49249cbb4b7e72ae64294
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113034635"
+title: 음성 텍스트 변환에 대한 질문과 대답
+summary: >
+  이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)을 확인하세요.
+sections:
+- name: 일반
+  questions:
+  - question: >
+      기준 모델과 사용자 지정 음성 텍스트 변환 모델의 차이는 무엇인가요?
+    answer: >
+      기준 모델은 Microsoft가 소유한 데이터를 사용하여 학습이 되었으며 클라우드에 이미 배포되어 있습니다. 사용자 지정 모델을 사용하면 특정한 주변 소음이나 언어가 있는 특정 환경에 적합하게 모델을 적응시킬 수 있습니다. 공장 현장, 자동차 또는 소음이 많은 거리에 적응형 음향 모델이 필요합니다. 생물학, 물리학, 방사선, 제품 이름 등의 주제와 사용자 지정 약어에 적응형 언어 모델이 필요합니다. 사용자 지정 모델을 학습하는 경우 특별한 용어 및 구의 인식을 향상시키기 위해 관련 텍스트로 시작해야 합니다.
+  - question: >
+      기준 모델 사용을 시작하려면 어떻게 해야 하나요?
+    answer: >
+      먼저 [구독 키](overview.md#try-the-speech-service-for-free)를 가져옵니다. 미리 배포된 기준 모델을 REST 방식으로 호출하려면 [REST API](./overview.md#reference-docs)를 참조하세요. WebSocket을 사용하려면 [SDK를 다운로드](speech-sdk.md)합니다.
+  - question: >
+      사용자 지정 음성 모델을 항상 작성해야 하나요?
+    answer: >
+      아니요. 애플리케이션에서 일반적인 일상 언어를 사용하는 경우라면 모델을 사용자 지정할 필요가 없습니다. 배경 소음이 거의 또는 전혀 없는 환경에서 애플리케이션을 사용하는 경우 모델을 사용자 지정할 필요가 없습니다.
+
+
+      포털에서 기준 모델 및 사용자 지정 모델을 배포하고 그에 대한 정확도 테스트를 실행할 수 있습니다. 이러한 기능을 사용하여 기준 모델과 사용자 지정 모델의 정확성을 측정할 수 있습니다.
+  - question: >
+      데이터 세트나 모델의 처리가 완료되면 어떻게 알 수 있나요?
+    answer: >
+      현재 처리 완료를 확인하는 방법은 테이블에 있는 모델이나 데이터 세트의 상태를 확인하는 것뿐입니다. 처리가 완료되면 **성공** 상태가 됩니다.
+  - question: >
+      모델을 여러 개 만들 수 있나요?
+    answer: >
+      컬렉션에 포함할 수 있는 모델 수에는 제한이 없습니다.
+  - question: >
+      모델을 잘못 만든 경우 데이터 가져오기 또는 모델 만들기를 진행 중인 경우 어떻게 취소하나요?
+    answer: >
+      현재는 음향 적응 또는 언어 적응 프로세스를 롤백할 수 없습니다. 종료 상태에 있을 때 가져온 데이터와 모델을 삭제할 수 있습니다.
+  - question: >
+      자세한 출력 형식으로 각 구에 대한 몇 가지 결과를 얻었습니다. 어느 것을 사용해야 합니까?
+    answer: >
+      다른 결과("N-Best")가 더 높은 신뢰도 값을 가질 수 있는 경우에도 항상 첫 번째 결과를 사용합니다. Speech Service는 첫 번째 결과를 가장 적합한 것으로 간주합니다. 또한 음성을 인식하지 못하는 경우 빈 문자열일 수 있습니다.
+
+
+      다른 결과는 더 나빠질 수 있으며 전체 대문자화 및 문장 부호가 적용되지 않을 수 있습니다. 이러한 결과는 목록에서 수정을 선택하거나 잘못 인식된 명령을 처리할 수 있는 옵션을 사용자에게 제공하는 것과 같은 특별한 시나리오에서 가장 유용합니다.
+  - question: >
+      기본 모델이 서로 다른 이유는 무엇인가요?
+    answer: >
+      Speech Service에서 둘 이상의 기준 모델 중에서 선택할 수 있습니다. 각 모델 이름은 추가된 날짜를 포함합니다. 사용자 지정 모델에 대한 학습을 시작하는 경우 가장 좋은 정확도를 얻기 위해 최신 모델을 사용합니다. 새 모델을 사용할 수 있게 되면 이전 기본 모델을 계속 사용할 수 있습니다. 사용 중지될 때까지 작업한 모델을 계속 사용할 수 있습니다([모델 및 엔드포인트 수명 주기](./how-to-custom-speech-model-and-endpoint-lifecycle.md) 참조). 정확성을 높이기 위해 여전히 최신 기본 모델로 전환하는 것이 좋습니다.
+  - question: >
+      기존 모델(모델 스태킹)을 업데이트할 수 있나요?
+    answer: >
+      기존 모델을 업데이트할 수는 없습니다. 해결 방안은 이전 데이터 세트를 새 데이터 세트와 결합하여 다시 적응시키는 것입니다.
+
+
+      이전 데이터 세트 및 새 데이터 세트를 단일 .zip 파일(음향 데이터) 또는 .txt 파일(언어 데이터)에 결합해야 합니다. 적응이 완료된 후에는 새로 업데이트된 모델을 다시 배포하여 새 엔드포인트를 확보해야 합니다.
+  - question: >
+      새 버전의 기본 모델을 사용할 수 있게 되면 배포가 자동으로 업데이트되나요?
+    answer: >
+      배포는 자동으로 업데이트되지 않습니다.
+
+
+      모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 배포된 모델을 서비스 해제하고, 기본 모델의 최신 버전을 사용하여 다시 적응시키고 더 나은 정확성을 위해 다시 배포할 수 있습니다.
+
+
+      기본 모델과 사용자 지정 모델 모두 일정 시간 후에 사용이 중지됩니다([모델 및 엔드포인트 수명 주기](./how-to-custom-speech-model-and-endpoint-lifecycle.md) 참조).
+  - question: >
+      모델을 다운로드하여 로컬에서 실행할 수 있나요?
+    answer: >
+      [Docker 컨테이너](speech-container-howto.md?tabs=cstt)에서 로컬로 사용자 지정 모델을 실행할 수 있습니다.
+  - question: >
+      내 데이터 세트, 모델 및 배포를 다른 지역 또는 구독으로 복사하거나 이동할 수 있나요?
+    answer: >
+      [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용하여 사용자 지정 모델을 다른 지역 또는 구독으로 복사할 수 있습니다. 데이터 세트 또는 배포는 복사할 수 없습니다. 다른 구독에서 데이터 세트를 다시 가져오고 모델 복사본을 사용하여 엔드포인트를 만들 수 있습니다.
+  - question: >
+      요청은 기록되나요?
+    answer: >
+      기본적으로 요청은 기록되지 않습니다(오디오, 기록도 아님). 필요한 경우 [사용자 지정 엔드포인트를 만들](how-to-custom-speech-train-model.md#deploy-a-custom-model) 때 *이 엔드포인트에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 사용자 지정 엔드포인트를 만들지 않고도 요청별로 [Speech SDK](how-to-use-logging.md)에서 오디오 로깅을 사용하도록 설정할 수도 있습니다. 두 경우 모두 요청의 오디오 및 인식 결과가 보안 스토리지에 저장됩니다. Microsoft 소유의 스토리지를 사용하는 구독의 경우 30일 동안 사용할 수 있습니다.
+
+
+      *이 엔드포인트의 로그 콘텐츠* 를 사용하는 사용자 지정 엔드포인트를 사용하는 경우 Speech Studio의 배포 페이지에서 로깅되는 파일을 내보낼 수 있습니다. SDK를 통해 오디오 로깅이 사용되는 경우 [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs)를 호출하여 파일에 액세스합니다.
+  - question: >
+      요청에 제한이 있나요?
+    answer: >
+      [Speech Services 할당량 및 한도](speech-services-quotas-and-limits.md)를 참조하세요.
+  - question: >
+      이중 채널 오디오에 대한 요금은 어떻게 청구되나요?
+    answer: >
+      각 채널을 별도로 제출하는 경우(자체 파일의 각 채널) 각 파일의 기간에 대해 요금이 청구됩니다. 멀티플렉싱된 각 채널과 함께 단일 파일을 제출하면 단일 파일의 기간에 대한 요금이 청구됩니다. 가격 책정에 대한 자세한 내용은 [Azure Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)를 참조하세요.
+
+
+      > [!IMPORTANT]
+
+      > 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
+
+
+      ## <a name="increasing-concurrency"></a>동시성 증대
+
+
+      [Speech Services 할당량 및 한도](speech-services-quotas-and-limits.md)를 참조하세요.
+- name: 데이터 가져오기
+  questions:
+  - question: >
+      데이터 세트의 크기 제한은 얼마나 되며 크기가 제한되는 이유는 무엇인가요?
+    answer: >
+      이러한 제한은 HTTP 업로드용 파일 크기가 제한되기 때문에 발생합니다. 실제 한도에 대해 [Speech Services 할당량 및 한도](speech-services-quotas-and-limits.md)를 참조하세요. 데이터를 여러 데이터 세트로 분할하고 모든 데이터 세트를 선택하여 모델을 학습시킬 수 있습니다.
+  - question: >
+      더 큰 텍스트 파일을 업로드하기 위해 텍스트 파일을 압축할 수 있나요?
+    answer: >
+      아니요. 현재는 압축되지 않은 텍스트 파일만 허용됩니다.
+  - question: >
+      데이터 보고서에 발화 실패가 기록되어 있습니다. 문제가 무엇인가요?
+    answer: >
+      파일의 발화가 모두 업로드되지 않는다고 해서 문제가 있는 것은 아닙니다. 음향 데이터 세트나 언어 데이터 세트에서 대부분의 음성을(예: 95% 초과) 가져온 경우에는 데이터 세트를 사용할 수 있습니다. 단, 음성이 실패한 이유를 이해하고 문제 해결을 시도하는 것이 좋습니다. 가장 일반적인 문제(예: 서식 오류)는 쉽게 해결할 수 있습니다.
+- name: 음향 모델 만들기
+  questions:
+  - question: >
+      음향 데이터는 어느 정도나 필요한가요?
+    answer: >
+      처음에는 30분에서 1시간 분량의 음향 데이터를 준비하는 것이 좋습니다.
+  - question: >
+      어떤 데이터를 수집해야 하나요?
+    answer: >
+      애플리케이션 시나리오 및 사용 사례와 최대한 유사한 데이터를 수집합니다. 데이터 컬렉션은 디바이스, 환경 및 화자 유형과 관련하여 대상 애플리케이션 및 사용자와 일치해야 합니다. 일반적으로 최대한 광범위한 화자의 데이터를 수집해야 합니다.
+  - question: >
+      음향 데이터는 어떻게 수집해야 하나요?
+    answer: >
+      독립 실행형 데이터 수집 애플리케이션을 만들거나 기존 오디오 녹음 소프트웨어를 사용하면 됩니다. 오디오 데이터를 기록한 다음, 해당 데이터를 사용하는 버전의 애플리케이션을 만들 수도 있습니다.
+  - question: >
+      적응 데이터를 직접 전사해야 하나요?
+    answer: >
+      예. 직접 전사하거나 전문적인 전사 서비스를 사용할 수 있습니다. 크라우드소싱을 사용하거나 전사를 직접 수행해야 하는 사용자도 있고 전사 전문가를 선호하는 사용자도 있습니다.
+  - question: >
+      오디오 데이터를 사용하여 사용자 지정 모델을 학습시키는 데 얼마나 걸리나요?
+    answer: >
+      오디오 데이터를 사용하여 모델을 학습하는 과정은 시간이 오래 걸릴 수 있습니다. 데이터 양에 따라 사용자 지정 모델을 만드는 데 며칠이 걸릴 수 있습니다. 1주 이내에 완료할 수 없는 경우 서비스는 학습 작업을 중단하고 모델을 실패한 것으로 보고할 수 있습니다.
+
+
+      전용 하드웨어를 학습에 사용할 수 있는 [지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용합니다. Speech Service는 이러한 지역의 교육을 위해 최대 20시간의 오디오를 사용합니다. 다른 지역에서는 최대 8시간만 사용합니다.
+
+
+      일반적으로 서비스는 전용 하드웨어가 있는 지역에서 하루에 약 10시간의 오디오 데이터를 처리합니다. 다른 지역에서는 하루에 약 1시간 분량의 오디오 데이터를 처리할 수 있습니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)를 사용하여 완전히 학습된 모델을 다른 지역에 복사할 수 있습니다. 텍스트만을 사용한 교육은 훨씬 빠르며 일반적으로 몇 분 안에 완료됩니다.
+
+
+      일부 기본 모델은 오디오 데이터를 사용하여 사용자 지정할 수 없습니다. 이를 위해 서비스는 학습을 위해 대화 내용 기록의 텍스트를 사용하고 오디오 데이터를 무시합니다. 그러면 교육이 훨씬 빠르게 완료되고 결과는 텍스트와 함께 학습하는 것과 같습니다. [언어 지원](language-support.md#speech-to-text)을 참조하여 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하세요.
+- name: 정확도 테스트
+  questions:
+  - question: >
+      단어 오류 비율이란 무엇이며 어떻게 계산되나요?
+    answer: >
+      WER은 음성 인식을 위한 평가 메트릭입니다. WER은 삽입, 삭제 및 대체를 포함하는 총 오류 수를 참조 전사에 포함된 총 단어 수로 나누어 계산됩니다. 자세한 내용은 [Custom Speech 정확도 평가](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy)를 참조하세요.
+  - question: >
+      정확도 테스트의 결과가 양호한지 여부는 어떻게 판단하나요?
+    answer: >
+      결과에는 기준 모델과 사용자 지정 모델을 비교한 내용이 표시됩니다. 사용자 지정이 빛을 발하려면 기준 모델보다 우수해야 합니다.
+  - question: >
+      개선 여부 확인을 위해 베이스 모델의 WER을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      오프라인 테스트 결과에는 사용자 지정 모델의 기준 정확도와 기준 모델에 비해 사용자 지정 모델에서 개선된 부분이 표시됩니다.
+- name: 언어 모델 만들기
+  questions:
+  - question: >
+      텍스트 데이터는 어느 정도나 업로드해야 하나요?
+    answer: >
+      애플리케이션에서 사용되는 어휘/구문과 시작 언어 모델의 어휘/구문 간 차이 정도에 따라 다릅니다. 모든 새 단어에 대해 예제를 가능한 한 많이 제공하는 것이 유용합니다. 애플리케이션에서 사용되는 일반적인 문구의 경우 언어 데이터의 문구도 포함하면 유용합니다. 이러한 단어도 경청하도록 시스템에 지시하기 때문입니다. 언어 데이터 세트에 적어도 100개, 일반적으로 수백 개 또는 그 이상의 발언이 있는 것이 일반적입니다. 또한 일부 유형의 쿼리가 다른 쿼리 유형보다 일반적일 것으로 예상되는 경우 데이터 세트에 일반적인 쿼리의 복사본을 여러 개 삽입할 수 있습니다.
+  - question: >
+      단어 목록만 업로드할 수 있나요?
+    answer: >
+      단어 목록을 업로드하면 단어가 어휘에 추가되기는 하지만 해당 단어가 일반적으로 사용되는 방식을 시스템이 학습하지는 않습니다. 전체 또는 부분 음성(사용자가 말하려는 문장이나 문구)을 제공하면 언어 모델이 새 단어를 학습하고 이 단어가 어떻게 사용되는지 학습할 수 있습니다. 사용자 지정 언어 모델은 시스템에 새 단어를 추가하는 것뿐만 아니라 애플리케이션에서 알려진 단어가 나타날 가능성을 조정하는 데에도 적합합니다. 전체 음성을 제공하면 시스템 학습 성능이 좋아집니다.
+- name: 테넌트 모델(Microsoft 365 데이터를 사용하는 Custom Speech)
+  questions:
+  - question: >
+      테넌트 모델에 포함되는 정보와 생성 방법은 무엇인가요?
+    answer: >
+      테넌트 모델은 조직의 모든 사용자가 볼 수 있는 [공개 그룹](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) 이메일 및 문서를 사용하여 빌드됩니다.
+  - question: >
+      테넌트 모델에서 어떤 음성 환경이 개선되나요?
+    answer: >
+      테넌트 모델을 사용하도록 설정하고 생성하고 게시하면, Speech Service를 사용하여 빌드된 모든 엔터프라이즈 애플리케이션에 대한 인식을 개선하는 데 사용됩니다. 또한 엔터프라이즈에 대한 멤버 자격을 나타내는 사용자 Azure AD 토큰을 전달합니다.
+
+
+      Speech Service 애플리케이션에 대한 테넌트 모델을 만들 때 받아쓰기 및 PowerPoint 자막 등 Microsoft 365에 내장된 음성 환경은 변경되지 않습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [문제 해결](troubleshooting.md)\n- [릴리스 정보](releasenotes.md)"

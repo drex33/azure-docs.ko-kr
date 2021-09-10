@@ -7,26 +7,30 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 05/14/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 23caf21da3914dfa1af18ab96ec7cfe52e944f1c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 27c2b5d5af181aea982a6aed735997f5ac866b6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069760"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566919"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
 이 문서에서는 Azure Machine Learning의 가상 네트워크를 사용하여 추론 환경을 보호하는 방법을 알아봅니다.
 
-이 문서는 5부로 구성된 Azure Machine Learning 워크플로 보호 과정을 안내하는 시리즈의 4부입니다. 먼저 전체 아키텍처를 이해하려면 [1부: VNet 개요](how-to-network-security-overview.md)를 읽어보는 것이 좋습니다. 
-
-이 시리즈의 다른 문서를 참조하세요.
-
-[1. VNet 개요](how-to-network-security-overview.md) > [작업 영역 보호](how-to-secure-workspace-vnet.md) > [3. 학습 환경 보호](how-to-secure-training-vnet.md) > **4. 추론 환경 보호** > [5. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> 이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+>
+> * [Virtual Network 개요](how-to-network-security-overview.md)
+> * [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+> * [학습 환경 보호](how-to-secure-training-vnet.md)
+> * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+> * [사용자 지정 DNS 사용](how-to-custom-dns.md)
+> * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
 이 문서에서는 가상 네트워크에서 다음 추론 리소스를 보호하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -48,15 +52,21 @@ ms.locfileid: "110069760"
 
     네트워킹과 Azure RBAC에 대한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조하세요.
 
+## <a name="limitations"></a>제한 사항
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+* 가상 네트워크에서 Azure Container Instances를 사용하는 경우 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있어야 합니다. 그렇지 않은 경우 가상 네트워크가 다른 리소스 그룹에 있을 수 있습니다.
+* 작업 영역에 __프라이빗 엔드포인트__ 가 있는 경우 Azure Container Instances에 사용되는 가상 네트워크는 작업 영역 프라이빗 엔드포인트에서 사용하는 것과 동일해야 합니다.
+* 가상 네트워크 내에서 Azure Container Instances를 사용하는 경우 작업 영역에 대한 ACR(Azure Container Registry)은 가상 네트워크에 있을 수 없습니다.
+
 <a id="aksvnet"></a>
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-가상 네트워크에서 AKS 클러스터를 사용하려면 다음 네트워크 요구 사항을 충족해야 합니다.
+> [!IMPORTANT]
+> 가상 네트워크에서 AKS 클러스터를 사용하려면 먼저 [AKS(Azure Kubernetes Service)에서 고급 네트워킹 구성](../aks/configure-azure-cni.md#prerequisites)의 필수 구성 요소를 따릅니다.
 
-> [!div class="checklist"]
-> * [AKS(Azure Kubernetes Service)에서 고급 네트워킹 구성](../aks/configure-azure-cni.md#prerequisites)의 필수 구성 요소를 따릅니다.
-> * AKS 인스턴스와 가상 네트워크는 동일한 지역에 있어야 합니다. 가상 네트워크의 작업 영역에 사용되는 Azure Storage 계정을 보호하는 경우 해당 계정도 AKS 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
 
 가상 네트워크의 AKS를 작업 영역에 추가하려면 다음 단계를 수행합니다.
 
@@ -164,9 +174,6 @@ AKS 클러스터와 가상 네트워크 간에 트래픽을 격리하는 방법�
 
 프라이빗 AKS 클러스터를 만든 후에는 [클러스터를 가상 네트워크에 연결](how-to-create-attach-kubernetes.md)하여 Azure Machine Learning에 사용합니다.
 
-> [!IMPORTANT]
-> Azure Machine Learning에서 프라이빗 링크 지원 AKS 클러스터를 사용하려면 먼저 지원 인시던트를 열어 이 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조하세요.
-
 ### <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
 
 기본적으로 AKS 배포는 [공용 부하 분산 장치](../aks/load-balancer-standard.md)를 사용합니다. 이 섹션에서는 내부 부하 분산 장치를 사용하도록 AKS를 구성하는 방법을 알아봅니다. 내부(또는 개인) 부하 분산 장치는 개인 IP만 프런트 엔드로 허용되는 경우에 사용됩니다. 내부 부하 분산 장치는 가상 네트워크 내부의 트래픽 부하를 분산하는 데 사용됩니다.
@@ -230,7 +237,8 @@ az ml computetarget update aks \
                            -g myresourcegroup
 ```
 
-자세한 내용은 [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) 및 [az ml computetarget update aks](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_aks) 참조를 참조하세요.
+
+자세한 내용은 [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) 및 [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) 참조를 참조하세요.
 
 ---
 
@@ -257,16 +265,7 @@ aks_target.wait_for_completion(show_output = True)
 
 ## <a name="enable-azure-container-instances-aci"></a>ACI(Azure Container Instances) 사용
 
-Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__ 을 활성화해야 합니다.
-
-> [!WARNING]
-> 가상 네트워크에서 Azure Container Instances를 사용하는 경우 가상 네트워크는 다음과 같아야 합니다.
-> * Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있습니다.
-> * 작업 영역에 __프라이빗 엔드포인트__ 가 있는 경우 Azure Container Instances에 사용되는 가상 네트워크는 작업 영역 프라이빗 엔드포인트에서 사용하는 것과 동일해야 합니다.
->
-> 가상 네트워크 내에서 Azure Container Instances를 사용하는 경우 작업 영역에 대한 ACR(Azure Container Registry)은 가상 네트워크에 있을 수 없습니다.
-
-가상 네트워크의 ACI를 작업 영역으로 사용하려면 다음 단계를 사용하세요.
+Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니다. Azure Machine Learning이 가상 네트워크 내에 ACI를 만들 수 있도록 설정하려면 배포에 사용되는 서브넷에 __서브넷 위임__ 을 활성화해야 합니다. 가상 네트워크의 ACI를 작업 영역으로 사용하려면 다음 단계를 사용하세요.
 
 1. 가상 네트워크에서 서브넷 위임을 사용하도록 설정하려면 [서브넷 위임 추가 또는 제거](../virtual-network/manage-subnet-delegation.md) 문서의 정보를 참조하세요. 가상 네트워크를 만들 때 위임을 사용하도록 설정하거나 기존 네트워크에 추가할 수 있습니다.
 
@@ -281,11 +280,11 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 5부로 구성된 가상 네트워크 시리즈의 4부입니다. 가상 네트워크를 보호하는 방법을 알아보려면 나머지 문서를 참조하세요.
+이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
 
-* [1부: 가상 네트워크 개요](how-to-network-security-overview.md)
-* [2부: 작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
-* [3부: 학습 환경 보호](how-to-secure-training-vnet.md)
-* .[5부: 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
-
-또한 이름 확인을 위한 [사용자 지정 DNS](how-to-custom-dns.md) 사용에 대한 문서를 참조하세요.
+* [Virtual Network 개요](how-to-network-security-overview.md)
+* [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+* [학습 환경 보호](how-to-secure-training-vnet.md)
+* [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+* [사용자 지정 DNS 사용](how-to-custom-dns.md)
+* [방화벽 사용](how-to-access-azureml-behind-firewall.md)

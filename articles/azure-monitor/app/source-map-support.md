@@ -2,16 +2,14 @@
 title: JavaScript 애플리케이션에 대한 소스 맵 지원 - Azure Monitor Application Insights
 description: Application Insights를 사용하여 사용자 고유의 스토리지 계정 Blob 컨테이너에 소스 맵을 업로드하는 방법을 알아봅니다.
 ms.topic: conceptual
-author: DavidCBerry13
-ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 79462dcb503e5835254b89f7ebaa7a9ee34946d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81ca8de41c4d68ddc5ff3fc0355def975e6df30d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933944"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535893"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 애플리케이션에 대한 소스 맵 지원
 
@@ -50,7 +48,7 @@ Azure Pipelines를 사용하여 애플리케이션을 지속적으로 빌드 및
 엔드투엔드 트랜잭션 세부 정보 탭에서 *축소* 를 클릭할 수 있습니다. 그러면 리소스가 구성되지 않은 경우 구성하라는 메시지가 표시됩니다.
 
 1. Portal에서 축소되지 않은 예외에 대한 세부 정보를 확인합니다.
-2. *축소* 를 클릭합니다.
+2. ‘축소 해제’를 선택합니다.
 3. 리소스가 구성되지 않은 경우 구성하라는 메시지가 표시됩니다.
 
 ### <a name="from-the-properties-page"></a>속성 페이지에서
@@ -58,9 +56,9 @@ Azure Pipelines를 사용하여 애플리케이션을 지속적으로 빌드 및
 Application Insights 리소스에 연결된 스토리지 계정 또는 Blob 컨테이너를 구성하거나 변경하려는 경우 Application Insights 리소스의 *속성* 탭에서 해당 작업을 수행할 수 있습니다.
 
 1. Application Insights 리소스의 *속성* 탭으로 이동합니다.
-2. *소스 맵 Blob 컨테이너 변경* 을 클릭합니다.
+2. ‘소스 맵 Blob 컨테이너 변경’을 선택합니다.
 3. 소스 맵 컨테이너와 다른 Blob 컨테이너를 선택합니다.
-4. `Apply`을 클릭합니다.
+4. `Apply`를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![속성 블레이드로 이동하여 선택한 Azure Blob 컨테이너 다시 구성](./media/source-map-support/reconfigure.png)

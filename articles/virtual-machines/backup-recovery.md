@@ -7,14 +7,16 @@ ms.subservice: recovery
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: c4116ef8d02bd47d6375371be9381553f8c22eda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aadbc0fe98f85d96cb06c21b33c8b28be6e732ed
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565447"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694405"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Azure의 가상 머신을 위한 백업 및 복원 옵션
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. 사용 사례에 따라 VM에 사용 가능한 여러 백업 옵션이 있습니다.
 

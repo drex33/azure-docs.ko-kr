@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87fd2189222828eef2ff03a82125e0b6dcf7111e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529926"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866520"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
@@ -76,7 +76,7 @@ PRT는 일단 발급되면 14일 동안 유효하며 사용자가 디바이스�
 PRT는 다음과 같은 Windows의 두 가지 주요 구성 요소에서 사용됩니다.
 
 * **Azure AD CloudAP 플러그 인**: Windows 로그인 중에 Azure AD CloudAP 플러그 인은 사용자가 제공한 자격 증명을 사용하여 Azure AD에서 PRT를 요청합니다. 또한 사용자가 인터넷 연결에 액세스할 수 없는 경우 캐시된 로그인을 사용하도록 PRT를 캐시합니다.
-* **Azure AD WAM 플러그 인**: 사용자가 애플리케이션에 액세스하려고 하면 Azure AD WAM 플러그 인에서 PRT를 사용하여 Windows 10에서 SSO를 사용하도록 설정합니다. Azure AD WAM 플러그 인은 PRT를 사용하여 토큰 요청에 대해 WAM를 사용하는 애플리케이션에 대한 새로 고침 및 액세스 토큰을 요청합니다. 또한 브라우저 요청에 PRT를 삽입하여 브라우저에서 SSO를 사용하도록 설정합니다. Windows 10의 브라우저 SSO는 Microsoft Edge(기본적으로) 및 Chrome([Windows 10 계정](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) 또는 [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) 확장을 통해)에서 지원됩니다.
+* **Azure AD WAM 플러그 인**: 사용자가 애플리케이션에 액세스하려고 하면 Azure AD WAM 플러그 인에서 PRT를 사용하여 Windows 10에서 SSO를 사용하도록 설정합니다. Azure AD WAM 플러그 인은 PRT를 사용하여 토큰 요청에 대해 WAM를 사용하는 애플리케이션에 대한 새로 고침 및 액세스 토큰을 요청합니다. 또한 브라우저 요청에 PRT를 삽입하여 브라우저에서 SSO를 사용하도록 설정합니다. Windows 10의 브라우저 SSO는 Microsoft Edge(기본적으로), Chrome([Windows 10 계정](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) 또는 [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) 확장을 통해) 또는 Mozilla Firefox v91 이상([Windows SSO 설정](https://support.mozilla.org/en-US/kb/windows-sso)을 통해)에서 지원됩니다.
 
 ## <a name="how-is-a-prt-renewed"></a>PRT는 어떻게 갱신되나요?
 
@@ -109,7 +109,7 @@ PRT는 사용자가 로그인한 디바이스에 바인딩하여 보호됩니다
 
 **앱 토큰**: 앱이 WAM를 통해 토큰을 요청하면 Azure AD는 새로 고침 토큰과 액세스 토큰을 발급합니다. 그러나 WAM은 앱에 액세스 토큰만 반환하고 사용자의 DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스) 키로 암호화하여 캐시의 고침 토큰을 보호합니다. WAM은 세션 키로 요청에 서명하여 새로 고침 토큰을 안전하게 사용하며 추가 액세스 토큰을 발급합니다. DPAPI 키는 Azure AD 자체의 Azure AD 기반 대칭 키로 보호됩니다. 디바이스에서 DPAPI 키를 사용하여 사용자 프로필의 암호를 해독해야 하는 경우 Azure AD는 세션 키로 암호화된 DPAPI 키를 제공하며 CloudAP 플러그 인에서 TPM에 이러한 암호화의 해독을 요청합니다. 이 기능은 새로 고침 토큰 보호 시 일관성을 보장하고 애플리케이션이 자체 보호 메커니즘을 구현하지 못하게 합니다.  
 
-**브라우저 쿠키**: Windows 10에서 Azure AD는 Internet Explorer 및 Microsoft Edge에서 기본적으로 또는 Windows 10 계정 확장을 통해 Google Chrome에서 브라우저 SSO를 지원합니다. 보안은 쿠키를 보호하는 것 뿐만 아니라 쿠키가 전송되는 엔드포인트도 보호하도록 구축됩니다. 브라우저 쿠키는 세션 키를 활용하여 쿠키를 서명 및 보호함으로써 PRT와 동일한 방식으로 보호됩니다.
+**브라우저 쿠키**: Windows 10에서 Azure AD는 브라우저 SSO를 Internet Explorer 및 Microsoft Edge에서는 기본적으로, Google Chrome에서는 Windows 10 계정 확장을 통해, Mozilla Firefox v91 이상에서는 브라우저 설정을 통해 지원합니다. 보안은 쿠키를 보호하는 것 뿐만 아니라 쿠키가 전송되는 엔드포인트도 보호하도록 구축됩니다. 브라우저 쿠키는 세션 키를 활용하여 쿠키를 서명 및 보호함으로써 PRT와 동일한 방식으로 보호됩니다.
 
 사용자가 브라우저 상호 작용을 시작하면 브라우저(또는 확장)가 COM 네이티브 클라이언트 호스트를 호출합니다. 네이티브 클라이언트 호스트는 페이지가 허용 도메인 중 하나에 있는지 확인합니다. 브라우저는 nonce를 비롯한 다른 매개 변수를 네이티브 클라이언트 호스트로 보낼 수 있지만 네이티브 클라이언트 호스트는 호스트 이름의 유효성을 보장합니다. CloudAP 플러그 인에서 PRT 쿠키를 만들고 TPM 보호 세션 키로 서명하면 네이티브 클라이언트 호스트에서 PRT 쿠키를 요청합니다. PRT 쿠키는 세션 키로 서명되므로 변조하기가 매우 어렵습니다. 이 PRT 쿠키는 Azure AD에 대한 요청 헤더에 포함되어 원본 디바이스가 유효한지 검사합니다. Chrome 브라우저를 사용하는 경우 네이티브 클라이언트 호스트의 매니페스트에 명시적으로 정의된 확장에서만 이 쿠키를 호출할 수 있으므로 임의 확장이 이러한 요청을 수행할 수 없게 됩니다. Azure AD는 PRT 쿠키가 유효한지 검사한 후에는 브라우저에 세션 쿠키를 발급합니다. 이 세션 쿠키에는 PRT와 함께 발급된 것과 동일한 세션 키도 포함되어 있습니다. 후속 요청 중에 세션 키의 유효성이 검사되고 쿠키를 디바이스에 효과적으로 바인딩하며 다른 곳에서 다시 재생되지 못하게 합니다.
 
@@ -199,7 +199,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 | F | Azure AD는 PRT 쿠키에서 세션 키 서명이 유효한지 검사하고, nonce가 유효한지 검사하고, 디바이스가 테넌트에서 유효한지 확인하고, 웹 페이지를 위한 ID 토큰과 브라우저를 위한 암호화된 세션 쿠키를 발급합니다. |
 
 > [!NOTE]
-> 위의 단계에서 설명한 브라우저 SSO 흐름은 Microsoft Edge의 InPrivate 또는 Google Chrome의 시크릿 모드(Microsoft 계정 확장을 사용하는 경우)와 같은 비공개 모드의 세션에는 적용되지 않습니다.
+> 위의 단계에서 설명한 브라우저 SSO 흐름은 Microsoft Edge의 InPrivate, Google Chrome의 시크릿 모드(Microsoft 계정 확장을 사용하는 경우) 또는 Mozilla Firefox v91 이상의 비공개 모드와 같은 비공개 모드 세션에는 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

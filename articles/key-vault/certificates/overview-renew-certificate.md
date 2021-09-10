@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 082b0fd4d3324502516dcd2b45b9ad16a919c773
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ce1d83ddd47553de1efdef80cc33bc5dd4634c81
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749225"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307597"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -28,7 +28,7 @@ Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 �
 인증서 수명 이벤트에 대한 알림을 받으려면 인증서 연락처를 추가해야 합니다. 인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다.
 
 ### <a name="steps-to-set-certificate-notifications"></a>인증서 알림을 설정하는 단계는 다음과 같습니다.
-먼저 인증서 연락처를 키 자격 증명 모음에 추가합니다. Azure Portal 또는 PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact)를 사용하여 추가할 수 있습니다.
+먼저 인증서 연락처를 키 자격 증명 모음에 추가합니다. Azure Portal 또는 PowerShell cmdlet [Add-AzKeyVaultCertificateContact](/powershell/module/az.keyvault/add-azkeyvaultcertificatecontact)를 사용하여 추가할 수 있습니다.
 
 둘째, 인증서 만료에 대한 알림을 받을 조건을 구성합니다. 인증서의 수명 주기 특성을 구성하려면 [Key Vault에서 인증서 자동 순환 구성](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate)을 참조하세요.
 

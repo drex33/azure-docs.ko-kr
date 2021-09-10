@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 04/28/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 5854d8cecd1de8121b6129d86a70c1f5ad9518f2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 8c390593778917bef45b20d27e11e1b642b194c6
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175391"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303571"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services란?
 
-Azure AD DS(Active Directory Domain Services)는 도메인 조인, 그룹 정책, LDAP(Lightweight Directory Access Protocol) 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 클라우드에서 DC(도메인 컨트롤러)를 배포, 관리 및 패치하지 않고도 이러한 도메인 서비스를 사용합니다.
+Azure AD DS(Azure Active Directory Domain Services)는 도메인 조인, 그룹 정책, LDAP(Lightweight Directory Access Protocol) 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 클라우드에서 DC(도메인 컨트롤러)를 배포, 관리 및 패치하지 않고도 이러한 도메인 서비스를 사용합니다.
 
 Azure AD DS 관리형 도메인을 사용하면 최신 인증 방법을 사용할 수 없거나 디렉터리 조회가 항상 온-프레미스 AD DS 환경으로 돌아가지 않도록 하는 레거시 애플리케이션을 클라우드에서 실행할 수 있습니다. 클라우드에서 AD DS 환경을 관리할 필요 없이 레거시 애플리케이션을 온-프레미스 환경에서 관리되는 도메인으로 리프트 앤 시프트할 수 있습니다.
 

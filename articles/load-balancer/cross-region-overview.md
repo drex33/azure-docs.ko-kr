@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: f873bec75d0454aed2c6569a8f8dfaa7eaab9868
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075504"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538199"
 ---
 # <a name="cross-region-load-balancer-preview"></a>지역 간 부하 분산 장치(미리 보기)
 
@@ -84,7 +84,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>고정 IP
-지역 간 부하 분산 장치에는 IP 주소가 동일하게 유지되는 고정 공용 IP가 제공됩니다. 고정 IP에 대해 자세히 알아보려면 [여기](../virtual-network/public-ip-addresses.md#allocation-method)를 참조하세요.
+지역 간 부하 분산 장치에는 IP 주소가 동일하게 유지되는 고정 공용 IP가 제공됩니다. 고정 IP에 대해 자세히 알아보려면 [여기](../virtual-network/public-ip-addresses.md#ip-address-assignment)를 참조하세요.
 
 ### <a name="client-ip-preservation"></a>클라이언트 IP 유지
 지역 간 부하 분산 장치는 레이어-4 통과 네트워크 부하 분산 장치입니다. 이 통과는 패킷의 원래 IP를 유지합니다.  원래 IP는 가상 머신에서 실행되는 코드에 사용할 수 있습니다. 이러한 유지는 IP 주소와 관련된 논리를 적용할 수 있게 해 줍니다.
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남 아시아
+* 동남아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남 아시아 
+* 동남아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -140,6 +140,8 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 프라이빗 또는 내부 부하 분산 장치는 지역 간 부하 분산 장치의 백 엔드 풀에 추가할 수 없습니다. 
 
 * 지역 간 IPv6 프런트 엔드 IP 구성은 지원되지 않습니다. 
+
+* 지역 간 Load Balancer에서는 UDP 트래픽이 지원되지 않습니다. 
 
 * 상태 프로브는 현재 구성할 수 없습니다. 기본 상태 프로브는 지역 부하 분산 장치에 대한 가용성 정보를 20초마다 자동으로 수집합니다. 
 

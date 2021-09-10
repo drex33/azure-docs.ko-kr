@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/12/2021
-ms.openlocfilehash: 28d2cc40d1272fdf29b6df3f08469418ecbc36da
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 642ec1908298c331777776f886e005e715a727f2
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559397"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730643"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 가상 네트워크 만들기
 
@@ -34,9 +34,9 @@ Azure HDInsight에 대한 가상 네트워크를 사용하는 방법에 대한 �
 
 이 섹션의 예제에서는 네트워크 보안 그룹 규칙을 만드는 방법을 보여 줍니다. 이러한 규칙을 통해 HDInsight는 Azure 관리 서비스와 통신할 수 있습니다. 예제를 사용하기 전에 사용 중인 Azure 지역과 일치하도록 IP 주소를 조정합니다. [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)에서 이 정보를 찾을 수 있습니다.
 
-### <a name="azure-resource-management-template"></a>Azure Resource Management 템플릿
+### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-다음 리소스 관리 템플릿은 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다. 또한 이 템플릿은 가상 네트워크에 HDInsight 클러스터를 만듭니다.
+다음 리소스 관리 템플릿은 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 생성합니다. 또한 이 템플릿은 가상 네트워크에 HDInsight 클러스터를 만듭니다.
 
 * [보안 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 

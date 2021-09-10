@@ -4,12 +4,12 @@ description: Azure Storage 계정으로 전송 파이프라인을 만들어 한 
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a82bee4c0750004db11753c56f06b2ef19badf1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566217"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,7 +30,7 @@ ms.locfileid: "107780778"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **컨테이너 레지스트리** - 전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동하기 위한 기능입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일하거나 다른 Azure 구독, Active Directory 테넌트 또는 클라우드에 있을 수 있습니다. 
 
@@ -434,11 +434,12 @@ az resource delete \
   * 파이프라인 실행이 완료되지 않았을 수 있습니다. 내보내기 또는 가져오기 실행에는 다소 시간이 걸릴 수 있습니다. 
   * 다른 파이프라인 문제의 경우 내보내기 실행 또는 가져오기 실행의 배포 [상관 관계 ID](../azure-resource-manager/templates/deployment-history.md)를 Azure Container Registry 팀에 제공합니다.
 * **물리적으로 격리된 환경에서 이미지를 끌어올 때 발생하는 문제**
-  * 물리적으로 격리된 환경에서 이미지를 끌어올 때 외부 계층에 대한 오류가 표시되거나 mcr.microsoft.com을 해결하려고 시도하는 경우 이미지 매니페스트에는 배포 불가능 계층이 있을 수 있습니다. 물리적으로 격리된 환경의 특성으로 인해 이러한 이미지를 끌어오지 못하는 경우가 많습니다. 이미지 매니페스트에서 외부 레지스트리에 대한 참조를 확인하여 이 경우에 해당하는지 확인할 수 있습니다. 이 경우라면 해당 이미지에 대한 내보내기 파이프라인을 배포하기 전에 배포 불가능 계층을 퍼블릭 클라우드 ACR로 푸시해야 합니다. 이 작업을 수행하는 방법에 대한 지침은 [배포 불가능 레이어를 레지스트리로 푸시하려면 어떻게 해야 하나요?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)를 참조하세요.
+  * 물리적으로 격리된 환경에서 이미지를 끌어올 때 외부 계층에 대한 오류가 표시되거나 mcr.microsoft.com을 해결하려고 시도하는 경우 이미지 매니페스트에는 배포 불가능 계층이 있을 수 있습니다. 물리적으로 격리된 환경의 특성으로 인해 이러한 이미지를 끌어오지 못하는 경우가 많습니다. 이미지 매니페스트에서 외부 레지스트리에 대한 참조를 확인하여 이 경우에 해당하는지 확인할 수 있습니다. 이 경우라면 해당 이미지에 대한 내보내기 파이프라인을 배포하기 전에 배포 불가능 계층을 퍼블릭 클라우드 ACR로 푸시해야 합니다. 이 작업을 수행하는 방법에 대한 지침은 [배포 불가능 레이어를 레지스트리로 푸시하려면 어떻게 해야 하나요?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-퍼블릭 레지스트리 또는 다른 프라이빗 레지스트리에서 단일 컨테이너 이미지를 Azure Container Registry로 가져오려면 [az acr import][az-acr-import] 명령 참조를 참조하세요.
+* 퍼블릭 레지스트리 또는 다른 프라이빗 레지스트리에서 단일 컨테이너 이미지를 Azure Container Registry로 가져오려면 [az acr import][az-acr-import] 명령 참조를 참조하세요.
+* 네트워크 제한 컨테이너 레지스트리에서 [내보내기 파이프라인 생성을 차단](data-loss-prevention.md)하는 방법을 알아보세요.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

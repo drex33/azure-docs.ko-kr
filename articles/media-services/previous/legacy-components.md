@@ -3,7 +3,7 @@ title: Azure Media Services 레거시 구성 요소 | Microsoft Docs
 description: 이 토픽에서는 Azure Media Services 레거시 구성 요소를 설명합니다.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2021
+ms.date: 08/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 588eb1f93fa953a9051b4e3228980217c63ea27b
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: d86a77e724bffeaea6cb39ffc1a20e8737ef6d81
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719389"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835541"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
@@ -38,13 +38,14 @@ WAME(*Windows Azure Media Encoder*)과 AME(*Azure Media Encoder*) 미디어 프�
  
 | **미디어 프로세서 이름** | **사용 중지 날짜** | **추가적인 참고 사항** |
 | --- | --- | ---|
-| Azure Media Indexer 2 | 2020년 1월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Video Analyzer for Media(이전의 Video Indexer)로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
-| Azure Media Indexer | 2023년 3월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Video Analyzer for Media로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
+| Azure Media Indexer | 2020년 1월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Video Analyzer for Media(이전의 Video Indexer)로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
+| Azure Media Indexer 2 | 2023년 3월 1일 | 이 미디어 프로세서는 [Media Services v3 AudioAnalyzerPreset Basic 모드](../latest/analyze-video-audio-files-concept.md)로 바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Video Analyzer for Media(이전의 Video Indexer)로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요. |
 | 동작 감지 | 2020년 6월 1일|지금은 교체 플랜이 없습니다. |
 | 비디오 요약 |2020년 6월 1일|지금은 교체 플랜이 없습니다.|
 | 동영상 OCR(Optical Character Recognition) | 2020년 6월 1일 |이 미디어 프로세서는 Azure Video Analyzer for Media로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Analyzer for Media 비교](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
 | 얼굴 감지기 | 2020년 6월 1일 | 이 미디어 프로세서는 Azure Video Analyzer for Media로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Analyzer for Media 비교](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
 | Content Moderator | 2020년 6월 1일 |이 미디어 프로세서는 Azure Video Analyzer for Media로 대체되었습니다. 또한 [Azure Media Services v3 API](../latest/analyze-video-audio-files-concept.md)를 사용하는 것이 좋습니다. <br/>[Azure Media Services v3 미리 설정 및 Video Analyzer for Media 비교](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md)를 참조하세요. |
+| 미디어 인코더 Premium 워크플로 | 2024년 2월 29일 | AMS v2 API는 더 이상 프리미엄 인코더를 지원하지 않습니다. 이전에 HEVC 인코딩에 워크플로 기반 프리미엄 인코더를 사용한 경우 HEVC 인코딩 지원을 통해 [새 v3 표준 인코더](../latest/encode-media-encoder-standard-formats-reference.md)로 마이그레이션해야 합니다. <br/> 프리미엄 인코더의 고급 워크플로 기능이 필요한 경우 [Imagine Communications](https://imaginecommunications.com/), [Telestream](https://telestream.net) 또는 [Bitmovin](https://bitmovin.com)에서 제공하는 Azure 고급 인코딩 파트너를 사용하는 것이 좋습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

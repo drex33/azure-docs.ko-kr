@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 4f46dc092776e73556a67fee705a98fa883dfbc6
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 23960e112dd03a711027c2364f648f60f23d0c8e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567005"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -66,7 +66,7 @@ ms.locfileid: "109810699"
 - - NSG 거부 규칙은 종료 형식입니다. 트래픽을 거부하는 NSG는 이를 흐름 로그에 기록하고, 모든 NSG가 트래픽을 거부한 후 처리는 중지됩니다. 
 - - NSG 허용 규칙은 미종료 형식으로, 하나의 NSG에서 허용하는 경우에도 다음 NSG에서 처리가 계속됩니다. 트래픽을 허용하는 마지막 NSG는 흐름 로그에 대한 트래픽을 기록합니다.
 - NSG 흐름 로그는 액세스할 수 있는 위치에서 스토리지 계정에 기록됩니다.
-- TA, Splunk, Grafana, Stealthwatch와 같은 도구를 사용하여 흐름 로그를 내보내고, 처리하고, 분석하고, 시각화할 수 있습니다.
+- 트래픽 분석, Splunk, Grafana, Stealthwatch 등의 도구를 사용하여 흐름 로그를 내보내고, 처리하고, 분석하고, 시각화할 수 있습니다.
 
 ## <a name="log-format"></a>로그 형식
 
@@ -374,6 +374,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **인터넷 IP에서 공용 IP가 없는 VM으로 로그인하는 인바운드 흐름**: 인스턴스 수준 공용 IP로서 NIC와 연결된 공용 IP 주소를 통해 할당된 공용 IP 주소가 없거나, 기본 부하 분산 장치 백 엔드 풀의 일부인 VM에 대해서는 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md)를 사용하고 Azure에서 할당된 IP 주소를 통해 아웃바운드 연결을 지원하도록 합니다. 따라서 SNAT에 할당된 포트 범위의 포트로 흐름을 보내는 경우, 인터넷 IP 주소에서 흐름 로그 항목을 확인할 수 있습니다. Azure는 VM에 대한 흐름을 허용하지 않지만, 해당 시도를 기록하고 Network Watcher의 NSG 흐름 로그에 기본적으로 표시됩니다. NSG를 사용하여 원치 않는 인바운드 인터넷 트래픽을 명시적으로 차단하는 것이 좋습니다.
 
+**ExpressRoute 게이트웨이 서브넷의 NSG** – 트래픽이 ExpressRoute 게이트웨이(예: [FastPath](../expressroute/about-fastpath.md))를 무시할 수 있으므로 ExpressRoute 게이트웨이 서브넷에서 흐름을 기록하지 않는 것이 좋습니다. 따라서 NSG가 ExpressRoute 게이트웨이 서브넷에 연결되어 있고 NSG 흐름 로그가 사용하도록 설정된 경우 가상 머신에 대한 아웃바운드 흐름이 캡처되지 않을 수 있습니다. 이러한 흐름은 VM의 서브넷 또는 NIC에서 캡처해야 합니다. 
+
 **Application Gateway V2 서브넷 NSG에 대한 문제**: 현재는 Application Gateway V2 서브넷 NSG의 흐름 로깅이 [지원되지 않습니다.](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) 해당 문제는 V1 Application Gateway에 영향을 주지 않습니다.
 
 **호환되지 않는 서비스**: 현재는 플랫폼 제한으로 인해 Azure 서비스의 일부가 NSG 흐름 로그에서 지원되지 않습니다. 현재 호환되지 않는 서비스 목록은 다음과 같습니다.
@@ -415,7 +417,7 @@ _Authorizationfailed_ 또는 _GatewayAuthenticationFailed_ 오류를 받은 경�
 
 **NSG 흐름 로그를 자동화하려고 함**
 
-ARM 템플릿을 통한 자동화 지원은 현재 NSG 흐름 로그에 대해 사용할 수 없습니다. 자세한 내용은 [기능 공지](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/)를 참조하세요.
+이제 ARM 템플릿을 통한 자동화 지원을 NSG 흐름 로그에 사용할 수 있습니다. 자세한 내용은 [기능 공지](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) 및 [ARM 템플릿에서 빠른 시작 문서](quickstart-configure-network-security-group-flow-logs-from-arm-template.md)를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6868739d5b2350d5ac29e12f48278348ee7204a8
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027971"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437449"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Azure Portal의 계정 관리자 작업
 
@@ -25,6 +25,11 @@ ms.locfileid: "97027971"
 - Azure In Open 구독에 크레딧 추가
 
 이러한 작업을 수행하려면 계정 관리자여야 합니다.
+
+## <a name="accounts-portal-is-retiring"></a>계정 포털이 사용 중지됨
+
+계정 포털의 사용이 중지되고 고객은 2021년 12월 31일까지 Azure Portal로 리디렉션됩니다. 계정 포털에서 지원되는 기능은 Azure Portal로 마이그레이션됩니다. 이 문서에서는 Azure Portal에서 가장 일반적인 작업 중 일부를 수행하는 방법을 설명합니다.
+
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>구독의 결제 방법으로 이동
 

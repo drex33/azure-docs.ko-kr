@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 63653bb72c278a330101503dbaf2959b7e0eb39f
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: e8afed5b318a3a6601d90fcd235476174e40e358
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201006"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967920"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -243,18 +243,23 @@ for await (const thread of threads) {
 
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다.
 - `type`을 사용하여 메시지 유형(예: 'text' 또는 'html')을 지정합니다.
+- 선택적으로 `metadata`를 사용하여 메시지와 함께 보내려는 추가 데이터를 포함합니다. 이 필드는 개발자가 채팅 메시지 기능을 확장하고 사용 사례에 대한 사용자 지정 정보를 추가할 수 있는 메커니즘을 제공합니다. 예를 들어 메시지에서 파일 링크를 공유할 때 메타데이터에 'hasAttachment:true'를 추가하여 수신자의 애플리케이션이 이를 구문 분석하고 그에 따라 표시할 수 있습니다.
 
 `SendChatMessageResult`는 메시지 전송 후 반환된 응답이며, 메시지의 고유 ID인 ID를 포함합니다.
 
 ```JavaScript
 const sendMessageRequest =
 {
-  content: 'Hello Geeta! Can you share the deck for the conference?'
+  content: 'Please take a look at the attachment'
 };
 let sendMessageOptions =
 {
   senderDisplayName : 'Jack',
-  type: 'text'
+  type: 'text',
+  metadata: {
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+  }
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;

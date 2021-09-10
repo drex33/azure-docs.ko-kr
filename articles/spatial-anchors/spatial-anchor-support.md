@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c5b35e84d0e16b70b4abba8f784ba9c779c0169
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95494712"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380125"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure Spatial Anchors 지원 옵션
 
@@ -23,18 +23,18 @@ Azure Portal에서 Azure Spatial Anchors에 대한 기술 지원 티켓을 열�
 
 1. [Azure Portal](https://azure.microsoft.com/account/)에서 상단 메뉴 모음에서 도움말 아이콘을 선택하고 **도움말 + 지원** 단추를 선택합니다.
 
-![Azure Portal 도움말 및 지원](./media/spatial-anchor-support.png)
+   ![Azure Portal 도움말 및 지원](./media/spatial-anchor-support.png)
 
 1. Azure 도움말 + 지원 페이지에서 **+새 지원 요청** 을 선택합니다.
 
-![Azure Portal 새 지원 요청](./media/spatial-anchor-support2.png)
+   ![Azure Portal 새 지원 요청](./media/spatial-anchor-support2.png)
 
 1. 지원 티켓 필드 완료 시:
 
-- 문제 유형: 기술
-- 서비스: Spatial Anchors
+   - 문제 유형: 기술
+   - 서비스: Spatial Anchors
 
-![Azure Portal 지원 티켓 필드](./media/spatial-anchor-support3.png)
+   ![Azure Portal 지원 티켓 필드](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>커뮤니티 지원
 
@@ -50,4 +50,4 @@ Azure Portal에서 Azure Spatial Anchors에 대한 기술 지원 티켓을 열�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Spatial Anchors에 대한 질문과 대답을 보려면 [FAQ](spatial-anchor-faq.md) 페이지를 참조하세요.
+Azure Spatial Anchors에 대한 질문과 대답을 보려면 [FAQ](spatial-anchor-faq.yml) 페이지를 참조하세요.

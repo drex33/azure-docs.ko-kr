@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 839aa012cedaaa6f5bd3d1edad60e3ea7278133b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d26459080e57f8998b40c181306ca10508ad4749
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775892"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099228"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "107775892"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터는 Kubernetes 서비스 주소 범위, Pod 주소 범위 또는 클러스터 가상 네트워크 주소 범위에 대해 `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` 또는 `192.0.2.0/24`를 사용할 수 없습니다.
@@ -28,6 +28,7 @@ ms.locfileid: "107775892"
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * AKS 노드 풀에 할당된 서브넷은 [위임된 서브넷](../virtual-network/subnet-delegation-overview.md)일 수 없습니다.
+* 자체 서브넷을 제공하는 경우 해당 서브넷과 연결된 NSG(네트워크 보안 그룹)를 관리해야 합니다. AKS는 해당 서브넷과 연결된 NSG를 수정하지 않습니다. 또한 NSG의 보안 규칙이 노드와 Pod CIDR 범위 간의 트래픽을 허용하는지 확인해야 합니다.
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>클러스터에 대한 IP 주소 지정 계획
 
@@ -52,7 +53,7 @@ AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 �
 | 가상 네트워크 | Azure Virtual Network는 /8 이하일 수 있지만 구성된 IP 주소 수는 65,536개로 제한됩니다. 주소 공간을 구성하기 전에 다른 가상 네트워크의 서비스와 통신하는 등 모든 네트워킹 요구 사항을 고려하세요. 예를 들어 너무 많은 주소 공간을 구성하는 경우 네트워크 내에서 다른 주소 공간 겹침과 관련된 문제가 발생할 수 있습니다.|
 | 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. 서브넷 크기도 업그레이드 작업이나 향후의 크기 조정 요구를 반영해야 합니다.<p />업그레이드 작업을 위한 추가 노드를 포함한 *최소* 서브넷 크기를 계산하려면`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 노드 클러스터의 예: `(51) + (51  * 30 (default)) = 1,581`(/21 이상)<p/>추가 10개 노드를 확장하는 프로비전도 포함하는 50개 노드 클러스터의 예: `(61) + (61 * 30 (default)) = 1,891` (/21 이상)<p>클러스터를 만들 때 노드당 최대 Pod를 지정하지 않으면 노드당 최대 Pod 수는 *30* 개로 설정됩니다. 필요한 최소 IP 주소 수는 이 값을 기준으로 합니다. 다른 최댓값을 기준으로 최소 IP 주소 요구 사항을 계산하는 경우 [노드당 최대 Pod 수를 구성하는 방법](#configure-maximum---new-clusters)을 참조하여 클러스터를 배포할 때 이 값을 설정하세요 |
 | Kubernetes 서비스 주소 범위 | 이 범위는 이 가상 네트워크 또는 이 가상 네트워크에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. 여러 AKS 클러스터에서 이 범위를 재사용할 수 있습니다. |
-| Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다. |
+| Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다. 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다. |
 | Docker 브리지 주소 | Docker 브리지 네트워크 주소는 모든 Docker 설치에 있는 기본 *docker0* 브리지 네트워크 주소를 나타냅니다. *docker0* 브리지는 AKS 클러스터 또는 Pod 자체에서 사용되지 않지만 AKS 클러스터 내에서 *docker 빌드* 와 같은 시나리오를 계속 지원하려면 이 주소를 설정해야 합니다. Docker 브리지 네트워크 주소에 대한 CIDR을 선택해야 합니다. 그렇지 않으면 Docker는 서브넷을 자동으로 선택하므로 다른 CIDR과 충돌할 수 있기 때문입니다. 클러스터의 서비스 CIDR과 Pod CIDR 등 네트워크의 나머지 CIDR과 충돌하지 않는 주소 공간을 선택합니다. 172.17.0.1/16의 기본값 여러 AKS 클러스터에서 이 범위를 재사용할 수 있습니다. |
 
 ## <a name="maximum-pods-per-node"></a>노드당 최대 포드
@@ -83,7 +84,7 @@ AKS 클러스터에서 노드당 최대 Pod 수는 250개입니다. 노드당 *�
 
 * **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다. 최댓값은 250입니다.
 * **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다. 최댓값은 250입니다.
-* **Azure Portal**: Azure Portal을 사용하여 클러스터를 배포하는 경우에는 노드당 최대 Pod 수를 변경할 수 없습니다. Azure Portal을 사용하여 배포하는 경우 Azure CNI 네트워킹 클러스터는 노드당 30개 Pod로 제한됩니다.
+* **Azure Portal**: Azure Portal을 사용하여 클러스터를 배포하는 경우에는 노드당 최대 Pod 수를 변경할 수 없습니다. Azure Portal을 사용하여 배포하는 경우 Azure CNI 네트워킹 클러스터는 노드당 110개 Pod로 제한됩니다.
 
 ### <a name="configure-maximum---existing-clusters"></a>최댓값 구성 - 기존 클러스터
 
@@ -108,7 +109,7 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 
 기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
 
-**Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위* 내에 있어야 합니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
+**Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위* 내에 있어야 합니다. 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
 
 **Docker 브리지 주소**: Docker 브리지 네트워크 주소는 모든 Docker 설치에 있는 기본 *docker0* 브리지 네트워크 주소를 나타냅니다. *docker0* 브리지는 AKS 클러스터 또는 Pod 자체에서 사용되지 않지만 AKS 클러스터 내에서 *docker 빌드* 와 같은 시나리오를 계속 지원하려면 이 주소를 설정해야 합니다. Docker 브리지 네트워크 주소에 대한 CIDR을 선택해야 합니다. 그렇지 않으면 Docker는 서브넷을 자동으로 선택하므로 다른 CIDR과 충돌할 수 있기 때문입니다. 클러스터의 서비스 CIDR과 Pod CIDR 등 네트워크의 나머지 CIDR과 충돌하지 않는 주소 공간을 선택합니다.
 
@@ -151,12 +152,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE] 
-> 이 미리 보기 기능은 현재 다음 지역에서 사용할 수 있습니다.
->
-> * 미국 중서부
-
-기존 CNI의 단점은 AKS 클러스터가 증가함에 따라 Pod IP 주소가 고갈되어 전체 클러스터를 더 큰 서브넷에서 다시 빌드해야 하는 것입니다. Azure CNI의 새로운 동적 IP 할당 기능을 사용하면 AKS 클러스터를 호스팅하는 서브넷과는 별도의 서브넷에서 Pod IP를 할당함으로써 이 문제를 해결할 수 있습니다.  이는 다음과 같은 이점을 제공합니다.
+기존 CNI의 단점은 AKS 클러스터가 증가함에 따라 Pod IP 주소가 고갈되어 전체 클러스터를 더 큰 서브넷에서 다시 빌드해야 하는 것입니다. Azure CNI의 새로운 동적 IP 할당 기능을 사용하면 AKS 클러스터를 호스팅하는 서브넷과는 별도의 서브넷에서 Pod IP를 할당함으로써 이 문제를 해결할 수 있습니다. 이는 다음과 같은 이점을 제공합니다.
 
 * **IP 사용률 향상**: IP가 Pod 서브넷에서 클러스터 Pod으로 동적으로 할당됩니다. 이로 인해 모든 노드에 대해 IP의 정적 할당을 수행하는 기존 CNI 솔루션과 비교하여 클러스터의 IP 사용률이 향상됩니다.  
 
@@ -167,6 +163,13 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 * **Pod에 대한 별도 VNet 정책**: Pod에 별도의 서브넷이 있으므로 노드 정책과 다른 별도의 VNet 정책을 구성할 수 있습니다. 이렇게 하면 노드가 아닌 Pod 전용 인터넷 연결을 허용하고, VNet 네트워크 NAT를 사용하여 노드 풀에서 Pod의 원본 IP를 수정하고, NSG를 사용하여 노드 풀 간의 트래픽을 필터링하는 등 많은 유용한 시나리오가 가능해 집니다.  
 
 * **Kubernetes 네트워크 정책**: Azure 네트워크 정책 및 Calico는 모두 이 새 솔루션으로 작동합니다.  
+
+### <a name="additional-prerequisites"></a>추가 필수 조건
+
+Azure CNI에 대해 이미 나열된 [필수 구성 요소][prerequisites]는 여전히 적용되지만 몇 가지 추가 제한 사항이 있습니다.
+
+* Linux 노드 클러스터 및 노드 풀만 지원됩니다.
+* AKS 엔진 및 DIY 클러스터는 지원되지 않습니다.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>`aks-preview` Azure CLI 설치
 
@@ -202,13 +205,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/P
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="additional-prerequisites"></a>추가 필수 조건
-
-Azure CNI에 대해 이미 나열된 필수 구성 요소는 여전히 적용되지만 몇 가지 추가 제한 사항이 있습니다.
-
-* Linux 노드 클러스터 및 노드 풀만 지원됩니다.
-* AKS 엔진 및 DIY 클러스터는 지원되지 않습니다.
-
 ### <a name="planning-ip-addressing"></a>IP 주소 지정 계획
 
 이 기능을 사용하는 경우 계획은 훨씬 더 간단합니다. 노드와 Pod는 독립적으로 크기를 조정하기 때문에 주소 공간을 별도로 계획할 수도 있습니다. Pod 서브넷은 노드 풀의 세분성으로 구성될 수 있으므로 고객은 노드 풀을 추가할 때 항상 새 서브넷을 추가할 수 있습니다. 클러스터/노드 풀의 시스템 Pod는 Pod 서브넷에서 IP를 수신하기 때문에 이 동작을 고려해야 합니다.
@@ -240,23 +236,31 @@ Pod당 최대 노드 수를 구성하는 것과 관련된 다른 모든 지침�
 먼저 두 서브넷이 있는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
-$resourceGroup="myResourceGroup"
-$vnet="myVirtualNetwork"
+resourceGroup="myResourceGroup"
+vnet="myVirtualNetwork"
+location="westcentralus"
+
+# Create the resource group
+az group create --name $resourceGroup --location $location
 
 # Create our two subnet network 
-az network vnet create -g $rg --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create -g $rg --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create -g $rg --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
 ```
 
 그런 다음, `--vnet-subnet-id`를 사용하여 노드 서브넷을, `--pod-subnet-id`를 사용하여 Pod 서브넷을 참조하는 클러스터를 만듭니다.
 
 ```azurecli-interactive
-$clusterName="myAKSCluster"
-$location="eastus"
-$subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+clusterName="myAKSCluster"
+subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --node-count 2 --network-plugin azure --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
+az aks create -n $clusterName -g $resourceGroup -l $location \
+  --max-pods 250 \
+  --node-count 2 \
+  --network-plugin azure \
+  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
+  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
 ```
 
 #### <a name="adding-node-pool"></a>노드 풀 추가하는 중
@@ -267,7 +271,12 @@ az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --no
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
+  --max-pods 250 \
+  --node-count 2 \
+  --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
+  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
+  --no-wait 
 ```
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -363,3 +372,4 @@ AKS의 네트워킹에 대한 자세한 내용은 다음 문서를 참조하세�
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
+[prerequisites]: configure-azure-cni.md#prerequisites

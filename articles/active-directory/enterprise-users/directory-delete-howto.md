@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/14/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7d889db98030394e27763122b3df4bdde942575
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861033"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219609"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Azure Active Directory에서 테넌트 삭제
 
@@ -29,7 +29,7 @@ Azure AD 조직(테넌트)을 삭제하면 해당 조직에 포함된 모든 리
 
 Azure AD의 조직은 여러 가지 검사를 통과한 다음에 삭제할 수 있습니다. 이러한 검사는 Azure AD 조직을 삭제했을 때 Microsoft 365에 로그인하거나 Azure의 리소스에 액세스하는 기능과 같은 사용자 액세스에 부정적인 영향을 주는 위험을 줄일 수 있습니다. 예를 들어 구독과 연결된 조직이 의도치 않게 삭제된 경우 사용자는 해당 구독에 대한 Azure 리소스에 액세스할 수 없습니다. 다음과 같은 조건을 확인합니다.
 
-* Azure AD 조직(테넌트)에는 조직을 삭제할 전역 관리자 한 명을 제외하고 사용자가 없을 수 있습니다. 조직을 삭제하려면 먼저 다른 모든 사용자를 삭제해야 합니다. 사용자가 온-프레미스에서 동기화된 경우 먼저 동기화를 해제해야 하며 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 클라우드 조직에서 사용자를 삭제해야 합니다.
+* Azure AD 테넌트에는 조직을 삭제할 전역 관리자 한 명을 제외하고 사용자가 없을 수도 있습니다. 조직을 삭제하려면 먼저 다른 모든 사용자를 삭제해야 합니다. 사용자가 온-프레미스에서 동기화된 경우 먼저 동기화를 해제해야 하며 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 클라우드 조직에서 사용자를 삭제해야 합니다.
 * 조직에는 애플리케이션이 없을 수 있습니다. 조직을 삭제하려면 먼저 모든 애플리케이션을 제거해야 합니다.
 * 조직에 연결된 다단계 인증 공급자가 없을 수 있습니다.
 * Microsoft Azure, Microsoft 365 또는 Azure AD Premium 등 Microsoft 온라인 서비스에 대한 구독이 조직과 연결되지 않았을 수도 있습니다. 예를 들어 Azure에서 생성된 기본 Azure AD 조직을 Azure 구독에서 인증에 계속 사용하는 경우 이 조직을 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 조직은 삭제할 수 없습니다.
@@ -94,6 +94,15 @@ Microsoft 365 관리 센터를 통해 구독을 **프로비저닝 해제됨** �
 8. 조직에서 구독을 삭제한 후 72시간이 경과하면 Azure AD 관리 센터에 다시 로그인할 수 있으며, 조직 삭제를 차단하는 구독과 필요한 작업 없이 Azure AD 조직을 성공적으로 삭제할 수 있습니다.
   
    ![삭제 시 구독 검사 통과 화면](./media/directory-delete-howto/delete-checks-passed.png)
+
+## <a name="enterprise-apps-with-no-way-to-delete"></a>삭제할 방법이 없는 엔터프라이즈 앱
+
+포털에서 삭제할 수 없는 엔터프라이즈 애플리케이션이 여전히 있는 경우, 다음 PowerShell 명령을 사용하여 제거할 수 있습니다. 이 PowerShell 명령에 대한 자세한 내용은 [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true)을 참조하세요.
+
+1. 관리자 권한으로 PowerShell을 엽니다.
+1. `Connect-AzAccount -tenant <TENANT_ID>`을 실행합니다.
+1. Azure AD 글로벌 관리자 역할 로그인
+1. `Get-AzADServicePrincipal | ForEach-Object { Remove-AzADServicePrincipal -ObjectId $_.Id -Force}`을 실행합니다.
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>삭제를 차단하는 평가판 구독이 있음
 

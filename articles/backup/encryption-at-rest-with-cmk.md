@@ -2,14 +2,14 @@
 title: 고객 관리형 키를 사용하여 백업 데이터 암호화
 description: Azure Backup을 사용하여 CMK(고객 관리형 키)를 통해 백업 데이터를 암호화하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b952cf75776536652f96132049d8cef59c963e17
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f16974d00f4801f288180814daf9ff5ed4558748
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531146"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778722"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 백업 데이터 암호화
 
@@ -113,7 +113,11 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>사용자가 할당한 관리 ID를 자격 증명 모음에 할당
+### <a name="assign-user-assigned-managed-identity-to-the-vault-in-preview"></a>사용자가 할당한 관리 ID를 자격 증명 모음에 할당(미리 보기)
+
+>[!Note]
+>- CMK 암호화를 위해 사용자 할당 관리 ID를 사용하는 자격 증명 모음은 백업에 대해 프라이빗 엔드포인트 사용을 지원하지 않습니다.
+>- 특정 네트워크에 대한 액세스를 제한하는 Azure Key Vault는 아직 CMK 암호화를 위한 사용자 할당 관리 ID와 함께 사용할 수 없습니다.
 
 Recovery Services 자격 증명 모음에 사용자가 할당한 관리 ID를 할당하려면 다음 단계를 수행합니다.
 

@@ -9,20 +9,24 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: aa377267fb522de03ee181db99963498b5075fc4
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.collection: windows
+ms.openlocfilehash: 3fb298dc8e01c50b562e3891f02227b416596a04
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574347"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695256"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 
 스토리지 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
 
 관리형 이미지 하나는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이미지를 생성하려면 [일반화](../generalize.md)된 VM이 필요합니다.
 

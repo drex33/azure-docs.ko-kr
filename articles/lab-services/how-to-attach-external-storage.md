@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: dc0f2a4f51fb12c61d0e1e16cb23d030a5dc9cc6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112120108"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969277"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Lab Services에서 외부 파일 스토리지 사용
 
@@ -51,11 +51,11 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 Azure 파일 공유에 연결된 VM을 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Storage 계정](../storage/files/storage-how-to-create-file-share.md)을 만듭니다. **연결 방법** 페이지에서 **퍼블릭 엔드포인트** 또는 **프라이빗 엔드포인트** 를 선택합니다.
-2. 비공개 방법을 선택한 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md)를 만듭니다. [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.
-3. [Azure 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 스토리지 계정의 퍼블릭 호스트 이름으로 파일 공유에 연결할 수 있습니다.
+2. 비공개 방법을 선택한 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md)를 만듭니다.
+3. [Azure 파일 공유](../storage/files/storage-how-to-create-file-share.md)를 만듭니다. 퍼블릭 엔드포인트를 사용하는 경우 스토리지 계정의 퍼블릭 호스트 이름으로 파일 공유에 연결할 수 있습니다.  프라이빗 엔드포인트를 사용하는 경우 개인 IP 주소로 파일 공유에 연결할 수 있습니다.  
 4. Azure 파일 공유를 템플릿 VM에 탑재합니다.
     - [Windows](../storage/files/storage-how-to-use-files-windows.md)
-    - [Linux](../storage/files/storage-how-to-use-files-linux.md) 학생 VM의 탑재 문제를 방지하려면 다음 섹션을 참조하세요.
+    - [Linux](../storage/files/storage-how-to-use-files-linux.md) 학생 VM에서의 탑재 문제를 방지하는 방법은 [Linux에서 Azure Files 사용](#use-azure-files-with-linux) 섹션을 참조하세요.
 5. 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.
 
 > [!IMPORTANT]
@@ -65,6 +65,7 @@ Azure 파일 공유에 연결된 VM을 만들려면 다음 단계를 수행합�
 
 Azure Files 공유를 탑재하는 기본 지침을 사용하는 경우 템플릿이 게시된 후에는 학생 VM에서 파일 공유가 사라진 것처럼 보입니다. 다음 수정된 스크립트는 이 문제를 해결합니다.  
 
+퍼블릭 엔드포인트가 있는 파일 공유의 경우:
 ```bash
 #!/bin/bash
 
@@ -88,6 +89,34 @@ fi
 sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
 
 sudo bash -c "echo ""//$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+```
+
+프라이빗 엔드포인트가 있는 파일 공유의 경우:
+```bash
+#!/bin/bash
+
+# Assign variables values for your storage account and file share
+storage_account_name=""
+storage_account_ip=""
+storage_account_key=""
+fileshare_name=""
+
+# Do not use 'mnt' for mount directory.
+# Using ‘mnt’ will cause issues on student VMs.
+mount_directory="prm-mnt" 
+
+sudo mkdir /$mount_directory/$fileshare_name
+if [ ! -d "/etc/smbcredentials" ]; then
+    sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
+    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
+    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+fi
+sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
+
+sudo bash -c "echo ""//$storage_account_ip/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
 sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 

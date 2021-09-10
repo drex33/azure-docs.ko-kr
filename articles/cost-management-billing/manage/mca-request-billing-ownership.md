@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/26/2021
 ms.author: banders
-ms.openlocfilehash: 1e9e5582c95183a5e832950c5ac0b154cdef8362
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6654098b7fe2b212ac87d4ae52feaed128579dc5
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088123"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711342"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
 
@@ -181,7 +181,7 @@ Azure Marketplace 제품이 각 구독과 함께 이전됩니다.
 
 ### <a name="azure-reservations-transfer"></a>Azure Reservations 이전
 
-EA(기업계약) 구독 또는 Microsoft 고객 계약을 전송하는 경우 Azure Reservations는 구독과 함께 자동으로 이동하지 않습니다. Reservations를 이동하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+EA(기업계약) 구독 또는 Microsoft 고객 계약을 전송하는 경우 Azure Reservations는 구독과 함께 자동으로 이동합니다.
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 

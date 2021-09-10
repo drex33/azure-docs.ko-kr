@@ -4,13 +4,13 @@ description: Bicep 파일 배포 중에 값을 전달하기 위한 매개 변수
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: eab3052b55b1dc1033139c734605e72b5494b174
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/16/2021
+ms.openlocfilehash: 4628b7d6a04bdec2a7ec4273536bf895dc23a5d9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027010"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292234"
 ---
 # <a name="create-bicep-parameter-file"></a>Bicep 매개 변수 파일 생성
 
@@ -35,31 +35,7 @@ ms.locfileid: "111027010"
 }
 ```
 
-매개 변수 파일은 매개 변수 값을 일반 텍스트로 저장합니다. 이 방식은 리소스 SKU와 같이 중요하지 않은 값에 적용됩니다. 일반 텍스트는 암호와 같이 중요한 값에는 적용되지 않습니다. 중요한 값이 포함된 매개 변수를 전달해야 하는 경우 값을 Key Vault에 저장합니다. 그런 다음 매개 변수 파일에서 Key Vault를 참조하세요. 중요한 값은 배포 중에 안전하게 검색됩니다.
-
-다음 매개 변수 파일에는 키 자격 증명 모음에 저장된 일반 텍스트 값과 중요한 값이 포함됩니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
-    },
-    "<second-parameter-name>": {
-      "reference": {
-        "keyVault": {
-          "id": "<resource-id-key-vault>"
-        },
-        "secretName": "<secret-name>"
-      }
-    }
-  }
-}
-```
-
-키 자격 증명 모음에서 값을 사용하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
+매개 변수 파일은 매개 변수 값을 일반 텍스트로 저장합니다. 이 방식은 리소스 SKU와 같이 중요하지 않은 값에 적용됩니다. 일반 텍스트는 암호와 같이 중요한 값에는 적용되지 않습니다. 중요한 값이 포함된 매개 변수를 전달해야 하는 경우 값을 키 자격 증명 모음에 저장합니다. 매개 변수 파일에 중요한 값을 추가하는 대신 [getSecret 함수](bicep-functions-resource.md#getsecret)를 사용하여 검색합니다. 자세한 내용은 [Azure Key Vault를 사용하여 Bicep 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
 
 ## <a name="define-parameter-values"></a>매개 변수 값 정의
 
@@ -224,4 +200,4 @@ Bicep 파일에 PowerShell 명령의 매개 변수 중 하나와 이름이 같�
 ## <a name="next-steps"></a>다음 단계
 
 - Bicep 파일에서 매개 변수를 정의하는 방법에 대한 자세한 내용은 [Bicep의 매개 변수](./parameters.md)를 참조하세요.
-- 키 자격 증명 모음에서 값을 사용하는 방법에 대한 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
+- 중요한 값을 받으려면 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.

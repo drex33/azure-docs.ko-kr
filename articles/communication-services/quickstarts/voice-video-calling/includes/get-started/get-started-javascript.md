@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1f027dd3dfb812e9a700810972d2b019810dc41c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112535946"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251508"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "112535946"
 
 샘플 앱은 [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장)
@@ -124,8 +124,10 @@ submitToken.addEventListener("click", async () => {
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
+    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call echobot, use {id: '8:echo123'}.
     call = callAgent.startCall(
-        [{ id: userToCall }],
+        [{ communicationUserId: userToCall }],
         {}
     );
     // toggle button states
@@ -164,4 +166,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
-해당 텍스트 필드에 유효한 사용자 액세스 토큰과 사용자 ID를 제공하고 **호출 시작** 단추를 클릭하여 아웃바운드 VOIP 호출을 수행할 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다.
+해당 텍스트 필드에 유효한 사용자 액세스 토큰과 사용자 ID를 제공하고 **호출 시작** 단추를 클릭하여 아웃바운드 VOIP 호출을 수행할 수 있습니다.
+
+`8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다. `{id: '8:echo123'}`을 CallAgent.startCall() API에 전달하여 echobot을 호출합니다.
+ACS 통신 사용자를 호출하려면 `{communicationUserId: 'ACS_USER_ID'}`를 `CallAgent.startCall()` API에 전달합니다.

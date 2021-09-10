@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: b2766495c89b9be1a89e0648bcec83c160c1e0a8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e25fa98e2ca43b6697de6290ad122b6585b6a072
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479446"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186032"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Azure Active Directory를 사용하여 Azure SignalR 리소스에 액세스하는 관리 ID 인증
 Azure SignalR Service는 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스의 관리 ID를 사용하여 Azure VM(가상 머신), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 중인 애플리케이션의 Azure AD 자격 증명을 사용하여 Azure SignalR Service 리소스에 대한 액세스 권한을 부여할 수 있습니다. Azure AD 인증과 함께 Azure 리소스의 관리 ID를 사용하면 클라우드에서 실행되는 애플리케이션에 자격 증명을 저장할 필요가 없습니다.
@@ -50,7 +50,7 @@ VM에서 Azure 리소스에 대한 관리 ID를 사용하도록 설정하는 방
     ![도구 모음의 추가 단추](./media/authenticate/role-assignments-add-button.png)
 
 1. **역할 할당 추가** 페이지에서 다음 단계를 수행합니다.
-    1. **SignalR 앱 서버** 를 역할로 선택합니다. 이는 **Azure Functions 앱** 에도 적용됩니다.
+    1. **SignalR Service Owner** 를 역할로 선택합니다.
     1. 역할을 할당하려는 **보안 주체**(사용자, 그룹, 서비스 사용자)를 검색합니다.
     1. **저장** 을 선택하여 역할 할당을 저장합니다. 
 

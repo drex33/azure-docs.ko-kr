@@ -2,7 +2,6 @@
 title: 프로덕션 단계에서 솔루션 배포 준비 - Azure IoT Edge
 description: 적절한 인증서를 사용하여 디바이스 설정, 향후 코드 업데이트를 위한 배포 계획 수립 등 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 전환하는 방법을 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -11,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 964c3f0bb346b3c2606af1227b558d06071bfe20
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031137"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535746"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -144,33 +143,9 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 ## <a name="container-management"></a>컨테이너 관리
 
 * **중요**
-  * 컨테이너 레지스트리에 대한 액세스 관리
   * 태그를 사용하여 버전 관리
 * **유용함**
   * 프라이빗 레지스트리에 런타임 컨테이너 저장
-
-### <a name="manage-access-to-your-container-registry"></a>컨테이너 레지스트리에 대한 액세스 관리
-
-프로덕션 IoT Edge 디바이스에 모듈을 배포하기 전에 외부 사용자가 컨테이너 이미지를 액세스하거나 변경할 수 없도록 컨테이너 레지스트리에 대한 액세스를 제어해야 합니다. 공용이 아닌 프라이빗 컨테이너 레지스트리를 사용하여 컨테이너 이미지를 관리합니다.
-
-자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다.
-
-레지스트리에 보다 안전하게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용되고 권장되는 인증은 애플리케이션이나 서비스에 적합한 Active Directory 서비스 주체를 사용하는 것이며, 이는 IoT Edge 디바이스가 수행하는 것처럼 자동 또는 기타 무인(헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다.
-
-서비스 주체를 만들려면 [서비스 주체 만들기](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal)에 설명된 대로 두 스크립트를 실행합니다. 이러한 스크립트는 다음 작업을 수행합니다.
-
-* 첫 번째 스크립트는 서비스 사용자를 만듭니다. 서비스 주체 ID 및 서비스 주체 암호를 출력합니다. 이러한 값을 레코드에 안전하게 저장합니다.
-
-* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에게 부여할 역할 할당을 만듭니다. `role` 매개 변수에 대한 **acrPull** 사용자 역할을 적용하는 것이 좋습니다. 역할 목록은 [Azure Container Registry 역할 및 권한](../container-registry/container-registry-roles.md)을 참조하세요.
-
-서비스 주체를 사용하여 인증하려면 첫 번째 스크립트에서 얻은 서비스 주체 ID와 암호를 제공합니다. 배포 매니페스트에서 이러한 자격 증명을 지정합니다.
-
-* 사용자 이름 또는 클라이언트 ID에 대해 서비스 주체 ID를 지정합니다.
-
-* 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정합니다.
-
-> [!NOTE]
-> 향상된 보안 인증을 구현한 후 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 **관리 사용자** 설정을 사용하지 않도록 설정합니다. Azure Portal 컨테이너 레지스트리의 왼쪽 창 메뉴의 **설정** 에서 **액세스 키** 를 선택합니다.
 
 ### <a name="use-tags-to-manage-versions"></a>태그를 사용하여 버전 관리
 
@@ -257,6 +232,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 * **유용함**
   * 로그 및 진단 설정
+  * 로그 크기에 대한 제한
   * 테스트 및 CI/CD 파이프라인 고려
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
@@ -373,6 +349,43 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 ### <a name="consider-tests-and-cicd-pipelines"></a>테스트 및 CI/CD 파이프라인 고려
 
 가장 효율적인 IoT Edge 배포 시나리오를 위해 프로덕션 배포를 테스트 및 CI/CD 파이프라인에 통합하는 것이 좋습니다. Azure IoT Edge는 Azure DevOps를 포함하여 여러 CI/CD 플랫폼을 지원합니다. 자세한 내용은 [Azure IoT Edge 연속 통합 및 지속적인 배포](how-to-continuous-integration-continuous-deployment.md)를 참조하세요.
+
+## <a name="security-considerations"></a>보안 고려 사항
+
+* **중요**
+  * 컨테이너 레지스트리에 대한 액세스 관리
+  * 호스트 리소스에 대한 컨테이너 액세스 제한
+
+### <a name="manage-access-to-your-container-registry"></a>컨테이너 레지스트리에 대한 액세스 관리
+
+프로덕션 IoT Edge 디바이스에 모듈을 배포하기 전에 외부 사용자가 컨테이너 이미지를 액세스하거나 변경할 수 없도록 컨테이너 레지스트리에 대한 액세스를 제어해야 합니다. 프라이빗 컨테이너 레지스트리를 사용하여 컨테이너 이미지를 관리합니다.
+
+자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다.
+
+레지스트리에 보다 안전하게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용되고 권장되는 인증은 애플리케이션이나 서비스에 적합한 Active Directory 서비스 주체를 사용하는 것이며, 이는 IoT Edge 디바이스가 수행하는 것처럼 자동 또는 기타 무인(헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다.
+
+서비스 주체를 만들려면 [서비스 주체 만들기](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal)에 설명된 대로 두 스크립트를 실행합니다. 이러한 스크립트는 다음 작업을 수행합니다.
+
+* 첫 번째 스크립트는 서비스 사용자를 만듭니다. 서비스 주체 ID 및 서비스 주체 암호를 출력합니다. 이러한 값을 레코드에 안전하게 저장합니다.
+
+* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에게 부여할 역할 할당을 만듭니다. `role` 매개 변수에 대한 **acrPull** 사용자 역할을 적용하는 것이 좋습니다. 역할 목록은 [Azure Container Registry 역할 및 권한](../container-registry/container-registry-roles.md)을 참조하세요.
+
+서비스 주체를 사용하여 인증하려면 첫 번째 스크립트에서 얻은 서비스 주체 ID와 암호를 제공합니다. 배포 매니페스트에서 이러한 자격 증명을 지정합니다.
+
+* 사용자 이름 또는 클라이언트 ID에 대해 서비스 주체 ID를 지정합니다.
+
+* 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정합니다.
+
+> [!NOTE]
+> 향상된 보안 인증을 구현한 후 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 **관리 사용자** 설정을 사용하지 않도록 설정합니다. Azure Portal 컨테이너 레지스트리의 왼쪽 창 메뉴의 **설정** 에서 **액세스 키** 를 선택합니다.
+
+### <a name="limit-container-access-to-host-resources"></a>호스트 리소스에 대한 컨테이너 액세스 제한
+
+모듈 간에 공유 호스트 리소스의 균형을 유지하기 위해 모듈당 리소스 소비에 대해 제한을 설정하는 것이 좋습니다. 이러한 제한은 한 모듈이 너무 많은 메모리 또는 CPU 사용량을 소비할 수 없도록 하고 다른 프로세스가 디바이스에서 실행되는 것을 방지합니다. 지정된 모듈을 실행하는 데 필요한 리소스의 양을 파악하기 위해서는 테스트가 필요하기 때문에 IoT Edge 플랫폼은 기본적으로 모듈에 대한 리소스를 제한하지 않습니다.
+
+Docker는 메모리 및 CPU 사용량과 같은 리소스를 제한하는 데 사용할 수 있는 몇 가지 제약 조건을 제공합니다. 자세한 내용은 [메모리, CPU 및 GPU를 사용하는 런타임 옵션](https://docs.docker.com/config/containers/resource_constraints/)을 참조하세요.
+
+배포 매니페스트에서 만들기 옵션을 사용하여 개별 모듈에 이러한 제약 조건을 적용할 수 있습니다. 자세한 내용은 [IoT Edge 모듈에 대한 컨테이너 만들기 옵션 구성 방법](how-to-use-create-options.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

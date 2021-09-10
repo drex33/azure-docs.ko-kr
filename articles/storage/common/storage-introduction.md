@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 494afe20edc4ffdeea9e0eb1cd4b1368782c3cda
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498152"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729041"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -111,7 +111,7 @@ Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각
 
 Azure Storage에 대한 모든 요청은 권한이 있어야 합니다. Azure Storage는 다음과 같은 권한 부여 메서드를 지원합니다.
 
-- **Blob 및 큐 데이터를 위한 Azure AD(Azure Active Directory) 통합.** Azure Storage는 Azure RBAC(역할 기반 액세스 제어)를 통해 Blob 및 큐 서비스에 Azure AD를 사용하여 인증 및 권한 부여를 지원합니다. 뛰어난 보안과 사용 편의성을 위해 Azure AD를 통한 권한 부여 요청을 권장합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 액세스 인증](storage-auth-aad.md)을 참조하세요.
+- **Blob, 큐 및 테이블 데이터를 위한 Azure AD(Azure Active Directory) 통합** Azure Storage는 Azure RBAC(역할 기반 액세스 제어)를 통해 Blob 및 큐 서비스에 Azure AD를 사용하여 인증 및 권한 부여를 지원합니다. Azure AD를 통해 권한 부여는 미리 보기의 Table service에서도 지원됩니다. 뛰어난 보안과 사용 편의성을 위해 Azure AD를 통한 권한 부여 요청을 권장합니다. 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](authorize-data-access.md)를 참조하세요.
 - **Azure Files에 SMB를 통한 Azure AD 권한 부여.** Azure Files는 Azure AD DS(Azure Active Directory Domain Services) 또는 온-프레미스 Active Directory Domain Services(미리 보기)를 통해 SMB(서버 메시지 블록)를 통한 ID 기반 권한 부여를 지원합니다. 도메인 조인 Windows VM은 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 ID 기반 인증 지원 Azure Files 개요](../files/storage-files-active-directory-overview.md) 및 [Azure Files 배포에 대한 계획](../files/storage-files-planning.md#identity)을 참조하세요.
 - **공유 키를 사용하는 권한 부여.** Azure Storage Blob, 파일, 큐 및 테이블 서비스는 공유 키를 사용한 권한 부여를 지원합니다. 공유 키를 사용하는 클라이언트는 스토리지 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 - **SAS(공유 액세스 서명)를 사용한 권한 부여.** SAS(공유 액세스 서명)는 스토리지 리소스에 URI에 추가할 수 있는 보안 토큰을 포함한 문자열입니다. 보안 토큰은 권한 및 액세스 간격과 같은 제약 조건을 캡슐화 합니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.

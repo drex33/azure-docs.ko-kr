@@ -1,6 +1,6 @@
 ---
-title: 이미지 버전에서 관리 디스크 만들기
-description: 공유 이미지 갤러리의 이미지 버전에서 관리 디스크를 만듭니다.
+title: 관리 디스크로 이미지 버전 내보내기
+description: 공유 이미지 갤러리에서 관리 디스크로 이미지 버전을 내보냅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,16 +10,18 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb09c3332f41f5b4fe8f02e2e38940f4085b08fd
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c747a62307f7f08892f3609f410a40875666bd33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672822"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687717"
 ---
-# <a name="create-a-managed-disk-from-an-image-version"></a>이미지 버전에서 관리 디스크 만들기
+# <a name="export-an-image-version-to-a-managed-disk"></a>관리 디스크로 이미지 버전 내보내기
 
-필요한 경우 공유 이미지 갤러리에 저장된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로서 내보낼 수 있습니다.
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
+공유 이미지 갤러리에 저장된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로서 내보낼 수 있습니다.
 
 
 ## <a name="cli"></a>CLI

@@ -1,5 +1,5 @@
 ---
-title: Azure Purview에 연결하고 데이터 원본을 비공개로 안전하게 검사
+title: Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
 description: 이 문서에서는 Purview 계정에 연결하고 엔드투엔드 격리를 위해 제한된 네트워크의 데이터 원본을 검사하도록 프라이빗 엔드포인트를 설정하는 방법을 설명합니다.
 author: zeinam
 ms.author: zeinam
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: ec6bca63dd9593b8a70e0ee22e03752b416e9f04
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: a4e1270751f0f675f579315bfc69a808ccf903ea
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531239"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250686"
 ---
-# <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Azure Purview에 연결하고 데이터 원본을 비공개로 안전하게 검사
+# <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
 
 이 가이드에서는 Azure Purview 계정에 대한 _계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트를 배포하여 purview 계정에 액세스하고 자체 호스팅 통합 런타임을 사용하여 데이터 원본을 안전하고 비공개로 검사하여 엔드투엔드 네트워크 격리를 가능하게 하도록 하는 방법을 알아봅니다.
 
@@ -170,7 +170,7 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 ## <a name="deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources"></a>자체 호스팅 IR(통합 런타임)을 배포하고 데이터 원본을 검사합니다.
 Azure Purview에 대한 수집 프라이빗 엔드포인트를 배포한 후에는 하나 이상의 자체 호스팅 IR(통합 런타임)을 설정하고 등록해야 합니다.
 
-- Azure SQL Server, Oracle, SAP 등의 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행된 다음, Azure에서 가상 네트워크와 피어링되어야 합니다. 
+- Microsoft SQL Server, Oracle, SAP 등의 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행된 다음, Azure에서 가상 네트워크와 피어링되어야 합니다. 
    
 - Azure Blob Storage 및 Azure SQL Database와 같은 모든 Azure 원본 유형의 경우 Azure Purview 수집 프라이빗 엔드포인트와 동일한 VNet에 배포되는 자체 호스팅 통합 런타임을 사용하여 검사를 실행하도록 명시적으로 선택해야 합니다. 
 

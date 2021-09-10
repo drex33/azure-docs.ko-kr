@@ -1,21 +1,20 @@
 ---
-title: 출력 필드에 입력 매핑
+title: 기술 출력 필드 매핑
 titleSuffix: Azure Cognitive Search
-description: 원본 데이터 필드를 추출 및 보강하고 Azure Cognitive Search 인덱스의 출력 필드에 매핑합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+description: 출력 필드를 검색 인덱스의 필드에 매핑하여 기술 세트에서 생성된 보강 콘텐츠를 내보냅니다.
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 0e1db5f12e83a88697db38a6ddd77edab445f6c0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001306"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538163"
 ---
-# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>검색 가능한 인덱스에 AI 보강된 필드를 매핑하는 방법
+# <a name="map-enrichment-output-to-fields-in-a-search-index"></a>검색 인덱스의 필드에 보강 출력 매핑
 
 ![인덱서 스테이지](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "인덱서 스테이지")
 
@@ -32,7 +31,7 @@ ms.locfileid: "96001306"
 * 기술 세트는 없지만 Cosmos DB 데이터베이스에서 복합 형식을 인덱싱하고 있습니다. 해당 복합 형식의 노드로 이동하여 인덱스의 필드에 매핑하려고 합니다.
 
 > [!NOTE]
-> 최근 출력 필드 매핑에서 매핑 함수 기능을 사용하도록 설정했습니다. 매핑 함수에 대한 자세한 내용은 [필드 매핑 함수](./search-indexer-field-mappings.md#field-mapping-functions)를 참조하세요.
+> 출력 필드 매핑은 검색 인덱스에만 적용됩니다. [지식 저장소](knowledge-store-concept-intro.md)를 만드는 인덱서의 경우 출력 필드 매핑이 무시됩니다.
 
 ## <a name="use-outputfieldmappings"></a>OutputFieldMappings 사용
 
@@ -81,7 +80,7 @@ Content-Type: application/json
 }
 ```
 
-각 출력 필드 매핑의 경우 보강 필드(sourceFieldName)의 데이터 위치 및 인덱스(targetFieldName)에서 참조한 필드 이름을 설정합니다.
+각 출력 필드 매핑의 경우 보강 필드(sourceFieldName)의 데이터 위치 및 인덱스(targetFieldName)에서 참조한 필드 이름을 설정합니다. 인덱스에 저장되기 전에 필드의 콘텐츠를 변환하는 데 필요한 [매핑 함수](search-indexer-field-mappings.md#field-mapping-functions)를 할당합니다.
 
 ## <a name="flattening-information-from-complex-types"></a>복합 형식의 정보 평면화 
 

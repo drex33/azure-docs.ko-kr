@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a2e9d19c3847c5f2c7153580e463ce1e4d1d657
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89001572"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768772"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -96,6 +94,9 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사�
 > 설치 API는 등록 API와 달리 Baidu 서비스를 지원하지 않습니다. 
 
 ### <a name="templates"></a>템플릿
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 사용되지 않으며 더 이상 지원되지 않습니다.
 
 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하려면 디바이스 설치에서 해당 디바이스와 연결된 모든 템플릿을 JSON 형식으로 유지합니다(위 샘플 참조). 템플릿 이름은는 동일한 디바이스에 대한 서로 다른 템플릿을 대상 도움이 됩니다.
 

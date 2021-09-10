@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: fbe6953f57ac850add4b547ae1d2eeaadb77aafd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6a412bd6afaff1353203b3d032c28cd21087bf73
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528948"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696367"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Fsv2 시리즈는 Intel® Xeon® Platinum 8272CL (Cascade Lake) 프로세서 및 Intel® Xeon® Platinum 8168 (Skylake) 프로세서에서 실행됩니다. 모든 코어 터보 클럭 속도가 3.4GHz이고 최대 싱글 코어 터보 주파수는 3.7GHz입니다. Intel® AVX-512 지침은 Intel Scalable Processor에 새로 있습니다. 지침은 단일 및 이중 정밀 부동 소수점 작업에서 워크로드를 벡터 처리할 때의 성능을 최대 2배로 끌어올립니다. 즉, 계산 워크로드를 빠르게 처리합니다.
 

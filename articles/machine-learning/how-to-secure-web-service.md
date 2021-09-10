@@ -5,16 +5,16 @@ description: TLS 버전 1.2로 HTTPS를 사용하도록 설정하여 Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: aashishb
-author: aashishb
-ms.date: 03/11/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 9531862ffb62a92a3b9be33b38e4ecef97bf974e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ca7a6e424125980f79ccb6521df0d7b87a9ce456
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884663"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694968"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -83,7 +83,7 @@ ACI 배포의 경우 배포 구성 개체를 사용하여 모델 배포 시 TLS 
   > [!NOTE]
   > 이 섹션의 정보는 디자이너에 대해 보안 웹 서비스를 배포할 때에도 적용됩니다. Python SDK 사용에 익숙하지 않으면 [Pytho용 Azure Machine Learning SDK란 무엇인가요?](/python/api/overview/azure/ml/intro)를 참조하세요.
 
-AML 작업 영역에서 [AKS 클러스터를 만들거나 연결](how-to-create-attach-kubernetes.md)할 때 **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용하여 TLS 종료를 사용하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 포함된 구성 개체를 반환하며, **enable_ssl** 메서드를 사용하여 TLS를 사용하도록 설정할 수 있습니다.
+AML 작업 영역에서 [AKS 클러스터를 만들거나 연결](how-to-create-attach-kubernetes.md)할 때 **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용하여 TLS 종료를 사용하도록 설정할 수 있습니다. 두 메서드 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환하며 **enable_ssl** 메서드를 사용하여 TLS를 활성화할 수 있습니다.
 
 Microsoft 인증서 또는 CA에서 구입한 사용자 지정 인증서로 TLS를 사용하도록 설정할 수 있습니다. 
 
@@ -152,16 +152,21 @@ aci_config = AciWebservice.deploy_configuration(
 
 사용자 지정 인증서가 사용되는 AKS 배포 또는 ACI 배포의 경우 엔드포인트 점수 매기기의 IP 주소를 가리키도록 DNS 레코드를 업데이트해야 합니다.
 
-  > [!IMPORTANT]
-  > AKS 배포를 위해 Microsoft의 인증서를 사용하는 경우 클러스터에 대해 DNS 값을 수동으로 업데이트할 필요가 없습니다. 값이 자동으로 설정됩니다.
+> [!IMPORTANT]
+> AKS 배포를 위해 Microsoft의 인증서를 사용하는 경우 클러스터에 대해 DNS 값을 수동으로 업데이트할 필요가 없습니다. 값이 자동으로 설정됩니다.
 
 다음 단계에 따라 사용자 지정 도메인 이름에 대해 DNS 레코드를 업데이트할 수 있습니다.
-* 엔드포인트 점수 매기기 URI에서 엔드포인트 점수 매기기 IP 주소를 가져옵니다. 일반적으로 *http://104.214.29.152:80/api/v1/service/<service-name>/score* 형식입니다. 
-* 도메인 이름 등록자의 도구를 사용하여 도메인 이름에 대해 DNS 레코드를 업데이트합니다. 레코드는 엔드포인트 점수 매기기의 IP 주소를 가리켜야 합니다.
-* DNS 레코드 업데이트 후 *nslookup custom-domain-name* 명령을 사용하여 DNS 확인의 유효성을 검사할 수 있습니다. DNS 레코드가 올바르게 업데이트된 경우 사용자 지정 도메인 이름이 엔드포인트 점수 매기기의 IP 주소를 가리킵니다.
-* 등록자 및 도메인 이름에 대해 구성된 TTL(“Time To Live”)에 따라 클라이언트가 도메인 이름을 확인할 수 있으려면 몇 분 또는 몇 시간까지 지연될 수 있습니다.
+1. 엔드포인트 점수 매기기 URI에서 엔드포인트 점수 매기기 IP 주소를 가져옵니다. 일반적으로 `http://104.214.29.152:80/api/v1/service/<service-name>/score` 형식입니다. 이 예제에서 IP 주소는 104.214.29.152.입니다.
+1. 도메인 이름 등록자의 도구를 사용하여 도메인 이름에 대해 DNS 레코드를 업데이트합니다. 레코드는 FQDN(예: www\.contoso.com)을 IP 주소에 매핑합니다. 레코드는 엔드포인트 점수 매기기의 IP 주소를 가리켜야 합니다.
 
+    > [!TIP]
+    > Microsoft는 사용자 지정 DNS 이름 또는 인증서에 대한 DNS를 업데이트할 책임이 없습니다. 도메인 이름 등록 기관으로 업데이트해야 합니다.
 
+1. DNS 레코드 업데이트 후 *nslookup custom-domain-name* 명령을 사용하여 DNS 확인의 유효성을 검사할 수 있습니다. DNS 레코드가 올바르게 업데이트된 경우 사용자 지정 도메인 이름이 엔드포인트 점수 매기기의 IP 주소를 가리킵니다.
+
+    등록자 및 도메인 이름에 대해 구성된 TTL(“Time To Live”)에 따라 클라이언트가 도메인 이름을 확인할 수 있으려면 몇 분 또는 몇 시간까지 지연될 수 있습니다.
+
+Azure Machine Learning DNS 확인에 대한 자세한 내용은 [사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법](how-to-custom-dns.md)을 참조하세요.
 ## <a name="update-the-tlsssl-certificate"></a>TLS/SSL 인증서 업데이트
 
 TLS/SSL 인증서가 만료되고 갱신되어야 합니다. 일반적으로 매년 발생합니다. 다음 섹션의 정보에 따라 Azure Kubernetes Service에 배포된 모델에 대해 인증서를 업데이트하고 갱신합니다.
@@ -263,3 +268,4 @@ aks_target.update(update_config)
 방법 배우기:
 + [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
 + [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
++ [사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법](how-to-custom-dns.md)

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7756029d4b3ed43f55c86fa12128e1943c99b6bb
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104675960"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778389"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>프로덕션을 위해 모바일 앱 준비
 
@@ -39,4 +39,4 @@ ms.locfileid: "104675960"
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 샘플을 보려면 [데스크톱 및 모바일 공용 클라이언트 앱](sample-v2-code.md#desktop-and-mobile-public-client-apps)을 참조하세요.
+추가 샘플을 시도하려면 [모바일 퍼블릭 클라이언트 애플리케이션](sample-v2-code.md#mobile)을 참조하세요.

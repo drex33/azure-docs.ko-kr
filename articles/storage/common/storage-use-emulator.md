@@ -1,32 +1,32 @@
 ---
-title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용
-description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션의 개발 및 테스트를 위한 무료 로컬 개발 환경을 제공합니다.
+title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용(사용되지 않음)
+description: Azure Storage 에뮬레이터(사용되지 않음)는 Azure Storage 애플리케이션을 개발 및 테스트하기 위한 무료 로컬 개발 환경을 제공합니다.
 author: twooley
 ms.author: twooley
-ms.date: 07/16/2020
+ms.date: 07/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 812694ef96e60a9cc52dd9ab94408e3f90fd6d93
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2ff639cd19a97d2e3a5ef730c774f8c967cfa6c3
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677235"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203804"
 ---
-# <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
+# <a name="use-the-azure-storage-emulator-for-development-and-testing-deprecated"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용(사용되지 않음)
 
 Microsoft Azure Storage 에뮬레이터는 로컬 개발 목적으로 Azure Blob, Queue 및 Table service를 에뮬레이트하는 도구입니다. Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 스토리지 서비스에 대해 애플리케이션을 테스트할 수 있습니다. 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure 스토리지 계정을 클라우드에서 사용하도록 전환하세요.
 
 > [!IMPORTANT]
-> Azure Storage 에뮬레이터는 더 이상 적극적으로 개발되고 있지 않습니다. [**Azurite**](storage-use-azurite.md)가 향후 스토리지 에뮬레이터 플랫폼입니다. Azurite는 Azure Storage 에뮬레이터를 대체합니다. Azurite는 최신 버전의 Azure Storage API를 지원하도록 계속 업데이트됩니다. 자세한 내용은 [**로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용**](storage-use-azurite.md)을 참조하세요.
+> 이제 Azure Storage 에뮬레이터는 사용되지 않습니다. Azure Storage를 통한 로컬 개발에는 [**Azurite**](storage-use-azurite.md) 에뮬레이터를 사용하는 것이 좋습니다. Azurite는 Azure Storage 에뮬레이터를 대체합니다. Azurite는 최신 버전의 Azure Storage API를 지원하도록 계속 업데이트됩니다. 자세한 내용은 [**로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용**](storage-use-azurite.md)을 참조하세요.
 
 ## <a name="get-the-storage-emulator"></a>스토리지 에뮬레이터 가져오기
 
 스토리지 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 프로그램](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)(직접 다운로드)을 사용하여 스토리지 에뮬레이터를 설치할 수도 있습니다. 스토리지 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
 
-스토리지 에뮬레이터는 현재 Windows에서만 실행됩니다. Linux용 스토리지 에뮬레이터가 필요한 경우 커뮤니티에서 유지 관리하는 오픈 소스 스토리지 에뮬레이터 [Azurite](https://github.com/azure/azurite)가 하나의 옵션이 될 수 있습니다.
+스토리지 에뮬레이터는 현재 Windows에서만 실행됩니다. Linux 에뮬레이션의 경우 [Azurite](https://github.com/azure/azurite) 에뮬레이터를 사용합니다.
 
 > [!NOTE]
 > 스토리지 에뮬레이터의 어느 한 버전으로 작성한 데이터에 다른 버전으로 반드시 액세스할 수 있는 것은 아닙니다. 장기간 보존하려는 데이터는 스토리지 에뮬레이터가 아닌 Azure Storage 계정에 저장하는 것이 좋습니다.

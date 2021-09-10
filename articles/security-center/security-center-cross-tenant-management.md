@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 65ab3d1e6229d3d6fad752b1bc336d0ad749b597
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e4207bbc045f451b45f8b5da42fba08b406caeca
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787998"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237567"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 테넌트 간 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "109787998"
 
 상단 메뉴 모음에서 필터 아이콘을 클릭하고 각 테넌트의 디렉터리에서 보려는 구독을 선택합니다.
 
-  ![테넌트 필터링](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![테넌트를 필터링합니다.](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 보기와 작업은 기본적으로 동일합니다. 다음은 몇 가지 예입니다.
 

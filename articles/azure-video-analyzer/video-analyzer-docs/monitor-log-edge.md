@@ -2,13 +2,13 @@
 title: 모니터링 및 로깅 - Azure
 description: 이 문서에서는 Azure Video Analyzer의 모니터링 및 로깅에 대한 개요를 제공합니다.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: d7f048aecd89d75ad7bff728bc8a4ddebc8f515a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7938a68272378cf592fff17be0c4dfef2ca0e3f3
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387946"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604860"
 ---
 # <a name="monitor-and-log-on-iot-edge"></a>IoT Edge 모니터링 및 로그온
 
@@ -392,31 +392,38 @@ Video Analyzer 모듈에서 메트릭 수집을 사용하도록 설정하려면 
    * `MediaPipeline`: RTSP 지원 카메라와의 연결 설정 문제와 같은 문제를 해결할 때 인사이트를 제공할 수 있는 하위 수준 로그입니다.
    
 ### <a name="generating-debug-logs"></a>디버그 로그 생성
+경우에 따라 Azure 지원에서 문제를 해결하도록 지원하기 위해 앞에서 설명한 것보다 더 자세한 로그를 생성해야 할 수도 있습니다. 로그를 생성하려면 다음을 수행하세요.  
 
-경우에 따라 Azure 지원에서 문제를 해결하도록 지원하기 위해 앞에서 설명한 것보다 더 자세한 로그를 생성해야 할 수도 있습니다. 로그를 생성하려면 다음을 수행하세요.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT 허브로 이동합니다.
+1. 왼쪽 창에서 **IoT Edge** 를 선택합니다.
+1. 디바이스 목록에서 대상 디바이스의 ID를 선택합니다.
+1. 창의 위쪽에서 **모듈 설정** 을 선택합니다.
 
-1. `createOptions`를 통해 [디바이스 스토리지에 모듈 스토리지를 연결](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage)합니다. 빠른 시작에서 [배포 매니페스트 템플릿](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp/blob/master/src/edge/deployment.template.json)을 살펴보면 다음 코드가 표시됩니다.
+   ![Azure Portal의 "모듈 설정" 단추 스크린샷](media/troubleshoot/set-modules.png)
 
-   ```json
-   "createOptions": {
-     …
-     "Binds": [
-       "/var/local/videoAnalyzer/:/var/lib/videoAnalyzer/"
-     ]
-    }
-   ```
+1. **IoT Edge 모듈** 섹션에서 **avaedge** 를 찾아서 선택합니다.
+1. **모듈 ID 트윈** 을 선택합니다. 편집 가능한 창이 열립니다.
+1. **desired key** 아래에 다음 키/값 쌍을 추가합니다.
 
-   이 코드를 사용하면 Edge 모듈에서 디바이스 스토리지 경로 `/var/local/videoAnalyzer/`에 로그를 쓸 수 있습니다. 
+   `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
- 1. 모듈에 다음 `desired` 속성을 추가합니다.
+   > [!NOTE]
+   > 이 명령은 에지 디바이스와 컨테이너 사이의 로그 폴더를 바인딩합니다. 디바이스의 다른 위치에서 로그를 수집하려면:
+   >
+   > 1. **Binds** 섹션에서 **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** 및 **$DEBUG_LOG_LOCATION** 을 원하는 위치로 바꿔서 디버그 로그 위치에 대한 바인딩을 만듭니다. `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+   > 2. 다음 명령에서 **$DEBUG _LOG_LOCATION** 을 이전 단계에서 사용한 위치로 바꿔서 사용합니다.`"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/"`
+1. **저장** 을 선택합니다.
 
-이제 모듈에서 디바이스 스토리지 경로 `/var/local/videoAnalyzer/debuglogs/`에 디버그 로그를 이진 형식으로 씁니다. 로그를 Azure 지원과 공유할 수 있습니다.
+이제 모듈에서 디바이스 스토리지 경로 `/var/local/videoAnalyzer/debuglogs/`에 디버그 로그를 이진 형식으로 씁니다. 로그를 Azure 지원과 공유할 수 있습니다.  
+
+**모듈 ID 쌍** 의 값을 _null_ 로 설정하여 로그 수집을 중지할 수 있습니다. **모듈 ID 쌍** 페이지로 돌아가서 다음 매개 변수를 다음과 같이 업데이트합니다.
+
+   `"DebugLogsDirectory": ""`
 
 ## <a name="faq"></a>FAQ
 
-질문이 있는 경우 [모니터링 및 메트릭 FAQ](faq-edge.md#monitoring-and-metrics)를 참조하세요.
+질문이 있는 경우 [모니터링 및 메트릭 FAQ](faq-edge.yml#monitoring-and-metrics)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a590a2a0470710a74a6f1441a1f1859f974c2f97
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131190"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259413"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 연속 통합 및 배달
 
@@ -21,9 +21,9 @@ ms.locfileid: "108131190"
 
 CI(연속 통합)는 팀 멤버가 커밋할 때마다 코드 작성 및 테스트를 자동화하는 프로세스가 버전 제어로 변경됩니다. CD(지속적인 배포)는 다중 테스트 또는 스테이징 환경에서 프로덕션 환경으로 빌드, 테스트, 구성 및 배포하는 프로세스입니다.
 
-Azure Synapse Analytics 작업 영역에서 CI/CD(연속 통합 및 배달)는 모든 엔터티를 환경(개발, 테스트, 프로덕션) 간에 이동합니다. 작업 영역을 다른 작업 영역으로 승격하기 위한 두 부분이 있습니다. 먼저 [ARM 템플릿(Azure Resource Manager 템플릿)](../../azure-resource-manager/templates/overview.md)을 사용하여 작업 영역 리소스(풀 및 작업 영역)를 만들거나 업데이트합니다. 그런 다음, Azure DevOps의 Azure Synapse Analytics CI/CD 도구를 사용하여 아티팩트(SQL 스크립트, Notebook, Spark 작업 정의, 파이프라인, 데이터 세트, 데이터 흐름 등)를 마이그레이션합니다. 
+Azure Synapse Analytics 작업 영역에서 CI/CD(연속 통합 및 배달)는 모든 엔터티를 환경(개발, 테스트, 프로덕션) 간에 이동합니다. 작업 영역을 다른 작업 영역으로 승격하기 위한 두 부분이 있습니다. 먼저 [ARM 템플릿(Azure Resource Manager 템플릿)](../../azure-resource-manager/templates/overview.md)을 사용하여 작업 영역 리소스(풀 및 작업 영역)를 만들거나 업데이트합니다. 그런 다음, Azure DevOps 또는 GitHub의 Azure Synapse Analytics CI/CD 도구를 사용하여 아티팩트(SQL 스크립트, Notebook, Spark 작업 정의, 파이프라인, 데이터 세트, 데이터 흐름 등)를 마이그레이션합니다. 
 
-이 문서에서는 Azure DevOps 릴리스 파이프라인을 사용하여 Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화하는 방법을 간략하게 설명합니다.
+이 문서에서는 Azure DevOps 릴리스 파이프라인 및 GitHub 작업을 사용하여 Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화하는 방법을 간략하게 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,9 +39,15 @@ Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화
 - Azure AD(Azure Active Directory) 관리자는 [Azure DevOps 조직에 Azure DevOps Synapse 작업 영역 Deployment Agent 확장을 설치](/azure/devops/marketplace/install-extension)해야 합니다.
 - 파이프라인을 실행할 기존 서비스 계정을 만들거나 지정합니다. 서비스 계정 대신 개인 액세스 토큰을 사용할 수 있지만 사용자 계정이 삭제된 후에는 파이프라인이 작동하지 않습니다.
 
+### <a name="github"></a>GitHub
+
+- Synapse 작업 영역 아티팩트 및 작업 영역 템플릿이 있는 GitHub 리포지토리 
+- 자체 호스팅된 Runner를 만들었는지 또는 GitHub 호스팅된 Runner를 사용했는지 확인합니다.
+
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-- Azure AD에서 배포에 사용할 서비스 주체를 만듭니다. Synapse 작업 영역 배포 작업은 버전 1* 이하에서 관리 ID 사용을 지원하지 않습니다.
+- Azure AD에서 서비스 주체를 사용하는 경우, 배포에 사용할 서비스 주체를 생성합니다. 
+- 관리 ID를 사용하려면, Azure의 VM에서 시스템이 할당한 관리 ID를 에이전트 또는 Runner로 사용하도록 설정하고 Synapse Studio에 Synapse 관리자로 추가해야 합니다.
 - 이 작업을 수행하려면 Azure AD 관리자 권한이 필요 합니다.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -55,27 +61,26 @@ Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화
 
   1. 새 Azure Synapse Analytics 작업 영역을 만듭니다.
   1. 새 작업 영역이 호스트되는 리소스 그룹에 VM 에이전트 및 서비스 주체 기여자 권한을 부여합니다.
-  1. 새 작업 영역에서 Git 리포지토리 연결을 구성하지 마십시오.
+  1. 대상 작업 영역에서 Git 리포지토리 연결을 구성하지 마십시오.
   1. Azure Portal에서 새 Azure Synapse Analytics 작업 영역을 찾고 자신 및 Azure DevOps 파이프라인을 실행할 사람에게 Azure Synapse Analytics 작업 영역 소유자 권한을 부여합니다. 
   1. Azure DevOps VM 에이전트 및 서비스 주체를 작업 영역의 기여자 역할에 추가합니다. (이 역할은 상속되지만 상속되었는지 확인해야 합니다.)
-  1. Azure Synapse Analytics 작업 영역에서 **Studio** > **관리** > **IAM** 으로 이동합니다. Azure DevOps VM 에이전트 및 서비스 주체를 작업 영역 관리자 그룹에 추가합니다.
+  1. Azure Synapse Analytics 작업 영역에서 **Studio** > **Manage** > **Access Control** 로 이동합니다. Azure DevOps VM 에이전트 및 서비스 주체를 작업 영역 관리자 그룹에 추가합니다.
   1. 작업 영역에 사용되는 스토리지 계정을 엽니다. IAM에서 VM 에이전트 및 서비스 주체를 Storage Blob 데이터 기여자 선택 역할에 추가합니다.
   1. 지원 구독에서 키 자격 증명 모음을 만들고 기존 작업 영역과 새 작업 영역 모두에, 자격 증명 모음에 대해 최소한 GET 및 LIST 권한이 있는지 확인합니다.
   1. 자동화된 배포가 작동하려면 연결된 서비스에 지정된 연결 문자열이 주요 자격 증명 모음에 있는지 확인합니다.
 
 ### <a name="additional-prerequisites"></a>추가 필수 조건
  
- - Spark 풀 및 자체 호스팅 통합 런타임은 파이프라인에서 생성되지 않습니다. 자체 호스팅 통합 런타임을 사용하는 연결된 서비스가 있는 경우 새 작업 영역에서 수동으로 만듭니다.
- - Notebook을 개발하면서 Spark 풀에 연결한 경우에는 작업 영역에서 Spark 풀을 다시 만듭니다.
- - 환경에 존재하지 않는 Spark 풀에 연결된 Notebook은 배포되지 않습니다.
- - Spark 풀 이름은 두 작업 영역에서 동일해야 합니다.
- - 모든 데이터베이스, SQL 풀 및 기타 리소스의 이름을 두 작업 영역에서 동일하게 지정합니다.
+ - Spark 풀 및 자체 호스팅 통합 런타임은 작업 영역 배포 작업에서 생성되지 않습니다. 자체 호스팅 통합 런타임을 사용하는 연결된 서비스가 있는 경우 새 작업 영역에서 수동으로 만듭니다.
+ - 개발 작업 영역의 항목이 특정 풀과 연결된 경우, 매개 변수 파일에서 풀을 만들거나 매개 변수화한 대상 작업 영역의 풀 이름이 같은지 확인합니다.  
  - 배포를 시도할 때 프로비전된 SQL 풀이 일시 중지되면 배포가 실패할 수 있습니다.
 
 자세한 내용은 [Azure Synapse Analytics의 CI CD 4부 - 릴리스 파이프라인](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)를 참조 하세요. 
 
 
-## <a name="set-up-a-release-pipeline"></a>릴리스 파이프라인 설정
+## <a name="set-up-a-release-pipeline-in-azure-devops"></a>Azure DevOps에서 릴리스 파이프라인 설정
+
+이 부분에서는 Azure DevOps에서 synapse를 배포하는 방법을 알아봅니다. 
 
 1.  [Azure DevOps](https://dev.azure.com/)에서 릴리스에 대해 만든 프로젝트를 엽니다.
 
@@ -103,7 +108,7 @@ Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화
 
     ![아티팩트 추가](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>리소스 생성 및 업데이트를 위한 ARM 템플릿의 스테이지 작업 설정 
+### <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>리소스 생성 및 업데이트를 위한 ARM 템플릿의 스테이지 작업 설정 
 
 Azure Synapse 작업 영역, Spark 및 SQL 풀 또는 키 자격 증명 모음과 같은 리소스를 배포하기 위한 ARM 템플릿이 있는 경우 해당 리소스를 만들거나 업데이트하는 Azure Resource Manager 배포 작업을 추가합니다.
 
@@ -134,7 +139,7 @@ Azure Synapse 작업 영역, Spark 및 SQL 풀 또는 키 자격 증명 모음�
  > [!WARNING]
 > 전체 배포 모드에서는 리소스 그룹에 있지만 새 Resource Manager 템플릿에 지정되지 않은 리소스가 **삭제** 됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
 
-## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Synapse 아티팩트 배포에 대한 스테이지 작업 설정 
+### <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Synapse 아티팩트 배포에 대한 스테이지 작업 설정 
 
 [Synapse 작업 영역 배포](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) 확장을 사용하여 데이터 세트, SQL 스크립트, Notebook, spark 작업 정의, 데이터 흐름, 파이프라인, 연결된 서비스, 자격 증명 및 IR(Integration Runtime)과 같은 Synapse 작업 영역에 다른 항목을 배포합니다.  
 
@@ -158,18 +163,113 @@ Azure Synapse 작업 영역, Spark 및 SQL 풀 또는 키 자격 증명 모음�
 
 1. 연결, 리소스 그룹 및 대상 작업 영역의 이름을 선택합니다. 
 
-1. **템플릿 매개 변수 재정의** 상자 옆에 있는 **…** 를 선택하고 연결된 서비스에서 사용되는 연결 문자열 및 계정 키를 포함하여 대상 작업 영역에 대해 원하는 매개 변수 값을 입력합니다. [자세한 내용을 보려면 여기를 클릭하세요.](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
+1. **템플릿 매개 변수 재정의** 상자 옆에 있는 **…** 를 선택하고 연결된 서비스에서 사용되는 연결 문자열 및 계정 키를 포함하여 대상 작업 영역에 대해 원하는 매개 변수 값을 입력합니다. 자세한 정보는 [Azure Synapse Analytics의 CI/CD](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)를 참조하세요.
 
     ![Synapse 작업 영역 배포](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > CI/CD 시나리오에서는 서로 다른 환경에서의 IR(통합 런타임) 형식이 동일해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서 동일한 IR이 자체 호스팅 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 연결된 자체 호스팅으로 구성해야 합니다.
 
-## <a name="create-release-for-deployment"></a>배포용 릴리스 만들기 
+### <a name="create-release-for-deployment"></a>배포용 릴리스 만들기 
 
 모든 변경 내용을 저장한 후 **릴리스 만들기** 를 선택하여 수동으로 릴리스를 만들 수 있습니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](/azure/devops/pipelines/release/triggers)를 참조하세요.
 
    ![릴리스 만들기 선택](media/release-creation-manually.png)
+
+## <a name="set-up-a-release-with-github-action"></a>GitHub 작업을 사용하여 릴리스 설정 
+
+이 파트에서는 synapse 작업 영역 배포를 위한 GitHub Actions를 사용하여 GitHub 워크플로를 생성하는 방법에 대해 설명합니다.
+[Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template)을 사용하여 Azure에 대한 ARM 템플릿(Azure Resource Manager 템플릿) 배포를 자동화할 수 있습니다.
+
+### <a name="workflow-file-overview"></a>워크플로 파일 개요
+
+GitHub Actions 워크플로는 리포지토리의 /.github/workflows/ 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
+
+이 파일에는 다음 두 가지 섹션이 있습니다.
+
+|섹션  |작업  |
+|---------|---------|
+|**인증** | 1. 서비스 주체를 정의합니다. <br /> 2. GitHub 비밀을 만듭니다. |
+|**배포** | 1. 작업 영역 아티팩트를 배포합니다. |
+
+### <a name="configure-the-github-secrets"></a>GitHub 비밀 구성
+
+암호는 암호화된 환경 변수입니다. 이 리포지토리에 대한 협력자 액세스 권한이 있는 모든 사용자는 이러한 암호를 사용하여 작업을 수행할 수 있습니다.
+
+1. 리포지토리로 이동하여 **설정** 을 선택하고, 암호로 이동한 후 새 암호를 클릭합니다.
+
+    ![새 비밀 만들기](media/create-secret-new.png)
+
+1. 배포에 서비스 주체를 사용하는 경우, 클라이언트 ID, 클라이언트 암호에 대한 새 암호를 추가합니다. 구독 ID, 테넌트 ID를 암호로 저장하도록 선택할 수도 있습니다. 
+
+### <a name="add-your-workflow"></a>워크플로 추가
+
+GitHub 리포지토리의 **작업** 으로 이동합니다. 
+
+1. **워크플로 직접 설정** 을 선택합니다. 
+1. 워크플로 파일의 `on:` 섹션 뒤에 있는 모든 항목을 삭제합니다. 예를 들어 나머지 워크플로는 다음과 같습니다. 
+
+    ```yaml
+    name: CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+    ```
+
+1. 워크플로의 이름을 바꾸고 마켓플레이스에서 Synapse 작업 영역 배포 작업을 검색한 다음, 작업을 추가합니다. 
+
+     ![작업 검색](media/search-the-action.png)
+
+1. 필요한 값과 작업 영역 템플릿을 지정합니다.
+
+    ```yaml
+    name: workspace deployment
+
+    on:
+        push:
+            branches: [ publish_branch ]
+    jobs:
+        release:
+            # You can also use the self-hosted runners
+            runs-on: windows-latest
+            steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            - uses: azure/synapse-workspace-deployment@release-1.0
+            with:
+              TargetWorkspaceName: 'target workspace name'
+              TemplateFile: './path of the TemplateForWorkspace.json'
+              ParametersFile: './path of the TemplateParametersForWorkspace.json'
+              OverrideArmParameters: './path of the parameters.yaml'
+              environment: 'Azure Public'
+              resourceGroup: 'target workspace resource group'
+              clientId: ${{secrets.CLIENTID}}
+              clientSecret:  ${{secrets.CLIENTSECRET}}
+              subscriptionId: 'subscriptionId of the target workspace'
+              tenantId: 'tenantId'
+              DeleteArtifactsNotInTemplate: 'true'
+              managedIdentity: 'False'
+    ``` 
+
+1. 이제 변경 내용을 커밋할 준비가 되었습니다. 커밋 시작을 선택하고 제목을 입력한 다음, 설명(선택 사항)을 추가합니다. 그런 다음, 새 파일 커밋을 클릭합니다.
+
+    ![워크플로 커밋](media/commit-the-workflow.png)    
+
+
+1. 파일이 리포지토리의 `.github/workflows` 폴더에 표시됩니다.
+
+> [!NOTE]
+> 관리 ID는 Azure에서 자체 호스팅된 VM에서만 지원됩니다. Runner를 자체 호스팅으로 설정하세요. VM에 시스템이 할당한 관리 ID를 사용하도록 설정하고, Synapse Studio에 Synapse 관리자로 추가합니다.
+
+### <a name="review-your-deployment"></a>배포 검토
+
+1. GitHub 리포지토리의 작업으로 이동합니다.
+1. 첫 번째 결과를 열어 워크플로 실행에 대한 자세한 로그를 확인합니다
+
+    ![배포 검토](media/review-deploy-status.png)    
 
 ## <a name="use-custom-parameters-of-the-workspace-template"></a>작업 영역 템플릿의 사용자 지정 매개 변수 사용 
 

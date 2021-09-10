@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7e0bda68f41091b25e233c8461a472d8e63e3d63
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: ee1adc5b6964b8583c33b68a9e02bb77cb050f4a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597168"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698551"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Linux 가상 머신(VM)용 Azure Disk Encryption은 Linux의 DM-Crypt 기능을 사용하여 OS 디스크 및 데이터 디스크의 전체 디스크 암호화를 제공합니다. 또한 EncryptFormatAll 기능을 사용하는 경우, 임시 디스크의 암호화를 제공합니다.
 

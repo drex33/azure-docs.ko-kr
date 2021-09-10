@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99574960"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535464"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL Server 등록 및 검사
 
@@ -32,11 +32,7 @@ SQL Server 온-프레미스 데이터 원본은 다음을 지원합니다.
 
 - 인증 방식: SQL 인증
 
-### <a name="known-limitations"></a>알려진 제한 사항
-
-Azure Purview는 SQL Server에서의 [보기](/sql/relational-databases/views/views) 검사를 지원하지 않습니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
 
@@ -99,7 +95,7 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 
 1. 왼쪽 탐색의 원본 및 검사에서 **통합 런타임** 을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](manage-integration-runtimes.md)에서 설명된 단계를 따라 온-프레미스 네트워크에 액세스할 수 있는 온-프레미스 또는 Azure VM에서 검사하기 위한 자체 호스팅 통합 런타임을 만듭니다.
 
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 
@@ -109,7 +105,35 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 
 5. 식별 이름과 서버 엔드포인트를 제공한 다음 **마침** 을 선택하여 데이터 원본을 등록합니다. 예를 들어 SQL Server FQDN이 **foobar.database.windows.net** 인 경우 서버 엔드포인트로 *foobar* 를 입력합니다.
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+
+새 검색을 만들고 실행하려면 다음을 수행합니다.
+
+1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+
+1. 등록한 SQL Server 원본을 선택합니다.
+
+1. **새 검사** 를 선택합니다.
+
+1. 데이터 원본에 연결할 자격 증명을 선택합니다.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="검사 설정":::
+
+1. 목록에서 적절한 항목을 선택하여 검사 범위를 특정 테이블로 지정할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="검사 범위 지정":::
+
+1. 그런 다음, 검사 규칙 집합을 선택합니다. 시스템 기본값, 기존 사용자 지정 규칙 집합 중 하나를 선택하거나 새 규칙 집합을 인라인으로 만들 수 있습니다.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/on-premises-sql-scan-rule-set.png" alt-text="검사 규칙 집합":::
+
+1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/trigger-scan.png" alt-text="트리거":::
+
+1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

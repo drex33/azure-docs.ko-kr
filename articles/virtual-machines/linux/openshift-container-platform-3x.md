@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 177cbeb76433fb43094822989cfc5c6a3abfadfd
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: bcac5ef0b3ba4a99ec2f670dae7ab252681f7542
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390670"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691050"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure에서 OpenShift Container Platform 3.11을 배포하는 몇 가지 방법 중 하나를 사용할 수 있습니다.
 
@@ -244,7 +246,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.Parameters.json file explained
 
-| 속성 | 설명 | 유효한 옵션 | 기본값 |
+| 속성 | Description | 유효한 옵션 | 기본값 |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | 아티팩트의 URL(json, 스크립트 등) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 리소스를 배포할 Azure 지역 |  |  |
@@ -278,7 +280,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `enableAzure` | Azure 클라우드 공급자 사용하도록 설정 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 애플리케이션 ID라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
 | `domainName` | 사용할 사용자 지정 도메인 이름의 이름(해당하는 경우). 완전 프라이빗 클러스터를 배포하지 않는 경우 "없음"으로 설정 |  | 없음 |
-| `masterClusterDnsType` | OpenShift 웹 콘솔의 도메인 유형입니다. '기본값'은 마스터 인프라 공용 IP의 DNS 레이블을 사용합니다. '사용자 지정'을 사용하면 자신의 이름을 정의할 수 있습니다. | default <br> 사용자 지정 | default |
+| `masterClusterDnsType` | OpenShift 웹 콘솔의 도메인 유형입니다. '기본값'은 마스터 인프라 공용 IP의 DNS 레이블을 사용합니다. '사용자 지정'을 사용하면 자신의 이름을 정의할 수 있습니다. | 기본값 <br> 사용자 지정 | 기본값 |
 | `masterClusterDns` | `masterClusterDnsType`에 대해 '사용자 지정'을 선택한 경우 OpenShift 웹 콘솔에 액세스하는 데 사용할 사용자 지정 DNS 이름 |  | console.contoso.com |
 | `routingSubDomainType` | 'nipio'로 설정하면 `routingSubDomain`은 nip.io를 사용합니다.  라우팅에 사용하려는 고유한 도메인이 있는 경우 '사용자 지정'을 사용합니다. | nipio <br> 사용자 지정 | nipio |
 | `routingSubDomain` | `routingSubDomainType`에 대해 '사용자 지정'을 선택한 경우 라우팅에 사용할 와일드카드 DNS 이름 |  | apps.contoso.com |

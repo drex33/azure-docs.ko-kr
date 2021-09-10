@@ -9,35 +9,19 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: d86e8a6e16fdaa48678ae1af89eb236f6e00b01b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: f83e84e3aa747c41d0e45a5650c704c796c62447
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005144"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968270"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용하여 Apache Spark 애플리케이션 모니터링
 
 Azure Synapse Analytics에서 Apache Spark를 사용하여 작업 영역의 Apache Spark 풀에서 Notebook, 작업 및 기타 종류의 애플리케이션을 실행할 수 있습니다.
 
 이 문서에서는 Apache Spark 애플리케이션을 모니터링하여 최신 상태, 문제 및 진행 상황을 파악할 수 있도록 하는 방법을 설명합니다.
-
-이 자습서에서 다루는 작업은 다음과 같습니다.
-
-* 실행 중인 Apache Spark 애플리케이션 모니터링
-* 완료된 Apache Spark 애플리케이션 보기
-* 취소된 Apache Spark 애플리케이션 보기
-* 실패한 Apache Spark 애플리케이션 디버그
-* Apache Spark 애플리케이션의 입력 데이터 및 출력 데이터 보기
-* Apache Spark 애플리케이션 비교
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
-
-- Synapse Studio 작업 영역. 지침에 대해서는 [Log Analytics 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md#create-a-workspace)를 참조하세요.
-
-- Apache Spark 풀.
 
 ## <a name="view-apache-spark-applications"></a>Apache Spark 애플리케이션 보기 
 모든 Apache Spark 애플리케이션은 **모니터** -> **Apache Spark 애플리케이션** 에서 볼 수 있습니다.
@@ -204,7 +188,7 @@ Apache Spark 애플리케이션을 선택하고 **입력 데이터/출력 데이
 
 애플리케이션을 비교하는 방법에는 두 가지가 있습니다. **애플리케이션 비교** 를 선택하거나, **Notebook에서 비교** 단추를 클릭하여 전자 필기장에서 볼 수 있습니다.
 
-### <a name="compare-by-choose-an-application"></a>애플리케이션을 선택하여 비교
+### <a name="compare-by-choosing-an-application"></a>애플리케이션을 선택하여 비교
 
 **애플리케이션 비교** 단추를 클릭하고 애플리케이션을 선택하여 성능을 비교할 때 두 애플리케이션 간의 차이를 한눈에 확인할 수 있습니다.
 

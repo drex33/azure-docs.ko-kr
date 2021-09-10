@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 21f2aaeea730d183fa42cbde03769aeaf75297ab
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: e1c79ee87861124b669ad3cd8507085631a199a8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356890"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825038"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure CLI를 사용하여 관리 디스크에 대해 고객 관리형 키를 이용하여 서버 쪽 암호화를 사용하도록 설정합니다.
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형에 대한 SSE 개념 정보는 디스크 암호화 문서의 [고객 관리형 키](../disk-encryption.md#customer-managed-keys) 섹션을 참조하세요.
 
@@ -26,7 +28,7 @@ Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)해야 합니다.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 DiskEncryptionSet 설정
+## <a name="set-up-your-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation"></a>필요에 따라 자동 키 순환으로 Azure Key Vault 및 DiskEncryptionSet 설정
 
 먼저 Azure Key Vault 및 diskencryptionset 리소스를 설정해야 합니다.
 

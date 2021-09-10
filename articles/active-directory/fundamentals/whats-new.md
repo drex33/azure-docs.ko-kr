@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d723423fdb57ad60f5665be2d5fa0a760c9d770d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3c9b954776c33fedc3a770bc0aab0185ad595aff
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536484"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219746"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -323,7 +323,7 @@ Azure AD 권한 관리는 이제 액세스 패키지 요청 흐름에서 사용�
 ### <a name="general-availability---knowledge-admin-and-knowledge-manager-built-in-roles"></a>일반 공급 - 지식 수석 관리자 및 지식 관리자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 지식 수석 관리자 및 지식 관리자라는 새로운 두 가지 역할이 이제 일반 공급됩니다.
@@ -336,7 +336,7 @@ Azure AD 권한 관리는 이제 액세스 패키지 요청 흐름에서 사용�
 ### <a name="general-availability---cloud-app-security-administrator-built-in-role"></a>일반 공급 - Cloud App Security 관리자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
  이 역할의 사용자는 Cloud App Security에서 모든 권한을 갖습니다. 관리자를 추가하고, MCAS(Microsoft Cloud App Security) 정책 및 설정을 추가하며, 로그를 업로드하고, 거버넌스 작업을 수행할 수 있습니다. [자세히 알아보기](../roles/permissions-reference.md#cloud-app-security-administrator).
@@ -346,7 +346,7 @@ Azure AD 권한 관리는 이제 액세스 패키지 요청 흐름에서 사용�
 ### <a name="general-availability---windows-update-deployment-administrator"></a>일반 공급 - Windows 업데이트 배포 관리자
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 
@@ -584,7 +584,7 @@ Azure AD 고객은 이제 확인 가능한 자격 증명을 쉽게 설계하고 
 **서비스 범주:** ID 보호  
 **제품 기능:** ID 보안 및 보호
  
-이 새로운 검색은 보안 팀에서 공격이 발생하는 것을 관찰할 때 세션 위험을 높음 위험으로 승격하여 사용자에게 알리고 사용자를 보호할 수 있는 임시 방법으로 제공됩니다. 또한 검색은 연결된 로그인을 위험한 것으로 표시합니다. 이 검색은 사용자 위험 검색에 대한 기존 Azure Active Directory 위협 인텔리전스를 따라 Microsoft 보안 팀에서 관찰하는 다양한 공격의 전체 범위를 검색합니다. [자세한 정보](../identity-protection/concept-identity-protection-risks.md#user-risk).
+이 새로운 검색은 보안 팀에서 공격이 발생하는 것을 관찰할 때 세션 위험을 높음 위험으로 승격하여 사용자에게 알리고 사용자를 보호할 수 있는 임시 방법으로 제공됩니다. 또한 검색은 연결된 로그인을 위험한 것으로 표시합니다. 이 검색은 사용자 위험 검색에 대한 기존 Azure Active Directory 위협 인텔리전스를 따라 Microsoft 보안 팀에서 관찰하는 다양한 공격의 전체 범위를 검색합니다. [자세한 정보](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
  
 ---
 
@@ -1035,7 +1035,7 @@ Azure AD 앱 갤러리에서 애플리케이션을 나열하려면 여기에서 
 ### <a name="two-way-sms-for-mfa-server-is-no-longer-supported"></a>MFA 서버용 양방향 SMS는 이제 지원되지 않습니다.
 
 **유형:** 사용되지 않음  
-**서비스 범주:** MFA  
+**서비스 카테고리:** MFA  
 **제품 기능:** ID 보안 및 보호
  
 
@@ -1113,7 +1113,7 @@ MFA 서버용 양방향 SMS는 2018년부터 사용되지 않으며, 2021년 2�
 ### <a name="general-availability---authentication-policy-administrator-built-in-role"></a>일반 공급 - 인증 정책 관리자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 이 역할을 가진 사용자는 인증 방법 정책, 테넌트 전체 MFA 설정, 암호 보호 정책을 구성할 수 있습니다. 이 역할은 암호 보호 설정을 관리할 수 있는 권한( 스마트 잠금 구성 및 사용자 지정 금지 암호 목록 업데이트)을 부여합니다. [자세한 정보를 알아보세요](../roles/permissions-reference.md#authentication-policy-administrator).
@@ -1155,7 +1155,7 @@ Authenticator에서 자동 채우기를 사용하려면 사용자가 Authenticat
 ### <a name="general-availability---domain-name-administrator-built-in-role"></a>일반 공급 - 도메인 이름 관리자 기본 제공 역할
 
 **유형:** 새로운 기능  
-**서비스 카테고리:** RBAC  
+**서비스 범주:** RBAC  
 **제품 기능:** 액세스 제어
  
 이 역할을 가진 사용자는 도메인 이름을 관리(읽기, 추가, 확인, 업데이트, 삭제)할 수 있습니다. 해당 개체에는 도메인 종속성이 있어서 사용자, 그룹, 애플리케이션에 관한 디렉터리 정보를 읽을 수도 있습니다. 

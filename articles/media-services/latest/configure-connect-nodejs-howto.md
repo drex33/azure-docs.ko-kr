@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb9fd9f0539b42d9253db783fd5da840f358e66
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7c6bba2084247d76a79de9ae9efb1b3ea356a5c4
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960727"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221499"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결 - Node.js
 
@@ -47,7 +47,7 @@ Azure 샘플에서 일부 파일을 사용합니다. Node.JS 샘플 리포지토
 git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
 ```
 
-## <a name="install-the-packages"></a>패키지 설치
+## <a name="install-the-nodejs-packages"></a>Node.js 패키지를 설치합니다.
 
 ### <a name="install-azurearm-mediaservices"></a>@azure/arm-mediaservices 설치
 
@@ -96,11 +96,12 @@ npm install @azure/ms-rest-nodeauth@"^3.0.0"
 
 ## <a name="connect-to-nodejs-client-using-typescript"></a>TypeScript를 사용하여 Node.js 클라이언트에 연결
 
-
-
 ### <a name="sample-env-file"></a>샘플 *.env* 파일
 
 이 파일의 콘텐츠를 *.env* 라는 파일에 복사합니다. 작업 리포지토리의 루트에 저장해야 합니다. 포털에서 Media Services 계정의 API 액세스 페이지에서 얻은 값입니다.
+
+*.env* 파일에 입력하는 데 필요한 값에 액세스하려면 먼저 [API 액세스](./access-api-howto.md) 방법 문서를 읽고 검토하는 것이 좋습니다.
+Azure Portal 또는 CLI를 사용하여 이 샘플의 환경 변수 파일에 입력하는 데 필요한 값을 얻을 수 있습니다.
 
 *.env* 파일을 만들고 나면 샘플 작업을 시작할 수 있습니다.
 

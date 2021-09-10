@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746612"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707130"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -60,7 +60,7 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 
 ## <a name="privacy"></a><a name="privacy"></a>개인 정보
 
-### <a name="does-the-vpn-service-store-customer-data"></a>VPN 서비스에서 고객 데이터를 저장하나요?
+### <a name="does-the-vpn-service-store-or-process-customer-data"></a>VPN 서비스에서 고객 데이터를 저장하거나 처리하나요?
 
 아니요.
 
@@ -77,6 +77,10 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>경로 기반(동적 라우팅) 게이트웨이란?
 
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
+
+### <a name="can-i-specify-my-own-policy-based-traffic-selectors"></a>자체 정책 기반 트래픽 선택기를 지정할 수 있나요?
+
+예, 트래픽 선택기는 [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell 명령을 통해 연결의 *trafficSelectorPolicies* 특성을 통해 정의할 수 있습니다. 지정된 트래픽 선택기를 적용하려면 [정책 기반 트래픽 선택기 사용](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) 옵션이 사용하도록 설정되어 있는지 확인합니다.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
 
@@ -245,6 +249,10 @@ ExpressRoute에 연결된 분기와 사이트 간 VPN 연결에 연결된 분기
 ### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있나요?
 
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
+
+## <a name="nat"></a><a name="nat"></a>NAT
+
+[!INCLUDE [vpn-gateway-faq-nat-include](../../includes/vpn-gateway-faq-nat-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>크로스-프레미스 연결 및 VM
 

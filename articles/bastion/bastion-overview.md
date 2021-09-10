@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/12/2021
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: f23a21bdba5602dad2e38ee931a5e754f0607cde
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 1b77f214033e1b76e408855d8fb4d284d235acdd
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730596"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309835"
 ---
 # <a name="what-is-azure-bastion"></a>Azure Bastion 정보
 
@@ -28,7 +28,7 @@ Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전�
 * **Azure Portal에서 직접 RDP 및 SSH:** 클릭 한 번으로 원활한 환경을 사용하여 Azure Portal에서 직접 RDP 및 SSH 세션으로 이동할 수 있습니다.
 * **RDP/SSH를 위한 TLS 및 방화벽 통과를 통한 원격 세션:** Azure Bastion은 로컬 디바이스로 자동 스트리밍되는 HTML5 기반 웹 클라이언트를 사용합니다. 포트 443에서 TLS를 통한 RDP/SSH 세션을 구현하여 회사 방화벽을 안전하게 트래버스하도록 합니다.
 * **Azure VM에 공용 IP가 필요하지 않음:** Azure Bastion은 VM에서 개인 IP를 사용하여 Azure VM(가상 머신)에 대한 RDP/SSH 연결을 엽니다. 가상 머신에서 공용 IP가 필요하지 않습니다.
-* **NSG 간편 관리**: Azure Bastion은 안전한 RDP/SSH 연결을 제공하기 위해 내부적으로 강화된 Azure의 완전 관리형 플랫폼 PaaS 서비스입니다. Azure Bastion 서브넷에 NSG를 적용할 필요가 없습니다. Azure Bastion은 개인 IP를 통해 가상 머신에 연결하므로 Azure Bastion의 RDP/SSH만 허용하도록 NSG를 구성할 수 있습니다. 이렇게 하면 가상 머신에 안전하게 연결하기 위해 매번 NSG를 관리하는 번거로움이 사라집니다.
+* **[네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) NSG 간편 관리:** Azure Bastion은 안전한 RDP/SSH 연결을 제공하기 위해 내부적으로 강화된 Azure의 완전 관리형 플랫폼 PaaS 서비스입니다. Azure Bastion 서브넷에 NSG를 적용할 필요가 없습니다. Azure Bastion은 개인 IP를 통해 가상 머신에 연결하므로 Azure Bastion의 RDP/SSH만 허용하도록 NSG를 구성할 수 있습니다. 이렇게 하면 가상 머신에 안전하게 연결하기 위해 매번 NSG를 관리하는 번거로움이 사라집니다.
 * **포트 검색으로부터 보호:** 가상 머신을 퍼블릭 인터넷에 노출하지 않으므로 가상 네트워크 외부에 있는 악의적인 사용자에 의한 포트 검색으로부터 VM을 보호합니다.
 * **제로 데이 공격으로부터 보호 단일 지점에서 강화:** Azure Bastion은 완전 플랫폼 관리형 PaaS 서비스입니다. 가상 네트워크의 경계에 위치하므로 가상 네트워크의 각 가상 머신을 강화할 필요가 없습니다. Azure 플랫폼은 Azure Bastion을 강화하고 항상 최신 상태로 유지함으로써 제로 데이 공격으로부터 보호합니다.
 

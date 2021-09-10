@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 85c34bfc306b49bb826a342846bf5e4557e3052f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad970076449bbd74ed22f2688b314b6a5a3aba98
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786365"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530767"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -21,8 +21,8 @@ ms.locfileid: "104786365"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -77,7 +77,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |

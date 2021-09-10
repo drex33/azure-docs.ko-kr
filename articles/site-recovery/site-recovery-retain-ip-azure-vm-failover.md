@@ -2,16 +2,16 @@
 title: Azure Site Recovery를 사용하여 Azure VM 장애 조치(failover) 후 IP 주소 유지
 description: Azure Site Recovery를 사용하여 보조 지역으로 재해 복구를 수행하기 위해 Azure VM을 장애 조치(failover)할 때 IP 주소를 보존하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.date: 4/9/2019
+ms.date: 07/25/2021
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 782e6247bb17485e8e654c7e879f477fe531edc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023553"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536109"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -33,6 +33,8 @@ ms.locfileid: "96023553"
 A사의 모든 앱은 Azure에서 실행됩니다.
 
 ### <a name="before-failover"></a>장애 조치(failover) 전
+
+>[!참고 이제 전 세계 두 Azure 지역 간에 복제를 수행할 수 있습니다. 고객은 더 이상 지역 내 복제로 제한되지 않습니다.
 
 다음은 장애 조치(failover) 전의 아키텍처입니다.
 
@@ -93,7 +95,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
         - **Recovery VNet 1** 및 **Recovery VNet 2** 에는 각각 **Source VNet 1** 및 **Source VNet 2** 의 서브넷과 일치하는 두 개의 서브넷이 있습니다. 동남 아시아에는 주소 공간이 10.3.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
         - **Azure VNet** 에는 주소 공간이 10.3.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
         - SQL Server Always On, 도메인 컨트롤러 등의 의 복제본 노드는 **서브넷 4** 에 있습니다.
-- 여러 개의 사이트 간 VPN 연결이 있습니다. 
+- 여러 개의 사이트 간 VPN 연결이 있습니다.
     - **Source VNet 1** 및 **Azure VNet**
     - **Source VNet 2** 및 **Azure VNet**
     - **Source VNet 1** 및 **Source VNet 2** 는 VPN 사이트 간 연결을 통해 연결됩니다.
@@ -121,7 +123,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 ## <a name="hybrid-resources-full-failover"></a>하이브리드 리소스: 전체 장애 조치(failover)
 
-이 시나리오의 **B사** 는 하이브리드 비즈니스를 실행하고 있고, 애플리케이션 인프라의 일부가 Azure에서 실행 중이고 나머지는 온-프레미스에서 실행 중입니다. 
+이 시나리오의 **B사** 는 하이브리드 비즈니스를 실행하고 있고, 애플리케이션 인프라의 일부가 Azure에서 실행 중이고 나머지는 온-프레미스에서 실행 중입니다.
 
 ### <a name="before-failover"></a>장애 조치(failover) 전
 

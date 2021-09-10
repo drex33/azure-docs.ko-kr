@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: ab17ad8c47f7cc49588e5caf556282c40a9c0a76
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538574"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681600"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>데이터 복사 도구에서 메타데이터 기반 접근 방식으로 대규모 데이터 복사 파이프라인 구축(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +74,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
     다음 매개 변수를 입력해야 합니다.
    
-    | 매개 변수 이름 | 설명 | 
+    | 매개 변수 이름 | Description | 
     |:--- |:--- |
     |MaxNumberOfConcurrentTasks |파이프라인이 실행되기 전에 실행되는 최대 동시 복사 작업 수를 언제든지 변경할 수 있습니다. 기본값은 데이터 복사 도구에 입력한 값입니다. |
     |MainControlTableName | 항상 기본 제어 테이블 이름을 변경할 수 있으므로 파이프라인은 실행 전에 해당 테이블에서 메타데이터를 가져옵니다.  |
@@ -130,7 +130,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 ### <a name="connection-control-table"></a>연결 제어 테이블
 제어 테이블의 각 행에는 데이터 저장소에 대한 하나의 연결 설정이 포함됩니다.
 
-| 열 이름 | 설명 | 
+| 열 이름 | Description | 
 |:--- |:--- |
 | Name | 주 제어 테이블에서 매개 변수화된 연결의 이름입니다. |
 | ConnectionSettings | 연결 설정입니다. DB 이름, 서버 이름 등이 될 수 있습니다. |
@@ -142,7 +142,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 이 파이프라인은 이 실행에서 복사해야 하는 총 개체(테이블 등) 수를 계산하고 최대 허용 동시 복사 작업을 기반으로 순차 배치 수를 계산한 다음 다른 파이프라인을 실행하여 다른 배치를 순차적으로 복사합니다. 
 
 #### <a name="parameters"></a>매개 변수
-| 매개 변수 이름 | 설명 | 
+| 매개 변수 이름 | Description | 
 |:--- |:--- |
 | MaxNumberOfConcurrentTasks | 파이프라인이 실행되기 전에 실행되는 최대 동시 복사 작업 수를 언제든지 변경할 수 있습니다. 기본값은 데이터 복사 도구에 입력한 값입니다. |
 | MainControlTableName | 주 제어 테이블의 테이블 이름입니다. 파이프라인은 실행 전에 이 테이블에서 메타데이터를 가져옵니다. |
@@ -162,7 +162,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 이 파이프라인은 하나의 배치 개체를 복사합니다. 이 배치에 속한 개체는 병렬로 복사됩니다. 
 
 #### <a name="parameters"></a>매개 변수
-| 매개 변수 이름 | 설명 | 
+| 매개 변수 이름 | Description | 
 |:--- |:--- |
 | MaxNumberOfObjectsReturnedFromLookupActivity | 출력 조회 작업의 한계에 도달하지 않도록 조회 작업에 의해 반환되는 최대 개체 수를 정의하는 방법이 있습니다.  대부분의 경우 기본값은 변경할 필요가 없습니다.  | 
 | TopLayerPipelineName | 최상위 계층 파이프라인의 이름입니다. | 
@@ -185,7 +185,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 이 파이프라인은 한 그룹의 개체를 복사합니다. 이 그룹에 속한 개체는 병렬로 복사됩니다.  
 
 #### <a name="parameters"></a>매개 변수
-| 매개 변수 이름 | 설명 | 
+| 매개 변수 이름 | Description | 
 |:--- |:--- |
 | ObjectsPerGroupToCopy | 현재 그룹에서 복사할 개체의 수입니다. | 
 | ConnectionControlTableName | 연결 제어 테이블의 이름입니다. | 
@@ -204,7 +204,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 ### <a name="known-limitations"></a>알려진 제한 사항
 - 데이터 복사 도구는 현재 새 파일만 증분 복사하기 위한 메타데이터 기반 수집을 지원하지 않습니다. 그러나 이를 위해 자체 매개 변수화된 파이프라인을 가져올 수 있습니다.
 - IR 이름, 데이터베이스 유형, 파일 형식 유형은 ADF에서 매개 변수화할 수 없습니다. 예를 들어 Oracle Server와 SQL Server 모두에서 데이터를 수집하려는 경우 매개 변수화된 두 개의 서로 다른 파이프라인이 필요합니다. 그러나 단일 제어 테이블은 두 세트의 파이프라인에서 공유할 수 있습니다. 
-
+- OPENJSON은 생성된 SQL 스크립트에서 복사 데이터 도구가 사용합니다. SQL Server를 사용하여 컨트롤 테이블을 호스트하는 경우 OPENJSON 함수를 지원하려면 SQL Server 2016(13.x) 이상이어야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

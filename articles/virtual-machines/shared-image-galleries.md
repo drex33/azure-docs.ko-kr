@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: f00f98ac9e6350aa09d3fa67c1c87677fef2db6f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c94e040d5047b25b8d260792fd362e50a29b9601
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536259"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696293"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
@@ -35,7 +37,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
 | **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 또는 특수화](#generalized-and-specialized-images)된 기존 Azure VM, 관리형 이미지, 스냅샷, VHD 또는 다른 이미지 갤러리의 이미지 버전일 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리** 는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |

@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 08/02/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cc8d65ec4b714bbb98036c5ed3deabd4b75d3c98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943694"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567414"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise 전송
 
@@ -59,6 +59,9 @@ ms.locfileid: "98943694"
 
 엔터프라이즈 등록 전체를 다른 등록에 양도해 달라고 요청하면 다음 작업이 수행됩니다.
 
+- 양도된 사용량이 새 등록에 반영되기까지 최대 72시간이 걸릴 수 있습니다.
+- 양도된 등록에서 DA 또는 AO 보기 요금이 사용된 경우 새 등록에서 사용하도록 설정해야 합니다.
+- API 보고서 또는 Power BI를 사용하는 경우 새 등록에서 새 API 키를 생성합니다.
 - 모든 EA 부서 관리자를 포함하여 모든 Azure 서비스, 구독, 계정, 부서 및 전체 등록계약 구조가 새 대상 등록계약으로 양도됩니다.
 - 등록 상태가 _전송됨_ 으로 설정됩니다. 양도된 등록은 이전 사용량 보고 용도로만 사용할 수 있습니다.
 - 양도된 등록에 역할 또는 구독을 추가할 수 없습니다. 양도된 상태는 등록에 대해 더 많은 사용을 방지합니다.
@@ -85,6 +88,17 @@ ms.locfileid: "98943694"
 - 대상 및 원본 등록계약 EA 관리자 모두의 승인이 필요합니다.
 - 등록을 양도해도 요구 사항이 충족되지 않는 경우 계정 양도를 고려해 보세요.
 - 원본 등록계약 상태는 양도된 것으로 업데이트되며, 이전 사용량 보고 용도로만 사용할 수 있습니다.
+- 등록을 양도하는 동안에는 가동 중지 시간이 없습니다.
+- 사용량이 대상 등록에 반영되기까지 최대 24~48시간이 걸릴 수 있습니다.
+- 부서 관리자 또는 계정 소유자에 대한 비용 보기 설정은 이월되지 않습니다.
+  - 이전에 사용한 경우에는 대상 등록에 대해 사용하도록 설정해야 합니다.
+- 원본 등록에 사용된 모든 API 키는 대상 등록에 대해 다시 생성해야 합니다.
+- 원본 및 대상 등록이 다른 클라우드 인스턴스에 있는 경우 양도에 실패합니다. Azure 지원은 동일한 클라우드 인스턴스 내에서만 양도할 수 있습니다.
+- 예약의 경우(예약된 인스턴스):
+  - 다른 통화 간의 등록 또는 계정 양도는 월별 예약 구매에 영향을 미칩니다.
+  - 등록 양도 중 또는 이후에 통화 변경이 있을 때마다 원본 등록에 대한 월별 유료 예약이 취소됩니다. 이는 의도적인 것이며 월별 예약 구매에만 영향을 미칩니다.
+  - 현지 통화 또는 새 통화로 새 등록을 사용하여 원본 등록에서 취소된 월별 예약을 다시 구매해야 할 수 있습니다.
+
 
 ### <a name="auto-enrollment-transfer"></a>자동 등록 이전
 

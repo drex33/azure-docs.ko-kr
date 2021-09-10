@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)'
 description: 이 빠른 시작에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
-ms.date: 06/27/2021
+ms.date: 08/26/2021
 ms.topic: quickstart
-ms.openlocfilehash: e77ebaf3ab99fc88d3d0138edf3c815b63507e6c
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 857c0a6a9682d4b15362d75523d2aa08a1c8461e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195553"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965643"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
@@ -48,10 +48,11 @@ Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들
     sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
     ```
 
-1. 다음 명령을 사용하여 추가한 리포지토리에서 패키지 목록을 업데이트합니다.
+1. Microsoft GPG 공개 키를 설치합니다.
 
     ```bash
-    sudo apt-get update
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
 Debian 및 Ubuntu 기반 Linux 배포판에 Defender 마이크로 에이전트 패키지를 설치하려면 다음 명령을 사용합니다.
@@ -60,21 +61,21 @@ Debian 및 Ubuntu 기반 Linux 배포판에 Defender 마이크로 에이전트 �
 sudo apt-get install defender-iot-micro-agent 
 ```
 
-## <a name="micro-agent-authentication-methods"></a>마이크로 에이전트 인증 방법 
+## <a name="micro-agent-authentication-methods"></a>마이크로 에이전트 인증 방법
 
-Defender for IoT 마이크로 에이전트를 인증하는 데 사용 되는 두 가지 옵션은 다음과 같습니다. 
+Defender for IoT 마이크로 에이전트를 인증하는 데 사용 되는 두 가지 옵션은 다음과 같습니다.
 
-- 모듈 ID 연결 문자열 
+- 모듈 ID 연결 문자열
 
 - 인증서
 
 ### <a name="authenticate-using-a-module-identity-connection-string"></a>모듈 ID 연결 문자열을 사용한 인증
 
-이 문서의 [사전 요구 사항](#prerequisites)이 충족되고 이 단계를 시작하기 전에 모듈 ID를 생성했는지 확인합니다. 
+이 문서의 [사전 요구 사항](#prerequisites)이 충족되고 이 단계를 시작하기 전에 모듈 ID를 생성했는지 확인합니다.
 
 #### <a name="get-the-module-identity-connection-string"></a>모듈 ID 연결 문자열 가져오기
 
-IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합니다. 
+IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합니다.
 
 1. IoT Hub으로 이동하여 허브를 선택합니다.
 
@@ -118,13 +119,13 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 
 1. [이 지침](../../iot-hub/tutorial-x509-scripts.md)에 따라 인증서를 확보합니다.
 
-1. 인증서 및 프라이빗 키의 PEM으로 인코딩된 공개 부분을 Defender 에이전트 디렉터리의 `certificate_public.pem` 및 `certificate_private.pem` 파일에 저장합니다. 
+1. 인증서 및 프라이빗 키의 PEM으로 인코딩된 공개 부분을 Defender 에이전트 디렉터리의 `certificate_public.pem` 및 `certificate_private.pem` 파일에 저장합니다.
 
-1. 적절한 연결 문자열을 `connection_string.txt` 파일에 저장합니다. 연결 문자열은 다음과 같아야 합니다. 
+1. 적절한 연결 문자열을 `connection_string.txt` 파일에 저장합니다. 연결 문자열은 다음과 같아야 합니다.
 
-    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true` 
+    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    이 문자열은 인증을 위해 인증서가 제공되어야 함을 Defender 에이전트에 알립니다. 
+    이 문자열은 인증을 위해 인증서가 제공되어야 함을 Defender 에이전트에 알립니다.
 
 1. 다음 명령을 사용하여 서비스를 다시 시작합니다.  
 
@@ -145,10 +146,10 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 1. 서비스가 `active`인지 확인하여 서비스가 안정적이고, 프로세스의 작동 시간이 적절한지 확인합니다.
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="서비스가 안정적이며 활성 상태인지 확인합니다.":::
- 
-## <a name="testing-the-system-end-to-end"></a>엔드투엔드 시스템 테스트 
 
-디바이스에 트리거 파일을 만들어 시스템을 끝에서 끝까지 테스트할 수 있습니다. 트리거 파일은 에이전트의 기준 검사에서 해당 파일을 기준 위반으로 감지하도록 합니다. 
+## <a name="testing-the-system-end-to-end"></a>엔드투엔드 시스템 테스트
+
+디바이스에 트리거 파일을 만들어 시스템을 끝에서 끝까지 테스트할 수 있습니다. 트리거 파일은 에이전트의 기준 검사에서 해당 파일을 기준 위반으로 감지하도록 합니다.
 
 다음 명령을 사용하여 파일 시스템에 파일을 만듭니다.
 
@@ -156,15 +157,15 @@ IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합�
 sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
 ```
 
-허브에서 CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0의 `CceId`와 함께 기준 유효성 검사 실패 권장 사항이 발생합니다. 
+허브에서 CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0의 `CceId`와 함께 기준 유효성 검사 실패 권장 사항이 발생합니다.
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="허브에서 발생하는 기준 유효성 검사 실패 권장 사항입니다." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
 
-권장 사항이 허브에 표시되기까지 최대 1시간까지 걸릴 수 있습니다. 
+권장 사항이 허브에 표시되기까지 최대 1시간까지 걸릴 수 있습니다.
 
-## <a name="micro-agent-versioning"></a>마이크로 에이전트 버전 관리 
+## <a name="micro-agent-versioning"></a>마이크로 에이전트 버전 관리
 
-특정 버전의 Defender IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다. 
+특정 버전의 Defender IoT 마이크로 에이전트를 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>

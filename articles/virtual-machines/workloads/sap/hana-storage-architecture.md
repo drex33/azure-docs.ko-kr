@@ -11,23 +11,23 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2020
+ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f862299dfb677a4b459611050832f602ff5598eb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 15ce4cabc1a9bc44fcd6cc00a365007900ff4ebe
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412496"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968542"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA(대규모 인스턴스) 스토리지 아키텍처
 
 이 문서에서는 Azure의 SAP HANA(대규모 인스턴스)(BareMetal Infrastructure라고도 함)를 배포하기 위한 스토리지 아키텍처를 살펴보겠습니다. 
 
-Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 지침에 대한 자세한 내용은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)을 참조하세요.
+Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 지침에 대한 자세한 내용은 [SAP HANA 스토리지 요구 사항](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)을 참조하세요.
 
-유형 I 클래스의 HANA 대규모 인스턴스는 메모리 볼륨으로 스토리지 볼륨의 4배를 제공합니다. HANA 트랜잭션 로그 백업을 저장하기 위한 볼륨과 함께 제공되는 HANA 대규모 인스턴스 단위의 유형 II 클래스에는 해당하지 않습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md)을 참조하세요.
+HANA(대규모 인스턴스)의 유형 I 클래스에는 스토리지 볼륨의 4배에 달하는 메모리 볼륨이 제공됩니다. HANA(대규모 인스턴스)의 유형 II 클래스는 HANA 트랜잭션 로그 백업을 저장하기 위한 볼륨과 함께 제공됩니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md)을 참조하세요.
 
 스토리지 할당은 다음 표를 참조하세요. 다음 표에는 서로 다른 HANA 대규모 인스턴스 단위와 함께 제공되는 볼륨에 대한 대략적인 용량이 나와 있습니다.
 
@@ -121,9 +121,9 @@ HANA 대규모 인스턴스 장치에 둘 이상의 활성 SAP HANA 인스턴스
 다른 변형도 있습니다. 
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
-HANA 대규모 인스턴스용 스토리지는 데이터가 디스크에 저장될 때 데이터에 대해 투명한 암호화를 사용합니다. 2018년 말 이전 배포에서는 볼륨을 암호화하도록 선택할 수 있었습니다. 이 옵션을 선택하지 않은 경우 볼륨을 온라인으로 암호화하도록 요청할 수 있었습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로 이동하는 경우 투명하게 수행되며 가동 중지 시간이 필요하지 않습니다. 
+HANA 대규모 인스턴스용 스토리지는 데이터가 디스크에 저장될 때 데이터에 대해 투명한 암호화를 사용합니다. 2018년 말 이전 배포에서는 볼륨을 암호화할 수 있습니다. 해당 옵션을 사용하지 않기로 결정한 경우 볼륨을 온라인으로 암호화할 수 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로 이동하는 경우 투명하게 수행되며 가동 중지 시간이 필요하지 않습니다. 
 
-유형 I 클래스 SKU를 사용하면 부팅 LUN을 저장하는 볼륨이 암호화됩니다. HANA 대규모 인스턴스의 유형 II 클래스 SKU를 사용하는 수정 버전 3 HANA 대규모 인스턴스 스탬프에서는 OS 메서드를 통해 부팅 LUN을 암호화해야 합니다. 유형 II 단위를 사용하는 수정 버전 4 HANA 대규모 인스턴스 스탬프에서, 부팅 LUN을 저장하는 볼륨은 기본적으로 미사용 시 암호화됩니다. 
+HANA(대규모 인스턴스)의 유형 I 클래스 SKU를 사용하면 부팅 LUN을 저장하는 볼륨이 암호화됩니다. 유형 II 클래스 SKU를 사용하는 개정 3 HANA(대규모 인스턴스) 스탬프에서는 OS 방법으로 부팅 LUN을 암호화해야 합니다. 유형 II 클래스 SKU를 사용하는 개정 4 HANA(대규모 인스턴스) 스탬프에서 부팅 LUN을 저장하는 볼륨은 기본적으로 미사용 시 암호화됩니다. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>HANA 대규모 인스턴스의 대형 HANA 인스턴스용 필수 설정
 

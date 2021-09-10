@@ -1,29 +1,29 @@
 ---
-title: Azure Arc 지원 Managed Instance 고가용성
-titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability
-description: 고가용성을 Azure Arc 지원 Managed Instance를 배포하는 방법을 알아봅니다.
-author: rothja
-ms.author: jroth
+title: Azure Arc 지원 SQL Managed Instance 고가용성
+titleSuffix: Deploy Azure Arc-enabled SQL Managed Instance with high availability
+description: 고가용성으로 Azure Arc 지원 SQL Managed Instance를 배포하는 방법을 알아봅니다.
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: a847eb04745895fb903385715296a2c5c5d8898e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 89cce59f1e68d1398a6907c3a4b2b3bee50502cd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061519"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528735"
 ---
-# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc 지원 Managed Instance 고가용성
+# <a name="azure-arc-enabled-sql-managed-instance-high-availability"></a>Azure Arc 지원 SQL Managed Instance 고가용성
 
-Azure Arc 지원 Managed Instance는 컨테이너화된 애플리케이션으로 Kubernetes에 배포되고 서비스 상태를 유지 관리하기 위해 상태 저장 집합 및 영구 스토리지와 같은 kubernetes 구문을 사용하여 기본 제공 상태 모니터링, 오류 검색 및 장애 조치(failover) 메커니즘을 제공합니다. 안정성 향상을 위해 Azure Arc 지원 Managed Instance를 구성하여 고가용성 구성에서 추가 복제본을 배포할 수도 있습니다. 모니터링, 오류 검색 및 자동 장애 조치(failover)는 Arc 데이터 서비스 데이터 컨트롤러에서 관리됩니다. 이 서비스는 사용자 개입 없이 가용성 그룹 설정, 데이터베이스 미러링 엔드포인트 구성에서 가용성 그룹에 데이터베이스 추가 또는 장애 조치(failover) 및 업그레이드 조정에 이르기까지 모든 기능을 제공합니다. 이 문서에서는 두 가지 유형의 고가용성을 모두 살펴봅니다.
+Azure Arc 지원 SQL Managed Instance는 컨테이너화된 애플리케이션으로 Kubernetes에 배포되고 서비스 상태를 유지 관리하기 위해 상태 저장 집합 및 영구 스토리지와 같은 kubernetes 구문을 사용하여 기본 제공 상태 모니터링, 오류 검색 및 장애 조치(failover) 메커니즘을 제공합니다. 안정성 향상을 위해 Azure Arc SQL 지원 Managed Instance를 구성하여 고가용성 구성에서 추가 복제본을 배포할 수도 있습니다. 모니터링, 오류 검색 및 자동 장애 조치(failover)는 Arc 데이터 서비스 데이터 컨트롤러에서 관리됩니다. 이 서비스는 사용자 개입 없이 가용성 그룹 설정, 데이터베이스 미러링 엔드포인트 구성에서 가용성 그룹에 데이터베이스 추가 또는 장애 조치(failover) 및 업그레이드 조정에 이르기까지 모든 기능을 제공합니다. 이 문서에서는 두 가지 유형의 고가용성을 모두 살펴봅니다.
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성 
 
-원격 영구 스토리지가 구성되고 Arc 데이터 서비스 배포에서 사용하는 노드와 공유될 때 Kubernetes에서 기본 제공 고가용성을 제공합니다. 이 구성에서 Kubernetes는 클러스터 오케스트레이터의 역할을 수행합니다. 컨테이너 또는 기본 노드의 관리되는 인스턴스가 실패하면 오케스트레이터는 컨테이너의 다른 인스턴스를 부트스트랩하고 동일한 영구 스토리지에 연결합니다. 이 형식은 Azure Arc 지원 Managed Instance를 배포할 때 기본적으로 사용하도록 설정됩니다.
+원격 영구 스토리지가 구성되고 Arc 데이터 서비스 배포에서 사용하는 노드와 공유될 때 Kubernetes에서 기본 제공 고가용성을 제공합니다. 이 구성에서 Kubernetes는 클러스터 오케스트레이터의 역할을 수행합니다. 컨테이너 또는 기본 노드의 관리되는 인스턴스가 실패하면 오케스트레이터는 컨테이너의 다른 인스턴스를 부트스트랩하고 동일한 영구 스토리지에 연결합니다. 이 형식은 Azure Arc 지원 SQL Managed Instance를 배포할 때 기본적으로 사용하도록 설정됩니다.
 
 ### <a name="verify-built-in-high-availability"></a>기본 제공 고가용성 확인
 
@@ -32,7 +32,7 @@ Azure Arc 지원 Managed Instance는 컨테이너화된 애플리케이션으로
 ### <a name="prerequisites"></a>필수 구성 요소
 
 - Kubernetes 클러스터에는 [공유 원격 스토리지](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration)가 있어야 합니다. 
-- 하나의 복제본으로 배포된 Azure Arc 지원 Managed Instance(기본값)
+- 하나의 복제본으로 배포된 Azure Arc 지원 SQL Managed Instance(기본값)
 
 1. Pod 보기 
 
@@ -71,11 +71,11 @@ Pod 내의 모든 컨테이너가 복구된 후 관리되는 인스턴스에 연
 
 ## <a name="deploy-with-always-on-availability-groups"></a>Always On 가용성 그룹 배포
 
-안정성 향상을 위해 고가용성 구성에서 추가 복제본과 함께 배포하도록 Azure Arc 지원 Managed Instance를 구성할 수 있습니다. 
+안정성 향상을 위해 고가용성 구성에서 추가 복제본과 함께 배포하도록 Azure Arc 지원 SQL Managed Instance를 구성할 수 있습니다. 
 
 가용성 그룹에서 사용할 수 있는 기능은 다음과 같습니다.
 
-- 여러 복제본과 함께 배포되면 `containedag`라는 단일 가용성 그룹이 생성됩니다. 기본적으로 `containedag`에는 주 복제본을 포함하여 세 개의 복제본이 있습니다. 가용성 그룹 만들기 또는 만들어진 가용성 그룹에 복제본 조인을 포함하여 가용성 그룹에 대한 모든 CRUD 작업은 내부적으로 관리됩니다. Azure Arc 지원 Managed Instance에 추가 가용성 그룹을 만들 수 없습니다.
+- 여러 복제본과 함께 배포되면 `containedag`라는 단일 가용성 그룹이 생성됩니다. 기본적으로 `containedag`에는 주 복제본을 포함하여 세 개의 복제본이 있습니다. 가용성 그룹 만들기 또는 만들어진 가용성 그룹에 복제본 조인을 포함하여 가용성 그룹에 대한 모든 CRUD 작업은 내부적으로 관리됩니다. Azure Arc 지원 SQL Managed Instance에 추가 가용성 그룹을 만들 수 없습니다.
 
 - 모든 사용자 및 시스템 데이터베이스(예: `master` 및 `msdb`)를 포함하여 모든 데이터베이스가 가용성 그룹에 자동으로 추가됩니다. 이 기능은 가용성 그룹 복제본 전체에서 단일 시스템 보기를 제공합니다. 인스턴스에 직접 연결하는 경우 `containedag_master` 및 `containedag_msdb` 데이터베이스를 모두 확인합니다. `containedag_*` 데이터베이스는 가용성 그룹 내의 `master` 및 `msdb`를 나타냅니다.
 
@@ -85,27 +85,27 @@ Pod 내의 모든 컨테이너가 복구된 후 관리되는 인스턴스에 연
 
 가용성 그룹을 사용하여 관리되는 인스턴스를 배포하려면 다음 명령을 실행합니다.
 
-```console
-azdata arc sql mi create -n <name of instance> --replicas 3
+```azurecli
+az sql mi-arc create -n <name of instance> --replicas 3 --k8s-namespace <namespace> --use-k8s
 ```
 
 ### <a name="check-status"></a>상태 확인
 인스턴스가 배포된 후 다음 명령을 실행하여 인스턴스의 상태를 확인합니다.
 
-```console
-azdata arc sql mi list
-azdata arc sql mi show -n <name of instance>
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+az sql mi-arc show -n <name of instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 예제 출력:
 
 ```output
-user@pc:/# azdata arc sql mi list
+user@pc:/# az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ExternalEndpoint    Name    Replicas    State
 ------------------  ------  ----------  -------
 20.131.31.58,1433   sql2    3/3         Ready
 
-user@pc:/#  azdata arc sql mi show -n sql2
+user@pc:/#  az sql mi-arc show -n sql2 --k8s-namespace <namespace> --use-k8s
 {
 ...
   "status": {
@@ -219,7 +219,7 @@ user@pc:/#  azdata arc sql mi show -n sql2
 
 ### <a name="limitations"></a>제한 사항
 
-Azure Arc 지원 Managed Instance 가용성 그룹에는 [빅 데이터 클러스터 가용성 그룹과 동일한 제한이 있습니다. 자세한 내용을 보려면 여기를 클릭합니다.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
+Azure Arc 지원 SQL Managed Instance 가용성 그룹에는 [빅 데이터 클러스터 가용성 그룹과 동일한 제한이 있습니다. 자세한 내용을 보려면 여기를 클릭합니다.](/sql/big-data-cluster/deployment-high-availability#known-limitations)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,21 @@
 ---
 title: Windows VM용 이미지 갤러리에서 Azure Image Builder 사용
 description: Azure Image Builder 및 Azure PowerShell을 사용하여 Azure 공유 갤러리 이미지 버전을 만듭니다.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dd821ac9f5722047ec5c233feaaf2a48d4de3b41
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 03ae984a5950a026fc9bc5c30ee1951e1c17b909
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031154"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536054"
 ---
 # <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -26,7 +27,7 @@ ms.locfileid: "112031154"
 
 Azure Image Builder는 sysprep를 자동으로 실행하여 이미지를 일반화합니다. 이 명령은 필요한 경우 [재정의](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully)할 수 있는 일반 sysprep 명령입니다. 
 
-사용자 지정 레이어링 횟수를 확인합니다. 단일 Windows 이미지에서 Sysprep 명령을 최대 8번 실행할 수 있습니다. Sysprep을 8번 실행한 후에는 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수 제한](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조하세요. 
+사용자 지정 레이어링 횟수를 확인합니다. 단일 Windows 이미지에서 Sysprep 명령을 제한된 숫자내에서 실행할 수 있습니다. Sysprep 제한에 도달한 후 Windows 이미지를 다시 만들어야 합니다. 자세한 내용은 [Sysprep을 실행할 수 있는 횟수 제한](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)을 참조하세요. 
 
 
 ## <a name="register-the-features"></a>기능 등록

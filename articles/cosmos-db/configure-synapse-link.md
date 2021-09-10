@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 86f27f08bd7495e558cd81b122f1daa243dbe313
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 116997c8abbad382dc10014fd76e7933f333c113
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566398"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109353"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -268,7 +268,9 @@ Azure Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Co
 
 ## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Azure Synapse Analytics용 Apache Spark를 사용하여 분석 저장소 쿼리
 
-Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) 문서의 지침을 사용합니다. 이 문서에서는 Synapse 제스처에서 분석 저장소와 상호 작용하는 방법에 대한 몇 가지 예를 제공합니다. 컨테이너를 마우스 오른쪽 단추로 클릭하면 해당 제스처가 표시됩니다. 제스처를 사용하면 코드를 빠르게 생성하고 필요에 맞게 조정할 수 있습니다. 제스처는 한 번의 클릭으로 데이터를 검색하는 데에도 적합합니다.
+Synapse Spark 3를 사용하여 쿼리하는 방법에 대해 [Spark 3를 사용하여 Azure Cosmos DB 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) 문서의 지침을 사용합니다. 이 문서에서는 Synapse 제스처에서 분석 저장소와 상호 작용하는 방법에 대한 몇 가지 예를 제공합니다. 컨테이너를 마우스 오른쪽 단추로 클릭하면 해당 제스처가 표시됩니다. 제스처를 사용하면 코드를 빠르게 생성하고 필요에 맞게 조정할 수 있습니다. 제스처는 한 번의 클릭으로 데이터를 검색하는 데에도 적합합니다.
+
+Spark 2 통합의 경우 [Spark 2를 사용하여 Azure Cosmos DB 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) 문서에 있는 지침을 사용하세요.
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 분석 저장소 쿼리
 

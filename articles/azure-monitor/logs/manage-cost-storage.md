@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 106648297bf64d650a4db4bf578e8171039378f2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 9967eaa374116ac28bd0db830eed6a4fc2becfa0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568295"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771793"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -63,9 +63,7 @@ Log Analytics에 대한 기본 가격은 수집된 데이터 볼륨을 기반으
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>환경을 관리하는 데 드는 비용을 추정 
 
-Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=monitor)를 사용하여 Log Analytics를 사용하는 데 드는 비용을 추정할 수 있습니다. **검색** 상자에 "Azure Monitor"를 입력하고 결과 Azure Monitor 타일을 선택합니다. 페이지 아래로 스크롤하여 **Azure Monitor** 로 이동한 후 **유형** 드롭다운 목록에서 **Log Analytics** 를 선택합니다. 이제 각 VM에서 수집하려는 가상 머신 수와 데이터 용량(GB)을 여기에 입력하면 됩니다. 일반적으로 1GB~3GB의 데이터/월은 일반 Azure 가상 머신에서 수집됩니다. 이미 Azure Monitor 로그를 평가하고 있는 경우, 자신의 환경에서 데이터 통계를 사용할 수 있습니다. [모니터링되는 VM의 수](#understanding-nodes-sending-data)와 [작업 영역에서 수집 중인 데이터의 볼륨](#understanding-ingested-data-volume)을 확인하는 방법은 아래를 참조하세요. 
-
-Log Analytics를 아직 실행하지 않는 경우 데이터 볼륨을 예측하기 위한 몇 가지 지침은 다음과 같습니다.
+Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=monitor)를 사용하여 Log Analytics를 사용하는 데 드는 비용을 추정할 수 있습니다. **검색** 상자에 "Azure Monitor"를 입력하고 결과 Azure Monitor 타일을 선택합니다. 페이지를 아래로 스크롤하여 **Azure Monitor** 를 찾은 다음 **Log Analytics** 섹션을 확장합니다. 여기에 수집할 데이터의 GB를 입력할 수 있습니다. 이미 Azure Monitor 로그를 평가하고 있는 경우, 자신의 환경에서 데이터 통계를 사용할 수 있습니다. [모니터링되는 VM의 수](#understanding-nodes-sending-data)와 [작업 영역에서 수집 중인 데이터의 볼륨](#understanding-ingested-data-volume)을 확인하는 방법은 아래를 참조하세요. Log Analytics를 아직 실행하지 않는 경우 데이터 볼륨을 예측하기 위한 몇 가지 지침은 다음과 같습니다.
 
 1. **VM 모니터링:** 일반적인 모니터링을 사용하도록 설정하면 모니터링되는 VM당 1GB~3GB의 데이터/월이 수집됩니다. 
 2. **AKS(Azure Kubernetes Service) 클러스터 모니터링:** 일반적인 AKS 클러스터를 모니터링하기 위한 예상 데이터 볼륨에 대한 자세한 내용은 [여기](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster)에서 확인할 수 있습니다. 이러한 [모범 사례](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost)에 따라 AKS 클러스터 모니터링 비용을 제어합니다. 

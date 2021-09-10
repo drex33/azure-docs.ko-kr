@@ -16,12 +16,12 @@ ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 4ea285c078061ed6009aff8dfd1c17b1f0528b9a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113491986"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967252"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 요청 설정 변경
 
@@ -158,6 +158,9 @@ ms.locfileid: "113491986"
     액세스 패키지가 만들어지면 특정 내부 및 외부 사용자를 액세스 패키지에 직접 할당할 수 있습니다. 외부 사용자를 지정하는 경우 게스트 사용자 계정이 디렉터리에 만들어집니다. 사용자를 직접 할당하는 방법에 대한 자세한 내용은 [액세스 패키지에 대한 할당 보기, 추가 및 제거](entitlement-management-access-package-assignments.md)를 참조하세요.
 
 1. [요청 사용 ](#enable-requests) 섹션으로 건너뜁니다.
+
+> [!NOTE]
+> 사용자를 액세스 패키지에 할당하는 경우 관리자는 기존 정책 요구 사항에 따라 사용자가 해당 액세스 패키지에 적합한지 확인해야 합니다. 그렇지 않으면 사용자가 액세스 패키지에 성공적으로 할당되지 않습니다. 액세스 패키지가 사용자 요청 승인을 요구하는 정책을 포함하는 경우 사용자는 지정된 승인자로부터 필요한 승인 없이 패키지에 직접 할당될 수 없습니다.
 
 
 ## <a name="open-and-edit-an-existing-policy-of-request-settings"></a>요청 설정의 기존 정책 열기 및 편집

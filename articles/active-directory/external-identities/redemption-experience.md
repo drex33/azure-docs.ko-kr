@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 766228eb291776c0ba4162f78238d6336d9194ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955090"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529156"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -24,7 +24,9 @@ ms.locfileid: "111955090"
 게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance** 로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함** 으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
 
    > [!IMPORTANT]
-   > - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **2021년 7월 12일부터**, Azure AD B2B 고객이 사용자 지정 또는 기간 업무 애플리케이션에 대한 셀프 서비스 등록과 함께 사용하기 위해 새로운 Google 통합을 설정하는 경우 인증이 시스템 웹 보기로 이동될 때까지 Google ID를 사용한 인증이 작동하지 않습니다. [자세히 알아보기](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **2021년 9월 30부터** Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로, 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 엔드포인트를 통한 상환 및 로그인
@@ -62,16 +64,16 @@ ms.locfileid: "111955090"
 
 ## <a name="redemption-limitation-with-conflicting-contact-object"></a>충돌하는 연락처 개체에 대한 사용 제한
 초대된 외부 게스트 사용자의 메일이 기존 [연락처 개체](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)와 충돌하여 proxyAddress 없이 게스트 사용자가 생성되는 경우가 발생할 수 있습니다. 이는 게스트 사용자가 다음을 수행할 수 없도록 하는 알려진 제한 사항입니다. 
-- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation), [Microsoft 계정](/azure/active-directory/external-identities/microsoft-account), [Google 페더레이션](/azure/active-directory/external-identities/google-federation) 또는 [메일 일회용 암호](/azure/active-directory/external-identities/one-time-passcode) 계정을 사용하여 직접 링크를 통해 초대를 사용합니다. 
-- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) 및 [메일 일회용 암호](/azure/active-directory/external-identities/one-time-passcode) 계정을 사용하여 초대 메일 사용 링크를 통해 초대를 사용합니다.
-- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) 및 [Google 페더레이션](/azure/active-directory/external-identities/google-federation) 계정을 사용한 후 애플리케이션에 다시 로그인합니다.
+- [SAML/WS-Fed IdP](./direct-federation.md), [Microsoft 계정](./microsoft-account.md), [Google 페더레이션](./google-federation.md) 또는 [메일 일회용 암호](./one-time-passcode.md) 계정을 사용하여 직접 링크를 통해 초대를 사용합니다. 
+- [SAML/WS-Fed IdP](./direct-federation.md) 및 [메일 일회용 암호](./one-time-passcode.md) 계정을 사용하여 초대 메일 사용 링크를 통해 초대를 사용합니다.
+- [SAML/WS-Fed IdP](./direct-federation.md) 및 [Google 페더레이션](./google-federation.md) 계정을 사용한 후 애플리케이션에 다시 로그인합니다.
 
 충돌하는 [연락처 개체](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)로 인해 초대를 사용할 수 없는 사용자를 차단 해제하려면 다음 단계를 따릅니다.
 1. 충돌하는 연락처 개체를 삭제합니다.
 2. Azure Portal에서 게스트 사용자를 삭제합니다(사용자의 "초대 수락" 속성은 보류 상태여야 함).
 3. 게스트 사용자를 다시 초대합니다.
 4. 사용자가 초대를 사용할 때까지 기다립니다.
-5. 사용자의 연락처 메일을 Exchange에 다시 추가하고 다음에 포함되어야 하는 DL을 추가합니다.
+5. 사용자의 연락처 이메일을 Exchange에 다시 추가하고 다음에 포함되어야 하는 DL을 추가합니다.
 
 ## <a name="invitation-redemption-flow"></a>초대 사용 흐름
 
@@ -126,7 +128,12 @@ ms.locfileid: "111955090"
 
    ![앱 액세스 패널을 보여주는 스크린샷](media/redemption-experience/myapps.png) 
 
-디렉터리에서 게스트의 **초대가 수락됨** 값이 **예** 로 변경됩니다. MSA를 만든 경우 게스트의 **원본** 이 **Microsoft 계정** 으로 표시됩니다. 게스트 사용자 계정 속성에 대한 자세한 내용은 [Azure AD B2B 협업 사용자 속성](user-properties.md)을 참조하세요. 
+> [!NOTE]
+> 동의 환경은 사용자가 로그인한 후에만 표시되며 이전에는 표시되지 않습니다. 사용자에게는 동의 환경이 표시되지 않는 몇 가지 시나리오가 있습니다. 예를 들면 다음과 같습니다.
+> - 사용자가 이미 동의 환경을 수락했습니다.
+> - 관리자는 [애플리케이션에 테넌트 전체 관리자 동의를 부여](../manage-apps/grant-admin-consent.md)합니다.
+
+디렉터리에서 게스트의 **초대가 수락됨** 값이 **예** 로 변경됩니다. MSA를 만든 경우 게스트의 **원본** 이 **Microsoft 계정** 으로 표시됩니다. 게스트 사용자 계정 속성에 대한 자세한 내용은 [Azure AD B2B 협업 사용자 속성](user-properties.md)을 참조하세요. 애플리케이션에 액세스하는 동안 관리자 동의가 필요한 오류가 표시되는 경우 [앱에 관리자 동의를 부여하는 방법](../develop/v2-admin-consent.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

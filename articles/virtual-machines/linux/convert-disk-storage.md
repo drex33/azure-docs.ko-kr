@@ -8,16 +8,18 @@ ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.subservice: disks
-ms.openlocfilehash: 35ba681ae35e60d7cd275c9e649b2463d2dc30a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 385d801d43a41bb836e04398427fff6c01b1e357
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558460"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692132"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Azure 관리 디스크 스토리지를 표준에서 프리미엄으로, 또는 프리미엄에서 표준으로 변환
 
-Azure 관리 디스크에는 Azure Ultra Disk, 프리미엄 SSD, 표준 SSD, 표준 HDD의 네 가지 디스크 유형이 있습니다. 성능 요구 사항에 따라 프리미엄 SSD, 표준 SSD, 표준 HDD 간에 전환할 수 있습니다. 아직 Ultra Disk와의 전환은 불가능하기 때문에 새 디스크를 배포해야 합니다.
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
+Azure 관리 디스크에는 Azure 울트라 디스크, 프리미엄 SSD, 표준 SSD, 표준 HDD의 네 가지 디스크 유형이 있습니다. 성능 요구 사항에 따라 프리미엄 SSD, 표준 SSD, 표준 HDD 간에 전환할 수 있습니다. 아직 울트라 디스크와의 전환은 불가능하기 때문에 새 디스크를 배포해야 합니다.
 
 이 기능은 현재 비관리 디스크에 지원되지 않습니다. 하지만 [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)하면 디스크 유형을 간편하게 전환할 수 있습니다.
 

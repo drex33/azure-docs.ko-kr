@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud 문제 해결 가이드 | Microsoft Docs
 description: Azure Spring Cloud 문제 해결 가이드
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 13f61378b16f41d80b5622a41a55c103247b381b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 98f9a87825a2eb0bbae36255111ba4b019fb4750
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969000"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567514"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure Spring Cloud 문제 해결
 
@@ -28,7 +28,8 @@ ms.locfileid: "111969000"
 
 > "org.springframework.context.ApplicationContextException: 웹 서버를 시작할 수 없음"
 
-이 메시지는 다음과 같은 두 가지 문제 중 하나를 나타냅니다. 
+이 메시지는 다음과 같은 두 가지 문제 중 하나를 나타냅니다.
+
 * 빈 중 하나 또는 해당 종속성 중 하나가 누락되었습니다.
 * 빈 속성 중 하나가 누락되거나 잘못되었습니다. 이 경우 "java.lang.IllegalArgumentException"이 표시될 가능성이 있습니다.
 
@@ -38,7 +39,6 @@ ms.locfileid: "111969000"
 
 이 오류를 해결하려면 MySQL 인스턴스의 `server parameters`로 이동하여 *시스템* 에서 `time_zone` 값을 *+0:00* 으로 변경합니다.
 
-
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>애플리케이션이 충돌하거나 예기치 않은 오류를 throw함
 
 애플리케이션 충돌이 디버그되면 먼저 애플리케이션의 실행 상태와 검색 상태를 확인하여 시작합니다. 이를 수행하려면 Azure Portal에서 _앱 관리_ 로 이동하여 모든 애플리케이션의 상태가 _Running_ 및 _UP_ 인지 확인합니다.
@@ -47,30 +47,36 @@ ms.locfileid: "111969000"
 
 * 검색 상태가 _UP_ 인 경우 메트릭으로 이동하여 애플리케이션의 상태를 확인합니다. 다음 메트릭을 검사합니다.
 
+   - `TomcatErrorCount`(_tomcat.global.error_):
 
-  - `TomcatErrorCount` (_tomcat.global.error_): 모든 Spring 애플리케이션 예외가 여기에서 계산됩니다. 이 수가 크면 Azure Log Analytics로 이동하여 애플리케이션 로그를 검사합니다.
+      모든 Spring 애플리케이션 예외는 여기에서 계산됩니다. 이 수가 크면 Azure Log Analytics로 이동하여 애플리케이션 로그를 검사합니다.
 
-  - `AppMemoryMax` (_jvm.memory.max_): 애플리케이션에 사용할 수 있는 최대 메모리 양입니다. 양은 정의되지 않을 수 있습니다. 또는 정의된 경우 시간이 지남에 따라 변경될 수 있습니다. 정의된 경우 사용된 양 및 커밋된 메모리는 언제나 최대보다 작거나 같습니다. 하지만 *used <= max* 가 여전히 true인 경우에도 할당에서 *used > committed* 와 같이 사용되는 메모리를 늘려야 하는 경우 `OutOfMemoryError` 메시지가 표시되며 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 `-Xmx` 매개 변수를 사용하여 최대 힙 크기를 늘려봅니다.
+   - `AppMemoryMax`(_jvm.memory.max_):
 
-  - `AppMemoryUsed` (_jvm.memory.used_): 애플리케이션에서 현재 사용되는 메모리의 양(바이트)입니다. 정상적인 Java 애플리케이션 로드의 경우 이 메트릭 계열은 *톱니* 패턴으로 구성됩니다. 메모리 사용이 꾸준히 증가하고 조금씩 감소하다가 급격하게 떨어지는 패턴이 반복됩니다. 이 메트릭 계열은 Java 가상 머신 내부의 가비지 수집 때문이며, 수집 작업에서 톱니 패턴의 하강을 나타냅니다.
-    
+      애플리케이션에서 사용할 수 있는 최대 메모리 양입니다. 양은 정의되지 않을 수 있습니다. 또는 정의된 경우 시간이 지남에 따라 변경될 수 있습니다. 정의된 경우 사용된 양 및 커밋된 메모리는 언제나 최대보다 작거나 같습니다. 하지만 *used <= max* 가 여전히 true인 경우에도 할당에서 *used > committed* 와 같이 사용되는 메모리를 늘려야 하는 경우 `OutOfMemoryError` 메시지가 표시되며 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 `-Xmx` 매개 변수를 사용하여 최대 힙 크기를 늘려봅니다.
+
+   - `AppMemoryUsed`(_jvm.memory.used_):
+
+      애플리케이션에서 현재 사용하고 있는 메모리의 양(바이트). 정상적인 Java 애플리케이션 로드의 경우 이 메트릭 계열은 *톱니* 패턴으로 구성됩니다. 메모리 사용이 꾸준히 증가하고 조금씩 감소하다가 급격하게 떨어지는 패턴이 반복됩니다. 이 메트릭 계열은 Java 가상 머신 내부의 가비지 수집 때문이며, 수집 작업에서 톱니 패턴의 하강을 나타냅니다.
+
     이 메트릭은 다음과 같은 메모리 문제를 식별하는 데 중요합니다.
+
     * 처음에 메모리 급증이 있습니다.
     * 특정 논리 경로에 대해 불안정한 메모리 할당.
     * 점진적인 메모리 누수.
-  자세한 내용은 [메트릭](./concept-metrics.md)을 참조하세요.
-  
+
+   자세한 내용은 [메트릭](./concept-metrics.md)을 참조하세요.
+
 * 애플리케이션이 시작되지 않으면 애플리케이션에 유효한 jvm 매개 변수가 있는지 확인합니다. jvm 메모리가 너무 높게 설정된 경우 로그에 다음과 같은 오류 메시지가 나타날 수 있습니다.
 
-  >"필수 메모리 2728741K는 할당에 사용할 수 있는 2000M보다 큽니다."
-
-
+   > "필수 메모리 2728741K는 할당에 사용할 수 있는 2000M보다 큽니다."
 
 Azure Log Analytics에 대한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조하세요.
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>애플리케이션에서 높은 CPU 사용 또는 높은 메모리 사용 경험
 
 애플리케이션에서 높은 CPU/메모리 사용량이 발생하는 경우 다음 두 가지 상황 중 하나에 해당합니다.
+
 * 모든 앱 인스턴스에서 높은 CPU/메모리 사용량이 발생합니다.
 * 일부 앱 인스턴스에서 높은 CPU/메모리 사용량이 발생합니다.
 
@@ -167,12 +173,13 @@ Azure Log Analytics에 대한 자세한 내용은 [Azure Monitor에서 Log Analy
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>내 애플리케이션의 환경 변수를 검사하려고 합니다.
 
-환경 변수는 Azure에서 애플리케이션을 형성하는 서비스를 구성하는 위치와 방법을 이해할 수 있도록 Azure Spring Cloud 프레임워크에 정보를 알려 줍니다. 환경 변수가 올바른지 확인하는 것은 잠재적인 문제 해결에 필수적인 첫 번째 단계입니다.  Spring Boot Actuator 엔드포인트를 사용하여 환경 변수를 검토할 수 있습니다.  
+환경 변수는 Azure에서 애플리케이션을 형성하는 서비스를 구성하는 위치와 방법을 이해할 수 있도록 Azure Spring Cloud 프레임워크에 정보를 알려 줍니다. 환경 변수가 올바른지 확인하는 것은 잠재적인 문제 해결에 필수적인 첫 번째 단계입니다.  Spring Boot Actuator 엔드포인트를 사용하여 환경 변수를 검토할 수 있습니다.
 
 > [!WARNING]
 > 이 프로시저는 테스트 엔드포인트를 사용하여 환경 변수를 노출합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
 
-1. `https://<your application test endpoint>/actuator/health` 으로 이동합니다.  
+1. `https://<your application test endpoint>/actuator/health` 으로 이동합니다.
+
     - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
     - 응답이 부정이면 *POM.xml* 파일에 다음 종속성을 포함합니다.
 
@@ -183,7 +190,7 @@ Azure Log Analytics에 대한 자세한 내용은 [Azure Monitor에서 Log Analy
             </dependency>
         ```
 
-1. Spring Boot Actuator 엔드포인트가 사용하도록 설정된 상태에서 Azure Portal로 이동하여 애플리케이션의 구성 페이지를 찾습니다.  이름이 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`이고 값이 `*`인 환경 변수를 추가합니다. 
+1. Spring Boot Actuator 엔드포인트가 사용하도록 설정된 상태에서 Azure Portal로 이동하여 애플리케이션의 구성 페이지를 찾습니다.  이름이 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`이고 값이 `*`인 환경 변수를 추가합니다.
 
 1. 애플리케이션을 다시 시작합니다.
 
@@ -212,7 +219,7 @@ Azure Log Analytics에 대한 자세한 내용은 [Azure Monitor에서 Log Analy
 
 **앱 관리** 로 이동하여 애플리케이션 상태가 _Running_ 및 _UP_ 인지 확인합니다.
 
-애플리케이션 패키지에서 _JMX_ 를 사용하도록 설정되어 있는지 확인합니다. 이 기능은 구성 속성 `spring.jmx.enabled=true`를 사용하여 설정할 수 있습니다.  
+애플리케이션 패키지에서 _JMX_ 를 사용하도록 설정되어 있는지 확인합니다. 이 기능은 구성 속성 `spring.jmx.enabled=true`를 사용하여 설정할 수 있습니다.
 
 애플리케이션 패키지에서 `spring-boot-actuator` 종속성을 사용하도록 설정하고 성공적으로 부팅되었는지 확인합니다.
 

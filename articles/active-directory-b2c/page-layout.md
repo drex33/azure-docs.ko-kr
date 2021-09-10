@@ -8,31 +8,63 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/05/2021
+ms.date: 08/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3eeed53c16bbd6b2c1170512606472ac5329b126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443409"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566639"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 페이지 레이아웃 패키지는 페이지 요소의 수정 및 개선 사항을 포함하도록 주기적으로 업데이트됩니다. 다음 변경 로그는 각 버전에 도입된 변경 내용을 지정합니다.
 
-## <a name="jquery-version"></a>jQuery 버전
+> [!IMPORTANT]
+> Azure Active Directory B2C는 새 페이지 레이아웃 버전마다 향상된 기능 및 수정 사항을 릴리스합니다. 모든 페이지 요소에 향상된 최신 보안 기능, 접근성 표준, 피드백이 반영되도록 페이지 레이아웃 버전을 최신 상태로 유지하는 것이 좋습니다.
+>
 
-Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리](https://jquery.com/)를 사용합니다.
+## <a name="jquery-and-handlebars-versions"></a>jQuery 및 Handlebars 버전
 
-|페이지 레이아웃 버전에서  |jQuery 버전  |
-|---------|---------|
-|2.1.4 | 3.5.1 |
-|1.2.0 | 3.4.1 |
-|1.1.0 | 1.10.2 |
+Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리](https://jquery.com/) 및 [Handlebars 템플릿](https://handlebarsjs.com/)을 사용합니다.
+
+|요소 |페이지 레이아웃 버전 범위 |jQuery 버전  |Handlebars 런타임 버전 |Handlebars 컴파일러 버전 |
+|---------|---------|------|--------|----------|
+|다단계 |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
 
 ## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지(selfasserted)
+
+**2.1.7**
+- 요청이 실패하도록 하는 언어 인코딩 문제를 해결했습니다.
+- 양식 제출 시에만 인라인 오류 메시지를 표시하는 접근성 버그를 수정했습니다.
+
+**2.1.6**
+- 다른 필드에 너무 빨리 입력할 경우 지워지는 암호 오류를 해결했습니다.
+
+**2.1.5**
+- 텍스트 중간에서 편집할 때 발생하는 iOS의 커서 점프 문제를 해결했습니다.
 
 **2.1.4**
 - jQuery 버전을 3.5.1로 업데이트했습니다.
@@ -94,6 +126,10 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 > [!TIP]
 > 사용자 흐름에서 여러 로캘 또는 언어를 지원하기 위해 페이지를 지역화하는 경우입니다. [지역화 ID](localization-string-ids.md) 문서에서는 선택한 페이지 버전에 대해 사용할 수 있는 지역화 ID 목록을 제공합니다.
 
+**2.1.5**
+- idp 선택기 템플릿이 로그인 페이지에서 사용되는 경우 탭 순서의 문제를 해결했습니다.
+- 로그인 링크 텍스트에서 인코딩 문제를 해결했습니다.
+
 **2.1.4**
 - jQuery 버전을 3.5.1로 업데이트했습니다.
 - HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
@@ -140,6 +176,9 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 - 초기 릴리스
 
 ## <a name="mfa-page-multifactor"></a>MFA 페이지(다단계)
+
+**1.2.5**
+- 요청이 실패하도록 하는 언어 인코딩 문제를 해결했습니다.
 
 **1.2.4**
 - jQuery 버전을 3.5.1로 업데이트했습니다.

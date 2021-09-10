@@ -4,27 +4,26 @@ description: Microsoft AppSource 및 Azure Marketplace에서 고객 참여를 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 03/23/2021
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: b02d5d4ae412867237d253e488fdb6cd8dd19769
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: a4bd78c15d2015eabf95926e2b4bcf43d6cbcdcb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539942"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528656"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
 이 문서에서는 파트너 센터의 Marketplace 인사이트 대시보드에 대한 정보를 제공합니다. 이 대시보드는 상업용 마켓플레이스 웹 분석의 요약을 나타냅니다. 이를 통해 게시자는 Microsoft AppSource 및 Azure Marketplace와 같은 상업용 마켓플레이스 온라인 스토어에 표시되는 제품 세부 정보 페이지에 대한 고객 참여도를 측정할 수 있습니다.
 
-파트너 센터에서 **Marketplace 인사이트** 대시보드에 액세스하려면 상업용 마켓플레이스에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Marketplace 인사이트** 를 선택합니다.
-
-분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.
 
 ## <a name="marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드
 
-Marketplace 인사이트 대시보드에는 Azure Marketplace에 대한 개요와 AppSource의 제품의 비즈니스 성과가 표시됩니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
+[Marketplace 인사이트 대시보드](https://go.microsoft.com/fwlink/?linkid=2165936)에는 Azure Marketplace에 대한 개요와 AppSource의 제품의 비즈니스 성과가 표시됩니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
 
 - 페이지 방문 추세
 - 작업에 대한 호출 추세
@@ -40,6 +39,8 @@ Marketplace 인사이트 대시보드는 클릭스트림 데이터를 제공하�
 ## <a name="elements-of-the-marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드의 요소
 
 Marketplace 인사이트 대시보드는 Azure Marketplace 및 AppSource에 대한 웹 원격 분석 세부 정보를 별도의 두 탭에 표시합니다. 다음 섹션에서는 요약 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
+
+파트너 센터에서 **Marketplace 인사이트** 대시보드에 액세스하려면 상업용 마켓플레이스에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Marketplace 인사이트** 를 선택합니다.
 
 ### <a name="month-range"></a>월 범위
 
@@ -127,4 +128,4 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](analytics-faq.md)을 참조하세요.
+- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](analytics-faq.yml)을 참조하세요.

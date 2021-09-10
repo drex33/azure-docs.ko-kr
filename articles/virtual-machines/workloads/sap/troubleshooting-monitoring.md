@@ -16,12 +16,12 @@ ms.author: madhukan
 ms.custom:
 - H1Hack27Feb2017
 - contperf-fy21q4
-ms.openlocfilehash: 3c77fe23b7ce058f31a216c5991b7129c3ac99fe
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 4d0977cd408c0a8fdcff16ad01c4c72203e72c40
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579831"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969717"
 ---
 # <a name="monitor-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 모니터링
 
@@ -75,7 +75,7 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 ## <a name="azure-monitor-for-sap-solutions"></a>SAP 솔루션을 위한 Azure Monitor
 
-SAP 솔루션을 위한 Azure Monitor를 사용하여 위에 나열된 모든 리소스 등을 모니터링할 수 있습니다. SAP 솔루션을 위한 Azure Monitor는 Azure에 기본 제공됩니다. 이를 사용하여 Azure 인프라 및 데이터베이스에서 단일 위치로 데이터를 수집하고 더 빠른 문제 해결을 위해 시각적으로 데이터에 상관 관계를 지정할 수 있습니다. 자세한 내용은 [SAP 솔루션을 위한 Azure Monitor](../../../virtual-machines/workloads/sap/azure-monitor-overview.md)를 참조하세요.
+SAP 솔루션을 위한 Azure Monitor를 사용하여 위에 나열된 모든 리소스 등을 모니터링할 수 있습니다. SAP 솔루션을 위한 Azure Monitor는 Azure에 기본 제공됩니다. 이를 사용하여 Azure 인프라 및 데이터베이스에서 단일 위치로 데이터를 수집하고 더 빠른 문제 해결을 위해 시각적으로 데이터에 상관 관계를 지정할 수 있습니다. 자세한 내용은 [Azure의 SAP 모니터링](../../../virtual-machines/workloads/sap/monitor-sap-on-azure.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

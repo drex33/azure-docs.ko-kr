@@ -1,19 +1,19 @@
 ---
 title: Synapse Studio에서 원본 제어
 description: Azure Synapse Studio에서 원본 제어를 구성하는 방법을 알아봅니다.
-author: liud
+author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809143"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567098"
 ---
 # <a name="source-control-in-synapse-studio"></a>Synapse Studio에서 원본 제어
 
@@ -57,7 +57,7 @@ Git 리포지토리에 연결하는 경우 먼저 리포지토리 유형을 Azur
 
 구성 창에 다음 Azure DevOps Git 설정이 표시됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -100,7 +100,10 @@ Synapse Studio를 사용한 GitHub 통합은 공용 GitHub(즉, [https://github.
 
 ### <a name="github-settings"></a>GitHub 설정
 
-Git 리포지토리에 연결할 때 먼저 리포지토리 유형을 GitHub로 선택하고 GitHub Enterprise 서버를 사용하는 경우 github 계정 또는 GitHub Enterprise 서버 URL을 제공하고 **계속** 을 클릭합니다.
+git 리포지토리에 연결할 때 먼저 GitHub로 리포지토리 유형을 선택한 다음, GitHub 계정, GitHub Enterprise Server를 사용하는 경우 GitHub Enterprise Server URL을 제공하고, GitHub Enterprise Cloud를 사용하는 경우 GitHub Enterprise 조직 이름을 제공합니다. **계속** 을 선택합니다.
+
+> [!NOTE]
+> GitHub Enterprise Cloud를 사용하는 경우 **GitHub Enterprise Server 사용** 확인란을 선택 취소한 상태로 둡니다. 
 
 ![GitHub 리포지토리 설정](media/connect-with-github-repo-1.png)
 
@@ -128,7 +131,7 @@ GitHub 조직에 연결하려면 조직이 Synapse Studio에 권한을 부여해
 
 1. Git 구성 창의 *GitHub 계정* 필드에 조직 이름을 입력합니다. GitHub에 로그인하라는 메시지가 표시됩니다. 
 
-1. 사용자 자격 증명을 사용하여 로그인합니다.
+1. 사용자 자격 증명을 사용하여 로그인합니다. 
 
 1. *Azure Synapse* 라는 애플리케이션으로 Synapse에 권한을 부여하라는 메시지가 표시됩니다. 이 화면에 Synapse에서 조직에 액세스할 수 있는 권한을 부여하는 옵션이 표시됩니다. 권한을 부여하는 옵션이 표시되지 않으면 관리자에게 GitHub를 통해 권한을 수동으로 부여하도록 요청합니다.
 
@@ -190,7 +193,7 @@ Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있습니�
 ![올바른 게시 분기 확인](media/publish-change.png)
 
 > [!IMPORTANT]
-> 협업 분기는 서비스에 무엇이 배포되어 있는지 나타내지 않습니다. 협업 분기의 변경 사항은 수동으로 서비스에 *게시되어야 합니다*.
+> 협업 분기는 서비스에 무엇이 배포되어 있는지 나타내지 않습니다. 협업 분기의 변경 사항은 수동으로 *게시해야* 합니다.
 
 ## <a name="switch-to-a-different-git-repository"></a>다른 Git 리포지토리로 전환
 

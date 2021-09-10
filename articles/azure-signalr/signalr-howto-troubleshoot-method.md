@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85e61536e04bd670cd49127f906c69727acc8e9
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726977"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134982"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>연결 및 메시지 전송 문제를 해결하는 방법
 
@@ -27,9 +27,17 @@ ms.locfileid: "105726977"
 
 * `Classic` 모드는 [클래식 모드 문제 해결](#classic_mode_tsg)을 참조하세요.
 
-<a name="default_mode_tsg"></a>
+둘째, 문제를 해결하기 위해 서비스 추적을 캡처해야 합니다. 추적을 캡처하는 방법은 [서비스 추적을 캡처하는 방법](#how-to-capture-service-traces)을 참조하세요.
 
 [문제 해결에 대한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
+## <a name="how-to-capture-service-traces"></a>서비스 추적을 캡처하는 방법
+
+문제 해결 프로세스를 단순화하기 위해 Azure SignalR 서비스는 **연결** 및 **메시지** 카테고리에 대한 서비스 추적을 노출하는 **라이브 추적 도구** 를 제공합니다. 추적에는 연결 연결/연결 해제 이벤트, 메시지 수신/남음 이벤트가 포함되지만 이에 국한되지 않습니다. **라이브 추적 도구** 를 사용하면 실시간 추적을 캡처, 보기, 정렬, 필터링 및 내보낼 수 있습니다. 자세한 내용은 [라이브 추적 도구 사용 방법](./signalr-howto-troubleshoot-live-trace.md)을 참조하세요.
+
+[문제 해결에 대한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
+<a name="default_mode_tsg"></a>
 
 ## <a name="default-mode-troubleshooting"></a>기본 모드 문제 해결
 

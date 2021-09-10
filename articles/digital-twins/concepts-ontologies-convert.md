@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 45df0eb8bfc6ab5b181b8bc103c4a4a47f3196f6
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: d95e9e6ed85e170efeb570fa46f634a9071c687c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122530946"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772396"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Azure Digital Twins에 대해 업계 표준 온톨로지를 DTDL로 변환
 
 대부분의 [온톨로지](concepts-ontologies.md)는 [OWL](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF)및 [RDFS](https://www.w3.org/2001/sw/wiki/RDFS)와 같은 의미 체계 웹 표준을 기반으로 합니다. 
 
-Azure Digital Twins에서 모델을 사용하려면 DTDL 형식이어야 합니다. 이 문서에서는 RDF 기반 모델을 DTDL로 변환하여 Azure Digital Twins에서 사용할 수 있도록 **변환 패턴** 형식의 일반적인 디자인 지침을 설명합니다. 
+Azure Digital Twins에서 모델을 사용하려면 DTDL 형식이어야 합니다. 이 문서에서는 Azure Digital Twins에서 사용할 수 있도록 RDF 기반 모델을 DTDL로 변환하기 위한 **변환 패턴** 형식의 일반 디자인 지침에 대해 설명합니다. 
 
 이 문서에는 빌딩 업계의 다른 스키마에 대해 확장될 수 있는 RDF 및 OWL 변환기에 대한 [샘플 변환기 코드](#converter-samples)도 포함되어 있습니다.
 

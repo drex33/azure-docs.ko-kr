@@ -11,16 +11,17 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 965e7c92e17d5ba689fccc0ee6eb321fe2a36695
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d695f01daa4b30a6e88607929f67a0453b06edf0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691459"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>HBv2 시리즈 가상 머신 개요 
 
- 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
 AMD EPYC에서 HPC(고성능 컴퓨팅) 애플리케이션 성능을 최대화하려면 신중한 접근 방식의 메모리 지역성과 프로세스 배치를 신중하게 설정해야 합니다. 아래에서는 AMD EPYC 아키텍처와 Azure에서 HPC 애플리케이션을 위해 이를 구현하는 방법에 대해 간략히 설명합니다. **pNUMA** 라는 용어는 물리적 NUMA 도메인을 의미하고 **vNUMA** 는 가상화된 NUMA 도메인을 의미합니다. 
 
 물리적으로, [HBv2 시리즈](../../hbv2-series.md) 서버 1개는 총 128개의 물리적 코어를 위한 64코어 EPYC 7742 CPU 2개로 구성됩니다. 128개의 코어는 32개의 pNUMA 도메인(소켓당 16개)으로 나뉘고, 각 도메인은 4개의 코어이며 AMD에서는 **코어 복합체**(또는 **CCX**)로 알려져 있습니다. 각 CCX에는 자체 L3 캐시가 있으며, 이를 통해 OS가 pNUMA/vNUMA 경계를 파악합니다. 4개의 인접 CCX는 물리적 DRAM의 2개 채널에 대한 액세스를 공유합니다. 
@@ -59,7 +60,7 @@ VM 자체는 pNUMA 0 및 16이 예약되어 있음을 인식하지 못합니다.
 | 오케스트레이터 지원        | CycleCloud, 배치, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 R2는 HBv2 및 64개 가상 또는 물리적 코어를 초과하는 기타 VM에서 지원되지 않습니다. 자세한 내용은 [여기](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
+> Windows Server 2012 R2는 HBv2 및 64개 가상 또는 물리적 코어를 초과하는 기타 VM에서 지원되지 않습니다. 자세한 내용은 [Windows Server의 Hyper-V에서 지원되는 Windows 게스트 운영 체제](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

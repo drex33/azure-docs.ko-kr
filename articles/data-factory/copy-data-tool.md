@@ -1,17 +1,20 @@
 ---
 title: Azure Data Factory의 데이터 복사 도구
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/04/2021
 ms.author: yexu
-ms.openlocfilehash: 68bfa62817d971ce8c8127f44f43576431a499fc
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 165d799e6bc2cc6a5f7e064b909ca7e80f819c42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372013"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642454"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,10 +33,11 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 | Azure Data Factory 엔터티(연결된 서비스, 데이터 세트, 파이프라인 등)에 대해 학습하지 않고도 데이터 로드 태스크를 쉽게 빌드하려는 경우 | 데이터를 Lake에 로드하기 위한 복잡하고 유연한 논리를 구현하려는 경우 |
 | Data Lake에 많은 수의 데이터 아티팩트를 신속하게 로드하려는 경우 | 데이터를 정리 또는 처리하기 위해 복사 작업을 후속 작업에 체인 연결하려는 경우 |
 
-데이터 복사 도구를 시작하려면 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
+데이터 복사 도구를 시작하려면 데이터 팩터리 홈페이지에서 **수집** 타일을 클릭합니다.
 
-![시작 페이지 - 데이터 복사 도구 링크](./media/doc-common-process/get-started-page.png)
+![데이터 복사 도구에 대한 홈페이지 링크를 보여주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
+데이터 복사 도구를 실행하면 두 가지 유형의 작업이 표시됩니다. 하나는 **기본 제공 복사 작업** 이고, 다른 하나는 **메타데이터 기반 복사 작업** 입니다. 기본 제공 복사 작업을 수행하면 Azure Data Factory 엔터티에 대해 배우지 않고도 5분 이내에 파이프라인을 만들어 데이터를 복제할 수 있습니다.  대량의 개체(예: 수천 개의 테이블)를 대규모로 복사 관리하기 위해 매개 변수화된 파이프라인 및 외부 제어 테이블을 쉽게 만들 수 있는 메타데이터 기반 복사 작업입니다. [메타데이터 기반 복사 데이터](copy-data-tool-metadata-driven.md)에서 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Data Lake에 데이터를 로드하기 위한 직관적인 흐름
 이 도구를 사용하면 직관적인 흐름을 통해 다양한 원본에서 대상으로 데이터를 몇 분만에 쉽게 이동할 수 있습니다.  

@@ -7,26 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 5cd9438eecc973524d8e5f7218ad0c92ab627f87
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 01/27/2021
+ms.openlocfilehash: 5e9e09508591e2b6e58b6bae17df281c23a5129d
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559881"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414794"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Azure Cognitive Search의 작업 및 활동 모니터링
 
-이 문서에서는 Azure Cognitive Search의 모니터링 개념과 도구에 대한 개요가 설명됩니다. 전체적인 모니터링을 위해 기본 제공 기능과 Azure Monitor와 같은 추가 기능 서비스의 조합을 사용할 수 있습니다.
+이 문서에서는 Azure Cognitive Search의 모니터링 개념과 도구에 대한 개요가 설명됩니다. 전체적인 모니터링을 위해 기본 제공 기능과 Azure Monitor와 같은 추가 서비스의 조합을 사용해야 합니다.
 
 다음을 추적할 수 있습니다.
 
-* 서비스: 상태/가용성 및 서비스 구성 변경 내용.
-* 스토리지: 서비스 계층에 허용되는 할당량을 기준으로 각 콘텐츠 형식에 대한 개수를 포함하여 사용할 수 있습니다.
+* 검색 서비스: 상태 및 서비스 구성 변경
+* 스토리지 사용: 사용 및 사용 가능
+* 인덱스, 인덱서 및 기타 개체에 대한 개체 제한으로, 서비스 계층에 [허용되는 최대값](search-limits-quotas-capacity.md)을 기준으로 각 유형에 대한 개수가 포함됩니다.
 * 쿼리 작업: 볼륨, 대기 시간, 제한되거나 삭제된 쿼리. 로그된 쿼리 요청에는 [Azure Monitor](#add-azure-monitor)가 필요합니다.
 * 인덱싱 활동: Azure Monitor와 [진단 로깅](#add-azure-monitor)이 필요합니다.
 
-검색 서비스는 사용자별 인증을 지원 하지 않으므로, 로그에서 ID 정보를 찾을 수 없습니다.
+검색 서비스는 사용자별 인증을 지원하지 않으므로 로그에서 사용자 ID 정보를 찾을 수 없습니다.
 
 ## <a name="built-in-monitoring"></a>기본 제공 모니터링
 
@@ -48,9 +49,9 @@ Azure Cognitive Search는 포털에서 또는 이러한 [REST API](#monitoring-a
 
 <a name="monitoring-apis"> </a>
 
-### <a name="apis-useful-for-monitoring"></a>모니터링에 유용한 API
+### <a name="rest-apis-useful-for-monitoring"></a>모니터링에 유용한 REST API
 
-다음 API를 사용하여 포털의 모니터링 및 사용 탭에 있는 것과 동일한 정보를 검색할 수 있습니다.
+[Postman](search-get-started-rest.md) 및 다음 API를 사용하여 포털의 모니터링 및 사용 탭에 있는 것과 동일한 정보를 검색할 수 있습니다. 시스템 정보를 얻으려면 [관리자 API 키](search-security-api-keys.md)를 제공해야 합니다.
 
 * [서비스 통계 가져오기](/rest/api/searchservice/get-service-statistics)
 * [인덱스 통계 가져오기](/rest/api/searchservice/get-index-statistics)

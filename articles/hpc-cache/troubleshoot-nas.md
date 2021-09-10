@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: ed31a2202a0eacbdc257e127e111d21215c27de4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a8fb169db79281240e2aab854bc6079a60054625
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258200"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771448"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 스토리지 대상 문제 해결
 
@@ -42,7 +42,7 @@ Azure HPC Cache에는 백 엔드 NAS 스토리지 시스템의 여러 UDP/TCP �
 
 시스템에 필요한 특정 포트를 알아보려면 다음 ``rpcinfo`` 명령을 사용하세요. 아래 명령은 포트를 나열하고 관련 결과를 테이블 형식으로 지정합니다. *<storage_IP>* 대신 시스템의 IP 주소를 사용하세요.
 
-NFS 인프라가 설치된 모든 Linux 클라이언트에서 이 명령을 실행할 수 있습니다. 클러스터 서브넷 내에서 클라이언트를 사용하는 경우 서브넷과 스토리지 시스템 간의 연결을 확인하는 데도 도움이 될 수 있습니다.
+NFS 인프라가 설치된 모든 Linux 클라이언트에서 이 명령을 실행할 수 있습니다. 클러스터 서브넷 내에서 클라이언트를 사용하는 경우 이 명령은 서브넷과 스토리지 시스템 간의 연결을 확인하는 데도 도움이 될 수 있습니다.
 
 ```bash
 rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
@@ -146,4 +146,4 @@ ACL을 사용하는 시스템인 경우 Azure HPC Cache에서 파일 액세스�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 해결되지 않은 문제가 있는 경우 [지원 티켓을 열어](hpc-cache-support-ticket.md) 전문가의 도움을 받으세요.
+이 문서에서 해결되지 않은 문제가 있는 경우 [고객 지원팀에 문의하여](hpc-cache-support-ticket.md) 전문가의 도움을 받으세요.

@@ -10,14 +10,16 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 52256f000cd52577e2322b236b1047abd712265b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816299"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692047"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Azure CLI를 사용하여 가용성 집합에서 가상 머신 만들기 및 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 자습서에서는 가용성 집합이라는 기능을 사용하여 Azure에서 VM(Virtual Machine) 솔루션의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합을 사용하면 Azure에 배포한 VM이 격리된 여러 하드웨어 클러스터에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어 오류가 발생할 때, VM의 하위 집합에만 영향을 주며 전체 솔루션은 사용 가능한 운영 상태로 계속 유지됩니다.
 
@@ -104,5 +106,5 @@ az vm availability-set list-sizes \
 > [가상 머신 확장 집합 만들기](tutorial-create-vmss.md)
 
 * 가용성 영역에 대한 자세한 내용은 [가용성 영역 설명서](../../availability-zones/az-overview.md)를 참조하세요.
-* 가용성 집합 및 가용성 영역에 대한 추가 설명서는 [여기](../availability.md)서 확인할 수 있습니다.
+* 가용성 집합 및 가용성 영역에 대한 추가 설명은 [Azure Virtual Machines에 대한 가용성 옵션](../availability.md)에도 제공됩니다.
 * 가용성 영역을 사용해보려면 [Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기](./create-cli-availability-zone.md)를 방문하세요.

@@ -599,7 +599,7 @@ items:
             href: ./spark/apache-spark-notebook-concept.md
           - name: 패키지 관리
             href: ./spark/apache-spark-azure-portal-add-libraries.md
-          - name: 모니터링 도구
+          - name: Apache Spark 애플리케이션 모니터링
             href: monitoring/how-to-monitor-spark-applications.md
       - name: 방법 가이드
         items:
@@ -645,14 +645,18 @@ items:
                 href: ./spark/apache-spark-history-server.md
               - name: Spark 애플리케이션 모니터링
                 href: monitoring/apache-spark-applications.md
-              - name: Spark 풀 모니터링
+              - name: Apache Spark 풀 모니터링
                 href: monitoring/how-to-monitor-spark-pools.md
-              - name: Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
+              - name: API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
                 href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-              - name: Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 수준 메트릭 모니터링
+              - name: Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 메트릭 모니터링
                 href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-              - name: Azure Log Analytics를 사용하여 메트릭과 로그 수집 및 시각화(미리 보기)
+              - name: Azure Log Analytics를 사용하여 Apache Spark 애플리케이션 모니터링(미리 보기)
                 href: ./spark/apache-spark-azure-log-analytics.md
+              - name: Azure Storage 계정을 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
+                href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
+              - name: Azure Event Hubs를 사용하여 Apache Spark 애플리케이션 로그 및 메트릭 수집
+                href: ./spark//azure-synapse-diagnostic-emitters-azure-eventhub.md
           - name: 데이터 원본
             items:
               - name: Azure Cosmos DB Spark 3

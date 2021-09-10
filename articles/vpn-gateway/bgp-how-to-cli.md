@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 1b7d1c1928425dca7e1924bca09f2cd21e0ea06a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 47097be22fc9c75d7c56c8cb4d1f384936f7033a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290275"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536666"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 
-이 문서에서는 Resource Manager 배포 모델 및 Azure CLI를 사용하여 프레미스 간 S2S(사이트 간) VPN 연결 및 VNet 간 연결(즉, 가상 네트워크 간 연결)에서 BGP를 사용하도록 설정하도록 도와 줍니다.
+이 문서에서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md) 및 Azure CLI를 사용하여 프레미스 간 S2S(사이트 간) VPN 연결 및 VNet 간 연결(즉, 가상 네트워크 간 연결)에서 BGP를 사용하도록 설정하도록 도와줍니다.
 
 ## <a name="about-bgp"></a>BGP 정보
 
@@ -92,7 +92,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. AS 번호를 사용하여 VPN 게이트웨이 만들기
 
-TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. BGP에는 경로 기반 VPN Gateway가 필요합니다. 또한 TestVNet1에 대한 ASN(익명 시스템 번호)을 설정하기 위해 추가 매개 변수 `-Asn`도 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상). 
+TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. BGP에는 경로 기반 VPN Gateway가 필요합니다. 또한 TestVNet1에 대한 ASN(익명 시스템 번호)을 설정하기 위해 추가 매개 변수 `-Asn`도 필요합니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
 `--no-wait` 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. `--no-wait` 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. VPN 게이트웨이가 즉시 만들어진다는 것을 의미하지는 않습니다.
 

@@ -3,19 +3,19 @@ title: Azure IoT Edge 및 Azure IoT Central | Microsoft Docs
 description: IoT Central 애플리케이션 함께 Azure IoT Edge를 사용하는 방법을 이해합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/19/2021
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 0b1cf7d0dbf7456d01f6530355e6943c8ead54db
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 15d6da6b5fe458e34847469faf230222f20efb38
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529565"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273142"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -23,6 +23,7 @@ Azure IoT Edge는 조직에서 데이터 관리 대신 비즈니스 통찰력에
 
 이 문서에서는 다음을 설명합니다.
 
+* IoT Central을 사용하는 IoT Edge 게이트웨이 패턴.
 * IoT Edge 디바이스를 IoT Central 애플리케이션에 연결하는 방법.
 * IoT Central을 사용하여 IoT Edge 디바이스를 관리하는 방법
 
@@ -30,33 +31,72 @@ IoT Edge에 대한 자세한 내용은 [Azure IoT Edge란?](../../iot-edge/about
 
 ## <a name="iot-edge"></a>IoT Edge
 
+![Azure IoT Edge를 사용하는 Azure IoT Central](./media/concepts-iot-edge/iotedge.png)
+
 IoT Edge는 다음 세 가지 구성 요소로 구성됩니다.
 
 * *IoT Edge 모듈* 은 Azure 서비스, 파트너 서비스 또는 사용자 고유의 코드를 실행하는 컨테이너입니다. 모듈은 IoT Edge 디바이스에 배포되며, 해당 디바이스에서 로컬로 실행됩니다. 자세한 내용은 [Azure IoT Edge 모듈 이해](../../iot-edge/iot-edge-modules.md)를 참조하세요.
 * *IoT Edge 런타임* 은 각 IoT Edge 디바이스에서 실행되며, 각 디바이스에 배포된 모듈을 관리합니다. 런타임은 *IoT Edge 에이전트* 와 *IoT Edge 허브* 라는 두 개의 IoT Edge 모듈로 구성됩니다. 자세한 내용은 [Azure IoT Edge 런타임 및 아키텍처 이해](../../iot-edge/iot-edge-runtime.md)를 참조하세요.
 * *클라우드 기반 인터페이스* 를 사용하여 IoT Edge 디바이스를 원격으로 모니터링 및 관리할 수 있습니다. IoT Central은 클라우드 인터페이스의 예입니다.
 
+IoT Central은 IoT Edge 디바이스에 대해 다음 기능을 지원합니다.
+
+* 다음과 같은 IoT Edge 디바이스의 기능을 설명하는 디바이스 템플릿:
+  * 대량의 디바이스에 대한 매니페스트를 관리할 수 있는 배포 매니페스트 업로드 기능
+  * IoT Edge 디바이스에서 실행되는 모듈
+  * 각 모듈에서 전송하는 원격 분석 데이터
+  * 각 모듈이 보고하는 속성
+  * 각 모듈이 응답하는 명령
+  * IoT Edge 게이트웨이 디바이스와 다운스트림 디바이스 간의 관계
+  * IoT Edge 디바이스에 저장되지 않는 클라우드 속성
+  * UI가 디바이스 기능을 표시하는 방식을 변경하는 사용자 지정
+  * 디바이스 보기 및 양식
+* Azure IoT 디바이스 프로비저닝 서비스를 사용하여 IoT Edge 디바이스를 대규모로 프로비전하는 기능입니다.
+* 규칙 및 동작
+* 사용자 지정 대시보드 및 분석
+* IoT Edge 디바이스에서 원격 분석의 지속적인 데이터 내보내기
+
 IoT Edge 디바이스는 다음에 해당할 수 있습니다.
 
 * 모듈로 구성된 독립 실행형 디바이스.
 * 다운스트림 디바이스가 연결되는 *게이트웨이 디바이스*.
 
-## <a name="iot-edge-as-a-gateway"></a>IoT Edge를 게이트웨이로 사용
+![IoT Edge가 있는 IoT Central 개요](./media/concepts-iot-edge/gatewayedge.png)
 
-IoT Edge 디바이스는 네트워크의 다른 다운스트림 디바이스와 IoT Central 애플리케이션 간의 연결을 제공하는 게이트웨이로 작동할 수 있습니다.
+게이트웨이 디바이스는 다음일 수 있습니다.
 
-다음과 같은 두 가지 게이트웨이 패턴이 있습니다.
-
-* *투명 게이트웨이* 패턴에서 IoT Edge 허브 모듈은 IoT Central처럼 작동하며, IoT Central에 등록된 디바이스에서 들어오는 연결을 처리합니다. 메시지는 중간에 게이트웨이가 없는 것처럼 다운스트림 디바이스에서 IoT Central로 전달됩니다.
+* IoT Edge 허브 모듈이 IoT Central처럼 작동하며, IoT Central에 등록된 디바이스에서 들어오는 연결을 처리하는 투명 게이트웨이 메시지는 중간에 게이트웨이가 없는 것처럼 다운스트림 디바이스에서 IoT Central로 전달됩니다.
 
     > [!NOTE]
     > IoT Central은 현재 IoT Edge 디바이스를 IoT Edge 투명 게이트웨이에 대한 다운스트리밍 디바이스로 연결하는 것을 지원하지 않습니다. IoT Central에 연결하는 모든 디바이스는 DPS(디바이스 프로비저닝 서비스)를 사용하여 프로비전되고 DPS는 중첩된 IoT Edge 시나리오를 지원하지 않기 때문입니다.
 
-* *변환 게이트웨이* 패턴에서 IoT Central에 직접 연결할 수 없는 디바이스는 사용자 지정 IoT Edge 모듈에 대신 연결합니다. IoT Edge 디바이스의 모듈은 들어오는 다운스트림 디바이스 메시지를 처리한 다음, IoT Central로 전달합니다.
+* IoT Central에 직접 연결할 수 없는 디바이스는 사용자 지정 IoT Edge 모듈에 연결하는 변환 게이트웨이 IoT Edge 디바이스의 모듈은 들어오는 다운스트림 디바이스 메시지를 처리한 다음, IoT Central로 전달합니다.
 
-투명 및 변환 게이트웨이 패턴은 상호 배타적이지 않습니다. 단일 IoT Edge 디바이스는 투명 게이트웨이 및 변환 게이트웨이로 작동할 수 있습니다.
+단일 IoT Edge 디바이스는 투명 게이트웨이 및 변환 게이트웨이로 작동할 수 있습니다.
 
 IoT Edge 게이트웨이 패턴에 대한 자세한 내용은 [IoT Edge 디바이스를 게이트웨이로 사용하는 방법](../../iot-edge/iot-edge-as-gateway.md)을 참조하세요.
+
+## <a name="iot-edge-patterns"></a>IoT Edge 패턴
+
+IoT Central은 다음과 같은 IoT Edge 디바이스 패턴을 지원합니다.
+
+### <a name="iot-edge-as-leaf-device"></a>리프 디바이스인 IoT Edge
+
+![리프 디바이스인 IoT Edge](./media/concepts-iot-edge/edgeasleafdevice.png)
+
+IoT Edge 디바이스는 IoT Central 및 모든 다운스트림 디바이스에서 프로비저닝되며 해당 원격 분석은 IoT Edge 디바이스에서 발생한 것으로 표시됩니다. IoT Edge 디바이스에 연결된 다운스트림 디바이스는 IoT Central에서 프로비저닝되지 않습니다.
+
+### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>ID가 있는 다운스트림 디바이스에 연결된 IoT Edge 게이트웨이 디바이스
+
+![다운스트림 디바이스 ID가 있는 IoT Edge](./media/concepts-iot-edge/edgewithdownstreamdeviceidentity.png)
+
+IoT Edge 디바이스는 IoT Edge 디바이스에 연결된 다운스트림 디바이스와 함께 IoT Central에 프로비저닝됩니다. 게이트웨이를 통해 다운스트림 디바이스를 프로비저닝하는 런타임 지원은 현재 지원되지 않습니다.
+
+### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge 게이트웨이에서 제공하는 ID가 있고 다운스트림 디바이스에 연결된 IoT Edge 게이트웨이 디바이스
+
+![ID가 없고 다운스트림 디바이스를 사용하는 IoT Edge](./media/concepts-iot-edge/edgewithoutdownstreamdeviceidentity.png)
+
+IoT Edge 디바이스는 IoT Edge 디바이스에 연결된 다운스트림 디바이스와 함께 IoT Central에 프로비저닝됩니다. 현재 IoT Central에서는 ID를 제공하고 다운스트림 디바이스를 프로비전하는 게이트웨이의 런타임 지원을 제공하지 않습니다. 자체 ID 변환 모듈을 가져오면 IoT Central에서 이 패턴을 지원할 수 있습니다.
 
 ### <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>게이트웨이 및 모듈과의 다운스트림 디바이스 관계
 

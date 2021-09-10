@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 73cce13f296d65167ab2c45f677849b7f05f8b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b9efc6c8f568d054662f9084d63b83de7b39e776
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566746"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -30,7 +30,6 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - 논리 앱을 사용하여 로그 쿼리에서 예약된 내보내기. 이는 데이터 내보내기 기능과 유사하지만 필터링된 데이터 또는 집계된 데이터를 Azure Storage로 보낼 수 있습니다. 그러나 이 방법에는 [로그 쿼리 한도](../service-limits.md#log-analytics-workspaces)가 적용됩니다. [논리 앱을 사용하여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](logs-export-logic-app.md)을 참조하세요.
 - PowerShell 스크립트를 사용하여 로컬 컴퓨터에 일회성 내보내기. [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)를 참조하세요.
 
-
 ## <a name="limitations"></a>제한 사항
 
 - 현재 CLI 또는 REST 요청을 사용하여 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원되지 않습니다.
@@ -38,7 +37,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - 지원되는 테이블은 현재 아래의 [지원되는 테이블](#supported-tables) 섹션에 명시된 항목으로 한정됩니다. 예를 들어 사용자 지정 로그 테이블은 현재 지원되지 않습니다.
 - 데이터 내보내기 규칙에 지원되지 않는 테이블이 포함되어 있으면 작업이 성공하지만 테이블이 지원될 때까지 해당 테이블에 대한 데이터를 내보내지 않습니다. 
 - 데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 `Table <tableName> does not exist in the workspace` 오류와 함께 실패합니다.
-- 데이터 내보내기는 모든 지역에서 사용할 수 있지만 현재 Azure Government 지역, 일본 서부, 브라질 남동부, 노르웨이 동부, 노르웨이 서부, 아랍에미리트 북부, 아랍에미리트 중부, 오스트레일리아 중부 2, 스위스 북부, 스위스 서부, 독일 중서부, 인도 남부, 프랑스 남부, 일본 서부에서는 사용할 수 없습니다.
+- 데이터 내보내기는 모든 지역에서 사용할 수 있지만 현재는 스위스 북부, 스위스 서부, 독일 중서부, 오스트레일리아 중부 2, 아랍에미리트 중부, 아랍에미리트 북부, 일본 서부, 브라질 남동부, 노르웨이 동부, 노르웨이 서부, 프랑스 남부, 인도 남부, 한국 남부, Jio 인도 중부, Jio 인도 서부, 캐나다 동부, 미국 서부 3, 스웨덴 중부, 스웨덴 남부, 정부 클라우드, 중국 지역에서 사용할 수 없습니다.
 - 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 추가 규칙은 허용되지만 비활성 상태입니다. 
 - 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
 - 대상 스토리지 계정 또는 이벤트 허브는 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
@@ -61,7 +60,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 [![스토리지 샘플 데이터](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-Log Analytics 데이터 내보내기에서는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용하도록 설정한 경우 변경이 불가능한 스토리지 계정에 추가 Blob을 쓸 수 있습니다. 이를 통해 추가 Blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [보호된 추가 Blob 쓰기 허용](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)을 참조하세요.
+Log Analytics 데이터 내보내기에서는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용하도록 설정한 경우 변경이 불가능한 스토리지 계정에 추가 Blob을 쓸 수 있습니다. 이를 통해 추가 Blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [보호된 추가 Blob 쓰기 허용](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes)을 참조하세요.
 
 ### <a name="event-hub"></a>이벤트 허브
 데이터는 Azure Monitor에 도달하면 거의 실시간으로 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
@@ -76,8 +75,8 @@ Log Analytics 데이터 내보내기에서는 시간 기반 보존 정책에서 
 ## <a name="prerequisites"></a>필수 구성 요소
 다음은 Log Analytics 데이터 내보내기 구성 전에 완료해야 하는 필수 조건입니다.
 
-- 대상은 내보내기 규칙 구성 전에 생성되어야 하며 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 스토리지 계정에 복제해야 하는 경우 [Azure Storage 중복 옵션](../../storage/common/storage-redundancy.md) 중 원하는 옵션을 사용할 수 있습니다.  
-- 스토리지 계정은 StorageV1 또는 StorageV2여야 합니다. 클래식 스토리지는 지원되지 않습니다.  
+- 대상은 내보내기 규칙 구성 전에 생성되어야 하며 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 스토리지 계정에 복제해야 하는 경우 GRS 및 GZRS를 포함한 [Azure Storage 중복 옵션](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region)을 사용할 수 있습니다.
+- 스토리지 계정은 StorageV1 이상이어야 합니다. 클래식 스토리지는 지원되지 않습니다.
 - 선택한 네트워크에서 액세스할 수 있도록 스토리지 계정을 구성한 경우 스토리지 계정 설정에 예외를 추가하여 Azure Monitor가 스토리지에 쓸 수 있도록 해야 합니다.
 
 ## <a name="enable-data-export"></a>데이터 내보내기 사용
@@ -440,7 +439,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 테스트가 수행되는 경우와 같이 특정 기간 동안 데이터를 유지할 필요가 없는 경우 내보내기를 중지할 수 있도록 내보내기 규칙을 비활성화할 수 있습니다. CLI를 사용하여 데이터 내보내기 규칙을 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
-az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
+az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --enable false
 ```
 
 # <a name="rest"></a>[REST (영문)](#tab/rest)
@@ -543,7 +542,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 
 ## <a name="supported-tables"></a>지원되는 테이블
-지원되는 테이블은 현재 아래에 지정된 테이블로 제한됩니다. 제한이 지정되지 않은 경우 테이블의 모든 데이터를 내보냅니다. 추가 테이블에 대한 지원이 추가되면 이 목록이 업데이트됩니다.
+지원되는 테이블은 현재 아래에 지정된 테이블로 제한됩니다. 제한이 지정되지 않은 경우 테이블의 모든 데이터를 내보냅니다. 이 목록은 추가 테이블에 대한 지원이 추가되면 업데이트됩니다.
 
 | 테이블 | 제한 사항 |
 |:---|:---|
@@ -558,8 +557,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AADManagedIdentitySignInLogs |  |
 | AADNonInteractiveUserSignInLogs |  |
 | AADProvisioningLogs |  |
+| AADRiskyUsers |  |
 | AADServicePrincipalSignInLogs |  |
+| AADUserRiskEvents |  |
 | ABSBotRequests |  |
+| ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
 | ACSChatIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
@@ -569,6 +571,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | ADFSSignInLogs |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
+| ADPDiagnostics |  |
 | ADPRequests |  |
 | ADReplicationResult |  |
 | ADSecurityAssessmentRecommendation |  |
@@ -580,7 +583,9 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | ADXQuery |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAuditLogs |  |
 | 경고 |  |
+| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -594,13 +599,17 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
 | AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
+| CDBGremlinRequests |  |
 | CDBMongoRequests |  |
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
@@ -636,6 +645,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
+| EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
 | 이벤트 | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다.2 |
 | ExchangeAssessmentRecommendation |  |
@@ -645,9 +655,14 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | HDInsightAmbariSystemMetrics |  |
 | HDInsightHadoopAndYarnLogs |  |
 | HDInsightHadoopAndYarnMetrics |  |
+| HDInsightHBaseLogs |  |
+| HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveTezAppStats |  |
+| HDInsightJupyterNotebookEvents |  |
+| HDInsightKafkaLogs |  |
+| HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
 | HDInsightSecurityLogs |  |
 | HDInsightSparkApplicationEvents |  |
@@ -674,6 +689,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | KubeServices |  |
 | LAQueryLogs |  |
 | McasShadowItReporting |  |
+| MCCEventLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -681,7 +697,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
-| OfficeActivity | 부분 지원 – O365에서 LA로 웹후크를 통해 일부 데이터가 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| OfficeActivity | 정부 클라우드의 부분 지원 – 일부 데이터가 O365에서 LA로 웹후크를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | 작업 | 부분 지원 – 일부 데이터가 내보내기에 대해 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | Perf | 부분 지원 – 현재 Windows 성능 데이터만 지원됩니다. 현재 Linux 성능 데이터는 내보내기에서 누락됩니다. |
 | PowerBIDatasetsWorkspace |  |
@@ -693,7 +709,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SecurityBaselineSummary |  |
 | SecurityCef |  |
 | SecurityDetection |  |
-| SecurityEvent | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다.2 |
+| SecurityEvent | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 이 경로는 내보내기 2에서 지원되지 않습니다. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -706,6 +722,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SigninLogs |  |
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -719,7 +736,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| syslog | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다.2 |
+| syslog | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 이 경로는 내보내기 2에서 지원되지 않습니다. |
 | ThreatIntelligenceIndicator |  |
 | 업데이트 | 부분 지원 – 일부 데이터가 내보내기에 대해 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | UpdateRunProgress |  |

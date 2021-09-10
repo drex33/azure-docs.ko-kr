@@ -7,14 +7,19 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: 7faeec8494a908b9aab00be9b63904354b5e0994
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2f86f559bfba9c2fcc75649153db450abb877b4d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557083"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696533"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
+> [!TIP]
+> **[Virtual Machine 선택기 도구](https://aka.ms/vm-selector)** 를 사용해 작업에 가장 적합한 다른 크기를 찾습니다.
 
 SQL Server 또는 Oracle과 같은 일부 데이터베이스 워크로드는 메모리, 스토리지 및 I/O 대역폭 요구량은 많지만 코어 수 요구량은 많지 않습니다. 대부분의 데이터베이스 워크로드는 CPU를 많이 사용하지 않습니다. Azure에서는 VM vCPU 수를 제한하여 소프트웨어 라이선스 비용을 줄이면서도 메모리, 스토리지 및 I/O 대역폭을 그대로 유지할 수 있는 특정 VM 크기를 제공합니다.
 

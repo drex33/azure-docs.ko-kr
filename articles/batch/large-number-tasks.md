@@ -4,12 +4,12 @@ description: 단일 Azure Batch 작업에서 매우 많은 수의 작업을 효�
 ms.topic: how-to
 ms.date: 12/30/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 08cf92507a4556afbf56c9cb7e2c9c1b3a6c9479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 825bee374ec006708b4b0b38e7d101554b3a9c25
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97831519"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529567"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 
@@ -141,7 +141,7 @@ pip install azure-batch
 pip install azure-batch-extensions
 ```
 
-SDK 확장을 사용하는 `BatchExtensionsClient`를 설정합니다.
+`import azext.batch as batch`를 사용하여 패키지를 가져온 후 SDK 확장을 사용하여 `BatchExtensionsClient`를 설정합니다.
 
 ```python
 

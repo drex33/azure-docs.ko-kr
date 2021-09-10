@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2b0ac2750515c8a61674b695e0faf3fd54ff7c6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 994b24110399057741b9f62f7ecf30a8a505fd6d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670257"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537990"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 스토리지 형식 업데이트
 
@@ -117,7 +117,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 3. VM이 중지되지 않는 경우 VM **개요** 창 상단에서 **중지** 를 선택하고 VM이 중지될 때까지 기다립니다.
 4. VM 창 메뉴에서 **디스크** 를 선택합니다.
 5. 변환할 디스크를 선택합니다.
-6. 메뉴에서 **구성** 을 선택합니다.
+6. 메뉴에서 **크기 + 성능** 을 선택합니다.
 7. **계정 유형** 을 원래 디스크 유형에서 원하는 디스크 유형으로 변경합니다.
 8. **저장** 을 선택하고 디스크 창을 닫습니다.
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "112078776"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122264064"
 ---
 디스크에 대한 고객 관리형 키를 설정하려면 처음으로 수행하는 경우 특정 순서로 리소스를 만들어야 합니다. 먼저 Azure Key Vault를 만들고 설정해야 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "112078776"
     > [!IMPORTANT]
     > 배포가 성공하려면 Azure Key Vault, 디스크 암호화 집합, VM, 디스크 및 스냅샷이 모두 동일한 지역과 구독에 있어야 합니다.
 
-1. **+추가** 를 선택하여 새 Key Vault를 만듭니다.
+1. **+만들기** 를 선택하여 새 Key Vault를 만듭니다.
 1. 새 리소스 그룹 만들기
 1. 키 자격 증명 모음 이름을 입력하고, 지역을 선택하고, 가격 책정 계층을 선택합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "112078776"
 1. **키 유형** 을 **RSA** 로 설정된 상태로 두고 **RSA 키 크기** 를 **2048** 로 설정된 상태로 둡니다.
 1. 원하는 대로 나머지 선택 항목을 입력하고 **만들기** 를 선택합니다.
 
-    ![생성/가져오기 단추를 선택하면 나타나는 키 만들기 블레이드의 스크린샷](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![생성/가져오기 단추를 선택하면 나타나는 키 만들기 창의 스크린샷](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ### <a name="add-an-azure-rbac-role"></a>Azure RBAC 역할 추가
 
@@ -59,7 +59,7 @@ ms.locfileid: "112078776"
 ## <a name="set-up-your-disk-encryption-set"></a>디스크 암호화 집합 설정
 
 1. **디스크 암호화 집합** 을 검색하고 선택합니다.
-1. **디스크 암호화 집합** 블레이드에서 **+추가** 를 선택합니다.
+1. **디스크 암호화 집합** 창에서 **+만들기** 를 선택합니다.
 
     ![디스크 암호화 포털 주 화면의 스크린샷. 추가 단추 강조 표시](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
@@ -74,4 +74,4 @@ ms.locfileid: "112078776"
 1. **선택** 을 누릅니다.
 1. **검토 + 만들기**, **만들기** 를 차례로 선택합니다.
 
-    ![디스크 암호화 만들기 블레이드의 스크린샷. 구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역 및 키 자격 증명 모음 + 키 선택기를 표시합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![디스크 암호화 만들기 창의 스크린샷. 구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역 및 키 자격 증명 모음 + 키 선택기를 표시합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)

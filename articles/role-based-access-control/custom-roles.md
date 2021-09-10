@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2021
+ms.date: 06/15/2021
 ms.author: rolyon
-ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6177de5dfc89dcbc33b9ff4291bf65ea909a3b9b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469909"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235719"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
@@ -155,7 +155,7 @@ Azure에는 사용자 지정 역할에 잠재적으로 포함할 수 있는 수�
 
 다음 테이블은 사용자 지정 역할 속성의 의미에 대해 설명합니다.
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 | --- | --- | --- | --- |
 | `Name`</br>`roleName` | 예 | String | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 관리 그룹 또는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
 | `Id`</br>`name` | 예 | String | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
@@ -166,6 +166,8 @@ Azure에는 사용자 지정 역할에 잠재적으로 포함할 수 있는 수�
 | `DataActions`</br>`dataActions` | No | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. `DataActions`를 사용하여 사용자 지정 역할을 만드는 경우 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [DataActions](role-definitions.md#dataactions)를 참조하세요. |
 | `NotDataActions`</br>`notDataActions` | No | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions](role-definitions.md#notdataactions)를 참조하세요. |
 | `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할의 `AssignableScopes`에서 하나의 관리 그룹만 정의할 수 있습니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
+
+사용 권한 문자열은 대/소문자를 구분하지 않습니다. 사용자 지정 역할을 만들 때 규칙은 [Azure 리소스 공급자 작업](resource-provider-operations.md)의 사용 권한에 대해 표시되는 사례와 일치시키는 것입니다.
 
 ## <a name="wildcard-permissions"></a>와일드카드 사용 권한
 

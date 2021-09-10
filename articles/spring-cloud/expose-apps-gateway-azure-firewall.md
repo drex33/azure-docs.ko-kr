@@ -1,18 +1,18 @@
 ---
 title: Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출
 description: Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출하는 방법
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5183fe6560e0276efb3f9db85628a814abfe9e45
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: e87ccabeb2d0e0cd837a835c5ac637bebc68b8b4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791727"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529511"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Application Gateway 및 Azure Firewall을 사용하여 애플리케이션을 인터넷에 노출
 
@@ -24,9 +24,9 @@ ms.locfileid: "110791727"
 
 ## <a name="define-variables"></a>변수 정의
 
-[Azure virtual network에서 Azure Spring Cloud 배포(VNet 삽입)](./how-to-deploy-in-azure-virtual-network.md)에서 지시한 대로 만든 리소스 그룹과 가상 네트워크의 변수를 정의합니다. 실제 환경에 따라 값을 사용자 지정합니다.
+[Azure virtual network에서 Azure Spring Cloud 배포(VNet 삽입)](./how-to-deploy-in-azure-virtual-network.md)에서 지시한 대로 만든 리소스 그룹과 가상 네트워크의 변수를 정의합니다. 실제 환경에 따라 값을 사용자 지정합니다.  SPRING_APP_PRIVATE_FQDN을 정의할 때 URI에서 'https'를 제거합니다.
 
-```
+```bash
 SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
@@ -36,11 +36,11 @@ APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
 
-## <a name="login-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure CLI에 로그인하고 활성 구독을 선택합니다.
 
-```
+```azurecli
 az login
 az account set --subscription ${SUBSCRIPTION}
 ```
@@ -49,7 +49,7 @@ az account set --subscription ${SUBSCRIPTION}
 
 생성되게 될 **Azure Application Gateway** 는 Azure Spring Cloud 서비스 인스턴스와 동일한 가상 네트워크에 조인하거나 Azure Spring Cloud 서비스 인스턴스에 대한 피어링된 가상 네트워크에 조인합니다. 먼저 `az network vnet subnet create`를 사용하여 가상 네트워크에 Application Gateway에 대한 새 서브넷을 만들고 `az network public-ip create`를 사용하여 Application Gateway의 프런트 엔드로 공용 IP 주소도 만듭니다.
 
-```
+```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
     --name ${APPLICATION_GATEWAY_SUBNET_NAME} \
@@ -68,7 +68,7 @@ az network public-ip create \
 
 `az network application-gateway create`를 사용하여 애플리케이션 게이트웨이를 만들고 애플리케이션의 비공개 FQD(정규화된 도메인 이름)을 백 엔드 풀에서 서버로 지정합니다. 그런 다음 백 엔드 풀의 호스트 이름을 사용하도록 `az network application-gateway http-settings update`를 사용하여 HTTP 설정을 업데이트합니다.
 
-```
+```azurecli
 APPLICATION_GATEWAY_NAME='my-app-gw'
 APPLICATION_GATEWAY_PROBE_NAME='my-probe'
 APPLICATION_GATEWAY_REWRITE_SET_NAME='my-rewrite-set'
@@ -119,7 +119,7 @@ az network application-gateway rule update \
 
 Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 30분이 걸릴 수 있습니다. 만든 후에는 `az network application-gateway show-backend-health`를 사용하여 백 엔드 상태를 확인합니다.  이를 통해 애플리케이션 게이트웨이가 해당 비공개 FQDN을 통해 애플리케이션에 도달하는지 여부를 검사할 수 있습니다.
 
-```
+```azurecli
 az network application-gateway show-backend-health \
     --name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP}
@@ -127,7 +127,7 @@ az network application-gateway show-backend-health \
 
 출력은 백 엔드 풀의 정상 상태를 나타냅니다.
 
-```
+```output
 {
   "backendAddressPools": [
     {
@@ -152,7 +152,7 @@ az network application-gateway show-backend-health \
 
 `az network public-ip show`를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다.
 
-```
+```azurecli
 az network public-ip show \
     --resource-group ${RESOURCE_GROUP} \
     --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
@@ -162,7 +162,7 @@ az network public-ip show \
 
 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
-  ![공용 IP의 앱](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
+![공용 IP의 앱](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
 ## <a name="see-also"></a>참고 항목
 

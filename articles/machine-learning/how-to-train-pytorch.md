@@ -10,12 +10,12 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a107bd8548b313ad2ac0bf2fa86c9f5b7527e26
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6891da994955359dcc10b8e994d8c2dd05436fce
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764804"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606766"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대규모 PyTorch 모델 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "108764804"
     - Notebook 서버의 딥 러닝 샘플 디렉터리에서 **how-to-use-azureml > ml-frameworks > pytorch > train-hyperparameter-tune-deploy-with-pytorch** 폴더로 차례로 이동하여 완성된 확장 Notebook을 찾습니다. 
  
  - 사용자 고유의 Jupyter Notebook 서버
-    - [Azure Machine Learning SDK(1.15.0 이상)를 설치](/python/api/overview/azure/ml/install)합니다.
+    - [Azure Machine Learning SDK(1.15.0 이상)를 설치합니다](/python/api/overview/azure/ml/install).
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
     - [샘플 스크립트 파일(`pytorch_train.py`)을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)합니다.
      
@@ -47,7 +47,7 @@ ms.locfileid: "108764804"
 
 ### <a name="import-packages"></a>패키지 가져오기
 
-먼저 필요한 Python 라이브러리를 가져옵니다.
+먼저, 필요한 Python 라이브러리를 가져옵니다.
 
 ```Python
 import os
@@ -247,131 +247,7 @@ Azure Machine Learning은 학습 워크로드를 스케일링할 수 있도록 �
 
 Azure ML은 Horovod 및 PyTorch의 기본 제공 DistributedDataParallel 모듈을 모두 사용하여 분산 PyTorch 작업 실행을 지원합니다.
 
-### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod)는 Uber에서 개발한 분산 학습을 위한 오픈 소스 allreduce 프레임워크입니다. 학습을 위해 분산 PyTorch 코드를 작성할 수 있는 쉬운 경로를 제공합니다.
-
-학습 코드는 분산 학습을 위해 Horovod를 사용하여 계측해야 합니다. PyTorch에서 Horovod를 사용하는 방법에 대한 자세한 내용은 [Horovod 설명서](https://horovod.readthedocs.io/en/stable/pytorch.html)를 참조하세요.
-
-또한 **horovod** 패키지가 학습 환경에 포함되어 있는지 확인합니다. PyTorch 큐레이팅된 환경을 사용하는 경우 horovod는 이미 종속성 중 하나로 포함되어 있습니다. 사용자 고유의 환경을 사용하는 경우 다음과 같이 horovod 종속성이 포함되어 있는지 확인합니다.
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - horovod==0.19.5
-```
-
-Azure ML에서 MPI/Horovod를 사용하여 분산 작업을 실행하려면 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration)을 ScriptRunConfig 생성자의 `distributed_job_config` 매개 변수에 지정해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행하는 2노드 분산 작업을 구성합니다. 또한 노드당 여러 프로세스를 실행하려면(즉, 클러스터 SKU에 여러 GPU가 있는 경우) MpiConfiguration에서 `process_count_per_node` 매개 변수(기본값: `1`)를 추가로 지정합니다.
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import MpiConfiguration
-
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='pytorch_horovod_mnist.py',
-                      compute_target=compute_target,
-                      environment=pytorch_env,
-                      distributed_job_config=MpiConfiguration(node_count=2))
-```
-
-Azure ML에서 Horovod를 사용하여 분산 PyTorch를 실행하는 방법에 대한 전체 자습서는 [Horovod를 사용하는 분산 PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-horovod)를 참조하세요.
-
-### <a name="distributeddataparallel"></a>DistributedDataParallel
-학습 코드에서 **torch.distributed** 패키지를 사용하여 빌드된 PyTorch의 기본 제공 [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) 모듈을 사용하는 경우 Azure ML을 통해 분산 작업을 시작할 수도 있습니다.
-
-Azure ML에서 분산 PyTorch 작업을 시작하려면 다음 두 가지 옵션을 사용할 수 있습니다.
-1. 프로세스별 시작: 실행하려는 작업자 프로세스의 총 수를 지정하면 Azure ML에서 각 프로세스의 시작을 처리합니다.
-2. `torch.distributed.launch`를 사용하여 노드별 시작: 각 노드에서 실행하려는 `torch.distributed.launch` 명령을 제공합니다. torch launch 유틸리티는 각 노드에서 작업자 프로세스의 시작을 처리합니다.
-
-이러한 시작 옵션 간에는 근본적인 차이점이 없습니다. 이는 주로 사용자의 기본 설정 또는 vanilla PyTorch를 기반으로 하여 빌드된 프레임워크/라이브러리(예: Lightning 또는 Hugging Face)의 규칙에 따라 결정됩니다.
-
-#### <a name="per-process-launch"></a>프로세스별 시작
-이 옵션을 사용하여 분산 PyTorch 작업을 실행하려면 다음을 수행합니다.
-1. 학습 스크립트 및 인수를 지정합니다.
-2. [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration)을 만들고, `process_count` 및 `node_count`를 지정합니다. `process_count`는 작업에 대해 실행하려는 총 프로세스 수에 해당합니다. 일반적으로 노드당 GPU 수와 노드 수를 곱한 값과 같아야 합니다. `process_count`이 지정되지 않으면 Azure ML에서 기본적으로 노드당 하나의 프로세스를 시작합니다.
-
-Azure ML에서 다음 환경 변수를 설정합니다.
-* `MASTER_ADDR` - 0 순위의 프로세스를 호스팅할 컴퓨터의 IP 주소입니다.
-* `MASTER_PORT` - 0 순위의 프로세스를 호스팅할 컴퓨터의 사용 가능한 포트입니다.
-* `NODE_RANK` - 다중 노드 학습을 위한 노드의 순위입니다. 가능한 값은 0~(총 노드 수 - 1)입니다.
-* `WORLD_SIZE` - 총 프로세스 수입니다. 분산 학습에 사용되는 총 디바이스 수(GPU)와 같아야 합니다.
-* `RANK` - 현재 프로세스의 (전체) 순위입니다. 가능한 값은 0~(세계 크기 - 1)입니다.
-* `LOCAL_RANK` - 노드 내 프로세스의 로컬(상대) 순위입니다. 가능한 값은 0~(노드의 프로세스 수 - 1)입니다.
-
-Azure ML에서 필요한 환경 변수를 설정하므로 [기본 환경 변수 초기화 메서드](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization)를 사용하여 학습 코드에서 프로세스 그룹을 초기화할 수 있습니다.
-
-다음 코드 조각에서는 2개 노드, 노드당 2개 프로세스 PyTorch 작업을 구성합니다.
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import PyTorchConfiguration
-
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-distr_config = PyTorchConfiguration(process_count=4, node_count=2)
-
-src = ScriptRunConfig(
-  source_directory='./src',
-  script='train.py',
-  arguments=['--epochs', 25],
-  compute_target=compute_target,
-  environment=pytorch_env,
-  distributed_job_config=distr_config,
-)
-
-run = Experiment(ws, 'experiment_name').submit(src)
-```
-
-> [!WARNING]
-> 이 옵션을 노드당 다중 프로세스 학습에 사용하려면 `process_count`가 1.22.0에서 도입되었으므로 Azure ML Python SDK 1.22.0 이상을 사용해야 합니다.
-
-> [!TIP]
-> 학습 스크립트가 local rank(로컬 순위) 또는 rank(순위)와 같은 정보를 스크립트 인수로 전달하는 경우 `arguments=['--epochs', 50, '--local_rank', $LOCAL_RANK]` 인수에서 환경 변수를 참조할 수 있습니다.
-
-#### <a name="per-node-launch-with-torchdistributedlaunch"></a>`torch.distributed.launch`를 사용하여 노드별 시작
-PyTorch는 사용자가 노드당 여러 프로세스를 시작하는 데 사용할 수 있는 [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility)에서 시작 유틸리티를 제공합니다. `torch.distributed.launch` 모듈은 각 노드에서 여러 학습 프로세스를 생성합니다.
-
-다음 단계에서는 Azure ML에서 노드별 시작 관리자를 사용하여 다음 명령을 실행하는 것과 동일한 작업을 수행하는 PyTorch 작업을 구성하는 방법을 보여 줍니다.
-
-```shell
-python -m torch.distributed.launch --nproc_per_node <num processes per node> \
-  --nnodes <num nodes> --node_rank $NODE_RANK --master_addr $MASTER_ADDR \
-  --master_port $MASTER_PORT --use_env \
-  <your training script> <your script arguments>
-```
-
-1. `torch.distributed.launch` 명령을 `ScriptRunConfig` 생성자의 `command` 매개 변수에 제공합니다. Azure ML은 학습 클러스터의 각 노드에서 이 명령을 실행합니다. `--nproc_per_node`는 각 노드에서 사용 가능한 GPU 수보다 작거나 같아야 합니다. `MASTER_ADDR`, `MASTER_PORT` 및 `NODE_RANK`는 모두 Azure ML에서 설정되므로 명령의 환경 변수만 참조할 수 있습니다. Azure ML에서 `MASTER_PORT`를 6105로 설정하지만, 원하는 경우 다른 값을 `torch.distributed.launch` 명령의 `--master_port` 인수에 전달할 수 있습니다. (시작 유틸리티는 환경 변수를 다시 설정합니다.)
-2. `PyTorchConfiguration`을 만들고, `node_count`를 지정합니다. Azure ML에서 기본적으로 노드당 하나의 프로세스를 시작하도록 설정하므로 `process_count`를 설정할 필요가 없습니다. 그러면 지정한 시작 명령이 실행됩니다.
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import PyTorchConfiguration
-
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-distr_config = PyTorchConfiguration(node_count=2)
-launch_cmd = "python -m torch.distributed.launch --nproc_per_node 2 --nnodes 2 --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT --use_env train.py --epochs 50".split()
-
-src = ScriptRunConfig(
-  source_directory='./src',
-  command=launch_cmd,
-  compute_target=compute_target,
-  environment=pytorch_env,
-  distributed_job_config=distr_config,
-)
-
-run = Experiment(ws, 'experiment_name').submit(src)
-```
-
-Azure ML에서 분산 PyTorch를 실행하는 방법에 대한 전체 자습서는 [DistributedDataParallel을 사용하는 분산 PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel)를 참조하세요.
-
-### <a name="troubleshooting"></a>문제 해결
-
-* **Horovod가 종료되었습니다**: 대부분의 경우 "AbortedError: Horovod가 종료되었습니다."가 발생하면 Horovod가 종료된 프로세스 중 하나에 기본 예외가 있는 것입니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 학습의 경우 로그를 쉽게 구별할 수 있도록 로그 이름 뒤에 `_rank`가 붙습니다. Horovod가 종료된 정확한 오류를 확인하려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에서 `Traceback`을 확인합니다. 이러한 파일 중 하나에서 실제 기본 예외를 제공합니다. 
+분산 학습에 대한 자세한 내용은 [분산 GPU 학습 가이드](how-to-train-distributed-gpu.md)를 참조하세요.
 
 ## <a name="export-to-onnx"></a>ONNX로 내보내기
 

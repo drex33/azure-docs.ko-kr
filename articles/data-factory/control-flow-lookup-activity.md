@@ -1,23 +1,26 @@
 ---
-title: Azure Data Factory에서 조회 작업
-description: 조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 이후 작업에서 계속 참조할 수 있습니다.
+title: 조회 작업
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics에서 조회 작업을 사용하여 외부 원본에서 값을 조회하는 방법을 알아봅니다. 이 출력을 이후 작업에서 계속 참조할 수 있습니다.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
-ms.openlocfilehash: 14ab6295717777f40677e0bdcd63a46821683658
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/24/2021
+ms.openlocfilehash: a9a1918496d3832aea736b8a024a15f62f72edad
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480188"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824554"
 ---
-# <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
+# <a name="lookup-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 조회 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-조회 작업은 Azure Data Factory에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 개체 이름을 하드 코딩하는 대신, 후속 작업에서 작동할 개체를 동적으로 결정하는 데 사용할 수 있습니다. 개체의 예로는 파일과 테이블이 있습니다.
+조회 작업은 데이터 팩터리 및 Synapse 파이프라인에서 지원하는 데이터 원본에서 데이터 세트를 검색할 수 있습니다. 개체 이름을 하드 코딩하는 대신, 후속 작업에서 작동할 개체를 동적으로 결정하는 데 사용할 수 있습니다. 개체의 예로는 파일과 테이블이 있습니다.
 
 조회 작업은 구성 파일 또는 테이블의 내용을 읽고 반환합니다. 쿼리 또는 저장 프로시저를 실행한 결과도 반환합니다. 출력은 싱글톤 값 또는 특성의 배열일 수 있으며 해당 출력은 후속 복사, 변환 또는 ForEach 작업과 같은 제어 흐름 작업에서 사용될 수 있습니다.
 
@@ -108,7 +111,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 이 예제에서 파이프라인은 **조회** 및 **복사** 작업을 포함하고 있습니다. 복사 작업은 Azure SQL Database 인스턴스의 SQL 테이블에서 Azure Blob 스토리지로 데이터를 복사합니다. SQL 테이블의 이름은 Blob Storage의 JSON 파일에 저장됩니다. 조회 작업은 런타임 시 테이블 이름을 조회합니다. JSON은 이 방법을 사용하여 동적으로 수정됩니다. 따라서 사용자가 파이프라인 또는 데이터 세트를 다시 배포할 필요가 없습니다. 
 
-이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [Azure Data Factory를 사용하여 여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
+이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
 
 
 ### <a name="pipeline"></a>파이프라인
@@ -389,7 +392,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 | | |
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+Azure Data Factory 및 Synapse 파이프라인에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
 
 - [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)

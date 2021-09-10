@@ -1,39 +1,50 @@
 ---
 title: 복사 작업 모니터
-description: Azure Data Factory에서 복사 작업 실행을 모니터링하는 방법을 알아보세요.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics에서 복사 작업 실행을 모니터링하는 방법을 알아보세요.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1382d92b09bef59a7b9e79a758c41c6bbaec7343
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: edff28779c18e56bb7ee2e5ff3d222823a038f7d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482636"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642526"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 복사 작업 실행을 모니터링하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse 파이프라인에서 복사 작업 실행을 모니터링하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="monitor-visually"></a>시각적으로 모니터링
 
-Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리거와 연결하거나 임시 실행을 수동으로 시작할 수 있습니다. Azure Data Factory 사용자 환경에서 기본적으로 모든 파이프라인 실행을 모니터링할 수 있습니다. [Azure Data Factory 시각적 모니터링](monitor-visually.md)에서 일반적인 Azure Data Factory 모니터링에 대해 알아보세요.
+파이프라인을 만들어 게시한 후에는 트리거와 연결하거나 임시 실행을 수동으로 시작할 수 있습니다. 사용자 환경에서 기본적으로 모든 파이프라인 실행을 모니터링할 수 있습니다. [Azure Data Factory 및 Synapse 파이프라인 시각적 모니터링](monitor-visually.md)에서 일반적인 모니터링에 대해 알아보세요.
 
-복사 작업 실행을 모니터링하려면 데이터 팩터리 **작성 및 모니터링** UI로 이동하세요. **모니터링** 탭에서 파이프라인 실행 목록이 보이면 **파이프라인 이름** 링크를 클릭하여 파이프라인 실행의 활동 실행 목록에 액세스합니다.
+복사 작업 실행을 모니터링하려면 서비스 인스턴스의 **Data Factory Studio** 또는 **Azure Synapse Studio** UI로 이동합니다. **모니터링** 탭에서 파이프라인 실행 목록이 보이면 **파이프라인 이름** 링크를 클릭하여 파이프라인 실행의 활동 실행 목록에 액세스합니다.
+
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
 ![파이프라인 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run.png)
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+![파이프라인 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+
+---
 
 이 수준에서는 복사 작업 입력, 출력, 오류(복사 작업 실행이 실패한 경우)에 대한 링크뿐만 아니라 기간/상태와 같은 통계도 볼 수 있습니다. 복사 작업 이름 옆의 **자세히** 단추(안경)를 클릭하면 복사 작업 실행에 대한 자세한 정보가 제공됩니다. 
 
 ![복사 작업 실행 모니터링](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-이 그래픽 모니터링 보기에서 Azure Data Factory는 데이터 읽기/쓰기 볼륨, 원본에서 싱크로 복사된 데이터 파일/행 수, 처리량, 복사 시나리오에 적용된 구성, 복사 작업이 진행되는 단계와 소요되는 기간 및 세부 정보를 비롯한 복사 작업 실행 정보를 제공합니다. 가능한 각 메트릭과 메트릭에 대한 세부 설명을 다룬 [이 표](#monitor-programmatically)를 참조하세요. 
+이 그래픽 모니터링 보기에서 이 서비스는 데이터 읽기/쓰기 볼륨, 원본에서 싱크로 복사된 데이터 파일/행 수, 처리량, 복사 시나리오에 적용된 구성, 복사 작업이 진행되는 단계와 소요되는 기간 및 세부 정보를 비롯한 복사 작업 실행 정보를 제공합니다. 가능한 각 메트릭과 메트릭에 대한 세부 설명을 다룬 [이 표](#monitor-programmatically)를 참조하세요. 
 
-일부 시나리오에서는 Data Factory에서 복사 작업을 실행할 때, 예제에서 보이는 것과 같이 복사 작업 모니터링 보기의 맨 위에 **“성능 튜닝 팁”** 이 표시됩니다. 이 팁은 특정 복사 실행에서 ADF가 식별한 병목 상태를 알려주고, 복사 처리량 향상을 위해 어떤 점을 바꿔야 하는지 제안합니다. [자동 성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips)에 대해 자세히 알아보세요.
+일부 시나리오에서는 복사 작업을 실행할 때, 예제에서 보이는 것과 같이 복사 작업 모니터링 보기의 맨 위에 **“성능 튜닝 팁”** 이 표시됩니다. 이 팁은 특정 복사 실행에서 서비스가 식별한 병목 상태를 알려주고, 복사 처리량 향상을 위해 어떤 점을 바꿔야 하는지 제안합니다. [자동 성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips)에 대해 자세히 알아보세요.
 
 아래의 **실행 세부 정보 및 기간** 은 복사 작업이 진행되는 주요 단계를 설명하며, 이는 복사 성능 문제를 해결하는 데 특히 유용합니다. 복사 실행 시 가장 오랜 기간이 소요되는 작업이 복사 실행의 병목 현상에 해당합니다. 각 스테이지가 나타내는 내용과 자세한 문제 해결 지침을 다루는 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)을 참조하세요.
 
@@ -43,7 +54,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ## <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
 
-복사 작업 실행 세부 정보 및 성능 특성도 **복사 작업 실행 결과** > **출력** 섹션에 반환되며, 이는 UI 모니터링 보기를 렌더링하는 데 사용됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 내 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적인 프로그래밍 방식으로 활동 실행을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure Data Factory 모니터링](monitor-programmatically.md)을 참조하세요.
+복사 작업 실행 세부 정보 및 성능 특성도 **복사 작업 실행 결과** > **출력** 섹션에 반환되며, 이는 UI 모니터링 보기를 렌더링하는 데 사용됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 내 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적인 프로그래밍 방식으로 활동 실행을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure Data Factory 또는 Synapse 파이프라인 모니터링](monitor-programmatically.md)을 참조하세요.
 
 | 속성 이름  | 설명 | 출력 단위 |
 |:--- |:--- |:--- |

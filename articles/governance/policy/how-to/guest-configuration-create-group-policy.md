@@ -1,141 +1,154 @@
 ---
-title: Windows용 그룹 정책 기준에서 게스트 구성 정책 정의를 만드는 방법
-description: Windows Server 2019 보안 기준에서 정책 정의로 그룹 정책 변환하는 방법을 알아봅니다.
+title: 그룹 정책에서 게스트 구성 정책 만드는 방법
+description: 그룹 정책을 정책 정의로 변환하는 방법을 알아봅니다.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: fa6012702bf00ee062b4d9d46f47bb673bb460ef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 12bd1c905c254f16da170cde4a4426a2aa0cb263
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763004"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772297"
 ---
-# <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Windows용 그룹 정책 기준에서 게스트 구성 정책 정의를 만드는 방법
+# <a name="how-to-create-a-guest-configuration-policy-from-group-policy"></a>그룹 정책에서 게스트 구성 정책 만드는 방법
 
-사용자 지정 정책 정의를 만들기 전에 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 페이지에서 개념 개요 정보를 읽어보는 것이 좋습니다. Linux용 사용자 지정 게스트 구성 정책 정의를 만드는 방법에 대한 자세한 내용은 [Linux용 게스트 구성 정책을 만드는 방법](./guest-configuration-create-linux.md)을 참조하세요. Windows용 사용자 지정 게스트 구성 정책 정의를 만드는 방법에 대한 자세한 내용은 [Windows용 게스트 구성 정책을 만드는 방법](./guest-configuration-create.md)을 참조하세요.
-
-Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/powershell/scripting/dsc/overview/overview)) 리소스 모듈을 사용하여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성 평가가 **비준수** 인 경우 정책 효과 *auditIfNotExists* 가 트리거됩니다.
-[Azure Policy 게스트 구성](../concepts/guest-configuration.md)은 컴퓨터 내부의 설정만 감사합니다.
+시작하기 전에 [게스트 구성](../concepts/guest-configuration.md)에 대한 개요 페이지와 게스트 구성 정책 효과에 대한 세부 정보([게스트 구성에 대한 수정 옵션을 구성하는 방법](../concepts/guest-configuration-policy-effects.md))를 읽어보는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Windows 컴퓨터에서 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
-> - [Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 그룹 정책을 게스트 구성으로 변환하는 것은 **미리 보기 상태** 입니다. 모든 형식의 그룹 정책 설정에서 해당 DSC 리소스를 PowerShell 7에 사용할 수 있는 것은 아닙니다.
+>
+> 이 페이지의 모든 명령은 **Windows PowerShell 5.1** 에서 실행해야 합니다.
+> 그러면 결과 출력 MOF 파일이 PowerShell 7.1.3 이상에서 `GuestConfiguration` 모듈을 사용하여 패키지되어야 합니다.
+> 
+> **AuditIfNotExists** 를 사용한 사용자 지정 게스트 구성 정책 정의는 일반적으로 사용 가능하지만 게스트 구성을 포함한 **DeployIfNotExists** 를 사용한 정의는 **미리 보기 상태** 입니다.
+> 
+> 게스트 구성 확장은 Azure 가상 머신에 필요합니다. 모든 머신에서 확장을 대규모로 배포하려면 정책 이니셔티브(`Deploy prerequisites to enable guest configuration policies on
+> virtual machines`)를 할당합니다.
 >
 > 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용하지 마세요.
 
-DSC 커뮤니티는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환하기 위해 [BaselineManagement 모듈](https://github.com/microsoft/BaselineManagement)을 게시했습니다. GuestConfiguration cmdlet과 함께 BaselineManagement 모듈은 그룹 정책 콘텐츠에서 Windows용 Azure Policy 게스트 구성 패키지를 만듭니다. BaselineManagement 모듈을 사용하는 방법에 대한 자세한 내용은 [빠른 시작: 그룹 정책을 DSC로 변환](/powershell/scripting/dsc/quickstarts/gpo-quickstart)을 참조하세요.
+오픈 소스 커뮤니티는 내보낸 [그룹 정책](/support/windows-server/group-policy/group-policy-overview) 템플릿을 PowerShell DSC 형식으로 변환하기 위해 [BaselineManagement](https://github.com/microsoft/BaselineManagement) 모듈을 게시했습니다. 내보낸 그룹 정책 개체에서 `GuestConfiguration` 모듈과 함께 Windows를 위한 게스트 구성 패키지를 만들 수 있습니다. 그런 다음, 게스트 구성 패키지를 사용하여 도메인에 가입되지 않은 경우에도 로컬 정책으로 서버를 감사하거나 구성할 수 있습니다.
 
-이 가이드에서는 GPO(그룹 정책 개체)에서 Azure Policy 게스트 구성 패키지를 만드는 프로세스를 안내합니다. 이 연습에서는 Windows Server 2019 보안 기준의 변환을 간략하게 설명하지만 동일한 프로세스를 다른 GPO에도 적용할 수 있습니다.
+이 가이드에서는 GPO(그룹 정책 개체)에서 Azure Policy 게스트 구성 패키지를 만드는 프로세스를 안내합니다.
 
-## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Windows Server 2019 보안 기준 다운로드 및 관련 PowerShell 모듈 설치
+## <a name="download-required-powershell-modules"></a>필수 PowerShell 모듈 다운로드
 
-PowerShell에서 **DSC,** **GuestConfiguration,** **기준 관리** 및 관련 Azure 모듈을 설치하려면 다음을 수행합니다.
+PowerShell에서 필요한 모듈을 모든 설치하려면 다음을 수행합니다.
 
-1. PowerShell 프롬프트에서 다음 명령을 실행합니다.
+```powershell
+Install-Module guestconfiguration
+Install-Module baselinemanagement
+```
 
-   ```azurepowershell-interactive
-   # Install the BaselineManagement module, Guest Configuration DSC resource module, and relevant Azure modules from PowerShell Gallery
-   Install-Module az.resources, az.policyinsights, az.storage, guestconfiguration, gpregistrypolicyparser, securitypolicydsc, auditpolicydsc, baselinemanagement -scope currentuser -Repository psgallery -AllowClobber
-   ```
+Active Directory 환경에서 GPO(그룹 정책 개체)를 백업하려면 RSAT(원격 서버 관리 도구 키트)에서 사용할 수 있는 PowerShell 명령이 필요합니다.
 
-1. 디렉터리를 만들고 Windows 보안 규정 준수 도구 키트에서 Windows Server 2019 보안 기준을 다운로드합니다.
+Windows 10에서 그룹 정책 관리 콘솔용 RSAT를 사용하도록 설정하려면 다음을 수행합니다.
 
-   ```azurepowershell-interactive
-   # Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
-   New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
-   Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
-   ```
+```powerShell
+Add-WindowsCapability -Online -Name 'Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0'
+Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+```
 
-1. 다운로드한 Server 2019 기준을 차단 해제하고 확장합니다.
+## <a name="export-and-convert-group-policy-to-guest-configuration"></a>그룹 정책 내보내기 및 게스트 구성으로 변환
 
-   ```azurepowershell-interactive
-   Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
-   Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
-   ```
+그룹 정책 파일을 내보내고 게스트 구성에 사용할 DSC로 변환하는 옵션은 세 가지입니다.
 
-1. **MapGuidsToGpoNames.ps1** 을 사용하여 Server 2019 기준 콘텐츠의 유효성을 검사합니다.
+- 단일 그룹 정책 개체 내보내기
+- OU의 병합된 그룹 정책 개체 내보내기
+- 머신 내에서 병합된 그룹 정책 개체 내보내기
 
-   ```azurepowershell-interactive
-   # Show content details of downloaded GPOs
-   C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
-   ```
+### <a name="single-group-policy-object"></a>단일 그룹 정책 개체
 
-## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>그룹 정책에서 Azure Policy 게스트 구성으로 변환
+`Group Policy` 모듈의 명령을 사용하여 내보낼 그룹 정책 개체의 GUID를 확인합니다. 대규모 환경에서는 출력을 `where-object`로 파이핑하고 이름으로 필터링하는 것이 좋습니다.
 
-다음으로 게스트 구성 및 기준 관리 모듈을 사용하여 다운로드한 Server 2019 기준을 게스트 구성 패키지로 변환합니다.
+**도메인 가입** Windows 머신의  **Windows PowerShell 5.1** 환경에서 다음을 각각 실행하세요.
 
-1. 기준 관리 모듈을 사용하여 그룹 정책을 Desired State Configuration으로 변환합니다.
+```powershell
+# List all Group Policy Objects
+Get-GPO -all
+```
 
-   ```azurepowershell-interactive
-   ConvertFrom-GPO -Path 'C:\git\policyfiles\downloads\GPOs\{3657C7A2-3FF3-4C21-9439-8FDF549F1D68}\' -OutputPath 'C:\git\policyfiles\' -OutputConfigurationScript -Verbose
-   ```
+파일에 그룹 정책을 백업합니다. 이 명령은 “이름” 매개 변수도 허용하지만 정책의 GUID를 사용하면 오류가 덜 발생합니다.
 
-1. 정책 콘텐츠 패키지를 생성하기 전에 변환된 스크립트의 이름을 바꾸고 형식을 다시 지정하고 실행합니다.
+```powershell
+Backup-GPO -Guid 'f0cf623e-ae29-4768-9bb4-406cce1f3cff' -Path C:\gpobackup\
+```
 
-   ```azurepowershell-interactive
-   Rename-Item -Path C:\git\policyfiles\DSCFromGPO.ps1 -NewName C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('DSCFromGPO', 'Server2019Baseline') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('PSDesiredStateConfiguration', 'PSDscResources') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
-   C:\git\policyfiles\Server2019Baseline.ps1
-   ```
+```
 
-1. Azure Policy 게스트 구성 콘텐츠 패키지를 만듭니다.
+The output of the command returns the details of the files.
 
-   ```azurepowershell-interactive
-   New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -Verbose
-   ```
+ConfigurationScript                   Configuration                   Name
+-------------------                   -------------                   ----
+C:\convertfromgpo\myCustomPolicy1.ps1 C:\convertfromgpo\localhost.mof myCustomPolicy1
+```
 
-## <a name="create-azure-policy-guest-configuration"></a>Azure Policy 게스트 구성 만들기
+내보낸 PowerShell 스크립트를 검토하여 모든 설정이 채워졌으며 오류 메시지가 기록되지 않았는지 확인합니다. [사용자 지정 게스트 구성 패키지 아티팩트 만드는 방법](./guest-configuration-create.md) 페이지의 지침에 따라 MOF 파일을 사용하여 새 구성 패키지를 만듭니다.
+게스트 구성 패키지를 만들고 테스트하는 단계는 PowerShell 7 환경에서 실행해야 합니다.
 
-1. 다음 단계는 Azure Blob Storage에 파일을 게시하는 과정입니다. `Publish-GuestConfigurationPackage` 명령에는 `Az.Storage` 모듈이 필요합니다.
+### <a name="merged-group-policy-objects-for-an-ou"></a>OU의 병합된 그룹 정책 개체
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
-   ```
+지정된 조직 구성 단위에서 병합된 그룹 정책 개체 조합(정책의 결과 집합과 유사)을 내보냅니다. 병합 작업은 WMI 필터가 아닌 계정 링크 상태, 적용, 액세스를 고려합니다.
 
-1. 게스트 구성 사용자 지정 정책 패키지를 만들고 업로드한 후에는 게스트 구성 정책 정의를 만듭니다. `New-GuestConfigurationPolicy` cmdlet을 사용하여 게스트 구성을 만듭니다.
+```powershell
+Merge-GPOsFromOU -Path C:\mergedfromou\ -OUDistinguishedName 'OU=mySubOU,OU=myOU,DC=mydomain,DC=local' -OutputConfigurationScript
+```
 
-   ```azurepowershell-interactive
-   $NewGuestConfigurationPolicySplat = @{
-        ContentUri = $Uri
-        DisplayName = 'Server 2019 Configuration Baseline'
-        Description 'Validation of using a completely custom baseline configuration for Windows VMs'
-        Path = 'C:\git\policyfiles\policy'  
-        Platform = Windows
-   }
-   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
-   ```
+명령의 출력은 파일의 세부 정보를 반환합니다.
 
-1. `Publish-GuestConfigurationPolicy` cmdlet을 사용하여 정책 정의를 게시합니다. cmdlet에는 `New-GuestConfigurationPolicy`에서 만든 JSON 파일의 위치를 가리키는 **Path** 매개 변수만 있습니다. 게시 명령을 실행하려면 Azure에서 정책 정의를 만들기 위한 액세스 권한이 필요합니다. 특정 권한 부여 요구 사항은 [Azure Policy 개요](../overview.md#getting-started) 페이지에 설명되어 있습니다. 가장 적합한 기본 제공 역할은 **리소스 정책 기여자** 입니다.
+```powershell
+Configuration                                Name    ConfigurationScript
+-------------                                ----    -------------------
+C:\mergedfromou\mySubOU\output\localhost.mof mySubOU C:\mergedfromou\mySubOU\output\mySubOU.ps1
+```
 
-   ```azurepowershell-interactive
-   Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
-   ```
+### <a name="merged-group-policy-objects-from-within-a-machine"></a>머신 내에서 병합된 그룹 정책 개체
 
-## <a name="assign-guest-configuration-policy-definition"></a>게스트 구성 정책 정의 할당
+Windows PowerShell에서 `Merge-GPOs` 명령을 실행하여 특정 머신에 적용된 정책을 병합할 수도 있습니다. WMI 필터는 머신 내에서 병합하는 경우에만 평가됩니다.
 
-Azure에서 만든 정책을 사용하는 마지막 단계는 이니셔티브를 할당하는 과정입니다. [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) 및 [Azure PowerShell](../assign-policy-powershell.md)을 사용하여 이니셔티브를 할당하는 방법을 참조하세요.
+```powershell
+Merge-GPOs -OutputConfigurationScript -Path c:\mergedgpo
+```
 
-> [!IMPORTANT]
-> 게스트 구성 정책 정의는 **항상** _AuditIfNotExists_ 와 _DeployIfNotExists_ 정책을 결합하는 이니셔티브를 사용하여 할당해야 합니다. _AuditIfNotExists_ 정책만 할당된 경우 필수 구성 요소가 배포되지 않으며 정책에 항상 '0' 서버가 규정을 준수함을 표시합니다.
+명령의 출력은 파일의 세부 정보를 반환합니다.
 
-_DeployIfNotExists_ 효과와 함께 정책 정의를 할당하려면 추가 액세스 수준이 필요합니다. 최소 권한을 부여하려면 **리소스 정책 기여자** 를 확장하는 사용자 지정 역할 정의를 만들 수 있습니다. 다음 예제에서는 _Microsoft.Authorization/roleAssignments/write_ 추가 권한을 사용하여 **리소스 정책 기여자 DINE** 이라는 역할을 만듭니다.
+```powershell
+Configuration              Name                  ConfigurationScript                    PolicyDetails
+-------------              ----                  -------------------                    -------------
+C:\mergedgpo\localhost.mof MergedGroupPolicy_ws1 C:\mergedgpo\MergedGroupPolicy_ws1.ps1 {@{Name=myEnforcedPolicy; Ap...
+```
 
-   ```azurepowershell-interactive
-   $subscriptionid = '00000000-0000-0000-0000-000000000000'
-   $role = Get-AzRoleDefinition "Resource Policy Contributor"
-   $role.Id = $null
-   $role.Name = "Resource Policy Contributor DINE"
-   $role.Description = "Can assign Policies that require remediation."
-   $role.Actions.Clear()
-   $role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-   $role.AssignableScopes.Clear()
-   $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-   New-AzRoleDefinition -Role $role
-   ```
+## <a name="optional-download-sample-group-policy-files-for-testing"></a>선택 사항: 테스트용 샘플 그룹 정책 파일 다운로드
+
+Active Directory 환경에서 그룹 정책 파일을 내보낼 준비가 되지 않은 경우 Windows 보안 및 규정 준수 도구 키트에서 Windows Server 보안 기준을 다운로드할 수 있습니다.
+
+디렉터리를 만들고 Windows 보안 규정 준수 도구 키트에서 Windows Server 2019 보안 기준을 다운로드합니다.
+
+```azurepowershell-interactive
+# Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
+New-Item -Path 'C:\git\policyfiles\downloads' -Type Directory
+Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
+```
+
+다운로드한 Server 2019 기준을 차단 해제하고 확장합니다.
+
+```azurepowershell-interactive
+Unblock-File C:\git\policyfiles\downloads\Server2019Baseline.zip
+Expand-Archive -Path C:\git\policyfiles\downloads\Server2019Baseline.zip -DestinationPath C:\git\policyfiles\downloads\
+```
+
+**MapGuidsToGpoNames.ps1** 을 사용하여 Server 2019 기준 콘텐츠의 유효성을 검사합니다.
+
+```azurepowershell-interactive
+# Show content details of downloaded GPOs
+C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-- [게스트 구성](../concepts/guest-configuration.md)을 사용하여 VM을 감사하는 방법을 알아봅니다.
-- [프로그래밍 방식으로 정책을 생성](./programmatically-create.md)하는 방법을 이해합니다.
-- [규정 준수 데이터를 가져오는](./get-compliance-data.md) 방법을 알아봅니다.
+- 게스트 구성을 위한 [패키지 아티팩트를 만듭니다](./guest-configuration-create.md).
+- 사용자 개발 환경에서 [패키지 아티팩트 테스트](./guest-configuration-create-test.md)합니다.
+- 머신에서 액세스할 수 있도록 [패키지 아티팩트를 게시](./guest-configuration-create-publish.md)합니다.
+- `GuestConfiguration` 모듈을 사용하여 사용자 환경의 대규모 관리를 위한 [Azure Policy 정의를 생성](./guest-configuration-create-definition.md)합니다.
+- Azure Portal을 사용하여 [사용자 지정 정책 정의를 할당](../assign-policy-portal.md)합니다.
+- [게스트 구성 정책 할당에 대한 규정 준수 세부 정보](./determine-non-compliance.md#compliance-details-for-guest-configuration)를 보는 방법을 알아봅니다.

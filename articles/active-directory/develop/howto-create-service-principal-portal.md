@@ -8,16 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
+ms.openlocfilehash: b4589f451894e328a27b67ac19be4ea91374bee5
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951949"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579957"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -29,6 +28,7 @@ ms.locfileid: "111951949"
 > 서비스 주체를 만드는 대신 애플리케이션 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 코드가 관리 ID를 지원하는 서비스에서 실행되고 Azure AD 인증을 지원하는 리소스에 액세스하는 경우에는 관리 ID를 사용하는 방법이 더 좋습니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>앱 등록, 앱 개체 및 서비스 주체
+
 Azure Portal을 사용하여 서비스 주체를 바로 만들 수는 없습니다.  Azure Portal를 통해 애플리케이션을 등록하면 애플리케이션 개체와 서비스 주체가 홈 디렉터리 또는 테넌트에서 자동으로 생성됩니다.  Azure Active Directory의 애플리케이션 등록, 애플리케이션 개체 및 서비스 주체 간 관계에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
 ## <a name="permissions-required-for-registering-an-app"></a>앱을 등록하는 데 필요한 권한
@@ -105,12 +105,10 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
    찾고 있는 구독이 표시되지 않으면 **전역 구독 필터** 를 선택합니다. 포털에 대해 원하는 구독이 선택되었는지 확인합니다.
 
 1. **액세스 제어(IAM)** 를 선택합니다.
-1. **역할 할당 추가** 를 선택합니다.
-1. 애플리케이션에 할당할 역할을 선택합니다. 예를 들어 애플리케이션이 **다시 부팅**, **시작** 및 **중지** 인스턴스 같은 작업을 실행하게 하려면 **기여자** 역할을 선택합니다.  [사용 가능한 역할](../../role-based-access-control/built-in-roles.md)에 대해 자세히 알아보세요. 기본적으로 Azure AD 애플리케이션은 사용 가능한 옵션에 표시되지 않습니다. 애플리케이션을 찾으려면 이름을 검색하여 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 **역할 할당 추가** 페이지를 엽니다.
+1. 애플리케이션에 할당할 역할을 선택합니다. 예를 들어 애플리케이션이 **다시 부팅**, **시작** 및 **중지** 인스턴스 같은 작업을 실행하게 하려면 **기여자** 역할을 선택합니다.  [사용 가능한 역할](../../role-based-access-control/built-in-roles.md)에 대해 자세히 알아보세요. 기본적으로 Azure AD 애플리케이션은 사용 가능한 옵션에 표시되지 않습니다. 애플리케이션을 찾으려면 이름을 검색하여 선택합니다. 
 
-   ![애플리케이션에 할당할 역할을 선택합니다.](./media/howto-create-service-principal-portal/select-role.png)
-
-1. **저장** 을 선택하여 역할 할당을 완료합니다. 해당 범위에 대한 역할이 있는 사용자 목록에 애플리케이션이 표시될 것입니다.
+    구독 범위에서 애플리케이션에 기여자 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 서비스 주체가 설정되었습니다. 서비스 주체 사용을 시작하여 스크립트나 앱을 실행할 수 있습니다. 서비스 주체를 관리하려면(권한, 사용자가 동의한 권한, 사용자가 동의한 항목 확인, 권한 검토, 로그인 정보 확인 등) **엔터프라이즈 애플리케이션** 으로 이동하세요.
 

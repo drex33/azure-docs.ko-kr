@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev
-ms.openlocfilehash: eb9a6e1f3044492b09dac3fb3168a9bd26aeff0f
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 5b490ff71253739779089da92c87532f7abbdbcc
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494615"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568067"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
@@ -118,23 +118,91 @@ SSO 플러그 인은 다음과 같은 디바이스에서 자동으로 설치됩�
 
 Microsoft ID 플랫폼 라이브러리를 사용하지 않는 앱에 대해 Microsoft Enterprise SSO 플러그 인을 구성하려면 다음 매개 변수를 사용합니다.
 
-특정 앱 목록을 제공하려면 다음 매개 변수를 사용합니다.
+#### <a name="enable-sso-for-all-managed-apps"></a>모든 관리형 앱에 SSO 사용
+
+- **키**: `Enable_SSO_On_All_ManagedApps`
+- **형식**: `Integer`
+- **값**: 1 또는 0.
+
+이 플래그가 설정된 경우(해당 값이 `1`로 설정), `AppBlockList`에 없는 모든 MDM 관리형 앱이 SSO에 참여할 수 있습니다.
+
+#### <a name="enable-sso-for-specific-apps"></a>특정 앱에 SSO 사용
 
 - **키**: `AppAllowList`
 - **형식**: `String`
 - **값**: SSO에 참여할 수 있는 애플리케이션에 대한 쉼표로 구분된 애플리케이션 번들 ID 목록입니다.
 - **예**: `com.contoso.workapp, com.contoso.travelapp`
 
-접두사 목록을 제공하려면 다음 매개 변수를 사용합니다.
+>[!NOTE]
+> Safari 및 Safari View Service는 기본적으로 SSO에 참여할 수 있습니다. AppBlockList에서 Safari 및 Safari View Service의 번들 ID를 추가하여 SSO에 참여하지 않도록 구성할 수 있습니다. iOS 번들 ID: [com.apple.mobilesafari, com.apple.SafariViewService] , macOS BundleID : com.apple.Safari
+
+#### <a name="enable-sso-for-all-apps-with-a-specific-bundle-id-prefix"></a>특정 번들 ID 접두사가 있는 모든 앱에 SSO 사용
 - **키**: `AppPrefixAllowList`
 - **형식**: `String`
 - **값**: SSO에 참여할 수 있는 애플리케이션에 대한 쉼표로 구분된 애플리케이션 번들 ID 접두사 목록입니다. 이 매개 변수는 특정 접두사로 시작하는 모든 앱이 SSO에 참여할 수 있도록 허용합니다.
 - **예**: `com.contoso., com.fabrikam.`
 
-MDM 관리자가 SSO에 참여할 수 있도록 허용하는 [동의한 앱](./application-consent-experience.md)은 최종 사용자에 대한 토큰을 자동으로 가져올 수 있습니다. 따라서 신뢰할 수 있는 애플리케이션만 허용 목록에 추가합니다. 
+#### <a name="disable-sso-for-specific-apps"></a>특정 앱에 대해 SSO 사용 안 함
 
->[!NOTE]
-> MSAL 또는 ASWebAuthenticationSession을 사용하는 애플리케이션을 SSO에 참여할 수 있는 앱 목록에 추가할 필요가 없습니다. 이러한 애플리케이션은 기본적으로 사용하도록 설정됩니다. 
+- **키**: `AppBlockList`
+- **형식**: `String`
+- **값**: SSO에 참여할 수 없는 애플리케이션에 대한 쉼표로 구분된 애플리케이션 번들 ID 목록입니다.
+- **예**: `com.contoso.studyapp, com.contoso.travelapp`
+
+Safari 또는 Safari View Service에 대해 SSO를 *사용하지 않도록 설정* 하려면 번들 ID를 `AppBlockList`에 추가하여 명시적으로 이 작업을 수행해야 합니다. 
+
+- iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`
+- macOS: `com.apple.Safari`
+
+#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>특정 애플리케이션에 대해 쿠키를 통해 SSO를 사용하도록 설정
+
+고급 네트워크 설정이 있는 일부 앱은 SSO에 대해 사용하도록 설정할 경우 예기치 않은 문제가 발생할 수 있습니다. 예를 들어, 네트워크 요청이 취소되었거나 중단되었음을 나타내는 오류가 표시될 수 있습니다.
+
+다른 설정을 통해 사용하도록 설정한 후에도 애플리케이션에 로그인하는 데 문제가 있는 경우 `AppCookieSSOAllowList`에 추가하여 문제를 해결하세요.
+
+- **키**: `AppCookieSSOAllowList`
+- **형식**: `String`
+- **값**: SSO에 참여할 수 있는 애플리케이션에 대한 쉼표로 구분된 애플리케이션 번들 ID 접두사 목록입니다. 나열된 접두사로 시작하는 모든 앱은 SSO에 참여할 수 있습니다.
+- **예**: `com.contoso.myapp1, com.fabrikam.myapp2`
+
+**기타 요구 사항**: `AppCookieSSOAllowList`를 사용하여 애플리케이션에 SSO를 사용하도록 설정하려면 번들 ID 접두사 `AppPrefixAllowList`도 추가해야 합니다.
+
+예기치 않은 로그인 실패가 발생한 애플리케이션에 대해서만 이 구성을 시도하세요. 
+
+#### <a name="summary-of-keys"></a>키 요약
+
+| 키 | 형식 | 값 |
+|--|--|--|
+| `Enable_SSO_On_All_ManagedApps` | 정수 | 모든 관리형 앱에 대해 SSO를 사용하도록 설정하려면 `1`, 모든 관리형 앱에 대해 SSO를 사용하지 않도록 설정하려면 `0` |
+| `AppAllowList` | String<br/>*(쉼표로 구분된 목록)* | SSO에 참여할 수 있도록 허용된 애플리케이션의 번들 ID입니다. |
+| `AppBlockList` | String<br/>*(쉼표로 구분된 목록)* | SSO에 참여할 수 있도록 허용되지 않는 애플리케이션의 번들 ID입니다. |
+| `AppPrefixAllowList` | String<br/>*(쉼표로 구분된 목록)* | SSO에 참여할 수 있도록 허용된 애플리케이션의 번들 ID 접두사입니다. |
+| `AppCookieSSOAllowList` | String<br/>*(쉼표로 구분된 목록)* | SSO에 참여할 수 있도록 허용되지만 특수 네트워크 설정을 사용하고 다른 설정을 사용하는 SSO에서 문제가 발생하는 애플리케이션의 번들 ID 접두사입니다. `AppCookieSSOAllowList`에 추가하는 앱을 `AppPrefixAllowList`에도 추가해야 합니다. |
+
+#### <a name="settings-for-common-scenarios"></a>일반적인 시나리오에 대한 설정
+
+- *시나리오*: 전체는 아니지만 대부분의 관리형 애플리케이션에 대해 SSO를 사용하도록 설정하려고 합니다.
+
+    | 키 | 값 |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | SSO에 참여하지 못하게 하려는 앱의 번들 ID(쉼표로 구분된 목록)입니다. |
+
+- *시나리오* 기본적으로 사용하도록 설정되어 있는 Safari용 SSO를 사용하지 않도록 설정하고 모든 관리형 앱에 대해 SSO를 사용하도록 설정하려고 합니다.
+
+    | 키 | 값 |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | SSO에 참여하지 못하게 하려는 Safari 앱의 번들 ID(쉼표로 구분된 목록)입니다.<br/><li>iOS의 경우: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>macOS의 경우: `com.apple.Safari` |
+
+- *시나리오*: 모든 관리형 앱과 비관리형 앱에서 SSO를 사용하도록 설정하고 몇 가지 다른 앱에 SSO를 사용하지 않도록 설정하려고 합니다.
+
+    | 키 | 값 |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppAllowList` | SSO에 참여할 수 있도록 설정하려는 앱의 번들 ID(쉼표로 구분된 목록)입니다. |
+    | `AppBlockList` | SSO에 참여하지 못하게 하려는 앱의 번들 ID(쉼표로 구분된 목록)입니다. |
+
 
 ##### <a name="find-app-bundle-identifiers-on-ios-devices"></a>iOS 디바이스에서 앱 번들 식별자 찾기
 
@@ -192,21 +260,6 @@ Microsoft Enterprise SSO 플러그 인은 허용된 애플리케이션에서 시
 - **값**: 1 또는 0
 
 모든 앱에서 일관된 환경을 제공하기 위해 이 플래그를 사용하도록 설정하는 것이 좋습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 
-
-#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>특정 애플리케이션에 대해 쿠키를 통해 SSO를 사용하도록 설정
-
-일부 앱은 SSO 확장과 호환되지 않을 수 있습니다. 특히 고급 네트워크 설정이 있는 앱은 SSO에 대해 사용하도록 설정할 경우 예기치 않은 문제가 발생할 수 있습니다. 예를 들어, 네트워크 요청이 취소되었거나 중단되었음을 나타내는 오류가 표시될 수 있습니다. 
-
-[MSAL을 사용하지 않는 애플리케이션](#applications-that-dont-use-msal) 섹션에서 설명하는 방법을 사용하여 로그인하는 데 문제가 있는 경우 다른 구성을 시도합니다. 다음 매개 변수를 사용하여 플러그 인을 구성합니다.
-
-- **키**: `AppCookieSSOAllowList`
-- **형식**: `String`
-- **값**: SSO에 참여할 수 있는 애플리케이션에 대한 쉼표로 구분된 애플리케이션 번들 ID 접두사 목록입니다. 나열된 접두사로 시작하는 모든 앱은 SSO에 참여할 수 있습니다.
-- **예**: `com.contoso.myapp1, com.fabrikam.myapp2`
-
-이 설치 프로그램을 사용하여 SSO에 대해 사용하도록 설정된 애플리케이션은 `AppCookieSSOAllowList` 및 `AppPrefixAllowList` 둘 다에 추가해야 합니다.
-
-예기치 않은 로그인 실패가 발생한 애플리케이션에 대해서만 이 구성을 시도하세요. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>간소화된 구성에 Intune 사용
 

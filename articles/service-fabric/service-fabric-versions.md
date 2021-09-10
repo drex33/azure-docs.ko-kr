@@ -3,12 +3,12 @@ title: Azure Service Fabric 버전
 description: Azure Service Fabric의 클러스터 버전과 적극적으로 지원되는 플랫폼 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: f8979d83934234379a61cb8fab606cf5f37cf7e5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4eb08bb2ce94612ee81b9cdf19a1b3cd2e2d6b00
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080690"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528430"
 ---
 # <a name="service-fabric-supported-versions"></a>Service Fabric 지원 버전
 이 문서의 표에는 적극적으로 지원되는 Service Fabric 및 플랫폼 버전이 요약되어 있습니다.
@@ -17,8 +17,12 @@ ms.locfileid: "110080690"
 
 | Service Fabric 런타임 |다음에서 직접 업그레이드 가능|다음으로 다운그레이드 가능|호환되는 SDK 또는 NuGet 패키지 버전|지원되는 .NET 런타임** |OS 버전 |지원 종료 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 8.0 CU1 | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
-| 8.0 RTO | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
+| 8.1 CU1 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
+| 8.1 RTO | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
+| 8.0 CU3 | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2022년 2월 28일 |
+| 8.0 CU2 | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2022년 2월 28일 |
+| 8.0 CU1 | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2022년 2월 28일 |
+| 8.0 RTO | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2022년 2월 28일 |
 | 7.2 CU7 | 7.0 CU9 | 7.1 | 버전 4.2보다 낮거나 같음 | .NET 5.0(미리 보기 지원), .NET Core 2.1 이상,<br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2021년 11월 30일 |
 | 7.2 CU6 | 7.0 CU4 |7.1 | 버전 4.2보다 낮거나 같음 | .NET 5.0(미리 보기 지원), .NET Core 2.1 이상,<br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date)| 2021년 11월 30일 |
 | 7.2 RTO-CU5 | 7.0 CU4 | 7.1 |버전 4.2보다 낮거나 같음 | >= .NET Core 2.1,<br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date)| 2021년 11월 30일 |
@@ -47,7 +51,7 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | OS 버전 | Service Fabric 지원 종료 날짜 | OS 수명 주기 링크 |
 | --- | --- | --- |
-| Windows 10 2019 LTSC | 2029/1/9 | <a href="/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft 수명 주기</a> |
+| Windows 10 2019 LTSC | 2029/1/9 | <a href="/lifecycle/products/windows-10-ltsc-2019">Windows 10 2019 LTSC - Microsoft 수명 주기</a> |
 | 버전 20H2 | 2023/5/9 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
 | 버전 2004 | 2021/12/14| <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
 | 버전 1909 | 2022/5/10 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise 및 Education - Microsoft 수명 주기</a> |
@@ -58,8 +62,11 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | Service Fabric 런타임 | 다음에서 직접 업그레이드 가능 |다음으로 다운그레이드 가능 |호환되는 SDK 또는 NuGet 패키지 버전 | 지원되는 .NET 런타임** | OS 버전 | 지원 종료 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 8.0 CU1 | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
-| 8.0 RTO | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
+| 8.1 CU1 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
+| 8.1 RTO | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
+| 8.0 CU3 | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2022년 2월 28일 |
+| 8.0 CU1 | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2022년 2월 28일 |
+| 8.0 RTO | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2022년 2월 28일 |
 | 7.2 CU7 | 7.0 CU9 | 7.1 | 버전 4.2보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 11월 30일 |
 | 7.2 RTO-CU6 | 7.0 CU4 | 7.1 | 버전 4.2보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 11월 30일 |
 | 7.1 | 7.0 CU3 | 해당 없음 | 버전 4.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2021년 7월 31일 |
@@ -75,20 +82,15 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 | Ubuntu 18.04 | 2028년 4월 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu 수명 주기</a>|
 | Ubuntu 16.04 | 2024년 4월 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu 수명 주기</a>|
 
-## <a name="supported-net-runtimes"></a>지원되는 .NET 런타임
-
-다음 표에서는 Service Fabric에서 지원하는 .NET 런타임을 나열합니다.
-
-| Service Fabric 런타임 | Windows에 대해 지원되는 .NET 런타임 |Linux에 대해 지원되는 .NET 런타임 |
-| --- | --- | --- |
-| 8.0 CU1 | .NET 5.0, .NET Core 2.1 이상, 모두 .NET Framework 4.5 이상 | >= .NET Core 2.1|
-| 8.0 RTO | .NET 5.0, .NET Core 2.1 이상, 모두 .NET Framework 4.5 이상 | >= .NET Core 2.1|
-
 ## <a name="service-fabric-version-name-and-number-reference"></a>Service Fabric 버전 이름 및 번호 참조
 다음 표에는 Service Fabric의 버전 이름과 해당 버전 번호가 나와 있습니다.
 
 | 버전 이름 | Windows 버전 번호 | Linux 버전 번호 |
 | --- | --- | --- |
+| 8.1 CU1 | 8.1.321.9590 | 8.1.323.1 |
+| 8.1 RTO | 8.1.316.9590 | 8.1.320.1 |
+| 8.0 CU3 | 8.0.536.9590 | 8.0.527.1 |
+| 8.0 CU2 | 8.0.521.9590 | 해당 없음 |
 | 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 | 
 | 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |

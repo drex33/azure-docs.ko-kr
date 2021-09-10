@@ -1,18 +1,20 @@
 ---
 title: U-SQL 스크립트를 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Lake Analytics 컴퓨팅 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2018
-ms.openlocfilehash: 94b584f0bea01754a4e955d1418a7a9a2e9aeace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abb3d151e943dd539fe7c2e349b662412ab24f7c
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373915"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567886"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 처리 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -46,7 +48,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 * 애플리케이션 키 
 * 테넌트 ID
 
-[사용자 추가 마법사](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user)를 사용하여 Azure Data Lake Anatlyics에 서비스 사용자 권한을 부여합니다.
+[사용자 추가 마법사](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user)를 사용하여 Azure Data Lake Analytics에 서비스 주체 권한을 부여합니다.
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
@@ -193,5 +195,5 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

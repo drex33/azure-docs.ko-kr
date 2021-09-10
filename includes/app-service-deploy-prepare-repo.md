@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 93bfb515c46413400ecd47105de378c7b677cecd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44601c97a873138bcd152de2450fe6d98be814df
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564964"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530846"
 ---
 ## <a name="prepare-your-repository"></a>리포지토리 준비
 
@@ -34,6 +34,6 @@ Azure App Service 빌드 서버에서 자동화된 빌드 기능을 가져오려
 배포를 사용자 지정하려면 리포지토리 루트에 *.deployment* 파일을 포함합니다. 자세한 내용은 [배포 사용자 지정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 및 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
 
 > [!NOTE]
-> Visual Studio에서 개발하는 경우 [Visual Studio에서 자동으로 리포지토리를 만들도록](/azure/devops/repos/git/creatingrepo?tabs=visual-studio) 합니다. 그러면 프로젝트는 Git을 사용하여 바로 배포할 수 있는 상태가 됩니다.
+> Visual Studio를 사용하는 경우 [Visual Studio에서 자동으로 리포지토리를 만들도록](/azure/devops/repos/git/creatingrepo?tabs=visual-studio) 합니다. 프로젝트는 Git을 통해 즉시 배포할 준비가 됩니다.
 >
 

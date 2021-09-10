@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: b3e3beb51256bbf22d29d74b51c52ca3a6bee0c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f48e6bd94566922066b277553f64b25f5d55a45
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774782"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696340"
 ---
 # <a name="h-series"></a>H 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 H 시리즈 VM은 높은 CPU 주파수 또는 많은 코어당 메모리 요구 사항으로 구동되는 애플리케이션에 최적화되어 있습니다. H 시리즈 VM은 8개 또는 16개의 Intel Xeon E5 2667 v3 프로세서 코어, CPU 코어당 최대 14GB의 RAM을 제공하며 하이퍼스레딩은 제공하지 않습니다. H 시리즈는 일관된 RDMA 성능을 위해 비차단 팻 트리 구성에서 56Gb/초 Mellanox FDR InfiniBand를 제공합니다. H 시리즈 VM은 현재 SR-IOV가 지원되지 않으며 Intel MPI 5.x 및 MS-MPI를 지원합니다.
 
@@ -29,7 +31,7 @@ H 시리즈 VM은 높은 CPU 주파수 또는 많은 코어당 메모리 요구 
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 프로세서 | 메모리(GiB) | 메모리 대역폭(GB/초) | 기본 CPU 주파수(GHz) | 모든 코어 주파수(GHz, 최고치) | 단일 코어 주파수(GHz, 최고치) | RDMA 성능(Gb/s) | MPI 지원 | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 디스크 처리량: IOPS | 최대 이더넷 vNIC |
+| 크기 | vCPU | 프로세서 | 메모리(GiB) | 메모리 대역폭 GB/초 | 기본 CPU 빈도(GHz) | 모든 코어 빈도(GHz, 최고) | 단일 코어 빈도(GHz, 최고) | RDMA 성능(Gb/s) | MPI 지원 | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 디스크 처리량: IOPS | 최대 이더넷 vNIC |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8   | 8  | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
 | Standard_H16  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |

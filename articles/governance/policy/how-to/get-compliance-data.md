@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 547128d56eb2577a416ad2dae419d58ffe8b645b
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733574"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038375"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -196,7 +196,7 @@ Visual Studio code에 대한 Azure Policy 확장은 특정 리소스에 대한 �
 - **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
 - **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
 
-Azure Policy는 정의의 **type**, **name** 또는 **kind** 필드를 사용하여 리소스가 일치하는지 확인합니다. 리소스가 일치하는 경우 적용 가능하며 **준수**, **비준수** 또는 **예외** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name** 또는 **kind** 뿐이면 포함된 모든 비예외 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
+Azure Policy는 정의의 **type**, **name** 또는 **kind** 필드를 사용하여 리소스가 일치하는지 확인합니다. 리소스가 일치하는 경우 적용 가능하며 **준수**, **비준수** 또는 **예외** 상태로 간주됩니다. 정의의 속성이 **name** 또는 **kind** 뿐이면 포함된 모든 비예외 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
 
 **준수** 및 **예외** 상태의 리소스를 ‘총 리소스 수’로 나누는 방법을 통해 규정 준수 비율이 결정됩니다. ‘총 리소스 수’는 **준수**, **비준수**, **예외**, **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 또는 **예외** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다.
 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.

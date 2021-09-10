@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 27bb3f163dc8f1a2f50e39ca5bbb5708419cb171
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: afadabb0503cde997858fce1ff9d1e82ac6d2f89
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073903"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679523"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -95,7 +95,7 @@ IPv4와 IPv6 둘 다 CIDR(Classless Inter-Domain Routing) 표기법을 사용하
 서비스 엔드포인트를 사용하면 애플리케이션 게이트웨이 또는 기타 WAF(웹 애플리케이션 방화벽) 디바이스로 앱을 구성할 수 있습니다. 또한 보안 백 엔드를 사용하여 다중 계층 애플리케이션을 구성할 수 있습니다. 자세한 내용은 [네트워킹 기능 및 App Service](networking-features.md)와 [서비스 엔드포인트와 Application Gateway 통합](networking/app-gateway-with-service-endpoints.md)을 참조하세요.
 
 > [!NOTE]
-> - 현재 IP SSL(Secure Sockets Layer) VIP(가상 IP)를 사용하는 웹앱에는 서비스 엔드포인트가 지원되지 않습니다.
+> - 현재 VIP(가상 IP)에서 IP 기반 TLS/SSL 바인딩을 사용하는 웹앱에는 서비스 엔드포인트가 지원되지 않습니다.
 >
 #### <a name="set-a-service-tag-based-rule"></a>서비스 태그 기반 규칙 설정
 

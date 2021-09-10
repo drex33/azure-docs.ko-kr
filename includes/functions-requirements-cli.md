@@ -4,22 +4,25 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: a191d5ff68bf671274ceb7f88a42c0451d48cd40
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0198bcdd34cd92822c779329affeb1a405264bae
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459608"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830539"
 ---
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
 시작하기 전에 다음이 있어야 합니다.
 
-+ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [functions-cli-dotnet-prerequisites](functions-cli-dotnet-prerequisites.md)]
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other" 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
 
 + [Azure CLI](/cli/azure/install-azure-cli), 버전 2.4 이상 
+:::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
 ::: zone-end
@@ -39,3 +42,5 @@ ms.locfileid: "110459608"
 ::: zone pivot="programming-language-other"
 + 사용 중인 언어에 대한 개발 도구입니다. 이 자습서에서는 [R 프로그래밍 언어](https://www.r-project.org/)를 예로 사용합니다.
 ::: zone-end
+
+활성 구독이 있는 Azure 계정도 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

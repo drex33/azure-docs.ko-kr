@@ -3,12 +3,12 @@ title: Azure Site Recovery에서 복구 계획 만들기/사용자 지정
 description: Azure Site Recovery 서비스를 사용한 재해 복구를 위한 복구 계획을 만들고 사용자 지정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee7386b07c93182bb8703702e2ce63e10626457d
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009724"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666162"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
 
@@ -34,6 +34,7 @@ ms.locfileid: "96009724"
     - 복구 계획에는 원본 및 대상이 동일한 머신이 포함될 수 있습니다.
     - 동일한 계획에 VMM에서 관리하는 VMware 및 Hyper-V VM을 포함할 수 있습니다.
     - 동일한 계획에 VMware VM 및 물리적 서버가 포함될 수 있습니다.
+    - 복구 계획의 모든 VM은 단일 구독으로 복제해야 합니다. 서로 다른 VM을 다른 구독에 복제하려는 경우에는 둘 이상의 복구 계획을 사용하세요(각 대상 구독에 대해 하나 이상).
 
 4. **항목 가상 머신 선택** 에서 계획에 추가할 머신(또는 복제 그룹)을 선택합니다. 그런 후 **OK** 를 클릭합니다.
     - 머신이 계획의 기본 그룹(그룹 1)에 추가됩니다. 장애 조치(failover) 후 이 그룹의 모든 머신은 동시에 시작됩니다.

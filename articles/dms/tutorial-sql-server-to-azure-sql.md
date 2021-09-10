@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 990dfd3a2cf86f77310e51cb29fa65e181b37a9f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab16bfe708589b6f89dd5b9a37512d4f2148992f
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638477"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214914"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 마이그레이션
 
-Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [Azure SQL Database](/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 [Adventureworks2016](/sql/samples/adventureworks-install-configure#download-backup-files) 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
+Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [Azure SQL Database](/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스에 복원된 [AdventureWorks2016](/sql/samples/adventureworks-install-configure#download-backup-files) 데이터베이스를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션합니다.
 
 다음 방법을 알게 됩니다.
 > [!div class="checklist"]
@@ -41,6 +41,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 
 - [SQL Server 2016 이상](https://www.microsoft.com/sql-server/sql-server-downloads)을 다운로드하여 설치합니다.
 - 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
+- [AdventureWorks2016 데이터베이스를 SQL Server 인스턴스로 복원합니다.](/sql/samples/adventureworks-install-configure#restore-to-sql-server)
 - [Azure Portal을 사용하여 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서의 세부 지침에 따라 Azure SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 Azure SQL Database의 이름은 **AdventureWorksAzure** 로 가정하지만, 원하는 이름으로 지정할 수 있습니다.
 
     > [!NOTE]
@@ -158,7 +159,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
 3. Data Migration Assistant의 **옵션** 화면에서 **다음** 을 선택합니다.
 4. **원본 선택** 화면의 **서버에 연결** 대화 상자에서 SQL Server에 대한 연결 세부 정보를 제공하고 **연결** 을 선택합니다.
-5. **원본 추가** 대화 상자에서 **Adventureworks2016** 을 선택하고 **추가** 를 선택한 후 **평가 시작** 을 선택합니다.
+5. **원본 추가** 대화 상자에서 **AdventureWorks2016** 을 선택하고 **추가** 를 선택한 후 **평가 시작** 을 선택합니다.
 
     > [!NOTE]
     > SSIS를 사용하는 경우 DMA가 현재 원본 SSISDB의 평가를 지원하지 않습니다. 그러나 SSIS 프로젝트/패키지는 Azure SQL Database에서 호스팅하는 대상 SSISDB에 재배포되므로 평가/유효성 검사되지 않습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
@@ -184,7 +185,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 > [!IMPORTANT]
 > SSIS를 사용하는 경우 DMA는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
-**Adventureworks2016** 스키마를 단일 데이터베이스 또는 풀링된 데이터베이스 Azure SQL Database로 마이그레이션하려면 다음 단계를 수행합니다.
+**AdventureWorks2016** 스키마를 단일 데이터베이스 또는 풀링된 데이터베이스 Azure SQL Database로 마이그레이션하려면 다음 단계를 수행합니다.
 
 1. Data Migration Assistant에서 새로 만들기(+) 아이콘을 선택하고 **속성 유형** 에서 **마이그레이션** 을 선택합니다.
 2. 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **SQL Server** 를 선택한 다음, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database** 를 선택합니다.
@@ -195,7 +196,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
     ![Data Migration Assistant 프로젝트 만들기](media/tutorial-sql-server-to-azure-sql/dma-create-project.png)
 
 4. **만들기** 를 선택하여 프로젝트를 만듭니다.
-5. Data Migration Assistant에서 SQL Server에 대한 원본 연결 세부 정보를 지정하고, **연결** 을 선택하고 나서, **Adventureworks2016** 데이터베이스를 선택합니다.
+5. Data Migration Assistant에서 SQL Server에 대한 원본 연결 세부 정보를 지정하고, **연결** 을 선택하고 나서, **AdventureWorks2016** 데이터베이스를 선택합니다.
 
     ![Data Migration Assistant 원본 연결 세부 정보](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
@@ -203,7 +204,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
     ![Data Migration Assistant 대상 연결 세부 정보](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
-7. **다음** 을 선택하여 **개체 선택** 화면으로 이동합니다. 여기에서 Azure SQL Database에 배포해야 하는 **Adventureworks2016** 데이터베이스의 스키마 개체를 지정할 수 있습니다.
+7. **다음** 을 선택하여 **개체 선택** 화면으로 이동합니다. 여기에서 Azure SQL Database에 배포해야 하는 **AdventureWorks2016** 데이터베이스의 스키마 개체를 지정할 수 있습니다.
 
     기본적으로 모든 개체가 선택됩니다.
 
@@ -219,7 +220,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
-## <a name="create-an-instance"></a>인스턴스 만들기
+## <a name="create-an-azure-database-migration-service-instance"></a>Azure Database Migration Service 인스턴스 만들기
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다. **Azure Database Migration Service** 를 검색하여 선택합니다
 
@@ -248,7 +249,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
     ![Azure Database Migration Service 인스턴스 네트워킹 설정 구성](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
 
-    - **검토 + 만들기** 를 선택하여 서비스를 만듭니다.
+    - **검토 + 만들기** 를 선택하여 세부 정보를 검토한 다음 **만들기** 를 선택하여 서비스를 만듭니다.
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 
@@ -292,7 +293,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
 ## <a name="select-databases-for-migration"></a>마이그레이션할 데이터베이스 선택
 
-Azure SQL Database로 마이그레이션할 모든 데이터베이스 또는 특정 데이터베이스를 선택합니다. DMS는 선택한 데이터베이스에 대해 예상되는 마이그레이션 시간을 제공합니다. 마이그레이션 가동 중지 시간이 허용되면 마이그레이션을 계속합니다. 마이그레이션 가동 중지 시간이 허용되지 않는 경우에는 [가동 중지 시간이 0에 가까운 SQL Managed Instance](tutorial-sql-server-managed-instance-online.md)로의 마이그레이션하거나, 다른 옵션을 위해 [DMS 팀](mailto:DMSFeedback@microsoft.com) 에 문의하는 것이 좋습니다. 
+Azure SQL Database로 마이그레이션할 모든 데이터베이스 또는 특정 데이터베이스를 선택합니다. DMS는 선택한 데이터베이스에 대해 예상되는 마이그레이션 시간을 제공합니다. 마이그레이션 가동 중지 시간이 허용되면 마이그레이션을 계속합니다. 마이그레이션 가동 중지 시간이 허용되지 않는 경우에는 [가동 중지 시간이 0에 가까운 SQL Managed Instance](tutorial-sql-server-managed-instance-online.md)로 마이그레이션하거나, 다른 옵션을 위해 [DMS 팀](mailto:DMSFeedback@microsoft.com) 에 문의하는 것이 좋습니다. 
 
 1. 사용 가능한 데이터베이스 목록에서 마이그레이션하려는 데이터베이스를 선택합니다. 
 1. 예상 가동 중지 시간을 검토합니다. 해당 시간이 허용되면 **다음: 대상 선택 >>** 을 선택합니다.

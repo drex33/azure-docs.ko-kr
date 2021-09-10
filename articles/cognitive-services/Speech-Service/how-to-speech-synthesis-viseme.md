@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7ef3e07eb1585aaa87986fd682b4db00c53e66f3
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 3601cd6f7580a4d87dda7488826e25ca85b233c9
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810681"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110654201"
 ---
 # <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 
@@ -27,25 +27,35 @@ ms.locfileid: "109810681"
 _viseme_ 은 음성 언어로 된 음소의 시각적 설명입니다.
 단어를 말할 때 얼굴 및 입의 위치를 정의합니다.
 각 viseme은 특정 음소 세트에 대한 주요 얼굴 포즈를 묘사합니다.
-viseme과 음소 간에는 일대일 대응이 없습니다.
-`s` 및 `z`와 같이 여러 가지 음소가 생성될 때 얼굴에서 동일하게 보이기 때문에 종종 몇 가지 음소는 단일 viseme에 해당합니다.
-[viseme과 음소 간의 매핑 테이블](#map-phonemes-to-visemes)을 참조하세요.
+Viseme를 사용하여 2D 및 3D 아바타 모델의 움직임을 제어하면 입 모양을 합성 음성과 완벽하게 일치시킬 수 있습니다.
 
-viseme을 사용하면 보다 자연스럽고 지능적인 뉴스 브로드캐스트 도우미, 보다 대화형 게임 및 만화 캐릭터, 보다 직관적인 언어 교육 비디오를 만들 수 있습니다. 청각 장애가 있는 사용자는 시각적으로 소리를 포착할 수 있고 애니메이션 얼굴의 viseme을 보여주는 "입술 읽기" 음성 콘텐츠를 선택할 수도 있습니다.
+Viseme를 사용하면 아바타를 더 쉽게 사용하고 제어할 수 있습니다. Viseme를 사용하면 다음을 수행할 수 있습니다.
 
-## <a name="get-viseme-events-with-the-speech-sdk"></a>Speech SDK를 사용하여 viseme 이벤트 가져오기
+ * 고객을 위한 다중 모드 통합 서비스를 구축하여 지능형 키오스크를 위한 **애니메이션 가상 음성 도우미** 를 만듭니다.
+ * **몰입형 뉴스 방송** 을 만들고 자연스러운 얼굴과 입의 움직임으로 대상 그룹의 경험을 개선합니다.
+ * 동적 콘텐츠로 대화할 수 있는 더 많은 **대화형 게임 아바타 및 만화 캐릭터** 를 생성합니다.
+ * 언어 학습자가 각 단어와 음소의 입 동작을 이해하는 데 도움이 되는 **효과적인 언어 교육 비디오** 를 만듭니다.
+ * 청각 장애가 있는 사용자는 시각적으로 소리를 포착할 수 있고 애니메이션 얼굴의 viseme을 보여주는 **"입술 읽기"** 음성 콘텐츠를 선택할 수도 있습니다.
 
-viseme 이벤트를 만들기 위해 TTS 서비스는 입력 텍스트를 음소 세트 시퀀스와 해당 viseme 시퀀스로 변환합니다.
-그러면 음성 오디오에서 각 viseme의 시작 시간이 추정됩니다.
-Viseme 이벤트에는 viseme이 표시되는 오디오에 오프셋이 있는 viseme ID의 시퀸스가 포함됩니다.
-이러한 이벤트는 입력 텍스트를 말하는 사람을 시뮬레이션하는 입 애니메이션을 구동할 수 있습니다.
+viseme의 [소개 비디오](https://youtu.be/ui9XT47uwxs)를 참조하세요.
+> [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
+
+## <a name="azure-neural-tts-can-produce-visemes-with-speech"></a>Azure 신경 TTS를 사용해 음성으로 viseme 생성
+
+신경 음성은 입력 텍스트 또는 SSML(Speech Synthesis Markup Language)을 합성된 음성으로 변환합니다. 음성 오디오 출력에는 viseme ID 및 해당 오프셋 타임스탬프가 포함될 수 있습니다. 각 viseme ID는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같이 관찰된 음성에서 특정 포즈를 지정합니다. 2D 또는 3D 렌더링 엔진을 사용하면 이러한 viseme 이벤트로 아바타에 애니메이션을 적용할 수 있습니다.
+
+viseme의 전체 워크플로는 아래 순서도에 설명되어 있습니다.
+
+![Viseme의 전체 워크플로](media/text-to-speech/viseme-structure.png)
 
 | 매개 변수 | Description |
 |-----------|-------------|
-| Viseme ID | viseme을 지정하는 정수입니다. 영어(미국)에서는 특정 음소 세트의 입 모양을 묘사하기 위해 22개의 다른 viseme을 제공합니다. [Viseme ID와 음소 간의 매핑 테이블](#map-phonemes-to-visemes)을 참조하세요.  |
+| Viseme ID | viseme을 지정하는 정수입니다. 영어(미국)에서는 특정 음소 세트의 입 모양을 묘사하기 위해 22개의 다른 viseme을 제공합니다. viseme과 음소 간에는 일대일 대응이 없습니다. `s` 및 `z`와 같이 여러 가지 음소가 생성될 때 얼굴에서 동일하게 보이기 때문에 종종 몇 가지 음소는 단일 viseme에 해당합니다. [Viseme ID와 음소 간의 매핑 테이블](#map-phonemes-to-visemes)을 참조하세요.  |
 | 오디오 오프셋 | 각 viseme의 시작 시간(틱 단위(100나노초)). |
 
-viseme 이벤트를 가져오려면 Speech SDK에서 `VisemeReceived` 이벤트를 구독합니다.
+## <a name="get-viseme-events-with-the-speech-sdk"></a>Speech SDK를 사용하여 viseme 이벤트 가져오기
+
+합성 음성으로 viseme를 가져오려면 Speech SDK에서 `VisemeReceived` 이벤트를 구독합니다.
 다음 코드 조각은 viseme 이벤트를 구독하는 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-csharp"
@@ -148,6 +158,26 @@ SPXSpeechSynthesizer *synthesizer =
 ```
 
 ::: zone-end
+
+다음은 viseme 출력의 예제입니다.
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
+
+viseme 출력을 가져온 후 이러한 이벤트를 사용하여 문자 애니메이션을 수행할 수 있습니다. 나만의 캐릭터를 만들고 자동으로 캐릭터에 애니메이션을 적용할 수 있습니다.
+
+2D 캐릭터의 경우 시나리오에 맞는 캐릭터를 디자인하고 각 viseme ID에 대해 SVG(Scalable Vector Graphics)를 사용하여 시간 기반 얼굴 위치를 얻을 수 있습니다. viseme 이벤트에서 제공되는 임시 태그를 사용하면 잘 디자인된 이러한 SVG가 다듬어져 사용자에게 강력한 애니메이션을 제공합니다. 예를 들어 아래 그림은 언어 학습을 위해 디자인된 빨간색 입술 캐릭터를 보여줍니다.
+
+![2D 렌더링 예제](media/text-to-speech/viseme-demo-2D.png)
+
+3D 캐릭터의 경우 캐릭터를 문자열 꼭두각시 인형으로 생각하세요. 꼭두각시 인형의 마스터는 한 상태에서 다른 상태로 줄을 당기고 나머지는 물리 법칙을 통해 수행되어 꼭두각시 인형이 유동적으로 움직이도록 합니다. viseme 출력은 작업 시간 표시를 제공하는 꼭두각시 인형의 마스터 역할을 합니다. 애니메이션 엔진은 작업의 물리 법칙을 정의합니다. 프레임을 여유 알고리즘으로 보간함으로써 엔진은 고품질 애니메이션을 추가로 생성할 수 있습니다.
 
 ## <a name="map-phonemes-to-visemes"></a>viseme에 음소 매핑
 

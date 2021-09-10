@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 07/28/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05aca853e2eba98d224131c98751b4e2f4200024
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa38195c836c77e9f0fd621776e997d4b7fff7bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765650"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536528"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>조건부 액세스: 보안 정보 등록 보호
 
-조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록하는 시기 및 방법에 대한 보안을 설정할 수 있습니다. 이 기능은 [결합된 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용하도록 설정한 조직에서 사용할 수 있습니다. 이 기능을 사용하면 조직은 등록 프로세스를 조건부 액세스 정책의 모든 애플리케이션과 같이 처리하고 조건 액세스의 모든 기능을 사용하여 환경을 보호할 수 있습니다. 
+조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록하는 시기 및 방법에 대한 보안을 설정할 수 있습니다. 이 기능은 [결합된 등록](../authentication/concept-registration-mfa-sspr-combined.md)을 사용하도록 설정한 조직에서 사용할 수 있습니다. 이 기능을 사용하면 조직은 등록 프로세스를 조건부 액세스 정책의 모든 애플리케이션과 같이 처리하고 조건 액세스의 모든 기능을 사용하여 환경을 보호할 수 있습니다. Microsoft Authenticator 앱에 로그인하거나 암호 없는 휴대폰 로그인을 사용하도록 설정하는 사용자에게는 이 정책이 적용됩니다.
 
 과거에 일부 조직에서는 등록 환경을 보호하기 위한 수단으로 신뢰된 네트워크 위치 또는 디바이스 준수를 사용했을 수 있습니다. Azure AD에 [임시 액세스 패스](../authentication/howto-authentication-temporary-access-pass.md)가 추가되면 관리자는 사용자에게 시간이 제한된 자격 증명을 프로비저닝하여 모든 디바이스 또는 위치에서 등록할 수 있습니다. 임시 액세스 패스 자격 증명은 다단계 인증에 대한 조건부 액세스 요구 사항을 충족합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "107765650"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

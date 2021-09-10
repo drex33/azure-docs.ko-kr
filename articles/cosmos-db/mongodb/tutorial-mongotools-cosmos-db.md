@@ -6,14 +6,14 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7aedfa7b0a9c174e9205cb744f470574888be6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 335af910f9e62fe1bd67513f843966de3c5b381b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785591"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038321"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>자습서: MongoDB 네이티브 도구를 사용하여 MongoDB를 Azure Cosmos DB의 API for MongoDB로 오프라인 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -163,6 +163,9 @@ MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB�
 
 * [Cosmos DB 서비스 정보](https://azure.microsoft.com/services/cosmos-db/)
 * [MongoDB 데이터베이스 도구 설명서](https://docs.mongodb.com/database-tools/)
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

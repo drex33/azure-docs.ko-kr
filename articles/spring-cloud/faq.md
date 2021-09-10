@@ -1,19 +1,19 @@
 ---
 title: Azure Spring Cloud에 대한 자주 묻는 질문 | Microsoft Docs
 description: 이 문서는 Azure Spring Cloud에 관해 자주 묻는 질문에 대한 답변입니다.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a60634175ff06780372331bef6b28de2edbfea33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5cc02d09efda462a2feaaa77ff74dff9dedd2041
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144640"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537298"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -29,7 +29,7 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 로그 분석을 �
 
 ### <a name="how-secure-is-azure-spring-cloud"></a>Azure Spring Cloud는 얼마나 안전한가요?
 
-보안 및 개인 정보 보호는 Azure 및 Azure Spring Cloud 고객에게 가장 높은 우선 순위 중 하나입니다. Azure는 이 모든 데이터를 안전하게 암호화하여 고객만 애플리케이션 데이터, 로그 또는 구성에 액세스할 수 있도록 합니다. 
+보안 및 개인 정보 보호는 Azure 및 Azure Spring Cloud 고객에게 가장 높은 우선 순위 중 하나입니다. Azure는 이 모든 데이터를 안전하게 암호화하여 고객만 애플리케이션 데이터, 로그 또는 구성에 액세스할 수 있도록 합니다.
 
 * Azure Spring Cloud의 서비스 인스턴스는 서로 격리되어 있습니다.
 * Azure Spring Cloud는 완전한 TLS/SSL 및 인증서 관리를 제공합니다.
@@ -46,13 +46,15 @@ Azure Spring Cloud는 지역 서비스입니다. Azure Spring Cloud의 모든 �
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure Spring Cloud의 알려진 제한 사항은 어떻게 되나요?
 
 Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니다.
-    
+
 * `spring.application.name`은 각 애플리케이션을 만드는 데 사용되는 애플리케이션 이름으로 재정의됩니다.
 * `server.port`의 기본값은 포트 1025입니다. 다른 값이 적용되면 재정의됩니다. 또한 이 설정을 준수하고 코드에서 서버 포트를 지정하지 마십시오.
 * Azure Portal 및 Azure Resource Manager 템플릿에서 애플리케이션 패키지 업로드를 지원하지 않습니다. Azure CLI를 통해 애플리케이션을 배포하는 경우에만 애플리케이션 패키지를 업로드할 수 있습니다.
 
-### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요? 
+### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요?
+
 어떤 것을 사용해야 하며 각 계층의 제한은 무엇인가요?
+
 * Azure Spring Cloud는 기본 및 표준의 두 가지 가격 책정 계층을 제공합니다. 기본 계층은 개발/테스트 및 Azure Spring Cloud 사용을 대상으로 합니다. 표준 계층은 범용 프로덕션 트래픽을 실행하도록 최적화되어 있습니다. 제한 및 기능 수준 비교에 대한 자세한 내용은 [Azure Spring Cloud 가격 책정 정보](https://azure.microsoft.com/pricing/details/spring-cloud/)를 참조하세요.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
@@ -74,7 +76,7 @@ Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS �
 Spring Boot 2.4의 문제를 확인했으며 현재 Spring 커뮤니티와 협력하여 문제를 해결하고 있습니다. 그동안에는 이러한 두 가지 종속성을 포함하여 앱과 Eureka 간에 TLS 인증을 사용하도록 설정하세요.
 
 ```xml
-<dependency> 
+<dependency>
     <groupId>com.sun.jersey</groupId>
     <artifactId>jersey-client</artifactId>
     <version>1.19.4</version>
@@ -102,6 +104,7 @@ Azure Spring Cloud는 Spring Cloud 애플리케이션 로그 및 메트릭을 Az
 ### <a name="what-resource-types-does-service-binding-support"></a>서비스 바인딩에서 지원하는 리소스 종류는 무엇인가요?
 
 현재 지원되는 세 가지 서비스는
+
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis
@@ -113,14 +116,13 @@ Azure Spring Cloud는 Spring Cloud 애플리케이션 로그 및 메트릭을 Az
 
 ### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Azure Spring Cloud 인스턴스에는 몇 개의 아웃바운드 공용 IP 주소가 있나요?
 
-아웃바운드 공용 IP 주소의 수는 계층 및 기타 요인에 따라 다를 수 있습니다. 
+아웃바운드 공용 IP 주소의 수는 계층 및 기타 요인에 따라 다를 수 있습니다.
 
 | Azure Spring Cloud 인스턴스 형식 | 기본 아웃바운드 공용 IP 주소 수 |
 | -------------------------------- | ---------------------------------------------- |
 | 기본 계층 인스턴스             | 1                                              |
 | 표준 계층 인스턴스          | 2                                              |
 | VNet 삽입 인스턴스         | 1                                              |
-
 
 ### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>아웃바운드 공용 IP 주소의 수를 늘릴 수 있나요?
 
@@ -153,7 +155,7 @@ LTS 및 MTS JDK 릴리스에는 필요에 따라 분기별 보안 업데이트, 
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Java 8 및 Java 11 LTS 버전은 얼마 동안 지원되나요?
 
-[Azure 및 Azure Stack에 대한 Java 장기 지원](/azure/developer/java/fundamentals/java-jdk-long-term-support) 참조.
+[Azure 및 Azure Stack에 대한 Java 장기 지원](/azure/developer/java/fundamentals/java-support-on-azure) 참조.
 
 * Java 8 LTS는 2030년 12월까지 지원될 예정입니다.
 * Java 11 LTS는 2027년 9월까지 지원될 예정입니다.
@@ -186,6 +188,7 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 ## <a name="deployment"></a>배포
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure Spring Cloud에서 파란색-녹색 배포를 지원하나요?
+
 예. 자세한 정보는 [스테이징 환경 설정](./how-to-staging-environment.md)을 참조하세요.
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>내 애플리케이션 컨테이너를 조작하기 위해 Kubernetes에 액세스할 수 있나요?
@@ -204,6 +207,7 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션하기 위한 모범 사례는 무엇인가요?
 
 기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션할 때 다음 모범 사례를 준수하는 것이 좋습니다.
+
 * 모든 애플리케이션 종속성을 확인해야 합니다.
 * Azure Spring Cloud의 배포와 비교할 수 있도록 구성 항목, 환경 변수 및 JVM 매개 변수를 준비합니다.
 * 서비스 바인딩을 사용하려면 Azure 서비스를 살펴보고 적절한 액세스 권한을 설정했는지 확인합니다.
@@ -225,21 +229,21 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 2022년 12월 3일까지 지원됩니다. [.NET Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) 참조.
 ::: zone-end
 
-
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>거의 사용할 수 없는 서비스 레지스트리의 영향은 무엇인가요?
 
-드물게 발생하는 시나리오에서 표시될 수 있는 일부 오류는 
-```
+드물게 발생하는 일부 시나리오에서는 애플리케이션 로그에서 다음과 같은 오류가 표시될 수 있습니다.
+
+```output
 RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
 ```
-애플리케이션 로그입니다. 이 문제는 네트워크 불안정 또는 기타 네트워크 문제로 인한 매우 낮은 속도로 스프링 프레임워크에서 도입되었습니다. 
+
+이 문제는 네트워크 불안정 또는 기타 네트워크 문제로 인한 매우 낮은 속도로 스프링 프레임워크에서 도입되었습니다.
 
 사용자 환경에 영향을 주지 않아야 합니다. eureka 클라이언트에서는 하트비트 및 재시도 정책을 모두 포함하여 이 작업을 처리합니다. 일시적인 오류로 간주하고 안전하게 건너뛸 수 있습니다.
 
 이 부분을 개선하고 곧 사용자의 애플리케이션에서 이 오류를 방지할 것입니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

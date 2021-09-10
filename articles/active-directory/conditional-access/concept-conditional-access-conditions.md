@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 07/08/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070295"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564989"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -117,7 +117,9 @@ Azure AD 조건부 액세스에서는 다음과 같은 디바이스 플랫폼을
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이거나 쿠키가 비활성화된 경우 장치 확인이 실패합니다.
 
 > [!NOTE]
 > Edge 85 이상에서는 디바이스 ID를 올바르게 전달하기 위해 사용자의 브라우저 로그인을 요구합니다. 그렇지 않으면 계정 확장이 없는 Chrome처럼 동작합니다. 이 로그인은 하이브리드 Azure AD 조인 시나리오에서는 자동으로 발생하지 않을 수 있습니다. Safari는 디바이스 기반 조건부 액세스에 지원되지만 **승인된 클라이언트 앱 필요** 또는 **앱 보호 정책 필요** 조건을 충족할 수 없습니다. Microsoft Edge와 같은 관리되는 브라우저는 승인된 클라이언트 앱 및 앱 보호 정책 요구 사항을 충족합니다.
@@ -143,8 +145,6 @@ Windows 7, iOS, Android 및 macOS Azure AD는 디바이스가 Azure AD에 등록
 - Name 1
 - Type REG_SZ (String)
 - Data {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
-
-이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다.
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>지원되는 모바일 애플리케이션 및 데스크톱 클라이언트
 

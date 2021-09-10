@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1e203fb70bd13d1ab6681d0b579ffff8458d400d
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 267b05a13d951e111f056097c6d7dc8f3edef221
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721166"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187292"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-V 마이그레이션을 위한 지원 매트릭스
 
@@ -45,7 +45,7 @@ ms.locfileid: "114721166"
 | **Linux 부팅**                 | /boot가 전용 파티션에 있는 경우, OS 디스크에 상주해야 하며 여러 디스크에 분산되면 안 됩니다.<br/> /boot가 루트(/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 포함되지 않아야 합니다. |
 | **UEFI 부팅**                  | 지원됨. UEFI 기반 VM은 Azure 2세대 VM으로 마이그레이션됩니다.  |
 | **UEFI - 보안 부팅**         | 마이그레이션이 지원되지 않습니다.|
-| **디스크 크기**                  | 최대 2TB OS 디스크, 데이터 디스크에 8TB입니다.|
+| **디스크 크기**                  | 최대 2TB OS 디스크이며, 데이터 디스크의 경우에는 4TB입니다.|
 | **디스크 수** | VM당 최대 16개의 디스크입니다.|
 | **암호화된 디스크/볼륨**    | 마이그레이션이 지원되지 않습니다.|
 | **RDM/통과 디스크**      | 마이그레이션이 지원되지 않습니다.|

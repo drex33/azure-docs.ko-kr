@@ -1,21 +1,21 @@
 ---
-title: Microsoft Azure Stack Hub 준비 상태 검사기 도구를 사용하여 인증서 만들기 | Microsoft Docs
+title: Azure Stack 허브 준비 검사기 도구를 통해 Azure Stack Edge Pro GPU용 인증서 만들기
 description: Azure Stack Hub 준비 상태 검사기 도구를 사용하여 인증서 요청을 만든 다음, Azure Stack Edge Pro GPU 디바이스에 인증서를 가져오고 설치하는 방법을 설명합니다.
 services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 8316dd0abfa437d4bf88e8268dfe034344c6614c
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7b167efdc0b1edaa1f09b0b85a1abbf86ef77037
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389335"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113353920"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack Hub 준비 상태 검사기 도구를 사용하여 Azure Stack Edge Pro의 인증서 만들기 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사기 도구를 사용하여 Azure Stack Edge Pro GPU용 인증서 만들기 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -121,7 +121,7 @@ Azure Stack Edge Pro 디바이스 배포의 CSR을 만들려면 다음을 확인
     INF 폴더도 표시됩니다. 여기에는 인증서 세부 정보를 설명하는 일반 텍스트의 management.<edge-devicename> 정보 파일이 포함됩니다.  
 
 
-6. 이 파일을 인증 기관(내부 또는 퍼블릭)에 제출합니다. 해당 CA가 생성된 요청을 사용하여 [노드 인증서](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [엔드포인트 인증서](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates) 및 [로컬 UI 인증서](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates)의 Azure Stack Edge Pro 인증서 요구 사항을 충족하는 인증서를 생성하는지 확인합니다.
+6. 이 파일을 인증 기관(내부 또는 퍼블릭)에 제출합니다. 해당 CA가 생성된 요청을 사용하여 [노드 인증서](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [엔드포인트 인증서](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates) 및 [로컬 UI 인증서](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates)의 Azure Stack Edge Pro 인증서 요구 사항을 충족하는 인증서를 생성하는지 확인합니다.
 
 ## <a name="prepare-certificates-for-deployment"></a>인증서 배포 준비
 
@@ -152,4 +152,4 @@ CA(인증 기관)에서 가져오는 인증서 파일은 Azure Stack Edge Pro �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge Pro 디바이스 배포](azure-stack-edge-gpu-deploy-prep.md)
+[기기에 인증서를 업로드합니다](azure-stack-edge-gpu-manage-certificates.md).

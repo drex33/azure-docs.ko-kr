@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6e0bb7949e6f528925eb66c1148662720b144e06
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 2431ba1b59ae1f9891affe510e098d41fe166797
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060357"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711866"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>VNet 및 방화벽 뒤의 스토리지 계정에 대한 감사 작성
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
 > [!div class="checklist"]
 >
 > * 범용 v2 스토리지 계정. 범용 v1 또는 Blob Storage 계정이 있는 경우 [범용 v2 스토리지 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)합니다. 자세한 정보는 [스토리지 계정 유형](../../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
-> * 스토리지 계정은 [논리적 SQL Server](logical-servers.md)와 동일한 구독 및 동일한 위치에 있어야 합니다.
+> * 스토리지 계정은 [논리적 SQL Server](logical-servers.md)와 동일한 테넌트 및 동일한 위치에 있어야 합니다(다른 구독에 있어도 무방함).
 > * Azure Storage 계정을 사용하려면 `Allow trusted Microsoft services to access this storage account`해야 합니다. 스토리지 계정의 **방화벽 및 가상 네트워크** 아래에서 이 설정을 수행합니다.
 > * 선택한 스토리지 계정에 대한 `Microsoft.Authorization/roleAssignments/write` 권한이 있어야 합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 

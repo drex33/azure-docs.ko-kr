@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b522ac678c5a2ffbcf5713de79e35c00e30ba40
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9c03280532a1296d49c26b8e7502c5cbac896f8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672890"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687735"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용한 계획된 유지 관리 처리
 
-**이 문서는 Linux 및 Windows 모두를 실행하는 Azure 가상 머신에 적용됩니다.**
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 또한 Azure PowerShell을 사용하여 VM의 [유지 관리](maintenance-notifications.md) 작업이 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-status` 매개 변수를 사용하는 경우 [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet에서 확인할 수 있습니다.
   

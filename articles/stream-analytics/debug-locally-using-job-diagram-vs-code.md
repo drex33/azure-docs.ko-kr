@@ -6,14 +6,14 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfa3e378e9627652810eb6ac1feaeb7b74522539
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019502"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529356"
 ---
-# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Visual Studio Code에서 작업 다이어그램을 사용하여 로컬로 Azure Stream Analytics 쿼리 디버그
+# <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code-preview"></a>Visual Studio Code(미리 보기)에서 작업 다이어그램을 사용하여 로컬로 Azure Stream Analytics 쿼리 디버그
 
 결과를 출력하지 않거나 예기치 않은 결과를 출력하는 스트리밍 작업의 경우 문제를 해결해야 할 수 있습니다. Azure Stream Analytics용 Visual Studio Code 확장은 작업 다이어그램, 메트릭, 진단 로그 및 중간 결과를 통합하여 문제의 원인을 신속하게 격리할 수 있도록 합니다. 쿼리를 로컬로 테스트하는 동안 작업 다이어그램을 사용하여 각 단계에 대한 중간 결과 집합 및 메트릭을 검사할 수 있습니다.
 

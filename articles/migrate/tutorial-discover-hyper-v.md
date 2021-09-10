@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bdc0008baa1ee03c11aeeba03485fd7cd09e6f9
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612520"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969819"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 Hyper-V에서 실행되는 서버 검색
 
@@ -138,7 +138,8 @@ SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 서버를 검색하고 서버 구성 및 성능 메타데이터를 Azure Migrate로 보냅니다. 어플라이언스는 프로젝트에서 다운로드할 수 있는 VHD 파일을 배포하여 설정할 수 있습니다.
 
 > [!NOTE]
-> 어떤 이유로 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우 기존 Windows Server 2016 서버에서 PowerShell 스크립트를 사용하여 설정할 수 있습니다. [자세히 알아보기](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+> 어떤 이유로 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우 기존 Windows Server 2016 서버에서 PowerShell 스크립트를 사용하여 설정할 수 있습니다. [자세히 알아보기](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/>
+> VHD 템플릿을 사용하여 어플라이언스를 배포하는 옵션은 Azure Government 클라우드에서 지원되지 않습니다. Azure Government 클라우드용 어플라이언스를 배포하는 방법에 대해 [자세히 알아봅니다](/azure/migrate/deploy-appliance-script-government).
 
 이 자습서에서는 다음과 같이 Hyper-V 환경에서 실행되는 서버에서 어플라이언스를 설정합니다.
 

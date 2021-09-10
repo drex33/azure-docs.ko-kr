@@ -7,24 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f3f29ae1ab868a96e6f70ed964f79c47bc591c4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 812b6add11ac032eb6dffea7de54111574393cf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92378148"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528585"
 ---
 # <a name="upload-logs-to-azure-monitor"></a>Azure Monitor에 로그 업로드
 
 정기적으로 로그를 내보낸 후 Azure에 업로드할 수 있습니다. 로그를 내보내 업로드하면 Azure에서 데이터 컨트롤러, SQL Managed Instance, PostgreSQL 하이퍼스케일 서버 그룹 리소스가 생성되고 업데이트됩니다.
-
-> [!NOTE] 
-> 미리 보기 기간에는 Azure Arc 지원 데이터 서비스를 무료로 사용할 수 있습니다.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -124,7 +119,6 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
 ::: zone-end
 
 
@@ -216,24 +210,27 @@ echo $SPN_AUTHORITY
 
  Azure Arc 지원 SQL Managed Instance와 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 로그를 업로드하려면 다음 CLI 명령을 실행합니다.
 
-1. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]를 사용하여 Azure Arc 데이터 컨트롤러에 로그인합니다.
+1. `arcdata` 확장명이 있는 Azure(`az`) CLI를 사용하여 Azure Arc 데이터 컨트롤러에 로그인합니다.
 
-   ```console
-   azdata login
+   ```azurecli
+   az arcdata login
    ```
 
    프롬프트에 따라 네임스페이스, 관리자 사용자 이름, 암호를 설정합니다. 
 
 1. 모든 로그를 지정된 파일로 내보냅니다.
 
-   ```console
-   azdata arc dc export --type logs --path logs.json
+> [!NOTE]
+> `az arcdata dc export` 명령을 사용하여 사용량/결제 정보, 메트릭 및 로그를 내보내려면 현재로서는 SSL 확인을 바이패스해야 합니다.  SSL 확인을 바이패스하라는 메시지가 표시되거나 메시지가 표시되지 않도록 `AZDATA_VERIFY_SSL=no` 환경 변수를 설정할 수 있습니다.  현재 데이터 컨트롤러 내보내기 API에 대한 SSL 인증서를 구성할 수 있는 방법이 없습니다.
+
+   ```azurecli
+   az arcdata dc export --type logs --path logs.json
    ```
 
 2. Azure Monitor Log Analytics 작업 영역에 로그를 업로드합니다.
 
-   ```console
-   azdata arc dc upload --path logs.json
+   ```azurecli
+   az arcdata dc upload --path logs.json
    ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Azure Portal에서 로그 보기
@@ -256,9 +253,9 @@ echo $SPN_AUTHORITY
 
 자주 사용하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가하고 as .sh(Linux/Mac) 또는 .cmd, .bat, .ps1과 같은 스크립트 실행 파일로 저장합니다.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type logs --path logs.json --force
+az arcdata dc upload --path logs.json
 ```
 
 스크립트 파일을 실행 가능하도록 설정합니다.

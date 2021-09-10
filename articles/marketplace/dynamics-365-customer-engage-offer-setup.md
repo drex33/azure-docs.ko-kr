@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 060d24a331a7f15c4ee687c919fe8c2b7cdf2ca6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971457"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240278"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제안을 만드는 방법
 
@@ -61,7 +61,7 @@ ms.locfileid: "111971457"
 - **Microsoft를 통해 앱 라이선스 관리 사용** – Microsoft를 통해 앱 라이선스를 관리합니다. 고객이 라이선스 없이 앱의 기본 기능을 실행하고 라이선스를 구매한 후 프리미엄 기능을 실행하도록 하려면 **라이선스가 할당되지 않았더라도 고객이 앱을 설치할 수 있도록 허용 상자** 를 선택합니다. 두 번째 상자를 선택하는 경우 라이선스를 요구하지 않도록 솔루션 패키지를 구성해야 합니다.
 
     > [!NOTE]
-    > 제품을 게시한 후에는 이 설정을 변경할 수 없습니다. 이 설정에 관한 자세한 내용은 [Microsoft를 통해 타사 앱 라이선스 관리](third-party-license.md)를 참조하세요.
+    > 제품을 게시한 후에는 이 설정을 변경할 수 없습니다. 이 설정에 대한 자세한 내용은 [앱 라이선스 관리](isv-app-license.md)를 참조하세요.
 
 - **지금 받기(무료)** – 고객에게 무료 제품을 나열합니다.
 - **무료 평가판(목록)** – 고객에게 무료 평가판에 대한 링크와 함께 제품을 나열합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다.

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 3ddc385b9d489e0c2ab4abf35a6ade011970342b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2014d2ecea91ae650ec1fb1d730ee9b64c66c98
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572947"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530274"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍
 
@@ -41,6 +41,15 @@ Azure Sentinel에는 구독 및 테넌트 수준에서 Azure Security Center에 
 
 - [구독 수준에서 Azure Sentinel로 경고 스트리밍](../sentinel/connect-azure-security-center.md)
 - [테넌트의 모든 구독을 Azure Sentinel에 연결](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
+
+Azure Defender를 Azure Sentinel에 연결하면 Azure Sentinel로 수집된 Azure Defender 경고의 상태가 두 서비스 간에 동기화됩니다. 예를 들어 Azure Defender에서 경고가 닫히면 해당 경고는 Azure Sentinel에서도 닫힘으로 표시됩니다. Azure Defender에서 경고 상태를 변경하면 동기화된 Azure Sentinel 경고를 포함하는 Azure Sentinel **인시던트** 의 상태에 영향을 미치지 "않고"* 동기화된 경고 자체에만 영향을 미칩니다.
+
+미리 보기 기능인 **양방향 경고 동기화** 를 사용하면 원래 Azure Defender 경고의 상태가 해당 Azure Defender 경고의 복사본이 포함된 Azure Sentinel 인시던트와 자동으로 동기화됩니다. 따라서 예를 들어 Azure Defender 경고가 포함된 Azure Sentinel 인시던트가 닫히면 Azure Defender가 해당 원본 경고를 자동으로 닫습니다.
+
+자세한 내용은 [Azure Security Center에서 Azure Defender 경고 연결](../sentinel/connect-azure-security-center.md)을 참조하세요.
+
+> [!NOTE]
+> 양방향 경고 동기화 기능은 Azure Government 클라우드에서 사용할 수 없습니다. 
 
 ### <a name="configure-ingestion-of-all-audit-logs-into-azure-sentinel"></a>모든 감사 로그를 Azure Sentinel에 수집하도록 구성 
 

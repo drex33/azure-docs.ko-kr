@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf0afce3c5495199b23059df226115154dade7f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775744"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528691"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용한 TLS 종료
 
@@ -36,6 +36,9 @@ Application Gateway는 현재 소프트웨어 유효성 검사 인증서만 지�
 
 > [!NOTE]
 > Azure Portal는 비밀이 아닌 KeyVault 인증서만 지원합니다. Application Gateway는 여전히 KeyVault의 비밀을 참조할 수 있지만 PowerShell, CLI, API, ARM 템플릿 등과 같은 Portal 이외 리소스를 통해서만 가능합니다. 
+
+> [!WARNING]
+> Azure Application Gateway는 현재 Application Gateway 리소스와 동일한 구독의 Key Vault 계정만 지원합니다. Application Gateway와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
 
 ## <a name="how-integration-works"></a>통합의 작동 방식
 

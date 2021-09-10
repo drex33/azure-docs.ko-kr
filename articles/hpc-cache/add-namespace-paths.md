@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3eddd53d8b1d4ff59f27535a070924cf0e86c5a7
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0374c2da7cda001da779c42cacaf11db6f797356
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904418"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587394"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계형 네임스페이스 설정
 
@@ -115,7 +115,7 @@ update 명령에 사용되는 옵션은 스토리지 시스템 정보(IP 주소 
 
 ---
 
-### <a name="adls-nfs-namespace-paths-preview"></a>ADLS-NFS 네임스페이스 경로(미리 보기)
+### <a name="adls-nfs-namespace-paths"></a>ADLS-NFS 네임스페이스 경로
 
 일반적인 Blob Storage 대상과 마찬가지로 ADLS-NFS 스토리지 대상에는 하나의 내보내기만 있으므로 하나의 네임스페이스 경로만 보유할 수 있습니다.
 

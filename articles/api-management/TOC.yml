@@ -84,6 +84,8 @@
       href: automation-manage-api-management.md
     - name: API 가져오기 제한
       href: api-management-api-import-restrictions.md
+    - name: Virtual Network 개요
+      href: virtual-network-concepts.md
     - name: 자체 호스팅 게이트웨이 개요
       href: self-hosted-gateway-overview.md
     - name: 가시성
@@ -92,6 +94,8 @@
       href: devops-api-development-templates.md
     - name: 일시 삭제
       href: soft-delete.md
+    - name: 컴퓨팅 플랫폼
+      href: compute-infrastructure.md
 - name: 방법 가이드
   items:
     - name: API 정의

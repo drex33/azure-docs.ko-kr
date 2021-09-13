@@ -4,13 +4,13 @@ description: Azure Resource Manager 배포에 사용할 수 있는 Bicep 연산�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 143c7881d3f22bf67b3dfabf74ca54825efffc94
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536384"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221049"
 ---
 # <a name="bicep-operators"></a>Bicep 연산자
 
@@ -44,11 +44,12 @@ ms.locfileid: "122536384"
 
 접근자 연산자는 중첩된 리소스와 개체 속성에 액세스하는 데 사용됩니다.
 
-| 연산자 | Name | 설명 |
+| 연산자 | Name | Description |
 | ---- | ---- | ---- |
+| `[]` | [인덱스 접근자](./operators-access.md#index-accessor) | 개체에서 배열 또는 속성의 요소에 액세스합니다. |
+| `.` | [함수 접근자](./operators-access.md#function-accessor) | 리소스에서 함수를 호출합니다. |
 | `::` | [중첩된 리소스 접근자](./operators-access.md#nested-resource-accessor) | 부모 리소스 외부에서 중첩된 리소스에 액세스합니다. |
 | `.` | [속성 접근자](./operators-access.md#property-accessor) | 개체 속성에 액세스합니다. |
-| `.` | [함수 접근자](./operators-access.md#function-accessor) | 리소스에서 함수를 호출합니다. |
 
 ## <a name="comparison"></a>비교
 

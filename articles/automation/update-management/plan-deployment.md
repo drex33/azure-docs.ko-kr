@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5a83e9452b8ce54875c531bd93bb14009f8eeacd
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607275"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769357"
 ---
 # <a name="plan-your-update-management-deployment"></a>업데이트 관리 배포 계획
 
@@ -34,7 +34,7 @@ Windows 및 Linux용 [Log Analytics 에이전트](../../azure-monitor/agents/log
 
 Azure VM에서 Log Analytics 에이전트가 아직 설치되지 않은 경우 VM에 업데이트 관리를 사용하도록 설정하면 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)에 대해 Log Analytics VM 확장을 사용하여 자동으로 설치됩니다. 에이전트는 Automation 계정 업데이트 관리에 연결된 Log Analytics 작업 영역에 대한 보고가 활성화되도록 구성됩니다.
 
-비 Azure VM 또는 서버에는 Windows 또는 Linux용 Log Analytics 에이전트가 설치되어 있고, 연결된 작업 영역에 대한 보고가 있어야 합니다. 먼저 머신을 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 할당하는 것이 좋습니다. 또는 [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용하여 머신을 모니터링하려는 경우 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 대신 사용합니다.
+비 Azure VM 또는 서버에는 Windows 또는 Linux용 Log Analytics 에이전트가 설치되어 있고, 연결된 작업 영역에 대한 보고가 있어야 합니다. 먼저 컴퓨터를 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Linux 또는 Windows Azure Arc 컴퓨터에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 할당하는 것이 좋습니다. 또는 [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용하여 머신을 모니터링하려는 경우 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 대신 사용합니다.
 
 현재 Operations Manager에서 관리하는 컴퓨터를 사용하도록 설정하는 경우 새 에이전트가 필요하지 않습니다. 관리 그룹을 Log Analytics 작업 영역에 연결하면 작업 영역 정보가 에이전트 구성에 추가됩니다.
 
@@ -85,7 +85,7 @@ Azure가 아닌 머신에 대한 동적 그룹은 [컴퓨터 그룹](../../azure
 
 - 신규 또는 기존 Automation 계정과 구독의 Azure Monitor Log Analytics 작업 영역으로 업데이트 관리를 배포하기 위해 Azure [Resource Manager 템플릿](enable-from-template.md)을 사용합니다. 템플릿은 관리해야 하는 머신의 범위를 구성하지는 않습니다. 이 작업은 템플릿을 사용한 후 별도의 단계로 수행됩니다.
 
-- Arc 사용 서버를 포함하여 하나 이상의 Azure 및 비 Azure 머신에 대한 [Automation 계정](enable-from-automation-account.md).
+- Arc 지원 서버를 포함하여 하나 이상의 Azure 및 비 Azure 머신에 대한 [Automation 계정](enable-from-automation-account.md).
 
 - **Enable-AutomationSolution** [Runbook](enable-from-runbook.md)을 사용하여 Azure VM 온보딩을 자동화합니다.
 

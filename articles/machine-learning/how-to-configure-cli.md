@@ -1,7 +1,7 @@
 ---
-title: CLI(v2) 설치, 설정, 사용
+title: CLI(v2) 설치 및 설정
 titleSuffix: Azure Machine Learning
-description: Machine Learning용 Azure CLI 확장을 설치, 설정 및 사용하는 방법을 알아봅니다.
+description: Machine Learning용 Azure CLI 확장을 설치하고 설정하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 081ecae157f992a40c70d3c1c9fed3357f2ab5a8
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 8034b9e6027f85d9dd5385fda18f81523830944f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539091"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772711"
 ---
-# <a name="install-set-up-and-use-the-cli-v2"></a>CLI(v2) 설치, 설정, 사용
+# <a name="install-and-set-up-the-cli-v2"></a>CLI(v2) 설치 및 설정
 
 [Azure CLI](/cli/azure/)에 대한 `ml` 확장(미리 보기)은 Azure Machine Learning을 위한 향상된 인터페이스입니다. 이를 통해 모델 수명 주기를 추적하는 동안 데이터 과학 확장을 가속화하는 기능을 사용하여 명령줄에서 모델을 학습하고 배포할 수 있습니다.
 

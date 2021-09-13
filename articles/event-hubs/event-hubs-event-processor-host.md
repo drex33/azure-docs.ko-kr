@@ -4,12 +4,12 @@ description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트�
 ms.topic: conceptual
 ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ea8beeafd7be3f1e586fc0eaf542d4ee946262fe
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528614"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101272"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -86,7 +86,8 @@ public class SimpleEventProcessor : IEventProcessor
 - **storageConnectionString:** 내부 리소스 관리에 사용되는 스토리지 계정입니다.
 
 > [!IMPORTANT]
-> 검사점 저장소로 사용되는 스토리지 계정에서 일시 삭제 기능을 사용하도록 설정하지 마세요. 
+> - 검사점 저장소로 사용되는 스토리지 계정에서 일시 삭제 기능을 사용하도록 설정하지 마세요. 
+> - 계층 구조 스토리지(Azure Data Lake Storage Gen2)를 검사점 저장소로 사용하지 마세요.
 
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 

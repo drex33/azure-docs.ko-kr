@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 3cecb6a9a45aa3413e43fb9099a258ed2ef21a3a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 83835941ae2ec1f45eab7de25d862034069770f2
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566935"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123213865"
 ---
 ## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>지역 내 ExpressRoute 위치에 대한 Azure 지역
 다음 표에서 지역 내 ExpressRoute 위치에 대한 Azure 지역의 맵을 제공합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "122566935"
 | **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2, 푸네 |
 | **일본** | 일본 서부, 일본 동부 |오사카, 도쿄, 도쿄2 |
 | **오세아니아** | 오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니, 시드니2 |
-| **대한민국** | 한국 중부, 한국 남부 |부산, 서울|
+| **대한민국** | 한국 중부, 한국 남부 |부산, 서울, 서울2|
 | **아랍에미리트** | 아랍에미리트 중부, 아랍에미리트 북부 | 두바이, 두바이2 |
 | **남아프리카 공화국** | 남아프리카 공화국 서부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
 | **남아메리카** | 브라질 남부 |보고타, 캄피나스, 리우데자네이루, 상파울루, 상파울루2 |

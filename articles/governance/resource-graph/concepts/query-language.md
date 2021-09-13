@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 08/11/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7d23a8958ebfa90658ec5769b077f07091eff89d
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1f1eef5a70187ed883da9f535cc2f2915e3bf6d6
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567466"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104655"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -32,6 +32,7 @@ Resource Graph는 Azure Resource Manager 리소스 종류 및 해당 속성에 �
 |ResourceContainers |예 |관리 그룹(`Microsoft.Management/managementGroups`), 구독(`Microsoft.Resources/subscriptions`) 및 리소스 그룹(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
 |AdvisorResources |예(미리 보기) |`Microsoft.Advisor` _관련_ 리소스를 포함합니다. |
 |AlertsManagementResources |예(미리 보기) |`Microsoft.AlertsManagement` _관련_ 리소스를 포함합니다. |
+|DesktopVirtualizationResources |Yes |`Microsoft.DesktopVirtualization` _관련_ 리소스를 포함합니다. |
 |ExtendedLocationResources |예 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
 |GuestConfigurationResources |예 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
 |HealthResources|Yes |`Microsoft.ResourceHealth/availabilitystatuses` _관련_ 리소스를 포함합니다. |

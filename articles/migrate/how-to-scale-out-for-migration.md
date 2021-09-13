@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566526"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779622"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 에이전트 없는 VMware 가상 머신의 마이그레이션 확장
 
@@ -70,7 +70,7 @@ ms.locfileid: "122566526"
 > 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. 컴퓨팅된 해시 값이 b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2 문자열과 일치하지 않는 경우 포털에서 최신 버전의 스케일 아웃 어플라이언스 설치 관리자를 다운로드합니다.
+> 3. 컴퓨팅된 해시 값이 CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234 문자열과 일치하지 않는 경우 포털에서 최신 버전의 스케일 아웃 어플라이언스 설치 관리자를 다운로드합니다.
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 

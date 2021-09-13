@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최댓값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
 ms.topic: conceptual
-ms.date: 06/09/2021
-ms.openlocfilehash: 1831b103dc037b5f92f9ca53be1c71ce1bb3f558
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 07/29/2021
+ms.openlocfilehash: 2d3af7c035518ace6abca01b9e9e3867c49d4330
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889810"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099387"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -174,6 +174,10 @@ Azure Machine Learning 컴퓨팅 할당량의 최신 값은 [Azure Machine Learn
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+## <a name="azure-netapp-files"></a>Azure NetApp Files
+
+[!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
+
 ## <a name="azure-policy-limits"></a>Azure Policy 제한
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
@@ -243,6 +247,10 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용하
 ## <a name="database-migration-service-limits"></a>Database Migration Service 제한
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## <a name="device-update-for-iot-hub--limits"></a>Device Update for IoT Hub 한도
+
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
 
 ## <a name="digital-twins-limits"></a>Digital Twins 제한
 
@@ -327,10 +335,6 @@ Media Services v2(레거시) 관련 제한은 [Media Services v2(레거시)](../
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
-## <a name="purview-limits"></a>Purview 제한
-
-Azure Purview 할당량에 대한 최신 값은 [Azure Purview 할당량 페이지](../../purview/how-to-manage-quotas.md)에서 찾을 수 있습니다.
-
 ### <a name="traffic-manager-limits"></a>Traffic Manager 제한
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
@@ -354,6 +358,10 @@ Azure Purview 할당량에 대한 최신 값은 [Azure Purview 할당량 페이�
 ## <a name="notification-hubs-limits"></a>Notification Hubs 제한
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
+
+## <a name="purview-limits"></a>Purview 제한
+
+Azure Purview 할당량의 최신 값은 [Azure Purview 할당량 페이지](../../purview/how-to-manage-quotas.md)에서 찾을 수 있습니다.
 
 ## <a name="service-bus-limits"></a>Service Bus 제한
 

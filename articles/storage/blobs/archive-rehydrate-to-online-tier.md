@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: bdafee650ae6162e3943120fc9a9b460fd9e698a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c033920b88f2863d34f43bf0affe4b9165995a3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567601"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258778"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층으로 리하이드레이션
 
@@ -121,7 +121,7 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob’s access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
+$blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -129,16 +129,20 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 Blob의 계층을 보관에서 핫 또는 Azure CLI 쿨로 변경 하려면 [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) 명령을 호출합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az storage blob set-tier /
-    --container-name <container> /
-    --name <archived-blob> /
-    --tier Hot /
-    --account-name <account-name> /
-    --rehydrate-priority High /
+az storage blob set-tier \
+    --container-name <container> \
+    --name <archived-blob> \
+    --tier Hot \
+    --account-name <account-name> \
+    --rehydrate-priority High \
     --auth-mode login
 ```
 
 ---
+
+## <a name="rehydrate-a-large-number-of-blobs"></a>많은 수의 Blob 리하이드레이션
+
+한 번에 많은 수의 Blob을 리하이드레이션하려면 [Blob 일괄 처리](/rest/api/storageservices/blob-batch) 작업을 호출하여 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier)을 대량 작업으로 호출합니다. 일괄 처리 작업을 수행하는 방법을 보여 주는 코드 예제는 [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/)를 참조하세요.
 
 ## <a name="check-the-status-of-a-rehydration-operation"></a>리하이드레이션 작업의 상태를 확인합니다.
 
@@ -158,12 +162,12 @@ Azure Portal에서 보류 중인 리하이드레이션 작업의 상태 및 우�
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 보류중인 리하이드레이션 작업의 상태 및 우선 순위를 확인하려면 [AzStorageBlob를 가져오기](/powershell/module/az.storage/get-azstorageblob) 명령을 호출하고 Blob의 **RehydrationStatus** 및 **RehydratePriority** 속성을 확인합니다. 리하이드레이션 복사 작업인 경우 대상 blob에서 이러한 속성을 확인합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+PowerShell을 사용하여 보류 중인 리하이드레이션 작업의 상태와 우선 순위를 확인하려면 [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) 명령을 호출하고 Blob의 **ArchiveStatus** 및 **RehydratePriority** 속성을 확인합니다. 리하이드레이션 복사 작업인 경우 대상 blob에서 이러한 속성을 확인합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$rehydratingBlob.BlobProperties.ArchiveStatus
 $rehydratingBlob.BlobProperties.RehydratePriority
-$rehydratingBlob.ICloudBlob.Properties.RehydrationStatus
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

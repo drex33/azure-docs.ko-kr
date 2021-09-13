@@ -1,15 +1,15 @@
 ---
 title: 지원되는 Azure Resource Manager 리소스 종류
 description: Azure Resource Graph 및 변경 내역에서 지원되는 Azure Resource Manager 리소스 종류 목록을 제공합니다.
-ms.date: 08/13/2021
+ms.date: 08/31/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 69b8e4bb3400b04da3986f9e40a1c5b5fba3b750
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 330c406ef1d45a3cd72ac7316ca3985d2a6cd647
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537547"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309782"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -29,6 +29,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 
 - microsoft.alertsmanagement/alerts
 
+## <a name="desktopvirtualizationresources"></a>desktopvirtualizationresources
+
+- microsoft.desktopvirtualization/hostpools/sessionhosts
+
 ## <a name="extendedlocationresources"></a>extendedlocationresources
 
 이 테이블에 대한 샘플 쿼리는 [extendedlocationresources위한 Resource Graph 샘플 쿼리](../samples/samples-by-table.md#extendedlocationresources)를 참조하세요.
@@ -45,7 +49,6 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
   - 샘플 쿼리: [게스트 구성 정책 범위에 있는 머신 수](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
   - 샘플 쿼리: [비규격 게스트 구성 할당의 수](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
   - 샘플 쿼리: [머신이 게스트 구성 할당에 규격화되지 않은 모든 이유 찾기](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
-  - 샘플 쿼리: [게스트 구성 할당 보고서의 쿼리 세부 정보](../samples/samples-by-category.md#query-details-of-guest-configuration-assignment-reports)
 
 ## <a name="healthresources"></a>healthresources
 
@@ -136,6 +139,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Citrix.Services/XenDesktopEssentials(Citrix Virtual Desktops Essentials)
 - conexlink.mycloudit/accounts
 - crypteron.datasecurity/apps
+- dynatrace.observability/monitors
 - GitHub.Enterprise/accounts(GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
@@ -157,7 +161,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - Microsoft.AnalysisServices/servers(Analysis Services)
-- Microsoft AnyBuild/클러스터 (AnyBuild 클러스터)
+- Microsoft.AnyBuild/clusters(AnyBuild 클러스터)
 - Microsoft.ApiManagement/service(API Management 서비스)
 - microsoft.appassessment/migrateprojects
 - Microsoft.AppConfiguration/configurationStores(App Configuration)
@@ -243,6 +247,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.CloudTest/images(CloudTest 이미지)
 - Microsoft.CloudTest/pools(CloudTest 풀)
 - Microsoft.ClusterStor/nodes(ClusterStors)
+- microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts(Synthetics 계정)
 - Microsoft.CognitiveServices/accounts(Cognitive Services)
@@ -276,6 +281,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
   - 샘플 쿼리: [OS 유형별로 가상 머신 개수 계산](../samples/samples-by-category.md#count-virtual-machines-by-os-type)
   - 샘플 쿼리: [확장 OS 유형별로 가상 머신 개수 계산](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - 샘플 쿼리:[가상 머신에 설치된 모든 확장명 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
+  - 샘플 쿼리: [실행 중이 아닌 머신과 마지막 규정 준수 상태 나열](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
   - 샘플 쿼리: [리소스 Id 및 리소스 그룹을 사용 하는 가용성 상태 및 전원 상태별로 가상 머신 목록](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - 샘플 쿼리: [네트워크 인터페이스 및 공용 IP를 사용하여 가상 머신 나열](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - 샘플 쿼리: [이름의 내림차순으로 모든 가상 머신 표시](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
@@ -291,6 +297,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Confluent/organizations(Confluent 조직)
 - Microsoft.ConnectedCache/cacheNodes(연결된 캐시 리소스)
 - Microsoft.ConnectedVehicle/platformAccounts (연결된 차량 플랫폼)
+- microsoft.connectedvmwarevsphere/clusters
+- microsoft.connectedvmwarevsphere/datastores
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters(VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines(VMware + AVS 가상 머신)
@@ -335,6 +343,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.DataProtection/BackupVaults(Backup 자격 증명 모음)
 - Microsoft DataProtection/resourceGuards (리소스 가드 (미리 보기))
 - microsoft.dataprotection/resourceoperationgatekeepers
+- microsoft.datareplication/replicationfabrics
+- microsoft.datareplication/replicationvaults
 - Microsoft.DataShare/accounts(Data Share)
 - Microsoft.DBforMariaDB/servers(Azure Database for MariaDB 서버)
 - Microsoft.DBforMySQL/flexibleServers(Azure Database for MySQL 유연한 서버)
@@ -398,9 +408,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (Fidalgo DevCenters)
 - microsoft.fidalgo/machinedefinitions
+- microsoft.fidalgo/networksettings
 - Microsoft.Fidalgo/projects (Fidalgo 프로젝트)
 - Microsoft.Fidalgo/projects/environments (Fidalgo 환경)
-- Microsoft.FluidRelay/fluidRelayServers (FluidRelay 서버)
+- Microsoft.FluidRelay/fluidRelayServers(Fluid Relay)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts(Genomics 계정)
@@ -410,6 +421,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - Microsoft.HDInsight/clusterpools (HDInsight 클러스터 풀)
 - Microsoft HDInsight/clusterpools/clusters (HDInsight gen2 클러스터)
+- microsoft.hdinsight/clusterpools/clusters/sessionclusters
 - Microsoft.HDInsight/clusters(HDInsight 클러스터)
 - Microsoft.HealthBot/healthBots(Azure Health Bot)
 - Microsoft.HealthcareApis/services(FHIR용 Azure API)
@@ -421,7 +433,9 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.HpcWorkbench/instances (HPC Workbenches (미리 보기))
 - Microsoft.HybridCompute/machines(서버 - Azure Arc)
   - 샘플 쿼리: [도메인 별 Arc 사용 서버의 수 및 백분율을 가져옵니다](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
+  - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - microsoft.hybridcompute/machines/extensions
+  - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes(Azure Arc 프라이빗 링크 범위)
 - Microsoft.HybridData/dataManagers(StorSimple Data Manager)
 - Microsoft.HybridNetwork/devices(Azure Network Function Manager – 디바이스(미리 보기))
@@ -440,7 +454,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.insights/alertrules
 - microsoft.insights/autoscalesettings
 - microsoft.insights/components(Application Insights)
-- microsoft.insights/datacollectionendpoints
+- microsoft.insights/datacollectionendpoints(데이터 수집 엔드포인트)
 - microsoft.insights/datacollectionrules(데이터 수집 규칙)
 - microsoft.insights/guestdiagnosticsettings
 - microsoft.insights/metricalerts
@@ -535,7 +549,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.MobileNetwork/packetCoreControlPlanes (네트워크 함수의 Arc – 패킷 코어)
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
-- microsoft.mobilenetwork/sims
+- Microsoft.MobileNetwork/sims(Sim)
 - microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts(NetApp 계정)
 - microsoft.netapp/netappaccounts/backuppolicies
@@ -612,6 +626,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.network/vpngateways
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
+- microsoft.networkfunction/azuretrafficcollectors
 - Microsoft.NotificationHubs/namespaces(알림 허브 네임스페이스)
 - Microsoft.NotificationHubs/namespaces/notificationHubs(알림 허브)
 - microsoft.nutanix/interfaces
@@ -675,6 +690,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Search/searchServices(검색 서비스)
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.security/securityconnectors
 - Microsoft.SecurityDetonation/chambers(보안 데토네이션 챔버)
 - Microsoft.ServiceBus/namespaces(Service Bus 네임스페이스)
 - Microsoft.ServiceFabric/clusters(Service Fabric 클러스터)
@@ -729,7 +745,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Synapse/workspaces(Azure Synapse Analytics)
 - Microsoft.Synapse/workspaces/bigDataPools(Apache Spark 풀)
 - microsoft.synapse/workspaces/eventstreams
-- Microsoft.Synapse/workspaces/kustopools (Kusto 풀(미리 보기))
+- Microsoft.Synapse/workspaces/kustopools(데이터 탐색기 풀(미리 보기))
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools(전용 SQL 풀)
 - microsoft.terraformoss/providerregistrations
@@ -772,7 +788,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.web/sites/premieraddons
 - Microsoft.Web/sites/slots(App Service(슬롯))
 - Microsoft.Web/StaticSites(Static Web Apps (미리 보기))
-- microsoft.web/workerapps
+- Microsoft.Web/WorkerApps(Container Apps)
 - Microsoft.WindowsESU/multipleActivationKeys(Windows 복수 정품 인증 키)
 - Microsoft.WindowsIoT/DeviceServices(Windows 10 IoT Core Services)
 - microsoft.workloadbuilder/migrationagents
@@ -781,7 +797,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - NGINX.NGINXPLUS/nginxDeployments (NGINX 배포)
 - Paraleap.CloudMonix/services(CloudMonix)
 - Pokitdok.Platform/services(PokitDok 플랫폼)
-- Providers.Test/statefulIbizaEngines (서비스 링커)
+- Providers.Test/statefulIbizaEngines(애플리케이션 평가)
 - RavenHq.Db/databases(RavenHQ)
 - Raygun.CrashReporting/apps(Raygun)
 - Sendgrid.Email/accounts(SendGrid 계정)

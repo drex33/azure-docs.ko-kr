@@ -6,14 +6,14 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/20/2021
 ms.author: helohr
-ms.openlocfilehash: 97c81eadf7091f04b77b094a4622c1731d19c537
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: f168c05e5df3421126c94bea7160896fb1b75363
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567795"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662275"
 ---
 # <a name="connections-to-azure-ad-joined-vms"></a>Azure AD 조인 VM에 연결
 
@@ -41,6 +41,7 @@ Windows 보안 자격 증명 프롬프트에 **로그온 시도 실패** 라는 
 - 세션 호스트 OR과 동일한 Azure AD 테넌트에 Azure AD 조인된 디바이스 또는 하이브리드 Azure AD 조인된 디바이스를 사용 중입니다.
 - 세션 호스트와 동일한 Azure AD 테넌트에 Azure AD 등록된 Windows 10 2004 이상을 실행하는 디바이스를 사용 중입니다.
 - 로컬 PC와 세션 호스트 모두에서 [PKU2U 프로토콜이 사용으로 설정](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities)됩니다.
+- Azure AD 조인 VM에서 지원되지 않으므로 사용자 계정에 대해 [사용자별 MFA가 사용되지 않습니다](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms).
 
 ### <a name="the-sign-in-method-youre-trying-to-use-isnt-allowed"></a>사용하려는 로그인 방법은 허용되지 않음
 

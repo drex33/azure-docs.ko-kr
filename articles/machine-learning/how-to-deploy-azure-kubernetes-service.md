@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: a620d1cbd9ae0f9a4f03e6bf744cf2febd8ac240
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 67d28d7f218debde1bd29abf0e4bbdaa0c7c49dd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566795"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867600"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -60,6 +60,9 @@ Azure Kubernetes Service에 배포하는 경우 __작업 영역에 연결__ 된 
 - 작업 영역에 연결된 Azure Kubernetes Service 클러스터입니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조하세요.
 
     - GPU 노드나 FPGA 노드(또는 특정 SKU)에 모델을 배포하려면 특정 SKU를 사용하여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포하는 것은 지원되지 않습니다.
+
+> [!IMPORTANT]
+> 현재 Azure Machine Learning은 AKS 버전 **1.21.x** 에 대한 모델 배포를 지원하지 않습니다.
 
 ## <a name="understand-the-deployment-processes"></a>배포 프로세스 이해
 
@@ -166,6 +169,7 @@ Azure Kubernetes Service에 모델을 배포하려면 필요한 컴퓨팅 리소
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough

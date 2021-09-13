@@ -2,14 +2,14 @@
 title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: af008e8f14e3df60f0ce48a23cb32d45716645d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9244b7c5a62be57b1f8ec9ea0f27918c7aa62457
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535753"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770980"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -154,7 +154,7 @@ Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/u
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | 지원됨<br></br>[새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 통해 Azure VM을 복원하는 동안 복원에 성공하더라도 전용 호스트에서 Azure VM을 복원할 수 없습니다. 이를 위해 디스크로 복원하는 것이 좋습니다. 템플릿을 사용하여 [디스크로 복원](backup-azure-arm-restore-vms.md#restore-disks)하는 동안 전용 호스트에서 VM을 만든 다음, 디스크를 연결합니다.<br></br>[지역 간 복원](backup-azure-arm-restore-vms.md#cross-region-restore)을 수행하는 동안 보조 지역에는 적용되지 않습니다.
 독립 실행형 Azure VM의 Windows Storage 공간 구성 | 지원됨
 [Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | 단일 Azure VM을 백업하고 복원하는 유연한 오케스트레이션 모델에서 지원됩니다.
-관리 ID로 복원 | 예, 관리형 Azure VM에서는 지원되고 클래식 및 비관리형 Azure VM에서는 지원되지 않습니다.  <br><br> 관리 ID를 사용한 지역 간 복원은 지원되지 않습니다. <br><br> 현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.   <br><br> [자세히 알아보기](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
+관리 ID로 복원 | 예, 관리형 Azure VM에서는 지원되고 클래식 및 비관리형 Azure VM에서는 지원되지 않습니다.  <br><br> 관리 ID를 사용한 지역 간 복원은 지원되지 않습니다. <br><br> 현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.   <br><br> [자세한 정보](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 
@@ -174,6 +174,7 @@ Write Accelerator가 설정된 디스크 | 현재 WA 디스크 백업이 있는 
 울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 해당 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조하세요.
 [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업되지 않습니다.
 NVMe/[임시 디스크](../virtual-machines/ephemeral-os-disks.md) | 지원되지 않습니다.
+[ReFS](/windows-server/storage/refs/refs-overview) 복원 | 지원됨. VSS는 NFS 같은 ReFS에서 앱 일치 백업을 지원합니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

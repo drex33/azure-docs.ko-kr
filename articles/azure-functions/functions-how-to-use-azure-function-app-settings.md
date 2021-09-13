@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 760408d05c5ad8ff621d13697e94522829781308
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: aac032247383fe1e0b1e181c0d78864ecda778e7
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539007"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831371"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -46,7 +46,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal에서 함수 앱 설정](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 이 [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) 명령은 다음 예와 같이 기존 애플리케이션 설정을 반환합니다.
 
@@ -64,7 +64,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet은 다음 예와 같이 기존 애플리케이션 설정을 반환합니다. 
 
@@ -106,7 +106,7 @@ Azure Portal에서 함수 앱에 사용되는 계획의 유형을 결정하거�
 
 ![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 다음 Azure CLI 명령을 실행하여 호스팅 계획 유형을 가져옵니다.
 
@@ -120,7 +120,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 이전 예에서 `<RESOURCE_GROUP>` 및 `<FUNCTION_APP_NAME>`을 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 다음 Azure PowerShell 명령을 실행하여 호스팅 계획 유형을 가져옵니다.
 
@@ -204,6 +204,52 @@ Azure CLI 명령을 사용하여 Windows의 사용 계획과 프리미엄 계획
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+
+## <a name="get-your-function-access-keys"></a>함수 액세스 키 가져오기
+
+HTTP 트리거 함수는 일반적으로 `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>` 형식의 URL을 사용하여 호출할 수 있습니다. 함수에 대한 권한 부여가 `anonymous` 이외의 값으로 설정된 경우, 요청에 액세스 키도 제공해야 합니다. `?code=` 쿼리 문자열 또는 요청 헤더를 사용하여 URL에 액세스 키를 제공할 수 있습니다. 자세한 내용은 [함수 액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요. 액세스 키를 얻는 데는 몇 가지 방법이 있습니다. 
+
+# <a name="portal"></a>[포털](#tab/portal)
+
+1. Azure Portal에 로그인한 다음, **함수 앱** 을 검색하고 선택합니다.
+
+1. 확인하려는 함수를 선택합니다.
+
+1. **함수** 아래의 왼쪽 탐색에서 **앱 키** 를 선택합니다.
+
+    그러면 앱의 모든 함수에 액세스하는 데 사용할 수 있는 호스트 키가 반환됩니다. 또한 모든 함수 앱 API에 대한 관리자 수준의 액세스 권한을 제공하는 시스템 키를 반환합니다.   
+
+HTTP 트리거 함수의 **개발자** 아래에서 **기능 키** 를 선택하여 특정 기능 키에 대한 키만 사용하여 최소 권한을 연습할 수도 있습니다. 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure Cloud Shell에서 다음 스크립트를 실행합니다. 출력은 함수 앱에서 HTTP 트리거 함수에 액세스하는 데 사용할 수 있는 [기본(호스트) 키](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level)입니다.
+
+```azurecli-interactive
+subName='<SUBSCRIPTION_ID>'
+resGroup=AzureFunctionsContainers-rg
+appName=glengagtestdocker
+path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
+az rest --method POST --uri $path --query functionKeys.default --output tsv
+```
+
+이 스크립트에서 `<SUBSCRIPTION_ID>` 및 `<APP_NAME>`을(를) 각각 구독의 ID와 함수 앱 이름으로 대체합니다. 이 스크립트는 Cloud Shell의 Bash에서 실행됩니다. Windows 명령 프롬프트에서 실행하도록 수정해야 합니다.  
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+다음 스크립트를 실행합니다. 출력은 함수 앱에서 HTTP 트리거 함수에 액세스하는 데 사용할 수 있는 [기본(호스트) 키](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level)입니다. 
+
+```powershell-interactive
+$subName = '<SUBSCRIPTION_ID>'
+$rGroup = 'AzureFunctionsContainers-rg'
+$appName = '<APP_NAME>'
+$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
+```
+
+이 스크립트에서 `<SUBSCRIPTION_ID>` 및 `<APP_NAME>`을(를) 각각 구독의 ID와 함수 앱 이름으로 대체합니다. 
+
+---
 
 ## <a name="platform-features"></a>플랫폼 기능
 

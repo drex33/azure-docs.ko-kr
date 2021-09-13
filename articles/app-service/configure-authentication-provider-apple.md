@@ -4,12 +4,12 @@ description: App Service 또는 Azure Functions 앱의 ID 공급자로 Apple로 
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b123b0711954e45108b934622f0fabab5be15e0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96603360"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259340"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Apple로 로그인 공급자(미리 보기)를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -39,7 +39,7 @@ Apple 개발자 포털에서 앱 ID와 서비스 ID를 만들어야 합니다.
 ![Apple 개발자 포털에서 새 서비스 식별자 등록](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. **서비스 ID 등록** 페이지에서 설명과 식별자를 제공합니다. 설명은 동의 화면에서 사용자에게 표시되는 내용입니다. 식별자는 App Service를 사용하여 Apple 공급자를 구성하는 데 사용되는 클라이언트 ID가 됩니다. 그런 다음, **구성** 을 선택합니다.
 ![설명과 식별자 제공](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
-9. 팝업 창에서 기본 앱 ID를 앞에서 만든 앱 ID로 설정합니다. 도메인 섹션에서 애플리케이션의 도메인을 지정합니다. 반환 URL의 경우 `<app-url>/.auth/login/apple/callback`URL을 사용합니다. 예들 들어 `https://contoso.azurewebsites.net/.auth/login/apple/callback`입니다. 그런 다음, **추가** 와 **저장** 을 선택합니다.
+9. 팝업 창에서 기본 앱 ID를 앞에서 생성한 앱 ID로 설정합니다. 도메인 섹션에서 애플리케이션의 도메인을 지정합니다. 반환 URL의 경우 `<app-url>/.auth/login/apple/callback`URL을 사용합니다. 예들 들어 `https://contoso.azurewebsites.net/.auth/login/apple/callback`입니다. 그런 다음, **추가** 와 **저장** 을 선택합니다.
 ![등록을 위한 도메인과 반환 URL 지정](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. 서비스 등록 정보를 검토하고 **저장** 을 선택합니다.
 
@@ -81,7 +81,7 @@ Apple에서는 base64 인코딩된 JWT 토큰을 클라이언트 암호로 요�
 ### <a name="sign-the-client-secret-jwt"></a>클라이언트 암호 JWT 서명
 `.p8`이전에 다운로드한 파일을 사용하여 클라이언트 암호 JWT에 서명합니다. 이 파일은 PEM 형식의 프라이빗 서명 키를 포함하는 [PCKS#8 파일](https://en.wikipedia.org/wiki/PKCS_8)입니다. JWT를 만들고 서명할 수 있는 많은 라이브러리가 있습니다. 
 
-JWT 토큰을 만들고 서명하기 위해 온라인에서 사용할 수 있는 다양한 종류의 오픈 소스 라이브러리가 있습니다. JWT 토큰을 생성하는 방법에 대한 자세한 내용은 jwt.io를 참조하세요. 예를 들어 클라이언트 암호를 생성하는 한 가지 방법은 [Microsoft.IdentityModel.Tokens NuGet 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)를 가져와 아래와 같이 약간의 C# 코드를 실행하는 것입니다.
+JWT 토큰을 만들고 서명하기 위해 온라인에서 사용할 수 있는 다양한 종류의 오픈 소스 라이브러리가 있습니다. JWT 토큰 생성에 관한 자세한 내용은 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)를 참조하세요. 예를 들어 클라이언트 암호를 생성하는 한 가지 방법은 [Microsoft.IdentityModel.Tokens NuGet 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)를 가져와 아래와 같이 약간의 C# 코드를 실행하는 것입니다.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;
@@ -137,7 +137,7 @@ public static string GetAppleClientSecret(string teamId, string clientId, string
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>애플리케이션에 공급자 정보 추가
 
 > [!NOTE]
-> 필요한 구성은 새 API 형식으로, 현재 [파일 기반 구성(미리 보기)](.\app-service-authentication-how-to.md#config-file)에서만 지원됩니다. 이러한 파일을 사용하여 아래 단계를 수행해야 합니다.
+> 필요한 구성은 새 API 형식으로, 현재 [파일 기반 구성(미리 보기)](configure-authentication-file-based.md)에서만 지원됩니다. 이러한 파일을 사용하여 아래 단계를 수행해야 합니다.
 
 이 섹션에서는 새 IDP를 포함하도록 구성을 업데이트하는 과정을 안내합니다. 예제 구성은 다음과 같습니다.
 
@@ -147,7 +147,7 @@ public static string GetAppleClientSecret(string teamId, string clientId, string
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

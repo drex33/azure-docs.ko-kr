@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768227"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867330"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -78,8 +78,8 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 |-|-|-|
 | 최대 파일 크기 | 4TiB | 4TiB |
 | 최대 동시 요청 빈도 | 1,000 IOPS | 최대 8,000<sup>1</sup> |
-| 파일의 최대 수신 | 60MiB/초 | 200MiB/초(SMB 다중 채널 미리 보기로 최대 1GiB/초)<sup>2</sup>|
-| 파일의 최대 송신 | 60MiB/초 | 300MiB/초(SMB 다중 채널 미리 보기로 최대 1GiB/초)<sup>2</sup> |
+| 파일의 최대 수신 | 60MiB/초 | 200MiB/초(SMB 다중 채널로 최대 1GiB/초)<sup>2</sup>|
+| 파일의 최대 송신 | 60MiB/초 | 300MiB/초(SMB 다중 채널로 최대 1GiB/초)<sup>2</sup> |
 | 최대 동시 핸들 수 | 2,000개 핸들 | 2,000개 핸들  |
 
 <sup>1 읽기 및 쓰기 IO에 적용됩니다(일반적으로 64KiB보다 작거나 같은 더 작은 IO 크기). 읽기 및 쓰기 이외의 메타데이터 작업은 더 작을 수 있습니다.</sup>

@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: 39cb9b210cb7cff3e8b1b6a58a3ab32e22628833
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5cba4a7d66f5b2bb705df8c685b6c8be05e04a08
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289994"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272352"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -18,7 +18,7 @@ ms.locfileid: "114289994"
 
 다음 환경 변수는 일반적으로 앱 환경과 관련이 있습니다.
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 | `WEBSITE_SITE_NAME` | 읽기 전용입니다. 앱 이름. ||
 | `WEBSITE_RESOURCE_GROUP` | 읽기 전용입니다. 앱 리소스를 포함하는 Azure 리소스 그룹 이름. ||
@@ -46,8 +46,6 @@ ms.locfileid: "114289994"
 | `REMOTEDEBUGGINGVERSION` | 원격 디버깅 버전. ||
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | 기본적으로 앱을 만들 때 App Service 가 공유 스토리지를 생성합니다. 사용자 지정 스토리지 계정을 대신 사용하려면, 스토리지 계정의 연결 문자열을 설정합니다. 함수의 경우, [Functions에 대한 앱 설정 참조](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring)를 참조하세요. | `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`을 사용하여 사용자 지정 스토리지 계정을 지정하는 경우, App Service가 앱에 대한 해당 스토리지 계정에 파일 공유를 생성합니다. 사용자 지정 이름을 사용하려면 이 변수를 원하는 이름으로 설정합니다. 지정된 이름의 파일 공유가 없으면 App Service가 파일 공유를 생성합니다. | `myapp123` |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | 기본적으로, 자동으로 생성된 키는 암호화 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | 기본적으로 자동으로 생성된 키는 서명 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. ||
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | 읽기 전용입니다. Always On이 사용(`1`)인지 아닌지(`0`) 여부를 표시합니다. ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | 읽기 전용입니다. Kudu 앱이 별도의 프로세스에서 실행되고 있는지(`1`) 아닌지(`0`) 여부를 표시합니다. ||
 
@@ -76,7 +74,7 @@ WEBSITE_CLASSIC_MODE
 | `POSTGRESQLCONNSTR_` | 앱 구성에서 PostgreSQL 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
 | `CUSTOMCONNSTR_` | 앱 구성에서 사용자 지정 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
 | `MYSQLCONNSTR_` | 앱 구성에서 Azure SQL Database 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
-| `AZUREFILESSTORAGE_` | 컨테이너 앱에 대한 사용자 지정 Azure File 스토리지에 대한 연결 문자열. |
+| `AZUREFILESSTORAGE_` | 컨테이너 앱의 사용자 지정 Azure 파일 공유에 대한 연결 문자열. |
 | `AZUREBLOBSTORAGE_` | 컨테이너 앱에 대한 사용자 지정 Azure Blob 스토리지에 대한 연결 문자열. |
 
 ## <a name="deployment"></a>배포
@@ -87,8 +85,8 @@ WEBSITE_CLASSIC_MODE
 |-|-|
 | `DEPLOYMENT_BRANCH`| [local Git](deploy-local-git.md) 또는 [cloud Git](deploy-continuous-deployment.md) 배포(예: GitHub)의 경우, Azure에서 배포하려는 분기로 설정합니다. 기본값은 `master`입니다. |
 | `WEBSITE_RUN_FROM_PACKAGE`| 로컬 ZIP 패키지에서 앱을 실행하려면 `1`로 설정하고, 원격 ZIP 패키지에서 앱을 실행하려면 외부 URL의 URL로 설정합니다. 자세한 정보는 [Azure App Service에서 ZIP 패키지의 앱 직접 실행하기](deploy-run-package.md)를 참조하세요. |
-| `WEBSITE_USE_ZIP` | 더 이상 사용되지 않습니다. `WEBSITE_RUN_FROM_PACKAGE`을 사용하세요. |
-| `WEBSITE_RUN_FROM_ZIP` | 더 이상 사용되지 않습니다. `WEBSITE_RUN_FROM_PACKAGE`을 사용하세요. | 
+| `WEBSITE_USE_ZIP` | 더 이상 사용되지 않습니다. `WEBSITE_RUN_FROM_PACKAGE`을 사용합니다. |
+| `WEBSITE_RUN_FROM_ZIP` | 더 이상 사용되지 않습니다. `WEBSITE_RUN_FROM_PACKAGE`을 사용합니다. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Kudu 배포 엔진 사용을 중지하려면 WebDeploy에 대해 `false`로 설정합니다. 기본값은 `true`입니다. Visual Studio(WebDeploy/MSDeploy)를 사용하여 Linux 앱에 배포하려면 `false`로 설정합니다. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | WebDeploy 배포 중에 복사할 수 없을 때 DLL의 이름을 바꾸려면 `1`로 설정합니다. 이 설정은 `WEBSITE_WEBDEPLOY_USE_SCM`이 `false`로 설정된 경우에는 적용할 수 없습니다. |
 | `WEBSITE_DISABLE_SCM_SEPARATION` | 기본적으로, 주 앱과 Kudu 앱은 다른 샌드박스에서 실행됩니다. 앱을 중지할 때 Kudu 앱이 계속 실행되고 있으면 Git 배포 및 MSDeploy를 계속 사용할 수 있습니다. 각 앱에는 자체 로컬 파일이 있습니다. 이 분리를 해제(`false`로 설정)하는 것은 더 이상 완전히 지원되지 않는 레거시 모드입니다. |
@@ -106,7 +104,7 @@ WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID
 
 Kudu 빌드 구성은 네이티브 Windows 앱에 적용되며, Git 기반 또는 ZIP 기반 배포의 동작을 제어하는 데 사용됩니다.
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 | `SCM_BUILD_ARGS` | Msbuild 명령줄의 끝에 항목을 추가하여 기본 명령줄의 이전 부분을 재정의합니다. | 클린 빌드를 수행하려면 `-t:Clean;Compile`을 수행합니다.|
 | `SCM_SCRIPT_GENERATOR_ARGS` | Kudu는 [여기](http://blog.amitapple.com/post/38418009331/azurewebsitecustomdeploymentpart2)에 설명된 `azure site deploymentscript` 명령을 사용하여 배포 스크립트를 생성합니다. 언어 프레임워크 형식을 자동으로 검색하고 명령에 전달할 매개 변수를 결정합니다. 이 설정은 자동으로 생성된 매개 변수를 재정의합니다. | 리포지토리를 일반 콘텐츠 파일로 처리하려면 `--basic -p <folder-to-deploy>`을 수행합니다. |
@@ -146,11 +144,15 @@ Oryx 빌드 구성은 Linux 앱에 적용되며, Git 기반 또는 ZIP 기반 �
 | `HOME` | 읽기 전용입니다. 공유 저장소(`/home`)를 가리키는 디렉터리. |
 | `DUMP_DIR` | 읽기 전용입니다. 크래시 덤프(`/home/logs/dumps`)의 디렉터리. |
 | `APP_SVC_RUN_FROM_COPY` | Linux 앱에만 해당합니다. 기본적으로 앱은 모든 확장된 인스턴스에 대한 공유 디렉터리인 `/home/site/wwwroot`에서 실행됩니다. 컨테이너의 로컬 디렉터리에 앱을 복사하고 실행하려면 이 변수를 `true`로 설정합니다. 이 옵션을 사용하는 경우, `/home/site/wwwroot`에 대한 참조를 하드 코딩하지 않도록 합니다. 대신 `/home/site/wwwroot`에 상대적인 경로를 사용합니다. |
+| `MACHINEKEY_Decryption` | Windows 네이티브 앱이나 Windows 컨테이너 앱의 경우 이 변수는 ASP.NET 암호화 루틴을 사용하도록 앱 환경이나 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 기본 `decryption` 값을 재정의하려면 해당 값을 App Service 앱 설정으로 구성하거나 *Web.config* 파일의 `machineKey` 요소에서 직접 해당 값을 설정합니다. |
+| `MACHINEKEY_DecryptionKey` | Windows 네이티브 앱이나 Windows 컨테이너 앱의 경우 이 변수는 ASP.NET 암호화 루틴을 사용하도록 앱 환경이나 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 자동으로 생성된 `decryptionKey` 값을 재정의하려면 해당 값을 App Service 앱 설정으로 구성하거나 *Web.config* 파일의 `machineKey` 요소에서 직접 해당 값을 설정합니다.|
+| `MACHINEKEY_Validation` | Windows 네이티브 앱이나 Windows 컨테이너 앱의 경우 이 변수는 ASP.NET 암호화 루틴을 사용하도록 앱 환경이나 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 기본 `validation` 값을 재정의하려면 해당 값을 App Service 앱 설정으로 구성하거나 *Web.config* 파일의 `machineKey` 요소에서 직접 해당 값을 설정합니다.|
+| `MACHINEKEY_ValidationKey` | Windows 네이티브 앱이나 Windows 컨테이너 앱의 경우 이 변수는 ASP.NET 암호화 루틴을 사용하도록 앱 환경이나 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 자동으로 생성된 `validationKey` 값을 재정의하려면 해당 값을 App Service 앱 설정으로 구성하거나 *Web.config* 파일의 `machineKey` 요소에서 직접 해당 값을 설정합니다.|
 <!-- | `USE_DOTNET_MONITOR` | if =true then /opt/dotnetcore-tools/dotnet-monitor collect --urls "http://0.0.0.0:50051" --metrics true --metricUrls "http://0.0.0.0:50050" > /dev/null 2>&1 & -->
 
 # <a name="java"></a>[Java](#tab/java)
 
-| 설정 이름 | 설명 | 예 |
+| 설정 이름 | 설명 | 예제 |
 |-|-|-|
 | `JAVA_HOME` | Java 설치 디렉터리의 경로 ||
 | `JAVA_OPTS` | Java SE 앱의 경우, `java` 명령에 전달하는 환경 변수. 시스템 변수를 포함할 수 있습니다. Tomcat의 경우, `CATALINA_OPTS`을 사용합니다. | `-Dmysysproperty=%DRIVEPATH%` |
@@ -221,7 +223,7 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 
 # <a name="php"></a>[PHP](#tab/php)
 
-| 설정 이름 | 설명 | 예|
+| 설정 이름 | 설명 | 예제|
 |-|-|-|
 | `PHP_Extensions` | 쉼표로 구분된 PHP 확장 목록. | `extension1.dll,extension2.dll,Name1=value1` |
 | `PHP_ZENDEXTENSIONS` | 네이티브 앱 Windows의 경우, `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`과 같은 XDebug 확장의 경로로 설정합니다. Linux 앱의 경우, `xdebug`로 설정하여 PHP 컨테이너의 XDebug 버전을 사용합니다. ||
@@ -244,7 +246,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 # <a name="ruby"></a>[Ruby](#tab/ruby)
 
-| 설정 이름 | 설명 | 예 |
+| 설정 이름 | 설명 | 예제 |
 |-|-|-|
 | `PORT` | 읽기 전용입니다. Rails 앱이 컨테이너에서 수신 대기하는 포트. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | 읽기 전용입니다. 현재 인스턴스의 ID. ||
@@ -260,7 +262,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 ## <a name="domain-and-dns"></a>도메인 및 DNS
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 | `WEBSITE_DNS_SERVER` | 나가는 연결(예: 백 엔드 서비스)에 대한 기본 DNS 서버의 IP 주소. App Service에 대한 기본 DNS 서버는 IP 주소가 `168.63.129.16`인 Azure DNS입니다. 앱이 [VNet 통합](web-sites-integrate-with-vnet.md)을 사용하거나 [App Service environment](environment/intro.md)에 있는 경우, 기본적으로 VNet에서 DNS 서버 구성을 상속합니다. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | 나가는 연결에 대한 대체 DNS 서버의 IP 주소. `WEBSITE_DNS_SERVER`을 참조하세요. | |
@@ -269,7 +271,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
  -->
 
-## <a name="tslssl"></a>TSL/SSL
+## <a name="tlsssl"></a>TLS/SSL
 
 자세한 내용은 [Azure App Service의 코드에서 TLS/SSL 인증서 사용](configure-ssl-certificate-in-code.md)을 참조하세요.
 
@@ -285,7 +287,7 @@ DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
 
 자세한 내용은 [Azure App Service에서 스테이징 환경 설정](deploy-staging-slots.md)을 참조하세요.
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 |`WEBSITE_SLOT_NAME`| 읽기 전용입니다. 현재 배포 슬롯의 이름. 프로덕션 슬롯의 이름은 `Production`입니다. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| 기본적으로 사이트 확장의 버전은 각 슬롯에 따라 다릅니다. 이렇게 하면 교환 후 확장 버전 변경으로 인한 예기치 않은 애플리케이션 동작이 방지됩니다. 확장 버전도 교환하려면, *모든 슬롯* 에서 `1`로 설정합니다. ||
@@ -304,7 +306,7 @@ DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
 
 사용자 지정 컨테이너에 대한 자세한 내용은 [Azure에서 사용자 지정 컨테이너 실행](quickstart-custom-container.md)을 참조하세요.
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 | `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | 확장된 인스턴스 간에 `/home` 디렉터리를 공유할 수 있도록 하려면 `true`로 설정합니다. 사용자 지정 컨테이너에 대한 기본값은 `false`입니다. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | 컨테이너를 다시 시작하기 전에 컨테이너가 시작이 완료되기를 기다리는 시간(초). 기본값은 `230`입니다. 최대 `1800`까지 늘릴 수 있습니다. ||
@@ -312,13 +314,9 @@ DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
 | `DOCKER_REGISTRY_SERVER_USERNAME` | `DOCKER_REGISTRY_SERVER_URL`에서 레지스트리 서버로 인증할 사용자 이름. 보안을 위해, 이 변수는 컨테이너에 전달되지 않습니다. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | `DOCKER_REGISTRY_SERVER_URL`에서 레지스트리 서버로 인증하는 데 사용할 암호. 보안을 위해, 이 변수는 컨테이너에 전달되지 않습니다. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | Docker Compose 앱에서는 컨테이너 중 하나만 인터넷에 액세스할 수 있습니다. 기본 컨테이너 선택을 재정의하려면, 구성 파일에 정의된 컨테이너의 이름으로 설정합니다. 기본적으로, 인터넷 액세스 가능 컨테이너는 포트 80 또는 8080을 정의하는 첫 번째 컨테이너이거나, 이러한 컨테이너가 없으면 구성 파일에 정의된 첫 번째 컨테이너입니다. |  |
-| `WEBSITES_PORT` | 사용자 지정 컨테이너의 경우, 요청을 라우팅할 컨테이너의 사용자 지정 포트 번호. 기본적으로 App Service는 포트 80 및 8080의 자동 포트 검색을 시도합니다. ||
+| `WEBSITES_PORT` | 사용자 지정 컨테이너의 경우 App Service가 요청을 라우팅할 컨테이너의 사용자 지정 포트 번호입니다. 기본적으로 App Service는 포트 80 및 8080의 자동 포트 검색을 시도합니다. 이 설정은 환경 변수로 컨테이너에 삽입되지 ‘않습니다’. ||
 | `WEBSITE_CPU_CORES_LIMIT` | 기본적으로 Windows 컨테이너는 선택한 가격 책정 계층에서 사용할 수 있는 모든 코어를 사용하여 실행됩니다. 컨테이너에서 사용하는 코어 수를 줄이려면, 원하는 코어 제한 수로 설정합니다. 자세한 내용은 [컴퓨팅 코어 수 사용자 지정](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores)을 참조하세요.||
 | `WEBSITE_MEMORY_LIMIT_MB` | 기본적으로 Azure App Service에 배포된 모든 Windows 컨테이너는 1GB RAM으로 제한됩니다. 원하는 메모리 제한(MB)으로 설정합니다. 동일한 플랜의 앱에서 이 설정의 누적 합계는 선택한 가격 책정 계층에서 허용하는 금액을 초과해서는 안됩니다. 자세한 내용은 [컨테이너 메모리 사용자 지정](configure-custom-container.md?pivots=container-windows#customize-container-memory)을 참조하세요. ||
-| `MACHINEKEY_Decryption` | Windows 컨테이너의 경우, 이 변수는 ASP.NET 암호화 루틴을 사용하도록 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 기본 `decryption`값을 재정의하려면, 앱 설정으로 설정합니다. ||
-| `MACHINEKEY_DecryptionKey` | Windows 컨테이너의 경우, 이 변수는 ASP.NET 암호화 루틴을 사용하도록 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 자동으로 생성된 `decryptionKey` 값을 재정의하려면, 앱 설정으로 설정합니다. ||
-| `MACHINEKEY_Validation` | Windows 컨테이너의 경우, 이 변수는 ASP.NET 암호화 루틴을 사용하도록 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 기본 `validation`값을 재정의하려면, 앱 설정으로 설정합니다. ||
-| `MACHINEKEY_ValidationKey` | Windows 컨테이너의 경우, 이 변수는 ASP.NET 암호화 루틴을 사용하도록 컨테이너에 삽입됩니다([machineKey 요소](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)) 참조). 자동으로 생성된 `validationKey` 값을 재정의하려면, 앱 설정으로 설정합니다. ||
 | `CONTAINER_WINRM_ENABLED` | Windows 컨테이너 앱의 경우, `1`로 설정하여 WIN-RM(Windows 원격 관리)을 사용하도록 설정합니다. ||
 
 <!-- 
@@ -338,13 +336,13 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | 설정 이름| 설명 |
 |-|-|
 | `WEBSITE_INSTANCE_ID` | 읽기 전용입니다. 앱이 여러 인스턴스로 확장되는 경우, 현재 VM 인스턴스의 고유 ID. |
-| `WEBSITE_IIS_SITE_NAME` | 더 이상 사용되지 않습니다. `WEBSITE_INSTANCE_ID`을 사용하세요. |
+| `WEBSITE_IIS_SITE_NAME` | 더 이상 사용되지 않습니다. `WEBSITE_INSTANCE_ID`을 사용합니다. |
 | `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | 반복 재활용을 사용하면 앱의 현재 VM 인스턴스가 종료되기 전에 새 VM 인스턴스가 시작됩니다. 경우에 따라 파일 잠금 문제가 발생할 수 있습니다. `1`로 설정하여 해제해 볼 수 있습니다. |
 | `WEBSITE_DISABLE_CROSS_STAMP_SCALE` | 기본적으로, 앱은 Azure Files 또는 Docker 컨테이너를 사용하는 경우에 스탬프를 스케일링할 수 있습니다. `1`또는 `true`로 설정하여 앱의 지역 내에서 스탬프 간 스케일링을 사용하지 않도록 설정합니다. 기본값은 `0`입니다. `WEBSITES_ENABLE_APP_SERVICE_STORAGE`이 `true` 또는 `1`으로 설정된 사용자 지정 Docker 컨테이너는 해당 콘텐츠가 Docker 컨테이너에 완전히 캡슐화되지 않으므로 스탬프 간 스케일링을 할 수 없습니다. |
 
 ## <a name="logging"></a>로깅
 
-| 설정 이름| 설명 | 예 |
+| 설정 이름| 설명 | 예제 |
 |-|-|-|
 | `WEBSITE_HTTPLOGGING_ENABLED` | 읽기 전용입니다. Windows 네이티브 앱에 대한 웹 서버 로깅을 사용할지(`1`) 말지(`0`) 여부를 표시합니다. ||
 | `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | 웹 서버 로그를 사용하는 경우, Windows 네이티브 앱에 대한 웹 서버 로그의 보존 기간(일). | `10` |
@@ -488,6 +486,8 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` 또는 `false`. 기본값은 `true`입니다. 대화형 로그인 중에 발생하는 [암호화 nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) 유효성 검사 오류를 일시적으로 디버깅하는 경우를 제외하고, 이 값을 `false`로 설정하면 안 됩니다. 이 애플리케이션 설정은 V1(classic) 구성 환경에서 사용하기 위한 것입니다. V2 인증 구성 스키마를 사용하는 경우, 대신 `login.nonce.validateNonce` 구성 값을 사용해야 합니다. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | 이 환경 변수는 Azure App Service 플랫폼에서 자동으로 채워지고 통합 인증 모듈을 구성하는 데 사용됩니다. 이 환경 변수의 값은 Azure Resource Manager의 최신 앱의 V2(non-classic) 인증 구성에 해당합니다. 명백하게 구성하기에 적합하지 않습니다. |
 | `WEBSITE_AUTH_ENABLED` | 읽기 전용입니다. Windows 또는 Linux 앱에 삽입되어 App Service 인증이 사용되는지 여부를 나타냅니다. |
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | 기본적으로, 자동으로 생성된 키는 암호화 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_DecryptionKey` 설정에 우선합니다. ||
+| `WEBSITE_AUTH_SIGNING_KEY` | 기본적으로 자동으로 생성된 키는 서명 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_ValidationKey` 설정에 우선합니다. ||
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -547,9 +547,9 @@ WEBSITE_AUTH_FILE_PATH
 |설정 이름 | 설명 |
 |-|-|
 |`IDENTITY_ENDPOINT` | 읽기 전용입니다. 앱의 [관리 ID](overview-managed-identity.md)에 대한 토큰을 검색할 URL. |
-| `MSI_ENDPOINT` | 더 이상 사용되지 않습니다. `IDENTITY_ENDPOINT`을 사용하세요. |
+| `MSI_ENDPOINT` | 더 이상 사용되지 않습니다. `IDENTITY_ENDPOINT`을 사용합니다. |
 | `IDENTITY_HEADER` | 읽기 전용입니다. `IDENTITY_ENDPOINT`에 대한 HTTP GET 요청을 만들 때 `X-IDENTITY-HEADER` 헤더에 추가해야 하는 값입니다. 플랫폼에서 값을 회전합니다. |
-| `MSI_SECRET` | 더 이상 사용되지 않습니다. `IDENTITY_HEADER`을 사용하세요. |
+| `MSI_SECRET` | 더 이상 사용되지 않습니다. `IDENTITY_HEADER`을 사용합니다. |
 <!-- | `WEBSITE_AUTHENTICATION_ENDPOINT_ENABLED` | 기본적으로 사용할 수 없게 설정되어 있나요? TODO | -->
 
 ## <a name="health-check"></a>상태 확인

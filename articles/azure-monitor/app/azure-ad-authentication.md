@@ -3,15 +3,15 @@ title: Application Insights에 대한 Azure AD 인증(미리 보기)
 description: Azure Active Directory(Azure AD) 인증을 사용하도록 설정하여 Application Insights 리소스에 인증된 원격 분석만 수집 확인하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: ab666ba0f7a57023d63e434de78a9b3859c238c8
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9d93da1a8567a7c50dac43c29e3a962652ceee33
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607573"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111471"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Application Insights에 대한 Azure AD 인증(미리 보기)
-이제 Application Insights는 Azure AD(Azure Active Directory) 기반 인증을 지원합니다. 이제 Azure AD를 사용하여 Application Insights 리소스에 인증된 원격 분석만 수집되도록 할 수 있습니다. 
+이제 Application Insights는 Azure AD(Azure Active Directory) 기반 인증을 지원합니다. Azure AD를 사용하여 Application Insights 리소스에 인증된 원격 분석만 수집되도록 할 수 있습니다. 
 
 일반적으로, 다양한 인증 시스템을 사용하면 복잡해질 수 있으며, 대규모로 자격 증명을 관리하기 어렵기 때문에 위험을 초래할 수 있습니다. 이제 로컬 인증을 옵트아웃하고 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 독점적으로 인증된 원격 분석과 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)를 Application Insights 리소스에 수집할 수 있습니다. 이 기능은 중요한 운영(경고/자동 크기 조정 등) 및 비즈니스 의사 결정을 모두 수행하는 데 사용되는 원격 분석의 보안 및 안정성을 향상시키는 단계입니다.
 

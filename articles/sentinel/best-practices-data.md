@@ -8,16 +8,16 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 30132d08a1094fc2bd4b7423ed787eadf77c2249
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537726"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253472"
 ---
 #  <a name="data-collection-best-practices"></a>데이터 수집 모범 사례
 
-이 섹션에서는 Azure Sentinel 데이터 커넥터를 사용하여 데이터를 수집하는 방법의 모범 사례를 검토합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md), [Azure Sentinel 파트너 데이터 커넥터](partner-data-connectors.md), [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
+이 섹션에서는 Azure Sentinel 데이터 커넥터를 사용하여 데이터를 수집하는 방법의 모범 사례를 검토합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md), [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md), [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
 
 ## <a name="prioritize-your-data-connectors"></a>데이터 커넥터 우선 순위 지정
 
@@ -25,7 +25,7 @@ ms.locfileid: "122537726"
 
 다른 데이터 커넥터와 예산을 계속 계획하는 동안 무료 데이터 커넥터는 최대한 빨리 Azure Sentinel의 값을 표시하기 시작합니다.
 
-[파트너](partner-data-connectors.md)와 [사용자 지정](create-custom-connector.md) 데이터 커넥터의 경우 먼저 가장 높은 우선 순위부터 시작하여 [Syslog](connect-syslog.md) 및 [CEF](connect-common-event-format.md) 커넥터와 Linux 기반 디바이스를 설정합니다.
+[파트너](data-connectors-reference.md)와 [사용자 지정](create-custom-connector.md) 데이터 커넥터의 경우 먼저 가장 높은 우선 순위부터 시작하여 [Syslog](connect-syslog.md) 및 [CEF](connect-common-event-format.md) 커넥터와 Linux 기반 디바이스를 설정합니다.
 
 데이터 수집에 너무 많은 비용이 소요되거나 속도가 너무 빠른 경우 [Azure Monitor 에이전트](../azure-monitor/agents/azure-monitor-agent-overview.md)를 사용하여 전달되는 로그를 중지하거나 필터링합니다.
 

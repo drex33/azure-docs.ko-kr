@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 08/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f79c9cb7381f2325de2efca5e20b37c60ab72013
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 8752a80eb4b5faae3566ce1e7bbd70dd61b26ba1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113652455"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219612"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
+
+## <a name="august-2021"></a>2021년 8월
+
+* [추출 요약](how-tos/extractive-summarization.md)의 퍼블릭 미리 보기를 포함하는 버전 `3.2-preview.1`.
+* 이제 Azure Government 및 Azure 중국 지역에서 [비동기 작업](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous)을 사용할 수 있음
+* 추출 요약을 지원하는 클라이언트 라이브러리의 새 미리 보기 버전 자세한 내용은 [빠른 시작을 참조](quickstarts/client-libraries-rest-api.md)하세요.
 
 ## <a name="july-2021"></a>2021년 7월
 

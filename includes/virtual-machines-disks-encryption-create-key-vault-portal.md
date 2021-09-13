@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/15/2021
+ms.date: 08/25/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e05dd70ab0919ca4429cee15ecfc9d6ac9ee627
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122264064"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835598"
 ---
 디스크에 대한 고객 관리형 키를 설정하려면 처음으로 수행하는 경우 특정 순서로 리소스를 만들어야 합니다. 먼저 Azure Key Vault를 만들고 설정해야 합니다.
 
@@ -60,11 +60,8 @@ ms.locfileid: "122264064"
 
 1. **디스크 암호화 집합** 을 검색하고 선택합니다.
 1. **디스크 암호화 집합** 창에서 **+만들기** 를 선택합니다.
-
-    ![디스크 암호화 포털 주 화면의 스크린샷. 추가 단추 강조 표시](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
-
 1. 리소스 그룹을 선택하고, 암호화 집합의 이름을 지정하고, 키 자격 증명 모음으로 동일한 지역을 선택합니다.
-1. **암호화 유형** 에서 **고객 관리형 키로 미사용 데이터 암호화** 를 선택합니다.
+1. **SSE 암호화 유형** 에서 **고객 관리형 키로 미사용 데이터 암호화** 를 선택합니다.
 
     > [!NOTE]
     > 특정 암호화 유형을 사용하여 디스크 암호화 집합을 만든 후에는 변경할 수 없습니다. 다른 암호화 유형을 사용하려면 새 디스크 암호화 집합을 만들어야 합니다.
@@ -72,6 +69,7 @@ ms.locfileid: "122264064"
 1. **키를 선택하려면 클릭** 을 선택합니다.
 1. 이전에 만든 키 자격 증명 모음 및 키와 버전을 선택합니다.
 1. **선택** 을 누릅니다.
+1. [고객 관리형 키의 자동 회전](../articles/virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys)을 사용하려면 **자동 키 회전** 을 선택합니다.
 1. **검토 + 만들기**, **만들기** 를 차례로 선택합니다.
 
-    ![디스크 암호화 만들기 창의 스크린샷. 구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역 및 키 자격 증명 모음 + 키 선택기를 표시합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역, 키 자격 증명 모음 + 키 선택기를 보여 주는 디스크 암호화 만들기 창의 스크린샷" lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b0f67862352f2354dbdb5439542229dbee67ae00
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 84d290558d781b592a114b3f3f5658d1ceebe115
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107490"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221225"
 ---
 # <a name="connect-to-an-internal-virtual-network-using-azure-api-management"></a>Azure API Management를 사용하여 내부 가상 네트워크에 연결 
 Azure Virtual Networks(VNET)를 사용하면 Azure API Management가 여러 VPN 기술을 사용하여 인터넷에 액세스할 수 없는 API를 관리할 수 있습니다. [외부](./api-management-using-with-vnet.md) 또는 내부 모드를 통해 API Management를 배포할 수 있습니다. 이 문서에서는 내부 VNET 모드에서 API Management를 배포하는 방법을 알아봅니다.
@@ -40,7 +40,7 @@ API Management는 내부 VNET 모드로 배포되는 경우, 액세스 권한을
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 + **활성 Azure 구독** [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ API Management 서비스가 VNET에 배포된 경우, [포트 목록](./api-mana
 | 가상 IP 주소 | 설명 |
 | ----- | ----- |
 | **개인 가상 IP 주소** | `gateway`, `portal`, `management`, `scm` 엔드포인트에 액세스할 수 있는 API Management 위임 서브넷 내에서 부하가 분산된 IP 주소입니다. |  
-| **공용 가상 IP 주소** | `port 3443`를 통해 `management` 엔드포인트에 대한 제어 평면 *트래픽에만* 사용됩니다. [ApiManagement][ServiceTags] 서비스 태그로 잠글 수 있습니다. |  
+| **공용 가상 IP 주소** | `port 3443`을 통해 `management` 엔드포인트에 대한 컨트롤 플레인 트래픽에 사용됩니다. [ApiManagement][ServiceTags] 서비스 태그로 잠글 수 있습니다. 없음 및 외부 VNet 구성에서는 들어오는 런타임 API 트래픽에 사용됩니다. 또한 모든 VNet 구성에서 인터넷의 나가는 런타임 트래픽에 사용됩니다. |  
 
 ![내부 VNET이 구성된 API Management 대시보드][api-management-internal-vnet-dashboard]
 

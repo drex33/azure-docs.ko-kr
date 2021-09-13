@@ -3,12 +3,12 @@ title: 배치 정책 만들기(미리 보기)
 description: Azure VMware Solution에 배치 정책을 만들어 Azure Portal 통해 클러스터 내 호스트의 VM(가상 머신) 배치를 제어하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 8/18/2021
-ms.openlocfilehash: b7a29abfc0a59da445323c0aa651928c02e65a9b
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 85146ce86dea0d3cfa7397cdaae6fefc8cf4a23b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531087"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967546"
 ---
 # <a name="create-a-placement-policy-in-azure-vmware-solution-preview"></a>Azure VMware Solution 배치 정책 만들기(미리 보기)
 
@@ -32,7 +32,7 @@ Azure VMware Solution 프라이빗 클라우드의 클러스터는 관리되는 
 - **가상 머신** - 정책에 대한 VM 및 호스트를 정의합니다. 만드는 규칙 유형에 따라 정책에 따라 일부 수의 VM 및 호스트를 지정해야 할 수 있습니다. 자세한 내용은 [배치 정책 유형](#placement-policy-types)을 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 배치 정책을 관리하려면 프라이빗 클라우드에 대한 _Contributor_ 수준 액세스 권한이 있어야 합니다.
 
@@ -206,20 +206,20 @@ Cloudadmin 역할의 소유자는 VM/호스트 규칙에 따라 클러스터의 
 ## <a name="faqs"></a>FAQ
 
 ### <a name="are-these-the-same-as-drs-affinity-rules"></a>DRS 선호도 규칙과 동일 합니까?
-예 및 아니요. VSphere DRS는 현재 정책 집합을 구현 하지만 환경을 간소화 했습니다. VM 그룹 및 호스트 그룹 조정은 특히 호스트가 본질적으로 임시적이며 클라우드 환경에서 교체될 수 있기 때문에 번거로운 작업입니다. 온-프레미스 환경의 vSphere 인벤토리에서 호스트가 교체되면 vSphere 관리자는 원하는 VM-호스트 배치 제약 조건이 계속 적용되도록 호스트 그룹을 수정해야 합니다. Azure VMware 솔루션의 배치 정책은 호스트를 회전 하거나 변경할 때 호스트 그룹을 업데이트 합니다. 마찬가지로 클러스터에서 크기를 조정 하는 경우 해당 하는 경우 호스트 그룹이 자동으로 업데이트 됩니다. 이렇게 하면 고객에 대 한 호스트 그룹을 관리 하는 오버헤드가 제거 됩니다.
+예 및 아니요. VSphere DRS는 현재 정책 집합을 구현 하지만 환경을 간소화 했습니다. VM 그룹과 호스트 그룹 수정은 특히 호스트가 본질적으로 임시적이며 클라우드 환경에서 교체될 수 있기 때문에 번거로운 작업입니다. 온-프레미스 환경의 vSphere 인벤토리에서 호스트가 교체되면 vSphere 관리자는 원하는 VM-호스트 배치 제약 조건이 계속 적용되도록 호스트 그룹을 수정해야 합니다. Azure VMware 솔루션의 배치 정책은 호스트를 회전 하거나 변경할 때 호스트 그룹을 업데이트 합니다. 마찬가지로 클러스터에서 크기를 조정 하는 경우 해당 하는 경우 호스트 그룹이 자동으로 업데이트 됩니다. 이렇게 하면 고객에 대 한 호스트 그룹을 관리 하는 오버헤드가 제거 됩니다.
 
 
 ### <a name="as-this-is-an-existing-functionality-available-in-vcenter-why-cant-i-use-it-directly"></a>VCenter에서 사용할 수 있는 기존 기능이지만 이 기능을 직접 사용할 수 없는 이유는 무엇입니까? 
 
 Azure VMware Solution은 Azure에서 VMware 프라이빗 클라우드를 제공합니다. 이 관리되어 있는 VMware 인프라에서 Microsoft는 사설 클라우드의 클러스터, 호스트, 데이터 저장소 및 분산 가상 스위치를 관리 합니다. 동시에 테넌트는 사설 클라우드에 배포된 워크로드를 관리 하는 일을 담당 합니다. 따라서 사설 클라우드를 관리 하는 테넌트는 온-프레미스 배포에서 VMware 관리자에 게 제공 되는 것과 [동일한 권한 집합을 가지고 있지 않습니다](concepts-identity.md). 
 
-또한 vSphere 권한에서 원하는 세분성이 부족하면 사설 클라우드의 워크 로드 배치를 관리할 때 몇 가지 어려움이 발생 합니다. 예를 들어, 일반적으로 온-프레미스에서 선호도를 정의 하는 데 사용 되는 vSphere DRS 규칙은 VMware 클라우드 환경에서 있는 그대로 사용할 수 없습니다. 이러한 규칙 중 일부는 사설 클라우드를 일상적인 작업을 차단할 수 있기 때문입니다. 배치 정책은 AVS 포털을 통해 이러한 규칙을 정의 하는 방법을 제공 하므로 DRS 규칙을 사용 하지 않아도 됩니다. 간소화 된 환경과 함께 규칙은 일상적인 인프라 유지 관리 및 작업 활동에 영향을 주지 않도록 합니다. 
+또한 vSphere 권한에서 원하는 세분성이 부족하면 사설 클라우드의 워크 로드 배치를 관리할 때 몇 가지 어려움이 발생 합니다. 예를 들어, 온-프레미스에서 선호도와 비선호도 규칙을 정의하는 데 일반적으로 사용되는 vSphere DRS 규칙은 VMware 클라우드 환경에서 있는 그대로 사용할 수 없습니다. 해당 규칙 중 일부는 프라이빗 클라우드의 일상적인 작업을 차단할 수 있기 때문입니다. 배치 정책은 Azure VMware Solution 포털을 사용하여 해당 규칙을 정의하는 방법을 제공하므로 DRS 규칙을 사용할 필요가 없습니다. 간소화된 환경과 함께 해당 정책은 규칙이 일상적인 인프라 유지 관리 및 작업 활동에 영향을 주지 않도록 합니다. 
 
 
-###  <a name="what-caveats-should-i-be-aware-of"></a>어떤 주의 사항을 알고 있어야 할까요?
+###  <a name="what-caveats-should-i-know-about"></a>어떤 주의 사항을 알고 있어야 하나요?
 
-VM-호스트는 반드시 유지 관리 작업을 차단 해야 하며 배치 정책에서 지원 되지 않아야 합니다. 
+VM 호스트 **MUST** 규칙은 유지 관리 작업을 차단하기 때문에 지원되지 않습니다. 
 
-VM-호스트 규칙은 vSphere DRS가 가능한 한 규칙을 수용하려고 하는 우선 순위 규칙이어야 합니다. vSphere DRS는 워크로드가 필요한 리소스를 확보하도록 하기 위해 VM-호스트 규칙의 적용을 받는 가상 머신을 vMotion할 수 있습니다. 표준 vSphere DRS 동작으로, 배치 정책 기능은 기본 vSphere DRS 동작을 변경 하지 않습니다.
+VM 호스트 **SHOULD** 규칙은 vSphere DRS가 최대한 규칙을 수용하려는 경우 우선 규칙입니다. 경우에 따라 vSphere DRS는 워크로드가 필요한 리소스를 가져오도록 VM 호스트 **SHOULD** 규칙이 적용되는 VM을 vMotion할 수 있습니다. 표준 vSphere DRS 동작이며 배치 정책 기능은 기본 vSphere DRS 동작을 변경하지 않습니다.
 
 충돌 하는 규칙을 만드는 경우 해당 충돌은 vCenter에 표시 될 수 있으며 새로 정의된 규칙이 적용되지 않을 수 있습니다. 이는 vCenter에서 관찰할 수 있는 로그인 표준 vSphere DRS 동작입니다.

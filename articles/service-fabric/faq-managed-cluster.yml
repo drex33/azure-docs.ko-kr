@@ -6,14 +6,14 @@ metadata:
   ms.author: micraft
   author: craftyhouse
   ms.service: service-fabric
-  ms.date: 7/14/2021
+  ms.date: 8/23/2021
   ms.custom: references_regions
-  ms.openlocfilehash: 6b77924cd499eec27175eba1f690c2429420c625
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: de8cf3599c35ed9069800353a38c46d353eab53a
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122538455"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122864986"
 title: Service Fabric 관리형 클러스터 질문과 대답
 summary: Service Fabric 관리형 클러스터에 대한 FAQ와 그 답변입니다.
 sections:
@@ -42,7 +42,7 @@ sections:
   - question: >
       기본과 표준 SKU 클러스터 간의 차이점은 무엇인가요?
     answer: >
-      기본 SKU 클러스터는 대부분의 구성이 Service Fabric 리소스 공급자에 의해 제공됩니다. 기본 SKU 클러스터는 테스트 및 사전 프로덕션 환경에 사용하기 위한 클러스터입니다. 표준 SKU 클러스터를 사용하면 사용자의 특정한 요구를 충족하는 클러스터를 구성할 수 있습니다. 자세한 내용은 [Service Fabric 관리형 클러스터 SKU](./overview-managed-cluster.md#service-fabric-managed-cluster-skus)를 참조하세요.
+      기본 SKU 클러스터는 최소한의 구성 변경으로 테스트 및 사전 프로덕션 환경에 사용해야 합니다. 표준 SKU 클러스터를 사용하면 사용자의 특정한 요구를 충족하는 클러스터를 구성할 수 있습니다. 자세한 내용은 [Service Fabric 관리형 클러스터 SKU](./overview-managed-cluster.md#service-fabric-managed-cluster-skus)를 참조하세요.
   - question: >
       계획된 기능을 보거나 추천할 수 있는 위치는 어디인가요?
     answer: "[관리형 클러스터](https://github.com/microsoft/service-fabric/projects/17)용 github 프로젝트를 참조하세요.      \n"
@@ -55,11 +55,18 @@ sections:
   - question: >
       내부 전용 부하 분산 장치를 사용할 수 있나요?
     answer: >
-      현재는 내부 전용 부하 분산 장치를 사용할 수 없습니다. 원치 않는 인바운드/아웃바운드 트래픽을 차단하도록 NSG(네트워크 보안 그룹) 규칙을 잠그는 것을 권장합니다.
+      이는 2021-07-01-preview 릴리스에서 지원됩니다. [Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성](./how-to-managed-cluster-networking.md#byolb)을 참조하세요.
+  - question: >
+      IPv6을 사용할 수 있나요?
+    answer: >
+      이는 2021-07-01-preview 릴리스에서 지원됩니다. [Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성](./how-to-managed-cluster-networking.md#ipv6)을 참조하세요.
+  - question: >
+      Service Fabric 관리형 클러스터에 기존 VNet을 사용할 수 있나요?
+    answer: >
+      이는 2021-07-01-preview 릴리스에서 지원됩니다. [Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성](./how-to-managed-cluster-networking.md#byolb)을 참조하세요.
   - question: >
       내 클러스터 크기를 자동으로 조정할 수 있나요?
-    answer: >
-      자동 크기 조정은 현재 지원되지 않습니다.
+    answer: "현재는 자동 스케일링을 사용할 수 없습니다. 자세한 내용은 [관리형 클러스터](https://github.com/microsoft/service-fabric/projects/17) GitHub 프로젝트를 참조하세요. \n"
   - question: >
       가용성 영역에서 클러스터를 배포할 수 있나요?
     answer: >

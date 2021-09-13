@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530530"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768475"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -87,6 +87,7 @@ ms.locfileid: "122530530"
 | **AzureSignalR** | Azure SignalR입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md)를 참조하세요. | 인바운드 | 예 | 예 |  
+| **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>‘참고:’ 이 태그는 Windows 업데이트 메타데이터 서비스에 대한 액세스를 제공합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
 | **BatchNodeManagement** | Azure Batch 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **CognitiveServicesManagement** | Azure Cognitive Services에 대한 트래픽 주소 범위입니다. | 모두 | 예 | 예 |
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
@@ -109,7 +110,8 @@ ms.locfileid: "122530530"
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Synapse Analytics.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
 | **SqlManagement** | SQL 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **스토리지** | Azure Storage. <br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
-| **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 예 |
+| **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 아니요 |
+| **WindowsAdminCenter** | Windows Admin Center 백 엔드 서비스가 고객의 Windows Admin Center 설치와 통신하도록 허용합니다. *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
 | **WindowsVirtualDesktop** | Windows 가상 데스크톱입니다. | 모두 | 예 | 예 |
 | **VirtualNetwork** | 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 IP 주소 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)에 연결된 가상 네트워크, [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)입니다. 이 태그에는 기본 경로가 포함될 수도 있습니다. | 모두 | 예 | 예 |
 

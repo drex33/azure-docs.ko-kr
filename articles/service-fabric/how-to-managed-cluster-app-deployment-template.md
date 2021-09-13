@@ -1,17 +1,17 @@
 ---
-title: ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포
-description: Azure Resource Manager 템플릿을 사용하여 Azure Service Fabric 관리형 클러스터에 애플리케이션을 배포합니다.
+title: Azure Resource Manager를 사용하여 애플리케이션을 관리형 클러스터 배포
+description: Azure Resource Manager를 사용하여 Azure Service Fabric 관리형 클러스터에서 Service Fabric 애플리케이션을 배포, 업그레이드 또는 삭제하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a40dc23b0eeda4c680d0151b08cb1c8f1a84053
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f2f2f47e9cdcef54be9c78513fbb57cd20ddde5f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290154"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864779"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>ARM 템플릿을 사용한 Service Fabric 관리형 클러스터 애플리케이션 배포
+# <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 관리형 클러스터에서 애플리케이션 수명 주기 관리
 
 Service Fabric 관리형 클러스터에 Azure Service Fabric 애플리케이션을 배포하기 위한 여러 옵션이 있습니다. Azure Resource Manager를 사용하는 것이 좋습니다. Resource Manager를 사용하는 경우 애플리케이션과 서비스를 JSON 형식으로 설명한 다음, 클러스터와 동일한 Resource Manager 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 사용하여 애플리케이션을 배포하고 관리하는 것과 달리, Resource Manager를 사용하는 경우 클러스터가 준비될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비전 및 배포를 모두 한 단계로 수행할 수 있습니다. 클러스터에서 애플리케이션 수명 주기를 관리하는 가장 좋은 방법은 Resource Manager를 사용하는 것입니다. 자세한 내용은 [모범 사례: IaC(Infrastructure as Code)](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources)를 참조하세요.
 
@@ -25,11 +25,11 @@ Resource Manager의 리소스로 애플리케이션을 관리하면 다음과 �
 
 > [!div class="checklist"]
 >
-> * Resource Manager를 사용하여 애플리케이션 리소스를 배포합니다.
-> * Resource Manager를 사용하여 애플리케이션 리소스를 업그레이드합니다.
-> * 애플리케이션 리소스를 삭제합니다.
+> * Resource Manager를 사용하여 서비스 패브릭 애플리케이션 리소스를 배포합니다.
+> * Resource Manager를 사용하여 서비스 패브릭 애플리케이션 리소스를 업그레이드합니다.
+> * 서비스 패브릭 애플리케이션 리소스를 삭제합니다.
 
-## <a name="deploy-application-resources"></a>애플리케이션 리소스 배포
+## <a name="deploy-service-fabric-application-resources"></a>Service Fabric 애플리케이션 리소스 배포
 
 Resource Manager 애플리케이션 리소스 모델을 사용하여 애플리케이션 및 해당 서비스를 배포하기 위해 수행하는 상위 레벨 단계는 다음과 같습니다.
 1. 애플리케이션 코드를 패키징합니다.
@@ -38,7 +38,7 @@ Resource Manager 애플리케이션 리소스 모델을 사용하여 애플리�
 
 자세한 내용은 [애플리케이션 패키지](service-fabric-package-apps.md#create-an-sfpkg)를 참조하세요.
 
-그런 다음 Resource Manager 템플릿을 만들고 애플리케이션 세부 정보를 사용하여 매개 변수 파일을 업데이트한 다음, Service Fabric 클러스터에 템플릿을 배포합니다. [샘플을 살펴보세요](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
+그런 다음, Resource Manager 템플릿을 만들고, 애플리케이션 세부 정보를 사용하여 매개 변수 파일을 업데이트하고, Service Fabric 관리형 클러스터에 템플릿을 배포합니다. [샘플을 살펴보세요](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -127,7 +127,7 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 }
 ```
 
-### <a name="deploy-the-application"></a>애플리케이션 배포
+### <a name="deploy-the-service-fabric-application"></a>Service Fabric 애플리케이션 배포
 
 **AzResourceGroupDeployment** cmdlet을 실행하여 클러스터를 포함하는 리소스 그룹에 애플리케이션을 배포합니다.
 
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Resource Manager를 사용하여 Service Fabric 애플리케이션 업그레이드
 
 > [!IMPORTANT]
-> ARM JSON 정의를 통해 배포되는 모든 서비스는 해당 ApplicationManifest.xml 파일의 DefaultServices 섹션에서 제거해야 합니다.
+> ARM(Azure Resource Manager) 템플릿을 통해 배포되는 모든 서비스는 해당 ApplicationManifest.xml 파일의 DefaultServices 섹션에서 제거해야 합니다.
 
 
 다음과 같은 이유 중 하나로 Service Fabric 클러스터에 이미 배포된 애플리케이션을 업그레이드할 수 있습니다.
@@ -164,9 +164,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
         "value": "1.0.1"
     },
     ```
-## <a name="delete-application-resources"></a>애플리케이션 리소스 삭제
+## <a name="delete-service-fabric-application-resources"></a>Service Fabric 애플리케이션 리소스 삭제
+> [!NOTE]
+> 개별 리소스를 정리하는 선언적 방법이 없으므로 ARM(Azure Resource Manager) 템플릿을 통해 애플리케이션을 삭제하면 안 됩니다.
 
-Resource Manager에서 애플리케이션 리소스 모델을 사용하여 배포된 애플리케이션을 삭제하려면 다음을 수행합니다.
+Resource Manager에서 애플리케이션 리소스 모델을 사용하여 배포된 서비스 패브릭 애플리케이션을 삭제하려면 다음을 수행합니다.
 
 1. [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet을 사용하여 애플리케이션의 리소스 ID를 가져옵니다.
 

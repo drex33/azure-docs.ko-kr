@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 디지털 트윈의 개념과 관계가 어떻게 그래프를 만드는지를 이해합니다.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1145525fe3d2e7c42204aa675153d4eb099cccce
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 42cce83683df789aeaabe53ca170f17319ec3603
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538530"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224846"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 트윈 및 트윈 그래프 이해
 
@@ -25,7 +25,7 @@ Azure Digital Twins 솔루션에서 환경의 엔터티는 **디지털 트윈** 
 
 Azure Digital Twins 인스턴스에서 디지털 트윈을 만들려면 먼저 서비스에 *모델* 을 업로드해야 합니다. 모델은 특정 트윈에 포함될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명합니다. 모델에 정의된 정보 유형은 [사용자 지정 모델](concepts-models.md)을 참조하세요.
 
-모델을 만들고 업로드한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 이는 디지털 트윈입니다. 예를 들어 Floor의 모델을 만든 후 이 형식을 사용하는 하나 또는 여러 개의 디지털 트윈을 만들 수 있습니다(예: GroundFloor라는 Floor 형식 트윈, Floor2라는 다른 형식의 트윈).
+모델을 만들고 업로드한 후 클라이언트 앱에서 해당 형식의 인스턴스를 만들 수 있습니다. 이 인스턴스가 디지털 트윈입니다. 예를 들어, Floor의 모델을 만든 후 이 형식을 사용하는 하나 이상의 디지털 트윈을 만들 수 있습니다(예: GroundFloor라는 Floor 형식 트윈, Floor2라는 다른 트윈 등).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -43,7 +43,7 @@ Azure Digital Twins 인스턴스에서 디지털 트윈을 만들려면 먼저 �
 
 ## <a name="create-with-the-apis"></a>API로 만들기
 
-이 섹션에서는 클라이언트 애플리케이션에서 디지털 트윈 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 활용하는 .NET 코드 예제를 포함하여 이러한 각 개념 내에서 수행되는 작업에 대한 추가 컨텍스트를 제공합니다.
+이 섹션에서는 클라이언트 애플리케이션에서 디지털 트윈 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 사용하는 .NET 코드 예제를 포함하여 이러한 각 개념 내에서 수행되는 작업에 대한 추가 컨텍스트를 제공합니다.
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
@@ -60,13 +60,13 @@ Azure Digital Twins 인스턴스에서 디지털 트윈을 만들려면 먼저 �
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 사용하여 하나의 디지털 트윈("원본" 트윈)에서 다른 디지털 트윈("대상" 트윈)으로의 관계를 만드는 클라이언트 코드 예제입니다.
+다음은 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 사용하여 하나의 디지털 트윈(“원본” 트윈)에서 다른 디지털 트윈(“대상” 트윈)에 대한 관계를 빌드하는 예제 클라이언트 코드입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>그래프 요소의 JSON 표현
 
-디지털 트윈 데이터 및 관계 데이터는 모두 JSON 형식으로 저장됩니다. 즉, Azure Digital Twins 인스턴스에서 [트윈 그래프를 쿼리](how-to-query-graph.md)하면 생성된 디지털 트윈 및 관계의 JSON 표현이 생성됩니다.
+디지털 트윈 데이터와 관계 데이터는 둘 다 JSON 형식으로 저장됩니다. 즉, Azure Digital Twins 인스턴스에서 [트윈 그래프를 쿼리](how-to-query-graph.md)하면 생성된 디지털 트윈과 관계의 JSON 표현이 생성됩니다.
 
 ### <a name="digital-twin-json-format"></a>디지털 트윈 JSON 형식
 

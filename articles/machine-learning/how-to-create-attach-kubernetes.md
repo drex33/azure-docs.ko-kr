@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 96d6897efd010393f0480d17ba5e4a1d252e0ff2
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597269"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867591"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -87,6 +87,9 @@ AKS 클러스터를 만드는 이러한 방법에서는 클러스터의 __기본
 기존 AKS 클러스터를 **연결** 하는 경우 현재 지원되는 모든 AKS 버전을 지원합니다.
 
 > [!IMPORTANT]
+> 현재 Azure Machine Learning은 AKS 버전 **1.21.x** 에 대한 모델 배포를 지원하지 않습니다.
+
+> [!IMPORTANT]
 > Azure Kubernetes Service는 버전 1.16 이상의 [Blobfuse FlexVolume 드라이버](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md)와 버전 1.17 이하의 [Blob CSI 드라이버](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md)를 사용합니다. 따라서 클러스터 버전에 올바른 blobfuse 방법으로 배포하려면 클러스터 업그레이드 후 웹 서비스를 다시 배포하거나 [업데이트](how-to-deploy-update-web-service.md)하는 것이 중요합니다.
 
 > [!NOTE]
@@ -131,7 +134,7 @@ Result
 1.16.13
 ```
 
-**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 - 오케스트레이터 나열](/rest/api/container-service/container-service-client/list-orchestrators) REST API를 사용합니다. 사용 가능한 버전을 확인하려면 `orchestratorType`이 `Kubernetes`인 항목을 확인합니다. 연결된 `orchestrationVersion` 항목에는 작업 영역에 **연결** 할 수 있는 사용 가능한 버전이 포함되어 있습니다.
+**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 컨테이너 서비스 클라이언트 - 오케스트레이터 나열 REST API를 사용합니다. 사용 가능한 버전을 확인하려면 `orchestratorType`이 `Kubernetes`인 항목을 확인합니다. 연결된 `orchestrationVersion` 항목에는 작업 영역에 **연결** 할 수 있는 사용 가능한 버전이 포함되어 있습니다.
 
 Azure Machine Learning을 통해 클러스터를 **만들** 때 사용되는 기본 버전을 확인하려면 `orchestratorType`이 `Kubernetes`이고 `default`가 `true`인 항목을 찾습니다. 연결된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각에서는 항목 예를 보여 줍니다.
 

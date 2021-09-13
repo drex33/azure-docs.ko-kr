@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d9cc1e931e0ec2b607e176b404aa93041437dc2
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 45d03495d0866674352de35c337303a92ff3263b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539600"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835190"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -56,7 +56,8 @@ Microsoft 365 그룹 만들기 기능 | 이 옵션을 ‘아니요’로 설정�
 Azure AD 관리 포털에 대한 액세스 제한 | <p>이 옵션을 아니요로 설정하면 비관리자가 Azure AD 관리 포털을 사용하여 Azure AD 리소스를 읽고 관리할 수 있습니다. 예로 설정하면 모든 비관리자가 관리 포털의 Azure AD 데이터에 액세스하지 못하도록 제한합니다.</p><p>**참고**: 이 설정은 PowerShell 또는 Visual Studio와 같은 다른 클라이언트를 사용하여 Azure AD 데이터에 액세스하는 것을 제한하지 않습니다. ‘예’로 설정된 경우, 관리자가 아닌 특정 사용자에게 Azure AD 관리 포털 사용 권한을 부여하려면 디렉터리 읽기 권한자 역할과 같은 관리 역할을 할당합니다.</p><p>**참고**: 이 설정은 그룹 또는 애플리케이션의 소유자인 관리자가 아닌 사용자가 소유한 리소스를 관리하는 데 Azure Portal을 사용하지 못하도록 차단합니다.</p><p>이 역할을 통해 기본 디렉터리 정보를 읽을 수 있습니다. 이 정보는 멤버 사용자에게 기본적으로 제공됩니다(게스트 및 서비스 주체에게는 제공되지 않음).</p>
 다른 사용자를 읽을 수 있는 기능 | 이 설정은 PowerShell에서만 사용할 수 있습니다. 이 플래그를 $false로 설정하면 관리자가 아닌 모든 사용자가 디렉터리에서 사용자 정보를 읽지 못하게 됩니다. 단, Exchange Online과 같은 다른 Microsoft 서비스에서 사용자 정보를 읽지 못하게 되지는 않습니다. 이 설정은 특수한 상황에서만 사용해야 하며, 이 플래그를 $false로 설정하는 것은 권장되지 않습니다.
 
->![참고] 평균 사용자는 Azure AD에 액세스하는 데 포털만 사용하고 리소스에 액세스하는 데 PowerShell 또는 CLI를 사용하지 않는다고 가정합니다. 현재는 사용자가 Azure Portal 내의 디렉터리에 액세스하려고 할 경우에만 사용자의 기본 권한에 대한 액세스를 제한합니다.
+>[!NOTE]
+>평균 사용자는 Azure AD에 액세스하는 데 포털만 사용하고 리소스에 액세스하는 데 PowerShell 또는 CLI를 사용하지 않는다고 가정합니다. 현재는 사용자가 Azure Portal 내의 디렉터리에 액세스하려고 할 경우에만 사용자의 기본 권한에 대한 액세스를 제한합니다.
 
 ## <a name="restrict-guest-users-default-permissions"></a>게스트 사용자 기본 권한 제한
 

@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 6/24/2021
+ms.date: 8/23/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: 39109106a100d2af8a9dad4e6009f4c73fea8f59
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 8183e52e5b475f08df3631021d8ea6d3120525c8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530235"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772594"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -37,22 +37,20 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>애플리케이션 관리 비용 추정
 
-Application Insights를 아직 사용하고 있지 않다면 [Azure Monitor 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=monitor)를 사용하여 Application Insights를 사용하는 데 드는 비용을 추정할 수 있습니다. 먼저 검색 상자에 “Azure Monitor”를 입력한 후 화면에 표시되는 Azure Monitor 타일을 클릭합니다. Azure Monitor가 표시될 때까지 페이지를 아래로 스크롤하여 유형 드롭다운에서 Application Insights를 선택합니다.  여기에서 매월 수집할 것으로 예상되는 데이터의 GB 수를 입력할 수 있습니다. 따라서 문제는 Application Insights가 애플리케이션을 모니터링하는 과정에서 얼마만큼의 데이터를 수집할 것인가가 됩니다.
+Application Insights를 아직 사용하고 있지 않다면 [Azure Monitor 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=monitor)를 사용하여 Application Insights를 사용하는 데 드는 비용을 추정할 수 있습니다. 먼저 검색 상자에 “Azure Monitor”를 입력한 후 화면에 표시되는 Azure Monitor 타일을 클릭합니다. 페이지를 아래로 스크롤하여 Azure Monitor로 이동하고 Application Insights 섹션을 확장합니다. 예상 비용은 수집된 로그 데이터 양에 따라 달라집니다.  데이터 볼륨을 예측하는 두 가지 방법이 있습니다.
 
-이 문제에는 두 가지 방법으로 접근할 수 있습니다. 하나는 ASP.NET SDK의 기본 모니터링 및 적응 샘플링을 사용하는 것이고, 다른 하나는 본인과 비슷한 다른 고객들의 경우를 기준으로 데이터 수집이 어느 정도가 될 것인지 추정하는 것입니다.
+1. 다른 유사한 애플리케이션이 생성하는 항목에 따라 가능한 데이터 수집을 예측하거나, 
+2. 기본 모니터링과 ASP.NET SDK에서 사용 가능한 적응 샘플링을 사용합니다.
+
+### <a name="learn-from-what-similar-applications-collect"></a>비슷한 애플리케이션이 수집하는 항목에서 학습
+
+Application Insights에 대한 Azure 모니터링 가격 계산기에서 **애플리케이션 활동을 기반으로 데이터 볼륨 예측** 을 클릭하여 사용하도록 설정합니다. 여기서 애플리케이션에 대한 입력(클라이언트 쪽 원격 분석을 수집할 경우 월 요청 건수와 월 페이지 보기 수)을 제공할 수 있으며, 이후 계산기에서 비슷한 애플리케이션에 의해 수집된 데이터 양의 중앙값과 90번째 백분위수를 알려 줍니다. 이러한 애플리케이션에는 여러 Application Insights 구성이 적용되어 있으므로(예: 기본 [샘플링](./sampling.md)을 사용하는 경우와 샘플링을 사용하지 않는 경우 등) 샘플링을 사용하여 수집하는 데이터의 볼륨을 중앙값보다 훨씬 밑으로 제어할 수 있습니다. 
 
 ### <a name="data-collection-when-using-sampling"></a>샘플링을 사용하는 경우의 데이터 수집
 
 ASP.NET SDK의 [적응 샘플링](sampling.md#adaptive-sampling)을 사용하면 데이터 볼륨이 기본 Application Insights 모니터링의 지정된 최대 트래픽 속도 아래로 유지되도록 자동으로 조정됩니다. 디버깅할 때나 사용량이 낮은 경우와 같이 애플리케이션이 낮은 양의 원격 분석을 생성하는 경우, 볼륨이 두 번째 수준에 대해 구성된 이벤트보다 낮은 수준으로 유지되는 한 항목이 샘플링 프로세서에 의해 삭제되지 않습니다. 기본 임계값이 초당 이벤트 5개인 높은 볼륨의 애플리케이션의 경우, 적응 샘플링은 일일 이벤트의 개수를 432,000개로 제한합니다. 일반적인 평균 이벤트 크기인 1KB로 계산했을 때 샘플링이 각 노드에서 로컬로 이루어지므로 애플리케이션을 호스트하는 노드당 월(31일) 13.4GB의 원격 분석에 해당합니다.
 
-> [!NOTE]
-> Azure Monitor 로그 데이터 크기는 GB 단위(1GB = 10^9바이트)로 계산됩니다.
-
 적응 샘플링을 지원하지 않는 SDK의 경우, 보존할 데이터의 백분율을 기준으로 Application Insights가 데이터를 수신하는 시점을 샘플링하는 [수집 샘플링](./sampling.md#ingestion-sampling)을 사용하거나 [ASP.NET, ASP.NET Core 및 Java 웹 사이트를 위한 고정 속도 샘플링](sampling.md#fixed-rate-sampling)을 사용하여 웹 서버와 웹 브라우저에서 전송하는 트래픽을 줄일 수 있습니다.
-
-### <a name="learn-from-what-similar-customers-collect"></a>비슷한 고객이 수집하는 데이터의 볼륨으로부터 추정
-
-Application Insights용 Azure Monitoring 가격 계산기에서 “애플리케이션 작업을 기반으로 데이터 볼륨 추정” 기능을 사용하도록 설정한 경우 애플리케이션에 대한 입력(클라이언트 쪽 원격 분석을 수집할 경우 월 요청 건수와 월 페이지 보기 수)을 제공하면 계산기에서 비슷한 애플리케이션에 의해 수집된 데이터 양의 중앙값과 90번째 백분위 수를 알려 줍니다. 이러한 애플리케이션에는 여러 Application Insights 구성이 적용되어 있으므로(예: 기본 [샘플링](./sampling.md)을 사용하는 경우와 샘플링을 사용하지 않는 경우 등) 샘플링을 사용하여 수집하는 데이터의 볼륨을 중앙값보다 훨씬 밑으로 제어할 수 있습니다. 그러나 이것은 다른 비슷한 고객의 경우를 이해하기 위한 출발점에 지나지 않습니다.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>사용량 및 예상 비용의 이해
 

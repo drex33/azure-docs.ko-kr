@@ -1,6 +1,6 @@
 ---
 title: Arc 지원 서버용 Azure Automanage
-description: Arc 지원 서버용 Azure Automanage에 대해 알아봅니다
+description: Arc 지원 서버용 Azure Automanage에 관해 알아봅니다.
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
 ms.author: alsin
-ms.openlocfilehash: 87008ec2ba23e642ecbbe1e91c7f87d0cc07012f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 990cca45c41eef57f1971c866cdbe1e9efd62f6c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018732"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772612"
 ---
-# <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>컴퓨터용 Azure Automanage 모범 사례 - Arc 지원 서버
+# <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>머신용 Azure Automanage 모범 사례 - Arc 지원 서버
 
 Arc 지원 서버 VM에서 Automanage Machine 모범 사례를 사용하는 경우 이러한 Azure 서비스가 자동으로 온보딩됩니다. 이는 [클라우드 채택 프레임워크](/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 필수적입니다.
 
@@ -24,7 +24,7 @@ Arc 지원 서버 VM에서 Automanage Machine 모범 사례를 사용하는 경�
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Automanage는 Arc 지원 서버에 대해 다음 운영 체제를 지원합니다
+Automanage는 Arc 지원 서버의 다음 운영 체제를 지원합니다.
 
 - Windows Server 2012/R2
 - Windows Server 2016
@@ -36,7 +36,7 @@ Automanage는 Arc 지원 서버에 대해 다음 운영 체제를 지원합니�
 
 ## <a name="participating-services"></a>참여 서비스
 
-|서비스    |설명    |지원되는 환경 <sup>1</sup>    |지원되는 기본 설정 <sup>1</sup>    |
+|서비스    |Description    |지원되는 환경 <sup>1</sup>    |지원되는 기본 설정 <sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |[컴퓨터 인사이트 모니터링](../azure-monitor/vm/vminsights-overview.md)    |컴퓨터용 Azure Monitor는 실행 중인 프로세스와 다른 리소스에 대한 종속성을 비롯하여 가상 머신의 성능과 상태를 모니터링합니다. [자세히](../azure-monitor/vm/vminsights-overview.md) 알아봅니다.    |프로덕션    |아니요    |
 |[Azure Security Center](../security-center/security-center-introduction.md)    |Azure Security Center는 데이터 센터의 보안 상태를 강화하는 통합 인프라 보안 관리 시스템으로, 클라우드의 하이브리드 워크로드에서 Advanced Threat Protection을 제공합니다. [자세히](../security-center/security-center-introduction.md) 알아봅니다.  Automanage는 VM이 Azure Security Center의 체험 계층 제품으로 상주하는 구독을 구성합니다. 구독이 이미 Azure Security Center에 등록된 경우 Automanage는 해당 구독을 다시 구성하지 않습니다.    |프로덕션, 개발/테스트    |아니요    |

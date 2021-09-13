@@ -3,12 +3,12 @@ title: GPU 지원 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용하여 컴퓨팅 집약적 컨테이너 앱을 실행하기 위해 Azure Container Instances를 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: cff887f434230fbc24dfbe27b1f14a463d00cf5d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528390"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108381"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -73,6 +73,9 @@ GPU 리소스를 배포할 때 다음 표에 표시된 최댓값 이내에서 �
 ## <a name="yaml-example"></a>YAML 예제
 
 GPU 리소스를 추가하는 한 가지 방법은 [YAML 파일](container-instances-multi-container-yaml.md)을 사용하여 컨테이너 그룹을 배포하는 것입니다. 다음 YAML을 *gpu-deploy-aci.yaml* 이라는 새 파일에 복사하고 파일을 저장합니다. 이 YAML은 K80 GPU가 있는 컨테이너 인스턴스를 지정하는 *gpucontainergroup* 이라는 컨테이너 그룹을 만듭니다. 이 인스턴스는 샘플 CUDA 벡터 추가 애플리케이션을 실행합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.
+
+ > [!NOTE]
+  > 다음 예제에서는 공용 컨테이너 이미지를 사용합니다. 안정성을 향상하려면 프라이빗 Azure Container Registry에서 이미지를 가져와 관리하고, 비공개로 관리되는 기본 이미지를 사용하도록 YAML을 업데이트합니다. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).
 
 ```YAML
 additional_properties: {}

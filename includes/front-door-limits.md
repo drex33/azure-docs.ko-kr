@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 06/25/2021
+ms.date: 08/24/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: a7035cff720b7eee4467f355a533a19f059c4baa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535760"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123355150"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "122535760"
 | 정책당 사용자 지정 웹 애플리케이션 방화벽 규칙 | 100 |
 | 구독당 웹 애플리케이션 방화벽 정책 수 | 100 |
 | 사용자 지정 규칙당 웹 애플리케이션 방화벽 일치 조건 수 | 10 |
-| 일치 조건당 웹 애플리케이션 방화벽 IP 주소 범위 수 | 600 |
+| 사용자 지정 규칙당 웹 애플리케이션 방화벽 IP 주소 범위 수 | 600 |
 | 일치 조건당 웹 애플리케이션 방화벽 문자열 일치 값 수 | 10 |
 | 웹 애플리케이션 방화벽 문자열 일치 값 길이 | 256 |
 | 웹 애플리케이션 방화벽 POST 본문 매개 변수 이름 길이 | 256 |
@@ -55,7 +55,7 @@ ms.locfileid: "122535760"
 | 단일 캐시 제거 호출의 URL 수 | 100 | 100 |
 | 정책당 사용자 지정 웹 애플리케이션 방화벽 규칙 | 100 | 100 |
 | 사용자 지정 규칙당 웹 애플리케이션 방화벽 일치 조건 수 | 10 | 10 |
-| 일치 조건당 웹 애플리케이션 방화벽 IP 주소 범위 수 | 600 | 600 |
+| 사용자 지정 규칙당 웹 애플리케이션 방화벽 IP 주소 범위 수 | 600 | 600 |
 | 일치 조건당 웹 애플리케이션 방화벽 문자열 일치 값 수 | 10 | 10 |
 | 웹 애플리케이션 방화벽 문자열 일치 값 길이 | 256 | 256 |
 | 웹 애플리케이션 방화벽 POST 본문 매개 변수 이름 길이 | 256 | 256 |

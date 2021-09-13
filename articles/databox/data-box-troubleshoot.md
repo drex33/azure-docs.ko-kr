@@ -1,25 +1,29 @@
 ---
-title: Azure Data Box, Azure Data Box Heavy에 대한 문제 해결
-description: 이러한 장치에 데이터를 복사할 때 Azure Data Box 및 Azure Data Box Heavy에 표시되는 문제를 해결하는 방법을 설명합니다.
+title: Azure Data Box, Azure Data Box Heavy에 대한 데이터 복사 중에 문제 해결
+description: Azure Data Box 및 Azure Data Box Heavy 디바이스에 데이터를 복사할 때 문제를 해결하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 06f0408587cc7c5533bdb852f7ad4f59094a33da
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: e3921e8b326be2163981eacc089e16e6fcf6f1bc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220262"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772414"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy 관련된 문제 해결
+# <a name="troubleshoot-data-copy-issues-on-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에서 데이터 복사 문제 해결
 
-이 문서에서는 가져오기 주문을 위해 Azure Data Box 또는 Azure Data Box Heavy를 사용할 때 나타날 수 있는 문제를 해결하는 방법에 대한 정보를 자세히 설명합니다. 이 문서에는 가져오기 주문을 위해 데이터를 Data Box로 복사할 때 또는 Data Box에서 데이터를 업로드할 때 표시될 수 있는 오류 목록이 포함되어 있습니다.
+이 문서에서는 Azure Data Box 또는 Azure Data Box Heavy 가져오기 주문을 위해 데이터 복사나 데이터 업로드를 수행할 때 문제를 해결하는 방법을 설명합니다. 이 문서에는 데이터가 Data Box로 복사되거나 Data Box에서 업로드될 때 표시될 수 있는 오류 목록이 포함됩니다.
 
-이 문서의 정보는 Data Box에 대해 생성된 내보내기 주문에는 적용되지 않습니다.
+디바이스의 공유 액세스와 관련된 문제를 해결하는 데 도움이 필요하면 [데이터 복사 중 공유 연결 실패 문제 해결](data-box-troubleshoot-share-access.md)을 참조하세요.
+
+
+> [!NOTE]
+> 이 문서의 정보는 가져오기 주문에만 적용됩니다.
 
 ## <a name="error-classes"></a>오류 클래스
 

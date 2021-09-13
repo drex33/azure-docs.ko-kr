@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 2baf8c99161d000b92aa10f02a26018bdb7264f4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 9015e3ce69042a2e7d96588956becff889827ab3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093880"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225190"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -546,7 +546,7 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 14. "파일에 복사..." 클릭
 15. 내보내기 마법사에서 다음 옵션을 선택합니다.
     - Base-64로 인코딩된 X.509
-    - 파일 이름에 대해서는 C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs로 이동하여 원하는 파일 이름으로 저장할 수 있습니다.
+    - 파일 이름에 대해서는 `C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs`로 이동한 다음, 파일 이름으로 저장할 수 있습니다.
 16. 인증서 창 닫기
 17. Storage Explorer 시작
 18. 편집 > 프록시 구성으로 이동합니다.

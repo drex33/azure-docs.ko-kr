@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 4a88e8353d8f6ac0890f449060041ad54bda852d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a7f367c1301a3eb325e9dc024c518ecabe791170
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "122642226"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835647"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Python)
 
@@ -32,15 +32,11 @@ ms.locfileid: "122642226"
 
 * **FileUpload.py** 는 Python 디바이스 SDK를 사용하여 파일을 스토리지로 업로드합니다.
 
-GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/upload_to_blob.py)에서 찾을 수 있는 파일 업로드 앱의 고급 버전이 있습니다. 이 버전을 실행하려면 X.509 인증서, 키 및 암호에 대해 이해해야 합니다. 파일을 업로드하는 데 꼭 필요한 것은 아니므로 아래에 제공된 코드는 X.509를 사용하지 않습니다.
-
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
-[!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
@@ -78,8 +74,7 @@ GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-d
 
     ```python
     import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.iot.device import IoTHubDeviceClient
     from azure.core.exceptions import AzureError
     from azure.storage.blob import BlobClient
 
@@ -92,7 +87,7 @@ GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-d
 1. blob storage에 파일을 업로드하는 함수를 만듭니다.
 
     ```python
-    async def store_blob(blob_info, file_name):
+    def store_blob(blob_info, file_name):
         try:
             sas_url = "https://{}/{}/{}{}".format(
                 blob_info["hostName"],
@@ -124,64 +119,54 @@ GitHub의 [https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-d
 1. 다음 코드를 추가하여 클라이언트를 연결하고 파일을 업로드합니다.
 
     ```python
-    async def main():
+    def run_sample(device_client):
+        # Connect the client
+        device_client.connect()
+
+        # Get the storage info for the blob
+        blob_name = os.path.basename(PATH_TO_FILE)
+        storage_info = device_client.get_storage_info_for_blob(blob_name)
+
+        # Upload to blob
+        success, result = store_blob(storage_info, PATH_TO_FILE)
+
+        if success == True:
+            print("Upload succeeded. Result is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], True, 200, "OK: {}".format(PATH_TO_FILE)
+            )
+
+        else :
+            # If the upload was not successful, the result is the exception object
+            print("Upload failed. Exception is: \n") 
+            print(result)
+            print()
+
+            device_client.notify_blob_upload_status(
+                storage_info["correlationId"], False, result.status_code, str(result)
+            )
+
+    def main():
+        device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
         try:
-            print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-
-            conn_str = CONNECTION_STRING
-            file_name = PATH_TO_FILE
-            blob_name = os.path.basename(file_name)
-
-            device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-            # Connect the client
-            await device_client.connect()
-
-            # Get the storage info for the blob
-            storage_info = await device_client.get_storage_info_for_blob(blob_name)
-
-            # Upload to blob
-            success, result = await store_blob(storage_info, file_name)
-
-            if success == True:
-                print("Upload succeeded. Result is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], True, 200, "OK: {}".format(file_name)
-                )
-
-            else :
-                # If the upload was not successful, the result is the exception object
-                print("Upload failed. Exception is: \n") 
-                print(result)
-                print()
-
-                await device_client.notify_blob_upload_status(
-                    storage_info["correlationId"], False, result.status_code, str(result)
-                )
-
-        except Exception as ex:
-            print("\nException:")
-            print(ex)
-
+            print ("IoT Hub file upload sample, press Ctrl-C to exit")
+            run_sample(device_client)
         except KeyboardInterrupt:
-            print ( "\nIoTHubDeviceClient sample stopped" )
-
+            print ("IoTHubDeviceClient sample stopped")
         finally:
-            # Finally, disconnect the client
-            await device_client.disconnect()
+            # Graceful exit
+            device_client.shutdown()
 
 
     if __name__ == "__main__":
-        asyncio.run(main())
-        #loop = asyncio.get_event_loop()
-        #loop.run_until_complete(main())
-        #loop.close()
+        main()
     ```
 
-    이 코드는 비동기 **IoTHubDeviceClient** 를 만들고 다음 API를 사용하여 IoT 허브로 파일 업로드를 관리합니다.
+    이 코드는 **IoTHubDeviceClient** 를 만들고 다음 API를 사용하여 IoT 허브로 파일 업로드를 관리합니다.
 
     * **get_storage_info_for_blob** 는 IoT 허브에서 이전에 만든 연결된 스토리지 계정에 대한 정보를 가져옵니다. 이 정보에는 호스트 이름, 컨테이너 이름, blob 이름 및 SAS 토큰이 포함됩니다. 스토리지 정보가 이전 단계에서 만든 **store_blob** 함수에 전달되므로 해당 함수의 **BlobClient** 는 Azure Storage를 사용하여 인증할 수 있습니다. **get_storage_info_for_blob** 메서드는 **notify_blob_upload_status** 메서드에서 사용되는 correlation_id도 반환합니다. correlation_id는 IoT Hub에서 작업 중인 blob을 표시하는 방식입니다.
 

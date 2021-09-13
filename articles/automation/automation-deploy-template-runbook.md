@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 7ea0e8209d244ad2b95e201ec7eb1e84f2038887
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: cb075d0ad59af211d80443a5e208509ea60c08ed
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587772"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251821"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
@@ -87,9 +87,9 @@ ms.locfileid: "113587772"
 
 파일을 로컬에서 **TemplateTest.json** 으로 저장합니다.
 
-## <a name="save-the-resource-manager-template-in-azure-storage"></a>Azure Storage에 Resource Manager 템플릿 저장
+## <a name="save-the-resource-manager-template-in-azure-files"></a>Azure Files에 Resource Manager 템플릿 저장
 
-이제 PowerShell을 사용하여 Azure Storage 파일 공유를 만들고 **TemplateTest.json** 파일을 업로드합니다. Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 대한 지침은 [Windows에서 Azure File Storage 시작](../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
+이제 PowerShell을 사용하여 Azure 파일 공유를 만들고 **TemplateTest.json** 파일을 업로드합니다. Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 관한 지침은 [Windows에서 Azure File 시작](../storage/files/storage-files-quick-create-use-windows.md)을 참조하세요.
 
 로컬 컴퓨터에서 PowerShell을 시작하고, 다음 명령을 실행하여 파일 공유를 만들고 Resource Manager 템플릿을 해당 파일 공유에 업로드합니다.
 

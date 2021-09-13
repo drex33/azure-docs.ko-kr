@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 72e16387901ee11b902c5b0bec34e1bd058ffc0c
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539587"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111456"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Azure Logic Apps의 단일 테넌트 및 다중 테넌트와 통합 서비스 환경
 
@@ -245,6 +245,8 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
     * [통합 계정의 일부 기본 제공 트리거와 작업](../connectors/managed.md#integration-account-connectors)은 사용할 수 없습니다(예: **플랫 파일** 인코딩 및 디코딩 작업).
 
     * [사용자 지정 관리형 커넥터는](../connectors/apis-list.md#custom-apis-and-connectors) 현재 지원되지 않습니다. 하지만 Visual Studio Code를 사용하는 경우에는 *사용자 지정 기본 제공 작업* 을 만들 수 있습니다. 자세한 내용은 [Visual Studio Code를 사용하여 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)를 참조하세요.
+
+* XML 변환의 경우 맵에서 어셈블리를 참조하기 위한 지원은 현재 사용할 수 없습니다. 또한 현재 XSLT 1.0만 지원됩니다.
 
 * **Visual Studio Code에서 중단점 디버깅**: 워크플로에 대한 **workflow.json** 파일 내에서 중단점을 추가하고 사용할 수 있지만, 현재는 트리거가 아닌 작업에만 중단점이 지원됩니다. 자세한 내용은 [Visual Studio Code에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints)를 참조하세요.
 

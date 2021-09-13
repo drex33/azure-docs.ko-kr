@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 994b24110399057741b9f62f7ecf30a8a505fd6d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: bbc05a6a0485a11bf73640f8239882eb6363eadc
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537990"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779631"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 스토리지 형식 업데이트
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows 
 
 Azure 관리 디스크에는 Azure 울트라 디스크, 프리미엄 SSD, 표준 SSD, 표준 HDD의 네 가지 디스크 유형이 있습니다. 성능 요구 사항에 따라 프리미엄 SSD, 표준 SSD, 표준 HDD 간에 전환할 수 있습니다. 아직 울트라 디스크와의 전환은 불가능하기 때문에 새 디스크를 배포해야 합니다.
 

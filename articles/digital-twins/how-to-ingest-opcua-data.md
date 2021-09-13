@@ -4,21 +4,21 @@ titleSuffix: Azure Digital Twins
 description: Azure OPC UA 데이터를 Azure Digital Twins로 가져오는 단계
 author: danhellem
 ms.author: dahellem
-ms.date: 5/20/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b191bdb1303ae0210573d295ffb5b371cc81ddfb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b93e9a16e7ea083f5117ebff4883a50db28e134a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567274"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224598"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Azure Digital Twins를 사용하여 OPC UA 데이터 수집
 
 [OPC UA(OPC 통합 아키텍처)](https://opcfoundation.org/about/opc-technologies/opc-ua/)는 제조 공간의 플랫폼 독립적 서비스 지향 아키텍처입니다. 디바이스에서 원격 분석 데이터를 가져오는 데 사용됩니다. 
 
-OPC UA 서버 데이터를 Azure Digital Twins에 흐르게 하려면 여러 디바이스에 여러 구성 요소를 설치해야 하고 일부 사용자 지정 코드와 설정을 구성해야 합니다. 
+OPC UA 서버 데이터가 Azure Digital Twins로 이동하게 하려면 다양한 디바이스에 여러 구성 요소를 설치해야 하고 일부 사용자 지정 코드와 설정을 구성해야 합니다. 
 
 이 문서에서는 이러한 모든 부분을 함께 연결하여 OPC UA 노드를 Azure Digital Twins로 가져오는 방법을 보여 줍니다. 이 지침을 통해 사용자 고유의 솔루션에 대한 빌드를 계속할 수 있습니다.
 
@@ -45,7 +45,7 @@ OPC UA 서버 데이터를 Azure Digital Twins에 흐르게 하려면 여러 디
 | --- | --- |
 | OPC UA 서버 | OPC UA 데이터를 시뮬레이트하는 [ProSys](https://www.prosysopc.com/products/opc-ua-simulation-server/) 또는 [Kepware](https://www.kepware.com/en-us/products/#KEPServerEX)의 OPC UA 서버입니다. |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) | IoT Edge는 로컬 Linux 게이트웨이 디바이스에 설치되는 IoT Hub 서비스입니다. OPC 게시자 모듈을 실행하고 IoT Hub에 데이터를 전송하는 데 필요합니다. |
-| [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) | Azure 산업용 IoT 팀에서 빌드한 IoT Edge 모듈입니다. 이 모듈은 OPC UA 서버에 연결하여 노드 데이터를 Azure IoT Hub로 보냅니다. |
+| [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) | 이 구성 요소는 Azure 산업용 IoT 팀에서 빌드한 IoT Edge 모듈입니다. 이 모듈은 OPC UA 서버에 연결하여 노드 데이터를 Azure IoT Hub로 보냅니다. |
 | [Azure IoT Hub](../iot-hub/about-iot-hub.md) | OPC 게시자는 Azure IoT Hub에 OPC UA 원격 분석을 보냅니다. 여기에서부터 Azure Function 및 Azure Digital Twins를 통해 데이터를 처리할 수 있습니다. |
 | Azure Digital Twins | 실제 사물, 장소, 비즈니스 프로세스 및 사람들의 디지털 표현을 만들 수 있는 플랫폼입니다. |
 | [Azure 함수](../azure-functions/functions-overview.md) | 사용자 지정 Azure 함수를 사용하여 Azure IoT Hub에서 Azure Digital Twins의 적절한 트윈 및 속성으로 흐르는 원격 분석을 처리합니다. |
@@ -80,7 +80,7 @@ Prosys 소프트웨어에는 간단한 가상 리소스가 필요합니다. [Azu
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png" alt-text="Windows 가상 머신 설정의 기본 탭을 보여 주는 Azure Portal의 스크린샷." lightbox="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png":::
 
-인터넷을 통해 VM에 다시 연결할 수 있어야 합니다. 이 연습에서는 간단한 설명을 위해 모든 포트를 열고 VM에 공용 IP 주소를 할당할 수 있습니다. 가상 머신 설정의 **네트워킹** 탭에서 이 작업을 수행합니다.
+인터넷을 통해 VM에 다시 연결할 수 있어야 합니다. 이 연습에서는 간단한 설명을 위해 모든 포트를 열고 VM에 공용 IP 주소를 할당할 수 있습니다. 가상 머신 설정의 **네트워킹** 탭에서 이 작업을 수행할 수 있습니다.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-2.png" alt-text="Windows 가상 머신 설정의 네트워킹 탭을 보여 주는 Azure Portal의 스크린샷.":::
 
@@ -101,7 +101,7 @@ VM 설정을 마칩니다.
 
 `opc.tcp://<ip-address>:53530/OPCUA/SimulationServer`
 
-이 문서의 뒷부분에서 이 업데이트된 값을 사용할 것입니다.
+이 문서의 뒷부분에서 업데이트된 값을 사용할 것입니다.
 
 마지막으로 **개체** 탭을 선택하고 Objects::FolderType 및 Simulation::FolderType 폴더를 확장하여 서버와 함께 기본적으로 제공되는 시뮬레이션 노드를 봅니다. 각각 고유한 `NodeId` 값을 포함한 시뮬레이션 노드가 표시됩니다. 
 
@@ -133,7 +133,7 @@ Azure IoT Hub 인스턴스를 만든 후 인스턴스의 왼쪽 탐색 메뉴에
 
 표시되는 메시지에 따라 새 디바이스를 만듭니다. 
 
-디바이스를 만든 후에는 **기본 연결 문자열** 또는 **보조 연결 문자열** 값을 복사합니다. 이러한 작업은 나중에 에지 디바이스를 설정할 때 필요합니다.
+디바이스를 만든 후에는 **기본 연결 문자열** 또는 **보조 연결 문자열** 값을 복사합니다. 이 값은 나중에 에지 디바이스를 설정할 때 필요합니다.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-2.png" alt-text="IoT Edge 디바이스 연결 문자열을 보여 주는 Azure Portal의 스크린샷.":::
 
@@ -209,7 +209,7 @@ admin@gateway:~$ sudo iotedge check
 
 약 15초 후에 IoT Edge 디바이스에서 실행되는 모든 모듈을 나열하는 게이트웨이 디바이스에서 `iotedge list` 명령을 실행할 수 있습니다. OPCPublisher 모듈이 작동하고 실행되고 있는 것을 확인할 수 있습니다.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="iotedge 목록 결과의 스크린샷.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="IoT Edge 목록 결과의 스크린샷":::
 
 마지막으로 `/iiotedge` 디렉터리로 이동하여 *publishednodes.json* 파일을 만듭니다. 파일의 ID는 [이전에 OPC 서버에서 수집한](#install-opc-ua-simulation-software) `NodeId` 값과 일치해야 합니다. 파일은 다음과 같아야 합니다.
 
@@ -250,9 +250,9 @@ admin@gateway:~$ sudo iotedge check
 sudo iotedge logs OPCPublisher -f
 ```
 
-명령은 OPC 게시자 로그의 출력을 생성합니다. 모든 항목이 올바르게 구성되고 실행되면 다음과 같은 내용이 표시됩니다.
+명령은 OPC 게시자 로그의 출력을 생성합니다. 모든 항목이 올바르게 구성되고 실행되면 다음 스크린샷 같은 내용이 표시됩니다.
 
-:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-logs.png" alt-text="터미널의 iotedge 로그 스크린샷. 왼쪽에는 진단 정보 필드 열이 있고 오른쪽에는 값 열이 있습니다.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-logs.png" alt-text="터미널의 IoT Edge 로그 스크린샷. 왼쪽에는 진단 정보 필드 열이 있고 오른쪽에는 값 열이 있음":::
 
 이제 OPC UA 서버에서 IoT Hub로 데이터를 이동해야 합니다.
 
@@ -359,7 +359,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 이 섹션에서는 OPC UA 데이터를 처리하고 Azure Digital Twins를 업데이트하는 [필수 구성 요소](#prerequisites)에서 다운로드한 Azure 함수를 게시합니다.
 
 1. 로컬 컴퓨터에 다운로드한 [OPC UA에서 Azure Digital Twins로](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) 프로젝트로 이동한 후 *Azure Functions/OPCUAFunctions* 폴더로 이동합니다. Visual Studio에서 **OPCUAFunctions.sln** 솔루션을 엽니다.
-2. Azure의 함수 앱에 프로젝트를 게시합니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
+2. Azure의 함수 앱에 프로젝트를 게시합니다. 이 작업을 수행하는 방법에 관한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
 #### <a name="configure-the-function-app"></a>함수 앱 구성
 

@@ -50,6 +50,9 @@
       href: ./manage.md
     - name: 리소스 계층 구조 보호
       href: ./how-to/protect-resource-hierarchy.md
+- name: 문제 해결
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: 참조
   items:
     - name: Azure CLI

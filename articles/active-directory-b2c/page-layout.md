@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/03/2021
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3eeed53c16bbd6b2c1170512606472ac5329b126
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa60cf86a8bc59b9eed2adc8ac0ba2cfb89be584
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566639"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835613"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -155,6 +155,7 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 
 - 여러 등록 링크에 대한 지원을 추가했습니다.
 - 정책에 정의된 조건자 규칙에 따라 사용자 입력 유효성 검사에 대한 지원을 추가했습니다.
+- [로그인 옵션](sign-in-options.md)이 메일로 설정된 경우 로그인 헤더에는 “로그인 이름으로 로그인”이 표시됩니다. 사용자 이름 필드에는 “로그인 이름”이 표시됩니다. 자세한 내용은 [지역화](localization-string-ids.md#sign-up-or-sign-in-page-elements)를 참조하세요.
 
 **1.2.0**
 

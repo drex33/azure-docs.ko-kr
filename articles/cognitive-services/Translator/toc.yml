@@ -70,10 +70,10 @@
           href: tutorial-build-flask-app-translation-synthesis.md
     - name: 참조
       items:
-        - name: Text Translator REST API
-          href: reference/rest-api-guide.md
         - name: v3 Translator 참조
           href: reference/v3-0-reference.md
+        - name: Text Translator REST API
+          href: reference/rest-api-guide.md
         - name: 언어
           href: reference/v3-0-languages.md
         - name: Translate

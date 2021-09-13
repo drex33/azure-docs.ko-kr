@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: a9e0d9c462c494fdc1d0c50bc4faf3694f3b4cd7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2b733f4e525f2f47df7afde0ddc308430ae05d0b
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566205"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215306"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,17 +22,45 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 **업데이트** |  **통합 설치** | **구성 서버 OVA** | **Mobility Service 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
-[롤업 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
+[롤업 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
+[롤업 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [롤업 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [롤업 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
-[롤업 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
-[롤업 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
-[롤업 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 
 
 업데이트 설치 및 지원에 대해 [자세히 알아보세요](service-updates-how-to.md).
+
+## <a name="updates-august-2021"></a>업데이트(2021년 8월)
+
+### <a name="update-rollup-57"></a>업데이트 롤업 57
+
+[업데이트 롤업 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094)에서 제공하는 업데이트는 다음과 같습니다.
+
+> [!NOTE]
+> 업데이트 롤업은 VMware에서 Azure로 보호의 퍼블릭 미리 보기에 대한 업데이트만 제공합니다. 이 릴리스에서는 다른 수정 사항이나 향상된 기능을 사항을 다루지 않았습니다.
+> 미리 보기 환경을 설정하려면 새로 설치를 수행하고 새 Recovery Services 자격 증명 모음을 사용해야 합니다. 기존 아키텍처에서 새 아키텍처로 업데이트하는 기능은 지원되지 않습니다.
+
+이 퍼블릭 미리 보기에서는 VMware 머신을 보호하기 위한 현재 아키텍처의 전체 점검을 다룹니다.
+- 새 아키텍처, 도입된 변경 내용에 관해 [알아봅니다](https://docs.microsoft.com/azure/site-recovery/vmware-azure-architecture-preview).
+- [다음 단계](https://docs.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview)에 따라 필수 조건을 확인하고 ASR 복제 어플라이언스를 설정합니다.
+- VMware 머신의 [복제를 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview)합니다.
+- ASR 복제 어플라이언스의 자동 [업그레이드](https://docs.microsoft.com/azure/site-recovery/upgrade-mobility-service-preview) 및 [전환](https://docs.microsoft.com/azure/site-recovery/switch-replication-appliance-preview) 기능을 확인합니다.
+
+
+### <a name="update-rollup-56"></a>업데이트 롤업 56
+
+[업데이트 롤업 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)에서 제공하는 업데이트는 다음과 같습니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업 KB 문서에서 자세히 설명된 대로 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
+**문제 수정/향상된 기능** | 롤업 KB 문서에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
+
+**Azure Site Recovery Service** | 복제 및 다시 보호 작업을 46% 더 빠르게 수행할 수 있도록 개선했습니다.
+**Azure Site Recovery Portal** | 이제 전 세계의 두 Azure 지역 간에 복제를 사용하도록 설정할 수 있습니다. 더 이상 대륙 내 복제로 제한되지 않습니다.
+
 
 ## <a name="updates-july-2021"></a>업데이트(2021년 7월)
 

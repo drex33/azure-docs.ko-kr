@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 08/12/2021
-ms.openlocfilehash: 302b6e6cdce7fb95962b66a593ae02b9fe3922a1
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.date: 08/26/2021
+ms.openlocfilehash: 451dd198b5507b99400d4e1c8e1670e596016af1
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568315"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308296"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database와 Azure SQL Managed Instance
 
@@ -66,7 +66,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | [DDL 문](/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
 | [DDL 트리거](/sql/relational-databases/triggers/ddl-triggers) | 데이터베이스에만 해당 |  예 |
 | [분산된 파티션 뷰](/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | 예 | 예 |
-| [분산된 트랜잭션 - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](elastic-transactions-overview.md) 참조 |  아니요 - [연결된 서버 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) 참조 마이그레이션 중 여러 분산 SQL Server 인스턴스의 데이터베이스를 하나의 SQL Managed Instance로 통합해봅니다. |
+| [분산된 트랜잭션 - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](elastic-transactions-overview.md) 참조 | 아니요 - [탄력적 트랜잭션](elastic-transactions-overview.md) 참조 |
 | [DML 트리거](/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 |  예 |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 대부분 - 개별 DMV 참조 |  예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
 | [탄력적 쿼리](elastic-query-overview.md)(공개 미리 보기) | 예, 필수 RDBMS 형식 사용 | 아니요 |
@@ -80,6 +80,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | [함수](/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) 참조 |
 | [메모리 내 최적화](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | [프리미엄 및 중요 비즈니스용 서비스 계층](../in-memory-oltp-overview.md)에서 예</br> [하이퍼스케일 서비스 계층](service-tier-hyperscale.md)의 메모리 최적화 테이블 변수와 같은 비영구적 메모리 내 OLTP 개체에 대한 제한된 지원| [중요 비즈니스용 서비스 계층](../managed-instance/sql-managed-instance-paas-overview.md)에서 예 |
 | [언어 요소](/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
+| [원장](ledger-overview.md) | 예 | 아니요 |
 | [연결된 서버](/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](elastic-query-horizontal-partitioning.md) 참조 | 예. 분산 트랜잭션이 없는 [SQL Server 및 SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)에만 |
 | 파일(CSV, Excel)에서 읽은 [연결된 서버](/sql/relational-databases/linked-servers/linked-servers-database-engine)| 아니요. CSV 형식 대신 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)를 사용합니다. | 아니요. CSV 형식 대신 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) 또는 [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)를 사용합니다. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)에서 이러한 요청을 추적합니다.|
 | [로그 전달](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](high-availability-sla.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)에서 설명합니다. | [Azure DMS(Data Migration Service)](../../dms/tutorial-sql-server-to-managed-instance.md) 마이그레이션 프로세스의 일부로 기본 제공됩니다. 사용자 지정 데이터 마이그레이션 프로젝트에 사용하도록 외부 [LRS(Log Replay Service)](../managed-instance/log-replay-service-migrate.md)로 기본 제공됩니다.<br /> 고가용성 솔루션으로는 사용할 수 없습니다. 다른 [고가용성](high-availability-sla.md) 방법이 모든 데이터베이스에 포함되어 있으므로 로그 전달을 HA 대체로 사용하지 않는 것이 좋습니다. 재해 복구는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)에서 설명합니다. 데이터베이스 간 복제 메커니즘으로 사용할 수 없습니다. [중요 비즈니스용 계층](service-tier-business-critical.md), [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md) 또는 [트랜잭션 복제](../managed-instance/replication-transactional-overview.md)의 보조 복제본을 대안으로 사용합니다. |
@@ -114,7 +115,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | 표준 시간대 선택 | 예 | [예](../managed-instance/timezones-overview.md), SQL Managed Instance를 만들 때 구성해야 함. |
 | [추적 플래그](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 예 | 예, 하지만 제한된 전체 추적 플래그 세트만. [DBCC 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) 참조 |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 예, [트랜잭션 및 스냅샷 복제 구독자만 해당](migrate-to-database-from-sql-server.md) | 예, [공개 미리 보기](/sql/relational-databases/replication/replication-with-sql-database-managed-instance)에서. [여기](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication)에서 제약 조건 참조 |
-| [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 - 범용 및 중요 비즈니스 서비스 계층만 해당| [예](transparent-data-encryption-tde-overview.md) |
+| [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 - 범용, 중요 비즈니스용, 하이퍼스케일(미리 보기) 서비스 계층만| [예](transparent-data-encryption-tde-overview.md) |
 | Windows 인증 | 예 | 예 |
 | [Windows Server 장애 조치(failover) 클러스터링](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 아니요. [고가용성](high-availability-sla.md)을 제공하는 다른 기술은 모든 데이터베이스에 포함되어 있습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)에서 설명합니다. | 아니요. [고가용성](high-availability-sla.md)을 제공하는 다른 기술은 모든 데이터베이스에 포함되어 있습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)에서 설명합니다. |
 

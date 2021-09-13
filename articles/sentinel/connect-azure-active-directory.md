@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 5faf675d4e5d188840b3e9ab457ec28829f52dc0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 20e9920921afe1eae8babb76212a6de7ea2e1321
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528237"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251852"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Azure Sentinel에 Azure AD(Azure Active Directory) 데이터 연결
 
@@ -62,7 +62,7 @@ Azure Sentinel의 기본 제공 커넥터를 사용하여 [Azure Active Director
 
 1. 데이터 커넥터 갤러리에서 **Azure Active Directory** 를 선택한 다음, **커넥터 페이지 열기** 를 선택합니다.
 
-1. Azure Sentinel로 스트리밍할 로그 유형 옆에 있는 확인란을 표시(위 참조)하고 **연결** 을 클릭합니다.
+1. Azure Sentinel로 스트리밍할 로그 유형 옆에 있는 확인란을 표시(위 참조)하고 **연결** 을 선택합니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 

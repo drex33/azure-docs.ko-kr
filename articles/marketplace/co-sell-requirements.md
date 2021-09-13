@@ -1,19 +1,19 @@
 ---
 title: 공동 판매 요구 사항 | Azure Marketplace
-description: 공동 판매 준비 상태 또는 공동 판매 인센티브 상태 자격을 갖추기 위해 Microsoft 상업용 마켓플레이스의 제품이 갖춰야 하는 요구 사항에 대해 알아봅니다.
+description: 공동 판매 준비 또는 공동 판매 인센티브 상태 자격을 갖추기 위해 Microsoft 상업용 Marketplace의 제품이 갖춰야 하는 요구 사항에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 04/16/2021
-ms.openlocfilehash: 7a5e4375ebe289bb5ae012f94ba9dd050563bbbb
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/13/2021
+ms.openlocfilehash: c39b86c6417d2cae8d303f7cae0aa523e223edaa
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209862"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866943"
 ---
 # <a name="co-sell-requirements"></a>공동 판매 요구 사항
 
@@ -25,8 +25,8 @@ ms.locfileid: "108209862"
 | ------------ | ------------- |
 | 공동 판매 준비 안 됨 | [공동 판매 준비 상태에 대한 최소 요구 사항](#requirements-for-co-sell-ready-status)을 충족하지 못했습니다. |
 | 공동 판매 준비 | [공동 판매 준비 상태에 대한 모든 요구 사항](#requirements-for-co-sell-ready-status)을 충족했습니다. |
-| Azure IP 공동 판매 인센티브 | [해당 추가 요구 사항](#requirements-for-azure-ip-co-sell-incentivized-status) 외에도 공동 판매 준비 요구 사항을 충족했습니다. |
-| Business Applications 공동 판매 인센티브 | 이 상태는 [Microsoft Business Applications ISV 연결 프로그램](business-applications-isv-program.md)의 Dynamics 365 및 Power Apps 제품에 적용되며 [이 상태에 대한 모든 요구 사항](#requirements-for-business-applications-co-sell-incentivized-status)을 충족함을 나타냅니다. |
+| Azure IP 공동 판매 인센티브 | [해당 추가 요구 사항](#requirements-for-azure-ip-co-sell-incentive-status) 외에도 공동 판매 준비 요구 사항을 충족했습니다. |
+| Business Applications 공동 판매 인센티브 | 이 상태는 [Microsoft Business Applications ISV 연결 프로그램](business-applications-isv-program.md)의 Dynamics 365 및 Power Apps 제품에 적용되며 [이 상태에 대한 모든 요구 사항](#requirements-for-business-applications-co-sell-incentive-status)을 충족함을 나타냅니다. |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>공동 판매 준비 상태에 대한 요구 사항
@@ -49,7 +49,7 @@ ms.locfileid: "108209862"
 
 **Business Applications ISV**:
 
-- Dynamics 365 &amp; PowerApps(Dynamics 365 Business Central 제외) 솔루션에는 ISV 연결 등록이 필요합니다.
+- Dynamics 365 및 Power Apps(Dynamics 365 Business Central 제외) 솔루션에는 ISV 연결 등록이 필요합니다.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Microsoft과 공동 판매 탭 완료
 
@@ -64,9 +64,9 @@ ms.locfileid: "108209862"
 
 공동 판매 준비 상태를 충족하려면 제품 또는 솔루션을 상업용 마켓플레이스 온라인 스토어(Azure Marketplace 또는 Microsoft AppSource) 중 하나 이상에 게시해야 합니다. 상업용 마켓플레이스에 제품 게시하기에 대한 자세한 내용은 [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)를 참조하세요. 이전에 상업적 Marketplace에 제품을 게시한 적이 없는 경우에는 [상업적 Marketplace에 계정](create-account.md)이 있는지 확인하세요.
 
-## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Azure IP 공동 판매 인센티브 상태에 대한 요구 사항
+## <a name="requirements-for-azure-ip-co-sell-incentive-status"></a>Azure IP 공동 판매 인센티브 상태에 대한 요구 사항
 
-Azure IP 공동 판매 인센티브 상태는 다음 제안 유형에 적용됩니다.
+Azure IP 공동 판매 인센티브 상태는 다음 제품 유형에 적용됩니다.
 
 - Azure 애플리케이션
 - Azure Container
@@ -86,7 +86,7 @@ Azure IP 공동 판매 인센티브 상태는 다음 제안 유형에 적용됩�
 요구 사항 3 – 참조 아키텍처 다이어그램을 제공합니다.
 - 검토를 위해 파트너 센터에서 공동 판매 문서로 참조 아키텍처 다이어그램을 업로드합니다. 이 다이어그램 만들기에 대한 지침은 [참조 아키텍처 다이어그램](reference-architecture-diagram.md)을 참조하세요. 다이어그램 업로드에 대한 자세한 내용은 [상업용 마켓플레이스 제품에 대한 공동 판매 구성](./co-sell-configure.md)을 참조하세요.
 
-## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Business Applications 공동 판매 인센티브 상태에 대한 요구 사항
+## <a name="requirements-for-business-applications-co-sell-incentive-status"></a>Business Applications 공동 판매 인센티브 상태에 대한 요구 사항
 
 이 상태는 ISV 연결 프로그램에 등록된 Dynamics 365 또는 Power Apps (Dynamics 365 Business Central 제외)에서 빌드된 IP 기반 솔루션에 적용됩니다. 하지만 Microsoft 판매자가 사용자와 함께 제품을 공동 판매하려면 제품은 공동 판매 준비 상태(위에 설명함)에 대한 요구 사항도 완료해야 합니다.
 

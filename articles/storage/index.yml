@@ -121,7 +121,7 @@ additionalContent:
           links:
             - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               text: AzCopy 명령줄 도구 사용
-            - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
+            - url: ./blobs/quickstart-storage-explorer.md
               text: Azure Storage Explorer GUI 기반 도구 사용
         - title: 비용 제어
           links:

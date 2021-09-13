@@ -28,18 +28,6 @@ items:
             href: tutorial-data-sources-readiness.md
           - name: 대규모 Azure Purview MSI 구성
             href: tutorial-msi-configuration.md
-      - name: 시작 키트
-        items:
-          - name: 데이터 검사
-            href: tutorial-scan-data.md
-          - name: 홈 페이지 탐색 및 검색
-            href: tutorial-asset-search.md
-          - name: 자산 찾아보기 및 계보 보기
-            href: tutorial-browse-and-view-lineage.md
-          - name: '리소스 집합, 자산, 스키마, 분류 살펴보기'
-            href: tutorial-schemas-and-classifications.md
-          - name: 용어집 용어 만들기
-            href: tutorial-import-create-glossary-terms.md
       - name: 온-프레미스 SQL Server 등록 및 검사
         href: register-scan-on-premises-sql-server.md
       - name: 카탈로그에 대한 REST API 호출

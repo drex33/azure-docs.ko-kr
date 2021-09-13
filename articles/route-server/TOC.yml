@@ -41,7 +41,7 @@
       href: /powershell/module/az.network/#route
     - name: Azure CLI
       href: /cli/azure/network/routeserver
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualwan/virtualhubipconfiguration
 - name: 리소스
   items:
@@ -50,7 +50,7 @@
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/route-server'
+      href: 'https://azure.microsoft.com/services/route-server/#pricing'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트

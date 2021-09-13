@@ -51,7 +51,7 @@
                 - name: 영역 중복 공용 표준 부하 분산 장치 만들기(CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: 가용성 영역에 VM 부하 분산
-              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Azure를 사용하여 가용성 영역에 VM 부하 분산(CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md

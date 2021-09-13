@@ -9,12 +9,12 @@ metadata:
   author: yegu-ms
   ms.author: yegu
   ms.date: 12/16/2019
-  ms.openlocfilehash: 4960c8b24740a16b6bf8e914a3aee9bd8fc1add0
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: a0ace54c73054eba059d268f21526fcaf44e6120
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123428977"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124828793"
 landingContent:
 - title: Azure Cache for Redis 소개
   linkLists:
@@ -64,6 +64,24 @@ landingContent:
     links:
     - text: 샘플
       url: cache-redis-samples.md
+- title: 모범 사례
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 연결 복원력
+      url: cache-best-practices-connection.md
+    - text: 서버 로드 관리
+      url: cache-best-practices-server-load.md
+    - text: 메모리 관리
+      url: cache-best-practices-memory-management.md
+    - text: 개발
+      url: cache-best-practices-development.md
+    - text: 크기 조정
+      url: cache-best-practices-scale.md
+    - text: Kubernetes 호스트 클라이언트 응용 프로그램
+      url: cache-best-practices-kubernetes.md
+    - text: 성능 테스트
+      url: cache-best-practices-performance.md
 - title: SDK 및 명령줄
   linkLists:
   - linkListType: reference
@@ -84,24 +102,6 @@ landingContent:
       url: /powershell/module/az.rediscache
     - text: Azure CLI
       url: /cli/azure/redis
-- title: 모범 사례
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: 연결 복원력
-      url: cache-best-practices-connection.md
-    - text: 서버 로드 관리
-      url: cache-best-practices-server-load.md
-    - text: 메모리 관리
-      url: cache-best-practices-memory-management.md
-    - text: 개발
-      url: cache-best-practices-development.md
-    - text: 크기 조정
-      url: cache-best-practices-scale.md
-    - text: Kubernetes 호스트 클라이언트 응용 프로그램
-      url: cache-best-practices-kubernetes.md
-    - text: 성능 테스트
-      url: cache-best-practices-performance.md
 - title: 문제 해결
   linkLists:
   - linkListType: how-to-guide

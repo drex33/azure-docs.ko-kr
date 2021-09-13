@@ -12,12 +12,12 @@ ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36e0b286cc073f5c6843f1bab59af5a811cbf281
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452929"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220863"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대한 개발자 정보
 
@@ -74,7 +74,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 |기능  |사용자 흐름  |사용자 지정 정책  |메모  |
 |---------|:---------:|:---------:|---------|
 [SP 시작](saml-service-provider.md) | 해당 없음 | GA | POST 바인딩 및 리디렉션 바인딩 |
-[IDP 시작](saml-service-provider-options.md#identity-provider-initiated-flow) | 해당 없음 | GA | 여기서 시작 ID 공급자는 Azure AD B2C입니다.  |
+[IDP 시작](saml-service-provider-options.md#configure-idp-initiated-flow) | 해당 없음 | GA | 여기서 시작 ID 공급자는 Azure AD B2C입니다.  |
 
 ## <a name="user-experience-customization"></a>사용자 환경 사용자 지정
 
@@ -123,7 +123,7 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 |[OAuth2](oauth2-technical-profile.md) | 해당 없음 | GA | 예를 들어 [Google](identity-provider-google.md), [GitHub](identity-provider-github.md) 및 [Facebook](identity-provider-facebook.md)이 있습니다.|
 |[OAuth1](oauth1-technical-profile.md) | 해당 없음 | GA | 예: [Twitter](identity-provider-twitter.md) |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | 예를 들어 [Azure AD](identity-provider-azure-ad-single-tenant.md)가 있습니다.  |
-|[SAML2](identity-provider-generic-saml.md) | 해당 없음 | GA | 예: [Salesforce](identity-provider-salesforce-saml.md) 및 [AD-FS].(identity-provider-adfs.md) |
+|[SAML2](identity-provider-generic-saml.md) | 해당 없음 | GA | 예를 들어, [Salesforce](identity-provider-salesforce-saml.md), [AD-FS](identity-provider-adfs.md)가 있습니다. |
 | WSFED | 해당 없음 | 해당 없음 | |
 
 ### <a name="api-connectors"></a>API 커넥터
@@ -185,5 +185,5 @@ Azure Active Directory B2C [사용자 흐름 및 사용자 지정 정책](user-f
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure AD B2C에 사용할 수 있는 [Microsoft Graph 작업](microsoft-graph-operations.md) 확인
+- [Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업](microsoft-graph-operations.md)을 확인합니다.
 - [사용자 지정 정책 및 사용자 흐름과의 차이점](custom-policy-overview.md)에 대해 자세히 알아보기

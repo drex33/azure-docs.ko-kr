@@ -1,7 +1,7 @@
 ---
 title: 이미지 레이블 지정 및 텍스트 레이블 지정
 titleSuffix: Azure Machine Learning
-description: 이미지 또는 텍스트에 레이블을 지정하는 프로젝트를 만들고 실행하는 방법을 알아봅니다. ML 지원 레이블 지정 또는 루프 레이블이 지정된 사용자를 사용하여 작업을 지원합니다.
+description: 데이터 레이블 지정 도구를 사용하여 이미지 또는 텍스트에 레이블을 지정합니다. ML 지원 레이블 지정 또는 루프 레이블이 지정된 사용자를 사용하여 작업을 지원합니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 54ed2504063cc3a0479d37127888ccb727fbd671
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c29e3dbbcb892127fc89963866dab684fe45095f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566801"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108537"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기
 
-Azure Machine Learning에서 이미지에 레이블을 지정하거나 텍스트 데이터에 레이블을 지정하는 프로젝트를 만들고 실행하는 방법을 알아봅니다.  기계 학습 지원 데이터 레이블 지정 또는 루프 레이블이 지정된 사용자를 사용하여 작업을 지원합니다.
+Azure Machine Learning에서 이미지 또는 텍스트에 레이블을 지정하는 데이터 레이블 지정 프로젝트를 만들고 실행하는 방법을 알아봅니다.  기계 학습 지원 데이터 레이블 지정 또는 루프 레이블이 지정된 사용자를 사용하여 작업을 지원합니다.
 
 
 ## <a name="data-labeling-capabilities"></a>데이터 레이블 지정 기능

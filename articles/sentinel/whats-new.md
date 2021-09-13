@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: 7c4a2958f8629b224cecf1e92fd0efcff6b1fdd6
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 7f8f9b3a50b5023a217509f62ba2cc3d94da2ee5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537994"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253960"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능
 
@@ -32,6 +32,46 @@ ms.locfileid: "122537994"
 >
 > 여러분도 참여할 수 있습니다! [Azure Sentinel 위협 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에 참여하세요.
 >
+
+## <a name="september-2021"></a>2021년 9월
+
+- [문서의 새로운 항목: 데이터 커넥터 스케일링 설명서](#new-in-docs-scaling-data-connector-documentation)
+- [Azure Storage 계정 커넥터 변경 내용](#azure-storage-account-connector-changes)
+
+### <a name="new-in-docs-scaling-data-connector-documentation"></a>문서의 새로운 항목: 데이터 커넥터 스케일링 설명서
+
+Azure Sentinel용 기본 제공 데이터 커넥터를 점점 더 많이 계속 추가하면서 이 스케일링을 반영하도록 데이터 커넥터 설명서를 다시 구성했습니다.
+
+대부분 데이터 커넥터의 경우 개별 커넥터를 설명하는 전체 문서를 일련의 일반 절차와 현재 지원되는 모든 커넥터의 전체 참조로 바꾸었습니다.
+
+관련 일반 절차에 대한 참조와 필요한 추가 정보, 구성을 포함하여 커넥터에 관한 자세한 내용은 [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md)를 확인하세요.
+
+자세한 내용은 다음을 참조하세요.
+
+- **개념 정보**: [데이터 원본 연결](connect-data-sources.md)
+
+- **일반 방법 문서**:
+
+   - [Azure, Windows, Microsoft 및 Amazon 서비스에 연결](connect-azure-windows-microsoft-services.md)
+   - [데이터 원본을 Azure Sentinel의 Data Collector API에 연결하여 데이터 수집](connect-rest-api-template.md)
+   - [디바이스 또는 어플라이언스에서 Azure Sentinel로 CEF 형식 로그 가져오기](connect-common-event-format.md)
+   - [Syslog를 사용하여 Linux 기반 소스에서 데이터 수집](connect-syslog.md)
+   - [Log Analytics 에이전트를 사용하여 Azure Sentinel에 사용자 지정 로그 형식의 데이터 수집](connect-custom-logs.md)
+   - [Azure Functions를 사용하여 Azure Sentinel에 데이터 원본 연결](connect-azure-functions-template.md)
+   - [Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스](create-custom-connector.md)
+
+### <a name="azure-storage-account-connector-changes"></a>Azure Storage 계정 커넥터 변경 내용
+
+Azure Storage 계정 리소스 구성 자체 내에서 변경된 내용으로 인해 커넥터도 다시 구성해야 합니다.
+스토리지 계정(부모) 리소스에는 파일, 테이블, 큐 및 Blob과 같은 각 스토리지 유형에 대한 다른(자식) 리소스가 있습니다.
+
+스토리지 계정에 대한 진단을 구성할 때 다음을 차례로 선택하고 구성해야 합니다.
+- 상위 계정 리소스, **트랜잭션** 메트릭 내보내기
+- 모든 로그 및 메트릭을 내보내는 각 하위 스토리지 유형 리소스(위 표 참조)
+
+실제로 리소스를 정의한 스토리지 유형만 표시됩니다.
+
+:::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Azure Storage 진단 구성의 스크린샷":::
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -436,7 +476,7 @@ Azure Firewall에 대한 몇 가지 기본 검색이 Azure Sentinel의 [Analytic
 - [알려진 IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
 - [알려진 Phosphorus 그룹 도메인/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
 - [DCU 무력화에 포함된 THALLIUM 도메인](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
-- [알려진 ZINC 관련 maldoc 해시](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [알려진 ZINC 관련 맬웨어 해시](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 - [알려진 STRONTIUM 그룹 도메인](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
 - [NOBELIUM - 도메인 및 IP IOC - 2021년 3월](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
 

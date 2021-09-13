@@ -3,13 +3,13 @@ title: 프라이빗 Azure Kubernetes Service 클러스터 만들기
 description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 6/14/2021
-ms.openlocfilehash: 0e6e825f448ae97f211d9dace03254651012cadd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 8/30/2021
+ms.openlocfilehash: 39090732df8543fc28d1324882f3817402ad587a
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567226"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214321"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -72,7 +72,7 @@ az aks create \
 
 - 기본값이기도 한 "System"입니다. --private-dns-zone 인수를 생략하면 AKS는 노드 리소스 그룹에 프라이빗 DNS 영역을 만듭니다.
 - “None”은 AKS가 프라이빗 DNS 영역(미리 보기)을 만들지 않음을 의미하는 퍼블릭 DNS로 기본 설정됩니다.  
-- “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”를 사용하려면 Azure 글로벌 클라우드에 대한 프라이빗 DNS 영역을 `privatelink.<region>.azmk8s.io` 형식으로 만들어야 합니다. 앞으로 프라이빗 DNS 영역의 리소스 ID가 필요합니다.  또한 적어도 `private dns zone contributor` 및 `vnet contributor` 역할이 있는 사용자 할당 ID 또는 서비스 주체가 필요합니다.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"를 사용하려면 Azure 글로벌 클라우드에 대한 프라이빗 DNS 영역을 `privatelink.<region>.azmk8s.io` 형식으로 만들어야 합니다. 앞으로 프라이빗 DNS 영역의 리소스 ID가 필요합니다.  또한 적어도 `private dns zone contributor` 및 `vnet contributor` 역할이 있는 사용자 할당 ID 또는 서비스 주체가 필요합니다.
   - 프라이빗 DNS 영역이 AKS 클러스터와 다른 구독에 있는 경우 두 구독 모두에 Microsoft.ContainerServices를 등록해야 합니다.
   - “fqdn-subdomain”은 “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”와 함께 사용되어 `privatelink.<region>.azmk8s.io`에 하위 도메인 기능을 제공할 수 있습니다.
 
@@ -80,26 +80,6 @@ az aks create \
 
 * AKS 미리 보기 버전 0.5.19 이상
 * API 버전 2021-05-01 이상
-
-fqdn-subdomain 기능을 사용하려면 구독에서 `EnablePrivateClusterFQDNSubdomain` 기능 플래그를 사용하도록 설정해야 합니다. 
-
-다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `EnablePrivateClusterFQDNSubdomain` 기능 플래그를 등록합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterFQDNSubdomain"
-```
-
-[az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterFQDNSubdomain')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>프라이빗 DNS 영역을 사용하여 프라이빗 AKS 클러스터 만들기
 
@@ -122,30 +102,6 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 1. 프라이빗 AKS 클러스터를 프로비저닝할 때 `--enable-public-fqdn`을 지정하면 AKS는 Azure 퍼블릭 DNS에서 FQDN에 대한 추가 A 레코드를 만듭니다. 에이전트 노드는 프라이빗 DNS 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 개인 IP 주소를 확인합니다.
 
 2. `--enable-public-fqdn`과 `--private-dns-zone none`을 모두 사용하는 경우 클러스터에는 퍼블릭 FQDN만 있습니다. 이 옵션을 사용하는 경우 API 서버의 FQDN 이름 확인을 위해 프라이빗 DNS 영역을 만들거나 사용할 수 없습니다. API의 IP는 개인 IP이며 공개적으로 라우팅할 수 없습니다.
-
-### <a name="register-the-enableprivateclusterpublicfqdn-preview-feature"></a>`EnablePrivateClusterPublicFQDN` 미리 보기 기능 등록
-
-새 프라이빗 클러스터 퍼블릭 FQDN API 사용을 사용하려면 구독에서 `EnablePrivateClusterPublicFQDN` 기능 플래그를 사용하도록 설정해야 합니다.
-
-`EnablePrivateClusterPublicFQDN`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterPublicFQDN"
-```
-
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterPublicFQDN')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### <a name="create-a-private-aks-cluster-with-a-public-dns-address"></a>퍼블릭 DNS 주소를 사용하여 프라이빗 AKS 프라이빗 클러스터 만들기
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --enable-public-fqdn
@@ -251,8 +207,6 @@ az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitn
 * Azure Container Registry를 프라이빗 AKS와 함께 사용해야 하는 고객의 경우, Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어링되어야 합니다.
 * 기존 AKS 클러스터를 프라이빗 클러스터로 변환하는 기능이 지원되지 않습니다.
 * 고객 서브넷에서 프라이빗 엔드포인트를 삭제하거나 수정하면 클러스터의 작동이 중지됩니다. 
-* 고객이 고유 DNS 서버에서 A 레코드를 업데이트한 후 Pod는 마이그레이션 후 다시 시작될 때까지 apiserver FQDN을 이전 IP로 계속 확인합니다. 고객은 컨트롤 플레인 마이그레이션 후 hostNetwork Pod와 default-DNSPolicy Pod를 다시 시작해야 합니다.
-* 컨트롤 플레인의 유지 관리의 경우 [AKS IP](./limit-egress-traffic.md)가 변경될 수 있습니다. 이 경우 사용자 지정 DNS 서버에서 API 서버 개인 IP를 가리키는 A 레코드를 업데이트하고 hostNetwork를 사용하여 모든 사용자 지정 pod 또는 배포를 다시 시작해야 합니다.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az_provider_register

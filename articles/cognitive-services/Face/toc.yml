@@ -36,19 +36,6 @@ items:
         href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
       - name: 얼굴 데이터 마이그레이션
         href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-      - name: Face 컨테이너 사용
-        items:
-          - name: 컨테이너 개요
-            href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-          - name: 컨테이너 설치 및 실행
-            href: face-how-to-install-containers.md
-          - name: 컨테이너 구성
-            href: face-resource-container-config.md
-          - name: 컨테이너 인스턴스 사용
-            href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
-          - name: 모든 Cognitive Services 컨테이너 설명서
-            href: ../containers/index.yml
-            maintainContext: true
       - name: 엔터프라이즈 준비
         items:
           - name: 가상 네트워크 설정

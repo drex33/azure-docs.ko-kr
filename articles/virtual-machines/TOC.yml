@@ -766,7 +766,7 @@
             - name: 기존 Bash 스크립트 실행
               href: ./linux/cloudinit-bash-script.md
               displayname: cloud-init
-        - name: 프로비전 에이전트 없이 Linux 이미지 만들기
+        - name: 프로비저닝 에이전트 없이 Linux 이미지 만들기
           href: ./linux/no-agent.md
         - name: Linux 에이전트 프로비전 비활성화
           href: ./linux/disable-provisioning.md
@@ -1208,10 +1208,8 @@
               href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
         - name: 관리 디스크에 대한 백업 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: 디스크 스냅샷 - CLI
-          href: ./linux/snapshot-copy-managed-disk.md
-        - name: 디스크 스냅샷 - PowerShell
-          href: ./windows/snapshot-copy-managed-disk.md
+        - name: 디스크 스냅샷
+          href: snapshot-copy-managed-disk.md
         - name: 비관리 디스크 백업
           href: ./linux/incremental-snapshots.md
         - name: 비관리 디스크에 대한 백업 및 재해 복구

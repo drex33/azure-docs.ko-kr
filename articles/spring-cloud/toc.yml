@@ -64,6 +64,8 @@
   items:
     - name: 보안 컨트롤
       href: concept-security-controls.md
+    - name: 보안 기준
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
     - name: Azure Policy 보안 컨트롤
       href: ./security-controls-policy.md
     - name: 앱 상태 이해
@@ -186,7 +188,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: 아키텍처
+- name: Architecture
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

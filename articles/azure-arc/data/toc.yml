@@ -1,234 +1,237 @@
-- name: Azure Arc 지원 데이터 서비스 설명서
-  href: index.yml
-- name: 개요
-  items:
-    - name: Azure Arc 지원 데이터 서비스란?
-      href: overview.md
-    - name: 릴리스 정보
-      href: release-notes.md
-    - name: Azure Arc 검증 파트너
-      href: validation-program.md
-    - name: 데이터 수집 및 보고
-      href: privacy-data-collection-and-reporting.md
-- name: 빠른 시작
-  items:
-    - name: Azure Arc 지원 데이터 서비스 배포 계획
-      href: plan-azure-arc-data-services.md
-- name: 개념
-  items:
-    - name: 연결 모드 및 요구 사항
-      href: connectivity.md
-    - name: 스토리지 구성
-      href: storage-configuration.md
-    - name: 크기 조정 지침
-      href: sizing-guidance.md
-- name: 방법 가이드
-  items:
-    - name: 도구 설치
-      items:
-        - name: 클라이언트 도구 설치
-          href: install-client-tools.md
-        - name: arcdata 확장(Azure CLI) 설치
-          href: install-arcdata-extension.md
-    - name: 사용자 지정 구성 프로필 만들기
-      href: create-custom-configuration-template.md
-    - name: 데이터 컨트롤러 만들기
-      items:
-        - name: 간접 연결 모드
-          items:
-            - name: Azure Data Studio
-              href: create-data-controller-indirect-azure-data-studio.md
-            - name: Azure portal
-              href: create-data-controller-indirect-azure-portal.md
-            - name: Azure(az) CLI
-              href: create-data-controller-indirect-cli.md
-            - name: Kubernetes 도구
-              href: create-data-controller-using-kubernetes-native-tools.md
-        - name: 직접 연결 모드
-          items:
-            - name: 필수 구성 요소
-              href: create-data-controller-direct-prerequisites.md
-            - name: Azure portal
-              href: create-data-controller-direct-azure-portal.md
-            - name: az CLI
-              href: create-data-controller-direct-cli.md
-    - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
-      items:
-        - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
-          href: azure-data-studio-dashboards.md
-        - name: 청구 데이터 보기(Azure)
-          href: view-billing-data-in-azure.md
-        - name: 데이터 컨트롤러 보기(포털)
-          href: view-data-controller-in-azure-portal.md
-        - name: 리소스 삭제
-          href: delete-azure-resources.md
-        - name: Azure Arc 데이터 컨트롤러 제거
-          href: uninstall-azure-arc-data-controller.md
-    - name: 관리
-      items:
-        - name: Grafana & Kibana를 사용하여 모니터링
-          href: monitor-grafana-kibana.md
-        - name: Azure Monitor에 업로드
-          items:
-            - name: 필수 구성 요소 업로드
-              href: upload-metrics-and-logs-to-azure-monitor.md
-            - name: 로그 업로드
-              href: upload-logs.md
-            - name: 메트릭 업로드
-              href: upload-metrics.md
-            - name: 사용량 데이터 업로드
-              href: upload-usage-data.md
-        - name: 인벤토리 데이터베이스 인스턴스
-          href: view-arc-data-services-inventory-in-azure-portal.md
-        - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기
-          href: retrieve-the-username-password-for-data-controller.md
-        - name: 서비스 주체 자격 증명 업데이트
-          href: update-service-principal-credentials.md
-    - name: 문제 해결
-      items:
-        - name: 가이드
-          href: troubleshoot-guide.md
-        - name: 로그 가져오기
-          href: troubleshooting-get-logs.md
-- name: Azure Arc 지원 PostgreSQL 하이퍼스케일(미리 보기)
-  items:
-    - name: 개요
-      items:
-        - name: Azure Arc 지원 PostgreSQL 하이퍼스케일이란?
-          href: what-is-azure-arc-enabled-postgres-hyperscale.md
-        - name: 제한 사항
-          href: limitations-postgresql-hyperscale.md
-    - name: 빠른 시작
-      items:
-        - name: 지원되는 버전
-          href: supported-versions-postgres-hyperscale.md
-        - name: Postgres 하이퍼스케일 서버 그룹 만들기(CLI)
-          href: create-postgresql-hyperscale-server-group.md
-        - name: Postgres 하이퍼스케일 서버 그룹 만들기(포털)
-          href: create-postgresql-hyperscale-server-group-azure-portal.md
-        - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
-          href: create-postgresql-hyperscale-server-group-azure-data-studio.md
-        - name: Postgres 하이퍼스케일 서버 그룹 만들기 - Kubernetes 네이티브 도구
-          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
-        - name: 연결
-          href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
-    - name: 개념
-      items:
-        - name: 데이터 배포
-          href: concepts-distributed-postgres-hyperscale.md
-        - name: 서버 그룹 배치
-          href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
-    - name: 방법
-      items:
-        - name: 관리
-          items:
-            - name: 백업 및 복원
-              href: backup-restore-postgresql-hyperscale.md
-            - name: PostgreSQL 포트 변경
-              href: change-postgresql-port.md
-            - name: 구성 및 스케일링
-              items:
-                - name: 구성 표시
-                  href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: 작업자 노드 확장
-                  href: scale-out-in-postgresql-hyperscale-server-group.md
-                - name: 메모리 및 vCore 스케일 업|다운
-                  href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
-                - name: 서버 매개 변수 구성
-                  href: configure-server-parameters-postgresql-hyperscale.md
-            - name: 삭제
-              href: delete-postgresql-hyperscale-server-group.md
-            - name: 서버 그룹 나열
-              href: list-server-groups-postgres-hyperscale.md
-            - name: '모니터링, 로그 분석, 청구 정보(포털)'
-              href: monitoring-log-analytics-azure-portal-postgresql.md
-            - name: 보안
-              href: configure-security-postgres-hyperscale.md
-            - name: 서버 그룹 관리(Azure Data Studio)
-              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
-            - name: Postgres 확장 사용
-              href: using-extensions-in-postgresql-hyperscale-server-group.md
-        - name: 마이그레이션
-          items:
-            - name: PostgreSQL 데이터를 Postgres 하이퍼스케일 서버 그룹으로 마이그레이션
-              href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-            - name: 샘플 데이터베이스 AdventureWorks 가져오기
-              href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
-        - name: 문제 해결
-          href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: Azure Arc 지원 SQL Managed Instance
-  items:
-    - name: 개요
-      items:
-        - name: Azure Arc 지원 SQL Managed Instance란?
-          href: managed-instance-overview.md
-        - name: 기능
-          href: managed-instance-features.md
-        - name: 서비스 계층
-          href: service-tiers.md
-    - name: 빠른 시작
-      items:
-        - name: SQL Managed Instance 만들기
-          href: create-sql-managed-instance.md
-        - name: SQL Managed Instance 만들기(Azure Data Studio)
-          href: create-sql-managed-instance-azure-data-studio.md
-        - name: Kubernetes 도구를 사용하여 만들기
-          href: create-sql-managed-instance-using-kubernetes-native-tools.md
-        - name: 연결
-          href: connect-managed-instance.md
-    - name: 방법
-      items:
-        - name: 관리
-          items:
-            - name: 구성
-              href: configure-managed-instance.md
-            - name: '모니터링, 로그 분석, 청구 정보(포털)'
-              href: monitoring-log-analytics-azure-portal-managed-instance.md
-            - name: 고가용성
-              href: managed-instance-high-availability.md
-            - name: 특정 시점 복원
-              href: point-in-time-restore.md
-            - name: 삭제
-              href: delete-managed-instance.md
-        - name: 마이그레이션
-          items:
-            - name: SQL Managed Instance로 마이그레이션(Azure Arc)
-              href: migrate-to-managed-instance.md
-            - name: AdventureWorks 복원
-              href: restore-adventureworks-sample-db.md
-- name: 참조
-  items:
-    - name: 릴리스 버전 로그
-      href: version-log.md
-    - name: az arcdata 확장
-      items:
-        - name: 개요
-          href: ./reference/overview.md
-        - name: arcdata dc
-          href: ./reference/reference-az-arcdata-dc.md
-        - name: arcdata dc 구성
-          href: ./reference/reference-az-arcdata-dc-config.md
-        - name: arcdata dc 엔드포인트
-          href: ./reference/reference-az-arcdata-dc-endpoint.md
-        - name: arcdata dc 상태
-          href: ./reference/reference-az-arcdata-dc-status.md
-        - name: arcdata resource-kind
-          href: ./reference/reference-az-arcdata-resource-kind.md
-        - name: postgres arc-server
-          href: ./reference/reference-az-postgres-arc-server.md
-        - name: postgres arc-server 엔드포인트
-          href: ./reference/reference-az-postgres-arc-server-endpoint.md
-        - name: sql mi-arc
-          href: ./reference/reference-az-sql-mi-arc.md
-        - name: sql mi-arc 엔드포인트
-          href: ./reference/reference-az-sql-mi-arc-endpoint.md
-        - name: sql mi-arc 구성
-          href: ./reference/reference-az-sql-mi-arc-config.md
-        - name: sql mi-arc dag
-          href: ./reference/reference-az-sql-mi-arc-dag.md
-- name: 리소스
-  items:
-    - name: 배포 계획
-      href: plan-azure-arc-data-services.md
-    - name: Azure Arc 빠른 시작
-      href: 'https://azurearcjumpstart.io'
+items:
+  - name: Azure Arc 지원 데이터 서비스 설명서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: Azure Arc 지원 데이터 서비스란?
+        href: overview.md
+      - name: 릴리스 정보
+        href: release-notes.md
+      - name: Azure Arc 검증 파트너
+        href: validation-program.md
+      - name: 데이터 수집 및 보고
+        href: privacy-data-collection-and-reporting.md
+  - name: 빠른 시작
+    items:
+      - name: Azure Arc 지원 데이터 서비스 배포 계획
+        href: plan-azure-arc-data-services.md
+  - name: 개념
+    items:
+      - name: 연결 모드 및 요구 사항
+        href: connectivity.md
+      - name: 스토리지 구성
+        href: storage-configuration.md
+      - name: 크기 조정 지침
+        href: sizing-guidance.md
+  - name: 방법 가이드
+    items:
+      - name: 도구 설치
+        items:
+          - name: 클라이언트 도구 설치
+            href: install-client-tools.md
+          - name: arcdata 확장(Azure CLI) 설치
+            href: install-arcdata-extension.md
+      - name: 사용자 지정 구성 프로필 만들기
+        href: create-custom-configuration-template.md
+      - name: 데이터 컨트롤러 만들기
+        items:
+          - name: 간접 연결 모드
+            items:
+              - name: Azure Data Studio
+                href: create-data-controller-indirect-azure-data-studio.md
+              - name: Azure portal
+                href: create-data-controller-indirect-azure-portal.md
+              - name: Azure(az) CLI
+                href: create-data-controller-indirect-cli.md
+              - name: Kubernetes 도구
+                href: create-data-controller-using-kubernetes-native-tools.md
+          - name: 직접 연결 모드
+            items:
+              - name: 필수 구성 요소
+                href: create-data-controller-direct-prerequisites.md
+              - name: Azure portal
+                href: create-data-controller-direct-azure-portal.md
+              - name: az CLI
+                href: create-data-controller-direct-cli.md
+      - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
+        items:
+          - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
+            href: azure-data-studio-dashboards.md
+          - name: 청구 데이터 보기(Azure)
+            href: view-billing-data-in-azure.md
+          - name: 데이터 컨트롤러 보기(포털)
+            href: view-data-controller-in-azure-portal.md
+          - name: 리소스 삭제
+            href: delete-azure-resources.md
+          - name: Azure Arc 데이터 컨트롤러 제거
+            href: uninstall-azure-arc-data-controller.md
+      - name: 관리
+        items:
+          - name: Grafana & Kibana를 사용하여 모니터링
+            href: monitor-grafana-kibana.md
+          - name: Azure Monitor에 업로드
+            items:
+              - name: 필수 구성 요소 업로드
+                href: upload-metrics-and-logs-to-azure-monitor.md
+              - name: 로그 업로드
+                href: upload-logs.md
+              - name: 메트릭 업로드
+                href: upload-metrics.md
+              - name: 사용량 데이터 업로드
+                href: upload-usage-data.md
+          - name: 인벤토리 데이터베이스 인스턴스
+            href: view-arc-data-services-inventory-in-azure-portal.md
+          - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기
+            href: retrieve-the-username-password-for-data-controller.md
+          - name: 서비스 주체 자격 증명 업데이트
+            href: update-service-principal-credentials.md
+      - name: 문제 해결
+        items:
+          - name: 가이드
+            href: troubleshoot-guide.md
+          - name: 로그 가져오기
+            href: troubleshooting-get-logs.md
+  - name: Azure Arc 지원 PostgreSQL 하이퍼스케일(미리 보기)
+    items:
+      - name: 개요
+        items:
+          - name: Azure Arc 지원 PostgreSQL 하이퍼스케일이란?
+            href: what-is-azure-arc-enabled-postgres-hyperscale.md
+          - name: 제한 사항
+            href: limitations-postgresql-hyperscale.md
+      - name: 빠른 시작
+        items:
+          - name: 지원되는 버전
+            href: supported-versions-postgres-hyperscale.md
+          - name: Postgres 하이퍼스케일 서버 그룹 만들기(CLI)
+            href: create-postgresql-hyperscale-server-group.md
+          - name: Postgres 하이퍼스케일 서버 그룹 만들기(포털)
+            href: create-postgresql-hyperscale-server-group-azure-portal.md
+          - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
+            href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+          - name: Postgres 하이퍼스케일 서버 그룹 만들기 - Kubernetes 네이티브 도구
+            href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
+          - name: 연결
+            href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+      - name: 개념
+        items:
+          - name: 데이터 배포
+            href: concepts-distributed-postgres-hyperscale.md
+          - name: 서버 그룹 배치
+            href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
+      - name: 방법
+        items:
+          - name: 관리
+            items:
+              - name: 백업 및 복원
+                href: backup-restore-postgresql-hyperscale.md
+              - name: PostgreSQL 포트 변경
+                href: change-postgresql-port.md
+              - name: 구성 및 스케일링
+                items:
+                  - name: 구성 표시
+                    href: show-configuration-postgresql-hyperscale-server-group.md
+                  - name: 작업자 노드 확장
+                    href: scale-out-in-postgresql-hyperscale-server-group.md
+                  - name: 메모리 및 vCore 스케일 업|다운
+                    href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+                  - name: 서버 매개 변수 구성
+                    href: configure-server-parameters-postgresql-hyperscale.md
+              - name: 삭제
+                href: delete-postgresql-hyperscale-server-group.md
+              - name: 서버 그룹 나열
+                href: list-server-groups-postgres-hyperscale.md
+              - name: '모니터링, 로그 분석, 청구 정보(포털)'
+                href: monitoring-log-analytics-azure-portal-postgresql.md
+              - name: 보안
+                href: configure-security-postgres-hyperscale.md
+              - name: 서버 그룹 관리(Azure Data Studio)
+                href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+              - name: Postgres 확장 사용
+                href: using-extensions-in-postgresql-hyperscale-server-group.md
+          - name: 마이그레이션
+            items:
+              - name: PostgreSQL 데이터를 Postgres 하이퍼스케일 서버 그룹으로 마이그레이션
+                href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+              - name: 샘플 데이터베이스 AdventureWorks 가져오기
+                href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+          - name: 문제 해결
+            href: troubleshoot-postgresql-hyperscale-server-group.md
+  - name: Azure Arc 지원 SQL Managed Instance
+    items:
+      - name: 개요
+        items:
+          - name: Azure Arc 지원 SQL Managed Instance란?
+            href: managed-instance-overview.md
+          - name: 기능
+            href: managed-instance-features.md
+          - name: 제한 사항
+            href: limitations-managed-instance.md
+          - name: 서비스 계층
+            href: service-tiers.md
+      - name: 빠른 시작
+        items:
+          - name: SQL Managed Instance 만들기
+            href: create-sql-managed-instance.md
+          - name: SQL Managed Instance 만들기(Azure Data Studio)
+            href: create-sql-managed-instance-azure-data-studio.md
+          - name: Kubernetes 도구를 사용하여 만들기
+            href: create-sql-managed-instance-using-kubernetes-native-tools.md
+          - name: 연결
+            href: connect-managed-instance.md
+      - name: 방법
+        items:
+          - name: 관리
+            items:
+              - name: 구성
+                href: configure-managed-instance.md
+              - name: '모니터링, 로그 분석, 청구 정보(포털)'
+                href: monitoring-log-analytics-azure-portal-managed-instance.md
+              - name: 고가용성
+                href: managed-instance-high-availability.md
+              - name: 특정 시점 복원
+                href: point-in-time-restore.md
+              - name: 삭제
+                href: delete-managed-instance.md
+          - name: 마이그레이션
+            items:
+              - name: SQL Managed Instance로 마이그레이션(Azure Arc)
+                href: migrate-to-managed-instance.md
+              - name: AdventureWorks 복원
+                href: restore-adventureworks-sample-db.md
+  - name: 참조
+    items:
+      - name: 릴리스 버전 로그
+        href: version-log.md
+      - name: az arcdata 확장
+        items:
+          - name: 개요
+            href: ./reference/overview.md
+          - name: arcdata dc
+            href: ./reference/reference-az-arcdata-dc.md
+          - name: arcdata dc 구성
+            href: ./reference/reference-az-arcdata-dc-config.md
+          - name: arcdata dc 엔드포인트
+            href: ./reference/reference-az-arcdata-dc-endpoint.md
+          - name: arcdata dc 상태
+            href: ./reference/reference-az-arcdata-dc-status.md
+          - name: arcdata resource-kind
+            href: ./reference/reference-az-arcdata-resource-kind.md
+          - name: postgres arc-server
+            href: ./reference/reference-az-postgres-arc-server.md
+          - name: postgres arc-server 엔드포인트
+            href: ./reference/reference-az-postgres-arc-server-endpoint.md
+          - name: sql mi-arc
+            href: ./reference/reference-az-sql-mi-arc.md
+          - name: sql mi-arc 엔드포인트
+            href: ./reference/reference-az-sql-mi-arc-endpoint.md
+          - name: sql mi-arc 구성
+            href: ./reference/reference-az-sql-mi-arc-config.md
+          - name: sql mi-arc dag
+            href: ./reference/reference-az-sql-mi-arc-dag.md
+  - name: 리소스
+    items:
+      - name: 배포 계획
+        href: plan-azure-arc-data-services.md
+      - name: Azure Arc 빠른 시작
+        href: 'https://azurearcjumpstart.io'

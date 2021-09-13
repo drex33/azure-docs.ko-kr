@@ -197,6 +197,8 @@
           href: reference-query-functions.md
         - name: 연산자
           href: reference-query-operators.md
+        - name: 예약 키워드
+          href: reference-query-reserved.md
 - name: 리소스
   items:
     - name: Digital Twins 서비스 제한

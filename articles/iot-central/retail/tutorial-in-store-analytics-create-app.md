@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
-ms.openlocfilehash: 44e62418a74d40f05ab0ccc9b9da86c76bc07790
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/17/2021
+ms.openlocfilehash: 93438e9726dca4fe74da3bbfc9bd06533115e74e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122196048"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439153"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-in-store-analytics-application-template"></a>자습서: 매장 내 분석 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -144,7 +144,7 @@ IoT 데이터는 소매 환경 내 다양한 종류의 비즈니스 애플리케
 
 1. 새 디바이스 템플릿을 만들려면 **+새로 만들기** 를 선택합니다.
 
-1. Azure IoT 디바이스 카탈로그에서 **RuuviTag** 센서 디바이스 템플릿을 찾아 선택합니다. 
+1. Azure IoT 디바이스 카탈로그에서 **RuuviTag Multisensor** 디바이스 템플릿을 찾아 선택합니다. 
 
 1. 완료되면 **다음: 사용자 지정** 을 선택합니다.
 
@@ -204,7 +204,7 @@ RuuviTag 디바이스 템플릿의 기본 제공 인터페이스를 사용자 �
 
 1. **표시 이름** 의 *위치* 값을 입력합니다. 이 값은 속성의 친숙한 이름을 나타내는 **이름** 필드에 자동으로 복사됩니다. 복사한 값을 사용하거나 변경할 수 있습니다.
 
-1. **스키마** 드롭다운에서 *문자열* 을 선택합니다. 문자열 형식을 사용하면 위치 이름 문자열을 템플릿에 따라 디바이스와 연결할 수 있습니다. 예를 들어, 매장의 영역을 각 디바이스와 연결할 수 있습니다. 필요에 따라 속성의 **의미 체계 유형** 을 *위치* 로 설정할 수 있습니다. 그러면 **스키마** 가 *Geopoint* 로 자동 설정됩니다. 이를 통해 GPS 좌표를 디바이스와 연결할 수 있습니다. 
+1. **스키마** 드롭다운에서 *문자열* 을 선택합니다. 문자열 형식을 사용하면 위치 이름 문자열을 템플릿에 따라 디바이스와 연결할 수 있습니다. 예를 들어, 매장의 영역을 각 디바이스와 연결할 수 있습니다.
 
 1. **최소 길이** 를 *2* 로 설정합니다. 
 

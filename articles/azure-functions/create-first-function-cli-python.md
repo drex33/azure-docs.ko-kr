@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: e4ceefbf3dc722b0e575b697f6872b033f494714
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cd67f81868d43ece3638d3d46ed07d4044642b19
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739847"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468351"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기
 
@@ -204,20 +204,20 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     
     ---
 
-1. `westeurope` 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다. 
+1. 선택한 지역에 `AzureFunctionsQuickstart-rg`라는 리소스 그룹을 만듭니다. 
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     
     ```azurecli
-    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    az group create --name AzureFunctionsQuickstart-rg --location <REGION>
     ```
  
-    [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 일반적으로 `az account list-locations` 명령에서 반환된 사용 가능한 지역을 사용하여 가까운 지역에 리소스 그룹과 리소스를 만듭니다.
+    [az group create](/cli/azure/group#az_group_create) 명령은 리소스 그룹을 만듭니다. 위의 명령에서 [az account list-locations](/cli/azure/account#az_account_list_locations) 명령에서 반환된 사용 가능한 지역 코드를 사용하여 `<REGION>`을 가까운 지역으로 바꿉니다.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
+    New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location '<REGION>'
     ```
 
     [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령은 리소스 그룹을 만듭니다. 일반적으로 [Get-AzLocation](/powershell/module/az.resources/get-azlocation) cmdlet에서 반환된 사용 가능한 지역을 사용하여 가까운 지역에 리소스 그룹과 리소스를 만듭니다.
@@ -240,7 +240,7 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location westeurope
+    New-AzStorageAccount -ResourceGroupName AzureFunctionsQuickstart-rg -Name <STORAGE_NAME> -SkuName Standard_LRS -Location <REGION>
     ```
 
     [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet은 스토리지 계정을 만듭니다.
@@ -259,12 +259,12 @@ HTTP 트리거의 경우 함수는 *function.json* 에 정의된 `req` 변수에
     az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
-    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `--runtime-version`을 `3.7` 또는 `3.6`으로 각각 변경합니다.
+    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `--runtime-version`을 `3.7` 또는 `3.6`으로 각각 변경합니다. Python 함수는 기본값인 Windows에서 실행할 수 없기 때문에 `--os-type linux`를 제공해야 합니다.
     
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location '<REGION>'
     ```
     
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. Python 3.7 또는 3.6을 사용하는 경우 `-RuntimeVersion`을 `3.7` 또는 `3.6`으로 각각 변경합니다.

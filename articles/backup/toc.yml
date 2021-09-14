@@ -186,7 +186,7 @@
           items:
             - name: 자격 증명 모음에서 여러 SQL Server VM 백업
               href: backup-sql-server-database-azure-vms.md
-            - name: SQL 가용성 그룹 백업
+            - name: SQL Server 가용성 그룹 백업
               href: backup-sql-server-on-availability-groups.md
             - name: VM 창에서 SQL Server VM 백업
               href: backup-sql-server-vm-from-vm-pane.md
@@ -198,6 +198,8 @@
       items:
         - name: Backup
           href: backup-azure-database-postgresql.md
+        - name: 관리
+          href: manage-azure-database-postgresql.md
     - name: MARS 에이전트를 사용한 Windows 백업
       items:
         - name: 개요
@@ -236,6 +238,8 @@
               href: backup-managed-disks.md
             - name: 복원
               href: restore-managed-disks.md
+            - name: 관리
+              href: manage-azure-managed-disks.md
         - name: PowerShell 사용
           items:
             - name: Backup
@@ -549,15 +553,15 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup
-    - name: Azure Dataprotection - CLI
+    - name: Azure Data Protection - CLI
       href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
-    - name: Azure Dataprotection - PowerShell
+    - name: Azure Data Protection - PowerShell
       href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
     - name: PowerShell – Azure Backup 에이전트
       href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
-    - name: REST - Azure Dataprotection
+    - name: REST - Azure Data Protection
       href: /rest/api/dataprotection/
     - name: REST - 백업
       href: /rest/api/backup/
@@ -580,5 +584,5 @@
       href: azure-backup-pricing.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: 동영상
+    - name: 비디오
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

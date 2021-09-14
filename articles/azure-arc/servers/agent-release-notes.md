@@ -1,14 +1,15 @@
 ---
 title: Azure Arc 지원 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 지원 서버 에이전트 릴리스 정보가 있습니다. 요약된 문제 중 다수에 추가 세부 정보로 연결되는 링크가 있습니다.
-ms.topic: conceptual
-ms.date: 07/16/2021
-ms.openlocfilehash: 54e7bc72884cc7bc9116c88e7cdb72e5af5f71cd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.topic: overview
+ms.date: 09/01/2021
+ms.custom: references_regions
+ms.openlocfilehash: d4008a41629ac2e71e1abdb91e30f2d6b9350538
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770962"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431607"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능
 
@@ -18,7 +19,28 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
 - 알려진 문제
 - 버그 수정
 
+이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 6개월이 넘은 항목을 찾으려는 경우 [Azure Arc 지원 서버 에이전트의 새로운 기능 아카이브](agent-release-notes-archive.md)에서 찾을 수 있습니다.
+
+## <a name="august-2021"></a>2021년 8월
+
+버전 1.10
+
+### <a name="fixed"></a>고정
+
+- 이제 게스트 구성 정책 에이전트가 시스템 설정을 구성하고 재구성할 수 있습니다. 기존 정책 할당은 감사 전용으로 계속 유지됩니다. Azure Policy [게스트 구성 수정 옵션](../../governance/policy/concepts/guest-configuration-policy-effects.md)에 대해 자세히 알아보세요.
+- 이제 게스트 구성 정책 에이전트가 6시간마다가 아닌 48시간마다 다시 시작됩니다.
+
 ## <a name="july-2021"></a>2021년 7월
+
+버전 1.9
+
+## <a name="new-features"></a>새로운 기능
+
+인도네시아어 언어에 대한 지원이 추가됨
+
+### <a name="fixed"></a>고정
+
+미국 서부 3 지역에서 확장 관리를 방지하는 버그를 수정함
 
 버전 1.8
 
@@ -70,92 +92,6 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
 - 새 `-json` 매개 변수를 통해 출력을 지정하여 JSON 형식이 되도록 합니다(-useStderr과 함께 사용하는 경우).
 - 제조업체, 모델, 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 등 다른 인스턴스 메타데이터를 수집합니다.
  
-## <a name="march-2021"></a>2021년 3월
-
-버전 1.4
-
-### <a name="new-features"></a>새로운 기능
-
-- 현재 제한된 미리 보기로 제공되는 프라이빗 엔드포인트에 대한 지원이 추가되었습니다.
-- azcmagent 종료 코드의 확장된 목록이 제공됩니다.
-- 이제 `--config` 매개 변수를 사용하여 파일에서 에이전트 구성 매개 변수를 읽을 수 있습니다.
-- 새 인스턴스 메타데이터를 수집하여 Microsoft SQL Server가 서버에 설치되어 있는지 확인합니다.
-
-### <a name="fixed"></a>고정
-
-네트워크 엔드포인트 검사가 더 빨라졌습니다.
-
-## <a name="december-2020"></a>2020년 12월
-
-버전: 1.3
-
-### <a name="new-features"></a>새로운 기능
-
-Windows Server 2008 R2 SP1에 대한 지원이 추가되었습니다.
-
-### <a name="fixed"></a>고정
-
-Linux에서 사용자 지정 스크립트 확장을 설치하지 못하는 문제가 해결되었습니다.
-
-## <a name="november-2020"></a>2020년 11월
-
-버전: 1.2
-
-### <a name="fixed"></a>고정
-
-RPM 기반 배포에서 업그레이드 후 프록시 구성이 손실되는 문제가 해결되었습니다.
-
-## <a name="october-2020"></a>2020년 10월
-
-버전: 1.1
-
-### <a name="fixed"></a>고정
-
-- 대체 GC 디먼 단위 파일 위치를 처리하도록 프록시 스크립트가 수정되었습니다.
-- GuestConfig 에이전트 안정성이 변경되었습니다.
-- US Gov 버지니아 지역에 대한 GuestConfig 에이전트 지원이 제공됩니다.
-- 오류가 발생하는 경우 GuestConfig 에이전트 확장 보고서 메시지가 더 자세히 표시됩니다.
-
-## <a name="september-2020"></a>2020년 9월
-
-버전: 1.0(일반 공급)
-
-### <a name="plan-for-change"></a>변경 계획
-
-- 미리 보기 에이전트(1.0 이전의 모든 버전)에 대한 지원이 향후 서비스 업데이트에서 제거될 예정입니다.
-- 대체 엔드포인트 `.azure-automation.net`에 대한 지원이 제거되었습니다. 프록시가 있는 경우 엔드포인트 `*.his.arc.azure.com`을 허용해야 합니다.
-- Azure에 호스트된 가상 머신에 Connected Machine 에이전트가 설치된 경우 Arc 지원 서버 리소스에서 VM 확장을 설치하거나 수정할 수 없습니다. 가상 머신의 **Microsoft.Compute** 및 **Microsoft.HybridCompute** 리소스에서 수행되는 확장 작업의 충돌을 방지하기 위한 것입니다. 모든 확장 작업의 경우 머신에 **Microsoft.Compute** 리소스를 사용합니다.
-- 게스트 구성 프로세스 이름이 Linux에서는 *gcd* 에서 *gcad* 로, Windows에서는 *gcservice* 에서 *gcarcservice* 로 변경되었습니다.
-
-### <a name="new-features"></a>새로운 기능
-
-- 지원 정보를 수집하는 `azcmagent logs` 옵션이 추가되었습니다.
-- EULA를 표시하는 `azcmagent license` 옵션이 추가되었습니다.
-- 에이전트 상태를 쉽게 구문 분석 가능한 형식으로 출력하는 `azcmagent show --json` 옵션이 추가되었습니다.
-- 서버가 Azure에 호스트된 가상 머신에 있는지를 나타내는 플래그가 `azcmagent show` 출력에 추가되었습니다.
-- Azure 서비스에 연결할 수 없는 경우 로컬 에이전트 상태 재설정을 허용하는 `azcmagent disconnect --force-local-only` 옵션이 추가되었습니다.
-- 다른 클라우드를 지원하는 `azcmagent connect --cloud` 옵션이 추가되었습니다. 이 릴리스에서는 에이전트 출시 시점에 Azure만 서비스에서 지원됩니다.
-- 에이전트는 Azure 지원 언어로 지역화되었습니다.
-
-### <a name="fixed"></a>고정
-
-- 연결 확인이 향상되었습니다.
-- Linux에서 에이전트를 업그레이드하는 경우 프록시 서버 설정이 손실되는 문제가 수정되었습니다.
-- Windows Server 2012 R2를 실행하는 서버에 에이전트를 설치하려고 시도하는 경우 발생하는 문제가 해결되었습니다.
-- 확장 설치 안정성이 향상되었습니다.
-
-## <a name="august-2020"></a>2020년 8월
-
-버전: 0.11
-
-- 이전에 이 릴리스에서는 Ubuntu 20.04에 대한 지원을 발표했습니다. 일부 Azure VM 확장에서 Ubuntu 20.04를 지원하지 않으므로 이 버전의 Ubuntu에 대한 지원은 제거됩니다.
-
-- 확장 배포에 대한 안정성이 향상되었습니다.
-
-### <a name="known-issues"></a>알려진 문제
-
-이전 버전의 Linux 에이전트를 사용하고 있으며 프록시 서버를 사용하도록 구성된 경우 업그레이드 후 프록시 서버 설정을 다시 구성해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 - 여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 사용하도록 설정하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보, 배포 방법을 파악합니다.

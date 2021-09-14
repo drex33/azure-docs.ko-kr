@@ -423,6 +423,8 @@
       href: insights-dashboard.md
     - name: 라이선스 대시보드
       href: license-dashboard.md
+    - name: 서비스 품질 대시보드
+      href: quality-of-service-dashboard.md
     - name: 다운로드 대시보드
       href: downloads-dashboard.md
     - name: 평점 및 리뷰 대시보드

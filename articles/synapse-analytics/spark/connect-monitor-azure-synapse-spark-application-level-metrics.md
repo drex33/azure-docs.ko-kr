@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
+title: API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 description: 자습서 - Synapse Prometheus 커넥터를 사용하여 거의 실시간으로 Azure Spark 애플리케이션 메트릭에 대해 기존 온-프레미스 Prometheus 서버를 Azure Synapse 작업 영역에 통합하는 방법을 알아봅니다.
 services: synapse-analytics
 author: jejiang
@@ -9,27 +9,27 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: 45ccced6f083e0d304651a0cea7df90c6396fd88
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b2810d97651c6819996c79ce554fa2feee2a6c65
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143254"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539644"
 ---
-# <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>자습서: Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
+#  <a name="collect-apache-spark-applications-metrics-using-apis"></a>API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Synapse Prometheus 커넥터를 사용하여 거의 실시간으로 Azure Spark 애플리케이션 메트릭에 대해 기존 온-프레미스 Prometheus 서버를 Azure Synapse 작업 영역에 통합하는 방법을 알아봅니다. 
+이 자습서에서는 Synapse Prometheus 커넥터를 사용하여 거의 실시간으로 Apache Spark 애플리케이션 메트릭에 대해 기존 온-프레미스 Prometheus 서버를 Azure Synapse 작업 영역에 통합하는 방법을 알아봅니다. 
 
-또한 Azure Synapse REST 메트릭 API도 소개합니다. REST API를 통해 Spark 애플리케이션 메트릭 데이터를 가져와 고유한 모니터링 및 진단 도구 키트를 빌드하거나 모니터링 시스템과 통합할 수 있습니다.
+또한 Azure Synapse REST 메트릭 API도 소개합니다. REST API를 통해 Apache Spark 애플리케이션 메트릭 데이터를 가져와 고유한 모니터링 및 진단 도구 키트를 빌드하거나 모니터링 시스템과 통합할 수 있습니다.
 
 ## <a name="use-azure-synapse-prometheus-connector-for-your-on-premises-prometheus-servers"></a>온-프레미스 Prometheus 서버에 대해 Azure Synapse Prometheus 커넥터 사용
 
 [Azure Synapse Prometheus 커넥터](https://github.com/microsoft/azure-synapse-spark-metrics)는 오픈 소스 프로젝트입니다. Synapse Prometheus 커넥터에서는 파일 기반 서비스 검색 방법을 사용하여 다음을 수행할 수 있습니다.
  - AAD 서비스 주체를 통해 Synapse 작업 영역에서 인증을 받습니다.
  - 작업 영역 Apache Spark 애플리케이션 목록을 가져옵니다. 
- - Prometheus 파일 기반 구성을 통해 Spark 애플리케이션 메트릭을 끌어옵니다. 
+ - Prometheus 파일 기반 구성을 통해 Apache Spark 애플리케이션 메트릭을 끌어옵니다. 
 
 ### <a name="1-prerequisite"></a>1. 필수 요소
 
@@ -176,15 +176,15 @@ curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Azure Synapse 작업 영역에서 실행 중인 애플리케이션 나열
 
-Synapse 작업 영역에 대 한 spark 애플리케이션 목록을 가져오려면 이 문서 [모니터링 - Spark 작업 목록 가져오기](/rest/api/synapse/data-plane/monitoring/getsparkjoblist)을 따라 이동하면 됩니다.
+Synapse 작업 영역에 대한 Apache Spark 애플리케이션 목록을 가져오려면 이 문서 [모니터링 - Apache Spark 작업 목록 가져오기](/rest/api/synapse/data-plane/monitoring/getsparkjoblist)를 따라 이동하면 됩니다.
 
 
-### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Prometheus 또는 REST API를 사용하여 spark 애플리케이션 메트릭 수집
+### <a name="3-collect-apache-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Prometheus 또는 REST API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 
 
-#### <a name="collect-spark-application-metrics-with-the-prometheus-api"></a>Prometheus API를 사용하여 spark 애플리케이션 메트릭 수집
+#### <a name="collect-apache-spark-application-metrics-with-the-prometheus-api"></a>Prometheus API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 
-Prometheus API로 지정된 spark 애플리케이션의 최신 메트릭 가져오기
+Prometheus API로 지정된 Apache Spark 애플리케이션의 최신 메트릭 가져오기
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
@@ -221,7 +221,7 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 
 ```
 
-#### <a name="collect-spark-application-metrics-with-the-rest-api"></a>REST API를 사용하여 spark 애플리케이션 메트릭 수집
+#### <a name="collect-apache-spark-application-metrics-with-the-rest-api"></a>REST API를 사용하여 Apache Spark 애플리케이션 메트릭 수집
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
@@ -285,4 +285,4 @@ GET https://myworkspace.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview
 
 ### <a name="4-build-your-own-diagnosis-and-monitoring-tools"></a>4. 고유한 진단 및 모니터링 도구 빌드
 
-Prometheus API 및 REST API는 spark 애플리케이션 실행 정보에 대한 풍부한 메트릭 데이터를 제공합니다. Prometheus API 및 REST API를 통해 애플리케이션 관련 메트릭 데이터를 수집할 수 있습니다. 사용자의 요구에 보다 적합한 자체 진단 및 모니터링 도구를 작성합니다.
+Prometheus API 및 REST API는 Apache Spark 애플리케이션 실행 정보에 대한 풍부한 메트릭 데이터를 제공합니다. Prometheus API 및 REST API를 통해 애플리케이션 관련 메트릭 데이터를 수집할 수 있습니다. 사용자의 요구에 보다 적합한 자체 진단 및 모니터링 도구를 작성합니다.

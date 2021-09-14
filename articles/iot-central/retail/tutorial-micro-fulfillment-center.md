@@ -6,13 +6,13 @@ ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 01/09/2020
-ms.openlocfilehash: 8079e9c895db1aad00c0b8c27d7cd955ba135696
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 09/01/2021
+ms.openlocfilehash: 9eb70a08679427af9e91ffd6df3cd8f827cc76cd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195778"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476307"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-micro-fulfillment-center-application-template"></a>자습서: 마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습
 
@@ -89,7 +89,7 @@ IoT 데이터는 소매 환경 내 다양한 종류의 비즈니스 애플리케
    * 운영자가 처리 센터 내의 상태를 모니터링하는 데 사용할 수 있는 대시보드의 예를 참조합니다.
    * 처리 센터 내의 게이트웨이 디바이스에서 실행되는 페이로드의 상태를 모니터링합니다.
 
-  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png" alt-text="Northwind Traders 마이크로 처리 센터 대시보드 하단 절반의 스크린샷.":::
+  :::image type="content" source="media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png" alt-text="Northwind Traders 마이크로 처리 센터 대시보드 아래쪽 절반의 스크린샷":::
 
 
 ### <a name="device-template"></a>디바이스 템플릿

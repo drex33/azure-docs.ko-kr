@@ -1,22 +1,22 @@
 ---
-title: Azure Automation에서 PowerShell Runbook의 관리 ID 사용
+title: Azure Automation에서 관리 ID를 사용하여 PowerShell Runbook 만들기
 description: 이 자습서에서는 Azure Automation에서 PowerShell Runbook의 관리 ID를 사용하는 방법을 알아봅니다.
 services: automation
 ms.subservice: process-automation
 ms.date: 08/16/2021
 ms.topic: tutorial
-ms.openlocfilehash: 074789a8af19d8054cbbd51cee1203af17d02af8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 9f728a8e51dbe310f744d11dd495038b2ff96126
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327933"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540274"
 ---
-# <a name="tutorial-use-managed-identities-with-a-powershell-runbook-in-azure-automation"></a>자습서: Azure Automation에서 PowerShell Runbook의 관리 ID 사용
+# <a name="tutorial-create-automation-powershell-runbook-using-managed-identity"></a>자습서: 관리 ID를 사용하여 Automation PowerShell Runbook 만들기
 
 이 자습서에서는 Azure Automation에서, 실행 계정이 아닌 [관리 ID](../automation-security-overview.md#managed-identities-preview)를 사용하여 리소스와 상호 작용하는 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만드는 방법을 안내합니다. PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 관리 ID에 권한 할당
@@ -24,7 +24,7 @@ ms.locfileid: "122327933"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 사용자 할당 관리 ID가 하나 이상 있는 Azure Automation 계정. 자세한 내용은 [Azure Automation 계정에 대해 사용자 할당 관리 ID 사용](../add-user-assigned-identity.md)을 참조하세요.
 * Az 모듈 `Az.Accounts`, `Az.Automation`, `Az.ManagedServiceIdentity` 및 `Az.Compute`를 Automation 계정으로 가져옵니다. 자세한 내용은 [Az 모듈 가져오기](../shared-resources/modules.md#import-az-modules)를 참조하세요.
@@ -255,7 +255,11 @@ Remove-AzRoleAssignment `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 실행 계정이 아닌 [관리 ID](../automation-security-overview.md#managed-identities-preview)를 사용하여 Azure Automation에서 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만들었습니다. 관리 ID에 대한 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 실행 계정이 아닌 [관리 ID](../automation-security-overview.md#managed-identities-preview)를 사용하여 Azure Automation에서 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만들었습니다. PowerShell 워크플로 Runbook에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Automation 계정에 대해 사용자 할당 관리 ID 사용](../add-user-assigned-identity.md)
+> [자습서: PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)
+
+
+
+

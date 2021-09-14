@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 96a60c88997226516d451124280053d87065e5b6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c2720fb5fd52eaf5f4f6d854bba622c0fecb5aeb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381946"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438249"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -37,13 +37,15 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    > [!NOTE]
    >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](../app/create-new-resource.md) 문서를 참조하세요.
 
-   구성 페이지가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다. 
+   구성 페이지가 나타납니다. 다음 표를 사용하여 입력 필드를 채웁니다. 
 
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름 |
-   | **리소스 그룹**     | myResourceGroup      | AppInsights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
-   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스팅되는 위치 근처를 선택합니다. |
+   | **리소스 모드** | 작업 영역 기반 | 리소스 모드를 선택할 수 있는 옵션이 있는 경우 **작업 영역 기반** 을 선택합니다.  |
+   | **Log Analytics 작업 영역** | | 기본값을 적용합니다. |
 
 3. **만들기** 를 선택합니다.
 

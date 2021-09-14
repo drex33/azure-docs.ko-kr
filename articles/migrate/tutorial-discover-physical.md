@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464880"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427732"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -40,9 +40,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **요구 사항** | **세부 정보**
 --- | ---
-**어플라이언스** | Azure Migrate 어플라이언스를 실행할 서버가 필요합니다. 서버에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다.<br/> _(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
+**어플라이언스** | Azure Migrate 어플라이언스를 실행할 서버가 필요합니다. 서버에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다.<br/> _(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.<br/><br/> - 어플라이언스에서 필요한 [URL](migrate-appliance.md#url-access)에 대한 아웃바운드 인터넷 연결
 **Windows 서버** | 어플라이언스가 구성 및 성능 메타데이터를 가져올 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용합니다.
 **Linux 서버** | 포트 22(TCP)에서 인바운드 연결을 허용합니다.
+
+> [!NOTE]
+> [복제 어플라이언스](migrate-replication-appliance.md) 또는 모바일 서비스 에이전트가 설치된 서버에 Azure Migrate 어플라이언스를 설치하는 것은 지원되지 않습니다.  어플라이언스 서버가 이전에 복제 어플라이언스를 설정하는 데 사용된 적이 없거나 서버에 모바일 서비스 에이전트가 설치되어 있는지 확인합니다.
 
 ## <a name="prepare-an-azure-user-account"></a>Azure 사용자 계정 준비
 

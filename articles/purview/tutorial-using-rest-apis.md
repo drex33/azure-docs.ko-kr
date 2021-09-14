@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de49c820100140f0822149bba84f7a38f034323b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821347"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473283"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>자습서: REST API 사용
 
@@ -79,20 +79,22 @@ REST API 클라이언트가 카탈로그에 액세스하려면 카탈로그에�
 
 1. Purview 계정으로 이동합니다.
 
-1. **Purview 계정** 페이지에서 **액세스 제어(IAM)** 탭을 선택합니다.
+1. **Purview 계정** 페이지에서 **Purview Studio** 를 엽니다.
 
-1. **+ 추가** 를 클릭합니다.
+1. 왼쪽 메뉴에서 **데이터 맵** 을 선택합니다.
 
-1. **역할 할당 추가** 를 선택합니다.
+1. **컬렉션** 을 선택합니다.
 
-1. 역할에 **Purview 데이터 큐레이터** 를 입력합니다.
+1. 컬렉션 메뉴에서 루트 컬렉션을 선택합니다. 이 컬렉션은 목록에서 최상위 컬렉션이 되며 Purview 계정과 동일한 이름을 갖습니다.
+
+1. **역할 할당** 탭을 선택합니다.
+
+1. **데이터 큐레이터** 로 아래로 스크롤하고 **+** 사용자 단추를 선택합니다.
 
     > [!Note]
-    > Azure Purview Data Catalog 권한에 대한 자세한 내용은 [카탈로그 권한](catalog-permissions.md)을 참조하세요. 예를 들어 스캔을 트리거할 수 있는 권한이 필요한 경우 역할 유형은 **Purview 데이터 원본 관리자** 여야 합니다.
+    > 컬렉션 관리자만 컬렉션에 대한 권한을 편집할 수 있습니다. 컬렉션 관리자가 아닌 경우 루트 컬렉션에 나열된 관리자 중 하나에 문의합니다. 자세한 내용은 [Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-1. **다음에 대한 액세스 할당** 은 기본값(**사용자, 그룹 또는 서비스 주체**)으로 둡니다.
-
-1. **선택** 에 할당하려는 이전에 생성된 서비스 주체의 이름을 입력한 다음, 결과 창에서 해당 이름을 클릭합니다.
+1. 할당하려는 이전에 생성된 서비스 주체의 이름을 검색한 다음, 결과 창에서 해당 이름을 클릭합니다.
 
 1. 설정 메뉴에서 **저장**
 

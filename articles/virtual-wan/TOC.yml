@@ -41,7 +41,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: 아키텍처
+    - name: Architecture
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -93,7 +93,7 @@
       items:
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
-    - name: 가격 책정 개념
+    - name: 가격 책정 설명
       href: pricing-concepts.md
     - name: 가상 허브의 NVA 정보
       href: about-nva-hub.md

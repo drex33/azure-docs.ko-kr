@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: e8347e2f4a46e420f8beb6a966e60345456213f8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: faf51735ae6805f0ff7db98416e9b05731c08642
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768354"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426457"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 
@@ -37,21 +37,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21)에 로그인합니다.
 
-## <a name="enable-automanage-for-a-single-machine"></a>단일 머신에 대해 Automanage 사용
-
-1. 사용할 Virtual Machine을 찾습니다.
-
-2. **작업** 아래의 목차에서 **Automanage(미리 보기)** 항목을 클릭합니다.
-
-3. **시작** 을 선택합니다.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="단일 VM을 시작합니다.":::
-
-4. Automanage 설정(환경, 기본 설정, Automanage 계정)을 선택하고 **사용** 을 누릅니다.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="단일 VM에서 사용합니다.":::
-
-## <a name="enable-automanage-for-multiple-machines"></a>여러 머신에 대해 Automanage 사용
+## <a name="enable-automanage-on-existing-machines"></a>기존 컴퓨터에서 Automanage 사용
 
 1. 검색 창에서 **Automanage – Azure 가상 머신 모범 사례** 를 검색하고 선택합니다.
 

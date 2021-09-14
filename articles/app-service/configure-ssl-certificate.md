@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: f7c6c46565ce9abb108b59e567d2f66c7a05ab28
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 27e17c5adeb7ab5a55b4783bac86301ba4237f45
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835435"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538204"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -46,7 +46,7 @@ ms.locfileid: "122835435"
 
 * 삼중 DES를 사용하여 암호화된 [암호로 보호된 PFX 파일](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)로 내보냅니다.
 * 길이가 2048비트 이상인 프라이빗 키 포함
-* 인증서 체인의 모든 중간 인증서를 포함함
+* 인증서 체인의 모든 중간 인증서와 루트 인증서를 포함합니다.
 
 TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 다음과 같은 추가 요구 사항을 충족해야 합니다.
 
@@ -101,7 +101,7 @@ Azure에서 App Service Certificate를 구매하는 경우 Azure에서 다음 �
 - GoDaddy의 구매 프로세스를 담당합니다.
 - 인증서의 도메인 확인을 수행합니다.
 - [Azure Key Vault](../key-vault/general/overview.md)에 인증서를 유지합니다.
-- 인증서 갱신을 관리합니다([인증서 갱신](#renew-certificate) 참조).
+- 인증서 갱신을 관리합니다([인증서 갱신](#renew-an-app-service-certificate) 참조).
 - App Service 앱으로 가져온 복사본과 인증서를 자동으로 동기화합니다.
 
 App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certificate-order)으로 이동합니다.
@@ -298,9 +298,6 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 > [!IMPORTANT] 
 > 이 인증서를 사용하여 사용자 지정 도메인을 보호하려면 여전히 인증서 바인딩을 만들어야 합니다. [바인딩 만들기](configure-ssl-bindings.md#create-binding)의 단계를 따릅니다.
 
-> [!NOTE]
-> [업로드한 인증서](#upload-a-private-certificate)를 갱신하려면 [인증서 바인딩 내보내기](configure-ssl-bindings.md#renew-certificate-binding)를 참조하세요. App Service는 새로 업로드된 인증서를 바인딩과 자동으로 동기화하지 않습니다. 자동 인증서 동기화 기능은 [가져온 Key Vault 인증서](#import-a-certificate-from-key-vault) 및 [가져온 App Service 인증서](#import-an-app-service-certificate)에만 사용할 수 있습니다.
-
 ## <a name="upload-a-public-certificate"></a>공용 인증서 업로드
 
 공용 인증서는 *.cer* 형식으로 지원됩니다. 
@@ -317,14 +314,59 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 
 인증서가 업로드되면 인증서 지문을 복사하고 [인증서에 액세스할 수 있도록 설정](configure-ssl-certificate-in-code.md#make-the-certificate-accessible)을 참조합니다.
 
+## <a name="renew-an-expiring-certificate"></a>만료되는 인증서 갱신
+
+인증서가 만료되기 전에 갱신된 인증서를 App Service에 추가하고 모든 [TLS/SSL 바인딩](configure-ssl-certificate.md)을 업데이트해야 합니다. 프로세스는 인증서 유형에 따라 다릅니다. 예를 들어 [App Service 인증서](#import-an-app-service-certificate)를 포함하여 [Key Vault에서 가져온 인증서](#import-a-certificate-from-key-vault)는 24시간마다 App Service에 자동으로 동기화되며 인증서를 갱신할 때 TLS/SSL 바인딩을 업데이트합니다. [업로드된 인증서](#upload-a-private-certificate)의 경우 자동 바인딩 업데이트가 없습니다. 시나리오에 따라 다음 섹션 중 하나를 참조하세요.
+
+- [업로드된 인증서 갱신](#renew-an-uploaded-certificate)
+- [App Service 인증서 갱신](#renew-an-app-service-certificate)
+- [Key Vault에서 가져온 인증서 갱신](#renew-a-certificate-imported-from-key-vault)
+
+### <a name="renew-an-uploaded-certificate"></a>업로드된 인증서 갱신
+
+만료되는 인증서를 교체하기 위해 새 인증서로 인증서 바인딩을 업데이트하는 방법은 사용자 환경에 부정적인 영향을 줄 수 있습니다. 예를 들어 바인딩이 IP 기반이라고 해도 바인딩을 삭제하면 인바운드 IP 주소가 변경될 수 있습니다. 이것은 IP 기반 바인딩에 이미 있는 인증서를 갱신할 때 특히 중요합니다. 앱의 IP 주소가 변경되지 않도록 하고 HTTPS 오류로 인한 앱의 가동 중지 시간을 방지하려면 다음 단계를 순서대로 수행합니다.
+
+1. [새 인증서를 업로드합니다](#upload-a-private-certificate).
+2. 만료되는 기존 인증서를 삭제하지 않고 [동일한 사용자 지정 도메인에 새 인증서를 바인딩합니다](configure-ssl-bindings.md). 이 작업은 기존 인증서 바인딩을 제거하는 대신 바인딩을 교체합니다.
+3. 기존 인증서를 삭제합니다.
+
+### <a name="renew-an-app-service-certificate"></a>App Service 인증서 갱신
+
+> [!NOTE]
+> 갱신 프로세스를 수행하려면 [App Service의 잘 알려진 서비스 주체에게 키 자격 증명 모음에 대한 필수 권한이 있어야 합니다](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). 이 권한은 포털을 통해 App Service Certificate를 가져올 때 구성되며 키 자격 증명 모음에서 제거하면 안 됩니다.
+
+언제든 App Service 인증서의 자동 갱신 설정을 전환하려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정** 을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
+
+**켜기** 또는 **끄기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 31일 전에 자동으로 갱신됩니다.
+
+![App Service 인증서 자동 갱신](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+
+인증서를 수동으로 갱신하려면 **수동 갱신** 을 클릭합니다. 만료 60일 전에 인증서를 자동으로 갱신하도록 요청할 수 있습니다.
+
+갱신 작업이 완료되면 **동기화** 를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
+
+> [!NOTE]
+> **동기화** 를 클릭하지 않으면 App Service는 24시간 이내에 인증서를 자동으로 동기화합니다.
+
+### <a name="renew-a-certificate-imported-from-key-vault"></a>Key Vault에서 가져온 인증서 갱신
+
+Key Vault에서 App Service로 가져온 인증서를 갱신하려면 [Azure Key Vault 인증서 갱신](../key-vault/certificates/overview-renew-certificate.md)을 참조하세요.
+
+키 자격 증명 모음에서 인증서가 갱신되면 App Service는 새 인증서를 자동으로 동기화하고 24시간 이내에 적용 가능한 TLS/SSL 바인딩을 업데이트합니다. 수동으로 동기화하려면 다음을 수행합니다.
+
+1. 앱의 **TLS/SSL 설정** 페이지로 이동합니다.
+1. **프라이빗 키 인증서** 에서 가져온 인증서를 선택합니다.
+1. **동기화** 를 클릭합니다. 
+
 ## <a name="manage-app-service-certificates"></a>Azure App 인증서 관리
 
-이 섹션에서는 [App Service 인증서 가져오기](#import-an-app-service-certificate)에서 구매한 App Service 인증서를 관리하는 방법을 보여줍니다.
+이 섹션에서는 [구매한 App Service 인증서](#import-an-app-service-certificate)를 관리하는 방법을 보여줍니다.
 
 - [인증서 키 다시 입력](#rekey-certificate)
-- [인증서 갱신](#renew-certificate)
 - [인증서 내보내기](#export-certificate)
 - [인증서 삭제](#delete-certificate)
+
+또한 [App Service 인증서 갱신](#renew-an-app-service-certificate)을 참조하세요.
 
 ### <a name="rekey-certificate"></a>인증서 키 다시 입력
 
@@ -337,24 +379,6 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 인증서 키를 다시 생성하면 인증서가 인증 기관에서 발급한 새 인증서로 롤링됩니다.
 
 키 다시 입력 작업이 완료되면 **동기화** 를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
-
-> [!NOTE]
-> **동기화** 를 클릭하지 않으면 App Service는 24시간 이내에 인증서를 자동으로 동기화합니다.
-
-### <a name="renew-certificate"></a>인증서 갱신
-
-> [!NOTE]
-> 갱신 프로세스를 수행하려면 [App Service의 잘 알려진 서비스 주체에게 키 자격 증명 모음에 대한 필수 권한이 있어야 합니다](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). 이 권한은 포털을 통해 App Service Certificate를 가져올 때 구성되며 키 자격 증명 모음에서 제거하면 안 됩니다.
-
-언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정** 을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
-
-**켜기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 31일 전에 자동으로 갱신됩니다.
-
-![App Service 인증서 자동 갱신](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
-
-인증서를 수동으로 갱신하려면 **수동 갱신** 을 클릭합니다. 만료 60일 전에 인증서를 자동으로 갱신하도록 요청할 수 있습니다.
-
-갱신 작업이 완료되면 **동기화** 를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
 
 > [!NOTE]
 > **동기화** 를 클릭하지 않으면 App Service는 24시간 이내에 인증서를 자동으로 동기화합니다.

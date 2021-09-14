@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: a25f2a83fe03b8510e6ec56eb6bdcfedbb0098d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555955"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538078"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: .NET 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -309,7 +309,7 @@ SearchIndexerDataSourceConnection dataSource = CreateOrUpdateDataSource(indexerC
 
 ### <a name="ocr-skill"></a>OCR 기술
 
-**OCR** 기술은 이미지에서 텍스트를 추출합니다. 이 기술은 normalized_images 필드가 있다고 가정합니다. 이 필드를 생성하기 위해 자습서의 뒷부분에서 인덱서 정의의 ```"imageAction"``` 구성을 ```"generateNormalizedImages"```로 설정합니다.
+[`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill)은 이미지에서 텍스트를 추출합니다. 이 기술은 normalized_images 필드가 있다고 가정합니다. 이 필드를 생성하기 위해 자습서의 뒷부분에서 인덱서 정의의 ```"imageAction"``` 구성을 ```"generateNormalizedImages"```로 설정합니다.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -340,7 +340,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### <a name="merge-skill"></a>병합 기술
 
-이 섹션에서는 문서 콘텐츠 필드를 OCR 기술로 생성된 텍스트와 병합하는 **병합** 기술을 만듭니다.
+이 섹션에서는 문서 콘텐츠 필드를 OCR 기술로 생성된 텍스트와 병합하는 [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill)을 만듭니다.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -379,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>언어 감지 기술
 
-**언어 감지** 기술은 입력 텍스트의 언어를 감지하고 요청에 제출된 모든 문서에 대한 단일 언어 코드를 보고합니다. **언어 감지** 기술의 출력을 **텍스트 나누기** 기술에 대한 입력의 일부로 사용합니다.
+[`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill)은 입력 텍스트의 언어를 감지하고 요청에 제출된 모든 문서에 대한 단일 언어 코드를 보고합니다. **언어 감지** 기술의 출력을 **텍스트 나누기** 기술에 대한 입력의 일부로 사용합니다.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -408,7 +408,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### <a name="text-split-skill"></a>텍스트 나누기 기술
 
-아래 **나누기** 기술은 텍스트를 페이지별로 나누고 `String.Length`에서 측정할 때 페이지 길이를 4,000자로 제한합니다. 알고리즘은 텍스트를 최대 `maximumPageLength` 크기의 청크로 나누려고 시도합니다. 이 경우 알고리즘은 문장 경계에서 문장을 나누는 데 최선을 다할 것이므로 청크의 크기는 `maximumPageLength`보다 약간 작을 수 있습니다.
+아래 [`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill)은 텍스트를 페이지별로 나누고 `String.Length`에서 측정할 때 페이지 길이를 4,000자로 제한합니다. 알고리즘은 텍스트를 최대 `maximumPageLength` 크기의 청크로 나누려고 시도합니다. 이 경우 알고리즘은 문장 경계에서 문장을 나누는 데 최선을 다할 것이므로 청크의 크기는 `maximumPageLength`보다 약간 작을 수 있습니다.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -444,7 +444,7 @@ private static SplitSkill CreateSplitSkill()
 
 ### <a name="entity-recognition-skill"></a>엔터티 인식 기술
 
-다음 `EntityRecognitionSkill` 인스턴스는 `organization` 범주 유형을 인식하도록 설정되어 있습니다. **엔터티 인식** 기술은 `person` 및 `location` 범주 유형도 인식할 수 있습니다.
+다음 `EntityRecognitionSkill` 인스턴스는 `organization` 범주 유형을 인식하도록 설정되어 있습니다. [`EntityRecognitionSkill`](/dotnet/api/azure.search.documents.indexes.models.entityrecognitionskill)은 카테고리 유형 `person` 및 `location`을 인식할 수도 있습니다.
 
 "context" 필드는 별표를 포함하여 ```"/document/pages/*"```로 설정되어 있으며, 이는 ```"/document/pages"``` 아래의 각 페이지에 대해 보강 단계가 호출됨을 의미합니다.
 
@@ -477,7 +477,7 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 
 ### <a name="key-phrase-extraction-skill"></a>핵심 구 추출 기술
 
-방금 만든 `EntityRecognitionSkill` 인스턴스와 마찬가지로 문서의 각 페이지에 대해 **핵심 구 추출** 기술이 호출됩니다.
+방금 만든 `EntityRecognitionSkill` 인스턴스와 마찬가지로 문서의 각 페이지에 대해 [`KeyPhraseExtractionSkill`](/dotnet/api/azure.search.documents.indexes.models.keyphraseextractionskill)이 호출됩니다.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -511,7 +511,7 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 
 ### <a name="build-and-create-the-skillset"></a>기술 집합 빌드 및 만들기
 
-만든 기술을 사용하여 `Skillset`를 빌드합니다.
+만든 기술을 사용하여 [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset)를 빌드합니다.
 
 ```csharp
 private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)

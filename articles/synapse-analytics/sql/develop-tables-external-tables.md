@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f56571fb96f6d9baf28a119a978f2658de5616c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860534"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430795"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -297,6 +297,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
     )  
 [;]  
 
@@ -320,6 +321,8 @@ CREATE EXTERNAL TABLE은 열 이름, 데이터 형식 및 데이터 정렬을 �
 
 Parquet 파일에서 읽는 경우 읽으려는 열만 지정하고 나머지는 건너뛸 수 있습니다.
 
+#### <a name="location"></a>위치
+
 LOCATION = '*folder_or_filepath*'
 
 Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및 파일 이름을 지정합니다. 위치는 루트 폴더에서 시작합니다. 루트 폴더는 외부 데이터 원본에 지정된 데이터 위치입니다.
@@ -330,9 +333,15 @@ Hadoop 외부 테이블과 달리 네이티브 외부 테이블은 경로 끝에
  
 Hadoop 및 네이티브 외부 테이블은 모두 밑줄(_) 또는 마침표(.)로 시작하는 이름의 파일을 건너뜁니다.
 
+#### <a name="data_source"></a>DATA_SOURCE
+
 DATA_SOURCE = *external_data_source_name* - 외부 데이터의 위치를 포함한 외부 데이터 원본의 이름을 지정합니다. 외부 데이터 원본을 만들려면 [CREATE EXTERNAL DATA SOURCE](#create-external-data-source)를 사용합니다.
 
 FILE_FORMAT = *external_file_format_name* - 외부 데이터의 파일 형식 및 압축 방법을 저장하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT](#create-external-file-format)을 사용합니다.
+
+#### <a name="table_options"></a>TABLE_OPTIONS
+
+TABLE_OPTIONS = *json 옵션* - 기본 파일을 읽는 방법을 설명하는 옵션 집합을 지정합니다. 현재 사용할 수 있는 유일한 옵션은 일부 일치하지 않는 읽기 작업이 발생할 수 있는 경우에도 외부 테이블에 기본 파일에 대한 업데이트를 무시하도록 지시하는 `"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]`입니다. 자주 추가되는 파일이 있는 특수한 경우에만 이 옵션을 사용합니다. 이 옵션은 서버리스 SQL 풀에서 CSV 형식으로 사용할 수 있습니다.
 
 ### <a name="permissions-create-external-table"></a>CREATE EXTERNAL TABLE 권한
 

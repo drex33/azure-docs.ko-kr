@@ -158,6 +158,8 @@
       items:
         - name: Azure AD를 사용하여 하이브리드 액세스 보호
           href: secure-hybrid-access.md
+        - name: 파트너 통합을 사용하여 하이브리드 액세스 보호
+          href: secure-hybrid-access-integrations.md
         - name: Datawiza
           href: datawiza-with-azure-ad.md
         - name: F5
@@ -206,5 +208,5 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: 동영상
+    - name: 비디오
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

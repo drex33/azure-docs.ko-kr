@@ -22,6 +22,8 @@
           href: quickstarts/get-started-unity-hololens.md
         - name: MRTK를 사용한 HoloLens
           href: quickstarts/get-started-unity-hololens-mrtk.md
+        - name: 심층 MRTK 연습
+          href: quickstarts/in-depth-mrtk-walkthrough.md
         - name: Unity 2020으로 업그레이드
           href: quickstarts/upgrade-unity-quickstart-to-2020.md
         - name: 새 Unity HoloLens 앱 시작
@@ -44,8 +46,6 @@
   items:
     - name: Azure Mixed Reality 리소스 관리 REST API
       href: /rest/api/mixedreality/
-    - name: 어려운 개체 검색
-      href: detect-difficult-object.md
     - name: FAQ
       href: faq.md
     - name: 모델 변환 오류 코드
@@ -56,3 +56,9 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-object-anchors'
     - name: 변환된 모델 시각화
       href: visualize-converted-model.md
+- name: 문제 해결
+  items:
+    - name: 어려운 개체 검색
+      href: detect-difficult-object.md
+    - name: 개체 검색 문제 해결
+      href: troubleshoot/object-detection.md

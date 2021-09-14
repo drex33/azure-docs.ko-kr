@@ -10,29 +10,29 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b534924be82d7ab6118f0b01b42bfd5e7242082
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9852f146651ca6bcb5c1935ca78fce61bca5093f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460592"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433317"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
 
-Azure Synapse Analytics를 사용하면 서로 다른 작업 영역 컴퓨팅 엔진에서 Apache Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 Parquet 지원 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 다른 작업 영역 계산 엔진에서 Apache Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
-Spark 작업을 통해 데이터베이스가 만들어지면 Parquet를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 테이블 이름은 소문자로 변환되며 소문자 이름을 사용하여 쿼리해야 합니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
+Spark 작업을 통해 데이터베이스가 만들어지면 Parquet 또는 CSV를 스토리지 형식으로 사용하는 Spark를 사용하여 테이블을 이 데이터베이스에 만들 수 있습니다. 테이블 이름은 소문자로 변환되며 소문자 이름을 사용하여 쿼리해야 합니다. 이러한 테이블은 모든 Azure Synapse 작업 영역 Spark 풀에서 쿼리하는 데 즉시 사용할 수 있게 됩니다. 권한이 있는 모든 Spark 작업에서도 사용할 수 있습니다.
 
 또한 Spark에서 만든 관리형 및 외부 테이블은 서버리스 SQL 풀의 해당 동기화된 데이터베이스에서 동일한 이름의 외부 테이블로 사용할 수 있습니다. [SQL에서 Spark 테이블을 공개](#expose-a-spark-table-in-sql)하면 테이블 동기화에 대한 자세한 정보가 제공됩니다.
 
-테이블은 서버리스 SQL 풀에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
+테이블은 서버리스 SQL 풀에 비동기적으로 동기화되므로 표시될 때까지 약간 지연됩니다.
 
 ## <a name="manage-a-spark-created-table"></a>Spark에서 만든 테이블 관리
 
 Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 서버리스 Apache Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
 
-서버리스 SQL 풀에서 이러한 데이터베이스에 개체를 만들거나 데이터베이스를 삭제하려고 하면 작업이 실패합니다. 원본 Spark 데이터베이스는 서버리스 SQL 풀을 통해 변경할 수 없습니다.
+동기화된 데이터베이스의 개체는 서버리스 SQL 풀에서 수정할 수 없습니다.
 
 ## <a name="expose-a-spark-table-in-sql"></a>SQL에서 Spark 테이블 공개
 
@@ -64,23 +64,24 @@ Spark 테이블은 Synapse SQL 엔진과 다른 데이터 형식을 제공합니
 
 | Spark 데이터 형식 | SQL 데이터 형식 | 주석 |
 |---|---|---|
-| `byte`      | `smallint`       ||
-| `short`     | `smallint`       ||
-| `integer`   |    `int`            ||
-| `long`      |    `bigint`         ||
-| `float`     | `real`           |<!-- need precision and scale-->|
-| `double`    | `float`          |<!-- need precision and scale-->|
-| `decimal`      | `decimal`        |<!-- need precision and scale-->|
-| `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
-| `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬 사용 |
-| `binary`    |    `varbinary(max)` ||
-| `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
-| `map`       |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
-| `struct`    |    `varchar(max)`   | `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화 |
+| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* 은 8바이트 부호 있는 정수를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql) |
+| `BooleanType`, `boolean`                    | `bit`(Parquet), `varchar(6)`(CSV)  | |
+| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* 은 임의 전체 자릿수의 부호 있는 10진수를 나타냅니다. java.math.BigDecimal에 의해 내부적으로 지원됩니다. BigDecimal은 소수 자릿수가 아닌 임의 전체 자릿수의 정수 값과 32비트 정수 소수 자릿수로 구성됩니다. <br> **SQL**: 고정 전체 자릿수 및 소수 자릿수의 숫자입니다. 최대 전체 자릿수를 사용하는 경우 유효한 값은 - 10^38 + 1부터 10^38 - 1까지입니다. 국제 표준화 기구에서 정한 decimal의 동의어는 dec 및 dec(p, s) 입니다. numeric은 decimal과 기능적으로 동일합니다. [참조](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]) |
+| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark**: *IntegerType* 은 4바이트 부호 있는 정수를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
+| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* 은 1바이트 부호 있는 정수[-128~127]를 나타내고, ShortType은 2바이트 부호 있는 정수[-32768~32767]를 나타냅니다. <br> **SQL**: Tinyint는 1바이트 부호 있는 정수[0, 255]를 나타내고, smallint는 2바이트 부호 있는 정수[-32768, 32767]를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
+| `ShortType`, `Short`, `smallint`            | `smallint`            | 위와 동일합니다. |
+| `DoubleType`, `Double`                      | `float`               | **Spark**: *DoubleType* 은 8바이트 배정밀도 부동 소수점 숫자를 나타냅니다. **SQL**: [이 페이지를 방문](/sql/t-sql/data-types/float-and-real-transact-sql)하세요.|
+| `FloatType`, `float`, `real`                | `real`                | **Spark**: *FloatType* 은 4바이트 배정밀도 부동 소수점 숫자를 나타냅니다. **SQL**: [이 페이지를 방문](/sql/t-sql/data-types/float-and-real-transact-sql)하세요.|
+| `DateType`, `date`                          | `date`                | **Spark**: *DateType* 은 표준 시간대가 없는 연도, 월 및 일 필드의 값으로 구성된 값을 나타냅니다.|
+| `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* 은 세션 현지 표준 시간대가 있는 연도, 월, 일, 시간, 분 및 초 필드의 값으로 구성된 값을 나타냅니다. 타임스탬프 값은 절대 시점을 나타냅니다.
+| `char`                                      | `char`                |
+| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* 은 문자열 값을 나타냅니다. *VarcharType(n)* 은 길이 제한이 있는 StringType의 변형입니다. 입력 문자열이 길이 제한을 초과하면 데이터 쓰기가 실패합니다. 이 형식은 함수/연산자가 아닌 테이블 스키마에서만 사용할 수 있습니다.<br> *CharType(n)* 은 고정 길이인 *VarcharType(n)* 의 변형입니다. *CharType(n)* 형식의 열을 읽으면 항상 길이가 n인 문자열 값이 반환됩니다. Char 형식 열 비교는 짧은 열을 더 긴 길이로 채웁니다. <br> **SQL**: *Varchar(n)* 에서 n은 최대 8000일 수 있으며, 분할된 열인 경우 n은 최대 2048일 수 있습니다. <br> `Latin1_General_100_BIN2_UTF8` 데이터 정렬과 함께 사용합니다. |
+| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: *Varbinary(n)* 에서 n은 최대 8000일 수 있으며, 분할된 열인 경우 n은 최대 2048일 수 있습니다. |
+| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화합니다. |
 
-<!-- TODO: Add precision and scale to the types mentioned above -->
+\* 데이터베이스 수준 데이터 정렬은 Latin1_General_100_CI_AS_SC_UTF8입니다. \* 문자열 열 수준 데이터 정렬은 Latin1_General_100_BIN2_UTF8입니다.
+
+\** ArrayType, MapType 및 StructType은 JSON으로 표시됩니다.
 
 ## <a name="security-model"></a>보안 모델
 
@@ -94,7 +95,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 
 ## <a name="examples"></a>예제
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 Parquet로 지원되는 관리형 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
+### <a name="create-a-managed-table-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 관리형 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
 
 이 시나리오에는 `mytestdb`라는 Spark 데이터베이스가 있습니다. [서버리스 SQL 풀을 사용하여 Spark 데이터베이스 만들기 및 연결](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool)을 참조하세요.
 
@@ -114,7 +115,7 @@ Spark 데이터베이스와 테이블뿐만 아니라 SQL 엔진에서 동기화
 결과에 `myparquettable`이 포함되어 있는지 확인합니다.
 
 >[!NOTE]
->Parquet를 해당 스토리지 형식으로 사용하지 않는 테이블은 동기화되지 않습니다.
+>Parquet 또는 CSV를 해당 스토리지 형식으로 사용하지 않는 테이블은 동기화되지 않습니다.
 
 다음으로, 몇 가지 값을 Spark의 테이블에 삽입합니다(예: C# Notebook에서 다음 C# Spark 문 사용).
 
@@ -153,7 +154,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 Parquet로 지원되는 외부 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
+### <a name="create-an-external-table-in-spark-and-query-from-serverless-sql-pool"></a>Spark에서 외부 테이블 만들기 및 서버리스 SQL 풀에서 쿼리
 
 다음 예제에서는 관리형 테이블에 대해 이전 예제에서 만든 Parquet 데이터 파일에 외부 Spark 테이블을 만듭니다.
 
@@ -162,10 +163,10 @@ id | name | birthdate
 ```sql
 CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
-    LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
+    LOCATION "abfss://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-`<fs>` 자리 표시자를 작업 영역 기본 파일 시스템인 파일 시스템 이름으로 바꾸고, `<synapse_ws>` 자리 표시자를 이 예제를 실행하는 데 사용하는 Synapse 작업 영역의 이름으로 바꿉니다.
+`<storage-name>` 자리 표시자를 사용하는 ADLS gen2 스토리지 계정 이름으로 바꾸고, `<fs>` 자리 표시자를 사용하는 파일 시스템 이름으로 바꾸며, 작업 영역 기본 파일 시스템인 파일 시스템 이름으로 바꾸고, `<synapse_ws>` 자리 표시자를 이 예제를 실행하는 데 사용하는 Synapse 작업 영역의 이름으로 바꿉니다.
 
 이전 예제에서는 `myextneralparquettable` 테이블을 `mytestdb` 데이터베이스에 만듭니다. 잠시 후 서버리스 SQL 풀에서 테이블을 볼 수 있습니다. 예를 들어 서버리스 SQL 풀에서 다음 명령문을 실행합니다.
 

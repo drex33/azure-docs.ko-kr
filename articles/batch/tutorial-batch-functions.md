@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/23/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: bb394dd05fdcb84cf26c58ef6b840cfd76c3ef61
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 02379ee6872564b73441f6756479965912f3925f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768876"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449102"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>자습서: Azure Functions를 사용한 Batch 작업 트리거
 
@@ -42,15 +42,15 @@ ms.locfileid: "122768876"
 
 ### <a name="create-a-pool"></a>풀 만들기
 
-1. Azure 자격 증명을 사용하여 [Batch Explorer](https://azure.github.io/BatchExplorer/)에 로그인합니다.
-1. 왼쪽 메뉴 모음에서 **풀** 을 선택한 다음, 검색 양식 위의 **추가** 버튼을 선택하여 풀을 만듭니다.
-   1. ID와 표시 이름을 선택합니다. 이 예제에서는 `ocr-pool`을 사용합니다.
-   1. 확장 유형을 **고정 크기** 로 설정하고 전용 노드 수를 3으로 설정합니다.
-   1. 운영 체제로 **Ubuntu 18.04-LTS** 를 선택합니다.
-   1. 가상 머신 크기에 `Standard_f2s_v2`를 선택합니다.
-   1. 시작 작업을 사용하도록 설정하고 `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` 명령을 추가합니다. 사용자 ID를 **작업 기본 사용자(관리자)** 로 설정해야 시작 작업이 `sudo` 명령을 포함할 수 있습니다.
-   1. **확인** 을 선택합니다.
-
+1. Azure 자격 증명을 사용하여 Batch Explorer에 로그인합니다.
+1. 왼쪽 메뉴 모음에서 **풀** 을 선택한 다음, 검색 양식 위의 **추가** 버튼을 선택하여 풀을 만듭니다. 
+    1. ID와 표시 이름을 선택합니다. 이 예제에서는 `ocr-pool`을 사용합니다.
+    1. 확장 유형을 **고정 크기** 로 설정하고 전용 노드 수를 3으로 설정합니다.
+    1. 운영 체제로 **Ubuntuserver** > **18.04-lts** 를 선택합니다.
+    1. 가상 머신 크기에 `Standard_f2s_v2`를 선택합니다.
+    1. 시작 작업을 사용하도록 설정하고 `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` 명령을 추가합니다. 시작 작업에서 `sudo` 명령을 포함할 수 있도록 사용자 ID를 **작업 사용자(관리자)** 로 설정해야 합니다.
+    1. **확인** 을 선택합니다.
+  
 ### <a name="create-a-job"></a>작업 만들기
 
 1. 왼쪽 메뉴 모음에서 **작업** 을 선택한 다음, 검색 양식 위의 **추가** 버튼을 선택하여 풀에 작업을 만듭니다.
@@ -71,12 +71,15 @@ ms.locfileid: "122768876"
 이 섹션에서는 파일이 입력 컨테이너에 업로드될 때마다 OCR Batch 작업을 트리거하는 Azure Function을 만듭니다.
 
 1. [Azure Blob Storage가 트리거하는 함수 만들기](../azure-functions/functions-create-storage-blob-triggered-function.md)의 단계에 따라 함수를 만듭니다.
-   1. 스토리지 계정을 입력하라는 메시지가 표시되면 Batch 계정에 연결한 것과 같은 스토리지 계정을 사용합니다.
-1. **런타임 스택** 에 .NET을 선택합니다. Batch.NET SDK를 활용하기 위해 함수를 C#으로 작성합니다.
-1. Blob 트리거 함수가 만들어진 다음에는 Function에서 GitHub의 [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) 및 [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj)를 사용합니다.
-   * `run.csx`는 새 Blob이 입력 Blob 컨테이너에 추가될 때 실행됩니다.
-   * `function.proj`는 Batch .NET SDK 등, Function 코드의 외부 라이브러리를 나열합니다.
-1. Batch 및 스토리지 자격 증명을 반영하여 `run.csx` 파일의 `Run()` 함수에서 변수 자리 표시자 값을 변경합니다. Azure Portal의 이러한 자격 증명은 Batch 계정의 **키** 섹션에서 확인할 수 있습니다.
+    1. **런타임 스택** 에 .NET을 선택합니다. Batch.NET SDK를 활용하기 위해 함수를 C#으로 작성합니다.
+    1. **호스팅** 아래에서 스토리지 계정을 입력하라는 메시지가 표시되면 Batch 계정에 연결한 것과 동일한 스토리지 계정을 사용합니다.
+    1. Azure Blob 스토리지 계정 트리거를 만드는 동안 입력 컨테이너 이름과 일치하도록 경로를 `input/{name}`으로 설정해야 합니다.
+1. Blob 트리거 함수가 만들어지면 **코드 + 테스트** 를 선택합니다. Function에서 GitHub의 [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) 및 [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj)를 사용합니다. `function.proj`는 기본적으로 존재하지 않으므로 **업로드** 단추를 선택하여 개발 작업 영역에 업로드합니다.
+    * `run.csx`는 새 Blob이 입력 Blob 컨테이너에 추가될 때 실행됩니다.
+    * `function.proj`는 Batch .NET SDK 등, Function 코드의 외부 라이브러리를 나열합니다.
+1. Batch 및 스토리지 자격 증명을 반영하여 `run.csx` 파일의 `Run()` 함수에서 변수 자리 표시자 값을 변경합니다. Batch 계정의 **키** 섹션에서 Azure Portal의 Batch 및 스토리지 계정 자격 증명을 확인할 수 있습니다.
+    * Batch 계정의 **키** 섹션에서 Azure Portal의 Batch 및 스토리지 계정 자격 증명을 검색합니다. 
+
 
 ## <a name="trigger-the-function-and-retrieve-results"></a>함수 트리거 및 결과 검색
 

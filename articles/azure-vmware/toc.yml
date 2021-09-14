@@ -16,7 +16,7 @@
       href: tutorial-expressroute-global-reach-private-cloud.md
     - name: 4 - VMware HCX 커넥터 설치
       href: install-vmware-hcx.md
-    - name: 5 - 온-프레미스 VMware HCX 커넥터 구성
+    - name: 5 - 온-프레미스 HCX 커넥터 구성
       href: configure-vmware-hcx.md
 - name: 자습서
   items:
@@ -108,12 +108,16 @@
           href: configure-l2-stretched-vmware-hcx-networks.md
         - name: DNS 전달자 구성
           href: configure-dns-azure-vmware-solution.md
+        - name: HCX 네트워크 확장 구성
+          href: configure-hcx-network-extension.md
         - name: 포트 미러링 구성
           href: configure-port-mirroring-azure-vmware-solution.md
-        - name: 공용 인터넷 액세스 사용
-          href: enable-public-internet-access.md
         - name: vWAN에서 사이트 간 VPN 구성
           href: configure-site-to-site-vpn-gateway.md
+        - name: 공용 인터넷 액세스 사용
+          href: enable-public-internet-access.md
+        - name: HCX MON(모빌리티 최적화 네트워킹) 지침
+          href: vmware-hcx-mon-guidance.md
     - name: 스토리지 정책 구성
       href: configure-storage-policy.md
     - name: Windows Server 장애 조치(Failover) 클러스터 구성
@@ -122,10 +126,6 @@
       href: connect-multiple-private-clouds-same-region.md
     - name: 재해 복구 배포
       items:
-        - name: JetStream DR 배포
-          href: deploy-disaster-recovery-using-jetstream.md
-        - name: Zerto DR 배포
-          href: deploy-zerto-disaster-recovery.md
         - name: 재해 복구를 위한 VMware HCX 배포
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: 재해 복구를 위한 VMware SRM 배포
@@ -150,6 +150,8 @@
           href: ecosystem-migration-vms.md
     - name: VMware 솔루션
       items:
+        - name: HCX 네트워크 확장 구성
+          href: configure-hcx-network-extension.md
         - name: vRealize 작업 구성
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: VMware Horizon 배포
@@ -202,7 +204,7 @@
           href: /azure/azure-vmware/faq#identity-management
         - name: CSP 및 다중 테넌트
           href: /azure/azure-vmware/faq#csp-and-multi-tenancy
-    - name: 동영상
+    - name: 비디오
       items:
         - name: 재생 목록
           href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'

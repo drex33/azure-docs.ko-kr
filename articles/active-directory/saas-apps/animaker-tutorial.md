@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 4e340e2046a3e1611d9204fba262e42696de49e1
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: e5f4c198114a49049c22ef0d79adcb08b85683c9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123077597"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435693"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-animaker"></a>자습서: Animaker와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -73,11 +73,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다.
+
+    a. **식별자** 텍스트 상자에서 `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>` 패턴을 사용하여 URL을 입력합니다.
+
+    b. **회신 URL** 텍스트 상자에서 `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>` 패턴을 사용하여 URL을 입력합니다.
+
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Animaker 지원 팀](mailto:help@animaker.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그온 URL** 텍스트 상자에 `https://app.animaker.com/login/samlsuccess/azure/` URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 `https://app.animaker.com/login/samlsuccess/<Anyone_Home_Provided_Unique_Value>` URL을 입력합니다.
+
+1. Animaker 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 **nameidentifier** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. Appraisd 애플리케이션에서는 **nameidentifier** 가 **user.mail** 과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성을 편집해야 합니다.
+
+    ![스크린샷은 편집 아이콘이 강조 표시된 사용자 특성 창을 보여줍니다.](common/edit-attribute.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 

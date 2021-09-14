@@ -63,6 +63,8 @@
           href: analyze-live-video-custom-vision.md
         - name: 공간 분석 사용
           href: computer-vision-for-spatial-analysis.md
+    - name: AI 추론 이벤트 시각화
+      href: visualize-ai-events-power-bi.md
 - name: GitHub 샘플
   items:
     - name: C# 샘플 리포지토리

@@ -10,49 +10,43 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b671246d3ee199719dbb3da6bf7820a876791cf
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934971"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428293"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
-Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 데이터베이스와 테이블을 공유할 수 있습니다. 현재 Apache Spark 풀에 생성된 데이터베이스와 Parquet 테이블은 서버리스 SQL 풀 엔진과 자동으로 공유됩니다.
+Azure Synapse Analytics를 사용하면 여러 컴퓨팅 작업 영역 엔진이 데이터베이스와 테이블을 공유할 수 있습니다. 현재 Apache Spark 풀에 만들어진 데이터베이스와 테이블(Parquet 또는 CSV 지원)은 서버리스 SQL 풀 엔진과 자동으로 공유됩니다.
 
-Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀에 동일한 이름으로 표시됩니다. 서버리스 SQL 풀을 사용하여 이 복제된 데이터베이스에 직접 사용자 지정 개체(외부 테이블, 보기, 프로시저)를 추가할 수 없습니다.
+Spark 작업을 사용하여 만든 데이터베이스는 서버리스 SQL 풀 엔진을 포함하여 작업 영역에 있는 모든 현재 및 미래의 Spark 풀에 동일한 이름으로 표시됩니다. 서버리스 SQL 풀을 사용하여 이 동기화된 데이터베이스에 직접 사용자 지정 개체(외부 테이블, 보기, 프로시저)를 추가할 수 없습니다.
 
-`default`라는 Spark 기본 데이터베이스는 서버리스 SQL 풀 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다.
+`default`라는 Spark 기본 데이터베이스는 서버리스 SQL 풀 컨텍스트에서 `default`라는 데이터베이스로도 표시됩니다. Spark에서 데이터베이스를 만든 다음, 서버리스 SQL 풀에서 같은 이름으로 다른 데이터베이스를 만들 수 없습니다.
 
 데이터베이스는 서버리스 SQL 풀에 비동기적으로 동기화되므로 표시될 때까지 지연됩니다.
 
 ## <a name="manage-a-spark-created-database"></a>Spark에서 만든 데이터베이스 관리
 
-Spark를 사용하여 Spark에서 만든 데이터베이스를 관리합니다. 예를 들어 Spark 풀 작업을 통해 삭제하고 Spark에서 테이블을 만듭니다.
+Spark에서 만든 데이터베이스를 관리하려면 Apache Spark 풀을 사용해야 합니다. 예를 들어 Spark 풀 작업을 통해 만들거나 삭제합니다.
 
-서버리스 SQL 풀을 사용하여 Spark에서 만든 데이터베이스에 개체를 만들거나 데이터베이스를 삭제하려고 시도하면 작업이 성공합니다. 그러나 원래 Spark 데이터베이스는 변경되지 않습니다.
+동기화된 데이터베이스의 개체는 서버리스 SQL 풀에서 수정할 수 없습니다.
 
-## <a name="how-name-conflicts-are-handled"></a>이름 충돌을 처리하는 방법
-
-Spark 데이터베이스 이름이 기존 서버리스 SQL 풀 데이터베이스의 이름과 충돌하는 경우 서버리스 SQL 풀에서 Spark 데이터베이스에 접미사가 추가됩니다. 서버리스 SQL 풀의 접미사는 `_<workspace name>-ondemand-DefaultSparkConnector`입니다.
-
-예를 들어 `mydb`라는 Spark 데이터베이스가 Azure Synapse 작업 영역 `myws`에 생성되고 해당 이름을 사용하는 서버리스 SQL 풀 데이터베이스가 이미 있는 경우에는 `mydb_myws-ondemand-DefaultSparkConnector` 이름을 사용하여 서버리스 SQL 풀의 Spark 데이터베이스를 참조해야 합니다.
-
-> [!CAUTION]
-> 주의: 이 동작에 대한 종속성을 사용하지 마세요.
+>[!NOTE]
+>다른 풀에서 같은 이름으로 여러 데이터베이스를 만들 수 없습니다. 서버리스 SQL 풀 데이터베이스가 만들어지면 동일한 이름으로 Spark 데이터베이스를 만들 수 없습니다. 각각 Spark에서 데이터베이스가 만들어지면 동일한 이름으로 서버리스 SQL 풀 데이터베이스를 만들 수 없습니다.
 
 ## <a name="security-model"></a>보안 모델
 
 Spark 데이터베이스와 테이블은 SQL 엔진에서 동기화되는 해당 표현과 함께 기본 스토리지 수준에서 보호됩니다.
 
-데이터베이스를 만드는 보안 주체는 해당 데이터베이스의 소유자로 간주되며, 데이터베이스와 해당 개체에 대한 모든 권한을 갖습니다.
+데이터베이스를 만드는 보안 주체는 해당 데이터베이스의 소유자로 간주되며, 데이터베이스와 해당 개체에 대한 모든 권한을 갖습니다. Synapse 관리자 및 Synapse SQL 관리자는 기본적으로 서버리스 SQL 풀의 동기화된 개체에 대한 모든 권한을 갖습니다. 동기화된 SQL 데이터베이스에서 사용자 지정 개체(사용자 포함)를 만들 수 없습니다. 
 
-사용자 또는 보안 그룹과 같은 보안 주체에게 데이터베이스에 대한 액세스 권한을 부여하려면 `warehouse` 디렉터리의 기본 폴더와 파일에 대한 적절 한 POSIX 폴더 및 파일 권한을 제공해야 합니다. 
+사용자, Azure AD 앱 또는 보안 그룹과 같은 보안 주체가 외부 테이블에 사용되는 기본 데이터에 액세스할 수 있도록 하려면 파일(예: 테이블의 기본 데이터 파일)의 `read (R)` 사용 권한과 파일이 루트까지 모든 상위 폴더에 저장되어 있는 폴더의 `execute (X)`에 사용 권한을 부여해야 합니다. [ACL(액세스 제어 목록)](/azure/storage/blobs/data-lake-storage-access-control) 페이지에서 이러한 권한에 대해 자세히 알아볼 수 있습니다. 
 
-예를 들어 보안 주체가 데이터베이스의 테이블을 읽을 수 있으려면 `warehouse` 디렉터리의 데이터베이스 폴더에서 시작하는 모든 폴더는 해당 보안 주체에 할당된 `X` 및 `R` 권한이 있어야 합니다. 또한 파일(예: 테이블의 기본 데이터 파일)에는 `R` 권한이 필요합니다. 
+예를 들어, `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`의 경우, 데이터베이스의 테이블을 읽을 수 있으려면 보안 주체가 `<fs>`에서 `myparquettable` 및 `R` 권한으로 시작하는 모든 폴더와 해당 폴더 내의 `myparquettable` 및 파일에 대해 `X` 권한을 가지고 있어야 합니다.
 
-보안 주체가 데이터베이스에 개체를 만들거나 데이터베이스의 개체를 삭제할 수 있는 기능이 필요한 경우 `warehouse` 폴더의 폴더와 파일에 대한 추가 `W` 권한이 필요합니다.
+보안 주체가 데이터베이스에 개체를 만들거나 데이터베이스의 개체를 삭제할 수 있는 기능이 필요한 경우 `warehouse` 폴더의 폴더와 파일에 대한 추가 `W` 권한이 필요합니다. 데이터베이스의 개체는 서버리스 SQL 풀에서는 수정할 수 없으며 Spark에서만 수정할 수 있습니다.
 
 ## <a name="examples"></a>예
 

@@ -69,7 +69,7 @@
           href: pim-resource-roles-renew-extend.md
         - name: 권한 있는 액세스 그룹
           href: groups-renew-extend.md
-    - name: 역할 기본값 설정
+    - name: 역할 설정 지정
       items:
         - name: Azure AD 역할
           href: pim-how-to-change-default-settings.md

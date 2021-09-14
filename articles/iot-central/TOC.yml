@@ -229,6 +229,8 @@
           href: core/howto-administer.md
         - name: 사용자 및 역할 관리
           href: core/howto-manage-users-roles.md
+        - name: 조직 관리
+          href: core/howto-create-organizations.md
         - name: 애플리케이션 UI 사용자 지정
           href: core/howto-customize-ui.md
         - name: V2를 V3 애플리케이션으로 마이그레이션

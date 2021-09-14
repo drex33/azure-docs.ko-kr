@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0187a1c15315835c1606913acfd52dc930e92443
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91626971"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538654"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>자습서: 첫 번째 API 가져오기 및 게시
 
@@ -53,7 +53,7 @@ ms.locfileid: "91626971"
 
    |설정|값|Description|
    |-------|-----|-----------|
-   |**OpenAPI 사양**|*https:\//conferenceapi.azurewebsites.net?format=json*|API를 구현하는 서비스입니다. API Management는 이 주소로 요청을 전달합니다.|
+   |**OpenAPI 사양**|*https:\//conferenceapi.azurewebsites.net?format=json*|API를 구현하는 서비스입니다. API Management는 이 주소로 요청을 전달합니다. 서비스는 공개적으로 액세스 가능한 인터넷 주소에서 호스트되어야 합니다. |
    |**표시 이름**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|[개발자 포털](api-management-howto-developer-portal.md)에 표시되는 이름입니다.|
    |**이름**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|API에 대한 고유 이름입니다.|
    |**설명**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|API에 대한 선택적 설명입니다.|

@@ -7,34 +7,36 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/10/2021
-ms.openlocfilehash: d7af6f2ad8e3a45041a22a6268efdbfee32377df
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 09/02/2021
+ms.openlocfilehash: 4e23862e78fb6b3de9dd360ee54bb229c76bc8b4
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768165"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537981"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 지식 저장소 만들기
+# <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 지식 저장소 만들기
 
-지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
+지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 Azure Storage에 보내는 Azure Cognitive Search의 한 기능입니다.
 
-파이프라인은 구조화되지 않은 텍스트와 이미지 콘텐츠를 허용하고 Cognitive Services(예: 감정 분석 및 텍스트 번역)에서 제공하는 AI를 적용하며, 이전에 존재 하지 않았던 새 구조 및 정보를 출력합니다. 파이프라인에서 만드는 실제 아티팩트 중 하나는 도구를 통해 액세스하여 Azure Storage의 콘텐츠를 분석하고 살펴볼 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
+보강 파이프라인은 구조화되지 않은 텍스트와 이미지 콘텐츠를 허용하고, Cognitive Services의 AI 기반 처리를 적용하고, 이전에 존재하지 않은 새로운 구조와 정보를 출력합니다. 파이프라인에서 만든 물리적 데이터 구조 중 하나는 Azure Storage에 연결하는 도구, 앱 또는 프로세스를 통해 액세스할 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
 
-이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 지식 저장소를 만듭니다. 모든 것이 준비되면 포털에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 원본 텍스트 콘텐츠와 AI에서 생성한 콘텐츠이며, 포털에서 볼 수 있습니다([Storage Explorer](knowledge-store-view-storage-explorer.md)).
+이 빠른 시작에서는 데이터를 설정한 다음, **데이터 가져오기** 마법사를 실행하여 지식 저장소도 생성하는 보강 파이프라인을 만듭니다. 지식 저장소에는 원본에서 끌어온 원본 텍스트 콘텐츠와 감정 레이블, 핵심 구 추출 및 영어가 아닌 고객 의견의 텍스트 번역이 포함된 AI 생성 콘텐츠가 포함됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 이 빠른 시작은 Azure Storage에서 완성된 지식 저장소로 가는 가장 빠른 경로입니다. 자세한 적용 범위는 [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)를 대신 참조하세요.
 
-시작하기 전에 다음이 있어야 합니다.
+## <a name="prerequisites"></a>필수 조건
+
+이 빠른 시작에서는 다음 서비스를 사용합니다.
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ Azure Cognitive Search 서비스 계정에서 [서비스를 만들거나](search-create-service-portal.md) [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 + [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정
 
-> [!NOTE]
-> 또한 이 빠른 시작은 AI에 대한 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
+또한 이 빠른 시작에서는 AI에 대한 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
 
 ## <a name="set-up-your-data"></a>데이터를 설정합니다.
 
@@ -42,53 +44,55 @@ ms.locfileid: "122768165"
 
 1. [HotelReviews_Free.csv를 다운로드합니다](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). 이 데이터는 CSV 파일로 저장된 호텔 리뷰 데이터이며(Kaggle.com에서 가져온 데이터) 단일 호텔에 대한 19개 고객 피드백을 포함하고 있습니다. 
 
-1. [Azure 스토리지 계정을 만들거나](../storage/common/storage-account-create.md?tabs=azure-portal) 현재 구독에서 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 가져올 원시 콘텐츠와 최종 결과인 지식 저장소 둘 모두에 Azure 스토리지를 사용할 것입니다.
+1. [Azure 스토리지 계정을 만들](../storage/common/storage-account-create.md?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). Azure Storage는 가져올 원시 콘텐츠와 최종 결과인 지식 저장소 모두에 사용합니다.
 
-   + **StorageV2(범용 V2)** 계정 유형을 선택합니다.
+   **StorageV2(범용 V2)** 계정 유형을 선택합니다.
 
-1. Blob 서비스 페이지를 열고 *hotel-reviews* 라는 컨테이너를 만듭니다.
+1. Azure Storage 리소스에서 **Storage Explorer** 를 사용하여 **hotel-reviews** 라는 Blob 컨테이너를 만듭니다.
 
-1. **업로드** 를 클릭합니다.
+1. 페이지 위쪽에서 **업로드** 를 선택하여 이전 단계에서 다운로드한 **HotelReviews-Free.csv** 파일을 로드합니다.
 
-    ![데이터 업로드](media/knowledge-store-create-portal/upload-command-bar.png "호텔 리뷰 업로드")
+   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="업로드된 파일 및 왼쪽 탐색 창이 있는 Storage Explorer의 스크린샷" border="true":::
 
-1. 첫 번째 단계에서 다운로드한 **HotelReviews-Free.csv** 파일을 선택합니다.
+1. 이 리소스를 거의 완료했지만 이러한 페이지를 나가기 전에 왼쪽 탐색 창에서 **액세스 키** 를 선택하여 인덱서를 통해 이 데이터를 검색할 수 있도록 연결 문자열을 가져옵니다.
 
-    ![Azure Blob 컨테이너 만들기](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Azure Blob 컨테이너 만들기")
+1. **액세스 키** 에서 페이지 위쪽에 있는 **키 표시** 를 선택하여 연결 문자열의 숨김을 해제한 다음, key1 또는 key2에 대한 연결 문자열을 복사합니다.
 
-1. Blob 스토리지 페이지를 종료하기 전에 왼쪽 탐색 창의 링크를 사용하여 **액세스 키** 페이지를 엽니다. Blob 스토리지에서 데이터를 검색할 연결 문자열을 가져옵니다. 연결 문자열은 `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` 예제와 비슷한 현식입니다.
+   연결 문자열의 형식은 `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`입니다.
 
 이제 **데이터 가져오기** 마법사로 이동할 준비가 되었습니다.
 
-## <a name="run-the-import-data-wizard"></a>데이터 가져오기 마법사 실행
+## <a name="start-the-wizard"></a>마법사 시작
 
 1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로그인합니다.
 
 1. [검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 이후 개요 페이지의 명령 모음에서 **데이터 가져오기** 를 클릭하여 다음 네 단계에 따라 지식 저장소를 만듭니다.
 
-   ![데이터 가져오기 명령](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 
-1. **데이터에 연결** 에서 **Azure Blob 스토리지** 를 선택하고 만든 계정 및 컨테이너를 선택합니다. 
+데이터는 한 CSV 파일에 있는 여러 행이므로 각 행에 대해 하나의 검색 문서를 가져오도록 *구문 분석 모드* 를 설정합니다.
+
+1. **데이터에 연결** 에서 **Azure Blob 스토리지** 를 선택하고, 만든 계정 및 컨테이너를 선택합니다. 
 
 1. **이름** 에 대해 `hotel-reviews-ds`를 입력합니다.
 
 1. **구문 분석 모드** 에 대해 **분리된 텍스트** 를 선택한 다음, **첫 줄에 헤더 포함** 확인란을 선택합니다. **구분 기호 문자** 가 쉼표(,)인지 확인합니다.
 
-1. **연결 문자열** 에서 Azure Storage의 **액세스 키** 페이지에서 복사한 연결 문자열을 붙여 넣습니다.
+1. **연결 문자열** 에서 Azure Storage에서 복사한 연결 문자열을 붙여 넣습니다.
 
-1. **컨테이너** 에서 데이터를 보관하는 Blob 컨테이너의 이름을 입력합니다.
+1. **컨테이너** 에서 데이터를 보관하는 Blob 컨테이너의 이름(`hotel-reviews`)을 입력합니다.
 
     이 페이지는 다음 스크린샷과 비슷합니다.
 
-    ![데이터 원본 개체 만들기](media/knowledge-store-create-portal/hotel-reviews-ds.png "데이터 원본 개체 만들기")
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ds.png" alt-text="데이터 원본 정의의 스크린샷" border="true":::
 
 1. 다음 페이지를 계속합니다.
 
-### <a name="step-2-add-cognitive-skills"></a>2단계: 인식 기술 추가
+### <a name="step-2-add-skills"></a>2단계: 기술 추가
 
-이 마법사 단계에서는 인지 기술 보강을 사용하여 기술 세트를 만듭니다. 원본 데이터는 여러 언어로 된 고객 리뷰로 구성됩니다. 이 데이터 세트와 관련된 기술에는 핵심 구 추출, 감정 감지 및 텍스트 번역이 포함됩니다. 이후 단계에서 이러한 보강은 지식 저장소에 Azure 테이블로 "프로젝션"됩니다.
+이 마법사 단계에서는 AI 보강 기술을 추가합니다. 원본 데이터는 영어와 프랑스어로 된 고객 리뷰로 구성됩니다. 이 데이터 세트와 관련된 기술에는 핵심 구 추출, 감정 감지 및 텍스트 번역이 포함됩니다. 이후 단계에서 이러한 보강은 지식 저장소에 Azure 테이블로 "프로젝션"됩니다.
 
 1. **Cognitive Services 연결** 섹션을 펼칩니다. **무료(제한적 보강)** 가 기본적으로 선택되어 있습니다. HotelReviews-Free.csv의 레코드 수가 19개이고 이 무료 리소스에서 하루 최대 20개의 트랜잭션을 허용하므로 이 리소스를 사용할 수 있습니다.
 
@@ -100,25 +104,28 @@ ms.locfileid: "122768165"
 
 1. **보강 세분성 수준** 에 대해 **페이지(5,000자 청크)** 를 선택합니다.
 
-1. 다음 인지 기술을 선택합니다.
+1. **텍스트 인지 기술** 에 대해 다음 기술을 선택합니다.
+
     + **핵심 구 추출**
     + **텍스트 번역**
+    + **언어 감지**
     + **감정 감지**
 
-      ![기술 세트 만들기](media/knowledge-store-create-portal/hotel-reviews-ss.png "기술 집합 만들기")
+   페이지는 다음 스크린샷과 같습니다.
 
-1. **지식 저장소에 보강 저장** 을 펼칩니다.
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ss.png" alt-text="기술 세트 정의의 스크린샷" border="true":::
 
-1. 다음 **Azure 테이블 프로젝션** 을 선택합니다.
+1. 아래로 스크롤하여 **지식 저장소에 보강 저장** 을 펼칩니다.
+
+1. 다음 **Azure 테이블 프로젝션** 을 선택합니다. 마법사는 항상 **문서** 프로젝션을 제공합니다. 선택한 기술(예: **핵심 구**) 또는 보강 세분성(**페이지**)에 따라 다른 프로젝션이 제공됩니다.
+
     + **문서**
     + **페이지**
     + **핵심 구**
 
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="지식 저장소 정의의 스크린샷" border="true":::
+
 1. 이전 단계에서 저장한 **스토리지 계정 연결 문자열** 을 입력합니다.
-
-    ![지식 저장소 구성](media/knowledge-store-create-portal/hotel-reviews-ks.png "지식 저장소 구성")
-
-1. 필요에 따라 Power BI 템플릿을 다운로드합니다. 마법사에서 템플릿에 액세스하는 경우 사용자의 데이터 셰이프를 반영하도록 로컬 .pbit 파일이 조정됩니다.
 
 1. 다음 페이지를 계속합니다.
 
@@ -132,35 +139,62 @@ ms.locfileid: "122768165"
 
     인덱스는 다음 이미지와 비슷합니다. 긴 목록이므로 일부 필드가 이미지에 표시되지 않습니다.
 
-    ![인덱스 구성](media/knowledge-store-create-portal/hotel-reviews-idx.png "인덱스 구성")
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-idx.png" alt-text="인덱스 정의의 스크린샷" border="true":::
 
 1. 다음 페이지를 계속합니다.
 
-### <a name="step-4-configure-the-indexer"></a>4단계: 인덱서 구성
+### <a name="step-4-configure-and-run-the-indexer"></a>4단계: 인덱서 구성 및 실행
 
-이 마법사 단계에서는 이전 마법사 단계에서 정의한 데이터 원본, 기술 세트 및 인덱스를 함께 가져오는 인덱서를 구성합니다.
+이 마법사 단계에서는 이전 마법사 단계에서 정의한 데이터 원본, 기술 세트 및 인덱스를 모두 가져오는 인덱서를 구성합니다.
 
 1. **이름** 에 `hotel-reviews-idxr`를 입력합니다.
 
 1. **일정** 에 대해 **한 번**(기본값)을 유지합니다.
 
-1. **제출** 을 클릭하여 인덱서를 실행합니다. 데이터 추출, 인덱싱, 인지 기술 적용은 모두 이 단계에서 수행됩니다.
+1. **제출** 을 선택하여 인덱서를 실행합니다. 데이터 추출, 인덱싱, 인지 기술 적용은 모두 이 단계에서 수행됩니다.
 
-## <a name="monitor-status"></a>상태 모니터링
+## <a name="check-status"></a>상태 확인
 
-인지 기술 인덱싱은 일반적인 텍스트 기반 인덱싱보다 완료하는 데 더 오래 걸립니다. 마법사는 진행률을 추적할 수 있도록 개요 페이지에서 인덱서 목록을 열어야 합니다. 자체 탐색을 위해 개요 페이지로 이동하고 **인덱서** 를 클릭합니다.
+**개요** 페이지에서 페이지 중간에 있는 **인덱서** 탭을 연 다음, **hotels-reviews-ixr** 을 선택합니다. 상태가 1~2분 내에 오류 및 경고 없이 "진행 중"에서 "성공"으로 진행되어야 합니다.
 
-Azure Portal에서 클릭 가능한 **Azure Cognitive Search 알림** 상태 링크에 대한 알림 활동 로그를 모니터링할 수도 있습니다. 실행을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+## <a name="check-tables-in-storage-explorer"></a>Storage Explorer에서 테이블 확인
+
+Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Explorer** 를 사용하여 새 테이블을 봅니다. "보강 추가" 페이지의 "보강 저장" 섹션에 제공된 각 프로젝션에 대해 하나씩 세 개의 테이블이 표시됩니다.
+
++ 문서 테이블에는 문서 보강 트리의 모든 첫 번째 수준 노드가 포함됩니다.
+
++ "페이지" 또는 "문장" 수준의 세분성을 지정하면 페이지 테이블(또는 문장 테이블)이 만들어집니다. 페이지 또는 문장 수준에서 실행되는 기술에는 이 테이블에 프로젝션된 출력이 있습니다.
+
++ 핵심 구 및 엔터티와 같은 컬렉션(배열)을 출력하는 기술에는 독립 실행형 테이블의 출력이 있습니다.
+
+동일한 프로젝션 그룹 내의 모든 테이블에는 다른 도구 및 앱에서 테이블 관계를 지원하기 위한 상호 참조 정보가 포함되어 있습니다.
+
+이 빠른 시작에서 테이블은 다음 스크린샷과 비슷하게 표시됩니다.
+
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Storage Explorer에서 생성된 테이블의 스크린샷" border="true":::
+
+각 테이블은 쿼리에서 테이블을 교차 연결하는 데 필요한 ID를 사용하여 생성됩니다. 테이블을 열 때 이러한 필드를 지나면서 스크롤하여 파이프라인에서 추가한 콘텐츠 필드를 봅니다.
+
+| 테이블 | Description |
+|-------|-------------|
+| hotelReviewssDocument | CSV에서 전달되는 필드(예: review_date 및 review_text)를 포함합니다. |
+| hotelReviewssPages | 기술 세트에서 만든 보강 필드(예: 감정 레이블 및 번역된 텍스트)를 포함합니다. |
+| hotelReviewssKeyPhrases | 핵심 구의 긴 목록을 포함합니다. |
+
+## <a name="clean-up"></a>정리
+
+본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기에서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 **모든 리소스** 또는 **리소스 그룹** 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
+
+무료 서비스를 사용하는 경우 인덱스, 인덱서, 데이터 원본 세 개로 제한됩니다. 포털에서 개별 항목을 삭제하여 제한 이하로 유지할 수 있습니다.
+
+> [!TIP]
+> 이 연습을 반복하거나 다른 AI 보강 연습을 시도하려면 **hotel-reviews-idxr** 인덱서 및 관련 개체를 삭제하여 다시 만드세요. 인덱서를 삭제하면 사용 가능한 일별 트랜잭션 카운터가 0으로 다시 설정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 인지 서비스를 사용하여 데이터를 보강하고 결과를 지식 저장소에 프로젝션했으므로, Storage Explorer 또는 Power BI를 사용하여 보강된 데이터 세트를 검색할 수 있습니다.
+이제 지식 저장소를 소개했으므로 REST API 연습으로 전환하여 각 단계를 자세히 살펴봅니다. 마법사에서 내부적으로 처리한 작업은 REST 연습에서 설명합니다.
 
-Storage Explorer에서 콘텐츠를 볼 수도 있고, Power BI를 사용하여 시각화를 통해 인사이트를 얻을 수도 있습니다.
-
-+ [Storage Explorer를 사용하여 보기](knowledge-store-view-storage-explorer.md)
-
-+[Power BI와 연결](knowledge-store-connect-power-bi.md)
-
-> [!Tip]
-> 이 연습을 반복하거나 다른 AI 보강 연습을 수행하려면 *hotel-reviews-idxr* 인덱서를 삭제합니다. 인덱서를 삭제하면 Cognitive Services 처리를 위해 무료 일별 트랜잭션 카운터가 0으로 다시 설정됩니다.
+> [!div class="nextstepaction"]
+> [REST 및 Postman을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0a8dfdea8ad743d0355daa16cc10f60bef96c213
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 15c0cf0b24fef36902806656a2e47a7fda7bb52c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081860"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471069"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -104,6 +104,17 @@ Visual Studio Code를 설치한 후에 Azure Storage 미리 보기 확장을 설
 이제 Visual Studio Code에서는 웹 엔드포인트에 파일을 업로드하고 성공 상태 표시줄을 표시하게 됩니다. 웹 사이트를 시작하여 Azure에서 확인합니다.
 
 이 자습서를 완료하고 정적 웹 사이트를 Azure에 배포했습니다.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

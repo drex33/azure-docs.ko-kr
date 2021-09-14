@@ -49,8 +49,6 @@ items:
             href: quickstarts/voice-video-calling/getting-started-with-calling.md
           - name: 클라이언트 앱에 영상 통화 추가
             href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-          - name: 통화 SDK 사용
-            href: quickstarts/voice-video-calling/calling-client-samples.md
           - name: 통화 클라이언트 앱으로 Teams 미팅 참가
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
           - name: 호출 자동화 API 사용
@@ -125,6 +123,8 @@ items:
             href: concepts/call-flows.md
           - name: 호출 흐름 토폴로지
             href: concepts/detailed-call-flows.md
+          - name: 통화 진단
+            href: concepts/voice-video-calling/call-diagnostics.md
           - name: 웹 모범 사례
             href: concepts/best-practices.md
           - name: 알려진 문제
@@ -160,6 +160,28 @@ items:
         href: concepts/metrics.md
       - name: 문제 해결
         href: concepts/troubleshooting-info.md
+  - name: 방법 가이드
+    items:
+      - name: 통화 SDK 사용
+        items:
+          - name: 통화 관리
+            href: how-tos/calling-sdk/manage-calls.md
+          - name: 비디오 관리
+            href: how-tos/calling-sdk/manage-video.md
+          - name: 통화 녹음
+            href: how-tos/calling-sdk/record-calls.md
+          - name: 푸시 알림 사용
+            href: how-tos/calling-sdk/push-notifications.md
+          - name: 통화 내용 기록
+            href: how-tos/calling-sdk/call-transcription.md
+          - name: 활성 화자 표시
+            href: how-tos/calling-sdk/dominant-speaker.md
+          - name: 통화 전송
+            href: how-tos/calling-sdk/transfer-calls.md
+          - name: Teams 회의 참가
+            href: how-tos/calling-sdk/teams-interoperability.md
+          - name: SDK 이벤트 구독
+            href: how-tos/calling-sdk/events.md
   - name: 샘플
     items:
       - name: 개요

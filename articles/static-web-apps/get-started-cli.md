@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a6016ba42fba5a457f2969a1b980a0962605f7a7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ef3072d5c30a8e07f9073539e877ca37837a68a4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318337"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428329"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -117,7 +117,7 @@ cd my-first-static-web-app
 
     - `<LOCATION>`: 이 값을 가장 가까운 위치로 바꿉니다. 옵션은 다음과 같습니다. _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_ 및 _WestUS2_.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: 이 값을 이전에 생성한 [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)으로 바꿉니다. (최소 권한은 `Workflow` 범위임)
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: 이 값을 이전에 생성한 [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)으로 바꿉니다. 최소 권한은 퍼블릭 리포지토리의 경우 `workflow` 범위, 프라이빗 리포지토리의 경우 `repo` 범위입니다.
 
     이제 Azure에서 만든 앱을 볼 수 있습니다.
 

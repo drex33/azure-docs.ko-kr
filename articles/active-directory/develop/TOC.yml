@@ -176,8 +176,8 @@
           href: v2-supported-account-types.md
         - name: 앱 로그인 흐름
           href: app-sign-in-flow.md
-        - name: 단일 페이지 앱
-          displayName: SPA
+        - name: SPA(Single-page app)
+          displayName: 'SPA, angular, react'
           items:
             - name: 개요
               href: scenario-spa-overview.md
@@ -256,7 +256,19 @@
             - name: 코드 구성
               href: scenario-desktop-app-configuration.md
             - name: 토큰 획득
-              href: scenario-desktop-acquire-token.md
+              items:
+                - name: 개요
+                  href: scenario-desktop-acquire-token.md
+                - name: 대화형
+                  href: scenario-desktop-acquire-token-interactive.md
+                - name: WAM과 상호 작용
+                  href: scenario-desktop-acquire-token-wam.md
+                - name: 통합 Windows 인증
+                  href: scenario-desktop-acquire-token-integrated-windows-authentication.md
+                - name: Username Password
+                  href: scenario-desktop-acquire-token-username-password.md
+                - name: 디바이스 코드 흐름
+                  href: scenario-desktop-acquire-token-device-code-flow.md
             - name: 웹 API 호출
               href: scenario-desktop-call-api.md
             - name: 프로덕션 환경으로 이동
@@ -353,6 +365,8 @@
                   href: msal-net-migration.md
                 - name: 기밀 클라이언트 앱을 MSAL.NET으로 마이그레이션
                   href: msal-net-migration-confidential-client.md
+                - name: 퍼블릭 클라이언트 앱을 MSAL.NET으로 마이그레이션
+                  href: msal-net-migration-public-client.md
                 - name: broker를 사용하여 Xamarin Android 앱을 MSAL.NET으로 마이그레이션
                   href: msal-net-migration-android-broker.md
                 - name: broker를 사용하여 Xamarin iOS 앱을 MSAL.NET으로 마이그레이션
@@ -708,7 +722,7 @@
           href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: 리소스
   items:
-    - name: 동영상
+    - name: 비디오
       href: identity-videos.md
     - name: Microsoft ID 플랫폼 개발자 블로그
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'

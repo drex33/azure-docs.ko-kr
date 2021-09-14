@@ -9,12 +9,12 @@ metadata:
   ms.reviewer: mimckitt
   ms.date: 10/13/2020
   ms.custom: references_regions
-  ms.openlocfilehash: 4b8cd236bad28c93949610dd26f45042bc0debc7
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: bb2ee07d3d5c603df11d5b17b6afea496f4b31c8
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114481776"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123424099"
 title: Azure Cloud Services(추가 지원)에 대한 질문과 대답
 summary: 이 문서에서는 Azure Cloud Services(추가 지원)와 관련된 질문과 대답을 살펴봅니다.
 sections:
@@ -29,7 +29,7 @@ sections:
   - question: >
       Cloud Services(추가 지원) 배포에 사용 가능한 위치는 무엇인가요?
     answer: >
-      Cloud Services(추가 지원)는 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
+      Cloud Services(추가 지원)는 모든 퍼블릭 및 소버린 클라우드 지역에서 사용할 수 있습니다.
   - question: "할당량은 어떻게 변경되나요? \n"
     answer: >
       다른 Azure Resource Manager 제품과 동일한 프로세스를 사용하여 고객이 할당량을 요청해야 합니다. Azure Resource Manager의 할당량은 지역별로 달라지며 각 지역마다 개별 할당량 요청이 필요합니다.

@@ -5,7 +5,7 @@
   items:
     - name: Azure DB for MySQL이란?
       href: overview.md
-    - name: 어떤 MySQL 옵션을 선택해야 하나요?
+    - name: 올바른 MySQL 배포 유형 선택
       href: select-right-deployment-type.md
     - name: 단일 서버의 새로운 기능
       href: single-server-whats-new.md
@@ -103,7 +103,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -428,7 +428,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -521,7 +521,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: 서버 다시 시작
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -580,7 +580,7 @@
           items:
             - name: 서버 복원
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restore-server-cli.md
@@ -608,7 +608,10 @@
       displayName: 'import , migrate, export'
     - name: MySQL Workbench를 사용하여 RDS MySQL 데이터 마이그레이션
       href: how-to-migrate-rds-mysql-workbench.md
-      displayName: 'import , migrate, export'
+      displayName: 'migrate, rds, workbench'
+    - name: 데이터 내부 복제를 사용하여 RDS MySQL 데이터 마이그레이션
+      href: how-to-migrate-rds-mysql-data-in-replication.md
+      displayName: 'migrate, rds, data-in replication'
     - name: Azure DB for MySQL – 단일 서버를 Azure DB for MySQL - 유연한 서버로 마이그레이션
       href: howto-migrate-single-flexible-minimum-downtime.md
       displayName: 'migrate, Single to Flexible'
@@ -663,7 +666,7 @@
       href: /answers/topics/azure-database-mysql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: 동영상
+    - name: 비디오
       items:
         - name: 제품 비디오
           href: videos.md

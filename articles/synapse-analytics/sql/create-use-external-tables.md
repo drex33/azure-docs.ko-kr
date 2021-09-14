@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: cfce86e74a5e32f266dd0bbad84a179d8158a687
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303691"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428239"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 풀을 사용하여 네이티브 외부 테이블 만들기 및 사용
 
@@ -127,6 +127,35 @@ CREATE EXTERNAL TABLE Taxi (
 
 > [!NOTE]
 > 테이블은 분할된 폴더 구조에 생성되지만 일부 파티션 제거를 활용할 수 없습니다. 일부 기준(이 경우 특정 연도 또는 월)을 충족하지 않는 파일을 건너뛰어 성능을 향상하려면 [외부 데이터에 대한 뷰](create-use-views.md#partitioned-views)를 사용합니다.
+
+## <a name="external-table-on-appendable-files"></a>추가 가능한 파일의 외부 테이블
+
+쿼리가 실행되는 동안 외부 테이블에서 참조하는 파일을 변경하면 안 됩니다. 장기 실행 쿼리에서 SQL 풀은 읽기를 재시도하거나 파일의 일부를 읽거나 여러 번 파일을 읽을 수도 있습니다. 파일 내용을 변경하면 잘못된 결과가 발생할 수 있습니다. 따라서 쿼리 실행 중에 파일의 수정 시간 변경이 감지하면 SQL 풀은 쿼리에 실패합니다.
+일부 시나리오에서는 지속적으로 추가되는 파일에 대한 테이블을 만들 수 있습니다. 지속적으로 추가되는 파일로 인한 쿼리 실패를 방지하려면 `TABLE_OPTIONS` 설정을 사용하여 외부 테이블이 잠재적으로 일치하지 않는 읽기를 무시하도록 지정할 수 있습니다.
+
+
+```sql
+CREATE EXTERNAL TABLE populationExternalTable
+(
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+)
+WITH (
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat,
+    TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+);
+```
+
+`ALLOW_INCONSISTENT_READS` 읽기 옵션은 쿼리 수명 주기 동안 파일 수정 시간 확인을 사용하지 않고 외부 테이블에서 참조하는 파일에서 사용 가능한 모든 것을 읽습니다. 추가 가능한 파일에서 기존 내용은 업데이트되지 않고 새 행만 추가됩니다. 따라서 업데이트 가능한 파일에 비해 결과가 잘못될 가능성이 최소화됩니다. 이 옵션을 사용하면 오류를 처리하지 않고 자주 추가되는 파일을 읽을 수 있습니다.
+
+이 옵션은 CSV 파일 형식으로 만들어진 외부 테이블에서만 사용할 수 있습니다.
+
+> [!NOTE]
+> 옵션 이름에서 알 수 있듯이 테이블 작성자는 결과가 일관되지 않을 수 있는 위험을 감수합니다. 추가 가능한 파일에서 테이블을 셀프 조인하여 기본 파일을 강제로 여러 번 읽으면 잘못된 결과를 얻을 수 있습니다. 대부분의 "클래식" 쿼리에서 외부 테이블은 쿼리가 실행되는 동안 추가된 일부 행을 무시합니다.
 
 ## <a name="delta-lake-external-table"></a>Delta Lake 외부 테이블
 

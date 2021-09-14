@@ -5,15 +5,15 @@ metadata:
   description: Azure Database for MySQL - 단일 서버는 MySQL Community Edition을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/20/2020
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 9fd917d6d95b0c688a1271e903f89d4fd3f218b0
-  ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+  ms.openlocfilehash: 3986e2b63db40b2222bcb37fc69a8913ebe2ef63
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/19/2021
-  ms.locfileid: "112379423"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124796878"
 landingContent:
 - title: 단일 서버 정보
   linkLists:
@@ -103,6 +103,8 @@ landingContent:
       url: ../concepts-migrate-import-export.md
     - text: MySQL Workbench를 사용하여 RDS MySQL 마이그레이션
       url: ../how-to-migrate-rds-mysql-workbench.md
+    - text: 데이터 내부 복제를 사용하여 RDS for MySQL 마이그레이션
+      url: ../how-to-migrate-rds-mysql-data-in-replication.md
 - title: 비즈니스 연속성
   linkLists:
   - linkListType: concept

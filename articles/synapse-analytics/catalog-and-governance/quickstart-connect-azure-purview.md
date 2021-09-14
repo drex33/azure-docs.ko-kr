@@ -5,15 +5,15 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5cf2149591776b66a2bb646c8de23e0669b31f25
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: b7d729234244302e648a2d3a0bf9c8dc94f10d5a
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033848"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450362"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>빠른 시작: Azure Purview 계정에 Synapse 작업 영역 연결
 
@@ -43,6 +43,8 @@ Azure Purview 계정을 연결하기 위한 단계를 수행합니다.
 3. **Azure 구독에서 선택** 또는 **수동으로 입력** 을 선택할 수 있습니다. **Azure 구독에서 선택** 을 선택할 경우 액세스 가능한 계정을 선택할 수 있습니다.
 4. 연결되면 **Azure Purview 계정** 탭에 Purview 계정 이름이 표시됩니다. 
 
+Purview 계정이 방화벽으로 보호되는 경우 Purview에 대한 관리형 프라이빗 엔드포인트를 만듭니다. Azure Synapse에서 [보안 Purview 계정에 액세스](how-to-access-secured-purview-account.md)하도록 허용하는 방법에 대해 자세히 알아보세요. 초기 연결 중에 이 작업을 수행하거나 나중에 기존 연결을 편집할 수 있습니다.
+
 Purview 연결 정보는 다음과 같은 Synapse 작업 영역 리소스에 저장됩니다. 연결을 프로그래매틱 방식으로 설정하려면 Synapse 작업 영역을 업데이트하고 `purviewConfiguration` 설정을 추가하면 됩니다.
 
 ```json
@@ -67,7 +69,7 @@ Synapse 작업 영역의 관리 ID는 Synapse 작업 영역에서 Purview로 계
 
 - **2021년 8월 18일 또는 이후** 에 생성된 Purview 계정의 경우 Synapse 작업 영역의 관리 ID에 Purview **루트 컬렉션** 에 대한 **데이터 큐레이터** 역할을 부여합니다. [Azure Purview의 액세스 제어](../../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
-    Synapse 작업 영역을 Synapse Studio의 Purview에 연결하면 Synapse가 해당 역할 할당을 자동으로 추가하려고 시도합니다. Purview 루트 컬렉션에 **컬렉션 관리자** 역할이 있으면 이 작업이 성공적으로 수행됩니다.
+    Synapse 작업 영역을 Synapse Studio의 Purview에 연결하면 Synapse가 해당 역할 할당을 자동으로 추가하려고 시도합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
 
 - **2021년 8월 18일 이전** 생성된 Purview 계정의 경우 Synapse 작업 영역의 관리 ID에 Purview 계정에 대한 Azure 기본 제공 [**Purview 데이터 큐레이터**](../../role-based-access-control/built-in-roles.md#purview-data-curator) 역할을 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
 
@@ -90,6 +92,8 @@ Synapse 작업 영역을 Purview 계정에 연결한 후 Synapse 작업 영역�
 [Azure Purview를 사용하여 Synapse에서 데이터 검색, 연결 및 탐색](how-to-discover-connect-analyze-azure-purview.md)
 
 [Azure Synapse Analytics의 메타데이터 및 계보](../../purview/how-to-lineage-azure-synapse-analytics.md)
+
+[보안 Azure Purview 계정에 액세스](how-to-access-secured-purview-account.md)
 
 [Azure Purview에서 Azure Synapse 자산 등록 및 검사](../../purview/register-scan-azure-synapse-analytics.md)
 

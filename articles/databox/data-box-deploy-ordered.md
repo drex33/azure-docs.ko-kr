@@ -6,15 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 08/26/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc06c5646f85fda4b4100805be4a9566d0917e2a
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 489182db34366a910a26ad358d9ef60ae4244530
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652995"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468749"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -214,214 +214,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-디바이스를 주문하려면 Azure Portal에서 다음 단계를 수행합니다.
-
-1. Microsoft Azure 자격 증명을 사용하여 다음 URL에서 로그인합니다. [https://portal.azure.com](https://portal.azure.com)
-2. **+ 리소스 만들기** 를 선택하고 *Azure Data Box* 를 검색합니다. **Azure Data Box** 를 선택합니다.
-
-   ![검색 필드에 Azure Data Box가 있는 새 섹션의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-02.png)
-
-3. **만들기** 를 선택합니다.
-
-   ![만들기 옵션이 호출된 Azure Data Box 섹션의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-03.png)
-
-4. 해당 지역에서 Data Box 서비스를 사용할 수 있는지 확인합니다. 다음 정보를 입력하거나 선택하고 **적용** 을 클릭합니다.
-
-    |설정  |값  |
-    |---------|---------|
-    |전송 형식     | **Azure로 가져오기** 를 선택합니다.        |
-    |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |리소스 그룹 | 기존 리소스 그룹을 선택합니다. 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
-    |원본 국가/지역    |    현재 데이터가 있는 국가/지역을 선택합니다.         |
-    |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.            |
-
-    [ ![Azure Data Box 가져오기 주문 시작](media/data-box-deploy-ordered/select-data-box-import-04-b.png) ](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
-
-5. **Data Box** 를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 80TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
-
-    ![사용 가능한 데이터 크기: Data Box Disk, 40테라바이트, Data Box, 100테라바이트, Data Box Heavy, 1000테라바이트, 자신의 디스크 보내기, 1테라바이트](media/data-box-deploy-ordered/select-data-box-import-05.png)
-
-6. **주문** 에서 **기본 사항** 탭으로 이동합니다. 다음 정보를 입력하거나 선택하고 **다음: 데이터 대상>** 을 선택합니다.
-
-    |설정  |값  |
-    |---------|---------|
-    |Subscription      | 이전에 선택한 내용에 따라 구독이 자동으로 채워집니다.|
-    |Resource group    | 이전에 선택한 리소스 그룹입니다. |
-    |주문 이름 가져오기 | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.    |
-
-    ![Data Box 가져오기 주문 마법사, 기본 사항 화면, 올바른 정보 입력](media/data-box-deploy-ordered/select-data-box-import-06.png)
-
-7. **데이터 대상** 화면에서 **데이터 대상**(스토리지 계정 또는 관리 디스크)을 선택합니다.
-
-    스토리지 대상으로 **스토리지 계정** 을 사용하는 경우 다음 화면이 표시됩니다.
-
-    ![Data Box 가져오기 주문 마법사, 데이터 대상 화면(스토리지 계정이 선택됨)](media/data-box-deploy-ordered/select-data-box-import-07.png)
-
-    지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. Data Box는 최대 10개의 스토리지 계정과 연결할 수 있습니다. 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정** 도 만들 수 있습니다.
-
-   > [!NOTE]
-   > - Azure Premium FileStorage 계정을 선택하면 스토리지 계정 공유의 프로비저닝된 할당량이 파일 공유에 복사되는 데이터의 크기에 따라 증가합니다. 예를 들어 어떤 이유로 Data Box에서 데이터를 복사할 수 없는 경우 할당량이 증가된 후에는 다시 조정되지 않습니다.
-   > - 이 할당량은 요금 청구에 사용됩니다. 데이터가 데이터 센터에 업로드된 후에는 요구 사항에 맞게 할당량을 조정해야 합니다. 자세한 내용은 [요금 청구 이해](../../articles/storage/files/understanding-billing.md)를 참조하세요.
-
-    가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.
-
-    Data Box를 사용하여 온-프레미스 VHD(가상 하드 디스크)에서 **관리 디스크** 를 만드는 경우에도 다음 정보를 제공해야 합니다.
-
-    |설정  |값  |
-    |---------|---------|
-    |리소스 그룹     | 온-프레미스 VHD에서 관리형 디스크를 만들려는 경우 새 리소스 그룹을 만듭니다. 이전에 Data Box 서비스를 통해 관리 디스크에 대한 Data Box 주문을 만들 때 리소스 그룹을 만든 경우에만 기존 리소스 그룹을 사용할 수 있습니다. <br> 세미콜론으로 구분해서 여러 리소스 그룹을 지정합니다. 최대 10개의 리소스 그룹이 지원됩니다.|
-
-    ![Data Box 가져오기 주문 마법사, 데이터 대상 화면(Managed Disks가 선택됨)](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
-
-    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
-
-   > [!NOTE]
-   > 페이지 Blob이 관리 디스크로 성공적으로 변환되지 않은 경우 스토리지 계정에 유지되고 스토리지에 대한 요금이 청구됩니다.
-
-8. 계속하려면 **다음: 보안** 을 선택합니다.
-
-    **보안** 화면을 사용하면 사용자 고유의 암호화 키 및 디바이스를 사용하고, 암호를 공유하며, 이중 암호화를 사용하도록 선택할 수 있습니다.
-
-    **보안** 화면의 모든 설정은 선택 사항입니다. 설정을 변경하지 않으면 기본 설정이 적용됩니다.
-
-    ![Data Box 가져오기 주문 마법사의 보안 화면](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
-
-9. 사용자 고유의 고객 관리형 키를 사용하여 새 리소스에 대한 잠금 해제 암호를 보호하려면 **암호화 유형** 을 펼칩니다.
-
-    Azure Data Box에 대한 고객 관리형 키 구성은 선택 사항입니다. 기본적으로 Data Box는 Microsoft 관리형 키를 사용하여 잠금 해제 암호를 보호합니다.
-
-    고객 관리형 키는 디바이스의 데이터가 암호화되는 방식에 영향을 주지 않습니다. 키는 디바이스 잠금 해제 암호를 암호화하는 데만 사용됩니다.
-
-    고객 관리형 키를 사용하지 않으려면 15단계로 건너뜁니다.
-
-   ![암호화 유형 설정을 보여 주는 보안 화면](./media/data-box-deploy-ordered/customer-managed-key-01.png)
-
-10. 키 유형으로 **고객 관리형 키** 를 선택합니다. 그런 다음, **Key Vault 및 키 선택** 을 선택합니다.
-   
-    ![보안 화면, 고객 관리형 키 설정](./media/data-box-deploy-ordered/customer-managed-key-02.png)
-
-11. **Azure Key Vault에서 키 선택** 블레이드에서 구독이 자동으로 채워집니다.
-
-    - **키 자격 증명 모음** 의 드롭다운 목록에서 기존 키 자격 증명 모음을 선택할 수 있습니다.
-
-      ![Azure Key Vault에서 키 선택 화면](./media/data-box-deploy-ordered/customer-managed-key-03.png)
-
-    - **새로 만들기** 를 선택하여 새로운 키 자격 증명 모음을 만들 수도 있습니다. **키 자격 증명 모음 만들기** 화면에서 리소스 그룹 및 키 자격 증명 모음 이름을 입력합니다. **일시 삭제** 및 **보호 제거** 를 사용하도록 설정되어 있는지 확인합니다. 다른 모든 기본값을 적용하고, **검토 + 만들기** 를 선택합니다.
-
-      ![새 Azure Key Vault 설정 만들기](./media/data-box-deploy-ordered/customer-managed-key-04.png)
-
-      키 자격 증명 모음에 대한 정보를 검토하고, **만들기** 를 선택합니다. 키 자격 증명 모음 만들기가 완료될 때까지 몇 분 정도 기다립니다.
-
-      ![새 Azure Key Vault 검토 화면](./media/data-box-deploy-ordered/customer-managed-key-05.png)
-
-12. **Azure Key Vault에서 키 선택** 에서 키 자격 증명 모음의 기존 키를 선택할 수 있습니다.
-
-    ![Azure Key Vault에서 기존 키 선택](./media/data-box-deploy-ordered/customer-managed-key-06.png)
-
-    새 키를 만들려면 **새로 만들기** 를 선택합니다. RSA 키를 사용해야 합니다. 크기는 2048 이상일 수 있습니다. 새 키에 대한 이름을 입력하고, 다른 기본값을 적용한 다음, **만들기** 를 선택합니다.
-
-      ![새 키 만들기 옵션](./media/data-box-deploy-ordered/customer-managed-key-07.png)
-
-      키가 키 자격 증명 모음에 만들어지면 알림이 표시됩니다.
-
-13. 사용할 키의 **버전** 을 선택한 다음, **선택** 을 선택합니다.
-
-      ![키 자격 증명 모음에 새로 생성된 키](./media/data-box-deploy-ordered/customer-managed-key-08.png)
-
-    새 키 버전을 만들려면 **새로 만들기** 를 선택합니다.
-
-    ![새 키 버전을 만들기 위한 대화 상자 열기](./media/data-box-deploy-ordered/customer-managed-key-08-a.png)
-
-    새 키 버전에 대한 설정을 선택하고,**만들기** 를 선택합니다.
-
-    ![새로운 키 버전 만들기](./media/data-box-deploy-ordered/customer-managed-key-08-b.png)
-
-    **보안** 화면의 **암호화 유형** 설정에 키 자격 증명 모음 및 키가 표시됩니다.
-
-    ![고객 관리형 키에 대한 키 및 키 자격 증명 모음](./media/data-box-deploy-ordered/customer-managed-key-09.png)
-
-14. 이 리소스에 대한 액세스를 관리하는 데 사용할 사용자 ID를 선택합니다. **사용자 ID 선택** 을 선택합니다. 오른쪽 패널에서 사용할 구독 및 관리 ID를 선택합니다. 그런 다음, **선택** 을 선택합니다.
-
-    사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.  
-
-    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따릅니다.
-    
-    ![사용자 ID 선택](./media/data-box-deploy-ordered/customer-managed-key-10.png)
-
-    사용자 ID는 **암호화 유형** 설정에 표시됩니다.
-
-    ![암호화 유형 설정에 표시된 선택한 사용자 ID](./media/data-box-deploy-ordered/customer-managed-key-11.png)
-
-15. Azure Data Box에서 기본적으로 사용하는 시스템 생성 암호를 사용하지 않으려면 **보안** 화면에서 **사용자 고유 암호 가져오기** 를 펼칩니다.
-
-    시스템 생성 암호는 안전하며, 조직에서 달리 요구하는 경우가 아니면 사용하는 것이 좋습니다.
-
-    ![펼쳐진 Data Box 가져오기 주문에 대한 사용자 고유 암호 가져오기 옵션](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
-
-   - 사용자 고유 암호를 새 디바이스에 사용하려면 **디바이스 암호에 대한 기본 설정 지정** 에서 **사용자 고유 암호 사용** 을 선택하고 보안 요구 사항을 충족하는 암호를 입력합니다.
-     
-     암호는 영숫자여야 하며 최소한 대문자 1개, 소문자 1개, 특수 문자 1개, 숫자 1개로 구성된 12~15자여야 합니다. 
-
-     - 허용되는 특수 문자: @ # - $ % ^ ! + = ; : _ ( )
-     - 허용되지 않는 문자: I i L o O 0
-   
-     ![Data Box 가져오기 주문에 대한 보안 화면에서 사용자 고유 디바이스 암호를 사용하기 위한 옵션](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
-
- - 사용자 고유 암호를 공유에 사용하려면 다음을 수행합니다.
-
-   1. **공유 암호에 대한 기본 설정 지정** 에서 **사용자 고유 암호 사용** 및 **공유 암호 선택** 을 선택합니다.
-     
-       ![Data Box 가져오기 주문에 대한 보안 화면에서 사용자 고유 공유 암호를 사용하기 위한 옵션](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
-
-    1. 각 스토리지 계정에 대한 암호를 순서대로 입력합니다. 암호가 스토리지 계정에 대한 모든 공유에서 사용됩니다.
-    
-       암호는 영숫자여야 하며 최소한 대문자 1개, 소문자 1개, 특수 문자 1개, 숫자 1개로 구성된 12~64자여야 합니다.
-
-       - 허용되는 특수 문자: @ # - $ % ^ ! + = ; : _ ( )
-       - 허용되지 않는 문자: I i L o O 0
-     
-    1. 동일한 암호를 모든 스토리지 계정에 사용하려면 **모두에 복사** 를 선택합니다. 
-
-    1. 완료되면 **저장** 을 선택합니다.
-     
-       ![Data Box 가져오기 주문에 대한 공유 암호를 입력하는 화면](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
-
-    **보안** 화면에서 **암호 보기 또는 변경** 을 사용하여 암호를 변경할 수 있습니다.
-
-16. 소프트웨어 기반 이중 암호화를 사용하도록 설정하려면 **보안** 에서 **이중 암호화(매우 안전한 환경용)** 를 펼치고 **주문에 이중 암호화 사용** 을 선택합니다.
-
-    ![Data Box 가져오기에 대한 보안 화면, Data Box 주문에 소프트웨어 기반 암호화 사용](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
-
-    소프트웨어 기반 암호화는 Data Box에 있는 데이터의 AES-256비트 암호화와 함께 수행됩니다.
-
-    > [!NOTE]
-    > 이 옵션을 사용하도록 설정하면 주문 처리 및 데이터 복사 시간이 더 길어질 수 있습니다. 주문을 만든 후에는 이 옵션을 변경할 수 없습니다.
-
-    완료되면 **다음: 연락처 정보** 를 선택하여 계속 진행합니다.
-
-17. **연락처 정보** 에서 **+ 배송 주소 추가** 를 선택합니다.
-
-    ![연락처 세부 정보 화면에서 Azure Data Box 가져오기 주문에 배송 주소를 추가합니다.](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
-
-18. **배송 주소** 에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인** 을 선택합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다.
-
-    ![배송 사용 옵션 및 배송 주소 추가 옵션이 호출된 배송 주소 추가 대화 상자의 스크린샷](media/data-box-deploy-ordered/select-data-box-import-10.png)
-
-    주문이 성공적으로 발주된 후 자체 관리형 배송을 선택하면 이메일 알림을 받게 됩니다. 자체 관리형 배송에 대한 자세한 내용은 [자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요.
-
-19. 배송 정보가 성공적으로 확인되면 **배송 주소 추가** 을 선택합니다. **연락처 정보** 탭으로 이동됩니다.
-
-20. **연락처 정보** 탭으로 돌아가면 하나 이상의 이메일 주소를 추가합니다. 서비스에서는 주문 상태에 대한 모든 업데이트와 관련된 이메일 알림을 지정한 이메일 주소로 보냅니다.
-
-    그룹의 관리자가 떠나는 경우에도 계속 알림을 받으려면 그룹 이메일을 사용하는 것이 좋습니다.
-
-    ![주문 마법사의 연락처 세부 정보에 대한 이메일 섹션](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
-
-21. **검토 + 주문** 에서 주문, 연락처, 알림 및 개인 정보 사용 약관과 관련된 정보를 검토합니다. 개인 정보 처리 방침에 대한 계약에 해당하는 확인란을 선택합니다.
-
-22. **주문** 을 선택합니다. 주문을 만드는 데 몇 분 정도 걸립니다.
-
-    ![주문 마법사의 검토 및 주문 화면](media/data-box-deploy-ordered/select-data-box-import-11.png)
+[!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -450,7 +243,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
    |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
-   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --쿼리 &lt;문자열&gt;|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
 2. 선택한 명령 프롬프트 또는 터미널에서 [az databox job create](/cli/azure/databox/job#az_databox_job_create)를 실행하여 Azure Data Box 주문을 만듭니다.
@@ -565,7 +358,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |CountryCode [필수]| 디바이스가 배송될 국가입니다. | "미국" |
     |PostalCode [필수]| 배송 주소와 연결된 우편 번호입니다.| "98052"|
     |CompanyName| 근무하는 회사의 이름입니다.| "Contoso, LTD" |
-    |StorageAccountResourceId [필수]| 데이터를 가져올 Azure Storage 계정 ID입니다.| <AzStorageAccount>.id |
+    |StorageAccountResourceId [필수]| 데이터를 가져올 Azure Storage 계정 ID입니다.| &lt;AzstorageAccount&gt;.id |
 
 3. 원하는 명령 프롬프트 또는 터미널에서 [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob)을 사용하여 Azure Data Box 주문을 작성합니다.
 
@@ -637,7 +430,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
    |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
-   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --쿼리 &lt;문자열&gt;|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
    다음은 출력 형식이 "table"로 설정된 명령의 예입니다.
@@ -678,7 +471,7 @@ az databox job list --resource-group <resource-group>
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
    |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
-   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --쿼리 &lt;문자열&gt;|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
    다음은 출력 형식이 "table"로 설정된 명령의 예입니다.
@@ -799,7 +592,7 @@ Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/da
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
    |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
-   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --쿼리 &lt;문자열&gt;|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
    다음은 출력이 있는 명령의 예입니다.
@@ -836,7 +629,7 @@ Azure Data Box 주문을 취소한 경우 [`az databox job delete`](/cli/azure/d
    |help| 이 명령에 대한 도움말 정보를 표시합니다. | --help -h |
    |only-show-errors| 오류만 표시하고, 경고를 표시하지 않습니다. | --only-show-errors |
    |output -o| 출력 형식을 설정합니다.  허용되는 값: json, jsonc, none, table, tsv, yaml, yamlc. 기본값은 json입니다. | --output "json" |
-   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --query <string>|
+   |Query| JMESPath 쿼리 문자열입니다. 자세한 내용은 [JMESPath](http://jmespath.org/)를 참조하세요. | --쿼리 &lt;문자열&gt;|
    |verbose| 자세한 정보 로깅을 포함합니다. | --verbose |
 
 다음은 출력이 있는 명령의 예입니다.

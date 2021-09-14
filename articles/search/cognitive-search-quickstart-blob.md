@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/17/2021
-ms.openlocfilehash: 24f052eea727a2231ad0cc6f0ac0272d63a1c1b2
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: d29f434e1ac8b5fa8b96dcf4ad4f1125c20eb4db
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768804"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451766"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 기술 세트 만들기
 
@@ -62,7 +62,7 @@ ms.locfileid: "122768804"
 
 1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 바에서 **데이터 가져오기** 를 클릭하여 4단계의 통해 인지 보강을 설정합니다.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="데이터 가져오기 명령" border="false":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 ### <a name="step-1---create-a-data-source"></a>1단계: 데이터 원본 만들기
 

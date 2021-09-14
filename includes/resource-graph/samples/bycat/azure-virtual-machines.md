@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 716ac7b7d1c3b6577b9eb7290e249b306a617254
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 263f2be5c13a9086a529271ef8bd03464e20975e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304107"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536426"
 ---
 ### <a name="count-of-os-update-installation-done"></a>완료된 OS 업데이트 설치 수
 
-최근 7일 동안 컴퓨터에서 완료된 OS 업데이트 설치 실행의 상태 목록을 반환합니다.
+최근 7일 동안 머신에서 완료된 OS 업데이트 설치 실행의 상태 목록을 반환합니다.
 
 ```kusto
 PatchAssessmentResources
@@ -213,7 +213,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ### <a name="list-all-extensions-installed-on-a-virtual-machine"></a>가상 머신에 설치된 모든 확장 나열
 
-먼저, 이 쿼리는 가상 머신 리소스 유형의 `extend`를 사용하여 ID를 대문자(`toupper()`)로 가져오고, 운영 체제 이름 및 유형을 가져오고, 가상 머신 크기를 가져옵니다. 대문자로 리소스 ID를 가져오는 것은 다른 속성에 조인하기 위해 준비하는 좋은 방법입니다. 그런 다음, `join`을 **종류** 와 함께 _leftouter_ 로 사용하여 확장 ID의 대문자 `substring`을 일치시켜 가상 머신 확장을 가져옵니다. "/extensions/\<ExtensionName\>" 앞의 ID 부분은 가상 머신 ID와 동일한 형식이므로 `join`에 대해 이 속성을 사용합니다. 그런 다음, `summarize`는 가상 머신 확장 이름에 `make_list`와 함께 사용하여 _ID_, _OSName_, _OSType_ 및 _VMSize_ 가 동일한 각 확장의 이름을 단일 배열 속성으로 결합합니다. 마지막으로 **asc** 를 사용하여 _OSName_ 소문자를 `order by`로 결합합니다. 기본적으로 `order by`는 내림차순입니다.
+먼저, 이 쿼리는 가상 머신 리소스 유형의 `extend`를 사용하여 ID를 대문자(`toupper()`)로 가져오고, 운영 체제 이름 및 유형을 가져오고, 가상 머신 크기를 가져옵니다. 리소스 ID를 대문자로 가져오는 것은 다른 속성에 조인하기 위해 준비하는 데 좋은 방법입니다. 그런 다음, 가상 머신 확장을 가져오기 위해 쿼리에서 확장 ID의 대문자 `substring`을 일치시켜 _leftouter_ 인 **kind** 와 함께 `join`을 사용합니다. "/extensions/\<ExtensionName\>" 앞의 ID 부분은 가상 머신 ID와 동일한 형식이므로 `join`에 대해 이 속성을 사용합니다. 그런 다음, `summarize`는 가상 머신 확장 이름에 `make_list`와 함께 사용하여 _ID_, _OSName_, _OSType_ 및 _VMSize_ 가 동일한 각 확장의 이름을 단일 배열 속성으로 결합합니다. 마지막으로 **asc** 를 사용하여 소문자 _OSName_ 을 기준으로 `order by`를 수행합니다. 기본적으로 `order by`는 내림차순입니다.
 
 ```kusto
 Resources

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: c24af25b3ac25683e69d077cda0b65d064bfa774
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e1391aa0d29e6b6ae50964413195552768d12b7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786284"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543055"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "121786284"
 * 보장된 고가용성
 * 자동 보조 인덱싱.
 
-Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
+[Azure Data Table SDK](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/)는 .NET, Java, Python, Node.js 및 Go에 사용할 수 있습니다. 이러한 SDK를 사용하여 Table Storage 또는 Cosmos DB 테이블을 대상으로 지정할 수 있습니다. Azure Data Tables SDK를 사용하여 Azure Table 스토리지용으로 작성된 애플리케이션은 프리미엄 기능을 활용하기 위해 코드를 변경하지 않고 Azure Cosmos DB Table API로 마이그레이션할 수 있습니다.
 
 > [!NOTE]
 > 이제 Azure Cosmos DB의 Table API에서 [서버리스 용량 모드](../serverless.md)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Standard 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지합니다.
+> .NET Cosmos DB Table 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Azure Data Tables 라이브러리 [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지합니다.
 
 ## <a name="table-offerings"></a>Table 제품
 현재 Azure Table Storage를 사용하는 경우 Azure Cosmos DB 테이블 API로 이동하면 다음과 같은 이점이 있습니다.

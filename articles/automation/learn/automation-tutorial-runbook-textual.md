@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 45c7bb19e3f48fedf93fbb147a3014e09914a475
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c0efb162b624cd6bc1ca2266c51506b49bb07f2b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831279"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480285"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>자습서: PowerShell 워크플로 Runbook 만들기
 
@@ -227,9 +227,7 @@ Runbook에서 현재 Runbook에 하드 코딩된 VM을 시작합니다. Runbook�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
-* 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
-* PowerShell Runbook을 시작하려면 [PowerShell Runbook 만들기](automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
-* Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.
-* PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
+이 자습서에서는 PowerShell 워크플로 Runbook을 만들었습니다. Python 3 Runbook에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [자습서: Python 3 Runbook(미리 보기) 만들기](automation-tutorial-runbook-textual-python-3.md)

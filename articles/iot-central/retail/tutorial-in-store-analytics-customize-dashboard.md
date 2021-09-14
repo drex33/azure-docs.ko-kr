@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
-ms.openlocfilehash: d46a014f79b5743e82d758a50ab533ff9ee7b102
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/24/2021
+ms.openlocfilehash: 0f0eae49b3f108d1bb2e812fd8b466da243293c8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195604"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428624"
 ---
 # <a name="tutorial-customize-the-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서: Azure IoT Central에서 대시보드 사용자 지정 및 디바이스 관리
 
@@ -25,7 +25,6 @@ ms.locfileid: "122195604"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 
-> * 대시보드 이름 변경
 > * 대시보드의 이미지 타일 사용자 지정
 > * 타일을 정렬하여 레이아웃 수정
 > * 조건을 표시하는 원격 분석 타일 추가
@@ -46,17 +45,12 @@ ms.locfileid: "122195604"
 
 1. [Azure IoT Central에서 스토어 내 분석 애플리케이션 만들기](./tutorial-in-store-analytics-create-app.md) 자습서에서 만든 조건 모니터링 애플리케이션을 엽니다.
 
-1. 대시보드 도구 모음에서 **편집** 을 선택합니다. 편집 모드에서는 대시보드의 모양, 레이아웃 및 콘텐츠를 사용자 지정할 수 있습니다.
+1. **대시보드 설정** 을 선택하고, 대시보드에 대한 **이름** 을 입력하고, **저장** 을 선택합니다. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Azure IoT Central 대시보드 편집.":::
 
-1. 필요에 따라 왼쪽 창을 숨깁니다. 왼쪽 창을 숨기면 대시보드를 편집할 수 있는 작업 영역이 더 커집니다.
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central 새 대시보드":::
 
-1. **대시보드 이름** 에서 대시보드에 대한 친숙한 이름을 입력합니다. 이 자습서에서는 Contoso라는 가상 회사를 사용하며, 대시보드 이름 예제는 *Contoso 대시보드* 입니다. 
-
-1. **저장** 을 선택합니다. 변경 내용이 대시보드에 저장되고 편집 모드가 비활성화됩니다.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-change-name.png" alt-text="Azure IoT Central 대시보드 이름 변경.":::
 
 ## <a name="customize-image-tiles-on-the-dashboard"></a>대시보드의 이미지 타일 사용자 지정
 
@@ -78,7 +72,7 @@ Azure IoT Central 애플리케이션 대시보드는 하나 이상의 타일로 
 
 1. 필요에 따라 이미지에 대한 URL을 지정합니다.
 
-1. **구성 업데이트** 를 선택합니다. **구성 업데이트** 단추는 대시보드에 대한 변경 내용을 저장하고, 편집 모드를 사용하도록 설정된 상태로 둡니다.
+1. **업데이트** 를 선택합니다.
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png" alt-text="Azure IoT Central 브랜드 이미지 저장.":::
 
@@ -90,15 +84,11 @@ Azure IoT Central 애플리케이션 대시보드는 하나 이상의 타일로 
 
 1. **이미지** 를 선택하고, 대화 상자를 사용하여 스토어 영역 맵의 사용자 지정 이미지를 업로드합니다. 
 
-1. **구성 업데이트** 를 선택합니다.
+1. **업데이트** 를 선택합니다.
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-map-save.png" alt-text="Azure IoT Central 스토어 맵 저장.":::
 
     Contoso 스토어 맵 예제에는 두 개의 체크 아웃 영역, 의류 및 개인 용품 영역, 식료품 및 가공 식품 영역의 네 가지 영역이 표시됩니다. 이 자습서에서는 센서를 이러한 영역에 연결하여 원격 분석을 제공합니다.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-zones.png" alt-text="Azure IoT Central 스토어 영역.":::
-
-1. **저장** 을 선택합니다.
 
 ## <a name="arrange-tiles-to-modify-the-layout"></a>타일을 정렬하여 레이아웃 수정
 
@@ -110,21 +100,12 @@ Azure IoT Central 애플리케이션 대시보드는 하나 이상의 타일로 
 
 1. 대시보드 도구 모음에서 **편집** 을 선택합니다. 
 
-1. **X(삭제)** 를 선택하여 **모든 영역으로 돌아가기**, **스토어 대시보드 방문**, **대기 시간** 타일 및 **체크 아웃 3** 과 연결된 세 개의 타일을 모두 제거합니다. Contoso 스토어 대시보드는 이러한 타일을 사용하지 않습니다. 
+1. **줄임표** 및 **삭제** 를 선택하여 **모든 영역으로 이동**, **스토어 방문 대시보드**, **선점**, **준비 시간 체크 아웃 영역**, **휴지 시간 체크 아웃 영역**, **선점 센서 설정**, **자동 온도 조절기 센서 설정**, **환경 조건** 타일 및 **체크 아웃 3** 과 연결된 세 개의 타일 모두를 제거합니다. Contoso 스토어 대시보드는 이러한 타일을 사용하지 않습니다. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png" alt-text="Azure IoT Central 타일 삭제.":::
 
-1. 스크롤하여 나머지 대시보드 타일을 보기로 가져옵니다.
-
-1. **X(삭제)** 를 선택하여 **준비 체크 아웃 영역**, **휴지 체크 아웃 영역**, **선점 센서 설정**, **자동 온도 조절기 센서 설정** 및 **환경 조건** 타일을 제거합니다. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles-2.png" alt-text="Azure IoT Central 나머지 타일 삭제.":::
 
 1. **저장** 을 선택합니다. 사용하지 않는 타일을 제거하면 편집 페이지의 공간이 확보되고 운영자 대시보드 보기가 간소화됩니다.
-
-1. 대시보드에 대한 변경 내용을 확인합니다.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/after-delete-tiles.png" alt-text="Azure IoT Central 타일 삭제 후.":::
 
 사용하지 않는 타일이 제거되면 나머지 타일을 다시 정렬하여 정리된 레이아웃을 만듭니다. 새 레이아웃에는 나중에 추가할 타일을 위한 공간이 포함됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 수준 메트릭 모니터링
+title: 자습서 - Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 메트릭 모니터링
 description: 자습서 - AKS(Azure Kubernetes Service) 클러스터에 Apache Spark 애플리케이션 메트릭 솔루션을 배포하고 Grafana 대시보드를 통합하는 방법을 알아봅니다.
 services: synapse-analytics
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: b32ddb38395d95e1c262c05aef878a1beeddc38c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb49c65d3d61e17a8e527016d32d80bcc85894d8
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734706"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541228"
 ---
-# <a name="tutorial-monitor-apache-spark-application-level-metrics-with-prometheus-and-grafana"></a>자습서: Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 수준 메트릭 모니터링
+# <a name="monitor-apache-spark-applications-metrics-with-prometheus-and-grafana"></a>Prometheus 및 Grafana를 사용하여 Apache Spark 애플리케이션 메트릭 모니터링
 
 ## <a name="overview"></a>개요
 
@@ -129,7 +129,7 @@ kubectl -n spo get svc spo-grafana
 
 Grafana 페이지의 왼쪽 위 모서리에 있는 Synapse 대시보드를 찾고(홈 -> Synapse Workspace/Synapse Application), Synapse Studio에서 예제 코드를 실행하고 메트릭이 표시될 때까지 몇 초 동안 기다립니다.
 
-또한 "Synapse 작업 영역/작업 영역" 및 "Synapse 작업 영역/Spark 풀" 대시보드를 사용하여 작업 영역 및 Apache Spark 풀의 개요를 볼 수 있습니다.
+또한 "Synapse 작업 영역/작업 영역" 및 "Synapse 작업 영역/Apache Spark 풀" 대시보드를 사용하여 작업 영역 및 Apache Spark 풀의 개요를 볼 수 있습니다.
 
 ## <a name="uninstall"></a>제거
 
@@ -157,7 +157,7 @@ Synapse Prometheus 커넥터는 Azure Synapse Apache Spark 풀과 Prometheus 서
 2.  Apache Spark 애플리케이션 검색: 대상 작업 영역에서 애플리케이션을 제출할 때 Synapse Prometheus 커넥터가 이러한 애플리케이션을 자동으로 검색할 수 있습니다.
 3.  Apache Spark 애플리케이션 메타데이터: 기본 애플리케이션 정보를 수집하고 데이터를 Prometheus로 내보냅니다.
 
-Synapse Prometheus 커넥터가 [Microsoft Container Registry](https://github.com/microsoft/containerregistry)에서 호스트되는 docker 이미지로 해제됩니다. 오픈 소스이며 [Azure Synapse Spark 애플리케이션 메트릭](https://github.com/microsoft/azure-synapse-spark-metrics)에 있습니다.
+Synapse Prometheus 커넥터가 [Microsoft Container Registry](https://github.com/microsoft/containerregistry)에서 호스트되는 docker 이미지로 해제됩니다. 오픈 소스이며 [Azure Synapse Apache Spark 애플리케이션 메트릭](https://github.com/microsoft/azure-synapse-spark-metrics)에 있습니다.
 
 ### <a name="prometheus-server"></a>Prometheus 서버
 
@@ -171,12 +171,12 @@ Grafana은 오픈 소스 시각화 및 분석 소프트웨어입니다. 이를 �
 
 [![스크린샷 대시보드 작업 영역](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png#lightbox)
 
-"Synapse 작업 영역/Spark 풀" 대시보드에는 해당 기간 동안 선택한 Apache Spark 풀에서 실행되는 Apache Spark 애플리케이션의 메트릭이 포함됩니다.
+"Synapse 작업 영역/Apache Spark 풀" 대시보드에는 해당 기간 동안 선택한 Apache Spark 풀에서 실행되는 Apache Spark 애플리케이션의 메트릭이 포함됩니다.
 
 [![스크린샷 대시보드 sparkpool](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png#lightbox)
 
-"Synapse 작업 영역/Spark 애플리케이션" 대시보드에는 선택한 Apache Spark 애플리케이션이 포함되어 있습니다.
+"Synapse 작업 영역/Apache Spark 애플리케이션" 대시보드에는 선택한 Apache Spark 애플리케이션이 포함되어 있습니다.
 
 [![스크린샷 대시보드 애플리케이션](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png#lightbox)
 
-위의 대시보드 템플릿은 [Azure Synapse Spark 애플리케이션 메트릭](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards)에 소스가 공개되어 있습니다.
+위의 대시보드 템플릿은 [Azure Synapse Apache Spark 애플리케이션 메트릭](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards)에 소스가 공개되어 있습니다.

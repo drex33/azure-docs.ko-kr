@@ -3,12 +3,12 @@ title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: bb67cb5788e891861eb0c1f5fe2533d62b4ee520
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: cae5b1db400cebe341463dbc752fe5559b779380
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254084"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437671"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 
@@ -40,7 +40,14 @@ ms.locfileid: "122254084"
 
 **네트워크 설정 요구 사항 확인**
 
-네트워크 아키텍처, 모니터링되는 대역폭 및 기타 네트워크 세부 정보를 조사합니다. 자세한 내용은 [Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)를 참조하세요.
+다음을 조사합니다.
+
+- 네트워크 아키텍처
+- 모니터링되는 대역폭
+- 인증서를 만들기 위한 요구 사항
+- 기타 네트워크 세부 정보
+
+자세한 내용은 [Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)를 참조하세요.
 
 **네트워크 부하를 처리하는 데 필요한 센서 및 관리 콘솔 어플라이언스 확인**
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: dbc48719f2897c22717319e1e07b5b3b3146fe84
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122638230"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432165"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -22,8 +22,8 @@ ms.locfileid: "122638230"
 
 > [!div class="checklist"]
 > * 가상 WAN 만들기
-> * 허브 만들기
-> * 사이트 간 VPN 게이트웨이 만들기
+> * 허브 기본 설정 구성
+> * 사이트 간 VPN 게이트웨이 설정 구성
 > * 사이트 만들기
 > * 허브에 사이트 연결
 > * 허브에 VPN 사이트 연결
@@ -47,7 +47,7 @@ ms.locfileid: "122638230"
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="create-hub"></a><a name="hub">허브 만들기</a>
+## <a name="configure-hub-settings"></a><a name="hub"></a>허브 설정 구성
 
 허브는 사이트 간, Express 경로 또는 지점 및 사이트 간 기능을 위한 게이트웨이를 포함할 수 있는 가상 네트워크입니다. 이 자습서에서는 먼저 가상 허브에 대한 **기본 사항** 탭을 채운 다음, 다음 섹션에서 사이트 간 탭을 계속 작성합니다. 빈 허브(게이트웨이를 포함하지 않는 허브)를 만든 다음, 나중에 게이트웨이(S2S, P2S, ExpressRoute 등)를 추가할 수 있습니다. 허브를 만든 후에는, 사이트를 연결하거나 허브 안에 게이트웨이를 만들지 않더라도 허브 요금이 청구됩니다.
 

@@ -5,15 +5,15 @@ metadata:
   description: Azure Database for MySQL은 MySQL Community Edition을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 단일 서버 또는 유연한 서버(미리 보기)를 선택하여 Azure에 MySQL 데이터베이스를 배포할 수 있습니다.
   author: savjani
   ms.author: pariks
-  ms.date: 09/03/2019
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 20839bff8c6ab4e9c25431941955e289ff1bf6d2
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: 36338fdaad38bb84b4b4a796289c07e0cfee01d7
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122779519"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124804883"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -117,6 +117,8 @@ landingContent:
       url: concepts-migrate-import-export.md
     - text: MySQL Workbench를 사용하여 MySQL용 Amazon RDS 마이그레이션
       url: how-to-migrate-rds-mysql-workbench.md
+    - text: 데이터 내부 복제를 사용하여 Amazon RDS for MySQL 마이그레이션
+      url: how-to-migrate-rds-mysql-data-in-replication.md
     - text: 최소 가동 중지 시간 마이그레이션
       url: howto-migrate-online.md
     - text: 마이그레이션 중 또는 마이그레이션 후 일반적인 오류

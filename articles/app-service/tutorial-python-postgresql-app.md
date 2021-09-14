@@ -12,12 +12,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 zone_pivot_groups: postgres-server-options
-ms.openlocfilehash: a5e57cf8ac41c6452116d4a88a5892d1779e6519
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7daa8e8e1fa8ba268211afb9b3cdddde218f3310
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439109"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426547"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -467,9 +467,9 @@ python manage.py runserver
 
 1. 브라우저에서 `http://localhost:8000`으로 이동합니다. 그러면 "사용할 수 있는 설문 조사가 없습니다."라는 메시지가 표시됩니다. 
 
-1. `http:///localhost:8000/admin`으로 이동하고 이전에 만든 관리 사용자를 사용하여 로그인합니다. 다시 한 번 **설문 조사** 아래에서 **질문** 옆에 있는 **추가** 를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다. 
+1. `http://localhost:8000/admin`으로 이동하고 이전에 만든 관리 사용자를 사용하여 로그인합니다. 다시 한 번 **설문 조사** 아래에서 **질문** 옆에 있는 **추가** 를 선택하고, 몇 가지 선택 항목이 있는 설문 조사 질문을 만듭니다. 
 
-1. 다시 한 번 *http:\//localhost:8000* 으로 이동하고, 질문에 대답하여 앱을 테스트합니다. 
+1. 다시 한 번 `http://localhost:8000`으로 이동하고, 질문에 대답하여 앱을 테스트합니다. 
 
 1. **Ctrl**+**C** 를 눌러 Django 서버를 중지합니다.
 

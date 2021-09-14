@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 1e95d3b72af14b151bdd1cbeede4d65deef0f817
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5d97ebebe19235a54084ec551f3bbcb9e55e3022
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081518"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425629"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
 
@@ -175,9 +175,9 @@ IIS 서버를 실행하는 두 개의 VM *myIISVMEastUS* & *myIISVMWestEurope* �
     | 속성           | myInternalWebSiteEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | **공용 IP 주소를 선택** 하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스** 에서 *myIISVMEastUS-ip* 라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
-    |  서브넷 라우팅 설정    |   *myVMEastUS* 테스트 VM의 IP 주소를 추가합니다. 이 VM에서 시작된 사용자 쿼리는 *myInternalWebSiteEndpoint* 로 전달됩니다.    |
+    |  서브넷 라우팅 설정    |   *myVMEastUS* 테스트 VM에서 사용하는 재귀 DNS 해결 프로그램의 IP 주소를 추가합니다. 이 VM에서 시작된 사용자 쿼리는 *myInternalWebSiteEndpoint* 로 전달됩니다.    |
 
-4. 2단계와 3단계를 반복하여 *myIISVMWestEurope* 이라는 IIS 서버 VM과 연결된 공용 IP 주소 *myIISVMWestEurope-ip* 에 대해 *myProdWebsiteEndpoint* 라는 또 다른 엔드포인트를 추가합니다. **서브넷 라우팅 설정** 에 대해 테스트 VM - *myVMWestEurope* 의 IP 주소를 추가합니다. 이 테스트 VM의 모든 사용자 쿼리는 엔드포인트 - *myProdWebsiteEndpoint* 로 라우팅됩니다.
+4. 2단계와 3단계를 반복하여 *myIISVMWestEurope* 이라는 IIS 서버 VM과 연결된 공용 IP 주소 *myIISVMWestEurope-ip* 에 대해 *myProdWebsiteEndpoint* 라는 또 다른 엔드포인트를 추가합니다. **서브넷 라우팅 설정** 에 대해 테스트 VM - *myVMWestEurope* 에서 사용하는 재귀 DNS 해결 프로그램의 IP 주소를 추가합니다. 해당 DNS 해결 프로그램을 통한 이 테스트 VM의 모든 사용자 쿼리는 엔드포인트 - *myProdWebsiteEndpoint* 로 라우팅됩니다.
 5. 두 엔드포인트가 추가되면 두 엔드포인트가 **Traffic Manager 프로필** 에 표시되고 모니터링 상태는 **온라인** 으로 나타납니다.
 
 ## <a name="test-traffic-manager-profile"></a>Traffic Manager 프로필 테스트

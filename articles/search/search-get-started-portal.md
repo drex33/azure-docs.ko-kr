@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: a4631e4d7a97a5fd01884f9b34b7bdd861f638ba
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770238"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450076"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "122770238"
 
 1. [검색 서비스를 찾고](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) 개요 페이지의 명령 모음에서 **데이터 가져오기** 를 클릭하여 검색 인덱스를 만들고 채웁니다.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 1. 마법사에서 **데이터에 연결** > **샘플** > **hotels-sample** 을 클릭합니다. 이 데이터 원본은 기본 제공됩니다. 사용자 고유의 데이터 원본을 만든 경우 이름, 형식 및 연결 정보를 지정해야 합니다. 생성되는 데이터 원본은 다른 가져오기 작업에서 다시 사용할 수 있는 "기존 데이터 원본"이 됩니다.
 

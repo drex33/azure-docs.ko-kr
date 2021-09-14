@@ -688,9 +688,21 @@ items:
           - name: 시각적으로 모니터링
             href: monitor-visually.md
           - name: Azure Monitor로 모니터링
-            href: monitor-using-azure-monitor.md
-          - name: Azure Monitor로 SSIS 모니터링
-            href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+            items:
+              - name: 개요
+                href: monitor-using-azure-monitor.md
+              - name: Azure Data Factory 메트릭 및 경고
+                href: monitor-metrics-alerts.md
+              - name: 진단 설정 및 작업 영역 구성
+                href: monitor-configure-diagnostics.md
+              - name: Azure Monitor REST API를 통해 진단 로그 설정
+                href: monitor-logs-rest.md
+              - name: Azure Monitor를 사용하여 SSIS 작업 모니터링
+                href: monitor-ssis.md
+              - name: 로그 및 이벤트 스키마
+                href: monitor-schema-logs-events.md
+              - name: Azure Marketplace에서 Azure Data Factory Analytics 솔루션 설치
+                href: monitor-install-analytics.md
           - name: SDK로 모니터링
             href: monitor-programmatically.md
           - name: 통합 런타임 모니터링

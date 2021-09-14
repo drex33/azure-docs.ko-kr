@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Face 설명서
-summary: 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
+summary: 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Azure Video Analyzer for Media와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
 metadata:
   title: Face 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   description: 클라우드 기반 Face 서비스를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: 579db900c31992fbb0555a8e19c9b2753f0bde2a
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 145727cb5b6cd9c83e33407cb0cbfb3612066c9d
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121744765"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771919"
 landingContent:
 - title: Face 서비스 정보
   linkLists:

@@ -1,16 +1,16 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 2a300a2bdffec7c376206f62d1b6fc8791aad01b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 02b4341d9eddb039eb44ba964ca2e4a25c4835a7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122423280"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539408"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -129,7 +129,7 @@ function synthesizeSpeech() {
 
 프로그램이 실행되면 합성된 `.wav` 파일을 지정한 위치에 씁니다. 이는 가장 기본적인 사용법의 좋은 예이지만, 다음으로 출력을 사용자 지정하고 출력 응답을 메모리 내 스트림으로 처리하여 사용자 지정 시나리오를 사용하는 방법을 살펴봅니다.
 
-## <a name="synthesize-to-speaker-output"></a>스피커 출력으로 합성
+## <a name="synthesize-to-speaker-output-browser-only"></a>스피커 출력으로 합성(브라우저만 해당)
 
 경우에 따라 합성된 음성을 스피커로 직접 출력할 수도 있습니다. 이렇게 하려면 `fromDefaultSpeakerOutput()` 정적 함수를 사용하여 `AudioConfig`를 인스턴스화합니다. 현재 활성 출력 디바이스로 출력됩니다.
 

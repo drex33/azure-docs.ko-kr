@@ -2,17 +2,17 @@
 title: '자습서: Azure App Service에서 사용자 지정 이미지 빌드 및 실행'
 description: 사용자 지정 Linux 또는 Windows 이미지를 빌드하고 이미지를 Azure Container Registry로 푸시한 다음, 해당 이미지를 Azure App Service에 배포하는 단계별 가이드입니다. 사용자 지정 소프트웨어를 사용자 지정 컨테이너에 있는 App Service로 마이그레이션하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/04/2021
 ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 97246083b783fe98b4021a6f9bb882d40e79d449
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 1574464f4f6f4c4abe8a3fc45247f28b7b97bd96
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114386993"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428077"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
@@ -458,19 +458,19 @@ az group create --name myResourceGroup --location westeurope
 1. Azure Container Registry에서 가져올 관리 ID를 사용하도록 앱을 구성합니다.
 
     ```azurecli-interactive
-    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.acrUseManagedIdentityCreds=True
+    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.acrUseManagedIdentityCreds=True
     ```
     
     다음 값을 바꿉니다.
     - `<subscription-id>` 값을 `az account show` 명령에서 검색된 구독 ID로 바꿉니다.
-    - `<registry-name>` 값을 컨테이너 레지스트리의 이름으로 바꿉니다.
+    - `<app-name>`을 웹앱 이름으로 바꿉니다.
 
     > [!TIP]
     > 앱에서 [사용자가 할당한 관리 ID](overview-managed-identity.md#add-a-user-assigned-identity)를 사용하는 경우 추가 `AcrUserManagedIdentityID` 속성을 설정하여 해당 클라이언트 ID를 지정합니다.
     >
     > ```azurecli-interactive
     > clientId=$(az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv)
-    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
+    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
     > ```
 
 ## <a name="deploy-the-image-and-test-the-app"></a>이미지 배포 및 앱 테스트
@@ -579,7 +579,7 @@ App Service가 이미지를 가져올 때까지 기다리는 동안 컨테이너
 1. 이미지 태그의 버전 번호를 v1.0.1로 업데이트합니다.
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
     `<registry-name>`을 레지스트리 이름으로 바꿉니다.
@@ -587,7 +587,7 @@ App Service가 이미지를 가져올 때까지 기다리는 동안 컨테이너
 1. 이미지를 레지스트리로 푸시합니다.
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
 1. 이미지 푸시가 완료되면 웹후크는 푸시에 대해 App Service에 알리고 App Service는 업데이트된 이미지를 가져오려고 시도합니다. 몇 분 정도 기다렸다가 `https://<app-name>.azurewebsites.net`로 이동하여 업데이트가 배포되었는지 확인합니다.
@@ -611,6 +611,7 @@ RUN apt-get update \
 
 > [!NOTE]
 > 이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 Azure 계정으로 인증됩니다.
+> root:Docker!는 SSH를 변경하지 않아야 합니다. SCM/KUDU는 Azure Portal 자격 증명을 사용합니다. 이 값을 변경하면 SSH를 사용할 때 오류가 발생합니다.
 
 또한 *Dockerfile* 은 *sshd_config* 파일을 */etc/ssh/* 폴더에 복사하고, 컨테이너에서 포트 2222를 공개합니다.
 

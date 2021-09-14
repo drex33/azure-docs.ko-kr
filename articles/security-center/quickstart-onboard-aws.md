@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ac057d169e3bab1b154eeb7fc9148310873ed549
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 781157c8cf9e3cc749f74aeb7d9d2f582823885a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731132"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426763"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -84,11 +84,11 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
     - **외부 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 구독 ID를 입력합니다. 
 
 1. **다음** 을 선택합니다.
-1. **권한 정책 연결** 섹션에서 다음 정책을 선택합니다.
+1. **권한 정책 연결** 섹션에서 다음 [AWS 관리형 정책](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html)을 선택합니다.
 
-    - SecurityAudit
-    - AmazonSSMAutomationRole
-    - AWSSecurityHubReadOnlyAccess
+    - SecurityAudit(`arn:aws:iam::aws:policy/SecurityAudit`)
+    - AmazonSSMAutomationRole(`arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole`)
+    - AWSSecurityHubReadOnlyAccess(`arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess`)
 
 1. 필요에 따라 태그를 추가합니다. 사용자에게 태그를 추가해도 연결에 영향을 주지 않습니다.
 1. **다음** 을 선택합니다.

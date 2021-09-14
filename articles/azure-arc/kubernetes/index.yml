@@ -2,25 +2,25 @@
 title: Azure Arc 지원 Kubernetes
 summary: Azure Arc로 Kubernetes 클러스터를 관리하는 방법 알아보기
 metadata:
-  title: Azure Arc를 지원하는 Kubernetes
+  title: Azure Arc 지원 Kubernetes
   description: Azure에서 온-프레미스 머신을 관리하는 방법에 대해 알아보기
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: fbad5cafb22960a56a4ba76e2dc331c399193ddc
-  ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+  ms.openlocfilehash: fe4ab5420bdc985d2ec197482f86a6ae2cbc0eb1
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/06/2021
-  ms.locfileid: "106443202"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124744733"
 landingContent:
-- title: Azure Arc를 지원하는 Kubernetes에 대한 정보
+- title: Azure Arc 지원 Kubernetes에 대한 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure Arc 지원 Kubernetes란 무엇인가요?
+    - text: Azure Arc 지원 Kubernetes란?
       url: overview.md
     - text: Azure Arc 유효성 검사 프로그램
       url: validation-program.md

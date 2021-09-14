@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7b5aff80acca790f1ae8c4a852f8b353dfa7312a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866642"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433839"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>자습서: 포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "122866642"
 
 이 자습서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 데 도움이 됩니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
-이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 동일한 구독에 있는 회로에 가상 네트워크를 연결합니다.
 > - 다른 구독에 있는 회로에 가상 네트워크를 연결합니다.
@@ -185,6 +185,7 @@ ExpressRoute 게이트웨이에 대한 새 연결을 추가할 때 **FastPath** 
 가상 네트워크 피어링에 대한 FastPath 지원은 이제 공개 미리 보기로 제공됩니다. 등록은 Azure PowerShell을 통해서만 가능합니다. 등록 방법에 대한 지침은 [FastPath 미리 보기 기능](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview)을 참조하세요.
 
 > [!NOTE] 
+> 대상 구독에서 FastPath에 대해 구성된 모든 연결은 이 미리 보기에 등록됩니다. 프로덕션 구독에서는 이 미리 보기를 사용하도록 설정하지 않는 것이 좋습니다.
 > 이미 FastPath가 구성되어 있고 미리 보기 기능에 등록하려면 다음을 수행해야 합니다.
 > 1. 위의 Azure PowerShell 명령을 사용하여 FastPath 미리 보기 기능에 등록합니다.
 > 1. 대상 연결에서 FastPath를 사용하지 않도록 설정했다가 다시 사용합니다.

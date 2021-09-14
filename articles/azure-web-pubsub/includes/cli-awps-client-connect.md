@@ -4,12 +4,12 @@ ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 08/06/2021
 ms.author: lianwei
-ms.openlocfilehash: 1f6356ceaa844433e6da3102b8db0fcbd5a61615
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be837e20579a9236cc634e9518c82f17e2273e6b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785567"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123453852"
 ---
 Azure CLI [az webpubsub client](/cli/azure/webpubsub/client) 명령을 사용하여 이전 단계에서 만든 서비스에 대한 WebSocket 클라이언트 연결을 시작하고 다음 정보를 제공합니다.
 
@@ -22,13 +22,14 @@ Azure CLI [az webpubsub client](/cli/azure/webpubsub/client) 명령을 사용하
 
 - Hub 이름: **myHub1**.
 - 리소스 그룹 이름: **myResourceGroup**
+- 사용자 ID: **user1**
 
 ```azurecli-interactive
-az webpubsub client start --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name myHub1
+az webpubsub client start --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --hub-name "myHub1" --user-id "user1"
 ```
 
 명령이 Web PubSub 서비스에 대한 WebSocket 연결을 설정하고, 이제 성공적으로 연결되었음을 나타내는 JSON 메시지를 받고, 다음과 같은 고유한 `connectionId`로 할당되었음을 확인할 수 있습니다.
 
 ```json
-{"type":"system","event":"connected","userId":null,"connectionId":"<your_unique_connection_id>"}
+{"type":"system","event":"connected","userId":"user1","connectionId":"<your_unique_connection_id>"}
 ```

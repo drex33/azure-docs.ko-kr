@@ -4,7 +4,7 @@ description: 이벤트 허브로 Azure Active Directory 로그를 푸시하도�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/23/2021
+ms.date: 09/02/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cff544e3d9ba2851db02e0e4440ba9f97b240e68
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: dabaf249df7554fc2a2811f3fd1916e20f072f57
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580839"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449837"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
@@ -41,47 +41,47 @@ ms.locfileid: "112580839"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory** > **모니터링** > **감사 로그** 를 선택합니다. 
+1. **Azure Active Directory** > **감사 로그** 를 차례로 선택합니다. 
 
-3. **설정 내보내기** 를 선택합니다.  
+1. **데이터 내보내기 설정** 을 선택합니다.  
     
-4. **진단 설정** 창에서 다음 중 하나를 수행합니다.
+1. **진단 설정** 창에서 다음 중 하나를 수행합니다.
     * 기존 설정을 변경하려면 **설정 편집** 을 선택합니다.
     * 새 설정을 추가하려면 **진단 설정 추가** 를 선택합니다.  
       최대 세 개의 설정을 지정할 수 있습니다.
 
-      ![설정 내보내기](./media/quickstart-azure-monitor-stream-logs-to-event-hub/ExportSettings.png)
+1. **이벤트 허브로 스트림** 확인란을 선택한 다음, **이벤트 허브/구성** 을 선택합니다.
 
-5. **이벤트 허브로 스트림** 확인란을 선택한 다음, **이벤트 허브/구성** 을 선택합니다.
-
-6. 로그를 라우팅하려는 Azure 구독 및 Event Hubs 네임스페이스를 선택합니다.  
+   [ ![내보내기 설정](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png) ](./media/tutorial-azure-monitor-stream-logs-to-event-hub/diagnostic-setting-stream-to-event-hub.png)
+   
+   1. 로그를 라우팅하려는 Azure 구독 및 Event Hubs 네임스페이스를 선택합니다.  
     구독 및 Event Hubs 네임스페이스는 로그가 스트리밍되는 Azure AD 테넌트와 연결되어야 합니다. 또한 로그를 전송해야 하는 Event Hubs 네임스페이스 내에 이벤트 허브를 지정할 수 있습니다. 이벤트 허브가 지정되지 않으면 기본 이름 **insights-logs-audit** 를 사용하여 네임스페이스 내에 이벤트 허브가 생성됩니다.
 
-7. **확인** 을 선택하여 이벤트 허브 구성을 종료합니다.
+   1. 다음 항목의 조합을 선택합니다.
+       - 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
+       - 이벤트 허브에 대화형 사용자 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
+       - 비대화형 사용자 로그인 로그를 이벤트 허브로 보내려면 **NonInteractiveUserSignInLogs** 확인란을 선택합니다. 
+       - 서비스 주체 로그인 로그를 이벤트 허브로 보내려면 **ServicePrincipalSignInLogs** 확인란을 선택합니다.
+       - 관리 ID 로그인 로그를 이벤트 허브로 보내려면 **ManagedIdentitySignInLogs** 확인란을 선택합니다.
+       - 프로비저닝 로그를 이벤트 허브로 보내려면 **ProvisioningLogs** 확인란을 선택합니다.
+       - AD FS Connect Health 에이전트에서 Azure AD로 로그인을 보내려면 **ADFSSignInLogs** 확인란을 선택합니다.
+       - 위험 사용자 정보를 보내려면 **RiskyUsers** 확인란을 선택합니다.
+       - 사용자 위험 이벤트 정보를 보내려면 **UserRiskEvents** 확인란을 선택합니다. 
 
-8. 다음을 조합하여 사용할 수 있습니다.
-    - 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
-    - 이벤트 허브에 대화형 사용자 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
-    - 비대화형 사용자 로그인 로그를 이벤트 허브로 보내려면 **NonInteractiveUserSignInLogs** 확인란을 선택합니다. 
-    - 서비스 주체 로그인 로그를 이벤트 허브로 보내려면 **ServicePrincipalSignInLogs** 확인란을 선택합니다.
-    - 관리 ID 로그인 로그를 이벤트 허브로 보내려면 **ManagedIdentitySignInLogs** 확인란을 선택합니다.
-    - 프로비저닝 로그를 이벤트 허브로 보내려면 **ProvisioningLogs** 확인란을 선택합니다.
-    - AD FS Connect Health 에이전트에서 Azure AD로 로그인을 보내려면 **ADFSSignInLogs** 확인란을 선택합니다.
+       > [!NOTE]
+       > 일부 로그인 범주에는 테넌트 구성에 따라 많은 양의 로그 데이터가 포함되어 있습니다. 일반적으로 비대화형 사용자 로그인 및 서비스 주체 로그인은 대화형 사용자 로그인보다 5~10배 더 클 수 있습니다.
 
-    >[!Note]
-    >일부 로그인 범주에는 테넌트 구성에 따라 많은 양의 로그 데이터가 포함되어 있습니다. 일반적으로 비대화형 사용자 로그인 및 서비스 주체 로그인은 대화형 사용자 로그인보다 5~10배 더 클 수 있습니다.
+   1. **저장** 을 선택하여 설정을 저장합니다.
 
-9. **저장** 을 선택하여 설정을 저장합니다.
+1. 약 15분 후 이벤트 허브에 이벤트가 표시되는지 확인합니다. 포털에서 이벤트 허브로 이동하여 **들어오는 메시지** 수가 0보다 큰지 확인하면 됩니다. 
 
-10. 약 15분 후 이벤트 허브에 이벤트가 표시되는지 확인합니다. 포털에서 이벤트 허브로 이동하여 **들어오는 메시지** 수가 0보다 큰지 확인하면 됩니다. 
-
-    ![감사 로그](./media/quickstart-azure-monitor-stream-logs-to-event-hub/InsightsLogsAudit.png)
+    [ ![감사 로그](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)](./media/tutorial-azure-monitor-stream-logs-to-event-hub/azure-monitor-event-hub-instance.png)
 
 ## <a name="access-data-from-your-event-hub"></a>이벤트 허브에서 데이터에 액세스
 
 이벤트 허브에 데이터가 표시되면 다음과 같은 두 가지 방법으로 데이터에 액세스하여 읽을 수 있습니다.
 
-* **지원되는 SIEM 도구를 구성합니다**. 이벤트 허브에서 데이터를 읽기 위해 대부분의 도구는 이벤트 허브 연결 문자열과 Azure 구독을 읽을 수 있는 특정 권한을 요구합니다. Azure Monitor와 통합된 타사 도구도 포함되지만 이에 국한되지는 않습니다.
+* **지원되는 SIEM 도구를 구성합니다**. 이벤트 허브에서 데이터를 읽기 위해 대부분의 도구는 이벤트 허브 연결 문자열과 Azure 구독을 읽을 수 있는 특정 권한을 요구합니다. Azure Monitor 통합이 포함된 타사 도구에는 다음이 포함되지만 이에 국한되지는 않습니다.
     
     * **ArcSight**: ArcSight와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure Active Directory 로그를 ArcSight와 통합](howto-integrate-activity-logs-with-arcsight.md)을 참조하세요.
     
@@ -93,11 +93,12 @@ ms.locfileid: "112580839"
 
 * **사용자 지정 도구 설정** 현재 SIEM이 Azure Monitor 진단에서 아직 지원되지 않는 경우 Event Hubs API를 사용하여 사용자 지정 도구를 설정할 수 있습니다. 자세한 내용은 [이벤트 허브에서 메시지 수신 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)을 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
+* [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)
 * [Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합](howto-integrate-activity-logs-with-arcsight.md)
 * [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](./howto-integrate-activity-logs-with-splunk.md)
 * [Azure Monitor를 사용하여 SumoLogic과 Azure AD 로그 통합](howto-integrate-activity-logs-with-sumologic.md)
+* [이벤트 허브를 사용하여 Elastic과 Azure AD 로그 통합](https://github.com/Microsoft/azure-docs/blob/master/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Azure Monitor에서 감사 로그 스키마 해석](./overview-reports.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)

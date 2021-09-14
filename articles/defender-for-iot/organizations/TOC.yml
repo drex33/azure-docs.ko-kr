@@ -18,13 +18,15 @@
       displayName: 'firewall, proxy, open ports'
       href: quickstart-system-prerequisites.md
     - name: Azure Defender for IoT 시작
-      displayName: 'getting started, registration, onboarding, activation, threat intelligence'
+      displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
       href: getting-started.md
 - name: 자습서
   expanded: false
   items:
     - name: Azure Defender for IoT 평가판 설치
       href: tutorial-onboarding.md
+    - name: Qradar 통합
+      href: tutorial-qradar.md
     - name: Splunk 통합
       href: tutorial-splunk.md
     - name: ServiceNow 통합
@@ -33,6 +35,9 @@
   items:
     - name: 주요 개념
       href: concept-key-concepts.md
+    - name: 지원되는 프로토콜
+      displayName: 'protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary'
+      href: concept-supported-protocols.md
 - name: 방법 가이드
   items:
     - name: 네트워크 준비
@@ -186,8 +191,6 @@
           href: integration-fortinet.md
         - name: Palo Alto 통합
           href: integration-palo-alto.md
-        - name: Qradar 통합
-          href: integration-qradar.md
 - name: 참조
   items:
     - name: Defender for IoT API 작업
@@ -217,7 +220,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
-    - name: 동영상
+    - name: 비디오
       href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
     - name: 보안 리소스
       items:

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 88fd6260df0039e960ac87b4b83d43ea497a58b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f142cf84e0e7e75d2ed61fbad9896d89e2364a0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104658512"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436539"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -103,9 +103,8 @@ ms.locfileid: "104658512"
 > 1. 패키지에 대한 새 자체 서명된 테스트 인증서를 만든 다음, 이를 선택합니다.
 >     1. **솔루션 탐색기** 에서 *Package.appxmanifest* 파일을 두 번 클릭합니다.
 >     1. **패키징** > **인증서 선택...**  > **만들기...** 를 차례로 선택합니다.
->     1. 암호를 입력한 다음, **확인** 을 선택합니다.
->     1. **... 파일에서 선택**, 방금 만든 *Native_UWP_V2_TemporaryKey.pfx* 파일, **확인** 을 차례로 선택합니다.
->     1. *Package.appxmanifest* 파일을 닫습니다(파일을 저장하라는 메시지가 표시되면 **확인** 을 선택함).
+>     1. 암호를 입력한 다음, **확인** 을 선택합니다. *Native_UWP_V2_TemporaryKey.pfx* 라는 인증서가 만들어집니다. 
+>     1. **확인** 을 선택하여 **인증서 선택** 대화 상자를 해제한 다음, 솔루션 탐색기에 *Native_UWP_V2_TemporaryKey.pfx* 가 표시되는지 확인합니다.
 >     1. **솔루션 탐색기** 에서 마우스 오른쪽 단추로 **Native_UWP_V2** 프로젝트를 클릭하고, **속성** 을 선택합니다.
 >     1. **서명** 을 선택한 다음, **강력한 이름 키 파일 선택** 드롭다운에서 만든 .pfx를 선택합니다.
 

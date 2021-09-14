@@ -3,16 +3,16 @@ title: Azure Defender for Resource Manager - 이점 및 기능
 description: Azure Defender for Resource Manager의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 07/14/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 38eeaa02bf34f27580b29662f75455358c83ccb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fff9c94af2c74612e8c07be1f7e125787265a72d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732565"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541372"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -21,6 +21,15 @@ ms.locfileid: "121732565"
 클라우드 관리 계층은 모든 클라우드 리소스에 연결된 중요한 서비스입니다. 이로 인해 공격자의 잠재적 대상이 될 수도 있습니다. 따라서 보안 운영 팀이 리소스 관리 계층을 면밀히 모니터링하는 것이 좋습니다. 
 
 Azure Defender for Resource Manager는 Azure Portal, Azure REST API, Azure CLI 또는 다른 Azure 프로그래밍 클라이언트를 통해 수행되는지 여부와 관계없이 조직의 리소스 관리 작업을 자동으로 모니터링합니다. Azure Defender는 고급 보안 분석을 실행하여 위협을 감지하고 의심스러운 활동에 대해 경고합니다.
+
+>[!NOTE]
+> 이러한 분석 중 일부는 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)에서 제공합니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
+>
+> 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
+> 1. 변경하려는 구독을 선택합니다.
+> 1. **통합** 을 선택합니다.
+> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장** 을 선택합니다.
+
 
 ## <a name="availability"></a>가용성
 

@@ -2,13 +2,13 @@
 title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 02/24/2020
-ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587647"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434253"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -37,7 +37,8 @@ ms.locfileid: "104587647"
   * MDC의 경우 키가 **NAMESERVER** 의 SQL 포트를 가리켜야 합니다. SDC의 경우 **INDEXSERVER** 의 SQL 포트를 가리켜야 합니다.
   * 사용자를 추가하고 삭제하려면 자격 증명이 있어야 합니다
   * 사전 등록 스크립트를 성공적으로 실행한 후에 이 키를 삭제할 수 있습니다.
-* HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하면 HANA 시스템이 백업 준비가 됩니다. [사전 등록 스크립트의 기능](#what-the-pre-registration-script-does) 섹션을 참조하면 사전 등록 스크립트에 대해 자세히 이해할 수 있습니다.
+* 위 단계에 나열된 사용자 지정 키를 만드는 대신 **hdbuserstore** 에서 기존 HANA SYSTEM 사용자에 대한 키를 만들 수도 있습니다.
+* HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)는 HANA 시스템을 백업할 준비가 되도록 하고 위 단계에서 만든 키를 입력으로 전달하도록 합니다. 이 입력이 스크립트에 매개 변수로 전달되는 방식을 이해하려면 [사전 등록 스크립트가 수행하는 작업](#what-the-pre-registration-script-does) 섹션을 참조하세요. 또한 사전 등록 스크립트가 수행하는 작업에 대해 자세히 설명합니다.
 * HANA 설정에서 프라이빗 엔드포인트를 사용하는 경우 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 *-sn* 또는 *--skip-network-checks* 매개 변수를 사용하여 실행합니다.
 
 >[!NOTE]
@@ -103,7 +104,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 Backint를 통해 제공되는 SAP HANA Azure VM의 백업(로그 및 비로그)은 Azure Recovery Services 자격 증명 모음으로 스트리밍되므로 이 스트리밍 방법론을 이해하는 것이 중요합니다.
 
-HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하며, 이는 Azure Backup 서비스에서 읽고 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
+HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하며, 이는 Azure Backup 서비스에서 읽고 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 Backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
 
 스트림은 주로 디스크와 관련이 있으므로 백업 및 복원 성능을 측정하려면 디스크 성능을 이해해야 합니다. Azure VM의 디스크 처리량 및 성능을 자세히 이해하려면[이 문서](../virtual-machines/disks-performance.md)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
 
@@ -145,17 +146,22 @@ HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디�
 
 * Linux 배포에 따라 스크립트는 Azure Backup 에이전트에 필요한 모든 패키지를 설치하거나 업데이트합니다.
 * Azure Active Directory 및 Azure Storage와 같은 종속 서비스 및 Azure Backup 서버와의 아웃바운드 네트워크 연결 검사를 수행합니다.
-* [사전 요구 사항](#prerequisites)의 일부로 나열된 사용자 키를 사용하여 HANA 시스템에 로그인합니다. 사용자 키는 HANA 시스템에서 백업 사용자(AZUREWLBACKUPHANAUSER)를 만드는 데 사용되며 **사전 등록 스크립트가 성공적으로 실행된 후 사용자 키를 삭제할 수 있습니다**.
+* [전제 조건](#prerequisites)의 일부로 언급된 사용자 지정 사용자 키 또는 SYSTEM 사용자 키를 사용하여 HANA 시스템에 로그인합니다. 이는 HANA 시스템에서 백업 사용자(AZUREWLBACKUPHANAUSER)를 만드는 데 사용되며 사전 등록 스크립트가 성공적으로 실행된 후 사용자 키를 삭제할 수 있습니다. _SYSTEM 사용자 키는 삭제하지 않아야 합니다_.
 * AZUREWLBACKUPHANAUSER에는 다음과 같은 필수 역할 및 권한이 할당됩니다.
   * MDC의 경우: DATABASE ADMIN 및 BACKUP ADMIN(HANA 2.0 SPS05 이후 버전부터): 복원 중에 새 데이터베이스를 만듭니다.
   * SDC의 경우: BACKUP ADMIN: 복원하는 동안 새 데이터베이스를 만듭니다.
   * CATALOG READ: 백업 카탈로그를 읽습니다.
   * SAP_INTERNAL_HANA_SUPPORT: 몇 개의 프라이빗 테이블에 액세스합니다. HANA 2.0 SPS04 Rev 46 미만의 SDC 및 MDC 버전에만 필요합니다. HANA 팀의 픽스를 통해 현재 공용 테이블에서 필요한 정보를 가져오기 때문에 HANA 2.0 SPS04 Rev 46 이상에서는 필요하지 않습니다.
 * 이 스크립트는 모든 작업(데이터베이스 쿼리, 복원 작업, 백업 구성 및 실행)을 처리하는 HANA 백업 플러그 인용 AZUREWLBACKUPHANAUSER에 대한 **hdbuserstore** 에 키를 추가합니다.
+* 또는 사용자 지정 백업 사용자를 만들도록 선택할 수 있습니다. 이 사용자에게 다음 필수 역할 및 권한이 할당되었는지 확인합니다.
+  * MDC의 경우: DATABASE ADMIN 및 BACKUP ADMIN(HANA 2.0 SPS05 이후 버전부터): 복원 중에 새 데이터베이스를 만듭니다.
+  * SDC의 경우: BACKUP ADMIN: 복원하는 동안 새 데이터베이스를 만듭니다.
+  * CATALOG READ: 백업 카탈로그를 읽습니다.
+  * SAP_INTERNAL_HANA_SUPPORT: 몇 개의 프라이빗 테이블에 액세스합니다. HANA 2.0 SPS04 Rev 46 미만의 SDC 및 MDC 버전에만 필요합니다. HANA 팀의 픽스를 통해 현재 공용 테이블에서 필요한 정보를 가져오기 때문에 HANA 2.0 SPS04 Rev 46 이상에서는 필요하지 않습니다.
+* 그런 다음, 모든 작업(데이터베이스 쿼리, 복원 작업, 백업 구성 및 실행)을 처리하는 HANA 백업 플러그 인용 사용자 지정 백업 사용자에 대한 hdbuserstore에 키를 추가합니다. 이 사용자 지정 백업 사용자 키를 매개 변수로 스크립트에 전달합니다(`-bk CUSTOM_BACKUP_KEY_NAME` 또는 `-backup-key CUSTOM_BACKUP_KEY_NAME`).  _이 맞춤 백업 키의 암호가 만료되면 백업 및 복원이 실패할 수 있습니다._
 
 >[!NOTE]
-> [필수 구성 요소](#prerequisites)의 일부로 나열된 사용자 키를 등록 전 스크립트(`-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME`)에 매개 변수로 명시적으로 전달할 수 있습니다. <br><br>
->스크립트가 허용하는 다른 매개 변수를 알아보려면 `bash msawb-plugin-config-com-sap-hana.sh --help` 명령을 사용합니다.
+> 스크립트가 허용하는 다른 매개 변수를 알아보려면 `bash msawb-plugin-config-com-sap-hana.sh --help` 명령을 사용합니다.
 
 키 생성을 확인하려면 HANA 머신에서 SIDADM 자격 증명을 사용하여 HDBSQL 명령을 실행합니다.
 
@@ -168,7 +174,7 @@ hdbuserstore list
 >[!NOTE]
 > `/usr/sap/{SID}/home/.hdb/` 아래에 고유한 SSFS 파일 세트가 있는지 확인하세요. 이 경로에는 하나의 폴더만 있어야 합니다.
 
-다음은 등록 전 스크립트 실행을 완료하는 데 필요한 단계의 요약입니다.
+다음은 등록 전 스크립트 실행을 완료하는 데 필요한 단계의 요약입니다. 이 흐름에서는 사전 등록 스크립트에 대한 입력 매개 변수로 SYSTEM 사용자 키를 제공하고 있습니다.
 
 |대상  |시작  |실행할 버전  |의견  |
 |---------|---------|---------|---------|

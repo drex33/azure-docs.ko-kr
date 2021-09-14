@@ -22,8 +22,10 @@
     - name: Microsoft Learn - Bicep
       href: learn-bicep.md
 - name: 방법
+  expanded: true
   items:
     - name: 작성자
+      expanded: true
       items:
         - name: 리소스
           items:
@@ -146,6 +148,8 @@
           href: bicep-functions-date.md
         - name: 배포 함수
           href: bicep-functions-deployment.md
+        - name: 파일 함수
+          href: bicep-functions-files.md
         - name: 논리 함수
           href: bicep-functions-logical.md
         - name: 숫자 함수

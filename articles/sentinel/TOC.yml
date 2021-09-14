@@ -167,7 +167,7 @@
         - name: 수집된 데이터 시각화
           href: get-visibility.md
         - name: Azure Monitor 통합 문서 사용
-          href: /azure/sentinel/monitor-your-data
+          href: ./monitor-your-data.md
     - name: 위협 탐지 및 데이터 분석
       items:
         - name: 기본 제공 규칙 사용
@@ -283,11 +283,13 @@
             - name: 파일 이벤트 정규화 스키마
               href: file-event-normalization-schema.md
             - name: 네트워크 정규화 스키마
-              href: normalization-schema.md
+              href: network-normalization-schema.md
             - name: 프로세스 이벤트 정규화 스키마
               href: process-events-normalization-schema.md
             - name: 레지스트리 이벤트 정규화 스키마
               href: registry-event-normalization-schema.md
+            - name: 레거시 네트워크 정규화 스키마
+              href: normalization-schema-v1.md
     - name: 검색 및 분석 참조
       items:
         - name: 상위 Azure Sentinel 통합 문서

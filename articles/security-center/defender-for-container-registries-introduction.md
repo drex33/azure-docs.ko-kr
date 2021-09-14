@@ -3,16 +3,16 @@ title: 컨테이너 레지스트리용 Azure Defender - 이점 및 특징
 description: 컨테이너 레지스트리용 Azure Defender의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 08/16/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 60f5ffd766c5731500bd4120556cb0fc547ff2a0
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 5c9407e33cefc9c604192252a119db5a42851949
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252847"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541408"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -27,7 +27,7 @@ ACR(Azure Container Registry)은 중앙 레지스트리에서 Azure 배포에 �
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**컨테이너 레지스터리용 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
 |지원되는 레지스트리 및 이미지:|셸 액세스를 사용하여 공용 인터넷에서 액세스할 수 있는 ACR 레지스트리의 Linux 이미지<br>[Azure Private Link로 보호되는 ACR 레지스트리](../container-registry/container-registry-private-link.md)|
-|지원되지 않는 레지스트리 및 이미지:|Windows 이미지<br>'프라이빗' 레지스트리<br>[Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 초 미니멀 이미지 또는 패키지 관리자, 셸 또는 OS 없이 애플리케이션과 그 런타임 종속성만 포함하는 "Distroless" 이미지<br>[OCI(Open Container Initiative) 이미지 형식 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)을 사용하는 이미지|
+|지원되지 않는 레지스트리 및 이미지:|Windows 이미지<br>'프라이빗' 레지스트리([신뢰할 수 있는 서비스](../container-registry/allow-access-trusted-services.md#trusted-services)에 대한 액세스 권한이 부여된 경우는 제외)<br>[Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 초 미니멀 이미지 또는 패키지 관리자, 셸 또는 OS 없이 애플리케이션과 그 런타임 종속성만 포함하는 "Distroless" 이미지<br>[OCI(Open Container Initiative) 이미지 형식 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)을 사용하는 이미지|
 |필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 역할 및 권한](../container-registry/container-registry-roles.md)|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: 미국 정부 및 중국 정부 - 현재 푸시 기능의 검색만 지원됩니다. [이미지가 언제 검사되나요?](#when-are-images-scanned)에서 자세히 알아보기|
 |||

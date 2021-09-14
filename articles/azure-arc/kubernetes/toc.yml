@@ -60,7 +60,7 @@
           href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Policy를 사용한 허용 제어 정책 정의
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
-        - name: Arc 지원 Open Service Mesh 배포
+        - name: Azure Arc 지원 Open Service Mesh 배포
           href: tutorial-arc-enabled-open-service-mesh.md
         - name: 어디서나 클러스터에 안전하게 연결
           href: cluster-connect.md
@@ -70,7 +70,7 @@
           href: custom-locations.md
         - name: IoT 워크로드 배포
           href: deploy-azure-iot-edge-workloads.md
-        - name: Arc 지원 Machine Learning
+        - name: Azure Arc 지원 Machine Learning
           href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: 문제 해결
       href: Troubleshooting.md

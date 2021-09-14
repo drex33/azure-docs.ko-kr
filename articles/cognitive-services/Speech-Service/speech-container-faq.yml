@@ -4,99 +4,99 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: 음성 컨테이너를 설치하고 실행합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
   services: cognitive-services
-  author: laujan
+  author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
   ms.date: 03/11/2021
-  ms.author: lajanuar
+  ms.author: pafarley
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: c6a519af6910bac536b90b6606636d14f6af97d8
-  ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+  ms.openlocfilehash: e2dbd29686dad5416a6bd148d2bcccc37fca5107
+  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122066243"
+  ms.lasthandoff: 09/07/2021
+  ms.locfileid: "123537838"
 title: Speech Service 컨테이너 FAQ(질문과 대답)
 summary: Speech Service를 컨테이너와 함께 사용하는 경우 지원팀에 에스컬레이션하기 전에 아래 질문과 대답을 참고하는 것이 좋습니다. 이 문서에는 일반적인 부분에서 기술적인 부분까지 다양한 질문이 포함되어 있습니다. 답변을 펼치려면 질문을 클릭하세요.
 sections:
 - name: 일반적인 질문
   questions:
   - question: >
-      How do Speech containers work and how do I set them up?
-    answer: "When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a large issue. If you are experiencing problems, it may be a hardware-related issue - so we would first look at resource, that is; CPU and memory specifications.\n\nConsider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while the language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time (like from the microphone). If you are feeding audio faster than real-time (like from a file), that usage can double (1.2x cores). Meanwhile, the memory listed below is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. For `ja-JP` that's an additional 2 GB; for `en-US`, it may be more (6-7 GB).\n\nIf you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.\n\nFurthermore, we pre-package executables for machines with the [advanced vector extension (AVX2)](speech-container-howto.md#advanced-vector-extension-support) instruction set. A machine with the AVX512 instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:\n\n```console\n2020-01-16 16:46:54.981118943 \n[W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache]\nCannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...\n```\n\nYou can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.\n"
+      음성 컨테이너는 어떻게 작동하고 어떻게 설정하나요?
+    answer: "프로덕션 클러스터를 설정할 때 고려해야 할 몇 가지 사항이 있습니다. 첫째, 동일한 컴퓨터에서 단일 언어, 여러 컨테이너를 설정하는 것은 큰 문제가 되지 않습니다. 문제가 발생한다면 하드웨어 관련 문제일 수 있으므로 먼저 리소스 즉, CPU와 메모리 사양을 살펴보겠습니다.\n\n잠시 `ja-JP` 컨테이너 및 최신 모델을 살펴보겠습니다. 음향 모델은 CPU 측면에서 가장 까다로운 부분이며 언어 모델에는 가장 많은 메모리가 요구됩니다. 사용을 통해 테스트해보면, 오디오가 실시간으로 들어올 때(예: 마이크를 통해) 단일 음성 텍스트 변환 요청을 처리하는 데 약 0.6개의 CPU 코어가 필요합니다. 실시간보다 더 빠르게 오디오를 공급할 경우(예: 파일을 통해) 사용량은 두 배(1.2개 코어)가 될 수 있습니다. 한편 아래 나열된 메모리는 음성 디코딩을 위한 운영 메모리입니다. 파일 캐시에 상주하는 언어 모델의 실제 전체 크기는 고려하지 않았습니다. `ja-JP`의 경우 2GB가 추가되며 `en-US`의 경우 더 많을 수 있습니다(6~7GB).\n\n메모리가 부족한 시스템에 여러 언어를 배포하려고 하면 파일 캐시가 가득 차서 OS의 모델에 페이지 인과 아웃이 강제로 적용될 수 있습니다. 대화 내용 기록을 실행 중인 경우 이런 상황이 발생하면 속도 저하 및 기타 성능 문제로 이어질 수 있습니다.\n\n또한 [AVX2(고급 벡터 확장)](speech-container-howto.md#advanced-vector-extension-support) 명령 집합이 있는 컴퓨터용 실행 파일을 미리 패키징합니다. AVX512 명령 집합이 있는 컴퓨터는 해당 대상에 대한 코드를 생성해야 하며 10개 언어에 대해 10개의 컨테이너를 시작하면 CPU가 일시적으로 고갈될 수 있습니다. 다음과 같은 메시지가 docker 로그에 표시됩니다.\n\n```console\n2020-01-16 16:46:54.981118943 \n[W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache]\nCannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...\n```\n\n`DECODER MAX_COUNT` 변수를 사용하여 단일 컨테이너 내에서 원하는 디코더 수를 설정할 수 있습니다. 따라서 기본적으로 SKU(CPU/메모리)로 시작해야 하며 이를 최대한 활용하는 방법을 제안할 수 있습니다. 가장 좋은 출발점은 권장되는 호스트 컴퓨터 리소스 사양을 참조하는 것입니다.\n"
   - question: >
-      Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?
+      온-프레미스 음성 텍스트 변환 컨테이너 용량을 계획하고 추정하는 데 도움을 받을 수 있나요?
     answer: >
-      For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with two CPU cores, for a single recognition. We do not recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
+      일괄 처리 모드에서 컨테이너 용량의 경우 각 디코더는 2개의 CPU 코어를 사용하여 단일 인식에 실시간으로 2~3배를 처리할 수 있습니다. 컨테이너 인스턴스당 동시 인식이 2개를 초과하지 않는 것이 좋지만, 안정성/가용성을 위해 더 많은 컨테이너 인스턴스는 부하 분산 장치 뒤에서 실행하는 것이 좋습니다.
 
 
-      Though we could have each container instance running with more decoders. For example, we may be able to set up 7 decoders per container instance on an eight core machine (at at more than 2x each), yielding 15x throughput. There is a param `DECODER_MAX_COUNT` to be aware of. For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
+      단, 더 많은 디코더로 각 컨테이너 인스턴스를 실행할 수는 있습니다. 예를 들어 8코어 컴퓨터에서 컨테이너 인스턴스당 디코더를 7개 설정하면(각각 2배 초과), 15배의 처리량을 얻을 수 있습니다. `DECODER_MAX_COUNT`라는 매개 변수를 알아 두어야 합니다. 극단적인 경우 처리량이 크게 증가하면 안정성 및 대기 시간 문제가 발생합니다. 마이크의 경우, 실시간 1배입니다. 단일 인식의 경우 전체 사용량은 약 1코어여야 합니다.
 
 
-      For scenario of processing 1 K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
+      일괄 처리 모드에서 1K 시간/일을 처리하는 시나리오는 극단적인 경우 VM 3대가 24시간 내에 처리할 수 있지만 보장되지는 않습니다. 급증하는 날, 장애 조치(failover), 업데이트를 처리하기 위해 최소 백업/BCP를 제공하려면 클러스터당 3대가 아닌 4~5대의 컴퓨터와 둘 이상의 클러스터를 사용하는 것이 좋습니다.
 
 
-      For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6 GHz or better, with AVX2 instruction set enabled).
+      하드웨어의 경우 표준 Azure VM `DS13_v2`가 참조로 사용됩니다. (각 코어는 2.6GHz 이상이어야 하며 AVX2 명령 집합이 활성화되어 있어야 합니다.)
 
 
-      | Instance  | vCPU(s) | RAM    | Temp storage | Pay-as-you-go with AHB | 1-year reserve with AHB (% Savings) | 3-year reserved with AHB (% Savings) |
+      | 인스턴스  | vCPU | RAM    | 임시 스토리지 | AHB를 통한 종량제 | AHB를 통한 1년 예약(절감 %) | AHB를 통한 3년 예약(절감 %) |
 
       |-----------|---------|--------|--------------|------------------------|-------------------------------------|--------------------------------------|
 
-      | `DS13 v2` | 8       | 56 GiB | 112 GiB      | $0.598/hour            | $0.3528/hour (~41%)                 | $0.2333/hour (~61%)                  |
+      | `DS13 v2` | 8       | 56GiB | 112GiB      | $0.598/시간            | $0.3528/시간(~41%)                 | $0.2333/시간(~61%)                  |
 
 
-      Based on the design reference (two clusters of 5 VMs to handle 1 K hours/day audio batch processing), 1-year hardware cost will be:
+      설계 참조(1K 시간/일 오디오 일괄 처리를 다루는 VM이 5대인 클러스터 2개)에 기반한 1년 하드웨어 비용은 다음과 같습니다.
 
 
-      > 2 (clusters) * 5 (VMs per cluster) * $0.3528/hour * 365 (days) * 24 (hours) = $31K / year
+      > 2(클러스터) * 5(클러스터당 VM) * $0.3528/시간 * 365(일) * 24(시간) = $31K/년
 
 
-      When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is more powerful than a single core.
+      물리적 컴퓨터에 매핑할 때 일반적인 추정치는 vCPU 1개 = 물리적 CPU 코어 1개입니다. 실제로 1vCPU는 단일 코어보다 더 강력합니다.
 
 
-      For on-prem, all of these additional factors come into play:
+      온-프레임의 경우 다음과 같은 추가 요소가 모두 작용합니다.
 
 
-      - On what type the physical CPU is and how many cores on it
+      - 물리적 CPU의 유형 및 포함된 코어 수
 
-      - How many CPUs running together on the same box/machine
+      - 동일한 박스/컴퓨터에서 함께 실행되는 CPU 수
 
-      - How VMs are set up
+      - VM 설정 방식
 
-      - How hyper-threading / multi-threading is used
+      - 하이퍼 스레딩/다중 스레딩 사용 방식
 
-      - How memory is shared
+      - 메모리 공유 방식
 
-      - The OS, etc.
-
-
-      Normally it is not as well tuned as Azure the environment. Considering other overhead, I would say a safe estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have eight cores. With on-prem deployment, the cost will be higher than using Azure VMs. Also, consider the depreciation rate.
+      - OS 등
 
 
-      Service cost is the same as the online service: $1/hour for speech-to-text. The Speech service cost is:
+      일반적으로 Azure 환경만큼 잘 조정되지는 않습니다. 다른 오버헤드를 고려할 때, 안전한 추정은 물리적 CPU 코어 10개 = Azure vCPU 8개입니다. 널리 사용되는 CPU에는 8개 코어만 있습니다. 온-프레미스 배포를 사용하면 Azure VM을 사용하는 것보다 비용이 더 많이 듭니다. 감가상각률도 고려할 필요가 있습니다.
+
+
+      서비스 비용은 온라인 서비스와 동일합니다. 음성 텍스트 변환의 경우 시간당 $1입니다. Speech Service 비용은 다음과 같습니다.
 
 
       > $1 * 1000 * 365 = $365K
 
 
-      Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure costs (such as storage, networks, and load balancers) are not included.
+      Microsoft에 지불하는 유지 관리 비용은 서비스 수준 및 서비스 내용에 따라 달라집니다. 기본 수준의 경우 $29.99/월에서부터 시작하며 현장 서비스가 포함되면 수백 수천 달러까지 다양합니다. 서비스/유지 관리 비용의 대략적인 수치는 $300/시간입니다. 인건비는 포함되지 않습니다. 다른 인프라 비용(예 : 스토리지, 네트워크, 부하 분산 장치)은 포함되지 않습니다.
   - question: >
-      Why is punctuation missing from the transcription?
-    answer: "The `speech_recognition_language=<YOUR_LANGUAGE>` should be explicitly configured in the request if they are using Carbon client.\n\nFor example:\n\n```python\nif not recognize_once(\n    speechsdk.SpeechRecognizer(\n        speech_config=speechsdk.SpeechConfig(\n            endpoint=template.format(\"interactive\"),\n            speech_recognition_language=\"ja-JP\"),\n            audio_config=audio_config)):\n\n    print(\"Failed interactive endpoint\")\n    exit(1)\n```\nHere is the output:\n\n```cmd\nRECOGNIZED: SpeechRecognitionResult(\n    result_id=2111117c8700404a84f521b7b805c4e7, \n    text=\"まだ早いまだ早いは猫である名前はまだないどこで生まれたかとんと見当を検討をなつかぬ。\n    何でも薄暗いじめじめした所でながら泣いていた事だけは記憶している。\n    まだは今ここで初めて人間と言うものを見た。\n    しかも後で聞くと、それは書生という人間中で一番同額同額。\",\n    reason=ResultReason.RecognizedSpeech)\n```\n"
+      대화 내용 기록에 문장 부호가 없는 이유는 무엇인가요?
+    answer: "Carbon 클라이언트를 사용하는 경우 `speech_recognition_language=<YOUR_LANGUAGE>`를 요청에 명시적으로 구성해야 합니다.\n\n예를 들면 다음과 같습니다.\n\n```python\nif not recognize_once(\n    speechsdk.SpeechRecognizer(\n        speech_config=speechsdk.SpeechConfig(\n            endpoint=template.format(\"interactive\"),\n            speech_recognition_language=\"ja-JP\"),\n            audio_config=audio_config)):\n\n    print(\"Failed interactive endpoint\")\n    exit(1)\n```\n출력은 다음과 같습니다.\n\n```cmd\nRECOGNIZED: SpeechRecognitionResult(\n    result_id=2111117c8700404a84f521b7b805c4e7, \n    text=\"まだ早いまだ早いは猫である名前はまだないどこで生まれたかとんと見当を検討をなつかぬ。\n    何でも薄暗いじめじめした所でながら泣いていた事だけは記憶している。\n    まだは今ここで初めて人間と言うものを見た。\n    しかも後で聞くと、それは書生という人間中で一番同額同額。\",\n    reason=ResultReason.RecognizedSpeech)\n```\n"
   - question: >
-      Can I use a custom acoustic model and language model with Speech container?
+      음성 컨테이너에서 사용자 지정 음향 모델 및 언어 모델을 사용할 수 있나요?
     answer: >
-      We are currently only able to pass one model ID, either custom language model or custom acoustic model.
+      현재는 사용자 지정 언어 모델 또는 사용자 지정 음향 모델 중 하나의 모델 ID만 전달할 수 있습니다.
 
 
-      The decision to *not* support both acoustic and language models concurrently was made. This will remain in effect, until a unified identifier is created to reduce API breaks. So, unfortunately this is not supported right now.
+      음향 모델과 언어 모델 모두를 동시에 지원하지 ‘않기로’ 했습니다. API 중단을 줄이기 위해 통합 식별자가 생성될 때까지는 이러한 결정이 유효합니다. 안타깝지만 현재는 지원되지 않습니다.
   - question: >
-      Could you explain these errors from the custom speech-to-text container?
+      사용자 지정 음성 텍스트 변환 컨테이너의 다음과 같은 오류를 설명해주실 수 있나요?
     answer: >
-      **Error 1:**
+      **오류 1:**
 
 
       ```cmd
@@ -111,16 +111,16 @@ sections:
       ```
 
 
-      If you're training with the latest custom model, we currently don't support that. If you train with an older version, it should be possible to use. We are still working on supporting the latest versions.
+      최신 사용자 지정 모델로 학습하는 경우에는 현재 지원되지 않습니다. 이전 버전으로 학습하는 경우에는 사용할 수 있습니다. 최신 버전을 지원하기 위해 계속 노력하고 있습니다.
 
 
-      Essentially, the custom containers do not support Halide or ONNX-based acoustic models (which is the default in the custom training portal). This is due to custom models not being encrypted and we don't want to expose ONNX models, however; language models are fine. The customer will need to explicitly select an older non-ONNX model for custom training. Accuracy will not be affected. The model size may be larger (by 100 MB).
+      본래 사용자 지정 컨테이너는 Halide 또는 ONNX 기반 음향 모델(사용자 지정 학습 포털의 기본값)을 지원하지 않습니다. 사용자 지정 모델이 암호화되지 않았기 때문이며 ONNX 모델을 공개하지 않기 위해서 입니다. 단, 언어 모델은 괜찮습니다. 사용자 지정 학습을 위해서는 고객이 ONNX 이외의 이전 모델을 명시적으로 선택해야 합니다. 정확도는 영향을 받지 않습니다. 모델 크기가 더 클 수 있습니다(100MB).
 
 
-      > Support model > 20190220 (v4.5 Unified)
+      > 지원 모델 > 20190220(v4.5 통합)
 
 
-      **Error 2:**
+      **오류 2:**
 
 
       ```cmd
@@ -138,10 +138,10 @@ sections:
       ```
 
 
-      You need to provide the correct voice name in the request, which is case-sensitive. Refer to the full service name mapping.
+      요청에 올바른 음성 이름 즉, 대/소문자를 구분한 이름을 제공해야 합니다. 전체 서비스 이름 매핑을 참조하세요.
 
 
-      **Error 3:**
+      **오류 3:**
 
 
       ```json
@@ -154,31 +154,31 @@ sections:
       ```
 
 
-      You reed to create a Speech resource, not a Cognitive Services resource.
+      Cognitive Services 리소스가 아닌 음성 리소스를 만들어야 합니다.
   - question: >
-      What API protocols are supported, REST or WS?
+      REST 또는 WS 중 어떤 API 프로토콜이 지원되나요?
     answer: >
-      For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. There's a plan to add REST support, but not ETA for the moment. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
+      음성 텍스트 변환 및 사용자 지정 음성 텍스트 변환 컨테이너의 경우 현재 websocket 기반 프로토콜만 지원합니다. SDK는 WS에서 호출만 지원하고 REST는 지원하지 않습니다. REST 지원을 추가할 계획이 있지만 지금은 ETA가 아닙니다. 항상 공식 설명서를 참조하고 [쿼리 예측 엔드포인트](speech-container-howto.md#query-the-containers-prediction-endpoint)를 참조하세요.
   - question: >
-      Is CentOS supported for Speech containers?
+      음성 컨테이너에 CentOS가 지원되나요?
     answer: >
-      CentOS 7 is not supported by Python SDK yet, also Ubuntu 19.04 is not supported.
+      CentOS 7은 Python SDK에서 아직 지원되지 않으며 Ubuntu 19.04도 지원되지 않습니다.
 
 
-      The Python Speech SDK package is available for these operating systems:
+      Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다.
 
-      - **Windows** - x64 and x86
+      - **Windows** - x64 및 x86
 
-      - **Mac** - macOS X version 10.12 or later
+      - **Mac** - macOS X 버전 10.12 이상
 
-      - **Linux** - Ubuntu 16.04 (until September), Ubuntu 18.04, Debian 9 on x64
+      - **Linux** - Ubuntu 16.04(9월까지), Ubuntu 18.04, Debian 9(x64)
 
 
-      For more information on environment setup, see [Python platform setup](quickstarts/setup-platform.md?pivots=programming-language-python). For now, Ubuntu 18.04 is the recommended version.
+      환경 설정에 대한 자세한 내용은 [Python 플랫폼 설정](quickstarts/setup-platform.md?pivots=programming-language-python)을 참조하세요. 지금은 Ubuntu 18.04가 권장되는 버전입니다.
   - question: >
-      Why am I getting errors when attempting to call LUIS prediction endpoints?
+      LUIS 예측 엔드포인트를 호출하려고 할 때 오류가 발생하는 이유는 무엇인가요?
     answer: >
-      I am using the LUIS container in an IoT Edge deployment and am attempting to call the LUIS prediction endpoint from another container. The LUIS container is listening on port 5001, and the URL I'm using is this:
+      IoT Edge 배포에서 LUIS 컨테이너를 사용하고 있으며 다른 컨테이너에서 LUIS 예측 엔드포인트를 호출하려고 합니다. LUIS 컨테이너는 포트 5001에서 수신 대기하고 있으며 사용 중인 URL은 다음과 같습니다.
 
 
       ```csharp
@@ -190,7 +190,7 @@ sections:
       ```
 
 
-      The error I'm getting is:
+      다음과 같은 오류가 발생합니다.
 
 
       ```cmd
@@ -200,7 +200,7 @@ sections:
       ```
 
 
-      I see the request in the LUIS container logs and the message says:
+      LUIS 컨테이너 로그에 요청이 표시되고 메시지는 다음과 같습니다.
 
 
       ```cmd
@@ -210,21 +210,21 @@ sections:
       ```
 
 
-      What does this mean? What am I missing? I was following the example for the Speech SDK, from [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk). The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
+      무슨 의미인가요? 무엇이 누락되었나요? [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk)에서 Speech SDK에 대한 예제를 수행했습니다. 학습한 LUIS 앱을 기반으로 PC 마이크에서 직접 오디오를 감지하고 의도를 파악하려는 시나리오입니다. 링크의 예제에서는 정확히 그렇게 되어 있습니다. 그리고 LUIS 클라우드 기반 서비스에서 잘 작동합니다. Speech SDK를 사용하면 음성 텍스트 변환 API에 대한 별도의 명시적 호출을 수행한 다음, LUIS에 대한 두 번째 호출을 수행하지 않아도 되는 것처럼 보입니다.
 
 
-      So, all I am attempting to do is switch from the scenario of using LUIS in the cloud to using the LUIS container. I can't imagine if the Speech SDK works for one, it won't work for the other.
+      그래서 클라우드에서 LUIS를 사용하는 시나리오에서 LUIS 컨테이너를 사용하는 시나리오로 전환하려는 시도만 하고 있습니다. Speech SDK가 한 곳에서는 작동하고 다른 곳에서는 작동하지 않을 것이라는 생각은 들지 않습니다.
 
 
 
-      The Speech SDK should not be used against a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used against a speech container.
+      LUIS 컨테이너에 대해서는 Speech SDK를 사용하면 안 됩니다. LUIS 컨테이너를 사용하려면 LUIS SDK 또는 LUIS REST API를 사용해야 합니다. Speech SDK는 음성 컨테이너에 대해 사용해야 합니다.
 
 
-      A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - Two separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text-based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
+      클라우드는 컨테이너와 다릅니다. 클라우드는 집계된 여러 컨테이너로 구성될 수 있습니다(마이크로서비스라고도 함). 그래서 LUIS 컨테이너와 음성 컨테이너라는 두 개의 개별 컨테이너가 있습니다. 음성 컨테이너는 음성만 처리합니다. LUIS 컨테이너는 LUIS만 수행합니다. 클라우드에는 두 컨테이너가 모두 배포되어 있기 때문에, 원격 클라이언트가 클라우드로 이동하여 음성을 처리하고 돌아온 다음, 다시 클라우드로 이동하여 LUIS를 수행하는 경우 성능이 좋지 않아서, 클라이언트가 Speech로 이동하고 클라우드에 머물면서 LUIS로 이동한 다음, 클라이언트로 돌아오는 것이 가능한 기능이 제공됩니다. 따라서 이 시나리오에서도 Speech SDK는 오디오가 있는 Speech 클라우드 컨테이너로 이동한 다음, Speech 클라우드 컨테이너는 텍스트가 있는 LUIS 클라우드 컨테이너와 통신합니다. LUIS 컨테이너에는 오디오를 받아들이는 개념이 없습니다. (LUIS 컨테이너가 스트리밍 오디오를 받아들이는 것은 의미가 없습니다. LUIS는 텍스트 기반 서비스입니다). 온-프레미스에서는 고객이 두 가지 컨테이너를 모두 배포했는지 확실치 않으며, 고객의 온-프레미스에 있는 컨테이너 간에 오케스트레이션을 수행한다고 가정하지 않습니다. 그리고, 두 컨테이너가 온-프레미스에 배포된 경우 이들 컨테이너가 클라이언트보다 더 로컬에 가깝다면, 먼저 SR로 이동하고 클라이언트로 돌아간 후 고객에게 해당 텍스트를 가져와서 LUIS로 이동하더라도 부담이 되지 않습니다.
   - question: >
-      Why are we getting errors with macOS, Speech container and the Python SDK?
+      macOS, Speech 컨테이너 및 Python SDK에 오류가 발생하는 이유는 무엇인가요?
     answer: >
-      When we send a *.wav* file to be transcribed, the result comes back with:
+      대화 내용을 기록할 *.wav* 파일을 보내면 다음과 같이 결과가 반환됩니다.
 
 
       ```cmd
@@ -253,172 +253,172 @@ sections:
       ```
 
 
-      We know the websocket is set up correctly.
+      websocket이 올바르게 설정된 것을 알 수 있습니다.
 
 
 
-      If that is the case, then see [this GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). We have a work-around, [proposed here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
+      이 경우 [관련 GitHub 이슈](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310)를 참조하세요. 당사가 제안하는 해결 방안은 [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722)를 참조하세요.
 
 
-      Carbon fixed this at version 1.8.
+      이 문제는 Carbon 버전 1.8에서 수정되었습니다.
   - question: >
-      What are the differences in the Speech container endpoints?
+      Speech 컨테이너 엔드포인트의 차이점은 무엇인가요?
     answer: >
-      Could you help fill the following test metrics, including what functions to test, and how to test the SDK and REST APIs? Especially, differences in "interactive" and "conversation", which I did not see from existing doc/sample.
+      테스트할 기능, SDK 및 REST API 테스트 방법 등 다음 테스트 메트릭을 채우는 데 도움을 받을 수 있나요? 특히 '대화형'과 '대화'의 차이는 기존 문서/샘플에서 볼 수 없었습니다.
 
 
-      | Endpoint                                                | Functional test                                                   | SDK | REST API |
+      | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 
       |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 
-      | `/speech/synthesize/cognitiveservices/v1`               | Synthesize Text (text-to-speech)                                  |     | Yes      |
+      | `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성(텍스트 음성 변환)                                  |     | 예      |
 
-      | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services on-prem dictation v1 websocket endpoint        | Yes | No       |
+      | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 받아쓰기 v1 websocket 엔드포인트        | 예 | 예       |
 
-      | `/speech/recognition/interactive/cognitiveservices/v1`  | The Cognitive Services on-prem interactive v1 websocket endpoint  |     |          |
+      | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 엔드포인트  |     |          |
 
-      | `/speech/recognition/conversation/cognitiveservices/v1` | The cognitive services on-prem conversation v1 websocket endpoint |     |          |
-
-
-
-      This is a fusion of:
-
-      - People trying the dictation endpoint for containers, (I'm not sure how they got that URL)
-
-      - The 1<sup>st</sup> party endpoint being the one in a container.
-
-      - The 1<sup>st</sup> party endpoint returning speech.fragment messages instead of the `speech.hypothesis` messages the 3<sup>rd</sup> part endpoints return for the dictation endpoint.
-
-      - The Carbon quickstarts all use `RecognizeOnce` (interactive mode)
-
-      - Carbon having an assert that for `speech.fragment` messages requiring they aren't returned in interactive mode.
-
-      - Carbon having the asserts fire in release builds (killing the process).
+      | `/speech/recognition/conversation/cognitiveservices/v1` | Cognitive Services 온-프레미스 대화 v1 websocket 엔드포인트 |     |          |
 
 
-      The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
 
-      For your code, set the endpoint to `host:port`/speech/recognition/interactive/cognitiveservices/v1
+      위 내용은 다음을 결합한 것입니다.
+
+      - 사람이 컨테이너에 대한 받아쓰기 엔드포인트를 시도함(해당 URL을 어떻게 얻었는지 모름)
+
+      - 자사 엔드포인트가 컨테이너에 있음<sup></sup>
+
+      - 자사 엔드포인트가 `speech.hypothesis` 메시지 대신 speech.fragment 메시지를 반환하고, 타사 엔드포인트는 받아쓰기 엔드포인트로 반환됨<sup></sup><sup></sup>
+
+      - Carbon 빠른 시작은 모두 `RecognizeOnce` 사용(대화형 모드)
+
+      - Carbon에 `speech.fragment` 메시지에 대해 대화형 모드로 반환되지 않아야 한다는 어설션이 있음
+
+      - 릴리스 빌드에서 Carbon에 어설션 발생(프로세스 종료)
 
 
-      For the various modes, see Speech modes - see below:
+      해결 방법은 코드에서 연속 인식을 사용하도록 전환하거나 (더 빠름) 컨테이너의 대화형 또는 연속 엔드포인트에 연결하는 것입니다.
+
+      코드에 대해 엔드포인트를 `host:port`/speech/recognition/interactive/cognitiveservices/v1로 설정합니다.
 
 
-      ### Speech modes - Interactive, conversation, dictation
+      여러 가지 모드에 대해서는 아래 음성 모드를 참조하세요.
+
+
+      ### <a name="speech-modes---interactive-conversation-dictation"></a>음성 모드 - 대화형, 대화, 받아쓰기
 
 
       [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 
-      The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
+      SDK 1.8에서 적절한 수정이 제공되며, 온-프레미스 지원이 포함됩니다. (올바른 엔드포인트를 선택하므로 온라인 서비스보다 나쁘지 않습니다.) 한편, 연속 인식을 위한 샘플이 있으니, 참조하세요.
 
 
       https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
   - question: >
-      Which mode should I use for various audio files?
+      다양한 오디오 파일에 어떤 모드를 사용해야 하나요?
     answer: >
-      Here's a [quickstart using Python](./get-started-speech-to-text.md?pivots=programming-language-python). You can find the other languages linked on the docs site.
+      [Python 사용을 위한 빠른 시작](./get-started-speech-to-text.md?pivots=programming-language-python)을 참조하세요. 해당 사이트에는 다른 언어 링크도 제공됩니다.
 
 
-      Just to clarify for the interactive, conversation, and dictation; this is an advanced way of specifying the particular way in which our service will handle the speech request. Unfortunately, for the on-prem containers we have to specify the full URI (since it includes local machine), so this information leaked from the abstraction. We are working with the SDK team to make this more usable in the future.
+      대화형, 대화, 받아쓰기 방식은 당사의 서비스를 통해 음성 요청을 처리하는 특정 방법을 지정하는 고급 방법입니다. 공교롭게도 온-프레미스 컨테이너의 경우 전체 URI를 지정해야 하기 때문에(로컬 컴퓨터가 포함됨) 이 정보가 추상화에서 유출됩니다. 앞으로 더 편리한 사용이 가능하도록 SDK 팀과 협력하고 있습니다.
   - question: >
-      How can we benchmark a rough measure of transactions/second/core?
+      트랜잭션/초/코어의 대략적인 측정을 어떻게 벤치마크할 수 있나요?
     answer: >
-      Here are some of the rough numbers to expect from existing model (will change for the better in the one we will ship in GA):
+      기존 모델에서 예상되는 대략적인 수치는 다음과 같습니다(GA에서 제공될 제품에서는 향상될 예정임).
 
 
-      - For files, the throttling will be in the speech SDK, at 2x. First five seconds of audio are not throttled. Decoder is capable of doing about 3x real time. For this, the overall CPU usage will be close to 2 cores for a single recognition.
+      - 파일의 경우 제한은 Speech SDK에서 2배입니다. 오디오에서 처음 5초는 스로틀되지 않습니다. 디코더는 약 3배 실시간으로 수행할 수 있습니다. 이를 위해 전체 CPU 사용량은 단일 인식에 대해 2코어에 가깝습니다.
 
-      - For mic, it will be at 1x real time. The overall usage should be at about 1 core for a single recognition.
+      - 마이크의 경우 실시간 1배입니다. 단일 인식의 경우 전체 사용량은 약 1코어여야 합니다.
 
 
-      This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
+      이 모든 사항은 Docker 로그에서 확인할 수 있습니다. 세션 및 구문/발화 통계가 포함된 줄이 실제로 덤프되며, 여기에는 RTF 번호가 포함됩니다.
   - question: >
-      How do I make multiple containers run on the same host?
+      동일한 호스트에서 여러 컨테이너를 실행하려면 어떻게 해야 하나요?
     answer: >
-      The doc says to expose a different port, which I do, but the LUIS container is still listening on port 5000?
+      문서는 다른 포트를 노출하라고 해서, 그렇게 했지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 중인가요?
 
 
-      Try `-p <outside_unique_port>:5000`. For example, `-p 5001:5000`.
+      `-p <outside_unique_port>:5000`을 체험해 보세요. 예: `-p 5001:5000`.
 - name: 기술 관련 질문
   questions:
   - question: >
-      How can I get non-batch APIs to handle audio <15 seconds long?
+      15초 미만의 오디오를 처리하는 비일괄 처리 API를 얻으려면 어떻게 해야 하나요?
     answer: >
-      `RecognizeOnce()` in interactive mode only processes up to 15 seconds of audio, as the mode is intended for Speech Commanding where utterances are expected to be short. If you use `StartContinuousRecognition()` for dictation or conversation, there is no 15 second limit.
+      대화형 모드에서 `RecognizeOnce()`는 최대 15초의 오디오만 처리합니다. 이 모드는 발화가 짧을 것으로 예상되는 음성 명령을 위한 모드이기 때문입니다. 받아쓰기 또는 대화에 `StartContinuousRecognition()`을 사용하면 15초 제한이 없습니다.
   - question: >
-      What are the recommended resources, CPU and RAM; for 50 concurrent requests?
+      동시 요청 50개에 대한 권장 리소스, RAM 및 코어는 몇 개인가요?
     answer: >
-      How many concurrent requests will a 4 core, 4 GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
+      4코어, 4GB RAM이 처리하는 동시 요청은 몇 개인가요? 예를 들어 50개의 동시 요청을 처리해야 하는 경우 권장되는 RAM 및 코어는 몇 개인가요?
 
 
 
-      At real time, 8 with our latest `en-US`, so we recommend using more docker containers beyond 6 concurrent requests. It gets crazier beyond 16 cores, and it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
+      최신 `en-US`의 경우 실시간으로 8개이므로, 동시 요청 6개를 초과하는 더 많은 Docker 컨테이너를 사용하는 것이 좋습니다. 16코어를 초과하면 더 혼란스럽고 NUMA(Non-Uniform Memory Access) 노드에 민감해집니다. 다음 표에서는 각 Speech 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
 
 
-      # [Speech-to-text](#tab/stt)
+      # <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 
-      | Container      | Minimum             | Recommended         |
-
-      |----------------|---------------------|---------------------|
-
-      | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-
-
-      # [Custom Speech-to-text](#tab/cstt)
-
-
-      | Container             | Minimum             | Recommended         |
-
-      |-----------------------|---------------------|---------------------|
-
-      | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-
-
-      # [Text-to-speech](#tab/tts)
-
-
-      | Container      | Minimum             | Recommended         |
+      | 컨테이너      | 최소             | 권장         |
 
       |----------------|---------------------|---------------------|
 
-      | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+      | 음성 텍스트 변환 | 2개 코어, 2GB 메모리 | 4코어, 4GB 메모리 |
 
 
-      # [Custom Text-to-speech](#tab/ctts)
+      # <a name="custom-speech-to-text"></a>[사용자 지정 음성 텍스트 변환](#tab/cstt)
 
 
-      | Container             | Minimum             | Recommended         |
+      | 컨테이너             | 최소             | 권장         |
 
       |-----------------------|---------------------|---------------------|
 
-      | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+      | 사용자 지정 음성 텍스트 변환 | 2개 코어, 2GB 메모리 | 4코어, 4GB 메모리 |
+
+
+      # <a name="text-to-speech"></a>[텍스트 음성 변환](#tab/tts)
+
+
+      | 컨테이너      | 최소             | 권장         |
+
+      |----------------|---------------------|---------------------|
+
+      | 텍스트 음성 변환 | 1개 코어, 2GB 메모리 | 2코어, 3GB 메모리 |
+
+
+      # <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+
+
+      | 컨테이너             | 최소             | 권장         |
+
+      |-----------------------|---------------------|---------------------|
+
+      | 사용자 지정 텍스트 음성 변환 | 1개 코어, 2GB 메모리 | 2코어, 3GB 메모리 |
 
 
       ***
 
 
-      - Each core must be at least 2.6 GHz or faster.
+      - 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
-      - For files, the throttling will be in the Speech SDK, at 2x (first 5 seconds of audio are not throttled).
+      - 파일의 경우 제한은 Speech SDK에서 2배입니다(오디오의 처음 5초는 제한되지 않음).
 
-      - The decoder is capable of doing about 2-3x real time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real time in an eight core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
+      - 디코더는 약 2-3배 실시간으로 수행할 수 있습니다. 이를 위해 전체 CPU 사용량은 단일 인식에 대해 2개 코어에 가깝습니다. 그래서 컨테이너 인스턴스당 활성 연결을 둘을 초과하여 유지하지 않는 것이 좋습니다. 극단적인 측면은 `DS13_V2`와 같은 8코어 컴퓨터에 약 10개의 디코더를 2배 실시간으로 배치하는 것 입니다. 컨테이너 버전 1.3 이상의 경우 `DECODER_MAX_COUNT=20` 설정을 시도할 수 있는 매개 변수가 있습니다.
 
-      - For microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
-
-
-      Consider the total number of hours of audio you have. If the number is large, to improve reliability/availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
+      - 마이크의 경우, 실시간 1배입니다. 단일 인식의 경우 전체 사용량은 약 1코어여야 합니다.
 
 
-      As an example, to handle 1000 hours/24 hours, we have tried setting up 3-4 VMs, with 10 instances/decoders per VM.
+      보유하고 있는 오디오의 총 시간을 고려합니다. 숫자가 크면 안정성/가용성을 높이기 위해 부하 분산 장치 뒤의 단일 박스 또는 여러 박스에서 더 많은 컨테이너 인스턴스를 실행하는 것이 좋습니다. Kubernetes(K8S) 및 Helm을 사용하거나 Docker Compose를 사용하여 오케스트레이션을 수행할 수 있습니다.
+
+
+      예를 들어 1000시간/24시간을 처리하기 위해 VM당 10개의 인스턴스/디코더를 사용하여 3~4개의 VM을 설정해보았습니다.
   - question: >
-      Does the Speech container support punctuation?
+      Speech 컨테이너가 문장 부호를 지원하나요?
     answer: >
-      We have capitalization (ITN) available in the on-prem container. Punctuation is language-dependent, and not supported for some languages, including Chinese and Japanese.
+      온-프레미스 컨테이너에서 대문자 표시(ITN)를 사용할 수 있습니다. 문장 부호는 언어에 따라 다르며 중국어 및 일본어를 비롯한 일부 언어에 대해서는 지원되지 않습니다.
 
 
-      We *do* have implicit and basic punctuation support for the existing containers, but it is `off` by default. What that means is that you can get the `.` character in your example, but not the `。` character. To enable this implicit logic, here's an example of how to do so in Python using our Speech SDK (it would be similar in other languages):
+      기존 컨테이너에 대해 암시적으로 기본 문장 부호를 지원하지만 기본적으로 `off` 상태입니다. 즉, 예제에서 `.` 문자를 가져올 수 있지만 `。` 문자는 가져올 수 없습니다. Speech SDK를 사용하여 Python에서 암시적 논리를 사용하도록 설정하는 방법의 예는 다음과 같습니다. (다른 언어도 유사합니다.)
 
 
       ```python
@@ -431,9 +431,9 @@ sections:
 
       ```
   - question: >
-      Why am I getting 404 errors when attempting to POST data to speech-to-text container?
+      음성 텍스트 변환 컨테이너에 데이터를 POST하려고 할 때 404 오류가 발생하는 이유는 무엇인가요?
     answer: >
-      Here is an example HTTP POST:
+      예제 HTTP POST는 다음과 같습니다.
 
 
       ```http
@@ -471,12 +471,12 @@ sections:
       ```
 
 
-      We do not support REST API in either speech-to-text container, we only support WebSockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
-  - question: Why is the container running as a non-root user? What issues might occur because of this?
+      음성 텍스트 변환 컨테이너에서는 REST API를 지원하지 않으며 Speech SDK를 통해서만 WebSocket을 지원합니다. 항상 공식 설명서를 참조하고 [쿼리 예측 엔드포인트](speech-container-howto.md#query-the-containers-prediction-endpoint)를 참조하세요.
+  - question: 루트가 아닌 사용자로 컨테이너를 실행하는 이유는 무엇인가요? 이로 인해 발생할 수 있는 문제는 무엇인가요?
     answer: >
-      Note that the default user inside the container is a non-root user. This provides protection against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the non-root user will need to have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
+      컨테이너 내부의 기본 사용자는 루트가 아닌 사용자입니다. 이렇게 하면 컨테이너를 이스케이프하고 호스트 노드에서 에스컬레이션된 권한을 얻지 못하도록 보호할 수 있습니다. 기본적으로 OpenShift Container Platform과 같은 일부 플랫폼은 이미 임의로 할당된 사용자 ID를 사용하여 보호를 적용하고 있습니다. 이러한 플랫폼의 경우 쓰기가 필요한 외부 매핑된 볼륨에 쓸 수 있는 권한이 루트가 아닌 사용자에게 있어야 합니다. 예를 들어 이러한 볼륨은 로깅 폴더 또는 사용자 지정 모델 다운로드 폴더입니다.
   - question: >
-      When using the speech-to-text service, why am I getting this error?
+      음성 텍스트 변환 서비스를 사용할 때 이런 오류가 발생하는 이유는 무엇인가요?
     answer: >
       ```cmd
 
@@ -490,11 +490,11 @@ sections:
       ```
 
 
-      This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
+      일반적으로, 음성 인식 컨테이너가 수용할 수 있는 것보다 빠르게 오디오를 공급하는 경우 이런 문제가 발생합니다. 클라이언트 버퍼가 가득 차고 취소가 트리거됩니다. 오디오를 보내는 동시성 및 RTF를 제어해야 합니다.
   - question: >
-      Could you explain these text-to-speech container errors from the C++ examples?
+      C++ 예제에서 이러한 텍스트 음성 변환 컨테이너 오류를 설명해주실 수 있나요?
     answer: >
-      If the container version is older than 1.3, then this code should be used:
+      컨테이너 버전이 1.3 미만인 경우 다음 코드를 사용해야 합니다.
 
 
       ```cpp
@@ -510,7 +510,7 @@ sections:
       ```
 
 
-      Older containers don't have the required endpoint for Carbon to work with the `FromHost` API. If the containers used for version 1.3, then this code should be used:
+      이전 컨테이너에는 Carbon이 `FromHost` API와 작동하는 데 필요한 엔드포인트가 없습니다. 컨테이너 버전 1.3이 사용되는 경우 다음 코드를 사용해야 합니다.
 
 
       ```cpp
@@ -528,7 +528,7 @@ sections:
       ```
 
 
-      Below is an example of using the `FromEndpoint` API:
+      `FromEndpoint` API를 사용하는 예는 다음과 같습니다.
 
 
       ```cpp
@@ -545,5 +545,5 @@ sections:
 
       ```
 
-       The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
-additionalContent: "\n## Next steps\n\n> [!div class=\"nextstepaction\"]\n> [Cognitive Services containers](speech-container-howto.md)"
+       업데이트된 텍스트 음성 변환 엔진이 있는 컨테이너에는 음성 이름이 필요하기 때문에 `SetSpeechSynthesisVoiceName` 함수가 호출됩니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n> [!div class=\"nextstepaction\"]\n> [Cognitive Services 컨테이너](speech-container-howto.md)"

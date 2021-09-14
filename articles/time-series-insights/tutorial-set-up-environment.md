@@ -3,19 +3,17 @@ title: '자습서: Gen2 환경 설정 - Azure Time Series Insights Gen2 | Micros
 description: '자습서: Azure Time Series Insights Gen2에서 환경을 설정하는 방법에 대해 알아봅니다.'
 author: riserrad
 ms.author: riserrad
-manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7a6562592bb7c0ae37784429d6a36eaf4ade4957
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952015"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449318"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>자습서: Azure Time Series Insights Gen2 환경 설정
 
@@ -36,7 +34,7 @@ ms.locfileid: "107952015"
 
 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 적어도 Azure 구독에 대한 **기여자** 역할이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
@@ -228,7 +226,7 @@ Azure Time Series Insights Gen2 환경을 배포했으므로, 분석할 데이�
         | **이름** | **층** 을 입력합니다. |
         | **종류** | **범주** 를 선택합니다. |
         | **값** | 다음과 같은 사전 설정 중에서 선택합니다. **층(두 배)** 을 선택합니다. <br /> 참고: Azure Time Series Insights Gen2에서 이벤트를 받기 시작한 후 **값** 이 자동으로 채워지는 데 몇 분이 걸릴 수 있습니다.|
-        | **범주** | <span style="text-decoration: underline">변수 </span>  - <span style="text-decoration: underline">레이블 지정</span> <br /> 저층: 1,2,3,4 <br /> 중층: 5,6,7,8,9 <br /> 고층: 10,11,12,13,14,15 |
+        | **범주** | **레이블**: **값** <br /> 저층: 1,2,3,4 <br /> 중층: 5,6,7,8,9 <br /> 고층: 10,11,12,13,14,15 |
         | **기본 범주** | **알 수 없음** 을 입력합니다. |
 
         [![유형 변수를 추가합니다.](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)

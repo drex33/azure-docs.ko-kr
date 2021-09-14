@@ -126,6 +126,8 @@
   items:
     - name: 전체 텍스트 검색
       href: search-lucene-query-architecture.md
+    - name: 분석기
+      href: search-analyzers.md
     - name: 의미 체계 검색
       href: semantic-search-overview.md
     - name: 관련성 채점
@@ -182,8 +184,6 @@
           href: search-manage-azure-cli.md
         - name: 지역 간 서비스 이동
           href: search-howto-move-across-regions.md
-        - name: 공유 Private Link 리소스 만들기와 관련된 문제 해결
-          href: troubleshoot-shared-private-link-resources.md
     - name: 보안
       items:
         - name: 데이터 암호화.
@@ -202,6 +202,8 @@
               href: service-configure-firewall.md
             - name: 프라이빗 엔드포인트 만들기
               href: service-create-private-endpoint.md
+            - name: 개인 연결 문제 해결
+              href: troubleshoot-shared-private-link-resources.md
         - name: 아웃바운드 보안(인덱서)
           items:
             - name: IP 범위를 통한 데이터 액세스
@@ -266,8 +268,6 @@
           href: index-sql-relational-data.md
     - name: 분석기
       items:
-        - name: 분석기 추가
-          href: search-analyzers.md
         - name: 언어 분석기 추가
           href: index-add-language-analyzers.md
         - name: 사용자 지정 분석기 추가
@@ -632,5 +632,5 @@
       href: search-faq-frequently-asked-questions.yml
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: 동영상
+    - name: 비디오
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

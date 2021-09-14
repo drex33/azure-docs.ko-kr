@@ -4,14 +4,14 @@ description: Apache Spark 및 이중 쓰기 프록시를 사용하여 Azure Mana
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: overview
-ms.date: 06/02/2021
-ms.openlocfilehash: c2529f355e7d39c22bf5f3d703cb33c59101a5f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.topic: tutorial
+ms.date: 08/17/2021
+ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749460"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426133"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>이중 쓰기 프록시를 사용하여 Azure Managed Instance for Apache Cassandra로 실시간 마이그레이션
 
@@ -22,7 +22,7 @@ ms.locfileid: "121749460"
 
 가능하면 [하이브리드 클러스터](configure-hybrid-cluster.md)를 구성하여 기존 클러스터에서 Azure Managed Instance for Apache Cassandra로 데이터를 마이그레이션할 때 Apache Cassandra 네이티브 기능을 사용하는 것이 좋습니다. 이 기능은 Apache Cassandra의 가십 프로토콜을 사용하여 원본 데이터 센터에서 새로운 관리형 인스턴스 데이터 센터로 원활하게 데이터를 복제합니다. 그러나 원본 데이터베이스 버전이 호환되지 않거나 하이브리드 클러스터를 설정할 수 없는 경우가 있을 수 있습니다. 
 
-이 문서에서는 [이중 쓰기 프록시](https://github.com/Azure-Samples/cassandra-proxy) 및 Apache Spark를 사용하여 실시간으로 데이터를 Azure Managed Instance for Apache Cassandra로 마이그레이션하는 방법을 설명합니다. 이 방법의 이점은 다음과 같습니다.
+이 자습서에서는 [이중 쓰기 프록시](https://github.com/Azure-Samples/cassandra-proxy) 및 Apache Spark를 사용하여 실시간으로 데이터를 Azure Managed Instance for Apache Cassandra로 마이그레이션하는 방법을 설명합니다. 이 방법의 이점은 다음과 같습니다.
 
 - **최소한의 애플리케이션 변경**. 프록시가 최소한의 구성 변경으로 또는 구성 변경 없이 애플리케이션 코드의 연결을 허용할 수 있습니다. 모든 요청을 원본 데이터베이스에 라우팅하고 비동기 방식으로 쓰기를 보조 대상으로 라우팅합니다. 
 - **클라이언트 유선 프로토콜 종속성**. 이 방법은 백 엔드 리소스나 내부 프로토콜에 종속되지 않으므로 Apache Cassandra 유선 프로토콜을 구현하는 모든 원본 또는 대상 Cassandra 시스템에서 사용할 수 있습니다.

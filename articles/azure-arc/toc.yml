@@ -8,11 +8,11 @@
   items:
     - name: Azure Resource Graph 쿼리
       href: ./resource-graph-samples.md
-- name: Arc 지원 서버 >
+- name: Azure Arc 지원 서버 >
   href: ./servers/overview.md
-- name: Arc 지원 Kubernetes >
+- name: Azure Arc 지원 Kubernetes >
   href: ./kubernetes/overview.md
-- name: Arc 지원 데이터 서비스  >
+- name: Azure Arc 지원 데이터 서비스 >
   href: ./data/overview.md
 - name: Azure Arc 지원 서버의 SQL Server >
   href: /sql/sql-server/azure-arc/overview

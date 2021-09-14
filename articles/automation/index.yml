@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2019
   ms.author: magoedte
-  ms.openlocfilehash: c146be313391397c9ecf64314a580175e8220ac5
-  ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+  ms.openlocfilehash: 038312ba66f18e3adbe4f8086d387bdbb83a82bc
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/20/2020
-  ms.locfileid: "92216422"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124832728"
 landingContent:
 - title: Azure Automation 시작
   linkLists:
@@ -26,11 +26,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Automation 계정 만들기
-      url: automation-quickstart-create-account.md
+      url: ./quickstarts/create-account-portal.md
   - linkListType: quickstart
     links:
     - text: Runbook 만들기
-      url: automation-quickstart-create-runbook.md
+      url: ./learn/powershell-runbook-managed-identity.md
   - linkListType: deploy
     links:
     - text: 작업이 없는 동안 VM 시작/중지

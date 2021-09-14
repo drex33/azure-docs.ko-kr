@@ -87,13 +87,7 @@
     - name: 액세스 권한 부여
       items:
         - name: 액세스 정책 할당
-          items:
-            - name: CLI
-              href: assign-access-policy-cli.md
-            - name: PowerShell
-              href: assign-access-policy-powershell.md
-            - name: 포털
-              href: assign-access-policy-portal.md
+          href: assign-access-policy.md
         - name: Azure RBAC 권한 모델
           items:
             - name: '키, 비밀 및 인증서에 대한 액세스를 관리하기 위해 Azure RBAC 사용'

@@ -28,13 +28,15 @@
           href: add-api.md
         - name: 사용자 고유 함수 가져오기
           href: functions-bring-your-own.md
-    - name: 구성
+    - name: Configuration
       items:
+        - name: 구성 개요
+          href: configuration-overview.md
         - name: 애플리케이션 구성
           href: configuration.md
           displayName: 'routing, routes'
         - name: 빌드 구성
-          href: github-actions-workflow.md
+          href: build-configuration.md
         - name: 앱 설정
           href: application-settings.md
           displayName: environment variables

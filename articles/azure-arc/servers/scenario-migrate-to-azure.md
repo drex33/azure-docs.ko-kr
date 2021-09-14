@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버를 Azure로 마이그레이션
 description: 온-프레미스 또는 기타 클라우드 환경에서 실행되는 Azure Arc 지원 서버를 Azure로 마이그레이션하는 방법에 대해 알아봅니다.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9dd7baa2466f4acd3e4106c3cec5a0d7e7afe05c
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5433c859389722884df525ab7ac885ae013f9e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390239"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768277"
 ---
 # <a name="migrate-your-on-premises-or-other-cloud-arc-enabled-server-to-azure"></a>온-프레미스 또는 기타 클라우드 Arc 지원 서버를 Azure로 마이그레이션
 
@@ -42,7 +42,7 @@ Azure CLI에서 [az connectedmachine extension list](/cli/azure/ext/connectedmac
 
 Arc 지원 서버에서 실행되는 애플리케이션 또는 프로세스에 관리 ID를 사용하는 경우 Azure VM에 관리 ID가 할당되어 있는지 확인해야 합니다. 관리 ID에 대한 역할 할당을 보려면 Azure PowerShell `Get-AzADServicePrincipal` cmdlet을 사용하면 됩니다. 자세한 내용은 [관리 ID에 대한 역할 할당 나열](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity)을 참조하세요. 
 
-시스템 관리 ID는 Azure Policy를 사용하여 컴퓨터 또는 서버 내의 설정을 감사하는 경우에도 사용됩니다. Arc 지원 서버에는 게스트 구성 에이전트가 포함되며 감사 설정의 유효성 검사를 수행합니다. 마이그레이션 후에는 [Azure 가상 머신의 요구 사항 배포](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines)에서 Azure VM을 수동으로 구성하는 방법 또는 게스트 구성 확장을 사용하여 정책을 통해 구성하는 방법에 대한 자세한 내용을 참조하세요.
+시스템 관리 ID는 Azure Policy를 사용하여 머신 또는 서버 내 설정을 감사하거나 구성하는 경우에도 사용됩니다. Arc 지원 서버를 사용하는 경우 게스트 구성 에이전트 서비스가 포함되며 감사 설정의 유효성 검사를 수행합니다. 마이그레이션 후 Azure VM을 수동으로 구성하는 방법이나 게스트 구성 확장을 사용하여 정책을 통해 구성하는 방법에 대한 자세한 내용은 [Azure 가상 머신의 배포 요구 사항](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines)을 참조하세요.
 
 새 Azure VM ID가 해당 서비스에 인증할 수 있도록 관리 ID에서 액세스하는 리소스로 역할 할당을 업데이트합니다. [Azure 리소스에 대한 관리 ID가 Azure VM(Virtual Machine)에서 작동하는 방식](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md)을 알아보려면 다음을 참조하세요.
 
@@ -70,7 +70,7 @@ Azure 마이그레이션을 사용하여 마이그레이션을 진행하기 전�
 
 마이그레이션 및 마이그레이션 후 구성 단계를 모두 완료한 후에는 원래 Arc 지원 서버에 설치된 VM 확장을 기반으로 Azure VM 확장을 배포할 수 있습니다. [Azure 가상 머신 확장 및 기능](../../virtual-machines/extensions/overview.md)을 검토하면 확장 배포를 계획하는 데 도움이 됩니다. 
 
-Azure Policy 게스트 구성 정책 정의가 있는 컴퓨터 내에서 감사 설정 사용을 재개하려면 [게스트 구성 사용](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration)을 참조하세요.
+게스트 구성 정책 정의를 통해 머신 내에서 감사 설정 사용을 재개하려면 [게스트 구성 사용](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration)을 참조하세요.
 
 Log Analytics VM 확장 또는 종속성 에이전트 VM 확장이 Azure Policy 및 [VM 인사이트 이니셔티브](../../azure-monitor/vm/vminsights-enable-policy.md)를 사용하여 배포된 경우에는 이전에 만든 [제외](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion)를 제거합니다. Azure Policy를 사용하여 Azure 가상 머신을 사용하도록 설정하려면 [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](../../azure-monitor/deploy-scale.md#vm-insights)를 참조하세요. 
 

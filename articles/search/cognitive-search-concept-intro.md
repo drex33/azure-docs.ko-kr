@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: ab899a58bab3c4e37b6aa66669f0e060fb7e7e28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566847"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222354"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -75,7 +75,7 @@ AI 보강은 Azure Cognitive Services도 사용할 수 있는 지역에서 사�
 
 ## <a name="enrichment-steps"></a>보강 단계 <a name="enrichment-steps"></a>
 
-보강 파이프라인은 [*기술 세트*](cognitive-search-working-with-skillsets.md)가 포함된 [*인덱서*](search-indexer-overview.md)로 이루어져 있습니다. 기술 세트는 보강 단계를 정의하고 인덱서는 기술을 구동합니다. 인덱서를 구성할 때 [검색 인덱스](search-what-is-an-index.md) 또는 [지식 저장소](knowledge-store-concept-intro.md)에 풍부한 콘텐츠를 보내는 출력 필드 매핑과 같은 속성을 포함할 수 있습니다.
+보강 파이프라인은 [*기술 세트*](cognitive-search-working-with-skillsets.md)가 포함된 [*인덱서*](search-indexer-overview.md)로 이루어져 있습니다. 기술 세트는 보강 단계를 정의하고 인덱서는 기술을 구동합니다. 인덱서를 구성할 때 [검색 인덱스](search-what-is-an-index.md)에 보강된 콘텐츠를 보내는 출력 필드 매핑이나 [지식 저장소](knowledge-store-concept-intro.md)의 데이터 구조를 정의하는 프로젝션과 같은 속성을 포함할 수 있습니다.
 
 인덱싱이 완료되면 [Azure Cognitive Search에서 지원하는 쿼리 유형](search-query-overview.md) 모두를 통한 검색 요청에서 콘텐츠에 액세스할 수 있습니다.
 
@@ -143,5 +143,7 @@ Azure Cognitive Search에서 인덱서는 만들어지는 출력을 저장합니
 
 + [빠른 시작: 포털에서 AI 보강 시도 연습](cognitive-search-quickstart-blob.md)
 + [자습서: AI 보강 REST API 알아보기](cognitive-search-tutorial-blob.md)
-+ [지식 저장소](knowledge-store-concept-intro.md)
-+ [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)
++ [기술 세트 개념](cognitive-search-working-with-skillsets.md)
++ [지식 저장소 개념](knowledge-store-concept-intro.md)
++ [기술 세트 만들기](cognitive-search-defining-skillset.md)
++ [지식 저장소 만들기](knowledge-store-create-rest.md)

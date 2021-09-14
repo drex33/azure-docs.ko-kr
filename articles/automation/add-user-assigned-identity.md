@@ -3,14 +3,14 @@ title: Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미�
 description: 이 문서에서는 Azure Automation 계정에 사용자 할당 관리 ID를 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 08/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: f1e66f63da69a4c8e30db1b7d4bb4f71a4db79d5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665633"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214264"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미리 보기)
 
@@ -143,7 +143,7 @@ API의 구문은 다음과 같습니다.
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview 
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 단계를 수행합니다.
 
@@ -263,7 +263,7 @@ https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/
 }
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 단계를 수행합니다.
 
@@ -303,7 +303,9 @@ Automation 계정은 해당 사용자 할당 관리 ID를 사용하여 Azure Key
 
 사용자 할당 관리 ID를 인증에 사용하려면 먼저 ID를 사용하려는 Azure 리소스에서 해당 ID에 대한 액세스 권한을 설정합니다. 이 작업을 완료하려면 대상 Azure 리소스에서 해당 ID에 적절한 역할을 할당합니다.
 
-이 예제에서는 Azure PowerShell을 사용하여 구독의 기여자 역할을 대상 Azure 리소스에 할당하는 방법을 보여줍니다. 기여자 역할은 예제이며 사용자의 경우에는 필요할 수도 있고 필요하지 않을 수도 있습니다. 또는 Portal을 사용하여 대상 Azure 리소스에 역할을 할당할 수도 있습니다.
+최소 권한의 원칙을 따르고 Runbook을 실행하는 데 필요한 권한만 신중하게 할당합니다. 예를 들어 Automation 계정이 Azure VM을 시작하거나 중지하는 데만 필요한 경우 실행 계정 또는 관리 ID에 VM을 시작하거나 중지하는 권한만 할당해야 합니다. 마찬가지로, Runbook이 Blob Storage에서 읽는 경우 읽기 전용 권한을 할당합니다.
+
+이 예제에서는 Azure PowerShell을 사용하여 구독의 기여자 역할을 대상 Azure 리소스에 할당하는 방법을 보여줍니다. 기여자 역할은 예제이며 사용자의 경우에는 필요할 수도 있고 필요하지 않을 수도 있습니다. 또는 [Azure Portal](../role-based-access-control/role-assignments-portal.md)에서 대상 Azure 리소스에 역할을 할당할 수도 있습니다.
 
 ```powershell
 New-AzRoleAssignment `

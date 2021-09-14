@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
 ms.date: 08/19/2021
-ms.openlocfilehash: a7bc8a1d2baedbe9c17ed2fac66f7c95015fb37c
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 356d81e93997922b0ae9b2e82bf7670449f168af
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531151"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258815"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -137,7 +137,7 @@ Setting | 세부 정보
 --- | ---
 구문 | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 설치 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
+`/Role` | 필수 설치 매개 변수입니다. Mobility Service(Agent) 또는 마스터 대상(MasterTarget)을 설치해야 하는지 여부를 지정합니다.  참고: 이전 버전에서 올바른 스위치는 Mobility Service(MS) 또는 마스터 대상(MT)이었습니다.
 `/InstallLocation`| 선택적 매개 변수입니다. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
 `/Platform` | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. <br/> VMware VM/물리적 서버용 **VMware**. <br/> Azure VM용 **Azure**.<br/><br/> Azure VM을 물리적 컴퓨터로 처리하는 경우 **VMware** 를 지정합니다.
 `/Silent`| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
@@ -159,10 +159,10 @@ Setting | 세부 정보
    tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
-2. 다음과 같이 설치합니다.
+2. 다음과 같이 설치합니다(루트 계정은 필수가 아니지만 루트 권한이 필요함).
 
    ```shell
-   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   sudo ./install -d <Install Location> -r Agent -v VmWare -q
    ```
 
 3. 설치가 완료되면 Mobility Service를 구성 서버에 등록해야 합니다. 다음 명령을 실행하여 Mobility Service를 구성 서버에 등록합니다.
@@ -268,7 +268,7 @@ Setting | 세부 정보
 >[!NOTE]
 > 이 섹션은 Azure Site Recovery - 미리 보기에 적용됩니다. [클래식에 대한 설치 지침은 다음과 같습니다](#install-the-mobility-service-using-ui-classic).
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 다음 단계를 사용하여 서버 운영 체제에 대한 설치 관리자 파일을 찾습니다.  
 - 어플라이언스에서 *E:\Software\Agents* 폴더로 이동합니다.

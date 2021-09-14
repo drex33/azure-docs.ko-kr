@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 6/01/2021
 ms.author: mtalasila
 ms.subservice: files
-ms.openlocfilehash: 597a3dfce5d647359b23e732f74dc6949078c000
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: b608100ab9ec1706e65cd4930b00ef163218f64d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113799212"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258701"
 ---
 # <a name="deprovision-your-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 프로비전 해제
 
@@ -61,9 +61,9 @@ Azure 파일 동기화는 매일 서버에 임시 VSS 스냅샷을 만들어 핸
 
 ![최종 동기화 세션이 완료되었는지 확인하는 스크린샷.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-‘PerItemErrorCount’가 0보다 크면 파일이 동기화되지 않는 것입니다. 동기화에 실패한 파일을 보려면 **FileSyncErrorsReport.ps1** 을 사용합니다. 이 PowerShell 스크립트는 일반적으로 Azure 파일 동기화 에이전트가 설치된 서버의 경로(**C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**)에 있습니다.
+‘PerItemErrorCount’가 0보다 크면 파일이 동기화되지 않는 것입니다. 동기화되지 않는 파일을 확인하려면 **FileSyncErrorsReport.ps1** 을 사용합니다. 이 PowerShell 스크립트는 일반적으로 Azure 파일 동기화 에이전트가 설치된 서버의 **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1** 경로에 있습니다.
 
-이러한 파일이 중요하지 않은 경우 서버 엔드포인트를 삭제해도 됩니다. 이러한 파일이 중요한 경우 오류를 수정하고 서버 엔드포인트를 삭제하기 전에 또 다른 9102 이벤트(‘sync direction’ = upload, ‘HResult’ = 0, ‘PerItemErrorCount’ = 0인)가 발생할 때까지 기다립니다.
+해당 파일이 중요하지 않은 경우 서버 엔드포인트를 삭제해도 됩니다. 파일이 중요한 경우 오류를 수정하고 다른 9102 이벤트(‘sync direction’ = upload, ‘HResult’ = 0, ‘PerItemErrorCount’ = 0)가 발생할 때까지 기다린 후 서버 엔드포인트를 삭제합니다.
 
 ## <a name="scenario-2-you-intend-to-delete-your-server-endpoint-and-stop-using-this-specific-azure-file-share"></a>시나리오 2: 서버 엔드포인트를 삭제하고 이 특정 Azure 파일 공유 사용을 중지하려고 합니다.
 
@@ -81,7 +81,7 @@ Azure 파일 동기화는 매일 서버에 임시 VSS 스냅샷을 만들어 핸
 
 **Invoke-StorageSyncFileRecall** PowerShell cmdlet을 사용하고 **SyncGroupName** 매개 변수를 지정하여 모든 파일을 회수합니다. 
 ```powershell
-Invoke-StorageSyncFileRecall  -SyncGroupName “samplesyncgroupname”
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
 ```
 이 cmdlet의 실행이 완료되면 다음 섹션으로 넘어갈 수 있습니다.
 
@@ -106,9 +106,9 @@ Invoke-AzStorageSyncChangeDetection -ResourceGroupName "myResourceGroup" -Storag
 
 ![최종 동기화 세션이 완료되었는지 확인하는 스크린샷.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
-‘PerItemErrorCount’가 0보다 크면 파일이 동기화되지 않는 것입니다. 동기화에 실패한 파일을 보려면 **FileSyncErrorsReport.ps1** 을 사용합니다. 이 PowerShell 스크립트는 일반적으로 Azure 파일 동기화 에이전트가 설치된 서버의 경로(**C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1**)에 있습니다.
+‘PerItemErrorCount’가 0보다 크면 파일이 동기화되지 않는 것입니다. 동기화되지 않는 파일을 확인하려면 **FileSyncErrorsReport.ps1** 을 사용합니다. 이 PowerShell 스크립트는 일반적으로 Azure 파일 동기화 에이전트가 설치된 서버의 **C:\Program Files\Azure\StorageSyncAgent\FileSyncErrorsReport.ps1** 경로에 있습니다.
 
-이러한 파일이 중요하지 않은 경우 서버 엔드포인트를 삭제해도 됩니다. 이러한 파일이 중요한 경우 오류를 수정하고 서버 엔드포인트를 삭제하기 전에 또 다른 9102 이벤트(‘sync direction’= download, ‘HResult’= 0, ‘PerItemErrorCount’= 0)가 발생할 때까지 기다립니다.
+해당 파일이 중요하지 않은 경우 서버 엔드포인트를 삭제해도 됩니다. 파일이 중요한 경우 오류를 수정하고 다른 9102 이벤트(‘sync direction’= download, ‘HResult’= 0, ‘PerItemErrorCount’= 0)가 발생할 때까지 기다린 후 서버 엔드포인트를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 파일 동기화 토폴로지 수정](./file-sync-modify-sync-topology.md)

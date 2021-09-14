@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/04/2021
 ms.author: bagol
-ms.openlocfilehash: 525def5e69317597664b54bc68505ae3f19d228e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: dc2c1b6ed2d40e7d1af82b3c62f378bfd046a94c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537770"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254124"
 ---
 # <a name="migrate-to-azure-sentinel-from-an-existing-siem"></a>기존 SIEM에서 Azure Sentinel로 마이그레이션
 
@@ -43,7 +43,7 @@ SOC(보안 운영 센터) 팀은 중앙 집중식 SIEM(보안 정보 및 이벤�
 
 예를 들어 다음 주요 영역을 평가합니다.
 
-|평가 영역 |설명  |
+|평가 영역 |Description  |
 |---------|---------|
 |**공격 탐지 범위**     | [MITRE ATT&CK](https://attack.mitre.org/) 또는 유사한 프레임워크를 사용하여 각 SIEM이 전체 공격 범위를 얼마나 잘 탐지할 수 있는지 비교합니다.        |
 |**대응성**     |   SIEM에 경고가 표시된 후 분석가가 관련 작업을 시작하기까지의 시간인 MTTA(평균 인지 시간)를 측정합니다. 이 시간은 대개 SIEM 간에 유사합니다.      |
@@ -153,7 +153,7 @@ Azure Sentinel에서 일부 데이터(예: 클라우드 데이터)를 분석한 
 
 다음 표에는 권장되지 않는 병렬 구성과 그 이유에 대한 세부 정보가 설명되어 있습니다.
 
-|메서드  |설명  |
+|메서드  |Description  |
 |---------|---------|
 |**레거시 SIEM에 Azure Sentinel 로그 보내기**     |  이 방법을 사용하면 온-프레미스 SIEM의 비용 및 크기 조정 문제를 계속 경험하게 됩니다. <br><br>레거시 SIEM의 스토리지 비용과 함께 Azure Sentinel의 데이터 수집 비용을 지불하게 되며 Azure Sentinel의 SIEM 및 SOAR 탐지, 분석, UEBA(사용자 엔터티 동작 분석), AI 또는 조사 및 자동화 도구를 활용할 수 없습니다.       |
 |**레거시 SIEM에서 Azure Sentinel로 로그 보내기**     |   이 방법은 Azure Sentinel의 전체 기능을 제공하지만 조직은 여전히 두 가지 다른 데이터 수집 원본에 대한 비용을 지불합니다. 이 모델은 아키텍처 복잡성을 추가하는 것 외에도 비용이 더 높아질 수 있습니다.     |
@@ -182,7 +182,7 @@ Azure Sentinel에서 일부 데이터(예: 클라우드 데이터)를 분석한 
 
     - **[Syslog](connect-data-sources.md#syslog), [CEF(Common Event Format)](connect-data-sources.md#common-event-format-cef) 또는 [REST API](connect-data-sources.md#rest-api-integration)** 를 사용하여 다른 데이터 원본을 연결합니다.
 
-        자세한 내용은 [Azure Sentinel 파트너 데이터 커넥터](partner-data-connectors.md) 및 [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
+        자세한 내용은 [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md)와 [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
 
 > [!TIP]
 > - 무료 데이터 원본으로만 사용을 제한하면 중요한 데이터로 테스트하는 기능이 제한될 수 있습니다. 테스트할 때 무료 및 유료 데이터 커넥터 모두에서 제한된 데이터 수집을 고려해야 테스트 결과를 최대한 활용할 수 있습니다.

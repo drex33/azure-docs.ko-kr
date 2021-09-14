@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버를 계획하고 배포하는 방법
 description: Azure Arc 지원 서버에서 많은 수의 머신을 사용하도록 설정하여 Azure에서 필수적인 보안, 관리, 모니터링 기능의 구성을 간소화하는 방법을 알아봅니다.
-ms.date: 04/21/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 0a31a886d4eb687c92d73c39617a6993e4b3f835
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831981"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104922"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Arc 지원 서버 계획 및 배포
 
@@ -26,6 +26,10 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 * 중요한 문제가 발생하는 경우에 대비하는 에스컬레이션 경로
 
 이 문서의 목적은 환경 내의 여러 프로덕션 물리적 서버 또는 가상 머신에서 Azure Arc 지원 서버를 성공적으로 배포할 준비를 갖추었는지 확인하는 것입니다.
+
+대규모 배포 권장 사항에 대한 자세한 내용은 아래 비디오를 참조할 수도 있습니다.
+
+> [!VIDEO https://www.youtube.com/embed/Cf1jUPOB_vs]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -67,7 +71,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>2단계: Arc 지원 서버 배포
 
-다음으로 1단계에서 마련한 기반에 추가하여 Arc 지원 서버의 Connected Machine 에이전트를 준비하고 배포합니다.
+다음으로, 1단계에서 마련한 기반에 추가하여 Arc 지원 서버의 Connected Machine 에이전트를 준비하고 배포합니다.
 
 |Task |세부 정보 |Duration |
 |-----|-------|---------|

@@ -8,18 +8,18 @@ ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1acfd3d1a4c358e22b3371960ff358f647afe339
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: efc0626c0c5f2c9333e5459d7fb7ce6aa2865cc4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063659"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105186"
 ---
 # <a name="overview-of-managed-disk-encryption-options"></a>관리 디스크 암호화 옵션 개요
 
 ADE(Azure Disk Encryption), SSE(서버 쪽 암호화) 및 호스트의 암호화를 포함하여 관리 디스크에 사용할 수 있는 여러 유형의 암호화가 있습니다.
 
-- **Azure Disk Encryption** 을 사용하여 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. ADE는 Linux의 기능 또는 Windows의 [BitLocker](https://en.wikipedia.org/wiki/BitLocker) 기능을 사용하여 Azure VM(가상 머신)의 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다. ADE는 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다.  자세한 내용은 [Linux VM용 Azure Disk Encryption](./linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](./windows/disk-encryption-overview.md)을 참조하세요.
+- **Azure Disk Encryption** 을 사용하여 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. ADE는 Linux의 [DM-Crypt](https://wikipedia.org/wiki/Dm-crypt) 기능이나 Windows의 [BitLocker](https://wikipedia.org/wiki/BitLocker) 기능을 사용하여 Azure VM(가상 머신)의 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다. ADE는 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다.  자세한 내용은 [Linux VM용 Azure Disk Encryption](./linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](./windows/disk-encryption-overview.md)을 참조하세요.
 
 - **서버 쪽 암호화**(미사용 암호화 또는 Azure Storage 암호화라고도 함)는 클라우드에 유지할 때 Azure 관리 디스크(OS 및 데이터 디스크)에 저장된 데이터를 자동으로 암호화합니다.  자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](./disk-encryption.md)를 참조하세요.
 

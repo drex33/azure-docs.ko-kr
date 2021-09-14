@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfed2797d0f331becf273b7ed3828aabd8378ebf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e05bfa8a024cb823a552f01e585f1c4843bd6df9
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529299"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866457"
 ---
 # <a name="azure-ad-built-in-roles"></a>Azure AD 기본 제공 역할
 
@@ -85,7 +85,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | [파트너 계층2 지원](#partner-tier2-support) | 사용하지 마세요. 일반적인 용도로는 적합하지 않습니다. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8 |
 > | [암호 관리자](#password-administrator) | 비관리자 및 암호 관리자의 암호를 다시 설정할 수 있습니다. | 966707d0-3269-4727-9be2-8c3a10f19b9d |
 > | [Power BI 관리자](#power-bi-administrator) | Power BI 제품의 모든 측면을 관리할 수 있습니다. | a9ea8996-122f-4c74-9520-8edcd192826c |
-> | [Power Platform 관리자](#power-platform-administrator) | Microsoft Dynamics 365, PowerApps 및 Microsoft Flow의 모든 것을 만들고 관리할 수 있습니다. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
+> | [Power Platform 관리자](#power-platform-administrator) | Microsoft Dynamics 365, Power Apps, Power Automate의 모든 측면을 만들고 관리할 수 있습니다. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
 > | [프린터 관리자](#printer-administrator) | 프린터 및 프린터 커넥터의 모든 것을 관리할 수 있습니다. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
 > | [프린터 기술자](#printer-technician) | 프린터를 등록/등록 취소하고 프린터 상태를 업데이트할 수 있습니다. | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477 |
 > | [권한 있는 인증 관리자](#privileged-authentication-administrator) | 사용자(관리자 또는 비관리자)의 인증 방법 정보를 보고, 설정하고. 재설정하기 위해 액세스할 수 있습니다. | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13 |
@@ -1489,7 +1489,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ## <a name="power-platform-administrator"></a>Power Platform 관리자
 
-이 역할의 사용자는 환경, PowerApps, 흐름, 데이터 손실 방지 정책의 모든 것을 만들고 관리할 수 있습니다. 또한 이 역할이 할당된 사용자는 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다.
+이 역할의 사용자는 환경, Power Apps, 흐름, 데이터 손실 방지 정책의 모든 측면을 만들고 관리할 수 있습니다. 또한 이 역할이 할당된 사용자는 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |

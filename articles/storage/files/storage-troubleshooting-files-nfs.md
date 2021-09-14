@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 3ad91e8a275fca61dfc70cdf98c84984ac08f754
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: e2cdcf3b42fbb71751644efbaa394c51d2f861fc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529544"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258323"
 ---
 # <a name="troubleshoot-azure-nfs-file-share-problems"></a>Azure NFS 파일 공유 문제 해결
 
@@ -40,7 +40,7 @@ Idmapping이 사용하지 않도록 설정되어 있으며 다시 사용하도�
 - 공유를 분리합니다.
 - # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping을 통해 ID 매핑을 사용하지 않도록 설정합니다.
 - 공유를 다시 탑재합니다.
-- rsync를 실행하는 경우 디렉터리/파일 이름이 잘못되지 않은 디렉터리에서 rsync를 “—numeric-ids” 인수와 함께 실행합니다.
+- rsync를 실행하는 경우 디렉터리에서 잘못된 디렉터리/파일 이름이 포함되지 않은 “—numeric-ids” 인수로 rsync를 실행합니다.
 
 ## <a name="unable-to-create-an-nfs-share"></a>NFS 공유를 만들 수 없음
 

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 리소스의 액세스 관리를 사용�
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/15/2021
+ms.date: 08/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4af5a6d105867df7d5c7a00f6fc47bd0032f4336
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 30bc4a306eecf8be3177fb045f9904d775cab9bd
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597414"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215009"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -27,6 +27,7 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 애플�
 | 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 애플리케이션에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
 | 참가자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
 | 판독기 |리더 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
+| Automation 기여자 | Automation 기여자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외하고 Automation 계정의 모든 리소스를 관리할 수 있습니다. |
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
 |Automation Runbook 연산자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
@@ -67,6 +68,23 @@ Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 
 |**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Automation 계정에서 모든 리소스를 봅니다. |
+
+### <a name="automation-contributor"></a>Automation 기여자
+
+Automation 기여자는 액세스를 제외하고 Automation 계정의 모든 리소스를 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+
+|**actions**  |**설명**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/*|Automation 계정으로 모든 종류의 리소스를 만들고 관리합니다.|
+|Microsoft.Authorization/*/read|역할 및 역할 할당을 읽습니다.|
+|Microsoft.Resources/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
+|Microsoft.Resources/subscriptions/resourceGroups/read|리소스 그룹 배포를 읽습니다.|
+|Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
+
+> [!NOTE]
+> Automation 기여자 역할을 사용하면 관리 ID(대상 리소스에 대한 적절한 권한이 설정된 경우) 또는 실행 계정을 통해 모든 리소스에 액세스할 수 있습니다. Automation 실행 계정은 기본적으로 구독에 대한 기여자 권한으로 구성됩니다. 최소 권한의 원칙을 따르고 Runbook을 실행하는 데 필요한 권한만 신중하게 할당합니다. 예를 들어 Automation 계정이 Azure VM을 시작하거나 중지하는 데만 필요한 경우 실행 계정 또는 관리 ID에 VM을 시작하거나 중지하는 권한만 할당해야 합니다. 마찬가지로, Runbook이 Blob Storage에서 읽는 경우 읽기 전용 권한을 할당합니다.
+> 
+> 권한을 할당할 때는 관리 ID에 할당된 Azure RBAC(역할 기반 액세스 제어)를 사용하는 것이 좋습니다. 수명 중 관리와 거버넌스를 포함하여 시스템 또는 사용자가 할당한 관리 ID를 사용하는 [가장 적합한 방법](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md)에 관한 권장 사항을 검토합니다.
 
 ### <a name="automation-operator"></a>Automation 운영자
 

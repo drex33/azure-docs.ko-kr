@@ -1,18 +1,20 @@
 ---
 title: Azure SQL Managed Instance에서 데이터 복사 및 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory를 사용하여 Azure SQL Managed Instance에서 데이터를 복사하고 변환하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: da1dbfc43aa8dccda8cca53b33923e2fee730d12
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.custom: synapse
+ms.date: 08/30/2021
+ms.openlocfilehash: 2fe779877c42935977b5fecb26bd3fe2c1428a33
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789733"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313965"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Managed Instance에서 데이터 복사 및 변환
 
@@ -35,9 +37,6 @@ SQL Managed Instance 커넥터는 다음과 같은 작업에 지원됩니다.
 - 쿼리 또는 저장 프로시저를 사용하여 데이터 검색(원본) SQL MI 원본에서 동시 복사를 선택할 수도 있습니다. 자세한 내용은 [SQL MI에서 동시 복사](#parallel-copy-from-sql-mi) 섹션을 참조하세요.
 - 싱크로서 원본 스키마에 대상 테이블이 존재하지 않는 경우 자동으로 만듭니다. 복사 시 사용자 지정 논리를 사용하여 테이블에 데이터를 추가하거나 저장된 프로시저를 호출합니다.
 
->[!NOTE]
-> 현재 이 커넥터는 SQL Managed Instance [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 지원하지 않습니다. 이 문제를 해결하려면 자체 호스팅 통합 런타임을 통해 [일반 ODBC 커넥터](connector-odbc.md)와 SQL Server ODBC 드라이버를 사용할 수 있습니다. 자세한 내용은 [Always Encrypted 사용](#using-always-encrypted) 섹션을 참조하세요. 
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Managed Instance [퍼블릭 엔드포인트](../azure-sql/managed-instance/public-endpoint-overview.md)에 액세스하려면 Azure Data Factory에서 관리하는 Azure 통합 런타임을 사용할 수 있습니다. Azure Data Factory가 데이터베이스에 연결할 수 있도록 퍼블릭 엔드포인트를 사용 설정하고 네트워크 보안 그룹에서 퍼블릭 엔드포인트 트래픽을 허용합니다. 자세한 내용은 [이 참고 자료](../azure-sql/managed-instance/public-endpoint-configure.md)를 참조하세요.
@@ -47,6 +46,30 @@ SQL Managed Instance 프라이빗 엔드포인트에 액세스하려면 데이�
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-an-azure-sql-managed-instance-using-ui"></a>UI를 사용하여 Azure SQL Managed Instance에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 SQL Managed Instance에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+2. SQL을 검색하고 Azure SQL Server Managed Instance 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-sql-managed-instance/azure-sql-managed-instance-connector.png" alt-text="Azure SQL Server Managed Instance 커넥터 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-sql-managed-instance/configure-azure-sql-managed-instance-linked-service.png" alt-text="SQL Managed Instance에 연결된 서비스 구성 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
 다음 섹션에서는 SQL Managed Instance 커넥터 관련 Azure Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -62,7 +85,11 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Azure Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 애플리케이션이 상주하는 테넌트 정보(예: 도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
+| alwaysEncryptedSettings | 관리 ID 또는 서비스 주체를 사용하여 SQL Server에 저장된 중요한 데이터를 보호하기 위해 Always Encrypted를 사용하도록 설정하는 데 필요한 **alwaysencryptedsettings** 정보를 지정합니다. 자세한 내용은 표 다음에 나오는 JSON 예제와 [Always Encrypted 사용](#using-always-encrypted) 섹션을 참조하세요. 지정하지 않으면 기본 Always Encrypted 설정이 사용하도록 설정되지 않습니다. |예 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리되는 인스턴스에 퍼블릭 엔드포인트가 있고 Azure Data Factory에서 액세스할 수 있도록 허용하는 경우 자체 호스팅 통합 런타임 또는 Azure 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+> [!NOTE]
+> SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true)는 데이터 흐름에서 지원되지 않습니다. 
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -106,6 +133,32 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예제 3: Always Encrypted로 SQL 인증 사용**
+
+```json
+{
+    "name": "AzureSqlMILinkedService",
+    "properties": {
+        "type": "AzureSqlMI",
+        "typeProperties": {
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+        },
+        "alwaysEncryptedSettings": {
+            "alwaysEncryptedAkvAuthType": "ServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
             }
         },
         "connectVia": {
@@ -666,7 +719,7 @@ source(allowSchemaDrift: true,
 
 Azure SQL Managed Instance 싱크에서 지원하는 속성은 다음 표와 같습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
@@ -744,32 +797,19 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="using-always-encrypted"></a>Always Encrypted 사용
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 Azure SQL Managed Instance에서 또는 Azure SQL Managed Instance로 데이터를 복사하는 경우, 자체 호스팅 통합 런타임을 통해 [일반 ODBC 커넥터](connector-odbc.md) 및 SQL Server ODBC 드라이버를 사용합니다. 이 Azure SQL Managed Instance 커넥터는 현재 Always Encrypted를 지원하지 않습니다. 
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 SQL Server 간에 데이터를 복사하는 경우 다음 단계를 수행합니다. 
 
-더 구체적으로 살펴보면 다음과 같습니다.
+1. [Azure Key Vault](../key-vault/general/overview.md)에 [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)를 저장합니다. [Azure Key Vault를 사용하여 Always Encrypted를 구성하는 방법](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)을 자세히 알아보세요.
 
-1. 자체 호스팅 통합 런타임이 없는 경우에는 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
+2. [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)가 저장된 키 자격 증명 모음에 액세스할 수 있는지 확인합니다. 필요한 권한은 이 [문서](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults)를 참조하세요.
 
-2. [여기](/sql/connect/odbc/download-odbc-driver-for-sql-server)에서 SQL Server용 64비트 ODBC 드라이버를 다운로드하여 통합 런타임 머신에 설치합니다. 이 드라이버를 사용하는 방법에 대한 자세한 내용은 [SQL Server용 ODBC 드라이버를 통해 Always Encrypted 사용](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider)을 참조하세요.
+3. 연결된 서비스를 만들어 SQL 데이터베이스에 연결하고 관리 ID 또는 서비스 주체를 사용하여 ‘Always Encrypted’ 기능을 사용하도록 설정합니다. 
 
-3. ODBC 유형을 사용하여 연결된 서비스를 만들어 SQL 데이터베이스에 연결하려면 다음 샘플을 참조하세요.
-
-    - **SQL 인증** 을 사용하려면 아래와 같이 ODBC 연결 문자열을 지정하고 **기본** 인증을 선택하여 사용자 이름과 암호를 설정합니다.
-
-        ```
-        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
-        ```
-
-    - Azure 가상 머신에서 자체 호스팅 통합 런타임을 실행하는 경우 Azure VM의 ID로 **관리 ID 인증** 을 사용할 수 있습니다. 
-
-        1. 동일한 [필수 구성 요소](#managed-identity)에 따라 관리 ID에 대한 데이터베이스 사용자를 만들고 데이터베이스에서 적절한 역할을 부여합니다.
-        2. 연결된 서비스에서 아래와 같이 ODBC 연결 문자열을 지정하고, 연결 문자열 자체가 나타내는 **익명** 인증을 선택합니다 `Authentication=ActiveDirectoryMsi`.
-
-        ```
-        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
-        ```
-
-4. 그에 따라 ODBC 형식으로 데이터 세트 및 복사 작업을 만듭니다. 자세한 내용은 [ODBC 커넥터](connector-odbc.md) 문서를 참조하세요.
+>[!NOTE]
+>SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)는 아래 시나리오를 지원합니다. 
+>1. 원본 또는 싱크 데이터 저장소에서 관리 ID 또는 서비스 주체를 키 공급자 인증 유형으로 사용하고 있습니다.
+>2. 원본 및 싱크 데이터 저장소 모두 관리 ID를 키 공급자 인증 유형으로 사용하고 있습니다.
+>3. 원본 및 싱크 데이터 저장소 모두 키 공급자 인증 유형과 동일한 서비스 주체를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

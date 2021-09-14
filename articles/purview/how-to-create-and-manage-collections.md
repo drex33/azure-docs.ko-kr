@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2dfcc6624c23bede82ff9b136ed14026897d74de
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 6b4f0913813372f6f69f30f98f6969b4f6d66418
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604117"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835700"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Azure Purview에서 컬렉션 만들기 및 관리
 
@@ -159,10 +159,37 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 1. 되돌리려면 **상속된 권한 제한** 토글 단추를 다시 선택합니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="역할 할당 탭이 선택되고 상속된 권한 제한 해제 슬라이드 단추가 강조 표시된 Purview 스튜디오 컬렉션 창의 스크린샷" border="true":::
+    
+## <a name="register-source-to-a-collection"></a>컬렉션에 원본 등록
+
+1. **등록** 을 선택하거나 컬렉션 노드에서 등록 아이콘을 선택하여 데이터 원본을 등록합니다. 데이터 원본 관리자만 원본을 등록할 수 있습니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/register-by-collection.png" alt-text="페이지 상단과 컬렉션 아래에서 모두 등록 단추가 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
+
+1. 데이터 원본 이름 및 기타 원본 정보를 입력합니다.  양식의 아래쪽에는 검사 권한이 있는 모든 컬렉션이 나열됩니다. 한 컬렉션을 선택할 수 있습니다. 이 원본 아래의 모든 자산은 선택한 컬렉션에 속합니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="원본 등록 창의 스크린샷"border="true":::
+
+1. 만든 데이터 원본은 선택한 컬렉션 아래에 배치됩니다. 데이터 원본을 보려면 **세부 정보 보기** 를 선택합니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="새로 추가된 원본 카드가 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
+
+1. **New scan**(새 검사)을 선택하여 데이터 원본 아래에 검사를 만듭니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="새 검사 단추가 강조 표시된 원본 Purview 스튜디오 창의 스크린샷"border="true":::
+
+1. 마찬가지로 양식 하단에서 컬렉션을 선택할 수 있으며 검사한 모든 자산이 컬렉션에 포함됩니다.
+여기에 나열된 컬렉션은 데이터 원본 컬렉션의 하위 컬렉션으로 제한됩니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="컬렉션 드롭다운이 강조 표시된 새 검사 창의 스크린샷"border="true":::
+
+1. 컬렉션 창으로 돌아오면 원본 카드의 컬렉션에 연결된 데이터 원본이 표시됩니다.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/source-under-collection.png" alt-text="새로 추가된 원본 카드가 맵에 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
 
 ## <a name="add-assets-to-collections"></a>컬렉션에 자산 추가
 
-자산과 원본도 컬렉션과 연결됩니다. 검사하는 동안 검사가 컬렉션과 연결된 경우 자산이 해당 컬렉션에 자동으로 추가되지만, 수동으로 추가할 수도 있습니다.
+자산과 원본도 컬렉션과 연결됩니다. 검사가 컬렉션과 연결된 경우, 검사 중에 자산이 해당 컬렉션에 자동으로 추가되지만 하위 컬렉션에 수동으로 추가할 수도 있습니다.
 
 1. 자산 세부 정보에서 컬렉션 정보를 확인합니다. 자산 세부 정보 페이지의 오른쪽 상단에 있는 **컬렉션 경로** 섹션에서 컬렉션 정보를 찾을 수 있습니다.
 
@@ -189,7 +216,7 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-asset.png" alt-text="컬렉션 경로가 강조 표시되고 컬렉션 경로 옆에 있는 줄임표 단추가 선택된 Purview 스튜디오 자산 창의 스크린샷" border="true":::
 
 1. **다른 컬렉션으로 이동** 단추를 선택합니다.
-1. 오른쪽 패널에서 이동할 대상 컬렉션을 선택합니다. 쓰기 권한이 있는 컬렉션만 볼 수 있습니다.
+1. 오른쪽 패널에서 이동할 대상 컬렉션을 선택합니다. 쓰기 권한이 있는 컬렉션만 볼 수 있습니다. 또한 데이터 원본 컬렉션의 하위 컬렉션에만 자산을 추가할 수 있습니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="컬렉션 선택 드롭다운 메뉴가 강조 표시된 Purview 스튜디오 팝업 창의 스크린샷" border="true":::
 
@@ -236,33 +263,6 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 1. 자산의 세부 정보를 보려면 검색 결과에서 자산 이름을 선택합니다. 또는 자산을 확인하고 대량 편집할 수 있습니다.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="컬렉션별 탭이 선택되고 자산 확인란이 강조 표시된 Purview Studio 카탈로그 창의 스크린샷"border="true":::
-
-## <a name="register-source-to-a-collection"></a>컬렉션에 원본 등록
-
-1. **등록** 을 선택하거나 컬렉션 노드에서 등록 아이콘을 선택하여 데이터 원본을 등록합니다. 데이터 원본 관리자만 원본을 등록할 수 있습니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/register-by-collection.png" alt-text="페이지 상단과 컬렉션 아래에서 모두 등록 단추가 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
-
-1. 데이터 원본 이름 및 기타 원본 정보를 입력합니다.  양식의 아래쪽에는 검사 권한이 있는 모든 컬렉션이 나열됩니다. 한 컬렉션을 선택할 수 있습니다. 이 원본 아래의 모든 자산은 선택한 컬렉션에 속합니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="원본 등록 창의 스크린샷"border="true":::
-
-1. 만든 데이터 원본은 선택한 컬렉션 아래에 배치됩니다. 데이터 원본을 보려면 **세부 정보 보기** 를 선택합니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="새로 추가된 원본 카드가 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
-
-1. **New scan**(새 검사)을 선택하여 데이터 원본 아래에 검사를 만듭니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="새 검사 단추가 강조 표시된 원본 Purview 스튜디오 창의 스크린샷"border="true":::
-
-1. 마찬가지로 양식 하단에서 컬렉션을 선택할 수 있으며 검사한 모든 자산이 컬렉션에 포함됩니다.
-여기에 나열된 컬렉션은 데이터 원본 컬렉션의 하위 컬렉션으로 제한됩니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="컬렉션 드롭다운이 강조 표시된 새 검사 창의 스크린샷"border="true":::
-
-1. 컬렉션 창으로 돌아오면 원본 카드의 컬렉션에 연결된 데이터 원본이 표시됩니다.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/source-under-collection.png" alt-text="새로 추가된 원본 카드가 맵에 강조 표시된 데이터 맵 Purview 스튜디오 창의 스크린샷"border="true":::
 
 ## <a name="legacy-collection-guide"></a>레거시 컬렉션 가이드
 

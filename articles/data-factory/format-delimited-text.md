@@ -1,31 +1,34 @@
 ---
 title: Azure Data Factory의 구분된 텍스트 형식
-description: 이 항목에서는 Azure Data Factory에서 구분된 텍스트 형식을 처리하는 방법에 대해 설명합니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics에서 구분된 텍스트 형식을 처리하는 방법을 설명합니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 5589e772c7209b548a3bd8084b675ac917e4afca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 64ef52e542d5e014ab3e79d98f730f691fa28a50
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090175"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257381"
 ---
-# <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory의 구분된 텍스트 형식
+# <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 구분된 텍스트 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 **구분된 텍스트 파일을 구문 분석하거나 데이터를 구분된 텍스트 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-구분된 텍스트 형식은 다음 커넥터를 지원합니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md).
+구분된 텍스트 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), [SFTP](connector-sftp.md)입니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 구분된 텍스트 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **DelimitedText** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다.  | 예      |
@@ -75,7 +78,7 @@ ms.locfileid: "110090175"
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 읽기 설정** 표를 참조하세요. |  예       |
@@ -83,13 +86,13 @@ ms.locfileid: "110090175"
 
 **아래의 지원되는** 구분된 텍스트 읽기 설정`formatSettings`:
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **DelimitedTextReadSettings** 로 설정해야 합니다. | 예      |
 | skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. | 예       |
 | compressionProperties | 지정된 압축 코덱에 대한 데이터의 압축을 푸는 방법에 대한 속성 그룹입니다. | 예       |
-| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로) |  **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source zip file>/`에 압축을 푼 파일을 씁니다.<br>- **False** 로 설정하면 Data Factory가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
-| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로)  | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source compressed file>/`에 압축을 푼 파일을 씁니다. <br>- **False** 로 설정하면 Data Factory가 압축 해제한 파일을 직접 `<path specified in dataset>`에 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
+| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로) |  **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>/<folder named as source zip file>/`에 씁니다.<br>- **false** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
+| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로)  | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>/<folder named as source compressed file>/`에 씁니다. <br>- **false** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
 
 ```json
 "activities": [
@@ -123,7 +126,7 @@ ms.locfileid: "110090175"
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 쓰기 설정** 표를 참조하세요. |    예      |
@@ -131,7 +134,7 @@ ms.locfileid: "110090175"
 
 **아래의 지원되는** 구분된 텍스트 쓰기 설정`formatSettings`:
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 형식을 **DelimitedTextWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | fileExtension | 출력 파일의 이름을 지정하는 데 사용되는 파일 확장명입니다(예: `.csv`, `.txt`). 출력 DelimitedText 데이터 세트에 `fileName`이 지정되지 않은 경우 이 속성을 반드시 지정해야 합니다. 출력 데이터 세트에서 파일 이름이 구성되어 있으면 해당 이름이 싱크 파일 이름으로 사용되고 파일 확장명 설정은 무시됩니다.  | 출력 데이터 세트에 파일 이름이 지정되지 않은 경우 예입니다. |
@@ -146,7 +149,7 @@ ms.locfileid: "110090175"
 
 다음 표에서는 구분된 텍스트 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -156,6 +159,9 @@ ms.locfileid: "110090175"
 | 완료 후 | 처리 후 파일을 삭제하거나 이동합니다. 컨테이너 루트에서 파일 경로가 시작됩니다. | 아니요 | 삭제: `true` 또는 `false` <br> 이동: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | 마지막으로 수정한 사람으로 필터링 | 마지막으로 변경된 시간에 따라 파일을 필터링하도록 선택합니다. | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore |
 | 파일을 찾을 수 없음 허용 | true이면 파일이 없는 경우 오류가 throw되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+
+> [!NOTE]
+> 파일 목록에 대한 데이터 흐름 원본 지원은 파일에서 1,024개의 항목으로 제한됩니다. 추가 파일을 포함하려면 파일 목록에서 와일드카드를 사용합니다.
 
 ### <a name="source-example"></a>원본 예
 
@@ -180,7 +186,7 @@ source(
 
 다음 표에서는 구분된 텍스트 소스에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열 데이터로 파일 이름 지정: String <br> 단일 파일로 출력: `['<fileName>']` <br> 열 데이터로 폴더 이름 지정: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.custom: generated
-ms.openlocfilehash: 70df27cdec96d6338cbbd13b517a6261d328ac5d
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: b1c1944ddf5fdae42bea41482d429a207190d11f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633977"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771133"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -27,7 +27,7 @@ ms.locfileid: "122633977"
 ## <a name="all"></a>모두
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | 설명 | ID |
+> | 기본 제공 역할 | Description | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [기여자](#contributor) | 모든 리소스를 관리할 수 있는 모든 권한을 부여하지만, Azure RBAC에서 역할 할당, Azure Blueprints에서 할당 관리 또는 이미지 갤러리 공유를 허용하지 않습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -121,6 +121,7 @@ ms.locfileid: "122633977"
 > | [SQL Managed Instance 기여자](#sql-managed-instance-contributor) | SQL Managed Instances 및 필수 네트워크 구성을 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 액세스할 수는 없으며, 해당하는 보안 관련 정책에도 액세스할 수 없습니다. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+> | [Azure Connected SQL Server 온보딩](#azure-connected-sql-server-onboarding) | Arc 지원 서버에서 SQL Server용 Azure 리소스에 대한 읽기 및 쓰기 권한을 허용합니다. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | **분석** |  |  |
 > | [Azure Event Hubs 데이터 소유자](#azure-event-hubs-data-owner) | Azure Event Hubs 리소스에 대한 전체 액세스를 허용합니다. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Azure Event Hubs 데이터 받는 사람](#azure-event-hubs-data-receiver) | Azure Event Hubs 리소스에 대한 받기 액세스 권한을 허용합니다. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
@@ -2815,7 +2816,7 @@ Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정
 Azure Storage 테이블 및 엔터티에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/read | 쿼리 테이블 |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/write | 테이블 만들기 |
@@ -2868,7 +2869,7 @@ Azure Storage 테이블 및 엔터티에 대한 읽기, 쓰기 및 삭제 액세
 Azure Storage 테이블 및 엔터티에 대한 읽기 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/read | 쿼리 테이블 |
 > | **NotActions** |  |
@@ -5325,6 +5326,46 @@ SQL Server 및 데이터베이스를 관리할 수 있지만 액세스할 수는
 }
 ```
 
+### <a name="azure-connected-sql-server-onboarding"></a>Azure Connected SQL Server 온보딩
+
+ Arc 지원 서버에서 SQL Server용 Azure 리소스에 대한 읽기 및 쓰기 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> |Microsoft.AzureArcData/sqlServerInstances/read| Azure 리소스 정보를 읽습니다. |
+> |Microsoft.AzureArcData/sqlServerInstances/write| Azure 리소스 정보를 씁니다.  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  | 
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
+    "properties": {
+        "roleName": "Azure Connected SQL Server Onboarding",
+        "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.AzureArcData/sqlServerInstances/read",
+                    "Microsoft.AzureArcData/sqlServerInstances/write"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## <a name="analytics"></a>분석
 
 
@@ -6020,7 +6061,7 @@ Microsoft.Purview 데이터 원본 관리자는 데이터 원본 및 데이터 �
 컴퓨팅 리소스를 만들거나 삭제하고 작업 영역 자체를 수정하는 것을 제외하고 Azure Machine Learning 작업 영역에서 모든 작업을 수행할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/read |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
@@ -7768,7 +7809,7 @@ App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다
 Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |
@@ -7811,7 +7852,7 @@ Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니�
 Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/* |  |
 > | **NotActions** |  |
@@ -7852,7 +7893,7 @@ Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
 Azure Relay 리소스에 대한 보내기 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |

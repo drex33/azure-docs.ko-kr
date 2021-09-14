@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2C를 사용하여 Python 웹 애플리케이션 옵션을 사용하도록 설정
-description: 여러 가지 방법을 사용하여 Python 웹 애플리케이션 옵션을 사용하도록 설정합니다.
+title: Azure Active Directory B2C를 통해 Python 웹 애플리케이션 옵션 사용
+description: 이 문서에서는 Python 웹 애플리케이션 옵션을 사용하도록 설정하는 방법을 보여 줍니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,18 +11,18 @@ ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 4d27b22cc0ac682ec6f3fdb5a189462026fc7755
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97f1cb1f13ab990a6590576ae93ba86a4c935300
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642239"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220360"
 ---
-# <a name="configure-authentication-options-in-a-python-web-application-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Python 웹 애플리케이션에서 인증 옵션 구성 
+# <a name="enable-authentication-options-in-a-python-web-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 통해 Python 웹앱의 인증 옵션 사용 
 
-이 문서에서는 Python 웹 애플리케이션에 대한 Azure AD B2C(Azure Active Directory B2C) 인증 환경을 사용자 지정하고 개선할 수 있는 방법을 설명합니다. 
+이 문서에서는 Python 웹 애플리케이션용 Azure AD B2C(Azure Active Directory B2C) 인증 환경을 사용하도록 설정하고, 사용자 지정하고, 개선하는 방법을 설명합니다. 
 
-시작하기 전에 [샘플 Python 웹 애플리케이션에서 인증 구성](configure-authentication-sample-python-web-app.md) 문서를 숙지하는 것이 중요합니다.
+시작하기 전에 [Azure AD B2C를 사용하여 샘플 Python 웹앱에서 인증을 구성](configure-authentication-sample-python-web-app.md)하는 방법을 숙지하는 것이 중요합니다.
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
@@ -46,7 +46,7 @@ authority_template = "https://custom.domain.com/00000000-0000-0000-0000-00000000
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. 사용자 지정 정책을 사용하는 경우, [직접 로그인 설정](direct-signin.md#prepopulate-the-sign-in-name)에 설명된 대로 필요한 입력 클레임을 추가합니다. 
-1. `initiate_auth_code_flow` 메서드를 찾아 ID 공급자 도메인 이름과 함께 `login_hint` 매개 변수를 추가합니다. 예: facebook.com
+1. `initiate_auth_code_flow` 메서드를 찾은 다음, ID 공급자 도메인 이름(예: *facebook.com*)과 함께 `login_hint` 매개 변수를 추가합니다.
 
 ```python
 def _build_auth_code_flow(authority=None, scopes=None):
@@ -59,7 +59,7 @@ def _build_auth_code_flow(authority=None, scopes=None):
 [!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
 1. 외부 ID 공급자의 도메인 이름을 확인합니다. 자세한 내용은 [소셜 공급자로 로그인 리디렉션](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조하세요. 
-1. `initiate_auth_code_flow` 메서드를 찾아 로그인 힌트와 함께 `domain_hint` 매개 변수를 추가합니다.
+1. `initiate_auth_code_flow` 메서드를 찾은 다음, 로그인 힌트와 함께 `domain_hint` 매개 변수를 추가합니다.
 
     ```python
     def _build_auth_code_flow(authority=None, scopes=None):
@@ -72,4 +72,4 @@ def _build_auth_code_flow(authority=None, scopes=None):
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 정보: [Python용 MSAL 구성 옵션](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki)
+- 자세한 내용은 [Python용 MSAL 구성 옵션](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki)을 참조하세요.

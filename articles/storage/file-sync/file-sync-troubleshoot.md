@@ -4,16 +4,16 @@ description: Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 8/16/2021
+ms.date: 8/24/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 15bc06f1f84b01df8d6999147d47e5f5f48ec45f
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a09af98e613a7e57cc9a8060192e0e54c073cf95
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538286"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256207"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -370,6 +370,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80070017 | -2147024873 | ERROR_CRC | CRC 오류로 인해 파일을 동기화할 수 없습니다. 이 오류는 서버 엔드포인트를 삭제하기 전에 계층화된 파일이 회수되지 않았거나 파일이 손상된 경우에 발생할 수 있습니다. | 이 문제를 해결하려면 [서버 엔드포인트를 삭제한 후 서버에서 계층화된 파일에 액세스할 수 없음](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)을 참조하여 분리된 계층화된 파일을 제거합니다. 분리된 계층화된 파일을 제거한 후에도 오류가 계속 발생하면 볼륨에서 [chkdsk](/windows-server/administration/windows-commands/chkdsk)를 실행합니다. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 충돌 파일이 최대 수에 도달했기 때문에 파일을 동기화할 수 없습니다. Azure 파일 동기화는 파일당 100개의 충돌 파일을 지원합니다. 파일 충돌에 대해 자세히 알아보려면 Azure 파일 동기화 [FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-conflict-resolution)를 참조하세요. | 이 문제를 해결하려면 충돌 파일 수를 줄입니다. 충돌 파일 수가 100 미만이면 파일이 동기화됩니다. |
 | 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | 디렉터리 내의 파일 또는 폴더에 열린 핸들이 있으므로 디렉터리 이름 변경을 동기화할 수 없습니다. | 아무 조치도 취할 필요가 없습니다. 디렉터리 내의 열려 있는 파일 핸들이 모두 닫히면 디렉터리 이름 변경이 동기화됩니다. |
+| 0x800700de | -2147024674 | ERROR_BAD_FILE_TYPE | 서버의 계층화된 파일은 Azure 파일 공유에 더 이상 존재하지 않는 파일 버전을 참조하므로 액세스할 수 없습니다. | 이 문제는 계층화된 파일이 Windows Server의 백업에서 복원된 경우에 발생할 수 있습니다. 문제를 해결하려면 Azure 파일 공유의 스냅샷에서 파일을 복원합니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
 지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트에서 항목별 동기화 오류(오류 코드 0x8007007b 또는 0x80c80255)를 표시하면 각 파일 이름에서 오류가 있는 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. 
@@ -771,7 +772,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **오류 문자열** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **재구성 필요** | 예 |
 
-볼륨의 디스크 공간이 부족하거나 디스크 할당량 한도에 도달했기 때문에 이러한 오류 중 하나와 함께 동기화 세션이 실패합니다. 이 오류는 일반적으로 서버 엔드포인트 외부의 파일이 볼륨의 공간을 모두 사용할 때 발생합니다. 서버 엔드포인트를 추가하거나, 파일을 다른 볼륨으로 이동하거나, 서버 엔드포인트가 있는 볼륨의 크기를 늘려서 볼륨의 공간을 확보해야 합니다. [파일 서버 리소스 관리자](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) 또는 [NTFS 할당량](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-quota)을 사용하여 볼륨에서 디스크 할당량이 구성된 경우 할당량 한도를 늘려야 합니다.
+볼륨의 디스크 공간이 부족하거나 디스크 할당량 한도에 도달했기 때문에 이러한 오류 중 하나와 함께 동기화 세션이 실패합니다. 이 오류는 일반적으로 서버 엔드포인트 외부의 파일이 볼륨의 공간을 모두 사용할 때 발생합니다. 서버 엔드포인트를 추가하거나, 파일을 다른 볼륨으로 이동하거나, 서버 엔드포인트가 있는 볼륨의 크기를 늘려서 볼륨의 공간을 확보해야 합니다. [파일 서버 리소스 관리자](/windows-server/storage/fsrm/fsrm-overview) 또는 [NTFS 할당량](/windows-server/administration/windows-commands/fsutil-quota)을 사용하여 볼륨에서 디스크 할당량이 구성된 경우 할당량 한도를 늘려야 합니다.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a> **서비스를 이 서버 엔드포인트와 동기화할 준비가 완료되지 않았습니다.**  
 
@@ -1206,12 +1207,12 @@ if ($role -eq $null) {
 | 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | 네트워크 문제로 인해 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속되면 Azure 파일 공유에 대한 네트워크 연결을 확인합니다. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 액세스 거부 오류로 인해 파일을 계층화하지 못했습니다. 파일이 DFS-R 읽기 전용 복제 폴더에 있는 경우 이 오류가 발생할 수 있습니다. | Azure 파일 동기화는 DFS-R 읽기 전용 복제 폴더에서 서버 엔드포인트를 지원하지 않습니다. 자세한 내용은 [계획 지침](file-sync-planning.md#distributed-file-system-dfs)을 참조하세요. |
 | 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | 네트워크 문제로 인해 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속되면 Azure 파일 공유에 대한 네트워크 연결을 확인합니다. |
-| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | 파일 크기가 지원되는 크기보다 작으므로 파일을 계층화하지 못했습니다. | 에이전트 버전이 9.0 미만인 경우 지원되는 최소 파일 크기는 64kb입니다. 에이전트 버전이 9.0 이상인 경우 지원되는 최소 파일 크기는 파일 시스템 클러스터 크기(이중 파일 시스템 클러스터 크기)를 기반으로 합니다. 예를 들어 파일 시스템 클러스터 크기가 4kb이면 최소 파일 크기는 8kb입니다. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | 파일 크기가 지원되는 크기보다 작으므로 파일을 계층화하지 못했습니다. | 에이전트 버전이 9.0 미만인 경우 지원되는 최소 파일 크기는 64KiB입니다. 에이전트 버전이 9.0 이상인 경우 지원되는 최소 파일 크기는 파일 시스템 클러스터 크기(이중 파일 시스템 클러스터 크기)를 기반으로 합니다. 예를 들어 파일 시스템 클러스터 크기가 4KiB이면 최소 파일 크기는 8KiB입니다. |
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Azure Storage 문제로 인해 파일을 계층화하지 못했습니다. | 오류가 지속되면 지원 요청을 작성합니다. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | 동시에 회수되었기 때문에 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 회수가 완료되고 파일이 더 이상 사용되지 않을 때 파일이 계층화됩니다. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Azure 파일 공유와 동기화되지 않았으므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 파일은 Azure 파일 공유에 동기화된 후 계층화됩니다. |
 | 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | 클라우드 계층화 필터 드라이버(storagesync.sys)가 실행되고 있지 않으므로 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행합니다. `fltmc load storagesync`<br>fltmc 명령을 실행할 때 Azure 파일 동기화 필터 드라이버를 로드하지 못한 경우 Azure 파일 동기화 에이전트를 제거하고, 서버를 다시 시작하고, Azure 파일 동기화 에이전트를 다시 설치합니다. |
-| 0x80070070 | -2147024784 | ERROR_DISK_FULL | 서버 엔드포인트가 있는 볼륨의 디스크 공간이 부족하기 때문에 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 서버 엔드포인트가 있는 볼륨에서 100MB 이상의 디스크 공간을 확보합니다. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | 서버 엔드포인트가 있는 볼륨의 디스크 공간이 부족하기 때문에 파일을 계층화하지 못했습니다. | 문제를 해결하려면 서버 엔드포인트가 있는 볼륨에서 100MiB 이상의 디스크 공간을 확보합니다. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Azure 파일 공유와 동기화되지 않았으므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 파일은 Azure 파일 공유에 동기화된 후 계층화됩니다. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | 지원되지 않는 재분석 지점이므로 파일을 계층화하지 못했습니다. | 파일이 데이터 중복 제거 재분석 지점인 경우 [계획 지침](file-sync-planning.md#data-deduplication)의 단계에 따라 데이터 중복 제거 지원을 사용하도록 설정합니다. 데이터 중복 제거 이외의 재분석 지점이 있는 파일은 지원되지 않으며 계층화되지 않습니다.  |
 | 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | 파일이 수정되었으므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 수정된 파일이 Azure 파일 공유에 동기화되면 파일이 계층화됩니다. |
@@ -1253,8 +1254,8 @@ if ($role -eq $null) {
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | 메모리가 부족하여 파일을 회수하지 못했습니다. | 오류가 계속 발생하면 메모리 부족 상태를 유발하는 애플리케이션 또는 커널 모드 드라이버를 조사합니다. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | 디스크 공간이 부족하여 파일을 회수하지 못했습니다. | 이 문제를 해결하려면 파일을 다른 볼륨으로 이동하여 볼륨의 공간을 확보하거나, 볼륨의 크기를 늘리거나, Invoke-StorageSyncCloudTiering cmdlet을 사용하여 파일을 강제로 계층화합니다. |
 | 0x80072f8f | -2147012721 | WININET_E_DECODING_FAILED | 서버가 Azure 파일 동기화 서비스의 응답을 디코딩할 수 없어 파일을 회수하지 못했습니다. | 일반적으로 이 오류는 네트워크 프록시가 Azure 파일 동기화 서비스의 응답을 수정하는 경우에 발생합니다. 프록시 구성을 확인하세요. |
-| 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | 조직에서 TLS 종료 프록시를 사용하거나 악의적인 엔터티가 서버와 Azure 파일 동기화 서비스 간 트래픽을 가로채고 있어서 파일을 회수하지 못했습니다. | 조직에서 TLS 종료 프록시를 사용하기 때문에 충분히 예상할 수 있는 오류인 경우 [CERT_E_UNTRUSTEDROOT](https://docs.microsoft.com/azure/storage/file-sync/file-sync-troubleshoot?tabs=portal1%2Cazure-portal#-2146762487) 오류에 대해 문서화된 단계에 따라 이 문제를 해결하세요. |
-| 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | 파일이 더 이상 Azure 파일 공유에 없는 파일 버전을 참조하므로 파일을 회수하지 못했습니다. | 이 문제는 계층화된 파일이 백업에서 복원된 경우에 발생할 수 있습니다. 이 문제를 해결하려면 지원 요청을 개설하세요. |
+| 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | 조직에서 TLS 종료 프록시를 사용하거나 악의적인 엔터티가 서버와 Azure 파일 동기화 서비스 간 트래픽을 가로채고 있어서 파일을 회수하지 못했습니다. | 조직에서 TLS 종료 프록시를 사용하기 때문에 충분히 예상할 수 있는 오류인 경우 [CERT_E_UNTRUSTEDROOT](#-2146762487) 오류에 대해 문서화된 단계에 따라 이 문제를 해결하세요. |
+| 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | 파일이 더 이상 Azure 파일 공유에 없는 파일 버전을 참조하므로 파일을 회수하지 못했습니다. | 이 문제는 계층화된 파일이 Windows Server의 백업에서 복원된 경우에 발생할 수 있습니다. 문제를 해결하려면 Azure 파일 공유의 스냅샷에서 파일을 복원합니다. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>서버 엔드포인트를 삭제한 후 서버에서 계층화된 파일에 액세스할 수 없음
 서버에서 계층화된 파일은 서버 엔드포인트를 삭제하기 전에 파일이 회수되지 않은 경우 사용할 수 없게 됩니다.

@@ -1,22 +1,29 @@
 ---
 title: Azure 파일 공유 성능 문제 해결 가이드
 description: Azure 파일 공유의 알려진 성능 문제를 해결합니다. 이러한 문제가 발생할 경우 잠재적 원인과 관련 해결 방법을 검색합니다.
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.author: rogarana
+ms.date: 07/06/2021
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b303dbc20cf0caf4bb0d75f28a2983bc0f27064d
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 03fb94571e5e41a99688bf912cab36fa10edd2a4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065028"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867528"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
 이 문서에는 Azure 파일 공유와 관련된 몇 가지 일반적인 문제가 나와 있습니다. 이러한 문제가 발생하는 경우에 대한 잠재적 원인과 해결 방법을 제공합니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>대기 시간이 짧고 처리량이 높으며 일반 성능 문제가 발생합니다.
 
@@ -58,9 +65,9 @@ ms.locfileid: "108065028"
     > [!NOTE]
     > 경고를 수신하려면 이 문서의 뒷부분에 나오는 ["파일 공유가 제한된 경우 경고를 만드는 방법"](#how-to-create-an-alert-if-a-file-share-is-throttled) 섹션을 참조하세요.
 
-### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
-- 표준 파일 공유를 사용하는 경우 스토리지 계정에서 [대용량 파일 공유](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal)를 사용하도록 설정합니다. 대용량 파일 공유는 공유당 최대 10,000IOPS를 지원합니다.
+- 표준 파일 공유를 사용하는 경우 스토리지 계정에서 [대용량 파일 공유를 사용하도록 설정](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)하고 [파일 공유 할당량의 크기를 늘려 대용량 파일 공유 지원을 활용](storage-how-to-create-file-share.md#expand-existing-file-shares)합니다. 대용량 파일 공유는 뛰어난 IOPS 및 대역폭 제한을 지원합니다. 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage-files-scale-targets.md)를 참조하세요.
 - 프리미엄 파일 공유를 사용하는 경우 프로비전된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세히 알아보려면 [프리미엄 파일 공유에 대한 프로비전 이해](./understanding-billing.md#provisioned-model)를 참조하세요.
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>원인 2: 메타데이터 또는 네임스페이스에 워크로드가 과도함
@@ -71,7 +78,7 @@ ms.locfileid: "108065028"
 
 !["API 이름" 속성 필터를 표시하는 프리미엄 파일 공유에 대한 메트릭 옵션의 스크린샷입니다.](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### <a name="workaround"></a>해결 방법
+#### <a name="workaround"></a>해결 방법
 
 - 메타데이터 작업의 수를 줄이기 위해 애플리케이션을 수정할 수 있는지 여부를 확인합니다.
 - 파일 공유에 VHD(가상 하드 디스크)를 추가하고 클라이언트에서 SMB를 통해 VHD를 탑재하여 데이터에 대한 파일 작업을 수행합니다. 이 방법은 단일 작성자/판독자 시나리오나, 작성자는 여럿이고 판독자는 없는 시나리오에 적합합니다. 파일 시스템은 Azure Files가 아닌 클라이언트의 소유이므로 메타데이터 작업을 로컬로 사용할 수 있습니다. 설치 프로그램은 로컬에서 직접 연결된 스토리지와 비슷한 성능을 제공합니다.
@@ -80,10 +87,18 @@ ms.locfileid: "108065028"
 
 사용 중인 애플리케이션이 단일 스레드인 경우 프로비전된 공유 크기에 따라 이 설정으로 인해 가능한 최대 처리량보다 IOPS 처리량이 상당히 줄어들 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 - 스레드 수를 늘려 애플리케이션 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 애플리케이션으로 전환합니다. 예를 들어 복사 작업의 경우 Windows 클라이언트 또는 Linux 클라이언트의 **병렬** 명령에서 AzCopy 또는 RoboCopy를 사용할 수 있습니다.
+
+### <a name="cause-4-number-of-smb-channels-exceeds-four"></a>원인 4: SMB 채널 수가 4개를 초과함
+
+SMB MultiChannel을 사용하는 경우 채널 수가 4개를 초과하면 성능이 저하됩니다. 연결 수가 4개를 초과하는지 확인하려면 PowerShell cmdlet `get-SmbClientConfiguration`을 사용하여 현재 연결 수 설정을 확인합니다.
+
+#### <a name="solution"></a>솔루션
+
+총 채널이 4개를 초과하지 않도록 SMB에 대한 NIC당 Windows 설정을 지정합니다. 예를 들어 2개의 NIC가 있는 경우 `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2` PowerShell cmdlet을 사용하여 NIC당 최댓값을 2로 설정할 수 있습니다.
 
 ## <a name="very-high-latency-for-requests"></a>요청에 대한 대기 시간 매우 김
 
@@ -91,7 +106,7 @@ ms.locfileid: "108065028"
 
 클라이언트 VM(가상 머신)이 파일 공유와는 다른 지역에 있을 수 있습니다. 대기 시간이 긴 다른 이유는 클라이언트나 네트워크에서 초래하는 대기 시간으로 인해 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 파일 공유와 동일한 지역에 있는 VM에서 애플리케이션을 실행합니다.
 - 스토리지 계정의 경우 Azure Portal에서 **Azure Monitor** 를 통해 트랜잭션 메트릭 **SuccessE2ELatency** 및 **SuccessServerLatency** 를 검토합니다. SuccessE2ELatency와 SuccessServerLatency 메트릭 값 간의 큰 차이는 네트워크 또는 클라이언트로 인해 발생할 수 있는 대기 시간을 나타냅니다. Azure Files 모니터링 데이터 참조의 [트랜잭션 메트릭](storage-files-monitoring-reference.md#transaction-metrics)을 참조하세요.
@@ -103,7 +118,7 @@ ms.locfileid: "108065028"
 
 ### <a name="workaround"></a>해결 방법
 
-- 프리미엄 파일 공유의 경우 [FileStorage 계정에서 SMB 다중 채널을 사용하도록 설정](storage-files-enable-smb-multichannel.md)합니다.
+- 프리미엄 파일 공유의 경우 [SMB 다중 채널을 사용하도록 설정](files-smb-protocol.md#smb-multichannel)합니다.
 - 코어가 더 큰 VM을 가져오면 처리량을 향상시킬 수 있습니다.
 - 여러 VM에서 클라이언트 애플리케이션을 실행하면 처리량이 증가합니다.
 - 가능한 경우 REST API를 사용합니다.
@@ -187,23 +202,13 @@ I/O를 많이 사용하는 워크로드를 위해 Azure 파일 공유에 액세�
 
 - 사용 가능한 [핫픽스](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)를 설치합니다.
 
-## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>파일 공유 설정에서 SMB 다중 채널 옵션이 표시되지 않습니다. 
-
-### <a name="cause"></a>원인
-
-구독이 기능에 등록되지 않았거나 지역 및 계정 유형이 지원되지 않습니다.
-
-### <a name="solution"></a>해결 방법
-
-구독이 SMB 다중 채널 기능에 등록되었는지 확인합니다. [시작](storage-files-enable-smb-multichannel.md#getting-started)을 참조하세요. 계정 개요 페이지에서 계정 종류가 FileStorage(프리미엄 파일 계정)인지 확인합니다. 
-
 ## <a name="smb-multichannel-is-not-being-triggered"></a>SMB 다중 채널이 트리거되지 않습니다.
 
 ### <a name="cause"></a>원인
 
 다시 탑재하지 않았는데 최근 SMB 다중 채널 구성 설정에 변경 사항이 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
  
 -   Windows SMB 클라이언트 또는 계정 SMB 다중 채널 구성 설정을 변경한 후에는 공유를 탑재 해제하고 60초 동안 기다린 후 공유를 다시 탑재하여 다중 채널을 트리거해야 합니다.
 -   Windows 클라이언트 OS의 경우 큐 깊이가 높은 IO 부하(QD=8)를 생성합니다. 예를 들어 파일을 복사하여 SMB 다중 채널을 트리거합니다.  서버 OS의 경우 SMB 다중 채널은 QD=1로 트리거되고, 이는 공유에 대한 IO를 시작하는 즉시 발생합니다.
@@ -222,7 +227,7 @@ I/O를 많이 사용하는 워크로드를 위해 Azure 파일 공유에 액세�
 1. 트랜잭션을 메트릭으로 선택합니다. 
 1. ResponseType에 대한 필터를 추가하고 요청에 SuccessWithThrottling(SMB용) 또는 ClientThrottlingError(REST)의 응답 코드가 있는지 확인합니다.
 
-### <a name="solution"></a>해결 방법 
+### <a name="solution"></a>솔루션 
 
 - 파일 변경 알림이 사용되지 않으면 파일 변경 알림(기본 설정)을 사용하지 않도록 설정합니다.
     - FCNMode를 업데이트하여 [파일 변경 알림을 사용하지 않도록 설정](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto)합니다. 
@@ -275,7 +280,7 @@ I/O를 많이 사용하는 워크로드를 위해 Azure 파일 공유에 액세�
 12. **경고 세부 정보**(예: **경고 규칙 이름**, **설명** 및 **심각도**)를 입력합니다.
 13. **경고 규칙 만들기** 를 클릭하여 경고를 만듭니다.
 
-Azure Monitor에서 경고를 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조하세요.
+Azure Monitor에서 경고를 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>프리미엄 파일 공유가 제한되는 경향이 있는 경우 경고를 생성하는 방법
 
@@ -313,7 +318,7 @@ Azure Monitor에서 경고를 구성하는 방법에 대한 자세한 내용은 
     >    - 5단계에서 **송신** 대신 **트랜잭션** 메트릭을 선택합니다.
     >    - 10단계에서 **집계 유형에** 대한 유일한 옵션은 *합계* 입니다. 따라서 임계값은 선택한 집계 세분성에 따라 달라집니다. 예를 들어 임계값을 &nbsp; 프로비전된 기준 IOPS의 80%로 선택하고 **집계 세분성** 으로 *1 시간* 을 선택하는 경우 **임계값** 은 기준 IOPS(바이트) &times;&nbsp;0.8 &times;&nbsp;3600이 됩니다. 
 
-Azure Monitor에서 경고를 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조하세요.
+Azure Monitor에서 경고를 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 - [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)  

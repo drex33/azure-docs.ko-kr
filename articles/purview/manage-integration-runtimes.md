@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 1709171793d6e4941a62aebe47a9b4125bf68e67
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568326"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867483"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -80,10 +80,18 @@ ms.locfileid: "122568326"
 | `*.frontend.clouddatahub.net` | 443            | 글로벌 인프라 Purview는 이를 사용하여 해당 검사를 실행합니다. 전용 리소스가 없기 때문에 와일드카드가 필요합니다. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | 자체 호스팅 통합 런타임에서 관리형 Azure 스토리지 계정에 연결하는 데 사용됩니다.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | purview에서 검사 프로세스를 실행하는 데 사용하는 큐입니다. |
-| `<your Key Vault Name>.vault.azure.net` | 443           | 자격 증명이 Azure Key Vault에 저장된 경우 필요합니다. |
 | `download.microsoft.com` | 443           | SHIR 업데이트의 경우 선택 사항입니다. |
+
+원본에 따라 다른 Azure 또는 외부 원본의 도메인을 허용해야 할 수도 있습니다. 아래에는 몇 가지 예와 Key Vault에 저장된 자격 증명에 연결하는 경우 Azure Key Vault 도메인도 나와 있습니다.
+
+| 도메인 이름                  | 아웃바운드 포트 | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `<storage account>.core.windows.net`          | 443            | 선택 사항으로, Azure Storage 계정에 연결합니다. |
+| `*.database.windows.net`      | 1433           | 선택 사항으로, Azure SQL Database 또는 Azure Synapse Analytics에 연결합니다. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | 선택 사항으로, Azure Data Lake Store Gen 1에 연결합니다. |
+| `<datastoragename>.dfs.core.windows.net`    | 443            | 선택 사항으로, Azure Data Lake Store Gen 2에 연결합니다. |
+| `<your Key Vault Name>.vault.azure.net` | 443           | 자격 증명이 Azure Key Vault에 저장된 경우 필요합니다. |
 | 다양한 도메인 | 종속          | SHIR이 연결할 다른 원본에 대한 도메인 |
-  
   
 > [!IMPORTANT]
 > 대부분의 환경에서는 DNS가 올바르게 구성되었는지도 확인해야 합니다. 확인하기 위해 SHIR 머신에서 **nslookup** 을 사용하여 위의 도메인 각각에 대한 연결을 확인할 수 있습니다. 각 nslookup은 리소스의 IP를 반환해야 합니다. [프라이빗 엔드포인트](catalog-private-link.md)를 사용하는 경우 공용 IP가 아닌 개인 IP가 반환되어야 합니다. IP가 반환되지 않거나 프라이빗 엔드포인트를 사용할 때 공용 IP가 반환되는 경우 DNS/VNET 연결 또는 프라이빗 엔드포인트/VNET 피어링을 처리해야 합니다.
@@ -100,4 +108,6 @@ ms.locfileid: "122568326"
 
 ## <a name="next-steps"></a>다음 단계
 
-[검사를 통해 삭제된 자산을 검색하는 방법](concept-detect-deleted-assets.md)
+- [검사를 통해 삭제된 자산을 검색하는 방법](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
+
+- [Purview와 함께 프라이빗 엔드포인트 사용](catalog-private-link.md)

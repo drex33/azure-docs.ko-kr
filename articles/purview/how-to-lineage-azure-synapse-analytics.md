@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: e26cdccc098fd048f444dd32dce6445e21836db8
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/25/2021
+ms.openlocfilehash: 74a438088e3e6c751785387580488efa17e82385
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634725"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035400"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Azure Synapse Analytics에서 Azure Purview로 계보를 가져오는 방법
 
@@ -22,7 +22,8 @@ ms.locfileid: "122634725"
 
 현재 Azure Purview는 다음과 같은 Azure Synapse 파이프라인 작업에서 런타임 계보를 캡처합니다.
 
-- [데이터 복사](../data-factory/copy-activity-overview.md)
+- [데이터 복사](../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context)
+- [데이터 흐름](../data-factory/concepts-data-flow-overview.md?context=/azure/synapse-analytics/context/context)
 
 > [!IMPORTANT]
 > 원본 또는 대상이 지원되지 않는 데이터 스토리지 시스템을 사용하는 경우 Azure Purview가 계보를 삭제합니다.
@@ -33,7 +34,7 @@ ms.locfileid: "122634725"
 
 ### <a name="step-1-connect-azure-synapse-workspace-to-your-purview-account"></a>1단계: Azure Synapse 작업 영역을 Purview 계정에 연결
 
-Azure Synapse 작업 영역을 Purview에 연결할 수 있으며 연결을 통해 Azure Synapse가 계보 정보를 Purview에 푸시할 수 있습니다. [Synapse에 Azure Purview 계정 연결](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md)의 단계를 수행합니다. 여러 Azure Synapse 작업 영역은 전체적인 계보 추적을 위해 단일 Azure Purview 계정에 연결할 수 있습니다.
+Azure Synapse 작업 영역을 Purview에 연결할 수 있으며 연결을 통해 Azure Synapse가 계보 정보를 Purview에 푸시할 수 있습니다. [Azure Purview에 Synapse 작업 영역 연결](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md)의 단계를 수행합니다. 여러 Azure Synapse 작업 영역은 전체적인 계보 추적을 위해 단일 Azure Purview 계정에 연결할 수 있습니다.
 
 ### <a name="step-2-run-pipeline-in-azure-synapse-workspace"></a>2단계: Azure Synapse 작업 영역에서 파이프라인 실행
 

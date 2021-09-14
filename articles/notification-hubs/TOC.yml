@@ -119,6 +119,8 @@
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: 대량으로 등록 내보내기 및 가져오기
       href: export-modify-registrations-bulk.md
+    - name: 지역 간 리소스 이동
+      href: move-registrations.md
     - name: SDK를 사용하여 알림 허브 만들기
       items:
         - name: 알림 허브 만들기 - .NET

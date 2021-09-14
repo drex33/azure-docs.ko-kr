@@ -163,8 +163,6 @@
       href: lock-resources.md
     - name: 테넌트에서 인증
       href: authenticate-multi-tenant.md
-    - name: 활동 로그 보기
-      href: view-activity-logs.md
     - name: 제한 요청
       href: request-limits-and-throttling.md
     - name: 비동기 작업 추적

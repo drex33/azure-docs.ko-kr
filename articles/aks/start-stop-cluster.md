@@ -8,7 +8,7 @@ author: palma21
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
 ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2021
 ms.locfileid: "122529058"
@@ -41,7 +41,7 @@ ms.locfileid: "122529058"
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
+[az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
 
 ```json
 {
@@ -94,7 +94,7 @@ KubernetesVersion       : 1.20.7
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
+[az aks show][az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
 
 ```json
 {
@@ -143,7 +143,7 @@ KubernetesVersion       : 1.20.7
 ## <a name="next-steps"></a>다음 단계
 
 - 풀 크기를 0으로 조정 하는 방법에 대한 자세한 `User` 내용은 [ `User` 풀 크기 조정](scale-cluster.md#scale-user-node-pools-to-0)을 참조 하세요.
-- 스폿 인스턴스를 사용하여 비용을 절감 하는 방법을 알아보려면 [AKS에 별색 노드 풀 추가](spot-node-pool.md)를 참조 하세요.
+- 스폿 인스턴스를 사용하여 비용을 절감 하는 방법을 알아보려면 [AKS에 스폿 노드 풀 추가](spot-node-pool.md)를 참조 하세요.
 - AKS 지원 정책에 대한 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조 하세요.
 
 <!-- LINKS - external -->

@@ -2,21 +2,21 @@
 title: '자습서: Azure Portal과 SSMS를 사용하여 데이터 로드'
 description: 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용하여 전역 Azure Blob에서 Azure Synapse Analytics SQL 풀로 WideWorldImportersDW 데이터 웨어하우스를 로드합니다.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/12/2021
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: f41d7359b8273d685d0ab3c962697ca45ff7d18f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: adfaadc211cbe91517bac62e1ec32633821f9f17
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598034"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537709"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀로 데이터 로드
 
@@ -429,7 +429,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 섹션에서는 정의한 외부 테이블을 사용하여 Azure Blob에서 SQL 풀로 샘플 데이터를 로드합니다.  
 
 > [!NOTE]
-> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](../sql/data-loading-best-practices.md#insert-data-into-a-production-table)을 참조하세요.
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. Select 문이 외부 테이블에서 선택하는 경우 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다.
 

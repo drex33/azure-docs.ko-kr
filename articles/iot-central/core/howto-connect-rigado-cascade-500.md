@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 11/27/2019
-ms.openlocfilehash: ee22c1e68f407eb2b508cd97e611ea83b82174b2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
-ms.translationtype: HT
+ms.date: 08/18/2021
+ms.openlocfilehash: 1a255336d958ea4d4d027d533c80bfb493d88f8b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684130"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435497"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Rigado Cascade 500 게이트웨이 디바이스를 Azure IoT Central 애플리케이션에 연결
 

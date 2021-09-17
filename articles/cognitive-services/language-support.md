@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1fbf548436842f16516554558b74391567a761e0
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: fd30e8f7489d320a307e2797f7488da828f32827
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537950"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472257"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -31,13 +31,11 @@ Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하�
 ## <a name="vision"></a>Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
-* [Form Recognizer(미리 보기)](./form-recognizer/language-support.md)
 * [Ink Recognizer(미리 보기)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>언어
 
-* [몰입형 리더](../applied-ai-services/immersive-reader/language-support.md)
 * [언어 이해(LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
 * [텍스트 분석](./text-analytics/language-support.md)

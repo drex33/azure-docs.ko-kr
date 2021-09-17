@@ -1,14 +1,14 @@
 ---
 title: 경고 정보 전달
 description: 전달 규칙을 사용하여 경고 정보를 파트너 시스템에 보낼 수 있습니다.
-ms.date: 07/12/2021
+ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bad8461435d2ff223fe39d1bd4257cdf0948a4d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446841"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432364"
 ---
 # <a name="forward-alert-information"></a>경고 정보 전달
 
@@ -26,21 +26,36 @@ Defender for IoT 관리자는 전달 규칙을 사용할 수 있는 권한이 �
 
 경고는 보안 및 운영 이벤트의 광범위한 정보를 제공합니다. 예를 들면 다음과 같습니다.
 
-  - 경고의 날짜 및 시간
+- 경고의 날짜 및 시간
 
-  - 이벤트를 검색한 엔진
+- 이벤트를 검색한 엔진
 
-  - 경고 제목 및 설명 메시지
+- 경고 제목 및 설명 메시지
 
-  - 경고 심각도
+- 경고 심각도
 
-  - 원본 및 대상 이름과 IP 주소
+- 원본 및 대상 이름과 IP 주소
 
-  - 의심스러운 트래픽이 탐지됨
+- 의심스러운 트래픽이 탐지됨
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/address-scan-detected-screen.png" alt-text="주소 검색이 감지됨.":::
 
 관련 정보는 전달 규칙이 생성될 때 파트너 시스템으로 전송됩니다.
+
+## <a name="about-forwarding-rules-and-certificates"></a>전달 규칙 및 인증서 정보
+
+특정 전달 규칙은 센서 또는 온-프레미스 관리 콘솔과 통합 공급 업체의 서버 간의 암호화 및 인증서 유효성 검사를 허용 합니다.
+
+이러한 경우 센서 또는 온-프레미스 관리 콘솔은 세션의 클라이언트 및 개시자입니다.  인증서는 일반적으로 서버에서 수신 되거나, 통합을 설정 하기 위해 특정 인증서가 제공 되는 비대칭 암호화를 사용 합니다.
+
+IoT 용 Defender 시스템은 인증서의 유효성을 검사 하거나 인증서 유효성 검사를 무시 하도록 설정 되었습니다.  유효성 검사 설정 및 해제에 대 한 자세한 내용은 [인증서 유효성 검사](how-to-deploy-certificates.md#about-certificate-validation) 정보를 참조 하세요.
+
+유효성 검사를 사용 하도록 설정 하 고 인증서를 확인할 수 없으면 Defender IoT와 서버 간의 통신이 중단 됩니다.  센서는 유효성 검사 오류를 나타내는 오류 메시지를 표시 합니다.  유효성 검사를 사용 하지 않도록 설정 하 고 인증서가 유효 하지 않은 경우에도 통신이 수행 됩니다.
+
+다음 전달 규칙은 암호화 및 인증서 유효성 검사를 허용 합니다.
+- Syslog CEF
+- Azure Sentinel
+- QRadar
 
 ## <a name="create-forwarding-rules"></a>전달 규칙 만들기
 
@@ -54,7 +69,7 @@ Defender for IoT 관리자는 전달 규칙을 사용할 수 있는 권한이 �
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="전달 규칙 만들기 아이콘":::
 
-1. 전달 규칙의 이름을 입력합니다. 
+1. 전달 규칙의 이름을 입력합니다.
 
 1. 심각도 수준을 선택합니다.
 
@@ -111,7 +126,7 @@ Defender for IoT 관리자는 전달 규칙을 사용할 수 있는 권한이 �
 - SIEM에서 경고 검색에 대한 타임 스탬프에 대한 표준 시간대.
 
 - CEF 서버에 대한 TLS 암호화 인증서 파일 및 키 파일 (옵션).
-    
+
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="전달 규칙에 대한 암호화를 구성합니다.":::
 
 | Syslog 텍스트 메시지 출력 필드 | Description |
@@ -122,34 +137,32 @@ Defender for IoT 관리자는 전달 규칙을 사용할 수 있는 권한이 �
 | 프로토콜 | TCP 또는 UDP |
 | 메시지 | 센서: 센서 이름.<br /> 알림: 경고의 제목입니다.<br /> 유형: 경고의 형식입니다. **프로토콜 위반**, **정책 위반**, **맬웨어**, **비정상** 또는 **운영상** 이 될 수 있습니다.<br /> 심각도: 경고의 심각도. **경고**, **부분**, **다수** 또는 **중요** 일 수 있습니다.<br /> 원본: 디바이스 이름을 확인합니다.<br /> 원본 디바이스 IP 주소<br /> Destination: 대상 디바이스 이름입니다.<br /> 대상 IP: 대상 디바이스의 IP 주소입니다.<br /> msg: 경고의 메시지.<br /> 경고 그룹: 경고와 연결된 경고 그룹입니다. |
 
-
 | Syslog 개체 출력 | Description |
 |--|--|
-| 날짜 및 시간 |   Syslog 서버 시스템이 정보를 수신한 날짜 및 시간입니다. |  
-| 우선 순위 |    사용자.경고 | 
-| 호스트 이름 |    센서 IP | 
+| 날짜 및 시간 | Syslog 서버 시스템이 정보를 수신한 날짜 및 시간입니다. |  
+| 우선 순위 | 사용자.경고 |
+| 호스트 이름 | 센서 IP |
 | 메시지 | 센서 이름: 어플라이언스 이름. <br /> 경고 시간: 경고가 탐지된 시간: syslog 서버 컴퓨터의 시간과 다를 수 있으며 전달 규칙의 표준 시간대 구성에 따라 달라집니다. <br /> 경고 제목: 경고의 제목. <br /> 경고 메세지: 경고의 메시지. <br /> 경고 심각도: 경고의 심각한 수준: **경고**, **경미**, **중대** 또는 **위험**. <br /> 경고 형식: **프로토콜 위반**, **정책 위반**, **맬웨어**, **비정상** 또는 **운영상**. <br /> 프로토콜: 경고의 프로토콜.  <br /> **Source_MAC**: IP 주소, 이름, 공급 업체 또는 원본 디바이스의 OS. <br /> Destination_MAC: IP 주소, 이름, 공급 업체 또는 대상 디바이스의 OS. 데이터가 누락된 경우, 값은 **N/A** 가 됩니다. <br /> 경고 그룹: 경고와 연결된 경고 그룹입니다. |
-
 
 | Syslog CEF 출력 형식 | Description |
 |--|--|
 | 날짜 및 시간 | Syslog 서버 시스템이 정보를 수신한 날짜 및 시간입니다. |
-| 우선 순위 | 사용자.경고 | 
+| 우선 순위 | 사용자.경고 |
 | 호스트 이름 | Sensor IP 주소 |
 | 메시지 | CEF:0 <br />IoT용 Azure Defender <br />센서 이름: 센서 어플라이언스의 이름. <br />센서 버전 <br />경고 제목: 경고의 제목. <br />msg: 경고의 메시지. <br />프로토콜 - 경고의 프로토콜. <br />심각도: **경고**, **경미**, **중대** 또는 **위험**. <br />형식:  **프로토콜 위반**, **정책 위반**, **맬웨어**, **비정상** 또는 **운영상**. <br /> 시작: 경고가 검색된 시간. <br />syslog 서버 컴퓨터의 시간과 다를 수 있으며 전달 규칙의 시간대 구성에 따라 달라집니다. <br />src_ip: 원본 디바이스의 IP 주소.  <br />dst_ip: 대상 디바이스의 IP 주소.<br />cat: 경고와 연결된 경고 그룹.  |
 
 | Syslog LEEF 출력 형식 | Description |
 |--|--|
-| 날짜 및 시간 |   Syslog 서버 시스템이 정보를 수신한 날짜 및 시간입니다. |  
-| 우선 순위 |    사용자.경고 | 
-| 호스트 이름 |    센서 IP |
+| 날짜 및 시간 | Syslog 서버 시스템이 정보를 수신한 날짜 및 시간입니다. |  
+| 우선 순위 | 사용자.경고 |
+| 호스트 이름 | 센서 IP |
 | 메시지 | 센서 이름: IoT 어플라이언스 용 Azure Defender의 이름. <br />LEEF:1.0 <br />IoT용 Azure Defender <br />센서  <br />센서 버전 <br />IoT 경고용 Azure Defender <br />제목: 경고의 제목. <br />msg: 경고의 메시지. <br />프로토콜: 경고의 프로토콜.<br />심각도: **경고**, **경미**, **중대** 또는 **위험**. <br />형식: 경고의 형식: **프로토콜 위반**, **정책 위반**, **맬웨어**, **비정상** 또는 **운영상**. <br />시작: 경고의 시간.syslog 서버 머신의 시간과 다를 수도 있습니다. (이는 표준 시간대 구성에 따라 달라집니다.) <br />src_ip: 원본 디바이스의 IP 주소.<br />dst_ip: 대상 디바이스의 IP 주소. <br />cat: 경고와 연결된 경고 그룹. |
 
 모든 정보를 입력한 후 **제출** 을 선택합니다.
 
 ### <a name="webhook-server-action"></a>웹후크 서버 작업
 
-웹후크 서버에 경고 정보를 보냅니다. 웹후크 서버를 사용하면 Defender for IoT를 사용하여 경고 이벤트를 구독하는 통합을 설정할 수 있습니다. 경고 이벤트가 트리거되면 관리 콘솔은 웹후크의 구성된 URL에 HTTP POST 페이로드를 보냅니다. 웹후크는 외부 SIEM 시스템, SOAR 시스템, 인시던트 관리 시스템 등을 업데이트하는 데 사용할 수 있습니다.   
+웹후크 서버에 경고 정보를 보냅니다. 웹후크 서버를 사용하면 Defender for IoT를 사용하여 경고 이벤트를 구독하는 통합을 설정할 수 있습니다. 경고 이벤트가 트리거되면 관리 콘솔은 웹후크의 구성된 URL에 HTTP POST 페이로드를 보냅니다. 웹후크는 외부 SIEM 시스템, SOAR 시스템, 인시던트 관리 시스템 등을 업데이트하는 데 사용할 수 있습니다.
 
 **웹후크 작업을 정의하려면:**
 
@@ -162,6 +175,58 @@ Defender for IoT 관리자는 전달 규칙을 사용할 수 있는 권한이 �
 1. **키** 및 **값** 필드에서 키와 값 정의를 사용하여 HTTP 헤더를 사용자 지정합니다. 키는 문자, 숫자, 대시 및 밑줄만 포함할 수 있습니다. 값에는 선행 및/또는 후행 공백이 하나만 포함될 수 있습니다.
 
 1. **저장** 을 선택합니다.
+
+### <a name="webhook-extended"></a>Webhook 확장
+
+Webhook 확장은 끝점에 추가 데이터를 보내는 데 사용할 수 있습니다. 확장 기능은 웹 후크 경고의 모든 정보를 포함 하 고 보고서에 다음 정보를 추가 합니다.
+
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+**Webhook 확장 작업을 정의 하려면**:
+
+1. 관리 콘솔의 왼쪽 창에서 **전달** 을 선택 합니다.
+
+1. 단추를 선택하여 전달 규칙을 :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false"::: 추가합니다.
+
+1. 전달 경고에 대한 의미 있는 이름을 추가합니다.
+
+1. 심각도 수준을 선택합니다.
+
+1. **추가** 를 선택합니다.
+
+1. 형식 선택 드롭다운 창에서 **Webhook 확장** 를 선택합니다.
+
+   :::image type="content" source="media/how-to-forward-alert-information-to-partners/webhook-extended.png" alt-text="선택 유형 드롭다운 옵션 메뉴에서 webhook 확장 옵션을 선택합니다.":::
+
+1. URL 필드에 엔드포인트 데이터 URL을 추가합니다.
+
+1. (선택 사항) 키 및 값 정의를 사용하여 HTTP 헤더를 사용자 지정합니다. 단추를 선택하여 추가 헤더를 :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: 추가합니다.
+
+1. **저장** 을 선택합니다.
+
+웹후크 확장 전달 규칙이 구성되면 관리 콘솔의 전달 화면에서 경고를 테스트할 수 있습니다.
+
+**Webhook 확장 전달 규칙을 테스트하려면:**
+
+1. 관리 콘솔의 왼쪽 창에서 **전달을** 선택합니다.
+
+1. **실행** 단추를 선택하여 경고를 테스트합니다.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="실행 단추를 선택하여 전달 규칙을 테스트합니다.":::
+
+성공 알림이 표시되면 전달 규칙이 작동하는지 알 수 있습니다.
+
+:::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="성공 알림이 표시되면 경고가 올바르게 작동합니다.":::
 
 ### <a name="netwitness-action"></a>NetWitness 작업
 

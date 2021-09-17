@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 8897e6da3b3d70f9b7d0434dade86e4f2ceb9c50
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 696db5ef934dd0aca5a7485e7d40bf85d0cd8cb4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094427"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473301"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>물리적 서버 마이그레이션을 위한 지원 매트릭스
 
@@ -58,7 +58,8 @@ ms.locfileid: "110094427"
 **iSCSI 대상** | ISCSI 대상을 사용하는 컴퓨터는 에이전트 없는 마이그레이션에 대해 지원되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **팀 NIC** | 지원되지 않습니다.
-**IPv6** | 지원 안 됨
+**IPv6** | 지원되지 않습니다.
+**PV 드라이버/XenServer 도구** | 지원 안 됨
 
 
 
@@ -83,9 +84,9 @@ Azure로 복제된 모든 온-프레미스 VM은 이 표에 요약된 Azure VM �
 데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 크기 | 최대 32TB. | 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
-FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
-BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
+공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
+FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
+BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
 마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행하는 Azure VM에 연결하려면:<br/> - 마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용하도록 설정합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/> 사이트 간 VPN 액세스의 경우, RDP를 사용하도록 설정하고, **도메인 및 프라이빗** 네트워크에 대하여 **Windows 방화벽** -> **허용되는 앱과 기능** 에서 RDP를 허용합니다. 운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세히 알아보기](prepare-for-migration.md). |
 마이그레이션 후 연결-Linux | 마이그레이션한 후 SSH를 사용하여 Azure VM에 연결해야 합니다.<br/> 마이그레이션 전에 온-프레미스 머신에서 Secure Shell 서비스가 시작으로 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.<br/> 장애 조치(failover) 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다. 또한, VM에 대한 공용 IP 주소를 추가하세요. |  

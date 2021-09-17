@@ -10,18 +10,16 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b0f11be9261785ca332d47a7406133e3106547fd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694702"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471206"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Blob Storage에 요청에 대한 암호화 키 제공
 
 Azure Blob Storage에 대한 요청을 수행하는 클라이언트는 요청별로 AES-256 암호화 키를 제공할 수 있습니다. 요청에 암호화 키를 포함하면 Blob Storage 작업에 대한 암호화 설정의 세부적인 제어 기능이 제공됩니다. 고객이 제공한 키는 Azure Key Vault 또는 다른 키 스토리지에 저장할 수 있습니다.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>읽기 및 쓰기 작업 암호화
 
@@ -75,6 +73,17 @@ blob을 암호화하는 데 사용된 암호화 키를 순환하려면 blob을 �
 > 요청 시 제공된 키를 사용하여 암호화된 컨테이너 또는 blob에 대한 읽기나 쓰기에 Azure Portal을 사용할 수 없습니다.
 >
 > Blob Storage에 대한 요청에 제공한 암호화 키를 Azure Key Vault 같은 보안 키 저장소에 보호해야 합니다. 암호화 키가 없는 컨테이너 또는 Blob에서 쓰기 작업을 시도하면 작업이 실패하고 개체에 대한 액세스 권한이 손실됩니다.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

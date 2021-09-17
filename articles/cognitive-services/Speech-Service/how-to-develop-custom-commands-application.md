@@ -3,19 +3,19 @@ title: '방법: 사용자 지정 명령 애플리케이션 개발 - Speech Servi
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 명령 애플리케이션을 개발하고 사용자 지정하는 방법을 알아봅니다. 음성 명령 앱은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: lajanuar
-ms.openlocfilehash: 62f8c726a4ba8cec07ef2898d132f9aa3d526785
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 7b5f32e50e4bcb256d5580edccaf083dad39b98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539547"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542632"
 ---
 # <a name="develop-custom-commands-applications"></a>사용자 지정 명령 애플리케이션 개발
 
@@ -93,7 +93,7 @@ ms.locfileid: "122539547"
 1. 기본 완료 규칙 **완료** 를 선택합니다. 그리고 다음과 같이 편집합니다.
 
 
-    | 설정    | 제안 값                          | 설명                                        |
+    | 설정    | 제안 값                          | Description                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **이름**       | `ConfirmationResponse`                  | 규칙의 목적을 설명하는 이름          |
     | **조건** | 없음                                     | 규칙을 실행할 수 있는 시기를 결정하는 조건    |
@@ -183,7 +183,7 @@ ms.locfileid: "122539547"
    1. 다음 표를 사용하여 매개 변수의 속성을 구성합니다. 명령의 모든 구성 속성에 대한 자세한 내용은 [사용자 지정 명령 개념 및 정의](./custom-commands-references.md)를 참조하세요.
 
 
-       | 구성      | 제안 값     | 설명                                                      |
+       | 구성      | 제안 값     | Description                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **이름**               | `OnOff`           | 매개 변수의 구체적인 이름                                                                           |
        | **필수**           | 선택됨         | 명령이 완료되기 전에 이 매개 변수의 값이 필요한지 여부를 나타내는 확인란입니다. |

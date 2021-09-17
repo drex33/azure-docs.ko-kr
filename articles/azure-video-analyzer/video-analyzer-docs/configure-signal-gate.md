@@ -3,12 +3,12 @@ title: 이벤트 기반 비디오 녹화를 위한 신호 게이트 구성 - Azu
 description: 이 문서에서는 파이프라인에서 신호 게이트를 구성하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: 2da85aa31facbec922eac9ee895cd68d66326a42
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604075"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427969"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>이벤트 기반 비디오 녹화를 위한 신호 게이트 구성
 
@@ -159,7 +159,7 @@ ms.locfileid: "114604075"
 
 파이프라인을 사용하면 클라우드 또는 에지 디바이스에서 MP4 파일로 비디오를 녹화할 수 있습니다. [연속 비디오 녹화](use-continuous-video-recording.md) 또는 [이벤트 기반 비디오 녹화](record-event-based-live-video.md)를 통해 생성될 수 있습니다.
 
-클라우드 녹화에 대한 권장되는 이름 구조는 "<anytext>-${System.TopologyName}-${System.PipelineName}"으로 비디오 이름을 지정하는 것입니다. 지정된 라이브 파이프라인은 하나의 RTSP 지원 IP 카메라에만 연결할 수 있으며, 해당 카메라의 입력을 하나의 비디오 리소스에 기록해야 합니다. 예를 들어 다음과 같이 비디오 싱크에서 `VideoName`을 설정할 수 있습니다.
+클라우드에 기록하는 데 권장되는 명명 구조는 비디오 리소스의 이름을 로 지정하는 `<anytext>-${System.TopologyName}-${System.PipelineName}` 것입니다. 지정된 라이브 파이프라인은 하나의 RTSP 지원 IP 카메라에만 연결할 수 있으며, 해당 카메라의 입력을 하나의 비디오 리소스에 기록해야 합니다. 예를 들어 다음과 같이 비디오 싱크에서 `VideoName`을 설정할 수 있습니다.
 
 ```
 "VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"

@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 6db488449ad54957ae71f9c53c1a26bda25c6db1
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 985f649d864e0fad250a5b2342b8cb96c049c0ec
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965962"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478359"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Microsoft 파트너 계약에 대한 Azure 구독 만들기
 
@@ -387,11 +387,11 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 
 ---
 
-## <a name="use-arm-template"></a>ARM 템플릿 사용
+## <a name="use-arm-template-or-bicep"></a>ARM 템플릿 또는 Bicep 사용
 
-이전 섹션에서는 PowerShell, CLI 또는 REST API를 사용하여 구독을 만드는 방법을 살펴보았습니다. 자동으로 구독을 만들어야 하는 경우 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하는 것이 좋습니다.
+이전 섹션에서는 PowerShell, CLI 또는 REST API를 사용하여 구독을 만드는 방법을 살펴보았습니다. 구독 만들기를 자동화 해야 하는 경우 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 [Bicep 파일](../../azure-resource-manager/bicep/overview.md)을 사용 하는 것이 좋습니다.
 
-다음 템플릿에서 구독을 만듭니다. `billingScope`에 고객 ID를 제공합니다. 구독은 루트 관리 그룹에서 만들어집니다. 구독을 만든 후 다른 관리 그룹으로 이동할 수 있습니다.
+다음 ARM 템플릿은 구독을 만듭니다. `billingScope`에 고객 ID를 제공합니다. 구독은 루트 관리 그룹에서 만들어집니다. 구독을 만든 후 다른 관리 그룹으로 이동할 수 있습니다.
 
 ```json
 {
@@ -428,7 +428,29 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 }
 ```
 
-[관리 그룹 수준](../../azure-resource-manager/templates/deploy-to-management-group.md)에서 템플릿을 배포합니다.
+또는 Bicep 파일을 사용 하 여 구독을 만듭니다.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+[관리 그룹 수준](../../azure-resource-manager/templates/deploy-to-management-group.md)에서 템플릿을 배포합니다. 다음 예제에서는 JSON ARM 템플릿 배포를 보여 주지만 대신 Bicep 파일을 배포할 수 있습니다.
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest)
 
@@ -483,7 +505,7 @@ az deployment mg create \
 
 ---
 
-구독을 새 관리 그룹으로 이동하려면 다음 템플릿을 사용합니다.
+새 관리 그룹으로 구독을 이동 하려면 다음 ARM 템플릿을 사용 합니다.
 
 ```json
 {
@@ -514,6 +536,23 @@ az deployment mg create \
         }
     ],
     "outputs": {}
+}
+```
+
+또는 다음 Bicep 파일입니다.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

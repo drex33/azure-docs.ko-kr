@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 09/01/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6d8420f0138dc26e2f265ac7c4f48e646a6bfe69
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: 51b254c42f06c3ae6a0609a05e6f36056106139b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165122"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432039"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>VPN Gateway(가상 네트워크 게이트웨이)를 Virtual WAN에 연결
 
@@ -45,7 +45,7 @@ Azure Virtual Network
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>BGP 설정
 
-가상 네트워크 게이트웨이 **구성** 페이지에서 **BGP ASN** 을 구성할 수 있습니다. BGP ASN을 변경합니다. BGP ASN은 65515일 수 없습니다. 65515는 Azure Virtual WAN에서 사용됩니다.
+가상 네트워크 게이트웨이 **구성** 페이지에서 필요에 따라 **BGP ASN 구성을** 선택할 수 있습니다. BGP를 구성하는 경우 포털에 표시된 기본값에서 ASN을 변경합니다. 이 구성의 경우 BGP ASN은 65515일 수 없습니다. 65515는 Azure Virtual WAN에서 사용됩니다.
 
 ![BGP ASN 구성이 선택된 가상 네트워크 게이트웨이 구성 페이지를 보여 주는 스크린샷](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -95,6 +95,7 @@ Virtual WAN VPN 사이트를 만들려면 가상 WAN으로 이동한 다음, **�
 
    * **IP 주소** - 구성 파일에서 *gatewayconfiguration* 에 대해 표시된 Instance0 IP 주소를 사용합니다.
    * **BGP** - 연결이 BGP를 통과하는 경우 **BGP 설정 구성** 을 선택하고, ASN '65515'를 입력합니다. BGP 피어 IP 주소를 입력합니다. 구성 파일에서 *gatewayconfiguration* 에 대해 표시된 'Instance0 BgpPeeringAddresses'를 사용합니다.
+   * **주소 공간** 연결이 BGP를 통해 연결되지 않은 경우 **BGP 설정 구성이** 선택되지 않은 상태로 유지되는지 확인합니다.  가상 네트워크 게이트웨이 쪽에서 보급하려는 주소 공간을 입력합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 연결하려는 다른 네트워크의 범위와 겹치지 않는지 확인합니다. 
    * **구독, 리소스 그룹 및 위치** 는 Virtual WAN 허브와 동일합니다.
 2. 검토하고, 로컬 네트워크 게이트웨이를 만듭니다. 로컬 네트워크 게이트웨이는 다음 예와 비슷합니다.
 

@@ -1,20 +1,20 @@
 ---
 title: Android 지도의 데이터 기반 스타일 식 | Microsoft Azure Maps
 description: 데이터 기반 스타일 식에 대해 알아봅니다. Azure Maps Android SDK에서 이러한 식을 사용하여 지도의 스타일을 조정하는 방법을 확인합니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: d26947b48ca64ea5f06f3f9566d05fd110d6e93f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 7c73c52045504dfeeaccf5292aea7ab07b75d8d8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091846"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438537"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>데이터 기반 스타일 식(Android SDK)
 
@@ -1167,7 +1167,7 @@ val layer = LineLayer(source,
 
 다음 형식 옵션을 사용할 수 있습니다.
 
-| 식 | 설명 |
+| 식 | Description |
 |------------|-------------|
 | `formatFontScale(number)` \| `formatFontScale(Expression)` | 글꼴 크기의 스케일링 인수를 지정합니다. 지정된 경우 이 값은 개별 문자열의 `textSize` 속성을 재정의합니다. |
 | `formatTextFont(string[])` \| `formatTextFont(Expression)` | 렌더링할 때 텍스트에 적용할 색을 지정합니다. |

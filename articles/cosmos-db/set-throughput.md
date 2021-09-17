@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: fd7601ca87400314b9f282a0fe31035755def056
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 3c2e900090b3f3908318bfbc3f1ea1e6f2588dee
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033151"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431281"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -123,6 +123,8 @@ Azure Portal 또는 다음 SDK를 사용하여 컨테이너 또는 데이터베�
 
 **프로비저닝된 처리량을 늘리는** 경우 대부분의 경우에는 작업이 즉시 수행됩니다. 그러나 필요한 리소스를 프로비저닝하는 시스템 작업으로 인해 작업이 더 오래 걸릴 수 있는 경우가 있습니다. 이 경우 이 작업이 진행 중인 동안 프로비저닝된 처리량을 수정하려고 하면 다른 크기 조정 작업이 진행 중임을 설명하는 오류 메시지와 함께 HTTP 423 응답이 생성됩니다.
 
+[프로비전된 처리량 크기 조정에 대한 모범 사례(RU/s)](scaling-provisioned-throughput-best-practices.md) 문서에서 자세히 알아보세요.
+
 > [!NOTE]
 > 프로비저닝된 처리량을 크게 증가시켜야 하는 매우 큰 수집 워크로드를 계획하는 경우 크기 조정 작업에는 SLA가 없으며 이전 단락에서 언급했듯이 증가량이 클 경우 시간이 오래 걸릴 수 있음을 명심합니다. 미리 계획하고 워크로드가 시작되기 전에 크기 조정을 시작하고 아래 방법을 사용하여 진행률을 확인하는 것이 좋습니다.
 
@@ -162,4 +164,4 @@ Azure Portal 또는 다음 SDK를 사용하여 컨테이너 또는 데이터베�
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비전](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

@@ -1,20 +1,20 @@
 ---
 title: Android SDK의 포인트 데이터 클러스터링 | Microsoft Azure Maps
 description: 맵에서 요소 데이터를 클러스터링하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용하여 데이터를 클러스터링하고, 클러스터 마우스 이벤트에 대응하고, 클러스터 집계를 표시하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 81de84dd517babecf696bd2e4c906074f95f41a4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: a6b9de675c32c893e872d23835c856a0fe6c49d3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113095137"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429823"
 ---
 # <a name="clustering-point-data-in-the-android-sdk"></a>Android SDK의 포인트 데이터 클러스터링
 
@@ -422,7 +422,7 @@ map.layers.add(
 
 클러스터형 데이터 요소를 포함하는 계층에서 마우스 이벤트가 발생하면 클러스터형 데이터 요소는 이벤트를 GeoJSON 요소 기능 개체로 반환합니다. 이 요소 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `point_count`             | number  | 클러스터에 포함된 지점의 수입니다.  |

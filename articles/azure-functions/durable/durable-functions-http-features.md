@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 67a28bccf3353ed7e33826b0ef5b82fc1cc5f981
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 8f661ea1462ad00cdf0ddc5caa802b53d5d8fc20
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376885"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480447"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -277,7 +277,8 @@ main = df.Orchestrator.create(orchestrator_function)
 "HTTP 호출" API는 클라이언트 쪽 폴링 소비자 패턴을 자동으로 구현할 수 있습니다. 호출된 API가 Location 헤더가 있는 HTTP 202 응답을 반환하는 경우 오케스트레이터 함수는 202 이외의 응답을 받을 때까지 Location 리소스를 자동으로 폴링합니다. 이 응답은 오케스트레이터 함수 코드에 반환되는 응답입니다.
 
 > [!NOTE]
-> 또한 오케스트레이터 함수는 [비동기 작업 추적](#async-operation-tracking)에 설명된 대로 서버 쪽 폴링 소비자 패턴을 기본적으로 지원합니다. 이 지원은 한 함수 앱의 오케스트레이션이 다른 함수 앱의 오케스트레이터 함수를 쉽게 조정할 수 있다는 뜻입니다. [하위 오케스트레이션](durable-functions-sub-orchestrations.md) 개념과 비슷하지만 앱 간 통신을 지원합니다. 이 지원은 마이크로서비스 스타일 앱 개발에 특히 유용합니다.
+> 1. 또한 오케스트레이터 함수는 [비동기 작업 추적](#async-operation-tracking)에 설명된 대로 서버 쪽 폴링 소비자 패턴을 기본적으로 지원합니다. 이 지원은 한 함수 앱의 오케스트레이션이 다른 함수 앱의 오케스트레이터 함수를 쉽게 조정할 수 있다는 뜻입니다. [하위 오케스트레이션](durable-functions-sub-orchestrations.md) 개념과 비슷하지만 앱 간 통신을 지원합니다. 이 지원은 마이크로서비스 스타일 앱 개발에 특히 유용합니다.
+> 2. 일시적인 제한으로 인해 기본 제공 HTTP 폴링 패턴은 현재 JavaScript/TypeScript 및 Python에서 사용할 수 없습니다.
 
 ### <a name="managed-identities"></a>관리 ID
 

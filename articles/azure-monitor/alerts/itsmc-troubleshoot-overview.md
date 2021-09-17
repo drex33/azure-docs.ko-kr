@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 16b6675a7b9796405376540b87efbaaa2a991890
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: d6e41cd80e27fe673d04592c61e590c09645619e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081121"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430363"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>IT 서비스 관리 커넥터의 문제 해결
 
@@ -100,7 +100,7 @@ ITSMC 대시보드를 사용하여 인시던트 및 변경 요청 데이터를 �
 **원인**: 이 증상에는 여러 가지 이유가 있을 수 있습니다.
 
 * 템플릿은 작업 정의 드롭다운의 일부로 표시되지 않고 "템플릿 구성을 검색할 수 없습니다. 자세한 내용은 커넥터 로그를 참조하세요."라는 오류 메시지가 표시됩니다.
-* 작업 정의의 일부로 기본 필드의 드롭다운에 값이 표시되지 않고 "다음 필드에 대한 값을 찾을 수 없음: <field names>" 오류 메시지가 표시됩니다.
+* 작업 정의의 일부로 기본 필드의 드롭다운에 값이 표시되지 않고 "다음 필드에 대한 값을 찾을 수 없음: \<field names\>" 오류 메시지가 표시됩니다.
 * 인시던트/이벤트는 ServiceNow에서 만들어지지 않습니다.
 
 **해결 방법**: 

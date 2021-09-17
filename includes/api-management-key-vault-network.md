@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 01/26/2021
 ms.author: danlep
-ms.openlocfilehash: a9dbedd8516f3a3a592c7fd4f4f5563011d6c6db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f651dc7990212347d3179b9d4eddf7bf733ef6fd
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491017"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646556"
 ---
 #### <a name="requirements-for-key-vault-firewall"></a>Key Vault 방화벽에 대한 요구 사항
 
@@ -25,4 +25,4 @@ API Management 인스턴스가 가상 네트워크에 배포된 경우 다음 �
 * API Management 서브넷에서 Azure Key Vault에 대한 [서비스 엔드포인트](../articles/key-vault/general/overview-vnet-service-endpoints.md)를 사용하도록 설정합니다.
 * AzureKeyVault 및 AzureActiveDirectory [서비스 태그](../articles/virtual-network/service-tags-overview.md)에 대한 아웃바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다. 
 
-자세한 내용은 [가상 네트워크에 연결](../articles/api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)의 네트워크 구성 정보를 참조하세요.
+자세한 내용은 [가상 네트워크에 연결](../articles/api-management/api-management-using-with-vnet.md#network-configuration)의 네트워크 구성 정보를 참조하세요.

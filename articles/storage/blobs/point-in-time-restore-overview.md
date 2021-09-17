@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d98c239da9c415da0a87f0eecad20af147802aca
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.openlocfilehash: 06f5c1192d5216f753d77fb842359835c4552197
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567788"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471051"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 BLOB에 대한 특정 시점 복원
 
@@ -89,6 +89,17 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 
 > [!IMPORTANT]
 > 블록 BLOB을 2020년 9월 22일 이전 시점으로 복원하는 경우 특정 시점 복원에 대한 미리 보기 제한이 적용됩니다. 일반적으로 사용 가능한 특정 시점 복원 기능을 활용하려면 2020년 9월 22일 또는 그 이후의 복원 지점을 선택하는 것이 좋습니다.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/no-icon.png)|![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 0d7cb5c8747707b950075c7201d90c5e208298db
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123457"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425179"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태 문제 해결(미리 보기)
 이 문서에서는 VM 인사이트 상태와 관련된 이슈가 있을 때 수행할 수 있는 문제 해결 단계를 설명합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "112123457"
 다음 솔루션으로 설치 문제가 해결되지 않으면 `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log`에 있는 VM 상태 에이전트 로그를 수집하고 추가 조사를 위해 Microsoft에 문의하세요.
 
 ### <a name="error-message-showing-db5-error"></a>db5 오류를 보여 주는 오류 메시지
-설치에 실패했고 설치 오류 메시지는 다음과 유사합니다.
+설치에 실패 하 고 설치 오류 메시지가 다음과 유사 합니다.
 
 ```
 script execution exit with error: error: db5 error(5) from dbenv->open: Input/output error
@@ -31,13 +31,13 @@ error: cannot open Packages database in /var/lib/rpm
 이는 패키지 관리자 rpm 데이터베이스가 손상되었기 때문입니다. [RPM 데이터베이스 복구](https://rpm.org/user_doc/db_recovery.html)의 지침에 따라 복구해 보세요. rpm 데이터베이스가 복구되면 다시 설치해 보세요.
 
 ### <a name="init-file-already-exist-error"></a>Init 파일이 이미 있음 오류
-설치에 실패했고 설치 오류 메시지는 다음과 유사합니다.
+설치에 실패 하 고 설치 오류 메시지가 다음과 유사 합니다.
 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: Init already exists: /etc/systemd/system/vmGuestHealthAgent.service"install vmGuestHealthAgent service execution failed with exit code 37
 ```
 
-VM 상태 에이전트는 현재 버전을 설치하기 전에 먼저 기존 서비스를 제거합니다. 이 오류의 원인은 몇 가지 이유로 인해 이전 서비스 파일이 정리되지 않았기 때문일 수 있습니다. VM에 로그인하고, 다음 명령을 실행하여 기존 서비스 파일을 백업하고, 다시 설치해 보세요.
+VM 상태 에이전트는 현재 버전을 설치하기 전에 먼저 기존 서비스를 제거합니다. 이 오류의 원인은 어떤 이유로 인해 이전 서비스 파일이 정리 되지 않았기 때문일 수 있습니다. VM에 로그인하고, 다음 명령을 실행하여 기존 서비스 파일을 백업하고, 다시 설치해 보세요.
 
 ```
 sudo mv /etc/systemd/system/vmGuestHealthAgent.service  /etc/systemd/system/vmGuestHealthAgent.service.bak
@@ -50,12 +50,12 @@ sudo rm /etc/systemd/system/vmGuestHealthAgent.service.bak
 ```
 
 ### <a name="installation-failed-to-exit-code-37"></a>종료 코드 37로 설치 실패
-설치에 실패했고 설치 오류 메시지는 다음과 유사합니다. 
+설치에 실패 하 고 설치 오류 메시지가 다음과 유사 합니다. 
 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
 ```
-이는 VM 게스트 에이전트가 서비스 파일에 대한 잠금을 획득할 수 없기 때문일 수 있습니다. 잠금을 해제할 VM을 다시 부팅해 보세요.
+VM 게스트 에이전트가 서비스 파일에 대 한 잠금을 획득할 수 없기 때문일 수 있습니다. 잠금을 해제할 VM을 다시 부팅해 보세요.
 
 
 ## <a name="upgrade-errors"></a>업그레이드 오류
@@ -74,7 +74,7 @@ Exiting with the following error: "Failed to install VM Guest Health Agent: exit
   - Linux의 경우: 디먼은 *vmGuestHealthAgent* 입니다. 상태 폴더는 */var/opt/vmGuestHealthAgent/* *입니다.
   - Windows의 경우: 서비스는 *VM 게스트 상태 에이전트* 입니다. 상태 폴더는 _%ProgramData%\Microsoft\VMGuestHealthAgent\\*_ 입니다.
 - Azure Monitor 에이전트가 네트워크에 연결되었는지 확인합니다. 
-  - 가상 머신에서 _<region>.handler.control.monitor.azure.com_ 을 ping해 봅니다. 예를 들어, 서유럽의 가상 머신인 경우 _westeurope.handler.control.monitor.azure.com:443_ 을 ping해 봅니다.
+  - 가상 머신에서 _\<region\>.handler.control.monitor.azure.com_ 을 ping해 봅니다. 예를 들어, 서유럽의 가상 머신인 경우 _westeurope.handler.control.monitor.azure.com:443_ 을 ping해 봅니다.
 - 가상 머신이 Log Analytics 작업 영역과 같은 지역의 데이터 수집 규칙과 연결되어 있는지 확인합니다.
   -  DCR의 구조가 올바른지 확인하려면 [VM용 Azure Monitor 게스트 상태 사용(미리 보기)](vminsights-health-enable.md)에서 **DCR(데이터 수집 규칙) 만들기** 를 참조하세요. 세 개의 카운터를 샘플링하도록 설정된 *performanceCounters* 데이터 원본 섹션이 있고, 확장에 카운터를 보내도록 상태 확장 구성에 *inputDataSources* 섹션이 있는지 특히 주의합니다.
 -  가상 머신에 게스트 상태 확장 오류가 있는지 확인합니다.
@@ -113,7 +113,7 @@ Azure Monitor 에이전트 확장 및 게스트 VM 상태 에이전트가 가상
 상태 확장을 데이터 원본으로 지정하는 데이터 수집 규칙이 가상 머신과 연결되어 있는지 확인합니다.
 
 ### <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>권한 부족으로 인한 잘못된 요청에 관한 오류 메시지
-이 오류는 **Microsoft.WorkloadMonitor** 리소스 공급자가 구독에 등록되지 않았음을 나타냅니다. 이 리소스 공급자 등록에 관한 세부 정보는 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조하세요. 
+이 오류는 **WorkloadMonitor** 리소스 공급자가 구독에 등록 되지 않았음을 나타냅니다. 이 리소스 공급자 등록에 관한 세부 정보는 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조하세요. 
 
 ![잘못된 요청](media/vminsights-health-troubleshoot/bad-request.png)
 

@@ -1,19 +1,17 @@
 ---
 title: Azure Maps를 사용하여 액세스 가능한 맵 애플리케이션 만들기 | Microsoft Azure Maps
 description: Azure Maps의 접근성 고려 사항에 대해 알아봅니다. 지도 애플리케이션에 액세스할 수 있도록 하기 위해 사용되는 기능을 살펴보고 접근성을 높이는 팁도 확인합니다.
-services: azure-maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
-manager: cpendleton
-ms.openlocfilehash: 954dd8ad65d0a9c90e19530d541c19b5034bc175
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
-ms.translationtype: HT
+ms.openlocfilehash: 7f0aa739df4b58435f0caebacdab3865dce284e2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208116"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432795"
 ---
 # <a name="building-an-accessible-application"></a>액세스 가능한 애플리케이션 작성
 
@@ -127,7 +125,7 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 <br/>
 
-<iframe height='500' scrolling='no' title='액세스 가능한 애플리케이션 만들기' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>액세스 가능한 애플리케이션 만들기</a>를 참조하세요. </iframe>
+<iframe height='500' scrolling='no' title='액세스 가능한 애플리케이션 만들기' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>액세스 가능한 애플리케이션 만들기</a>를 참조하세요. </iframe>
 
 <br/>
 

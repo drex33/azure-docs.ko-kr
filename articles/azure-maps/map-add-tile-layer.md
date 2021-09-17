@@ -1,20 +1,18 @@
 ---
 title: 지도에 타일 계층 추가 | Microsoft Azure Maps
 description: 지도에 이미지를 중첩하는 방법을 알아봅니다. Azure Maps 웹 SDK를 사용하여 날씨 방사형 오버레이가 포함된 타일 계층을 지도에 추가하는 예제를 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: c28eb1bdbb0069a831f397150d6479380df8b3a3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 9b645ccc5347e55f46666563dc9bab565b8ba631
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665161"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439599"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 레이어 추가
 
@@ -58,7 +56,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 <br/>
 
-<iframe height='500' scrolling='no' title='X, Y 및 Z를 사용하는 타일 계층' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>X, Y 및 Z를 사용하는 펜 타일 계층</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='X, Y 및 Z를 사용하는 타일 계층' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>X, Y 및 Z를 사용하는 펜 타일 계층</a>을 참조하세요.
 </iframe>
 
 ## <a name="add-an-ogc-web-mapping-service-wms"></a>OGC WMS(웹 매핑 서비스) 추가
@@ -69,7 +67,7 @@ WMTS(웹 매핑 서비스)는 지도 데이터의 이미지를 제공하는 OGC(
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="WMS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="WMS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/BapjZqr'>WMS 타일 계층</a>을 참조하세요.
 </iframe>
 
@@ -85,7 +83,7 @@ WMTS(웹 매핑 타일 서비스)는 지도에 타일 기반 오버레이를 제
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="WMTS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="WMTS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/BapjZVY'>WMTS 타일 계층</a>을 참조하세요.
 </iframe>
 
@@ -95,7 +93,7 @@ WMTS(웹 매핑 타일 서비스)는 지도에 타일 기반 오버레이를 제
 
 <br/>
 
-<iframe height='700' scrolling='no' title='타일 계층 옵션' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>타일 계층 옵션</a>을 참조하세요.
+<iframe height='700' scrolling='no' title='타일 계층 옵션' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>타일 계층 옵션</a>을 참조하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

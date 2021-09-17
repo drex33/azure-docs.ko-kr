@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/15/2019
+ms.date: 09/02/2021
 ms.author: alkohli
-ms.openlocfilehash: cc67b678fabeb2a7878490a4ea713acb5709cdbc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 31fe8293abb25ed9a6f44660f32398dd44072c37
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643790"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470115"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -45,6 +45,12 @@ StorSimple 8000 시리즈를 사용하여 데이터를 마이그레이션하는 
 
 데이터를 Azure 파일 동기화로 마이그레이션하는 방법에 대한 자세한 내용은 [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](../storage/files/storage-files-migration-storsimple-8000.md)을 참조하세요.
 
+#### <a name="migrate-to-azure-netapp-files"></a>Azure NetApp Files 마이그레이션
+
+StorSimple 5000-7000 시리즈 고객은 NetApp GFC(전역 파일 캐시)와 쌍을 이루는 ANF(Azure NetApp Files)로 마이그레이션하여 원격 사이트에서 콘텐츠를 유지하면서 Azure에 중요한 데이터를 계속 저장할 수 있습니다. 고객은 Azure NetApp Files를 사용하여 Microsoft Azure에서 구조화되지 않은 데이터를 중앙 집중화하여 NETApp 전역 파일 캐시를 통해 빠른 로컬 액세스 및 지리적으로 분산된 액세스를 제공함으로써 IT 스토리지 및 인프라를 능률화하고 간소화할 수 있습니다.
+
+기능, 배포 방법 및 마이그레이션에 대한 개요는 NetApp의 [참조 아키텍처: Azure NetApp Files 및 NetApp 전역 파일 캐시를 사용하여 전역적으로 분산된 Enterprise 파일 공유](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf)를 참조하세요.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### <a name="third-party-options"></a>타사 옵션
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Panzura Freedom NAS로 마이그레이션
@@ -64,12 +70,6 @@ Cohesity를 사용하면 현재 StorSimple 5000-7000에서 Azure의 Cohesity 데
 Nasuni를 사용하면 StorSimple 5000-7000 고객이 Azure에서 데이터를 쉽게 마이그레이션하고 유지할 수 있습니다.  Nasuni는 선도적인 Azure 기반 NAS 스토리지 솔루션으로, 고객에게 온-프레미스 솔루션에서 기대하는 성능과 보안을 클라우드 경제성 및 규모와 함께 제공합니다.  고성능 파일 스토리지 외에도 Nasuni 및 Azure는 백업 및 DR을 처리하는 동시에 중앙 집중식 파일 스토리지 관리를 통해 전 세계의 데이터를 공유하고 협업할 수 있습니다. 
 
 Nasuni에는 쉽게 마이그레이션할 수 있는 환경이 있습니다. 지금 시작하세요. https://www.nasuni.com/blog-migrating-off-storsimple/
-
-#### <a name="migrate-to-talon-fast"></a>Talon FAST로 마이그레이션
-
-Talon을 사용하면 StorSimple 5000-7000 고객이 더 뛰어난 기능이 포함된 StorSimple 플랫폼(무제한 클라우드 리소스로 지원되는 소규모 현장 공간)에서 중요하게 생각하는 많은 혜택을 계속 활용할 수 있습니다.  Talon FAST 솔루션을 사용하면 고객은 Azure에서 데이터를 마이그레이션하고 보관할 수 있으며, 이제 소프트웨어 전용 현장 공간이 훨씬 더 작아지고 전역 파일 잠금, 전역 네임스페이스 및 다중 사이트 협업과 같은 혜택을 추가할 수 있습니다.  Talon은 전 세계 고객과 협력하여 사용자 워크플로 또는 경험을 손상시키지 않고 온-프레미스 파일 서버 워크로드를 통합된 Azure 기반 공간으로 마이그레이션하는 선도적인 Azure 에코시스템 솔루션입니다.  
-
-클라우드 통합 엔터프라이즈로 발전하는 방법에 관해 자세히 알아보세요.
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답
 

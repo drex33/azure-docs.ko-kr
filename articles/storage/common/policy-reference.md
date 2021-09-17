@@ -1,18 +1,18 @@
 ---
 title: Azure Storage에 대한 기본 제공 정책 정의
 description: Azure Storage에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5a9984717454a95e0e43e6dafb63fa8d4395dc76
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 1a181b1825d6a5ec2afd40054bfe8c47646917d8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106866"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476564"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Azure Storage에 대한 Azure Policy 기본 제공 정의
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 88387bbe51d71a2530d25608fee962e926cd6511
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88932919"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449156"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 
@@ -108,9 +108,6 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 | 뷰 | 1 |
 
 따라서 기본적으로 “객실 `Type`이 ‘Deluxe Room’이고 **동일한 객실** 의 `BaseRate`가 100 미만인 문서와 일치”하는 위의 필터와 달리 검색 쿼리는 “`Rooms/Type`에 “deluxe”라는 용어가 있고 `Rooms/Description`에 “city view” 구가 있는 문서와 일치”를 지정합니다. 후자의 경우 필드 상관 관계를 지정할 수 있는 개별 객실의 개념이 없습니다.
-
-> [!NOTE]
-> 상관 관계 지정 검색 지원이 Azure Cognitive Search에 추가되기를 원하는 경우 [이 사용자 의견 항목](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections)에 투표하세요.
 
 ## <a name="inverted-indexes-and-collections"></a>반전 인덱스 및 컬렉션
 

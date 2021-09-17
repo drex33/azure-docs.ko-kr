@@ -11,14 +11,14 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: b84255a4148322f9aa1b5c0d59eb220c2555102f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: c4a1b52f87f0c5053e357fcb67a2e90962dc37c1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967627"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433533"
 ---
-# <a name="extend-a-prebuilt-docker-image-preview"></a>미리 빌드된 Docker 이미지 확장(미리 보기)
+# <a name="extend-a-prebuilt-docker-image-preview"></a>미리 보기된 Docker 이미지 확장(미리 보기)
 
 경우에 따라 [모델 유추에 대한 미리 빌드된 Docker 이미지](concept-prebuilt-docker-images-inference.md) 및 Azure Machine Learning에 대한 [확장성](./how-to-prebuilt-docker-images-inference-python-extensibility.md) 솔루션이 유추 서비스 요구를 충족하지 못할 수 있습니다.
 

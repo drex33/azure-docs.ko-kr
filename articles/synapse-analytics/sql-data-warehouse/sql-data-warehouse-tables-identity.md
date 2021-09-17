@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9ee0108e4567199b7bbf1b52222c1ab14e2837be
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: f4ae68478bf1e964fe2539f25e11ed27645f7a62
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005333"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541930"
 ---
 # <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>IDENTITY를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀을 통해 서로게이트 키 만들기
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > 현재 IDENTITY 열이 있는 테이블에 데이터를 로드 하는 경우 `CREATE TABLE AS SELECT`를 사용할 수 없습니다.
 >
 
-데이터 로드에 대한 자세한 내용은 [전용 SQL 풀에 대한 ELT(추출, 로드 및 변환) 설계](design-elt-data-loading.md) 및 [로드 모범 사례](guidance-for-loading-data.md)를 참조하세요.
+데이터 로드에 대한 자세한 내용은 [전용 SQL 풀에 대한 ELT(추출, 로드 및 변환) 설계](design-elt-data-loading.md) 및 [로드 모범 사례](../sql/data-loading-best-practices.md)를 참조하세요.
 
 ## <a name="system-views"></a>시스템 뷰
 

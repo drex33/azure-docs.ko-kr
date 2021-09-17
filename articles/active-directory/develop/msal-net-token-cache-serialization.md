@@ -13,12 +13,12 @@ ms.date: 08/28/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: f92df3818a6da63a57d4e0d26f4e145ae4d5c46f
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 67dbc1ba66f18bb6d779d1185d863541272acd56
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185708"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451712"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 
@@ -273,7 +273,7 @@ var app = ConfidentialClientApplicationBuilder
 
 ### <a name="monitor-cache-hit-ratios-and-cache-performance"></a>모니터 캐시 적중률 및 캐시 성능
 
-MSAL은 [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.md) 개체의 일부로 중요한 메트릭을 노출합니다. 
+MSAL은 [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata) 개체의 일부로 중요한 메트릭을 노출합니다. 
 
 | 메트릭       | 의미     | 알람을 트리거하는 경우는 언제인가요?    |
 | :-------------: | :----------: | :-----------: |

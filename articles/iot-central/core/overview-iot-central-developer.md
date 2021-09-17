@@ -3,19 +3,19 @@ title: Azure IoT Central용 디바이스 개발 | Microsoft Docs
 description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 IoT Central 애플리케이션에 연결할 디바이스를 개발하는 방법에 대한 개요를 제공합니다. 디바이스는 원격 분석을 사용하여 스트리밍 데이터 및 속성을 전송하여 디바이스 상태를 보고합니다. Iot Central은 쓰기 가능한 속성을 사용하여 디바이스 상태를 설정하고 디바이스에서 명령을 호출할 수 있습니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/05/2020
+ms.date: 08/30/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6aab9cbb91f2a419b9c6be5378bd8238b0d841d8
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: f2131ec5a0b939172097494dcd457b9d661614ad
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609278"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473499"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 

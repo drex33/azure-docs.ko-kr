@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: ba1f3e9ca68f44927c1d163a8d02c63c7b2f3b0c
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: 347293a0cd8647df110c10d9a94c99a978f36041
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598480"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424657"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -82,11 +82,11 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup* 이라는 리소스 그룹의 *myVM* 이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다. 사용자 고유의 정보를 사용하여 예제 리소스 그룹 이름, VM 이름 및 스크립트를 실행 (https:\//raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 

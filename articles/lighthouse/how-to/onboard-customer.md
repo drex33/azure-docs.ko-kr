@@ -4,12 +4,12 @@ description: 고객을 Azure Lighthouse에 온보딩하여 테넌트의 사용�
 ms.date: 08/26/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e61fb83af009b96b5781912e2feff8c0c747827
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034242"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469683"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -332,13 +332,13 @@ az managedservices assignment list
 
 고객을 제대로 온보딩할 수 없거나 사용자가 위임된 리소스에 액세스하는 데 문제가 있으면 다음 팁과 요구 사항을 확인하고 다시 시도합니다.
 
+- Azure Portal 고객 리소스를 확인해야 하는 사용자에게는 온보딩 프로세스 중에 [읽기](../../role-based-access-control/built-in-roles.md#reader) 권한자 역할(또는 읽기 권한자 액세스 권한이 포함된 다른 기본 제공 역할)이 부여되어야 합니다.
 - `managedbyTenantId` 값은 온보드 중인 구독의 테넌트 ID와 달라야 합니다.
 - 같은 범위에서 `mspOfferName`이 같은 할당이 여러 개일 수 없습니다.
 - 위임된 구독에 대해 **Microsoft.ManagedServices** 리소스 공급자를 등록해야 합니다. 등록은 배포 중에 자동으로 수행되어야 하지만, 그렇지 않으면 [수동으로 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)할 수 있습니다.
 - 권한 부여에는 [소유자](../../role-based-access-control/built-in-roles.md#owner) 기본 제공 역할이 있는 사용자나 [DataActions](../../role-based-access-control/role-definitions.md#dataactions)가 있는 기본 제공 역할이 포함되지 않아야 합니다.
 - [**그룹 형식**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types)을 **Microsoft 365** 가 아니라 **보안** 으로 설정하여 그룹을 만들어야 합니다.
 - [중첩된 그룹](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)에 대한 액세스가 사용으로 설정되기 전에 추가로 지연될 수 있습니다.
-- Azure Portal에서 리소스를 확인해야 하는 사용자는 [독자](../../role-based-access-control/built-in-roles.md#reader) 역할(또는 독자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
 - 권한 부여에 포함하는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)에는 사용되지 않는 역할이 포함되지 않아야 합니다. Azure 기본 제공 역할이 사용되지 않으면 해당 역할로 온보딩된 모든 사용자는 액세스 권한을 잃게 되며 추가 위임을 온보딩할 수 없습니다. 이 문제를 해결하려면 지원되는 기본 제공 역할만 사용하도록 템플릿을 업데이트한 다음, 새 배포를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계

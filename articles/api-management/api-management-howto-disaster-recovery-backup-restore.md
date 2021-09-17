@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/20/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e3b47f38c8ff72c01fb26772cef76bc841d2b1e4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 9d0845d2b54f2ce9d69772b6f1fcfe6fd3704a78
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693381"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538672"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -241,5 +241,5 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ip-addresses
 [azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

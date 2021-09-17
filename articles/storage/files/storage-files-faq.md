@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 34a8d0d732863f5fe40056f25460269f131fbf7c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 3a19493657e368bf65921f4be7bdd5c9154b77a4
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866502"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536782"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -105,6 +105,23 @@ ms.locfileid: "122866502"
   **Azure 파일 동기화가 1TiB의 데이터를 업로드하는 데 얼마나 걸리나요?**
   
     성능은 환경 설정, 구성, 이것이 초기 동기화인지 진행 중인 동기화인지에 따라 달라집니다. 자세한 내용은 [Azure 파일 동기화 성능 메트릭](storage-files-scale-targets.md#azure-file-sync-performance-metrics)을 참조하세요.
+
+* <a id="afs-initial-upload"></a>
+  **Azure 파일 동기화 데이터의 초기 업로드는 무엇 인가요?**
+  
+    **Windows 서버에서 Azure 파일 공유로의 초기 데이터 동기화:** 모든 데이터가 Windows 서버에 있기 때문에 많은 Azure 파일 동기화 배포가 빈 Azure 파일 공유로 시작 합니다. 이러한 경우 초기 클라우드 변경 열거가 빠르며 Windows Server에서 Azure 파일 공유로 변경 내용을 동기화하는 데 대부분의 시간이 소요됩니다.
+
+동기화가 데이터를 Azure 파일 공유로 업로드하는 동안 로컬 파일 서버에는 가동 중지 시간이 발생하지 않으며 관리자는 네트워크 제한을 설정하여 백그라운드 데이터 업로드에 사용되는 대역폭의 양을 제한할 수 있습니다.
+
+초기 동기화는 일반적으로 동기화 그룹당 초당 20 개 파일의 초기 업로드 속도로 제한됩니다. 고객은 다음 수식을 사용해 일 단위로 시간을 계산함으로써 모든 데이터를 Azure에 업로드하는 시간을 추정할 수 있습니다.
+
+**동기화 그룹에 파일을 업로드하는 시간(일) = (서버 엔드포인트의 개체 수)/(20 * 60 * 60 * 24)**
+
+* <a id="afs-initial-upload-server-restart"></a>
+  **초기 업로드 중 서버를 중지 했다가 다시 시작 하는 경우의 영향** 영향을 주지 않습니다. 서버가 중단 된 지점부터 다시 시작 되 면 동기화에서 다시 시작 됩니다. Azure 파일 동기화
+
+* <a id="afs-initial-upload-server-changes"></a>
+  **초기 업로드 중 서버 끝점에서 데이터를 변경 하는 경우의 영향** 영향을 주지 않습니다. Azure 파일 동기화는 서버 끝점에서 수행 된 변경 내용을 조정 하 여 클라우드 끝점과 서버 끝점이 동기화 되도록 합니다.
 
 * <a id="afs-conflict-resolution"></a>**같은 파일이 두 서버에서 거의 동시에 변경하는 경우 어떻게 되나요?**  
     Azure 파일 동기화는 간단한 충돌 해결 전략을 사용합니다. 두 개의 엔드포인트에서 동시에 변경된 파일에 대한 변경 내용을 유지합니다. 가장 최근에 기록된 변경 내용에 원래 파일 이름이 사용됩니다. 이전 파일(LastWriteTime으로 결정됨)에는 엔드포인트 이름과 충돌 번호가 파일 이름에 추가됩니다. 서버 엔드포인트의 경우 엔드포인트 이름은 서버의 이름입니다. 클라우드 엔드포인트의 경우 엔드포인트 이름은 **클라우드** 입니다. 이름은 다음 분류를 따릅니다. 
@@ -226,6 +243,9 @@ ms.locfileid: "122866502"
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
    Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](../common/storage-compliance-offerings.md)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+
+* <a id="afs-power-outage"></a>
+  **서버 엔드포인트를 종료하는 정전이 있는 경우 Azure 파일 동기화 미치는 영향** 영향을 미치지 않습니다. Azure 파일 동기화 서버 엔드포인트가 다시 온라인이 되면 클라우드 엔드포인트 및 서버 엔드포인트가 동기화되도록 서버 엔드포인트에 대한 변경 내용을 조정합니다.
 
 * <a id="file-auditing"></a>
 **Azure Files의 파일 액세스 및 변경 내용을 감사하려면 어떻게 해야 하나요?**

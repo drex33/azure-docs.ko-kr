@@ -1,20 +1,20 @@
 ---
 title: Android maps에 대 한 데이터 원본 만들기 | Microsoft Azure 지도
 description: 지도에 대한 데이터 원본을 만드는 방법을 알아봅니다. Azure Maps Android SDK에서 사용하는 데이터 원본(GeoJSON 원본 및 벡터 타일)에 대해 알아보세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9ea96613425ec3802080277da9ac674af4e87c52
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: e66d1aeaa87ac170cf692360e614335a98802e5a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669092"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430669"
 ---
 # <a name="create-a-data-source-android-sdk"></a>데이터 원본 만들기 (Android SDK)
 

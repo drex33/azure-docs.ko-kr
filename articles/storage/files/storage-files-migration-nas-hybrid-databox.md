@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/5/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f60c2e03b666c51769473120097034830f599b4
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: fb7132e0a7b9dc59ac6b047d431acf0e740aba0a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "114462289"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430831"
 ---
 # <a name="use-data-box-to-migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-by-using-azure-file-sync"></a>Data Box를 통해 Azure 파일 동기화를 사용하여 NAS(Network Attached Storage)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -218,6 +218,20 @@ Windows Server 폴더에 공유를 만들고 DFS-N 배포를 조정하여 이를
 공유 또는 공유 그룹을 공통 루트 또는 볼륨으로 마이그레이션하는 작업이 완료되었습니다(1단계의 매핑에 따라 다름).
 
 해당 복사본 중 일부를 병렬로 실행할 수 있습니다. Azure 파일 공유 범위를 한 번에 하나씩 처리하는 것이 좋습니다.
+
+## <a name="deprecated-option-offline-data-transfer"></a>사용되지 않은 옵션: "오프라인 데이터 전송"
+
+Azure 파일 동기화 에이전트 버전 13이 릴리스되기 전에 "오프라인 데이터 전송"이라는 프로세스를 통해 Data Box 통합이 수행되었습니다. 이 프로세스는 더 이상 사용되지 않습니다. 에이전트 버전 13에서는 이 문서에 설명된 훨씬 더 간단하고 빠른 단계로 대체되었습니다. 더 이상 사용되지 않는 "오프라인 데이터 전송" 기능을 사용하려는 경우에도 계속 사용할 수 있습니다. 특정 [이전 AFS PowerShell 모듈을](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0)사용하여 계속 사용할 수 있습니다.
+
+```powershell
+Install-Module Az.StorageSync -RequiredVersion 1.4.0
+Import-module Az.StorageSync -RequiredVersion 1.4.0
+# Verify the specific version is loaded:
+Get-module Az.StorageSync
+```
+그런 다음 동일한 PowerShell 모듈을 사용 하 여 서버 끝점을 계속 만들고 프로세스에서 준비 공유를 지정할 수 있습니다.
+오프 라인 데이터 전송 프로세스를 진행 하는 마이그레이션이 있는 경우 마이그레이션은 계획 대로 진행 되며 마이그레이션이 완료 된 후에도이 설정을 사용 하지 않도록 설정 해야 합니다.
+이 사용 되지 않는 프로세스를 사용 하 여 새 마이그레이션을 시작 하는 기능은 예정 된 에이전트 릴리스부터 제거 될 예정입니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

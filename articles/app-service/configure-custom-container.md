@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b812495d1046ffc1b9435c0dc2684dd61af89beb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: d51ab96f0a9bc09f966890b848201df7091db621
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122865076"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541426"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -406,7 +406,7 @@ wordpress:
 #### <a name="unsupported-options"></a>지원되지 않는 옵션
 
 - build(허용 안 함)
-- depends_on(무시됨)
+- [depends_on](faq-app-service-linux.yml#how-do-i-use-depends-on-) (무시 됨)
 - networks(무시됨)
 - secrets(무시됨)
 - 포트 80 및 8080 이외의 포트(무시됨)

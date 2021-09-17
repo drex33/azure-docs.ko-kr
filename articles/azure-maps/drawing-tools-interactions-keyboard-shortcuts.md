@@ -1,19 +1,19 @@
 ---
 title: 지도의 그리기 도구 상호 작용 유형 및 바로 가기 키 | Microsoft Azure Maps
 description: Microsoft Azure Maps Web SDK에서 마우스, 터치스크린 또는 키보드를 사용하여 도형을 그리거나 편집하는 방법
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 42b756e96829a19ddd25258087a8537c9a747b10
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 07abbbdfa93bad5a5710e8167c6de67c35175b83
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668860"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429751"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>그리기 도구 모듈의 상호 작용 유형 및 바로 가기 키
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98c61679fed04c0a696b60bb7ee53009a8a530e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32000f69719b957c9543180bbd118f93ed0fda04
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547681"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430687"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Azure Active Directory에서 그룹 목록 대량 다운로드
 

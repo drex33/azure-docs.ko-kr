@@ -1,20 +1,20 @@
 ---
 title: Azure Maps 웹 SDK의 데이터 기반 스타일 식 | Microsoft Azure Maps
 description: 데이터 기반 스타일 식에 대해 알아봅니다. Azure Maps 웹 SDK에서 이러한 식을 사용하여 지도의 스타일을 조정하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 851f7865553d45d8d4c4d1f86171d79a89dd8996
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 7875184456d03e08abb6168793fc9021bd953a0d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091828"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438519"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식(웹 SDK)
 

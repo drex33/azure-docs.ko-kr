@@ -4,22 +4,22 @@ description: GitHub Actions를 사용하여 Bicep 파일을 배포하는 방법�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 005ad729eed380b6684ef06ddca6341dce8b16da
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: df644fb081e6c15eb72e20a2a84af4b4c9386ba7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695220"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427033"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>GitHub Actions를 사용하여 Bicep 파일 배포
 
-[GitHub Actions](https://docs.github.com/en/actions)는 코드를 저장하고 풀 요청 및 문제에 대해 공동 작업하는 것과 동일한 위치에서 소프트웨어 개발 워크플로를 자동화하는 GitHub의 기능 모음입니다.
+[GitHub 작업](https://docs.github.com/en/actions) 은 소프트웨어 개발 워크플로를 자동화 하는 GitHub의 기능 모음입니다.
 
-[Azure Resource Manager 템플릿 배포 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template)을 수행하여 Azure에 Bicep 파일 배포를 자동화합니다.
+[Azure Resource Manager 배포에 대 한 GitHub 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) 을 사용 하 여 Bicep 파일을 Azure에 배포 하는 작업을 자동화 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.
@@ -44,16 +44,16 @@ ms.locfileid: "122695220"
 아직 없는 경우 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
+az group create -n {MyResourceGroup} -l {location}
 ```
 
 `myApp` 자리 표시자를 애플리케이션 이름으로 바꿉니다.
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
+az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-위의 예제에서 자리 표시자를 구독 ID 및 리소스 그룹 이름으로 바꿉니다. 출력은 아래와 비슷한 App Service 앱에 대한 액세스를 제공하는 역할 할당 자격 증명이 있는 JSON 개체입니다. 나중에 사용할 수 있도록 이 JSON 개체를 복사합니다. `clientId`, `clientSecret`, `subscriptionId` 및 `tenantId` 값이 포함된 섹션만 필요합니다.
+위의 예제에서 자리 표시자를 구독 ID 및 리소스 그룹 이름으로 바꿉니다. 출력은 아래와 비슷한 App Service 앱에 대한 액세스를 제공하는 역할 할당 자격 증명이 있는 JSON 개체입니다. 나중에 사용할 수 있도록 이 JSON 개체를 복사합니다. ,, 및 값이 포함 된 섹션만 `clientId` 필요 `clientSecret` `subscriptionId` `tenantId` 합니다.
 
 ```output
   {
@@ -76,23 +76,21 @@ Azure 자격 증명, 리소스 그룹 및 구독의 비밀을 만들어야 합�
 
 1. **설정 > 비밀 > 새 비밀** 을 차례로 선택합니다.
 
-1. Azure CLI 명령의 전체 JSON 출력을 비밀의 값 필드에 붙여넣습니다. 비밀 이름을 `AZURE_CREDENTIALS`로 지정합니다.
+1. Azure CLI 명령의 전체 JSON 출력을 비밀의 값 필드에 붙여넣습니다. 비밀 `AZURE_CREDENTIALS`의 이름을 지정합니다.
 
 1. `AZURE_RG`라는 이름으로 다른 비밀을 만듭니다. 비밀의 값 필드에 리소스 그룹의 이름을 추가합니다(예: `myResourceGroup`).
 
-1. `AZURE_SUBSCRIPTION`이라는 추가 비밀을 만듭니다. 비밀의 값 필드에 구독 ID를 추가합니다(예: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. `AZURE_SUBSCRIPTION`라는 이름으로 다른 비밀을 만듭니다. 비밀의 값 필드에 구독 ID를 추가합니다(예: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
 
 ## <a name="add-a-bicep-file"></a>Bicep 파일 추가
 
 GitHub 리포지토리에 Bicep 파일을 추가합니다. 다음 Bicep 파일은 저장소 계정을 만듭니다.
 
-```url
-https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep" :::
 
-Bicep 파일은 3~11자의 **storagePrefix** 라는 하나의 매개 변수를 사용합니다.
+Bicep 파일에는 3 ~ 11 자의 **Storageprefix** 라는 하나의 매개 변수가 필요 합니다.
 
-파일을 리포지토리의 어디에나 배치할 수 있습니다. 다음 섹션의 워크플로 샘플에서는 Bicep 파일의 이름이 **azuredeploy.bicep** 이고 리포지토리의 루트에 저장된다고 가정합니다.
+파일을 리포지토리의 어디에나 배치할 수 있습니다. 다음 섹션의 workflow 샘플에서는 Bicep 파일의 이름이 **azuredeploy** 인 것으로 가정 하 고 리포지토리의 루트에 저장 됩니다.
 
 ## <a name="create-workflow"></a>워크플로 만들기
 
@@ -102,7 +100,7 @@ Bicep 파일은 3~11자의 **storagePrefix** 라는 하나의 매개 변수를 �
 1. **새 워크플로** 를 선택합니다.
 1. **워크플로 직접 설정** 을 선택합니다.
 1. **main.yml** 이 아닌 다른 이름을 선호하는 경우 워크플로 파일의 이름을 바꿉니다. 예: **deployBicepFile.yml**
-1. yml 파일의 내용을 다음으로 바꿉니다.
+1. Iisnode.yml 파일의 내용을 다음 코드로 바꿉니다.
 
     ```yml
     on: [push]
@@ -131,7 +129,7 @@ Bicep 파일은 3~11자의 **storagePrefix** 라는 하나의 매개 변수를 �
             failOnStdErr: false
     ```
 
-    **mystore** 를 사용자 고유의 저장소 계정 이름 접두사로 대체합니다.
+    `mystore`를 사용자 고유의 저장소 계정 이름 접두사로 바꿉니다.
 
     > [!NOTE]
     > ARM 배포 작업에 대신 JSON 형식 매개 변수 파일을 지정할 수 있습니다(예: `.azuredeploy.parameters.json`).
@@ -139,17 +137,17 @@ Bicep 파일은 3~11자의 **storagePrefix** 라는 하나의 매개 변수를 �
     워크플로 파일의 첫 번째 섹션에는 다음이 포함됩니다.
 
     - **name**: 워크플로의 이름입니다.
-    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 기본 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 Bicep 파일입니다.
+    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. Main 분기에 푸시 이벤트가 있는 경우 워크플로는 지정 된 두 파일 중 하나 이상을 수정 하는 트리거입니다. 두 파일은 워크플로 파일 및 Bicep 파일입니다.
 
 1. **커밋 시작** 을 선택합니다.
 1. **기본 분기에 직접 커밋** 을 선택합니다.
 1. **새 파일 커밋**(또는 **변경 내용 커밋**)을 선택합니다.
 
-업데이트되는 워크플로 파일이나 Bicep 파일에 의해 트리거되도록 워크플로를 구성했기 때문에 변경 내용을 커밋하면 워크플로가 바로 시작됩니다.
+워크플로 파일 또는 Bicep 파일을 업데이트 하면 워크플로가 트리거됩니다. 워크플로는 변경 내용을 커밋한 후 바로 시작 됩니다.
 
 ## <a name="check-workflow-status"></a>워크플로 상태 확인
 
-1. **작업** 탭을 선택합니다. **deployStorageAccount.yml 만들기** 워크플로가 나열된 것을 볼 수 있습니다. 워크플로를 실행하는 데 1-2분이 소요됩니다.
+1. **작업** 탭을 선택 합니다. **Create deployStorageAccount. yml** 워크플로가 나열 됩니다. 워크플로를 실행하는 데 1-2분이 소요됩니다.
 1. 워크플로를 선택하여 엽니다.
 1. 메뉴에서 **ARM 배포 실행** 을 선택하여 배포를 확인합니다.
 

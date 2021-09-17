@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5645a872c0dbb5d1b80e6856b173b75d758a23ab
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 38a1e264d3febfc114df253a24479d9580c86bb5
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122780164"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538366"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Azure 체험 계정으로 Azure Database for PostgreSQL - 유연한 서버를 사용해 보세요.
 
@@ -108,7 +108,7 @@ Azure Database for PostgreSQL - 유연한 서버(미리 보기)는 클라우드�
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="검토 + 만들기 블레이드를 보여 주는 스크린샷":::
 
     >[!IMPORTANT]
-    >Azure 체험 계정을 사용하는 경우 서비스 사용량이 월간 한도 이내이면(사용량 정보를 확인하려면 아래의 [**체험 서비스 사용량 모니터링 및 추적**](#monitor-and-track-free-services-usage) 섹션 참조), 서비스 요금이 청구되지 않습니다. 현재 체험 서비스에 대한 **비용 요약** 환경을 개선하기 위해 노력하고 있습니다. 
+    >Azure 무료 계정에서 유연한 서버 인스턴스를 만드는 동안 **계산 + Storage: 비용 요약** 블레이드 및 **검토 + 만들기** 탭에서 **월별 예상 비용** 을 볼 수 있습니다. 그러나 Azure 무료 계정을 사용 하 고 있고 무료 서비스 사용이 월간 한도 내에 있는 경우 (아래에서 사용 정보를 확인 하 고, [**무료 서비스 사용 현황 모니터링 및 추적**](#monitor-and-track-free-services-usage) 참조), 서비스에 대 한 요금은 청구 되지 않습니다. 현재 체험 서비스에 대한 **비용 요약** 환경을 개선하기 위해 노력하고 있습니다. 
 
 1. **만들기** 를 선택하여 서버를 프로비전합니다.
 

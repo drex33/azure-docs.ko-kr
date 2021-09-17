@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: c8c2246822cdf9faa06833020cd1951bde9e86a3
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186986"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449300"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Synapse Notebook을 실행하여 데이터 변환
 
@@ -32,6 +32,10 @@ Synapse 파이프라인 캔버스 또는 Notebook 편집기에서 직접 Synapse
 **활동** 의 **Synapse Notebook** 을 끌어서 Synapse 파이프라인 캔버스에 놓습니다. Synapse Notebook 활동 상자를 선택하고 **설정\** 에서 현재 활동에 대한 Notebook 콘텐츠를 구성합니다. 현재 작업 영역에서 기존 Notebook을 선택하거나 새로 추가할 수 있습니다. 
 
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+
+> [!NOTE]
+> Azure Synapse 파이프라인의 병렬 Spark 노트북 실행은 큐에 대기 하 고 FIFO 방식으로 실행 됩니다. 큐의 작업 순서는 시간 순서에 따라 달라 지 며, 큐에 있는 작업의 만료 시간은 3 일입니다. 노트북의 큐는 Synapse 파이프라인 에서만 작동 합니다.
+
 
 ### <a name="add-a-notebook-to-synapse-pipeline"></a>Synapse 파이프라인에 Notebook 추가
 

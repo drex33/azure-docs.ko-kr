@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: a132fdf16fa62360827a516f034bcd37c38b2928
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 6503433f164e0b8153aa8832473fd06ad3959bae
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568226"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434865"
 ---
 #  <a name="cloudevents-extension-for-azure-web-pubsub"></a>Azure Web PubSub에 대한 CloudEvents 확장
 
@@ -55,13 +55,14 @@ ms.locfileid: "122568226"
 
 ### <a name="attributes"></a>특성
 
-| Name | 유형 | 설명 | 예|
+| Name | Type | Description | 예|
 |--|--|--|--|
 | `userId` | `string` | 연결이 인증된 사용자 | |
 | `hub` | `string` | 연결이 속한 허브 | |
 | `connectionId` | `string` | connectionId는 클라이언트 연결에 고유합니다. | |
 | `eventName` | `string` | 접두사가 없는 이벤트 이름 | |
 | `subprotocol` | `string` | 클라이언트가 사용 중인 하위 프로토콜(있는 경우) | |
+| `connectionState` | `string` | 연결 상태를 정의합니다. 동일한 응답 헤더를 사용하여 상태 값을 다시 설정할 수 있습니다. 여러 `connectionState` 헤더는 허용되지 않습니다. 예를 들어 내부에 복합 문자가 포함된 경우 문자열 값을 base64로 인코딩합니다. 예를 들어 이 특성을 사용하여 복합 개체를 전달할 수 `base64(jsonString)` 있습니다.| |
 | `signature` | `string` | 들어오는 요청이 예상 출처에서 온 것인지 확인하기 위한 업스트리밍 웹후크의 서명입니다. 이 서비스는 기본 액세스 키와 보조 액세스 키를 모두 HMAC 키로 사용하여 값을 계산합니다. `Hex_encoded(HMAC_SHA256(accessKey, connectionId))`. 업스트리밍에서는 요청을 처리하기 전에 요청이 유효한지 확인해야 합니다. | |
 
 ## <a name="events"></a>이벤트
@@ -115,12 +116,14 @@ ce-eventName: connect
 ```
 
 #### <a name="success-response-format"></a>성공 응답 형식:
-
-* `204`: 성공, 콘텐츠가 없습니다.
-* `200`: 성공, 콘텐츠가 다음 속성이 허용되는 JSON 형식이어야 합니다.
-
+* 상태 코드:
+    * `204`: 성공, 콘텐츠가 없습니다.
+    * `200`: 성공, 콘텐츠가 다음 속성이 허용되는 JSON 형식이어야 합니다.
+* 헤더: `ce-connectionState` 이 헤더가 있는 경우 이 연결의 연결 상태가 헤더 값으로 업데이트됩니다. *차단* 이벤트만 연결 상태를 업데이트할 수 있습니다. 아래 샘플에서는 base64로 인코딩된 JSON 문자열을 사용하여 연결의 복합 상태를 저장합니다.
+* 
 ```HTTP
 HTTP/1.1 200 OK
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "groups": [],
@@ -164,6 +167,7 @@ HTTP/1.1 401 Unauthorized
 
 * `ce-type`: `azure.webpubsub.sys.connected`
 * `Content-Type`: `application/json`
+* `ce-connectionState`: `eyJrZXkiOiJhIn0=`
 
 요청 본문이 빈 JSON입니다.
 
@@ -186,6 +190,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: connect
 ce-subprotocol: abc
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {}
 
@@ -228,6 +233,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: disconnect
 ce-subprotocol: abc
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "reason": "{Reason}"
@@ -277,6 +283,7 @@ ce-userId: {userId}
 ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: message
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 UserPayload
 
@@ -288,6 +295,8 @@ UserPayload
     * `204`: 성공, 콘텐츠가 없습니다.
     * `200`: 성공, `UserResponsePayload`의 형식은 응답의 `Content-Type`에 따라 다릅니다.
 * `Content-Type`: 바이너리 프레임의 경우 `application/octet-stream`, 텍스트 프레임의 경우 `text/plain` 
+* 헤더 `Content-Type` : `application/octet-stream` 이진 프레임의 경우 이고, `text/plain` 텍스트 프레임의 경우 입니다. 
+* 헤더: `ce-connectionState` 이 헤더가 있는 경우 이 연결의 연결 상태가 헤더 값으로 업데이트됩니다. *차단* 이벤트만 연결 상태를 업데이트할 수 있습니다. 아래 샘플에서는 base64로 인코딩된 JSON 문자열을 사용 하 여 연결에 대 한 복합 상태를 저장 합니다.
 
 `Content-Type`이 `application/octet-stream`이면 서비스는 `binary` WebSocket 프레임을 사용하여 클라이언트에 `UserResponsePayload`를 보냅니다. `Content-Type`이 `text/plain`이면 서비스는 `text` WebSocket 프레임을 사용하여 클라이언트에 `UserResponsePayload`를 보냅니다. 
 
@@ -295,6 +304,7 @@ UserPayload
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream (for binary frame) or text/plain (for text frame)
 Content-Length: nnnn
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 UserResponsePayload
 ```
@@ -336,6 +346,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub_name}
 ce-eventName: <event_name>
 ce-subprotocol: json.webpubsub.azure.v1
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 text data
 
@@ -372,6 +383,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub_name}
 ce-eventName: <event_name>
 ce-subprotocol: json.webpubsub.azure.v1
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "hello": "world"
@@ -425,8 +437,8 @@ UserResponsePayload
 * 상태 코드
     * `204`: 성공, 콘텐츠가 없습니다.
     * `200`: 성공, PubSub WebSocket 클라이언트로 보내는 데이터는 `Content-Type`에 따라 다릅니다. 
-
-* `Content-Type`이 `application/octet-stream`이면 서비스는 페이로드 base64로 인코딩된 `binary`로 `dataType`을 사용하여 클라이언트에 `UserResponsePayload`를 다시 보냅니다. 샘플 응답:
+* 헤더 `ce-connectionState` :이 헤더가 있으면이 연결의 연결 상태는 헤더의 값으로 업데이트 됩니다. *차단* 이벤트만 연결 상태를 업데이트할 수 있습니다. 아래 샘플에서는 base64로 인코딩된 JSON 문자열을 사용 하 여 연결에 대 한 복합 상태를 저장 합니다.
+* 헤더가 `Content-Type` 이면 `application/octet-stream` 서비스는 base64 인코딩 인코딩을 사용 하 여를 `UserResponsePayload` 사용 하 여 클라이언트로 다시 보냅니다 `dataType` `binary` . 샘플 응답:
     ```json
     {
         "type": "message",

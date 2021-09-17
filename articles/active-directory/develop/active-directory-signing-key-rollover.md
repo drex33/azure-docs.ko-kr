@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/16/2021
+ms.date: 09/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7277f3751abd528862021a72e77a631f4bb0d5da
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f6073ac0da9163756be353c2ed695dfb20430160
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538406"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469395"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼에서 서명 키 롤오버
 이 문서에서는 Microsoft ID 플랫폼에서 보안 토큰에 서명하는 데 사용하는 공개 키에 대해 알아야 할 사항을 설명합니다. 이러한 키 롤오버가 정기적으로 있으며, 비상 시에는 곧바로 롤오버될 수 있습니다. Microsoft ID 플랫폼을 사용하는 모든 애플리케이션은 키 롤오버 프로세스를 프로그래매틱 방식으로 처리할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
@@ -44,7 +44,6 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * [리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 애플리케이션](#vs2013)
 * 리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
 * [리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 애플리케이션](#vs2012)
-* [리소스를 보호하며 Visual Studio 2010, 2008 또는 Windows Identity Foundation을 사용하여 만든 웹 애플리케이션](#vs2010)
 * [다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 애플리케이션/API](#other)
 
 이 설명서는 다음에 적용할 수 **없습니다** .
@@ -287,20 +286,6 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
    ```
 2. **\<add thumbprint="">** 설정에서 모든 문자를 다른 것으로 바꿔서 지문 값을 변경합니다. **Web.config** 파일을 저장합니다.
 3. 애플리케이션을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 애플리케이션은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인하는 데 문제가 있는 경우 [을 사용하여 웹 애플리케이션에 로그온 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 문서를 읽거나 [Azure Active Directory에 대한 다중 테넌트 클라우드 애플리케이션](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) 코드 샘플을 다운로드 및 검사하여 애플리케이션의 변경 내용이 올바른지 확인합니다.
-
-### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 애플리케이션
-WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록 애플리케이션의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다.
-
-* *가장 쉬운 방법* WIF SDK에 포함된 FedUtil 도구를 사용합니다. 이 도구를 통해 최신 메타데이터 문서를 검색하고 구성을 업데이트할 수 있습니다.
-* 애플리케이션을 시스템 네임스페이스에 있는 최신 버전의 WIF를 포함하는 .NET 4.5로 업데이트합니다. 그런 다음, [발급자 이름 레지스트리 유효성 검사(VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry)를 사용하여 애플리케이션 구성의 자동 업데이트를 수행할 수 있습니다.
-* 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행합니다.
-
-구성을 업데이트하기 위해 FedUtil을 사용하는 지침:
-
-1. Visual Studio 2008 또는 2010의 개발 컴퓨터에 WIF v1.0 SDK가 설치되어 있는지 확인합니다. 아직 설치되어 있지 않은 경우 [여기에서 다운로드](https://www.microsoft.com/download/details.aspx?id=17331) 할 수 있습니다.
-2. Visual Studio에서 솔루션을 연 다음 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **페더레이션 메타데이터 업데이트** 를 선택합니다. 이 옵션을 사용할 수 없는 경우 FedUtil 및/또는 WIF v1.0 SDK가 설치되지 않은 것입니다.
-3. 표시된 메시지에서 **업데이트** 를 선택하여 페더레이션 메타데이터 업데이트를 시작합니다. 애플리케이션이 호스팅되는 서버 환경에 대한 액세스 권한이 있는 경우 필요에 따라 FedUtil의 [자동 메타데이터 업데이트 스케줄러](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))를 사용할 수 있습니다.
-4. **마침** 을 클릭하여 업데이트 프로세스를 완료합니다.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 애플리케이션/API
 다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 경우, 키가 OpenID Connect discovery 문서 또는 페더레이션 메타데이터 문서에서 검색되는지 확인하기 위해 라이브러리나 구현을 검토할 필요가 있습니다. 이를 확인하는 하나의 방법은 OpenID discovery 문서 또는 페더레이션 메타데이터 문서에 대한 모든 호출 코드 또는 라이브러리 코드를 검색하는 것입니다.

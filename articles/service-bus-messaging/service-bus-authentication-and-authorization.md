@@ -2,13 +2,13 @@
 title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
 description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccb526abd99be50e33c8adb918186944b7af3bd6
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 0e5c6654cb3efc85e3d3bd7756c90612bd6c18cd
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516657"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429121"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 Azure AD(Azure Active Directory) 및 SAS(공유 액세스 서명)라는 두 가지 방법으로 Azure Service Bus 리소스에 대한 액세스를 인증하고 권한을 부여할 수 있습니다. 이 문서에서는 이 두 가지 유형의 보안 메커니즘을 사용하는 방법에 관해 자세히 설명합니다. 
@@ -45,8 +45,6 @@ SAS를 사용하기 위해 네임스페이스, 큐 또는 토픽에서 공유 �
 
 Service Bus에 대한 SAS 인증 지원은 Azure.NET SDK 버전 2.0 이후에 포함됩니다. SAS에는 공유 액세스 권한 부여 규칙에 대한 지원이 포함됩니다. 연결 문자열을 매개 변수로 허용하는 모든 API는 SAS 연결 문자열에 대한 지원을 포함합니다.
 
-> [!IMPORTANT]
-> Service Bus에서 Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함)을 사용하는 경우 이제 이 방법에 대한 지원이 제한되며, [애플리케이션을 마이그레이션하여 SAS를 사용](service-bus-migrate-acs-sas.md)하거나 Azure AD에서 OAuth 2.0 인증을 사용하는 것이 좋습니다. ACS 사용 중단에 관한 자세한 내용은 [이 블로그 게시물](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure AD 인증에 관한 자세한 내용은 다음 문서를 참조하세요.

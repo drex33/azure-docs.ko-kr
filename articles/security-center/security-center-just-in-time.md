@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/05/2021
 ms.author: memildin
-ms.openlocfilehash: dff90bc02ef9ee20284adb895eb05e765bdfba72
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5a61ad8addfcb2840bbed1b9d56f37dfbb01b0bf
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528646"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541390"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-In-Time 액세스를 사용하여 관리 포트 보호
 
@@ -36,7 +36,7 @@ JIT 작동 방식 및 기본 논리에 대한 전체 설명은 [Just-In-Time 설
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |지원되는 VM:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Resource Manager를 통해 배포된 VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: 클래식 배포 모델을 사용하여 배포된 VM [이러한 배포 모델에 대한 자세한 정보](../azure-resource-manager/management/deployment-models.md)<br>:::image type="icon" source="./media/icons/no-icon.png"::: [Azure Firewall Manager](../firewall-manager/overview.md)에서 제어하는 Azure Firewall로 보호되는 VM|
-|필요한 역할 및 권한:|**읽기 권한자** 및 **보안 읽기 권한자** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 [JIT를 구성하고 사용하는 데 필요한 권한은 무엇인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조하세요.<br>VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)를 사용합니다.|
+|필요한 역할 및 권한:|**읽기 권한자** 및 **보안 읽기 권한자** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 [JIT를 구성하고 사용하는 데 필요한 권한은 무엇인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조하세요.<br>VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role)를 사용합니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
@@ -68,7 +68,7 @@ Security Center에서 JIT VM 액세스를 사용하도록 설정하고 구성할
         - 마지막 사용자
     - **구성되지 않음** -JIT를 사용하도록 설정하지 않았으나 JIT를 지원할 수 있는 VM입니다. 이러한 VM에 대해 JIT를 사용하도록 설정하는 것이 좋습니다.
     - **지원되지 않음** - JIT를 사용하도록 설정하지 않았으며 해당 기능을 지원하지 않는 VM입니다. 다음과 같은 이유로 VM이 이 탭에 포함될 수 있습니다.
-      - 누락된 NSG(네트워크 보안 그룹) - JIT를 구성하려면 NSG가 필요합니다.
+      - 누락 된 NSG (네트워크 보안 그룹) 또는 Azure 방화벽-JIT를 구성 하려면 NSG를 구성 하거나 방화벽 구성 또는 둘 다를 사용 해야 합니다.
       - 클래식 VM - JIT는 '클래식 배포'가 아닌 Azure Resource Manager를 통해 배포되는 VM을 지원합니다. [클래식 및 Azure Resource Manager 배포 모델에 대해 자세히 알아봅니다](../azure-resource-manager/management/deployment-models.md).
       - 기타 - JIT 솔루션을 구독 또는 리소스 그룹의 보안 정책에서 사용하지 않도록 설정한 경우에는 VM이 이 탭에 포함될 수 있습니다.
 
@@ -333,13 +333,6 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 ---
 
-
-
-
-
-
-
-
 ## <a name="audit-jit-access-activity-in-security-center"></a>Security Center에서 JIT 액세스 작업 감사
 
 로그 검색을 사용하여 VM 활동에 대한 정보를 얻을 수 있습니다. 로그를 보려면:
@@ -355,11 +348,6 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
    활동 로그는 시간, 날짜 및 구독과 함께 해당 VM에 대한 이전 작업의 필터링된 보기를 제공합니다.
 
 1. 로그 정보를 다운로드하려면 **CSV로 다운로드** 를 선택합니다.
-
-
-
-
-
 
 
 

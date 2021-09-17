@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 30a081ab25e5c7918e7253649983ddea54ddf2b4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99806259"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439311"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>DDoS Protection 계획 관리: 권한 및 제한 사항
 
@@ -38,6 +38,9 @@ DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업�
 | Microsoft.Network/ddosProtectionPlans/join/action | DDoS 보호 계획에 조인              |
 
 가상 네트워크에 DDoS 보호를 사용하도록 설정하려면 계정에도 [가상 네트워크에 적절한 작업](../virtual-network/manage-virtual-network.md#permissions)을 할당해야 합니다.
+
+> [!IMPORTANT]
+> Virtual Network에서 DDoS Protection 계획을 사용 하도록 설정한 후에는 Virtual Network에 대 한 후속 작업에도 `Microsoft.Network/ddosProtectionPlans/join/action` 작업 권한이 필요 합니다.
 
 ## <a name="azure-policy"></a>Azure Policy
 

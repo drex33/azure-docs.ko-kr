@@ -2,13 +2,13 @@
 title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
-ms.date: 06/23/2021
-ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 2523d0fc9a8e4843fc0d3d41b5ed35c89bace325
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541665"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430381"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -45,7 +45,7 @@ Azure Backup은 백업된 데이터를 자격 증명 모음(Recovery Services �
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
   - **LRS(로컬 중복 스토리지)** : 데이터 센터의 장애로부터 보호하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **GRS(지역 중복 스토리지)** : 지역 전체의 중단으로부터 보호하기 위해 GRS를 사용할 수 있습니다. GRS는 데이터를 보조 지역에 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS(영역 중복 스토리지)** : [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. [자세한 정보](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **ZRS(영역 중복 스토리지)** : [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용합니다.
 
 Recovery Services 자격 증명 모음에는 다음과 같은 추가 기능이 있습니다.
@@ -81,17 +81,6 @@ Azure Backup은 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 **차등 백업** | 차등 백업은 가장 최근에 수행한 이전 전체 데이터 백업을 기반으로 합니다.<br/><br/> 이 백업은 전체 백업 이후 변경된 데이터만 캡처합니다. |  많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다.<br/><br/> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다.
 **트랜잭션 로그 백업** | 로그 백업을 사용하면 특정 시간(초 단위)까지의 특정 시점 복원이 가능합니다. | 많으면, 15분마다 트랜잭션 로그 백업을 구성할 수 있습니다.
 
-### <a name="comparison-of-backup-types"></a>백업 유형 비교
-
-스토리지 사용량, RTO(복구 시간 목표) 및 네트워크 사용량은 각 백업 유형마다 다릅니다. 다음 이미지는 백업 유형을 비교하여 보여줍니다.
-
-- 데이터 원본 A는 매달 백업되는 10개의 스토리지 블록 A1-A10으로 구성됩니다.
-- 블록 A2, A3, A4 및 A9는 첫 번째 달에 변경되고 블록 A5는 다음 달에 변경됩니다.
-- 차등 백업의 경우 두 번째 달에 변경된 블록 A2, A3, A4 및 A9가 백업됩니다. 세 번째 달에 이와 동일한 블록이 변경된 블록 A5와 함께 다시 백업됩니다. 변경된 블록은 다음 전체 백업이 발생할 때가지 계속 백업됩니다.
-- 증분 백업의 경우 두 번째 달에 A2, A3, A4 및 A9 블록이 변경되고 전송된 것으로 표시됩니다. 세 번째 달에는 변경된 블록 A5만 표시되고 전송됩니다.
-
-![백업 방법 비교를 보여주는 이미지](./media/backup-architecture/backup-method-comparison.png)
-
 ## <a name="sap-hana-backup-types"></a>SAP HANA 백업 유형
 
 다음 표에서는 SAP HANA 데이터베이스에 사용되는 다양한 유형의 백업과 사용 빈도에 대해 설명합니다.
@@ -102,6 +91,17 @@ Azure Backup은 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 | **차등 백업** | 차등 백업은 가장 최근에 수행한 이전 전체 데이터 백업을 기반으로 합니다. <br><br> 이 백업은 이전의 전체 백업 이후 변경된 데이터만 캡처합니다. | 많으면, 하루에 하나의 차등 백업을 예약할 수 있습니다.  <br><br> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다. |
 | **증분 백업** | 증분 백업은 가장 최근의 이전 전체/차등/증분 데이터 백업을 기반으로 합니다. <br><br> 이 백업은 이 이전 데이터 백업 이후 변경된 데이터만 캡처합니다. | 많으면, 하루에 하나의 증분 백업을 예약할 수 있습니다. <br><br> 데이터베이스에서 차등 백업과 증분 백업을 모두 예약할 수는 없으며 하나의 델타 백업 유형만 예약할 수 있습니다. <br><br> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다. |k
 | **트랜잭션 로그 백업** | 로그 백업을 사용하면 특정 시간(초 단위)까지의 특정 시점 복원이 가능합니다. | 많으면, 15분마다 트랜잭션 로그 백업을 구성할 수 있습니다. |
+
+## <a name="comparison-of-backup-types"></a>백업 유형 비교
+
+스토리지 사용량, RTO(복구 시간 목표) 및 네트워크 사용량은 각 백업 유형마다 다릅니다. 다음 이미지는 백업 유형을 비교하여 보여줍니다.
+
+- 데이터 원본 A는 매달 백업되는 10개의 스토리지 블록 A1-A10으로 구성됩니다.
+- 블록 A2, A3, A4 및 A9는 첫 번째 달에 변경되고 블록 A5는 다음 달에 변경됩니다.
+- 차등 백업의 경우 두 번째 달에 변경된 블록 A2, A3, A4 및 A9가 백업됩니다. 세 번째 달에 이와 동일한 블록이 변경된 블록 A5와 함께 다시 백업됩니다. 변경된 블록은 다음 전체 백업이 발생할 때가지 계속 백업됩니다.
+- 증분 백업의 경우 두 번째 달에 A2, A3, A4 및 A9 블록이 변경되고 전송된 것으로 표시됩니다. 세 번째 달에는 변경된 블록 A5만 표시되고 전송됩니다.
+
+![스토리지 사용량, RTO(복구 시간 목표) 및 네트워크 사용량이 각 백업 유형에 따라 달라지는 것을 보여 주는 다이어그램](./media/backup-architecture/backup-method-comparison.png)
 
 ## <a name="backup-features"></a>백업 기능
 

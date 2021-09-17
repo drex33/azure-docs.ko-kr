@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/21/2021
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: 989ed30ae5feacb0f323afdaed48f99ff714a46e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 908d4ae4a18ac75577ea567f6aba37c9ea2e49fe
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694878"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450497"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Shared Image Gallery 만들기
 
@@ -30,7 +29,7 @@ Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다�
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 

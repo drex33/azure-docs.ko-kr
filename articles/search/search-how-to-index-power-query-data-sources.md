@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: e943452a285f943c05982a558c92315428e9829c
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: fb7a16824ccb74ad2cab7c0175532d297ebaf88c
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729536"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451208"
 ---
 # <a name="index-data-using-power-query-connectors-preview"></a>파워 쿼리 커넥터를 사용한 데이터 인덱싱(미리 보기)
 
@@ -63,7 +63,7 @@ Azure Portal은 파워 쿼리 커넥터에 대한 지원을 제공합니다. Azu
 ### <a name="step-2--start-import-data-wizard"></a>2단계 - 데이터 가져오기 마법사 시작
 미리 보기가 승인되면 Azure Cognitive Search 팀에서 기능 플래그를 사용하는 Azure Portal 링크를 제공하며 사용자는 이 링크를 사용하여 파워 쿼리 커넥터에 액세스할 수 있습니다. 이 페이지를 열고 **데이터 가져오기** 를 선택하여 Azure Cognitive Search 서비스 페이지의 명령 모음에서 마법사를 시작합니다.
 
-![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+:::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 ### <a name="step-3--select-your-data-source"></a>3단계 - 데이터 원본 선택
 이 미리 보기를 사용하여 데이터를 끌어올 수 있는 출처로 몇 가지 데이터 원본이 있습니다. 파워 쿼리를 사용하는 모든 데이터 원본은 타일에 “파워 쿼리에서 제공”이라는 문구가 포함되어 있습니다. 데이터 원본을 선택합니다. 

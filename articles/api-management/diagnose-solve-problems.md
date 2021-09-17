@@ -6,16 +6,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: 01b932cf33883f186f9f4ff69bc78869cdb4cb18
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
-ms.translationtype: HT
+ms.openlocfilehash: 9dcbd1bf789d199b0561587949a5381027518ca3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516581"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436413"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Azure API Management 진단 개요
 
-Azure API Management에서 API를 빌드 및 관리하는 경우, 404 찾을 수 없음 오류에서 502 잘못된 게이트웨이 오류까지 발생할 수 있는 모든 문제에 대해 대비하려고 합니다. API Management 진단은 구성할 필요 없이 APIM에 게시된 API 문제를 해결하는 데 도움이 되는 대화형 인텔리전트 환경입니다. 게시된 API 관련 문제가 발생한 경우, API Management 진단은 문제점을 밝혀 내고 신속히 해당 문제를 해결하는 데 적합한 정보를 안내합니다.
+Azure API Management에서 API를 빌드 및 관리 하는 경우 404 찾을 수 없음 오류에서 502 잘못 된 게이트웨이 오류까지 발생할 수 있는 모든 문제에 대해 준비 하려고 합니다. API Management 진단은 구성할 필요 없이 APIM에 게시된 API 문제를 해결하는 데 도움이 되는 대화형 인텔리전트 환경입니다. 게시된 API 관련 문제가 발생한 경우, API Management 진단은 문제점을 밝혀 내고 신속히 해당 문제를 해결하는 데 적합한 정보를 안내합니다.
 
 이 환경은 지난 24시간 동안 API에 문제가 있을 때 가장 유용하지만, 언제든지 분석할 수 있도록 모든 진단 그래프가 제공됩니다.
 

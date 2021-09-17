@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: chadam
-ms.date: 11/06/2020
-ms.openlocfilehash: bf7cf597d97f1316d43546382cbac140c3ba6fff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: afca22d3a0775e470becfbd31a2f67d99552938d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536699"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541753"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: SQL Server에서 Azure VM의 SQL Server로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -65,7 +65,7 @@ VM에서 SQL Server를 올바르게 설치하고 구성하는 것도 고려해�
 | **마이그레이션 전략** | **설명** | **사용하는 경우** |
 | --- | --- | --- |
 | **리프트 앤 시프트** | 리프트 앤 시프트 마이그레이션 전략을 사용하여 운영 체제 또는 SQL Server 버전을 변경하지 않고 전체 실제 또는 가상 SQL Server를 현재 위치에서 Azure VM의 SQL Server 인스턴스로 이동합니다. 리프트 앤 시프트 마이그레이션을 완료하려면 [Azure Migrate](../../../migrate/migrate-services-overview.md)를 참조하세요. <br /><br /> 원본 서버는 온라인 상태를 유지하고 요청을 서비스하는 반면, 원본과 대상 서버는 거의 원활한 마이그레이션을 위해 데이터를 동기화합니다. | 단일 마이그레이션부터 대규모 마이그레이션까지 사용하며, 데이터 센터 종료와 같은 시나리오에도 적용됩니다. <br /><br /> 사용자 SQL 데이터베이스 또는 애플리케이션에 필요한 코드 변경이 없거나 최소한이므로, 전체 마이그레이션이 빨라집니다. <br /><br />[SSIS](/sql/integration-services/sql-server-integration-services), [SSRS](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) 및 [SSAS](/analysis-services/analysis-services-overview)와 같은 비즈니스 인텔리전스 서비스를 마이그레이션하는 데 추가 단계가 필요하지 않습니다. |
-|**마이그레이션** | 대상 SQL Server 및/또는 운영 체제 버전을 업그레이드하려는 경우 마이그레이션 전략을 사용합니다. <br /> <br /> Azure Marketplace에서 Azure VM을 선택하거나 원본 SQL Server 버전과 일치하는 준비된 SQL Server 이미지를 선택합니다. | 최신 버전의 SQL Server에서 사용할 수 있는 기능을 사용해야 하거나 사용하려는 경우 또는 더는 지원되지 않는 레거시 SQL Server 및/또는 OS 버전을 업그레이드해야 하는 경우에 사용합니다.  <br /> <br /> SQL Server 업그레이드를 지원하기 위해 일부 애플리케이션 또는 사용자 데이터베이스 변경이 필요할 수 있습니다. <br /><br />마이그레이션 범위에 있는 경우 [비즈니스 인텔리전스](#business-intelligence) 서비스 마이그레이션에 관한 추가 고려 사항이 있을 수 있습니다. |
+|**마이그레이션** | 대상 SQL Server 및/또는 운영 체제 버전을 업그레이드하려는 경우 마이그레이션 전략을 사용합니다. <br /> <br /> Azure Marketplace에서 Azure VM을 선택하거나 원본 SQL Server 버전과 일치하는 준비된 SQL Server 이미지를 선택합니다. <br/> <br/> [Azure Data Studio에 대 한 azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md) 을 사용 하 여 가동 중지 시간을 최소화 하면서 SQL Server 데이터베이스를 azure 가상 머신에서 SQL Server로 마이그레이션합니다. | 최신 버전의 SQL Server에서 사용할 수 있는 기능을 사용해야 하거나 사용하려는 경우 또는 더는 지원되지 않는 레거시 SQL Server 및/또는 OS 버전을 업그레이드해야 하는 경우에 사용합니다.  <br /> <br /> SQL Server 업그레이드를 지원하기 위해 일부 애플리케이션 또는 사용자 데이터베이스 변경이 필요할 수 있습니다. <br /><br />마이그레이션 범위에 있는 경우 [비즈니스 인텔리전스](#business-intelligence) 서비스 마이그레이션에 관한 추가 고려 사항이 있을 수 있습니다. |
 
 
 ## <a name="lift-and-shift"></a>리프트 앤 시프트  
@@ -91,6 +91,7 @@ SQL Server 데이터베이스를 Azure VM의 SQL Server 인스턴스로 마이�
 
 |**방법** | **최소 원본 버전** | **최소 대상 버전** | **원본 백업 크기 제약 조건** | **참고** |
 | --- | --- | --- | --- | --- |
+| **[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md)** | SQL Server 2005 | SQL Server 2008 | [Azure VM 스토리지 제한](../../../index.yml) |  이 기능은 Azure virtual machines에서 SQL Server으로 SQL Server 데이터베이스를 마이그레이션하는 Azure Data Studio에서 사용 하기 쉬운 마법사 기반 확장입니다. 압축을 사용하여 전송할 백업 크기를 최소화합니다. <br /><br /> Azure Data Studio에 대 한 Azure SQL migration 확장은 간단한 사용자 인터페이스에서 평가 및 마이그레이션 기능을 제공 합니다.  |
 | **[파일에 백업](sql-server-to-sql-on-azure-vm-individual-databases-guide.md#migrate)** | SQL Server 2008 SP4 | SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  머신 간에 데이터베이스를 이동하는 간단하고 검증된 방법입니다. 압축을 사용하여 전송할 백업 크기를 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL(Transact-SQL)](/sql/t-sql/statements/backup-transact-sql) 및 [Blob Storage에 AzCopy](../../../storage/common/storage-use-azcopy-v10.md)  |
 | **[URL에 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)** | SQL Server 2012 SP1 CU2 | SQL Server 2012 SP1 CU2| SQL Server 2016의 경우 12.8TB, 그렇지 않으면 1TB | Azure Storage를 사용하여 VM에 백업 파일을 이동하는 대체 방법입니다. 압축을 사용하여 전송할 백업 크기를 최소화합니다. <br /><br /> **자동화 및 스크립팅**: [T-SQL 또는 유지 관리 플랜](/sql/relational-databases/backup-restore/sql-server-backup-to-url) |
 | **[DMA(Database Migration Assistant)](/sql/dma/dma-overview)** | SQL Server 2005| SQL Server 2008 SP4| [Azure VM 스토리지 제한](../../../index.yml) |  [DMA](/sql/dma/dma-overview)는 온-프레미스에서 SQL Server를 평가한 다음, 최신 버전의 SQL Server로 원활하게 업그레이드하거나 Azure VM, Azure SQL Database 또는 Azure SQL Managed Instance의 SQL Server로 마이그레이션합니다. <br /><br /> 파일 스트림 지원 사용자 데이터베이스에서 사용하지 않아야 합니다.<br /><br /> DMA에는 [SQL 및 Windows 로그인](/sql/dma/dma-migrateserverlogins)을 마이그레이션하고 [SSIS 패키지](/sql/dma/dma-assess-ssis)를 평가하는 기능도 포함되어 있습니다. <br /><br /> **자동화 및 스크립팅**: [명령줄 인터페이스](/sql/dma/dma-commandline) |

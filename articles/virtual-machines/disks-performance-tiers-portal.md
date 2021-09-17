@@ -4,16 +4,16 @@ description: Azure Portal을 사용하여 새 관리 디스크 및 기존 관리
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 09/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: dd7d024b542feb2e15aefb79f2467e7033c180f9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 1320ec212a94245e42c63f583d37b33eaa76224e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106614"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433299"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Azure Portal을 사용하여 성능 계층 변경
 
@@ -44,7 +44,7 @@ ms.locfileid: "123106614"
 
 가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM 할당을 중단하거나 디스크를 분리하여 계층을 변경할 필요가 없습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 가동 중지 시간 없이 디스크의 성능 계층을 변경하려면 먼저 구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
 
@@ -66,7 +66,6 @@ ms.locfileid: "123106614"
 
 1. 다음 링크에서 Azure Portal에 로그인합니다. [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
 1. 변경하려는 디스크가 포함된 VM으로 이동합니다.
-1. VM 할당을 무효화하거나 디스크를 분리합니다.
 1. 디스크 선택
 1. **크기 + 성능** 을 선택합니다.
 1. **성능 계층** 드롭다운에서 디스크의 현재 성능 계층이 아닌 다른 계층을 선택합니다.

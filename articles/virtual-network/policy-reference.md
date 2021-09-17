@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual Network에 대한 기본 제공 정책 정의
 description: Azure Virtual Network에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c4c05e5dd3930857f8d476c644796d7319ca35a5
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: c4c20b4883946575f3abdfe06c954066b6d05224
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100371"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467468"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure Virtual Network에 대한 Azure Policy 기본 제공 정의
 

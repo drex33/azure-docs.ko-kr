@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: f50685a2e25d33f7caa614480817ea0040191cf8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c870767c63c265c13e18f527d20954f8e72abae5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536748"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437709"
 ---
 # <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
 
@@ -40,7 +39,7 @@ WFS(Web Feature Service)는 OGC(Open Geospatial Consortium)로 정의된 표준�
 
 <br/>
 
-<iframe height='700' scrolling='no' title='간단한 WFS 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>간단한 WFS 예제</a>를 참조합니다.
+<iframe height='700' scrolling='no' title='간단한 WFS 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>간단한 WFS 예제</a>를 참조합니다.
 </iframe>
 
 ## <a name="supported-filters"></a>지원되는 필터
@@ -82,7 +81,7 @@ WFS 표준 사양은 OGC 필터를 사용합니다. 아래 필터는 호출되�
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'WFS 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS 필터 예제</a>를 참조합니다.
+<iframe height='500' scrolling='no' title= 'WFS 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS 필터 예제</a>를 참조합니다.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>WFS 서비스 탐색기
@@ -91,7 +90,7 @@ WFS 표준 사양은 OGC 필터를 사용합니다. 아래 필터는 호출되�
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS 서비스 탐색기</a>를 참조합니다.
+<iframe height='700' scrolling='no' title= 'WFS 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS 서비스 탐색기</a>를 참조합니다.
 </iframe>
 
 CORS를 사용하지 않는 엔드포인트에서 호스트되는 WFS 서비스에 액세스하기 위해 아래에 표시된 바와 같이 CORS 사용 프록시 서비스를 WFS 클라이언트의 `proxyService` 옵션에 전달할 수 있습니다. 

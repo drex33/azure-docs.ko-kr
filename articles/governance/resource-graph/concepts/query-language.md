@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1f1eef5a70187ed883da9f535cc2f2915e3bf6d6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 8d537d0816ef4d32d6ce85cf363e08bece28ec84
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104655"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536088"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -36,6 +36,7 @@ Resource Graph는 Azure Resource Manager 리소스 종류 및 해당 속성에 �
 |ExtendedLocationResources |예 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
 |GuestConfigurationResources |예 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
 |HealthResources|Yes |`Microsoft.ResourceHealth/availabilitystatuses` _관련_ 리소스를 포함합니다. |
+|IoTSecurityResources |예 |`Microsoft.IoTSecurity` _관련_ 리소스를 포함합니다. |
 |KubernetesConfigurationResources |예 |`Microsoft.KubernetesConfiguration` _관련_ 리소스를 포함합니다. |
 |MaintenanceResources |부분적으로 예, _에_ 만 조인. (미리 보기) |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
 |PatchAssessmentResources|예 |Azure Virtual Machines 패치 평가와 _관련된_ 리소스를 포함합니다. |

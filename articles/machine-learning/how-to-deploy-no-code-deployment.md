@@ -11,14 +11,14 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 094005b471bd1f4ea996defddf1f080481fa7c7b
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 8735898a462d9488aec95bf9f5840bf9b9be2bb6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296391"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428437"
 ---
-# <a name="preview-no-code-model-deployment"></a>(미리 보기) 코드가 없는 모델 배포
+# <a name="no-code-model-deployment-preview"></a>코드 없는 모델 배포(미리 보기)
 
 코드 없는 모델 배포는 현재 미리 보기로 제공되며 다음과 같은 기계 학습 프레임워크를 지원합니다.
 

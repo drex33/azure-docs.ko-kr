@@ -2,14 +2,14 @@
 title: SAP HANA Backup 지원 매트릭스
 description: 이 문서에서는 Azure Backup을 사용하여 Azure VM에 SAP HANA 데이터베이스를 백업할 때 지원되는 시나리오 및 제한 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/7/2019
+ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8a3a05ad41affa52a62456e7d0ad41c55b69cf5b
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
-ms.translationtype: HT
+ms.openlocfilehash: 09dab8a35c5ed06ec9680b2cb57ca6ac0d27109f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684940"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427942"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 
@@ -24,7 +24,7 @@ Azure Backup은 Azure에 SAP HANA 데이터베이스 백업을 지원합니다. 
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **토폴로지**               | Azure Linux VM에서만 실행되는 SAP HANA                    | HLI(HANA 대규모 인스턴스)                                   |
 | **지역**                   | **GA:**<br> **아메리카** – 미국 중부, 미국 동부 2, 미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 미국 중서부, 미국 서부, 캐나다 중부, 캐나다 동부, 브라질 남부 <br> **아시아 태평양** – 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 동아시아, 동남 아시아, 인도 중부, 인도 남부, 인도 서부, 중국 동부, 중국 북부, 중국 동부 2, 중국 북부 2 <br> **유럽** – 서유럽, 북유럽, 프랑스 중부, 영국 남부, 영국 서부, 독일 북부, 독일 중서부, 스위스 북부, 스위스 서부, 스위스 중북부, 노르웨이 동부, 노르웨이 서부 <br> **아프리카/ME** - 남아프리카 공화국 북부, 남아프리카 공화국 서부, 아랍에미리트 북부, 아랍에미리트 중부  <BR>  **Azure Government 지역** | 프랑스 남부, 독일 중부, 독일 북동부, US Gov 아이오와 |
-| **OS 버전**            | SLES 12(SP2, SP3, SP4 및 SP5), SLES 15(SP0, SP1, SP2) <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1 & 8.2                |                                             |
+| **OS 버전**            | SLES 12 SP2, SP3, SP4 및 SP5; SLES 15 with SP0, SP1, SP2 및 SP3 <br><br>  RHEL 7.4, 7.6, 7.7, 7.9, 8.1, 8.2 및 8.4                |                                             |
 | **HANA 버전**          | HANA 1.x의 SDC, HANA 2.x SPS04의 MDC, SPS05 Rev <= 55(암호화 사용 시나리오에 대해서도 유효성이 검사됨)      |                                                            |
 | **HANA 배포**       | 단일 Azure VM의 SAP HANA - 스케일 업만 해당 <br><br> 고가용성 배포의 경우 서로 다른 두 컴퓨터의 두 노드는 별도의 데이터 체인이 있는 개별 노드로 처리됩니다.               | 스케일 아웃 <br><br> 고가용성 배포에서는 백업이 보조 노드로 자동 장애 조치(failover)되지 않습니다. 백업 구성은 각 노드에 대해 개별적으로 수행해야 합니다.                                           |
 | **HANA 인스턴스**         | 단일 Azure VM의 단일 SAP HANA 인스턴스 – 스케일 업만 해당 | 단일 VM의 여러 SAP HANA 인스턴스. 한 번에 이러한 여러 인스턴스 중 하나만 보호할 수 있습니다.                  |

@@ -7,24 +7,21 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: baa4a78e23b83fa7c138e71b92dba12ba23a3ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/02/2021
+ms.openlocfilehash: 07a4d0b7b932b92307b77420df1a21027df1efb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528702"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538060"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소
 
-지식 저장소는 독립적인 분석이나 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 Azure Storage에 저장하는 Azure Cognitive Search의 한 기능입니다. *보강된 문서* 는 AI 프로세스를 사용하여 추출, 구조화 및 분석된 콘텐츠에서 만든 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강된 문서는 일시적이며 인덱싱 중에만 사용된 후에 삭제됩니다. 지식 저장소를 만들면 보강된 문서가 검사나 기타 지식 마이닝 시나리오를 위해 보존됩니다.
+지식 저장소는 AI [보강 파이프라인의](cognitive-search-concept-intro.md) 출력을 독립적인 분석 또는 다운스트림 처리를 위해 Azure Storage 테이블 및 Blob으로 보내는 Azure Cognitive Search 기능입니다.
 
-과거에 인지 검색을 사용한 적이 있으면 *기술 세트* 를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있을 것입니다. 결과는 검색 인덱스이거나 지식 저장소의 프로젝션일 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 부산물입니다. 동일한 입력에서 파생되지만 출력은 서로 다른 애플리케이션에서 구조화, 저장, 사용됩니다.
+과거에 인지 기술을 사용한 경우 *기술 세트가* 엔터티 인식 또는 텍스트 번역과 같은 원자성 변환을 호출하는 보강 시퀀스를 통해 문서를 이동한다는 것을 이미 알고 있습니다. 결과는 검색 인덱스이거나 지식 저장소의 프로젝션일 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 동일한 파이프라인의 상호 배타적 제품입니다. 는 동일한 입력에서 파생되지만 다른 애플리케이션에서 구조화, 저장 및 사용되는 출력이 생성됩니다.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="기술 세트가 있는 파이프라인" border="false":::
-
-<!-- previous version of the architecture diagram
-:::image type="content" source="media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png" alt-text="Knowledge store in pipeline diagram" border="false"::: -->
 
 물리적으로 지식 저장소는 [Azure Storage](../storage/common/storage-account-overview.md)이며 Azure Table Storage, Azure Blob Storage 또는 둘 다 해당합니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
 
@@ -34,25 +31,25 @@ Storage Explorer를 통해 표시된 지식 저장소는 테이블, 개체 또�
 
 ## <a name="benefits-of-knowledge-store"></a>지식 저장소의 이점
 
-지식 저장소는 BLOB과 같은 비정형 및 준정형 데이터 파일, 분석을 실행한 이미지 파일 또는 새 양식으로 변형된 정형 데이터에서 수집한 구조, 상황 및 실제 콘텐츠를 제공합니다. [단계별 연습](knowledge-store-create-rest.md)에서 밀도가 높은 JSON 문서를 하위 구조로 분할하고, 새 구조로 재구성하고, 다른 방법으로 기계 학습 및 데이터 과학 워크로드와 같은 다운스트림 프로세스에 사용할 수 있도록 만드는 방법을 미리 확인할 수 있습니다.
+지식 저장소의 주요 이점은 콘텐츠에 대한 유연한 액세스 및 데이터 셰이프 기능의 두 가지입니다.
 
-AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것이 유용하지만 지식 저장소의 진정한 잠재력은 데이터를 변형시키는 능력입니다. 기본 기술 세트로 시작하고, 이를 반복하여 증가하는 수준의 구조를 추가한 다음, Azure Cognitive Search 이외의 다른 앱에서 사용할 수 있는 새 구조로 결합할 수 있습니다.
+Cognitive Search 쿼리를 통해서만 액세스할 수 있는 검색 인덱스와 달리 Azure Storage 대한 연결을 지원하는 도구, 앱 또는 프로세스에서 지식 저장소에 액세스할 수 있습니다. 이러한 유연성으로 인해 보강 파이프라인에서 생성된 분석 및 보강 콘텐츠를 사용하는 새로운 시나리오가 열립니다.
 
-지식 저장소의 이점을 자세히 열거하면 다음과 같습니다.
+데이터를 보강하는 동일한 기술 집합을 사용하여 데이터를 셰이프할 수도 있습니다. Power BI 같은 일부 도구는 테이블에서 더 잘 작동하지만 데이터 과학 워크로드에는 Blob 형식의 복잡한 데이터 구조가 필요할 수 있습니다. [쉐이퍼 기술을](cognitive-search-skill-shaper.md) 기술 집합에 추가하면 데이터의 모양을 제어할 수 있습니다. 그런 다음 이러한 도형을 테이블 또는 Blob 프로젝션에 전달하여 데이터의 용도에 맞는 물리적 데이터 구조를 만들 수 있습니다.
 
-+ 보강된 문서를 검색 이외의 [분석 및 보고 도구](#tools-and-apps)에 사용합니다. 파워 쿼리 포함 Power BI는 매력적인 선택이지만 Azure Storage에 연결할 수 있는 모든 도구 또는 앱은 사용자가 만드는 지식 저장소에서 끌어올 수 있습니다.
-
-+ 단계 및 기술 세트 정의를 디버깅하는 동안 AI 인덱싱 파이프라인을 정교화합니다. 지식 저장소는 AI 인덱싱 파이프라인에 있는 기술 세트 정의의 생성물을 보여줍니다. 보강이 어떻게 보이는지 정확히 확인할 수 있으므로 해당 결과를 사용하여 더 나은 기술 세트를 디자인할 수 있습니다. Azure Storage의 [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)를 사용하여 지식 저장소의 콘텐츠를 볼 수 있습니다.
-
-+ 데이터를 새 양식으로 변형합니다. 셰이핑 조정은 기술 세트로 코딩되지만 Azure Cognitive Search의 [셰이퍼 기술](cognitive-search-skill-shaper.md)은 명시적 제어와 여러 셰이프를 만드는 기능을 제공합니다. 셰이핑을 사용하면 관계를 유지하면서 데이터의 사용 목적에 맞는 프로젝션을 정의할 수 있습니다.
+다음 비디오에서는 이러한 이점과 그 이상을 모두 설명합니다.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## <a name="knowledge-store-definition"></a>지식 저장소 정의
 
-인덱서 실행 중에 Azure Table Storage, Azure Blob Storage 또는 둘 다를 사용하여 [Azure Storage 계정](../storage/common/storage-account-overview.md)에 지식 저장소가 생성됩니다. 
+지식 저장소는 기술 자료 정의 내에 정의되며 다음 두 가지 구성 요소가 있습니다. 
 
-Azure Storage 내의 데이터 구조는 기술 세트에서 `knowledgeStore` 정의의 `projections` 요소를 통해 지정됩니다. [프로젝션](knowledge-store-projection-overview.md)은 테이블, 개체 또는 파일로 표현될 수 있으며, 여러 세트(또는 ‘프로젝션 그룹’)를 사용하여 각기 다른 용도로 여러 데이터 구조를 만들 수 있습니다.
++ Azure Storage 연결 문자열
+
++ 지식 저장소가 테이블, 개체 또는 파일로 구성되는지 여부를 결정하는 [**프로젝션입니다.**](knowledge-store-projection-overview.md) 
+
+프로젝션 요소는 배열입니다. 하나의 지식 저장소 내에 여러 테이블 개체 파일 조합 집합을 만들 수 있습니다.
 
 ```json
 "knowledgeStore":{
@@ -72,42 +69,42 @@ Azure Storage 내의 데이터 구조는 기술 세트에서 `knowledgeStore` �
 
 + `objects`는 JSON 문서를 Blob Storage에 프로젝션합니다. `object`의 물리적 표현은 보강 문서를 나타내는 계층적 JSON 구조입니다.
 
-+ `files`는 이미지 파일을 Blob Storage에 프로젝션합니다. `file`은 문서에서 추출되어 Blob 스토리지로 그대로 전송되는 이미지입니다.
++ `files`는 이미지 파일을 Blob Storage에 프로젝션합니다. `file`은 문서에서 추출되어 Blob 스토리지로 그대로 전송되는 이미지입니다. 이름은 "files"이지만 파일 스토리지가 아닌 Blob Storage 표시됩니다.
 
 ## <a name="create-a-knowledge-store"></a>지식 저장소 만들기
 
 지식 저장소를 만들려면 포털이나 API를 사용합니다. [Azure Storage](../storage/index.yml), [기술 세트](cognitive-search-working-with-skillsets.md), [인덱서](search-indexer-overview.md)가 필요합니다. 인덱서에는 검색 인덱스가 필요하므로 인덱스 정의도 제공해야 합니다.
 
+포털 접근 방식을 사용하여 완성된 지식 저장소로 가장 빠른 경로를 선택합니다. 또는 REST API 선택하여 개체가 정의되고 관련되는 방식을 자세히 이해합니다.
+
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/kstore-portal)
 
-**데이터 가져오기** 마법사를 사용하여 [4단계로 첫 번째 지식 저장소를 만듭니다](knowledge-store-connect-power-bi.md). 마법사에서 안내하는 작업은 다음과 같습니다.
+**데이터 가져오기** 마법사를 사용하여 네 단계로 첫 번째 [**지식 저장소를 만듭니다.**](knowledge-store-create-portal.md)
 
-1. 원시 콘텐츠를 제공하는 지원되는 데이터 원본을 선택합니다.
+1. 데이터 원본 정의
 
-1. 보강 지정: Cognitive Services 리소스를 연결하고 기술을 선택한 다음, 지식 저장소를 지정합니다. 이 단계에서 Azure Storage 계정을 선택하고 개체, 테이블 또는 둘 다 만들지 여부를 선택합니다.
+1. 기술 도구를 정의하고 지식 저장소를 지정합니다.
 
-1. 인덱스 스키마를 만듭니다. 마법사에는 이러한 스키마가 필요하며 사용자를 위해 유추할 수 있습니다.
+1. 인덱스 스키마를 정의합니다. 마법사에는 이러한 스키마가 필요하며 사용자를 위해 유추할 수 있습니다.
 
 1. 마법사를 실행합니다. 이 마지막 단계에서 추출, 보강 및 저장이 수행됩니다.
 
-마법사를 사용하는 경우 코드에서 처리해야 하는 몇 가지 추가 작업이 내부적으로 처리됩니다. 셰이핑과 프로젝션(Azure Storage의 물리적 데이터 구조 정의)이 모두 자동으로 생성됩니다. 지식 저장소를 수동으로 만드는 경우 코드에서 해당 단계를 처리해야 합니다.
+마법사는 수동으로 처리해야 하는 작업을 자동화합니다. 특히 셰이핑 및 프로젝션(Azure Storage 실제 데이터 구조 정의)이 모두 생성됩니다. 
 
 ### <a name="rest"></a>[**REST**](#tab/kstore-rest)
+
+[**Postman을 사용하여 첫 번째 지식 저장소 만들기는**](knowledge-store-create-rest.md) 이 [지식 저장소 컬렉션](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)에 속하는 개체 및 요청을 안내하는 자습서입니다.
 
 REST API 버전 `2020-06-30`을 사용하면 기술 세트에 추가하여 지식 저장소를 만들 수 있습니다.
 
 + [기술 세트 만들기(api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
 + [기술 세트 업데이트(api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
-`knowledgeStore`는 [기술 세트](cognitive-search-working-with-skillsets.md) 내에 정의되며, [인덱서](search-indexer-overview.md)에서 호출됩니다. Azure Cognitive Search는 보강하는 동안 공간을 Azure Storage 계정에 만들고, 구성에 따라 보강된 문서를 Blob 또는 테이블로 프로젝션합니다.
-
-코드에서 처리해야 하는 작업:
+기술적인 기능 내에서 다음을 수행합니다.
 
 + Azure Storage에서 빌드하려는 프로젝션 지정(테이블, 개체, 파일)
 + 기술 세트에 셰이퍼 기술을 포함하여 프로젝션의 스키마와 콘텐츠 확인
 + 프로젝션에 명명된 셰이프 할당
-
-쉽게 살펴보는 방법은 [Postman을 사용하여 첫 번째 지식 저장소를 만드는 것](knowledge-store-create-rest.md)입니다.
 
 ### <a name="net-sdk"></a>[**.NET SDK**](#tab/kstore-dotnet)
 
@@ -158,5 +155,3 @@ REST API 버전 `2020-06-30`을 사용하면 기술 세트에 추가하여 지�
 
 > [!div class="nextstepaction"]
 > [Postman 및 REST를 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)
-
-또는 [프로젝션](knowledge-store-projection-overview.md)을 자세히 살펴봅니다. 조각화, 인라인 셰이핑, 관계 등의 고급 프로젝션 개념을 보여 주는 예제를 살펴보려면 [지식 저장소의 프로젝션 정의](knowledge-store-projections-examples.md)에서 시작합니다.

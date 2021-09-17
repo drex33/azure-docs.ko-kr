@@ -3,12 +3,12 @@ title: 리소스의 여러 인스턴스 배포
 description: ARM 템플릿(Azure Resource Manager 템플릿)의 복사 작업 및 배열을 사용하여 리소스 형식을 여러 번 배포합니다.
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 305a05f10683c879e9f002f02aa6d00edbb43d0a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: fc1b8389280880372e8209f5c699b39363e286bf
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954652"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449786"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
@@ -248,6 +248,7 @@ ms.locfileid: "111954652"
 |[스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
 |[배열을 사용하여 스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |여러 스토리지 계정을 배포합니다. 이름에는 배열의 값이 포함됩니다. |
+| [리소스 그룹 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyRG.json) | 여러 리소스 그룹을 배포 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

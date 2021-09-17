@@ -1,20 +1,20 @@
 ---
 title: 웹 SDK의 점 데이터 클러스터링 | Microsoft Azure Maps
 description: 맵에서 요소 데이터를 클러스터링하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용하여 데이터를 클러스터링하고, 클러스터 마우스 이벤트에 대응하고, 클러스터 집계를 표시하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 70b1ac01c2019b4ce74895b67cb79f5e93226b64
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 0510d729f42c0c9c80e228b9da298af70b7fcf21
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091864"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437799"
 ---
 # <a name="clustering-point-data-in-the-web-sdk"></a>웹 SDK의 점 데이터 클러스터링
 
@@ -62,7 +62,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기본 거품형 계층 클러스터링" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="기본 거품형 계층 클러스터링" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>기본 거품형 계층 클러스터링</a>을 참조하세요.
 </iframe>
 
@@ -74,7 +74,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터형 기호 계층" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="클러스터형 기호 계층" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>클러스터형 기호 계층</a>을 참조하세요.
 </iframe>
 
@@ -84,7 +84,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 가중치가 적용된 열 지도" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="클러스터 가중치가 적용된 열 지도" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>클러스터 가중 열 지도</a>를 참조하세요.
 </iframe>
 
@@ -92,7 +92,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 클러스터형 데이터 요소를 포함하는 계층에서 마우스 이벤트가 발생하면 클러스터형 데이터 요소는 이벤트를 GeoJSON 요소 기능 개체로 반환합니다. 이 요소 기능에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |
@@ -103,7 +103,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="클러스터 getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/moZWeV/'>클러스터 getClusterExpansionZoom</a>을 참조하세요.
 </iframe>
 
@@ -113,7 +113,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 영역 볼록 집합" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" scrolling="no" title="클러스터 영역 볼록 집합" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>클러스터 영역 볼록 집합</a>을 참조하세요.
 </iframe>
 
@@ -123,7 +123,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 다음 샘플에서는 집계 식을 사용합니다. 이 코드는 클러스터에 있는 각 데이터 요소의 엔터티 형식 속성을 기준으로 개수를 계산합니다. 사용자가 클러스터를 클릭하면 클러스터에 대한 추가 정보가 포함된 팝업이 표시됩니다.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="클러스터 집계" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="클러스터 집계" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>클러스터 집계</a>를 참조하세요.
 </iframe>
 

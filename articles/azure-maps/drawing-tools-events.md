@@ -1,19 +1,19 @@
 ---
 title: 그리기 도구 이벤트 | Microsoft Azure Maps
 description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 그리기 도구 모음을 추가하는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: edb3b0bdcd5d8e9f80493267cad3ccbfa07a576f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: ebafc4ac95afd4c9b6d414966d616ee7315414c1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665213"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437781"
 ---
 # <a name="drawing-tool-events"></a>그리기 도구 이벤트
 
@@ -32,7 +32,7 @@ ms.locfileid: "114665213"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="그리기 도구 이벤트" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="그리기 도구 이벤트" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>그리기 도구 이벤트</a>을 참조하세요.
 </iframe>
 
@@ -48,7 +48,7 @@ ms.locfileid: "114665213"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="그린 다각형 영역에서 데이터 선택" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="그린 다각형 영역에서 데이터 선택" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/XWJdeja'>그린 다각형 영역에서 데이터 선택</a>을 참조하세요.
 </iframe>
 
@@ -60,7 +60,7 @@ ms.locfileid: "114665213"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="다각형 영역에서 그리기 및 검색" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="다각형 영역에서 그리기 및 검색" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>다각형 영역에서 그리기 및 검색</a>을 참조하세요.
 </iframe>
 
@@ -72,7 +72,7 @@ ms.locfileid: "114665213"
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="측정 도구" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="측정 도구" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>측정 도구</a>를 참조하세요.
 </iframe>
 

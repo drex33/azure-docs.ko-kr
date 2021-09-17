@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: e49cb32c198cf3279dbad5491075138115efd951
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8075176302e81788b3b180501c951c27ee4105eb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529037"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434163"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에서 사용 가능한 크기
 
@@ -21,8 +21,6 @@ ms.locfileid: "122529037"
 
 | SKU 제품군 |  ACU/코어 | 
 |---|---|
-| [A5-7](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series)| 100 |
-|[A8-A11](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series---compute-intensive-instances) | 225* |
 |[Av2](../virtual-machines/av2-series.md) | 100 | 
 |[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
 |[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 - 190* |
@@ -69,6 +67,6 @@ ms.locfileid: "122529037"
 ```
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

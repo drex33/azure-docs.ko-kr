@@ -2,13 +2,13 @@
 title: Bicep을 사용하여 리소스 그룹에 리소스 배포
 description: Bicep 파일에 리소스를 배포하는 방법을 설명합니다. 둘 이상의 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 4d68d0d28763c21574a3fd4f2f4c57561759e51e
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 09/02/2021
+ms.openlocfilehash: 57e6814a8d7acd5c35995e037c2fd0c1c6804819
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634479"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426943"
 ---
 # <a name="resource-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 리소스 그룹 배포
 
@@ -191,7 +191,7 @@ output output string = mgName
 
 대상 리소스 그룹에 리소스를 배포하려면 템플릿의 `resources` 섹션에서 해당 리소스를 정의합니다. 다음 템플릿은 배포 작업에 지정된 리소스 그룹에 스토리지 계정을 만듭니다.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/get-started-with-bicep-files/add-output/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep":::
 
 ## <a name="deploy-to-multiple-resource-groups"></a>여러 리소스 그룹으로 배포
 

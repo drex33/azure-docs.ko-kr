@@ -3,19 +3,19 @@ title: 사용자 지정 신경망 음성 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 신경망 음성은 사용자 고유의 오디오 데이터를 샘플로 제공하여 애플리케이션에 대한 일종의 사용자 지정된 합성 음성을 만들 수 있도록 하는 텍스트 음성 변환 기능입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: lajanuar
-ms.openlocfilehash: cd0dbb217d095568af0075ca4904d7a1751f5a89
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 9f0af5c38bc41ab6ae3926d41564682257137575
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537574"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541048"
 ---
 # <a name="what-is-custom-neural-voice"></a>사용자 지정 신경망 음성이란?
 

@@ -6,15 +6,13 @@ ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ee600c3ad22be5ec178d2ce89d93488ba3de58a0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92891196"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432777"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -56,7 +54,7 @@ map.events.add('click',marker, () => {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='맵에 HTML 표식 추가' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>맵에 HTML 표식 추가</a>를 참조하세요.
+<iframe height='500' scrolling='no' title='맵에 HTML 표식 추가' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>맵에 HTML 표식 추가</a>를 참조하세요.
 </iframe>
 
 ## <a name="create-svg-templated-html-marker"></a>SVG 템플릿 기반 HTML 표식 만들기
@@ -65,7 +63,7 @@ Html 표식의 기본값 `htmlContent`는 위치 폴더 `{color}` 및 `{text}`�
 
 <br/>
 
-<iframe height='500' scrolling='no' title='사용자 지정 SVG 템플릿을 사용하는 HTML 표식' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>사용자 지정 SVG 템플릿을 사용하는 HTML 표식</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='사용자 지정 SVG 템플릿을 사용하는 HTML 표식' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>사용자 지정 SVG 템플릿을 사용하는 HTML 표식</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -77,7 +75,7 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 <br/>
 
-<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a>를 참조하세요.
+<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a>를 참조하세요.
 </iframe>
 
 ## <a name="draggable-html-markers"></a>드래그할 수 있는 HTML 표식
@@ -86,7 +84,7 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 <br/>
 
-<iframe height='500' scrolling='no' title='드래그할 수 있는 HTML 표식' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>드래그할 수 있는 HTML 표식</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='드래그할 수 있는 HTML 표식' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>드래그할 수 있는 HTML 표식</a>을 참조하세요.
 </iframe>
 
 ## <a name="add-mouse-events-to-html-markers"></a>HTML 표식에 마우스 이벤트 추가
@@ -95,7 +93,7 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 <br/>
 
-<iframe height='500' scrolling='no' title='HTML 표식에 마우스 이벤트 추가' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>HTML 표식에 마우스 이벤트 추가</a>를 참조하세요.
+<iframe height='500' scrolling='no' title='HTML 표식에 마우스 이벤트 추가' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>HTML 표식에 마우스 이벤트 추가</a>를 참조하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

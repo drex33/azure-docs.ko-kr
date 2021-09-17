@@ -3,21 +3,21 @@ title: 키워드 만들기 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 디바이스는 항상 키워드(또는 구)를 수신 대기합니다. 사용자가 키워드를 말하면 사용자가 말하기를 중지할 때까지 디바이스에서 모든 후속 오디오를 클라우드로 보냅니다. 키워드 사용자 지정은 디바이스를 차별화하고 브랜드를 강화하는 효과적인 방법입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 439bbb40ac58ea0f3f0870bb86e6c9f4a29980a5
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: 8cf0da3ca3787580513d818a2c0ebca5a07829b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529603"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541102"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 

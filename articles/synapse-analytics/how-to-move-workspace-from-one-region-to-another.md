@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
-ms.openlocfilehash: 015128d986ab0e32a1377da8b91c319895264aa9
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: a13231ea890476e5fc52cf563c250ef0124f940b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310310"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539698"
 ---
 # <a name="move-an-azure-synapse-analytics-workspace-from-one-region-to-another"></a>지역 간 Azure Synapse Analytics 작업 영역 이동
 
@@ -54,7 +54,7 @@ Azure Synapse 작업 영역을 한 지역에서 다른 지역으로 이동하는
 1. 대상 지역에서 새 작업 영역을 테스트하고 원본 지역 작업 영역을 가리키는 모든 DNS 항목을 업데이트합니다.
 1. 원본 작업 영역에서 만든 프라이빗 엔드포인트 연결이 있는 경우 대상 지역 작업 영역에 프라이빗 엔드포인트 연결 하나를 만듭니다.
 1. 철저히 테스트한 후 원본 지역에서 작업 영역을 삭제하고 모든 연결을 대상 지역 작업 영역으로 경로 지정할 수 있습니다.
-
+## <a name="prepare"></a>준비
 ## <a name="step-1-create-an-azure-synapse-workspace-in-a-target-region"></a>1단계: 대상 지역에 Azure Synapse 작업 영역 만들기
 
 이 섹션에서는 Azure PowerShell, Azure CLI 및 Azure Portal 사용하여 Azure Synapse 작업 영역을 만듭니다. PowerShell 스크립트 및 CLI 스크립트의 일부로 작업 영역에 대한 기본 스토리지로 사용할 Azure Data Lake Storage Gen2 계정과 리소스 그룹을 만듭니다. 배포 프로세스를 자동화하려면 DevOps 릴리스 파이프라인에서 이러한 PowerShell 또는 CLI 스크립트를 호출합니다.
@@ -289,7 +289,7 @@ New-AzSynapseSparkPool `
 az synapse spark pool create --name $sparkPoolName --workspace-name $workspaceName --resource-group $resourceGroupName `
 --spark-version $sparkVersion --node-count 3 --node-size small
 ```
-
+## <a name="move"></a>이동
 ## <a name="step-4-restore-a-dedicated-sql-pool"></a>4단계: 전용 SQL 풀 복원 
 
 ### <a name="restore-from-geo-redundant-backups"></a>지역 중복 백업에서 복원
@@ -352,7 +352,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 ```
 전용 SQL 풀을 복원한 후 Azure Synapse에 모든 SQL 로그인을 만듭니다. 모든 로그인을 만들려면 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true)의 단계를 수행합니다.
 
-## <a name="step-5-create-a-serverless-sql-pool-spark-pool-and-objects"></a>5단계: 서버리스 SQL 풀, Spark 풀 및 개체 만들기
+## <a name="step-5-create-a-serverless-sql-pool-spark-pool-database-and-objects"></a>5단계: 서버리스 SQL 풀, Spark 풀 데이터베이스 및 개체 만들기
 
 서버리스 SQL 풀 데이터베이스 및 Spark 풀은 백업 및 복원할 수 없습니다. 가능한 해결 방법을 통해 다음을 수행할 수 있습니다.
 
@@ -484,6 +484,11 @@ az synapse role assignment create `
 
 대상 지역 작업 영역의 원본 지역 작업 영역에서 관리형 프라이빗 엔드포인트를 다시 만들려면 [데이터 원본에 대한 관리형 프라이빗 엔드포인트 만들기](security/how-to-create-managed-private-endpoints.md)를 참조하세요. 
 
+## <a name="discard"></a>취소
+대상 지역 작업 영역을 삭제하려면 대상 지역 작업 영역을 삭제합니다. 이렇게 하려면 포털의 대시보드에서 리소스 그룹으로 이동하여 작업 영역을 선택하고 리소스 그룹 페이지의 위쪽에서 삭제를 선택합니다.
+
+## <a name="clean-up"></a>정리
+변경 내용을 커밋하고 작업 영역의 이동을 완료하려면 대상 지역의 작업 영역을 테스트한 후 원본 지역 작업 영역을 삭제합니다. 이렇게 하려면 포털의 대시보드에서 원본 지역 작업 영역이 있는 리소스 그룹으로 이동하여 작업 영역을 선택하고 리소스 그룹 페이지의 위쪽에서 삭제를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

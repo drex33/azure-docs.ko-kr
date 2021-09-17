@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy sync 명령에 대한 참조 정보를 �
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c08d0f561e743b33720258ce5d6886411f3859f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 0d549190558f54137a410808967abc206ed43ad1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462526"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433371"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -135,13 +135,21 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--check-md5** 문자열   다운로드 시 MD5 해시의 유효성을 얼마나 엄격하게 검사해야 하는지 지정합니다. 이 옵션은 다운로드할 때만 사용할 수 있습니다. `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing` 등의 값을 사용할 수 있습니다. (기본값 `FailIfDifferent`). (기본값 `FailIfDifferent`)
 
+**--** 이름으로 클라이언트에서 제공한 키 이름으로 클라이언트에서 요청 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션 Azure Blob Storage 수 있습니다. 제공 된 키 이름은 Azure Key Vault에서 페치 되며 데이터를 암호화 하는 데 사용 됩니다.
+
+**--cpk-값**                클라이언트에서 제공 하는 키 이름을 사용 하 여 요청을 Azure Blob Storage에 대 한 요청을 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션입니다. 제공 된 키와 해당 해시가 환경 변수에서 인출 됩니다.
+
 **--delete-destination** 문자열   원본에 없는 추가 파일을 대상에서 삭제할지 여부를 정의합니다. `true`, `false` 또는 `prompt`로 설정할 수 있습니다. `prompt`로 설정하면 삭제할 파일 및 Blob을 예약하기 전에 사용자에게 질문이 표시됩니다. (기본값 `false`). (기본값 `false`)
+
+**--예행 실행**                     Sync 명령에 의해 복사 또는 제거 되는 파일의 경로를 인쇄 합니다. 이 플래그는 실제 파일을 복사 하거나 제거 하지 않습니다.
 
 **--exclude-attributes** 문자열   (Windows에만 해당) 해당 특성이 특성 목록과 일치하는 파일을 제외합니다. `A;S;R`
 
 **--exclude-path** 문자열    원본과 대상을 비교할 때 해당 경로를 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사(예: `myFolder;myFolder/subDirName/file.pdf`)를 확인합니다.
 
 **--exclude-pattern** 문자열   이름이 패턴 목록과 일치하는 파일을 제외합니다. `*.jpg;*.pdf;exactName`
+
+**--exclude-regex** 문자열은 정규식과 일치 하는 파일의 상대 경로를 제외 합니다. 정규식을 '; '으로 구분 합니다.
 
 **--help**    동기화에 대한 도움말이 표시됩니다.
 
@@ -153,9 +161,9 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--mirror-mode**  마지막 수정 시간 기반 비교를 사용하지 않도록 설정하고 이 플래그가 `true`로 설정된 경우 대상에서 충돌하는 파일 및 Blob을 덮어씁니다. 기본값은 `false`입니다.
 
-**--preserve-smb-info**: 기본적으로 false입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
+**--smb-정보를 유지**   합니다.   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
-**--preserve-smb-permissions**   기본적으로 false입니다. 인식 리소스(Windows 및 Azure Files) 간에 SMB ACL을 유지합니다. 이 플래그는 파일 전용 필터(예: `include-pattern`)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다.
+**--유지-권한**        False 이면 기본적으로 False입니다. 인식 리소스 (Windows 및 Azure Files 또는 Data Lake Storage gen 2 Data Lake Storage gen 2) 간에 acl을 유지 합니다. 계층 네임 스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요 합니다. 다운로드를 위해 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 경우에는--backup 플래그를 사용 하 여 사용 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴).
 
 **--put-md5**     각 파일의 MD5 해시를 만들고 해당 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시는 생성되지 않습니다.) 업로드 시에만 사용할 수 있습니다.
 
@@ -163,13 +171,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--s2s-preserve-access-tier**  서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`). 
 
+**--s2s--blob-태그**      한 blob 저장소에서 다른 blob 저장소로 서비스 동기화를 수행 하는 동안 인덱스 태그를 유지 합니다.
+
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속된 옵션
 
 |옵션|Description|
 |---|---|
-|--cap-mbps uint32|전송 속도(초당 메가비트)의 한도를 지정합니다. 순간 처리량은 거의 한도에 가까울 수 있습니다. 이 옵션을 0으로 설정하거나 생략하면 처리량이 제한되지 않습니다.|
-|--output-type string|명령 출력의 형식을 지정합니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
-|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 모든 항목은 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
+|--cap-mbps uint32|전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
+|--output-type string|명령 출력의 형식을 지정합니다. text, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
+|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
 ## <a name="see-also"></a>참고 항목
 

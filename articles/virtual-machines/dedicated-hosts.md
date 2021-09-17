@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: bbc2cda053a2a9fafd88f974eaf10be4ae0c1784
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 957bc2f34ddbc1af019afe0154d3a27ca6e3e368
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687527"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451568"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
 
@@ -176,7 +176,7 @@ Azure는 호스트의 상태를 모니터하고 관리합니다. 호스트를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [포털](./dedicated-hosts-portal.md) 및 [Azure CLI](./linux/dedicated-hosts-cli.md)를 사용하여 전용 호스트를 배포할 수 있습니다.
+- 전용 호스트를 배포 하려면 [전용 호스트에 vm 및 확장 집합 배포](./dedicated-hosts-how-to.md)를 참조 하세요.
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md)이 있습니다.
 

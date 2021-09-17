@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d66c920636b328541a7d1294e5d319622baf635f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103013213"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437385"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -366,6 +366,6 @@ Media Services 학습 경로를 검토합니다.
 
 [Media Services 개념](media-services-concepts.md)
 
-[Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png

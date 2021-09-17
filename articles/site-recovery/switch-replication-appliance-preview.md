@@ -3,13 +3,13 @@ title: Azure Site Recovery - 미리 보기에서 복제 어플라이언스 전�
 description: 이 문서에서는 Azure Site Recovery - 미리 보기에서 VMware VM을 Azure로 복제하는 동안 다양한 복제 어플라이언스 간에 전환하는 방법을 설명합니다.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: f95ed991833a9f6ed1b0635a8678e393f152cb56
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 3cf8fa8c761419a73e6bca5dac34d8b1e63cbd04
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539414"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537898"
 ---
 # <a name="switch-azure-site-recovery-replication-appliance"></a>Azure Site Recovery 복제 어플라이언스 전환
 
@@ -78,4 +78,4 @@ Azure에 대한 VMware VM과 물리적 서버의 재해 복구를 위해 [Azure 
    다시 동기화가 완료되면 새 어플라이언스로 이동되는 VM의 복제 상태가 정상으로 전환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에 [VMware VM](vmware-azure-tutorial.md)의 재해 복구를 설정합니다.
+Azure에 [VMware VM](vmware-azure-set-up-replication-tutorial-preview.md)의 재해 복구를 설정합니다.

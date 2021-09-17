@@ -1,15 +1,15 @@
 ---
 title: Azure Automation에 대한 기본 제공 정책 정의
 description: Azure Backup에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 00c698cf0cc589580daea683f1f7bf98983ff360
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 8d2cb7f49729fd799e4b6228a37b710e3e423b6f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108238"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472763"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Azure Automation에 대한 Azure Policy 기본 제공 정의
 

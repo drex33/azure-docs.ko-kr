@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 06f4b3050b90f27d1f30ba59b26eeed4d76c6bc8
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: e08f595e2dc80abe06fa68d1a3e30ac68ff0097c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539366"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426349"
 ---
 #  <a name="websocket-client-protocols-for-azure-web-pubsub"></a>Azure Web PubSub에 대한 WebSocket 클라이언트 프로토콜
 
@@ -39,7 +39,7 @@ JWT 토큰은 쿼리 문자열 `/client/?hub={hub}&access_token={token}` 또는 
 <a name="simple_client"></a>
 
 ## <a name="the-simple-websocket-client"></a>간단한 WebSocket 클라이언트
-이름에서 알 수 있듯이 간단한 WebSocket 클라이언트는 간단한 WebSocket 연결입니다. 또한 사용자 지정 하위 프로토콜을 가질 수 있습니다. 
+이름에서 알 수 있듯이 간단한 WebSocket 클라이언트는 단순 WebSocket 연결입니다. 또한 사용자 지정 하위 프로토콜을 가질 수 있습니다. 
 
 예를 들어 JS에서 다음을 사용하여 간단한 WebSocket 클라이언트를 만들 수 있습니다.
 ```js
@@ -53,15 +53,27 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 
 ## <a name="the-pubsub-websocket-client"></a>PubSub WebSocket 클라이언트
 
-PubSub WebSocket 클라이언트는 하위 프로토콜 `json.webpubsub.azure.v1`로 연결합니다.
+PubSub WebSocket 클라이언트는 두 개의 하위 프로토콜 및 를 지원합니다. `json.webpubsub.azure.v1``protobuf.webpubsub.azure.v1`
 
-예를 들어 JS에서 다음을 사용하여 PubSub WebSocket 클라이언트를 만들 수 있습니다.
+#### <a name="json-subprotocol"></a>Json 하위 프로토콜
+
+예를 들어 JS에서는 다음을 사용하여 json 하위프로토콜이 있는 PubSub WebSocket 클라이언트를 만들 수 있습니다.
 ```js
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
 
-클라이언트가 이 하위 프로토콜을 사용할 때 나가는 데이터 프레임과 들어오는 데이터 프레임 모두 JSON 페이로드가 될 것으로 예상됩니다. 인증된 클라이언트는 Azure Web PubSub 서비스를 통해 직접 다른 클라이언트에 메시지를 게시할 수 있습니다.
+#### <a name="protobuf-subprotocol"></a>Protobuf 하위 프로토콜
+
+Protobuf는 이진 데이터를 보내는 데 매우 친숙한 언어 중립적인 플랫폼 중립적 이진 기반 프로토콜입니다. Protobuf는 Java, Python, Objective-C, C# 및 C++와 같은 많은 언어에 대한 클라이언트를 생성하는 도구를 제공합니다. [protobuf 에 대해 자세히 알아봅니다.](https://developers.google.com/protocol-buffers)
+
+예를 들어 JS에서 protobuf 하위 프로토콜이 있는 PubSub WebSocket 클라이언트는 다음을 사용하여 만들 수 있습니다.
+```js
+// PubSub WebSocket client
+var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
+```
+
+클라이언트가 하위프로토콜을 사용하는 경우 나가는 데이터 프레임과 들어오는 데이터 프레임은 모두 JSON 페이로드여야 합니다. 인증된 클라이언트는 Azure Web PubSub 서비스를 통해 직접 다른 클라이언트에 메시지를 게시할 수 있습니다.
 
 ### <a name="permissions"></a>사용 권한
 
@@ -75,7 +87,8 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
 | `webpubsub.joinLeaveGroup.<group>` | 클라이언트는 `<group>` 그룹에 가입하거나 탈퇴할 수 있습니다.
 | `webpubsub.sendToGroup.<group>` | 클라이언트는 `<group>` 그룹에 메시지를 게시할 수 있습니다.
 
-하위 프로토콜에 대한 자세한 내용은 [JSON 하위 프로토콜](./reference-json-webpubsub-subprotocol.md)에 설명되어 있습니다.
+* Json 하위 프로토콜의 세부 정보는 [JSON 하위 프로토콜](./reference-json-webpubsub-subprotocol.md)에 설명되어 있습니다.
+* Protobuf 하위 프로토콜에 대한 자세한 내용은 [Protobuf 하위 프로토콜](./reference-protobuf-webpubsub-subprotocol.md)에 설명되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

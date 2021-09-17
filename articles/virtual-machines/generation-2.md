@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 284b4bc69446e12f70c3f0310fa494723aff1f1d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 6135d675f2f719f7fa471a886715bce5d6036eb7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696349"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425606"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -27,7 +27,7 @@ ms.locfileid: "122696349"
 
 ## <a name="generation-2-vm-sizes"></a>2세대 VM 크기
 
-1세대 VM은 Azure의 모든 VM 크기에서 지원됩니다(Mv2 시리즈 VM은 제외). 이제 Azure는 다음과 같이 선택된 VM 시리즈에 대한 2세대 지원을 제공합니다.
+1세대 VM은 Azure의 모든 VM 크기에서 지원됩니다(Mv2 시리즈 및 Msv2 및 Mdsv2 중간 메모리 시리즈 VM 제외). 이제 Azure는 다음과 같이 선택된 VM 시리즈에 대한 2세대 지원을 제공합니다.
 
 
 * [B 시리즈](sizes-b-series-burstable.md)
@@ -49,6 +49,7 @@ ms.locfileid: "122696349"
 * [Lsv2 시리즈](lsv2-series.md)
 * [M 시리즈](m-series.md)
 * [Mv2 시리즈](mv2-series.md)<sup>1</sup>
+* [Msv2 및 Mdsv2 중간 메모리 시리즈](msv2-mdsv2-series.md)<sup>1</sup>
 * [NCv2 시리즈](ncv2-series.md) 
 * [NCv3 시리즈](ncv3-series.md)
 * [ND 시리즈](nd-series.md)
@@ -56,7 +57,7 @@ ms.locfileid: "122696349"
 * [NVv4 시리즈](nvv4-series.md)
 * [NCasT4_v3 시리즈](nct4-v3-series.md)
 
-<sup>1</sup> Mv2 시리즈는 1세대 VM 이미지를 지원하지 않으며 2세대 이미지의 하위 집합만 지원합니다. 자세한 내용은 [Mv2 시리즈 설명서](mv2-series.md)를 참조하세요.
+<sup>1</sup> Mv2 시리즈, Msv2 및 Mdsv2 시리즈 중간 메모리는 1세대 VM 이미지를 지원하지 않으며 2세대 이미지의 하위 집합만 지원합니다. 자세한 내용은 [Mv2 시리즈 설명서](mv2-series.md) 및 [Msv2 및 Mdsv2 중간 메모리 시리즈를](msv2-mdsv2-series.md) 참조하세요.
 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2세대 VM 이미지

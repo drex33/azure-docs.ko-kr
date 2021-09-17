@@ -3,19 +3,19 @@ title: 휴먼 레이블 대화 기록 지침 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 단어를 삭제하거나 잘못 대체하는 경우와 같이 음성 인식 정확도를 향상시키기 위해 오디오 데이터와 함께 휴먼 레이블 대화 기록을 사용할 수 있습니다. 휴먼 레이블 대화 기록은 오디오 파일의 단어별, 약어 대화 내용 기록입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: lajanuar
-ms.openlocfilehash: 2983f34f4dfd80ed34f3aed95870369d4c97f7a3
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 562c603fbf549af3877a6aa408456845ad9c886e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529614"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538816"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 대화 기록을 만드는 방법
 

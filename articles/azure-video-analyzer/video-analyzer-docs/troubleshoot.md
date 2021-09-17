@@ -3,12 +3,12 @@ title: Azure Video Analyzer 문제 해결 - Azure
 description: 이 문서에서는 Azure Video Analyzer에 대한 문제 해결 단계를 다룹니다.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
-ms.openlocfilehash: c3b95936eabfcaefa12b9271b152d196790841c4
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
-ms.translationtype: HT
+ms.openlocfilehash: 0d3a089fee6d374dd8109f2430cfdb9fec19bc30
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362649"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429355"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Azure Video Analyzer 문제 해결
 
@@ -39,7 +39,7 @@ ARM 템플릿(Azure에 배포 단추)을 사용할 때 문제가 발생하는 �
 az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge-device --content <path-to-deployment_manifest.json>
 ```
 
-JSON 코드가 제대로 구성되지 않은 경우 다음 오류가 표시될 수 있습니다. &nbsp;&nbsp;&nbsp;**Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
+JSON 코드가 제대로 구성되지 않은 경우 다음 오류가 표시될 수 있습니다. &nbsp;&nbsp;&nbsp;**Failed to parse JSON from file: '\<deployment manifest.json\>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
 
 이 오류가 발생하면 JSON에 누락된 괄호가 있는지 또는 파일 구조와 관련된 기타 문제가 있는지 확인하는 것이 좋습니다. 파일 구조의 유효성을 검사하려면 [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer)과 같은 클라이언트 또는 [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/)와 같은 온라인 도구를 사용하면 됩니다.
 
@@ -289,11 +289,11 @@ Video Analyzer는 하드웨어 리소스 모니터링을 수행하거나 제공�
 
 문제에 대한 자세한 정보를 얻기 위해 수행할 수 있는 몇 가지 작업이 있습니다.
 
-- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함하고 로그 수준이 `Information`로 설정되어 있는지 확인합니다.
+- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함 하 고 로그 수준이로 설정 되었는지 확인 `Information` 합니다.
 - 네트워크 연결을 테스트하려면 에지 디바이스에서 다음 명령을 실행하면 됩니다.
 
   ```
-  sudo docker exec avaedge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>”
+  sudo docker exec avaedge /bin/bash -c "apt update; apt install -y telnet; telnet <inference-host> <inference-port>"
   ```
 
   명령이 무질서한 짧은 텍스트 문자열을 출력하면 텔넷이 유추 서버에 대한 연결을 여는 데 성공하고 바이너리 gRPC 채널을 열 수 있었다는 의미입니다. 이것이 보이지 않으면 텔넷은 네트워크 오류를 보고합니다.

@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 04/29/2021
-ms.openlocfilehash: 13da66fbe5b79026028dc6c525283e40f1d55dad
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3e071ad5f86d13270144ec8eb7839f31601b5c39
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528969"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432309"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -39,7 +39,7 @@ DSVM(Data Science Virtual Machine)을 사용하여 광범위한 데이터 플랫
 > Machine Learning Server 독립 실행형에 대한 지원은 2021년 7월 1일에 종료됩니다. 6월 30일 이후에 DSVM 이미지에서 이를 제거합니다. 기존 배포는 계속해서 소프트웨어에 액세스할 수 있지만, 2021년 7월 1일 이후에는 지원이 종료되기 때문에 이를 지원하지 않습니다.
 
 > [!NOTE]
-> 2021년 11월 말까지 DSVM 이미지에서 SQL Server Developer Edition을 제거할 예정입니다. 기존 배포는 SQL Server Developer Edition을 계속 설치할 수 있습니다. 새 배포에서 Docker 지원을 통해 설치하고 사용할 수 있는 SQL Server Developer Edition에 액세스하려면 [빠른 시작: Docker에서 SQL Server 컨테이너 이미지 실행](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-)을 참조하세요.
+> 2021년 11월 말까지 DSVM 이미지에서 SQL Server Developer Edition을 제거할 예정입니다. 기존 배포는 SQL Server Developer Edition을 계속 설치할 수 있습니다. 새 배포에서 Docker 지원을 통해 설치하고 사용할 수 있는 SQL Server Developer Edition에 액세스하려면 [빠른 시작: Docker에서 SQL Server 컨테이너 이미지 실행](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash&preserve-view=true)을 참조하세요.
 
 ### <a name="windows"></a>Windows
 

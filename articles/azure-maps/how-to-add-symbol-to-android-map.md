@@ -1,20 +1,20 @@
 ---
 title: Android 맵에 기호 계층 추가 | Microsoft Docs
 description: 맵에 마커를 추가하는 방법을 알아봅니다. Azure Maps Android SDK를 사용하여 데이터 원본의 점 기반 데이터를 포함하는 기호 계층을 추가하는 예제를 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: f2aaf03f4314386615fabfe65ca47132543577fa
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 5d0b2e3f04f56b8a379ddbf36c2d9d20dad09d83
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091702"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429769"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>기호 계층 추가(Android SDK)
 
@@ -228,7 +228,7 @@ val layer = SymbolLayer(
 
 Azure Maps Android SDK는 기본 마커 아이콘의 미리 정의된 색 변형 세트와 함께 제공됩니다. 예를 들어, `marker-red`를 기호 계층의 `iconImage` 옵션에 전달하여 해당 계층에서 마커 아이콘의 빨간색 버전을 렌더링할 수 있습니다.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,

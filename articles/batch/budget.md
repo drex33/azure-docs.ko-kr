@@ -2,13 +2,13 @@
 title: Azure Batch의 비용 분석 가져오기 및 예산 설정
 description: Batch 워크로드를 실행하는 데 사용되는 기본 컴퓨팅 리소스 및 소프트웨어 라이선스의 비용 분석을 수행하고 예산을 설정하며 비용을 절감하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 01/29/2021
-ms.openlocfilehash: d1fc2d15a7037e56a8056efa67d2017badb77ffd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: a590d8687c51b1693494c11d95de720f7f2c7eb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99091330"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538852"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Azure Batch의 비용 분석 가져오기 및 예산 설정
 
@@ -78,11 +78,9 @@ Azure Portal에서 Batch 풀 또는 Batch 계정에 대한 예산 및 지출 경
 
 [우선 순위가 낮은 VM](batch-low-pri-vms.md)은 Azure에서 여분의 컴퓨팅 용량을 활용하여 Batch 워크로드의 비용을 줄입니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Batch는 이러한 남는 용량을 사용하여 워크로드를 실행할 수 있습니다. 전용 VM 대신 우선 순위가 낮은 VM을 사용하면 비용을 크게 절감할 수 있습니다.
 
-### <a name="select-a-standard-virtual-machine-os-disk-type"></a>표준 가상 머신 OS 디스크 유형 선택
+### <a name="use-ephemeral-os-disks"></a>사용 후 삭제 OS 디스크 사용
 
-Azure는 여러 [VM OS 디스크 유형](../virtual-machines/disks-types.md)을 제공합니다. 대부분의 VM 시리즈는 프리미엄 및 표준 스토리지를 모두 지원하는 크기를 가집니다. 풀에 ‘s’ VM 크기가 선택되면 Batch가 프리미엄 SSD OS 디스크를 구성합니다. ‘non-s’ VM 크기가 선택되면 더 저렴한 표준 HDD 디스크 유형이 사용됩니다. 예를 들어 프리미엄 SSD OS 디스크는 `Standard_D2s_v3`에 사용되고 표준 HDD OS 디스크는 `Standard_D2_v3`에 사용됩니다.
-
-프리미엄 SSD OS 디스크는 비용이 더 많이 들지만 성능이 높습니다. 프리미엄 디스크를 갖춘 VM은 표준 HDD OS 디스크를 갖춘 VM보다 약간 빠르게 시작될 수 있습니다. Batch를 사용하면 애플리케이션 및 작업 파일이 VM 임시 SSD 디스크에 있기 때문에 OS 디스크가 자주 사용되지 않습니다. 이 때문에, ‘non-s’ VM 크기를 선택하면 VM 크기를 지정할 때 프로비저닝되는 프리미엄 SSD의 비용을 지불할 필요가 없습니다.
+Virtual Machine 구성 풀은 [관리 디스크와](create-pool-ephemeral-os-disk.md)관련된 추가 비용을 방지하기 위해 VM 캐시 또는 임시 SSD에 OS 디스크를 만드는 임시 OS 디스크를 사용할 수 있습니다.
 
 ### <a name="purchase-reservations-for-virtual-machine-instances"></a>가상 머신 인스턴스에 대한 구매 예약
 

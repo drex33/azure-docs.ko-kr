@@ -3,12 +3,12 @@ title: 네트워크 설정
 description: Azure Defender for IoT 어플라이언스에 사용할 수 있도록 네트워크를 성공적으로 설정하는 데 필요한 솔루션 아키텍처, 네트워크 준비, 필수 구성 요소 및 기타 정보에 대해 알아봅니다.
 ms.date: 07/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 196474c368ee5683a5fb7a25343faba17da0fa18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7dc9e41b3bfdcbeab86aaabbdf0c97b0339b3df3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529121"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434091"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
@@ -32,7 +32,11 @@ Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검
 
 - [구성 워크스테이션 준비](#prepare-a-configuration-workstation)
 
-- [랙 설치 계획](#planning-rack-installation)
+- [인증서 설정](#set-up-certificates)
+
+- [구성 워크스테이션 준비](#prepare-a-configuration-workstation)
+
+- [랙 설치 계획](#plan-rack-installation)
 
 ### <a name="collect-site-information"></a>사이트 정보 수집
 
@@ -90,6 +94,10 @@ Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검
 
 지원되는 브라우저에 대한 자세한 내용은 [권장 브라우저](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers)를 참조하세요.
 
+### <a name="set-up-certificates"></a>인증서 설정
+
+센서 및 온-프레미스 관리 콘솔을 설치한 후 로컬 자체 서명된 인증서가 생성되어 센서 웹 애플리케이션에 액세스하는 데 사용됩니다. Defender for IoT에 처음으로 로그인하면 관리자에게 SSL/TLS 인증서를 제공하라는 메시지가 표시됩니다. 또한 이 인증서와 다른 시스템 인증서의 유효성을 검사하는 옵션이 자동으로 사용하도록 설정됩니다. 자세한 내용은 [인증서 정보를](how-to-deploy-certificates.md) 참조하세요.
+
 ### <a name="network-access-requirements"></a>네트워크 액세스 요구 사항
 
 조직 보안 정책에서 다음에 대한 액세스를 허용하는지 확인합니다.
@@ -111,7 +119,7 @@ Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검
 | 터널링 | TCP | IN | 9000 <br /><br />- 포트 443 위 <br /><br />최종 사용자에서 온-프레미스 관리 콘솔까지 <br /><br />- 센서에서 온-프레미스 관리 콘솔까지 포트 22  | 모니터링 | 터널링 | 센서 | 온-프레미스 관리 콘솔 |
 | HTTP| TCP | OUT | 80 | 인증서의 유효성 검사  | CRL 파일 다운로드 | 센서 | CRL 서버 |
 
-### <a name="planning-rack-installation"></a>랙 설치 계획
+### <a name="plan-rack-installation"></a>랙 설치 계획
 
 랙 설치를 계획하려면:
 
@@ -121,7 +129,7 @@ Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검
 
 1. 어플라이언스에 사용할 수 있는 AC 전원을 준비합니다.
 1. 관리를 네트워크 스위치에 연결할 LAN 케이블을 준비합니다.
-1. 스위치 SPAN(미러) 포트 또는 네트워크 TAP를 Defender for IoT 어플라이언스에 연결하기 위한 LAN 케이블을 준비합니다. 
+1. 스위치 SPAN(미러) 포트 또는 네트워크 TAP를 Defender for IoT 어플라이언스에 연결하기 위한 LAN 케이블을 준비합니다.
 1. 아키텍처 검토 세션에 설명된 대로 미러링된 스위치에서 SPAN 포트를 구성 및 연결하고 유효성을 검사합니다.
 1. 구성된 SPAN 포트를 Wireshark를 실행하는 컴퓨터에 연결하고 포트가 올바르게 구성되었는지 확인합니다.
 1. 모든 관련 방화벽 포트를 엽니다.
@@ -138,7 +146,7 @@ Azure Defender for IoT는 연속적 ICS 위협 모니터링 및 디바이스 검
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Purdue 모델의 다이어그램.":::
 
-####  <a name="level-0-cell-and-area"></a>수준 0: 셀 및 영역  
+#### <a name="level-0-cell-and-area"></a>수준 0: 셀 및 영역  
 
 수준 0은 기본 제조 공정에 관련된 다양한 센서, 작동기, 디바이스로 구성됩니다. 이러한 디바이스는 다음과 같은 산업용 자동화 및 제어 시스템의 기본 기능을 수행합니다.
 
@@ -234,7 +242,7 @@ Defender for IoT 어플라이언스는 계층 1과 계층 2(일부 경우에는 
 
 #### <a name="traffic-mirroring"></a>트래픽 미러링  
 
-트래픽 분석을 위해 관련 정보만 보려면 Defender for IoT 플랫폼을 스위치의 미러링 포트 또는 산업용 ICS 및 SCADA 트래픽만 포함하는 TAP에 연결해야 합니다. 
+트래픽 분석을 위해 관련 정보만 보려면 Defender for IoT 플랫폼을 스위치의 미러링 포트 또는 산업용 ICS 및 SCADA 트래픽만 포함하는 TAP에 연결해야 합니다.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="설정에 이 스위치를 사용하세요.":::
 

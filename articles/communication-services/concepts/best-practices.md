@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a5181a5a95c3e6eb33eb084d41674746096dd8c2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7b0ac0fdb6ee5b734d642612c1fea16665e07684
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259128"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435513"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>모범 사례: Azure Communication Services 통화 SDK
 이 문서에서는 SDK를 호출하는 ACS(Azure Communication Services)와 관련된 모범 사례에 대한 정보를 제공합니다.
@@ -44,6 +44,16 @@ Communication Services 애플리케이션은 더 이상 필요하지 않을 때 
 
 ### <a name="hang-up-the-call-on-onbeforeunload-event"></a>onbeforunload 이벤트에서 통화 중단
 애플리케이션은 `onbeforeunload` 이벤트가 발생할 때 `call.hangup`을 호출해야 합니다.
+
+### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>모바일의 여러 탭에서 여러 호출 처리
+디바이스의 마이크 및 카메라에 대한 리소스 할당으로 인해 정의되지 않은 동작이 발생할 수 있기 때문에 애플리케이션은 여러 브라우저 탭의 호출에 동시에 연결해서는 안 됩니다. 개발자는 새 호출을 시작하기 전에 백그라운드에서 완료되면 항상 호출을 중단하는 것이 좋습니다.
+```JavaScript 
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState != 'visible') {
+            // call.hangUp
+    }
+});
+ ```
 
 ### <a name="hang-up-the-call-on-microphonemuteunexpectedly-ufd"></a>microphoneMuteUnexpectedly UFD에서 통화 중단
 iOS/Safari 사용자가 PSTN 전화를 받으면 Azure Communication Services에서 마이크에 액세스할 수 없습니다. Azure Communication Services는 `microphoneMuteUnexpectedly` 통화 진단 이벤트를 발생시키며 이 시점에서 Communication Services는 마이크에 다시 액세스할 수 없습니다.

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2ad8c467e83a431b2ab20155968258ae0a99da39
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: adcd57731b4c3ff6d9a4a4e0a8a83c301398b2c0
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105892"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473033"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -51,6 +51,8 @@ ms.locfileid: "123105892"
 |[\[미리 보기\]: 취약성 평가 에이전트를 수신하도록 머신 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ce0167-8ca6-4048-8e6b-f996402e3c1b) |Azure Defender는 추가 비용 없이 머신의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. 이 정책을 사용하도록 설정하면 Azure Defender는 아직 설치되지 않은 모든 지원되는 컴퓨터에 Qualys 취약성 평가 에이전트를 자동으로 배포합니다. |DeployIfNotExists, 사용 안 함 |[2.1.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VulnerabilityAssessment_ProvisionQualysAgent_Deploy.json) |
 |[SQL이 설치된 Azure Arc 컴퓨터를 구성하여 Arc 지원 SQL Server 확장을 사용합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffd2d1a6e-6d95-4df2-ad00-504bf0273406) | Azure Arc 지원 Windows 서버에서 SQL 인스턴스를 찾을 때 기본적으로 SQL Server - Azure Arc 리소스가 만들어지도록 하려면 Arc 컴퓨터에 SQL Server 확장이 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [https://docs.microsoft.com/en-us/sql/sql-server/azure-arc/overview?view=sql-server-ver15](/sql/sql-server/azure-arc/overview?view=sql-server-ver15)를 참조하세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/ArcMachineWithSQL_InstallArcEnabledExtension.json) |
 |[Windows 머신에서 표준 시간대를 구성합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6141c932-9384-44c6-a395-59e4c057d7c9) |이 정책은 Windows 가상 머신에서 지정된 표준 시간대를 설정하기 위한 게스트 구성 할당을 만듭니다. |deployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SetWindowsTimeZone_Deploy.json) |
+|[머신에서 엔드포인트 보호 상태 문제를 해결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e42c1f2-a2ab-49bc-994a-12bcd0dc4ac2) |가상 머신의 엔드포인트 보호 상태 문제를 해결하여 최신 위협 및 취약성으로부터 보호합니다. Azure Security Center 지원 엔드포인트 보호 솔루션은 여기([https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows](../../../../articles/security-center/security-center-services.md?tabs=features-windows))에 설명되어 있습니다. 엔드포인트 보호 평가는 여기([https://docs.microsoft.com/azure/security-center/security-center-endpoint-protection](../../../../articles/security-center/security-center-endpoint-protection.md))에 설명되어 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EndpointProtectionHealthIssuesShouldBeResolvedOnYourMachines_Audit.json) |
+|[머신에 Endpoint Protection을 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f7c564c-0a90-4d44-b7e1-9d456cffaee8) |위협 및 취약성으로부터 머신을 보호하려면 지원되는 엔드포인트 보호 솔루션을 설치합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EndpointProtectionShouldBeInstalledOnYourMachines_Audit.json) |
 |[\[미리 보기\]: Linux 머신은 Azure 컴퓨팅 보안 기준의 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](../../../../articles/governance/policy/concepts/guest-configuration.md)을 방문하세요. Azure 컴퓨팅 보안 기준의 권장 사항 중 하나에 맞게 올바르게 구성되지 않은 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.1.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AzureLinuxBaseline_AINE.json) |
 |[Linux 머신에는 허용되는 로컬 계정만 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73db37c4-f180-4b0f-ab2c-8ee96467686b) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](../../../../articles/governance/policy/concepts/guest-configuration.md)을 방문하세요. Azure Active Directory를 사용한 사용자 계정 관리는 ID 관리의 모범 사례입니다. 로컬 머신 계정을 줄이면 중앙 시스템 외부에서 관리되는 ID의 확산을 방지할 수 있습니다. 정책 매개 변수에 나열되지 않고 사용하도록 설정된 로컬 사용자 계정이 있는 경우 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LocalUsers_Linux_AINE.json) |
 |[\[미리 보기\]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F842c54e8-c2f9-4d79-ae8d-38d8b8019373) |이 정책은 Log Analytics 에이전트가 설치되지 않은 경우 Linux Azure Arc 머신을 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Arc_Linux_LogAnalytics_Audit.json) |

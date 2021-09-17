@@ -10,20 +10,18 @@ ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 3437d7711aa2959754fcce84a0bbe30ac384898b
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: bcf69aba20a53e101cf85cf8ad9e249ca72d3a93
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378550"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470493"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
 Blob 스토리지 버전 관리를 사용하여 Blob이 수정되거나 삭제될 때 Blob의 이전 버전을 자동으로 유지할 수 있습니다. Blob 버전 관리를 사용하는 경우 데이터를 잘못 수정하거나 삭제한 경우 이전 버전의 Blob을 복원하여 데이터를 복구할 수 있습니다.
 
 이 문서는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 스토리지 계정에 대한 Blob 버전 관리를 사용하거나 사용하지 않는 방법을 보여 줍니다. Blob 버전 관리에 대한 자세한 정보는 [Blob 버전 관리](versioning-overview.md)를 참조하세요.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>BLOB 버전 관리 사용
 

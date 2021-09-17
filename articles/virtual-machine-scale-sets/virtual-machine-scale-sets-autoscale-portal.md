@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: f04ff9d68297c34adbdaa6e6c326b940e6c496bc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a66eeec561b422cb7ce644facd7f273ab055e871
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697481"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423667"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
 
@@ -57,8 +57,11 @@ ms.locfileid: "122697481"
     | *정지(분)*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
 
     다음 예제에서는 이러한 설정과 일치하도록 Azure Portal에서 만든 규칙을 보여줍니다.
-
+    
     ![VM 인스턴스 수를 늘리려는 자동 크기 조정 규칙 만들기](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
+
+    > [!NOTE]
+    > 인스턴스 내에서 실행되는 작업은 갑자기 중지되고 냉각 기간이 완료되면 인스턴스가 축소됩니다.
 
 6. 규칙을 만들려면 **추가** 를 선택합니다.
 

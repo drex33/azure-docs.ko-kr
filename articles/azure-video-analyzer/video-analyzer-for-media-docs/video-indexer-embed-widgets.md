@@ -10,12 +10,12 @@ ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 3be899a7be2d007f52eb895bd26befcbb12e316d
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 9203c666e88ba3f050bf0acda9116c9dd8dd4421
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115237"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429301"
 ---
 # <a name="embed-video-analyzer-for-media-widgets-in-your-apps"></a>앱에 Video Analyzer for Media 위젯 포함
 
@@ -227,8 +227,8 @@ Azure Media Player 이외의 비디오 플레이어를 사용한다면 비디오
         function jumpTo(evt) {
           var origin = evt.origin || evt.originalEvent.origin;
         
-          // Validate that the event comes from the videobreakdown domain.
-          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videoindexer domain.
+          if ((origin === "https://www.videoindexer.ai") && evt.data.time !== undefined){
                 
             // Call your player's "jumpTo" implementation.
             playerInstance.currentTime = evt.data.time;

@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 4/05/2021
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 52e1accfb5f5bb762cc2833a19e1caa3daa4a03d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 8b425646e9b416129d951cc78db3d05c26b0e6e8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462206"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123484688"
 ---
 ```console
-robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+robocopy /MT:128 /R:1 /W:1 /B /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
 ```
 
 | 스위치                | 의미 |
@@ -37,3 +37,6 @@ robocopy /MT:128 /R:1 /W:1 /MIR /IT /COPY:DATSO /DCOPY:DAT /NP /NFL /NDL /UNILOG
 | `/LFSM`               | **계층화된 스토리지를 사용하는 대상에만 해당** </br>Robocopy가 "낮은 여유 공간 모드"에서 작동하도록 지정합니다. 이 스위치는 Robocopy가 완료되기 전에 로컬 용량이 부족할 수 있는 계층화된 스토리지가 있는 대상에만 유용합니다. Azure 파일 동기화 클라우드 계층화에 대해 사용하도록 설정된 대상과 함께 사용하기 위해 특별히 추가되었습니다. Azure 파일 동기화와 독립적으로 사용할 수 있습니다. 이 모드에서 RoboCopy는 파일 복사로 인해 대상 볼륨의 사용 가능한 공간이 "floor"값 아래로 내려갈 때마다 일시 중지됩니다. 이 값은 `/LFSM:n` 형식의 플래그로 지정할 수 있습니다. 매개 변수 `n`은 기본 2에서 `nKB`, `nMB` 또는 `nGB`로 지정됩니다. `/LFSM`이 명시적 floor 값 없이 지정된 경우 floor는 대상 볼륨 크기의 10%로 설정됩니다. 여유 공간 부족 모드는 `/MT`, `/EFSRAW`, `/B` 또는 `/ZB`와 호환되지 않습니다. |
 | `/Z`                  | **주의해서 사용** </br>다시 시작 모드로 파일을 복사합니다. 이 스위치는 불안정한 네트워크 환경에서만 권장됩니다. 추가 로깅으로 인해 복사 성능이 크게 저하됩니다. |
 | `/ZB`                 | **주의해서 사용** </br>재시작 모드를 사용합니다. 액세스가 거부되는 경우 이 옵션은 백업 모드를 사용합니다. 이 옵션을 선택하면 검사점 설정으로 인해 복사 성능이 크게 저하됩니다. |
+
+> [!IMPORTANT]
+> 2021년 8월 26일 [OS 업데이트 KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f)이상에서 Windows Server 2019를 사용합니다. 특정 RoboCopy 시나리오에 대한 중요한 수정이 포함되어 있습니다.

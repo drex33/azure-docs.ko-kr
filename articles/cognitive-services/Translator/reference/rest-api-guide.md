@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2b0c4676ca7d085e5fbe042dd2a23fe0ae42db9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f3188f303d7e2945341267c9ea4598682e4d7964
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528209"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426250"
 ---
 # <a name="text-translation-rest-api"></a>Text Translation REST API
 
@@ -32,7 +32,7 @@ Text Translation은 Azure Translator 서비스의 클라우드 기반 기능이�
 | [**dictionary/examples**](v3-0-dictionary-lookup.md) | **POST** | 컨텍스트에서 용어가 사용되는 방법을 반환합니다. |
 
 > [!div class="nextstepaction"]
-> [Azure Portal에서 Translator 리소스를 만듭니다.](/translator-how-to-signup.md)
+> [Azure Portal에서 Translator 리소스를 만듭니다.](../translator-how-to-signup.md)
 
 > [!div class="nextstepaction"]
 > [빠른 시작: REST API 및 프로그래밍 언어](../quickstart-translator.md)

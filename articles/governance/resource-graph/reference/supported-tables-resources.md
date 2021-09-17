@@ -1,15 +1,15 @@
 ---
 title: 지원되는 Azure Resource Manager 리소스 종류
 description: Azure Resource Graph 및 변경 내역에서 지원되는 Azure Resource Manager 리소스 종류 목록을 제공합니다.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 330c406ef1d45a3cd72ac7316ca3985d2a6cd647
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 9dfdd77d400dfa91ec26df23d323f8290dc97da0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309782"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536070"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -22,6 +22,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
   - 샘플 쿼리:[Azure Advisor에서 비용 절감 요약 가져오기](../samples/samples-by-category.md#get-cost-savings-summary-from-azure-advisor)
+  - 예제 쿼리: [Arc 사용 서버가 최신 릴리스 에이전트 버전을 실행 하지 않는 목록을](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version) 표시 합니다.
 - microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
@@ -59,6 +60,15 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
   - 샘플 쿼리: [리소스 id 별 가상 머신 및 관련 가용성 상태 목록](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
   - 샘플 쿼리: [리소스 Id 및 리소스 그룹을 사용 하는 가용성 상태 및 전원 상태별로 가상 머신 목록](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - 샘플 쿼리: [리소스 id에서 사용할 수 없는 가상 머신 목록](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+
+## <a name="iotsecurityresources"></a>iotsecurityresources
+
+- microsoft. iotsecurity/위치/s i d/devicegroups/alerts
+- microsoft. iotsecurity/위치/장치/장치
+- microsoft. iotsecurity/위치/s i d 그룹/권장 사항
+- microsoft. iotsecurity/onpremisesensors
+- microsoft .exe 보안/센서
+- microsoft .exe 보안/사이트
 
 ## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
 
@@ -315,6 +325,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.ContainerRegistry/registries/webhooks(컨테이너 레지스트리 웹후크)
 - microsoft.containerservice/containerservices
 - Microsoft.ContainerService/managedClusters(Kubernetes 서비스)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
 - microsoft.contoso/employees
@@ -335,6 +346,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.DataFactory/factories(데이터 팩터리(V2))
 - Microsoft.DataLakeAnalytics/accounts(Data Lake Analytics)
 - Microsoft.DataLakeStore/accounts(Data Lake Storage Gen1)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.datamigration/controllers
 - Microsoft.DataMigration/services(Azure Database Migration Services)
 - Microsoft.DataMigration/services/projects(Azure Database Migration Projects)
@@ -434,6 +446,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.HybridCompute/machines(서버 - Azure Arc)
   - 샘플 쿼리: [도메인 별 Arc 사용 서버의 수 및 백분율을 가져옵니다](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
   - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
+  - 샘플 쿼리: [릴리스된 최신 에이전트 버전을 실행하지 않는 Arc 지원 서버 나열](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.hybridcompute/machines/extensions
   - 샘플 쿼리: [Azure Arc 지원 서버에 설치된 모든 확장 나열](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes(Azure Arc 프라이빗 링크 범위)
@@ -478,6 +491,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.KeyVault/vaults(키 자격 증명 모음)
   - 샘플 쿼리: [Key Vault 리소스 개수 계산s](../samples/samples-by-category.md#count-key-vault-resources)
   - 샘플 쿼리: [구독 이름이 있는 키 자격 증명 모음](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - Microsoft.Kubernetes/connectedClusters(Kubernetes - Azure Arc)
   - 샘플 쿼리: [Azure Monitor 확장이 없는 모든 Azure Arc 지원 Kubernetes 클러스터 나열](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
   - 샘플 쿼리: [모든 Azure Arc 지원 Kubernetes 리소스 나열](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
@@ -513,6 +527,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
 - Microsoft.ManagedIdentity/userAssignedIdentities(관리 ID)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.managednetwork/managednetworkgroups
 - microsoft.managednetwork/managednetworkpeeringpolicies
 - microsoft.managednetwork/managednetworks
@@ -717,6 +732,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Sql/managedInstances/databases(관리 데이터베이스)
 - Microsoft.Sql/servers(SQL 서버)
 - Microsoft.Sql/servers/databases(SQL 데이터베이스)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
   - 샘플 쿼리: [SQL Database 및 탄력적 풀 나열](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
 - Microsoft.Sql/servers/elasticpools(SQL 탄력적 풀)
   - 샘플 쿼리: [SQL Database 및 탄력적 풀 나열](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
@@ -730,6 +746,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
   - 샘플 쿼리: [리소스 그룹에서 대/소문자를 구분하지 않는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - 샘플 쿼리:[리소스 그룹에서 대/소문자를 구분하는 특정 태그가 있는 스토리지 계정 찾기](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - 샘플 쿼리: [특정 태그 값이 있는 모든 스토리지 계정 나열](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
+  - 예제 쿼리: [Azure 구독을 전송할 때 영향을 받는 리소스 나열](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches(HPC 캐시)
 - Microsoft.StoragePool/diskPools(디스크 풀)

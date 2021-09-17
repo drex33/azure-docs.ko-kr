@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 5f8e0c17fd7f76ddb28072e292bbe4ae39dab64c
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 700e49f1fb635cc93797c5b39463dc3d76018c7e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530751"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123480969"
 ---
 # <a name="install-and-run-form-recognizer-v21-preview-containers"></a>Form Recognizer v2.1-preview 컨테이너 설치 및 실행
 
@@ -625,5 +625,3 @@ Azure Cognitive Services 컨테이너는 측정/청구 엔드포인트에 연결
 ## <a name="next-steps"></a>다음 단계
 
 * [Form Recognizer 컨테이너 구성 설정](form-recognizer-container-configuration.md) 
-* [Form Recognizer 컨테이너 이미지 태그](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)
-* [Cognitive Services 컨테이너 지원 페이지 및 릴리스 정보](../../../cognitive-services/containers/container-image-tags.md?tabs=current#form-recognizer)

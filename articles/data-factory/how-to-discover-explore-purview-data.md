@@ -2,18 +2,17 @@
 title: Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 description: Purview를 사용하여 Azure Data Factory에서 데이터를 검색하고 살펴보는 방법 알아보기.
 ms.service: data-factory
-ms.subservice: data-movement
 ms.topic: conceptual
 author: linda33wj
 ms.author: jingwang
 ms.custom: seo-lt-2019
 ms.date: 08/10/2021
-ms.openlocfilehash: 145f7c50d6fdd2fef5e1f31e029c06434fa2e8e5
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
-ms.translationtype: HT
+ms.openlocfilehash: 037e7fadd84d3b3b7405507a6116ed1e8c0ef59d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567776"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427051"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 

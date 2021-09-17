@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 424e1908df6d3e92d365e2dd3e10a42f7d1ddb2a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 3cd6a3243b4bfb4441f6be82f3957c325ceec3d2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296410"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433569"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 
@@ -62,7 +62,7 @@ Apache Spark 풀을 사용하여 데이터 준비를 시작하려면 연결된 S
 ![연결된 컴퓨팅 이름 가져오기](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> Apache Spark 풀을 계속 사용하려면 단일 코드 줄의 경우 `%synapse`, 여러 줄의 경우 `%%synapse`를 사용하여 데이터 랭글링 전체에서 사용할 컴퓨팅 리소스를 표시해야 합니다. 
+> Apache Spark 풀을 계속 사용하려면 단일 코드 줄의 경우 `%synapse`, 여러 줄의 경우 `%%synapse`를 사용하여 데이터 랭글링 전체에서 사용할 컴퓨팅 리소스를 표시해야 합니다. [%synapse 매직 명령 에 대해 자세히 알아봅니다.](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class))
 
 ```python
 %synapse start -c SynapseSparkPoolAlias

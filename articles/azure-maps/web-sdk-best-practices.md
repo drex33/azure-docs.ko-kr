@@ -1,19 +1,17 @@
 ---
 title: Azure Maps 웹 SDK 모범 사례 | Microsoft Azure Maps
 description: Azure Maps 웹 SDK 사용을 최적화하는 팁과 요령을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/22/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
-ms.translationtype: HT
+ms.openlocfilehash: 3bcf3125e09ee2023e36b3eefc5d34d4a1215c4e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234432"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439365"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Azure Maps 웹 SDK 모범 사례
 
@@ -25,7 +23,7 @@ Azure Maps 웹 SDK는 다양한 방식으로 많은 공간 데이터 세트를 �
 
 ## <a name="security-basics"></a>보안 기본 사항
 
-애플리케이션의 가장 중요한 부분은 보안입니다. 사용자 환경이 아무리 좋더라도 애플리케이션이 안전하지 않다면 해커가 애플리케이션에 손상을 입힐 수 있습니다. 다음은 Azure Maps 애플리케이션을 안전하게 지키기 위한 몇 가지 팁입니다. Azure를 사용하는 경우 사용할 수 있는 보안 도구를 숙지해야 합니다. [Azure 보안 소개](../security/fundamentals/overview.md)에 대한 문서를 참조하세요.
+애플리케이션의 가장 중요한 부분은 보안입니다. 응용 프로그램이 안전 하지 않을 경우 해커가 어떤 응용 프로그램을 ruin 수 있나요? 다음은 Azure Maps 애플리케이션을 안전하게 지키기 위한 몇 가지 팁입니다. Azure를 사용하는 경우 사용할 수 있는 보안 도구를 숙지해야 합니다. [Azure 보안 소개](../security/fundamentals/overview.md)에 대한 문서를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Maps는 두 가지 인증 방법을 제공합니다.
@@ -37,7 +35,7 @@ Azure Maps 웹 SDK는 다양한 방식으로 많은 공간 데이터 세트를 �
 
 ### <a name="secure-your-private-data"></a>프라이빗 데이터 보호
 
-Azure Maps 대화형 맵 SDK에 데이터가 추가되면 최종 사용자의 디바이스에서 로컬로 렌더링되며 어떤 이유로든 인터넷으로 다시 전송되지 않습니다.
+Azure Maps 대화형 맵 Sdk에 데이터가 추가 되 면 최종 사용자의 장치에서 로컬로 렌더링 되며 어떤 이유로 든 인터넷으로 다시 전송 되지 않습니다.
 
 애플리케이션에서 공개적으로 액세스할 수 없는 데이터를 로드하는 경우 데이터를 안전한 위치에 저장하고 안전한 방식으로 액세스되며, 애플리케이션 자체가 잠겨 있고 원하는 사용자만 사용할 수 있도록 해야 합니다. 이 단계를 건너뛰는 경우 권한이 없는 사용자가 해당 데이터에 액세스할 수 있습니다. Azure Active Directory는 이를 잠그는 데 도움이 됩니다.
 
@@ -57,20 +55,20 @@ NPM 모듈을 통해 Azure Maps 웹 SDK를 자체 호스팅하는 경우 항상 
 
 ## <a name="optimize-initial-map-load"></a>초기 맵 로드 최적화
 
-웹 페이지를 로드하는 경우 가장 먼저 수행해야 할 작업 중 하나는 사용자가 빈 화면에서 시작하지 않도록 최대한 빨리 렌더링을 시작하는 것입니다.
+웹 페이지를 로드 하는 경우 가장 먼저 수행 해야 할 작업 중 하나는 사용자가 빈 화면에서 바랄 되지 않도록 가능한 한 빨리 렌더링 하기 시작 하는 것입니다.
 
 ### <a name="watch-the-maps-ready-event"></a>맵 준비 이벤트 보기
 
-마찬가지로 맵을 처음 로드하는 경우에는 사용자가 빈 맵을 보지 않도록 가능한 한 빨리 데이터를 로드하는 것이 좋습니다. 맵은 리소스를 비동기적으로 로드하므로 사용자 고유의 데이터를 렌더링하기 전에 맵에서 상호 작용할 준비가 될 때까지 기다려야 합니다. 기다릴 수 있는 이벤트에는 `load` 이벤트와 `ready` 이벤트 두 가지가 있습니다. 로드 이벤트는 맵이 초기 맵 보기를 완전히 로드하고 모든 맵 타일이 로드된 후에 실행됩니다. 준비 이벤트는 맵과의 상호 작용을 시작하는 데 필요한 최소 맵 리소스를 사용하는 경우에 발생합니다. 준비 이벤트는 종종 로드 이벤트의 절반 시간 내에 발생할 수 있으므로 데이터를 맵에 더 빨리 로드하기 시작할 수 있습니다.
+마찬가지로 맵을 처음 로드 하는 경우에는 가능한 한 빨리 데이터를 로드 하는 것이 좋습니다. 그러면 사용자가 빈 맵을 볼 수 없습니다. 맵은 리소스를 비동기적으로 로드하므로 사용자 고유의 데이터를 렌더링하기 전에 맵에서 상호 작용할 준비가 될 때까지 기다려야 합니다. 기다릴 수 있는 이벤트에는 `load` 이벤트와 `ready` 이벤트 두 가지가 있습니다. 로드 이벤트는 맵이 초기 맵 보기를 완전히 로드하고 모든 맵 타일이 로드된 후에 실행됩니다. 준비 이벤트는 맵과의 상호 작용을 시작하는 데 필요한 최소 맵 리소스를 사용하는 경우에 발생합니다. 준비 이벤트는 종종 로드 이벤트의 절반 시간 내에 발생할 수 있으므로 데이터를 맵에 더 빨리 로드하기 시작할 수 있습니다.
 
 ### <a name="lazy-load-the-azure-maps-web-sdk"></a>Azure Maps 웹 SDK 지연 로드
 
-맵이 즉시 필요하지 않은 경우 필요할 때까지 Azure Maps 웹 SDK를 지연 로드합니다. 이렇게 하면 필요할 때까지 Azure Maps 웹 SDK에서 사용하는 JavaScript 및 CSS 파일의 로드가 지연됩니다. 이 상황이 발생하는 일반적인 시나리오는 페이지가 로드될 때 표시되지 않는 탭 또는 플라이아웃 패널에서 맵이 로드되는 경우입니다.
+맵이 즉시 필요 하지 않은 경우 필요할 때까지 웹 SDK Azure Maps 지연 로드 합니다. 이렇게 하면 필요할 때까지 Azure Maps 웹 SDK에서 사용하는 JavaScript 및 CSS 파일의 로드가 지연됩니다. 이 문제가 발생 하는 일반적인 시나리오는 페이지가 로드 될 때 표시 되지 않는 탭 또는 플라이 아웃 패널에서 맵이 로드 되는 경우입니다.
 다음 코드 샘플에서는 단추를 누를 때까지 Azure Maps 웹 SDK 로딩을 지연하는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="맵 지연 로드" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="맵 지연 로드" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>맵 지연 로드</a>를 참조하세요.
 </iframe>
 
@@ -112,7 +110,7 @@ NPM 모듈을 통해 Azure Maps 웹 SDK를 자체 호스팅하는 경우 항상 
 
 * 데이터 원본 `add` 함수를 사용하여 데이터 원본에 하나 이상의 기능을 추가할 수 있습니다. 이 함수가 호출될 때마다 맵 캔버스 새로 고침이 트리거됩니다. 여러 기능을 추가하는 경우 데이터 세트를 반복하여 각 기능에 대해 이 함수를 호출하는 대신 배열 또는 기능 컬렉션으로 결합하여 해당 함수에 한 번 전달합니다.
 * 데이터 원본 `setShapes` 함수를 사용하여 데이터 원본의 모든 셰이프를 덮어쓸 수 있습니다. 내부적으로 데이터 원본`clear`과 `add` 함수를 결합하고 두 가지 대신 단일 맵 캔버스를 새로 고치는 것이 훨씬 더 빠릅니다. 데이터 원본의 모든 데이터를 업데이트하려면 이를 사용합니다.
-* 데이터 원본 `importDataFromUrl` 함수를 사용하여 URL을 통해 데이터 원본에 GeoJSON 파일을 로드할 수 있습니다. 데이터가 다운로드되면 데이터 원본 `add` 함수에 전달됩니다. GeoJSON 파일이 다른 도메인에서 호스트되는 경우 다른 도메인에서 CORs(cross domain requests)를 지원하는지 확인합니다. 도메인의 로컬 파일에 데이터를 복사하거나 CORs를 사용하도록 설정된 프록시 서비스를 만드는 것을 고려하지 않는 경우. 파일이 클 경우 벡터 타일 원본으로 변환하는 것이 좋습니다.
+* 데이터 원본 `importDataFromUrl` 함수를 사용하여 URL을 통해 데이터 원본에 GeoJSON 파일을 로드할 수 있습니다. 데이터가 다운로드되면 데이터 원본 `add` 함수에 전달됩니다. GeoJSON 파일이 다른 도메인에서 호스트되는 경우 다른 도메인에서 CORs(cross domain requests)를 지원하는지 확인합니다. 도메인의 로컬 파일에 데이터를 복사 하거나 CORs를 사용 하도록 설정 된 프록시 서비스를 만드는 것을 고려 하지 않는 경우 파일이 클 경우 벡터 타일 원본으로 변환하는 것이 좋습니다.
 * 기능이 `Shape` 클래스로 래핑되는 경우 셰이프의 `addProperty`, `setCoordinates`, `setProperties` 함수는 모두 데이터 원본에서 업데이트를 트리거하고 맵 캔버스를 새로 고칩니다. 데이터 원본 `getShapes` 및 `getShapeById` 함수에서 반환하는 모든 기능은 자동으로 `Shape` 클래스로 래핑됩니다. 여러 셰이프를 업데이트하려면 데이터 원본 `toJson` 함수를 사용하여 JSON으로 변환하고 GeoJSON을 편집한 다음 해당 데이터를 데이터 원본 `setShapes` 함수에 전달하는 것이 더 빠릅니다.
 
 ### <a name="avoid-calling-the-data-sources-clear-function-unnecessarily"></a>데이터 원본 Clear 함수를 불필요하게 호출하지 않습니다.
@@ -126,7 +124,7 @@ NPM 모듈을 통해 Azure Maps 웹 SDK를 자체 호스팅하는 경우 항상 
 
 ### <a name="remove-unused-features-and-properties"></a>사용하지 않는 기능 및 속성 제거
 
-데이터 세트에 앱에서 사용되지 않는 기능이 포함된 경우 이를 제거합니다. 마찬가지로 필요 없는 기능에 대한 모든 속성을 제거합니다. 여기에는 여러 가지 이점이 있습니다.
+데이터 집합에 앱에서 사용 되지 않는 기능이 포함 되어 있는 경우 제거 합니다. 마찬가지로 필요 없는 기능에 대 한 모든 속성을 제거 합니다. 여기에는 여러 가지 이점이 있습니다.
 
 * 다운로드해야 하는 데이터의 양을 줄입니다.
 * 데이터를 렌더링할 때 반복해야 하는 기능 수를 줄입니다.
@@ -180,7 +178,7 @@ WebGL을 사용하여 렌더링하는 Azure Maps 웹 컨트롤의 대부분의 �
 
 <br/>
 
-<iframe height='500' scrolling='no' title='여러 점을 사용하여 팝업을 다시 사용' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>여러 점을 사용하여 팝업을 다시 사용</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='여러 점을 사용하여 팝업을 다시 사용' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>여러 점을 사용하여 팝업을 다시 사용</a>을 참조하세요.
 </iframe>
 
 즉, 맵에서 몇 가지 지점만 렌더링해야 하는 경우 HTML 마커의 단순성이 더 효과적일 수 있습니다. 또한 필요에 따라 HTML 마커를 쉽게 끌어올 수 있습니다.
@@ -225,7 +223,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="기호 레이어 애니메이션" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="기호 레이어 애니메이션" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>기호 레이어 애니메이션</a>을 참조하세요.
 </iframe>
 
@@ -234,7 +232,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 데이터가 다음 조건 중 하나를 충족하면 렌더링 엔진이 확대/축소 수준 범위를 벗어날 때 건너뛸 수 있도록 레이어의 최소 및 최대 확대/축소 수준을 지정해야 합니다.
 
 * 데이터가 벡터 타일 원본에서 제공되는 경우 다양한 데이터 유형의 원본 레이어는 확대/축소 수준 범위를 통해서만 사용할 수 있는 경우가 많습니다.
-* 0에서 24까지의 모든 확대/축소 수준에 대해 타일이 없는 타일 레이어를 사용하는 경우 타일을 포함하는 수준에서만 렌더링하고 다른 확대/축소 수준의 타일로 누락된 타일을 채우지 마세요.
+* 모든 확대/축소 수준 0 ~ 24에 대 한 타일이 없는 타일 계층을 사용 하는 경우 타일을 포함 하는 수준 에서만 렌더링 하 고, 누락 된 타일을 다른 확대/축소 수준의 타일로 채우지 않는 것이 좋습니다.
 * 특정 확대/축소 수준에서만 레이어를 렌더링하려는 경우.
 모든 레이어에는 이 논리` maxZoom > zoom >= minZoom`에 따라 확대/축소 수준 간에 레이어가 렌더링되는 `minZoom` 및 `maxZoom` 옵션이 있습니다.
 
@@ -265,7 +263,7 @@ var tileLayer = new atlas.layer.TileLayer({
 
 ### <a name="use-a-blank-map-style-when-base-map-not-visible"></a>기본 맵이 표시되지 않는 경우 빈 맵 스타일 사용
 
-맵에서 기본 맵을 완전히 포함하는 레이어가 중첩되는 경우 맵 스타일을 `blank` 또는 `blank_accessible`로 설정하여 기본 맵이 랜더링되지 않도록 하세요. 이 작업을 수행하는 일반적인 시나리오는 전체 지구본 타일을 오버레이할 때 기본 맵 위에 불투명도 또는 투명 영역이 없는 경우입니다.
+기본 지도를 완전히 덮을 레이어가 지도에 오버레이되는 경우 기본 맵이 렌더링되지 않도록 지도 스타일을 또는 로 설정하는 `blank` `blank_accessible` 것이 좋습니다. 이 작업을 수행하는 일반적인 시나리오는 전체 지구본 타일을 오버레이할 때 기본 맵 위에 불투명도 또는 투명 영역이 없는 경우입니다.
 
 ### <a name="smoothly-animate-image-or-tile-layers"></a>이미지 또는 타일 레이어에 부드러운 애니메이션 효과 주기
 
@@ -296,7 +294,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 
 ### <a name="keep-image-resources-small"></a>이미지 리소스 작게 유지
 
-이미지를 맵 이미지 스프라이트에 추가하여 기호 레이어의 아이콘 또는 다각형 레이어의 패턴으로 렌더링할 수 있습니다. 다운로드해야 하는 데이터의 양과 맵 이미지 스프라이트에 필요한 공간의 크기를 최소화하기 위해 이미지를 작게 유지합니다. `size` 옵션을 사용하여 아이콘의 크기를 스케일링하는 기호 레이어를 사용하는 경우 계획이 맵에 표시할 최대 크기의 이미지를 사용합니다. 이렇게 하면 사용하는 리소스를 최소화하면서 아이콘이 고해상도로 렌더링됩니다. 또한 SVG는 단순한 아이콘 이미지에 대해 더 작은 파일 형식으로 사용할 수도 있습니다.
+이미지를 맵 이미지 스프라이트에 추가하여 기호 레이어의 아이콘 또는 다각형 레이어의 패턴으로 렌더링할 수 있습니다. 다운로드해야 하는 데이터의 양과 맵 이미지 스프라이트에 필요한 공간의 크기를 최소화하기 위해 이미지를 작게 유지합니다. `size` 옵션을 사용하여 아이콘의 크기를 스케일링하는 기호 레이어를 사용하는 경우 계획이 맵에 표시할 최대 크기의 이미지를 사용합니다. 이렇게 하면 사용하는 리소스를 최소화하면서 아이콘이 고해상도로 렌더링됩니다. 또한 SVG는 간단한 아이콘 이미지에 더 작은 파일 형식으로 사용할 수도 있습니다.
 
 ## <a name="optimize-expressions"></a>식 최적화
 
@@ -310,7 +308,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 * `DataSource` 클래스를 사용하는 경우 해당 데이터를 별도의 데이터 원본으로 나눕니다. 데이터 원본 수를 필터의 복잡성으로 조정합니다. 데이터 원본이 너무 많아도 성능 문제가 발생할 수 있으므로 시나리오에 가장 적합한 것이 무엇인지 확인하기 위해 몇 가지 테스트를 수행해야 할 수 있습니다.
 * 레이어에 복잡한 필터를 사용하는 경우 필터의 복잡성을 줄이기 위해 스타일 식이 있는 여러 레이어를 사용하는 것이 좋습니다. 많은 수의 레이어로 스타일 식을 사용할 수 있는 경우에도 성능 문제가 발생할 수 있으므로 하드 코딩된 스타일 여러 레이어를 만들지 마세요.
 
-### <a name="make-sure-expressions-dont-produce-errors"></a>식이 오류를 생성하지 않는지 확인합니다.
+### <a name="make-sure-expressions-dont-produce-errors"></a>식이 오류를 생성하지 않는지 확인
 
 식은 렌더링 시 계산 또는 논리적 연산을 수행하는 코드를 생성하는 데 종종 사용됩니다. 애플리케이션의 나머지 부분에 있는 코드와 마찬가지로 계산과 논리가 타당하며 오류를 발생하지 않는지 확인합니다. 식에서 오류가 발생하면 식 계산에 문제가 발생하여 성능이 감소하고 문제를 렌더링하게 됩니다.
 
@@ -357,12 +355,12 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 
 다음을 수행합니다.
 
-* 추가된 인증 옵션을 맵에 추가했는지 확인합니다. 이를 추가하지 않으면 맵은 인증 없이 기본 맵 데이터에 액세스할 수 없으므로 빈 캔버스를 로드하고 브라우저 개발자 도구의 네트워크 탭에 401 오류가 표시됩니다.
+* 추가된 인증 옵션을 맵에 추가했는지 확인합니다. 이 값이 추가되지 않으면 맵은 인증 없이 기본 맵 데이터에 액세스할 수 없으므로 빈 캔버스와 함께 로드되고 401 오류가 브라우저 개발자 도구의 네트워크 탭에 표시됩니다.
 * 인터넷에 연결되어 있는지 확인합니다.
-* 콘솔에서 브라우저의 개발자 도구의 오류에 대한 콘솔을 확인합니다. 일부 오류로 인해 맵이 렌더링되지 않을 수 있습니다. 애플리케이션을 디버그합니다.
+* 콘솔에서 브라우저 개발자 도구의 오류를 확인합니다. 일부 오류로 인해 맵이 렌더링되지 않을 수 있습니다. 애플리케이션을 디버그합니다.
 * [지원되는 브라우저](supported-browsers.md)를 사용하고 있는지 확인합니다.
 
-**모든 데이터가 지구 반대편에서 나타나는 이유는 무엇인가요?**
+**내 모든 데이터가 전 세계의 다른 쪽에 표시되면 어떻게 될까요?**
 Azure Maps SDK의 좌표(위치라고도 함)는 `[longitude, latitude]`의 지리 공간적 산업 표준 형식과 일치합니다. 이와 동일한 형식은 GeoJSON 스키마에서 좌표를 정의하는 방식이기도 하며, Azure Maps SDK 내에서 사용되는 핵심 데이터 형식입니다. 데이터가 지구 반대편에서 표시되는 경우에는 경도 및 위도 값이 좌표/위치 정보에서 반전되었기 때문일 수 있습니다.
 
 **웹 컨트롤에서 HTML 마커가 잘못된 위치에 나타나는 이유는 무엇인가요?**
@@ -375,14 +373,14 @@ Azure Maps SDK의 좌표(위치라고도 함)는 `[longitude, latitude]`의 지�
 
 **기호 레이어의 아이콘이나 텍스트가 잘못된 곳에 표시되는 이유는 무엇인가요?**
 `anchor` 및 `offset` 옵션이 맵의 좌표와 일치하게 하려는 이미지 또는 텍스트의 부분에 맞게 올바르게 구성되어 있는지 확인합니다.
-맵이 회전되는 경우에만 기호가 제자리에 없으면 `rotationAlignment` 옵션을 체크합니다. 기본적으로 기호는 사용자에게 똑바로 나타나도록 지도 뷰포트를 사용하여 회전합니다. 그러나 시나리오에 따라 기호를 맵 방향으로 잠그는 것이 바람직할 수 있습니다. 이 작업을 수행하려면 `rotationAlignment` 옵션을 `’map’`으로 설정합니다.
-맵이 경사진/기울어진 경우에만 기호가 제자리에 없으면 `pitchAlignment` 옵션을 체크합니다. 기본적으로 맵이 경사지거나 기울어짐에 따라 기호는 지도 뷰포트를 통해 제대로 표시됩니다. 그러나 시나리오에 따라 맵 기울기에 맞춰 기호를 잠그는 것이 바람직할 수 있습니다. 이 작업을 수행하려면 `pitchAlignment` 옵션을 `’map’`으로 설정합니다.
+맵이 회전되는 경우에만 기호가 제자리에 없으면 `rotationAlignment` 옵션을 체크합니다. 기본적으로 기호는 사용자에게 똑바로 나타나도록 지도 뷰포트를 사용하여 회전합니다. 그러나 시나리오에 따라 지도 방향에 기호를 잠그는 것이 바람직 할 수 있습니다. 이 작업을 수행하려면 `rotationAlignment` 옵션을 `'map'`으로 설정합니다.
+맵이 경사진/기울어진 경우에만 기호가 제자리에 없으면 `pitchAlignment` 옵션을 체크합니다. 기본적으로 맵이 경사지거나 기울어짐에 따라 기호는 지도 뷰포트를 통해 제대로 표시됩니다. 그러나 시나리오에 따라 지도의 피치에 기호를 잠그는 것이 좋을 수 있습니다. 이 작업을 수행하려면 `pitchAlignment` 옵션을 `'map'`으로 설정합니다.
 
-**맵에 데이터가 나타나지 않는 이유는 무엇인가요?**
+**지도에 데이터가 나타나지 않는 이유는 무엇 인가요?**
 
 확인할 사항:
 
-* 브라우저의 개발자 도구에서 콘솔에 오류가 있는지 확인합니다.
+* 브라우저의 개발자 도구에서 콘솔에 오류가 있는지 확인 합니다.
 * 데이터 원본이 만들어지고 맵에 추가되었는지, 그리고 데이터 원본이 맵에 추가된 렌더링 레이어에 연결되어 있는지 확인합니다.
 * 코드에 중단점을 추가하고 코드를 단계별로 실행하여 데이터가 데이터 원본에 추가되고 데이터 원본 및 레이어가 오류 없이 맵에 추가되고 있는지 확인합니다.
 * 렌더링 레이어에서 데이터 기반 식을 제거합니다. 그중 하나에 문제가 있어 오류가 발생할 수 있습니다.

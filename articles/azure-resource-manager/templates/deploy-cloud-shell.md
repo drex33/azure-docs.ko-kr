@@ -2,13 +2,13 @@
 title: Cloud Shell을 사용하여 템플릿 배포
 description: Azure Resource Manager와 Azure Cloud Shell을 사용하여 Azure에 리소스를 배포합니다. 리소스는 ARM 템플릿(Azure Resource Manager 템플릿)에 정의됩니다.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: 0228f4862cbdcda98bc577844bca9dad34feb96f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957875"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535112"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Azure Cloud Shell에서 ARM 템플릿 배포
 
@@ -54,41 +54,17 @@ ms.locfileid: "111957875"
 
 로컬 템플릿을 배포하려면 먼저 Cloud Shell 세션에 연결된 스토리지 계정에 템플릿을 업로드해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Cloud Shell](https://shell.azure.com)에 로그인합니다.
 
-1. Cloud Shell 리소스 그룹을 선택합니다. 이름 패턴은 `cloud-shell-storage-<region>`입니다.
+1. **PowerShell** 또는 **Bash** 를 선택합니다.
 
-   ![리소스 그룹 선택](./media/deploy-cloud-shell/select-cloud-shell-resource-group.png)
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-bash-powershell.png" alt-text="Bash 또는 PowerShell 선택":::
 
-1. Cloud Shell용 스토리지 계정을 선택합니다.
+1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="스토리지 계정 선택":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-upload.png" alt-text="파일 업로드":::.
 
-1. **파일 공유** 를 선택합니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="파일 공유 선택":::
-
-1. Cloud Shell용 기본 파일 공유를 선택합니다. 파일 공유의 이름 형식은 `cs-<user>-<domain>-com-<uniqueGuid>`입니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="기본 파일 공유":::
-
-1. 템플릿을 보관할 새 디렉터리를 추가합니다. 해당 디렉터리를 선택합니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="디렉터리 추가":::
-
-1. **업로드** 를 선택합니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="템플릿 업로드":::
-
-1. 템플릿을 찾아서 업로드합니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="템플릿 선택":::
-
-1. Cloud Shell 프롬프트를 엽니다.
-
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Cloud Shell 열기":::
-
-1. **clouddrive** 디렉터리로 이동합니다. 템플릿을 보관하기 위해 추가한 디렉터리로 이동합니다.
+1. 업로드할 ARM 템플릿을 선택한 다음, **열기를** 선택합니다.
 
 1. 템플릿을 배포하려면 다음 명령을 사용합니다.
 

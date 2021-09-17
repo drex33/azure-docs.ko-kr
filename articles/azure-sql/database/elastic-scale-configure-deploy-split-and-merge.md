@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 12/04/2018
-ms.openlocfilehash: 8656202685db424cd6047e6a8b58191c6293e9ff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 99d620847c12d194fbd8cd51b53d8820c32dd0c0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694348"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438231"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 4. *ShardManagement.psm1* – ShardManagement API를 래핑하는 도우미 스크립트입니다.
 5. *SqlDatabaseHelpers.psm1* - SQL Database에서 데이터베이스 생성 및 관리를 위한 도우미 스크립트입니다.
 
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell 파일</th>
        <th>단계</th>
@@ -207,7 +207,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
        <td>5. 분할된 테이블에 대한 SchemaInfo를 선언합니다.</td>
      </tr>
    </table>
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell 파일</th>
        <th>단계</th>
@@ -229,7 +229,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ## <a name="use-powershell-to-verify-your-deployment"></a>PowerShell을 사용하여 배포 확인
 
-1. 새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
+1. 새 PowerShell 창을 열고 Split-Merge 패키지를 다운로드 한 디렉터리로 이동한 다음 "PowerShell" 디렉터리로 이동 합니다.
 
 2. 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
 
@@ -270,7 +270,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
     ```
 
-    아래 오류가 표시되면 대개 웹 엔드포인트의 인증서에 문제가 있는 것입니다. 원하는 웹 브라우저로 웹 엔드포인트에 연결하여 인증서 오류가 발생하는지 확인합니다.
+    아래 오류가 표시 되 면 웹 끝점의 인증서에 문제가 있을 가능성이 높습니다. 원하는 웹 브라우저로 웹 엔드포인트에 연결하여 인증서 오류가 발생하는지 확인합니다.
 
     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
@@ -321,8 +321,8 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 분할/병합 작업을 수행하려면 이동할 분할된 테이블 및 참조 테이블을 선언해야 합니다. **SchemaInfo** API를 사용하여 이 작업을 수행합니다. 이 API는 **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** 네임스페이스에 있습니다.
 
-1. 각 분할된 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”), 테이블 이름 및 분할 키가 포함된 해당 테이블의 열 이름을 설명하는 **ShardedTableInfo** 개체를 만듭니다.
-2. 각 참조 테이블에 대해 테이블의 부모 스키마 이름(선택 사항, 기본값은 “dbo”) 및 테이블 이름을 설명하는 **ReferenceTableInfo** 개체를 만듭니다.
+1. 각 분할 된 테이블에 대해 테이블의 부모 스키마 이름 (선택 사항, 기본값은 "dbo"), 테이블 이름 및 분할 키가 포함 된 해당 테이블의 열 이름을 설명 하는 **ShardedTableInfo** 개체를 만듭니다.
+2. 각 참조 테이블에 대해 테이블의 부모 스키마 이름 (선택 사항, 기본값 "dbo") 및 테이블 이름을 설명 하는 **Referencetableinfo** 개체를 만듭니다.
 3. 새 **SchemaInfo** 개체에 위의 TableInfo 개체를 추가합니다.
 4. **ShardMapManager** 개체에 대한 참조를 가져와 **GetSchemaInfoCollection** 을 호출합니다.
 5. **SchemaInfo** 를 **SchemaInfoCollection** 에 추가하고 분할된 데이터베이스 맵 이름을 입력합니다.

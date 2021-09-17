@@ -1,14 +1,14 @@
 ---
 title: 개별 센서 관리
-description: 활성화 파일 관리, 백업 수행, 독립 실행형 센서 업데이트를 포함하여 개별 센서를 관리하는 방법에 대해 알아봅니다.
-ms.date: 05/26/2021
+description: 활성화 파일 관리, 인증서, 백업 수행 및 독립 실행형 센서 업데이트를 포함 하 여 개별 센서를 관리 하는 방법에 대해 알아봅니다.
+ms.date: 08/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 7c54c2eef98cdf3c68f4c03f09f95972d57aba71
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fd708b2ab259b38ea6983c4d4a6dac319e416218
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567119"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424290"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -46,7 +46,7 @@ ms.locfileid: "122567119"
 
 - 클라우드 연결 센서에 새 Defender for IoT 허브를 할당하려는 경우
 
-새 활성화 파일을 추가하려면 다음을 수행합니다.
+**새 활성화 파일을 추가하려면 다음을 수행합니다.**
 
 1. **센서 관리** 페이지로 이동합니다.
 
@@ -86,237 +86,33 @@ ms.locfileid: "122567119"
 
 ## <a name="manage-certificates"></a>인증서 관리
 
-센서 설치 후에는 로컬 자체 서명된 인증서가 생성되어 센서 웹 애플리케이션에 액세스하는 데 사용됩니다. 센서에 처음 로그인할 때 관리자 사용자에게 SSL/TLS 인증서를 제공하라는 메시지가 표시됩니다.  자세한 내용은 [로그인 및 센서 활성화](how-to-activate-and-set-up-your-sensor.md)를 참조하세요.
+센서 설치 후에는 로컬 자체 서명된 인증서가 생성되어 센서 웹 애플리케이션에 액세스하는 데 사용됩니다. 센서에 처음 로그인할 때 관리자 사용자에게 SSL/TLS 인증서를 제공하라는 메시지가 표시됩니다. 
 
-이 문서에서는 인증서 업데이트, 인증서 CLI 명령 작업, 지원되는 인증서 및 인증서 매개 변수에 대한 정보를 제공합니다.
+센서 관리자는 초기 로그인 후에 업로드 된 인증서를 업데이트 해야 할 수 있습니다. 예를 들어 인증서가 만료 된 경우이 오류가 발생할 수 있습니다.
 
-### <a name="about-certificates"></a>인증서 정보
-
-Azure Defender for IoT는 SSL/TLS 인증서를 사용하여 다음을 수행합니다.
-
-- CA 서명 인증서를 업로드하여 조직에서 요청하는 특정 인증서 및 암호화 요구 사항을 충족합니다.
-
-- 관리 콘솔과 연결된 센서 간 그리고 관리 콘솔과 고가용성 관리 콘솔 간의 유효성 검사를 허용합니다. 유효성 검사에서는 CRL(인증서 해지 목록) 및 인증서 만료 날짜에 대한 평가가 진행됩니다. 유효성 검사에 실패하면 관리 콘솔과 센서 간의 통신이 중단되고 콘솔에 유효성 검사 오류가 표시됩니다. 이 옵션은 설치 후 기본적으로 사용하도록 설정됩니다.
-
-- Syslog, Splunk 또는 ServiceNow로 전달되는 경고 정보 등 타사 전달 규칙 및 Active Directory와의 통신의 유효성은 검사합니다.
-
-### <a name="about-crl-servers"></a>CRL 서버 정보
-
-유효성 검사가 켜져 있으면 어플라이언스는 인증서에 정의된 CRL 서버에 대한 연결을 설정할 수 있어야 합니다. 기본적으로 인증서는 HTTP 포트 80에서 CRL URL을 참조합니다. 일부 조직의 보안 정책은 이 포트에 대한 액세스를 차단할 수 있습니다. 조직에 포트 80에 대한 액세스 권한이 없는 경우 다음을 수행할 수 있습니다.
-1. 인증서에 다른 URL과 특정 포트를 정의합니다. 
-- URL은 https://가 아닌 http://로 정의해야 합니다.
-- 대상 CRL 서버가 정의한 포트에서 수신 대기할 수 있는지 확인합니다. 
-1. 포트 80에서 CRL에 액세스할 프록시 서버를 사용합니다.
-1. CRL 유효성 검사를 수행하지 마세요. 이 경우 인증서에서 CRL URL 참조를 제거합니다.
-
-### <a name="about-ssltls-certificates"></a>SSL/TLS 인증서 정보
-
-Defender for IoT 센서 및 온-프레미스 관리 콘솔은 다음 기능에 SSL 및 TLS 인증서를 사용합니다.
-
- - 사용자와 어플라이언스의 웹 콘솔 간 보안 통신.
- 
- - 센서와 온-프레미스 관리 콘솔의 REST API에 대한 보안 통신.
- 
- - 센서와 온-프레미스 관리 콘솔 간의 보안 통신.
-
-설치가 완료되면 어플라이언스는 웹 콘솔에 대한 사전 액세스를 허용하는 로컬 자체 서명된 인증서를 생성합니다.
-
- > [!NOTE]
- > 어플라이언스가 세션의 클라이언트이자 개시 장치인 통합 및 전달 규칙의 경우 특정 인증서가 사용되며 시스템 인증서와 관련이 없습니다.  
- >
- >이러한 경우 인증서는 일반적으로 서버에서 수신되거나, 통합 설정을 위해 특정 인증서가 제공되는 비대칭 암호화를 사용합니다.
-
-어플라이언스는 고유한 인증서 파일을 사용할 수 있습니다. 업로드한 인증서를 교체하려면 다음을 수행합니다.
-
-- 버전 10.0 이후의 경우 인증서는 시스템 설정 메뉴에서 바꿀 수 있습니다.
-
-- 버전 10.0 이전의 경우 명령줄 도구를 사용하여 SSL 인증서를 바꿀 수 있습니다.
-
-### <a name="update-certificates"></a>인증서 업데이트
-
-센서 관리자가 인증서를 업데이트할 수 있습니다.
-
-인증서를 업데이트하려면 다음을 수행합니다.  
+**인증서를 업데이트하려면 다음을 수행합니다.**
 
 1. **시스템 설정** 을 선택합니다.
 
 1. **SSL/TLS 인증서** 를 선택합니다.
-1. 인증서를 삭제하거나 편집하고 새 인증서를 추가합니다.
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="인증서 업로드":::
+
+1. SSL/TLS 인증서 대화 상자에서 기존 인증서를 삭제 하 고 새 인증서를 추가 합니다.
 
     - 인증서 이름을 추가합니다.
-    
-    - CRT 파일 및 키 파일을 업로드하고 암호를 입력합니다.
+    - CRT 파일 및 키 파일을 업로드 합니다.
     - 필요한 경우 PEM 파일을 업로드합니다.
 
-유효성 검사 설정을 변경하려면 다음을 수행합니다.
+업로드에 실패 하는 경우 보안 또는 IT 관리자에 게 문의 하거나 [인증서](how-to-deploy-certificates.md)정보를 검토 합니다.
 
-1. **인증서 유효성 검사 사용** 토글을 설정 또는 해제합니다.
+**인증서 유효성 검사 설정을 변경 하려면:**
+
+1. **인증서 유효성 검사 사용** 설정/해제를 사용 하도록 설정 합니다. 이 옵션을 사용 하도록 설정 하 고 유효성 검사에 실패 하면 관련 구성 요소 간의 통신이 중단 되 고 콘솔에 유효성 검사 오류가 표시 됩니다. 사용 하지 않도록 설정 된 경우 인증서 유효성 검사가 수행 되지 않습니다. 자세한 내용은 [인증서 유효성 검사 정보](how-to-deploy-certificates.md#about-certificate-validation) 를 참조 하세요.
 
 1. **저장** 을 선택합니다.
 
-이 옵션을 사용하도록 설정하고 유효성 검사에 실패하면 관리 콘솔과 센서 간의 통신이 중단되고 콘솔에 유효성 검사 오류가 표시됩니다.
-
-### <a name="certificate-support"></a>인증서 지원
-
-다음 인증서가 지원됩니다.
-
-- 프라이빗 및 엔터프라이즈 키 인프라(프라이빗 PKI)
-
-- 퍼블릭 키 인프라(퍼블릭 PKI) 
-
-- 어플라이언스에서 로컬로 생성된 인증서(로컬에서 자체 서명됨). 
-
-> [!IMPORTANT]
-> 자체 서명된 인증서는 사용하지 않는 것을 권장합니다. 이 유형의 연결은 안전하지 않으며 테스트 환경에만 사용해야 합니다. 자체 서명된 인증서는 인증서 소유자의 유효성을 검사할 수 없고 시스템의 보안을 유지할 수 없으므로 프로덕션 네트워크에서는 사용할 수 없습니다.
-
-### <a name="supported-ssl-certificates"></a>지원되는 SSL 인증서 
-
-지원되는 매개 변수는 다음과 같습니다. 
-
-**인증서 CRT**
-
-- 도메인 이름에 대한 기본 인증서 파일
-
-- 서명 알고리즘 = SHA256RSA
-- 서명 해시 알고리즘 = SHA256
-- 유효 개시 시점 = 유효한 지난 날짜
-- 유효 종료 시점 = 유효한 미래 날짜
-- 공개 키 = RSA 2,048비트(최소) 또는 4,096비트
-- CRL 배포 지점 = .crl 파일의 URL
-- 주체 CN = URL은 예를 들면, Sensor.contoso.<span>com, 또는 *.contoso.<span>com과 같은 와일드카드 인증서일 수 있습니다.
-- 주체 (C)ountry = 정의됨(예: US)
-- 주체 (OU) Org Unit = 정의됨(예: Contoso Labs)
-- 주체 (O)rganization = 정의됨(예: Contoso Inc)
-
-**키 파일**
-
-- CSR을 만들 때 생성된 키 파일입니다.
-
-- RSA 2,048비트(최소) 또는 4,096비트입니다.
-
- > [!Note]
- > 키 길이 4,096비트를 사용하는 경우
- > - 각 연결이 시작될 때 SSL 핸드셰이크가 느려집니다.  
- > - 핸드셰이크 중 CPU 사용량이 증가합니다. 
-
-**인증서 체인**
-
-- CA에서 제공한 중간 인증서 파일(있는 경우)
-
-- 서버의 인증서를 발급한 CA 인증서가 파일의 첫 번째에 있어야 하며 그다음으로 루트까지 다른 인증서가 있어야 합니다. 
-- 모음 특성을 포함할 수 있습니다.
-
-**암호**
-
-- 하나의 키가 지원됩니다.
-
-- 인증서를 가져올 때 설정합니다.
-
-다른 매개 변수를 사용하는 인증서도 작동할 수 있지만 Microsoft에서 지원하지 않습니다.
-
-#### <a name="encryption-key-artifacts"></a>암호화 키 아티팩트
-
-**.pem – 인증서 컨테이너 파일**
-
-PEM(Privacy Enhanced Mail) 파일은 메일을 보호하는 데 사용되는 일반 파일 형식이었습니다. 오늘날 PEM 파일은 인증서와 함께 사용되며 x509 ASN1 키를 사용합니다.  
-
-컨테이너 파일은 RFC 1421부터 1424 사이에 정의되며, 퍼블릭 인증서만 포함할 수 있는 컨테이너 형식입니다. 예를 들어 Apache 설치, CA 인증서, 파일, ETC, SSL 또는 인증서가 있습니다. 여기에는 공개 키, 프라이빗 키 및 루트 인증서를 포함한 전체 인증서 체인이 포함될 수 있습니다.  
-
-또한 CSR을 PKCS10 형식으로 인코딩할 수 있으며, PEM으로 변환될 수 있습니다.
-
-**.cert .cer .crt – 인증서 컨테이너 파일**
-
-다른 확장명으로 포맷된 `.pem` 또는 `.der` 파일입니다. 해당 파일은 Windows 탐색기에서 인증서로 인식됩니다. `.pem` 파일은 Windows 탐색기에서 인식할 수 없습니다.
-
-**.key – 프라이빗 키 파일**
-
-키 파일은 PEM 파일과 동일한 형식이지만 확장명이 다릅니다.
-
-#### <a name="other-commonly-available-key-artifacts"></a>기타 일반적으로 사용 가능한 키 아티팩트
-
-**.csr - 인증서 서명 요청**.  
-
-이 파일은 인증 기관에 전송하는 데 사용됩니다. 실제 형식은 RFC 2986에 정의된 PKCS10이며, 요청된 인증서의 일부 또는 모든 주요 세부 정보를 포함할 수 있습니다. 예를 들어 주체, 조직 및 상태입니다. CA에서 서명하는 인증서의 공개 키이며 반환되는 인증서를 수신합니다.  
-
-반환된 인증서는 공개 키를 포함하지만 프라이빗 키가 포함되지 않은 퍼블릭 인증서입니다. 
-
-**.pkcs12 .pfx .p12 - 암호 컨테이너**. 
-
-원래 PKCS(공개 키 암호 표준)에서 RSA에 의해 정의된 12 변형은 원래 Microsoft에서 향상되었으며 나중에 RFC 7292로 제출되었습니다.  
-
-이 컨테이너 형식에는 퍼블릭 및 프라이빗 인증서 쌍을 모두 포함하는 암호가 필요합니다. `.pem`  파일과 달리 이 컨테이너는 완전히 암호화됩니다.  
-
-OpenSSL을 사용하여 이 파일을 퍼블릭 키와 프라이빗 키가 모두 포함된 `.pem`  파일로 전환할 수 있습니다. `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
-
-**.der – 이진 인코딩 PEM**.
-
-ASN.1 구문은 Base64 인코딩 `.der` 파일인 `.pem`  파일을 통해 이진으로 인코딩합니다. 
-
-OpenSSL은 이러한 파일을 `.pem`으로 변환할 수 있습니다. `openssl x509 -inform der -in to-convert.der -out converted.pem`  
-
-Windows에서 해당 파일을 인증서 파일로 인식합니다. 기본적으로 Windows는 인증서를 다른 확장명으로 포맷된 `.der` 파일로 내보냅니다.  
-
-**.crl - 인증서 해지 목록**.  
-인증 기관은 인증서가 만료되기 전에 인증서의 권한을 해제하는 방법으로 이러한 파일을 생성합니다.
- 
-##### <a name="cli-commands"></a>CLI 명령
-
-`cyberx-xsense-certificate-import` CLI 명령을 사용하여 인증서를 가져옵니다. 이 도구를 사용하려면 WinSCP 또는 Wget과 같은 도구를 사용하여 인증서 파일을 디바이스에 업로드해야 합니다.
-
-이 명령은 다음 입력 플래그를 지원합니다.
-
-- `-h`: 명령줄 도움말 구문을 표시합니다.
-
-- `--crt`: 인증서 파일(.crt 확장명)의 경로입니다.
-
-- `--key`:  \*.key 파일입니다. 키 길이는 최소 2,048비트 이상이어야 합니다.
-
-- `--chain`: 인증서 체인 파일의 경로입니다(선택 사항).
-
-- `--pass`: 인증서를 암호화하는 데 사용되는 암호입니다(선택 사항).
-
-- `--passphrase-set`: 기본값 = `False`, 사용되지 않음. 이전 인증서와 함께 제공된 이전 암호를 사용하려면 `True`로 설정합니다(선택 사항).
-
-CLI 명령을 사용하는 경우
-
-- 인증서 파일을 어플라이언스에서 읽을 수 있는지 확인합니다.
-
-- 인증서의 도메인 이름과 IP가 IT 부서가 계획한 구성과 일치하는지 확인합니다.
-
-### <a name="use-openssl-to-manage-certificates"></a>OpenSSL을 사용하여 인증서 관리
-
-다음 명령을 사용하여 인증서를 관리합니다.
-
-| Description | CLI 명령 |
-|--|--|
-| 새 프라이빗 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
-| 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
-| 기존 프라이빗 키에 대한 CSR(인증서 서명 요청)을 생성합니다. | `openssl req -out CSR.csr -key privateKey.key -new` |
-| 기존 인증서를 기반으로 인증서 서명 요청 생성 | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
-| 프라이빗 키에서 암호 제거 | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
-
-인증서, CSR 또는 프라이빗 키 내의 정보를 확인해야 하는 경우 다음 명령을 사용합니다.
-
-| Description | CLI 명령 |
-|--|--|
-| CSR(인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
-| 프라이빗 키 확인 | `openssl rsa -in privateKey.key -check` |
-| 인증서 확인 | `openssl x509 -in certificate.crt -text -noout`  |
-
-프라이빗 키가 인증서와 일치하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시되면 다음 명령을 사용하여 오류를 해결합니다.
-
-| Description | CLI 명령 |
-|--|--|
-| 공개 키의 MD5 해시를 확인하여 CSR 또는 프라이빗 키에 있는 것과 일치하는지 확인 | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
-
-인증서와 키를 다른 형식으로 변환하여 특정 유형의 서버 또는 소프트웨어와 호환되도록 하려면 다음 명령을 사용합니다.
-
-| Description | CLI 명령 |
-|--|--|
-| DER 파일(.crt .cer .der)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
-| PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
-| 프라이빗 키와 인증서를 포함하는 PKCS#12 파일(.pfx .p12)을 PEM으로 변환 | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />`-nocerts`를 추가하여 프라이빗 키만 출력하거나 `-nokeys`를 추가하여 인증서만 출력할 수 있습니다. |
-| PEM 인증서 파일 및 프라이빗 키를 PKCS#12(.pfx .p12)로 변환합니다. | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
+첫 번째 인증서 업로드에 대 한 자세한 내용은 [첫 번째 로그인 및 정품 인증 검사 목록](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist) 을 참조 하세요.
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>관리 콘솔에 센서 연결
 

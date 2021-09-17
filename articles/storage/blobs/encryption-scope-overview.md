@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0d8f1a7e0312ea350a5a34c13d8389b240c14476
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 9c73d8865b2cd019e940a753425d13b67567b39b
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472472"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471207"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Blob Storage의 암호화 범위
 
 암호화 범위를 사용하면 컨테이너 또는 개별 Blob으로 범위가 지정된 키로 암호화를 관리할 수 ​​있습니다. 암호화 범위를 사용하여 같은 스토리지 계정에 있지만 다른 고객에 속한 데이터 간에 보안 경계를 만들 수 있습니다.
 
 암호화 범위 작업에 관한 자세한 내용은 [암호화 범위 만들기 및 관리](encryption-scope-manage.md)를 참조하세요.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-encryption-scopes-work"></a>암호화 범위 작동 방식
 
@@ -82,7 +80,16 @@ Azure Storage의 인프라 암호화를 사 하면 데이터를 이중으로 암
 > [!IMPORTANT]
 > 암호화 범위를 삭제할 수 없습니다.
 
+## <a name="feature-support"></a>기능 지원
 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: ad79bbd166e12c24339e13f38b4e10ca9ea2b549
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: db6ee292a088d530ea858d75e6649684e03d92b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966608"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540481"
 ---
 # <a name="build-a-react-app-to-add-users-to-a-face-service"></a>React 앱을 빌드하여 Face 서비스에 사용자 추가
 
@@ -65,14 +65,15 @@ ms.locfileid: "111966608"
 > [!div class="mx-imgBorder"]
 > ![앱 동의 페이지](./media/enrollment-app/1-consent-1.jpg)
 
-이 서비스는 이미지의 품질이 고객을 추가하거나 얼굴 인식을 시도하는데 충분한지 확인하는 데 도움이 되는 이미지 품질 검사를 제공합니다. 이 앱은 디바이스의 카메라에서 프레임에 액세스하고, 최고 품질의 프레임을 선택하고, 검색된 얼굴을 Face API 서비스에 추가하는 방법을 보여 줍니다. 
-
 대부분의 얼굴 인식 문제는 품질이 낮은 참조 이미지 때문에 발생합니다. 모델 성능을 저하시킬 수 있는 몇 가지 요소는 다음과 같습니다.
 * 얼굴 크기(카메라에서 멀리 떨어진 얼굴)
 * 얼굴 방향(카메라에서 얼굴이 돌아갔거나 기울어짐)
 * 이미지의 노출이 부족하거나 노이즈가 너무 많은 조명이 부족한 조건(적은 빛 또는 역광)
 * 모자나 테가 두꺼운 안경을 포함한 얼굴 가림(부분적으로 숨겨지거나 가려진 얼굴)
 * 흐린 얼굴(예: 사진을 찍은 때 빠르게 움직인 얼굴) 
+
+이 서비스는 고객을 추가하거나 얼굴 인식을 시도하기 위해 위의 요인에 따라 이미지가 충분한 품질인지 여부를 선택하는 데 도움이 되는 이미지 품질 검사를 제공합니다. 이 앱은 디바이스 카메라에서 프레임에 액세스하고, 품질을 감지하고, 사용자에게 사용자 인터페이스 메시지를 표시하여 더 높은 품질의 이미지를 캡처하고, 최고 품질의 프레임을 선택하고, 감지된 얼굴을 Face API 서비스에 추가하는 방법을 보여줍니다. 
+
 
 > [!div class="mx-imgBorder"]
 > ![앱 이미지 캡처 명령 페이지](./media/enrollment-app/4-instruction.jpg)

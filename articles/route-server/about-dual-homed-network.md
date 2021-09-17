@@ -1,20 +1,20 @@
 ---
-title: Azure Route Server(미리 보기)를 사용하는 이중 홈 네트워크 정보
-description: Azure Route Server(미리 보기)가 이중 홈 네트워크에서 작동하는 방식을 알아봅니다.
+title: 'Azure Route Server를 사용하는 이중 홈 네트워크 정보 '
+description: Azure Route Server가 이중 홈 네트워크에서 작동하는 방식에 대해 알아봅니다.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: b786c58efd193eebbd43a4bd40f29201347c1309
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 76c1a1e424e4f8ae372f53ceab5da43ca9d40629
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108777061"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434577"
 ---
-# <a name="about-dual-homed-network-with-azure-route-server-preview"></a>Azure Route Server(미리 보기)를 사용하는 이중 홈 네트워크 정보
+# <a name="about-dual-homed-network-with-azure-route-server"></a>Azure Route Server를 사용하는 이중 홈 네트워크 정보
 
 Azure Route Server는 일반적인 허브 및 스포크 네트워크 토폴로지를 지원합니다. 이 구성은 Route Server와 NVA(네트워크 가상 어플라이언스)가 모두 허브 가상 네트워크에 있는 경우입니다. 라우터 서버를 사용하면 이중 홈 네트워크라는 다른 토폴로지를 구성할 수도 있습니다. 이 구성은 스포크 가상 네트워크가 둘 이상의 허브 가상 네트워크와 피어링되어 있는 경우입니다. 스포크 가상 네트워크의 가상 머신은 허브 가상 네트워크를 통해 온-프레미스 또는 인터넷과 통신할 수 있습니다.
 

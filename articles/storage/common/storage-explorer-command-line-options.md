@@ -2,17 +2,17 @@
 title: Azure Storage Explorer 명령줄 옵션 | Microsoft Docs
 description: Azure Storage Explorer 시작 명령줄 옵션 설명서
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye
-ms.openlocfilehash: 0d588d85852f798542c5d52658e8dae3b9e57949
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f5c43822bb9b856126c9b1ff80212d457044887b
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745409"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449534"
 ---
 # <a name="azure-storage-explorer-command-line-options"></a>Azure Storage Explorer 명령줄 옵션
 

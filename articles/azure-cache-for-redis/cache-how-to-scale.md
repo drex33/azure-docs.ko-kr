@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0b76f98da4823341d5ec0f32c1d8f65a1c37fade
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a1144cd0ccfe6857b88a29ea0f577d760f3addc6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566948"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431677"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 스케일링
 
@@ -42,13 +42,13 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
 
-캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴** 에서 **크기 조정** 을 선택합니다.
+캐시 크기를 조정하려면 [Azure Portal](https://portal.azure.com) [캐시로 이동한](cache-configure.md#configure-azure-cache-for-redis-settings) 다음 왼쪽에서 **크기 조정을** 선택합니다.
 
-![확장](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="리소스 메뉴의 크기 조정":::
 
-왼쪽에 있는 **가격 책정 계층 선택** 및 **선택** 에서 원하는 가격 책정 계층을 선택합니다.
+오른쪽에서 가격 책정 계층을 선택한 다음, **선택을 선택합니다.**
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="redis 캐시 가격 책정 계층 스크린샷":::
+:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis 계층":::
 
 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 
@@ -59,9 +59,9 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 - **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 이후 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
 - 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다. 단, 동일한 가격 책정 계층 내에서는 다른 크기로 스케일 다운할 수 있습니다. 예를 들어 C5 Standard에서 C1 Standard로 스케일 다운할 수 있습니다.
 
-캐시의 크기를 새 가격 책정 계층으로 조정하는 동안에는 **Azure Cache for Redis** 의 왼쪽에 **크기 조정 중** 상태가 표시됩니다.
+캐시가 새 계층으로 크기 조정되는 동안 **크기 조정 Redis Cache** 알림이 표시됩니다.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="redis 캐시 크기 조정":::
+:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="크기 조정 알림":::
 
 크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)** 에서 **실행 중** 으로 변경됩니다.
 
@@ -204,9 +204,3 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>크기 조정이 완료되었는지 어떻게 알 수 있나요?
 
 Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중** 으로 변경됩니다.
-
-<!-- IMAGES -->
-
-[redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
-
-[redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png

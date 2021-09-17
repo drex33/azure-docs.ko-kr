@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: c82bce78f82e28d4accc97ec816e6b1edc9346cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ad8a365550b25906c7fb4fabda725b21abe97417
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536708"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477765"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Azure Virtual WAN 및 원격 근무 지원
 
@@ -51,7 +51,7 @@ IPsec/IKE(IKEv2) 또는 OpenVPN 연결을 통해 Azure의 리소스에 연결할
 
 ## <a name="additional-information"></a><a name="other considerations"></a>추가 정보
 
-Virtual WAN은 지역/위치당 여러 허브를 지원합니다. 위치 정보는 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. 각 허브는 최대 10,000개 원격 사용자 연결, 1,000개 분기 연결, 4개 ExpressRoute 회로, 최대 500개 Virtual Network 연결을 지원합니다. 원격 사용자를 스케일 업할 때 질문이 있는 경우 주저하지 마시고 azurevirtualwan@microsoft.com으로 메일을 보내 도움을 요청하세요. 기술 지원이 필요한 경우 Azure Portal에서 지원 티켓을 열어야 합니다. 그러면 지원이 제공됩니다.
+Virtual WAN은 지역/위치당 여러 허브를 지원합니다. 위치 정보는 [Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 문서를 참조하세요. 각 허브는 최대 10만 개의 원격 사용자 연결, 1000 분기 연결, 4 개의 Express 경로 회로 및 최대 500 Virtual Network 연결을 지원 합니다. 원격 사용자를 스케일 업할 때 질문이 있는 경우 주저하지 마시고 azurevirtualwan@microsoft.com으로 메일을 보내 도움을 요청하세요. 기술 지원이 필요한 경우 Azure Portal에서 지원 티켓을 열어야 합니다. 그러면 지원이 제공됩니다.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 

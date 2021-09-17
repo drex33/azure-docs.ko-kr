@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 89aa01556d69b6f3543f7e90d5937f7e20bf3679
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: f6101485f7dfab8d956a552edc2e77d85a6e2d9e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681362"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425866"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -39,7 +39,7 @@ Azure Backup에서는 Recovery Services 자격 증명 모음을 사용하여 Azu
 **자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
-**ZRS(영역 중복 스토리지)** | 영국 남부, 동남아시아, 호주 동부, 북유럽, 미국 중부 및 일본 동부에서 미리 보기로 지원됩니다.
+**ZRS(영역 중복 스토리지)** | 영국 남부, 남부 동아시아, 오스트레일리아 동부, 북유럽, 미국 중부, 미국 동부 2, 브라질 남부 및 일본 동부에서 미리 보기로 지원합니다.
 **프라이빗 엔드포인트** | Recovery Services 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들기 위한 요구 사항은 [이 섹션](./private-endpoints.md#before-you-start)을 참조하세요.  
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원

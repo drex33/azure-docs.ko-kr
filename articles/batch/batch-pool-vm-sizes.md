@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 컴퓨팅 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택하는 방법
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 09/02/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8a923c2982a632209e659ad663147bff5ff5c20a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 64dc4f11d5b80f0b493ca393f9a04521090c02cb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566739"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437061"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -19,7 +19,16 @@ Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 �
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Virtual Machine 구성의 풀
 
-VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md)를 지원합니다. 지원되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조하세요.
+VM 구성의 Batch 풀은 거의 모든 [VM 크기](../virtual-machines/sizes.md)를 지원합니다. 지역에서 지원되는 VM 크기는 [Batch 관리 API뿐만](batch-apis-tools.md#batch-management-apis)아니라 [명령줄](batch-apis-tools.md#batch-command-line-tools) 도구(PowerShell cmdlet 및 Azure CLI)를 통해 얻을 수 있습니다.  예를 들어 지역에서 지원되는 VM 크기를 나열하는 [Azure Batch CLI 명령은](/cli/azure/batch/location#az_batch_location_list_skus) 다음과 같습니다.
+
+```azurecli-interactive
+az batch location list-skus --location
+                            [--filter]
+                            [--maxresults]
+                            [--subscription] 
+```
+
+각 VM 시리즈에 대해 다음 표에는 Batch에서 VM 시리즈 및 VM 크기를 지원하는지 여부도 나열되어 있습니다.
 
 | VM 시리즈  | 지원되는 크기 |
 |------------|---------|

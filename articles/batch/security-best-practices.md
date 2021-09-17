@@ -1,14 +1,14 @@
 ---
 title: Batch 보안 및 규정 준수 모범 사례
 description: Azure Batch 솔루션을 사용하여 보안을 강화하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 12/18/2020
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f9bfbeb7a89e3ca1bc71001b173926302548a988
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98723815"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435549"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Batch 보안 및 규정 준수 모범 사례
 
@@ -32,13 +32,13 @@ ms.locfileid: "98723815"
 
 Batch 계정 액세스는 공유 키와 [Azure Active Directory (AZURE AD)](batch-aad-auth.md)의 두 가지 인증 방법을 지원합니다.
 
-Batch 계정 인증에 Azure AD를 사용하는 것이 좋습니다. 일부 Batch 기능에는 여기에서 설명하는 많은 보안 관련 기능을 비롯한 이 인증 방법이 필요합니다.
+Batch 계정 인증에 Azure AD를 사용하는 것이 좋습니다. 일부 Batch 기능에는 여기에서 설명하는 많은 보안 관련 기능을 비롯한 이 인증 방법이 필요합니다. Batch 계정에 대한 서비스 API 인증 메커니즘은 [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) 속성을 사용하는 Azure AD로만 제한될 수 있습니다. 이 속성이 설정되면 공유 키 인증을 사용하는 API 호출이 거부됩니다.
 
 ### <a name="batch-account-pool-allocation-mode"></a>Batch 계정 풀 할당 모드
 
 Batch 계정을 만들 때 두 가지 [풀 할당 모드](accounts.md#batch-accounts)에서 선택할 수 있습니다.
 
-- **Batch 서비스**: 기본 클라우드 서비스 또는 풀 노드를 할당하고 관리하는 데 사용되는 가상 머신 확장 집합 리소스가 내부 구독에서 생성되고 Azure Portal에 직접 표시되지 않는 기본 옵션입니다. Batch 풀 및 노드만 표시됩니다. 
+- **Batch 서비스**: 기본 클라우드 서비스 또는 풀 노드를 할당하고 관리하는 데 사용되는 가상 머신 확장 집합 리소스가 내부 구독에서 생성되고 Azure Portal에 직접 표시되지 않는 기본 옵션입니다. Batch 풀 및 노드만 표시됩니다.
 - **사용자 구독**: 기본 클라우드 서비스 또는 가상 머신 확장 집합 리소스는 Batch 계정과 동일한 구독에 생성됩니다. 따라서 이러한 리소스는 해당 Batch 리소스 외에도 구독에서 볼 수 있습니다.
 
 사용자 구독 모드를 사용하여, Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Reserved VM Instances 사용하여 Batch 풀을 만들거나, 가상 머신 확장 집합 리소스에서 Azure Policy 사용하거나, 구독의 코어 할당량을 관리하려는 경우 사용자 구독 모드가 필요합니다(구독의 모든 Batch 계정에서 공유). 사용자 구독 모드에서 Batch 계정을 만들려면 또한 Azure Batch를 사용하여 구독을 등록하고 Azure Key Vault와 계정을 연결해야 합니다.
@@ -143,13 +143,13 @@ Batch 컴퓨팅 노드에는 기본적으로 OS 디스크와 로컬 임시 SSD�
 
 ## <a name="securely-access-services-from-compute-nodes"></a>컴퓨팅 노드에서 서비스에 안전하게 액세스
 
-Batch 노드는 [Azure Key Vault](../key-vault/general/overview.md)에 저장된 [자격 증명 및 비밀에 안전하게 액세스](credential-access-key-vault.md)할 수 있습니다. 이 자격 증명은 태스크 애플리케이션에서 다른 서비스에 액세스하는 데 사용할 수 있습니다. 인증서는 풀 노드에 Key Vault 대한 액세스 권한을 부여하는 데 사용됩니다.
+일괄 처리 노드는 [Azure Key Vault](../key-vault/general/overview.md)에 저장 된 자격 증명에 안전 하 게 액세스할 수 있으며,이를 통해 작업 응용 프로그램에서 다른 서비스에 액세스할 수 있습니다. 인증서는 풀 노드에 Key Vault 대한 액세스 권한을 부여하는 데 사용됩니다. [Batch 풀에서 자동 인증서 회전을 사용 하도록 설정](automatic-certificate-rotation.md)하면 자격 증명이 자동으로 갱신 됩니다. 이 옵션을 사용 하면 Azure Key Vault에 저장 된 자격 증명에 액세스 하는 것이 좋습니다. 하지만 자동 인증서 회전이 없는 [인증서로 자격 증명 및 암호에 안전 하 게 액세스할 수 있도록 배치 노드를 설정할](credential-access-key-vault.md) 수도 있습니다.
 
 ## <a name="governance-and-compliance"></a>거버넌스 및 규정 준수
 
 ### <a name="compliance"></a>규정 준수
 
-고객이 전 세계 규제 산업 및 시장에서 자체 규정 준수 의무를 충족할 수 있도록 Azure는 [대규모 규정 준수 제품 포트폴리오](https://azure.microsoft.com/overview/trusted-cloud/compliance)를 유지 관리합니다. 
+고객이 전 세계 규제 산업 및 시장에서 자체 규정 준수 의무를 충족할 수 있도록 Azure는 [대규모 규정 준수 제품 포트폴리오](https://azure.microsoft.com/overview/trusted-cloud/compliance)를 유지 관리합니다.
 
 이러한 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다. 규정 [준수 제품에 대한 포괄적인 개요](https://aka.ms/AzureCompliance)를 검토하여 Batch 솔루션과 관련될 수 있는 제품을 결정합니다.
 

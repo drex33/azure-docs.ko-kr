@@ -3,19 +3,19 @@ title: Custom Speech 모델 학습 및 배포 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech 모델을 학습하고 배포하는 방법을 알아봅니다. 음성 텍스트 변환 모델을 학습하면 Microsoft 기준선 모델이나 사용자 지정 모델에 대해 인식 정확도를 개선할 수 있습니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: lajanuar
-ms.openlocfilehash: a174848cf8a08942b9aa3777fc25bb0a0fcb8684
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 73076c141f28bc22450c87491053130ace6b5793
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537514"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540760"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -46,7 +46,7 @@ ms.locfileid: "122537514"
 > 새 모델을 학습할 때 관련 텍스트로 시작합니다. 오디오 + 휴먼 레이블 대화 기록을 사용하여 학습하는 데 훨씬 더 오래 걸릴 수 있습니다 **(최대 [수일](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)** ).
 
 > [!NOTE]
-> 모든 기본 모델이 오디오를 통한 학습을 지원하지는 않습니다. 기본 모델이 이를 지원하지 않는 경우 Speech Service는 대본의 텍스트만 사용하고 오디오는 무시합니다. 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하려면 [언어 지원](language-support.md#speech-to-text)을 참조하세요.
+> 모든 기본 모델이 오디오를 통한 학습을 지원하지는 않습니다. 기본 모델이 이를 지원하지 않는 경우 Speech Service는 대본의 텍스트만 사용하고 오디오는 무시합니다. [언어 지원](language-support.md#speech-to-text)을 참조하여 오디오 데이터를 통한 학습을 지원하는 기본 모델의 목록을 확인하세요.
 
 > [!NOTE]
 > 학습에 사용되는 기본 모델을 변경하고 학습 데이터 세트에 오디오가 있는 경우 선택한 새 기본 모델이 [오디오 데이터를 통한 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인합니다. 이전에 사용된 기본 모델에서 오디오 데이터를 통한 학습을 지원하지 않고 학습 데이터 세트에 오디오가 포함된 경우 새 기본 모델의 학습 시간이 몇 시간에서 며칠 이상으로 **크게** 증가할 수 있습니다. Speech Service 구독이 학습 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account)에 있지 **않은** 경우에 특히 그렇습니다.

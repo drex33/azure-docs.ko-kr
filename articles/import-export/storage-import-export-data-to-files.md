@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 9c13ffc597349cdd2b304889d142ca7c2f89c713
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
-ms.translationtype: HT
+ms.openlocfilehash: e06c5adc37e4c7ea73e3b86db61160c51d060f71
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861538"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449192"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -108,7 +108,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 6. 명령줄을 실행할 때마다 `/j:` 매개 변수와 함께 제공된 이름의 업무 일지 파일이 만들어집니다. 준비한 각 드라이브에는 가져오기 작업을 만들 때 업로드해야 하는 업무 일지 파일이 있습니다. 업무 일지 파일이 없는 드라이브는 처리되지 않습니다.
 
     > [!IMPORTANT]
-    > - 디스크 준비를 완료한 후 디스크 드라이브 또는 업무 일지 파일에 있는 데이터를 수정하지 마세요.
+    > 디스크 준비를 완료 한 후 디스크 드라이브의 저널 파일이 나 데이터를 수정 하지 않고 디스크를 다시 포맷 하지 마십시오.
 
 추가 예제는 [업무 일지 파일에 대한 샘플](#samples-for-journal-files)로 이동합니다.
 
@@ -124,7 +124,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
 3. **+새로 만들기** 를 선택합니다.
 
-    ![새로 만들기를 선택하여 새로 만듭니다. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![새로 만들기를 선택하여 새로 만들기 ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. **기본 사항** 에서
 
@@ -154,7 +154,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
    **다음: 배송 >** 을 선택하여 계속 진행합니다.
 
-4. **배송** 에서:
+6. **배송** 에서:
 
     1. 드롭다운 목록에서 운송업체를 선택합니다. FedEx/DHL 이외의 운송업체를 사용하려면 드롭다운에서 기존 옵션을 선택합니다. 사용하려는 운송업체에 대한 정보를 사용하여 `adbops@microsoft.com`에서 Azure Data Box 운영 팀에 문의하세요.
     1. 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다.
@@ -167,9 +167,9 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
    **검토 + 만들기** 를 선택하여 계속 진행합니다.
 
-5. 주문 요약에서:
+7. 주문 요약에서:
 
-   1. **약관** 을 검토한 다음 “입력한 모든 정보가 올바르며 사용 약관에 동의한다는 사실을 인지합니다.”를 선택합니다. 유효성 검사가 수행됩니다.
+   1. **약관** 을 검토한 다음, “입력한 모든 정보가 올바르며 사용 약관에 동의한다는 사실을 인지합니다.”를 선택합니다. 유효성 검사가 수행됩니다.
    1. 요약에 제공된 직업 정보를 검토합니다. 작업 이름과 디스크를 Azure로 반송할 Azure 데이터 센터 배송 주소를 적어 둡니다. 이 정보는 나중에 운송 레이블에 사용됩니다.
    1. **만들기** 를 선택합니다.
 
@@ -292,7 +292,7 @@ Install-Module -Name Az.ImportExport
    Get-AzImportExportLocation -Name westus
    ```
 
-1. 다음 [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) 예를 실행하여 가져오기 작업을 만듭니다.
+1. 다음 [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) 예제를 실행하여 가져오기 작업을 만듭니다.
 
    ```azurepowershell-interactive
    $driveList = @(@{

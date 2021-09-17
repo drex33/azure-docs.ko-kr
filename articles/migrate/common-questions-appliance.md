@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 11360af784f456559955152772ba099ad4d48d73
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528552"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423879"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -57,7 +57,7 @@ Azure Migrate 어플라이언스는 온-프레미스 서버를 지속적으로 �
 
 ## <a name="can-i-harden-the-appliance"></a>어플라이언스를 강화하려면 어떻게 할 수 있나요?
 
-다운로드한 템플릿을 사용하여 어플라이언스를 만들 때 Azure Migrate 어플라이언스에 필요한 통신 및 방화벽 규칙을 그대로 유지하는 경우 템플릿에 구성 요소(예: 바이러스 백신)를 추가할 수 있습니다.
+다운로드 한 템플릿을 사용 하 여 어플라이언스를 만들 때 템플릿에 구성 요소 (예: 바이러스 백신)를 추가할 수 있습니다. Azure 방화벽을 통해 올바른 [url](migrate-appliance.md#public-cloud-urls) 에 대 한 액세스를 허용 했는지 확인 하 고 *%ProgramData%\MicrosoftAzure* 폴더가 바이러스 백신 검사에서 제외 되는지 확인 합니다.
 
 ## <a name="what-network-connectivity-is-required"></a>어떤 네트워크 연결이 필요한가요?
 

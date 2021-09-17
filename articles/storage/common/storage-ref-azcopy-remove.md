@@ -4,16 +4,16 @@ description: 이 문서에서는 azcopy remove 명령에 대한 참조 정보를
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: 8556dc719aa8abcfa1506b4d1147c29959b32746
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503017"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427627"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -88,11 +88,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--delete-snapshots** 문자열   기본적으로 Blob에 스냅샷이 있으면 삭제 작업이 실패하게 됩니다. 루트 Blob과 관련 스냅샷을 모두 제거하려면 `include`를 지정합니다. 스냅샷만 제거하고 루트 Blob은 유지하려면 `only`를 지정합니다.
 
+**--dry-run**                   명령에 의해 제거될 경로 파일을 인쇄합니다. 이 플래그는 파일 제거를 트리거하지 않습니다.
+
 **--exclude-path** 문자열   제거할 때 해당 경로를 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사를 확인하세요. `myFolder;myFolder/subDirName/file.pdf`
 
 **--exclude-pattern** 문자열   이름이 패턴 목록과 일치하는 파일을 제외합니다. 예: `*.jpg`;`*.pdf`;`exactName`
 
 **--force-if-read-only**   Azure Files 파일이나 폴더를 삭제할 때 기존 개체에 읽기 전용 특성 모음이 있더라도 삭제가 진행되게 합니다.
+
+**--from-to-string** 필요에 따라 원본 대상 조합을 지정합니다. 예: BlobTrash, FileTrash, BlobFSTrash
 
 **--help**   제거에 대한 도움말입니다
 
@@ -113,9 +117,9 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |옵션|Description|
 |---|---|
 |--cap-mbps float|전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
-|--output-type 문자열|명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 ‘text’입니다.|
-|--trusted-microsoft-suffixes 문자열   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ' *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net'입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분됩니다.|
+|--output-type string|명령 출력의 형식을 지정합니다. text, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
+|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

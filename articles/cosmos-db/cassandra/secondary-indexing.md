@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 04/04/2020
+ms.date: 09/03/2021
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: b31c351159ccba0718293dad5b81247d973ea275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a3ac64590c2978ccd052a9dd294cf3ce49bb847e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528342"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479451"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API의 보조 인덱싱
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -30,6 +30,9 @@ Azure Cosmos DB의 Cassandra API는 기본 인덱싱 인프라를 활용하여 �
 > - 고정된 컬렉션 형식, decimal, variant 형식 등의 데이터 형식
 > - 정적 열
 > - 클러스터링 키
+
+> [!WARNING]
+> 테이블에 복합 기본 키가 있고 [복합 기본 키의](cassandra-partitioning.md#compound-primary-key) 파티션 키 값 *요소만* 필터링하려는 경우 파티션 키 *에 보조 인덱스* 를 명시적으로 추가해야 합니다. Azure Cosmos DB Cassandra API 기본적으로 파티션 키에 인덱스를 적용하지 않으며 이 시나리오의 인덱스는 쿼리 성능을 크게 향상시킬 수 있습니다. 자세한 내용은 [분할에](cassandra-partitioning.md) 대한 문서를 검토하세요.
 
 ## <a name="indexing-example"></a>인덱싱 예제
 
@@ -72,6 +75,8 @@ CREATE INDEX ON sampleks.t1 (lastname);
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB에서 [자동 인덱싱](../index-overview.md)이 작동하는 방식에 대한 자세한 정보

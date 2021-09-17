@@ -2,13 +2,13 @@
 title: Azure VM에서 SAP HANA 데이터베이스 복원
 description: 이 문서에서는 Azure Virtual Machines에서 실행되는 SAP HANA 데이터베이스를 복원하는 방법에 대해 알아봅니다. 지역 간 복원을 사용하여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: c6ad108cc0377411c144fade97b3fec2c5a8b633
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 7bf9734cafa003132fdef97026c76c8bdf8b329d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535673"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426493"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -127,6 +127,9 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 1. **복원 지점 선택** 에서 **로그(특정 시점 복원)** 을 선택하여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 및 차등** 을 선택하여 [특정 복구 지점으로 복원](#restore-to-a-specific-recovery-point)합니다.
 
 ### <a name="restore-as-files"></a>파일로 복원
+
+>[!Note]
+>파일로 복원은 CIFS 공유에서 작동 하지 않지만 NFS에서는 작동 합니다.
 
 백업 데이터를 데이터베이스가 아닌 파일로 복원하려면 **파일로 복원** 을 선택합니다. 파일이 지정된 경로에 덤프되면 이러한 파일을 데이터베이스로 복원하려는 SAP HANA 컴퓨터로 가져올 수 있습니다. 이러한 파일을 임의의 컴퓨터로 이동할 수 있으므로 이제 구독 및 지역 간에 데이터를 복원할 수 있습니다.
 

@@ -3,20 +3,20 @@ title: '자습서: Speech SDK를 사용하여 봇 음성 지원 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Microsoft Bot Framework를 사용하여 Echo Bot을 만들고, Azure에 배포하고, Bot Framework Direct Line Speech 채널에 등록합니다. 그런 다음, 봇에게 말을 하고 그에 대한 봇의 대답을 들을 수 있는 Windows용 샘플 클라이언트 앱을 구성합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de0653ecae4c46345d961fc9c6b17930ed5b2627
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: c29477a7e9f5ed7ea9f26d4169b092ba8307e30a
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537627"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539572"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: Speech SDK를 사용하여 봇 음성 지원
 

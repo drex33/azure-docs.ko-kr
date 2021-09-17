@@ -3,12 +3,12 @@ title: 스토리지 정책 구성
 description: Azure VMware Solution 가상 머신에 대한 스토리지 정책을 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: b9535c5765b2ff024537ff44e2e24a76c992dd35
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: df8f6931dbae377833d3f380e3fd5fcad8bd73ba
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304059"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431335"
 ---
 # <a name="configure-storage-policy"></a>스토리지 정책 구성
 
@@ -97,6 +97,9 @@ VM의 초기 배포에서 복제 또는 마이그레이션과 같은 다른 VM �
 ## <a name="specify-storage-policy-for-a-cluster"></a>클러스터에 대한 스토리지 정책 지정
 
 `Set-ClusterDefaultStoragePolicy` cmdlet을 실행하여 클러스터에 대한 기본 스토리지 정책을 지정합니다.
+
+>[!NOTE]
+>기본 관리 클러스터의 스토리지 정책 변경은 허용되지 않습니다.
 
 1. **실행 명령** > **패키지** > **Set-ClusterDefaultStoragePolicy** 를 선택합니다.
 

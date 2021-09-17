@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aa48731248c9e51d680bc0e1b396115c54edbcd7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: d44de94ef30976a35bbfeddf68b60068b952fbde
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260859"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450884"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -19,7 +19,7 @@ Python 개발자라면 다음 문서 중 하나에 관심이 있을 수도 있�
 
 | 시작 | 개념| 시나리오/샘플 |
 |--|--|--|
-| <ul><li>[Visual Studio Code를 사용하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능&nbsp;고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure 자동화 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Visual Studio Code를 사용하는 Python 함수](./create-first-function-vs-code-python.md)</li><li>[터미널/명령 프롬프트를 사용하는 Python 함수](./create-first-function-cli-python.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능&nbsp;고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure 자동화 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
 > [Windows에서 로컬로 Python 기반 Azure Functions를 개발](create-first-function-vs-code-python.md#run-the-function-locally)할 수 있지만 Python은 Azure에서 실행할 때 Linux 기반 호스팅 계획에서만 지원됩니다. 지원되는 [운영 체제/런타임](functions-scale.md#operating-systemruntime) 조합 목록을 참조하세요.
@@ -267,13 +267,11 @@ def main(req):
 
 ### <a name="log-custom-telemetry"></a>로그 사용자 지정 원격 분석
 
-로그 원격 분석은 기본값으로 Functions 런타임을 통해 Functions 앱에 대해 수집됩니다. 이 원격 분석은 Application Insights 추적으로 종료됩니다. 특정 Azure 서비스에 대한 요청 및 종속성 원격 분석도 기본값으로 [함수 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#supported-bindings)을 통해 수집됩니다. 바인딩이 아닌 사용자 지정 요청/종속성 원격 분석을 수집하려면, [OpenCensus Python 확장](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하여 사용자 지정 원격 분석 데이터를 Application Insights 인스턴스로 보낼 수 있습니다.
-
-지원되는 라이브러리 목록은 [여기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 찾을 수 있습니다.
+기본적으로 Functions 런타임은 함수에서 생성된 로그 및 기타 원격 분석 데이터를 수집합니다. 이 원격 분석은 Application Insights 추적으로 종료됩니다. 특정 Azure 서비스에 대한 요청 및 종속성 원격 분석도 트리거 및 바인딩에 의해 기본적으로 [수집됩니다.](functions-triggers-bindings.md#supported-bindings) 바인딩 외부에서 사용자 지정 요청 및 사용자 지정 종속성 원격 분석을 수집하려면 사용자 지정 원격 분석 데이터를 Application Insights 인스턴스로 보내는 [OpenCensus Python 확장](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용할 수 있습니다. [OpenCensus 리포지토리](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 지원되는 확장 목록을 찾을 수 있습니다.
 
 >[!NOTE]
-> OpenCensus Python 확장을 사용하려면 `local.settings.json` 및 애플리케이션 설정에서 `PYTHON_ENABLE_WORKER_EXTENSIONS`를 `1`로 설정하여 [Python 확장](#python-worker-extensions)을 사용하도록 설정해야 합니다.
->
+>OpenCensus Python 확장을 사용하려면 애플리케이션 설정에서 를 로 설정하여 함수 앱에서 [Python 작업자 확장을](#python-worker-extensions) 사용하도록 설정해야 `PYTHON_ENABLE_WORKER_EXTENSIONS` `1` 합니다. [](functions-how-to-use-azure-function-app-settings.md#settings)
+
 
 ```
 // requirements.txt

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f82638baae468047cd2025d555ce460d9616bb19
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 520ea310c00e2b4cff65f7eeebefe1c4658ef3e8
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110493"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476138"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[로컬 인증을 사용하지 않도록 컨테이너 레지스트리를 구성합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79fdfe03-ffcb-4e55-b4d0-b925b8241759) |컨테이너 레지스트리가 인증에 Azure Active Directory ID만 요구하도록 로컬 인증을 사용하지 않도록 설정합니다. 자세한 내용은 [https://aka.ms/acr/authentication](../../../../articles/container-registry/container-registry-authentication.md)을 참조하세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_AdminAccountDisabled_Modify.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 컨테이너 레지스트리 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa3701552-92ea-433e-9d17-33b7f1208fc9) |공용 인터넷을 통해 액세스할 수 없도록 Container Registry 리소스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/acr/portal/public-network](../../../../articles/container-registry/container-registry-access-selected-networks.md) 및 [https://aka.ms/acr/private-link](../../../../articles/container-registry/container-registry-private-link.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PublicNetworkAccess_Modify.json) |

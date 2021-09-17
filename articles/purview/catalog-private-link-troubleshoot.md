@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: 75ad8b7f94843880162f195deb98ddd7ba398a00
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.date: 09/02/2021
+ms.openlocfilehash: 89627b97a5c2e8ae068db18583fab38aeb6fe5f6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531231"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434559"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Purview 계정에 대한 프라이빗 엔드포인트 구성 문제 해결
 
@@ -27,7 +27,6 @@ ms.locfileid: "122531231"
 - Azure Portal을 사용하면 이전 단계에서 설명한 Azure Purview 포털 환경을 통해 수집 프라이빗 엔드포인트를 만들 수 있습니다. Private Link 센터에서는 만들 수 없습니다.
 - Azure 프라이빗 DNS 영역이 프라이빗 엔드포인트와 다른 구독에 있는 동안 기존 Azure DNS 영역 내부의 수집 프라이빗 엔드포인트에 대한 DNS A 레코드 만들기는 Azure Purview 포털 환경을 통해 지원되지 않습니다. 다른 구독의 대상 DNS 영역에 레코드를 수동으로 추가할 수 있습니다. 
 - 자체 호스팅 통합 런타임 컴퓨터는 Azure Purview 수집 프라이빗 엔드포인트가 배포된 동일한 VNet에 배포되어야 합니다.
-- 현재 Azure Data Factory 및 Azure Synapse 파이프라인에 연결하기 위한 수집 프라이빗 엔드포인트를 지원하지 않습니다.
 - 현재 공용 액세스가 차단된 프라이빗 엔드포인트가 구성되어 있는 Power BI 테넌트의 검사는 지원하지 않습니다.
 - Private Link 서비스와 관련된 제한 사항은 [Azure Private Link 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)을 참조하세요.
 
@@ -89,7 +88,7 @@ ms.locfileid: "122531231"
    
 6. 자체 호스팅 통합 런타임 VM에서 Purview 엔드포인트에 대한 네트워크 연결 및 이름 확인을 테스트합니다.
 
-7. 자체 호스팅 통합 런타임에서 포트 443 및 개인 IP 주소를 통해 Blob 큐 및 이벤트 허브와 같은 Azure Purview 관리되는 리소스에 대한 네트워크 연결 및 이름 확인을 테스트합니다. (관리형 스토리지 계정 및 Eventhub 네임스페이스를 Azure Purview 계정에 할당된 해당 관리되는 리소스 이름으로 바꿉니다).
+7. 자체 호스팅 통합 런타임에서 포트 443 및 개인 IP 주소를 통해 Blob 큐 및 이벤트 허브와 같은 Azure Purview 관리되는 리소스에 대한 네트워크 연결 및 이름 확인을 테스트합니다. (관리되는 스토리지 계정 및 Event Hubs 네임스페이스를 Azure Purview 계정에 할당된 해당 관리되는 리소스 이름으로 대체).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443

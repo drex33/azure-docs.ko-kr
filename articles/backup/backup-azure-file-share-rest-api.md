@@ -3,12 +3,12 @@ title: REST API를 사용하여 Azure 파일 공유 백업
 description: REST API를 사용하여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 152613031eb6c3ba7a0c1078d3d53bcf170ce646
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471408"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424171"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure 파일 공유 백업
 
@@ -89,7 +89,7 @@ cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01’
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-모든 Azure Storage 계정을 검색하면 GET 명령이 200(콘텐츠 없음) 응답을 반환합니다. 이제 자격 증명 모음에서 구독 내에서 백업할 수 있는 파일 공유를 사용하여 스토리지 계정을 검색할 수 있습니다.
+모든 Azure Storage 계정이 검색되면 GET 명령은 204(콘텐츠 없음) 응답을 반환합니다. 이제 자격 증명 모음에서 구독 내에서 백업할 수 있는 파일 공유를 사용하여 스토리지 계정을 검색할 수 있습니다.
 
 ```http
 HTTP/1.1 200 NoContent
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| 이름       | 유형                       | 설명                       |
+| 속성       | Type                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 

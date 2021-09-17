@@ -2,17 +2,17 @@
 title: Azure Storage Explorer Blob 버전 관리 가이드 | Microsoft Docs
 description: Azure Storage Explorer에 대한 Blob 버전 관리 지침
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ea0b0470c83df147526a145a7c54f7245a72c4c4
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783830"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450326"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure Storage Explorer Blob 버전 관리 가이드
 
@@ -119,3 +119,4 @@ Blob 버전은 개별적으로 삭제 취소할 수 없습니다. 삭제는 한�
 
 * [Blob 버전 관리](../blobs/versioning-overview.md)
 * [Blob에 대한 일시 삭제](../blobs/soft-delete-blob-overview.md)
+* [Azure Storage Explorer 일시 삭제 가이드](./storage-explorer-soft-delete.md)

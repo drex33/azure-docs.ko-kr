@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: f28092c050e58c6ef90a3faf07034be21198008a
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
-ms.translationtype: HT
+ms.openlocfilehash: 1aaea272e83bf39f2f4aa7e373b26ae28aadbda0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017202"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430327"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>네트워크 규칙에서 FQDN 필터링 사용
 
 FQDN(정규화된 도메인 이름)은 호스트 또는 IP 주소의 도메인 이름을 나타냅니다. Azure Firewall 및 방화벽 정책에서 DNS 확인을 기반으로 네트워크 규칙의 FQDN을 사용할 수 있습니다. 이 기능을 사용하면 임의의 TCP/UDP 프로토콜(NTP, SSH, RDP 등)을 사용하여 아웃바운드 트래픽을 필터링할 수 있습니다. DNS 프록시에서 네트워크 규칙의 FQDN을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Firewall DNS 설정](dns-settings.md)을 참조하세요.
 
 > [!NOTE]
-> 의도적으로 FQDN 필터링은 와일드카드를 지원하지 않습니다.
+> 기본적으로 네트워크 규칙의 FQDN 필터링은 와일드 카드를 지원 하지 않습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

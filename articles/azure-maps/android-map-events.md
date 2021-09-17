@@ -1,20 +1,20 @@
 ---
 title: Android 맵에서 맵 이벤트 처리 | Microsoft Azure 맵
 description: 사용자가 맵과 상호 작용할 때 발생하는 이벤트에 대해 알아봅니다. 지원되는 모든 맵 이벤트 목록을 봅니다. Azure Maps Android SDK를 사용하여 이벤트를 처리하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ebe61e5956dc0f35794211a336eb7d884ee18d76
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 49a06fdd2c8025515fd42124aa7d00f27d8c5978
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608904"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425719"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>맵과 상호 작용(Android SDK)
 

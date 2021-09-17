@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 83f0ce27172879a37de9488499e46de30b8e112c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ba77d7f580a2a5fe69d575d2727e42ed12c68019
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98147667"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646757"
 ---
 사용자 지정 IPsec 정책으로 작업하는 경우 다음 요구 사항을 염두에 두어야 합니다.
 
@@ -34,4 +34,4 @@ ms.locfileid: "98147667"
 | IPsec 암호화 | GCMAES256, GCMAES128, AES256, AES128, 없음 |
 | IPsec 무결성 | GCMAES256, GCMAES128, SHA256 |
 | PFS 그룹 | ECP384, ECP256, PFS24, PFS14, 없음 |
-| SA 수명 |정수; 최소 300/기본값 27000초 |
+| SA 수명 |값 최소 300/기본 3600 초 |

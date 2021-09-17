@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 11cb0bda5fbedb9dfeef2cc4acc34159a1faf64f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 863082490963b4a8d117a271588afcd0f86a4665
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568298"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478683"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>StorSimple 8000 시리즈에서 데이터를 마이그레이션하는 옵션
 
@@ -34,6 +34,12 @@ StorSimple 8000 시리즈를 사용하는 고객에게는 Azure 또는 타사 �
 
 데이터를 Azure 파일 동기화로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure 파일 동기화로 StorSimple 8100 및 8600 마이그레이션](../storage/files/storage-files-migration-storsimple-8000.md)을 참조하세요.
 
+#### <a name="migrate-to-azure-netapp-files"></a>Azure NetApp Files 마이그레이션
+
+StorSimple 8000 시리즈 고객은 NetApp GFC(전역 파일 캐시)와 연결된 ANF(Azure NetApp Files)로 마이그레이션하여 원격 사이트에서 콘텐츠를 유지하면서 Azure에 중요한 데이터를 계속 저장할 수 있습니다. 고객은 Azure NetApp Files를 사용하여 Microsoft Azure에서 구조화되지 않은 데이터를 중앙 집중화하여 NETApp 전역 파일 캐시를 통해 빠른 로컬 액세스 및 지리적으로 분산된 액세스를 제공함으로써 IT 스토리지 및 인프라를 능률화하고 간소화할 수 있습니다.
+
+기능, 배포 방법 및 마이그레이션에 대한 개요는 NetApp의 [참조 아키텍처: Azure NetApp Files 및 NetApp 전역 파일 캐시를 사용하여 전역적으로 분산된 Enterprise 파일 공유](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf)를 참조하세요.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### <a name="third-party-options"></a>타사 옵션
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Panzura Freedom NAS로 마이그레이션
@@ -47,13 +53,6 @@ StorSimple 5000-7000 시리즈와 StorSimple 8000 시리즈 고객은 Azure에�
 Nasuni를 사용하면 전체 StorSimple 환경을 안정적이고 안전한 고성능 파일 서비스 플랫폼으로 이동할 수 있습니다. Nasuni는 온-프레미스 파일 저장소의 보안 및 성능을 제공하는 동시에 Azure의 확장성 및 내구성과 결합합니다. 최고의 Azure ISV(독립 소프트웨어 공급업체)로서, Nasuni는 StorSimple 데이터를 여러 위치에서 공유하고 공동 작업할 수 있는 최신 플랫폼으로 이동하는 데 필요한 모든 도구를 제공합니다.
 
 지금 시작: [Nasuni 웹 사이트](https://info.nasuni.com/storsimple8000-webinar).
-
-#### <a name="migrate-to-netapp"></a>NetApp으로 마이그레이션
-
-StorSimple 8000 시리즈 고객은 NetApp GFC(전역 파일 캐시)와 연결된 ANF(Azure NetApp Files)로 마이그레이션하여 원격 사이트에서 콘텐츠를 유지하면서 Azure에 중요한 데이터를 계속 저장할 수 있습니다. 고객은 Azure NetApp Files를 사용하여 Microsoft Azure에서 구조화되지 않은 데이터를 중앙 집중화하여 NETApp 전역 파일 캐시를 통해 빠른 로컬 액세스 및 지리적으로 분산된 액세스를 제공함으로써 IT 스토리지 및 인프라를 능률화하고 간소화할 수 있습니다.
-
-기능, 배포 방법 및 마이그레이션에 대한 개요는 NetApp의 [참조 아키텍처: Azure NetApp Files 및 NetApp 전역 파일 캐시를 사용하여 전역적으로 분산된 Enterprise 파일 공유](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf)를 참조하세요.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
-
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

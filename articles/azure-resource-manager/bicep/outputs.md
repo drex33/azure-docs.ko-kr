@@ -2,13 +2,13 @@
 title: Bicep의 출력
 description: Bicep에서 출력 값을 정의하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 1468f1a8a42f51dec1d195d39fe9096746c8193f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 09/02/2021
+ms.openlocfilehash: 4cdf21eddcf14f5563c0c638f962585ad021e8ed
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635142"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428761"
 ---
 # <a name="outputs-in-bicep"></a>Bicep의 출력
 
@@ -18,9 +18,7 @@ ms.locfileid: "122635142"
 
 ## <a name="define-output-values"></a>출력 값 정의
 
-다음 예제에서는 `output` 키워드를 사용하여 배포된 리소스에서 속성을 반환하는 방법을 보여줍니다.
-
-다음 예제에서 `publicIP`는 Bicep 파일에 배포된 공용 IP 주소의 식별자(기호 이름)입니다. 출력 값은 공용 IP 주소의 정규화된 도메인 이름을 가져옵니다.
+다음 예제에서는 `output` 키워드를 사용하여 배포된 리소스에서 속성을 반환하는 방법을 보여줍니다. 예제에서 `publicIP` 은 Bicep 파일에 배포 된 공용 IP 주소의 식별자 (기호화 된 이름)입니다. 출력 값은 공용 IP 주소의 정규화된 도메인 이름을 가져옵니다.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
@@ -35,6 +33,11 @@ var user = {
 
 output stringOutput string = user['user-name']
 ```
+
+다음 예제에서는 다양 한 형식의 출력을 반환 하는 방법을 보여 줍니다.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+
 
 ## <a name="conditional-output"></a>조건부 출력
 
@@ -105,14 +108,6 @@ publicIPAddress: {
   id: publicIP.outputs.resourceID
 }
 ```
-
-## <a name="example-template"></a>예제 템플릿
-
-다음 템플릿은 리소스를 배포하지 않습니다. 다양한 형식의 출력을 반환하는 몇가지 방법을 보여 줍니다.
-
-Bicep는 현재 루프를 지원하지 않습니다.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/output.bicep":::
 
 ## <a name="get-output-values"></a>출력 값 가져오기
 

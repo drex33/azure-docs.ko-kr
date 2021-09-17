@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: f4ae3d0653ce99be2017b1ef08ca0645c599ee10
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fd0fb07ad96d9897859281ef368452c96798d542
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528898"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428653"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -73,20 +73,20 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 위의 예에서 프라이빗 엔드포인트를 호스팅하는 VNet 외부에서 해결되면 Data Factory 'DataFactory A'에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
-| DataFactoryA.{지역}.privatelink.datafactory.azure.net | CNAME   | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 > |
+| DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.datafactory.azure.net |
+| DataFactoryA.{지역}.datafactory.azure.net | CNAME   | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 > |
 | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 >  | A | < 데이터 팩터리 서비스 퍼블릭 IP 주소 > |
 
 프라이빗 엔드포인트를 호스팅하는 VNet에서 확인되면 DataFactoryA에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
 | DataFactoryA.{지역}.privatelink.datafactory.azure.net   | A | < 프라이빗 엔드포인트 IP 주소 > |
 
-네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 클라이언트는 Data Factory 엔드포인트의 FQDN을 프라이빗 엔드포인트 IP 주소로 확인할 수 있어야 합니다. 프라이빗 링크 하위 도메인을 VNet의 프라이빗 DNS 영역에 위임하도록 DNS 서버를 구성하거나 프라이빗 엔드포인트 IP 주소를 사용하여 'DataFactoryA.{지역}.privatelink.datafactory.azure.net'에 대한 A 레코드를 구성해야 합니다.
+네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 클라이언트는 Data Factory 엔드포인트의 FQDN을 프라이빗 엔드포인트 IP 주소로 확인할 수 있어야 합니다. 프라이빗 링크 하위 도메인을 VNet의 프라이빗 DNS 영역에 위임하도록 DNS 서버를 구성하거나 ' DataFactoryA에 대한 A 레코드를 구성해야 합니다. 프라이빗 엔드포인트 IP 주소가 있는 {region}.datafactory.azure.net'입니다.
 
 프라이빗 엔드포인트 지원 목적으로 자체 DNS 서버를 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Azure 가상 네트워크의 리소스 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)

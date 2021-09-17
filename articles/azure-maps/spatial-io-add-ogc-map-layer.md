@@ -6,13 +6,12 @@ ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.openlocfilehash: 387521e07108aeb101361c3720ea6347ded58c75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 43fec3aacb1bc22566f4e918166f5e004110a563
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566752"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437691"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>OGC(Open Geospatial Consortium)에서 지도 계층 추가
 
@@ -54,7 +53,7 @@ ms.locfileid: "122566752"
 
 <br/>
 
-<iframe height='700' scrolling='no' title='OGC 지도 계층 예제' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC 지도 계층 예제</a>를 참조합니다.
+<iframe height='700' scrolling='no' title='OGC 지도 계층 예제' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC 지도 계층 예제</a>를 참조합니다.
 </iframe>
 
 ## <a name="ogc-map-layer-options"></a>OGC 지도 계층 옵션
@@ -63,7 +62,7 @@ ms.locfileid: "122566752"
 
 <br/>
 
-<iframe height='700' scrolling='no' title='OGC 지도 계층 옵션' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC 지도 계층 옵션</a>을 참조합니다.
+<iframe height='700' scrolling='no' title='OGC 지도 계층 옵션' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>OGC 지도 계층 옵션</a>을 참조합니다.
 </iframe>
 
 ## <a name="ogc-web-map-service-explorer"></a>OGC 웹 맵 서비스 탐색기
@@ -72,7 +71,7 @@ ms.locfileid: "122566752"
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='OGC 웹 맵 서비스 탐색기' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC 웹 지도 서비스 탐색기</a>를 참조합니다.
+<iframe height='750' scrolling='no' title='OGC 웹 맵 서비스 탐색기' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC 웹 지도 서비스 탐색기</a>를 참조합니다.
 </iframe>
 
 프록시 서비스를 사용하도록 맵 설정을 지정할 수도 있습니다. 프록시 서비스를 사용하면 CORS를 사용하지 않는 도메인에서 호스트되는 리소스를 로드할 수 있습니다.

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 69a0a856c501675c64b486f2104c4603b3472324
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 253433c98ce2da8e69fadf82ff9e5902e5a990ef
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687677"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542236"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>IaaS 리소스를 2023년 3월 1일까지 Azure Resource Manager로 마이그레이션합니다. 
 
@@ -33,10 +33,11 @@ ms.locfileid: "122687677"
 - 2023년 3월 1일부로 Azure Resource Manager로 마이그레이션하지 않은 구독에는 나머지 VM(클래식) 삭제에 대한 타임라인 정보가 표시됩니다.  
 
 본 사용 중지는 다음의 Azure 서비스 및 기능에는 영향을 주지 *않습니다*. 
-- [Azure Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md)
 - VM(클래식)이 사용하지 *않는* 스토리지 계정 
 - VM(클래식)이 사용하지 *않는* 가상 네트워크 
 - 기타 클래식 리소스
+
+Azure Cloud Services (클래식) 사용 중지가 [여기](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) 에서 8 월 2021에 발표 되었습니다.
 
 ## <a name="what-resources-are-available-for-this-migration"></a>이번 마이그레이션에 사용할 수 있는 리소스는 무엇인가요?
 

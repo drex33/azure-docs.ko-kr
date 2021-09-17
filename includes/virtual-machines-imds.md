@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
-ms.translationtype: HT
+ms.openlocfilehash: 2900eb3ddf1411b80920869932724f76a22c9802
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122261450"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123453833"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -259,7 +259,7 @@ IMDS에 대한 버전이 관리되므로 반드시 API 버전을 HTTP 요청에 
 
 ### <a name="swagger"></a>Swagger
 
-IMDS에 대한 전체 Swagger 정의는 https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md 에서 제공됩니다.
+IMDS에 대한 전체 Swagger 정의는 https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md 에서 제공됩니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
 
@@ -1007,7 +1007,7 @@ Azure Resource Manager를 사용하여 만든 VM의 경우 문서에는 문서 �
 | `timestamp.expiresOn` | 서명된 문서가 만료되는 시점의 UTC 타임스탬프입니다. | 2018-10-01
 | `vmId` | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2018-10-01
 | `subscriptionId` | Virtual Machine에 대한 Azure 구독 | 2019-04-30
-| `sku` | VM 이미지에 해당하는 SKU | 2019-11-01
+| `sku` | VM 이미지에 대 한 특정 SKU ( `compute/sku` 인스턴스 메타 데이터 끝점의 속성과 상관 관계 \[ `/metadata/instance` \] ) | 2019-11-01
 
 > [!NOTE]
 > 클래식(비 Azure Resource Manager) VM의 경우 vmId만 채워집니다.

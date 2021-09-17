@@ -3,20 +3,20 @@ title: Custom Speech 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech는 애플리케이션, 도구 및 제품에 대한 Microsoft의 음성 텍스트 변환 정확도를 평가하고 향상시킬 수 있는 온라인 도구 세트입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: contperf-fy21q2, references_regions
-ms.openlocfilehash: 588afaaa95ef871de11583e65d2a9ab831d28fa6
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: 01cd31d60306968580df5bd6d67a3136d49d2277
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529640"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542164"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 

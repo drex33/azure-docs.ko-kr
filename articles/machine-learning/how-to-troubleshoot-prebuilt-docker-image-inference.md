@@ -11,14 +11,14 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
-ms.openlocfilehash: 598c578c445cbd7dc7086f22e3c8d4885d67b112
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: c4949000cee07e2280d9edc018ff07f20f37a352
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537334"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427663"
 ---
-# <a name="troubleshooting-prebuilt-docker-images-for-inference-preview"></a>유추를 위해 미리 빌드된 Docker 이미지 문제 해결(미리 보기)
+# <a name="troubleshooting-prebuilt-docker-images-for-inference-preview"></a>유추를 위해 미리 작성 한 docker 이미지 문제 해결 (미리 보기)
 
 Azure Machine Learning에서 유추를 위해 미리 빌드된 Docker 이미지[(미리 보기)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 사용할 때 발생할 수 있는 문제를 해결하는 방법을 알아봅니다.
 

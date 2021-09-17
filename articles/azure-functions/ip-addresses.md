@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a884edd23fa1538fcc2b00c80190eab6699e1e47
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: b332e979ad310134ce6633dbe3f23efc326ee847
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414488"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479097"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -101,7 +101,7 @@ az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query poss
 
 - 함수 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다.
 - 리소스 그룹 및 지역 조합에서 마지막 함수 앱을 삭제하고 다시 만듭니다.
-- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-certificate) 중인 경우와 같이 TLS 바인딩을 삭제합니다.
+- [인증서 갱신](../app-service/configure-ssl-certificate.md#renew-an-expiring-certificate) 중인 경우와 같이 TLS 바인딩을 삭제합니다.
 
 함수 앱이 [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행되는 경우 인바운드 IP 주소는 [위에서 나열](#inbound-ip-address-changes)한 것과 같은 작업을 수행하지 않은 경우에도 변경될 수 있습니다.
 

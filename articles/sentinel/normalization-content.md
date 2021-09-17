@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 89c4d530c6b64880f3046982baadfa208875b8b4
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 6ff0d40fbfa75eb6ae40766a4be42891c11156dd
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539569"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432201"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>ASIM(Azure Sentinel 정보 모델) 보안 콘텐츠(공개 미리 보기)
 
@@ -74,9 +74,9 @@ ASIM 정규화에는 다음과 같은 기본 제공 파일 작업 콘텐츠가 �
 ### <a name="analytic-rules"></a>분석 규칙
 
 - [SUNBURST 및 SUPERNOVA 백도어 해시 (정규화 된 파일 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
-- [Exchange Server 취약점 공개 2021년 3월 IoC 매치](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [Exchange Server 취약성 공개 2021년 3월 IoC 매치](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
 - [의심스러운 파일을 작성하는 HAFNIUM UM 서비스](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
-- [NOBELIUM - 도메인, 해시, 및 IP IOC - 2021년 5월](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [NOBELIUM - 도메인, 해시 및 IP IOC - 2021년 5월](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
 - [SUNSPOT 로그 파일 창조](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [알려진 ZINC Comebacker 및 Klackring 맬웨어 해시](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
@@ -87,27 +87,27 @@ ASIM 정규화에는 다음과 같은 기본 제공 프로세스 작업 콘텐�
 ### <a name="analytics-rules"></a>Analytics 규칙
 
  - [가능한 AdFind 정찰 도구 사용 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_AdFind_Usage.yaml)
- - [Base64 인코딩 Windows 프로세스 명령줄 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_base64_encoded_pefile.yaml)
- - [휴지통의 맬웨어 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_malware_in_recyclebin.yaml)
- - [NOBELIUM-vbscript의 의심스러운 rundll32.exe 실행 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_NOBELIUM_SuspiciousRundll32Exec.yaml)
+ - [Base64 인코딩 Windows 프로세스 명령줄(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_base64_encoded_pefile.yaml)
+ - [휴지통의 맬웨어(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_malware_in_recyclebin.yaml)
+ - [NOBELIUM-vbscript의 의심스러운 rundll32.exe 실행(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_NOBELIUM_SuspiciousRundll32Exec.yaml)
  - [의심스러운 SUNBURST SolarWinds 자식 프로세스 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_SolarWinds_SUNBURST_Process-IOCs.yaml)
 
 ### <a name="hunting-queries"></a>헌팅 쿼리
 
  - [Cscript 스크립트 일별 요약 분석 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_cscript_summary.yaml)
- - [사용자 및 그룹의 열거 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_enumeration_user_and_group.yaml)
- - [Exchange PowerShell 스냅인 추가 (정규화 된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ExchangePowerShellSnapin.yaml)
- - [사서함 내보내기 및 내보내기 제거 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_HostExportingMailboxAndRemovingExport.yaml)
- - [PowerShellTcpOneLine사용량 불러오기(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Invoke-PowerShellTcpOneLine.yaml)
- - [Base64의 Nishang 역방향 TCP Shell (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_NishangReverseTCPShellBase64.yaml)
- - [흔하지 않거나 문서화되지 않은 명령줄 스위치를 사용하여 생성된 사용자 요약 (정규화 된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_persistence_create_account.yaml)
- - [Powercat 다운로드 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_PowerCatDownload.yaml)
- - [PowerShell 다운로드 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_powershell_downloads.yaml)
- - [지정된 호스트에 대한 프로세스의 엔트로피 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ProcessEntropy.yaml)
- - [SolarWinds 인벤토리 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_SolarWindsInventory.yaml)
- - [Adfind 도구를 사용한 의심스러운 열거형 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Suspicious_enumeration_using_adfind.yaml)
- - [Windows 시스템 종료/다시 부팅 (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Windows%20System%20Shutdown-Reboot(T1529).yaml)
- - [Certutil (LOLBins 및 LOLScripts, 정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Certutil-LOLBins.yaml)
+ - [사용자 및 그룹의 열거(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_enumeration_user_and_group.yaml)
+ - [Exchange PowerShell 스냅인 추가(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ExchangePowerShellSnapin.yaml)
+ - [사서함을 내보내고 내보내기를 제거하는 호스트(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_HostExportingMailboxAndRemovingExport.yaml)
+ - [Invoke-PowerShellTcpOneLine 사용(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Invoke-PowerShellTcpOneLine.yaml)
+ - [Base64의 Nishang 역방향 TCP Shell(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_NishangReverseTCPShellBase64.yaml)
+ - [흔하지 않거나 문서화되지 않은 명령줄 스위치를 사용하여 생성된 사용자 요약(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_persistence_create_account.yaml)
+ - [Powercat 다운로드(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_PowerCatDownload.yaml)
+ - [PowerShell 다운로드(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_powershell_downloads.yaml)
+ - [지정된 호스트에 대한 프로세스의 엔트로피(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ProcessEntropy.yaml)
+ - [SolarWinds 인벤토리(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_SolarWindsInventory.yaml)
+ - [Adfind 도구를 사용한 의심스러운 열거형(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Suspicious_enumeration_using_adfind.yaml)
+ - [Windows 시스템 종료/다시 부팅(정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Windows%20System%20Shutdown-Reboot(T1529).yaml)
+ - [Certutil(LOLBins 및 LOLScripts, 정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Certutil-LOLBins.yaml)
  - [Rundll32.exe (LOLBins 및 LOLScripts, 정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/inProcess_SignedBinaryProxyExecutionRundll32.yaml)
  - [특수 프로세스-하위 5% (정규화된 프로세스 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_uncommon_processes.yaml)
  - [명령줄에서 유니코드 난독 처리](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
@@ -149,6 +149,29 @@ InfobloxNIOS
 다음 코드는 정규화를 사용하여 DNS 쿼리 이벤트를 제공하는 모든 원본에 대해 동일한 검색을 제공하는 소스에 구애받지 않는 버전입니다.
 
 ```kusto
+imDns(responsecodename='NXDOMAIN')
+| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+| where count_ > threshold
+| join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
+| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
+```
+
+정규화된 소스에 구애받지 않은 버전은 다음과 같은 차이점이 있습니다.
+
+- `imDns`정규화된 파서가 Infoblox 파서 대신 사용됩니다.
+
+- `imDns`는 DNS 쿼리 이벤트만 가져오므로 Infoblox 버전에서 수행한 대로 이벤트 유형을 확인할 필요가 `where ProcessName =~ "named" and Log_Type =~ "client"`없습니다.
+
+- `SrcIpAddr`필드는 대신 `Client_IP` 사용됩니다.
+ 
+- Parser 매개 변수 필터링은 ResponseCodeName에 사용되어 명시적 where 절이 필요하지 않습니다.
+
+
+정규화된 DNS 원본을 지원하는 것 외에도 정규화된 버전은 더 짧고 이해하기 쉽습니다. 
+
+스키마 또는 파서가 필터링 매개 변수를 지원하지 않는 경우 마지막 매개 변수를 제외하고 변경 내용이 유사합니다. 대신 필터링 조건은 아래와 같이 원래 쿼리에서 유지됩니다.
+
+```kusto
 let threshold = 200;
 imDns
 | where isnotempty(ResponseCodeName)
@@ -161,14 +184,6 @@ imDns
     ) on SrcIpAddr
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
-
-정규화된 소스에 구애받지 않은 버전은 다음과 같은 차이점이 있습니다.
-
-- `imDns`정규화된 파서가 Infoblox 파서 대신 사용됩니다.
-
-- `imDns`는 DNS 쿼리 이벤트만 가져오므로 Infoblox 버전에서 수행한 대로 이벤트 유형을 확인할 필요가 `where ProcessName =~ "named" and Log_Type =~ "client"`없습니다.
-
-- `ResponseCodeName` 및 `SrcIpAddr` 필드는 각각, `ResponseCode` 및 `Client_IP` 대신 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

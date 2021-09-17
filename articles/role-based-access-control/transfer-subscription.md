@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/14/2021
+ms.date: 09/04/2021
 ms.author: rolyon
-ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 19e9d6c76e30828b0aac0fba139963ff25ae2cba
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202482"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542317"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>다른 Azure AD 디렉터리로 Azure 구독 양도
 
@@ -89,6 +89,8 @@ ms.locfileid: "114202482"
 
 > [!WARNING]
 > 양도 중인 동일한 구독에 **없는** 키 자격 증명 모음에 대한 종속성이 있는 리소스(예: 스토리지 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생하는 경우 다른 키 자격 증명 모음을 사용하거나 고객 관리형 키를 일시적으로 사용하지 않도록 설정하여 이 복구할 수 없는 시나리오를 방지해야 합니다.
+
+구독을 양도할 때 영향을 받는 일부 Azure 리소스 목록을 얻으려면 [Azure Resource Graph](../governance/resource-graph/overview.md)쿼리를 실행할 수도 있습니다. 샘플 쿼리는 [Azure 구독을 전송할 때 영향을 받은 리소스 나열을 참조하세요.](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

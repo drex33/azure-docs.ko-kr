@@ -1,24 +1,24 @@
 ---
-title: 데이터 로드 모범 사례
-description: 전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드하기 위한 권장 사항 및 성능 최적화.
+title: 전용 SQL 풀에 대한 데이터 로드 모범 사례
+description: Azure Synapse Analytics에서 전용 SQL 풀로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 08/26/2021
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a04bf8a1805fa55afac3d51a2d4f3ba353edf03c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: ee3be53c6a52f0bc0a8ceab0424a7a6c99a0f441
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529468"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539590"
 ---
-# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드하는 모범 사례
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 데이터를 로드 하는 모범 사례
 
 이 문서에서는 데이터 로드에 대한 권장 사항 및 성능 최적화를 찾아볼 수 있습니다.
 
@@ -40,27 +40,46 @@ PolyBase는 100만 바이트 이상의 데이터를 포함하는 행을 로드�
 
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스 또는 워크로드 그룹에 각 로드 사용자를 할당합니다. 로드를 실행하려면 로드 사용자 중 한 명으로 로그인하고 부하를 실행합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
+
 ### <a name="create-a-loading-user"></a>로드 사용자 만들기
 
-이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결** 하고 로그인을 만드는 것입니다.
+이 예에서는 특정 워크로드 그룹으로 분류된 로딩 사용자를 생성합니다. 첫 번째 단계는 **마스터에 연결** 하고 로그인을 만드는 것입니다.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-데이터 웨어하우스에 연결하고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse라는 데이터베이스에 연결되어 있는 것으로 가정합니다. LoaderRC20이라는 사용자를 만들고 사용자에게 데이터베이스 제어 권한을 부여하는 방법을 보여줍니다. 그런 다음 사용자를 staticrc20 데이터베이스 역할의 구성원으로 추가합니다.  
+전용 SQL 풀에 연결하고 사용자를 생성합니다. 다음 코드에서는 mySampleDataWarehouse라는 데이터베이스에 연결되어 있다고 가정합니다. 이 코드는 loader라는 사용자를 생성하는 방법을 보여 주고 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 테이블을 생성 및 로드할 수 있는 사용자 권한을 부여합니다. 그런 다음, 사용자를 최대 리소스가 있는 DataLoads 워크로드 그룹으로 분류합니다. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the dedicated SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+       MIN_PERCENTAGE_RESOURCE = 0
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-staticRC20 리소스 클래스에 대한 리소스를 사용하여 로드를 실행하려면 LoaderRC20로 로그인하고 부하를 실행합니다.
+<br><br>
+>[!IMPORTANT] 
+>이 코드는 단일 부하에 SQL 풀의 리소스 100%를 할당하는 극단적인 예입니다. 이 예제에서는 최대 동시성 1이 제공됩니다. 이 방법은 워크로드 전반에서 리소스의 균형을 맞추기 위해 고유한 구성을 갖춘 추가 워크로드 그룹을 만들어야 하는 초기 로드에만 사용해야 합니다. 
 
-동적 리소스 클래스가 아닌 고정 리소스 클래스에서 로드를 실행합니다. 고정 리소스 클래스를 사용하면 [데이터 웨어하우스 단위](resource-consumption-models.md)에 관계 없이 동일한 리소스를 사용하도록 보장합니다. 동적 리소스 클래스를 사용하는 경우 리소스는 서비스 수준에 따라 달라집니다. 동적 클래스의 경우 서비스 수준이 낮으면 로드 사용자에 대해 큰 리소스 클래스를 사용해야 합니다.
+로드 워크로드 그룹의 리소스를 사용하여 로드를 실행하려면 loader로 로그인하고 로드를 실행합니다. 
 
 ## <a name="allow-multiple-users-to-load"></a>여러 사용자가 로드하도록 허용
 
@@ -90,13 +109,17 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용하는 경우 일괄 처리 크기 늘리기
 
-앞서 언급했듯이 PolyBase를 사용하여 로드하면 Synapse SQL 풀에서 가장 높은 처리량이 제공됩니다. PolyBase를 사용하여 로드할 수 없고 SQLBulkCopy API(또는 BCP)를 사용해야 하는 경우 처리량을 개선하려면 일괄 처리 크기를 늘리는 것을 고려해야 합니다. 10만~100만 행 사이가 적절한 일괄 처리 크기입니다.
+
+COPY 문을 사용하여 로드하면 전용 SQL 풀에서 처리량이 극대화됩니다. COPY 문을 사용하여 로드할 수 없고 [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다.
+
+> [!TIP]
+> 십만에서 백만 행의 일괄 처리 크기가 최적의 일괄 처리 용량을 판단할 수 있는 권장 기준선입니다. 
 
 ## <a name="manage-loading-failures"></a>로드 오류 관리
 
 외부 테이블을 사용하는 로드가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이 메시지는 외부 데이터에 더티 레코드가 포함되어 있음을 나타냅니다. 열의 수와 데이터 형식이 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식을 준수하지 않는 경우 데이터 레코드가 더티한 것으로 간주됩니다.
 
-더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티한 경우 CREATE EXTERNAL TABLE의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
+더티 레코드 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지와 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티 인 경우 [' CREATE EXTERNAL TABLE '](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) 의 거부 옵션을 사용 하 여 쿼리에 대해 이러한 레코드를 거부 하도록 선택할 수 있습니다.
 
 ## <a name="insert-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
 
@@ -126,7 +149,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

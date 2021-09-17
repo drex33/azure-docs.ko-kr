@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 94d90a173ef935bc6ac029707e4c3f78495ca0df
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 1f7b4152bee090e39c598b559ffa9d2e8aea8e88
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531307"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477747"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>데이터 수명 주기를 자동으로 관리하여 비용 최적화
 
@@ -32,8 +32,6 @@ ms.locfileid: "122531307"
 수명 주기 초기 단계에는 데이터에 자주 액세스하지만 2주 후에는 가끔씩만 데이터에 액세스하는 시나리오를 고려해 보겠습니다. 첫 번째 달 이후에는 데이터 세트에 거의 액세스하지 않습니다. 이 시나리오에서 초기 단계 동안에는 핫 스토리지 계층이 가장 적절합니다. 가끔 접근하는 경우에는 쿨 스토리지가 가장 적합합니다. 보관 스토리지는 데이터가 생성된 지 한 달이 넘은 경우 가장 적절한 계층 옵션입니다. 수명 주기 관리 정책 규칙을 사용하여 해당 수명을 기준으로 데이터를 적절한 스토리지 계층으로 이동하면 요구 사항에 맞는 가장 저렴한 솔루션을 설계할 수 있습니다.
 
 수명 주기 관리 정책은 범용 v2, 프리미엄 블록 Blob 및 Blob Storage 계정의 블록 Blob 및 추가 Blob에 대해 지원됩니다. 수명 주기 관리는 *$logs* 및 *$web* 컨테이너와 같은 시스템 컨테이너에 영향을 주지 않습니다.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!IMPORTANT]
 > 데이터 세트를 읽을 수 있어야 하는 경우에는 Blob을 보관 계층으로 이동하는 정책을 설정하지 마십시오. 보관 계층의 Blob이 처음에 리하이드레이션되지 않는 한 이 Blob을 읽을 수 없으며 이 프로세스는 시간과 비용이 많이 소모될 수 있습니다. 자세한 내용은 [보관 계층의 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)를 참조하세요.
@@ -364,9 +362,20 @@ ms.locfileid: "122531307"
 }
 ```
 
-## <a name="availability-and-pricing"></a>가용성 및 가격 책정
+## <a name="feature-support"></a>기능 지원
 
-모든 Azure 지역에서 GPv2(범용 v2) 계정, Blob Storage 계정, 프리미엄 블록 Blob 스토리지 계정에 대한 수명 주기 관리 기능을 사용할 수 있습니다. 계층 구조 네임스페이스가 있는 계정이 지원됩니다. 스토리지 계정 유형에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)|![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
+## <a name="regional-availability-and-pricing"></a>지역 가용성 및 가격
+
+수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 
 수명 주기 관리 정책은 무료입니다. [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) API 호출에 대한 표준 작업 비용이 고객에게 청구됩니다. 삭제 작업은 무료입니다.
 

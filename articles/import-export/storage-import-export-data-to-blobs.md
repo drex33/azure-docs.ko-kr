@@ -5,22 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 39eb6c164751ebdfa293798850a8d663fe988b82
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
-ms.translationtype: HT
+ms.openlocfilehash: 51e70fb16988c0f72cb9b1a35444f55e164839c9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875686"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451802"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -73,7 +73,7 @@ ms.locfileid: "107875686"
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
-
+    
     저널 파일이 도구를 실행한 폴더와 동일한 폴더에 만들어집니다. *.xml* 파일(도구를 실행하는 폴더)과 *drive-manifest.xml* 파일(데이터가 있는 폴더)의 두 개의 다른 파일도 만들어집니다.
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
@@ -89,11 +89,16 @@ ms.locfileid: "107875686"
     |/blobtype:     |이 옵션은 데이터를 가져올 BLOB의 형식을 지정합니다. 블록 BLOB의 경우 BLOB 형식은 `BlockBlob`이고, 페이지 BLOB의 경우에는 `PageBlob`입니다.         |
     |/skipwrite:     | 복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정합니다.          |
     |/enablecontentmd5:     |사용 설정된 경우 MD5가 계산되고 각 BLOB에 대해 `Content-md5` 속성으로 설정됩니다. 데이터가 Azure에 업로드된 이후 `Content-md5` 필드를 사용하려는 경우에만 이 옵션을 사용합니다. <br> 이 옵션은 기본적으로 이루어지는 데이터 무결성 검사에는 영향을 미치지 않습니다. 이 설정은 클라우드로 데이터를 업로드하는 데 걸리는 시간을 늘립니다.          |
-8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
 
-    > [!IMPORTANT]
-    > * 저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 저널 파일이 너무 큰 경우 작업을 만들 때는 .xml 파일이 저널 파일 대신 사용됩니다.
-   > * 포털에서 허용하는 저널 파일의 최대 크기는 2MB입니다. 저널 파일이 이 제한을 초과하면 오류가 반환됩니다.
+8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 
+
+   명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다. 
+
+   저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 저널 파일이 너무 큰 경우 작업을 만들 때는 .xml 파일이 저널 파일 대신 사용됩니다.
+
+> [!IMPORTANT]
+> * 디스크 준비를 완료 한 후 디스크 드라이브의 저널 파일이 나 데이터를 수정 하지 않고 디스크를 다시 포맷 하지 마십시오.
+> * 포털에서 허용하는 저널 파일의 최대 크기는 2MB입니다. 저널 파일이 이 제한을 초과하면 오류가 반환됩니다.
 
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기
 

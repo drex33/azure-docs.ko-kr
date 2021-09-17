@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Power BI 시각적 개체에 거품형 레이어 추가 | Microsoft Azure Maps
 description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bc463a69dc0823e14b08e9fd056f3876e1ba9984
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896228"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430453"
 ---
 # <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
@@ -87,7 +87,7 @@ ms.locfileid: "92896228"
 > [!div class="nextstepaction"]
 > [실시간 트래픽 표시](power-bi-visual-show-real-time-traffic.md)
 
-시각적 개체 사용자 지정:
+시각적 개체를 사용자 지정합니다.
 
 > [!div class="nextstepaction"]
 > [Power BI의 색 서식을 위한 팁과 힌트](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)

@@ -3,16 +3,16 @@ title: Azure IoT Central의 애플리케이션 템플릿이란? | Microsoft Docs
 description: Azure IoT Central 애플리케이션 템플릿을 사용하면 IoT 솔루션 개발로 바로 이동할 수 있습니다.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 12/19/2020
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f11a033fc1cd97786e540773f5b8e6ca0a08106b
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 26f9c41b23353343c5533c83db59320698824233
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122538023"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470889"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 

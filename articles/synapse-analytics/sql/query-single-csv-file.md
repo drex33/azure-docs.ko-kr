@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6744970ec7aadfc4a9cb967c479307b441f4fb1b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 71f7bde0dcae54916c9657b724290778bb01652b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453054"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430075"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -336,6 +336,24 @@ WITH (
     --[population] bigint
 ) AS [r]
 ```
+
+## <a name="querying-appendable-files"></a>Appendable 파일 쿼리
+
+쿼리에서 사용 되는 CSV 파일은 쿼리가 실행 되는 동안 변경 하면 안 됩니다. 장기 실행 쿼리에서 SQL 풀은 읽기를 재시도하거나 파일의 일부를 읽거나 여러 번 파일을 읽을 수도 있습니다. 파일 내용을 변경하면 잘못된 결과가 발생할 수 있습니다. 따라서 쿼리를 실행 하는 동안 파일의 수정 시간이 변경 된 것을 감지 하는 경우 SQL 풀이 쿼리를 실패 합니다.
+
+일부 시나리오에서는 지속적으로 추가 되는 파일을 읽을 수 있습니다. 지속적으로 추가 된 파일로 인해 쿼리 오류가 발생 하지 않도록 하려면 `OPENROWSET` 설정을 사용 하 여 함수에서 잠재적으로 일치 하지 않는 읽기를 무시 하도록 할 수 있습니다 `ROWSET_OPTIONS` .
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2,
+    ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}') as rows
+```
+
+`ALLOW_INCONSISTENT_READS`읽기 옵션은 쿼리 수명 주기 중에 파일 수정 시간 검사를 사용 하지 않도록 설정 하 고 파일에서 사용할 수 있는 모든 항목을 읽습니다. Appendable 파일에서 기존 콘텐츠는 업데이트 되지 않으며 새 행만 추가 됩니다. 따라서 업데이트 가능한 파일에 비해 결과가 잘못될 가능성이 최소화됩니다. 이 옵션을 사용하면 오류를 처리하지 않고 자주 추가되는 파일을 읽을 수 있습니다. Im 대부분의 시나리오 SQL 풀에서는 쿼리를 실행 하는 동안 파일에 추가 되는 일부 행만 무시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

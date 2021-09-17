@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 64c77a12f65ebaf9acbc8b16c62f86a7e1e10983
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 4e8f1847459d16f82b029f9719d87b61dd243524
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777633"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542382"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용하여 네트워크 연결 모니터링
 
@@ -92,6 +92,23 @@ Linux 컴퓨터의 경우 사용할 portNumber를 수동으로 변경해야 합�
 스크립트를 통해 솔루션에 필요한 레지스트리 키가 만들어집니다. 또한 에이전트가 서로 TCP 연결을 만들 수 있도록 Windows 방화벽 규칙이 만들어집니다. 스크립트로 만들어진 레지스트리 키는 디버그 로그와 로그 파일의 경로를 기록할지 여부를 지정합니다. 스크립트는 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에 의해 자동으로 설정됩니다. 이 키는 수동으로 변경하지 마십시오. 기본적으로 열리는 포트는 8084입니다. 스크립트에 매개 변수 portNumber를 지정하여 사용자 지정 포트를 사용할 수 있습니다. 스크립트가 실행되는 모든 컴퓨터에서 동일한 포트를 사용하십시오. Log Analytics 에이전트의 네트워크 요구 사항에 대해 [자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#network-requirements).
 
 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
+
+LA Windows 에이전트는 다중 작업 영역 및 System Center Operations Manager 관리 그룹으로 데이터를 보낼 수 있습니다. Linux 에이전트는 작업 영역 또는 관리 그룹 중 하나만 단일 대상으로 보낼 수 있습니다.
+
+#### <a name="enable-network-performance-monitor-solution-for-on-premise-machines"></a>온-프레미스 컴퓨터에 대 한 네트워크 성능 모니터 솔루션 사용 
+
+온-프레미스 컴퓨터에 대 한 네트워크 성능 모니터 솔루션을 사용 하도록 설정 하려면 다음 단계를 수행 합니다. 
+
+1. Azure Portal 홈 페이지에서로 이동 Network Watcher
+2. 왼쪽의 모니터링 섹션에서 네트워크 성능 모니터을 선택 합니다. 
+3. 포털에서 NPM 솔루션을 사용 하도록 설정 하 고 구독 별로 필터링 된 작업 영역 목록이 표시 됩니다. 
+4. 새 작업 영역에 NPM 솔루션을 추가 하려면 포털의 왼쪽 위에서 "+ 추가 NPM"를 클릭 합니다. 
+5. 솔루션을 사용 하도록 설정할 구독 및 작업 영역을 선택 하 고 만들기를 클릭 합니다.
+6. 솔루션을 사용 하도록 설정한 후 포털에서 작업 영역을 표시 하는 데 몇 분 정도 걸립니다.
+
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="연결 모니터에서 NPM 솔루션을 추가 하는 방법을 보여 주는 스크린샷" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+
+LA 에이전트와 달리 NPM 솔루션은 단일 LA 작업 영역에 데이터를 보내도록 구성 될 수 있습니다.
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>구독에서 Network Watcher를 사용하도록 설정
 
@@ -374,7 +391,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 * 게이트웨이 연결에서 BGP를 사용하도록 설정되지 않았습니다.
 * 부하 분산 장치에서 DIP 프로브가 다운되었습니다.
 
-## <a name="comparision-between-azures-connectivity-monitoring-support"></a>Azure의 연결 모니터링 지원 간 비교 
+## <a name="comparison-between-azures-connectivity-monitoring-support"></a>Azure의 연결 모니터링 지원 비교 
 
 가동 중지 시간 없이 한 번의 클릭으로 네트워크 성능 모니터 및 연결 모니터(클래식)에서 새롭게 향상된 연결 모니터로 테스트를 마이그레이션할 수 있습니다.
  
@@ -389,7 +406,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
    
 네트워크 성능 모니터 및 연결 모니터(클래식)에서 연결 모니터로 마이그레이션해야 하는 몇 가지 이유가 있습니다. 다음은 Azure의 연결 모니터가 네트워크 성능 모니터 및 연결 모니터(클래식)에 대해 수행하는 방식을 보여 주는 몇 가지 사용 사례입니다. 
 
- | 특징  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
+ | 기능  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
  | -------  | --------------------------- | -------------------------- | ------------------ | 
  | Azure 및 하이브리드 모니터링을 위한 통합 환경 | 사용할 수 없음 | 사용할 수 없음 | 사용 가능 |
  | 구독 간, 지역 간, 작업 영역 간 모니터링 | 구독 간, 지역 간 모니터링을 허용하지만 작업 영역 간 모니터링을 허용하지 않음 | 사용할 수 없음 | 구독 간, 작업 영역 간 모니터링을 허용함, Azure 에이전트에는 지역 경계가 있음  |

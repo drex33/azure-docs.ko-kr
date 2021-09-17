@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 7/1/2021
 ms.author: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 69e3fa87d55dcedc95ac4fec7fa92f53449ece46
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 936eb725836b8191aa35045d37882c859c9c058a
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768718"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449174"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "122768718"
 
 고객 관리형 키를 통한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 키 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 이미지를 복제하려는 각 영역에 디스크 암호화가 이미 설정되어 있어야 합니다.
 
@@ -100,7 +100,7 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>VM 만들기
 
-Shared Image Gallery에서 VM(가상 머신)을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version-powershell.md) VM 또는 [특수화된](vm-specialized-image-version-powershell.md) VM을 만드는 것과 같습니다. 확장 매개 변수 집합을 사용하여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage`을(를) VM 구성에 추가합니다.
+Shared Image Gallery에서 VM(가상 머신)을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 확장 매개 변수 집합을 사용하여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage`을(를) VM 구성에 추가합니다.
 
 데이터 디스크의 경우 [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)를 사용할 때 `-DiskEncryptionSetId $setID` 매개 변수를 추가합니다.
 
@@ -144,7 +144,7 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>VM 만들기
 
-Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version-cli.md) VM 또는 [특수화된](vm-specialized-image-version-cli.md) VM을 만드는 것과 같습니다. 암호화 집합의 ID를 `--os-disk-encryption-set` 매개 변수에 추가하기만 하면 됩니다. 데이터 디스크의 경우 데이터 디스크에 대한 디스크 암호화 집합의 공백으로 구분된 목록을 사용하여 `--data-disk-encryption-sets`을(를) 추가합니다.
+Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 암호화 집합의 ID를 `--os-disk-encryption-set` 매개 변수에 추가하기만 하면 됩니다. 데이터 디스크의 경우 데이터 디스크에 대한 디스크 암호화 집합의 공백으로 구분된 목록을 사용하여 `--data-disk-encryption-sets`을(를) 추가합니다.
 
 
 ## <a name="portal"></a>포털

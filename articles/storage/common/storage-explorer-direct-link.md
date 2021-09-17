@@ -2,17 +2,17 @@
 title: Azure Storage Explorer 직접 링크 | Microsoft Docs
 description: Azure Storage Explorer 직접 링크의 설명서
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye
-ms.openlocfilehash: 121df1e1c3ab6d0741d3e4da1144a86938da70ed
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
-ms.translationtype: HT
+ms.openlocfilehash: 283ee2dd27d22e16177efe34d4f456eca40d997d
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582110"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451496"
 ---
 # <a name="azure-storage-explorer-direct-link"></a>Azure Storage Explorer 직접 링크
 

@@ -1,14 +1,14 @@
 ---
 title: Visual Studio Code용 Azure Policy 확장
 description: Visual Studio Code용 Azure Policy 확장을 사용하여 Azure Resource Manager 별칭을 조회하는 방법에 대해 알아봅니다.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 870559a2f3d36257cb1246e340163f25ef016eb2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 93b59114c6a89e9219389341d541d7850a90ccc7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567953"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433695"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code용 Azure Policy 확장 사용
 
@@ -195,6 +195,20 @@ Azure Policy 확장에는 **정책** 창에 표시하기 위해 선택한 구독
 > VS Code 확장은 Resource Manager 모드 속성의 평가만 지원합니다. 이 모드에 대한 자세한 내용은 [모드 정의](../concepts/definition-structure.md#mode)를 참조하세요.
 >
 > 평가 기능은 macOS 및 Linux 확장 설치에서 작동하지 않습니다.
+
+### <a name="create-policy-definition-from-constraint-template"></a>제약 조건 템플릿에서 정책 정의 만들기
+
+VS Code 확장은 기존 opa ( [Open policy Agent](https://www.openpolicyagent.org/) ) 게이트 키퍼 v3 [제약 조건 템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)정책 정의를 만들 수 있습니다. 명령 팔레트를 옵션으로 사용할 VS Code에서 yaml 파일을 열어야 합니다.
+
+1. 유효한 OPA 게이트 키퍼 v3 제약 조건 템플릿 YAML 파일을 엽니다.
+
+1. 메뉴 모음에서 **보기** > **명령 팔레트** 로 이동 하 고 **Kubernetes: 제약 조건 템플릿에서 정책 정의 만들기에 Azure Policy** 을 입력 합니다.
+
+1. 적절 한 _sourceType_ 값을 선택 합니다.
+
+1. `/* EDIT HERE */`정책 정의 JSON의 부분을 입력 합니다.
+
+확장은 정책 정의의 JSON을 생성 하지만 Azure에서 정의를 만들지는 않습니다. 적절 한 "여기에서 편집" 필드를 입력 한 후에는 완료 된 정책 정의 JSON 및 Azure Portal 또는 지원 되는 SDK를 사용 하 여 Azure 환경 내에서 정책 정의를 만듭니다.
 
 ### <a name="sign-out"></a>로그아웃
 

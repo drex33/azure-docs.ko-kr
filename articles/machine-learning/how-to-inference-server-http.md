@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
-ms.openlocfilehash: 4d8c2dbbfe313d480fce953af0b39ee01cd32230
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 48dda26415113bff4ff20305ee8779804859be33
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597789"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428311"
 ---
 # <a name="azure-machine-learning-inference-http-server-preview"></a>Azure Machine Learning 유추 HTTP 서버(미리 보기)
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d0280b8af673ebcf994ca537cbc929f9035a8d6d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.openlocfilehash: ed3f02f6bf4c9a7b53a63f31163663c59c0edc88
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556499"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451028"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search의 데이터 가져오기 마법사
 
@@ -82,16 +82,15 @@ Azure Portal은 인덱스의 프로토타입 만들기 및 로드를 위해 Azur
 | [기술 집합](/rest/api/searchservice/create-skillset) | 이미지 파일에서 정보를 분석하고 추출하는 것을 포함하여 콘텐츠를 조작, 변형 및 셰이핑하기 위한 전체 지침 집합입니다. 매우 간단하고 제한된 구조체를 제외하고 보강을 제공하는 Cognitive Services 리소스 참조가 포함됩니다. 필요에 따라 지식 저장소 정의가 포함될 수 있습니다.  | 
 | [인덱서](/rest/api/searchservice/create-indexer)  | 오류 처리 및 64기반 인코딩을 위한 데이터 원본, 대상 인덱스, 선택적 기술 세트, 선택적 일정 및 선택적 구성 설정을 지정하는 구성 개체입니다. |
 
-
 ## <a name="how-to-start-the-wizard"></a>마법사를 시작하는 방법
 
 데이터 가져오기 마법사는 서비스 개요 페이지의 명령 모음에서 시작됩니다.
 
 1. [Azure Portal](https://portal.azure.com)의 대시보드에서 검색 서비스 페이지를 열거나 서비스 목록에서 [서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-2. 맨 위에 있는 서비스 개요 페이지에서 **데이터 가져오기** 를 클릭합니다.
+1. 맨 위에 있는 서비스 개요 페이지에서 **데이터 가져오기** 를 클릭합니다.
 
-   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 Azure Cosmos DB, Azure SQL Database, SQL Managed Instance 및 Azure Blob Storage를 비롯한 다른 Azure 서비스에서도 **데이터 가져오기** 를 시작할 수 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Cognitive Search 추가** 를 찾아보세요.
 

@@ -3,19 +3,19 @@ title: Speech SDK 정보 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK(소프트웨어 개발 키트)는 많은 Speech Service 기능을 제공하므로 음성 지원 애플리케이션을 보다 쉽게 개발할 수 있습니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: lajanuar
-ms.openlocfilehash: 3f97558a9efbc9a1cff11baaae6d4d8869e02915
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 6078fdd823160b6ea5e76efd5940342d333e84f1
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529627"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540074"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 

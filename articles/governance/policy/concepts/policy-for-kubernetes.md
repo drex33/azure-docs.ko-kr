@@ -1,22 +1,22 @@
 ---
 title: Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 615145c7267d580d7a22dd34452e68c9cd905cdc
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 43b5e010ec6f024838a0407f2cafae1d28bdcf1e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965134"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436071"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
 Azure Policy는 OPA([Open Policy Agent](https://www.openpolicyagent.org/))에 대한 ‘허용 컨트롤러 웹후크’인 [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3을 확장하여 중앙 집중식의 일관된 방식으로 클러스터에 대규모 적용 및 보호 기능을 적용합니다. Azure Policy를 사용하면 한 곳에서 Kubernetes 클러스터의 준수 상태를 관리하고 보고할 수 있습니다. 추가 기능은 다음 함수를 적용합니다.
 
 - Azure Policy 서비스를 사용하여 클러스터에 대한 정책 할당을 확인합니다.
-- [제약 조건 템플릿](https://github.com/open-policy-agent/gatekeeper#constraint-templates) 및 [제약 조건](https://github.com/open-policy-agent/gatekeeper#constraints) 사용자 지정 리소스로 클러스터에 정책 정의를 배포합니다.
+- [제약 조건 템플릿](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) 및 [제약 조건](https://github.com/open-policy-agent/gatekeeper#constraints) 사용자 지정 리소스로 클러스터에 정책 정의를 배포합니다.
 - 감사 및 규정 준수 세부 정보를 다시 Azure Policy 서비스에 보고
 
 Kubernetes용 Azure Policy는 다음 클러스터 환경을 지원합니다.
@@ -26,7 +26,8 @@ Kubernetes용 Azure Policy는 다음 클러스터 환경을 지원합니다.
 - [AKS 엔진](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> AKS 엔진과 Arc 지원 Kubernetes의 추가 기능은 **미리 보기** 로 제공됩니다. Kubernetes용 Azure Policy는 Linux 노드 풀 및 기본 제공 정책 정의만 지원합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 및 **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된, 제한된 미리 보기 정책 정의는 _더 이상 사용되지 않습니다_. 대신 `Microsoft.Kubernetes.Data` 리소스 공급자 모드를 통해 _감사_ 및 _거부_ 효과를 사용합니다.
+> AKS 엔진과 Arc 지원 Kubernetes의 추가 기능은 **미리 보기** 로 제공됩니다. Kubernetes에 대 한 Azure Policy는 Linux 노드 풀 및 기본 제공 정책 정의만 지원 합니다 (사용자 지정 정책 정의는 _공개 미리 보기_ 기능). 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 및 **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된, 제한된 미리 보기 정책 정의는 _더 이상 사용되지 않습니다_.
+> 대신 `Microsoft.Kubernetes.Data` 리소스 공급자 모드를 통해 _감사_ 및 _거부_ 효과를 사용합니다.
 
 ## <a name="overview"></a>개요
 
@@ -42,7 +43,7 @@ Kubernetes 클러스터에서 Azure Policy를 사용하도록 설정하고 사�
 
 1. [Kubernetes용 Azure Policy 언어 이해](#policy-language)
 
-1. [Kubernetes 클러스터에 기본 제공 정의 할당](#assign-a-built-in-policy-definition)
+1. [Kubernetes 클러스터에 정의 할당](#assign-a-policy-definition)
 
 1. [유효성 검사 대기](#policy-evaluation)
 
@@ -51,8 +52,9 @@ Kubernetes 클러스터에서 Azure Policy를 사용하도록 설정하고 사�
 다음의 일반 제한 사항은 Kubernetes 클러스터용 Azure Policy 추가 기능에 적용됩니다.
 
 - Kubernetes용 Azure Policy 추가 기능은 Kubernetes 버전 **1.14** 이상에서 지원됩니다.
-- Kubernetes용 Azure Policy 추가 기능은 Linux 노드 풀에만 배포할 수 있습니다.
-- 기본 제공 정책 정의만 지원됩니다.
+- Kubernetes 용 Azure Policy 추가 기능을 Linux 노드 풀에만 배포할 수 있습니다.
+- 기본 제공 정책 정의만 지원 됩니다. 사용자 지정 정책 정의는 _공개 미리 보기_ 기능입니다.
+- Azure Policy 추가 기능에서 지 원하는 최대 pod 수: **1만**
 - 클러스터별 정책당 최대 비호환 레코드 수: **500** 개
 - 구독당 최대 비호환 레코드 수: **100만** 개
 - Azure Policy 추가 기능 외의 Gatekeeper 설치는 지원되지 않습니다. Azure Policy 추가 기능을 사용하도록 설정하기 전에 이전 Gatekeeper 설치를 통해 설치된 모든 구성 요소를 제거합니다.
@@ -360,13 +362,16 @@ kubectl get pods -n gatekeeper-system
 
 Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. `Microsoft.Kubernetes.Data`의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 [감사](./effects.md#audit) 및 [거부](./effects.md#deny) 효과를 사용하여 Kubernetes 클러스터를 관리할 수 있습니다. _감사_ 와 _거부_ 는 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 Gatekeeper v3 작업과 관련된 **세부 정보** 속성을 제공해야 합니다.
 
-정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD([CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
+정책 정의의 _details.templateInfo_, _details.constraint_ 또는 _details.constraintTemplate_ 속성의 일부로 Azure Policy 이러한 [CustomResourceDefinitions(CRD)의](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) URI 또는 Base64Encoded 값을 추가 기능으로 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 
-## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
+## <a name="assign-a-policy-definition"></a>정책 정의 할당
 
 Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 Azure RBAC(Azure 역할 기반 액세스 제어) 정책 할당 작업을 할당해야 합니다. Azure 기본 제공 역할인 **리소스 정책 기여자** 및 **소유자** 가 이러한 작업을 수행합니다. 자세한 내용은 [Azure Policy의 Azure RBAC 권한](../overview.md#azure-rbac-permissions-in-azure-policy)을 참조하세요.
 
-다음 단계를 통해 Azure Portal을 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다.
+> [!NOTE]
+> 사용자 지정 정책 정의는 _공개 미리 보기_ 기능입니다.
+
+다음 단계에 따라 Azure Portal 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다. 사용자 지정 정책 정의를 사용하는 경우 이름 또는 해당 정의를 만든 범주별로 검색합니다.
 
 1. Azure Portal에서 Azure Policy 서비스를 시작합니다. 왼쪽 창에서 **모든 서비스** 를 선택한 다음, **정책** 을 검색하여 선택합니다.
 
@@ -428,6 +433,21 @@ Kubernetes 클러스터에서 네임스페이스에 cluster-appropriate 레이�
 
 - 클러스터에 리소스의 유효성을 검사하는 거부 정책이 있으면 배포를 만들 때 사용자에게 거부 메시지가 표시되지 않습니다. 예를 들면, 복제 세트와 Pod가 포함된 Kubernetes 배포를 생각해 보세요. 사용자가 `kubectl describe deployment $MY_DEPLOYMENT`을(를) 실행하면 이벤트의 일부로 거부 메시지가 반환되지 않습니다. 하지만 `kubectl describe replicasets.apps $MY_DEPLOYMENT`에서는 거부와 관련된 이벤트를 반환합니다.
 
+> [!NOTE]
+> 초기화 컨테이너는 정책 평가 중에 포함 될 수 있습니다. Init 컨테이너가 포함 되어 있는지 확인 하려면 다음 또는 유사한 선언에 대해 CRD를 검토 합니다.
+>
+> ```rego
+> input_containers[c] { 
+>    c := input.review.object.spec.initContainers[_] 
+> }
+> ```
+
+### <a name="constraint-template-conflicts"></a>제약 조건 템플릿 충돌
+
+제약 조건 템플릿이 동일한 리소스 메타 데이터 이름을 갖지만 정책 정의가 다른 위치의 원본을 참조 하는 경우 정책 정의가 충돌 하는 것으로 간주 됩니다. 예: 두 정책 정의는 `template.yaml` Azure Policy 템플릿 저장소 ( `store.policy.core.windows.net` ) 및 GitHub와 같은 서로 다른 원본 위치에 저장 된 동일한 파일을 참조 합니다.
+
+정책 정의와 해당 제약 조건 템플릿이 할당 되었지만 클러스터에 아직 설치 되어 있지 않고 충돌 하는 경우 충돌을 해결 하기 전 까지는 충돌로 보고 되며 클러스터에 설치 되지 않습니다. 마찬가지로 기존 정책 정의 및 새로 할당 된 정책 정의와 충돌 하는 클러스터에 이미 있는 제약 조건 템플릿이 계속 정상적으로 작동 합니다. 기존 할당이 업데이트 되 고 제약 조건 템플릿을 동기화 하지 못하는 경우 클러스터도 충돌로 표시 됩니다. 모든 충돌 메시지는 [AKS 리소스 공급자 모드 준수 이유](../how-to/determine-non-compliance.md#aks-resource-provider-mode-compliance-reasons) 를 참조 하세요.
+
 ## <a name="logging"></a>로깅
 
 Kubernetes 컨트롤러/컨테이너로 _azure-policy_ 및 _gatekeeper_ Pod는 모두 Kubernetes 클러스터에 로그를 유지합니다. 로그는 Kubernetes 클러스터의 **인사이트** 페이지에 공개될 수 있습니다. 자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 Kubernetes 클러스터 성능 모니터링](../../../azure-monitor/containers/container-insights-analyze.md)을 참조하세요.
@@ -442,7 +462,7 @@ kubectl logs <azure-policy pod name> -n kube-system
 kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
-자세한 내용은 Gatekeeper 설명서의 [Gatekeeper 디버깅](https://github.com/open-policy-agent/gatekeeper#debugging)을 참조하세요.
+자세한 내용은 Gatekeeper 설명서의 [Gatekeeper 디버깅](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/)을 참조하세요.
 
 ## <a name="troubleshooting-the-add-on"></a>추가 기능 문제 해결
 

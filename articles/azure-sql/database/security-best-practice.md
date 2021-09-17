@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: ef8c2756d6e11dc38ac488abb0ed6d8ae8e9a78b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2a0a104b4ad76c94d467c01fe8be421e5b96c435
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529137"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541665"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 일반적인 보안 요구 사항을 해결하는 방법에 대한 플레이북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -647,7 +647,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 **모범 사례**:
 
-- 특정 서버 또는 관리형 인스턴스에 대해 [Azure Defender for SQL](azure-defender-for-sql.md)을 구성합니다. [Azure Security Center 표준 계층](../../security-center/security-center-pricing.md)으로 전환하여 구독에 있는 모든 서버 및 관리형 인스턴스에 대해 SQL Azure Defender를 구성할 수도 있습니다.
+- 특정 서버 또는 관리형 인스턴스에 대해 [Azure Defender for SQL](azure-defender-for-sql.md)을 구성합니다. Azure Defender 을 사용하도록 설정하여 구독의 모든 서버 및 관리되는 인스턴스에 대해 [SQL Azure Defender](../../security-center/security-center-pricing.md)구성할 수도 있습니다.
 
 - 전체 조사 환경에는  [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 사용하도록 설정하는 것이 좋습니다. 감사를 사용하면 데이터베이스 이벤트를 추적하고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역의 감사 로그에 기록할 수 있습니다.
 

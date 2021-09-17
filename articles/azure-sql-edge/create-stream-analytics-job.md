@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8f5059352793adf7cd3e8635d270ba85a3014758
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656345"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434217"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
 
@@ -104,7 +104,7 @@ T-SQL 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용하�
 3. CREATE EXTERNAL DATA SOURCE를 사용하여 외부 데이터 원본을 만듭니다. 다음 예제를 참조하세요.
 
     * *LocalSQLOutput* 이라는 외부 데이터 원본을 만듭니다.
-    * 외부 데이터 원본(LOCATION = '<vendor>://<server>[:<port>]')을 식별합니다. 예제에서는 Azure SQL Edge의 로컬 인스턴스를 가리킵니다.
+    * 외부 데이터 원본(`LOCATION = '<vendor>://<server>[:<port>]'`)을 확인합니다. 예제에서는 Azure SQL Edge의 로컬 인스턴스를 가리킵니다.
     * 이전에 만든 자격 증명을 사용합니다.
 
     ```sql

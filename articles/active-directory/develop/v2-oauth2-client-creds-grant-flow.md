@@ -12,12 +12,12 @@ ms.date: 08/30/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 594b04c96ddbc166c7c3f95b7b04ebc1b1a3784b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223443"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430003"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -58,7 +58,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 
 ACL 기반 권한 부여 패턴을 사용하도록 설정하기 위해 Azure AD에는 애플리케이션에 다른 애플리케이션에 대한 토큰을 가져올 수 있는 권한이 필요하지 않습니다. 따라서 `roles` 클레임 없이 앱 전용 토큰을 발급할 수 있습니다. API를 노출하는 애플리케이션은 토큰을 허용하기 위해 권한 확인을 구현해야 합니다.
 
-애플리케이션에서 애플리케이션에 대한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대한 사용자 할당 요구 사항을 사용하도록 설정](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment)해야 합니다. 이렇게 하면 할당된 역할이 없는 사용자와 애플리케이션에서 해당 애플리케이션에 대한 토큰을 가져올 수 없게 됩니다. 
+애플리케이션에서 애플리케이션에 대한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대한 사용자 할당 요구 사항을 사용하도록 설정](../manage-apps/add-application-portal-configure.md#configure-app-properties)해야 합니다. 이렇게 하면 할당된 역할이 없는 사용자와 애플리케이션에서 해당 애플리케이션에 대한 토큰을 가져올 수 없게 됩니다.
 
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 
@@ -100,7 +100,7 @@ PRO 팁: 브라우저에서 다음 요청 붙여넣기를 시도합니다.
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 사용자가 속한 테넌트가 무엇인지 모르고 테넌트를 사용하여 로그인하지 않으려는 경우 `common`을 사용합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -114,7 +114,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 관리자가 애플리케이션에 대한 사용 권한을 승인하는 경우 성공적인 응답은 다음과 같습니다.
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
 | 매개 변수 | Description |
@@ -160,7 +160,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
@@ -182,7 +182,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 |앱에 할당되는 애플리케이션(클라이언트) ID입니다. |

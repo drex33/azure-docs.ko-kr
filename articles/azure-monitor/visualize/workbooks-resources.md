@@ -2,17 +2,15 @@
 title: Azure Monitor 통합 문서 리소스 매개 변수
 description: 리소스 매개 변수를 사용하여 통합 문서에서 리소스 선택을 허용하는 방법을 알아봅니다. 리소스 매개 변수를 사용하여 데이터를 가져올 범위를 설정합니다.
 services: azure-monitor
-manager: carmonm
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d4a6d04f88544b3a4f9f9c0c0b290d17f5ef148d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dba84320bb753fa162d1c4eced5de5ae79de6f48
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725580"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436161"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
 
@@ -100,9 +98,9 @@ ms.locfileid: "101725580"
 ## <a name="resource-parameter-options"></a>리소스 매개 변수 옵션
 | 매개 변수 | 설명 | 예제 |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | 선택한 리소스 ID | _/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication_ |
+| `{Applications}` | 선택한 리소스 ID | _/subscriptions/ \<sub-id\> /resourceGroups/ \<resource-group\> /providers/ \<resource-type\> /acmukathentication_ |
 | `{Applications:label}` | 선택한 리소스의 레이블 | `acmefrontend` |
-| `{Applications:value}` | 선택한 리소스의 값 | _'/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication'_ |
+| `{Applications:value}` | 선택한 리소스의 값 | _'/subscriptions/ \<sub-id\> /resourceGroups/ \<resource-group\> /providers/ \<resource-type\> /acmukathentication'_ |
 | `{Applications:name}` | 선택한 리소스의 이름 | `acmefrontend` |
 | `{Applications:resourceGroup}` | 선택한 리소스의 리소스 그룹 | `acmegroup` |
 | `{Applications:resourceType}` | 선택한 리소스의 종류 | _microsoft.insights/components_ |

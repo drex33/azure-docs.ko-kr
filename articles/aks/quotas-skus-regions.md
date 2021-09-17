@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 기본 할당량, 제한된 노드
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: 6e965bd958b23598f7b11dcf9a12dafb33f26680
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762295"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437909"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 
@@ -30,6 +30,10 @@ ms.locfileid: "113762295"
 > AKS 클러스터를 업그레이드하는 경우 추가 리소스가 일시적으로 사용됩니다. 이러한 리소스에는 가상 네트워크 서브넷 또는 가상 머신 vCPU 할당량에서 사용 가능한 IP 주소가 포함됩니다. 
 >
 > Windows Server 컨테이너의 경우 업그레이드 작업을 수행하여 최신 노드 업데이트를 적용할 수 있습니다. 이러한 임시 리소스 처리에 사용할 수 있는 IP 주소 공간 또는 vCPU 할당량이 없으면 클러스터 업그레이드 프로세스가 실패합니다. Windows Server 노드 업그레이드 프로세스에 대한 자세한 내용은 [AKS의 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
+
+## <a name="supported-vm-sizes"></a>지원되는 VM 크기
+
+AKS에서 지원 되는 VM 크기 목록은 Azure의 새로운 VM Sku 릴리스와 진화 하 고 있습니다. [AKS 릴리스 정보](https://github.com/Azure/AKS/releases) 를 참조 하 여 지원 되는 새 sku에 대 한 정보를 계속 받을 수 있습니다.
 
 ## <a name="restricted-vm-sizes"></a>제한된 VM 크기
 

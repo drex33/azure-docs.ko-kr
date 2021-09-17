@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-ms.openlocfilehash: 66b9f5a2e4a0c62ab6847b9e851f8d04b1dbd0f8
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: d9f6ce8b85aae451fbab318b85f50fb0da7919a6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530395"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541300"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "122530395"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- CMK 기능을 사용하려면 1TB/일 약정 계층 이상의 Log Analytics 전용 클러스터가 필요합니다. 여러 작업 영역을 동일한 전용 클러스터에 연결할 수 있으며, 동일한 고객 관리형 키를 공유합니다.
+- CMK 기능을 사용하려면 최소 500GB/일 약정 계층이 있는 Log Analytics 전용 클러스터가 필요합니다. 여러 작업 영역을 동일한 전용 클러스터에 연결할 수 있으며 동일한 고객 관리형 키를 공유합니다.
 
 - 이 가이드의 단계를 완료한 후 작업 영역을 사용하기 전에 [Azure Sentinel 제품 그룹](mailto:azuresentinelCMK@microsoft.com)에 문의하여 온보딩 여부를 확인하세요.
 

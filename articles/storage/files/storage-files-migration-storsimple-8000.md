@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: f51f4b9a838a7a08259b280c4d9cd185b42e588b
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: dbf422beeea23cee975b5721c7becae95bf24b6c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116975"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434633"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 8100 및 8600 마이그레이션
 
@@ -585,9 +585,11 @@ DFS-N을 배포한 경우 DFN-네임스페이스가 새 서버 폴더 위치를 
 
 마이그레이션이 완료되었습니다.
 
+---
+
 > [!NOTE]
 > 여전히 궁금한 점이 있거나 문제가 있나요?</br>
-> AzureFilesMigration@microsoft.com으로 도움을 요청하세요.
+> microsoft dot com에서 Azure Files 마이그레이션을 통해 :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="한 단어로 메일 주소를"::: 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

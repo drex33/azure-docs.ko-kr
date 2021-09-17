@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 정의 만들기, 다양한 SDK 및 Kubernetes에 대한 추가 항목에서 발생하는 문제를 해결하는 방법을 알아봅니다.
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 0ab4319a7a0d515b51c8bbe259ad0ea49ed2b940
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113087093"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433605"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Azure Policy를 사용한 오류 해결
 
@@ -79,6 +79,7 @@ Resource Manager 속성에 대한 별칭이 존재하지 않으면 지원 티켓
 1. 준수될 것이라 예상되는 리소스가 미준수 리소스로 나타나는 경우 [미준수 이유 확인](../how-to/determine-non-compliance.md)을 참조하세요. 정의를 평가된 속성 값과 비교하면 리소스가 미준수로 나타나는 이유를 알 수 있습니다.
    - **대상 값** 이 잘못된 경우 정책 정의를 수정하세요.
    - **현재 값** 이 잘못된 경우 `resources.azure.com`을 통해 리소스 페이로드의 유효성을 검사합니다.
+1. RegEx 문자열 매개 변수(예: 및 기본 제공 정의 "컨테이너 이미지는 신뢰할 수 있는 레지스트리에서만 배포되어야 합니다")를 지원하는 [리소스 공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 정의의 경우 `Microsoft.Kubernetes.Data` [RegEx 문자열](/dotnet/standard/base-types/regular-expression-language-quick-reference) 매개 변수가 올바른지 확인합니다.
 1. 다른 일반적인 문제 및 솔루션에 대해서는 [문제 해결: 예상대로 적용되지 않음](#scenario-enforcement-not-as-expected)을 참조하세요.
 
 중복되는 사용자 지정 기본 제공 정책 정의 또는 사용자 지정 정의에 문제가 계속 발생하는 경우 **정책 작성** 에서 지원 티켓을 만들어 문제를 올바르게 라우팅합니다.
@@ -327,6 +328,26 @@ spec:
 #### <a name="resolution"></a>해결 방법
 
 해당 문제를 조사하고 해결하려면 [기능 팀에 문의](mailto:azuredg@microsoft.com)하세요.
+
+### <a name="scenario-definitions-in-category-guest-configuration-cannot-be-duplicated-from-azure-portal"></a>시나리오: "게스트 구성" 범주의 정의는 Azure Portal에서 중복 될 수 없습니다.
+
+#### <a name="issue"></a>문제
+
+정책 정의에 대 한 Azure Portal 페이지에서 사용자 지정 정책 정의를 만들려고 할 때 "중복 된 정의" 단추를 선택 합니다. 정책을 할당 한 후에는 게스트 구성 할당 리소스가 없으므로 컴퓨터가 _비규격_ 상태임을 확인할 수 있습니다.
+
+#### <a name="cause"></a>원인
+
+게스트 구성은 게스트 구성 할당 리소스를 만들 때 정책 정의에 추가 된 사용자 지정 메타 데이터에 의존 합니다. Azure Portal의 "중복 정의" 작업은 사용자 지정 메타 데이터를 복사 하지 않습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+포털을 사용 하는 대신 정책 Insights API를 사용 하 여 정책 정의를 복제 합니다. 다음 PowerShell 샘플에서는 옵션을 제공 합니다.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
 
 ## <a name="next-steps"></a>다음 단계
 

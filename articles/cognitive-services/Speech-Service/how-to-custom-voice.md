@@ -3,19 +3,19 @@ title: 사용자 지정 신경망 음성 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 신경망 음성은 사용자의 브랜드에 대해 인식할 수 있는 독특한 음성을 만들 수 있는 온라인 도구 집합입니다. 몇 가지 오디오 파일과 관련 음성 텍스트만 있으면 시작할 수 있습니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: lajanuar
-ms.openlocfilehash: 155c62791426ceafde70c173370d4056a6b8956c
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 32bdd0db2008d9f5b49bab26033f57c9e5e59847
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567555"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540742"
 ---
 # <a name="get-started-with-custom-neural-voice"></a>사용자 지정 신경망 음성 시작
 

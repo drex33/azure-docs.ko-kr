@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 30c33f6ec497fd5766dc541b50f341cb30946051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: be7bd448fdf043c9a3916d87e9d54042ffe07380
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912572"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476649"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼
 
@@ -37,6 +37,6 @@ ms.locfileid: "95912572"
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
-- [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](data-lake-storage-supported-blob-storage-features.md)
+- [Azure Storage 계정의 Blob Storage 기능 지원](storage-feature-support-in-storage-accounts.md)
 - [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)

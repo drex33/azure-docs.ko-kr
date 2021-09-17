@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: sasolank
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: 734dc2a8a2300f2fcccf5780a7ccbd9dfdcae6d4
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
-ms.translationtype: HT
+ms.openlocfilehash: e7c4583797719ca3b9cbb47d5dead48138d22fe1
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986375"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543127"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>내부 가상 네트워크의 API Management를 Application Gateway와 통합
 
@@ -205,7 +205,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 이전 명령이 성공한 후에 액세스를 확인하려면 [내부 가상 네트워크 API Management 서비스에 액세스하는 데 필요한 DNS 구성](api-management-using-with-internal-vnet.md#apim-dns-configuration)을 참조하세요. 
+이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 이전 명령이 성공한 후 [내부 가상 네트워크 API Management 서비스에 액세스 하는 데 필요한 DNS 구성](api-management-using-with-internal-vnet.md#dns-configuration) 을 참조 하 여 액세스를 확인 합니다. 
 
 ## <a name="set-up-custom-domain-names-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
 

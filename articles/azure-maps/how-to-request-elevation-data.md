@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: d9e7595a6f3d84628df0c1d79f7936bbf09ea5ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c7c9bcfa405abe21b335156862b0ee6d19e0a9ac
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567028"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438447"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Azure Maps Elevation Service를 사용한 상승 데이터 요청
 
@@ -485,7 +484,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 <br/>
 
-<iframe height="500" style="width:100%;" scrolling="no" title="위치에서 상승 가져오기" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="위치에서 상승 가져오기" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 따라 펜 <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>위치에서 상승 가져오기</a>를 참조하세요.
 </iframe>
 
@@ -495,7 +494,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="경계 상자별 상승" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="경계 상자별 상승" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 따라 펜 <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>경계 상자별 상승</a>을 참조하세요.
 </iframe>
 
@@ -505,7 +504,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="상승 경로 그라데이션" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="상승 경로 그라데이션" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>의 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 따라 펜 <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>상승 경로 그라데이션</a>을 참조하세요.
 </iframe>
 

@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: 2ef479a4e1bd4a10a2a62c82de384338b1f016a7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ae9683140eb1a3faf685bb3ffe2ee299313eabe3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537119"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435009"
 ---
 # <a name="get-shape-data"></a>도형 데이터 가져오기
 
@@ -36,7 +35,7 @@ function getDrawnShapes() {
 
 <br/>
 
-<iframe height="686" title="도형 데이터 가져오기" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true" style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
+<iframe height="686" title="도형 데이터 가져오기" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"><a href='https://codepen.io'>CodePen</a>에서 Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
 </iframe>
 
 

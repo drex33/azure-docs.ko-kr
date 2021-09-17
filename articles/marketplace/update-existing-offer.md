@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6931f33c303e1e42af75b34cb7a72d7a37c702cd
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: ae8cdb3b6f470d8dd9f1500d5dd0af51d594b8e8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598192"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432291"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 
@@ -57,6 +57,9 @@ ms.locfileid: "113598192"
 1. 플랜 이름, 설명 또는 사용자 가용성을 변경한 후에는 **초안 저장** 을 선택합니다.
 1. 업데이트를 게시할 준비가 되면 **검토 및 게시** 를 선택합니다. **[검토 및 게시](review-publish-offer.md)** 페이지가 열리고 업데이트에 대한 완료 상태가 표시됩니다.
 1. **게시** 를 선택하여 게시를 위해 업데이트된 플랜을 제출합니다. 업데이트된 제품의 미리 보기 버전을 검토하고 승인할 수 있게 되면 이메일을 보내 드립니다.
+
+> [!NOTE]
+> 프라이빗 플랜을 게시하는 경우 나중에 표시 유형을 퍼블릭으로 변경할 수 있습니다. 그러나 퍼블릭 플랜을 게시한 후에는 표시 유형을 프라이빗으로 변경할 수 없습니다.
 
 ## <a name="update-image-versions-for-an-existing-vm-offer"></a>기존 VM 제품에 대한 이미지 버전 업데이트
 

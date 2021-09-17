@@ -1,19 +1,17 @@
 ---
 title: 웹 SDK 지원 브라우저 | Microsoft Azure Maps
 description: Azure Maps 웹 SDK가 브라우저를 지원하는지 확인하는 방법을 알아봅니다. 지원되는 브라우저 목록을 봅니다. 레거시 브라우저에서 맵 서비스를 사용하는 방법에 대해 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: cpendle
-ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a393d6c54f5d9918b3746bfc6c1de1c93cd9319c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384472"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435027"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 
@@ -67,7 +65,7 @@ WebGL을 지원하지 않거나 제한적으로만 지원하는 구형 브라우
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps의 <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> 펜(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)을 참조하세요.
 </iframe>
 

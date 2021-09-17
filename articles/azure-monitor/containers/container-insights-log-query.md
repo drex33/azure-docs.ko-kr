@@ -3,12 +3,12 @@ title: 컨테이너 인사이트에서 로그를 쿼리하는 방법
 description: 컨테이너 인사이트는 메트릭 및 로그 데이터를 수집합니다. 이 문서에서는 레코드를 설명하며 샘플 쿼리가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 6b5e88e8de1f88a738fdfbb60678909d20e72863
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 07ff7a65f6f4ed0865a45e92288caa362051fd20
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187202"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428023"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>컨테이너 인사이트에서 로그를 쿼리하는 방법
 
@@ -44,8 +44,8 @@ ContainerInventory
 ### <a name="kubernetes-events"></a>kubernetes 이벤트
 
 ``` kusto
-KubeEvents_CL
-| where not(isempty(Namespace_s))
+KubeEvents
+| where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
 ```

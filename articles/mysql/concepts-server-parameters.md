@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 709732e996e0ffda7c3ae7f2f1199522c0b22e51
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 0aeaf068de0bdcc06deb3e28575047b459b56b27
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256618"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426115"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -85,7 +85,7 @@ Azure Database for MySQL에서 이진 로그는 항상 사용하도록 설정됩
 |메모리 최적화|16|65498251264|134217728|65498251264|
 |메모리 최적화|32|132070244352|134217728|132070244352|
 
-#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-16-tb"></a>[범용 스토리지 v1의 서버(최대 16TB 지원)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
+#### <a name="servers-on-general-purpose-storage-v2-supporting-up-to-16-tb"></a>[범용 저장소 v2의 서버 (최대 16TB 지원)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**가격 책정 계층**|**vCore**|**기본값(바이트)**|**최솟값(바이트)**|**최댓값(바이트)**|
 |---|---|---|---|---|

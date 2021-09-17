@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7939384efc92baf41eaf485937e38f7ba675f674
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014845"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437457"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
@@ -234,7 +234,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 ## <a name="related-topics"></a>관련 항목
 [권장 온-프레미스 인코더](media-services-recommended-encoders.md)
 
-[Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services 개요 및 일반적인 시나리오](media-services-overview.md)
 

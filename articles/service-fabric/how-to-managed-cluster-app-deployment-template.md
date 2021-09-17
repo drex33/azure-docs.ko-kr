@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure Service Fabric 관리�
 ms.topic: how-to
 ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2f2f47e9cdcef54be9c78513fbb57cd20ddde5f
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 4e981e58cd5efb1430ab35772ab84428f7482977
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864779"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434523"
 ---
 # <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 관리형 클러스터에서 애플리케이션 수명 주기 관리
 
@@ -84,14 +84,14 @@ Resource Manager 템플릿에서 애플리케이션을 배포하려면 스토리
 
 ### <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 
-샘플 애플리케이션에는 애플리케이션을 배포하는 데 사용할 수 있는 [Azure Resource Manager 템플릿](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)이 포함되어 있습니다. 템플릿 파일 이름은 *UserApp.json* 및 *UserApp.Parameters.json* 입니다.
+샘플 애플리케이션에는 애플리케이션을 배포하는 데 사용할 수 있는 [Azure Resource Manager 템플릿](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM-Managed-Cluster)이 포함되어 있습니다. 템플릿 파일 이름은 *UserApp.json* 및 *UserApp.Parameters.json* 입니다.
 
 > [!NOTE]
 > *UserApp.Parameters.json* 파일은 클러스터의 이름을 사용하여 업데이트해야 합니다.
 >
 >
 
-| 매개 변수              | 설명                                 | 예제                                                      | 주석                                                     |
+| 매개 변수              | Description                                 | 예제                                                      | 주석                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 배포하는 클러스터의 이름 | sf-cluster123                                                |                                                              |
 | 애플리케이션            | 애플리케이션의 이름                 | Voting                                                       |
@@ -143,7 +143,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 다음과 같은 이유 중 하나로 Service Fabric 클러스터에 이미 배포된 애플리케이션을 업그레이드할 수 있습니다.
 
-* 새 서비스가 애플리케이션에 추가됩니다. 서비스가 애플리케이션에 추가되는 경우 *service-manifest.xml* 및 *application-manifest.xml* 파일에 서비스 정의를 추가해야 합니다. 또한 애플리케이션의 새 버전을 반영하려면 애플리케이션 유형 버전을 [UserApp.Parameters.js](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json)의 1.0.0에서 1.0.1로 변경해야 합니다.
+* 새 서비스가 애플리케이션에 추가됩니다. 서비스가 애플리케이션에 추가되는 경우 *service-manifest.xml* 및 *application-manifest.xml* 파일에 서비스 정의를 추가해야 합니다. 또한 애플리케이션의 새 버전을 반영하려면 애플리케이션 유형 버전을 [UserApp.Parameters.js](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM-Managed-Cluster/UserApp.Parameters.json)의 1.0.0에서 1.0.1로 변경해야 합니다.
 
     ```json
     "applicationTypeVersion": {

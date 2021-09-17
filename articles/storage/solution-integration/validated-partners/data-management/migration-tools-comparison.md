@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 63796f3e569849227dd4fa9c2396f3b052540586
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: d266f059869bb0f25df10dcc4fad317d3d3da7c3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529675"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426709"
 ---
 # <a name="comparison-matrix"></a>비교 행렬
 
@@ -26,8 +26,8 @@ ms.locfileid: "122529675"
 | **Azure Files 지원(모든 계층)** | 예                          | 예                      | 예            | 예                            |
 | **Azure NetApp Files 지원**      | 아니요                           | 예                      | 예            | 예                            |
 | **Azure Blob 핫/쿨 지원**   | No                           | 예(NFS 미리 보기를 통해)    | 예            | 예                            |
-| **Azure Blob 보관 계층 지원** | 아니요                           | 아니요                       | 아니요             | 예(마이그레이션 대상으로) |
-| **Azure Data Lake Storage 지원** | 아니요                           | 아니요                       | 아니요             | 아니요                             |
+| **Azure Blob 보관 계층 지원** | 아니요                           | 예                       | 아니요             | 예(마이그레이션 대상으로) |
+| **Azure Data Lake Storage 지원** | 아니요                           | 예                       | 예             | 아니요                             |
 | **지원되는 원본**      | Windows Server 2012 R2 이상 | NAS 및 클라우드 파일 시스템 | 모든 NAS 및 S3 | NAS, Blob, S3                  |
 
 ## <a name="supported-protocols-source--destination"></a>지원되는 프로토콜(원본/대상)
@@ -39,8 +39,8 @@ ms.locfileid: "122529675"
 | **SMB 3.0**       | 예 | 예 | 예 | 예 |
 | **SMB 3.1**       | 예 | 예 | 예 | 예 |
 | **NFS v3**        | 아니요  | 예 | 예 | 예 |
-| **NFS v4.1**      | 아니요  | 예 | 아니요  | 예 |
-| **Blob REST API** | 아니요  | 아니요  | 예 | 예 |
+| **NFS v4.1**      | 아니요  | 예 | 예  | 예 |
+| **Blob REST API** | 아니요  | 예  | 예 | 예 |
 | **S3**            | 아니요  | 예 | 예 | 예 |
 
 ## <a name="extended-features"></a>확장된 기능
@@ -49,27 +49,27 @@ ms.locfileid: "122529675"
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **솔루션 이름**  | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **UID/SID 다시 매핑**                   | 아니요  | 예                        | 예 | 아니요                             |
-| **프로토콜 ACL 다시 매핑**                | 아니요  | 아니요                         | 아니요  | 아니요                             |
+| **프로토콜 ACL 다시 매핑**                | 아니요  | 예                         | 예  | 아니요                             |
 | **DFS 지원**                           | 예 | 예                        | 예 | 예                            |
 | **제한 지원**                    | 예 | 예                        | 예 | 예                            |
 | **파일 패턴 제외**               | 아니요  | 예                        | 예 | 예(복사 기능 사용) |
 | **선택적 파일 특성에 대한 지원** | 예 | 예                        | 예 | 예(확장된 특성의 경우)  |
 | **전파 삭제**                   | 예 | 예                        | 예 | 예                            |
-| **NTFS 분기 동기화 팔로우**                 | 아니요  | 예                        | 아니요  | 예                            |
+| **NTFS 분기 동기화 팔로우**                 | 아니요  | 예                        | 예  | 예                            |
 | **SMB 소유자 및 그룹 소유자 재정의**    | 예 | 예                        | 예 | 아니요                             |
-| **관리 연속성 보고**            | 아니요  | 예                        | 아니요  | 예                            |
+| **관리 연속성 보고**            | 아니요  | 예                        | 예  | 예                            |
 | **대체 데이터 스트림 지원**    | 아니요  | 예                        | 예 | 아니요                             |
 | **마이그레이션 예약**              | 아니요  | 예                        | 예 | 예                            |
-| **ACL 유지**                        | 아니요  | 예                        | 예 | 예                            |
+| **ACL 유지**                        | 예  | 예                        | 예 | 예                            |
 | **DACL 지원**                          | 예 | 예                        | 예 | 예                            |
 | **SACL 지원**                          | 예 | 예                        | 예 | 아니요                             |
 | **액세스 시간 유지**                | 예 | 예                        | 예 | 예                            |
 | **수정된 시간 유지**              | 예 | 예                        | 예 | 예                            |
-| **만든 시간 유지**              | 아니요  | 예                        | 예 | 예                            |
-| **Azure Data Box 지원**       | 예 | 예                        | 아니요  | 아니요                             |
+| **만든 시간 유지**              | 예  | 예                        | 예 | 예                            |
+| **Azure Data Box 지원**       | 예 | 예                        | 예  | 아니요                             |
 | **스냅샷의 마이그레이션**                | 예  | 설명서                     | 예 | 아니요                             |
-| **바로 가기 링크 지원**                 | 아니요  | 예                        | 아니요  | 예                            |
-| **하드 링크 지원**                     | No  | 별도 파일로 마이그레이션 | 예 | 예                            |
+| **바로 가기 링크 지원**                 | 아니요  | 예                        | 예  | 예                            |
+| **하드 링크 지원**                     | 예  | 별도 파일로 마이그레이션 | 예 | 예                            |
 | **열기/잠금 파일 지원**       | 예 | 예                        | 예 | 예                            |
 | **증분 마이그레이션**                 | 예 | 예                        | 예 | 예                            |
 | **전환 지원**                    | 아니요  | 예                        | 예 | 아니요(수동 전용)               |
@@ -86,7 +86,7 @@ ms.locfileid: "122529675"
 | **액세스 시간**                     | 아니요      | 예 | 예 | 예            |
 | **수정된 시간**                   | 아니요      | 예 | 예 | 예            |
 | **만든 시간**                   | 아니요      | 예 | 예 | 예            |
-| **파일/개체 보고서 상태별** | Partial | 예 | 예 | 예            |
+| **파일/개체 보고서 상태별** | 부분 | 예 | 예 | 예            |
 
 ## <a name="licensing"></a>라이선싱
 
@@ -101,6 +101,9 @@ ms.locfileid: "122529675"
 ### <a name="azure-file-sync"></a>Azure 파일 동기화
 
 - 내부 해시 유효성 검사
+
+> [!TIP]
+> Azure 파일 동기화은 다양 한 Azure 파일 공유의 온-프레미스 캐싱/동기화를 위한 영구적인 하이브리드 솔루션입니다. 이 함수는 가동 중지 시간이 없는 클라우드 마이그레이션을 제공 합니다. Azure 파일 공유를 온-프레미스로 캐시 하지 않으려는 경우에는 Azure 파일 동기화 권장 되지 않는 마이그레이션 도구가 아닙니다. [Azure 파일 공유 마이그레이션 개요](../../../files/storage-files-migration-overview.md) 또는 이 문서에 설명된 다른 파트너 도구를 참조하세요.
 
 ### <a name="datadobi-dobimigrate"></a>Datadobi DobiMigrate
 

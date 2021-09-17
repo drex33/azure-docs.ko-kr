@@ -8,12 +8,12 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e795f01b198ee2daf16a2321a4a02b2c06dbac1a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 88d9ceedffffc3b1ab1b4c00e04f6fbbfe2654a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122767809"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433245"
 ---
 # <a name="overview-of-the-guest-configuration-extension"></a>게스트 구성 확장 개요
 
@@ -93,7 +93,7 @@ Linux용 확장을 배포하려면 다음을 수행합니다.
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforLinux')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -115,7 +115,7 @@ Windows용 확장을 배포하려면 다음을 수행합니다.
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -127,6 +127,50 @@ Windows용 확장을 배포하려면 다음을 수행합니다.
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
+  }
+}
+```
+
+### <a name="bicep"></a>Bicep
+
+Linux용 확장을 배포하려면 다음을 수행합니다.
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforLinux'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforLinux'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
+  }
+}
+```
+
+Windows용 확장을 배포하려면 다음을 수행합니다.
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforWindows'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforWindows'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {}
+    protectedSettings: {}
   }
 }
 ```

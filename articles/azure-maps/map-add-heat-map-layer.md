@@ -1,20 +1,18 @@
 ---
 title: 지도에 열 지도 계층 추가 | Microsoft Azure Maps
 description: 열 지도를 만드는 방법을 알아봅니다. Azure Maps Web SDK를 사용하여 지도에 열 지도 계층을 추가하는 방법을 알아봅니다. 열 지도 계층을 사용자 지정하는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0145460746665756f007c50845a279743dc60ae1
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 181cd714f85195157b767062cac99caadd32e817
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666323"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432759"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -60,7 +58,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='단순 열 지도 계층' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>단순 열 지도 계층</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='단순 열 지도 계층' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>단순 열 지도 계층</a>을 참조하세요.
 </iframe>
 
 ## <a name="customize-the-heat-map-layer"></a>열 지도 계층 사용자 지정
@@ -89,7 +87,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 <br/>
 
-<iframe height='700' scrolling='no' title='열 지도 계층 옵션' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>열 지도 계층 옵션</a>을 참조하세요.
+<iframe height='700' scrolling='no' title='열 지도 계층 옵션' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>열 지도 계층 옵션</a>을 참조하세요.
 </iframe>
 
 ## <a name="consistent-zoomable-heat-map"></a>일관된 확대/축소가 가능한 열 지도
@@ -102,11 +100,11 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="일관된 확대/축소가 가능한 열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="일관된 확대/축소가 가능한 열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>일관된 확대/축소가 가능한 열 지도</a>를 참조하세요.
 </iframe>
 
-`zoom` 식은 `step` 및 `interpolate` 식에서만 사용할 수 있습니다. 다음 식을 사용하여 반경을 미터 단위로 근사할 수 있습니다. 이 식은 원하는 반경으로 바꿔야 하는 자리 표시자 `radiusMeters`를 사용합니다. 이 식은 확대/축소 수준 0 및 24의 적도에서 확대/축소 수준에 대한 대략적인 픽셀 반경을 계산하고 맵의 타일링 시스템이 작동하는 것과 동일한 방식으로 이러한 값 사이의 배율을 조정하기 위해 `exponential interpolation` 식을 사용합니다.
+`zoom` 식은 `step` 및 `interpolate` 식에서만 사용할 수 있습니다. 다음 식을 사용하여 반경을 미터 단위로 근사할 수 있습니다. 이 식은 원하는 반경으로 바꿔야 하는 자리 표시자 `radiusMeters`를 사용합니다. 이 식은 확대/축소 수준 0 및 24의 적도에서 확대/축소 수준에 대한 대략적인 픽셀 반경을 계산하고, 지도의 타일링 시스템이 작동하는 것과 동일한 방식으로 이러한 값 사이의 배율을 조정하기 위해 `exponential interpolation` 식을 사용합니다.
 
 ```json
 [

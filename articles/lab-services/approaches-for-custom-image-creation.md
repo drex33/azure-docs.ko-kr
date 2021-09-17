@@ -3,12 +3,12 @@ title: Azure Lab Services - 랩에 대한 사용자 지정 이미지를 만드�
 description: 랩에 대한 사용자 지정 이미지를 만드는 방법에 대해 설명합니다.
 ms.date: 07/27/2021
 ms.topic: article
-ms.openlocfilehash: 94a86ab6668300d736d17e52aaeaa0e615adf637
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 621456c910b5137ed14a77d8d2cfeb9664910fa9
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829193"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450649"
 ---
 # <a name="recommended-approaches-for-creating-custom-images"></a>사용자 지정 이미지를 만들기 위한 권장 방법
 이 문서에서는 사용자 지정 이미지를 만들기 위한 다음과 같은 권장 방법을 설명합니다.
@@ -52,8 +52,9 @@ Azure VM에서 사용자 지정 이미지를 가져오는 고급 단계는 다�
 
 1. Windows 또는 Linux Marketplace 이미지를 사용하여 [Azure VM](https://azure.microsoft.com/services/virtual-machines/)을 만듭니다.
 1. Azure VM에 연결하고 추가 소프트웨어를 설치합니다. 랩에 필요한 다른 사용자 지정을 만들 수도 있습니다.
-1. 이미지 설정을 마쳤으면 [VM의 이미지를 공유 이미지 갤러리에 저장](../virtual-machines/image-version-vm-powershell.md)합니다. 이 단계의 일부로 이미지 정의와 버전도 만들어야 합니다.
+1. 이미지 설정을 마쳤으면 [VM의 이미지를 공유 이미지 갤러리에 저장](../virtual-machines/image-version.md)합니다. 이 단계의 일부로 이미지 정의와 버전도 만들어야 합니다.
 1. 사용자 지정 이미지가 갤러리에 저장된 후 이미지를 사용하여 새 랩을 만들 수 있습니다. 
+
 
 단계는 사용자 지정 Windows 또는 Linux 이미지를 만드는지 여부에 따라 달라집니다. 자세한 단계는 다음 문서를 참조하세요.
 

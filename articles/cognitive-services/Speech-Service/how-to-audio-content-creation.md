@@ -3,19 +3,19 @@ title: 오디오 콘텐츠 만들기 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 오디오 콘텐츠 만들기는 앱 및 제품에 대한 Microsoft의 텍스트-음성 변환 출력을 사용자 지정하고 미세 조정할 수 있는 온라인 도구입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: lajanuar
-ms.openlocfilehash: 087459b5831aa69c6e30e1dbe824d1902facbc2d
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 2e5942ccbb9e7acf090e5b538dfbb70b1c84762f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539050"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538636"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 만들기 도구를 사용한 합성 향상
 

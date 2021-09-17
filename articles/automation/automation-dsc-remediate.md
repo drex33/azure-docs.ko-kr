@@ -9,16 +9,16 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: 98164c20af2a5d6ae7ccac43331a2876c23ccfb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e7988f8b72a6621897c656e12595a3fe68665535
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500175"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429841"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>비규격 Azure Automation 상태 구성 서버 재구성
 
-서버가 Azure Automation 상태 구성에 등록되면 구성 모드는 `ApplyOnly`, `ApplyandMonitor` 또는 `ApplyAndAutoCorrect`로 설정됩니다. 모드가 `ApplyAndAutoCorrect`로 설정되어 있지 않은 경우 어떤 이유로든 규격 상태에서 드리프트한 서버는 수동으로 수정될 때까지 비규격 상태로 유지됩니다.
+서버가 Azure Automation 상태 구성에 등록되면 구성 모드는 `ApplyOnly`, `ApplyAndMonitor` 또는 `ApplyAndAutoCorrect`로 설정됩니다. 모드가 `ApplyAndAutoCorrect`로 설정되어 있지 않은 경우 어떤 이유로든 규격 상태에서 드리프트한 서버는 수동으로 수정될 때까지 비규격 상태로 유지됩니다.
 
 Azure 컴퓨팅은 고객이 가상 머신 내에서 스크립트를 실행할 수 있도록 하는 Run Command라는 기능을 제공합니다.
 이 문서에서는 구성 드리프트를 수동으로 수정할 때 이 기능에 대한 예제 스크립트를 제공합니다.

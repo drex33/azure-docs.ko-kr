@@ -3,17 +3,25 @@ title: Mobility Service 및 어플라이언스 구성 요소 업그레이드 - �
 description: 이 문서에서는 모바일 에이전트의 자동 업데이트 및 수동 업데이트 - 미리 보기와 관련된 절차에 대해 설명합니다.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: 3f9b29eedb5e379bf13657e3619c498ccec90e7e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 97cfba3e14268385632a47a5898b21e8d68811cb
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568254"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539734"
 ---
 # <a name="upgrade-mobility-service-and-appliance-components-preview"></a>Mobility Service 및 어플라이언스 구성 요소 업그레이드(미리 보기)
 
+이 미리 보기에서는 업그레이드를 수행하기 위해 원본 컴퓨터의 루트/관리자 자격 증명을 유지 관리하지 않아도 됩니다. 자격 증명은 에이전트의 초기 설치에만 필요합니다. 완료되면 자격 증명을 제거할 수 있습니다.
+
+
+## <a name="update-mobility-agent-automatically"></a>모바일 에이전트를 자동으로 업데이트
+
 기본적으로 자동 업데이트는 자격 증명 모음에서 사용하도록 설정됩니다. 자동 업데이트는 새 버전을 사용할 수 있는 경우 현지 시간으로 매일 오전 12시에 트리거됩니다.
+
+> [!NOTE]
+> 비공개 미리 보기 비트를 사용하는 경우 보호된 컴퓨터에 대한 자동 업데이트가 차단됩니다. 최신 미리 보기 어플라이언스를 사용하여 컴퓨터에서 Site Recovery를 다시 설정했는지 확인합니다.
 
 최신 기능, 향상된 기능 및 수정 사항을 사용하려면 **모바일 에이전트 업그레이드 설정(미리 보기)** 에서 **Site Recovery에서 관리하도록 허용** 옵션을 선택하는 것이 좋습니다. 자동 업데이트는 다시 부팅할 필요가 없고 진행 중인 가상 머신의 복제에 영향을 주지 않습니다. 또한 자동 업데이트는 자격 증명 모음에 있는 모든 복제 어플라이언스를 자동으로 업데이트하도록 합니다.
 
@@ -23,8 +31,6 @@ ms.locfileid: "122568254"
 
 ![모바일 에이전트의 자동 업데이트](./media/upgrade-mobility-service-preview/automatic-updates-off.png)
 
-> [!NOTE]
-> 비공개 미리 보기 비트를 사용하는 경우 보호된 컴퓨터에 대한 자동 업데이트가 차단됩니다. 최신 미리 보기 어플라이언스를 사용하여 컴퓨터에서 Site Recovery를 다시 설정했는지 확인합니다.
 
 ## <a name="update-mobility-agent-manually"></a>모바일 에이전트 수동 업데이트
 

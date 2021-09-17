@@ -1,20 +1,20 @@
 ---
-title: Android maps에 다각형 계층 추가 | Microsoft Azure 맵
-description: 지도에 다각형 또는 원을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 기하학적 모양을 사용자 지정 하 고 쉽게 업데이트 하 고 유지 관리할 수 있도록 하는 방법을 참조 하세요.
-author: rbrundritt
-ms.author: richbrun
+title: Android maps에 다각형 계층 추가 | Microsoft Azure 지도
+description: 맵에 다각형 또는 원을 추가하는 방법을 알아봅니다. Azure Maps Android SDK를 사용 하 여 기하학적 모양을 사용자 지정 하 고 쉽게 업데이트 하 고 유지 관리할 수 있도록 하는 방법을 참조 하세요.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 68d68424e71bcf60bf504ae174b84b9c361b8637
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5659e366fd5c949ea374768bf848313d747896d2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097264"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425856"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>지도에 다각형 계층 추가 (Android SDK)
 
@@ -22,7 +22,7 @@ ms.locfileid: "102097264"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
+[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다. 이 문서의 코드 블록은 맵 `onReady` 이벤트 처리기에 삽입할 수 있습니다.
 
 ## <a name="use-a-polygon-layer"></a>다각형 계층 사용
 

@@ -10,14 +10,16 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4a3d1e8b1eb1c3a959e9f48e0c46379d6162644
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
-ms.translationtype: HT
+ms.openlocfilehash: fd6a1cf2cae56bf2d10fe4075caed019e2e72b7e
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653047"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452252"
 ---
 # <a name="export-an-image-version-to-a-managed-disk"></a>관리 디스크로 이미지 버전 내보내기
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 공유 이미지 갤러리에 저장된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로서 내보낼 수 있습니다.
 
@@ -118,6 +120,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](image-version-managed-image-cli.md) 또는 [PowerShell](image-version-managed-image-powershell.md)을 사용하여 관리 디스크에서 이미지 버전을 만들 수도 있습니다.
+관리 디스크에서 [이미지 버전](image-version.md) 을 만들 수도 있습니다.
 
 

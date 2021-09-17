@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.service: backup
-ms.openlocfilehash: 57a0002d353ebb75570dc3b70c55d2f17f70db35
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 72e2ce2c32a1be1e6f116ef5513c1c24a42284bc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472477"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438198"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -45,7 +45,7 @@ ms.locfileid: "110472477"
 - 모든 [확장 문제](../virtual-machines/extensions/overview.md#troubleshoot-extensions)가 해결되었는지 확인하고 백업 작업을 다시 시도합니다.
 - **COM+ 시스템 애플리케이션** 이 실행 중인지 확인합니다. 또한 **DTC(Distributed Transaction Coordinator) 서비스** 가 **네트워크 서비스 계정** 으로 실행 중이어야 합니다. 이 문서의 단계에 따라 [COM+ 및 MSDTC 문제를 해결](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)합니다.
 
-### <a name="step-4-check-azure-backup-vm-extension-health"></a>4단계: Azure 백업 VM 확장 상태 확인
+### <a name="step-4-check-azure-backup-extension-health"></a>4 단계: Azure Backup 확장 상태 확인
 
 Azure Backup은 VM 스냅샷 확장을 사용하여 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Azure Backup은 백업을 사용하도록 설정한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다.
 
@@ -219,7 +219,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 

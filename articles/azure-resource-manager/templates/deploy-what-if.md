@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5e06d8dc5f7a7269cf2bb294663965b3cf2c0094
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 73ff2c609438ead1e1fa42468e97be801a76e7e2
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963428"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450290"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM 템플릿 배포 가상 작업
 
@@ -151,7 +151,7 @@ REST API의 경우 다음을 사용합니다.
 PowerShell 배포 명령의 경우 `-WhatIfResultFormat` 매개 변수를 사용합니다. 프로그래매틱 개체 명령에서 `ResultFormat` 매개 변수를 사용합니다.
 
 Azure CLI의 경우 `--result-format` 매개 변수를 사용합니다.
- 
+
 다음 결과는 두 가지 출력 형식을 보여 줍니다.
 
 - 전체 리소스 페이로드
@@ -321,7 +321,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 ## <a name="confirm-deletion"></a>삭제 확인
 
-[배포 모드](deployment-modes.md)를 사용하는 가상 작업 지원. 전체 모드로 설정된 경우 템플릿에 없는 리소스는 삭제됩니다. 다음 예제에서는 전체 모드에서 [정의된 리소스가 없는 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json)을 배포합니다.
+[배포 모드](deployment-modes.md)를 사용하는 가상 작업 지원. 전체 모드로 설정된 경우 템플릿에 없는 리소스는 삭제됩니다. 다음 예제에서는 전체 모드에서 [정의된 리소스가 없는 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/azuredeploy.json)을 배포합니다.
 
 템플릿을 배포하기 전에 변경 내용을 미리 보려면 배포 명령에서 confirm switch 매개 변수를 사용합니다. 예상대로 변경되면 배포를 완료하도록 응답합니다.
 
@@ -332,7 +332,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -Mode Complete `
   -Confirm `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -342,7 +342,7 @@ az deployment group create \
   --resource-group ExampleGroup \
   --mode Complete \
   --confirm-with-what-if \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 ---

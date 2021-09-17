@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/31/2021
-ms.openlocfilehash: e76493aa83383e4ce59da77cfb0ce050475ad303
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 85bf8c07da9d283011d17f1f96ad76e0fa411213
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529406"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535314"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스(미리 보기)를 사용하여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -393,6 +393,7 @@ LRS의 기능 제한 사항은 다음과 같습니다.
 - LRS를 사용하려면 `CHECKSUM` 옵션이 사용 설정된 상태에서 SQL Server의 데이터베이스가 백업되어야 합니다.
 - LRS에서 사용할 SAS 토큰은 전체 Azure Blob Storage 컨테이너에 대해 생성되어야 하며, 읽기 및 나열 권한만 있어야 합니다.
 - 서로 다른 데이터베이스에 대한 백업 파일은 Blob Storage에서 별도의 폴더에 있어야 합니다.
+- 파일 이름 에% 및 $ 문자를 포함 하는 백업 파일은 LRS에서 사용할 수 없습니다. 이러한 파일 이름 이름을 바꾸는 것이 좋습니다.
 - Blob Storage에서 백업 파일이 포함된 별도의 폴더를 가리키는 각 데이터베이스에 대해 LRS를 별도로 시작해야 합니다.
 - LRS는 단일 관리되는 인스턴스당 최대 100개의 동시 복원 프로세스를 지원할 수 있습니다.
 

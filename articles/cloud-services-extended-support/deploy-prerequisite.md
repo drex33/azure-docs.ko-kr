@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f21dc3251a64a3a432320e1d7a1f64abc124b61e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a97d855730a67111f66d201b6ca177975540d535
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537203"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427888"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 필수 구성 요소
 
@@ -76,19 +76,19 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 
 | 이전 크기 이름 | 업데이트된 크기 이름 | 
 |---|---|
-| 매우 작음 | Standard_A0 | 
-| Small | Standard_A1 |
-| 중간 | Standard_A2 | 
-| 대형 | Standard_A3 | 
-| 매우 큼 | Standard_A4 | 
-| A5 | Standard_A5 | 
-| A6 | Standard_A6 | 
-| A7 | Standard_A7 |  
-| A8 | Standard_A8 | 
-| A9 | Standard_A9 |
-| A10 | Standard_A10 | 
-| A11 | Standard_A11 | 
-| MSODSG5 | Standard_MSODSG5 | 
+| 매우 작음 | Standard_A1_v2 | 
+| 소 | Standard_A1_v2 |
+| 중간 | Standard_A2_v2 | 
+| 대 | Standard_A4_v2 | 
+| 매우 큼 | Standard_A8_v2 | 
+| A5 | Standard_A2m_v2 | 
+| A6 | Standard_A4m_v2 | 
+| A7 | Standard_A8m_v2 |  
+| A8 | 사용되지 않음 | 
+| A9 | 사용되지 않음 |
+| A10 | 사용되지 않음 | 
+| A11 | 사용되지 않음 | 
+| MSODSG5 | 사용되지 않음 | 
 
  예를 들어 `<WorkerRole name="WorkerRole1" vmsize="Medium"`는 `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`가 됩니다.
  

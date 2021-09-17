@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Power BI 시각적 개체의 계층 이해 | Microsoft Azure Maps
 description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체에서 사용할 수 있는 다양한 계층에 대해 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6014bbf5ed5f3600bc79d5083f5fcc85d323acd5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86261846"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428905"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체의 계층 이해
 
@@ -89,7 +89,7 @@ Azure Maps 시각적 개체에서 사용할 수 있는 계층에는 두 가지 �
 > [!div class="nextstepaction"]
 > [가로 막대형 차트 레이어 추가](power-bi-visual-add-bar-chart-layer.md)
 
-지도에 컨텍스트 추가:
+맵에 컨텍스트 추가:
 
 > [!div class="nextstepaction"]
 > [참조 레이어 추가](power-bi-visual-add-reference-layer.md)

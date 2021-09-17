@@ -4,15 +4,15 @@ description: 공유 책임 모델에 명시된 대로 보안 의무를 충족하
 author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 09dbe0fbefb8b90b4c4e1ddef57abf3b13856183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 452c0479834ab7929696af2c95454662adfecfab
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148085"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538330"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대한 보안 권장 사항
 
@@ -56,7 +56,7 @@ ms.locfileid: "92148085"
 
 | 권장 | 주석 |
 |-|-|
-|Azure Security Center 표준 계층 사용 | [Azure Security Center](../security-center/defender-for-app-service-introduction.md)는 기본적으로 Azure App Service와 통합됩니다. 평가를 실행하고 보안 권장 사항을 제공할 수 있습니다. |
+|App Service Azure Security Center Azure Defender 사용 | [App Service 대한 Azure Defender](../security-center/defender-for-app-service-introduction.md) 기본적으로 Azure App Service 통합됩니다. Security Center App Service 계획에서 다루는 리소스를 평가하고 해당 결과에 따라 보안 권장 사항을 생성합니다. [이러한 권장 사항의]()자세한 지침을 사용합니다. /security-center/recommendations-reference.md#appservices-recommendations)를 사용하여 App Service 리소스를 강화합니다. 또한 Azure Defender 위협 방지 기능을 제공하며, 사전 공격부터 명령 및 제어까지 거의 모든 MITRE ATT&CK 전술 목록을 포함하는 다양한 위협을 검색할 수 있습니다. Azure App Service 경고의 전체 목록은 [App Service 경고에 대한 Azure Defender 참조하세요.](../security-center/alerts-reference.md#alerts-azureappserv)|
 
 ## <a name="next-steps"></a>다음 단계
 

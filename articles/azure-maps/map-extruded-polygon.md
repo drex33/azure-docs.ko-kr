@@ -1,44 +1,42 @@
 ---
-title: 지도에 다각형 입체 면 계층 추가 | Microsoft Azure 맵
-description: 다각형 밀어내기 계층을 Microsoft Azure Maps 웹 SDK에 추가 하는 방법입니다.
+title: 지도에 다각형 입체 면 계층 추가 | Microsoft Azure 지도
+description: 다각형 밀어내기 계층을 Microsoft Azure 지도 웹 SDK에 추가 하는 방법
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a3e357395cf75456545dfa77414c901aaebc06c0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044088"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432633"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
-이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능 기 하 도형을 입체 도형으로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 된 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 렌더링을 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 될 수 있습니다. 모든 기능 기 하 도형은 atlas로 래핑할 때 쉽게 업데이트할 수 있습니다 [. Shape](/javascript/api/azure-maps-control/atlas.shape) 클래스입니다.
+이 문서에서는 다각형 입체 계층을 사용하여 `Polygon` 및 `MultiPolygon` 기능 기하 도형을 입체 도형으로 렌더링하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 된 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 렌더링을 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 될 수 있습니다. 모든 기능 기 하 도형은 atlas로 래핑할 때 쉽게 업데이트할 수 있습니다 [. Shape](/javascript/api/azure-maps-control/atlas.shape) 클래스입니다.
 
-## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용
+## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 계층 사용
 
-[다각형 입체 면 계층](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) 을 데이터 원본에 연결 합니다. 그런 다음 맵에 로드 합니다. 다각형 입체 면 계층은 및 기능의 영역을 `Polygon` `MultiPolygon` 입체 도형으로 렌더링 합니다. `height` `base` 다각형 입체 면 계층의 및 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터** 단위로 정의 합니다. 다음 코드에서는 다각형을 만들고 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
+[다각형 밀어내기 계층](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) 을 데이터 원본으로 커넥트 합니다. 그런 다음 맵에 로드합니다. 다각형 입체 계층은 `Polygon` 및 `MultiPolygon` 기능의 영역을 입체 도형으로 렌더링합니다. 다각형 입체 계층의 `height` 및 `base` 속성은 **미터** 단위로 지면에서 입체 도형까지의 기본 거리를 정의합니다. 다음 코드에서는 다각형을 만들어 데이터 원본에 추가하고 다각형 입체 계층 클래스를 사용하여 렌더링하는 방법을 보여 줍니다.
 
 > [!Note]
-> `base`다각형 입체 면 계층에 정의 된 값은의 값 보다 작거나 같아야 합니다 `height` .
+> 다각형 입체 계층에 정의된 `base` 값은 `height`의 값보다 작거나 같아야 합니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="돌출 다각형" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="돌출 다각형" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>돌출 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a></iframe>
 
 ## <a name="add-data-driven-polygons"></a>데이터 중심 다각형 추가
 
-다각형 입체 면 레이어를 사용 하 여 choropleth 지도를 렌더링할 수 있습니다. `height` `fillColor` 밀어내기 계층의 및 속성을 `Polygon` 및 기능 기 하 도형에서 통계 변수의 측정으로 설정 합니다 `MultiPolygon` . 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 미국의 돌출 된 choropleth 지도를 보여 줍니다.
+다각형 입체 계층을 사용하여 단계구분도 지도를 렌더링할 수 있습니다. 입체 계층의 `height` 및 `fillColor` 속성을 `Polygon` 및 `MultiPolygon` 기능 기하 도형의 통계 변수 측정값으로 설정합니다. 다음 코드 샘플은 상태별 인구 밀도의 측정값을 기반으로 하는 미국의 입체 단계구분도 지도를 보여 줍니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="돌출 choropleth 지도" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="돌출 choropleth 지도" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>돌출 choropleth map</a> 을 참조 하십시오 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
@@ -64,8 +62,8 @@ Azure Maps 웹 SDK는 이러한 `Point` 기능을 내부적으로 기능으로 �
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="드 론 어 스페이스 다각형" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone에 어 스페이스 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
+<iframe height="500" scrolling="no" title="드 론 어 스페이스 다각형" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>drone에 어 스페이스 다각형</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용자 지정
@@ -74,7 +72,7 @@ CodePen의 Azure Maps ()을 통해 펜 <a href='https://codepen.io/azuremaps/pen
 
 <br/>
 
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

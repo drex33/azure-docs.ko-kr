@@ -3,22 +3,22 @@ title: 음성 번역 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 음성을 번역하는 방법을 알아봅니다. 이 빠른 시작에서는 개체 생성, 지원되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: 음성 번역
-ms.openlocfilehash: 05a71ed2a72c6df673b530468551ea03fcce63bf
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: d8975ace10d21be7e8520c7d554652cfe09e740c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567564"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542688"
 ---
 # <a name="get-started-with-speech-translation"></a>음성 번역 시작
 

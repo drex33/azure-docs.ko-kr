@@ -11,14 +11,14 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 08139501886f580033aae46bdabd55ed300c5059
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: bf579687f728739eb3f597bd3d02a8190d8c88b4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710011"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435945"
 ---
-# <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대한 Python 패키지 확장성(미리 보기)
+# <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대 한 Python 패키지 확장성 (미리 보기)
 
 [모델 유추용으로 미리 빌드된 Docker 이미지](concept-prebuilt-docker-images-inference.md)에는 많이 사용되는 기계 학습 프레임워크용 패키지가 포함되어 있습니다. __Docker 이미지를 다시 빌드하지 않고__ Python 패키지를 추가하는 데 사용할 수 있는 두 가지 방법이 있습니다.
 

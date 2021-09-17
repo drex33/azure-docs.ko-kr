@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Power BI 시각적 개체에 타일 레이어 추가 | Microsoft Azure Maps
 description: 이 문서에서는 Power BI에 대한 Microsoft Azure Maps 시각적 개체에서 타일 레이어를 사용하는 방법에 대해 설명합니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 1aee3c8213221775e3fde21003055fd9cc973455
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 0edb31901950da22c321af2d6c41966465f916f9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669354"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430417"
 ---
 # <a name="add-a-tile-layer"></a>타일 레이어 추가
 

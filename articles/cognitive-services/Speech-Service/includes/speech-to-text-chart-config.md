@@ -3,25 +3,25 @@ title: Speech 컨테이너 설치
 titleSuffix: Azure Cognitive Services
 description: speech-to-text helm 차트 구성 옵션을 자세히 설명합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: lajanuar
-ms.openlocfilehash: 3181702921e0673a5b707cd0564d08a9c30bc1dd
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 0726b01ea082df91d426a66d36f7ad5f83babba4
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122261228"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646613"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성 텍스트 변환(하위 차트: charts/speechToText)
 
 “Umbrella” 차트를 재정의하려면 매개 변수에 `speechToText.` 접두사를 추가하여 더 구체화합니다. 예를 들어, `speechToText.numberOfConcurrentRequest`가 `numberOfConcurrentRequest`를 재정의하는 것처럼 해당 매개 변수를 재정의합니다.
 
-|매개 변수|설명|기본값|
+|매개 변수|Description|기본값|
 | -- | -- | -- |
 | `enabled` | **speech-to-text** 서비스 사용 여부를 나타냅니다. | `false` |
 | `numberOfConcurrentRequest` | **speech-to-text** 서비스의 동시 요청 수입니다. 이 차트는 해당 값에 따라 CPU 및 메모리 리소스를 자동으로 계산합니다. | `2` |
@@ -45,7 +45,7 @@ ms.locfileid: "122261228"
 
 speech-to-text 컨테이너의 v2.2.0 및 Helm 차트의 v0.2.0부터 다음 매개 변수가 Text Analytics API를 통해 감정 분석에 사용됩니다.
 
-|매개 변수|설명|값|기본값|
+|매개 변수|Description|값|기본값|
 | --- | --- | --- | --- |
 |`textanalytics.enabled`| **text-analytics** 서비스 사용 여부를 나타냅니다.| true/false| `false`|
 |`textanalytics.image.registry`| **text-analytics** Docker 이미지 레지스트리입니다.| 유효한 Docker 이미지 레지스트리| |

@@ -3,17 +3,17 @@ title: Azure IoT Central의 디바이스 템플릿이란? | Microsoft Docs
 description: Azure IoT Central 디바이스 템플릿을 사용하면 애플리케이션에 연결된 디바이스의 동작을 지정할 수 있습니다. 디바이스 템플릿은 디바이스에서 구현해야 하는 원격 분석, 속성 및 명령을 지정합니다. 또한 디바이스 템플릿은 운영자가 사용하는 양식 및 보기와 같이 IoT Central의 디바이스에 대한 UI를 정의합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/19/2020
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: b2122dc50b265c31c1c21c2758e343ec88384a8b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: d0e5f563e61cec96e67dd998e969a34a8da3615f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114474059"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481239"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 

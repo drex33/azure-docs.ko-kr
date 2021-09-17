@@ -11,12 +11,12 @@ ms.date: 08/23/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f8d27d30ace8ac29a59df9b77de4b56b5e138f63
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: b05aa59f465eafd65fa111fff811d2f0909f601d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185744"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471861"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 샘플 웹앱에서 인증 구성
 
@@ -32,8 +32,8 @@ OIDC(OpenID Connect)는 OAuth 2.0을 기반으로 하는 인증 프로토콜입�
 로그인 흐름에 포함되는 단계는 다음과 같습니다.
 
 1. 사용자는 웹앱으로 이동하여 **로그인** 을 선택합니다. 
-1. 앱에서 권한 부여 요청을 시작하고 사용자를 Azure AD B2C로 리디렉션합니다.
-1. 사용자는 [등록 또는 로그인](add-sign-up-and-sign-in-policy.md)하고 [암호를 초기화](add-password-reset-policy.md)합니다. 또는 [소셜 계정](add-identity-provider.md)으로 로그인할 수 있습니다.
+1. 앱에서 인증 요청을 시작하고 사용자를 Azure AD B2C로 리디렉션합니다.
+1. 사용자가 [가입 또는 로그인](add-sign-up-and-sign-in-policy.md)하고 [암호를 초기화](add-password-reset-policy.md)합니다. 또는 [소셜 계정](add-identity-provider.md)으로 로그인할 수 있습니다.
 1. 사용자가 성공적으로 로그인하면 Azure AD B2C가 앱에 ID 토큰을 반환합니다.
 1. 앱은 ID 토큰의 유효성을 검사하며 클레임을 읽고 사용자에게 보안 페이지를 반환합니다.
 
@@ -115,8 +115,8 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 
 |섹션  |Key  |값  |
 |---------|---------|---------|
-|AzureAdB2C|인스턴스| Azure AD B2C [테넌트 이름](tenant-management.md#get-your-tenant-name)의 첫 번째 부분 입니다(예: `https://contoso.b2clogin.com`).|
-|AzureAdB2C|도메인| Azure AD B2C 테넌트 전체 [테넌트 이름](tenant-management.md#get-your-tenant-name)입니다(예: `contoso.onmicrosoft.com`).|
+|AzureAdB2C|인스턴스| Azure AD B2C [테넌트 이름](tenant-management.md#get-your-tenant-name)의 첫 번째 부분입니다.(예를 들어 `https://contoso.b2clogin.com`)|
+|AzureAdB2C|도메인| Azure AD B2C 테넌트 전체 [테넌트 이름](tenant-management.md#get-your-tenant-name)입니다. (예를 들어 `contoso.onmicrosoft.com`)|
 |AzureAdB2C|clientid| [2단계](#step-2-register-a-web-application)의 웹 API 애플리케이션 ID입니다.|
 |AzureAdB2C|SignUpSignInPolicyId|사용자 흐름 또는 [1단계](#step-1-configure-your-user-flow)에서 만든 사용자 지정 정책입니다.|
 
@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 ## <a name="step-5-run-the-sample-web-app"></a>5단계: 샘플 웹앱 실행
 
 1. 프로젝트를 빌드하고 실행합니다.
-1. [https://localhost:5001](https://localhost:5001)으로 이동합니다. 
+1. `https://localhost:5001`로 이동합니다. 
 1. **등록/로그인** 을 선택합니다.
 
     ![프로젝트 시작 페이지의 "등록/로그인" 단추 스크린샷.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)

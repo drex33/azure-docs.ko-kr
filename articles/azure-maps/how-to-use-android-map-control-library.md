@@ -1,20 +1,20 @@
 ---
 title: Android 지도 컨트롤 시작 | Microsoft Azure Maps
 description: Azure Maps Android SDK에 대해 알아봅니다. Android Studio에서 프로젝트를 만들고, SDK를 설치하고, 대화형 맵을 만드는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 237888e1ee635a68a4603bfa63f5bfe4618c018a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 21442101f1cde2717f079aac550a5e8c587451f2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093502"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430651"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 

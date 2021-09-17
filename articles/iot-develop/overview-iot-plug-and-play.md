@@ -8,13 +8,15 @@ ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
 manager: eliotgra
-ms.custom: references_regions
-ms.openlocfilehash: fd9b7d196fcbd499d5a7dd6cbf70b7f92dfc99c1
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.custom:
+- references_regions
+- contperf-fy22q1
+ms.openlocfilehash: ae5c2db75b868732bc5a6790e37111b8b1a493ef
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604144"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542425"
 ---
 # <a name="what-is-iot-plug-and-play"></a>IoT 플러그 앤 플레이란?
 

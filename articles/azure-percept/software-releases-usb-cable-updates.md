@@ -1,5 +1,5 @@
 ---
-title: USB 케이블을 통해 업데이트하기 위한 Azure Percept DK 소프트웨어 릴리스
+title: Azure Percept DK USB 케이블 업데이트를 위한 소프트웨어 릴리스
 description: Azure Percept DK USB 케이블 업데이트 패키지에 대한 정보 및 다운로드 링크
 author: EthanChangAED
 ms.author: amiyouss
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 9b58aa438fa0cd05604967c2c1bcb728d9a560c6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 49274ba0c43b2cc473470df61e22f16b8a83c022
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222754"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427105"
 ---
-# <a name="azure-percept-dk-software-releases-for-updating-over-usb"></a>USB를 통해 업데이트하기 위한 Azure Percept DK 소프트웨어 릴리스
+# <a name="software-releases-for-usb-cable-updates"></a>USB 케이블 업데이트용 소프트웨어 릴리스
 
 이 페이지에서는 모든 개발 키트 OS/펌웨어 이미지 릴리스에 대한 정보 및 다운로드 링크를 제공합니다. 각 버전의 변경 내용/수정에 대한 세부 정보는 릴리스 정보를 참조하세요.
 

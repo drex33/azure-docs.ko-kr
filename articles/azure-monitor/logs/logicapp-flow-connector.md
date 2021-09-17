@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 9b6cddc32b81f0e1bf915bfa09527a3ef395f744
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3693fcf7783bd66bebe5b7d792a12eefaad66286
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536096"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437151"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Logic Apps 및 Power Automate용 Azure Monitor 로그 커넥터
 [Azure Logic Apps](../../logic-apps/index.yml) 및 [Power Automate](https://flow.microsoft.com)를 사용하면 다양한 서비스에 대해 수백 가지 작업을 사용하여 자동화된 워크플로를 만들 수 있습니다. Azure Monitor 로그 커넥터를 사용하면 Azure Monitor의 Log Analytics 작업 영역 또는 Application Insights 애플리케이션에서 데이터를 검색하는 워크플로를 빌드할 수 있습니다. 이 문서에서는 커넥터에 포함된 작업에 대해 설명하고 이 데이터를 사용하여 워크플로를 빌드하기 위한 연습을 제공합니다.
@@ -25,7 +25,7 @@ Azure Monitor 로그 커넥터에는 다음과 같은 제한이 있습니다.
 * 최대 쿼리 제한 시간 110초
 * 커넥터와 로그 페이지가 현재 동일한 차트 라이브러리를 사용하지 않기 때문에 차트 시각화는 로그 페이지에서 사용할 수 있고 커넥터에서 누락될 수 있습니다.
 
-데이터의 크기와 사용하는 쿼리에 따라 커넥터가 한계에 도달하여 실패할 수 있습니다. 트리거 반복을 조정하여 더 자주 실행하고 더 적은 데이터를 쿼리할 때 이러한 경우를 해결할 수 있습니다. 데이터를 집계하는 쿼리를 사용하여 더 적은 레코드와 열을 반환할 수 있습니다.
+커넥터는 사용 하는 쿼리와 결과 크기에 따라 제한에 도달할 수 있습니다. 더 작은 시간 범위에서 자주 실행 되도록 흐름 되풀이를 조정 하거나 데이터를 집계 하 여 결과 크기를 줄이려면 이러한 경우를 방지할 수 있습니다. 캐싱 때문에 100 초 보다 낮은 간격으로 자주 쿼리를 수행 하지 않는 것이 좋습니다.
 
 ## <a name="actions"></a>동작
 다음 표에서는 Azure Monitor Logs 커넥터에 포함된 작업을 설명합니다. 둘 다 Log Analytics 작업 영역 또는 Application Insights 애플리케이션에 대해 로그 쿼리를 실행할 수 있습니다. 차이점은 데이터가 반환되는 방식에 있습니다.

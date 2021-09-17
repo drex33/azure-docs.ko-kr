@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 8a68538657762417c5b6e23e455efa43fed0450a
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 71570e00f77626edc82db0e45e7815d1c40bd06d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568104"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430147"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -175,7 +175,7 @@ az ml endpoint get-logs
 
 배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다.  이 시나리오의 오류는 이 컨테이너를 실행할 때 충돌이 발생하여 채점할 수 없음을 의미합니다. 이 오류는 다음과 같은 경우에 발생합니다.
 
-- `score.py`에 오류가 있습니다. `get--logs`를 사용하여 일반적인 문제를 진단합니다.
+- `score.py`에 오류가 있습니다. `get-logs`를 사용하여 일반적인 문제를 진단합니다.
     - 가져온 패키지는 conda 환경에 없습니다.
     - 구문 오류
     - `init()` 메서드의 실패

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb432b486815b9b2269eabb2631d4d4cb909df11
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 50bea2cbd4d42855ecf621cb65f61b4565242a6f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225989"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450992"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>PowerShell을 사용하여 Azure 테넌트 간에 갤러리 VM 이미지 공유
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
-공유 이미지 갤러리를 사용하면 Azure RBAC를 사용하여 이미지를 공유할 수 있습니다. Azure RBAC를 사용하여 테넌트 내에서 이미지를 공유하고 테넌트 외부의 개인에게도 이미지를 공유할 수 있습니다. 이 간단한 공유 옵션에 대한 자세한 내용은 [갤러리 공유](./shared-images-portal.md#share-the-gallery)를 참조하세요.
+공유 이미지 갤러리를 사용하면 Azure RBAC를 사용하여 이미지를 공유할 수 있습니다. Azure RBAC를 사용하여 테넌트 내에서 이미지를 공유하고 테넌트 외부의 개인에게도 이미지를 공유할 수 있습니다. 이 간단한 공유 옵션에 대한 자세한 내용은 [갤러리 공유](../share-gallery.md)를 참조하세요.
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal](shared-images-portal.md)을 사용하여 Shared Image Gallery 리소스도 만들 수 있습니다.
+[공유 이미지 갤러리 리소스를 만듭니다.](../image-version.md)

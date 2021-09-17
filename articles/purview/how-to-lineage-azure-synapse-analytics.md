@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.openlocfilehash: 74a438088e3e6c751785387580488efa17e82385
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: b47efc959518b7a4d35fb5ef79cd04f18cdfaa22
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035400"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433515"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Azure Synapse Analytics에서 Azure Purview로 계보를 가져오는 방법
 
@@ -29,6 +29,10 @@ ms.locfileid: "123035400"
 > 원본 또는 대상이 지원되지 않는 데이터 스토리지 시스템을 사용하는 경우 Azure Purview가 계보를 삭제합니다.
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
+
+## <a name="access-secured-azure-purview-account"></a>보안 Azure Purview 계정에 액세스
+      
+Purview 계정이 방화벽으로 보호되는 경우 Azure Synapse Purview 프라이빗 엔드포인트를 통해 [보안 Purview 계정에 액세스하도록](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
 
 ## <a name="bring-azure-synapse-lineage-into-purview"></a>Azure Synapse 계보를 Purview로 가져오기
 

@@ -1,19 +1,19 @@
 ---
 title: Azure Maps 용어집 | Microsoft Docs
 description: Azure Maps, Location Based Services 및 GIS와 관련하여 자주 사용되는 용어의 용어집입니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 05071be4fc1705787a649d331613e8d9399f983f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e1bd7da46d235102ec56feee9bdd2e95917f079b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92897180"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432831"
 ---
 # <a name="glossary"></a>용어
 

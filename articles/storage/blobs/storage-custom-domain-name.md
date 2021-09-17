@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83e6cfa8589e7ba2df4d6d8452496cf7680cf5c6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 391541569f237b98c46f001b511c86c17f00e058
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676287"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468135"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑
 
@@ -413,6 +413,19 @@ az storage account update \
    * [Azure CDN을 사용하는 HTTP에서 HTTPS로의 리디렉션](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
    * [Azure CDN과 Blob Storage를 사용하는 경우 가격 책정 및 청구](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
+<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

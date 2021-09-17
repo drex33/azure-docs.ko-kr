@@ -5,16 +5,17 @@ ms.topic: conceptual
 services: automation
 ms.subservice: dsc
 ms.date: 08/31/2021
-ms.openlocfilehash: e4352c5c2cca0391e4e795b537af16c28ded6f6e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 600fdfafa64e0827ac023ae01810ec54bdaa95fe
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123354547"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438501"
 ---
 # <a name="configure-linux-desired-state-with-azure-automation-state-configuration-using-powershell"></a>PowerShell을 사용하여 Azure Automation State Configuration으로 Linux 원하는 상태 구성
 
 이 자습서에서는 PowerShell을 사용하여 Azure Linux 가상 머신에 Azure Automation State Configuration을 적용하여 원하는 상태를 준수하는지 확인합니다. 원하는 상태는 apache2 서비스가 노드에 있는지 확인하는 것입니다.
+
 Azure Automation State Configuration을 사용하면 컴퓨터의 구성을 지정하고 시간이 지남에 따라 해당 컴퓨터가 지정된 상태에 있는지 확인할 수 있습니다. State Configuration에 대한 자세한 내용은 [Azure Automation State Configuration 개요](./automation-dsc-overview.md)를 참조하세요.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.

@@ -1,27 +1,23 @@
 ---
-title: ExpressRoute 및 Azure VPN에 대한 Azure Route Server(미리 보기) 지원
+title: Express 경로 및 Azure VPN에 대 한 Azure 경로 서버 지원 정보
 description: Azure Route Server가 ExpressRoute 및 Azure VPN 게이트웨이와 상호작용하는 방법에 대하여 알아봅니다.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 6e588c7c0381c6825bcf75cbbe28a1dd6b865940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: aa109544ce890c4a8fae4775010a722791fbe5a7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679969"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426079"
 ---
-# <a name="about-azure-route-server-preview-support-for-expressroute-and-azure-vpn"></a>ExpressRoute 및 Azure VPN에 대한 Azure Route Server(미리 보기) 지원
+# <a name="about-azure-route-server-support-for-expressroute-and-azure-vpn"></a>Express 경로 및 Azure VPN에 대 한 Azure 경로 서버 지원 정보
 
 Azure Route Server는 Azure에서 실행되는 타사 NVA(네트워크 가상 어플라이언스)를 지원할 뿐 아니라 ExpressRoute 및 Azure VPN 게이트웨이와도 원활하게 통합합니다. 게이트웨이와 Azure Route Server 간의 BGP 피어링을 구성하거나 관리할 필요가 없습니다. 간단한 [구성 변경](quickstart-configure-route-server-powershell.md#route-exchange)을 통하여 게이트웨이와 Azure Route Server 사이의 경로 교환을 사용하도록 설정할 수 있습니다.
 
-> [!IMPORTANT]
-> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 

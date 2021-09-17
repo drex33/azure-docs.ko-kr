@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: ad91260eac0f638d339baf64071cad6475ac19a7
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
-ms.translationtype: HT
+ms.openlocfilehash: 1fbf8052a3852e010fc002116cab131ea4f371b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929816"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438105"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구를 사용하여 재해 복구
 
@@ -122,7 +122,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 프로덕션 워크로드의 전체 장애 조치(failover)를 수행하며, 기본 프로덕션 사이트에 연결할 수 있는 경우, DR로 장애 조치(failover)되는 SAP HANA 인스턴스를 종료합니다.
 
-예를 들어 루트로 로그인한 경우 다음 예제에서 SAP HANA를 종료할 수 있는 방법을 확인할 수 있습니다.  <sid>을 SAP HANA SID로 바꿉니다.
+예를 들어 루트로 로그인한 경우 다음 예제에서 SAP HANA를 종료할 수 있는 방법을 확인할 수 있습니다.  \<sid\>을 SAP HANA SID로 바꿉니다.
 
 ```bash
 su - <sid>adm
@@ -133,7 +133,7 @@ HDB stop
 
 볼륨을 복원하기 전에 DR 사이트에서 SAP HANA를 종료하는 것이 중요합니다.
 
-예를 들어 루트로 로그인한 경우 다음 예제에서 SAP HANA를 종료할 수 있는 방법을 확인할 수 있습니다.  <sid>을 SAP HANA SID로 바꿉니다.
+예를 들어 루트로 로그인한 경우 다음 예제에서 SAP HANA를 종료할 수 있는 방법을 확인할 수 있습니다.  \<sid\>을 SAP HANA SID로 바꿉니다.
 
 ```bash
 su - <sid>adm

@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: d8ddd49202faac6a9fc5ba34ac5b5e8e92d5b704
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f8d1d3cf8553c768bb2bee015be2f5995214fe62
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566931"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478719"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -197,7 +197,7 @@ Event Grid를 통해 원격 분석 이벤트를 구독하면 IoT Hub에서 기�
 
 디바이스-클라우드 링크는 디바이스에서 원격 분석을 전송하는 동안 열린 상태로 유지됩니다.
 
-디바이스 연결이 깜박이는 경우, 즉 디바이스가 자주 연결 및 연결 해제되는 경우 IoT Hub가 모든 단일 연결 상태를 보내지 않지만 깜박임이 멈출 때까지 60초의 주기적인 스냅샷에서 찍은 현재 연결 상태를 게시합니다. 동일한 연결 상태 이벤트를 여러 시퀀스 번호로 수신하거나 여러 연결 상태 이벤트를 수신하는 경우 디바이스 연결 상태가 변경된 것을 의미합니다.
+디바이스가 자주 연결되고 연결이 끊어지는 경우 IoT Hub 모든 단일 연결 상태를 보내지 않지만 60초의 주기적인 스냅샷에서 수행된 현재 연결 상태를 게시합니다. 동일한 연결 상태 이벤트를 여러 시퀀스 번호로 수신하거나 여러 연결 상태 이벤트를 수신하는 경우 디바이스 연결 상태가 변경된 것을 의미합니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용 팁
 

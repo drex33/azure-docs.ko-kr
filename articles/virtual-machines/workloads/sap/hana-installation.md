@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 7/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cfd57400eb50651dd7d908dad4c50ab94760286a
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: 37eff4049973c208ebe70ef452f121109f0c92ed
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404969"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435837"
 ---
 # <a name="install-and-configure-sap-hana-large-instances-on-azure"></a>SAP HANA on Azure(대규모 인스턴스) 설치 및 구성
 
@@ -150,7 +150,7 @@ Azure 가상 네트워크를 디자인하고 이러한 가상 네트워크를 HA
 
 ## <a name="storage"></a>Storage
 
-Azure의 SAP HANA(대규모 인스턴스)에 대한 스토리지 레이아웃은 SAP 권장 지침에 따라 Azure의 SAP HANA 서비스 관리를 통해 구성됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)에 설명되어 있습니다. 
+Azure의 SAP HANA(대규모 인스턴스)에 대한 스토리지 레이아웃은 SAP 권장 지침에 따라 Azure의 SAP HANA 서비스 관리를 통해 구성됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)에 설명되어 있습니다. 
 
 각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md)에 문서화되어 있습니다.
 

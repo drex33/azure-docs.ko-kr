@@ -1,20 +1,20 @@
 ---
 title: Android 지도에 이미지 계층 추가 | Microsoft Azure Maps
 description: 지도에 이미지를 추가하는 방법을 알아봅니다. Azure Maps Android SDK를 사용하여 이미지 계층을 사용자 지정하고 고정된 좌표 집합에 이미지를 오버레이하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 4c11a1275b94eebba33819ae6c9ffeb313a3ce0b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: d90771a639cbd904c3c61412b511d764d2d37ae8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463107"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432741"
 ---
 # <a name="add-an-image-layer-to-a-map-android-sdk"></a>지도에 이미지 계층 추가(Android SDK)
 

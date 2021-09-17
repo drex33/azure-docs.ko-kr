@@ -6,14 +6,13 @@ ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e9bb7ac183873c0fc4d97bd883ddd85110f9188
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 260aac69c33efa7ef006f882af1cfd2c851eecc2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529229"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437727"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
@@ -60,7 +59,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="다각형 그리기" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="다각형 그리기" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>다각형 그리기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io'>CodePen</a>에서 수행하는 방법을 참조하세요.
 </iframe>
 
@@ -87,7 +86,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="자유롭게 그리기" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="자유롭게 그리기" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>자유롭게 그리기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io'>CodePen</a>에서 수행하는 방법을 참조하세요.
 </iframe>
 
@@ -98,7 +97,7 @@ Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>자유롭�
 
 <br/>
 
-<iframe height="685" title="그리기 관리자 사용자 지정" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps으로 펜 <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
+<iframe height="685" title="그리기 관리자 사용자 지정" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"><a href='https://codepen.io'>CodePen</a>에서 Azure Maps으로 펜 <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
 </iframe>
 
 

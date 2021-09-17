@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: b77eadcbd46c4cac442ed26af94d5781d225806a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094945"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475785"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -209,9 +209,6 @@ NSString* value =
 * Face
 * Content Moderator
 * Personalizer
-
-> [!IMPORTANT]
-> **Form Recognizer** 의 경우 Microsoft 엔지니어는 2020년 7월 10일 이후 만들어진 리소스의 모든 고객 데이터에 액세스하지 않습니다.
 
 E0 SKU를 사용하는 기능을 요청하려면 이  [요청 양식](https://aka.ms/cogsvc-cmk)을 작성하고 제출합니다. 요청 상태에 대한 답변을 받는 데는 영업일 기준 약 3~5일이 소요됩니다. 요청에 따라 공간이 확보되면 큐에 배치되고 승인될 수 있습니다. LUIS와 함께 E0 SKU를 사용하도록 승인되면 Azure Portal에서 새 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 

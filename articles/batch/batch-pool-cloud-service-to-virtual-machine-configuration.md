@@ -2,13 +2,13 @@
 title: Cloud Services에서 Virtual Machines로 Batch 풀 구성 마이그레이션
 description: 풀 구성을 최신 및 권장 구성으로 업데이트하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 03/11/2021
-ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: 9d4ce46c5291333f161f260c3b4706ea9dcf9a24
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200569"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538888"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Cloud Services에서 Virtual Machine으로 Batch 풀 구성 마이그레이션
 
@@ -36,7 +36,7 @@ Batch 솔루션에서 현재 'cloudServiceConfiguration' 풀을 사용하는 경
 - 'virtualMachineConfiguration' 풀 노드는 관리형 OS 디스크를 활용합니다. 각 노드에 사용되는 [관리 디스크 유형](../virtual-machines/disks-types.md)은 풀에 대해 선택한 VM 크기에 따라 달라집니다. 풀에 대해 's' VM 크기가 지정된 경우(예: 'Standard_D2s_v3') 프리미엄 SSD가 사용됩니다. 'non-s' VM 크기가 지정된 경우(예: 'Standard_D2_v3') 표준 HDD가 사용됩니다.
 
    > [!IMPORTANT]
-   > Virtual Machines 및 Virtual Machine Scale Sets와 마찬가지로 각 노드에 사용되는 OS 관리 디스크는 비용을 발생시킵니다. 이는 VM 비용에 추가됩니다. OS 디스크는 노드 로컬 SSD에 만들어지므로 'cloudServiceConfiguration' 노드에 대한 OS 디스크 비용이 없습니다.
+   > Virtual Machines 및 Virtual Machine Scale Sets와 마찬가지로 각 노드에 사용되는 OS 관리 디스크는 비용을 발생시킵니다. 이는 VM 비용에 추가됩니다. ' virtualMachineConfiguration ' 풀은 VM 캐시 또는 임시 SSD에서 OS 디스크를 만드는 임시 [os 디스크](create-pool-ephemeral-os-disk.md)를 사용 하 여 관리 디스크와 관련 된 추가 비용을 피할 수 있습니다. 노드 로컬 SSD에 OS 디스크가 만들어지므로 ' cloudServiceConfiguration ' 노드에 대 한 OS 디스크 비용이 없습니다.
 
 ## <a name="azure-data-factory-custom-activity-pools"></a>Azure Data Factory 사용자 지정 작업 풀
 

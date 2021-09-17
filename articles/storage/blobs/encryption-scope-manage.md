@@ -10,20 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: adb5ac550ad998f807918d20f59048882c9a8565
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528165"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470583"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>암호화 범위 만들기 및 관리
 
 암호화 범위를 사용하면 개별 Blob 또는 컨테이너 수준에서 암호화를 관리할 수 있습니다. 암호화 범위를 사용하여 동일한 스토리지 계정에 있지만 다른 고객에 속한 데이터 간에 보안 경계를 만들 수 있습니다. 암호화 범위에 대한 자세한 내용은 [BLOB 스토리지의 암호화 범위](encryption-scope-overview.md)를 참조하십시오.
 
 이 문서에서는 암호화 범위를 만드는 방법을 설명합니다. 또한 BLOB 또는 컨테이너를 만들 때 암호화 범위를 지정하는 방법을 기술합니다.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>암호화 범위 만들기
 

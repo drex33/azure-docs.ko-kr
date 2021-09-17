@@ -1,20 +1,20 @@
 ---
-title: Android maps에 선 계층 추가 | Microsoft Azure 맵
+title: Android maps에 선 계층 추가 | Microsoft Azure 지도
 description: 지도에 선을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 지도에 선 계층을 추가 하 고 기호 및 색 그라데이션을 사용 하 여 줄을 사용자 지정 하는 예제를 참조 하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ff071d03e00a0380d1ab6642828b0940931d3302
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ce8733fdc6e6fd22414df944e35fa3609668e653
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097451"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438465"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>지도에 선 계층 추가 (Android SDK)
 
@@ -25,7 +25,7 @@ ms.locfileid: "102097451"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
+[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다. 이 문서의 코드 블록은 맵 `onReady` 이벤트 처리기에 삽입할 수 있습니다.
 
 ## <a name="add-a-line-layer"></a>선 계층 추가
 

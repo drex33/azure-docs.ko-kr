@@ -7,13 +7,13 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/27/2021
-ms.openlocfilehash: 49aad9132d57c07022fd5515cbc07c32d94a5132
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 650f5f40bf8b8fc0909b4fec85ef6b5724a2e3c7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982893"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539827"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 인덱서 문제 해결 지침
 
@@ -61,6 +61,12 @@ SQL Managed Instance에서 데이터에 액세스하거나 Azure VM이 [사용�
 `AzureCognitiveSearch` 서비스 태그는 IP 주소 범위를 조회할 필요 없이 인바운드 [NSG 규칙](../virtual-network/manage-network-security-group.md#work-with-security-rules)에서 직접 사용할 수 있습니다.
 
 SQL Managed Instance의 데이터에 액세스하는 방법에 대한 자세한 내용은 [여기](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)를 참조하세요.
+
+## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>서버를 사용 하지 않는 인덱싱 Azure SQL Database (오류 코드 40613)
+
+SQL 데이터베이스가 서버를 사용 하지 않는 [계산 계층](../azure-sql/database/serverless-tier-overview.md)에 있으면 인덱서가 연결 될 때 데이터베이스가 실행 중이 고 일시 중지 되지 않았는지 확인 합니다.
+
+데이터베이스가 일시 중지 된 경우 검색 서비스의 첫 번째 로그인에서 데이터베이스를 자동으로 다시 시작 하지만 오류 코드 40613로 데이터베이스를 사용할 수 없다는 오류도 반환 합니다. 데이터베이스를 실행 한 후에는 로그인을 다시 시도 하 여 연결을 설정 합니다.
 
 ## <a name="sharepoint-online-conditional-access-policies"></a>SharePoint Online 조건부 액세스 정책
 

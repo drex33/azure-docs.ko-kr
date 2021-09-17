@@ -1,15 +1,15 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: lajanuar
-ms.openlocfilehash: a17c2da5a1b12ca81c48a914f00040802e2de408
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 633fdc6f8e5cad57ddeae08155bcbe1dd6ed1dfe
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122262287"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646708"
 ---
 압축된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)를 사용하여 구현됩니다. 라이선스 때문에 GStreamer 이진 파일이 컴파일되지 않고 Speech SDK로 연결되지 않습니다. 대신, Android용으로 미리 빌드된 이진 파일을 사용해야 합니다. 미리 빌드된 라이브러리를 다운로드하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조하세요.
 

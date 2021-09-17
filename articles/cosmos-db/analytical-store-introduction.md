@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: cc12626747aa7ce8a294695e27239fac36ce5cd0
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 80818386ccd47619ccb23323474ac76fa2240db2
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824932"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427717"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -335,12 +335,14 @@ salary: 1000000
 
 * 분석 읽기 작업: Azure Synapse Analytics Spark 풀 및 서버리스 SQL 풀 런타임에서 분석 저장소에 대해 수행되는 읽기 작업입니다.
 
-분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Microsoft Azure Cosmos DB 가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) 가격 책정 페이지를 참조하세요.
 
-Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하기 위한 대략적인 비용 예상이 필요한 경우 [Microsoft Azure Cosmos DB Capacity Planner](https://cosmos.azure.com/capacitycalculator/)를 사용하여 분석 스토리지와 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
+분석 저장소의 데이터는 Azure Synapse Analytics 런타임(Azure Synapse Apache Spark 풀 및 Azure Synapse 서버리스 SQL 풀)에서 수행되는 Azure Synapse Link를 통해서만 액세스할 수 있습니다. 분석 저장소의 데이터에 액세스하려면 [가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 모델에 대한 자세한 내용은 Azure Synapse Analytics 가격 책정 페이지를 참조하세요.
+
+분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 비용 예상치를 얻으려면 [Azure Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
 
 > [!NOTE]
-> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다.
+> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이 예상치에는 Azure Synapse Analytics 비용이 포함되지 않습니다.
 
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> 분석 TTL(Time-to-Live)

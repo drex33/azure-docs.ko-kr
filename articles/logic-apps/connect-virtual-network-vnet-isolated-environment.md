@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 08/11/2021
-ms.openlocfilehash: 3b715c15eb889d04c87a654fd68b802a53e7af01
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f1a7af136633b096f8bcda08466822549f922b35
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535467"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536962"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -156,7 +156,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
   * [이 다운로드 파일로 제공되는 ISE 지역의 컨테이너에 대한 Azure IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)
   * [App Service Environment 관리 주소](../app-service/environment/management-addresses.md)  
   * [Azure Traffic Manager 관리 주소](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Azure API Management 컨트롤 플레인 IP 주소](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+  * [Azure API Management 컨트롤 플레인 IP 주소](../api-management/api-management-using-with-vnet.md#control-plane-ip-addresses)
 
 * 서비스 엔드포인트
 
@@ -168,7 +168,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    
    * [Azure App Service 종속 항목](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
    * [Azure Cache Service 종속 항목](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
-   * [Azure API Management 종속 항목](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
+   * [Azure API Management 종속 항목](../api-management/api-management-using-with-vnet.md#network-configuration)
 
 <a name="create-environment"></a>
 
@@ -186,7 +186,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 신규 또는 기존 Azure 리소스 그룹 |

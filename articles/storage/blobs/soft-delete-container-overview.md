@@ -10,12 +10,12 @@ ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: d3684d3fcb79fca31f403294a640887fa8e33d92
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
-ms.translationtype: HT
+ms.openlocfilehash: be23b73558006fd9523953393a2bdfef5faef460
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504480"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476631"
 ---
 # <a name="soft-delete-for-containers"></a>컨테이너에 대한 일시 삭제
 
@@ -62,6 +62,17 @@ Azure Storage REST API 버전 2019-12-12 이상에서는 컨테이너 일시 삭
 
 > [!IMPORTANT]
 > 컨테이너 일시 삭제는 스토리지 계정 삭제에 대해 보호하는 것이 아니라 해당 계정의 컨테이너 삭제에 대해서만 보호합니다. 스토리지 계정이 삭제되지 않도록 보호하려면 스토리지 계정 리소스에 대한 잠금을 구성합니다. Azure Resource Manager 리소스 잠금에 대한 자세한 내용은 [예기치 않은 변경을 방지하기 위한 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)을 참조하세요.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

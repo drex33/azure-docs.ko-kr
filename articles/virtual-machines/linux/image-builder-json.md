@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1af8651ac8b1031190249205d0a0f7f436711c4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 703c2023103d9225e5dfad5bd0d288164350122f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696183"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450344"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
@@ -90,7 +90,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 Azure VM Image Builder 서비스는 고객이 해당 지역에서 빌드를 요청할 때 엄격한 단일 지역 데이터 보존 요구 사항이 있는 지역 외부에서 고객 데이터를 저장/처리하지 않습니다. 데이터 보존 요구 사항이 있는 지역에서 서비스 중단이 발생하는 경우 다른 지역 및 지리적 위치에서 템플릿을 만들어야 합니다.
 
 ### <a name="zone-redundancy"></a>영역 중복
-배포는 영역 중복을 지원하고, VHD는 기본적으로 영역 중복 스토리지 계정에 배포되며, Shared Image Gallery 버전은 [ZRS 스토리지 유형](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)을 지원합니다(지정된 경우).
+배포는 영역 중복을 지원하고, VHD는 기본적으로 영역 중복 스토리지 계정에 배포되며, Shared Image Gallery 버전은 [ZRS 스토리지 유형](../disks-redundancy.md#zone-redundant-storage-for-managed-disks)을 지원합니다(지정된 경우).
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
@@ -607,7 +607,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 - 이미지 정의 - 이미지에 대한 개념적 그룹화입니다. 
 - 이미지 버전 - VM 또는 확장 집합을 배포하는 데 사용되는 이미지 형식입니다. 이미지 버전은 VM을 배포해야 하는 다른 지역으로 복제할 수 있습니다.
  
-이미지 갤러리에 배포하려면 먼저 갤러리 및 이미지 정의를 만들어야 합니다. [공유 이미지](../shared-images-cli.md)를 참조하세요. 
+이미지 갤러리에 배포하려면 먼저 갤러리 및 이미지 정의를 만들어야 합니다. [공유 이미지](../create-gallery.md)를 참조하세요. 
 
 ```json
 {

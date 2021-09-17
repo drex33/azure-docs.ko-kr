@@ -4,15 +4,15 @@ description: Azure IoT Central 애플리케이션에서 Azure Event Hubs, Azure 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/25/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: cd4df6157d4b163a6c475b0f627a1d96466f8ae5
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 8235da7781ec55a90c81fca3a6393e5d1eda5c2f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835817"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481203"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기(레거시)를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e103af26d62518dabb5314c79c61335a2791417a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94699409"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479871"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer 부동 IP 구성
 
@@ -24,15 +24,16 @@ ms.locfileid: "94699409"
 
 ## <a name="floating-ip"></a>부동 IP
 
-일부 애플리케이션 시나리오는 백 엔드 풀의 단일 VM에서 여러 애플리케이션 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 엔드포인트 노출이 포함됩니다. 여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
+일부 애플리케이션 시나리오는 백 엔드 풀의 단일 VM에서 여러 애플리케이션 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 다시 사용의 일반적인 예는 다음과 같습니다. 
+- 고가용성을 위한 클러스터링
+- 네트워크 가상 어플라이언스
+- 다시 암호화 하지 않고 여러 TLS 끝점 노출 
 
-**부동 IP** 는 DSR(Direct Server Return)로 알려진 부분에 대한 Azure의 용어입니다. DSR은 다음과 같은 두 부분으로 구성됩니다.
+여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
 
-- 흐름 토폴로지
-- IP 주소 매핑 구성표
+부동 IP를 사용 하도록 설정 하면 Azure에서 IP 주소 매핑을 백 엔드 인스턴스의 IP 대신 Load Balancer 프런트 엔드의 프런트 엔드 IP 주소로 변경 합니다. 
 
-플랫폼 수준에서 Azure Load Balancer는 부동 IP 사용 여부에 관계 없이 DSR 흐름 토폴로지에서 항상 작동합니다. 이는 아웃바운드 부분의 흐름이 다시 원점으로 직접 흘러가도록 언제나 올바르게 다시 작성되는 것을 의미합니다.
-부동 IP가 없으면 Azure는 사용 편의성을 위해 기존의 부하 분산 IP 주소 매핑 체계(VM 인스턴스의 IP)를 제공합니다. 부동 IP를 사용하도록 설정하면 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경되어 추가적인 유연성이 제공됩니다. [여기](load-balancer-multivip-overview.md)를 참조하세요.
+부동 IP가 없는 경우 Azure는 VM 인스턴스의 IP를 노출 합니다. 부동 IP를 사용하도록 설정하면 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경되어 추가적인 유연성이 제공됩니다. [여기](load-balancer-multivip-overview.md)를 참조하세요.
 
 ## <a name="limitations"></a><a name = "limitations"></a>제한 사항
 

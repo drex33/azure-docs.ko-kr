@@ -4,16 +4,16 @@ description: 요청 빈도 너무 높음 예외를 진단하고 수정하는 방
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b6cc09868b65cc6ea71904973904f35a03e8eb21
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 44ecb59508b93347ba57fb40a88c274adfedd320
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116909"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434055"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Azure Cosmos DB 요청 빈도 너무 높음(429) 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -56,10 +56,10 @@ RU/초를 변경하는 작업을 수행하기 전에 빈도 제한의 근본 원
 핫 파티션은 더 높은 요청 볼륨으로 인해 하나 이상의 논리 파티션 키가 총 RU/초의 너무 작은 크기를 사용하는 경우에 발생합니다. 이는 요청을 균등하게 분산하지 않는 파티션 키 디자인으로 인해 발생할 수 있습니다. 이로 인해 많은 요청이 “핫”이 되는 논리(물리적을 의미함) 파티션의 작은 하위 집합으로 전달됩니다. 논리 파티션의 모든 데이터는 하나의 물리적 파티션에 있고 총 RU/초는 물리적 파티션 간에 균등하게 분산되므로 핫 파티션으로 인해 429가 발생하고 처리량이 비효율적으로 사용될 수 있습니다. 
 
 핫 파티션을 발생시키는 분할 전략의 몇 가지 예제는 다음과 같습니다.
-- 날짜별로 분할되는 쓰기 작업이 많은 워크로드의 IoT 디바이스 데이터를 저장하는 컨테이너가 있습니다. 단일 날짜의 모든 데이터는 동일한 논리 및 물리적 파티션에 있습니다. 매일 기록된 모든 데이터에는 동일한 날짜가 있기 때문에 매일 핫 파티션이 발생합니다. 
-    - 대신, 이 시나리오에서는 ID(GUID 또는 디바이스 ID)와 같은 파티션 키 또는 ID와 날짜를 결합하는 [가상 파티션 키](./synthetic-partition-keys.md)는 값의 카디널리티를 높이고 요청 볼륨을 더 효율적으로 분산합니다.
-- tenantId별로 분할된 컨테이너를 사용하는 다중 테넌트 시나리오가 있습니다. 한 테넌트가 다른 테넌트보다 훨씬 더 활동적이면 핫 파티션이 발생합니다. 예를 들어, 가장 큰 테넌트에는 100,000명의 사용자가 있지만 대부분의 테넌트에는 10명 미만의 사용자가 있는 경우 tenantID별로 분할되면 핫 파티션이 생성됩니다. 
-    - 이전 시나리오에서는 UserId와 같은 더 세분화된 속성별로 분할된 가장 큰 테넌트의 전용 컨테이너를 포함하는 것이 좋습니다. 
+- 로 분할된 쓰기 작업이 많은 워크로드에 대한 IoT 디바이스 데이터를 저장하는 컨테이너가 `date` 있습니다. 단일 날짜의 모든 데이터는 동일한 논리 및 물리적 파티션에 있습니다. 매일 기록된 모든 데이터에는 동일한 날짜가 있기 때문에 매일 핫 파티션이 발생합니다. 
+    - 대신, 이 시나리오의 경우 (GUID 또는 디바이스 ID)와 같은 파티션 키 또는 및 를 `id` 결합하는 [가상 파티션](./synthetic-partition-keys.md) `id` `date` 키는 값의 카디널리티를 높이고 요청 볼륨을 더 잘 배포합니다.
+- 컨테이너가 로 분할된 다중 테넌트 시나리오가 `tenantId` 있습니다. 한 테넌트가 다른 테넌트보다 훨씬 더 활동적이면 핫 파티션이 발생합니다. 예를 들어 가장 큰 테넌트에서 100,000명의 사용자가 있지만 대부분의 테넌트에서 10명 미만의 사용자가 있는 경우 로 분할할 때 핫 파티션이 `tenantID` 있습니다. 
+    - 이 이전 시나리오에서는 와 같은 보다 세분화된 속성으로 분할된 가장 큰 테넌트 전용 컨테이너를 사용하는 것이 `UserId` 좋습니다. 
     
 #### <a name="how-to-identify-the-hot-partition"></a>핫 파티션을 식별하는 방법
 
@@ -95,7 +95,7 @@ AzureDiagnostics
 [양호한 파티션 키를 선택하는 방법](../partitioning-overview.md#choose-partitionkey)에 관한 지침을 검토합니다.
 
 빈도 제한 요청의 비율이 높고 핫 파티션이 없는 경우:
-- 클라이언트 SDK, Azure Portal, PowerShell, CLI 또는 ARM 템플릿을 사용하여 데이터베이스 또는 컨테이너에서 [RU/초를 증가](../set-throughput.md)시킬 수 있습니다.  
+- 클라이언트 SDK, Azure Portal, PowerShell, CLI 또는 ARM 템플릿을 사용하여 데이터베이스 또는 컨테이너에서 [RU/초를 증가](../set-throughput.md)시킬 수 있습니다. [프로비전된 처리량(RU/s)의 크기를 조정하는 모범 사례에](../scaling-provisioned-throughput-best-practices.md) 따라 설정할 올바른 RU/s를 결정합니다.
 
 빈도 제한 요청의 비율이 높고 기본 핫 파티션이 있는 경우:
 -  장기적으로, 최상의 비용 및 성능을 위해서는 **파티션 키를 변경** 하는 것이 좋습니다. 파티션 키는 현재 위치에서 업데이트할 수 없으므로 다른 파티션 키를 사용하여 데이터를 새 컨테이너로 마이그레이션해야 합니다. Azure Cosmos DB는 이를 위해 [라이브 데이터 마이그레이션 도구](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/)를 지원합니다.

@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9414ea2574737cdad2551442a2d1ce7c844b04b6
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 77a5390b2bd4888c0fe43fb0b0d94b07563d1a68
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662340"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434901"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
 이 문서에서는 Azure 가상 머신과 Azure Arc 사용 서버 모두에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md)를 설치하는 데 사용할 수 있는 다양한 옵션을 제공하며, 에이전트가 수집해야 하는 데이터를 정의하는 [데이터 수집 규칙을 사용하여 연결](data-collection-rule-azure-monitor-agent.md)을 만드는 옵션도 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가 필요합니다.
 
 - Azure 가상 머신에서 [관리형 시스템 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 합니다. Azure Arc 사용 서버에는 필요하지 않습니다. [Azure Portal을 사용하여 데이터 수집 규칙을 만들고 할당](#install-with-azure-portal)하는 프로세스의 일부로 에이전트가 설치된 경우 시스템 ID를 사용하도록 자동으로 설정됩니다.
@@ -27,7 +27,7 @@ Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가
   - *.control.monitor.azure.com
 
 > [!IMPORTANT]
-> Azure Monitor 에이전트는 현재, 네트워크 프록시나 프라이빗 링크를 지원하지 않습니다.
+> Azure Monitor 에이전트는 현재 프라이빗 링크를 지원하지 않습니다.
 
 ## <a name="virtual-machine-extension-details"></a>가상 머신 확장 세부 정보
 Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 [Azure VM 확장](../../virtual-machines/extensions/overview.md)으로 구현됩니다. 이 문서에 설명된 방법을 포함하여 가상 머신 확장을 설치하는 방법 중 하나를 사용하여 설치할 수 있습니다.

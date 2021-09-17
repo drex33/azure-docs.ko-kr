@@ -2,14 +2,14 @@
 title: 레지스트리 역할 및 권한
 description: Azure RBAC(Azure 역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure 컨테이너 레지스트리에서 리소스에 대해 세분화된 사용 권한을 제공합니다.
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6923e356f60916e34325b9b6815dbae8aeaf5c51
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
-ms.translationtype: HT
+ms.openlocfilehash: 494373a299eb0f4d2bb100e71a1e1000336d1613
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854795"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451640"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
@@ -89,7 +89,7 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 사용자 지정 역할에 적용할 권한을 결정하려면 Microsoft.ContainerRegistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) 목록을 참조하거나, [기본 제공 ACR 역할](../role-based-access-control/built-in-roles.md)의 허용된 작업을 검토하거나, 다음 명령을 실행합니다.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
@@ -97,16 +97,19 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 사용자 지정 역할을 정의하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조하세요.
 
-> [!IMPORTANT]
-> 사용자 지정 역할에서 Azure Container Registry는 일치하는 모든 작업에 대한 액세스 권한을 부여하는 와일드카드(예: `Microsoft.ContainerRegistry/*` 또는 `Microsoft.ContainerRegistry/registries/*`)를 현재 지원하지 않습니다. 역할에서 필수 작업을 개별적으로 지정합니다.
+> [!NOTE]
+> [Azure Resource Manager 프라이빗 링크로](../azure-resource-manager/management/create-private-link-access-portal.md)구성된 테넌트에서 Azure Container Registry 또는 사용자 지정 역할의 와일드카드 작업을 `Microsoft.ContainerRegistry/*/read` `Microsoft.ContainerRegistry/registries/*/write` 지원하여 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. ARM 프라이빗 링크가 없는 테넌트에서 필요한 모든 레지스트리 작업을 사용자 지정 역할에서 개별적으로 지정합니다.
 
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
 ```
 
 사용자 지정 역할을 정의하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조하세요.
+
+> [!NOTE]
+> [Azure Resource Manager 프라이빗 링크로](../azure-resource-manager/management/create-private-link-access-portal.md)구성된 테넌트에서 Azure Container Registry 또는 사용자 지정 역할의 와일드카드 작업을 `Microsoft.ContainerRegistry/*/read` `Microsoft.ContainerRegistry/registries/*/write` 지원하여 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. ARM 프라이빗 링크가 없는 테넌트에서 필요한 모든 레지스트리 작업을 사용자 지정 역할에서 개별적으로 지정합니다.
 
 ---
 

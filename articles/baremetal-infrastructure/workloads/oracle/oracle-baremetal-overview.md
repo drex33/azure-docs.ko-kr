@@ -3,21 +3,21 @@ title: Oracle용 BareMetal Infrastructure란?
 description: BareMetal Infrastructure가 Oracle 워크로드에 대해 제공하는 기능에 관해 알아봅니다.
 ms.topic: conceptual
 ms.subservice: baremetal-oracle
-ms.date: 04/14/2021
-ms.openlocfilehash: f3ecb1fbcad04455515408e4aadadfb2cef3cf9a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: e74d1a3e3b6cb1b2cd0b99927a57a88117715e7b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578588"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542443"
 ---
 # <a name="what-is-baremetal-infrastructure-for-oracle"></a>Oracle용 BareMetal Infrastructure란?
 
-이 문서에서는 BareMetal Infrastructure가 Oracle 워크로드에 대해 제공하는 기능을 개략적으로 설명합니다.
+이 문서에서는 Oracle 워크로드에 대해 BareMetal Infrastructure가 제공하는 기능에 대한 개요를 제공합니다.
 
-Oracle용 BareMetal Infrastructure는 Oracle 인증 UCS(Unified Computing System) 및 FLexPod를 기반으로 합니다. FlexPod 플랫폼은 미리 유효성이 검사된 스토리지, 네트워킹 및 서버 기술을 제공합니다. DirectNFS 프로토콜을 통해 통합을 제공하는 NFS 스토리지를 제공합니다. BareMetal 서버는 BareMetal 인스턴스에 하이퍼바이저가 없는 전용 서버입니다. 
+Oracle용 BareMetal Infrastructure는 Oracle 인증 UCS(Unified Computing System) 및 FLexPod를 기반으로 합니다. FlexPod 플랫폼은 미리 유효성이 검사된 스토리지, 네트워킹 및 서버 기술을 제공합니다. NetApp NFS(네트워크 파일 시스템) 스토리지를 제공하여 DirectNFS 프로토콜을 사용하여 통합을 제공합니다. BareMetal 서버는 BareMetal 인스턴스에 하이퍼바이저가 없는 전용 서버입니다. 
 
-이 인스턴스는 Oracle 워크로드가 필요한 중요 업무용 애플리케이션을 실행하는 데 사용됩니다. BareMetal 인스턴스는 Azure VM(가상 머신)에서 실행되는 애플리케이션에 대해 짧은 대기 시간(0.35ms)을 제공합니다. BareMetal은 공유 스토리지 디스크를 제공하고 전용 프라이빗 상호 연결 네트워크를 통해 노드 간 통신에 필요한 다중 캐스팅을 지원합니다. 
+이 인스턴스는 Oracle 워크로드가 필요한 중요 업무용 애플리케이션을 실행하는 데 사용됩니다. BareMetal 인스턴스는 Azure VM(가상 머신)에서 실행되는 애플리케이션에 대해 짧은 대기 시간(0.35ms)을 제공합니다. BareMetal은 공유 스토리지를 제공합니다. 또한 전용 프라이빗 상호 연결 네트워크와의 노드 간 통신에 필요한 다중 캐스팅을 지원합니다. 
 
 Oracle용 BareMetal Infrastructure의 다른 기능은 다음과 같습니다.
 

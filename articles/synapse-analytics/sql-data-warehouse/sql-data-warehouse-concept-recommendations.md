@@ -2,21 +2,21 @@
 title: 전용 SQL 풀 Azure Advisor 권장 사항
 description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아보기
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/26/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 698c14d23e8e64c777260410c625129cd87d49b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e747c6ab94f76411cf727bc46637798e903772b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585709"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537691"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 Azure Advisor 권장 사항
 
@@ -73,4 +73,4 @@ tempdb 경합이 높은 경우 쿼리 성능이 저하될 수 있습니다.  Tem
 
 ## <a name="data-loading-misconfiguration"></a>데이터 로드 구성 오류
 
-대기 시간을 최소화하려면 항상 전용 SQL 풀과 동일한 지역의 스토리지 계정에서 데이터를 로드해야 합니다. [높은 처리량 데이터 수집을 위한 COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하고 스테이징한 파일을 스토리지 계정에 분할하여 처리량을 최대화합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 더 큰 일괄 처리 크기를 지정하여 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 데이터 로드 지침에 대해서는 다음 [설명서](./guidance-for-loading-data.md)를 참조하세요.
+대기 시간을 최소화하려면 항상 전용 SQL 풀과 동일한 지역의 스토리지 계정에서 데이터를 로드해야 합니다. [높은 처리량 데이터 수집을 위한 COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하고 스테이징한 파일을 스토리지 계정에 분할하여 처리량을 최대화합니다. COPY 문을 사용할 수 없는 경우 더 나은 처리량을 위해 더 큰 일괄 처리 크기를 지정하여 SqlBulkCopy API 또는 bcp를 사용할 수 있습니다. 추가 [데이터 로드 지침은 데이터 로드 모범 사례를](../sql/data-loading-best-practices.md) 참조하세요.

@@ -1,20 +1,20 @@
 ---
 title: Android 맵에 기능 정보 표시 | Microsoft Azure Maps
 description: 사용자가 맵 기능과 상호 작용할 때 정보를 표시하는 방법을 알아봅니다. Azure Maps Android SDK를 사용하여 알림 메시지와 다른 유형의 메시지를 표시합니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9d7606a259f46981f672cba114410f84d395615c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: a8bd232ccba2adb3666ee7fd54983be2ed1f7296
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091792"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426439"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 

@@ -3,20 +3,20 @@ title: Text-to-Speech API 참조(REST) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Text-to-Speech REST API를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 7acde9107787715ffd2e88bf55833dd759083cd9
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: ba1a9e24be1a4be6c545ad52821f0c91f808522f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539019"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538692"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -76,7 +76,7 @@ Speech Service를 사용하면 [텍스트를 합성된 음성으로 변환](#con
 
 이 표에는 텍스트 음성 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나열되어 있습니다.
 
-| 헤더 | 설명 | 필수/선택 |
+| 헤더 | Description | 필수/선택 |
 |--------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
@@ -242,7 +242,7 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 
 이 표에는 텍스트 음성 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나열되어 있습니다.
 
-| 헤더 | 설명 | 필수/선택 |
+| 헤더 | Description | 필수/선택 |
 |--------|-------------|---------------------|
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |

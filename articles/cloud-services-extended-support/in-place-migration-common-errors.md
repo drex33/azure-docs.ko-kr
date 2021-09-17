@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ce0c3bb4386e2fcc48ca57a1cd53978fc684d98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529390"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540958"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Azure Cloud Services로 마이그레이션할 때 발생하는 일반적인 오류 및 알려진 문제(추가 지원)
 
@@ -69,6 +69,8 @@ ms.locfileid: "122529390"
 | XrpVirtualNetworkMigrationError: 가상 네트워크 마이그레이션 오류가 발생했습니다. | [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
 | HostedService {1}의 배포 {0}은(는) Virtual Network {2}에 속합니다. 이 HostedService {1}을(를) 마이그레이션하려면 Virtual Network {2}을(를) 마이그레이션합니다. | [Virtual Network 마이그레이션](in-place-migration-technical-details.md#virtual-network-migration)을 참조하세요. | 
 | Azure Resource Manager의 리소스 이름에 대한 현재 할당량이 부족하여 마이그레이션을 완료할 수 없습니다. 현재 할당량은 {0}이고 추가 필요는 {1}입니다. 할당량을 올린 후 할당량을 올리고 마이그레이션을 다시 시도하는 지원 요청을 제출합니다.    | 적절한 채널을 따라 할당량 증가를 요청합니다. <br>[네트워킹 리소스에 대한 할당량 증가](../azure-portal/supportability/networking-quota-requests.md) <br>[컴퓨팅 리소스에 대한 할당량 증가](../azure-portal/supportability/per-vm-quota-requests.md) | 
+|XrpPaaSMigrationCscfgCsdefValidationMismatch: 배포의 메타 데이터가 유효 하지 않기 때문에 호스팅 서비스 서비스 이름에서 배포 배포 이름에 대 한 마이그레이션을 완료할 수 없습니다. 마이그레이션을 중단 하 고 마이그레이션을 다시 시도 하기 전에 배포를 업그레이드 하세요. 유효성 검사 메시지: 서비스 정의 파일의 서비스 이름 ' 서비스 이름 '이 (가) 서비스 구성 파일의 ' 서비스 이름-파일 이름 '과 일치 하지 않습니다.|.csdef 및 .cscfg 파일의 서비스 이름을 찾습니다.|
+|클라우드 서비스 (확장 지원) 리소스를 배포할 때 NetworkingInternalOperationError| 서비스 이름이 역할 이름과 같은 경우 문제가 발생할 수 있습니다. 서비스 및 역할에 diferent names를 사용 하는 것이 좋습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 마이그레이션 요구 사항에 대한 자세한 내용은 [Azure Cloud Services(추가 지원)로 마이그레이션에 대한 기술 세부 정보](in-place-migration-technical-details.md)를 참조하세요.

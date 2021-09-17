@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 8c40af42248e41346d10ec0028c1f13ff7ef22d6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 6f3cd38985b6bbf1f0095ef124d2690cce00181f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457950"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473733"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -39,7 +39,6 @@ Cognitive Services는 의사 결정, 언어, 음성 및 비전의 네 가지 범
 
 * Computer Vision 서비스에 이미지를 보내 단어와 구를 검색하거나 프레임에 있는 사람 수를 계산할 수 있습니다.
 * 음성 서비스에 오디오 파일을 전송하고 음성 텍스트를 가져오는 동시에 음성을 텍스트로 변환할 수 있습니다.
-* PDF를 Form Recognizer 서비스로 보내고 해당 셀 내부의 테이블, 셀 및 텍스트를 검색하면 좌표 및 세부 정보가 포함된 JSON 출력을 얻을 수 있습니다.
 
 Azure는 다양한 유형의 사용자를 위해 설계된 다양한 도구를 제공하며, 대부분은 Cognitive Services와 함께 사용할 수 있습니다. 디자이너 기반 도구는 사용하기 쉽고 신속하게 설정 및 자동화할 수 있지만 사용자 지정하는 데는 제한이 있을 수 있습니다. REST API 및 클라이언트 라이브러리는 사용자에게 더 많은 제어와 유연성을 제공하지만 솔루션을 구축하려면 더 많은 노력, 시간 및 전문 지식이 필요합니다. REST API 및 클라이언트 라이브러리를 사용하면 C#, Java, Python, JavaScript 또는 기타 많이 사용되는 프로그래밍 언어와 같은 최신 프로그래밍 언어로 작업하는 것처럼 익숙할 것입니다. 
 
@@ -96,7 +95,7 @@ Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자�
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 개선하는 데 사용할 수 있는 Microsoft Power Platform 기능입니다. AI Builder는 포인트 앤 클릭 환경을 통해 AI의 강력한 기능을 솔루션에 제공합니다. Form Recognizer, Text Analytics 및 Computer Vision과 같은 많은 Cognitive Services가 직접 통합되어 있으므로 자체 Cognitive Services를 만들 필요가 없습니다. 
+[AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 개선하는 데 사용할 수 있는 Microsoft Power Platform 기능입니다. AI Builder는 포인트 앤 클릭 환경을 통해 AI의 강력한 기능을 솔루션에 제공합니다. Text Analytics 및 Computer Vision 같은 많은 Cognitive Services는 여기에 직접 통합되어 있으며 사용자 고유의 Cognitive Services 만들 필요가 없습니다. 
 
 * **대상 사용자**: 비즈니스 사용자(분석가) 및 SharePoint 관리자
 * **이점**: 포인트 클릭 환경을 통해 AI 기능을 제공하는 턴키 솔루션입니다. 코딩이나 데이터 과학 기술이 필요하지 않습니다.
@@ -125,7 +124,6 @@ Cognitive Services를 사용하여 애플리케이션 또는 워크플로를 빌
 | 핵심 요소 | 서비스 | 사용자 지정 UI | 빠른 시작 |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [빠른 시작](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | [샘플 레이블 지정 도구](https://aka.ms/fott-2.1-ga) | [방법 문서](./form-recognizer/label-tool.md?tabs=v2-0) |
 | 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | 의사 결정 | Personalizer | UI는 Azure Portal의 Personalizer 리소스에서 사용할 수 있습니다. | [빠른 시작](./personalizer/quickstart-personalizer-sdk.md) |
 | 언어 | 언어 이해(LUIS) | https://www.luis.ai/ | |

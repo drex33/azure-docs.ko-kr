@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 1602207c83f8ff4a632428c0308b514c6d552058
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378145"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428257"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>시나리오: 사용자 지정 설정을 사용하여 NVA를 통해 트래픽 라우팅
 
 Azure Virtual WAN 가상 허브 라우팅을 사용하는 경우 다양한 옵션을 사용할 수 있습니다. 이 문서에서는 가상 네트워크와 분기 간의 통신을 위해 NVA(네트워크 가상 어플라이언스)를 통해 트래픽을 라우팅하고 인터넷 바인딩된 트래픽에 대해 다른 NVA를 사용하는 데 중점을 두고 있습니다. 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조하세요.
+
+>[!Note]
+> 아래의 라우팅 시나리오에서 NVA를 포함 하는 가상 WAN 허브 및 스포크 Virtual Network는 동일한 Azure 지역에 있어야 합니다.
 
 ## <a name="design"></a>디자인
 

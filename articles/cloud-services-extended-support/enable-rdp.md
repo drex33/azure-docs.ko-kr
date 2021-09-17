@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bb441ebac4208afa4d9024787dd14256f36777ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 02e5a30da1efe8c3cd669babddff305296077f20
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445061"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424189"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 원격 데스크톱 확장 적용
 
@@ -47,8 +47,44 @@ Azure Portal은 원격 데스크톱 확장을 사용하여 애플리케이션이
     
 4. 역할 인스턴스에 연결할 파일을 엽니다.
 
+## <a name="update-remote-desktop-extension-using-powershell"></a>PowerShell을 사용하여 원격 데스크톱 확장 업데이트
+아래 단계에 따라 RDP 확장을 사용하여 클라우드 서비스를 최신 모듈로 업데이트합니다.
+
+1.  Az.CloudService 모듈을 [최신 버전으로](https://www.powershellgallery.com/packages/Az.CloudService/0.5.0) 업데이트
+
+```powershell
+Update-Module -Name Az.CloudService 
+```
+ 
+2.  클라우드 서비스에 대한 기존 RDP 확장 제거 
+
+```powershell
+$resourceGroupName='<Resource Group Name>'  
+$cloudServiceName='<Cloud Service Name>' 
+ 
+# Get existing cloud service  
+$cloudService = Get-AzCloudService -ResourceGroup $resourceGroupName -CloudServiceName $cloudServiceName  
+ 
+# Remove existing RDP Extension from cloud service object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension | Where-Object { $_.Type-ne "RDP" }  
+ ```
+ 
+3.  최신 모듈을 사용하여 클라우드 서비스에 새 RDP 확장 추가
+
+```powershell
+# Create new RDP extension object  
+$credential = Get-Credential  
+$expiration='<Expiration Date>'  
+$rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"  
+ 
+# Add RDP extension to existing cloud service extension object  
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $rdpExtension  
+ 
+# Update cloud service  
+$cloudService | Update-AzCloudService  
+```
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

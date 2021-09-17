@@ -2,15 +2,14 @@
 title: Azure 지원 요청 관리
 description: 지원 요청을 보고, 메시지를 보내고, 요청 심각도 수준을 변경하고, Azure 지원과 진단 정보를 공유하고, 닫힌 지원 요청을 다시 열고, 파일을 업로드하는 방법을 설명합니다.
 tags: billing
-ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.openlocfilehash: 6f1daf2c504be53654c61c5249065cc929ae8066
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: f1930402c0f458962c95f8f4fe0f1011f1dcca49
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824131"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426385"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
@@ -36,13 +35,10 @@ ms.locfileid: "122824131"
 
 > [!NOTE]
 > 최대 심각도 수준은 [지원 플랜](https://azure.microsoft.com/support/plans)에 따라 다릅니다.
->
 
 1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
 
 1. **지원 요청** 페이지에서 **변경** 을 선택합니다.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="지원 요청 심각도 변경":::
 
 1. Azure Portal에는 요청이 지원 엔지니어에게 이미 할당되었는지 여부에 따라 다음 두 가지 화면 중 하나가 표시됩니다.
 
@@ -61,11 +57,11 @@ ms.locfileid: "122824131"
 요청이 생성된 후 **공유 진단 정보** 선택을 변경하려면 다음을 수행합니다.
 
 1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
-    
+
 1. **지원 요청** 페이지에서 **진단 정보 공유** 를 찾은 다음, **변경** 을 선택합니다.
-    
-1.  **예** 또는 **아니요** 를 선택한 후 **확인** 을 선택하여 확인합니다.
-    
+
+1. **예** 또는 **아니요** 를 선택한 후 **확인** 을 선택하여 확인합니다.
+
     :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="진단 정보에 대한 권한 부여":::
 
 ## <a name="upload-files"></a>파일 업로드
@@ -82,11 +78,11 @@ ms.locfileid: "122824131"
 
 파일 업로드 옵션을 사용할 때 다음 지침을 수행합니다.
 
-* 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
-* 파일 이름은 110자 이하여야 합니다.
-* 둘 이상의 파일을 업로드할 수 없습니다.
-* 파일은 4MB보다 클 수 없습니다.
-* 모든 파일에는 *.docx* 또는 *.xlsx* 와 같은 파일 이름 확장명이 있어야 합니다. 다음 표에서는 업로드할 수 있는 파일 이름 확장명을 보여줍니다.
+- 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
+- 파일 이름은 110자 이하여야 합니다.
+- 둘 이상의 파일을 업로드할 수 없습니다.
+- 파일은 4MB보다 클 수 없습니다.
+- 모든 파일에는 *.docx* 또는 *.xlsx* 와 같은 파일 이름 확장명이 있어야 합니다. 다음 표에서는 업로드할 수 있는 파일 이름 확장명을 보여줍니다.
 
 | 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -121,18 +117,17 @@ ms.locfileid: "122824131"
 
 ## <a name="close-a-support-request"></a>지원 요청 닫기
 
-지원 요청을 닫아야 하는 경우 요청을 닫을지 묻는 [메시지를 보냅니다](#send-a-message).
+지원 요청을 종결 하려면 요청을 닫을지 묻는 [메시지를 보냅니다](#send-a-message) .
 
 ## <a name="reopen-a-closed-request"></a>닫힌 요청 다시 열기
 
-닫힌 지원 요청을 다시 열어야 하는 경우 [새 메시지](#send-a-message)를 작성하면 요청이 자동으로 다시 열립니다.
+닫힌 지원 요청을 다시 열려면 [새 메시지](#send-a-message)를 만듭니다. 그러면 요청이 자동으로 다시 열립니다.
 
 ## <a name="cancel-a-support-plan"></a>지원 플랜 취소
 
-지원 플랜을 취소해야 하는 경우 [지원 플랜 취소](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)를 참조하세요.
+지원 플랜을 취소 하려면 [지원 계획 취소](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 지원 요청을 만드는 방법](how-to-create-azure-support-request.md)
-
-[Azure 지원 티켓 REST API](/rest/api/support)
+- 프로세스를 검토 하 여 [Azure 지원 요청을 만듭니다](how-to-create-azure-support-request.md).
+- [Azure 지원 티켓 REST API](/rest/api/support)에 대해 알아봅니다.

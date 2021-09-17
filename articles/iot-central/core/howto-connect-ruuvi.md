@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 11/27/2019
-ms.openlocfilehash: 13b1e22f1e1e5f51d524e80d0bf102b744fbec3d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
-ms.translationtype: HT
+ms.date: 08/20/2021
+ms.openlocfilehash: b4d169a46f499e83d0abf5d3145d67a3f6fdf03b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684598"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439220"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 RuuviTag 센서 연결
 
@@ -46,8 +46,8 @@ RuuviTag 센서를 Azure IoT Central 애플리케이션 인스턴스에 온보�
 
 RuuviTag 디바이스 템플릿을 추가하려면 다음을 수행합니다.
 
-1. 왼쪽 창에서 ***디바이스 템플릿** _ 탭으로 이동하고 _*+ 새로 만들기**: ![새 디바이스 템플릿 만들기](./media/howto-connect-ruuvi/devicetemplate-new.png)를 선택합니다. 페이지에 ***사용자 지정 템플릿 만들기**_ 또는 _ *_미리 구성된 디바이스 템플릿 사용_* 옵션이 있습니다.*
-1. 아래 표시된 것처럼 미리 구성된 디바이스 템플릿 목록에서 RuuviTag 디바이스 템플릿을 선택합니다. ![RuuviTag 디바이스 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. 왼쪽 창에서 ***디바이스 템플릿** _ 탭으로 이동하고 _*+ 새로 만들기**: ![새 디바이스 템플릿 만들기](./media/howto-connect-ruuvi/device-template-new.png)를 선택합니다. 페이지에 ***사용자 지정 템플릿 만들기**_ 또는 _ *_미리 구성된 디바이스 템플릿 사용_* 옵션이 있습니다.*
+1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag Multisensor 장치 템플릿을 선택 합니다.  ![ Select RuuviTag device template](./media/howto-connect-ruuvi/device-template-pre-configured.png)
 1. ***다음: 사용자 지정*** 을 선택하여 다음 단계로 계속 진행합니다.
 1. 다음 화면에서 ***만들기*** 를 선택하여 C500 디바이스 템플릿을 IoT Central 애플리케이션에 온보딩합니다.
 
@@ -59,7 +59,7 @@ RuuviTag 디바이스 템플릿을 추가하려면 다음을 수행합니다.
 1. RuuviTag의 덮개를 열고 플라스틱 탭을 당겨 배터리와의 연결을 고정합니다.
 1. IoT Central 애플리케이션에 이미 구성된 Rigado Cascade 500 게이트웨이 가까이에 RuuviTag를 놓습니다.
 1. 몇 초만에 IoT Central 내의 디바이스 목록에 RuuviTag가 표시됩니다.  
-    ![RuuviTag 디바이스 목록](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
+    ![RuuviTag 디바이스 목록](./media/howto-connect-ruuvi/ruuvi-device-list.png)
 
 이제 IoT Central 애플리케이션 내에서 이 RuuviTag를 사용할 수 있습니다.  
 

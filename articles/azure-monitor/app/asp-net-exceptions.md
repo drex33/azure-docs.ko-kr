@@ -4,12 +4,12 @@ description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
-ms.openlocfilehash: d81881318f6bbfa5c44b9cd947cf408cefa766ae
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
-ms.translationtype: HT
+ms.openlocfilehash: 5ad103890d481db18c3df9633bf3b58186136e93
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616247"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431553"
 ---
 # <a name="diagnose-exceptions-in-web-apps-with-application-insights"></a>Application Insights를 사용하여 Web apps에서 예외 진단
 
@@ -77,11 +77,11 @@ Application Insights는 애플리케이션 성능 관리(APM) 환경과 함께 �
 
 진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 사용자 지정 원격 분석 또는 로그 데이터는 요청, 페이지 보기 및 기타 자동으로 수집된 데이터와 함께 진단 검색에 표시됩니다.
 
-<xref:Microsoft.ApplicationInsights.TelemetryClient?displayProperty=fullName>을 사용하면 다음과 같은 여러 API를 활용할 수 있습니다.
+<xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient?displayProperty=fullName>을 사용하면 다음과 같은 여러 API를 활용할 수 있습니다.
 
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType>는 일반적으로 사용 패턴 모니터링에 활용되지만, 여기에서 보내는 데이터는 진단 검색의 **사용자 지정 이벤트** 에도 표시됩니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](./diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
-* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType>는 스택 추적과 같은 예외 세부 정보를 Application Insights로 보냅니다.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType>는 일반적으로 사용 패턴 모니터링에 활용되지만, 여기에서 보내는 데이터는 진단 검색의 **사용자 지정 이벤트** 에도 표시됩니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링](./diagnostic-search.md)할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> 를 사용하여 POST 정보와 같은 긴데이터를 보낼 수 있습니다.
+* <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType>는 스택 추적과 같은 예외 세부 정보를 Application Insights로 보냅니다.
 
 해당 이벤트를 보려면 좌측 메뉴에서 [검색](./diagnostic-search.md)을 열고 드롭다운 메뉴 **이벤트 유형** 을 선택한 다음, **사용자 지정 이벤트**, **추적**, 또는 **예외** 를 선택합니다.
 
@@ -180,7 +180,7 @@ End Try
 > [!NOTE]
 > `TelemetryClient`는 한 번 인스턴스화한 후 애플리케이션의 전체 수명에 걸쳐 재사용하는 것을 권장합니다.
 
-적절한 .NET SDK인 [.NET의 DI(종속성 주입)](/dotnet/core/extensions/dependency-injection)를 사용하고 DI에 대해 Application Insights를 올바르게 구성하는 경우, <xref:Microsoft.ApplicationInsights.TelemetryClient>를 생성자 매개 변수로 요구할 수 있습니다.
+적절한 .NET SDK인 [.NET의 DI(종속성 주입)](/dotnet/core/extensions/dependency-injection)를 사용하고 DI에 대해 Application Insights를 올바르게 구성하는 경우, <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient>를 생성자 매개 변수로 요구할 수 있습니다.
 
 ```csharp
 public class ExampleController : ApiController
@@ -211,7 +211,7 @@ void Application_Error(object sender, EventArgs e)
 }
 ```
 
-앞의 예제에서 `_telemetryClient`는 <xref:Microsoft.ApplicationInsights.TelemetryClient>형식의 클래스 범위 변수입니다.
+앞의 예제에서 `_telemetryClient`는 <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient>형식의 클래스 범위 변수입니다.
 
 ## <a name="mvc"></a>MVC
 

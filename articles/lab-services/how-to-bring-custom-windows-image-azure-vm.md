@@ -3,12 +3,12 @@ title: Azure Lab Services - Azure 가상 머신에서 Windows 사용자 지정 �
 description: Azure 가상 머신에서 Windows 사용자 지정 이미지를 가져오는 방법을 설명합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 465d3c128e68e1c8a0d72f51bcf5f354da9d6818
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: dc946e770f719ad76fd0c46d5fe418a937f17867
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831380"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452270"
 ---
 # <a name="bring-a-windows-custom-image-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 Windows 사용자 지정 이미지 가져오기
 
@@ -32,7 +32,7 @@ ms.locfileid: "122831380"
 
 ## <a name="import-the-custom-image-into-a-shared-image-gallery"></a>사용자 지정 이미지를 공유 이미지 갤러리로 가져옵니다.
 
-1. Shared Image Gallery에서 [이미지 정의를 만들거나](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) 기존 이미지 정의를 선택합니다.
+1. Shared Image Gallery에서 [이미지 정의를 만들거나](../virtual-machines/image-version.md) 기존 이미지 정의를 선택합니다.
      - **VM 세대** 에 대해 **1세대** 를 선택합니다.
      - **운영 체제 상태** 에서 **특수화된** 이미지를 만들지 또는 **일반화된** 이미지를 만들지 선택합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "122831380"
     
     기존 이미지 정의를 사용하고 사용자 지정 이미지의 새 버전을 만들도록 선택할 수도 있습니다.
     
-1. [이미지 버전을 만듭니다](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
+1. [이미지 버전을 만듭니다](../virtual-machines/image-version.md).
     - **버전 번호** 속성은 *MajorVersion.MinorVersion.Patch* 형식을 사용합니다.   
     - **원본** 의 드롭다운 목록에서 **디스크 및/또는 스냅샷** 을 선택합니다.
     - **OS 디스크** 속성의 경우 이전 단계에서 만든 Azure VM의 디스크를 선택합니다.

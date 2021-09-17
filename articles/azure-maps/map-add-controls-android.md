@@ -1,20 +1,20 @@
 ---
 title: Android 지도에 컨트롤 추가 | Microsoft Azure Maps
 description: Microsoft Azure Maps Android SDK에서 지도에 확대/축소 컨트롤, 피치 컨트롤, 회전 컨트롤 및 스타일 선택기를 추가하는 방법입니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: b84150196467606800df737ba9c9d50c69346e30
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 5599efb61c02c05ea3908d660ca0f1c11bea1ca7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093592"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425305"
 ---
 # <a name="add-controls-to-a-map-android-sdk"></a>지도에 컨트롤 추가(Android SDK)
 

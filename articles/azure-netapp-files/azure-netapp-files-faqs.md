@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 954519f766c5c9f79fa0c8f61ed45f260743a0c2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 119cf21f90102f7ebccd8e4e06cd5e5dee3c4bfe
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531138"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427987"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대한 FAQ
 
@@ -108,7 +108,7 @@ API 작업의 전체 목록은 [Azure NetApp Files REST API](/rest/api/netapp/)�
 
 ### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Azure NetApp Files 볼륨을 삭제하면 데이터가 안전하게 삭제되나요? 
 
-Azure NetApp Files 볼륨의 삭제는 프로그래밍 방식으로 백 엔드(물리적 인프라 계층)에서 수행되어 즉시 적용됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
+Azure NetApp Files 볼륨의 삭제는 즉각적인 효과와 함께 프로그래밍 방식으로 수행됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
 
 ## <a name="performance-faqs"></a>성능 FAQ
 

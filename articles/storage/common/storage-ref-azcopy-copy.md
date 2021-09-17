@@ -4,16 +4,16 @@ description: 이 문서는 azcopy copy 명령에 대한 참조 정보를 제공�
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: faa9dab677c410e877601297ec72f451219da47c
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 09994e329072ab0ed67a9cb29c09ff245b288923
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968299"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432075"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -249,13 +249,13 @@ azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destacc
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GCS 원본에 대해 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT=<project-id> 환경 변수를 설정합니다.
+서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 하 고 GOOGLE_CLOUD_PROJECT =<`project-id` gc 원본에 대해> 합니다.
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 Google Cloud Storage 원본에 대해 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT=<project-id> 환경 변수를 설정합니다.
+서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 `project-id` GOOGLE CLOUD Storage 원본에 대해 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT =<>를 설정 합니다.
  
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
@@ -287,7 +287,13 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--content-type** 문자열: 파일의 콘텐츠 형식을 지정합니다. no-guess-mime-type을 의미합니다. 다운로드 시 반환됩니다.
 
+**--** 이름으로 클라이언트에서 제공한 키 이름으로 클라이언트에서 요청 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션 Azure Blob Storage 수 있습니다. 제공 된 키 이름은 Azure Key Vault에서 페치 되며 데이터를 암호화 하는 데 사용 됩니다.
+
+**--cpk-값**                          클라이언트에서 제공 하는 키 이름을 사용 하 여 요청을 Azure Blob Storage에 대 한 요청을 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션입니다. 제공 된 키와 해당 해시가 환경 변수에서 인출 됩니다.
+
 **--decompress**: 다운로드 시 파일의 content-encoding이 파일이 압축되었음을 나타내는 경우 해당 파일의 압축을 자동으로 풉니다. 지원되는 content-encoding 값은 `gzip` 및 `deflate`입니다. 파일 확장명 `.gz`/`.gzip` 또는 `.zz`는 필요하지 않으며 있는 경우 제거됩니다.
+
+**--예행 실행**                              이 명령으로 복사할 파일 경로를 인쇄 합니다. 이 플래그는 실제 파일을 복사 하지 않습니다.
 
 **--disable-auto-decoding**    Windows에서 잘못된 문자의 자동 디코딩을 사용하도록 설정하려면 기본적으로 False입니다. `true`로 설정하여 자동 디코딩을 사용하지 않도록 설정할 수 있습니다.
 
@@ -299,6 +305,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--exclude-pattern** 문자열: 복사 시 해당 파일을 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다.
 
+**--exclude-regex** 문자열이 정규식과 일치 하는 파일의 상대 경로를 모두 제외 합니다. 정규식을 '; '으로 구분 합니다.
+
 **--follow-symlinks**: 로컬 파일 시스템에서 업로드할 때 바로 가기 링크를 따릅니다.
 
 **--force-if-read-only**: Windows 또는 Azure Files에서 기존 파일을 덮어쓸 때 기존 파일에 읽기 전용 특성 집합이 있는 경우에도 덮어쓰기가 작동하도록 강제합니다.
@@ -307,15 +315,19 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--help**: 복사에 대한 도움말입니다.
 
-**--include-after** 문자열: 지정된 날짜/시간 이후에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.5에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-smb-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
+**--include-after** 문자열: 지정된 날짜/시간 이후에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.5에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
 
- **--include-before** 문자열: 지정된 날짜/시간 이전에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.7에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-smb-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
+ **--include-before** 문자열: 지정된 날짜/시간 이전에 수정된 파일만 포함합니다. 값은 ISO8601 형식이어야 합니다. 표준 시간대가 지정되지 않은 경우 이 값은 AzCopy를 실행하는 머신의 현지 표준 시간대에 있는 것으로 간주됩니다. 예를 들어 `2020-08-19T15:04:00Z`는 UTC 시간을 나타내며 `2020-08-19`는 현지 표준 시간대로 자정(00:00)을 나타냅니다. AzCopy 10.7에서는 이 플래그는 폴더가 아닌 파일에 적용되므로 이 플래그를 `--preserve-smb-info` 또는 `--preserve-permissions`와 함께 사용할 때에는 폴더 속성이 복사되지 않습니다.
 
 **--include-attributes** 문자열: (Windows에만 해당)해당 특성이 특성 목록과 일치하는 파일을 포함합니다. 예: A;S;R
 
 **--include-path** 문자열: 복사 시 해당 경로만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사(예: `myFolder;myFolder/subDirName/file.pdf`)를 확인합니다.
 
+**--디렉터리-스텁**               기본적으로 디렉터리 스텁을 무시 하려면 False로 설정 합니다. 디렉터리 스텁은 메타 데이터가 ' hdi_isfolder: t r u e ' 인 blob입니다. 값을 true로 설정 하면 전송 중에 디렉터리 스텁이 유지 됩니다.
+
 **--include-pattern** 문자열: 복사 시 해당 파일만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다. `;`을 사용하여 파일을 구분합니다.
+
+**--regex** 문자열에는 정규식과 일치 하는 파일의 상대 경로만 포함 됩니다. 정규식을 '; '으로 구분 합니다.
 
 **--list-of-versions** 문자열: 각 버전 ID가 별도의 줄에 나열되는 파일을 지정합니다. 원본이 단일 Blob을 가리켜야 하며 이 플래그를 사용하여 파일에 지정된 모든 버전 ID가 원본 Blob에만 속해야 합니다. AzCopy가 지정된 버전을 제공된 대상 폴더에 다운로드합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](./storage-use-azcopy-v10.md#transfer-data)를 참조하세요.
 
@@ -331,11 +343,12 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--preserve-last-modified-time**: 대상이 파일 시스템인 경우에만 사용할 수 있습니다.
 
-**--preserve-owner**: 다운로드에만 적용되며 `--preserve-smb-permissions`이 사용되는 경우에만 해당합니다. true(기본값)로 설정된 경우 다운로드 시 파일 소유자 및 그룹이 유지됩니다. false로 설정된 경우 `--preserve-smb-permissions`는 여전히 ACL을 유지하지만 소유자 및 그룹은 AzCopy를 실행하는 사용자(기본값 true)에 따라 달라집니다.
+**--preserve-owner**: 다운로드에만 적용되며 `--preserve-permissions`이 사용되는 경우에만 해당합니다. true(기본값)로 설정된 경우 다운로드 시 파일 소유자 및 그룹이 유지됩니다. false로 설정된 경우 `--preserve-permissions`는 여전히 ACL을 유지하지만 소유자 및 그룹은 AzCopy를 실행하는 사용자(기본값 true)에 따라 달라집니다.
 
-**--preserve-smb-info**: 기본적으로 false입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. Azure Files에서 지원하는 특성 비트만 전송되고 다른 모든 항목은 무시됩니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
+**--smb-정보를 유지**   합니다.   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. Azure Files에서 지원하는 특성 비트만 전송되고 다른 모든 항목은 무시됩니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
-**--preserve-smb-permissions**: 기본적으로 false입니다. 인식 리소스(Windows 및 Azure Files) 간에 SMB ACL을 유지합니다. 다운로드의 경우 `--backup` 플래그가 있어야 새 소유자가 AzCopy를 실행하는 사용자가 아닌 지점에서 권한을 복원할 수 있습니다. 이 플래그는 파일 전용 필터(예: `include-pattern`)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다.
+**--유지-권한**                False 이면 기본적으로 False입니다. 인식 리소스 (Windows 및 Azure Files 또는 Data Lake Storage gen 2 Data Lake Storage gen 2) 간에 acl을 유지 합니다. 계층 네임 스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요 합니다. 다운로드를 위해 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 경우에는--backup 플래그를 사용 하 여 사용 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴).
+
 
 **--put-md5**: 각 파일의 MD5 해시를 만들고 해당 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시는 생성되지 않습니다.) 업로드 시에만 사용할 수 있습니다.
 
@@ -346,6 +359,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 **--s2s-handle-invalid-metadata** 문자열: 잘못된 메타데이터 키가 처리되는 방식을 지정합니다. 사용 가능한 옵션은 ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid입니다. (기본값 `ExcludeIfInvalid`).
 
 **--s2s-preserve-access-tier**: 서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
+
+**--s2s--blob-태그**               한 blob 저장소에서 다른 blob 저장소로 서비스를 전송 하는 동안 인덱스 태그를 유지 합니다.
 
 **--s2s-preserve-properties**: 서비스 간 복사가 진행되는 동안 전체 속성을 유지합니다. AWS S3 및 Azure File 비단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성이 반환되지 않습니다. 전체 속성을 유지하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송해야 합니다. (기본값 true)
 

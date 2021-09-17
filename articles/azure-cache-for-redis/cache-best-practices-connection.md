@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 999d8f1f4bf5ad1eef2008678f1e46d1586dd40a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: e071298ce1ed191f79e071f18916d8afba10d625
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223698"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478809"
 ---
 # <a name="connection-resilience"></a>연결 복원력
 
@@ -53,7 +53,7 @@ ms.locfileid: "123223698"
 
 ## <a name="advance-maintenance-notification"></a>고급 유지 관리 알림
 
-알림을 사용하여 예정된 유지 관리에 대해 알아봅니다. 자세한 내용은 [계획된 유지 관리에 앞서 알림을 받을 수 있나요](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance)를 참조하세요.
+알림을 사용하여 예정된 유지 관리에 대해 알아봅니다. 자세한 내용은 [계획된 유지 관리에 앞서 알림을 받을 수 있나요](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance)를 참조하세요.
 
 ## <a name="schedule-maintenance-window"></a>유지 관리 기간 예약
 

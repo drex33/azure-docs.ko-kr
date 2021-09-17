@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 02/18/2020
-ms.openlocfilehash: 345ef497ecb14279c117932bd2c9a1cf7b42ba1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 8c44d6e92f2943f3c565e80d42d9d0c474fddd4f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536513"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542254"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 개요: SQL Server를 Azure SQL Managed Instance로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -84,8 +84,9 @@ Azure SQL Managed Instance(범용 대비 중요 비즈니스용)에서 대상 �
 
 다음 마이그레이션 도구를 권장합니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
+|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md)  | Azure Data Studio에 대 한 Azure SQL migration 확장은 Azure Data Studio의 SQL Server 평가 및 마이그레이션 기능을 제공 합니다. 온라인 (가동 중지 시간을 최소화 해야 하는 마이그레이션) 또는 오프 라인 (마이그레이션 기간 동안 가동 중지 시간이 지속 되는 마이그레이션) 모드에서 마이그레이션을 지원 합니다. |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | 이 Azure 서비스는 VMware에서 대규모 SQL 데이터 자산을 검색하고 평가하는 데 도움이 됩니다. Azure SQL 배포 권장 사항, 대상 크기 조정 및 월간 예상 비용을 제공합니다. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 이 Azure 서비스는 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 애플리케이션에 대해 오프라인 모드에서의 마이그레이션을 지원합니다. 온라인 모드의 연속 마이그레이션과 달리 오프라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대한 일회성 복원을 실행합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 네이티브 SQL Server 데이터베이스 백업(.bak 파일)의 복원을 지원합니다. Azure Storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에게 가장 쉬운 마이그레이션 옵션입니다. 전체 및 차등 백업도 지원되며 자세한 설명은 이 문서의 [마이그레이션 자산에 대한 섹션](#migration-assets)을 참조하세요.| 
@@ -109,6 +110,7 @@ Azure SQL Managed Instance(범용 대비 중요 비즈니스용)에서 대상 �
 
 |마이그레이션 옵션  |사용 시기  |고려 사항  |
 |---------|---------|---------|
+|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md) | -단일 데이터베이스 또는 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -온라인 (최소 가동 중지 시간) 및 오프 라인 (허용 되는 가동 중지 시간) 모드에서 실행할 수 있습니다. </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM |  -쉽게 설정 하 고 시작 하세요. </br> -온-프레미스 SQL Server와 백업에 액세스 하려면 자체 호스팅 통합 런타임을 설정 해야 합니다. </br> -평가 및 마이그레이션 기능이 모두 포함 되어 있습니다. |
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스 또는 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> - 마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM |  - [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md)을 통해 대규모 마이그레이션을 자동화할 수 있습니다. </br> -마이그레이션 완료 시간은 데이터베이스 크기에 따라 달라지며 백업 및 복원 시간의 영향을 받습니다. </br> -충분한 가동 중지 시간이 필요할 수 있습니다. |
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | - 개별 LOB(기간 업무) 애플리케이션 데이터베이스를 마이그레이션합니다.  </br> -별도의 마이그레이션 서비스 또는 도구 없이 빠르고 쉽게 마이그레이션할 수 있습니다.  </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM | - 데이터베이스 백업은 여러 스레드를 사용하여 Azure Blob Storage로의 데이터 전송을 최적화하지만 파트너 대역폭과 데이터베이스 크기가 전송 속도에 영향을 미칠 수 있습니다. </br> - 가동 중지 시간은 전체 백업 및 복원을 수행하는 데 필요한 시간(데이터 작업의 크기)을 수용해야 합니다.| 
 |[로그 재생 서비스](../../managed-instance/log-replay-service-migrate.md) | - 개별 LOB(기간 업무) 애플리케이션 데이터베이스를 마이그레이션합니다.  </br> - 데이터베이스 마이그레이션에는 추가 컨트롤이 필요합니다.  </br> </br> 지원되는 원본: </br> - SQL Server(2008~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM | 마이그레이션에는 SQL Server에서 전체 데이터베이스 백업을 만들고 Azure Blob Storage로 백업 파일을 복사하는 작업이 필요합니다. 로그 재생 서비스는 Azure Blob Storage에서 SQL Managed Instance로 백업 파일을 복원하는 데 사용됩니다. </br> -마이그레이션 프로세스 중에 복원되는 데이터베이스는 복원 모드에 있으며 프로세스가 완료될 때까지 읽기 또는 쓰기에 사용할 수 없습니다.| 

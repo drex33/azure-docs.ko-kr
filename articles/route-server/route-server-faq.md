@@ -5,21 +5,16 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: f76c996f75dce0ea1f6aae8dc8c86ac80f6006a5
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: e17d49654b3c658ed133686e11d70c72b7f7f3b8
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253875"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426025"
 ---
-# <a name="azure-route-server-preview-faq"></a>Azure Route Server(미리 보기) FAQ
-
-> [!IMPORTANT]
-> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="azure-route-server-faq"></a>Azure Route Server FAQ
 
 ## <a name="what-is-azure-route-server"></a>Azure Route Server란?
 
@@ -93,11 +88,14 @@ Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
 | 리소스 | 제한 |
 |----------|-------|
 | 지원되는 BGP 피어 수 | 8 |
-| 각 BGP 피어가 Azure Route Server에 보급할 수 있는 경로 수 | 200 |
+| 각 BGP 피어가 Azure Route Server에 보급할 수 있는 경로 수 | 1000 |
 | Azure Route Server가 ExpressRoute 또는 VPN 게이트웨이에 보급할 수 있는 경로 수 | 200 |
-| Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 가상 네트워크 포함)의 VM 수 | 6000 |
+| Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 가상 네트워크 포함)의 VM 수 | 2000 |
+
+Azure Route Server에서 지원할 수 있는 Vm 수는 하드 제한 되지 않습니다. 이는 Azure 지역 내에서 경로 서버 인프라를 배포 하는 방법에 따라 달라 집니다.
 
 NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server 간에 BGP 세션이 끊어지면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

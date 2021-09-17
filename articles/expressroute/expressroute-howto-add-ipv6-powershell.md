@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: f1af7fd0dc4b1e790a120c8fb9086d886487c34d
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.openlocfilehash: 67010d698c51e0eb66abcfa35fc629ec58d28789
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302791"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424225"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell을 사용하여 개인 피어링을 위한 IPv6 지원 추가(미리 보기)
 
@@ -136,6 +136,8 @@ IPv6 개인 피어링을 사용하려는 Azure 리소스의 기존 환경이 있
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
     ```
+>[!NOTE]
+> 영역 중복이 아닌 기존 게이트웨이 (표준, 고성능 또는 Ultra Performance SKU)가 있는 경우 SKU 및 표준 고정 공용 IP 주소를 사용 하 여 게이트웨이를 삭제 하 고 [다시 만들어야](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) 합니다.
 
 ## <a name="create-a-connection-to-a-new-virtual-network"></a>새 가상 네트워크에 대한 연결 만들기
 

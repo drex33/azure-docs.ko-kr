@@ -1,18 +1,17 @@
 ---
 title: 'Azure ExpressRoute: 모니터링, 메트릭 및 경고'
 description: Azure의 모든 메트릭, 경고, 진단 로그에 대한 원스톱 상점과도 같은 Azure Monitor를 사용하여 Azure ExpressRoute 모니터링, 메트릭 및 경고에 대해 알아봅니다.
-services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: duau
-ms.openlocfilehash: 44ddf54aac61ab00009e7e2cc820b38074c5e8c3
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
-ms.translationtype: HT
+ms.openlocfilehash: abcec496f6bf3fdcd42dcffa66ecfb67533c7052
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725785"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449498"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -42,22 +41,22 @@ ms.locfileid: "107725785"
 
 |**메트릭**|**범주**|**차원**|**기능**|
 | --- | --- | --- | --- |
-|ARP 가용성|가용성|<ui><li>피어(기본/보조 ExpressRoute 라우터)</ui></li><ui><li> 피어링 유형(프라이빗/퍼블릭/Microsoft)</ui></li>|ExpressRoute|
-|BGP 가용성|가용성|<ui><li> 피어(기본/보조 ExpressRoute 라우터)</ui></li><ui><li> 피어링 유형</ui></li>|ExpressRoute|
-|BitsInPerSecond|트래픽|<ui><li> 피어링 유형(ExpressRoute)</ui></li><ui><li>링크(ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ui><li>ExpressRoute 게이트웨이 연결</ui></li>|
-|BitsOutPerSecond|트래픽| <ui><li>피어링 유형(ExpressRoute)</ui></li><ui><li> 링크(ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute 게이트웨이 연결</ui></li>|
-|CPU 사용률|성능| <ui><li>인스턴스</ui></li>|ExpressRoute 가상 네트워크 게이트웨이|
-|초당 패킷|성능| <ui><li>인스턴스</ui></li>|ExpressRoute 가상 네트워크 게이트웨이|
-|피어에 보급된 경로 수 |가용성| <ui><li>인스턴스</ui></li>|ExpressRoute 가상 네트워크 게이트웨이|
-|피어에서 학습된 경로 수 |가용성| <ui><li>인스턴스</ui></li>|ExpressRoute 가상 네트워크 게이트웨이|
-|경로 변경 빈도 |가용성| <ui><li>인스턴스</ui></li>|ExpressRoute 가상 네트워크 게이트웨이|
+|ARP 가용성|가용성|<ul><li>피어(기본/보조 ExpressRoute 라우터)</li><li> 피어링 유형(프라이빗/퍼블릭/Microsoft)</li></ul>|ExpressRoute|
+|BGP 가용성|가용성|<ul><li> 피어(기본/보조 ExpressRoute 라우터)</li><li> 피어링 유형</li></ul>|ExpressRoute|
+|BitsInPerSecond|트래픽|<ul><li> 피어링 유형(ExpressRoute)</li><li>링크(ExpressRoute Direct)</li></ul>|<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute 게이트웨이 연결</li></ul>|
+|BitsOutPerSecond|트래픽| <ul><li>피어링 유형(ExpressRoute)</li><li> 링크(ExpressRoute Direct)</li></ul> |<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute 게이트웨이 연결</li></ul>|
+|CPU 사용률|성능| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
+|초당 패킷|성능| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
+|피어에 보급된 경로 수 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
+|피어에서 학습된 경로 수 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
+|경로 변경 빈도 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
 |가상 네트워크의 VM 수 |가용성| 해당 없음 |ExpressRoute 가상 네트워크 게이트웨이|
-|GlobalReachBitsInPerSecond|트래픽|<ui><li>피어링 회로 Skey(서비스 키)</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어링 회로 Skey(서비스 키)</ui></li>|Global Reach|
+|GlobalReachBitsInPerSecond|트래픽|<ul><li>피어링 회로 Skey(서비스 키)</li></ul>|Global Reach|
+|GlobalReachBitsOutPerSecond|트래픽|<ul><li>피어링 회로 Skey(서비스 키)</li></ul>|Global Reach|
 |AdminState|물리적 연결|링크|ExpressRoute Direct|
 |LineProtocol|물리적 연결|링크|ExpressRoute Direct|
-|RxLightLevel|물리적 연결|<ui><li>링크</ui></li><ui><li>레인</ui></li>|ExpressRoute Direct|
-|TxLightLevel|물리적 연결|<ui><li>링크</ui></li><ui><li>레인</ui></li>|ExpressRoute Direct|
+|RxLightLevel|물리적 연결|<ul><li>링크</li><li>레인</li></ul>|ExpressRoute Direct|
+|TxLightLevel|물리적 연결|<ul><li>링크</li><li>레인</li></ul>|ExpressRoute Direct|
 >[!NOTE]
 >*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 사용은 하나 이상의 Global Reach 연결이 설정된 경우에만 표시됩니다.
 >

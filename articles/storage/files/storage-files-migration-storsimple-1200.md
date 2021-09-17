@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 96cc983cba992452882a8f3307974e83683c39a9
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 1208beab46a9ceb29abd75eec587dc7628e07801
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "114462195"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435387"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 1200 마이그레이션
 
@@ -25,12 +25,9 @@ StorSimple 1200 시리즈는 2022년 12월에 [지원 종료](https://support.mi
 |-|:-:|:-:|
 | 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/no-icon.png) |
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
-
-> [!IMPORTANT]
-> Microsoft는 마이그레이션하는 고객을 위한 지원을 약속드리겠습니다. 맞춤형 마이그레이션 계획 또는 마이그레이션 중 지원을 받으려면 AzureFilesMigration@microsoft.com으로 이메일을 보내세요.
 
 Azure 파일 동기화는 두 가지 주요 구성 요소를 기반으로 하는 Microsoft Cloud Service)입니다.
 
@@ -173,6 +170,12 @@ Windows 서버가 사용 가능한 충분한 용량을 갖춘 경우 명령을 �
 가능성이 희박하지만 발생한 경우 **LINK Azure 파일 동기화 문제 해결 가이드** 를 참조하세요.
 
 [!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
+---
+
+> [!NOTE]
+> 여전히 궁금한 점이 있거나 문제가 있나요?</br>
+> 이에 대 한 도움말은 다음을 참조 하세요. :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="전자 메일 주소: microsoft 도트 com에서 Azure Files 마이그레이션":::
 
 ## <a name="relevant-links"></a>관련 링크
 

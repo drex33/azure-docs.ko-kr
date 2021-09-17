@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 243c3dcf9c76bcedffb6e1f531dfd85ea479edcf
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: fa80ff7a418b0f1d49285aad872cfd411037b721
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114706290"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430183"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
 
@@ -163,7 +163,7 @@ Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>관련 항목
-[Azure Media Services 조각화된 MP4 라이브 수집 사양](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services를 사용하여 Live Encoding을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
 

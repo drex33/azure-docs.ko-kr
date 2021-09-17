@@ -5,21 +5,16 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 96e71dbd8a03e66644f0dc754d448a345978d940
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: b5b40f4e4dfa72eacdcf178dedbc11c969bf7315
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255665"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424675"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Azure Route Server 문제 해결
-
-> [!IMPORTANT]
-> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="connectivity-issues"></a>연결 문제
 

@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 04/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: 5227b738ab5d7af19ed2877a1c3d6b37ea08c556
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126467"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535818"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -48,6 +48,8 @@ ms.locfileid: "113126467"
 - **풀 다시 만들기:** 마찬가지로 매일 풀을 삭제하고 다시 만들지 않도록 합니다. 대신 새 풀을 만들고 기존 작업에서 새 풀을 가리키도록 업데이트합니다. 모든 태스크가 새 풀로 이동되었으면 이전 풀을 삭제합니다.
 
 - **풀 효율성 및 청구:** Batch 자체에는 추가 요금이 부과되지 않지만 사용된 컴퓨팅 리소스에는 요금이 부과됩니다. 상태에 관계없이 풀의 모든 컴퓨팅 노드에 대해 요금이 청구됩니다. 여기에는 스토리지 및 네트워킹 비용과 같이 노드를 실행하는 데 필요한 요금이 포함됩니다. 자세한 내용은 [Azure Batch 비용 분석 및 예산](budget.md)을 참조하세요.
+
+- **삭제 되는 OS 디스크:** 가상 컴퓨터 구성 풀은 VM 캐시 또는 임시 SSD에서 OS 디스크를 만드는 임시 [os 디스크](create-pool-ephemeral-os-disk.md)를 사용 하 여 관리 디스크와 관련 된 추가 비용을 방지할 수 있습니다.
 
 ### <a name="pool-allocation-failures"></a>풀 할당 실패
 

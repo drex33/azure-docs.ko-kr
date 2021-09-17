@@ -3,12 +3,12 @@ title: 변수의 여러 인스턴스 정의
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 복사 작업을 사용하여 변수를 만들 때 여러 번 반복합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 5f6459335fa3f059a76128edde4ee7096790fe13
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: bf04a93d8ec6626bfbb2083789dbd6db08e2af51
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957944"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452180"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 변수 반복
 
@@ -318,6 +318,7 @@ ms.locfileid: "111957944"
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |변수를 반복하는 다양한 방법을 보여 줍니다. |
 |[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |
+|[변수를 사용 하 여 저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewithvariables.json) | 변수를 반복 하 고 여러 저장소 계정을 만드는 방법에 대 한 예입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

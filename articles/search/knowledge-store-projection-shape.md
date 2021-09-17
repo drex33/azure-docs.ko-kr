@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: 05ba404217fcab9171fad011cedd64cc06557279
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7cc61d144576e8f386997e1d2acfa083c9e5f571
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536890"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535800"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>지식 저장소에 프로젝션할 데이터 셰이핑
 
@@ -69,7 +69,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
             "sourceContext": "/document/reviews_text/pages/*",
             "inputs": [
                 {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment",
                     "sourceContext": null,
                     "inputs": []
@@ -189,7 +189,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
                 "sourceContext": "/document/reviews_text/pages/*",
                 "inputs": [
                         {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment"
                     },
                     {

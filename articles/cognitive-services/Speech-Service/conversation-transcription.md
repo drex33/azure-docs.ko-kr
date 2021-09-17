@@ -3,19 +3,19 @@ title: 대화 기록(미리 보기) Speech Service
 titleSuffix: Azure Cognitive Services
 description: 대화 기록은 인식, 화자 ID 및 분할을 결합하여 모든 대화의 기록을 제공하는 회의용 솔루션입니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: lajanuar
-ms.openlocfilehash: 5930511811a8137e038ffd6ab13a16c4e7677e41
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 0c7fb175d80a35d30649d2e4ce491fe39ac19c70
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537506"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539140"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 기록(미리 보기)는 무엇입니까?
 

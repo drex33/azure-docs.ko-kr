@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Services 모듈 사용 | Microsoft Azure 맵
 description: Azure Maps 서비스 모듈에 대해 알아봅니다. 이 도우미 라이브러리를 로드하고 사용하여 웹 또는 Node.js 애플리케이션에서 Azure Maps REST 서비스에 액세스하는 방법을 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/25/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8cd1cd820583a177ec65c9b63066119399e4bba0
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008602"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435153"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈 사용
 
@@ -160,7 +160,7 @@ Azure Maps 웹 SDK는 *서비스 모듈* 을 제공합니다. 이 모듈은 Java
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈 사용" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="서비스 모듈 사용" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>서비스 모듈 사용</a> 펜을 참조하세요.
 </iframe>
 

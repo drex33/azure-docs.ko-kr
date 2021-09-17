@@ -5,19 +5,22 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 09/01/2021
 ms.author: tisande
-ms.openlocfilehash: 2aa08f0d2cf0ccb78d231e30e7c60cde47ba4c86
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 50d30ac0636f74715b3472c35b2801ac6452b624
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537891"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428815"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 GROUP BY 절은 하나 이상의 지정된 속성 값에 따라 쿼리의 결과를 나눕니다.
+
+> [!NOTE]
+> GROUP BY 절은 Azure Cosmos DB Python SDK에서 지원되지 않습니다.
 
 ## <a name="syntax"></a>구문
 
@@ -44,7 +47,7 @@ GROUP BY 절은 하나 이상의 지정된 속성 값에 따라 쿼리의 결과
   쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 일부만 포함할 수 있습니다. 한 가지 예외는 [집계 함수](sql-query-aggregate-functions.md)이며, 이는 GROUP BY 절에 포함되지 않고 SELECT 절에 나타날 수 있습니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
 
   GROUP BY 절은 SELECT, FROM 및 WHERE 절 뒤와 OFFSET LIMIT 절 앞에 와야 합니다. 현재, GROUP BY 절을 ORDER BY 절과 함께 사용할 수 없으며 이러한 특성은 계획된 것입니다.
-
+  
   GROUP BY 절은 다음을 허용하지 않습니다.
   
 - 속성 별칭 지정 또는 시스템 함수 별칭 지정(SELECT 절 내의 별칭 지정은 계속 허용됨)
@@ -66,7 +69,7 @@ GROUP BY f.lastName
 
 ## <a name="examples"></a>예
 
-이 예에서는 샘플 [영양 데이터 세트](https://github.com/AzureCosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)를 사용합니다.
+이 예에서는 [영양 데이터 세트](https://github.com/AzureCosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 샘플을 사용합니다.
 
 각 foodGroup의 총 항목 수를 반환하는 쿼리는 다음과 같습니다.
 

@@ -4,16 +4,16 @@ description: Microsoft와 공동 판매 탭에서 사용자 제품에 대해 제
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: palanis-MSFT
-ms.author: palanis
+author: sharath-satish-msft
+ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: d010d079aaeded441fa7b846435cdaef0dfedd74
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: 39212b2e9ef5456ecc4f1343cc51fd83064a8840
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389121"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535656"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>상업용 마켓플레이스 제품에 대한 공동 판매 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "114389121"
 - Azure Container
 - Azure Virtual Machine
 - 컨설팅 서비스
-- Dynamics 365 for Customer Engagement 및 PowerApps
+- Dynamics 365 for Customer Engagement 및 Power Apps
 - Dynamics 365 for operations
 - Dynamics 365 Business Central
 - IoT Edge 모듈
@@ -79,11 +79,11 @@ ms.locfileid: "114389121"
 
 ### <a name="select-solution-areas"></a>솔루션 영역 선택
 
-솔루션 영역은 사용자 솔루션을 추가로 정의하는 데 도움이 됩니다. 이를 통해 Microsoft 영업팀은 솔루션의 가치 제안을 발견하고 이해할 수 있습니다. 제품에 대해 최소 1개에서 최대 3개까지 솔루션 영역을 선택해야 합니다. 또한 각 솔루션 영역에 대해 최대 두 개의 솔루션 하위 영역을 선택할 수 있습니다.
+솔루션 영역은 사용자 솔루션을 추가로 정의하는 데 도움이 됩니다. 이를 통해 Microsoft 영업팀은 솔루션의 가치 제안을 발견하고 이해할 수 있습니다. 제품에 대해 최대 5 개의 솔루션 영역을 하나 이상 선택 해야 합니다. 각 솔루션 영역에 대해 최대 5 개의 솔루션 하위 영역을 선택할 수 있습니다.
 
-1. **+ 솔루션 영역 추가(최대 3개)** 링크를 선택합니다.
+1. **+ 솔루션 영역 추가 (최대 5 개)** 링크를 선택 합니다.
 1. 표시되는 드롭다운 목록에서 솔루션 영역을 선택합니다.
-1. 최소 1개 최대 2개의 솔루션 하위 영역을 선택합니다. 여러 하위 영역을 선택하려면, `Ctrl` 키(Windows) 또는 `Command` 키(macOS)를 사용합니다.
+1. 솔루션 하위 영역을 하나 이상 선택 하 고 최대 5 개까지 선택 합니다. 여러 하위 영역을 선택하려면, `Ctrl` 키(Windows) 또는 `Command` 키(macOS)를 사용합니다.
 1. 다른 솔루션 영역을 추가하려면 1~3단계를 반복합니다.
 
 ## <a name="upload-documents"></a>문서 업로드

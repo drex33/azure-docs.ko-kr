@@ -1,20 +1,20 @@
 ---
 title: 조직 내에서 Azure Maps Power BI 시각적 개체 관리 | Microsoft Azure Maps
 description: 이 문서에서는 조직 내에서 Microsoft Azure Maps Power BI 시각적 개체를 관리하는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 2f7372d522c02eb86f1cc6470cefa9cb299605a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5578f7297fc60bcbf007f53c1914b565c4ec4355
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86261851"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425125"
 ---
 # <a name="manage-the-azure-maps-visual-within-your-organization"></a>조직 내에서 Azure Maps 시각적 개체 관리
 

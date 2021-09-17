@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
-ms.date: 07/20/2021
-ms.openlocfilehash: 4b7b17ab75f2614a99d791118dc908cd1f7c3b97
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.date: 08/28/2021
+ms.openlocfilehash: 2a6213a0359daf58d0ef34986d1bf3edbd4e1c9a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537406"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424420"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>자동화된 백업 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -77,7 +77,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 | **RTO(복구 시간 목표)** . | 복원에는 일반적으로 12시간 미만이 소요되지만 크기 및 활동에 따라 더 오래 걸릴 수 있습니다. [복구](recovery-using-backups.md#recovery-time)를 참조하세요. | 복원에는 일반적으로 12시간 미만이 소요되지만 크기 및 활동에 따라 더 오래 걸릴 수 있습니다. [복구](recovery-using-backups.md#recovery-time)를 참조하세요. | 복원에는 일반적으로 12시간 미만이 소요되지만 크기 및 활동에 따라 더 오래 걸릴 수 있습니다. [복구](recovery-using-backups.md#recovery-time)를 참조하세요. | 
 | **보존** | 기본 7일, 최대 35일 |  기본적으로 사용, 소스와 동일.\*\* | 기본적으로 사용 안 함, 최대 10년 보존 |     
 | **Azure Storage**  | 기본적으로 지역 중복 선택적으로 영역 또는 로컬 중복 스토리지를 구성할 수 있습니다. | PITR 백업 스토리지 중복이 지역 중복으로 설정된 경우 사용할 수 있습니다. PITR 백업 저장소가 영역 또는 로컬 중복 스토리지인 경우 사용할 수 없습니다. | 기본적으로 지역 중복 영역 또는 로컬 중복 스토리지를 구성할 수 있습니다. | 
-| **동일한 지역에 새 데이터베이스를 만드는 데 사용** | 지원 여부 | 지원 여부 | 지원 여부 |
+| **동일한 지역에 새 데이터베이스를 만드는 데 사용** | 지원 여부 | 지원됨 | 지원 여부 |
 | **다른 지역에 새 데이터베이스를 만드는 데 사용** | 지원되지 않음 | 모든 Azure 지역에서 지원됨 | 모든 Azure 지역에서 지원됨 |
 | **다른 구독에서 새 데이터베이스를 만드는 데 사용** |  지원되지 않음  |  지원되지 않음\*\*\* | 지원되지 않음\*\*\*  | 
 | **Azure Portal을 통한 복원**|예|예|예|
@@ -97,7 +97,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 
 | 작업 | Azure portal | Azure PowerShell |
 |---|---|---|
-| **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **백업 보존 변경** | [SQL 데이터베이스](#change-the-short-term-retention-policy-using-the-azure-portal) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-the-azure-portal) | [SQL 데이터베이스](#change-the-short-term-retention-policy-using-powershell) <br/>[SQL Managed Instance](#change-the-short-term-retention-policy-using-powershell) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md#using-the-azure-portal) | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md#using-powershell)  |
 | **지정 시간에서 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL 데이터베이스](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | **삭제된 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL 데이터베이스](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -138,7 +138,7 @@ vCore 데이터베이스의 경우 각 백업 유형(전체, 차등 및 로그)�
 
 데이터베이스의 최대 데이터 크기까지는 백업 스토리지 사용 요금이 부과되지 않습니다. 백업 스토리지 초과 사용량은 개별 데이터베이스의 워크로드 및 최대 크기에 따라 달라집니다. 백업 스토리지 사용량을 줄이기 위해 다음과 같은 몇 가지 튜닝 기법을 고려합니다.
 
-- [백업 보존 기간](#change-the-pitr-backup-retention-period-by-using-the-azure-portal)을 사용자 요구에 따라 가능한 최소 기간으로 줄입니다.
+- [백업 보존 기간](#change-the-short-term-retention-policy-using-the-azure-portal)을 사용자 요구에 따라 가능한 최소 기간으로 줄입니다.
 - 인덱스 다시 빌드와 같은 대량 쓰기 작업은 수행하지 않는 것이 좋습니다.
 - 대량 데이터 로드 작업의 경우에는 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) 및 관련 [모범 사례](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)를 사용하고/사용하거나 비클러스터형 인덱스의 수를 줄이는 것이 좋습니다.
 - 범용 서비스 계층에서 프로비전된 데이터 스토리지는 백업 스토리지의 가격보다 저렴합니다. 초과 백업 스토리지 비용이 지속적으로 많이 발생하는 경우 데이터 스토리지를 늘려서 백업 스토리지를 절약할 수 있습니다.
@@ -147,7 +147,16 @@ vCore 데이터베이스의 경우 각 백업 유형(전체, 차등 및 로그)�
 
 ## <a name="backup-retention"></a>백업 보존
 
-모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 하이퍼스케일 및 기본 계층 데이터베이스를 제외하고, 각 활성 데이터베이스의 [백업 보존 기간을 1-35일 사이에서 변경](#change-the-pitr-backup-retention-period)할 수 있습니다. [백업 스토리지 사용량](#backup-storage-consumption)에 설명된 것처럼 PITR을 사용하기 위해 저장된 백업이 보존 기간보다 오래되었을 수 있습니다. Azure SQL Managed Instance만 사용하는 경우 데이터베이스가 0-35일 범위에서 삭제되면 PITR 백업 보존율을 설정할 수 있습니다. 
+Azure SQL Database 및 Azure SQL Managed Instance 단기 및 장기 백업 보존을 모두 제공합니다. 단기 보존 백업은 데이터베이스에 대한 보존 기간과 PITR(Point-In-Time-Restore)을 허용하는 반면 장기 보존은 다양한 규정 준수 요구 사항에 대한 백업을 제공합니다.  
+
+### <a name="short-term-retention"></a>단기 보존
+
+모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL Databases의 경우 차등 백업을 12시간 빈도(기본값) 또는 24시간 빈도로 구성할 수 있습니다. 
+
+> [!NOTE]
+> 24시간 차등 백업 빈도로 데이터베이스를 복원하는 데 필요한 시간이 늘어날 수 있습니다. 
+
+하이퍼스케일 및 기본 계층 데이터베이스를 제외하고, 각 활성 데이터베이스의 [백업 보존 기간을 1-35일 사이에서 변경](#change-the-short-term-retention-policy)할 수 있습니다. [백업 스토리지 사용량](#backup-storage-consumption)에 설명된 것처럼 PITR을 사용하기 위해 저장된 백업이 보존 기간보다 오래되었을 수 있습니다. Azure SQL Managed Instance만 사용하는 경우 데이터베이스가 0-35일 범위에서 삭제되면 PITR 백업 보존율을 설정할 수 있습니다. 
 
 데이터베이스를 삭제하면 시스템에서는 해당 보존 기간을 사용하여 온라인 데이터베이스와 동일한 방식으로 백업을 유지합니다. 삭제된 데이터베이스의 백업 보존 기간은 변경할 수 없습니다.
 
@@ -247,13 +256,13 @@ SQL Database 및 SQL Managed Instance는 청구 가능한 총 백업 스토리�
 
 ## <a name="compliance"></a>규정 준수
 
-DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터베이스를 마이그레이션하는 경우 애플리케이션의 데이터 복구 정책이 손상되지 않도록 PITR 보존이 유지됩니다. 기본 보존 기간이 규정 준수 요구 사항을 충족하지 못하는 경우 PITR 보존 기간을 변경할 수 있습니다. 자세한 내용은 [PITR 백업 보존 기간 변경](#change-the-pitr-backup-retention-period)을 참조하세요.
+DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터베이스를 마이그레이션하는 경우 애플리케이션의 데이터 복구 정책이 손상되지 않도록 PITR 보존이 유지됩니다. 기본 보존 기간이 규정 준수 요구 사항을 충족하지 못하는 경우 PITR 보존 기간을 변경할 수 있습니다. 자세한 내용은 [PITR 백업 보존 기간 변경](#change-the-short-term-retention-policy)을 참조하세요.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="change-the-pitr-backup-retention-period"></a>PITR 백업 보존 기간 변경
+## <a name="change-the-short-term-retention-policy"></a>단기 보존 정책 변경
 
-Azure Portal, PowerShell 또는 REST API를 사용하여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API 사용하여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하고 차등 백업을 24시간 간격으로 변경하는 방법을 보여 줍니다.
 
 > [!WARNING]
 > 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 시점으로 복원할 수 없게 됩니다. 새 보존 기간 내에 PITR을 제공하는 데 더 이상 필요 없는 백업은 삭제됩니다. 현재 보존 기간을 늘려도 새 보존 기간의 더 오래된 시점으로 복원하는 기능이 즉시 제공되지는 않습니다. 시간이 지나 시스템이 백업을 장기간 보존하기 시작하면 이 기능을 사용할 수 있습니다.
@@ -261,9 +270,9 @@ Azure Portal, PowerShell 또는 REST API를 사용하여 기본 PITR 백업 보�
 > [!NOTE]
 > 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스의 LTR을 구성한 경우에는 LTR이 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
-### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Azure Portal을 사용하여 PITR 백업 보존 기간 변경
+### <a name="change-the-short-term-retention-policy-using-the-azure-portal"></a>Azure Portal 사용하여 단기 보존 정책 변경
 
-Azure Portal을 사용하여 활성 데이터베이스의 PITR 백업 보존 기간을 변경하려면 데이터베이스의 보존 기간을 변경하려는 서버 또는 관리형 인스턴스로 이동합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
+Azure Portal 사용하여 활성 데이터베이스에 대한 PITR 백업 보존 기간 또는 차등 백업 빈도를 변경하려면 보존 기간을 변경하려는 데이터베이스가 있는 서버 또는 관리되는 인스턴스로 이동합니다. 왼쪽 창에서 **백업** 을 선택하고 **보존 정책** 탭을 선택한 다음, PITR 백업 보존을 변경할 데이터베이스를 선택합니다. 그런 다음, 작업 모음에서 **보존 구성** 을 선택합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
@@ -275,7 +284,7 @@ Azure Portal을 사용하여 활성 데이터베이스의 PITR 백업 보존 기
 
 ---
 
-### <a name="change-the-pitr-backup-retention-period-by-using-powershell"></a>PowerShell을 사용하여 PITR 백업 보존 기간 변경
+### <a name="change-the-short-term-retention-policy-using-powershell"></a>PowerShell을 사용하여 단기 보존 정책 변경
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -283,12 +292,18 @@ Azure Portal을 사용하여 활성 데이터베이스의 PITR 백업 보존 기
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
-활성 Azure SQL Database의 PITR 백업 보존을 변경하려면 다음 PowerShell 예제를 사용합니다.
+활성 Azure SQL Databases에 대한 PITR 백업 보존 및 차등 백업 빈도를 변경하려면 다음 PowerShell 예제를 사용합니다.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
 # Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
+
+```powershell
+# SET new PITR differental backup frequency on an active individual database
+# Valid differential backup frequency must be ether 12 or 24. 
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28 -DiffBackupIntervalInHours 24
 ```
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
@@ -330,7 +345,48 @@ Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -Instanc
 
 ---
 
-### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>REST API를 사용하여 PITR 백업 보존 기간 변경
+### <a name="change-the-short-term-retention-policy-using-the-rest-api"></a>REST API 사용하여 단기 보존 정책 변경
+
+아래 요청은 보존 기간을 28일로 업데이트하고 차등 백업 빈도를 24시간으로 설정합니다.
+
+
+#### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
+
+#### <a name="sample-request"></a>샘플 요청
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2021-02-01-preview
+```
+
+#### <a name="request-body"></a>요청 본문
+
+```json
+{ 
+    "properties":{
+        "retentionDays":28
+        "diffBackupIntervalInHours":24
+  }
+}
+```
+
+#### <a name="sample-response"></a>샘플 응답: 
+
+```json
+{ 
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+    "diffBackupIntervalInHours":24
+  }
+}
+```
+
+
+자세한 내용은 [백업 보존 REST API](/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
+
+#### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
 #### <a name="sample-request"></a>샘플 요청
 
@@ -365,38 +421,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 자세한 내용은 [백업 보존 REST API](/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
 
-#### <a name="sample-request"></a>샘플 요청
-
-```http
-PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
-```
-
-#### <a name="request-body"></a>요청 본문
-
-```json
-{
-  "properties":{
-    "retentionDays":28
-  }
-}
-```
-
-#### <a name="sample-response"></a>샘플 응답
-
-상태 코드: 200
-
-```json
-{
-  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
-  "name": "default",
-  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
-  "properties": {
-    "retentionDays": 28
-  }
-}
-```
-
-자세한 내용은 [백업 보존 REST API](/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
+---
 
 ## <a name="configure-backup-storage-redundancy"></a>백업 스토리지 중복성 구성
 

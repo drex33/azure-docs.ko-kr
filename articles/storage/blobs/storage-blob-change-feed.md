@@ -9,18 +9,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 37367cc4608c1bfbf9c621388bcbc6ecaabd8aa4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 0d06e40fc33a713904fb171a3a44ba8e977a254f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679325"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467649"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
 변경 피드는 스토리지 계정의 Blob 및 Blob 메타데이터에 발생하는 모든 변경 내용에 대한 트랜잭션 로그를 제공하기 위한 것입니다. 변경 피드는 이러한 변경 내용에 대해 **순서가 지정** 되고, **보장** 되며, **내구성** 이 있고, **변경할 수 없는**, **읽기 전용** 로그를 제공합니다. 클라이언트 애플리케이션은 언제든지 이러한 로그를 스트리밍 또는 일괄 처리 모드에서 읽을 수 있습니다. 변경 피드를 사용하면 Blob Storage 계정에서 발생하는 변경 이벤트를 저렴한 비용으로 처리하는 효율적이고 확장 가능한 솔루션을 빌드할 수 있습니다.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-the-change-feed-works"></a>변경 피드의 작동 방식
 
@@ -298,6 +296,17 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 - segments.json 파일의 `LastConsumable` 속성은 변경 피드에서 완료하는 첫 번째 세그먼트를 나열하지 않습니다. 이 문제는 첫 번째 세그먼트가 완료된 후에만 발생합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 `LastConsumable` 속성에서 정확하게 캡처됩니다.
 - ListContainers API를 호출하는 경우 현재 **$blobchangefeed** 컨테이너가 표시되지 않으며, Azure Portal 또는 Storage Explorer에도 해당 컨테이너가 표시되지 않습니다. 콘텐츠는 $blobchangefeed 컨테이너에서 ListBlobs API를 직접 호출하여 볼 수 있습니다.
 - 이전에 [계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md)를 시작한 스토리지 계정에 로그 파일이 표시되지 않는 문제가 있을 수 있습니다. 향후의 계정 장애 조치(failover)도 로그 파일에 영향을 줄 수 있습니다.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob          | ![예](../media/icons/no-icon.png)|![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="faq"></a>FAQ
 

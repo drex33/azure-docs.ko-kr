@@ -3,12 +3,12 @@ title: 사용자 만들기 및 관리
 description: 센서 및 온-프레미스 관리 콘솔의 사용자를 만들고 관리합니다. 사용자는 관리자, 보안 분석가 또는 읽기 전용 사용자의 역할로 할당될 수 있습니다.
 ms.date: 05/20/2021
 ms.topic: article
-ms.openlocfilehash: 256b97f08f687b444375135d0b809423b8a73796
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: fa10961218d536faf09a1f7062c8a8c77dc99ce4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020756"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434037"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Defender for IoT 콘솔 사용자 정보
 
@@ -135,20 +135,24 @@ ms.locfileid: "113020756"
 
 로그아웃 계산 기간을 업데이트하려면 `= <number>` 값을 필요한 시간으로 조정합니다.
 
-## <a name="track-user-activity"></a>사용자 활동 추적 
+## <a name="track-user-activity"></a>사용자 활동 추적
 
 각 센서의 이벤트 타임라인에서 사용자 활동을 추적할 수 있습니다. 타임라인에는 이벤트 또는 영향을 받는 디바이스 및 사용자가 활동을 수행한 시간과 날짜가 표시됩니다.
 
 **사용자 활동을 보려면**:
 
 1. 센서에 로그인합니다.
-1. 이벤트 타임라인에서 **사용자 작업** 옵션을 사용합니다. 
+
+1. 이벤트 타임라인에서 **사용자 작업** 옵션을 사용합니다.
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="사용자의 활동을 봅니다.":::
 
-## <a name="integrate-with-active-directory-servers"></a>Active Directory 서버와 통합 
+## <a name="integrate-with-active-directory-servers"></a>Active Directory 서버와 통합
 
 Active Directory와 함께 사용할 수 있도록 센서 또는 온-프레미스 관리 콘솔을 구성합니다. 이를 통해 사용자 Active Directory Active Directory 자격 증명을 사용하여 Defender for IoT 콘솔에 액세스할 수 있습니다.
+
+> [!Note]
+> LDAP v3이 지원됩니다.
 
 지원되는 두 가지 LDAP 기반 인증 유형은 다음과 같습니다.
 
@@ -166,20 +170,20 @@ Active Directory와 함께 사용할 수 있도록 센서 또는 온-프레미�
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Active Directory 시스템 설정을 봅니다.":::
 
-2. **시스템 설정** 창에서 **Active Directory** 를 선택합니다.
+1. **시스템 설정** 창에서 **Active Directory** 를 선택합니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Active Directory 구성을 편집합니다.":::
 
-3. **Active Directory 구성 편집** 대화 상자에서 **Active Directory 통합 사용** > **저장** 을 선택합니다. **Active Directory 구성 편집** 대화 상자가 확장되고, 이제 Active Directory를 구성할 매개 변수를 입력할 수 있습니다.
+1. **Active Directory 구성 편집** 대화 상자에서 **Active Directory 통합 사용** > **저장** 을 선택합니다. **Active Directory 구성 편집** 대화 상자가 확장되고, 이제 Active Directory를 구성할 매개 변수를 입력할 수 있습니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Active Directory를 구성할 매개 변수를 입력합니다.":::
 
-    > [!NOTE]
-    > - LDAP 매개 변수는 Active Directory에 표시된 대로 정확하게 정의해야 합니다.
-    > - 모든 Active Directory 매개 변수에는 소문자만 사용합니다. Active Directory의 구성이 대문자를 사용하는 경우에도 소문자를 사용하세요.
-    > - 동일한 도메인에 LDAP와 LDAPS를 모두 구성할 수는 없습니다. 그러나 서로 다른 도메인에는 동시에 둘 다 사용할 수 있습니다.
+> [!NOTE]
+> - LDAP 매개 변수는 Active Directory에 표시된 대로 정확하게 정의해야 합니다.
+> - 모든 Active Directory 매개 변수에는 소문자만 사용합니다. Active Directory의 구성이 대문자를 사용하는 경우에도 소문자를 사용하세요.
+> - 동일한 도메인에 LDAP와 LDAPS를 모두 구성할 수는 없습니다. 그러나 서로 다른 도메인에는 동시에 둘 다 사용할 수 있습니다.
 
-4. 다음과 같이 Active Directory 서버 매개 변수를 설정합니다.
+1. 다음과 같이 Active Directory 서버 매개 변수를 설정합니다.
 
    | 서버 매개 변수 | Description |
    |--|--|
@@ -195,7 +199,7 @@ Active Directory와 함께 사용할 수 있도록 센서 또는 온-프레미�
 
 1. **저장** 을 선택합니다.
 
-2. 신뢰할 수 있는 서버를 추가하려면 **서버 추가** 를 선택하고 다른 서버를 구성합니다.
+1. 신뢰할 수 있는 서버를 추가하려면 **서버 추가** 를 선택하고 다른 서버를 구성합니다.
 
 ## <a name="change-a-users-password"></a>사용자 암호를 변경합니다.
 

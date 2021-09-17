@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 633925c8e7a990bcdfa822f77996072f87ae7e90
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: aa802843f76f2707d2df1d9018b60a1e8090cfb5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753308"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438807"
 ---
 # <a name="migrate-manually-from-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)에서 수동으로 마이그레이션
 
@@ -79,6 +79,8 @@ Azure Virtual Desktop(클래식)에서 Azure Virtual Desktop으로 수동으로 
 가동 중지 시간을 방지하려면 먼저 기존 세션 호스트를 작은 그룹의 Azure Resource Manager 통합 호스트 풀에 한 번에 등록해야 합니다. 그런 다음, 사용자를 천천히 새 Azure Resource Manager 통합 앱 그룹으로 전환합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+배포를 자동으로 마이그레이션하는 방법을 알아보려면 [Azure 가상 데스크톱에서 자동으로 마이그레이션 (클래식)](automatic-migration.md)을 참조 하세요.
 
 마이그레이션한 후에 [자습서](create-host-pools-azure-marketplace.md)를 확인하여 Azure Virtual Desktop이 어떻게 작동하는지 알아봅니다. [기존 호스트 풀 확장](expand-existing-host-pool.md) 및 [RDP 속성 사용자 지정](customize-rdp-properties.md)에서 고급 관리 기능에 대해 알아봅니다.
 

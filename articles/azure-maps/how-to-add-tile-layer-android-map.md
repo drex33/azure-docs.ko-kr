@@ -1,20 +1,20 @@
 ---
 title: Azure Maps에 타일 계층 추가 | Microsoft Docs
 description: 맵에 타일 계층을 추가하는 방법을 알아봅니다. Azure Maps Android SDK를 사용하여 날씨 레이더 오버레이를 맵에 추가하는 예제를 참조하세요.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ac37a4e6d68decdf6780560963a0c534689e8dbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: d35b1201d0f60c517f419186d01f493efa9fbeba
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608988"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435243"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>맵에 타일 계층 추가(Android SDK)
 
@@ -85,7 +85,7 @@ map.layers.add(layer, "labels")
 
 ## <a name="add-an-ogc-web-mapping-service-wms"></a>OGC WMS(웹 매핑 서비스) 추가
 
-WMTS(웹 매핑 서비스)는 맵 데이터의 이미지를 제공하는 OGC(Open Geospatial Consortium) 표준입니다. Azure Maps에서 사용 가능한 이 형식으로 사용할 수 있는 개방형 데이터 세트가 많습니다. 서비스가 `EPSG:3857` CRS(좌표 참조 시스템)를 지원하는 경우 이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMS 서비스를 사용할 때 너비/높이 매개 변수를 서비스에서 지원하는 것과 동일한 값으로 설정하고, 이 동일한 값을 `tileSize` 옵션에 설정해야 합니다. 형식이 지정된 URL에서 `BBOX` 서비스 매개 변수를 `{bbox-epsg-3857}` 자리 표시자로 설정합니다.
+WMTS(웹 매핑 서비스)는 지도 데이터의 이미지를 제공하는 OGC(Open Geospatial Consortium) 표준입니다. Azure Maps에서 사용 가능한 이 형식으로 사용할 수 있는 개방형 데이터 세트가 많습니다. 서비스가 `EPSG:3857` CRS(좌표 참조 시스템)를 지원하는 경우 이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMS 서비스를 사용할 때 너비/높이 매개 변수를 서비스에서 지원하는 것과 동일한 값으로 설정하고, 이 동일한 값을 `tileSize` 옵션에 설정해야 합니다. 형식이 지정된 URL에서 `BBOX` 서비스 매개 변수를 `{bbox-epsg-3857}` 자리 표시자로 설정합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -119,7 +119,7 @@ map.layers.add(layer, "labels")
 
 ## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>OGC WMTS(웹 매핑 타일 서비스) 추가
 
-WMTS(웹 매핑 타일 서비스)는 맵에 타일 기반 오버레이를 제공하기 위한 OGC(Open Geospatial Consortium) 표준입니다. Azure Maps에서 사용 가능한 이 형식으로 사용할 수 있는 개방형 데이터 세트가 많습니다. 서비스가 `EPSG:3857` 또는 `GoogleMapsCompatible` CRS(좌표 참조 시스템)를 지원하는 경우 이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMTS 서비스를 사용할 때 너비/높이 매개 변수를 서비스에서 지원하는 것과 동일한 값으로 설정하고, 이 동일한 값을 `tileSize` 옵션에 설정해야 합니다. 형식이 지정된 URL에서 다음 자리 표시자를 적절하게 바꿉니다.
+WMTS(웹 매핑 타일 서비스)는 지도에 타일 기반 오버레이를 제공하기 위한 OGC(Open Geospatial Consortium) 표준입니다. Azure Maps에서 사용 가능한 이 형식으로 사용할 수 있는 개방형 데이터 세트가 많습니다. 서비스가 `EPSG:3857` 또는 `GoogleMapsCompatible` CRS(좌표 참조 시스템)를 지원하는 경우 이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMTS 서비스를 사용할 때 너비/높이 매개 변수를 서비스에서 지원하는 것과 동일한 값으로 설정하고, 이 동일한 값을 `tileSize` 옵션에 설정해야 합니다. 형식이 지정된 URL에서 다음 자리 표시자를 적절하게 바꿉니다.
 
 * `{TileMatrix}` => `{z}`
 * `{TileRow}` => `{y}`

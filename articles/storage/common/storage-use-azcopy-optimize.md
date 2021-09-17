@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b60fc4b1fc20c455c2c409f544a8af16f1dbf8d1
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: 9870ff7f2033372e63de80138b2f37b3896eb4e6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107509007"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427609"
 ---
 # <a name="optimize-the-performance-of-azcopy-with-azure-storage"></a>Azure Storage를 사용하여 AzCopy의 성능 최적화
 
@@ -83,7 +83,7 @@ AzCopy가 작업을 완료할 때 만드는 로그 항목 수를 줄여 성능�
 
 `AZCOPY_CONCURRENCY_VALUE` 환경 변수를 설정하여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정합니다.  
 
-컴퓨터에 5개 미만의 CPU가 있는 경우 이 변수의 값은 `32`로 설정됩니다. 그렇지 않으면 기본값은 16에 CPU 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `3000`이지만 수동으로 이 값을 더 높거나 낮게 설정할 수 있습니다. 
+컴퓨터에 5개 미만의 CPU가 있는 경우 이 변수의 값은 `32`로 설정됩니다. 그렇지 않으면 기본값은 16에 CPU 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `300`이지만 수동으로 이 값을 더 높거나 낮게 설정할 수 있습니다. 
 
 | 운영 체제 | 명령  |
 |--------|-----------|

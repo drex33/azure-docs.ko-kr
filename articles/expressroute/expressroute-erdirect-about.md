@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 08/31/2021
 ms.author: duau
-ms.openlocfilehash: c6f06df11e0e17f37d7cfcbba6ed4fb8c224f824
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 01de2c75cbb6c1f8b2e153e18add612608e75ac7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123029864"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433984"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -37,7 +37,7 @@ ExpressRoute Direct를 사용하려면 먼저 구독을 등록해야 합니다. 
     ```
 
 1. 다음 명령을 사용하여 퍼블릭 미리 보기에 대한 구독을 등록합니다.
-1. 
+
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -100,14 +100,24 @@ ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 태그 지정을 지원합니다.
 
 * **Dot1Q VLAN 태그 지정** 은 각 ExpressRoute Direct 포트 쌍 기준당 단일 태그가 지정된 VLAN을 허용합니다. 피어링에 사용되는 C 태그는 ExpressRoute Direct 포트 쌍의 모든 회로 및 피어링에서 고유해야 합니다.
 
-## <a name="workflow"></a>워크플로
+## <a name="workflows"></a>워크플로
 
-[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+### <a name="set-up-expressroute-direct"></a>Express 경로 직접 설정
+
+:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Express 경로 직접 설정 워크플로의 다이어그램입니다." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
+
+### <a name="delete-expressroute-direct"></a>Express 경로 직접 삭제
+
+:::image type="content" source="./media/expressroute-erdirect-about/delete-workflow.png" alt-text="Express 경로 직접 삭제 워크플로의 다이어그램입니다." lightbox="./media/expressroute-erdirect-about/delete-workflow-expanded.png":::
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct는 Microsoft 글로벌 네트워크에 대한 활성/활성 중복 연결과 동일한 엔터프라이즈급 SLA를 제공합니다. ExpressRoute 인프라는 중복되며, Microsoft 글로벌 네트워크로 연결은 중복되고 다양하며 고객 요구 사항에 적절하게 크기를 조정합니다. 
+ExpressRoute Direct는 Microsoft 글로벌 네트워크에 대한 활성/활성 중복 연결과 동일한 엔터프라이즈급 SLA를 제공합니다. ExpressRoute 인프라는 중복되며, Microsoft 글로벌 네트워크로 연결은 중복되고 다양하며 고객 요구 사항에 적절하게 크기를 조정합니다.
+
+## <a name="pricing"></a>가격 책정
+
+Express 경로 다이렉트의 요금 청구 방법에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs)를 참조 하세요. 가격 책정에 대 한 자세한 내용은 [express 경로 가격](https://azure.microsoft.com/pricing/details/expressroute/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[ExpressRoute Direct 구성](expressroute-howto-erdirect.md)
+[Express 경로 다이렉트를 구성](expressroute-howto-erdirect.md)하는 방법을 알아봅니다.

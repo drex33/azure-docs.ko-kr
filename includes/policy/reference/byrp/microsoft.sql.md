@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 537820e30ed3860e9b9dd23ea9c68acdb502fa57
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 1201ed2629c9c42d0954e74c2c8ee8b6f804dfed
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106706"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478838"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -26,7 +26,7 @@ ms.locfileid: "123106706"
 |[Azure SQL 데이터베이스 서버에 대한 진단 설정을 Log Analytics 작업 영역으로 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ea8a143-05e3-4553-abfe-f56bef8b0b70) |이 감사가 누락된 SQL Server가 만들어지거나 업데이트되면 Azure SQL Database 서버의 감사 로그를 활성화하고 로그를 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqServerLogs_PolicyAssignment.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 Azure SQL Server 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F28b0b1e5-17ba-4963-a7a4-5a1ab4400a0b) |공용 네트워크 액세스 속성을 사용하지 않도록 설정하면 프라이빗 엔드포인트에서만 Azure SQL Server에 액세스할 수 있도록 공용 연결이 종료됩니다. 이 구성은 Azure SQL Server의 모든 데이터베이스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PublicNetworkAccess_Modify.json) |
 |[프라이빗 엔드포인트 연결을 사용하도록 Azure SQL Server 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e8ca470-d980-4831-99e6-dc70d9f6af87) |프라이빗 엔드포인트 연결을 사용하면 가상 네트워크 내의 개인 IP 주소를 통해 Azure SQL Database에 프라이빗 연결을 설정할 수 있습니다. 이 구성은 보안 상태를 개선하고 Azure 네트워킹 도구 및 시나리오를 지원합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PrivateEndpoint_DeployIfNotExists.json) |
-|[감사를 사용하도록 SQL 서버 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |SQL 서버에 대해 수행되는 작업을 캡처하려면 SQL 서버에서 감사를 사용하도록 설정해야 합니다. 이는 규정 표준을 준수해야 하는 경우도 있습니다. |DeployIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
+|[감사를 사용하도록 SQL 서버 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |SQL 서버에 대해 수행되는 작업을 캡처하려면 SQL 서버에서 감사를 사용하도록 설정해야 합니다. 이는 규정 표준을 준수해야 하는 경우도 있습니다. |DeployIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
 |[배포 - Log Analytics 작업 영역에 SQL Databases에 대한 진단 설정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb79fa14e-238a-4c2d-b376-442ce508fc84) |이 진단 설정이 누락된 SQL Database를 만들거나 업데이트할 때 SQL Database에 대한 진단 설정을 배포하여 리소스 로그를 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqlLogs_PolicyAssignment.json) |
 |[SQL 서버에 Advanced Data Security 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6134c3db-786f-471e-87bc-8f479dc890f6) |이 정책은 SQL 서버에 Advanced Data Security를 사용하도록 설정합니다. 여기에는 위협 탐지 및 취약성 평가를 설정하는 작업이 포함됩니다. SQL 서버와 동일한 지역 및 리소스 그룹에 스토리지 계정을 자동으로 만들어 검색 결과를 'sqlva' 접두사와 함께 저장합니다. |DeployIfNotExists |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAdvancedDataSecurity_Deploy.json) |
 |[Azure SQL Database의 진단 설정을 이벤트 허브에 적용](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Azure SQL Database의 진단 설정을 시작하여 이 진단 설정이 없는 Azure SQL Database가 만들어지거나 업데이트될 때 지역별 이벤트 허브로 스트리밍합니다. |DeployIfNotExists |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |

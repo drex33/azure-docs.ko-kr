@@ -7,12 +7,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 29a6041206496d7970e3ea58deed1754c062b663
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 389ecc550fd2b9e0fa41b7437b47aa5b40af3712
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529167"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450920"
 ---
 # <a name="index-data-from-azure-cosmos-db-using-sql-or-mongodb-apis"></a>SQL 또는 MongoDB API를 사용하여 Azure Cosmos DB에서 데이터 인덱싱
 
@@ -29,10 +29,6 @@ Azure Cognitive Search의 Cosmos DB 인덱서는 다음 프로토콜을 통해 �
 + 일반적으로 사용할 수 있는 [SQL API](../cosmos-db/sql-query-getting-started.md)의 경우 [포털](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) 또는 다른 Azure SDK를 사용하여 데이터 원본 및 인덱서를 만들 수 있습니다.
 
 + [MONGODB API(미리 보기)](../cosmos-db/mongodb-introduction.md)의 경우 [포털](#cosmos-indexer-portal) 또는 [REST API 버전 2020-06-30-미리 보기](search-api-preview.md) 중 하나를 사용하여 데이터 원본 및 인덱서를 만들 수 있습니다.
-
-> [!Note]
-> Azure Cognitive Search에서 지원되는지 확인하려면 [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)에 대한 사용자 의견에 투표를 캐스트할 수 있습니다.
->
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -59,7 +55,7 @@ Cosmos DB 데이터베이스에 데이터가 포함되어 있는지 확인합니
 
 Azure Cognitive Search 서비스 페이지의 명령 모음에서 [마법사를 시작](search-import-data-portal.md)하거나 Cosmos DB SQL API에 연결된 경우 Cosmos DB 계정의 왼쪽 탐색 창에 있는 **설정** 섹션에서 **Azure Cognitive Search 추가** 를 클릭할 수 있습니다.
 
-   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="데이터 가져오기 명령의 스크린샷" border="true":::
 
 ### <a name="step-3---set-the-data-source"></a>3단계 - 데이터 원본 설정
 
@@ -172,7 +168,7 @@ REST API를 사용하여 Azure Cognitive Search의 모든 인덱서에 공통적
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | 설명 |
+| 필드   | Description |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
@@ -185,7 +181,7 @@ REST API를 사용하여 Azure Cognitive Search의 모든 인덱서에 공통적
 중첩된 속성 또는 배열을 평면화하고, JSON 속성을 프로젝션하고, 인덱싱할 데이터를 필터링하는 SQL 쿼리를 지정할 수 있습니다. 
 
 > [!WARNING]
-> **MongoDB API** 에는 사용자 지정 쿼리가 지원되지 않습니다. `container.query` 매개 변수를 Null로 설정하거나 생략해야 합니다. 사용자 지정 쿼리를 사용해야 하는 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search)에서 알려주세요.
+> **MongoDB API** 에는 사용자 지정 쿼리가 지원되지 않습니다. `container.query` 매개 변수를 Null로 설정하거나 생략해야 합니다. 
 
 예제 문서:
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: anavin
-ms.openlocfilehash: 71472a89b2aa3138c83dac1f5c2dfc5649c9b9ce
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: e51a74ef4f01bda57e7cdef026aed9aa85111ca3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583170"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437403"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃바운드 연결 실패 문제 해결
 
@@ -71,7 +71,7 @@ SNAT 포트를 모두 소모하지 않도록 하는 가장 좋은 방법은 가�
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
 아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 [아웃바운드 규칙](outbound-rules.md)을 통해 조정할 수 있습니다. 전송(예: TCP keepalive) 또는 애플리케이션 계층 keepalive를 사용하여 유휴 흐름을 새로 고치고, 필요한 경우 이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
 
-TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서만 사용하도록 설정해도 흐름의 유휴 타이머가 다시 설정되며 양쪽에서 TCP Keepalive를 시작하지 않아도 됩니다.  데이터베이스 클라이언트 서버 구성을 포함하여 애플리케이션 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 사용 가능한 애플리케이션 관련 Keepalive 옵션을 확인합니다.
+TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서 흐름의 유휴 타이머를 다시 설정하기만 하면 충분하며 양쪽 모두에서 TCP keepalives를 시작할 필요는 없습니다.  데이터베이스 클라이언트 서버 구성을 포함하여 애플리케이션 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 사용 가능한 애플리케이션 관련 Keepalive 옵션을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Microsoft는 항상 고객의 환경을 향상시키기 위해 노력하고 있습니다. 이 문서에 나열되지 않았거나 해결되지 않은 아웃바운드 연결 문제가 있는 경우 이 페이지 하단의 GitHub를 통해 피드백을 제출하면 가능한 한 빨리 피드백을 처리하겠습니다.

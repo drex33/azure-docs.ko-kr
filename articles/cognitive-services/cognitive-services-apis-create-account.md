@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: 3c03a6a712190e972347b1e40c5583b5dc74792f
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: dfd5edc2444b3aa56dce556766013370a08ba846
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568148"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475965"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
@@ -41,7 +41,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
 현재는 다중 서비스 리소스를 사용하여 다음 Cognitive Services에 액세스할 수 있습니다.
 
-* **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
+* **시력** Computer Vision, Custom Vision, 얼굴
 * **음성** - 음성
 * **언어** - Language Understanding(LUIS), Text Analytics, Translator
 * **결정** - Content Moderator
@@ -55,7 +55,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 | [컴퓨터 비전](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입형 판독기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
 | [Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+|        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
 | | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---

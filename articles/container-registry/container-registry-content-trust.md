@@ -2,14 +2,14 @@
 title: 서명된 이미지 관리
 description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 신뢰는 Docker 콘텐츠 신뢰를 구현하며 프리미엄 서비스 계층의 기능입니다.
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: e6f4eb302d2ac5f6fc711e438a48a064efef0d27
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983620"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450956"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -76,6 +76,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 > 다음 관리 계정에는 신뢰할 수 있는 이미지 푸시 권한을 부여할 수 없습니다. 
 > * Azure 컨테이너 레지스트리의 [관리자 계정](container-registry-authentication.md#admin-account)
 > * [클래식 시스템 관리자 역할](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)이 지정된 Azure Active Directory의 사용자 계정
+
+> [!NOTE]
+> 7 월 2021부터 `AcrImageSigner` 역할은         `Microsoft.ContainerRegistry/registries/sign/write` 작업 및 데이터 작업을 모두 포함 합니다 `Microsoft.ContainerRegistry/registries/trustedCollections/write` .
 
 Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세한 방법은 다음과 같습니다.
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: memildin
-ms.openlocfilehash: a3dc221ff4fa1caebad9dea601e208280b928558
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: de0983d981aa4bc229f29e151c37cda0be90cdec
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530626"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434696"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -52,7 +52,7 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 
 이 예제에서:
 
-| #  | 속성                                           | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| #  | 속성                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-:|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | **취약성 보안 제어 수정** | 이 컨트롤은 알려진 취약성 검색 및 해결과 관련된 여러 권장 사항을 그룹화합니다.                                                                                                                                                                                                                                                                                                                                   |
 | 2 | **최대 점수**                                  | 컨트롤 내의 모든 권장 사항을 완료하여 얻을 수 있는 최대 포인트입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타내며 모든 환경에 대해 고정됩니다. 가장 먼저 작업할 이슈를 심사하려면 최대 점수 값을 사용합니다.<br>모든 컨트롤 및 해당 최대 점수 목록은 [보안 제어 및 해당 권장 사항](#security-controls-and-their-recommendations)을 참조하세요. |

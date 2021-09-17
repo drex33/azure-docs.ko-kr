@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 07/06/2021
-ms.openlocfilehash: c445b6252f19415e51f46f044497ab80207ee860
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 7030cb8329481e833a7dc34815da7b70b6c5482e
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272190"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538186"
 ---
 # <a name="prepare-for-vmware-agentless-migration"></a>VMware 에이전트 없는 마이그레이션에 대한 준비
 
@@ -25,7 +25,7 @@ Azure Migrate에서는 Linux 및 Windows 모두의 아래에 언급된 운영 �
 - Windows Server 2008 이상
 - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
 - CentOS 8, 7.7, 7.6, 7.5, 7.4, 6.x
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7

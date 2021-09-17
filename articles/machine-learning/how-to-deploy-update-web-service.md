@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: ed3b0512a7f73ae9e387b41871e2ee59607e731d
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 7d080297dd32ad137e11cb692b820f4b9f6b3521
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597501"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428455"
 ---
 # <a name="update-a-deployed-web-service"></a>배포된 웹 서비스 업데이트
 
@@ -94,7 +94,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > 새 항목 스크립트나 환경을 사용하도록 서비스를 업데이트하려면 [유추 구성 파일](./reference-azure-machine-learning-cli.md#inference-configuration-schema)을 만들고 `ic` 매개 변수를 사용하여 해당 파일을 지정합니다.
 
-자세한 내용은 [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update) 설명서를 참조하세요.
+자세한 내용은 [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update&preserve-view=true) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,14 +11,14 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 4851e5cdfc5e50febf7d60ab4d7eaee2c95da5b4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: db019c225b3e3caaad1a02b30ec0b7278e5b9dcc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866304"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435909"
 ---
-# <a name="prebuilt-docker-images-for-inference-preview"></a>유추를 위해 미리 빌드된 Docker 이미지(미리 보기)
+# <a name="prebuilt-docker-images-for-inference-preview"></a>유추를 위한 미리 빌드된 Docker 이미지 (미리 보기)
 
 유추 [(미리 보기)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 위해 미리 빌드된 Docker 컨테이너 이미지는 Azure Machine Learning을 사용하여 모델을 배포할 때 사용됩니다.  이미지는 널리 사용되는 기계 학습 프레임워크 및 Python 패키지로 미리 빌드됩니다. 다음 방법 중 하나를 사용해 패키지를 확장하여 다른 패키지를 추가할 수도 있습니다.
 

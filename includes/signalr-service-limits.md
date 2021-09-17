@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2020
 ms.author: zhshang
-ms.openlocfilehash: 328a3d088ea21ec55f5e06cfbfc307fca2b03afa
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
-ms.translationtype: HT
+ms.openlocfilehash: f5b197448529e953d5d7d188b00a88d60e87e900
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644391"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123454156"
 ---
 | 리소스 | 기본 제한 | 최대 제한 | 
 | --- | --- | --- |
@@ -36,3 +36,7 @@ ms.locfileid: "113644391"
 구독의 기본 한도에 대한 업데이트를 요청하려면 지원 티켓을 엽니다.
 
 연결 및 메시지 계산 방법에 대한 자세한 내용은 [Azure SignalR Service의 메시지 및 연결](../articles/azure-signalr/signalr-concept-messages-and-connections.md)을 참조하세요.
+
+요구 사항이 제한을 초과 하는 경우 무료 계층에서 표준 계층으로 전환 하 고 단위를 추가 합니다. 자세한 내용은 [Azure SignalR 서비스 인스턴스 크기를 조정 하는 방법](../articles/azure-signalr/signalr-howto-scale-signalr.md)을 참조 하세요. 
+
+요구 사항이 단일 인스턴스의 제한을 초과 하는 경우 인스턴스를 추가 합니다. 자세한 내용은 [여러 인스턴스를 사용 하 여 SignalR 서비스를 확장 하는 방법](../articles/azure-signalr/signalr-howto-scale-multi-instances.md)을 참조 하세요.

@@ -3,14 +3,14 @@ title: 앱 백업
 description: Azure App Service에서 앱의 백업을 만드는 방법에 대해 알아봅니다. 수동 또는 예약된 백업을 실행합니다. 연결된 데이터베이스를 포함하여 백업을 사용자 지정합니다.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 09/02/2021
 ms.custom: seodec18
-ms.openlocfilehash: aed7e341cf190e6daac237b87f17254c5c65bbab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f1bd37c1b3557a8106981377f9ed75c50a28c773
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535501"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433056"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 
@@ -45,12 +45,12 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
 * 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준**, **프리미엄** 또는 **격리** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](manage-scale-up.md)을 참조하세요. **프리미엄** 및 **격리** 계층에서는 **표준** 계층보다 자주 매일 백업이 가능합니다.
 * 백업하려는 앱과 동일한 구독에 Azure Storage 계정 및 컨테이너가 필요합니다. Azure Storage 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
-* 최대 10GB의 앱 및 데이터베이스 콘텐츠를 백업할 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
-* TLS 지원 Azure Database for MySQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
-* TLS 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
-* 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가 등의 인앱 MySQL 데이터베이스에 대한 설정을 수동으로 수행하는 경우 백업이 제대로 작동하지 않을 수 있습니다.
-* 방화벽 지원 스토리지 계정을 백업 대상으로 사용하는 기능은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
-* 현재는 프라이빗 엔드포인트를 사용하도록 구성된 Azure Storage 계정에서 백업 및 복원 기능을 사용할 수 없습니다.
+* 백업은 최대 10GB의 앱 및 데이터베이스 콘텐츠일 수 있으며, 이 중 최대 4GB는 데이터베이스 백업일 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
+* [TLS 사용 Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) 백업은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
+* [TLS 사용 Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) 백업은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
+* 인앱 MySQL 데이터베이스는 구성 없이도 자동으로 백업됩니다. 연결 문자열 추가와 같이 앱 내 MySQL 데이터베이스에 대한 수동 설정을 만드는 경우 백업이 제대로 작동하지 않을 수 있습니다.
+* [방화벽이 설정된 스토리지 계정을](../storage/common/storage-network-security.md) 백업 대상으로 사용하는 것은 지원되지 않습니다. 백업이 구성된 경우, 백업 실패가 발생합니다.
+* 백업 및 복원에 [프라이빗 엔드포인트 사용 스토리지 계정을](../storage/common/storage-private-endpoints.md) 사용하는 것은 지원되지 않습니다.
 
 <a name="manualbackup"></a>
 

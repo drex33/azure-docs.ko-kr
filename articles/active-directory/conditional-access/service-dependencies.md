@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4174ea12f687e370eb1ff5508876e44a1430cdfb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 78d1ce8d91fc3bd53251da006e567153b0e13f87
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864023"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478503"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 서비스 종속성이란? 
 
@@ -60,6 +60,8 @@ Office 스택의 애플리케이션에서 이 작업을 수행하는 좋은 방�
 |                     | SharePoint                                  | 초기 바인딩 |
 | Power Apps           | Microsoft Azure 관리(포털 및 API) | 초기 바인딩 |
 |                     | Windows Azure Active Directory              | 초기 바인딩 |
+|                     | SharePoint                                  | 초기 바인딩 |
+|                     | Exchange                                    | 초기 바인딩 |
 | 프로젝트             | Dynamics CRM                                | 초기 바인딩 |
 | 비즈니스용 Skype  | Exchange                                    | 초기 바인딩 |
 | Visual Studio       | Microsoft Azure 관리(포털 및 API) | 초기 바인딩 |

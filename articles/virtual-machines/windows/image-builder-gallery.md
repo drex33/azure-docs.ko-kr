@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 954750e0e20b56a09cd416f2ef2503877cc30588
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 6206401d41662724e2c44851e930373b7f90030d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692448"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436431"
 ---
 # <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -216,7 +216,7 @@ Invoke-WebRequest `
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -apiversion "2020-02-14" `
+   -ApiVersion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```

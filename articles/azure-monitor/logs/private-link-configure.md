@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: dfc0601dddddd89559d2a7bb28d6f3d86dcdf40c
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 936a8393f21d71cfb2fd1dd4cd2c249f0d13689c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272370"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432579"
 ---
 # <a name="configure-your-private-link"></a>Private Link 구성
 Private Link를 구성하려면 몇 가지 단계가 필요합니다. 
@@ -99,7 +99,7 @@ Azure Portal로 이동합니다. 리소스 메뉴의 왼쪽에는 **네트워크
 
 
 > [!NOTE]
-> 2021년 8월 16일부터 네트워크 격리가 엄격하게 시행됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
+> 2021년 9월부터 네트워크 격리가 엄격하게 적용됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-network-isolation.png)
 
@@ -214,8 +214,10 @@ $scope = New-AzResource -Location "Global" -Properties $scopeProperties -Resourc
 }
 ```
 
-### <a name="set-ampls-access-flags---powershell-example"></a>AMPLS 액세스 플래그 설정 - PowerShell 예제
+### <a name="set-ampls-access-modes---powershell-example"></a>AMPLS 액세스 모드 설정 - PowerShell 예제
 AMPLS에서 액세스 모드 플래그를 설정하려면 다음 PowerShell 스크립트를 사용할 수 있습니다. 다음 스크립트는 플래그를 Open으로 설정합니다. 프라이빗 전용 모드를 사용하려면 ‘PrivateOnly’ 값을 사용합니다.
+
+AMPLS 액세스 모드 업데이트가 적용되도록 10분 정도 허용합니다.
 
 ```
 # scope details
@@ -296,4 +298,4 @@ $scope | Set-AzResource -Force
 ## <a name="next-steps"></a>다음 단계
 
 - [개인 스토리지](private-storage.md)에 대한 자세한 정보
-- [Automation을 위한 Private Link](../../automation/how-to/private-link-security.md)에 대해 알아보기
+- [Private Link 자동화](../../automation/how-to/private-link-security.md)에 대해 자세히 알아보기:

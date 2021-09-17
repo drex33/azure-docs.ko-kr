@@ -4,12 +4,12 @@ description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 27ab9d607f3b8fad669682e980bc0178e8dfad42
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
-ms.translationtype: HT
+ms.openlocfilehash: fe644c740f5c96f9a7864850fe4760151e1c6f87
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567780"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449894"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -236,7 +236,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 리소스 그룹 내의 **리소스** 에 잠금을 적용하는 경우 범위 속성을 추가합니다. 잠그려는 리소스의 이름으로 범위를 설정합니다.
 
-다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금 범위는 웹 사이트로 설정됩니다.
+다음 [예](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) 에서는 app service 계획, 웹 사이트 및 웹 사이트에 대 한 잠금을 만드는 템플릿을 보여 줍니다. 잠금 범위는 웹 사이트로 설정됩니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 

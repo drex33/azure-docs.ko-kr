@@ -1,20 +1,20 @@
 ---
 title: Microsoft Azure Maps에서 지도에 대한 데이터 원본 만들기
 description: 지도에 대한 데이터 원본을 만드는 방법을 알아봅니다. Azure Maps Web SDK에서 사용하는 데이터 원본 GeoJSON 원본 및 벡터 타일에 대해 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: bb5050d1305f88987ed7ac38a8217e6b4f9c724e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669075"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425773"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
@@ -132,7 +132,7 @@ map.layers.add(flowLayer, 'labels');
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="벡터 타일 선 레이어" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="벡터 타일 선 레이어" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>벡터 타일 선 레이어</a>를 참조하세요.
 </iframe>
 

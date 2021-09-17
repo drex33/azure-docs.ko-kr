@@ -3,16 +3,16 @@ title: 워크플로를 사용하여 Azure IoT Central 애플리케이션을 다�
 description: 이 방법 문서에서는 빌더로서 IoT Central 애플리케이션을 다른 클라우드 서비스와 통합하는 규칙 및 작업을 구성하는 방법을 보여 줍니다. 고급 규칙을 만들려면 Power Automate 또는 Azure Logic Apps에서 IoT Central 커넥터를 사용합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/12/2020
+ms.date: 08/26/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9cbcfa355198b94a60242503745f5cfc183e170d
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
-ms.translationtype: HT
+ms.openlocfilehash: b90e96975dadc1f7fb168345aa89b98bb6a22b9c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683759"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473589"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합
 

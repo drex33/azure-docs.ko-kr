@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.openlocfilehash: 31ac845591387ec0c7061945e3324cd5249d7b23
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 40b1652bec99844675e030cfd12ef8ff28a0f01f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037800"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435459"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory와 Azure Purview를 연결하는 방법
 
@@ -102,6 +102,10 @@ Data Factory와 Purview 간의 통합은 다음 섹션에 설명된 대로 Data 
 ### <a name="execute-ssis-package-support"></a>SSIS 패키지 실행 지원
 
 [지원되는 데이터 저장소](how-to-lineage-sql-server-integration-services.md#supported-data-stores)를 참조하세요.
+
+## <a name="access-secured-azure-purview-account"></a>액세스 보안 Azure 부서의 범위 계정
+      
+부서의 범위 계정을 방화벽으로 보호 하는 경우 부서의 범위 개인 끝점을 통해 [보안 부서의 범위 계정에 Data Factory 액세스](../data-factory/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
 
 ## <a name="bring-data-factory-lineage-into-purview"></a>Purview에 Data Factory 계보 가져오기
 

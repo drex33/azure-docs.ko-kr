@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: a90a5d7ad7696844f735a1bed2f618846758fff3
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 2880bc5fc9c367a5ab3cb02db3e3d5901861d789
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035813"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439383"
 ---
 # <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Azure Cosmos DB의 API for MongoDB 계정의 API 버전 업그레이드
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -62,6 +62,8 @@ ms.locfileid: "123035813"
 
 버전 3.2에서 업그레이드하는 경우 애플리케이션의 기존 엔드포인트와 이 데이터베이스 계정에 연결하는 드라이버를 바꿔야 합니다. **새 엔드포인트를 사용하는 연결에만 새 API 버전의 기능에 대한 액세스 권한이 있습니다**. 이전의 3.2 엔드포인트에는 `.documents.azure.com` 접미사가 있어야 합니다.
 
+3.2에서 최신 버전으로 업그레이드 하는 경우 여러 필드에 대해 정렬 작업을 수행 하 여 이러한 쿼리에 대 한 안정적이 고 성능이 보장 되도록 [복합 인덱스가](mongodb-indexing.md) 필요 합니다. 다중 필드 정렬이 성공 하도록 이러한 복합 인덱스가 생성 되었는지 확인 합니다. 
+
 >[!Note]
 > 엔드포인트는 계정이 소버린, 정부 또는 제한된 Azure Cloud에 있는 경우 약간 다를 수 있습니다.
 
@@ -104,4 +106,4 @@ ms.locfileid: "123035813"
 - 자세한 내용은 [Mongo 3.6 버전 기능](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)을 확인하세요.
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

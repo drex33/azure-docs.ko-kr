@@ -8,14 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
-ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 63e49c5fa68ca415ffd63e7db64bc7f5f89a7ab6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 52f4152a8f3ec1d2f812de74ed0bd238fb323330
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688657"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451838"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공
 
@@ -70,7 +69,7 @@ $gallery = Get-AzGallery `
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-그런 다음 [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 버전을 만듭니다. [VM](image-version-vm-powershell.md#create-an-image-version), [관리형 이미지](image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version) 또는 [다른 이미지 버전](image-version-another-gallery-powershell.md#create-the-image-version)에서 이미지 버전을 만들 수 있습니다. 
+그런 다음 [AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 [이미지 버전](image-version.md) 을 만듭니다.  
 
 
 ## <a name="create-the-vm"></a>VM 만들기

@@ -1,25 +1,25 @@
 ---
-title: ZRS(미리 보기) 관리 디스크 배포
+title: ZRS 관리 디스크 배포
 description: ZRS(영역 중복 스토리지)를 사용하는 관리 디스크를 배포하는 방법에 대해 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 07/12/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 7afa1a5416651dc7e93ff354e63fefb259ea81b4
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
-ms.translationtype: HT
+ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113667296"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426738"
 ---
-# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage-preview"></a>영역 중복 스토리지(미리 보기)를 사용하는 관리 디스크 배포
+# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>영역 중복 스토리지를 사용하는 관리 디스크 배포
 
-이 문서에서는 ZRS(영역 중복 스토리지)를 중복성 옵션(미리 보기)으로 사용하는 디스크를 배포하는 방법을 설명합니다. ZRS는 선택된 지역에 있는 3개의 Azure 가용성 영역에서 Azure 관리 디스크를 동기적으로 복제합니다. 각 가용성 영역은 독립적인 전원, 냉각 및 네트워킹을 갖춘 별도의 물리적 위치입니다.
+이 문서에서는 ZRS(영역 중복 스토리지)를 중복 옵션으로 사용하는 디스크를 배포하는 방법을 설명합니다. ZRS는 선택된 지역에 있는 3개의 Azure 가용성 영역에서 Azure 관리 디스크를 동기적으로 복제합니다. 각 가용성 영역은 독립적인 전원, 냉각 및 네트워킹을 갖춘 별도의 물리적 위치입니다.
 
-ZRS에 대한 개념 정보는 [관리 디스크에 대한 영역 중복 스토리지(미리 보기)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)를 참조하세요.
+ZRS에 대한 개념 정보는 [관리 디스크에 대한 영역 중복 스토리지를 참조하세요.](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
 
 ## <a name="limitations"></a>제한 사항
 

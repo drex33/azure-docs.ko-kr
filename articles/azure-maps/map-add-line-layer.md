@@ -1,20 +1,18 @@
 ---
 title: 맵에 선 계층 추가 | Microsoft Azure Maps
-description: 지도에 선을 추가 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 지도에 선 계층을 추가 하 고 기호 및 색 그라데이션을 사용 하 여 줄을 사용자 지정 하는 예제를 참조 하세요.
-author: rbrundritt
-ms.author: richbrun
+description: 지도에 선을 추가하는 방법을 알아봅니다. Azure 지도 Web SDK를 사용하여 지도에 선 계층을 추가하고 기호 및 색 그라데이션이 있는 선을 사용자 지정하는 예제를 참조하세요.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8c2a0bd9a6923d0ad03a64c90db6832d4ea34145
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048140"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437079"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>맵에 선 계층 추가
 
@@ -44,7 +42,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='맵에 선 추가' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/qomaKv/'>맵에 선 추가</a>를 참조하세요.
+<iframe height='500' scrolling='no' title='맵에 선 추가' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/qomaKv/'>맵에 선 추가</a>를 참조하세요.
 </iframe>
 
 선 계층은 [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions) 및 [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)을 사용하여 스타일을 지정할 수 있습니다.
@@ -55,7 +53,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="선을 따라 화살표 표시" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="선을 따라 화살표 표시" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/drBJwX/'>선을 따라 화살표 표시</a>를 참조하세요.
 </iframe>
 
@@ -66,11 +64,11 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>선에 스트로크 그라데이션 추가
 
-선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션으로 선을 채워서 한 선분에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용하여 시간 및 거리에 따른 변경이나 연결된 개체 선의 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본에 옵션이로 설정 되어 있어야 하 `lineMetrics` `true` 고 색 그라데이션 식이 줄의 옵션으로 전달 될 수 있습니다 `strokeColor` . 스트로크 그라데이션 식은 계산된 선 메트릭을 식에 노출하는 `['line-progress']` 데이터 식을 참조해야 합니다.
+선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션으로 선을 채워서 한 선분에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용하여 시간 및 거리에 따른 변경이나 연결된 개체 선의 다른 온도를 나타낼 수 있습니다. 이 기능을 줄에 적용하려면 데이터 원본에 옵션이 로 설정된 다음 `lineMetrics` `true` 색 그라데이션 식을 줄의 옵션에 전달할 수 있어야 `strokeColor` 합니다. 스트로크 그라데이션 식은 계산된 선 메트릭을 식에 노출하는 `['line-progress']` 데이터 식을 참조해야 합니다.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="스트로크 그라데이션이 있는 선" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="스트로크 그라데이션이 있는 선" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>스트로크 그라데이션이 있는 선</a>을 참조하세요.
 </iframe>
 
@@ -80,7 +78,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 <br/>
 
-<iframe height='700' scrolling='no' title='선 계층 옵션' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>선 계층 옵션</a>을 참조하세요.
+<iframe height='700' scrolling='no' title='선 계층 옵션' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>선 계층 옵션</a>을 참조하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: v2 API에서 생성된 Azure Video Analyzer for Media(이전의 Video Indexer) 출력 검사 - Azure
+title: 미디어에 대 한 Azure Video Analyzer의 v2 API 출력 (이전의 Video Indexer) 검사
 titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 v2 API에서 생성된 Azure Video Analyzer for Media(이전의 Video Indexer) 출력을 살펴봅니다.
 services: azure-video-analyzer
@@ -9,12 +9,12 @@ ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 11fcc36ec8ad6d5feb030d00be4fbf470237634f
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: b60eb67b734bfc6d180153e88144282a431f0f6f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115252"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431353"
 ---
 # <a name="examine-the-video-analyzer-for-media-output"></a>Video Analyzer for Media 출력 검사
 
@@ -60,8 +60,8 @@ ms.locfileid: "112115252"
 |description|재생 목록의 설명입니다.|
 |userName|재생 목록을 만든 사용자의 이름입니다.|
 |created|재생 목록을 만든 시간입니다.|
-|privacyMode|재생 목록의 개인 모드(프라이빗/공용)입니다.|
-|state|재생 목록의 상태(uploaded(업로드됨), processing(처리 중), processed(처리됨), failed(실패), quarantined(격리됨))입니다.|
+|privacyMode|재생 목록의 개인 정보 모드 (개인/공용)입니다.|
+|state|재생 목록 (업로드 됨, 처리 중, 처리 됨, 실패, 격리)|
 |isOwned|현재 사용자가 재생 목록을 만들었는지 여부를 나타냅니다.|
 |isEditable|현재 사용자에게 재생 목록을 편집할 수 있는 권한이 있는지 여부를 나타냅니다.|
 |isBase|재생 목록이 기본 재생 목록(비디오)인지, 아니면 다른 비디오로 구성된 재생 목록(파생됨)인지를 나타냅니다.|
@@ -92,7 +92,7 @@ ms.locfileid: "112115252"
 
 이 섹션에서는 인사이트의 요약을 보여 줍니다.
 
-|attribute | 설명|
+|attribute | Description|
 |---|---|
 |name|비디오의 이름입니다. 예: Azure Monitor|
 |id|비디오의 ID입니다. 예: 63c6d532ff|
@@ -117,7 +117,7 @@ ms.locfileid: "112115252"
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
 |name|비디오의 이름입니다.
-|state|비디오의 재생 목록의 상태(uploaded, processing, processed, failed, quarantined)입니다.|
+|state|비디오의 상태 (업로드 됨, 처리 중, 처리 됨, 실패, 격리)입니다.|
 |processingProgress|처리하는 동안의 처리 진행률입니다(예: 20%).|
 |failureCode|처리하는 데 실패한 경우의 오류 코드입니다(예: 'UnsupportedFileType').|
 |failureMessage|처리하는 데 실패한 경우의 오류 메시지입니다.|
@@ -166,7 +166,7 @@ ms.locfileid: "112115252"
 
 각 인사이트(예: 음성 텍스트 라인, 얼굴, 브랜드 등)에는 고유한 요소의 목록(예: face1, face2, face3)이 있으며, 각 요소에는 자체의 메타데이터 및 해당 인스턴스(추가 선택적 메타데이터가 있는 시간 범위)의 목록이 있습니다.
 
-얼굴에는 ID, 이름, 썸네일, 다른 메타데이터 및 해당 임시 인스턴스의 목록이 있을 수 있습니다(예: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 및 00:41:21 – 00:41:49). 각 임시 인스턴스에는 추가 메타데이터가 있을 수 있습니다. 예를 들어 얼굴의 사각형을 조정합니다(20,230,60,60).
+얼굴에는 ID, 이름, 썸네일, 다른 메타데이터 및 해당 임시 인스턴스의 목록이 있을 수 있습니다(예: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 및 00:41:21 – 00:41:49). 각 임시 인스턴스에는 추가 메타데이터가 있을 수 있습니다. 예를 들어 얼굴의 사각형 좌표 (20230, 60, 60)입니다.
 
 |버전|코드 버전|
 |---|---|
@@ -188,7 +188,7 @@ ms.locfileid: "112115252"
 |topics|[topics](#topics) 인사이트.|
 |speakers|[speakers](#speakers) 인사이트.|
 
-예:
+예제:
 
 ```json
 {
@@ -227,7 +227,7 @@ id|블록의 ID입니다.|
 |언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예:
+예제:
 
 ```json
 "transcript":[
@@ -333,9 +333,9 @@ id|블록의 ID입니다.|
 
 애니메이션 문자 모델로 비디오가 인덱싱된 경우 `animatedCharacters` 요소는 `faces`를 대체합니다. Custom Vision에서 사용자 지정 모델을 사용하여 이 작업을 수행하고, Video Analyzer for Media는 키 프레임에서 실행됩니다.
 
-얼굴(애니메이션 문자 아님)이 있는 경우 Video Analyzer for Media는 모든 비디오 프레임에서 Face API를 사용하여 얼굴 및 유명인을 감지합니다.
+얼굴 (애니메이션 문자 아님)이 있는 경우 Media Video Analyzer는 모든 비디오 프레임에서 Face API를 사용 하 여 얼굴 및 유명인을 감지 합니다.
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
@@ -439,7 +439,7 @@ id|블록의 ID입니다.|
 
 #### <a name="scenes"></a>장면
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|장면 ID입니다.|
 |인스턴스|이 장면의 시간 범위 목록입니다(장면에는 1개의 인스턴스만 있을 수 있음).|
@@ -526,8 +526,8 @@ id|블록의 ID입니다.|
 |---|---|
 |id|브랜드 ID입니다.|
 |name|브랜드 이름입니다.|
-|referenceId | 브랜드의 Wikipedia URL에 대한 접미사입니다. 예를 들어 "Target_Corporation"은 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)의 접미사입니다.
-|referenceUrl | 있는 경우 브랜드의 Wikipedia URL입니다. 예를 들어 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 와 같습니다.
+|referenceId | 브랜드의 Wikipedia URL에 대한 접미사입니다. 예를 들어 "Target_Corporation"은의 접미사입니다 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | 브랜드의 위키백과 url입니다 (있는 경우). 예를 들어 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 와 같습니다.
 |description|브랜드 설명입니다.|
 |tags|이 브랜드와 연결된 미리 정의된 태그의 목록입니다.|
 |신뢰도|Video Analyzer for Media 브랜드 감지기의 신뢰도 값(0-1).|
@@ -581,7 +581,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -594,7 +594,7 @@ id|블록의 ID입니다.|
 |이름|Description
 |---|---|
 |id|오디오 효과 ID|
-|형식|오디오 효과 유형|
+|type|오디오 효과 유형|
 |name| JSON이 인덱싱된 언어의 오디오 효과 유형입니다. |
 |인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다. 인스턴스마다 신뢰도 필드가 있습니다.|
 |시작/종료| 시간 원본 비디오의 시간 범위입니다.|
@@ -722,7 +722,7 @@ Video Analyzer for Media는 음성 및 오디오 신호에 따라 감정을 식�
 |이름|Description|
 |---|---|
 |id|감정 ID입니다.|
-|형식|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
+|type|음성 및 음성 신호에 따라 식별된 감정 시점입니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.|
 |인스턴스|이 감정이 나타난 시간 범위의 목록입니다.|
 
 ```json
@@ -855,7 +855,7 @@ Video Analyzer for Media는 대본에서 주요 주제를 유추합니다. 가�
 |이름|Description|
 |---|---|
 |id|화자 ID입니다.|
-|name|"Speaker # *<number>* " 형식의 화자 이름(예: "Speaker #1").|
+|name|"Speaker # *\<number\>* " 형식의 화자 이름(예: "Speaker #1").|
 |인스턴스 |이 화자가 등장한 시간 범위의 목록입니다.|
 
 ```json

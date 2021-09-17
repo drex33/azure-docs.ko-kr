@@ -4,16 +4,16 @@ description: 여러 VM에서 공유할 수 있도록 공유 디스크가 있는 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 594800dcd75de3e5539873f327b5b64b81a8cb1f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: bdf012d1ee6c1230e458b7b40e3130d8fa25e4a1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698189"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424782"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "122698189"
 
 공유 디스크가 사용하도록 설정된 관리 디스크에 대한 개념 정보를 찾고 있는 경우 [Azure 공유 디스크](disks-shared.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 스크립트 및 명령에는 다음 중 하나가 필요합니다.
 
@@ -62,9 +62,9 @@ ms.locfileid: "122698189"
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="관리 디스크 만들기 창의 스크린샷, 강조 표시된 크기 변경." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
 
-1. 원하는 프리미엄 SSD 크기를 선택하고 **확인** 을 선택합니다.
+1. 원하는 프리미엄 SSD 크기 및 SKU를 선택 하 고 **확인을** 선택 합니다.
 
-    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="디스크 SKU의 스크린샷, 강조 표시된 프리미엄 SSD." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="디스크 SKU, 프리미엄 LRS 및 ZRS SSD Sku의 스크린샷 강조 표시 됩니다." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
 
 1. **고급** 창에 도달할 때까지 배포를 진행합니다.
 1. **공유 디스크 사용** 에 대해 **예** 를 선택하고 원하는 **최대 공유** 크기를 선택합니다.
@@ -105,7 +105,23 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-현재 Azure Portal을 통해 공유 표준 SSD를 배포할 수 없습니다. Azure CLI, Azure PowerShell 모듈 또는 Azure Resource Manager 템플릿을 사용합니다.
+1. Azure Portal에 로그인합니다. 
+1. **디스크** 를 검색하고 선택합니다.
+1. **+ 만들기** 를 선택하여 새 디스크를 만듭니다.
+1. 세부 정보를 입력하고 적절한 지역을 선택한 다음 **크기 변경** 을 선택합니다.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="관리 디스크 만들기 창의 스크린샷, 강조 표시된 크기 변경." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. 원하는 표준 SSD 크기 및 SKU를 선택 하 고 **확인을** 선택 합니다.
+
+    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="디스크 SKU의 스크린샷, 표준 SSD LRS 및 ZRS Sku가 강조 표시 됩니다." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. **고급** 창에 도달할 때까지 배포를 진행합니다.
+1. **공유 디스크 사용** 에 대해 **예** 를 선택하고 원하는 **최대 공유** 크기를 선택합니다.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="고급 창의 스크린샷, 강조 표시된 공유 디스크를 사용하고 예로 설정합니다." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. **검토 + 만들기** 를 선택합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

@@ -2,13 +2,13 @@
 title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 5401aebb0b0a82a04a2b78f9af1dc6d133915c0b
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: f0fb7214d261c686273e275cb0d3d18b1d393f6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113286631"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654331"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -191,7 +191,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
 ## <a name="resource"></a>리소스
 
-`resource` 키워드를 사용하여 배포할 리소스를 정의합니다. 리소스 선언에는 해당 리소스에 대한 기호화된 이름이 포함됩니다. 리소스에서 값을 가져와야 하는 경우 Bicep 파일의 다른 부분에서 기호화된 이름을 사용합니다.
+`resource` 키워드를 사용하여 배포할 리소스를 정의합니다. 리소스 선언에는 해당 리소스에 대한 기호화된 이름이 포함됩니다. 리소스에서 값을 가져와야 하는 경우 Bicep 파일의 다른 부분에서 기호화된 이름을 사용합니다. 기호 이름에는 a-z, a-z, 0-9 및 ' _ '이 포함 될 수 있으며, 이름은 숫자로 시작할 수 없습니다.
 
 리소스 선언에는 리소스 종류 및 API 버전도 포함됩니다.
 
@@ -261,7 +261,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-기호화된 이름을 사용하면 파일의 다른 위치에서 모듈을 참조할 수 있습니다. 예를 들어 기호화된 이름 및 출력 값의 이름을 사용하여 모듈에서 출력 값을 가져올 수 있습니다.
+기호화된 이름을 사용하면 파일의 다른 위치에서 모듈을 참조할 수 있습니다. 예를 들어 기호화된 이름 및 출력 값의 이름을 사용하여 모듈에서 출력 값을 가져올 수 있습니다. 기호 이름에는 a-z, A-Z, 0-9 및 '_'가 포함될 수 있습니다. 이름은 숫자로 시작할 수 없습니다.
 
 모듈은 매개 변수, 변수 또는 리소스와 동일한 이름을 가질 수 없습니다.
 

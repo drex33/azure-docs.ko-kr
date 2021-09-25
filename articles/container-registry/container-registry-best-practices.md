@@ -2,13 +2,13 @@
 title: 레지스트리 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 08/13/2021
+ms.openlocfilehash: 1b713ac047b575c68cd8ed539187e3caac13a322
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578133"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626972"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -63,7 +63,7 @@ Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉
 
 | Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
-| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr#az-acr-login) |
+| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr#az_acr_login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
 
 이러한 Azure Container Registry 인증 시나리오에 대한 자세한 내용은 [Azure 컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
@@ -74,28 +74,37 @@ Azure Container Registry는 조직의 보안 관행을 지원하여 다양한 ID
 
 일반적인 시나리오에 맞게 각 [컨테이너 레지스트리 서비스 계층][container-registry-skus]의 스토리지 제약 조건이 결정됩니다. **기본** 은 시작하는 고객, **표준** 은 대부분의 프로덕션 애플리케이션, **프리미엄** 은 하이퍼스케일 성능 및 [지역 복제][container-registry-geo-replication] 시나리오에 적합합니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
-Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
+Azure CLI 명령 [az acr show-usage][az-acr-show-usage] 를 사용 하 여 레지스트리의 현재 저장소 및 기타 리소스 사용량을 표시 합니다.
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
 ```
 
-```output
-NAME      LIMIT         CURRENT VALUE    UNIT
---------  ------------  ---------------  ------
-Size      536870912000  185444288        Bytes
-Webhooks  100                            Count
+샘플 출력:
+
+```
+NAME                        LIMIT         CURRENT VALUE    UNIT
+--------------------------  ------------  ---------------  ------
+Size                        536870912000  215629144        Bytes
+Webhooks                    500           1                Count
+Geo-replications            -1            3                Count
+IPRules                     100           1                Count
+VNetRules                   100           0                Count
+PrivateEndpointConnections  10            0                Count
 ```
 
-Azure Portal의 레지스트리 **개요** 에서도 현재 스토리지 사용량을 확인할 수 있습니다.
+Azure Portal의 레지스트리 **개요** 에서 현재 저장소 사용을 찾을 수도 있습니다.
 
 ![Azure Portal의 레지스트리 사용량 정보][registry-overview-quotas]
+
+> [!NOTE]
+> 지역에서 [복제](container-registry-geo-replication.md) 된 레지스트리에서는 홈 지역에 대해 저장소 사용량이 표시 됩니다. 사용 된 총 레지스트리 저장소에 대 한 복제 수를 곱합니다.
 
 ### <a name="delete-image-data"></a>이미지 데이터 삭제
 
 Azure Container Registry는 컨테이너 레지스트리에서 이미지 데이터를 삭제하는 여러 가지 방법을 지원합니다. 태그 또는 매니페스트 다이제스트를 기준으로 이미지를 삭제할 수도 있고 전체 리포지토리를 삭제할 수도 있습니다.
 
-태그가 없는 이미지(“누락된” 이미지 또는 “분리된” 이미지라고도 함)를 포함한 이미지 데이터를 레지스트리에서 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
+태그가 없는 이미지(“누락된” 이미지 또는 “분리된” 이미지라고도 함)를 포함한 이미지 데이터를 레지스트리에서 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요. 태그 없는 매니페스트에 대 한 [보존 정책을](container-registry-retention-policy.md) 설정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -108,8 +117,8 @@ Azure Container Registry는 다양한 기능을 제공하는 SKU라고도 하는
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

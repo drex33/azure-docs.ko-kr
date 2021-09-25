@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: e58137dd680ff9a2be2bd657f0969304b526873f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2ac820aa7606ae310c5a7a3fd28869f34f846aaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95913116"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621189"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용하여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -22,32 +22,32 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
 이 문서에서는 다음 작업을 완료하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
-> * 데이터 마이그레이션을 준비합니다.
-> * 데이터를 Data Box Disk, Data Box 또는 Data Box Heavy 디바이스로 복사합니다.
-> * 디바이스를 Microsoft에 다시 배송합니다.
-> * 파일 및 디렉터리에 대한 액세스 권한 적용(Data Lake Storage Gen2에만 해당)
+> - 데이터 마이그레이션을 준비합니다.
+> - 데이터를 Data Box Disk, Data Box 또는 Data Box Heavy 디바이스로 복사합니다.
+> - 디바이스를 Microsoft에 다시 배송합니다.
+> - 파일 및 디렉터리에 대한 액세스 권한 적용(Data Lake Storage Gen2에만 해당)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 마이그레이션을 완료하려면 다음 항목이 필요합니다.
 
-* Azure Storage 계정.
+- Azure Storage 계정.
 
-* 원본 데이터를 포함하는 온-프레미스 Hadoop 클러스터
+- 원본 데이터를 포함하는 온-프레미스 Hadoop 클러스터
 
-* [Azure Data Box 디바이스](https://azure.microsoft.com/services/storage/databox/)
+- [Azure Data Box 디바이스](https://azure.microsoft.com/services/storage/databox/)
 
-  * [Data Box](../../databox/data-box-deploy-ordered.md) 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md)를 주문합니다. 
+  - [Data Box](../../databox/data-box-deploy-ordered.md) 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md)를 주문합니다.
 
-  * [Data Box](../../databox/data-box-deploy-set-up.md) 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md)를 온-프레미스 네트워크에 케이블로 연결합니다.
+  - [Data Box](../../databox/data-box-deploy-set-up.md) 또는 [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md)를 온-프레미스 네트워크에 케이블로 연결합니다.
 
 준비가 되면 시작해보겠습니다.
 
 ## <a name="copy-your-data-to-a-data-box-device"></a>Data Box 디바이스에 데이터 복사
 
-데이터가 단일 Data Box 디바이스에 맞는 경우 데이터를 Data Box 디바이스로 복사합니다. 
+데이터가 단일 Data Box 디바이스에 맞는 경우 데이터를 Data Box 디바이스로 복사합니다.
 
-데이터 크기가 Data Box 디바이스의 용량을 초과하는 경우에는 [선택적 절차를 사용하여 데이터를 여러 Data Box 디바이스로 분할](#appendix-split-data-across-multiple-data-box-devices)한 다음 이 단계를 수행합니다. 
+데이터 크기가 Data Box 디바이스의 용량을 초과하는 경우에는 [선택적 절차를 사용하여 데이터를 여러 Data Box 디바이스로 분할](#appendix-split-data-across-multiple-data-box-devices)한 다음 이 단계를 수행합니다.
 
 온-프레미스 HDFS 저장소에서 Data Box 장치로 데이터를 복사하려면 몇 가지를 설정하고 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) 도구를 사용합니다.
 
@@ -59,13 +59,13 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
 
 2. 스토리지 계정 액세스 및 데이터 업로드 대화 상자에서 **Blob 서비스 엔드포인트** 및 **스토리지 계정 키** 를 복사합니다. Blob 서비스 엔드포인트에서 `https://` 및 후행 슬래시를 생략합니다.
 
-    이 경우 엔드포인트는 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`입니다. 예를 보려면 [http를 통해 REST에 연결](../../databox/data-box-deploy-copy-data-via-rest.md)하는 방법을 참조하세요. 
+    이 경우 엔드포인트는 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`입니다. 예를 보려면 [http를 통해 REST에 연결](../../databox/data-box-deploy-copy-data-via-rest.md)하는 방법을 참조하세요.
 
      !["스토리지 계정 액세스 및 데이터 업로드" 대화 상자](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
 3. 엔드포인트와 Data Box 또는 Data Box Heavy 노드 IP 주소를 각 노드의 `/etc/hosts`에 추가합니다.
 
-    ```    
+    ```
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
 
@@ -88,13 +88,13 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
+    - `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
 
-    * `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
+    - `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
+    - `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * `<destination_directory>` 자리 표시자를 데이터를 복사할 디렉터리 이름으로 바꿉니다.
+    - `<destination_directory>` 자리 표시자를 데이터를 복사할 디렉터리 이름으로 바꿉니다.
 
 6. list 명령을 실행하여 컨테이너 및 디렉터리를 만들었는지 확인합니다.
 
@@ -105,11 +105,11 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
+   - `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
 
-   * `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
+   - `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-   * `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
+   - `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
 7. Hadoop HDFS의 데이터를 Data Box Blob Storage에서 이전에 만든 컨테이너로 복사합니다. 복사할 디렉터리를 찾을 수 없는 경우 이 명령은 자동으로 만듭니다.
 
@@ -123,19 +123,19 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
+    - `<blob_service_endpoint>` 자리 표시자를 Blob 서비스 엔드포인트의 이름으로 바꿉니다.
 
-    * `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
+    - `<account_key>` 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
+    - `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * `<exlusion_filelist_file>` 자리 표시자를 파일 제외 목록을 포함하는 파일의 이름으로 바꿉니다.
+    - `<exlusion_filelist_file>` 자리 표시자를 파일 제외 목록을 포함하는 파일의 이름으로 바꿉니다.
 
-    * `<source_directory>` 자리 표시자를 복사할 데이터가 포함된 디렉터리 이름으로 바꿉니다.
+    - `<source_directory>` 자리 표시자를 복사할 데이터가 포함된 디렉터리 이름으로 바꿉니다.
 
-    * `<destination_directory>` 자리 표시자를 데이터를 복사할 디렉터리 이름으로 바꿉니다.
+    - `<destination_directory>` 자리 표시자를 데이터를 복사할 디렉터리 이름으로 바꿉니다.
 
-    `-libjars` 옵션은 `hadoop-azure*.jar` 및 종속 `azure-storage*.jar` 파일을 `distcp`에서 사용할 수 있도록 하는 데 사용됩니다. 일부 클러스터에 대해 이 문제가 이미 발생했을 수 있습니다.
+    `-libjars` 옵션은 `hadoop-azure*.jar` 및 종속 `azure-storage*.jar` 파일을 `distcp`에서 사용할 수 있도록 하는 데 사용됩니다. 이는 일부 클러스터에 대해 이미 발생할 수 있습니다.
 
     다음 예에서는 `distcp` 명령을 사용하여 데이터를 복사하는 방법을 보여 줍니다.
 
@@ -148,14 +148,14 @@ Data Box 디바이스를 사용하여 Hadoop 클러스터의 온-프레미스 HD
     /data/testfiles \
     wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/data
     ```
-  
+
     복사 속도를 향상시키려면 다음을 수행합니다.
 
-    * 매퍼 수를 변경해보세요. (위의 예는 `m` = 4 매퍼를 사용합니다.)
+    - 매퍼 수를 변경해보세요. (위의 예는 `m` = 4 매퍼를 사용합니다.)
 
-    * 여러 `distcp`를 병렬로 실행해 보세요.
+    - 여러 `distcp`를 병렬로 실행해 보세요.
 
-    * 규모가 큰 파일은 규모가 작은 파일보다 성능이 더 좋습니다.
+    - 규모가 큰 파일은 규모가 작은 파일보다 성능이 더 좋습니다.
 
 ## <a name="ship-the-data-box-to-microsoft"></a>Microsoft에 Data Box 배송
 
@@ -169,11 +169,11 @@ Data Box 디바이스를 준비하고 Microsoft에 배송하려면 다음 단계
 
 4. UPS를 사용하여 픽업을 예약합니다.
 
-    * Data Box 디바이스의 경우 [Data Box 배송](../../databox/data-box-deploy-picked-up.md)을 참조하세요.
+    - Data Box 디바이스의 경우 [Data Box 배송](../../databox/data-box-deploy-picked-up.md)을 참조하세요.
 
-    * Data Box Heavy 디바이스의 경우 [Data Box Heavy 배송](../../databox/data-box-heavy-deploy-picked-up.md)을 참조하세요.
+    - Data Box Heavy 디바이스의 경우 [Data Box Heavy 배송](../../databox/data-box-heavy-deploy-picked-up.md)을 참조하세요.
 
-5. Microsoft에서는 디바이스를 받은 후에 데이터 센터 네트워크에 연결되고 디바이스를 주문할 때 지정한 스토리지 계정에 데이터가 업로드됩니다. 모든 데이터가 Azure에 업로드되었는지 BOM 파일에 대해 확인합니다. 
+5. Microsoft에서는 디바이스를 받은 후에 데이터 센터 네트워크에 연결되고 디바이스를 주문할 때 지정한 스토리지 계정에 데이터가 업로드됩니다. 모든 데이터가 Azure에 업로드되었는지 BOM 파일에 대해 확인합니다.
 
 ## <a name="apply-access-permissions-to-files-and-directories-data-lake-storage-gen2-only"></a>파일 및 디렉터리에 대한 액세스 권한 적용(Data Lake Storage Gen2에만 해당)
 
@@ -186,9 +186,9 @@ Data Box 디바이스를 준비하고 Microsoft에 배송하려면 다음 단계
 
 서비스 주체를 만들려면 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-* 문서의 [애플리케이션을 역할에 할당](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
+- 문서의 [애플리케이션을 역할에 할당](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
-* 문서의 [로그인을 위한 값 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 애플리케이션 ID 및 클라이언트 비밀 값을 텍스트 파일에 저장합니다. 곧 이 값들이 필요합니다.
+- 문서의 [로그인을 위한 값 가져오기](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) 섹션에 있는 단계를 수행하는 경우 애플리케이션 ID 및 클라이언트 비밀 값을 텍스트 파일에 저장합니다. 곧 이 값들이 필요합니다.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>권한이 있는 복사된 파일의 목록 생성
 
@@ -211,7 +211,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 2. 이 명령을 실행하여 고유한 ID 목록을 생성합니다.
 
    ```bash
-   
+
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
@@ -229,11 +229,11 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
 ```
 
-* `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-* `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
+- `<container-name>` 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-* `<application-id>` 및 `<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 애플리케이션 ID 및 클라이언트 비밀로 바꿉니다.
+- `<application-id>` 및 `<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 애플리케이션 ID 및 클라이언트 비밀로 바꿉니다.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>부록: 여러 Data Box 디바이스에서 데이터 분할
 
@@ -246,7 +246,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 1. 온-프레미스 Hadoop 클러스터의 에지 또는 헤드 노드에서 다음 명령을 실행합니다.
 
    ```bash
-   
+
    git clone https://github.com/jamesbak/databox-adls-loader.git
    cd databox-adls-loader
    ```
@@ -256,21 +256,21 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 2. 로컬 컴퓨터에 [jq](https://stedolan.github.io/jq/) 패키지가 설치되어 있는지 확인합니다.
 
    ```bash
-   
+
    sudo apt-get install jq
    ```
 
 3. [요청](https://2.python-requests.org/en/master/) python 패키지를 설치합니다.
 
    ```bash
-   
+
    pip install requests
    ```
 
 4. 필요한 스크립트에 대한 실행 권한을 설정합니다.
 
    ```bash
-   
+
    chmod +x *.py *.sh
 
    ```
@@ -332,4 +332,4 @@ DistCp 작업을 시작하려는 온-프레미스 Hadoop 클러스터에서 제�
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Lake Storage Gen2가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요.
+Data Lake Storage Gen2가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. 자세한 내용은 [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요.

@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6afc61c53d2e7e48686a5d2f69862b4dc08bc1c6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 334173ceb422db765c86ea05912817a02346f997
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578357"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Azure IoT Edge 버전 및 릴리스 정보
 
@@ -38,7 +38,7 @@ IoT Edge 릴리스에 대한 자세한 내용은 [Azure IoT Edge 지원 시스�
 | [1.2](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0) | Stable | 2021년 4월 | [게이트웨이 뒤에 있는 IoT Edge 디바이스](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[IoT Edge MQTT broker(미리 보기)](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true)<br>새로운 설치 및 구성 단계를 포함하는 새로운 IoT Edge 패키지가 도입되었습니다. 자세한 내용은 [1.0 또는 1.1에서 1.2로 업데이트](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12)를 참조하세요.
 | [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | LTS(장기 지원) | 2021년 2월 | [장기 지원 계획 및 지원되는 시스템 업데이트](support.md) |
 | [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10) | Stable | 2020년 10월 | [UploadSupportBundle 직접 메서드](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)<br>[런타임 메트릭 업로드](how-to-access-built-in-metrics.md)<br>[경로 우선 순위 및 TTL(Time to Live)](module-composition.md#priority-and-time-to-live)<br>[모듈 시작 순서](module-composition.md#configure-modules)<br>[X.509 수동 프로비저닝](how-to-register-device.md) |
-| [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | 2020년 3월 | [DPS를 통한 X.509 자동 프로비저닝](how-to-auto-provision-x509-certs.md)<br>[RestartModule 직접 메서드](how-to-edgeagent-direct-method.md#restart-module)<br>[support-bundle 명령](troubleshoot.md#gather-debug-information-with-support-bundle-command) |
+| [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | 2020년 3월 | DPS를 통한 X.509 자동 프로비저닝<br>[RestartModule 직접 메서드](how-to-edgeagent-direct-method.md#restart-module)<br>[support-bundle 명령](troubleshoot.md#gather-debug-information-with-support-bundle-command) |
 
 ## <a name="next-steps"></a>다음 단계
 

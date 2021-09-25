@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
-ms.translationtype: HT
+ms.openlocfilehash: 2f2d88a48b7dca0b2ab3ad512e6b723ab68931c8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593391"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650252"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
@@ -60,7 +60,7 @@ ms.locfileid: "100593391"
 1. Runbook 가져오기 프로세스가 완료되면 **편집** 을 선택하여 그래픽 Runbook 편집기와 게시 옵션을 표시합니다.  
     ![Azure - 그래픽 Runbook 편집](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. **게시** 를 선택하여 Runbook을 게시한 다음, 메시지가 표시되면 **예** 를 선택합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 경우 Runbook을 만들었으므로 게시된 버전이 없습니다.
-    Runbook을 게시하는 방법에 대한 자세한 내용은 [그래픽 Runbook 만들기](../../automation/learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
+    Runbook을 게시하는 방법에 대한 자세한 내용은 [그래픽 Runbook 만들기](../../automation/learn/powershell-runbook-managed-identity.md)를 참조하세요.
 
 ## <a name="create-webhooks-for-the-runbook"></a>Runbook에 대한 Webhook 만들기
 

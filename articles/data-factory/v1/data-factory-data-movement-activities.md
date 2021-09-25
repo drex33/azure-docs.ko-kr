@@ -3,16 +3,17 @@ title: 복사 활동을 사용하여 데이터 이동
 description: Data Factory 파이프라인에서 데이터를 이동하는 방법(클라우드 저장소 간/온-프레미스 저장소와 클라우드 저장소 간에 데이터 마이그레이션)에 대해 알아봅니다. 또한 복사 활동을 사용하는 방법을 살펴봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99190ccab6dc299fac970fce6fb0222096592357
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: d138cab93d9cd9b1c4c44e92e6fcfb583103fb70
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766900"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629411"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -25,7 +26,7 @@ ms.locfileid: "108766900"
 ## <a name="overview"></a>개요
 Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 데이터 저장소 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
-![복사 활동의 역할](media/data-factory-data-movement-activities/copy-activity.png)
+:::image type="content" source="media/data-factory-data-movement-activities/copy-activity.png" alt-text="복사 활동의 역할":::
 
 복사 활동은 안전성, 안전성, 확장성이 뛰어나며 [전 세계에서 사용 가능한 서비스](#global)를 통해 제공됩니다. 이 문서는 Data Factory 및 복사 작업에서 데이터 이동에 대한 세부 정보를 제공합니다.
 
@@ -45,14 +46,14 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 서비스는 데이터 이동을 수행할 최적의 지역을 자동으로 선택합니다. 이 지역은 대개 싱크 데이터 저장소와 가장 가까운 지역입니다.
 
-![클라우드 간 복사](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/cloud-to-cloud.png" alt-text="클라우드 간 복사":::
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간 데이터 복사
 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터를 안전하게 이동하려면 온-프레미스 컴퓨터에 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 하이브리드 데이터 이동 및 처리를 수행할 수 있도록 하는 에이전트입니다. 게이트웨이는 데이터 저장소 자체와 같은 컴퓨터에 설치할 수도 있고, 데이터 저장소에 액세스할 수 있는 별도의 컴퓨터에 설치할 수도 있습니다.
 
 이 시나리오에서는 데이터 관리 게이트웨이가 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환을 수행합니다. 데이터는 Azure Data Factory 서비스를 통과하지 않습니다. 대신 데이터 관리 게이트웨이가 데이터를 대상 저장소에 직접 씁니다.
 
-![온-프레미스 및 클라우드 간 복사](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/onprem-to-cloud.png" alt-text="온-프레미스 및 클라우드 간 복사":::
 
 데이터 이동에 대한 소개와 연습은 [온-프레미스 및 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 을 참조하세요. 이 에이전트에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 참조하세요.
 

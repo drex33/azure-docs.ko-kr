@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6f5b12a52e5a2c509a1b839bacb6ca0e254bde5c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: de2baaeeb1c85a65145771eaf12ff530c4fbb697
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661295"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -21,6 +21,7 @@ ms.locfileid: "123469199"
 |[Azure Web PubSub 서비스는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf45113f-264e-4a87-88f9-29ac8a0aca6a) |공용 네트워크 액세스를 사용하지 않도록 설정하면 Azure Web PubSub 서비스가 퍼블릭 인터넷에 노출되지 않으므로 보안이 강화됩니다. 프라이빗 엔드포인트를 만들면 Azure Web PubSub 서비스의 노출을 제한할 수 있습니다. [https://aka.ms/awps/networkacls](https://aka.ms/awps/networkacls)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PublicNetworkAccessDisabled_AuditDeny.json) |
 |[Azure Web PubSub 서비스는 프라이빗 링크를 지원하는 SKU를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82909236-25f3-46a6-841c-fe1020f95ae1) |지원되는 SKU로 Azure Private Link를 사용하면 원본 또는 대상에서 공용 IP 주소 없이 가상 네트워크를 Azure 서비스에 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Azure Web PubSub 서비스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/awps/privatelink](https://aka.ms/awps/privatelink)에서 프라이빗 링크에 대해 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_AllowedSKU_AuditDeny.json) |
 |[Azure Web PubSub 서비스는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F52630df9-ca7e-442b-853b-c6ce548b31a2) |Azure Private Link를 사용하면 원본 또는 대상에 공용 IP 주소가 없어도 가상 네트워크를 Azure 서비스에 연결할 수 있습니다. 프라이빗 링크 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Azure Web PubSub 서비스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/awps/privatelink](https://aka.ms/awps/privatelink)에서 프라이빗 링크에 대해 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PrivateEndpointEnabled_Audit.json) |
+|[로컬 인증을 사용 하지 않도록 Azure SignalR 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F702133e5-5ec5-4f90-9638-c78e22f13b39) |Azure SignalR 서비스에 인증을 위한 Azure Active Directory id만 필요 하도록 로컬 인증 방법을 사용 하지 않도록 설정 합니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_DisableLocalAuth_Modify.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 Azure Web PubSub 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5b1213e4-06e4-4ccc-81de-4201f2f7131a) |퍼블릭 인터넷을 통해 액세스할 수 없도록 Azure Web PubSub 리소스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/awps/networkacls](https://aka.ms/awps/networkacls)에서 자세히 알아보세요.  |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PublicNetworkAccessDisabled_Modify.json) |
 |[프라이빗 엔드포인트로 Azure Web PubSub 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b9c0b58-fc7b-42c8-8010-cdfa1d1b8544) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 Azure Web PubSub 서비스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/awps/privatelink](https://aka.ms/awps/privatelink)에서 프라이빗 링크에 대해 자세히 알아보세요.  |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PrivateEndpointEnabled_DeployIfNotExists.json) |
 |[프라이빗 엔드포인트를 Azure SignalR Service로 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef45854f-b33f-49a3-8041-9057e915d88f) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 Azure SignalR Service 리소스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/asrs/privatelink](../../../../articles/azure-signalr/howto-private-endpoints.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_DeployIfNotExists.json) |

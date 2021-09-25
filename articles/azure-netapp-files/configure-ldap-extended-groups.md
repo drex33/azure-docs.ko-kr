@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 09/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 01d8f23331525443a9f83245b8eec2b402e92d6e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4b4c1e159fcd62d1d9d57b907edbfa4e5f0bfc24
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576831"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
-[NFS 볼륨을 생성](azure-netapp-files-create-volumes.md)할 때 볼륨에 대해 확장 그룹 기능이 포함된 LDAP를 사용하는 옵션(**LDAP** 옵션)이 있습니다. 이 기능을 사용하면 Active Directory LDAP 사용자 및 확장 그룹(최대 1024개 그룹)을 통해 볼륨에 액세스할 수 있습니다. NFSv4.1 및 NFSv3 볼륨 모두에서 확장 그룹이 포함된 LDAP를 사용할 수 있습니다. 
+[NFS 볼륨을 생성](azure-netapp-files-create-volumes.md)할 때 볼륨에 대해 확장 그룹 기능이 포함된 LDAP를 사용하는 옵션(**LDAP** 옵션)이 있습니다. 이 기능을 사용하면 Active Directory LDAP 사용자 및 확장 그룹(최대 1024개 그룹)이 볼륨의 파일 및 디렉터리에 액세스할 수 있습니다. NFSv4.1 및 NFSv3 볼륨 모두에서 확장 그룹이 포함된 LDAP를 사용할 수 있습니다. 
 
 이 문서에서는 NFS 볼륨을 만들 때 확장 그룹이 포함된 LDAP를 사용하도록 설정하는 고려 사항 및 단계에 대해 설명합니다.  
 
@@ -79,15 +79,21 @@ ms.locfileid: "114443025"
 4. LDAP NFS 사용자에게는 LDAP 서버에 특정 POSIX 특성이 있어야 합니다. 다음과 같이 LDAP 사용자 및 LDAP 그룹에 대한 속성을 설정합니다. 
 
     * LDAP 사용자에 대한 필수 특성:   
-        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+        `uid: Alice`,  
+        `uidNumber: 139`,  
+        `gidNumber: 555`,  
+        `objectClass: user, posixAccount`
     * LDAP 그룹에 대한 필수 특성:   
-        `objectClass: group`, `gidNumber: 555`
+        `objectClass: group, posixGroup`,  
+        `gidNumber: 555`
 
-    Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용하여 POSIX 특성을 관리할 수 ​​있습니다. 다음 예에서는 Active Directory 특성 편집기를 보여 줍니다.  
+    에 지정된 `objectClass` 값은 별도의 항목입니다. 예를 들어 다중값 문자열 편집기에서 `objectClass` `user` 는 LDAP 사용자에 대해 다음과 같이 지정된 별도의 값( 및 )을 갖습니다. `posixAccount`   
+
+    ![개체 클래스에 지정된 여러 값을 보여 주는 다중값 문자열 편집기의 스크린샷.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+
+    Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용하여 POSIX 특성을 관리할 수 ​​있습니다. 다음 예제에서는 Active Directory 특성 편집기를 보여줍니다. 자세한 내용은 [Access Active Directory 특성 편집기 액세스](create-volumes-dual-protocol.md#access-active-directory-attribute-editor)를 참조하세요.  
 
     ![Active Directory 특성 편집기](../media/azure-netapp-files/active-directory-attribute-editor.png) 
-
-    자세한 내용은 [Access Active Directory 특성 편집기 액세스](create-volumes-dual-protocol.md#access-active-directory-attribute-editor)를 참조하세요.  
 
 5. LDAP 통합 NFSv4.1 Linux 클라이언트를 구성하려면 [Azure NetApp Files용 NFS 클라이언트 구성](configure-nfs-clients.md)을 참조하세요.
 

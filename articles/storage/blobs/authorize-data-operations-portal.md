@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 35ea4317b78a9f732d095d9f024d7465ebd1828e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615703"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure Portal에서 Blob 데이터에 대한 액세스 권한을 부여하는 방법을 선택합니다.
 
-[Azure Portal](https://portal.azure.com)을 사용하여 Blob 데이터에 액세스하는 경우 포털은 내부 Azure Storage에 요청합니다. Azure Storage에 대한 요청은 Azure AD 계정 또는 스토리지 계정 액세스 키를 사용하여 인증될 수 있습니다. 포털은 사용 중인 방법을 나타내며, 적절한 사용 권한이 있는 경우 두 방법 사이를 전환할 수 있습니다.  
+[Azure Portal](https://portal.azure.com)을 사용하여 Blob 데이터에 액세스하는 경우 포털은 내부 Azure Storage에 요청합니다. Azure Storage에 대한 요청은 Azure AD 계정 또는 스토리지 계정 액세스 키를 사용하여 인증될 수 있습니다. 포털은 사용 중인 방법을 나타내며, 적절한 사용 권한이 있는 경우 두 방법 사이를 전환할 수 있습니다.
 
 Azure Portal에서 개별 Blob 업로드 작업에 권한을 부여하는 방법을 지정할 수도 있습니다. 기본적으로 포털은 Blob 업로드 작업에 권한을 부여하기 위해 이미 사용 중인 방법을 사용하지만 Blob을 업로드할 때 이 설정을 변경하는 옵션이 있습니다.
 

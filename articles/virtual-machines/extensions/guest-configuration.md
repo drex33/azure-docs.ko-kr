@@ -8,12 +8,12 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 88d9ceedffffc3b1ab1b4c00e04f6fbbfe2654a7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ea70d25bae9b30e1170046a7a7d470b4fea1a08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433245"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626630"
 ---
 # <a name="overview-of-the-guest-configuration-extension"></a>게스트 구성 확장 개요
 
@@ -76,13 +76,13 @@ az vm extension set  --publisher Microsoft.GuestConfiguration --name Configurati
 Linux용 확장을 배포하려면 다음을 수행합니다.
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 Windows용 확장을 배포하려면 다음을 수행합니다.
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' --enable-auto-upgrade
 ```
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
@@ -103,6 +103,7 @@ Linux용 확장을 배포하려면 다음을 수행합니다.
     "type": "ConfigurationforLinux",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -125,6 +126,7 @@ Windows용 확장을 배포하려면 다음을 수행합니다.
     "type": "ConfigurationforWindows",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -148,6 +150,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationforLinux'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }
@@ -169,6 +172,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationforWindows'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }

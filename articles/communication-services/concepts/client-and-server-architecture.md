@@ -9,18 +9,18 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 75ab8032d197b00516578f1e0a92f29122126249
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 1346c9f6505c03ccebb2d2e2dc33e899050bfe20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966625"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672023"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
 이 페이지에서는 여러 Azure Communication Service 시나리오에 포함된 일반적인 아키텍처 구성 요소 및 데이터 흐름을 보여줍니다. 관련 구성 요소는 다음과 같습니다.
 
-1. **클라이언트 애플리케이션.** 이 웹 사이트 또는 네이티브 애플리케이션은 최종 사용자의 커뮤니케이션을 위해 활용됩니다. Azure Communication Services는 여러 브라우저 및 애플리케이션 플랫폼을 위한 [SDK 클라이언트 라이브러리](sdk-options.md)를 제공합니다. 핵심 SDK 외에도 [UI 도구 키트](https://aka.ms/acsstorybook)를 사용하여 브라우저 앱 개발을 가속화할 수 있습니다.
+1. **클라이언트 애플리케이션.** 이 웹 사이트 또는 네이티브 애플리케이션은 최종 사용자의 커뮤니케이션을 위해 활용됩니다. Azure Communication Services는 여러 브라우저 및 애플리케이션 플랫폼을 위한 [SDK 클라이언트 라이브러리](sdk-options.md)를 제공합니다. 핵심 SDK 외에도 [UI 라이브러리를](https://aka.ms/acsstorybook) 사용하여 브라우저 앱 개발을 가속화할 수 있습니다.
 1. **ID 관리 서비스.**  비즈니스 논리에서 사용자 및 기타 개념을 Azure Communication Services에 매핑하고 필요할 때 사용자에 대해 토큰을 만들기 위해 빌드하는 서비스 기능입니다.
 1. **호출 관리 서비스.**  음성 및 음성 호출을 관리하고 모니터링하기 위해 빌드하는 서비스 기능입니다.  이 서비스는 호출 만들기, 사용자 초대, 전화 번호 호출, 오디오 재생, DMTF 톤 수신을 수행하고, 호출 자동화 SDK 및 REST API를 통해 다른 많은 호출 기능을 활용할 수 있습니다.
 

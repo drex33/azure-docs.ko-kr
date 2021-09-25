@@ -3,7 +3,7 @@ title: Azure Portal에서 논리 앱을 API로 가져오기 | Microsoft Docs
 description: 이 문서에서는 APIM(API Management)을 사용하여 논리 앱을 API로 가져오는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/16/2021
-ms.author: apimpm
-ms.openlocfilehash: 6825e5d7849f97aac4627d4856d26b3e08ab6761
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 509a143a368c4626b7d0a39e1c3f2d15c8a3d0b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "108230648"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667771"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>논리 앱을 API로 가져오기
 

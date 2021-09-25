@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: e532a6dd7d752d28abcaf891d4d6b0217248d5bc
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: de1c24fa977ffd13c744aa01d5464295f7ab4691
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397841"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580551"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -45,7 +45,7 @@ deviceClient = new DeviceClient(deviceConnectionString, protocol, options);
 
 ## <a name="telemetry"></a>원격 분석
 
-기본 구성 요소에는 특별한 속성이 필요하지 않습니다.
+기본 구성 요소에는 원격 분석 메시지에 추가 된 특별 한 속성이 필요 하지 않습니다.
 
 중첩된 구성 요소를 사용하는 경우 디바이스는 구성 요소 이름으로 메시지 속성을 설정해야 합니다.
 
@@ -76,7 +76,7 @@ Property reportedProperty = new Property("maxTempSinceLastReboot", 38.7);
 deviceClient.sendReportedProperties(Collections.singleton(reportedProperty));
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+장치 쌍은 다음과 같이 보고 된 속성으로 업데이트 됩니다.
 
 ```json
 {
@@ -86,7 +86,7 @@ deviceClient.sendReportedProperties(Collections.singleton(reportedProperty));
 }
 ```
 
-중첩된 구성 요소를 사용하는 경우 구성 요소 이름 내에 속성을 만들어야 합니다.
+중첩 된 구성 요소를 사용 하는 경우 속성을 구성 요소 이름 내에 만들고 표식을 포함 해야 합니다.
 
 ```java
 Map<String, Object> componentProperty = new HashMap<String, Object>() {{
@@ -99,7 +99,7 @@ Set<Property> reportedProperty = new Property("thermostat1", componentProperty)
 deviceClient.sendReportedProperties(reportedProperty);
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+장치 쌍은 다음과 같이 보고 된 속성으로 업데이트 됩니다.
 
 ```json
 {
@@ -115,6 +115,8 @@ deviceClient.sendReportedProperties(reportedProperty);
 ## <a name="writable-properties"></a>쓰기 가능한 속성
 
 이러한 속성은 디바이스에서 설정하거나 솔루션에서 업데이트할 수 있습니다. 솔루션에서 속성을 업데이트하면 클라이언트는 `DeviceClient` 또는 `ModuleClient`에서 콜백으로 알림을 받습니다. IoT 플러그 앤 플레이 규칙을 따르려면 디바이스에서 속성이 성공적으로 수신되었음을 서비스에 알려야 합니다.
+
+속성 형식이 이면 `Object` 서비스는 개체 필드의 하위 집합만 업데이트 하는 경우에도 전체 개체를 장치에 보내야 합니다. 장치에서 전송 하는 승인도 전체 개체 여야 합니다.
 
 ### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
 
@@ -143,7 +145,7 @@ Property reportedPropertyCompleted = new Property("targetTemperature", completed
 deviceClient.sendReportedProperties(Collections.singleton(reportedPropertyCompleted));
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+장치 쌍은 다음과 같이 보고 된 속성으로 업데이트 됩니다.
 
 ```json
 {
@@ -178,7 +180,7 @@ Set<Property> reportedProperty = new Property("thermostat1", componentProperty))
 deviceClient.sendReportedProperties(reportedProperty);
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+장치 쌍은 다음과 같이 보고 된 속성으로 업데이트 됩니다.
 
 ```json
 {
@@ -198,7 +200,7 @@ deviceClient.sendReportedProperties(reportedProperty);
 
 ### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
 
-서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 보고된 속성과 동일한 `ack` 메시지로 응답해야 합니다.
+서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 장치는  `ack` 서비스로 다시 보낸 메시지에이 버전 번호를 포함 해야 합니다.
 
 기본 구성 요소는 단일 속성을 보고 수신된 버전으로 보고된 `ack`를 만듭니다.
 
@@ -227,7 +229,7 @@ Map<Property, Pair<TwinPropertyCallBack, Object>> desiredPropertyUpdateCallback 
 deviceClient.subscribeToTwinDesiredProperties(desiredPropertyUpdateCallback);
 ```
 
-디바이스 쌍은 원하는 섹션과 보고된 섹션의 속성을 보여줍니다.
+중첩된 구성 요소에 대한 디바이스 쌍은 다음과 같이 원하는 섹션과 보고된 섹션을 보여줍니다.
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage 모니터링 | Microsoft Docs
+title: Azure Blob Storage 모니터링
 description: Azure Blob Storage의 성능 및 가용성을 모니터링하는 방법을 알아봅니다. Azure Blob Storage 데이터를 모니터링하고, 구성에 대해 알아보고, 메트릭 및 로그 데이터를 분석합니다.
 author: normesta
 services: storage
@@ -9,26 +9,27 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bcfd37ff8c030136e37b4289bc37006012891412
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536886"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617548"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Blob Storage에서 생성하는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이러한 데이터에 대한 경고를 분석하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
 각 Blob Storage 리소스에 대한 Azure Portal의 **개요** 페이지에는 요청 및 시간당 청구와 같은 리소스 사용에 대한 간략한 보기가 있습니다. 이 정보는 유용하지만, 사용할 수 있는 모니터링 데이터의 양이 적습니다. 이 데이터 중 일부는 자동으로 수집되며 리소스를 만드는 즉시 분석에 사용할 수 있습니다. 약간의 구성을 통해 추가적인 데이터 수집 형식을 사용할 수 있습니다.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
-Azure Blob Storage는 Azure의 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용하여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다. 
+
+Azure Blob Storage는 Azure의 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용하여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다.
 
 다음을 설명하는 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md) 문서로 시작하세요.
 
@@ -42,19 +43,19 @@ Azure Blob Storage는 Azure의 전체 스택 모니터링 서비스인 [Azure Mo
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Azure Blob Storage는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집합니다. 이에 대한 내용은 [Azure 리소스의 데이터 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명되어 있습니다. 
+Azure Blob Storage는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집합니다. 이에 대한 내용은 [Azure 리소스의 데이터 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명되어 있습니다.
 
 Azure Blob Storage에서 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)에서 확인하세요.
 
-Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
+Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. 자세한 내용은 [Azure Resource Manager 마이그레이션을](../../virtual-machines/migration-classic-resource-manager-overview.md)참조하세요.
 
 원한다면 클래식 메트릭 및 로그를 계속 사용할 수 있습니다. 실제로 클래식 메트릭 및 로그는 Azure Monitor의 메트릭 및 로그와 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭 및 로그에 대한 서비스를 종료할 때까지 유지됩니다.
 
 ## <a name="collection-and-routing"></a>수집 및 라우팅
 
-플랫폼 메트릭 및 활동 로그는 자동으로 수집되지만, 진단 설정을 사용하여 다른 위치로 라우팅할 수 있습니다. 
+플랫폼 메트릭 및 활동 로그는 자동으로 수집되지만, 진단 설정을 사용하여 다른 위치로 라우팅할 수 있습니다.
 
-리소스 로그를 수집하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 로그를 사용하도록 설정할 스토리지 유형으로 **blob** 을 선택합니다. 그런 다음, 로그를 수집할 작업에 대해 다음 범주 중 하나를 지정합니다. 
+리소스 로그를 수집하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 로그를 사용하도록 설정할 스토리지 유형으로 **blob** 을 선택합니다. 그런 다음, 로그를 수집할 작업에 대해 다음 범주 중 하나를 지정합니다.
 
 | 범주 | Description |
 |:---|:---|
@@ -63,16 +64,16 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 | StorageDelete | 개체에 대한 삭제 작업입니다. |
 
 > [!NOTE]
-> Data Lake Storage Gen2는 스토리지 유형으로 표시되지 않습니다. Data Lake Storage Gen2가 Blob Storage에서 사용할 수 있는 기능 집합이기 때문입니다. 
+> Data Lake Storage Gen2는 스토리지 유형으로 표시되지 않습니다. Data Lake Storage Gen2가 Blob Storage에서 사용할 수 있는 기능 집합이기 때문입니다.
 
 ## <a name="creating-a-diagnostic-setting"></a>진단 설정 만들기
 
-Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azure Policy를 사용하여 진단 설정을 만들 수 있습니다. 
+Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azure Policy를 사용하여 진단 설정을 만들 수 있습니다.
 
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. 자세한 내용은 [Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -83,7 +84,7 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 3. **모니터링** 섹션에서 **진단 설정(미리 보기)** 을 클릭합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![포털 - 진단 로그](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
+   > ![포털 - 진단 로그](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
 
 4. 로그를 사용하도록 설정할 스토리지 유형으로 **blob** 을 선택합니다.
 
@@ -101,38 +102,38 @@ Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azu
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
 
-1. **스토리지 계정에 보관** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
+1. 스토리지 **계정에 보관 확인란을** 선택한 다음 **구성** 단추를 선택합니다.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 보관 스토리지](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. **스토리지 계정** 드롭다운 목록에서 로그를 보관할 스토리지 계정을 선택하고, **확인** 단추를 클릭한 다음, **저장** 단추를 클릭합니다.
+2. **스토리지 계정** 드롭다운 목록에서 로그를 보관하려는 스토리지 계정을 선택하고, **확인** 단추, **저장** 단추를 차례로 선택합니다.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
-   > 스토리지 계정을 내보내기 대상으로 선택하기 전에 스토리지 계정에 대한 사전 요구 사항을 파악하려면 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조하세요.
+   > 스토리지 계정을 내보내기 대상으로 선택하기 전에 스토리지 계정에 대한 필수 조건을 파악하려면 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조하세요.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs에 로그 스트림
 
 로그를 이벤트 허브에 스트리밍하도록 선택하는 경우 이벤트 허브로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
 
-1. **이벤트 허브에 스트림** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
+1. 이벤트 **허브로 스트리밍 확인란을** 선택한 다음 **구성** 단추를 선택합니다.
 
-2. **이벤트 허브 선택** 창에서 로그를 스트림할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다. 
+2. **이벤트 허브 선택** 창에서 로그를 스트림할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다.
 
    > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 이벤트 허브](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. **확인** 단추를 클릭한 다음, **저장** 단추를 클릭합니다.
+3. **확인** 단추, **저장** 단추를 차례로 선택합니다.
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Azure Log Analytics에 로그 보내기
 
-1. **Log Analytics에 보내기** 확인란을 선택하고, Log Analytics 작업 영역을 선택한 다음, **저장** 단추를 클릭합니다.
+1. Log **Analytics에 보내기** 확인란을 선택하고, 로그 분석 작업 영역을 선택한 다음, **저장** 단추를 선택합니다.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 Log Analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -271,13 +272,13 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. [Azure Storage에 대한 Azure Policy 기본 제공 정의](../common/policy-reference.md)를 참조하세요.
+정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. 자세한 내용은 [Azure Policy 기본 제공 정의 Azure Storage](../common/policy-reference.md)을 참조 하세요.
 
 ---
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭과 함께 Azure Storage의 메트릭을 분석할 수 있습니다. **Azure Monitor** 메뉴에서 **메트릭** 을 선택하여 메트릭 탐색기를 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요. 
+메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭과 함께 Azure Storage의 메트릭을 분석할 수 있습니다. **Azure Monitor** 메뉴에서 **메트릭** 을 선택하여 메트릭 탐색기를 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요.
 
 다음 예제는 계정 수준에서 **트랜잭션** 을 보는 방법을 보여줍니다.
 
@@ -289,13 +290,12 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 Azure Storage에서 지원하는 차원의 전체 목록은 [메트릭 차원](monitor-blob-storage-reference.md#metrics-dimensions)을 참조하세요.
 
-Azure Blob Storage에 대한 메트릭은 다음 네임스페이스에 있습니다. 
+Azure Blob Storage에 대한 메트릭은 다음 네임스페이스에 있습니다.
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
 Azure Blob Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록은 [Azure Monitor에서 지원하는 메트릭](../../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
-
 
 ### <a name="accessing-metrics"></a>메트릭 액세스
 
@@ -305,10 +305,10 @@ Azure Blob Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록�
 ### <a name="net-sdk"></a>[.NET SDK](#tab/azure-portal)
 
 Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 제공합니다. [샘플 코드](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)는 다른 매개 변수로 SDK를 사용하는 방법을 보여줍니다. 스토리지 메트릭을 사용하려면 `0.18.0-preview` 이상의 버전을 사용해야 합니다.
- 
+
 이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
-`<subscription-ID>` 변수를 구독의 ID로 바꿉니다. `<tenant-ID>`, `<application-ID>` 및 `<AccessKey>` 값을 얻는 방법에 대한 지침은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
+`<subscription-ID>` 변수를 구독의 ID로 바꿉니다. `<tenant-ID>`, `<application-ID>` 및 `<AccessKey>` 값을 얻는 방법에 대한 지침은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
@@ -322,7 +322,6 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
         var tenantId = "<tenant-ID>";
         var applicationId = "<application-ID>";
         var accessKey = "<AccessKey>";
-
 
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
@@ -448,7 +447,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 스토리지 계정 또는 Blob Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition)을 사용합니다.
 
-이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다.  리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
+이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -469,7 +468,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
 스토리지 계정 또는 Blob Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) 명령을 사용합니다.
- 
+
 이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
 ```azurecli-interactive
@@ -483,6 +482,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
+
 ### <a name="template"></a>[템플릿](#tab/template)
 
 해당 없음.
@@ -500,7 +500,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 이러한 로그에 표시되는 필드에 대한 자세한 참조는 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)에서 확인하세요.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정에 BLOB 엔드포인트의 활동은 있지만 테이블 또는 큐 엔드포인트의 활동이 없는 경우 BLOB 서비스와 관련된 로그만 만들어집니다. Azure Storage는 스토리지 서비스에 대해 성공한 요청과 실패한 요청의 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
@@ -538,7 +538,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 ### <a name="accessing-logs-in-an-event-hub"></a>이벤트 허브에서 로그 액세스
 
-이벤트 허브에 전송된 로그는 파일로 저장되지 않지만, 이벤트 허브에서 로그 정보를 받았는지 확인할 수 있습니다. Azure Portal에서 이벤트 허브로 이동하여 **들어오는 메시지** 수가 0보다 큰지 확인하면 됩니다. 
+이벤트 허브에 전송된 로그는 파일로 저장되지 않지만, 이벤트 허브에서 로그 정보를 받았는지 확인할 수 있습니다. Azure Portal에서 이벤트 허브로 이동하여 **들어오는 메시지** 수가 0보다 큰지 확인하면 됩니다.
 
 ![감사 로그](media/monitor-blob-storage/event-hub-log.png)
 
@@ -550,7 +550,7 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 
 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../../azure-monitor/logs/log-analytics-tutorial.md)을 참조하세요.
 
-데이터는 **StorageBlobLog** 테이블에 저장됩니다. Data Lake Storage Gen2에 대한 로그는 전용 테이블에 표시되지 않습니다. Data Lake Storage Gen2가 서비스가 아니기 때문입니다. 스토리지 계정에서 사용할 수 있는 기능 집합입니다. 이러한 기능을 사용하도록 설정하면 로그가 StorageBlobLogs 테이블에 계속 표시됩니다. 
+데이터는 **StorageBlobLog** 테이블에 저장됩니다. Data Lake Storage Gen2에 대한 로그는 전용 테이블에 표시되지 않습니다. Data Lake Storage Gen2가 서비스가 아니기 때문입니다. 스토리지 계정에서 사용할 수 있는 기능 집합입니다. 이러한 기능을 사용하도록 설정하면 로그가 StorageBlobLogs 테이블에 계속 표시됩니다.
 
 #### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
@@ -561,52 +561,81 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 
 다음 쿼리를 사용하여 Azure Storage 계정을 모니터링할 수 있습니다.
 
-* 아래는 지난 사흘 동안 가장 많이 발생한 상위 10개 오류를 나열하는 쿼리입니다.
+- 아래는 지난 사흘 동안 가장 많이 발생한 상위 10개 오류를 나열하는 쿼리입니다.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
-* 아래는 지난 사흘 동안 가장 많은 오류를 일으킨 상위 10개 작업을 나열하는 쿼리입니다.
 
-    ```Kusto
+- 아래는 지난 사흘 동안 가장 많은 오류를 일으킨 상위 10개 작업을 나열하는 쿼리입니다.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* 아래는 지난 사흘 동안 엔드투엔드 대기 시간이 가장 길었던 상위 10개 작업을 나열하는 쿼리입니다.
 
-    ```Kusto
+- 아래는 지난 사흘 동안 엔드투엔드 대기 시간이 가장 길었던 상위 10개 작업을 나열하는 쿼리입니다.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* 아래는 지난 사흘 동안 서버 쪽 제한 오류를 일으킨 모든 작업을 나열하는 쿼리입니다.
 
-    ```Kusto
+- 아래는 지난 사흘 동안 서버 쪽 제한 오류를 일으킨 모든 작업을 나열하는 쿼리입니다.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
-* 아래는 지난 사흘 동안 익명 액세스를 사용한 모든 요청을 나열하는 쿼리입니다.
 
-    ```Kusto
+- 아래는 지난 사흘 동안 익명 액세스를 사용한 모든 요청을 나열하는 쿼리입니다.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
-* 아래는 지난 사흘 동안 사용된 작업의 원형 차트를 만드는 쿼리입니다.
-    ```Kusto
+
+- 아래는 지난 사흘 동안 사용된 작업의 원형 차트를 만드는 쿼리입니다.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
-    | sort by count_ desc 
+    | sort by count_ desc
     | render piechart
     ```
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+### <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)  <sup>2</sup>|![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+### <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
+<sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
+
 ## <a name="faq"></a>FAQ
 
 **Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**

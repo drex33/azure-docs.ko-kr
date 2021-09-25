@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure IoT Hub
 description: 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 사용 가능한 이벤트 유형, 예제 이벤트 및 이벤트 속성을 나열합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 5f43b9d0041fa5842bc2557a61c5145ce588758a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: ac3cac72cc9998d4fb78ed0459e5e07df1125df0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363529"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606326"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure IoT Hub
 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 

@@ -1,17 +1,17 @@
 ---
 title: 수익 창출에 대한 Azure API Management 지원
 description: Azure API Management에서 API 제품에 대한 수익 창출 전략을 지원하는 방법을 알아봅니다.
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 88323145b9b6bb66babe77b19d6b834afc2831ab
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: ad6e4358ebd312c498504da6650045d9019fadbe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825302"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548716"
 ---
 # <a name="how-api-management-supports-monetization"></a>API Management에서 수익 창출을 지원하는 방법
 
@@ -132,7 +132,7 @@ API Management에 대한 REST API를 사용하여 수익 창출 전략의 작업
 - Stripe와 같은 결제 공급자에서 유사한 개념의 동기화 된 구성을 사용할 수 있도록 API Management 제품 및 정책을 검색합니다.
 - 정기적으로 API Management를 폴링하여 각 구독에 대한 API 사용 현황 메트릭을 검색하고 청구 프로세스를 진행합니다.
 
-자세한 내용은 [REST API Azure API Management](https://docs.microsoft.com/rest/api/apimanagement/#rest-operation-groups)를 참조하세요.
+자세한 내용은 [REST API Azure API Management](/rest/api/apimanagement/#rest-operation-groups)를 참조하세요.
 
 ## <a name="devops"></a>DevOps
 

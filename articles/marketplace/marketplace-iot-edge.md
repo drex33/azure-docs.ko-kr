@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 28017bb8649e748ddf2299748f3d718ae4896a68
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: 8773957a2b34851babb42c6804fc21d6a9d5112b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416203"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657465"
 ---
 # <a name="plan-an-iot-edge-modules-offer"></a>IoT Edge 모듈 제품 계획
 
@@ -42,7 +42,7 @@ IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되�
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
-IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비](iot-edge-technical-asset.md)에 자세히 나와 있습니다.
+Azure Marketplace IoT Edge 모듈을 인증하고 게시하기 위한 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비에 자세히 설명되어 있습니다.](iot-edge-technical-asset.md)
 
 ## <a name="eligibility-prerequisites"></a>자격 필수 조건
 

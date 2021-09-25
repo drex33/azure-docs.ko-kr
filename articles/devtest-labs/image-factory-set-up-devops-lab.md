@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 Azure DevOps에서 이미지 팩터리 실행
+title: Azure DevOps에서 이미지 팩터리 실행
 description: 이 문서에서는 Azure DevOps(이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행하는 데 필요한 모든 준비 사항을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bc12dc67160a68898191ab802cc9f6e9bd3f3f62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476141"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604863"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
 이 문서에서는 Azure DevOps(이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행하는 데 필요한 모든 준비 사항을 설명합니다.

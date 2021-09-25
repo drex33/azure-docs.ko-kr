@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: de0aa3f3149141ddacd7906297656d58b8fad24c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91631225"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634004"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 오류 코드
  
@@ -131,6 +131,8 @@ HTTP 403은 요청이 인증되었지만(요청 ID를 알고 있음), 이 ID에�
 - 요청하는 리소스의 IP 주소가 Key Vault의 방화벽 설정에서 승인되지 않습니다.
 
 HTTP 403은 고객의 응용 프로그램이 고객이 생각하는 클라이언트 ID를 사용하지 않을 때 발생하는 경우가 많습니다. 이는 일반적으로 실제 호출 ID에 대해 액세스 정책이 올바르게 설정되지 않았음을 의미합니다.
+
+액세스 정책에 id를 추가한 후 즉시 403 오류가 표시 되 면 주기적으로 재시도를 추가 하 여 처리할 수 있습니다.
 
 ### <a name="troubleshooting-403"></a>403 문제 해결
 

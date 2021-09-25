@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b9a0d2b785f98555d723c81c6beecaa85313881e
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114728660"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546336"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 Azure 보안 기준
 
@@ -40,7 +40,7 @@ Azure Security Center의 적응형 네트워크 강화 기능을 사용하여 �
 
 - [Azure Security Center의 적응형 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Azure Virtual Desktop용 Azure Firewall](../firewall/protect-windows-virtual-desktop.md)
+- [Azure Virtual Desktop용 Azure Firewall](../firewall/protect-azure-virtual-desktop.md)
 
 - [보안 규칙을 사용하여 네트워크 보안 그룹을 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -640,9 +640,7 @@ Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 내보�
 
 Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광범위한 데이터 분석을 제공하여 인시던트의 전체 수명 주기를 관리합니다. 조사 중에 인텔리전스 정보는 추적 및 보고를 위해 인시던트에 연결할 수 있습니다. 
 
-- [Windows 컴퓨터의 디스크 스냅샷 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-
-- [Linux 컴퓨터의 디스크 스냅샷 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [컴퓨터의 디스크 스냅숏 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure 지원 진단 정보 및 메모리 덤프 수집](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 

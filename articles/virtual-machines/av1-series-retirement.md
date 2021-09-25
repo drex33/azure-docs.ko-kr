@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: mimckitt
-ms.openlocfilehash: c382954cf54779350e78fdadef7d0f4738dca48f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: cfc30046d33ad9e6f91b866dc5653fbbcbdbd995
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634667"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577735"
 ---
 # <a name="av1-series-retirement"></a>Av1 시리즈 사용 중지
 
@@ -24,7 +24,7 @@ ms.locfileid: "122634667"
 
 ## <a name="migrate-workloads-from-basic-and-standard-a-series-vms-to-av2-series-vms"></a>기본/표준 A 시리즈 VM의 워크로드를 Av2 시리즈 VM으로 마이그레이션 
 
-[Azure Portal](https://portal.azure.com)과 [PowerShell](windows/resize-vm.md), [CLI](linux/change-vm-size.md)를 사용하여 가상 머신의 크기를 Av2 시리즈로 조정할 수 있습니다. 다음은 Azure Portal과 PowerShell을 사용하여 VM의 크기를 조정하는 방법에 대한 예입니다. 
+[Azure Portal, PowerShell 또는 CLI를](resize-vm.md)사용하여 가상 머신의 크기를 Av2 시리즈로 조정합니다. 다음은 Azure Portal과 PowerShell을 사용하여 VM의 크기를 조정하는 방법에 대한 예입니다. 
 
 > [!IMPORTANT]
 > 가상 머신의 크기를 조정하면 다시 시작됩니다. 사용량이 적은 업무 시간에 다시 시작하는 작업을 수행하는 것이 좋습니다. 

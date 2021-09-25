@@ -3,12 +3,12 @@ title: Linux C 에이전트 설치 및 배포
 description: IoT용 Defender C 기반 보안 에이전트를 Linux에 설치하고 배포하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 8317d91fe51c06b67529b1f7bfe8894cef153232
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 46677a971165c65440310e21933f586cc685b771
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018127"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584871"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Linux용 Defender for IoT C 기반 보안 에이전트 배포
 
@@ -61,19 +61,19 @@ ms.locfileid: "113018127"
 
 추가 도움말을 보려면 -help 매개 변수를 사용하여 스크립트를 실행합니다.
 
-```./InstallSecurityAgent.sh --help```
+`./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>에이전트 제거
 
 에이전트를 제거하려면 --u 매개 변수를 사용하여 스크립트를 실행합니다.
 
-```./InstallSecurityAgent.sh -–uninstall```
+`./InstallSecurityAgent.sh -–uninstall`
 
 ## <a name="troubleshooting"></a>문제 해결
 
 다음을 실행하여 배포 상태를 확인합니다.
 
-```systemctl status ASCIoTAgent.service```
+`systemctl status ASCIoTAgent.service`
 
 ## <a name="next-steps"></a>다음 단계
 

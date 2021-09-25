@@ -2,13 +2,13 @@
 title: Azure Service Bus 제한 개요 | Microsoft Docs
 description: 표준 계층 및 프리미엄 계층의 Service Bus 제한에 대한 개요입니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 95b03859b26d97c1089b6112b41511618abdcffe
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: 0607cd96b68de960829d80f00765586213a55d2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191112"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609178"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Azure Service Bus의 작업 제한
 

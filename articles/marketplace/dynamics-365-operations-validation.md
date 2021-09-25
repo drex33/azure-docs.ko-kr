@@ -7,12 +7,12 @@ ms.topic: article
 author: vamahtan
 ms.author: vamahtan
 ms.date: 05/19/2021
-ms.openlocfilehash: 05b7c223823522b7c511df7cfa66c7dffa2a8b4b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 6dfe65d9cdee33bf4f153347da4d64438acfcf03
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586005"
 ---
 # <a name="dynamics-365-for-operations-functional-validation"></a>Dynamics 365 for Operations 기능 유효성 검사
 
@@ -33,6 +33,9 @@ ms.locfileid: "112281290"
 
 Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인하거나 다음 단계에 대해 메일을 전송합니다.
 
+> [!NOTE]
+> 만들고 있는 솔루션/제안은 커넥터 인 경우에는 커넥터를 호출 하는 동안 작동 하거나 아래 나열 된 비디오 업로드 옵션 중 하나를 사용 합니다.  
+
 ### <a name="option-1-30-minute-conference-call"></a>옵션 1: 30분가량의 컨퍼런스 통화
 
 최종 검토 통화를 예약하려면 태평양 표준시를 기준으로 오전 8시와 오후 5시 사이의 가능한 시간 슬롯과 제품 이름에 대해 [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com)에 문의하세요.
@@ -48,7 +51,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인
     > [!NOTE]
     > 지침을 준수하는 경우 기존 마케팅 비디오를 사용할 수 있습니다.
 
-2. 게시할 제품 또는 솔루션과 일치하는 [LCS](https://lcs.dynamics.com/) 환경의 다음 스크린샷을 캡처합니다. 인증 팀이 텍스트를 읽을 수 있을 만큼 명확해야 합니다. 스크린샷을 JPG 파일로 저장합니다. 설치를 확인할 수 있도록 스크린샷을 제공하는 대신 LCS 환경에 [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) 권한을 제공할 수 있습니다.
+2. 게시할 제품 또는 솔루션과 일치하는 [LCS](https://lcs.dynamics.com/) 환경의 다음 스크린샷을 캡처합니다. 인증 팀이 텍스트를 읽을 수 있을 만큼 명확해야 합니다. 스크린샷을 JPG 파일로 저장합니다.
 
     1. **LCS** > **비즈니스 프로세스 모델러** > **프로젝트 라이브러리** 로 이동합니다. 모든 프로세스 단계의 스크린샷을 캡처합니다. 다음과 같이 **다이어그램** 및 **검토됨** 열을 포함합니다.
 

@@ -2,7 +2,6 @@
 title: 사용자 지정 모델 및 구성형 모델 - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer 사용자 지정 모델 및 구성형 모델을 만들고, 사용하고, 관리하는 방법 알아보기 - 사용 및 제한
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 19d18028118c5513f6272612c9e4c690aceab493
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 9c995c5ce63c44473cd3d7b824ef85e64868ae1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546639"
 ---
 # <a name="form-recognizer-custom-and-composed-models"></a>Form Recognizer 사용자 지정 모델 및 구성형 모델
 

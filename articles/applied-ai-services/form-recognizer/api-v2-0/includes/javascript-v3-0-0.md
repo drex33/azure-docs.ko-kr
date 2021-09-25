@@ -1,7 +1,6 @@
 ---
 title: '참조: JavaScript용 Form Recognizer 클라이언트 라이브러리 3.1.1'
 description: JavaScript용 Form Recognizer 클라이언트 라이브러리를 사용하여 사용자 지정 문서에서 키/값 쌍 및 테이블 데이터를 추출하는 양식 처리 앱을 만듭니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 17daa1bd4edb8b97098ce55c18577003f7310a41
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: cec68dd2fe938cea22bbc9a34c9227f2988307b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538715"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641781"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

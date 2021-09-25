@@ -6,19 +6,19 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 105bc7f14f9ddcc4a64564edc1eebcd17b898bc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8a8a7fec5b5c5f62fb44f6c0ccf6859b1141295b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698997"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646514"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 루트 CA 변경의 변경 내용 이해
 
 Azure Database for MariaDB는 표준 유지 관리 및 보안 모범 사례의 일환으로 **2021년 2월 15일(2021/02/15)** 에 루트 인증서를 성공적으로 변경했습니다. 이 문서에서는 변경 내용, 영향을 받는 리소스 및 응용 프로그램이 데이터베이스 서버에 대한 연결을 유지 관리하는 데 필요한 단계에 대한 자세한 정보를 제공합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _slave_ 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="why-root-certificate-update-is-required"></a>루트 인증서 업데이트가 필요한 이유는 무엇인가요?
@@ -58,8 +58,8 @@ Azure Database for MariaDB 사용자는 미리 정의된 인증서를 사용하�
 
     그런 다음, 원래 키 저장소 파일을 새로 생성된 파일로 바꿉니다.
 
-    - System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
-    - System.setProperty("javax.net.ssl.trustStorePassword","password");
+    - `System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");`
+    - `System.setProperty("javax.net.ssl.trustStorePassword","password");`
 
   - .NET(MariaDB 커넥터/NET, MariaDBConnector) 사용자의 경우 **BaltimoreCyberTrustRoot** 및 **DigiCertGlobalRootG2** 가 모두 신뢰할 수 있는 루트 인증 기관인 Windows 인증서 저장소에 있는지 확인합니다. 인증서가 없는 경우, 누락된 인증서를 가져옵니다.
 

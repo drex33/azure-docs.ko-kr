@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.openlocfilehash: 89627b97a5c2e8ae068db18583fab38aeb6fe5f6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 21d3b01dae84d164d72d574e204d4f1576e9d94d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434559"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593423"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Purview 계정에 대한 프라이빗 엔드포인트 구성 문제 해결
 
@@ -147,7 +147,7 @@ ms.locfileid: "123434559"
 ### <a name="issue"></a>문제 
 검사를 실행할 때 다음 오류 메시지가 나타납니다.
 
-  ```Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.```
+`Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### <a name="cause"></a>원인 
 이는 자체 호스팅 통합 런타임을 실행하는 VM과 Azure Purview의 관리되는 리소스 스토리지 계정 또는 이벤트 허브 간의 연결 또는 이름 확인과 관련된 문제를 나타낼 수 있습니다.
@@ -159,7 +159,7 @@ ms.locfileid: "123434559"
 ### <a name="issue"></a>문제 
 새 검사를 실행할 때 다음 오류 메시지가 나타날 수 있습니다.
 
-  ```message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)```
+  `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### <a name="cause"></a>원인 
 이는 자체 호스팅 통합 런타임의 이전 버전을 실행 중임을 나타낼 수 있습니다. 2021년 8월 18일 이후에 Azure Purview 계정을 만든 경우 자체 호스팅 통합 런타임 버전 5.9.7885.3을 사용해야 합니다.

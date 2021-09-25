@@ -3,17 +3,17 @@ title: 자체 호스팅 게이트웨이 개요 | Azure API Management
 description: 조직이 Azure API Management의 자체 호스팅 게이트웨이 기능을 통해 하이브리드 및 다중 클라우드 환경에서 API를 관리하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vlvinogr
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.author: apimpm
-ms.openlocfilehash: 2c8688660540f965f25038298c996511901405cb
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: fde1ee4c7b19c27b278fe6728ee244d03be246e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663652"
 ---
 # <a name="self-hosted-gateway-overview"></a>자체 호스팅 게이트웨이 개요
 

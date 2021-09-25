@@ -2,14 +2,14 @@
 title: .NET 프로그래밍 가이드-Azure Event Hubs (레거시) | Microsoft Docs
 description: 이 문서에서는 Azure .NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32c3c05b61d2ee8fc79d7c863ddbe84de5fe7e2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 096443dd9cb5940deb3b4b5d2fa1cc76f93c6744
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102432743"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550517"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure Event Hubs에 대 한 .NET 프로그래밍 가이드 (레거시 EventHubs 패키지)
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](./event-hubs-about.md)를 참조하세요.
@@ -57,7 +57,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="event-serialization"></a>이벤트 직렬화
 
-[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
+[EventData][] 클래스에는 이벤트 데이터 페이로드를 나타내는 다양한 매개 변수, 바이트 또는 바이트 배열을 사용하는 [2개의 오버로드된 생성자](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)가 있습니다. [EventData][]와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()** 를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다. 예:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -73,7 +73,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > 파티션에 익숙하지 않은 경우 [이 문서](event-hubs-features.md#partitions)를 참조 하세요. 
 
-이벤트 데이터를 보낼 때 파티션 할당을 생성하기 위해 해시되는 값을 지정할 수 있습니다. 파티션은 [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) 속성을 사용하여 지정합니다. 단, 파티션을 사용하기로 결정한다는 것은 가용성과 일관성 중 하나를 선택한다는 것을 의미합니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조 하세요.
+이벤트 데이터를 보낼 때 파티션 할당을 생성하기 위해 해시되는 값을 지정할 수 있습니다. 파티션은 [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) 속성을 사용하여 지정합니다. 단, 파티션을 사용하기로 결정한다는 것은 가용성과 일관성 중 하나를 선택한다는 것을 의미합니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요.
 
 ## <a name="batch-event-send-operations"></a>Batch 이벤트가 작업을 보냅니다
 
@@ -95,7 +95,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들면 다음과 같습니다.
+이벤트 처리를 시작 하려면 이벤트 허브에 대 한 적절 한 매개 변수를 제공 하 여 [EventProcessorHost][]를 인스턴스화합니다. 예:
 
 > [!NOTE]
 > EventProcessorHost 및 관련 클래스는 **EventHubs** 패키지에 제공 됩니다. [이 문서의](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 지침에 따라 또는 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 실행 하 여 Visual Studio 프로젝트에 패키지를 추가 `Install-Package Microsoft.Azure.EventHubs.Processor` 합니다.

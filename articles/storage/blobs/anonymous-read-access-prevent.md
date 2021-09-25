@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc06556c72a992efd9f0ebd48a1a2c8585b172c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 884f70367c7e7edaf546b65b4e0e2825dacf0a07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664969"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577938"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 공용 읽기 권한 방지
 
@@ -55,7 +55,7 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 1. **필터** 대화 상자에서 다음 값을 지정합니다.
     1. **속성** 값을 *Authentication* 으로 설정합니다.
     1. **연산자** 필드를 등호(=)로 설정합니다.
-    1. **값** 필드를 *Anonymous* 로 설정합니다.
+    1. 드롭다운에서 선택하거나 입력하여 **값** 필드를 *익명으로* 설정합니다.
 1. 오른쪽 위 모서리에서 메트릭을 보려는 시간 간격을 선택합니다. 간격을 1분에서 1개월 사이로 지정하여 요청 집계의 세분화 정도를 나타낼 수도 있습니다.
 
 메트릭을 구성하면 익명 요청이 그래프에 나타나기 시작합니다. 다음 이미지는 지난 30분 동안 집계된 익명 요청을 보여줍니다.

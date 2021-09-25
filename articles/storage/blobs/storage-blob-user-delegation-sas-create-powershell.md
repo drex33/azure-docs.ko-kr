@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 69184abac12e9146d29ec5e7f14a536756ae0139
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
-ms.translationtype: HT
+ms.openlocfilehash: 22ababc0bca34423a6205d52f29f18ad691f919e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613581"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662625"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용하여 컨테이너 또는 Blob에 대한 사용자 위임 SAS 만들기
 
@@ -95,7 +95,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Azure AD 자격 증명을 사용하여 SAS 보안
 
-Azure PowerShell을 사용하여 사용자 위임 SAS를 만들 때 SAS에 서명 하는 데 사용 되는 사용자 위임 키는 암시적으로 생성됩니다. SAS에 대해 지정하는 시작 시간 및 만료 시간은 사용자 위임 키의 시작 시간 및 만료 시간으로도 사용됩니다. 
+Azure PowerShell을 사용하여 사용자 위임 SAS를 만들 때 SAS에 서명 하는 데 사용 되는 사용자 위임 키는 암시적으로 생성됩니다. SAS에 대해 지정하는 시작 시간 및 만료 시간은 사용자 위임 키의 시작 시간 및 만료 시간으로도 사용됩니다.
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜로부터 7일이므로 시작 시간으로부터 7일 이내에 SAS 만료 시간을 지정해야 합니다. 사용자 위임 키가 만료된 후에는 SAS가 유효하지 않으므로 만료 시간이 7일 이상인 SAS도 7일 동안만 유효합니다.
 
@@ -167,5 +167,5 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 위임 SAS 만들기(REST API)](/rest/api/storageservices/create-user-delegation-sas)
+- [사용자 위임 SAS(REST API) 만들기](/rest/api/storageservices/create-user-delegation-sas)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)

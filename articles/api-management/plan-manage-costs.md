@@ -2,17 +2,17 @@
 title: Azure API Management에 대한 비용 계획 및 관리
 description: Azure Portal에서 비용 분석을 사용하여 Azure API Management에 대한 비용을 계획 및 관리하는 방법을 알아봅니다.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 06/11/2021
-ms.openlocfilehash: ec15f11c6aee82d117210402e4cc4fda114e86a2
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: 8baf9e9e7ff1ae12fc5c53af9aa2a479e1ce8342
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034610"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670313"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>API Management에 대한 비용 계획 및 관리
 
@@ -95,7 +95,7 @@ API Management 사용이 시작되는 즉시 비용이 발생합니다. [비용 
 
 ## <a name="create-budgets"></a>예산 만들기
 
-[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
+[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대한 예산 및 경고가 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
 모니터링에 더 많은 세분성을 제공하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하여 예산을 만들 수 있습니다. 필터를 사용하면 추가 비용을 발생시키는 새 리소스를 실수로 만드는 일을 방지할 수 있습니다. 예산 생성 시 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 

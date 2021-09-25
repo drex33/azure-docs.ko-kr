@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: IoT Hub에서 디바이스 원격 분석 메시지를 수집하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 9/15/2020
+ms.date: 9/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65fbc643b1d8cef189e5f8b3e33f580a13380c8f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8fd5b6a046c53a34e41340250c8d6ac38fdf5706
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537051"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667353"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins로 IoT Hub 원격 분석 수집
 
@@ -65,11 +65,7 @@ az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwin
   "$metadata": {
     "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
     "Temperature": {
-      "ackCode": 200,
-      "ackDescription": "Auto-Sync",
-      "ackVersion": 1,
-      "desiredValue": 0.0,
-      "desiredVersion": 1
+      "lastUpdateTime": "2021-09-09T20:32:46.6692326Z"
     }
   },
   "Temperature": 0.0

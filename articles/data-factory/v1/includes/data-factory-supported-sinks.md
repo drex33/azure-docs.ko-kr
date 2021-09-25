@@ -1,19 +1,19 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
-services: storage
-author: twooley
-ms.service: storage
+author: linda33wj
+ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 06/22/2018
-ms.author: twooley
+ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: eb4823443aae432d8eb9b474c5320a7078c4d77f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: b7827c126a14a46de98da874e3c9441e1eb5a103
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741429"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554111"
 ---
 | 범주 | 데이터 저장소 | 
 | :-------- | :----------- | 

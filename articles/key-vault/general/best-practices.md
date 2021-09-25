@@ -9,18 +9,22 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
-ms.translationtype: HT
+ms.openlocfilehash: 0461228678762adbc4db936c35849f16a482c1a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814355"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605509"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대한 모범 사례
 
 ## <a name="use-separate-key-vaults"></a>별도의 키 Key Vault 사용
 
 환경(개발, 사전 프로덕션, 프로덕션)별로 애플리케이션당 자격 증명 모음을 사용하는 것이 좋습니다. 이를 통해 환경에서 비밀을 공유하지 않고 위반 시 위협을 줄일 수 있습니다.
+
+### <a name="why-we-recommend-separate-key-vaults"></a>별도의 키 자격 증명 모음을 권장하는 이유
+
+액세스 정책은 Azure Key Vault "전부 또는 전혀" 개념입니다. ID에 특정 권한(예:**Get**)이 있는 경우 ID는 자격 증명 모음에서 *비밀,* 키 또는 인증서를 얻을 수 있습니다. 즉, 중요한 데이터를 동일한 자격 증명 모음으로 그룹화하면 공격이 우려되는 중요한 정보에 액세스할 수 있기 때문에 보안 이벤트의 *반경이* 증가합니다. 이를 완화하려면 특정 애플리케이션이 *액세스해야* 하는 중요한 정보를 고려한 다음, 이 설명에 따라 키 자격 증명 모음을 분리합니다. 앱별로 키 자격 증명 모음을 분리하는 것이 가장 일반적인 경계입니다.
 
 ## <a name="control-access-to-your-vault"></a>자격 증명 모음에 대한 액세스 제어
 
@@ -57,3 +61,6 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 1. [일시 삭제](soft-delete-overview.md)를 켭니다.
 2. 일시 삭제를 켠 후에도 비밀/자격 증명 모음을 강제 삭제되지 않도록 보호하려면 제거 보호를 켭니다.
+
+## <a name="learn-more"></a>자세한 정보
+- [Key Vault 비밀 관리에 대한 모범 사례](../secrets/secrets-best-practices.md)

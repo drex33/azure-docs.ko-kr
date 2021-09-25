@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 204c7a75eed5be4b6c3aca91d59011fd2b1327b5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8542f3e39669135295073f4f937c6edfdd5127cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536970"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566542"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -29,9 +29,9 @@ ms.locfileid: "122536970"
 | | Azure Monitor 에이전트 | 진단<br>확장(WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | **지원되는 환경** | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| **에이전트 요구 사항**  | 없음 | None | 없음 | Log Analytics 에이전트가 필요합니다. |
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
-| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
+| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
 ### <a name="linux-agents"></a>Linux 에이전트
@@ -39,12 +39,12 @@ ms.locfileid: "122536970"
 | | Azure Monitor 에이전트 | 진단<br>확장(LAD) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
 | **지원되는 환경** | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| **에이전트 요구 사항**  | 없음 | None | None | 없음 | Log Analytics 에이전트가 필요합니다. |
+| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | Syslog<br>성능 | Syslog<br>성능 | 성능 | Syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
-<sup>1</sup> 현재 Linux용 Azure Monitor 에이전트에는 Azure Monitor 메트릭을 *유일한* 대상으로 사용하도록 지원할 수 없는 제한이 있습니다. Azure Monitor 로그와 함께 사용하면 작동합니다. 이러한 제한은 다음 확장 업데이트에서 해결됩니다.
+<sup>1</sup> Azure Monitor 메트릭을 사용 하는 다른 제한 사항을 검토 하려면 [여기를 클릭](../essentials/metrics-custom-overview.md#quotas-and-limits) 하세요. Linux에서 Azure Monitor 메트릭은 유일한 대상이 1.10.9.0 이상에서 지원 됩니다. 
 
 ## <a name="azure-monitor-agent"></a>Azure Monitor 에이전트
 
@@ -54,7 +54,7 @@ ms.locfileid: "122536970"
 
 - Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. (Azure 외부 머신에 대해 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)가 필요합니다.) 
 - [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
-- Azure Monitor를 사용하여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭으로 데이터를 보냅니다. 
+- Azure Monitor를 사용 하 여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭 (미리 보기)에 데이터를 보냅니다. 
 - Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -144,6 +144,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
@@ -153,9 +154,11 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오에만 해당)  | X | X | X | X |
-| Windows 8 Enterprise 및 Pro<br>(서버 시나리오에만 해당)  |   | X | X |   |
-| Windows 7 SP1<br>(서버 시나리오에만 해당)                 |   | X | X |   |
+| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오만<sup>1</sup>)  | X | X | X | X |
+| Windows 8 Enterprise 및 Pro<br>(서버 시나리오만<sup>1</sup>)  |   | X | X |   |
+| Windows 7 SP1<br>(서버 시나리오만<sup>1</sup>)                 |   | X | X |   |
+
+<sup>1</sup> 서버 하드웨어에서 OS를 실행 합니다. 즉, 항상 연결 되어 있으며 항상 켜져 있고 다른 작업 (PC, office, 브라우저 등)을 실행 하지 않는 컴퓨터를 실행 합니다.
 
 ### <a name="linux"></a>Linux
 

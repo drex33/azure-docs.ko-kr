@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: be51077c5aad6056cf4e28656c0552bc052a7ead
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 14c3cf748d6e9f5a6d80cf5fcaf8c3bb89daa525
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829913"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572569"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
 

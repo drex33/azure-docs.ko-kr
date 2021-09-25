@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: 71070f56eaa8b9e1d0a4bef42d609b10ac28b7e5
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
-ms.translationtype: HT
+ms.openlocfilehash: c8961575a4055c94a36a89da0d99d2aed4c6e50c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321633"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563586"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -70,22 +70,20 @@ Azure 웹 사이트, Azure Portal을 통해 지원 플랜을 구입했거나 Mic
 
 구독이 취소된 후 Microsoft는 사용자가 액세스해야 하거나 마음이 바뀐 경우를 대비해서 30-90일 동안 기다렸다가 데이터를 영구 삭제합니다. 데이터 유지 요금은 부과되지 않습니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
 
-## <a name="delete-free-account-or-pay-as-you-go-subscription"></a>체험 계정 또는 종량제 구독 삭제
+## <a name="delete-free-trial-or-pay-as-you-go-subscriptions"></a>평가판 또는 종량제 구독 삭제
 
-체험 계정이나 종량제 구독이 있는 경우 구독이 자동으로 삭제될 때까지 30~90일을 기다릴 필요가 없습니다. **삭제** 옵션은 구독을 취소하고 3일 후에 사용할 수 있습니다. 3일 후 취소된 구독에 리소스가 없는 경우 구독을 삭제할 수 있습니다.
-
-구독을 삭제하려면 다음 단계를 수행합니다.
+평가판 또는 종량제 구독이 있는 경우 구독이 자동으로 삭제되기까지 90일을 기다릴 필요가 없습니다. 구독을 취소한 후 *3일* 후에 구독을 삭제할 수 있습니다. 구독을 취소한 후 3일이 지나면 **구독 삭제** 옵션을 사용할 수 없습니다.
 
 1. 구독을 취소한 날로부터 3일 동안 기다립니다.
-2. 구독을 삭제하기 전에 구독에 리소스가 없는지 확인하세요.
-3. Azure Portal에서 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)으로 이동합니다.
-4. 삭제하려는 구독을 선택합니다.
-5. **개요** 를 선택한 다음, **삭제** 를 선택합니다.
-6. 확인 프롬프트에 구독 이름을 입력한 다음, **구독 삭제** 를 선택합니다.
+1. Azure Portal의 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 페이지에서 구독을 선택합니다.
+1. 삭제할 구독을 선택합니다.
+1. **개요** 를 선택한 다음, **구독 삭제** 를 선택합니다.
+
+**참고:** 구독을 취소한 후 90일이 지나면 구독이 자동으로 삭제됩니다.
 
 ## <a name="delete-other-subscriptions"></a>기타 구독 삭제
 
-수동으로 삭제할 수 있는 유일한 구독 유형은 체험 계정 또는 종량제 구독입니다. 다른 모든 구독 유형은 [구독 취소](#cancel-subscription-in-the-azure-portal) 프로세스를 통해서만 삭제됩니다. 즉, 체험 계정 또는 종량제 구독이 아니면 구독을 직접 삭제할 수 없습니다. 그러나 구독을 취소하면 구독을 즉시 삭제하도록 요청하는 [Azure 지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 만들 수 있습니다.
+수동으로 삭제할 수 있는 유일한 구독 유형은 평가판 및 종량제 구독입니다. 다른 모든 구독 유형은 [구독 취소](#cancel-subscription-in-the-azure-portal) 프로세스를 통해서만 삭제됩니다. 즉, 평가판 또는 종량제 구독이 아니면 구독을 직접 삭제할 수 없습니다. 그러나 구독을 취소하면 구독을 즉시 삭제하도록 요청하는 [Azure 지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 만들 수 있습니다.
 
 ## <a name="reactivate-a-subscription"></a>구독 다시 활성화
 

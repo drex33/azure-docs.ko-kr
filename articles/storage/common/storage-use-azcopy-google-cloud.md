@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3b2ad11abb7d1a3e64deef1ca49d9f84f03e5879
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: 8e592f8783bb0659a453c8d7d54cddf921f5b1e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498342"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606934"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 데이터 복사(미리 보기)
 
@@ -21,22 +21,23 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 > [!IMPORTANT]
 > Google Cloud Storage에서 Azure Storage로의 데이터 복사는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공하는 방법 선택
 
-* Azure Storage로 권한을 부여하려면 Azure AD(Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용합니다.
+- Azure Storage로 권한을 부여하려면 Azure AD(Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용합니다.
 
-* Google Cloud Storage로 권한을 부여하려면 서비스 계정 키를 사용합니다.
+- Google Cloud Storage로 권한을 부여하려면 서비스 계정 키를 사용합니다.
 
 ### <a name="authorize-with-azure-storage"></a>Azure Storage를 사용하여 권한 부여
 
 AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 제공하는 방법에 관해 알아보려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조하세요.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ### <a name="authorize-with-google-cloud-storage"></a>Google Cloud Storage를 사용하여 권한 부여
 
@@ -57,7 +58,7 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 > [!TIP]
 > 이 섹션의 예제에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
- 이 예제는 계층 구조 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md)를 사용하면 해당 계정에서 같은 URL 구문(`blob.core.windows.net`)을 사용할 수 있습니다. 
+ 이 예제는 계층 구조 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md)를 사용하면 해당 계정에서 같은 URL 구문(`blob.core.windows.net`)을 사용할 수 있습니다.
 
 ### <a name="copy-an-object"></a>개체 복사
 
@@ -72,7 +73,6 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 ```azcopy
 azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
 ```
-
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
 
@@ -119,7 +119,7 @@ azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://m
 azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트의 모든 버킷 복사 
+### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트의 모든 버킷 복사
 
 먼저 `GOOGLE_CLOUD_PROJECT`를 Google Cloud 프로젝트의 프로젝트 ID로 설정합니다.
 
@@ -135,7 +135,7 @@ azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccoun
 azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
 ```
 
-### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트에서 버킷 하위 세트 복사 
+### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Google Cloud 프로젝트에서 버킷 하위 세트 복사
 
 먼저 `GOOGLE_CLOUD_PROJECT`를 Google Cloud 프로젝트의 프로젝트 ID로 설정합니다.
 
@@ -155,13 +155,13 @@ azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccou
 
 Google Cloud Storage에는 Azure Blob 컨테이너와 다른 버킷 명명 규칙 집합이 있습니다. [여기](https://cloud.google.com/storage/docs/naming-buckets)에서 자세한 정보를 확인할 수 있습니다. 버킷 그룹을 Azure Storage 계정에 복사하도록 선택하면 이름 지정 차이로 인해 복사 작업이 실패할 수 있습니다.
 
-AzCopy는 마침표를 포함하는 버킷, 연속 하이픈을 포함하는 버킷 및 밑줄을 포함하는 버킷의 가장 일반적인 세 가지 문제를 처리합니다. Google Cloud Storage 버킷 이름은 마침표와 연속 하이픈을 포함할 수 있지만 Azure의 컨테이너는 포함할 수 없습니다. AzCopy는 마침표를 하이픈으로, 연속 하이픈을 연속 하이픈 수를 나타내는 숫자로 바꿉니다(예: `my----bucket`이라는 버킷은 `my-4-bucket`이 됩니다. 버킷 이름에 밑줄(`_`)이 있는 경우 AzCopy는 밑줄을 하이픈으로 바꿉니다(예: `my_bucket`이라는 버킷은 `my-bucket`이 됨). 
+AzCopy는 마침표를 포함하는 버킷, 연속 하이픈을 포함하는 버킷 및 밑줄을 포함하는 버킷의 가장 일반적인 세 가지 문제를 처리합니다. Google Cloud Storage 버킷 이름은 마침표와 연속 하이픈을 포함할 수 있지만 Azure의 컨테이너는 포함할 수 없습니다. AzCopy는 마침표를 하이픈으로, 연속 하이픈을 연속 하이픈 수를 나타내는 숫자로 바꿉니다(예: `my----bucket`이라는 버킷은 `my-4-bucket`이 됩니다. 버킷 이름에 밑줄()이 있는 경우 `_` AzCopy는 밑줄을 하이픈으로 대체합니다. 예를 들어 라는 버킷은 `my_bucket` 가 `my-bucket` 됩니다.
 
 ## <a name="handle-differences-in-object-naming-rules"></a>개체 명명 규칙의 차이점 처리
 
 Google Cloud Storage에는 Azure Blob과 다른 개체 명명 규칙 집합이 있습니다. [여기](https://cloud.google.com/storage/docs/naming-objects)에서 자세한 정보를 확인할 수 있습니다.
 
-Azure Storage에서는 개체 이름(또는 가상 디렉터리 경로의 모든 세그먼트)이 후행 점(예: `my-bucket...`)으로 끝날 수 없습니다. 복사 작업을 수행할 때 후행 점이 잘립니다. 
+Azure Storage에서는 개체 이름(또는 가상 디렉터리 경로의 모든 세그먼트)이 후행 점(예: `my-bucket...`)으로 끝날 수 없습니다. 복사 작업을 수행할 때 후행 점이 잘립니다.
 
 ## <a name="handle-differences-in-object-metadata"></a>개체 메타데이터의 차이점 처리
 

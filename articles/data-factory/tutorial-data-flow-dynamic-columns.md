@@ -4,15 +4,16 @@ description: 이 자습서에서는 데이터 흐름에서 열 이름을 동적�
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/17/2021
-ms.openlocfilehash: 96143f39811658c2794b46f3504a1a604264ab13
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 576b11e78c8cf928863d7db700942cbeab884e2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112542872"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617833"
 ---
 # <a name="dynamically-set-column-names-in-data-flows"></a>데이터 흐름에서 열 이름 동적 설정
 
@@ -51,17 +52,17 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **DeltaLake** 를 입력합니다.
 1. 팩터리의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
-    ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="데이터 흐름 작업":::
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
 
-    ![데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷.":::
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 생성하기** 를 선택하고 데이터 흐름의 이름을 **DynaCols** 로 설정합니다. 완료되었으면 마침을 클릭합니다.    
 
 ## <a name="build-dynamic-column-mapping-in-data-flows"></a>데이터 흐름에서 동적 열 매핑 빌드
 
 이 자습서에서는 샘플 동영상 등급 파일을 사용하고 원본에 있는 일부 필드의 이름을 시간이 지남에 따라 변경 될 수 있는 새 대상 열 집합으로 변경합니다. 아래에서 만들 데이터 집합은 Blob Storage 또는 ADLS Gen2 스토리지 계정의 동영상 CSV 파일을 지정해야 합니다. [여기에서 동영상 파일을 다운로드](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB.csv)하고 Azure 스토리지 계정에 파일을 저장합니다.
 
-![최종 흐름](media/data-flow/dynacols-1.png "최종 흐름")
+:::image type="content" source="media/data-flow/dynacols-1.png" alt-text="최종 흐름":::
 
 ### <a name="tutorial-objectives"></a>자습서 개체
 
@@ -95,7 +96,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 첫 번째 시나리오에서는 들어오는 필드와 일치하는 열을 기준으로 열 매핑을 설정하여 데이터 흐름에서 출력 열 이름을 설정하고 각 배열 인덱스와 들어오는 열 서수 위치를 일치시킵니다. 파이프라인에서 이 데이터 흐름을 실행하는 경우, 이 문자열 배열 매개 변수를 데이터 흐름 작업에 보내서 각 파이프라인 실행 시 다른 열 이름을 설정할 수 있습니다.
 
-![매개 변수](media/data-flow/dynacols-3.png "매개 변수")
+:::image type="content" source="media/data-flow/dynacols-3.png" alt-text="매개 변수":::
 
 1. 데이터 흐름 디자이너로 돌아가서 위의 데이터 흐름 생성하기를 편집합니다.
 1. 매개 변수 탭을 클릭합니다
@@ -108,7 +109,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 첫 번째 열에 대해 일치 규칙은 ```position==1```이 되고 이름은 ```$parameter1[1]```입니다
 1. 열 2와 3에 대해 동일한 패턴을 수행합니다
  
-    ![선택 변환](media/data-flow/dynacols-4.png "선택 변환")
+    :::image type="content" source="media/data-flow/dynacols-4.png" alt-text="선택 변환":::
 
 1. 선택 변환의 검사 및 데이터 미리 보기 탭을 클릭하여 새 열 이름 값을 확인합니다.```(a,b,c)``` 원래 동영상, 제목, 장르 열 이름을 바꿉니다
    
@@ -131,7 +132,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 외부 JSON 구성 파일에서 ```prevcolumn``` 속성과 일치하는 모든 열 이름을 찾고 각 일치 항목의 이름을 새 ```newcolumn``` 이름으로 변경하는 작업을 수행했습니다.
 1. 데이터 미리 보기를 클릭하고 선택 변환에서 탭을 검사합니다. 그러면 외부 매핑 파일에서 새 열 이름이 표시됩니다.
 
-![원본 2](media/data-flow/dynacols-2.png "원본 2")
+:::image type="content" source="media/data-flow/dynacols-2.png" alt-text="원본 2":::
 
 ## <a name="next-steps"></a>다음 단계
 

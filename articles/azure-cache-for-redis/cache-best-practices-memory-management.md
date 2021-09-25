@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 613d5dd906795b59465458565a00cd37b7374e65
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 36fe87e03a78a4dee34c2016b8f4723cb8aa95be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598730"
 ---
 # <a name="memory-management"></a>메모리 관리
 
@@ -43,3 +43,10 @@ ms.locfileid: "123117091"
 *  `maxfragmentationmemory-reserved` 설정은 메모리 조각화를 고려하여 예약된 메모리 양을 클러스터의 인스턴스당 MB 단위로 구성합니다. 이 값을 설정하면 캐시가 가득 차거나 거의 가득 차고 조각화 비율이 높을 때 Redis 서버 환경이 더 일관됩니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
 * 새 메모리 예약 값(`maxmemory-reserved` 또는 `maxfragmentationmemory-reserved`)을 선택할 때 고려해야 할 한 가지 사항은 이 변경이 대용량 데이터와 함께 이미 실행 중인 캐시에 미치는 영향입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템은  `used_memory` 및 `used_memory_rss` 가 모두 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다.  `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은  [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* [개발을 위한 모범 사례](cache-best-practices-development.md)
+* [Azure Cache for Redis 개발 FAQ](cache-development-faq.yml)
+* [maxmemory-예약 된 설정](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)
+* [크기 조정에 대 한 모범 사례](cache-best-practices-scale.md)

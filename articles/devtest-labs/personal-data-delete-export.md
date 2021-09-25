@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 개인 데이터를 삭제하고 내보내는 방법
+title: 개인 데이터를 삭제하고 내보내는 방법
 description: GDPR(일반 데이터 보호 규정)에 따라 사용자의 의무를 지원하기 위해 Azure DevLast Labs 서비스에서 개인 데이터 삭제 및 내보내는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 21c2187b603794f60f736c89d06983f5784730ce
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 6b9d96e21d01e5e2c91768e7162fcb0621c1e006
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282820"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600611"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
 이 문서에서는 Azure DevTest Labs 서비스에서 개인 데이터를 삭제하고 내보내는 단계를 제공합니다. 

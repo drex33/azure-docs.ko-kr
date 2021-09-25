@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: c1b4d8801013eeb25c18b837ef4ff5a0245739e5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ce85895307af9e437fb9ceaaff3f1a385e77e17d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528620"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672592"
 ---
 > [!NOTE]
 > PHI(보호된 상태 정보)를 검색하려면 `domain=phi` 매개 변수 및 모델 버전 `2020-04-01` 이상을 사용합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "122528620"
 `/v3.1/entities/recognition/pii` 엔드포인트에 요청을 보낼 때 다음 엔터티 범주가 반환됩니다.
 
 
-| 범주   |  설명                          |
+| 범주   |  Description                          |
 |------------|-------------|
 | [Person](#category-person)      |  사용자의 이름.  |
 | [PersonType](#category-persontype) | 사용자가 보유한 작업 유형 또는 역할. |
@@ -55,7 +55,7 @@ ms.locfileid: "122528620"
 
         사용자의 이름. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Person`를 추가합니다. 검색되는 경우 `Person`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Person`을 추가합니다. 검색되는 경우 `Person`가 API 응답에 반환됩니다.
       
     :::column-end:::
     
@@ -112,7 +112,7 @@ ms.locfileid: "122528620"
 
         전화 번호(미국과 유럽 전화 번호만 해당). `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PhoneNumber`를 추가합니다. 검색되는 경우 `PhoneNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PhoneNumber`을 추가합니다. 검색되는 경우 `PhoneNumber`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -142,7 +142,7 @@ ms.locfileid: "122528620"
 
         회사, 정치 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. 국적 및 종교는 이 엔터티 형식에 포함되지 않습니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Organization`를 추가합니다. 검색되는 경우 `Organization`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Organization`을 추가합니다. 검색되는 경우 `Organization`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -154,78 +154,6 @@ ms.locfileid: "122528620"
    :::column-end:::
 
 :::row-end:::
-
-#### <a name="subcategories"></a>하위 범주
-
-이 범주의 엔터티에는 다음과 같은 하위 범주가 있을 수 있습니다.
-
-:::row:::
-    :::column span="":::
-        **엔터티 하위 범주**
-
-        의료    
-
-    :::column-end:::
-    :::column span="2":::
-        **세부 정보**
-
-        의료 회사 및 그룹.
-
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `OrganizationMedical`을 추가합니다. 검색되는 경우 `OrganizationMedical`가 API 응답에 반환됩니다.
-      
-    :::column-end:::
-
-    :::column span="":::
-      **지원 문서 언어**
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        증권 거래소
-
-    :::column-end:::
-    :::column span="2":::
-
-        증권 거래소 그룹. 
-
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `OrganizationStockExchange`를 추가합니다. 검색되는 경우 `OrganizationStockExchange`가 API 응답에 반환됩니다.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        스포츠
-
-    :::column-end:::
-    :::column span="2":::
-
-        스포츠 관련 단체.
-
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `OrganizationSports`를 추가합니다. 검색되는 경우 `OrganizationSports`가 API 응답에 반환됩니다.
-      
-    :::column-end:::
-
-    :::column span="":::
-
-      `en`   
-      
-   :::column-end:::
-
-:::row-end:::
-
 
 ### <a name="category-address"></a>범주: 주소
 
@@ -243,7 +171,7 @@ ms.locfileid: "122528620"
 
         전체 우편 주소. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Address`를 추가합니다. 검색되는 경우 `Address`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Address`을 추가합니다. 검색되는 경우 `Address`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -272,7 +200,7 @@ ms.locfileid: "122528620"
 
         이메일 주소. `domain=phi` 또한 반환됩니다.
       
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Email`를 추가합니다. 검색되는 경우 `Email`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Email`을 추가합니다. 검색되는 경우 `Email`이 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="":::
@@ -300,7 +228,7 @@ ms.locfileid: "122528620"
 
         웹 사이트에 대한 URL입니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `URL`를 추가합니다. 검색되는 경우 `URL`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `URL`을 추가합니다. 검색되는 경우 `URL`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -329,7 +257,7 @@ ms.locfileid: "122528620"
 
         네트워크 IP 주소. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IPAddress`를 추가합니다. 검색되는 경우 `IPAddress`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IPAddress`을 추가합니다. 검색되는 경우 `IPAddress`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -366,33 +294,6 @@ ms.locfileid: "122528620"
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
    :::column-end:::
-:::row-end:::
-
-#### <a name="subcategories"></a>하위 범주
-
-이 범주의 엔터티에는 다음과 같은 하위 범주가 있을 수 있습니다.
-
-:::row:::
-    :::column span="":::
-        **엔터티 하위 범주**
-
-        Date
-
-    :::column-end:::
-    :::column span="2":::
-        **세부 정보**
-
-        달력 날짜. `domain=phi` 또한 반환됩니다.
-
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `Date`를 추가합니다. 검색되는 경우 `Date`가 API 응답에 반환됩니다.
-      
-    :::column-end:::
-    :::column span="2":::
-      **지원 문서 언어**
-      
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
-      
-    :::column-end:::
 :::row-end:::
 
 ### <a name="category-quantity"></a>범주: 수량
@@ -465,7 +366,7 @@ ms.locfileid: "122528620"
 
         Azure Cosmos DB 서버에 대한 권한 부여 키입니다.   
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AzureDocumentDBAuthKey`를 추가합니다. 검색되는 경우 `AzureDocumentDBAuthKey`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AzureDocumentDBAuthKey`를 추가합니다. 검색되는 경우 `AzureDocumentDBAuthKey`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::

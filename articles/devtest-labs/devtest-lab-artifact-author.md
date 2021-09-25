@@ -1,14 +1,14 @@
 ---
-title: DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기 | Microsoft Docs
+title: Azure DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
 description: 가상 머신을 프로비저닝한 후 애플리케이션을 배포하고 설정하기 위해 Azure DevTest Labs와 함께 사용할 아티팩트를 만드는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e19cd5002c150346661654930c22943d5cbc2523
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88270685"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662949"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "88270685"
   }
 ```
 
-| 요소 이름 | 필수 여부 | 설명 |
+| 요소 이름 | 필수 여부 | Description |
 | --- | --- | --- |
 | $schema |예 |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
 | title |예 |랩에 표시되는 아티팩트의 이름입니다. |

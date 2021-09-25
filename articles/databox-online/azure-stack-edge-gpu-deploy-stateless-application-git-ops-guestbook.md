@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 920f7912a1289fe92618d893b94943784e4a9a3a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 4c5a361fafeaed6452481adc9e6eae856828bfda
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520730"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635587"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU의 Arc 지원 Kubernetes 클러스터에서 Redis와 함께 PHP `Guestbook` 상태 비저장 애플리케이션 배포
 
@@ -30,19 +30,16 @@ ms.locfileid: "102520730"
 이 절차는 [Azure Stack Edge Pro 디바이스의 Kubernetes 워크로드](azure-stack-edge-gpu-kubernetes-workload-management.md)를 검토하고 [Azure Arc 지원 Kubernetes(미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위해 제공됩니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 상태 비저장 애플리케이션을 배포하기 전에 디바이스에 액세스하는 데 사용할 디바이스 및 클라이언트에 대한 다음 필수 구성 요소를 완료했는지 확인합니다.
 
-> [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
-
 ### <a name="for-device"></a>디바이스의 경우
 
-1. 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있어야 합니다.
-    1. 디바이스가 활성화되어야 합니다. [디바이스 활성화](azure-stack-edge-gpu-deploy-activate.md)를 참조하세요.
+1. 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있습니다.
+    1. 디바이스가 활성화되어야 있습니다. [디바이스 활성화](azure-stack-edge-gpu-deploy-activate.md)를 참조하세요.
     1. 디바이스에 Azure Portal을 통해 구성된 컴퓨팅 역할이 있으며, Kubernetes 클러스터가 있습니다. [컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
 1. 디바이스의 기존 Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하고 Azure Portal에 해당하는 Azure Arc 리소스가 있습니다. 자세한 단계는 [Azure Stack Edge Pro 디바이스에서 Azure Arc 사용](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)을 참조하세요.
@@ -51,7 +48,7 @@ ms.locfileid: "102520730"
 
 1. Azure Stack Edge Pro 디바이스에 액세스하는 데 사용되는 Windows 클라이언트 시스템이 있습니다.
   
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행하고 있습니다. 최신 버전의 Windows PowerShell을 다운로드하려면 [Windows PowerShell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행하고 있습니다. 최신 버전의 Windows PowerShell을 다운로드하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동합니다.
     
     - [지원되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용하는 절차에 대해 설명합니다. 
     

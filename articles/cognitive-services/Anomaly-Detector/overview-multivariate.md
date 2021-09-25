@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
-ms.openlocfilehash: 85c169afb8c6158a3e5c32ac4d62cbeeabb4c2bb
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 7f8e9c26de1cceb6c4dec514e21d36b9843bb44e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588165"
 ---
 # <a name="multivariate-time-series-anomaly-detection-preview"></a>다변량 시계열 변칙 검색(미리 보기)
 
@@ -34,7 +34,7 @@ ms.locfileid: "123035606"
 
 ## <a name="notebook"></a>Notebook
 
-Anomaly Detector API(다변량)를 호출하는 방법을 알아보려면 이 [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)을 사용해 보세요. 이 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
+Anomaly Detector API(다변량)를 호출하는 방법을 알아보려면 이 [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb)을 사용해 보세요. 이 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
 
 Notebook을 실행하려면 유효한 Anomaly Detector API **구독 키** 와 **API 엔드포인트** 를 가져와야 합니다. Notebook에서 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가하고 `endpoint` 변수를 사용자의 엔드포인트로 변경합니다.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.openlocfilehash: d0e6f2fea6894378da736ba83a90ee28402ec7f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dc84317ce923731e7eb46e24ed98db4fdd594bd3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100007138"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658054"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Open Liberty 또는 WebSphere Liberty를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Java 애플리케이션 배포
 
@@ -52,7 +52,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 [az acr create](/cli/azure/acr#az_acr_create) 명령을 사용하여 ACR 인스턴스를 만듭니다. 다음 예제는 *youruniqueacrname* 이라는 ACR 인스턴스를 만듭니다. *youruniqueacrname* 은 Azure 내에서 고유해야 합니다.
 
 ```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
+export REGISTRY_NAME=youruniqueacrname
 az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
 
@@ -69,9 +69,9 @@ az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku 
 이미지를 ACR 인스턴스에 밀어넣으려면 먼저 로그인해야 합니다. 다음 명령을 실행하여 연결을 확인합니다.
 
 ```azurecli-interactive
-LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
-USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
-PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
+export LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
+export USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
+export PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
 
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
@@ -128,22 +128,22 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 ## <a name="install-open-liberty-operator"></a>Open Liberty Operator 설치
 
-클러스터를 만들고 연결한 후 다음 명령을 실행하여 [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/master/deploy/releases/0.7.0)를 설치합니다.
+클러스터를 만들고 연결한 후 다음 명령을 실행하여 [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/master/deploy/releases/0.7.1)를 설치합니다.
 
 ```azurecli-interactive
 OPERATOR_NAMESPACE=default
 WATCH_NAMESPACE='""'
 
 # Install Custom Resource Definitions (CRDs) for OpenLibertyApplication
-kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-crd.yaml
+kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.1/openliberty-app-crd.yaml
 
 # Install cluster-level role-based access
-curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-cluster-rbac.yaml \
+curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.1/openliberty-app-cluster-rbac.yaml \
       | sed -e "s/OPEN_LIBERTY_OPERATOR_NAMESPACE/${OPERATOR_NAMESPACE}/" \
       | kubectl apply -f -
 
 # Install the operator
-curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-operator.yaml \
+curl -L https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.1/openliberty-app-operator.yaml \
       | sed -e "s/OPEN_LIBERTY_WATCH_NAMESPACE/${WATCH_NAMESPACE}/" \
       | kubectl apply -n ${OPERATOR_NAMESPACE} -f -
 ```
@@ -156,19 +156,26 @@ AKS 클러스터에서 Liberty 애플리케이션을 배포하고 실행하려�
 1. 디렉터리를 로컬 복제본의 `javaee-app-simple-cluster`로 변경합니다.
 1. `mvn clean package`를 실행하여 애플리케이션을 패키징합니다.
 1. `mvn liberty:dev`를 실행하여 애플리케이션을 테스트합니다. 성공하면 명령 출력에 `The defaultServer server is ready to run a smarter planet.`이 표시됩니다. `CTRL-C`를 사용하여 애플리케이션을 중지합니다.
+1. 속성에 대 한 값 `artifactId` 을 검색 하 고 `version` 에서 정의 `pom.xml` 합니다.
+
+   ```azurecli-interactive
+   artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   ```
+1. `cd target`을 실행 하 여 샘플의 빌드로 디렉터리를 변경 합니다.
 1. 다음 명령 중 하나를 실행하여 애플리케이션 이미지를 빌드하고 ACR 인스턴스에 밀어넣습니다.
    * Open Liberty를 경량 오픈 소스 Java™ 런타임으로 사용하려면 Open Liberty 기본 이미지를 사용하여 빌드합니다.
 
      ```azurecli-interactive
      # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.
-     az acr build -t javaee-cafe-simple:1.0.0 -r $REGISTRY_NAME .
+     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME .
      ```
 
    * 상용 버전의 Open Liberty를 사용하려면 WebSphere Liberty 기본 이미지를 사용하여 빌드합니다.
 
      ```azurecli-interactive
      # Build and tag application image. This will cause the ACR instance to pull the necessary WebSphere Liberty base images.
-     az acr build -t javaee-cafe-simple:1.0.0 -r $REGISTRY_NAME --file=Dockerfile-wlp .
+     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --file=Dockerfile-wlp .
      ```
 
 ## <a name="deploy-application-on-the-aks-cluster"></a>AKS 클러스터에 애플리케이션 배포
@@ -184,26 +191,26 @@ AKS 클러스터에 Liberty 애플리케이션을 배포하려면 아래 단계�
       --docker-password=${PASSWORD}
    ```
 
-1. 현재 작업 디렉터리가 로컬 복제본의 `javaee-app-simple-cluster`인지 확인합니다.
+1. 현재 작업 디렉터리가 로컬 복제본의 `javaee-app-simple-cluster/target`인지 확인합니다.
 1. 다음 명령을 실행하여 복제본이 3개 있는 Liberty 애플리케이션을 AKS 클러스터에 배포합니다. 명령 출력도 인라인으로 표시됩니다.
 
    ```azurecli-interactive
-   # Create OpenLibertyApplication "javaee-app-simple-cluster"
-   cat openlibertyapplication.yaml | sed -e "s/\${Container_Registry_URL}/${LOGIN_SERVER}/g" | sed -e "s/\${REPLICAS}/3/g" | kubectl apply -f -
+   # Create OpenLibertyApplication "javaee-cafe-cluster"
+   kubectl apply -f openlibertyapplication.yaml
 
-   openlibertyapplication.openliberty.io/javaee-app-simple-cluster created
+   openlibertyapplication.openliberty.io/javaee-cafe-cluster created
 
    # Check if OpenLibertyApplication instance is created
-   kubectl get openlibertyapplication javaee-app-simple-cluster
+   kubectl get openlibertyapplication ${artifactId}-cluster
 
    NAME                        IMAGE                                                   EXPOSED   RECONCILED   AGE
-   javaee-app-simple-cluster   youruniqueacrname.azurecr.io/javaee-cafe-simple:1.0.0             True         59s
+   javaee-cafe-cluster         youruniqueacrname.azurecr.io/javaee-cafe:1.0.25         True         59s
 
    # Check if deployment created by Operator is ready
-   kubectl get deployment javaee-app-simple-cluster --watch
+   kubectl get deployment ${artifactId}-cluster --watch
 
    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-   javaee-app-simple-cluster   0/3     3            0           20s
+   javaee-cafe-cluster         0/3     3            0           20s
    ```
 
 1. `READY` 열 아래에 `3/3`이 표시되고, `AVAILABLE` 열 아래에 `3`이 표시될 때까지 기다린 다음 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다.
@@ -215,10 +222,10 @@ AKS 클러스터에 Liberty 애플리케이션을 배포하려면 아래 단계�
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
 ```azurecli-interactive
-kubectl get service javaee-app-simple-cluster --watch
+kubectl get service ${artifactId}-cluster --watch
 
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
+javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
 *EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 61dbf2f83ad135cfdef6fffcc3a8c162d0a4c0cd
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.date: 09/13/2021
+ms.openlocfilehash: fa1ea33e2e7987daa79267fb197981931ce1c2fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111456"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606269"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Azure Logic Apps의 단일 테넌트 및 다중 테넌트와 통합 서비스 환경
 
@@ -121,12 +121,16 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
   이전 이벤트의 데이터를 유지, 검토 또는 참조해야 하는 경우 상태 저장 워크플로를 만듭니다. 이 워크플로는 각 작업의 모든 입출력과 해당 상태를 외부 스토리지에 저장하고 전송하므로, 각 실행이 완료된 후 실행 세부 정보와 기록을 검토할 수 있습니다. 상태 저장 워크플로는 중단이 발생할 때 높은 복원력을 제공합니다. 서비스 및 시스템이 복원된 후에는 저장된 상태로부터 중단된 실행을 다시 생성하고 워크플로를 다시 실행하여 완료할 수 있습니다. 상태 저장 워크플로는 상태 비저장 워크플로보다 훨씬 긴 시간 동안 계속해서 실행 가능합니다.
 
+  기본적으로 다중 테 넌 트 및 단일 테 넌 트 Azure Logic Apps의 상태 저장 워크플로는 비동기적으로 실행 됩니다. 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴](/azure/architecture/patterns/async-request-reply)을 따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 수신기가 `location` 처리를 중지 하 고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 다른 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인 하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정 하는 헤더가 포함 될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
+
 * *상태 비저장*
 
-  나중에 검토할 수 있도록 각 실행이 완료된 후 외부 스토리지에서 이전 이벤트의 데이터를 유지, 검토 또는 참조할 필요가 없는 경우에는 상태 비저장 워크플로를 만듭니다. 이 워크플로는 외부 스토리지가 아니라 ‘메모리 내에만’ 각 작업의 모든 입출력과 해당 상태를 저장합니다. 결과적으로 상태 비저장 워크플로는 실행 시간이 더 짧고(일반적으로 5분 미만), 응답 시간이 더 짧아서 성능이 더욱 빠르고, 처리량이 더 많고, 실행 세부 정보와 기록이 외부 스토리지에 저장되지 않으므로 실행 비용이 절감됩니다. 그러나 중단이 발생하면 중단된 실행이 자동으로 복원되지 않으므로 호출자는 중단된 실행을 수동으로 다시 제출해야 합니다. 이러한 워크플로는 동기적으로만 실행할 수 있습니다.
+  나중에 검토할 수 있도록 각 실행이 완료된 후 외부 스토리지에서 이전 이벤트의 데이터를 유지, 검토 또는 참조할 필요가 없는 경우에는 상태 비저장 워크플로를 만듭니다. 이 워크플로는 외부 스토리지가 아니라 ‘메모리 내에만’ 각 작업의 모든 입출력과 해당 상태를 저장합니다. 결과적으로 상태 비저장 워크플로는 실행 시간이 더 짧고(일반적으로 5분 미만), 응답 시간이 더 짧아서 성능이 더욱 빠르고, 처리량이 더 많고, 실행 세부 정보와 기록이 외부 스토리지에 저장되지 않으므로 실행 비용이 절감됩니다. 그러나 중단이 발생하면 중단된 실행이 자동으로 복원되지 않으므로 호출자는 중단된 실행을 수동으로 다시 제출해야 합니다.
 
   > [!IMPORTANT]
   > 상태 비저장 워크플로는 ‘총’ 크기가 64KB를 초과하지 않는 파일과 같은 데이터 또는 콘텐츠를 처리할 때 최상의 성능을 제공합니다. 여러 개의 큰 첨부 파일과 같이 콘텐츠 크기가 더 커지면 워크플로 성능이 크게 저하되거나 메모리 부족 예외로 인해 워크플로가 충돌할 수도 있습니다. 워크플로가 더 큰 콘텐츠 크기를 처리해야 하는 경우에는 상태 저장 워크플로를 대신 사용합니다.
+
+  상태 비저장 워크플로는 동기적 으로만 실행 되므로 상태 저장 워크플로에서 사용 하는 표준 [비동기 작업 패턴](/azure/architecture/patterns/async-request-reply) 을 사용 하지 않습니다. 대신 ["202 수락 됨"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환 하는 모든 HTTP 기반 작업은 워크플로 실행의 다음 단계로 진행 됩니다. 응답에 헤더가 포함 된 경우 `location` 상태 비저장 워크플로는 지정 된 URI를 폴링하여 상태를 확인 하지 않습니다. 표준 비동기 작업 패턴을 따르려면 대신 상태 저장 워크플로를 사용 합니다.
 
   간편한 디버깅을 위해 상태 비저장 워크플로에 실행 기록을 사용하도록 설정하고, 모두 마친 후 실행 기록을 사용하지 않도록 설정할 수 있습니다. 실행 기록을 사용하면 성능에 약간의 영향이 있습니다. 자세한 내용은 [Visual Studio Code에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) 또는 [Azure Portal에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless)를 참조하세요.
 
@@ -137,19 +141,19 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 ### <a name="nested-behavior-differences-between-stateful-and-stateless-workflows"></a>상태 저장 워크플로와 상태 비저장 워크플로의 중첩된 동작 차이점
 
-[요청 트리거](../connectors/connectors-native-reqres.md), [HTTP Webhook 트리거](../connectors/connectors-native-webhook.md) 또는 [ApiConnectionWebhook 유형](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger)을 포함하고 있으며 HTTPS 요청을 받을 수 있는 관리형 커넥터 트리거를 사용하여 동일한 **논리 앱(표준)** 리소스에 있는 다른 워크플로에서 [호출 가능한 워크플로를 만들 수 있습니다](../logic-apps/logic-apps-http-endpoint.md).
+[요청 트리거](../connectors/connectors-native-reqres.md), [HTTP Webhook 트리거](../connectors/connectors-native-webhook.md) 또는 [ApiConnectionWebhook 유형](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger)을 포함하고 있으며 HTTPS 요청을 받을 수 있는 관리형 커넥터 트리거를 사용하여 동일한 **논리 앱(표준)** 리소스에 있는 다른 워크플로에서 [호출 가능한 워크플로를 만들 수 있습니다](logic-apps-http-endpoint.md).
 
 다음은 부모 워크플로가 자식 워크플로를 호출한 후에 중첩된 워크플로가 따를 수 있는 동작 패턴입니다.
 
 * 비동기 폴링 패턴
 
-  부모는 초기 호출에 대한 응답을 기다리지 않지만, 자식의 실행이 완료될 때까지 계속해서 자식의 실행 기록을 확인합니다. 기본적으로 상태 저장 워크플로는 이 패턴을 따릅니다. 이 패턴은 [요청 시간 제한](../logic-apps/logic-apps-limits-and-config.md)을 초과할 가능성이 있는 장기 실행 자식 워크플로에 적합합니다.
+  부모는 초기 호출에 대한 응답을 기다리지 않지만, 자식의 실행이 완료될 때까지 계속해서 자식의 실행 기록을 확인합니다. 기본적으로 상태 저장 워크플로는 이 패턴을 따릅니다. 이 패턴은 [요청 시간 제한](logic-apps-limits-and-config.md)을 초과할 가능성이 있는 장기 실행 자식 워크플로에 적합합니다.
 
 * 동기 패턴("자체 유도")
 
   자식은 즉시 `202 ACCEPTED` 응답을 반환하여 호출을 승인하고, 부모는 자식의 결과를 기다리지 않고 다음 작업을 계속합니다. 그 대신 부모는 자식의 실행이 완료될 때 결과를 받습니다. 응답 작업이 없는 자식 상태 저장 워크플로는 항상 동기 패턴을 따릅니다. 자식 상태 저장 워크플로의 경우 실행 기록을 검토할 수 있습니다.
 
-  이 동작을 사용하려면 워크플로의 JSON 정의에서 `operationOptions` 속성을 `DisableAsyncPattern`으로 설정합니다. 자세한 내용은 [트리거 및 작업 형식 - 작업 옵션](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)을 참조하세요.
+  이 동작을 사용하려면 워크플로의 JSON 정의에서 `operationOptions` 속성을 `DisableAsyncPattern`으로 설정합니다. 자세한 내용은 [트리거 및 작업 형식 - 작업 옵션](logic-apps-workflow-actions-triggers.md#operation-options)을 참조하세요.
 
 * 트리거 및 대기
 
@@ -173,7 +177,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 * SaaS(Software as a Service) 및 PaaS(Platform as a Service) 앱과 서비스를 위한 [400개가 넘는 관리형 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors)와 온-프레미스 시스템을 위한 커넥터를 사용하여 논리 앱과 워크플로를 만들 수 있습니다.
 
-  * 이제 기본 제공 작업으로 더 많은 관리형 커넥터를 사용할 수 있으며 이러한 커넥터는 Azure Functions와 같은 다른 기본 제공 작업과 비슷하게 실행됩니다. 기본 제공 작업은 단일 테넌트 Azure Logic Apps 런타임에서 기본적으로 실행됩니다. 예를 들어 새로운 기본 제공 커넥터로 Azure Service Bus, Azure Event Hubs, SQL Server 및 MQ 등이 있습니다.
+  * 이제 기본 제공 작업으로 더 많은 관리형 커넥터를 사용할 수 있으며 이러한 커넥터는 Azure Functions와 같은 다른 기본 제공 작업과 비슷하게 실행됩니다. 기본 제공 작업은 단일 테넌트 Azure Logic Apps 런타임에서 기본적으로 실행됩니다. 예를 들어, 새로운 기본 제공 작업에는 azure Service Bus, azure Event Hubs, SQL Server, MQ, DB2 및 IBM 호스트 파일이 포함 됩니다.
 
     > [!NOTE]
     > 기본 제공 SQL Server 버전의 경우 **쿼리 실행** 작업만 [온-프레미스 데이터 게이트웨이](logic-apps-gateway-connection.md)를 사용하지 않고 Azure 가상 네트워크에 직접 연결할 수 있습니다.
@@ -191,10 +195,12 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
     > [!NOTE]
     > 단일 테넌트 Azure Logic Apps(표준)에서 이 작업을 사용하려면 Liquid 맵, XML 맵 또는 XML 스키마가 있어야 합니다. **스키마** 및 **맵** 섹션이 포함된 **아티팩트** 아래 논리 앱 리소스 메뉴의 Azure Portal에서 이 아티팩트를 업로드할 수 있습니다. 또는 각 **Mpas** 및 **Schemas** 폴더를 사용하여 Visual Studio Code 프로젝트의 **Artifacts** 폴더에 이 아티팩트를 추가할 수 있습니다. 그런 다음, ‘동일한 논리 앱 리소스’ 내의 여러 워크플로에서 이 아티팩트를 사용할 수 있습니다.
 
-  * Azure Logic Apps는 클라우드 연결 런타임 엔드포인트에 요청을 보내는 데 사용할 수 있는 SAS(공유 액세스 서명) 연결 문자열을 생성하기 때문에 **논리 앱(표준)** 리소스를 어디서나 실행할 수 있습니다. Azure Logic Apps 서비스는 Azure에 배포할 때 관련 값을 Azure Key Vault에 쉽게 저장할 수 있도록 이 연결 문자열을 다른 애플리케이션과 함께 저장합니다.
+  * **논리 앱 (표준)** 리소스는 Azure Logic Apps에서 클라우드 연결 런타임 끝점으로 요청을 보내는 데 사용할 수 있는 SAS (공유 액세스 서명) 연결 문자열을 생성 하므로 어디서 나 실행할 수 있습니다. Azure Logic Apps 서비스는 Azure에 배포할 때 관련 값을 Azure Key Vault에 쉽게 저장할 수 있도록 이 연결 문자열을 다른 애플리케이션과 함께 저장합니다.
 
     > [!NOTE]
-    > 기본적으로 **논리 앱(표준)** 리소스에는 실행 시 연결을 인증하기 위해 자동으로 사용하도록 설정되는 [시스템이 할당한 관리 ID](../logic-apps/create-managed-service-identity.md)가 있습니다. 이 ID는 연결을 만들 때 사용하는 인증 자격 증명이나 연결 문자열과는 다릅니다. 이 ID를 사용하지 않도록 설정하면 실행 시 연결이 작동하지 않습니다. 이 설정을 보려면 논리 앱 메뉴의 **설정** 에서 **ID** 를 선택합니다.
+    > 기본적으로 **논리 앱 (표준)** 리소스 종류에는 런타임에 연결을 인증 하기 위해 자동으로 사용 하도록 설정 된 [시스템 할당 관리 id](create-managed-service-identity.md) 가 있습니다. 이 ID는 연결을 만들 때 사용하는 인증 자격 증명이나 연결 문자열과는 다릅니다. 이 ID를 사용하지 않도록 설정하면 실행 시 연결이 작동하지 않습니다. 이 설정을 보려면 논리 앱 메뉴의 **설정** 에서 **ID** 를 선택합니다.
+    >
+    > 사용자 할당 관리 id는 현재 **논리 앱 (표준)** 리소스 유형에 서 사용할 수 없습니다.
 
 * Visual Studio Code 개발 환경에서 논리 앱 및 워크플로를 로컬로 실행, 테스트 및 디버그할 수 있습니다.
 
@@ -218,7 +224,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 **논리 앱(표준)** 에서는 이러한 기능이 변경되었거나, 현재 제한되어 있거나, 사용할 수 없거나, 지원되지 않습니다.
 
-* **트리거 및 작업**: 기본 제공 트리거 및 작업은 단일 테넌트 Azure Logic Apps 런타임에서 기본적으로 실행되는 반면, 관리형 커넥터는 Azure에서 호스트되고 실행됩니다. 슬라이딩 윈도우 및 Batch와 같은 일부 기본 제공 트리거는 사용할 수 없습니다. 상태 저장 또는 상태 비저장 워크플로를 시작하려면 [기본 제공 되풀이, 요청, HTTP, HTTP Webhook, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용합니다. 기본 제공 트리거 및 작업은 디자이너의 **기본 제공** 탭에 나타납니다.
+* **트리거 및 작업**: 기본 제공 트리거 및 작업은 기본적으로 Azure Logic Apps에서 실행 되 고, 관리 되는 커넥터는 Azure에서 호스트 되 고 실행 됩니다. 슬라이딩 윈도우, Batch, Azure 앱 Services 및 Azure API Management와 같은 일부 기본 제공 트리거 및 작업은 사용할 수 없습니다. 상태 저장 또는 상태 비저장 워크플로를 시작하려면 [기본 제공 되풀이, 요청, HTTP, HTTP Webhook, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용합니다. 기본 제공 트리거 및 작업은 디자이너의 **기본 제공** 탭에 나타납니다.
 
   *상태 저장* 워크플로의 경우 아래에 나열된 사용할 수 없는 작업을 제외하고 [관리형 커넥터 트리거 및 작업](../connectors/managed.md)이 **Azure** 탭 아래에 표시됩니다. *상태 비저장* 워크플로의 경우 트리거를 선택할 때 **Azure** 탭이 나타나지 않습니다. [트리거가 아닌 관리형 커넥터 *작업*](../connectors/managed.md)만 선택할 수 있습니다. 상태 비저장 워크플로에 대해 Azure에서 호스트되는 관리형 커넥터를 사용하도록 설정할 수 있지만, 사용자가 추가할 수 있는 관리형 커넥터 트리거가 디자이너에 표시되지 않습니다.
 
@@ -242,11 +248,17 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
     * 기본 제공 작업 [Azure Logic Apps - 논리 앱 워크플로 선택](logic-apps-http-endpoint.md)은 이제 **워크플로 작업 - 이 워크플로 앱의 워크플로 호출** 입니다.
 
-    * [통합 계정의 일부 기본 제공 트리거와 작업](../connectors/managed.md#integration-account-connectors)은 사용할 수 없습니다(예: **플랫 파일** 인코딩 및 디코딩 작업).
+    * [통합 계정에 대 한 일부 트리거 및 작업](../connectors/managed.md#integration-account-connectors) (예: 플랫 파일 작업, AS2 (V2) 작업 및 RosettaNet 작업)을 사용할 수 없습니다.
 
     * [사용자 지정 관리형 커넥터는](../connectors/apis-list.md#custom-apis-and-connectors) 현재 지원되지 않습니다. 하지만 Visual Studio Code를 사용하는 경우에는 *사용자 지정 기본 제공 작업* 을 만들 수 있습니다. 자세한 내용은 [Visual Studio Code를 사용하여 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)를 참조하세요.
 
-* XML 변환의 경우 맵에서 어셈블리를 참조하기 위한 지원은 현재 사용할 수 없습니다. 또한 현재 XSLT 1.0만 지원됩니다.
+* **인증**: 다음 인증 유형을 현재 **논리 앱 (표준)** 리소스 유형에 사용할 수 없습니다.
+
+  * Azure Active Directory 요청 트리거 및 HTTP Webhook 트리거와 같은 요청 기반 트리거에 대 한 인바운드 호출에 대 한 인증 (Azure AD OAuth)을 엽니다.
+
+  * 사용자 할당 관리 id입니다. 현재는 시스템 할당 관리 id만 사용할 수 있으며 자동으로 사용 하도록 설정 됩니다.
+
+* **XML 변환**: 맵에서 어셈블리 참조를 현재 사용할 수 없습니다. 또한 현재 XSLT 1.0만 지원됩니다.
 
 * **Visual Studio Code에서 중단점 디버깅**: 워크플로에 대한 **workflow.json** 파일 내에서 중단점을 추가하고 사용할 수 있지만, 현재는 트리거가 아닌 작업에만 중단점이 지원됩니다. 자세한 내용은 [Visual Studio Code에서 단일 테넌트 기반 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints)를 참조하세요.
 
@@ -254,7 +266,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 * **확대/축소 컨트롤**: 현재는 디자이너에서 확대/축소 컨트롤을 사용할 수 없습니다.
 
-* **배포 대상**: **논리 앱(표준)** 리소스 종류를 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 또는 Azure 배포 슬롯에 배포할 수 없습니다.
+* **배포 대상**: **논리 앱(표준)** 리소스 종류를 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment-overview.md) 또는 Azure 배포 슬롯에 배포할 수 없습니다.
 
 * **Azure API Management**: 현재 **논리 앱(표준)** 리소스 종류를 Azure API Management로 가져올 수 없습니다. 그러나 **Logic App(소비)** 리소스 종류는 가져올 수 있습니다.
 

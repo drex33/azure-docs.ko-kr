@@ -1,20 +1,14 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)를 사용한 라이브 스트림 분석
-titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 라이브 스트림 분석을 수행하는 방법을 보여 줍니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: juliako
-ms.openlocfilehash: d5c45a708a1a878a00a93ce30dcbad37105bd5ea
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 18017bbe4d83d11e360efebd7d69eed8d67ae15a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119503"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627447"
 ---
 # <a name="live-stream-analysis-with-video-analyzer-for-media"></a>Video Analyzer for Media를 사용하여 라이브 스트림 분석
 

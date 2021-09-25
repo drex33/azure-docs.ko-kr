@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e4621b73c8b71ba3bb4b42801de5e306cfa3562e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965581"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573108"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
@@ -72,6 +72,33 @@ DNS 이름 확인은 여러 가지 이유로 실패할 수 있는 다단계 프�
 * [Azure DNS에 도메인 위임](dns-domain-delegation.md)
 
 
+## <a name="unhealthy-dns-zones"></a>비정상 DNS 영역
+
+구성 오류로 인해 DNS 영역이 비정상 상태가 될 수 있습니다. 다음은이 동작을 유발할 수 있는 시나리오입니다.
+
+* **비정상 위임** -영역에는 주 영역에서 자식 영역으로 트래픽을 위임 하는 데 도움이 되는 *NS* 위임 레코드가 포함 되어 있습니다. *NS* 레코드가 부모 영역에 있는 경우 DNS 서버는 글 루 레코드를 제외 하 고 위임 아래의 다른 레코드를 마스킹 한다고 가정 합니다. 그러나 영역에 위임 아래의 다른 레코드가 포함 되어 있으면 해당 영역은 비정상으로 표시 됩니다.
+
+    아래 표에서는 영역에 NS 위임 레코드가 포함 된 경우 시나리오와 해당 영역 상태 결과를 제공 합니다.
+
+    | 시나리오 | 영역 포함</br>NS 위임 레코드 | 영역 포함</br>레코드를 붙일 까 요? | 영역에 다른 포함</br>아래 레코드</br>대리인? | 영역 상태 |
+    |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
+    | 1        | 아니요                                  | -                           | -                                                | 정상     |
+    | 2        | 예                                 | 예                         | 아니요                                               | 정상     |
+    | 3        | 예                                 | 아니요                          | 아니요                                               | 정상     |
+    | 4        | 예                                 | 아니요                          | 예                                              | 비정상   |
+    | 5        | 예                                 | 예                         | 예                                              | 비정상   |
+
+    **권장 사항:** 영역의 위임 레코드 아래에서 glue 레코드를 제외한 모든 레코드를 제거 합니다.
+
+* **Ttl** (time to live)은 DNS 확인자에 게 새 쿼리를 요청 하기 전에 쿼리를 캐시 하는 기간을 알려 주는 설정입니다. 그런 다음 수집된 정보는 TTL 기간 동안 재귀 또는 로컬 확인자의 캐시에 저장된 후 다시 도달하여 새 세부 정보 및 업데이트된 세부 정보를 수집합니다.
+
+    구성에서 TTL이 0으로 설정된 경우 다음 문제 중 하나가 발생할 수 있습니다.
+
+    * 긴 응답.
+    * DNS 트래픽 및 비용 증가.
+    * DDoS 공격에 취약합니다.
+
+    **권장 사항:** TTL 값이 *0으로* 설정되지 않았는지 확인합니다. 
 
 ## <a name="how-do-i-specify-the-service-and-protocol-for-an-srv-record"></a>SRV 레코드에 대한 ‘서비스’ 및 ‘프로토콜’을 지정하려면 어떻게 해냐 하나요?
 

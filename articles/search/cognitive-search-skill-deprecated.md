@@ -6,13 +6,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b44ba49fea555652bdf513e40c3e030ec5862cf5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 884d5cd8d2a1318162a09a39a7ef03bb8b8f612e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567402"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631745"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Azure Cognitive Search에서 사용되지 않는 인식 기술
 
@@ -94,7 +94,7 @@ ms.locfileid: "122567402"
     }
     ```
 
-4. *(선택 사항)* `entities` 출력을 사용하여 엔터티를 잘 알려진 엔터티에 연결하는 경우 이 기능은 이제 새로운 기술인 [Microsoft.Skills.Text.V3.EntityLinkingSkill ](cognitive-search-skill-entity-linking-v3.md)입니다. 연결된 엔터티를 생성하려면 엔터티 연결 기술을 기술 세트에 추가합니다. 또한 `EntityRecognitionSkill`과 새 `EntityLinkingSkill` 사이에 `entities` 출력의 속성 이름이 약간 변경되었습니다.
+4. *(선택 사항)* `entities` 출력을 사용하여 엔터티를 잘 알려진 엔터티에 연결하는 경우 이 기능은 이제 새로운 기술인 [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md)입니다. 연결된 엔터티를 생성하려면 엔터티 연결 기술을 기술 세트에 추가합니다. 또한 `EntityRecognitionSkill`과 새 `EntityLinkingSkill` 사이에 `entities` 출력의 속성 이름이 약간 변경되었습니다.
     1. `wikipediaId`이 `id`로 이름이 바뀌었습니다.
     2. `wikipediaLanguage`이 `language`로 이름이 바뀌었습니다.
     3. `wikipediaUrl`가 `url`으로 이름이 바뀌었습니다.

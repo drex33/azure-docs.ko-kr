@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 064a3749577e3e50d6a0d63eda2a944a30788614
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568068"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569459"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
 Azure Storage는 항상 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 항상 여러 복사본을 저장합니다. 중복성은 스토리지 계정이 오류 발생 시에도 가용성 및 내구성 목표를 충족하는지 확인합니다.
 
-시나리오에 가장 적합한 중복성 옵션을 결정할 때에는 저렴한 비용과 높은 가용성 간의 균형을 고려하세요. 선택해야 하는 중복성 옵션을 결정하는 데 도움이 되는 요소는 다음과 같습니다.  
+시나리오에 가장 적합한 중복성 옵션을 결정할 때에는 저렴한 비용과 높은 가용성 간의 균형을 고려하세요. 선택해야 하는 중복성 옵션을 결정하는 데 도움이 되는 요소는 다음과 같습니다.
 
 - 기본 지역에서 데이터를 복제하는 방법
 - 지역 재해로부터 보호하기 위해 데이터가 주 지역에서 지리적으로 멀리 떨어진 보조 지역으로 복제되는지 여부
@@ -160,7 +160,7 @@ GZRS 및 RA-GZRS는 다음 지역에서 지원됩니다.
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>보조 지역에 대한 읽기 액세스를 위한 응용 프로그램 디자인
 
-저장소 계정이 보조 지역에 대한 읽기 액세스로 구성된 경우 어떤 이유로든 기본 지역을 사용할 수 없으면 보조 지역에서 데이터 읽기로 원활하게 전환되도록 응용 프로그램을 디자인할 수 있습니다. 
+저장소 계정이 보조 지역에 대한 읽기 액세스로 구성된 경우 어떤 이유로든 기본 지역을 사용할 수 없으면 보조 지역에서 데이터 읽기로 원활하게 전환되도록 응용 프로그램을 디자인할 수 있습니다.
 
 보조 지역은 RA-GRS 또는 RA-GZRS를 사용하도록 설정한 후 읽기 액세스에 사용할 수 있으므로, 중단 시 보조 지역에서 올바르게 읽을 수 있도록 애플리케이션을 미리 테스트할 수 있습니다. 지역 중복을 활용하도록 애플리케이션을 디자인하는 방법에 관한 자세한 내용은 [지역 중복을 사용하여 고가용성 애플리케이션 디자인](geo-redundant-design.md)을 참조하세요.
 

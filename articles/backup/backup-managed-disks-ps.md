@@ -2,14 +2,14 @@
 title: Azure PowerShell을 사용하여 Azure Managed Disks 백업
 description: Azure PowerShell을 사용하여 Azure Managed Disks를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 09/17/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31259bdbdc99fd307337cd6059f9160a0aeaf05e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: beb6a266a9436b7c26f5786c5f5a57f10fb9319a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672135"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672712"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Managed Disks 백업
 
@@ -113,7 +113,7 @@ Azure Disk Backup은 하루에 여러 백업을 제공합니다. 더 자주 백�
    >[!NOTE]
    > 선택한 자격 증명 모음에 전역 중복 설정이 있을 수 있지만, 현재 Azure Disk Backup은 스냅샷 데이터 저장소만 지원합니다. 모든 백업은 구독의 리소스 그룹에 저장되며 백업 자격 증명 모음 스토리지로 복사되지 않습니다.
 
-정책 만들기에 관한 자세한 내용은 [azure disk backup 정책](backup-managed-disks.md#create-backup-policy) 설명서를 참조하세요.
+정책 만들기에 관한 자세한 내용은 [Azure Disk Backup 정책](backup-managed-disks.md#create-backup-policy) 설명서를 참조하세요.
 
 시간별 빈도 또는 보존 기간을 편집하려면 [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-5.7.0&preserve-view=true) 및/또는 [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-5.7.0&preserve-view=true) 명령을 사용합니다. 정책 개체에 원하는 값이 모두 있으면 [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-5.7.0&preserve-view=true)를 사용하여 정책 개체에서 새 정책을 만듭니다.
 
@@ -155,7 +155,50 @@ $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/snapshotrg"
 
 ### <a name="assign-permissions"></a>권한 할당
 
-사용자는 RBAC를 통해 자격 증명 모음(자격 증명 모음 MSI로 표시) 및 관련 디스크 및/또는 디스크 RG에 몇 가지 권한을 할당해야 합니다. 이 작업은 포털 또는 PowerShell을 통해 수행할 수 있습니다. 관련된 모든 권한은 [관련 섹션](backup-managed-disks.md#configure-backup)의 1,2,3 포인트에 자세히 설명되어 있습니다.
+사용자는 RBAC를 통해 자격 증명 모음(자격 증명 모음 MSI로 표시) 및 관련 디스크 및/또는 디스크 RG에 몇 가지 권한을 할당해야 합니다. 이 작업은 포털 또는 PowerShell을 통해 수행할 수 있습니다.
+
+백업 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 관리 디스크의 백업을 구성하려면 Backup 자격 증명 모음의 관리 ID에 스냅샷을 만들고 관리하는 원본 디스크 및 리소스 그룹에 대한 권한 집합이 필요합니다.
+
+시스템 할당 관리 ID는 리소스당 하나로 제한되며 이 리소스의 수명 주기에 연결됩니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 관리 ID에 대한 권한을 부여할 수 있습니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+
+관리 디스크의 백업을 구성하려면 다음 필수 구성요소가 있는지 확인합니다.
+
+- 백업해야 하는 원본 **디스크에서** Backup 자격 증명 모음의 관리 ID에 디스크 백업 읽기 프로그램 역할을 할당합니다.
+
+  1. 백업해야 하는 디스크로 이동합니다.
+  1. **액세스 제어(IAM)** 로 이동하여 **역할 할당 추가** 를 선택합니다.
+  1. 오른쪽 컨텍스트 창의 **역할** 드롭다운 목록에서 **디스크 백업 판독기** 를 선택합니다.
+  1. Backup 자격 증명 모음의 관리 ID를 선택하고 **저장을** 클릭합니다.
+  
+     >[!Tip]
+     >Backup 자격 증명 모음 이름을 입력하여 자격 증명 모음의 관리 ID를 선택합니다.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-inline.png" alt-text="백업해야 하는 원본 디스크에서 Backup 자격 증명 모음의 관리 ID에 디스크 백업 읽기 프로그램 역할을 할당하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks-ps/assign-disk-backup-reader-role-expanded.png":::
+
+- 리소스 그룹에서 백업 자격 증명 모음의 관리 ID에 **디스크 스냅샷 기여자** 역할을 할당합니다. 여기서 백업은 Azure Backup 서비스에서 만들어지고 관리됩니다. 디스크 스냅샷은 구독 내의 리소스 그룹에 저장됩니다. Azure Backup 서비스가 스냅샷을 만들고, 저장하고, 관리할 수 있도록 하려면 백업 자격 증명 모음에 권한을 제공해야 합니다.
+
+  1. 리소스 그룹으로 이동합니다. 예를 들어 리소스 그룹은 백업할 디스크와 동일한 구독에 있는 _SnapshotRG_ 입니다.
+  1. **액세스 제어(IAM)** 로 이동하여 **역할 할당 추가** 를 선택합니다.
+  1. 오른쪽 컨텍스트 창의 **역할** 드롭다운 목록에서 **디스크 스냅샷 기여자** 를 선택합니다. 
+  1. Backup 자격 증명 모음의 관리 ID를 선택하고 **저장을** 클릭합니다.
+  
+     >[!Tip]
+     >백업 자격 증명 모음 이름을 입력하여 자격 증명 모음의 관리 ID를 선택합니다.
+
+  :::image type="content" source="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-inline.png" alt-text="리소스 그룹의 Backup 자격 증명 모음 관리 ID에 디스크 스냅샷 기여자 역할을 할당하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks-ps/assign-disk-snapshot-contributor-role-expanded.png":::
+
+- 백업 자격 증명 모음 관리 ID에 스냅샷 데이터 저장소 역할을 하는 소스 디스크 및 리소스 그룹에 올바른 역할 할당 세트가 있는지 확인합니다.
+
+  1. Backup **자격** 증명 모음  ->  **ID로** 이동하여 **Azure 역할 할당을** 선택합니다.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Azure 역할 할당 선택을 보여주는 스크린샷." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+
+  1. 역할, 리소스 이름 및 리소스 유형이 올바른지 확인합니다.
+ 
+     :::image type="content" source="./media/backup-managed-disks-ps/verify-role-assignment-details-inline.png" alt-text="역할, 리소스 이름 및 리소스 유형의 확인을 보여주는 스크린샷." lightbox="./media/backup-managed-disks-ps/verify-role-assignment-details-expanded.png":::
+
+>[!Note]
+>역할 할당은 포털에 올바르게 반영되지만 백업 자격 증명 모음의 관리 ID에 사용 권한을 적용하는 데 약 15~30분이 걸릴 수 있습니다.
 
 ### <a name="prepare-the-request"></a>요청 준비
 

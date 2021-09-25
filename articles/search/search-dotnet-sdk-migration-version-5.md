@@ -8,13 +8,13 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7f0e994cd41fc55824cf347a51ccfed25589a310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 26f01d4cb04929917290ea7a7d9b8b6477d857c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91539540"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641240"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
 

@@ -1,15 +1,16 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 79f3d2cf2e9b966d8486560efc7ec67b09c7ed4b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 850333ff1d0a2668dcd0553f2d03562fb2c046a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624421"
 ---
 Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프라인에 추가할 수 있는 다음과 같은 변환 작업을 지원합니다.
 

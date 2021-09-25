@@ -1,13 +1,9 @@
 ---
 title: SLES의 SAP NetWeaver에 대한 다중 SID Azure VM 고가용성 가이드 | Microsoft Docs
 description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 다중 SID 고가용성 가이드
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d60ea09896d42fa43a650e210ed3c19d3a99ef4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 8442418896f0ce07e601d89a9a1b42ca5b62404a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450639"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569298"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 다중 SID 고가용성 가이드
 
@@ -582,7 +578,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대한 공유 스토�
 
 1. HAGetFailoverConfig 및 HACheckFailoverConfig를 테스트합니다.
 
-   ASCS 인스턴스를 현재 실행 중인 노드에서 <sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령이 실패: 메모리 부족을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
+   ASCS 인스턴스를 현재 실행 중인 노드에서 \<sapsid\>adm으로 다음 명령을 실행합니다. 이러한 명령이 실패: 메모리 부족을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

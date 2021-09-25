@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: c721f0ac599863fb2fa72e0c243df1087be83ff1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 620e304ffa7fae9b12a26c3ba15f57e33aaeed6c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407546"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664507"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -47,7 +47,7 @@ metadata:
   name: pg1-login-secret
 type: Opaque
 ---
-apiVersion: arcdata.microsoft.com/v1alpha1
+apiVersion: arcdata.microsoft.com/v1beta1
 kind: postgresql
 metadata:
   name: pg1
@@ -175,6 +175,6 @@ kubectl describe pod/<pod name> --namespace arc
 #kubectl describe pod/pg1-0 --namespace arc
 ```
 
-## <a name="troubleshooting-creation-problems"></a>만들기 문제 해결
+## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
 
 생성과 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.

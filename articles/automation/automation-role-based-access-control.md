@@ -1,20 +1,19 @@
 ---
 title: Azure Automation에서 역할 권한 및 보안 관리
 description: 이 문서에서는 Azure 리소스의 액세스 관리를 사용하도록 설정하는 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하는 방법을 설명합니다.
-keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/26/2021
-ms.topic: conceptual
+ms.date: 09/10/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30bc4a306eecf8be3177fb045f9904d775cab9bd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: ed699f366336750289134324add0cf0243643297
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215009"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585055"
 ---
-# <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
+# <a name="manage-role-permissions-and-security-in-automation"></a>Automation에서 역할 권한 및 보안 관리
 
 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하면 Azure 리소스 대한 액세스 권한을 관리할 수 있습니다. [Azure RBAC](../role-based-access-control/overview.md)를 사용하면 팀 내에서 업무를 분장하고 사용자, 그룹 및 애플리케이션에 해당 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
 
@@ -80,6 +79,12 @@ Automation 기여자는 액세스를 제외하고 Automation 계정의 모든 �
 |Microsoft.Resources/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|리소스 그룹 배포를 읽습니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
+|Microsoft. Insights/actiongroups//*|작업 그룹을 읽고 쓰고 삭제합니다.|
+|Microsoft. Insights/ActivityLogAlerts/*|활동 로그 알림을 읽고 쓰고 삭제합니다.|
+|Microsoft.Insights/diagnosticSettings/*|진단 설정 읽기/쓰기/삭제|
+|Microsoft. Insights/MetricAlerts/*|거의 실시간 메트릭 경고를 읽고 쓰고 삭제 합니다.|
+|Microsoft. Insights/ScheduledQueryRules/*|Azure Monitor에서 로그 경고를 읽기/쓰기/삭제합니다.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Log Analytics 작업 영역에 대 한 키를 나열 합니다.|
 
 > [!NOTE]
 > Automation 기여자 역할을 사용하면 관리 ID(대상 리소스에 대한 적절한 권한이 설정된 경우) 또는 실행 계정을 통해 모든 리소스에 액세스할 수 있습니다. Automation 실행 계정은 기본적으로 구독에 대한 기여자 권한으로 구성됩니다. 최소 권한의 원칙을 따르고 Runbook을 실행하는 데 필요한 권한만 신중하게 할당합니다. 예를 들어 Automation 계정이 Azure VM을 시작하거나 중지하는 데만 필요한 경우 실행 계정 또는 관리 ID에 VM을 시작하거나 중지하는 권한만 할당해야 합니다. 마찬가지로, Runbook이 Blob Storage에서 읽는 경우 읽기 전용 권한을 할당합니다.

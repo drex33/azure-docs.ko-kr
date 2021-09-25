@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 09/05/2019
-ms.openlocfilehash: 60afa287a96425ec0a3aead7e5affa6e046b7cbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: a003370180471e02f4801bffd2477f0c50faa99d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689707"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676564"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,20 +26,24 @@ ms.locfileid: "110689707"
 
 ## <a name="instance-pool-operations"></a>인스턴스 풀 작업
 
-다음 표에서는 인스턴스 풀과 관련된 사용 가능한 작업과 Azure Portal 및 PowerShell에서 해당 작업을 사용할 수 있는지 여부를 보여 줍니다.
+다음 표에서는 인스턴스 풀과 관련된 사용 가능한 작업 및 Azure Portal, PowerShell 및 Azure CLI 해당 가용성을 보여줍니다.
 
-|명령|Azure portal|PowerShell|
-|:---|:---|:---|
-|인스턴스 풀 만들기|예|예|
-|인스턴스 풀 업데이트(제한된 속성 수)|예 |예 |
-|인스턴스 풀 사용량 및 속성 확인|예|예 |
-|인스턴스 풀 삭제|예|예|
-|인스턴스 풀 내에서 관리되는 인스턴스 만들기|예|예|
-|관리되는 인스턴스의 리소스 사용량 업데이트|예 |예|
-|관리되는 인스턴스의 사용량 및 속성 확인|예|예|
-|풀에서 관리되는 인스턴스 삭제|예|예|
-|풀 내의 인스턴스에 데이터베이스 만들기|예|예|
-|SQL Managed Instance에서 데이터베이스 삭제|예|예|
+|명령|Azure portal|PowerShell|Azure CLI|
+|:---|:---|:---|:---|
+|인스턴스 풀 만들기|예|예|예|
+|인스턴스 풀 업데이트(제한된 속성 수)|예 |예 | 예|
+|인스턴스 풀 사용량 및 속성 확인|예|예 | 예 |
+|인스턴스 풀 삭제|예|예|예|
+|인스턴스 풀 내에서 관리되는 인스턴스 만들기|예|예|아니요|
+|관리되는 인스턴스의 리소스 사용량 업데이트|예 |예|아니요|
+|관리되는 인스턴스의 사용량 및 속성 확인|예|예|아니요|
+|풀에서 관리되는 인스턴스 삭제|예|예|아니요|
+|풀 내의 인스턴스에 데이터베이스 만들기|예|예|아니요|
+|SQL Managed Instance에서 데이터베이스 삭제|예|예|아니요|
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-az-ps).
 
 사용 가능한 [PowerShell 명령](/powershell/module/az.sql/)
 
@@ -51,10 +55,24 @@ ms.locfileid: "110689707"
 |[Remove-AzSQLInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | SQL Managed Instance에서 인스턴스 풀을 제거합니다. |
 |[Get-AzSQLInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | SQL Managed Instance 풀 사용량에 대한 정보를 반환합니다. |
 
-
-PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-az-ps).
-
 풀 및 단일 인스턴스 내부의 인스턴스와 모두 관련된 작업의 경우 표준 [관리되는 인스턴스 명령](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances)을 사용하지만 풀의 인스턴스에 대해 이러한 명령을 사용할 때는 ‘인스턴스 풀 이름’ 속성을 채워야 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+사용 가능한 [Azure CLI](/cli/azure/sql) 명령:
+
+|Cmdlet |Description |
+|:---|:---|
+|[az sql instance-pool create](/cli/azure/sql/instance-pool#az_sql_instance_pool_create) | SQL Managed Instance 풀을 만듭니다. |
+|[az sql instance-pool show](/cli/azure/sql/instance-pool#az_sql_instance_pool_show) | 인스턴스 풀에 대한 정보를 반환합니다. |
+|[az sql instance-pool update](/cli/azure/sql/instance-pool#az_sql_instance_pool_update) | SQL Managed Instance 인스턴스 풀의 속성을 설정하거나 업데이트합니다. |
+|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az_sql_instance_pool_delete) | SQL Managed Instance에서 인스턴스 풀을 제거합니다. |
+
+---
 
 ## <a name="deployment-process"></a>배포 프로세스
 
@@ -85,6 +103,8 @@ PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](/powe
 > [!IMPORTANT]
 > 인스턴스 풀을 배포하는 작업은 약 4.5시간이 소요되는 장기 작업입니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 네트워크 매개 변수를 가져오려면 다음을 사용합니다.
 
 ```powershell
@@ -105,6 +125,37 @@ $instancePool = New-AzSqlInstancePool `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+가상 네트워크 매개 변수를 가져오려면:
+
+```azurecli
+az network vnet show --resource-group MyResourceGroup --name miPoolVirtualNetwork
+```
+
+가상 서브넷 매개 변수를 가져오려면:
+
+```azurecli
+az network vnet subnet show --resource group MyResourceGroup --name miPoolSubnet --vnet-name miPoolVirtualNetwork
+```
+
+인스턴스 풀을 만들려면 다음과 같이 합니다.
+
+```azurecli
+az sql instance-pool create
+    --license-type LicenseIncluded 
+    --location westeurope
+    --name mi-pool-name
+    --capacity 8
+    --tier GeneralPurpose
+    --family Gen5 
+    --resrouce-group myResourceGroup
+    --subnet miPoolSubnet
+    --vnet-name miPoolVirtualNetwork
+```
+
+---
 
 > [!IMPORTANT]
 > 인스턴스 풀을 배포하는 작업은 장기 실행 작업이므로 이 문서의 다음 단계 중 하나를 실행하기 전에 완료될 때까지 기다려야 합니다.

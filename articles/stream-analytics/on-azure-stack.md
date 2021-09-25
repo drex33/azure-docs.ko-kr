@@ -6,13 +6,12 @@ author: an-emma
 ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18
-ms.openlocfilehash: 9cfb98e4d221ee0e8aae7f96ce241269bd56616d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 544abb1e39710330d8d2529a83349c8669deae40
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566341"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638257"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack"></a>Azure Stack에서 Azure Stream Analytics 실행
 
@@ -89,8 +88,9 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 1. Azure Portal에서 Stream Analytics 작업으로 이동합니다.
 1. **구성** 아래에서 **스토리지 계정 설정** 을 선택하고 이전 단계에서 만든 스토리지 계정을 선택합니다.
-   > [!div class="mx-imgBorder"]
-   > [ ![작업 스토리지 계정 설정을 보여주는 스크린샷.](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
+
+   :::image type="content" source="media/on-azure-stack/storage-account-settings.png" alt-text="작업 스토리지 계정 설정을 보여주는 스크린샷." lightbox="media/on-azure-stack/storage-account-settings.png":::
+
 1. **작업 토폴로지** 에서 **입력** > **스트림 입력 추가** 를 선택합니다.
 1. 드롭다운 목록에서 **IoT Hub**, **이벤트 허브** 또는 **에지 허브** 를 선택합니다. 
 1. 입력이 이벤트 허브이거나 Azure Stack Hub 구독의 IoT 허브인 경우 다음과 같이 정보를 수동으로 입력하세요.
@@ -100,29 +100,27 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 입력 별칭 | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
-   | Service Bus 네임스페이스 | 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* 을 예로 들 수 있습니다. |
+   | Service Bus 네임스페이스 | 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. 예제는 `sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com`입니다. |
    | 이벤트 허브 이름 | 입력으로 사용할 이벤트 허브의 이름입니다. |
    | 이벤트 허브 정책 이름 | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
    | 이벤트 허브 정책 키 | 이벤트 허브에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. 이벤트 허브 설정에서 찾을 수 있습니다. |
    | 이벤트 허브 소비자 그룹(선택 사항) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용합니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다. |
    | 파티션 수 | 파티션 수는 이벤트 허브의 파티션 수입니다. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![이벤트 허브 입력을 보여주는 스크린샷.](media/on-azure-stack/event-hub-input.png) ](media/on-azure-stack/event-hub-input.png#lightbox)
-
+   :::image type="content" source="media/on-azure-stack/event-hub-input.png" alt-text="이벤트 허브 입력을 보여주는 스크린샷." lightbox="media/on-azure-stack/event-hub-input.png":::
+   
    #### <a name="iot-hub"></a>IoT hub
 
    | 필드 | 값 |
    | --- | --- |
    | 입력 별칭 | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
-   | IoT Hub | 입력으로 사용할 IoT Hub의 이름입니다. (예: *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
+   | IoT Hub | 입력으로 사용할 IoT Hub의 이름입니다. 예제는 `<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com`입니다. |
    | 공유 액세스 정책 이름 | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
    | 공유 액세스 정책 키 | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
    | 소비자 그룹(선택 사항) | 각 Stream Analytics 작업마다 서로 다른 소비자 그룹을 사용합니다. 소비자 그룹은 IoT 허브에서 데이터를 수집하는 데 사용됩니다. Stream Analytics에서는 달리 지정하지 않는 한 $Default 소비자 그룹을 사용합니다. |
    | 파티션 수 | 파티션 수는 이벤트 허브의 파티션 수입니다. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![IoT Hub 입력을 보여주는 스크린샷.](media/on-azure-stack/iot-hub-input.png) ](media/on-azure-stack/iot-hub-input.png#lightbox)
+   :::image type="content" source="media/on-azure-stack/iot-hub-input.png" alt-text="IoT Hub 입력을 보여주는 스크린샷." lightbox="media/on-azure-stack/iot-hub-input.png" :::
 
 1. 다른 필드의 기본값을 그대로 두고 **저장** 을 선택합니다.
 1. **작업 토폴로지** 에서 **출력** 을 열고 **추가** 를 선택합니다.
@@ -134,20 +132,18 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    | 필드 | 값 |
    | --- | --- |
    | 출력 별칭 | 쿼리에서 쿼리 출력을 이 이벤트 허브로 보내는 데 사용되는 식별 이름입니다. |
-   | Service Bus 네임스페이스 | 메시징 엔터티 세트에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* 을 예로 들 수 있습니다. |
+   | Service Bus 네임스페이스 | 메시징 엔터티 세트에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. 예제는 `sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com`입니다. |
    | 이벤트 허브 이름 | 이벤트 허브 출력의 이름입니다. |
    | 이벤트 허브 정책 이름 | 이벤트 허브의 **구성** 탭에서 만들 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
    | 이벤트 허브 정책 키 | 이벤트 허브 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![이벤트 허브 출력을 보여주는 스크린샷.](media/on-azure-stack/event-hub-output.png) ](media/on-azure-stack/event-hub-output.png#lightbox)
-
+   :::image type="content" source="media/on-azure-stack/event-hub-output.png" lightbox="media/on-azure-stack/event-hub-output.png" alt-text="이벤트 허브 출력을 보여주는 스크린샷.":::
    #### <a name="blob-storage"></a>Blob Storage 
 
    | 필드 | 값 |
    | --- | --- |
    | 출력 별칭 | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
-   | 스토리지 계정 | 출력을 보내는 스토리지 계정의 이름입니다. (예: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*). |
+   | 스토리지 계정 | 출력을 보내는 스토리지 계정의 이름입니다. 예제는 `<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com`입니다. |
    | Storage 계정 키 | 스토리지 계정과 연결된 비밀 키입니다. Blob Storage 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 
 > [!NOTE]
@@ -160,17 +156,16 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 1. **모듈 설정**  >  **+ 추가** 를 선택하고 **Azure Stream Analytics 모듈** 을 선택합니다. 
 1. 구독 및 사용자가 만든 Steam Analytics Edge 작업을 선택합니다. **저장** 을 선택한 후 **다음:경로** 를 선택합니다.
 
-   > [!div class="mx-imgBorder"]
-   > [ ![모듈 추가를 보여주는 스크린샷.](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
+   :::image type="content" source="media/on-azure-stack/edge-modules.png" lightbox="media/on-azure-stack/edge-modules.png" alt-text="모듈 추가를 보여주는 스크린샷.":::
 
 1. **검토 + 만들기 >** 를 선택합니다.
-1. **검토 + 만들기** 단계에서 **만들기** 를 선택합니다. 
-   > [!div class="mx-imgBorder"]
-   > [ ![매니페스트를 보여주는 스크린샷.](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
-1. 모듈이 목록에 추가되었는지 확인합니다.
-   > [!div class="mx-imgBorder"]
-   > [ ![배포 페이지를 보여주는 스크린샷.](media/on-azure-stack/edge-deployment.png) ](media/on-azure-stack/edge-deployment.png#lightbox)
+1. **검토 + 만들기** 단계에서 **만들기** 를 선택합니다.
 
+   :::image type="content" source="media/on-azure-stack/module-content.png" lightbox="media/on-azure-stack/module-content.png" alt-text="매니페스트를 보여주는 스크린샷.":::
+
+1. 모듈이 목록에 추가되었는지 확인합니다.
+
+   :::image type="content" source="media/on-azure-stack/edge-deployment.png" lightbox="media/on-azure-stack/edge-deployment.png" alt-text="배포 페이지를 보여주는 스크린샷.":::
 ## <a name="next-steps"></a>다음 단계
 - [IoT Edge의 Azure Stream Analytics](./stream-analytics-edge.md)
 - [Stream Analytics Edge 작업 개발](/stream-analytics-query/stream-analytics-query-language-reference)

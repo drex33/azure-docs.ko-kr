@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: bf38602fdbc2c6fb1f7beba5a374c641963651a0
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: a3db25adec1ffb8d56134b6f7e651a4707d613a6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539187"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577072"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -83,7 +83,7 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 
-        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조하세요.
+        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](snapshots-manage-policy.md)를 참조하세요.
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

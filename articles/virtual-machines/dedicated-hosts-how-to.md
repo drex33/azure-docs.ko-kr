@@ -1,6 +1,6 @@
 ---
 title: Azure 전용 호스트 배포
-description: Vm 및 확장 집합을 전용 호스트로 배포 합니다.
+description: 전용 호스트에 VM 및 확장 집합을 배포합니다.
 author: brittanyrowe
 ms.author: brittanyrowe
 ms.service: virtual-machines
@@ -8,19 +8,19 @@ ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2021
-ms.reviewer: cynthn, zivr
-ms.openlocfilehash: c4d895551f852c26d9083c570de29d5cbdedfa53
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.reviewer: brittanyrowe
+ms.openlocfilehash: 3bae87c87c7ab8dd1090f40b4e0589c84e2c54ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441430"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557120"
 ---
-# <a name="deploy-vms-and-scale-sets-to-dedicated-hosts"></a>전용 호스트에 Vm 및 확장 집합 배포
+# <a name="deploy-vms-and-scale-sets-to-dedicated-hosts"></a>전용 호스트에 VM 및 확장 집합 배포
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합
 
-이 문서에서는 Vm (가상 머신) 및 확장 집합 인스턴스를 호스트 하는 Azure [전용 호스트](dedicated-hosts.md) 를 만드는 방법을 안내 합니다.
+이 문서에서는 VM(가상 머신) 및 확장 집합 인스턴스를 호스트하는 Azure [전용 호스트를](dedicated-hosts.md) 만드는 방법을 안내합니다.
 
 
 ## <a name="limitations"></a>제한 사항
@@ -60,7 +60,7 @@ ms.locfileid: "123441430"
 
 ### <a name="cli"></a>[CLI](#tab/cli)
 
-모든 호스트 SKU를 모든 지역 및 가용성 영역에서 사용할 수 있는 것은 아닙니다. 전용 호스트의 프로 비전을 시작 하기 전에 호스트 가용성 및 모든 제안 제한을 나열할 수 있습니다.
+모든 호스트 SKU를 모든 지역 및 가용성 영역에서 사용할 수 있는 것은 아닙니다. 전용 호스트 프로비저닝을 시작하기 전에 호스트 가용성 및 제안 제한을 나열할 수 있습니다.
 
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
@@ -102,7 +102,7 @@ az vm host group create \
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-이 예제에서는 [AzHostGroup](/powershell/module/az.compute/new-azhostgroup) 를 사용 하 여 2 개의 장애 도메인을 포함 하는 영역 1에 호스트 그룹을 만듭니다.
+이 예제에서는 [New-AzHostGroup을](/powershell/module/az.compute/new-azhostgroup) 사용하여 2개의 장애 도메인이 있는 영역 1에 호스트 그룹을 만듭니다.
 
 
 ```azurepowershell-interactive
@@ -130,7 +130,7 @@ VM 및 확장 집합 인스턴스가 하나의 호스트 그룹 내에서 자동
 
 호스트 SKU 및 가격 책정에 대한 자세한 내용은 [Azure Dedicated Host 가격 책정](https://aka.ms/ADHPricing)을 참조하세요.
 
-호스트 그룹에 대 한 장애 도메인 수를 설정 하는 경우 호스트에 대 한 장애 도메인을 지정 해야 합니다.
+호스트 그룹에 대한 장애 도메인 수를 설정하는 경우 호스트에 대한 장애 도메인을 지정해야 합니다.
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
@@ -159,7 +159,7 @@ az vm host create \
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-이 예제에서는 [AzHost](/powershell/module/az.compute/new-azhost) 를 사용 하 여 호스트를 만들고 장애 도메인을 1로 설정 합니다.
+이 예제에서는 [New-AzHost를](/powershell/module/az.compute/new-azhost) 사용하여 호스트를 만들고 장애 도메인을 1로 설정합니다.
 
 
 ```azurepowershell-interactive
@@ -176,7 +176,7 @@ $dHost = New-AzHost `
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-이제 호스트에 VM을 만듭니다.
+이제 호스트에서 VM을 만듭니다.
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
@@ -197,7 +197,7 @@ VM 배포에는 몇 분 정도 걸립니다.
 
 ### <a name="cli"></a>[CLI](#tab/cli)
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 전용 호스트 내에 가상 머신을 만듭니다. 호스트 그룹을 만들 때 가용성 영역을 지정한 경우 가상 머신을 만들 때 동일한 영역을 사용해야 합니다. 이미지 및 호스트 이름과 같은 값을 사용자 고유의 값으로 바꿉니다. Windows VM을 만드는 경우에는를 제거 `--generate-ssh-keys` 하 여 암호를 입력 하 라는 메시지가 표시 됩니다.
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 전용 호스트 내에 가상 머신을 만듭니다. 호스트 그룹을 만들 때 가용성 영역을 지정한 경우 가상 머신을 만들 때 동일한 영역을 사용해야 합니다. 이미지 및 호스트 이름과 같은 값을 사용자 고유의 값으로 대체합니다. Windows VM을 만드는 경우 `--generate-ssh-keys` 을 제거하여 암호를 묻는 메시지를 표시합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -219,7 +219,7 @@ az vm create \
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-[New-azvm](/powershell/module/az.compute/new-azvm) 를 사용 하 여 호스트에 새 VM을 만듭니다 .이 예제에서는 호스트 그룹이 영역 1에 있기 때문에 영역 1에서 vm을 만들어야 합니다.
+[New-AzVM을](/powershell/module/az.compute/new-azvm) 사용하여 호스트에 새 VM 만들기 이 예제에서는 호스트 그룹이 영역 1에 있으므로 영역 1에 VM을 만들어야 합니다.
 
 
 ```azurepowershell-interactive
@@ -241,7 +241,7 @@ New-AzVM `
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-호스트에 확장 집합을 만들 수도 있습니다.
+호스트에서 확장 집합을 만들 수도 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/portal)
 

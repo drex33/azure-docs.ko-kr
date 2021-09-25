@@ -3,13 +3,13 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/19/2020
-ms.openlocfilehash: 451a6f1e4b90b2e307125c6aae6d2ac03ae90c83
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 0ef257d82d892f2b8eb620c96744fb5bf26d9b5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580461"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -31,7 +31,7 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 ## <a name="dps-payload"></a>DPS 페이로드
 
-[DPS(Device Provisioning Service)](../articles/iot-dps/about-iot-dps.md)를 사용하는 디바이스에는 다음 JSON 페이로드를 사용하는 프로비저닝 프로세스 중에 사용할 `modelId`가 포함될 수 있습니다.
+[DPS(Device Provisioning Service)를](../articles/iot-dps/about-iot-dps.md) 사용하는 디바이스에는 `modelId` 다음 JSON 페이로드를 사용하여 프로비전 프로세스 중에 사용할 가 포함될 수 있습니다.
 
 ```json
 {
@@ -45,7 +45,7 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 ## <a name="telemetry"></a>원격 분석
 
-기본 구성 요소에는 특별한 속성이 필요하지 않습니다.
+기본 구성 요소에는 원격 분석 메시지에 추가된 특수 속성이 필요하지 않습니다.
 
 중첩된 구성 요소를 사용하는 경우 디바이스는 구성 요소 이름으로 메시지 속성을 설정해야 합니다.
 
@@ -108,7 +108,7 @@ IOTHUB_CLIENT_RESULT iothubClientResult = IoTHubDeviceClient_LL_SendReportedStat
     strlen(maxTemperatureSinceRebootProperty), NULL, NULL));
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -118,7 +118,7 @@ IOTHUB_CLIENT_RESULT iothubClientResult = IoTHubDeviceClient_LL_SendReportedStat
 }
 ```
 
-중첩된 구성 요소를 사용하는 경우 구성 요소 이름 내에 속성을 만들어야 합니다.
+중첩된 구성 요소를 사용하는 경우 구성 요소 이름 내에 속성을 만들고 표식이 포함되어야 합니다.
 
 ```c
 STRING_HANDLE PnP_CreateReportedProperty(
@@ -199,7 +199,7 @@ void PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(
 PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle1, deviceClient);
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -215,6 +215,8 @@ PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHand
 ## <a name="writable-properties"></a>쓰기 가능한 속성
 
 이러한 속성은 디바이스에서 설정하거나 솔루션에서 업데이트할 수 있습니다. 솔루션에서 속성을 업데이트하면 클라이언트는 `DeviceClient` 또는 `ModuleClient`에서 콜백으로 알림을 받습니다. IoT 플러그 앤 플레이 규칙을 따르려면 디바이스에서 속성이 성공적으로 수신되었음을 서비스에 알려야 합니다.
+
+속성 형식이 인 경우 `Object` 서비스는 개체 필드의 하위 집합만 업데이트하는 경우에도 디바이스에 전체 개체를 보내야 합니다. 디바이스에서 보내는 승인은 전체 개체일 수도 있습니다.
 
 ### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
 
@@ -238,7 +240,7 @@ iothubClientResult = IoTHubDeviceClient_LL_SendReportedState(
     strlen(targetTemperatureResponseProperty), NULL, NULL);
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -315,7 +317,7 @@ iothubClientResult = IoTHubDeviceClient_LL_SendReportedState(
 STRING_delete(jsonToSend);
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -335,7 +337,7 @@ STRING_delete(jsonToSend);
 
 ### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
 
-서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 보고된 속성과 동일한 `ack` 메시지로 응답해야 합니다.
+서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 서비스로 다시 전송된 메시지에 이 버전 번호를 포함해야  `ack` 합니다.
 
 기본 구성 요소는 단일 속성을 보고 수신된 버전으로 보고된 `ack`를 만듭니다.
 
@@ -384,7 +386,7 @@ iothubResult = IoTHubDeviceClient_LL_SetDeviceTwinCallback(
     deviceHandle, Thermostat_DeviceTwinCallback, (void*)deviceHandle))
 ```
 
-디바이스 쌍은 원하는 섹션과 보고된 섹션의 속성을 보여줍니다.
+중첩된 구성 요소에 대한 디바이스 쌍은 다음과 같이 원하는 섹션과 보고된 섹션을 보여줍니다.
 
 ```json
 {
@@ -590,7 +592,9 @@ deviceClient = PnP_CreateDeviceClientLLHandle(&g_pnpDeviceConfiguration);
 
 ### <a name="request-and-response-payloads"></a>요청 및 응답 페이로드
 
-명령은 형식을 사용하여 요청 및 응답 페이로드를 정의합니다. 디바이스는 들어오는 입력 매개 변수를 역직렬화하고 응답을 직렬화해야 합니다. 다음 예제에서는 페이로드에 정의된 복합 형식을 사용하여 명령을 구현하는 방법을 보여줍니다.
+명령은 형식을 사용하여 요청 및 응답 페이로드를 정의합니다. 디바이스는 들어오는 입력 매개 변수를 역직렬화하고 응답을 직렬화해야 합니다.
+
+다음 예제에서는 페이로드에 정의된 복합 형식을 사용하여 명령을 구현하는 방법을 보여줍니다.
 
 ```json
 {

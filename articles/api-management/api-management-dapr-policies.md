@@ -1,17 +1,17 @@
 ---
 title: Azure API Management Dapr 통합 정책 | Microsoft Docs
 description: Dapr 마이크로 서비스 확장과 상호 작용하기 위한 Azure API Management 정책에 대해 알아봅니다.
-author: vladvino
-ms.author: vlvinogr
+author: dlepow
+ms.author: danlep
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 8d12945642e4a948df7f81da3ac89d5f8814fa4b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 4251d87727fafbb136b29eb2479ac0a70f2d027d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472737"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647559"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management Dapr 통합 정책
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: d9af43bad8f6db6b50070368be732f20fb1fbde8
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: a0ce1d23cfcc9fb2362038baa6ccdb5cfc5477fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576678"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>기존 SMB 볼륨에서 지속적인 가용성 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "122539183"
 
 ## <a name="considerations"></a>고려 사항
 
-* [**스냅샷 경로 숨기기**](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) 옵션은 현재 CA 사용 SMB 볼륨에는 적용되지 않습니다.  
+* [**스냅샷 경로 숨기기**](snapshots-edit-hide-path.md) 옵션은 현재 CA 사용 SMB 볼륨에는 적용되지 않습니다.  
 
 * 다른 SMB 볼륨에서 트래버스하는 데 사용할 수 있는 `~snapshot` 디렉터리는 CA 사용 SMB 볼륨에 대해 표시되지 않습니다. 여전히 수동으로 `~snapshot\<snapshotName>`을 입력하여 스냅샷에 액세스할 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "122539183"
  
     최신 PowerShell 버전을 설치해야 할 수 있습니다. 
 
-    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) powershell 명령 세부 정보를 참조하세요.
+    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell 명령 세부 정보를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계  
 

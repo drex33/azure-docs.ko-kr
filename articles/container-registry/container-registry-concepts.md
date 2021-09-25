@@ -3,12 +3,12 @@ title: 레지스트리, 리포지토리, 이미지, 아티팩트 정보
 description: Azure Container Registry, 리포지토리, 컨테이너 이미지, 기타 아티팩트의 주요 개념을 소개합니다.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: add8c20de07a2d520095f257dac0356d1c21af57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784086"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596147"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>레지스트리, 리포지토리, 아티팩트 정보
 
@@ -68,7 +68,7 @@ Docker 호환 컨테이너 이미지 외에도 Azure Container Registry는 Helm 
 
 ### <a name="manifest"></a>file:///
 
-컨테이너 레지스트리로 푸시한 각 컨테이너 이미지 또는 아티팩트는 *매니페스트* 와 연결됩니다. 콘텐츠를 푸시할 때 레지스트리에서 생성된 매니페스트는 아티팩트를 고유하게 식별하고 해당 레이어를 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다. 
+컨테이너 레지스트리로 푸시한 각 컨테이너 이미지 또는 아티팩트는 *매니페스트* 와 연결됩니다. 콘텐츠를 푸시할 때 레지스트리에서 생성된 매니페스트는 아티팩트를 고유하게 식별하고 해당 레이어를 지정합니다.
 
 Linux `hello-world` 이미지에 대한 기본 매니페스트는 다음과 유사합니다.
 

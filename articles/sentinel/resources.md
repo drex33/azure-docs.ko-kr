@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 270e7f748f0d7fda14d93ac753ba655117f7ad36
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 247b025524a029fcb68fbe0682b365e9b7f240b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565176"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure Sentinel 작업에 유용한 리소스
 
@@ -40,6 +40,19 @@ Azure Sentinel은 Azure Monitor Log Analytics의 KQL(Kusto 쿼리 언어)을 사
 기본 제공 플레이북의 확장된 갤러리로 Azure Logic Apps를 사용하여 Azure Sentinel에서 자동화를 만듭니다. 
 
 자세한 내용은 [Azure Logic Apps 커넥터](/connectors/)를 참조하세요.
+
+## <a name="compare-playbooks-workbooks-and-notebooks"></a>플레이북, 통합 문서 및 Notebook 비교
+
+다음 표에서는 Azure Sentinel 플레이북, 통합 문서 및 Notebook 간의 차이점을 설명합니다.
+
+|  |플레이북  |통합 문서  |Notebooks  |
+|---------|---------|---------|---------|
+|**가상 사용자**     |   <ul><li>SOC 엔지니어</li><li>모든 계층의 분석가</li></ul>      | <ul><li> SOC 엔지니어</li><li>모든 계층의 분석가</li></ul>       | <ul><li>위협 위협 요소 및 계층 2/계층-3 분석가</li><li>인시던트 조사자</li><li>데이터 과학자</li><li>보안 연구원</li></ul>       |
+|**사용**     | 단순하고 반복 가능한 작업의 자동화:<ul><li>외부 데이터 수집 </li><li>TI, GeoIP 조회 등을 통해 데이터 보강 </li><li> 조사 </li><li>재구성 </li></ul>       | <ul><li>시각화</li></ul>        |   <ul><li>Azure Sentinel 데이터 및 외부 데이터 쿼리 </li><li>TI, GeoIP 조회 및 WhoIs 조회 등을 통해 데이터 보강 </li><li> 조사 </li><li> 시각화 </li><li> 사냥 </li><li>기계 학습 및 빅 데이터 분석 </li></ul>      |
+|**장점**     |<ul><li> 반복 가능한 단일 작업에 가장 적합합니다. </li><li>코딩 지식이 필요하지 않습니다.  </li></ul>      |<ul><li>Azure Sentinel 데이터의 상위 수준 보기에 가장 적합합니다. </li><li>코딩 지식이 필요하지 않습니다.</li></ul>       | <ul><li>반복 가능한 작업의 복잡한 체인에 가장 적합합니다. </li><li>임시, 더 많은 절차적 제어</li><li>대화형 기능을 사용하여 피벗하기 쉽습니다. </li><li>데이터 조작 및 시각화를 위한 다양한 Python 라이브러리 </li><li>기계 학습 및 사용자 지정 분석 </li><li>분석 증거를 문서화하고 공유하기 쉽습니다. </li></ul>       |
+|**당면 과제**     | <ul><li>임시 및 복잡한 작업 체인에 적합하지 않음 </li><li>증거를 문서화하고 공유하는 데 적합하지 않음</li></ul>        |   <ul><li>외부 데이터와 통합할 수 없음 </li></ul>     |    <ul><li> 높은 학습 곡선 및 코딩 지식 필요 </li></ul>   |
+|  **자세한 정보**   | [Azure Sentinel의 플레이북을 사용하여 위협 대응 자동화](automate-responses-with-playbooks.md)        | [수집된 데이터 시각화](get-visibility.md)        | [Jupyter Notebook을 사용하여 보안 위협 헌트](notebooks.md)        |
+|     |         |         |         |
 
 ## <a name="comment-on-our-blogs-and-forums"></a>블로그 및 포럼에 댓글을 달아주세요
 

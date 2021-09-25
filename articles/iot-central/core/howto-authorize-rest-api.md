@@ -3,16 +3,16 @@ title: Azure IoT Central에서 REST API 권한 부여
 description: IoT Central REST API 호출을 인증하고 권한을 부여하는 방법
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 540137495e06bb05fbf5e96e3b930e0c8cda4b10
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 39c96be31a8a8be0cf1c2fc4f16fcbfa7468cb41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461233"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584240"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>IoT Central REST API 호출을 인증하고 권한을 부여하는 방법
 
@@ -63,13 +63,13 @@ az account get-access-token --resource https://apps.azureiotcentral.com
 
 ## <a name="get-an-api-token"></a>API 토큰 가져오기
 
-API 토큰을 가져오려면 IoT Central UI 또는 REST API 호출을 사용하면 됩니다.
+API 토큰을 가져오려면 IoT Central UI 또는 REST API 호출을 사용하면 됩니다. 루트 조직과 연결 된 관리자와 올바른 역할에 할당 된 사용자는 API 토큰을 만들 수 있습니다.
 
 IoT Central UI 사용:
 
 1. **관리 > API 토큰** 으로 이동합니다.
-1. **+ 토큰 생성** 을 선택합니다.
-1. 토큰의 이름을 입력하고 역할을 선택합니다.
+1. **+ 토큰 만들기** 를 선택 합니다.
+1. 토큰의 이름을 입력 하 고 역할 및 [조직을](howto-create-organizations.md)선택 합니다.
 1. **생성** 을 선택합니다.
 1. IoT Central에 다음 예제와 같은 토큰이 표시됩니다.
 
@@ -77,7 +77,7 @@ IoT Central UI 사용:
 
     이 화면은 API 토큰을 볼 수 있는 유일한 시간입니다. 분실한 경우 새로 생성해야 합니다.
 
-API 토큰은 약 1년 동안 유효합니다. IoT Central 애플리케이션에서 기본 제공 역할과 사용자 지정 역할 모두에 대한 토큰을 생성할 수 있습니다.
+API 토큰은 약 1년 동안 유효합니다. IoT Central 애플리케이션에서 기본 제공 역할과 사용자 지정 역할 모두에 대한 토큰을 생성할 수 있습니다. API 토큰을 만들 때 선택한 조직에 따라 API가 액세스할 수 있는 장치가 결정 됩니다. 응용 프로그램에 조직을 추가 하기 전에 만든 모든 API 토큰은 루트 조직과 연결 됩니다.
 
 액세스를 취소해야 하는 경우 IoT Central UI에서 API 토큰을 삭제할 수 있습니다.
 
@@ -146,6 +146,9 @@ REST API 사용:
     이 응답은 API 토큰에 액세스할 수 있는 유일한 시간입니다. 분실한 경우 새로 생성해야 합니다.
 
 REST API를 사용하여 애플리케이션에서 API 토큰을 나열하고 삭제할 수 있습니다.
+
+> [!TIP]
+> [PREVIEW API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) 에는 새 [조직 기능](howto-create-organizations.md)에 대 한 지원이 포함 되어 있습니다.
 
 ## <a name="use-a-bearer-token"></a>전달자 토큰 사용
 

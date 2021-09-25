@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: b67003db0953a8246a49ec8551d6e0fab4dc8251
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
-ms.translationtype: HT
+ms.openlocfilehash: cb38f70c20ad8a45ed1cb91d93e7a6f09a7d51df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362958"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644375"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
 
@@ -153,9 +153,9 @@ ms.locfileid: "114362958"
       > [!IMPORTANT]
       > Visual Studio를 사용하고 있으며 선택할 일괄 처리 수신자가 표시되지 않는 경우 이전에 일괄 처리 수신자를 만들어 Azure에 배포했는지 확인합니다. 아직 배포하지 않은 경우 [일괄 처리 수신자 논리 앱을 Azure에 배포하는 방법](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)을 알아보세요.
 
-   1. 작업 목록에서 **Batch_messages - <*your-logic-app-name*>** 작업을 선택합니다.
+   1. 작업 목록에서 다음 작업을 선택 합니다. **Batch_messages- \<*your-logic-app-name*\>**
 
-      !["Batch_messages - <your-logic-app>" 작업 선택](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      !["Batch_messages- \< 논리 앱" 작업을 선택 합니다. \>](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 1. 일괄 처리 발신자의 속성을 설정합니다.
 

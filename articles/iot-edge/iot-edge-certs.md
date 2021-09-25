@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 469e7005d1def5bd2f76347fc934577eca54b435
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e55653b5a5b3ac52c0952d5a70e835646247664e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536601"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673714"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
@@ -22,7 +22,7 @@ ms.locfileid: "122536601"
 IoT Edge 인증서는 모듈 및 다운스트림 IoT 디바이스에서 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈의 ID와 적법성을 확인하는 데 사용됩니다. 이러한 유효성 검사를 통해 런타임, 모듈 및 IoT 디바이스 간의 TLS(전송 계층 보안) 보안 연결을 사용하도록 설정합니다. IoT Hub 자체와 마찬가지로 IoT Edge에는 IoT 다운스트림(또는 리프) 디바이스 및 IoT Edge 모듈의 보안 및 암호화된 연결이 필요합니다. 보안 TLS 연결을 설정하기 위해 Edge Hub 모듈은 연결 대상 클라이언트가 해당 ID를 확인할 수 있도록 서버 인증서 체인을 제공합니다.
 
 >[!NOTE]
->이 문서에서는 IoT Edge 디바이스에 있는 다양한 구성 요소 간 또는 IoT Edge 디바이스와 리프 디바이스 간 연결을 보호하는 데 사용되는 인증서에 대해 설명합니다. 인증서를 사용하여 IoT Edge 디바이스를 IoT Hub에 인증할 수도 있습니다. 해당 인증서는 다른 인증서이며 이 문서에서는 설명하지 않습니다. 인증서를 사용하여 디바이스를 인증하는 방법에 대한 자세한 내용은 [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-x509-certs.md)을 참조하세요.
+>이 문서에서는 IoT Edge 디바이스에 있는 다양한 구성 요소 간 또는 IoT Edge 디바이스와 리프 디바이스 간 연결을 보호하는 데 사용되는 인증서에 대해 설명합니다. 인증서를 사용하여 IoT Edge 디바이스를 IoT Hub에 인증할 수도 있습니다. 해당 인증서는 다른 인증서이며 이 문서에서는 설명하지 않습니다. 인증서를 사용하여 디바이스를 인증하는 방법에 대한 자세한 내용은 [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-x509.md)을 참조하세요.
 
 이 문서에서는 프로덕션, 개발 및 테스트 시나리오에서 IoT Edge 인증서의 작동 방식을 설명합니다.
 

@@ -4,15 +4,16 @@ description: Azure 데이터 팩터리를 사용하여 온-프레미스 또는 A
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
-ms.openlocfilehash: 103a3bad91018a2a7b91cbc6a7839e8be56489ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: aaafc0cf6134aa701ef30953460f55fc77fed27a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741416"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661795"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 이동
 
@@ -69,7 +70,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 다음 표에서는 SQL Server 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesSqlServer** 로 설정해야 합니다. |예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |예 |
@@ -126,7 +127,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **SqlServerTable** 데이터 세트 형식의 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
@@ -539,12 +540,12 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 ## <a name="troubleshooting-connection-issues"></a>연결 문제 해결
 1. 원격 연결을 허용하도록 SQL Server를 구성합니다. **SQL Server Management Studio** 를 시작하고 **서버** 를 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭합니다. 목록에서 **연결** 을 선택하고 **서버에 대한 원격 연결 허용** 을 선택합니다.
 
-    ![원격 연결 사용](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
+    :::image type="content" source="./media/data-factory-sqlserver-connector/AllowRemoteConnections.png" alt-text="원격 연결 사용":::
 
     자세한 단계를 보려면 [원격 액세스 서버 구성 옵션 구성](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) 을 참조하세요.
 2. **SQL Server 구성 관리자** 를 시작합니다. 사용하려는 인스턴스에 대한 **SQL Server 네트워크 구성** 을 확장하고 **MSSQLSERVER용 프로토콜** 을 선택합니다. 오른쪽 창에 프로토콜이 표시됩니다. **TCP/IP** 를 마우스 오른쪽 단추로 클릭하고 **사용** 을 클릭하여 TCP/IP를 사용하도록 설정합니다.
 
-    ![TCP/IP 사용](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
+    :::image type="content" source="./media/data-factory-sqlserver-connector/EnableTCPProptocol.png" alt-text="TCP/IP 사용":::
 
     TCP/IP 프로토콜을 사용하는 다른 방법 및 자세한 내용은 [서버 네트워크 프로토콜 사용 또는 사용 안 함](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) 을 참조하세요.
 3. 같은 창에서 **TCP/IP** 를 두 번 클릭하여 **TCP/IP 속성** 창을 시작합니다.

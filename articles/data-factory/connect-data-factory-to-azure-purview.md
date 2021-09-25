@@ -4,16 +4,15 @@ description: Azure Purview에 Data Factory를 연결하는 방법 알아보기
 ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
-ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/24/2021
-ms.openlocfilehash: e38c990622806e5e769626acb84377fc468a25a2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 574d87c051cf4e56fbaf83186ca0e50f2f52bc45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966526"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605566"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure Purview(미리 보기)에 Data Factory 연결
 
@@ -42,7 +41,9 @@ Data Factory 작성 UI에서 연결을 설정하려면 다음을 수행합니다
 
 3. 연결되면 **Azure Purview 계정** 탭에 Purview 계정 이름이 표시됩니다.
 
-Purview 연결 정보는 다음과 같은 데이터 팩터리 리소스에 저장됩니다. 프로그래매틱 방식으로 연결을 설정하려면 데이터 팩터리를 업데이트하고 `purviewConfiguration` 설정을 추가하면 됩니다.
+Purview 계정이 방화벽으로 보호되는 경우 Purview에 대한 관리형 프라이빗 엔드포인트를 만듭니다. Data Factory [보안 Purview 계정에 액세스하도록](how-to-access-secured-purview-account.md)하는 방법에 대해 자세히 알아봅니다. 초기 연결 중에 이 작업을 수행하거나 나중에 기존 연결을 편집할 수 있습니다.
+
+Purview 연결 정보는 다음과 같은 데이터 팩터리 리소스에 저장됩니다. 프로그래매틱 방식으로 연결을 설정하려면 데이터 팩터리를 업데이트하고 `purviewConfiguration` 설정을 추가하면 됩니다. SSIS 활동에서 계보를 푸시하려는 경우 `catalogUri` 태그도 추가합니다.
 
 ```json
 {
@@ -55,8 +56,11 @@ Purview 연결 정보는 다음과 같은 데이터 팩터리 리소스에 저�
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
-    "identity": {...},
     ...
+    "identity": {...},
+    "tags": {
+        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+    }
 }
 ```
 
@@ -70,7 +74,7 @@ Azure Purview에서 Data Factory를 등록하는 방법에 대한 자세한 내�
 
 - **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우 Purview **루트 컬렉션** 에 대한 **데이터 큐레이터** 역할을 데이터 팩터리 관리 ID에 부여합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
-    작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있으면 이 작업이 성공적으로 수행됩니다.
+    작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
 
 - **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우 Purview 계정에 대한 [**Purview 데이터 큐레이터**](../role-based-access-control/built-in-roles.md#purview-data-curator) 역할(Azure 기본 제공 역할)을 데이터 팩터리 관리 ID에 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
 
@@ -94,4 +98,4 @@ Purview 역할 할당 정보를 읽을 권한이 있고 필요한 역할이 부�
 
 [Purview를 사용하여 ADF의 데이터 검색 및 살펴보기](how-to-discover-explore-purview-data.md)
 
-[Azure Purview Data Catalog 계보 사용자 가이드](../purview/catalog-lineage-user-guide.md)
+[보안 Azure Purview 계정에 액세스](how-to-access-secured-purview-account.md)

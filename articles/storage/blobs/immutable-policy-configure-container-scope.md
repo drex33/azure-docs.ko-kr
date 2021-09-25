@@ -10,16 +10,16 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1cdc40b8aebe2d80553a23deec3990d4349ebd79
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2aeedab7e8ec7204137ec12fdcc049c0ad01881f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606288"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>컨테이너에 대한 불변성 정책 구성
 
-변경이 불가능한 스토리지를 Azure Blob Storage에 사용하면 사용자가 중요 비즈니스용 데이터를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. WORM 상태인 동안에는 사용자가 지정한 간격 동안 데이터를 수정하거나 삭제할 수 없습니다. Blob 데이터에 대한 불변성 정책을 구성하면 데이터를 덮어쓰거나 삭제하지 못하게 방지할 수 있습니다. 불변성 정책에는 시간 기반 보존 정책과 법적 보존이 포함됩니다. Blob Storage 불변성 정책에 대한 자세한 내용은 [비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](immutable-storage-overview.md)을 참조하세요.
+변경이 불가능한 스토리지를 Azure Blob Storage에 사용하면 사용자가 중요 비즈니스용 데이터를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. WORM 상태에 있는 동안에는 사용자가 데이터를 지정한 간격 동안 수정하거나 삭제할 수 없습니다. Blob 데이터에 대한 불변성 정책을 구성하면 데이터를 덮어쓰거나 삭제하지 못하도록 방지할 수 있습니다. 불변성 정책에는 시간 기반 보존 정책과 법적 보존이 포함됩니다. Blob Storage 불변성 정책에 대한 자세한 내용은 [비즈니스에 중요한 Blob 데이터를 변경이 불가능한 스토리지에 저장](immutable-storage-overview.md)을 참조하세요.
 
 불변성 정책의 적용 범위를 개별 Blob 버전(미리 보기) 또는 컨테이너로 지정할 수 있습니다. 이 문서에서는 컨테이너 수준 불변성 정책을 구성하는 방법을 설명합니다. 버전 수준 불변성 정책을 구성하는 방법은 [Blob 버전 수준 불변성 정책 구성(미리 보기)](immutable-policy-configure-version-scope.md)을 참조하세요.
 
@@ -79,7 +79,7 @@ Azure Portal에서 잠금 해제된 시간 기반 보존 정책을 수정하려�
 
 1. 원하는 컨테이너로 이동합니다.
 1. **자세히** 단추를 선택하고 **액세스 정책** 을 선택합니다.
-1. **변경이 불가능한 Blob 버전** 섹션에서 잠금이 해제된 기존 정책을 찾습니다. **자세히** 단추를 선택한 다음, 메뉴에서 **편집** 을 선택합니다.
+1. **변경이 불가능한 Blob 버전** 섹션 아래에서 잠금 해제된 기존 정책을 찾습니다. **자세히** 단추를 선택한 다음, 메뉴에서 **편집** 을 선택합니다.
 1. 정책의 새 보존 간격을 입력합니다. **보호된 추가 허용** 을 선택하여 보호된 추가 Blob에 쓰기를 허용할 수도 있습니다.
 
     :::image type="content" source="media/immutable-policy-configure-container-scope/modify-retention-policy-container-scope.png" alt-text="잠금 해제된 시간 기반 보존 정책을 수정하는 방법을 보여주는 스크린샷":::
@@ -112,7 +112,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 ```azurepowershell
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -AccountName <storage-account> `
-    -ContainerName <container> 
+    -ContainerName <container>
     -Etag $policy.Etag
 ```
 
@@ -125,7 +125,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy \
     --resource-group <resource-group>
@@ -133,7 +133,7 @@ az storage container immutability-policy \
     --container-name <container> \
     --period 21 \
     --if-match $etag \
-    --allow-protected-append-writes true 
+    --allow-protected-append-writes true
 ```
 
 잠금 해제된 정책을 삭제하려면 [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete) 명령을 호출합니다.
@@ -142,16 +142,16 @@ az storage container immutability-policy \
 
 ## <a name="lock-a-time-based-retention-policy"></a>시간 기준 보존 정책 잠금
 
-시간 기반 보존 정책 테스트를 마친 후에는 정책을 잠글 수 있습니다. 잠긴 정책은 SEC 17a-4(f) 및 기타 규정을 따릅니다. 잠긴 정책의 보존 간격을 최대 5회까지 늘릴 수 있지만, 줄일 수는 없습니다.
+시간 기반 보존 정책 테스트가 완료되면 해당 정책을 잠글 수 있습니다. 잠긴 정책은 SEC 17a-4(f) 및 기타 규정을 준수합니다. 잠긴 정책의 보존 간격을 최대 5배까지 늘릴 수 있지만, 줄일 수는 없습니다.
 
-잠긴 정책은 삭제할 수 없습니다. 하지만 보존 간격이 만료된 후에는 Blob을 삭제할 수 있습니다.
+정책이 잠기면 해당 정책을 삭제할 수 없습니다. 하지만 보존 간격이 만료된 후에는 Blob을 삭제할 수 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal을 사용하여 정책을 잠그려면 다음 단계를 수행합니다.
 
 1. 잠긴 정책이 있는 컨테이너로 이동합니다.
-1. **변경이 불가능한 Blob 버전** 섹션에서 잠금이 해제된 기존 정책을 찾습니다. **자세히** 단추를 선택한 다음, 메뉴에서 **정책 잠금** 을 선택합니다.
+1. **변경이 불가능한 Blob 버전** 섹션에서 잠금이 해제된 기존 정책을 찾습니다. **자세히** 단추를 선택한 다음, 메뉴에서 **잠금 정책** 을 선택합니다.
 1. 정책을 잠그려 한다는 것을 확인합니다.
 
 :::image type="content" source="media/immutable-policy-configure-container-scope/lock-retention-policy.png" alt-text="Azure Portal에서 시간 기반 보존 정책을 잠그는 방법을 보여주는 스크린샷":::
@@ -180,7 +180,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy lock /
     --resource-group <resource-group> /
@@ -193,7 +193,7 @@ az storage container immutability-policy lock /
 
 ## <a name="configure-or-clear-a-legal-hold"></a>법적 보존 구성 또는 지우기
 
-법적 보존은 법적 보존을 명시적으로 취소할 때까지 변경이 불가능한 데이터를 저장합니다. 법적 보존 정책에 대한 자세한 내용은 [변경이 불가능한 Blob 데이터에 대한 법적 보존](immutable-legal-hold-overview.md)을 참조하세요.
+법적 보존이 명시적으로 취소될 때까지 해당 법적 보존에서 변경이 불가능한 데이터를 저장합니다. 법적 보존 정책에 대한 자세한 내용은 [변경이 불가능한 Blob 데이터에 대한 법적 보존](immutable-legal-hold-overview.md)을 참조하세요.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ Azure Portal을 사용하여 컨테이너의 법적 보존을 구성하려면 �
 
 1. 원하는 컨테이너로 이동합니다.
 1. **자세히** 단추를 선택하고 **액세스 정책** 을 선택합니다.
-1. **변경이 불가능한 Blob 버전** 에서 **정책 추가** 를 선택합니다.
+1. **변경이 불가능한 Blob 버전** 섹션 아래에서 **정책 추가** 를 선택합니다.
 1. 정책 종류로 **법적 보존** 을 선택하고 **확인** 을 선택하여 법적 보존을 적용합니다.
 
 다음 이미지는 시간 기반 보존 정책과 법적 보존이 모두 구성된 컨테이너를 보여줍니다.
@@ -226,7 +226,7 @@ Add-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
 ```azurepowershell
 Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -Name <container> ` 
+    -Name <container> `
     -Tag <tag1>,<tag2>,...
 ```
 

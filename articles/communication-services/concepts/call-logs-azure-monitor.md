@@ -8,12 +8,13 @@ ms.author: timmitchell
 ms.date: 07/22/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 3844fcab3f9830bbaca60042aedbfb75bf7f09e4
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.subservice: calling
+ms.openlocfilehash: 8a8b50b23c1a52d89efbb98825338833a466d689
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114676147"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672286"
 ---
 # <a name="call-summary-and-call-diagnostic-logs"></a>통화 요약 및 통화 진단 로그
 
@@ -68,7 +69,7 @@ ms.locfileid: "114676147"
 ### <a name="call-summary-log"></a>통화 요약 로그
 통화 요약 로그에는 모든 통화의 키 속성을 식별하는 데 도움이 되는 데이터가 포함되어 있습니다. 통화의 각 `participantId`(P2P 호출의 경우 `endpointId`)에 대해 다른 통화 요약 로그가 생성됩니다.
 
-|     속성                  |     설명                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|     속성                  |     Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     time                      |     로그가 생성된 시간의 타임스탬프(UTC)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |     operationName             |     로그 레코드와 연결된 작업입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                |

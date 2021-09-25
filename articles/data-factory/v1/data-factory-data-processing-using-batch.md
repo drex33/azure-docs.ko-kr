@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2568fc2ea133a0cdd49e0a2577ce1e580056a74c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 8dc93266244c6dd806d7ab7457893d6d2c89ce13
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783135"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637651"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -60,7 +61,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 다이어그램은 Data Factory에서 데이터 이동 및 처리를 조정하는 방법을 보여줍니다. Batch에서 병렬 방식으로 데이터를 처리하는 방법도 보여줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드하고 인쇄합니다(11x17인치 또는 A3 크기). 다이어그램을 인쇄할 수 있도록 액세스하려면 [Batch 및 Data Factory를 사용하여 HPC 및 데이터 오케스트레이션](https://go.microsoft.com/fwlink/?LinkId=717686)을 참조하세요.
 
-[![대규모 데이터 처리 다이어그램](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
+[:::image type="content" alt-text="대규모 데이터 처리 다이어그램." source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
 
 다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 엔드투엔드 솔루션을 빌드하는 코드와 설명이 포함되어 있습니다.
 
@@ -125,7 +126,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
 1. CloudXplorer를 사용하는 경우 다음과 같은 구조의 폴더와 하위 폴더를 만듭니다.
 
-   ![폴더 및 하위 폴더 구조](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="폴더 및 하위 폴더 구조":::
 
    `Inputfolder` 및 `outputfolder`는 `mycontainer`에서 최상위 폴더입니다. `inputfolder` 폴더에는 날짜-시간 스탬프(YYYY-MM-DD-HH)를 포함하는 하위 폴더가 있습니다.
 
@@ -135,7 +136,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
 1. Blob Storage의 다음 입력 폴더에 파일을 업로드합니다.
 
-   ![입력 폴더](./media/data-factory-data-processing-using-batch/image4.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image4.png" alt-text="입력 폴더":::
 
    Azure Storage Explorer를 사용하는 경우 **file.txt** 파일을 **mycontainer** 에 업로드합니다. 도구 모음의 **복사** 를 선택하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름** 을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
 
@@ -397,7 +398,7 @@ public IDictionary<string, string> Execute(
 
 1. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
 
-   ![Bin\Debug 폴더 목록](./media/data-factory-data-processing-using-batch/image5.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image5.png" alt-text="Bin\Debug 폴더 목록":::
 
 1. ADFTutorialDataFactory의 연결된 서비스 StorageLinkedService가 사용하는 Blob Storage의 Blob 컨테이너 `customactivitycontainer`에 Blob으로 **MyDotNetActivity.zip** 을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
 
@@ -541,7 +542,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. Data Factory 만들기를 완료한 후에는 **Data Factory** 페이지가 표시되며 여기에 Data Factory의 내용이 표시됩니다.
 
-   ![Data Factory 페이지](./media/data-factory-data-processing-using-batch/image6.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image6.png" alt-text="Data Factory 페이지":::
 
 #### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Data Factory에 연결합니다. 이 단계에서는 스토리지 계정 및 Batch 계정을 Data Factory에 연결합니다.
@@ -551,13 +552,13 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 명령 모음에서 **새 데이터 저장소** 를 선택하고 **Azure Storage** 를 선택합니다. 편집기에 Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
-   ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image7.png" alt-text="새 데이터 저장소":::
 
 1. **account name** 을 스토리지 계정 이름으로 바꿉니다. **account key** 를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
 1. 명령 모음에서 **배포** 를 선택하여 연결된 서비스를 배포합니다.
 
-   ![배포](./media/data-factory-data-processing-using-batch/image8.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image8.png" alt-text="배포":::
 
 #### <a name="create-an-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
 이 단계에서는 Data Factory 사용자 지정 작업을 실행하는 데 사용될 Batch 계정에 대한 연결된 서비스를 만듭니다.
@@ -577,7 +578,7 @@ test custom activity Microsoft test custom activity Microsoft
       > [!IMPORTANT]
       > **Batch 계정** 블레이드의 URL 형식은 다음과 같습니다. `<accountname>.<region>.batch.azure.com` JSON 스크립트의 `batchUri` 속성의 경우 URL에서 `<accountname>.`을 제거해야 합니다. 예제는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
 
-      ![Batch 계정 블레이드](./media/data-factory-data-processing-using-batch/image9.png)
+      :::image type="content" source="./media/data-factory-data-processing-using-batch/image9.png" alt-text="Batch 계정 블레이드":::
 
       **poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
 
@@ -805,27 +806,27 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. Azure Portal의 **Data Factory** 블레이드에서 **다이어그램** 을 클릭합니다.
 
-   ![다이어그램](./media/data-factory-data-processing-using-batch/image10.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image10.png" alt-text="다이어그램":::
 
 1. **다이어그램** 뷰에서 **InputDataset** 입력 데이터 세트를 두 번 클릭합니다.
 
-   ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image11.png" alt-text="InputDataset":::
 
 1. 모든 5조각이 준비된 상태로 **InputDataset** 블레이드가 표시됩니다. 각 조각에 대해 **SLICE START TIME** 및 **SLICE END TIME** 입니다.
 
-   ![입력 조각 시작 및 종료 시간](./media/data-factory-data-processing-using-batch/image12.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image12.png" alt-text="입력 조각 시작 및 종료 시간":::
 
 1. **다이어그램 뷰** 에서 **OutputDataset** 을 선택합니다.
 
 1. 5개의 출력 조각이 생성된 경우 **준비** 상태로 표시됩니다.
 
-   ![출력 조각 시작 및 종료 시간](./media/data-factory-data-processing-using-batch/image13.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image13.png" alt-text="출력 조각 시작 및 종료 시간":::
 
 1. 포털을 사용하여 조각과 연결된 작업을 보고 각 조각이 실행된 VM을 확인합니다. 자세한 내용은 [Data Factory 및 Batch 통합](#data-factory-and-batch-integration) 섹션을 참조하세요.
 
 1. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다.
 
-   ![스토리지의 출력 파일](./media/data-factory-data-processing-using-batch/image15.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image15.png" alt-text="스토리지의 출력 파일":::
 
    각 입력 조각에 대해 하나씩 5개의 출력 파일이 나열됩니다. 각 출력 파일은 다음 출력과 유사한 콘텐츠를 포함합니다.
 
@@ -834,7 +835,7 @@ test custom activity Microsoft test custom activity Microsoft
     ```
    다음 다이어그램에서는 Data Factory 조각이 Batch의 작업에 매핑하는 방법을 보여줍니다. 이 예제에서는 하나의 조각은 하나의 실행만 가집니다.
 
-   ![조각 매핑 다이어그램](./media/data-factory-data-processing-using-batch/image16.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="조각 매핑 다이어그램":::
 
 1. 이제 폴더의 여러 파일을 시도하세요. **2015-11-06-01** 폴더의 file.txt와 동일한 콘텐츠를 가진 **file2.txt**, **file3.txt**, **file4.txt** 및 **file5.txt** 파일을 만듭니다.
 
@@ -842,7 +843,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. **OutputDataset** 블레이드에서 **조각 시작 시간** 이 **11/16/2015 01:00:00 AM** 으로 설정된 조각을 마우스 오른쪽 단추를 클릭합니다. **실행** 을 선택하여 조각을 다시 실행/다시 처리합니다. 이제 조각에 하나의 파일 대신 5개의 파일이 있습니다.
 
-    ![다음을 실행합니다.](./media/data-factory-data-processing-using-batch/image17.png)
+    :::image type="content" source="./media/data-factory-data-processing-using-batch/image17.png" alt-text="실행":::
 
 1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
@@ -862,7 +863,7 @@ test custom activity Microsoft test custom activity Microsoft
 #### <a name="data-factory-and-batch-integration"></a>Data Factory 및 Batch 통합
 Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작업을 만듭니다.
 
-![Batch 작업](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png" alt-text="Batch 작업":::
 
 조각의 각 작업 실행에 대한 작업(task)이 작업(job)에 만들어집니다. 10개 조각이 처리를 위해 준비된 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 컴퓨팅 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 컴퓨팅 노드당 최대 작업이 1보다 크게 설정된 경우 두 개 이상의 조각이 동일한 컴퓨팅에서 실행될 수 있습니다.
 
@@ -870,14 +871,14 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
 
 포털을 사용하여 Batch 작업 및 조각 연결된 작업을 보고 각 조각이 실행된 VM을 확인합니다.
 
-![Batch 작업 태스크](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png" alt-text="Batch 작업 태스크":::
 
 ### <a name="debug-the-pipeline"></a>파이프라인 디버깅
 디버깅은 몇 가지 기본적인 방법으로 구성됩니다.
 
 1. 입력 조각이 **Ready** 로 설정되지 않은 경우 입력 폴더 구조가 올바르고 file.txt가 입력 폴더에 있는지 확인합니다.
 
-   ![입력 폴더 구조](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="입력 폴더 구조":::
 
 1. 사용자 지정 작업의 **Execute** 메서드에서 **IActivityLogger** 개체를 사용하여 문제 해결에 도움이 되는 정보를 기록합니다. 기록된 메시지는 user\_0.log 파일에 표시됩니다.
 
@@ -885,11 +886,11 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
 
    활동 실행을 선택하면 로그 파일 목록과 함께 **활동 실행 세부 정보** 블레이드가 표시됩니다. 기록된 메시지는 user\_0.log 파일에 표시됩니다. 오류가 발생하면 파이프라인/작업 JSON에서 재시도 횟수가 3으로 설정되므로 세 개의 작업 실행이 표시됩니다. 활동 실행을 선택하면 문제 해결을 위해 검토할 수 있는 로그 파일이 표시됩니다.
 
-   ![OutputDataset 및 데이터 조각 블레이드](./media/data-factory-data-processing-using-batch/image18.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image18.png" alt-text="OutputDataset 및 데이터 조각 블레이드":::
 
    로그 파일 목록에서 **user-0.log** 를 선택합니다. 오른쪽 패널에서 **IActivityLogger.Write** 메서드를 사용한 결과가 표시됩니다.
 
-   ![활동 실행 세부 정보 블레이드](./media/data-factory-data-processing-using-batch/image19.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image19.png" alt-text="활동 실행 세부 정보 블레이드":::
 
    또한 system-0.log에서 시스템 오류 메시지 및 예외를 확인합니다.
 
@@ -906,13 +907,13 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
 
 1. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 최상위여야 합니다.
 
-   ![사용자 지정 작업 zip 파일 목록](./media/data-factory-data-processing-using-batch/image20.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image20.png" alt-text="사용자 지정 작업 zip 파일 목록":::
 
 1. **assemblyName**(MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile**(customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService**(zip 파일을 포함하는 Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
 
 1. 오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행** 을 선택합니다.
 
-   ![OutputDataset 블레이드 실행 옵션](./media/data-factory-data-processing-using-batch/image21.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image21.png" alt-text="OutputDataset 블레이드 실행 옵션":::
 
    > [!NOTE]
    > 컨테이너는 `adfjobs`라는 Blob Storage에 있습니다. 이 컨테이너는 자동으로 삭제되지 않지만 솔루션 테스트를 마친 후 안전하게 삭제할 수 있습니다. 마찬가지로 Data Factory 솔루션은 `adf-\<pool ID/name\>:job-0000000001`이라는 Batch 작업을 만듭니다. 원하는 경우 솔루션을 테스트한 후 이 작업을 삭제할 수 있습니다.

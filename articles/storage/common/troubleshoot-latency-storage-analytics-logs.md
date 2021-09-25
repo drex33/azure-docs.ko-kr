@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 72220b33ea0d10b16ec5be94da6a26d91b9bfc1e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: 4b59b7d42b162a369862974c0599d972fa1957ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161846"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636689"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -80,18 +80,18 @@ Azure 애플리케이션의 분산된 특성 때문에, 오류 및 성능 문제
 
 5. 문제가 발생한 시간 동안에는 다음 값이 중요합니다.
 
-   * Operation-type = GetBlob
-   * request-status = SASNetworkError
-   * End-to-End-Latency-In-Ms = 8453
-   * Server-Latency-In-Ms = 391
+   - Operation-type = GetBlob
+   - request-status = SASNetworkError
+   - End-to-End-Latency-In-Ms = 8453
+   - Server-Latency-In-Ms = 391
 
    다음 수식을 사용하여 엔드투엔드 대기 시간을 계산합니다.
 
-   * 엔드투엔드 대기 시간 = 서버 대기 시간 + 클라이언트 대기 시간
+   - 엔드투엔드 대기 시간 = 서버 대기 시간 + 클라이언트 대기 시간
 
    로그 항목을 사용하여 클라이언트 대기 시간을 계산합니다.
 
-   * 클라이언트 대기 시간 = 엔드투엔드 대기 시간 – 서버 대기 시간
+   - 클라이언트 대기 시간 = 엔드투엔드 대기 시간 – 서버 대기 시간
 
         예: 8453 – 391 = 8062ms
 
@@ -110,58 +110,58 @@ Azure 애플리케이션의 분산된 특성 때문에, 오류 및 성능 문제
 
 "권장 단계" 섹션의 5단계에서 언급한 대로 다음 값을 확인합니다.
 
-* 엔드투엔드 대기 시간
-* 서버 대기 시간
-* 클라이언트 대기 시간
+- 엔드투엔드 대기 시간
+- 서버 대기 시간
+- 클라이언트 대기 시간
 
 **RequestStatus = Success** 인 **GetBlob 작업** 에서 **최대 시간** 이 **클라이언트 대기 시간** 에 소요되는 경우 이는 Azure Storage가 클라이언트에 데이터를 쓰는 데 많은 시간을 사용하고 있음을 나타냅니다. 이 지연은 클라이언트 쪽 문제를 나타냅니다.
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사합니다.
-* Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
+- 클라이언트의 코드를 조사합니다.
+- Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
 
 ### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>GetBlob 작업: RequestStatus = (SAS)NetworkError
 
 "권장 단계" 섹션의 5단계에서 언급한 대로 다음 값을 확인합니다.
 
-* 엔드투엔드 대기 시간
-* 서버 대기 시간
-* 클라이언트 대기 시간
+- 엔드투엔드 대기 시간
+- 서버 대기 시간
+- 클라이언트 대기 시간
 
 **RequestStatus =(SAS)NetworkError** 인 **GetBlob 작업** 에서 **최대 시간** 이 **클라이언트 대기 시간** 에 소요되는 경우의 가장 일반적인 문제는 스토리지 서비스에서 시간 초과가 만료되기 전에 클라이언트가 연결을 끊는다는 것입니다.
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
-* Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
+- 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
+- Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
 
 ### <a name="put-operation-requeststatus--success"></a>Put 작업: RequestStatus = Success
 
 "권장 단계" 섹션의 5단계에서 언급한 대로 다음 값을 확인합니다.
 
-* 엔드투엔드 대기 시간
-* 서버 대기 시간
-* 클라이언트 대기 시간
+- 엔드투엔드 대기 시간
+- 서버 대기 시간
+- 클라이언트 대기 시간
 
 **RequestStatus = Success** 인 **Put 작업** 에서 **최대 시간** 이 **클라이언트 대기 시간** 에 소요되는 경우 클라이언트가 Azure Storage에 데이터를 보내는 데 더 많은 시간이 소요되고 있다는 것입니다. 이 지연은 클라이언트 쪽 문제를 나타냅니다.
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사합니다.
-* Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
+- 클라이언트의 코드를 조사합니다.
+- Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
 
 ### <a name="put-operation-requeststatus--sasnetworkerror"></a>Put 작업: RequestStatus = (SAS)NetworkError
 
 "권장 단계" 섹션의 5단계에서 언급한 대로 다음 값을 확인합니다.
 
-* 엔드투엔드 대기 시간
-* 서버 대기 시간
-* 클라이언트 대기 시간
+- 엔드투엔드 대기 시간
+- 서버 대기 시간
+- 클라이언트 대기 시간
 
 **RequestStatus =(SAS)NetworkError** 인 **PutBlob 작업** 에서 **최대 시간** 이 **클라이언트 대기 시간** 에 소요되면 경우의 가장 일반적인 문제는 스토리지 서비스에서 시간 초과가 만료되기 전에 클라이언트가 연결을 끊는다는 것입니다.
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
-* Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.
+- 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
+- Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용하여 클라이언트에서 네트워크 연결 문제를 조사합니다.

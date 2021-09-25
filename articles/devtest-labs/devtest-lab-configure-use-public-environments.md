@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 공용 환경 구성 및 사용 | Microsoft Docs
+title: 공용 환경 구성 및 사용
 description: 이 문서에서는 Azure DevTest Labs에서 공용 환경(Git 리포지토리의 Azure Resource Manager 템플릿)을 구성하고 사용하는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 61cabdb296c3fff75137c7ce7e87652241fd2926
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 57772ef7308e6db6982344bdddc3c0628d3d668a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85482669"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678557"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공용 환경 구성 및 사용
 Azure DevTest Labs에 제공되는 [Azure Resource Manager 템플릿의 공용 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Environments)를 사용하면 외부 GitHub 소스에 직접 연결하지 않고도 환경을 구축할 수 있습니다. 이 리포지토리에는 Azure Web Apps, Service Fabric Cluster 및 개발 SharePoint Farm 환경처럼 자주 사용되는 템플릿이 포함되어 있습니다. 이 기능은 사용자가 만든 모든 랩에 포함된 아티팩트의 공용 리포지토리와 비슷합니다. 이 환경 리포지토리를 사용하면 랩 내에서 PaaS 리소스에 원활한 시작 환경을 제공하기 위해 최소한의 입력 매개 변수로 미리 작성된 환경 템플릿으로 빠르게 시작할 수 있습니다. 

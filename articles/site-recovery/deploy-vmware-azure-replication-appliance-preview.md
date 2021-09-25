@@ -3,13 +3,13 @@ title: Azure Site Recovery 복제 어플라이언스 배포 - 미리 보기
 description: 이 문서에서는 Azure Site Recovery - 미리 보기를 사용하여 Azure로 VMware 재해 복구를 위해 복제 어플라이언스를 배포할 때 지원 및 요구 사항에 대해 설명합니다.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: e4021aa0f5572a51ca4d3ddda37f64f4da46a3b4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.date: 09/01/2021
+ms.openlocfilehash: 6528307212fe552cb66ab4caa3a65b2d0e5c39dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539543"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668499"
 ---
 # <a name="deploy-azure-site-recovery-replication-appliance---preview"></a>Azure Site Recovery 복제 어플라이언스 배포 - 미리 보기
 
@@ -19,7 +19,10 @@ ms.locfileid: "122539543"
 >[!NOTE]
 > 미리 보기 어플라이언스를 설정하기 위해 새 Recovery Services 자격 증명 모음을 만들어야 합니다. 기존 자격 증명 모음을 사용하지 마세요.
 
-Azure로 VMware VM과 물리적 서버의 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 복제 어플라이언스를 배포합니다.
+>[!NOTE]
+> 이 미리 보기에서는 물리적 컴퓨터에 대 한 복제를 사용 하도록 설정할 수 없습니다. 
+
+Azure에 VMware Vm의 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md) 를 사용 하는 경우 온-프레미스 복제 어플라이언스를 배포할 수 있습니다.
 
 - 복제 어플라이언스는 온-프레미스 VMware와 Azure 간의 통신을 조정합니다. 또한 데이터 복제를 관리합니다.
 - Azure Site Recovery 복제 어플라이언스 구성 요소 및 프로세스에 대해 [자세히 알아보세요](vmware-azure-architecture-preview.md).
@@ -67,19 +70,43 @@ FIPS(Federal Information Processing Standards) | FIPS 모드 사용 안 함|
   |aka.ms |링크라고도 하는 액세스를 허용합니다. Azure Site Recovery 어플라이언스 업데이트에 사용됩니다. |
   |download.microsoft.com/download |Microsoft 다운로드에서 다운로드할 수 있습니다. |
   |`*.servicebus.windows.net `|어플라이언스와 Azure Site Recovery 서비스 간의 통신입니다. |
-  |`*.discoverysrv.windowsazure.com `|Azure Site Recovery 검색 서비스 URL에 연결합니다. |
-  |`*.hypervrecoverymanager.windowsazure.com `|Azure Site Recovery 마이크로 검색 URL에 연결합니다.  |
-  |`*.blob.core.windows.net `|대상 디스크를 만드는 데 사용되는 Azure Storage에 데이터를 업로드합니다. |
-  |`*.backup.windowsazure.com `|보호 서비스 URL – Azure에서 복제된 디스크를 처리하고 만들기 위해 Azure Site Recovery에서 사용하는 마이크로 서비스입니다. |
+  |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |커넥트 Azure Site Recovery 마이크로 서비스 Url입니다.
+  |`*.blob.core.windows.net `|대상 디스크를 만드는 데 사용 되는 Azure storage에 데이터를 업로드 합니다. |
+
 
 > [!NOTE]
 > 프라이빗 링크는 미리 보기 릴리스에서 지원되지 않습니다.
+
+## <a name="folder-exclusions-from-antivirus-program"></a>바이러스 백신 프로그램에서 제외 되는 폴더
+
+### <a name="if-antivirus-software-is-active-on-appliance"></a>어플라이언스에서 바이러스 백신 소프트웨어가 활성화 된 경우
+
+원활한 복제를 위해 바이러스 백신 소프트웨어에서 다음 폴더를 제외 하 고 연결 문제를 방지 합니다.
+
+C:\ccdata\ Microsoft Azure <br>
+C:\ProgramData\ASRLogs <br>
+C:\ Windows \Temp\MicrosoftAzure C:\Program files \ Microsoft Azure 어플라이언스 자동 업데이트 <br>
+C:\Program files\ Microsoft Azure 어플라이언스 Configuration Manager <br>
+C:\Program files\ Microsoft Azure 푸시 설치 에이전트 <br>
+C:\Program files\ Microsoft Azure RCM 프록시 에이전트 <br>
+C:\Program Files\Microsoft Azure Recovery Services Agent <br>
+C:\Program files\ Microsoft Azure Server 검색 서비스 <br>
+C:\Program files\ Microsoft Azure Site Recovery 프로세스 서버 <br>
+C:\Program Files\Microsoft Azure Site Recovery Provider <br>
+C:\Program files \ Microsoft Azure 온-프레미스 다시 보호 에이전트 <br>
+C:\Program files\ Microsoft Azure VMware Discovery Service <br>
+C:\Program Files\Microsoft 온-프레미스에서 Azure 복제 에이전트로 <br>
+E:\ <br>
+
+### <a name="if-antivirus-software-is-active-on-source-machine"></a>바이러스 백신 소프트웨어가 원본 컴퓨터에서 활성 상태인 경우
+
+원본 컴퓨터에서 바이러스 백신 소프트웨어가 활성 상태인 경우 설치 폴더를 제외해야 합니다. 원활한 복제를 위해 폴더 C:\ProgramData\ASR\agent를 제외합니다.
 
 ## <a name="prepare-azure-account"></a>Azure 계정 준비
 
 Azure Site Recovery 복제 어플라이언스를 만들고 등록하려면 다음 권한이 있는 Azure 계정이 필요합니다.
 
-- Azure 구독에 대한 기여자 또는 소유자 권한.
+- Azure 구독에 대한 기여자 또는 소유자 권한
 - AAD(Azure Active Directory) 앱을 등록할 수 있는 권한.
 - Azure에 Azure Site Recovery 복제 어플라이언스를 등록할 때 사용되는 Key Vault 생성을 위한 Azure 구독에 대한 소유자 또는 기여자 및 사용자 액세스 관리자 권한입니다.
 
@@ -148,6 +175,9 @@ OVF 템플릿은 필수 사양을 사용하여 머신을 회전합니다.
 4. **완료** 를 선택하고 시스템을 재부팅하면 관리자 사용자 계정으로 로그인할 수 있습니다.
 
 ### <a name="set-up-the-appliance-through-powershell"></a>PowerShell을 통해 어플라이언스 설정
+
+>[!NOTE]
+> 이 미리 보기에서는 물리적 컴퓨터에 복제를 사용하도록 설정할 수 없습니다. 
 
 조직 제한의 경우 PowerShell을 통해 Site Recovery 복제 어플라이언스를 수동으로 설정할 수 있습니다. 다음 단계를 수행합니다.
 
@@ -240,6 +270,9 @@ OVF 템플릿은 필수 사양을 사용하여 머신을 회전합니다.
 
     구성이 진행 중인 동안에는 브라우저를 닫지 마세요.
 
+    >[!NOTE]
+    > 이 미리 보기에서는 어플라이언스 복제가 지원되지 않습니다. 복제를 시도하면 복구 흐름이 중단될 수 있습니다.
+
 
 ## <a name="view-azure-site-recovery-replication-appliance-in-azure-portal"></a>Azure Portal에서 Azure Site Recovery 복제 어플라이언스 보기
 
@@ -267,4 +300,4 @@ Azure Site Recovery 복제 어플라이언스를 성공적으로 구성한 후�
 여러 어플라이언스를 사용하고 복제 어플라이언스를 장애 조치(failover)하는 방법에 대한 자세한 내용은 [이 문서](switch-replication-appliance-preview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에 [VMware VM](vmware-azure-tutorial.md)의 재해 복구를 설정합니다.
+Azure에 [VMware VM](vmware-azure-set-up-replication-tutorial-preview.md)의 재해 복구를 설정합니다.

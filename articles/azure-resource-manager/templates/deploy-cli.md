@@ -1,18 +1,20 @@
 ---
-title: Azure CLI 및 템플릿으로 리소스 배포
-description: Azure Resource Manager와 Azure CLI를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
+title: Azure CLI Azure 배포 템플릿 – Azure Resource Manager | Microsoft Docs
+description: Azure Resource Manager 및 Azure CLI 사용하여 리소스 그룹을 만들고 Azure에 배포합니다. 리소스는 Azure 배포 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: azure cli는 arm 템플릿 배포, 리소스 그룹 azure 만들기, Azure 배포 템플릿, 배포 리소스, arm 템플릿, azure arm 템플릿
+ms.openlocfilehash: 5b7734e3b91f7e842f17888f3f3c67d05655fc97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296776"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585017"
 ---
-# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
+# <a name="how-to-use-azure-resource-manager-arm-deployment-templates-with-azure-cli"></a>Azure CLI ARM(Azure Resource Manager) 배포 템플릿을 사용하는 방법
 
-이 문서는 ARM 템플릿(Azure Resource Manager 템플릿)으로 Azure CLI를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. Azure 솔루션 배포 및 관리 개념에 익숙하지 않은 경우 [템플릿 배포 개요](overview.md)를 참조하세요.
+이 문서는 ARM 템플릿(Azure Resource Manager 템플릿)으로 Azure CLI를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다.  Azure 솔루션 배포 및 관리 개념에 익숙하지 않은 경우 [템플릿 배포 개요](overview.md)를 참조하세요.
 
 배포 명령이 Azure CLI 버전 2.2.0에서 변경되었습니다. 이 문서의 예제에는 [Azure CLI 버전 2.20.0 이상](/cli/azure/install-azure-cli)이 필요합니다.
 
@@ -22,7 +24,7 @@ Azure CLI가 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 
 ## <a name="deployment-scope"></a>배포 범위
 
-리소스 그룹, 구독, 관리 그룹 또는 테넌트를 배포 대상으로 지정할 수 있습니다. 배포의 범위에 따라 다른 명령을 사용합니다.
+Azure 배포 템플릿을 리소스 그룹, 구독, 관리 그룹 또는 테넌트 대상으로 지정할 수 있습니다. 배포의 범위에 따라 다른 명령을 사용합니다.
 
 * **리소스 그룹** 에 배포하려면 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용합니다.
 
@@ -58,7 +60,7 @@ Azure CLI가 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 
 ## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
-로컬 컴퓨터 또는 외부에 저장된 템플릿을 배포할 수 있습니다. 이 섹션에서는 로컬 템플릿 배포에 대해 설명합니다.
+로컬 컴퓨터 또는 외부에 저장된 컴퓨터에서 ARM 템플릿을 배포할 수 있습니다. 이 섹션에서는 로컬 템플릿 배포에 대해 설명합니다.
 
 존재하지 않는 리소스 그룹에 배포하는 경우 리소스 그룹을 만듭니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 이름은 마침표로 끝날 수 없습니다.
 
@@ -76,7 +78,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 메시지가 표시됩니다.
+Azure 배포 템플릿을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 메시지가 표시됩니다.
 
 ```output
 "provisioningState": "Succeeded",
@@ -118,9 +120,9 @@ az deployment group create \
 
 자세한 내용은 [연결된 템플릿에 상대 경로 사용](./linked-templates.md#linked-template)을 참조하세요.
 
-## <a name="deployment-name"></a>배포 이름
+## <a name="azure-deployment-template-name"></a>Azure 배포 템플릿 이름
 
-ARM 템플릿을 배포할 때 배포 이름을 지정할 수 있습니다. 해당 이름은 배포 기록에서 배포를 검색하는 데 도움이 될 수 있습니다. 배포에 이름을 제공하지 않으면 템플릿 파일의 이름이 사용됩니다. 예를 들어 _azuredeploy.json_ 이라는 템플릿을 배포하고 배포 이름을 지정하지 않으면 배포 이름은 `azuredeploy`가 됩니다.
+ARM 템플릿을 배포할 때 Azure 배포 템플릿에 이름을 지정할 수 있습니다. 해당 이름은 배포 기록에서 배포를 검색하는 데 도움이 될 수 있습니다. 배포에 이름을 제공하지 않으면 템플릿 파일의 이름이 사용됩니다. 예를 들어 _azuredeploy.json_ 이라는 템플릿을 배포하고 배포 이름을 지정하지 않으면 배포 이름은 `azuredeploy`가 됩니다.
 
 배포를 실행할 때마다 리소스 그룹의 배포 기록에 항목이 배포 이름과 함께 추가됩니다. 다른 배포를 실행하고 동일한 이름을 지정하는 경우 이전 항목이 현재 배포로 바뀝니다. 배포 기록에서 고유한 항목을 유지하려면 각 배포에 고유한 이름을 지정합니다.
 
@@ -175,7 +177,7 @@ az deployment group create \
 
 ## <a name="preview-changes"></a>변경 내용 미리 보기
 
-템플릿을 배포하기 전에 템플릿이 환경에 적용할 변경사항을 미리 볼 수 있습니다. [가상 작업](./deploy-what-if.md)을 사용하여 템플릿이 예상대로 변경사항을 적용하는지 확인합니다. 가상 작업은 템플릿의 오류도 확인합니다.
+ARM 템플릿을 배포하기 전에 템플릿이 환경에 적용되는 변경 내용을 미리 볼 수 있습니다. [가상 작업](./deploy-what-if.md)을 사용하여 템플릿이 예상대로 변경사항을 적용하는지 확인합니다. 가상 작업은 템플릿의 오류도 확인합니다.
 
 ## <a name="parameters"></a>매개 변수
 

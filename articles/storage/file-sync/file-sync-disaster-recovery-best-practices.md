@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87fd5de90896a1a5b97cf9fa07a880ebcea1f35b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: f5928815b6559c257319eb625587135cbf99df0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538998"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645743"
 ---
 # <a name="best-practices-for-disaster-recovery-with-azure-file-sync"></a>Azure 파일 동기화를 사용한 재해 복구 모범 사례
 
@@ -30,7 +30,6 @@ Azure 파일 동기화 배포에서 클라우드 엔드포인트는 항상 데�
 - 서버 운영 체제를 다른 서버에 복제
 - 이전 가상 머신 검사점으로 되돌리기
 - 클라우드 계층화를 사용하는 경우 온-프레미스 백업에서 파일 복원
-
 
 ## <a name="high-availability"></a>고가용성
 
@@ -67,7 +66,7 @@ Azure 파일 동기화 버전 9 이상에서 [VSS(볼륨 섀도 복사본 서비
 강력한 재해 복구 솔루션을 보장하려면 특정 형태의 데이터 중복성을 인프라에 추가합니다. Azure Files를 위한 네 가지 중복성 제품은 [LRS(로컬 중복 스토리지)](../common/storage-redundancy.md#locally-redundant-storage), [ZRS(영역 중복 스토리지)](../common/storage-redundancy.md#zone-redundant-storage), [GRS(지역 중복 스토리지)](../common/storage-redundancy.md#geo-redundant-storage), [GZRS(지역 영역 중복 스토리지)](../common/storage-redundancy.md#geo-zone-redundant-storage)입니다.
 
 - [LRS(로컬 중복 스토리지)](../common/storage-redundancy.md#locally-redundant-storage): LRS를 사용하면 모든 파일이 Azure Storage 클러스터 내에서 세 번 저장됩니다. 이는 불량 디스크 드라이브와 같은 하드웨어 오류로 인한 데이터 손실을 방지합니다. 그러나 데이터 센터 내에서 화재나 홍수와 같은 재해가 발생하는 경우 LRS를 사용하는 저장소 계정의 모든 복제본이 손실되거나 복구할 수 없게 됩니다.
-- ‘ZRS(영역 중복 스토리지)’: ZRS를 사용하면 각 파일의 복사본 세 개가 저장되지만 해당 복사본은 서로 다른 Azure [가용성 영역](../common/storage-redundancy.md#zone-redundant-storage)에 있는 개별 스토리지 클러스터 세 개에 물리적으로 격리됩니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 스토리지에 대한 쓰기는 가용성 영역 3개 모두에 있는 스토리지 클러스터에 기록되어야만 허용됩니다. 
+- ‘ZRS(영역 중복 스토리지)’: ZRS를 사용하면 각 파일의 복사본 세 개가 저장되지만 해당 복사본은 서로 다른 Azure [가용성 영역](../common/storage-redundancy.md#zone-redundant-storage)에 있는 개별 스토리지 클러스터 세 개에 물리적으로 격리됩니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 스토리지에 대한 쓰기는 가용성 영역 3개 모두에 있는 스토리지 클러스터에 기록되어야만 허용됩니다.
 - [GRS(지역 중복 스토리지)](../common/storage-redundancy.md#geo-redundant-storage): GRS를 사용하면 주 지역과 보조 지역이라는 두 개의 지역이 있습니다. 파일은 주 지역의 Azure Storage 클러스터 내에 세 번 저장됩니다. 쓰기는 Microsoft에서 정의한 보조 지역에 비동기적으로 복제됩니다. GRS는 두 Azure 지역 간에 분산된 데이터의 복사본 6개를 제공합니다.
 - [GZRS(지역 영역 중복 스토리지)](../common/storage-redundancy.md#geo-zone-redundant-storage): GZRS는 ZRS와 비슷하지만 지역 중복성이 있는 것처럼 생각할 수 있습니다. GZRS를 사용하면 파일은 주 지역에 있는 세 개의 고유 스토리지 클러스터에 세 번 저장됩니다. 이 경우 모든 쓰기는 Microsoft에서 정의한 보조 지역에 비동기식으로 복제됩니다.
 

@@ -4,12 +4,12 @@ description: Azure Backup을 사용하여 Azure Import/Export 서비스에서 �
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 36646c148fb42503b8bdc78cbcd11a1f497127b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644071"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 
@@ -116,7 +116,7 @@ Azure Backup 오프라인 시드 프로세스는 [Azure Import/Export 서비스]
 
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터로 전송되는 SATA 드라이브를 준비합니다. 이 유틸리티는 다음 경로의 Azure Backup 에이전트 설치 디렉터리에서 사용할 수 있습니다.
 
-```*\Microsoft Azure Recovery Services Agent\Utils\\*```
+`*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. 디렉터리로 이동하고 SATA 드라이브가 연결된 다른 컴퓨터에 *AzureOfflineBackupDiskPrep* 디렉터리를 복사합니다. 연결된 SATA 드라이브가 있는 컴퓨터에서 다음을 확인합니다.
 
@@ -131,7 +131,7 @@ Azure Backup 오프라인 시드 프로세스는 [Azure Import/Export 서비스]
 
 1. *AzureOfflineBackupDiskPrep* 유틸리티 디렉터리를 현재 디렉터리로 하여 관리자 권한 명령 프롬프트를 복사 컴퓨터에서 엽니다. 다음 명령 실행:
 
-    ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
+    `.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>`
 
     | 매개 변수 | 설명 |
     | --- | --- |

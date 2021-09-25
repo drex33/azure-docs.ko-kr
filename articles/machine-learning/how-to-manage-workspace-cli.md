@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/02/2021
+ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec6ac99e8a7fcee0f726bc95608aca79345622bc
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 16def8c00db3702a77e261b71841aa7d2d3c3728
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568108"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655508"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -237,9 +237,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 ```
 
 ---
-
-> [!IMPORTANT]
-> Azure Government 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리형 키 및 높은 비즈니스 영향 작업 영역
 

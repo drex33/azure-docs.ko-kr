@@ -3,18 +3,18 @@ title: Azure Cost Management에서 AWS 비용 및 사용량 관리
 description: 이 문서는 Cost Management에서 비용 분석 및 예산을 사용하여 AWS 비용과 사용량을 관리하는 방법을 이해하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2020
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 4f657e742165bdb87e1cc1c021966dc2e5473e81
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188108"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647736"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Azure에서 AWS 비용 및 사용량 관리
 

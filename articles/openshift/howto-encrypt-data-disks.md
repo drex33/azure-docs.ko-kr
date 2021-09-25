@@ -7,12 +7,12 @@ author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
 keywords: 암호화, byok, aro, cmk, openshift, red hat
-ms.openlocfilehash: 12920f45528911c755035dacd9b9bc0dfa5908ba
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.openlocfilehash: d5251188dfef87363846d4a19cd7ccc0d5d2976f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231416"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665115"
 ---
 # <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>ARO(Azure Red Hat OpenShift)에서 CMK(고객 관리형 키)를 사용하여 영구 볼륨 클레임 암호화(미리 보기)
 
@@ -208,7 +208,7 @@ metadata:
 spec:
   containers:
   - name: mypod-with-cmk-encryption
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

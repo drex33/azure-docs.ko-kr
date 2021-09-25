@@ -3,12 +3,12 @@ title: 온-프레미스 관리 콘솔 관리
 description: 백업 및 복원과 같은 온-프레미스 관리 콘솔 옵션, 호스트 이름 정의, 센서에 대한 프록시 설정에 대해 알아봅니다.
 ms.date: 1/12/2021
 ms.topic: article
-ms.openlocfilehash: a94dc89f6d39bfef096809299e31bd88b43824d4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9b956dbfa640862d10d0e47aef97e5a1727052c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431083"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625224"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 
@@ -37,7 +37,7 @@ Azure Portal에서 온-프레미스 관리 콘솔을 온보딩합니다.
 
 온-프레미스 관리 콘솔을 설치한 후 로컬 자체 서명된 인증서가 생성되어 웹 애플리케이션에 액세스하는 데 사용됩니다. 온-프레미스 관리 콘솔에 처음으로 로그인하면 관리자에게 SSL/TLS 인증서를 제공하라는 메시지가 표시됩니다. 
 
-관리자는 초기 로그인 후 업로드된 인증서를 업데이트해야 할 수 있습니다. 예를 들어 인증서가 만료된 경우 발생할 수 있습니다.
+관리자는 초기 로그인 후 업로드된 인증서를 업데이트해야 할 수 있습니다. 인증서가 만료된 경우와 같이 발생할 수 있습니다.
 
 **인증서를 업데이트하려면 다음을 수행합니다.**
 
@@ -232,9 +232,9 @@ VLAN 이름은 센서와 관리 콘솔 간에 동기화되지 않습니다. 구�
 1. 관리 자격 증명을 사용하여 온-프레미스 관리의 CLI에 로그인합니다.
 1. ```nano /var/cyberx/properties/remote-interfaces.properties```.
 1. Enter 키를 선택합니다. 다음과 같은 메시지가 표시됩니다.
-```mail.smtp_server= ```
-```mail.port=25 ```
-```mail.sender=```
+   `mail.smtp_server=`
+   `mail.port=25`
+   `mail.sender=`
 1. SMTP 서버 이름 및 발신자를 입력하고 enter 키를 선택합니다.
 
 ## <a name="see-also"></a>참고 항목

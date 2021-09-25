@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: f20fa22dac3fba4d01cbc5e398bafa4113e94a96
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 26d9b36ec6633f08acfbcc14c6a2fa5a93eb17ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780302"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666253"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -144,6 +144,10 @@ ms.locfileid: "107780302"
     - **AssociationType**: 자식 개체 및 부모 개체 간의 관계를 참조합니다. 유효한 값은 *포함* 또는 *관련됨* 입니다.
     - **Name**: 참조되는 리소스의 이름입니다.
     - **ResourceId** - 연결에서 참조되는 리소스의 URI입니다.
+
+## <a name="supported-resources"></a>지원되는 리소스
+
+Network Watcher 토폴로지는 제한 된 리소스 집합을 지원 합니다. Virtual Network, 서브넷, 네트워크 인터페이스, 네트워크 보안 그룹, Load Balancer, Load Balancer 상태 프로브, 공용 IP, Virtual Network 피어 링, 가상 네트워크 게이트웨이, VPN Gateway 연결, 가상 컴퓨터 및 가상 머신 확장 집합이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

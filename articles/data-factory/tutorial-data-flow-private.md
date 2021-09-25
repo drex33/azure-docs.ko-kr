@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: e73b2a96d2b051dbb208bb9614569c423f99d8f0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fb7dfc93048d888eb83088ca2a3f458219fdc393
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536930"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617890"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>매핑 데이터 흐름을 사용하여 안전하게 데이터 변환
 
@@ -71,15 +71,15 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. Data Factory 포털에서 **관리** 로 이동하고, **새로 만들기** 를 선택하여 새 Azure IR을 만듭니다.
 
-   ![새 Azure IR을 만드는 과정을 보여주는 스크린샷.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="새 Azure IR을 만드는 과정을 보여주는 스크린샷.":::
 1. **통합 런타임 설정** 페이지에서 필요한 기능을 기반으로 만들 통합 런타임을 선택합니다. 이 자습서에서는 **Azure, 자체 호스팅** 을 선택한 다음, **계속** 을 클릭합니다. 
 1. **Azure** 를 선택한 다음, **계속** 을 클릭하여 Azure 통합 런타임을 만듭니다.
 
-   ![새 Azure IR을 보여주는 스크린샷.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="새 Azure IR을 보여주는 스크린샷.":::
 
 1. **가상 네트워크 구성(미리 보기)** 에서 **사용** 을 선택합니다.
 
-   ![새 Azure IR 사용을 보여주는 스크린샷.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="새 Azure IR 사용을 보여주는 스크린샷.":::
 
 1. **만들기** 를 선택합니다.
 
@@ -89,19 +89,19 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![파이프라인 만들기를 보여주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="파이프라인 만들기를 보여주는 스크린샷":::
 
 1. 파이프라인의 속성 창에서 파이프라인 이름에 **TransformMovies** 를 입력합니다.
 1. **작업** 창에서 **이동 및 변환** 을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끕니다.
 
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택하고 **매핑 데이터 흐름** 을 선택합니다. 작업이 완료되면 **확인** 을 선택합니다.
 
-    ![매핑 데이터 흐름을 보여주는 스크린샷.](media/tutorial-data-flow-private/mapping-dataflow.png)
+    :::image type="content" source="media/tutorial-data-flow-private/mapping-dataflow.png" alt-text="매핑 데이터 흐름을 보여주는 스크린샷.":::
 
 1. 속성 창에서 데이터 흐름의 이름을 **TransformMovies** 로 지정합니다.
 1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
-    ![데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.](media/tutorial-data-flow-private/dataflow-debug.png)
+    :::image type="content" source="media/tutorial-data-flow-private/dataflow-debug.png" alt-text="데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.":::
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>데이터 흐름 캔버스의 변환 논리 빌드
 
@@ -125,7 +125,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. **대화형 작성** 을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 1분 정도 걸릴 수 있습니다.
 
-    ![대화형 작성을 보여주는 스크린샷](./media/tutorial-data-flow-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/interactive-authoring.png" alt-text="대화형 작성을 보여주는 스크린샷":::
 
 1. **연결 테스트** 를 클릭합니다. 스토리지 계정에서 프라이빗 엔드포인트를 생성 및 승인하지 않고서는 액세스를 허용하지 않기 때문에 실패합니다. 오류 메시지에는 관리형 프라이빗 엔드포인트를 만들기 위해 따를 수 있는 프라이빗 엔드포인트 만들기에 대한 링크가 표시됩니다. 또 다른 방법은 **관리** 탭으로 직접 이동하여 [이 섹션](#create-a-managed-private-endpoint)의 지침에 따라 관리형 프라이빗 엔드포인트를 만드는 것입니다.
 
@@ -137,11 +137,11 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. 데이터 세트 만들기 화면으로 돌아오면 **파일 경로** 입력란에 파일이 있는 위치를 입력합니다. 이 자습서에서 MoviesDB.csv 파일은 **sample-data** 컨테이너에 있습니다. 파일에 헤더가 있으므로 **첫 번째 행을 헤더로** 확인란을 선택합니다. 스토리지의 파일에서 직접 헤더 스키마를 가져오려면 **연결/저장소에서** 를 선택합니다. 작업이 완료되면 **확인** 을 선택합니다.
 
-    ![원본 경로를 보여주는 스크린샷.](media/tutorial-data-flow-private/source-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/source-file-path.png" alt-text="원본 경로를 보여주는 스크린샷.":::
 
 1. 디버그 클러스터가 시작된 경우 원본 변환의 **데이터 미리 보기** 탭으로 이동하고 **새로 고침** 을 선택하여 데이터의 스냅샷을 가져옵니다. 데이터 미리 보기를 사용하여 변환이 올바르게 구성되었는지 확인할 수 있습니다.
 
-    ![데이터 미리 보기 탭을 보여주는 스크린샷.](media/tutorial-data-flow-private/data-preview.png)
+    :::image type="content" source="media/tutorial-data-flow-private/data-preview.png" alt-text="데이터 미리 보기 탭을 보여주는 스크린샷.":::
 
 #### <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
 
@@ -155,7 +155,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 1. **관리형 프라이빗 엔드포인트** 섹션으로 이동합니다.
 1. **관리형 프라이빗 엔드포인트** 아래에서 **+ 새로 만들기** 를 선택합니다.
 
-    ![관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/new-managed-private-endpoint.png" alt-text="관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷"::: 
 
 1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택하고 **계속** 을 선택합니다.
 1. 만든 스토리지 계정의 이름을 입력합니다.
@@ -163,7 +163,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 1. 몇 초 후면 만든 프라이빗 링크에 승인이 필요하다고 표시됩니다.
 1. 만든 프라이빗 엔드포인트를 선택합니다. 스토리지 계정 수준에서 프라이빗 엔드포인트를 승인하도록 안내하는 하이퍼링크가 표시됩니다.
 
-    ![프라이빗 엔드포인트 관리 창을 보여주는 스크린샷.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/manage-private-endpoint.png" alt-text="프라이빗 엔드포인트 관리 창을 보여주는 스크린샷."::: 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>스토리지 계정에서 프라이빗 링크 승인
 
@@ -171,7 +171,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. 만든 프라이빗 엔드포인트의 확인란을 선택하고 **승인** 을 선택합니다.
 
-    ![프라이빗 엔드포인트 승인 단추를 보여주는 스크린샷.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/approve-private-endpoint.png" alt-text="프라이빗 엔드포인트 승인 단추를 보여주는 스크린샷.":::
 
 1. 설명을 추가하고 **예** 를 선택합니다.
 1. Data Factory에서 **관리** 탭의 **관리형 프라이빗 엔드포인트** 섹션으로 돌아갑니다.
@@ -181,65 +181,65 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. 데이터 흐름 캔버스의 원본 노드 옆에 있는 더하기 아이콘을 선택하여 새 변환을 추가합니다. 추가할 첫 번째 변환은 **필터** 입니다.
 
-    ![필터 추가를 보여주는 스크린샷.](media/tutorial-data-flow-private/add-filter.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-filter.png" alt-text="필터 추가를 보여주는 스크린샷.":::
 1. 필터 변환의 이름을 **FilterYears** 로 지정합니다. **필터 설정** 옆에 있는 식 상자를 선택하여 식 작성기를 엽니다. 여기에서 필터링 조건을 지정합니다.
 
-    ![FilterYears를 보여주는 스크린샷.](media/tutorial-data-flow-private/filter-years.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-years.png" alt-text="FilterYears를 보여주는 스크린샷.":::
 1. 데이터 흐름 식 작성기를 사용하면 다양한 변환에 사용할 식을 대화형으로 작성할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함될 수 있습니다. 식 작성 방법에 대한 자세한 내용은 [데이터 흐름 식 작성기](./concepts-data-flow-expression-builder.md)를 참조하세요.
 
-    * 이 자습서에서는 1910년과 2000년 사이의 코미디 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 2000을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
+    * 이 자습서에서는 1910년과 2000년 사이의 코미디 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 `toInteger()` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 2000을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    * 코미디 영화를 찾으려면 ```rlike()``` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. 다음과 같이 rlike 식을 연도 비교와 결합하여 값을 구합니다.
+    * 코미디 영화를 찾으려면 `rlike()` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. `rlike`식을 연도 비교와 통합하여 다음을 얻습니다.
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     * 디버그 클러스터가 활성화된 경우 **새로 고침** 을 선택하여 사용된 입력과 비교한 다음 식 출력을 확인하여 논리를 확인할 수 있습니다. 데이터 흐름 식 언어를 사용하여 이 논리를 수행하는 방법에는 두 개 이상의 정답이 있습니다.
 
-        ![필터 식을 보여주는 스크린샷.](media/tutorial-data-flow-private/filter-expression.png)
+        :::image type="content" source="media/tutorial-data-flow-private/filter-expression.png" alt-text="필터 식을 보여주는 스크린샷.":::
 
     * 식을 완료한 후 **저장 및 마침** 을 선택합니다.
 
 1. 필터가 제대로 작동하는지 확인하려면 **데이터 미리 보기** 를 가져옵니다.
 
-    ![필터링된 데이터 미리 보기를 보여주는 스크린샷.](media/tutorial-data-flow-private/filter-data.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-data.png" alt-text="필터링된 데이터 미리 보기를 보여주는 스크린샷.":::
 
 ### <a name="add-the-aggregate-transformation"></a>집계 변환 추가
 
 1. 다음으로 추가할 변환은 **스키마 수정자** 아래의 **집계** 변환입니다.
 
-    ![집계 추가를 보여주는 스크린샷.](media/tutorial-data-flow-private/add-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-aggregate.png" alt-text="집계 추가를 보여주는 스크린샷.":::
 1. 집계 변환의 이름을 **AggregateComedyRating** 으로 지정합니다. **그룹화 기준** 탭의 드롭다운 상자에서 **연도** 를 선택하여 영화의 발표 연도별로 집계를 그룹화합니다.
 
-    ![집계 그룹을 보여주는 스크린샷.](media/tutorial-data-flow-private/group-by-year.png)
+    :::image type="content" source="media/tutorial-data-flow-private/group-by-year.png" alt-text="집계 그룹을 보여주는 스크린샷.":::
 1. **집계** 탭으로 이동합니다. 왼쪽 텍스트 상자에서 집계 열의 이름을 **AverageComedyRating** 으로 지정합니다. 식 작성기를 통해 집계 식을 입력하려면 오른쪽 식 상자를 선택합니다.
 
-    ![집계 열 이름을 보여주는 스크린샷.](media/tutorial-data-flow-private/name-column.png)
+    :::image type="content" source="media/tutorial-data-flow-private/name-column.png" alt-text="집계 열 이름을 보여주는 스크린샷.":::
 1. **Rating** 열의 평균을 구하려면 ```avg()``` 집계 함수를 사용합니다. **Rating** 은 문자열이고 ```avg()```은 숫자 입력을 사용하기 때문에 ```toInteger()``` 함수를 통해 값을 숫자로 변환해야 합니다. 이 식은 다음과 같습니다.
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
 1. 완료 후 **저장 및 마침** 을 선택합니다.
 
-    ![집계 저장을 보여주는 스크린샷.](media/tutorial-data-flow-private/save-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/save-aggregate.png" alt-text="집계 저장을 보여주는 스크린샷.":::
 1. 변환 출력을 보려면 **데이터 미리 보기** 탭으로 이동합니다. **year** 및 **AverageComedyRating** 이라는 두 개의 열만 있습니다.
 
 ### <a name="add-the-sink-transformation"></a>싱크 변환 추가
 
 1. 다음으로 **대상** 아래에 **싱크** 변환을 추가하려고 합니다.
 
-    ![싱크 추가를 보여주는 스크린샷.](media/tutorial-data-flow-private/add-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-sink.png" alt-text="싱크 추가를 보여주는 스크린샷.":::
 1. 싱크 이름을 **Sink** 로 지정합니다. **새로 만들기** 를 선택하여 싱크 데이터 세트를 만듭니다.
 
-    ![싱크 만들기를 보여주는 스크린샷.](media/tutorial-data-flow-private/create-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/create-sink.png" alt-text="싱크 만들기를 보여주는 스크린샷.":::
 1. **새 데이터 세트** 페이지에서 **Azure Data Lake Storage Gen2** 를 선택한 다음, **계속** 을 선택합니다.
 
 1. **형식 선택** 페이지에서 **DelimitedText** 를 선택하고 **계속** 을 선택합니다.
 
 1. 싱크 데이터 세트의 이름을 **MoviesSink** 로 지정합니다. 연결된 서비스의 경우 원본 변환에 대해 만든 것과 동일한 **ADLSGen2** 연결된 서비스를 선택합니다. 데이터를 쓸 출력 폴더를 입력합니다. 이 자습서에서는 컨테이너 **sample-data** 의 폴더 **output** 에 쓰고 있습니다. 폴더는 미리 존재하지 않아도 되며 동적으로 만들 수 있습니다. **첫 번째 행을 헤더로** 확인란을 선택한 다음, **스키마 가져오기** 에 대해 **없음** 을 선택합니다. **확인** 을 선택합니다.
 
-    ![싱크 경로를 보여주는 스크린샷.](media/tutorial-data-flow-private/sink-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/sink-file-path.png" alt-text="싱크 경로를 보여주는 스크린샷.":::
 
 이제 데이터 흐름 빌드를 마쳤습니다. 파이프라인에서 실행할 준비가 되었습니다.
 
@@ -253,7 +253,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 
 1. 세부 정보 페이지에서 각 변환 단계에서 소요된 시간 및 행 수를 확인할 수 있습니다.
 
-    ![모니터링 실행을 보여주는 스크린샷.](media/tutorial-data-flow-private/run-details.png)
+    :::image type="content" source="media/tutorial-data-flow-private/run-details.png" alt-text="모니터링 실행을 보여주는 스크린샷.":::
 1. 변환을 선택하면 데이터의 열 및 분할에 대한 자세한 정보를 볼 수 있습니다.
 
 이 자습서를 올바르게 수행했다면 싱크 폴더에 83개의 행과 2개의 열이 작성되어 있을 것입니다. Blob Storage를 확인하여 데이터가 올바른지 확인할 수 있습니다.

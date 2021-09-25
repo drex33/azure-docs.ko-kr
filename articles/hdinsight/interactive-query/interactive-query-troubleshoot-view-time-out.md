@@ -4,12 +4,12 @@ description: 쿼리 결과를 가져올 때 Apache Hive 보기 시간이 초과�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: a43109a59353fd09ea2f29add07457d324768b16
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 5b1ec7fec182d5b0b6f2d68467d6e3e84fdb5f3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290524"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601409"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>시나리오: 쿼리 결과를 가져올 때 Apache Hive 보기 시간이 초과됨 - Azure HDInsight
 
@@ -30,15 +30,18 @@ Hive 보기 기본 시간 초과 값이 실행 중인 쿼리에 적합하지 않
 
 ## <a name="resolution"></a>해결 방법
 
-`/etc/ambari-server/conf/ambari.properties`에서 다음 속성을 설정하여 Apache Ambari Hive 보기 시간 초과를 늘립니다.
+1. 두 헤드 노드에 대해 에서 다음 속성을 설정하여 Apache Ambari Hive 보기 시간 `/etc/ambari-server/conf/ambari.properties` **초과를 늘림**
+  ```
+  views.ambari.request.read.timeout.millis=300000
+  views.request.read.timeout.millis=300000
+  views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+  ```
+  `HIVE_VIEW_INSTANCE_NAME` 값은 Hive 보기 URL의 끝에서 사용할 수 있습니다.
 
-```
-views.ambari.request.read.timeout.millis=300000
-views.request.read.timeout.millis=300000
-views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
-```
-
-`HIVE_VIEW_INSTANCE_NAME` 값은 Hive 보기 URL의 끝에서 사용할 수 있습니다.
+2. 다음을 실행하여 활성 Ambari 서버를 다시 시작합니다. 활성 Ambari 서버가 아니라는 오류 메시지가 표시되면 다음 헤드 노드로 ssh를 시작하고 이 단계를 반복합니다.
+  ```
+  sudo ambari-server restart
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 

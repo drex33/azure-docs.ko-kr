@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 055d895419e8f1e54b30a440c906c3b3e3251078
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
-ms.translationtype: HT
+ms.openlocfilehash: d2477c46b79692033baabb5327cda47f6652589d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113643418"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671130"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Azure CLI를 사용하여 Azure Bastion 호스트 만들기
 
@@ -60,6 +60,9 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    ```azurecli-interactive
    az network bastion create --name MyBastion --public-ip-address MyIp --resource-group MyResourceGroup --vnet-name MyVnet --location northeurope
    ```
+## <a name="disassociate-the-vm-public-ip-address"></a>VM 공용 IP 주소 분리
+
+Azure Bastion 공용 IP 주소를 사용하여 클라이언트 VM에 연결하지 않습니다. VM에 대한 공용 IP 주소가 필요하지 않은 경우 Azure VM에서 공용 IP 주소 분리 문서의 단계를 사용하여 [공용 IP 주소를](../virtual-network/remove-public-ip-address-vm.md)분리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

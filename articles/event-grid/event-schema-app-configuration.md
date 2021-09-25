@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure App Configuration
 description: 이 문서에서는 Azure App Configuration을 Event Grid 이벤트 원본으로 사용하는 방법을 설명합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: a64c6fead5e6d95ba11bc98d7e9a52e3021c3be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 9c434bfa9d3c080da2404d858886f1d9c715e3c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100366775"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678329"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure App Configuration
 이 문서에서는 Azure App Configuration 이벤트에 대한 속성과 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트 원본으로 Azure App Configuration을 사용하기 위한 빠른 시작 및 자습서의 목록도 제공합니다.

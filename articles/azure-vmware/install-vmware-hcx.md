@@ -2,21 +2,21 @@
 title: Azure VMware 솔루션용 VMware HCX 설치
 description: Azure VMware 솔루션 프라이빗 클라우드에 VMware HCX를 설치합니다.
 ms.topic: how-to
-ms.date: 08/12/2021
-ms.openlocfilehash: 2dec92fdee47c242a8e7e5b3df7befc586964910
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: e3db000661ea310c35d32d988db5cd2001290004
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529597"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600820"
 ---
 # <a name="install-and-activate-vmware-hcx-in-azure-vmware-solution"></a>Azure VMware 솔루션에 VMware HCX 설치 및 활성화
 
-VMware HCX Advanced 및 이와 관련된 Cloud Manager는 더 이상 Azure VMware 솔루션에 미리 배포되지 않습니다. 대신, Azure Portal을 통해 추가 기능으로 설치해야 합니다. 기본값은 HCX Advanced 이며, 그 후에는 Enterprise 버전의 기능이 필요한 경우 지원을 통해 VMware HCX Enterprise Edition를 요청할 수 있습니다. 여전히 HCX Connector OVA를 다운로드하고 온-프레미스 vCenter에 가상 어플라이언스를 배포합니다.
+VMware HCX Advanced 및 이와 관련된 Cloud Manager는 더 이상 Azure VMware 솔루션에 미리 배포되지 않습니다. 대신 Azure Portal 통해 추가 기능으로 설치합니다. 여전히 HCX Connector OVA를 다운로드하고 온-프레미스 vCenter에 가상 어플라이언스를 배포합니다. 
 
-HCX Advanced는 최대 3개의 사이트 연결(온-프레미스에서 클라우드로 연결 또는 클라우드에서 클라우드로 연결)을 지원합니다. 사이트 연결이 3개 이상 필요한 경우, HCX Enterprise Edition을 사용하세요. 현재 Azure VMware Solution에서 공개 미리 보기로 제공되는 HCX Enterprise Edition를 활성화하려면, 지원 요청을 열어 사용하도록 설정합니다. 서비스를 일반적으로 사용할 수 있게 되면, 다음 단계를 결정하는 데 30일이 주어집니다. HCX Enterprise Edition 서비스를 끄거나 옵트아웃할 수 있지만, HCX Advanced는 노드 비용의 일부로 유지됩니다.
+모든 버전의 VMware HCX는 25개의 사이트 페어링(온-프레미스에서 클라우드로 또는 클라우드에서 클라우드로)을 지원합니다.  기본값은 HCX Advanced이지만, 현재 공개 미리 보기로 있는 HCX Enterprise Edition 사용하도록 [지원 요청을](https://rc.portal.azure.com/#create/Microsoft.Support) 열 수 있습니다. 서비스를 일반적으로 사용할 수 있게 되면, 다음 단계를 결정하는 데 30일이 주어집니다. HCX Enterprise Edition 서비스를 해제하거나 옵트아웃할 수도 있지만 노드 비용의 일부로 HCX Advanced를 유지할 수도 있습니다.
 
-다시 배포하지 않고 HCX Enterprise Edition에서 HCX Advanced로 다운그레이드하는 것이 가능합니다. 먼저, Enterprise 기능을 사용하지 않고 HCX Advanced 구성 상태로 되돌려야 합니다. 다운그레이드하려는 경우, 예약된 마이그레이션, RAV 및 MON과 같은 기능을 사용하지 않는지, 사이트 쌍이 3개 이하인지 확인합니다.
+다시 배포하지 않고 HCX Enterprise Edition에서 HCX Advanced로 다운그레이드하는 것이 가능합니다. 먼저 Enterprise 기능을 사용하지 않고 HCX 고급 구성 상태로 되돌려야 합니다. 다운그레이드하려는 경우 예약된 마이그레이션이 없고 RAV 및 [HCX MON(Mobility Optimized Networking)과](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) 같은 기능이 사용되지 않고 사이트 페어링이 3개 이하인지 확인합니다.
 
 >[!TIP]
 >포털에서 [HCX Advanced를 제거](#uninstall-hcx-advanced)할 수도 있습니다. HCX Advanced를 제거하는 경우, 진행 중인 마이그레이션이 없는지 확인합니다. HCX Advanced를 제거하면 HCX 가상 어플라이언스에서 점유하는 프라이빗 클라우드에 리소스가 반환됩니다.
@@ -26,13 +26,15 @@ HCX Advanced는 최대 3개의 사이트 연결(온-프레미스에서 클라우
 * Azure Portal를 통해 HCX Advanced 설치
 * VMware HCX Connector OVA 다운로드 및 배포
 * 라이선스 키를 사용하여 HCX Advanced 활성화
-* HCX Advanced 제거
+
 
 완료되면 마지막에 권장되는 다음 단계에 따라 이 시작 가이드의 단계를 계속 진행합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - [HCX 설치 준비](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
+
+- VMware HCX Enterprise를 사용하려면 [지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 통해 [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) 추가 항목을 사용하도록 설정했는지 확인합니다. Azure VMware Solution 12개월 평가판입니다.
 
 - [VMware 블로그 시리즈 - 클라우드 마이그레이션](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
 

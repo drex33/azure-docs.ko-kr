@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5685f7932b49f8af57faf159a51a8cb634128337
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: e7d2621aab6d49c8bd6f4b6083c35d5e7299bf50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217488"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630512"
 ---
 # <a name="os-backup-and-restore"></a>OS 백업 및 복원
 
@@ -117,12 +117,12 @@ BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/cra
 
 ### <a name="take-a-manual-backup"></a>수동 백업 수행
 
-[Azure Application Consistent Snapshot 도구란 무엇인가](../../../azure-netapp-files/azacsnap-introduction.md)로 시작하는 일련의 문서에 설명된 대로 SAP HANA 용 최신 Microsoft Snapshot Tool을 다운로드하여 다름 문서에 설명된 것처럼 구성하고 테스트합니다.
+Azure 애플리케이션 일관성 있는 스냅샷 도구 로 시작하는 일련의 문서에서 설명한 대로 최신 SAP HANA 위한 Microsoft [스냅샷 도구를](../../../azure-netapp-files/azacsnap-introduction.md)얻습니다. 다음 문서에 설명된 대로 구성하고 테스트합니다.
 
 - [Azure 애플리케이션 일치 스냅샷 도구 구성](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
 - [Azure Application Consistent Snapshot Tool 테스트](../../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
 
-[Azure Application Consistent Snapshot 도구를 사용한 백업](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)에 설명된 대로 `crontab`을 통해 주기적으로 실행합니다. 
+이 검토는 Azure 애플리케이션 일관성 있는 `crontab` [스냅샷 도구를 사용하여 백업에](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)설명된 대로 을 통해 정기적으로 백업을 실행할 수 있도록 준비합니다. 
 
 자세한 내용은 다음 문서를 참조하세요.
 

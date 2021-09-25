@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/21/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, 감정 분석, 자연어 처리
-ms.openlocfilehash: 82e247d51351417a987205b2c65ea26be737ec5c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4cf8ddce1045209f6d5e45a2eaccbbf4d2f03afc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677570"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -100,7 +100,7 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
-# <a name="key-phrase-extraction-preview"></a>‘핵심 구 추출(미리 보기)’
+# <a name="key-phrase-extraction-preview"></a>[핵심 구 추출(미리 보기)](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
@@ -150,7 +150,7 @@ Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사
 
 * Text Analytics는 다양한 기능을 캡슐화하는 세 가지 Linux 컨테이너를 Docker에 제공합니다.
    * *감정 분석*
-   * ‘핵심 구 추출(미리 보기)’ 
+   * *핵심 구 추출(미리 보기)* 
    * *언어 감지*
    * *의료 분야 Text Analytics*
 * 컨테이너 이미지는 Microsoft 컨테이너 레지스트리(MCR)에서 다운로드됩니다.

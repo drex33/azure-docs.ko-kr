@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 3e17806a38cbf060ba40d24a7ebb861e7bf86d50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608173"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555929"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL의 계산 및 스토리지 옵션 - 유연한 서버
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL 서버는 버스트 가능, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 PostgreSQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 

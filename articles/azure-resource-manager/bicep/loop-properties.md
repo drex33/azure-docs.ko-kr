@@ -4,13 +4,13 @@ description: 리소스 속성을 만들 때 반복하려면 Bicep 속성 루프�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 6e9d41136401b28cf330bc828947d35a67c69a43
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: a845ab0b650b6b22459b3dace90bbc09a98de0a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225953"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625604"
 ---
 # <a name="property-iteration-in-bicep"></a>Bicep의 속성 반복
 
@@ -19,6 +19,10 @@ ms.locfileid: "123225953"
 속성에 루프를 적용하는 경우에도 최상위 리소스가 있는 루프만 사용할 수 있습니다. 자식 리소스를 최상위 수준 리소스로 변경하는 방법에 대해 자세히 알아보려면 [자식 리소스에 대한 반복](loop-resources.md#iteration-for-a-child-resource)을 참조하세요.
 
 [모듈](loop-modules.md), [리소스](loop-resources.md), [변수](loop-variables.md), [출력](loop-outputs.md)이 있는 루프도 사용할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+루프 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
 
 ## <a name="syntax"></a>구문
 
@@ -52,7 +56,10 @@ ms.locfileid: "123225953"
 
 ## <a name="loop-limits"></a>루프 한계
 
-Bicep 파일의 루프 반복은 음수일 수 없으며 800회 반복을 초과할 수 없습니다. 
+Bicep 루프에는 다음과 같은 제한이 있습니다.
+
+- 여러 수준의 속성을 반복할 수 없습니다.
+- 루프 반복은 음수이거나 800회 반복을 초과할 수 없습니다.
 
 ## <a name="loop-array"></a>루프 배열
 

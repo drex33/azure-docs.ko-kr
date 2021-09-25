@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 2a9cf8f74410f69d95b0f6944025220de2c94c08
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 308cd5186d97e87ff044db496809b04def41265b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588150"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667127"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-to-iot-central-application"></a>IoT Central 애플리케이션에서 X.509 인증서를 사용하여 디바이스를 연결하는 방법
 
@@ -78,7 +78,7 @@ IoT Central은 SAS(공유 액세스 서명) 및 X.509 인증서를 모두 지원
 
 1. IoT Central 애플리케이션을 열고 왼쪽 창에서 **관리** 로 이동하여 **디바이스 연결** 을 선택합니다.
 
-1. **+ 등록 그룹 만들기** 를 선택하고, 증명 형식 **인증서(X.509)** 를 사용하여 _MyX509Group_ 이라는 새 등록 그룹을 만듭니다.
+1. **+ 새로** 만들기를 선택 하 고 증명 형식 **인증서 (x.509)** 를 사용 하 여 _MyX509Group_ 라는 새 등록 그룹을 만듭니다.
 
 1. 만든 등록 그룹을 열고 **기본 관리** 를 선택합니다.
 
@@ -102,7 +102,7 @@ IoT Central은 SAS(공유 액세스 서명) 및 X.509 인증서를 모두 지원
 
 ### <a name="run-sample-device-code&quot;></a>샘플 디바이스 코드 실행
 
-:::zone pivot="programming-language-csharp"
+:::zone pivot=&quot;programming-language-csharp&quot;
 
 Windows를 사용하는 경우 샘플이 작동하려면 X.509 인증서가 Windows 인증서 저장소에 있어야 합니다. 저장소에 인증서를 추가하려면:
 
@@ -387,7 +387,7 @@ Windows를 사용하는 경우 샘플이 작동하려면 X.509 인증서가 Wind
 1. 스크립트를 실행하고 디바이스가 성공적으로 프로비저닝되었는지 확인합니다.
 
     ```cmd/sh
-    node simple_thermostat.js
+    node pnpTemperatureController.js
     ```
 
 :::zone-end
@@ -508,7 +508,7 @@ IoT Central 애플리케이션의 디바이스 보기에 원격 분석이 나타
 
 ### <a name="run-a-sample-individual-enrollment-device"></a>샘플 개별 등록 디바이스 실행
 
-1. **simple_thermostat.js** 애플리케이션을 포함하는 _mytestselfcertprimary_key.pem_ 및 _mytestselfcertprimary_cert.pem_ 파일을 _azure-iot-sdk-node/device/samples/pnp_ 폴더에 복사합니다. [디바이스 연결(JavaScript) 자습서](./tutorial-connect-device.md)를 완료할 때 이 애플리케이션을 사용했습니다.
+1. _mytestselfcertprimary_key.pem_ 및 _mytestselfcertprimary_cert.pem_ 파일을 **pnpTemperatureController.js** 애플리케이션이 포함된 _azure-iot-sdk-node/device/samples/pnp_ 폴더에 복사합니다. [디바이스 연결(JavaScript) 자습서](./tutorial-connect-device.md)를 완료할 때 이 애플리케이션을 사용했습니다.
 
 1. 위의 샘플에서 사용한 환경 변수를 다음과 같이 수정합니다.
 
@@ -566,7 +566,7 @@ X.509 디바이스 인증서를 사용하여 IoT Edge 디바이스를 IoT Centra
     sudo systemctl restart iotedge
     ```
 
-자세히 알아보려면 [x.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](../../iot-edge/how-to-auto-provision-x509-certs.md)을 참조하세요.
+자세한 내용은 [X.509 인증서를 사용하여 Linux에서 대규모로 IoT Edge 디바이스 만들기 및 프로비저닝을 참조하세요.](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md)
 
 ## <a name="connect-an-iot-edge-leaf-device"></a>IoT Edge 리프 디바이스 연결
 

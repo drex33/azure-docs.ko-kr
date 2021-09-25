@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: e11d455238f4a4e8c128a6cda83a145adaf149e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fa7076882370b404ea7b1e04cb5c364f22c35fae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648471"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
@@ -29,7 +29,7 @@ ms.locfileid: "122536587"
 |--------|---------|
 | 릴리스 상태 | **미리 보기**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | 필요한 역할 및 권한 | [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin)는 경고를 해제할 수 있습니다.<br>[보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader)는 발견 사항을 볼 수 있습니다. |
-| 가격 책정 | [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)가 필요합니다. |
+| 가격 책정 | 무료(미리 보기 중) |
 | 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | 제한 사항 | Azure Arc 지원 Kubernetes 및 Azure Defender 확장은 Google Kubernetes Engine 및 탄력적 Kubernetes 서비스와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다**. [Azure Defender는 기본적으로 AKS(Azure Kubernetes Service)에서 사용할 수 있으며](defender-for-kubernetes-introduction.md), 클러스터를 Azure Arc에 연결할 필요가 없습니다. |
 | 환경 및 지역 | 이 확장에 대한 가용성은 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)와 동일합니다.|
@@ -46,9 +46,18 @@ AKS가 아닌 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure Defender for Kubernetes를 [구독에서 사용하도록 설정](enable-azure-defender.md)합니다.
-- Kubernetes 클러스터를 [Azure Arc에 연결](../azure-arc/kubernetes/quickstart-connect-cluster.md)합니다.
-- [일반 클러스터 확장 설명서](../azure-arc/kubernetes/extensions.md#prerequisites)에 나열된 필수 구성 요소를 충족했습니다.
+확장을 배포하기 전에 다음을 확인합니다.
+- [Kubernetes 클러스터를 Azure Arc 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- 일반 [클러스터 확장 설명서 아래에 나열된 필수 구성을 완료합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
+- 아웃바운드 액세스를 위해 다음 엔드포인트에서 **포트 443을** 구성합니다.
+    - Azure Government 클라우드의 클러스터:
+        - *.ods.opinsights.azure.us
+        - *.oms.opinsights.azure.us
+        - :::no-loc text="login.microsoftonline.us":::
+    - 다른 Azure 클라우드 배포의 클러스터:
+        - *.ods.opinsights.azure.com
+        - *.oms.opinsights.azure.com
+        - :::no-loc text="login.microsoftonline.com":::
 
 ## <a name="deploy-the-azure-defender-extension"></a>Azure Defender 확장 배포
 
@@ -150,7 +159,7 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
     **인증** 을 위해 헤더에는 다른 Azure API와 마찬가지로 전달자 토큰이 있어야 합니다. 전달자 토큰을 가져오려면 다음 명령을 실행합니다.
 
-    ```az account get-access-token --subscription <your-subscription-id>``` 메시지 본문에 대해 다음 구조를 사용합니다.
+    `az account get-access-token --subscription <your-subscription-id>` 메시지 본문에 대해 다음 구조를 사용합니다.
     ```json
     { 
     "properties": { 

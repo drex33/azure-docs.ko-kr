@@ -2,13 +2,13 @@
 title: 여러 인스턴스의 파티션 부하 분산 - Azure Event Hubs | Microsoft Docs
 description: 이벤트 프로세서와 Azure Event Hubs SDK를 사용하여 애플리케이션의 여러 인스턴스의 파티션 부하를 분산하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: d27736667ca6d5e7e073b24f3cfcad96b2381c0d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 9ddccf27ad12759cb502a969440cff3b81478389
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676716"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>애플리케이션의 여러 인스턴스의 파티션 부하 분산
 이벤트 처리 애플리케이션의 크기를 조정하기 위해 애플리케이션의 여러 인스턴스를 실행하고 부하를 분산하도록 할 수 있습니다. 이전 버전에서는 [EventProcessorHost](event-hubs-event-processor-host.md)를 사용하여 프로그램의 여러 인스턴스와 수신되는 검사점 이벤트 간의 부하를 분산할 수 있었습니다. 최신 버전(5.0 이상)에서는 **EventProcessorClient**(.NET 및 Java) 또는 **EventHubConsumerClient**(Python 및 JavaScript)를 사용하여 동일한 작업을 수행할 수 있습니다. 이벤트를 사용하여 개발 모델을 더 간단하게 할 수 있습니다. 이벤트 처리기를 등록하여 관심 있는 이벤트를 구독합니다. 이전 버전의 클라이언트 라이브러리를 사용하는 경우 [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md) 및 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) 마이그레이션 가이드를 참조하세요.

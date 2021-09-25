@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: f9f787af8cad8dffa728e29fd3a13defc8e160ca
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
-ms.translationtype: HT
+ms.openlocfilehash: 2335b1e85290cdea805c3a77754a5843da6cbbda
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494872"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672365"
 ---
 # <a name="pronunciation-assessment"></a>발음 평가
 
@@ -28,7 +28,7 @@ ms.locfileid: "110494872"
 이 문서에서는 Speech SDK를 사용하여 `PronunciationAssessmentConfig`를 설정하고 `PronunciationAssessmentResult`를 검색하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 현재 발음 평가 기능은 `en-US` 언어를 지원하며, 이 언어는 모든 [음성 텍스트 변환 지역](regions.md#speech-to-text-text-to-speech-and-translation)에서 사용할 수 있습니다. `en-GB` 및 `zh-CN` 언어에 대한 지원은 `westus`, `eastasia` 및 `centralindia` 지역에서 사용 가능한 미리 보기 상태로 제공됩니다.
+> 현재 발음 평가 기능은 `en-US` 언어를 지원하며, 이 언어는 모든 [음성 텍스트 변환 지역](regions.md#speech-to-text-text-to-speech-and-translation)에서 사용할 수 있습니다. 및 언어에 대 한 지원은 `en-GB` `zh-CN` 미리 보기 상태입니다.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Speech SDK를 사용한 발음 평가
 

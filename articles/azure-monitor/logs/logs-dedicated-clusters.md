@@ -1,25 +1,25 @@
 ---
 title: Azure Monitor 로그 전용 클러스터
-description: 모니터링 데이터를 하루에 1TB 넘게 수집하는 고객은 공유 클러스터 대신 전용 클러스터를 사용할 수 있습니다.
+description: 최소 약정 계층을 충족하는 고객은 전용 클러스터를 사용할 수 있습니다.
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: yossi-y
+ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 447836fa8a7468b9bf2a76fdfd81c899f7105ed0
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 3aafeacbd07e386a23b289db0452a7425e18f567
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632617"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 로그 전용 클러스터
 
 Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고급 기능을 사용할 수 있게 해주는 배포 옵션입니다. 고객은 전용 클러스터에서 호스트되어야 하는 Log Analytics 작업 영역을 선택할 수 있습니다.
 
-전용 클러스터를 사용하려면 하루에 최소 1TB의 데이터 수집 용량 사용을 약정해야 합니다. 데이터 손실이나 서비스 중단 없이 기존 작업 영역을 전용 클러스터로 마이그레이션할 수 있습니다. 
+전용 클러스터를 사용하려면 고객이 하루에 500GB 이상의 데이터 수집을 커밋해야 합니다. 데이터 손실이나 서비스 중단 없이 기존 작업 영역을 전용 클러스터로 마이그레이션할 수 있습니다. 
 
-전용 클러스터가 필요한 기능은 다음과 같습니다.
+전용 클러스터가 필요한 기능:
 
 - **[고객 관리형 키](../logs/customer-managed-keys.md)** - 고객이 제공하고 제어하는 키를 사용하여 클러스터 데이터를 암호화합니다.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Microsoft 지원 엔지니어의 데이터 액세스 요청을 제어합니다.
@@ -30,18 +30,16 @@ Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고�
 
 ## <a name="management"></a>관리 
 
-전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 사용하여 관리됩니다. 모든 작업은 PowerShell 또는 REST API를 사용하여 이 리소스에서 수행됩니다.
+전용 클러스터는 Azure Monitor 로그 클러스터를 나타내는 Azure 리소스를 사용하여 관리됩니다. 작업은 [CLI,](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest) [PowerShell](/powershell/module/az.operationalinsights) 또는 [REST](/rest/api/loganalytics/clusters)를 사용하여 프로그래밍 방식으로 수행됩니다.
 
-클러스터가 생성되면 이를 구성하고 작업 영역을 연결할 수 있습니다. 작업 영역과 클러스터가 연결되면 작업 영역으로 전송된 새 데이터가 클러스터에 상주합니다. 클러스터와 동일한 지역에 있는 작업 영역만 클러스터와 연결할 수 있습니다. 작업 영역과 클러스터의 연결을 해제할 수 있지만, 여기에는 몇 가지 제한 사항이 있습니다. 이러한 제한 사항은 이 문서에서 자세히 다룹니다. 
-
-전용 클러스터에 수집되는 데이터는 Microsoft 관리형 키 또는 [고객 관리형 키](../logs/customer-managed-keys.md)를 사용하는 서비스 수준에서 한 번, 두 개의 서로 다른 암호화 알고리즘과 두 개의 서로 다른 키를 사용하여 인프라 수준에서 한 번, 총 두 번 암호화됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 암호화 알고리즘 또는 키 중 하나가 손상될 수 있는 시나리오로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다. 전용 클러스터를 사용하면 [Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
+클러스터가 만들어지면 작업 영역을 연결하고 새로 수집된 데이터를 클러스터에 저장합니다. 언제든지 클러스터에서 작업 영역을 연결 해제할 수 있으며 새 데이터는 공유 Log Analytics 클러스터에 저장됩니다. 링크 및 연결 해제 작업은 작업 영역의 보존을 적용하는 작업 전후의 쿼리 및 데이터에 대한 액세스에 영향을 미치지 않습니다. 연결을 허용하려면 클러스터와 작업 영역이 동일한 지역에 있어야 합니다.
 
 클러스터 수준의 모든 작업에는 클러스터에 대한 `Microsoft.OperationalInsights/clusters/write` 작업 권한이 필요합니다. 이 권한은 `*/write` 작업이 포함된 소유자이거나 기여자 또는 `Microsoft.OperationalInsights/*` 작업이 포함된 Log Analytics 기여자 역할을 통해 부여될 수 있습니다. Log Analytics 권한에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](./manage-access.md)를 참조하세요. 
 
 
 ## <a name="cluster-pricing-model"></a>클러스터 가격 책정 모델
 
-Log Analytics 전용 클러스터는 하루에 500GB 이상의 약정 계층 가격 책정 모델을 사용합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다.  약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
+Log Analytics 전용 클러스터는 하루 500GB 이상의 약정 계층(이전의 용량 예약이라고 함) 가격 책정 모델을 사용합니다. 계층 수준 이상의 사용량은 해당 약정 계층의 GB당 유효 요금으로 청구됩니다. 약정 계층 가격 책정 정보는 [Azure Monitor 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/monitor/)에서 확인할 수 있습니다.  
 
 클러스터 약정 계층 수준은 `Sku` 아래에서 `Capacity` 매개 변수를 사용하여 Azure Resource Manager를 통해 프로그래밍 방식으로 구성됩니다. `Capacity`는 GB 단위로 지정되며 500, 1,000, 2,000 또는 5,000GB/일 값을 가질 수 있습니다.
 
@@ -74,26 +72,27 @@ Authorization: Bearer <token>
 
 새 전용 클러스터를 만들 때 다음 속성을 지정해야 합니다.
 
-- **ClusterName**: 관리 목적으로 사용됩니다. 사용자에게는 이 이름이 노출되지 않습니다.
-- **ResourceGroupName**: 전용 클러스터의 리소스 그룹입니다. 조직 내 여러 팀에서 클러스터를 공유하는 것이 일반적이므로 중앙 IT 리소스 그룹을 사용해야 합니다. 추가적인 디자인 고려 사항은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md)을 참조하세요.
-- **Location**: 클러스터는 특정 Azure 지역에 위치합니다. 이 지역에 위치한 작업 영역만 이 클러스터에 연결할 수 있습니다.
-- **SkuCapacity**: 클러스터 리소스를 만들 때 약정 계층(sku)을 지정해야 합니다. 약정 계층은 500, 1,000, 2,000 또는 5,000GB/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 
- 
+- **ClusterName**
+- **ResourceGroupName:** 클러스터는 일반적으로 조직의 많은 팀에서 공유하므로 중앙 IT 리소스 그룹을 사용해야 합니다. 추가적인 디자인 고려 사항은 [Azure Monitor 로그 배포 디자인](../logs/design-logs-deployment.md)을 참조하세요.
+- **위치**
+- **SkuCapacity:** 약정 계층(이전의 용량 예약)은 500, 1000, 2000 또는 5000GB/일로 설정할 수 있습니다. 클러스터 비용에 대한 자세한 내용은 [Log Analytics 클러스터의 비용 관리](./manage-cost-storage.md#log-analytics-dedicated-clusters)를 참조하세요. 
 
-> [!NOTE]
-> 약정 계층을 이전에는 용량 예약이라고 했습니다. 
+클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한`Microsoft.OperationalInsights/clusters/write`이 있어야 하며, 이들 권한은 역할 할당 시 이 특정 작업 또는 `Microsoft.OperationalInsights/*` 또는 `*/write`를 포함하여 부여할 수 있습니다.
 
 cluster 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billingType* 과 같은 추가 속성을 편집할 수 있습니다. 자세한 내용은 아래를 참조하세요.
 
 지역별로 구독당 최대 2개의 활성 클러스터를 사용할 수 있습니다. 클러스터가 삭제되어도 14일 동안 계속 예약되어 있습니다. 지역별로 구독당 최대 4개의 예약된 클러스터를 사용할 수 있습니다(활성 또는 최근 삭제).
 
-> [!WARNING]
-> 클러스터를 만들면 리소스 할당 및 프로비전이 트리거됩니다. 이 작업을 완료하는 데 몇 시간 정도 걸릴 수 있습니다. 이 작업은 비동기적으로 실행하는 것이 좋습니다.
-
-클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한`Microsoft.OperationalInsights/clusters/write`이 있어야 하며, 이들 권한은 역할 할당 시 이 특정 작업 또는 `Microsoft.OperationalInsights/*` 또는 `*/write`를 포함하여 부여할 수 있습니다.
+> [!NOTE]
+> 클러스터를 만들면 리소스 할당 및 프로비전이 트리거됩니다. 이 작업을 완료하는 데 몇 시간 정도 걸릴 수 있습니다.
+> 전용 클러스터는 데이터 수집에 관계없이 프로비전되면 요금이 청구되며, 클러스터에 대한 프로비전 및 작업 영역 링크를 신속하게 처리할 수 있도록 배포를 준비하는 것이 좋습니다. 다음을 확인합니다.
+> - 클러스터에 연결할 초기 작업 영역 목록이 식별됩니다.
+> - 클러스터 및 모든 작업 영역을 연결하기 위한 구독에 대한 권한이 있습니다.
 
 **CLI**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
 
 # Wait for job completion
@@ -103,6 +102,8 @@ az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/r
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
 # Check when the job is done
@@ -144,12 +145,16 @@ Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립�
 **CLI**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
  
@@ -202,7 +207,7 @@ GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확
 
 ## <a name="link-a-workspace-to-a-cluster"></a>클러스터에 작업 영역 연결
 
-기존 데이터가 기존 클러스터에 남아 있는 반면, Log Analytics 작업 영역을 전용 클러스터에 연결하면 작업 영역에 수집되는 새 데이터가 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
+Log Analytics 작업 영역이 전용 클러스터에 연결된 경우 작업 영역에 수집된 새 데이터는 기존 클러스터에 남아 있는 동안 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
 
 하나의 클러스터에 최대 1,000개의 작업 영역을 연결할 수 있습니다. 연결된 작업 영역은 클러스터와 동일한 지역에 위치합니다. 시스템 백 엔드를 보호하고 데이터 조각화를 방지하기 위해 한 달에 두 번 넘게 작업 영역을 클러스터에 연결할 수 없습니다.
 
@@ -224,8 +229,12 @@ GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확
 
 **CLI**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 # Find cluster resource ID
 $clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
 
@@ -236,8 +245,12 @@ az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/r
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 # Find cluster resource ID
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
+
+Select-AzSubscription "workspace-subscription-id"
 
 # Link the workspace to the cluster
 Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
@@ -279,12 +292,16 @@ Content-type: application/json
 
 **CLI**
 ```azurecli
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "workspace-subscription-id"
+
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
@@ -334,7 +351,7 @@ Authorization: Bearer <token>
 
 ## <a name="change-cluster-properties"></a>클러스터 속성 변경
 
-클러스터 리소스를 만들고 완전히 프로비저닝한 후에는 PowerShell 또는 REST API를 사용하여 추가 속성을 편집할 수 있습니다. 클러스터가 프로비저닝된 후 설정할 수 있는 추가 속성은 다음과 같습니다.
+클러스터 리소스를 만들고 완전히 프로 비전 한 후에는 CLI, PowerShell 또는 REST API를 사용 하 여 추가 속성을 편집할 수 있습니다. 클러스터가 프로비저닝된 후 설정할 수 있는 추가 속성은 다음과 같습니다.
 
 - **keyVaultProperties** - *KeyVaultUri*, *KeyName*, *KeyVersion* 매개 변수와 함께 Azure Key Vault의 키를 포함합니다. [키 식별자 세부 정보로 클러스터 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요.
 - **ID** - Key Vault에 인증하는 데 사용되는 ID입니다. 시스템 할당 또는 사용자 할당일 수 있습니다.
@@ -354,12 +371,16 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
@@ -418,12 +439,16 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster list
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster
 ```
 **REST API**
@@ -449,12 +474,16 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
@@ -512,12 +541,16 @@ Content-type: application/json
 **CLI**
 
 ```azurecli
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "workspace-subscription-id"
+
 # Unlink a workspace from cluster
 Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
@@ -542,12 +575,16 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 **CLI**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
 

@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 0497f35b1b0d1df05c1e64f092ff45ebb9678390
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: 5c50cffb561076dd7d9c4af8e5b4654784cc3a01
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555363"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob Storage에 대한 비용 계획 및 관리
 
@@ -30,13 +30,13 @@ Blob Storage 비용은 Azure 청구서의 월별 비용 중 일부일 뿐임에 
 
 2. 페이지 아래로 스크롤하고 예상되는 **스토리지 계정** 섹션을 찾습니다.
 
-3. 드롭다운 목록에서 옵션을 선택합니다. 
+3. 드롭다운 목록에서 옵션을 선택합니다.
 
    이러한 드롭다운 목록의 값을 수정하면 예상 비용이 변경됩니다. 예상 값은 예상 비용의 아래쪽과 위쪽 모서리에 표시됩니다.
 
    ![예상 비용을 보여 주는 스크린샷](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
-   **유형** 드롭다운 목록의 값을 변경하면 이 워크시트에 표시되는 다른 옵션도 변경됩니다. **추가 정보** 섹션의 링크를 사용하여 각 옵션의 의미와 이러한 옵션이 스토리지 관련 작업의 가격에 미치는 영향에 대해 자세히 알아보세요. 
+   **유형** 드롭다운 목록의 값을 변경하면 이 워크시트에 표시되는 다른 옵션도 변경됩니다. **추가 정보** 섹션의 링크를 사용하여 각 옵션의 의미와 이러한 옵션이 스토리지 관련 작업의 가격에 미치는 영향에 대해 자세히 알아보세요.
 
 4. 나머지 옵션을 수정하여 예상 값에 대한 영향을 확인합니다.
 
@@ -46,9 +46,9 @@ Azure Blob Storage는 새 리소스를 배포할 때 비용이 발생하는 Azur
 
 ### <a name="how-youre-charged-for-azure-blob-storage"></a>Azure Blob Storage 요금 청구 방식
 
-Azure Blob Storage 리소스를 만들거나 사용할 때 다음 측정 단위에 대해 요금이 청구됩니다. 
+Azure Blob Storage 리소스를 만들거나 사용할 때 다음 측정 단위에 대해 요금이 청구됩니다.
 
-| 미터 | 단위 | 
+| 미터 | 단위 |
 |---|---|
 | 데이터 스토리지 | GB당/매월|
 | 작업 | 트랜잭션당 |
@@ -66,19 +66,19 @@ Azure Blob Storage 리소스를 만들거나 사용할 때 다음 측정 단위�
 
 청구 주기가 끝날 때 각 측정 단위의 요금이 합산됩니다. 청구서 또는 송장에 모든 Azure Blob Storage 비용에 대한 섹션이 표시됩니다. 각 측정 단위에 대한 별도의 줄 항목이 있습니다.
 
-데이터 저장소 및 메타데이터는 매월 GB당 청구됩니다. 한 달 미만 동안 저장된 데이터 및 메타데이터의 경우, 하루에 각 GB의 비용을 계산하여 월별 청구서에 미치는 영향을 예상할 수 있습니다. 비슷한 접근 방식을 사용하여 한 달 미만으로 사용 중인 암호화 범위의 비용을 예측할 수 있습니다. 지정된 월의 일 수는 다릅니다. 따라서 지정된 월의 비용에 대한 최상의 근사값을 얻으려면 월별 비용을 해당 월에 발생하는 일 수를 기준으로 나누어야 합니다. 
+데이터 저장소 및 메타데이터는 매월 GB당 청구됩니다. 한 달 미만 동안 저장된 데이터 및 메타데이터의 경우, 하루에 각 GB의 비용을 계산하여 월별 청구서에 미치는 영향을 예상할 수 있습니다. 비슷한 접근 방식을 사용하여 한 달 미만으로 사용 중인 암호화 범위의 비용을 예측할 수 있습니다. 지정된 월의 일 수는 다릅니다. 따라서 지정된 월의 비용에 대한 최상의 근사값을 얻으려면 월별 비용을 해당 월에 발생하는 일 수를 기준으로 나누어야 합니다.
 
 ### <a name="finding-the-unit-price-for-each-meter"></a>미터당 단가 찾기
 
 단가를 찾으려면 올바른 가격 책정 페이지를 엽니다. 계정에서 계층 구조 네임스페이스 기능을 사용하도록 설정한 경우 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/) 페이지를 참조하세요. 이 기능을 사용하도록 설정하지 않은 경우에는 [블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지를 참조하세요.
 
-가격 책정 페이지에서 적절한 중복성, 지역 및 통화 필터를 적용합니다. 각 미터의 가격은 테이블에 표시됩니다. 가격은 데이터 중복 옵션, 액세스 계층, 성능 계층 등 계정의 다른 설정에 따라 다릅니다. 
+가격 책정 페이지에서 적절한 중복성, 지역 및 통화 필터를 적용합니다. 각 미터의 가격은 테이블에 표시됩니다. 가격은 데이터 중복 옵션, 액세스 계층, 성능 계층 등 계정의 다른 설정에 따라 다릅니다.
 
 ### <a name="flat-namespace-accounts-and-transaction-pricing"></a>단일 구조 네임스페이스 계정 및 트랜잭션 가격 책정
 
 클라이언트는 계정의 Blob Storage 엔드포인트 또는 Data Lake Storage 엔드포인트를 사용하여 요청할 수 있습니다. 스토리지 계정 엔드포인트를 자세히 알아보려면 [스토리지 계정 개요](storage-account-overview.md#storage-account-endpoints)를 참조하세요.
 
-[블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지에 표시되는 트랜잭션 가격은 Blob Storage 엔드포인트(예: `https://<storage-account>.blob.core.windows.net`)를 사용하는 요청에만 적용됩니다. 나열된 가격은 Data Lake Storage Gen2 엔드포인트(예: `https://<storage-account>.dfs.core.windows.net`)를 사용하는 요청에는 적용되지 않습니다. 이러한 요청의 트랜잭션 가격의 경우 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/) 페이지를 열고 **단일 구조 네임스페이스** 옵션을 선택합니다. 
+[블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지에 표시되는 트랜잭션 가격은 Blob Storage 엔드포인트(예: `https://<storage-account>.blob.core.windows.net`)를 사용하는 요청에만 적용됩니다. 나열된 가격은 Data Lake Storage Gen2 엔드포인트(예: `https://<storage-account>.dfs.core.windows.net`)를 사용하는 요청에는 적용되지 않습니다. 이러한 요청의 트랜잭션 가격의 경우 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/) 페이지를 열고 **단일 구조 네임스페이스** 옵션을 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![단일 구조 네임스페이스 옵션](media/storage-plan-manage-costs/select-flat-namespace.png)
@@ -89,8 +89,7 @@ Data Lake Storage Gen2 엔드포인트에 대한 요청은 다음 원본 중 하
 
 - [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)를 사용하는 REST 호출
 
-- Azure Storage 클라이언트 라이브러리에서 Data Lake Storage Gen2 API를 사용하는 애플리케이션  
-
+- Azure Storage 클라이언트 라이브러리에서 Data Lake Storage Gen2 API를 사용하는 애플리케이션
 
 ### <a name="using-azure-prepayment-with-azure-blob-storage"></a>Azure Blob Storage와 함께 Azure 선불 사용
 
@@ -98,7 +97,7 @@ Azure 선불(이전에는 현금 약정 금액이라고 함) 크레딧을 사용
 
 ## <a name="optimize-costs"></a>비용 최적화
 
-이러한 옵션을 사용하여 비용을 줄이는 것이 좋습니다. 
+이러한 옵션을 사용하여 비용을 줄이는 것이 좋습니다.
 
 - 스토리지 용량 예약
 
@@ -106,17 +105,17 @@ Azure 선불(이전에는 현금 약정 금액이라고 함) 크레딧을 사용
 
 - 액세스 계층 간에 데이터를 자동으로 이동
 
-이 섹션에서는 각 옵션에 대해 자세히 설명합니다. 
+이 섹션에서는 각 옵션에 대해 자세히 설명합니다.
 
 #### <a name="reserve-storage-capacity"></a>스토리지 용량 예약
 
-Azure Storage 예약된 용량을 사용하여 Blob 데이터에 대한 스토리지 비용을 절감할 수 있습니다. Azure Storage 예약된 용량은 1년 또는 3년 예약을 약정하면 표준 스토리지 계정의 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 할인을 제공합니다. 예약은 예약 기간 동안 고정된 양의 스토리지 용량을 제공합니다. Azure Storage 예약된 용량은 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 비용을 크게 줄일 수 있습니다. 
+Azure Storage 예약된 용량을 사용하여 Blob 데이터에 대한 스토리지 비용을 절감할 수 있습니다. Azure Storage 예약된 용량은 1년 또는 3년 예약을 약정하면 표준 스토리지 계정의 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 할인을 제공합니다. 예약은 예약 기간 동안 고정된 양의 스토리지 용량을 제공합니다. Azure Storage 예약된 용량은 블록 Blob 및 Azure Data Lake Storage Gen2 데이터에 대한 용량 비용을 크게 줄일 수 있습니다.
 
 자세한 내용은 [예약된 용량으로 Blob Storage에 대한 비용 최적화](../blobs/storage-blob-reserved-capacity.md)를 참조하세요.
 
 #### <a name="organize-data-into-access-tiers"></a>액세스 계층으로 데이터 구성
 
-Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치하여 비용을 줄일 수 있습니다. 데이터 사용에 대한 비용을 최적화하도록 설계된 세 가지 계층 중에서 선택합니다. 예를 들어, *핫* 계층은 스토리지 비용은 더 높지만 액세스 비용은 더 낮습니다. 따라서 데이터에 자주 액세스할 계획인 경우 핫 계층이 가장 비용 효율적인 선택이 될 수 있습니다. 데이터 액세스 빈도를 줄이려는 경우 *콜드* 또는 *보관* 계층이 데이터 액세스 비용을 높이고 데이터 저장 비용을 절감하므로 가장 적합할 수 있습니다.    
+Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치하여 비용을 줄일 수 있습니다. 데이터 사용에 대한 비용을 최적화하도록 설계된 세 가지 계층 중에서 선택합니다. 예를 들어, *핫* 계층은 스토리지 비용은 더 높지만 액세스 비용은 더 낮습니다. 따라서 데이터에 자주 액세스할 계획인 경우 핫 계층이 가장 비용 효율적인 선택이 될 수 있습니다. 데이터 액세스 빈도를 줄이려는 경우 *콜드* 또는 *보관* 계층이 데이터 액세스 비용을 높이고 데이터 저장 비용을 절감하므로 가장 적합할 수 있습니다.
 
 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal)을 참조하세요.
 
@@ -124,7 +123,7 @@ Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치하여 �
 
 수명 주기 관리 정책을 사용하여 정기적으로 계층 간에 데이터를 이동하면 비용을 절감할 수 있습니다. 이러한 정책은 지정한 규칙을 사용하여 데이터를 이동할 수 있습니다. 예를 들어 Blob가 90일 이내에 수정되지 않은 경우 Blob를 보관 계층으로 이동하는 규칙을 만들 수 있습니다. 데이터의 액세스 계층을 조정하는 정책을 만들어 요구에 가장 저렴한 스토리지 옵션을 디자인할 수 있습니다.
 
-자세한 내용은 [Azure Blob Storage 수명 주기 관리](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)를 참조하세요.
+자세한 내용은 [Azure Blob Storage 수명 주기 관리](../blobs/lifecycle-management-overview.md?tabs=azure-portal)를 참조하세요.
 
 ## <a name="create-budgets"></a>예산 만들기
 
@@ -136,7 +135,7 @@ Azure Storage를 사용하여 Azure 리소스를 사용하는 경우 비용이 �
 
 비용 분석을 사용하면 서로 다른 시간 간격에 대한 그래프 및 테이블로 Azure Storage 비용을 조회할 수 있습니다. 몇 가지 예로 일, 현재 달과 이전 달 및 연도에 따라 확인할 수 있습니다. 예산 및 예상 비용에 대한 비용도 조회할 수 있습니다. 시간 경과에 따라 더 긴 보기로 전환하면 지출 추세를 파악하고 낭비가 발생할 수 있는 위치를 확인할 수 있습니다. 예산을 만든 경우 초과되는 지점을 쉽게 확인할 수도 있습니다.
 
->[!NOTE]
+> [!NOTE]
 > 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다. Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
 비용 분석에서 Azure Storage 비용을 보려면 다음을 수행합니다.
@@ -147,7 +146,7 @@ Azure Storage를 사용하여 Azure 리소스를 사용하는 경우 비용이 �
 
    ![범위를 보여 주는 스크린샷](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Azure Storage에 대한 비용만 보려면 **필터 추가** 를 선택한 다음 **서비스 이름** 을 선택합니다. 그런 다음 목록에서 **스토리지** 를 선택합니다. 
+4. Azure Storage에 대한 비용만 보려면 **필터 추가** 를 선택한 다음 **서비스 이름** 을 선택합니다. 그런 다음 목록에서 **스토리지** 를 선택합니다.
 
    Azure Storage에 대한 비용을 보여 주는 예제는 다음과 같습니다.
 
@@ -164,7 +163,6 @@ Azure Storage를 사용하여 Azure 리소스를 사용하는 경우 비용이 �
 **Azure Storage를 한 달에 며칠만 사용하는 경우 비용이 일별로 계산되나요?**
 
 스토리지 용량은 한 달 동안 저장된 평균 일일 데이터 양(GB)을 단위로 요금이 청구됩니다. 예를 들어 매월 첫 15일은 10GB의 스토리지를 지속적으로 사용하고 나머지 15일은 사용하지 않은 경우 평균 5GB의 스토리지 사용량에 대해 요금이 청구됩니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

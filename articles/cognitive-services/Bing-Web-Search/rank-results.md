@@ -3,20 +3,18 @@ title: 순위를 사용하여 검색 결과를 표시하는 방법 - Bing Web Se
 titleSuffix: Azure Cognitive Services
 description: 순위를 사용하여 Bing Web Search API의 검색 결과를 표시하는 방법을 알아봅니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
-ms.author: scottwhi
-ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4c7ffac31f5b5d6fecacb78487f8b7400d109e6d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94380452"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620544"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>순위를 사용하여 Bing Web Search API 결과를 표시하는 방법  
 

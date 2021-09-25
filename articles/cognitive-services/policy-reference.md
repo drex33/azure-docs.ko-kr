@@ -1,18 +1,18 @@
 ---
 title: Azure Cognitive Services에 대한 기본 제공 정책 정의
 description: Azure Cognitive Services에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0884bde15cad9ff1e7d6ea3492e8dc2a6369b0fc
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1659bd54d907d5d25bf275113f5d7d45b7cba96d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677698"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 Azure Policy 기본 제공 정책 정의
 

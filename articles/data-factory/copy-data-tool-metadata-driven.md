@@ -3,15 +3,16 @@ title: 데이터 복사 도구에서 메타데이터 기반 접근 방식으로 
 description: ADF 데이터 복사 도구의 메타데이터 기반 접근 방식에 대한 정보 제공
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
-ms.openlocfilehash: e2263db67214fb6fea91c8a8cefa65a981475ec3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 02d7b741ec0c3fb9547d10bde759900ce3a69dd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681600"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663348"
 ---
 # <a name="build-large-scale-data-copy-pipelines-with-metadata-driven-approach-in-copy-data-tool-preview"></a>데이터 복사 도구에서 메타데이터 기반 접근 방식으로 대규모 데이터 복사 파이프라인 구축(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,15 +27,15 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
    생성된 파이프라인이 메타데이터를 읽을 수 있도록 제어 테이블의 연결 및 테이블 이름을 입력해야 합니다.
 
-   ![작업 유형 선택](./media/copy-data-tool-metadata-driven/select-task-type.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-task-type.png" alt-text="작업 유형 선택":::
 
 2. **원본 데이터베이스의 연결** 을 입력합니다. [매개 변수화된 연결 서비스](parameterize-linked-services.md)도 사용할 수 있습니다.
 
-   ![매개 변수화된 연결 서비스 선택](./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png" alt-text="매개 변수화된 연결 서비스 선택":::
 
 3. 복사할 **테이블 이름** 을 선택합니다.
 
-   ![테이블 선택](./media/copy-data-tool-metadata-driven/select-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-table.png" alt-text="테이블 선택":::
 
    > [!NOTE]
    > 테이블 형식 데이터 저장소를 선택하면 다음 페이지에서 전체 로드 또는 증분 로드를 추가로 선택할 수 있습니다. 스토리지 저장소를 선택하면 다음 페이지에서 추가로 전체 로드만 선택할 수 있습니다. 스토리지 저장소에서만 새 파일을 점진적으로 로드하는 것은 현재 지원되지 않습니다.  
@@ -47,11 +48,11 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
 6. **설정** 페이지에서 **동시 복사 작업 수** 를 통해 원본 저장소에서 데이터를 동시에 복사할 최대 복사 작업 수를 결정할 수 있습니다. 기본값은 20입니다. 
 
-   ![설정 페이지](./media/copy-data-tool-metadata-driven/settings.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/settings.png" alt-text="설정 페이지":::
 
 7. 파이프라인 배포 후 제어 테이블 및 저장 프로시저 만들기를 위해 UI에서 SQL 스크립트를 복사하거나 다운로드할 수 있습니다. 
 
-   ![스크립트 다운로드](./media/copy-data-tool-metadata-driven/download-scripts.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/download-scripts.png" alt-text="스크립트 다운로드":::
 
    두 개의 SQL 스크립트가 표시됩니다.
    
@@ -60,15 +61,15 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
 8. **SSMS** 를 열어 제어 테이블 서버에 연결하고 두 개의 SQL 스크립트를 실행하여 제어 테이블과 저장 프로시저를 만듭니다.
 
-   ![제어 테이블 만들기 스크립트](./media/copy-data-tool-metadata-driven/create-control-table-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/create-control-table-script.png" alt-text="제어 테이블 만들기 스크립트":::
 
 9. 기본 제어 테이블과 연결 제어 테이블을 쿼리하여 그 안의 메타데이터를 검토합니다.
 
    **주 제어 테이블**
-   ![쿼리 제어 테이블 스크립트1](./media/copy-data-tool-metadata-driven/query-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-control-table.png" alt-text="쿼리 제어 테이블 스크립트1":::
 
    **연결 제어 테이블**
-   ![쿼리 제어 테이블 스크립트2](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-connection-control-table.png" alt-text="쿼리 제어 테이블 스크립트2":::
 
 10. ADF 포털로 돌아가서 파이프라인을 보고 디버그합니다. "MetadataDrivenCopyTask_### _######"라는 이름으로 만들어진 폴더가 표시됩니다. "MetadataDrivenCopyTask_###_TopLevel"로 이름이 지정된 파이프라인을 **클릭** 하고 **디버그 실행** 을 클릭합니다. 
 
@@ -85,7 +86,7 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
 11. 파이프라인을 작동하려면 트리거를 사용하도록 설정합니다.
 
-    ![트리거 사용](./media/copy-data-tool-metadata-driven/enable-trigger.png)
+    :::image type="content" source="./media/copy-data-tool-metadata-driven/enable-trigger.png" alt-text="트리거 사용":::
 
 
 ## <a name="update-control-table-by-copy-data-tool"></a>데이터 복사 도구로 제어 테이블 업데이트
@@ -93,15 +94,15 @@ ADF의 데이터 복사 도구는 이러한 메타데이터 기반 데이터 복
 
 1. 최상위 파이프라인 **MetadataDrivenCopyTask_xxx_TopLevel** 을 마우스 오른쪽 단추로 클릭한 다음 **제어 테이블 편집** 을 선택합니다.
 
-   ![제어 테이블 편집1](./media/copy-data-tool-metadata-driven/edit-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table.png" alt-text="제어 테이블 편집1":::
 
 2. 편집할 제어 테이블에서 행을 선택합니다.
 
-   ![제어 테이블 편집2](./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png" alt-text="제어 테이블 편집2":::
 
 3. 데이터 복사 도구 배포 절차를 완료하면 새 SQL 스크립트가 제공됩니다. SQL 스크립트를 다시 실행하여 제어 테이블을 업데이트합니다.
 
-   ![제어 테이블 편집3](./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png" alt-text="제어 테이블 편집3":::
 
    > [!NOTE]
    > 파이프라인은 재배포되지 않습니다. 새로 만들어진 SQL 스크립트는 제어 테이블만 업데이트하는 데 도움이 됩니다. 

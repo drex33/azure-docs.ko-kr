@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c9d16093b19fbcf1b8f0f60799c268d206fe956d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 51bad8290bea95374349bfd00b69a4c6474b226a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529826"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596945"
 ---
 # <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Azure Storage 계정에서 Blob의 액세스 계층 관리
 
@@ -60,7 +60,7 @@ $ctx = $storageAccount.Context
 #Select the blob from a container
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
-#Change the blob’s access tier to archive
+#Change the blob's access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 
@@ -69,5 +69,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## <a name="next-steps"></a>다음 단계
 
 - [Blob Storage 계정의 기본 계정 액세스 계층을 관리하는 방법](../common/manage-account-default-access-tier.md)
-- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](archive-rehydrate-overview.md)
+- [보관 계층에서 blob 데이터 리하이드레이션](archive-rehydrate-overview.md) 에 대 한 자세한 정보
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)

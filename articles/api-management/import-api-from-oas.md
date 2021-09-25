@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 OpenAPI 사양 가져오기 | Microsoft Docs
 description: API Management를 사용하여 OpenAPI 사양 API를 가져온 다음, Azure 및 개발자 포털에서 API를 테스트하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
-ms.author: apimpm
-ms.openlocfilehash: 2fd06fa92d7ad028aa45d78268f5a992d4b2b862
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 438e779d5eb7718a5cf9b56cf9bbe7404f6861c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186356"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679336"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 

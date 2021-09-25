@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 80706316490cde805ef19b0f1c90f2870dc195ab
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 00b6429e14dcb04a76abbc1a8d49a29b220c7c06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607079"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Azure Purview의 탄력적 데이터 맵
 
@@ -21,7 +21,7 @@ Azure Purview 데이터 맵은 데이터 검색과 데이터 거버넌스를 위
 
 ## <a name="elastic-data-map"></a>탄력적 데이터 맵
 
-모든 Azure Purview 계정에는 1개 용량 단위에서 시작하여 탄력적으로 증가할 수 있는 데이터 맵이 있습니다. 탄력성 기간 내의 요청 부하에 따라 스케일 업 및 다운됩니다([현재 한도 확인](how-to-manage-quotas.md)). 매우 큰 데이터 세트나 대규모 환경을 사용하여 작업 중이고 더 높은 용량이 필요한 경우 [여기에서 설문 조사](https://aka.ms/PurviewProdSurvey)를 완료하여 탄력성 기간의 더 큰 용량을 요청할 수 있습니다.
+모든 Azure Purview 계정에는 1개 용량 단위에서 시작하여 탄력적으로 증가할 수 있는 데이터 맵이 있습니다. 탄력성 기간 내의 요청 부하에 따라 스케일 업 및 다운됩니다([현재 한도 확인](how-to-manage-quotas.md)). 이러한 제한은 대부분의 데이터 환경을 다루어야 합니다. 그러나 더 높은 용량이 필요한 경우 [지원 티켓을 만들 수 있습니다.](#request-capacity)
 
 ## <a name="data-map-capacity-unit"></a>데이터 맵 용량 단위
 
@@ -47,8 +47,6 @@ Azure Purview 데이터 맵은 데이터 검색과 데이터 거버넌스를 위
 - **자동 스케일링을 사용하는 탄력적 데이터 맵** – 부하에 따라 자동 스케일링할 수 있는 1개 용량 단위만큼 낮은 데이터 맵으로 시작합니다. 대부분의 조직에서 이 기능을 사용하면 데이터 거버넌스 프로젝트 시작과 관련된 절감액이 증가하고 가격대가 낮아집니다. 이 기능은 가격 책정에 영향을 미칩니다.
 
 - **향상된 검사 및 수집** – 데이터 자산의 모집단과 검사 및 수집 프로세스의 분류와 계보를 추적하고 제어할 수 있습니다. 이 기능은 가격 책정에 영향을 미칩니다.
-
-- **고급 리소스 세트** – [리소스 세트](concept-resource-sets.md)라는 단일 데이터 자산으로 처리되도록 데이터 레이크에서 분할된 파일을 처리하여 데이터 맵 크기를 줄일 수 있습니다. 가격 책정에 영향을 주는 선택적 기능입니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -109,6 +107,16 @@ Azure Monitor 메트릭 페이지에서 Claudia는 데이터 맵 스토리지 �
 
 >[!Important]
 >Purview 데이터 맵은 탄력성 기간 내에서 자동으로 스케일 업 및 다운될 수 있습니다([현재 한도 확인](how-to-manage-quotas.md)). 다음 수준의 탄력성 기간을 가져오려면 지원 티켓을 만들어야 합니다.
+
+## <a name="request-capacity"></a>요청 용량
+
+매우 큰 데이터 세트 또는 대규모 환경으로 작업 중이고 탄력적 데이터 맵에 더 높은 용량이 필요한 경우 [지원 티켓을 만들어](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)더 큰 탄력성 기간을 요청할 수 있습니다.
+
+**서비스 및 구독 제한(할당량)을** 선택하고 더 큰 용량을 요청하려는 Purview 계정을 선택하여 화면의 지침을 완료합니다.
+
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="제한 증가 옵션이 선택된 지원 사례 만들기를 보여주는 화면.":::
+
+설명에서 사용자 환경 및 요청하려는 추가 용량에 대해 가능한 한 많은 관련 정보를 제공합니다.
 
 ## <a name="summary"></a>요약
 

@@ -1,15 +1,15 @@
 ---
 title: 대규모로 위임된 구독에 Azure Policy 배포
 description: Azure Lighthouse를 사용하면 여러 테넌트에 정책 정의 및 정책 할당을 배포할 수 있습니다.
-ms.date: 05/11/2021
+ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1a14a7f4db1fe70949f0e1caf41479b159ac86c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: e45feb45da482aa960516abec8c339d61016c758
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075532"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673581"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>대규모로 위임된 구독에 Azure Policy 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "112075532"
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Azure Resource Graph를 사용하여 고객 테넌트에서 쿼리
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml)를 사용하여 관리하는 고객 테넌트의 모든 구독에서 쿼리를 수행할 수 있습니다. 이 예제에서는 이러한 구독에서 현재 HTTPS 트래픽을 요구하지 않는 스토리지 계정을 식별합니다.  
+[Azure 리소스 Graph](../../governance/resource-graph/overview.md) 를 사용 하 여 관리 하는 고객 테 넌 트의 모든 구독에서 쿼리할 수 있습니다. 이 예제에서는 이러한 구독에서 현재 HTTPS 트래픽을 요구하지 않는 스토리지 계정을 식별합니다.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"

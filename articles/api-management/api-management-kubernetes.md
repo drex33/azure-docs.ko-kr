@@ -3,7 +3,7 @@ title: Azure Kubernetes Service에 배포된 마이크로 서비스에서 Azure 
 description: 이 문서에서는 AKS를 사용하여 API Management를 배포하는 옵션을 설명합니다.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
-ms.author: apimpm
-ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 8d2fd83052ee2979bf2a14a949c6e80348767256
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047935"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594202"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포된 마이크로 서비스와 함께 Azure API Management 사용
 

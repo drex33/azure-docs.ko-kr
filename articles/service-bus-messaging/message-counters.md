@@ -2,14 +2,14 @@
 title: Azure Service Bus - 메시지 수
 description: Azure Resource Manager와 Azure Service Bus NamespaceManager API를 사용하여 큐 및 구독에 보관된 메시지 수를 검색합니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb559f6dbd492d1c35a15f9f30cbc0ad02620a01
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 74038f38f1faca90e4fab7a0d4f94229a1b44429
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670692"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576064"
 ---
 # <a name="get-message-counters"></a>메시지 카운터 가져오기
 이 문서에서는 큐 또는 구독에 대해 다음과 같은 메시지 수를 가져오는 다양한 방법을 보여 줍니다. 활성 메시지 수를 알면 큐가 현재 배포된 것보다 더 많은 리소스를 처리해야 하는 백로그를 빌드하는지 여부를 파악하는 데 유용합니다. 

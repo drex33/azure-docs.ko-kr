@@ -2,18 +2,18 @@
 title: 분할된 Azure Service Bus 큐 및 토픽 만들기 | Microsoft Docs
 description: 여러 메시지 broker를 사용하여 Service Bus 큐 및 항목을 분할하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4eba3a911eb5522a1d6ae46f597e99c34d56ef0d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: b6e0c0473ea5bf50ed64bf7abee2c66ab5789840
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616083"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
-Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 여러 메시징 저장소가 메시지를 저장하도록 합니다. 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. Service Bus *파티션* 을 사용하면 큐 및 항목 또는 *메시징 엔터티* 가 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 분할은 분할된 엔터티의 전체 처리량이 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않는다는 의미입니다. 또한 메시징 저장소가 일시적으로 중단된 경우에도 분할된 큐나 토픽을 계속 사용할 수 있습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 Service Bus 기능을 포함할 수 있습니다.
+Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 여러 메시징 저장소가 메시지를 저장하도록 합니다. 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. Service Bus *파티션* 을 사용하면 큐 및 항목 또는 *메시징 엔터티* 가 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 분할은 분할된 엔터티의 전체 처리량이 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않는다는 의미입니다. 또한 메시징 저장소가 일시적으로 중단된 경우에도 분할된 큐 또는 토픽을 계속 사용할 수 있습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 Service Bus 기능을 포함할 수 있습니다.
 
 > [!NOTE]
 > 분할은 기본 또는 표준 SKU의 모든 큐와 항목에서 엔터티 생성에 지원됩니다. 더 이상 프리미엄 메시지 SKU에 지원되지 않지만 프리미엄 네임스페이스에서 지원되는 이전에 분할된 기존 엔터티는 정상적으로 계속 작동합니다.
@@ -69,9 +69,9 @@ Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();
@@ -89,9 +89,9 @@ committableTransaction.Commit();
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
-    Message msg = new Message("This is a message");
+    ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.SessionId = "mySession";
-    await messageSender.SendAsync(msg); 
+    await sender.SendMessageAsync(msg); 
     await ts.CompleteAsync();
 }
 committableTransaction.Commit();

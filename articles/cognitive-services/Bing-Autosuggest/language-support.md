@@ -3,19 +3,17 @@ title: 언어 지원 - Bing Autosuggest API
 titleSuffix: Azure Cognitive Services
 description: Bing Autosuggest API에 지원되는 언어 및 지역 목록입니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: scottwhi
-ms.openlocfilehash: 90946b10bbc7717aa12566c4a25686f8471fb6e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ef9bec74b319cf8350ec068707f8e699f0068d85
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353360"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618609"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 언어 및 지역 지원
 
@@ -33,7 +31,7 @@ ms.locfileid: "96353360"
 | 중국어(홍콩 특별 행정구)    | `zh-HK`          |
 | 중국어(대만)     | `zh-TW`          |
 | 덴마크어      | `da`          |
-| 독일어(벨기에)       | `nl-BE`          |
+| 네덜란드어(벨기에)       | `nl-BE`          |
 | 네덜란드어(네덜란드)      | `nl-NL`          |
 | 영어(호주)    | `en-AU`          |
 | 영어(캐나다)     | `en-CA`          |
@@ -51,7 +49,7 @@ ms.locfileid: "96353360"
 | 프랑스어(프랑스)     | `fr-FR`          |
 | 프랑스어(스위스)      | `fr-CH`          |
 | 독일어(오스트리아)      | `de-AT`          |
-| 독일어 (독일)      | `de-DE`          |
+| 독일어(독일)      | `de-DE`          |
 | 독일어(스위스)      | `de-CH`          |
 | 이탈리아어     | `it`          |
 | 일본어    | `ja`          |
@@ -69,7 +67,7 @@ ms.locfileid: "96353360"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Cognitive Services 문서 페이지](../index.yml)
 - [Azure Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

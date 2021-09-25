@@ -1,14 +1,14 @@
 ---
 title: Azure DevTest Labs 가상 머신에서 브라우저 연결 사용
 description: DevTest Labs가 이제 Azure Bastion과 통합됩니다. 랩 소유자는 브라우저를 통해 모든 랩 가상 머신에 액세스하도록 설정할 수 있습니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7982c878f062e0b8623bde9da6ea585226a455c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341175"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624295"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Azure DevTest Labs 가상 머신에서 브라우저 연결 사용 
 DevTest Labs는 브라우저를 통해 가상 머신에 연결할 수 있도록 하는 [Azure Bastion](../bastion/index.yml)과 통합됩니다. 먼저 랩 가상 머신에서 브라우저 연결을 사용하도록 설정해야 합니다.

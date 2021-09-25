@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 22c9163b0b8e809fba3c870393c03dd7c0d3c194
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: c229bd53dffa079b32d41f52b8450616e55498fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433763"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665590"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>공용 IP 주소가 없는 Azure Batch 풀 만들기
 
@@ -33,9 +33,14 @@ Azure Batch 풀을 만들 때 공용 IP 주소를 사용하지 않고 가상 머
 - **인증**. [가상 네트워크](./batch-virtual-network.md) 내에 공용 IP 주소가 없는 풀을 사용하려면 Batch 클라이언트 API에서 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 가상 네트워크 내에 풀을 만들지 않는 경우 Azure AD 인증 또는 키 기반 인증을 사용할 수 있습니다.
 
 - **Azure VNet**. [가상 네트워크](batch-virtual-network.md)에서 풀을 만드는 경우 다음 요구 사항 및 구성을 따릅니다. 하나 이상의 서브넷으로 VNet을 미리 준비하기 위해 Azure Portal, Azure PowerShell, Azure CLI(명령줄 인터페이스) 또는 기타 방법을 사용할 수 있습니다.
+
   - VNet은 풀을 만들 때 사용한 Batch 계정과 동일한 구독 및 지역에 있어야 합니다.
+
   - 풀에 대해 지정한 서브넷에는 풀에 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 즉 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성 합계입니다. 서브넷에 할당되지 않은 IP 주소가 충분하지 않으면 풀은 컴퓨팅 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-  - 프라이빗 링크 서비스 및 엔드포인트 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이 작업은 Azure CLI를 사용하여 수행할 수 있습니다. ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+
+  - 프라이빗 링크 서비스 및 엔드포인트 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이 작업은 Azure CLI를 사용하여 수행할 수 있습니다. 
+
+    `az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies`
 
 > [!IMPORTANT]
 > Batch는 100개 전용 노드 또는 우선 순위가 낮은 노드 각각에 대해 프라이빗 링크 서비스 및 부하 분산 장치 하나를 할당합니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 이러한 리소스 중 하나 이상에 대한 [할당량을 늘리도록 요청](batch-quota-limit.md#increase-a-quota)해야 할 수 있습니다. 또한 Batch에서 만든 리소스에는 리소스 잠금을 적용하지 않아야 합니다. 적용하는 경우 풀 삭제 또는 제로로 크기 조정과 같이 사용자가 시작한 작업으로 인해 리소스가 정리되지 않습니다.

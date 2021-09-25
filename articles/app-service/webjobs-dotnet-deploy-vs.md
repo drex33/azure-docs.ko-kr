@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: b65475b6f1558930ca8c91c7d1283745bc1b80b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2c0fb760a5a20167da4a13fb483274908b98548b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558515"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포
 
@@ -107,7 +107,7 @@ Visual Studio는 WebJobs 지원 프로젝트에 다음 항목을 추가합니다
 > 
 
 #### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
-1. **File** > **New** > **Project** 를 선택합니다. **새 프로젝트 만들기** 대화 상자에서 C#에 대한 **Azure WebJob (.NET Framework)** 을 검색하고 선택합니다.
+1. **File** > **New** > **Project** 를 선택합니다. **새 프로젝트 만들기** 대화 상자에서 c #에 대 한 **Azure WebJob (.NET Framework)** 을 검색 하 고 선택 합니다.
    
 2. 앞선 지침에 따라 [콘솔 앱 프로젝트를 독립 WebJobs 프로젝트로 만듭니다](#convertnolink).
 

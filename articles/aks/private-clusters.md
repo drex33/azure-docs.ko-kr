@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: 39090732df8543fc28d1324882f3817402ad587a
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 86f557fc3d4b158b5f4a454b1d1605d602b604bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214321"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657959"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -70,16 +70,11 @@ az aks create \
 
 다음 매개 변수를 활용하여 프라이빗 DNS 영역을 구성할 수 있습니다.
 
-- 기본값이기도 한 "System"입니다. --private-dns-zone 인수를 생략하면 AKS는 노드 리소스 그룹에 프라이빗 DNS 영역을 만듭니다.
-- “None”은 AKS가 프라이빗 DNS 영역(미리 보기)을 만들지 않음을 의미하는 퍼블릭 DNS로 기본 설정됩니다.  
+- "system" 이며 기본값 이기도 합니다. --private-dns-zone 인수를 생략하면 AKS는 노드 리소스 그룹에 프라이빗 DNS 영역을 만듭니다.
+- "none", 기본적으로 공용 DNS를 사용 하 여 AKS가 사설 DNS 영역을 만들지 않음을 의미 합니다.  
 - "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"를 사용하려면 Azure 글로벌 클라우드에 대한 프라이빗 DNS 영역을 `privatelink.<region>.azmk8s.io` 형식으로 만들어야 합니다. 앞으로 프라이빗 DNS 영역의 리소스 ID가 필요합니다.  또한 적어도 `private dns zone contributor` 및 `vnet contributor` 역할이 있는 사용자 할당 ID 또는 서비스 주체가 필요합니다.
   - 프라이빗 DNS 영역이 AKS 클러스터와 다른 구독에 있는 경우 두 구독 모두에 Microsoft.ContainerServices를 등록해야 합니다.
   - “fqdn-subdomain”은 “CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID”와 함께 사용되어 `privatelink.<region>.azmk8s.io`에 하위 도메인 기능을 제공할 수 있습니다.
-
-### <a name="prerequisites"></a>필수 조건
-
-* AKS 미리 보기 버전 0.5.19 이상
-* API 버전 2021-05-01 이상
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>프라이빗 DNS 영역을 사용하여 프라이빗 AKS 클러스터 만들기
 
@@ -93,18 +88,26 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 
-## <a name="create-a-private-aks-cluster-with-a-public-dns-address"></a>퍼블릭 DNS 주소를 사용하여 프라이빗 AKS 프라이빗 클러스터 만들기
+## <a name="create-a-private-aks-cluster-with-a-public-fqdn"></a>공용 FQDN을 사용 하 여 개인 AKS 클러스터 만들기
+
+필수 조건:
+
+* Azure CLI >= aks/preview 확장 0.5.29 이상에서 2.28.0 또는 Azure CLI.
+* ARM 또는 rest API를 사용 하는 경우 AKS API 버전은 2021-05-01 이상 이어야 합니다.
 
 퍼블릭 DNS 옵션을 활용하여 프라이빗 클러스터에 대한 라우팅 옵션을 간소화할 수 있습니다.  
 
 ![공용 DNS](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
 
-1. 프라이빗 AKS 클러스터를 프로비저닝할 때 `--enable-public-fqdn`을 지정하면 AKS는 Azure 퍼블릭 DNS에서 FQDN에 대한 추가 A 레코드를 만듭니다. 에이전트 노드는 프라이빗 DNS 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 개인 IP 주소를 확인합니다.
+1. 개인 AKS 클러스터를 프로 비전 할 때 기본적으로 AKS는 Azure 공용 DNS에서 추가 공용 FQDN 및 해당 A 레코드를 만듭니다. 에이전트 노드는 프라이빗 DNS 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 개인 IP 주소를 확인합니다.
 
-2. `--enable-public-fqdn`과 `--private-dns-zone none`을 모두 사용하는 경우 클러스터에는 퍼블릭 FQDN만 있습니다. 이 옵션을 사용하는 경우 API 서버의 FQDN 이름 확인을 위해 프라이빗 DNS 영역을 만들거나 사용할 수 없습니다. API의 IP는 개인 IP이며 공개적으로 라우팅할 수 없습니다.
+2. 를 사용 하는 경우 `--private-dns-zone none` 클러스터에는 공용 FQDN만 있습니다. 이 옵션을 사용하는 경우 API 서버의 FQDN 이름 확인을 위해 프라이빗 DNS 영역을 만들거나 사용할 수 없습니다. API의 IP는 개인 IP이며 공개적으로 라우팅할 수 없습니다.
+
+3. 공용 FQDN이 필요 하지 않은 경우을 사용 하 여 사용 `--disable-public-fqdn` 하지 않도록 설정할 수 있습니다 ("없음" 개인 dns 영역은 공용 fqdn을 사용 하지 않도록 설정할 수 없음).
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --enable-public-fqdn
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
+az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
 ```
 
 ## <a name="options-for-connecting-to-the-private-cluster"></a>프라이빗 클러스터에 연결하기 위한 옵션
@@ -114,35 +117,17 @@ API 서버 엔드포인트에 공용 IP 주소가 없습니다. API 서버를 �
 * AKS 클러스터와 동일한 Azure Virtual Network(VNet)에서 VM을 만듭니다.
 * 별도의 네트워크에서 VM을 사용하고 [가상 네트워크 피어링][virtual-network-peering]을 설정합니다.  이 옵션에 관한 자세한 내용은 아래의 해당 섹션을 참조하세요.
 * [Express Route 또는 VPN][express-route-or-VPN] 연결을 사용합니다.
-* [AKS 실행 명령 기능](#aks-run-command-preview)을 사용합니다.
+* [AKS 실행 명령 기능](#aks-run-command)을 사용합니다.
 
 AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵션입니다.  Express Route 및 VPN은 비용을 증가시키며 추가적인 네트워킹 복잡성을 요구합니다.  가상 네트워크 피어링을 사용하려면 중첩되는 범위가 없도록 네트워크 CIDR 범위를 계획해야 합니다.
 
-### <a name="aks-run-command-preview"></a>AKS 실행 명령(미리 보기)
+### <a name="aks-run-command"></a>AKS Run 명령
 
 현재 프라이빗 클러스터에 액세스하려면 클러스터 가상 네트워크나 피어링 네트워크 또는 클라이언트 컴퓨터 내에서 이 작업을 수행 해야 합니다. 이를 위해서는 일반적으로 VPN 또는 기본 경로를 통해 클러스터 가상 네트워크에 연결하거나 클러스터 가상 네트워크에서 만들 jumpbox를 사용하여 컴퓨터를 연결해야 합니다. AKS 실행 명령을 사용하여 AKS API를 통해 AKS 클러스터의 명령을 원격으로 호출할 수 있습니다. 이 기능은 예를 들어 프라이빗 클러스터의 원격 노트북에서 Just-In-Time 명령을 실행할 수 있는 API를 제공합니다. 이렇게 하면 클라이언트 컴퓨터가 클러스터 개인 네트워크에 있지 않고도 동일한 RBAC 컨트롤과 프라이빗 API 서버를 유지하고 적용하면서 프라이빗 클러스터에 신속하게 Just-In-Time 액세스할 수 있습니다.
 
-### <a name="register-the-runcommandpreview-preview-feature"></a>`RunCommandPreview` 미리 보기 기능 등록
+### <a name="prerequisites"></a>필수 구성 요소
 
-새 실행 명령 API를 사용하려면 구독에서 `RunCommandPreview` 기능 플래그를 사용하도록 설정해야 합니다.
-
-`RunCommandPreview`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "RunCommandPreview"
-```
-
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/RunCommandPreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* Azure CLI 버전 2.24.0 이상
 
 ### <a name="use-aks-run-command"></a>AKS 실행 명령 사용
 
@@ -169,6 +154,8 @@ Helm 설치 및 특정 값 매니페스트 패스
 ```azurecli-interactive
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
+> [!NOTE]
+> Just-in-time 액세스 또는 조건부 액세스 정책과 함께 특정 사용자 및/또는 그룹에 "AKS 실행 명령 역할"을 할당 하 여 AKS 실행 명령에 안전 하 게 액세스할 수 있습니다. 
 
 ## <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -200,7 +187,6 @@ az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitn
 > [kubenet을 사용하여 사용자 고유의 경로 테이블 가져오기](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)와 프라이빗 클러스터를 사용하여 자체 DNS 가져오기를 사용하는 경우 클러스터 만들기가 실패합니다. 클러스터 만들기를 실패한 후에는 노드 리소스 그룹의 [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)을 서브넷에 연결하여 성공적으로 클러스터를 만듭니다.
 
 ## <a name="limitations"></a>제한 사항 
-* AKS 관리형 AAD 및 프라이빗 링크를 사용하도록 설정한 클러스터에서는 AKS-RunCommand가 작동하지 않습니다.
 * IP 권한이 부여된 범위는 프라이빗 API 서버 엔드포인트에 적용할 수 없으며 퍼블릭 API 서버에만 적용됩니다.
 * [Azure Private Link 서비스 제한][private-link-service]은 프라이빗 클러스터에 적용됩니다.
 * 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트](/azure/devops/pipelines/agents/agents?tabs=browser)를 사용하는 것이 좋습니다. 

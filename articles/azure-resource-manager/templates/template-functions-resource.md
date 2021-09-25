@@ -2,14 +2,14 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a728d51025a2bb23e7da681fc6ed5daf162b1315
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 24bf175f6b6099a1265e411daf51913c3673d6f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309283"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613045"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -18,7 +18,7 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
-* [providers(사용되지 않음)](#providers)
+* [공급자(사용되지 않음)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -87,25 +87,7 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 
 다음 예제에서는 리소스 그룹 잠금의 리소스 ID를 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "lockName": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "lockResourceId": {
-      "type": "string",
-      "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/extensionresourceid.json":::
 
 관리 그룹에 배포된 사용자 지정 정책은 확장 리소스로 구현됩니다. 정책을 만들고 할당하려면 관리 그룹에 다음 템플릿을 배포합니다.
 
@@ -396,30 +378,7 @@ Azure 가용성 영역의 범주에는 영역 및 영역 중복이 있습니다.
 
 다음 템플릿은 pickZones 함수 사용에 따른 세 가지 결과를 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "functions": [],
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "supported": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
-    },
-    "notSupportedRegion": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
-    },
-    "notSupportedType": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones.json":::
 
 이전 예제의 출력은 3개의 배열을 반환합니다.
 
@@ -439,34 +398,7 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
 
 다음 예제에서는 pickZones 함수를 사용하여 Cosmos DB에 대한 영역 중복을 사용하도록 설정하는 방법을 보여 줍니다.
 
-```json
-"resources": [
-  {
-    "type": "Microsoft.DocumentDB/databaseAccounts",
-    "apiVersion": "2021-04-15",
-    "name": "[variables('accountName_var')]",
-    "location": "[parameters('location')]",
-    "kind": "GlobalDocumentDB",
-    "properties": {
-      "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
-      "locations": [
-      {
-        "locationName": "[parameters('primaryRegion')]",
-        "failoverPriority": 0,
-        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('primaryRegion'))), bool('false'), bool('true'))]",
-      },
-      {
-        "locationName": "[parameters('secondaryRegion')]",
-        "failoverPriority": 1,
-        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('secondaryRegion'))), bool('false'), bool('true'))]",
-      }
-    ],
-      "databaseAccountOfferType": "Standard",
-      "enableAutomaticFailover": "[parameters('automaticFailover')]"
-    }
-  }
-]
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
 ## <a name="providers"></a>providers
 
@@ -601,44 +533,9 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ### <a name="reference-example"></a>참조 예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json)에서는 리소스를 배포하고 해당 리소스를 참조합니다.
+다음 예제에서는 리소스를 배포하고 해당 리소스를 참조합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "name": "[parameters('storageAccountName')]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'))]"
-      },
-      "fullReferenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
-      }
-    }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/referencewithstorage.json":::
 
 앞의 예제에서는 두 개의 개체를 반환합니다. 속성 개체의 형식은 다음과 같습니다.
 
@@ -662,7 +559,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ```json
 {
-  "apiVersion":"2016-12-01",
+  "apiVersion":"2021-04-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -686,7 +583,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
   "subscriptionId":"<subscription-id>",
   "resourceGroupName":"functionexamplegroup",
   "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
+  "referenceApiVersion":"2021-04-01",
   "condition":true,
   "isConditionTrue":true,
   "isTemplateResource":false,
@@ -695,29 +592,9 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 }
 ```
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json)에서는 이 템플릿에 배포되지 않는 스토리지 계정을 참조합니다. 스토리지 계정은 동일한 구독 내에 있어야 합니다.
+다음 예제 템플릿에서는 이 템플릿에 배포되지 않는 스토리지 계정을 참조합니다. 스토리지 계정은 동일한 구독 내에 있어야 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageResourceGroup": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "ExistingStorage": {
-      "type": "object",
-      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
 
 ## <a name="resourcegroup"></a>resourceGroup
 
@@ -767,21 +644,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="resource-group-example"></a>리소스 그룹 예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)은 리소스 그룹의 속성을 반환합니다.
+다음 예제에서는 리소스 그룹의 속성을 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "resourceGroupOutput": {
-      "type" : "object",
-      "value": "[resourceGroup()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
 
 앞의 예제는 다음과 같은 형식의 개체를 반환합니다.
 
@@ -875,83 +740,13 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 대체 리소스 그룹의 스토리지 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "virtualNetworkName": {
-      "type": "string"
-    },
-    "virtualNetworkResourceGroup": {
-      "type": "string"
-    },
-    "subnet1Name": {
-      "type": "string"
-    },
-    "nicName": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('nicName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnet1Ref')]"
-              }
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid-external.json":::
 
 ### <a name="resource-id-example"></a>리소스 ID 예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)에서는 리소스 그룹의 스토리지 계정에 대한 리소스 ID를 반환합니다.
+다음 예제에서는 리소스 그룹의 스토리지 계정에 대한 리소스 ID를 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "sameRGOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentRGOutput": {
-      "type": "string",
-      "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentSubOutput": {
-      "type": "string",
-      "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "nestedResourceOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
@@ -987,21 +782,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="subscription-example"></a>구독 예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json)에서는 출력 섹션에서 호출되는 구독 함수를 보여줍니다.
+다음 예에서는 출력 섹션에서 호출되는 구독 함수를 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "subscriptionOutput": {
-      "value": "[subscription()]",
-      "type" : "object"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
 
 ## <a name="subscriptionresourceid"></a>subscriptionResourceId
 
@@ -1034,56 +817,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="subscriptionresourceid-example"></a>subscriptionResourceID 예제
 
-다음 템플릿은 기본 제공 역할을 할당합니다. 리소스 그룹 또는 구독에 배포할 수 있습니다. subscriptionResourceId 함수를 사용하여 기본 제공 역할의 리소스 ID를 가져옵니다.
+다음 템플릿은 기본 제공 역할을 할당합니다. 리소스 그룹 또는 구독에 배포할 수 있습니다. 함수를 사용 하 여 `subscriptionResourceId` 기본 제공 역할에 대 한 리소스 ID를 가져옵니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
-    },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
-    },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    }
-  },
-  "variables": {
-    "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('roleNameGuid')]",
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
 
 ## <a name="tenantresourceid"></a>tenantResourceId
 
@@ -1115,41 +851,9 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="tenantresourceid-example"></a>tenantResourceId 예제
 
-기본 제공 정책 정의는 테넌트 수준 리소스입니다. 기본 제공 정책 정의를 참조하는 정책 할당을 배포하려면 tenantResourceId 함수를 사용합니다.
+기본 제공 정책 정의는 테넌트 수준 리소스입니다. 기본 제공 정책 정의를 참조 하는 정책 할당을 배포 하려면 함수를 사용 `tenantResourceId` 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string",
-      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
-      "metadata": {
-        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
-      }
-    },
-    "policyAssignmentName": {
-      "type": "string",
-      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-      "metadata": {
-        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "name": "[parameters('policyAssignmentName')]",
-      "apiVersion": "2019-09-01",
-      "properties": {
-        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/tenantresourceid.json":::
 
 ## <a name="next-steps"></a>다음 단계
 

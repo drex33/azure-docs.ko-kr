@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: a74e88d72d1e7109b6e0acfa81485476eed9e00b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: aeb1721f4054076701325d99379a00ba68ded172
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566524"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563042"
 ---
 # <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역 등록 및 검사
 
@@ -138,6 +138,7 @@ Purview에서 서버리스 SQL 데이터베이스 리소스를 열거할 수 있
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### <a name="use-a-managed-identity-for-serverless-sql-databases"></a>서버리스 SQL 데이터베이스에 관리 ID 사용
 
 1. Azure Synapse 작업 영역으로 이동합니다.
@@ -148,6 +149,14 @@ Purview에서 서버리스 SQL 데이터베이스 리소스를 열거할 수 있
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### <a name="grant-permission-to-use-credentials-for-external-tables"></a>외부 테이블에 대한 자격 증명을 사용할 수 있는 권한 부여
+
+Azure Synapse 작업 영역에 외부 테이블이 있는 경우 Azure Purview 관리 ID에 외부 테이블 범위 자격 증명에 대한 참조 권한이 부여되어야 합니다. 참조 권한을 통해 Azure Purview는 외부 테이블에서 데이터를 읽을 수 있습니다.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### <a name="use-a-service-principal-for-dedicated-sql-databases"></a>전용 SQL 데이터베이스에 서비스 주체 사용
 

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 개별 트윈 및 관계를 검색, 업데이트 및 삭제하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 4be8ef1085d6a940e7f2d95f43a75d1b4e7c11f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835736"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611694"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -40,14 +40,13 @@ ms.locfileid: "122835736"
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 디지털 트윈을 만들려면 다음을 제공해야 합니다.
-* 이 단계에서 정의하는, 원하는 디지털 트윈 ID
+* 디지털 쌍에 할당 하려는 ID 값 (쌍이 생성 될 때 해당 ID를 정의 하는 경우)
 * 사용하려는 [모델](concepts-models.md)
-
-필요에 따라 디지털 트윈의 모든 속성에 대해 초기 값을 제공할 수 있습니다. 속성은 선택 사항으로 처리되고 나중에 설정할 수 있지만 **설정될 때까지 트윈의 일부로 표시되지 않습니다.**
-
->[!NOTE]
->트윈 속성을 초기화할 필요가 없지만 트윈을 만들 때 트윈의 모든 [구성 요소](concepts-models.md#elements-of-a-model)를 **설정해야 합니다**. 비어 있는 개체일 수 있지만 구성 요소 자체는 존재해야 합니다.
-
+* ...를 포함 하 여 원하는 쌍 데이터의 모든 초기화
+    - 속성 (초기화할 옵션): 원하는 경우 디지털 쌍의 속성에 대 한 초기 값을 설정할 수 있습니다. 속성은 선택 사항으로 처리 되 고 나중에 설정할 수 있지만 **설정 될 때까지 쌍의 일부로 표시 되지 않습니다**.
+    - 원격 분석 (초기화 권장): 쌍에서 원격 분석 필드의 초기 값을 설정할 수도 있습니다. 원격 분석을 초기화 해야 하는 것은 아니지만 원격 분석 필드는 설정 된 후에도 쌍의 일부로 표시 되지 않습니다. 즉, **먼저 초기화 되지 않은 경우에는 쌍에 대 한 원격 분석 값을 편집할 수 없습니다**.
+    - 구성 요소 (쌍에 있는 경우 초기화 필요): 쌍이 [구성 요소](concepts-models.md#elements-of-a-model)를 포함 하는 경우 쌍이 생성 될 때 초기화 되어야 합니다. 비어 있는 개체 일 수 있지만 구성 요소 자체가 있어야 합니다.
+    
 모델과 모든 초기 속성 값은 관련 데이터를 포함하는 JSON 문자열인 `initData` 매개 변수를 통해 제공됩니다. 이 개체를 구조화하는 방법에 대한 자세한 내용을 보려면 다음 섹션을 계속 진행하세요.
 
 > [!TIP]
@@ -146,7 +145,7 @@ Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https:/
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 트윈 보기
 
-인스턴스의 모든 디지털 트윈을 보려면 [쿼리](how-to-query-graph.md)를 사용합니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)을 사용하여 쿼리를 실행할 수 있습니다.
+인스턴스의 모든 디지털 트윈을 보려면 [쿼리](how-to-query-graph.md)를 사용합니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query)을 사용하여 쿼리를 실행할 수 있습니다.
 
 다음은 인스턴스의 모든 디지털 트윈 목록을 반환하는 기본 쿼리의 본문입니다.
 

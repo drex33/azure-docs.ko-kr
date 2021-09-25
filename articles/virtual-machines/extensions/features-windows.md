@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4f2da1bd955f9a0b47519c913f656aa6e8bdce4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: c11604ae3fe486be6d471b0218b44eeab26da5c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529867"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588545"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -349,7 +349,7 @@ AutoUpgradeMinorVersion     : True
 
 1. Windows 게스트 에이전트 로그를 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 확장이 프로비저닝된 경우 작업을 확인합니다.
 
-2. *C:\WindowsAzure\Logs\Plugins\\<extensionName>* 에서 실제 확장 로그에 대한 자세한 내용을 확인합니다.
+2. 자세한 내용은 실제 확장 로그를 참조 하세요. `C:\WindowsAzure\Logs\Plugins\<extensionName>`
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 특정 설명서 문제 해결 섹션을 확인합니다.
 

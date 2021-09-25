@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 랩 VM에서 관리 ID 사용
+title: 랩 Vm에서 관리 되는 id 사용
 description: 이 문서는 랩 소유자가 랩 가상 머신에서 사용자가 할당한 관리 ID를 사용하도록 설정할 수 있는 방법을 보여 줍니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0d2c7b944d37160df241e6ca4407c730593f1b62
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
-ms.translationtype: HT
+ms.openlocfilehash: 824fc69fd7ff1b8d48de98b16daccc055aa34283
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854039"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624276"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩 가상 머신에서 사용자가 할당한 관리 ID 사용
 랩 소유자는 Azure DevTest Labs의 랩 VM(가상 머신)에서 사용자가 할당한 관리 ID를 사용하도록 설정할 수 있습니다.
@@ -61,10 +61,3 @@ ms.locfileid: "111854039"
 
 ## <a name="next-steps"></a>다음 단계
 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
-
-
-
-
-
-
-

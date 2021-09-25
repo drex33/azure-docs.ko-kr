@@ -1,21 +1,17 @@
 ---
 title: Data Lake Storage Gen1과 관련된 데이터 시나리오 | Microsoft Docs
 description: 데이터를 Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에 수집, 처리, 다운로드 및 시각화할 수 있는 다양한 시나리오 및 도구 이해
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: twooley
-ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: f70ec43d1c44acd3505314fe3cd6664ca84d422f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98702500"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603014"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
 

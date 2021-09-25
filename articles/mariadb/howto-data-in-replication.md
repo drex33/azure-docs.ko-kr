@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/18/2021
-ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d7590ac05693f7731ee444e0e6ecb243eef80d3e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98665126"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652171"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -25,7 +25,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해 [입력
 > 원본 서버 버전이 10.2 이상인 경우 [전역 트랜잭션 ID](https://mariadb.com/kb/en/library/gtid/)를 사용하여 입력 데이터 복제를 설정하는 것이 좋습니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _slave_ 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>복제본으로 사용할 MariaDB 서버 만들기
 

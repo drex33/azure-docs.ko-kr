@@ -3,17 +3,17 @@ title: Azure API Management 정책에서 명명된 값을 사용하는 방법
 description: Azure API Management 정책에서 명명된 값을 사용하는 방법을 알아봅니다. 명명된 값은 Azure Key Vault에 저장된 리터럴 문자열, 정책 식 및 비밀을 포함할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
-ms.author: apimpm
-ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 65f45758ab00d9e549ac0e52287a198bf5734acd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545822"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671206"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명된 값 사용하기
 
@@ -25,7 +25,7 @@ ms.locfileid: "100545822"
 
 ## <a name="value-types"></a>값 형식
 
-|Type  |Description  |
+|형식  |Description  |
 |---------|---------|
 |일반     |  리터럴 문자열 또는 정책 식     |
 |비밀     |   API Management로 암호화된 리터럴 문자열 또는 정책 식      |
@@ -42,7 +42,7 @@ ms.locfileid: "100545822"
 API Management 보안 향상을 위해 키 자격 증명 모음 비밀을 사용하는 것이 좋습니다.
 
 * 키 자격 증명 모음에 저장된 비밀은 서비스에서 재사용할 수 있습니다.
-* 세분화된 [액세스 정책](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies)을 비밀에 적용할 수 있습니다.
+* 세분화된 [액세스 정책](../key-vault/general/security-features.md#privileged-access)을 비밀에 적용할 수 있습니다.
 * 키 자격 증명 모음에서 업데이트한 비밀은 API Management에서 자동으로 회전됩니다. 키 자격 증명 모음에서 업데이트 후 명명된 값은 4시간 이내에 API Management에서 업데이트됩니다. Azure Portal 또는 Management REST API를 사용하여 비밀을 수동으로 새로 고칠 수도 있습니다.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>키 자격 증명 모음 통합을 위한 필요 사항
@@ -146,7 +146,7 @@ az apim nv delete --resource-group apim-hello-word-resource-group \
 
 이 섹션의 예제에서는 다음 표에 표시된 명명된 값을 사용합니다.
 
-| 이름               | 값                      | 비밀 | 
+| Name               | 값                      | 비밀 | 
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader      | `TrackingId`                 | False  | 
 | ContosoHeaderValue | ••••••••••••••••••••••     | True   | 

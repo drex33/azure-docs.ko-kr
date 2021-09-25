@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 44c66f5fa89e7293667c930bfd1720d72dc26bf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: a9a194fb1f1db5723643f9f73a6c2018f5daa59f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665343"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
@@ -40,7 +41,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 
 사용자가 웹 사이트에서 카탈로그의 제품을 탐색하는 동안, 모든 데이터가 결합되고 제품 추천 시스템에 공급되어 고객 관심사 및 작업을 토대로 개인 설정된 추천을 제공합니다. 고객은 또한 전체 웹 사이트 사용 패턴에 따라 어떤 사용자와도 관련은 없지만 그들이 보고 있는 제품과 관련될 수 있는 제품도 보게 됩니다.
 
-![사용 사례 다이어그램](./media/data-factory-product-reco-usecase/diagram-1.png)
+:::image type="content" source="./media/data-factory-product-reco-usecase/diagram-1.png" alt-text="사용 사례 다이어그램":::
 
 온라인 소매점 웹 사이트에서 원시 웹 로그 파일(기가바이트)이 반구조적 파일로 매일 생성됩니다. 원시 웹 로그 파일, 고객 및 제품 카탈로그 정보가 Data Factory의 전역 배포된 데이터 이동을 서비스로 사용하여 정기적으로 Azure Blob Storage에 수집됩니다. 하루 동안의 원시 로그 파일은 Blob Storage에 장기간 보관을 위해 분할됩니다(연 및 월 단위).  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)를 사용하여 blob 저장소에서 원시 로그 파일을 분할하고 Hive 및 Pig 스크립트를 사용하는 대규모로 수집된 로그를 처리합니다. 그런 다음 분할된 웹 로그 데이터를 처리하여 기계 학습 권장 시스템에 필요한 입력을 추출하여 개인 설정된 제품 추천을 생성합니다.
 

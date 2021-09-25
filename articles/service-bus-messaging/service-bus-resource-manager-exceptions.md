@@ -2,13 +2,13 @@
 title: Azure Service Bus Resource Manager 예외 | Microsoft Docs
 description: Azure Resource Manager 및 제안된 작업으로 표시되는 Service Bus 예외 목록입니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: be88fc84fcc8d90994f134a6efd64ed2bbd964a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85336967"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610829"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Service Bus Resource Manager 예외
 

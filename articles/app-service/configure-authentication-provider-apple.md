@@ -4,12 +4,12 @@ description: App Service 또는 Azure Functions 앱의 ID 공급자로 Apple로 
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
-ms.openlocfilehash: 4b123b0711954e45108b934622f0fabab5be15e0
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: c0da83a20440fabcf5f149c8acbf49077eb91a07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657161"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Apple로 로그인 공급자(미리 보기)를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -72,7 +72,7 @@ Apple에서는 base64 인코딩된 JWT 토큰을 클라이언트 암호로 요�
 - **aud**: Apple에서 토큰을 수신하므로 사용자는 Apple입니다.
 - **exp**: **nbf** 후 6개월 이내
 
-위의 페이로드의 base64로 인코딩된 버전은 다음과 같습니다. ```eyJhbGciOiJFUzI1NiIsImtpZCI6IlVSS0VZSUQwMDEifQ.eyJzdWIiOiJjb20ueW91cmNvbXBhbnkuYXBwMSIsIm5iZiI6MTU2MDIwMzIwNywiZXhwIjoxNTYwMjg5NjA3LCJpc3MiOiJBQkMxMjNERUZHIiwiYXVkIjoiaHR0cHM6Ly9hcHBsZWlkLmFwcGxlLmNvbSJ9.ABSXELWuTbgqfrIUz7bLi6nXvkXAz5O8vt0jB2dSHTQTib1x1DSP4__4UrlKI-pdzNg1sgeocolPNTmDKazO8-BHAZCsdeeTNlgFEzBytIpMKFfVEQbEtGRkam5IeclUK7S9oOva4EK4jV4VmgDrr-LGWWO3TaAxAvy3_ZoKohvFFkVG```
+위의 페이로드의 base64로 인코딩된 버전은 다음과 같습니다. `eyJhbGciOiJFUzI1NiIsImtpZCI6IlVSS0VZSUQwMDEifQ.eyJzdWIiOiJjb20ueW91cmNvbXBhbnkuYXBwMSIsIm5iZiI6MTU2MDIwMzIwNywiZXhwIjoxNTYwMjg5NjA3LCJpc3MiOiJBQkMxMjNERUZHIiwiYXVkIjoiaHR0cHM6Ly9hcHBsZWlkLmFwcGxlLmNvbSJ9.ABSXELWuTbgqfrIUz7bLi6nXvkXAz5O8vt0jB2dSHTQTib1x1DSP4__4UrlKI-pdzNg1sgeocolPNTmDKazO8-BHAZCsdeeTNlgFEzBytIpMKFfVEQbEtGRkam5IeclUK7S9oOva4EK4jV4VmgDrr-LGWWO3TaAxAvy3_ZoKohvFFkVG`
 
 ‘참고: Apple에서는 만료일이 생성(또는 nbf)일로부터 6개월을 넘는 클라이언트 암호 JWT를 허용하지 않습니다. 즉, 최소 6개월마다 클라이언트 암호를 순환해야 합니다.’
 

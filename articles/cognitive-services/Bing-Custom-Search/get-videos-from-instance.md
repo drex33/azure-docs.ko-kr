@@ -3,19 +3,17 @@ title: 사용자 지정 보기에서 비디오 가져오기 - Bing Custom Search
 titleSuffix: Azure Cognitive Services
 description: Bing Custom Search를 사용하여 웹의 사용자 지정 보기에서 비디오를 가져오는 방법에 대한 간략한 개요입니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: scottwhi
-ms.openlocfilehash: 4e2bb14519f8ed4e3e4a0e9ac8800957b30229a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4bd2c63bb6fc494cb93c4fc666150c0e1a5477f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96338421"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644052"
 ---
 # <a name="get-videos-from-your-custom-view"></a>사용자 지정 보기에서 비디오 가져오기
 

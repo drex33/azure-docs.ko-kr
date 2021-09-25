@@ -8,18 +8,18 @@ ms.date: 04/27/2021
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 30be4b09c5fc85a272734468d30f11e939ded48b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: a2d9c23e5a6819c9e74cea10e78caab242d5cb35
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125513"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600326"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기
 
 Data Lake Storage Gen2 기능을 사용하려면 계층 구조 네임스페이스가 있는 스토리지 계정을 만듭니다.
 
-단계별 지침은 [스토리지 계정 만들기](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)를 참조하세요. 
+단계별 지침은 [스토리지 계정 만들기](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)를 참조하세요.
 
 계정을 만들 때 이 문서에 설명된 옵션을 선택해야 합니다.
 
@@ -32,11 +32,11 @@ Data Lake Storage 기능은 다음 유형의 스토리지 계정에서 지원됩
 
 이러한 항목 중 하나를 선택하는 방법에 대한 자세한 내용은 [스토리지 계정 개요](../common/storage-account-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)를 참조하세요.
 
-**스토리지 계정 만들기** 페이지의 **기본** 탭에서 이러한 두 가지 유형의 계정 중에서 선택할 수 있습니다. 
+**스토리지 계정 만들기** 페이지의 **기본** 탭에서 이러한 두 가지 유형의 계정 중에서 선택할 수 있습니다.
 
 표준 범용 v2 계정을 만들려면 **표준** 을 선택합니다.
 
-프리미엄 블록 Blob 계정을 만들려면 **프리미엄** 을 선택합니다. 그런 다음, **프리미엄 계정 유형** 드롭다운 목록에서 **블록 Blob** 을 선택합니다. 
+프리미엄 블록 Blob 계정을 만들려면 **프리미엄** 을 선택합니다. 그런 다음, **프리미엄 계정 유형** 드롭다운 목록에서 **블록 Blob** 을 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > ![프리미엄 블록 Blob 옵션](./media/create-data-lake-storage-account/premium-block-blob-option.png)

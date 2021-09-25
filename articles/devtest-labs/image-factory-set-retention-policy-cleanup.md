@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 보존 정책 설정 | Microsoft Docs
+title: 보존 정책 설정
 description: 보존 정책을 구성하고 센터를 정리하며 DevTest Labs의 이전 이미지를 사용 중지하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 91baf275a1ff85cadd0e1226ceb2f1ff529189c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642874"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
 이 문서에서는 보존 정책 설정, 센터 정리, 조직의 다른 모든 DevTest Labs의 이전 이미지를 사용 중지하는 데 관해 다룹니다. 
@@ -67,4 +67,3 @@ ms.locfileid: "105727538"
 1. [빌드/릴리스를 예약](/azure/devops/pipelines/build/triggers?tabs=designer)하여 이미지 센터를 정기적으로 실행합니다. 센터에서 생성된 이미지를 정기적으로 새로 고칩니다.
 2. 센터의 골든 이미지를 더 많이 만듭니다. VM 설정 작업의 추가 부분을 스크립팅하고 센터 이미지에 아티팩트를 포함하기 위해 [아티팩트 만들기](devtest-lab-artifact-author.md)도 고려할 수 있습니다.
 4. [별도의 빌드/릴리스](/azure/devops/pipelines/overview)를 만들어 **DistributeImages** 스크립트를 별도로 실행합니다. Labs.json을 변경할 때 이 스크립트를 실행하고 모든 이미지를 다시 만들지 않고도 대상 랩에 이미지를 복사할 수 있습니다.
-

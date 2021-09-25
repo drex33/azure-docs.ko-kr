@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 Service Bus 네임스페이스를 만드는 방법
 description: 이 문서에서는 Azure Portal에서 Azure Service Bus 네임스페이스를 만드는 방법의 지침을 제공합니다.
-ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 86c3c72f6fdd86bcc4c574f1dda3635b8bad9066
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 09/15/2021
+ms.openlocfilehash: 11eb335d6ec326badb6304dbbb146d32b87f809d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416950"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616121"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
 

@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs 및 컴퓨팅 VM에서 자동 종료 정책 관리 | Microsoft Docs
+title: Azure DevTest Labs 및 계산 vm에서 자동 종료 정책 관리
 description: 가상 머신이 사용되지 않을 때 자동으로 종료되도록 랩에 대한 자동 종료 정책을 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 946ee2a4d6f3503671664b0e46806fef7f71a459
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.openlocfilehash: 75fa8f07c7e3d67ea029413d427046e20d45cdea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648585"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 컴퓨팅 가상 머신에 대한 자동 종료 구성
 

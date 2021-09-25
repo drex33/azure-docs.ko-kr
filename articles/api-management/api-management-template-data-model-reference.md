@@ -3,7 +3,7 @@ title: Azure API Management 템플릿 데이터 모델 참조 | Microsoft Docs
 description: Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
-ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 7b5ccd7f539332885cdaae242e9e33416633bea9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86243157"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639074"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
 이 항목에서는 Azure API Management에서 개발자 포털 템플릿용 데이터 모델에서 사용되는 일반적인 항목에 대한 엔터티 및 유형 표현을 설명합니다.  

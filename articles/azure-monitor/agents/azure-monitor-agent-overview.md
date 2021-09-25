@@ -4,14 +4,14 @@ description: 가상 머신의 게스트 운영 체제에서 모니터링 데이�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ccd194df39f0fff4bdabe4ae91e911dd030673e6
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662174"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655983"
 ---
 # <a name="azure-monitor-agent-overview"></a>Azure Monitor 에이전트 개요
 AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서는 Azure Monitor 에이전트에 대한 개요를 제공하고 설치 방법 및 데이터 수집 구성 방법에 대한 정보를 포함하고 있습니다.
@@ -67,7 +67,7 @@ Azure Monitor 에이전트는 [Azure Monitor용 레거시 에이전트](agents-o
 Azure Virtual Machines, Microsoft Azure Virtual Machine Scale Sets 및 Azure Arc 사용 서버는 현재 지원됩니다. Azure Kubernetes Service 및 기타 컴퓨팅 리소스 종류는 지원되지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
-Azure Monitor 에이전트는 Azure 정부 및 중국 클라우드뿐만 아니라 Log Analytics를 지원하는 모든 퍼블릭 지역에서 사용할 수 있습니다. 에어 갭(Air-Gap) 클라우드는 아직 지원되지 않습니다.
+Azure Monitor 에이전트는 Log Analytics를 지원하는 모든 공용 지역과 Azure Government 및 중국 클라우드에서 사용할 수 있습니다. 에어 갭(Air-Gap) 클라우드는 아직 지원되지 않습니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 현재 Azure Monitor 에이전트에서 지원하는 Windows 및 Linux 운영 체제 버전의 목록은 [지원되는 운영 체제](agents-overview.md#supported-operating-systems)를 참조하세요.
@@ -78,13 +78,14 @@ Azure Monitor 에이전트는 Azure 정부 및 중국 클라우드뿐만 아니�
 | Azure 서비스 | 현재 지원 | 자세한 정보 |
 |:---|:---|:---|
 | [Azure Security Center](../../security-center/security-center-introduction.md) | 프라이빗 미리 보기 | [가입 링크](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | 프라이빗 미리 보기 | [가입 링크](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows WEF(이벤트 전달): 프라이빗 미리 보기</li><li>Windows 보안 이벤트: [공개 미리 보기](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[가입 링크](https://aka.ms/AMAgent) </li><li>등록이 필요하지 않습니다.</li></ul> |
 
 다음 표에는 Azure Monitor 기능을 통한 Azure Monitor 에이전트에 대한 현재 지원이 나와 있습니다.
 
 | Azure Monitor 기능 | 현재 지원 | 자세한 정보 |
 |:---|:---|:---|
-| [VM 인사이트](../vm/vminsights-overview.md) | 프라이빗 미리 보기  | [가입 링크](https://forms.office.com/r/jmyE821tTy) |
+| [VM 인사이트](../vm/vminsights-overview.md) | 프라이빗 미리 보기  | [가입 링크](https://aka.ms/amadcr-privatepreviews) |
+| [프라이빗 링크 또는 AMPLS를 사용하여 커넥트](../logs/private-link-security.md) | AMA용 프라이빗 미리 보기 | [가입 링크](https://aka.ms/amadcr-privatepreviews) |
 | [VM 인사이트 게스트 상태](../vm/vminsights-health-overview.md) | 퍼블릭 미리 보기 | 새 에이전트에서만 사용 가능 |
 | [SQL 인사이트](../insights/sql-insights-overview.md) | 퍼블릭 미리 보기 | 새 에이전트에서만 사용 가능 |
 
@@ -108,15 +109,15 @@ Azure Monitor 에이전트에 대한 비용은 없지만 데이터 수집에 대
 ## <a name="data-sources-and-destinations"></a>데이터 원본 및 대상
 다음 표에는 현재 Azure Monitor 에이전트로 데이터 수집 규칙을 사용하여 수집할 수 있는 데이터 형식과 해당 데이터를 보낼 수 있는 위치가 나열되어 있습니다. Azure Monitor 에이전트를 사용하여 다른 종류의 데이터를 수집하는 인사이트, 솔루션 및 기타 솔루션의 목록은 [Azure Monitor에서 모니터링하는 항목](../monitor-reference.md)을 참조하세요.
 
-Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로그를 지원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
+Azure Monitor 에이전트는 Azure Monitor 메트릭 (미리 보기) 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
 
 | 데이터 원본 | 대상 | Description |
 |:---|:---|:---|
-| 성능        | Azure Monitor 메트릭<sup>1</sup><br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
+| 성능        | Azure Monitor 메트릭 (미리 보기)<sup>1</sup><br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | Syslog             | Log Analytics 작업 영역 | Linux 이벤트 로깅 시스템으로 전송되는 정보 |
 
-<sup>1</sup> 현재 Linux용 Azure Monitor 에이전트에는 제한이 있습니다. Azure Monitor 메트릭을 *유일한* 대상으로 사용하는 것은 지원되지 않습니다. Azure Monitor 로그와 함께 사용하면 작동합니다. 이러한 제한은 다음 확장 업데이트에서 해결됩니다.
+<sup>1</sup> Azure Monitor 메트릭을 사용 하는 다른 제한 사항을 검토 하려면 [여기를 클릭](../essentials/metrics-custom-overview.md#quotas-and-limits) 하세요. Linux에서 Azure Monitor 메트릭은 유일한 대상이 1.10.9.0 이상에서 지원 됩니다. 
 
 ## <a name="security"></a>보안
 Azure Monitor 에이전트에는 키가 필요하지 않지만 대신 [시스템이 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)가 필요합니다. 에이전트를 배포하기 전에 각 가상 머신에 시스템이 할당한 관리 ID를 사용하도록 설정해야 합니다.
@@ -127,6 +128,9 @@ Azure Monitor 에이전트는 Azure 서비스 태그를 지원합니다. AzureMo
 ### <a name="proxy-configuration"></a>프록시 구성
 
 Windows 및 Linux용 Azure Monitor 에이전트 확장은 HTTPS 프로토콜을 사용하여 프록시 서버 또는 Log Analytics 게이트웨이를 통해 Azure Monitor와 통신할 수 있습니다. 이를 Azure 가상 머신, Azure 가상 머신 확장 집합 및 서버용 Azure Arc에 사용합니다. 다음 단계에 설명된 대로 구성에 확장 설정을 사용합니다. 사용자 이름과 암호를 사용한 익명 인증과 기본 인증이 모두 지원됩니다.
+
+> [!IMPORTANT]
+> 프록시 구성은 대상으로 [Azure Monitor 메트릭 (미리 보기)](../essentials/metrics-custom-overview.md) 에 대해 지원 되지 않습니다. 따라서이 대상에 메트릭을 전송 하는 경우 프록시 없이 공용 인터넷을 사용 합니다.
 
 1. 이 순서도를 사용하여 먼저 *setting* 및 *protectedSetting* 매개 변수의 값을 결정합니다.
 

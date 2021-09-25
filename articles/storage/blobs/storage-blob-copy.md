@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 64bffb127c7d3fbcf56619ea17b23fc0a58d6a37
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
-ms.translationtype: HT
+ms.openlocfilehash: 39969e5e1767bbd2a84a27bb5cbbea6d51c9a4eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652881"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674569"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Azure Storage 클라이언트 라이브러리를 사용하여 Blob 복사
 
@@ -183,10 +183,10 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 Azure SDK에 대한 자세한 정보를 참조하세요.
 
- - [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
- - [Java용 Azure SDK](https://github.com/azure/azure-sdk-for-java)
- - [Python용 Azure SDK](https://github.com/azure/azure-sdk-for-python)
- - [JavaScript용 Azure SDK](https://github.com/azure/azure-sdk-for-js)
+- [Azure SDK for .NET](https://github.com/azure/azure-sdk-for-net)
+- [Java용 Azure SDK](https://github.com/azure/azure-sdk-for-java)
+- [Python용 Azure SDK](https://github.com/azure/azure-sdk-for-python)
+- [JavaScript용 Azure SDK](https://github.com/azure/azure-sdk-for-js)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 052a59ede2acc751d6847646ca1b103de0c1b78a
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: aaa013a25e9131ec55f002db089de0d353f13f7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539533"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585769"
 ---
 # <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
@@ -82,7 +82,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 
 | 지원되는 서비스 | 사용 가능한 지역 | 기타 고려 사항 | 상태  |
 | ------------ | ----------------| ------------| ----------------|
-| Azure Automation  | 모든 공용 지역<br/> Azure Government 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)|
+| Azure Automation  | 모든 공용 지역<br/> Azure Government 지역 |  | GA </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)|
 |Azure Backup | 모든 공용 지역<br/> Azure Government 지역   |  | GA <br/> [Azure Backup에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../backup/private-endpoints.md)   |
 
 ### <a name="security"></a>보안

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f8149be4e7e22366cf5d2ce130d3b6ec596ac782
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: 5a770e6f5105dd3525e2aac0e502f35cb6a6f050
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567890"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645838"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 권한 구성
 
@@ -81,7 +81,7 @@ $location = "<location>"
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
-    -SkuName Standard_GRS
+    -SkuName Standard_GRS `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property for the newly created storage account.
@@ -202,7 +202,7 @@ Azure Portal에서 하나 이상의 기존 컨테이너에 대한 퍼블릭 액�
 1. **퍼블릭 액세스 수준** 드롭다운에서 원하는 퍼블릭 액세스 수준을 선택하고 확인 단추를 클릭하여 선택한 컨테이너에 변경 내용을 적용합니다.
 
     :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="포털에서 공용 액세스 수준을 설정하는 방법을 보여주는 스크린샷" lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
-    
+
 스토리지 계정에 대한 퍼블릭 액세스가 허용되지 않는 경우 컨테이너의 퍼블릭 액세스 수준을 설정할 수 없습니다. 컨테이너의 퍼블릭 액세스 수준을 설정하려고 하면 계정에 대한 퍼블릭 액세스가 허용되지 않기 때문에 설정이 사용하지 않는 것으로 설정된 것을 볼 수 있습니다.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="퍼블릭 액세스를 허용하지 않을 때 컨테이너 퍼블릭 액세스 수준 설정이 차단됨을 보여 주는 스크린샷":::
@@ -296,6 +296,17 @@ $ctx = $storageAccount.Context
 
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

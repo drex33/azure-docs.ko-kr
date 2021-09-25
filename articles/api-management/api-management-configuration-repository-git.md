@@ -3,7 +3,7 @@ title: Git를 사용하여 API Management 서비스 구성 - Azure | Microsoft D
 description: Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: mattfarm
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
-ms.author: apimpm
-ms.openlocfilehash: e0bf9d40fd501a72aaaf104dcd0a0fe03790f008
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: d04a5882a1c386cf84121cda794092275a4ba2ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536521"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601143"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 

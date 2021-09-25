@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen1 시작 - PowerShell | Microsoft Docs
 description: Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 기본 작업을 수행합니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 98875363ca7a32183b79dc63c8b958203d757ce0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92103733"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612304"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1 시작
 

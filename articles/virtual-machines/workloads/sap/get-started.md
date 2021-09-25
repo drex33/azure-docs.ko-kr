@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/26/2021
+ms.date: 09/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 305f7b964bfd084bf1fa245d436c431cde1b9104
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 0eb104d84fc6d1440c0d4f8a4e580aac5d3fe8e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110331"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590312"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,8 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
+- 2021년 9월 15일: [SAP 워크로드용 SAP ASE Azure Virtual Machines DBMS 배포의 SAP ASE에 대한](./dbms_guide_sapase.md) 새로운 HADR 구성 소개
+- 2021년 9월 [8일: Azure NetApp Files NFS v4.1 볼륨에](./hana-vm-operations-netapp.md) 수동 QoS 용량 풀 추가SAP HANA
 - 2021년 8월 26일: Azure Fence 에이전트의 역할 정의 JSON을 수정하기 위해 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 및 [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경
 - 2021년 8월 17일: ANF에서 호스트되는 NFS 볼륨을 사용하는 IBM Db2를 지원하기 위해 [SAP 워크로드에 대한 IBM Db2 Azure Virtual Machines DBMS 배포](./dbms_guide_ibm.md), [SAP 워크로드에 대한 Azure Storage 형식 변경](./planning-guide-storage.md) 및 [Azure 가상 머신 지원 시나리오에서의 SAP 워크로드](./sap-planning-supported-configurations.md) 변경
 - 2021년 8월 2일: 서버 실패 큐에 넣기를 시뮬레이션하는 테스트 시나리오에 대한 작동(ENSA1/ENSA2)을 명시하기 위해 [SAP 애플리케이션용 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse.md), [ANF를 사용한 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse-netapp-files.md), [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md) 및 [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 문서 변경     

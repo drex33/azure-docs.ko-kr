@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/19/2021
-ms.openlocfilehash: d015c5182b51c655d45365a2f45a9f9d08db582b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.openlocfilehash: d98d51158981c6b3aa04a0d8ea8b42b16d768d26
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835631"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665495"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성
 
@@ -73,7 +73,7 @@ SQL/프로세스 실행 태스크에서 이 기능을 사용하면 자체 호스
 >[!TIP]
 >**서비스 주체** 방법을 선택하는 경우 서비스 주체에 '스토리지 Blob 데이터 기여자' 이상의 역할을 부여합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조하세요. **관리 ID**/**사용자가 할당한 관리 ID** 방법을 선택하는 경우 ADF에 대해 지정한 시스템/사용자가 할당한 관리 ID에 Azure Blob Storage에 액세스할 수 있는 적절한 역할을 부여합니다. 자세한 내용은 [ADF에 대해 지정한 시스템/사용자가 할당한 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 Azure Blob Storage에 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)를 참조하세요.
 
-![스테이징을 위해 Azure Blob Storage에 연결된 서비스 준비](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png" alt-text="스테이징을 위해 Azure Blob Storage에 연결된 서비스 준비":::
 
 ## <a name="configure-an-azure-ssis-ir-with-your-self-hosted-ir-as-a-proxy"></a>자체 호스팅 IR을 프록시로 사용하여 Azure-SSIS IR 구성
 
@@ -93,7 +93,7 @@ SQL/프로세스 실행 태스크에서 이 기능을 사용하면 자체 호스
 
    1. **계속** 단추를 선택합니다.
 
-   ![자체 호스팅 IR을 사용하는 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png" alt-text="자체 호스팅 IR을 사용하는 고급 설정":::
 
 PowerShell을 사용하여 자체 호스팅 IR을 프록시로 사용하도록 새 또는 기존 Azure-SSIS IR을 구성할 수도 있습니다.
 
@@ -139,30 +139,30 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 온-프레미스로 작동하는 SQL/프로세스 실행 태스크를 포함한 새 패키지를 디자인할 때, 작업 자체와 관련된 **속성** 창에서 `ExecuteOnProxy` 속성을 *True* 로 설정합니다.
 
-![ConnectByProxy/ExecuteOnProxy 속성 활성화](media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-proxy-properties.png" alt-text="ConnectByProxy/ExecuteOnProxy 속성 활성화":::
 
 또한 기존 패키지를 실행하는 경우에는 속성을 수동으로 변경하지 않고도 `ConnectByProxy`/`ExecuteOnProxy` 속성을 사용하도록 설정할 수 있습니다. 두 가지 옵션 중이 있습니다.
 - **옵션 A**: 최신 SSDT를 사용하여 Azure-SSIS IR에서 실행할 패키지를 포함하는 프로젝트를 열고 다시 빌드하고 다시 배포합니다. 그런 다음 SSMS에서 패키지를 작동할 때 **패키지 실행** 팝업창의 **연결 관리자** 탭에 표시되는 연관된 연결 관리자에 대하여 `ConnectByProxy` 속성을 *True* 로 설정하여 사용하도록 설정할 수 있습니다.
 
-  ![ConnectByProxy/ExecuteOnProxy property2 활성화](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png" alt-text="ConnectByProxy/ExecuteOnProxy property2 활성화":::
 
   Data Factory 파이프라인에서 패키지를 실행할 때 [SSIS 패키지 실행 작업](./how-to-invoke-ssis-package-ssis-activity.md)의 **연결 관리자** 탭에 표시되는 연관된 연결 관리자에 대하여 `ConnectByProxy` 속성을 *True* 로 설정하여 사용하도록 설정할 수도 있습니다.
   
-  ![ConnectByProxy/ExecuteOnProxy property3 활성화](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png" alt-text="ConnectByProxy/ExecuteOnProxy property3 활성화":::
 
 - **옵션 B:** SSIS IR에서 실행할 패키지를 포함하는 프로젝트를 다시 배포합니다. SSMS에서 패키지를 실행할 때 속성 경로 및 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`를 제공하여 `ConnectByProxy`/`ExecuteOnProxy` 속성을 사용하도록 설정할 수 있으며, 또한 **패키지 실행** 팝업창의 **고급** 탭에서 속성이 재정의되면서 이를 *True* 로 설정하여 사용하도록 설정할 수 있습니다.
 
-  ![ConnectByProxy/ExecuteOnProxy property4 활성화](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png" alt-text="ConnectByProxy/ExecuteOnProxy property4 활성화":::
 
   Data Factory 파이프라인에서 패키지를 실행할 때 속성 경로 및 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`/`\Package\YourExecuteSQLTaskName.Properties[ExecuteOnProxy]`/`\Package\YourExecuteProcessTaskName.Properties[ExecuteOnProxy]`를 제공하여 `ConnectByProxy`/`ExecuteOnProxy` 속성을 사용하도록 설정할 수 있으며, 또한 [SSIS 패키지 실행 작업](./how-to-invoke-ssis-package-ssis-activity.md)의 **속성 재정의** 탭에서 속성이 재정의되면서 이를 *True* 로 설정하여 사용하도록 설정할 수도 있습니다.
   
-  ![ConnectByProxy/ExecuteOnProxy property5 활성화](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png" alt-text="ConnectByProxy/ExecuteOnProxy property5 활성화":::
 
 ## <a name="debug-the-on-premises-tasks-and-cloud-staging-tasks"></a>온-프레미스 작업 및 클라우드 준비 작업 디버그
 
-자체 호스팅 IR에서 *C:\ProgramData\SSISTelemetry* 폴더에 있는 런타임 로그와 *C:\ProgramData\SSISTelemetry\ExecutionLog* 폴더에 있는 온-프레미스 준비 작업의 실행 로그를 찾을 수 있습니다. SSISDB에서 패키지를 저장한 위치에 따라 SSISDB, 지정된 로깅 파일 경로 또는 Azure Monitor에서 클라우드 준비 작업의 실행 로그를 찾거나 [Azure Monitor 통합](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)을 사용하도록 설정하는 등의 작업을 수행할 수 있습니다. 클라우드 준비 작업의 실행 로그에서 온-프레미스 준비 작업의 고유 ID를 확인할 수도 있습니다. 
+자체 호스팅 IR에서 *C:\ProgramData\SSISTelemetry* 폴더에 있는 런타임 로그와 *C:\ProgramData\SSISTelemetry\ExecutionLog* 폴더에 있는 온-프레미스 준비 작업의 실행 로그를 찾을 수 있습니다. SSISDB에서 패키지를 저장한 위치에 따라 SSISDB, 지정된 로깅 파일 경로 또는 Azure Monitor에서 클라우드 준비 작업의 실행 로그를 찾거나 [Azure Monitor 통합](./monitor-ssis.md)을 사용하도록 설정하는 등의 작업을 수행할 수 있습니다. 클라우드 준비 작업의 실행 로그에서 온-프레미스 준비 작업의 고유 ID를 확인할 수도 있습니다. 
 
-![첫 번째 준비 작업의 고유 ID](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
+:::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png" alt-text="첫 번째 준비 작업의 고유 ID":::
 
 고객 지원 티켓을 제출한 경우 조사를 위해 최신 작업/실행 로그를 보내기 위해 자체 호스팅 IR에 설치된 **Microsoft Integration Runtime 구성 관리자** 의 **진단** 탭에서 **로그 보내기** 단추를 선택할 수 있습니다.
 
@@ -194,7 +194,7 @@ Azure-SSIS IR에서 실행되는 클라우드 준비 작업은 별도로 청구�
 
 ## <a name="enforce-tls-12"></a>TLS 1.2 적용
 
-강력한 암호화/더 안전한 네트워크 프로토콜(TLS 1.2)을 사용하고 자체 호스팅 IR에서 이전 SSL/TLS 버전을 동시에 사용하지 않도록 설정해야 하는 경우, *main.cmd* 스크립트를 공개 미리 보기 Blob 컨테이너의 *CustomSetupScript/UserScenarios/TLS 1.2* 폴더에서 찾아 다운로드하여 실행할 수 있습니다. [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 다음 SAS URI를 입력해 공개 미리 보기 Blob 컨테이너에 연결할 수 있습니다.
+준비에 대 한 Azure Blob Storage를 포함 하 여 가장 강력한 암호화/가장 안전한 네트워크 프로토콜 (tls 1.2)만 사용 하도록 구성 된 데이터 저장소에 액세스 해야 하는 경우 tls 1.2만 사용 하도록 설정 하 고 자체 호스팅 IR에서 이전 SSL/TLS 버전을 사용 하지 않도록 설정 해야 합니다. 이렇게 하려면 공개 미리 보기 blob 컨테이너의 *Customsetupscript/UserScenarios/TLS 1.2* 폴더에서 제공 하는 *기본 .cmd* 스크립트를 다운로드 하 여 실행할 수 있습니다. [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 다음 SAS URI를 입력해 공개 미리 보기 Blob 컨테이너에 연결할 수 있습니다.
 
 `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 

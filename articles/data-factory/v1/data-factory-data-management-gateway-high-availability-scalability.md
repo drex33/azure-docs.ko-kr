@@ -3,16 +3,17 @@ title: Azure Data Factory에서 데이터 관리 게이트웨이를 통한 고�
 description: 이 문서에서는 노드를 더 많이 추가하여 데이터 관리 게이트웨이를 확장하고, 노드에서 실행할 수 있는 동시 작업 수를 늘려 강화하는 방법을 설명합니다.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a76479a358366591d1c4edef0755dd26ce23cd81
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 5274c7fe926b1766d0b7767b2b44718a33139b97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658529"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -40,7 +41,7 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 ## <a name="architecture"></a>Architecture 
 다음 다이어그램에서는 데이터 관리 게이트웨이의 확장성 및 가용성 기능에 대한 아키텍처 개요를 제공합니다. 
 
-![데이터 관리 게이트웨이 - 고가용성 및 확장성](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png" alt-text="데이터 관리 게이트웨이 - 고가용성 및 확장성":::
 
 **논리 게이트웨이** 는 Azure Portal에서 데이터 팩터리에 추가하는 게이트웨이입니다. 이전에는 온-프레미스 Windows 컴퓨터 하나만 논리 게이트웨이가 설치된 데이터 관리 게이트웨이와 연결할 수 있었습니다. 이 온-프레미스 게이트웨이 컴퓨터를 노드라고 합니다. 이제는 최대 **4개의 실제 노드** 를 논리 게이트웨이와 연결할 수 있습니다. 여러 노드가 있는 논리 게이트웨이를 **다중 노드 게이트웨이** 라고 합니다.  
 
@@ -61,31 +62,31 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 
 1. [연습](data-factory-move-data-between-onprem-and-cloud.md#create-gateway)에서 논리 게이트웨이를 만드는 중에 **고가용성 및 확장성** 기능을 사용하도록 설정합니다. 
 
-    ![데이터 관리 게이트웨이- 고가용성 및 확장성 사용](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png" alt-text="데이터 관리 게이트웨이- 고가용성 및 확장성 사용":::
 2. **구성** 페이지에서 **기본 설치** 또는 **수동 설치** 링크를 사용하여 첫 번째 노드(온-프레미스 Windows 컴퓨터)에 게이트웨이를 설치합니다.
 
-    ![데이터 관리 게이트웨이 - 기본 설치 또는 수동 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png" alt-text="데이터 관리 게이트웨이 - 기본 설치 또는 수동 설치":::
 
     > [!NOTE]
     > 기본 설치 옵션을 사용하면 암호화 없이 노드 간 통신이 수행됩니다. 노드 이름은 컴퓨터 이름과 동일합니다. 노드 간 통신을 암호화해야 하거나 원하는 노드 이름을 지정하려면 수동 설치를 사용하세요. 노드 이름은 나중에 편집할 수 없습니다.
 3. **기본 설치** 를 선택하는 경우
     1. 게이트웨이가 성공적으로 설치되면 다음 메시지가 표시됩니다.
 
-        ![데이터 관리 게이트웨이 - 성공적인 기본 설치](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png" alt-text="데이터 관리 게이트웨이 - 성공적인 기본 설치":::
     2. [여기서 설명하는 지침](data-factory-data-management-gateway.md#configuration-manager)에 따라 게이트웨이에 대한 데이터 관리 구성 관리자를 시작합니다. 게이트웨이 이름, 노드 이름, 상태 등이 표시됩니다.
 
-        ![게이트웨이 이름, 노드 이름 및 상태를 볼 수 있는 위치를 보여 주는 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png" alt-text="게이트웨이 이름, 노드 이름 및 상태를 볼 수 있는 위치를 보여 주는 스크린샷":::
 4. **수동 설치** 를 선택하는 경우 :
     1. Microsoft 다운로드 센터에서 설치 패키지를 다운로드하고 실행하여 게이트웨이를 컴퓨터에 설치합니다.
     2. **구성** 페이지에서 **인증 키** 를 사용하여 게이트웨이를 등록합니다.
     
-        ![인증 키를 사용할 위치를 보여 주는 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png" alt-text="인증 키를 사용할 위치를 보여 주는 스크린샷":::
     3. **새 게이트웨이 노드** 페이지에서 게이트웨이 노드에 사용자 지정 **이름** 을 제공할 수 있습니다. 기본적으로 노드 이름은 컴퓨터 이름과 동일합니다.    
 
-        ![데이터 관리 게이트웨이 - 이름 지정](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png" alt-text="데이터 관리 게이트웨이 - 이름 지정":::
     4. 다음 페이지에서 **노드 간 통신에 암호화 사용** 여부를 선택할 수 있습니다. 암호화를 사용하지 않으려면(기본값) **건너뛰기** 를 클릭합니다.
 
-        ![데이터 관리 게이트웨이 - 암호화 사용](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png" alt-text="데이터 관리 게이트웨이 - 암호화 사용":::  
     
         > [!NOTE]
         > 암호화 모드 변경은 논리 게이트웨이에 단일 게이트웨이 노드가 있는 경우에만 지원됩니다. 게이트웨이에 노드가 여러 개 있을 때 암호화 모드를 변경하려면, 하나의 노드를 제외한 모든 노드를 삭제하고 암호화 모드를 변경한 다음 노드를 다시 추가합니다.
@@ -93,35 +94,35 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
         > TLS/SSL 인증서 사용에 대한 요구 사항 목록은 [TLS/SSL 인증서 요구 사항](#tlsssl-certificate-requirements) 섹션을 참조하세요. 
     5. 게이트웨이가 성공적으로 설치된 후 [구성 관리자 시작]을 클릭합니다.
     
-        ![수동 설치 - 구성 관리자 시작](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png" alt-text="수동 설치 - 구성 관리자 시작":::     
     6. 연결 상태, **게이트웨이 이름** 및 **노드 이름** 을 보여 주는 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 구성 관리자가 표시됩니다.  
 
-        ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png" alt-text="데이터 관리 게이트웨이 - 성공적인 설치":::
 
         > [!NOTE]
         > Azure VM에서 게이트웨이를 프로비전하는 경우 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway)을 사용할 수 있습니다. 이 스크립트에서는 논리 게이트웨이를 만들고, 설치된 데이터 관리 게이트웨이 소프트웨어로 VM을 설정하고, 논리 게이트웨이에 해당 VM을 등록합니다. 
 6. Azure Portal에서 **게이트웨이** 페이지를 시작합니다. 
     1. 포털의 데이터 팩터리 홈페이지에서 **연결된 서비스** 를 클릭합니다.
     
-        ![연결된 서비스 타일이 강조 표시된 스크린샷](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png" alt-text="연결된 서비스 타일이 강조 표시된 스크린샷":::
     2. **게이트웨이** 를 선택하여 **게이트웨이** 페이지를 표시합니다.
     
-        ![데이터 팩터리 홈페이지](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png" alt-text="데이터 팩터리 홈페이지":::
     4. **게이트웨이** 페이지가 표시됩니다.   
 
-        ![단일 노드가 있는 게이트웨이 보기](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
+        :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png" alt-text="단일 노드가 있는 게이트웨이 보기"::: 
 7. 도구 모음에서 **노드 추가** 를 클릭하여 논리 게이트웨이에 노드를 추가합니다. 기본 설치를 사용하려는 경우 게이트웨이에 노드로 추가될 온-프레미스 컴퓨터에서 이 단계를 수행합니다. 
 
-    ![데이터 관리 게이트웨이 - 노드 추가 메뉴](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png" alt-text="데이터 관리 게이트웨이 - 노드 추가 메뉴":::
 8. 이 단계는 첫 번째 노드 설정과 비슷합니다. 수동 설치 옵션을 선택한 경우 구성 관리자 UI를 사용하여 노드 이름을 설정할 수 있습니다. 
 
-    ![구성 관리자 - 두 번째 게이트웨이 설치](media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/install-second-gateway.png" alt-text="구성 관리자 - 두 번째 게이트웨이 설치":::
 9. 게이트웨이가 노드에 성공적으로 설치되면 구성 관리자 도구에서 다음 화면이 표시됩니다.  
 
-    ![구성 관리자 - 성공적인 두 번째 게이트웨이 설치](media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png" alt-text="구성 관리자 - 성공적인 두 번째 게이트웨이 설치":::
 10. 포털에서 **게이트웨이** 페이지를 열면 두 개의 게이트웨이 노드가 다음과 같이 표시됩니다. 
 
-    ![포털에 표시된 두 개의 노드가 있는 게이트웨이](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png" alt-text="포털에 표시된 두 개의 노드가 있는 게이트웨이":::
 11. 게이트웨이 노드를 삭제하려면 도구 모음에서 **노드 삭제** 를 클릭하고, 삭제할 노드를 선택한 다음, 도구 모음에서 **삭제** 를 클릭합니다. 이 작업은 선택한 노드를 그룹에서 삭제합니다. 이 작업은 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 소프트웨어를 제거하는 것이 아닙니다. 게이트웨이를 제거하려면 온-프레미스의 [제어판]에 있는 **프로그램 추가/제거** 를 사용합니다. 노드에서 게이트웨이를 제거하면 포털에서 자동으로 삭제됩니다.   
 
 ## <a name="upgrade-an-existing-gateway"></a>기존 게이트웨이 업그레이드
@@ -130,18 +131,18 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하고 실행하여 온-프레미스 컴퓨터의 게이트웨이를 최신 버전으로 업데이트합니다. 자세한 내용은 [설치](data-factory-data-management-gateway.md#installation) 섹션을 참조하세요.  
 2. Azure Portal로 이동합니다. 데이터 팩터리에 대한 **Data Factory 페이지** 를 시작합니다. [연결된 서비스] 타일을 클릭하여 **연결된 서비스 페이지** 를 시작합니다. 게이트웨이를 선택하여 **게이트웨이 페이지** 를 시작합니다. 다음 이미지와 같이 **미리 보기 기능** 을 클릭하여 활성화합니다. 
 
-    ![데이터 관리 게이트웨이 - 미리 보기 기능 활성화](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png" alt-text="데이터 관리 게이트웨이 - 미리 보기 기능 활성화":::   
 2. 포털에서 미리 보기 기능이 활성화되면 모든 페이지를 닫습니다. 새 미리 보기 UI(사용자 인터페이스)를 확인하려면 **게이트웨이 페이지** 를 다시 엽니다.
  
-    ![데이터 관리 게이트웨이 - 성공적인 미리 보기 기능 활성화](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview-success.png" alt-text="데이터 관리 게이트웨이 - 성공적인 미리 보기 기능 활성화":::
 
-    ![데이터 관리 게이트웨이 - 미리 보기 UI](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-preview.png" alt-text="데이터 관리 게이트웨이 - 미리 보기 UI":::
 
     > [!NOTE]
     > 업그레이드하는 동안 첫 번째 노드의 이름은 컴퓨터의 이름입니다. 
 3. 이제 노드를 추가합니다. **게이트웨이** 페이지에서 **노드 추가** 를 클릭합니다.  
 
-    ![데이터 관리 게이트웨이 - 노드 추가 메뉴](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
+    :::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png" alt-text="데이터 관리 게이트웨이 - 노드 추가 메뉴":::
 
     이전 섹션의 지침에 따라 노드를 설정합니다. 
 
@@ -174,11 +175,11 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 ### <a name="multi-node-gateway-monitoring"></a>다중 노드 게이트웨이 모니터링
 Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리소스 사용률(CPU, 메모리, 네트워크(수신/송신) 등)에 대한 스냅샷을 거의 실시간으로 볼 수 있습니다. 
 
-![데이터 관리 게이트웨이 - 다중 노드 모니터링](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png" alt-text="데이터 관리 게이트웨이 - 다중 노드 모니터링":::
 
 **게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크**(수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업**(실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
 
-모니터링 속성 | 설명
+모니터링 속성 | Description
 :------------------ | :---------- 
 이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요. 
@@ -189,7 +190,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 동시 작업(실행/제한) | 각 노드에서 실행되는 작업 또는 태스크의 수입니다. 이 값은 거의 실시간 스냅샷입니다. 제한은 각 노드의 최대 동시 작업 수를 나타냅니다. 이 값은 컴퓨터 크기에 따라 정의됩니다. CPU/메모리/네트워크가 충분히 활용되지 않지만 작업 시간이 초과되는 고급 시나리오에서 동시 작업 실행을 스케일 업하여 제한을 늘릴 수 있습니다. 이 기능은 단일 노드 게이트웨이에서 확장성 및 가용성 기능을 사용하지 않는 경우에도 사용할 수 있습니다. 자세한 내용은 [크기 조정 고려 사항](#scale-considerations) 섹션을 참조하세요. 
 역할 | 두 유형의 역할, 즉 디스패처 및 작업자가 있습니다. 모든 노드는 작업자이며, 이는 모두 작업을 실행하는 데 사용할 수 있음을 의미합니다. 디스패처 노드는 하나만 존재합니다. 이 노드는 클라우드 서비스에서 작업/태스크를 가져와서 다른 작업자 노드(자체 포함)에 전달하는 데 사용됩니다. 
 
-![데이터 관리 게이트웨이 - 고급 다중 노드 모니터링](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png" alt-text="데이터 관리 게이트웨이 - 고급 다중 노드 모니터링":::
 
 ### <a name="gateway-status"></a>게이트웨이 상태
 
@@ -216,9 +217,9 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 ### <a name="pipeline-activities-monitoring"></a>파이프라인/활동 모니터링
 Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환경을 모니터링하는 파이프라인을 제공합니다. 예를 들어 어떤 활동이 어떤 노드에서 실행되었는지를 보여 줍니다. 이 정보는 네트워크 제한으로 인한 특정 노드의 성능 문제를 이해하는 데 도움이 될 수 있습니다. 
 
-![데이터 관리 게이트웨이 - 파이프라인에 대한 다중 노드 모니터링](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-pipelines.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-pipelines.png" alt-text="데이터 관리 게이트웨이 - 파이프라인에 대한 다중 노드 모니터링":::
 
-![데이터 관리 게이트웨이 - 파이프라인 세부 정보](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-pipeline-details.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-pipeline-details.png" alt-text="데이터 관리 게이트웨이 - 파이프라인 세부 정보":::
 
 ## <a name="scale-considerations"></a>크기 조정 고려 사항
 
@@ -228,7 +229,7 @@ Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환�
 ### <a name="scale-up"></a>강화
 사용 가능한 메모리와 CPU가 잘 사용되지는 않지만 유휴 용량이 0이면 노드에서 실행할 수 있는 동시 작업 수를 늘려 강화할 수 있습니다. 또한 게이트웨이 오버로드로 인해 활동 시간이 초과되는 경우에도 강화할 수 있습니다. 다음 이미지와 같이 노드의 최대 용량을 늘릴 수 있습니다. 먼저 두 배로 늘려 시작하는 것이 좋습니다.  
 
-![데이터 관리 게이트웨이 - 크기 조정 고려 사항](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png)
+:::image type="content" source="media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-scale-considerations.png" alt-text="데이터 관리 게이트웨이 - 크기 조정 고려 사항":::
 
 
 ## <a name="known-issuesbreaking-changes"></a>알려진 문제점 및 변경 내용

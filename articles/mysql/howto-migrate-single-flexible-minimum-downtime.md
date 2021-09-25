@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/18/2021
-ms.openlocfilehash: cbabc94f1aa8a2dcd8d8022ab81b7d772006b574
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 0197d3c4a76158663d721604cdd8e033b3d78153
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203478"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589647"
 ---
 # <a name="tutorial-migrate-azure-database-for-mysql--single-server-to-azure-database-for-mysql--flexible-server-with-minimal-downtime"></a>자습서: 최소한의 가동 중지 시간으로 Azure Database for MySQL – 단일 서버를 Azure Database for MySQL – 유연한 서버로 마이그레이션
 

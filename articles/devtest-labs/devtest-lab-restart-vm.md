@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 랩에서 VM 다시 시작 | Microsoft Docs
+title: 랩에서 VM 다시 시작
 description: 이 문서에서는 Azure DevTest Labs에서 VM(가상 머신)을 빠르고 쉽게 다시 시작하는 단계를 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d2bcbcbea613aa84da91789fb9f118afd7023fab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 07d580421c4f4bca8fbf81e7d300d1e38873c386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481993"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625186"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 시작
 이 문서의 단계에 따라 DevTest Labs에서 가상 머신을 빠르고 쉽게 다시 시작할 수 있습니다. VM을 다시 시작하기 전에 다음을 고려하세요.

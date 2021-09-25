@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: d206e92eeea06b8e8a95a74c7a253eae5280eb5f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530202"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607808"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -224,6 +224,8 @@ kubenet 네트워킹에서는 요청을 성공적으로 라우팅하기 위해 �
 * AKS 클러스터를 만들기 전에 사용자 지정 경로 테이블을 서브넷에 연결해야 합니다.
 * 클러스터를 만든 후에는 연결된 경로 테이블 리소스를 업데이트할 수 없습니다. 경로 테이블 리소스를 업데이트할 수 없지만 경로 테이블에서 사용자 지정 규칙을 수정할 수 있습니다.
 * 각 AKS 클러스터는 클러스터와 연결된 모든 서브넷에 대해 고유한 하나의 경로 테이블을 사용해야 합니다. 겹치는 Pod CIDR 및 충돌하는 회람 규칙이 있을 수 있으므로 여러 클러스터에서 경로 테이블을 다시 사용할 수 없습니다.
+* 시스템 할당 관리 id를 사용 하 여 사용자 고유의 서브넷 및 경로 테이블을 제공할 수 없습니다. 사용자 고유의 서브넷 및 경로 테이블을 제공 하려면 [사용자 할당 관리 id][user-assigned managed identity]를 사용 하 고, 클러스터를 만들기 전에 사용 권한을 할당 하 고, 사용자 할당 id에 사용자 지정 서브넷 및 사용자 지정 경로 테이블에 대 한 쓰기 권한이 있는지 확인 해야 합니다.
+* AKS 클러스터가 여러 개인 동일한 경로 테이블을 사용할 때는 지원 되지 않습니다.
 
 사용자 지정 경로 테이블을 만들고 가상 네트워크의 서브넷에 연결한 후에 경로 테이블을 사용하는 새 AKS 클러스터를 만들 수 있습니다.
 AKS 클러스터를 배포하려는 경우에는 서브넷 ID를 사용해야 합니다. 이 서브넷은 사용자 지정 경로 테이블에도 연결되어야 합니다.
@@ -267,3 +269,4 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
+[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi

@@ -2,15 +2,15 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 07/27/2021
+ms.date: 09/16/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: a7711d30a71cc5b637a1fc755609d3f5c48683d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5246ffe9a59a07f0279cba1435ef8726a9da1ead
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629657"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -251,13 +251,23 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
    ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
 ```
 
+또는 다음과 같습니다.
+
+```error
+Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
+... resources = Get-AzResource -ResourceGroupName $group.ResourceGro ...
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Get-AzResource], CloudException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementation.GetAzureResourceCmdlet
+```
+
 ### <a name="resolution"></a>해결 방법
 
 Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 실수로 잘못된 구독에 액세스하려고 하지 않도록 하려면 아래 지침을 따라야 합니다.
 
 * 잘못된 구독을 참조하지 않으려면 각 Runbook을 시작할 때 다음 코드를 사용하여 Automation Runbook에서 컨텍스트 저장을 사용하지 않도록 설정합니다.
 
-   ```azurepowershell-interactive
+   ```powershell
    Disable-AzContextAutosave -Scope Process
    ```
 
@@ -266,7 +276,7 @@ Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 �
    > [!NOTE]
    > [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) 또는 [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription)과 같은 cmdlet을 사용하여 직접 컨텍스트를 조작하는 경우에도 컨텍스트 개체를 전달해야 합니다.
 
-   ```azurepowershell-interactive
+   ```powershell
    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
    $context = Add-AzAccount `
              -ServicePrincipal `
@@ -693,7 +703,7 @@ Operation returned an invalid status code 'Forbidden'
 
 #### <a name="not-using-a-run-as-account"></a>실행 계정을 사용하지 않음
 
-[5단계 - Azure 리소스를 관리하기 위한 인증 추가](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
+[5단계 - Azure 리소스를 관리하기 위한 인증 추가](../learn/powershell-runbook-managed-identity.md#assign-permissions-to-managed-identities)에 따라 실행 계정을 사용하여 Key Vault에 액세스하도록 합니다.
 
 #### <a name="insufficient-permissions"></a>권한 부족
 

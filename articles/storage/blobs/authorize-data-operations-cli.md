@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 513cea632fa9d31231093a775a0269b983e3e42d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: b8dd3f6a81317abff79dce906c4a9c8ef6ea6484
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727170"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680246"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Azure CLI를 사용하여 Blob 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -35,7 +35,7 @@ Blob 데이터를 읽고 쓰기 위한 Azure CLI 명령에는 선택적 `--auth-
 `--auth-mode`매개 변수를 사용하려면 Azure CLI 버전 2.0.46 이상을 설치했는지 확인합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
 
 > [!NOTE]
-> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에 대한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업으로, 계정에 대해 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업이 차단됩니다. 그렇기 때문에 계정이 **읽기 전용** 잠금으로 잠겨 있으면, 계정 키가 없는 사용자는 Azure AD 자격 증명을 사용하여 Blob 데이터에 액세스해야 합니다.
+> Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에 대한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업으로, 계정에 대해 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업이 차단됩니다. 이러한 이유로 계정이 **ReadOnly** 잠금으로 잠겨 있는 경우 계정 키를 아직 소유하지 않은 사용자는 Azure AD 자격 증명을 사용하여 Blob 데이터에 액세스해야 합니다.
 
 > [!IMPORTANT]
 > `--auth-mode`매개 변수를 생략 또는 `key`로 설정하는 경우, Azure CLI은 권한 부여를 위해 계정 액세스 키를 사용하려고 시도합니다. 해당 경우 명령 또는 **AZURE_STORAGE_KEY** 환경 변수에 액세스 키를 제공하는 것이 좋습니다. 환경 변수에 대한 자세한 내용은 [권한 부여 매개 변수에 대한 환경 변수 설정](#set-environment-variables-for-authorization-parameters) 섹션을 참조하세요.
@@ -52,11 +52,11 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주�
 
 Blob 데이터에 작업에 대한 Azure Storage 확장을 지원합니다. 호출할 수 있는 작업은 Azure CLI 로그인하는 Azure AD 보안 주체에 부여된 권한에 따라 달라집니다. Azure Storage 컨테이너에 대한 권한은 Azure RBAC를 통해 할당됩니다. 예를 들어, **Storage Blob Data Reader** 역할이 할당되면 컨테이너에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **Storage Blob Data Contributor** 역할이 할당된 경우 컨테이너 또는 컨테이너에 포함된 데이터를 읽거나, 쓰거나, 삭제하는 스크립팅 명령을 실행할 수 있습니다.
 
-컨테이너의 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [OAuth 토큰을 이용한 스토리지 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조하세요.  
+컨테이너의 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [OAuth 토큰을 이용한 스토리지 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조하세요.
 
 ### <a name="example-authorize-an-operation-to-create-a-container-with-azure-ad-credentials"></a>예제: Azure AD 자격 증명을 사용하여 컨테이너를 만들도록 작업 권한 부여
 
-다음 예제에서는 Azure AD 자격 증명을 사용하여 Azure CLI에서 컨테이너를 만드는 방법을 보여 줍니다. 컨테이너를 만들려면 Azure CLI에 로그인해야 하고 리소스 그룹 및 스토리지 계정이 필요합니다. 해당 리소스를 만드는 방법을 알아보려면, [빠른 시작: Azure CLI을 사용하여 Blob 생성, 다운로드, 나열하기](../blobs/storage-quickstart-blobs-cli.md)를 참조하세요.
+다음 예제에서는 Azure AD 자격 증명을 사용하여 Azure CLI에서 컨테이너를 만드는 방법을 보여 줍니다. 컨테이너를 만들려면 Azure CLI 로그인해야 하며 리소스 그룹 및 스토리지 계정이 필요합니다. 해당 리소스를 만드는 방법을 알아보려면, [빠른 시작: Azure CLI을 사용하여 Blob 생성, 다운로드, 나열하기](../blobs/storage-quickstart-blobs-cli.md)를 참조하세요.
 
 1. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자라도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 

@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: c0eea1c7f041899d5c00062de2cbf35f83b9d53b
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: eb5766214fff67bf7e45998c9f89c640433bbe99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662089"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652456"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -51,33 +51,41 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 ## <a name="export-destinations"></a>내보내기 대상
 
+작업 영역에서 내보내기 규칙을 만들기 전에 데이터 내보내기 대상을 만들어야 합니다. 대상이 작업 영역과 동일한 구독에 있을 필요는 없습니다. Azure Lighthouse를 사용 하는 경우 다른 Azure Active Directory 테 넌 트의 대상으로 데이터가 전송 될 수도 있습니다.
+
 ### <a name="storage-account"></a>스토리지 계정
-데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 데이터 내보내기 구성은 스토리지 계정의 각 테이블에 대한 컨테이너를 만들며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
 
-스토리지 계정 Blob 경로는 *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json* 입니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 Blob의 명명 패턴은 PT1H_#.json이며 여기서 #은 증분 Blob 수입니다.
+데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 데이터에 대 한 액세스를 더 효율적으로 제어 하 고 저장소 수집 빈도 제한 및 제한에 도달 하지 않도록 방지 하기 위해 저장 된 다른 데이터를 모니터링 하지 않는 기존 저장소 계정을 사용 하지 않아야 합니다. 
 
-스토리지 계정 데이터 형식은 [JSON Lines](../essentials/resource-logs-blob-format.md)입니다. 즉, 각 레코드가 줄 바꿈으로 구분되고 외부 레코드 배열이 없으며 JSON 레코드 사이에는 쉼표가 없습니다. 
+데이터를 변경할 수 없는 저장소로 보내려면 [Blob 저장소에 대 한 불변성 정책 설정 및 관리](../../storage/blobs/immutable-policy-configure-version-scope.md)에 설명 된 대로 저장소 계정에 대 한 변경할 수 없는 정책을 설정 합니다. 보호된 추가 BLOB 쓰기 사용을 비롯하여 이 문서의 모든 단계를 따라야 합니다.
+
+저장소 계정은 작업 영역과 동일한 지역에 StorageV1 여야 합니다. 다른 지역에 있는 다른 저장소 계정에 데이터를 복제 해야 하는 경우 GRS 및 GZRS를 비롯 한 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 중 하나를 사용할 수 있습니다.
+
+데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 내보내기 규칙 설정은 저장소 계정의 각 테이블에 대 한 컨테이너를 *am* 이름으로 만든 다음 테이블 이름을 사용 하 여 만듭니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
+
+2021 년 10 월 15 일부 터 blob은 5 분 안에 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /H = \<two-digit 24-hour clock hour\> /M = \<two-digit 60-minute clock minute\> /pt05m.json* 에 저장 됩니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 blob에 대 한 명명 패턴은 PT05M_ #. json *입니다. 여기서 #은 증분 blob 수입니다.
+
+저장소 계정 데이터 형식은 [JSON 줄](../essentials/resource-logs-blob-format.md)에 있습니다. 즉, 각 레코드는 바깥쪽 레코드는 없고 JSON 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
 
 [![스토리지 샘플 데이터](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-Log Analytics 데이터 내보내기에서는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용하도록 설정한 경우 변경이 불가능한 스토리지 계정에 추가 Blob을 쓸 수 있습니다. 이를 통해 추가 Blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [보호된 추가 Blob 쓰기 허용](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes)을 참조하세요.
-
 ### <a name="event-hub"></a>이벤트 허브
-데이터는 Azure Monitor에 도달하면 거의 실시간으로 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
+
+데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 이벤트 허브 네임 스페이스에 대 한 공유 액세스 정책은 스트리밍 메커니즘이 포함 하는 사용 권한을 정의 합니다. 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. 내보내기 규칙을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다.
+
+이벤트 허브 네임 스페이스는 작업 영역과 동일한 지역에 있어야 합니다.
+
+Azure Monitor에 도달 하면 이벤트 허브로 데이터가 전송 됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
 > ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
 
-고려 사항:
-1. '기본' 이벤트 허브 SKU는 낮은 이벤트 크기 [제한](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers)을 지원하며 작업 영역의 일부 로그는 이를 초과하여 삭제될 수 있습니다. '표준' 또는 '전용' 이벤트 허브를 내보내기 대상으로 사용하는 것이 좋습니다.
+이벤트 허브 네임 스페이스에 대 한 고려 사항:
+1. ' 기본 ' 이벤트 허브 SKU는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. '표준' 또는 '전용' 이벤트 허브를 내보내기 대상으로 사용하는 것이 좋습니다.
 2. 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하는 경우가 많으며, 높은 전송 속도를 처리하고 제한 시나리오 및 데이터 대기 시간을 방지하려면 이벤트 허브 규모를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용하여 처리량 단위 수를 자동으로 스케일 업하여 늘려서 사용량 요구 사항을 충족해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
-다음은 Log Analytics 데이터 내보내기 구성 전에 완료해야 하는 필수 조건입니다.
-
-- 대상은 내보내기 규칙 구성 전에 생성되어야 하며 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 스토리지 계정에 복제해야 하는 경우 GRS 및 GZRS를 포함한 [Azure Storage 중복 옵션](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region)을 사용할 수 있습니다.
-- 스토리지 계정은 StorageV1 이상이어야 합니다. 클래식 스토리지는 지원되지 않습니다.
-- 선택한 네트워크에서 액세스할 수 있도록 스토리지 계정을 구성한 경우 스토리지 계정 설정에 예외를 추가하여 Azure Monitor가 스토리지에 쓸 수 있도록 해야 합니다.
+> [!NOTE]
+> 가상 네트워크를 사용 하는 경우 Azure Monitor 데이터 내보내기에서 이벤트 허브 리소스에 액세스할 수 없습니다. Azure Monitor 데이터 내보내기에 Event Hubs 리소스에 대 한 액세스 권한이 부여 되도록 하려면 트러스트 된 Microsoft 서비스에서이 방화벽 설정을 무시 하도록 허용 해야 합니다. 
 
 ## <a name="enable-data-export"></a>데이터 내보내기 사용
 Log Analytics 데이터 내보내기를 사용하도록 설정하려면 다음 단계를 수행해야 합니다. 각각에 대한 더 자세한 내용은 다음 섹션을 참조하세요.
@@ -538,7 +546,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>지원되지 않는 테이블
 데이터 내보내기 규칙에 지원되지 않는 테이블이 포함되어 있으면 구성이 성공하지만 해당 테이블에 대한 데이터를 내보내지 않습니다. 테이블이 나중에 지원되면 해당 시점에서 데이터를 내보냅니다.
 
-데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 "테이블 <tableName>이(가) 작업 영역에 없습니다"라는 오류와 함께 실패합니다.
+데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 "테이블 \<tableName\>이(가) 작업 영역에 없습니다"라는 오류와 함께 실패합니다.
 
 
 ## <a name="supported-tables"></a>지원되는 테이블

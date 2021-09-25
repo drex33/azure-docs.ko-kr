@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 352497f0f4d23250abe9f84121f358589664002b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: c1171ada070131477c06292628da6eca9ee9c2ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502915"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590991"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage에 파일 업로드
 
-AzCopy v10 명령줄 유틸리티를 사용하여 파일과 디렉터리를 Blob Storage에 업로드할 수 있습니다. 
+AzCopy v10 명령줄 유틸리티를 사용하여 파일과 디렉터리를 Blob Storage에 업로드할 수 있습니다.
 
 Blob 다운로드, Blob Storage와 동기화 또는 계정 간 Blob 복사와 같은 다른 작업 형식의 예를 보려면 이 문서의 [다음 단계](#next-steps) 섹션에 있는 링크를 참조하세요.
 
@@ -25,10 +25,10 @@ Blob 다운로드, Blob Storage와 동기화 또는 계정 간 Blob 복사와 �
 
 AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 제공하는 방법에 관해 알아보려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조하세요.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -84,7 +84,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.w
 
 ## <a name="upload-a-directory"></a>디렉터리 업로드
 
-[azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용하여 디렉터리를 업로드합니다. 
+[azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용하여 디렉터리를 업로드합니다.
 
 이 예에서는 디렉터리와 해당 디렉터리의 모든 파일을 blob 컨테이너에 복사합니다. 결과는 컨테이너에 같은 이름으로 디렉터리가 생깁니다.
 
@@ -132,7 +132,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 **구문**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'`
 
 **예제**
 
@@ -159,9 +159,9 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/my
 
 `--include-path` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 세미콜론(`;`)을 사용하여 개별 파일 이름을 구분합니다.
 
-**구문** 
+**구문**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>`
 
 **예제**
 
@@ -181,11 +181,11 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 ### <a name="use-wildcard-characters"></a>와일드카드 문자 사용
 
-`--include-pattern` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 와일드카드 문자를 포함하는 부분 이름을 지정합니다. 세미콜론(`;`)을 사용하여 이름을 구분합니다. 
+`--include-pattern` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 와일드카드 문자를 포함하는 부분 이름을 지정합니다. 세미콜론(`;`)을 사용하여 이름을 구분합니다.
 
 **구문**
 
-`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>`
 
 **예제**
 
@@ -203,15 +203,15 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로가 아니라 파일 이름에만 적용됩니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사하려면 `–recursive` 옵션을 사용하여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`을 사용하고 `*.txt`를 지정하여 모든 텍스트 파일을 가져옵니다.
 
-### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>날짜 및 시간 이전 또는 이후 수정된 파일 업로드 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>날짜 및 시간 이전 또는 이후 수정된 파일 업로드
 
-`--include-before` 또는 `--include-after` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. ISO-8601 형식으로 날짜와 시간을 지정합니다(예: `2020-08-19T15:04:00Z`). 
+`--include-before` 또는 `--include-after` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. ISO-8601 형식으로 날짜와 시간을 지정합니다(예: `2020-08-19T15:04:00Z`).
 
 다음 예에서는 지정한 날짜 또는 그 이후에 수정된 파일을 업로드합니다.
 
 **구문**
 
-`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>`
 
 **예제**
 
@@ -229,11 +229,11 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/my
 
 ## <a name="upload-with-index-tags"></a>인덱스 태그로 업로드
 
-파일을 업로드하고 대상 Blob에 [Blob 인덱스 태그(미리 보기) ](../blobs/storage-manage-find-blobs.md)를 추가할 수 있습니다.  
+파일을 업로드하고 대상 Blob에 [Blob 인덱스 태그(미리 보기) ](../blobs/storage-manage-find-blobs.md)를 추가할 수 있습니다.
 
 Azure AD 권한 부여를 사용하는 경우 보안 주체에 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당되거나 사용자 지정 Azure 역할을 통해 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage)에 대한 사용 권한이 부여되어야 합니다. SAS(공유 액세스 서명) 토큰을 사용하는 경우 해당 토큰은 `t` SAS 권한을 통해 blob의 태그에 대한 액세스를 제공해야 합니다.
 
-태그를 추가하려면 URL로 인코딩된 키-값 쌍과 함께 `--blob-tags` 옵션을 사용합니다. 예를 들어, `my tag` 키와 `my tag value` 값을 추가하려면 `--blob-tags='my%20tag=my%20tag%20value'`를 대상 매개 변수에 추가합니다. 
+태그를 추가하려면 URL로 인코딩된 키-값 쌍과 함께 `--blob-tags` 옵션을 사용합니다. 예를 들어, `my tag` 키와 `my tag value` 값을 추가하려면 `--blob-tags='my%20tag=my%20tag%20value'`를 대상 매개 변수에 추가합니다.
 
 앰퍼샌드(`&`)를 사용하여 여러 인덱스 태그를 구분합니다.  예를 들어, `my second tag` 키와 `my second tag value` 값을 추가하려는 경우 전체 옵션 문자열은 `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`입니다.
 

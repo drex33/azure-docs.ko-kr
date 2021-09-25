@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: d09b2aff00d32dc3865c13e2aaab94a0a86464e3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: aaa64a5f70bf637c0bbe5e691095ac2e810a6e59
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537970"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651620"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Azure Spring Cloud의 메트릭
 
@@ -177,6 +177,20 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 >| tomcat.sessions.expired | tomcat.sessions.expired | 개수 | 만료된 세션 수입니다. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | 개수 | 최대 활성 세션 수에 도달하여 만들지 않은 세션 수입니다. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | 개수 | Tomcat 세션 활성 수 |
+
+### <a name="ingress"></a>수신
+
+>[!div class="mx-tdCol2BreakAll"]
+>| 표시 이름             | Azure 메트릭 이름        | 단위           | 세부 정보                                                                                                                                                                          |
+>|--------------------------|--------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+>| 수신된 바이트           | IngressBytesRx           | 바이트          | 클라이언트에서 Azure Spring Cloud 받은 바이트 수                                                                                                                   |
+>| 보낸 바이트               | IngressBytesTx           | 바이트          | Azure 스프링 클라우드에서 클라이언트에 보낸 바이트 수                                                                                                                         |
+>| 요청                 | IngressRequestsCount     | 개수          | 클라이언트의 Azure 스프링 클라우드의 요청 수                                                                                                                         |
+>| 실패한 요청          | IngressFailedRequest     | 개수          | 클라이언트에서 Azure 스프링 클라우드의 실패 한 요청 수                                                                                                                  |
+>| 응답 상태          | IngressResponseCount     | 개수          | Azure 스프링 클라우드에서 반환 된 HTTP 응답 상태입니다. 응답 상태 코드 배포를 추가로 범주화 하 여 2xx, 3xx, 4xx 및 5xx 범주의 응답을 표시할 수 있습니다. |
+>| 응답 시간            | IngressResponseTime      | 초        | Azure 스프링 클라우드의 Http 응답 시간 반환                                                                                                                                  |
+>| 처리량 (바이트/초)  | IngressBytesReceivedRate | 초당 바이트 수 | 클라이언트에서 Azure 스프링 클라우드의 초당 받은 바이트 수입니다.                                                                                                                 |
+>| 처리량 (바이트/초) | IngressBytesSentRate     | 초당 바이트 수 | Azure 스프링 클라우드에서 클라이언트에 초당 보낸 바이트 수                                                                                                                       |
 
 ## <a name="next-steps"></a>다음 단계
 

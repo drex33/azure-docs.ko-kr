@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d3f353693aeafb3093a2a8edce017cc24c0aca49
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: d9e634597d82b6cac52237f0c800cdfc33bc883a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370688"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635416"
 ---
 # <a name="rest-api"></a>REST API
 이 문서에서는 IoT Edge의 Azure Event Grid에 있는 REST API에 대해 설명합니다.
@@ -29,26 +29,26 @@ IoT Edge의 Event Grid에는 HTTP(포트 5888) 및 HTTPS(포트 4438)를 통해 
 ### <a name="request-query-string"></a>요청 쿼리 문자열
 모든 API 요청에는 다음 쿼리 문자열 매개 변수가 있어야 합니다.
 
-```?api-version=2019-01-01-preview```
+`?api-version=2019-01-01-preview`
 
 ### <a name="request-content-type"></a>요청 콘텐츠 형식
 모든 API 요청에는 **Content-Type** 이 있어야 합니다.
 
 **EventGridSchema** 또는 **CustomSchema** 의 경우 Content-Type의 값은 다음 값 중 하나일 수 있습니다.
 
-```Content-Type: application/json```
+`Content-Type: application/json`
 
-```Content-Type: application/json; charset=utf-8```
+`Content-Type: application/json; charset=utf-8`
 
 구조적 모드의 **CloudEventSchemaV1_0** 의 경우 Content-Type의 값은 다음 값 중 하나일 수 있습니다.
 
-```Content-Type: application/cloudevents+json```
+`Content-Type: application/cloudevents+json`
     
-```Content-Type: application/cloudevents+json; charset=utf-8```
+`Content-Type: application/cloudevents+json; charset=utf-8`
     
-```Content-Type: application/cloudevents-batch+json```
+`Content-Type: application/cloudevents-batch+json`
     
-```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+`Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
 이진 모드의 **CloudEventSchemaV1_0** 의 경우 [설명서](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md)에서 세부 정보를 참조하십시오.
 
@@ -760,19 +760,19 @@ Service Bus 토픽을 게시하려면 `endpointType`을 `serviceBusTopic`으로 
 * queueName: 게시하는 스토리지 큐의 이름입니다.
 * connectionString: 스토리지 큐가 있는 스토리지 계정의 연결 문자열입니다.
 
-    >[!NOTE]
-    > Event Hubs, Service Bus 큐, Service Bus 토픽과 다르게 스토리지 큐에 사용된 연결 문자열은 엔터티와 관련되어 있지 않습니다. 대신 스토리지 계정에 대한 연결 문자열이어야 합니다.
+  >[!NOTE]
+  > Event Hubs, Service Bus 큐 및 Service Bus 항목과 달리 Storage 큐에 사용되는 연결 문자열은 엔터티별로 다릅니다. 대신 Storage 계정에 대한 연결 문자열이어야 합니다.
 
-    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "storageQueue",
-              "properties": {
-                "queueName": "<your-storage-queue-name>",
-                "connectionString": "<your-storage-account-connection-string>"
-              }
-            }
-          }
+  ```json
+  {
+    "properties": {
+      "destination": {
+        "endpointType": "storageQueue",
+        "properties": {
+          "queueName": "<your-storage-queue-name>",
+          "connectionString": "<your-storage-account-connection-string>"
         }
-    ```
+      }
+    }
+  }
+  ```

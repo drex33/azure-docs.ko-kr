@@ -2,7 +2,6 @@
 title: 고객 주요 내용
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer를 사용하는 고객 스토리를 집중적으로 소개합니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: bca9462ceb9812618247f03e111b74877ac841e2
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 53ea579092916621180fdef5306ac091d36375b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666726"
 ---
 # <a name="customer-spotlight"></a>고객 주요 내용
 

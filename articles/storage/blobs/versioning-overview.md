@@ -10,18 +10,16 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 1feb78c381a189ae2db1d2aa658f8d0782769f99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733703"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664792"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
 Blob 스토리지 버전 관리를 사용하도록 설정하여 이전 버전의 개체를 자동으로 유지 관리할 수 있습니다. Blob 버전 관리를 사용하는 경우 데이터를 잘못 수정하거나 삭제한 경우 이전 버전의 Blob을 복원하여 데이터를 복구할 수 있습니다.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>권장되는 데이터 보호 구성
 
@@ -47,7 +45,7 @@ Microsoft의 데이터 보호 권장 사항에 대해 자세히 알아보려면 
 
 Blob 버전은 변경할 수 없습니다. 기존 Blob 버전의 콘텐츠나 메타데이터는 수정할 수 없습니다.
 
-Blob의 버전 수가 많으면 Blob 목록 작업 대기 시간이 길어질 수 있습니다. Microsoft는 Blob 하나 당 1000개 미만의 버전을 유지 관리하기를 권합니다. 수명 주기 관리를 사용하여 오래된 버전을 자동으로 삭제할 수 있습니다. 수명 주기 관리에 대한 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조하세요.
+Blob의 버전 수가 많으면 Blob 목록 작업 대기 시간이 길어질 수 있습니다. Microsoft는 Blob 하나 당 1000개 미만의 버전을 유지 관리하기를 권합니다. 수명 주기 관리를 사용하여 오래된 버전을 자동으로 삭제할 수 있습니다. 수명 주기 관리에 대한 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](./lifecycle-management-overview.md)를 참조하세요.
 
 Blob 버전 관리는 표준 범용 v2, 프리미엄 블록 Blob 및 레거시 Blob Storage 계정에 사용할 수 있습니다. Azure Data Lake Storage Gen2에서 사용하도록 설정된 계층 구조 네임스페이스를 사용하는 스토리지 계정은 현재 지원되지 않습니다.
 
@@ -113,7 +111,7 @@ Blob에 새 데이터를 쓰면 Blob의 현재 버전이 새로 만들어집니�
 
 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 현재 버전을 비롯한 모든 블록 Blob 버전을 다른 Blob 액세스 계층으로 이동할 수 있습니다. 이전 버전의 Blob을 쿨 또는 보관 계층으로 이동시켜 더 낮은 용량의 요금을 활용할 수 있습니다. 자세한 내용은 [Azure Blob 스토리지: 핫, 쿨, 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조하세요.
 
-블록 Blob을 적절한 계층으로 이동하는 프로세스를 자동화하려면 Blob 수명 주기 관리를 사용합니다. 수명 주기 관리에 대한 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하세요.
+블록 Blob을 적절한 계층으로 이동하는 프로세스를 자동화하려면 Blob 수명 주기 관리를 사용합니다. 수명 주기 관리에 대한 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](./lifecycle-management-overview.md)를 참조하세요.
 
 ## <a name="enable-or-disable-blob-versioning"></a>Blob 버전 관리 사용 또는 사용하지 않음
 
@@ -192,7 +190,7 @@ Blob 버전 관리는 실수로 인한 삭제 또는 악의적인 삭제에서 �
 
 다음 표에서는 Blob 또는 Blob 버전 삭제를 지원하는 Azure RBAC 작업을 보여 줍니다.
 
-| 설명 | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| Description | Blob 서비스 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | 현재 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 이전 버전 삭제 | Blob 삭제 | **Microsoft.Storage/storageAccounts/BlobServices/containers/Blobs/deleteBlobVersion/action** | Storage Blob 데이터 소유자 |
@@ -298,7 +296,18 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용하는 경우 | 계층에 관계 없이 모든 기존 버전의 전체 콘텐츠 길이 |
 | Blob 일시 삭제를 사용하도록 설정했지만 버전 관리를 사용하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
+## <a name="see-also"></a>참조
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅샷 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

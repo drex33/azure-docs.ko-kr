@@ -2,14 +2,14 @@
 title: 고가용성을 위한 영역 중복 레지스트리
 description: Azure Container Registry에서 영역 중복을 사용하도록 설정하는 방법에 대해 알아봅니다. Azure 가용성 영역에 컨테이너 레지스트리 또는 복제를 만듭니다. 영역 중복은 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 09/13/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69714f25263b0b26fe4854b0303c3c9106b18f9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ca475f61c3164f54682a22f459e1f8f768073f1f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528901"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586820"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원력 및 고가용성을 위해 Azure Container Registry에서 영역 중복 사용
 
@@ -21,7 +21,12 @@ Azure Container Registry는 하나 이상의 Azure 지역에서 레지스트리 
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 현재 미국 동부, 미국 동부 2, 미국 서부 2, 북유럽, 서유럽, 일본 동부 지역에서 지원됩니다.
+* 현재 다음 지역에서 지원됩니다. 
+  
+    |아메리카  |유럽  |아프리카  |아시아 태평양  |
+    |---------|---------|---------|---------|
+    |브라질 남부<br/>캐나다 중부<br/>미국 중부<br/>미국 동부<br/>미국 동부 2<br/>미국 중남부<br/>미국 버지니아 주 정부<br/>미국 서부 2<br/>미국 서부 3     |프랑스 중부<br/>독일 중서부<br/>북유럽<br/>노르웨이 동부<br/>서유럽<br/>영국 남부      |남아프리카 북부<br/>        |오스트레일리아 동부<br/>인도 중부<br/>일본 동부<br/>한국 중부<br/>  |
+
 * 가용성 영역으로의 지역 변환은 현재 지원되지 않습니다. 지역에서 가용성 영역 지원을 사용하도록 설정하려면 가용성 영역 지원을 사용하도록 설정하여 레지스트리를 원하는 지역에 만들거나, 가용성 영역 지원을 사용하도록 설정하여 복제된 지역을 추가해야 합니다.
 * 영역 중복은 지역에서 사용하지 않도록 설정할 수 없습니다.
 * [ACR 작업](container-registry-tasks-overview.md)은 아직 가용성 영역을 지원하지 않습니다.

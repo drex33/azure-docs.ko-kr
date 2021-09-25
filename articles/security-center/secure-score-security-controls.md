@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: memildin
-ms.openlocfilehash: de0983d981aa4bc229f29e151c37cda0be90cdec
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 4bfacebc9961cdbac89252783f47267002a69a66
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597249"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -100,14 +100,8 @@ Security Center와 함께 제공되는 보안 권장 사항 세트는 각 조직
 > 이니셔티브 검토 및 편집에 대한 자세한 내용은 [보안 정책 사용](tutorial-security-policy.md)을 참조하세요. 
 
 Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표준을 기반으로 하지만 아래에 나열된 기본 제공 권장 사항이 조직에 완전히 맞지 않을 수 있는 시나리오가 있습니다. 따라서 보안을 손상시키지 않으면서 기본 이니셔티브를 조정하여 조직의 자체 정책, 업계 표준, 규제 표준 및 벤치마크에 맞게 조정해야 할 경우도 있습니다.<br><br>
-<div class="foo">
-
-<style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
-
-</div>
-
 
 
 

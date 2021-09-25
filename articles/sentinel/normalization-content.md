@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 6ff0d40fbfa75eb6ae40766a4be42891c11156dd
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: deb5377aef61736a14ce8110e96c16e5352096cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552258"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>ASIM(Azure Sentinel 정보 모델) 보안 콘텐츠(공개 미리 보기)
 
@@ -30,8 +30,12 @@ Azure Sentinel 정규화된 보안 콘텐츠에는 분석 규칙, 헌팅 쿼리 
 
 이 문서에서는 ASIM을 지원하도록 구성된 기본 제공 Azure Sentinel 콘텐츠를 나열합니다.  Azure Sentinel GitHub 리포지토리에 대한 링크는 아래에 참조로 제공되는 반면, [ Analytics 규칙 갤러리](detect-threats-built-in.md)에서 이러한 규칙을 찾을 수도 있습니다. 연결된 GitHub 페이지를 사용하여 관련 헌팅 쿼리를 복사합니다.
 
+> [!TIP]
+> 또한 [파서 정규화 및 정규화된 콘텐츠 Azure Sentinel 심층 분석 웨비나를](https://www.youtube.com/watch?v=zaqblyjQW6k) 시청하거나 [슬라이드를 검토하세요.](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM) 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
+>
+
 > [!IMPORTANT]
-> 현재 미리 보기로 제공되고 있습니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+> ASIM은 현재 미리 보기 상태입니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 >
 
 ## <a name="authentication-security-content"></a>인증 보안 콘텐츠
@@ -52,7 +56,10 @@ ASIM 정규화에는 다음과 같은 기본 제공 인증 콘텐츠가 지원�
 
 ### <a name="analytics-rules"></a>Analytics 규칙
 
- - [과도한 NXDOMAIN DNS 쿼리(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - (미리 보기) TI는 도메인 엔터티를 DNS 이벤트에 매핑합니다(정규화된 DNS).
+ - (미리 보기) TI는 IP 엔터티를 DNS 이벤트에 매핑합니다(정규화된 DNS).
+ - [잠재적 DGA 검색됨(ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+  - [과도한 NXDOMAIN DNS 쿼리(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [마이닝 풀과 관련된 DNS 이벤트(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [ToR 프록시와 관련된 DNS 이벤트(정규화된 DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
  - [알려진 Barium 도메인](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
@@ -185,12 +192,13 @@ imDns
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a><a name="next-steps"></a>다음 단계
 
 이 문서에서는 ASIM(Azure Sentinel 정보 모델) 콘텐츠에 대해 설명합니다.
 
 자세한 내용은 다음을 참조하세요.
 
+- [파서 정규화 및 정규화된 콘텐츠 Azure Sentinel 심층 분석 웨비나를](https://www.youtube.com/watch?v=zaqblyjQW6k) 시청하거나 [슬라이드를 검토하세요.](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Azure Sentinel 정보 모델 개요](normalization.md)
 - [Azure Sentinel 정보 모델 스키마](normalization-about-schemas.md)
 - [Azure Sentinel 정보 모델 파서](normalization-about-parsers.md)

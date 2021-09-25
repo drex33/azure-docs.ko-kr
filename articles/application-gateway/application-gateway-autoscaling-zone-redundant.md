@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 63cf40d5d7fcea55cd5de27d2b4d65691d9d0311
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059724"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652000"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -26,7 +26,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF(웹
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 지원됩니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.
 - **정적 VIP**: Application Gateway v2 SKU는 정적 VIP 유형만 독점적으로 지원합니다. 이렇게 하면 Application Gateway와 연결된 VIP가 다시 시작된 후에도 배포의 수명 주기 동안 변경되지 않습니다.  V1에는 정적 VIP가 없으므로 Application Gateway를 통해 App Services로 라우팅하는 도메인 이름의 IP 주소 대신, Application Gateway URL을 사용해야 합니다.
-- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
+- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](./rewrite-http-headers-url.md)를 참조하세요.
 - **Key Vault 통합**: Application Gateway v2는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 자세한 내용은 [Key Vault 인증서를 사용한 TLS 종료](key-vault-certs.md)를 참조하세요.
 - **Azure Kubernetes Service 수신 컨트롤러**: Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 AKS 클러스터라고도 하는 AKS(Azure Kubernetes Service)의 수신으로 사용할 수 있습니다. 자세한 내용은 [Application Gateway 수신 컨트롤러란?](ingress-controller-overview.md)을 참조하세요.
 - **성능 향상**: V2 SKU는 표준/WAF SKU와 비교할 때 최대 5배 더 나은 TLS 오프로드 성능을 제공합니다.
@@ -36,7 +36,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF(웹
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 동부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 유럽 북부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 한국 중부, 한국 남부, 영국 남부, 인도 중부, 인도 서부, 인도 남부에서 사용할 수 있습니다.
+Standard_v2 및 WAF_v2 SKU는 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아  한국 중부, 한국 남부, 영국 남부, 인도 중부, 인도 서부, 인도 남부, 인도 서부 Jio 인도 서부, 노르웨이 동부, 스위스 북부, 아랍에미리트 북부, 남아프리카 북부, 독일 중서부.
 
 ## <a name="pricing"></a>가격 책정
 

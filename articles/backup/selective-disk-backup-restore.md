@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 백업 솔루션을 사용�
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bc309311db421a22a845b273d3816e7c51e3ce76
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: e23c0729f44128172e4afd4902ce60e9c2ecb29c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112827"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613083"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 머신의 선택적 디스크 백업 및 복원
 
@@ -257,6 +257,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
+
+> [!NOTE]
+> 정책 매개 변수가 필요하다는 오류와 함께 명령이 실패하면 백업 항목의 보호 상태를 확인합니다. 보호가 중지되어 보호를 다시 시작하고 이전의 모든 디스크 제외 설정을 다시 설정하는 정책이 필요할 수 있습니다.
 
 ### <a name="restore-selective-disks-with-powershell"></a>PowerShell을 사용하여 선택적 디스크 복원
 

@@ -1,20 +1,20 @@
 ---
 title: .NET을 사용하여 Azure Queue Storage 시작 - Azure Storage
 description: Azure Queue Storage는 애플리케이션 구성 요소 간에 안정적인 비동기 메시징을 제공합니다. 클라우드 메시징을 사용하면 애플리케이션 구성 요소를 독립적으로 조정할 수 있습니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bec9ea1e01edc3e8289eb7212d3c5fecd673faaa
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 4dc434d8387a065f60405e1c0937c7bb61ef9833
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477364"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562460"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 

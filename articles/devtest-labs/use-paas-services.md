@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 PaaS(Platform as a Service) 서비스 사용
+title: PaaS(Platform-as-a-Service) 서비스 사용
 description: Azure DevTest Labs에서 PaaS(Platform as a Service) 서비스를 사용하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8d4bcf98d425e322c18e13ec99b525cf1442bc49
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85478742"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548130"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Azure DevTest Labs에서 PaaS(Platform as a Service) 서비스 사용
 PaaS는 환경 기능을 통해 DevTest Labs에서 지원됩니다. DevTest Labs의 환경은 Git 리포지토리에서 미리 구성된 Azure Resource Manager 템플릿을 통해 지원됩니다. 환경에는 PaaS 및 IaaS 리소스가 둘 다 포함될 수 있습니다. 환경에서는 함께 작동하도록 사용자 지정되는 가상 머신, 데이터베이스, 가상 네트워크, 웹앱과 같은 Azure 리소스를 포함할 수 있는 복잡한 시스템을 만들 수 있습니다. 이 템플릿을 통해 소스 코드 제어를 사용하여 일관성 있게 배포하고 환경 관리를 개선할 수 있습니다. 
@@ -78,8 +78,3 @@ DevTest Labs의 PaaS 서비스는 랩에서 액세스를 제어하는 집중 배
 - [Azure DevTest Labs에서 랩의 가상 네트워크에 환경 연결](connect-environment-lab-virtual-network.md)
 - [Azure DevOps CI/CD 파이프라인에 환경 통합](integrate-environments-devops-pipeline.md)
  
-
-
-
-
-

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 메트릭에 대해 경고를 사용하도록 설정하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 9/15/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55dcda4c323700caa030fb87768d36a702d1c501
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 6a5397a2387b7fb55b0e03664ddb9f52ec8baf59
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642772"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Azure Digital Twins 문제 해결: 경고
 
@@ -28,15 +28,19 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용하도록 설정하�
 
 2. 메뉴에서 **경고** 를 선택하고 **+ 새 경고 규칙** 을 선택합니다.
 
+   :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Azure Digital Twin 인스턴스의 경고 섹션에서 새 경고 규칙을 만드는 단추를 보여주는 Azure Portal 스크린샷." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
+
 3. 다음에 나오는 *경고 규칙 만들기* 페이지에서 프롬프트에 따라 조건, 트리거할 작업 및 경고 세부 정보를 정의할 수 있습니다.     
     * **범위** 세부 정보는 인스턴스에 대한 세부 정보로 자동으로 채워집니다.
     * 경고 트리거 및 응답을 사용자 지정하도록 **조건** 및 **작업 그룹** 세부 정보를 정의합니다.
-    * **경고 규칙 세부 정보** 섹션에서 규칙의 이름과 설명(선택 사항)을 입력합니다. 경고가 생성되는 즉시 활성 상태가 되도록 하려면 _경고 규칙을 만들면 바로 사용_ 확인란을 선택하면 됩니다.
-        - 여기에서 _리소스 그룹_ 및 _심각도_ 수준을 선택할 수도 있습니다.
+    * **경고 규칙 세부 정보** 섹션에서 규칙의 이름과 설명(선택 사항)을 입력합니다. 
+        - 경고가 생성되는 즉시 활성 상태가 되도록 하려면 _경고 규칙을 만들면 바로 사용_ 확인란을 선택하면 됩니다.
+        - 조건이 더 이상 충족되지 않을 때 경고를 해결하려면 경고 _자동_ 해결 확인란을 선택할 수 있습니다.
+        - 또한 이 섹션에서는 _구독,_ _리소스 그룹_ 및 _심각도_ 수준을 선택합니다.
 
 4. _경고 규칙 만들기_ 단추를 선택하여 경고 규칙을 만듭니다.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대한 섹션이 있는 경고 규칙 만들기 페이지를 보여주는 Azure Portal의 스크린샷." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+   :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대한 섹션이 있는 경고 규칙 만들기 페이지를 보여주는 Azure Portal의 스크린샷." lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 이러한 필드를 작성하는 방법에 대한 단계별 연습은 [Microsoft Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조하세요. 다음은 Azure Digital Twins의 단계에 대한 몇 가지 예입니다.
 

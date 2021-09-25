@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 08/17/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: c704064685b4096c8ee7b4a1015d82fae7c40ba9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: f0b4f19e8c1e06aa8ab5657fd1c70a75814451ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530703"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612190"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>보안 작업 영역을 만드는 방법
 
@@ -79,22 +79,30 @@ ms.locfileid: "122530703"
     1. 작업 영역, 종속성 서비스 및 학습에 사용된 리소스를 포함하는 서브넷을 만들려면 __+서브넷 추가__ 를 선택하고 서브넷에 대해 다음 값을 사용합니다.
         * __서브넷 이름__: 학습
         * __서브넷 주소 범위__: 172.17.0.0/24
-        * __서비스__: 다음 서비스를 선택합니다.
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="학습 서브넷 스크린샷":::
+
+        > [!TIP]
+        > _서비스 끝점_ 을 사용 하 여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry를 VNet에 추가 하려는 경우 __서비스__ 에서 다음을 선택 합니다.
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > _개인 끝점_ 을 사용 하 여 이러한 서비스를 VNet에 추가 하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대 한 개인 끝점을 사용 하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
     1. 모델 점수를 매기는 데 사용되는 컴퓨팅 리소스에 대한 서브넷을 만들려면 __+서브넷 추가__ 를 다시 선택하고 다음 값을 사용합니다.
         * __서브넷 이름__: 점수 매기기
         * __서브넷 주소 범위__: 172.17.1.0/24
-        * __서비스__: 다음 서비스를 선택합니다.
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="점수 매기기 서브넷 스크린샷":::
+
+        > [!TIP]
+        > _서비스 끝점_ 을 사용 하 여 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry를 VNet에 추가 하려는 경우 __서비스__ 에서 다음을 선택 합니다.
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > _개인 끝점_ 을 사용 하 여 이러한 서비스를 VNet에 추가 하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대 한 개인 끝점을 사용 하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
 1. __보안__ 을 선택합니다. __BastionHost__ 에서 __사용__ 을 선택합니다. [Azure Bastion](../bastion/bastion-overview.md)은 이후 단계에서 VNet 내부에서 만들 VM 점프 상자에 액세스하는 안전한 방법을 제공합니다. 나머지 필드에 대해 다음 값을 사용합니다.
 
@@ -283,21 +291,6 @@ ms.locfileid: "122530703"
 
 Azure Machine Learning 스튜디오는 작업 영역을 쉽게 관리할 수 있는 웹 기반 애플리케이션입니다. 그러나 VNet 내에서 보호되는 리소스와 함께 사용하려면 몇 가지 추가 구성이 필요합니다. 스튜디오를 사용하려면 다음 단계를 사용합니다.
 
-1. Azure Portal에서 스토리지 계정을 선택한 다음, __액세스 제어(IAM)__ 를 선택합니다.
-1. __+ 추가__ 를 선택한 다음, __역할 할당 추가(미리 보기)__ 를 선택합니다.
-
-    ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. __역할__ 탭에서 __Storage Blob 데이터 기여자__ 를 선택합니다.
-
-    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. __구성원__ 탭의 __액세스 권한 할당 대상__ 에서 __사용자, 그룹 또는 서비스 주체__ 를 선택하고 __+ 구성원 선택__ 을 선택합니다. __구성원 선택__ 대화 상자에서 이름을 Azure Machine Learning 작업 영역으로 입력합니다. 작업 영역에 대한 서비스 주체를 선택한 다음, __선택__ 단추를 사용합니다.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-select-service-principal.png" alt-text="서비스 주체 선택 스크린샷":::
-
-1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
-
 1. 프라이빗 엔드포인트가 있는 Azure Storage 계정을 사용하는 경우 작업 영역에 대한 서비스 주체를 스토리지 프라이빗 엔드포인트에 대한 __읽기 권한자__ 로 추가합니다. Azure Portal에서 스토리지 계정을 선택한 다음, __네트워킹__ 을 선택합니다. 다음으로, __프라이빗 엔드포인트 연결__ 을 선택합니다.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-select.png" alt-text="스토리지 프라이빗 엔드포인트 스크린샷":::
@@ -410,7 +403,7 @@ Azure Machine Learning 스튜디오는 작업 영역을 쉽게 관리할 수 있
 > * `BatchNodeManagement` 서비스 태그에서 포트 29876-29877의 인바운드 TCP 트래픽을 허용합니다.
 > * `AzureMachineLearning` 서비스 태그에서 포트 44224의 인바운드 TCP 트래픽을 허용합니다.
 >
-> 다음 스크린샷은 이러한 규칙의 예를 보여 줍니다.
+> 다음 스크린샷에서는 이러한 규칙의 예를 보여줍니다.
 >
 > :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="NSG 스크린샷":::
 

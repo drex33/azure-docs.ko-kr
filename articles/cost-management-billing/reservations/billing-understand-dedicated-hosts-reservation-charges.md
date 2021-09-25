@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.openlocfilehash: 3e0f6bc30ca86653ff7a05f2874236a51d359955
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148382"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631099"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Azure 예약 할인이 Azure Dedicated Host에 적용되는 방식
 
@@ -30,7 +30,7 @@ Azure Reserved Dedicated Hosts Instance는 전용 호스트에 사용되는 컴�
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-질문이 있거나 도움이 필요한 경우  [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

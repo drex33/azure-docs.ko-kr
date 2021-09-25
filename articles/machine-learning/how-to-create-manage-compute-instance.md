@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/30/2021
-ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: 4080839a817531be51190261fc63e67ded051f98
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224706"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647996"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -123,10 +123,11 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 1. <a name="advanced-settings"></a> 다음을 수행하려면 **다음: 고급 설정** 을 선택합니다.
 
     * SSH 액세스를 사용하도록 설정합니다.  아래의 [자세한 SSH 액세스 지침](#enable-ssh)을 따르세요.
-    * Virtual Network를 사용하도록 설정합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정하여 Azure VNet(Azure Virtual Network) 내에 컴퓨팅 인스턴스를 만듭니다. 자세한 내용은 VNet의 [네트워크 요구 사항](./how-to-secure-training-vnet.md)을 참조하세요. 
+    * Virtual Network를 사용하도록 설정합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정하여 Azure VNet(Azure Virtual Network) 내에 컴퓨팅 인스턴스를 만듭니다. 공용 IP __없음(미리__ 보기) 을 선택하여 프라이빗 링크 작업 영역이 필요한 공용 IP 주소가 생성되지 않도록 할 수도 있습니다. 또한 가상 [네트워크 설정에 대한](./how-to-secure-training-vnet.md) 이러한 네트워크 요구 사항을 충족해야 합니다. 
     * 컴퓨터를 다른 사용자에게 할당합니다. 다른 사용자에게 할당하는 방법에 대한 자세한 내용은 [대신 만들기](#on-behalf)를 참조하세요.
     * 설정 스크립트로 프로비저닝(미리 보기) - 설정 스크립트를 만들고 사용하는 방법에 대한 자세한 내용은 [스크립트로 컴퓨팅 인스턴스 사용자 지정](#setup-script)을 참조하세요.
     * 일정을 추가합니다(미리 보기). 컴퓨팅 인스턴스가 자동으로 시작 및/또는 종료되는 시간을 예약합니다. 아래의 [일정 세부 정보](#schedule)를 참조하세요.
+
 
 ---
 

@@ -1,14 +1,14 @@
 ---
 title: 클라우드 솔루션 공급자 프로그램 고려 사항
 description: CSP 파트너의 경우 Azure 위임 리소스 관리를 통해 세분화된 권한을 사용하여 보안 및 제어 기능을 향상시킵니다.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 338c2086826a6b23810f5b2dc13c9a34d9c65f8b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 6a53ec7cfc2e9f82664e57eecf5bf3f587444134
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629107"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 및 클라우드 솔루션 공급자 프로그램
 
@@ -27,11 +27,11 @@ AOBO를 사용하는 경우 테넌트에서 [관리 에이전트](/partner-cente
 
 ## <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Azure Lighthouse를 사용하면 다음 다이어그램이 제시하는 대로 다양한 그룹을 다양한 고객 또는 역할에 할당할 수 있습니다. 사용자는 [Azure 위임 리소스 관리](architecture.md)를 통해 적절한 수준의 액세스 권한을 얻게 되므로 관리 에이전트 역할(즉, 전체 AOBO 액세스 권한)이 있는 사용자의 수를 줄일 수 있습니다. 이렇게 하면 고객 리소스에 대한 불필요한 액세스를 제한하여 보안을 향상할 수 있습니다. 또한 각 사용자의 업무에 가장 적합한 [Azure 기본 제공 역할](tenants-users-roles.md)을 사용하여 여러 고객을 대규모로 관리할 수 있는 유연성을 제공합니다.
-
-CSP 프로그램을 통해 만든 구독을 온보딩할 때는 [Azure Lighthouse에 구독 온보딩](../how-to/onboard-customer.md)에 설명된 단계를 수행하게 됩니다. 테넌트에서 관리 에이전트 역할이 있는 사용자는 이 온보딩을 수행할 수 있습니다.
+Azure Lighthouse를 사용하면 다음 다이어그램이 제시하는 대로 다양한 그룹을 다양한 고객 또는 역할에 할당할 수 있습니다. 사용자는 [Azure 위임 리소스 관리](architecture.md)를 통해 적절한 수준의 액세스 권한을 얻게 되므로 관리 에이전트 역할(즉, 전체 AOBO 액세스 권한)이 있는 사용자의 수를 줄일 수 있습니다. 이렇게 하면 고객 리소스에 대한 불필요한 액세스를 제한하여 보안을 향상할 수 있습니다. 또한 사용자에게 필요한 것보다 더 많은 액세스 권한을 부여하지 않고 각 사용자의 [업무에](tenants-users-roles.md#role-support-for-azure-lighthouse) 가장 적합한 Azure 기본 제공 역할을 사용하여 대규모로 여러 고객을 보다 유연하게 관리할 수 있습니다.
 
 ![AOBO 및 Azure Lighthouse를 사용한 테넌트 관리를 보여주는 다이어그램.](../media/csp-2.jpg)
+
+CSP 프로그램을 통해 만든 구독을 온보딩할 때는 [Azure Lighthouse에 구독 온보딩](../how-to/onboard-customer.md)에 설명된 단계를 수행하게 됩니다. 테넌트에서 관리 에이전트 역할이 있는 사용자는 이 온보딩을 수행할 수 있습니다.
 
 > [!TIP]
 > CSP(클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정된 구독은 프라이빗 요금제를 사용하는 [관리형 서비스 제공](managed-services-offers.md)을 지원하지 않습니다. [Azure Resource Manager 템플릿을 사용](../how-to/onboard-customer.md)하여 Azure Lighthouse에 이러한 구독을 온보딩할 수 있습니다.

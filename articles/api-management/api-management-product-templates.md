@@ -3,7 +3,7 @@ title: Azure API Management의 제품 템플릿 | Microsoft Docs
 description: Azure API Management 개발자 포털에서 제품 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
-ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 08b14104339be5a05bc7db25088536f2d0be51de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86249906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639093"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
 

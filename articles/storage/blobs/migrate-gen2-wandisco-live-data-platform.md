@@ -9,34 +9,34 @@ ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cee20d5104ceb09dc0ba3d826b28108e543cc3d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99508932"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664906"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>WANdisco LiveData Platform for Azure(미리 보기)를 사용하여 까다로운 마이그레이션 요구 사항 충족
 
-[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/)를 사용하여 온-프레미스 Hadoop 데이터를 Azure Data Lake Storage Gen2로 마이그레이션합니다. 이 플랫폼은 애플리케이션 가동 중지 시간과 데이터 손실 가능성을 제거하며 작업이 온-프레미스로 계속되는 동안에도 데이터 일관성을 유지합니다.  
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/)를 사용하여 온-프레미스 Hadoop 데이터를 Azure Data Lake Storage Gen2로 마이그레이션합니다. 이 플랫폼은 애플리케이션 가동 중지 시간과 데이터 손실 가능성을 제거하며 작업이 온-프레미스로 계속되는 동안에도 데이터 일관성을 유지합니다.
 
 > [!NOTE]
 > WANdisco LiveData Platform for Azure는 공개 미리 보기로 제공됩니다. 지역별 가용성은 [지원되는 지역](https://docs.wandisco.com/live-data-platform/docs/prereq#supported-regions)을 참조하세요.
 
-플랫폼은 온-프레미스 환경에서 Azure 스토리지로 활발하게 사용되는 데이터를 마이그레이션하는 [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure)와 모든 수정된 데이터 또는 수집된 데이터가 일관되게 복제될 것을 보장하는 [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure)의 두 가지 서비스로 구성됩니다. 
+플랫폼은 온-프레미스 환경에서 Azure 스토리지로 활발하게 사용되는 데이터를 마이그레이션하는 [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure)와 모든 수정된 데이터 또는 수집된 데이터가 일관되게 복제될 것을 보장하는 [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure)의 두 가지 서비스로 구성됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![라이브 데이터 플랫폼 개요 설명](./media/migrate-gen2-wandisco-live-data-platform/live-data-platform-overview.png)
 
 Azure Portal 및 Azure CLI를 사용하여 두 서비스를 관리할 수 있으며, 다른 모든 Azure 서비스와 같이 요금제 및 종량제 청구 모델을 따릅니다. LiveData Platform for Azure에 대한 소비는 동일한 월간 Azure 청구서에 표시되며, 사용 현황을 추적하고 모니터링하는 일관되고 편리한 방법을 제공합니다.
 
-[정적 정보를 Azure Data Box로 복사](./data-lake-storage-migrate-on-premises-hdfs-cluster.md)하거나 [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)와 같은 Hadoop 도구를 사용하여 _오프라인_ 으로 데이터를 마이그레이션하는 것과는 달리, WANdisco LiveData for Azure를 사용하여 _온라인_ 마이그레이션 중에 비즈니스 시스템의 전체 작업을 유지할 수 있습니다. 데이터를 Azure로 이동하는 동안에도 빅 데이터 환경이 계속 작동하도록 합니다.
+[정적 정보를 Azure Data Box로 복사](./data-lake-storage-migrate-on-premises-hdfs-cluster.md)하거나 [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)와 같은 Hadoop 도구를 사용하여 *오프라인* 으로 데이터를 마이그레이션하는 것과는 달리, WANdisco LiveData for Azure를 사용하여 *온라인* 마이그레이션 중에 비즈니스 시스템의 전체 작업을 유지할 수 있습니다. 데이터를 Azure로 이동하는 동안에도 빅 데이터 환경이 계속 작동하도록 합니다.
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>WANdisco LiveData Platform for Azure의 주요 기능
 
 [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/)는 고유한 광역 네트워크를 지원하는 합의 엔진을 사용하여 데이터 일관성을 구현하고 애플리케이션이 복제 중인 데이터를 계속 수정할 수 있게 하는 동안 대규모 데이터 복제를 수행합니다. <br><br>
 
->[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
+> [!VIDEO https://www.youtube.com/embed/KRrmcYPxEho]
 
 플랫폼의 주요 기능에는 다음이 포함됩니다.
 
@@ -64,12 +64,12 @@ WANdisco LiveData Platform for Azure의 첫 번째 서비스는 [LiveData Migrat
 1. Azure Portal에서 온-프레미스 Hadoop 클러스터로 LiveData Migrator 인스턴스를 프로비저닝합니다. 클러스터 변경 또는 가동 중지 시간이 필요하지 않으며 애플리케이션은 계속 작동할 수 있습니다.
 
    > [!div class="mx-imgBorder"]
-   >![LiveData Migrator 인스턴스 만들기](./media/migrate-gen2-wandisco-live-data-platform/create-live-data-migrator.png)
+   > ![LiveData Migrator 인스턴스 만들기](./media/migrate-gen2-wandisco-live-data-platform/create-live-data-migrator.png)
 
 2. Azure Data Lake Storage Gen2를 사용하도록 설정한 대상 스토리지 계정을 정의합니다.
 
    > [!div class="mx-imgBorder"]
-   >![LiveData Migrator 대상 만들기](./media/migrate-gen2-wandisco-live-data-platform/create-target.png)
+   > ![LiveData Migrator 대상 만들기](./media/migrate-gen2-wandisco-live-data-platform/create-target.png)
 
 3. 마이그레이션할 데이터의 위치를 정의하고(예: `/user/hive/warehouse`) 마이그레이션을 시작합니다.
 
@@ -97,7 +97,7 @@ LiveData Plane for Azure는 클러스터 작업 또는 애플리케이션 성능
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure용 [LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/)는 다른 Azure 리소스처럼 사용되며 현재 미리 보기로 제공됩니다. 
+- Azure용 [LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/)는 다른 Azure 리소스처럼 사용되며 현재 미리 보기로 제공됩니다.
 
 - [필수 구성 요소](https://docs.wandisco.com/live-data-platform/docs/prereq/)를 파악하고 마이그레이션을 계획하여 LiveData Migrator for Azure를 통해 대규모 마이그레이션을 신속하게 완료합니다.
 
@@ -111,7 +111,7 @@ LiveData Plane for Azure는 클러스터 작업 또는 애플리케이션 성능
 
 - [LiveData Migrator for Azure 플랜 및 가격 책정](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=PlansAndPrice)
 
-- [LiveData Plane for Azure 플랜 및 가격 책정](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldp?tab=PlansAndPrice) 
+- [LiveData Plane for Azure 플랜 및 가격 책정](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldp?tab=PlansAndPrice)
 
 - [LiveData Platform for Azure FAQ](https://docs.wandisco.com/live-data-platform/docs/faq/)
 

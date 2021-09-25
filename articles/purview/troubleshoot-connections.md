@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/04/2021
-ms.openlocfilehash: ab622cd2d8d88c79a4dd0098beded490f9e76a36
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 95e1dd0a75ce233ed531b331783738d72c661c40
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539571"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594804"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Azure Purview 연결 관련 문제 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "122539571"
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
 
 ## <a name="verifying-azure-role-based-access-control-to-enumerate-azure-resources-in-azure-purview-studio"></a>Azure Purview Studio에서 Azure 리소스를 열거하기 위한 Azure 역할 기반 액세스 제어 확인
 

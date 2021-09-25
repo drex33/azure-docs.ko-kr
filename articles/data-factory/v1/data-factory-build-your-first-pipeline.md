@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: e7114dae2a9cfef4a9b710831beb63a65c862643
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 06d5821fd6841f0fce5b657a49ecbca6fe232be1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557796"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
@@ -51,7 +52,7 @@ Azure Data Factory에 대한 자세한 개요는 [Azure Data Factory 소개](dat
 
 다음은 이 자습서에서 빌드한 샘플 데이터 팩터리의 **다이어그램 뷰** 입니다. **MyFirstPipeline** 에는 입력으로 **AzureBlobInput** 데이터 세트를 사용하고 **AzureBlobOutput** 데이터 세트를 출력으로 생성하는 Hive 형식의 한 가지 작업을 포함합니다.
 
-![데이터 팩터리 자습서에서 다이어그램 보기](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+:::image type="content" source="media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png" alt-text="데이터 팩터리 자습서에서 다이어그램 보기":::
 
 
 이 자습서에서 **adfgetstarted** Azure blob 컨테이너의 **inputdata** 폴더에는 input.log라는 하나의 파일이 들어 있습니다. 이 로그 파일은 2016년 1월, 2월 및 3월 등 세 달에 항목이 있습니다. 다음은 입력 파일의 각 월에 대한 샘플 행입니다.

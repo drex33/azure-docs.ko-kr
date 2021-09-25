@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 894d16e1a72243bee9aff1fff2778ec75c2af6ec
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227150"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650157"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용하여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -94,13 +94,17 @@ PowerShell을 사용하여 여러 Azure 구독에 대한 자동 등록 기능을
 1. [이 스크립트](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1)를 저장합니다.
 1. 관리 명령 프롬프트 또는 PowerShell 창을 사용하여 스크립트를 저장한 위치로 이동합니다. 
 1. Azure에 연결합니다(`az login`).
-1. 스크립트를 실행하고 SubscriptionIds를 다음과 같이 매개 변수로 전달합니다.   
-   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+1. SubscriptionIds를 매개 변수로 전달하여 스크립트를 실행합니다. 구독이 설정되지 않은 경우 스크립트는 사용자 계정의 모든 구독에 대해 자동 등록을 사용하도록 설정합니다.    
 
-   예를 들면 다음과 같습니다. 
+   다음 명령은 두 구독에 대해 자동 등록을 사용하도록 설정합니다. 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+   다음 명령은 모든 구독에 대해 자동 등록을 사용하도록 설정합니다. 
+
+   ```console
+   .\EnableBySubscription.ps1
    ```
 
 실패한 등록 오류는 `.ps1` 스크립트를 저장하고 실행한 동일한 디렉터리에 있는 `RegistrationErrors.csv`에 저장됩니다. 

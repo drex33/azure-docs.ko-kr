@@ -1,19 +1,19 @@
 ---
 title: PHP에서 Queue Storage를 사용하는 방법 - Azure Storage
 description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고, 메시지를 삽입하고, 가져오고, 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 01/11/2018
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0d559fd52cffe893b3f7d61842982fdc2ecd0a48
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 174de881eaf0b929f05b2d0aff4a3782d02ba678
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275926"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579537"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 

@@ -4,12 +4,12 @@ description: Azure Government 같은 영역에 대한 기본 Azure Monitor Appli
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions, devx-track-js
-ms.openlocfilehash: 13470017281ecfa616715777e78e446e71a08b0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0d74c3721c8803fbd3dc94c05baefaf018f45219
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489806"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708684"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 엔드포인트를 재정의하는 Application Insights
 
@@ -35,10 +35,14 @@ Application Insights에서 특정 지역으로 데이터를 보내려면 기본 
       <QuickPulseServiceEndpoint>Custom_QuickPulse_Endpoint_Address</QuickPulseServiceEndpoint>
     </Add>
   </TelemetryModules>
-    ...
-  <TelemetryChannel>
-     <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
-  </TelemetryChannel>
+   ...
+  <TelemetrySinks>
+    <Add Name = "default">
+      <TelemetryChannel>
+         <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
+      </TelemetryChannel>
+    </Add>
+  </TelemetrySinks>
   ...
   <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
     <ProfileQueryEndpoint>Profile_Query_Endpoint_address</ProfileQueryEndpoint>

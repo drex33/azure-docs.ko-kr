@@ -6,13 +6,13 @@ ms.author: rogarana
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: cd89c3ddc3c58de02f1104109ce7f243c4d1e6fd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: c06d88361ea1bee53e6a80d62cfa3d4d7e47e0f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682453"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671187"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>예약 할인이 Azure 디스크 스토리지에 적용되는 방법 이해
 

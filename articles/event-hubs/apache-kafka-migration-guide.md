@@ -2,13 +2,13 @@
 title: Apache Kafka용 Azure Event Hubs로 마이그레이션
 description: 이 문서에서는 Apache Kafka에서 Azure Event Hubs로 클라이언트를 마이그레이션하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: 5c8a9598f0f1c8018f53057638bd726eed6afc42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90061447"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662923"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Apache Kafka 에코시스템용 Azure Event Hubs로 마이그레이션
 Azure Event Hubs는 Kafka 프로토콜을 사용하여 Event Hubs에 연결할 수 있는 Apache Kafka 엔드포인트를 제공합니다. 기존 Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. Event Hubs는 MirrorMaker를 비롯한 대부분의 기존 Kafka 애플리케이션에서 작동합니다. 자세한 내용은 [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 참조하세요.
@@ -16,7 +16,7 @@ Azure Event Hubs는 Kafka 프로토콜을 사용하여 Event Hubs에 연결할 �
 ## <a name="pre-migration"></a>사전 마이그레이션 
 
 ### <a name="create-an-azure-account"></a>Azure 계정 만들기
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 ### <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 생성
 [이벤트 허브 만들기](event-hubs-create.md) 문서의 단계별 지침에 따라 Event Hubs 네임스페이스 및 이벤트 허브를 만듭니다. 
@@ -59,6 +59,6 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 Event Hubs 및 Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
 
 - [Event Hubs에 대한 Apache Kafka 문제 해결 가이드](apache-kafka-troubleshooting-guide.md)
-- [질문과 대답 - Apache Kafka용 Event Hubs](apache-kafka-frequently-asked-questions.md)
+- [질문과 대답 - Apache Kafka용 Event Hubs](apache-kafka-frequently-asked-questions.yml)
 - [Azure Event Hubs에 대한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
 - [권장 구성](apache-kafka-configurations.md)

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 재해 복구 기능을 사용하여 고가용성 Azure IoT 솔루션을 빌드할 수 있도록 지원하는 Azure Digital Twins 기능을 설명합니다.
 author: baanders
 ms.author: baanders
-ms.date: 10/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 125f3aa1cb3cfec0b7e8ec3cfafebdf2fae53e59
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: d021bc7643cfab1bbe805b424623c4ba129f6b1e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771214"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642817"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 

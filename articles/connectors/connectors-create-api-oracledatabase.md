@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 89730779485b4dd74297e2e1137b8e1217f4ef5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674823"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671491"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -34,14 +34,14 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 * 지원되는 Oracle 버전: 
     * Oracle 9 이상
-    * Oracle 클라이언트 소프트웨어 8.1.7 이상
+    * ODAC (Oracle Data Access Client) 11.2 이상
 
 * 온-프레미스 데이터 게이트웨이 설치 [논리 앱에서 온-프레미스 데이터에 연결](../logic-apps/logic-apps-gateway-connection.md)에 단계가 나열되어 있습니다. 게이트웨이는 온-프레미스 Oracle 데이터베이스 또는 Oracle DB가 설치된 Azure VM에 연결하는 데 필요합니다. 
 
     > [!NOTE]
     > 온-프레미스 데이터 게이트웨이는 브리지 역할로, 온-프레미스 데이터(클라우드의 데이터가 아님)와 논리 앱 간의 보안 데이터 전송을 제공합니다. 여러 서비스 및 데이터 원본에 동일한 게이트웨이를 사용할 수 있습니다.  따라서 게이트웨이를 한 번만 설치해야 할 수 있습니다.
 
-* 온-프레미스 데이터 게이트웨이를 설치한 컴퓨터에 Oracle 클라이언트를 설치합니다.  Oracle에서 제공하는 64비트 .NET용 Oracle Data Provider를 설치해야 합니다.  
+* 온-프레미스 데이터 게이트웨이를 설치한 컴퓨터에 Oracle 클라이언트를 설치합니다. oracle에서 .net 용 64 비트 oracle Data Provider를 설치 했는지 확인 하 고 `xcopy` 버전이 온-프레미스 데이터 게이트웨이와 작동 하지 않으므로 Windows 설치 관리자 버전을 선택 합니다.  
 
   [Windows x64용 64비트 ODAC 12c 릴리스 4(12.1.0.2.4)](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 

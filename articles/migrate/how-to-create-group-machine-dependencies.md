@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 235dc8fa484212a8322b24d32f7516af5441978a
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
-ms.translationtype: HT
+ms.openlocfilehash: 757a10473c2f6776ef3a84310b42209ddd12ed45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652927"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643653"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -96,18 +96,20 @@ Windows 서버에 에이전트를 설치하려면
 Linux 서버에 MMA를 설치하려면
 
 1. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
+
 2. --install 인수를 사용하여 번들을 설치합니다.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/agents/agents-overview.md#supported-operating-systems)해 보세요. 
 
 ## <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
 1. Windows 서버에 종속성 에이전트를 설치하려면 설치 파일을 두 번 누르고 마법사를 따릅니다.
+
 2. Linux 서버에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+   `sh InstallDependencyAgent-Linux64.bin`
 
 - 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 - 종속성 에이전트에서 지원하는 운영 체제에 대해 [자세히 알아보세요](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems).

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/21/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5b973d17e10f3dbb75f5208d9003b4f8118b37c7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
-ms.translationtype: HT
+ms.openlocfilehash: 7fc9731769f568107a1ce6dacb5658fe164bd616
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111074"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657522"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
 
@@ -31,13 +31,13 @@ ms.locfileid: "106111074"
 
 ### <a name="encoding-for-streaming"></a>스트리밍용 인코딩
 
-**변환** 에서 **AdaptiveStreaming** 사전 설정을 사용하면 HLS 및 DASH와 같은 스트리밍 프로토콜을 통한 전달에 적합한 출력을 얻을 수 있습니다. 이 사전 설정을 사용할 때 서비스는 생성할 비디오 레이어 수와 비트 전송률 및 해상도를 지능적으로 결정합니다. 출력 콘텐츠에는 AAC 인코딩 오디오 및 H.264 인코딩 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다.
+**변환** 에서 **AdaptiveStreaming** 또는 **H265AdaptiveStreaming** 사전 설정을 사용 하는 경우 HLS 및 대시 같은 스트리밍 프로토콜을 통해 배달에 적합 한 출력을 얻게 됩니다. 이러한 두 가지 사전 설정 중 하나를 사용 하는 경우 서비스는 생성할 비디오 계층 수와 비트 전송률 및 해상도를 지능적으로 결정 합니다. 출력 내용에는 AAC로 인코딩된 오디오와 h.264로 인코딩된 비디오 (AdaptiveStreaming 사전 설정의 경우) 또는 265/HEVC (H265AdaptiveStreaming 기본 설정의 경우) 인 MP4 파일이 포함 됩니다. 출력 MP4 파일은 인터리브 되지 않습니다.
 
 이 사전 설정이 사용된 예를 보려면 [파일 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
 
 ## <a name="output"></a>출력
 
-이 섹션에서는 **AdaptiveStreaming** 사전 설정으로 인코딩한 결과로 Media Services 인코더에 의해 생성된 출력 계층의 세 가지 예를 보여 줍니다. 모든 경우에 출력에는 128kbps로 인코딩된 스테레오 오디오와 오디오 전용 MP4 파일이 포함됩니다.
+이 섹션에서는 **AdaptiveStreaming**(h.264) 또는 **H265AdaptiveStreaming** (HEVC) 사전 설정으로 인코딩된 결과로 Media Services 인코더에서 생성 되는 출력 비디오 계층의 세 가지 예를 보여 줍니다. 모든 경우에 출력에는 128kbps로 인코딩된 스테레오 오디오와 오디오 전용 MP4 파일이 포함됩니다.
 
 ### <a name="example-1"></a>예 1
 높이가 "1080"이고 프레임 속도가 "29.970"인 원본은 6개의 비디오 계층을 생성합니다.
@@ -71,7 +71,15 @@ ms.locfileid: "106111074"
 |2|270|480|440|
 |3|180|320|230|
 
+
+## <a name="content-aware-encoding-comparison"></a>내용 인식 인코딩 비교
+
+[콘텐츠 인식 인코딩 사전 설정은](./encode-content-aware-concept.md) 사다리에서 사용할 올바른 출력 비트 전송률 및 해상도를 결정 하기 전에 원본 콘텐츠를 분석 하 여 적응 스트리밍 사전 설정 보다 더 나은 솔루션을 제공 합니다.
+적응 비트 전송률 스트리밍 사전 설정에서 제공 하는 더 정적 및 고정 사다리를 사용 하기 전에 먼저 [콘텐츠 인식 인코딩 미리 설정을](./encode-content-aware-concept.md) 테스트 하는 것이 좋습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [파일 스트리밍](stream-files-dotnet-quickstart.md)
+> [파일 스트림](stream-files-dotnet-quickstart.md) 
+>  [내용 인식 인코딩 미리 설정 사용](./encode-content-aware-concept.md) 
+>  [내용 인식 인코딩을 사용 하는 방법](./encode-content-aware-how-to.md)

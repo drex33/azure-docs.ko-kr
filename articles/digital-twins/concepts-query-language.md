@@ -8,12 +8,12 @@ ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 00bc85b06bd734a075ff9a9ca2baf3fe58e95623
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: c5779f827177907d3bf3378fde8a35157723b5f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631118"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins 쿼리 언어 정보
 
@@ -43,7 +43,7 @@ Azure Digital Twins에 대한 쿼리를 작성하는 경우 다음 고려 사항
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
-* **가능한 대기 시간 고려**: 그래프의 데이터를 변경한 후 변경 내용이 쿼리에 반영되기까지 최대 10초의 대기 시간이 있을 수 있습니다. [GetDigitalTwin API](how-to-manage-twin.md#get-data-for-a-digital-twin)는 이러한 지연 시간을 발생하지 않으므로 즉각적인 응답이 필요한 경우 쿼리 대신 API 호출을 사용하여 변경 내용이 즉시 반영되는지 확인합니다.
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

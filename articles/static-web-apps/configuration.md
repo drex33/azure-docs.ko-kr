@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f2dacc8a0ed551fd92b916e25dfd87695e2576d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570840"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -34,7 +34,7 @@ Azure Static Web Apps의 구성은 _staticwebapp.config.json_ 파일에 정의�
 
 ## <a name="file-location"></a>파일 위치
 
-_staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-actions-workflow.md)에서 `app_location`으로 설정된 폴더입니다. 그러나 `app_location`으로 설정된 폴더 내의 모든 하위 폴더에 파일을 배치할 수 있습니다.
+_staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-configuration.md)에서 `app_location`으로 설정된 폴더입니다. 그러나 `app_location`으로 설정된 폴더 내의 모든 하위 폴더에 파일을 배치할 수 있습니다.
 
 자세한 내용은 [예제 구성](#example-configuration-file) 파일을 참조하세요.
 
@@ -271,6 +271,11 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 ```
 
 하나 이상의 IP 주소 블록을 지정한 경우 `allowedIpRanges`의 값과 일치하지 않는 IP 주소에서 시작된 요청은 액세스가 거부됩니다.
+
+## <a name="authentication"></a>인증 
+
+* [기본 인증 공급자 에는](authentication-authorization.md#login)구성 파일의 설정이 필요하지 않습니다. 
+* [사용자 지정 인증 공급자는](authentication-custom.md) `authentication` 설정 파일의 속성을 사용합니다. 
 
 ## <a name="example-configuration-file"></a>예제 구성 파일
 

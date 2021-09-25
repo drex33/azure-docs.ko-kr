@@ -10,20 +10,20 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 181dd9531ec8aa3630ff1ef3e3356ead5120c512
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783575"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605965"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
 대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음 목록에서는 현재 사용할 수 있는 독립 클라우드에 대해 자세히 설명합니다.
 
-* [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
-* [중국 21Vianet이 운영하는 Azure China 21Vianet Cloud](http://www.windowsazure.cn/)
-* [Azure German Cloud](../../germany/germany-welcome.md)
+- [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
+- [중국 21Vianet이 운영하는 Azure China 21Vianet Cloud](http://www.windowsazure.cn/)
+- [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ ms.locfileid: "92783575"
 
 독립 클라우드 중 한 곳에서 Azure Storage를 사용하려면 Azure Public이 아닌 해당 클라우드에 연결합니다. Azure Public이 아닌 독립 클라우드 중 하나를 사용하려면
 
-* 연결할 *환경* 을 지정합니다.
-* 사용 가능한 지역을 결정하여 사용합니다.
-* Azure Public과 달리 정확한 엔드포인트 접미사를 사용합니다.
+- 연결할 *환경* 을 지정합니다.
+- 사용 가능한 지역을 결정하여 사용합니다.
+- Azure Public과 달리 정확한 엔드포인트 접미사를 사용합니다.
 
 이 예제에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. PowerShell 창에서 `Get-Module -ListAvailable Az`을 실행하여 버전을 확인합니다. 나타나는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "92783575"
 Get-AzEnvironment
 ```
 
-연결하려는 클라우드에 대한 액세스 권한이 있는 계정에 로그인하고 환경을 설정합니다. 이 예제에서는 Azure Government Cloud를 사용하는 계정에 로그인하는 방법을 보여 줍니다.   
+연결하려는 클라우드에 대한 액세스 권한이 있는 계정에 로그인하고 환경을 설정합니다. 이 예제에서는 Azure Government Cloud를 사용하는 계정에 로그인하는 방법을 보여 줍니다.
 
 ```powershell
 Connect-AzAccount –Environment AzureUSGovernment
@@ -65,7 +65,6 @@ Get-AzLocation | select Location, DisplayName
 |----|----|
 | `germanycentral` | 독일 중부|
 | `germanynortheast` | 독일 북동부 |
-
 
 ## <a name="endpoint-suffix"></a>엔드포인트 접미사
 
@@ -166,8 +165,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell 세션 간 사용자 로그인 유지](/powershell/azure/context-persistence)
-* [Azure Government 스토리지](../../azure-government/compare-azure-government-global-azure.md)
-* [Microsoft Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md)
-* [Azure China 21Vianet 애플리케이션 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-* [Azure Germany 설명서](../../germany/germany-welcome.md)
+- [PowerShell 세션 간 사용자 로그인 유지](/powershell/azure/context-persistence)
+- [Azure Government 스토리지](../../azure-government/compare-azure-government-global-azure.md)
+- [Microsoft Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md)
+- [Azure China 21Vianet 애플리케이션 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [Azure Germany 설명서](../../germany/germany-welcome.md)

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6c7c0adb35901186cb967d416f8b91c4cf54ff9a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: 2e880a3f38a1341123bec8309f5a80dcefcdb4e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792669"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603128"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -141,7 +141,7 @@ Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 > - `AddApplicationInsightsTelemetry()`은(는) 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
 > - 기본 제공 Application Insights 기능을 이용하는 경우에는 사용자 고유의 `TelemetryConfiguration` 또는 `TelemetryClient`을(를) 등록하지 마세요. 사용자 고유의 `TelemetryClient` 인스턴스를 구성해야 하는 경우 [C# 함수의 사용자 지정 원격 분석 기록](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)에 표시된 대로 삽입된 `TelemetryConfiguration`을(를) 통해 인스턴스를 만듭니다.
 
-### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
+### <a name="iloggert-and-iloggerfactory"></a>ILogger\<T\> 및 ILoggerFactory
 
 호스트는 `ILogger<T>` 및 `ILoggerFactory` 서비스를 생성자에 주입합니다.  그러나 기본적으로 이러한 새 로깅 필터는 함수 로그에서 필터링됩니다.  추가 필터 및 범주에 옵트인하려면 `host.json` 파일을 수정해야 합니다.
 

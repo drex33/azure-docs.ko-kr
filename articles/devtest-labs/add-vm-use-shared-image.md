@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 공유 이미지를 사용하여 VM 추가 | Microsoft Docs
+title: 공유 이미지를 사용하여 VM 추가
 description: Azure DevTest Labs에서 연결된 공유 이미지 갤러리의 이미지를 사용하여 VM(가상 머신)을 추가하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7107fd22142f00e422e0f302520962537d65b10e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483859"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621814"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>연결된 공유 이미지 갤러리의 이미지를 사용하여 VM 추가
 Azure DevTest Labs를 사용하면 공유 이미지 갤러리를 랩에 연결한 후 갤러리의 이미지를 랩에서 만드는 VM의 베이스로 사용할 수 있습니다. 공유 이미지 갤러리를 랩에 연결하는 방법을 알아보려면 [공유 이미지 갤러리 구성](configure-shared-image-gallery.md)을 참조하세요. 이 문서에서는 연결된 공유 이미지 갤러리의 이미지를 베이스로 사용하여 VM을 랩에 추가하는 방법을 보여 줍니다. 

@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 23be7352c1a9b8ca5e0ec60240cf29c863926a20
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: 879dcefc787185b51ab6019c1ad8e2a5f8befb16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255082"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636005"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 

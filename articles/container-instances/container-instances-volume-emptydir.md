@@ -3,12 +3,12 @@ title: 컨테이너 그룹에 emptyDir 볼륨 탑재
 description: Azure Container Instances에서 컨테이너 그룹에 있는 컨테이너 간에 데이터를 공유하기 위해 emptyDir 볼륨을 탑재하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 01/31/2020
-ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 328dbec7b7689eaecc89f06957a2ad84dbcdc9dd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77117745"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565250"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container Instances에서 emptyDir 볼륨 탑재
 
@@ -40,7 +40,7 @@ Linux *emptyDir* 볼륨의 최대 크기는 50GB입니다.
 예를 들어 다음과 같은 Resource Manager 템플릿은 두 컨테이너로 구성된 컨테이너 그룹을 만들고 각 그룹은 *emptyDir* 볼륨을 탑재합니다.
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
-[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+[!code-json[volume-emptydir](~/resourcemanager-templates/container-instances/aci-deploy-volume-emptydir.json)]
 
 컨테이너 그룹 배포의 예제를 보려면 [Resource Manager 템플릿을 사용하여 다중 컨테이너 그룹 배포](container-instances-multi-container-group.md) 및 [YAML 파일을 사용하여 다중 컨테이너 그룹 배포](container-instances-multi-container-yaml.md)를 참조하세요.
 

@@ -10,12 +10,12 @@ ms.date: 06/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 790afdb013d2721bc90238cfe0caf7aa4534c632
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 5d5dbb4b3be5eec500a7a0845a9dbc568a113ca3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289499"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599110"
 ---
 # <a name="enable-soft-delete-for-blobs"></a>Blob에 일시 삭제를 사용하도록 설정
 
@@ -24,7 +24,7 @@ Blob 일시 삭제는 지정된 기간 동안 시스템에서 삭제된 데이�
 Blob 일시 삭제는 Blob 데이터에 대한 포괄적인 데이터 보호 전략의 일환입니다. Microsoft의 데이터 보호 권장 사항에 대해 자세히 알아보려면 [데이터 보호 개요](data-protection-overview.md)를 참조하세요.
 
 > [!NOTE]
-> Blob 일시 삭제는 계층 구조 네임스페이스 기능을 사용하도록 설정된 계정의 Blob 및 디렉터리를 보호할 수도 있습니다. 계층 구조 네임스페이스 기능을 사용하도록 설정한 계정에 대한 Blob 일시 삭제는 현재 공개 미리 보기로 제공되며 모든 Azure 지역에서 전역적으로 사용할 수 있습니다. 
+> Blob 일시 삭제는 계층 구조 네임스페이스 기능을 사용하도록 설정된 계정의 Blob 및 디렉터리를 보호할 수도 있습니다. 계층 구조 네임스페이스 기능을 사용하도록 설정한 계정에 대한 Blob 일시 삭제는 현재 공개 미리 보기로 제공되며 모든 Azure 지역에서 전역적으로 사용할 수 있습니다.
 
 Blob 일시 삭제는 새 스토리지 계정에 대해 기본적으로 비활성화되어 있습니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 언제든지 스토리지 계정에 대해 일시 삭제를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
@@ -87,7 +87,7 @@ az storage account blob-service-properties show --account-name <storage-account>
 
 ## <a name="enable-blob-soft-delete-hierarchical-namespace"></a>Blob 일시 삭제 사용(계층 구조 네임스페이스)
 
-Blob 일시 삭제는 계층 구조 네임스페이스 기능이 활성화된 계정의 Blob 및 디렉터리를 보호할 수도 있습니다. 
+Blob 일시 삭제는 계층 구조 네임스페이스 기능이 활성화된 계정의 Blob 및 디렉터리를 보호할 수도 있습니다.
 
 > [!IMPORTANT]
 > 계층 구조 네임스페이스 기능을 사용하도록 설정한 계정의 일시 삭제는 현재 미리 보기로 제공되며 모든 Azure 지역에서 전역적으로 사용할 수 있습니다.
@@ -109,24 +109,25 @@ Azure Portal을 사용하여 스토리지 계정에 대해 Blob 일시 삭제를
 1. 변경 내용을 저장합니다.
 
 > [!div class="mx-imgBorder"]
-> ![계층 구조 네임스페이스가 있는 계정의 Azure Portal에서 일시 삭제를 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
+> ![계층 네임 스페이스가 있는 계정에서 Azure Portal 일시 삭제를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. 최신 **PowershellGet** 모듈을 설치합니다. 그런 다음 PowerShell 콘솔을 닫았다가 다시 엽니다.
 
     ```powershell
-    install-Module PowerShellGet –Repository PSGallery –Force 
+    install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
-2.  **Az.Storage** 미리 보기 모듈을 설치합니다.
+2. **Az.Storage** 미리 보기 모듈을 설치합니다.
 
     ```powershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.7.1-preview -AllowClobber -AllowPrerelease -Force
     ```
+
     PowerShell 모듈 설치 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
-3. 스토리지 계정 키, 연결 문자열 또는 Azure AD(Azure Active Directory)를 사용하여 스토리지 계정 권한을 부여합니다. [계정에 연결](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account)을 참조하세요.
+3. 스토리지 계정 키, 연결 문자열 또는 Azure AD(Azure Active Directory)를 사용하여 스토리지 계정 권한을 부여합니다. 자세한 내용은 [계정에 커넥트](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account)를 참조 하세요.
 
    다음 예제에서는 스토리지 계정 키를 사용하여 권한을 부여합니다.
 
@@ -136,11 +137,12 @@ Azure Portal을 사용하여 스토리지 계정에 대해 Blob 일시 삭제를
 
 4. PowerShell을 사용하여 Blob 일시 삭제를 사용하도록 설정하려면 [Enable-AzStorageDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstoragedeleteretentionpolicy) 명령을 사용하여 보존 기간(일)을 지정합니다.
 
-   다음 예제에서는 계정에 대해 일시 삭제를 사용하도록 설정하고 보존 기간을 4일로 설정합니다. 
+   다음 예제에서는 계정에 대해 일시 삭제를 사용하도록 설정하고 보존 기간을 4일로 설정합니다.
 
    ```powershell
    Enable-AzStorageDeleteRetentionPolicy -RetentionDays 4  -Context $ctx
    ```
+
 5. Blob 일시 삭제에 대한 현재 설정을 확인하려면 `Get-AzStorageServiceProperty` 명령을 사용합니다.
 
    ```powershell
@@ -156,14 +158,15 @@ Azure Portal을 사용하여 스토리지 계정에 대해 Blob 일시 삭제를
    ```azurecli
    az extension add -n storage-preview
    ```
-3. 스토리지 계정에 연결합니다. [계정에 연결](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account)을 참조하세요.
+
+3. 스토리지 계정에 연결합니다. 자세한 내용은 [계정에 커넥트](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account)를 참조 하세요.
 
    > [!NOTE]
    > 이 문서에 제공된 예제는 Azure AD(Active Directory) 권한 부여를 보여 줍니다. 권한 부여 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여I](./authorize-data-operations-cli.md)를 참조하세요.
- 
+
 4. Azure CLI를 사용하여 일시 삭제를 사용하도록 설정하려면 `az storage fs service-properties update` 명령을 호출하여 보존 기간(일)을 지정합니다.
 
-   다음 예제에서는 Blob 및 디렉터리 일시 삭제를 사용하도록 설정하고 보존 기간을 5일로 설정합니다. 
+   다음 예제에서는 Blob 및 디렉터리 일시 삭제를 사용하도록 설정하고 보존 기간을 5일로 설정합니다.
 
    ```azurecli
    az storage fs service-properties update --delete-retention --delete-retention-period 5 --auth-mode login

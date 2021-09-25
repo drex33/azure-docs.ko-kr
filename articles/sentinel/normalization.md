@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: e03f343444aed0c3aafac28deccb0f38c35e2478
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: e90171faf59daf70bde2150036fdf0a757e53979
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539597"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621398"
 ---
 # <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>정규화 및 ASIM(Azure Sentinel 정보 모델)(퍼블릭 미리 보기)
 
@@ -91,7 +91,7 @@ Azure Sentinel 정보 모델은 다음 용어를 사용합니다.
 
 ASIM 사용을 시작하려면 다음을 수행합니다.
 
-1. `ASim*`로 시작하는 폴더의 [Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers)에서 ASIM 파서를 배포합니다.
+1. [Azure 센티널 GitHub 리포지토리에서](https://aka.ms/AzSentinelASim)모든 asim 파서를 신속 하 게 배포 합니다.
 
 1. ASIM을 사용하는 분석 규칙 템플릿을 활성화합니다. 자세한 내용은 [ASIM(Azure Sentinel 정보 모델) 콘텐츠 목록](normalization-content.md#builtin)을 참조하세요.
 
@@ -103,7 +103,7 @@ ASIM 사용을 시작하려면 다음을 수행합니다.
 
     - 사용자 지정 원본의 [파서를 작성](normalization-about-parsers.md)하고 관련 원본 중립적 파서에 [추가](normalization-about-parsers.md#include)하여 기본 제공 분석을 사용하기 위해 사용자 지정 데이터를 사용하도록 설정합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a><a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Sentinel 정규화와 Azure Sentinel 정보 모델의 정규화 개요를 제공합니다.
 

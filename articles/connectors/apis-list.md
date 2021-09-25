@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/13/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: cccd744e8c123cd9441ff9aca47d2341ea9d80fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113218874"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679866"
 ---
 # <a name="about-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 커넥터 정보
 
@@ -46,7 +46,7 @@ Azure Logic Apps를 사용하여 워크플로를 빌드할 때 *커넥터* 를 �
 
 ## <a name="connector-categories"></a>커넥터 범주
 
-Logic Apps에서 대부분의 트리거 및 작업은 *기본 제공* 버전 또는 *관리 커넥터* 버전에서 사용할 수 있습니다. 두 버전 모두에서 몇 가지 트리거와 작업을 사용할 수 있습니다. 사용 가능한 버전은 현재 [단일 테넌트 Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)에서만 사용할 수 있는 다중 테넌트 논리 앱을 만드는지 아니면 단일 테넌트 논리 앱을 만드는지에 따라 다릅니다.
+Azure Logic Apps 대부분의 트리거 및 작업은 기본 제공 버전 또는 *관리되는 커넥터* *버전에서* 사용할 수 있습니다. 두 버전 모두에서 몇 가지 트리거와 작업을 사용할 수 있습니다. 사용 가능한 버전은 현재 [단일 테넌트 Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)에서만 사용할 수 있는 다중 테넌트 논리 앱을 만드는지 아니면 단일 테넌트 논리 앱을 만드는지에 따라 다릅니다.
 
 [내장된 트리거 및 작업](built-in.md)은 기본적으로 Logic Apps 런타임에서 실행되며 연결을 만들 필요가 없으며 다음과 같은 유형의 작업을 수행합니다.
 
@@ -61,13 +61,27 @@ Logic Apps에서 대부분의 트리거 및 작업은 *기본 제공* 버전 또
 - B2B(Business-to-Business) 통신 시나리오를 지원하는 [통합 계정 커넥터](managed.md#integration-account-connectors)입니다.
 - [ISE(통합 서비스 환경) 커넥터](managed.md#ise-connectors)는 [ISE에만 사용할 수 있는 관리 커넥터](#ise-and-connectors)의 소규모 그룹입니다.
 
+<a name="connection-configuration"></a>
+
 ## <a name="connection-configuration"></a>연결 구성
 
-대부분의 커넥터는 워크플로에서 트리거 또는 작업을 사용하기 전에 먼저 대상 서비스 또는 시스템에 대한 *연결* 을 만들어야 합니다. 연결을 만들려면 계정 자격 증명과 경우에 따라 다른 연결 정보를 사용하여 ID를 인증해야 합니다. 예를 들어 워크플로가 Office 365 Outlook 이메일 계정에 액세스하고 사용할 수 있도록 하려면 먼저 해당 계정에 대한 연결에 권한을 부여해야 합니다.
+논리 앱 리소스 및 연결을 만들거나 관리하려면 [Azure RBAC(Azure 역할 기반 액세스 제어)를](../role-based-access-control/role-assignments-portal.md)사용하여 역할을 통해 제공되는 특정 권한이 필요합니다. Azure 구독에 액세스할 수 있는 멤버에게 기본 제공 또는 사용자 지정된 역할을 할당할 수 있습니다. Azure Logic Apps 다음과 같은 특정 역할이 있습니다.
+
+* [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor): 논리 앱을 관리할 수 있지만 앱에 대한 액세스는 변경할 수 없습니다.
+
+* [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator): 논리 앱을 읽고 사용하거나 사용하지 않도록 설정할 수는 있지만 편집하거나 업데이트할 수 없습니다.
+
+* [기여자:](../role-based-access-control/built-in-roles.md#contributor)모든 리소스를 관리할 수 있는 모든 권한을 부여하지만 Azure RBAC에서 역할을 할당하거나, Azure Blueprints 할당을 관리하거나, 이미지 갤러리를 공유할 수는 없습니다.
+
+  예를 들어 해당 논리 앱의 워크플로에서 사용하는 연결을 만들고 인증하지 않은 논리 앱으로 작업해야 하는 경우를 가정해 보겠습니다. Azure 구독에는 해당 논리 앱 리소스가 포함된 리소스 그룹에 대한 기여자 권한이 필요합니다. 논리 앱 리소스를 만드는 경우 자동으로 기여자 액세스 권한이 있습니다.
+
+워크플로에서 커넥터의 트리거 또는 작업을 사용하려면 대부분의 커넥터에서 먼저 대상 서비스 또는 시스템에 *대한 연결을* 만들어야 합니다. 논리 앱 워크플로 내에서 연결을 만들려면 계정 자격 증명 및 경우에 따라 다른 연결 정보를 사용하여 ID를 인증해야 합니다. 예를 들어 워크플로가 Office 365 Outlook 이메일 계정에 액세스하고 사용할 수 있도록 하려면 먼저 해당 계정에 대한 연결에 권한을 부여해야 합니다. 적은 수의 기본 제공 작업 및 관리 커넥터의 경우 자격 증명을 제공하는 대신 [인증에 관리 ID를 설정하고 사용할](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity)수 있습니다.
+
+<a name="connection-security-encyrption"></a>
 
 ### <a name="connection-security-and-encryption"></a>연결 보안 및 암호화
 
-Office 365, Salesforce 또는 GitHub와 같이 Azure AD(Azure Active Directory) OAuth를 사용하는 커넥터의 경우 액세스 토큰이 [암호화](../security/fundamentals/encryption-overview.md)되고 Azure 비밀에 안전하게 저장된 서비스에 로그인해야 합니다. FTP 및 SQL과 같은 다른 커넥터에는 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함하는 연결이 필요합니다. 이러한 연결 구성 세부 정보도 [암호화되어 Azure에 안전하게 저장됩니다](../security/fundamentals/encryption-overview.md).
+서버 주소, 사용자 이름, 암호, 자격 증명 및 비밀과 같은 연결 구성 세부 정보는 [암호화되어 보안 Azure 환경에 저장됩니다.](../security/fundamentals/encryption-overview.md) 이 정보는 논리 앱 리소스 및 연결된 액세스 검사를 사용하여 적용되는 연결 리소스에 대한 권한이 있는 클라이언트에서만 사용할 수 있습니다. Office 365, Salesforce 및 GitHub 같은 Azure Active Directory Open Authentication(Azure AD OAuth)을 사용하는 연결은 로그인해야 하지만 Azure Logic Apps 액세스 및 새로 고침 토큰만 로그인 자격 증명이 아닌 비밀로 저장해야 합니다.
 
 설정된 연결은 해당 서비스 또는 시스템이 허용하는 한 대상 서비스 또는 시스템에 액세스할 수 있습니다. Office 365 및 Dynamics와 같은 Azure AD OAuth 연결을 사용하는 서비스의 경우 Logic Apps 서비스는 액세스 토큰을 무기한으로 새로 고칩니다. 다른 서비스의 경우 Logic Apps를 새로 고치지 않고 토큰을 사용할 수 있는 기간에 제한이 있을 수 있습니다. 일부 작업(예: 암호 변경)은 모든 액세스 토큰을 무효화합니다.
 
@@ -76,11 +90,13 @@ Office 365, Salesforce 또는 GitHub와 같이 Azure AD(Azure Active Directory) 
 > [!TIP]
 > 조직에서 Logic Apps 커넥터를 통해 특정 리소스에 액세스하는 것을 허용하지 않는 경우 [Azure Policy](../governance/policy/overview.md)를 사용하여 [이러한 연결을 만드는 기능을 차단](../logic-apps/block-connections-connectors.md)할 수 있습니다.
 
+논리 앱 및 연결 보안에 대한 자세한 내용은 [Azure Logic Apps 액세스 및 데이터 보안을](../logic-apps/logic-apps-securing-a-logic-app.md)검토하세요.
+
 <a name="firewall-access"></a>
 
 ### <a name="firewall-access-for-connections"></a>연결을 위한 방화벽 액세스
 
-트래픽을 제한하는 방화벽을 사용하고 논리 앱 워크플로가 해당 방화벽을 통해 통신해야 하는 경우 논리 앱 워크플로가 있는 Azure 지역의 Logic Apps 서비스 또는 런타임에서 사용하는 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소 모두에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다. 워크플로에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 관리형 커넥터를 사용하거나 사용자 지정 커넥터를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다. 자세한 내용은 [방화벽 구성](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)을 검토합니다.
+트래픽을 제한하는 방화벽을 사용하고 논리 앱 워크플로가 해당 방화벽을 통해 통신해야 하는 경우 논리 앱 워크플로가 있는 Azure 지역의 Logic Apps 서비스 또는 런타임에서 사용하는 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소 모두에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다. 워크플로에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 관리형 커넥터를 사용하거나 사용자 지정 커넥터를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses#azure-logic-apps) *모두* 에 대한 액세스도 허용해야 합니다. 자세한 내용은 [방화벽 구성](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)을 검토합니다.
 
 ## <a name="recurrence-behavior"></a>되풀이 동작
 

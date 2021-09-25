@@ -3,16 +3,17 @@ title: Data Factory를 사용하여 Amazon Simple Storage Service에서 데이�
 description: Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스(S3)에서 데이터를 이동하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d254a535b1db53478772b481bd029a8c4db6f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9915f2bb83c8d2f1ca6491d3603ff78c8c3df4d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361349"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655698"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

@@ -5,18 +5,16 @@ description: 모델을 패키징합니다. 모델을 Docker 이미지로 패키�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 5e6579979e8d1701db763da9ddde22e2d530ef9b
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 8327a1855de21c274a54f1bfa3750eab9aea8a8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296372"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649345"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Docker를 사용하여 등록된 모델을 패키징하는 방법
 

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 05/31/2021
-ms.openlocfilehash: ed0560d85d267de90ff23d8aa66c1f628c90e3c6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: c19bff913f38503dbd99f86757ad6cda0ee5cb5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967440"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658225"
 ---
 # <a name="azure-migrate-agentless-migration-of-vmware-virtual-machines"></a>Azure Migrate 에이전트 없는 VMware 가상 머신 마이그레이션
 
@@ -60,7 +60,7 @@ VMware CBT(변경된 블록 추적) 기술은 복제 주기 간의 변경 사항
 | Service Bus | 대상 지역 | Azure Migrate 프로젝트 구독 | 클라우드 서비스와 Azure Migrate 어플라이언스 간의 통신에 사용됩니다. |
 | 로그 스토리지 계정 | 대상 지역 | Azure Migrate 프로젝트 구독 | 서비스에서 읽고 고객의 관리 디스크에 적용되는 복제 데이터를 저장하는 데 사용됩니다. |
 | 게이트웨이 스토리지 계정 | 대상 지역 | Azure Migrate 프로젝트 구독 | 복제 중에 컴퓨터 상태를 저장하는 데 사용됩니다. |
-| 주요 자격 증명 모음 | 대상 지역 | Azure Migrate 프로젝트 구독 | 로그 스토리지 계정 키를 관리하고 서비스 버스 연결 문자열을 저장합니다. |
+| 주요 자격 증명 모음 | 대상 지역 | Azure Migrate 프로젝트 구독 | 로그 스토리지 계정의 서비스 버스 및 액세스 키에 대한 연결 문자열을 관리합니다. |
 | Azure Virtual Machine | 대상 지역 | 대상 구독 | 마이그레이션할 때 Azure에 생성된 VM |
 | Azure Managed Disks | 대상 지역 | 대상 구독 | Azure VM에 연결된 관리 디스크 |
 | 네트워크 인터페이스 카드 | 대상 지역 | 대상 구독 | Azure에 생성된 VM에 연결된 NIC |
@@ -121,13 +121,12 @@ VM의 복제가 구성되면 초기 복제가 예약됩니다. 그런 다음, �
 > [!Note]
 > 초기 복제가 완료되면 일정 논리가 달라집니다. 첫 번째 델타 주기는 초기 복제가 완료된 직후에 예약되며 이후 주기는 위에 설명된 일정 논리를 따릅니다.
 
-
 - 마이그레이션을 트리거하면 마이그레이션 전에 VM에 주문형 델타 복제 주기(사전 장애 조치(failover) 델타 복제 주기)가 수행됩니다.
 
 **다양한 복제 단계에서 VM 우선 순위 지정**
 
 - 진행 중인 VM 복제가 예약된 복제(새 복제)보다 우선 지정됩니다.
-- 사전 마이그레이션(주문형 델타 복제) 주기 우선 순위가 초기 복제 주기 다음으로 가장 높습니다. 델타 복제 주기 우선 순위가 가장 낮습니다.
+- 사전 장애 조치(failover)(주문형 델타 복제) 주기가 우선 순위가 가장 높고 그 뒤에 초기 복제 주기가 붙습니다. 델타 복제 주기 우선 순위가 가장 낮습니다.
 
 즉, 마이그레이션 작업이 트리거될 때마다 VM에 주문형 복제 주기가 예약되고 리소스에 대해 경쟁하는 경우에는 다른 진행 중인 복제가 수행됩니다.
 
@@ -136,7 +135,7 @@ VM의 복제가 구성되면 초기 복제가 예약됩니다. 그런 다음, �
 다음 제약 조건을 사용하여 SAN의 IOPS 제한을 초과하지 않도록 합니다.
 
 - 각 Azure Migrate 어플라이언스는 52 디스크 복제를 병렬로 지원합니다.
-- 각 ESXi 호스트는 디스크 8개를 지원합니다. 모든 ESXi 호스트에는 32MB NFC 버퍼가 있습니다. 따라서 호스트에서 디스크 8개를 예약할 수 있습니다(디스크마다 IR, DR에 4MB 버퍼 사용).
+- 각 ESXi 호스트는 8개의 디스크를 지원합니다. 모든 ESXi 호스트에는 32MB NFC 버퍼가 있습니다. 따라서 호스트에서 8개의 디스크를 예약할 수 있습니다(각 디스크는 IR, DR에 대해 4MB의 버퍼를 차지함).
 - 데이터 저장소마다 디스크 스냅샷이 최대 15개까지 있을 수 있습니다. 단, VM에 디스크가 15개 넘게 연결되어 있는 경우는 예외입니다.
 
 ## <a name="scale-out-replication"></a>스케일 아웃 복제
@@ -146,7 +145,7 @@ Azure Migrate는 가상 머신 500개를 동시에 복제할 수 있습니다. �
 ![스케일 아웃 구성](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
-기본 어플라이언스를 구성한 후 동시에 복제되는 VM이 300개가 될 때까지 언제든지 스케일 아웃 어플라이언스를 배포할 수 있습니다. 동시 복제되는 VM이 300개인 경우 계속 진행하려면 스케일 아웃 어플라이언스를 배포해야 합니다.
+기본 어플라이언스를 구성한 후 언제든지 스케일 아웃 어플라이언스를 배포할 수 있지만 동시에 복제하는 VM이 300개 있을 때까지는 필요하지 않습니다. 동시 복제되는 VM이 300개인 경우 계속 진행하려면 스케일 아웃 어플라이언스를 배포해야 합니다.
 
 ## <a name="stop-replication"></a>복제 중지
 
@@ -173,7 +172,7 @@ _NetQosPolicy_ 를 사용하여 복제 대역폭을 늘리거나 줄일 수 있�
 
 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한하는 정책을 Azure Migrate 어플라이언스에서 만들 수 있습니다.
 
-```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
+`New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB`
 
 > [!NOTE]
 > Azure Migrate 어플라이언스에서 동시에 복제되는 모든 VM에 적용할 수 있습니다.
@@ -182,7 +181,7 @@ _NetQosPolicy_ 를 사용하여 복제 대역폭을 늘리거나 줄일 수 있�
 
 ### <a name="blackout-window"></a>블랙 아웃 기간
 
-Azure Migrate는 고객이 복제를 진행하지 않으려는 시간 간격을 지정할 수 있는 구성 기반 메커니즘을 제공합니다. 이 시간 간격을 블랙 아웃 기간이라고 합니다. 블랙 아웃 기간은 원본 환경 리소스가 제한적인 경우, 고객이 업무 시간 이외의 시간에만 복제를 수행하려는 경우와 같은 여러 시나리오에서 발생할 수 있습니다.
+Azure Migrate는 고객이 복제를 진행하지 않으려는 시간 간격을 지정할 수 있는 구성 기반 메커니즘을 제공합니다. 이 시간 간격을 블랙 아웃 기간이라고 합니다. 원본 환경이 리소스가 제한된 경우 또는 고객이 업무 외 시간 동안에만 복제를 진행하려는 경우와 같은 여러 시나리오에서 중단 기간이 필요할 수 있습니다.
 
 > [!NOTE]
 > 복제가 일시 중지되기 전에 블랙 아웃 기간 시작 시에 기존 복제 주기가 완료됩니다.

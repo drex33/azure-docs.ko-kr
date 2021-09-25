@@ -12,12 +12,12 @@ ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 46ebdd1f5cb3093b0c1c1a5bc3273cf1aa1afd8f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 850b521d5d4162dbc92f75c225185a06ba00b2d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634830"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616349"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -32,13 +32,13 @@ ms.locfileid: "122634830"
 
 ## <a name="july-2021"></a>2021년 7월
 
-### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget-coming-soon---early-september-2021"></a>.NET SDK(Microsoft.Azure.Management.Media) 5.0.0 릴리스를 NuGet에서 사용할 수 있습니다(출시 예정 - 2021년 9월 초)
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget"></a>.NET SDK(Microsoft.Azure.Management.Media) 5.0.0 릴리스는 NuGet
 
 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK 버전 5.0.0이 이제 NuGet에서 출시되었습니다. 이 버전은 Open API(Swagger) ARM Rest API의 [2021-06-01 안정](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) 버전에서 작동하도록 생성되었습니다.
 
 4\.0.0 릴리스의 변경 사항에 대한 자세한 내용은 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md)를 참조하세요.
 
-#### <a name="changes-in-the-500-net-sdk-release-coming-soon---early-september-2021"></a>5\.0.0 .NET SDK 릴리스의 변경 내용(출시 예정 - 2021년 9월 초)
+#### <a name="changes-in-the-500-net-sdk-release"></a>5.0.0 .NET SDK 릴리스의 변경 내용
 
 * 이제 Media Services 계정에서 시스템 및 사용자가 할당한 관리 ID를 지원합니다.
 * Media Services 계정에 **PublicNetworkAccess** 옵션을 추가했습니다. 이 옵션은 Private Link 기능과 함께 사용하여 개인 네트워크의 액세스만 허용하고 모든 공용 네트워크 액세스를 차단할 수 있습니다.
@@ -48,8 +48,9 @@ ms.locfileid: "122634830"
 #### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>5\.0.0 .NET SDK 릴리스의 호환성이 손상되는 변경
 
 * **ApiErrorException** 은 다른 모든 Azure SDK와 일관성을 유지하기 위해 **ErrorResponseException** 으로 바뀌었습니다. 예외 본문이 변경되지 않았습니다.
+* 404 찾을 수 없습니다를 반환하는 모든 호출은 이제 null을 반환하는 대신 **ErrorResponseException을** 발생합니다. 이 변경은 다른 Azure SDK와 일치하도록 변경되었습니다.
 * 미디어 서비스 생성자에는 KeyDelivery 매개 변수 뒤에 새로운 선택적 PublicNetworkAccess 매개 변수가 있습니다.
-* MediaServiceIdentity의 유형 속성은 쉼표로 구분된 여러 유형을 수용하기 위해 ManagedIdentityType 열거형에서 문자열로 변경되었습니다. 유형에 유효한 문자열은 SystemAssigned 또는 SystemAssigned,UserAssigned 또는 UserAssigned입니다.
+* **MediaServiceIdentity의** 형식 속성이 여러 쉼표로 구분된 값을 수용하도록 ManagedIdentityType 열거형에서 문자열로 변경되었습니다. 유효한 문자열은 **SystemAssigned** 또는 **UserAssigned** 입니다.
 
 ## <a name="june-2021"></a>2021년 6월
 
@@ -161,6 +162,8 @@ Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3�
 - 연중무휴 라이브 이벤트 지원
 - .NET Core, Node.js, Python, Java, Go, Ruby용 ARM REST API, 클라이언트 SDK
 - 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](./migrate-v-2-v-3-migration-benefits.md)
+
+v3 API 및 SDK 업데이트의 일부로 시스템이 부하에 따라 자동으로 스케일 업 및 다운되기 때문에 Media Services 계정에 MRU(미디어 예약 단위)가 더 이상 필요하지 않습니다. 자세한 내용은 [MRU 마이그레이션 지침을](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) 참조하세요.
 
 #### <a name="action-required"></a>필요한 작업
 

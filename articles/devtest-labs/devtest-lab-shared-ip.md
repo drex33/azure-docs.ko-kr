@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 공유 IP 주소 이해 | Microsoft Docs
+title: 공유 IP 주소 이해
 description: Azure DevTest Labs에서 공유 IP 주소를 사용하여 랩 VM에 액세스하는 데 필요한 공용 IP 주소를 최소화하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e3d5afd69b898a4f17440a81fc41a065c1c79a3e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85484097"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659781"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 IP 주소 이해
 
@@ -44,8 +44,3 @@ Azure DevTest Labs에서는 랩 VM이 동일한 공용 IP 주소를 공유하여
 
 * [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md)
 * [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)
-
-
-
-
-

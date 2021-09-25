@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e4861749d66e466bc3302553af8b3ed4919a72e0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: f5c0532f194aad27f99752c9c5312f30dfe0a21d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600212"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -62,11 +62,11 @@ azcopy login --identity
 ```
 
 VM의 사용자 할당 ID 및 서비스 ID의 클라이언트 ID를 사용하여 로그인합니다.
-  
+
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
- 
+
 VM의 사용자 할당 ID 및 서비스 ID의 개체 ID를 사용하여 로그인합니다.
 
 ```azcopy
@@ -74,7 +74,7 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 VM의 사용자 할당 ID 및 서비스 ID의 리소스 ID를 사용하여 로그인합니다.
- 
+
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```
@@ -121,11 +121,11 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속된 옵션
 
-|옵션|설명|
+|옵션|Description|
 |---|---|
-|--cap-mbps float|전송 속도(Mbps)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
-|--output-type string|명령 출력의 형식을 지정합니다. text, json을 선택할 수 있습니다. 기본값은 “text”입니다.|
-|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
+|--cap-mbps float|전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
+|--output-type string|명령 출력의 형식을 지정합니다. text, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
+|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
 ## <a name="see-also"></a>참조
 

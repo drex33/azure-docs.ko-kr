@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 10debe7bb870ddd9f8711e73ccb4b690d7011b62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 25002640a81b260ced61c25e2d157a100d6dbc2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650190"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593404"
 ---
 # <a name="use-java-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Java를 사용하여 디렉터리 및 파일 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "100650190"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독 자세한 내용은 [Azure 평가판 받기를 참조하세요.](https://azure.microsoft.com/pricing/free-trial/)
 
 - 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "100650190"
 
 시작하려면 [이 페이지](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)를 열고 최신 버전의 Java 라이브러리를 찾습니다. 텍스트 편집기에서 *pom.xml* 파일을 엽니다. 해당 버전을 참조하는 종속성 요소를 추가합니다.
 
-Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증하려는 경우 Azure 암호 클라이언트 라이브러리에 종속성을 추가합니다. [프로젝트에 비밀 클라이언트 라이브러리 패키지 추가](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)를 참조하세요.
+Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증하려는 경우 Azure 암호 클라이언트 라이브러리에 종속성을 추가합니다. 자세한 내용은 [프로젝트에 비밀 클라이언트 라이브러리 패키지 추가를 참조하세요.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)
 
 그런 다음 이러한 imports 문을 코드 파일에 추가합니다.
 
@@ -60,11 +60,11 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다. 
+이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다.
 
-### <a name="connect-by-using-an-account-key"></a>계정 키를 사용한 연결
+### <a name="connect-by-using-an-account-key"></a>계정 키를 사용하여 연결
 
-계정에 연결하는 가장 쉬운 방법입니다. 
+계정에 연결하는 가장 쉬운 방법입니다.
 
 이 예시에서는 계정 키를 사용하여 **DataLakeServiceClient** 인스턴스를 만듭니다.
 
@@ -74,7 +74,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 [Java용 Azure ID 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity)를 사용하여 Azure AD로 애플리케이션을 인증할 수 있습니다.
 
-이 예시에서는 클라이언트 ID, 클라이언트 암호, 테넌트 ID를 사용하여 **DataLakeServiceClient** 인스턴스를 만듭니다.  이러한 값을 얻으려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요.
+이 예시에서는 클라이언트 ID, 클라이언트 암호, 테넌트 ID를 사용하여 **DataLakeServiceClient** 인스턴스를 만듭니다. 이러한 값을 얻으려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
@@ -85,7 +85,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 컨테이너는 파일의 파일 시스템 역할을 합니다. **DataLakeServiceClient.createFileSystem** 메서드를 호출하여 만들 수 있습니다.
 
-다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다. 
+다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateFileSystem":::
 
@@ -93,19 +93,19 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 **DataLakeFileSystemClient.createDirectory** 메서드를 호출하여 디렉터리 참조를 만듭니다.
 
-이 예시에서는 `my-directory`라는 디렉터리를 컨테이너에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가합니다. 
+이 예시에서는 `my-directory`라는 디렉터리를 컨테이너에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가합니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-**DataLakeDirectoryClient.rename** 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다. 
+**DataLakeDirectoryClient.rename** 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다.
 
-이 예시에서는 한 하위 디렉터리를 `my-subdirectory-renamed`라는 이름으로 바꿉니다.
+이 예제에서는 한 하위 디렉터리를 `my-subdirectory-renamed`라는 이름으로 바꿉니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_RenameDirectory":::
 
-이 예시에서는 `my-subdirectory-renamed`라는 디렉터리를 `my-directory-2`라는 디렉터리의 하위 디렉터리로 이동합니다. 
+이 예제에서는 `my-subdirectory-renamed`라는 디렉터리를 `my-directory-2`라는 디렉터리의 하위 디렉터리로 이동합니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_MoveDirectory":::
 
@@ -113,7 +113,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 **DataLakeDirectoryClient.deleteWithResponse** 메서드를 호출하여 디렉터리를 삭제합니다.
 
-다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.   
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DeleteDirectory":::
 
@@ -126,7 +126,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFile":::
 
 > [!TIP]
-> 파일 크기가 크다면 코드는 **DataLakeFileClient.append** 메서드를 여러 번 호출해야 합니다. 대신 **DataLakeFileClient.uploadFromFile** 메서드 사용을 고려해 보세요. 이 방법으로 단일 호출에서 전체 파일을 업로드할 수 있습니다. 
+> 파일 크기가 크다면 코드는 **DataLakeFileClient.append** 메서드를 여러 번 호출해야 합니다. 대신 **DataLakeFileClient.uploadFromFile** 메서드 사용을 고려해 보세요. 이 방법으로 단일 호출에서 전체 파일을 업로드할 수 있습니다.
 >
 > 예제는 다음 섹션을 참조하세요.
 
@@ -138,7 +138,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
-먼저, 다운로드하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient.read** 메서드를 사용해 파일을 읽습니다. .NET 파일 처리 API를 이용해서 스트림에서 바이트를 파일에 저장합니다. 
+먼저, 다운로드하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient.read** 메서드를 사용해 파일을 읽습니다. .NET 파일 처리 API를 이용해서 스트림에서 바이트를 파일에 저장합니다.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 
@@ -150,9 +150,9 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## <a name="see-also"></a>참고 항목
 
-* [API 참조 설명서](/java/api/overview/azure/storage-file-datalake-readme)
-* [패키지(Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
-* [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [피드백 제공](https://github.com/Azure/azure-sdk-for-java/issues)
+- [API 참조 설명서](/java/api/overview/azure/storage-file-datalake-readme)
+- [패키지(Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
+- [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+- [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+- [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [피드백 제공](https://github.com/Azure/azure-sdk-for-java/issues)

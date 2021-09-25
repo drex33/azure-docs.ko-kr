@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 080cf9dac0733fd1797164ddf87e52a800771d18
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99625250"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614118"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Azure NetApp Files 스냅샷 작동 방식
 
@@ -29,7 +29,7 @@ ms.locfileid: "99625250"
 
 ## <a name="what-volume-snapshots-are"></a>볼륨 스냅샷의 정의  
 
-Azure NetApp Files 스냅샷은 특정 시점 파일 시스템(볼륨) 이미지입니다. 이상적인 온라인 백업으로 사용할 수 있습니다. 스냅샷을 사용하여 [새 볼륨 만들기](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume), [파일 복원](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client) 또는 [볼륨 되돌리기](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)를 수행할 수 있습니다. Azure NetApp Files 볼륨에 저장된 특정 애플리케이션 데이터에서 애플리케이션 일관성을 보장하기 위해 추가 단계가 필요할 수 있습니다.  
+Azure NetApp Files 스냅샷은 특정 시점 파일 시스템(볼륨) 이미지입니다. 이상적인 온라인 백업으로 사용할 수 있습니다. 스냅샷을 사용하여 [새 볼륨 만들기](snapshots-restore-new-volume.md), [파일 복원](snapshots-restore-file-client.md) 또는 [볼륨 되돌리기](snapshots-revert-volume.md)를 수행할 수 있습니다. Azure NetApp Files 볼륨에 저장된 특정 애플리케이션 데이터에서 애플리케이션 일관성을 보장하기 위해 추가 단계가 필요할 수 있습니다.  
 
 Azure NetApp Files의 일부인 기본 볼륨 가상화 기술에 대한 고유 기능을 통해 오버헤드가 낮은 스냅샷을 만들 수 있습니다. 데이터베이스와 마찬가지로 이 계층은 디스크의 실제 데이터 블록에 대한 포인터를 사용합니다. 그러나 데이터베이스와 달리 기존 블록은 다시 작성되지 않습니다. 업데이트된 데이터를 새 블록에 쓰고 포인터를 변경합니다. Azure NetApp Files 스냅샷은 단순히 블록 포인터를 조작하여 애플리케이션이 특별한 프로그래밍 없이 이전 버전의 파일 및 디렉터리 계층에 액세스할 수 있도록 하는 “고정된” 읽기 전용 볼륨 보기를 만듭니다. 실제 데이터 블록은 복사되지 않습니다. 따라서 스냅샷은 만드는 데 필요한 시간 면에서 효율적입니다. 볼륨 크기에 관계없이 거의 즉각적입니다. 스냅샷은 스토리지 공간 면에서도 효율적입니다. 스냅샷 자체는 공간을 사용하지 않으며 스냅샷과 활성 볼륨 간의 델타 블록만 유지됩니다. 
 
@@ -53,7 +53,7 @@ Azure NetApp Files의 일부인 기본 볼륨 가상화 기술에 대한 고유 
     스냅샷은 전체 볼륨의 데이터 블록을 복사하지 않으므로 최소한의 스토리지 공간을 사용합니다. 순서대로 찍은 두 개의 스냅샷은 둘 사이의 시간 간격에 추가되거나 변경된 블록만 다릅니다. 이 블록 증분 동작은 관련 스토리지 용량 소비를 제한합니다. 많은 대체 스냅샷 구현은 활성 파일 시스템과 동일한 스토리지 볼륨을 사용하므로 스토리지 용량 요구 사항이 높아집니다. 애플리케이션의 일일 *블록 수준* 변경률에 따라 Azure NetApp Files 스냅샷은 변경된 데이터에 대해서만 더 많거나 적은 용량을 차지합니다. 평균 일별 스냅샷 소비 범위는 많은 애플리케이션 볼륨에 대해 사용된 볼륨 용량의 1~5%, SAP HANA 데이터베이스 볼륨과 같은 볼륨의 경우 최대 20~30%입니다. 만들어지고 유지 관리되는 스냅샷 수와 관련된 스냅샷 용량 소비에 대해 [볼륨 및 스냅샷 사용량을 모니터링](azure-netapp-files-metrics.md#volumes)해야 합니다.   
 
 * 스냅샷은 ***빠르게 만들고 복원 또는 복제할 수 있습니다***.   
-    볼륨 크기와 활동 수준에 관계없이 스냅샷을 만들고 복원 또는 복제하는 데에는 몇 초밖에 걸리지 않습니다. [주문형](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume) 볼륨 스냅샷을 만들 수 있습니다. 또한 [스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)을 사용하여 Azure NetApp Files에서 자동으로 스냅샷을 만들어야 하는 시기와 볼륨에 대해 보관할 스냅샷 수를 지정할 수 있습니다.  예를 들어 SAP HANA용 [AzAcSnap 도구](azacsnap-introduction.md)를 사용하여 애플리케이션 계층으로 스냅샷을 조정하여 애플리케이션 일관성을 달성할 수 있습니다.
+    볼륨 크기와 활동 수준에 관계없이 스냅샷을 만들고 복원 또는 복제하는 데에는 몇 초밖에 걸리지 않습니다. [주문형](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume) 볼륨 스냅샷을 만들 수 있습니다. 또한 [스냅샷 정책](snapshots-manage-policy.md)을 사용하여 Azure NetApp Files에서 자동으로 스냅샷을 만들어야 하는 시기와 볼륨에 대해 보관할 스냅샷 수를 지정할 수 있습니다.  예를 들어 SAP HANA용 [AzAcSnap 도구](azacsnap-introduction.md)를 사용하여 애플리케이션 계층으로 스냅샷을 조정하여 애플리케이션 일관성을 달성할 수 있습니다.
 
 * 스냅샷은 볼륨 ***성능*** 에 영향을 미치지 않습니다.   
     기본 기술의 “쓰기 시 리디렉션” 특성으로 인해 Azure NetApp Files 스냅샷을 데이터 활동이 많을 때 저장하거나 유지해도 성능에는 아무 영향을 미치지 않습니다. 스냅샷을 삭제하는 것도 대부분의 경우 성능에 영향을 주지 않습니다. 
@@ -73,7 +73,7 @@ Azure NetApp Files 스냅샷 기술의 높은 성능, 확장성 및 안정성은
     * 스크립트([예](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts) 참조)
 
 * 다음을 사용하여 자동화됨:
-    * [Azure Portal](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies), [REST API](/rest/api/netapp/snapshotpolicies), [Azure CLI](/cli/azure/netappfiles/snapshot/policy) 또는 [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshotpolicy) 도구를 통한 스냅샷 정책
+    * [Azure Portal](snapshots-manage-policy.md), [REST API](/rest/api/netapp/snapshotpolicies), [Azure CLI](/cli/azure/netappfiles/snapshot/policy) 또는 [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshotpolicy) 도구를 통한 스냅샷 정책
     * [AzAcSnap](azacsnap-introduction.md)과 같은 애플리케이션 일치 스냅샷 도구
 
 ## <a name="how-volumes-and-snapshots-are-replicated-cross-region-for-dr"></a>DR을 위해 볼륨 및 스냅샷이 지역 간 복제되는 방식  
@@ -90,7 +90,7 @@ Azure NetApp Files 스냅샷 기술은 백업의 빈도와 안정성을 크게 �
 
 ### <a name="restoring-files-or-directories-from-snapshots"></a>스냅샷에서 파일 또는 디렉터리 복원 
 
-[스냅샷 경로 표시 유형](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option)이 `hidden`으로 설정되지 않았다면 사용자는 스냅샷에 직접 액세스하여 실수로 데이터를 삭제하거나 손상시키거나 수정한 경우 복구할 수 있습니다. 파일 및 디렉터리의 보안은 스냅샷에 유지되고 스냅샷은 의도적으로 읽기 전용입니다. 따라서 복원은 안전하고 간단합니다. 
+[스냅샷 경로 표시 유형](snapshots-edit-hide-path.md)이 `hidden`으로 설정되지 않았다면 사용자는 스냅샷에 직접 액세스하여 실수로 데이터를 삭제하거나 손상시키거나 수정한 경우 복구할 수 있습니다. 파일 및 디렉터리의 보안은 스냅샷에 유지되고 스냅샷은 의도적으로 읽기 전용입니다. 따라서 복원은 안전하고 간단합니다. 
 
 다음 다이어그램은 스냅샷에 대한 파일 또는 디렉터리 액세스를 보여 줍니다. 
 
@@ -104,7 +104,7 @@ Azure NetApp Files 스냅샷 기술은 백업의 빈도와 안정성을 크게 �
 
 ![지역 간 복제의 스냅샷 액세스를 보여 주는 다이어그램](../media/azure-netapp-files/snapshot-access-cross-region-replication.png)
 
-스냅샷에서 개별 파일 또는 디렉터리를 복원하는 방법은 [클라이언트를 사용하여 스냅샷에서 파일 복원](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)을 참조하세요.
+스냅샷에서 개별 파일 또는 디렉터리를 복원하는 방법은 [클라이언트를 사용하여 스냅샷에서 파일 복원](snapshots-restore-file-client.md)을 참조하세요.
 
 ### <a name="restoring-cloning-a-snapshot-to-a-new-volume"></a>스냅샷을 새 볼륨으로 복원(복제)
 
@@ -120,7 +120,7 @@ DR(재해 복구) 볼륨에 복제된 스냅샷에 대해 동일한 작업을 �
 
 ![DR 대상 볼륨 스냅샷을 사용하여 볼륨 복원을 보여 주는 다이어그램](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png)
 
-볼륨 복원 작업에 대해서는 [스냅샷을 새 볼륨으로 복원](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume)을 참조하세요.
+볼륨 복원 작업에 대해서는 [스냅샷을 새 볼륨으로 복원](snapshots-restore-new-volume.md)을 참조하세요.
 
 ### <a name="restoring-reverting-a-snapshot-in-place"></a>스냅샷 현재 위치 복원(되돌리기)
 
@@ -133,9 +133,9 @@ DR(재해 복구) 볼륨에 복제된 스냅샷에 대해 동일한 작업을 �
 ![이전 스냅샷으로 되돌리는 볼륨을 보여 주는 다이어그램](../media/azure-netapp-files/snapshot-volume-revert.png)
 
 > [!IMPORTANT]
-> 선택한 스냅샷이 만들어진 후에 만들어진 스냅샷과 작성된 활성 파일 시스템 데이터는 손실됩니다. 스냅샷 되돌리기 작업은 대상 볼륨의 모든 데이터를 선택한 스냅샷의 데이터로 바꿉니다. 스냅샷을 선택하는 경우 스냅샷 콘텐츠와 만든 날짜에 주의를 기울여야 합니다. 스냅샷 되돌리기 작업은 실행 취소할 수 없습니다.  
+> 작성 된 활성 파일 시스템 데이터와 선택한 스냅숏 이후에 만들어진 스냅숏이 손실 됩니다. 스냅샷 되돌리기 작업은 대상 볼륨의 모든 데이터를 선택한 스냅샷의 데이터로 바꿉니다. 스냅샷을 선택하는 경우 스냅샷 콘텐츠와 만든 날짜에 주의를 기울여야 합니다. 스냅샷 되돌리기 작업은 실행 취소할 수 없습니다.  
 
-이 기능을 사용하는 방법은 [스냅샷 되돌리기를 사용하여 볼륨 되돌리기](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)를 참조하세요.
+이 기능을 사용하는 방법은 [스냅샷 되돌리기를 사용하여 볼륨 되돌리기](snapshots-revert-volume.md)를 참조하세요.
 
 ## <a name="how-snapshots-are-deleted"></a>스냅샷을 삭제하는 방법 
 
@@ -152,7 +152,7 @@ DR(재해 복구) 볼륨에 복제된 스냅샷에 대해 동일한 작업을 �
 
 [볼륨 및 스냅샷 소비를 모니터링](azure-netapp-files-metrics.md#volumes)하고 애플리케이션, 활성 볼륨 및 스냅샷 소비가 상호 작용하는 방식을 이해해야 합니다. 
 
-스냅샷 삭제를 관리하는 방법은 [스냅샷 삭제](azure-netapp-files-manage-snapshots.md#delete-snapshots)를 참조하세요. 이 프로세스를 자동화하는 방법은 [스냅샷 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조하세요.
+스냅샷 삭제를 관리하는 방법은 [스냅샷 삭제](snapshots-delete.md)를 참조하세요. 이 프로세스를 자동화하는 방법은 [스냅샷 정책 관리](snapshots-manage-policy.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

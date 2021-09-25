@@ -8,14 +8,14 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4860918fc4f995ad267fc35b142d3fcb460ce177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5f4ed4bd29a10226b776789d81b907b9bb91cdd8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002830"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665001"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
 

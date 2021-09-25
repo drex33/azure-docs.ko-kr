@@ -3,12 +3,12 @@ title: 포털에서 Azure Functions 프리미엄 플랜 만들기
 description: Azure Portal을 사용하여 프리미엄 플랜에서 실행되는 함수 앱을 만드는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 9cab67f096665c9333fa40bcb790896fcbebd8d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e510eb85cb0e30cd6cd0fcfa1a1979dd421dd266
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676589"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573254"
 ---
 # <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Azure Portal에서 프리미엄 플랜 함수 앱 만들기
 
@@ -35,4 +35,4 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [HTTP 트리거된 함수 추가](./functions-get-started.md
+> [HTTP 트리거 함수 추가](./functions-create-function-app-portal.md#create-function)

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 78e142fd97158fb64387950f9515ac168c216e5d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 6b860e40acd118bc708ab00001707755272525b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108672"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663614"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -335,7 +335,7 @@ Windows의 이벤트 기반 스케일링 플랜에서 함수 앱 코드와 구�
 
 프리미엄 플랜 또는 Windows에서 실행 중인 사용량 과금제에 배포하는 경우에만 사용됩니다. Linux를 실행하는 사용량 과금제에 대해서는 지원되지 않습니다. 이 설정을 변경하거나 제거하면 함수 앱이 시작되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조하세요.
 
-Azure Resource Manager 템플릿을 사용하여 배포 중에 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함하지 마세요. 이 애플리케이션 설정은 배포 중에 생성됩니다. 자세히 알아보려면 [함수 앱에 대한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 배포 중에 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함하지 마세요. 이 슬롯 설정은 배포 중에 생성됩니다. 자세히 알아보려면 [함수 앱에 대한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조하세요.
 
 ## <a name="website_dns_server"></a>WEBSITE\_DNS\_SERVER
 

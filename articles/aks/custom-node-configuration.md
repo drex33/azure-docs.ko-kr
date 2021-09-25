@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 7d9b3a6d3a5178354cced3cd5e4a49f7113ecdce
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: c872848791e2de3591c8e3e94d4aa5744c7bbcdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220023"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656382"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>AKS(Azure Kubernetes Service) 노드 풀의 노드 구성 사용자 지정(미리 보기)
 
@@ -66,10 +66,11 @@ az extension update --name aks-preview
 | `cpuCfsQuotaPeriod` | 간격(밀리초) | `100ms` | CPU CFS 할당량 기간 값을 설정합니다. | 
 | `imageGcHighThreshold` | 0-100 | 85 | 이미지 가비지 수집이 항시 실행된 후 디스크 사용 백분율입니다. 가비지 수집이 **트리거되는** 최소 디스크 사용량입니다. 이미지 가비지 수집을 사용하지 않으려면 100으로 설정합니다. | 
 | `imageGcLowThreshold` | 0-100, `imageGcHighThreshold`보다 높지 않음 | 80 | 이미지 가비지 수집이 실행되기 이전의 디스크 사용 백분율입니다. 가비지 수집이 **트리거될 수 있는** 최소 디스크 사용량입니다. |
-| `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | 없음 | NUMA 노드 맞춤 최적화에 대한 자세한 내용은 [여기](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/)를 참조하세요. kubernetes v1.18+만 해당합니다. |
+| `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | 없음 | NUMA 노드 맞춤 최적화에 대한 자세한 내용은 [여기](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/)를 참조하세요. |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | 없음 | 안전하지 않은 sysctl 또는 sysctls 패턴의 허용된 목록입니다. | 
 | `containerLogMaxSizeMB` | 크기(MB) | 10MB | 회전되기 전의 컨테이너 로그 파일의 최대 크기입니다(예: 10MB). | 
 | `containerLogMaxFiles` | ≥ 2 | 5 | 컨테이너에 제공할 수 있는 컨테이너 로그 파일의 최대 수입니다. | 
+| `podMaxPids` | -1에서 커널 PID 제한까지 | -1(∞)| Pod에서 실행할 수 있는 최대 프로세스 ID 양 |
 
 ### <a name="linux-os-custom-configuration"></a>Linux OS 사용자 지정 구성
 

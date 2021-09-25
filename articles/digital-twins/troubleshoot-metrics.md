@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Azure Monitor에서 Azure Digital Twins 메트릭을 보는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/4/2020
+ms.date: 9/16/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8dc18662431e750301db7e3d2c4e56d5fbaea674
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 107c9e5dd3d548e3e07cd9b037162cca36aa1c8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770935"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637195"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
-이 문서에서 설명하는 메트릭은 Azure 구독에서 Azure Digital Twins 리소스의 상태에 대한 정보를 제공합니다. Azure Digital Twins 메트릭을 사용하여 Azure Digital Twins 서비스의 전반적인 상태와 연결된 리소스를 평가할 수 있습니다. 이러한 사용자 측 통계는 Azure Digital Twins의 기능을 확인하고 Azure 지원에 문의하지 않고도 문제의 근본 원인을 분석하는 데 도움이 됩니다.
+이 문서에서 설명하는 메트릭은 Azure 구독에서 Azure Digital Twins 리소스의 상태에 대한 정보를 제공합니다. Azure Digital Twins 메트릭은 Azure 디지털 쌍 서비스의 전반적인 상태와 연결 된 리소스를 평가 하는 데 도움이 됩니다. 이러한 사용자 측 통계는 Azure Digital Twins의 기능을 확인하고 Azure 지원에 문의하지 않고도 문제의 근본 원인을 분석하는 데 도움이 됩니다.
 
 메트릭은 기본적으로 사용하도록 설정됩니다. [Azure Portal](https://portal.azure.com)에서 Azure Digital Twins 메트릭을 볼 수 있습니다.
 

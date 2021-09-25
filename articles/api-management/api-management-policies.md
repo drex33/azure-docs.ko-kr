@@ -3,17 +3,17 @@ title: Azure API Management 정책 | Microsoft Docs
 description: Azure API Management에 사용할 수 있는 정책에 대해 알아봅니다. 정책을 사용하면 게시자는 구성을 통해 API 동작을 변경할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
-ms.author: apimpm
-ms.openlocfilehash: c6856226c1eda0e8d5fde7df6d2b251007a47fa2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: c593d9d9f2d957564eed5be98f3f92f29ce79a27
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468521"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551102"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.

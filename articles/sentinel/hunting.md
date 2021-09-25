@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2021
+ms.date: 08/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 78662bf6dbc6d4be4f0ea0890993530f772d2114
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ecb8559af1d2aaf70bee0031930a748ff534f1c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567147"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622534"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Azure Sentinel을 사용하여 위협 헌팅
 
@@ -111,9 +111,51 @@ ms.locfileid: "122567147"
 
 ## <a name="use-notebooks-to-power-investigations"></a>Notebook을 사용하여 조사 강화
 
-Notebook은 자체 커널을 갖춘 일종의 가상 샌드박스 환경을 제공합니다. Notebooks를 사용하여 기계 학습, 시각화 및 데이터 분석을 통해 헌팅 및 조사를 개선할 수 있습니다. Notebook에서 전체 조사를 수행하고, 원시 데이터, 이 데이터를 실행하는 코드, 결과 및 해당 시각화를 캡슐화하고, 조직의 다른 사용자가 공유하고 다시 사용할 수 있도록 전체 작업을 저장할 수 있습니다.
+헌팅 및 조사가 더 복잡해지면 Azure Sentinel Notebook을 사용하여 기계 학습, 시각화 및 데이터 분석을 통해 활동을 향상시킵니다.
 
-자세한 내용은 [Jupyter Notebook을 사용하여 보안 위협 헌팅](notebooks.md)을 참조하세요.
+Notebook은 완전한 조사를 수행할 수 있는 자체 커널로 완성된 일종의 가상 샌드박스를 제공합니다. Notebook에는 원시 데이터, 해당 데이터에서 실행하는 코드, 결과 및 시각화가 포함될 수 있습니다. 조직에서 다시 사용할 수 있도록 다른 사용자와 공유할 수 있도록 Notebook을 저장합니다.
+
+Notebook은 헌팅 또는 조사가 너무 커서 쉽게 기억하지 못하거나, 세부 정보를 보거나, 쿼리와 결과를 저장해야 하는 경우에 유용할 수 있습니다. Notebook을 만들고 공유할 수 있도록 Azure Sentinel Azure Sentinel Notebook 페이지에 직접 통합된 오픈 소스 대화형 개발 및 데이터 조작 환경인 [Jupyter](https://jupyter.org) **Notebook을** 제공합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Jupyter Notebook을 사용하여 보안 위협 헌팅](notebooks.md)
+- [Jupyter Project 설명서](https://jupyter.org/documentation)
+- [Jupyter 소개 설명서.](https://jupyter.readthedocs.io/en/latest/tryjupyter.html)
+- [The Infosec Jupyter Book](https://infosecjupyterbook.com)
+- [실제 Python 자습서](https://realpython.com)
+
+다음 표에서는 Juypter Notebook을 사용하여 Azure Sentinel 프로세스에 도움이 되는 몇 가지 방법을 설명합니다.
+
+|메서드  |Description  |
+|---------|---------|
+|**데이터 지속성, 반복성 및 역추적**     |  많은 쿼리 및 결과 집합으로 작업하는 경우 몇 가지 데드 엔드가 있을 수 있습니다. 유지할 쿼리 및 결과와 단일 보고서에 유용한 결과를 누적하는 방법을 결정해야 합니다. <br><br> Jupyter Notebook을 사용하여 쿼리 및 데이터를 저장하거나, 변수를 사용하여 다른 값 또는 날짜로 쿼리를 다시 실행하거나, 쿼리를 저장하여 향후 조사를 다시 실행합니다.       |
+|**스크립팅 및 프로그래밍**     |    Jupyter Notebook을 사용하여 다음을 포함하여 쿼리에 프로그래밍을 추가합니다. <br><br>- 논리를 복잡한 단일 문으로 인코딩하기 위한 [KQL(Kusto Query Language)](/azure/kusto/query/) 또는 SQL 같은 *선언적* 언어입니다.<br>- *일련의* 단계에서 논리를 실행하는 절차적 프로그래밍 언어입니다. <br><br>논리를 단계로 분할하면 중간 결과를 보고 디버그하고, 쿼리 언어에서 사용할 수 없는 기능을 추가하고, 이후 처리 단계에서 부분 결과를 다시 사용할 수 있습니다.     |
+|**외부 데이터에 대한 링크**     | Azure Sentinel 테이블에는 대부분의 원격 분석 및 이벤트 데이터가 있지만 Jupyter Notebook은 네트워크 또는 파일을 통해 액세스할 수 있는 모든 데이터에 연결할 수 있습니다. Jupyter Notebook을 사용하면 다음과 같은 데이터를 포함할 수 있습니다. <br><br>- 지리적 위치 데이터 또는 위협 인텔리전스 원본과 같이 소유하지 않은 외부 서비스의 데이터<br>- 인사 관리 데이터베이스 또는 중요 자산 목록과 같이 조직 내에만 저장되는 중요한 데이터<br>- 아직 클라우드로 마이그레이션하지 않은 데이터입니다.        |
+|**특수 데이터 처리, 기계 학습 및 시각화 도구**     | Jupyter Notebook은 추가 시각화, 기계 학습 라이브러리, 데이터 처리 및 변환 기능을 제공합니다. <br><br>예를 들어 다음과 같은 [Python](https://python.org) 기능이 있는 Jupyter Notebook을 사용합니다.<br>- 데이터 처리, 정리 및 엔지니어링을 위한 [pandas](https://pandas.pydata.org/)<br>- [시각화를 위한 Matplotlib,](https://matplotlib.org) [HoloViews](https://holoviews.org)및 [Plotly](https://plot.ly)<br>- 고급 숫자 및 과학적 처리를 위한 [NumPy](https://www.numpy.org) 및 [SciPy](https://www.scipy.org)<br>- 기계 학습용 [scikit-learn](https://scikit-learn.org/stable/index.html)<br>- 딥 러닝을 위한 [TensorFlow,](https://www.tensorflow.org/) [PyTorch](https://pytorch.org)및 [Keras](https://keras.io/)<br><br>**팁:** Jupyter Notebook은 여러 언어 커널을 지원합니다. 다른 *언어를* 사용하여 개별 셀을 실행하도록 허용하여 매직을 사용하여 동일한 Notebook 내에서 언어를 혼합합니다. 예를 들어 PowerShell 스크립트 셀을 사용하여 데이터를 검색하고, Python에서 데이터를 처리하고, JavaScript를 사용하여 시각화를 렌더링할 수 있습니다.        |
+|     |         |
+
+### <a name="mstic-jupyter-and-python-security-tools"></a>MSTIC, Jupyter 및 Python 보안 도구
+
+[MSTIC(Microsoft Threat Intelligence Center)는](https://msrc-blog.microsoft.com/tag/mstic/) Microsoft 보안 분석가 및 엔지니어로 구성된 팀으로, 여러 Microsoft 플랫폼에 대한 보안 검색을 작성하고 위협 식별 및 조사에 대해 작업합니다.
+
+MSTIC는 Jupyter Notebook에서 정보 보안 조사 및 헌팅을 위한 라이브러리인 [MSTICPy를](https://github.com/Microsoft/msticpy)빌드했습니다. MSTICPy는 Notebook 만들기 속도를 높이고 사용자가 Azure Sentinel Notebook을 더 쉽게 읽을 수 있도록 하는 재사용 가능한 기능을 제공합니다.
+
+예를 들어 MSTICPy는 다음을 수행할 수 있습니다.
+
+- 여러 원본의 로그 데이터를 쿼리합니다.
+- 위협 인텔리전스, 지리적 위치 및 Azure 리소스 데이터를 통해 데이터를 보강합니다.
+- 로그에서 활동 표시기(IoA)를 추출하고 인코딩된 데이터의 압축을 풉니다.
+- 비정상적인 세션 검색 및 시간 계열 분해와 같은 정교한 분석을 수행합니다.
+- 대화형 타임라인, 프로세스 트리 및 다차원 모프 차트를 사용하여 데이터를 시각화합니다.
+
+MSTICPy에는 쿼리 시간 경계를 설정하고, 목록에서 항목을 선택 및 표시하고, Notebook 환경을 구성하는 위젯과 같은 몇 가지 시간이 절약된 Notebook 도구도 포함되어 있습니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [MSTICPy 설명서](https://msticpy.readthedocs.io/en/latest/)
+- [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
+- [Azure Sentinel Jupyter Notebook 및 MSTICPy에 대한 고급 구성](notebooks-msticpy-advanced.md)
 
 
 ## <a name="useful-operators-and-functions"></a>유용한 연산자 및 함수

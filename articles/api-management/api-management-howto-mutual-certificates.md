@@ -4,17 +4,18 @@ titleSuffix: Azure API Management
 description: Azure API Management에서 클라이언트 인증서 인증을 사용하여 클라이언트 인증서를 관리하고 백엔드 서비스를 보호하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
-ms.author: apimpm
-ms.openlocfilehash: 2e4a398ab71878134887fb8fba025cd8aa6122ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 689dbc56eb5f587e124a645895723436a2a7ccd8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492849"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569620"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용한 백엔드 서비스 보호
 
@@ -32,7 +33,7 @@ API Management에서는 백엔드 서비스에 대한 액세스를 보호하는 
 API Management 보안을 높이기 위해 키 자격 증명 모음 인증서를 사용하는 것이 좋습니다.
 
 * 키 자격 증명 모음에 저장된 인증서는 서비스에서 재사용할 수 있습니다.
-* 키 자격 증명 모음에 저장된 인증서에 세분화된 [액세스 정책](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies)을 적용할 수 있습니다.
+* 키 자격 증명 모음에 저장된 인증서에 세분화된 [액세스 정책](../key-vault/general/security-features.md#privileged-access)을 적용할 수 있습니다.
 * 키 자격 증명 모음에서 업데이트한 인증서는 API Management에서 자동으로 회전됩니다. 키 자격 증명 모음에서 업데이트 후 API Management에 있는 인증서는 4시간 이내에 업데이트됩니다. Azure Portal 또는 Management REST API를 사용하여 인증서를 수동으로 새로 고칠 수도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

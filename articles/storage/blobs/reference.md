@@ -1,18 +1,18 @@
 ---
 title: Azure Blob Storage API 참조
 description: Azure Blob Storage API 참조, 추가 정보 파일 및 클라이언트 라이브러리 패키지를 찾습니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: reference
-ms.openlocfilehash: e0c23dcc8f98353d9d009a81b6187ad1bd5b4e56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 998c8ae6424d170fb0b7cf1b4556ba35da990db5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528868"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622477"
 ---
 # <a name="azure-blob-storage-api-reference"></a>Azure Blob Storage API 참조
 
@@ -113,4 +113,4 @@ Blob Storage API 참조, 라이브러리 패키지, 추가 정보 파일 및 시
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI 참조](/cli/azure/storage)
+[Azure CLI 참조](/cli/azure/azure-cli-reference-for-storage)

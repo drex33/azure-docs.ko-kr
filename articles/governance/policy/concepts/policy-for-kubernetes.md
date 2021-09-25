@@ -1,15 +1,15 @@
 ---
 title: Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5e010ec6f024838a0407f2cafae1d28bdcf1e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 55a8f2f1cbb67c80c82e367a870cd61d76178518
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436071"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556330"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -362,7 +362,7 @@ kubectl get pods -n gatekeeper-system
 
 Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. `Microsoft.Kubernetes.Data`의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 [감사](./effects.md#audit) 및 [거부](./effects.md#deny) 효과를 사용하여 Kubernetes 클러스터를 관리할 수 있습니다. _감사_ 와 _거부_ 는 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 Gatekeeper v3 작업과 관련된 **세부 정보** 속성을 제공해야 합니다.
 
-정책 정의의 _details.templateInfo_, _details.constraint_ 또는 _details.constraintTemplate_ 속성의 일부로 Azure Policy 이러한 [CustomResourceDefinitions(CRD)의](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) URI 또는 Base64Encoded 값을 추가 기능으로 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
+_ConstraintTemplate_ 속성의 일부로 정책 정의의 일부로 서 _, 이러한_ [CUSTOMRESOURCEDEFINITIONS](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) (CRD)의 URI 또는 Base64Encoded 값을 추가 기능에 전달 _Azure Policy._ Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 
 ## <a name="assign-a-policy-definition"></a>정책 정의 할당
 
@@ -371,7 +371,7 @@ Kubernetes 클러스터에 정책 정의를 할당하려면 적절한 Azure RBAC
 > [!NOTE]
 > 사용자 지정 정책 정의는 _공개 미리 보기_ 기능입니다.
 
-다음 단계에 따라 Azure Portal 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다. 사용자 지정 정책 정의를 사용하는 경우 이름 또는 해당 정의를 만든 범주별로 검색합니다.
+다음 단계를 통해 Azure Portal를 사용 하 여 클러스터를 관리 하기 위한 기본 제공 정책 정의를 찾습니다. 사용자 지정 정책 정의를 사용 하는 경우 사용자가 만든 이름 또는 범주를 사용 하 여 해당 정의를 검색 합니다.
 
 1. Azure Portal에서 Azure Policy 서비스를 시작합니다. 왼쪽 창에서 **모든 서비스** 를 선택한 다음, **정책** 을 검색하여 선택합니다.
 
@@ -463,6 +463,99 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
 자세한 내용은 Gatekeeper 설명서의 [Gatekeeper 디버깅](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/)을 참조하세요.
+
+## <a name="view-gatekeeper-artifacts"></a>게이트 키퍼 아티팩트 보기
+
+추가 기능에서 정책 할당을 다운로드 하 고 클러스터에 제약 조건 템플릿과 제약 조건을 설치한 후 정책 할당 ID 및 정책 정의 ID와 같은 Azure Policy 정보를 모두 주석을 추가 합니다. 클라이언트에서 추가 기능 관련 아티팩트를 보도록 구성 하려면 다음 단계를 사용 합니다.
+
+1. `kubeconfig`클러스터에 대 한 설정입니다.
+
+   Azure Kubernetes Service 클러스터의 경우 다음 Azure CLI를 사용 합니다.
+
+   ```azurecli-interactive
+   # Set context to the subscription
+   az account set --subscription <YOUR-SUBSCRIPTION>
+
+   # Save credentials for kubeconfig into .kube in your home folder
+   az aks get-credentials --resource-group <RESOURCE-GROUP> --name <CLUSTER-NAME>
+   ```
+
+1. 클러스터 연결을 테스트 합니다.
+
+   `kubectl cluster-info` 명령을 실행합니다. 성공적으로 실행 되 면 각 서비스가 실행 중인 URL로 응답 하 게 됩니다.
+
+### <a name="view-the-add-on-constraint-templates"></a>추가 기능 제약 조건 템플릿 보기
+
+추가 기능에서 다운로드 한 제약 조건 템플릿을 보려면를 실행 `kubectl get constrainttemplates` 합니다.
+로 시작 하는 제약 조건 템플릿은 `k8sazure` 추가 기능에 의해 설치 되는 템플릿입니다.
+
+### <a name="get-azure-policy-mappings"></a>Azure Policy 매핑 가져오기
+
+클러스터에 다운로드 된 제약 조건 템플릿과 정책 정의 간의 매핑을 확인 하려면를 사용 `kubectl get constrainttemplates <TEMPLATE> -o yaml` 합니다. 결과는 다음 출력과 유사 합니다.
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+    annotations:
+    azure-policy-definition-id: /subscriptions/<SUBID>/providers/Microsoft.Authorization/policyDefinitions/<GUID>
+    constraint-template-installed-by: azure-policy-addon
+    constraint-template: <URL-OF-YAML>
+    creationTimestamp: "2021-09-01T13:20:55Z"
+    generation: 1
+    managedFields:
+    - apiVersion: templates.gatekeeper.sh/v1beta1
+    fieldsType: FieldsV1
+...
+```
+
+`<SUBID>` 는 구독 ID이 고 `<GUID>` 은 매핑된 정책 정의의 id입니다.
+`<URL-OF-YAML>` 추가 기능에서 클러스터에 설치 하기 위해 다운로드 한 제약 조건 템플릿의 원본 위치입니다.
+
+### <a name="view-constraints-related-to-a-constraint-template"></a>제약 조건 템플릿과 관련 된 제약 조건 보기
+
+[추가 기능에서 다운로드 한 제약 조건 템플릿의](#view-the-add-on-constraint-templates)이름을 찾았으면 해당 이름을 사용 하 여 관련 제약 조건을 확인할 수 있습니다. `kubectl get <constraintTemplateName>`목록을 가져오는 데 사용 합니다.
+추가 기능에서 설치한 제약 조건은로 시작 `azurepolicy-` 합니다.
+
+### <a name="view-constraint-details"></a>제약 조건 세부 정보 보기
+
+제약 조건에는 정책 정의 및 할당에 대 한 위반 및 매핑에 대 한 세부 정보가 있습니다. 세부 정보를 보려면를 사용 `kubectl get <CONSTRAINT-TEMPLATE> <CONSTRAINT> -o yaml` 합니다. 결과는 다음 출력과 유사 합니다.
+
+```yaml
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sAzureContainerAllowedImages
+metadata:
+  annotations:
+    azure-policy-assignment-id: /subscriptions/<SUB-ID>/resourceGroups/<RG-NAME>/providers/Microsoft.Authorization/policyAssignments/<ASSIGNMENT-GUID>
+    azure-policy-definition-id: /providers/Microsoft.Authorization/policyDefinitions/<DEFINITION-GUID>
+    azure-policy-definition-reference-id: ""
+    azure-policy-setdefinition-id: ""
+    constraint-installed-by: azure-policy-addon
+    constraint-url: <URL-OF-YAML>
+  creationTimestamp: "2021-09-01T13:20:55Z"
+spec:
+  enforcementAction: deny
+  match:
+    excludedNamespaces:
+    - kube-system
+    - gatekeeper-system
+    - azure-arc
+  parameters:
+    imageRegex: ^.+azurecr.io/.+$
+status:
+  auditTimestamp: "2021-09-01T13:48:16Z"
+  totalViolations: 32
+  violations:
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hello-world-78f7bfd5b8-lmc5b
+    namespace: default
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hellow-world-89f8bfd6b9-zkggg
+```
 
 ## <a name="troubleshooting-the-add-on"></a>추가 기능 문제 해결
 

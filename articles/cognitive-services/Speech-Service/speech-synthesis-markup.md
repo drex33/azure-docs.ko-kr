@@ -3,26 +3,26 @@ title: SSML(Speech Synthesis Markup Language) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b71d0d114388c25f3f14c85d37f0568ceed49337
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: a43758b1c20b3983b4b2c0920481549ddccb0328
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708855"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)을 사용하여 합성 향상
 
 SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환 서비스를 사용하여 입력 텍스트를 합성 음성으로 변환하는 방법을 개발자가 지정할 수 있는 XML 기반 태그 언어입니다. 일반 텍스트와 비교할 때, SSML은 개발자가 텍스트 음성 변환 출력의 피치, 발음, 말하기 속도, 볼륨 등을 세밀하게 조정할 수 있습니다. 마침표 뒤에서 잠시 쉬거나 문장이 물음표로 끝날 때 올바른 억양을 사용하는 등의 일반 문장 부호는 자동으로 처리됩니다.
 
-SSML의 Speech Service 구현은 World Wide Web 컨소시엄의 [Speech Synthesis Markup Language 버전 1.0](https://www.w3.org/TR/speech-synthesis)을 기반으로 합니다.
+SSML의 Speech Service 구현은 World Wide Web 컨소시엄의 [Speech Synthesis Markup Language 버전 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/)을 기반으로 합니다.
 
 > [!IMPORTANT]
 > 중국어, 일본어 및 한국어 문자는 요금 청구 시 두 글자로 계산됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
@@ -59,7 +59,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석하는 데 사용되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정합니다. 이 값에는 소문자 2자 언어 코드(예: `en`) 또는 언어 코드와 대문자 국가/지역(예: `en-US`)이 포함될 수 있습니다. | 필수 |
@@ -79,7 +79,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용되는 음성을 식별합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요. | 필수 |
 
@@ -102,7 +102,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용되는 음성을 식별합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요. | 필수 |
 
@@ -127,6 +127,8 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `en-US-SaraNeural`
+* `ja-JP-NanamiNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -136,6 +138,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
+* `zh-CN-XiaoshuangNeural`
 
 사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. `styledegree`에서 더 강한 스타일 또는 더 부드러운 스타일을 지정하여 음성에 감정을 더 싣거나 더 차분하게 말할 수 있습니다. 현재 중국어(북경어, 간체) 인공신경망 음성에 대한 말하기 스타일 조정을 지원합니다.
 
@@ -161,7 +164,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정합니다. 현재 말하기 스타일은 음성에만 적용됩니다. | 인공신경망 음성의 말하기 스타일을 조정하는 경우에 필요합니다. `mstts:express-as`를 사용하는 경우 스타일을 제공해야 합니다. 잘못된 값을 제공하면 이 요소가 무시됩니다. |
 | `styledegree` | 말하기 스타일의 강도를 지정합니다. **허용되는 값**: 0.01~2(포함). 기본값은 미리 정의된 스타일 강도를 의미하는 1입니다. 최소 단위인 0.01은 대상 스타일의 성향을 약간 보입니다. 값이 2이면 기본 스타일 강도는 두 배가 됩니다.  | 선택 사항(현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원)|
@@ -183,6 +186,12 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 |                         | `style="assistant"`       | 디지털 비서에 적합한 따뜻하고 편안한 톤을 표현합니다.    |
 |                         | `style="newscast"`        | 일반 뉴스 보도에 적합한 가볍고 자유로운 톤을 표현합니다.   |
 | `en-US-GuyNeural`       | `style="newscast"`        | 뉴스 내레이션에 적합한 정중하고 전문적인 톤을 표현합니다. |
+| `en-US-SaraNeural`      | `style="cheerful"`        | 긍정적이고 즐거운 톤을 표현합니다.    |
+|                         | `style="sad"`             | 음색을 표현합니다.   |
+|                         | `style="angry"`           | 음색과 불가한 톤을 표현합니다.   |
+| `ja-JP-NanamiNeural`    | `style="cheerful"`        | 긍정적이고 즐거운 톤을 표현합니다.   |
+|                         | `style="chat"`            | 가볍고 편안한 톤을 표현합니다.   |
+|                         | `style="customerservice"` | 고객 지원에 적합한 친근하고 친절한 톤을 표현합니다.    |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | 말할 때 냉정하고 침착하고 차분한 태도를 표현합니다. 톤, 피치 및 운율은 다른 종류의 음성에 비해 훨씬 균일합니다.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | 뉴스 내레이션에 적합한 정중하고 전문적인 톤을 표현합니다. |
 |                         | `style="customerservice"` | 고객 지원에 적합한 친근하고 친절한 톤을 표현합니다.  |
@@ -243,6 +252,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 | `zh-CN-XiaoruiNeural`   | `style="sad"`             | 높은 음, 낮은 강도, 낮은 에너지의 목소리로 슬픈 톤을 표현합니다. 이 감정을 표현하는 일반적인 방법은 말하는 중에 훌쩍이거나 우는 것입니다.         |
 |                         | `style="angry"`           | 낮은 음, 높은 강도, 높은 에너지의 목소리로 화가 나고 짜증이 난 톤을 표현합니다. 말하는 사람이 화가 나고 기분이 상한 상태입니다.       |
 |                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                       |
+| `zh-CN-XiaoshuangNeural`   | `style="chat"` | 평범한 톤 및 낮은 톤을 나타냅니다. |
 
 다음 표를 사용하여 지원되는 역할 및 해당 정의를 확인하세요.
 
@@ -319,7 +329,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `lang` | 말하기 언어를 지정합니다. 현재 다른 언어로 말하는 것은 음성에 따라 다릅니다. | 인공신경망 음성의 말하기 언어를 조정하는 경우에 필요합니다. `lang xml:lang`을 사용하는 경우 로캘을 제공해야 합니다. |
 
@@ -377,7 +387,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `strength` | 다음 값 중 하나를 사용하여 일시 중지의 상대 기간을 지정합니다.<ul><li>없음</li><li>x-weak</li><li>weak</li><li>medium(기본값)</li><li>강력</li><li>x-strong</li></ul> | Optional |
 | `time` | 일시 중지의 절대 기간을 초 또는 밀리초 단위로 지정합니다. 이 값은 5000ms 미만으로 설정해야 합니다. 예를 들어 `2s` 및 `500ms`는 유효한 값입니다. | Optional |
@@ -416,7 +426,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `type` | 무언이 추가되는 위치를 지정합니다. <ul><li>`Leading` – 텍스트의 시작 부분 </li><li>`Tailing` – 텍스트 끝 </li><li>`Sentenceboundary` – 인접한 문장 사이 </li></ul> | 필수 |
 | `Value` | 일시 중지의 절대 기간을 초 또는 밀리초 단위로 지정합니다. 이 값은 5000ms 미만으로 설정해야 합니다. 예를 들어 `2s` 및 `500ms`는 유효한 값입니다. | 필수 |
@@ -481,7 +491,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `alphabet` | `ph` 특성의 문자열 발음을 합성할 때 사용되는 발음 기호를 지정합니다. 알파벳을 지정하는 문자열은 소문자로 지정해야 합니다. 다음은 지정할 수 있는 알파벳입니다.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 기호</a></li><li>`sapi` &ndash; [Speech Service 발음 기호](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> 범용 음성 세트</a></li></ul><br>알파벳은 요소의 `phoneme`에만 적용됩니다. | Optional |
 | `ph` | `phoneme` 요소에 있는 단어의 발음을 지정하는 음을 포함하는 문자열입니다. 지정된 문자열에 인식할 수 없는 음이 들어 있는 경우 TTS(텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부하고 문서에 지정된 음성 출력을 하나도 생성하지 않습니다. | 음소를 사용하는 경우 필수입니다. |
@@ -531,7 +541,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 **특성**
 
-| attribute | 설명                               | 필수/선택 |
+| attribute | Description                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | 외부 PLS 문서의 주소입니다. | 필수 요소.           |
 
@@ -564,6 +574,9 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 `lexicon` 요소에는 하나 이상의 `lexeme` 요소가 포함됩니다. 각 `lexeme` 요소에는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme`, `alias` 및 `phoneme` 요소가 포함됩니다. `grapheme` 요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">표기법</a>을 설명하는 텍스트를 포함합니다. `alias` 요소는 머리글자어 또는 축약된 용어의 발음을 나타내는 데 사용됩니다. `phoneme` 요소는 `lexeme`를 어떻게 발음하는지 설명하는 텍스트를 제공합니다. `alias` 및 `phoneme` 요소가 `grapheme`에 제공되는 경우 `alias`의 우선 순위가 더 높습니다.
 
+> [!IMPORTANT]
+> `lexeme`이 요소는 사용자 지정 어휘에서 대/소문자를 구분 합니다. 예를 들어 ' hello '에 대해 음소만 제공 하는 경우 `lexeme` ' hello '에 대해 작동 하지 않습니다 `lexeme` .
+
 어휘집에는 필요한 `xml:lang` 특성이 포함되어 어떤 로캘이 적용되어야 하는지 나타냅니다. 하나의 사용자 지정 어휘집은 설계상 하나의 로캘로 제한되므로 다른 로캘에 적용하면 작동하지 않습니다.
 
 사용자 지정 어휘집을 사용하여 구의 발음을 직접 설정할 수 없다는 점에 유의해야 합니다. 머리글자어 또는 축약된 용어의 발음을 설정해야 하는 경우 `alias`를 제공한 다음, `phoneme`을 해당 `alias`와 연결합니다. 예를 들면 다음과 같습니다.
@@ -578,6 +591,8 @@ A good place to start is by trying out the slew of educational apps that are hel
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
+> [!Note]
+> 음절 경계는 국제 표음 알파벳에서 '. '입니다.
 
 머리글자어 축약된 용어의 예상 `alias`를 직접 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
 ```xml
@@ -612,6 +627,8 @@ A good place to start is by trying out the slew of educational apps that are hel
 ```
 
 이 사용자 지정 어휘집을 사용하는 경우 "BTW"를 "By the way"로 읽습니다. "Benigni"는 제공된 IPA "bɛˈniːnji"로 읽습니다.
+
+사용자 지정 어휘에서 실수를 쉽게 할 수 있기 때문에 Microsoft는 [사용자 지정 어휘에 대 한 유효성 검사 도구](https://github.com/jiajzhan/Custom-Lexicon-Validation)를 제공 했습니다. 오류를 찾는 데 도움이 되는 자세한 오류 메시지를 제공 합니다. 사용자 지정 어휘를 사용 하 여 사용자 지정 어휘를 음성 서비스에 보내기 전에이 도구를 사용 하 여 사용자 지정 어휘를 확인 해야 합니다. 
 
 **제한 사항**
 - 파일 크기: 사용자 지정 어휘집 파일 크기 최대 제한은 100KB이며, 이 크기를 초과하면 합성 요청이 실패합니다.
@@ -660,7 +677,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `pitch` | 텍스트의 기준 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자에 "Hz"(헤르츠)를 붙여서 표현하는 절대값. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>"+" 또는 "-" 기호 뒤에 숫자를 붙이고 그 뒤에 "Hz" 또는 "st"를 붙여서 피치를 변경하는 양을 지정하는 상대값. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "st"는 변경 단위가 반음, 즉, 표준 온음계 톤의 절반(반음)임을 나타냅니다.</li><li>상수 값:<ul><li>x-low</li><li>low</li><li>중간</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `contour` |이제 피치 곡선은 인공신경망 음성과 표준 음성을 모두 지원합니다. 피치 곡선은 피치의 변화를 나타냅니다. 이러한 변화는 음성 출력에서 특정 시간 위치에 있는 대상의 배열로 정의됩니다. 각 대상은 매개 변수 쌍 세트로 정의됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 세트의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정합니다. 두 번째 값은 피치에 대한 상대값 또는 열거형 값을 사용하여 피치를 높이거나 낮출 크기를 지정합니다(`pitch` 참조). | Optional |
@@ -743,7 +760,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조하세요. | 필수 |
 | `format` | 형식이 모호할 수 있는 콘텐츠 형식에 대한 요소 텍스트의 정확한 서식 지정 정보를 제공합니다. SSML은 이러한 형식을 사용하는 콘텐츠 형식의 형식을 정의합니다(아래 표 참조). | Optional |
@@ -806,7 +823,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 **특성**
 
-| attribute | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 audio 요소를 사용하는 경우 필수입니다. |
 
@@ -842,7 +859,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 백그라운드 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 백그라운드 오디오를 사용하는 경우 필수입니다. |
 | `volume` | 백그라운드 오디오 파일의 볼륨을 지정합니다. **허용되는 값** 은 `0`~`100`(포함)입니다. 기본값은 `1`입니다. | Optional |
@@ -877,7 +894,7 @@ bookmark 요소는 텍스트 또는 태그 시퀀스의 특정 위치를 참조�
 
 **특성**
 
-| attribute | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 |  `mark`   | `bookmark` 요소의 참조 텍스트를 지정합니다. | 필수 요소. |
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: f615cf25f30cc0bad6a8317b08126c05fe22f047
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 2d8f9c7c73b4cb5d0f617893a7d981b94d30b344
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273410"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553100"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>용량 예약 그룹에서 가상 머신 확장 집합 연결 제거 
 
@@ -56,7 +56,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    요청 본문에서 `capacityReservationGroup` 속성을 비어 있음으로 설정하여 그룹에 대한 가상 머신 확장 집합 연결을 제거합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 해당 그룹에 대 한 가상 머신 확장 집합 연결을 제거 합니다.
 
     ```json
     {
@@ -65,7 +65,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""    
+                    "id":null    
                 }
             }
         }
@@ -83,7 +83,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -VMScaleSetName "myVmss"
     ```
 
-1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. `CapacityReservationGroupId` 속성을 비어 있음으로 설정하여 용량 예약 그룹에 대한 확장 집합의 연결을 제거합니다. 
+1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `CapacityReservationGroupId` null로 설정 하면 확장 집합과 용량 예약 그룹의 연결이 제거 됩니다. 
 
     ```powershell-interactive
     $vmss =
@@ -95,7 +95,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 자세히 알아보려면 Azure PowerShell 명령 [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss), [Get-AzVmss](/powershell/module/az.compute/get-azvmss) 및 [Update-AzVmss](/powershell/module/az.compute/update-azvmss)로 이동합니다.
@@ -139,7 +139,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    요청 본문에서 `capacityReservationGroup` 속성을 비어 있음으로 설정하여 연결을 제거합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 연결을 제거 합니다.
     
     ```json
     {
@@ -148,7 +148,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""
+                    "id":null
                 }
             }
         }
@@ -158,23 +158,17 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
->[!NOTE]
-> 미리 보기 중에는 `Update-AzCapacityReservation` 명령을 사용할 수 없습니다. `New-AzCapacityReservation`을 사용하여 기존 용량 예약을 수정합니다.
-
 1. 예약된 수량을 0으로 업데이트
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-2. `CapacityReservationGroupId` 속성을 비어 있음으로 설정하여 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 
+2. 속성을 null로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 확장 집합을 업데이트 합니다 `CapacityReservationGroupId` . 
 
     ```powershell-interactive
     $vmss =
@@ -186,7 +180,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 자세히 알아보려면 Azure PowerShell 명령 [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVmss](/powershell/module/az.compute/get-azvmss) 및 [Update-AzVmss](/powershell/module/az.compute/update-azvmss)로 이동합니다.

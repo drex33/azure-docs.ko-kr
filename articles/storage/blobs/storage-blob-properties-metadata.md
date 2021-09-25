@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f003273d05a1e0c317c37afe3d03e49cf3a0e7c
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
-ms.translationtype: HT
+ms.openlocfilehash: 2e88c3bebe5cccaac2a750c4f5bd0b301226d0ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630758"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>.NET을 사용하여 Blob 속성 및 메타데이터 관리
 
@@ -68,6 +68,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 다음 코드 예제에서는 Blob의 시스템 속성을 가져오고 일부 값을 표시합니다.
@@ -109,6 +110,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 ## <a name="set-and-retrieve-metadata"></a>메타데이터 설정 및 검색
@@ -162,6 +164,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 다음 코드 예제에서는 Blob의 메타데이터를 읽습니다.
@@ -204,6 +207,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

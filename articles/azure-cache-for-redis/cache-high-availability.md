@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: e06ced47829beeab46edbc98ddeb92fa4e959ec0
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
-ms.translationtype: HT
+ms.openlocfilehash: 8796dd088df0ff297cd7ac99271bfe410fdb506b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614765"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620847"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Azure Cache for Redis의 고가용성
 
@@ -38,7 +38,7 @@ Azure Cache for Redis는 캐시에 대해 *노드* 라고 하는 여러 VM을 �
 
 Redis 캐시의 주 노드를 사용할 수 없는 경우 복제본이 자동으로 새로운 주 노드가 되도록 스스로 수준을 올립니다. 이 프로세스를 *장애 조치(failover)* 라고 합니다. 주 노드가 신속하게 복구되는 경우 전환되기 전에 복제본은 충분히 오랜 시간 동안 대기합니다. 장애 조치(failover)가 발생하면 Azure Cache for Redis는 새 VM을 프로비저닝하고 이를 복제 노드로 캐시에 조인합니다. 복제본은 캐시 데이터의 다른 복사본이 포함되도록 주 노드와 전체 데이터 동기화를 수행합니다.
 
-주 노드는 Redis 소프트웨어 또는 운영 체제 업데이트와 같은 계획된 유지 관리 작업의 영향으로 작동하지 않을 수 있습니다. 기본 하드웨어, 소프트웨어 또는 네트워크의 오류와 같은 계획되지 않은 이벤트로 인해 작동이 중지될 수도 있습니다. [Azure Cache for Redis의 장애 조치(failover) 및 패치](cache-failover.md)는 Redis 장애 조치(failover) 유형에 대한 자세한 설명을 제공합니다. Azure Cache for Redis는 해당 수명 동안 많은 장애 조치(failover)를 수행합니다. 고가용성 아키텍처의 디자인은 캐시 내의 이러한 변경 사항이 해당 클라이언트에게 최대한 투명하게 적용됩니다.
+주 노드는 Redis 소프트웨어 또는 운영 체제 업데이트와 같은 계획된 유지 관리 작업의 영향으로 작동하지 않을 수 있습니다. 기본 하드웨어, 소프트웨어 또는 네트워크의 오류와 같은 계획되지 않은 이벤트로 인해 작동이 중지될 수도 있습니다. [Azure Cache for Redis의 장애 조치(failover) 및 패치](cache-failover.md)는 Redis 장애 조치(failover) 유형에 대한 자세한 설명을 제공합니다. Azure Cache for Redis는 해당 수명 동안 많은 장애 조치(failover)를 수행합니다. 고가용성 아키텍처의 디자인은 캐시 내에서 가능한 한 클라이언트에 투명 하 게 이러한 변경을 수행 합니다.
 
 또한 Azure Cache for Redis는 프리미엄 계층에서 추가 복제본 노드를 제공합니다. [다중 복제본 캐시](cache-how-to-multi-replicas.md)는 최대 3개의 복제본 노드를 사용하여 구성할 수 있습니다. 복제본이 많을수록 주 노드를 백업하는 노드가 있으므로 일반적으로 복원력이 향상됩니다. 복제본이 많은 경우에도 Azure Cache for Redis 인스턴스는 데이터 센터 또는 AZ 수준 중단으로 심각한 영향을 받을 수 있습니다. [영역 중복성](#zone-redundancy)이 있는 여러 복제본을 사용하여 캐시 가용성을 높일 수 있습니다.
 

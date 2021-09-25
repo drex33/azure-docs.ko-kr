@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 718648be0f4a5ec9dd3520127552138b8471d57c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: 31a65c31558940ba7e39e21c8b6e33ffa8e7c9b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710481"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633660"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>일반적인 Azure Virtual Desktop 에이전트 문제 해결
 
@@ -113,7 +113,7 @@ Azure Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인�
 **이벤트 뷰어** > **windows 로그** > **애플리케이션** 으로 이동 합니다. 설명에 "RD Gateway Url: is not accessible"이라고 표시된 ID가 3703인 이벤트가 보이면 에이전트가 게이트웨이 URL에 도달할 수 없는 것입니다. 세션 호스트에 성공적으로 연결하고 이러한 엔드포인트에 대한 네트워크 트래픽이 제한을 우회하도록 허용하려면 [필수 URL 목록](safe-url-list.md)의 URL을 차단 해제해야 합니다. 또한 방화벽 또는 프록시 설정이 이러한 URL을 차단하지 않는지 확인합니다. Azure Virtual Desktop을 사용하려면 이러한 URL 차단을 해제해야 합니다.
 
 이 문제를 해결하려면 방화벽 및/또는 DNS 설정이 다음 URL을 차단하지 않는지 확인합니다.
-1. [Azure Firewall을 사용하여 Azure Virtual Desktop 배포를 보호합니다](../firewall/protect-windows-virtual-desktop.md).
+1. [Azure Firewall을 사용하여 Azure Virtual Desktop 배포를 보호합니다](../firewall/protect-azure-virtual-desktop.md).
 2. [Azure Firewall DNS 설정](../firewall/dns-settings.md)을 구성합니다.
 
 ## <a name="error-3019"></a>오류: 3019
@@ -243,7 +243,7 @@ Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostp
 3. **제어판** > **프로그램** > **프로그램 및 기능** 으로 이동합니다.
 4. 최신 버전의 **원격 데스크톱 서비스 SxS 네트워크 스택** 또는 **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** 아래 **ReverseConnectListener** 에 나열된 버전을 제거합니다.
 5. 관리자 권한으로 콘솔 창을 열고 **Program Files** > **Microsoft RDInfra** 로 이동합니다.
-6. **SxSStack** 구성 요소를 선택하거나 **msiexec /i SxsStack-<version>.msi** 명령을 실행하여 MSI를 설치합니다.
+6. **SxSStack** 구성 요소를 선택하거나 **`msiexec /i SxsStack-<version>.msi`** 명령을 실행하여 MSI를 설치합니다.
 8. VM이 다시 시작됩니다.
 9. 명령 프롬프트로 돌아가서 **qwinsta** 명령을 실행합니다.
 10. 6단계에서 설치한 스택 구성 요소 옆에 **Listen** 이 표시되는지 확인합니다.
@@ -381,5 +381,5 @@ VM을 호스트 풀 및 서비스에 다시 등록하는 데 사용되는 새 �
 - Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

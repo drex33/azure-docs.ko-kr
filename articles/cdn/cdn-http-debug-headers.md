@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7b0171b2bf74f60e2cc1ea7600f313934737103e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84343023"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639644"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.
@@ -54,7 +54,7 @@ X-EC-Debug: x-ec-cache-state | [캐시 상태](#cache-state-response-header)
 ## <a name="cache-status-code-information"></a>캐시 상태 코드 정보
 X-EC-Debug 응답 헤더는 다음 지시문을 통해 서버 및 응답을 처리하는 방법을 식별할 수 있습니다.
 
-헤더 | 설명
+헤더 | Description
 -------|------------
 X-EC-Debug: x-ec-cache | 콘텐츠가 CDN을 통해 라우팅될 때마다 이 헤더가 보고됩니다. 요청을 수행한 POP 서버를 식별합니다.
 X-EC-Debug: x-ec-cache-remote | 요청된 콘텐츠가 원본 실드 서버 또는 ADN 게이트웨이 서버에 캐시된 경우에만 이 헤더가 보고됩니다.
@@ -169,5 +169,4 @@ YES    | 요청된 콘텐츠가 캐싱에 적합했음을 나타냅니다.
 
 다음 응답 헤더 샘플은 요청된 콘텐츠의 캐시 상태를 요청된 시간에 나타냅니다.
 
-```X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none```
-
+`X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none`

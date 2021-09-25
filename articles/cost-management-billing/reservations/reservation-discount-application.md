@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1dec8253d785973aa900434c10f85ec0a63e0599
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
-ms.translationtype: HT
+ms.openlocfilehash: c2f8ab7f2f5dc392696cc9e887f401502e906c3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574875"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559790"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "99574875"
 
 예를 들어 나중에 리소스를 만들었는데 일치하는 예약의 사용률이 낮다고 가정해 봅시다. 이 경우 일치하는 새 리소스에 예약 할인이 자동으로 적용됩니다.
 
-가상 머신이 사용자의 등록/계정 내 다른 구독에서 실행되는 경우는 범위를 공유로 선택합니다. 공유 범위를 사용하면 예약 할인을 구독 전체에 적용할 수 있습니다. 예약 구매 후 범위를 변경할 수 있습니다. 자세한 내용은 [Azure 예약 관리](manage-reserved-vm-instance.md)를 참조하세요.
+가상 머신이 사용자의 등록/계정 내 다른 구독에서 실행되는 경우는 범위를 공유로 선택합니다. 공유 범위를 사용하면 예약 할인을 구독 전체에 적용할 수 있습니다. 예약 구매 후 범위를 변경할 수 있습니다. 자세한 내용은 [Azure 예약 관리](manage-reserved-vm-instance.md)를 참조하세요. 관리 그룹 범위를 사용할 수도 있습니다. 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.
 
 예약 할인은 Enterprise, Microsoft 고객 계약, CSP 또는 종량제를 사용하는 구독과 연결된 리소스에만 적용됩니다. 다른 유형의 구독에서 실행되는 리소스는 예약 할인을 받지 못합니다.
 

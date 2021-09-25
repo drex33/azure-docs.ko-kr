@@ -3,16 +3,17 @@ title: 데이터 관리 게이트웨이에 대한 릴리스 정보
 description: 데이터 관리 게이트웨이 릴리스 정보
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 22a709cf5d0725a09eb07a8f1675da316b0ab6c3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680588"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]

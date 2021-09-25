@@ -2,18 +2,19 @@
 title: U-SQL 스크립트를 사용하여 데이터 변환 - Azure
 description: Azure Data Lake Analytics 컴퓨팅 서비스 - 버전 1에서 U-SQL 스크립트를 실행하여 데이터를 처리 또는 변환하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 5931cb28721e8658a771ceea1cd94624a0c09f7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6bf6cf9b2bdf538c7d21e47c8f4e98f834a73ecd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580361"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

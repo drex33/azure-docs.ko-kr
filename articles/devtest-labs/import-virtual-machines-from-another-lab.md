@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 다른 랩의 가상 머신 가져오기
+title: 다른 랩에서 가상 머신 가져오기
 description: 이 문서는 다른 랩의 가상 머신을 Azure DevTest Labs의 현재 랩으로 가져오는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 3e2cce7a364254798c88697d942041c1503af193
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 324f86b8192cdbc29261d6dfb60ce37cdebe5939
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300438"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593784"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 다른 랩의 가상 머신 가져오기
 이 문서는 다른 랩에서 사용자의 랩으로 가상 머신을 가져오는 방법에 대한 정보를 제공합니다.

@@ -1,18 +1,19 @@
 ---
-title: Azure CLI 및 Bicep 파일로 리소스 배포
+title: Azure CLI 및 Bicep 파일을 | 리소스 배포 Microsoft Docs
 description: Azure Resource Manager와 Azure CLI를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Bicep 파일에 정의되어 있습니다.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+ms.openlocfilehash: 0c474a7bf1d74b44b85f108b6a7fa28bcdc48902
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635160"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625623"
 ---
-# <a name="deploy-resources-with-bicep-and-azure-cli"></a>Bicep 및 Azure CLI로 리소스 배포
+# <a name="how-to-deploy-resources-with-bicep-and-azure-cli"></a>Bicep 및 Azure CLI 사용하여 리소스를 배포하는 방법
 
 이 문서에서는 Bicep 파일과 함께 Azure CLI를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Bicep 개요](./overview.md)를 참조하세요.
 
@@ -86,7 +87,7 @@ az deployment group create \
 
 ## <a name="deploy-remote-bicep-file"></a>원격 Bicep 파일 배포
 
-현재 Azure CLI는 원격 Bicep 파일 배포를 지원하지 않습니다. [Bicep CLI](./install.md#development-environment)를 사용하여 Bicep 파일을 JSON 템플릿으로 컴파일한 다음 JSON 파일을 원격 위치로 로드합니다.
+현재 Azure CLI는 원격 Bicep 파일 배포를 지원하지 않습니다. [Bicep CLI](./install.md#vs-code-and-bicep-extension)를 사용하여 Bicep 파일을 JSON 템플릿으로 컴파일한 다음 JSON 파일을 원격 위치로 로드합니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -182,7 +183,7 @@ Bicep 파일을 배포하기 전에 Bicep 파일이 환경에 적용할 변경 �
 
 ## <a name="deploy-template-specs"></a>템플릿 사양 배포
 
-현재 Azure CLI은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep)를 확인할 수 있습니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
+현재 Azure CLI은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. [템플릿 사양 만들기 샘플은](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) Bicep 파일에서 템플릿 사양을 만드는 방법을 보여줍니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
 
 ## <a name="deployment-name"></a>배포 이름
 

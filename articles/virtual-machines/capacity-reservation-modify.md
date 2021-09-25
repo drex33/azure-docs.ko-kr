@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 30a010f695282f6cad8757ea15fa295d645abd7f
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 8b6e2ba3c65b5fd521bdb6326069ce5d8be05599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273412"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564888"
 ---
 # <a name="modify-a-capacity-reservation-preview"></a>용량 예약 수정(미리 보기)
 
@@ -71,17 +71,14 @@ ms.locfileid: "123273412"
 예약된 수량을 업데이트하려면 업데이트된 `capacityToReserve`속성과 함께 `New-AzCapacityReservation`을 사용합니다.
 
 ```powershell-interactive
-New-AzCapacityReservation
+Update-AzCapacityReservation
 -ResourceGroupName "myResourceGroup"
--Location "eastus"
--Zone "1"
 -ReservationGroupName "myCapacityReservationGroup"
 -Name "myCapacityReservation"
--Sku "Standard_D2s_v3"
 -CapacityToReserve 5
 ```
 
-자세히 알아보려면, Azure PowerShell 명령 [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation)를 참조하세요.
+자세한 내용은 Azure PowerShell 명령 [Update-AzCapacityReservation으로](/powershell/module/az.compute/update-azcapacityreservation)이동합니다.
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -152,7 +149,7 @@ New-AzCapacityReservation
 
 1. 다음을 살펴보세요. 
     1. 대상 VM 크기가 그룹의 일부가 아니면, 대상 VM에 대한 [새 용량 예약을 생성](capacity-reservation-create.md)합니다 
-    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](.\windows\resize-vm.md)합니다 
+    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](resize-vm.md)합니다 
 
 ### <a name="portal"></a>[포털](#tab/portal2)
 
@@ -162,7 +159,7 @@ New-AzCapacityReservation
 1. **예약** 을 선택합니다 
 1. 각 예약에 예약된 *VM 크기* 를 확인합니다 
     1. 대상 VM 크기가 그룹의 일부가 아니면, 대상 VM에 대한 [새 용량 예약을 생성](capacity-reservation-create.md)합니다 
-    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](.\windows\resize-vm.md)합니다 
+    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](resize-vm.md)합니다 
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
@@ -190,7 +187,7 @@ New-AzCapacityReservation
 
 1. 다음을 살펴보세요. 
     1. 대상 VM 크기가 그룹의 일부가 아니면, 대상 VM에 대한 [새 용량 예약을 생성](capacity-reservation-create.md)합니다 
-    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](.\windows\resize-vm.md)합니다 
+    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](resize-vm.md)합니다 
 
 
 자세히 알아보려면, Azure PowerShell 명령 [Get-AzCapacityReservationGroup](/powershell/module/az.compute/get-azcapacityreservationgroup) 및 [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation)을 참조하세요.

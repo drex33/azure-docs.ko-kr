@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c5d4c390110a5b3eef7509508d35c9554f7be984
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: cb19372e5b97a9f508367366faa9ae49d0d11261
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596964"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -66,7 +66,7 @@ Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각
 
 `http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
-Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정을 구성할 수도 있습니다. 자세한 내용은 [Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.  
+Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정을 구성할 수도 있습니다. 자세한 내용은 [Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
 
 ## <a name="migrate-a-storage-account"></a>스토리지 계정 마이그레이션
 

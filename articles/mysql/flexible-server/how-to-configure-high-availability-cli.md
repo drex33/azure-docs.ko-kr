@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0327e725534f7b56171814e99098cee365785d8c
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: b6a430c70d59ff980063139e71daf76d1ede220a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205016"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634299"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Azure CLI를 사용한 Azure Database for MySQL 유연한 서버의 영역 중복 고가용성 관리
 
@@ -30,7 +30,9 @@ ms.locfileid: "114205016"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+- 활성 구독이 있는 Azure 계정. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - 최신 버전으로 Azure CLI를 설치하거나 업그레이드합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 - [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 계정에 로그인합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
@@ -46,20 +48,23 @@ ms.locfileid: "114205016"
 
 ## <a name="enable-high-availability-during-server-creation"></a>서버를 만드는 동안 고가용성 사용
 
-고가용성을 사용하여 범용 또는 메모리 최적화 가격 책정 계층을 사용하는 서버만을 만들 수 있습니다. 만든 시간 동안에 대해서만 서버에 대해 고가용성을 사용하도록 설정할 수 있습니다.
+고가용성을 사용하여 범용 또는 메모리 최적화 가격 책정 계층을 사용하는 서버만을 만들 수 있습니다. 만들기 시간 동안에만 서버에 영역 중복 고가용성을 사용하도록 설정할 수 있습니다.
 
 **사용법:**
 
    ```azurecli
-    az mysql flexible-server create [--high-availability {Disabled, Enabled}]
+    az mysql flexible-server create [--high-availability {Disabled, SameZone, ZoneRedundant}]
+                                    [--sku-name]
+                                    [--tier]
                                     [--resource-group]
+                                    [--location]
                                     [--name]
    ```
 
 **예:**
 
    ```azurecli
-    az mysql flexible-server create --name myservername --sku-name Standard-D2ds_v4 --resource-group myresourcegroup --high-availability Enabled
+    az mysql flexible-server create --name myservername --sku-name Standard_D2ds_v4 --tier Genaralpurpose --resource-group myresourcegroup --high-availability ZoneRedundant --location eastus
    ```
 
 ## <a name="disable-high-availability"></a>고가용성 사용 안 함
@@ -67,10 +72,12 @@ ms.locfileid: "114205016"
 [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update) 명령을 사용하여 고가용성을 사용하지 않도록 설정할 수 있습니다. 고가용성을 사용하여 서버를 만든 경우에만 고가용성을 사용하지 않도록 설정할 수 있습니다. 
 
 ```azurecli
-az mysql flexible-server update [--high-availability {Disabled, Enabled}]
+az mysql flexible-server update [--high-availability {Disabled, SameZone, ZoneRedundant}]
                                 [--resource-group]
                                 [--name]
 ```
+>[!Note]
+>ZoneRedundant에서 SameZone으로 이동하려면 먼저 고가용성을 사용하지 않도록 설정한 다음, 동일한 영역을 사용하도록 설정해야 합니다.
 
 **예:**
 

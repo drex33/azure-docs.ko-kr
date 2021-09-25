@@ -5,15 +5,15 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 498b304e5b0e1deeca2b923e9f1312ea0cebf6bf
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ad060c3fce28ef70137e0f25e09a1e4ea5fb9a09
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117086"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561481"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>변경 피드 프로세서 라이브러리에서 Azure Cosmos DB .NET V3 SDK로 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "123117086"
 1. `WithProcessorOptions`를 사용하는 사용자 지정은 간격으로 `WithLeaseConfiguration` 및 `WithPollInterval`을 사용하고, [시작 시간](./change-feed-processor.md#starting-time)으로 `WithStartTime`를 사용하고 `WithMaxItems`를 사용하여 최대 항목 개수를 정의하도록 업데이트해야 합니다.
 1. `ChangeFeedProcessorOptions.LeasePrefix`에 구성된 값과 일치하도록 `GetChangeFeedProcessorBuilder`에 대해 `processorName`을 설정하고, 그렇지 않은 경우 `string.Empty`를 사용합니다.
 1. 변경 내용은 더 이상 `IReadOnlyList<Document>`로 전달되지 않습니다. 대신 `IReadOnlyCollection<T>`입니다. 여기서 `T`는 정의해야 하는 형식이며, 기본 항목 클래스는 더 이상 없습니다.
-1. 변경 내용을 처리하기 위해 더 이상 구현이 필요하지 않으며 대신 [대리자를 정의](change-feed-processor.md#implementing-the-change-feed-processor)해야 합니다. 대리자는 고정 함수이거나 실행 간에 상태를 유지해야 하는 경우 고유한 클래스를 만들고 인스턴스 메서드를 대리자로 전달할 수 있습니다.
+1. 변경 내용을 처리하려면 더 이상 의 구현이 필요하지 `IChangeFeedObserver` 않습니다. 대신 [대리자를 정의해야](change-feed-processor.md#implementing-the-change-feed-processor)합니다. 대리자는 고정 함수이거나 실행 간에 상태를 유지해야 하는 경우 고유한 클래스를 만들고 인스턴스 메서드를 대리자로 전달할 수 있습니다.
 
 예를 들어, 변경 피드 프로세서를 빌드하는 원래 코드는 다음과 같습니다.
 
@@ -38,7 +38,11 @@ ms.locfileid: "123117086"
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
 
-또한 대리자는 정적 메서드일 수 있습니다.
+대리자의 경우 이벤트를 수신하는 정적 메서드를 사용할 수 있습니다. 에서 정보를 사용하는 경우 를 `IChangeFeedObserverContext` 사용하도록 마이그레이션할 수 있습니다. `ChangeFeedProcessorContext`
+
+* `ChangeFeedProcessorContext.LeaseToken` 대신 를 사용할 수 있습니다. `IChangeFeedObserverContext.PartitionKeyRangeId`
+* `ChangeFeedProcessorContext.Headers` 대신 를 사용할 수 있습니다. `IChangeFeedObserverContext.FeedResponse`
+* `ChangeFeedProcessorContext.Diagnostics` 에는 문제 해결을 위한 요청 대기 시간 정보가 포함되어 있습니다.
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
 
@@ -65,4 +69,4 @@ SDK V3 변경 피드 프로세서는 마이그레이션된 애플리케이션 �
 * [변경 피드 프로세서 시작 시간](./change-feed-processor.md#starting-time)
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: 87a7d10c9748a2e173d8f43dcca3611666277792
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213600"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653708"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer 및 가용성 영역
 
@@ -57,6 +57,10 @@ Load Balancer는 **영역 중복, 영역** 또는 **비영역** 일 수 있습�
 
 내부 부하 분산 장치 프런트 엔드의 경우 내부 부하 분산 장치 프런트 엔드 IP 구성에 **zones** 매개 변수를 추가합니다. 영역 프런트 엔드는 서브넷의 IP 주소를 특정 영역에 대해 보장합니다.
 
+## <a name="non-zonal"></a>비 영역
+
+"비 영역" 프런트 엔드 (공용 IP 또는 공용 IP 접두사)를 사용 하 여 비 영역 구성에서 부하 분산 장치를 만들 수도 있습니다.  이 옵션은 중복성 보장을 제공 하지 않습니다. 기본에서 표준 SKU로 [업그레이드](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) 된 모든 공용 IP 주소는 "비 영역" 유형입니다.
+
 ## <a name="design-considerations"></a><a name="design"></a> 디자인 고려 사항
 
 이제 표준 Load Balancer의 영역 관련 속성을 파악했으므로 고가용성을 위해 디자인할 때 다음 디자인 고려 사항이 도움이 될 수 있습니다.
@@ -66,7 +70,15 @@ Load Balancer는 **영역 중복, 영역** 또는 **비영역** 일 수 있습�
 - **영역 중복** Load Balancer는 하나의 IP 주소가 있는 모든 영역에서 영역 리소스를 제공할 수 있습니다.  IP는 지역 내에서 하나 이상의 영역이 정상 상태로 유지되는 한 하나 이상의 영역 실패를 회복할 수 있습니다.
 - **영역** 프런트 엔드는 서비스를 단일 영역으로 축소하고 각 영역과 수명을 공유합니다. 배포가 있는 영역이 다운되면 배포는 이 실패에서 회복할 수 없습니다.
 
-프로덕션 워크로드에 대해 영역 중복 Load Balancer를 사용하는 것이 좋습니다.
+프로덕션 워크 로드에 대해 영역 중복 Load Balancer를 사용 하는 것이 좋습니다.
+
+### <a name="multiple-frontends"></a>여러 프런트 엔드
+
+여러 프런트 엔드를 사용 하면 둘 이상의 포트 및/또는 IP 주소에 대 한 트래픽 부하를 분산할 수 있습니다.  아키텍처를 디자인할 때는 영역 중복성 및 여러 프런트 엔드가 상호 작용할 수 있는 방법을 고려 하는 것이 중요 합니다.  모든 프런트 엔드가 오류에 대해 복원 력을 항상 갖도록 하려는 경우 프런트 엔드로 할당 된 모든 IP 주소는 영역 중복 이어야 합니다.   프런트 엔드 집합을 단일 영역에 연결 하려면 해당 집합의 모든 IP 주소를 해당 특정 영역과 연결 해야 합니다.  각 영역에 대 한 부하 분산 장치를 가질 필요는 없습니다. 대신 각 영역 프런트 엔드 (또는 영역 프런트 엔드 집합)를 해당 특정 가용성 영역에 속하는 백 엔드 풀의 가상 컴퓨터와 연결할 수 있습니다.
+
+### <a name="transition-between-regional-zonal-models"></a>지역 영역 모델 간 전환
+
+[가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 포함 하도록 영역을 확대 하는 경우 모든 기존 프런트 엔드 ip는 비 영역으로 유지 됩니다. 아키텍처가 새로운 영역을 활용할 수 있도록 하기 위해 새 프런트 엔드 Ip를 만드는 것이 좋으며, 이러한 새 공용 Ip를 활용 하기 위해 적절 한 규칙 및 구성이 복제 됩니다.
 
 ### <a name="control-vs-data-plane-implications"></a>컨트롤 플레인 영향과 데이터 평면 영향
 
@@ -79,8 +91,7 @@ Load Balancer는 **영역 중복, 영역** 또는 **비영역** 일 수 있습�
 ## <a name="limitations"></a>제한 사항
 
 * 영역을 만든 후에는 리소스에 대해 변경, 업데이트 또는 만들 수 없습니다.
-
-* 리소스는 생성 후 영역에서 영역 중복으로 또는 그 반대로 업데이트할 수 없습니다.
+* 리소스는 영역에서 영역 중복으로 또는 생성 후에도 그 반대로 업데이트할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기

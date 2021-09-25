@@ -2,13 +2,13 @@
 title: Azure Service Bus에 대한 네트워크 보안
 description: 이 문서에서는 서비스 태그, IP 방화벽 규칙, 서비스 엔드포인트, 프라이빗 엔드포인트 등의 네트워크 보안 기능에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: db09ca367d228100eb344c63cca31047fd5e3624
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310455"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575956"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Azure Service Bus에 대한 네트워크 보안 
 이 문서에서는 Azure Service Bus에서 다음 보안 기능을 사용하는 방법을 설명합니다. 

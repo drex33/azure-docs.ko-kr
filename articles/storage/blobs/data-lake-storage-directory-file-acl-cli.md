@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08e1976a1bc97ae83d1b9d45700fd614420be0c2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 8dec2e939c6f39169d4c8fbbdfbcdf08d4d42599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413072"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651582"
 ---
 # <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리 및 파일 관리
 
@@ -27,9 +27,9 @@ ms.locfileid: "111413072"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독 자세한 내용은 [Azure 평가판 받기를 참조하세요.](https://azure.microsoft.com/pricing/free-trial/)
 
-- 계층 구조 네임스페이스가 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
+- 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
 - Azure CLI 버전 `2.6.0` 이상.
 
@@ -43,7 +43,7 @@ ms.locfileid: "111413072"
     az --version
    ```
 
-   Azure CLI 버전이 `2.6.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+   Azure CLI 버전이 `2.6.0`보다 낮은 경우 이후 버전을 설치합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
@@ -72,7 +72,7 @@ ms.locfileid: "111413072"
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 파일의 파일 시스템 역할을 합니다. `az storage fs create` 명령을 사용하여 만들 수 있습니다. 
+컨테이너는 파일의 파일 시스템 역할을 합니다. `az storage fs create` 명령을 사용하여 만들 수 있습니다.
 
 다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다.
 
@@ -102,7 +102,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 `az storage fs delete` 명령을 사용하면 컨테이너를 삭제할 수 있습니다.
 
-다음 예제에서는 `my-file-system`라는 컨테이너를 삭제합니다. 
+다음 예제에서는 `my-file-system`라는 컨테이너를 삭제합니다.
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -110,7 +110,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-`az storage fs directory create` 명령을 사용하여 디렉터리 참조를 만듭니다. 
+`az storage fs directory create` 명령을 사용하여 디렉터리 참조를 만듭니다.
 
 다음 예제에서는 `mystorageaccount`라는 계정에 있는 `my-file-system`이라는 컨테이너에 `my-directory`라는 디렉터리를 추가합니다.
 
@@ -146,27 +146,27 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 `az storage fs directory delete` 명령을 사용하여 디렉터리를 삭제합니다.
 
-다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다. 
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="check-if-a-directory-exists"></a>디렉터리가 존재하는지 확인
 
 `az storage fs directory exists` 명령을 사용하여 컨테이너에 특정 디렉터리가 있는지 확인합니다.
 
-다음 예제에서는 `my-file-system` 컨테이너에 `my-directory`라는 디렉터리가 있는지 확인합니다. 
+다음 예제에서는 `my-file-system` 컨테이너에 `my-directory`라는 디렉터리가 있는지 확인합니다.
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
 `az storage fs file download` 명령을 사용하여 디렉터리에서 파일을 다운로드합니다.
 
-다음 예제에서는 `my-directory`라는 디렉터리에서 `upload.txt`라는 파일을 다운로드합니다. 
+다음 예제에서는 `my-directory`라는 디렉터리에서 `upload.txt`라는 파일을 다운로드합니다.
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -176,7 +176,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 `az storage fs file list` 명령을 사용하여 디렉터리의 콘텐츠를 나열합니다.
 
-다음 예제에서는 `mystorageaccount`라는 스토리지 계정의 `my-file-system` 컨테이너에 있는 `my-directory`라는 디렉터리의 콘텐츠를 나열합니다. 
+다음 예제에서는 `mystorageaccount`라는 스토리지 계정의 `my-file-system` 컨테이너에 있는 `my-directory`라는 디렉터리의 콘텐츠를 나열합니다.
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -186,7 +186,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 `az storage fs file upload` 명령을 사용하여 디렉터리에 파일을 업로드합니다.
 
-다음 예제에서는 `upload.txt`라는 파일을 `my-directory`라는 디렉터리에 업로드합니다. 
+다음 예제에서는 `upload.txt`라는 파일을 `my-directory`라는 디렉터리에 업로드합니다.
 
 ```azurecli
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -217,7 +217,7 @@ az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-syst
 다음 예제에서는 `my-file.txt`라는 파일을 삭제합니다.
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="see-also"></a>참고 항목

@@ -3,16 +3,16 @@ title: 자체 호스팅 개발자 포털 테스트
 titleSuffix: Azure API Management
 description: 자체 호스팅 API Management 포털에 대해 단위 테스트와 엔드투엔드 테스트를 설정하는 방법을 알아봅니다.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: ab6a7aa8fc4f11c34126415379294ef1e48fa286
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
-ms.translationtype: HT
+ms.openlocfilehash: 62c5ab98e067bb735bcfa1510cae405b17461cac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741382"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646442"
 ---
 # <a name="test-the-self-hosted-developer-portal"></a>자체 호스팅 개발자 포털 테스트
 

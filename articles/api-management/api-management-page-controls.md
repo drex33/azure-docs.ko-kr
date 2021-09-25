@@ -3,7 +3,7 @@ title: Azure API Management 페이지 컨트롤 | Microsoft Docs
 description: Azure API Management에서 개발자 포털 템플릿에 사용할 수 있는 페이지 컨트롤러에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
-ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: cdaa82308e4208306327dc064642c2b0897597d5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86250026"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635207"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  

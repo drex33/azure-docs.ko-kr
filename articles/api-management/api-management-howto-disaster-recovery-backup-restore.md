@@ -3,18 +3,18 @@ title: API Management에서 백업 및 복원을 사용하여 재해 복구 구�
 titleSuffix: Azure API Management
 description: Azure API Management에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다.
 services: api-management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d0845d2b54f2ce9d69772b6f1fcfe6fd3704a78
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e00882764283fec7ec9ab3252b5997f682411557
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538672"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652673"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 

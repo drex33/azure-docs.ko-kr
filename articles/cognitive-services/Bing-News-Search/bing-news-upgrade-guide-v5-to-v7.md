@@ -3,19 +3,17 @@ title: Bing New Search API v5에서 v7로 업그레이드
 titleSuffix: Azure Cognitive Services
 description: Bing News Search 애플리케이션에서 버전 7을 사용하도록 업데이트해야 하는 부분을 식별합니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: scottwhi
-ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9f9688d0c952925fa17867ecd8599d84eee40e71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96351370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587046"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
 

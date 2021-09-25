@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 1f7b4152bee090e39c598b559ffa9d2e8aea8e88
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 99fe642b2b18beef27238c7092c8fcbfab4164a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123477747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570876"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>데이터 수명 주기를 자동으로 관리하여 비용 최적화
 
@@ -153,8 +153,8 @@ ms.locfileid: "123477747"
 | tierToArchive               | `blockBlob`에 지원됨                  | 지원됨     | 지원됨     |
 | delete                      | `blockBlob` 및 `appendBlob`에 대해 지원됨 | 지원됨     | 지원됨     |
 
->[!NOTE]
->동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
+> [!NOTE]
+> 동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
 
 실행 조건은 보존 기간을 기준으로 합니다. 기본 Blob는 마지막으로 수정된 시간을 사용하고, Blob 버전은 버전 생성 시간을 사용하고, Blob 스냅샷은 스냅샷 생성 시간으로 보존 기간을 추적합니다.
 
@@ -364,16 +364,16 @@ ms.locfileid: "123477747"
 
 ## <a name="feature-support"></a>기능 지원
 
-이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | 
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)|![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
-## <a name="regional-availability-and-pricing"></a>지역 가용성 및 가격
+## <a name="regional-availability-and-pricing"></a>지역별 가용성 및 가격 책정
 
 수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 
@@ -391,7 +391,7 @@ Blob의 마지막 액세스 시간에 대한 각 업데이트 비용은 [기타 
 
 **기존 정책을 업데이트하는 경우 작업이 실행되는 데 얼마나 걸리나요?**
 
-업데이트된 정책은 적용되는 데 최대 24시간이 걸립니다. 정책이 적용되면 작업이 실행되는 데 최대 24시간이 걸릴 수 있습니다. 따라서 정책 작업을 완료하는 데 최대 48시간이 걸릴 수 있습니다. 업데이트 시 규칙을 사용하지 않거나 삭제하도록 하고 enableAutoTierToHotFromCool을 사용했으면 핫 계층으로 자동 계층화가 계속 발생합니다. 예를 들어 마지막 액세스를 기준으로 enableAutoTierToHotFromCool이 포함된 규칙을 설정합니다. 규칙이 사용되지 않거나 삭제되고 Blob이 현재 쿨 상태에서 액세스되면 수명 주기 관리 외부에 액세스할 때 적용되므로 다시 핫으로 이동합니다. 수명 주기 관리 규칙이 사용되지 않거나 삭제되면 Blob이 핫에서 쿨로 이동하지 않습니다.  autoTierToHotFromCool을 방지하는 유일한 방법은 마지막 액세스 시간 추적을 끄는 것입니다.
+업데이트된 정책은 적용되는 데 최대 24시간이 걸립니다. 정책이 적용되면 작업이 실행되는 데 최대 24시간이 걸릴 수 있습니다. 따라서 정책 작업을 완료하는 데 최대 48시간이 걸릴 수 있습니다. 업데이트 시 규칙을 사용하지 않거나 삭제하도록 하고 enableAutoTierToHotFromCool을 사용했으면 핫 계층으로 자동 계층화가 계속 발생합니다. 예를 들어 마지막 액세스를 기준으로 enableAutoTierToHotFromCool이 포함된 규칙을 설정합니다. 규칙이 사용되지 않거나 삭제되고 Blob이 현재 쿨 상태에서 액세스되면 수명 주기 관리 외부에 액세스할 때 적용되므로 다시 핫으로 이동합니다. 수명 주기 관리 규칙이 사용되지 않거나 삭제되면 Blob이 핫에서 쿨로 이동하지 않습니다. autoTierToHotFromCool을 방지하는 유일한 방법은 마지막 액세스 시간 추적을 끄는 것입니다.
 
 **보관된 Blob을 수동으로 리하이드레이션했습니다. 보관 계층으로 다시 일시 이동되지 않게 하려면 어떻게 해야 하나요?**
 

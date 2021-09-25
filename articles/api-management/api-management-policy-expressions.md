@@ -3,17 +3,17 @@ title: Azure API Management 정책 식 | Microsoft Docs
 description: Azure API Management에서 정책 식에 대해 자세히 알아봅니다. 예제를 살펴보고 사용 가능한 추가 리소스를 확인합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 07/07/2021
-ms.author: apimpm
-ms.openlocfilehash: 65309253886d8186087a1ac93b5da9d067f444bc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: c70e72550b88850b6b30c8f96f7f2dc4a460b222
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468487"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678956"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 C# 7의 정책 식 구문에 대해 설명합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.

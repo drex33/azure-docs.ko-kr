@@ -2,28 +2,25 @@
 title: Bicep Linter 사용
 description: Bicep Linter의 사용 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/01/2021
-ms.openlocfilehash: 6b270a87a67235a6663a697b1329c5f86d570fdf
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: cef701d9a9f64990c0afbe265c3355f9c1a850ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779730"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631175"
 ---
 # <a name="use-bicep-linter"></a>Bicep Linter 사용
 
-Bicep Linter를 사용하여 Bicep 파일을 분석할 수 있습니다. 구문 오류를 검사하고, Bicep 파일을 빌드하거나 배포하기 전에 사용자 지정 가능한 작성 모범 사례 집합을 찾습니다. Linter를 사용하면 개발 중에 지침을 제공하여 코딩 표준을 보다 쉽게 적용할 수 있습니다.
+Bicep Linter를 사용하여 Bicep 파일을 분석할 수 있습니다. Bicep 파일을 빌드하거나 배포하기 전에 구문 오류 및 모범 사례 위반을 찾을 수 있습니다. 파일 검사에 사용할 작성 모범 사례 집합을 사용자 지정할 수 있습니다. Linter를 사용하면 개발 중에 지침을 제공하여 코딩 표준을 보다 쉽게 적용할 수 있습니다.
 
-## <a name="install-linter"></a>Linter 설치
+## <a name="linter-requirements"></a>Linter 요구 사항
 
-Linter는 Visual Studio Code 및 Bicep CLI와 함께 사용할 수 있습니다. 다음 조건을 충족해야 합니다.
-
-- Bicep Azure CLI 버전 0.4 이상
-- Visual Studio Code 버전 0.4 이상에 대한 Bicep 확장입니다.
+linter는 Bicep CLI 및 VS Code 확장에 통합됩니다. 이 버전을 사용하려면 버전 0.4 이상이어야 합니다.
 
 ## <a name="customize-linter"></a>Linter 사용자 지정
 
-bicepconfig.json을 통해 Linter를 사용하거나 사용하지 않도록 설정하고, 규칙 관련 값을 제공하며, 규칙의 수준도 설정할 수 있습니다. 다음은 기본 bicepconfig.json입니다.
+bicepconfig.json을 통해 Linter를 사용하거나 사용하지 않도록 설정하고, 규칙 관련 값을 제공하며, 규칙의 수준도 설정할 수 있습니다. 다음 예제에서는 기본 bicepconfig.json을 보여줍니다.
 
 ```json
 {
@@ -105,7 +102,7 @@ bicepconfig.json을 통해 Linter를 사용하거나 사용하지 않도록 설�
 ```
 
 - **사용**: Linter를 사용하도록 설정하려면 **true** 를 입력하고, Linter를 사용하지 않도록 설정하려면 **false** 를 입력합니다.
-- **자세한 정보 표시**: Visual Studio Code에서 사용하는 bicepconfig.json 파일을 표시하려면 **true** 를 입력합니다.
+- **verbose**: **true를** 입력하여 Visual Studio Code 사용되는 bicepconfig.json 파일을 표시합니다.
 - **규칙**: 규칙 관련 값을 입력합니다. 각 규칙에는 하나 이상의 속성과 수준이 있습니다. 이 속성은 Bicep 파일에서 찾을 수 있는 경우 Bicep의 동작을 지시합니다.
 
 다음의 규칙 수준에 여러 값을 사용할 수 있습니다.
@@ -113,18 +110,18 @@ bicepconfig.json을 통해 Linter를 사용하거나 사용하지 않도록 설�
 | **level**  | **빌드 시간 동작** | **편집기 동작** |
 |--|--|--|
 | `Error` | 위반은 명령줄 빌드 출력에 오류로 표시되며 빌드 실패를 유발합니다. | 잘못된 코드는 빨간색 물결선으로 밑줄이 그어져 문제 탭에 표시됩니다. |
-| `Warning` | 위반은 명령줄 빌드 출력에 경고로 표시되지만, 빌드 실패를 유발하지는 않습니다. | 잘못된 코드는 노란색 물결선으로 밑줄이 그어져 문제 탭에 표시됩니다. |
+| `Warning` | 위반은 명령줄 빌드 출력에 경고로 표시되지만 빌드가 실패하지는 않습니다. | 잘못된 코드는 노란색 물결선으로 밑줄이 그어져 문제 탭에 표시됩니다. |
 | `Info` | 위반은 명령줄 빌드 출력에 표시되지 않습니다. | 잘못된 코드는 파란색 물결선으로 밑줄이 그어져 문제 탭에 표시됩니다. |
 | `Off` | 전혀 표시되지 않습니다. | 전혀 표시되지 않습니다. |
 
 현재 Linter 규칙 집합은 [arm-ttk 테스트 사례](../templates/template-test-cases.md)에서 가장 적게 사용됩니다. Visual Studio Code 확장 및 Bicep CLI는 모두 기본적으로 사용 가능한 모든 규칙을 검사하고 전체 규칙이 경고 수준으로 설정됩니다. 규칙 수준에 따라 편집기 내에서 오류나 경고 또는 정보 메시지가 표시됩니다.
 
-- [no-hardcoded-env-urls](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-hardcoded-env-urls.md)
-- [no-unused-params](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-params.md)
-- [no-unused-vars](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-vars.md)
-- [prefer-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/prefer-interpolation.md)
-- [secure-parameter-default](https://github.com/Azure/bicep/blob/main/docs/linter-rules/secure-parameter-default.md)
-- [simplify-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/simplify-interpolation.md)
+- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unused-params](./linter-rule-no-unused-parameters.md)
+- [no-unused-vars](./linter-rule-no-unused-variables.md)
+- [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [secure-parameter-default](./linter-rule-secure-parameter-default.md)
+- [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
 Visual Studio Code의 Bicep 확장에서는 Bicep 구성 파일을 편집하기 위한 Intellisense를 제공합니다.
 
@@ -138,7 +135,7 @@ Linter를 사용하려면 Bicep 확장 0.4 이상을 설치합니다.  다음 �
 
 **문제** 창에는 오류 네 개, 경고 한 개, 스크린샷에 표시된 정보 메시지 한 개가 있습니다.  정보 메시지에는 사용되는 Bicep 구성 파일이 표시됩니다. 구성 파일에서 **자세한 정보 표시** 를 **true** 로 설정한 경우에만 이 정보가 표시됩니다.
 
-마우스 커서로 문제 영역 중 하나를 가리킵니다. Linter는 오류 또는 경고에 대한 세부 정보를 제공합니다. 영역을 클릭하면 파란색 전구도 표시됩니다.
+마우스 커서로 문제 영역 중 하나를 가리킵니다. Linter는 오류 또는 경고에 대한 세부 정보를 제공합니다. 영역을 선택하면 파란색 전구도 표시됩니다.
 
 :::image type="content" source="./media/linter/bicep-linter-show-quickfix.png" alt-text="Visual Studio Code에서 Bicep Linter 사용 - 빠른 수정 표시.":::
 

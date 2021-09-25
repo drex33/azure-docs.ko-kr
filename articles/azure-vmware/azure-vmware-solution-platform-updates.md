@@ -2,17 +2,35 @@
 title: Azure VMware Solution에 대한 플랫폼 업데이트
 description: Azure VMware Solution에 대한 플랫폼 업데이트에 대해 알아봅니다.
 ms.topic: reference
-ms.date: 07/23/2021
-ms.openlocfilehash: 01667e4a22dc220e9895071d047210e8487ff2bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: 3159323fa567bc622c9627ded4e8f70bfac20b4f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567334"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636119"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 플랫폼 업데이트
 
 Azure VMware Solution은 2021년 3월부터 중요 업데이트를 적용합니다. 유지 관리 타임라인을 포함하는 Azure Service Health를 통해 알림을 받게 됩니다. 자세한 내용은 [호스트 유지 관리 및 수명 주기 관리](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management)를 참조하세요.
+
+## <a name="september-21-2021"></a>2021년 9월 21일
+VMware 보안 권고 [VMSA-2021-0020에](https://www.vmware.com/security/advisories/VMSA-2021-0020.html)따라 VMware vCenter 서버의 여러 취약성이 VMware에 보고되었습니다.
+ 
+취약성을 해결하려면(CVE-2021-21980, CVE-2021-21991, CVE-2021-21992, CVE-2021-21993, CVE-2021-22005, CVE-2021-22006, CVE-2021-22007, CVE-2021-22008, CVE-2021-22009, CVE-2021-22010, CVE-2021-22011, CVE-2021-22012,CVE-2021-22013, CVE-2021-22014, CVE-2021-22015, CVE-2021-22016, CVE-20211 VMware 보안 권고 VMSA-2021-0020에서 보고된-22017, CVE-2021-22018, [CVE-2021-22019, CVE-2021-22020)](https://www.vmware.com/security/advisories/VMSA-2021-0020.html)vCenter Server 모든 Azure VMware Solution 6.7 업데이트 3o로 업데이트되었습니다. 프라이빗 클라우드. 모든 새 Azure VMware Solution 프라이빗 클라우드는 vCenter 서버 버전 6.7 업데이트 3o와 함께 배포됩니다.
+ 
+자세한 내용은 [VMware vCenter Server 6.7 업데이트 3o 릴리스 정보를 참조하세요.](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3o-release-notes.html)
+ 
+추가적인 조치가 필요하지 않습니다.
+
+## <a name="september-10-2021"></a>2021년 9월 10일
+
+이제 모든 새 Azure VMware Solution 프라이빗 클라우드가 ESXi 버전 ESXi670-202103001(빌드 번호: 17700523)으로 배포됩니다. 기존 프라이빗 클라우드의 ESXi 호스트가 이 버전에 패치되었습니다.
+
+이 ESXi 버전에 대한 자세한 내용은 [VMware ESXi 6.7 패치 릴리스 ESXi670-202103001을 참조하세요.](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202103001.html)
+
+
+
 
 ## <a name="july-23-2021"></a>2021년 7월 23일
 

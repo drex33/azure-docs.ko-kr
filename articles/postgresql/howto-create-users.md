@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: c2d0cfc15457d45701f129ae329295064d773a09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: a91b334b5494d8db44c86352c95fd7b4d1ea2c14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604078"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에서 사용자 만들기
 
@@ -75,6 +75,14 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
+
+   사용자가 "role" 테이블을 만드는 경우 테이블은 해당 사용자에 게 속합니다. 다른 사용자가 테이블에 액세스 해야 하는 경우 테이블 수준에서 다른 사용자에 게 권한을 부여 해야 합니다.
+
+   예를 들면 다음과 같습니다. 
+
+    ```sql
+    GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;
+    ```
 
 5. 새로운 사용자 이름과 암호를 사용하여 지정된 데이터베이스를 지정하고 서버에 로그인합니다. 이 예에서는 psql 명령줄을 보여 줍니다. 이 명령을 사용하면 사용자 이름에 대한 암호를 묻는 메시지가 표시됩니다. 사용자 고유의 서버 이름, 데이터베이스 이름 및 사용자 이름으로 바꿉니다.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: b51a49abda76a4d1433336cf73dc9a0dd6e40787
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: af990dec84d786d1a299b8aec353f94b1f188435
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614356"
 ---
 # <a name="enable-vm-insights-using-powershell"></a>PowerShell을 사용하여 VM 인사이트 사용
 이 문서에서는 PowerShell을 사용 하 여 Azure virtual machines에서 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
@@ -18,15 +18,15 @@ ms.locfileid: "102031876"
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
-- 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
+- 사용 중인 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원되는지 확인하려면 [지원되는 운영 체제](./vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. 
 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 
-여러 Vm 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하려면 Azure PowerShell 갤러리에서 제공 되는 PowerShell 스크립트 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)을 사용 합니다. 이 스크립트는 다음을 반복 합니다.
+여러 vm 또는 가상 머신 확장 집합에 대해 vm insights를 사용 하도록 설정 하려면 Azure PowerShell 갤러리에서 제공 되는 PowerShell 스크립트 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)을 사용 합니다. 이 스크립트는 다음을 반복 합니다.
 
 - 구독에서 모든 가상 머신 및 가상 머신 확장 집합입니다.
 - *ResourceGroup* 으로 지정 된 범위 지정 리소스 그룹입니다.
@@ -120,19 +120,19 @@ PARAMETERS
         about_CommonParameters (https:/go.microsoft.com/fwlink/?LinkID=113216).
 
     -------------------------- EXAMPLE 1 --------------------------
-    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId> -WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup>
 
     Install for all VMs in a resource group in a subscription
 
     -------------------------- EXAMPLE 2 --------------------------
-    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId> -WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -ResourceGroup <ResourceGroup> -ReInstall
 
     Specify to reinstall extensions even if already installed, for example, to update to a different workspace
 
     -------------------------- EXAMPLE 3 --------------------------
-    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId> -WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
     -PolicyAssignmentName a4f79f8ce891455198c08736 -ReInstall
 
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 9ff151071d42308137bdb8e9064f9b27ed194cae
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 63295e27791252e3b978fb83801182b7b8814f82
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688847"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559828"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Microsoft 파트너 계약 청구서의 용어
 
@@ -30,7 +30,7 @@ ms.locfileid: "88688847"
 
 ## <a name="invoice-summary"></a>청구서 요약
 
-**청구서 요약**은 첫 페이지 맨 위에 있고 청구 프로필 및 지불 방법에 대한 정보를 표시합니다.
+**청구서 요약** 은 첫 페이지 맨 위에 있고 청구 프로필 및 지불 방법에 대한 정보를 표시합니다.
 
 <!-- add screenshot -->
 
@@ -42,15 +42,15 @@ ms.locfileid: "88688847"
 | P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적 용도로 사용하는 Microsoft에서 생성한 고유 청구서 번호 |
 | 청구서 날짜 |청구서가 생성된 날짜이며 일반적으로 청구 주기 종료 날짜에서 5~12일 후입니다. 청구서 날짜는 청구 프로필 속성에서 확인할 수 있습니다.|
-| 지불 조건 |Microsoft 청구서 지불 방법입니다. *Net 60일*은 청구서 날짜로부터 60일 내에 지불한다는 의미입니다. |
+| 지급 조건 |Microsoft 청구서 지불 방법입니다. *Net 60일* 은 청구서 날짜로부터 60일 내에 지불한다는 의미입니다. |
 
 ## <a name="billing-summary"></a>청구 요약
 
-**청구 요약**에는 이전 청구 기간 이후 청구 프로필에 대한 요금과, 적용된 크레딧, 세금 및 지불 총액이 표시됩니다.
+**청구 요약** 에는 이전 청구 기간 이후 청구 프로필에 대한 요금과, 적용된 크레딧, 세금 및 지불 총액이 표시됩니다.
 
 <!-- add screenshot -->
 
-| 용어 | Description |
+| 용어 | 설명 |
 | --- | --- |
 | Charges|마지막 청구 기간 이후 청구 프로필에 대한 총 Microsoft 요금 수 |
 | 크레딧 |반품에서 받은 크레딧 |
@@ -82,6 +82,6 @@ ms.locfileid: "88688847"
 ## <a name="next-steps"></a>다음 단계
 
 - [청구 프로필 청구서의 요금 이해](review-customer-agreement-bill.md)
-- [Azure 청구서 및 일간 사용량 현황 데이터를 가져오는 방법](../manage/download-azure-invoice-daily-usage-date.md)
+- [Azure 청구서 및 일간 사용량 현황 데이터를 받는 방법](../manage/download-azure-invoice-daily-usage-date.md)
 - [조직의 Azure 가격 책정 보기](../manage/ea-pricing.md)
 - [청구 프로필에 대한 세금 문서 보기](mca-download-tax-document.md)

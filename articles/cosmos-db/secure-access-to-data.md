@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a2cf8ef27efb6e368390f23d4011e5dcb7c1e939
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 10c914847da1f466ae88ea4ec7ffe269560c8e5d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425071"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671092"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,9 @@ Azure Cosmos DB는 데이터에 대한 액세스를 제어하는 세 가지 방�
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> 키 순환 및 다시 생성
 
 > [!NOTE]
-> 다음 섹션에서는 SQL API에 대 한 키를 회전 하 고 다시 생성 하는 단계에 대해 설명 합니다. 다른 api를 사용 하는 경우 [mongo DB](database-security.md?tabs=mongo-api#key-rotation), [Cassandra API](database-security.md?tabs=cassandra-api#key-rotation), [Gremlin api](database-security.md?tabs=gremlin-api#key-rotation)또는 [Table API](database-security.md?tabs=table-api#key-rotation) 섹션 Azure Cosmos DB api를 참조 하세요.
+> 다음 섹션에서는 SQL API에 대한 키를 회전하고 다시 생성하기 위한 단계를 설명합니다. 다른 API를 사용하는 경우 [Mongo DB용 Azure Cosmos DB API,](database-security.md?tabs=mongo-api#key-rotation) [Cassandra API,](database-security.md?tabs=cassandra-api#key-rotation) [Gremlin API](database-security.md?tabs=gremlin-api#key-rotation)또는 [Table API](database-security.md?tabs=table-api#key-rotation) 섹션을 참조하세요.
+>
+> 키 업데이트 및 키 다시 세대에 대한 계정을 모니터링하려면 [메트릭 및 경고로 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조하세요.
 
 키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다.
 

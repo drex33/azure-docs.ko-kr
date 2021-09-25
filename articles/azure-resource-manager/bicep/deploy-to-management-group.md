@@ -3,18 +3,22 @@ title: Bicep을 사용하여 관리 그룹에 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: afa4a0f266eb7720a569df123c9828fd151d21e0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 7c0e2f6682ff5da0e0cc2bd3b7f16b3ab23af476
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453603"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659895"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 관리 그룹 배포
 
 이 문서에서는 관리 그룹에 배포할 때 Bicep을 사용하여 범위를 설정하는 방법을 설명합니다.
 
 조직이 성장하면 Bicep 파일을 배포하여 관리 그룹 수준에서 리소스를 만들 수 있습니다. 예를 들어 관리 그룹에 대한 [정책](../../governance/policy/overview.md)을 정의하고 할당하거나 [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 할당해야 할 수 있습니다. 관리 그룹 수준 템플릿을 사용하면 선언적으로 정책을 적용하고 관리 그룹 수준에서 역할을 할당할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+배포 범위 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [Bicep을 사용하여 구독, 관리 그룹 및 테넌트](/learn/modules/deploy-resources-scopes-bicep/) 에 리소스 배포를 참조하세요.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -269,7 +273,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -289,7 +293,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

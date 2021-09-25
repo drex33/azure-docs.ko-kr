@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56337e349cf2cfad792cecbec11503a4fd866095
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 88597690ca4b3bf9cfd51b6e56eb9395df8ee1ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538482"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583675"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse에서 일반적인 작업을 수행하는 데 필요한 역할 이해
 
@@ -27,7 +27,7 @@ ms.locfileid: "122538482"
 
 ### <a name="resource-management"></a>리소스 관리
 
-- 작업 영역에서 Azure 소유자 또는 기여자인 경우 SQL 풀, Apache Spark 풀 및 통합 런타임을 만들 수 있습니다.
+- 작업 영역에서 Azure 소유자 또는 기여자인 경우 SQL 풀, Apache Spark 풀 및 통합 런타임을 만들 수 있습니다. 자동 배포에 ARM 템플릿을 사용 하는 경우 리소스 그룹에 대 한 Azure 참가자 여야 합니다.
 - 작업 영역 또는 해당 리소스에 대한 Azure 소유자 또는 기여자인 경우 전용 SQL 풀을 일시 중지하거나 크기를 조정하고, Spark 풀 또는 통합 런타임을 구성할 수 있습니다.
 
 ### <a name="viewing-and-editing-code-artifacts"></a>코드 아티팩트 보기 및 편집
@@ -76,7 +76,7 @@ SQL 풀|
 SQL 스크립트 만들기</br>|Synapse 사용자 또는 </br>작업 영역에 대한 Azure 소유자 또는 기여자 </br>SQL 스크립트를 실행하거나, 게시하거나, 변경 내용을 커밋하려면 추가 SQL 권한이 필요합니다.|
 게시된 SQL 스크립트 나열 및 열기| Synapse 아티팩트 사용자, 아티팩트 게시자, Synapse 기여자|artifacts/read
 서버리스 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한(Synapse 관리자에게 자동으로 부여됨)|없음
-전용 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한|없음
+전용 SQL 풀에서 SQL 스크립트 실행|풀에 대한 SQL 권한(Synapse 관리자에게 자동으로 부여됨)|없음
 새, 업데이트된 또는 삭제된 SQL 스크립트 게시|Synapse 아티팩트 게시자, Synapse 기여자|sqlScripts/write, delete
 SQL 스크립트에 대한 변경 내용을 Git 리포지토리에 커밋|리포지토리에 대한 Git 권한이 필요|
 작업 영역에 Active Directory 관리자 할당(Azure Portal의 작업 영역 속성을 통해)|작업 영역에 대한 Azure 소유자 또는 기여자 |

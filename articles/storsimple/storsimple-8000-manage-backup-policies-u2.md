@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/05/2017
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2fde4e0784e81c2127dd8097495b48ce506059bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85515629"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589381"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리
 
@@ -76,6 +76,23 @@ StorSimple 디바이스의 기존 백업 정책에 첨부된 일정을 추가하
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
+## <a name="disable-a-schedule"></a>일정 해제
+
+뒤로 정책을 사용하지 않도록 설정해야 하는 경우 다음 절차를 사용합니다. 예를 들어 최대 64개의 백업에 도달한 일정을 사용하지 않도록 설정하고 더 많은 백업을 위해 새 일정을 추가할 수 있습니다.
+
+백업 정책을 사용하지 않도록 설정하려면 다음 단계를 수행합니다.
+
+1.  StorSimple 디바이스로 이동하여 **백업 정책** 을 클릭합니다.
+
+1.  백업 정책에서 사용하지 않도록 설정할 일정으로 드릴다운합니다.
+
+    1. 백업 정책을 클릭하여 정책에 대한 **일정을** 엽니다. 
+
+    1. 정책을 다시 클릭하여 **일정** 대화 상자를 엽니다.
+
+    1. 사용하지 않도록 설정할 일정을 클릭하여 **일정 구성을** 엽니다. **상태** 필드에서 사용 **안 함을** 선택합니다.
+
+  [![StorSimple 디바이스에서 백업 정책에 대한 일정을 사용하지 않도록 설정하는 단계를 보여주는 일러스트레이션. 각 단계의 번호가 매겨지고 화면 레이블 및 항목이 강조 표시됩니다. ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png) ](./media/storsimple-8000-manage-backup-policies-u2/modify-schedule-illustration.png#lightbox)
 
 ## <a name="add-or-remove-a-volume"></a>볼륨 추가 또는 제거
 

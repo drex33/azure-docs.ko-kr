@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 44a1dd3e5d95e8ab31c9a7716f5026ceb429e084
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 2d0e323271cbc465f2f46c4904f01d5c1654426d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287896"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576765"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -157,6 +157,15 @@ ms.locfileid: "112287896"
     `krb5_realm = CONTOSO.COM (domain name in caps)`   
     `krb5_kpasswd = winad2016.contoso.com (same as AD address which is added in /etc/hosts)`   
     `use_fully_qualified_names = false`   
+    
+    위의 `[domain/contoso-ldap]` 구성에서 다음을 수행합니다.
+    * `id_provider`가 이 아닌 로 설정된 `ldap` 경우 `ad`
+    * 구성에는 검색 기준과 검색을 위한 사용자 및 그룹 클래스가 지정되어 있습니다.
+    * `ldap_sasl_authid` 는 의 컴퓨터 계정 `klist -kte` 이름입니다.
+    * `use_fully_qualified_names`이 `false`로 설정된 경우에만 적용됩니다.  이 설정은 짧은 이름을 사용할 때 이 구성이 사용됨을 의미합니다.
+    * `ldap_id_mapping` 가 지정되지 않았습니다. 기본값은 `false` 입니다.
+
+    `realm join`구성은 클라이언트에 의해 생성되며 다음과 같습니다.
  
     `[domain/contoso.com]  (Do not edit or remove any of the following information. This information is automatically generated during the realm join process.)`   
     `ad_domain = contoso.com`   
@@ -170,6 +179,11 @@ ms.locfileid: "112287896"
     `use_fully_qualified_names = True`   
     `fallback_homedir = /home/%u@%d`   
     `access_provider = ad`   
+    
+    위의 `[domain/contoso.com]` 구성에서 다음을 수행합니다.
+    * `id_provider`이 `ad`로 설정됩니다.
+    * `ldap_id_mapping`이 `true`로 설정됩니다. SSSD에서 생성된 ID를 사용합니다. 또는 `false` 모든 사용자 이름 스타일에 POSIX UID를 사용하려는 경우 이 값을 로 설정할 수 있습니다. 클라이언트 구성에 따라 값을 확인할 수 있습니다. 
+    * `use_fully_qualified_names`은 `true`입니다. 이 `user@CONTOSO.COM` 설정은 가 이 구성을 사용한다는 것을 의미합니다.
 
 4. `/etc/nsswitch.conf`에 `sss` 항목이 있는지 확인합니다.   
 

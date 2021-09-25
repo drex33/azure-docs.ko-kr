@@ -1,21 +1,17 @@
 ---
 title: Data Lake Storage Gen1과 호환되는 빅 데이터 애플리케이션 | Microsoft Docs
 description: Azure Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에서 작동하는 오픈 소스 애플리케이션의 목록
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: twooley
-ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: 15b146ff436463f2b7efe2d1e22d0ed9fc951c42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "60878888"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635492"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 작동하는 오픈 소스 빅 데이터 애플리케이션
 
@@ -33,7 +29,7 @@ ms.locfileid: "60878888"
 | [Apache Mahout](https://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Pig/Pig Latin](https://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Oozie](https://oozie.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
-| [Apache Zookeeper](https://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
+| [Apache 사육 사](https://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Tez](https://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5 및 3.6 |
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4, 3.5 및 3.6 |
 

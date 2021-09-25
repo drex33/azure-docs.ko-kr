@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 33e01466a3e0629af9a691e33eb9161bf8098611
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a37ce583e5392099c923e9bc0a7a3363fa7b97c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537107"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576856"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기
 
@@ -112,7 +112,7 @@ NFS 볼륨을 만들려면 [NFS 볼륨 만들기](azure-netapp-files-create-volu
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 
-        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조하세요.
+        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](snapshots-manage-policy.md)를 참조하세요.
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -203,16 +203,24 @@ Active Directory 연결의 **LDAP를 사용하는 로컬 NFS 사용자 허용** 
 
 ## <a name="manage-ldap-posix-attributes"></a>LDAP POSIX 특성 관리
 
-Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용하여 UID, 홈 디렉터리 및 기타 값과 같은 POSIX 특성을 관리할 수 있습니다.  다음 예에서는 Active Directory 특성 편집기를 보여 줍니다.  
+Active Directory 사용자 및 컴퓨터 MMC 스냅인을 사용하여 UID, 홈 디렉터리 및 기타 값과 같은 POSIX 특성을 관리할 수 있습니다.  다음 예에서는 Active Directory 특성 편집기를 보여 줍니다. 
 
 ![Active Directory 특성 편집기](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 LDAP 사용자 및 LDAP 그룹에 대해 다음 특성을 설정해야 합니다. 
 * LDAP 사용자에 필요한 특성:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
+    `uid: Alice`,  
+    `uidNumber: 139`,  
+    `gidNumber: 555`,  
+    `objectClass: user, posixAccount`
 * LDAP 그룹에 대한 필수 특성:   
-    `objectClass: posixGroup`, `gidNumber: 555`
+    `objectClass: group, posixGroup`,  
+    `gidNumber: 555`
 * 모든 사용자와 그룹에 각각 고유한 `uidNumber` 및 `gidNumber`가 있어야 합니다. 
+
+에 지정된 `objectClass` 값은 별도의 항목입니다. 예를 들어 다중값 문자열 편집기에서 `objectClass` `user` 는 LDAP 사용자에 대해 다음과 같이 지정된 별도의 값( 및 )을 갖습니다. `posixAccount`   
+
+![개체 클래스에 지정된 여러 값을 보여 주는 다중값 문자열 편집기의 스크린샷.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
 AADDS(Azure Active Directory Domain Services)를 사용하는 경우 조직 AADDC 사용자 OU에 생성된 사용자와 그룹의 POSIX 특성을 수정할 수 없습니다. 해결 방법으로, 사용자 지정 OU를 만들고 사용자 지정 OU에 사용자와 그룹을 만들 수 있습니다.
 

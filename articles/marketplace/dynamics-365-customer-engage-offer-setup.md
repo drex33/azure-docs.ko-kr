@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 1a4bd560603b16a1a2b9fe0a66bc4f1adce25a73
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 72505a4e3c9003032c29b55e8cfa2152617bc928
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867474"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080108"
 ---
-# <a name="how-to-create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법
+# <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
 이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법에 대해 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
 
@@ -26,6 +26,24 @@ ms.locfileid: "122867474"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제품 페이지에서 **+ New 제공**  >  **Dynamics 365 for Customer Engagement & Power Apps** 를 선택 합니다.
+
+    [![고객 Engagement & Power Apps 제안 유형을 선택 하 여 ' 새 제품 ' 단추를 표시 합니다. ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png) ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 3. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Customer Engagement 및 Power Apps** 를 선택합니다.
@@ -34,6 +52,8 @@ ms.locfileid: "122867474"
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+---
 
 ## <a name="new-offer"></a>새 제안
 

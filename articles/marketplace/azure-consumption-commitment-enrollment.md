@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/27/2021
-ms.openlocfilehash: a3fe8707df1270f8571ad86fe07406376f71ab93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529025"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080628"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Azure Consumption Commitment 등록
 
@@ -35,6 +35,27 @@ MACC 프로그램에 등록하려면 제품이 다음 요구 사항을 충족해
 
 ## <a name="how-to-see-if-your-offer-is-enrolled-in-the-macc-program"></a>MACC 프로그램에 제품이 등록되었는지 확인하는 방법
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제품 페이지에서 보려는 제품을 선택 합니다.
+1. **제품 개요** 페이지의 **Marketplace 프로그램** 섹션에서 **Microsoft Azure Consumption Commitment** 상태는 _등록됨_ 또는 _등록되지 않음_ 으로 표시됩니다.
+
+    [![Microsoft Azure 사용량 약정 상태 ](media/azure-benefit/enrolled-workspaces.png) 를 보여 주는 파트너 센터의 제품 개요 페이지 스크린샷 ](media/azure-benefit/enrolled-workspaces.png#lightbox)
+
+    ***그림 1: MACC 프로그램에 등록된 제품***
+
+> [!NOTE]
+> Azure Marketplace 게시된 제품에 대한 MACC 프로그램 상태는 매주 월요일에 업데이트됩니다. 즉, MACC 프로그램에 대한 자격 요구 사항을 충족하는 제품을 게시하는 경우 파트너 센터의 상태는 다음 월요일까지 사용 상태로 표시되지 않습니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 1. **제품** 섹션에서 보려는 제품을 선택합니다.
@@ -46,6 +67,8 @@ MACC 프로그램에 등록하려면 제품이 다음 요구 사항을 충족해
 
 > [!NOTE]
 > Azure Marketplace 게시된 제품에 대한 MACC 프로그램 상태는 매주 월요일에 업데이트됩니다. 즉, MACC 프로그램에 대한 자격 요구 사항을 충족하는 제품을 게시하는 경우 파트너 센터의 상태는 다음 월요일까지 사용 상태로 표시되지 않습니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

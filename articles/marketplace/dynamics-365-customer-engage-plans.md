@@ -6,19 +6,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 086457e916f3eeef41023efe56cc011e714ab343
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 4bcd4a2bfc3b9daab502b55fccad63b0fb01be46
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866331"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082864"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Dynamics 365 for Customer Engagement & Power Apps 플랜 만들기
 
-제품에 앱 라이선스 관리를 사용하도록 설정한 경우 다음 스크린샷에 표시된 것처럼 **플랜** 탭이 나타납니다. 그렇지 않으면 [Dynamics 365 for Customer Engagement & Power Apps 제품 기술 구성 설정](dynamics-365-customer-engage-technical-configuration.md)으로 이동합니다.
+제안에 대해 앱 라이선스 관리를 사용 하도록 설정한 경우 다음 스크린샷에 표시 된 것 처럼 **계획 개요** 탭이 표시 됩니다. 그렇지 않으면 [Dynamics 365 for Customer Engagement & Power Apps 제품 기술 구성 설정](dynamics-365-customer-engage-technical-configuration.md)으로 이동합니다.
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+[![타사 앱 라이선스 ](./media/third-party-license/plan-tab-d365-workspaces.png) 에 대해 사용 하도록 설정 된 고객 Engagement & Power Apps 제품에 대 한 Dynamics 365에 대 한 계획 개요 탭의 스크린샷 ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 :::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="타사 앱 라이선스에 대해 사용하도록 설정된 Dynamics 365 for Customer Engagement & Power Apps 제품의 플랜 개요 탭 스크린샷.":::
+
+---
 
 제품에 앱 라이선스 관리를 사용하도록 설정한 경우 플랜을 하나 이상 정의해야 합니다. 동일한 제품에 다양한 옵션을 사용하여 다양한 플랜을 만들 수 있습니다. 해당 플랜(SKU라고도 함)은 수익 창출 또는 서비스 계층 측면에서 다를 수 있습니다. 나중에 이러한 플랜에 대해 Dynamics 플랫폼의 런타임 라이선스 검사를 사용하도록 설정하려면 솔루션 패키지에서 이러한 플랜의 서비스 ID를 매핑합니다. 솔루션 패키지에서 각 플랜의 서비스 ID를 매핑합니다. 그러면 Dynamics 플랫폼이 이러한 플랜에 대해 라이선스 검사를 실행할 수 있습니다.
 
@@ -33,6 +41,18 @@ ms.locfileid: "122866331"
 
 **플랜 목록** 탭에서 상업용 Marketplace에 표시할 플랜 이름과 설명을 정의할 수 있습니다. 이 정보는 Microsoft AppSource 목록 페이지에 표시됩니다.
 
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 이는 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
+1. **플랜 설명** 상자에 이 소프트웨어 플랜의 고유한 특징과 제품 내 다른 소프트웨어 플랜과의 차이점을 설명합니다. 이 설명에는 최대 500자까지 포함할 수 있습니다.
+1. **초안 저장** 을 선택 하 고 페이지 위쪽의 이동 경로에서 **요금제** 를 선택 합니다.
+
+    [![스크린샷 파트너 센터의 제품에 대 한 계획 목록 페이지의 계획 개요 링크를 보여 줍니다. ](./media/third-party-license/bronze-plan-workspaces.png) ](./media/third-party-license/bronze-plan-workspaces.png#lightbox)
+
+1. 이 제품에 대한 다른 플랜을 만들려면 **플랜 개요** 탭 상단에서 **+ 새 플랜 만들기** 를 선택합니다. 그런 다음, [플랜 만들기](#create-a-plan) 섹션의 단계를 반복합니다. 그렇지 않으면 플랜 만들기를 완료한 경우 다음 섹션인 서비스 ID 복사로 이동합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 이는 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
 1. **플랜 설명** 상자에 이 소프트웨어 플랜의 고유한 특징과 제품 내 다른 소프트웨어 플랜과의 차이점을 설명합니다. 이 설명에는 최대 500자까지 포함할 수 있습니다.
 1. **초안 저장** 을 선택한 다음, 왼쪽 상단에서 **플랜 개요** 를 선택합니다.
@@ -41,13 +61,25 @@ ms.locfileid: "122866331"
 
 1. 이 제품에 대한 다른 플랜을 만들려면 **플랜 개요** 탭 상단에서 **+ 새 플랜 만들기** 를 선택합니다. 그런 다음, [플랜 만들기](#create-a-plan) 섹션의 단계를 반복합니다. 그렇지 않으면 플랜 만들기를 완료한 경우 다음 섹션인 서비스 ID 복사로 이동합니다.
 
+---
+
 ## <a name="copy-the-service-ids"></a>서비스 ID 복사
 
 다음 단계에서 솔루션 패키지에 매핑할 수 있도록 생성된 각 계획의 서비스 ID를 복사해야 합니다.
 
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+- 생성된 각 계획의 서비스 ID를 안전한 장소에 복사합니다. 다음 단계에서 솔루션 패키지에 추가할 것입니다. 서비스 ID는 **플랜 개요** 페이지에 `ISV name.offer name.plan ID` 형식으로 나열됩니다. 예를 들면 Fabrikam.F365.bronze입니다.
+
+    [![계획 개요 페이지의 스크린샷 계획에 대 한 서비스 ID가 강조 표시 됩니다. ](./media/third-party-license/service-id-workspaces.png) ](./media/third-party-license/service-id-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 - 생성된 각 계획의 서비스 ID를 안전한 장소에 복사합니다. 다음 단계에서 솔루션 패키지에 추가할 것입니다. 서비스 ID는 **플랜 개요** 페이지에 `ISV name.offer name.plan ID` 형식으로 나열됩니다. 예를 들면 Fabrikam.F365.bronze입니다.
 
     :::image type="content" source="./media/third-party-license/service-id.png" alt-text="플랜 개요 페이지의 스크린샷. 플랜의 서비스 ID가 강조 표시되어 있습니다.":::
+
+---
 
 ## <a name="add-service-ids-to-your-solution-package"></a>솔루션 패키지에 서비스 ID 추가
 

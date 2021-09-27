@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2021
-ms.openlocfilehash: 96147d75a5bc12ebbaae9e9f9bd685c6f193fa0b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: af7069aae9412f7964cca82c034d0e0966220ada
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649308"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081133"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -39,11 +39,12 @@ Azure Machine Learning 컴퓨팅 인스턴스는 데이터 과학자를 위한 �
 
 |주요 이점|설명|
 |----|----|
-|생산성|Azure Machine Learning 스튜디오에서 통합 Notebook 및 다음 도구를 사용하여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>- VS Code(미리 보기)<br/>-  RStudio(미리 보기)<br/>컴퓨팅 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합됩니다. 작업 영역의 다른 데이터 과학자와 Notebook 및 데이터를 공유할 수 있습니다.<br/> 또한 컴퓨팅 인스턴스와 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)를 사용할 수도 있습니다.
-|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)<br/>- [가상 네트워크 지원](./how-to-secure-training-vnet.md#compute-cluster)<br/> - SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>- [공용 IP는 공용 IP](./how-to-secure-training-vnet.md#no-public-ip) 주소에 종속되지 않고 보안 연결 솔루션을 사용하도록 설정하는 기능을 제공하지 않습니다.</br>- TLS 1.2 사용 |
+|생산성|Azure Machine Learning 스튜디오에서 통합 Notebook 및 다음 도구를 사용하여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>- VS Code(미리 보기)<br/>-  RStudio(미리 보기)<br/>컴퓨팅 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합됩니다. 작업 영역의 다른 데이터 과학자와 Notebook 및 데이터를 공유할 수 있습니다.<br/> 또한 컴퓨팅 인스턴스와 VS Code를 사용할 수도 있습니다.
+|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)<br/>- [가상 네트워크 지원](./how-to-secure-training-vnet.md#compute-cluster)<br/> - SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>- 공용 ip를 사용 하면 공용 IP 주소에 대 한 종속성 없이 보안 연결 솔루션을 사용 하도록 설정 하는 기능 [을 제공 합니다](./how-to-secure-training-vnet.md#no-public-ip) .</br>-TLS 1.2 사용 |
 |ML&nbsp;용&nbsp;으로 미리 구성|사전 구성된 최신 ML 패키지, 딥 러닝 프레임워크 및 GPU 드라이버를 통해 설치 작업에 드는 시간을 절약할 수 있습니다.|
 |완전한 사용자 지정 기능|GPU를 비롯한 Azure VM 형식에 대한 광범위한 지원과 패키지 및 드라이버 설치와 같은 지속형의 하위 수준 사용자 지정을 통해 고급 시나리오를 간편하게 만들 수 있습니다. |
 
+* **[공용 IP 없이 계산 인스턴스 보안 (미리 보기)](./how-to-secure-training-vnet.md#no-public-ip)**
 * 컴퓨팅 인스턴스는 컴퓨팅 클러스터와 유사한 보안 학습 컴퓨팅 대상이기도 하지만 단일 노드입니다.
 * 사용자가 직접 [컴퓨팅 인스턴스 만들거나](how-to-create-manage-compute-instance.md?tabs=python#create) 관리자가 **[사용자를 대신하여 컴퓨팅 인스턴스 만들 수 있습니다](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
 * 또한 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 필요에 따라 컴퓨팅 인스턴스를 사용자 지정하고 구성할 수 있습니다.

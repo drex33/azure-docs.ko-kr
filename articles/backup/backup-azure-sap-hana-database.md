@@ -2,13 +2,13 @@
 title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/28/2021
-ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 9b78a6ed1e36b925bc5d0205effc00eb1b868f5f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681351"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084173"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -25,11 +25,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 > * 주문형 백업 작업 실행
 
 >[!NOTE]
->2020년 8월 1일부터 RHEL(7.4, 7.6, 7.7 및 8.1)에 대한 SAP HANA 백업이 일반 공급됩니다.
-
->[!NOTE]
->**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제** 는 이제 미리 보기로 제공됩니다.<br>
->미리 보기에 가입하려면 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)으로 문의해 주세요.
+지원되는 구성 및 시나리오에 대한 자세한 내용은 [SAP HANA 백업 지원 매트릭스를](sap-hana-backup-support-matrix.md) 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -48,6 +44,8 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 | Azure Firewall FQDN 태그          | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음                         |
 | 서비스 FQDN/IP에 대한 액세스 허용 | 추가 비용 없음   <br><br>  모든 네트워크 보안 어플라이언스 및 방화벽과 함께 작동 | 광범위한 IP 또는 FQDN 세트에 액세스해야 할 수 있음   |
 | HTTP 프록시 사용                 | VM에 대한 인터넷 액세스의 단일 지점                       | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음         |
+| [Virtual Network 서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Azure Storage(= Recovery Services 자격 증명 모음)에 사용할 수 있습니다.     <br><br>     데이터 평면 트래픽의 성능을 최적화하는 데 큰 이점을 제공합니다.          |         Azure AD, Azure Backup 서비스에 사용할 수 없습니다.    |
+| 네트워크 가상 어플라이언스      |      Azure Storage, Azure AD Azure Backup 서비스에 사용할 수 있습니다. <br><br> **데이터 평면**   <ul><li>      Azure Storage: `*.blob.core.windows.net` ,`*.queue.core.windows.net`  </li></ul>   <br><br>     **관리 평면**  <ul><li>  Azure AD: [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)섹션 56 및 59에 언급된 FQDN에 대한 액세스를 허용합니다. </li><li>   Azure Backup 서비스: `.backup.windowsazure.com` </li></ul> <br>[Azure Firewall 서비스 태그에](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.)대해 자세히 알아봅니다.       |  데이터 평면 트래픽에 오버헤드를 추가하고 처리량/성능을 줄입니다.  |
 
 이러한 옵션을 사용하는 방법에 대한 자세한 내용은 아래에 나와 있습니다.
 
@@ -95,6 +93,12 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 > 서비스 수준 프록시는 지원되지 않습니다. 즉, 일부 또는 선택한 서비스(Azure Backup 서비스)의 프록시를 통한 트래픽은 지원되지 않습니다. 전체 데이터 또는 트래픽은 프록시를 통해 라우팅하는 경우가 아니면 라우팅할 수 없습니다.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## <a name="enable-cross-region-restore"></a>지역 간 복원 사용
+
+Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도록 설정할 수 있습니다. HANA 데이터베이스에서 백업을 구성하고 보호하려면 먼저 지역 간 복원을 설정해야 합니다. 지역 [간 복원을 켜는 방법에](/azure/backup/backup-create-rs-vault#set-cross-region-restore)대해 알아봅니다.
+
+지역 간 복원에 대해 [자세히 알아보세요.](/azure/backup/backup-azure-recovery-services-vault-overview)
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 

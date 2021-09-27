@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 3f9eb3ccae99bfae472dc135fc4526964b3c3bde
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 6efbd254a74d2432985d451adf67a33b74d2e2c4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955717"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081924"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 
@@ -26,14 +26,35 @@ ms.locfileid: "111955717"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
+
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제품 페이지에서 **+ 새로 만들기 제공**  >  **Dynamics 365 for 작업** 을 선택 합니다.
+
+    [![작업 제공 유형에 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) 대 한 Dynamics 365를 강조 표시 하는 Marketplace 제품 페이지의 ' 새 제품 ' 단추 스크린샷 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-3. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Operations** 를 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
+1. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Operations** 를 선택합니다.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="왼쪽 창 메뉴 옵션과 '새 제품' 단추":::
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+---
 
 ## <a name="new-offer"></a>새 제안
 

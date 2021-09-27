@@ -3,12 +3,12 @@ title: 게스트 구성 패키지 아티팩트를 테스트하는 방법
 description: 구성을 감사하거나 머신에 적용하는 패키지를 만들고 테스트합니다.
 ms.date: 07/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 927e048f59d74b4137710c2f0a1f284adec0cdcb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 216cd207033b3bddd4960b85d8943e3842f8041f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773183"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080654"
 ---
 # <a name="how-to-test-guest-configuration-package-artifacts"></a>게스트 구성 패키지 아티팩트를 테스트하는 방법
 
@@ -44,7 +44,7 @@ PowerShell을 Linux에서 “루트”로 실행하려면 [Su 명령](https://ma
 
 `Get-GuestConfigurationPackageComplianceStatus ` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **패키지**: 게스트 구성 패키지의 파일 경로 또는 URI입니다.
+- **경로**: 게스트 구성 패키지의 파일 경로 또는 URI입니다.
 - **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
 
 이 명령을 처음 실행하는 경우 게스트 구성 에이전트는 Windows의 `c:\programdata\GuestConfig\bin` 및 Linux의 `/var/lib/GuestConfig/bin` 경로에 있는 테스트 머신에 설치됩니다. 이 경로는 사용자 계정에서 액세스할 수 없으므로 명령에 권한 상승이 필요합니다.
@@ -55,14 +55,14 @@ Windows의 경우 권한 상승된 PowerShell 7 세션에서 실행합니다.
 
 ```powershell
 # Get the current compliance results for the local machine
-Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip
+Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip
 ```
 
 Linux의 경우 sudo를 통해 PowerShell을 실행하여 실행합니다.
 
 ```bash
 # Get the current compliance results for the local machine
-sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip'
+sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip'
 ```
 
 명령은 리소스별로 규정 준수 상태 및 세부 정보를 포함하는 개체를 출력합니다.
@@ -88,14 +88,14 @@ Windows의 경우 권한 상승된 PowerShell 7 세션에서 실행합니다.
 
 ```powershell
 # Test applying the configuration to local machine
-Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip
+Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip
 ```
 
 Linux의 경우 sudo를 통해 PowerShell을 실행하여 실행합니다.
 
 ```bash
 # Test applying the configuration to local machine
-sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip'
+sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip'
 ```
 
 오류가 발생하지 않으면 명령이 출력을 반환하지 않습니다. `Set` 중에 발생하는 이벤트에 대한 세부 정보 문제를 해결하려면 `-verbose` 매개 변수를 사용합니다.

@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 03/23/2021
-ms.openlocfilehash: 18ff7d0faa7ace0dc70c7f90603167084a4b8135
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/27/2021
+ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740449"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082931"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -36,17 +36,45 @@ Marketplace 인사이트 대시보드는 클릭스트림 데이터를 제공하�
 > [!NOTE]
 > Azure Marketplace 또는 AppSource에서 제품을 방문한 사용자와 파트너 센터의 보고 간 최대 대기 시간은 48시간입니다.
 
+## <a name="access-the-marketplace-insights-dashboard"></a>Marketplace insights 대시보드 액세스
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. 왼쪽 메뉴에서 **Marketplace insights** 를 선택 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 창에서 **상업적 마켓플레이스**  >    >  **marketplace 정보** 분석을 선택 합니다.
+
+---
+
 ## <a name="elements-of-the-marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드의 요소
 
 Marketplace 인사이트 대시보드는 Azure Marketplace 및 AppSource에 대한 웹 원격 분석 세부 정보를 별도의 두 탭에 표시합니다. 다음 섹션에서는 요약 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
 
-파트너 센터에서 **Marketplace 인사이트** 대시보드에 액세스하려면 상업용 마켓플레이스에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Marketplace 인사이트** 를 선택합니다.
-
 ### <a name="month-range"></a>월 범위
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6 개월 또는 12 개월을 기준으로 월 범위를 선택 하거나 최대 12 개월의 사용자 지정 월 범위를 선택 하 여 **Marketplace Insights** 페이지 그래프의 출력을 사용자 지정 합니다. 기본 월 범위(계산 기간)는 6개월입니다.
+
+[![Marketplace Insights 대시보드의 월 필터를 보여 줍니다. ](./media/insights-dashboard/marketplace-insights-filters.png) ](./media/insights-dashboard/marketplace-insights-filters.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **Marketplace 인사이트** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
 :::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Marketplace 인사이트 대시보드의 월 필터를 보여 줍니다.":::
+
+---
 
 > [!NOTE]
 > 시각화 위젯 및 내보내기 보고서의 모든 메트릭은 사용자가 선택한 계산 기간을 사용합니다.
@@ -95,7 +123,7 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 
 선택한 계산 기간 동안 열 지도는 페이지 방문 횟수, 고유 방문자 수 및 CTA(작업에 대한 호출)를 표시합니다. 지도의 밝은 색에서 짙은 색은 고유 방문자 수의 낮은 값에서 높은 값을 나타냅니다. 국가/지역을 확대하려면 테이블의 레코드를 선택합니다.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Marketplace 인사이트 대시보드의 지리적 스프레드 차트를 보여 줍니다.":::
+[![Marketplace Insights 대시보드의 지리적 스프레드 차트를 보여 줍니다. ](./media/insights-dashboard/geographical-spread.png) ](./media/insights-dashboard/geographical-spread.png#lightbox)
 
 다음 사항에 유의하세요.
 

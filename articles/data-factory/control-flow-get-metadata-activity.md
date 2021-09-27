@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: e9245f99b08b5e94c97b5c091eebe93a12b7904f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 24b303cc93940ee7884a4766ce542aa543ea285e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811718"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083983"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics에서 메타데이터 가져오기 작업
 
@@ -66,6 +66,7 @@ ms.locfileid: "124811718"
 
 | 커넥터/메타데이터 | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
+| [SQL Server Amazon RDS](connector-amazon-rds-for-sql-server.md) | √ | √ | √ |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |

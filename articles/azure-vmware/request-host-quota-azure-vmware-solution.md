@@ -3,13 +3,13 @@ title: Azure VMware Solution에 대한 호스트 할당량 요청
 description: Azure VMware Solution에 대한 호스트 할당량/용량을 요청하는 방법을 알아봅니다. 기존 Azure VMware Solution 프라이빗 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 08/06/2021
-ms.openlocfilehash: 92ebc79193525802c1e7c7ede9287e3300799a10
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 2b3e2291726f37f3c802d1db24429381e7a2b7d1
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567924"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083242"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 호스트 할당량 요청
 
@@ -26,7 +26,7 @@ ms.locfileid: "122567924"
 
 - Microsoft와의 [Azure EA](../cost-management-billing/manage/ea-portal-agreements.md)(기업계약)에 따른 구독.
 - 기존 CSP(클라우드 솔루션 공급자) Azure 제품 계약 또는 Azure 플랜에 따른 CSP 관리 구독.
-- Microsoft와의 [현대 상거래 계약](../cost-management-billing/understand/mca-overview.md)
+- Microsoft와의 [Microsoft 고객 계약.](../cost-management-billing/understand/mca-overview.md)
 
 ## <a name="request-host-quota-for-ea-customers"></a>EA 고객을 위한 호스트 할당량 요청
 

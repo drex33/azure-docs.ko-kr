@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
-ms.openlocfilehash: 1ab8a709f100930117a445f7eee11f2a865df50d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: a741a3bcace98aa4e153f2dc4aaf1b9c900c2003
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792944"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080571"
 ---
 Azure Portal 또는 SMB를 사용하여 Azure 파일 공유에서 변경한 사항은 즉시 검색되지 않고 서버 엔드포인트의 변경 사항처럼 복제됩니다. Azure Files에는 아직 변경 알림/저널링이 없어서 파일이 변경될 때 동기화 세션을 자동으로 시작할 방법이 없습니다. Windows Server에서 Azure 파일 동기화는 [Windows USN 저널링](/windows/win32/fileio/change-journals)을 사용하여 파일이 변경될 때 자동으로 동기화 세션을 시작합니다.
 
@@ -23,4 +23,4 @@ Azure 파일 공유에서 변경된 파일을 즉시 동기화하기 위해 **Az
 >[!NOTE]
 >REST를 사용하여 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
 
-Windows Server의 볼륨에 대해 USN과 유사한 Azure 파일 공유에 대한 변경 검색 기능을 추가하는 방법을 모색하고 있습니다. 이 기능의 향후 개발을 위해 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 투표하여 우선 순위 지정에 도움을 주세요.
+Windows Server의 볼륨에 대해 USN과 유사한 Azure 파일 공유에 대한 변경 검색 기능을 추가하는 방법을 모색하고 있습니다.

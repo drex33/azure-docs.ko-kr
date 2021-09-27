@@ -7,13 +7,13 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 09/21/2021
-ms.openlocfilehash: 5992fd0734c7b21794beb0d5a46b7787bb4b2d29
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: eca02cf776eb1f6fa690ecefd865dadbc3d9be78
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634239"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080070"
 ---
 # <a name="create-a-power-bi-visual-offer"></a>Power BI 시각적 제안 만들기
 
@@ -27,11 +27,29 @@ ms.locfileid: "128634239"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제품 페이지에서 **+ 새 제품**  >  **Power BI 시각적 개체** 를 선택 합니다.
+
+    [![왼쪽 창 메뉴 옵션과 ' 새 제안 ' 단추를 표시 합니다. ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png) ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 1. 개요 페이지에서 **+ 새 제품**  >  **Power BI 시각적 개체** 를 선택 합니다.
 
     :::image type="content" source="media/power-bi-visual/new-offer-power-bi-visual.png" alt-text="왼쪽 창 메뉴 옵션과 ' 새 제안 ' 단추를 표시 합니다.":::
+
+---
 
 > [!IMPORTANT]
 > 제품을 게시 한 후에는 제품을 다시 게시 한 후에 파트너 센터에서 사용자가 만든 모든 편집 내용이 AppSource에 표시 됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.

@@ -3,12 +3,12 @@ title: Backup 센터를 사용하여 작업 수행
 description: 이 문서에서는 백업 센터를 사용하여 작업을 수행하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 0b2faed7e74b34df0139af8c188c150d2c2a00a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e8b357c19caeb20c2a50d9a05f9d8d583bd8f640
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590457"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083623"
 ---
 # <a name="perform-actions-using-backup-center"></a>Backup 센터를 사용하여 작업 수행
 
@@ -122,7 +122,7 @@ Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA 또는 Azure Files를 백업하�
 
 [Azure Virtual Machines의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-manage-vms.md#run-an-on-demand-backup)
 
-[Azure Database for PostgreSQL 서버의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-database-postgresql.md#generate-an-on-demand-backup)
+[Azure Database for PostgreSQL 서버의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-database-postgresql.md)
 
 ## <a name="stop-backup-for-a-backup-instance"></a>백업 인스턴스에 대해 백업 중지
 

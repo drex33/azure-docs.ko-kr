@@ -3,12 +3,13 @@ title: Azure Relay란? | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대한 개요를 제공합니다. 이 서비스를 사용하면 방화벽 연결을 열거나 네트워크 인프라를 강제로 변경하지 않고도 회사 네트워크에서 실행되는 온-프레미스 서비스를 사용하는 클라우드 애플리케이션을 개발할 수 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 8d51ecc2f840054dae94e2436d179b4e68d758ec
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: af12067cd73b8767beb243e9e098d2cbbf9c456a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452198"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081874"
 ---
 # <a name="what-is-azure-relay"></a>Azure Relay란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
@@ -48,7 +49,7 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 Azure Relay 하이브리드 연결 사용을 시작하려면 다음 빠른 시작을 참조하세요. 
 
 - [하이브리드 연결 - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
-- [하이브리드 연결 - 노드 WebSockets](relay-hybrid-connections-node-get-started.md)
+- [하이브리드 연결 - Node WebSockets](relay-hybrid-connections-node-get-started.md)
 - [하이브리드 연결 - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 - [하이브리드 연결 - 노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 
@@ -63,7 +64,7 @@ WCF Relay 사용을 시작하려면 다음 빠른 시작을 참조하세요.
 - [네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출](service-bus-relay-tutorial.md)
 - [네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 노출](service-bus-relay-rest-tutorial.md)
 
-자세한 샘플은 [GitHub Azure Relay - WCF Relay 샘플을](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay)참조하세요.
+자세한 샘플은 [GitHub Azure Relay - WCF Relay 샘플을 참조하세요.](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay)
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결과 WCF Relay
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
@@ -97,7 +98,7 @@ WCF Relay 사용을 시작하려면 다음 빠른 시작을 참조하세요.
 
 - 하이브리드 연결
     - [하이브리드 연결 - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
-    - [하이브리드 연결 - 노드 WebSockets](relay-hybrid-connections-node-get-started.md)
+    - [하이브리드 연결 - Node WebSockets](relay-hybrid-connections-node-get-started.md)
     - [하이브리드 연결 - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
     - [하이브리드 연결 - 노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 - WCF 릴레이

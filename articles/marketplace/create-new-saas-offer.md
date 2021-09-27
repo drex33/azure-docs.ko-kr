@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/30/2021
-ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 5da6232a9bedeeb8228caecc79c7a7160630a8cd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535871"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080822"
 ---
 # <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
@@ -28,11 +28,38 @@ ms.locfileid: "122535871"
 
 ## <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안** Software as a  >  **Service를** 선택합니다.
+
+    [![새 제안 목록의 SaaS 제안 옵션을 보여 줍니다. ](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
+
+1. 새 **Software as a Service** 대화 상자에서 **제안 ID** 를 입력합니다. 이 ID는 상업용 Marketplace 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어 이 입력란에 **test-offer-1** 을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+   + 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
+   + 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.
+   + **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+
+1. **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
+
+   + 이 이름은 상업용 Marketplace에 표시되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
+   + **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
+1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 1. **개요** 탭에서 **+ 새 제품** > **Software as a Service** 를 선택합니다.
 
-   :::image type="content" source="media/new-offer-saas.png" alt-text="왼쪽 탐색 메뉴와 새 제품 목록을 보여 주는 그림":::
+   :::image type="content" source="./media/new-offer-saas.png" alt-text="왼쪽 탐색 메뉴와 새 제품 목록을 보여 주는 그림":::
 
 1. **새 제품** 대화 상자에서 **제품 ID** 를 입력합니다. 이 ID는 상업용 Marketplace 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어 이 입력란에 **test-offer-1** 을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
    + 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
@@ -44,6 +71,8 @@ ms.locfileid: "122535871"
    + 이 이름은 상업용 Marketplace에 표시되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
    + **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
 1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+---
 
 ## <a name="configure-your-saas-offer-setup-details"></a>SaaS 제품 설정 세부 정보 구성
 
@@ -67,8 +96,8 @@ ms.locfileid: "122535871"
 
 ### <a name="to-enable-a-test-drive"></a>시험 사용을 사용하도록 설정하기
 
-1.  **시험 사용** 에서 **시험 사용 지원** 확인란을 선택합니다.
-1.  표시되는 목록에서 시험 사용 유형을 선택합니다.
+1. **시험 사용** 에서 **시험 사용 지원** 확인란을 선택합니다.
+1. 표시되는 목록에서 시험 사용 유형을 선택합니다.
 
 ## <a name="configure-lead-management"></a>잠재 고객 관리 구성
 
@@ -88,7 +117,7 @@ SaaS 제품 및 관련 Microsoft 365 앱 사용량을 연결하여 [통합 검�
 ### <a name="integrate-with-microsoft-api"></a>Microsoft API와 통합
 
 1. SaaS 제품이 Microsoft Graph API와 통합되지 않는 경우 **아니요** 를 선택합니다. 게시된 Microsoft 365 앱 사용량 클라이언트 연결을 진행합니다.  
-1. SaaS 제품이 Microsoft Graph API와 통합되는 경우 **예** 를 선택한 후 자신이 만들고 등록한 Azure Active Directory 앱 ID를 제공하여 Microsoft Graph API와 통합합니다. 
+1. SaaS 제품이 Microsoft Graph API와 통합되는 경우 **예** 를 선택한 후 자신이 만들고 등록한 Azure Active Directory 앱 ID를 제공하여 Microsoft Graph API와 통합합니다.
 
 ### <a name="link-published-microsoft-365-app-consumption-clients"></a>게시된 Microsoft 365 앱 사용량 클라이언트 연결
 

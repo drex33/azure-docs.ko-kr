@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 3aa47a247ead1a388ce9fda030f348ac9a6b75c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 513b2edd432a274f155e79362e715fbc426a9f9e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588602"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081513"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 액세스 제어를 설정하는 방법 
 
@@ -181,16 +181,16 @@ SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자의 작�
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>7단계: SQL 풀에 대한 액세스 권한 부여
 
-기본적으로 Synapse 관리자 역할이 할당된 모든 사용자에게는 서버리스 SQL 풀, '기본 제공' 및 해당 데이터베이스의 SQL `db_owner` 역할도 할당됩니다.
+기본적으로 Synapse 관리자 역할이 할당된 모든 사용자에게는 작업 `db_owner` 영역의 전용 및 서버리스 SQL 풀에 대한 SQL 역할도 할당됩니다.
 
 다른 사용자를 위한 SQL 풀 및 작업 영역 MSI에 대한 액세스는 SQL 권한을 사용하여 제어됩니다.  SQL 사용 권한을 할당하려면 SQL 스크립트가 생성된 후 각 SQL 데이터베이스에서 실행되어야 합니다.  이러한 스크립트를 실행해야 하는 세 가지 사례가 있습니다.
 1. 다른 사용자에게 서버리스 SQL 풀, ‘기본 제공’, 해당 데이터베이스에 대한 액세스 권한 부여
-2. 전용 풀 데이터베이스에 대한 사용자 액세스 권한 부여
+2. 전용 SQL 풀 데이터베이스에 대한 사용자 액세스 권한 부여
 3. SQL 풀 액세스가 필요한 파이프라인이 성공적으로 실행되도록 작업 영역 MSI 액세스 권한 부여
 
 예제 SQL 스크립트는 아래에 포함되어 있습니다.
 
-전용 SQL 풀 데이터베이스에 대한 액세스 권한을 부여하기 위해 작업 영역 생성자 또는 `workspace1_SQLAdmins` 그룹의 모든 구성원이 스크립트를 실행할 수 있습니다.  
+전용 SQL 풀 데이터베이스에 대한 액세스 권한을 부여하기 위해 작업 영역 작성자 또는 그룹 또는 그룹의 멤버가 스크립트를 실행할 수 `workspace1_SQLAdmins` `workspace1_SynapseAdministrators` 있습니다.  
 
 서버리스 SQL 풀, '기본 제공'에 대한 액세스 권한을 부여하기 위해 `workspace1_SQLAdmins` 그룹 또는 `workspace1_SynapseAdministrators` 그룹의 모든 구성원이 스크립트를 실행할 수 있습니다. 
 

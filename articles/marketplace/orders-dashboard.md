@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/06/2021
-ms.openlocfilehash: 1cc7e76833ac710ae4bdd511efa3033f8cf8fed7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 95d0ced24ee4f7426cac96ff2e550f2be88d8d02
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535545"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083368"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -36,17 +36,45 @@ ms.locfileid: "122535545"
 > [!NOTE]
 > 파트너 센터에서 고객 획득과 보고 사이의 최대 대기 시간은 48시간입니다.
 
+## <a name="access-the-orders-dashboard"></a>주문 대시보드에 액세스
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. 왼쪽 메뉴에서 **주문을** 선택합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색에서 상업용 **Marketplace** 주문  >    >  **분석을** 선택합니다.
+
+---
+
 ## <a name="elements-of-the-orders-dashboard"></a>주문 대시보드의 요소
 
 다음 섹션에서는 주문 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
 
-파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **주문** 을 선택합니다.
-
 ### <a name="month-range"></a>월 범위
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **주문** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
+
+[![주문 대시보드의 월 필터를 보여 줍니다. ](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **주문** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
 :::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="주문 대시보드의 월 필터를 보여 줍니다.":::
+
+---
 
 > [!NOTE]
 > 시각화 위젯 및 내보내기 보고서의 모든 메트릭은 사용자가 선택한 계산 기간을 사용합니다.
@@ -162,5 +190,5 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 - 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
+- Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
 - 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.

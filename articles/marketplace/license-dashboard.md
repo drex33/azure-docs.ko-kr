@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/10/2021
-ms.openlocfilehash: 6998005024bdbf61fb941ae3ff778be55dc5bb26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 40323124846bd825b2d0c51d16f7dfa7dc67511f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535812"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082704"
 ---
 # <a name="license-dashboard-in-commercial-marketplace-analytics"></a>상업용 Marketplace 분석의 라이선스 대시보드
 
@@ -27,11 +27,31 @@ ms.locfileid: "122535812"
 
 ## <a name="check-license-usage"></a>라이선스 사용 현황 확인
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
 파트너 센터에서 ISV 앱의 라이선스 사용 현황을 확인하려면 다음을 수행합니다.
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. 왼쪽 메뉴에서 **라이선스를** 선택합니다.
+
+    [![파트너 센터 라이선스 대시보드의 스크린샷. ](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+파트너 센터에서 ISV 앱의 라이선스 사용 현황을 확인하려면 다음을 수행합니다.
+
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **분석** > **라이선스** 를 선택합니다.
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="파트너 센터의 라이선스 대시보드 스크린샷.":::
+
+---
 
 ## <a name="elements-of-the-license-dashboard"></a>라이선스 대시보드의 요소
 
@@ -41,7 +61,15 @@ ms.locfileid: "122535812"
 
 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 페이지에서 위젯 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view) 
+
+[![파트너 센터 라이선스 대시보드의 월 범위 선택 스크린샷. ](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view) 
+
 :::image type="content" source="./media/license-dashboard/month-range.png" alt-text="파트너 센터의 라이선스 대시보드에서 월 범위 선택의 스크린샷.":::
+
+---
 
 ## <a name="customers-widget"></a>고객 위젯
 

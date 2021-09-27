@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/09/2020
-ms.openlocfilehash: 43332c559c309bc99754467994a4718ece78d3cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 9/27/2021
+ms.openlocfilehash: 7d665b34a112328a742e2ba4ed9816406a58fa30
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528493"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082969"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상업용 Marketplace 분석의 고객 대시보드
 
@@ -38,17 +38,45 @@ ms.locfileid: "122528493"
 > [!NOTE]
 > 파트너 센터에서 고객 확보와 보고 사이의 최대 대기 시간은 48시간입니다.
 
+## <a name="access-the-customers-dashboard"></a>고객 대시보드 액세스
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. 왼쪽 메뉴에서 **고객** 을 선택 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 창에서 **상업적 Marketplace**  >  **분석**  >  **고객** 을 선택 합니다.
+
+---
+
 ## <a name="elements-of-the-customers-dashboard"></a>고객 대시보드 요소
 
 다음 섹션에서는 고객 대시보드를 사용하는 방법과 데이터를 읽는 방법에 관해 설명합니다.
 
-파트너 센터에서 고객 대시보드에 액세스하려면 **상업용 Marketplace** 아래에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **고객** 을 선택합니다.
-
 ### <a name="month-range"></a>월 범위
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **고객** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
+
+[![고객 페이지의 월 필터를 보여 줍니다. ](./media/customer-dashboard/customers-workspace-filters.png) ](./media/customer-dashboard/customers-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **고객** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
 :::image type="content" source="./media/customer-dashboard/month-range-filters.png" alt-text="고객 페이지의 월 필터를 보여 줍니다.":::
+
+---
 
 > [!NOTE]
 > 시각화 위젯 및 내보내기 보고서의 모든 메트릭은 사용자가 선택한 계산 기간을 사용합니다.
@@ -81,7 +109,7 @@ _고객 유형_ 에는 신규, 기존 및 변동 세 가지가 있습니다.
 
 **주문/사용량별 고객** 차트에는 주문, 정규화된 사용량, 가공되지 않은 사용량의 세 개의 탭이 있습니다. 주문 세부 정보를 표시하려면 **주문** 탭을 선택합니다.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="고객 페이지의 주문 및 사용량 위젯별 고객의 주문 탭을 보여 줍니다.":::
+[![고객 페이지의 주문 및 사용 현황 위젯의 고객의 주문 탭을 보여 줍니다. ](./media/customer-dashboard/customers-by-orders-usage.png) ](./media/customer-dashboard/customers-by-orders-usage.png#lightbox)
 
 다음 사항에 유의하세요.
 

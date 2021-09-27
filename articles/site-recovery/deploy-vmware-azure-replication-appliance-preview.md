@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery - 미리 보기를 사용�
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: 6528307212fe552cb66ab4caa3a65b2d0e5c39dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 940cfb52985e956a283e8278c572569e4f350f55
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668499"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084192"
 ---
 # <a name="deploy-azure-site-recovery-replication-appliance---preview"></a>Azure Site Recovery 복제 어플라이언스 배포 - 미리 보기
 
@@ -50,7 +50,7 @@ FIPS(Federal Information Processing Standards) | FIPS 모드 사용 안 함|
 
 |**구성 요소** | **요구 사항**|
 |--- | ---|
-|IP 주소 유형 | 정적|
+|FQDN(정규화된 도메인 이름) | 정적|
 |포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송)|
 |NIC 유형 | VMXNET3(어플라이언스가 VMware VM인 경우)|
 
@@ -271,7 +271,7 @@ OVF 템플릿은 필수 사양을 사용하여 머신을 회전합니다.
     구성이 진행 중인 동안에는 브라우저를 닫지 마세요.
 
     >[!NOTE]
-    > 이 미리 보기에서는 어플라이언스 복제가 지원되지 않습니다. 복제를 시도하면 복구 흐름이 중단될 수 있습니다.
+    > 이 미리 보기에서는 어플라이언스 복제가 지원 되지 않습니다. 복제 하려고 하면 복구 흐름이 중단 될 수 있습니다.
 
 
 ## <a name="view-azure-site-recovery-replication-appliance-in-azure-portal"></a>Azure Portal에서 Azure Site Recovery 복제 어플라이언스 보기

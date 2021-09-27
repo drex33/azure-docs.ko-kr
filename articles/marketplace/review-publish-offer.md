@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/05/2021
-ms.openlocfilehash: a7dfe0b24143b9a92c10d1b1c876eabb200f2270
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 0f0f5782f387b40a0ca4ee4ab17002b06698fffd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598255"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083508"
 ---
 # <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>제품을 검토하고 상업용 Marketplace에 게시하는 방법
 
@@ -156,7 +156,7 @@ Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketpl
 
 다음 스크린샷은 파트너 센터의 상업용 Marketplace 프로그램에 있는 **제품 개요** 페이지를 보여줍니다. 이 페이지에 표시되는 유효성 검사 단계는 제품 유형 및 제품 작성 시 선택한 사항에 따라 다릅니다. 인증 단계는 제품 유형에 따라 미리 보기로 제출하거나 라이브 상태로 제출하는 동안 발생할 수 있습니다.
 
-![파트너 센터의 제품 개요 페이지를 보여줍니다. [라이브 전환] 단추와 미리 보기 링크가 표시됩니다.](./media/publish-status-publisher-signoff.png)
+[파트너 센터 제안에 대한 제안 개요 페이지를 보여 ![ 줍니다. 라이브로 이동 단추 및 미리 보기 링크가 표시됩니다. ](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### <a name="previewing-and-approving-your-offer"></a>제품 미리 보기 및 승인
 
@@ -200,14 +200,52 @@ Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketpl
 
 ## <a name="publishing-history"></a>게시 기록
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
 파트너 센터의 **기록** 페이지에는 상업용 Marketplace 제품에 대한 게시 이벤트가 표시됩니다. 각 이벤트에 대해 작업을 시작한 사용자, 이벤트 유형 및 이벤트 날짜와 시간이 페이지에 표시됩니다. [유효성 검사 및 게시 단계](#validation-and-publishing-steps)는 완료 날짜 및 시간과 함께 나열됩니다.
 
 제품에 대한 기록을 보려면 다음을 수행합니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-3. 제품을 선택합니다.
-4. 왼쪽 탐색 메뉴에서 **기록** 탭을 선택합니다. 다음 이벤트(제품에 해당하는 경우)에 대한 세부 정보가 페이지에 제공됩니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 제안을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **기록** 탭을 선택합니다. 다음 이벤트(제품에 해당하는 경우)에 대한 세부 정보가 페이지에 제공됩니다.
+
+|이벤트    |설명    |
+|---------|---------------|
+|제품 만들기 완료 | 파트너 센터에서 제품이 만들어졌습니다. 사용자가 상업용 Marketplace **개요** 페이지에서 제안 유형, 제안 ID 및 제안 별칭을 선택했습니다.    |
+|플랜 만들기 완료: *플랜 이름*    |사용자가 **플랜 개요** 탭에 플랜 ID와 플랜 이름을 입력하여 새 플랜을 만들었습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
+|플랜 삭제 완료    |사용자가 **플랜 개요** 페이지에서 **초안 삭제** 를 선택하여 게시되지 않은 초안 계획을 삭제했습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
+|시작된 플랜 배포 중지: *플랜 이름*    |사용자가 **플랜 개요** 페이지에서 **배포 중단** 을 선택하여 플랜 배포 중지를 시작했습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
+|배포 다시 시작: *플랜 이름*    |사용자가 **플랜 개요** 페이지에서 **배포 다시 시작** 을 선택하여 플랜 배포 중지를 취소했습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
+|미리 보기용 제품 제출됨    |사용자가 **검토 및 게시** 페이지에서 **게시** 를 선택하여 미리 보기용 제품을 제출했습니다.    |
+|미리 보기용 제출 취소 시작됨    |미리 보기용으로 제출한 후 사용자가 **제품 개요** 페이지에서 **게시 취소** 를 선택하여 미리 보기용 제품 게시를 취소하도록 요청했습니다.</br>*이 이벤트는 취소 요청이 처리되고 있을 때 표시됩니다*.    |
+|미리 보기용 제출 취소됨    |미리 보기용으로 제출한 후 사용자가 **제품 개요** 페이지에서 **게시 취소** 를 선택하여 미리 보기용 제품 게시를 취소했습니다.</br>*이 이벤트는 취소 요청이 성공적으로 처리된 후 표시됩니다*.    |
+|라이브 상태로 전환 승인    |사용자가 **제품 개요** 페이지에서 **Go live** 를 선택하여 상업용 Marketplace에 제품을 게시했습니다.    |
+|마켓플레이스에 게시 취소 시작됨    |라이브 상태로 전환을 승인한 후 사용자가 **제품 개요** 페이지에서 **게시 취소** 를 선택하여 제품 게시를 취소하도록 요청했습니다.</br>*이 이벤트는 취소 요청이 처리되고 있을 때 표시됩니다*.    |
+|상업용 Marketplace에 게시 취소됨    |라이브 상태로 전환을 승인한 후 사용자가 **제품 개요** 페이지에서 **게시 취소** 를 선택하여 제품 게시를 취소했습니다.</br>*이 이벤트는 취소 요청이 성공적으로 처리된 후 표시됩니다*.    |
+|비공개 대상 그룹 동기화    |사용자가 **계획 개요** 페이지 또는 **플랜 가격 책정 및 가용성** 페이지에서 **비공개 대상 그룹 동기화** 를 선택하여 비공개 대상 그룹을 업데이트하고 동기화했습니다.</br>*이 이벤트는 비공개 플랜을 지원하는 제품 유형에만 적용됩니다*.    |
+|제품 배포 중지    |사용자가 **제품 개요** 페이지에서 **배포 중지** 를 선택하여 제품 판매를 중지했습니다.    |
+
+> [!NOTE]
+> 기록 페이지에는 제품 초안이 저장된 시기가 표시되지 않습니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+파트너 센터의 **기록** 페이지에는 상업용 Marketplace 제품에 대한 게시 이벤트가 표시됩니다. 각 이벤트에 대해 작업을 시작한 사용자, 이벤트 유형 및 이벤트 날짜와 시간이 페이지에 표시됩니다. [유효성 검사 및 게시 단계](#validation-and-publishing-steps)는 완료 날짜 및 시간과 함께 나열됩니다.
+
+제품에 대한 기록을 보려면 다음을 수행합니다.
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
+1. 제품을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **기록** 탭을 선택합니다. 다음 이벤트(제품에 해당하는 경우)에 대한 세부 정보가 페이지에 제공됩니다.
 
 |이벤트    |설명    |
 |---------|---------------|
@@ -227,6 +265,8 @@ Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketpl
 
 > [!NOTE]
 > 기록 페이지에는 제품 초안이 저장된 시기가 표시되지 않습니다.
+
+---
 
 ### <a name="filter-options"></a>필터 옵션
 

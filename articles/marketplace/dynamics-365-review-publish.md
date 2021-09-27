@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
-ms.openlocfilehash: dd2c33fc1c52c8365b712d986afc86ce35266610
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: b5dc12c821471f822d88de89db974c081a4a1e33
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703251"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079576"
 ---
 # <a name="review-and-publish-a-dynamics-365-offer"></a>Dynamics 365 제품 검토 및 게시
 
@@ -40,19 +40,34 @@ ms.locfileid: "110703251"
 
 게시할 제안을 제출할 준비가 되면 포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다. 나열된 제안에 대한 각 페이지의 상태는 다음 중 하나로 표시됩니다.
 
-   - **시작 안 됨** – 페이지가 불완전합니다.
-   - **완료 안 됨** – 페이지에 필수 정보가 누락되었거나 수정해야 할 오류가 있습니다. 페이지로 돌아가서 업데이트해야 합니다.
-   - **완료** – 페이지가 완료되었습니다. 모든 필수 데이터가 제공되었고 오류가 없습니다.
+- **시작 안 됨** – 페이지가 불완전합니다.
+- **완료 안 됨** – 페이지에 필수 정보가 누락되었거나 수정해야 할 오류가 있습니다. 페이지로 돌아가서 업데이트해야 합니다.
+- **완료** – 페이지가 완료되었습니다. 모든 필수 데이터가 제공되었고 오류가 없습니다.
 
 상태가 **완료** 가 아닌 페이지가 있는 경우 해당 페이지에서 문제를 해결한 후 **검토 및 게시** 페이지로 돌아가서 이제 상태가 **완료** 로 표시되는지 확인해야 합니다. 일부 제안 유형은 테스트가 필요합니다. 이 경우 **인증 참고 사항** 필드가 표시되며 이 필드를 통해 인증 팀에 테스트 지침을 제공하고 앱을 이해하는 데 도움이 되는 추가적인 참고 사항을 제공해야 합니다.
 
-모든 페이지가 완료되고 해당하는 테스트 참고 사항을 입력한 후에는 **게시** 를 선택하여 제안을 제출합니다. 승인하는 데 제안의 미리 보기 버전을 사용할 수 있는 경우 메일이 제공됩니다. 이 경우 다음을 수행합니다.
+모든 페이지가 완료되고 해당하는 테스트 참고 사항을 입력한 후에는 **게시** 를 선택하여 제안을 제출합니다. 승인하는 데 제안의 미리 보기 버전을 사용할 수 있는 경우 메일이 제공됩니다. 이때 다음 단계를 완료합니다.
 
-1. 파트너 센터로 돌아갑니다.
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)으로 돌아갑니다.
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 제안을 선택합니다.
+1. **검토 및 게시** 를 선택합니다.
+1. **라이브 상태로 전환** 을 선택하여 제안을 공개적으로 사용할 수 있도록 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)으로 돌아갑니다.
 1. 왼쪽 탐색 메뉴 모음에서 **개요** 탭을 선택합니다.
 1. 제안을 선택합니다.
 1. **검토 및 게시** 를 선택합니다.
 1. **라이브 상태로 전환** 을 선택하여 제안을 공개적으로 사용할 수 있도록 합니다.
+
+---
 
 **검토 및 게시** 를 선택하시면, 제품이 AppSource에 게시되기 전에 인증 및 기타 확인 프로세스를 수행합니다. 제품을 미리 보기에서 사용할 수 있게 되면 알려드립니다. 문제가 있는 경우 세부 정보를 알리고 해결 방법에 대한 참고 자료를 제공합니다.
 

@@ -8,31 +8,21 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/01/2021
+ms.date: 09/27/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
-ms.openlocfilehash: 1b39e7f925245e59b0d3b9666b2179826885cf67
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
+ms.openlocfilehash: c445ee7d2567595d1602e2e895f0c3203f16dff6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621645"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079621"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 Azure Machine Learning 자동화된 ML을 사용하여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)로 AutoML 학습 실행을 설정하는 방법을 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 관련 유형의 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다.
+이 가이드에서는 자동화 된 ML를 사용 하 Azure Machine Learning 여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 자동화 된 기계 학습, automl, 학습 실행을 설정 하는 방법에 대해 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화 된 ML 실험을 구성 하는 데 사용할 수 있는 다양 한 옵션에 대해 자세히 설명 합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
-
-자동화된 ML에서 사용할 수 있는 구성 옵션은 다음과 같습니다.
-
-* 실험 유형 선택: 분류, 회귀 또는 시계열 예측
-* 데이터 원본, 형식 및 데이터 가져오기
-* 컴퓨팅 대상 선택: 로컬 또는 원격
-* 자동화된 Machine Learning 실험 설정
-* 자동화된 ML 실험 실행
-* 모델 메트릭 탐색
-* 모델 등록 및 배포
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 코드 없는 AutoML 학습을 설정](how-to-use-automated-ml-for-ml-models.md)할 수도 있습니다.
 
@@ -86,7 +76,8 @@ Azure Machine Learning 데이터 세트는 다음과 같은 기능을 보여줍�
 from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
-  ```
+```
+
 **로컬 컴퓨팅 실험의 경우** 처리 시간을 단축하기 위해 pandas 데이터 프레임을 권장합니다.
 
   ```python
@@ -145,42 +136,28 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-일부 사례:
+다음은 분류 태스크에 대 한 예입니다. 실험에서는 [기본 메트릭으로](#primary-metric) 로가는가 중 되 고 실험 시간 제한이 30 분으로 설정 되 고 교차 유효성 검사 접기가 2로 설정 됩니다.
 
-1. AUC 가중치를 기본 메트릭으로 사용하며 실험 제한 시간(분)이 30분으로 설정되고 교차 유효성 검사 접기가 2회인 분류 실험.
+```python
+    automl_classifier=AutoMLConfig(task='classification',
+                                   primary_metric='AUC_weighted',
+                                   experiment_timeout_minutes=30,
+                                   blocked_models=['XGBoostClassifier'],
+                                   training_data=train_data,
+                                   label_column_name=label,
+                                   n_cross_validations=2)
+```
+추가로 설치 해야 하는 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [시계열 예측을 위한 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조 하세요. 
 
-   ```python
-       automl_classifier=AutoMLConfig(task='classification',
-                                      primary_metric='AUC_weighted',
-                                      experiment_timeout_minutes=30,
-                                      blocked_models=['XGBoostClassifier'],
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=2)
-   ```
-1. 다음은 5회 접기 간 유효성 검사를 사용하여 60분 후에 종료되도록 설정된 회귀 실험의 예제입니다.
-
-   ```python
-      automl_regressor = AutoMLConfig(task='regression',
-                                      experiment_timeout_minutes=60,
-                                      allowed_models=['KNN'],
-                                      primary_metric='r2_score',
-                                      training_data=train_data,
-                                      label_column_name=label,
-                                      n_cross_validations=5)
-   ```
-
-
-1. 예측 작업에는 추가 설정이 필요합니다. 자세한 내용은 [시계열 예측을 위해 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조하세요. 
-
-    ```python
+```python
     time_series_settings = {
-        'time_column_name': time_column_name,
-        'time_series_id_column_names': time_series_id_column_names,
-        'forecast_horizon': n_test_periods
-    }
+                            'time_column_name': time_column_name,
+                            'time_series_id_column_names': time_series_id_column_names,
+                            'forecast_horizon': n_test_periods
+                           }
     
-    automl_config = AutoMLConfig(task = 'forecasting',
+    automl_config = AutoMLConfig(
+                                 task = 'forecasting',
                                  debug_log='automl_oj_sales_errors.log',
                                  primary_metric='normalized_root_mean_squared_error',
                                  experiment_timeout_minutes=20,
@@ -189,8 +166,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
                                  n_cross_validations=5,
                                  path=project_folder,
                                  verbosity=logging.INFO,
-                                 **time_series_settings)
-    ```
+                                 **time_series_settings
+                                )
+```
     
 ### <a name="supported-models"></a>지원되는 모델
 
@@ -224,22 +202,16 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
 
 ### <a name="primary-metric"></a>기본 메트릭
-`primary metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택하는 작업 유형에 따라 선택 가능한 메트릭이 결정되며, 다음 표에서는 각 작업 유형에 유효한 기본 메트릭을 보여줍니다.
 
-자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 비즈니스 요구를 가장 잘 나타내는 메트릭을 선택하는 것이 가장 중요한 고려 사항입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다.
+`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 됩니다.
+
+자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 비즈니스 요구를 가장 잘 표현 하는 메트릭을 선택 하는 것이 중요 한 고려 사항입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장 되는 기본 메트릭을 요약 합니다. 
 
 [자동화된 Machine Learning 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 정의에 대해 알아보세요.
 
-|분류 | 회귀 | 시계열 예측
-|--|--|--
-|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
-|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | 
-|`precision_score_weighted` |
-
 #### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
-`accuracy`, `average_precision_score_weighted`, `norm_macro_recall` 및 `precision_score_weighted`와 같은 임계값 이후 메트릭은 데이터 세트가 작거나, 클래스 오차(클래스 불균형)가 매우 크거나, 예상된 메트릭 값이 0.0 또는 1.0에 매우 근접한 경우에도 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+
+Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `norm_macro_recall` 및)은 `precision_score_weighted` 작은 데이터 집합에 대해 최적화 되지 않을 수도 있습니다. 즉, 매우 큰 클래스 기울이기 (클래스 불균형)가 있거나 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우입니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -263,6 +235,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 | `normalized_mean_absolute_error` |  |
 
 #### <a name="metrics-for-time-series-forecasting-scenarios"></a>시계열 예측 시나리오에 대한 메트릭
+
 권장 사항은 회귀 시나리오에서 언급된 사항과 유사합니다. 
 
 | 메트릭 | 사용 사례 예제 |
@@ -300,15 +273,15 @@ ONNX 모델을 사용하는 경우 **또는** 모델 설명 가능성을 사용�
 
 ```python
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=data_train,
-        label_column_name=label,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=data_train,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 enable_voting_ensemble=False,
+                                 enable_stack_ensemble=False
+                                )
 ```
 
 기본 앙상블 동작을 변경하기 위해 `AutoMLConfig` 개체에 `kwargs`로 제공할 수 있는 여러 기본 인수가 있습니다.
@@ -333,27 +306,27 @@ automl_classifier = AutoMLConfig(
 
 ```python
 ensemble_settings = {
-    "ensemble_download_models_timeout_sec": 600
-    "stack_meta_learner_type": "LogisticRegressionCV",
-    "stack_meta_learner_train_percentage": 0.3,
-    "stack_meta_learner_kwargs": {
-        "refit": True,
-        "fit_intercept": False,
-        "class_weight": "balanced",
-        "multi_class": "auto",
-        "n_jobs": -1
-    }
-}
+                     "ensemble_download_models_timeout_sec": 600
+                     "stack_meta_learner_type": "LogisticRegressionCV",
+                     "stack_meta_learner_train_percentage": 0.3,
+                     "stack_meta_learner_kwargs": {
+                                                    "refit": True,
+                                                    "fit_intercept": False,
+                                                    "class_weight": "balanced",
+                                                    "multi_class": "auto",
+                                                    "n_jobs": -1
+                                                  }
+                    }
 
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5,
-        **ensemble_settings
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 **ensemble_settings
+                                )
 ```
 
 <a name="exit"></a> 
@@ -444,7 +417,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 Notebook 내에서 제출 및 학습된 로컬 또는 원격 실행의 경우, `get_output()` 메서드를 사용하여 최상의 모델을 전달할 수 있습니다. 
+동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -560,9 +533,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-특히 자동화된 ML 실험 내에서 해석 기능을 사용하도록 설정하는 방법에 대한 코드 샘플은 [방법](how-to-machine-learning-interpretability-automl.md)을 참조하세요.
+특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
 
-자동화된 Machine Learning 외부의 다른 SDK 영역에서 모델 설명 및 기능 중요도를 사용하는 방법에 대한 일반적인 내용은 해석력에 대한 [개념](how-to-machine-learning-interpretability.md) 문서를 참조하세요.
+자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

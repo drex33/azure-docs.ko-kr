@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 06/10/2020
-ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: ff4600cd1b107fb041123191f80f9da4f50af5ac
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431522"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081183"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
@@ -67,7 +67,26 @@ ms.locfileid: "113431522"
 
 요금 청구 변칙에 관련된 지원 티켓을 제출하려면:
 
-1. 회사 계정을 사용하여 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다.
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. 회사 계정을 사용하여 [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **도움말 + 지원** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 도움말 및 지원 타일을 보여 줍니다. ](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. **내 지원 요청에서** **+ 새 요청을** 선택합니다.
+1. 문제 **요약** 상자에 요금 **청구를 입력합니다.**
+1. **문제 유형** 상자에서 다음 중 하나를 선택합니다.
+    - **상업용 Marketplace > 요금 청구 > Azure Applications 제품에 대해 잘못된 사용량 전송**
+    - **상업용 Marketplace > 요금 청구 > SaaS 제품에 대해 잘못된 사용량 전송**
+1. **다음 단계** 에서 **솔루션 검토** 를 선택합니다.
+1. 권장 문서가 있는 경우 이를 검토하거나 **이슈에 대한 세부 정보 제공** 을 선택하여 지원 티켓을 제출합니다.
+
+더 많은 게시자 지원 옵션은 [파트너 센터에서 상업용 Marketplace 프로그램 지원](../support.md)을 참조하세요.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. 회사 계정을 사용하여 [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 페이지의 오른쪽 위에 있는 메뉴에서 **지원** 아이콘을 선택합니다. **도움말 및 지원** 창이 페이지의 오른쪽에 나타납니다.
 1. 상업용 Marketplace에 대한 도움이 필요하면 **상업용 Marketplace** 를 선택합니다.
    ![지원 창을 보여 줍니다.](../media/support/commercial-marketplace-support-pane.png)
@@ -79,6 +98,8 @@ ms.locfileid: "113431522"
 1. 권장 문서가 있는 경우 이를 검토하거나 **이슈에 대한 세부 정보 제공** 을 선택하여 지원 티켓을 제출합니다.
 
 더 많은 게시자 지원 옵션은 [파트너 센터에서 상업용 Marketplace 프로그램 지원](../support.md)을 참조하세요.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

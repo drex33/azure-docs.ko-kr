@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: 3d2048f643da5f9cdd77b95f2a992efef74a77e9
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: ab4eb4f35f23aeb00e136cd1e3668861aa6703ed
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388082"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079773"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>상업용 Marketplace 제품의 공동 판매 상태 확인
 
@@ -21,11 +21,28 @@ ms.locfileid: "114388082"
 
 ## <a name="verify-co-sell-status"></a>공동 판매 상태 확인
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. **제품 별칭** 열에서 원하는 제품을 선택합니다. 공동 판매 상태는 페이지의 마켓플레이스 프로그램 섹션에 표시됩니다.
+
+    [![파트너 센터에서 개요 페이지의 마켓플레이스 프로그램에서 보여주는 공동 판매 상태.](./media/co-sell/co-sell-status.png)](./media/co-sell/co-sell-status.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요** 를 선택합니다.
 1. **제품 별칭** 열에서 원하는 제품을 선택합니다. 공동 판매 상태는 페이지의 마켓플레이스 프로그램 섹션에 표시됩니다.
 
-    [![파트너 센터에서 개요 페이지의 마켓플레이스 프로그램에서 보여주는 공동 판매 상태.](./media/co-sell/co-sell-status.png)](./media//co-sell/co-sell-status.png#lightbox)
+    [![파트너 센터에서 개요 페이지의 마켓플레이스 프로그램에서 보여주는 공동 판매 상태.](./media/co-sell/co-sell-status.png)](./media/co-sell/co-sell-status.png#lightbox)
+
+---
 
 다음 표에서는 가능한 모든 공동 판매 상태를 보여 줍니다. 각 공동 판매 상태에 대한 요구 사항을 알아보려면 [공동 판매 요구 사항](co-sell-requirements.md)을 참조하세요.
 

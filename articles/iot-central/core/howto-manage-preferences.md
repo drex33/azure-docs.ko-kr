@@ -1,6 +1,6 @@
 ---
 title: IoT Central에서 개인 기본 설정 관리 | Microsoft Docs
-description: IoT Central 응용 프로그램에서 언어, 테마 및 기본 조직을 변경 하는 등의 개인 응용 프로그램 기본 설정을 관리 하는 방법입니다.
+description: IoT Central 애플리케이션에서 언어, 테마 및 기본 조직 변경과 같은 개인 애플리케이션 기본 설정을 관리하는 방법입니다.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 08/30/2021
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0e5b92d89ee066511f717f0edc26881477ab8470
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 175a2295d7c820e048ac4a289ab1b6208035e692
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760045"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081209"
 ---
 # <a name="manage-your-personal-application-preferences"></a>개인 애플리케이션 기본 설정 관리
 
@@ -34,11 +34,5 @@ IoT Central은 여러 언어로 지원됩니다. 위쪽 탐색 모음의 설정 
 
 ## <a name="change-default-organization"></a>기본 조직 변경
 
-응용 프로그램에서 조직을 사용 하는 경우 조직을 선택 해야 할 때마다 사용할 기본 조직을 선택할 수 있습니다. 예를 들어, 기본 조직은 응용 프로그램에 새 장치를 추가할 때 조직 필드를 미리 채웁니다.
+애플리케이션에서 조직을 사용하는 경우 조직을 선택해야 할 때마다 사용할 기본 조직을 선택할 수 있습니다. 예를 들어 기본 조직은 애플리케이션에 새 디바이스를 추가할 때 조직 필드를 미리 채웁 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
-
-지금까지 Azure IoT Central에서 프로필을 관리하는 방법을 알아보았으므로 다음과 같은 후속 단계를 진행하시기 바랍니다.
-
-> [!div class="nextstepaction"]
-> [라이브 채팅 토글](howto-show-hide-chat.md)

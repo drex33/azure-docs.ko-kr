@@ -9,12 +9,12 @@ ms.date: 09/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 6c11815e787ad273db1506bd78e27bfd61f942e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 344d513f823c3eb04e869c66ca79bfb611c3eb6a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628188"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079754"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -108,7 +108,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 6. 명령줄을 실행할 때마다 `/j:` 매개 변수와 함께 제공된 이름의 업무 일지 파일이 만들어집니다. 준비한 각 드라이브에는 가져오기 작업을 만들 때 업로드해야 하는 업무 일지 파일이 있습니다. 업무 일지 파일이 없는 드라이브는 처리되지 않습니다.
 
     > [!IMPORTANT]
-    > 디스크 준비를 완료 한 후 디스크 드라이브의 저널 파일이 나 데이터를 수정 하지 않고 디스크를 다시 포맷 하지 마십시오.
+    > 디스크 준비를 완료한 후 디스크 드라이브의 저널 파일 또는 데이터를 수정하지 말고 디스크를 다시 포맷하지 마세요.
 
 추가 예제는 [업무 일지 파일에 대한 샘플](#samples-for-journal-files)로 이동합니다.
 

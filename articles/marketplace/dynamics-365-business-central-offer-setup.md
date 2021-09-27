@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 43ce147cc1d8cb9cb6bcc389ad02cfcf71038e34
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 6056259817c24079ae1a2efc912a8251feeaa1ad
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547809"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082000"
 ---
-# <a name="how-to-create-a-dynamics-365-for-business-central-offer"></a>Dynamics 365 for Business Central 제품을 만드는 방법
+# <a name="create-a-dynamics-365-for-business-central-offer"></a>Dynamics 365 for Business Central 제안 만들기
 
 이 문서에서는 [Dynamics 365 for Business Central](https://dynamics.microsoft.com/business-central/overview) 제품을 만드는 방법을 설명합니다. 이 제품 유형은 ERP(전사적 자원 관리) 서비스이며 재무, 운영, 공급 체인, CRM, 프로젝트 관리 및 전자 상거래를 포함하여 광범위한 비즈니스 프로세스를 지원합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다.
 
@@ -26,18 +26,39 @@ ms.locfileid: "110547809"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Dynamics 365 for business central을** 선택합니다.
+
+    [!['새 제안' 단추를 보여 줍니다. Dynamics 365 Business Central 제안 유형이 강조 표시되어 있습니다. ](media/dynamics-365/new-offer-dynamics-365-business-central-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-business-central-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-3. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Business Central** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
+1. 개요 페이지에서 + **새 제안**  >  **Dynamics 365 for Business Central을** 선택합니다.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-business-central.png" alt-text="왼쪽 창 메뉴 옵션 및 '새 제품' 단추":::
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
 
+---
+
 ## <a name="new-offer"></a>새 제안
 
-**제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
+표시되는 대화 상자에서 **제안 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
 - 이 ID는 제안 웹 주소 및 Azure Resource Manager 템플릿(해당하는 경우)에서 고객에게 표시됩니다.
 - 소문자와 숫자만 사용할 수 있습니다. ID는 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 게시자 ID가 `testpublisherid`이고 **test-offer-1** 을 입력하는 경우 제안 웹 주소는 `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`이 됩니다.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/21/2021
-ms.openlocfilehash: a8c10ea5bdfab20ed5a250fba656527cd7935527
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: b09500142878ee383ccc20e8b62ed22b0f9478c5
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129408"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079880"
 ---
 # <a name="create-an-azure-container-offer"></a>Azure Container 제품 만들기
 
@@ -26,6 +26,25 @@ ms.locfileid: "108129408"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안** Azure  >  **Container를** 선택합니다.
+
+    [![왼쪽 창 메뉴 옵션과 '새 제안' 단추. ](./media/azure-container/new-offer-azure-container-workspaces.png) ](./media/azure-container/new-offer-azure-container-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제품을 게시한 후에 파트너 센터에서 편집한 내용은 해당 제품을 다시 게시한 후에만 Azure Marketplace에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 3. 개요 페이지에서 **+ 새 제품** > **Azure Container** 를 선택합니다.
@@ -34,6 +53,8 @@ ms.locfileid: "108129408"
 
 > [!IMPORTANT]
 > 제품을 게시한 후에 파트너 센터에서 편집한 내용은 해당 제품을 다시 게시한 후에만 Azure Marketplace에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+---
 
 ## <a name="new-offer"></a>새 제안
 
@@ -63,5 +84,5 @@ ms.locfileid: "108129408"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [제안 속성 구성](azure-container-properties.md)
+- [제안 속성 구성](azure-container-properties.md) 
 - [목록에 제품 추가 모범 사례](gtm-offer-listing-best-practices.md)

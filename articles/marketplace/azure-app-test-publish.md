@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: cc3c837c4dddf744f141ad930a1e52a5e9f684c7
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: d7606595adb5c0d20b348bbe323d27af64e8d9cb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542811"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082102"
 ---
 # <a name="test-and-publish-an-azure-application-offer"></a>Azure 애플리케이션 제품 테스트 및 게시
 
@@ -21,7 +21,27 @@ ms.locfileid: "111542811"
 
 ## <a name="submit-the-offer-for-publishing"></a>게시를 위해 제품 제출
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에서 상용 Marketplace 대시보드에 로그인합니다.
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 게시할 제안을 선택합니다.
+1. 포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다.
+1. 각 페이지의 **상태** 열에 **완료** 가 표시되는지 확인합니다. 가능한 세 가지 상태는 다음과 같습니다.
+    - **시작 안 됨** – 페이지가 불완전합니다.
+    - **완료 안 됨** – 페이지에 필수 정보가 누락되었거나 수정해야 할 오류가 있습니다. 페이지로 돌아가서 업데이트해야 합니다.
+    - **완료** – 페이지가 완료되었습니다. 모든 필수 데이터가 제공되었고 오류가 없습니다.
+1. 페이지의 상태가 **완료** 가 아닌 경우 페이지 이름을 선택하고 문제를 수정한 다음, 페이지를 저장하고 **검토 및 게시** 를 다시 선택하여 이 페이지로 돌아갑니다.
+1. 모든 페이지가 완료되면 **인증 참고 사항** 상자에서 인증 팀을 위한 테스트 지침을 제공하여 앱이 제대로 테스트되었는지 확인합니다. 앱을 이해하는 데 유용한 보충 정보를 제공합니다.
+1. 제품에 대한 게시 프로세스를 시작하려면 **게시** 를 선택합니다. **제품 개요** 페이지가 표시되고 제품의 **게시 상태** 가 표시됩니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)상업용 Marketplace에 로그인합니다.
 1. **개요** 페이지에서 게시하려는 제품을 선택합니다.
 1. 포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다.
 1. 각 페이지의 **상태** 열에 **완료** 가 표시되는지 확인합니다. 가능한 세 가지 상태는 다음과 같습니다.
@@ -31,6 +51,8 @@ ms.locfileid: "111542811"
 1. 페이지의 상태가 **완료** 가 아닌 경우 페이지 이름을 선택하고 문제를 수정한 다음, 페이지를 저장하고 **검토 및 게시** 를 다시 선택하여 이 페이지로 돌아갑니다.
 1. 모든 페이지가 완료되면 **인증 참고 사항** 상자에서 인증 팀을 위한 테스트 지침을 제공하여 앱이 제대로 테스트되었는지 확인합니다. 앱을 이해하는 데 유용한 보충 정보를 제공합니다.
 1. 제품에 대한 게시 프로세스를 시작하려면 **게시** 를 선택합니다. **제품 개요** 페이지가 표시되고 제품의 **게시 상태** 가 표시됩니다.
+
+---
 
 제품의 게시 상태는 게시 프로세스를 진행하면서 변경됩니다. 이 프로세스에 대한 자세한 내용은 [유효성 검사 및 게시 단계](review-publish-offer.md#validation-and-publishing-steps)를 참조하세요.
 

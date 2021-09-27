@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 07/15/2021
-ms.openlocfilehash: c68216675a41a71b21216ce558b03171781dbc43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567309"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084053"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -36,17 +36,45 @@ ms.locfileid: "122567309"
 > [!NOTE]
 > 파트너 센터에서 사용량 이벤트 생성과 보고 사이의 최대 대기 시간은 48시간입니다.
 
+## <a name="access-the-usage-dashboard"></a>사용량 대시보드에 액세스
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+
+    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. 왼쪽 메뉴에서 **사용량을** 선택합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색에서 상업용 **Marketplace**  >    >  **사용량** 분석을 선택합니다.
+
+---
+
 ## <a name="elements-of-the-usage-dashboard"></a>사용량 대시보드의 요소
 
 다음 섹션에서는 사용량 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
 
-파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **사용량** 을 선택합니다.
-
 ### <a name="month-range"></a>월 범위
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **사용량** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
+
+[![사용량 대시보드의 월 필터를 보여 줍니다. ](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6개월 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **사용량** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="사용량 대시보드의 월 필터를 보여 줍니다.":::
+
+---
 
 ### <a name="usage-trend"></a>사용량 추세
 

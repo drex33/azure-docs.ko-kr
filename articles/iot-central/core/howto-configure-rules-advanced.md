@@ -7,12 +7,12 @@ ms.date: 08/26/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b90e96975dadc1f7fb168345aa89b98bb6a22b9c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1068bd5f5a97c4eeab702add9c305b38a8084464
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473589"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079672"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합
 
@@ -22,6 +22,7 @@ Power Automate 및 Azure Logic Apps용 Azure IoT Central V3 커넥터를 사용�
 
 - Azure IoT Central 앱에서 규칙이 실행되면 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 Microsoft 365 또는 타사 서비스와 같은 다른 클라우드 서비스에서 작업을 실행할 수 있습니다.
 - 다른 클라우드 서비스(예: Microsoft 365)의 이벤트는 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 IoT Central 애플리케이션에서 작업을 실행하거나 데이터를 검색할 수 있습니다.
+- Azure IoT 중앙 V3 커넥터는 일반적으로 사용 가능한 [1.0 REST API](/rest/api/iotcentral/) 화면에 맞춰집니다. 모든 커넥터 작업은 [DTDLv2 형식을](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) 지원 하며 DTDLv1 기반 모델에 대 한 지원은 더 이상 사용 되지 않습니다. 최신 업데이트에 대 한 최신 정보 및 세부 정보는 현재 커넥터 버전에 대 한 [릴리스](/connectors/azureiotcentral/#release-notes) 정보를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,18 +37,17 @@ Power Automate 및 Azure Logic Apps용 Azure IoT Central V3 커넥터를 사용�
 
 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거하려면 먼저 IoT Central 애플리케이션에서 규칙이 필요합니다. 자세한 내용은 [Azure IoT Central에서 규칙 및 작업 구성](./howto-configure-rules.md)을 참조하세요.
 
-**Azure IoT Central V3 - 미리 보기** 커넥터를 Power Automate의 트리거로 추가하려면 다음을 수행합니다.
+Power Automate에서 트리거로 **Azure IoT Central V3** 커넥터를 추가 하려면 다음을 수행 합니다.
 
 1. Power Automate에서 **+ 만들기** 를 선택하고 **사용자 지정** 탭을 선택합니다.
-1. *IoT Central* 을 검색하고 **Azure IoT Central V3 - 미리 보기** 커넥터를 선택합니다.
+1. *IoT Central* 를 검색 하 고 **Azure IoT Central V3** 커넥터를 선택 합니다.
 1. 트리거 목록에서 **규칙이 실행되는 경우(미리 보기)** 를 선택합니다.
 1. **규칙이 실행되는 경우** 단계에서 사용 중인 IoT Central 애플리케이션 및 규칙을 선택합니다.
 
-**Azure IoT Central V3 - 미리 보기** 커넥터를 Azure Logic Apps의 트리거로 추가하려면 다음을 수행합니다.
+Azure Logic Apps에서 트리거로 **Azure IoT Central V3** 커넥터를 추가 하려면 다음을 수행 합니다.
 
 1. **Logic Apps 디자이너** 에서 **빈 논리 앱** 템플릿을 선택합니다.
-1. 디자이너에서 **사용자 지정** 탭을 선택합니다.
-1. *IoT Central* 을 검색하고 **Azure IoT Central V3 - 미리 보기** 커넥터를 선택합니다.
+1. 디자이너에서 *IoT Central* 를 검색 하 고 **Azure IoT Central V3** 커넥터를 선택 합니다.
 1. 트리거 목록에서 **규칙이 실행되는 경우(미리 보기)** 를 선택합니다.
 1. **규칙이 실행되는 경우** 단계에서 사용 중인 IoT Central 애플리케이션 및 규칙을 선택합니다.
 
@@ -57,12 +57,12 @@ Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거하려면 
 
 ## <a name="run-an-action"></a>작업 실행
 
-Power Automate 및 Azure Logic Apps 워크플로에서 IoT Central 애플리케이션의 작업을 실행할 수 있습니다. 먼저 워크플로를 만들고 커넥터를 사용하여 워크플로를 시작하는 트리거를 정의합니다. 그런 다음, **Azure IoT Central V3 - 미리 보기** 커넥터를 작업으로 사용합니다.
+Power Automate 및 Azure Logic Apps 워크플로에서 IoT Central 애플리케이션의 작업을 실행할 수 있습니다. 먼저 워크플로를 만들고 커넥터를 사용하여 워크플로를 시작하는 트리거를 정의합니다. 그런 다음 **Azure IoT 중앙 V3** 커넥터를 작업으로 사용 합니다.
 
-**Azure IoT Central V3 - 미리 보기** 커넥터를 Power Automate의 작업으로 추가하려면 다음을 수행합니다.
+Power Automate에서 작업으로 **Azure IoT Central V3** 커넥터를 추가 하려면 다음을 수행 합니다.
 
 1. Power Automate의 **작업 선택** 패널에서 **사용자 지정** 탭을 선택합니다.
-1. *IoT Central* 을 검색하고 **Azure IoT Central V3 - 미리 보기** 커넥터를 선택합니다.
+1. *IoT Central* 를 검색 하 고 **Azure IoT Central V3** 커넥터를 선택 합니다.
 1. 작업 목록에서 사용하려는 IoT Central 작업을 선택합니다.
 1. 작업 단계에서 선택한 작업에 대한 구성을 완료합니다. 그런 다음 **저장** 을 선택합니다.
 
@@ -77,7 +77,8 @@ Power Automate 및 Azure Logic Apps 워크플로에서 IoT Central 애플리케�
 
 ## <a name="list-of-actions"></a>작업 목록
 
-다음 목록에서는 **Azure IoT Central V3 - 미리 보기** 커넥터 및 해당 구성 옵션에서 사용 가능한 모든 IoT Central 작업을 보여 줍니다. 대부분의 필드에는 동적으로 생성된 콘텐츠가 있을 수 있습니다. 예를 들어 이전 단계에서 현재 단계가 작동하는 디바이스 ID를 결정할 수 있습니다.
+커넥터에서 지원 되는 작업의 전체 목록은 [작업](/connectors/azureiotcentral/#actions)을 참조 하세요.
+
 
 ### <a name="create-or-update-a-device"></a>도메인을 만들기 또는 업데이트
 

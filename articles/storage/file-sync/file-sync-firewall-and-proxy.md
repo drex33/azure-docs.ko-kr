@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 803b2fb55bff61814eb36a795b752de37b99bd63
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 64c6f101d0b8acd9c3d0ca00593c4b63b2b21a83
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680132"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080502"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 
@@ -44,7 +44,7 @@ Azure 파일 동기화는 파일 데이터 및 메타데이터를 HTTPS를 통�
 
 Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expressroute/expressroute-introduction.md) 등과 같은 특수한 채널을 요구하지 않습니다.
 
-Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
+Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다.
 
 ## <a name="proxy"></a>Proxy (프록시)
 
@@ -129,7 +129,7 @@ Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용량 |
+| 서비스 | 퍼블릭 클라우드 엔드포인트 | Azure Government 엔드포인트 | 사용 |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |

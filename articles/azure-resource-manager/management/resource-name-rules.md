@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 8b5614f155b0891db38ab0151f00e60c79049161
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/27/2021
+ms.openlocfilehash: 12d589088f17e3eeb3bda0fecbb2c1fc24b65203
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820490"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084097"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "124820490"
 * **0**~**9**(숫자)
 
 > [!NOTE]
-> 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](resource-name-rules.md)을 참조 하세요.
+> 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](../templates/error-reserved-resource-name.md)을 참조 하세요.
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -89,9 +89,9 @@ ms.locfileid: "124820490"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호<br><br>마침표로 끝날 수 없습니다. |
-> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
-> | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
-> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 제어 문자. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 제어 문자. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 제어 문자. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -195,7 +195,7 @@ ms.locfileid: "124820490"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | communicationServices | 글로벌 | 1-63 | 영숫자, 하이픈 및 밑줄 |
+> | communicationServices | 글로벌 | 1-63 | 영숫자 및 하이픈<br><br>밑줄을 사용할 수 없습니다. |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -392,7 +392,7 @@ ms.locfileid: "124820490"
 > | clusters | 리소스 그룹 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다. |
 > | 네임스페이스 | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다. |
 > | namespaces / AuthorizationRules | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작하고 끝나야 합니다. |
-> | namespaces / disasterRecoveryConfigs | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작하고 끝나야 합니다. |
+> | namespaces / disasterRecoveryConfigs | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 영숫자로 끝납니다. |
 > | namespaces / eventhubs | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작하고 끝나야 합니다. |
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작하고 끝나야 합니다. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>문자 또는 숫자로 시작하고 끝나야 합니다. |
@@ -763,4 +763,4 @@ ms.locfileid: "124820490"
 
 * 리소스 이름을 표시하는 방법에 대한 권장 사항은 [준비: 권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
 
-* 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](resource-name-rules.md)을 참조 하세요.
+* 퍼블릭 엔드포인트가 있는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단된 단어 목록은 [예약된 리소스 이름 오류 해결을 참조하세요.](../templates/error-reserved-resource-name.md)

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 05/26/2021
-ms.openlocfilehash: e86a97b0f4aa9fef24203128970b8d9cc857cd41
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 6020ff6b6152fa559de5f6afc6f6560f1d7252ba
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955386"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082532"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
@@ -26,6 +26,27 @@ ms.locfileid: "111955386"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안** Power BI  >  **앱을** 선택합니다.
+
+    [![새 제안 단추에서 사용할 수 있는 Power BI 앱 제안 유형을 보여 줍니다. ](./media/power-bi/new-offer-power-bi-app-workspaces.png) ](./media/power-bi/new-offer-power-bi-app-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+**Power BI 앱** 이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](./marketplace-dynamics-365.md)이 충족되었는지 확인합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 3. 개요 페이지에서 **+ 새 제품** > **Power BI 앱** 을 선택합니다.
@@ -36,6 +57,8 @@ ms.locfileid: "111955386"
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
 
 **Power BI 앱** 이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](marketplace-dynamics-365.md)이 충족되었는지 확인합니다.
+
+---
 
 ## <a name="new-offer"></a>새 제안
 

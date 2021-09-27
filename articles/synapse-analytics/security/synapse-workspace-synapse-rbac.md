@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: dda885d55f2102f1fae478c8d214f2bca44f52f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e2a49fb9de3c4f63edc483724769c5c726d3a63c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536174"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081855"
 ---
 # <a name="what-is-synapse-role-based-access-control-rbac"></a>Synapse 역할 기반 액세스 제어(RBAC)란?
 
@@ -28,7 +28,7 @@ Synapse RBAC는 다음을 수행할 수 있는 사용자를 관리하는 데 사
 - 작업 실행을 모니터링하거나 취소하고, 작업 출력 및 실행 로그를 검토합니다.  
 
 >[!Note]
->Synapse RBAC는 게시된 SQL 스크립트에 대한 액세스를 관리하는 데 사용되지만 서버리스 SQL 풀에 대한 제한된 액세스 제어만 제공하며 전용 SQL 풀에 대한 액세스를 제어하는 데 사용되지 _않습니다_.  SQL 풀에 대한 액세스는 주로 SQL 보안을 사용하여 제어됩니다.
+>Synapse RBAC는 게시 된 SQL 스크립트에 대 한 액세스를 관리 하는 데 사용 되지만 서버 리스와 전용 SQL 풀에는 제한 된 액세스 권한만 제공 합니다. SQL 풀에 대한 액세스는 주로 SQL 보안을 사용하여 제어됩니다.
 
 ## <a name="what-can-i-do-with-synapse-rbac"></a>Azure RBAC로 무엇을 할 수 있습니까?
 

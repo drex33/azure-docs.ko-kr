@@ -7,13 +7,13 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/03/2021
-ms.openlocfilehash: 39212b2e9ef5456ecc4f1343cc51fd83064a8840
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/27/2021
+ms.openlocfilehash: c01e7d909e3227fe672047bca897bfa9d9978f85
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535656"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082152"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>상업용 마켓플레이스 제품에 대한 공동 판매 구성
 
@@ -35,6 +35,30 @@ ms.locfileid: "123535656"
 
 ## <a name="go-to-the-co-sell-with-microsoft-tab"></a>Microsoft와 공동 판매 탭으로 이동
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+     [![파트너 센터 홈 페이지를 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+    > [!TIP]
+    > **Marketplace 제품** 타일이 표시 되지 않으면 [파트너 센터에서 상용 marketplace 계정을 만들고](create-account.md) 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
+
+1. Marketplace 제품 페이지에서 공동 판매 하려는 제품을 선택 합니다.
+
+    > [!NOTE]
+    > 아직 게시되지 않은 새 제품 또는 이미 게시된 제품에 대해 공동 판매를 구성할 수 있습니다.
+
+1. 왼쪽 메뉴에서 **Microsoft와 공동 판매** 를 선택합니다.
+
+    [![Microsoft 페이지와 공동 판매 하는 방법을 보여 줍니다. ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요** 를 선택합니다.
     > [!TIP]
@@ -46,6 +70,8 @@ ms.locfileid: "123535656"
 1. 왼쪽 메뉴에서 **Microsoft와 공동 판매** 를 선택합니다.
 
     [![왼쪽 탐색에서 Microsoft와 공동 판매 링크가 표시됩니다.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+---
 
 ## <a name="co-sell-listings"></a>공동 판매 목록
 

@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 005984260532ddf0a349380f290a65313e371336
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 801bfe634281ffc795bd0f9c56089f915be52ac6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530790"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083793"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,6 +70,7 @@ SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데
 - SQL Managed Instance를 사용하는 경우 최대 32개의 스트라이프가 있는 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 이 개수는 백업 압축을 사용할 경우 최대 4TB의 데이터베이스에 충분합니다.
 - 서비스 관리 TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용하여 백업을 암호화합니다. 키를 내보낼 수 없어 백업을 복원할 수 없습니다. 자동 백업 및 특정 시점 복원을 사용하거나 [고객 관리(BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)를 대신 사용합니다. 데이터베이스에서 암호화를 사용하지 않도록 설정할 수 있습니다.
 - Managed Instance에서 가져온 기본 백업은 SQL Server로 복원할 수 없습니다. 이는 Managed Instance가 SQL Server의 모든 버전과 비교하여 내부 데이터베이스 버전이 더 높기 때문입니다.
+- Azure Storage에서 데이터베이스를 백업하거나 복원하려면 리소스를 Azure Storage 제한된 액세스 권한을 부여하는 SAS(공유 액세스 서명)를 만들어야 합니다. 자세한 내용은 이 에 [대해 자세히 알아보세요.](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart#restore-from-a-backup-file-using-t-sql) 이러한 시나리오에는 액세스 키를 사용할 수 없습니다.
 - SQL Managed Instance에서 `BACKUP` 명령을 사용한 최대 백업 스트라이프 크기는 최대 BLOB 크기인 195GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]

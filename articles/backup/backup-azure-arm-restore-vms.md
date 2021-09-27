@@ -3,13 +3,13 @@ title: Azure Portal을 사용하여 VM 복원
 description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 복구 지점에서 Azure 가상 머신을 복원합니다.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528788"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079526"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -85,7 +85,10 @@ VM을 복원(새 VM 만들기)하려면 VM 복원 작업에 대한 올바른 Azu
 1. **가상 머신 복원** > **새로 만들기** > **복원 유형** 에서 **가상 머신 만들기** 를 선택합니다.
 1. **가상 머신 이름** 에서 구독에 없는 VM을 지정합니다.
 1. **리소스 그룹** 에서 새 VM에 대해 기존 리소스 그룹을 선택하거나, 새 리소스 그룹을 전역 고유 이름으로 만듭니다. 이미 있는 이름을 할당하면 Azure에서 VM과 동일한 이름을 그룹에 할당합니다.
-1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 구독과 연관된 모든 VNet가 표시됩니다. 서브넷을 선택합니다. 기본적으로 첫 번째 서브넷이 선택됩니다.
+1. **가상 네트워크** 에서 VM을 배치할 VNet를 선택합니다. 활성 상태이고 선호도 그룹에 연결되지 않은 자격 증명 모음과 동일한 위치에 있는 구독과 연결된 모든 VNet이 표시됩니다. 서브넷을 선택합니다.
+
+   기본적으로 첫 번째 서브넷이 선택됩니다.
+
 1. **스테이징 위치** 에서 VM에 대한 스토리지 계정을 지정합니다. [자세히 알아보기](#storage-accounts).
 
     ![구성 복원 마법사 - 복원 옵션 선택](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)

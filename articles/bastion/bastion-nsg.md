@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: adccd5873030adcc5c286ed8d23326796c27ab9c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112464762"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080981"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure Bastion을 통하여 작업하기
 
@@ -52,7 +52,7 @@ Azure Bastion은 특히 ***AzureBastionSubnet*** 에 배포됩니다.
 
 * **송신 트래픽:**
 
-   * **대상 VM으로의 송신 트래픽:** Azure Bastion은 개인 IP를 통하여 대상 VM에 도달합니다. NSGs는 포트 3389와 포트 22의 다른 대상 VM 서브넷으로 향하는 송신 트래픽을 허용하여야 합니다.
+   * **대상 VM으로의 송신 트래픽:** Azure Bastion은 개인 IP를 통하여 대상 VM에 도달합니다. NSGs는 포트 3389와 포트 22의 다른 대상 VM 서브넷으로 향하는 송신 트래픽을 허용하여야 합니다. 사용자 지정 포트 기능을 표준 SKU의 일부로 사용 하는 경우 NSGs는 대신 대상 Vm에서 연 사용자 지정 값에 대해 다른 대상 VM 서브넷에 대 한 송신 트래픽을 허용 해야 합니다.
    * **Azure Bastion 데이터 플레인으로 가는 송신 트래픽:** Azure Bastion의 기본 구성 요소 간의 데이터 플레인의 경우, **VirtualNetwork** 서비스 태그로부터의 포트 8080, 5701 아웃바운드를 **VirtualNetwork** 서비스 태그로 사용하도록 설정합니다. Azure Bastion의 구성 요소끼리 통신할 수 있게 됩니다.
    * **Azure의 다른 퍼블릭 엔드포인트에 대한 송신 트래픽:** Azure Bastion은 Azure 내의 다양한 퍼블릭 엔드포인트(예: 진단 로그 및 측광 로그 저장용)에 연결할 수 있어야 합니다. 따라서 Azure Bastion에는 **AzureCloud** 서비스 태그로 아웃바운드 443이 필요합니다.
    * **인터넷으로 가는 송신 트래픽:** Azure Bastion이 세션 및 인증서 유효성 검사를 위하여 인터넷과 통신할 수 있어야 합니다. 따라서 **인터넷** 으로 가는 포트 80 아웃바운드를 사용하도록 설정하는 것이 좋습니다.
@@ -63,7 +63,7 @@ Azure Bastion은 특히 ***AzureBastionSubnet*** 에 배포됩니다.
 ### <a name="target-vm-subnet"></a>대상 VM 서브넷
 RDP/SSH를 원하는 대상 가상 머신이 들어 있는 서브넷입니다.
 
-   * **Azure Bastion으로부터의 수신 트래픽:** Azure Bastion은 개인 IP를 통하여 대상 VM에 도달합니다. RDP/SSH 포트(각각 포트 3389와 포트 22)는 개인 IP를 통하여 대상 VM 측에서 열려야 합니다. 모범 사례로 이러한 규칙에 Azure Bastion Subnet IP 주소 범위를 추가하여 대상 VM의 이들 포트를 대상 VM 서브넷에서 열 수 있습니다.
+   * **Azure Bastion으로부터의 수신 트래픽:** Azure Bastion은 개인 IP를 통하여 대상 VM에 도달합니다. RDP/SSH 포트 (각각 포트 3389/22 또는 표준 SKU의 일부로 사용자 지정 포트 기능을 사용 하는 경우 사용자 지정 포트 값)는 개인 IP를 통해 대상 VM 쪽에서 열 필요가 있습니다. 모범 사례로 이러한 규칙에 Azure Bastion Subnet IP 주소 범위를 추가하여 대상 VM의 이들 포트를 대상 VM 서브넷에서 열 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 8d59aa45343c90520b416e9bf151e06e0339038b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: c0226e8ffdd8445818313d6f21255752dc2e5616
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542916"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083273"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -22,6 +22,35 @@ ms.locfileid: "111542916"
 [상업용 마켓플레이스를 위한 Azure 애플리케이션 제품 계획](plan-azure-application-offer.md)을 아직 읽어 보지 않았다면 읽어 보세요. 이는 리소스를 제공하고, 제품을 만들 때 필요한 정보 및 자산을 수집하는 데 도움이 됩니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Azure 애플리케이션** 선택합니다.
+
+    [![Marketplace 제안 페이지의 새 제안 단추를 보여 줍니다. ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png) ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png#lightbox)
+
+1. 새 **Azure 애플리케이션** 대화 상자에서 **제안 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+
+     * 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
+     * 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.
+     * **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+
+1. **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
+
+     * 이 이름은 파트너 센터에서 표시되며, 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
+     * **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
+
+1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
@@ -43,6 +72,8 @@ ms.locfileid: "111542916"
      * **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
 
 1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+---
 
 ## <a name="configure-your-azure-application-offer-setup-details"></a>Azure 애플리케이션 제품 설정 세부 정보 구성
 

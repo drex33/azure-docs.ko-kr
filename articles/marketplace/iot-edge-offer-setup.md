@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
-ms.openlocfilehash: 13557124999faeb68cbe009e4bbc3531023c12f9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 4817502ac03074bd1521724fe1d5e76259f3add4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971309"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084014"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -26,6 +26,23 @@ ms.locfileid: "111971309"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
+
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제안 페이지에서 **+ 새 제안** IoT Edge  >  **모듈을** 선택합니다.
+
+    [![왼쪽 창 메뉴 옵션과 '새 제안' 단추. ](./media/iot-edge/new-offer-iot-edge-workspaces.png) ](./media/iot-edge/new-offer-iot-edge-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> 제품을 게시한 후에 파트너 센터에서 편집한 내용은 해당 제품을 다시 게시한 후에만 Azure Marketplace에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
 3. 개요 페이지에서 **+ 새 제품** > **IoT Edge 모듈** 을 선택합니다.
@@ -34,6 +51,8 @@ ms.locfileid: "111971309"
 
 > [!IMPORTANT]
 > 제품을 게시한 후에 파트너 센터에서 편집한 내용은 해당 제품을 다시 게시한 후에만 Azure Marketplace에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
+
+---
 
 ## <a name="new-offer"></a>새 제안
 

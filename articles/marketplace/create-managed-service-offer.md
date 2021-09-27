@@ -7,13 +7,13 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
-ms.openlocfilehash: 0d5c178010012546bfcf786be7106f980289d6eb
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 545e868a902390929254ae6c03d668f8e0d1d10f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204485"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079728"
 ---
 # <a name="create-a-managed-service-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 관리되는 서비스 제품 만들기
 
@@ -23,20 +23,47 @@ ms.locfileid: "114204485"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상용 마켓플레이스** > **개요** 를 선택합니다.
-3. 개요 탭에서 **+ 새 제품** > **관리형 서비스** 를 선택합니다.
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-:::image type="content" source="./media/new-offer-managed-service.png" alt-text="왼쪽 탐색 메뉴를 보여 줍니다.":::
+#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
-4. **새 제품** 대화 상자에서 **제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
+
+1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+
+    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Marketplace 제품 페이지에서 **+ 새 제품**  >  **관리 서비스** 를 선택 합니다.
+
+    [![관리 서비스 제공 유형 옵션을 보여 줍니다. ](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
+
+1. **새 관리 서비스** 대화 상자에서 **제품 ID** 를 입력 합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
 
     - 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
     - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.
     - **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-5. **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다. 이 이름은 온라인 스토어에는 표시되지 않으며 고객에게 표시되는 제품 이름과는 다릅니다.
-6. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+1. **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다. 이 이름은 온라인 스토어에는 표시되지 않으며 고객에게 표시되는 제품 이름과는 다릅니다.
+1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+#### <a name="current-view"></a>[현재 보기](#tab/current-view)
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 메뉴에서 **상용 마켓플레이스** > **개요** 를 선택합니다.
+1. 개요 탭에서 **+ 새 제품** > **관리형 서비스** 를 선택합니다.
+
+    :::image type="content" source="./media/new-offer-managed-service.png" alt-text="왼쪽 탐색 메뉴를 보여 줍니다.":::
+
+1. **새 제품** 대화 상자에서 **제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+
+    - 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
+    - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.
+    - **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+
+1. **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다. 이 이름은 온라인 스토어에는 표시되지 않으며 고객에게 표시되는 제품 이름과는 다릅니다.
+1. 제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+
+---
 
 ## <a name="setup-details"></a>설정 정보
 

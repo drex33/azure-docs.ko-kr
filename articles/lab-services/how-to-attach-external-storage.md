@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: dc0f2a4f51fb12c61d0e1e16cb23d030a5dc9cc6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 86dd9290c640829049f4f6cb7b784aacba3cf7ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969277"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768746"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Lab Services에서 외부 파일 스토리지 사용
 
@@ -188,11 +188,10 @@ Active Directory 인증이 사용하도록 설정된 Azure Files 공유를 만�
 
 Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면:
 
-1. 필요한 경우 [Azure NetApp Files](https://aka.ms/azurenetappfiles)에 액세스할 수 있습니다.
-2. NetApp Files 용량 풀 및 하나 이상의 NFS 볼륨을 만들려면 [Azure NetApp Files 및 NFS 볼륨 설정](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)을 참조하세요. 서비스 수준에 대한 자세한 내용은 [Azure NetApp Files의 서비스 수준](../azure-netapp-files/azure-netapp-files-service-levels.md)을 참조하세요.
-3. 랩 계정으로 NetApp Files 용량 풀의 [가상 네트워크를 피어링](how-to-connect-peer-virtual-network.md)합니다.
-4. [교실 랩을 만듭니다](how-to-manage-classroom-labs.md).
-5. 템플릿 VM에서 NFS 파일 공유를 사용하는 데 필요한 구성 요소를 설치합니다.
+1. NetApp Files 용량 풀 및 하나 이상의 NFS 볼륨을 만들려면 [Azure NetApp Files 및 NFS 볼륨 설정](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)을 참조하세요. 서비스 수준에 대한 자세한 내용은 [Azure NetApp Files의 서비스 수준](../azure-netapp-files/azure-netapp-files-service-levels.md)을 참조하세요.
+2. 랩 계정으로 NetApp Files 용량 풀의 [가상 네트워크를 피어링](how-to-connect-peer-virtual-network.md)합니다.
+3. [교실 랩을 만듭니다](how-to-manage-classroom-labs.md).
+4. 템플릿 VM에서 NFS 파일 공유를 사용하는 데 필요한 구성 요소를 설치합니다.
     - Ubuntu:
 
         ```bash
@@ -206,7 +205,7 @@ Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면:
         sudo yum install nfs-utils
         ```
 
-6. 템플릿 VM에서 다음 스크립트를 `mount_fileshare.sh`로 저장하여 [NetApp Files 공유를 탑재](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)합니다. 용량 풀의 탑재 대상 IP 주소를 `capacity_pool_ipaddress` 변수에 할당합니다. 적절한 값을 찾기 위해 볼륨의 탑재 지침을 가져옵니다. 스크립트에는 NetApp Files 볼륨의 경로 이름이 필요합니다. 사용자가 스크립트를 실행할 수 있도록 하려면 `chmod u+x mount_fileshare.sh`를 실행합니다.
+5. 템플릿 VM에서 다음 스크립트를 `mount_fileshare.sh`로 저장하여 [NetApp Files 공유를 탑재](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)합니다. 용량 풀의 탑재 대상 IP 주소를 `capacity_pool_ipaddress` 변수에 할당합니다. 적절한 값을 찾기 위해 볼륨의 탑재 지침을 가져옵니다. 스크립트에는 NetApp Files 볼륨의 경로 이름이 필요합니다. 사용자가 스크립트를 실행할 수 있도록 하려면 `chmod u+x mount_fileshare.sh`를 실행합니다.
 
     ```bash
     #!/bin/bash
@@ -230,10 +229,10 @@ Azure Lab Services에서 Azure NetApp Files 공유를 사용하려면:
     sudo bash -c "echo ""$capacity_pool_ipaddress:/$volume_name /$mount_directory/$volume_name nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
     ```
 
-7. 모든 학생이 동일한 NetApp Files 볼륨에 대한 액세스 권한을 공유하는 경우 게시하기 전에 템플릿 컴퓨터에서 `mount_fileshare.sh` 스크립트를 실행할 수 있습니다. 각 학생이 고유한 볼륨을 얻는 경우 나중에 학생이 실행할 스크립트를 저장합니다.
-8. 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.
-9. 파일 공유에 대한 [정책을 구성](../azure-netapp-files/azure-netapp-files-configure-export-policy.md)합니다. 내보내기 정책은 단일 VM 또는 여러 VM이 볼륨에 액세스하도록 허용할 수 있습니다. 읽기 전용 또는 읽기/쓰기 액세스 권한을 부여할 수 있습니다.
-10. 학생은 VM을 시작하고 스크립트를 실행하여 파일 공유를 탑재해야 합니다. 스크립트를 한 번만 실행하면 됩니다. 명령은 다음과 같이 표시됩니다. `./mount_fileshare.sh myvolumename`.
+6. 모든 학생이 동일한 NetApp Files 볼륨에 대한 액세스 권한을 공유하는 경우 게시하기 전에 템플릿 컴퓨터에서 `mount_fileshare.sh` 스크립트를 실행할 수 있습니다. 각 학생이 고유한 볼륨을 얻는 경우 나중에 학생이 실행할 스크립트를 저장합니다.
+7. 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm)합니다.
+8. 파일 공유에 대한 [정책을 구성](../azure-netapp-files/azure-netapp-files-configure-export-policy.md)합니다. 내보내기 정책은 단일 VM 또는 여러 VM이 볼륨에 액세스하도록 허용할 수 있습니다. 읽기 전용 또는 읽기/쓰기 액세스 권한을 부여할 수 있습니다.
+9. 학생은 VM을 시작하고 스크립트를 실행하여 파일 공유를 탑재해야 합니다. 스크립트를 한 번만 실행하면 됩니다. 명령은 다음과 같이 표시됩니다. `./mount_fileshare.sh myvolumename`.
 
 ## <a name="next-steps"></a>다음 단계
 

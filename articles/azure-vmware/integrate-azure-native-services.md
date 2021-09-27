@@ -3,12 +3,12 @@ title: Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 description: Azure VMware Solution 워크로드를 모니터링하고 관리하기 위해 Microsoft Azure 네이티브 도구를 통합 및 배포하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 36bdb029f61a707f83ae42e66f399f376db23025
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 19453eeb652a0303e0447a80e37b63613aa92255
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530691"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799323"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 
@@ -86,7 +86,7 @@ Azure Automation의 [Azure 업데이트 관리](../automation/update-management/
    >[!TIP]
    >[ARM(Azure Resource Manager) 템플릿을 사용하여 Automation 계정을 만들](../automation/quickstart-create-automation-account-template.md) 수 있습니다. ARM 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
 
-1. [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md). 원하는 경우 [CLI](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) 또는 [Azure Resource Manager 템플릿](../azure-monitor/logs/resource-manager-workspace.md)을 통해 작업 영역을 만들 수도 있습니다.
+1. [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md). 원하는 경우 [CLI](../azure-monitor/logs/resource-manager-workspace.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md) 또는 [Azure Resource Manager 템플릿](../azure-monitor/logs/resource-manager-workspace.md)을 통해 작업 영역을 만들 수도 있습니다.
 
 1. [Automation 계정에서 업데이트 관리를 사용하도록 설정합니다.](../automation/update-management/enable-from-automation-account.md) 이 프로세스에서는 Log Analytics 작업 영역을 자동화 계정에 연결합니다. 
  

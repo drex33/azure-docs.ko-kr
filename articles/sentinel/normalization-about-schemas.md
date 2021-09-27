@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: bb58fcd9f7ddc9f9ef17d031f5a4139f98ae8925
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 828524e225f660cab2c11d23c5657ca82ae8781e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568322"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796517"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>ASIM(Azure Sentinel 정보 모델) 스키마(퍼블릭 미리 보기)
 
@@ -84,13 +84,14 @@ ms.locfileid: "122568322"
 |---------------------|-------------|------------|--------------------|
 | <a name="timegenerated"></a>**TimeGenerated** | 기본 제공 | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | 기본 제공 |  guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
+| **형식** | 기본 제공 | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 두 채널을 통해 동일한 이벤트를 받을 수 있지만와가 같은 경우에 유용 합니다 `EventVendor` `EventProduct` . 예를 들어 이벤트 테이블이 나 SecurityEvent 테이블로 Sysmon 이벤트를 수집할 수 있습니다. |
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
 | **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. <br><br>그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
 | **EventEndTime**        | 필수   | Alias      |      [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다.    |
 |  <a name=eventtype></a>**EventType**           | 필수   | Enumerated |    레코드에서 보고하는 작업을 설명합니다. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다. |
 | **EventSubType** | 선택 사항 | Enumerated | [EventType](#eventtype) 필드에 보고된 작업의 하위 작업에 대해 설명합니다. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다. |
-| <a name="eventresult"></a>**EventResult** | 필수 | Enumerated | 다음 값 중 하나입니다. **Success**, **Partial**, **Failure**, **NA**(해당 사항 없음).<br> <br>값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 또는 원본에서 [EventResultDetails](#eventresultdetails) 필드만 제공할 수 있습니다. 이 필드는 EventResult 값을 도출하기 위해 분석되어야 합니다.<br><br>예: `Success`|
+| <a name="eventresult"></a>**EventResult** | 필수 | Enumerated | **Success**, **Partial**, **Failure**, **NA**(해당 사항 없음) 값 중 하나입니다.<br> <br>값은 이러한 값으로 정규화되어야 하는 다른 조건을 사용하여 원본 레코드에 제공될 수 있습니다. 또는 원본에서 [EventResultDetails](#eventresultdetails) 필드만 제공할 수 있습니다. 이 필드는 EventResult 값을 도출하기 위해 분석되어야 합니다.<br><br>예: `Success`|
 | <a name=eventresultdetails></a>**EventResultDetails** | 필수 | Alias | [**EventResult**](#eventresult) 필드에 보고된 결과에 대한 이유 또는 세부 정보. 각 스키마는 이 필드에 유효한 값 목록을 문서화합니다.<br><br>예: `NXDOMAIN`|
 | **EventOriginalUid**    | 선택    | 문자열     |   원본에서 제공하는 경우 원래 레코드의 고유 ID입니다.<br><br>예: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | 선택    | 문자열     |   원본에서 제공하는 경우 원본 이벤트 유형 또는 ID입니다. 예를 들어 이 필드는 원래 Windows 이벤트 ID를 저장하는 데 사용됩니다.<br><br>예: `4624`|
@@ -110,7 +111,7 @@ ms.locfileid: "122568322"
 | | | | |
 
 > [!NOTE]
-> Log Analytics는 보안 사용 사례와 관련성이 낮은 다른 필드도 추가합니다. 자세한 내용은 [Azure Monitor 로그의 표준 열](/azure/azure-monitor/logs/log-standard-columns)을 참조하세요.
+> Log Analytics는 보안 사용 사례와 관련성이 낮은 다른 필드도 추가합니다. 자세한 내용은 [Azure Monitor 로그의 표준 열](../azure-monitor/logs/log-standard-columns.md)을 참조하세요.
 >
 
 
@@ -253,7 +254,7 @@ ms.locfileid: "122568322"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Sentinel의 정규화 및 Azure Sentinel 정보 모델을 대략적으로 설명합니다.
+이 문서에서는 Azure Sentinel 정규화와 Azure Sentinel 정보 모델의 정규화 개요를 제공합니다.
 
 자세한 내용은 다음을 참조하세요.
 

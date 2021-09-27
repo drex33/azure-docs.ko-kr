@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/30/2020
-ms.openlocfilehash: 85584626b050be8052f59c80ab294cc62747daed
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 6b899f634c5fbaa1acd0493da2d7b97b54588157
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656933"
 ---
 # <a name="troubleshoot-azure-reservation-download-usage-details"></a>Azure 예약 다운로드 사용 세부 정보 문제 해결
 

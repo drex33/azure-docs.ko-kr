@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ab9a70dccdeff6ed16eb3f25e9dc78fb274b2449
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 013a2d377ef4e30848d29c43c7275c6644cf4549
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746936"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593062"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용하여 프로필 컨테이너 만들기
 
@@ -176,8 +176,8 @@ NTFS 권한을 구성하려면 다음을 수행합니다.
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-     - <mounted-drive-letter>를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
-     - <user-email>을 사용자의 UPN 또는 공유에 대한 액세스 권한이 필요한 사용자를 포함하는 Active Directory 그룹으로 바꿉니다.
+     - \<mounted-drive-letter\>를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
+     - \<user-email\>을 사용자의 UPN 또는 공유에 대한 액세스 권한이 필요한 사용자를 포함하는 Active Directory 그룹으로 바꿉니다.
 
      예:
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: c1f2a83807703593482cc725036a2da158d7195d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d1d1ffaecdf57817e5ef7be48791d0cb50ca9b74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536723"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743548"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Azure Data Factory를 사용한 여러 폴더 복사
 
@@ -45,27 +45,27 @@ ms.locfileid: "122536723"
 
 1. **파일 저장 템플릿 간에 여러 파일 복사 컨테이너** 로 이동합니다. 원본 스토리지 저장소에 대한 **새 연결** 을 만듭니다. 원본 스토리지 저장소는 여러 컨테이너에서 파일을 복사하려는 위치입니다.
 
-    ![원본에 대한 새 연결 만들기](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png" alt-text="원본에 대한 새 연결 만들기":::
 
 2. 대상 스토리지 저장소에 대한 **새 연결** 을 만듭니다.
 
-    ![대상에 대한 새 연결 만들기](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png" alt-text="대상에 대한 새 연결 만들기":::
 
 3. **이 템플릿 사용** 을 선택합니다.
 
-    ![이 템플릿 사용](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png" alt-text="이 템플릿 사용":::
     
 4. 다음 예제와 같이 파이프라인이 표시됩니다.
 
-    ![파이프라인 표시](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png" alt-text="파이프라인 표시":::
 
 5. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
 
-    ![파이프라인 실행](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png" alt-text="파이프라인 실행":::
 
 6. 결과를 검토합니다.
 
-    ![결과 검토](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png)
+    :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image6.png" alt-text="결과 검토":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: ef86a65a03f27f62de769c599f96e1aa26862984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d05c9bbf5c3ae632bef402a354690326f60cdd62
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566940"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730837"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용하여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
@@ -34,7 +34,7 @@ Azure Data Factory는 온-프레미스 Netezza 서버에서 Azure Storage 계정
 
 Azure Data Factory는 다양한 수준에서 병렬 처리를 허용하는 서버리스 아키텍처를 제공합니다. 개발자의 경우 네트워크 및 데이터베이스 대역폭을 모두 사용하는 파이프라인을 빌드하여 환경에 대한 데이터 이동 처리량을 최대화할 수 있습니다.
 
-![성능 다이어그램](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/performance.png" alt-text="성능 다이어그램":::
 
 위의 다이어그램을 다음과 같이 해석할 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure Data Factory 복사 작업을 사용하면 원본 및 싱크 데이터 저
 
 ### <a name="migrate-data-over-the-public-internet"></a>공용 인터넷을 통해 데이터 마이그레이션
 
-![공용 인터넷을 통해 데이터 마이그레이션](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png" alt-text="공용 인터넷을 통해 데이터 마이그레이션":::
 
 위의 다이어그램을 다음과 같이 해석할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure Data Factory 복사 작업을 사용하면 원본 및 싱크 데이터 저
 
 ### <a name="migrate-data-over-a-private-network"></a>개인 네트워크를 통해 데이터 마이그레이션 
 
-![개인 네트워크를 통해 데이터 마이그레이션](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png" alt-text="개인 네트워크를 통해 데이터 마이그레이션":::
 
 위의 다이어그램을 다음과 같이 해석할 수 있습니다.
 
@@ -161,7 +161,7 @@ Azure Data Factory 복사 작업에서 보고된 대로 제한 오류가 발생�
 
 온-프레미스 Netezza 서버에서 Azure Synapse Analytics 데이터베이스로 데이터를 마이그레이션하기 위해 생성되는 다음 파이프라인을 고려합니다.
 
-![가격 책정 파이프라인](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png" alt-text="가격 책정 파이프라인":::
 
 다음 내용이 참이라고 가정해 보겠습니다. 
 
@@ -179,7 +179,7 @@ Azure Data Factory 복사 작업에서 보고된 대로 제한 오류가 발생�
 
 위의 가정을 기반으로 한 예상 가격은 다음과 같습니다. 
 
-![가격 책정 표](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png" alt-text="가격 책정 표":::
 
 > [!NOTE]
 > 위의 표에 표시된 가격은 가상입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라집니다. 자체 호스팅 IR이 설치된 Windows 컴퓨터의 가격은 포함되지 않습니다. 

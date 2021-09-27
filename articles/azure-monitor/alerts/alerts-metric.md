@@ -4,13 +4,13 @@ description: Azure Portal 또는 CLI를 사용하여 메트릭 경고 규칙을 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.openlocfilehash: 49e9dee0b28eb17f2a4241570a2f0752f33b9020
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 7a76b4b37760e5e320ab62c2660e97c9fcabdbb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567212"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815694"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -126,7 +126,7 @@ Azure Monitor의 메트릭 경고를 사용하면 메트릭 중 하나가 임계
 6. 다음 명령을 사용하여 메트릭 경고 규칙을 비활성화할 수 있습니다.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. 다음 명령을 사용하여 메트릭 경고 규칙을 삭제할 수 있습니다.

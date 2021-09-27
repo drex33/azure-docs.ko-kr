@@ -3,15 +3,15 @@ title: 리소스 그룹 관리 - Azure PowerShell
 description: Azure PowerShell을 사용하여 Azure Resource Manager를 통해 리소스 그룹을 관리합니다. 리소스 그룹을 만들고, 나열하고, 삭제하는 방법을 보여 줍니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/10/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f8d73eda0bb6b6d09a8979cf00bfc2cc8a3105b5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: c3bb028186155cc3af47f8efb293b7dbe61e13c9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951288"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731050"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Resource Manager 리소스 그룹 관리
 
@@ -24,84 +24,76 @@ ms.locfileid: "111951288"
 
 ## <a name="what-is-a-resource-group"></a>리소스 그룹이란?
 
-리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. 일반적으로 쉽게 배포, 업데이트하고 그룹으로 삭제할 수 있도록 동일한 리소스 그룹에 대해 동일한 수명 주기를 공유하는 리소스를 추가합니다.
+리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 조직에 가장 적합한 것에 따라 리소스 그룹에 리소스를 추가하는 방법을 결정합니다. 일반적으로 쉽게 배포, 업데이트하고 그룹으로 삭제할 수 있도록 동일한 리소스 그룹에 대해 동일한 수명 주기를 공유하는 리소스를 추가합니다.
 
-리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
-
-리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다.
+리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기
 
-다음 PowerShell 스크립트는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name demoResourceGroup -Location westus
+New-AzResourceGroup -Name exampleGroup -Location westus
 ```
 
 ## <a name="list-resource-groups"></a>리소스 그룹 나열
 
-다음 PowerShell 스크립트는 구독의 리소스 그룹을 나열합니다.
+구독의 리소스 그룹을 나열하려면 [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup)을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzResourceGroup
 ```
 
-하나의 리소스 그룹을 가져오려면
+하나의 리소스 그룹을 얻으려면 리소스 그룹의 이름을 제공합니다.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceGroup -Name $resourceGroupName
+Get-AzResourceGroup -Name exampleGroup
 ```
 
 ## <a name="delete-resource-groups"></a>리소스 그룹 삭제
 
-다음 PowerShell 스크립트는 리소스 그룹을 삭제합니다.
+리소스 그룹을 삭제하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용합니다.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Remove-AzResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name exampleGroup
 ```
 
 Azure Resource Manager가 리소스 삭제를 지시하는 방법에 대한 자세한 내용은 [Azure Resource Manager 리소스 그룹 삭제](delete-resource-group.md)를 참조하세요.
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>기존 리소스 그룹에 리소스 배포
+## <a name="deploy-resources"></a>리소스 배포
 
-[기존 리소스 그룹에 리소스 배포](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)를 참조하세요.
+Azure PowerShell 사용하거나 ARM(Azure Resource Manager) 템플릿 또는 Bicep 파일을 배포하여 Azure 리소스를 배포할 수 있습니다.
 
-리소스 그룹 배포의 유효성을 검사하려면 [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment)를 참조하세요.
+다음 예제에서는 스토리지 계정을 만듭니다. 스토리지 계정에 제공하는 이름은 Azure에서 고유해야 합니다.
 
-## <a name="deploy-a-resource-group-and-resources"></a>리소스 그룹 및 리소스 배포
+```azurepowershell-interactive
+New-AzStorageAccount -ResourceGroupName exampleGroup -Name examplestore -Location westus -SkuName "Standard_LRS"
+```
 
-Resource Manager 템플릿을 사용하여 리소스 그룹을 만들고 리소스를 그룹에 배포할 수 있습니다. 자세한 내용은 [리소스 그룹 만들기 및 리소스 배포](../templates/deploy-to-subscription.md#resource-groups)를 참조하세요.
+ARM 템플릿 또는 Bicep 파일을 배포하려면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용합니다.
 
-## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile storage.bicep
+```
 
-이 기능을 *오류 발생 시 롤백* 이라고도 합니다. 자세한 내용은 [배포 실패 시 다시 배포](../templates/rollback-on-error.md)를 참조하세요.
+ARM 템플릿 배포에 대한 자세한 내용은 [ARM 템플릿을 통해 리소스 배포 및 Azure PowerShell.](../templates/deploy-powershell.md)
 
-## <a name="move-to-another-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 이동
-
-그룹의 리소스를 다른 리소스 그룹으로 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
+Bicep 파일 배포에 대한 자세한 내용은 [Bicep을 통해 리소스 배포 및 Azure PowerShell.](../bicep/deploy-powershell.md)
 
 ## <a name="lock-resource-groups"></a>리소스 그룹 잠금
 
-잠금은 조직의 다른 사용자가 실수로 Azure 구독, 리소스 그룹 또는 리소스와 같은 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 
+잠금을 사용하면 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하거나 수정할 수 없게 됩니다. 
 
-다음 스크립트는 리소스 그룹을 삭제할 수 없도록 리소스 그룹을 잠급니다.
+리소스 그룹 및 해당 리소스가 삭제되지 않도록 하려면 [New-AzResourceLock을](/powershell/module/az.resources/new-azresourcelock)사용합니다.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleGroup
 ```
 
-다음 스크립트는 리소스 그룹에 대한 모든 잠금을 가져옵니다.
+리소스 그룹에 대한 잠금을 얻으려면 [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock)을 사용합니다.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceLock -ResourceGroupName $resourceGroupName 
+Get-AzResourceLock -ResourceGroupName exampleGroup
 ```
 
 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](lock-resources.md)를 참조하세요.
@@ -112,104 +104,7 @@ Get-AzResourceLock -ResourceGroupName $resourceGroupName
 
 ## <a name="export-resource-groups-to-templates"></a>템플릿으로 리소스 그룹 내보내기
 
-리소스 그룹을 설정한 후에는 리소스 그룹에 대한 Resource Manager 템플릿을 살펴볼 수 있습니다. 템플릿을 내보내면 다음과 같은 두 가지 이점이 있습니다.
-
-- 템플릿에 인프라가 포함되어 있기 때문에 향후 솔루션 배포를 간단하게 자동화할 수 있습니다.
-- 솔루션을 나타내는 JSON(JavaScript Object Notation)을 살펴보면서 템플릿 구문에 익숙해집니다.
-
-리소스 그룹의 모든 리소스를 내보내려면 [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet을 사용하고 리소스 그룹 이름을 제공합니다.
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Export-AzResourceGroup -ResourceGroupName $resourceGroupName
-```
-
-템플릿을 로컬 파일로 저장합니다.
-
-리소스 그룹의 모든 리소스를 내보내는 대신, 내보낼 리소스를 선택할 수 있습니다.
-
-한 리소스를 내보내려면 해당 리소스 ID를 제공합니다.
-
-```azurepowershell-interactive
-$resource = Get-AzResource `
-  -ResourceGroupName <resource-group-name> `
-  -ResourceName <resource-name> `
-  -ResourceType <resource-type>
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource $resource.ResourceId
-```
-
-둘 이상의 리소스를 내보내려면 리소스 ID를 일렬로 제공합니다.
-
-```azurepowershell-interactive
-Export-AzResourceGroup `
-  -ResourceGroupName <resource-group-name> `
-  -Resource @($resource1.ResourceId, $resource2.ResourceId)
-```
-
-템플릿을 내보낼 때 템플릿에서 매개 변수를 사용할지 여부를 지정할 수 있습니다. 기본적으로 리소스 이름에 대한 매개 변수는 포함되지만 기본값은 없습니다. 배포하는 동안 해당 매개 변수 값을 제공해야 합니다.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": null,
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": null,
-    "type": "String"
-  }
-}
-```
-
-리소스에서 해당 매개 변수가 이름으로 사용됩니다.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "[parameters('serverfarms_demoHostPlan_name')]",
-    ...
-  }
-]
-```
-
-템플릿을 내보낼 때 `-IncludeParameterDefaultValue` 매개 변수를 사용하는 경우 템플릿 매개 변수는 현재 값으로 설정된 기본값을 포함합니다. 기본값을 사용하거나 다른 값을 제공하여 기본값을 덮어쓸 수 있습니다.
-
-```json
-"parameters": {
-  "serverfarms_demoHostPlan_name": {
-    "defaultValue": "demoHostPlan",
-    "type": "String"
-  },
-  "sites_webSite3bwt23ktvdo36_name": {
-    "defaultValue": "webSite3bwt23ktvdo36",
-    "type": "String"
-  }
-}
-```
-
-템플릿을 내보낼 때 `-SkipResourceNameParameterization` 매개 변수를 사용하는 경우 리소스 이름에 대한 매개 변수가 템플릿에 포함되지 않습니다. 대신, 리소스 이름이 현재 값으로 리소스에 직접 설정됩니다. 배포하는 동안 이름을 사용자 지정할 수 없습니다.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
-    "name": "demoHostPlan",
-    ...
-  }
-]
-```
-
-템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원하지 않습니다. Data Factory 리소스를 내보내는 방법에 관한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](../../data-factory/copy-clone-data-factory.md)를 참조하세요.
-
-클래식 배포 모델을 통해 만든 리소스를 내보내려면 [Resource Manager 배포 모델로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)해야 합니다.
-
-[Azure Portal에서 템플릿으로 단일 리소스 및 다중 리소스 내보내기](../templates/export-template-portal.md)를 참조하세요.
+ARM 템플릿 만들기를 지원하기 위해 기존 리소스에서 템플릿을 내보낼 수 있습니다. 자세한 내용은 [Azure PowerShell 사용하여 템플릿 내보내기를 참조하세요.](../templates/export-template-powershell.md) 
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대한 액세스 관리
 
@@ -219,5 +114,3 @@ Export-AzResourceGroup `
 
 - Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조하세요.
 - Resource Manager 템플릿 구문에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/syntax.md)를 참조하세요.
-- 템플릿을 개발하는 방법을 알아보려면 [단계별 자습서](../index.yml)를 참조하세요.
-- Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조하세요.

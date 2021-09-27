@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 605405965e4c6bc17321401245866f9b21f3a988
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812627"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760064"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
@@ -68,7 +68,7 @@ Azure Data Lake Storage Gen2 또는 Azure Blob Storage에 데이터를 가져오
 자세한 내용은 [Azure SQL 데이터베이스 및 Azure Synapse Analytics에서 데이터 공유 및 수신](how-to-share-from-sql.md)을 참조하십시오.
 
 ## <a name="share-from-data-explorer"></a>Azure 데이터 탐색기에서 공유
-Azure Data Share는 Azure 데이터 탐색기 클러스터에서 전체 데이터베이스를 공유하는 기능을 지원합니다. 데이터 공급자는 데이터베이스 또는 클러스터 수준에서 공유할 수 있습니다. 
+Azure Data Share는 Azure 데이터 탐색기 클러스터에서 전체 데이터베이스를 공유하는 기능을 지원합니다. 데이터 공급자는 데이터베이스 또는 클러스터 수준에서 공유할 수 있습니다. 데이터 공유 API를 사용 하 여 데이터를 공유 하는 경우 특정 테이블을 공유할 수도 있습니다.  
 
 데이터를 데이터베이스 수준에서 공유하는 경우, 데이터 소비자는 데이터 공급자가 공유하는 데이터베이스에만 액세스할 수 있습니다. 공급자가 클러스터 수준에서 데이터를 공유하는 경우 데이터 소비자는 데이터 공급자가 만드는 이후 데이터베이스를 포함하여 공급자 클러스터의 모든 데이터베이스에 액세스할 수 있습니다.
 

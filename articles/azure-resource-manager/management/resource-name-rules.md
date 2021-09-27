@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/08/2021
-ms.openlocfilehash: 4beb484a6f3e81fe6baa7cbeba33c0f18639fb18
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 8b5614f155b0891db38ab0151f00e60c79049161
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531098"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820490"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -26,6 +26,9 @@ ms.locfileid: "122531098"
 * **a**~**z**(소문자)
 * **A**~**Z**(대문자)
 * **0**~**9**(숫자)
+
+> [!NOTE]
+> 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](resource-name-rules.md)을 참조 하세요.
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -86,9 +89,9 @@ ms.locfileid: "122531098"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호<br><br>마침표로 끝날 수 없습니다. |
-> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
-> | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
-> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
+> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 다음을 사용할 수 없습니다.<br>`<>*%&:\?.+/` 또는 컨트롤 문자입니다. <br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -96,14 +99,14 @@ ms.locfileid: "122531098"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | automationAccounts | 리소스 그룹 및 지역 <br>(아래 참고 사항 참조) | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
-> | automationAccounts / certificates | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다.  |
-> | automationAccounts / connections | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
-> | automationAccounts / credentials | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
+> | automationAccounts / certificates | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다.  |
+> | automationAccounts / connections | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다. |
+> | automationAccounts / credentials | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다. |
 > | automationAccounts / runbooks | Automation 계정 | 1-63 | 영숫자, 밑줄 및 하이픈<br><br>문자로 시작합니다.  |
-> | automationAccounts / schedules | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
-> | automationAccounts / variables | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
+> | automationAccounts / schedules | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다. |
+> | automationAccounts / variables | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다. |
 > | automationAccounts / watchers | Automation 계정 | 1-63 |  영숫자, 밑줄 및 하이픈<br><br>문자로 시작합니다. |
-> | automationAccounts / webhooks | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
+> | automationAccounts / webhooks | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` 또는 제어 문자 <br><br>공백으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정의 이름을 즉시 사용하지 못할 수도 있습니다.
@@ -171,7 +174,7 @@ ms.locfileid: "122531098"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | availabilitySets | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | cloudservices | 리소스 그룹 | 1-15 <br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | cloudservices | 리소스 그룹 | 1-15 <br><br>아래 참고 사항을 참조하세요. | 공백, 제어 문자 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 > | diskEncryptionSets | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
 > | disks | 리소스 그룹 | 1-80 | 영숫자, 밑줄 및 하이픈 |
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
@@ -181,8 +184,8 @@ ms.locfileid: "122531098"
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VM은 마침표를 포함하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux VM은 마침표 또는 하이픈으로 끝날 수 없습니다. |
-> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백, 제어 문자 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VM은 마침표를 포함하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux VM은 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백, 제어 문자 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Azure Virtual Machines에는 리소스 이름과 호스트 이름이라는 두 가지 고유한 이름이 있습니다. 포털에서 가상 머신을 만들 때 두 이름에 동일한 값이 사용됩니다. 위의 표에 나와 있는 제한은 호스트 이름에 대한 것입니다. 실제 리소스 이름은 최대 64자까지 가능합니다.
@@ -254,8 +257,8 @@ ms.locfileid: "122531098"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | associations | 리소스 그룹 | 1-180 | 다음을 사용할 수 없습니다.<br>`%&\\?/`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
-> | resourceProviders | 리소스 그룹 | 3-64 | 다음을 사용할 수 없습니다.<br>`%&\\?/`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | associations | 리소스 그룹 | 1-180 | 다음을 사용할 수 없습니다.<br>`%&\\?/` 또는 제어 문자<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | resourceProviders | 리소스 그룹 | 3-64 | 다음을 사용할 수 없습니다.<br>`%&\\?/` 또는 제어 문자<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -277,13 +280,13 @@ ms.locfileid: "122531098"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | factories | 글로벌 | 3-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
-> | factories / dataflows | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
-> | factories / datasets | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
+> | factories / dataflows | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
+> | factories / datasets | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
 > | factories / integrationRuntimes | 공장 | 3-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
-> | factories / linkedservices | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
-> | factories / pipelines | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
-> | factories / triggers | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
-> | factories / triggers / rerunTriggers | 트리거 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/`<br><br>영숫자로 시작합니다. |
+> | factories / linkedservices | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
+> | factories / pipelines | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
+> | factories / triggers | 공장 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
+> | factories / triggers / rerunTriggers | 트리거 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*#.%&:\\+?/` 또는 제어 문자<br><br>영숫자로 시작합니다. |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -413,11 +416,11 @@ ms.locfileid: "122531098"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`:<>+/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
-> | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
-> | scheduledQueryRules | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*<>%{}&:\\?/#` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
-> | metricAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*#&+:<>?@%{}\/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
-> | activityLogAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%{}&:\\?+/#` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`:<>+/&%\?` 또는 제어 문자 <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` 또는 제어 문자 <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | scheduledQueryRules | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*<>%{}&:\\?/#` 또는 제어 문자 <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | metricAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*#&+:<>?@%{}\/` 또는 제어 문자 <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | activityLogAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%{}&:\\?+/#` 또는 제어 문자 <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -467,9 +470,9 @@ ms.locfileid: "122531098"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | commitmentPlans | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
-> | webServices | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
-> | workspaces | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\`<br><br>공백으로 끝날 수 없습니다. |
+> | commitmentPlans | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\` 또는 제어 문자<br><br>공백으로 끝날 수 없습니다. |
+> | webServices | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\` 또는 제어 문자<br><br>공백으로 끝날 수 없습니다. |
+> | workspaces | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`<>*%&:?+/\\` 또는 제어 문자<br><br>공백으로 끝날 수 없습니다. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -618,9 +621,33 @@ ms.locfileid: "122531098"
 > | --- | --- | --- | --- |
 > | 배포 | 리소스 그룹 | 1-64 | 영숫자, 밑줄, 괄호, 하이픈 및 마침표 |
 > | resourcegroups | subscription | 1-90 | [regex 설명서](/rest/api/resources/resourcegroups/createorupdate)와 일치하는 영숫자, 밑줄, 괄호, 하이픈, 마침표 및 유니코드 문자<br><br>마침표로 끝날 수 없습니다. |
-> | tagNames | resource | 1-512 | 다음을 사용할 수 없습니다.<br>`<>%&\?/` |
+> | tagNames | resource | 1-512 | 다음을 사용할 수 없습니다.<br>`<>%&\?/` 또는 제어 문자 |
 > | tagNames / tagValues | 태그 이름 | 1-256 | 모두 문자입니다. |
 > | templateSpecs | 리소스 그룹 | 1-90 | 영숫자, 밑줄, 괄호, 하이픈 및 마침표 |
+
+## <a name="microsoftsecurity"></a>Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | 리소스 그룹 | 값 참조 | `current`이어야 합니다. |
+> | alertsSuppressionRules | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | assessmentMetadata | 평가 유형 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | assessments | 평가 유형 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | automations | 리소스 그룹 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | autoProvisioningSettings | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | 커넥터 | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | deviceSecurityGroups | 리소스 그룹 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | informationProtectionPolicies | 리소스 그룹 | 값 참조 | 다음 중 하나를 사용합니다.<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | 리소스 그룹 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | locations / applicationWhitelistings | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | locations / jitNetworkAccessPolicies | 리소스 그룹 | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | ingestionSettings | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | pricings | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | securityContacts | subscription | 1-260 | 영숫자, 밑줄 및 하이픈 |
+> | 설정 | subscription | 값 참조 | 다음 중 하나를 사용합니다.<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | 리소스 종류 | 값 참조 | `Default`이어야 합니다. |
+> | sqlVulnerabilityAssessments / baselineRules | 취약점 평가 | 1-260 | 영숫자, 밑줄 및 하이픈 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -660,11 +687,11 @@ ms.locfileid: "122531098"
 > | managedInstances | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. <br><br> `@`와 같은 특수 문자를 사용할 수 없습니다. |
 > | servers | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
 > | servers / administrators | 서버 |  | `ActiveDirectory`이어야 합니다. |
-> | servers / databases | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | servers / databases | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?` 또는 제어 문자<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 > | servers / databases / syncGroups | 데이터베이스 | 1-150 | 영숫자, 하이픈 및 밑줄 |
-> | servers / elasticPools | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
+> | servers / elasticPools | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?` 또는 제어 문자<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
 > | servers / failoverGroups | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
-> | servers / firewallRules | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:;\/?`<br><br>마침표로 끝날 수 없습니다. |
+> | servers / firewallRules | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:;\/?` 또는 제어 문자<br><br>마침표로 끝날 수 없습니다. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -712,9 +739,9 @@ ms.locfileid: "122531098"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | environments | 리소스 그룹 | 1-90 | 다음을 사용할 수 없습니다.<br>`'<>%&:\?/#` |
-> | environments / accessPolicies | 환경 | 1-90 | 다음을 사용할 수 없습니다.<br> `'<>%&:\?/#` |
-> | environments / eventSources | 환경 | 1-90 | 다음을 사용할 수 없습니다.<br>`'<>%&:\?/#` |
+> | environments | 리소스 그룹 | 1-90 | 다음을 사용할 수 없습니다.<br>`'<>%&:\?/#` 또는 제어 문자 |
+> | environments / accessPolicies | 환경 | 1-90 | 다음을 사용할 수 없습니다.<br> `'<>%&:\?/#` 또는 제어 문자 |
+> | environments / eventSources | 환경 | 1-90 | 다음을 사용할 수 없습니다.<br>`'<>%&:\?/#` 또는 제어 문자 |
 > | environments / referenceDataSets | 환경 | 3-63 | 영숫자 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -734,4 +761,6 @@ ms.locfileid: "122531098"
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스 이름을 표시하는 방법에 대한 권장 사항은 [준비: 권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
+* 리소스 이름을 표시하는 방법에 대한 권장 사항은 [준비: 권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
+
+* 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](resource-name-rules.md)을 참조 하세요.

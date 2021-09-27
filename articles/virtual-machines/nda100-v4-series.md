@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: iafinder
-ms.openlocfilehash: 7a129c8b4c03ea4ff71255f18f0637ef57aa060a
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 22883ab1053a69cc0593565eb19df46ae1852fb7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586368"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774142"
 ---
 # <a name="nd-a100-v4-series"></a>ND A100 v4 시리즈
 
@@ -42,19 +42,19 @@ ND A100 v4 시리즈는 단일 VM(가상 머신) 및 8개의 NVIDIA Ampere A100 
 InfiniBand: 지원됨, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: 지원됨<br>
 <br>
+ND A100 v4 시리즈는 다음과 같은 커널 버전을 지원합니다. <br>
+CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
+Ubuntu 18.04: 5.4.0-1043-azure <br>
+Ubuntu 20.04: 5.4.0-1046-azure <br>
+<br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD): GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 네트워크 대역폭 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPU(NVLink 3.0) | 40 | 32 | 80,000 / 800 | 24,000Mbps | 8 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)] <br>
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-ND A100 v4 시리즈는 다음과 같은 커널 버전을 지원합니다. 
-- CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
-- Ubuntu 18.04: 5.4.0-1043-azure <br>
-- Ubuntu 20.04: 5.4.0-1046-azure <br>
-
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -62,6 +62,10 @@ ND A100 v4 시리즈는 다음과 같은 커널 버전을 지원합니다.
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

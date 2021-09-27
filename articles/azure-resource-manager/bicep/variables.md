@@ -4,13 +4,13 @@ description: Bicep에서 변수를 정의하는 방법을 설명합니다.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: b2f696adbad88cd424f2292b333069a7b80a13b2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 040e40d20fe81bb72493f087c9d0583a911b1ee7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634958"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733340"
 ---
 # <a name="variables-in-bicep"></a>Bicep의 변수
 
@@ -32,6 +32,7 @@ var stringVar = 'example value'
 param inputValue string = 'deployment Parameter'
 
 var stringVar = 'myVariable'
+
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
 ```
@@ -43,6 +44,12 @@ var concatToParam = '${inputValue}AddToParam'
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
+
+다음 예제에서는 리소스를 배포하지 않습니다. 다양한 형식의 변수를 선언하는 방법을 보여줍니다.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
+
+루프를 사용하여 동적 개수의 요소가 있는 배열 변수를 선언할 수 있습니다. 자세한 내용은 [Bicep의 변수 반복을 참조하세요.](loop-variables.md)
 
 ## <a name="use-variable"></a>변수 사용
 
@@ -69,18 +76,13 @@ output stgOutput string = storageName
 
 스토리지 계정 이름은 소문자를 사용해야 하므로 `storageName` 변수는 `toLower` 함수를 사용하여 `storageNamePrefix` 값을 소문자로 만듭니다. `uniqueString` 함수는 리소스 그룹 ID에서 고유한 값을 만듭니다. 값은 문자열에 연결됩니다.
 
-## <a name="example-template"></a>예제 템플릿
-
-다음 템플릿은 리소스를 배포하지 않습니다. 다양한 형식의 변수를 선언하는 몇 가지 방법을 보여 줍니다.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
-
 ## <a name="configuration-variables"></a>구성 변수
 
 환경을 구성하기 위한 관련된 값을 포함하는 변수를 정의할 수 있습니다. 값이 있는 개체로 변수를 정의합니다. 다음 예제에서는 **test** 와 **prod** 의 두 환경에 대한 값을 보유하는 개체를 보여 줍니다. 배포하는 동안 해당 값 중 하나를 전달합니다.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
 
 ## <a name="next-steps"></a>다음 단계
 
 - 변수에 사용할 수 있는 속성에 대한 자세한 내용은 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
+- 변수 선언과 함께 루프를 사용하는 방법에 대한 자세한 내용은 [Bicep의 변수 반복을](loop-variables.md)참조하세요.

@@ -12,13 +12,13 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/15/2020
-ms.openlocfilehash: 3bdf18a9496d7aac7ff69a47849cad9c7e0b942c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c66e7a1d19ecf392c5f990bcaa31ba506cf0d7f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642963"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767416"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 
@@ -84,7 +84,7 @@ Azure Data Factory 및 Synapse 파이프라인은 여러 수준에서 병렬 처
 
 복사본은 다양한 수준에서 확장 가능합니다.
 
-![복사본 크기 조정 방법](media/copy-activity-performance/adf-copy-scalability.png)
+:::image type="content" source="media/copy-activity-performance/adf-copy-scalability.png" alt-text="복사본 크기 조정 방법":::
 
 * 제어 흐름에서는 여러 복사 작업을 병렬로 시작할 수 있습니다(예: [For Each 루프](control-flow-for-each-activity.md) 사용).
 

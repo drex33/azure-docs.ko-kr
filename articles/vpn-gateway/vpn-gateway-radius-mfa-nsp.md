@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 6cfc6ea361dddf703741baa1a990018186b402e4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: 6fada4ca0ae24c2f3b859e02c55c7406cc44bb51
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289483"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734968"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
@@ -22,7 +22,7 @@ ms.locfileid: "108289483"
 
 ## <a name="prerequisite"></a>필수 조건
 
-MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어야 하며 이는 온-프레미스 또는 클라우드 환경에서 동기화되어야 합니다. 또한 사용자가 MFA에 대한 자동 등록 프로세스를 이미 완료해 놓아야 합니다.  자세한 내용은 [2단계 인증에 내 계정 설정](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)을 참조하세요.
+MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어야 하며 이는 온-프레미스 또는 클라우드 환경에서 동기화되어야 합니다. 또한 사용자가 MFA에 대한 자동 등록 프로세스를 이미 완료해 놓아야 합니다.  자세한 내용은 [2단계 인증에 내 계정 설정](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 참조하세요.
 
 ## <a name="detailed-steps"></a>자세한 단계
 

@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: rogarana
-ms.openlocfilehash: 6f179fe2e91da9e68a0809763bd9f38a5947e8a4
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
-ms.translationtype: HT
+ms.openlocfilehash: 3dcc0a93473e5f0b14f8921114172dbf6506d8aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113600607"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636746"
 ---
 # <a name="compare-access-to-azure-files-blob-storage-and-azure-netapp-files-with-nfs"></a>NFS를 사용한 Azure Files, Blob Storage, Azure NetApp Files에 대한 액세스 비교
 
@@ -29,7 +29,6 @@ ms.locfileid: "113600607"
 |성능(볼륨당)     |최대 2만 IOPS, 최대 100GiB/s 처리량         |최대 10만 IOPS, 최대 80GiB/s 처리량         |최대 46만 IOPS, 최대 36GiB/s 처리량         |
 |확장     | 단일 볼륨에 대해 최대 2PiB <br></br> 단일 파일에 대해 최대 ~4.75TiB<br></br>최소 용량 요구 사항이 없음         |단일 파일 공유에 대해 최대 100TiB<br></br>단일 파일에 대해 최대 4TiB<br></br>100GiB 최소 용량         |단일 볼륨에 대해 최대 100TiB<br></br>단일 파일에 대해 최대 16TiB<br></br>일관된 하이브리드 클라우드 환경         |
 |가격 책정     |[Azure Blob Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)         |[Azure Files 가격 책정](https://azure.microsoft.com/pricing/details/storage/files/)         |[Azure NetApp Files 가격 책정](https://azure.microsoft.com/pricing/details/netapp/)         |
-
 
 ## <a name="next-steps"></a>다음 단계
 

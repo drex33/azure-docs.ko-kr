@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: mimckitt
-ms.openlocfilehash: 1fc0b3b628256f5ecbc0361ee2294e70e1619160
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: e75b06655fc6fe34be24b295be3d9255bc2b27fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698350"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600250"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 
@@ -33,7 +33,7 @@ ms.locfileid: "122698350"
 아래 테이블에는 Azure Marketplace를 통해 Windows 클라이언트 이미지를 배포할 수 있는 제품 ID가 자세히 나와 있습니다. Windows 클라이언트 이미지는 다음 제품에 대해서만 표시됩니다. 
 
 > [!NOTE]
-> 이미지 제품은 Azure Marketplace의 **Windows 클라이언트** 아래에 있습니다. Visual Studio 구독자가 사용할 수 있는 클라이언트 이미지를 검색할 때 **Windows 클라이언트** 를 사용합니다. 
+> 이미지 제품은 Azure Marketplace의 **Windows 클라이언트** 아래에 있습니다. Visual Studio 구독자가 사용할 수 있는 클라이언트 이미지를 검색할 때 **Windows 클라이언트** 를 사용합니다. Visual Stuido 구독을 구입 해야 하는 경우 구입 시 다양 한 옵션을 참조 하세요 [Visual Studio](https://visualstudio.microsoft.com/vs/pricing/?tab=business)
 
 | 제품 이름 | 제품 번호 | 사용 가능한 클라이언트 이미지 | 
 |:--- |:---:|:---:|
@@ -41,7 +41,6 @@ ms.locfileid: "122698350"
 | [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Visual Studio Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Visual Studio Test Professional 구독자](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
-| [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |

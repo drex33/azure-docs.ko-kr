@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure Event Hubs
 description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: e9bb4b5a27173181c7295e96a1eb0654a1a929e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 48d982e27d9da83d16bfbaad1a24ad1c8991a065
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363512"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647426"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Event Hubs
 

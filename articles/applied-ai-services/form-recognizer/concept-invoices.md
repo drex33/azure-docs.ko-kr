@@ -2,7 +2,6 @@
 title: 청구서 - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer API 사용량 및 제한으로 청구서 분석과 관련된 개념을 알아봅니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: f1d0860e3ab5366661971ba932b87e61d82803e0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 92f20d9275aad08a47e20202e1daab621d1a4578
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567937"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646990"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Form Recognizer의 미리 빌드된 청구서 모델
 
@@ -80,7 +79,7 @@ JSON 출력은 세 부분으로 나뉩니다.
 
 ### <a name="key-value-pairs"></a>키 값 쌍 
 
-|속성| 유형 | 설명 | 텍스트 | 값(표준화된 출력) |
+|속성| 유형 | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 청구서를 받는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대한 참조 ID | CID-12345 |  |

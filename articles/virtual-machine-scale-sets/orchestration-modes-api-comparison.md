@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 20278ebae9e590a99293c37df506b7d07ff79ddc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699306"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804074"
 ---
 # <a name="preview-orchestration-modes-api-comparison"></a>미리 보기: 오케스트레이션 모드 API 비교 
 
@@ -59,7 +59,7 @@ ms.locfileid: "122699306"
 
 ### <a name="flexible-alternative"></a>유연한 대체 
 단일 VM API 호출:
-- 인스턴스 보호 유형 동작을 위한 [ARM 잠금 리소스](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources?tabs=json) 
+- 인스턴스 보호 유형 동작을 위한 [ARM 잠금 리소스](../azure-resource-manager/management/lock-resources.md?tabs=json) 
 
 
 ## <a name="list-instances"></a>인스턴스 나열 

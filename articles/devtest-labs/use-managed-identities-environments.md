@@ -1,14 +1,14 @@
 ---
-title: DevTest Labs에서 Azure 관리 ID를 사용하여 환경 만들기 | Microsoft Docs
+title: Azure 관리 되는 id를 사용 하 여 환경 만들기
 description: Azure에서 관리 ID를 사용하여 Azure DevTest Labs의 랩에 환경을 배포하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
-ms.translationtype: HT
+ms.openlocfilehash: 29ebda2920dc6fce5596d9b8b535ef014fd2240e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854687"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595969"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Azure 관리 ID를 사용하여 랩에 환경 배포 
 

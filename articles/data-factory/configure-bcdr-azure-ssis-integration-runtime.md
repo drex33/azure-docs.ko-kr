@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 453f1db3e0f80a63c058c7e0ea21ab9282295de6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 246ed5dba1c19894fee0f3cf9f4fe1a72efafa18
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566721"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828364"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>BCDR(비즈니스 연속성 및 재해 복구)를 위한 Azure-SSIS 통합 런타임 구성 
 
@@ -68,19 +68,7 @@ Azure SQL Managed Instance 장애 조치(failover) 그룹과 동기화된 상태
 
    **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 [SSISDB를 사용하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb)하는 경우, **SSISDB 장애 조치(failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택합니다. **이중 대기 쌍 이름** 에 기본/보조 Azure-SSIS IR 쌍을 식별하는 동일한 이름을 입력합니다. 보조 Azure-SSIS IR 만들기를 완료하면 해당 IR가 시작되고 보조 SSISDB에 연결됩니다.
 
-1. Azure SQL Managed Instance에서는 DMK(데이터베이스 마스터 키)를 사용해 데이터를 암호화함으로써 SSISDB와 같이 데이터베이스에 중요한 데이터를 보호할 수 있습니다. DMK 자체는 기본적으로 SMK(서비스 마스터 키)를 사용하여 암호화됩니다. 작성 시점에 Azure SQL Managed Instance 장애 조치(failover) 그룹은 기본 Azure SQL Managed Instance에서 SMK을 복제하지 않으므로, 장애 조치(failover)가 발생한 후에는 보조 Azure SQL Managed Instance에서 DMK와 SSISDB를 암호 해독할 수 없습니다. 이 문제를 해결하려면 DMK 암호 암호화를 추가하여 보조 Azure SQL Managed Instance에서 암호를 해독하면 됩니다. SSMS를 사용하여 다음 단계를 완료합니다.
-
-   1. 기본 Azure SQL Managed Instance에서 다음과 같은 SSISDB 명령을 실행하여 DMK를 암호화하기 위한 암호를 추가합니다.
-
-      ```sql
-      ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'YourPassword'
-      ```
-   
-   1. 기본/보조 Azure SQL Managed Instance에서 모두 다음과 같은 SSISDB 명령을 실행하여 DMK 암호를 해독하기 위한 새 암호를 추가합니다.
-
-      ```sql
-      EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
-      ```
+1. Azure SQL Managed Instance에서는 DMK(데이터베이스 마스터 키)를 사용해 데이터를 암호화함으로써 SSISDB와 같이 데이터베이스에 중요한 데이터를 보호할 수 있습니다. DMK 자체는 기본적으로 SMK(서비스 마스터 키)를 사용하여 암호화됩니다. 9 월 2021 이후 SMK는 장애 조치 (failover) 그룹을 만드는 동안 기본 Azure SQL Managed Instance에서 보조 데이터베이스로 복제 됩니다. 이전에 장애 조치 (failover) 그룹을 만든 경우에는 보조 Azure SQL Managed Instance에서 SSISDB를 포함 하 여 모든 사용자 데이터베이스를 삭제 하 고 장애 조치 (failover) 그룹을 다시 만듭니다.
 
 1. SSISDB 장애 조치(failover)가 발생할 때 가동 중지 시간이 거의 0이 되도록 하려면 두 Azure-SSIS IR를 모두 계속 실행합니다. 기본 Azure-SSIS IR만 기본 SSISDB에 액세스하여 패키지를 가져오고 실행할 수 있을 뿐만 아니라 패키지 실행 로그를 작성할 수 있으며, 보조 Azure-SSIS IR는 예컨대 Azure Files와 같이 다른 곳에 배포된 패키지에 한해 동일한 작업을 수행할 수 있습니다.
 
@@ -90,7 +78,7 @@ Azure SQL Managed Instance 장애 조치(failover) 그룹과 동기화된 상태
 
    1. 각 SSIS 작업에서 마우스 오른쪽 단추를 클릭하고 **다음으로 스크립트 작업**, **만들 위치** 및 **새 쿼리 편집기 창** 드롭다운 메뉴 항목을 선택하여 해당 스크립트를 생성합니다.
 
-      ![SSIS 작업 스크립트 생성](media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png)
+      :::image type="content" source="media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png" alt-text="SSIS 작업 스크립트 생성":::
 
    1. 생성된 각 SSIS 작업 스크립트의 경우 `sp_add_job` 저장 프로시저를 실행하고 필요에 따라 `@owner_login_name` 인수에 대한 값 할당을 수정/제거하는 명령을 찾습니다.
 

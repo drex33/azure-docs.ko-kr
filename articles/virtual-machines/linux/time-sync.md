@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 09/03/2021
 ms.author: cynthn
-ms.openlocfilehash: e5ceb8e4db1d2b94d746303a2185bea2015467a0
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 324373fc56ae1a57adfb522ca77f06f2c080074c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691014"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776522"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
@@ -112,17 +112,12 @@ Linux가 부팅될 때마다 초기화 순서가 다를 수 있으므로 Azure �
 Ubuntu 19.10 이상 버전, Red Hat Enterprise Linux 및 CentOS 8.x, [chrony](https://chrony.tuxfamily.org/)는 PTP 원본 클록을 사용하도록 구성됩니다. Chrony가 아닌 이전 버전의 Linux 릴리스에서는 NTPD(Network Time Protocol Daemon)를 사용하며, 이는 PTP 원본을 지원하지 않습니다. 해당 릴리스에서 PTP를 사용하도록 설정하려면 다음 문을 사용하여 chrony.conf에서 chrony를 수동으로 설치하고 구성해야 합니다.
 
 ```bash
-refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0 stratum 2
 ```
-위 /dev/ptp_hyperv symlink를 사용할 수 있는 경우 /dev/ptp0 대신 이를 사용하여 Mellanox mlx5 드라이버에서 만든 /dev/ptp 디바이스의 혼동을 방지합니다.
 
-Ubuntu 및 NTP에 대한 자세한 내용은 [시간 동기화](https://ubuntu.com/server/docs/network-ntp)를 참조하세요.
+/dev/ptp_hyperv symlink를 사용할 수 있는 경우 /dev/ptp0 대신 사용하여 Mellanox mlx5 드라이버에서 만든 /dev/ptp 디바이스와 혼동하지 않도록 합니다.
 
-Red Hat 및 NTP에 대한 자세한 내용은 [NTP 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP)을 참조하세요. 
-
-Chrony에 대한 자세한 내용은 [chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조하세요.
-
-Chrony 및 VMICTimeSync 원본이 동시에 사용 설정된 경우에는 한 원본을 **선호** 로 표시하여 다른 원본을 자동으로 백업으로 설정할 수 있습니다. NTP 서비스는 오랜 기간이 지난 후에만 시계의 큰 불일치(skew)를 업데이트하므로 VMICTimeSync는 일시 중지된 VM 이벤트에서 NTP 기반 도구만 사용하는 경우보다 훨씬 더 빠르게 시계를 복구합니다.
+계층 정보는 Azure 호스트에서 Linux 게스트로 자동으로 전달되지 않습니다. 앞의 구성 줄은 Azure 호스트 시간 원본이 계층 2로 처리되도록 지정합니다. 그러면 Linux 게스트가 자체적으로 Stratum 3으로 보고됩니다. Linux 게스트가 자신을 다르게 보고하도록 하려면 구성 줄에서 계층 설정을 변경할 수 있습니다.
 
 기본적으로 chronyd는 시스템 클록을 가속화하거나 느리게 하여 시간 드리프트를 수정합니다. 드리프트가 너무 커지면 Chrony는 드리프트를 수정하지 못합니다. 이를 해결하기 위해 드리프트가 지정된 임계값을 초과하는 경우 시간 동기화를 강제로 수행하도록 **/etc/chrony.conf** 의 `makestep` 매개 변수를 변경할 수 있습니다.
 
@@ -135,6 +130,12 @@ makestep 1.0 -1
 ```bash
 systemctl restart chronyd
 ```
+
+Ubuntu 및 NTP에 대한 자세한 내용은 [시간 동기화](https://ubuntu.com/server/docs/network-ntp)를 참조하세요.
+
+Red Hat 및 NTP에 대한 자세한 내용은 [NTP 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP)을 참조하세요. 
+
+Chrony에 대한 자세한 내용은 [chrony 사용](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)을 참조하세요.
 
 ### <a name="systemd"></a>systemd 
 

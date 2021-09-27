@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: dec61a586c744fd8a5f537bf5a593b7409a1636e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7ebb64ccdfaaefe517baf21c0996d49f0bdc1278
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528668"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760444"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -46,11 +46,11 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **데이터 + 분석**, **Data Factory** 를 차례로 클릭합니다. 
    
-   ![새로 만들기->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png" alt-text="새로 만들기->DataFactory":::
    
 3. **새 데이터 팩터리** 페이지에서 **이름** 으로 **MyAzureSsisDataFactory** 를 입력합니다. 
       
-   ![새 데이터 팩터리 페이지](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png" alt-text="새 데이터 팩터리 페이지":::
  
    ADF 이름은 전역적으로 고유해야 합니다. 다음 오류가 표시되는 경우 ADF 이름을 변경하고(예: yournameMyAzureSsisDataFactory) 다시 만들어 봅니다. ADF 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
@@ -70,11 +70,11 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 9. **만들기** 를 클릭합니다.
 10. Azure 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
-    ![데이터 팩터리 배포 중 타일](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+    :::image type="content" source="media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png" alt-text="데이터 팩터리 배포 중 타일":::
    
 11. 만들기가 완료되면 아래와 같이 ADF 페이지를 볼 수 있습니다.
    
-    ![데이터 팩터리 홈페이지](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+    :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
    
 12. **작성 및 모니터링** 을 클릭하여 별도의 탭에서 ADF UI/앱을 시작합니다.
 
@@ -82,20 +82,20 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 1. 홈페이지에서 **오케스트레이션** 을 선택합니다. 
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
    
 2. **작업** 도구 상자에서 **일반** 메뉴를 펼치고, **웹** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 속성 창의 **일반** 탭에서 작업 이름을 **startMyIR** 로 변경합니다. **설정** 탭으로 전환하고, 다음 작업을 수행합니다.
 
     1. **URL** 에는 Azure-SSIS IR을 시작하는 REST API에 대한 다음 URL을 입력하고 `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, `{integrationRuntimeName}`을 IR의 실제 값 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`로 바꿉니다. 또는 ADF UI/앱의 모니터링 페이지에서 IR의 리소스 ID를 복사하여 붙여넣고, 위의 URL에서 `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}` 부분을 바꿔도 됩니다.
     
-       ![ADF SSIS IR 리소스 ID](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
+       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png" alt-text="ADF SSIS IR 리소스 ID":::
   
     2. **메서드** 로 **POST** 를 선택합니다. 
     3. **본문** 에 `{"message":"Start my IR"}`를 입력합니다. 
     4. **인증** 에는 ADF에 관리 ID를 사용하는 **MSI** 를 선택합니다. 자세한 내용은 [데이터 팩터리용 관리 ID](./data-factory-service-identity.md) 문서를 참조하세요.
     5. **리소스** 에 `https://management.azure.com/`을 입력합니다.
     
-       ![ADF 웹 작업 일정 SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
+       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png" alt-text="ADF 웹 작업 일정 SSIS IR":::
   
 3. 첫 번째 파이프라인을 복제하여 두 번째 파이프라인을 만들고, 작업 이름을 **stopMyIR** 로 변경하고 다음 속성을 바꿉니다.
 
@@ -105,7 +105,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 4. 세 번째 파이프라인을 만들고, **작업** 도구 상자의 **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어서 놓고, [ADF에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 호출](how-to-invoke-ssis-package-ssis-activity.md) 문서의 지침에 따라 구성합니다.  또는 **저장 프로시저** 작업을 대신 사용하고 [ADF에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출](how-to-invoke-ssis-package-stored-procedure-activity.md) 문서의 지침에 따라 구성할 수도 있습니다.  다음으로, 첫 번째/두 번째 파이프라인의 웹 작업과 마찬가지로 IR을 시작/중지하는 두 웹 작업 간에 SSIS 패키지/저장 프로시저 실행 작업을 연결합니다.
 
-   ![ADF 웹 작업 주문형 SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png" alt-text="ADF 웹 작업 주문형 SSIS IR":::
 
 5. ADF에 대한 관리 ID 자체에 **기여자** 역할을 할당하면 파이프라인의 웹 작업에서 REST API를 호출하여 그 안에 프로비전된 Azure-SSIS IR을 시작/중지할 수 있습니다.  Azure Portal의 ADF 페이지에서 **액세스 제어(IAM)** 를 클릭하고, **+ 역할 할당 추가** 를 클릭하고, **역할 할당 추가** 블레이드에서 다음 작업을 수행합니다.
 
@@ -114,17 +114,17 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     3. **선택** 에서 ADF 이름을 검색하여 선택합니다. 
     4. **저장** 을 클릭합니다.
     
-   ![ADF 관리 ID 역할 할당](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png" alt-text="ADF 관리 ID 역할 할당":::
 
 6. 팩터리/파이프라인 도구 모음에서 **모든 유효성 검사/유효성 검사** 를 클릭하여 ADF 및 모든 파이프라인 설정의 유효성을 검사합니다. **>>** 단추를 클릭하여 **팩터리/파이프라인 유효성 검사 출력** 을 닫습니다.  
 
-   ![파이프라인 유효성 검사](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png" alt-text="파이프라인 유효성 검사":::
 
 ### <a name="test-run-your-pipelines"></a>파이프라인 테스트 실행
 
 1. 각 파이프라인의 도구 모음에서 **테스트 실행** 을 선택하고 아래쪽 창에서 **출력** 창을 봅니다. 
 
-   ![테스트 실행](./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png" alt-text="테스트 실행":::
     
 2. 세 번째 파이프라인을 테스트하려면 SSMS(SQL Server Management Studio)를 시작합니다. **서버에 연결** 창에서 다음 작업을 수행합니다. 
 
@@ -136,7 +136,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     6. SSIS 패키지를 마우스 오른쪽 단추로 클릭하고, **보고서** -> **표준 보고서** -> **모든 실행** 을 실행 및 선택합니다. 
     7. 실행되었는지 확인합니다. 
 
-   ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png" alt-text="SSIS 패키지 실행 확인":::
 
 ### <a name="schedule-your-pipelines"></a>파이프라인 일정 예약
 
@@ -144,11 +144,11 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 1. 파이프라인 도구 모음에서 **트리거** 를 선택하고 **새로 만들기/편집** 을 선택합니다. 
 
-   ![트리거 -> 새로 만들기/편집 메뉴 옵션을 강조 표시하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png" alt-text="트리거-> 새로 만들기/편집 메뉴 옵션을 강조 표시 하는 스크린샷":::
 
 2. **트리거 추가** 창에서 **+ 새로 만들기** 를 선택합니다.
 
-   ![트리거 추가 - 새로 만들기](./media/how-to-schedule-azure-ssis-integration-runtime/add-triggers-new.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/add-triggers-new.png" alt-text="트리거 추가 - 새로 만들기":::
 
 3. **새 트리거** 창에서 다음 작업을 수행합니다. 
 
@@ -160,26 +160,26 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     6. 전체 ADF 설정을 게시하는 즉시 트리거가 활성화되도록 **활성화됨** 을 선택합니다. 
     7. **다음** 을 선택합니다.
 
-   ![트리거 -> 새로 만들기/편집](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png" alt-text="트리거-> 새로 만들기/편집":::
     
 4. **트리거 실행 매개 변수** 페이지에서 경고를 검토하고 **마침** 을 선택합니다. 
 5. 팩터리 도구 모음에서 **모두 게시** 를 선택하여 전체 ADF 설정을 게시합니다. 
 
-   ![모두 게시](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png" alt-text="모두 게시":::
 
 ### <a name="monitor-your-pipelines-and-triggers-in-azure-portal"></a>Azure Portal에서 파이프라인 및 트리거 모니터링
 
 1. 트리거 실행 및 파이프라인 실행을 모니터링하려면 ADF UI/앱 왼쪽에 있는 **모니터링** 탭을 사용합니다. 자세한 단계는 [파이프라인 모니터링](quickstart-create-data-factory-portal.md#monitor-the-pipeline) 문서를 참조하세요.
 
-   ![파이프라인 실행](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png" alt-text="파이프라인 실행":::
 
 2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 세 번째 파이프라인에는 파이프라인의 연결된 작업당 하나씩 총 세 개의 작업 실행이 있습니다(IR을 시작하는 웹 작업, 패키지를 실행하는 저장 프로시저 작업, IR을 중지하는 웹 작업). 파이프라인 실행을 다시 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
-   ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png" alt-text="작업 실행":::
 
 3. 트리거 실행을 보려면 상단의 **파이프라인 실행** 아래에 있는 드롭다운 목록에서 **트리거 실행** 을 선택합니다. 
 
-   ![트리거 실행](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png" alt-text="트리거 실행":::
 
 ### <a name="monitor-your-pipelines-and-triggers-with-powershell"></a>PowerShell을 사용하여 파이프라인 및 트리거 모니터링
 
@@ -209,13 +209,13 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 ### <a name="create-your-azure-automation-account"></a>Azure Automation 계정 만들기
 
-아직 Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 만듭니다. 자세한 단계는 [Azure Automation 계정 만들기](../automation/automation-quickstart-create-account.md) 문서를 참조하세요. 이 단계의 일부로 **Azure 실행** 계정(Azure Active Directory의 서비스 사용자)을 만들어서 Azure 구독의 **기여자** 역할에 할당합니다. Azure SSIS IR이 있는 ADF를 포함하고 있는 구독과 동일한 구독인지 확인합니다. Azure Automation은 이 계정을 사용하여 Azure Resource Manager에 인증하고 리소스를 작동합니다. 
+아직 Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 만듭니다. 자세한 단계는 [Azure Automation 계정 만들기](../automation/quickstarts/create-account-portal.md) 문서를 참조하세요. 이 단계의 일부로 **Azure 실행** 계정(Azure Active Directory의 서비스 사용자)을 만들어서 Azure 구독의 **기여자** 역할에 할당합니다. Azure SSIS IR이 있는 ADF를 포함하고 있는 구독과 동일한 구독인지 확인합니다. Azure Automation은 이 계정을 사용하여 Azure Resource Manager에 인증하고 리소스를 작동합니다. 
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 ADF UI/앱은 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 3. 왼쪽 메뉴에서 **새로 만들기** 를 선택하고 **모니터링 + 관리** 를 선택한 후 **Automation** 을 선택합니다. 
 
-   ![모니터링 + 관리 > Automation 옵션을 강조 표시하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png" alt-text="모니터링 + 관리 > Automation 옵션을 강조 표시 하는 스크린샷":::
     
 2. **Automation 계정 추가** 창에서 다음 작업을 수행합니다.
 
@@ -227,37 +227,37 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     6. 영구적으로 Azure 대시보드에 표시하려면 **대시보드에 고정** 을 선택합니다. 
     7. **만들기** 를 선택합니다. 
 
-   ![새로 만들기 -> 모니터링 + 관리 -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png" alt-text="새 > 모니터링 + 관리-> 자동화":::
    
 3. Azure 대시보드 및 알림에 Azure Automation 계정의 배포 상태가 표시됩니다. 
     
-   ![Automation 배포 중](./media/how-to-schedule-azure-ssis-integration-runtime/deploying-automation.png) 
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/deploying-automation.png" alt-text="Automation 배포 중"::: 
     
 4. Azure Automation 계정의 홈페이지가 생성되면 홈페이지를 볼 수 있습니다. 
 
-   ![Automation 홈페이지](./media/how-to-schedule-azure-ssis-integration-runtime/automation-home-page.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/automation-home-page.png" alt-text="Automation 홈페이지":::
 
 ### <a name="import-adf-modules"></a>ADF 모듈 가져오기
 
 1. 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈** 을 선택하고, 모듈 목록에 **Az.DataFactory** + **Az.Profile** 이 있는지 확인합니다.
 
-   ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
+   :::image type="content" source="media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png" alt-text="필요한 모듈 확인":::
 
 2.  **Az.DataFactory** 가 없으면 [Az.DataFactory 모듈](https://www.powershellgallery.com/packages/Az.DataFactory/)의 PowerShell 갤러리로 이동하여 **Azure Automation에 배포** 를 선택하고, Azure Automation 계정을 선택하고, **확인** 을 선택합니다. 뒤로 돌아가서 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈** 을 보려면 **Az.DataFactory** 모듈의 **상태** 가 **사용 가능** 으로 바뀔 때까지 기다립니다.
 
-    ![데이터 팩터리 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
+    :::image type="content" source="media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png" alt-text="데이터 팩터리 모듈 확인":::
 
 3.  **Az.Profile** 이 없으면 [Az.Profile 모듈](https://www.powershellgallery.com/packages/Az.profile/)의 PowerShell 갤러리로 이동하여 **Azure Automation에 배포** 를 선택하고, Azure Automation 계정을 선택하고, **확인** 을 선택합니다. 뒤로 돌아가서 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈** 을 보려면 **Az.Profile** 모듈의 **상태** 가 **사용 가능** 으로 바뀔 때까지 기다립니다.
 
-    ![프로필 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
+    :::image type="content" source="media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png" alt-text="프로필 모듈 확인":::
 
 ### <a name="create-your-powershell-runbook"></a>PowerShell Runbook 만들기
 
-다음 섹션에서는 PowerShell Runbook을 만드는 단계를 안내합니다. Runbook과 연결된 스크립트는 사용자가 **OPERATION** 매개 변수에 지정한 명령에 따라 Azure-SSIS IR 프로그램을 시작/중지합니다. 이 섹션에서는 Runbook 만들기에 대한 세부 정보를 제공하지 않습니다. 자세한 내용은 [Runbook 만들기](../automation/automation-quickstart-create-runbook.md) 문서를 참조하세요.
+다음 섹션에서는 PowerShell Runbook을 만드는 단계를 안내합니다. Runbook과 연결된 스크립트는 사용자가 **OPERATION** 매개 변수에 지정한 명령에 따라 Azure-SSIS IR 프로그램을 시작/중지합니다. 이 섹션에서는 Runbook 만들기에 대한 세부 정보를 제공하지 않습니다. 자세한 내용은 [Runbook 만들기](../automation/learn/powershell-runbook-managed-identity.md) 문서를 참조하세요.
 
 1. **Runbook** 탭으로 전환한 후 도구 모음에서 **+ Runbook 추가** 를 선택합니다. 
 
-   ![\+ Runbook 추가 단추를 강조 표시하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png" alt-text="\+ Runbook 추가 단추를 강조 표시하는 스크린샷":::
    
 2. **새 Runbook 만들기** 를 선택하고 다음 작업을 수행합니다. 
 
@@ -265,7 +265,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     2. **Runbook 형식** 으로 **PowerShell** 을 선택합니다.
     3. **만들기** 를 선택합니다.
     
-   ![Runbook 추가 단추](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png" alt-text="Runbook 추가 단추":::
    
 3. 다음 PowerShell 스크립트를 복사하여 Runbook 스크립트 창에 붙여넣습니다. 도구 모음에서 **저장** 및 **게시** 단추를 사용하여 Runbook을 저장한 후 게시합니다. 
 
@@ -322,11 +322,11 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     "##### Completed #####"    
     ```
 
-   ![PowerShell Runbook 편집](./media/how-to-schedule-azure-ssis-integration-runtime/edit-powershell-runbook.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/edit-powershell-runbook.png" alt-text="PowerShell Runbook 편집":::
     
 4. 도구 모음에서 **시작** 단추를 선택하여 Runbook을 테스트합니다. 
 
-   ![Runbook 시작 단추](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png" alt-text="Runbook 시작 단추":::
     
 5. **Runbook 시작** 창에서 다음 작업을 수행합니다. 
 
@@ -336,11 +336,11 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     4. **OPERATION** 에 **START** 를 입력합니다. 
     5. **확인** 을 선택합니다.  
 
-   ![Runbook 시작 창](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png" alt-text="Runbook 시작 창":::
    
 6. 작업 창에서 **출력** 타일을 선택합니다. 출력 창에 **##### Starting #####** 메시지가 표시된 후 **##### Completed #####** 메시지가 표시될 때까지 기다립니다. Azure-SSIS IR을 시작하는 데 20분 정도 걸립니다. **작업** 창을 닫고 **Runbook** 창으로 돌아갑니다.
 
-   ![출력 타일을 강조 표시하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png" alt-text="출력 타일을 강조 표시하는 스크린샷":::
     
 7. **OPERATION** 값으로 **STOP** 을 사용하여 위의 두 단계를 반복합니다. 도구 모음에서 **시작** 단추를 선택하여 Runbook을 다시 시작합니다. 리소스 그룹, ADF 및 Azure-SSIS IR 이름을 입력합니다. **OPERATION** 에 대해 **STOP** 을 입력합니다. 출력 창에 **##### Stopping #####** 메시지가 표시된 후 **##### Completed #####** 메시지가 표시될 때까지 기다립니다. Azure-SSIS IR 중지는 시작만큼 오래 걸리지 않습니다. **작업** 창을 닫고 **Runbook** 창으로 돌아갑니다.
 
@@ -352,7 +352,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 1. **Runbook** 창에서 **일정** 을 선택하고, 도구 모음에서 **+ 일정 추가** 를 선택합니다. 
 
-   ![Azure SSIS IR - 시작됨](./media/how-to-schedule-azure-ssis-integration-runtime/add-schedules-button.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/add-schedules-button.png" alt-text="Azure SSIS IR - 시작됨":::
    
 2. **Runbook 예약** 창에서 다음 작업을 수행합니다. 
 
@@ -364,17 +364,17 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
     6. **되풀이 간격** 에는 **1** 을 입력하고 **일** 을 선택합니다. 
     7. **만들기** 를 선택합니다. 
 
-   ![Azure SSIS IR 시작 일정](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png" alt-text="Azure SSIS IR 시작 일정":::
     
 3. **매개 변수 및 실행 설정** 탭으로 전환합니다. 리소스 그룹, ADF 및 Azure-SSIS IR 이름을 지정합니다. **OPERATION** 에 **START** 를 입력하고 **확인** 을 선택합니다. **확인** 을 다시 선택하여 Runbook의 **일정** 페이지에서 일정을 확인합니다. 
 
-   ![작업 필드를 강조 표시하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png" alt-text="작업 필드를 강조 표시하는 스크린샷":::
     
 4. 이전 2단계를 반복해서 **IR 매일 중지** 라는 일정을 만듭니다. **IR 매일 시작** 일정에 대해 지정한 시간보다 적어도 30분 뒤의 시간을 입력합니다. **OPERATION** 에 **STOP** 을 입력하고 **확인** 을 선택합니다. **확인** 을 다시 선택하여 Runbook의 **일정** 페이지에서 일정을 확인합니다. 
 
 5. **Runbook** 창의 왼쪽 메뉴에서 **작업** 을 선택합니다. 지정된 시간에 일정에 따라 만들어지는 작업과 상태를 볼 수 있습니다. Runbook을 테스트한 후에 본 것과 마찬가지로, 출력 같은 작업 세부 정보를 볼 수 있습니다. 
 
-   ![Azure SSIS IR 시작 일정](./media/how-to-schedule-azure-ssis-integration-runtime/schedule-jobs.png)
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/schedule-jobs.png" alt-text="Azure SSIS IR 시작 일정":::
     
 6. 테스트를 마친 후에는 일정을 편집하여 사용하지 않도록 설정합니다. 왼쪽 메뉴에서 **일정** 을 선택하고, **IR 매일 시작/IR 매일 중지** 를 선택하고, **사용** 에서 **아니요** 를 선택합니다. 
 

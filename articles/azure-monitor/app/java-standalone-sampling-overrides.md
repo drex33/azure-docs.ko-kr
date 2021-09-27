@@ -6,12 +6,12 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
-ms.translationtype: HT
+ms.openlocfilehash: c0f6c1b0fce97bc835cb63a47d8827d7fab8ed56
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448885"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599832"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>샘플링 재정의(미리 보기) - Java용 Azure Monitor Application Insights
 
@@ -189,9 +189,10 @@ ms.locfileid: "106448885"
 |---|---|---|
 | `http.method` | 문자열 | HTTP 요청 메서드입니다.|
 | `http.url` | 문자열 | `scheme://host[:port]/path?query[#fragment]` 형식의 전체 HTTP 요청 URL. 조각은 일반적으로 HTTP를 통해 전송되지 않습니다. 하지만 조각이 알려져 있는 경우 이를 포함해야 합니다.|
-| `http.status_code` | number | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
 | `http.flavor` | 문자열 | HTTP 프로토콜의 유형입니다. |
 | `http.user_agent` | 문자열 | 클라이언트에서 보낸 [HTTP 사용자 에이전트](https://tools.ietf.org/html/rfc7231#section-5.5.3) 헤더의 값입니다. |
+
+`http.status_code`은 범위의 시작 부분에 사용할 수 없으므로 샘플링 결정에 사용할 수 없습니다.
 
 ### <a name="jdbc-spans"></a>JDBC 범위
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: d30ce268c7e117e5673af51ee32bea3b8923576b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2cacb9a975dba536fc4744a24ea26ec1083b5668
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536358"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827061"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용하는 Azure Stack Edge Pro의 시스템 요구 사항 
 
@@ -41,7 +41,7 @@ Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다.
 
 다음 Edge 스토리지 계정은 디바이스의 REST 인터페이스에서 지원됩니다. Edge 스토리지 계정은 디바이스에서 만들어집니다. 자세한 내용은 [Edge 스토리지 계정](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)을 참조하세요.
 
-|형식  |스토리지 계정  |의견  |
+|유형  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 
@@ -51,7 +51,7 @@ Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다.
 
 이러한 스토리지 계정은 로컬 Azure Resource Manager에 연결할 때 디바이스 로컬 API를 통해 생성됩니다. 지원되는 스토리지 계정은 다음과 같습니다.
 
-|형식  |스토리지 계정  |의견  |
+|유형  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob, Page Blob        | SKU 유형은 Standard_LRS입니다       |
 |Premium     |GPv1: 블록 Blob, Page Blob        | SKU 유형은 Premium_LRS입니다        |
@@ -82,7 +82,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
 |----------|-----------|------------|----------|----------|
-| TCP 443(HTTPS)| 아웃       | WAN        | Yes      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
+| TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
 전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](../iot-edge/troubleshoot.md)으로 이동하세요.
 

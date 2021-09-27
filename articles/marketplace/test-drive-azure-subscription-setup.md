@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: 3fe1862f951b83c6514bda061650b912e9230e46
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642667"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
 
@@ -57,10 +57,13 @@ ms.locfileid: "122537615"
     13. Azure AD 앱의 비밀을 생성하려면 다음과 같이 합니다.
         1. **애플리케이션 관리** 에서 **인증서 및 비밀** 을 선택합니다.
         2. 클라이언트 비밀 아래에서 **+ 새 클라이언트 비밀** 을 선택합니다.
-        3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
+
+             :::image type="content" source="./media/test-drive/new-client-secret.png" alt-text="새 클라이언트 암호를 추가 합니다.":::
+
+        3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 이 키가 만료 되 면 테스트 드라이브가 중단 됩니다 .이 시점에서 AppSource에 새 키를 생성 하 여 제공 해야 하므로 최대 24 개월 기간을 사용 하는 것이 좋습니다.
         4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호 만들기.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="클라이언트 암호 만들기.":::
 
 5. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.
@@ -99,22 +102,20 @@ ms.locfileid: "122537615"
             > - SharePoint를 열고 보안 그룹과 데이터 테이블을 공유합니다.
 
 7. 방금 만든 Azure 앱을 시험 사용 CRM 인스턴스에 애플리케이션 사용자로 추가합니다. 이 단계는 Dynamics 365 고객 참여 제품에만 적용됩니다.
-    1. **Azure Active Directory** 에 새 사용자를 추가합니다. 사용자를 만드는 데는 동일한 테넌트에 속하는 **이름** 및 **사용자 이름** 값만 필요하며 다른 필드는 기본값으로 둡니다. 사용자 이름 값을 복사합니다.
-    2. **CRM 인스턴스** 에 로그인하고 **설정** > **보안** > **사용자** 를 선택합니다.
-    3. **애플리케이션 사용자** 로 보기를 변경합니다.
+    1. **CRM 인스턴스** 에 로그인하고 **설정** > **보안** > **사용자** 를 선택합니다.
+    2. **애플리케이션 사용자** 로 보기를 변경합니다.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="사용자에 대한 계정 정보 설정.":::
 
-    4. 새 사용자를 추가합니다(양식이 애플리케이션 사용자에 대한 양식인지 확인).
-    5. **기본 이메일** 및 **사용자 이름** 필드에 동일한 사용자 이름을 입력합니다. **애플리케이션 ID** 에 **Azure ApplicationId** 를 추가합니다.
-    6. **전체 이름** 을 지정합니다.
-    7. **저장** 을 선택합니다.
-    8. **역할 관리** 를 선택합니다.
-    9. *시스템 관리자* 와 같은 읽기, 쓰기 및 할당 역할 권한을 포함하는 사용자 지정이나 OOB 보안 역할을 할당합니다.
+    3. 새 사용자를 추가합니다(양식이 애플리케이션 사용자에 대한 양식인지 확인).
+    4. **응용 프로그램 ID** 에서 위의 만든 **Azure ApplicationId** 를 추가 합니다.
+    5. **저장** 을 선택합니다.
+    6. **역할 관리** 를 선택합니다.
+    7. *시스템 관리자* 와 같은 읽기, 쓰기 및 할당 역할 권한을 포함하는 사용자 지정이나 OOB 보안 역할을 할당합니다.
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="역할 권한 선택.":::
 
-    10. 또한 **다른 사용자를 대신** 권한을 사용하도록 설정합니다.
+    10. **다른 사용자 권한을 대신** 하 여 동작을 사용 하도록 설정 합니다.
     11. 시험 사용을 위해 만든 사용자 지정 보안 역할을 애플리케이션 사용자에게 할당합니다.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Dynamics 365 for Operations 설정
@@ -156,7 +157,7 @@ ms.locfileid: "122537615"
         3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
         4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호 만들기.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="클라이언트 암호 추가를 표시 합니다.":::
 
 4. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.

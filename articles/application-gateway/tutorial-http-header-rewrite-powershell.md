@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: absha
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07e12272eeb8d35620baafef5414060dff2e9ee2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: c28735d0f7eab4fccabb79095f1fe5631fc04d1c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319632"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800026"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
 

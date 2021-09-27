@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: c6a46d1d0224ac802dc2c7b418e1fa19f1b26099
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863176"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742863"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Azure HDInsight의 할당량 증가 요청
 
@@ -64,7 +64,7 @@ CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 �
 > [!NOTE]  
 > 프라이빗 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [승인 목록에 추가 요청을 제출](https://aka.ms/canaryintwhitelist)합니다.
 
-[지원 서비스에 문의하여 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)할 수 있습니다.
+[지원 서비스에 문의하여 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)할 수 있습니다.
 
 몇 가지 고정 할당량 한도가 있습니다. 예를 들어 단일 Azure 구독에는 최대 10,000개의 코어가 있을 수 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
 

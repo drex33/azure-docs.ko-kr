@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 7e8e1db98ac79c2be6dbb399a14368ce3e2f898c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: b2216754cbdb6081a82f71392aee6e5f8ce2d3ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033499"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648414"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 업그레이드
 
@@ -96,10 +96,10 @@ ms.locfileid: "123033499"
 원본 서버에서 모든 역할을 덤프하려면
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
-psql을 사용하여 대상 서버에 복원하려면
+`roles.sql` `NOSUPERUSER` `NOBYPASSRLS` 대상 서버에서 psql을 사용 하 여 콘텐츠를 복원 하기 전에을 편집 하 고 및의 참조를 제거 합니다.
 
 ```azurecli-interactive
 psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
@@ -198,6 +198,14 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
 
 > [!TIP]
 > 이 문서에서 설명하는 프로세스를 사용하여 미리 보기 상태인 Azure Database for PostgreSQL 유연한 서버를 업그레이드할 수도 있습니다. 주요 차이점은 유연한 서버 대상에 대한 연결 문자열에 `@dbName`이 없다는 점입니다.  예를 들어 사용자 이름이 `pg`인 경우 연결 문자열의 단일 서버 사용자 이름은 `pg@pg-95`이고, 유연한 서버에서는 `pg`를 사용하기만 하면 됩니다.
+
+## <a name="post-upgrademigrate"></a>업그레이드 후/마이그레이션
+주 버전 업그레이드가 완료되면 `ANALYZE` 각 데이터베이스에서 명령을 실행하여 테이블을 새로 고치는 것이 `pg_statistic` 좋습니다. 그렇지 않으면 성능 문제가 발생할 수 있습니다.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## <a name="next-steps"></a>다음 단계
 

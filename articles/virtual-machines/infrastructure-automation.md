@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 2ba417782fcaa5fedc5696546af60623696387e7
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a9605f6a6240fcaad29b30c03138f31e1472ba3f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694304"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734867"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -118,7 +118,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [PowerShell Runbook 만들기](../automation/learn/automation-tutorial-runbook-textual-powershell.md)
+- [PowerShell Runbook 만들기](../automation/learn/powershell-runbook-managed-identity.md)
 - [Hybrid Runbook Worker를 사용하여 온-프레미스 리소스 관리](../automation/automation-hybrid-runbook-worker.md)
 - [Azure Automation DSC 사용](../automation/automation-dsc-getting-started.md)
 

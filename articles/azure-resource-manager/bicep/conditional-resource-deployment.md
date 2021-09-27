@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: be7e52cb093eb9920be5b6e8e9971b7f882f7f06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566285"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793838"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Bicep의 조건부 배포
 
@@ -18,6 +18,10 @@ Bicep에서 리소스 또는 모듈을 선택적으로 배포해야 하는 경�
 
 > [!NOTE]
 > 조건부 배포는 [하위 리소스](child-resource-name-type.md)로 연결되지 않습니다. 리소스 및 해당 자식 리소스를 조건부로 배포하려면 각 리소스 종류에 동일한 조건을 적용해야 합니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+조건에 대해 자세히 알아보고 실습 지침은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
 
 ## <a name="deploy-condition"></a>배포 조건
 

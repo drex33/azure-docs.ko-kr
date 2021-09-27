@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d2f29553d831d80923f569211bc15855b96f591
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 9310b08a41932e92ab57728c2c55476c67f086b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665933"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601637"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -46,39 +47,39 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽의 메뉴에서 **데이터 팩터리** 를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >** 를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리** 를 클릭합니다.
 
-   ![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png" alt-text="모든 > 데이터 팩터리 찾아보기":::
 3. **데이터 팩터리** 블레이드에서 관심있는 데이터 팩터리를 선택합니다.
 
-    ![데이터 팩터리 선택](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/select-data-factory.png" alt-text="데이터 팩터리 선택":::
 
    데이터 팩터리의 홈 페이지가 표시됩니다.
 
-   ![데이터 팩터리 블레이드](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/data-factory-blade.png" alt-text="데이터 팩터리 블레이드":::
 
 #### <a name="diagram-view-of-your-data-factory"></a>데이터 팩터리의 다이어그램 뷰
 데이터 팩터리의 **다이어그램** 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다. 데이터 팩터리의 **다이어그램** 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램** 을 클릭합니다.
 
-![다이어그램 뷰](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/diagram-view.png" alt-text="다이어그램 뷰":::
 
 확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 데이터 세트 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(즉, 선택한 항목의 업스트림 및 다운스트림 항목 표시).
 
 ### <a name="activities-inside-a-pipeline"></a>파이프라인 내부의 활동
 1. 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기** 를 클릭하면 파이프라인 내부의 모든 활동과 활동에 대한 입력 및 출력 데이터 세트가 표시됩니다. 이 기능은 파이프라인에 둘 이상의 작업이 포함된 경우 단일 파이프라인의 운영 계보를 이해하고자 할 때 유용합니다.
 
-    ![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png" alt-text="파이프라인 열기 메뉴":::     
 2. 다음 예제에서는 입력 및 출력이 있는 파이프라인에서 복사 작업을 볼 수 있습니다. 
 
-    ![파이프라인 내부의 활동](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png" alt-text="파이프라인 내부의 활동":::
 3. 왼쪽 위 모서리의 이동 경로 탐색에서 **Data factory** 링크를 클릭하면 Data factory 홈 페이지로 되돌아갈 수 있습니다.
 
-    ![데이터 팩터리로 돌아가기](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png" alt-text="데이터 팩터리로 돌아가기":::
 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>파이프라인 내부의 각 작업 상태 보기
 작업에 의해 생성되는 데이터 세트의 상태를 보면 작업의 현재 상태를 볼 수 있습니다.
 
 **다이어그램** 에서 **OutputBlobTable** 을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 표시됩니다. 복사 작업이 지난 8시간 동안 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.  
 
-![파이프라인 상태](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png" alt-text="파이프라인 상태":::
 
 데이터 팩터리의 데이터 세트 조각의 상태는 다음 중 하나입니다.
 
@@ -143,20 +144,20 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 **최근에 업데이트된 조각** 블레이드에서 조각 항목을 클릭하면 조각에 대한 세부 사항을 볼 수 있습니다.
 
-![조각 세부 정보](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/slice-details.png" alt-text="조각 세부 정보":::
 
 조각이 여러 번 실행된 경우 **활동 실행** 목록에 여러 행이 표시됩니다. **활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 목록에 모든 로그 파일과 함께 오류 메시지가 있다면 표시됩니다. 이 기능은 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
 
-![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details.png" alt-text="작업 실행 세부 정보":::
 
 조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림** 목록에서 [준비] 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 이 기능은 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
-![준비되지 않은 업스트림 조각](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png" alt-text="준비되지 않은 업스트림 조각":::
 
 ### <a name="dataset-state-diagram"></a>데이터 세트 상태 다이어그램
 데이터 팩터리를 배포하고 파이프라인의 활성 기간이 유효한 경우 데이터 세트 조각은 하나의 상태에서 다른 상태로 전환됩니다. 현재 조각 상태는 다음과 같은 상태 다이어그램을 따릅니다.
 
-![상태 다이어그램](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-diagram.png" alt-text="상태 다이어그램":::
 
 데이터 팩터리의 데이터 세트 상태 전환 흐름에는 Waiting(대기)-&gt; In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -&gt; Ready/Failed(준비/실패)가 포함됩니다.
 
@@ -204,13 +205,13 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Azure Portal을 사용한 오류 디버그:
 1. **테이블** 블레이드에서 **상태** 가 **실패** 로 설정된 문제 조각을 클릭합니다.
 
-   ![문제 조각이 있는 테이블 블레이드](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png" alt-text="문제 조각이 있는 테이블 블레이드":::
 2. **데이터 조각** 블레이드에서 실패한 작업 실행을 클릭합니다.
 
-   ![오류가 있는 데이터 조각](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png" alt-text="오류가 있는 데이터 조각":::
 3. **작업 실행 세부 정보** 블레이드에서 HDInsight 처리와 관련된 파일을 다운로드할 수 있습니다. Status/stderr에 대한 **다운로드** 를 클릭하여 오류에 대한 세부 정보를 포함하는 오류 로그 파일을 다운로드합니다.
 
-   ![오류가 있는 작업 실행 세부 정보 블레이드](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="오류가 있는 작업 실행 세부 정보 블레이드":::     
 
 #### <a name="use-powershell-to-debug-an-error"></a>PowerShell을 사용한 오류 디버그
 1. **PowerShell** 을 시작합니다.
@@ -278,11 +279,11 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
-![실패한 조각 다시 실행](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/rerun-slice.png" alt-text="실패한 조각 다시 실행":::
 
 정책 오류(예: 데이터를 사용할 수 없음)로 인해 조각 유효성 검사에 실패한 경우에는 명령 모음의 **유효성 검사** 단추를 클릭하여 오류를 해결하고 유효성 검사를 다시 할 수 있습니다.
 
-![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png" alt-text="오류 수정 및 유효성 검사":::
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 **Set-AzDataFactorySliceStatus** cmdlet을 사용하여 실패를 다시 실행할 수 있습니다. cmdlet에 대한 구문 및 기타 세부 정보는 [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 항목을 참조하세요.
@@ -300,37 +301,37 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
 1.  Azure Portal에 로그인하고 **모니터 -> 경고** 를 선택하여 경고 페이지를 엽니다.
 
-    ![경고 페이지를 엽니다.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image1.png" alt-text="경고 페이지를 엽니다.":::
 
 2.  **+ 새로운 경고 규칙** 을 선택하여 새 경고를 만듭니다.
 
-    ![새 경고 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image2.png" alt-text="새 경고 만들기":::
 
 3.  **경고 조건** 을 정의합니다. (**리소스 종류별 필터** 필드에서 **데이터 팩터리** 를 선택해야 합니다.) **차원** 값을 지정할 수도 있습니다.
 
-    ![경고 조건 정의 - 대상 선택](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image3.png" alt-text="경고 조건 정의 - 대상 선택":::
 
-    ![경고 조건 정의 - 경고 기준 추가](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image4.png" alt-text="경고 조건 정의 - 경고 기준 추가":::
 
-    ![경고 조건 정의 - 경고 논리 추가](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image5.png" alt-text="경고 조건 정의 - 경고 논리 추가":::
 
 4.  **경고 세부 정보** 를 정의합니다.
 
-    ![경고 세부 정보 정의](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image6.png" alt-text="경고 세부 정보 정의":::
 
 5.  **작업 그룹** 을 정의합니다.
 
-    ![작업 그룹 정의 - 새 작업 그룹 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image7.png" alt-text="작업 그룹 정의 - 새 작업 그룹 만들기":::
 
-    ![작업 그룹 정의 - 속성 설정](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image8.png" alt-text="작업 그룹 정의 - 속성 설정":::
 
-    ![작업 그룹 정의 - 새 작업 그룹이 생성됨](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image9.png" alt-text="작업 그룹 정의 - 새 작업 그룹이 생성됨":::
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 데이터 팩터리 이동
 Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.
 
-![데이터 팩터리 이동](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png" alt-text="데이터 팩터리 이동":::
 
 데이터 팩터리와 함께 관련된 모든 리소스(예: 데이터 팩터리와 관련된 경고)를 이동할 수도 있습니다.
 
-![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveResources.png" alt-text="리소스 이동 대화 상자":::

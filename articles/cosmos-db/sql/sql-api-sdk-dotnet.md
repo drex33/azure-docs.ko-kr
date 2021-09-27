@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 06/18/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c4f637c00eb0e5c031debeb23538346c540b186d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 52849228540c23f0e9b43e63a681c6140fca765b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116401"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806463"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 for SQL API: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes-deprecated"></a>SQL API용 Azure Cosmos DB .NET SDK v2: 다운로드 및 릴리스 정보(사용되지 않습니다.)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "123116401"
 |**시작**|[Azure Cosmos DB .NET SDK 시작](sql-api-get-started.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+> [!IMPORTANT]
+> 2024년 8월 31일에 Azure Cosmos DB .NET SDK v2.x가 사용 중지됩니다. SDK 및 SDK를 사용하는 모든 애플리케이션은 계속 작동합니다. Azure Cosmos DB는 이 SDK에 대한 추가 유지 관리 및 지원을 제공하기 위해 중단됩니다. 최신 버전의 .NET SDK v3 SDK로 마이그레이션하려면 다음 지침을 따르는 것이 좋습니다.
+>
 
 > [!NOTE]
 > .NET Framework를 사용하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전 3.x를 참조하세요.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 0394815b4e75fb8d1f1f277010602839dc6876eb
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 865c4a99293582af1cc054cf0c4fd27eec3cf226
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441278"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057798"
 ---
 # <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>OSM(Open Service Mesh) AKS 추가 기능 문제 해결 가이드 열기
 
@@ -303,7 +303,7 @@ spec:
 
 `osm-mesh-config` 리소스 값:
 
-| 키 | 형식 | 기본값 | Kubectl Patch 명령 예제 |
+| 키 | 유형 | 기본값 | Kubectl Patch 명령 예제 |
 |-----|------|---------------|--------------------------------|
 | spec.traffic.enableEgress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enableEgress":true}}}'  --type=merge` |
 | spec.traffic.enablePermissiveTrafficPolicyMode | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}'  --type=merge` |
@@ -449,3 +449,7 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
 ```
+
+### <a name="certificate-management"></a>인증서 관리
+
+OSM 제어 평면을 통해 Envoy 프록시에 인증서를 발급하고 관리하는 방법에 대한 정보는 [OpenServiceMesh 문서 사이트에서](https://docs.openservicemesh.io/docs/guides/certificates/)찾을 수 있습니다.

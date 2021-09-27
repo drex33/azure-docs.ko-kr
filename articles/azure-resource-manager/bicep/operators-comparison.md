@@ -4,13 +4,13 @@ description: 값을 비교하는 Bicep 비교 연산자에 대해 설명합니�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: db9c01cf87fcf2c268e9685589bf13674af27184
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 1a28da26a3c97982bb0e06deebae6ae68b1eb7d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027330"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744407"
 ---
 # <a name="bicep-comparison-operators"></a>Bicep 비교 연산자
 
@@ -61,7 +61,7 @@ output stringGtE bool = firstString >= secondString
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intGtE` | boolean | true |
 | `stringGtE` | boolean | true |
@@ -102,7 +102,7 @@ output stringGt bool = firstString > secondString
 
 **bend** 의 **e** 는 첫 번째 문자열을 더 크게 만듭니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intGt` | boolean | true |
 | `stringGt` | boolean | true |
@@ -141,7 +141,7 @@ output stringLtE bool = firstString <= secondString
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intLtE` | boolean | true |
 | `stringLtE` | boolean | true |
@@ -182,7 +182,7 @@ output stringLt bool = firstString < secondString
 
 소문자가 대문자보다 작기 때문에 문자열은 `true`입니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intLt` | boolean | true |
 | `stringLt` | boolean | true |
@@ -225,11 +225,87 @@ output boolEqual bool = firstBool == secondBool
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intEqual` | boolean | true |
 | `stringEqual` | boolean | true |
 | `boolEqual` | boolean | true |
+
+배열을 비교할 때 두 배열의 요소와 순서가 같아야 합니다. 배열은 서로 할당할 필요가 없습니다.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+]
+
+var array2 = [
+  1
+  2
+  3
+]
+
+var array3 = array2
+
+var array4 = [
+  3
+  2
+  1
+]
+
+output sameElements bool = array1 == array2 // returns true because arrays are defined with same elements
+output assignArray bool = array2 == array3 // returns true because one array was defined as equal to the other array
+output differentOrder bool = array4 == array1 // returns false because order of elements is different
+```
+
+예의 출력:
+
+| Name | 유형 | 값 |
+| ---- | ---- | ---- |
+| sameElements | bool | true |
+| 배열 할당 | bool | true |
+| differentOrder | bool | false |
+
+개체를 비교할 때 속성 이름과 값은 같아야 합니다. 속성은 같은 순서로 정의할 필요가 없습니다.
+
+```bicep
+var object1 = {
+  prop1: 'val1'
+  prop2: 'val2'
+}
+
+var object2 = {
+  prop1: 'val1'
+  prop2: 'val2'
+}
+
+var object3 = {
+  prop2: 'val2'
+  prop1: 'val1'
+}
+
+var object4 = object3
+
+var object5 = {
+  prop1: 'valX'
+  prop2: 'valY'
+}
+
+output sameObjects bool = object1 == object2 // returns true because both objects defined with same properties
+output differentPropertyOrder bool = object3 == object2 // returns true because both objects have same properties even though order is different
+output assignObject bool = object4 == object1 // returns true because one object was defined as equal to the other object
+output differentValues bool = object5 == object1 // returns false because values are different
+```
+
+예의 출력:
+
+| Name | 유형 | 값 |
+| ---- | ---- | ---- |
+| sameObjects | bool | true |
+| differentPropertyOrder | bool | true |
+| assignObject | bool | true |
+| differentValues | bool | false |
 
 ## <a name="not-equal-"></a>같지 않음 !=
 
@@ -269,11 +345,13 @@ output boolNotEqual bool = firstBool != secondBool
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `intNotEqual` | boolean | true |
 | `stringNotEqual` | boolean | true |
 | `boolNotEqual` | boolean | true |
+
+배열 및 개체의 경우 [equals](#equals-)의 예제를 참조 하세요.
 
 ## <a name="equal-case-insensitive-"></a>같음(대/소문자 구분 안 함) =~
 
@@ -309,7 +387,7 @@ output strEqual2 bool = thirdString =~ fourthString
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `strEqual1` | boolean | true |
 | `strEqual2` | boolean | false |
@@ -348,7 +426,7 @@ output strEqual2 bool = thirdString !~ fourthString
 
 예제의 출력:
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `strNotEqual1` | boolean | true |
 | `strNotEqual2` | boolean | false |

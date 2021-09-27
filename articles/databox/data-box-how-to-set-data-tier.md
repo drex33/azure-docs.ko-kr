@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 82ac4e9c4a2f573295790d5d7fa3b02c2e690bbc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92125067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819860"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box 또는 Azure Data Box Heavy를 사용하여 적절한 Azure Storage Blob 계층으로 데이터 전송
 
@@ -47,7 +47,7 @@ Data Box 또는 Data Box Heavy 주문 시 새 계정을 만들려는 경우에�
 
 Data Box 디바이스의 데이터가 기본 계층에 업로드된 후에는 기본 계층이 아닌 계층으로 데이터를 이동하는 것이 좋습니다. 다음의 두 가지 방법으로 이 데이터를 기본 계층이 아닌 계층으로 이동할 수 있습니다.
 
-- **Azure Blob Storage 수명 주기 관리** - 정책 기반 방식을 사용해 데이터를 계층별로 자동 저장하거나 수명 주기가 종료되면 데이터를 만료 처리할 수 있습니다. 자세한 내용은 [Azure Blob Storage 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
+- **Azure Blob Storage 수명 주기 관리** - 정책 기반 방식을 사용해 데이터를 계층별로 자동 저장하거나 수명 주기가 종료되면 데이터를 만료 처리할 수 있습니다. 자세한 내용은 [Azure Blob Storage 수명 주기 관리](../storage/blobs/lifecycle-management-overview.md)를 참조하세요.
 - **스크립팅** - Azure PowerShell을 통한 스크립팅 방식을 사용하여 Blob 수준 계층화를 사용하도록 설정할 수 있습니다. `SetBlobTier` 작업을 호출해 Blob에서 계층을 설정할 수 있습니다.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Azure PowerShell을 사용하여 Blob 계층 설정
@@ -116,4 +116,4 @@ Data Box 디바이스의 데이터가 기본 계층에 업로드된 후에는 �
 
 ## <a name="next-steps"></a>다음 단계
 
--  [수명 주기 정책 규칙을 사용하여 일반적인 데이터 계층화 시나리오](../storage/blobs/storage-lifecycle-management-concepts.md#examples)를 처리하는 방법을 알아봅니다.
+-  [수명 주기 정책 규칙을 사용하여 일반적인 데이터 계층화 시나리오](../storage/blobs/lifecycle-management-overview.md#examples-of-lifecycle-policies)를 처리하는 방법을 알아봅니다.

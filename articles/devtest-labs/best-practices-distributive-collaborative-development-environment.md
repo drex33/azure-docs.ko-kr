@@ -1,14 +1,14 @@
 ---
 title: Azure DevTest Labs 리소스의 분산 공동 작업 개발
 description: DevTest Labs 리소스를 개발에 필요한 분산 공동 작업 개발 환경을 설정할 수 있도록 모범 사례를 제공합니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f24ab6e612762df5ee0a0f869507c51ac9e5f538
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550079"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644318"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Azure DevTest Labs 리소스의 분산 공동 작업 개발의 모범 사례
 분산 공동 작업 개발을 사용하면 다른 팀이나 사용자가 코드 베이스를 개발하고 유지 관리할 수 있습니다. 개발 프로세스의 성공은 정보를 만들고, 공유하며, 통합하는 능력에 달려 있습니다. 이 주요 개발 원칙은 Azure DevTest Labs 내에서 사용할 수 있습니다. 랩 내에는 기업 내 여러 랩 간에 일반적으로 분산되는 여러 유형의 리소스가 있습니다. 여러 리소스 유형은 다음과 같은 두 영역으로 집중됩니다.

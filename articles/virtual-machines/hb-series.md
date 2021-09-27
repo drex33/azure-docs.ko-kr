@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: ae1107deb58aa7bcc52fc9ed8055772c81cd4eb3
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 20e7f9f79e90aa382c94f4b013f1fd32390e4c2d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696311"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803900"
 ---
 # <a name="hb-series"></a>HB 시리즈
 
@@ -47,7 +47,7 @@ HB 시리즈 VM은 100GB/초 Mellanox EDR InfiniBand를 탑재했습니다. 이�
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -55,6 +55,11 @@ HB 시리즈 VM은 100GB/초 Mellanox EDR InfiniBand를 탑재했습니다. 이�
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

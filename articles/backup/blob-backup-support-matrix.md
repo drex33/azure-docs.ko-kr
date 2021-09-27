@@ -4,12 +4,12 @@ description: Azure Blob을 백업할 경우의 지원 설정 및 제한 사항�
 ms.topic: conceptual
 ms.date: 07/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: ba2798ff464720379326ee56098f840a06e2c042
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0d9dbcb9bb4497de4c8355ca42597b8e9eecd0e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535487"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799247"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Azure Blob 백업의 지원 매트릭스
 
@@ -28,7 +28,7 @@ Blob의 운영 백업은 Blob 특정 시점 복원, Blob 버전 관리, Blob에 
 **기타 제한 사항:**
 
 - 보존 기간에 컨테이너를 삭제한 경우 해당 컨테이너는 특정 시점 복원 작업으로 복원되지 않습니다. 삭제된 컨테이너에서 Blob을 포함하는 Blob 범위를 복원하려고 하면 특정 시점 복원 작업이 실패합니다. 컨테이너를 삭제하지 못하도록 보호하는 방법에 대한 자세한 내용은 [컨테이너의 일시 삭제(미리 보기)](../storage/blobs/soft-delete-container-overview.md)를 참조하세요.
-- Blob이 현재 순간과 복원 지점 사이에서 핫 및 쿨 계층 사이를 이동하면 Blob이 이전 계층으로 복원됩니다. 보관 계층에서는 블록 Blob의 복원이 지원되지 않습니다. 예를 들어, 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업을 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다. 보관된 Blob을 복원하려면 먼저 보관 계층 외부로 이동합니다. 자세한 내용은 [보관 계층에서 BLOB 데이터 리하이드레이션](../storage/blobs/storage-blob-rehydration.md)을 참조하세요.
+- Blob이 현재 순간과 복원 지점 사이에서 핫 및 쿨 계층 사이를 이동하면 Blob이 이전 계층으로 복원됩니다. 보관 계층에서는 블록 Blob의 복원이 지원되지 않습니다. 예를 들어, 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업을 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다. 보관된 Blob을 복원하려면 먼저 보관 계층 외부로 이동합니다. 자세한 내용은 [보관 계층에서 BLOB 데이터 리하이드레이션](../storage/blobs/archive-rehydrate-overview.md)을 참조하세요.
 - [Put Block](/rest/api/storageservices/put-block) 또는 [Put Block from URL](/rest/api/storageservices/put-block-from-url)을 통해 업로드되었지만 [Put Block List](/rest/api/storageservices/put-block-list)를 통해 커밋되지 않은 블록은 Blob에 속하지 않으므로 복원 작업의 일부로 복원되지 않습니다.
 - 활성 임대가 있는 BLOB은 복원할 수 없습니다. 활성 임대가 있는 BLOB이 복원할 BLOB 범위에 포함된 경우 복원 작업이 자동으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
 - 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 BLOB만 이전 상태로 복원됩니다.

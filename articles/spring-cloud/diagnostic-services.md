@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: e2d903f781e86670139347930289599bec6ee7e7
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 8a462809ca7be524e0e5149808bdcbe28f49dd77
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537478"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649041"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용하여 로그 및 메트릭 분석
 
@@ -21,7 +21,7 @@ ms.locfileid: "122537478"
 Azure Spring Cloud의 진단 기능을 사용하여 다음 서비스 중 하나를 통해 로그 및 메트릭을 분석할 수 있습니다.
 
 * 데이터가 Azure Storage에 기록되는 Azure Log Analytics를 사용합니다. Log Analytics로 로그를 내보낼 때 지연이 발생합니다.
-* 감사 또는 수동 검사를 위해 스토리지 계정에 로그를 저장합니다. 보존 시간을 일 단위로 지정할 수 있습니다.
+* 감사 또는 수동 검사를 위해 저장소 계정에 로그를 저장 합니다. 보존 시간을 일 단위로 지정할 수 있습니다.
 * 타사 서비스 또는 사용자 지정 분석 솔루션에서 수집할 수 있도록 로그를 이벤트 허브로 스트림합니다.
 
 모니터링할 로그 범주 및 메트릭 범주를 선택합니다.
@@ -35,6 +35,7 @@ Azure Spring Cloud의 진단 기능을 사용하여 다음 서비스 중 하나�
 |----|----|
 | **ApplicationConsole** | 모든 고객 애플리케이션의 콘솔 로그입니다. |
 | **SystemLogs** | 현재 이 범주에는 [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
+| **IngressLogs** | 모든 고객의 응용 프로그램에 대 한 [수신 로그](#show-ingress-log-entries-containing-a-specific-host) 및 액세스 로그만 |
 
 ## <a name="metrics"></a>메트릭
 
@@ -179,13 +180,37 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
+### <a name="show-ingress-log-entries-containing-a-specific-host"></a>특정 호스트를 포함 하는 수신 로그 항목 표시
+
+특정 호스트에 의해 생성 된 로그 항목을 검토 하려면 다음 쿼리를 실행 합니다.
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and Host == "ingress-asc.test.azuremicroservices.io" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
+이 쿼리를 사용 하 여 `Status` `RequestTime` 이 특정 호스트의 수신 로그에 대 한 응답, 및 기타 속성을 찾습니다. 
+
+### <a name="show-ingress-log-entries-for-a-specific-requestid"></a>특정 requestId의 수신 로그 항목 표시
+
+특정 값에 대 한 로그 항목을 검토 하려면 `requestId` *\<request_ID>* 다음 쿼리를 실행 합니다.
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and ReqId == "<request_ID>" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
 ### <a name="learn-more-about-querying-application-logs"></a>애플리케이션 로그 쿼리에 대한 자세한 정보
 
 Azure Monitor는 Log Analytics를 사용하여 애플리케이션 로그를 쿼리하기 위한 광범위한 지원을 제공합니다. 이 서비스에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조하세요. 애플리케이션 로그를 분석하는 쿼리를 빌드하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
-### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>여러 줄 Java 스택 추적을 한 줄로 변환하는 방법
+### <a name="how-do-i-convert-multi-line-java-stack-traces-into-a-single-line"></a>여러 줄 Java 스택 추적을 한 줄로 변환 어떻게 할까요?
 
 여러 줄 스택 추적을 한 줄로 변환하는 방법에 대한 해결 방법이 있습니다. Java 로그 출력을 수정하여 스택 추적 메시지의 서식을 다시 지정하고 줄 바꿈 문자를 토큰으로 바꿀 수 있습니다. Java Logback 라이브러리를 사용하는 경우 다음과 같이 `%replace(%ex){'[\r\n]+', '\\n'}%nopex`를 추가하여 스택 추적 메시지의 서식을 다시 지정할 수 있습니다.
 
@@ -204,7 +229,7 @@ Azure Monitor는 Log Analytics를 사용하여 애플리케이션 로그를 쿼�
 </configuration>
 ```
 
-그런 다음, 아래와 같이 Log Analytics에서 다시 토큰을 줄 바꿈 문자로 바꿀 수 있습니다.
+그런 다음 아래와 같이 Log Analytics의 줄 바꿈 문자로 토큰을 바꿀 수 있습니다.
 
 ```sql
 AppPlatformLogsforSpring

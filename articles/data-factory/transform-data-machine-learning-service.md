@@ -1,26 +1,26 @@
 ---
 title: Azure Machine Learning 파이프라인 실행
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인에서 Azure Machine Learning 파이프라인을 실행하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 및 Synapse Analytics 파이프라인에서 Azure Machine Learning 파이프라인을 실행하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 07/16/2020
-ms.openlocfilehash: 19456f33e13a9a472b5c42afc0a3cb3c5041efd2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 0d7fe523b7300634df6c876525b1ffe47a49c205
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642667"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806329"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Azure Data Factory에서 Azure Machine Learning 파이프라인 실행
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics Azure Machine Learning 파이프라인 실행
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory 파이프라인의 한 단계로 Azure Machine Learning 파이프라인을 실행합니다. Machine Learning Execute Pipeline 작업을 통해 가능한 대출 기본값 식별, 감정 확인 및 고객 동작 패턴 분석과 같은 일괄 처리 예측 시나리오를 사용할 수 있습니다.
+Azure Data Factory 및 Synapse Analytics 파이프라인의 단계로 Azure Machine Learning 파이프라인을 실행합니다. Machine Learning Execute Pipeline 작업을 통해 가능한 대출 기본값 식별, 감정 확인 및 고객 동작 패턴 분석과 같은 일괄 처리 예측 시나리오를 사용할 수 있습니다.
 
 아래 비디오는 이 기능에 대한 6분 소개와 데모를 제공합니다.
 
@@ -62,7 +62,7 @@ dataPathAssignments | Azure Machine learning에서 데이터 경로를 변경하
 continueOnStepFailure | 단계가 실패하는 경우 Machine Learning 파이프라인 실행에서 다른 단계의 실행을 계속할지 여부 | boolean | No
 
 > [!NOTE]
-> Machine Learning 파이프라인 이름 및 ID의 드롭다운 항목을 채우려면 사용자에게 ML 파이프라인을 나열할 수 있는 권한이 있어야 합니다. ADF UX는 로그인한 사용자의 자격 증명을 사용하여 AzureMLService API를 직접 호출합니다.  
+> Machine Learning 파이프라인 이름 및 ID의 드롭다운 항목을 채우려면 사용자에게 ML 파이프라인을 나열할 수 있는 권한이 있어야 합니다. UI는 로그인한 사용자의 자격 증명을 사용하여 AzureMLService API를 직접 호출합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.

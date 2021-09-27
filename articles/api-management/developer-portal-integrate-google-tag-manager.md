@@ -3,16 +3,16 @@ title: 개발자 포털에 Google 태그 관리자 통합
 titleSuffix: Azure API Management
 description: Azure API Management에서 관리형 또는 자체 호스팅 개발자 포털에 Google 태그 관리자를 연결하는 방법을 알아봅니다.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: c209eb782787146d947b4684d41c5d1e9bb6364e
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
-ms.translationtype: HT
+ms.openlocfilehash: a3436727470ceb073f5431ef9677fbc17afdda84
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741402"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601675"
 ---
 # <a name="integrate-google-tag-manager-to-api-management-developer-portal"></a>API Management 개발자 포털에 Google 태그 관리자 통합
 

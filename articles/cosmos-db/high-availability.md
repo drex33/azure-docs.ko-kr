@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c11a151876677e06a32364b050538f233cc2b9c4
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.openlocfilehash: 5fdde23875d49d6bf4329a57081f12f517692062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530303"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618651"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ Azure Cosmos DB는 전역적으로 배포된 기본적인 데이터베이스 서
 
 * 모든 지역에 걸쳐 있는 각 파티션이 복제됩니다. 각 지역에는 Azure Cosmos 컨테이너의 모든 데이터 파티션이 포함되며, 다중 지역 쓰기를 사용하는 경우 읽기 뿐만 아니라 쓰기를 제공할 수 있습니다.  
 
-Azure Cosmos 계정이 *N* 개의 Azure 지역에 배포되는 경우 모든 데이터의 최소 *N* x 4 복사본이 있습니다. 2개 이상의 지역에 Azure Cosmos 계정이 있으면 애플리케이션의 가용성이 향상되고 연결된 지역에서 짧은 대기 시간을 제공합니다.
+azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 데이터의 *n* x 4 복사본이 있습니다. 데이터 배포에 대 한 자세한 개요는 내부적으로 [글로벌 데이터 배포](global-dist-under-the-hood.md)를 참조 하세요. 2개 이상의 지역에 Azure Cosmos 계정이 있으면 애플리케이션의 가용성이 향상되고 연결된 지역에서 짧은 대기 시간을 제공합니다.
 
 ## <a name="slas-for-availability"></a>가용성 SLA
 
@@ -79,7 +79,7 @@ Azure Cosmos DB는 처리량, 99번째 백분위수의 대기 시간, 일관성,
 * 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 쓰기 지역으로 복구된 지역으로 다시 전환할 수 있습니다. [PowerShell, Azure CLI 또는 Azure Portal](how-to-manage-database-account.md#manual-failover)을 사용하여 지역을 전환할 수 있습니다. 쓰기 지역을 전환하여 애플리케이션의 가용성이 계속 높게 유지되는 동안이나 그 이후에는 **데이터나 가용성 손실이 발생하지** 않습니다.
 
 > [!IMPORTANT]
-> **자동 장애 조치를 사용하도록 설정** 하려면 프로덕션 워크로드에 사용되는 Azure Cosmos 계정을 구성하는 것이 좋습니다. 이를 통해 Cosmos DB는 계정 데이터베이스를 자동으로 사용 가능한 지역으로 장애 조치할 수 있습니다. 이 구성이 없는 경우, 지역 연결이 부족하여 수동 장애 조치가 성공하지 않으므로 계정의 쓰기 지역 가동 중단 시간에 대한 쓰기 가용성이 손실됩니다.
+> **자동 장애 조치를 사용하도록 설정** 하려면 프로덕션 워크로드에 사용되는 Azure Cosmos 계정을 구성하는 것이 좋습니다. 따라서 Cosmos DB는 계정 데이터베이스를 사용 가능한 지역으로 자동으로 장애 조치 (failover) 할 수 있습니다. 이 구성이 없는 경우, 지역 연결이 부족하여 수동 장애 조치가 성공하지 않으므로 계정의 쓰기 지역 가동 중단 시간에 대한 쓰기 가용성이 손실됩니다.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>단일 쓰기 지역이 있는 다중 지역 계정(읽기 지역 가동 중단)
 
@@ -129,7 +129,7 @@ Azure Cosmos 계정에 대한 다중 지역 쓰기를 구성하는 경우 추가
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
-* [Azure CLI](manage-with-cli.md#add-or-remove-regions)
+* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 * [Azure 리소스 관리자 템플릿](./manage-with-templates.md)
 

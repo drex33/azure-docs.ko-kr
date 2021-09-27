@@ -2,16 +2,14 @@
 title: Azure Functions의 Python 앱에 대한 메모리 프로파일링
 description: Python 앱 메모리 사용량을 프로파일링하는 방법과 메모리 병목 상태를 식별하는 방법을 알아봅니다.
 ms.topic: how-to
-author: hazhzeng
-ms.author: hazeng
 ms.date: 3/22/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: f47451809a2fa2b7d22805e6415056f19c4c1d88
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
-ms.translationtype: HT
+ms.openlocfilehash: f894f369fa1efdb80160761e3c58cad937708b08
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258812"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737437"
 ---
 # <a name="profile-python-apps-memory-usage-in-azure-functions"></a>Azure Functions에서 Python 앱 메모리 사용량 프로파일링
 
@@ -20,7 +18,7 @@ ms.locfileid: "107258812"
 > [!NOTE]
 > 메모리 프로파일링은 개발 환경에서 메모리 공간을 분석하는 용도로만 사용됩니다. 메모리 프로파일러를 프로덕션 함수 앱에 적용하지 마세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Python 함수 앱 개발을 시작하기 전에 다음 요구 사항을 충족해야 합니다.
 

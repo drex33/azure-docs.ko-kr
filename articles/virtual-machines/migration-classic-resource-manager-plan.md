@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 931c1f446523247c485987edb29638bb94656b77
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 4e8ce635f25eccedbd07e3ccaa89a1e2cf418eda
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698097"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823397"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 
@@ -196,7 +196,7 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 - [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md).
 - [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)
 - [태그](../azure-resource-manager/management/tag-resources.md).
-- [활동 제어](../azure-resource-manager/management/view-activity-logs.md)
+- [활동 제어](../azure-monitor/essentials/activity-log.md)
 - [Azure 정책](../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>문제 방지

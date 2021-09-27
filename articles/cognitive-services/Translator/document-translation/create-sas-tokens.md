@@ -1,19 +1,19 @@
 ---
-title: Microsoft Storage Explorer를 사용하여 컨테이너 및 BLOB에 대한 SAS(공유 액세스 서명) 토큰 만들기
-description: Microsoft Storage Explorer 및 Azure Portal을 사용하여 컨테이너 및 BLOB에 대한 SAS(공유 액세스 토큰)를 만드는 방법
+title: Microsoft Storage Explorer를 사용 하 여 컨테이너 및 blob에 대 한 SAS (공유 액세스 서명) 토큰 생성
+description: Microsoft Storage Explorer 및 Azure Portal를 사용 하 여 컨테이너 및 blob에 대 한 SAS (공유 액세스 서명 토큰)를 생성 하는 방법입니다.
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/05/2021
-ms.openlocfilehash: 8a91829ce79c5cd9e32efefc809dd23a19382f49
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: ecc62d7b45bfb3b0b108057d5e3e25b189297165
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360274"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653308"
 ---
-# <a name="create-sas-tokens-for-your-storage-containers"></a>스토리지 컨테이너에 대한 SAS 토큰 만들기
+# <a name="generate-sas-tokens-for-your-storage-containers"></a>저장소 컨테이너에 대 한 SAS 토큰 생성
 
 이 문서에서는 Azure Storage Explorer 또는 Azure Portal을 사용하여 공유 액세스 서명(SAS) 토큰을 만드는 방법을 알아봅니다. SAS 토큰은 Azure 스토리지 계정의 리소스에 대한 안전한 위임된 액세스를 제공합니다.
 
@@ -64,11 +64,8 @@ ms.locfileid: "113360274"
 
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Azure Portal에서 BLOB에 대한 SAS 토큰 만들기
 
-> [!NOTE]
-> Azure Portal에서 직접 컨테이너에 대한 SAS 토큰을 만드는 것은 현재 지원되지 않습니다. 하지만 [**Azure Storage Explorer**](#create-your-sas-tokens-with-azure-storage-explorer)를 사용하여 SAS 토큰을 만들거나 [프로그래밍 방식](../../../storage/blobs/sas-service-create.md)으로 작업을 완료할 수 있습니다.
-
 <!-- markdownlint-disable MD024 -->
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
 

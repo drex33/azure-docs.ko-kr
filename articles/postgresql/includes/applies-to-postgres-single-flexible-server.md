@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e622e3cf6f3d9403c3f55ba32167b4ac4e813d68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6ca3a25cdb29583c453b501cb13ecc165dcd3fc2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91377330"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056834"
 ---
-<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버</Token>
+**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버  

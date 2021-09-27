@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
-ms.openlocfilehash: a652ac797739323530dee169987a135c8abdf0f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 084e4c0fa3ecf94685e1789273764c548c07147a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642331"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730777"
 ---
 # <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>데이터 흐름을 사용하여 자동화된 Machine Learning 모델에서 데이터 처리
 
@@ -71,19 +71,19 @@ CREATE TABLE [dbo].[MyProducts](
 
 1. 집계 작업을 사용하여 행 개수를 가져옵니다. **그룹화 기준** 은 Col2를 기준으로, **집계** 의 행 개수를 `count(1)`로 하여 사용합니다.
 
-    ![행 개수를 가져오는 집계 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png" alt-text="행 개수를 가져오는 집계 작업 구성을 보여 주는 스크린샷.":::
 
 1. 싱크 작업을 사용하여 **싱크** 탭에서 **싱크 형식** 을 **캐시** 로 선택합니다. 그런 다음 **설정** 탭의 **키 열** 드롭다운 목록에서 원하는 열을 선택합니다.
 
-    ![캐시된 싱크에 있는 행 개수를 가져오는 CacheSink 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png" alt-text="캐시된 싱크에 있는 행 개수를 가져오는 CacheSink 작업 구성을 보여 주는 스크린샷.":::
 
 1. 파생 열 작업을 사용하여 원본 스트림에 행 개수 열을 추가합니다. **파생 열 설정** 탭에서 `CacheSink#lookup` 식을 사용하여 CacheSink에서 행 개수를 가져옵니다.
 
-    ![행 개수를 Source1에 추가하는 파생 열 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png" alt-text="행 개수를 Source1에 추가하는 파생 열 작업 구성을 보여 주는 스크린샷.":::
 
 1. 조건부 분할 작업을 사용하여 정규화되지 않은 데이터를 제거합니다. 이 예제에서 행 개수는 Col2 열을 기반으로 합니다. 2 미만의 행 개수를 제거하는 것이 조건이므로 행 2개(ID=2 및 ID=7)가 제거됩니다. 데이터 관리를 위해 정규화되지 않은 데이터를 Blob Storage에 저장합니다.
 
-    ![2보다 크거나 같은 데이터를 가져오는 조건부 분할 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png" alt-text="2보다 크거나 같은 데이터를 가져오는 조건부 분할 작업 구성을 보여 주는 스크린샷.":::
 
 > [!NOTE]
 >    * 이후 단계에서 원래 원본에서 사용될 행 개수를 가져오기 위한 새 원본을 만듭니다.
@@ -95,21 +95,21 @@ CREATE TABLE [dbo].[MyProducts](
 
 1. 창 작업을 사용하여 파티션별로 하나의 열 행 수를 추가합니다. **대상** 탭에서 파티션에 대한 열을 선택합니다. 이 자습서에서는 Col2에 대해 분할을 수행합니다. **정렬** 탭에서 순서를 지정합니다. 이 자습서에서는 ID를 기준으로 합니다. **창 열** 탭에서 순서를 지정하여 행 수로 열 1개를 추가합니다.
 
-    ![행 수로 새 열 1개를 추가하는 창 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png" alt-text="행 수로 새 열 1개를 추가하는 창 작업 구성을 보여 주는 스크린샷.":::
 
 1. 조건부 분할 작업을 사용하여 각 파티션의 상위 두 행을 테스트 데이터 세트로 분할하고 나머지 행을 학습 데이터 세트로 분할합니다. **조건부 분할 설정** 탭에서 `lesserOrEqual(RowNum,2)` 식을 조건으로 사용합니다.
 
-    ![현재 데이터 세트를 학습 데이터 세트와 테스트 데이터 세트로 분할하는 조건부 분할 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png" alt-text="현재 데이터 세트를 학습 데이터 세트와 테스트 데이터 세트로 분할하는 조건부 분할 작업 구성을 보여 주는 스크린샷.":::
 
 ## <a name="partition-the-training-and-test-datasets-with-parquet-format"></a>Parquet 형식을 사용하여 학습 및 테스트 데이터 세트 분할
 
 **최적화** 탭에서 싱크 작업을 사용하여 **파티션당 고유 값** 을 사용해 열을 파티션의 열 키로 설정합니다.
 
-![학습 데이터 세트의 파티션을 설정하는 싱크 작업 구성을 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png" alt-text="학습 데이터 세트의 파티션을 설정하는 싱크 작업 구성을 보여 주는 스크린샷.":::
 
 전체 파이프라인 논리를 다시 살펴보겠습니다.
 
-![전체 파이프라인의 논리를 보여 주는 스크린샷.](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="전체 파이프라인의 논리를 보여 주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

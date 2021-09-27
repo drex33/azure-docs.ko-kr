@@ -5,13 +5,13 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 08/15/2021
-ms.openlocfilehash: f8e860cb93930c8e412fe102cf52fbf0c8b78e41
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.date: 09/13/2021
+ms.openlocfilehash: d535cff28e87de0f2dcf4afb90ab452303a6d0e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538990"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609216"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
 
@@ -74,7 +74,7 @@ Azure Security Center는 데이터 센터의 보안 상태를 강화하고, 온-
 | **Azure Defender 계획 및 확장**                                                                                                                                       |                |                                | 
 | - [서버용 Azure Defender](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
 | - [App Service용 Azure Defender](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | 사용할 수 없음                  | 
-| - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | 사용할 수 없음                  | 
+| - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
 | - [컨테이너 레지스트리용 Azure Defender](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
 | - [CI/CD 워크플로에 있는 이미지의 컨테이너 레지스트리 검사를 위한 Azure Defender](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | 공개 미리 보기 | 사용할 수 없음                  | 
 | - [Azure Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
@@ -87,7 +87,7 @@ Azure Security Center는 데이터 센터의 보안 상태를 강화하고, 온-
 | - [스토리지용 Azure Defender](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Cosmos DB에 대한 위협 방지](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | 공개 미리 보기 | 사용할 수 없음                  |
 | - [Kubernetes 워크로드 보호](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
-| - [Sentinel과 양방향 경고 동기화](../../sentinel/connect-azure-security-center.md)                                                                          | 공개 미리 보기 | 사용할 수 없음                  | 
+| - [Sentinel과 양방향 경고 동기화](../../sentinel/connect-azure-security-center.md)                                                                       | 공개 미리 보기 | 사용할 수 없음                  | 
 | **서버용 Azure Defender 기능** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
 | - [Just-in-Time VM 액세스](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
 | - [파일 무결성 모니터링](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
@@ -148,96 +148,96 @@ Microsoft Azure Sentinel은 확장성 있는 클라우드 네이티브, SIEM(보
 | - [비정상 RDP 로그인 검색](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>기본 제공 ML 검색 | 공개 미리 보기 | 사용할 수 없음 |
 | - [비정상적인 SSH 로그인 검색](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>기본 제공 ML 검색 | 공개 미리 보기 | 사용할 수 없음 |
 | **Azure 서비스 커넥터** |  |  |
-| - [Azure 활동 로그](../../sentinel/connect-azure-activity.md) | GA | GA |
+| - [Azure 활동 로그](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
-| - [Azure ADIP](../../sentinel/connect-azure-ad-identity-protection.md) | GA | GA |
-| - [Azure DDoS Protection](../../sentinel/connect-azure-ddos-protection.md) | GA | GA |
+| - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
+| - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
 | - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Azure Defender for IoT](../../sentinel/connect-asc-iot.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Azure Firewall](../../sentinel/connect-azure-firewall.md) | GA | GA |
-| - [Azure Information Protection](../../sentinel/connect-azure-information-protection.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Azure Key Vault ](../../sentinel/connect-azure-key-vault.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [AKS(Azure Kubernetes Services)](../../sentinel/connect-azure-kubernetes-service.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Azure SQL 데이터베이스](../../sentinel/connect-azure-sql-logs.md) | GA | GA |
-| - [Azure WAF](../../sentinel/connect-azure-waf.md) | GA | GA |
+| - [Azure Defender for IoT](../../sentinel/data-connectors-reference.md#azure-defender-for-iot) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Azure Firewall](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
+| - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | 공개 미리 보기 | 사용할 수 없음 |
+| - [AKS(Azure Kubernetes Services)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Azure SQL 데이터베이스](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
+| - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | **Windows 커넥터** |  |  |
-| - [Windows 방화벽](../../sentinel/connect-windows-firewall.md) | GA | GA |
+| - [Windows 방화벽](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows 보안 이벤트](../../sentinel/connect-windows-security-events.md) | GA | GA |
 | **외부 커넥터** |  |  |
-| - [Agari 피싱 방어 및 브랜드 보호](../../sentinel/connect-agari-phishing-defense.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Agari 피싱 방어 및 브랜드 보호](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [AI Vectra Detect](../../sentinel/connect-ai-vectra-detect.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Akamai 보안 이벤트](../../sentinel/connect-akamai-security-events.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Alcide kAudit](../../sentinel/connect-alcide-kaudit.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Active Directory용 Alsid](../../sentinel/connect-alsid-active-directory.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Apache HTTP 서버](../../sentinel/connect-apache-http-server.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Aruba ClearPass](../../sentinel/connect-aruba-clearpass.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [AI Vectra Detect](../../sentinel/data-connectors-reference.md#ai-vectra-detect-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Akamai 보안 이벤트](../../sentinel/data-connectors-reference.md#akamai-security-events-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Alcide kAudit](../../sentinel/data-connectors-reference.md#alcide-kaudit) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Active Directory용 Alsid](../../sentinel/data-connectors-reference.md#alsid-for-active-directory) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Apache HTTP 서버](../../sentinel/data-connectors-reference.md#apache-http-server) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Aruba ClearPass](../../sentinel/data-connectors-reference.md#aruba-clearpass-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [AWS](../../sentinel/connect-data-sources.md) | GA | GA |
-| - [Barracuda CloudGen 방화벽](../../sentinel/connect-barracuda-cloudgen-firewall.md) | GA | GA |
-| - [Barracuda 웹앱 방화벽](../../sentinel/connect-barracuda.md) | GA | GA |
-| - [BETTER Mobile Threat Defense MTD](../../sentinel/connect-better-mtd.md) | 공개 미리 보기 | 사용할 수 없음 |
-| - [Beyond Security beSECURE](../../sentinel/connect-besecure.md) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Barracuda CloudGen 방화벽](../../sentinel/data-connectors-reference.md#barracuda-cloudgen-firewall) | GA | GA |
+| - [Barracuda 웹앱 방화벽](../../sentinel/data-connectors-reference.md#barracuda-waf) | GA | GA |
+| - [BETTER Mobile Threat Defense MTD](../../sentinel/data-connectors-reference.md#better-mobile-threat-defense-mtd-preview) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Beyond Security beSECURE](../../sentinel/data-connectors-reference.md#beyond-security-besecure) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Broadcom Symantec DLP](../../sentinel/connect-broadcom-symantec-dlp.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Check Point](../../sentinel/connect-checkpoint.md) | GA | GA |
-| - [Cisco ASA](../../sentinel/connect-cisco.md) | GA | GA |
-| - [Cisco Meraki](../../sentinel/connect-cisco-meraki.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Cisco Umbrella](../../sentinel/connect-cisco-umbrella.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Cisco UCS](../../sentinel/connect-cisco-ucs.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Broadcom Symantec DLP](../../sentinel/data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Check Point](../../sentinel/data-connectors-reference.md#check-point) | GA | GA |
+| - [Cisco ASA](../../sentinel/data-connectors-reference.md#cisco-asa) | GA | GA |
+| - [Cisco Meraki](../../sentinel/data-connectors-reference.md#cisco-meraki-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Cisco Umbrella](../../sentinel/data-connectors-reference.md#cisco-umbrella-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Cisco UCS](../../sentinel/data-connectors-reference.md#cisco-unified-computing-system-ucs-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [Citrix Analytics WAF](../../sentinel/connect-citrix-waf.md) | GA | GA |
+| - [Citrix Analytics WAF](../../sentinel/data-connectors-reference.md#citrix-web-app-firewall-waf-preview) | GA | GA |
 | - [Common Event Format(CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
-| - [CyberArk EPV(Enterprise Password Vault) 이벤트](../../sentinel/connect-cyberark.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [CyberArk EPV(Enterprise Password Vault) 이벤트](../../sentinel/data-connectors-reference.md#cyberark-enterprise-password-vault-epv-events-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [ESET Enterprise Inspector](../../sentinel/connect-data-sources.md)                       | 공개 미리 보기 | 사용할 수 없음      |
 | - [Eset 보안 관리 센터](../../sentinel/connect-data-sources.md)                  | 공개 미리 보기 | 사용할 수 없음      |
-| - [ExtraHop Reveal(x)](../../sentinel/connect-extrahop.md)                               | GA             | GA             |
-| - [F5 BIG-IP ](../../sentinel/connect-f5-big-ip.md)                                       | GA             | GA             |
-| - [F5 Networks](../../sentinel/connect-f5.md)                                     | GA             | GA             |
-| - [Forcepoint NGFW](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | 공개 미리 보기 | 공개 미리 보기 |
-| - [Forcepoint CASB](../../sentinel/connect-forcepoint-casb-ngfw.md)                                  | 공개 미리 보기 | 공개 미리 보기 |
-| - [Forcepoint DLP](../../sentinel/connect-forcepoint-dlp.md)                                   | 공개 미리 보기 | 사용할 수 없음      |
+| - [ExtraHop Reveal(x)](../../sentinel/data-connectors-reference.md#extrahop-revealx)                               | GA             | GA             |
+| - [F5 BIG-IP ](../../sentinel/data-connectors-reference.md#f5-big-ip)                                       | GA             | GA             |
+| - [F5 Networks](../../sentinel/data-connectors-reference.md#f5-networks-asm)                                     | GA             | GA             |
+| - [Forcepoint NGFW](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | 공개 미리 보기 | 공개 미리 보기 |
+| - [Forcepoint CASB](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | 공개 미리 보기 | 공개 미리 보기 |
+| - [Forcepoint DLP](../../sentinel/data-connectors-reference.md#forcepoint-data-loss-prevention-dlp-preview)                                   | 공개 미리 보기 | 사용할 수 없음      |
 | - [CEF용 ForgeRock Common Audit](../../sentinel/connect-data-sources.md)                  | 공개 미리 보기 | 공개 미리 보기 |
-| - [Fortinet](../../sentinel/connect-fortinet.md)                                         | GA             | GA             |
-| - [Google 작업 영역(G 제품군) ](../../sentinel/connect-google-workspace.md)                      | 공개 미리 보기 | 사용할 수 없음      |
-| - [Illusive 공격 관리 시스템](../../sentinel/connect-illusive-attack-management-system.md)                | 공개 미리 보기 | 공개 미리 보기 |
-| - [Imperva WAF 게이트웨이](../../sentinel/connect-imperva-waf-gateway.md)                             | 공개 미리 보기 | 공개 미리 보기 |
-| - [Infoblox NIOS](../../sentinel/connect-infoblox.md)                                    | 공개 미리 보기 | 공개 미리 보기 |
-| - [Juniper SRX](../../sentinel/connect-juniper-srx.md)                                      | 공개 미리 보기 | 공개 미리 보기 |
+| - [Fortinet](../../sentinel/data-connectors-reference.md#fortinet)                                         | GA             | GA             |
+| - [Google 작업 영역(G 제품군) ](../../sentinel/data-connectors-reference.md#google-workspace-g-suite-preview)                      | 공개 미리 보기 | 사용할 수 없음      |
+| - [Illusive 공격 관리 시스템](../../sentinel/data-connectors-reference.md#illusive-attack-management-system-ams-preview)                | 공개 미리 보기 | 공개 미리 보기 |
+| - [Imperva WAF 게이트웨이](../../sentinel/data-connectors-reference.md#imperva-waf-gateway-preview)                             | 공개 미리 보기 | 공개 미리 보기 |
+| - [Infoblox NIOS](../../sentinel/data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview)                                    | 공개 미리 보기 | 공개 미리 보기 |
+| - [Juniper SRX](../../sentinel/data-connectors-reference.md#juniper-srx-preview)                                      | 공개 미리 보기 | 공개 미리 보기 |
 | - [Morphisec UTPP](../../sentinel/connect-data-sources.md)                                   | 공개 미리 보기 | 공개 미리 보기 |
 | - [Netskope](../../sentinel/connect-data-sources.md)                                         | 공개 미리 보기 | 공개 미리 보기 |
-| - [NXLog Windows DNS](../../sentinel/connect-nxlog-dns.md)                                             | 공개 미리 보기 | 사용할 수 없음      |
-| - [NXLog LinuxAudit](../../sentinel/connect-nxlog-linuxaudit.md)                                 | 공개 미리 보기 | 사용할 수 없음      |
-| - [Okta Single Sign-On](../../sentinel/connect-okta-single-sign-on.md)                              | 공개 미리 보기 | 공개 미리 보기 |
+| - [NXLog Windows DNS](../../sentinel/data-connectors-reference.md#nxlog-dns-logs-preview)                                             | 공개 미리 보기 | 사용할 수 없음      |
+| - [NXLog LinuxAudit](../../sentinel/data-connectors-reference.md#nxlog-linuxaudit-preview)                                 | 공개 미리 보기 | 사용할 수 없음      |
+| - [Okta Single Sign-On](../../sentinel/data-connectors-reference.md#okta-single-sign-on-preview)                              | 공개 미리 보기 | 공개 미리 보기 |
 | - [Onapsis 플랫폼](../../sentinel/connect-data-sources.md)                                 | 공개 미리 보기 | 공개 미리 보기 |
-| - [One Identity Safeguard](../../sentinel/connect-one-identity.md)                          | GA             | GA             |
-| - [보안 경고](../../sentinel/connect-orca-security-alerts.md)                            | 공개 미리 보기 | 사용할 수 없음      |
-| - [Palo Alto Networks](../../sentinel/connect-paloalto.md)                               | GA             | GA             |
-| - [Perimeter 81 활동 로그](../../sentinel/connect-perimeter-81-logs.md)                      | GA             | 사용할 수 없음      |
-| - [Proofpoint 온 디맨드 전자 메일 보안](../../sentinel/connect-proofpoint-pod.md)             | 공개 미리 보기 | 사용할 수 없음      |
-| - [Proofpoint TAP](../../sentinel/connect-proofpoint-tap.md)                                   | 공개 미리 보기 | 공개 미리 보기 |
-| - [Pulse Connect Secure](../../sentinel/connect-proofpoint-tap.md)                             | 공개 미리 보기 | 공개 미리 보기 |
-| - [Qualys 취약성 관리](../../sentinel/connect-qualys-vm.md)                  | 공개 미리 보기 | 공개 미리 보기 |
-| - [Salesforce 서비스 클라우드](../../sentinel/connect-salesforce-service-cloud.md)                         | 공개 미리 보기 | 사용할 수 없음      |
-| - [SonicWall 방화벽 ](../../sentinel/connect-sophos-cloud-optix.md)                              | 공개 미리 보기 | 공개 미리 보기 |
-| - [Sophos Cloud Optix](../../sentinel/connect-sophos-cloud-optix.md)                               | 공개 미리 보기 | 사용할 수 없음      |
-| - [Sophos XG 방화벽](../../sentinel/connect-sophos-xg-firewall.md)                               | 공개 미리 보기 | 공개 미리 보기 |
-| - [Squadra Technologies secRMM](../../sentinel/connect-squadra-secrmm.md)               | GA             | GA             |
-| - [Squid Proxy](../../sentinel/connect-squid-proxy.md)                                      | 공개 미리 보기 | 사용할 수 없음      |
-| - [Symantec Integrated Cyber Defense Exchange](../../sentinel/connect-symantec.md)       | GA             | GA             |
-| - [Symantec ProxySG](../../sentinel/connect-symantec-proxy-sg.md)                                | 공개 미리 보기 | 공개 미리 보기 |
-| - [Symantec VIP](../../sentinel/connect-symantec-vip.md)                                     | 공개 미리 보기 | 공개 미리 보기 |
+| - [One Identity Safeguard](../../sentinel/data-connectors-reference.md#one-identity-safeguard-preview)                          | GA             | GA             |
+| - [보안 경고](../../sentinel/data-connectors-reference.md#orca-security-preview)                            | 공개 미리 보기 | 사용할 수 없음      |
+| - [Palo Alto Networks](../../sentinel/data-connectors-reference.md#palo-alto-networks)                               | GA             | GA             |
+| - [Perimeter 81 활동 로그](../../sentinel/data-connectors-reference.md#perimeter-81-activity-logs-preview)                      | GA             | 사용할 수 없음      |
+| - [Proofpoint 온 디맨드 전자 메일 보안](../../sentinel/data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)             | 공개 미리 보기 | 사용할 수 없음      |
+| - [Proofpoint TAP](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                                   | 공개 미리 보기 | 공개 미리 보기 |
+| - [Pulse Connect Secure](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                             | 공개 미리 보기 | 공개 미리 보기 |
+| - [Qualys 취약성 관리](../../sentinel/data-connectors-reference.md#qualys-vulnerability-management-vm-preview)                  | 공개 미리 보기 | 공개 미리 보기 |
+| - [Salesforce 서비스 클라우드](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | 공개 미리 보기 | 사용할 수 없음      |
+| - [SonicWall 방화벽 ](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                              | 공개 미리 보기 | 공개 미리 보기 |
+| - [Sophos Cloud Optix](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                               | 공개 미리 보기 | 사용할 수 없음      |
+| - [Sophos XG 방화벽](../../sentinel/data-connectors-reference.md#sophos-xg-firewall-preview)                               | 공개 미리 보기 | 공개 미리 보기 |
+| - [Squadra Technologies secRMM](../../sentinel/data-connectors-reference.md#squadra-technologies-secrmm)               | GA             | GA             |
+| - [Squid Proxy](../../sentinel/data-connectors-reference.md#squid-proxy-preview)                                      | 공개 미리 보기 | 사용할 수 없음      |
+| - [Symantec Integrated Cyber Defense Exchange](../../sentinel/data-connectors-reference.md#symantec-integrated-cyber-defense-exchange-icdx)       | GA             | GA             |
+| - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | 공개 미리 보기 | 공개 미리 보기 |
+| - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | 공개 미리 보기 | 공개 미리 보기 |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
 | - [위협 인텔리전스 플랫폼](../../sentinel/connect-threat-intelligence-tip.md)                   | 공개 미리 보기 | 사용할 수 없음      |
 | - [위협 인텔리전스 TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | 공개 미리 보기 | 사용할 수 없음      |
-| - [Thycotic 비밀 서버](../../sentinel/connect-thycotic-secret-server.md)                          | 공개 미리 보기 | 공개 미리 보기 |
-| - [Trend Micro Deep Security](../../sentinel/connect-trend-micro.md)                       | GA             | GA             |
-| - [Trend Micro TippingPoint](../../sentinel/connect-trend-micro-tippingpoint.md)                         | 공개 미리 보기 | 공개 미리 보기 |
+| - [Thycotic 비밀 서버](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | 공개 미리 보기 | 공개 미리 보기 |
+| - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
+| - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | 공개 미리 보기 | 공개 미리 보기 |
 | - [Trend Micro XDR](../../sentinel/connect-data-sources.md)                                  | 공개 미리 보기 | 사용할 수 없음      |
-| - [VMware Carbon Black Endpoint Standard](../../sentinel/connect-vmware-carbon-black.md)           | 공개 미리 보기 | 공개 미리 보기 |
-| - [VMware ESXi](../../sentinel/connect-vmware-esxi.md)                                      | 공개 미리 보기 | 공개 미리 보기 |
-| - [WireX 네트워크 포렌식 플랫폼](../../sentinel/connect-wirex-systems.md)                | 공개 미리 보기 | 공개 미리 보기 |
-| - [Zimperium Mobile Threat Defense](../../sentinel/connect-zimperium-mtd.md)                  | 공개 미리 보기 | 사용할 수 없음      |
-| - [Zscaler](../../sentinel/connect-zscaler.md)                                         | GA             | GA             |
+| - [VMware Carbon Black Endpoint Standard](../../sentinel/data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)           | 공개 미리 보기 | 공개 미리 보기 |
+| - [VMware ESXi](../../sentinel/data-connectors-reference.md#vmware-esxi-preview)                                      | 공개 미리 보기 | 공개 미리 보기 |
+| - [WireX 네트워크 포렌식 플랫폼](../../sentinel/data-connectors-reference.md#wirex-network-forensics-platform-preview)                | 공개 미리 보기 | 공개 미리 보기 |
+| - [Zimperium Mobile Threat Defense](../../sentinel/data-connectors-reference.md#zimperium-mobile-thread-defense-preview)                  | 공개 미리 보기 | 사용할 수 없음      |
+| - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
 | | | |
 
 
@@ -253,7 +253,7 @@ Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩�
 
 | 커넥터 | Azure | Azure Government |
 |--|--|--|
-| **[Dynamics365](../../sentinel/connect-dynamics-365.md)** |  |  |
+| **[Dynamics365](../../sentinel/data-connectors-reference.md#dynamics-365)** |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 사용할 수 없음 |
 | - Office 365 DoD | - | 사용할 수 없음 |
@@ -261,31 +261,31 @@ Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩�
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 사용할 수 없음 |
 | - Office 365 DoD | - | 사용할 수 없음 |
-| **[MCAS(Microsoft Cloud App Security)](../../sentinel/connect-cloud-app-security.md)** |  |  |
+| **[MCAS(Microsoft Cloud App Security)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[MCAS(Microsoft Cloud App Security)](../../sentinel/connect-cloud-app-security.md)** <br>섀도 IT 로그 |  |  |
+| **[MCAS(Microsoft Cloud App Security)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** <br>섀도 IT 로그 |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 공개 미리 보기 |
 | - Office 365 DoD | - | 공개 미리 보기 |
-| **[MCAS(Microsoft Cloud App Security)](../../sentinel/connect-cloud-app-security.md)**                  <br>경고 |  |  |
+| **[MCAS(Microsoft Cloud App Security)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)**                  <br>경고 |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 공개 미리 보기 |
 | - Office 365 DoD | - | 공개 미리 보기 |
-| **[엔드포인트에 대한 Microsoft Defender](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)** |  |  |
+| **[엔드포인트에 대한 Microsoft Defender](../../sentinel/data-connectors-reference.md#microsoft-defender-for-endpoint)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Identity](../../sentinel/connect-azure-atp.md)** |  |  |
+| **[Microsoft Defender for Identity](../../sentinel/data-connectors-reference.md#microsoft-defender-for-identity)** |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 사용할 수 없음 |
 | - Office 365 DoD | - | 사용할 수 없음 |
-| **[Office 365용 Microsoft Defender](../../sentinel/connect-office-365-advanced-threat-protection.md)** |  |  |
+| **[Office 365용 Microsoft Defender](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365)** |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 사용할 수 없음 |
 | - Office 365 DoD | - | 사용할 수 없음 |
-| **[Office 365](../../sentinel/connect-office-365.md)** |  |  |
+| **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -307,7 +307,7 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 | [자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **SIEM, SOAR 및 XDR을 사용하여 IT 및 OT 보안 통합** |  |  |
 | - [경고 정보 전달](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
-| - [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | 사용할 수 없음 |
+| - [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 퍼블릭 미리 보기 | 사용할 수 없음 |
 | - [SOC 시스템](../../defender-for-iot/integration-splunk.md) | GA | GA |
 | - [티켓 시스템 및 CMDB(Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
 | - [센서 프로비저닝](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |

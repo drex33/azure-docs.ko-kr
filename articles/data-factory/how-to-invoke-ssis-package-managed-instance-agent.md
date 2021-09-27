@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.date: 04/14/2020
-ms.openlocfilehash: 4bcce019e5b659f7af4056e861631a7a6ed31efb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b16cc04837fef57d5510d9c34be94f76dd87033d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528564"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730767"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Azure SQL Managed Instance Agent를 사용하여 SSIS 패키지 실행하기
 
@@ -36,17 +36,17 @@ ms.locfileid: "122528564"
 1. 최신 버전의 SSMS에서 SQL Managed Instance에 연결합니다.
 1. 새 에이전트 작업 및 새 작업 단계 만들기. **SQL Server Agent** 에서 **작업** 폴더를 마우스 우클릭한 다음 **새 작업** 을 선택합니다.
 
-   ![새 에이전트 작업을 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="새 에이전트 작업을 만들기 위한 선택 항목":::
 
 1. **새 작업 단계** 페이지에서 형식을 **SQL Server Integration Services 패키지** 로 선택합니다.
 
-   ![새 SSIS 작업 단계를 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="새 SSIS 작업 단계를 만들기 위한 선택 항목":::
 
 1. **패키지** 탭에서 패키지 위치를 **SSIS 카탈로그** 로 선택합니다.
 1. SSISDB는 SQL Managed Instance에 있으므로 인증을 지정할 필요가 없습니다.
 1. SSISDB에서 SSIS 패키지를 지정합니다.
 
-   ![패키지 원본 형식에 대한 선택 항목이 포함된 패키지 탭](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png" alt-text="패키지 원본 형식에 대한 선택 항목이 포함된 패키지 탭":::
 
 1. **구성** 탭에서 다음을 수행할 수 있습니다.
   
@@ -54,7 +54,7 @@ ms.locfileid: "122528564"
    - **연결 관리자** 아래에서 값을 재정의합니다.
    - 속성을 재정의하고 **고급** 에서 로깅 수준을 선택합니다.
 
-   ![패키지 원본 형식에 대한 선택 항목이 포함된 구성 탭](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png" alt-text="패키지 원본 형식에 대한 선택 항목이 포함된 구성 탭":::
 
 1. **확인** 을 클릭하여 에이전트 작업 구성을 저장합니다.
 1. 에이전트 작업을 시작하여 SSIS 패키지를 실행합니다.
@@ -66,11 +66,11 @@ ms.locfileid: "122528564"
 1. 최신 버전의 SSMS에서 SQL Managed Instance에 연결합니다.
 1. 새 에이전트 작업 및 새 작업 단계 만들기. **SQL Server Agent** 에서 **작업** 폴더를 마우스 우클릭한 다음 **새 작업** 을 선택합니다.
 
-   ![새 에이전트 작업을 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="새 에이전트 작업을 만들기 위한 선택 항목":::
 
 1. **새 작업 단계** 페이지에서 형식을 **SQL Server Integration Services 패키지** 로 선택합니다.
 
-   ![새 SSIS 작업 단계를 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="새 SSIS 작업 단계를 만들기 위한 선택 항목":::
 
 1. **패키지** 탭을 선택합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "122528564"
 
       - 패키지가 Azure Files에 업로드된 경우 **Azure 파일 공유** 를 선택합니다.
 
-        ![파일 원본 형식에 대한 옵션](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png" alt-text="파일 원본 형식에 대한 옵션":::
 
         패키지 경로는 **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** 입니다.
 
@@ -111,11 +111,11 @@ ms.locfileid: "122528564"
 1. 최신 버전의 SSMS에서 SQL Managed Instance에 연결합니다.
 1. 새 에이전트 작업 및 새 작업 단계 만들기. **SQL Server Agent** 에서 **작업** 폴더를 마우스 우클릭한 다음 **새 작업** 을 선택합니다.
 
-   ![새 에이전트 작업을 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="새 에이전트 작업을 만들기 위한 선택 항목":::
 
 1. **새 작업 단계** 페이지에서 형식을 **SQL Server Integration Services 패키지** 로 선택합니다.
 
-   ![새 SSIS 작업 단계를 만들기 위한 선택 항목](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="새 SSIS 작업 단계를 만들기 위한 선택 항목":::
 
 1. **패키지** 탭을 선택합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "122528564"
 
       패키지 경로는 **`<package store name>\<folder name>\<package name>`** 입니다.
 
-      ![패키지 저장소 형식에 대한 옵션](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png)
+      :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png" alt-text="패키지 저장소 형식에 대한 옵션":::
 
    1. 패키지 파일이 패스워드로 암호화된 경우, **암호화 패스워드** 를 선택하고 패스워드를 입력합니다.
 1. SSIS 패키지를 실행하는 데 구성 파일이 필요한 경우, **구성** 탭에서 구성 파일 경로를 입력합니다.
@@ -152,7 +152,7 @@ SQL Managed Instance Agent 작업에서 패키지 실행을 취소하려면, 에
    SSIS 패키지가 SSISDB에 있는 경우 작업 실행을 위해 **ssisdb.internal.execution_parameter_values** 를 테이블로 사용합니다. SSIS 패키지가 파일 시스템에 있는 경우, **ssisdb.internal.execution_parameter_values_noncatalog** 를 사용합니다.
 1. SSISDB 카탈로그를 마우스 오른쪽 단추로 클릭한 다음 **활성 작업** 을 선택합니다.
 
-   ![SSISDB 카탈로그에 대한 바로 가기 메뉴의 ‘활성 작업’](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png" alt-text="&quot;&quot;SSISDB 카탈로그의 바로 가기 메뉴에서 활성 작업":::
 
 1. **executionId** 을 기준으로 해당 작업을 중지합니다.
 

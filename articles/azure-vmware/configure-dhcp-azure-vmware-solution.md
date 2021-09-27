@@ -3,23 +3,26 @@ title: Azure VMware Solution용 DHCP 구성
 description: NSX-T Manager를 사용하여 DHCP 서버를 호스팅하거나 타사의 외부 DHCP 서버를 사용하도록 DHCP를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.custom: contperf-fy21q2, contperf-fy22q1
-ms.date: 07/13/2021
-ms.openlocfilehash: d781a7cc0ced6df4f5ad1e562a78f00e023ea10a
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.date: 09/13/2021
+ms.openlocfilehash: 10234147303ab9959fa1a907b0c558be9e3fe0f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530666"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600965"
 ---
 # <a name="configure-dhcp-for-azure-vmware-solution"></a>Azure VMware Solution용 DHCP 구성
 
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
-이 방법 문서에서는 NSX-T Manager를 사용하여 다음 두 가지 방법 중 하나로 Azure VMware Solution용 DHCP를 구성합니다. 
+이 방법 문서에서는 NSX-T Manager 사용하여 다음 방법 중 하나로 Azure VMware Solution DHCP를 구성합니다. 
 
-- [DHCP 서버를 호스트하기 위한 NSX-T](#use-nsx-t-to-host-your-dhcp-server)
 
-- [타사 외부 DHCP 서버](#use-a-third-party-external-dhcp-server)
+- [Azure Portal 사용하여 DHCP 서버 또는 릴레이 만들기](#use-the-azure-portal-to-create-a-dhcp-server-or-relay)
+
+- [NSX-T를 사용하여 DHCP 서버 호스트](#use-nsx-t-to-host-your-dhcp-server)
+
+- [타사 외부 DHCP 서버 사용](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
 >NSX-T 작업의 간소화된 보기를 사용하여 DHCP를 구성하려면 [Azure VMware Solution에 대한 DHCP 구성](configure-dhcp-azure-vmware-solution.md)을 참조하세요.
@@ -29,6 +32,22 @@ ms.locfileid: "122530666"
 >2021년 7월 1일 이후에 생성된 클라우드의 경우 환경의 기본 계층 1 게이트웨이에서 DHCP를 구성하는 데 NSX-T 작업의 간소화된 보기를 사용해야 합니다.
 >
 >DHCP 서버가 온-프레미스 데이터 센터에 있는 경우 VMware HCX L2 스트레치 네트워크의 VM(가상 머신)에 대해 DHCP가 작동하지 않습니다.  NSX는 기본적으로 모든 DHCP 요청이 L2 스트레치를 통과하지 못하도록 차단합니다. 이 솔루션은 [L2 확장 VMware HCX 네트워크에서 DHCP 구성](configure-l2-stretched-vmware-hcx-networks.md) 절차를 참조하세요.
+
+## <a name="use-the-azure-portal-to-create-a-dhcp-server-or-relay"></a>Azure Portal 사용하여 DHCP 서버 또는 릴레이 만들기
+
+DHCP 서버를 만들거나 Azure Portal Azure VMware Solution 직접 릴레이할 수 있습니다. DHCP 서버 또는 릴레이는 Azure VMware Solution 배포할 때 생성된 계층 1 게이트웨이에 연결됩니다. DHCP 범위를 제공한 모든 세그먼트는 이 DHCP의 일부가 됩니다. DHCP 서버 또는 DHCP 릴레이를 만든 후 이를 사용하려면 세그먼트 수준에서 서브넷 또는 범위를 정의해야 합니다.
+
+1. Azure VMware Solution 프라이빗 클라우드의 **워크로드 네트워킹** 에서 **DHCP** > **추가** 를 선택합니다.
+
+2. **DHCP 서버** 또는  **릴레이** 를 선택한 후 서버 또는 릴레이의 이름과 3개의 IP 주소를 제공합니다. 
+
+   >[!NOTE]
+   >DHCP 릴레이의 경우 성공적인 구성을 위해 하나의 IP 주소만 필요합니다.
+
+   :::image type="content" source="media/networking/add-dhcp-server-relay.png" alt-text="Azure VMware Solutions에서 DHCP 서버 또는 DHCP 릴레이를 추가하는 방법을 보여 주는 스크린샷입니다.":::
+
+4. [논리 세그먼트에 DHCP 범위를 제공](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment)하여 DHCP 구성을 완료한 후 **확인** 을 선택합니다.
+
 
 
 ## <a name="use-nsx-t-to-host-your-dhcp-server"></a>NSX-T를 사용하여 DHCP 서버 호스트

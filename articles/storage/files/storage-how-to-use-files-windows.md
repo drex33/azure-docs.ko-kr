@@ -4,16 +4,16 @@ description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 09/10/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8b469eb7eb94ad5454f79c4c4893597670867ac
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 8f125a5e1c7a0f26e92ec1e6e2d7afddb4f53a4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969511"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588640"
 ---
 # <a name="mount-smb-azure-file-share-on-windows"></a>Windows에 SMB Azure 파일 공유 탑재
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -23,16 +23,17 @@ ms.locfileid: "122969511"
 | Windows 버전 | SMB 버전 | Azure Files SMB 다중 채널 | 최대 SMB 채널 암호화 |
 |-|-|-|-|
 | Windows Server 2022 | SMB 3.1.1 | 예 | AES-256-GCM |
-| Windows 10, 버전 21H1 | SMB 3.1.1 | 예. KB5003690 이상 | AES-256-GCM |
+| Windows 11 | SMB 3.1.1 | 예 | AES-256-GCM |
+| Windows 10, 버전 21H1 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
 | Windows Server 버전 20H2 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
 | Windows 10 버전 20H2 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
 | Windows Server, 버전 2004 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
 | Windows 10, 버전 2004 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
 | Windows Server 2019 | SMB 3.1.1 | 예. KB5003703 이상 | AES-128-GCM |
 | Windows 10, 버전 1809 | SMB 3.1.1 | 예. KB5003703 이상 | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | 예. KB5004238 이상 | AES-128-GCM |
-| Windows 10 버전 1607 | SMB 3.1.1 | 예. KB5004238 이상 | AES-128-GCM |
-| Windows 10 버전 1507 | SMB 3.1.1 | 예, KB5004249 이상 | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | 예, KB5004238 이상 및 [적용된 레지스트리 키](#windows-server-2016-and-windows-10-version-1607) 포함 | AES-128-GCM |
+| Windows 10 버전 1607 | SMB 3.1.1 | 예, KB5004238 이상 및 [적용된 레지스트리 키](#windows-server-2016-and-windows-10-version-1607) 포함 | AES-128-GCM |
+| Windows 10 버전 1507 | SMB 3.1.1 | 예, KB5004249 이상 및 [적용된 레지스트리 키](#windows-10-version-1507) 포함 | AES-128-GCM |
 | Windows Server 2012 R2 | SMB 3.0 | 예 | AES-128-CCM |
 | Windows 8.1 | SMB 3.0 | 예 | AES-128-CCM |
 | Windows Server 2012 | SMB 3.0 | 예 | AES-128-CCM |
@@ -131,6 +132,31 @@ Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 
 **복원** 을 선택하여 공유 스냅샷을 만들 때의 전체 디렉터리의 내용을 원래 위치에 재귀적으로 복사합니다.
 
  ![경고 메시지의 복원 단추](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+
+## <a name="enable-smb-multichannel"></a>SMB 다중 채널 사용
+Azure Files에서 SMB 다중 채널을 지원 하려면 모든 관련 패치가 최신 상태로 적용 Windows 확인 해야 합니다. Windows Server 2016, Windows 10 버전 1607 및 Windows 10 버전 1507을 비롯 한 몇 가지 이전 Windows 버전에는 완전히 패치 된 설치에 적용 되는 모든 관련 SMB 다중 채널 수정에 대해 추가 레지스트리 키를 설정 해야 합니다. 이러한 세 버전 보다 최신 버전의 Windows를 실행 하는 경우 추가 작업이 필요 하지 않습니다.
+
+### <a name="windows-server-2016-and-windows-10-version-1607"></a>Windows Server 2016 및 Windows 10 버전 1607
+Windows Server 2016 및 Windows 10 버전 1607에 대 한 모든 SMB 다중 채널 수정을 사용 하도록 설정 하려면 다음 PowerShell 명령을 실행 합니다.
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+### <a name="windows-10-version-1507"></a>Windows 10 버전 1507
+Windows 10 버전 1507에 대 한 모든 SMB 다중 채널 수정을 사용 하도록 설정 하려면 다음 PowerShell 명령을 실행 합니다.
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조하세요.

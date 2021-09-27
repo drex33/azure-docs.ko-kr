@@ -8,15 +8,15 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 07/21/2021
 ms.author: alkohli
-ms.openlocfilehash: a649383ab6998715de9a696cc1abd86926c81432
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 00ff58c2d11ba76889e1293bdb386c199cb3de00
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568106"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589286"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
- 
+
 이 문서에서는 정기적으로 데이터를 전송하는 경우의 데이터 전송 솔루션에 대해 간략하게 설명합니다. 네트워크를 통한 정기적 데이터 전송은 일정한 간격마다 발생 또는 지속적인 데이터 이동으로 분류될 수 있습니다. 이 시나리오에서 권장되는 데이터 전송 옵션 및 각각의 주요 기능 매트릭스에 대해서도 설명합니다.
 
 사용 가능한 모든 데이터 전송 옵션에 대한 개요를 보려면 [Azure 데이터 전송 솔루션 선택](storage-choose-data-transfer-solution.md)으로 이동하세요.
@@ -27,14 +27,14 @@ ms.locfileid: "122568106"
 
 - **스크립팅/프로그래밍 방식 도구** - 일정한 간격마다 발생하는 데이터 전송의 경우 AzCopy, Azure Storage REST API 등의 스크립팅 및 프로그래밍 방식 도구를 사용합니다. 이러한 도구는 IT 전문가 및 개발자를 대상으로 합니다.
 
-    - **AzCopy** - 이 명령줄 도구를 사용하여 Azure Blob, Files 및 Table Storage에서 최적 성능으로 데이터를 쉽게 복사할 수 있습니다. AzCopy는 동시성 및 병렬 처리 기능과 중단된 복사 작업을 다시 시작하는 기능을 지원합니다.
-    - **Azure Storage REST API/SDK** - 애플리케이션을 빌드할 때 Azure Storage REST API에 대해 애플리케이션을 개발하고 여러 언어로 제공되는 Azure SDK를 사용할 수 있습니다. 또한 REST API는 Azure와의 데이터 고성능 복사를 위해 특별히 설계된 Azure Storage 데이터 이동 라이브러리를 활용할 수 있습니다.
+  - **AzCopy** - 이 명령줄 도구를 사용하여 Azure Blob, Files 및 Table Storage에서 최적 성능으로 데이터를 쉽게 복사할 수 있습니다. AzCopy는 동시성 및 병렬 처리 기능과 중단된 복사 작업을 다시 시작하는 기능을 지원합니다.
+  - **Azure Storage REST API/SDK** - 애플리케이션을 빌드할 때 Azure Storage REST API에 대해 애플리케이션을 개발하고 여러 언어로 제공되는 Azure SDK를 사용할 수 있습니다. 또한 REST API는 Azure와의 데이터 고성능 복사를 위해 특별히 설계된 Azure Storage 데이터 이동 라이브러리를 활용할 수 있습니다.
 
 - **지속적인 데이터 수집 도구** – 지속적으로 진행되는 데이터를 수집하는 경우 다음 옵션 중 하나를 선택할 수 있습니다.
 
-    - **개체 복제** - 개체 복제는 원본 및 대상 스토리지 계정의 컨테이너 간에 블록 Blob을 비동기적으로 복사합니다. 개체 복제를 솔루션으로 사용하여 서로 다른 두 스토리지 계정의 컨테이너를 동기화합니다.
-    - **Azure Data Factory** - Data Factory는 전송 작업을 확장하거나 오케스트레이션 및 엔터프라이즈급 모니터링 기능이 필요한 경우에 사용해야 합니다. Azure Data Factory를 사용하여 여러 Azure 서비스, 온-프레미스 또는 둘 다의 조합 간에 정기적으로 파일을 전송하는 클라우드 파이프라인을 설정할 수 있습니다. Azure Data Factory를 통해 개별 데이터 저장소의 데이터를 수집하고 데이터 이동 및 데이터 변환을 자동화하는 데이터 기반 워크플로를 오케스트레이션할 수 있습니다.
-    - **온라인 전송을 위한 Azure Data Box 제품군** - Data Box Edge 및 Data Box Gateway는 Azure에(서) 데이터를 이동할 수 있는 온라인 네트워크 디바이스입니다. Data Box Edge는 AI 지원 Edge 컴퓨팅을 사용하여 업로드 전에 데이터를 사전 처리합니다. Data Box Gateway는 동일한 데이터 전송 기능을 제공하는 가상 디바이스 버전입니다.
+  - **개체 복제** - 개체 복제는 원본 및 대상 스토리지 계정의 컨테이너 간에 블록 Blob을 비동기적으로 복사합니다. 개체 복제를 솔루션으로 사용하여 서로 다른 두 스토리지 계정의 컨테이너를 동기화합니다.
+  - **Azure Data Factory** - Data Factory는 전송 작업을 확장하거나 오케스트레이션 및 엔터프라이즈급 모니터링 기능이 필요한 경우에 사용해야 합니다. Azure Data Factory를 사용하여 여러 Azure 서비스, 온-프레미스 또는 둘 다의 조합 간에 정기적으로 파일을 전송하는 클라우드 파이프라인을 설정할 수 있습니다. Azure Data Factory를 통해 개별 데이터 저장소의 데이터를 수집하고 데이터 이동 및 데이터 변환을 자동화하는 데이터 기반 워크플로를 오케스트레이션할 수 있습니다.
+  - **온라인 전송을 위한 Azure Data Box 제품군** - Data Box Edge 및 Data Box Gateway는 Azure에(서) 데이터를 이동할 수 있는 온라인 네트워크 디바이스입니다. Data Box Edge는 AI 지원 Edge 컴퓨팅을 사용하여 업로드 전에 데이터를 사전 처리합니다. Data Box Gateway는 동일한 데이터 전송 기능을 제공하는 가상 디바이스 버전입니다.
 
 Data Box 온라인 전송 디바이스 또는 Azure Data Factory는 IT 전문가가 설정하고 데이터 전송을 투명하게 자동화할 수 있습니다.
 
@@ -70,6 +70,6 @@ Data Box 온라인 전송 디바이스 또는 Azure Data Factory는 IT 전문가
 - [AzCopy를 사용하여 데이터 전송](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Storage REST API를 사용한 데이터 전송에 대한 자세한 정보](/dotnet/api/overview/azure/storage)
 - 다음 작업을 수행하는 방법을 이해합니다.
-    - [Data Box Gateway를 통해 데이터 전송](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)
+  - [Data Box Gateway를 통해 데이터 전송](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+  - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](../../data-factory/tutorial-bulk-copy-portal.md)

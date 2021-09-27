@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 09/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 23ce17844a0113f63931c6ece7d36bfefedc2de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 88ef9534c1a0048ef113ce0666ddcdd47171c234
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100551302"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589394"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 추가하려면
 
@@ -42,6 +42,9 @@ ms.locfileid: "100551302"
        4. 백업 정책의 시작 시간과 날짜를 입력합니다.
 
        5. 일정을 정의하려면 **확인** 을 클릭합니다.
+       
+       > [!NOTE]
+       > 일정에 대해 64 개 백업에 도달 하 고 이러한 백업을 보존 하려는 경우 일정을 [사용 하지 않도록](..\articles\storsimple\storsimple-8000-manage-backup-policies-u2.md#disable-a-schedule) 설정한 다음 최대 64 백업 보존을 사용 하 여 새 일정을 추가할 수 있습니다. 이 해결 방법은 볼륨당 256 백업의 제한에 도달할 때까지 작동 합니다. 이 시점에서 이전 백업을 삭제 해야 새 백업을 수행할 수 있습니다.
 
    5. 백업 정책을 만들려면 **만들기** 를 클릭합니다.
    

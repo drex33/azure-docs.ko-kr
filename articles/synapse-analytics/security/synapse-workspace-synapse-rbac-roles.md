@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc516b917d56d6b41f83e0c81354453dafc41f42
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 02b4ecad40f45a47845ba6836cbe81652c436554
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822925"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589210"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -27,15 +27,15 @@ ms.locfileid: "122822925"
 - 구체적 분석 런타임이 아닌 개발 및 운영 가상 사용자를 지원하는 데 중점을 둔 **새로운 세부화된 Synapse RBAC 역할** 이 도입되었습니다.  
 - **새 하위 수준 범위** 는 여러 역할에 대하여 도입됩니다.  해당 범위를 통해 특정 리소스나 개체로 역할을 제한할 수 있습니다.
 
->[!Note]
->**새 Synapse RBAC 역할 및 하위 수준 범위는 현재 미리 보기로 제공됩니다**.  완전하게 지원되는 새로운 해당 역할 및 범위를 사용하고, 사용에 대한 피드백을 제공하는 것이 좋습니다.
-
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>기본 제공 Synapse RBAC 역할 및 범위
 
 다음 표에서는 기본 제공 역할 및 해당 역할을 사용할 수 있는 범위에 대해 설명합니다.
 
 >[!Note]
 > 어떤 범위에서든 Synapse RBAC 역할을 가진 사용자는 작업 영역 범위의 Synapse 사용자 역할도 자동으로 포함합니다. 
+
+> [!IMPORTANT]
+> Synapse RBAC 역할은 Synapse 작업 영역에서 SQL 풀, Apache Spark 풀 및 통합 런타임을 만들거나 관리할 수 있는 권한을 부여하지 않습니다. 이러한 작업에는 리소스 그룹에 대한 Azure 소유자 또는 Azure 기여자 역할이 필요합니다.
 
 |역할 |사용 권한|범위|
 |---|---|-----|
@@ -60,7 +60,7 @@ ms.locfileid: "122822925"
 
 역할|동작
 --|--
-Synapse 관리자|workspaces/read</br>workspaces/roleAssignments/write, delete</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action</br>workspaces/linkedServices/useSecret/action</br>workspaces/credentials/useSecret/action|
+Synapse 관리자|workspaces/read</br>workspaces/roleAssignments/write, delete</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action</br>workspaces/linkedServices/useSecret/action</br>workspaces/credentials/useSecret/action|
 |Synapse Apache Spark 관리자|workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/notebooks/viewOutputs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|
 |Synapse SQL 관리자|workspaces/read</br>workspaces/artifacts/read</br>workspaces/sqlScripts/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|
 |Synapse Contributor|workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
@@ -82,7 +82,8 @@ workspaces/roleAssignments/write, delete|Synapse 관리자
 workspaces/managedPrivateEndpoint/write, delete|Synapse 관리자</br>Synapse 연결된 데이터 관리자
 workspaces/bigDataPools/useCompute/action|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 컴퓨팅 운영자 
 workspaces/bigDataPools/viewLogs/action|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 컴퓨팅 운영자 
-workspaces/integrationRuntimes/useCompute/action|Synapse 관리자</br>Synapse Contributor</br>Synapse 컴퓨팅 운영자 
+workspaces/integrationRuntimes/useCompute/action|Synapse 관리자</br>Synapse Contributor</br>Synapse 컴퓨팅 운영자
+workspaces/integrationRuntimes/viewLogs/action|Synapse 관리자</br>Synapse Contributor</br>Synapse 컴퓨팅 운영자
 workspaces/artifacts/read|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자
 workspaces/notebooks/write, delete|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자
 workspaces/sparkJobDefinitions/write, delete|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자

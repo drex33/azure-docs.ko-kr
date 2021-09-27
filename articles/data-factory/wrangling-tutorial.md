@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 95ee9fe7071a1e426e21043b5522f9293c213b1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 1df90b5707c741303b3c3edcd4033b92e0f8f242
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535886"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732962"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>데이터 랭글링으로 데이터 준비
 
@@ -30,41 +30,41 @@ Azure Data Factory에서 파워 쿼리를 만드는 방법에는 두 가지가 �
 > [!NOTE]
 > 이전에는 데이터 랭글링 기능이 데이터 흐름 워크플로에 있었습니다. 이제 ```New > Power query```에서 데이터 랭글링 매시업을 빌드합니다.
 
-![팩터리 리소스 창의 파워 쿼리 스크린샷.](media/data-flow/power-query-wrangling.png)
+:::image type="content" source="media/data-flow/power-query-wrangling.png" alt-text="팩터리 리소스 창의 파워 쿼리 스크린샷.":::
 
 다른 방법은 파이프라인 캔버스의 작업 창에 있습니다. **파워 쿼리** 아코디언을 열고 **파워 쿼리** 활동을 캔버스로 끌어 놓습니다.
 
-![데이터 랭글링 옵션을 강조 표시하는 스크린샷.](media/data-flow/power-query-activity.png)
+:::image type="content" source="media/data-flow/power-query-activity.png" alt-text="데이터 랭글링 옵션을 강조 표시하는 스크린샷.":::
 
 ## <a name="author-a-power-query-data-wrangling-activity"></a>파워 쿼리 데이터 랭글링 활동 작성
 
 파워 쿼리 매시업에 대한 **원본 데이터 세트** 를 추가합니다. 기존 데이터 세트를 선택하거나 새 데이터 세트를 만들 수 있습니다. 매시업을 저장한 후에는 파워 쿼리 데이터 랭글링 활동을 파이프라인에 추가하고 싱크 데이터 세트를 선택하여 ADF에 데이터를 저장할 위치를 알릴 수 있습니다. 하나 이상의 원본 데이터 세트를 선택할 수 있지만 지금은 싱크가 하나만 허용됩니다. 싱크 데이터 세트 선택은 필수가 아니지만 하나 이상의 원본 데이터 세트 선택은 필수입니다.
 
-![랭글링](media/wrangling-data-flow/tutorial4.png)
+:::image type="content" source="media/wrangling-data-flow/tutorial4.png" alt-text="랭글링":::
 
 **만들기** 를 클릭하여 파워 쿼리 온라인 매시업 편집기를 엽니다.
 
 먼저 매시업 편집기에 대한 데이터 세트 원본을 선택합니다.
 
-![파워 쿼리 원본.](media/wrangling-data-flow/pq-new-source.png)
+:::image type="content" source="media/wrangling-data-flow/pq-new-source.png" alt-text="파워 쿼리 원본.":::
 
 파워 쿼리 빌드를 완료하면 이를 저장하고 매시업을 파이프라인에 작업으로 추가할 수 있습니다. 싱크 데이터 세트 속성을 설정할 때입니다.
 
-![파워 쿼리 싱크.](media/wrangling-data-flow/pq-new-sink.png)
+:::image type="content" source="media/wrangling-data-flow/pq-new-sink.png" alt-text="파워 쿼리 싱크.":::
 
 코드 없는 데이터 준비를 사용하여 랭글링 파워 쿼리를 작성합니다. 사용 가능한 함수 목록은 [변환 함수](wrangling-functions.md)를 참조하세요. ADF는 M 스크립트를 데이터 흐름 스크립트로 변환하므로 Azure Data Factory 데이터 흐름 Spark 환경을 사용하여 대규모로 파워 쿼리를 실행할 수 있습니다.
 
-![데이터 랭글링 파워 쿼리 작성 프로세스를 보여주는 스크린샷.](media/wrangling-data-flow/tutorial6.png)
+:::image type="content" source="media/wrangling-data-flow/tutorial6.png" alt-text="데이터 랭글링 파워 쿼리 작성 프로세스를 보여주는 스크린샷.":::
 
 ## <a name="running-and-monitoring-a-power-query-data-wrangling-activity"></a>파워 쿼리 데이터 랭글링 활동 실행 및 모니터링
 
 파워 쿼리 활동의 파이프라인 디버그 실행을 실행하려면 파이프라인 캔버스에서 **디버그** 를 클릭합니다. 파이프라인을 게시하면 **지금 트리거** 로 마지막에 게시된 파이프라인의 주문형 실행을 실행합니다. 파워 쿼리 파이프라인은 모든 기존 Azure Data Factory 트리거를 사용하여 예약할 수 있습니다.
 
-![파워 쿼리 데이터 랭글링 활동을 추가하는 방법을 보여주는 스크린샷.](media/data-flow/pq-activity-001.png)
+:::image type="content" source="media/data-flow/pq-activity-001.png" alt-text="파워 쿼리 데이터 랭글링 활동을 추가하는 방법을 보여주는 스크린샷.":::
 
 **모니터** 탭으로 이동하여 트리거된 파워 쿼리 활동 실행의 출력을 시각화합니다.
 
-![트리거된 랭글링 파워 쿼리 활동 실행의 출력을 보여주는 스크린샷.](media/wrangling-data-flow/tutorial2.png)
+:::image type="content" source="media/wrangling-data-flow/tutorial2.png" alt-text="트리거된 랭글링 파워 쿼리 활동 실행의 출력을 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

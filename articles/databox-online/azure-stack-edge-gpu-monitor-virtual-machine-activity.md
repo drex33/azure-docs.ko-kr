@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: a73337ad261d8d2d7aef2c6292c7387d7c4cad9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: aa1974347caa04c314e51b33daba47d7835026db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566965"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757613"
 ---
 # <a name="monitor-vm-activity-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 VM 작업 모니터링
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro GPU 디바이스에서 가상 머신에 대한 활동 로�
 
     ![Azure Stack Edge 디바이스의 가상 머신에 대한 활동 로그 페이지를 보여 주는 스크린샷. 확장된 작업이 목록에서 강조 표시됩니다.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-Azure의 모든 **활동 로그** 창에서 작업을 필터링 및 정렬하고, 표시할 열을 선택하고, 특정 작업에 대한 세부 정보로 드릴다운하고, 오류, 실패한 배포, 경고, 서비스 상태 및 지난 24시간 동안의 보안 변경 사항에 대한 **빠른 인사이트** 를 얻을 수 있습니다. 로그 및 필터링 옵션에 대한 자세한 내용은 [활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+Azure의 모든 **활동 로그** 창에서 작업을 필터링 및 정렬하고, 표시할 열을 선택하고, 특정 작업에 대한 세부 정보로 드릴다운하고, 오류, 실패한 배포, 경고, 서비스 상태 및 지난 24시간 동안의 보안 변경 사항에 대한 **빠른 인사이트** 를 얻을 수 있습니다. 로그 및 필터링 옵션에 대한 자세한 내용은 [활동 로그 보기](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

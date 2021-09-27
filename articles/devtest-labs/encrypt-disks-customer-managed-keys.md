@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 고객 관리 키를 사용하여 OS 디스크 암호화
+title: 고객 관리형 키를 사용하여 OS 디스크 암호화
 description: Azure DevTest Labs에서 고객 관리 키를 사용하여 OS(운영 체제) 디스크를 암호화하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 26ef4ff1529483da9956c6dcc43807af0ffd6463
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2da0e89c5a3f34d9ba967088ea3881f6a30bc1e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96341211"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632351"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Azure DevTest Labs에서 고객 관리 키를 사용하여 운영 체제(OS) 디스크 암호화
 SSE(서버 쪽 암호화)는 데이터를 보호하고 조직의 보안 및 규정 준수 노력에 부합하는 데 도움이 됩니다. SSE는 클라우드에 데이터를 유지할 때 기본적으로 Azure의 관리 디스크(OS 및 데이터 디스크)에 저장된 데이터를 자동으로 암호화합니다. Azure의 [디스크 암호화](../virtual-machines/disk-encryption.md)에 대해 자세히 알아보세요. 

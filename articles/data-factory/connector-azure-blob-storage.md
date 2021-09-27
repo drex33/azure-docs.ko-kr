@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e7d9e4da611bbbf13bacee60ed73248f5b39c14c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307061"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764187"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -59,7 +59,7 @@ ms.locfileid: "123307061"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -84,7 +84,7 @@ ms.locfileid: "123307061"
 - [계정 키 인증](#account-key-authentication)
 - [공유 액세스 서명 인증](#shared-access-signature-authentication)
 - [서비스 주체 인증](#service-principal-authentication)
-- [시스템 할당 관리 ID 인증](#managed-identity)
+- [시스템이 할당한 관리 ID 인증](#managed-identity)
 - [사용자 할당 관리 ID 인증](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
@@ -98,7 +98,7 @@ ms.locfileid: "123307061"
 
 Azure Data Factory 또는 Synapse 파이프라인의 스토리지 계정 키 인증에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | `type` 속성은 `AzureBlobStorage`(권장) 또는 `AzureStorage`로 설정되어야 합니다(다음 참고 참조). | 예 |
 | connectionString | `connectionString` 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -168,7 +168,7 @@ Azure Data Factory 또는 Synapse 파이프라인의 스토리지 계정 키 인
 
 공유 액세스 서명 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | `type` 속성은 `AzureBlobStorage`(권장) 또는 `AzureStorage`로 설정되어야 합니다(다음 참고 참조). | 예 |
 | sasUri | 스토리지 리소스(예: Blob 또는 컨테이너)에 대한 공유 액세스 서명 URI를 지정합니다. <br/>이 필드를 `SecureString`으로 표시하여 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 사용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. | 예 |
@@ -311,7 +311,7 @@ Azure Storage 인증에 대한 일반적인 정보는 [Azure Active Directory를
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureBlobStorage** 로 설정해야 합니다. | 예 |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. | 예 |
@@ -352,12 +352,12 @@ Azure Storage 인증에 대한 일반적인 정보는 [Azure Active Directory를
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureBlobStorage** 로 설정해야 합니다. | 예 |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. | 예 |
 | accountKind | 스토리지 계정의 종류를 지정합니다. 허용되는 값은 **스토리지**(범용 v1), **스토리지V2**(범용 v2), **BlobStorage** 또는 **BlockBlobStorage** 입니다. <br/><br/>데이터 흐름에서 Azure Blob에 연결된 서비스를 사용하는 경우 계정 종류가 비어 있거나 "스토리지"인 경우 관리 ID 또는 서비스 주체 인증이 지원되지 않습니다. 적절한 계정 종류를 지정하거나 다른 인증을 선택하거나 스토리지 계정을 범용 v2로 업그레이드합니다. | 예 |
-| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. | 예 |
 
 **예:**
@@ -517,7 +517,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 형식 기반 복사 싱크의 `storeSettings` 설정의 Azure Blob Storage에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수 |
+| 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 `type` 속성은 `AzureBlobStorageWriteSettings`로 설정되어야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
@@ -629,7 +629,7 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 원본 변환 시 Azure Blob Storage의 컨테이너, 폴더 또는 개별 파일에서 읽을 수 있습니다. **원본 옵션** 탭을 사용하여 파일을 읽는 방법을 관리합니다. 
 
-![원본 옵션](media/data-flow/sourceOptions1.png "원본 옵션")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="원본 옵션":::
 
 **와일드카드 경로:** 와일드카드 패턴을 사용하면 서비스가 일치하는 각 폴더와 파일을 단일 원본 변환에서 반복하도록 지시합니다. 이는 단일 흐름 내에서 여러 파일을 처리하는 효과적인 방법입니다. 기존 와일드카드 패턴을 마우스로 가리키면 표시되는 + 기호를 사용하여 와일드카드 일치 패턴을 여러 개 추가합니다.
 
@@ -651,11 +651,11 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 먼저 분할된 폴더와 읽을 리프 파일인 모든 경로를 포함하도록 와일드카드를 설정합니다.
 
-![파티션 원본 파일 설정](media/data-flow/partfile2.png "파티션 파일 설정")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="파티션 원본 파일 설정":::
 
 **파티션 루트 경로** 설정을 사용하여 폴더 구조의 최상위 수준을 정의합니다. 데이터 미리 보기를 통해 데이터 콘텐츠를 보면 서비스가 각 폴더 수준에서 찾은 해결된 파티션을 추가함을 확인할 수 있습니다.
 
-![파티션 루트 경로](media/data-flow/partfile1.png "파티션 루트 경로 미리 보기")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="파티션 루트 경로":::
 
 **파일 목록:** 파일 집합입니다. 처리할 상대 경로 파일 목록이 포함된 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
 
@@ -688,7 +688,7 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 싱크 변환에서 Azure Blob Storage의 컨테이너 또는 폴더에 쓸 수 있습니다. **설정** 탭을 사용하여 파일을 작성하는 방법을 관리할 수 있습니다.
 
-![싱크 옵션](media/data-flow/file-sink-settings.png "싱크 옵션")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="싱크 옵션":::
 
 **폴더 선택 취소:** 데이터를 쓰기 전에 대상 폴더를 지울 것인지 여부를 결정합니다.
 
@@ -720,7 +720,7 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 `type` 속성을 `AzureBlob`로 설정해야 합니다. | 예 |
 | folderPath | Blob Storage의 컨테이너 및 폴더 경로입니다. <br/><br/>컨테이너 이름을 제외한 경로에 대해 와일드카드 필터가 지원됩니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예는 `myblobcontainer/myblobfolder/`입니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
@@ -765,7 +765,7 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>복사 작업을 위한 레거시 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 `type` 속성을 `BlobSource`로 설정해야 합니다. | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`를 `true`로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 `true`(기본값) 및 `false`입니다. | 예 |

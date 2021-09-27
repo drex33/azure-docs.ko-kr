@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 03/23/2021
-ms.openlocfilehash: a4bd78c15d2015eabf95926e2b4bcf43d6cbcdcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 18ff7d0faa7ace0dc70c7f90603167084a4b8135
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528656"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740449"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -63,23 +63,33 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 
 ### <a name="call-to-actions-trend"></a>작업에 대한 호출 추세
 
-이 숫자는 제품 목록 페이지(제품 정보 페이지)에서 **작업에 대한 호출** 단추 클릭 완료 횟수를 나타냅니다. _작업에 대한 호출_ 은 **지금 받기**, **평가판**, **담당자** 및 **시험 사용** 단추를 선택할 때 계산됩니다.
+이 숫자는 제품 목록 페이지(제품 정보 페이지)에서 **작업에 대한 호출** 단추 클릭 완료 횟수를 나타냅니다. _작업에 대한 호출_ 은 **지금 받기**, **평가판**, **담당자** 및 **시험 사용** 단추를 선택할 때 계산됩니다. *지정 된 동의* 는 Microsoft 또는 파트너에 대 한 고객 제공 동의의 총 클릭 수를 나타내며 제품에 대해 획득 한 고객의 수와 동일 합니다. 다음 두 예제는 *지정 된* 클릭이 표시 되는 위치를 보여 줍니다.
 
-[![Marketplace 인사이트 대시보드의 작업에 대한 호출 차트를 보여 줍니다.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="승인 단추가 선택 된 위치를 보여 줍니다.":::
 
-### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>페이지 방문 및 제안, 조회 도메인, 캠페인 ID에 대한 작업 호출
+다음 그래프에서는 *Cta* 및 *지정 된 동의* 메트릭을 보여 줍니다.
 
-**조회 도메인**: 특정 조회 도메인을 선택하면 오른쪽 차트에 페이지 방문 횟수 및 작업에 대한 호출의 월별 추세가 표시됩니다.
+:::image type="content" source="./media/insights-dashboard/consent-given-graph.png" alt-text="지정 된 동작 및 동의에 대 한 호출의 샘플 그래프를 보여 줍니다.":::
 
-:::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Marketplace 인사이트 대시보드의 조회 도메인 차트를 보여 줍니다.":::
+### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>페이지 방문 및 작업에 대한 호출, 조회 도메인 및 캠페인 ID에 대한 작업 호출
 
-**제안**: 특정 제안을 선택하여 오른쪽 차트에 페이지 방문 횟수 및 작업에 대한 호출의 월별 추세를 확인합니다.
+#### <a name="offers"></a>제품
 
-:::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Marketplace 인사이트 대시보드의 제안 별칭 차트를 보여 줍니다.":::
+특정 제품을 선택 하 여 페이지 방문에 대 한 월별 추세, 작업 호출 및 차트에서 승인 된 클릭을 확인할 수 있습니다.
 
-**캠페인 ID**: 특정 캠페인 ID를 선택하면 캠페인의 성공 여부를 파악할 수 있습니다. 각 캠페인에 대해 페이지 방문의 월별 추세와 오른쪽의 차트에 대한 작업 호출을 볼 수 있습니다.
+:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="제안에 대 한 샘플 깔때기형 그래프를 표시 합니다.":::
 
-:::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Marketplace 인사이트 대시보드의 캠페인 차트를 보여 줍니다.":::
+#### <a name="referral-domains"></a>조회 도메인
+
+특정 조회 도메인을 선택 하면 페이지 방문의 월별 추세, 작업 호출 및 오른쪽의 차트에 대 한 승인 클릭이 표시 됩니다. 또한 Platform – 웹 사이트 및 클라이언트에 대 한 열도 AppSource 제품에 대해서만 표시 됩니다. 깔때기형 보기는 차트에서 페이지 보기, 작업 호출 및 동의 시 클릭 간의 변환 비율을 보여 줍니다.
+
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="조회 도메인의 샘플 깔때기 그래프를 표시 합니다.":::
+
+#### <a name="campaign-ids"></a>캠페인 Id
+
+특정 캠페인 ID를 선택 하면 캠페인의 성공 여부를 이해할 수 있습니다. 각 캠페인에 대해 페이지 방문의 월별 추세, 작업 호출 및 차트에서 승인 된 클릭을 확인할 수 있어야 합니다.
+
+:::image type="content" source="./media/insights-dashboard/campaign-id-funnel-graph.png" alt-text="Marketplace 인사이트 대시보드의 캠페인 차트를 보여 줍니다.":::
 
 ### <a name="marketplace-insights-by-geography"></a>지리별 Marketplace 정보
 
@@ -117,6 +127,8 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 | 시험 사용 | 시험 사용 | 특정 날짜에 대한 제품 페이지에서 "시험 사용" CTA의 클릭 수입니다. | TestDrive |
 | 무료 평가판 | 무료 평가판 | 특정 날짜에 대한 제품 페이지의 "무료 평가판" CTA의 클릭 수입니다. | FreeTrial |
 | 캠페인 | 캠페인의 이름 | 캠페인 이름에 대한 웹 원격 분석(페이지 방문 및 CTA 클릭)을 이해할 수 있는지 여부입니다. | 캠페인 |
+| 지정 된 동의 | 지정 된 동의 | Microsoft 또는 파트너에 대 한 고객이 제공한 동의의 총 클릭 수입니다. | consentGivenCount |
+| 플랫폼 | 플랫폼 | 웹 사이트 또는 클라이언트 (제품 내 저장소)를 페이지 보기, CTA 또는 동의 클릭의 원본으로 나타냅니다. | 플랫폼 |
 | 해당 없음 | 사이트 | 페이지 방문 또는 CTA 클릭이 발생한 상점 이름입니다. 가능한 값은 다음과 같습니다.<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | 사이트 |
 |
 
@@ -127,5 +139,5 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
+- Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
 - 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](analytics-faq.yml)을 참조하세요.

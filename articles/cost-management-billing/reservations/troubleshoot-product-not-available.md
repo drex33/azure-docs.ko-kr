@@ -5,15 +5,15 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/27/2020
-ms.openlocfilehash: 8575d9d86d8e720122a295cf92fa571ef33d5b4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: 51d30767c3e084ade041d22bac8a246aa5d1f502
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92798205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631137"
 ---
 # <a name="troubleshoot-reservation-type-not-available"></a>사용할 수 없는 예약 유형 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "92798205"
 ## <a name="symptoms"></a>증상
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고, **예약** 으로 이동합니다.
-2. **+ 추가** , 제품을 차례로 선택합니다.
+2. **+ 추가**, 제품을 차례로 선택합니다.
 3. **모든 제품** 탭을 선택합니다.
 4. 제품 목록에서 하나를 선택합니다. 다음 메시지 중 하나가 표시될 수 있습니다.
     - `Product unavailable for the selected subscription or region. Contact support.`  
@@ -51,7 +51,7 @@ ms.locfileid: "92798205"
 
 특정 제품을 카트에 추가하고 예약을 구매할 수 있도록 허용하는 검사는 간단합니다. Azure는 구독에 사용할 수 있는 총 CPU 코어 수를 평가하고, 해당 수가 선택한 항목의 코어 수보다 큰지 여부를 확인합니다.
 
-Azure는 **공유** 범위 예약 인스턴스에 대한 할당량을 확인하지 않습니다. 공유 범위에 대한 예약 인스턴스 혜택은 등록의 모든 구독에 적용됩니다. Azure는 모든 구독에서 리소스를 배포할 수 있을 만큼 사용 가능한 코어가 충분히 있는지 확인할 수 없습니다. 할당량에 관계없이 선택한 범위가 공유되면 Azure에서 항상 VM 크기를 선택할 수 있습니다.
+Azure는 **공유** 범위 또는 **관리 그룹** 범위 예약 된 인스턴스에 대 한 할당량을 확인 하지 않습니다. 공유 범위에 대한 예약 인스턴스 혜택은 등록의 모든 구독에 적용됩니다. 관리 그룹 범위에 대 한 예약 인스턴스 혜택은 관리 그룹 및 청구 범위의 일부인 모든 구독에 적용 됩니다. Azure는 모든 구독에서 리소스를 배포할 수 있을 만큼 사용 가능한 코어가 충분히 있는지 확인할 수 없습니다. 할당량에 관계 없이, Azure는 선택한 범위가 공유 또는 관리 그룹으로 설정 된 경우 항상 VM 크기를 선택할 수 있습니다.
 
 또한 Azure는 **추천** 구매에 대한 할당량 검사를 수행하지 않습니다. 추천 사항은 활성 사용량을 기준으로 합니다. 추천 사항을 만드는 데 필요한 사용량을 이미 생성했으므로 Azure는 특정 VM 크기를 실행할 수 있을 만큼 코어가 충분히 있다고 가정합니다.
 

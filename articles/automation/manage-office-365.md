@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation을 사용하여 Office 365 구
 services: automation
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f61149fd9c35cc55a3ed55fa83e6031d895fb073
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93398048"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737741"
 ---
 # <a name="manage-office-365-services"></a>Office 365 서비스 관리
 
@@ -33,7 +33,7 @@ Azure Automation 내에서 Office 365를 사용하려면 Windows PowerShell용 M
 
 ## <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
-이 문서의 단계를 완료하려면 Azure Automation 계정이 필요합니다. [Azure Automation 계정 만들기](automation-quickstart-create-account.md)를 참조하세요.
+이 문서의 단계를 완료하려면 Azure Automation 계정이 필요합니다. [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
  
 ## <a name="add-msonline-and-msonlineext-as-assets"></a>MSOnline 및 MSOnlineExt를 자산으로 추가
 
@@ -94,7 +94,7 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 
 Azure Automation Runbook에서 스크립트를 사용할 수 있습니다. 예시를 들기 위해 여기서는 PowerShell Runbook을 사용합니다.
 
-1. 새 PowerShell Runbook을 만듭니다. [Azure Automation Runbook 만들기](./automation-quickstart-create-runbook.md)를 참조하세요.
+1. 새 PowerShell Runbook을 만듭니다. [Azure Automation Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 2. Automation 계정의 **프로세스 자동화** 에서 **Runbook** 을 선택합니다.
 3. 새 Runbook을 선택하고 **편집** 을 클릭합니다.
 4. 스크립트를 복사하여 Runbook의 텍스트 편집기에 붙여넣습니다.

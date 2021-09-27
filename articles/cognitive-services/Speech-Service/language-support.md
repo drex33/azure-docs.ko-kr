@@ -3,20 +3,20 @@ title: 언어 지원 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service는 음성 번역과 함께 음성 텍스트 변환 및 텍스트 음성 변환을 위해 다양한 언어를 지원합니다. 이 문서에서는 서비스 기능별 언어 지원에 대한 종합 목록을 제공합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 7066a001d27376be6f9b8464beafc0cad2b54437
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 8965a05f60ca8fd67d02f4095b8c82dee82e1e0d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568098"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605129"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -57,32 +57,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아랍어(아랍에미리트)      | `ar-AE` | 텍스트                                   |                           |                          |
 | 아랍어(예멘)                     | `ar-YE` | 텍스트                                   |                           |                          |
 | 불가리아어(불가리아)               | `bg-BG` | 텍스트                                   |                           |                          |
-| 카탈로니아어(스페인)                    | `ca-ES` | 텍스트                                   | 예                          |                          |
+| 카탈로니아어(스페인)                    | `ca-ES` | 텍스트<br>발음                  | 예                          |                          |
 | 중국어(광둥어, 번체)   | `zh-HK` | 오디오(20201015)<br>텍스트                 |        예                   |                          |
 | 중국어(북경어, 간체)     | `zh-CN` | 오디오(20200910)<br>텍스트                 |     예                      | 예                         |
 | 중국어(대만어)       | `zh-TW` | 오디오(20190701, 20201015)<br>텍스트                 |           예                |                          |
-| 크로아티아어(크로아티아)                 | `hr-HR` | 텍스트                                   |                           |                          |
-| 체코어(체코)             | `cs-CZ` | 텍스트                                   |                           |                          |
-| 덴마크어(덴마크)                   | `da-DK` | 텍스트                                   | 예                          |                          |
+| 크로아티아어(크로아티아)                 | `hr-HR` | 텍스트<br>발음                  |                           |                          |
+| 체코어(체코)             | `cs-CZ` | 텍스트<br>발음                  |                           |                          |
+| 덴마크어(덴마크)                   | `da-DK` | 텍스트<br>발음                  | 예                          |                          |
 | 네덜란드어(네덜란드)                | `nl-NL` | 오디오(20201015)<br>텍스트<br>발음|    예                       |                          |
-| 영어(오스트레일리아)                | `en-AU` | 오디오(20201019)<br>텍스트                 | 예                          |                          |
-| 영어(캐나다)                   | `en-CA` | 오디오(20201019)<br>텍스트                 | 예                          |                          |
-| 영어(가나)                    | `en-GH` | 텍스트                                   |                           |                          |
-| 영어(홍콩)                | `en-HK` | 텍스트                                   |                           |                          |
-| 영어(인도)                    | `en-IN` | 오디오(20200923)<br>텍스트                 |                          |                          |
-| 영어(아일랜드)                  | `en-IE` | 텍스트                                   |                           |                          |
-| 영어 (케냐)                    | `en-KE` | 텍스트                                   |                           |                          |
-| 영어(뉴질랜드)              | `en-NZ` | 오디오(20201019)<br>텍스트                 |                          |                          |
-| 영어(나이지리아)                  | `en-NG` | 텍스트                                   |                           |                          |
-| 영어(필리핀)              | `en-PH` | 텍스트                                   |                           |                          |
-| 영어(싱가포르)                | `en-SG` | 텍스트                                   |                           |                          |
-| 영어(남아프리카 공화국)             | `en-ZA` | 텍스트                                   |                           |                          |
-| 영어(탄자니아)                 | `en-TZ` | 텍스트                                   |                           |                          |
+| 영어(오스트레일리아)                | `en-AU` | 오디오(20201019)<br>텍스트<br>발음| 예                          |                          |
+| 영어(캐나다)                   | `en-CA` | 오디오(20201019)<br>텍스트<br>발음| 예                          |                          |
+| 영어(가나)                    | `en-GH` | 텍스트<br>발음                  |                           |                          |
+| 영어(홍콩)                | `en-HK` | 텍스트<br>발음                  |                           |                          |
+| 영어(인도)                    | `en-IN` | 오디오(20200923)<br>텍스트<br>발음 |                          |                          |
+| 영어(아일랜드)                  | `en-IE` | 텍스트<br>발음                  |                           |                          |
+| 영어 (케냐)                    | `en-KE` | 텍스트<br>발음                  |                           |                          |
+| 영어(뉴질랜드)              | `en-NZ` | 오디오(20201019)<br>텍스트<br>발음 |                          |                          |
+| 영어(나이지리아)                  | `en-NG` | 텍스트<br>발음                  |                           |                          |
+| 영어(필리핀)              | `en-PH` | 텍스트<br>발음                  |                           |                          |
+| 영어(싱가포르)                | `en-SG` | 텍스트<br>발음                  |                           |                          |
+| 영어(남아프리카 공화국)             | `en-ZA` | 텍스트<br>발음                  |                           |                          |
+| 영어(탄자니아)                 | `en-TZ` | 텍스트<br>발음                  |                           |                          |
 | 영어(영국)           | `en-GB` | 오디오(20201019)<br>텍스트<br>발음| 예                          | 예                         |
 | 영어(미국)            | `en-US` | 오디오(20201019, 20210223)<br>텍스트<br>발음| 예                          | 예                         |
-| 에스토니아어(에스토니아)                  | `et-EE` | 텍스트                                   |                           |                          |
-| 필리핀어(필리핀)             | `fil-PH`| 텍스트                                   |                           |                          |
-| 핀란드어(핀란드)                  | `fi-FI` | 텍스트                                   |     예                      |                          |
+| 에스토니아어(에스토니아)                  | `et-EE` | 텍스트<br>발음                  |                           |                          |
+| 필리핀어(필리핀)             | `fil-PH`| 텍스트<br>발음                  |                           |                          |
+| 핀란드어(핀란드)                  | `fi-FI` | 텍스트<br>발음                  |     예                      |                          |
 | 프랑스어(캐나다)                    | `fr-CA` | 오디오(20201015)<br>텍스트<br>발음|     예                      |                          |
 | 프랑스어(프랑스)                    | `fr-FR` | 오디오(20201015)<br>텍스트<br>발음|      예                     |                          |
 | 프랑스어(스위스)               | `fr-CH` | 텍스트<br>발음                  |                           |                          |
@@ -92,26 +92,26 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 구자라트어(인도)                  | `gu-IN` | 텍스트                                   |                           |                          |
 | 히브리어(이스라엘)                    | `he-IL` | 텍스트                                   |                           |                          |
 | 힌디어(인도)                      | `hi-IN` | 오디오(20200701)<br>텍스트                 |     예                      |                          |
-| 헝가리어(헝가리)                | `hu-HU` | 텍스트                                   |                           |                          |
-| 인도네시아어(인도네시아)             | `id-ID` | 텍스트                                   |                           |                          |
-| 아일랜드어(아일랜드)                     | `ga-IE` | 텍스트                                   |                           |                          |
+| 헝가리어(헝가리)                | `hu-HU` | 텍스트<br>발음                  |                           |                          |
+| 인도네시아어(인도네시아)             | `id-ID` | 텍스트<br>발음                  |                           |                          |
+| 아일랜드어(아일랜드)                    | `ga-IE` | 텍스트<br>발음                  |                           |                          |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오(20201016)<br>텍스트<br>발음|      예                     |                          |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |                          |
 | 한국어(한국)                     | `ko-KR` | 오디오(20201015)<br>텍스트                 |      예                     |                          |
-| 라트비아어(라트비아)                   | `lv-LV` | 텍스트                                   |                           |                          |
-| 리투아니아어(리투아니아)             | `lt-LT` | 텍스트                                   |                           |                          |
+| 라트비아어(라트비아)                   | `lv-LV` | 텍스트<br>발음                  |                           |                          |
+| 리투아니아어(리투아니아)             | `lt-LT` | 텍스트<br>발음                  |                           |                          |
 | 말레이어(말레이시아)                   | `ms-MY` | 텍스트                                   |                           |                          |
 | 몰타어(몰타)                    | `mt-MT` | 텍스트                                   |                           |                          |
 | 마라티어(인도)                    | `mr-IN` | 텍스트                                   |                           |                          |
 | 노르웨이어(복말)(노르웨이)         | `nb-NO` | 텍스트                                   |     예                      |                          |
 | 페르시아어(이란)                     | `fa-IR` | 텍스트                                   |                           |                          |
-| 폴란드어(폴란드)                    | `pl-PL` | 텍스트                                   |       예                    |                          |
+| 폴란드어(폴란드)                    | `pl-PL` | 텍스트<br>발음                  |       예                    |                          |
 | 포르투갈어(브라질)                | `pt-BR` | 오디오(20190620, 20201015)<br>텍스트<br>발음|          예                 |                          |
 | 포르투갈어(포르투갈)              | `pt-PT` | 텍스트<br>발음                  |             예              |                          |
-| 루마니아어(루마니아)                 | `ro-RO` | 텍스트                                   |  예                         |                          |
+| 루마니아어(루마니아)                 | `ro-RO` | 텍스트<br>발음                  |  예                         |                          |
 | 러시아어(러시아)                   | `ru-RU` | 오디오(20200907)<br>텍스트                 |                예           |                          |
-| 슬로바키아어(슬로바키아)                  | `sk-SK` | 텍스트                                   |                           |                          |
-| 슬로베니아어(슬로베니아)               | `sl-SI` | 텍스트                                   |                           |                          |
+| 슬로바키아어(슬로바키아)                  | `sk-SK` | 텍스트<br>발음                  |                           |                          |
+| 슬로베니아어(슬로베니아)               | `sl-SI` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(아르헨티나)                | `es-AR` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(볼리비아)                  | `es-BO` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(칠레)                    | `es-CL` | 텍스트<br>발음                  |                           |                          |
@@ -134,8 +134,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 스페인어(우루과이)                  | `es-UY` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(미국)                      | `es-US` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(베네수엘라)                | `es-VE` | 텍스트<br>발음                  |                           |                          |
-| 스와힐리어(케냐)                    | `sw-KE` | 텍스트<br>발음                  |                           |                          |
-| 스웨덴어(스웨덴)                   | `sv-SE` | 텍스트                                   |   예                        |                          |
+| 스와힐리어(케냐)                    | `sw-KE` | 텍스트                                   |                           |                          |
+| 스웨덴어(스웨덴)                   | `sv-SE` | 텍스트<br>발음                  |   예                        |                          |
 | 타밀어(인도)                      | `ta-IN` | 텍스트                                   |                           |                          |
 | 텔루구어(인도)                     | `te-IN` | 텍스트                                   |                           |                          |
 | 태국어(태국)                    | `th-TH` | 텍스트                                   |      예                     |                          |
@@ -158,7 +158,6 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > [!NOTE]
 > 인공신경망 음성은 24khz 샘플 속도를 사용하는 샘플에서 생성됩니다.
 > 모든 음성이 합성될 때 다른 샘플 속도로 업샘플링하거나 다운샘플링할 수 있습니다.
-
 
 | 언어 | Locale | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
@@ -216,22 +215,24 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(남아프리카 공화국) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>10월 15일 사용이면 아래 참조</sup> | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 영어(미국) | `en-US` | Female | `en-US-AmberNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-AshleyNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-CoraNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-ElizabethNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-MichelleNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-MonicaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Kid | `en-US-AnaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-BrandonNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-ChristopherNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-EricNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-SaraNeural` <sup>새로 생성</sup> | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
+| 영어(미국) | `en-US` | Female | `en-US-AmberNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-AshleyNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-CoraNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-ElizabethNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-MichelleNeural`| 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-MonicaNeural` | 일반 |
+| 영어(미국) | `en-US` | Kid | `en-US-AnaNeural`| 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-BrandonNeural` | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-ChristopherNeural`  | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-EricNeural` | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Male | `et-EE-KertNeural` | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
@@ -336,6 +337,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 웨일스어(영국) | `cy-GB` | Female | `cy-GB-NiaNeural` | 일반 | 
 | 웨일스어(영국) | `cy-GB` | Male | `cy-GB-AledNeural` | 일반 | 
 
+> [!IMPORTANT]
+> 영어(영국) 음성은 `en-GB-MiaNeural` **2021년 10월 30일에** 사용 중지됩니다. 에 대한 모든 서비스 `en-GB-MiaNeural` 요청은 `en-GB-SoniaNeural` **2021년 10월 30일** 이후에 자동으로 다시 지시됩니다.
+
 #### <a name="neural-voices-in-preview"></a>미리 보기로 제공되는 인공신경망 음성
 
 아래 인공신경망 음성은 공개 미리 보기로 제공됩니다. 
@@ -343,6 +347,10 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 영어(미국) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>새로 생성</sup> | [SSML을 사용](speech-synthesis-markup.md#create-an-ssml-document)하여 사용할 수 있는 일반적인 다국어 기능 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 컨버지드 대화에 최적화 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>새로 생성</sup> | 고객 서비스에 최적화 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 스토리 및 채팅에 최적화된 자식 음성 [SSML을 사용하여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>새로 생성</sup> | 내레이션에 최적화 |
 
 > [!IMPORTANT]
 > 공개 미리 보기로 제공되는 음성은 미국 동부, 서유럽 및 동남 아시아의 3개 서비스 지역에서만 사용할 수 있습니다.
@@ -363,6 +371,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 ### <a name="standard-voices"></a>표준 음성
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#neural-and-standard-voices)을 참조하세요.
+
+> [!IMPORTANT]
+> 표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.**2021년 8월 31일** 이전에 만든 모든 기존 Speech 구독에 전송된 전자 메일에서 이를 발표했습니다. 사용 중지 **기간(2021년 8월**  -  **31일 2024년 8월 31일)** 동안 기존 표준 음성 사용자는 표준 음성을 계속 사용할 수 있지만 모든 새 사용자/새 음성 리소스는 신경망 음성을 선택해야 합니다.
 
 > [!NOTE]
 > 두 가지 예외를 제외하고 16khz 샘플 속도를 사용하는 샘플에서 표준 음성이 생성됩니다.

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-azurepowershell
-ms.openlocfilehash: 5c652696d825b6dae4665de1d8afdd9bae6848a4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 3dd0f137a35bc6b505dbc81b509cf345c561104b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567729"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551834"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Azure Storage Analytics 메트릭(클래식) 사용 및 관리
 
@@ -39,13 +39,13 @@ ms.locfileid: "122567729"
 1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 계정 대시보드를 엽니다.
 
 2. 메뉴 블레이드의 **모니터링(클래식)** 섹션에서 **진단 설정(클래식)** 을 선택합니다.
-   
+
    ![모니터링(클래식) 섹션 아래의 진단 설정(클래식) 옵션을 강조 표시하는 스크린샷.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
 
 3. 모니터링하려는 각 **서비스** 에 대한 메트릭 데이터 **유형** 과 데이터에 대한 **보존 정책** 을 선택합니다. 또한 **상태** 를 **해제**(Off)로 설정하여 모니터링을 사용하지 않도록 설정할 수 있습니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Azure Portal에서 로깅 구성](./media/manage-storage-analytics-logs/enable-diagnostics.png) 
+   > ![Azure Portal에서 로깅 구성](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
    데이터 보존 정책을 설정하려면 1-365일 중에서 **보존(일)** 슬라이더를 이동하거나 데이터 보존 기간(일)을 입력합니다. 새 스토리지 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
 
@@ -88,59 +88,59 @@ ms.locfileid: "122567729"
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+   - `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다. 
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-6. 로컬 머신에서 PowerShell을 사용하여 스토리지 계정에서 스토리지 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet **Set-AzStorageServiceMetricsProperty** 를 사용하여 현재 설정을 변경합니다. 
+6. 로컬 머신에서 PowerShell을 사용하여 스토리지 계정에서 스토리지 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet **Set-AzStorageServiceMetricsProperty** 를 사용하여 현재 설정을 변경합니다.
 
    다음 명령은 보존 기간을 5일로 설정된 스토리지 계정의 Blob 서비스에 대해 분 메트릭을 설정합니다.
 
    ```powershell
    Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $ctx
-   ```   
+   ```
 
-   이 cmdlet은 다음 매개 변수를 사용합니다.  
+   이 cmdlet은 다음 매개 변수를 사용합니다.
 
    - **ServiceType**: 가능한 값은 **Blob**, **Queue**, **Table** 및 **File** 입니다.
-   - **MetricsType**: 가능한 값은 **Hour** 및 **Minute** 입니다.  
+   - **MetricsType**: 가능한 값은 **Hour** 및 **Minute** 입니다.
    - **MetricsLevel**: 가능한 값은 다음과 같습니다.
       - **없음**: 모니터링을 해제합니다.
       - **서비스**: 수신 및 송신, 가용성, 대기 시간, 성공 비율 등 Blob, 큐, 테이블 및 파일 서비스에 대해 집계되는 메트릭을 수집합니다.
       - **ServiceAndApi**: 서비스 메트릭뿐 아니라 Azure Storage 서비스 API의 각 스토리지 작업에 대한 동일한 메트릭 집합을 수집합니다.
 
-   다음 명령은 기본 스토리지 계정의 Blob 서비스에 대해 현재 시간 메트릭 수준 및 보존 기간(일)을 검색합니다.  
+   다음 명령은 기본 스토리지 계정의 Blob 서비스에 대해 현재 시간 메트릭 수준 및 보존 기간(일)을 검색합니다.
 
    ```powershell
    Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
-   ```  
+   ```
 
-   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.  
+   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
 ### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-.NET 언어를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 자세한 내용은 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 참조하세요.  
+.NET 언어를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 자세한 내용은 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 참조하세요.
 
-REST API를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요. 
+REST API를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.
 
-### <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)  
+### <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
+var serviceProperties = queueClient.GetServiceProperties();
 
 serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;  
-serviceProperties.HourMetrics.RetentionDays = 10;  
+serviceProperties.HourMetrics.RetentionDays = 10;
 
 queueClient.SetServiceProperties(serviceProperties);  
-```  
+```
 
-.NET 언어를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 자세한 내용은 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 참조하세요.  
+.NET 언어를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 자세한 내용은 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 참조하세요.
 
-REST API를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요. 
+REST API를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.
 
 ---
 
@@ -180,48 +180,48 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 
 **진단** 에서 선택한 메트릭에 따라 계정에서 사용할 수 있는 메트릭의 해상도가 결정됩니다.
 
-* **집계** 모니터링은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 제공합니다. 이러한 메트릭은 Blob, 테이블, 파일 및 큐 서비스에서 집계됩니다.
-* **API당** 은 서비스 수준 집계 외에도 개별 스토리지 작업에 사용할 수 있는 메트릭과 함께 보다 세밀한 해상도를 제공합니다.
+- **집계** 모니터링은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 제공합니다. 이러한 메트릭은 Blob, 테이블, 파일 및 큐 서비스에서 집계됩니다.
+- **API당** 은 서비스 수준 집계 외에도 개별 스토리지 작업에 사용할 수 있는 메트릭과 함께 보다 세밀한 해상도를 제공합니다.
 
 ## <a name="download-metrics-to-archive-or-analyze-locally"></a>로컬로 보관 또는 분석할 메트릭 다운로드
 
 장기 스토리지용 메트릭을 다운로드하거나 메트릭을 로컬에서 분석하려는 경우에는 테이블을 읽는 코드를 작성하거나 도구를 사용해야 합니다. 스토리지 계정의 모든 테이블을 나열해도 테이블은 표시되지 않지만 테이블 이름을 통해 직접 액세스할 수는 있습니다. 스토리지 찾아보기 도구는 대체로 해당 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다. 사용 가능한 도구의 목록은 [Azure Storage 클라이언트 도구](./storage-explorers.md)를 참조하세요.
 
-|메트릭|테이블 이름|참고| 
-|-|-|-|  
-|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013년 8월 15일 이전 버전에서는 해당 테이블을 다음과 같이 지칭했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대한 메트릭은 2015년 4월 5일 버전부터 사용할 수 있습니다.|  
-|분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용하거나 프로그래밍 방식으로만 사용하도록 설정할 수 있습니다.<br /><br /> 파일 서비스에 대한 메트릭은 2015년 4월 5일 버전부터 사용할 수 있습니다.|  
-|용량|$MetricsCapacityBlob|Blob service만 해당합니다.|  
+|메트릭|테이블 이름|참고|
+|-|-|-|
+|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013년 8월 15일 이전 버전에서는 해당 테이블을 다음과 같이 지칭했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대한 메트릭은 2015년 4월 5일 버전부터 사용할 수 있습니다.|
+|분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용하거나 프로그래밍 방식으로만 사용하도록 설정할 수 있습니다.<br /><br /> 파일 서비스에 대한 메트릭은 2015년 4월 5일 버전부터 사용할 수 있습니다.|
+|용량|$MetricsCapacityBlob|Blob service만 해당합니다.|
 
-해당 테이블의 스키마에 대한 전체 세부 정보는 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요. 다음 샘플 행에는 사용 가능한 열 중 일부만 나와 있습니다. 그러나 스토리지 메트릭에서 해당 메트릭을 저장하는 방식과 관련한 몇 가지 중요한 기능을 확인할 수 있습니다.  
+해당 테이블의 스키마에 대한 전체 세부 정보는 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요. 다음 샘플 행에는 사용 가능한 열 중 일부만 나와 있습니다. 그러나 스토리지 메트릭에서 해당 메트릭을 저장하는 방식과 관련한 몇 가지 중요한 기능을 확인할 수 있습니다.
 
-|PartitionKey|RowKey|타임스탬프|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|가용성|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
-|-|-|-|-|-|-|-|-|-|-|-|  
-|20140522T1100|user;All|2014-05-22T11:01:16.765025Z|7|7|4003|46801|100|104.4286|6.857143|100|  
-|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.764025Z|5|5|2694|45951|100|143.8|7.8|100|  
-|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.765025Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.765025Z|1|1|771|217|100|9|6|100|  
+|PartitionKey|RowKey|타임스탬프|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|가용성|AverageE2ELatency|AverageServerLatency|PercentSuccess|
+|-|-|-|-|-|-|-|-|-|-|-|
+|20140522T1100|user;All|2014-05-22T11:01:16.765025Z|7|7|4003|46801|100|104.4286|6.857143|100|
+|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.764025Z|5|5|2694|45951|100|143.8|7.8|100|
+|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.765025Z|1|1|538|633|100|3|3|100|
+|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.765025Z|1|1|771|217|100|9|6|100|
 
-분 메트릭 데이터의 이 예에서 파티션 키는 분 확인 시의 시간을 사용합니다. 행 키는 행에 저장되는 정보의 유형을 식별합니다. 정보는 액세스 형식 및 요청 형식으로 구성됩니다.  
+분 메트릭 데이터의 이 예에서 파티션 키는 분 확인 시의 시간을 사용합니다. 행 키는 행에 저장되는 정보의 유형을 식별합니다. 정보는 액세스 형식 및 요청 형식으로 구성됩니다.
 
--   액세스 형식은 **user** 또는 **system** 입니다. 여기서 **user** 는 스토리지 서비스에 대한 모든 사용자 요청을 지칭하며 **system** 은 스토리지 분석에서 수행한 요청을 지칭합니다.  
--   요청 형식은 **all**(이 경우 요약 줄)이거나 **QueryEntity** 또는 **UpdateEntity** 등의 특정 API를 식별합니다.  
+-   액세스 형식은 **user** 또는 **system** 입니다. 여기서 **user** 는 스토리지 서비스에 대한 모든 사용자 요청을 지칭하며 **system** 은 스토리지 분석에서 수행한 요청을 지칭합니다.
+-   요청 형식은 **all**(이 경우 요약 줄)이거나 **QueryEntity** 또는 **UpdateEntity** 등의 특정 API를 식별합니다.
 
-이 샘플 데이터는 오전 11시부터 1분 동안의 모든 레코드를 표시하므로 **QueryEntities** 요청의 수 + **QueryEntity** 요청의 수 + **UpdateEntity** 요청의 수 = 7입니다. 이 합계는 **user:All** 행에 표시됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 **user:All** 행에 평균 엔드투엔드 대기 시간인 104.4286을 표시할 수 있습니다.  
+이 샘플 데이터는 오전 11시부터 1분 동안의 모든 레코드를 표시하므로 **QueryEntities** 요청의 수 + **QueryEntity** 요청의 수 + **UpdateEntity** 요청의 수 = 7입니다. 이 합계는 **user:All** 행에 표시됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 **user:All** 행에 평균 엔드투엔드 대기 시간인 104.4286을 표시할 수 있습니다.
 
 ## <a name="view-metrics-data-programmatically"></a>프로그래밍 방식으로 메트릭 데이터 보기
 
-다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 코드 샘플은 스토리지의 메트릭 테이블 액세스를 간소화하는 **CloudAnalyticsClient** 클래스가 포함된 Azure Storage 클라이언트 라이브러리 버전 4.x 이상을 사용합니다. 
+다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 코드 샘플은 스토리지의 메트릭 테이블 액세스를 간소화하는 **CloudAnalyticsClient** 클래스가 포함된 Azure Storage 클라이언트 라이브러리 버전 4.x 이상을 사용합니다.
 
 > [!NOTE]
-> **CloudAnalyticsClient** 클래스는 .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12에 포함되어 있지 않습니다. **2023년 8월 31일** 에 *클래식 메트릭* 이라고도 하는 스토리지 분석 메트릭이 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전에 Azure Monitor의 메트릭으로 전환하는 것이 좋습니다. 
+> **CloudAnalyticsClient** 클래스는 .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12에 포함되어 있지 않습니다. **2023년 8월 31일** 에 *클래식 메트릭* 이라고도 하는 스토리지 분석 메트릭이 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전에 Azure Monitor의 메트릭으로 전환하는 것이 좋습니다.
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  
 {  
  // Convert the dates to the format used in the PartitionKey.  
  var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");  
- var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");  
+ var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
 
  var services = Enum.GetValues(typeof(StorageService));  
  foreach (StorageService service in services)  
@@ -236,7 +236,7 @@ private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, Dat
              // because they are calculated fields in the MetricsEntity class.  
              // The PartitionKey identifies the DataTime of the metrics.  
              where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0   
-             select entity;  
+             select entity;
 
      // Filter on "user" transactions after fetching the metrics from Azure Table storage.  
      // (StartsWith is not supported using LINQ with Azure Table storage.)  
@@ -244,7 +244,7 @@ private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, Dat
      var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();  
      Console.WriteLine(resultString);  
  }  
-}  
+}
 
 private static string MetricsString(MetricsEntity entity, OperationContext opContext)  
 {  
@@ -256,7 +256,7 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
          string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));  
  return entityString;  
 }  
-```  
+```
 
 <a id="add-metrics-to-dashboard"></a>
 
@@ -278,6 +278,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 
 ## <a name="next-steps"></a>다음 단계
 
-* Storage Analytics에 대한 자세한 내용은 스토리지 분석을 위한 [Storage Analytics](storage-analytics.md)를 참조하세요.
-* [Storage Analytics 로그를 구성](manage-storage-analytics-logs.md)합니다.
-* 메트릭 스키마에 대해 자세히 알아보세요. [Storage Analytics 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요.
+- Storage Analytics에 대한 자세한 내용은 스토리지 분석을 위한 [Storage Analytics](storage-analytics.md)를 참조하세요.
+- [Storage Analytics 로그를 구성](manage-storage-analytics-logs.md)합니다.
+- 메트릭 스키마에 대해 자세히 알아보세요. [Storage Analytics 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요.

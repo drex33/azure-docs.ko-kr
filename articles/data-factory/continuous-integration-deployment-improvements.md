@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 08/23/2021
-ms.openlocfilehash: 38e1d89a6934c603fa15c4b50e2309c57dc28622
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: a8e45e796fb8c7995ca5ca8e713e83a958159cd6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771811"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760520"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>연속 통합 및 지속적인 업데이트에 대한 자동화된 게시
 
@@ -45,7 +45,7 @@ Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법�
 1. 사용자는 Data Factory UI를 로드하고 **게시** 를 선택하여 Data Factory에 변경 사항을 배포하고 게시 분기에 ARM 템플릿을 생성해야 합니다.
 1. DevOps 릴리스 파이프라인은 새 변경 사항이 게시 분기로 푸시될 때마다 새 릴리스를 만들고 ARM 템플릿을 배포하도록 구성됩니다.
 
-![현재 CI/CD 흐름을 보여 주는 다이어그램입니다.](media/continuous-integration-deployment-improvements/current-ci-cd-flow.png)
+:::image type="content" source="media/continuous-integration-deployment-improvements/current-ci-cd-flow.png" alt-text="현재 CI/CD 흐름을 보여 주는 다이어그램입니다.":::
 
 ### <a name="manual-step"></a>수동 단계
 
@@ -58,7 +58,7 @@ Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법�
 1. Azure DevOps 파이프라인 빌드는 master에 대한 새 커밋이 만들어질 때마다 트리거됩니다. 유효성 검사가 성공하면 리소스의 유효성을 검사하고 ARM 템플릿을 아티팩트로 생성합니다.
 1. DevOps 릴리스 파이프라인은 새 빌드가 사용 가능할 때마다 새 릴리스를 만들고 ARM 템플릿을 배포하도록 구성됩니다.
 
-![새 CI/CD 흐름을 보여주는 다이어그램.](media/continuous-integration-deployment-improvements/new-ci-cd-flow.png)
+:::image type="content" source="media/continuous-integration-deployment-improvements/new-ci-cd-flow.png" alt-text="새 CI/CD 흐름을 보여주는 다이어그램.":::
 
 ### <a name="what-changed"></a>변경 내용
 
@@ -111,7 +111,7 @@ npm 패키지는 다양한 방식으로 사용될 수 있지만 [Azure 파이프
 
 1. Azure DevOps 프로젝트를 열고 **파이프라인** 으로 이동합니다. **새 파이프라인** 을 선택합니다.
 
-   ![새 파이프라인 버튼을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/new-pipeline.png)
+   :::image type="content" source="media/continuous-integration-deployment-improvements/new-pipeline.png" alt-text="새 파이프라인 버튼을 보여주는 스크린샷입니다.":::
 
 2. 파이프라인 YAML 스크립트를 저장하려는 리포지토리를 선택합니다. Data Factory 리소스의 동일한 리포지토리에 있는 빌드 폴더에 저장하는 것이 좋습니다. 다음 예제와 같이 패키지 이름을 포함하는 *package.json* 파일이 리포지토리에 있는지 확인합니다.
 
@@ -128,7 +128,7 @@ npm 패키지는 다양한 방식으로 사용될 수 있지만 [Azure 파이프
 
 3. **시작 파이프라인** 을 선택합니다. 다음 예제와 같이 YAML 파일을 업로드하거나 병합한 경우에는 해당 파일을 직접 가리키고 편집할 수도 있습니다.
 
-   ![시작 파이프라인을 보여주는 스크린샷입니다.](media/continuous-integration-deployment-improvements/starter-pipeline.png)
+   :::image type="content" source="media/continuous-integration-deployment-improvements/starter-pipeline.png" alt-text="시작 파이프라인을 보여주는 스크린샷입니다.":::
 
    ```yaml
    # Sample YAML file to validate and export an ARM template into a build artifact

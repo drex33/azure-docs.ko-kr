@@ -7,23 +7,23 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 3a8a235e204826c26f20cc146003e9290331fe07
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.date: 09/08/2021
+ms.openlocfilehash: 082ece269fa0e07419ff44c736fdeb19aaf30bdc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091540"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735339"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 콘텐츠가 번역된 문자열로 구성된 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 문자열 필드에는 **분석기 속성이** 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 콘텐츠가 번역된 문자열로 구성된 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.
 
 ## <a name="when-to-use-a-language-analyzer"></a>언어 분석기를 사용해야 하는 경우
 
 단어 또는 문장 구조를 인식하는 것이 텍스트 구문 분석에 도움이 되는 경우 언어 분석기를 고려해야 합니다. 일반적인 예는 불규칙한 동사 형식(“가져오기”와 “가져온”)이나 복수 명사(“마우스”와 “마우스들”)를 연결하는 것입니다. 언어적 인식을 사용하지 않을 경우 관련 문자열은 물리적 특성만으로 구문 분석되어 연결을 알 수 없습니다. 많은 양의 텍스트에 해당 콘텐츠가 포함될 가능성이 높기 때문에 설명, 검토 또는 요약으로 구성된 필드는 언어 분석기에 적합합니다.
 
-또한 콘텐츠가 서구권이 아닌 언어 문자열로 구성된 경우 언어 분석기를 고려해야 합니다. [기본 분석기](search-analyzers.md#default-analyzer)는 언어에 구애받지 않지만, 공백과 특수 문자(하이픈 및 슬래시)를 사용하여 문자열을 구분하는 개념은 비서구권 언어보다 서구권 언어에 적합합니다. 
+또한 콘텐츠가 서구권이 아닌 언어 문자열로 구성된 경우 언어 분석기를 고려해야 합니다. 기본 [분석기(표준 Lucene)는](search-analyzers.md#default-analyzer) 언어에 구애받지 않지만 공백과 특수 문자(하이픈 및 슬래시)를 사용하여 문자열을 분리하는 개념은 영어가 아닌 언어보다 서부 언어에 더 적용할 수 있습니다. 
 
 예를 들어, CJK(중국어, 일본어, 한국어) 및 기타 아시아 언어에서는 공백이 반드시 단어 구분 기호로 사용되는 것이 아닙니다. 다음 일본어 문자열을 살펴보겠습니다. 해당 문자열에는 공백이 없으므로 언어에 구애받지 않는 분석기에서 전체 문자열을 하나의 토큰으로 분석할 수 있으나, 실제로 문자열은 구문입니다.
 
@@ -54,9 +54,17 @@ Azure Cognitive Search는 Lucene을 통해 지원되는 35개 언어 분석기�
 
 ## <a name="how-to-specify-a-language-analyzer"></a>언어 분석기 지정 방법
 
-필드 정의 중에 Edm.String 형식의 “검색 가능” 필드에 언어 분석기를 설정합니다.
+데이터와 함께 로드되기 전에 인덱스 생성 중에 분석기를 설정합니다.
 
-필드 정의에는 여러 분석기 관련 속성이 있지만, 언어 분석기에는 “analyzer” 속성만 사용할 수 있습니다. “analyzer”의 값은 지원 분석기 목록에서 언어 분석기 중 하나여야 합니다.
+1. 필드 정의에서 필드의 특성이 "searchable"이고 Edm.String 형식인지 확인합니다.
+
+1. "analyzer" 속성을 지원되는 분석기 목록 의 언어 [분석기](#language-analyzer-list)중 하나로 설정합니다.
+
+   "analyzer" 속성은 언어 분석기를 허용하는 유일한 속성이며 인덱싱과 쿼리 모두에 사용됩니다. 다른 분석기 관련 속성("searchAnalyzer" 및 "indexAnalyzer")은 언어 분석기를 허용하지 않습니다.
+
+언어 분석기는 사용자 지정할 수 없습니다. 분석기가 요구 사항을 충족하지 않는 경우 microsoft_language_tokenizer 또는 microsoft_language_stemming_tokenizer 사용하여 [사용자 지정 분석기를](cognitive-search-working-with-skillsets.md) 만들고 사전 및 사후 토큰화 처리를 위한 필터를 추가할 수 있습니다.
+
+다음 예제에서는 인덱스의 언어 분석기 사양을 보여 줍니다.
 
 ```json
 {

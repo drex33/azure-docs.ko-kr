@@ -4,12 +4,12 @@ description: Azure Backup에 대한 프라이빗 엔드포인트를 사용하는
 ms.topic: conceptual
 ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 959929c92ecea5534930df5c23648062256c6ca4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 3826b21a4b62e6b9dff5478aea8f62bec48cbbe8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568186"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737133"
 ---
 # <a name="overview-and-concepts-of-private-endpoints-for-azure-backup"></a>Azure Backup에 대한 프라이빗 엔드포인트의 개요 및 개념
 
@@ -65,12 +65,12 @@ Azure Backup에서는 [프라이빗 엔드포인트](../private-link/private-end
 >위의 텍스트에서는 `<geo>`는 지역 코드(예: 미국 동부의 경우 **eus**, 유럽 북부의 경우 **ne**)를 나타냅니다. 지역 코드에 대해서는 다음 목록을 참조하세요.
 >- [모든 퍼블릭 클라우드](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [독일](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 두 시나리오에서 도달한 스토리지 FQDN은 동일합니다. 그러나 프라이빗 엔드포인트 설정이 있는 Recovery Services 자격 증명 모음의 경우 이러한 이름 확인은 개인 IP 주소를 반환해야 합니다. 이는 프라이빗 DNS 영역을 사용하거나, 호스트 파일의 스토리지 계정에 대한 DNS 항목을 만들거나, 해당 DNS 항목과 함께 사용자 지정 DNS에 대한 조건부 전달자를 사용하여 달성할 수 있습니다. 스토리지 계정에 대한 개인 IP 매핑은 포털의 스토리지 계정에 대한 프라이빗 엔드포인트 블레이드에 나열됩니다.
 
->Blob 및 큐의 프라이빗 엔드포인트는 표준 이름 지정 패턴을 따르며  **\<the name of the private endpoint>_ecs** 또는 **\<the name of the private endpoint>_prot** 로 시작하고  **\_blob** 및 **\_queue** 가 접미사로 붙습니다.
+>Blob 및 큐의 프라이빗 엔드포인트는 표준 이름 지정 패턴을 따르며  **\<the name of the private endpoint>_ecs** 또는 **\<the name of the private endpoint>_prot** 로 시작하고  **\_blob** 및  **\_queue** 가 접미사로 붙습니다.
 
 Azure Backup 서비스의 엔드포인트는 프라이빗 엔드포인트 사용 자격 증명 모음에 대해 수정됩니다.  
 타사 프록시 서버 및 방화벽을 사용하여 DNS 프록시 서버를 구성한 경우 위의 도메인 이름을 허용하고 사용자 지정 DNS(개인 IP 주소 매핑 포함)로 리디렉션하거나 이러한 개인 IP 주소 매핑이 있는 프라이빗 DNS 영역에 대한 가상 네트워크 링크를 사용하여 169.63.129.16으로 리디렉션해야 합니다.
@@ -91,14 +91,14 @@ Azure Backup 서비스의 엔드포인트는 프라이빗 엔드포인트 사용
 >위의 텍스트에서는 `<geo>`는 지역 코드(예: 미국 동부의 경우 **eus**, 유럽 북부의 경우 **ne**)를 나타냅니다. 지역 코드에 대해서는 다음 목록을 참조하세요.
 >- [모든 퍼블릭 클라우드](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [독일](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 수정된 URL은 자격 증명 모음에만 해당됩니다.  URL 이름에서 `<vault_id>`를 참조하세요. 이 자격 증명 모음에 등록된 확장 및 에이전트만 이러한 엔드포인트를 통해 Azure Backup과 통신할 수 있습니다. 이렇게 하면 이 VNet 내의 클라이언트에 대한 액세스가 제한됩니다. NIC에서 해당하는 개인 IP를 확인해야 하는 확장/에이전트는 `*.privatelink.<geo>.backup.windowsazure.com`을 통해 통신합니다.
 
 Recovery Services 자격 증명 모음의 프라이빗 엔드포인트가 **프라이빗 DNS 영역과 통합** 옵션을 사용하여 Azure Portal을 통해 만들어지면 Azure Backup 서비스(`*.privatelink.<geo>backup.windowsazure.com`)의 개인 IP 주소에 필요한 DNS 항목은 리소스가 할당될 때마다 자동으로 만들어집니다. 그렇지 않으면 사용자 지정 DNS 또는 호스트 파일에서 이러한 FQDN에 대한 DNS 항목을 수동으로 만들어야 합니다.
 
-통신 채널(BLOB/큐)에 대한 VM 검색 후 DNS 레코드의 수동 관리는 [첫 번째 등록 후 Blob 및 큐에 대한 DNS 레코드(사용자 지정 DNS 서버/호스트 파일에만 해당)](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration)를 참조하세요. 백업 스토리지 계정 Blob에 대한 첫 번째 백업 후 DNS 레코드를 수동으로 관리하려면 [첫 번째 등록 후 Blob 및 큐에 대한 DNS 레코드(사용자 지정 DNS 서버/호스트 파일에만 해당)](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup)를 참조하세요.
+통신 채널(BLOB/큐)에 대한 VM 검색 후 DNS 레코드의 수동 관리는 [첫 번째 등록 후 Blob 및 큐에 대한 DNS 레코드(사용자 지정 DNS 서버/호스트 파일에만 해당)](./private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration)를 참조하세요. 백업 스토리지 계정 Blob에 대한 첫 번째 백업 후 DNS 레코드를 수동으로 관리하려면 [첫 번째 등록 후 Blob 및 큐에 대한 DNS 레코드(사용자 지정 DNS 서버/호스트 파일에만 해당)](./private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup)를 참조하세요.
 
 >FQDN의 개인 IP 주소는 Recovery Services 자격 증명 모음에 대해 만든 프라이빗 엔드포인트의 프라이빗 엔드포인트 블레이드에서 찾을 수 있습니다.
 

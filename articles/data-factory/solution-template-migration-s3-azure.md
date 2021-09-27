@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e313e3cb6711a844b4e0aa44a5453fc945a974d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 456fc7a8df9103d1edd9d912f56bda3c58a10f9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536149"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743461"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Amazon S3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션
 
@@ -106,23 +106,23 @@ ms.locfileid: "122536149"
 
 3. **AWS S3에서 Azure Data Lake Storage Gen2로 기록 데이터 마이그레이션하기** 템플릿으로 이동합니다. S3 AWS를 데이터 원본 스토어로, Azure Data Lake Storage Gen2를 대상 스토어로, 외부 컨트롤 테이블에 대한 연결을 입력합니다. 외부 컨트롤 테이블 및 저장 프로시저는 동일한 연결에 대한 참조입니다.
 
-    ![AWS S3에서 Azure Data Lake Storage Gen2 템플릿으로 기록 데이터를 마이그레이션하는 것을 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png" alt-text="AWS S3에서 Azure Data Lake Storage Gen2 템플릿으로 기록 데이터를 마이그레이션하는 것을 보여 주는 스크린샷":::
 
 4. **이 템플릿 사용** 을 선택합니다.
 
-    ![이 템플릿 사용 버튼을 표시하는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png" alt-text="이 템플릿 사용 버튼을 표시하는 스크린샷":::
     
 5. 다음 예제와 같이 2개의 파이프라인과 3개의 데이터 세트가 만들어진 것을 볼 수 있습니다.
 
-    ![템플릿을 사용하여 만든 두 개의 파이프라인과 세 개의 데이터 세트를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png" alt-text="템플릿을 사용하여 만든 두 개의 파이프라인과 세 개의 데이터 세트를 보여 주는 스크린샷":::
 
 6. ‘BulkCopyFromS3’ 파이프라인으로 이동하여 **디버그** 를 선택한 다음 **매개 변수** 를 입력합니다. **마침** 을 선택합니다.
 
-    ![마침을 선택하기 전에 디버그를 선택하고 매개 변수를 입력할 위치를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png" alt-text="마침을 선택하기 전에 디버그를 선택하고 매개 변수를 입력할 위치를 보여 주는 스크린샷":::
 
 7. 결과는 다음 예제와 유사합니다.
 
-    ![반환된 결과를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png" alt-text="반환된 결과를 보여 주는 스크린샷":::
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>템플릿이 Amazon S3에서 Azure Data Lake Storage Gen2로 변경된 파일만 복사하게 하려면,
@@ -169,27 +169,27 @@ ms.locfileid: "122536149"
 
 3. **AWS S3에서 Azure Data Lake Storage Gen2로 델타 데이터 복사** 템플릿으로 이동합니다. S3 AWS를 데이터 원본 스토어로, Azure Data Lake Storage Gen2를 대상 스토어로, 외부 컨트롤 테이블에 대한 연결을 입력합니다. 외부 컨트롤 테이블 및 저장 프로시저는 동일한 연결에 대한 참조입니다.
 
-    ![새 연결 만들기](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png" alt-text="새 연결 만들기":::
 
 4. **이 템플릿 사용** 을 선택합니다.
 
-    ![이 템플릿 사용](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png" alt-text="이 템플릿 사용":::
     
 5. 다음 예제와 같이 2개의 파이프라인과 3개의 데이터 세트가 만들어진 것을 볼 수 있습니다.
 
-    ![파이프라인 검토](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png" alt-text="파이프라인 검토":::
 
 6.  ‘DeltaCopyFromS3’ 파이프라인으로 이동하여 **디버그** 를 선택한 다음 **매개 변수** 를 입력합니다. **마침** 을 선택합니다.
 
-    ![**디버그** 클릭](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png" alt-text="**디버그** 클릭":::
 
 7. 결과는 다음 예제와 유사합니다.
 
-    ![결과 검토](media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure5.png" alt-text="결과 검토":::
 
 8. *‘Select * from s3_partition_delta_control_table’* 쿼리를 통해 컨트롤 테이블의 결과를 확인할 수도 있습니다. 다음 예제와 유사한 출력이 표시됩니다.
 
-    ![쿼리를 실행한 후 컨트롤 테이블의 결과를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png" alt-text="쿼리를 실행한 후 컨트롤 테이블의 결과를 보여 주는 스크린샷":::
     
 ## <a name="next-steps"></a>다음 단계
 

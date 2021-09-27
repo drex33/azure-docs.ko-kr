@@ -1,15 +1,15 @@
 ---
 title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프에 의해 제한되는 요청을 방지하기 위해 병렬로 그룹화하고, 시차를 두고, 페이지를 매기고, 쿼리하는 방법을 알아봅니다.
-ms.date: 08/17/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 745f90fd82c4ee0bd233f6b074c7c3a637820609
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: eece1d35cdabcca957e4ce1e72e32f243a1747e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122568015"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589742"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph의 제한된 요청에 대한 지침
 
@@ -200,7 +200,7 @@ Azure Resource Graph가 단일 쿼리 응답에서 최대 1,000개 항목을 반
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "Resources | project id, name, type | top 5000");
+      query: "Resources | project id, name, type");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -215,18 +215,6 @@ Azure Resource Graph가 단일 쿼리 응답에서 최대 1,000개 항목을 반
 
       // Inspect throttling headers in query response and delay the next call if needed.
   }
-  ```
-
-- Azure CLI / Azure PowerShell
-
-  Azure CLI 또는 Azure PowerShell을 사용하는 경우 Azure Resource Graph에 대한 쿼리는 최대 5,000개 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합된 목록을 반환합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 다음 예제에서는 쿼리를 한 번 실행하면 최대 5개의 쿼리 할당량을 사용할 수 있습니다.
-
-  ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' --first 5000
-  ```
-
-  ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>여전히 제한된 상태인가요?

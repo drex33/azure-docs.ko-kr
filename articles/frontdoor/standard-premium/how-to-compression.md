@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ca9c2e3b4e9873d4880385479b701d36c92238b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101099677"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750186"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄에서 파일을 압축하여 성능 향상(미리 보기)
 
@@ -29,6 +29,9 @@ ms.locfileid: "101099677"
 
 - 원본 서버에서 압축을 사용하도록 설정합니다. Azure Front Door는 압축된 파일을 전달하고 이러한 파일을 요청하는 클라이언트에 배달합니다.
 - Azure Front Door POP 서버에서 직접 압축을 사용하도록 설정(즉석에서 압축)합니다. 이 경우 Azure Front Door는 파일을 압축하여 최종 사용자에게 보냅니다.
+
+> [!NOTE]
+> 범위 요청은 다른 크기로 압축될 수 있습니다. Azure Front Door GET HTTP 요청에 대해 콘텐츠 길이 값이 동일해야 합니다. 클라이언트가 헤더를 사용하여 바이트 범위 요청을 보내면 `accept-encoding` 원본이 다른 콘텐츠 길이로 응답하면 Azure Front Door 503 오류를 반환합니다. 원본/Azure Front Door 압축을 사용하지 않도록 설정하거나 바이트 범위 요청에 대한 요청에서 제거할 규칙 집합 규칙을 만들 수 `accept-encoding` 있습니다.
 
 > [!IMPORTANT]
 > Azure Front Door 구성 변경이 네트워크 전체에 전파되는 데 최대 10분이 걸립니다. CDN 엔드포인트에 처음으로 압축을 설정하는 경우 압축 설정이 모든 POP까지 전파되도록 1~2시간 기다렸다가 문제를 해결합니다.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/10/2021
 ms.author: alexeyo
-ms.openlocfilehash: a71a2736533cd2c707d4224db3790e93fe5e2782
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 06d54a7d42efd1cad9088785d24095abc039337b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567199"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737094"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Speech Service 할당량 및 제한
 
@@ -45,7 +45,6 @@ ms.locfileid: "122567199"
 | 최대 Blob 컨테이너 크기 | 해당 없음 | 5GB |
 | 컨테이너당 최대 Blob 수 | 해당 없음 | 10000 |
 | 대화 내용 기록 요청당 최대 파일 수(여러 콘텐츠 URL을 입력으로 사용하는 경우) | 해당 없음 | 1000  |
-| 최대 동시 실행 작업 수 | 해당 없음 | 2000  |
 
 #### <a name="model-customization"></a>모델 사용자 지정
 | 할당량 | 무료(F0)<sup>1</sup> | Standard(S0) |
@@ -100,7 +99,7 @@ ms.locfileid: "122567199"
 | **사용자 지정 신경망 음성에 대한 동시 요청 제한** |  |  |
 | 기본값 | 해당 없음 | 10 |
 | 조정 가능 | 해당 없음 | 예<sup>5</sup> |
-| **사용자 지정 음성에 대한 동시 요청 제한<sup></sup>6** |  |  |
+| **사용자 지정 음성에 대한 동시 요청 제한 <sup></sup>6** |  |  |
 | 기본값 | 10 | 10 |
 | 조정 가능 | 아니요<sup>5</sup> | 예<sup>5</sup> |
 

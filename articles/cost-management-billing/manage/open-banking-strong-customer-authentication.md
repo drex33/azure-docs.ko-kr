@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: b4c2db76405e7bad7653c1801eb2bcc5db82fe9b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 08ac504dafa230d788e5b7eab10bd8f16572ad07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684799"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603584"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 
@@ -34,30 +34,30 @@ ms.locfileid: "88684799"
 
 다음 단계에 따라 Azure 계정의 활성 결제 방법을 변경할 수 있습니다.
 
-1. 계정 관리자로 [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + 청구**로 이동합니다.
+1. 계정 관리자로 [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + 청구** 로 이동합니다.
 2. **개요** 페이지의 **내 구독** 그리드에서 해당하는 구독을 선택합니다.
-3. '청구'에서 **결제 방법**을 선택합니다. 새 신용 카드를 추가하거나 기존 카드를 구독의 활성 결제 방법으로 설정할 수 있습니다. 은행에서 다단계 인증을 요구하는 경우 프로세스 중에 인증을 완료하라는 메시지가 표시됩니다.
+3. '청구'에서 **결제 방법** 을 선택합니다. 새 신용 카드를 추가하거나 기존 카드를 구독의 활성 결제 방법으로 설정할 수 있습니다. 은행에서 다단계 인증을 요구하는 경우 프로세스 중에 인증을 완료하라는 메시지가 표시됩니다.
 
 자세한 내용은 [Azure에 대한 신용 카드 추가, 업데이트 또는 제거](change-credit-card.md)
 
 ### <a name="settle-outstanding-charges-for-azure-services"></a>Azure 서비스의 미결제 요금 정산
 
-은행에서 요금을 거부하는 경우 Azure Portal의 Azure 계정 상태가 **기한 경과**로 변경됩니다. 다음 단계에 따라 계정 상태를 확인할 수 있습니다.
+은행에서 요금을 거부하는 경우 Azure Portal의 Azure 계정 상태가 **기한 경과** 로 변경됩니다. 다음 단계에 따라 계정 상태를 확인할 수 있습니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 3. **Cost Management + 청구** **개요** 페이지에서 **내 구독** 그리드의 상태 열을 검토합니다.
-4. 구독 상태가 **기한 초과**인 경우 **잔액 결제**를 클릭합니다. 이 과정에서 다단계 인증을 완료하라는 메시지가 표시됩니다.
+4. 구독 상태가 **기한 초과** 인 경우 **잔액 결제** 를 클릭합니다. 이 과정에서 다단계 인증을 완료하라는 메시지가 표시됩니다.
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Marketplace 및 예약 구매의 미결제 요금 정산
 
 Marketplace 및 예약 구매 요금은 Azure 서비스와 별도로 청구됩니다. 은행에서 Marketplace 또는 예약 요금을 거부하는 경우 청구서는 기한이 경과한 것이며, Azure Portal에서 **지금 지불** 옵션이 표시됩니다. 지난 Marketplace 및 예약 청구서는 다음 단계에 따라 결제할 수 있습니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Cost Management + 청구**를 검색합니다.
-3. '청구' 아래에서 **청구서**를 선택합니다.
+2. **Cost Management + 청구** 를 검색합니다.
+3. '청구' 아래에서 **청구서** 를 선택합니다.
 5. 구독 드롭다운 필터에서 Marketplace 또는 예약 구매와 관련된 구독을 선택합니다.
-6. 청구서 그리드에서 유형 열을 검토합니다. 형식이 **Azure Marketplace 및 예약**인 경우 청구서가 만료되었거나 기한이 경과하면 **지금 지불** 링크가 표시됩니다. **지금 지불**이 표시되지 않으면 청구서가 이미 지불되었음을 의미합니다. 지금 지불 중에 다단계 인증을 완료하라는 메시지가 표시됩니다.
+6. 청구서 그리드에서 유형 열을 검토합니다. 형식이 **Azure Marketplace 및 예약** 인 경우 청구서가 만료되었거나 기한이 경과하면 **지금 지불** 링크가 표시됩니다. **지금 지불** 이 표시되지 않으면 청구서가 이미 지불되었음을 의미합니다. 지금 지불 중에 다단계 인증을 완료하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure 청구서를 결제해야 하는 경우 [Azure 구독의 미지불금액 해결](resolve-past-due-balance.md)을 참조하세요.

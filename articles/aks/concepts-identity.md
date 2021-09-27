@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 13fe269431a84a00a8af073849cbd17d188c5175
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 70b8715119eb221fc860ba6e7a26b92bffadd12f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535573"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744932"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -217,7 +217,7 @@ Azure RBAC 통합을 사용하면 AKS는 Kubernetes 권한 부여 webhook 서버
 
 이 시나리오에서는 Kubernetes 역할을 사용하는 것처럼 Azure RBAC 메커니즘과 API를 사용하여 사용자에게 기본 제공 역할을 할당하거나 사용자 지정 역할을 만듭니다. 
 
-이 기능을 사용하면 구독 간에 AKS 리소스에 대한 사용자 권한을 부여할 수 있을 뿐만 아니라 Kubernetes API 액세스를 제어하는 각 클러스터 내에 역할 및 권한도 구성할 수 있습니다. 예를 들어, 구독 범위에서 `Azure Kubernetes Service RBAC Viewer` 역할을 부여할 수 있습니다. 역할 수신자가 모든 클러스터에서 모든 Kubernetes 개체를 수정하지 않고 나열하고 가져올 수 있습니다.
+이 기능을 사용하면 구독 간에 AKS 리소스에 대한 사용자 권한을 부여할 수 있을 뿐만 아니라 Kubernetes API 액세스를 제어하는 각 클러스터 내에 역할 및 권한도 구성할 수 있습니다. 예를 들어, 구독 범위에서 `Azure Kubernetes Service RBAC Reader` 역할을 부여할 수 있습니다. 역할 수신자가 모든 클러스터에서 모든 Kubernetes 개체를 수정하지 않고 나열하고 가져올 수 있습니다.
 
 > [!IMPORTANT]
 > 이 기능을 사용하기 전에 Kubernetes 권한 부여에 대한 Azure RBAC를 사용하도록 설정해야 합니다. 자세한 내용과 단계별 지침은 [Kubernetes 인증에 Azure RBAC 사용](manage-azure-rbac.md) 방법 가이드를 따르세요.
@@ -228,7 +228,7 @@ AKS에는 다음의 4가지 기본 제공 역할이 있습니다. [Kubernetes �
 
 | 역할                                | Description  |
 |-------------------------------------|--------------|
-| Azure Kubernetes Service RBAC 뷰어  | 네임스페이스에 있는 대부분의 개체를 볼 수 있는 읽기 전용 권한을 허용합니다. <br> 역할 또는 역할 바인딩을 볼 수 없습니다.<br> `Secrets` 보기를 허용하지 않습니다. `Secrets` 콘텐츠를 읽으면 네임스페이스의 `ServiceAccount` 자격 증명에 액세스할 수 있으며, 이는 네임스페이스(권한 에스컬레이션의 형태)에서 모든 `ServiceAccount`로 API 액세스를 허용합니다.  |
+| Azure Kubernetes Service RBAC 읽기 권한자  | 네임스페이스에 있는 대부분의 개체를 볼 수 있는 읽기 전용 권한을 허용합니다. <br> 역할 또는 역할 바인딩을 볼 수 없습니다.<br> `Secrets` 보기를 허용하지 않습니다. `Secrets` 콘텐츠를 읽으면 네임스페이스의 `ServiceAccount` 자격 증명에 액세스할 수 있으며, 이는 네임스페이스(권한 에스컬레이션의 형태)에서 모든 `ServiceAccount`로 API 액세스를 허용합니다.  |
 | Azure Kubernetes Service RBAC 쓰기 권한자 | 네임스페이스의 대부분의 개체에 대한 읽기/쓰기 권한을 허용합니다. <br> 역할 또는 역할 바인딩을 보거나 수정할 수 없습니다. <br> `Secrets`에 액세스하고 네임스페이스의 모든 ServiceAccount로 Pod를 실행할 수 있으므로 네임스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
 | Azure Kubernetes Service RBAC 관리자  | 네임 스페이스 내에서 부여되는 관리자 액세스를 허용합니다. <br> 네임스페이스(또는 클러스터 범위)에 있는 대부분의 리소스에 대한 읽기/쓰기 권한을 허용하며, 여기에는 네임스페이스 내에서 역할 및 역할 바인딩을 만들 수 있는 권한이 포함됩니다. <br> 리소스 할당량 또는 네임스페이스 자체에 대한 쓰기 액세스를 허용하지 않습니다. |
 | Azure Kubernetes Service RBAC 클러스터 관리자  | 슈퍼 사용자 액세스를 허용하여 모든 리소스에 대한 모든 작업을 수행할 수 있습니다. <br> 클러스터 및 모든 네임스페이스의 모든 리소스에 대한 모든 권한을 제공합니다. |

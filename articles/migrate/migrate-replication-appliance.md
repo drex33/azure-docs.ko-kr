@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5f63b033c3995932662fc9b68c1397bf57b0326e
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
-ms.translationtype: HT
+ms.openlocfilehash: 4a06267aae473ecc1b42812f7ed07405faafd7aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714977"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607473"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -58,7 +58,7 @@ RAM | 16GB
 운영 체제 로케일 | 미국 영어(en-us)
 TLS | TLS 1.2를 사용하도록 설정해야 합니다.
 .NET Framework | 머신에 .NET Framework 4.6 이상이 (강력한 암호화를 사용하도록 설정한 상태로) 설치되어 있어야 합니다.
-MySQL | 어플라이언스에 MySQL이 설치되어 있어야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 어플라이언스를 배포하는 동안 설치할 수도 있습니다.
+MySQL | 어플라이언스에 MySQL이 설치되어 있어야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치 하거나 어플라이언스를 배포 하는 동안 설치할 수 Azure Migrate.
 다른 앱 | 복제 어플라이언스에서 다른 앱을 실행하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
 그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

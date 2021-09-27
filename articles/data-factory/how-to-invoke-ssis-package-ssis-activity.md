@@ -9,12 +9,12 @@ ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/04/2021
-ms.openlocfilehash: 3b8c15a764f3a196232e43ffd8d7fd7fe373355c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0b24ae5a1564f182cf44e540a9d05a2aaac005ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528839"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733118"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 
@@ -36,15 +36,15 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
 1. Azure Portal Data Factory 개요 또는 홈페이지에서 **작성자 및 모니터** 타일을 선택하여 별도의 탭에서 Data Factory UI 또는 앱을 시작합니다. 
 
-   ![Data Factory 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Data Factory 홈페이지":::
 
    홈페이지에서 **오케스트레이션** 을 선택합니다. 
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 1. **작업** 도구 상자에서 **일반** 을 확장합니다. **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끕니다. 
 
-   ![SSIS 패키지 실행 작업을 디자이너 화면으로 끌기](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png" alt-text="SSIS 패키지 실행 작업을 디자이너 화면으로 끌기"::: 
 
    SSIS 패키지 실행 작업 개체를 선택하여 **일반**, **설정**, **SSIS 매개 변수**, **연결 관리자**, **속성 재정의** 탭을 구성합니다.
 
@@ -52,7 +52,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
 SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료합니다.
 
-![일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="일반 탭의 속성 설정":::
 
    1. **이름** 에 SSIS 패키지 실행 작업의 이름을 입력합니다.
 
@@ -72,7 +72,7 @@ SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료합�
 
 SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료합니다.
 
-![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png" alt-text="설정 탭의 속성 설정 - 자동":::
 
    1. **Azure-SSIS IR** 에 대해 지정된 Azure-SSIS IR을 선택하여 SSIS 패키지 실행 작업을 실행합니다.
 
@@ -98,13 +98,13 @@ Azure SQL Database 서버/Managed Instance에서 호스팅된 SSIS 카탈로그(
 
    1. Azure-SSIS IR이 실행되지 않거나 **수동 입력** 확인란이 선택된 경우 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>` 형식으로 SSISDB의 패키지 및 환경 경로를 직접 입력할 수 있습니다.
 
-      ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="설정 탭의 속성 설정 - 수동":::
 
 ##### <a name="package-location-file-system-package"></a>패키지 위치: 파일 시스템(패키지)
 
 SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동으로 **파일 시스템(패키지)** 으로 선택되며, 직접 선택할 수도 있습니다. 선택된 경우 다음 단계를 완료합니다.
 
-![설정 탭 - 파일 시스템(패키지)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png" alt-text="설정 탭 - 파일 시스템(패키지)의 속성 설정":::
    
    1. **패키지 경로** 상자의 패키지 파일(`.dtsx` 포함)에 UNC(범용 명명 규칙)를 제공하여 패키지를 지정합니다. **파일 저장소 찾아보기** 를 선택하거나 경로를 수동으로 입력하여 패키지를 찾아보고 선택할 수 있습니다. 예를 들어 Azure Files에 패키지를 저장하는 경우 해당 경로는 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`입니다. 
    
@@ -134,7 +134,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
 
 패키지 위치로 **파일 시스템(프로젝트)** 을 선택한 경우 다음 단계를 완료합니다.
 
-![설정 탭 - 파일 시스템(프로젝트)의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png" alt-text="설정 탭 - 파일 시스템(프로젝트)의 속성 설정":::
 
    1. **프로젝트 경로** 상자의 프로젝트 파일(`.ispac` 포함)과 **패키지 이름** 의 프로젝트에 있는 패키지 파일(`.dtsx` 포함)에 UNC 경로를 제공하여 실행할 패키지를 지정합니다. **파일 저장소 찾아보기** 를 선택하거나 경로를 수동으로 입력하여 프로젝트를 찾아보고 선택할 수 있습니다. 예를 들어 Azure Files에 프로젝트를 저장하는 경우 해당 경로는 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`입니다.
 
@@ -162,7 +162,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
 
 패키지 위치로 **포함된 패키지** 를 선택한 경우 다음 단계를 완료합니다.
 
-![설정 탭 - 포함된 패키지의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png" alt-text="설정 탭 - 포함된 패키지의 속성 설정":::
 
    1. 패키지 파일(`.dtsx` 포함)을 끌어다 놓거나 파일 폴더에서 제공된 상자로 **업로드** 합니다. 패키지가 자동으로 압축되고 작업 페이로드에 포함됩니다. 포함되면 나중에 패키지를 **다운로드** 하고 편집할 수 있습니다. 또한 여러 작업에서 사용할 수 있는 파이프라인 매개 변수에 할당하여 포함된 패키지를 **매개 변수화** 할 수 있으며, 이를 통해 파이프라인 페이로드의 크기를 최적화합니다. 프로젝트 파일(`.ispac` 포함)을 포함하는 기능은 현재 지원되지 않으므로 포함된 패키지의 프로젝트 수준 범위에서 SSIS 매개 변수/연결 관리자를 사용할 수 없습니다.
    
@@ -190,7 +190,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
 
 패키지 위치로 **패키지 저장소** 를 선택한 경우 다음 단계를 완료합니다.
 
-![설정 탭 - 패키지 저장소의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png" alt-text="설정 탭 - 패키지 저장소의 속성 설정":::
    
    1. **패키지 저장소 이름** 에서 Azure-SSIS IR에 연결된 기존 패키지 저장소를 선택합니다.
 
@@ -222,7 +222,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
 
 SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 다음 단계를 완료합니다.
 
-![SSIS 매개 변수 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png" alt-text="SSIS 매개 변수 탭의 속성 설정":::
 
    1. Azure-SSIS IR을 실행 중인 경우 패키지 위치로 **SSISDB** 가 선택되고, **설정** 탭의 **수동 항목** 확인란의 선택이 취소되고, SSISDB에서 선택한 프로젝트 및 패키지의 기존 SSIS 매개 변수가 표시되어 값을 할당할 수 있습니다. 그렇지 않은 경우 하나씩 입력하여 값을 수동으로 할당할 수 있습니다. 패키지를 성공적으로 실행하려면 값을 올바르게 입력했는지 확인합니다. 
    
@@ -236,19 +236,19 @@ SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 다음 단계�
 
 SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 완료합니다.
 
-![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png" alt-text="연결 관리자 탭의 속성 설정":::
 
    1. Azure-SSIS IR을 실행 중인 경우 패키지 위치로 **SSISDB** 가 선택되고, **설정** 탭의 **수동 항목** 확인란의 선택이 취소되고, SSISDB에서 선택한 프로젝트 및 패키지의 기존 연결 관리자가 표시되어 값을 속성에 할당할 수 있습니다. 그렇지 않은 경우 하나씩 입력하여 값을 속성에 수동으로 할당할 수 있습니다. 패키지를 성공적으로 실행하려면 값을 올바르게 입력했는지 확인합니다. 
    
       SSDT에 포함된 패키지를 열어 연결 관리자에 대한 올바른 **SCOPE**, **NAME** 및 **PROPERTY** 이름을 가져올 수 있습니다. 패키지를 연 후에는 SSDT의 **속성** 창에 있는 모든 속성의 이름과 값을 표시하는 관련 연결 관리자를 선택합니다. 이 정보를 사용하여 런타임에서 연결 관리자 속성의 값을 재정의할 수 있습니다. 
 
-      ![SSDT에서 연결 관리자 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png" alt-text="SSDT에서 연결 관리자 속성 가져오기":::
 
       예를 들어 SSDT에서 원래 패키지를 수정하지 않고 런타임에서 **ConnectByProxy**, **ConnectionString** 및 **ConnectUsingManagedIdentity** 의 값을 재정의하여 SQL Server에서 실행되는 온-프레미스 간 데이터 흐름을 ADF의 SSIS IR에서 실행되는 온-프레미스에서 클라우드로의 데이터 흐름으로 변환할 수 있습니다.
       
       이러한 런타임 재정의는 온-프레미스 데이터에 액세스할 때 SSIS IR에 대한 프록시로 자체 호스팅 IR(SHIR)을 사용하도록 설정할 수 있습니다. [SSIS IR에 대한 프록시로 SHIR 구성](./self-hosted-integration-runtime-proxy-ssis.md)을 참조하세요. 최신 MSOLEDBSQL 드라이버를 사용하는 Azure SQL Database/Managed Instance 연결은 ADF 관리 ID를 사용하여 Azure Active Directory(AAD) 인증을 사용 설정합니다. [OLEDB 연결에 대한 ADF 관리 ID로 AAD 인증 구성](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)을 참조하세요.
 
-      ![연결 관리자 탭의 SSDT에서 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="연결 관리자 탭의 SSDT에서 속성 설정":::
    
    1. SSDT를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보안 수준을 사용하고 **파일 시스템(패키지)** , **파일 시스템(프로젝트)** , **포함된 패키지** 또는 **패키지 저장소** 가 패키지 위치로 선택된 경우 이 탭에서 중요한 연결 관리자 속성을 다시 입력하고 값을 할당할 수 있습니다. 
 
@@ -260,23 +260,23 @@ SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 
 
 SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 다음 단계를 완료합니다.
 
-![속성 재정의 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png" alt-text="속성 재정의 탭의 속성 설정":::
 
    1. 선택한 패키지의 기존 속성 경로를 하나씩 입력하여 수동으로 값에 속성을 할당합니다. 패키지를 성공적으로 실행하려면 값을 올바르게 입력했는지 확인합니다. 예를 들어 사용자 변수 값을 재정의하려면 `\Package.Variables[User::<variable name>].Value`와 같이 해당 경로를 입력합니다. 
 
       SSDT에 해당 패키지를 포함하는 패키지를 열어 패키지 속성에 대한 올바른 **속성 경로** 를 가져올 수 있습니다. 패키지가 열린 후 SSDT의 **속성** 창에서 해당 제어 흐름 및 **구성** 속성을 선택합니다. 다음으로 **구성** 속성 옆에 있는 줄임표( **...** ) 단추를 선택하여 패키지 [배포 모델에서 패키지 구성을 만드는](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations) 데 일반적으로 사용되는 **패키지 구성 도우미** 를 엽니다. 
 
-      ![SSDT - 구성 속성에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png" alt-text="SSDT - 구성 속성에서 패키지 속성 가져오기":::
 
       **패키지 구성 도우미** 에서 **패키지 구성 사용** 확인란을 선택하고 **추가...** 단추를 선택하여 **패키지 구성 마법사** 를 엽니다. 
       
       **패키지 구성 마법사** 의 **구성 유형** 드롭다운 메뉴에서 **XML 구성 파일** 항목을 선택한 다음 **직접 구성 설정 지정** 단추를 선택하고, 구성 파일 이름을 입력하고, **다음 >** 단추를 선택합니다. 
 
-      ![SSDT - 구성 도우미에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png" alt-text="SSDT - 구성 도우미에서 패키지 속성 가져오기":::
 
       마지막으로 원하는 경로를 가진 패키지 속성을 선택하고 **다음 >** 단추를 선택합니다.  이제 원하는 패키지 속성 경로를 복사 후 붙여넣고 구성 파일에 저장할 수 있습니다. 이 정보를 사용하여 런타임에서 패키지 속성의 값을 재정의할 수 있습니다. 
 
-      ![SSDT - 구성 마법사에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png" alt-text="SSDT - 구성 마법사에서 패키지 속성 가져오기":::
    
    1. SSDT를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보안 수준을 사용하고 **파일 시스템(패키지)** , **파일 시스템(프로젝트)** , **포함된 패키지** 또는 **패키지 저장소** 가 패키지 위치로 선택된 경우 이 탭에서 중요한 패키지 속성을 다시 입력하고 값을 할당할 수 있습니다. 
    
@@ -293,7 +293,7 @@ Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택�
 
 1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거** 를 선택하고 **지금 트리거** 를 선택합니다. 
 
-   ![지금 트리거](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png" alt-text="지금 트리거":::
 
 2. **파이프라인 실행** 창에서 **마침** 을 선택합니다. 
 
@@ -301,11 +301,11 @@ Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택�
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: **실행 시작** 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
 
-   ![파이프라인 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="파이프라인 실행":::
 
 2. **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인에는 하나의 작업만 있으므로 하나의 작업 실행만 파이프라인으로 표시됩니다. SSIS 패키지 실행 작업입니다.
 
-   ![작업 실행](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png" alt-text="작업 실행":::
 
 3. SQL 서버의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인합니다. 
 
@@ -313,11 +313,11 @@ Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택�
    select * from catalog.executions
    ```
 
-   ![패키지 실행 확인](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="패키지 실행 확인":::
 
 4. 파이프라인 작업 실행의 출력에서 SSISDB 실행 ID를 가져올 수 있고 더 포괄적인 실행 로그 및 SQL Server Management Studio에서 오류 메시지를 확인하는 ID를 사용할 수도 있습니다.
 
-   ![실행 ID를 가져옵니다.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="실행 ID를 가져옵니다.":::
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
 

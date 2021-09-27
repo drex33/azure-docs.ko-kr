@@ -1,14 +1,14 @@
 ---
-title: 개념 증명 제공 - Azure DevTest Labs | Microsoft Docs
+title: 개념 증명 제공
 description: Azure DevTest Labs 엔터프라이즈 환경에 성공적으로 통합될 수 있도록 개념 증명을 제공하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/2/2020
-ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 03c8cc087f33ea6385fc0690f5634f33a3cbf0fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87288030"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589970"
 ---
 # <a name="deliver-a-proof-of-concept"></a>개념 증명 제공 
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 263531d24d50c27309163f0671a41ff7aacd36c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92205322"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601371"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
 
@@ -109,13 +109,13 @@ ms.locfileid: "92205322"
 ### <a name="scene-parameters"></a>장면 매개 변수
 
 * `sceneGraphMode` - 소스 파일의 장면 그래프를 변환하는 방법을 정의합니다.
-  * `dynamic`(기본값): 파일의 모든 개체는 API의 [엔터티](../../concepts/entities.md)로 노출되며 독립적으로 변환할 수 있습니다. 런타임에 노드 계층 구조는 소스 파일의 구조와 동일합니다.
-  * `static`: 모든 개체는 API에 노출되지만 독립적으로 변환할 수 없습니다.
+  * `dynamic` (기본값): 파일의 모든 개체는 API에서 [엔터티로](../../concepts/entities.md) 노출 되며 임의로 변환 하 고 다시 부모로 지정할 수 있습니다. 런타임에 노드 계층 구조는 소스 파일의 구조와 동일합니다.
+  * `static`:와 비슷하지만 `dynamic` , 장면 그래프의 개체는 런타임에 동적으로 다른 개체의 부모로 지정할 수 없습니다. 이동 부분이 많은 동적 모델 (예: ' 분해 뷰 ')의 경우이 `dynamic` 옵션은 렌더링 하는 데 더 효율적인 모델을 생성 하지만 `static` 모드는 개별 파트 변환을 허용 합니다. 동적으로 다시 부모로 만들지 않아도 되는 경우 `static` 이 옵션은 개별 부분이 많은 모델에 가장 적합 합니다.
   * `none`: 장면 그래프가 하나의 개체로 축소됩니다.
 
-모드마다 런타임 성능이 다릅니다. `dynamic` 모드에서 성능 비용은 이동된 부분이 없더라도 그래프에서 [엔터티](../../concepts/entities.md) 수에 맞춰 선형으로 확장됩니다. 부분을 개별적으로 이동해야 하는 경우에만 `dynamic` 모드를 사용합니다(예: ‘폭발 뷰’ 애니메이션).
+모드마다 런타임 성능이 다릅니다. `dynamic` 모드에서 성능 비용은 이동된 부분이 없더라도 그래프에서 [엔터티](../../concepts/entities.md) 수에 맞춰 선형으로 확장됩니다. `dynamic`' 분해 뷰 ' 애니메이션의 경우와 같이 여러 부분 또는 여러 하위 그래프를 동시에 이동 해야 하는 경우에만 모드를 사용 합니다.
 
-`static` 모드는 전체 장면 그래프를 내보내지만 이 그래프 내의 부분은 루트 부분을 기준으로 일정하게 변형되어 있습니다. 그러나 개체의 루트 노드는 큰 성능 비용 없이 이동, 회전 또는 확장할 수 있습니다. 또한 [공간 쿼리](../../overview/features/spatial-queries.md)는 개별 부분을 반환하고 각 부분은 [상태 재정의](../../overview/features/override-hierarchical-state.md)를 통해 수정할 수 있습니다. 이 모드에서 개체당 런타임 오버헤드는 무시됩니다. 개체별 검사를 수행해야 하지만 개체별 변환 변경은 없는 많은 장면을 사용할 때 유용합니다.
+`static`또한이 모드는 전체 장면 그래프를 내보냅니다. [공간 쿼리](../../overview/features/spatial-queries.md) 는 개별 파트를 반환 하 고 각 파트는 [상태 재정의](../../overview/features/override-hierarchical-state.md)를 통해 수정할 수 있습니다. 이 모드에서 개체당 런타임 오버헤드는 무시됩니다. 개체별 검사를 수행 해야 하는 경우에는 종종 개별 파트에서 변경 내용을 변환 하지만 개체는 다시 부모로 설정 하지 않는 것이 좋습니다.
 
 `none` 모드에서는 런타임 오버헤드가 최소화되며 로드 시간도 약간 향상됩니다. 이 모드에서는 단일 개체의 검사 또는 변환이 불가능합니다. 예를 들어, 사용 사례는 첫 번째 위치에 의미 있는 장면 그래프가 없는 사진 측량 모델입니다.
 

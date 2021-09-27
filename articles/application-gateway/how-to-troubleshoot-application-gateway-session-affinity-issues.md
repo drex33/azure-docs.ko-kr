@@ -3,17 +3,17 @@ title: 세션 선호도 문제 해결
 titleSuffix: Azure Application Gateway
 description: 이 문서에서는 Azure Application Gateway에서 세션 선호도 문제를 해결하는 방법에 대한 정보를 제공합니다.
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
-ms.author: absha
-ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: b175aedc743eb724b42a025839b7e32f59dea5da
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397572"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737896"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Azure Application Gateway 세션 선호도 문제 해결
 

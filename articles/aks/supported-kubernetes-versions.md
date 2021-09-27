@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 525ae8e08965a63b79ed23a706795472743a00c2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 2e3a51430ef2f57f3d9ea095dee8b297d01187a2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222558"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758392"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -170,30 +170,21 @@ Get-AzAksVersion -Location eastus
 
 |  K8s 버전 | 업스트림 릴리스  | AKS 미리 보기  | AKS GA  | 수명 종료 |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 2020년 3월 23일  | 2020년 5월   | 2020년 8월  | *1.21 GA |
 | 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
 | 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
 | 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 10월  | 1.25 GA |
 | 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
 
->[!NOTE]
->AKS 버전 1.18은 2021년 7월 31일까지 계속 사용할 수 있습니다. 이 날짜가 지나면 AKS는 일반 3가지 버전의 창 지원으로 돌아갑니다. 2021년 6월 30일부터 7월 31일까지 지원 범위가 제한되므로 다음 사항에 유의해야 합니다. 다음은 사용자가 제한할 수 있는 항목을 나열한 것입니다.
-> - 1\.18에서 새 클러스터 및 노드 풀 만들기.
-> - 1\.18 클러스터에서 CRUD 작업.
-> - Kubernetes와 관련이 없는 플랫폼 문제에 대한 Azure 지원. 플랫폼 문제에는 Azure에서 실행되는 네트워킹, 스토리지 또는 컴퓨팅 문제가 포함됩니다. K8s 패치 및 문제 해결에 대한 모든 지원 요청은 지원되는 버전으로 업그레이드하기 위해 요청됩니다.
-
 ## <a name="faq"></a>FAQ
 
 **Microsoft에서 새 Kubernetes 버전을 알리는 방법은 무엇인가요?**
 
-AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  공지 외에도 AKS는 [Azure Advisor](../advisor/advisor-overview.md)를 사용하여 지원되지 않는 경우 사용자에게 경고하도록 Azure Portal 내의 고객에게 알리고, 애플리케이션 또는 개발 프로세스에 영향을 주는 사용되지 않는 API에 대해 경고합니다.
+AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  알림 외에도 AKS를 [Azure Advisor](../advisor/advisor-overview.md) 사용 하 여 사용자가 지원 되지 않는 경우 사용자에 게 알리거나 응용 프로그램 또는 개발 프로세스에 영향을 줄 수 있는 사용 되지 않는 api에 대 한 경고를 사용자에 Azure Portal 게 알릴 수 있습니다.
 
 **계속 지원받으려면 Kubernetes 버전을 얼마나 자주 업그레이드해야 하나요?**
 
 Kubernetes 1.19부터 [오픈 소스 커뮤니티의 지원이 1년으로 확장되었습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS는 전적으로 업스트림 약정과 일치하는 패치 및 지원을 사용하도록 설정합니다. 1\.19 이상의 AKS 클러스터의 경우 지원되는 버전을 유지하기 위해 1년에 한 번 이상 업그레이드할 수 있습니다.
-
-1\.18 이하 버전의 경우 지원 기간은 9개월로 유지되며, 지원되는 버전을 유지하기 위해 9개월마다 한 번씩 업그레이드해야 합니다. Kubernetes 내에서 안정적인 최신의 향상된 기능을 캡처하기 위해 정기적으로 새 버전을 테스트하고 최신 버전으로 업그레이드하도록 준비합니다.
 
 **고객이 지원되지 않는 부 버전을 사용하여 Kubernetes 클러스터를 업그레이드하면 어떻게 되나요?**
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: how-to
 ms.date: 12/17/2020
-ms.openlocfilehash: 55d9e46d4808c79003407767a667d3232d62acef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 0a4b62d60c255d79eaf0042aa075b216d362dbce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776844"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758506"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>감시자 태스크를 사용하여 업데이트된 파일 추적
 
@@ -168,4 +168,4 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 고유의 Runbook을 작성하는 방법에 대한 자세한 내용은 [PowerShell Runbook 생성하기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+사용자 고유의 Runbook을 작성하는 방법에 대한 자세한 내용은 [PowerShell Runbook 생성하기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.

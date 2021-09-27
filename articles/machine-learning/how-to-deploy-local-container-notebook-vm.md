@@ -7,16 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: deploy
-ms.author: gopalv
-author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/22/2021
-ms.openlocfilehash: c047d89b554bed61f0015235a52927ffda7d1ec7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: cd848a6d07a21c965aa0de9be0206be86d1688a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446583"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549819"
 ---
 # <a name="deploy-a-model-locally"></a>모델을 로컬로 배포
 
@@ -30,7 +28,7 @@ Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨�
 
 [!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 컴퓨팅 인스턴스가 실행되는 Azure Machine Learning 작업 영역. 자세한 내용은 [빠른 시작: Azure Machine Learning 시작](quickstart-create-resources.md)을 참조하세요.
 
@@ -45,7 +43,7 @@ Azure Machine Learning을 사용하여 모델을 Azure Machine Learning 컴퓨�
     ![노트북에서 실행 중인 로컬 서비스의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
 
-1. 노트북에는 서비스가 실행되는 URL 및 포트를 표시합니다. 예: `https://localhost:6789`. `print('Local service port: {}'.format(local_service.port))`이 포함된 셀을 실행하여 포트를 표시할 수도 있습니다.
+1. 노트북에는 서비스가 실행되는 URL 및 포트를 표시합니다. 예들 들어 `https://localhost:6789`입니다. `print('Local service port: {}'.format(local_service.port))`이 포함된 셀을 실행하여 포트를 표시할 수도 있습니다.
 
     ![실행 중인 로컬 서비스 포트의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

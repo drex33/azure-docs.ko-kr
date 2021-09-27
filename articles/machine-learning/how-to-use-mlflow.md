@@ -3,20 +3,20 @@ title: ML 실험을 위한 MLflow 추적
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning을 사용해 MLflow 추적을 설정하여 ML 모델에서 메트릭 및 아티팩트를 로깅합니다.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 867f4a7c2c45a73c3ebc651a0f2d7a4b38156b90
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: c0c3be8c6698bb66c4f5b5e05ee74dde6be5fd75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031106"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761508"
 ---
 # <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적
 

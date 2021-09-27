@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo
-ms.date: 04/09/2020
-ms.openlocfilehash: 35968a21f0d3143b089cb8418f614e2c776da8cb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 8e592e40b8885158c0b6700b0014a5982fe2d352
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359644"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548294"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Azure Cosmos DB에서 작업의 처리량 또는 요청 단위 사용량을 모니터링하는 방법입니다
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,11 +43,11 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 1. **메트릭** 창 > **리소스 선택** 에서 필요한 **구독** 및 **리소스 그룹** 을 선택합니다. **리소스 유형** 으로 **Azure Cosmos DB 계정** 을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용** 을 선택합니다.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="메트릭을 볼 Azure Cosmos DB 계정 선택":::
+   :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="메트릭을 볼 계정 범위를 선택 합니다." border="true":::
 
 1. 다음으로 사용 가능한 메트릭 목록에서 **총 요청 단위** 메트릭을 선택합니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **총 요청 단위를** 선택하고 **Avg** 를 집계 값으로 하겠습니다. 이러한 세부 정보 외에 메트릭의 **시간 범위** 와 **시간 단위** 를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Azure Portal에서 메트릭 선택":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Azure Portal에서 메트릭 선택" border="true":::
 
 ## <a name="filters-for-request-unit-usage"></a>요청 단위 사용량 필터
 
@@ -59,7 +59,7 @@ Azure Cosmos DB용 Azure Monitor는 계정을 모니터링하고 대시보드를
 
 컬렉션별 요청 단위 사용량을 보려면 **분할 적용을** 선택하고 컬렉션 이름을 필터로 선택합니다. 대시보드 내에서 컬렉션 선택과 함께 다음과 같은 채팅이 표시됩니다. 그런 다음, 특정 컬렉션 이름을 선택하여 자세한 정보를 볼 수 있습니다.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure 모니터의 컬렉션에 의한 작업에 쓰일 Cosmos DB 요청 단위":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Azure 모니터의 컬렉션에 의한 작업에 쓰일 Cosmos DB 요청 단위" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

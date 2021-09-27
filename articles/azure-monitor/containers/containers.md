@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: c19c25e43fc8f7905d7cee9f344999a26f28bc17
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 2fd44eb0eca6986111a8300bdd4f48bda611d08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537675"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569605"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
 
@@ -18,15 +18,20 @@ ms.locfileid: "122537675"
 
 이 문서에서는 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리하는 데 도움이 되는 Azure Monitor에서 컨테이너 모니터링 솔루션을 설정하고 사용하는 방법을 설명합니다. Docker는 IT 인프라에 대한 소프트웨어 배포를 자동화하는 컨테이너를 만드는 데 사용되는 소프트웨어 가상화 시스템입니다.
 
+> [!IMPORTANT]
+> 컨테이너 모니터링 솔루션을 단계적으로 모니터링 하기 위해 Kubernetes 환경을 모니터링 하려면 [Azure Monitor container insights](container-insights-onboard.md) 를 사용 하는 것이 좋습니다.
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 솔루션은 어떤 컨테이너가 실행 중인지, 실행 중인 컨테이너 이미지 및 컨테이너가 실행 중인 위치를 표시합니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 스토리지, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다. 솔루션은 다음과 같은 컨테이너 오케스트레이터를 지원합니다.
 
 - Docker Swarm
 - DC/OS
-- Kubernetes
 - Service Fabric
-- Red Hat OpenShift
+
+Kubernetes 및 Red Hat OpenShift를 모니터링 하려면 Azure Monitor Container insights를 사용 하는 것이 좋습니다.
+- AKS ([AKS에 대 한 컨테이너 정보 구성](container-insights-enable-existing-clusters.md))
+- Red Hat OpenShift ([Azure Arc를 사용 하 여 컨테이너 통찰력 구성](container-insights-enable-arc-enabled-clusters.md))
 
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 배포된 컨테이너가 있는 경우 [Service Fabric 솔루션과](../../service-fabric/service-fabric-diagnostics-oms-setup.md) 이 솔루션을 모두 사용하여 클러스터 이벤트의 모니터링을 포함하는 것이 좋습니다. Service Fabric 솔루션을 사용하도록 설정하기 전에 [Service Fabric 솔루션을 사용하여](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) 제공되는 내용 및 사용 방법에 대해 검토합니다.
 
@@ -126,7 +131,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우:**
@@ -134,7 +139,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
@@ -148,7 +153,7 @@ Docker Swarm에서 글로벌 서비스로 Log Analytics 에이전트를 실행�
 - 마스터 노드에서 다음을 실행합니다.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>Docker Swarm에 대한 비밀 보호
@@ -177,7 +182,7 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 3. 다음 명령을 실행하여 비밀을 컨테이너화된 Log Analytics 에이전트에 탑재합니다.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 Log Analytics 에이전트 구성
@@ -214,7 +219,7 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -278,7 +283,7 @@ Log Analytics 에이전트 디먼 집합 yaml 파일을 사용할 때 Log Analyt
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  

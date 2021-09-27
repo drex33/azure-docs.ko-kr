@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 - 성능 조정
 description: 가능한 한 많은 읽기와 쓰기를 병렬로 수행하여 최상의 성능을 얻기 위해서는 Azure Data Lake Storage Gen1에서 사용 가능한 모든 처리량을 사용하는 방법을 아는 것이 중요합니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: twooley
-ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: d10b2da54cd1262e5d51dc3f52686bdbdf802a61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97724683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604344"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen1 조정
 

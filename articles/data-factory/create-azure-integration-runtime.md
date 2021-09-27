@@ -5,16 +5,16 @@ description: Azure Data Factory 및 Azure Synapse Analytics에서 데이터를 �
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 author: lrtoyou1223
 ms.author: lle
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: a9819af196af6df60644a5e25599c6066dc17eaa
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 063d4138a86fb5235562ebb0d2592640f370806e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312344"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760330"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -70,10 +70,10 @@ UI를 사용하여 애플리케이션을 만들려면 다음 단계를 수행합
 3. **통합 런타입 설치** 페이지에서 **Azure, 자체 호스트** 를 차례로 선택하고 **계속** 을 선택합니다. 
 
 1. 다음 페이지에서 **Azure** 를 선택하여 Azure IR을 만든 후 **계속** 을 선택합니다.
-   ![Integration Runtime 만들기](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
+   :::image type="content" source="media/create-azure-integration-runtime/new-azure-integration-runtime.png" alt-text="Integration Runtime 만들기":::
 
 1. Azure IR의 이름을 입력하고 **만들기** 를 선택합니다.
-   ![Azure IR 만들기](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
+   :::image type="content" source="media/create-azure-integration-runtime/create-azure-integration-runtime.png" alt-text="Azure IR 만들기":::
 
 1. 생성가 완료되면 팝업 알림이 표시됩니다. **통합 런타임** 페이지에서 새로 생성된 IR이 목록에 표시되는지 확인합니다.
 

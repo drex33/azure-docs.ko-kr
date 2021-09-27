@@ -7,12 +7,12 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 678c59f8a2ca9a3d9f1030597d84ed9986bce8d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694214"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588526"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Azure VM에 예약된 이벤트 모니터링하기
 
@@ -158,7 +158,7 @@ New-AzVm `
 
 1. **새 경고 규칙** 을 선택합니다. 
 1. **규칙 만들기** 페이지에서 `collectorworkspace`를 **리소스** 로 둡니다.
-1. **조건** 에서 *고객 로그 검색이 있을 때마다<login undefined>* 항목을 선택합니다. **신호 논리 구성** 페이지가 열립니다.
+1. **조건** 에서 *고객 로그 검색이 있을 때마다\<login undefined\>* 항목을 선택합니다. **신호 논리 구성** 페이지가 열립니다.
 1. **임계값** 에서 *0* 를 입력하고 **완료** 를 선택합니다.
 1. **작업** 에서 **작업 그룹 만들기** 를 선택합니다. **작업 그룹 추가** 페이지가 열립니다.
 1. **작업 그룹 이름** 에 *myActionGroup* 을 입력합니다.

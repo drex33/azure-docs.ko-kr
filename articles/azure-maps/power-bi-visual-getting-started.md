@@ -1,24 +1,24 @@
 ---
 title: Azure Maps Power BI 시각적 개체 시작 | Microsoft Azure Maps
 description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 알아봅니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e57f687622b0878d66bfde5770ed9a97b613a683
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 6a26361cc09a4dd420930725b29a1d346769270a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091360"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744618"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체 시작
 
-<Token>**적용 대상:** ![녹색 확인 표시.](media/power-bi-visual/yes.png) **_소비자_** 를 위한 Power BI 서비스 ![녹색 확인 표시.](media/power-bi-visual/yes.png) 디자이너 및 개발자를 위한 Power BI 서비스 ![녹색 확인 표시.](media/power-bi-visual/yes.png) Power BI Desktop ![아니요를 나타내는 X.](media/power-bi-visual/no.png) Pro 또는 Premium 라이선스 필요</Token>
+**적용 대상:** ![ 녹색 확인 표시입니다.](media/power-bi-visual/yes.png) **_소비자_** 녹색 확인 표시에 대 한 Power BI 서비스 ![ 입니다.](media/power-bi-visual/yes.png) 개발자 & 개발자 녹색 확인 표시를 위한 Power BI 서비스 ![ 입니다.](media/power-bi-visual/yes.png) Power BI Desktop ![ 아니요를 나타내는 X입니다.](media/power-bi-visual/no.png) Pro 또는 Premium 라이선스가 필요 합니다.
 
 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 보여 줍니다.
 

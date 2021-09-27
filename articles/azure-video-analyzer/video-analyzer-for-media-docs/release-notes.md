@@ -1,23 +1,16 @@
 ---
 title: Azure Video Analyzer for Media(이전 이름 Video Indexer) 릴리스 정보 | Microsoft Docs
 description: 최신 개발 정보를 확인할 수 있도록 이 문서에서는 Azure Video Analyzer for Media(이전 이름 Video Indexer)의 최신 업데이트에 관한 정보를 제공합니다.
-services: azure-video-analyzer
-documentationcenter: ''
-author: Juliako
-manager: femila
-editor: ''
-ms.workload: na
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
 ms.date: 08/01/2021
 ms.author: juliako
-ms.openlocfilehash: 69d0190454a1b5948e894c5bc5a03a235daca78d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3bfe1e7f18f50723eed9d456eac8a773f06a34bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529453"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552569"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Video Analyzer for Media 릴리스 정보
 
@@ -29,6 +22,19 @@ ms.locfileid: "122529453"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="re-index-video-or-audio-files"></a>비디오 또는 오디오 파일 다시 인덱싱
+
+이제 인덱싱 프로세스 중에 실패 한 비디오 또는 오디오 파일을 다시 인덱싱하는 옵션이 있습니다.
+
+### <a name="improve-accessibility-support"></a>내게 필요한 옵션 지원 향상
+
+CSS, 테마 및 접근성과 관련 된 버그가 수정 되었습니다.
+
+* 고대비
+* [포털](https://www.videoindexer.ai)의 계정 설정 및 정보 보기  
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -106,7 +112,7 @@ Video Analyzer for Media에서 생성된 JSON 파일에서도 이 기능을 사�
 
 ### <a name="new-developer-portal"></a>새 개발자 포털 
 
-Video Analyzer for Media에 새로운 [개발자 포털](https://api-portal.videoindexer.ai/)이 생겼습니다. 새 Video Analyzer for Media API를 사용해 보고 다음과 같은 관련 리소스를 모두 한곳에서 찾아보세요. 피드백을 제공하고, 기능을 제안하고, 위젯 코드 샘플과 함께 ['CodePen' 링크](https://codepen.io/videoindexer)를 제공하기 위한 [GitHub 리포지토리](https://github.com/Azure-Samples/media-services-video-indexer), [Stack Overflow](https://stackoverflow.com/questions/tagged/video-indexer), 관련 블로그 게시물과 [Video Analyzer for Media FAQ](faq.md), [사용자 의견](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016)이 있는 [Video Analyzer for Media 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer). 
+Video Analyzer for Media에 새로운 [개발자 포털](https://api-portal.videoindexer.ai/)이 생겼습니다. 새 Video Analyzer for Media API를 사용해 보고 다음과 같은 관련 리소스를 모두 한곳에서 찾아보세요. 피드백을 제공하고, 기능을 제안하고, 위젯 코드 샘플과 함께 ['CodePen' 링크](https://codepen.io/videoindexer)를 제공하기 위한 [GitHub 리포지토리](https://github.com/Azure-Samples/media-services-video-indexer), [Stack Overflow](https://stackoverflow.com/questions/tagged/video-indexer), 관련 블로그 게시물과 [Video Analyzer for Media FAQ](faq.yml), [사용자 의견](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016)이 있는 [Video Analyzer for Media 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer). 
  
 ### <a name="advanced-customization-capabilities-for-insight-widget"></a>인사이트 위젯을 위한 고급 사용자 지정 기능 
 

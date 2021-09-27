@@ -2,13 +2,13 @@
 title: Backup 센터를 사용하여 작업 수행
 description: 이 문서에서는 백업 센터를 사용하여 작업을 수행하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: 0b2faed7e74b34df0139af8c188c150d2c2a00a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506452"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590457"
 ---
 # <a name="perform-actions-using-backup-center"></a>Backup 센터를 사용하여 작업 수행
 
@@ -76,7 +76,7 @@ Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA 또는 Azure Files를 백업하�
 
     ![Azure Database for PostgreSQL 서버 복원을 위한 데이터 원본 선택](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. 백업 인스턴스를 선택하고 **계속** 을 선택합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동합니다. [백업 자격 증명 모음으로 Azure Database for PostgreSQL 서버를 복원하는 방법에 대해 자세히 알아봅니다](backup-azure-database-postgresql.md#restore).
+3. 백업 인스턴스를 선택하고 **계속** 을 선택합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동합니다. [백업 자격 증명 모음으로 Azure Database for PostgreSQL 서버를 복원하는 방법에 대해 자세히 알아봅니다](restore-azure-database-postgresql.md).
 
 ## <a name="create-a-new-vault"></a>새 자격 증명 모음 만들기
 
@@ -116,25 +116,32 @@ Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA 또는 Azure Files를 백업하�
 
 백업 센터를 사용하면 백업 자산 전체에서 백업 인스턴스를 검색하고 요청 시 백업 작업을 실행할 수 있습니다.
 
-주문형 백업을 트리거하려면 백업 센터로 이동하여 **백업 인스턴스** 메뉴 항목을 선택합니다. 이를 선택하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업하려는 백업 인스턴스를 검색할 수 있습니다. 그리드의 항목을 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록이 열립니다. 주문형 백업을 실행하려면 **지금 백업** 옵션을 선택합니다.
+보호를 중지하려면 백업 센터로 이동하여 **백업 인스턴스** 메뉴 항목을 선택합니다. 이를 선택하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업하려는 백업 인스턴스를 검색할 수 있습니다. 그리드의 항목을 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록이 열립니다. 주문형 백업을 실행하려면 **지금 백업** 옵션을 선택합니다.
 
 ![주문형 백업](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
 [Azure Virtual Machines의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-manage-vms.md#run-an-on-demand-backup)
 
-[Azure Database for PostgreSQL 서버의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-database-postgresql.md#on-demand-backup)
+[Azure Database for PostgreSQL 서버의 주문형 백업 수행에 대해 자세히 알아보기](backup-azure-database-postgresql.md#generate-an-on-demand-backup)
 
 ## <a name="stop-backup-for-a-backup-instance"></a>백업 인스턴스에 대해 백업 중지
 
 백업 중인 기본 리소스가 더 이상 존재하지 않는 경우와 같이 백업 인스턴스에 대한 백업을 중지하려는 시나리오가 있습니다.
 
-주문형 백업을 트리거하려면 백업 센터로 이동하여 **백업 인스턴스** 메뉴 항목을 선택합니다. 이 옵션을 선택하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업하려는 백업 인스턴스를 검색할 수 있습니다. 그리드의 항목을 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록이 열립니다. 백업 인스턴스에 대한 백업을 중지하려면 **백업 중지** 옵션을 선택합니다.
+보호를 중지하려면 백업 센터로 이동하여 **백업 인스턴스** 메뉴 항목을 선택합니다. 이 옵션을 선택하면 액세스 권한이 있는 모든 백업 인스턴스의 세부 정보를 볼 수 있습니다. 백업하려는 백업 인스턴스를 검색할 수 있습니다. 그리드의 항목을 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록이 열립니다. 백업 인스턴스에 대한 백업을 중지하려면 **백업 중지** 옵션을 선택합니다.
 
 ![보호 중지](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Azure Virtual Machines의 백업 중지에 대해 자세히 알아보기](backup-azure-manage-vms.md#stop-protecting-a-vm)
+- Azure Virtual Machines 백업을 중지하는 방법에 대해 [자세히 알아보세요.](backup-azure-manage-vms.md#stop-protecting-a-vm)
+- 디스크 백업 중지에 대해 [자세히 알아보세요.](manage-azure-managed-disks.md#stop-protection-preview)
+- Azure Database for PostgreSQL Server에 대한 백업을 중지하는 방법에 대해 [자세히 알아봅니다.](manage-azure-database-postgresql.md#stop-protection-preview)
 
-[Azure Database for PostgreSQL 서버의 백업 중지에 대해 자세히 알아보기](backup-azure-database-postgresql.md#stop-protection)
+## <a name="resume-backup"></a>백업 다시 시작
+
+**보호 중지** 중에 데이터를 보존한 경우 워크로드에 대한 백업을 다시 시작할 수 있습니다.
+
+- 디스크에 대한 보호를 다시 재개하는 방법에 대해 [자세히 알아보세요.](manage-azure-database-postgresql.md#resume-protection)
+- Azure Database for PostgreSQL 서버에 대한 보호를 다시 재개하는 방법에 대해 [자세히 알아보세요.](manage-azure-managed-disks.md#resume-protection)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 08/03/2021
-ms.openlocfilehash: f46f5a01765d03c521c7bbc21b51aef9f3a8f93a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e2dfb0eda9d4e10c97591a6cc534adaa188d87e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536591"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602017"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus) 구성 옵션
 
@@ -115,6 +115,7 @@ ms.locfileid: "122536591"
 * 아시아 태평양:
     * 오스트레일리아 동부
     * 일본 동부
+    * 일본 서부
     * 한국 중부
     * 동남 아시아
 * 유럽:

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 29a97d3f68d9b097bfe5c67f0b5832271fa983e1
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031120"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616558"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Azure Cosmos DB 통합 캐시 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -88,13 +88,17 @@ Azure Cosmos DB 통합 캐시는 요청 볼륨이 증가할 때 비용을 관리
 
 ## <a name="integrated-cache-consistency"></a>통합 캐시 일관성
 
-통합 캐시는 최종 [일관성](consistency-levels.md)만 지원합니다. 읽기에 일관적인 접두사, 세션, 제한된 부실 또는 강력한 일관성이 있는 경우 읽기는 항상 통합 캐시를 무시합니다.
+통합 캐시는 세션 및 최종 [일관성만 지원합니다.](consistency-levels.md) 읽기에 일관된 접두사, 제한된 부실 또는 강력한 일관성이 있는 경우 항상 통합 캐시를 무시합니다.
 
-모든 읽기에 대해 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정](consistency-levels.md#configure-the-default-consistency-level)하는 것입니다. 그러나 일부 읽기만 최종 일관성을 유지하려면 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다.
+모든 읽기에 대한 세션 또는 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정하는 것입니다.](consistency-levels.md#configure-the-default-consistency-level) 그러나 일부 읽기만 최종 일관성을 유지하려면 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다.
+
+### <a name="session-consistency"></a>세션 일관성
+
+[세션 일관성은](consistency-levels.md#session-consistency) 단일 지역뿐만 아니라 전역적으로 분산된 Azure Cosmos DB 계정에 대해 가장 널리 사용되는 일관성 수준입니다. 세션 일관성을 사용하는 경우 단일 클라이언트 세션에서 자체 쓰기를 읽을 수 있습니다. 통합 캐시를 사용하는 경우 쓰기를 수행하는 세션 외부의 클라이언트에는 최종 일관성이 표시됩니다.
 
 ## <a name="maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness
 
-`MaxIntegratedCacheStaleness`는 캐시된 지점 읽기와 쿼리에 대해 허용 가능한 최대 부실입니다. `MaxIntegratedCacheStaleness`는 요청 수준에서 구성할 수 있습니다. 예를 들어, 2시간의 `MaxIntegratedCacheStaleness`를 설정하면 요청은 2시간 이내의 데이터인 경우 캐시된 데이터만 반환합니다. 통합 캐시를 사용하여 반복 읽기의 가능성을 높이려면 `MaxIntegratedCacheStaleness`를 비즈니스 요구 사항에서 허용하는 만큼 높게 설정해야 합니다.
+`MaxIntegratedCacheStaleness`는 선택한 일관성에 관계없이 캐시된 지점 읽기 및 쿼리에 허용되는 최대 부실입니다. `MaxIntegratedCacheStaleness`는 요청 수준에서 구성할 수 있습니다. 예를 들어, 2시간의 `MaxIntegratedCacheStaleness`를 설정하면 요청은 2시간 이내의 데이터인 경우 캐시된 데이터만 반환합니다. 통합 캐시를 사용하여 반복 읽기의 가능성을 높이려면 `MaxIntegratedCacheStaleness`를 비즈니스 요구 사항에서 허용하는 만큼 높게 설정해야 합니다.
 
 `MaxIntegratedCacheStaleness`는 최종적으로 캐시를 채우는 요청에서 구성된 경우 요청이 캐시되는 기간에 영향을 주지 않는다는 것을 이해해야 합니다. `MaxIntegratedCacheStaleness`는 캐시된 데이터를 사용하려고 할 때 일관성을 적용합니다. 전역 TTL 또는 캐시 보존 설정이 없으므로 통합 캐시가 가득 찼거나 새 읽기가 현재 캐시된 항목의 보존 기간보다 낮은 `MaxIntegratedCacheStaleness`를 사용하여 실행되는 경우에만 캐시에서 데이터가 제거됩니다.
 
@@ -154,7 +158,7 @@ Azure Cosmos DB 통합 캐시는 요청 볼륨이 증가할 때 비용을 관리
 
 ### <a name="i-cant-tell-if-my-requests-are-hitting-the-integrated-cache"></a>요청이 통합 캐시에 도달하는지 알 수 없습니다.
 
-`IntegratedCacheItemHitRate` 및 `IntegratedCacheQueryHitRate`를 확인합니다. 두 값이 모두 0이면 요청이 통합 캐시를 적중하지 않습니다. 전용 게이트웨이 연결 문자열을 사용 중이고, [게이트웨이 모드로 연결 중](sql-sdk-connection-modes.md)이며, [최종 일관성을 설정했는지](consistency-levels.md#configure-the-default-consistency-level) 확인합니다.
+`IntegratedCacheItemHitRate` 및 `IntegratedCacheQueryHitRate`를 확인합니다. 두 값이 모두 0이면 요청이 통합 캐시를 적중하지 않습니다. 전용 게이트웨이 연결 문자열을 사용하고 게이트웨이 [모드 에 연결 중이며](sql-sdk-connection-modes.md) [세션 또는 최종 일관성 을 설정했는지 확인합니다.](consistency-levels.md#configure-the-default-consistency-level)
 
 ### <a name="i-want-to-understand-if-my-dedicated-gateway-is-too-small"></a>전용 게이트웨이가 너무 작은지 알아보려 합니다.
 

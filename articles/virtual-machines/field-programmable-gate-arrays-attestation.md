@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: 034acde1f99409ef7d541d7705bb995e0db00d3b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: dba6962199f61eeb93dfb2f98e3e448c94ff633a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567103"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Azure NP 시리즈 VM에 대한 FPGA 증명(미리 보기)
 
@@ -54,9 +54,9 @@ Azure를 사용하여 작업을 수행하기 전에 Azure에 로그인하여 서
 
 ## <a name="upload-your-netlist-file-to-azure-blob-storage"></a>Azure Blob Storage에 netlist 파일 업로드  
 
-파일을 복사하는 방법은 여러 가지가 있습니다. az storage upload cmdlet을 사용하는 예는 다음과 같습니다. Az 명령은 Linux와 Windows 모두에서 실행됩니다. "Blob" 이름에 임의의 이름을 선택할 수 있지만 xclbin 확장명을 유지해야 합니다. 
+파일을 복사하는 방법은 여러 가지가 있습니다. az storage upload cmdlet을 사용하는 예는 다음과 같습니다. Az 명령은 Linux와 Windows 모두에서 실행됩니다. "Blob" 이름의 이름을 선택할 수 있지만 확장을 유지해야 `xclbin` 합니다.
 
-```az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
+`az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>`
 
 ## <a name="download-the-attestation-scripts"></a>증명 스크립트 다운로드  
 

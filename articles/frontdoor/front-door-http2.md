@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dc5679036eb241abc82a57779e41e2d667238216
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91448697"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601429"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Azure Front Door의 HTTP/2 지원
 
 현재, HTTP/2 지원은 모든 Azure Front Door 구성에서 활성화됩니다. 고객의 추가적인 조치가 필요하지 않습니다.
 
-HTTP/2는 응답 시간을 줄여 웹 성능을 향상시키는 HTTP/1.1의 주 수정 버전입니다. HTTP/2는 친숙한 HTTP 메서드, 상태 코드, 의미 체계를 유지하여 사용자 환경을 개선하는 방식으로 수행됩니다. HTTP/2는 HTTP 및 HTTPS에서 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS(전송 계층 보안)를 통한 HTTP/2만 지원합니다.
+HTTP/2는 응답 시간을 줄여 웹 성능을 향상시키는 HTTP/1.1의 주 수정 버전입니다. HTTP/2는 사용자 환경을 개선하기 위해 친숙한 HTTP 메서드, 상태 코드 및 HTTP/1.1의 의미 체계를 유지 관리합니다. HTTP/2는 HTTP 및 HTTPS에서 작동하도록 설계되었지만 많은 클라이언트 웹 브라우저는 TLS(전송 계층 보안)를 통한 HTTP/2만 지원합니다.
 
 > [!NOTE]
 > HTTP/2 프로토콜 지원은 클라이언트에서 Front Door로 전달되는 요청에만 사용할 수 있습니다. Front Door와 백 엔드 풀의 백 엔드 간 통신은 HTTP/1.1을 통해 수행됩니다. 
@@ -33,11 +33,11 @@ HTTP/2의 이점은 다음과 같습니다.
 
 *   **멀티플렉싱 및 동시성**
 
-    HTTP 1.1을 사용하여 여러 리소스 요청을 수행하려면 여러 개의 TCP 연결이 필요하며 각 연결에는 이와 관련된 성능 오버헤드가 있습니다. HTTP/2를 통해 단일 TCP 연결에서 여러 리소스가 요청되도록 할 수 있습니다.
+    HTTP 1.1을 사용하여 여러 리소스 요청을 수행하려면 여러 TCP 연결이 필요하며 각 연결에 고유한 성능 비용이 부과됩니다. HTTP/2를 통해 단일 TCP 연결에서 여러 리소스가 요청되도록 할 수 있습니다.
 
 *   **헤더 압축**
 
-    제공된 리소스에 대한 HTTP 헤더를 압축하여 통신 시간을 크게 줄일 수 있습니다.
+    제공된 리소스에 대한 HTTP 헤더를 압축하면 유선으로 전송되는 데이터가 훨씬 줄어듭니다.
 
 *   **스트림 종속성**
 

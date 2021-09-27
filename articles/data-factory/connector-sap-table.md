@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: b5e60883f4af77eabcd3a59334bbf31b63d5cc49
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: e4d77aa3d4456154149c5ad38b9fdc769953f8ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316574"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764054"
 ---
 # <a name="copy-data-from-an-sap-table-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SAP 테이블에서 데이터 복사
 
@@ -53,7 +53,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 1. SAP GUI를 사용하여 SAP 시스템에 연결합니다. 
 2. **시스템** -> **상태** 로 이동합니다. 
 3. SAP_BASIS의 릴리스를 확인하여 701보다 크거나 같은지 확인합니다.  
-      ![SAP_BASIS 확인](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="SAP_BASIS 확인":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -63,7 +63,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
 - SAP 웹 사이트에서 64비트 [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html)을 다운로드하고 이를 자체 호스팅 통합 런타임 컴퓨터에 설치합니다. 설치 도중 **선택적 설치 단계** 창에서 **GAC에 어셈블리 설치** 를 선택해야 합니다.
 
-  ![SAP Connector for .NET 설치](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="SAP Connector for .NET 설치":::
 
 - SAP 테이블 커넥터에서 사용 중인 SAP 사용자는 다음 사용 권한이 있어야 합니다.
 
@@ -82,7 +82,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -104,7 +104,7 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
 SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>SAP 애플리케이션 서버에 연결하는 데 사용합니다. | 예 |
@@ -212,7 +212,7 @@ SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같�
 
 SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -244,7 +244,7 @@ SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 �
 
 SAP 테이블의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성                         | Description                                                  | 필수 |
+| 속성                         | 설명                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 예       |
@@ -331,7 +331,7 @@ SAP 테이블의 데이터를 복사하려는 경우 다음과 같은 속성이 
 
 예제는 아래와 같습니다.
 
-![SAP 테이블 조인](./media/connector-sap-table/sap-table-join.png) 
+:::image type="content" source="./media/connector-sap-table/sap-table-join.png" alt-text="SAP 테이블 조인"::: 
 
 >[!TIP]
 >SAP 테이블 커넥터에서 지원하는 뷰에서 조인된 데이터를 집계하는 것도 고려할 수 있습니다.
@@ -345,13 +345,13 @@ SAP 테이블의 경우 현재 복사 원본에서 [customRfcReadTableFunctionMo
 
 - 정의:
 
-    ![정의](./media/connector-sap-table/custom-function-module-definition.png) 
+    :::image type="content" source="./media/connector-sap-table/custom-function-module-definition.png" alt-text="정의"::: 
 
 - 데이터를 아래 테이블 중 하나로 내보냅니다.
 
-    ![내보내기 테이블 1](./media/connector-sap-table/export-table-1.png) 
+    :::image type="content" source="./media/connector-sap-table/export-table-1.png" alt-text="내보내기 테이블 1"::: 
 
-    ![내보내기 테이블 2](./media/connector-sap-table/export-table-2.png)
+    :::image type="content" source="./media/connector-sap-table/export-table-2.png" alt-text="내보내기 테이블 2":::
  
 다음은 SAP 테이블 커넥터가 사용자 지정 함수 모듈에서 작동하는 방식을 보여 주는 그림입니다.
 
@@ -367,11 +367,11 @@ SAP 테이블의 경우 현재 복사 원본에서 [customRfcReadTableFunctionMo
 
     1. 필드 테이블의 값을 구문분석하여 스키마를 가져옵니다.
 
-        ![필드 값 구문 분석](./media/connector-sap-table/parse-values.png)
+        :::image type="content" source="./media/connector-sap-table/parse-values.png" alt-text="필드 값 구문 분석":::
 
     1. 출력 테이블의 값을 가져와서 해당 값이 포함된 테이블을 확인합니다.
 
-        ![출력 테이블 값 가져오기](./media/connector-sap-table/get-values.png)
+        :::image type="content" source="./media/connector-sap-table/get-values.png" alt-text="출력 테이블 값 가져오기":::
 
     1. OUT_TABLE의 값을 가져와서 데이터를 구문 분석한 다음 싱크에 씁니다.
 

@@ -7,12 +7,12 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: radeltch
-ms.openlocfilehash: e6d5ad24176c779055fbde2c2ec6e6506cea3285
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: 5061ee2131ee708c38a68dca02c18a21085b5430
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392173"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616862"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>SAP 솔루션을 위한 Azure Monitor 공급자(미리 보기)
 
@@ -118,7 +118,7 @@ Microsoft SQL Server 공급자를 구성하려면 다음이 필요합니다.
    고가용성 클러스터 공급자 구성에는 다음 정보가 필요합니다.
    
    - **이름**. 해당 공급자의 이름입니다. SAP 솔루션을 위한 Azure Monitor의 해당 인스턴스에 고유한 것이어야 합니다.
-   - **Prometheus 엔드포인트**. http\://\<servername or ip address\>:9664/metrics.
+   - **Prometheus 엔드포인트**. `http://<servername or ip address>:9664/metrics`.
    - **SID**. SAP 시스템에서는 SAP SID를 사용합니다. 다른 시스템(예를 들면, NFS 클러스터)의 경우 클러스터에 세 글자 이름을 사용합니다. SID는 모니터링되는 다른 클러스터와 구별되어야 합니다.   
    - **클러스터 이름**. 클러스터를 만들 때 사용되는 클러스터 이름입니다. 클러스터 이름은 클러스터 속성 `cluster-name`에서 찾을 수 있습니다.
    - **호스트 이름**. 가상 머신(VM)의 Linux 호스트 이름입니다.  
@@ -141,7 +141,7 @@ OS(Linux) 공급자를 구성하는 데에는 다음 두 가지의 기본 단계
 2. 사용자 환경에서 BareMetal 또는 VM 노드 인스턴스 각각에 대해 OS(Linux) 공급자를 구성합니다. 
    OS(Linux) 공급자 구성에는 다음 정보가 필요합니다. 
       - 이름. 해당 공급자의 이름입니다. SAP 솔루션을 위한 Azure Monitor의 해당 인스턴스에 고유한 것이어야 합니다. 
-      - 노드 수출업자 엔드포인트 일반적으로 http://<servername or ip address>:9100/metrics 
+      - 노드 수출업자 엔드포인트 일반적으로 `http://<servername or ip address>:9100/metrics` 입니다. 
 
 > [!NOTE]
 > 9100은 Node_Exporter 엔드포인트용으로 노출되는 포트입니다.

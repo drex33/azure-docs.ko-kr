@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 12b6e3d0202de03c6378438457900601e4d091b8
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: 814514ede598d0de435c767ee29ef6aa4564d003
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113129531"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616577"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대한 Azure 보안 기준
 
@@ -193,7 +193,7 @@ Azure Monitor 로그에 대한 활동 로그를 Azure Event Hubs로 보내 Azure
 
 **지침**: Microsoft가 Azure Cloud Services용 Azure 리소스에 대한 시간 원본을 유지 관리합니다. 고객은 UDP 프로토콜을 사용하는 포트 123을 통해 환경에서 사용되는 시간 서버에 대한 액세스를 허용하는 네트워크 규칙을 만들어야 할 수도 있습니다.
 
-- [NTP 서버 액세스](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
+- [NTP 서버 액세스](../firewall/protect-azure-virtual-desktop.md#additional-considerations)
 
 **책임**: 공유됨
 

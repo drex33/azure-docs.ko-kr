@@ -6,15 +6,15 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/09/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 043fc6800c33ca5d756e7b2d27ccb0d0181a1c30
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6500e743644cc505a15e44be02358d943fa5baa4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642983"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750514"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에 연결된 서비스 매개 변수화
 
@@ -71,15 +71,15 @@ Azure Portal의 UI 또는 프로그래밍 인터페이스를 사용하여 연결
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-![연결된 서비스 정의에 동적 콘텐츠 추가](media/parameterize-linked-services/parameterize-linked-services-image-1.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1.png" alt-text="연결된 서비스 정의에 동적 콘텐츠 추가":::
 
-![새 매개 변수 만들기](media/parameterize-linked-services/parameterize-linked-services-image-2.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2.png" alt-text="새 매개 변수 만들기":::
 
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-![연결된 서비스 정의에 동적 콘텐츠 추가](media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png" alt-text="연결된 서비스 정의에 동적 콘텐츠 추가":::
 
-![새 매개 변수 만들기](media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png" alt-text="새 매개 변수 만들기":::
 
 ---
 

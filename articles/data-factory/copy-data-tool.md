@@ -1,43 +1,47 @@
 ---
-title: Azure Data Factory의 데이터 복사 도구
+title: 데이터 복사 도구
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보를 제공합니다.
+description: Azure Data Factory 및 Synapse Analytics UI의 데이터 복사 도구에 대해 알아봅니다.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 09/09/2021
 ms.author: yexu
-ms.openlocfilehash: 165d799e6bc2cc6a5f7e064b909ca7e80f819c42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d4ae44d3c3121ff5cc0240ea9dac0ed11e1580ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642454"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760311"
 ---
-# <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
+# <a name="copy-data-tool-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics의 데이터 복사 도구
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
+데이터 복사 도구는 데이터를 data lake로 수집 하는 프로세스를 간소화 하 고 최적화 합니다 .이는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계입니다.  특히 서비스를 사용 하 여 데이터 원본에서 처음으로 데이터를 수집 하는 경우 시간을 절약할 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
 
-- Azure Data Factory 데이터 복사 도구를 사용할 때는 연결된 서비스, 데이터 세트, 파이프라인, 작업 및 트리거에 대한 Data Factory 정의를 이해할 필요가 없습니다. 
-- 데이터 복사 도구의 흐름을 보면 Data Lake에 데이터를 로드하는 과정을 쉽게 이해할 수 있습니다. 이 도구는 선택한 원본 데이터 저장소에서 선택한 대상/싱크 데이터 저장소로 데이터를 복사하는 데 필요한 모든 Data Factory 리소스를 자동으로 만듭니다. 
+- 데이터 복사 도구를 사용 하는 경우 연결 된 서비스, 데이터 집합, 파이프라인, 작업 및 트리거에 대 한 서비스 정의를 이해할 필요가 없습니다. 
+- 데이터 복사 도구의 흐름을 보면 Data Lake에 데이터를 로드하는 과정을 쉽게 이해할 수 있습니다. 이 도구는 선택한 원본 데이터 저장소에서 선택한 대상/싱크 데이터 저장소로 데이터를 복사 하는 데 필요한 모든 리소스를 자동으로 만듭니다. 
 - 데이터 복사 도구는 작성 시에 수집되는 데이터의 유효성을 검사하여 처음부터 데이터 자체에 잠재적인 오류가 없도록 도와줍니다.
-- Data Lake에 데이터를 로드하는 복잡한 비즈니스 논리를 구현해야 하는 경우에도, Data Factory UI의 작업별 작성 기능을 사용하여 데이터 복사 도구로 만든 Data Factory 리소스를 편집할 수 있습니다. 
+- Data lake에 데이터를 로드 하기 위해 복잡 한 비즈니스 논리를 구현 해야 하는 경우 UI의 작업당 작성을 사용 하 여 데이터 복사 도구에서 만든 리소스를 계속 편집할 수 있습니다. 
 
-다음 표에서는 데이터 복사 도구 및 Data Factory UI의 작업별 작성 기능을 사용해야 하는 경우에 대한 지침을 제공합니다. 
+다음 표에서는 데이터 복사 도구를 사용 하는 경우와 UI에서 작업당 작성에 대 한 지침을 제공 합니다. 
 
 | 데이터 복사 도구 | 작업별(복사 작업) 작성 |
 | -------------- | -------------------------------------- |
-| Azure Data Factory 엔터티(연결된 서비스, 데이터 세트, 파이프라인 등)에 대해 학습하지 않고도 데이터 로드 태스크를 쉽게 빌드하려는 경우 | 데이터를 Lake에 로드하기 위한 복잡하고 유연한 논리를 구현하려는 경우 |
+| 엔터티 (연결 된 서비스, 데이터 집합, 파이프라인 등)에 대해 배울 필요 없이 데이터 로드 작업을 쉽게 빌드할 수 있습니다. | 데이터를 Lake에 로드하기 위한 복잡하고 유연한 논리를 구현하려는 경우 |
 | Data Lake에 많은 수의 데이터 아티팩트를 신속하게 로드하려는 경우 | 데이터를 정리 또는 처리하기 위해 복사 작업을 후속 작업에 체인 연결하려는 경우 |
 
-데이터 복사 도구를 시작하려면 데이터 팩터리 홈페이지에서 **수집** 타일을 클릭합니다.
+데이터 복사 도구를 시작 하려면 Data Factory 또는 Synapse Studio UI의 홈 페이지에서 **수집** 타일을 클릭 합니다.
 
-![데이터 복사 도구에 대한 홈페이지 링크를 보여주는 스크린샷](./media/doc-common-process/get-started-page.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+:::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="데이터 복사 도구에 대한 홈페이지 링크를 보여주는 스크린샷":::
+# <a name="synapse-analytics"></a>[Synapse Analytics](#tab/synapse-analytics)
+:::image type="content" source="./media/doc-common-process/get-started-page-synapse.png" alt-text="데이터 복사 도구에 대한 홈페이지 링크를 보여주는 스크린샷":::
 
-데이터 복사 도구를 실행하면 두 가지 유형의 작업이 표시됩니다. 하나는 **기본 제공 복사 작업** 이고, 다른 하나는 **메타데이터 기반 복사 작업** 입니다. 기본 제공 복사 작업을 수행하면 Azure Data Factory 엔터티에 대해 배우지 않고도 5분 이내에 파이프라인을 만들어 데이터를 복제할 수 있습니다.  대량의 개체(예: 수천 개의 테이블)를 대규모로 복사 관리하기 위해 매개 변수화된 파이프라인 및 외부 제어 테이블을 쉽게 만들 수 있는 메타데이터 기반 복사 작업입니다. [메타데이터 기반 복사 데이터](copy-data-tool-metadata-driven.md)에서 자세한 내용을 확인할 수 있습니다.
+---
+데이터 복사 도구를 실행하면 두 가지 유형의 작업이 표시됩니다. 하나는 **기본 제공 복사 작업** 이고, 다른 하나는 **메타데이터 기반 복사 작업** 입니다. 기본 제공 복사 작업을 사용 하면 엔터티를 몰라도 데이터를 복제 하기 위해 5 분 이내에 파이프라인을 만들 수 있습니다.  대량의 개체(예: 수천 개의 테이블)를 대규모로 복사 관리하기 위해 매개 변수화된 파이프라인 및 외부 제어 테이블을 쉽게 만들 수 있는 메타데이터 기반 복사 작업입니다. [메타데이터 기반 복사 데이터](copy-data-tool-metadata-driven.md)에서 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Data Lake에 데이터를 로드하기 위한 직관적인 흐름
 이 도구를 사용하면 직관적인 흐름을 통해 다양한 원본에서 대상으로 데이터를 몇 분만에 쉽게 이동할 수 있습니다.  
@@ -46,21 +50,21 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 2. **대상** 에 대한 설정을 구성합니다. 
 3. 열 매핑, 성능 설정 및 내결함성 설정과 같은 복사 작업에 대한 **고급 설정** 을 구성합니다. 
 4. 데이터 로드 작업에 대한 **일정** 을 지정합니다. 
-5. 만들려는 Data Factory 엔터티의 **요약** 을 검토합니다. 
+5. 만들 엔터티의 **요약** 을 검토 합니다. 
 6. 필요에 따라 파이프라인을 **편집** 하여 복사 작업에 대한 설정을 업데이트합니다. 
 
    이 도구는 처음부터 빅 데이터를 염두에 두고 설계되었으며 다양한 데이터 및 개체 유형을 지원합니다. 수백 개의 폴더, 파일 또는 테이블을 이동하는 데 이 도구를 사용할 수 있습니다. 이 도구는 자동 데이터 미리 보기, 스키마 캡처 및 자동 매핑, 데이터 필터링도 지원합니다.
 
-![데이터 복사 도구](./media/copy-data-tool/copy-data-tool.png)
+:::image type="content" source="./media/copy-data-tool/copy-data-tool.png" alt-text="데이터 복사 도구":::
 
 ## <a name="automatic-data-preview"></a>자동 데이터 미리 보기
 선택된 원본 데이터 저장소의 데이터 일부를 미리 확인하여 복사할 데이터의 유효성을 검사할 수 있습니다. 또한 원본 데이터가 텍스트 파일에 있는 경우 데이터 복사 도구는 텍스트 파일을 구문 분석하여 행 및 열 구분 기호와 스키마를 자동으로 검색합니다.
 
-![파일 설정](./media/copy-data-tool/file-format-settings.png)
+:::image type="content" source="./media/copy-data-tool/file-format-settings.png" alt-text="파일 설정":::
 
 검색 후 **데이터 미리 보기** 를 선택합니다.
 
-![검색된 파일 설정 및 미리 보기](./media/copy-data-tool/after-detection.png)
+:::image type="content" source="./media/copy-data-tool/after-detection.png" alt-text="검색된 파일 설정 및 미리 보기":::
 
 ## <a name="schema-capture-and-automatic-mapping"></a>스키마 캡처 및 자동 매핑
 데이터 원본의 스키마는 대부분의 경우에서 데이터 대상의 스키마와 동일하지 않을 수 있습니다. 이 시나리오에서는 원본 스키마의 열을 대상 스키마의 열에 매핑해야 합니다.
@@ -76,7 +80,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 ### <a name="filter-data-in-a-database"></a>데이터베이스의 데이터 필터링
 다음 스크린샷에서는 데이터를 필터링하는 SQL 쿼리를 보여 줍니다.
 
-![데이터베이스의 데이터 필터링](./media/copy-data-tool/filter-data-in-database.png)
+:::image type="content" source="./media/copy-data-tool/filter-data-in-database.png" alt-text="데이터베이스의 데이터 필터링":::
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
 폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
@@ -94,7 +98,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 그런 후 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{day}** 로, **02** 를 **{hour}** 로 바꾼 다음, **탭** 키를 누릅니다. **파일 로드 동작** 섹션에서 **증분 로드: 시간으로 분할된 폴더/파일 이름** 을 선택하고 **속성** 페이지에서 **일정** 또는 **연속 창** 을 선택하는 경우 다음과 같은 네 가지 변수의 형식을 선택할 수 있는 드롭다운 목록이 표시됩니다.
 
-![파일 또는 폴더 필터링](./media/copy-data-tool/filter-file-or-folder.png)
+:::image type="content" source="./media/copy-data-tool/filter-file-or-folder.png" alt-text="파일 또는 폴더 필터링":::
 
 데이터 복사 도구는 파이프라인을 만들 때 {year}, {month}, {day}, {hour} 및 {minute}를 나타내는 데 사용할 수 있는 식, 함수 및 시스템 변수로 매개 변수를 생성합니다.
 
@@ -103,7 +107,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 일 회 복사 작업을 통해 원본에서 대상으로 한 번만 데이터를 이동할 수 있습니다. 이는 모든 크기 및 지원되는 형식의 데이터에 적용됩니다. 예약 복사를 통해 지정한 반복 주기에 따라 데이터를 복사할 수 있습니다. 다양한 설정(예: 재시도, 시간 제한, 경고 등)을 사용하여 예약 복사를 구성할 수 있습니다.
 
-![일정 옵션](./media/copy-data-tool/scheduling-options.png)
+:::image type="content" source="./media/copy-data-tool/scheduling-options.png" alt-text="일정 옵션":::
 
 
 ## <a name="next-steps"></a>다음 단계

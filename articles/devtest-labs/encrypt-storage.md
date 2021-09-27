@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩에서 사용되는 Azure Storage 계정 암호화
+title: 랩에서 사용 되는 Azure storage 계정 암호화
 description: Azure DevTest Labs에서 랩에서 사용되는 Azure Storage 암호화를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 337cd45b20b9fe52bb487a3b36bde905541f840b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92149316"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552588"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에서 사용되는 Azure Storage 암호화
 Azure DevTest Labs에서 생성되는 모든 랩은 연결된 Azure Storage 계정을 사용하여 생성됩니다. 스토리지 계정은 다음 용도로 사용됩니다. 
@@ -65,7 +65,7 @@ Azure Storage 암호화를 위한 고객 관리형 키를 구성하는 방법을
 - 수식에서 VM 만들기
 
 ### <a name="artifact-results"></a>아티팩트 결과
-아티팩트가 적용될 때 랩 VM에서 실행되는 아티팩트의 수와 유형에 따라 각 아티팩트 결과의 크기가 시간이 갈수록 증가할 수 있습니다. 따라서 랩 소유자는 이러한 문서의 수명 주기를 제어하는 것이 좋습니다. 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
+아티팩트가 적용될 때 랩 VM에서 실행되는 아티팩트의 수와 유형에 따라 각 아티팩트 결과의 크기가 시간이 갈수록 증가할 수 있습니다. 따라서 랩 소유자는 이러한 문서의 수명 주기를 제어하는 것이 좋습니다. 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](../storage/blobs/lifecycle-management-overview.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Storage 계정과 관련된 비용을 줄이려면 이 단계를 수행하는 것이 좋습니다. 

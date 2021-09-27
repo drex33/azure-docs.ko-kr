@@ -3,12 +3,12 @@ title: 위임된 대규모 리소스 모니터링
 description: Azure Lighthouse를 통해 고객 테넌트 전체에서 스케일링 가능한 방식으로 Azure Monitor 로그를 사용할 수 있습니다.
 ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122568024"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736612"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>위임된 대규모 리소스 모니터링
 
@@ -28,7 +28,7 @@ ms.locfileid: "122568024"
 > [!TIP]
 > Log Analytics 작업 영역에서 데이터에 액세스하는 데 사용되는 자동화 계정은 작업 영역과 동일한 테넌트에서 만들어야 합니다.
 
-[Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md) 또는 [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다.
+[Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), [Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md) 또는 [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 고객 테넌트에서 모든 작업 영역을 만든 경우 관리 테넌트의 구독에 Microsoft.Insights 리소스 공급자를 [등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다. 관리 테넌트에 기존 Azure 구독이 없는 경우 다음 PowerShell 명령을 사용하여 리소스 공급자를 수동으로 등록할 수 있습니다.

@@ -1,20 +1,15 @@
 ---
 title: 오디오 효과 감지
-titleSuffix: Azure Video Analyzer
 description: '오디오 효과 감지는 Azure Video Analyzer for Media AI 기능 중 하나입니다. 다양한 음향 이벤트를 감지하고 이를 다양한 음향 범주(예: 총성, 비명, 군중 반응 등)로 분류할 수 있습니다.'
-author: Juliako
-manager: femila
-ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer-media
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: juliako
-ms.openlocfilehash: d576408cc0d65cc908a24b27ae2a6a50ed7aa9ee
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 689abf9c61c0b1a462cfafe02c461906626e516b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121558"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632541"
 ---
 #  <a name="audio-effects-detection-preview"></a>오디오 효과 감지(미리 보기)
 
@@ -35,7 +30,7 @@ ms.locfileid: "112121558"
 
 |인덱싱 유형 |표준 인덱싱| 고급 인덱싱|
 |---|---|---|
-|**사전 설정 이름** |**"오디오 전용”** <br/>**“비디오 + 오디오”** |**"고급 오디오"**<br/> **"고급 비디오 + 오디오"**|
+|**사전 설정 이름** |**"오디오만"** <br/>**"비디오 + 오디오"** |**"오디오 이동"**<br/> **"고급 비디오 + 오디오"**|
 |**인사이트 창에 표시**|| V|
 |군중 반응 |V| V|
 | 침묵| V| V|
@@ -96,7 +91,7 @@ audioEffects: [{
 
 ## <a name="how-to-index-audio-effects"></a>오디오 효과를 인덱싱하는 방법
 
-사용자는 오디오 효과 감지를 포함하도록 인덱스 프로세스를 설정하기 위해 아래에서 볼 수 있는 것처럼 "비디오 + 오디오 인덱싱" 메뉴의 고급 사전 설정 중 하나를 선택해야 합니다.
+사용자는 오디오 효과 검색을 포함 하도록 인덱스 프로세스를 설정 하기 위해 아래에서 볼 수 있는 것 처럼 "비디오 + 오디오 인덱싱" 메뉴의 고급 사전 설정 중 하나를 선택 해야 합니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="오디오 효과 인덱싱 이미지":::
@@ -109,7 +104,7 @@ audioEffects: [{
 |---|---|
 |SRT |00:00:00,000  00:00:03,671<br/>[총성]|
 |VTT |00:00:00.000  00:00:03.671<br/>[총성]|
-|TTML|신뢰도: 0.9047 <br/> <p begin="00:00:00.000" end="00:00:03.671">[총성]</p>|
+|TTML|신뢰도: 0.9047 <br/> `<p begin="00:00:00.000" end="00:00:03.671">[Gunshot]</p>`|
 |TXT |[총성]|
 |CSV |0.9047,00:00:00.000,00:00:03.671, [총성]|
 

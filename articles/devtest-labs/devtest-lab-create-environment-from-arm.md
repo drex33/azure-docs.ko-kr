@@ -1,14 +1,14 @@
 ---
 title: 템플릿을 사용하여 다중 VM 환경 및 PaaS 리소스 생성
 description: Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중 VM 환경 및 PaaS 리소스를 만드는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 839953bcf5f48dc856da0d01133e81ed69fd08cd
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: c1a83a5e8f471b68d1c512443371a9a592cfbc88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954141"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587994"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 

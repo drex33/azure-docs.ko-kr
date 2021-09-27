@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 09/09/2021
 ms.author: lle
-ms.openlocfilehash: 2af9d5979635042c857e23e9514ea0e5a1df530e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d1b3770d236c7f88090840720e8f88fd453e70cf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642254"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755941"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -32,11 +32,11 @@ ms.locfileid: "122642254"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="‘모든 파이프라인 실행’ 창에 있는 ‘작업 실행’ 섹션의 스크린샷":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="&quot; &quot; &quot; 모든 파이프라인 실행 창에서 작업 실행 섹션의 스크린샷 &quot;":::
     
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="‘모든 파이프라인 실행’ 창에 있는 ‘작업 실행’ 섹션의 스크린샷":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="&quot; &quot; &quot; 모든 파이프라인 실행 창에서 작업 실행 섹션의 스크린샷 &quot;":::
     
     ---
     
@@ -48,7 +48,7 @@ ms.locfileid: "122642254"
  
    **Microsoft로 자체 호스팅 IR(통합 런타임) 로그 공유** 창이 열립니다.
 
-    !['Microsoft로 자체 호스팅 IR(통합 런타임) 로그 공유' 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="&quot;Microsoft window를 사용 하 여 자체 호스팅 IR (통합 런타임) 로그를 공유 하는 스크린샷 &quot;":::
 
 1. 보내려는 로그를 선택합니다. 
     * '자체 호스팅 IR'의 경우 실패한 작업과 관련된 로그 또는 자체 호스팅 IR 노드의 모든 로그를 업로드할 수 있습니다. 
@@ -56,7 +56,7 @@ ms.locfileid: "122642254"
 
 1. 로그를 업로드할 때 보고서 ID를 기록해 둡니다. 그러면 문제를 해결하기 위해 추가 지원이 필요할 경우 사용할 수 있습니다.
 
-    ![IR 로그의 업로드 진행률 창에 표시된 보고서 ID의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png" alt-text="IR 로그의 업로드 진행률 창에 표시된 보고서 ID의 스크린샷":::
 
 > [!NOTE]
 > 로그 보기 및 업로드 요청은 모든 온라인 자체 호스팅 IR 인스턴스에서 실행됩니다. 로그가 없는 경우 모든 자체 호스팅 IR 인스턴스가 온라인 상태인지 확인합니다. 
@@ -86,7 +86,7 @@ UI에서 동시 작업 제한을 늘리려고 하면 프로세스가 ‘업데�
 
 예제 시나리오: 최대 동시 작업 값이 현재 24로 설정되어 있으며 작업을 더 빠르게 실행할 수 있도록 개수를 늘리려고 합니다. 입력할 수 있는 최솟값은 3이고 최댓값은 32입니다. 값을 24에서 32으로 높인 다음 **업데이트** 단추를 선택합니다. 다음 스크린샷에 표시된 것처럼 프로세스가 '업데이트 중' 상태에서 중단됩니다. 페이지를 새로 고치면 값이 계속 24로 표시됩니다. 예상과 달리 32로 업데이트되지 않았습니다.
 
-!['업데이트 중' 상태에서 중단된 프로세스를 표시하는 통합 런타임의 노드 창을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="상태 업데이트 중 중단 된 프로세스를 표시 하는 통합 런타임의 노드 창 스크린샷 &quot; &quot;":::
 
 #### <a name="cause"></a>원인
 
@@ -119,7 +119,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
        
        b. 파일 탐색기의 왼쪽 창에서 확인할 인증서를 검색하고 마우스 오른쪽 단추를 클릭한 다음 **모든 작업** > **내보내기** 를 선택합니다.
     
-        !['컴퓨터 인증서 관리' 창의 인증서에 대한 '모든 작업' > '내보내기' 컨트롤을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="&quot; &quot;  >  &quot; &quot; &quot; 컴퓨터 인증서 관리 창에서 인증서에 대 한 모든 작업 내보내기 컨트롤 &quot; 의 스크린샷":::
 
     2. 내보낸 인증서를 클라이언트 컴퓨터에 복사합니다. 
     3. 클라이언트 쪽 명령 프롬프트 창에서 다음 명령을 실행합니다. *\<certificate path>* 및 *\<output txt file path>* 을 실제 경로로 바꾸어야 합니다.
@@ -137,17 +137,17 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
         예를 들면 다음과 같습니다. 
 
-        ![TXT 파일 끝의 오류 요약을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png" alt-text="TXT 파일 끝의 오류 요약을 보여 주는 스크린샷":::
 
         다음 스크린샷에 표시된 것처럼 로그 파일의 끝에 오류가 표시되지 않으면 클라이언트 컴퓨터에서 인증서 체인이 성공적으로 빌드된 것으로 간주할 수 있습니다.
         
-        ![오류가 표시되지 않은 로그 파일의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png" alt-text="오류가 표시되지 않은 로그 파일의 스크린샷":::      
 
 - 인증서 파일에서 AIA(기관 정보 액세스), CDP(CRL 배포 지점) 또는 OCSP(온라인 인증서 상태 프로토콜) 파일 이름 확장명이 구성된 경우 보다 직관적인 방법으로 확인할 수 있습니다.
  
     1. 다음 스크린샷에 표시된 것처럼 인증서 세부 정보를 확인하여 이 정보를 가져옵니다.
     
-        ![certificate-details의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png" alt-text="certificate-details의 스크린샷":::
     
     1. 다음 명령을 실행합니다. *\<certificate path>* 을 인증서의 실제 경로로 바꿔야 합니다.
     
@@ -159,7 +159,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
         
     1. AIA, CDP 및 OCSP 파일 이름 확장명을 사용하여 인증서를 확인하려면 **검색** 을 선택합니다.
 
-        ![URL 검색 도구 및 검색 단추의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png" alt-text="URL 검색 도구 및 검색 단추의 스크린샷":::
  
         AIA의 인증서 상태가 '확인됨'이고 CDP 또는 OCSP의 인증서 상태가 '확인됨'인 경우 인증서 체인을 성공적으로 빌드한 것입니다.
 
@@ -181,7 +181,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 프로세스 모니터에서 다음 결과를 볼 수 있습니다.
 
-[![프로세스 모니터의 경로 목록을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox" lightbox="media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png" alt-text="프로세스 모니터의 경로 목록을 보여 주는 스크린샷":::
 
 > [!TIP] 
 > 프로세스 모니터에서 다음 스크린샷에 표시된 것처럼 필터를 설정할 수 있습니다.
@@ -192,7 +192,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 <br>
 
-![DLL에 대한 필터를 나열하는 '프로세스 모니터 필터' 페이지의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png" alt-text="&quot; &quot; DLL에 대 한 필터를 나열 하는 프로세스 모니터 필터 페이지의 스크린샷":::
 
 #### <a name="resolution"></a>해결 방법
 
@@ -219,7 +219,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 “인증 키가 아직 할당되지 않았습니다.”
 
-![인증 키가 아직 할당되지 않았음을 보여 주는 통합 런타임 이벤트 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png" alt-text="인증 키가 아직 할당되지 않았음을 보여 주는 통합 런타임 이벤트 창의 스크린샷":::
 
 #### <a name="cause"></a>원인
 
@@ -230,7 +230,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 위의 원인이 모두 적용되지 않는 경우 *%programdata%\Microsoft\Data Transfer\DataManagementGateway* 폴더로 이동하여 '구성' 파일이 삭제되었는지 여부를 확인할 수 있습니다. 파일이 삭제된 경우 Netwrix 문서 [Windows 파일 서버에서 파일을 삭제한 사람 검색](https://www.netwrix.com/how_to_detect_who_deleted_file.html)의 지침을 따릅니다.
 
-![구성 파일을 확인하기 위한 이벤트 로그 세부 정보 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png" alt-text="구성 파일을 확인하기 위한 이벤트 로그 세부 정보 창의 스크린샷":::
 
 
 ### <a name="cant-use-self-hosted-ir-to-bridge-two-on-premises-datastores"></a>자체 호스팅 IR을 사용하여 두 개의 온-프레미스 데이터 저장소를 연결할 수 없음
@@ -285,7 +285,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
    “인트라넷 통신 암호화 모드를 변경하지 못했습니다. 인증서 '\<*certificate name*>'에 키 교환이 가능한 프라이빗 키가 없거나 프로세스에 프라이빗 키에 대한 액세스 권한이 없는 것일 수 있습니다. 자세한 내용은 내부 예외를 참조하세요.”
 
-    !['프라이빗 키 누락' 오류 메시지를 표시하는 Integration Runtime 구성 관리자 설정 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="&quot;개인 키 누락 오류 메시지를 표시 하는 Integration Runtime Configuration Manager 설정 창의 &quot; 스크린샷":::
 
 #### <a name="cause"></a>원인
 
@@ -370,7 +370,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 “등록하는 동안 Integration Runtime(자체 호스팅) 노드에 오류가 발생했습니다. Integration Runtime(자체 호스팅) 호스트 서비스에 연결할 수 없습니다.”
 
-![IR 등록 오류를 표시하는 Integration Runtime 구성 관리자 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-registration-error.png" alt-text="IR 등록 오류를 표시하는 Integration Runtime 구성 관리자 창의 스크린샷":::
 
 #### <a name="cause"></a>원인
 
@@ -380,19 +380,19 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 통합 런타임 이벤트 로그로 이동하여 오류를 확인합니다.
 
-![런타임 오류가 발생했음을 보여 주는 IR 이벤트 로그의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png" alt-text="런타임 오류가 발생했음을 보여 주는 IR 이벤트 로그의 스크린샷":::
 
 * 이벤트 로그의 오류가 'UnauthorizedAccessException'인 경우 다음을 수행합니다.
 
     1. Windows 서비스 패널에서 *DIAHostService* 로그온 서비스 계정을 확인합니다.
 
-        ![로그온 서비스 계정 속성 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="로그온 서비스 계정 속성 창의 스크린샷":::
 
     1. 로그온 서비스 계정에 *%programdata%\Microsoft\DataTransfer\DataManagementGateway* 폴더에 대한 읽기/쓰기 권한이 있는지 확인합니다.
 
         - 기본적으로 서비스 로그온 계정을 변경하지 않은 경우 읽기/쓰기 권한이 있어야 합니다.
 
-            ![권한 추가 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
+            :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png" alt-text="권한 추가 창의 스크린샷":::
 
         - 서비스 로그온 계정을 변경한 경우 다음을 수행하여 문제를 완화합니다.
  
@@ -414,11 +414,11 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
     1. Windows 서비스 패널에서 *DIAHostService* 로그온 서비스 계정을 확인합니다.
     
-        ![서비스 계정 '로그온' 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="&quot; &quot; 서비스 계정에 대 한 로그온 창의 스크린샷":::
 
     1. 로그온 서비스 계정에 Windows 서비스를 시작할 수 있는 **서비스로 로그온** 권한이 있는지 확인합니다.
 
-        !['서비스로 로그온' 속성 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="&quot;서비스로 로그온 &quot; 속성 창의 스크린샷":::
 
 #### <a name="more-information"></a>자세한 정보
 
@@ -432,7 +432,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 자체 호스팅 IR을 등록할 때 구성 관리자 창에 **등록** 단추가 표시되지 않습니다.
 
-![통합 런타임 노드가 등록되지 않은 메시지를 표시하는 구성 관리자 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/no-register-button.png" alt-text="통합 런타임 노드가 등록되지 않은 메시지를 표시하는 구성 관리자 창의 스크린샷":::
 
 #### <a name="cause"></a>원인
 
@@ -445,7 +445,7 @@ Integration Runtime 3.0 릴리스부터 기존 통합 런타임 노드에 대한
     > [!IMPORTANT] 
     > 다음 프로세스에서 **예** 를 선택합니다. 제거 프로세스 동안 데이터를 유지하지 마세요.
 
-    ![통합 런타임에서 모든 사용자 데이터를 삭제하는 '예' 단추의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png" alt-text="&quot; &quot; 통합 런타임에서 모든 사용자 데이터를 삭제 하는 예 단추의 스크린샷":::
 
 1. 통합 런타임 설치 관리자 MSI 파일이 없는 경우 [다운로드 센터](https://www.microsoft.com/en-sg/download/details.aspx?id=39717)로 이동하여 최신 통합 런타임을 다운로드합니다.
 1. MSI 파일을 설치하고 통합 런타임을 등록합니다.
@@ -495,7 +495,7 @@ Microsoft Integration Runtime 구성 관리자를 통해 자체 호스팅 IR을 
 
 "인트라넷 통신 암호화 모드를 변경하지 못함: 인증서 '\<*certificate name*>'에 대한 액세스를 Integration Runtime 서비스 계정에 부여하지 못했습니다. 오류 코드 103"
 
-![오류 메시지 "... Integration Runtime 서비스 계정에 인증서 액세스 권한을 부여하지 못했습니다."를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="오류 메시지를 표시 하는 &quot; 스크린샷 ... Integration Runtime 서비스 계정 인증서 액세스를 부여 하지 못했습니다 &quot; .":::
 
 #### <a name="cause"></a>원인
 
@@ -511,7 +511,7 @@ Microsoft Integration Runtime 구성 관리자를 통해 자체 호스팅 IR을 
 
 `Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx`
 
-![인증서를 가져오기 위한 certutil 명령의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png" alt-text="인증서를 가져오기 위한 certutil 명령의 스크린샷":::
 
 **해결 방법 2** 
 
@@ -522,9 +522,9 @@ Microsoft Integration Runtime 구성 관리자를 통해 자체 호스팅 IR을 
 
 변환 전후:
 
-![인증서 변환 전 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png" alt-text="인증서 변환 전 스크린샷":::
 
-![인증서 변환 후 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png" alt-text="인증서 변환 후 스크린샷":::
 
 ### <a name="self-hosted-integration-runtime-version-5x"></a>자체 호스팅 통합 런타임 버전 5.x
 자체 호스팅 통합 런타임 버전 5.x로 업그레이드하려면 **.NET Framework 런타임 4.7.2** 이상이 필요합니다. 다운로드 페이지에서 최신 4.x 버전 및 두 개의 최신 5.x 버전에 대한 다운로드 링크를 찾을 수 있습니다. 
@@ -552,7 +552,7 @@ Azure Data Factory v1 고객의 경우:
 
 “등록하는 동안 Integration Runtime(자체 호스팅) 노드에 오류가 발생했습니다.”
 
-![“등록하는 동안 Integration Runtime(자체 호스팅) 노드에 오류가 발생했습니다.” 메시지를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png" alt-text="&quot;등록 메시지를 실행 하는 동안 Integration Runtime(자체 호스팅) 노드의 스크린샷에 오류가 발생 했습니다 &quot; .":::
 
 #### <a name="cause"></a>원인 
 
@@ -562,7 +562,7 @@ Azure Data Factory v1 고객의 경우:
 
 1. 통합 런타임 서비스가 실행 중인지 확인합니다. 그렇다면 2단계로 이동합니다.
     
-   ![자체 호스팅 IR 서비스가 실행 중임을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png" alt-text="자체 호스팅 IR 서비스가 실행 중임을 보여 주는 스크린샷":::
     
 1. 자체 호스팅 IR에 프록시가 구성(기본 설정)되지 않은 경우 자체 호스팅 통합 런타임이 설치된 컴퓨터에서 다음 PowerShell 명령을 실행합니다.
 
@@ -575,7 +575,7 @@ Azure Data Factory v1 고객의 경우:
             
     예상되는 응답은 다음과 같습니다.
             
-    ![PowerShell 명령 응답의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="PowerShell 명령 응답의 스크린샷":::
             
 1. 예상한 응답을 받지 못한 경우 상황에 따라 다음 방법 중 하나를 사용합니다.
             
@@ -604,7 +604,7 @@ Azure Data Factory v1 고객의 경우:
 
 예상되는 응답은 다음과 같습니다.
             
-![필요한 Powershell 명령 응답의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="필요한 Powershell 명령 응답의 스크린샷":::
 
 > [!NOTE] 
 > 프록시 고려 사항:
@@ -618,7 +618,7 @@ Azure Data Factory v1 고객의 경우:
 
 다음 스크린샷에 표시된 것처럼 자체 호스팅 IR 노드가 **비활성** 상태일 수 있습니다.
 
-![비활성 상태의 자체 호스팅 IR 노드를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png" alt-text="비활성 상태의 자체 호스팅 IR 노드를 보여 주는 스크린샷":::
 
 이 동작은 노드가 서로 통신할 수 없는 경우에 발생합니다.
 
@@ -645,7 +645,7 @@ Azure Data Factory v1 고객의 경우:
    
 1. 다음 스크린샷에 표시된 "호스트에 대한 연결을 열 수 없습니다." 명령줄 오류를 수신하는 경우 이 문제를 해결하려면 IT 부서에 문의하세요. 성공적으로 텔넷한 후에도 통합 런타임 노드 상태에 문제가 있는 경우 Microsoft 지원에 문의하세요.
         
-   !["호스트에 대한 연결을 열 수 없습니다." 명령줄 오류의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png" alt-text="&quot;호스트 명령줄 오류에 대 한 연결을 열 수 없습니다 &quot; .":::
         
 1. 오류 로그에 다음 항목이 포함되어 있는지 확인합니다.
 
@@ -665,7 +665,7 @@ Azure Data Factory v1 고객의 경우:
 
 다음 스크린샷에 표시된 것과 같이 자체 호스팅 IR과 데이터 팩터리 또는 Azure Synapse 인스턴스 사이나 자체 호스팅 IR과 데이터 원본 또는 싱크 사이의 특정 연결 문제를 해결해야 하는 경우도 있습니다. 
 
-!["처리된 HTTP 요청 실패" 메시지의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png" alt-text="&quot;처리 된 HTTP 요청 실패 메시지 스크린샷 &quot;":::
 
 두 경우 모두 다음과 같은 오류가 발생한 것일 수 있습니다.
 
@@ -681,15 +681,15 @@ Azure Data Factory v1 고객의 경우:
 
     1. 필터를 설정하여 서버에서 클라이언트 쪽으로 다시 설정을 확인할 수 있습니다. 다음 예제 스크린샷에서 서버 쪽이 Data Factory 서버임을 확인할 수 있습니다.
 
-        ![Data factory 서버의 스크린샷.](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png" alt-text="Data factory 서버의 스크린샷.":::
 
     1. 다시 설정 패키지를 가져오는 경우 TCP(Transmission Control Protocol)를 따라 대화를 찾을 수 있습니다.
 
-        ![TCP 대화의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png" alt-text="TCP 대화의 스크린샷":::
 
     1. 필터를 제거하여 클라이언트와 아래 Data Factory 서버 간의 대화를 가져옵니다.
 
-        ![대화 세부 정보의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png" alt-text="대화 세부 정보의 스크린샷":::
 
 - 수집한 Netmon 추적을 분석하면 TTL(Time to Live) 합계가 64임을 알 수 있습니다. [IP TTL(Time To Live) 및 홉 제한 기본 사항](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) 문서에 설명된 대로, 다음 목록에서 추출된 값에 따라 Linux 시스템이 패키지를 다시 설정하고 연결을 끊는 것임을 확인할 수 있습니다.
 
@@ -702,7 +702,7 @@ Azure Data Factory v1 고객의 경우:
     - Windows Server 2019(2018): 128(TCP, UDP, ICMP)
     - macOS(2001): 64(TCP, UDP, ICMP)
 
-    ![TTL 값 61을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png" alt-text="TTL 값 61을 보여 주는 스크린샷":::
     
     위의 예제에서 TTL은 64가 아닌 61로 표시됩니다. 네트워크 패키지가 대상에 도달하면 라우터 또는 네트워크 디바이스와 같은 다양한 홉을 통과해야 하기 때문입니다. 라우터 또는 네트워크 디바이스 수를 공제하여 최종 TTL을 계산합니다.
     
@@ -714,7 +714,7 @@ Azure Data Factory v1 고객의 경우:
 
 - 이상적인 상황에서 TTL 홉 수는 128입니다. 이는 Windows 운영 체제에서 데이터 팩터리 인스턴스를 실행하고 있음을 의미합니다. 다음 예제와 같이 '128 - 107 = 21홉'입니다. 이는 패키지에 대한 21개의 홉이 TCP 3 핸드셰이크 중에 데이터 팩터리 인스턴스에서 자체 호스팅 IR로 전송되었음을 의미합니다.
  
-    ![TTL 값 107을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png" alt-text="TTL 값 107을 보여 주는 스크린샷":::
 
     따라서 네트워크 팀과 협력하여 자체 호스팅 IR에서 네 번째 홉이 무엇인지 확인해야 합니다. 네 번째 홉이 방화벽인 경우 Linux 시스템과 마찬가지로 로그를 확인하여 TCP 3 핸드셰이크 이후 디바이스에서 패키지를 다시 설정하는 이유를 확인합니다. 
     
@@ -727,9 +727,9 @@ Azure Data Factory v1 고객의 경우:
 
 수집된 Netmon 추적을 사용하여 **8.8.8.8 888** 을 텔넷하려고 하면 다음 스크린샷과 같은 추적이 표시됩니다.
 
-!["포트 888에서 호스트에 대한 연결을 열 수 없습니다."라는 오류 메시지를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png" alt-text="&quot;포트 888 오류 메시지에서 호스트에 대 한 연결을 열 수 없음을 보여 주는 스크린샷 &quot;":::
 
-![Netmon 추적에 대한 설명을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png" alt-text="Netmon 추적에 대한 설명을 보여 주는 스크린샷":::
  
 
 위의 이미지는 포트 **888** 에서 **8.8.8.8** 서버 쪽에 TCP 연결을 만들 수 없다는 것을 보여 주기 때문에 두 개의 **SynReTransmit** 추가 패키지를 볼 수 있습니다. 원본 **SELF-HOST2** 는 첫 번째 패키지를 사용하여 **8.8.8.8** 에 연결할 수 없으므로 계속 연결을 시도합니다.
@@ -739,33 +739,33 @@ Azure Data Factory v1 고객의 경우:
 > 1. **필터 로드** > **표준 필터** > **주소** > **IPv4 주소** 를 선택합니다.
 > 1. 필터를 적용하려면 **IPv4.Address == 8.8.8.8** 을 입력한 다음 **적용** 을 선택합니다. 그런 다음 로컬 컴퓨터에서 대상 **8.8.8.8** 로의 통신을 확인해야 합니다.
 
-![필터 주소 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png" alt-text="필터 주소 보여 주는 스크린샷":::
         
-![더 많은 필터 주소를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png" alt-text="더 많은 필터 주소를 보여 주는 스크린샷":::
 
 성공적인 시나리오는 다음 예제에 나와 있습니다. 
 
 - 문제 없이 **8.8.8.8 53** 을 텔넷할 수 있는 경우 TCP 3 핸드셰이크가 성공하고 세션이 TCP 4 핸드셰이크로 완료됩니다.
 
-    ![성공적인 연결 시나리오를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png" alt-text="성공적인 연결 시나리오를 보여 주는 스크린샷":::
      
-    ![성공적인 연결 시나리오의 세부 정보를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png" alt-text="성공적인 연결 시나리오의 세부 정보를 보여 주는 스크린샷":::
 
 - 위의 TCP 3 핸드셰이크는 다음 워크플로를 생성합니다.
 
-    ![TCP 3 핸드셰이크 워크플로 다이어그램](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png" alt-text="TCP 3 핸드셰이크 워크플로 다이어그램":::
  
 - 세션을 완료하는 TCP 4 핸드셰이크는 다음 워크플로에 설명되어 있습니다.
 
-    ![TCP 4 핸드셰이크 세부 정보의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png" alt-text="TCP 4 핸드셰이크 세부 정보의 스크린샷":::
 
-    ![TCP 4 핸드셰이크 워크플로 다이어그램](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png" alt-text="TCP 4 핸드셰이크 워크플로 다이어그램"::: 
 
 ### <a name="microsoft-email-notification-about-updating-your-network-configuration"></a>네트워크 구성 업데이트에 대한 Microsoft 이메일 알림
 
 다음과 같이 Azure Data Factory의 새 IP 주소를 사용하여 통신할 수 있도록 2020년 11월 8일까지 네트워크 구성을 업데이트할 것을 권장하는 이메일 알림을 받을 수 있습니다.
 
-   ![네트워크 구성 업데이트를 요청하는 Microsoft 이메일 알림의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png" alt-text="네트워크 구성 업데이트를 요청하는 Microsoft 이메일 알림의 스크린샷":::
 
 #### <a name="determine-whether-this-notification-affects-you"></a>이 알림의 영향을 받는지 여부 확인
 
@@ -789,7 +789,7 @@ Azure Data Factory v1 고객의 경우:
 
 - 아웃바운드 규칙 제한이 있는 경우 서비스 태그를 사용하고 있는지 확인하세요. 서비스 태그를 사용하는 경우에는 영향을 받지 않습니다. 새 IP 범위는 기존 서비스 태그 아래에 있기 때문에 아무것도 변경하거나 추가할 필요가 없습니다. 
 
-  ![Data Factory를 대상으로 표시하는 대상 검사의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png" alt-text="Data Factory를 대상으로 표시하는 대상 검사의 스크린샷":::
 
 - Azure 가상 네트워크에 대한 NSG 규칙에서 아웃바운드 IP 주소 허용 목록을 명시적으로 사용하는 경우 영향을 ‘받습니다’.
 
@@ -819,9 +819,9 @@ CustomLogEvent 테이블에서 자체 호스팅 IR 이벤트 로그 또는 클�
 
 서비스의 서버 인증서를 확인하는 가장 간단한 방법은 브라우저에서 서비스 URL을 여는 것입니다. 예를 들어 자체 호스팅 IR이 설치된 컴퓨터에서 [서버 인증서 확인 링크](https://eu.frontend.clouddatahub.net/)를 열고 서버 인증서 정보를 확인합니다.
 
-  ![Azure Data Factory 서비스의 서버 인증서 확인 창을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Azure Data Factory 서비스의 서버 인증서 확인 창을 보여 주는 스크린샷":::
 
-  ![서버 인증 경로를 확인하는 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png" alt-text="서버 인증 경로를 확인하는 창의 스크린샷":::
 
 #### <a name="cause"></a>원인
 
@@ -840,7 +840,7 @@ Windows에서 인증서를 신뢰하는 방법에 대한 자세한 내용은 [�
 #### <a name="additional-information"></a>추가 정보
 DigiCert에서 서명된 새 SSL 인증서를 출시했습니다. DigiCert Global Root G2가 신뢰할 수 있는 루트 CA에 있는지 확인하세요.
 
-  ![신뢰할 수 있는 루트 인증 기관 디렉터리에 있는 DigiCert Global Root G2 폴더를 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+  :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="신뢰할 수 있는 루트 인증 기관 디렉터리에 있는 DigiCert Global Root G2 폴더를 보여 주는 스크린샷":::
 
 신뢰할 수 있는 루트 CA에 없으면 [여기에서 다운로드](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt )합니다. 
 
@@ -850,7 +850,7 @@ DigiCert에서 서명된 새 SSL 인증서를 출시했습니다. DigiCert Globa
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)

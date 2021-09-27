@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf79bc16ed717a71820b7226c0c97cfd263c7fef
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 5fd9fd2e2077ceeccc4fed0d63e759b7c8ec2e67
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693746"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128608150"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -356,7 +356,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="properties-that-require-deallocation-to-change"></a>변경하기 위해 할당을 취소해야 하는 속성
 일부 속성은 확장 집합의 VM을 할당 취소해야만 특정 값으로 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
 
-- **SKU 이름** - 새 VM SKU가 현재 확장 집합이 있는 하드웨어에서 지원되지 않을 경우, SKU 이름을 수정하기 전에 확장 집합에서 VM 할당을 취소해야 합니다. 자세한 내용은 [Azure VM의 크기를 조정하는 방법](../virtual-machines/windows/resize-vm.md)을 참조하세요. 
+- **SKU 이름** - 새 VM SKU가 현재 확장 집합이 있는 하드웨어에서 지원되지 않을 경우, SKU 이름을 수정하기 전에 확장 집합에서 VM 할당을 취소해야 합니다. 자세한 내용은 [Azure VM의 크기를 조정하는 방법](../virtual-machines/resize-vm.md)을 참조하세요. 
 
 ## <a name="vm-specific-updates"></a>VM 관련 업데이트
 특정 수정 내용은 전역 확장 집합 속성 대신 특정 VM에 적용될 수 있습니다. 현재 지원되는 유일한 VM 관련 업데이트는 확장 집합의 VM에서 데이터 디스크 연결/분리 작업입니다. 이 기능은 미리 보기 상태입니다. 자세한 내용은 [미리 보기 설명서](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)를 참조하세요.

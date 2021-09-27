@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 06/18/2021
+ms.date: 09/09/2021
 ms.author: abnarain
-ms.openlocfilehash: 7ae441bde7dc6196b01bb285f0ebf65e5c9f4e83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642388"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749440"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인 문제 해결
 
@@ -566,7 +566,7 @@ ms.locfileid: "122642388"
 
 - **권장 사항**: 자격 증명을 수정하고 연결 서비스를 다시 배포하세요. 먼저 브라우저에서 클러스터 URI를 열고 로그인을 시도하여 자격 증명이 HDInsight에서 작동하는지 확인합니다. 자격 증명이 작동하지 않으면 Azure Portal에서 재설정할 수 있습니다.
 
-   ESP 클러스터의 경우 [셀프 서비스 암호 재설정](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)을 통해 암호를 재설정합니다.
+   ESP 클러스터의 경우 [셀프 서비스 암호 재설정](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)을 통해 암호를 재설정합니다.
 
  </br>
 
@@ -953,7 +953,7 @@ ms.locfileid: "122642388"
 
 - **해결 방법**: **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** 경로로 이동해 DriverConfiguration64.exe를 열어 설정을 변경할 수 있습니다.
 
-    ![System Trust Store 사용 선택 취소](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="System Trust Store 사용 선택 취소":::
 
 ## <a name="web-activity"></a>웹 작업
 
@@ -982,7 +982,7 @@ ms.locfileid: "122642388"
 
    1. HTTPS 탭에서 **HTTPS 연결 캡처** 및 **HTTPS 트래픽 암호 해독** 을 모두 선택합니다.
 
-      ![Fiddler 옵션](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler 옵션":::
 
 1. 응용 프로그램에서 TLS/SSL 인증서를 사용하는 경우 Fiddler 인증서를 디바이스에 추가합니다.
 
@@ -1027,7 +1027,7 @@ ms.locfileid: "122642388"
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 * [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 * [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 * [Azure 비디오](https://azure.microsoft.com/resources/videos/index/)

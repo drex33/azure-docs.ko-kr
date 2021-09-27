@@ -1,14 +1,14 @@
 ---
-title: VHD 파일에서 Azure DevTest Labs 사용자 지정 이미지 만들기 | Microsoft Docs
+title: VHD 파일에서 Azure DevTest Labs 사용자 지정 이미지 만들기
 description: Azure Portal을 사용하여 VHD 파일에서 Azure DevTest Labs에 사용자 지정 이미지를 만드는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 019399d9f6d9dfb8f9c21c52a631ff86fc2d6c34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 821a429b19218d8bb813be7519dd124cd025b3bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566936"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587900"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
 

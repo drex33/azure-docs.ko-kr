@@ -2,13 +2,13 @@
 title: Azure Service Bus에서 구독 필터 설정 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus 토픽 구독에서 필터 및 작업을 정의하는 예제를 제공합니다.
 ms.topic: how-to
-ms.date: 02/17/2021
-ms.openlocfilehash: 8146e1be1af354b820ea0d3fed7ba9434a4d4e1d
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: d73a8cdade8600a793911acfefc54a8e1e1530b6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302611"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754973"
 ---
 # <a name="set-subscription-filters-azure-service-bus"></a>구독 필터 설정(Azure Service Bus)
 이 문서에서는 Azure Service Bus 토픽 구독에서 필터를 설정하는 몇 가지 예제를 제공합니다. 필터에 대한 개념적 설명은 [필터](topic-filters.md)를 참조하세요.
@@ -72,7 +72,9 @@ sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','S
 C# 샘플은 [GitHub의 토픽 필터 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters)을 참조하세요.
 
 
-## <a name="correlation-filter-using-correlationid"></a>CorrelationID를 사용하는 상관 관계 필터
+## <a name="correlation-filters"></a>상관 관계 필터
+
+### <a name="correlation-filter-using-correlationid"></a>CorrelationID를 사용하는 상관 관계 필터
 
 ```csharp
 new CorrelationFilter("Contoso");
@@ -80,16 +82,24 @@ new CorrelationFilter("Contoso");
 
 `CorrelationID`가 `Contoso`로 설정된 메시지를 필터링합니다. 
 
-## <a name="correlation-filter-using-system-and-user-properties"></a>시스템 및 사용자 속성을 사용한 상관 관계 필터
+> [!NOTE]
+> .NET의 [CorrelationRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter) 클래스는 [ServiceBus](/dotnet/api/azure.messaging.servicebus.administration) 네임 스페이스에 있습니다. .NET을 사용 하 여 일반적으로 필터를 만드는 방법을 보여 주는 샘플 코드는 [GitHub에서이 코드](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters/Program.cs#L179)를 참조 하세요.
+
+
+### <a name="correlation-filter-using-system-and-user-properties"></a>시스템 및 사용자 속성을 사용한 상관 관계 필터
 
 ```csharp
-var filter = new CorrelationFilter();
+var filter = new CorrelationRuleFilter();
 filter.Label = "Important";
 filter.ReplyTo = "johndoe@contoso.com";
 filter.Properties["color"] = "Red";
 ```
 
 `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`와 동등합니다.
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 다음 샘플을 참조하세요. 

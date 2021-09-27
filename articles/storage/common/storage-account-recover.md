@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3a26a181dc8fd25ad93ebba9aaa496f3421bbffc
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 69d95ea67064ad45e60a6c38e37ab425bed27b76
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113354586"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616881"
 ---
 # <a name="recover-a-deleted-storage-account"></a>삭제된 스토리지 계정 복구
 
@@ -23,7 +23,7 @@ ms.locfileid: "113354586"
 - 스토리지 계정이 최근 14일 이내에 삭제되었습니다.
 - 스토리지 계정은 Azure Resource Manager 배포 모델로 생성되었습니다.
 - 원래 계정이 삭제된 후 이름이 같은 새 스토리지 계정이 만들어지지 않았습니다.
-- 스토리지 계정을 복구하는 사용자는 **Microsoft.Storage/storageAccounts/write** 권한을 제공하는 Azure RBAC 역할이 할당되어야 합니다. 이 권한을 제공하는 기본 제공 Azure RBAC 역할에 관한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. 
+- 스토리지 계정을 복구하는 사용자는 **Microsoft.Storage/storageAccounts/write** 권한을 제공하는 Azure RBAC 역할이 할당되어야 합니다. 이 권한을 제공하는 기본 제공 Azure RBAC 역할에 관한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 삭제된 스토리지 계정을 복구하기 전에 해당 계정의 리소스 그룹이 있는지 확인하세요. 리소스 그룹을 삭제한 경우 다시 생성해야 합니다. 리소스 그룹을 복구할 수 없습니다. 자세한 내용은 [리소스 그룹 관리](../../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 

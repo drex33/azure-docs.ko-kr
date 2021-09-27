@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 08/27/2021
-ms.openlocfilehash: d8364915518104581a9f9ffb03b7ee7eda86c447
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: ac160463dbfa5fd66afb351c0c0edc5f59b61b30
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252201"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751032"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용하여 Azure Functions 모니터링
 
@@ -51,7 +51,7 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 
 ## <a name="distributed-tracing-for-python-function-apps"></a>Python 함수 앱에 대한 분산 추적
 
-Redis, Memcached, MongoDB 등과 같은 서비스에서 사용자 지정 원격 분석을 수집하려면 [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하고 [원격 분석을 로그](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry)할 수 있습니다. [여기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 지원되는 서비스 목록을 찾을 수 있습니다.
+Redis, Memcached, MongoDB 등과 같은 서비스에서 사용자 지정 원격 분석을 수집하려면 [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하고 [원격 분석을 로그](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry)할 수 있습니다. [여기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 지원되는 서비스 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

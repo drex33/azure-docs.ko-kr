@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩 만들기 | Microsoft Docs
+title: 랩 만들기
 description: 이 문서는 Azure Portal 및 Azure DevTest Labs를 사용하여 랩을 만드는 과정을 안내합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/12/2020
-ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 68b560125a4cacceee613b5c7c9bfaafc5c95c06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92058346"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602900"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
 
@@ -41,7 +41,7 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
 
 다음 값을 입력합니다.
 
-|이름|설명|
+|이름|Description|
 |---|---|
 |**구독** | 필수 요소. **구독** 을 선택하여 랩과 연결합니다.|
 |**리소스 그룹**| 필수 요소. 랩의 **리소스 그룹에 대한 이름** 을 입력합니다. 새 항목을 만듭니다(없는 경우).|
@@ -98,4 +98,3 @@ Azure Portal에서 **DevTest Labs** 를 검색할 수도 있습니다. 목록에
 * [랩 템플릿 만들기](devtest-lab-create-template.md)
 * [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 * [랩에 VM 추가](devtest-lab-add-vm.md)
-

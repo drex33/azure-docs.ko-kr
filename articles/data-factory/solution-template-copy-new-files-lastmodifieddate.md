@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 77ff6024605c56f0ef74dd51936aed19efdb8a75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 601dcaa3ea402f8f6b8b8c0664b8a47cfb5f4359
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536288"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743523"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Azure Data Factory에서 LastModifiedDate를 사용하여 새 파일 및 변경된 파일 복사
 
@@ -41,19 +41,19 @@ ms.locfileid: "122536288"
 
 1. **LastModifiedDate를 통해 새 파일만 복사** 템플릿으로 이동합니다. 원본 스토리지 저장소에 대한 **새 연결** 을 만듭니다. 원본 스토리지 저장소는 복사하려는 파일이 있는 곳입니다.
 
-    ![원본에 대한 새 연결 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png" alt-text="원본에 대한 새 연결 만들기":::
     
 2. 대상 스토리지에 대한 **새 연결** 을 만듭니다. 대상 스토리지는 파일을 복사할 위치입니다. 
 
-    ![대상에 대한 새 연결 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png" alt-text="대상에 대한 새 연결 만들기":::
 
 3. **이 템플릿 사용** 을 선택합니다.
 
-    ![이 템플릿 사용](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png" alt-text="이 템플릿 사용":::
     
 4. 다음 예제와 같이 패널에서 사용할 수 있는 파이프라인이 표시됩니다.
 
-    ![파이프라인 표시](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png" alt-text="파이프라인 표시":::
 
 5. **디버그** 를 선택하고 **매개 변수에** 대한 값을 작성한 다음 **마침** 을 선택합니다.  아래 그림에서 다음과 같이 매개 변수를 설정합니다.
    - **FolderPath_Source** = sourcefolder
@@ -65,21 +65,21 @@ ms.locfileid: "122536288"
     
     예제는 (**2019-02-01T00:00:00Z** 에서 **2019-03-01T00:00:00Z**)까지의 Timespan 내에서 마지막으로 수정된 파일이 원본 경로 **sourcefolder/subfolder** 에서 대상 경로 **destinationfolder/subfolder** 로 복사됨을 나타냅니다.  이를 사용자 고유의 매개 변수로 바꿀 수 있습니다.
 
-    ![파이프라인 실행](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png" alt-text="파이프라인 실행":::
 
 6. 결과를 검토합니다. 구성된 Timespan 내에서 마지막으로 수정된 파일만 대상 스토리지에 복사된 것을 볼 수 있습니다.
 
-    ![결과 검토](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png" alt-text="결과 검토":::
     
 7. 이제 연속 창 트리거를 추가하여 해당 파이프라인을 자동화할 수 있습니다. 그러면 파이프라인이 항상 새 파일 및 변경된 파일을 LastModifiedDate을 통해서만 주기적으로 복사할 수 있습니다.  **트리거 추가** 를 선택하고 **새로 만들기/편집** 을 선택합니다.
 
-    ![트리거 추가를 선택할 때 표시되는 새로 만들기/편집 메뉴 옵션을 강조해서 표시하는 스크린샷](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png" alt-text="트리거 추가를 선택할 때 표시되는 새로 만들기/편집 메뉴 옵션을 강조해서 표시하는 스크린샷":::
     
 8. **트리거 추가** 창에서 **+ 새로 만들기** 를 선택합니다.
 
 9. 트리거 유형에 대해 **연속 창** 을 선택하고 **15분마다** 되풀이로 설정합니다(시간 간격 변경 가능). 활성화 상자에 **예** 를 선택한 다음 **확인** 을 누릅니다.
 
-    ![트리거 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png" alt-text="트리거 만들기"::: 
     
 10. **트리거 실행 매개 변수의** 값을 다음과 같이 설정하고 **마침** 을 선택합니다.
     - **FolderPath_Source** = **sourcefolder**.  사용자의 원본 데이터 스토리지 폴더로 바꿀 수 있습니다.
@@ -89,11 +89,11 @@ ms.locfileid: "122536288"
     - **LastModified_From** =   **\@trigger().outputs.windowStartTime**.  파이프라인이 마지막으로 트리거된 시간을 확인하는 트리거의 시스템 변수입니다.
     - **LastModified_To** =  **\@trigger().outputs.windowEndTime**.  파이프라인이 트리거되는 시간을 결정하는 트리거의 시스템 변수입니다.
     
-    ![입력 매개 변수](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png" alt-text="입력 매개 변수":::
     
 11. **모두 게시** 를 선택합니다.
     
-    ![모두 게시](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png" alt-text="모두 게시":::
 
 12. 데이터 원본 스토리지의 원본 폴더에 새 파일을 만듭니다.  이제 파이프라인이 자동으로 트리거되고 새 파일만 대상 스토리지에 복사될 때까지 기다립니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "122536288"
 
 14. 결과를 검토합니다. 15분마다 파이프라인이 자동으로 트리거되고 각 파이프라인 실행 시 원본 스토리지의 새 파일 또는 변경된 파일만 대상 스토리지로 복사되는 것을 확인할 수 있습니다.
 
-    ![파이프라인이 트리거될 때 반환되는 결과를 보여 주는 스크린샷](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    :::image type="content" source="media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png" alt-text="파이프라인이 트리거될 때 반환되는 결과를 보여 주는 스크린샷":::
     
 ## <a name="next-steps"></a>다음 단계
 

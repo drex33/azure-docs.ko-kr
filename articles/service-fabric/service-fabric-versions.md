@@ -3,12 +3,12 @@ title: Azure Service Fabric 버전
 description: Azure Service Fabric의 클러스터 버전과 적극적으로 지원되는 플랫폼 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: 4eb08bb2ce94612ee81b9cdf19a1b3cd2e2d6b00
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bf9eee45ab674e7089fbf5210d6d5677ae4e11a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528430"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754953"
 ---
 # <a name="service-fabric-supported-versions"></a>Service Fabric 지원 버전
 이 문서의 표에는 적극적으로 지원되는 Service Fabric 및 플랫폼 버전이 요약되어 있습니다.
@@ -17,6 +17,7 @@ ms.locfileid: "122528430"
 
 | Service Fabric 런타임 |다음에서 직접 업그레이드 가능|다음으로 다운그레이드 가능|호환되는 SDK 또는 NuGet 패키지 버전|지원되는 .NET 런타임** |OS 버전 |지원 종료 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 CU2 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
 | 8.1 CU1 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
 | 8.1 RTO | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 현재 버전 |
 | 8.0 CU3 | 7.1 CU10 | 7.2 | 버전 5.0보다 낮거나 같음 | .NET 5.0 (GA), >= .NET Core 2.1, <br>모두 >= .NET Framework 4.5 | [지원되는 OS 버전 참조](#supported-windows-versions-and-support-end-date) | 2022년 2월 28일 |
@@ -62,6 +63,7 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | Service Fabric 런타임 | 다음에서 직접 업그레이드 가능 |다음으로 다운그레이드 가능 |호환되는 SDK 또는 NuGet 패키지 버전 | 지원되는 .NET 런타임** | OS 버전 | 지원 종료 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 CU2 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
 | 8.1 CU1 | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
 | 8.1 RTO | 7.2 CU7 | 8.0 | 버전 5.1보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 현재 버전 |
 | 8.0 CU3 | 7.1 CU8 | 7.2 | 버전 5.0보다 낮거나 같음 | >= .NET Core 2.1 | [지원되는 OS 버전 참조](#supported-linux-versions-and-support-end-date) | 2022년 2월 28일 |
@@ -87,6 +89,7 @@ OS 버전 지원이 종료되면 특정 OS에서 Service Fabric 지원이 종료
 
 | 버전 이름 | Windows 버전 번호 | Linux 버전 번호 |
 | --- | --- | --- |
+| 8.1 CU2 | 8.1.329.9590 | 8.1.328.1 |
 | 8.1 CU1 | 8.1.321.9590 | 8.1.323.1 |
 | 8.1 RTO | 8.1.316.9590 | 8.1.320.1 |
 | 8.0 CU3 | 8.0.536.9590 | 8.0.527.1 |

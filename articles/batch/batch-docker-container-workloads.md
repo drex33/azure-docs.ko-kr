@@ -4,12 +4,12 @@ description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 크
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: c6922c48aedc3394d164367806bece43d5fb8a49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568267"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744211"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -75,7 +75,7 @@ Linux 컨테이너 워크로드의 경우 현재 Batch는 사용자 지정 이�
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
-사용자 지정 이미지의 Docker 지원을 위해 [Docker CE(Community Edition)](https://www.docker.com/community-edition) 또는 [Docker EE(Enterprise Edition)](https://www.docker.com/enterprise-edition)를 설치합니다.
+사용자 지정 이미지의 Docker 지원을 위해 [Docker CE(Community Edition)](https://www.docker.com/community-edition) 또는 [Docker EE(Enterprise Edition)](https://www.docker.com/blog/docker-enterprise-edition/)를 설치합니다.
 
 사용자 지정 Linux 이미지를 사용하기 위한 추가 고려 사항:
 

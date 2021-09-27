@@ -4,13 +4,13 @@ description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure Policy�
 ms.topic: conceptual
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2021
-ms.openlocfilehash: 7723b618910f52d58204711468b482db85ab502c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 3b5c984ca1374c50a312665c3f5e3bb063ed8feb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105735081"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589780"
 ---
 # <a name="azure-policy-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Policy
 

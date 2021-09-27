@@ -3,12 +3,12 @@ title: 인증서 배포
 description: IoT 용 Defender에 대 한 인증서를 설정 및 배포 하는 방법을 알아봅니다.
 ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 83345d9ad0267e39093bc310c8ebd940f878c47e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d6a67a84dab6df165346ff2739d0ac56e2b8eff2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602824"
 ---
 # <a name="about-certificates"></a>인증서 정보
 
@@ -193,9 +193,9 @@ RSA 2048 비트 또는 4096 비트를 사용 합니다.
 
 |**설명** | **CLI 명령** |
 |--|--|
-| .Crt 파일을 pem 파일로 변환   | openssl x509-/ <full path> <pem-파일 이름 <> 파일 이름-이름 <fullpath>> .crt.  | 
-| Pem 파일을 .crt 파일로 변환   | openssl x509-/ <full path> <pem-파일 이름 <> 파일 이름-이름 <fullpath>> .crt. |  
-| 개인 키와 인증서를 포함 하는 PKCS # 12 파일 (.pfx. p12)을 pem으로 변환 합니다.   | openssl pkcs12-키 저장소를 키 저장소 합니다. -Nocerts를 추가 하 여 개인 키만 출력 하거나-nocerts를 추가 하 여 인증서만 출력할 수 있습니다.  |  
+| .Crt 파일을 pem 파일로 변환   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt`  | 
+| Pem 파일을 .crt 파일로 변환   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt` |  
+| 개인 키와 인증서를 포함 하는 PKCS # 12 파일 (.pfx. p12)을 pem으로 변환 합니다.   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. -Nocerts를 추가 하 여 개인 키만 출력 하거나-nocerts를 추가 하 여 인증서만 출력할 수 있습니다.  |  
 
 ## <a name="troubleshooting"></a>문제 해결  
 

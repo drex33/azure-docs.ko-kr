@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 6169d3b0f99b2044fbe6076283e176d4dc1a76a7
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 8cc39325f8c993afb6901e9700376fc73ecbefe7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602862"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝
 
@@ -81,8 +81,8 @@ Azure IoT Edge for Linux on Windows에서 지원하는 프로비전 방법은 �
 
   * 사용하려는 인증 방법을 선택한 다음 해당 문서의 단계에 따라 DPS 인스턴스를 설정하고 등록을 만들어 디바이스를 프로비저닝합니다. 등록 유형에 대한 자세한 내용은 [Azure IoT Hub Device Provisioning Service 개념](../iot-dps/concepts-service.md#enrollment)을 참조하세요.
 
-    * [DPS 및 대칭 키로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-auto-provision-symmetric-keys.md)
-    * [DPS 및 X.509 인증서로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-auto-provision-x509-certs.md)
+    * [DPS 및 대칭 키로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
+    * [DPS 및 X.509 인증서로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
     * [DPS 및 TPM 증명으로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-auto-provision-tpm-linux-on-windows.md)
 
 ## <a name="create-a-new-deployment"></a>새 배포 만들기
@@ -240,8 +240,8 @@ Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 �
 
 * 자동 프로비저닝:
 
-  * [DPS(Device Provisioning Service) 및 대칭 키를 사용하여 자동 프로비저닝](how-to-auto-provision-symmetric-keys.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [DPS 및 X.509 인증서를 사용하여 자동 프로비저닝](how-to-auto-provision-x509-certs.md?tabs=eflow#configure-the-device-with-provisioning-information)
+  * [DPS(Device Provisioning Service) 및 대칭 키를 사용하여 자동 프로비저닝](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
+  * [DPS 및 X.509 인증서를 사용하여 자동 프로비저닝](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
   * [DPS 및 TPM 증명을 사용한 자동 프로비저닝](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
 
 ### <a name="manual-provisioning-using-the-connection-string"></a>연결 문자열을 사용한 수동 프로비저닝
@@ -321,6 +321,9 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+> [!IMPORTANT]
+> Windows PowerShell 공개 기능에서 Linux용 IoT Edge를 사용하는 경우 대상 디바이스의 실행 정책을 `AllSigned`로 설정해야 합니다. [Windows의 Linux용 IoT Edge에 대한 PowerShell 함수](reference-iot-edge-for-linux-on-windows-functions.md)에 대한 모든 필수 구성 요소가 충족되는지 확인합니다.
+
 1. PowerShell 세션에서 다음 명령을 사용하여 IoT Edge for Linux on Windows 가상 머신에 로그인합니다.
 
    ```powershell
@@ -351,9 +354,6 @@ IoT Edge for Linux on Windows가 IoT Edge 디바이스에 성공적으로 설치
        ```
 
 # <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
-
-> [!NOTE]
-> Windows PowerShell 공개 기능에서 Linux용 IoT Edge를 사용하는 경우 대상 디바이스의 실행 정책을 `AllSigned`로 설정해야 합니다. [Windows의 Linux용 IoT Edge에 대한 PowerShell 함수](reference-iot-edge-for-linux-on-windows-functions.md)에 대한 모든 필수 구성 요소가 충족되는지 확인합니다.
 
 1. Windows Admin Center의 연결된 디바이스 목록에서 IoT Edge 디바이스를 선택하여 연결합니다.
 

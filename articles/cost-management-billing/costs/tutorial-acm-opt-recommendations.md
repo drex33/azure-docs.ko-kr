@@ -3,18 +3,18 @@ title: 자습서 - 권장 사항을 통해 Azure 비용 절감
 description: 이 자습서는 최적화 권장 사항을 따를 경우 Azure 비용을 절감할 수 있도록 도와줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 09/15/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 28f9369d044cf9b2713cb2f2ad42f744e517918b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: f8b8b99c1cf2be554703eb49de8c6ff2a39b53be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683286"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567702"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -44,15 +44,15 @@ Advisor를 사용하여 비용을 최적화하는 방법에 대해 자세히 알
 
 ## <a name="view-cost-optimization-recommendations"></a>비용 최적화 권장 사항 보기
 
-구독에 대한 비용 최적화 권장 사항을 보려면 Azure Portal에서 원하는 범위를 열고 **Advisor 권장 사항**을 선택합니다.
+구독에 대한 비용 최적화 권장 사항을 보려면 Azure Portal에서 원하는 범위를 열고 **Advisor 권장 사항** 을 선택합니다.
 
-관리 그룹에 대한 권장 사항을 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. **범위** 필을 사용하여 관리 그룹과 같은 다른 범위로 전환합니다. 메뉴에서 **Advisor 권장 사항**을 선택합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+관리 그룹에 대한 권장 사항을 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석** 을 선택합니다. **범위** 필을 사용하여 관리 그룹과 같은 다른 범위로 전환합니다. 메뉴에서 **Advisor 권장 사항** 을 선택합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 ![Azure Portal에 표시되는 비용 관리 Advisor 권장 사항](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
-권장 사항 목록은 추가 비용을 절감할 수 있도록 구매 권장 사항을 표시하거나 사용 비효율성을 식별합니다. 총 **연간 절약 가능 금액**은 권장 사항 규칙을 충족하는 모든 VM을 종료 또는 할당 해제할 경우 절약할 수 있는 총액을 보여 줍니다. 종료하고 싶지 않다면 덜 비싼 VM SKU로 크기 조정을 고려해야 합니다.
+권장 사항 목록은 추가 비용을 절감할 수 있도록 구매 권장 사항을 표시하거나 사용 비효율성을 식별합니다. 총 **연간 절약 가능 금액** 은 권장 사항 규칙을 충족하는 모든 VM을 종료 또는 할당 해제할 경우 절약할 수 있는 총액을 보여 줍니다. 종료하고 싶지 않다면 덜 비싼 VM SKU로 크기 조정을 고려해야 합니다.
 
-**연간 절약 가능 금액**과 함께, **영향** 범주는 가능한 많이 절약 가능한 권장 사항을 식별하기 위한 것입니다.
+**연간 절약 가능 금액** 과 함께, **영향** 범주는 가능한 많이 절약 가능한 권장 사항을 식별하기 위한 것입니다.
 
 높은 영향 권장 사항은 다음과 같습니다.
 - [예약 가상 머신 인스턴스를 구매하여 종량제 비용보다 비용 절약](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
@@ -72,7 +72,7 @@ CPU 사용률 5% 이하 설정은 기본값이지만, 설정을 조정할 수 �
 
 일부 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기를 덜 비싼 크기로 변경하여 비용을 절감할 수도 있습니다. 크기 조정 작업을 선택할 경우 실제 절감액이 달라질 수 있습니다. 가상 머신의 크기 조정 예를 살펴보겠습니다.
 
-권장 사항 목록에서 **사용률이 낮은 가상 머신을 적절하게 크기 조정하거나 종료**를 클릭합니다. 가상 머신 후보 목록에서 크기 조정할 가상 머신을 선택한 다음, 해당 가상 머신을 클릭합니다. 사용률 메트릭을 확인할 수 있도록 가상 머신의 세부 정보가 표시됩니다. **연간 절약 가능 금액** 값은 VM을 종료 또는 제거할 경우 절약할 수 있는 금액입니다. VM 크기 조정으로 비용이 절감될 수는 있지만, 연간 절약 가능한 전체 금액이 절감되지는 않습니다.
+권장 사항 목록에서 **사용률이 낮은 가상 머신을 적절하게 크기 조정하거나 종료** 를 클릭합니다. 가상 머신 후보 목록에서 크기 조정할 가상 머신을 선택한 다음, 해당 가상 머신을 클릭합니다. 사용률 메트릭을 확인할 수 있도록 가상 머신의 세부 정보가 표시됩니다. **연간 절약 가능 금액** 값은 VM을 종료 또는 제거할 경우 절약할 수 있는 금액입니다. VM 크기 조정으로 비용이 절감될 수는 있지만, 연간 절약 가능한 전체 금액이 절감되지는 않습니다.
 
 ![권장 사항 세부 정보 예제](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
@@ -85,11 +85,11 @@ VM 세부 정보에서 가상 머신의 사용률을 확인하여 적합한 크�
 종료하거나 크기를 조정할 후보 목록에서 **Resize _&lt;FromVirtualMachineSKU&gt;_ ~ _&lt;ToVirtualMachineSKU&gt;_** 를 선택합니다.
 ![가상 머신의 크기를 조정하는 옵션을 사용한 권장 사항 예제](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-다음으로, 사용할 수 있는 크기 조정 옵션 목록이 표시됩니다. 사용자 시나리오에 가장 적합한 성능과 비용 효율성을 제공할 옵션을 선택합니다. 다음 예제에서 선택한 옵션은 **Standard_D8s_v3**에서 **Standard_D2s_v3**로 크기가 조정됩니다.
+다음으로, 사용할 수 있는 크기 조정 옵션 목록이 표시됩니다. 사용자 시나리오에 가장 적합한 성능과 비용 효율성을 제공할 옵션을 선택합니다. 다음 예제에서 선택한 옵션은 **Standard_D8s_v3** 에서 **Standard_D2s_v3** 로 크기가 조정됩니다.
 
 ![크기를 선택할 수 있는 사용 가능한 VM 크기의 목록 예제](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-적합한 크기를 선택한 후 **크기 조정**을 클릭하여 크기 조정 작업을 시작합니다.
+적합한 크기를 선택한 후 **크기 조정** 을 클릭하여 크기 조정 작업을 시작합니다.
 
 크기 조정을 수행하려면 현재 실행 중인 가상 머신을 다시 시작해야 합니다. 가상 머신이 프로덕션 환경에 있는 경우에는 업무 시간 이후에 크기 조정 작업을 실행하는 것이 좋습니다. 다시 시작을 예약하면 일시적인 사용 불가로 인한 중단을 줄일 수 있습니다.
 

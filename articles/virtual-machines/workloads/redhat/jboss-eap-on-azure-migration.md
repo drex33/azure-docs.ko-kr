@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 9cef8babd11ea6a0ed4ffc965ed52164c9abe43d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 1671b0c4ba57faa6dc631c50cc273678c72b379b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866988"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730127"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Azure VM 기반 JBoss EAP 및 가상 머신 확장 집합에서 Java 애플리케이션을 마이그레이션하는 방법
 
@@ -159,7 +159,7 @@ WEB-INF/jboss-web.xml 및/또는 WEB-INF/web.xml 파일을 검사합니다.
 * 연결 풀 구성이란?
 * Java Database Connectivity(JDBC) 드라이버 JAR 파일은 어디에서 찾을 수 있나요?
 
-자세한 내용은 JBoss EAP 설명서의 [JBoss EAP DataSources 정보](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3html/configuration_guide/datasource_management)를 참조하세요.
+자세한 내용은 JBoss EAP 설명서의 [JBoss EAP DataSources 정보](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management)를 참조하세요.
 
 ### <a name="determine-whether-and-how-the-file-system-is-used"></a>파일 시스템의 사용 여부 및 방법 확인
 

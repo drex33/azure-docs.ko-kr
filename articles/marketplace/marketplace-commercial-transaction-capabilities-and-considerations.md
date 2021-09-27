@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: f75d3872d0125e210edcd33ca85978901468bfe8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 77ec7a7dad4b215ae22bf3766172f1e92e932593
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736201"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -75,7 +75,7 @@ Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용�
 가상 머신 및 Azure 애플리케이션 제품은 고객이 자체 클라우드 인프라에서 패키지된 앱 또는 서비스(ARM 템플릿의 VM 이미지 및/또는 기타 Azure 서비스로)를 배포, 관리 및 실행하도록 하려는 경우에 적합합니다.
 
 [![제품 유형 및 가격 책정 플랜을 결정하기 위한 순서도를 보여 줍니다.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) 또는 [고객 지원팀](/azure/marketplace/support)에 문의하세요.<br>
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) 또는 [고객 지원팀](./support.md)에 문의하세요.<br>
 &nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM 제품 이미지를 Azure 앱 제품에 포함하여 가격 책정의 유연성을 높일 수 있습니다.<br>
 &nbsp;&nbsp;&nbsp;<sup>(3)</sup> Azure 서비스는 VM 및 Azure 앱 제품에 대한 고객 테넌트에 배포되므로 고객은 인프라 비용을 지불합니다.
 
@@ -207,4 +207,4 @@ Microsoft를 통한 거래 기능은 다음 상업용 Marketplace 제품 유형�
 
 - 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대한 예는 온라인 스토어별 게시 패턴을 검토하세요.
 - [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)
-- [상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정](/azure/marketplace/plans-pricing)
+- [상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정](./plans-pricing.md)

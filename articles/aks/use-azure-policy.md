@@ -3,14 +3,14 @@ title: Azure Policy를 사용하여 클러스터 보호
 description: Azure Policy를 사용하여 AKS(Azure Kubernetes Service) 클러스터를 보호합니다.
 ms.service: container-service
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 09/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6462c2987155925b7df5241d8fb6aa13c1e37b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: eb2f85064413f3d4700fea01aa4ead81508dd8c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631498"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Azure Policy를 사용하여 클러스터 보호
 
@@ -35,6 +35,24 @@ AKS(Azure Kubernetes Service) 클러스터의 보안을 강화하기 위해 Azur
 1. Azure Policy 추가 기능을 사용하도록 설정하고 **범위** 를 AKS 클러스터의 리소스 그룹으로 설정합니다.
 1. **매개 변수** 페이지를 선택하고 **효과** 를 `audit`에서 `deny`로 업데이트하여 기준 이니셔티브를 위반하는 새 배포를 차단합니다. 평가에서 제외할 네임스페이스를 더 추가할 수도 있습니다. 이 예제의 경우 기본값을 유지합니다.
 1. **검토 + 만들기**, **만들기** 를 차례로 선택하여 정책 할당을 제출합니다.
+
+## <a name="create-and-assign-a-custom-policy-definition-preview"></a>사용자 지정 정책 정의 만들기 및 할당(미리 보기)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+사용자 지정 정책을 사용하면 Azure 사용에 대한 규칙을 정의할 수 있습니다. 예를 들어 다음을 적용할 수 있습니다.
+- 보안 관행
+- 비용 관리
+- 조직별 규칙(예: 이름 지정 또는 위치)
+
+사용자 지정 정책을 만들기 전에 [일반적인 패턴 및 샘플 목록을][azure-policy-samples] 확인하여 사례가 이미 검사되었는지 확인합니다.
+
+사용자 지정 정책 정의는 JSON으로 작성됩니다. 사용자 지정 정책을 만드는 방법에 대한 자세한 내용은 [Azure Policy 정의 구조][azure-policy-definition-structure] 및 사용자 지정 정책 정의 [만들기를 참조하세요.][custom-policy-tutorial-create]
+
+> [!NOTE]
+> 이제 Azure Policy 사용자가 제약 조건 템플릿의 소스 형식을 정의할 수 있도록 *templateInfo라는* 새 속성을 활용합니다. 정책 정의에서 *templateInfo를* 정의하면 사용자가 *constraintTemplate* 또는 *제약 조건* 속성을 정의할 필요가 없습니다. 사용자는 여전히 *apiGroups* 및 종류를 정의해야 *합니다.* 이에 대한 자세한 내용은 [Azure Policy 효과 이해를 참조하세요.][azure-policy-effects-audit]
+
+사용자 지정 정책 정의가 만들어지면 Kubernetes 클러스터에 정책을 할당하는 단계별 연습에 대한 정책 [정의][custom-policy-tutorial-assign] 할당을 참조하세요.
 
 ## <a name="validate-a-azure-policy-is-running"></a>Azure Policy 실행 중인지 유효성 검사
 
@@ -174,6 +192,11 @@ Azure Policy 작동 방식에 관한 자세한 내용은 다음을 참조하세�
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
-[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
+[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
+[azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
+[custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
+[custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[azure-policy-samples]: ../governance/policy/samples/index.md
+[azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md

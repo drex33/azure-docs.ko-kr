@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 2b1fb9960caf81a51c80dae312979d90f6eb5f4d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531159"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733420"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Bicep에서 확장 리소스의 범위 설정
 
@@ -22,6 +22,10 @@ ms.locfileid: "122531159"
 
 > [!NOTE]
 > scope 속성은 확장 리소스 종류에만 사용할 수 있습니다. 확장 형식이 아닌 리소스 종류에 대해 다른 범위를 지정하려면 [모듈](modules.md)을 사용합니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+확장 리소스에 대한 자세한 내용과 실습 지침은 **Microsoft Learn** [Bicep을 사용하여 자식 및 확장 리소스 배포를](/learn/modules/child-extension-bicep-templates) 참조하세요.
 
 ## <a name="apply-at-deployment-scope"></a>배포 범위에서 적용
 

@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 6a604c4e2a3b1f12fa5d296558023be9bc31cd96
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 3aa47a247ead1a388ce9fda030f348ac9a6b75c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537390"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588602"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 액세스 제어를 설정하는 방법 
 
@@ -139,7 +139,7 @@ Azure Portal에서 Azure Synapse 작업 영역을 만듭니다.
     
     | 설정 | 값 |
     | --- | --- |
-    | 역할 | Storage Blob 기여자 |
+    | 역할 | Storage Blob 데이터 기여자 |
     | 다음에 대한 액세스 할당 | MANAGEDIDENTITY |
     | 멤버 | 관리 ID 이름  |
 

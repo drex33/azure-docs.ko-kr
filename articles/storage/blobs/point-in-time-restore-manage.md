@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e2d71c1f388786c05052e773ea621caab92185e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: c4dc8b3e079f224dbefde3bc12b5d79a4db32faa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589609"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 BLOB 데이터에 지정 시간 복원 수행
 
@@ -193,7 +193,7 @@ az storage blob restore \
 ```azurecli
 az storage account show \
     --name <storage-account> \
-    --resource-group <resource_group> \ 
+    --resource-group <resource_group> \
     --expand blobRestoreStatus \
     --query blobRestoreStatus.status \
     --output tsv
@@ -259,7 +259,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-기본적으로 **Restore-AzStorageBlobRange** 명령은 비동기적으로 실행됩니다. 복원 작업을 비동기적으로 시작하면 PowerShell에서 작업에 대한 속성 테이블을 즉시 표시합니다.  
+기본적으로 **Restore-AzStorageBlobRange** 명령은 비동기적으로 실행됩니다. 복원 작업을 비동기적으로 시작하면 PowerShell에서 작업에 대한 속성 테이블을 즉시 표시합니다.
 
 ```powershell
 Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges

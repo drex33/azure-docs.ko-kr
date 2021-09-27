@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 4202b2b97515823c85e4822f0bbfbd9f595d3d7a
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 4f3b928ef4cbb070afac7a127fcd893669724d3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598456"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749483"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,11 +45,11 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 | **속성**  | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
 | name  | 파이프라인의 작업 이름입니다.  | String | 예 |
-| 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
+| type  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
 | 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
 | 메서드(method)  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | 예 |
-| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | No |
+| header  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | 예 |
 | 본문  | 함수 API 메서드에 대한 요청과 함께 전송되는 본문입니다.  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |
 

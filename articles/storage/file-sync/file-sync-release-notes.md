@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/24/2021
+ms.date: 9/13/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: fbd02fb70a16250d427afc2f60343ad6758ea8dc
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 0662431d950e0b65cce749697597e5ef9e9e8f3f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589229"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -28,8 +28,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | V13 릴리스 - [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | 2021년 7월 12일 | 지원 여부 |
 | V12.1 릴리스-[KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 2021년 5월 20일 | 지원 여부 |
 | V12 릴리스 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 2021년 3월 26일 | 지원 여부 |
-| V11.3 릴리스 - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 2021년 4월 7일 | 지원 여부 |
-| V11.2 릴리스 - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2021년 2월 2일 | 지원 여부 |
+| V11.3 릴리스 - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 2021년 4월 7일 | 지원됨 |
+| V11.2 릴리스 - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2021년 2월 2일 | 지원됨 |
 | V11.1 릴리스 - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 2020년 11월 4일 | 지원 여부 |
 
 ## <a name="unsupported-versions"></a>지원되지 않는 버전
@@ -67,8 +67,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 - 서버 이름 바꾸기 지원  
     - 등록된 서버의 이름이 바뀌면 이제 Azure 파일 동기화가 포털에 새 서버 이름을 표시합니다. v13 릴리스 이전에 서버 이름이 변경된 경우 이제 포털의 서버 이름이 올바른 서버 이름을 표시하도록 업데이트됩니다.
 
-- Windows Server 2022 Preview에 대한 지원  
-    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022 Preview 빌드 20348 이상에서 지원됩니다.
+- Windows Server 2022 지원  
+    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원됩니다.
 
     > [!Note]  
     > Windows Server 2022는 현재 Azure 파일 동기화에서 지원되지 않는 TLS 1.3에 대한 지원을 추가합니다. [TLS 설정](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)이 그룹 정책을 통해 관리되는 경우 TLS 1.2를 지원하도록 서버를 구성해야 합니다. 
@@ -90,7 +90,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트 버전이 버전 12.0 미만인 경우 기존 Azure 파일 동기화 에이전트가 설치된 서버를 다시 시작해야 합니다.
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Nano Server 배포 옵션에서 지원되지 않습니다.
-- 에이전트는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows Server 2022 Preview에서만 지원됩니다.
+- 에이전트는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows Server 2022에서만 지원됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다. 자세한 내용은 [추천 시스템 리소스](file-sync-planning.md#recommended-system-resources)를 참조하세요.
 - 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 504ed485115f48b252027431a5b69e2a6b5f33f3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280329"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763579"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
@@ -138,7 +138,7 @@ ms.locfileid: "106280329"
 
    활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
 
-   [Azure 활동 로그](../azure-resource-manager/management/view-activity-logs.md)(이전에는 작업 로그 및 감사 로그라고 함)를 사용하여 Azure 구독에 제출된 모든 작업을 확인할 수 있습니다.
+   [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)(이전에는 작업 로그 및 감사 로그라고 함)를 사용하여 Azure 구독에 제출된 모든 작업을 확인할 수 있습니다.
 
 ## <a name="metrics"></a>메트릭
 

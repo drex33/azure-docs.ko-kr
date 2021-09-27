@@ -1,18 +1,18 @@
 ---
 title: iOS에서 개체(Blob) 스토리지를 사용하는 방법 - Azure | Microsoft Docs
 description: Azure Blob Storage(개체 스토리지)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 1b0653c997930c60950da335e79b0388edd43897
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 999b9d5b700dc807255b695b3254cf11e7d37f80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278357"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603964"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -39,7 +39,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
     sudo gem install cocoapods
     ```
 
-2. 그런 다음 프로젝트 디렉터리(.xcodeproj 파일이 포함된 디렉터리)에서 _Podfile_(파일 확장명 없음)이라는 새 파일을 만듭니다. _Podfile_ 에 다음을 추가한 후 저장합니다.
+2. 그런 다음 프로젝트 디렉터리(.xcodeproj 파일이 포함된 디렉터리)에서 *Podfile*(파일 확장명 없음)이라는 새 파일을 만듭니다. *Podfile* 에 다음을 추가한 후 저장합니다.
 
     ```ruby
     platform :ios, '8.0'
@@ -224,12 +224,12 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 - **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
 - **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 스토리지 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES** 여야 합니다.
 - **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
-  - _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
-  - _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.
-  - _AZSBlobListingDetailsMetadata_: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
-  - _AZSBlobListingDetailsUncommittedBlobs_: 커밋 및 커밋되지 않은 Blob을 나열합니다.
-  - _AZSBlobListingDetailsCopy_: 목록에 복사 속성을 포함합니다.
-  - _AZSBlobListingDetailsAll_: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅샷을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
+  - *AZSBlobListingDetailsNone*: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
+  - *AZSBlobListingDetailsSnapshots*: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.
+  - *AZSBlobListingDetailsMetadata*: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
+  - *AZSBlobListingDetailsUncommittedBlobs*: 커밋 및 커밋되지 않은 Blob을 나열합니다.
+  - *AZSBlobListingDetailsCopy*: 목록에 복사 속성을 포함합니다.
+  - *AZSBlobListingDetailsAll*: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅샷을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
 - **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
 - **completionHandler** - 나열 작업의 결과와 함께 실행할 코드 블록입니다.
 

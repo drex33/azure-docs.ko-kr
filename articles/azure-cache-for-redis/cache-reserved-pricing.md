@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: d9fcb8567d9f7593a059567df6edc279b6fa701c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: 5967ec90974bb1a11e05200c2096a98b604d896c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782948"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606630"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>예약된 용량의 Azure Cache for Redis 컴퓨팅 리소스 선불
 
@@ -50,10 +50,10 @@ ms.locfileid: "110782948"
 
 다음 표에서는 필수 필드에 대해 설명합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | :------------ | :------- |
 | Subscription   | Azure Cache for Redis 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독의 결제 방식은 Azure Cache for Redis 예약된 용량 예약에 대해 선불로 비용이 청구되는 방식입니다. 구독 유형은 기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제 가격이 적용되는 개별계약(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)이어야 합니다. 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다. 종량제 가격이 적용되는 개별 구독의 경우 구독 요금은 신용 카드 또는 청구서 결제 방법으로 청구됩니다.
-| 범위 | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유** - 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cache for Redis 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** - 예약 할인이 구독의 Azure Cache for Redis 인스턴스에 적용됩니다. </br></br> **단일 리소스 그룹** 을 선택하면 선택한 구독의 Azure Cache for Redis 인스턴스와 해당 구독 내에서 선택한 리소스 그룹에 예약 할인이 적용됩니다.
+| 범위 | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유** - 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cache for Redis 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** - 예약 할인이 구독의 Azure Cache for Redis 인스턴스에 적용됩니다. </br></br> **단일 리소스 그룹** 을 선택하면 선택한 구독의 Azure Cache for Redis 인스턴스와 해당 구독 내에서 선택한 리소스 그룹에 예약 할인이 적용됩니다.</br></br>관리 **그룹**, 예약 할인은 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 적용 됩니다.
 | 지역 | Azure Cache for Redis 예약된 용량 예약에 포함되는 Azure 지역입니다.
 | 가격 책정 계층 | Azure Cache for Redis 서버를 위한 서비스 계층입니다.
 | 용어 | 1년 또는 3년

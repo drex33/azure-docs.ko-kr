@@ -3,17 +3,17 @@ title: Azure Active Directory B2C를 사용하여 개발자 계정에 권한 부
 titleSuffix: Azure API Management
 description: Azure Active Directory B2C를 사용하여 Azure API Management에서 개발자 포털의 사용자에게 권한을 부여하는 방법 알아보기
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: apimpm
-ms.openlocfilehash: 6385f87eec00820d535845df21a44965e1708a55
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 23547515a44fff56bab668ed0206670b5f6ea342
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568158"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548843"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 

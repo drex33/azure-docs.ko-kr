@@ -7,18 +7,18 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/08/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d40dd0b91f9dcfb7bf5b6e8f084f25ee4f90d780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 68b6f6794a690313648dfaaaaf49fdd3150b6171
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596555"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735316"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search의 텍스트 처리용 분석기
 
-*분석기* 는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 텍스트 처리(어휘 분석이라고도 함)는 변형 방식으로, 다음과 같은 작업을 통해 쿼리 문자열을 수정합니다.
+*분석기는* 인덱싱 및 쿼리 실행 중에 문자열을 처리하는 [전체 텍스트 검색 엔진의](search-lucene-query-architecture.md) 구성 요소입니다. 텍스트 처리(어휘 분석이라고도 함)는 변환적이며 다음과 같은 작업을 통해 문자열을 수정합니다.
 
 + 필수적이지 않은 단어(중지 단어) 및 문장 부호를 제거합니다.
 + 구와 하이픈을 넣은 단어를 구성 요소 부분으로 분할합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "104596555"
 
 전체 텍스트 검색을 나타내는 "검색 가능"으로 표시된 `Edm.String` 필드가 분석됩니다. 
 
-이 구성을 사용하는 필드의 경우에는 토큰을 만들고 인덱싱하는 동안 분석이 진행된 후, 쿼리가 구문 분석되고 엔진이 일치하는 토근을 검색하는 동안 쿼리가 실행될 때 다시 분석이 진행됩니다. 동일한 분석기가 인덱싱 및 쿼리 둘 다에 사용되는 경우 일치할 가능성이 높지만 요구 사항에 따라 각 워크로드에 대한 분석기를 독립적으로 설정할 수 있습니다.
+이 구성의 필드에 대해 토큰을 만들 때 인덱싱하는 동안 분석이 수행된 다음 쿼리가 구문 분석되고 엔진이 일치하는 토큰을 검색할 때 쿼리 실행 중에 다시 분석이 수행됩니다. 동일한 분석기가 인덱싱 및 쿼리 둘 다에 사용되는 경우 일치할 가능성이 높지만 요구 사항에 따라 각 워크로드에 대한 분석기를 독립적으로 설정할 수 있습니다.
 
 필터 또는 유사 항목 검색과 같은 전체 텍스트 검색이 *아닌* 쿼리 형식은 쿼리 쪽에서 분석 단계를 거치지 않습니다. 대신, 파서는 일치의 기준으로 제공하는 패턴을 사용하여 해당 문자열을 검색 엔진으로 직접 보냅니다. 일반적으로 이러한 쿼리 형식에는 패턴 일치가 작동하기 위해 전체 문자열 토큰이 필요합니다. 인덱싱 중에 전체 용어 토큰을 확인하려면 [사용자 지정 분석기](index-add-custom-analyzers.md)가 필요할 수 있습니다. 쿼리 용어를 분석하는 시기와 이유에 대한 자세한 내용은 [Azure Cognitive Search의 전체 텍스트 검색](search-lucene-query-architecture.md)을 참조하세요.
 
@@ -37,7 +37,7 @@ ms.locfileid: "104596555"
 
 ## <a name="default-analyzer"></a>기본 분석기  
 
-Azure Cognitive Search 쿼리에서는 검색 가능으로 표시된 모든 문자열 필드에서 분석기가 자동으로 호출됩니다. 
+Azure Cognitive Search 분석기는 검색 가능으로 표시된 모든 문자열 필드에 대해 자동으로 호출됩니다. 
 
 기본적으로 Azure Cognitive Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 사용하며, ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
 
@@ -99,7 +99,7 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시된 모든 문�
 
 분석기는 용어를 토큰화하는 데 사용되므로 필드를 만들 때 분석기를 할당해야 합니다. 실제로 이미 생성된 필드에 analyzer 또는 indexAnalyzer를 할당하는 것은 허용되지 않습니다(그렇지만 인덱스에 영향을 주지 않고 언제든지 searchAnalyzer 속성을 변경할 수 있음).
 
-기존 필드의 analyzer를 변경하려면 [인덱스를 완전히 다시 빌드](search-howto-reindex.md)해야 합니다(개별 필드는 다시 빌드할 수 없음). 프로덕션 환경의 인덱스인 경우 새 분석기 할당으로 새 필드를 만들어 다시 작성을 지연하고, 기존 필드 대신 사용할 수 있습니다. [인덱스 업데이트](/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다.
+기존 필드의 분석기를 변경하려면 전체 인덱스(개별 필드를 다시 작성할 수 없음)를 삭제하고 다시 만들어야 합니다. 프로덕션 환경의 인덱스인 경우 새 분석기 할당으로 새 필드를 만들어 다시 작성을 지연하고, 기존 필드 대신 사용할 수 있습니다. [인덱스 업데이트](/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다.
 
 기존 인덱스에 새 필드를 추가하려면 [인덱스 업데이트](/rest/api/searchservice/update-index)를 호출하여 필드를 추가하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 호출하여 해당 필드를 채웁니다.
 
@@ -382,7 +382,7 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 
 분석기에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-+ [언어 분석기](index-add-language-analyzers.md)
-+ [사용자 지정 분석기](index-add-custom-analyzers.md)
++ [언어 분석기 추가](index-add-language-analyzers.md)
++ [사용자 지정 분석기 추가](index-add-custom-analyzers.md)
 + [검색 인덱스 만들기](search-what-is-an-index.md)
 + [다중 언어 인덱스 만들기](search-language-support.md)

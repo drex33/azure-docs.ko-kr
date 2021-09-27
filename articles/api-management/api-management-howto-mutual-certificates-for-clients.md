@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: 클라이언트 인증서를 사용하여 API에 대한 액세스를 보호하는 방법을 알아봅니다. 정책 식을 사용하여 들어오는 인증서의 유효성을 검사할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
-ms.author: apimpm
-ms.openlocfilehash: 6faa78dc75b67afd4c310a94ce4a81129e09cb26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 2eac7a8de0ca49cdab85f3ab948e54e402073128
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536478"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582919"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>API Management에서 클라이언트 인증서 인증을 사용하여 API를 보호하는 방법
 

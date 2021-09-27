@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aahi
-ms.openlocfilehash: 18099d4de55423bdef2a5c05f3aecfa34a653bd0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0ec2538d114bb659942bd8ef3dbd89821dda02f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426367"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650195"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Kubernetes 및 Helm에서 Computer Vision 컨테이너 사용
 
@@ -168,7 +168,7 @@ spec:
 동일한 *templates* 폴더에서 다음 도우미 함수를 복사하여 `helpers.tpl`에 붙여 넣습니다. `helpers.tpl`은 Helm 템플릿을 생성하는 데 도움이 되는 유용한 함수를 정의합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}

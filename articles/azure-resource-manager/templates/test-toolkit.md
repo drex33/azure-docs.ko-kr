@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 07/16/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c53ede7df0fd8ba24ef82e7de5a793a4e55f204
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: c02d7183304ec3474427bf1687d67d7dd7058d44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393280"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576659"
 ---
 # <a name="use-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트 사용
 
@@ -24,6 +24,10 @@ ms.locfileid: "114393280"
 - [매개 변수 파일에 대한 테스트 사례](parameter-file-test-cases.md)
 - [createUiDefinition.json에 대한 테스트 사례](createUiDefinition-test-cases.md)
 - [모든 파일에 대한 테스트 사례](all-files-test-cases.md)
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+ARM 템플릿 테스트 도구 키트에 대한 자세한 내용과 실습 지침은 **Microsoft Learn** [ARM 템플릿 테스트 Toolkit 사용하여 Azure 리소스 유효성 검사를](/learn/modules/arm-template-test) 참조하세요.
 
 ## <a name="install-on-windows"></a>Windows에 설치
 

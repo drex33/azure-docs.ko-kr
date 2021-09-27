@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 68c3ba369af177d2b673dc06d5f7ccafe09c4cf6
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 43fcc70bf88b7e037167a936ebd655b8877b394d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598459"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820366"
 ---
 #  <a name="azure-web-pubsub-trigger-and-bindings-for-azure-functions"></a>Azure Functions에 대한 Azure Web PubSub 트리거 및 바인딩
 
@@ -28,7 +28,7 @@ Web PubSub는 개발자가 실시간 기능 및 게시-구독 패턴을 사용�
 [소스 코드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
 [패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub) |
 [API 참조 설명서](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/api/Microsoft.Azure.WebJobs.Extensions.WebPubSub.netstandard2.0.cs) |
-[제품 설명서](https://aka.ms/awps/doc) |
+[제품 설명서](./index.yml) |
 [샘플][samples_ref]
 
 ## <a name="add-to-your-functions-app"></a>Functions 앱에 추가
@@ -48,9 +48,9 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 ```
 
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
-[명시적으로 확장 설치]: /azure/azure-functions/functions-bindings-register#explicitly-install-extensions 
+[명시적으로 확장 설치]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
 [Azure Tools 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[확장 업데이트]: /azure/azure-functions/functions-bindings-register
+[확장 업데이트]: ../azure-functions/functions-bindings-register.md
 
 ## <a name="key-concepts"></a>주요 개념
 
@@ -66,7 +66,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 함수 트리거를 사용하여 Azure Web PubSub 서비스의 요청을 처리합니다. 
 
-`WebPubSubTrigger`는 서비스 쪽에서 요청을 처리해야 할 때 사용됩니다. 트리거 엔드포인트 패턴은 아래와 같으며 Web PubSub 서비스 쪽에서 설정해야 합니다(Portal: 설정 -> 이벤트 처리기 -> URL 템플릿). 엔드포인트 패턴에서 쿼리 부분 `code=<API_KEY>`는 [보안](/azure/azure-functions/security-concepts#system-key)상의 이유로 Azure 함수 앱을 사용할 때 **필수** 입니다. 키는 **Azure Portal** 에서 찾을 수 있습니다. 함수 앱 리소스를 찾고, Azure에 함수 앱을 배포한 후에 **함수** -> **앱 키** -> **시스템 키** -> **webpubsub_extension** 으로 이동합니다. 그러나 로컬 함수를 사용할 때는 이 키가 필요하지 않습니다.
+`WebPubSubTrigger`는 서비스 쪽에서 요청을 처리해야 할 때 사용됩니다. 트리거 엔드포인트 패턴은 아래와 같으며 Web PubSub 서비스 쪽에서 설정해야 합니다(Portal: 설정 -> 이벤트 처리기 -> URL 템플릿). 엔드포인트 패턴에서 쿼리 부분 `code=<API_KEY>`는 [보안](../azure-functions/security-concepts.md#system-key)상의 이유로 Azure 함수 앱을 사용할 때 **필수** 입니다. 키는 **Azure Portal** 에서 찾을 수 있습니다. 함수 앱 리소스를 찾고, Azure에 함수 앱을 배포한 후에 **함수** -> **앱 키** -> **시스템 키** -> **webpubsub_extension** 으로 이동합니다. 그러나 로컬 함수를 사용할 때는 이 키가 필요하지 않습니다.
 
 ```
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
@@ -155,7 +155,7 @@ module.exports = async function (context) {
 
 ### <a name="attributes-and-annotations"></a>특성 및 주석
 
-[C# 클래스 라이브러리](/azure/azure-functions/functions-dotnet-class-library)에서 `WebPubSubTrigger` 특성을 사용합니다.
+[C# 클래스 라이브러리](../azure-functions/functions-dotnet-class-library.md)에서 `WebPubSubTrigger` 특성을 사용합니다.
 
 다음은 메서드 서명의 `WebPubSubTrigger` 특성입니다.
 

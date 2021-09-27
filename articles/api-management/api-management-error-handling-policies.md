@@ -3,7 +3,7 @@ title: Azure API Management 정책에서 오류 처리 | Microsoft Docs
 description: Azure API Management에서 요청을 처리하는 동안 발생할 수 있는 오류 조건에 대응하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: apimpm
-ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: c2ad72d55bc5056b3bb3faf0d520c07f44b4940e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92070948"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647654"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -80,7 +80,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 
 오류가 발생하고 제어가 `on-error` 정책 섹션으로 이동하는 경우 `on-error` 섹션에서 정책을 통해 액세스할 수 있는 [context.LastError](api-management-policy-expressions.md#ContextVariables) 속성에 오류가 저장됩니다. LastError에는 다음 속성이 있습니다.
 
-| 이름       | 유형   | 설명                                                                                               | 필수 |
+| 이름       | 유형   | Description                                                                                               | 필수 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
 | `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |

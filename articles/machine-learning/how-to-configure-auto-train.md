@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/01/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
-ms.openlocfilehash: 2da9b19bb0d2bcdf09cb478898590d55398b2cc9
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 1b39e7f925245e59b0d3b9666b2179826885cf67
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567638"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621645"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -133,7 +133,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 * 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
-* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 
+* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
@@ -405,7 +405,8 @@ run = experiment.submit(automl_config, show_output=True)
 
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
-`AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.  
+`AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
+컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d05f6086bcf4bc59e9bc7f680139ccaf7660578
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 61235eccc5584ed7676433e24f8018c8af6a5b97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529746"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668512"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 웹 엔드포인트에 스토리지 이벤트 라우팅
 
@@ -36,7 +36,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 *westcentralus* 위치에 `<resource_group_name>`이라는 리소스 그룹을 만듭니다.  `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
 
@@ -117,7 +117,6 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
 
 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 웹앱을 확인하여 방금 전송한 이벤트를 봅니다.
 
-
 ```json
 [{
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/myblobstorageaccount",
@@ -146,6 +145,7 @@ az storage blob upload --file testfile.txt --container-name testcontainer --name
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
 이 스토리지 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
 
 `<resource_group_name>`을 위에서 만든 리소스 그룹으로 바꿉니다.

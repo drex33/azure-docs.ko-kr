@@ -3,12 +3,12 @@ title: 템플릿 개요
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스 배포를 수행하는 경우의 이점에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 02731a2f37fda2758c9b9e9980b56a5017ed3506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535682"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637578"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -36,7 +36,7 @@ ARM 템플릿과 다른 코드형 인프라 서비스 중 무엇을 사용할지
 
    ![템플릿 배포 비교](./media/overview/template-processing.png)
 
-* **모듈식 파일**: 템플릿을 재사용 가능한 소규모 구성 요소로 분할하고, 배포 시 서로 연결할 수 있습니다. 하나의 템플릿을 다른 템플릿 안에 중첩할 수도 있습니다.
+* **모듈식 파일**: 템플릿을 재사용 가능한 소규모 구성 요소로 분할하고, 배포 시 서로 연결할 수 있습니다. 하나의 템플릿을 다른 템플릿 내에 중첩할 수도 있습니다.
 
 * **Azure 리소스 만들기**: 새로운 Azure 서비스 및 기능을 템플릿에서 즉시 사용할 수 있습니다. 리소스 공급자가 새 리소스를 도입하면, 템플릿을 통해 해당 리소스를 즉시 배포할 수 있습니다. 새 서비스를 사용하기 전에 도구나 모듈이 업데이트되기를 기다릴 필요가 없습니다.
 

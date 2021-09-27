@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 483ad9dbceb134188ee8a5e2fdce3469226c579b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 6f95e117865ccf9d242d595ec98b66d7cd344a85
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312944"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597685"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -80,7 +80,7 @@ Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 D
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -88,11 +88,11 @@ Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 D
 
 2. Dynamics를 검색하고 Dynamics 365 커넥터를 선택합니다.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Dynamics 365 커넥터 스크린샷":::    
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Dynamics 365 커넥터 스크린샷":::    
 
 1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Dynamics 365의 연결된 서비스 구성 스크린샷":::
+    :::image type="content" source="media/connector-dynamics-crm-office-365/configure-dynamics-crm-office-365-linked-service.png" alt-text="Dynamics 365의 연결된 서비스 구성 스크린샷":::
 
 ## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
@@ -104,7 +104,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM Online
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정되어야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics 온라인의 값은 "Online"이어야 합니다. | 예 |
@@ -201,7 +201,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dyanmics 온라인과 비교되는 추가 속성은 **hostName** 및 **port** 입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정되어야 합니다. | 예. |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스의 값은 "OnPremisesWithIfd"여야 합니다.| 예. |
@@ -247,7 +247,7 @@ Dyanmics 온라인과 비교되는 추가 속성은 **hostName** 및 **port** �
 
 Dynamics 간에 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 "DynamicsEntity", "DynamicsCrmEntity" 또는 "CommonDataServiceForAppsEntity"로 설정되어야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 작업 원본이 "query"로 지정된 경우 아니요, 싱크의 경우 예 |
@@ -279,7 +279,7 @@ Dynamics 간에 데이터를 복사하려는 경우 다음과 같은 속성이 �
 
 Dynamics에서 데이터를 복사하려는 경우 복사 작업 **원본** 섹션에서는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 유형 속성은 "DynamicsSource", "DynamicsCrmSource" 또는 "CommonDataServiceForAppsSource"로 설정되어야 합니다. | 예 |
 | Query | FetchXML은 재산적 가치가 있는 쿼리 언어로, Dynamics 온라인 및 온-프레미스에서 사용됩니다. 다음 예제를 참조하세요. 자세한 내용을 알아보려면 [FeachXML로 쿼리 작성](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8))을 참조하세요. | 데이터 세트에 `entityName`이(가) 지정되지 않은 경우 아니요 |
@@ -347,7 +347,7 @@ Dynamics에서 데이터를 복사하려는 경우 복사 작업 **원본** 섹�
 
 Dynamics에 데이터를 복사하려는 경우 복사 작업 **싱크** 섹션에서는 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 유형 속성은 "DynamicsSink", "DynamicsCrmSink" 또는 "CommonDataServiceForAppsSink"로 설정되어야 합니다. | 예. |
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert"여야 합니다. | 예 |
@@ -477,11 +477,11 @@ Dynamics에서 데이터를 복사하는 경우, 다음 표에서 Dynamics 데�
 - **CustomerField** 를 **CustomerField** 로 매핑. 이 매핑은 표준 필드 매핑입니다.
 - **Target** 을 **CustomerField\@EntityReference** 로 매핑. 싱크 열은 엔터티 참조를 나타내는 가상의 열입니다. 스키마를 가져오면 표시되지 않으므로 매핑에 이러한 필드 이름을 입력합니다.
 
-![Dynamics 조회-필드 열 매핑](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Dynamics 조회-필드 열 매핑":::
 
 모든 원본 레코드가 동일한 대상 엔터티에 매핑되고 원본 데이터가 대상 엔터티 이름을 포함하지 않는 경우, 여기에 바로 가기(복사 작업 원본에서 다른 열 추가)가 있습니다. `{lookup_field_name}@EntityReference` 패턴을 사용하여 새 열의 이름을 지정하고 값을 대상 엔터티 이름으로 설정한 다음, 평소와 같이 열 매핑을 진행합니다. 원본 및 싱크 열 이름이 동일한 경우 기본적으로 복사 작업에서는 이름을 기준으로 열을 매핑하기 때문에 명시적 열 매핑을 건너뛸 수도 있습니다.
 
-![엔터티-참조 열을 추가하는 Dynamics 조회-필드](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
+:::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="엔터티-참조 열을 추가하는 Dynamics 조회-필드":::
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
-ms.openlocfilehash: e2da161d98a7f4bcae0f8da55a1cf7129c7633f9
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 76800b0f7a90dacd1447b87fdc1f1d23300873ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122538130"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784397"
 ---
 # <a name="commonly-used-azure-sentinel-workbooks"></a>일반적으로 사용되는 Azure Sentinel 통합 문서
 
@@ -48,7 +48,7 @@ ms.locfileid: "122538130"
 |**ID 및 액세스**     |   감사 및 로그인 로그를 포함하는 보안 로그를 통해 Microsoft 제품 사용의 ID 및 액세스 작업에 대한 인사이트를 제공합니다.     |
 |**인시던트 개요**     |   일반 정보, 엔터티 데이터, 심사 시간, 완화 시간, 주석을 비롯해 인시던트에 대한 심층 정보를 제공하여 심사 및 조사를 지원하도록 설계되었습니다. <br><br>자세한 내용은 [Data-Driven SOC용 도구 키트](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152)를 참조하세요.      |
 |<a name="investigation-insights"></a>**조사 인사이트**     | 분석가에게 인시던트, 책갈피 및 엔터티 데이터에 대한 인사이트를 제공합니다. 일반적인 쿼리 및 자세한 시각화는 분석가가 의심스러운 활동을 조사하는 데 도움이 될 수 있습니다.     |
-|**Microsoft Cloud App Security - 검색 로그**     |   조직에서 사용되는 클라우드 앱에 대한 세부 정보를 제공하고, 특정 사용자 및 애플리케이션에 대한 사용량 추세 및 드릴다운 데이터에서 통찰력을 제공합니다.  <br><br>자세한 내용은 [Microsoft Cloud App Security의 데이터 연결](connect-cloud-app-security.md)을 참조하세요.|
+|**Microsoft Cloud App Security - 검색 로그**     |   조직에서 사용되는 클라우드 앱에 대한 세부 정보를 제공하고, 특정 사용자 및 애플리케이션에 대한 사용량 추세 및 드릴다운 데이터에서 통찰력을 제공합니다.  <br><br>자세한 내용은 [Microsoft Cloud App Security의 데이터 연결](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)을 참조하세요.|
 |**MITRE ATT&CK 통합 문서**     |   Azure Sentinel용 MITRE ATT&CK 검사에 대한 세부 정보를 제공합니다.      |
 |**Office 365**     | 모든 작업 및 활동을 추적하고 분석하여 Office 365에 대한 인사이트를 제공합니다. SharePoint, OneDrive, Teams 및 Exchange 데이터로 드릴다운합니다.       |
 |**보안 경고**     |  Azure Sentinel 환경에서 경고에 대한 보안 경고 대시보드를 제공합니다. <br><br>자세한 내용은 [Microsoft 보안 경고에서 인시던트 자동 생성](create-incidents-from-alerts.md)을 참조하세요.      |

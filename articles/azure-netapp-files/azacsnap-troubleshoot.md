@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 85f6c7d8ef0eced1e7cbb2259d4117bc1ae5ff89
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 0fb0b0fc0734cc05952457e0e6fc6dc5ff5151b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614337"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 문제 해결
 
@@ -61,6 +61,66 @@ Azure NetApp Files와의 통신 유효성을 검사하는 경우 통신이 실�
 
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
+
+### <a name="testing-communication-using-cloud-shell"></a>Cloud Shell를 사용 하 여 통신 테스트
+
+Azure Portal을 통해 Cloud Shell를 사용 하 여 서비스 사용자가 올바르게 구성 되었는지 테스트할 수 있습니다. 이렇게 하면 구성이 VNet 또는 가상 머신 내의 네트워크 제어를 우회 하 여 올바른지 테스트 합니다. 
+
+**해결 방법:**
+
+1. Azure Portal에서 [Cloud Shell](/azure/cloud-shell/overview) 세션을 엽니다. 
+1. 테스트 디렉터리를 만듭니다 (예: `mkdir azacsnap` ).
+1. cd를 azacsnap 디렉터리로 이동 하 여 최신 버전의 azacsnap 도구를 다운로드 합니다.
+    
+    ```bash
+    wget https://aka.ms/azacsnapinstaller
+    ```
+   
+    ```output
+    ----<snip>----
+    HTTP request sent, awaiting response... 200 OK
+    Length: 24402411 (23M) [application/octet-stream]
+    Saving to: ‘azacsnapinstaller’
+
+    azacsnapinstaller 100%[=================================================================================>] 23.27M 5.94MB/s in 5.3s
+
+    2021-09-02 23:46:18 (4.40 MB/s) - ‘azacsnapinstaller’ saved [24402411/24402411]
+    ```
+    
+1. 설치 관리자 실행 파일을 만듭니다. (예: `chmod +x azacsnapinstaller`)
+1. 테스트용 이진 파일의 압축을 풉니다.
+
+    ```bash
+    ./azacsnapinstaller -X -d .
+    ```
+    
+    ```output
+    +-----------------------------------------------------------+
+    | Azure Application Consistent Snapshot Tool Installer |
+    +-----------------------------------------------------------+
+    |-> Installer version '5.0.2_Build_20210827.19086'
+    |-> Extracting commands into ..
+    |-> Cleaning up .NET extract dir
+    ```
+
+1. Cloud Shell 업로드/다운로드 아이콘을 사용 하 여 서비스 주체 파일 (예: `azureauth.json` ) 및 테스트를 위한 AzAcSnap 구성 파일 (예: `azacsnap.json` )을 업로드 합니다.
+1. Azure Cloud Shell 콘솔에서 Storage 테스트를 실행 합니다. 
+
+    > [!NOTE]
+    > 테스트 명령을 완료 하는 데 90 초 정도 걸릴 수 있습니다.
+
+    ```bash
+    ./azacsnap -c test --test storage
+    ```
+
+    ```output
+    BEGIN : Test process started for 'storage'
+    BEGIN : Storage test snapshots on 'data' volumes
+    BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
+    PASSED: Task#1/1 Storage test successful for Volume
+    END : Storage tests complete
+    END : Test process complete for 'storage'
+    ```
 
 ## <a name="problems-with-sap-hana"></a>SAP HANA 관련 문제
 
@@ -128,7 +188,7 @@ Cannot get SAP HANA version, exiting with error: 127
 
 ### <a name="insufficient-privilege"></a>권한이 부족함
 
-`azacsnap`을 실행하여 `* 258: insufficient privilege`와 같은 오류가 표시되는 경우 적절한 권한이 "AZACSNAP" 데이터베이스 사용자에게 할당되었는지 확인합니다([설치 안내서](azacsnap-installation.md#enable-communication-with-sap-hana)에 따라 생성된 사용자라고 가정).  다음 명령을 사용하여 사용자의 현재 권한을 확인합니다.
+`azacsnap`을 실행하여 `* 258: insufficient privilege`와 같은 오류가 표시되는 경우 적절한 권한이 "AZACSNAP" 데이터베이스 사용자에게 할당되었는지 확인합니다([설치 안내서](azacsnap-installation.md#enable-communication-with-database)에 따라 생성된 사용자라고 가정).  다음 명령을 사용하여 사용자의 현재 권한을 확인합니다.
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap

@@ -9,14 +9,8 @@
   items:
     - name: 파일 공유 만들기 / 사용 - Windows
       href: storage-files-quick-create-use-windows.md
-    - name: 파일 공유 만들기 - 포털
+    - name: 파일 공유 만들기
       href: storage-how-to-use-files-portal.md
-    - name: 파일 공유 만들기 - PowerShell
-      href: storage-how-to-use-files-powershell.md
-    - name: 파일 공유 만들기 - CLI
-      href: storage-how-to-use-files-cli.md
-    - name: 파일 공유 만들기 - Storage Explorer
-      href: storage-how-to-use-files-storage-explorer.md
 - name: 자습서
   items:
     - name: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
@@ -177,7 +171,7 @@
           href: storage-files-migration-overview.md
         - name: 클라우드 전용 배포 대상
           items:
-            - name: Azure 파일 공유로 RoboCopy
+            - name: Azure 파일 공유로 마이그레이션하는 RoboCopy
               href: storage-files-migration-robocopy.md
             - name: DataBox를 사용하여 온-프레미스 NAS에서 Azure 파일 공유로 마이그레이션
               href: storage-files-migration-nas-cloud-databox.md

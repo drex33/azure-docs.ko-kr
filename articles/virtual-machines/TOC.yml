@@ -256,6 +256,12 @@
             - name: AMD GPU 드라이버 설정
               displayName: 'AMD GPU drivers, AMD, GPU drivers, GPU'
               href: ./windows/n-series-amd-driver-setup.md
+            - name: NC 시리즈 사용 중지
+              href: nc-series-retirement.md
+            - name: NCv2 시리즈 사용 중지
+              href: ncv2-series-retirement.md
+            - name: ND 시리즈 사용 중지
+              href: nd-series-retirement.md
             - name: GPU 컴퓨팅 마이그레이션 가이드
               displayName: GPU compute migration guide
               href: ./n-series-migration.md
@@ -337,13 +343,8 @@
         - name: 가상 머신 선택기 도구
           href: 'https://aka.ms/vm-selector'
         - name: VM 크기 변경
-          items:
-            - name: CLI
-              displayName: 'Change, resize, update size'
-              href: ./linux/change-vm-size.md
-            - name: Portal 또는 PowerShell
-              displayName: 'Change, resize, update size'
-              href: ./windows/resize-vm.md
+          displayName: 'Change, resize, update size'
+          href: resize-vm.md
         - name: 상태 및 청구
           href: states-billing.md
         - name: 임시 디스크가 없는 Azure VM
@@ -403,28 +404,28 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: 용량 예약(미리 보기)
       items:
-        - name: 개요(미리 보기)
+        - name: 개요
           displayName: on-demand capacity reservation
           href: capacity-reservation-overview.md
-        - name: 용량 예약 만들기(미리 보기)
+        - name: 용량 예약 만들기
           displayName: on-demand capacity reservation
           href: capacity-reservation-create.md
-        - name: 용량 예약 전체 할당(미리 보기)
+        - name: 용량 예약 초과 할당
           displayName: on-demand capacity reservation
           href: capacity-reservation-overallocate.md
-        - name: 용량 예약 수정(미리 보기)
+        - name: 용량 예약 수정
           displayName: on-demand capacity reservation
           href: capacity-reservation-modify.md
-        - name: VM 연결(미리 보기)
+        - name: VM 연결
           displayName: on-demand capacity reservation
           href: capacity-reservation-associate-vm.md
-        - name: VM 제거(미리 보기)
+        - name: VM 제거
           displayName: on-demand capacity reservation
           href: capacity-reservation-remove-vm.md
-        - name: VM 확장 집합 연결(미리 보기)
+        - name: 가상 머신 확장 집합 연결
           displayName: on-demand capacity reservation
           href: capacity-reservation-associate-virtual-machine-scale-set.md
-        - name: VM 확장 집합 제거(미리 보기)
+        - name: 가상 머신 확장 집합 제거
           displayName: on-demand capacity reservation
           href: capacity-reservation-remove-virtual-machine-scale-set.md
     - name: Virtual Machines 만들기

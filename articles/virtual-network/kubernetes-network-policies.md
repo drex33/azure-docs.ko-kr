@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 96e055205c5c016504cd6246b9c1b6d1533ad6ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f8a8e5785af1bd74fb958a315de379facdc87171
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528694"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575975"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
 
@@ -134,7 +134,9 @@ Azure NPM에는 구성을 모니터링하고 더 잘 이해할 수 있는 정보
 
 ConfigMap을 편집한 후에는 로컬에 저장하고 다음과 같이 ConfigMap을 클러스터에 적용합니다.
 
-```kubectl apply -f container-azm-ms-agentconfig.yaml``` 다음은 고급 메트릭 컬렉션과 함께 사용하도록 설정된 NPM 통합을 보여 주는 [컨테이너용 Azure Monitor ConfigMap](https://aka.ms/container-azm-ms-agentconfig)의 코드 조각입니다.
+`kubectl apply -f container-azm-ms-agentconfig.yaml`
+
+ 다음은 고급 메트릭 컬렉션과 함께 사용하도록 설정된 NPM 통합을 보여 주는 [컨테이너용 Azure Monitor ConfigMap](https://aka.ms/container-azm-ms-agentconfig)의 코드 조각입니다.
 ```
 integrations: |-
     [integrations.azure_network_policy_manager]
@@ -265,4 +267,3 @@ Prometheus 서버를 사용하는 경우 Grafana 대시보드만 지원됩니다
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)에 대해 알아봅니다.
 -  [컨테이너 네트워크](container-networking-overview.md)에 대해 알아봅니다.
 - Kubernetes 클러스터 또는 Docker 컨테이너에 대한 [플러그 인을 배포](deploy-container-networking.md)합니다.
-

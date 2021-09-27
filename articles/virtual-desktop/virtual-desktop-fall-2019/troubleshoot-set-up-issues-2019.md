@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3b8843d90f9e3cab43b6ec34fadd002e8bc5b475
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 61aea8002faa92c88081c78bc9ff05ec7e053094
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751707"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818513"
 ---
 # <a name="tenant-and-host-pool-creation-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)에서 테넌트 및 호스트 풀 만들기
 
@@ -141,7 +141,7 @@ Azure Virtual Desktop - 호스트 풀 프로비저닝 템플릿은 Azure Marketp
 다음 지침에 따라 Azure Resource Manager 템플릿 및 PowerShell DSC의 실패한 배포 문제를 해결합니다.
 
 1. [Azure Resource Manager에서 배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 사용하여 배포 오류를 검토합니다.
-2. 배포에 오류가 없으면 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../../azure-resource-manager/management/view-activity-logs.md)를 사용하여 활동 로그의 오류를 검토합니다.
+2. 배포에 오류가 없으면 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../../azure-monitor/essentials/activity-log.md)를 사용하여 활동 로그의 오류를 검토합니다.
 3. 오류가 식별되면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../../azure-resource-manager/templates/common-deployment-errors.md)의 오류 메시지와 리소스를 사용하여 문제를 해결합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제하고 템플릿을 다시 배포하는 작업을 다시 시도합니다.
 
@@ -413,11 +413,11 @@ GitHub Azure Resource Manager 템플릿을 실행하는 경우 다음 매개 변
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Virtual Desktop과 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview-2019.md)을 참조하세요.
-- Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 발생하는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
+- Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration-2019.md)을 참조하세요.
 - Azure Virtual Desktop 클라이언트 연결 문제를 해결하려면 [Azure Virtual Desktop 서비스 연결](troubleshoot-service-connection-2019.md)을 참조하세요.
 - 원격 데스크톱 클라이언트와 관련된 문제를 해결하려면 [원격 데스크톱 클라이언트 문제 해결](../troubleshoot-client.md)을 참조하세요.
 - Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup-2019.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../../azure-monitor/essentials/activity-log.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

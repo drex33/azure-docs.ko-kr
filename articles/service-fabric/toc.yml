@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: Architecture
+    - name: 아키텍처
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -545,6 +545,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: 클러스터 노드 VM에 원격 연결
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: Azure Service Fabric용 Linux OS 업그레이드
+                  href: service-fabric-cluster-upgrade-os.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성

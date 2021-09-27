@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 6395f88f4841ef5447b8dfef5310fba6e0440e32
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 74c8fd2c096d8a4b236d9f26bdd27737fac897ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771457"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632997"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "122771457"
 > * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용하는 Azure Virtual Network입니다.
 
@@ -354,7 +354,7 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
 
     명령 프롬프트, 셸 또는 PowerShell을 엽니다. 그런 다음, 각 작업 영역 FQDN에 대해 다음 명령을 실행합니다.
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     각 nslookup의 결과는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트의 두 개인 IP 주소 중 하나를 반환해야 합니다. 그렇지 않으면 사용자 지정 DNS 솔루션에는 잘못 구성된 항목이 있습니다.
 
@@ -553,7 +553,7 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
 
     명령 프롬프트, 셸 또는 PowerShell을 엽니다. 그런 다음, 각 작업 영역 FQDN에 대해 다음 명령을 실행합니다.
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     각 nslookup의 결과는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트의 두 개인 IP 주소 중 하나를 생성해야 합니다. 그렇지 않으면 사용자 지정 DNS 솔루션에는 잘못 구성된 항목이 있습니다.
 

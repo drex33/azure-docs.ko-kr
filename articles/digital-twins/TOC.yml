@@ -73,8 +73,6 @@
               href: how-to-set-up-instance-cli.md
             - name: PowerShell
               href: how-to-set-up-instance-powershell.md
-            - name: 설치 스크립트 샘플
-              href: how-to-set-up-instance-scripted.md
         - name: Private Link를 통한 프라이빗 액세스 사용
           href: how-to-enable-private-link.md
         - name: 앱 인증 코드 쓰기
@@ -137,7 +135,7 @@
       items:
         - name: Azure Monitor의 메트릭 보기
           href: troubleshoot-metrics.md
-        - name: 진단 로그 사용 및 쿼리
+        - name: 진단 로그 사용
           href: troubleshoot-diagnostics.md
         - name: 경고 사용
           href: troubleshoot-alerts.md

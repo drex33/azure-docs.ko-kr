@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: v-erkel
-ms.openlocfilehash: 70b1dc3e2de6c70a6b59aa739a9bed254295a4f9
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 090003e25c2d8ca13be27bf94bc12b4941cda798
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293433"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814645"
 ---
 # <a name="use-nfs-mounted-blob-storage-with-azure-hpc-cache"></a>Azure HPC Cache에서 NFS 탑재 Blob Storage 사용
 
@@ -38,7 +38,7 @@ HPC 캐시는 ADLS-NFS 스토리지 대상에 대해 강력한 일관성을 요�
 ## <a name="pre-load-data-with-nfs-protocol"></a>NFS 프로토콜을 사용하여 데이터 미리 로드
 <!-- cross-referenced from hpc-cache-ingest.md and here -->
 
-NFS 지원 Blob 컨테이너에서는 *파일을 만들 때 사용한 것과 동일한 프로토콜을 통해서만 파일을 편집할 수 있습니다*. 즉, Azure REST API를 사용하여 컨테이너를 채우면 NFS를 사용하여 해당 파일을 업데이트할 수 없습니다. Azure HPC Cache는 NFS만 사용하기 때문에 Azure REST API를 사용하여 만든 파일은 편집할 수 없습니다. ([Blob 스토리지 API의 알려진 문제](../storage/blobs/network-file-system-protocol-known-issues.md#blob-storage-apis)에 대해 자세히 알아보기)
+NFS 지원 Blob 컨테이너에서는 *파일을 만들 때 사용한 것과 동일한 프로토콜을 통해서만 파일을 편집할 수 있습니다*. 즉, Azure REST API를 사용하여 컨테이너를 채우면 NFS를 사용하여 해당 파일을 업데이트할 수 없습니다. Azure HPC Cache는 NFS만 사용하기 때문에 Azure REST API를 사용하여 만든 파일은 편집할 수 없습니다. ([Blob 스토리지 API의 알려진 문제](../storage/blobs/data-lake-storage-known-issues.md#blob-storage-apis)에 대해 자세히 알아보기)
 
 컨테이너가 비어 있거나 파일이 NFS를 사용하여 만들어진 경우에는 캐시에 문제가 되지 않습니다.
 

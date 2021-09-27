@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 248d39e80aea50811050d327782b528db85d4fb4
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.openlocfilehash: f798f8be2989140711cb9122c9d59e7b91248f61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813594"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600383"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Azure IoT Edge를 사용한 게시 및 구독(미리 보기)
 
@@ -395,7 +395,7 @@ TLS를 사용하도록 설정하려면 포트를 1883(MQTT)에서 8883(MQTTS)으
 원격 분석 데이터를 IoT Hub로 보내는 것은 사용자 정의 토픽에 게시하는 것과 비슷하지만, 특정 IoT Hub 토픽을 사용합니다.
 
 - 디바이스의 경우 `devices/<device_name>/messages/events/` 토픽에서 원격 분석이 전송됩니다.
-- 모듈의 경우 `devices/<device_name>/<module_name>/messages/events/` 토픽에서 원격 분석이 전송됩니다.
+- 모듈의 경우 `devices/<device_name>/modules/<module_name>/messages/events/` 토픽에서 원격 분석이 전송됩니다.
 
 또한 `FROM /messages/* INTO $upstream`과 같은 경로를 만들어 IoT Edge MQTT 브로커에서 IoT 허브로 원격 분석을 보냅니다. 라우팅에 관한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 

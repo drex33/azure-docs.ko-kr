@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3570256d74fa2da96b4b8335659b5274e492515
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 4d4f602d430a7e71db56f8d5babf78741fc4b88d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117006"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666650"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "123117006"
 
 ## <a name="event-based-architecture-requirements"></a>이벤트 기반 아키텍처 요구 사항
 
-[Azure Functions](../../azure-functions/functions-overview.md)를 사용하여 서버리스 아키텍처를 구축하는 경우 장기 실행 함수 대신 함께 작동하는 작은 함수 세트를 만드는 것이 [좋습니다](../../azure-functions/functions-best-practices.md#avoid-long-running-functions).
+[Azure Functions](../../azure-functions/functions-overview.md)를 사용하여 서버리스 아키텍처를 구축하는 경우 장기 실행 함수 대신 함께 작동하는 작은 함수 세트를 만드는 것이 [좋습니다](../../azure-functions/performance-reliability.md#avoid-long-running-functions).
 
 [Cosmos DB용 Azure Functions 트리거](./change-feed-functions.md)를 사용하여 이벤트 기반 서버리스 흐름을 작성하면 특정 [Azure Cosmos 컨테이너](../account-databases-containers-items.md#azure-cosmos-containers)에 새 이벤트가 있을 때마다 여러 작업을 수행하려는 시나리오와 충돌합니다. 트리거하려는 작업이 서로 독립적인 경우 가장 적절한 해결 방법은 동일한 Azure Cosmos 컨테이너에서 변경 내용을 수행하려는 **작업당 하나의 Cosmos DB용 Azure Functions 트리거를 만들어** 동일한 Azure Cosmos 컨테이너에서 모든 변경 내용을 수신 대기하는 것입니다.
 

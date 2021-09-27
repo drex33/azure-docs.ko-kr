@@ -1,16 +1,16 @@
 ---
 title: Azure Blockchain Workbench 미리 보기 배포
 description: Azure Blockchain Workbench 미리 보기를 배포하는 방법
-ms.date: 07/16/2020
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
-ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 09767c1270593738efaf00ea6fc0b8e35f529239
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87077029"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581085"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Azure Blockchain Workbench 미리 보기 배포
 
@@ -74,27 +74,14 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
 1. **확인** 을 선택하여 기본 설정 구성 섹션을 완료합니다.
 
-1. **고급 성능** 에서 새 블록체인 네트워크를 만들지 아니면 기존 인증 증명 블록체인 네트워크를 사용할지를 선택합니다.
+1. **고급 설정** 에서 Blockchain Workbench 구성 요소에 대한 기존 Ethereum 권한 증명 블록체인 네트워크, Active Directory 설정 및 기본 VM 크기를 선택합니다.
 
-    **새로 만들기** 를 사용하는 경우:
-
-    ‘새로 만들기’ 옵션은 기본 SKU를 사용하여 Azure Blockchain Service Quorum 원장을 배포합니다.
-
-    ![새 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-new.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | Azure Blockchain Service 가격 책정 계층 | Blockchain Workbench에 사용되는 **기본** 또는 **표준** Azure Blockchain Service 계층을 선택합니다. |
-    | Azure Active Directory 설정 | **나중에 추가** 를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가* 하도록 선택합니다. |
-    | VM 선택 | 블록체인 네트워크의 기본 스토리지 성능 및 VM 크기를 선택합니다. Azure 무료 계층 같은 낮은 서비스 한도로 구독하는 경우 *표준 DS1 v2* 와 같은 작은 크기의 VM을 선택합니다. |
-
-    **기존 항목 사용** 을 사용하는 경우:
-
-    *기존 항목 사용* 옵션을 사용하면 Ethereum PoA(인증 증명) 블록체인 네트워크를 지정할 수 있습니다. 엔드포인트에는 다음과 같은 요구 사항이 적용됩니다.
+    Ethereum RPC 엔드포인트에는 다음과 같은 요구 사항이 있습니다.
 
    * 엔드포인트은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
    * 엔드포인트은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
    * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다.
+   * 엔드포인트는 또는 로 시작하고 `https://` `http://` 포트 번호로 끝납니다. 예를 들어 `http<s>://<network-url>:<port>` 
 
      > [!NOTE]
      > Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.
@@ -103,7 +90,7 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
      | 설정 | 설명  |
      |---------|--------------|
-     | Ethereum RPC 엔드포인트 | 기존 PoA 블록체인 네트워크의 RPC 엔드포인트을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http<s>://<network-url>:<port>` |
+     | Ethereum RPC 엔드포인트 | 기존 PoA 블록체인 네트워크의 RPC 엔드포인트을 제공합니다. |
      | Azure Active Directory 설정 | **나중에 추가** 를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가* 하도록 선택합니다. |
      | VM 선택 | 블록체인 네트워크의 기본 스토리지 성능 및 VM 크기를 선택합니다. Azure 무료 계층 같은 낮은 서비스 한도로 구독하는 경우 *표준 DS1 v2* 와 같은 작은 크기의 VM을 선택합니다. |
 

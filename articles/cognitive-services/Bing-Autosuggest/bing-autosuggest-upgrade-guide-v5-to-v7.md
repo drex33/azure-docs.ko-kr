@@ -3,19 +3,17 @@ title: Bing Autosuggest API v5를 v7으로 업그레이드
 titleSuffix: Azure Cognitive Services
 description: 버전 7을 사용하기 위해 업데이트해야 하는 Bing Autosuggest 애플리케이션의 부분을 식별합니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: scottwhi
-ms.openlocfilehash: 531da145e699eecb76366cd73a151b7170a6ed2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bc690f88f6f2e00feea003ecee30ec52407b1e61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353428"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619120"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Autosuggest API 업그레이드 가이드
 

@@ -15,10 +15,12 @@
   items:
     - name: UEBA를 사용하여 조사
       href: investigate-with-ueba.md
-    - name: 자동화를 사용하여 위협에 대응
-      href: tutorial-respond-threats-playbook.md
     - name: Azure Sentinel에 대한 KQL 쿼리 만들기(학습 모듈)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+    - name: 자동화를 사용하여 위협에 대응
+      href: tutorial-respond-threats-playbook.md
+    - name: Notebooks 및 MSTICPy 시작
+      href: notebook-get-started.md
     - name: Azure Sentinel에서 Power BI 보고서 만들기
       href: powerbi.md
 - name: 개념
@@ -200,6 +202,8 @@
       items:
         - name: Jupyter Notebook을 사용하여 헌팅
           href: notebooks.md
+        - name: Jupyter Notebooks에 대한 고급 MSTICPy 설정
+          href: notebooks-msticpy-advanced.md
         - name: 책갈피를 사용하여 헌팅
           href: bookmarks.md
         - name: 라이브 스트림을 사용하여 헌팅

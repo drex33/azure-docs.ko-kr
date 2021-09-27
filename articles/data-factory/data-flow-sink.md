@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/27/2021
-ms.openlocfilehash: e74e4f6eca483a9d250cd3ade4687f6279f6f8af
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: afdc363c53790f1710ee274d5430416e415059fd
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539018"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059951"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 싱크 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 데이터 변환을 완료한 후에는 싱크 변환을 사용하여 대상 저장소에 데이터를 씁니다. 모든 데이터 흐름에는 하나 이상의 싱크 변환이 필요하지만 변환 흐름을 완료하는 데 필요한 수 만큼의 싱크에 쓸 수 있습니다. 추가 싱크에 쓰려면 새 분기 및 조건부 분할을 통해 새 스트림을 만듭니다.
 
@@ -35,7 +37,7 @@ ms.locfileid: "122539018"
 
 인라인 데이터 세트를 사용하려면 **싱크 형식** 선택기에서 원하는 형식을 선택합니다. 싱크 데이터 세트를 선택하는 대신 연결하려는 연결된 서비스를 선택합니다.
 
-![선택된 인라인을 보여 주는 스크린샷.](media/data-flow/inline-selector.png "선택된 인라인을 보여 주는 스크린샷.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="선택된 인라인을 보여 주는 스크린샷.":::
 
 ## <a name="workspace-db-synapse-workspaces-only"></a>작업 영역 DB(Synapse 작업 영역에만 해당)
 
@@ -44,7 +46,7 @@ Azure Synapse 작업 영역에서 데이터 흐름을 사용하는 경우 Synaps
 > [!NOTE]
 > Azure Synapse 작업 영역 DB 커넥터는 현재 퍼블릭 미리 보기로 제공되며 지금은 Spark Lake 데이터베이스에서만 사용할 수 있습니다.
 
-![선택된 작업 영역 DB를 보여 주는 스크린샷](media/data-flow/syms-sink.png "선택된 인라인을 보여 주는 스크린샷.")
+:::image type="content" source="media/data-flow/syms-sink.png" alt-text="선택된 작업 영역 DB를 보여 주는 스크린샷":::
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> 지원되는 싱크 형식
 
@@ -76,11 +78,12 @@ Azure Synapse 작업 영역에서 데이터 흐름을 사용하는 경우 Synaps
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![싱크 설정을 보여 주는 스크린샷.](media/data-flow/sink-settings.png "싱크 설정을 보여 주는 스크린샷.")
+:::image type="content" source="media/data-flow/sink-settings.png" alt-text="싱크 설정을 보여 주는 스크린샷.":::
 
 **스키마 드리프트**: [스키마 드리프트](concepts-data-flow-schema-drift.md)는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리하는 서비스의 기능입니다. **스키마 드리프트 허용** 을 사용하도록 설정하여 싱크 데이터 스키마에 정의된 내용 위에 추가 열을 씁니다.
 
-**스키마 유효성 검사**: 스키마 유효성 검사를 선택한 경우, 원본 프로젝션에서 들어오는 원본 스키마의 열을 찾을 수 없거나 데이터 형식이 일치하지 않으면 데이터 흐름이 실패합니다. 이 설정을 사용하여 원본 데이터가 정의된 프로젝션의 계약을 충족하도록 적용합니다. 데이터베이스 원본 시나리오에서 열 이름이 또는 형식이 변경되었다는 신호를 보내는 데 유용합니다.
+**스키마 유효성 검사:** 스키마 유효성 검사를 선택하면 싱크 프로젝션의 열이 싱크 저장소에 없거나 데이터 형식이 일치하지 않으면 데이터 흐름이 실패합니다. 싱크 스키마가 정의된 프로젝션의 계약을 충족하도록 하려면 이 설정을 사용합니다. 데이터베이스 싱크 시나리오에서 열 이름 또는 형식이 변경되었음을 알리는 데 유용합니다.
+
 
 ## <a name="cache-sink"></a>캐시 싱크
 
@@ -90,11 +93,11 @@ Azure Synapse 작업 영역에서 데이터 흐름을 사용하는 경우 Synaps
 
 캐시 싱크에 쓰려면 싱크 변환을 추가하고 싱크 형식으로 **캐시** 를 선택합니다. 외부 저장소에 쓰지 않으므로 다른 싱크 형식과 달리 데이터 세트 또는 연결된 서비스를 선택할 필요가 없습니다. 
 
-![캐시 싱크 선택](media/data-flow/select-cache-sink.png "캐시 싱크 선택")
+:::image type="content" source="media/data-flow/select-cache-sink.png" alt-text="캐시 싱크 선택":::
 
 싱크 설정에서 필요에 따라 캐시 싱크의 키 열을 지정할 수 있습니다. 이는 캐시 조회에서 `lookup()` 함수를 사용할 때 일치 조건으로 사용됩니다. 키 열을 지정하는 경우 캐시 조회에 `outputs()` 함수를 사용할 수 없습니다. 캐시 조회 구문에 대해 자세히 알아보려면 [캐시된 조회](concepts-data-flow-expression-builder.md#cached-lookup)를 참조하세요.
 
-![캐시 싱크 키 열](media/data-flow/cache-sink-key-columns.png "캐시 싱크 키 열")
+:::image type="content" source="media/data-flow/cache-sink-key-columns.png" alt-text="캐시 싱크 키 열":::
 
 예를 들어, `cacheExample`이라는 캐시 싱크에 `column1`의 단일 키 열을 지정하는 경우, `cacheExample#lookup()`를 호출하면 하나의 매개 변수가 캐시 싱크에서 일치시킬 행을 지정합니다. 함수는 매핑되는 각 열에 대해 하위 열이 있는 단일 복합 열을 출력합니다.
 
@@ -113,12 +116,12 @@ Azure Synapse 작업 영역에서 데이터 흐름을 사용하는 경우 Synaps
 
 기본적으로 데이터는 비결정적 순서로 여러 싱크에 쓰여집니다. 변환 논리가 완료되면 실행 엔진이 데이터를 병렬로 쓰고 싱크 순서가 각 실행 마다 다를 수 있습니다. 정확한 싱크 순서를 지정하려면 데이터 흐름의 **일반** 탭에서 **사용자 지정 싱크** 를 사용하도록 설정합니다. 이렇게 설정하면 싱크가 오름차순으로 쓰여집니다.
 
-![사용자 지정 싱크 순서를 보여 주는 스크린샷.](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서를 보여 주는 스크린샷.")
+:::image type="content" source="media/data-flow/custom-sink-ordering.png" alt-text="사용자 지정 싱크 순서를 보여 주는 스크린샷.":::
 
 > [!NOTE]
 > [캐시된 조회](./concepts-data-flow-expression-builder.md#cached-lookup)를 활용하는 경우 싱크 순서에서 캐시된 싱크가 가장 낮은 순서인 1 또는 first로 설정되어 있는지 확인합니다.
 
-![사용자 지정 싱크 순서](media/data-flow/cache-2.png "사용자 지정 싱크 순서")
+:::image type="content" source="media/data-flow/cache-2.png" alt-text="사용자 지정 싱크 순서":::
 
 ### <a name="sink-groups"></a>싱크 그룹
 

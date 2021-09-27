@@ -2,18 +2,18 @@
 title: 포털에서 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure Application Gateway
 description: 게이트웨이를 통해 전달되는 요청 및 응답의 HTTP 헤더를 다시 쓰도록 Azure Portal로 Azure Application Gateway를 구성하는 방법을 알아봅니다.
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: absha
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3427dfafe1918590f215793acbae3d5fd290e604
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
-ms.translationtype: HT
+ms.openlocfilehash: 16479588b0e0ec64a17cb3ce0b7a46c49bd2244e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205236"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769905"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway로 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure Portal
 
@@ -39,7 +39,7 @@ HTTP 헤더 다시 쓰기를 구성하려면 다음 단계를 완료해야 합�
 
    - **다시 쓰기 규칙**: 여러 다시 쓰기 작업/다시 쓰기 조건 조합을 포함합니다.
 
-   - **규칙 순서**: 다시 쓰기 규칙이 실행되는 순서를 결정하는 데 도움이 됩니다. 이 구성은 다시 쓰기 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용합니다. 규칙 시퀀스 값이 낮은 다시 쓰기 규칙이 먼저 실행됩니다. 두 다시 쓰기 규칙에 동일한 규칙 시퀀스 값을 할당할 경우 실행 순서는 불명확합니다.
+   - **규칙 순서**: 다시 쓰기 규칙이 실행되는 순서를 결정하는 데 도움이 됩니다. 이 구성은 다시 쓰기 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용합니다. 규칙 시퀀스값이 낮은 다시 쓰기 규칙이 먼저 실행됩니다. 두 다시 쓰기 규칙에 동일한 규칙 시퀀스 값을 할당할 경우 실행 순서는 불명확합니다.
 
    - **다시 쓰기 집합**: 요청 라우팅 규칙과 연결되는 다시 쓰기 규칙을 여러 개 포함합니다.
 
@@ -131,4 +131,4 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 일반적인 사용 사례를 설정하는 방법에 대한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers-url.md)를 참조하세요.
+몇 가지 일반적인 사용 사례를 설정하는 방법에 관한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers-url.md)를 참조하세요.

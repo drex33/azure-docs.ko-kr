@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis의 크기를 조정하는 모범 사례
+title: 크기 조정에 대 한 모범 사례
 titleSuffix: Azure Cache for Redis
 description: Azure Cache for Redis의 크기를 조정하는 방법을 알아봅니다.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 01fbebb06ba408232add1f0f05c5b715816e9e69
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 7aa65bbddc03eaf7c80717aa83fe41054617d116
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117074"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598673"
 ---
 # <a name="scaling"></a>크기 조정
 
@@ -33,3 +33,8 @@ ms.locfileid: "123117074"
 TLS를 사용 중이고 연결 수가 많은 경우 더 많은 코어에 부하를 분산할 수 있도록 스케일 아웃을 고려합니다. 일부 캐시 크기는 4개 이상의 코어가 있는 VM에서 호스트됩니다.
 
 TLS 암호화/암호 해독 및 TLS 연결/연결 끊기 워크로드를 여러 코어에 분산하여 캐시 VM의 전체 CPU 사용량을 줄입니다. 자세한 내용은 [VM 크기 및 코어에 대한 세부 정보](./cache-planning-faq.yml#azure-cache-for-redis-performance)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [사용자의 maxmemory-reserved 설정 구성](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
+- [Azure Cache for Redis 인스턴스 스케일링](cache-how-to-scale.md)

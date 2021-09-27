@@ -3,16 +3,17 @@ title: Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 이동
 description: Azure Data Factory 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 22370c0df5b11935ae107c065ec66fe98b355cd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377553"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653346"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -54,7 +55,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용하여 파이프�
 
 다음 표에 Amazon Redshift 연결된 서비스와 관련된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **type** |이 속성은 **AmazonRedshift** 로 설정되어야 합니다. |예 |
 | **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
@@ -69,7 +70,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용하여 파이프�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -79,7 +80,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용하여 파이프�
 
 복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **쿼리** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 | **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 예 |
@@ -88,7 +89,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용하여 파이프�
 
 또는 **typeProperties** 섹션의 다음 속성과 함께 **RelationalSource**(Amazon Redshift 포함) 형식도 사용할 수 있습니다. 이 원본 유형은 Redshift **UNLOAD** 명령을 지원하지 않습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | 아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
@@ -102,7 +103,7 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 
 이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로, **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 데이터를 Azure Synapse Analytics에 로드합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
 
-![Amazon Redshift에서 Azure Synapse Analytics로 워크플로 복사](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+:::image type="content" source="media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png" alt-text="Amazon Redshift에서 Azure Synapse Analytics로 워크플로 복사":::
 
 ```json
 {

@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1505837a316943c2d22f82a0107bb7a1990e0e83
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 3922b716a5537838be06f3fec6a9626e59fa929f
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529550"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129055112"
 ---
-# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Azure Spring Cloud의 Application Insights Java In-Process 에이전트(미리 보기)
+# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트
 
 이 글에서는 Azure Spring Cloud의 Application Insights Java 에이전트를 사용하여 앱 및 마이크로서비스를 모니터링하는 방법을 설명합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "122529550"
 * 요청 실패를 확인합니다.
 * 애플리케이션 메트릭을 확인합니다.
 
-Application Insights는 다음을 포함하여 관찰 가능한 여러 큐브 뷰를 제공합니다.
+Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 제공할 수 있습니다.
 
 * 애플리케이션 맵
 * 성능
@@ -36,25 +36,22 @@ Application Insights는 다음을 포함하여 관찰 가능한 여러 큐브 �
 * 라이브 메트릭
 * 가용성
 
-> [!NOTE]
-> 이 미리 보기 기능은 아직 Mooncake과 UAE 같은 새 지역에서 지원되지 않습니다.
-
 ## <a name="enable-java-in-process-agent-for-application-insights"></a>Application Insights에 대한 Java In-Process 에이전트 사용
 
-다음 절차를 사용하여 Java In-Process Agent 미리 보기 기능을 사용하도록 설정합니다.
+다음 절차를 사용 하 여 Java In-Process 에이전트를 사용 하도록 설정 합니다.
 
 1. 서비스 인스턴스의 서비스 개요 페이지로 이동합니다.
-2. 모니터링 블레이드 아래에서 **Application Insights** 항목을 선택합니다.
-3. **Application Insights 사용** 단추를 선택하여 **Application Insights** 통합을 사용하도록 설정합니다.
+2. **모니터링** 창에서 **Application Insights** 항목을 선택 합니다.
+3. **Application Insights 사용** 을 선택 하 여 **Application Insights** 통합을 사용 하도록 설정 합니다.
 4. Application Insights의 기존 인스턴스를 선택하거나 새 인스턴스를 만듭니다.
-5. **Java in-process 에이전트 사용** 을 선택하여 Java in-process 에이전트 미리 보기 기능을 사용하도록 설정합니다. 여기에서 샘플링 주기를 0에서 100으로 사용자 지정할 수도 있습니다.
-6. **저장** 을 선택하여 변경 내용을 저장합니다.
+   여기에서 샘플링 주기를 0에서 100으로 사용자 지정할 수도 있습니다.
+5. **저장** 을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="portal"></a>포털
 
 1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **Application Insights** 를 선택합니다.
 2. **Application Insights 사용** 을 선택하여 Azure Spring Cloud에서 Application Insights를 사용하도록 설정합니다.
-3. **Java in-process 에이전트 사용** 을 선택하여 Java IPA 미리 보기 기능을 사용하도록 설정합니다. IPA 미리 보기 기능을 사용 설정할 경우 선택적 샘플링 주기(기본값 10.0%)를 구성할 수 있습니다.
+3. **Application Insights** 사용 하도록 설정 된 경우 선택적 샘플링 주기 (기본값 10.0%)를 구성할 수 있습니다.
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
@@ -82,7 +79,7 @@ Application Insights는 다음을 포함하여 관찰 가능한 여러 큐브 �
 
    [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* 왼쪽 탐색 창에서 **라이브 메트릭** 을 선택하여 여러 차원에 대한 실시간 메트릭을 확인합니다.
+* 왼쪽 탐색 창에서 **라이브 메트릭** 을 선택 하 여 여러 차원에 대 한 실시간 메트릭을 확인 합니다.
 
    [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
@@ -90,9 +87,13 @@ Application Insights는 다음을 포함하여 관찰 가능한 여러 큐브 �
 
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
-## <a name="arm-template"></a>ARM 템플릿
+## <a name="automation"></a>Automation
 
-Azure Resource Manager 템플릿을 사용하려면 다음 콘텐츠를 `azuredeploy.json`에 복사합니다.
+다음 섹션에서는 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Terraform을 사용 하 여 배포를 자동화 하는 방법을 설명 합니다.
+    
+### <a name="arm-templates"></a>ARM 템플릿
+
+ARM 템플릿을 사용 하 여 배포 하려면 다음 콘텐츠를 *azuredeploy json* 파일에 복사 합니다. 자세한 내용은 [Microsoft AppPlatform 스프링/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings)를 참조 하세요.
 
 ```json
 {
@@ -124,31 +125,123 @@ Azure Resource Manager 템플릿을 사용하려면 다음 콘텐츠를 `azurede
 }
 ```
 
+### <a name="terraform"></a>Terraform
+
+Terraform 배포의 경우 다음 템플릿을 사용 합니다. 자세한 내용은 [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service)를 참조 하세요.
+
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_application_insights" "example" {
+  name                = "tf-test-appinsights"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  application_type    = "web"
+}
+
+resource "azurerm_spring_cloud_service" "example" {
+  name                = "example-springcloud"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  sku_name            = "S0"
+
+  config_server_git_setting {
+    uri          = "https://github.com/Azure-Samples/piggymetrics"
+    label        = "config"
+    search_paths = ["dir1", "dir2"]
+  }
+
+  trace {
+    connection_string = azurerm_application_insights.example.connection_string
+    sample_rate       = 10.0
+  }
+
+  tags = {
+    Env = "staging"
+  }
+}
+```
+
 ## <a name="cli"></a>CLI
 
-CLI 명령을 사용하여 ARM 템플릿을 적용합니다.
+Azure CLI 명령을 사용 하 여 Application Insights를 관리할 수 있습니다. 다음 명령에서 *\<placeholder>* 텍스트를 설명 된 값으로 바꾸어야 합니다. *\<service-name>* 자리 표시자는 Azure 스프링 클라우드 인스턴스의 이름을 나타냅니다.
 
-* 기존 Azure Spring Cloud 인스턴스의 경우:
+Azure 스프링 클라우드 인스턴스를 만들 때 Application Insights를 구성 하려면 다음 명령을 사용 합니다. 인수의 경우 `app-insights` Application Insights 이름 또는 리소스 ID를 지정할 수 있습니다.
+   
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name "serviceName" \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
 
-   ```azurecli
-   az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate]    "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
-   ```
+다음 예제와 같이 Application Insights 연결 문자열 (기본 설정) 또는 계측 키를 사용할 수도 있습니다.
+   
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
 
-* 새로 만든 Azure Spring Cloud 인스턴스의 경우:
+Azure 스프링 클라우드 인스턴스를 만들 때 Application Insights을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
 
-   ```azurecli
-   az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName"    --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group    "resourceGroupName"
-   ```
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --disable-app-insights
+```
 
-* 앱 인사이트를 사용하지 않도록 설정하려면:
+기존 Azure 스프링 클라우드 인스턴스의 Application Insights 설정을 확인 하려면 다음 명령을 사용 합니다.
 
-   ```azurecli
-   az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
-   ```
+```azurecli
+az spring-cloud app-insights show \
+    --resource-group <resource-group-name> \
+    --name <service-name>
+```
+
+연결 문자열 (기본 설정) 또는 계측 키를 사용 하 여 Application Insights를 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
+
+리소스 이름 또는 ID를 사용 하 여 Application Insights를 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
+
+기존 Azure 스프링 클라우드 인스턴스에서 Application Insights를 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --disable
+```
 
 ## <a name="java-agent-updateupgrade"></a>Java 에이전트 업데이트/업그레이드
 
-Java 에이전트는 JDK를 통해 정기적으로 업데이트/업그레이드되므로 다음 시나리오에 영향을 줄 수 있습니다.
+Java 에이전트는 JDK로 정기적으로 업데이트/업그레이드 되며 다음 시나리오에 영향을 줄 수 있습니다.
 
 > [!Note]
 > JDK 버전은 매년 분기별로 업데이트/업그레이드됩니다.
@@ -162,7 +255,7 @@ Java 에이전트는 JDK를 통해 정기적으로 업데이트/업그레이드�
 Azure Spring Cloud 핫 로드 메커니즘을 사용하면 애플리케이션을 다시 시작하지 않고 에이전트 구성의 설정을 조정할 수 있습니다.
 
 > [!Note]
-> 핫 로드 메커니즘에는 몇 분 정도 지연이 있습니다.
+> 핫 로딩 메커니즘에는 몇 분 안에 지연이 있습니다.
 
 * 이전에 Java 에이전트를 사용하도록 설정한 경우 Application Insights 인스턴스 및/또는 SamplingRate를 변경해도 애플리케이션을 다시 시작할 필요가 없습니다.
 * Java 에이전트를 사용할 경우 애플리케이션을 다시 시작해야 합니다.

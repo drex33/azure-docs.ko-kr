@@ -2,13 +2,13 @@
 title: 고가용성 및 재해 복구
 description: 지역별 서비스 중단 시에 사용하도록 Batch 애플리케이션을 설계하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 12/30/2020
-ms.openlocfilehash: eb3d0cb218e607e38b7478b7cc7956963e450f46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/08/2021
+ms.openlocfilehash: 5ba56d769344b930cdc3c6500d42456214b32a71
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528449"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799152"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>고가용성을 위해 Batch 애플리케이션 디자인
 
@@ -35,6 +35,7 @@ Batch를 사용하는 애플리케이션이나 솔루션을 항상 사용할 수
 - 템플릿 및/또는 스크립트를 사용해 특정 지역에서 애플리케이션 배포를 자동화합니다.
 - 모든 지역에서 애플리케이션 이진 파일 및 참조 데이터를 최신 상태로 유지합니다. 이러한 파일/데이터를 최신 상태로 유지하면 파일이 업로드 및 배포될 때까지 기다리지 않고도 지역을 온라인 상태로 빠르게 전환할 수 있습니다. 예를 들어, Batch 애플리케이션 패키지를 사용하여 풀 노드에 설치할 사용자 지정 애플리케이션을 저장 및 참조하는 경우, 애플리케이션의 새 버전을 생성할 때 해당 버전을 각 Batch 계정에 업로드해야 하며 풀 구성에서 참조해야 합니다. 또는 새 버전을 기본 버전으로 지정해야 합니다.
 - Batch, 스토리지 및 기타 서비스를 호출하는 애플리케이션에서 클라이언트나 부하를 다른 지역으로 쉽게 전환할 수 있습니다.
+- 해당 하는 경우 [가용성 영역 전체에 풀을 만드는](create-pool-availability-zones.md)것이 좋습니다.
 - 정상 작업의 일부로 대체 지역으로 자주 전환하는 것이 좋습니다. 예를 들어, 지역이 각기 다른 두 배포에서 매월 대체 지역으로 전환합니다.
 
 ## <a name="next-steps"></a>다음 단계

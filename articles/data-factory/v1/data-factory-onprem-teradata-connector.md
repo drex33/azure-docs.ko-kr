@@ -3,16 +3,17 @@ title: Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 description: Teradata 데이터베이스에서 데이터를 이동시킬 수 있는 데이터 팩터리 서비스용 Teradata 커넥터에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ef992ed907bc070643f290e7fd536de05ebf9242
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bbe6b315642b4651680a8493e288ca16ecd6544e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387209"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661111"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

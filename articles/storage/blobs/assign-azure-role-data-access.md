@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34c3f19ebb48bef3ece00b6413af2c1d7e585cf5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b30bb21369e75b76c5aba299d38b2ccfc3259803
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566836"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651601"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Blob 데이터에 액세스하기 위한 Azure 역할 할당
 
@@ -65,7 +65,7 @@ PowerShell을 사용하여 Azure 역할을 보안 주체에 할당하려면 [New
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-다음 예시에서는 *sample-container* 라는 컨테이너에 범위가 지정된 사용자에게 **Storage Blob 데이터 참가자** 역할을 할당합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+다음 예시에서는 *sample-container* 라는 컨테이너에 범위가 지정된 사용자에게 **Storage Blob 데이터 참가자** 역할을 할당합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

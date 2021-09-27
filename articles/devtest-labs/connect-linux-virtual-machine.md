@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 Linux 가상 머신에 연결
+title: Linux 가상 머신에 커넥트
 description: 랩(Azure DevTest Labs)에서 Linux 가상 머신에 연결하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.openlocfilehash: 52fe245f85034a4c6300615ad8fb6040c1168298
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 956c27235dcdf9d57c908ce2e840e3c77518875b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86531649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676051"
 ---
 # <a name="connect-to-a-linux-vm-in-your-lab-azure-devtest-labs"></a>랩(Azure DevTest Labs)에서 Linux VM에 연결
 이 문서에서는 랩에서 Linux VM에 연결하는 방법을 보여 줍니다. 

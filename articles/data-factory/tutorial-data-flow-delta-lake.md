@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
-ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 246b1988a7a632e9c3b332f7adbdf908f1084457
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642327"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798259"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용한 Delta Lake의 데이터 변환
 
@@ -56,24 +56,24 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **DeltaLake** 를 입력합니다.
 1. **작업** 창에서 **이동 및 변환** 을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
 
-    ![데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷입니다.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷입니다.":::
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택하고 데이터 흐름의 이름을 **DeltaLake** 로 설정합니다. 완료되었으면 마침을 클릭합니다.
 
-    ![새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷":::
 1. 파이프라인 캔버스의 상단 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
-    ![데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="데이터 흐름 디버그 슬라이더가 있는 위치를 보여주는 스크린샷.":::
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>데이터 흐름 캔버스의 변환 논리 빌드
+## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>데이터 흐름 캔버스의 변환 논리 빌드
 
 이 자습서에서 두 개의 데이터 흐름을 생성합니다. 첫 번째 데이터 흐름은 위의 영화 CSV 파일에서 새 Delta Lake를 생성하는 간단한 원본에서 싱크로의 흐름입니다. 마지막으로, 아래에서 이 흐름 디자인을 만들어 Delta Lake의 데이터를 업데이트합니다.
 
-![최종 흐름](media/data-flow/data-flow-tutorial-6.png &quot;최종 흐름")
+:::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="최종 흐름":::
 
 ### <a name="tutorial-objectives"></a>자습서 개체
 
@@ -95,7 +95,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 싱크 변환을 추가합니다.
 1. Delta는 인라인 데이터 세트 형식입니다. ADLS Gen2 스토리지 계정을 가리켜야 합니다.
    
-   ![인라인 데이터 세트](media/data-flow/data-flow-tutorial-5.png "인라인 데이터 세트")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="인라인 데이터 세트":::
 
 1. ADF가 Delta Lake를 만들려고 하는 스토리지 컨테이너의 폴더 이름을 선택합니다.
 1. 파이프라인 디자이너로 돌아가서 디버그를 클릭하여, 캔버스에 이 데이터 흐름 작업으로만 파이프라인을 디버그 모드로 실행합니다. 그러면 새 Delta Lake가 ADLS Gen2에 생성됩니다.
@@ -107,16 +107,16 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 동일한 파생 열에서 기존 연도를 가져오고 연도를 2021년으로 변경하여 2021년에 대한 영화를 만듭니다. 1960년을 선택하겠습니다.
 1. 세 개의 파생 열은 다음과 같이 표시됩니다.
 
-   ![파생 열](media/data-flow/data-flow-tutorial-2.png "파생 열")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="파생 열":::
    
 1. 대체 행 변환에서 ```Update, insert, delete, and upsert``` 정책이 만들어집니다. 파생 열 뒤에 대체 행 변환을 추가합니다.
 1. 대체 행 정책은 다음과 같이 표시됩니다.
 
-   ![행 변경](media/data-flow/data-flow-tutorial-3.png "행 변경")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="행 변경":::
    
 1. 각 대체 행 형식에 대한 적절한 정책을 설정했으므로 싱크 변환에 적절한 업데이트 규칙이 설정되었는지 확인합니다.
 
-   ![싱크](media/data-flow/data-flow-tutorial-4.png "sink")
+   :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="싱크":::
    
 1. 여기서는 ADLS Gen2 데이터 레이크에 대한 Delta Lake 싱크를 사용하고 삽입, 업데이트, 삭제를 허용합니다. 
 1. 키 열은 Movie 기본 키 열 및 연도 열로 구성된 복합 키입니다. 1960년 행을 복제하여 가짜 2021년 영화를 만들기 때문입니다. 이렇게 하면 고유성을 제공하여 기존 행을 조회할 때 충돌을 방지합니다.
@@ -126,4 +126,4 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 ## <a name="next-steps"></a>다음 단계
 
-[데이터 흐름 식 언어](data-flow-expression-functions.md)에 대한 자세한 정보를 알아봅니다.
+[Data Flow 표현 언어](data-flow-expression-functions.md)에 대한 자세한 정보를 알아봅니다.

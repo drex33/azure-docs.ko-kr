@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: da746d14d891c875c9bed49c94e8b408d956e29e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987887"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811256"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -35,6 +35,8 @@ ms.locfileid: "107987887"
 * **초대가 Azure 로그인 이메일 주소 대신 이메일 별칭으로 전송됩니다.** Azure Data Share 서비스를 이미 등록했거나 Azure 테넌트에서 데이터 공유 리소스를 만들었지만 여전히 초대를 볼 수 없는 경우 이메일 별칭이 수신자로 목록에 추가되었을 수 있습니다. 데이터 공급자에 문의하여 이메일 별칭이 아닌 Azure 로그인 이메일 주소로 초대가 전송되는지 확인합니다.
 
 * **초대가 이미 수락되었습니다.** 이메일의 링크를 클릭하면 Azure Portal의 **데이터 공유 초대** 페이지로 이동합니다. 이 페이지에는 보류 중인 초대 목록만 나타납니다. 수락된 초대가 페이지에 표시되지 않습니다. 받은 공유를 보고 대상 Azure Data Explorer 클러스터 설정을 구성하려면 초대를 수락하는 데 사용한 데이터 공유 리소스로 이동합니다.
+
+* **사용자는 테 넌 트의 게스트 사용자입니다.** 테 넌 트의 게스트 사용자 인 경우 초대를 표시 하기 전에 테 넌 트의 메일 주소를 확인 해야 합니다. 확인 된 후에는 12 개월 동안 유효 합니다. 
 
 ## <a name="creating-and-receiving-shares"></a>공유 만들기 및 받기
 

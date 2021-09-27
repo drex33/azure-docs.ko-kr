@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 09/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4643502a16982fc3b3c2a659a4dbc127e515d349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 917f60440d98924e5339f29fb99587eacf40b415
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535800"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766258"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>P2S 인증서 인증 연결용 클라이언트 인증서 설치
 
-P2S VPN 게이트웨이가 인증서 인증을 요구하도록 구성된 경우 각 클라이언트 컴퓨터에는 로컬로 설치된 클라이언트 인증서가 있어야 합니다. 이 문서는 클라이언트 인증서를 설치하는 데 도움을 줍니다.
+P2S VPN 게이트웨이가 인증서 인증을 요구하도록 구성된 경우 각 클라이언트 컴퓨터에는 로컬로 설치된 클라이언트 인증서가 있어야 합니다. 이 문서는 클라이언트 컴퓨터에 로컬로 클라이언트 인증서를 설치하는 데 도움이 됩니다. [Intune을](/mem/intune/configuration/vpn-settings-configure) 사용하여 특정 VPN 클라이언트 프로필 및 인증서를 설치할 수도 있습니다.
 
 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하려면 다음 문서 중 하나를 참조하세요.
 

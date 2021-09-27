@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: c26de68bc30e8ebfa6de92c8e142e6ca69088b26
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: d5b3f793f6fdf7fe1182c700da8635df9b2ef9a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223353"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820550"
 ---
 # <a name="determine-your-update-strategy-for-azure-percept-dk"></a>Azure Percept DK에 대한 업데이트 전략 결정
 
@@ -20,7 +20,7 @@ Azure Percept DK 소프트웨어 업데이트를 최신 상태로 유지하기 �
 
 USB 케이블을 통한 업데이트는 개발 키트에 새로 설치합니다. 새 이미지가 배포된 후 기존 구성과 각 파티션의 모든 사용자 데이터가 지워집니다. 그렇게 하려면 C타입 USB 케이블을 사용하여 개발 키트를 호스트 시스템에 연결합니다. 호스트 시스템은 Windows/Linux 컴퓨터일 수 있습니다.  이 업데이트 방법을 공장 초기화로 사용할 수도 있습니다. 그렇게 하기 위해 정확히 동일한 버전을 개발 키트에 재배포했습니다. USB 케이블 업데이트에 대한 자세한 내용은 [USB-C 케이블 연결을 통해 Azure Percept DK 업데이트](./how-to-update-via-usb.md)를 참조하세요.
 
-OTA 업데이트는 [Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-resources) Azure 서비스를 기반으로 합니다. 이 유형의 업데이트를 수행하려면 개발 키트를 Azure IoT Hub에 연결합니다. 구성 및 사용자 데이터는 OTA 업데이트 후에도 보존됩니다. OTA 업데이트 수행에 대한 자세한 내용은 [Azure Percept DK OTA(무선) 업데이트](./how-to-update-over-the-air.md)를 참조하세요.
+OTA 업데이트는 [Device Update for IoT Hub](../iot-hub-device-update/device-update-resources.md) Azure 서비스를 기반으로 합니다. 이 유형의 업데이트를 수행하려면 개발 키트를 Azure IoT Hub에 연결합니다. 구성 및 사용자 데이터는 OTA 업데이트 후에도 보존됩니다. OTA 업데이트 수행에 대한 자세한 내용은 [Azure Percept DK OTA(무선) 업데이트](./how-to-update-over-the-air.md)를 참조하세요.
 
 USB 케이블 업데이트 및 OTA 업데이트 모두에 대한 장단점을 확인한 다음 다양한 시나리오에 대한 Microsoft 권장 사항을 따릅니다.
 

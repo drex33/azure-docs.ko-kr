@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c0a64d5756895f18cbb1285586570ac72dd1c12e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 62442749ccff4a588daef57c7e3ecbc374ff5fde
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536652"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061735"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance에 연결하기
 
@@ -56,6 +56,9 @@ Azure Data Studio를 열고 위의 외부 엔드포인트 IP 주소와 포트 �
 
 > [!NOTE]
 > Azure Data Studio 사용하여 [SQL Managed Instance 대시보드를 볼 수 있습니다](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
+
+> [!NOTE]
+> Kubernetes 매니페스트를 사용 하 여 만든 관리 되는 인스턴스에 연결 하기 위해 base64 인코딩 형식으로 sqlcmd에 사용자 이름 및 암호를 제공 해야 합니다.
 
 SQLCMD, Linux 또는 Windows를 사용하여 연결하려면 다음과 같은 명령을 사용할 수 있습니다. 프롬프트가 표시되면 SQL 암호를 입력합니다.
 

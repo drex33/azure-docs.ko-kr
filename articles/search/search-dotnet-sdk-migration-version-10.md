@@ -8,14 +8,14 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ff3398d326de07ea97b5e854efab1478ef4bad4e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002813"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665020"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Azure Cognitive Search .NET SDK 버전 10으로 업그레이드
 
@@ -159,4 +159,4 @@ var skillset = new Skillset()
 
 - 쉐이퍼 기술 변경 내용이 새 코드나 기존 코드에 영향을 미칠 수 있습니다. 다음 단계로, 입력 구조를 보여 주는 [쉐이퍼 기술 JSON 정의 예제](cognitive-search-skill-shaper.md)를 다시 확인해 보세요.
 - [AI 보강 개요](cognitive-search-concept-intro.md)를 참조하세요.
-- SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대해 자유롭게 도움을 요청해 주세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 이슈 제목에 "[Azure Cognitive Search]"라는 접두사를 지정해야 합니다.
+- SDK에 대한 귀하의 피드백을 환영합니다! 만약 문제가 발생하면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대해 자유롭게 도움을 요청해 주십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 이슈 제목에 "[Azure Cognitive Search]"라는 접두사를 지정해야 합니다.

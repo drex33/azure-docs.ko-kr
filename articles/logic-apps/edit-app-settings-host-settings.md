@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 731fe8f29fc4e67e2d74d46702768e642928ae09
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 228e0ac6243ae25463a81967c6d5cbcd903ad2ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539565"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824166"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에서 논리 앱의 호스트 및 앱 설정 편집
 
@@ -23,7 +24,7 @@ ms.locfileid: "122539565"
 
 ## <a name="app-settings-parameters-and-deployment"></a>앱 설정, 매개 변수 및 배포
 
-*다중 테넌트* Azure Logic Apps에서 배포는 논리 앱과 인프라 둘 다에 대한 리소스 프로비전을 결합하고 처리하는 ARM 템플릿(Azure Resource Manager 템플릿)을 바탕으로 합니다. 하지만 이러한 설계는 다양한 개발, 테스트 및 프로덕션 환경에서 논리 앱의 환경 변수를 유지해야 하는 경우에 문제가 됩니다. 배포 시 ARM 템플릿의 모든 항목이 정의됩니다. 따라서 한 가지 변수만 변경해야 하더라도 모든 항목을 다시 배포해야 합니다.
+*다중 테넌트* Azure Logic Apps에서 배포는 논리 앱과 인프라 둘 다에 대한 리소스 프로비전을 결합하고 처리하는 ARM 템플릿(Azure Resource Manager 템플릿)을 바탕으로 합니다. 이 디자인은 다양한 개발, 테스트 및 프로덕션 환경에서 논리 앱에 대한 환경 변수를 유지 관리해야 할 때 문제가 됩니다. 배포 시 ARM 템플릿의 모든 항목이 정의됩니다. 따라서 한 가지 변수만 변경해야 하더라도 모든 항목을 다시 배포해야 합니다.
 
 *단일 테넌트* Azure Logic Apps에서는 앱과 인프라 간에 리소스 프로비전을 구분할 수 있으므로 배포가 더 쉬워집니다. *매개 변수* 를 사용하여 환경 간에 바뀔 수 있는 값을 추출할 수 있습니다. 워크플로에서 사용할 매개 변수를 정의하면 먼저 워크플로 설계에 집중하고 나중에 환경별 변수를 삽입할 수 있습니다. 앱 설정 및 매개 변수를 사용하면 런타임에서 환경 변수를 호출하고 참조할 수 있습니다. 이렇게 하면 자주 다시 배포할 필요가 없습니다.
 
@@ -234,7 +235,8 @@ Visual Studio Code에서는 논리 앱 프로젝트의 루트 수준에서 **hos
 | 설정 | 기본값 | 설명 |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100,000개 배열 항목) | 배열 형식 변수의 최대 항목 수를 설정합니다. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | 상태 저장 워크플로: `104857600`자 <p><p>상태 비저장 워크플로: `1024`자 | 변수에 저장할 수 있는 콘텐츠의 최대 크기(문자 수)를 설정합니다. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | 상태 저장 워크플로: `104857600`자 | 상태 저장 워크플로에서 사용할 때 변수가 저장할 수 있는 콘텐츠의 최대 크기 (문자 수)를 설정 합니다. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | 상태 비저장 워크플로: `1024`자 | 상태 비저장 워크플로에서 사용할 때 변수가 저장할 수 있는 콘텐츠의 최대 크기 (문자 수)를 설정 합니다. |
 ||||
 
 <a name="http-webhook"></a>

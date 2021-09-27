@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 062be43bda26169d27740777bdb60d335c9923e6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: a04c205370ee07900b649ed0a3f6f4bf3a892685
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489890"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577827"
 ---
 # <a name="example-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건 예(미리 보기)
 
@@ -96,7 +96,7 @@ Get-AzStorageBlob -Container <containerName> -Blob <blobName> -Context $bearerCt
 
 새 Blob을 만들 수 있는 두 가지 권한이 있으므로 둘 다 대상으로 지정해야 합니다. 다음 권한 중 하나를 포함하는 모든 역할 할당에 이 조건을 추가해야 합니다.
 
-- /blobs/write(만들기 또는 업데이트) 
+- /blobs/write(만들기 또는 업데이트)
 - /blobs/add/action(만들기)
 
 ![새 Blob에는 태그가 포함되어야 한다는 것을 보여주는 예제 2 조건의 다이어그램](./media/storage-auth-abac-examples/example-2.png)

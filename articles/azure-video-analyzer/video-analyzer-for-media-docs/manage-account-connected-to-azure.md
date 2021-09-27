@@ -1,20 +1,15 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 계정 관리
-titleSuffix: Azure Video Analyzer for Media
 description: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 관리하는 방법을 알아봅니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: how-to
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 836cff6a8b55378089a6215b9d0c25e3fcac76c4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: b5176f862f5c65c7721a59568863619a10527f8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305178"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573182"
 ---
 # <a name="manage-a-video-analyzer-for-media-account-connected-to-azure"></a>Azure에 연결된 Video Analyzer for Media 계정 관리.
 
@@ -53,7 +48,7 @@ Videos Indexer 계정이 Azure에 연결된 경우 다음과 같은 항목이 �
 
 [Video Analyzer for Media](https://www.videoindexer.ai/) 페이지의 **Azure Media Services에 대한 연결 업데이트** 대화 상자에서 다음 설정에 대한 값을 제공하라는 메시지가 표시됩니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
 |Azure 구독 ID|구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 클릭하고 "구독"을 검색합니다. **구독** 을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|

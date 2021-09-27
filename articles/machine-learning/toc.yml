@@ -213,6 +213,8 @@
         - name: 엔터프라이즈 보안 개요
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: 보안 작업 영역 트래픽 흐름
+          href: concept-secure-network-traffic-flow.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Azure Policy의 보안 컨트롤
@@ -243,7 +245,7 @@
               displayName: 'vnet, workspace, container instance, container registry'
               href: how-to-secure-workspace-vnet.md
             - name: 보안 교육 환경
-              displayName: vnet
+              displayName: 'vnet, No public IP'
               href: how-to-secure-training-vnet.md
             - name: 보안 추론 환경
               displayName: vnet
@@ -295,7 +297,7 @@
         - name: 컴퓨팅 리소스 만들기 및 관리
           items:
             - name: 컴퓨팅 인스턴스
-              displayName: compute target
+              displayName: 'compute target, No public IP'
               href: how-to-create-manage-compute-instance.md
             - name: 컴퓨팅 클러스터
               displayName: 'compute target, low priority, managed identity'
@@ -541,7 +543,7 @@
                 - name: 관리형 온라인 엔드포인트 모니터링
                   href: how-to-monitor-online-endpoints.md
                 - name: 관리형 온라인 엔드포인트 문제 해결
-                  href: how-to-troubleshoot-managed-online-endpoints.md
+                  href: how-to-troubleshoot-online-endpoints.md
             - name: Batch
               items:
                 - name: 일괄 처리 엔드포인트를 사용한 일괄 처리 채점

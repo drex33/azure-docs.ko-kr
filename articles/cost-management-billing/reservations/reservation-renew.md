@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: dbeb1a776aa5d813806cec6622e1ad1e515ccfc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623687"
 ---
 # <a name="automatically-renew-reservations"></a>예약 자동 갱신
 
@@ -44,7 +44,7 @@ Azure Portal > **Reservations** 로 이동합니다.
 
 - 기존 예약의 소유자여야 합니다.
 - 예약 범위가 단일 구독 또는 리소스 그룹으로 지정된 경우에는 구독의 소유자여야 합니다.
-- 공유 범위가 있으면 구독의 소유자여야 합니다.
+- 공유 범위 또는 관리 그룹 범위가 있는 경우 구독의 소유자 여야 합니다.
 
 ## <a name="default-renewal-settings"></a>기본 갱신 설정
 
@@ -85,7 +85,7 @@ Azure는 만료되는 예약에서 새 예약으로 권한을 복사합니다. �
 
 ## <a name="renewal-notification"></a>갱신 알림
 
-갱신 알림 이메일은 만료 30일 전과 만료 날짜에 다시 전송됩니다. 보내는 이메일 주소는 `azure-noreply@microsoft.com`입니다. 이메일 주소를 안전한 보낸 사람 또는 허용 목록에 추가할 수 있습니다.
+갱신 알림 이메일은 만료 30일 전과 만료 날짜에 다시 전송됩니다. 보내는 이메일 주소는 `azure-noreply@microsoft.com`입니다. 전자 메일 주소를 안전한 발신자 또는 allowlist에 추가 해야 할 수 있습니다.
 
 이메일은 구매 방법에 따라 다른 사람에게 전송됩니다.
 

@@ -4,16 +4,16 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 09/16/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 6271fcb1702d14913578f6cc535b1dd74ba3205b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c6620f95c9ec217771cd14c756e60fd0eb6d90c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567344"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659283"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -53,7 +53,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | 브라질 남부       | 프랑스 중부       | 남아프리카 북부* | 오스트레일리아 동부 |
 | 캐나다 중부     | 독일 중서부 |                     | 인도 중부* |
 | 미국 중부         | 북유럽         |                     | 일본 동부     |
-| 미국 동부            | 노르웨이 동부*         |                     | 한국 중부* |
+| 미국 동부            | 노르웨이 동부          |                     | 한국 중부* |
 | 미국 동부 2          | 영국 남부             |                     | 동남아시아 |
 | 미국 중남부 | 서유럽          |                     |                |
 | US Gov 버지니아    |                      |                     |                |
@@ -120,10 +120,12 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 |     제품                                                    | 복원력             |
 |-----------------------------------------------------------------|:----------------------------:|
+|     [App Service](../app-service/how-to-zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [App Service Environment](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
 |     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
+|     [Azure Batch](/azure/batch/create-pool-availability-zones)                                               | :large_blue_diamond:  |
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
@@ -136,17 +138,22 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     [Azure 디스크 암호화](../virtual-machines/disks-redundancy.md)                                       | :large_blue_diamond:  |
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
+|     [Azure Functions](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)     | :large_blue_diamond:  |
 |     [AKS(Azure Kubernetes Service)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
 |     [AMS(Azure Media Services)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
+|     [Azure Monitor](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
+|     [Azure Monitor: Application Insights](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
+|     [Azure Monitor: Log Analytics](/azure/azure-monitor/logs/availability-zones)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
-|     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
-|     Azure SQL: [가상 머신](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |
-|     [Azure 웹 애플리케이션 방화벽](../firewall/deploy-availability-zone-powershell.md)                              | :large_blue_diamond:  |
-|     [Container Registry](../container-registry/zone-redundancy.md)                                          | :large_blue_diamond:  |
-|     [Event Grid](../event-grid/overview.md)                                                  | :large_blue_diamond:  |
-|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
-|     Network Watcher: [트래픽 분석](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
-|     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
+|     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                       | :large_blue_diamond:  |
+|     Azure SQL: [가상 머신](../azure-sql/database/high-availability-sla.md)                                                                 | :large_blue_diamond:  |
+|     [Azure 웹 애플리케이션 방화벽](../firewall/deploy-availability-zone-powershell.md)                                                         | :large_blue_diamond:  |
+|     [Container Registry](../container-registry/zone-redundancy.md)                                                                               | :large_blue_diamond:  |
+|     [Event Grid](../event-grid/overview.md)                                                                                                      | :large_blue_diamond:  |
+|     [HDInsight](/azure/hdinsight/hdinsight-use-availability-zones)                                                                               | :large_blue_diamond:  |
+|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                     | :large_blue_diamond:  |
+|     Network Watcher: [트래픽 분석](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                  | :large_blue_diamond:  |
+|     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                                      | :large_blue_diamond:  |
 |     [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |
 |     Virtual Machines: [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)                     | :large_blue_diamond:  |

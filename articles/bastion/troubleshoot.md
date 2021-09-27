@@ -1,5 +1,5 @@
 ---
-title: Azure Bastion 문제 해결 | Microsoft Docs
+title: Azure Bastion 문제 해결
 description: Azure Bastion 문제를 해결하는 방법을 알아봅니다.
 services: bastion
 author: charwen
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 6b8ce0014524a407d6d35b85fed3bf5f41b556cf
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: 86be88a7e8900ef871af1a2ad2c1c301f7487042
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567547"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673904"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Azure Bastion 문제 해결
 
@@ -20,7 +20,7 @@ ms.locfileid: "122567547"
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>AzureBastionSubnet에서 NSG를 만들 수 없음
 
-**Q:** Azure Bastion 서브넷에서 NSG를 만들려고 하면 다음과 같은 오류가 발생합니다. ‘네트워크 보안 그룹 <NSG name>에 Azure Bastion 서브넷 AzureBastionSubnet에 필요한 규칙이 없습니다.’
+**Q:** Azure Bastion 서브넷에서 NSG를 만들려고 하면 다음과 같은 오류가 발생합니다. ‘네트워크 보안 그룹 \<NSG name\>에 Azure Bastion 서브넷 AzureBastionSubnet에 필요한 규칙이 없습니다.’
 
 **A:** NSG를 만들고 *AzureBastionSubnet* 에 적용하는 경우 NSG에 필요한 규칙을 추가했는지 확인합니다. 필요한 규칙 목록은 [NSG 액세스 및 Azure Bastion 사용](./bastion-nsg.md)을 참조하세요. 규칙을 추가하지 않으면 NSG 만들기/업데이트에 실패합니다.
 
@@ -73,7 +73,7 @@ The key's randomart image is:
 
 **Q:** 내 가상 머신에 연결할 수 없습니다(위의 문제가 발생하지 않음).
 
-**A:** Azure Portal에서 Azure Bastion 리소스의 **연결 문제 해결** 탭(**모니터링** 섹션)으로 이동하여 연결 문제를 해결할 수 있습니다. Network Watcher 연결 문제 해결은 VM(가상 머신)에서 VM, FQDN(정규화된 도메인 이름), URI 또는 IPv4 주소로의 직접 TCP 연결을 확인하는 기능을 제공합니다. 시작하려면 연결을 시작할 원본과 연결할 대상을 선택한 다음 "확인"을 선택합니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+**A:** Azure Portal에서 Azure Bastion 리소스의 **연결 문제 해결** 탭(**모니터링** 섹션)으로 이동하여 연결 문제를 해결할 수 있습니다. Network Watcher 연결 문제 해결은 VM(가상 머신)에서 VM, FQDN(정규화된 도메인 이름), URI 또는 IPv4 주소로의 직접 TCP 연결을 확인하는 기능을 제공합니다. 시작하려면 연결을 시작할 원본과 연결할 대상을 선택한 다음 "확인"을 선택합니다. [자세히 알아보기](../network-watcher/network-watcher-connectivity-overview.md).
 
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>파일 전송 문제

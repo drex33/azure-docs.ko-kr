@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: b6d0b4cb58562540cd3b2024631bb9cec2d320c9
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 3cb89cd00c433f39901a0564e9fc8023dcbb4403
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607050"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629050"
 ---
 # <a name="configure-and-verify-dns-name-resolution-for-azure-purview-private-endpoints"></a>Azure Purview 프라이빗 엔드포인트에 대한 DNS 이름 확인 구성 및 확인
 
@@ -31,17 +31,21 @@ ms.locfileid: "122607050"
 
 ## <a name="deployment-options"></a>배포 옵션 
 
-Azure Purview 계정에 프라이빗 엔드포인트를 사용할 때 내부 이름 확인 메시지를 보내려면 다음 옵션 중 하나를 사용하세요.
+다음 옵션 중 하나를 사용 하 여 Azure 부서의 범위 계정에 대 한 개인 끝점을 사용 하는 경우 내부 이름 확인을 설정 합니다.
 
--  프라이빗 엔드포인트 배포의 Azure 환경 부분에 [새 Azure 개인 DNS 영역을 배포](#option-1---deploy-new-azure-private-dns-zones)합니다. (기본 옵션)
+- 프라이빗 엔드포인트 배포의 Azure 환경 부분에 [새 Azure 개인 DNS 영역을 배포](#option-1---deploy-new-azure-private-dns-zones)합니다. (기본 옵션)
 - [기존 Azure 개인 DNS 영역을 사용](#option-2---use-existing-azure-private-dns-zones)합니다. 다른 구독이나 동일한 구독 내에서도 허브 및 스포크 모델의 프라이빗 엔드포인트를 사용하는 경우 이 옵션을 사용합니다. 
 - DNS 전달자를 사용하지 않고 대신 온-프레미스 DNS 서버에서 직접 A 레코드를 관리하는 경우에는 [자체 DNS 서버를 사용](#option-3---use-your-own-dns-servers)합니다.
 
 ## <a name="option-1---deploy-new-azure-private-dns-zones"></a>옵션 1 - 새 Azure 개인 DNS 영역 배포  
 
+### <a name="deploy-new-azure-private-dns-zones"></a>새 Azure 사설 DNS 영역 배포
 내부 이름 확인을 사용하도록 설정하려면 Azure Purview 계정이 배포된 Azure 구독 내에 필요한 Azure DNS 영역을 배포하면 됩니다. 
 
-포털 및 계정 프라이빗 엔드포인트를 만들 때 Azure Purview에 대한 DNS CNAME 리소스 레코드는 접두사가 `privatelink`인 하위 도메인의 별칭으로 자동 업데이트됩니다. 또한 기본적으로 프라이빗 엔드포인트에 대한 DNS A 리소스 레코드를 포함하여 privatelink.purview.azure.com으로 Azure Purview의 `privatelink` 하위 도메인에 해당하는 [개인 DNS 영역](../dns/private-dns-overview.md)을 만듭니다. 수집 프라이빗 엔드포인트를 사용하도록 설정하면 관리되는 리소스에 추가 DNS 영역이 필요합니다. 
+포털 및 계정 프라이빗 엔드포인트를 만들 때 Azure Purview에 대한 DNS CNAME 리소스 레코드는 접두사가 `privatelink`인 하위 도메인의 별칭으로 자동 업데이트됩니다. 
+
+기본적으로 부서의 범위 계정에 대 한 개인 끝점을 배포 하는 동안 개인 [](../dns/private-dns-overview.md) `privatelink` 끝점에 대 한 dns a 리소스 레코드를 포함 하 여 Azure 부서의 범위의 하위 도메인에 해당 하는 개인 dns 영역을 만듭니다.
+수집 프라이빗 엔드포인트를 사용하도록 설정하면 관리되는 리소스에 추가 DNS 영역이 필요합니다. 
 
 다음 표에서는 배포 중에  _DNS 통합_ 을 사용하도록 설정하는 경우, Azure Purview 계정에 대한 프라이빗 엔드포인트 구성의 일부로 배포되는 Azure 개인 DNS 영역 및 DNS A 레코드의 예를 보여줍니다. 
 
@@ -52,6 +56,16 @@ Azure Purview 계정에 프라이빗 엔드포인트를 사용할 때 내부 이
 |수집     |Purview 관리형 스토리지 계정 - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
 |수집   |Purview 관리형 스토리지 계정 - 큐         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |수집     |Purview 관리형 스토리지 계정 - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
+
+### <a name="validate-virtual-network-links-on-azure-private-dns-zones"></a>Azure 사설 DNS 영역에서 virtual network 링크 유효성 검사
+
+개인 끝점 배포가 완료 되 면 해당 하는 모든 Azure 사설 DNS 영역에 개인 끝점이 배포 된 Azure virtual network에 대 한 [가상 네트워크 링크가](../dns/private-dns-virtual-network-links.md) 있는지 확인 합니다.
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-link.png" alt-text="DNS 영역에 대 한 가상 네트워크 링크를 보여 주는 스크린샷":::
+
+자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요.
+
+### <a name="verify-internal-name-resolution"></a>내부 이름 확인 확인
 
 프라이빗 엔드포인트를 사용하여 가상 네트워크 외부에서 Azure Purview 엔드포인트 URL을 확인하는 경우 Azure Purview의 퍼블릭 엔드포인트로 확인됩니다. 프라이빗 엔드포인트를 호스트하는 가상 네트워크에서 확인하는 경우 Azure Purview 엔드포인트 URL은 프라이빗 엔드포인트의 IP 주소로 확인됩니다.
 
@@ -73,9 +87,12 @@ Azure Purview 계정에 프라이빗 엔드포인트를 사용할 때 내부 이
 | `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
 
 ## <a name="option-2---use-existing-azure-private-dns-zones"></a>옵션 2 - 기존 Azure 개인 DNS 영역 사용
-Azure Purview 프라이빗 엔드포인트를 배포하는 동안 기존 Azure 개인 DNS 영역을 사용하여 _프라이빗 DNS 통합_ 을 선택할 수 있습니다. 이는 프라이빗 엔드포인트가 Azure의 다른 서비스에 사용되는 조직의 일반적인 경우입니다. 이 경우 프라이빗 엔드포인트를 배포하는 동안 새 DNS 영역을 만드는 대신 기존 DNS 영역을 선택해야 합니다. 
 
-이는 조직에서 모든 Azure 프라이빗 DNS 영역에 중앙 또는 허브 구독을 사용하는 경우에도 적용됩니다.
+### <a name="use-existing-azure-private-dns-zones"></a>기존 Azure 사설 DNS 영역 사용
+
+Azure 부서의 범위 개인 끝점을 배포 하는 동안 기존 Azure 사설 DNS 영역을 사용 하 여 _사설 DNS 통합_ 을 선택할 수 있습니다. 이는 프라이빗 엔드포인트가 Azure의 다른 서비스에 사용되는 조직의 일반적인 경우입니다. 이 경우 프라이빗 엔드포인트를 배포하는 동안 새 DNS 영역을 만드는 대신 기존 DNS 영역을 선택해야 합니다. 
+
+이 시나리오는 조직에서 모든 Azure 사설 DNS 영역에 대해 중앙 또는 허브 구독을 사용 하는 경우에도 적용 됩니다.
 
 다음 목록에서는 Purview 프라이빗 엔드포인트에 필요한 Azure DNS 영역 및 A 레코드를 보여줍니다.
 
@@ -90,14 +107,53 @@ Azure Purview 프라이빗 엔드포인트를 배포하는 동안 기존 Azure �
 |수집   |Purview 관리형 스토리지 계정 - 큐         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |수집     |Purview 관리형 스토리지 계정 - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
 
-자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)에서 [사용자 지정 DNS 서버가 없는 가상 네트워크 워크로드](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) 및 [DNS 전달자를 사용하는 온-프레미스 워크로드](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) 시나리오를 참조하세요.
-
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-diagram.png" alt-text="Azure Purview 이름 확인을 보여주는 다이어그램"lightbox="media/catalog-private-link/purview-name-resolution-diagram.png":::
 
-네트워크에서 사용자 지정 DNS 서버를 사용하는 경우, 클라이언트는 Azure Purview 엔드포인트의 FQDN을 프라이빗 엔드포인트 IP 주소로 확인할 수 있어야 합니다. 프라이빗 링크 하위 도메인을 가상 네트워크의 개인 DNS 영역에 위임하도록 DNS 서버를 구성합니다. 또는 프라이빗 엔드포인트 IP 주소로 `PurviewA.privatelink.purview.azure.com`에 대한 레코드를 구성합니다.
-프라이빗 엔드포인트 배포가 완료되면 프라이빗 엔드포인트가 배포된 Azure 가상 네트워크에 해당하는 Azure 개인 DNS 영역에서 이름 확인을 위한 [링크](../dns/private-dns-virtual-network-links.md)가 있는지 확인합니다. 
+자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)에서 [사용자 지정 DNS 서버가 없는 가상 네트워크 워크로드](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) 및 [DNS 전달자를 사용하는 온-프레미스 워크로드](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) 시나리오를 참조하세요.
+
+### <a name="verify-virtual-network-links-on-azure-private-dns-zones"></a>Azure 사설 DNS 영역에서 virtual network 링크 확인
+
+개인 끝점 배포가 완료 되 면 해당 하는 모든 Azure 사설 DNS 영역에 개인 끝점이 배포 된 Azure virtual network에 대 한 [가상 네트워크 링크가](../dns/private-dns-virtual-network-links.md) 있는지 확인 합니다.
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-link.png" alt-text="DNS 영역에 대 한 가상 네트워크 링크를 보여 주는 스크린샷":::
 
 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요.
+
+### <a name="configure-dns-forwarders-if-custom-dns-is-used"></a>사용자 지정 DNS를 사용 하는 경우 DNS 전달자 구성
+
+또한 자체 호스팅 integration runtime VM 또는 관리 PC가 있는 Azure virtual network에서 DNS 구성의 유효성을 검사 해야 합니다. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-custom-dns.png" alt-text="Azure 가상 네트워크 사용자 지정 DNS를 보여 주는 다이어그램":::
+
+- _기본값으로_ 구성 된 경우에는이 단계에서 추가 작업이 필요 하지 않습니다.
+
+-  사용자 지정 DNS 서버를 사용 하는 경우 다음 영역에 대 한 DNS 서버 내에 해당 DNS 전달자를 추가 해야 합니다.
+  
+   -  Purview.azure.com
+   -  Blob.core.windows.net
+   -  Queue.core.windows.net
+   -  Servicebus.windows.net
+
+### <a name="verify-internal-name-resolution"></a>내부 이름 확인 확인
+
+프라이빗 엔드포인트를 사용하여 가상 네트워크 외부에서 Azure Purview 엔드포인트 URL을 확인하는 경우 Azure Purview의 퍼블릭 엔드포인트로 확인됩니다. 프라이빗 엔드포인트를 호스트하는 가상 네트워크에서 확인하는 경우 Azure Purview 엔드포인트 URL은 프라이빗 엔드포인트의 IP 주소로 확인됩니다.
+
+예를 들어 Azure Purview 계정 이름이 'PurviewA'인 경우 프라이빗 엔드포인트를 호스트하는 가상 네트워크 외부에서 확인되면 다음과 같습니다.
+
+| Name | 유형 | 값 |
+| ---------- | -------- | --------------- |
+| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
+| `PurviewA.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| \<Purview public endpoint\> | A | \<Purview public IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+
+프라이빗 엔드포인트를 호스트하는 가상 네트워크에서 확인하는 경우 PurviewA에 대한 DNS 리소스 레코드는 다음과 같이 확인됩니다.
+
+| Name | 유형 | 값 |
+| ---------- | -------- | --------------- |
+| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
+| `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
+| `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
 
 ## <a name="option-3---use-your-own-dns-servers"></a>옵션 3 - 자체 DNS 서버 사용
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 381cc0d1114e60cbb9678c0df9a66176f3b51e99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627599"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 Key Vault 참조 사용
 
@@ -42,6 +42,9 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
     ```
 
 2. 애플리케이션에서 액세스할 네트워크 또는 서브넷에 사용할 자격 증명 모음 구성 계정이 있는지 확인합니다.
+
+> [!NOTE]
+> Windows 컨테이너는 현재 VNet 통합에 대 한 Key Vault 참조를 지원 하지 않습니다.
 
 ### <a name="access-vaults-with-a-user-assigned-identity"></a>사용자가 할당한 ID를 사용하여 자격 증명 모음에 액세스
 

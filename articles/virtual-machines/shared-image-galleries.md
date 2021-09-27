@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: c94e040d5047b25b8d260792fd362e50a29b9601
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1886015d88fb292de64c9e124fbd7609c6a27abe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696293"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780874"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -125,7 +125,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 이제 Shared Image Gallery를 사용하면 가상 머신 확장 집합에 최대 1,000개의 VM 인스턴스를 배포할 수 있습니다(관리형 이미지는 600개까지). 이미지 복제본은 보다 나은 배포 성능, 안정성 및 일관성을 제공합니다.   지역에 필요한 규모에 따라 각 대상 지역에 서로 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이기 때문에 이렇게 하면 복제본을 추가할 때마다 선형적으로 배포를 확장할 수 있습니다. 두 개의 이미지 또는 지역이 똑같지는 않지만, 지역에서 복제본을 사용하는 방법에 대한 일반적인 지침은 다음과 같습니다.
 
 - 가상 머신 확장 집합이 아닌 배포의 경우 - 동시에 20개의 VM을 만들 때마다 복제본 하나를 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 120개의 VM을 만드는 경우 이미지 복제본을 6개 이상 유지하는 것이 좋습니다. 
-- 가상 머신 확장 집합 배포의 경우 - 최대 600개 인스턴스를 배포하는 확장 집합마다 하나 이상의 복제본을 유지하는 것이 좋습니다. 예를 들어 한 지역에서 동일한 이미지를 사용하여 동시에 5개의 확장 집합을 만들고 확장 집합마다 VM 600개를 배포하는 경우 이미지 복제본을 5개 이상 유지하는 것이 좋습니다. 
+- Virtual Machine Scale Set 배포의 경우 - 동시에 만드는 각 확장 집합에 대해 하나의 복제본을 유지하는 것이 좋습니다.
 
 이미지 크기, 콘텐츠, OS 형식 등의 요소를 감안하여 항상 복제본 수를 초과 프로비저닝하는 것이 좋습니다.
 
@@ -238,13 +238,13 @@ Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery �
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-자세한 내용은 [Azure CLI](update-image-resources-cli.md) 또는 [PowerShell](update-image-resources-powershell.md)을 사용하여 **갤러리 리소스 관리** 를 참조하세요.
+자세한 내용은 [이미지 리소스 나열, 업데이트 및 삭제](update-image-resources.md)를 참조 하세요.
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?
  
 예. 가지고 있는 이미지의 유형에 따라 3가지 시나리오가 있습니다.
 
- 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [Azure CLI](image-version-managed-image-cli.md) 또는 [PowerShell](image-version-managed-image-powershell.md)을 사용하여 **관리형 이미지를 이미지 버전으로 마이그레이션** 을 참조하세요.
+ 시나리오 1: 관리형 이미지가 있는 경우 해당 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 자세한 내용은 [만들기 및 이미지 정의 및 이미지 버전](image-version.md)을 참조 하세요.
 
  시나리오 2: 비관리형 이미지가 있는 경우 해당 이미지에서 관리형 이미지를 만든 다음, 관리형 이미지에서 이미지 정의와 이미지 버전을 만들 수 있습니다. 
 
@@ -255,11 +255,11 @@ Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery �
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
-예, [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md) 또는 API를 사용하여 특수화된 이미지에서 VM을 만들 수 있습니다. 
+예, [특수 이미지](windows/create-vm-specialized.md)에서 VM을 만들 수 있습니다. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Shared Image Gallery 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
 
-아니요, Shared Image Gallery 리소스를 다른 구독으로 이동할 수는 없습니다. [Azure CLI](image-version-another-gallery-cli.md) 또는 [PowerShell](image-version-another-gallery-powershell.md)을 사용하여 갤러리의 이미지 버전을 다른 지역에 복제하거나 다른 갤러리의 이미지를 복사할 수 있습니다.
+아니요, Shared Image Gallery 리소스를 다른 구독으로 이동할 수는 없습니다. 갤러리의 이미지 버전을 다른 지역에 복제 하거나 [다른 갤러리에서 이미지](image-version.md)를 복사할 수 있습니다.
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Azure 중국 21Vianet, Azure 독일, Azure Government Cloud 등의 클라우드 간에 이미지 버전을 복제할 수 있나요?
 
@@ -325,4 +325,4 @@ Shared Image Gallery 리소스에 대한 작업을 수행하는 동안 문제가
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](shared-images-cli.md) 또는 [PowerShell](shared-images-powershell.md)을 사용하여 공유 이미지를 배포하는 방법을 알아봅니다.
+[Azure CLI](create-gallery.md) 또는 [PowerShell](create-gallery.md)을 사용하여 공유 이미지를 배포하는 방법을 알아봅니다.

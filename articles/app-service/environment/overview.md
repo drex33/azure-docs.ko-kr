@@ -4,15 +4,15 @@ description: App Service Environment 개요
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.openlocfilehash: 848b7ce830c91cffaaaa39ed2102255f0adc3b7f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: e422f6316cce204a4b6ea152ff9be4489bb3e331
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539290"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767910"
 ---
 # <a name="app-service-environment-overview"></a>App Service Environment 개요 
 > [!NOTE]
@@ -108,22 +108,27 @@ ASEv3는 다음 지역에서 사용할 수 있습니다.
 |미국 중부 |미국 동부 2|
 |동아시아  | 프랑스 중부|
 |미국 동부    | 독일 중서부|
-|미국 동부 2| 북유럽|
-|프랑스 중부 | 미국 중남부|
-|독일 중서부   |   동남아시아|
+|미국 동부 2| 일본 동부|
+|프랑스 중부 | 북유럽|
+|독일 중서부   |   미국 중남부|
+|일본 동부 | 동남아시아|
 |한국 중부  | 영국 남부|
-|북유럽   | 서유럽|
-|노르웨이 동부    | 미국 서부 2 |
+|미국 중북부   | 서유럽|
+|북유럽   | 미국 서부 2|
+|노르웨이 동부    | |
+|남아프리카 북부 | |
 |미국 중남부   | |
 |동남아시아| |
 |스위스 북부  | | 
+|아랍에미리트 북부| |   
 |영국 남부| |    
 |영국 서부| |
 |미국 중서부    | | 
 |서유럽    | |
 |미국 서부    | | 
 |미국 서부 2| |
+|미국 서부 3| |
 
 <!--Links-->
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

@@ -1,19 +1,20 @@
 ---
-title: Azure SQL을 사용한 Azure Active Directory 전용 인증
-description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 Azure AD(Azure Active Directory) 전용 인증 기능에 대한 정보를 제공합니다.
+title: 인증만 Azure Active Directory
+description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance Azure Active Directory(Azure AD) 전용 인증 기능에 대한 정보를 제공합니다.
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 06/30/2021
-ms.openlocfilehash: eaf4228dead01e970e25f7c8dc533bfbc06db802
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.date: 08/31/2021
+ms.openlocfilehash: 95a3d04ce8af0e83072e214e2b3fac72c78b28c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128519"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669591"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Azure SQL을 사용한 Azure AD 전용 인증
 
@@ -33,7 +34,9 @@ Azure SQL 인증에 대한 자세한 내용은 [인증 및 권한 부여](logins
 
 ## <a name="feature-description"></a>기능 설명
 
-Azure AD 전용 인증을 사용하는 경우 [SQL 인증](logins-create-manage.md#authentication-and-authorization)이 서버 수준에서 사용하지 않도록 설정되므로 SQL 인증 자격 증명을 기준으로 하는 모든 인증이 방지됩니다. SQL 인증 사용자는 모든 데이터베이스를 포함하여 Azure SQL 논리 서버에 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
+Azure AD 전용 인증을 사용하는 경우 [SQL 인증](logins-create-manage.md#authentication-and-authorization)이 서버 수준에서 사용하지 않도록 설정되므로 SQL 인증 자격 증명을 기준으로 하는 모든 인증이 방지됩니다. SQL 인증 사용자는 모든 데이터베이스를 포함하여 Azure SQL Database 논리 [서버에](logical-servers.md) 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
+
+Azure Policy 사용하여 Azure AD 전용 인증을 사용하도록 설정된 서버를 강제로 만들 수도 있습니다. 자세한 내용은 [Azure AD 전용 인증에 대한 Azure Policy 참조하세요.](authentication-azure-ad-only-authentication-policy.md)
 
 ## <a name="permissions"></a>사용 권한
 

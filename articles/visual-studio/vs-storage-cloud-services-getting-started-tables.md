@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9f6733545701cd46bc950f3a856a0f7ef032336e
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 3cad09a5359bd5d9bd2041eb92d0e994adf80080
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822412"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823082"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -48,40 +48,39 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
    
     ```csharp
     using Microsoft.Framework.Configuration;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Table;
+    using Azure.Data.Table;
+    using System.Collections.Generic
     using System.Threading.Tasks;
     using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
-2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 스토리지 연결 문자열 및 스토리지 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. **AzureStorageConnectionString** 개체를 가져와 테이블 만들기 및 삭제와 같은 계정 수준 작업을 수행 하는 **TableServiceClient** 를 만듭니다.
    
     ```csharp
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("<storage account name>
-    _AzureStorageConnectionString"));
+    string storageConnString = "_AzureStorageConnectionString"
     ```
+
    > [!NOTE]
    > 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
-   > 
-   > 
-3. 스토리지 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
+   
+3. 저장소 계정의 테이블 개체를 참조 하는 **TableServiceClient** 개체를 가져옵니다.
    
     ```csharp
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    // Create the table service client.
+    TableServiceClient tableServiceClient = new TableServiceClient(storageConnString);
     ```
-4. 특정 테이블과 엔터티를 참조하려면 **CloudTable** 참조 개체를 가져옵니다.
+
+4. 특정 테이블 및 엔터티를 참조 하는 **TableClient** reference 개체를 가져옵니다.
    
     ```csharp
     // Get a reference to a table named "peopleTable".
-    CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
+    TableClient peopleTable = tableServiceClient.GetTableClient("peopleTable");
     ```
 
 ## <a name="create-a-table-in-code"></a>코드에서 테이블 만들기
-Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설명된 대로 **CloudTable** 개체를 가져온 후 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
+Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설명 된 대로 **TableClient** 개체를 가져온 후에 **CreateIfNotExistsAsync** 에 대 한 호출을에 추가 하면 됩니다.
 
 ```csharp
-// Create the CloudTable if it does not exist.
+// Create the TableClient if it does not exist.
 await peopleTable.CreateIfNotExistsAsync();
 ```
 
@@ -89,7 +88,7 @@ await peopleTable.CreateIfNotExistsAsync();
 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 **CustomerEntity** 라는 엔터티 클래스를 정의합니다.
 
 ```csharp
-public class CustomerEntity : TableEntity
+public class CustomerEntity : ITableEntity
 {
     public CustomerEntity(string lastName, string firstName)
     {
@@ -105,7 +104,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-엔터티와 관련된 테이블 작업은 이전에 "코드에서 테이블 액세스"에서 만든 **CloudTable** 개체를 사용하여 수행됩니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation** 이 만들어집니다. 마지막으로 **CloudTable.ExecuteAsync** 를 호출하여 작업이 실행됩니다.
+엔터티와 관련 된 AddEntity 작업은 이전에 "코드에서 테이블 액세스"에서 만든 **TableClient** 개체를 사용 하 여 수행 됩니다. **Addentity** 메서드는 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **TableClient** 개체와 **customerentity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비 하기 위해 **Addentity** 는 customer 엔터티를 테이블에 삽입 합니다.
 
 ```csharp
 // Create a new customer entity.
@@ -113,78 +112,63 @@ CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
 customer1.PhoneNumber = "425-555-0101";
 
-// Create the TableOperation that inserts the customer entity.
-TableOperation insertOperation = TableOperation.Insert(customer1);
-
-// Execute the insert operation.
-await peopleTable.ExecuteAsync(insertOperation);
+// Inserts the customer entity.
+peopleTable.AddEntity(customer1)
 ```
 
 
 ## <a name="insert-a-batch-of-entities"></a>엔터티 일괄 삽입
-하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 **CloudTable.ExecuteBatchAsync** 를 호출하여 작업을 시작합니다.
+하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 엔터티 개체 ("Jeff Smith" 및 "이혜준 씨")를 만들고 AddRange 메서드를 사용 하 여 **Addentitiesbatch** 개체에 추가한 다음 **TableClient 비동기** 작업을 호출 하 여 작업을 시작 합니다.
 
 ```csharp
-// Create the batch operation.
-TableBatchOperation batchOperation = new TableBatchOperation();
+// Create a list of 2 entities with the same partition key.
+List<CustomerEntity> entityList = new List<CustomerEntity>
+{
+    new CustomerEntity("Smith", "Jeff")
+    {
+        { "Email", "Jeff@contoso.com" },
+        { "PhoneNumber", "425-555-0104" }
+    },
+    new CustomerEntity("Smith", "Ben")
+    {
+        { "Email", "Ben@contoso.com" },
+        { "PhoneNumber", "425-555-0102" }
+    },
+};
 
-// Create a customer entity and add it to the table.
-CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-customer1.Email = "Jeff@contoso.com";
-customer1.PhoneNumber = "425-555-0104";
+// Create the batch.
+List<TableTransactionAction> addEntitiesBatch = new List<TableTransactionAction>();
 
-// Create another customer entity and add it to the table.
-CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-customer2.Email = "Ben@contoso.com";
-customer2.PhoneNumber = "425-555-0102";
+// Add the entities to be added to the batch.
+addEntitiesBatch.AddRange(entityList.Select(e => new TableTransactionAction(TableTransactionActionType.Add, e)));
 
-// Add both customer entities to the batch insert operation.
-batchOperation.Insert(customer1);
-batchOperation.Insert(customer2);
-
-// Execute the batch operation.
-await peopleTable.ExecuteBatchAsync(batchOperation);
+// Submit the batch.
+Response<IReadOnlyList<Response>> response = await peopleTable.SubmitTransactionAsync(addEntitiesBatch).ConfigureAwait(false);
 ```
 
 ## <a name="get-all-of-the-entities-in-a-partition"></a>파티션의 모든 엔터티 가져오기
-테이블에서 파티션의 모든 엔터티를 쿼리하려면 **TableQuery** 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+테이블에서 파티션의 모든 엔터티를 쿼리하려면 **쿼리** 메서드를 사용 합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
 ```csharp
-// Construct the query operation for all customer entities where PartitionKey="Smith".
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
-    .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
+Pageable<CustomerEntity> queryResultsFilter = peopleTable.Query<CustomerEntity>(filter: "PartitionKey eq 'Smith'");
 
 // Print the fields for each customer.
-TableContinuationToken token = null;
-do
+foreach (CustomerEntity qEntity in queryResultsFilter)
 {
-    TableQuerySegment<CustomerEntity> resultSegment = await peopleTable.ExecuteQuerySegmentedAsync(query, token);
-    token = resultSegment.ContinuationToken;
-
-    foreach (CustomerEntity entity in resultSegment.Results)
-    {
-        Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-        entity.Email, entity.PhoneNumber);
-    }
-} while (token != null);
-
-return View();
+    Console.WriteLine("{0}, {1}\t{2}\t{3}", qEntity.PartitionKey, qEntity.RowKey, qEntity.Email, qEntity.PhoneNumber);
+}
 ```
 
 
 ## <a name="get-a-single-entity"></a>단일 엔터티 가져오기
-단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 엔터티 하나만 반환하며, **TableResult.Result** 에서 반환되는 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **Getentityasync** 메서드를 사용 하 여 이름이 ' 이혜준 Smith ' 인 고객을 지정 합니다. 이 메서드는 컬렉션 대신 하나의 엔터티를 반환 하 고, **Getentityasync** 에서 반환 된 값을 반환 합니다. Result는 **customerentity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
+var singleResult = peopleTable.GetEntityAsync<CustomerEntity>("Smith", "Ben");
 
 // Print the phone number of the result.
-if (retrievedResult.Result != null)
-    Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+if (singleResult.Result != null)
+    Console.WriteLine(((CustomerEntity)singleResult.Result).PhoneNumber);
 else
     Console.WriteLine("The phone number could not be retrieved.");
 ```
@@ -193,22 +177,14 @@ else
 엔터티를 찾은 후 삭제할 수 있습니다. 다음 코드에서는 "Ben Smith"라는 고객 엔터티를 검색하고, 찾으면 삭제합니다.
 
 ```csharp
-// Create a retrieve operation that expects a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+var singleResult = peopleTable.GetEntityAsync<CustomerEntity>("Smith", "Ben");
 
-// Execute the operation.
-TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
+CustomerEntity deleteEntity = (CustomerEntity)singleResult.Result;
 
-// Assign the result to a CustomerEntity object.
-CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
-
-// Create the Delete TableOperation and then execute it.
+// Delete the entity given the partition and row key.
 if (deleteEntity != null)
 {
-    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-
-    // Execute the operation.
-    await peopleTable.ExecuteAsync(deleteOperation);
+    await peopleTable.DeleteEntity(deleteEntity.PartitionKey, deleteEntity.RowKey);
 
     Console.WriteLine("Entity deleted.");
 }

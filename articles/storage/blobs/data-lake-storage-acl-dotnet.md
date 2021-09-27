@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 156af8eb034f31b9dda11ee39b9030b6d016daff
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
-ms.translationtype: HT
+ms.openlocfilehash: c3f0d0dd82201a3a339f05929ffefa988e1c8692
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632586"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128564945"
 ---
 # <a name="use-net-to-manage-acls-in-azure-data-lake-storage-gen2"></a>.NET을 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리
 
@@ -34,10 +34,10 @@ ms.locfileid: "109632586"
 
 - 다음 보안 권한 중 하나입니다.
 
-  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [스토리지 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당된 프로비저닝된 Azure AD(Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal).  
+  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [스토리지 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당된 프로비저닝된 Azure AD(Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal).
 
   - ACL 설정을 적용하려는 대상 컨테이너 또는 디렉터리를 소유한 사용자. ACL을 재귀적으로 설정하기 위해 대상 컨테이너 또는 디렉터리의 모든 자식 항목을 포함합니다.
-  
+
   - 스토리지 계정 키.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
@@ -66,7 +66,7 @@ ms.locfileid: "109632586"
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다. 
+이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다.
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Azure AD(Active Directory)를 사용하여 연결
 
@@ -81,14 +81,14 @@ ms.locfileid: "109632586"
 using Azure.Identity;
 ```
 
-클라이언트 ID, 클라이언트 암호, 테넌트 ID를 가져옵니다. 이 과정을 수행하려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요. 해당 프로세스의 일부로 다음 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어) 역할 중 하나를 보안 주체에 할당해야 합니다. 
+클라이언트 ID, 클라이언트 암호, 테넌트 ID를 가져옵니다. 이 과정을 수행하려면 [클라이언트 애플리케이션의 요청에 대한 권한 부여를 위해 Azure AD에서 토큰 가져오기](../common/storage-auth-aad-app.md)를 참조하세요. 해당 프로세스의 일부로 다음 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어) 역할 중 하나를 보안 주체에 할당해야 합니다.
 
 |역할|ACL 설정 기능|
 |--|--|
 |[Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|계정에 있는 모든 디렉터리 및 파일.|
 |[Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|보안 주체가 소유하는 디렉터리와 파일만 해당.|
 
-이 예시에서는 클라이언트 ID, 클라이언트 암호, 테넌트 ID를 사용하여 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만듭니다.  
+이 예시에서는 클라이언트 ID, 클라이언트 암호, 테넌트 ID를 사용하여 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만듭니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
@@ -105,7 +105,7 @@ using Azure.Identity;
 
 ## <a name="set-acls"></a>ACL 설정
 
-ACL을 *설정* 하는 경우 모든 항목을 포함하여 전체 ACL을 **바꿉니다**. 보안 주체의 권한 수준을 변경하거나 다른 기존 항목에 영향을 주지 않고 ACL에 새 보안 주체를 추가하려면 대신 ACL을 *업데이트* 해야 합니다. ACL을 바꾸는 대신 업데이트하려면 이 문서의 [ACL 업데이트](#update-acls) 섹션을 참조하세요.  
+ACL을 *설정* 하는 경우 모든 항목을 포함하여 전체 ACL을 **바꿉니다**. 보안 주체의 권한 수준을 변경하거나 다른 기존 항목에 영향을 주지 않고 ACL에 새 보안 주체를 추가하려면 대신 ACL을 *업데이트* 해야 합니다. ACL을 바꾸는 대신 업데이트하려면 이 문서의 [ACL 업데이트](#update-acls) 섹션을 참조하세요.
 
 ACL을 *설정* 하도록 선택한 경우 소유 사용자에 대한 항목, 소유 그룹에 대한 항목, 다른 모든 사용자에 대한 항목을 추가해야 합니다. 소유 사용자, 소유 그룹, 다른 모든 사용자에 대한 자세한 내용은 [사용자 및 ID](data-lake-storage-access-control.md#users-and-identities)를 참조하세요.
 
@@ -137,7 +137,7 @@ ACL을 *설정* 하도록 선택한 경우 소유 사용자에 대한 항목, �
 
 **DataLakeDirectoryClient.SetAccessControlRecursiveAsync** 메서드를 호출하여 ACL을 재귀적으로 설정합니다. 이 메서드를 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) [목록](/dotnet/api/system.collections.generic.list-1)으로 전달합니다. 각 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)은 ACL 항목을 정의합니다.
 
-**기본** ACL 항목을 설정하려는 경우 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) 속성을 **true** 로 설정할 수 있습니다. 
+**기본** ACL 항목을 설정하려는 경우 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) 속성을 **true** 로 설정할 수 있습니다.
 
 다음 예시에서는 `my-parent-directory`라는 디렉터리의 ACL을 설정합니다. 이 메서드는 기본 ACL을 설정할지 여부를 지정하는 `isDefaultScope`라는 부울 매개 변수를 허용합니다. 이 매개 변수는 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 생성자에서 사용됩니다. ACL의 항목은 소유 사용자에 읽기, 쓰기, 실행 권한을 부여하고, 소유 그룹에는 읽기 및 실행 권한만 제공하며, 다른 모든 사용자에게는 액세스 권한을 부여하지 않습니다. 이 예시의 마지막 ACL 항목은 개체 ID가 ““xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”인 특정 사용자에게 읽기 및 실행 권한을 제공합니다.
 
@@ -158,7 +158,7 @@ ACL을 *업데이트* 할 때 ACL을 바꾸는 대신 ACL을 수정합니다. �
 
 먼저 [DataLakeDirectoryClient.GetAccessControlAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) 메서드를 호출하여 디렉터리의 ACL을 가져옵니다. ACL 항목 목록을 [PathAccessControl](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrol) 개체의 새 [목록](/dotnet/api/system.collections.generic.list-1)에 복사합니다. 그런 다음 업데이트하려는 항목을 찾아 목록에서 바꿉니다. [DataLakeDirectoryClient.SetAccessControlList](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) 메서드를 호출하여 ACL을 설정합니다.
 
-이 예시에서는 다른 모든 사용자의 ACL 항목을 바꿔서 컨테이너의 루트 ACL을 업데이트합니다. 
+이 예시에서는 다른 모든 사용자의 ACL 항목을 바꿔서 컨테이너의 루트 ACL을 업데이트합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_UpdateACL":::
 
@@ -187,17 +187,17 @@ ACL을 재귀적으로 업데이트하려면 업데이트할 ACL 항목을 사�
 
 먼저 [DataLakeDirectoryClient.GetAccessControlAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) 메서드를 호출하여 디렉터리의 ACL을 가져옵니다. ACL 항목 목록을 [PathAccessControl](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrol) 개체의 새 [목록](/dotnet/api/system.collections.generic.list-1)에 복사합니다. 그런 다음 제거하려는 항목을 찾아 컬렉션의 [Remove](/dotnet/api/system.collections.ilist.remove) 메서드를 호출합니다. [DataLakeDirectoryClient.SetAccessControlList](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) 메서드를 호출하여 업데이트된 ACL을 설정합니다.
 
-이 예시에서는 다른 모든 사용자의 ACL 항목을 바꿔서 컨테이너의 루트 ACL을 업데이트합니다. 
+이 예시에서는 다른 모든 사용자의 ACL 항목을 바꿔서 컨테이너의 루트 ACL을 업데이트합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_RemoveACLEntry":::
 
 ### <a name="remove-acl-entries-recursively"></a>ACL 항목의 재귀적 제거
 
-ACL 항목을 재귀적으로 제거하려면 제거할 ACL 항목에 대한 새 ACL 개체를 만든 다음 ACL 제거 작업에서 해당 개체를 사용합니다. 기존 ACL을 가져오지 않고 제거할 ACL 항목만 제공합니다. 
+ACL 항목을 재귀적으로 제거하려면 제거할 ACL 항목에 대한 새 ACL 개체를 만든 다음 ACL 제거 작업에서 해당 개체를 사용합니다. 기존 ACL을 가져오지 않고 제거할 ACL 항목만 제공합니다.
 
-**DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync** 메서드를 호출하여 ACL 항목을 제거합니다. 이 메서드를 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) [목록](/dotnet/api/system.collections.generic.list-1)으로 전달합니다. 각 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)은 ACL 항목을 정의합니다. 
+**DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync** 메서드를 호출하여 ACL 항목을 제거합니다. 이 메서드를 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) [목록](/dotnet/api/system.collections.generic.list-1)으로 전달합니다. 각 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)은 ACL 항목을 정의합니다.
 
-**기본** ACL 항목을 제거하려는 경우 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) 속성을 **true** 로 설정할 수 있습니다. 
+**기본** ACL 항목을 제거하려는 경우 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) 속성을 **true** 로 설정할 수 있습니다.
 
 이 예시에서는 `my-parent-directory`라는 디렉터리의 ACL에서 ACL 항목을 제거합니다. 이 메서드는 기본 ACL에서 항목을 제거할지 여부를 지정하는 `isDefaultScope`라는 부울 매개 변수를 허용합니다. 이 매개 변수는 [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem)의 생성자에서 사용됩니다.
 
@@ -209,7 +209,7 @@ ACL 항목을 재귀적으로 제거하려면 제거할 ACL 항목에 대한 새
 
 ACL을 재귀적으로 수정할 때 런타임 또는 권한 오류가 발생할 수 있습니다. 런타임 오류의 경우 처음부터 프로세스를 다시 시작합니다. 수정되는 디렉터리 계층 구조에 있는 디렉터리 또는 파일의 ACL을 수정할 수 있는 권한이 보안 주체에게 없는 경우에 권한 오류가 발생할 수 있습니다. 권한 문제를 해결한 다음 연속 토큰을 사용하여 오류 지점에서 프로세스를 다시 시작하거나 프로세스를 처음부터 다시 시작하도록 선택합니다. 처음부터 다시 시작하기를 선호하는 경우 연속 토큰을 사용할 필요는 없습니다. 부정적인 영향 없이 ACL 항목을 다시 적용할 수 있습니다.
 
-이 예시에서는 오류가 발생한 경우 연속 토큰을 반환합니다. 애플리케이션은 오류가 해결된 후에 이 예시 메서드를 다시 호출하고 연속 토큰을 전달할 수 있습니다. 이 예시 메서드를 처음 호출하는 경우 애플리케이션은 연속 토큰 매개 변수에 대한 `null` 값을 전달할 수 있습니다. 
+이 예시에서는 오류가 발생한 경우 연속 토큰을 반환합니다. 애플리케이션은 오류가 해결된 후에 이 예시 메서드를 다시 호출하고 연속 토큰을 전달할 수 있습니다. 이 예시 메서드를 처음 호출하는 경우 애플리케이션은 연속 토큰 매개 변수에 대한 `null` 값을 전달할 수 있습니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ResumeContinuationToken":::
 

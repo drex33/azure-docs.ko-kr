@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 55799d15ef0ebe8af0f4a79b583143394540f48b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 62108e46b748552fc22a8dc1e86ea78b3cc5e4e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697969"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774161"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
@@ -42,7 +42,7 @@ NVIDIA NVLink Interconnect: 지원되지 않음<br>
 | Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8/32000  |
 
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -52,7 +52,9 @@ NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운�
 
 Azure NVIDIA GPU 드라이버 확장은 NCasT4_v3 시리즈 VM에 CUDA 드라이버를 배포합니다. 그래픽 및 시각화 워크로드를 위해서는 Azure에서 지원하는 GRID 드라이버를 수동으로 설치하세요.
 
-## <a name="other-sizes"></a>기타 크기
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -60,6 +62,10 @@ Azure NVIDIA GPU 드라이버 확장은 NCasT4_v3 시리즈 VM에 CUDA 드라이
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

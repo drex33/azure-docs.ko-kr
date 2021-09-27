@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0a9775691780a855824569f77a0bf4a1d3bf295b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537078"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657769"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,6 +105,11 @@ Azure는 관리 엔드포인트를 사용하여 SQL Managed Instance를 관리�
 - **NSG(네트워크 보안 그룹):** NSG를 SQL Managed Instance의 서브넷과 연결해야 합니다. SQL Managed Instance가 리디렉션 연결에 대해 구성된 경우 NSG를 통해 포트 1433 및 포트 11000~11999에서 트래픽을 필터링하여 SQL Managed Instance의 데이터 엔드포인트에 대한 액세스를 제어할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [규칙](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)을 자동으로 프로비저닝하고 유지합니다.
 - **UDR(사용자 정의 경로) 테이블:** UDR 테이블은 SQL Managed Instance의 서브넷과 연결해야 합니다. 경로 테이블에 항목을 추가하여 가상 네트워크 게이트웨이 또는 NVA(가상 네트워크 어플라이언스)를 통해 온-프레미스 프라이빗 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다. 서비스는 중단 없는 관리 트래픽 흐름을 허용하는 데 필요한 현재 [항목](#mandatory-user-defined-routes-with-service-aided-subnet-configuration)을 자동으로 프로비닝하고 유지합니다.
 - **충분한 IP 주소:** SQL Managed Instance 서브넷에는 최소 32개의 IP 주소가 있어야 합니다. 자세한 내용은 [SQL Managed Instance의 서브넷 크기 결정](vnet-subnet-determine-size.md)을 참조하세요. [SQL Managed Instance의 네트워킹 요구 사항](#network-requirements)을 충족하도록 구성한 후 [기존 네트워크](vnet-existing-add-subnet.md)에 관리되는 인스턴스를 배포할 수 있습니다. 그러지 않으면 [새 네트워크 및 서브넷](virtual-network-subnet-create-arm-template.md)을 만듭니다.
+- **잠금 해제 된 리소스:** SQL Managed Instance 위임 된 서브넷이 포함 된 가상 네트워크는 가상 네트워크 리소스, 해당 부모 리소스 그룹 또는 구독에 대 한 [쓰기 또는 삭제 잠금을](../../azure-resource-manager/management/lock-resources.md) 설정 하지 않아야 합니다. 가상 네트워크 또는 부모 리소스에 대 한 잠금을 설정 하면 SQL Managed Instance 정기 유지 관리를 완료 하지 못할 수 있으며 성능 저하, 지연 된 버그 수정, 규정 준수의 손실, slo 외부의 작업, 인스턴스를 사용할 수 없게 됩니다.
+- **Azure 정책에서 허용:** [Azure Policy](../../governance/policy/overview.md) 를 활용 하 여 서브넷이 Managed Instance SQL에 위임 된 가상 네트워크를 포함 하는 범위에서 거부 효과를 통해 리소스의 생성, 수정 및 삭제를 제어 하는 경우 이러한 정책이 SQL Managed Instance에서 정기적으로 유지 관리를 배포 하거나 수행할 수 없도록 하는 단계를 수행 해야 합니다. 이러한 리소스 종류의 리소스를 SQL Managed Instance에서 만들거나 관리할 수 없는 경우에는 유지 관리 작업을 수행 하는 동안 배포 되지 않거나 사용할 수 없게 될 수 있습니다. 거부 효과에서 제외 해야 하는 리소스 유형은 다음과 같습니다.  
+  - Microsoft. Network/serviceEndpointPolicies
+  - Microsoft. Network/networkIntentPolicies
+  - Microsoft. Network/virtualNetworks/서브넷/contextualServiceEndpointPolicies
 
 > [!IMPORTANT]
 > 관리되는 인스턴스가 만들어지면 네트워크 설정에 대한 호환되지 않는 변경을 방지하기 위해 네트워크 의도 정책이 서브넷에 적용됩니다. 마지막 인스턴스가 서브넷에서 제거되면 네트워크 의도 정책도 제거됩니다. 아래 규칙은 정보 제공 전용이며, ARM 템플릿 / PowerShell / CLI를 사용하여 배포하지 않아야 합니다. 최신 공식 템플릿을 사용하려는 경우 언제든지 [포털에서 검색](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)할 수 있습니다.

@@ -1,15 +1,15 @@
 ---
-title: 특정 랩 정책에 사용자 권한 부여| Microsoft 문서
+title: 특정 랩 정책에 사용자 권한 부여
 description: 각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a9d48ca6c798c38aa7bda3a8e19405fcfa0a439
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: baf520f1d34d94926e4cf5eff5191d84936e34e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703749"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650516"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요

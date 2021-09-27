@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩의 라이선스 이미지 사용 | Microsoft Docs
+title: 랩에서 사용이 허가 된 이미지 사용
 description: Azure Portal을 사용하여 Azure DevTest Labs에서 라이선스 이미지를 사용하도록 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 32ecbfc37d47835766d863b54d823be95fffb008
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4c96661688d7b64884f0a02e15eb2c7b208bdfba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567363"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643957"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
 

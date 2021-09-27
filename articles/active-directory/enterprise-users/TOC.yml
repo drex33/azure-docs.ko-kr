@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 'Azure AD 사용자, 그룹, 라이선스 및 역할'
+    - name: 'Azure AD 사용자, 그룹 및 라이선스'
       href: directory-overview-user-model.md
 - name: 빠른 시작
   items:
@@ -30,7 +30,7 @@
 - name: 방법 가이드
   expanded: true
   items:
-    - name: 사용자 관리
+    - name: 사용자
       items:
         - name: 사용자 만들기
           href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -62,25 +62,25 @@
           href: users-restrict-guest-permissions.md
         - name: 동적 그룹 및 게스트
           href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: 조직 관리
+    - name: 조직
       items:
-        - name: Azure AD 조직
+        - name: Azure AD 테넌트 조직
           href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+        - name: 테넌트 삭제
+          href: directory-delete-howto.md
+        - name: 다중 테넌트
+          href: licensing-directory-independence.md
+        - name: 테넌트 인수
+          href: domains-admin-takeover.md
         - name: 도메인 이름 관리
           href: domains-manage.md
         - name: 하위 도메인을 관리됨으로 확인
           href: domains-verify-custom-subdomain.md
-        - name: 디렉터리 삭제
-          href: directory-delete-howto.md
-        - name: 여러 디렉터리
-          href: licensing-directory-independence.md
-        - name: 셀프 서비스 등록
+        - name: 셀프 서비스 가입
           href: directory-self-service-signup.md
-        - name: 디렉터리 인수
-          href: domains-admin-takeover.md
         - name: Azure AD Connect
           href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: 그룹 관리
+    - name: 그룹
       items:
         - name: 그룹에서 액세스 관리
           href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -130,7 +130,7 @@
           href: groups-self-service-management.md
         - name: 민감도 레이블 할당
           href: groups-assign-sensitivity-labels.md
-    - name: 라이선스 할당
+    - name: 라이선스
       items:
         - name: 사용자에게 라이선스 할당
           href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -148,7 +148,7 @@
           href: licensing-ps-examples.md
         - name: 라이선스에 대한 서비스 계획 ID
           href: licensing-service-plan-reference.md
-    - name: 로그인 관리
+    - name: 로그인
       items:
         - name: 회사 브랜딩 사용자 지정
           href: ../fundamentals/customize-branding.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context

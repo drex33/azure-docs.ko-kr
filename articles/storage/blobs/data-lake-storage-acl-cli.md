@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe26f8f61acbbf454cd2eb2928fdcab0f0bc7e47
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 84410ee16080c338e40c026326ef2a2945ba0e3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866970"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555804"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure CLI를 사용한 Azure Data Lake Storage Gen2의 ACL 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "122866970"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독 자세한 내용은 [Azure 평가판 받기를 참조하세요.](https://azure.microsoft.com/pricing/free-trial/)
 
 - 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
@@ -35,10 +35,10 @@ ms.locfileid: "122866970"
 
 - 다음 보안 권한 중 하나입니다.
 
-  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당된 프로비전된 Azure AD(Azure Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal).  
+  - 대상 컨테이너, 부모 리소스 그룹 또는 구독의 범위에서 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당된 프로비전된 Azure AD(Azure Active Directory) [보안 주체](../../role-based-access-control/overview.md#security-principal).
 
   - ACL 설정을 적용하려는 대상 컨테이너 또는 디렉터리를 소유한 사용자. ACL을 재귀적으로 설정하기 위해 대상 컨테이너 또는 디렉터리의 모든 자식 항목을 포함합니다.
-  
+
   - 스토리지 계정 키.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>올바른 버전의 Azure CLI를 설치했는지 확인
@@ -51,7 +51,7 @@ ms.locfileid: "122866970"
     az --version
    ```
 
-   Azure CLI 버전이 `2.14.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+   Azure CLI 버전이 `2.14.0`보다 낮은 경우 이후 버전을 설치합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
@@ -88,7 +88,7 @@ ms.locfileid: "122866970"
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-[az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) 명령을 사용하여 **파일** 의 액세스 권한을 가져옵니다. 
+[az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) 명령을 사용하여 **파일** 의 액세스 권한을 가져옵니다.
 
 다음 예제에서는 파일의 ACL을 가져온 다음 해당 ACL을 콘솔에 출력합니다.
 
@@ -104,7 +104,7 @@ az storage fs access show -p my-directory/upload.txt -f my-file-system --account
 
 ## <a name="set-acls"></a>ACL 설정
 
-ACL을 *설정* 하는 경우 모든 항목을 포함하여 전체 ACL을 **바꿉니다**. 보안 주체의 권한 수준을 변경하거나 다른 기존 항목에 영향을 주지 않고 ACL에 새 보안 주체를 추가하려면 대신 ACL을 *업데이트* 해야 합니다. ACL을 바꾸는 대신 업데이트하려면 이 문서의 [ACL 업데이트](#update-acls) 섹션을 참조하세요.  
+ACL을 *설정* 하는 경우 모든 항목을 포함하여 전체 ACL을 **바꿉니다**. 보안 주체의 권한 수준을 변경하거나 다른 기존 항목에 영향을 주지 않고 ACL에 새 보안 주체를 추가하려면 대신 ACL을 *업데이트* 해야 합니다. ACL을 바꾸는 대신 업데이트하려면 이 문서의 [ACL 업데이트](#update-acls) 섹션을 참조하세요.
 
 ACL을 *설정* 하도록 선택한 경우 소유 사용자에 대한 항목, 소유 그룹에 대한 항목, 다른 모든 사용자에 대한 항목을 추가해야 합니다. 소유 사용자, 소유 그룹, 다른 모든 사용자에 대한 자세한 내용은 [사용자 및 ID](data-lake-storage-access-control.md#users-and-identities)를 참조하세요.
 
@@ -115,7 +115,7 @@ ACL을 *설정* 하도록 선택한 경우 소유 사용자에 대한 항목, �
 
 ### <a name="set-an-acl"></a>ACL 설정
 
-[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **디렉터리** 의 ACL을 설정합니다. 
+[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **디렉터리** 의 ACL을 설정합니다.
 
 다음 예제에서는 디렉터리의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -129,7 +129,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **파일** 의 acl을 설정합니다. 
+[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **파일** 의 acl을 설정합니다.
 
 다음 예제에서는 파일의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -161,7 +161,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 ## <a name="update-acls"></a>ACL 업데이트
 
-ACL을 *업데이트* 할 때 ACL을 바꾸는 대신 ACL을 수정합니다. 예를 들어 ACL에 나열된 다른 보안 주체에 영향을 주지 않고 ACL에 새 보안 주체를 추가할 수 있습니다.  ACL을 업데이트하지 않고 바꾸려면 이 문서의 [ACL 설정](#set-acls) 섹션을 참조하세요.
+ACL을 *업데이트* 할 때 ACL을 바꾸는 대신 ACL을 수정합니다. 예를 들어 ACL에 나열된 다른 보안 주체에 영향을 주지 않고 ACL에 새 보안 주체를 추가할 수 있습니다. ACL을 업데이트하지 않고 바꾸려면 이 문서의 [ACL 설정](#set-acls) 섹션을 참조하세요.
 
 ACL을 업데이트하려면 업데이트하려는 ACL 항목으로 새 ACL 객체를 만든 다음, ACL 업데이트 작업에 이 개체를 사용합니다. 기존 ACL을 가져오지 않고 업데이트할 ACL 항목만 제공하면 됩니다.
 
@@ -172,7 +172,7 @@ ACL을 업데이트하려면 업데이트하려는 ACL 항목으로 새 ACL 객�
 
 ### <a name="update-an-acl"></a>ACL 업데이트
 
-이 권한을 설정하는 또 다른 방법은 [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하는 것입니다. 
+이 권한을 설정하는 또 다른 방법은 [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하는 것입니다.
 
 `-permissions` 매개 변수를 약식 형식의 ACL로 설정하여 디렉터리 또는 파일의 ACL을 업데이트합니다.
 
@@ -199,7 +199,7 @@ az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f m
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-다음 예제에서는 파일의 소유자를 변경합니다. 
+다음 예제에서는 파일의 소유자를 변경합니다.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -208,7 +208,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ### <a name="update-acls-recursively"></a>ACL의 재귀적 업데이트
 
-[az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) 명령을 사용하여 ACL을 재귀적으로 업데이트합니다.
+[az storage fs access update-recursive 명령을 사용하여 ACL을 재귀적으로 업데이트합니다.](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive)
 
 이 예시에서는 쓰기 권한이 있는 ACL 항목을 업데이트합니다.
 
@@ -225,7 +225,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) 명령을 사용하여 ACL 항목을 제거합니다.
 
-이 예제에서는 컨테이너의 루트 디렉터리에서 ACL 항목을 제거합니다.  
+이 예제에서는 컨테이너의 루트 디렉터리에서 ACL 항목을 제거합니다.
 
 ```azurecli
 az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login

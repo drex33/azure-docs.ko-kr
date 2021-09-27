@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: ac2939e8c57b9b630de2fca1800c47cee29652bc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ee29630c0f990a7a6342d0027bbf9f36cbf13b91
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528256"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778289"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Azure-SSIS Integration Runtime 패키지 저장소를 사용하여 패키지 관리
 
@@ -30,23 +30,23 @@ ms.locfileid: "122528256"
 
 Azure-SSIS IR이 프로비저닝되면 이에 연결하여 SSMS에서 패키지 저장소를 찾아볼 수 있습니다.
 
-![Azure-SSIS IR에 연결](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png" alt-text="Azure-SSIS IR에 연결":::
 
 SSMS의 **개체 탐색기** 창에 있는 **연결** 드롭다운 메뉴에서 **Azure-SSIS Integration Runtime** 을 선택합니다. 그런 다음 Azure에 로그인하고 패키지 저장소로 프로비저닝한 관련 구독, ADF 및 Azure-SSIS IR을 선택합니다. Azure-SSIS IR이 표시되고 아래에 **실행 중인 패키지** 및 **저장된 패키지** 노드가 나타납니다. **저장된 패키지** 노드를 확장하여 아래의 패키지 저장소를 확인합니다. 패키지 저장소를 확장하여 아래에 폴더 및 패키지를 확인합니다. SSMS가 자동으로 연결하지 못하는 경우 패키지 저장소에 대한 액세스 자격 증명을 입력하라는 메시지가 표시될 수 있습니다. 예를 들어 MSDB 위에 있는 패키지 저장소를 확장하는 경우 먼저 Azure SQL Managed Instance에 연결하라는 메시지가 표시될 수 있습니다.
 
-![Azure SQL Managed Instance에 연결](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png" alt-text="Azure SQL Managed Instance에 연결":::
 
 ## <a name="manage-folders-and-packages"></a>폴더 및 패키지 관리
 
 SSMS의 Azure-SSIS IR에 연결한 후 패키지 저장소, 폴더 또는 패키지를 마우스 오른쪽 단추로 클릭하여 메뉴를 표시하고 **새 폴더**, **패키지 가져오기**, **패키지 내보내기**, **삭제** 또는 **새로 고침** 을 선택할 수 있습니다.
 
-   ![폴더 및 패키지 관리](media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png" alt-text="폴더 및 패키지 관리":::
 
    *  **새 폴더** 를 선택하여 가져온 패키지에 대한 새 폴더를 만듭니다.
 
    *  **패키지 가져오기** 를 선택하여 **파일 시스템**, **SQL Server**(MSDB) 또는 레거시 **SSIS 패키지 저장소** 에서 패키지 저장소로 패키지를 가져옵니다.
 
-      ![패키지 가져오기](media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png" alt-text="패키지 가져오기":::
 
       가져올 **패키지 위치** 에 따라 관련 **서버**/**인증 유형** 을 선택하고 필요한 경우 액세스 자격 증명을 입력한 다음, **패키지 경로** 를 선택하고 새 **패키지 이름** 을 입력합니다. 패키지를 가져올 때 해당 보호 수준을 변경할 수 없습니다. 이를 변경하려면 SSDT(SQL Server Data Tools) 또는 `dtutil` 명령줄 유틸리티를 사용합니다.
 
@@ -61,7 +61,7 @@ SSMS의 Azure-SSIS IR에 연결한 후 패키지 저장소, 폴더 또는 패키
 
    *  **패키지 내보내기** 를 선택하여 패키지 저장소에서 **파일 시스템**, **SQL Server**(MSDB) 또는 레거시 **SSIS 패키지 저장소** 로 패키지를 내보냅니다.
 
-      ![패키지 내보내기](media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png" alt-text="패키지 내보내기":::
 
       내보낼 **패키지 위치** 에 따라 관련 **서버**/**인증 유형** 을 선택하고 필요한 경우 액세스 자격 증명을 입력한 다음, **패키지 경로** 를 선택합니다. 패키지를 내보낼 때 암호화된 경우 먼저 암호를 입력하여 암호를 해독한 다음, 예를 들어 중요한 데이터가 저장되지 않도록 하거나 사용자 키 또는 암호를 사용하여 중요한 데이터 또는 모든 데이터를 암호화하는 등의 보호 수준을 변경할 수 있습니다.
 
@@ -80,23 +80,23 @@ SSMS의 Azure-SSIS IR에 연결한 후 패키지 저장소, 폴더 또는 패키
 
 SSMS의 Azure-SSIS IR에 연결한 후 저장된 패키지를 마우스 오른쪽 단추로 클릭하여 메뉴를 표시하고 **패키지 실행** 을 선택할 수 있습니다.  이렇게 하면 ADF 파이프라인에서 SSIS 패키지 실행 작업으로 Azure-SSIS IR 패키지 실행을 구성할 수 있는 **패키지 실행 유틸리티** 대화 상자가 열립니다.
 
-![패키지 실행 유틸리티 페이지 1 및 2](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png" alt-text="패키지 실행 유틸리티 페이지 1 & 2":::
 
-![패키지 실행 유틸리티 페이지 3 및 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png" alt-text="패키지 실행 유틸리티 페이지 3 & 4":::
 
 **패키지 실행 유틸리티** 대화 상자의 **일반**, **구성**, **실행 옵션** 및 **로깅** 페이지는 SSIS 패키지 실행 작업의 **설정** 탭에 해당합니다. 이러한 페이지에서 패키지 암호화 암호와 패키지 구성 파일 액세스 정보를 입력할 수 있습니다. 또한 패키지 실행 자격 증명 및 속성과 로그 폴더에 대한 액세스 정보도 입력할 수 있습니다.  **패키지 실행 유틸리티** 대화 상자의 **값 설정** 페이지는 SSIS 패키지 실행 작업의 **속성 재정의** 탭에 해당하며 여기에 재정의할 기존 패키지 속성을 입력할 수 있습니다. 자세한 내용은 [ADF 파이프라인에서 SSIS 패키지 실행 작업으로 SSIS 패키지 실행](./how-to-invoke-ssis-package-ssis-activity.md)을 참조하세요.
 
 **실행** 단추를 선택하면 SSIS 패키지 실행 작업을 사용하는 새 ADF 파이프라인이 자동으로 생성되고 트리거됩니다. 설정이 동일한 ADF 파이프라인이 이미 있으면 새 파이프라인이 생성되지 않고 기존 파이프라인이 다시 실행됩니다. ADF 파이프라인과 SSIS 패키지 실행 작업은 각각 `Pipeline_SSMS_YourPackageName_HashString` 및 `Activity_SSMS_YourPackageName`으로 명명됩니다.
 
-![패키지 실행 유틸리티 단추](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png" alt-text="패키지 실행 유틸리티 단추":::
 
-![SSIS 패키지 작업 실행](media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png" alt-text="SSIS 패키지 작업 실행":::
 
 ## <a name="monitor-and-stop-running-packages"></a>실행 중인 패키지 모니터링 및 중지
 
 SSMS의 Azure-SSIS IR에 연결한 후 **실행 중인 패키지** 노드를 확장하여 아래에서 현재 실행 중인 패키지를 확인할 수 있습니다.  그 중 하나를 마우스 오른쪽 단추로 클릭하여 메뉴를 표시하고 **중지** 또는 **새로 고침** 을 선택합니다.
 
-   ![실행 중인 패키지 모니터링 및 중지](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png" alt-text="실행 중인 패키지 모니터링 및 중지":::
 
    *  **중지** 를 선택하여 SSIS 패키지 실행 작업으로 패키지를 실행하는 현재 실행 중인 ADF 파이프라인을 취소합니다.
 
@@ -106,11 +106,11 @@ SSMS의 Azure-SSIS IR에 연결한 후 **실행 중인 패키지** 노드를 확
 
 SSMS의 Azure-SSIS IR에 연결한 후 마우스 오른쪽 단추로 클릭하여 메뉴를 표시하고 **Azure Data Factory 포털로 이동** 또는 **새로 고침** 을 선택할 수 있습니다.
 
-   ![ADF 포털로 이동](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png" alt-text="ADF 포털로 이동":::
 
    *  **Azure Data Factory 포털로 이동** 을 선택하여 ADF 모니터링 허브의 **통합 런타임** 페이지를 엽니다. 여기서 Azure-SSIS IR을 모니터링할 수 있습니다. **패키지 저장소** 타일에서 Azure-SSIS IR에 연결된 패키지 저장소 수를 확인할 수 있습니다.  이 숫자를 선택하면 패키지 저장소에 대한 액세스 정보를 저장하는 ADF 연결된 서비스를 편집할 수 있는 창이 표시됩니다.
 
-      ![패키지 저장소 편집](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png" alt-text="패키지 저장소 편집":::
 
    *  **새로 고침** 을 선택하여 패키지 저장소에 새로 추가된 폴더/패키지와 패키지 저장소에서 실행 중인 패키지를 표시합니다.
 
@@ -165,7 +165,7 @@ Azure SQL Managed Instance의 프라이빗/퍼블릭 엔드포인트를 사용�
 
 이 스크립트는 MSDB의 모든 패키지에 대한 dtutil 명령줄을 생성합니다. 그러면 명령 프롬프트에서 패키지를 다중 선택하고, 복사하여 붙여넣고, 실행할 수 있습니다.
 
-![dtutil 명령줄 생성](media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png" alt-text="dtutil 명령줄 생성":::
 
 ```dos
 dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword

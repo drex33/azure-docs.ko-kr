@@ -3,13 +3,13 @@ title: 일반적인 Azure Kubernetes Service 문제 해결
 description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: container-service
 ms.topic: troubleshooting
-ms.date: 06/20/2020
-ms.openlocfilehash: 6b115971104699775e9a58a7b25addefe4d12d1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/24/2021
+ms.openlocfilehash: 10f30ccd5efbc612c3b51c273347c872bfae1c17
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535848"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058475"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -22,7 +22,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들거나 업그레이드하는 동안 `quota exceeded` 오류가 발생했습니다. 어떻게 해야 하나요? 
 
- [더 많은 코어를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+ [더 많은 코어를 요청합니다](../azure-portal/supportability/regional-quota-requests.md).
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 `insufficientSubnetSize` 오류가 발생합니다.   어떻게 해야 합니까?
 
@@ -104,7 +104,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 여러 가지 이유로 클러스터가 실패 상태로 전환되면 이 오류가 발생합니다. 이전에 실패한 작업을 다시 시도하기 전에 다음 단계에 따라 클러스터 실패 상태를 해결합니다.
 
 1. 클러스터가 `failed` 상태를 벗어날 때까지 `upgrade` 및 `scale` 작업은 성공적으로 수행되지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
-    * **부족한 컴퓨팅(CRP) 할당량** 을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
+    * **부족한 컴퓨팅(CRP) 할당량** 을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
     * 고급 네트워킹 및 **부족한 서브넷(네트워킹) 리소스** 를 사용하여 클러스터 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 리소스 할당량을 늘리도록 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다.
 2. 업그레이드 실패의 근본 원인이 해결되면 클러스터가 성공 상태여야 합니다. 성공 상태가 확인되면 원래 작업을 다시 시도합니다.
 
@@ -264,39 +264,15 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>잠재적 경합 상태 문제 및 잘못된 데이터 디스크 목록이 생성되는 Azure 디스크 분리 오류
-
-Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디스크를 분리하기 위해 최대 6회까지 다시 시도합니다. 또한 데이터 디스크 목록에서 약 3분 동안 노드 수준 잠금을 유지합니다. 이 시간 동안 디스크 목록을 수동으로 업데이트하면 노드 수준 잠금을 통해 유지된 디스크 목록이 더 이상 사용되지 않고 노드가 불안정해질 수 있습니다.
-
-이 문제는 다음 Kubernetes 버전에서 해결되었습니다.
-
-| Kubernetes 버전 | 수정 버전 |
-|--|:--:|
-| 1.12 | 1.12.9 이상 |
-| 1.13 | 1.13.6 이상 |
-| 1.14 | 1.14.2 이상 |
-| 1.15 이상 | 해당 없음 |
-
-이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드에 사용되지 않는 디스크 목록이 있는 경우 존재하지 않는 모든 디스크를 VM에서 대량 작업으로 분리하여 완화할 수 있습니다. **존재하지 않는 디스크는 개별적으로 분리하지 못할 수 있습니다.**
-
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Azure 디스크 수가 많으면 연결/분리 속도가 느려집니다.
 
-단일 노드 VM을 대상으로 하는 Azure 디스크 연결/분리 작업 수가 10개보다 크거나 단일 가상 머신 확장 집합 풀을 대상으로 할 때 3개보다 큰 경우 순차적으로 수행되므로 예상보다 느릴 수 있습니다. 이 문제는 알려진 제한 사항이며 현재 해결 방법이 없습니다. [숫자를 초과하는 병렬 연결/분리를 지원하는 사용자 음성 항목이 있습니다](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
+단일 노드 VM을 대상으로 하는 Azure 디스크 연결/분리 작업 수가 10개보다 크거나 단일 가상 머신 확장 집합 풀을 대상으로 할 때 3개보다 큰 경우 순차적으로 수행되므로 예상보다 느릴 수 있습니다. 이 문제는 트리 내 Azure Disk 드라이버의 알려진 제한 사항입니다. [Azure Disk CSI 드라이버는](https://github.com/kubernetes-sigs/azuredisk-csi-driver) 일괄 처리 작업에서 디스크 연결/분리와 관련된 이 문제를 해결했습니다.
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>잠재적 노드 VM이 실패 상태가 되는 Azure 디스크 분리 오류
 
 일부 에지의 경우 Azure 디스크 분리가 부분적으로 실패하고 노드 VM이 실패 상태로 유지될 수 있습니다.
 
-이 문제는 다음 Kubernetes 버전에서 해결되었습니다.
-
-| Kubernetes 버전 | 수정 버전 |
-|--|:--:|
-| 1.12 | 1.12.10 이상 |
-| 1.13 | 1.13.8 이상 |
-| 1.14 | 1.14.4 이상 |
-| 1.15 이상 | 해당 없음 |
-
-이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드가 실패 상태에 있는 경우 다음 중 하나를 사용하여 VM 상태를 수동으로 업데이트하여 완화할 수 있습니다.
+노드가 실패 상태인 경우 아래 중 하나를 사용하여 VM 상태를 수동으로 업데이트하여 완화할 수 있습니다.
 
 * 가용성 집합 기반 클러스터의 경우:
     ```azurecli
@@ -310,21 +286,12 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 
 ## <a name="azure-files-and-aks-troubleshooting"></a>Azure Files 및 AKS 문제 해결
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Azure Files용으로 추천되는 안정적인 Kubernetes 버전은 무엇인가요?
- 
-| Kubernetes 버전 | 추천 버전 |
-|--|:--:|
-| 1.12 | 1.12.6 이상 |
-| 1.13 | 1.13.4 이상 |
-| 1.14 | 1.14.0 이상 |
-
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Azure Files를 사용하는 경우 기본 mountOptions는 무엇인가요?
 
 추천 설정:
 
 | Kubernetes 버전 | fileMode 및 dirMode 값|
 |--|:--:|
-| 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 이상 | 0777 |
 
 탑재 옵션은 스토리지 클래스 개체에 지정할 수 있습니다. 다음 예제에서는 *0777* 을 설정합니다.
@@ -387,24 +354,6 @@ persistentvolume-controller (combined from similar events): Failed to provision 
 
 이 문제는 [Azure Files에서 정적 프로비저닝](azure-files-volume.md)을 사용하여 완화할 수 있습니다.
 
-### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Azure Files에서 Windows Pod에 다시 탑재하지 못했습니다.
-
-Azure Files 탑재가 있는 Windows Pod가 삭제된 다음, 동일한 노드에 다시 만들어지도록 예약되면 탑재가 실패합니다. Azure Files 탑재가 이미 노드에 탑재되어 있어 `New-SmbGlobalMapping` 명령이 실패하므로 이 오류가 발생합니다.
-
-예를 들어 다음과 비슷한 오류가 표시될 수 있습니다.
-
-```console
-E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (\"42c0ea39-1af9-11e9-8941-000d3af95268\")" failed. No retries permitted until 2019-01-18 08:15:53.0410149 +0000 GMT m=+732.446642701 (durationBeforeRetry 1s). Error: "MountVolume.SetUp failed for volume \"pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (UniqueName: \"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\") pod \"deployment-azurefile-697f98d559-6zrlf\" (UID: \"42c0ea39-1af9-11e9-8941-000d3af95268\") : azureMount: SmbGlobalMapping failed: exit status 1, only SMB mount is supported now, output: \"New-SmbGlobalMapping : Generic failure \\r\\nAt line:1 char:190\\r\\n+ ... ser, $PWord;New-SmbGlobalMapping -RemotePath $Env:smbremotepath -Cred ...\\r\\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\r\\n    + CategoryInfo          : NotSpecified: (MSFT_SmbGlobalMapping:ROOT/Microsoft/...mbGlobalMapping) [New-SmbGlobalMa \\r\\n   pping], CimException\\r\\n    + FullyQualifiedErrorId : HRESULT 0x80041001,New-SmbGlobalMapping\\r\\n \\r\\n\""
-```
-
-이 문제는 다음 Kubernetes 버전에서 해결되었습니다.
-
-| Kubernetes 버전 | 수정 버전 |
-|--|:--:|
-| 1.12 | 1.12.6 이상 |
-| 1.13 | 1.13.4 이상 |
-| 1.14 이상 | 해당 없음 |
-
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>스토리지 계정 키가 변경되어 Azure Files 탑재가 실패합니다.
 
 스토리지 계정 키가 변경된 경우 Azure Files 탑재 실패가 표시될 수 있습니다.
@@ -435,10 +384,6 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 이 오류는 업스트림 클러스터 자동 크기 조정기 경합 상태로 인해 발생합니다. 이러한 경우 클러스터 자동 크기 조정기는 실제로 클러스터에 있는 값과 다른 값으로 끝납니다. 이 상태를 벗어나려면 [클러스터 자동 크기 조정기][cluster-autoscaler]를 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.
-
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>디스크 연결이 느립니다. `GetAzureDiskLun`에 10~15분 정도 걸리고 오류가 발생합니다.
-
-**1.15.0 이전** 의 Kubernetes 버전에서 **WaitForAttach에서 디스크에 대한 LUN을 찾을 수 없음 오류** 와 같은 오류가 발생할 수 있습니다.  이 문제를 해결하려면 약 15분 정도 기다렸다가 다시 시도합니다.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>접두사가 kubernetes.io인 노드 레이블을 사용하는 경우 Kubernetes 1.16로 업그레이드가 실패하는 이유

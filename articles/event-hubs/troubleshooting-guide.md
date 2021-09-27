@@ -2,13 +2,13 @@
 title: 연결 문제 해결 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 연결 문제 해결에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 48c96cf2e0a142c96e1413bb62730ef2e31aa7ca
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: a07b98f9913e0ef82edd88e2aa0dad6c5f3b238b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416659"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600421"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>연결 문제 해결 - Azure Event Hubs
 클라이언트 애플리케이션에서 이벤트 허브에 연결할 수 없는 다양한 이유가 있습니다. 발생하는 연결 문제는 영구적이거나 일시적일 수 있습니다. 문제가 항상(영구) 발생하는 경우 연결 문자열, 조직의 방화벽 설정, IP 방화벽 설정, 네트워크 보안 설정(예: 서비스 엔드포인트, 프라이빗 엔드포인트) 등을 확인할 수 있습니다. 일시적인 문제의 경우 최신 버전의 SDK로 업그레이드하고, 삭제된 패킷을 확인하는 명령을 실행하고, 네트워크 추적을 가져오면 문제 해결에 도움이 될 수 있습니다. 
@@ -28,8 +28,8 @@ Kafka 클라이언트의 경우 producer.config 또는 consumer.config 파일이
 
 [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
-### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>네트워크 보안 그룹에서 AzureEventGrid 서비스 태그가 허용되는지 확인합니다.
-애플리케이션이 서브넷 내에서 실행 중이고 연결된 네트워크 보안 그룹이 있는 경우 인터넷 아웃바운드가 허용되는지 또는 AzureEventGrid 서비스 태그가 허용되는지 확인합니다. [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)를 참조하고 `EventHub`를 검색합니다.
+### <a name="verify-that-eventhub-service-tag-is-allowed-in-your-network-security-groups"></a>네트워크 보안 그룹에서 EventHub 서비스 태그가 허용 되는지 확인 합니다.
+응용 프로그램이 서브넷 내에서 실행 중이 고 연결 된 네트워크 보안 그룹이 있는 경우, 인터넷 아웃 바운드 허용 여부 또는 EventHub 서비스 태그 허용 여부를 확인 합니다. [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)를 참조하고 `EventHub`를 검색합니다.
 
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>애플리케이션이 vnet의 특정 서브넷에서 실행되어야 하는지 확인
 네임스페이스에 대한 액세스 권한이 있는 가상 네트워크 서브넷에서 애플리케이션이 실행되고 있는지 확인합니다. 그렇지 않은 경우 네임스페이스에 대한 액세스 권한이 있는 서브넷에서 애플리케이션을 실행하거나 애플리케이션이 실행 중인 시스템의 IP 주소를 [IP 방화벽](event-hubs-ip-filtering.md)에 추가합니다. 

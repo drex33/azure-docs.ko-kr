@@ -3,20 +3,20 @@ title: Azure API Management 인스턴스의 자동 크기 조정 구성 | Micros
 description: 이 항목에서는 Azure API Management 인스턴스의 자동 크기 조정 동작을 설정하는 방법을 설명합니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: apimpm
-ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 2684eb2a74f5c7bc5b4913ea2101f1d3febbcab8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628879"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
 

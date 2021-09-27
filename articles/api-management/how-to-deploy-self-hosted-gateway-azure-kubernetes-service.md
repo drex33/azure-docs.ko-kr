@@ -1,21 +1,18 @@
 ---
-title: Azure Kubernetes Service에 자체 호스팅 게이트웨이 배포 | Microsoft Docs
+title: Azure Kubernetes Service에 자체 호스팅 게이트웨이 배포
 description: Azure Kubernetes Service에 Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 배포하는 방법에 대해 알아봅니다.
-services: api-management
-documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 06/11/2021
-ms.author: apimpm
-ms.openlocfilehash: c43f31be807d6a649cdd750ee15841a0ecbd7631
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: a5faca1d91596021e236e2bcb459679085ee99aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300762"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620866"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
@@ -37,7 +34,7 @@ ms.locfileid: "112300762"
 3. **배포** 를 선택합니다.
 4. **토큰** 텍스트 상자의 새 토큰은 기본 **만료** 및 **비밀 키** 값을 사용하여 자동으로 생성되었습니다. 원하는 경우 둘 중 하나 또는 둘 다를 조정하고 **생성** 을 선택하여 새 토큰을 만듭니다.
 5. **배포 스크립트** 아래에서 **Kubernetes** 가 선택되어 있는지 확인합니다.
-6. **배포** 옆의 **<게이트웨이 이름>.yml** 파일 링크를 선택하여 파일을 다운로드합니다.
+6. **배포** 옆의 **\<gateway-name\> .yml** 파일 링크를 선택 하 여 파일을 다운로드 합니다.
 7. 필요에 따라 yml 파일의 `config.service.endpoint`, 포트 매핑 및 컨테이너 이름을 조정합니다.
 8. 시나리오에 따라 [서비스 유형](../aks/concepts-network.md#services)을 변경해야 할 수도 있습니다. 
     * 기본값은 외부 부하 분산 장치인 `LoadBalancer`입니다. 
@@ -45,18 +42,22 @@ ms.locfileid: "112300762"
     * 아래 샘플에서는 `NodePort`를 사용합니다.
 1. **배포** 텍스트 상자의 오른쪽 끝에 있는 **복사** 아이콘을 선택하여 `kubectl` 명령을 클립보드에 저장합니다.
 1. 명령을 터미널(또는 명령) 창에 붙여넣습니다. 이 명령은 다운로드한 환경 파일이 현재 디렉터리에 있는 것으로 예상합니다.
-    ```console
-        kubectl apply -f <gateway-name>.yaml
-    ```
+
+   ```console
+   kubectl apply -f <gateway-name>.yaml
+   ```
+   
 1. 명령을 실행합니다. 이 명령은 AKS 클러스터에 다음을 지시합니다.
     * Microsoft Container Registry에서 다운로드한 자체 호스팅 게이트웨이의 이미지를 사용하여 컨테이너를 실행합니다. 
     * HTTP(8080) 및 HTTPS(443) 포트를 노출하도록 컨테이너를 구성합니다.
 1. 아래 명령을 실행하여 게이트웨이 Pod가 실행하고 있는지 확인합니다. Pod 이름이 달라집니다.
-    ```console
-    kubectl get pods
-    NAME                                   READY     STATUS    RESTARTS   AGE
-    contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
-    ```
+
+   ```console
+   kubectl get pods
+   NAME                                   READY     STATUS    RESTARTS   AGE
+   contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
+   ```
+
 1. 아래 명령을 실행하여 게이트웨이 서비스가 실행하고 있는지 확인합니다. 서비스 이름과 IP 주소가 달라집니다.
     ```console
     kubectl get services
@@ -66,7 +67,7 @@ ms.locfileid: "112300762"
 1. Azure Portal로 돌아가서 배포한 게이트웨이 노드가 정상 상태를 보고하는지 확인합니다.
 
 > [!TIP]
-> <code>kubectl logs <gateway-pod-name></code> 명령을 사용하여 자체 호스팅 게이트웨이 로그의 스냅샷을 봅니다.
+> `kubectl logs <gateway-pod-name>` 명령을 사용하여 자체 호스팅 게이트웨이 로그의 스냅샷을 봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

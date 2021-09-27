@@ -8,12 +8,13 @@ ms.author: timmitchell
 ms.date: 07/22/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 9d047746c29fb932fcb9ea7aeb2738606453b158
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.subservice: calling
+ms.openlocfilehash: b5c2da9842ba21b63c7b36d5b7377f74a25a1e90
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567079"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672280"
 ---
 # <a name="enable-and-access-call-summary-and-call-diagnostic-logs"></a>호출 요약 및 호출 진단 로그 사용 및 액세스
 
@@ -44,4 +45,4 @@ Azure Communication Services Voice 및 Video 리소스에 대한 원격 분석 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로깅 및 진단](./logging-and-diagnostics.md)에 대한 자세한 정보
+- [로깅 및 진단](./logging-and-diagnostics.md)에 대해 자세히 알아보세요.

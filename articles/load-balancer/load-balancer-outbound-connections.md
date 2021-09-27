@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: 78412ba9e71465761d68899e0d48e95864f444f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e17bc129268f8bc93d107492912c868e8efebae1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535939"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671149"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>아웃바운드 연결을 위해 SNAT(Source Network Address Translation) 사용
 
-특정 시나리오에는 인터넷에 대한 아웃바운드 연결을 위한 가상 머신 또는 컴퓨팅 인스턴스가 필요합니다. Azure 퍼블릭 부하 분산 장치의 프런트 엔드 IP를 사용하여 백 엔드 인스턴스에 대한 인터넷에 아웃바운드 연결을 제공할 수 있습니다. 이 구성은 **SNAT(Source Network Address Translation)** 를 **원본** 으로 사용하거나 가상 머신의 개인 IP를 공용 IP 주소로 변환합니다. SNAT는 백 엔드의 IP 주소를 부하 분산 프로그램의 공용 IP 주소에 매핑합니다. SNAT는 외부 원본이 백 엔드 인스턴스에 대해 직접적인 주소를 가질 수 없습니다.  
+특정 시나리오에는 인터넷에 대한 아웃바운드 연결을 위한 가상 머신 또는 컴퓨팅 인스턴스가 필요합니다. Azure 퍼블릭 부하 분산 장치의 프런트 엔드 IP를 사용하여 백 엔드 인스턴스에 대한 인터넷에 아웃바운드 연결을 제공할 수 있습니다. 이 구성은 **SNAT(원본 네트워크 주소 변환)를** 사용하여 가상 머신의 개인 IP를 Load Balancer 공용 IP 주소로 변환합니다. SNAT는 백 엔드의 IP 주소를 부하 분산 프로그램의 공용 IP 주소에 매핑합니다. SNAT는 외부 원본이 백 엔드 인스턴스에 대해 직접적인 주소를 가질 수 없습니다.  
 
 ## <a name="azures-outbound-connectivity-methods"></a><a name="scenarios"></a>Azure의 아웃바운드 연결 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "122535939"
 이 구성을 사용하면 다음을 수행할 수 있습니다.
 
 - IP 위장
-- 허용 목록을 단순화합니다.
+- 허용 목록 간소화
 - 배포할 공용 IP 리소스 수 줄이기
 
 아웃바운드 규칙을 사용하여 아웃바운드 인터넷 연결을 완전하게 제어할 수 있습니다. 아웃바운드 규칙을 사용하면 이 기능을 스케일링하고 특정 요구에 맞게 조정할 수 있습니다.
@@ -92,13 +92,13 @@ Azure Virtual Network NAT에 대한 자세한 내용은 [Azure Virtual Network N
 * 구성된 NAT 게이트웨이
 * 부하 분산 장치
 
-기본 SNAT를 통해 아웃바운드 연결을 만듭니다. 이를 기본 아웃바운드 액세스라고 합니다. 기본 SNAT를 사용하는 시나리오의 또 다른 예는 Azure의 가상 머신(위에서 언급한 associatedions 없음)입니다. 이 경우 아웃바운드 연결은 기본 아웃바운드 액세스 IP에서 제공됩니다. 이는 사용자가 제어할 수 없는 Azure에서 할당된 동적 IP입니다. 기본 SNAT는 프로덕션 워크로드에 추천되지 않습니다.
+기본 SNAT를 통해 아웃바운드 연결을 만듭니다. 이를 기본 아웃바운드 액세스라고 합니다. 기본 SNAT를 사용하는 시나리오의 또 다른 예는 Azure의 가상 머신입니다(위에서 언급한 연결 제외). 이 경우 아웃바운드 연결은 기본 아웃바운드 액세스 IP에서 제공됩니다. 이는 사용자가 제어할 수 없는 Azure에서 할당된 동적 IP입니다. 프로덕션 워크로드에는 기본 SNAT를 권장하지 않습니다.
 
 ### <a name="what-are-snat-ports"></a>SNAT 포트란?
 
 포트는 고유한 흐름을 유지하는 데 사용되는 고유 식별자 생성에 사용됩니다. 인터넷은 5개의 튜플을 사용하여 해당 고유성을 제공합니다.
 
-인바운드 연결에 포트를 사용하는 경우 해당 포트의 인바운드 연결 요청에 대한 **수신기** 가 존재합니다. 아웃바운드 연결에는 해당 포트를 사용할 수 없습니다. 아웃바운드 연결을 설정하려면 고유한 트래픽 흐름을 전달하고 유지할 수 있는 포트를 대상에 제공하는 **임시 포트** 가 사용됩니다. 임시 포트가 SNAT에 사용되는 경우 **SNAT 포트** 라고 합니다. 
+인바운드 연결에 포트를 사용하는 경우 해당 포트의 인바운드 연결 요청에 대한 **수신기** 가 존재합니다. 아웃바운드 연결에는 해당 포트를 사용할 수 없습니다. 아웃바운드 연결을 설정하려면 고유한 트래픽 흐름을 전달하고 유지할 수 있는 포트를 대상에 제공하는 **임시 포트** 가 사용됩니다. 이러한 사용 후 삭제 포트가 SNAT에 사용되는 경우 **SNAT 포트** 라고 합니다.
 
 정의에 따르면 모든 IP 주소에는 65,535개의 포트가 있습니다. 각 포트는 TCP(Transmission Control Protocol) 및 UDP(User Datagram Protocol)의 인바운드 또는 아웃바운드 연결에 사용할 수 있습니다. 공용 IP 주소를 부하 분산 장치에 프런트 엔드 IP로 추가하면 64,000개의 포트가 SNAT에 적합합니다.
 
@@ -175,6 +175,14 @@ UDP 연결의 경우 부하 분산 장치는 대상 포트에 관계 없이 대�
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
+
+## <a name="manual-port-allocation"></a><a name="preallocatedports"></a> 수동 포트 할당
+
+백 엔드 풀 크기 및 프런트 엔드IPConfigurations 수에 따라 SNAT 포트를 수동으로 할당하면 SNAT 소모를 방지할 수 있습니다. 
+
+"인스턴스당 포트" 또는 "최대 백 엔드 인스턴스 수"로 SNAT 포트를 수동으로 할당할 수 있습니다. 백 엔드에 Virtual Machines 경우 최대 SNAT 포트 사용량을 얻기 위해 "인스턴스당 포트"로 포트를 할당하는 것이 좋습니다. 인스턴스당 포트는 아래와 같이 계산되어야 합니다. 아니요. 프런트 엔드 IP * 64K/아니요 백 엔드 인스턴스의 입니다. 그렇지 않은 경우 백 엔드에 Virtual Machine Scale Sets 경우 "최대 백 엔드 인스턴스 수"로 포트를 할당하는 것이 좋습니다. 
+
+그러나 남은 SNAT 포트보다 더 많은 VM이 백 엔드에 추가되면 VMSS 강화가 차단되거나 새 VM이 충분한 SNAT 포트를 얻지 못할 수 있습니다. 
 
 ## <a name="constraints"></a>제약 조건
 

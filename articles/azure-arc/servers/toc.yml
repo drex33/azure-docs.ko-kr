@@ -41,10 +41,12 @@
           href: agent-overview.md
         - name: 배포 계획
           href: plan-at-scale-deployment.md
-        - name: Azure Portal에서 Azure Arc에 머신 연결
+        - name: 배포 스크립트를 사용하여 머신 연결
           href: onboard-portal.md
         - name: 서비스 주체를 사용하여 규모에 맞게 머신 연결
           href: onboard-service-principal.md
+        - name: Automation 업데이트 관리 머신 연결
+          href: onboard-update-management-machines.md
         - name: PowerShell DSC를 사용하여 Azure Arc에 머신 연결
           href: onboard-dsc.md
         - name: Windows Admin Center에서 머신 연결

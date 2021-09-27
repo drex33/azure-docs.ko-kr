@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d49d222ff26198be0b9b07df900fa4dfac6c07d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: a182d86485a8ca934b3ed94b5251e12b456edabd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294112"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558678"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "114294112"
 
 ## <a name="configure-azure-cache-for-redis-settings"></a>Azure Cache for Redis 설정 구성
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 왼쪽의 **Azure Cache for Redis** 에 표시되고 구성됩니다.
 
@@ -70,7 +70,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 왼쪽의 
 
 ### <a name="activity-log"></a>활동 로그
 
-캐시에 수행된 작업을 보려면 **활동 로그** 를 선택합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [Resource Manager를 사용하는 감사 작업](../azure-resource-manager/management/view-activity-logs.md)을 참조하세요. Azure Cache for Redis 이벤트를 모니터링하는 방법에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+캐시에 수행된 작업을 보려면 **활동 로그** 를 선택합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [Resource Manager를 사용하는 감사 작업](../azure-monitor/essentials/activity-log.md)을 참조하세요. Azure Cache for Redis 이벤트를 모니터링하는 방법에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
 ### <a name="access-control-iam"></a>액세스 제어(IAM)
 
@@ -498,7 +498,7 @@ Redis 콘솔에 액세스하려면 왼쪽의 **Azure Cache for Redis** 에서 **
 
 연결된 분할된 데이터베이스가 아닌 다른 분할된 데이터베이스에 저장된 키에 액세스하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
 
-```
+```console
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```

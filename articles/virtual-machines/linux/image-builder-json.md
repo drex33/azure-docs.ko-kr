@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 703c2023103d9225e5dfad5bd0d288164350122f
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: d10c64af28f6b8dacdbc28d7d29c691fe50580e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450344"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569336"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
@@ -25,32 +25,31 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 기본 템플릿 형식은 다음과 같습니다.
 
 ```json
- { 
+  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
     "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
-        "<name": "<value>",
-        "<name>": "<value>"
-     },
-    "identity":{},           
+      "<name>": "<value>",
+      "<name>": "<value>"
+    },
+    "identity": {},          
     "dependsOn": [], 
     "properties": { 
-        "buildTimeoutInMinutes": <minutes>, 
-        "vmProfile": 
-            {
-            "vmSize": "<vmSize>",
+      "buildTimeoutInMinutes": <minutes>, 
+      "vmProfile": {
+        "vmSize": "<vmSize>",
         "proxyVmSize": "<vmSize>",
-            "osDiskSizeGB": <sizeInGB>,
-            "vnetConfig": {
-                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-                }
-            },
-        "source": {}, 
-        "customize": {}, 
-        "distribute": {} 
-      } 
- } 
+        "osDiskSizeGB": <sizeInGB>,
+        "vnetConfig": {
+          "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
+      },
+      "source": {}, 
+      "customize": {}, 
+      "distribute": {} 
+    } 
+  } 
 ```
 
 
@@ -143,11 +142,11 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ```json
     "identity": {
-    "type": "UserAssigned",
-          "userAssignedIdentities": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
             "<imgBuilderId>": {}
         }
-        },
+    },
 ```
 
 
@@ -177,10 +176,10 @@ Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure 
 ```json
         "source": {
             "type": "PlatformImage",
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "18.04-LTS",
-                "version": "latest"
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
         },
 ```
 
@@ -218,7 +217,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 ```json
         "source": { 
             "type": "ManagedImage", 
-                "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+            "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
         }
 ```
 
@@ -236,7 +235,7 @@ Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설
         "source": { 
             "type": "SharedImageVersion", 
             "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/p  roviders/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>" 
-   } 
+        } 
 ```
 
 `imageVersionId`는 이미지 버전의 ResourceId여야 합니다. [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 이미지 버전을 나열합니다.
@@ -308,13 +307,13 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
             "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
-        "customize": [ 
+    "customize": [ 
         { 
             "type": "Shell", 
             "name": "<name>", 
             "inline": "<commands to run>"
-        }, 
-    ], 
+    }, 
+    ],
 ```
 
 OS 지원: Linux 
@@ -397,7 +396,7 @@ Linux 다시 시작 사용자 지정자는 없지만 드라이버를 설치하�
              "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
-    ], 
+     ], 
 ```
 
 OS 지원: Windows 및 Linux
@@ -455,16 +454,16 @@ OS 지원: Linux 및 Windows
 
 ```json
      "customize": [
-            {
-                "type": "WindowsUpdate",
-                "searchCriteria": "IsInstalled=0",
-                "filters": [
+          {
+               "type": "WindowsUpdate",
+               "searchCriteria": "IsInstalled=0",
+               "filters": [
                     "exclude:$_.Title -like '*Preview*'",
                     "include:$true"
-                            ],
-                "updateLimit": 20
-            }
-               ], 
+               ],
+               "updateLimit": 20
+          }
+     ], 
 ```
 
 OS 지원: Windows
@@ -580,7 +579,7 @@ az resource show \
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
-            "<name": "<value>",
+            "<name>": "<value>",
             "<name>": "<value>"
         }
 }
@@ -596,7 +595,7 @@ az resource show \
  
 > [!NOTE]
 > 대상 리소스 그룹이 존재해야 합니다.
-> 다른 지역에 이미지를 배포하려는 경우 배포 시간이 늘어납니다. 
+> 이미지를 다른 지역에 배포하려면 배포 시간이 늘어나게 됩니다. 
 
 ### <a name="distribute-sharedimage"></a>Distribute: sharedImage 
 Azure Shared Image Gallery는 이미지 영역 복제, 버전 관리, 사용자 지정 이미지 공유를 관리하는 데 사용할 수 있는 새로운 이미지 관리 서비스입니다. Azure Image Builder는 이 서비스를 사용한 배포를 지원하므로 공유 이미지 갤러리에서 지원하는 지역에 이미지를 배포할 수 있습니다. 
@@ -642,7 +641,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 
 
 > [!NOTE]
-> 이미지 템플릿과 참조 `image definition`이 동일한 위치에 있지 않으면 이미지를 만드는 데 더 오래 걸립니다. Image Builder에는 현재 이미지 버전 리소스에 대한 `location` 매개 변수가 없기 때문에 부모 `image definition`에서 가져옵니다. 예를 들어 이미지 정의가 westus에 있고 이미지 버전이 eastus에 복제되도록 하려면 Blob을 westus에 복사하고,이에서 westus의 이미지 버전 리소스를 만든 다음 eastus에 복제합니다. 복제 시간이 더해지지 않도록 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
+> 이미지 템플릿과 참조 `image definition`이 동일한 위치에 있지 않으면 이미지를 만드는 데 더 오래 걸립니다. Image Builder에는 현재 이미지 버전 리소스에 대한 `location` 매개 변수가 없기 때문에 부모 `image definition`에서 가져옵니다. 예를 들어 이미지 정의가 westus에 있고 이미지 버전을 eastus에 복제하려는 경우 blob이 westus에 복사됩니다. 여기서 westus의 이미지 버전 리소스가 생성된 다음 eastus에 복제됩니다. 복제 시간이 더해지지 않도록 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
 
 
 ### <a name="distribute-vhd"></a>배포: VHD  
@@ -653,7 +652,7 @@ VHD로 출력할 수 있습니다. 그런 다음 VHD를 복사하여 Azure Marke
     "type": "VHD",
     "runOutputName": "<VHD name>",
     "tags": {
-        "<name": "<value>",
+        "<name>": "<value>",
         "<name>": "<value>"
     }
 }
@@ -698,7 +697,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>이미지 빌드 취소
 잘못된 것으로 생각되는 이미지 빌드를 실행하거나, 사용자 입력을 기다리거나, 성공적으로 완료되지 않을 것으로 생각되는 경우 빌드를 취소할 수 있습니다.
 
-빌드는 언제든지 취소할 수 있습니다. 배포 단계가 시작된 경우에도 취소할 수 있지만 완료하지 못할 수 있는 이미지를 모두 정리해야 합니다. 취소 명령은 취소가 완료될 때까지 기다리지 않습니다. 다음 상태 [명령](image-builder-troubleshoot.md#customization-log)을 사용하여 `lastrunstatus.runstate`의 취소 진행률을 모니터링하세요.
+언제든지 빌드를 취소할 수 있습니다. 배포 단계가 시작된 경우에도 취소할 수 있지만 완료하지 못할 수 있는 이미지를 모두 정리해야 합니다. cancel 명령은 취소가 완료되기를 기다리지 않습니다. `lastrunstatus.runstate` 다음 상태 명령을 사용하여 진행률 취소를 모니터링하세요. [](image-builder-troubleshoot.md#customization-log)
 
 
 `cancel` 명령의 예는 다음과 같습니다.

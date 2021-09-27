@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: ff2a6618b60ff2cfa5faa74c905e140466a14359
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 2fcb89ccbebf557a1a4068f6fe08b0d27226b1fa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563322"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591770"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
@@ -87,7 +87,7 @@ Azure Log Analytics Nozzle은 [Cloud Foundry Loggregator Firehose](https://docs.
 #### <a name="use-azure-first-party-services"></a>Azure 자사 서비스 사용: 
 Azure의 자사 서비스를 활용하면 위의 섹션에서 설명한 HA 및 안정성뿐만 아니라 장기 관리 비용을 낮출 수 있습니다. 
 
-Pivotal에서는 PCF 고객에 대해 [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html)를 발표했습니다. 구성 요소는 4개의 VM에 공동 배치되어 최대 2500개의 애플리케이션 인스턴스를 실행합니다. 평가판은 현재 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)를 통해 지원됩니다.
+Pivotal에서는 PCF 고객에 대해 [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html)를 발표했습니다. 구성 요소는 4개의 VM에 공동 배치되어 최대 2500개의 애플리케이션 인스턴스를 실행합니다. 평가판은 현재 Azure Marketplace를 통해 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 통합 기능은 Pivotal Cloud Foundry에서 지원되기 전에 먼저 [오픈 소스 Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/)에서 지원됩니다. *으로 표시된 기능은 PCF를 통해 지원되지 않습니다. Azure Stack과 Cloud Foundry 통합은 이 문서에서 다루지 않습니다.

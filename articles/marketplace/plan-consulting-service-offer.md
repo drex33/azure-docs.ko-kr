@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3ffca17efa59a0544e06bb3bd4fbae1d812f2823
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97588474"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819205"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 컨설팅 서비스 제품을 계획하는 방법
 
@@ -90,7 +90,7 @@ AppSource와 Azure Marketplace의 차이점을 자세히 알아보려면 [상업
 * **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
 * **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터나 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
-서비스에는 최대 10주의 미리 결정된 고정 기간이 있어야 합니다. 서비스 기간은 제품 목록에 명시되어야 합니다.
+서비스에는 최대 12 개월의 미리 정의 된 기간이 있어야 합니다. 서비스 기간은 제품 목록에 명시적으로 정의 되어 있어야 합니다.
 
 ## <a name="customer-leads"></a>잠재 고객
 
@@ -160,7 +160,7 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. 이 
 
 **검색 키워드**(선택 사항): 고객이 온라인 스토어에서 제품을 찾는 데 사용할 수 있는 최대 3개의 검색 키워드를 입력합니다. 제품 **이름** 및 **설명** 을 포함할 필요가 없습니다.
 
-**기간**: 컨설팅 서비스 제품의 미리 결정된 기간은 최대 10주여야 합니다.
+**기간**: 컨설팅 서비스 제품에는 미리 결정 된 기간 (최대 12 개월)이 있어야 합니다.
 
 **연락처 정보**: 파트너 센터에서 회사에 소속된 두 사람의 이름, 메일 주소, 전화 번호를 입력하라는 메시지가 표시됩니다(자신이 두 연락처 중 하나일 수 있음). 해당 정보를 사용하여 제품에 대한 의견을 교환합니다. 해당 정보는 고객에게 표시되지 않지만, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 85ca00bd47fa0b81a14fe6529b949ae92af702b0
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
-ms.translationtype: HT
+ms.openlocfilehash: 7d6d2c3d4a4e1f085d19ff4ffe407ed78f79c325
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530282"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708608"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>가용성 영역 간에 Azure VM 재해 복구 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "122530282"
 
 >[!NOTE]
 >
->- 영역 간 재해 복구에 대한 지원은 현재 동남 아시아, 일본 동부, 오스트레일리아 동부, 영국 남부, 서유럽, 북유럽, 프랑스 중부, 캐나다 중부, 미국 중부, 미국 중남부, 미국 동부, 미국 동부 2, 미국 서부 2, 미국 서부 3 지역으로 제한됩니다.  
+>- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아, 일본 동부, 대한민국 중부, 오스트레일리아 동부, 인도 중부, 영국 남부, 유럽 서부, 유럽 서 부, 노르웨이 동부, 프랑스 중부, 캐나다 중부, 미국 중부, 미국 동부, 미국 동부 2, 미국 서 부 2  
 >- Site Recovery는 고객이 영역 간 재해 복구를 사용할 때 배포된 지역 외부로 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 원하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만, 실제 고객 데이터는 없습니다.
 
 Site Recovery 서비스는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 비즈니스 연속성 및 재해 복구 전략에 기여합니다. 지역적으로 가동이 중단된 경우 애플리케이션을 계속 가동하고 실행하기 위해 권장되는 재해 복구 옵션입니다.

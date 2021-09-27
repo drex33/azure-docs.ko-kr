@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: eee7204413face46870de049b38a79061de28347
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
-ms.translationtype: HT
+ms.openlocfilehash: 754a4540bc7164e672abd4fc81d8ecb86e2359a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929798"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737355"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool"></a>Azure Application Consistent Snapshot 도구 시작
 
@@ -164,7 +164,7 @@ GPG 사용에 대한 자세한 내용은 [GNU 프라이버시 핸드북](https:/
 
 - [스토리지 스냅샷의 필수 구성 조건은 무엇인가요?](azacsnap-installation.md#prerequisites-for-installation)
   - [스토리지와의 통신을 사용하도록 설정](azacsnap-installation.md#enable-communication-with-storage)
-  - [SAP HANA와의 통신을 사용하도록 설정](azacsnap-installation.md#enable-communication-with-sap-hana)
+  - [데이터베이스와의 통신 사용](azacsnap-installation.md#enable-communication-with-database)
 - [스냅샷을 수동으로 생성하는 방법](azacsnap-tips.md#take-snapshots-manually)
 - [자동 스냅샷 백업을 설정하는 방법](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [스냅샷을 모니터링하는 방법](azacsnap-tips.md#monitor-the-snapshots)

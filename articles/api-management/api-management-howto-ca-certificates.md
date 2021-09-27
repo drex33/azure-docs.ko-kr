@@ -3,18 +3,18 @@ title: 사용자 지정 CA 인증서 추가 - Azure API Management | Microsoft D
 description: Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법을 알아봅니다. 지침을 참조하여 인증서를 삭제할 수도 있습니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1cb09f24f12d8c4480833995a95e1e08b5e7bbe
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.openlocfilehash: 7e92d4a6c81376a9dbd004ac7fee978fa4d67e9a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812231"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628822"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
 

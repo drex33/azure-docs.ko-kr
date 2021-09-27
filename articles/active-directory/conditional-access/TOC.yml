@@ -102,6 +102,8 @@
           href: troubleshoot-conditional-access.md
         - name: What If 도구를 사용하여 문제 해결
           href: troubleshoot-conditional-access-what-if.md
+        - name: 지속적인 액세스 권한 평가 문제 해결
+          href: howto-continuous-access-evaluation-troubleshoot.md
         - name: FAQ
           href: faqs.md
     - name: 클래식 정책 마이그레이션

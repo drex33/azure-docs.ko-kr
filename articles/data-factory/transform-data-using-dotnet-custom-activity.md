@@ -8,13 +8,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 30cae7cb417037637b16b8c5e69981d5897c4a0e
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 5446bf3c2271fd31fc99e5fadb2f3ab92ca38e26
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824725"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806287"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 사용자 지정 작업 사용
 
@@ -102,7 +102,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | Description                              | 필수 |
+| 속성              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 2d5cf0a3d577949edd9e8174ef74e5fede96e67e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 916cd5fa9251a1f6c14b4518db7b77398c7ab5e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965692"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799988"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
 
@@ -93,4 +93,4 @@ for group in groups:
 
 ## <a name="next-steps"></a>다음 단계
 
-Python Runbook을 준비하려면 [Python Runbook 만들기](learn/automation-tutorial-runbook-textual-python2.md)를 참조하세요.
+Python Runbook을 준비하려면 [Python Runbook 만들기](./learn/automation-tutorial-runbook-textual-python-3.md)를 참조하세요.

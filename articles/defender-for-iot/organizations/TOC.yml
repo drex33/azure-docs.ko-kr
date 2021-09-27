@@ -25,6 +25,12 @@
   items:
     - name: Azure Defender for IoT 평가판 설치
       href: tutorial-onboarding.md
+    - name: Forescout 통합
+      href: tutorial-forescout.md
+    - name: Fortinet 통합
+      href: tutorial-fortinet.md
+    - name: Palo Alto 통합
+      href: tutorial-palo-alto.md
     - name: Qradar 통합
       href: tutorial-qradar.md
     - name: Splunk 통합
@@ -52,7 +58,7 @@
           displayName: 'SSL, TLS, PKI, Locally-signed, CA-signed'
           href: how-to-deploy-certificates.md
         - name: 소프트웨어 설치
-          displayName: 'tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports'
+          displayName: 'tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span,'
           href: how-to-install-software.md
         - name: 프록시를 사용하여 센서 연결
           displayName: 'Squid, proxy, connect, direct internet access, access, internet, tunnel'
@@ -183,14 +189,6 @@
     - name: SNMP MIB 모니터링 설정
       href: how-to-set-up-snmp-mib-monitoring.md
       displayName: health
-    - name: 파트너와 통합
-      items:
-        - name: Forescout 통합
-          href: integration-forescout.md
-        - name: Forescout 통합
-          href: integration-fortinet.md
-        - name: Palo Alto 통합
-          href: integration-palo-alto.md
 - name: 참조
   items:
     - name: Defender for IoT API 작업
@@ -220,7 +218,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
     - name: 보안 리소스
       items:

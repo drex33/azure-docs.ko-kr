@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
 ms.date: 08/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: b09a5ecc2121d2ff1cc377bde7619b834a58e474
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: bc19255d7e234b3ca4ada1bc2f9356dc52b3e4dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824644"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807258"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
@@ -50,13 +50,13 @@ VM 확장 기능은 [지원되는 지역](overview.md#supported-regions) 목록�
 Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용을 알아보려면 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
 > [!NOTE]
-> 최근에 Arc 사용 서버용 DSC VM 확장 지원이 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
+> 최근에 Azure Arc 지원 서버에 대한 DSC VM 확장 지원이 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
 
 Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 이 지원은 Connected Machine 에이전트 버전 **1.8.21197.005** 부터 사용할 수 있습니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ### <a name="windows-extensions"></a>Windows 확장
 
-|확장명 |Publisher |형식 |추가 정보 |
+|내선 번호 |Publisher |유형 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |WindowsAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Compute | CustomScriptExtension |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
@@ -67,7 +67,7 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 
 ### <a name="linux-extensions"></a>Linux 확장
 
-|확장명 |Publisher |형식 |추가 정보 |
+|내선 번호 |Publisher |유형 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |LinuxAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Azure.Extensions |CustomScript |[Linux 사용자 지정 스크립트 확장 버전 2](../../virtual-machines/extensions/custom-script-linux.md) |

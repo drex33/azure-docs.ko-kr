@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Web Apps 정보
+    - name: App Service 정보
       href: overview.md
     - name: App Service Environment 정보
       href: environment/intro.md
@@ -92,6 +92,8 @@
       items:
         - name: 컨테이너가 있는 ASP.NET Core
           href: app-service-sql-github-actions.md
+        - name: ASP.NET
+          href: app-service-sql-asp-github-actions.md
 - name: 샘플
   items:
     - name: Azure CLI

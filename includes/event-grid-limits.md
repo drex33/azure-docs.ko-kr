@@ -5,17 +5,20 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 09/07/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2f52e8a89ec9dd78a1951836053cb2c698310bbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0afa9814a7fb6b726d07fe5f1a5b2c863df72e2e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100645385"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778873"
 ---
 다음 제한은 Azure Event Grid **토픽**(시스템, 사용자 지정 및 파트너 항목)에 적용됩니다. 
+
+> [!NOTE]
+> 이러한 제한은 지역별로 제한됩니다. 
 
 | 리소스 | 제한 |
 | --- | --- |

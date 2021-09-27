@@ -10,19 +10,19 @@ ms.author: peterlu
 author: peterclu
 ms.date: 08/03/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: c6bb9eefd7545a014faf10ad20afa655f7f4cd48
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
-ms.translationtype: HT
+ms.openlocfilehash: 3a38717cec9aed40e3aff96376a9d956eb82a53d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567772"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792223"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너란 무엇인가요? 
 
 Azure Machine Learning 디자이너는 Azure Machine Learning에서 모델을 학습시키고 배포하는 데 사용되는 끌어서 놓기 인터페이스입니다. 이 문서에서는 디자이너에서 수행할 수 있는 작업을 설명합니다.
 
  - 디자이너를 시작하려면 [자습서: 코드 없는 회귀 모델 학습](tutorial-designer-automobile-price-train-score.md)을 참조하세요. 
- - 디자이너에서 사용할 수 있는 구성 요소에 대해 알아보려면 [알고리즘 및 구성 요소 참조](/azure/machine-learning/algorithm-module-reference/module-reference)를 확인하세요.
+ - 디자이너에서 사용할 수 있는 구성 요소에 대해 알아보려면 [알고리즘 및 구성 요소 참조](./algorithm-module-reference/module-reference.md)를 확인하세요.
 
 ![Azure Machine Learning 디자이너 예](./media/concept-designer/designer-drag-and-drop.gif)
 

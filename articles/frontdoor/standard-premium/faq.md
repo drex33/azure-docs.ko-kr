@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: d1ecfcd9ef6a961dc541e779e31cf99d2233dfc6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627390"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄에 대한 질문과 대답(미리 보기)
 
@@ -126,6 +126,8 @@ Azure Front Door는 전역적으로 분산된 다중 테넌트 서비스입니�
         </system.webServer>
     </configuration>
     ```
+
+* Azure Front Door 다른 Azure 서비스와 내부적으로 통합하기 위해 추가 서비스 태그인 *AzureFrontDoor.Frontend* 및 *AzureFrontDoor.FirstParty도* 지원합니다. Azure Front Door 서비스 태그 사용 사례에 대한 자세한 내용은 [사용 가능한](../../virtual-network/service-tags-overview.md#available-service-tags) 서비스 태그를 참조하세요.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Front Door의 수명 동안 애니캐스트 IP가 변경될 수 있나요?
 

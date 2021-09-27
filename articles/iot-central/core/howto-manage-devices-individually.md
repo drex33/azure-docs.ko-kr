@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 개별적으로 디바이스 �
 description: Azure IoT Central 애플리케이션에서 디바이스를 개별적으로 관리하는 방법을 알아봅니다. 디바이스를 만들고, 삭제하고, 업데이트합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 22d433a874e1fc53d8b034c3efe1eb2837df485c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 0ca2190bf5994edec56dce638d7361d90d2da2de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442607"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810633"
 ---
 # <a name="manage-individual-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 개별 디바이스 관리
 
@@ -29,13 +29,16 @@ ms.locfileid: "114442607"
 
 개별 디바이스를 보려면:
 
-1. 왼쪽 창에서 **디바이스** 를 선택합니다. 여기에서 모든 디바이스와 디바이스 템플릿 목록이 표시됩니다.
+1. 왼쪽 창에서 **디바이스** 를 선택합니다. 여기에는 디바이스 템플릿 목록과 조직에서 액세스할 수 있는 모든 디바이스 목록이 표시됩니다.
 
 1. 디바이스 템플릿을 선택합니다.
 
-1. **디바이스** 페이지의 오른쪽 창에 해당 디바이스 템플릿으로 만든 디바이스 목록이 표시됩니다. 개별 디바이스를 선택하면 해당 디바이스의 디바이스 세부 정보 페이지를 볼 수 있습니다.
+1. **디바이스** 페이지의 오른쪽 창에는 해당 디바이스 템플릿에서 만든 조직에서 액세스할 수 있는 디바이스 목록이 표시됩니다. 개별 디바이스를 선택하면 해당 디바이스의 디바이스 세부 정보 페이지를 볼 수 있습니다.
 
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="디바이스 목록을 보여 주는 스크린샷":::
+
+    > [!TIP]
+    > 이 페이지의 필터 도구를 사용하여 특정 조직의 디바이스를 볼 수 있습니다.
 
 ## <a name="add-a-device"></a>디바이스 추가
 
@@ -51,9 +54,30 @@ Azure IoT Central 애플리케이션에 디바이스를 추가하려면:
 
 1. **시뮬레이션** 토글을 **켜기** 또는 **끄기** 로 설정합니다. 실제 디바이스는 Azure IoT Central 애플리케이션에 연결하는 물리적 디바이스입니다. 시뮬레이션된 디바이스에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다.
 
+1. 애플리케이션에서 조직을 사용하는 경우 디바이스가 속한 조직을 선택합니다.
+
+    > [!TIP]
+    > 기본 조직이 [조직](howto-create-organizations.md#default-organization) 드롭다운에 표시하도록 설정할 수 있습니다.
+
 1. **만들기** 를 선택합니다.
 
 1. 이 디바이스가 이제 이 템플릿의 디바이스 목록에 표시됩니다. 디바이스를 선택하면 디바이스에 대한 모든 보기를 포함하는 디바이스 세부 정보 페이지가 표시됩니다.
+
+## <a name="change-organization"></a>조직 변경
+
+디바이스를 다른 조직으로 이동하려면 원본 조직과 대상 조직 모두에 대한 액세스 권한이 있어야 합니다. 디바이스를 이동하려면 다음을 수행합니다.
+
+1. 왼쪽 창에서 **디바이스** 를 선택합니다.
+
+1. 디바이스 목록에서 이동할 디바이스를 선택합니다.
+
+1. **조직** 을 선택합니다.
+
+1. 디바이스에 대한 새 조직을 선택합니다.
+
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="디바이스를 새 조직으로 이동하는 방법을 보여 주는 스크린샷":::
+
+1. **저장** 을 선택합니다.
 
 ## <a name="migrate-devices-to-a-template"></a>디바이스를 템플릿으로 마이그레이션
 

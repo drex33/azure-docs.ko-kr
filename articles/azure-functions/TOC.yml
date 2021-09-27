@@ -158,8 +158,10 @@
   items:
     - name: 모범 사례
       items:
-        - name: 성능 및 안정성
+        - name: 일반적인 유용한 정보
           href: functions-best-practices.md
+        - name: 성능 및 안정성
+          href: performance-reliability.md
           displayName: best practices
         - name: 연결 관리
           href: manage-connections.md
@@ -184,12 +186,12 @@
           href: functions-premium-plan.md
         - name: 전용 계획
           href: dedicated-plan.md
-        - name: 이벤트 기반 크기 조정
-          href: event-driven-scaling.md
     - name: 배포
       href: functions-deployment-technologies.md
     - name: 이벤트 및 메시징
       items:
+        - name: 이벤트 기반 크기 조정
+          href: event-driven-scaling.md
         - name: 안정적인 이벤트 처리
           href: functions-reliable-event-processing.md
         - name: 동일한 입력을 위한 디자인
@@ -259,6 +261,8 @@
       href: ip-addresses.md
     - name: 사용자 지정 처리기
       href: functions-custom-handlers.md
+    - name: 고가용성
+      href: azure-functions-az-redundancy.md
 - name: 방법 가이드
   items:
     - name: 개발

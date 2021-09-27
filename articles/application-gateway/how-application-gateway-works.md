@@ -2,17 +2,17 @@
 title: 애플리케이션 게이트웨이 작동 원리
 description: 이 문서에서는 애플리케이션 게이트웨이에서 들어오는 요청을 수락하고 백 엔드로 라우팅하는 방법에 대한 정보를 제공합니다.
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.author: absha
-ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 594bc177afc0de7703ce12ae9e8a1e831431f176
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599666"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751222"
 ---
 # <a name="how-an-application-gateway-works"></a>애플리케이션 게이트웨이 작동 원리
 

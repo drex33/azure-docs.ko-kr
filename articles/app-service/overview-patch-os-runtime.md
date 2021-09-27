@@ -4,12 +4,12 @@ description: Azure App Service에서 OS 및 런타임을 업데이트하는 방�
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 35d4bbb33aa737725668c0376bb1ffe6f7748f46
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047884"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800083"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -39,10 +39,6 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 지원되는 언어 런타임의 새 안정화 버전(주, 부 또는 패치)은 App Service 인스턴스에 주기적으로 추가됩니다. 기존 버전을 덮어쓰는 업데이트도 있지만, 기존 버전과 병렬로 설치되는 업데이트도 있습니다. 덮어쓰기 설치는 앱이 업데이트된 런타임에서 자동으로 실행됨을 의미합니다. 병렬 설치는 새 런타임 버전을 활용하기 위해 앱을 수동으로 마이그레이션해야 함을 의미합니다. 자세한 내용은 다음 하위 섹션 중 하나를 참조하세요.
 
-런타임 업데이트 및 지원 중지는 다음에 공지됩니다.
-
-- https://azure.microsoft.com/updates/?product=app-service 
-- https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
 > 여기에 나오는 정보는 App Service 앱에 기본적으로 제공되는 언어 런타임에 적용됩니다. 예를 들어, App Service에 업로드하는 사용자 지정 런타임은 수동으로 업그레이드하지 않으면 변경되지 않은 상태를 유지합니다.
@@ -64,10 +60,6 @@ az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 -
 az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
-
-### <a name="deprecated-versions"></a>더 이상 사용되지 않는 버전  
-
-이전 버전이 더 이상 사용되지 않을 경우 그에 따라 런타임 버전 업그레이드를 계획할 수 있도록 제거 날짜가 공지됩니다. 
 
 ## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>인스턴스 내에서 OS 및 런타임 업데이트 상태를 쿼리하는 방법  
 

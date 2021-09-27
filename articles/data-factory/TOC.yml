@@ -256,6 +256,8 @@ items:
             href: connector-overview.md
           - name: Amazon Marketplace 웹 서비스
             href: connector-amazon-marketplace-web-service.md
+          - name: Amazon RDS for Oracle
+            href: connector-amazon-rds-for-oracle.md
           - name: Amazon Redshift
             href: connector-amazon-redshift.md
           - name: Amazon S3
@@ -709,6 +711,8 @@ items:
             href: monitor-integration-runtime.md
           - name: Azure-SSIS 통합 런타임 모니터링
             href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+          - name: 서비스 수준 계약을 사용하여 데이터 파이프라인 실행
+            href: tutorial-operationalize-pipelines.md
           - name: Azure-SSIS 통합 런타임 다시 구성
             href: manage-azure-ssis-integration-runtime.md
           - name: 데이터 팩터리 복사 또는 복제
@@ -879,7 +883,7 @@ items:
             displayName: diu
       - name: 문제 해결 가이드
         items:
-          - name: Data Factory UX
+          - name: Azure Data Factory Studio
             href: data-factory-ux-troubleshoot-guide.md
           - name: 활동
             href: data-factory-troubleshoot-guide.md

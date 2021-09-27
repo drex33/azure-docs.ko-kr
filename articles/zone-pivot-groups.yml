@@ -422,6 +422,14 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: runtime-version-programming-functions
+  title: Azure Functions 버전
+  prompt: 런타임 버전 선택&#58;
+  pivots:
+  - id: programming-runtime-functions-v3
+    title: 버전 3.x
+  - id: programming-runtime-functions-v4
+    title: 버전 4.x
 - id: programming-languages-metrics-monitor
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어를 선택합니다.
@@ -819,7 +827,15 @@ groups:
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: '명령줄 인터페이스 '
+    title: 명령줄 인터페이스
+- id: app-service-ide-oss
+  title: 개발 환경
+  prompt: 개발 환경 선택
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: 명령줄 인터페이스
 - id: app-service-platform-windows-linux
   title: App Service 플랫폼
   prompt: 호스팅 플랫폼 선택
@@ -1151,7 +1167,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: rest-api
-    title: REST
+    title: REST (영문)
 - id: app-service-webjob
   title: WebJob 형식
   prompt: WebJob 유형 선택
@@ -1282,10 +1298,28 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+- id: azure-stack-edge-device-deployment
+  title: Azure Stack Edge 디바이스 개발
+  prompt: 배포 형식 선택
+  pivots:
+  - id: single-node
+    title: 단일 노드 디바이스
+  - id: two-node
+    title: 두 노드 클러스터
+- id: iot-develop-toolset
+  title: IoT 디바이스
+  prompt: 빌드 환경 선택
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-mplab
+    title: MPLAB
 metadata:
-  ms.openlocfilehash: 6043c9ad329e91e258a57df19cb0a6e4ccb3ac93
-  ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+  ms.openlocfilehash: 89fe5b9daec6956c252679045c3f5a5b98cbd670
+  ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/04/2021
-  ms.locfileid: "123471447"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128708532"

@@ -8,12 +8,13 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 332af91806da4514aad9ccc320a5498539682879
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: calling
+ms.openlocfilehash: 064586d0fadac917359a7de70145a10ab6e2cb45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252245"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672042"
 ---
 # <a name="call-flow-topologies"></a>호출 흐름 토폴로지
 이 문서에서는 Azure Communication Services 전화 흐름 토폴로지를 설명합니다. 현재 관리하는 네트워크 내에서 Communication Services를 통합하는 엔터프라이즈 고객이라면 이 문서를 검토하는 것이 좋습니다. Communication Services 전화 흐름에 대한 소개는 [전화 흐름 개념 설명서](./call-flows.md)를 참조하세요.

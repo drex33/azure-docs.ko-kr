@@ -9,12 +9,12 @@ ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 660f6ffe286e13e46f367c761c596ed0ee51da24
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6d6a3833ccf9a30f59da0931f497da1d0490b9a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259849"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736881"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 SAS를 사용하여 Microsoft Genomics에 워크플로 제출 
 
@@ -51,7 +51,7 @@ Azure Storage Explorer를 사용하거나 프로그래밍 방식의 두 가지 �
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Azure Storage에 저장한 리소스를 관리하는 도구입니다.  [여기](../vs-azure-tools-storage-manage-with-storage-explorer.md)에서 Azure Storage Explorer를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
+입력 파일에 대한 SAS는 특정 입력 파일(Blob)로 범위가 지정되어야 합니다. SAS 토큰을 만들려면 [이러한 지침](../storage/blobs/quickstart-storage-explorer.md)에 따릅니다. SAS를 만들면 쿼리 문자열뿐만 아니라 쿼리 문자열 자체의 전체 URL이 제공되며 화면에서 복사할 수 있습니다.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 

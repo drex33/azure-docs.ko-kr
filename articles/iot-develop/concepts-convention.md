@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 26ed060e7cc0ccf8bf4e35ddd5ab62b8ba8eef09
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: fc8992e8e602f4a92d870328b6da14dde06af087
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406697"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670826"
 ---
 # <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
@@ -188,9 +188,84 @@ reported 속성 페이로드 샘플:
 }
 ```
 
+### <a name="object-type"></a>개체 유형
+
+쓰기 가능한 속성이 개체로 정의된 경우 서비스는 전체 개체를 디바이스에 보내야 합니다. 디바이스가 업데이트에 대해 작동한 방식을 이해하기 위해 서비스에 충분한 정보를 다시 전송하여 업데이트를 승인해야 합니다. 이 응답에는 다음이 포함될 수 있습니다.
+
+- 전체 개체입니다.
+- 디바이스가 업데이트한 필드만
+- 필드의 하위 집합입니다.
+
+큰 개체의 경우 승인에 포함하는 개체의 크기를 최소화하는 것이 좋습니다.
+
+다음 예제에서는 4개의 필드가 있는 으로 정의된 쓰기 가능한 속성을 보여줍니다. `Object`
+
+DTDL:
+
+```json
+{
+  "@type": "Property",
+  "name": "samplingRange",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "startTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "lastTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "count",
+        "schema": "integer"
+      },
+      {
+        "name": "errorCount",
+        "schema": "integer"
+      }
+    ]
+  },
+  "displayName": "Sampling range"
+  "writable": true
+}
+```
+
+이 쓰기 가능 속성을 업데이트하려면 서비스에서 다음과 같은 전체 개체를 보냅니다.
+
+```json
+{
+  "samplingRange": {
+    "startTime": "2021-08-17T12:53:00.000Z",
+    "lastTime": "2021-08-17T14:54:00.000Z",
+    "count": 100,
+    "errorCount": 5
+  }
+}
+```
+
+디바이스는 다음과 같은 승인으로 응답합니다.
+
+```json
+{
+  "samplingRange": {
+    "ac": 200,
+    "av": 5,
+    "ad": "Weighing status updated",
+    "value": {
+      "startTime": "2021-08-17T12:53:00.000Z",
+      "lastTime": "2021-08-17T14:54:00.000Z",
+      "count": 100,
+      "errorCount": 5
+    }
+  }
+}
+```
+
 ### <a name="sample-no-component-writable-property"></a>구성 요소가 없는 쓰기 가능한 속성 샘플
 
-디바이스가 단일 페이로드에 보고된 여러 속성을 수신하는 경우 reported 속성 응답을 여러 페이로드를 통해 보낼 수 있습니다.
+디바이스가 단일 페이로드에서 여러 desired 속성을 수신하는 경우 여러 페이로드에서 reported 속성 응답을 보내거나 응답을 단일 페이로드로 결합할 수 있습니다.
 
 디바이스 또는 모듈은 DTDL v2 규칙을 따르는 유효한 JSON을 보낼 수 있습니다.
 
@@ -205,6 +280,12 @@ DTDL:
     {
       "@type": "Property",
       "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "targetHumidity",
       "schema": "double",
       "writable": true
     }
@@ -249,13 +330,16 @@ reported 속성 두 번째 페이로드 샘플:
 }
 ```
 
+> [!NOTE]
+> 이러한 두 개의 보고된 속성 페이로드를 단일 페이로드로 결합하도록 선택할 수 있습니다.
+
 ### <a name="sample-multiple-components-writable-property"></a>다중 구성 요소 쓰기 가능 속성 샘플
 
 디바이스 또는 모듈은 요소가 구성 요소를 참조함을 표시하기 위해 `{"__t": "c"}` 마커를 추가해야 합니다.
 
 마커는 구성 요소에 정의된 속성에 대한 업데이트에 대해서만 전송됩니다. 기본 구성 요소에 정의된 속성 업데이트에는 마커가 포함되지 않습니다. [구성 요소가 없는 쓰기 가능한 속성 샘플](#sample-no-component-writable-property)을 참조하세요.
 
-디바이스가 단일 페이로드에 보고된 여러 속성을 수신하는 경우 reported 속성 응답을 여러 페이로드를 통해 보낼 수 있습니다.
+디바이스가 단일 페이로드에서 여러 reported 속성을 수신하는 경우 여러 페이로드에서 reported 속성 응답을 보내거나 응답을 단일 페이로드로 결합할 수 있습니다.
 
 디바이스 또는 모듈은 reported 속성을 전송하여 속성을 받았는지 확인해야 합니다.
 
@@ -339,6 +423,9 @@ reported 속성 두 번째 페이로드 샘플:
   }
 }
 ```
+
+> [!NOTE]
+> 이러한 두 개의 보고된 속성 페이로드를 단일 페이로드로 결합하도록 선택할 수 있습니다.
 
 ## <a name="commands"></a>명령
 

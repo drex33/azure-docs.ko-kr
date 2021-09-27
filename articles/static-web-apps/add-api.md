@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 56c8044f1ab36015accb3f951469ee0a0579ca23
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 4d549c3d8e97cad7a2cf0bbb75f45c6c06eba641
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608643"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128640043"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에 API 추가
 
@@ -277,10 +277,10 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
-    현재 폴더(`.`) 및 API 폴더(`api`)를 CLI에 전달합니다.
+    현재 폴더(`src`) 및 API 폴더(`api`)를 CLI에 전달합니다.
      
     ```bash
-    swa start . --api api
+    swa start src --api api
     ```
 
     # <a name="angular"></a>[Angular](#tab/angular)

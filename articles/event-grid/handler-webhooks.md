@@ -2,13 +2,13 @@
 title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 웹후크
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 웹후크를 사용하는 방법을 설명합니다. Azure Automation Runbook 및 논리 앱은 웹후크를 통해 이벤트 처리기로 지원됩니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 4f790c6a4ced30d0a0e34cb594581aae09ed1004
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91875804"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550477"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 웹후크, Automation Runbook, Logic Apps
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 여러 Azure 서비스는 이벤트를 처리하도록 자동으로 구성됩니다. 이벤트를 처리하기 위해 WebHook를 사용할 수도 있습니다. WebHook는 이벤트를 처리하기 위해 Azure에서 호스트될 필요가 없습니다. Event Grid는 HTTPS 웹후크 엔드포인트만을 지원합니다.

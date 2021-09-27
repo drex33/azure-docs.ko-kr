@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6b2a2370f6b98184a48c370c929b948ebc72a84e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 762ab1e62adc81ba4e4098167c65e19e405890d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698674"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624788"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -85,7 +85,7 @@ NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 
 
 이 섹션에서는 이전 세대의 가상 머신 크기에 대한 정보를 제공합니다. 이러한 크기는 계속 지원되지만 추가 용량을 수신하지 않습니다. 일반적으로 사용할 수 있는 새로운 크기 또는 대체 크기가 있습니다. 사용자 요구에 가장 적합한 VM 크기를 선택하려면 [Azure의 가상 머신 크기](./sizes.md)를 참조하세요.  
 
-Linux VM의 크기 조정에 대한 자세한 내용은 [Linux VM 크기 조정](linux/change-vm-size.md)을 참조하세요.  
+Linux VM 크기 조정에 대한 자세한 내용은 VM [크기 조정을 참조하세요.](resize-vm.md)  
 
 <br>
 
@@ -163,7 +163,7 @@ A8-A11 및 H 시리즈는 *계산 집약적 인스턴스* 라고도 합니다. �
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
-<sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
+<sup>1</sup> MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
 
 > [!NOTE]
 > [A8~A11 VM은 2021년 3월에 사용 중지될 예정입니다](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). 새로운 A8~A11 VM을 만들지 않는 것을 권장합니다. 가격 대비 성능 향상을 위해 기존 A8~A11 VM을 H, HB, HC, HBv2 및 범용 컴퓨팅 VM 크기(예: D, E 및 F)와 같은 최신의 강력한 고성능 컴퓨팅 VM 크기로 마이그레이션하세요. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
@@ -411,7 +411,7 @@ NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화�
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 
-> 이 VM 시리즈에 대해서는 구독의 vCPU(코어) 할당량이 초기에 각 지역에서 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
+> 이 VM 시리즈에 대해서는 구독의 vCPU(코어) 할당량이 초기에 각 지역에서 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
 >
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
@@ -437,7 +437,7 @@ ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 G
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 
-> 이 VM 시리즈의 경우, 구독의 지역당 vCPU(코어) 할당량이 초기에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
+> 이 VM 시리즈의 경우, 구독의 지역당 vCPU(코어) 할당량이 초기에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
 >
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|

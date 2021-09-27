@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 154680d5f62140b95e7ada3a37678ee3be1c5b24
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: de9488a475998b50d06d26f1d8b02bcdb1b21290
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537467"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780835"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
@@ -112,7 +112,7 @@ Virtual WAN 라우팅을 구성할 때 다음 사항을 고려합니다.
 * 모든 분기 연결은 동일한 경로 테이블 집합으로 경로를 전파해야 합니다. 예를 들어 분기가 기본 경로 테이블로 전파되어야 한다고 결정한 경우 이 구성은 모든 분기에서 일관되어야 합니다. 결과적으로 기본 경로 테이블과 연결된 모든 연결은 모든 분기에 연결할 수 있습니다.
 * Azure Firewall을 통한 분기 간은 현재 지원되지 않습니다.
 * 여러 지역에서 Azure Firewall을 사용하는 경우 모든 스포크 가상 네트워크는 동일한 경로 테이블에 연결되어야 합니다. 예를 들어 동일한 가상 허브에서 다른 VNet이 Azure Firewall을 바이패스하는 반면 Azure Firewall을 통과하는 VNet의 서브넷을 갖는 것은 불가능합니다.
-* VNet 연결당 단일 다음 홉 IP를 구성할 수 있습니다.
+* 단일 Virtual Network 연결에서 여러 개의 다음 홉 IP 주소를 지정할 수 있습니다. 그러나 Virtual Network 연결은 다음 홉 IP가 있는 경로 중 하나가 공용 IP 주소 또는 0.0.0.0/0(인터넷)으로 표시되는 스포크 Virtual Network 'if'에서 '동일한' 네트워크 가상 어플라이언스로의 '다중/고유' 다음 홉 IP를 지원하지 않습니다.
 * 0\.0.0.0/0 경로와 관련된 모든 정보는 로컬 허브의 경로 테이블에만 국한됩니다. 이 경로는 허브 간에 전파되지 않습니다.
 ## <a name="next-steps"></a>다음 단계
 

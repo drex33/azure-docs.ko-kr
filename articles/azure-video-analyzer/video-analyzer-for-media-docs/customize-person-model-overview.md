@@ -1,20 +1,15 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)에서 사용자 모델 사용자 지정 - Azure
-titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer) 사용자 모델의 개념과 이를 사용자 지정하는 방법을 간략하게 설명합니다.
-services: azure-video-analyzer
-author: anikaz
-manager: johndeu
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: e3032e42e4c3e741ee20a113b5f5e0ac34c68876
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 1d76c1124be542a22707b358ce1d050dfac380f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112123179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614867"
 ---
 # <a name="customize-a-person-model-in-video-analyzer-for-media"></a>Video Analyzer for Media에서 사용자 모델 사용자 지정
 

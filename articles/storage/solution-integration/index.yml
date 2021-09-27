@@ -12,12 +12,12 @@ metadata:
   author: beber-msft
   ms.author: beber
   ms.date: 03/15/2021
-  ms.openlocfilehash: 89a8004096a691965f08fe14169324021e18b5e4
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.openlocfilehash: 41924e71fbbad4b1bae5b2eecfd7751cc25c5820
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112287446"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128591010"
 landingContent:
 - title: 분석 및 빅 데이터 파트너
   linkLists:
@@ -61,6 +61,8 @@ landingContent:
       url: ./validated-partners/data-management/komprise-quick-start-guide.md
     - text: StorageX 시작 가이드
       url: ./validated-partners/data-management/storagex-quick-start-guide.md
+    - text: Cirrus Data 시작 가이드
+      url: ./validated-partners/data-management/cirrus-data-migration-guide.md
 - title: 기본 및 보조 스토리지 파트너
   linkLists:
   - linkListType: overview

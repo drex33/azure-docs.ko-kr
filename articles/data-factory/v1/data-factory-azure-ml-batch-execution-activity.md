@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: fd666c51042811a8008657d965d629d1b17848f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571276"
 ---
 # <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Machine Learning Studio(클래식) 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
@@ -65,9 +66,9 @@ Azure Data Factory를 사용하여 데이터 이동 및 처리를 오케스트�
    2. 게시된 Studio(클래식) 웹 서비스용 **API 키**. 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
    3. **AzureMLBatchExecution** 작업을 사용합니다.
 
-      ![Machine Learning Studio(클래식) 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png" alt-text="Machine Learning Studio(클래식) 대시보드":::
 
-      ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png" alt-text="Batch URI":::
 
 ### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 이 시나리오에서는 Studio(클래식) 웹 서비스가 Azure Blob Storage의 파일에서 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Data Factory 파이프라인을 정의합니다. 작업에는 입력으로 **DecisionTreeInputBlob** 데이터 세트, 출력으로 **DecisionTreeResultBlob** 데이터 세트가 있습니다. **DecisionTreeInputBlob** 은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달됩니다. **DecisionTreeResultBlob** 은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다.
@@ -349,7 +350,7 @@ Pig, Hive와 같은 작업이 있는 빅 데이터 파이프라인은 확장명 
 
 Studio(클래식) 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure Blob Storage에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000_0)일 수 있습니다. 판독기 모듈을 통해 **컨테이너, 디렉터리/blob에 대한 경로** 를 구성하여 파일(확장명 없음)을 읽을 수 있습니다. **컨테이너에 대한 경로** 는 컨테이너를 가리키고 **디렉터리/blob** 은 다음 이미지에 표시된 파일이 들어 있는 폴더를 가리킵니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(즉, data/aggregateddata/year=2014/month-6/\*)** 별표, 즉 \*)는 실험의 일부로 읽습니다.
 
-![Azure Blob 속성](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+:::image type="content" source="./media/data-factory-create-predictive-pipelines/azure-blob-properties.png" alt-text="Azure Blob 속성":::
 
 ### <a name="example"></a>예제
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>AzureMLBatchExecution 작업 및 웹 서비스 매개 변수가 포함된 파이프라인

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ea980e0022372862ced9cc2124d071f408a15b37
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bf3aee4c9e9e5d6ccd824bd3a3e02d99d07262f3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96012455"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056710"
 ---
-<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure SQL Managed Instance</Token> 
+**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure SQL Managed Instance   
 

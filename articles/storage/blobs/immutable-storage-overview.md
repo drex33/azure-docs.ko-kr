@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 01ea434081b83065f510a246591af2d05a8d7276
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469593"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584217"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
@@ -53,7 +53,7 @@ Cohasset 보고서는 [Microsoft 서비스 보안 센터](https://aka.ms/AzureWo
 
 불변성 정책의 범위는 Blob 버전(미리 보기) 또는 컨테이너로 지정할 수 있습니다. 불변성 정책 하에서 개체가 작동하는 방식은 정책의 범위에 따라 다릅니다. 각 불변성 정책 유형의 정책 범위에 대한 자세한 내용은 다음 섹션을 참조하십시오.
 
-- [시간 기반 보존 정책 범위](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope) 
+- [시간 기반 보존 정책 범위](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope)
 - [법적 보존 범위](immutable-legal-hold-overview.md#legal-hold-scope)
 
 범위에 따라 리소스(컨테이너 또는 Blob 버전)에 대한 시간 기반 보존 정책 및 법적 보존을 모두 구성할 수 있습니다. 다음 표에는 각 리소스 범위에 대해 지원되는 불변성 정책이 요약되어 있습니다.
@@ -165,11 +165,11 @@ Blob 버전에 대한 시간 기반 보존 정책 또는 법적 보존을 만들
 
 ## <a name="feature-support"></a>기능 지원
 
-이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.

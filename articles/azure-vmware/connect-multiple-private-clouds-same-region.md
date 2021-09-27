@@ -1,16 +1,16 @@
 ---
-title: 동일한 지역에서 여러 Azure VMware Solution 프라이빗 클라우드 연결(미리 보기)
+title: 동일한 지역에 여러 Azure VMware 솔루션 사설 클라우드 커넥트
 description: 동일한 지역에 있는 둘 이상의 Azure VMware Solution 프라이빗 클라우드 간에 네트워크 연결을 만드는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 07/02/2021
-ms.openlocfilehash: 562980ce52216f892cb10689206211e23f3c8886
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: daa4b60c0e42c77f61054d6d9a77898cc0448c37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586728"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567844"
 ---
-# <a name="connect-multiple-azure-vmware-solution-private-clouds-in-the-same-region-preview"></a>동일한 지역에서 여러 Azure VMware Solution 프라이빗 클라우드 연결(미리 보기)
+# <a name="connect-multiple-azure-vmware-solution-private-clouds-in-the-same-region"></a>동일한 지역에 여러 Azure VMware 솔루션 사설 클라우드 커넥트
 
 **AVS Interconnect** 기능을 사용하면 동일한 지역에 있는 둘 이상의 Azure VMware Solution 프라이빗 클라우드 간에 네트워크 연결을 만들 수 있습니다. 클라우드 간의 네트워크 통신을 가능하게 하기 위해 프라이빗 클라우드의 관리 및 워크로드 네트워크 사이에 라우팅 링크를 만듭니다.
 
@@ -18,14 +18,9 @@ ms.locfileid: "113586728"
 
 동일한 지역의 프라이빗 클라우드만 연결할 수 있습니다. 다른 지역에 있는 프라이빗 클라우드를 연결하려면 [ExpressRoute Global Reach를 사용](tutorial-expressroute-global-reach-private-cloud.md)하여 프라이빗 클라우드를 온-프레미스 회로에 연결하는 것과 같은 방식으로 프라이빗 클라우드를 연결합니다. 
 
->[!IMPORTANT]
->AVS 상호 연결(미리 보기) 기능은 현재 공개 미리 보기로 제공됩니다.  
->이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
->자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 ## <a name="supported-regions"></a>지원되는 지역
 
-AVS 상호 연결(미리 보기) 기능은 미국 중남부(SAT20), 북유럽(DUB21), 동남아시아(SG2) 및 영국 서부(CWL20)를 제외한 모든 지역에서 사용할 수 있습니다. 
+SAT20 (미국 DUB21), 동남 아시아 (S G 2) 및 영국 서부 (CWL20)를 제외한 모든 지역에서 AVS 상호 연결 기능을 사용할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

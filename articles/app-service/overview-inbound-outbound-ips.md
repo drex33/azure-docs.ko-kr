@@ -4,12 +4,12 @@ description: 인바운드 및 아웃바운드 IP 주소가 Azure App Service에�
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: f8354d52c43d786e3506cf6fcee0907f9f365ab6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836313"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -29,7 +29,7 @@ App Service 앱은 App Service 요금제에서 실행되고 App Service 요금�
 
 - 앱을 삭제하고 다른 리소스 그룹에서 다시 만듭니다(배포 단위가 바뀔 수 있음).
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다(배포 단위가 바뀔 수 있음).
-- 인증서 갱신 중과 같이 기존 IP 기반 TLS/SSL 바인딩을 삭제합니다(자세한 정보는 [인증서 갱신](configure-ssl-certificate.md#renew-certificate) 참조).
+- 인증서 갱신 중과 같이 기존 IP 기반 TLS/SSL 바인딩을 삭제합니다(자세한 정보는 [인증서 갱신](configure-ssl-certificate.md#renew-an-expiring-certificate) 참조).
 
 ## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
@@ -82,7 +82,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## <a name="get-a-static-outbound-ip"></a>고정 아웃바운드 IP 가져오기
-가상 네트워크 NAT 게이트웨이와 함께 지역 VNet 통합을 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 앱에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [지역 VNet 통합](/azure/app-service/web-sites-integrate-with-vnet)은 **표준**, **프리미엄**, **프리미엄V2**, **프리미엄V3** App Service 요금제에서 사용할 수 있습니다. 이 설정에 관한 자세한 내용은 [NAT 게이트웨이 통합](./networking/nat-gateway-integration.md)을 참조하세요.
+가상 네트워크 NAT 게이트웨이와 함께 지역 VNet 통합을 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 앱에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [지역 VNet 통합](./web-sites-integrate-with-vnet.md)은 **표준**, **프리미엄**, **프리미엄V2**, **프리미엄V3** App Service 요금제에서 사용할 수 있습니다. 이 설정에 관한 자세한 내용은 [NAT 게이트웨이 통합](./networking/nat-gateway-integration.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

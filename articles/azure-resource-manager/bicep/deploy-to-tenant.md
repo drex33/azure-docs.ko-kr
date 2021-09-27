@@ -3,16 +3,20 @@ title: Bicep을 사용하여 테넌트로 리소스 배포
 description: Bicep 파일의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: fe5b8a1a17af47570bb2399172866a1e720b0bab
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453412"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793724"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Bicep 파일을 통해 테넌트 배포
 
 조직이 성숙되면 Azure AD 테넌트 전체에서 [정책](../../governance/policy/overview.md) 또는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 정의하거나 할당해야 할 수 있습니다. 테넌트 수준 템플릿을 사용하면 선언적으로 정책을 적용하고 전역 수준에서 역할을 할당할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+배포 범위 및 실습 지침에 대해 자세히 알아보려면 **Microsoft Learn** 에서 [Bicep를 사용 하 여 구독, 관리 그룹 및 테 넌 트에 리소스 배포](/learn/modules/deploy-resources-scopes-bicep/) 를 참조 하세요.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 

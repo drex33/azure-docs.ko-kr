@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 클라이언트 앱에 대한 인증 옵션으로 Azure Portal을 사용하여 Azure AD 앱 등록을 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: da935038599b86d9c86a1f55071d4b4d1ea4ce16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 8350ff149b54ef8cf8f4061abd64df73dc688962
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223061"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653118"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-portal"></a>Azure Digital Twins에서 사용할 앱 등록 만들기(포털)
 
@@ -64,7 +64,7 @@ Azure Digital Twins를 사용하기 위해 **리소스 이름** 은 `http://digi
 
 **클라이언트 ID** 및 **테넌트 ID** 값은 Azure Portal의 앱 등록 세부 정보 페이지에서 수집할 수 있습니다.
 
-:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="앱 등록에 대한 중요한 값을 보여주는 Azure Portal 보기의 스크린샷.":::
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="앱 등록에 대한 중요한 값을 보여주는 Azure Portal 보기의 스크린샷."  lightbox="media/how-to-create-app-registration/client-id-tenant-id.png":::
 
 **사용자의** 페이지에 표시된 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 를 기록해 둡니다.
 
@@ -78,7 +78,13 @@ Azure Digital Twins를 사용하기 위해 **리소스 이름** 은 `http://digi
 
 1. 설명 및 만료에 원하는 값을 입력하고 **추가** 를 선택합니다.
 
-    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="클라이언트 암호를 추가하는 동안의 Azure Portal 스크린샷.":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="클라이언트 암호를 추가하는 동안의 Azure Portal 스크린샷.":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
 1. 클라이언트 암호가 만료 및 값 필드가 있는 **인증서 및 비밀** 페이지에 표시되는지 확인합니다. 
 

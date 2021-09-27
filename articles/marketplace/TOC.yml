@@ -343,7 +343,23 @@
               href: power-bi-app-supplemental-content.md
     - name: Power BI 시각적 개체 제품
       items:
-        - name: 파트너 센터로의 마이그레이션에 대한 FAQ
+        - name: 제품 계획
+          href: marketplace-power-bi-visual.md
+        - name: 제품 만들기
+          items:
+            - name: 제품 설정
+              href: power-bi-visual-offer-setup.md
+            - name: 속성
+              href: power-bi-visual-properties.md
+            - name: 제품 목록
+              href: power-bi-visual-offer-listing.md
+            - name: 가용성
+              href: power-bi-visual-availability.md
+            - name: 기술 구성
+              href: power-bi-visual-technical-configuration.md
+            - name: 제품 이름 관리
+              href: power-bi-visual-manage-names.md
+        - name: 상업용 Marketplace로 마이그레이션에 대한 FAQ
           href: power-bi-visual-faq.yml
     - name: SaaS 제품
       items:
@@ -484,7 +500,7 @@
     - name: 상용 마켓플레이스 검토 정책
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Azure Marketplace 약관
-      href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+      href: 'https://azure.microsoft.com/support/legal/marketplace-terms/'
     - name: Microsoft Publisher 계약
       href: /legal/marketplace/msft-publisher-agreement
     - name: Microsoft Publisher 계약에 대한 변경 내용

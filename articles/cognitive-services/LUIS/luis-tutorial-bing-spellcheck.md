@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 509d1dc0b94bdfa9be5185df0bad793f7702eb26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 904a29278ea3efdabe6ed72892d2e14ccbf2e0e3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101731037"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740758"
 ---
 # <a name="correct-misspelled-words-with-bing-resource"></a>Bing Resource로 맞춤법이 틀린 단어 수정
 
@@ -68,11 +68,6 @@ Azure Portal에서 Bing Search 리소스를 만들려면 다음 지침을 따르
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
-## <a name="enable-spell-check-from-ui"></a>UI에서 맞춤법 검사 사용 
-[Luis 포털](https://www.luis.ai)을 사용하여 예제 쿼리에 대해 맞춤법 검사를 사용하도록 설정할 수 있습니다. 화면 위쪽에서 **관리** 를 선택하고 왼쪽 탐색 영역에서 **Azure 리소스** 를 선택합니다. 애플리케이션에 예측 리소스를 연결한 후 페이지 맨 아래에서 **쿼리 매개 변수 변경** 을 선택하고 **맞춤법 검사 사용** 필드에 리소스 키를 붙여넣을 수 있습니다.
-    
-   > [!div class="mx-imgBorder"]
-   > ![맞춤법 검사 사용](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
 
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>엔드포인트 URL에 키 추가

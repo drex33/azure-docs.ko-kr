@@ -1,7 +1,6 @@
 - name: Bicep 설명서
   href: index.yml
 - name: 개요
-  expanded: true
   items:
     - name: Bicep이란?
       href: overview.md
@@ -35,9 +34,9 @@
             - name: 조건부 배포
               href: conditional-resource-deployment.md
               displayName: runtime
-            - name: 자식 리소스 이름 및 유형
+            - name: 자식 리소스
               href: child-resource-name-type.md
-              displayName: 'parent,parent resource'
+              displayName: 'parent,parent resource,sub,nested'
             - name: 확장 리소스
               href: scope-extension-resources.md
         - name: 매개 변수
@@ -84,7 +83,23 @@
               href: deploy-to-tenant.md
               displayName: assign role
         - name: Linter
-          href: linter.md
+          items:
+            - name: Linter
+              href: linter.md
+            - name: Linter 규칙
+              items:
+                - name: 하드코딩된 환경 URL 없음
+                  href: linter-rule-no-hardcoded-environment-urls.md
+                - name: 사용하지 않는 매개 변수 없음
+                  href: linter-rule-no-unused-parameters.md
+                - name: 사용하지 않는 변수 없음
+                  href: linter-rule-no-unused-variables.md
+                - name: 보간 선호
+                  href: linter-rule-prefer-interpolation.md
+                - name: 보안 매개 변수 기본값
+                  href: linter-rule-secure-parameter-default.md
+                - name: 보간 단순화
+                  href: linter-rule-simplify-interpolation.md
         - name: 모범 사례
           href: best-practices.md
         - name: 패턴
@@ -121,8 +136,10 @@
               href: add-template-to-azure-pipelines.md
             - name: GitHub Actions를 사용하는 Bicep
               href: deploy-github-actions.md
-    - name: Bicep CLI 사용
+    - name: Bicep으로 마이그레이션
       items:
+        - name: 권장 워크플로
+          href: migrate.md
         - name: 디컴파일
           href: decompile.md
           displayName: 'conversion issues,export,convert,playground'

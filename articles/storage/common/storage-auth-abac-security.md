@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 895f53ca3e8e1c68fa01ef44ffc47d88604bbea5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 46be6327052aa280b9d23bc05764550a05739c5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627922"
 ---
 # <a name="security-considerations-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Azure Storage의 Azure 역할 할당 조건에 대한 보안 고려 사항(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "110070861"
 
 이 문서에서는 역할 할당 조건에 고려해야 하는 보안 고려 사항에 대해 설명합니다.
 
-## <a name="use-of-other-authorization-mechanisms"></a>다른 권한 부여 메커니즘 사용 
+## <a name="use-of-other-authorization-mechanisms"></a>다른 권한 부여 메커니즘 사용
 
 역할 할당 조건은 권한 부여를 위해 Azure RBAC를 사용하는 경우에만 평가됩니다. 대체 권한 부여 방법을 사용하여 액세스를 허용하는 경우 이러한 조건을 바이패스할 수 있습니다.
 - [공유 키](/rest/api/storageservices/authorize-with-shared-key) 권한 부여
@@ -81,7 +81,7 @@ Blob 인덱스 태그는 [Blob 놓기](/rest/api/storageservices/put-blob), [블
 
 ## <a name="roles-and-permissions"></a>역할 및 권한
 
-[Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)에 역할 할당 조건을 사용하는 경우 역할이 주체에게 부여하는 모든 권한을 주의 깊게 검토해야 합니다.
+[Azure 기본 제공](../../role-based-access-control/built-in-roles.md)역할에 대 한 역할 할당 조건을 사용 하는 경우 역할에서 보안 주체에 부여 하는 모든 권한을 신중 하 게 검토 해야 합니다.
 
 ### <a name="inherited-role-assignments"></a>상속된 역할 할당
 
@@ -116,4 +116,3 @@ API의 `prevsnapshot` URI 매개 변수로 지정된 Blob에 대한 액세스에
 - [Azure 역할 할당 조건을 사용하여 Blob에 대한 액세스 권한 부여(미리 보기)](storage-auth-abac.md)
 - [Azure Storage에서 Azure 역할 할당 조건에 대한 작업 및 특성(미리 보기)](storage-auth-abac-attributes.md)
 - [Azure ABAC(Azure 특성 기반 액세스 제어)란 무엇인가요?(미리 보기)](../../role-based-access-control/conditions-overview.md)
-

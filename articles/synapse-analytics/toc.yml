@@ -140,6 +140,8 @@ items:
                     href: ./sql/mfa-authentication.md
                   - name: SQL 권한 부여
                     href: ./sql/sql-authentication.md
+                  - name: 조건부 액세스
+                    href: ./security/workspace-conditional-access.md
               - name: Access Control
                 items:
                   - name: 개요
@@ -671,6 +673,8 @@ items:
                 href: ./spark/data-sources/apache-spark-sql-connector.md
               - name: JSON
                 href: how-to-analyze-complex-schema.md
+              - name: 외부 Hive 메타스토어
+                href: ./spark/apache-spark-external-metastore.md
   - name: Synapse Link
     items:
       - name: 개요
@@ -787,6 +791,8 @@ items:
                 href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Marketplace 웹 서비스
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Amazon RDS for Oracle
+                href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3

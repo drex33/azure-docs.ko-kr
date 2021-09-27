@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용하여 많은 수의 온-프레미스 
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 869702c9eaac4a38f6b0e64311c772892ddd6d90
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
-ms.translationtype: HT
+ms.openlocfilehash: 6a77b91b49009964ba6e20f76e20e4739da6ea75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580445"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823771"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware VM/물리적 서버에 대한 대규모 재해 복구 설정
 
@@ -82,7 +82,7 @@ Deployment Planner는 VMware 온-프레미스 환경에 대한 정보를 수집�
 
 **Task** | **세부 정보** | **동작**
 --- | --- | ---
-**코어 수 확인** | 사용 가능한 할당량의 코어 수가 장애 조치(failover) 시 총 대상 수와 같거나 초과하지 않는 경우 장애 조치(failover)가 실패합니다. | VMware VM의 경우 대상 구독에 Deployment Planner의 코어 권장 사항을 충족하는 데 충분한 코어가 있는지 확인합니다.<br/><br/> 물리적 서버의 경우 Azure 코어 수가 수동 예측 값을 충족하는지 확인합니다.<br/><br/> 할당량을 확인하려면 Azure Portal > **구독** 에서 **사용량 + 할당량** 을 클릭합니다.<br/><br/> 할당량을 늘리는 방법에 대해 [자세히 알아보세요](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+**코어 수 확인** | 사용 가능한 할당량의 코어 수가 장애 조치(failover) 시 총 대상 수와 같거나 초과하지 않는 경우 장애 조치(failover)가 실패합니다. | VMware VM의 경우 대상 구독에 Deployment Planner의 코어 권장 사항을 충족하는 데 충분한 코어가 있는지 확인합니다.<br/><br/> 물리적 서버의 경우 Azure 코어 수가 수동 예측 값을 충족하는지 확인합니다.<br/><br/> 할당량을 확인하려면 Azure Portal > **구독** 에서 **사용량 + 할당량** 을 클릭합니다.<br/><br/> 할당량을 늘리는 방법에 대해 [자세히 알아보세요](../azure-portal/supportability/regional-quota-requests.md).
 **장애 조치(failover) 제한 확인** | 장애 조치(failover) 수는 Site Recovery 장애 조치(failover) 제한을 초과하지 않아야 합니다. |  장애 조치(failover)가 제한을 초과하는 경우 구독을 추가하고 여러 구독으로 장애 조치(failover)하거나 구독 할당량을 늘릴 수 있습니다. 
 
 

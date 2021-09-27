@@ -4,15 +4,16 @@ description: Azure Data Factory를 사용하여 온-프레미스 또는 클라�
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/22/2018
 robots: noindex
-ms.openlocfilehash: ce29b5a112d70575a721b0b527947fd95868da80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 316b8cbcf056b5f26d0043d5a09d688215f1ae9f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382925"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651202"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 

@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a02624f4e5cf3ebbcd2f476372707f58c1d99f69
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73468547"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664070"
 ---
 # <a name="azure-data-share-concepts"></a>Azure Data Share 개념 
 
@@ -27,7 +27,7 @@ Azure Data Share는 데이터 공유와 관련된 몇 가지 새로운 용어를
 
 ## <a name="data-share"></a>Data Share
 
-데이터 공유는 단일 엔터티로 공유되는 데이터 세트의 그룹입니다. Azure Data Share에서 지원하는 다양한 Azure 데이터 원본으로부터 데이터 세트를 가져올 수 있습니다. 현재 Azure Data Share는 Azure Blob Storage 및 Azure Data Lake Store를 지원합니다. 
+데이터 공유는 단일 엔터티로 공유되는 데이터 세트의 그룹입니다. Azure Data Share에서 지원하는 다양한 Azure 데이터 원본으로부터 데이터 세트를 가져올 수 있습니다. 현재 Azure Data Share [지원되는 데이터 저장소는 입니다.](supported-data-stores.md#supported-data-stores) 
 
 ## <a name="share-subscription"></a>공유 구독 
 

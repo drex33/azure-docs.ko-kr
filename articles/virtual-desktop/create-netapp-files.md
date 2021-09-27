@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 244ff34b462d519d111aad6d6b66d7261e612595
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: fa6052c91be73e05bc2413f57810405fe5a198a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539207"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818643"
 ---
 # <a name="upload-msix-images-to-azure-netapp-files-in-azure-virtual-desktop"></a>Azure Virtual Desktop에서 MSIX 이미지를 Azure NetApp Files로 업로드
 
@@ -33,12 +33,11 @@ Azure NetApp Files를 설정하려면 다음이 필요합니다.
 
 Azure NetApp Files 사용을 시작하려면 다음을 수행합니다.
 
-1. [Azure NetApp Files 등록](../azure-netapp-files/azure-netapp-files-register.md)의 지침에 따라 대기 목록 요청을 제출하고 NetApp 공급자를 등록합니다.
-2. [Azure NetApp Files 계정 설정](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account)의 지침에 따라 Azure NetApp Files 계정을 설정합니다.
-3. [용량 풀 설정](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 용량 풀을 만듭니다.
-4. [Active Directory 연결 조인](create-fslogix-profile-container.md#join-an-active-directory-connection)의 지침에 따라 Azure AD(Azure Active Directory) 연결을 조인합니다.
-5. [새 볼륨 만들기](create-fslogix-profile-container.md#create-a-new-volume) 및 [볼륨 액세스 매개 변수 구성](create-fslogix-profile-container.md#configure-volume-access-parameters)의 지침에 따라 새 볼륨을 만듭니다.
-6. [사용자가 Azure NetApp Files 공유에 액세스할 수 있는지 확인](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share)의 지침에 따라 Azure NetApp Files 공유에 대한 연결이 작동하는지 확인합니다.
+1. [Azure NetApp Files 계정 설정](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account)의 지침에 따라 Azure NetApp Files 계정을 설정합니다.
+2. [용량 풀 설정](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 용량 풀을 만듭니다.
+3. [Active Directory 연결 조인](create-fslogix-profile-container.md#join-an-active-directory-connection)의 지침에 따라 Azure AD(Azure Active Directory) 연결을 조인합니다.
+4. [새 볼륨 만들기](create-fslogix-profile-container.md#create-a-new-volume) 및 [볼륨 액세스 매개 변수 구성](create-fslogix-profile-container.md#configure-volume-access-parameters)의 지침에 따라 새 볼륨을 만듭니다.
+5. [사용자가 Azure NetApp Files 공유에 액세스할 수 있는지 확인](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share)의 지침에 따라 Azure NetApp Files 공유에 대한 연결이 작동하는지 확인합니다.
 
 ## <a name="upload-an-msix-image-to-the-azure-netapp-file-share"></a>Azure NetApp Files 공유에 MSIX 이미지 업로드
 

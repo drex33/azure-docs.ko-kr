@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bb061fb11fbc770d751f60e15c81ce31c6a07440
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128705710"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -25,7 +25,7 @@ ms.locfileid: "122567253"
 MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
@@ -44,7 +44,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 [Azure Database for MySQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)에 원본 서버를 둘 수 있습니다.  원본 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 원본 지역에 따라 사용할 수 있는 복제본 지역을 보여 줍니다.
 
-[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="읽기 복제본 지역":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="복제본 영역 읽기":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 지역
 
@@ -99,9 +99,9 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 ## <a name="create-a-replica"></a>복제본 만들기
 
 > [!IMPORTANT]
-> 읽기 복제본 기능은 범용 또는 메모리 최적화 가격 책정 계층의 Azure Database for MySQL 서버에서만 사용 가능합니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
+> * 읽기 복제본 기능은 범용 또는 메모리 최적화 가격 책정 계층의 Azure Database for MySQL 서버에서만 사용 가능합니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
+> * 원본 서버에 기존 복제본 서버가 없는 경우 사용 중인 저장소 (v1/v2)에 따라 복제를 위해 자체를 준비 하려면 원본 서버를 다시 시작 해야 할 수 있습니다. 서버를 다시 시작 하 고 사용량이 적은 시간에이 작업을 수행 하십시오. 자세한 내용은 [원본 서버 다시 시작](./concepts-read-replicas.md#source-server-restart) 을 참조 하세요. 
 
-원본 서버에 기존 복제본 서버가 없는 경우 원본은 먼저 자체적으로 복제를 위한 준비를 위해 다시 시작됩니다.
 
 복제본 만들기 워크플로를 시작하면 빈 Azure Database for MySQL 서버가 만들어집니다. 새 서버는 원본 서버에 있던 데이터로 채워집니다. 생성 시간은 원본의 데이터 양과 마지막 매주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다. 복제본 서버는 항상 원본 서버와 동일한 리소스 그룹 및 동일한 구독에 생성됩니다. 다른 리소스 그룹 또는 다른 구독에 대한 복제본 서버를 만들려는 경우 복제본 서버를 만든 후 [이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)할 수 있습니다.
 
@@ -198,7 +198,9 @@ GTID를 사용하도록 설정하고 일관성 동작을 구성하려면 [Azure 
 
 ### <a name="source-server-restart"></a>원본 서버 다시 시작
 
-기존 복제본이 없는 원본에 대한 복제본을 만드는 경우 원본이 먼저 다시 시작하여 자체적으로 복제할 준비를 합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+범용 스토리지 v1이 있는 서버에서 `log_bin` 매개 변수는 기본적으로 OFF가 됩니다. 값은 첫 번째 읽기 복제본을 만들 때 켜지게 됩니다. 원본 서버에 기존 읽기 복제본이 없는 경우 원본 서버는 먼저 다시 시작하여 복제를 준비합니다. 서버 다시 시작을 고려하고 사용량이 많은 시간 동안 이 작업을 수행하세요.
+
+범용 스토리지 v2가 있는 원본 서버에서 `log_bin` 매개 변수는 기본적으로 ON으로 설정되며 읽기 복제본을 추가할 때 다시 시작할 필요가 없습니다. 
 
 ### <a name="new-replicas"></a>새 복제본
 

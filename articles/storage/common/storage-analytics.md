@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 3ccd5cf9ebc1c5183571dcdfbe3beeabe1b28a63
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 01283dd9607dbe3f9b5b0c2103345cb73d56e093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448120"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579518"
 ---
 # <a name="storage-analytics"></a>스토리지 분석
 
@@ -34,8 +34,8 @@ Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트�
 
 스토리지 분석에서 수행하는 다음 작업에 대해 요금이 청구될 수 있습니다.
 
-* 로깅용 Blob 작성 요청
-* 메트릭용 테이블 엔터티 작성 요청
+- 로깅용 Blob 작성 요청
+- 메트릭용 테이블 엔터티 작성 요청
 
 데이터 보존 정책을 구성한 경우 이전 로깅 및 메트릭 데이터를 삭제하여 지출을 줄일 수 있습니다. 보존 정책에 대한 자세한 내용은 [스토리지 분석 데이터 보존 정책 설정](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy)을 참조하세요.
 
@@ -46,6 +46,7 @@ Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트�
 스토리지 분석 데이터를 확인할 때는 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 토픽의 표를 통해 요금이 청구될 수 있는 요청을 확인할 수 있습니다. 그런 후에 실제 로그 및 메트릭 데이터를 상태 메시지와 비교하여 특정 요청에 대해 요금이 부과되었는지 파악할 수 있습니다. 또한 이전 항목의 표를 통해 스토리지 서비스 또는 개별 API 작업의 사용 가능 여부도 조사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)
-* [스토리지 분석 메트릭](storage-analytics-metrics.md)
-* [스토리지 분석 로깅](storage-analytics-logging.md)
+
+- [Azure Portal에서 스토리지 계정 모니터링](./manage-storage-analytics-logs.md)
+- [스토리지 분석 메트릭](storage-analytics-metrics.md)
+- [스토리지 분석 로깅](storage-analytics-logging.md)

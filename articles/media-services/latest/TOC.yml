@@ -219,6 +219,9 @@
         - name: 콘텐츠 인식 인코딩
           href: encode-content-aware-concept.md
           displayName: 'Content aware encoding, encode, transcode, ABR, adaptive bitrate, resolution, HLS, DASH, Smooth, per title encoding, per title, per scene encoding, scene based, QVBR, Quality Defined Variable Bitrate, Quality-Defined'
+        - name: 사전 설정 재정의
+          href: encode-concept-preset-overrides.md
+          displayName: 'preset, override, transform, job, per-job, language, encode, transcode, custom, per job, encoding settings, customize, job output, output'
         - name: 미디어 예약 단위(레거시)
           href: concept-media-reserved-units.md
           displayName: 'MRU, reserved units, scaling, scale, encoding, media reserved units'
@@ -465,7 +468,7 @@
         - name: 여러 스토리지 계정 관리
           href: storage-managing-multiple-storage-accounts-how-to.md
           displayName: 'how to, how-to, tutorial, storage accounts, multiple storage accounts,'
-    - name: 변환 만들기
+    - name: 미디어 인코딩
       items:
         - name: 변환 만들기
           href: transform-create-transform-how-to.md
@@ -514,7 +517,7 @@
           displayName: 'copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding'
         - name: 콘텐츠 인식 인코딩 사전 설정 사용
           href: encode-content-aware-how-to.md
-          displayName: 'encode, encoder, transcode, custom preset, content aware, transform'
+          displayName: 'encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined'
     - name: 작업 만들기
       items:
         - name: CLI로 작업 만들기

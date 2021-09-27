@@ -7,13 +7,13 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: f30403adf3c981df62a1e5c5122721400ecc060c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+zone_pivot_groups: programming-languages-set-twenty-seven
+ms.openlocfilehash: 528f1270be0065622ba7c79db33f8e4eed93bd74
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580479"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>IoT 플러그 앤 플레이 디바이스 개발자 가이드
 
@@ -35,6 +35,12 @@ IoT 플러그 앤 플레이 디바이스, 모듈 또는 IoT Edge 모듈을 구�
 :::zone pivot="programming-language-ansi-c"
 
 [!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-embedded-c"
+
+[!INCLUDE [iot-pnp-device-devguide-embedded-c](../../includes/iot-pnp-device-devguide-embedded-c.md)]
 
 :::zone-end
 

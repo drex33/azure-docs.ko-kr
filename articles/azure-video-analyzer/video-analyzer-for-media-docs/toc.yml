@@ -116,7 +116,7 @@
       displayName: location
       href: regions.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: 규정 준수
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
     - name: 릴리스 정보

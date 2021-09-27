@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 4645ad2489ecf5d98d559347d895a4ea096b706b
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
-ms.translationtype: HT
+ms.openlocfilehash: 56735c016b5496826b774d2f242ff03117a3a923
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110192321"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754795"
 ---
 # <a name="support-and-troubleshooting-for-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets에 대한 지원 및 문제 해결
 
@@ -20,12 +20,12 @@ ms.locfileid: "110192321"
 
 ## <a name="self-help-troubleshooting"></a>자가 진단 문제 해결
 <div class='icon is-large'>
-    <img alt='Self help content' src='./media/logos/i-article.svg'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
-다양한 문서에서는 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) 및 [Virtual Machine Scale Sets](overview.md)를 사용할 때 발생할 수 있는 문제를 확인, 진단 및 수정하는 방법을 설명합니다.
+다양한 문서에서는 [Azure Virtual Machines](../virtual-machines/index.yml) 및 [Virtual Machine Scale Sets](overview.md)를 사용할 때 발생할 수 있는 문제를 확인, 진단 및 수정하는 방법을 설명합니다.
 
--  [Azure 가상 머신 문제 해결 문서](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
+-  [Azure 가상 머신 문제 해결 문서](/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
 - [Azure Virtual Machine Scale Sets에 대해 질문과 대답](virtual-machine-scale-sets-faq.yml)
 
 
@@ -44,19 +44,19 @@ Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 �
 |-------|----------------------|
 | [Azure 가상 머신 확장 집합](overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 | [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Azure SQL 가상 머신](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure SQL 가상 머신](../azure-sql/virtual-machines/index.yml) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine 백업](../virtual-machines/backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
 | [Azure 가상 머신 확장](../virtual-machines/extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
 | [Azure 가상 머신 이미지](../virtual-machines/shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
 | [Azure 가상 머신 마이그레이션](../virtual-machines/classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
 | [Azure 가상 머신 모니터링](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure 가상 머신 네트워킹](../virtual-machines/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Azure 가상 머신 네트워킹](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
 | [Azure 가상 머신 스토리지](../virtual-machines/managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
 지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
@@ -88,23 +88,10 @@ Azure Virtual Machine Scale Sets를 개발하고 관리하는 데 사용되는 �
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
 
-
-## <a name="submit-feature-requests-on-azure-feedback"></a>Azure 피드백에서 기능 요청 제출
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/logo-uservoice.svg'>
-</div>
-
-새 기능을 요청하려면 Azure 피드백에 게시하세요. Azure Virtual Machine Scale Sets를 향상시키기 위한 아이디어를 공유하세요.
-
-| 서비스                       | Azure 피드백 URL |
-|-------------------------------|---------------|
-| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
-
 ## <a name="stay-informed-of-updates-and-new-releases"></a>업데이트 및 새 릴리스의 최신 정보 수신
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
 </div>
 
 [Azure 업데이트](https://azure.microsoft.com/updates/?category=compute)의 중요한 제품 업데이트, 로드맵 및 공지에 대해 알아봅니다.

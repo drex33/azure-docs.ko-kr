@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 3166ba5015c4d3a8e8d449c497eade6bc8bc56f6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 251d9d2afd541159ae48d5e769b24e0f925fd65d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688291"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776598"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
 
@@ -97,8 +97,10 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
-- [요금 계산기](https://azure.microsoft.com/pricing/calculator/).
-- 디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

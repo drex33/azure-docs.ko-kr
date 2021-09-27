@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f261e69daa14e652d226c9b0d6402eb353c1744
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 71f127bd45c833205067256a2b23cdc72b2c3bfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251888"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784511"
 ---
 # <a name="get-cef-formatted-logs-from-your-device-or-appliance-into-azure-sentinel"></a>디바이스 또는 어플라이언스에서 Azure Sentinel로 CEF 형식 로그 가져오기
 
@@ -55,7 +55,7 @@ Log Analytics로 CEF 데이터를 수집하려면 Azure Sentinel 작업 영역�
 
 - 이 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
-- 작업 영역 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- 작업 영역 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="designate-a-log-forwarder-and-install-the-log-analytics-agent"></a>로그 전달자를 지정 및 Log Analytics 에이전트 설치
 
@@ -117,7 +117,7 @@ Log Analytics에서 CEF 이벤트를 검색하려면 쿼리 창에서 `CommonSec
 
 Azure Sentinel Portal에 있는 제품 데이터 커넥터 페이지의 **다음 단계** 탭에서 제품을 위해 특별 제작된 유용한 샘플 쿼리, 통합 문서 및 분석 규칙 템플릿을 확인할 수 있습니다.
 
-데이터가 표시되지 않는 경우 [CEF 문제 해결](connect-cef-verify.md) 페이지에서 지침을 확인하세요.
+데이터가 표시되지 않는 경우 [CEF 문제 해결](./troubleshooting-cef-syslog.md) 페이지에서 지침을 확인하세요.
 
 ### <a name="changing-the-source-of-the-timegenerated-field"></a>TimeGenerated 필드의 원본 변경
 

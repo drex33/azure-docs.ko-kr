@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: bf182379c9cc10db11e451f908df552a16520b45
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 14721057379217ae9d14b97c94483435dde08203
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225205"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831990"
 ---
 # <a name="variable-iteration-in-bicep"></a>Bicep의 변수 반복
 
 이 문서에서는 Bicep 파일에서 변수에 대한 값을 두 개 이상 만드는 방법을 보여 줍니다. `variables` 선언에 루프를 추가하고 변수의 항목 수를 동적으로 설정할 수 있습니다. Bicep 파일에서 구문이 반복하지 않도록 합니다.
 
 [모듈](loop-modules.md), [리소스](loop-resources.md), [리소스의 속성](loop-properties.md) 및 [출력](loop-outputs.md)과 함께 복사를 사용할 수도 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+루프 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,7 +34,7 @@ ms.locfileid: "123225205"
   }]
   ```
 
-  자세한 내용은 [루프 인덱스](#loop-index)를 참조하세요.
+  자세한 정보는 [루프 인덱스](#loop-index)를 참조하세요.
 
 - 배열 반복.
 
@@ -41,7 +45,7 @@ ms.locfileid: "123225205"
 
   ```
 
-  자세한 내용은 [루프 배열](#loop-array)를 참조하세요.
+  자세한 내용은 [루프 배열](#loop-array)을 참조하세요.
 
 - 배열과 인덱스를 반복합니다.
 

@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 09/15/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6868739d5b2350d5ac29e12f48278348ee7204a8
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 545f7377e79e7f83182e85aa0f05f62e353051d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113437449"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628556"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Azure Portal의 계정 관리자 작업
 

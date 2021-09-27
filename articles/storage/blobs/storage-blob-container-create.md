@@ -9,12 +9,12 @@ ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c5dcd5e65a46208a365dc828f41a83099944653
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: a3c662e336043b78864a1a30e35dcb62777374f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477692"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591048"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용하여 Azure Storage 컨테이너 만들기 또는 삭제
 
@@ -96,6 +96,7 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     return container;
 }
 ```
+
 ---
 
 ## <a name="create-the-root-container"></a>루트 컨테이너 만들기
@@ -139,6 +140,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
     }
 }
 ```
+
 ---
 
 ## <a name="delete-a-container"></a>컨테이너 삭제
@@ -194,6 +196,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
     }
 }
 ```
+
 ---
 
 다음 예에서는 지정된 접두사로 시작하는 모든 컨테이너를 삭제하는 방법을 보여 줍니다.
@@ -226,6 +229,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
     }
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

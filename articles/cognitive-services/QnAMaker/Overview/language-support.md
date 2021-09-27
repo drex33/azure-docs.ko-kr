@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 3718a4255e8b58202c723bccbbfb1aa3459e1ce2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 9c6b80897908bf73c21e9bf8b358216c3fd23b1f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806651"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대한 언어 지원
 
@@ -77,7 +77,7 @@ ms.locfileid: "110372325"
 
 여러 언어가 포함된 기술 자료 시스템을 지원해야 하는 경우 다음을 수행할 수 있습니다.
 
-* 질문을 기술 자료로 보내기 전에 [Translator 서비스](../../translator/translator-info-overview.md)를 사용하여 질문을 단일 언어로 번역합니다. 이를 통해 단일 언어의 품질과 대체 질문 및 대답의 품질에 집중할 수 있습니다.
+* 질문을 기술 자료로 보내기 전에 [Translator 서비스](../../translator/translator-overview.md)를 사용하여 질문을 단일 언어로 번역합니다. 이를 통해 단일 언어의 품질과 대체 질문 및 대답의 품질에 집중할 수 있습니다.
 * 모든 언어에 대해 QnA Maker 리소스와 해당 리소스 내부에 기술 자료를 만듭니다. 이를 통해 각 언어에 대해 미묘하게 다른 대체 질문과 응답 텍스트를 관리할 수 있습니다. 이렇게 하면 훨씬 더 많은 유연성을 제공하지만 모든 언어에 대해 질문이나 대답이 변경될 경우 유지 관리 비용이 훨씬 더 많이 필요합니다.
 
 

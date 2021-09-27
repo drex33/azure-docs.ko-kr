@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ffe433e632e2afed32f2a135d87d927686e9a004
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
-ms.translationtype: HT
+ms.openlocfilehash: 6c8f4e902929d6a610dc1f9224ac17b2d3b893d0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018291"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056833"
 ---
 Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용하여 Intune 프로필을 만드는 데 도움을 줍니다.
 
@@ -21,7 +21,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 >* 이 문서는 인증용으로만 Azure Active Directory를 사용하는 프로필 배포에 적용됩니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 디바이스가 이미 Intune MDM에 등록되어 있습니다.
 * Windows 10용 Azure VPN 클라이언트는 클라이언트 컴퓨터에 이미 배포되어 있습니다.
@@ -72,7 +72,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 
     * **이름:** 구성 이름을 입력합니다.
     * **설명:** 선택적 설명입니다.
-    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML```(이 정보는 <name> </name> 태그의 azurevpnconfig.xml 파일에서 찾을 수 있습니다).
+    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML```(이 정보는 \<name\> \</name\> 태그의 azurevpnconfig.xml 파일에서 찾을 수 있습니다).
     * **데이터 형식:** 문자열(XML 파일).
 
    폴더 아이콘을 선택하고 [XML](#xml) 단계의 6단계에서 저장한 파일을 선택합니다. **추가** 를 선택합니다.

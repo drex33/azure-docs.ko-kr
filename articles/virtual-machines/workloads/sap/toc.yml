@@ -260,6 +260,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
         - name: 파일 공유 기능이 있는 SAP
           items:
+            - name: Azure Files SMB를 사용하여 HA SAP NetWeaver 설치
+              href: high-availability-guide-windows-azure-files-smb.md
             - name: Azure NetApp Files(SMB)를 사용하여 HA SAP NetWeaver 설치
               href: high-availability-guide-windows-netapp-files-smb.md
             - name: WSFC 및 SOFS 파일 공유 기능이 있는 SAP ASCS/SCS 인스턴스

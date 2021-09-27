@@ -3,16 +3,17 @@ title: Azure Data Factory를 사용하여 웹 테이블에서 데이터 이동
 description: Azure Data Factory를 사용하여 웹 페이지의 테이블로 데이터를 이동하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0e3472393587fe117e342bbc1dce5d990520760d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392904"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651221"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -282,24 +283,24 @@ WebSource에서 지원되는 속성 목록은 WebSource 형식 속성을 참조�
 1. **Excel 2016** 을 시작하고 **데이터** 탭으로 전환합니다.  
 2. 도구 모음에서 **새 쿼리** 를 클릭하고 **기타 원본에서** 를 가리킨 다음 **웹에서** 를 클릭합니다.
 
-    ![파워 쿼리 메뉴](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/PowerQuery-Menu.png" alt-text="파워 쿼리 메뉴":::
 3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 세트에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인** 을 클릭합니다.
 
-    ![웹 대화 상자](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/FromWeb-DialogBox.png" alt-text="웹 대화 상자":::
 
     이 예제에서 사용되는 URL은 https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies입니다.
 4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증** 을 선택하고 **연결** 을 클릭합니다.
 
-   ![웹 콘텐츠 액세스 대화 상자](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/AccessWebContentDialog.png" alt-text="웹 콘텐츠 액세스 대화 상자":::
 5. 트리 뷰에서 **테이블** 항목을 클릭하여 테이블에서 콘텐츠를 표시한 다음 아래쪽의 **편집** 단추를 클릭합니다.  
 
-   ![탐색기 대화 상자](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   :::image type="content" source="./media/data-factory-web-table-connector/Navigator-DialogBox.png" alt-text="탐색기 대화 상자":::
 6. **쿼리 편집기** 창에서 도구 모음의 **고급 편집기** 단추를 클릭합니다.
 
-    ![고급 편집기 단추](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png" alt-text="고급 편집기 단추":::
 7. 고급 편집기 대화 상자에서 "원본" 옆에 있는 숫자가 인덱스입니다.
 
-    ![고급 편집기 - 인덱스](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    :::image type="content" source="./media/data-factory-web-table-connector/AdvancedEditor-Index.png" alt-text="고급 편집기 - 인덱스":::
 
 Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 를 사용하여 인덱스를 가져옵니다. 자세한 내용은 [웹 페이지에 연결](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) 문서를 참조하세요. [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/)을 사용하는 경우에도 작업 단계는 비슷합니다.
 

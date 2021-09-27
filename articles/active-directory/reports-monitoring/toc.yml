@@ -60,8 +60,6 @@
           href: howto-find-activity-reports.md
         - name: 사용자에 대한 로그인 오류 문제 해결
           href: howto-troubleshoot-sign-in-errors.md
-        - name: 위험 플래그가 지정된 사용자 수정
-          href: howto-remediate-users-flagged-for-risk.md
         - name: Reporting API를 위한 필수 구성 요소 구성
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: Azure AD 통합 문서 사용 방법

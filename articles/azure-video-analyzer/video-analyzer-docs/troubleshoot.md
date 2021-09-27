@@ -3,12 +3,12 @@ title: Azure Video Analyzer 문제 해결 - Azure
 description: 이 문서에서는 Azure Video Analyzer에 대한 문제 해결 단계를 다룹니다.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
-ms.openlocfilehash: 0d3a089fee6d374dd8109f2430cfdb9fec19bc30
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: be8bbe61bd9d33557184b11c722141cfbc880fed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429355"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563622"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Azure Video Analyzer 문제 해결
 
@@ -155,6 +155,17 @@ Video Analyzer는 여러 토폴로지와 여러 파이프라인을 설정하는 
 1. [자세한 로그를 수집하도록 Video Analyzer 모듈 구성](#configure-video-analyzer-module-to-collect-verbose-logs)
 1. [디버그 로그 켜기](#video-analyzer-debug-logs)
 1. 문제 재현
+1. Video Analyzer 에지 모듈을 다시 시작합니다. 
+    > [!NOTE]
+    > 이 단계는 에지 모듈을 정상적으로 종료하고 이벤트를 삭제하지 않고 모든 로그 파일을 사용 가능한 형식으로 얻는 데 필요합니다.   
+    
+    IoT Edge 디바이스에서 를 `<avaedge>` Video Analyzer 에지 모듈의 이름으로 대체한 후 다음 명령을 사용합니다.
+    
+    ```cmd
+    sudo iotedge restart <avaedge>
+    ```
+
+   Azure Portal에서 원격으로 모듈을 다시 시작할 수도 있습니다. 자세한 내용은 [Azure Portal에서 IoT Edge 디바이스 모니터링 및 문제 해결](../../iot-edge/troubleshoot-in-portal.md)을 참조하세요.
 1. 포털의 **IoT Hub** 페이지에서 가상 머신에 연결
 
    1. _debugLogs_ 폴더의 모든 파일을 압축합니다.
@@ -289,7 +300,7 @@ Video Analyzer는 하드웨어 리소스 모니터링을 수행하거나 제공�
 
 문제에 대한 자세한 정보를 얻기 위해 수행할 수 있는 몇 가지 작업이 있습니다.
 
-- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함 하 고 로그 수준이로 설정 되었는지 확인 `Information` 합니다.
+- Video Analyzer 모듈의 desired 속성에 "**mediaPipeline** 로그 범주를 포함하고 로그 수준이 로 설정되어 있는지 `Information` 확인합니다.
 - 네트워크 연결을 테스트하려면 에지 디바이스에서 다음 명령을 실행하면 됩니다.
 
   ```

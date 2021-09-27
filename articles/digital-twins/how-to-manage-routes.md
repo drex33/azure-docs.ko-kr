@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd63a04616848acfb3971a97f8363498e6ba4e55
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835745"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661016"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Azure Digital Twins에서의 엔드포인트 및 경로 관리
 
@@ -77,7 +77,7 @@ Azure Digital Twins에서는 [이벤트 알림](concepts-event-notifications.md)
 1. 엔드포인트의 **이름** 을 입력하고 **엔드포인트 유형** 을 선택합니다.
 
 1. [위에서](#prerequisite-create-endpoint-resources) 설명하는 구독과 엔드포인트 리소스를 비롯하여, 엔드포인트 유형에 필요한 다른 세부 정보를 완료합니다.
-    1. Event Hub 및 Service Bus 엔드포인트의 경우 **인증 유형** 을 선택해야 합니다. Azure Digital Twins 인스턴스에 대해 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources-preview)로 엔드포인트를 사용하려는 경우, 미리 만든 권한 부여 규칙이나 ID 기반 인증을 통해 키 기반 인증을 사용할 수 있습니다. 
+    1. Event Hub 및 Service Bus 엔드포인트의 경우 **인증 유형** 을 선택해야 합니다. Azure Digital Twins 인스턴스에 대해 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources)로 엔드포인트를 사용하려는 경우, 미리 만든 권한 부여 규칙이나 ID 기반 인증을 통해 키 기반 인증을 사용할 수 있습니다. 
 
     :::row:::
         :::column:::
@@ -132,7 +132,7 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 
 #### <a name="create-an-endpoint-with-identity-based-authentication"></a>ID 기반 인증으로 엔드포인트 만들기
 
-ID 기반 인증을 사용하는 엔드포인트를 만들어 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources-preview)가 있는 엔드포인트를 사용할 수도 있습니다. 이 옵션은 Event Hub 및 Service Bus 유형 엔드포인트에만 사용할 수 있습니다(Event Grid에 지원되지 않음).
+ID 기반 인증을 사용하는 엔드포인트를 만들어 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources)가 있는 엔드포인트를 사용할 수도 있습니다. 이 옵션은 Event Hub 및 Service Bus 유형 엔드포인트에만 사용할 수 있습니다(Event Grid에 지원되지 않음).
 
 이 유형의 엔드포인트를 만드는 CLI 명령은 다음과 같습니다. 명령의 자리 표시자에 연결하려면 다음 값이 필요합니다.
 * Azure Digital Twins 인스턴스의 Azure 리소스 ID
@@ -235,7 +235,7 @@ Azure CLI를 사용하여 이 작업을 수행하는 방법에 대한 지침을 
 
 #### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>ID 기반 인증을 사용하여 배달 못한 편지 엔드포인트 만들기
 
-또한 ID 기반 인증을 사용하는 배달 못한 편지 엔드포인트를 만들어 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources-preview)와 함께 엔드포인트를 사용할 수도 있습니다. 이 옵션은 Event Hub 및 Service Bus 유형 엔드포인트에만 사용할 수 있습니다(Event Grid에 지원되지 않음).
+또한 ID 기반 인증을 사용하는 배달 못한 편지 엔드포인트를 만들어 [관리 ID](concepts-security.md#managed-identity-for-accessing-other-resources)와 함께 엔드포인트를 사용할 수도 있습니다. 이 옵션은 Event Hub 및 Service Bus 유형 엔드포인트에만 사용할 수 있습니다(Event Grid에 지원되지 않음).
 
 이 엔드포인트 유형을 만들려면 이전과 동일한 CLI 명령을 사용하여 [ID 기반 인증을 사용하여 엔드포인트를 만들고](#create-an-endpoint-with-identity-based-authentication) `deadLetterUri`에 대한 JSON 페이로드의 추가 필드를 사용합니다.
 

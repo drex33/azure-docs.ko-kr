@@ -3,7 +3,7 @@ title: Azure API Management 정책을 설정 및 편집하는 방법 | Microsoft
 description: Azure API Management 정책을 설정하거나 편집하는 방법을 알아봅니다. 이 정책은 인바운드 및 아웃바운드 문의 시퀀스를 설명하는 XML 문서입니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: apimpm
-ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 780f7cc547a7f5bc79b0e602a5e5cc8f0338f8ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92078326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590065"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 

@@ -552,6 +552,8 @@
           href: howto-restrict-your-app-to-a-set-of-users.md
         - name: 애플리케이션에 앱 역할 추가
           href: howto-add-app-roles-in-azure-ad-apps.md
+        - name: 애플리케이션에 RBAC 구현
+          href: howto-implement-rbac-for-apps.md
     - name: Microsoft Graph API 사용
       href: microsoft-graph-intro.md
     - name: 복원력을 위해 빌드
@@ -722,7 +724,7 @@
           href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: 리소스
   items:
-    - name: 비디오
+    - name: 동영상
       href: identity-videos.md
     - name: Microsoft ID 플랫폼 개발자 블로그
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'

@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 1e62937a4240448f85cc7ab147d642b29bb0a2a9
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: c7cf2aaeaaf9907ff87ab4805aebe04c3098b8f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657142"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
@@ -60,24 +60,109 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 
 ## <a name="deploying-your-app"></a>앱 배포
 
-[Maven용 Azure 웹앱 플러그 인](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)을 사용하여 .war 또는 .jar 파일을 배포할 수 있습니다. 또한 배포 시 많이 사용되는 IDE를 사용하면 [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) 또는 [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse)에서 지원됩니다.
+### <a name="build-tools"></a>빌드 도구
 
-그렇지 않으면 배포 방법이 보관 형식에 따라 달라집니다.
+#### <a name="maven"></a>Maven
+[Azure Web Apps에 대 한 Maven 플러그](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)인을 사용 하 여 프로젝트 루트에서 명령 하나를 사용 하 여 Azure 웹 앱에 대 한 Maven Java 프로젝트를 쉽게 준비할 수 있습니다.
 
-### <a name="java-se"></a>Java SE
+```shell
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+```
+
+이 명령은 `azure-webapp-maven-plugin` 기존 Azure 웹 앱을 선택 하거나 새 앱을 만들도록 요청 하 여 플러그 인과 관련 구성을 추가 합니다. 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
+```shell
+mvn package azure-webapp:deploy
+```
+
+다음은의 샘플 구성입니다 `pom/xml` .
+```xml
+<plugin> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>azure-webapp-maven-plugin</artifactId>  
+  <version>2.1.0</version>  
+  <configuration>
+    <subscriptionId>111111-11111-11111-1111111</subscriptionId>
+    <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
+    <appName>spring-boot-xxxxxxxxxx</appName>
+    <pricingTier>B2</pricingTier>
+    <region>westus</region>
+    <runtime>
+      <os>Linux</os>      
+      <webContainer>Java SE</webContainer>
+      <javaVersion>Java 11</javaVersion>
+    </runtime>
+    <deployment>
+      <resources>
+        <resource>
+          <type>jar</type>
+          <directory>${project.basedir}/target</directory>
+          <includes>
+            <include>*.jar</include>
+          </includes>
+        </resource>
+      </resources>
+    </deployment>
+  </configuration>
+</plugin> 
+```
+
+#### <a name="gradle"></a>Gradle
+1. 에 플러그 인을 추가 하 여 [Azure Web Apps에 대 한 Gradle 플러그 인](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 을 설정 합니다 `build.gradle` .
+    ```groovy
+    plugins {
+      id "com.microsoft.azure.azurewebapp" version "1.1.0"
+    }
+    ```
+
+1. 웹 앱 세부 정보를 구성 합니다. 해당 하는 경우 해당 Azure 리소스가 생성 됩니다.
+다음은 샘플 구성입니다. 자세한 내용은이 [문서](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration)를 참조 하세요.
+    ```groovy
+    azurewebapp {
+        subscription = '<your subscription id>'
+        resourceGroup = '<your resource group>'
+        appName = '<your app name>'
+        pricingTier = '<price tier like 'P1v2'>'
+        region = '<region like 'westus'>'
+        runtime {
+          os = 'Linux'
+          webContainer = 'Tomcat 9.0' // or 'Java SE' if you want to run an executable jar
+          javaVersion = 'Java 8'
+        }
+        appSettings {
+            <key> = <value>
+        }
+        auth {
+            type = 'azure_cli' // support azure_cli, oauth2, device_code and service_principal
+        }
+    }
+    ```
+
+1. 하나의 명령으로 배포 합니다.
+    ```shell
+    gradle azureWebAppDeploy
+    ```
+    
+### <a name="ides"></a>IDE
+Azure는 널리 사용 되는 Java Ide의 App Service 개발 환경을 다음과 같이 제공 합니다.
+- *VS Code*: [Java Web Apps Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
+- *INTELLIJ 아이디어*:[IntelliJ를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
+- *Eclipse*:[eclipse를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
+
+### <a name="kudu-api"></a>Kudu API
+#### <a name="java-se"></a>Java SE
 
 Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/publish/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요. 
 
 > [!NOTE]
 >  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](/azure/app-service/faq-app-service-linux#built-in-images) 텍스트 상자에 이 스크립트의 절대 경로를 붙여 넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
 
-### <a name="tomcat"></a>Tomcat
+#### <a name="tomcat"></a>Tomcat
 
 .war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요.
 
 ::: zone pivot="platform-linux"
 
-### <a name="jboss-eap"></a>JBoss EAP
+#### <a name="jboss-eap"></a>JBoss EAP
 
 JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요.
 

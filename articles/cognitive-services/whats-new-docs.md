@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 06/14/2021
-ms.openlocfilehash: 0fa4491f9d4fa955dfc9be7033e4eab9137b5672
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 655f61388d2fd19cffbb4b7d3212bf401e20040d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824766"
 ---
 # <a name="cognitive-services-docs-whats-new-for-may-1-2021---may-31-2021"></a>Cognitive Services 문서: 2021년 5월 1일~2021년 5월 31일까지의 새로운 기능
 
@@ -36,14 +36,14 @@ ms.locfileid: "114294968"
 
 ### <a name="new-articles"></a>새 문서
 
-- [참조: Azure Form Recognizer 클라이언트 라이브러리 v3.0.0 및 REST API v2.0](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [참조: Azure Form Recognizer 클라이언트 라이브러리 v3.0.0 및 REST API v2.0](../applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [양식 인식기로 미리 작성된 명함 모델](./form-recognizer/concept-business-cards.md)
-- [빠른 시작: 클라이언트 라이브러리 SDK 또는 REST API 시작](./form-recognizer/quickstarts/client-library.md)
-- [Form Recognizer의 새로운 기능](./form-recognizer/whats-new.md)
-- [Form Recognizer 방문 페이지](./form-recognizer/index.yml)
+- [양식 인식기로 미리 작성된 명함 모델](../applied-ai-services/form-recognizer/concept-business-cards.md)
+- [빠른 시작: 클라이언트 라이브러리 SDK 또는 REST API 시작](../applied-ai-services/form-recognizer/quickstarts/client-library.md)
+- [Form Recognizer의 새로운 기능](../applied-ai-services/form-recognizer/whats-new.md)
+- [Form Recognizer 방문 페이지](../applied-ai-services/form-recognizer/index.yml)
 
 ## <a name="translator"></a>변환기
 
@@ -76,7 +76,7 @@ ms.locfileid: "114294968"
 
 이 기간 동안 Cognitive Services 문서에 기여한 사용자는 다음과 같습니다. 감사합니다! [새로운 기능 방문 페이지](index.yml)의 "관련 항목 가져오기" 아래에 있는 링크를 따라 참여하는 방법을 알아봅니다.
 
-- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano(2)
+- [enzocanoo](https://github.com/enzocano) - Enzo Cano(2)
 - [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka(2)
 - [sassdawe](https://github.com/sassdawe) - DavidSass(1)
 - [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga(1)

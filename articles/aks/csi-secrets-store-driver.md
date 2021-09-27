@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: fd6ebf1534869fa96fe6249d302406583fe55e59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 83895ebe6f8cf330650eef8167ee3bdd06660869
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528598"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656439"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>AKS(Azure Kubernetes Service) 클러스터(미리 보기)에서 Kubernetes용 Secretscrets Store CSI Driver 사용
 
@@ -24,13 +24,17 @@ Kubernetes용 Secrets Store CSI Driver를 사용하면 [CSI 볼륨][kube-csi]을
 
 - 시작하기 전에 [Azure CLI](/cli/azure/install-azure-cli-windows) 및 *aks-preview* 확장의 최신 버전을 설치합니다.
 
+### <a name="supported-kubernetes-versions"></a>지원되는 Kubernetes 버전
+
+이 기능에 권장되는 최소 Kubernetes 버전은 1.18입니다. 
+
 ## <a name="features"></a>기능
 
 - CSI 볼륨을 사용하여 Pod에 비밀, 키 및/또는 인증서 탑재
 - CSI 인라인 볼륨 지원(Kubernetes 버전 v1.15+)
 - 단일 볼륨으로 여러 비밀 저장소 개체 탑재 지원
 - SecretProviderClass CRD를 사용하여 Pod 이식성 지원
-- Windows 컨테이너 지원(Kubernetes 버전 v1.18+)
+- Windows 컨테이너 지원
 - Kubernetes Secrets와 동기화(Secrets Store CSI Driver v0.0.10+)
 - 탑재된 콘텐츠 및 동기화된 Kubernetes 비밀의 자동 회전 지원(Secrets Store CSI Driver v0.0.15+)
 
@@ -195,7 +199,8 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectName: <secret-name>       # In this example, 'ExampleSecret' 
+          objectAlias: <secret-alias>     # [OPTIONAL] specify the filename of the object when written to disk - defaults to objectName if not provided
           objectType: secret              # Object types: secret, key or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance

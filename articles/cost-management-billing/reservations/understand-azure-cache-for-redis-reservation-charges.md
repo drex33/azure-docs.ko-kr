@@ -5,14 +5,14 @@ author: yegu-ms
 manager: maiye
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 09/15/2021
 ms.author: yegu
-ms.openlocfilehash: 5f9e0a18db0920acd35ebd7b133ed3fe5d0eaee9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 46363d3bed85c275a39fea174191fad18d95d753
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352952"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609425"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>예약 할인이 Azure Cache for Redis에 적용되는 방법
 
@@ -20,7 +20,7 @@ Azure Cache for Redis 예약된 용량을 구입하면 예약 할인이 예약�
 
 ## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
-예약 할인은 ***use-it-or-lose-it** _ 방식입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다.
+예약 할인은 ***use-it-or-lose-it(사용하지 않으면 사라짐)*** 방식입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다.
 
 리소스를 종료할 때 예약 할인이 지정된 범위에서 일치하는 다른 리소스에 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없는 경우 예약된 시간은 소멸됩니다.
 
@@ -30,7 +30,7 @@ Azure Cache for Redis 예약된 용량 할인은 시간 단위로 캐시에 적�
 
 다음 예제에서는 Azure Cache for Redis 예약된 용량 할인이 구입한 캐시 수와 실행 시간에 따라 적용되는 방법을 보여 줍니다.
 
-_ **예제 1**: 6GB 캐시에 해당하는 Azure Cache for Redis 예약된 용량을 구입합니다. 예약의 나머지 특성과 일치하는 13GB 캐시를 실행하는 경우 7GB Azure Cache for Redis 컴퓨팅 사용량에 대한 종량제 가격이 청구되고 나머지 6GB 캐시 컴퓨팅 사용량에 대해 시간당 예약 할인이 적용됩니다.
+* **예제 1**: 6gb 캐시에 대해 Redis 예약 된 용량에 대 한 Azure 캐시를 구입 합니다. 예약의 나머지 특성과 일치하는 13GB 캐시를 실행하는 경우 7GB Azure Cache for Redis 컴퓨팅 사용량에 대한 종량제 가격이 청구되고 나머지 6GB 캐시 컴퓨팅 사용량에 대해 시간당 예약 할인이 적용됩니다.
 
 이러한 예제의 나머지 부분에서는 구입하는 Azure Cache for Redis 예약된 용량이 26GB 캐시에 해당하며, 나머지 예약 특성이 실행되는 캐시와 일치한다고 가정합니다.
 

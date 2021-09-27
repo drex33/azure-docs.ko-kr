@@ -9,18 +9,26 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2efc4d2c546cff172164b9416cbe5a0772167631
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: d575af739fa299cc32576bd2798eeb8165fe37c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538810"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590039"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-azure-form-recognizer"></a>Azure Form Recognizer의 새로운 기능
 
 Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 정보, 향상된 기능 및 설명서 업데이트를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+
+## <a name="september-2021"></a>2021년 9월
+
+"이름에 접미사/점이 있는 경우 미리 작성 된 Id (드라이버 라이선스)에서 부정확 한 이름 추출을 수정 합니다."
+
+[Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="스크린샷: Azure Portal의 메트릭 차트":::
 
 ## <a name="july-2021"></a>2021년 7월
 

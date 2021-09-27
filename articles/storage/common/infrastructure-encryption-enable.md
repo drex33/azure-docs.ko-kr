@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5c87ed5222b5bb95660b6e63e259a2b5e14b7b47
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
-ms.translationtype: HT
+ms.openlocfilehash: c4dca05b855666a04d1def09228c596eb931bbf5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607010"
 ---
 # <a name="enable-infrastructure-encryption-for-double-encryption-of-data"></a>데이터의 이중 암호화에 인프라 암호화 사용
 
@@ -142,7 +142,6 @@ az storage account show /
 ---
 
 Azure Policy는 스토리지 계정에 대해 인프라 암호화를 사용하도록 요구하는 기본 제공 정책을 제공합니다. 자세한 내용은 [Azure Policy 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#storage)의 **스토리지** 섹션을 참조하세요.
-
 
 ## <a name="create-an-encryption-scope-with-infrastructure-encryption-enabled"></a>인프라 암호화가 사용될 암호화 범위 만들기
 

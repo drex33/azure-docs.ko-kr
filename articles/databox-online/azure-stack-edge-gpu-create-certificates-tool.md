@@ -1,19 +1,18 @@
 ---
 title: Azure Stack 허브 준비 검사기 도구를 통해 Azure Stack Edge Pro GPU용 인증서 만들기
 description: Azure Stack Hub 준비 상태 검사기 도구를 사용하여 인증서 요청을 만든 다음, Azure Stack Edge Pro GPU 디바이스에 인증서를 가져오고 설치하는 방법을 설명합니다.
-services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 7b167efdc0b1edaa1f09b0b85a1abbf86ef77037
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 08201fafa3f69803e15a02c1535159101a1ecfea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113353920"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128660997"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사기 도구를 사용하여 Azure Stack Edge Pro GPU용 인증서 만들기 
 
@@ -118,7 +117,7 @@ Azure Stack Edge Pro 디바이스 배포의 CSR을 만들려면 다음을 확인
     |`wildcard`로 시작     |Blob Storage 인증서 요청. 여기에는 디바이스에서 만들 수 있는 모든 스토리지 계정을 포함하기 때문에 와일드카드가 포함됩니다.          |
     |`AzureStackEdgeVPNCertificate`로 시작     |VPN 클라이언트 인증서 요청.         |
 
-    INF 폴더도 표시됩니다. 여기에는 인증서 세부 정보를 설명하는 일반 텍스트의 management.<edge-devicename> 정보 파일이 포함됩니다.  
+    INF 폴더도 표시됩니다. 여기에는 관리가 포함 됩니다.\<edge-devicename\> 인증서 세부 정보를 설명 하는 일반 텍스트로 된 정보 파일입니다.  
 
 
 6. 이 파일을 인증 기관(내부 또는 퍼블릭)에 제출합니다. 해당 CA가 생성된 요청을 사용하여 [노드 인증서](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [엔드포인트 인증서](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates) 및 [로컬 UI 인증서](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates)의 Azure Stack Edge Pro 인증서 요구 사항을 충족하는 인증서를 생성하는지 확인합니다.

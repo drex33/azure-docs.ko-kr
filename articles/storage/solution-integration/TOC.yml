@@ -33,6 +33,8 @@
       href: ./validated-partners/data-management/komprise-quick-start-guide.md
     - name: StorageX 시작 가이드
       href: ./validated-partners/data-management/storagex-quick-start-guide.md
+    - name: Cirrus Data 시작 가이드
+      href: ./validated-partners/data-management/cirrus-data-migration-guide.md
   expanded: false
 - name: 기본 및 보조 스토리지 파트너
   items:

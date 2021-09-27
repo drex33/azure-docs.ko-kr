@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/28/2021
-ms.openlocfilehash: d701767f6e8f22b1577b3fb745d01dea00557e8b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: eca62eccca6f53935f29a16bca0afc382896212c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306824"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810353"
 ---
 # <a name="troubleshoot-assessment"></a>평가 문제 해결
 
@@ -153,7 +153,7 @@ Azure VM 평가는 온-프레미스 서버의 성능 데이터를 지속적으�
 
 ## <a name="can-i-migrate-my-disks-to-an-ultra-disk-by-using-azure-migrate"></a>Azure Migrate를 사용하여 디스크를 Ultra 디스크로 마이그레이션할 수 있나요?
 
-아니요. 현재 Azure Migrate와 Azure Site Recovery 모두 Ultra 디스크로의 마이그레이션을 지원하지 않습니다. [이 웹 사이트](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)에서 Ultra disk를 배포하는 단계를 찾으세요.
+아니요. 현재 Azure Migrate와 Azure Site Recovery 모두 Ultra 디스크로의 마이그레이션을 지원하지 않습니다. [이 웹 사이트](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)에서 Ultra disk를 배포하는 단계를 찾으세요.
 
 ## <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>내 Ultra 디스크의 프로비저닝된 IOPS 및 처리량이 온-프레미스 IOPS 및 처리량보다 많은 이유는 무엇인가요?
 

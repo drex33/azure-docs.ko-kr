@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 08/26/2021
-ms.openlocfilehash: 451dd198b5507b99400d4e1c8e1670e596016af1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: 1b503462b7ff6abd1000e96fa2f3cfd6f15d33fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308296"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658966"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database와 Azure SQL Managed Instance
 
@@ -52,7 +52,7 @@ Azure는 데이터베이스를 관리하고 데이터베이스의 고가용성�
 | [기본 제공 함수](/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) 참조 |
 | [BULK INSERT 문](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | 예, 하지만 Azure Blob Storage에서 원본으로만. | 예, 하지만 Azure Blob Storage에서 원본으로만 - [차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset) 참조 |
 | [인증서 및 비대칭 키](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | 예, `BACKUP` 및 `CREATE` 작업을 위해 파일 시스템에 액세스할 수 없음. | 예, `BACKUP` 및 `CREATE` 작업을 위해 파일 시스템에 액세스할 수 없음 - [인증서 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates) 참조 |
-| [CDC(변경 데이터 캡처)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 예 | 예 |
+| [CDC(변경 데이터 캡처)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 예(미리 보기) - S3 계층 이상 기본, S0, S1, S2는 지원되지 않습니다. | 예 |
 | [데이터 정렬 - 서버/인스턴스](/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요, 기본 서버 데이터 정렬 `SQL_Latin1_General_CP1_CI_AS`가 항상 사용됨 | 예, [인스턴스를 만들](../managed-instance/create-template-quickstart.md) 때 설정할 수 있으며 나중에 업데이트할 수 없음 |
 | [columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) | 예 - [프리미엄 계층, 표준 계층 - S3 이상, 범용 계층, 중요 비즈니스용 및 하이퍼스케일 계층](/sql/relational-databases/indexes/columnstore-indexes-overview) |예 |
 | [CLR(공용 언어 런타임)](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 예 | 예, 하지만 `CREATE ASSEMBLY` 문에서 파일 시스템에 액세스할 수 없음 - [CLR 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) 참조 |

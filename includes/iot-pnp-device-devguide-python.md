@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 0fdee151d746e19323921dddbb409e0816cb014b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 14522e6395e40e93c0eb558597ad090521a480a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397869"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580536"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -46,7 +46,7 @@ device_client = IoTHubDeviceClient.create_from_symmetric_key(
 
 ## <a name="telemetry"></a>원격 분석
 
-기본 구성 요소에는 특별한 속성이 필요하지 않습니다.
+기본 구성 요소에는 원격 분석 메시지에 추가된 특수 속성이 필요하지 않습니다.
 
 중첩된 구성 요소를 사용하는 경우 디바이스는 구성 요소 이름으로 메시지 속성을 설정해야 합니다.
 
@@ -69,7 +69,7 @@ async def send_telemetry_from_temp_controller(device_client, telemetry_msg, comp
 await device_client.patch_twin_reported_properties({"maxTempSinceLastReboot": 38.7})
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -79,7 +79,7 @@ await device_client.patch_twin_reported_properties({"maxTempSinceLastReboot": 38
 }
 ```
 
-중첩된 구성 요소를 사용하는 경우 구성 요소 이름 내에 속성을 만들어야 합니다.
+중첩된 구성 요소를 사용하는 경우 구성 요소 이름 내에 속성을 만들고 표식이 포함되어야 합니다.
 
 ```python
 inner_dict = {}
@@ -91,7 +91,7 @@ prop_dict["thermostat1"] = inner_dict
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -107,6 +107,8 @@ await device_client.patch_twin_reported_properties(prop_dict)
 ## <a name="writable-properties"></a>쓰기 가능한 속성
 
 이러한 속성은 디바이스에서 설정하거나 솔루션에서 업데이트할 수 있습니다. 솔루션에서 속성을 업데이트하면 클라이언트는 `IoTHubDeviceClient` 또는 `IoTHubModuleClient`에서 콜백으로 알림을 받습니다. IoT 플러그 앤 플레이 규칙을 따르려면 디바이스에서 속성이 성공적으로 수신되었음을 서비스에 알려야 합니다.
+
+속성 형식이 인 경우 `Object` 서비스는 개체 필드의 하위 집합만 업데이트하는 경우에도 디바이스에 전체 개체를 보내야 합니다. 디바이스에서 보내는 승인도 완전한 개체여야 합니다.
 
 ### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
 
@@ -126,7 +128,7 @@ prop_dict["targetTemperature"] = {
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -158,7 +160,7 @@ prop_dict["thermostat1"] = inner_dict
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-디바이스 쌍은 다음에 보고되는 속성으로 업데이트됩니다.
+디바이스 쌍이 다음 reported 속성으로 업데이트됩니다.
 
 ```json
 {
@@ -178,7 +180,7 @@ await device_client.patch_twin_reported_properties(prop_dict)
 
 ### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
 
-서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 보고된 속성과 동일한 `ack` 메시지로 응답해야 합니다.
+서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 서비스로 다시 전송된 메시지에 이 버전 번호를 포함해야  `ack` 합니다.
 
 기본 구성 요소는 단일 속성을 보고 수신된 버전으로 보고된 `ack`를 만듭니다.
 
@@ -205,7 +207,7 @@ async def execute_property_listener(device_client):
         await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-디바이스 쌍은 원하는 섹션과 보고된 섹션의 속성을 보여줍니다.
+중첩된 구성 요소에 대한 디바이스 쌍은 다음과 같이 원하는 섹션과 보고된 섹션을 보여줍니다.
 
 ```json
 {

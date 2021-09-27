@@ -6,22 +6,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 09/23/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 92ec3349f5e2e2f06fdbe7f56468a7145452276d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667068"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
-이 문서에서는 VNet-VNet 연결 형식을 사용하여 VNet(가상 네트워크)를 연결합니다. 가상 네트워크가 서로 다른 지역과 구독에 있어도 됩니다. 다른 구독의 VNet을 연결할 때 구독을 동일한 Active Directory 테넌트에 연결할 필요는 없습니다. 
+이 문서는 Azure Portal을 사용 하 여 VNet 간 연결 형식을 사용 하 여 가상 네트워크 (Vnet)를 연결 하는 데 도움이 됩니다. 가상 네트워크는 다른 지역에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독의 VNet을 연결할 때 구독을 동일한 Active Directory 테넌트에 연결할 필요는 없습니다. 이 유형의 구성은 두 가상 네트워크 게이트웨이 간의 연결을 만듭니다. 이 문서는 VNet 피어 링에는 적용 되지 않습니다. VNet 피어 링의 경우 [Virtual Network 피어 링](../virtual-network/virtual-network-peering-overview.md) 문서를 참조 하세요. 
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet 간 다이어그램":::
 
-이 문서의 단계는 [Azure Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용되며 Azure Portal을 사용합니다. 다음 문서에 설명된 옵션을 사용하여 다른 배포 도구 또는 모델을 통해 이 구성을 만들 수 있습니다.
+VNet의 배포 모델에 따라 다양 한 도구를 사용 하 여이 구성을 만들 수 있습니다. 이 문서의 단계는 Azure [리소스 관리자 배포 모델](../azure-resource-manager/management/deployment-models.md) 및 Azure Portal에 적용 됩니다. 다른 배포 모델 또는 배포 방법 문서로 전환 하려면 드롭다운을 사용 합니다. 
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -41,7 +41,9 @@ ms.locfileid: "122535785"
 
 VNet-VNet 연결 구성은 간단하게 VNet을 연결할 수 있는 방법입니다. VNet-VNet 연결 형식(VNet2VNet)을 사용하여 가상 네트워크를 다른 가상 네트워크에 연결하는 것은 온-프레미스 위치에 사이트 간 IPsec 연결을 설정하는 것과 비슷합니다. 두 연결 형식 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공하며 둘 다 동일한 방식으로 통신합니다. 그러나 로컬 네트워크 게이트웨이를 구성하는 방법이 다릅니다. 
 
-VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 자동으로 생성되고 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet이 자동으로 업데이트된 주소 공간으로 라우팅됩니다. 일반적으로 사이트 간 연결보다는 VNet-VNet 연결이 더 빠르고 쉽습니다.
+VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공간이 자동으로 생성되고 채워집니다. 한 VNet의 주소 공간을 업데이트하면 다른 VNet이 자동으로 업데이트된 주소 공간으로 라우팅됩니다. 일반적으로 사이트 간 연결보다는 VNet-VNet 연결이 더 빠르고 쉽습니다. 그러나이 구성에서는 로컬 네트워크 게이트웨이가 표시 되지 않습니다. 
+* 로컬 네트워크 게이트웨이에 대 한 추가 주소 공간을 지정 하거나 나중에 추가 연결을 추가 하 고 로컬 네트워크 게이트웨이를 조정 해야 할 경우 사이트 간 단계를 사용 하 여 구성을 만들어야 합니다. 
+* VNet 간 연결에는 지점 및 사이트 간 클라이언트 풀 주소 공간이 포함 되지 않습니다. 지점 및 사이트 간 클라이언트에 대 한 전이적 라우팅이 필요한 경우 가상 네트워크 게이트웨이 간에 사이트 간 연결을 만들거나 VNet 피어 링을 사용 합니다.
 
 ### <a name="site-to-site-ipsec"></a>사이트 간(IPsec)
 
@@ -49,7 +51,10 @@ VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공
 
 ### <a name="vnet-peering"></a>VNet 피어링
 
-VNet 피어링을 사용하여 VNet을 연결할 수도 있습니다. VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 여러 제약 조건이 있습니다. 또한 [VNet 피어링 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)은 [VNet-VNet VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)과 다르게 계산됩니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+VNet 피어링을 사용하여 VNet을 연결할 수도 있습니다.
+* VNet 피어링은 VPN 게이트웨이를 사용하지 않으며 여러 제약 조건이 있습니다.
+* Vnet [피어 링 가격은](https://azure.microsoft.com/pricing/details/virtual-network) [vnet에서 vnet으로의 VPN Gateway 가격과](https://azure.microsoft.com/pricing/details/vpn-gateway)다르게 계산 됩니다.
+* VNet 피어 링에 대 한 자세한 내용은 [Virtual Network 피어 링](../virtual-network/virtual-network-peering-overview.md) 문서를 참조 하세요.
 
 ## <a name="why-create-a-vnet-to-vnet-connection"></a>VNet-VNet 연결을 만드는 이유
 

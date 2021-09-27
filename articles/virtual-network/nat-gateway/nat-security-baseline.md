@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862c21e162ce43e6d7de6aa6485b01925edbe465
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 5edab35023afeca68cff20a82307afaf4bbad535
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288196"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784245"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Virtual Network NAT에 대한 Azure 보안 기준
 
@@ -28,9 +28,9 @@ Virtual Network NAT가 Azure Security Benchmark에 완전히 매핑되는 방법
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: 가상 네트워크, 서브넷, NIC의 구성과 트래픽을 모니터링하고 기록
 
-**지침**: Virtual Network NAT은 NSG(네트워크 보안 그룹)를 사용한 아웃바운드 트래픽 제어를 지원하지 않습니다.  인바운드 트래픽은 아웃바운드로 시작된 흐름에 대한 응답으로만 허용됩니다.
+**지침**: Virtual Network NAT는 nsg (네트워크 보안 그룹)를 사용 하 여 아웃 바운드 트래픽 제어를 지원 합니다.  인바운드 트래픽은 아웃바운드로 시작된 흐름에 대한 응답으로만 허용됩니다.
 
-그러나 NSG(네트워크 보안 그룹) 흐름 로그를 NAT 게이트웨이 리소스와 함께 사용하여 아웃바운드로 시작된 트래픽을 모니터링할 수 있습니다.
+또한 NSG (네트워크 보안 그룹) 흐름 로그를 NAT 게이트웨이 리소스와 함께 사용 하 여 아웃 바운드 시작 된 트래픽을 모니터링할 수 있습니다.
 
 Azure Security Center를 사용해 네트워크 보호 권장 사항을 따라 Azure 네트워크 리소스를 보호합니다. 네트워크 보안 그룹 흐름 로그를 사용하도록 설정하고 감사를 위해 로그를 Azure Storage 계정으로 보냅니다. 또한 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점은 네트워크 활동을 시각화하고, 핫스폿 및 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해 하고, 네트워크 구성이 잘못 구성된 곳을 특정할 수 있다는 것입니다. 
 

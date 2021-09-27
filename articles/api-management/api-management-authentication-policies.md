@@ -3,7 +3,7 @@ title: Azure API Management 인증 정책 | Microsoft Docs
 description: Azure API Management에 사용할 수 있는 인증 정책에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/27/2021
-ms.author: apimpm
-ms.openlocfilehash: 47c687a85249b21e25dc282b47fb76fed0158a91
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: d43310918f1aaeb7905d22f22726709f8d0ed1f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629771"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -48,13 +48,13 @@ ms.locfileid: "113551311"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |인증-기본|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필수|기본값|
+|Name|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
@@ -99,13 +99,13 @@ ms.locfileid: "113551311"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|이름|Description|필수|  
 |----------|-----------------|--------------|  
 |인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|Name|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|`thumbprint`와 `certificate-id` 중 하나가 있어야 합니다.|해당 없음|
 |certificate-id|인증서 리소스 이름입니다.|`thumbprint`와 `certificate-id` 중 하나가 있어야 합니다.|해당 없음|
@@ -176,13 +176,13 @@ ms.locfileid: "113551311"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|이름|Description|필수|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|Name|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |resource|문자열입니다. Azure Active Directory의 대상 웹 API(보안 리소스)의 앱 ID입니다.|예|해당 없음|
 |client-id|문자열입니다. Azure Active Directory 사용자 할당 ID의 앱 ID입니다.|예|시스템 할당 ID|

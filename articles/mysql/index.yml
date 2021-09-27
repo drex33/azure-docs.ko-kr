@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 36338fdaad38bb84b4b4a796289c07e0cfee01d7
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 448cf07b05d429106405cccc387ba9f4b84f3583
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124804883"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128565231"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -175,8 +175,10 @@ landingContent:
       url: https://dev.mysql.com/doc/connector-net/en/
   - linkListType: deploy
     links:
-    - text: 일반 작업용 Azure CLI 스크립트
+    - text: Azure CLI 샘플 - 단일 서버
       url: ./sample-scripts-azure-cli.md
+    - text: Azure CLI 샘플 - 유연한 서버
+      url: flexible-server/sample-scripts-azure-cli.md
     - text: Azure 리소스 관리자 템플릿
       url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 452b850f0c5c731c1e5f3bbe0a7f5a28e2b72ecc
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: e723089b0e248b3bab167b985bc410b3e00d4dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788271"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -94,8 +94,6 @@ Cognitive Service는 학습된 모델을 제공합니다. 이를 통해 데이�
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
-|[Form Recognizer](./form-recognizer/overview.md)||x||
-|[몰입형 리더](../applied-ai-services/immersive-reader/overview.md)|x|||
 |[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[언어 이해(LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
@@ -105,7 +103,7 @@ Cognitive Service는 학습된 모델을 제공합니다. 이를 통해 데이�
 |[STT(음성 텍스트 변환)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[텍스트 분석](./text-analytics/overview.md)|x|||
-|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator](./translator/translator-overview.md)|x|||
 |[Translator - 사용자 지정 번역기](./translator/custom-translator/overview.md)||x||
 
 *Personalizer는 정책 및 데이터를 평가하기 위해 서비스에서 수집하는 학습 데이터(실시간으로 작동함)만 필요합니다. Personalizer에는 선행 또는 일괄 학습을 위한 대량 기록 데이터 세트가 필요하지 않습니다. 

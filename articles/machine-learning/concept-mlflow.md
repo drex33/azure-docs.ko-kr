@@ -3,20 +3,20 @@ title: MLflow 및 Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning을 통해 MLflow를 설정하여 ML 모델에서 메트릭 및 아티팩트를 기록하고 ML 모델을 웹 서비스로 배포하는 방법을 알아봅니다.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a4b9810764a0a2d8b421d17e546cd39e93cec582
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: a4ade0567f28cef23fe0752a1aa6ec018464ad01
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034643"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792071"
 ---
 # <a name="mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning
 

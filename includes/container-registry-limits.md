@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5e633bc71da050f3d580a6f0d0a4db25102ac360
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122262001"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582341"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -33,6 +33,7 @@ ms.locfileid: "122262001"
 | &bull; 프라이빗 엔드포인트 | 해당 없음 | 해당 없음 | 10 |
 | 공용 IP 네트워크 규칙 | 해당 없음 | 해당 없음 | 100 |
 | 서비스 엔드포인트 VNet 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
+| &bull; 가상 네트워크 규칙 | 해당 없음 | 해당 없음 | 100 |
 | 고객 관리형 키 | 해당 없음 | 해당 없음 | [지원됨][cmk] |
 | 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|
 | &bull; 토큰 | 해당 없음 | 해당 없음 | 20,000 |

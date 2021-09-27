@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: ef2d8b68d6fb56f5d9b3508d550303aa9d9526d1
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 1542a8dd6c36c2a623f11179c0871a9fef2e3619
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537262"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665514"
 ---
 # <a name="migrate-azure-cloud-services-classic-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(클래식)를 Azure Cloud Services(확장 지원)로 마이그레이션
 
@@ -63,7 +63,7 @@ Cloud Services(클래식)에서 Cloud Services(추가 지원)로의 마이그레
 플랫폼 지원 마이그레이션의 주요 이점은 다음과 같습니다.
 
 - 대부분의 시나리오에서 가동 중지 시간 없이 원활한 플랫폼 오케스트레이션 마이그레이션을 사용하도록 설정합니다. [지원되는 시나리오](in-place-migration-technical-details.md)에 대해 자세히 알아봅니다.  
-- 유효성 검사, 준비, 커밋(또는 중단)의 세 가지 간단한 단계로 기존 클라우드 서비스를 마이그레이션합니다. [마이그레이션 도구 작동 방식]in-place-migration-overview.md#migration-steps)에 대해 자세히 알아봅니다.
+- 유효성 검사, 준비, 커밋(또는 중단)의 세 가지 간단한 단계로 기존 클라우드 서비스를 마이그레이션합니다. [마이그레이션 도구의 작동](in-place-migration-overview.md#migration-steps)방식에 대해 자세히 알아보세요.
 - 성공적인 준비 후에 마이그레이션된 배포를 테스트하는 기능을 제공합니다. 중단이 마이그레이션을 롤백하는 동안 마이그레이션을 커밋하고 종료합니다.
 
 마이그레이션 도구는 동일한 API를 활용하고, [가상 머신(클래식) 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)과 동일한 환경을 제공합니다. 

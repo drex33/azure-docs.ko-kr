@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 53153c7ea154b77ee4d0d348818c891ce22bc5f8
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 388b84dc831984cf03b91ff16e4cfb8962b88c73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470961"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662726"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -41,12 +41,12 @@ ms.locfileid: "123470961"
 다음 도구 중 하나를 사용하여 **$web** 컨테이너에 콘텐츠를 업로드할 수 있습니다.
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
-> * [Azure PowerShell 모듈](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AZCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code 확장](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> - [Azure PowerShell 모듈](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> - [AZCopy](../common/storage-use-azcopy-v10.md)
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> - [Visual Studio Code 확장](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## <a name="viewing-content"></a>콘텐츠 보기
 
@@ -102,7 +102,7 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ## <a name="permissions"></a>사용 권한
 
-정적 웹 사이트를 사용하도록 설정할 수 있는 권한은 Microsoft.Storage/storageAccounts/blobServices/write 또는 공유 키입니다.  이 액세스를 제공하는 기본 제공 역할에는 스토리지 계정 기여자가 포함됩니다.  
+정적 웹 사이트를 사용하도록 설정할 수 있는 권한은 Microsoft.Storage/storageAccounts/blobServices/write 또는 공유 키입니다.  이 액세스를 제공하는 기본 제공 역할에는 스토리지 계정 기여자가 포함됩니다.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -116,11 +116,11 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ## <a name="feature-support"></a>기능 지원
 
-이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) | 
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png)|![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
@@ -137,7 +137,7 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 도메인을 사용하려면 어떻게 해야 하나요?
 
-[Azure CDN(Azure Content Delivery Network)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled)을 사용하여 정적 웹 사이트로 [사용자 지정 도메인](./static-website-content-delivery-network.md)을 구성할 수 있습니다. Azure CDN은 전 세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 
+[Azure CDN(Azure Content Delivery Network)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled)을 사용하여 정적 웹 사이트로 [사용자 지정 도메인](./static-website-content-delivery-network.md)을 구성할 수 있습니다. Azure CDN은 전 세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다.
 
 ##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 SSL 인증서를 사용하는 방법
 
@@ -153,13 +153,13 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>웹 사이트의 루트 디렉터리가 기본 인덱스 페이지로 리디렉션되지 않는 이유는 무엇인가요?
 
-Azure Portal에서 계정의 정적 웹 사이트 구성 페이지를 열고 **인덱스 문서 이름** 필드에 설정된 이름과 확장명을 찾습니다. 이 이름이 스토리지 계정의 **$web** 컨테이너에 있는 파일 이름과 똑같은지 확인합니다. 정적 웹 사이트의 URL에서 파일 이름과 확장명은 HTTP를 통해 제공되더라도 대/소문자를 구분합니다. 
+Azure Portal에서 계정의 정적 웹 사이트 구성 페이지를 열고 **인덱스 문서 이름** 필드에 설정된 이름과 확장명을 찾습니다. 이 이름이 스토리지 계정의 **$web** 컨테이너에 있는 파일 이름과 똑같은지 확인합니다. 정적 웹 사이트의 URL에서 파일 이름과 확장명은 HTTP를 통해 제공되더라도 대/소문자를 구분합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)
-* [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
-* [Azure Functions](../../azure-functions/functions-overview.md)
-* [Azure App Service](../../app-service/overview.md)
-* [첫 번째 서버 없는 웹앱 빌드](/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [자습서: Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)
+- [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)
+- [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
+- [Azure Functions](../../azure-functions/functions-overview.md)
+- [Azure App Service](../../app-service/overview.md)
+- [첫 번째 서버 없는 웹앱 빌드](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [자습서: Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

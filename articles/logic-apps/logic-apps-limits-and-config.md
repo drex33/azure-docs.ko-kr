@@ -1,26 +1,26 @@
 ---
 title: 제한 및 구성 참조 가이드
-description: Azure Logic Apps의 제한 및 구성 정보에 대한 참조 가이드
+description: Azure Logic Apps 대한 제한 및 구성 정보에 대한 참조 가이드입니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 08/30/2021
-ms.openlocfilehash: da7c4b159111165b1dabb6ff3ca45715b442daba
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 77bbfb886f04c7917154ee5817b21ee1b2053d79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675804"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Azure Logic Apps의 제한 및 구성 참조
 
-> Power Automate에 대한 내용은 [Power Automate의 제한 및 구성](/power-automate/limits-and-config)을 참조하세요.
+> Power Automate Power Automate [제한 및 구성을](/power-automate/limits-and-config)검토하세요.
 
 이 문서에서는 Azure Logic Apps의 제한 및 구성 정보와 관련 리소스를 설명합니다. 논리 앱 워크플로를 만들려면 시나리오, 솔루션 요구 사항, 원하는 기능 및 워크플로를 실행하려는 환경에 따라 **논리 앱** 리소스 종류를 선택합니다.
 
 > [!NOTE]
-> 이러한 호스트 환경에는 동일한 제한이 많이 있지만 차이점도 있습니다. 시나리오에서 다른 제한을 요구하는 경우 [Logic Apps 팀에 문의](mailto://logicappspm@microsoft.com)하여 요구 사항을 논의하세요.
+> Azure Logic Apps 실행되는 사용 가능한 환경에서는 많은 제한이 동일하지만 차이점이 존재합니다. 
 
 다음 표에는 원래 **논리 앱(소비)** 리소스 종류와 **논리 앱(표준)** 리소스 종류 간의 차이점이 간략하게 요약되어 있습니다. 또한 *단일 테넌트* 환경과 *다중 테넌트* 환경 및 *ISE(통합 서비스 환경)* 의 논리 앱 워크플로 배포, 호스트 및 실행 방법도 비교합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "123219906"
 
 | 이름 | 다중 테넌트 | 단일 테넌트 | 통합 서비스 환경 | 메모 |
 |------|--------------|---------------|---------------------------------|-------|
-| 스토리지의 실행 기록 보존 | 90일 | 90일 <br>(기본값) | 366일 | 실행이 시작된 후 스토리지에 워크플로 실행 기록을 유지하는 시간입니다. <p><p>**참고**: 워크플로의 실행 기간이 보존 한도를 초과하면 해당 실행은 스토리지의 실행 기록에서 제거됩니다. 보존 한도에 도달한 후에 즉시 실행을 제거하지 않으면 실행은 7일 이내에 제거됩니다. <p><p>실행이 완료되었든 시간 초과되었든, 실행 기록 보존은 항상 실행 시작 시간과 워크플로 설정인 [**실행 기록 보존(일)** ](#change-retention)에 지정된 현재 한도를 사용하여 계산됩니다. 이전 제한과 상관없이 항상 현재 제한은 항상 보존 계산에 사용됩니다. <p><p>자세한 내용은 [스토리지의 기간 및 실행 기록 보존 변경](#change-retention)을 참조하세요. |
+| 스토리지의 실행 기록 보존 | 90일 | 90일 <br>(기본값) | 366일 | 실행이 시작된 후 스토리지에 워크플로 실행 기록을 유지하는 시간입니다. <p><p>**참고**: 워크플로의 실행 기간이 보존 한도를 초과하면 해당 실행은 스토리지의 실행 기록에서 제거됩니다. 보존 한도에 도달한 후에 즉시 실행을 제거하지 않으면 실행은 7일 이내에 제거됩니다. <p><p>실행이 완료되었든 시간 초과되었든, 실행 기록 보존은 항상 실행 시작 시간과 워크플로 설정인 [**실행 기록 보존(일)**](#change-retention)에 지정된 현재 한도를 사용하여 계산됩니다. 이전 제한과 상관없이 항상 현재 제한은 항상 보존 계산에 사용됩니다. <p><p>자세한 내용은 [스토리지의 기간 및 실행 기록 보존 변경](#change-retention)을 참조하세요. |
 | 실행 기간 | 90일 | - 상태 저장 워크플로: 90일 <br>(기본값) <p><p>- 상태 비저장 워크플로: 5분 <br>(기본값) | 366일 | 시간 제한을 적용하기 전에 워크플로를 계속 실행할 수 있는 시간입니다. <p><p>실행 기간은 실행 시작 시간과 시작할 때 워크플로 설정인 [**실행 기록 보존(일)**](#change-duration)에서 지정한 제한을 통해 계산됩니다. <p>**중요**: 실행 기간 값이 항상 스토리지의 실행 기록 보존 값보다 작거나 같은지 확인하세요. 그렇지 않으면 연결된 작업이 완료되기 전에 실행 기록이 삭제될 수 있습니다. <p><p>자세한 내용은 [스토리지의 실행 기간 및 실행 기록 보존 변경](#change-duration)을 참조하세요. |
 | 되풀이 간격 | - 최소: 1초 <p><p>- 최대: 500일 | - 최소: 1초 <p><p>- 최대: 500일 | - 최소: 1초 <p><p>- 최대: 500일 ||
 ||||||
@@ -359,13 +359,14 @@ Azure Logic Apps는 온-프레미스 데이터 게이트웨이를 통해 삽입 
 
 ## <a name="custom-connector-limits"></a>사용자 지정 커넥터 제한
 
-다중 테넌트 및 통합 서비스 환경의 경우에만 기존 REST API 또는 SOAP API의 래퍼인 [사용자 지정 관리형 커넥터](/connectors/custom-connectors)를 만들어 사용할 수 있습니다. 단일 테넌트의 경우에만 [사용자 지정 기본 제공 커넥터](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)를 만들어 사용할 수 있습니다.
+다중 테 넌 트 Azure Logic Apps 및 통합 서비스 환경 에서만 기존 REST API 또는 SOAP API에 대 한 래퍼입니다. [사용자 지정 관리 되는 커넥터](/connectors/custom-connectors)를 만들고 사용할 수 있습니다. 단일 테 넌 트 Azure Logic Apps에서 [사용자 지정 기본 제공 커넥터만](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)만들고 사용할 수 있습니다.
 
 다음 표에는 사용자 지정 커넥터 값이 나와 있습니다.
 
 | 이름 | 다중 테넌트 | 단일 테넌트 | 통합 서비스 환경 | 메모 |
 |------|--------------|---------------|---------------------------------|-------|
 | 사용자 지정 커넥터 | Azure 구독당 1,000개 | 제한 없음 | Azure 구독당 1,000개 ||
+| 사용자 지정 커넥터 - API 수 | SOAP 기반: 50 | 해당 없음 | SOAP 기반: 50 ||
 | 사용자 지정 커넥터의 분당 요청 | 연결마다 분당 500개 요청 | 구현 기준 | *사용자 지정 커넥터* 마다 분당 2,000개 요청 ||
 | 연결 제한 시간 | 2분 | 유휴 연결: <br>4분 <p><p>활성 연결: <br>10분 | 2분 ||
 ||||||
@@ -507,7 +508,7 @@ IP 주소를 사용하여 방화벽을 설정하기 전에 다음 사항을 검�
 
 * 논리 앱이 [방화벽 및 방화벽 규칙](../storage/common/storage-network-security.md)을 사용하는 Azure 스토리지 계정에 액세스하는 데 문제가 있는 경우 [액세스를 사용하도록 설정하는 다양한 기타 옵션](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)이 있습니다.
 
-  예를 들어 논리 앱은 방화벽 규칙을 사용하고 동일한 지역에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 그러나 [해당 지역의 관리형 커넥터에 대한 아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용하면 Azure Table Storage 또는 Azure Queue Storage 커넥터를 사용하는 경우를 제외하고 논리 앱이 다른 지역에 있는 스토리지 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스하려면 HTTP 트리거와 작업을 대신 사용하면 됩니다. 다른 옵션은 [방화벽으로 보호되는 스토리지 계정 액세스](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)를 참조하세요.
+  예를 들어 논리 앱은 방화벽 규칙을 사용하고 동일한 지역에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 그러나 [해당 지역의 관리형 커넥터에 대한 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses)를 허용하면 Azure Table Storage 또는 Azure Queue Storage 커넥터를 사용하는 경우를 제외하고 논리 앱이 다른 지역에 있는 스토리지 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스하려면 HTTP 트리거와 작업을 대신 사용하면 됩니다. 다른 옵션은 [방화벽으로 보호되는 스토리지 계정 액세스](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)를 참조하세요.
 
 <a name="inbound"></a>
 
@@ -589,7 +590,10 @@ IP 주소를 사용하여 방화벽을 설정하기 전에 다음 사항을 검�
 
 ### <a name="outbound-ip-addresses"></a>아웃바운드 IP 주소
 
-이 섹션에서는 Azure Logic Apps 서비스의 아웃바운드 IP 주소를 나열합니다. Azure Government를 사용하는 경우 [Azure Government - 아웃바운드 IP 주소](#azure-government-outbound)를 참조하세요.
+이 섹션에서는 Azure Logic Apps 서비스의 아웃바운드 IP 주소를 나열합니다. Azure Government를 사용하는 경우 [Azure Government - 아웃바운드 IP 주소](#azure-government-outbound)를 참조하세요. 워크플로에서 Office 365 Outlook 커넥터나 SQL 커넥터와 같은 [관리형 커넥터](../connectors/managed.md)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽에서 논리 앱의 Azure 지역에 있는 ‘모든’ [관리형 커넥터 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses)에 대한 액세스도 허용해야 합니다. 워크플로가 [Azure의 온-프레미스 데이터 게이트웨이 리소스](logic-apps-gateway-connection.md)를 통해 온-프레미스 리소스에 액세스하는 사용자 지정 커넥터를 사용하는 경우 해당 [‘관리형 커넥터’ 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses)에 대한 액세스를 허용하도록 게이트웨이 설치를 설정해야 합니다. 게이트웨이에서 통신 설정을 설정하는 방법에 관한 자세한 내용은 다음 항목을 검토합니다.
+
+* [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](/data-integration/gateway/service-gateway-communication)
+* [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps** 를 사용하면 복잡성을 줄일 수 있습니다. 필요에 따라 각 지역에 아웃바운드 관리되는 커넥터 IP 주소 접두사를 지정하는 대신 Azure Storage 또는 Azure Event Hubs와 같은 해당 서비스에 대한 아웃바운드 호출을 수행하는 관리되는 커넥터에 대해 **AzureConnectors** 서비스 태그를 사용할 수도 있습니다. 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.

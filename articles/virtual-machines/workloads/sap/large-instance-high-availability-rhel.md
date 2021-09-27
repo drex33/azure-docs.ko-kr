@@ -6,12 +6,12 @@ ms.author: jaawasth
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 3da8c2a0147136ad5da90489e4f8db511cad7378
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: 7f5f554f6563c2d0275bca7b6db48f2521379b11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217452"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626611"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>RHEL의 SAP를 위한 Azure 대규모 인스턴스 고가용성
 
@@ -19,7 +19,7 @@ ms.locfileid: "113217452"
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘블랙리스트’라는 용어가 언급되어 있습니다. 소프트웨어에서 이 용어가 제거되면 이 문서에서도 제거할 예정입니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 이 문서에서는 RHEL 7에서 Pacemaker 클러스터를 구성하여 SAP HANA 데이터베이스 장애 조치(failover)를 자동화하는 방법을 알아봅니다. 이 가이드의 단계를 진행하려면 Linux, SAP HANA 및 Pacemaker에 대한 지식이 있어야 합니다.
 
@@ -1092,7 +1092,7 @@ global.ini
 4.  기본/보조 SAPHana 리소스를 만듭니다.
     * SAPHana 리소스는 SAP HANA 데이터베이스의 시작, 중지 및 위치 이동을 담당합니다. 이 리소스는 기본/보조 클러스터 리소스로서 실행해야 합니다. 이 리소스는 다음과 같은 특성을 갖습니다.
 
-| 특성 이름            | 필수 여부 | 기본값 | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 특성 이름            | 필수 여부 | 기본값 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |---------------------------|-----------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SID                       | 예       | 없음          | SAP HANA 설치의 SAP SID(시스템 ID)입니다. 모든 노드에서 동일해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                       |
 | InstanceNumber            | 예       | 없음          | 2자리 SAP 인스턴스 ID입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -1226,10 +1226,12 @@ global.ini
 
 
 하나의 노드에서 다른 노드로의 SAPHana 리소스 이동을 테스트하려면 다음 명령을 사용합니다. SAPHana 리소스가 내부적으로 작동하는 방식 때문에 다음 명령을 실행할 때 `--primary` 옵션은 사용하지 않습니다.
-```pcs resource move SAPHana_HR2_00-primary```
+
+`pcs resource move SAPHana_HR2_00-primary`
 
 각 pcs 리소스 이동 명령을 호출하면 클러스터가 위치 제약 조건을 만들어서 리소스의 이동을 달성합니다. 나중에 자동 장애 조치를 허용하려면 이 제약 조건을 제거해야 합니다.
 제약 조건을 제거하려면 다음 명령을 사용하면 됩니다.
+
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1

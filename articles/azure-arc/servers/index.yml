@@ -7,14 +7,14 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 08/17/2021
+  ms.date: 09/21/2021
   ms.author: magoedte
-  ms.openlocfilehash: 1af908e1c778a9e390ef644cf1e3d211af335c88
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: ed9df4d3242f64f950e52ecd3003150b1eb103f7
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122322061"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128624447"
 landingContent:
 - title: Azure Arc 지원 서버를 사용하여 Azure에 머신 연결
   linkLists:
@@ -28,18 +28,24 @@ landingContent:
       url: plan-at-scale-deployment.md
   - linkListType: get-started
     links:
-    - text: Azure Portal에서 Azure Arc에 머신 연결
+    - text: 배포 스크립트를 사용하여 Azure Arc에 머신 연결
       url: onboard-portal.md
     - text: 서비스 주체를 사용하여 규모에 맞게 머신 연결
       url: onboard-service-principal.md
-    - text: PowerShell DSC를 사용하여 Azure에 머신 연결
-      url: onboard-dsc.md
+    - text: Windows Admin Center를 사용하여 Azure에 머신 연결
+      url: onboard-windows-admin-center.md
 - title: 10분 빠른 시작
   linkLists:
   - linkListType: quickstart
     links:
     - text: Arc 지원 서버 에이전트 배포
       url: ./learn/quick-enable-hybrid-vm.md
+- title: 학습
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Microsoft Learn 학습 경로
+      url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
 - title: 개념 증명
   linkLists:
   - linkListType: sample

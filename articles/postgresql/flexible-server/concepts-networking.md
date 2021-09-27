@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.openlocfilehash: 3d35eed46082d162afed5a2c9685265812b1e2d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 768645614035afa852e5d9195666748df9116368
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529104"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577957"
 ---
 # <a name="networking-overview-for-azure-database-for-postgresql---flexible-server-preview"></a>네트워킹 개요 - Azure Database for PostgreSQL - 유연한 서버(미리 보기)
 
@@ -74,7 +74,7 @@ Azure Virtual Network에는 사용자가 사용하도록 구성된 개인 IP 주
   현재 ASG가 Azure Database for PostgreSQL - 유연한 서버를 사용한 규칙의 일부인 NSG는 지원하지 않습니다. 현재 NSG에서 [IP 기반 원본 또는 대상 필터링](../../virtual-network/network-security-groups-overview.md#security-rules)을 사용하는 것이 좋습니다. 
 
   > [!IMPORTANT]
-  > Azure Database for PostgreSQL - 유연한 서버의 기능에는 아웃바운드 트래픽을 대상 포트 5432, 6432로 보내는 기능이 필요합니다. Azure Database for PostgreSQL - 유연한 서버의 아웃바운드 트래픽을 거부하기 위해 NSG(네트워크 보안 그룹)를 만드는 경우 이러한 대상 포트에 대한 트래픽을 허용해야 합니다. 
+  > Azure Database for PostgreSQL 유연한 서버의 고가용성 기능을 사용 하려면 Azure Database for PostgreSQL 유연한 서버가 배포 된 Azure 가상 네트워크 서브넷 내에서 로그 보관을 위해 Azure storage에 대 한 6432 5432 트래픽을 send\receive 하는 기능이 필요 합니다. [네트워크 보안 그룹 (nsg)](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) 을 만들어 배포 된 서브넷 내의 Azure Database for PostgreSQL 유연한 서버에서 들어오고 나가는 트래픽 흐름을 거부 하는 경우에는 서브넷 내에서 대상 포트 5432 및 6432에 대 한 트래픽을 허용 하 고 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) Azure Storage를 대상으로 사용 하 여 Azure storage에도 허용 해야 합니다. 
 
 * **프라이빗 DNS 영역 통합**. Azure 프라이빗 DNS 영역 통합을 통해 프라이빗 DNS 영역이 연결된 모든 지역 내 피어링된 가상 네트워크 또는 현재 가상 네트워크 내의 프라이빗 DNS를 확인할 수 있습니다. 
 
@@ -83,6 +83,10 @@ Azure Virtual Network에는 사용자가 사용하도록 구성된 개인 IP 주
 Azure Portal 또는 Azure CLI를 사용하여 가상 네트워크를 통해 유연한 서버를 만드는 경우 제공한 서버 이름을 사용하여 구독의 각 서버에 대해 새 프라이빗 DNS 영역이 자동으로 프로비저닝됩니다. 
 
 Azure API, ARM 템플릿(Azure Resource Manager 템플릿) 또는 Terraform을 사용하는 경우 `postgres.database.azure.com`으로 끝나는 프라이빗 DNS 영역을 만듭니다. 프라이빗 액세스로 유연한 서버를 구성하는 동안 이러한 영역을 사용합니다. 자세한 내용은 [프라이빗 DNS 영역 개요](../../dns/private-dns-overview.md)를 참조하세요.
+
+
+ Azure virtual network에 개인 네트워크 액세스를 사용 하는 경우 API, ARM 및 Terraform을 비롯 한 다양 한 인터페이스에서 개인 DNS 영역 정보를 제공 하는 것이 필수입니다.  따라서 new Azure Database for PostgreSQL API, ARM 또는 Terraform을 사용 하 여 개인 네트워크 액세스를 사용 하는 유연한 서버 생성을 위해 개인 DNS 영역을 만들고 개인 액세스를 사용 하 여 유연한 서버를 구성 하는 동안이를 사용 합니다. [Microsoft Azure에 대 한 REST API 사양](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2021-06-01-preview/postgresql.json)에 대 한 자세한 내용은을 참조 하세요. 유연한 서버를 만들기 위해 [Azure Portal](./how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](./how-to-manage-virtual-network-cli.md) 를 사용 하는 경우 이전에 동일한 구독 또는 다른 구독에서 만든 개인 dns 영역 이름을 제공 하거나 구독에서 기본 개인 dns 영역을 자동으로 만들 수 있습니다.
+
 
 
 ### <a name="integration-with-a-custom-dns-server"></a>사용자 지정 DNS 서버와 통합
@@ -163,7 +167,10 @@ Azure Database for PostgreSQL - 유연한 서버는 TLS(전송 계층 보안)를
 
 Azure Database for PostgreSQL은 TLS 1.2 이상을 지원합니다. [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/)에서 IETF(Internet Engineering Task Force)는 TLS 1.0 및 TLS 1.1을 사용해서는 안 된다고 명시하고 있습니다. 두 프로토콜 모두 2019년 말부터 더 이상 사용되지 않습니다.
 
-TLS 1.0 및 TLS 1.1과 같은 이전 버전의 TLS 프로토콜을 사용하는 모든 수신 연결은 거부됩니다.
+TLS 1.0 및 TLS 1.1과 같은 이전 버전의 TLS 프로토콜을 사용하는 들어오는 모든 연결은 기본적으로 거부됩니다. 
+
+> [!NOTE]
+> SSL 및 TLS 인증서는 연결이 최첨단 암호화 프로토콜로 보호된다는 것을 인증합니다. 유선 연결을 암호화하여 전송 중에 데이터에 대한 무단 액세스를 방지할 수 있습니다. 따라서 최신 버전의 TLS를 사용하여 Azure Database for PostgreSQL - 유연한 서버에 대한 연결을 암호화하는 것이 좋습니다. 권장되지는 않지만 필요한 경우 require_secure_transport **서버** 매개 변수를 OFF로 업데이트하여 Azure Database for PostgreSQL - 유연한 서버에 연결하기 위해 TLS\SSL을 사용하지 않도록 설정하는 옵션이 있습니다. ssl_min_protocol_version **및** **ssl_max_protocol_version** 서버 매개 변수를 설정하여 TLS 버전을 설정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

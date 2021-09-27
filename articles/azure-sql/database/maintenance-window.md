@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 07/22/2021
-ms.openlocfilehash: 9f058cfc97821dc9ddcbedeeed1acf9ebb9919d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/14/2021
+ms.openlocfilehash: 071ccdf3d02de4836d47e02e5154d55c45102279
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537090"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128705687"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,32 +76,40 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 기본 이외의 유지 관리 기간은 현재 다음 지역에서 선택할 수 있습니다.
 
-- 오스트레일리아 동부
-- 오스트레일리아 남동부
-- 브라질 남부
-- 캐나다 중부
-- 캐나다 동부
-- 인도 중부
-- 미국 중부
-- 미국 동부
-- 미국 동부2
-- 동아시아
-- 프랑스 남부
-- 독일 중서부
-- 일본 동부
-- 한국 중부*
-- 미국 중북부
-- 북유럽
-- 미국 중남부
-- 동남아시아
-- 영국 남부
-- 영국 서부
-- 미국 중서부
-- 서유럽
-- 미국 서부
-- 미국 서부2
-
-*Azure SQL Managed Instance에만 사용할 수 있습니다.
+| Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역에서](high-availability-sla.md) SQL Database | 
+|:---|:---|:---|:---|
+| 오스트레일리아 동부 | 예 | 예 | 예 |
+| 오스트레일리아 남동부 | 예 | 예 | |
+| 브라질 남부 | 예 | 예 |  |
+| 캐나다 중부 | 예 | 예 | 예 |
+| 캐나다 동부 | 예 | 예 | |
+| 인도 중부 | 예 | 예 | |
+| 미국 중부 | 예 | 예 | 예 |
+| 중국 동부 2 |예 | 예 ||
+| 중국 북부 2 |예|예 ||
+| 미국 동부 | 예 | 예 | 예 |
+| 미국 동부 2 | 예 | 예 | 예 |
+| 동아시아 | 예 | 예 | |
+| 프랑스 남부 | 예 | 예 | |
+| 독일 중서부 | 예 | 예 |  |
+| 일본 동부 | 예 | 예 | 예 |
+| 일본 서부 | 예 | 예 | |
+| 한국 중부 | 예 | | |
+| 한국 남부 | Yes | | |
+| 미국 중북부 | 예 | 예 | |
+| 북유럽 | 예 | 예 | 예 |
+| 남아프리카 북부 | 예 | | | 
+| 미국 중남부 | 예 | 예 | 예 |
+| 동남아시아 | 예 | 예 | 예 |
+| 스위스 북부 | 예 | 예 | |
+| 아랍에미리트 중부 | 예 | | |
+| 영국 남부 | 예 | 예 | 예 |
+| 영국 서부 | 예 | 예 | |
+| 미국 중서부 | 예 | 예 | |
+| 서유럽 | 예 | 예 | 예 |
+| 미국 서부 | 예 | 예 |  |
+| 미국 서부 2 | 예 | 예 | 예 |
+| | | | | 
 
 ## <a name="gateway-maintenance-for-azure-sql-database"></a>Azure SQL Database에 대한 게이트웨이 유지 관리
 
@@ -113,7 +121,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 Azure SQL Database의 클라이언트 연결 정책에 대한 자세한 내용은 [Azure SQL Database 연결 정책](../database/connectivity-architecture.md#connection-policy)을 참조하세요. 
 
-Azure SQL Managed Instance의 클라이언트 연결 정책에 대한 자세한 내용은 [Azure SQL Managed Instance 연결 형식](../../azure-sql/managed-instance/connection-types-overview.md)을 참조하세요.
+Azure SQL Managed Instance 클라이언트 연결 정책에 대한 자세한 내용은 [Azure SQL Managed Instance 연결 형식을 참조하세요.](../../azure-sql/managed-instance/connection-types-overview.md)
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 고려 사항
 
@@ -136,13 +144,15 @@ Azure SQL Managed Instance는 고객의 가상 네트워크 서브넷 내에서 
 >  IP 주소 변경 후에 NSG 및 방화벽 규칙이 데이터 트래픽을 차단하지 않는지 확인합니다. 
 
 ### <a name="serialization-of-virtual-cluster-management-operations"></a>가상 클러스터 관리 작업의 직렬화
+
 서비스 업그레이드 및 가상 클러스터 크기 조정과 같이 가상 클러스터에 영향을 주는 작업(새 컴퓨팅 노드를 추가하거나 불필요한 컴퓨팅 노드 제거)은 직렬화됩니다. 즉, 새 가상 클러스터 관리 작업은 이전 작업이 완료될 때까지 시작할 수 없습니다. 지속적인 서비스 업그레이드 또는 유지 관리 작업이 완료되기 전에 유지 관리 기간이 닫히면 그 동안 제출된 다른 가상 클러스터 관리 작업은 다음 유지 관리 기간이 열리고 서비스 업그레이드 또는 유지 관리 작업이 완료될 때까지 보류됩니다. 유지 관리 작업이 가상 클러스터당 단일 기간보다 오래 걸리는 것은 일반적이지 않지만 매우 복잡한 유지 관리 작업의 경우 이러한 상황이 발생할 수 있습니다.
+
 가상 클러스터 관리 작업의 직렬화는 기본 유지 관리 정책에도 적용되는 일반적인 동작입니다. 유지 관리 기간 일정을 구성하면 인접한 두 기간 사이의 기간은 며칠일 수 있습니다. 유지 관리 작업이 두 개의 기간에 걸쳐 있는 경우 제출된 작업이 며칠 동안 보류될 수도 있습니다. 매우 드문 경우지만 이 기간 동안 새 인스턴스 만들기 또는 기존 인스턴스 크기 조정(추가 컴퓨팅 노드가 필요한 경우)이 차단될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [고급 알림](advance-notifications.md)
 * [유지 관리 기간 구성](maintenance-window-configure.md)
+* [고급 알림](advance-notifications.md)
 
 ## <a name="learn-more"></a>자세한 정보
 

@@ -332,15 +332,23 @@
           href: configure-tokens.md
     - name: 사용자 지정 특성 정의
       href: user-flow-custom-attributes.md
-    - name: 보안 및 위협 관리
+    - name: 보안
       items:
-        - name: ID 보호를 통한 위험 조사
-          href: identity-protection-investigate-risk.md
-        - name: 조건부 액세스 구성
-          href: conditional-access-user-flow.md
-        - name: 자격 증명 공격 완화
-          displayName: 'smart lockout, account lockout, password attack'
-          href: threat-management.md
+        - name: 모니터링 및 위협 관리
+          items:
+            - name: Azure Monitor
+              href: azure-monitor.md
+            - name: Azure Sentinel
+              href: azure-sentinel.md
+              displayName: 'log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration'
+        - name: 웹 애플리케이션 방화벽 파트너
+          items:
+            - name: Akamai
+              href: partner-akamai.md
+            - name: Azure WAF
+              href: partner-azure-web-application-firewall.md
+            - name: Cloudflare
+              href: partner-cloudflare.md
         - name: 사기 행위 보호 파트너
           items:
             - name: Arkose Labs
@@ -352,6 +360,28 @@
             - name: Microsoft Dynamics 365 Fraud Protection
               href: partner-dynamics-365-fraud-protection.md
               displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
+        - name: ID 보호를 통한 위험 조사
+          href: identity-protection-investigate-risk.md
+        - name: 조건부 액세스 구성
+          href: conditional-access-user-flow.md
+        - name: 자격 증명 공격 완화
+          displayName: 'smart lockout, account lockout, password attack'
+          href: threat-management.md
+        - name: 안전한 휴대폰 기반 MFA
+          href: phone-based-mfa.md
+          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
+        - name: 레거시 및 온-프레미스 앱에 대한 액세스 보호
+          items:
+            - name: Datawiza
+              href: partner-datawiza.md
+            - name: Ping Identity
+              href: partner-ping-identity.md
+            - name: Strata
+              href: partner-strata.md
+              displayName: 'AAD b2c access, legacy app, onpremises apps'
+            - name: Zscaler
+              href: partner-zscaler.md
+              displayName: 'zscaler b2c, vpn, sdp b2c'
     - name: 나이 제한 구성
       href: age-gating.md
     - name: API 커넥터
@@ -394,32 +424,12 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: 레거시 및 온-프레미스 앱에 대한 액세스 보호
-      items:
-        - name: Datawiza
-          href: partner-datawiza.md
-        - name: Ping Identity
-          href: partner-ping-identity.md
-        - name: Strata
-          href: partner-strata.md
-          displayName: 'AAD b2c access, legacy app, onpremises apps'
-        - name: Zscaler
-          href: partner-zscaler.md
-          displayName: 'zscaler b2c, vpn, sdp b2c'
     - name: 도메인 이름
       items:
         - name: b2clogin.com 개요
           href: b2clogin.md
         - name: 사용자 지정 도메인 구성
           href: custom-domain.md
-        - name: 웹 애플리케이션 방화벽 파트너
-          items:
-            - name: Akamai
-              href: partner-akamai.md
-            - name: Azure WAF
-              href: partner-azure-web-application-firewall.md
-            - name: Cloudflare
-              href: partner-cloudflare.md
         - name: 웹 API 도메인 구성
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
@@ -450,23 +460,14 @@
               href: partner-n8identity.md
             - name: Saviynt
               href: partner-saviynt.md
-    - name: 로그 및 모니터링
+    - name: 로그
       items:
         - name: 감사 로그
           href: view-audit-logs.md
-          displayName: 'log, logs, logging, usage, events, reports, reporting'
-        - name: Azure Monitor
-          href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
-        - name: Azure Sentinel
-          href: azure-sentinel.md
-          displayName: 'log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration'
         - name: 사용량 현황 분석
           href: analytics-with-application-insights.md
           displayName: 'application insights, app insights, reports, reporting'
-        - name: 안전한 휴대폰 기반 MFA
-          href: phone-based-mfa.md
-          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: 규정 준수
       items:
         - name: 사용자 액세스

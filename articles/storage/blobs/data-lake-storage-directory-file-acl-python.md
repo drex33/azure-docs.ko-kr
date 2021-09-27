@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: a2db4734650f4af2f0ed67040c7f94eeda5f7c69
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: f6374d502a292fc25ecf2a0f7fadc2dc26157f7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667885"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Python을 사용하여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리
 
@@ -49,11 +49,11 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다. 
+이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다.
 
 ### <a name="connect-by-using-an-account-key"></a>계정 키를 사용하여 연결
 
-계정에 연결하는 가장 쉬운 방법입니다. 
+계정에 연결하는 가장 쉬운 방법입니다.
 
 이 예제에서는 계정 키를 사용하여 **DataLakeServiceClient** 인스턴스를 만듭니다.
 
@@ -86,13 +86,13 @@ from azure.storage.filedatalake._models import ContentSettings
 
 **FileSystemClient.create_directory** 메서드를 호출하여 디렉터리 참조를 만듭니다.
 
-이 예제에서는 `my-directory`라는 디렉터리를 컨테이너에 추가합니다. 
+이 예제에서는 `my-directory`라는 디렉터리를 컨테이너에 추가합니다.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-**DataLakeDirectoryClient.rename_directory** 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다. 
+**DataLakeDirectoryClient.rename_directory** 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다.
 
 이 예제에서는 한 하위 디렉터리를 `my-directory-renamed`라는 이름으로 바꿉니다.
 
@@ -102,7 +102,7 @@ from azure.storage.filedatalake._models import ContentSettings
 
 **DataLakeDirectoryClient.delete_directory** 메서드를 호출하여 디렉터리를 삭제합니다.
 
-다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.  
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DeleteDirectory":::
 
@@ -110,12 +110,12 @@ from azure.storage.filedatalake._models import ContentSettings
 
 먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **DataLakeFileClient.append_data** 메서드를 호출하여 파일을 업로드합니다. **DataLakeFileClient.flush_data** 메서드를 호출하여 업로드가 완료되었는지 확인합니다.
 
-다음 예제에서는 한 텍스트 파일을 `my-directory`라는 디렉터리에 업로드합니다.   
+다음 예제에서는 한 텍스트 파일을 `my-directory`라는 디렉터리에 업로드합니다.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFile":::
 
 > [!TIP]
-> 파일 크기가 크면 코드가 **DataLakeFileClient.append_data** 메서드를 여러 번 호출해야 합니다. **DataLakeFileClient.upload_data** 메서드를 대신 사용하는 것이 좋습니다. 이 방법으로 단일 호출에서 전체 파일을 업로드할 수 있습니다. 
+> 파일 크기가 크면 코드가 **DataLakeFileClient.append_data** 메서드를 여러 번 호출해야 합니다. **DataLakeFileClient.upload_data** 메서드를 대신 사용하는 것이 좋습니다. 이 방법으로 단일 호출에서 전체 파일을 업로드할 수 있습니다.
 
 ## <a name="upload-a-large-file-to-a-directory"></a>디렉터리에 큰 파일 업로드
 
@@ -123,9 +123,9 @@ from azure.storage.filedatalake._models import ContentSettings
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFileBulk":::
 
-## <a name="download-from-a-directory"></a>디렉터리에서 다운로드 
+## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
-로컬 파일을 쓰기용으로 엽니다. 그런 다음 다운로드하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient.read_file** 을 호출하여 파일에서 바이트를 읽은 다음 로컬 파일에 해당 바이트를 씁니다. 
+로컬 파일을 쓰기용으로 엽니다. 그런 다음 다운로드하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient.read_file** 을 호출하여 파일에서 바이트를 읽은 다음 로컬 파일에 해당 바이트를 씁니다.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_DownloadFromDirectory":::
 

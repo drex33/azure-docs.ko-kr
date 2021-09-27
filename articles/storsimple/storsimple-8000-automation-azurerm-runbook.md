@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 33385fa03d480c257789fd4cc139f9033e541a99
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021081"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754940"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리
 
@@ -206,7 +206,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Runbook을 편집하고 **테스트 창** 을 클릭합니다. StorSimple 디바이스 관리자 서비스 이름, StorSimple 디바이스 이름, 구독 등의 매개 변수를 제공합니다. 테스트를 **시작** 합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook을 테스트하는 방법](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook)을 참조하세요.
+8. Runbook을 편집하고 **테스트 창** 을 클릭합니다. StorSimple 디바이스 관리자 서비스 이름, StorSimple 디바이스 이름, 구독 등의 매개 변수를 제공합니다. 테스트를 **시작** 합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook을 테스트하는 방법](../automation/learn/powershell-runbook-managed-identity.md)을 참조하세요.
 
     ![매개 변수 값을 입력하고 테스트를 시작하는 테스트 이동을 보여주는 스크린샷](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

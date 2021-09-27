@@ -1,17 +1,17 @@
 ---
 title: 성능 조정 - Azure Data Lake Storage Gen1의 Hive
 description: HdInsight 및 Azure Data Lake Storage Gen1에서 Hive의 성능 조정에 대해 알아봅니다. I/O 집약적인 쿼리의 경우 Hive를 조정하여 성능을 향상시킵니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: twooley
-ms.openlocfilehash: 082d684ed0a29cb6bf2de9c506886b6d98cf174a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: 73bc2ec8998faa018f760a2b62e847ffbc5d7bb5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97723784"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633301"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Hive 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 

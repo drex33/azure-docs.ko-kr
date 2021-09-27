@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/15/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 6d5198f47b6089730ff345eb12ab522fc5ce58a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
-ms.translationtype: HT
+ms.openlocfilehash: afdbcd6dd0e00f6829a82c136ba495a7097f5bb2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575376"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662023"
 ---
 # <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 

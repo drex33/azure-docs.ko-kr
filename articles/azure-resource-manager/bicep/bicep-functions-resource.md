@@ -4,27 +4,17 @@ description: Bicep 파일에서 리소스에 대한 값을 검색하는 데 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: a83c0f442e88bc2fe0320fe8affe5b114a28a897
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 23d205f44b23b71f476f86d8d589f5d99a417a85
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314329"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827539"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
-Resource Manager는 Bicep 파일에서 리소스 값을 가져오기 위해 다음과 같은 기능을 제공합니다.
-
-* [extensionResourceId](#extensionresourceid)
-* [getSecret](#getsecret)
-* [list*](#list)
-* [pickZones](#pickzones)
-* [providers(사용되지 않음)](#providers)
-* [reference](#reference)
-* [resourceId](#resourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+이 문서에서는 리소스 값을 가져오는 Bicep 함수에 대해 설명 합니다.
 
 현재 배포에서 값을 가져오려면 [배포 값 함수](./bicep-functions-deployment.md)를 참조하세요.
 
@@ -666,6 +656,5 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## <a name="next-steps"></a>다음 단계
 
-* Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
+* 현재 배포에서 값을 가져오려면 [배포 값 함수](./bicep-functions-deployment.md)를 참조하세요.
 * 리소스 종류를 생성할 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
-* 생성한 Bicep 파일을 배포하는 방법을 알아보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.

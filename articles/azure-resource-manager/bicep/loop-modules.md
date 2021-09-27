@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/27/2021
-ms.openlocfilehash: 44e5a4356cac0f252b344a7acf8b68a2f51d1ef1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215243"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793439"
 ---
 # <a name="module-iteration-in-bicep"></a>Bicep의 모듈 반복
 
 이 문서에서는 Bicep 파일에서 [모듈](modules.md)의 인스턴스를 두 개 이상 만드는 방법을 설명합니다. `module` 선언에 루프를 추가하고 모듈을 배포할 시간 수를 동적으로 설정할 수 있습니다. Bicep 파일에서 구문이 반복하지 않도록 합니다.
 
 [리소스](loop-resources.md), [속성](loop-properties.md), [변수](loop-variables.md), [출력](loop-outputs.md)이 있는 루프도 사용할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+루프에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [조건 및 루프를 사용 하 여 유연한 Bicep 템플릿 빌드](/learn/modules/build-flexible-bicep-templates-conditions-loops/) 를 참조 하세요.
 
 ## <a name="syntax"></a>Syntax
 

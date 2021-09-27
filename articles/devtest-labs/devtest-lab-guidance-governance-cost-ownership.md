@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs에서 비용 및 소유권 관리
+title: 비용 및 소유권 관리
 description: 이 문서에서는 비용을 최적화하고 현재 환경에서 소유권을 조정하는 데 유용한 정보를 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cc3b607155655935ee1e77d82ca60b7f92b70c2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92328269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623611"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Azure DevTest Labs 인프라의 거버넌스 - 비용 및 소유권 관리
 비용 및 소유권은 개발 및 테스트 환경의 구축을 고려할 때 주요 관심사입니다. 이 섹션에서는 비용을 최적화하고 사용자 환경에서 소유권을 조정하는 데 유용한 도움이 되는 정보를 찾을 수 있습니다.

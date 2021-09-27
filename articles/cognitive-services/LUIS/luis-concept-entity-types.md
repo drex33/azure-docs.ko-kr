@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/26/2021
-ms.openlocfilehash: a075a84322dc11be352470d50478979b975f0292
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 7eb4affb75816789dca094f9ec6e2ae19a222285
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140896"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582384"
 ---
 # <a name="entities-in-luis"></a>LUIS의 엔터티
 
@@ -95,7 +95,7 @@ pattern.Any 엔터티는 엔터티가 시작되고 끝나는 위치를 표시하
 
 [여기](./reference-entity-machine-learned-entity.md)에서 기계 학습 엔터티에 대해 자세히 알아볼 수 있습니다.
 
-자세한 내용은 [기계 학습 엔터티 참조 문서](./reference-entity-pattern-any.md)를 참조하세요.
+자세한 내용은 [기계 학습 엔터티 참조 문서](./reference-entity-machine-learned-entity.md)를 참조하세요.
 
 #### <a name="ml-entity-with-structure"></a>구조가 있는 ML 엔터티
 

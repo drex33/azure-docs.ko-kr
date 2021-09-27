@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 9b74ccacdb239b7e413d6b21b29da1218d1d5747
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c45be7452d71002c2120e37999c2ecfacb8608b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769411"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800007"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>미리 보기: 가상 머신용 Azure Automanage
 
@@ -139,7 +139,7 @@ VM에 대해 Automanage를 처음 사용하는 경우 **Automanage – Azure 가
 기본 설정을 통해 기본 환경의 설정을 조정할 수 있습니다. 기본 설정을 만드는 방법을 배우려면 [여기](virtual-machines-custom-preferences.md)를 참조하세요.
 
 > [!NOTE]
-> Automanage를 사용하는 동안에는 VM에서 환경 구성을 변경할 수 없습니다. 해당 VM에 대해 Automanage를 사용하지 않도록 설정한 다음, 필요한 환경 및 기본 설정으로 Automanage를 사용하도록 다시 설정해야 합니다.
+> Automanage를 사용하는 동안에는 VM의 환경 구성을 변경할 수 없습니다. 해당 VM에 대해 Automanage를 사용하지 않도록 설정한 다음, 필요한 환경 및 기본 설정으로 Automanage를 사용하도록 다시 설정해야 합니다.
 
 참여 Azure 서비스의 전체 목록과 기본 설정이 지원되는 경우에 대해서는 여기를 참조하세요.
 - [Linux용 Automanage](automanage-windows-server.md)

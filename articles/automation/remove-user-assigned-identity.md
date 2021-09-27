@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f77354e1a0f2c44ff81764fc15a071f72319da1
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 2f5aba42974c34f9d6799f3965848bdd0ca3787c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674147"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635169"
 ---
 # <a name="remove-user-assigned-managed-identity-for-azure-automation-account-preview"></a>Azure Automation 계정에 대해 사용자가 할당한 관리 ID 제거(미리 보기)
 
@@ -43,7 +43,7 @@ PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     ```
 

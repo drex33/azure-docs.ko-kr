@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 5b6a4186fed994057ab6c44930c5ec68ba85ad05
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767264"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -237,7 +237,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure는 `OutputFileDatasetConfig`로 작성된 중간 데이터를 자동으로 삭제하지 않습니다. 대량의 불필요한 데이터에 대한 스토리지 요금을 방지하려면 다음 중 하나를 선택해야 합니다.
 
 * 파이프라인 실행 종료 시 중간 데이터가 더 이상 필요하지 않을 때 프로그래밍 방식으로 삭제
-* 중간 데이터에 대한 단기 스토리지 정책과 함께 Blob Storage 사용([Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) 참조) 
+* 중간 데이터에 대한 단기 스토리지 정책과 함께 Blob Storage 사용([Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) 참조) 
 * 더 이상 필요하지 않은 데이터 정기적으로 검토 및 삭제
 
 자세한 내용은 [Azure Machine Learning 비용 플랜 및 관리](concept-plan-manage-cost.md)를 참조하세요.

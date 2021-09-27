@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: Blackmist
-ms.author: nigup
-author: nishankgu
+ms.author: johwu
+author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 2e0b503cd305697a808c08a2fe903d0f27972448
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 51846db6f54baaec89a6a9a1164e2d5001c9dbb9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529117"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679636"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -34,19 +34,18 @@ ms.locfileid: "122529117"
 
 ## <a name="default-roles"></a>기본 역할
 
-Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 세 가지 기본 역할이 제공됩니다. 작업 영역에 사용자를 추가하고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다.
+Azure Machine Learning 작업 영역에는 기본적으로 사용할 수 있는 네 가지 기본 제공 역할이 있습니다. 작업 영역에 사용자를 추가할 때 아래에 설명된 기본 제공 역할 중 하나를 할당할 수 있습니다.
 
 | 역할 | 액세스 수준 |
 | --- | --- |
+| **AzureML 데이터 과학자** | 컴퓨팅 리소스를 만들거나 삭제하고 작업 영역 자체를 수정하는 것을 제외하고 Azure Machine Learning 작업 영역에서 모든 작업을 수행할 수 있습니다. |
 | **판독기** | 작업 영역의 읽기 전용 작업입니다. 읽기 권한자는 작업 영역에서 [데이터 저장소](how-to-access-data.md) 자격 증명을 포함한 자산을 나열하고 볼 수 있습니다. 읽기 권한자는 이러한 자산을 만들거나 업데이트할 수 없습니다. |
 | **기여자** | 작업 영역에서 해당하는 자산을 보거나, 만들거나, 편집하거나, 삭제합니다. 예를 들어 기여자는 실험을 만들고, 컴퓨팅 클러스터를 만들거나 연결하고, 실행을 제출하고, 웹 서비스를 배포할 수 있습니다. |
 | **소유자** | 작업 영역에 대한 모든 액세스 권한(작업 영역에서 해당하는 자산을 보거나, 만들거나, 편집하거나, 삭제하는 기능 포함)입니다. 또한 역할 할당을 변경할 수 있습니다. |
-| **사용자 지정 역할** | 작업 영역 내에서 특정 컨트롤이나 데이터 평면 작업에 대한 액세스를 사용자 지정할 수 있습니다. 예를 들어 실행을 제출하거나, 컴퓨팅을 만들거나, 모델을 배포하거나, 데이터 세트를 등록할 수 있습니다. |
 
 > [!IMPORTANT]
 > Azure에서 여러 수준으로 역할 액세스의 범위를 지정할 수 있습니다. 예를 들어 작업 영역에 대한 소유자 액세스 권한이 있는 사용자에게 작업 영역을 포함하는 리소스 그룹에 대한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [Azure RBAC 작동 방식](../role-based-access-control/overview.md#how-azure-rbac-works)을 참조하세요.
 
-현재 Azure Machine Learning과 관련된 추가 기본 제공 역할은 없습니다. 기본 제공 역할에 대한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="manage-workspace-access"></a>작업 영역 액세스 관리
 
@@ -56,21 +55,6 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST API](../role-based-access-control/role-assignments-rest.md)
 - [Azure 리소스 관리자 템플릿](../role-based-access-control/role-assignments-template.md)
-
-[Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)를 설치한 경우 CLI 명령을 사용하여 사용자에게 역할을 할당할 수 있습니다.
-
-```azurecli-interactive 
-az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
-```
-
-`user` 필드는 작업 영역 부모 구독이 있는 Azure Active Directory 인스턴스에 있는 기존 사용자의 이메일 주소입니다. 이 명령의 사용 방법 예는 다음과 같습니다.
-
-```azurecli-interactive 
-az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
-```
-
-> [!NOTE]
-> "az ml workspace share" 명령은 Azure Active Directory B2B에서 페더레이션 계정에 대해 작동하지 않습니다. 명령 대신 Azure UI 포털을 사용하세요.
 
 ## <a name="create-custom-role"></a>사용자 지정 역할 만들기
 
@@ -118,11 +102,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 az role definition create --role-definition data_scientist_role.json
 ```
 
-배포 후 지정된 작업 영역에서 이 역할을 사용할 수 있게 됩니다. 이제 Azure Portal에서 이 역할을 추가하고 할당할 수 있습니다. 또는 `az ml workspace share` CLI 명령을 사용하여 사용자에게 이 역할을 할당할 수 있습니다.
-
-```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
-```
+배포 후 지정된 작업 영역에서 이 역할을 사용할 수 있게 됩니다. 이제 Azure Portal에서 이 역할을 추가하고 할당할 수 있습니다.
 
 사용자 지정 역할에 대한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. 
 
@@ -196,7 +176,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사용자 지정 역할의 다음 범위를 사용합니다.
 
-| MLflow 작업 | 범위 |
+| MLflow 작업 | Scope |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험 나열, ID로 실험 가져오기, 이름으로 실험 가져오기 | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | 이름으로 실험을 만들기, 실험에서 태그 설정, 삭제하도록 표시된 실험 복원| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 

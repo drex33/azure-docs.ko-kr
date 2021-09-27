@@ -5,12 +5,12 @@ author: bennage
 ms.author: christb
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: d350c757ec977f743cdcc921770a670863dc9577
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: ec4837091e84ec6cfcb16ba1ace8e4ece7056d8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531310"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762021"
 ---
 # <a name="azure-video-analyzer-sdks"></a>Azure Video Analyzer SDK
 
@@ -38,7 +38,7 @@ Azure Video Analyzer에는 두 개의 SDK 그룹이 포함되어 있습니다. �
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Video Analyzer API](https://docs.microsoft.com/rest/api/videoanalyzer/)를 참조할 수도 있습니다.
+- [Azure Video Analyzer API](/rest/api/videoanalyzer/)를 참조할 수도 있습니다.
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md

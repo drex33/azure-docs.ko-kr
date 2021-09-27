@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90f2c6dd8d82b40f6a12195c2ce89b28ca4e9305
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.openlocfilehash: fb69f075aa78f84999751f20a10f3eed8d56ced0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228913"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818092"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>인증서 인증을 사용하여 지점 및 사이트 간 연결 구성(클래식)
 
@@ -219,6 +219,6 @@ Azure에서 신뢰할 수 있는 루트 인증서를 추가 및 제거할 수 �
 
 * 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요.
 
-* 네트워킹 및 Linux 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.
+* 네트워킹 및 Linux 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-network/network-overview.md)를 참조하세요.
 
 * P2S 문제 해결 정보는 [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)을 참조하세요.

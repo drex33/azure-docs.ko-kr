@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs에서 Azure Automation Runbook을 사용하여 컴퓨터 시작
+title: Automation runbook을 사용 하 여 컴퓨터 시작
 description: Azure Automation Runbook을 사용하여 Azure DevTest Labs의 랩에서 가상 머신을 시작하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 84e784c0c5b9845c03cc28591a9ed8d4240fdc6b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: ee3054c5b5434cba526c2025d5649fed0b44d391
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702908"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604768"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Azure Automation Runbook을 사용하여 Azure DevTest Labs의 랩에서 순서대로 가상 머신 시작
 DevTest Labs의 [자동 시작](devtest-lab-set-lab-policy.md#set-autostart) 기능을 사용하면 지정된 시간에 VM이 자동으로 시작되도록 구성할 수 있습니다. 그러나 이 기능은 특정 순서로 컴퓨터를 시작하는 것은 지원하지 않습니다. 이러한 종류의 자동화가 유용한 몇 가지 시나리오가 있습니다.  한 가지 시나리오는 Jumpbox가 다른 VM에 대한 액세스 지점으로 사용되기 때문에 다른 VM 보다 랩 내의 Jumpbox VM을 먼저 시작해야 하는 경우입니다.  이 문서에서는 스크립트를 실행하는 PowerShell Runbook을 사용하여 Azure Automation 계정을 설정하는 방법을 보여 줍니다. 스크립트는 랩에서 VM의 태그를 사용하여 스크립트를 변경할 필요 없이 시작 순서를 제어할 수 있도록 합니다.
@@ -21,7 +21,7 @@ DevTest Labs의 [자동 시작](devtest-lab-set-lab-policy.md#set-autostart) 기
 [이 문서](../automation/automation-create-standalone-account.md)의 지침에 따라 Azure Automation 계정을 만듭니다. 계정을 만들 때 **실행 계정** 옵션을 선택합니다. Automation 계정이 만들어지면 **모듈** 페이지를 열고 메뉴 모음에서 **Azure 모듈 업데이트** 를 선택합니다. 기본 모듈은 몇 가지 버전이 오래되었으며 업데이트하지 않으면 스크립트가 작동하지 않을 수 있습니다.
 
 ## <a name="add-a-runbook"></a>Runbook 추가
-이제 왼쪽 메뉴에서 **Runbook** 을 선택하여 Automation 계정에 Runbook을 추가합니다. 메뉴에서 **Runbook 추가** 를 선택하고 지침에 따라 [PowerShell Runbook을 만듭니다](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+이제 왼쪽 메뉴에서 **Runbook** 을 선택하여 Automation 계정에 Runbook을 추가합니다. 메뉴에서 **Runbook 추가** 를 선택하고 지침에 따라 [PowerShell Runbook을 만듭니다](../automation/learn/powershell-runbook-managed-identity.md).
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 다음 스크립트는 구독 이름 및 랩 이름을 매개 변수로 사용합니다. 이 스크립트 흐름은 랩에서 모든 VM을 가져온 다음 태그 정보를 구문 분석하여 VM 이름 및 해당 시작 순서 목록을 만드는 것입니다. 이 스크립트는 VM을 순서대로 실행하고 VM을 시작합니다. 특정 주문 번호에 여러 VM이 있는 경우 PowerShell 작업을 사용하여 비동기적으로 시작됩니다. 태그를 포함하지 않는 VM의 경우 시작 값을 마지막 (10)으로 설정하면 기본적으로 마지막 VM이 시작됩니다.  랩에서 VM을 자동으로 시작하지 않으려는 경우 태그 값을 11로 설정하면 시작되지 않습니다.

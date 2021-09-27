@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 136ea5fcb8dd446cfff6400616df058722fa2827
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
-ms.translationtype: HT
+ms.openlocfilehash: c30dc859a7cfc139d1402eadc3b4e0ae812125c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075375"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603470"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -341,9 +341,9 @@ NIC 드라이버를 업데이트합니다.
 4. Windows에서 새 드라이버를 찾지 못하는 경우 디바이스 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
 5. 컴퓨터를 다시 시작하고 연결을 다시 시도합니다.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN 클라이언트 오류: 전화 접속 VPN 연결 <VPN Connection Name>, 상태 = VPN 플랫폼이 연결을 트리거하지 않았습니다
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>VPN 클라이언트 오류: 전화 접속 VPN 연결 \<VPN Connection Name\>, 상태 = VPN 플랫폼이 연결을 트리거하지 않았습니다
 
-RasClient의 이벤트 뷰어에 다음 오류가 표시될 수도 있습니다. " 사용자 <User>(이)가 실패한 <VPN Connection Name>(이)란 연결에 전화를 걸었습니다. 실패 시 반환되는 오류 코드는 1460입니다."
+RasClient의 이벤트 뷰어에 다음 오류가 표시될 수도 있습니다. " 사용자 \<User\>(이)가 실패한 \<VPN Connection Name\>(이)란 연결에 전화를 걸었습니다. 실패 시 반환되는 오류 코드는 1460입니다."
 
 ### <a name="cause"></a>원인
 

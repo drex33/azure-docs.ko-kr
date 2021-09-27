@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: e009f24f1ce7d05c8890b197ea1208f2d01666d4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a1cd31fdb70dd38a014c60e5a0901cdfa51bc791
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697960"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780854"
 ---
 # <a name="np-series"></a>NP 시리즈 
 
@@ -163,7 +163,7 @@ Host_Mem(SB)를 사용하지 않도록 설정하려면: sudo xbutil host_mem --d
 
 
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -171,6 +171,10 @@ Host_Mem(SB)를 사용하지 않도록 설정하려면: sudo xbutil host_mem --d
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

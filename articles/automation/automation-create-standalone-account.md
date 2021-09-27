@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27f393fbfaa9ed423cae1ae8a9df79f556d0d724
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: f60c6d08f3ab09a3900203cbebc49477d5c84f0a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675370"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812620"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -102,7 +102,7 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 ## <a name="next-steps"></a>다음 단계
 
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 Runbook 작성](automation-graphical-authoring-intro.md)을 참조하세요.
-* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [자습서: PowerShell 워크플로 Runbook 만들기](learn/automation-tutorial-runbook-textual.md)를 참조하세요.
 * Python 3 Runbook을 시작하려면 [자습서: Python 3 Runbook 만들기](learn/automation-tutorial-runbook-textual-python-3.md)를 참조하세요.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

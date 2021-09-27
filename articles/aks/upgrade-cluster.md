@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하여
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: b7a3e59781d52010831bce5f83518bfc44987b03
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537310"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830123"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -22,7 +22,7 @@ AKS 클러스터 수명 주기 중 일부에는 최신 Kubernetes 버전으로 �
 이 문서를 진행하려면 Azure CLI 버전 2.0.65 이상을 실행하고 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 > [!WARNING]
-> AKS 클러스터 업그레이드는 노드의 차단 및 드레이닝을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다. 자세한 내용은 [할당량 늘리기](../azure-portal/supportability/resource-manager-core-quotas-request.md)를 참조하세요.
+> AKS 클러스터 업그레이드는 노드의 차단 및 드레이닝을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다. 자세한 내용은 [할당량 늘리기](../azure-portal/supportability/regional-quota-requests.md)를 참조하세요.
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>사용할 수 있는 AKS 클러스터 업그레이드를 위한 확인
 

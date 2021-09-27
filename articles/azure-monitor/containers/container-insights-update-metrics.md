@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너 인사이트를 업데이트하여
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1921a0cc0aa15a5e877d64cbe2c7ad094f9e144f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: cff5933db1d74e9853120a07444e399005b2e498
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536648"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620828"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용하도록 컨테이너 인사이트를 업데이트하는 방법
 
@@ -77,6 +77,7 @@ Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려
 
 1. Azure CLI를 사용하여 다음 명령을 실행합니다. AKS 클러스터에 대한 **AKS 개요** 페이지의 값을 사용하여 **subscriptionId**, **resourceGroupName** 및 **clusterName** 의 값을 편집합니다.  다음 예제에 표시된 것처럼, **clientIdOfSPN** 값을 가져오기 위해 명령을 실행하면 해당 값이 반환됩니다 `az aks show` .
 
+
     ```azurecli
     az login
     az account set --subscription "<subscriptionName>"
@@ -84,7 +85,9 @@ Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
+
     다음 예제에 표시된 것처럼, **clientIdOfSPNOrMsi** 값을 가져오기 위해, 명령 `az aks show`을 실행할 수 있습니다. **ServicePrincipalProfile** 개체에 유효한 *clientid* 값이 있으면 해당 값을 사용할 수 있습니다. 그렇지 않으면, *msi* 로 설정된 경우 `addonProfiles.omsagent.identity.clientId`에서 clientid를 전달해야 합니다.
+
 
     ```azurecli
     az login
@@ -92,6 +95,11 @@ Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려
     az aks show -g <resourceGroupName> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
     ```
+
+
+
+>[!NOTE]
+>사용자 계정을 사용 하 여 역할 할당을 수행 하려는 경우 아래 예제와 같이--담당자 매개 변수를 사용 합니다. 또는 SPN을 사용 하 여 로그인 하 고 역할 할당을 수행 하려는 경우--담당자 매개 변수 대신--담당자-id--principal-principal-type 매개 변수를 사용 합니다.
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Azure PowerShell를 사용하여 모든 클러스터 업그레이드
 

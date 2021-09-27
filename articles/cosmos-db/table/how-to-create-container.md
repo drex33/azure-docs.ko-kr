@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfb7513ad3dc76c87cb9b06d5d7325011fb2908b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9320e34ccd4cdb217ac574eeef0d5c0b0f1eeb42
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529204"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812082"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API에서 컨테이너 만들기
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "122529204"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. [새 Azure Cosmos 계정을 만들거나](create-table-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
+1. [새 Azure Cosmos 계정을 만들거나](create-table-dotnet.md#1---create-an-azure-cosmos-db-account) 기존 계정을 선택합니다.
 
 1. **데이터 탐색기** 창을 열고 **새 테이블** 을 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 

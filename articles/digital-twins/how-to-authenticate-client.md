@@ -4,27 +4,27 @@ titleSuffix: Azure Digital Twins
 description: 클라이언트 애플리케이션에서 인증 코드를 작성하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/26/2021
+ms.date: 9/1/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a1b2465f29ae659f3e255a4843a2abd5f9ab75b2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: a1e397acfe8118c339b45d6c786ae2c0b2cc82e8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224860"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827012"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
-[Azure Digital Twins 인스턴스와 인증을 설정](how-to-set-up-instance-portal.md)한 후에는 인스턴스와 상호 작용하는 데 사용할 클라이언트 애플리케이션을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정한 후에는 Azure Digital Twins 인스턴스에 대해 **클라이언트 앱에서 인증하는 코드를 작성** 해야 합니다.
+Azure Digital Twins [인스턴스 및 인증을 설정한](how-to-set-up-instance-portal.md)후 인스턴스와 상호 작용하는 데 사용할 클라이언트 애플리케이션을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정한 후에는 Azure Digital Twins 인스턴스에 대해 **클라이언트 앱에서 인증하는 코드를 작성** 해야 합니다.
 
-Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 Azure AD 보안 토큰](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)을 사용하여 인증을 수행합니다. SDK를 인증하려면 Azure Digital Twins에 대한 올바른 사용 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달해야 합니다. 
+Azure Digital Twins [OAUTH 2.0을 기반으로 하는 Azure AD 보안 토큰을](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)사용하여 인증합니다. SDK를 인증하려면 Azure Digital Twins에 대한 올바른 사용 권한이 있는 전달자 토큰을 가져와서 API 호출과 함께 전달해야 합니다. 
 
 이 문서에서는 `Azure.Identity` 클라이언트 라이브러리를 사용하여 자격 증명을 가져오는 방법을 설명합니다. 이 문서에서는 [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대해 작성하는 것과 같은 C#의 코드 예를 보여주지만, 사용 중인 SDK에 관계없이 `Azure.Identity` 버전을 사용할 수 있습니다. Azure Digital Twins에 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure Digital Twins API 및 SDK](concepts-apis-sdks.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-먼저 [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)에서 설정 단계를 완료합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에게 액세스 권한이 있는지 확인할 수 있습니다. 설정한 후에는 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
+먼저 [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)에서 설정 단계를 완료합니다. 이 설정을 통해 Azure Digital Twins 인스턴스가 있고 사용자에게 액세스 권한이 있는지 확인합니다. 이 설정이 끝나면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
 계속하려면 코드를 작성하는 클라이언트 앱 프로젝트가 필요합니다. 클라이언트 앱 프로젝트를 아직 설정하지 않은 경우 이 자습서에서 사용할 수 있도록 선택한 언어로 기본 프로젝트를 만듭니다.
 
@@ -43,7 +43,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 Azure AD 보안 토큰]
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true)은 [MSI(관리 ID)](../active-directory/managed-identities-azure-resources/overview.md)를 필요로 하는 경우에 적합하며, Azure Functions에서 사용 및 Azure 서비스 배포에 적합합니다.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)은 대화형 애플리케이션을 위한 것이며 인증된 SDK 클라이언트를 만드는 데 사용할 수 있습니다.
 
-이 문서의 나머지 부분에서는 이를 [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)와 함께 사용하는 방법을 보여 줍니다.
+이 문서의 나머지 부분에서는 [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에서 이러한 메서드를 사용하는 방법을 보여줍니다.
 
 ### <a name="add-azureidentity-to-your-net-project"></a>.NET 프로젝트에 Azure.Identity 추가
 
@@ -63,7 +63,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 Azure AD 보안 토큰]
 
 기본 Azure 자격 증명을 사용하려면 Azure Digital Twins 인스턴스의 URL([찾아볼 수 있는 지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))이 필요합니다.
 
-프로젝트에 `DefaultAzureCredential`을 추가하는 코드 샘플은 다음과 같습니다.
+프로젝트에 를 추가하는 코드 샘플은 다음과 같습니다. `DefaultAzureCredential`
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
@@ -85,14 +85,14 @@ Azure 함수에서 다음과 같은 관리 ID 자격 증명을 사용할 수 있
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential 메서드
 
-[InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드는 대화형 애플리케이션을 위한 것이며 인증을 위해 웹 브라우저를 엽니다. 대화형 인증이 필요한 경우 `DefaultAzureCredential` 대신 이를 사용할 수 있습니다.
+[InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드는 대화형 애플리케이션을 위한 것이며 인증을 위해 웹 브라우저를 엽니다. 대화형 인증이 필요한 경우 대신 이 방법을 사용할 수 `DefaultAzureCredential` 있습니다.
 
-대화형 브라우저 자격 증명을 사용하려면 Azure Digital Twins API에 대한 사용 권한을 갖게 되는 **앱 등록** 과정이 필요합니다. 이 앱 등록을 설정하는 방법에 대한 단계는 [앱 등록 만들기](./how-to-create-app-registration-portal.md)를 참조하세요. 앱 등록을 설정한 후에는 다음이 필요합니다.
+대화형 브라우저 자격 증명을 사용하려면 Azure Digital Twins API에 대한 권한이 있는 **앱 등록이** 필요합니다. 이 앱 등록을 설정하는 방법에 대한 단계는 [앱 등록 만들기](./how-to-create-app-registration-portal.md)를 참조하세요. 앱 등록을 설정한 후에는 다음이 필요합니다.
 * [앱 등록의 애플리케이션(클라이언트) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [앱 등록의 디렉터리(테넌트) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
 * [Azure Digital Twins 인스턴스의 URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-다음은 `InteractiveBrowserCredential`을 사용하여 인증된 SDK 클라이언트를 만드는 코드의 예제입니다.
+다음은 를 사용하여 인증된 SDK 클라이언트를 만드는 코드의 `InteractiveBrowserCredential` 예입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
@@ -111,7 +111,7 @@ Azure 함수를 작성할 때 다음 변수와 코드를 함수에 추가하는 
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
-    나중에 함수를 게시한 후 이 코드에서 읽을 환경 변수 값을 만들고 설정합니다. 이 작업을 수행하는 방법에 대한 지침은 [애플리케이션 설정 구성](#configure-application-settings)으로 건너뜁니다.
+    나중에 함수를 게시한 후 이 코드에서 읽을 환경 변수 값을 만들고 설정합니다. 이 작업을 수행하는 방법에 대한 지침은 [애플리케이션 설정 구성으로](#configure-application-settings)건너뜁니다.
 
 * **HttpClient 인스턴스를 보유하는 정적 변수.** HttpClient는 만드는 데 상대적으로 비용이 많이 들기 때문에 모든 함수 호출에 대해 만들지 않도록 인증 코드를 사용하여 한 번 만들 수 있습니다.
 
@@ -120,14 +120,14 @@ Azure 함수를 작성할 때 다음 변수와 코드를 함수에 추가하는 
 * **관리 ID 자격 증명.** 함수에서 Azure Digital Twins에 액세스하는 데 사용할 관리 ID 자격 증명을 만듭니다.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-    나중에 함수를 게시한 후 함수의 ID에 Azure Digital Twins API를 액세스할 수 있는 권한이 있는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [액세스 역할 할당](#assign-an-access-role)으로 건너뜁니다.    
+    나중에 함수를 게시한 후 함수의 ID에 Azure Digital Twins API를 액세스할 수 있는 권한이 있는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [액세스 역할 할당으로](#assign-an-access-role)건너뜁니다.    
 
-* **지역 변수 _DigitalTwinsClient_.** 함수 내에 변수를 추가하여 Azure Digital Twins 클라이언트 인스턴스를 보관합니다. 클래스 내부에서 이 변수를 정적으로 설정하지 *마세요*.
+* **지역 변수 _DigitalTwinsClient_.** 함수 내에 변수를 추가하여 Azure Digital Twins 클라이언트 인스턴스를 보관합니다. 클래스 내에서 이 변수를 정적으로 *설정하지 마세요.*
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
 * **_adtInstanceUrl_ 에 대한 Null 검사.** Null 검사를 추가하고 함수 논리를 try/catch 블록으로 래핑하여 예외를 catch합니다.
 
-이를 함수에 추가한 후 함수 코드는 다음 예와 같을 수 있습니다.
+이러한 변수가 함수에 추가된 후 함수 코드는 다음 예제와 같을 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
@@ -155,7 +155,7 @@ Azure Digital Twins는 Azure Digital Twins 인스턴스가 있는 구독의 기�
 
 ## <a name="other-credential-methods"></a>기타 자격 증명 방법
 
-위에서 강조한 인증 시나리오가 사용자 앱의 요구 사항을 해결하지 못하는 경우 [Microsoft ID 플랫폼](../active-directory/develop/v2-overview.md#getting-started)에서 제공하는 다른 유형의 인증을 찾아볼 수 있습니다. 이 플랫폼에 대한 문서는 애플리케이션 유형별로 구성된 추가 인증 시나리오를 다룹니다.
+위에서 강조 표시된 인증 시나리오가 앱의 요구 사항을 다루지 않는 경우 [Microsoft ID 플랫폼](../active-directory/develop/v2-overview.md#getting-started)제공되는 다른 유형의 인증을 살펴볼 수 있습니다. 이 플랫폼에 대한 설명서에서는 애플리케이션 유형별로 구성된 더 많은 인증 시나리오를 다룹니다.
 
 ## <a name="next-steps"></a>다음 단계
 

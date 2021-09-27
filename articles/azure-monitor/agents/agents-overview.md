@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 8542f3e39669135295073f4f937c6edfdd5127cf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32e7c6630c23e3650a85428e34fcd9b9739acbc9
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566542"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060236"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -129,6 +129,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 - 종속성 에이전트를 사용하려면 Log Analytics 에이전트를 동일한 머신에 설치해야 합니다.
 - Linux 머신에서는 Azure 진단 확장 전에 Log Analytics 에이전트를 설치해야 합니다.
+- Dependency Agent의 Windows 및 Linux 버전 모두에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용 하 여 수행 됩니다. 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -154,11 +155,11 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오만<sup>1</sup>)  | X | X | X | X |
-| Windows 8 Enterprise 및 Pro<br>(서버 시나리오만<sup>1</sup>)  |   | X | X |   |
-| Windows 7 SP1<br>(서버 시나리오만<sup>1</sup>)                 |   | X | X |   |
+| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오는<sup>1개만)</sup>  | X | X | X | X |
+| Windows 8 Enterprise 및 Pro<br>(서버 시나리오는<sup>1개만)</sup>  |   | X | X |   |
+| Windows 7 SP1<br>(서버 시나리오는<sup>1개만)</sup>                 |   | X | X |   |
 
-<sup>1</sup> 서버 하드웨어에서 OS를 실행 합니다. 즉, 항상 연결 되어 있으며 항상 켜져 있고 다른 작업 (PC, office, 브라우저 등)을 실행 하지 않는 컴퓨터를 실행 합니다.
+<sup>1</sup> 서버 하드웨어에서 OS를 실행합니다. 즉, 항상 연결되어 있고, 항상 켜져 있고, 다른 워크로드(PC, 사무실, 브라우저 등)를 실행하지 않는 컴퓨터
 
 ### <a name="linux"></a>Linux
 

@@ -6,12 +6,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 623b50bee72f99be4d31159165f1af5b98f67b88
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021374"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750741"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>LUIS(Language Understanding)의 인공 지능
 
@@ -39,7 +39,7 @@ NLU(자연어 이해)는 NLP(자연어 처리)의 특정 하위 주제입니다.
     * [토큰화](luis-language-support.md#tokenization)
     * 분음 부호, 문장 부호 및 단어 형태 [API 설정](luis-reference-application-settings.md)을 통한 형태학
 * 다음과 같이 다른 [Cognitive Services](../what-are-cognitive-services.md)에서 제공하는 쿼리 발화의 사전 또는 사후 처리
-    * [번역](../translator/translator-info-overview.md)
+    * [번역](../translator/translator-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>NLU(자연어 인식)
 

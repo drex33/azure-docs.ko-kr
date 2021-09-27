@@ -2,17 +2,18 @@
 title: Azure Application Gateway의 HTTP 헤더 다시 쓰기
 description: 이 문서에서는 Azure PowerShell을 사용하여 Azure Application Gateway에 HTTP 헤더를 다시 쓰는 방법에 관한 정보를 제공합니다.
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: absha
-ms.openlocfilehash: b674bdf59959715b666c521c0d0631f86f71b1d3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
-ms.translationtype: HT
+ms.author: kumud
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1a3f64167978196afc5d86b983c44f021b554115
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093727"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836292"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Azure Application Gateway로 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure PowerShell
 
@@ -106,4 +107,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 일반적인 사용 사례를 설정하는 방법에 관한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers.md)를 참조하세요.
+몇 가지 일반적인 사용 사례를 설정하는 방법에 관한 자세한 내용은 [공용 헤더 다시 쓰기 시나리오](./rewrite-http-headers-url.md)를 참조하세요.

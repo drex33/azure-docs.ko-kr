@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed2267ebb4467331a4859f2b3f6507edd39dc03b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: e4f4a7149f522d11a9a77bdeb9b16a0f848cba77
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750338"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776865"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Azure NetApp Files 및 AD DS를 사용하여 프로필 컨테이너 만들기
 
@@ -37,7 +37,6 @@ ms.locfileid: "111750338"
 
 - Azure Virtual Desktop 설정 및 구성
 - Azure Virtual Desktop 호스트 풀 프로비전
-- [Azure NetApp Files 구독 사용](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Azure NetApp Files 계정 설정
 

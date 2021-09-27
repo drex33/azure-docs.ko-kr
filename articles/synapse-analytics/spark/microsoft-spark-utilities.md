@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: f5dba6b81befd569523111b997c29e54b3e82881
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257038"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774617"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -453,9 +453,17 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
-:::zone pivot = "programming-language-python"
+
 
 ## <a name="notebook-utilities"></a>Notebook 유틸리티 
+
+:::zone pivot = "programming-language-csharp"
+
+지원되지 않습니다.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
 
 MSSparkUtils Notebook 유틸리티를 사용하여 Notebook을 실행하거나 값이 있는 Notebook을 종료할 수 있습니다. 사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
 
@@ -472,8 +480,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Notebook을 실행합니다.
-Notebook을 실행하고 해당 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+### <a name="reference-a-notebook"></a>노트북 참조
+노트북을 참조 하 고 종료 값을 반환 합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
 
 ```python
 
@@ -537,10 +545,7 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
-
 :::zone pivot = "programming-language-scala"
-
-## <a name="notebook-utilities"></a>Notebook 유틸리티 
 
 MSSparkUtils Notebook 유틸리티를 사용하여 Notebook을 실행하거나 값이 있는 Notebook을 종료할 수 있습니다. 사용 가능한 메서드에 관한 개요를 가져오려면 다음 명령을 실행합니다.
 
@@ -557,8 +562,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### <a name="run-a-notebook"></a>Notebook을 실행합니다.
-Notebook을 실행하고 해당 종료 값을 반환합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
+### <a name="reference-a-notebook"></a>노트북 참조
+노트북을 참조 하 고 종료 값을 반환 합니다. Notebook에서 대화식으로 또는 파이프라인에서 중첩 함수 호출을 실행할 수 있습니다. 참조 중인 Notebook은 Notebook이 이 함수를 호출하는 Spark 풀에서 실행됩니다.  
 
 ```scala
 
@@ -675,7 +680,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 |--|--|
 |대상 그룹 확인 형식|'Audience'|
 |스토리지 대상 그룹 리소스|'Storage'|
-|데이터 웨어하우스 대상 그룹 리소스|'DW'|
+|전용 SQL 풀 (데이터 웨어하우스)|'DW'|
 |Data Lake 대상 그룹 리소스|'AzureManagement'|
 |자격 증명 모음 대상 그룹 리소스|'DataLakeStore'|
 |Azure OSSDB 대상 그룹 리소스|'AzureOSSDB'|
@@ -1086,6 +1091,31 @@ mssparkutils.env.getClusterId()
 Env.GetClusterId()
 ```
 
+::: zone-end
+
+
+## <a name="runtime-context"></a>런타임 컨텍스트
+
+Mssparkutils 런타임 유틸리티는 3개의 런타임 속성을 노출합니다. mssparkutils 런타임 컨텍스트를 사용하여 아래와 같이 나열된 속성을 얻을 수 있습니다.
+- **Notebookname** - 현재 notbook의 이름은 항상 대화형 모드와 파이프라인 모드 모두에 대한 값을 반환합니다.
+- **Pipelinejobid** - 파이프라인 실행 ID는 파이프라인 모드에서 값을 반환하고 대화형 모드에서 빈 문자열을 반환합니다.
+- **Activityrunid** - Notebook 작업 실행 ID는 파이프라인 모드에서 값을 반환하고 대화형 모드에서 빈 문자열을 반환합니다.
+
+현재 런타임 컨텍스트는 Python과 Scala를 모두 지원합니다.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

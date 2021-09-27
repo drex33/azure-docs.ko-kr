@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
-ms.openlocfilehash: 13e522b45673723a33b8739ccefafa4a8410910a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e5e980878091145770f98cff952374e76f08180d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529411"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775648"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>장기 보존 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -88,8 +88,6 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대해 Azure Portal과 Powe
 Azure Portal 또는 PowerShell을 사용하여 장기 보존을 구성하거나 SQL Database용 백업에서 데이터베이스를 복원하는 방법을 알아보려면 [Azure SQL Database 장기 백업 보존 관리](long-term-backup-retention-configure.md)를 참조하세요.
 
 Azure Portal 또는 PowerShell을 사용하여 장기 보존을 구성하거나 SQL Managed Instance용 백업에서 데이터베이스를 복원하는 방법을 알아보려면 [Azure SQL Managed Instance 장기 백업 보존 관리](../managed-instance/long-term-backup-retention-configure.md)를 참조하세요.
-
-LTR 스토리지에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다. 데이터베이스는 원본 데이터베이스와 동일한 구독 아래의 기존 서버로 복원될 수 있습니다. Azure Portal 또는 PowerShell을 사용하여 LTR 백업에서 데이터베이스를 복원하는 방법을 알아보려면 [Azure SQL Database 장기 백업 보존 관리](long-term-backup-retention-configure.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

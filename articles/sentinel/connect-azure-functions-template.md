@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: f776c39a5a1dadde2e6ee01fe211e0769e5e06eb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261208"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781307"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Azure Functions를 사용하여 Azure Sentinel을 데이터 원본에 연결
 
-[PowerShell](../azure-functions/functions-reference-powershell.md) 또는 Python과 같은 다양한 코딩 언어와 함께 [Azure Functions](/azure/azure-functions/functions-overview)를 사용하여 호환되는 데이터 원본의 REST API 엔드포인트에 대한 서버리스 커넥터를 만들 수 있습니다. 그런 다음, Azure 함수 앱을 사용하면 Azure Sentinel 데이터 원본의 REST API에 연결하여 로그를 끌어올 수 있습니다.
+[PowerShell](../azure-functions/functions-reference-powershell.md) 또는 Python과 같은 다양한 코딩 언어와 함께 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 호환되는 데이터 원본의 REST API 엔드포인트에 대한 서버리스 커넥터를 만들 수 있습니다. 그런 다음, Azure 함수 앱을 사용하면 Azure Sentinel 데이터 원본의 REST API에 연결하여 로그를 끌어올 수 있습니다.
 
 이 문서에서는 Azure 함수 앱을 사용하기 위해 Azure Sentinel을 구성하는 방법을 설명합니다. 원본 시스템을 구성해야 할 수도 있으며, 포털의 각 데이터 커넥터 페이지에서 공급업체 및 제품별 정보 링크를 찾거나 [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md) 페이지에서 서비스에 대한 섹션을 찾을 수 있습니다.
 
@@ -213,6 +213,6 @@ Azure Functions를 사용하여 데이터 원본에 Azure Sentinel을 연결하�
 
 이 문서에서는 Azure Functions 기반 커넥터를 사용하여 데이터 원본에 Azure Sentinel을 연결하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-- [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](./get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.
+- [통합 문서를 사용](./monitor-your-data.md)하여 데이터를 모니터링합니다.

@@ -4,20 +4,20 @@ titleSuffix: Azure API Management
 description: 이 항목에서는 Azure API Management 인스턴스에 대해 사용자 지정 도메인 이름을 구성하는 방법에 대해 설명합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 08/24/2021
-ms.author: apimpm
-ms.openlocfilehash: ae0e5fde64cb3a00f16882698b931c9eadcf623d
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 4cdd269c0acb7568695cbc63b47422ad9b42085b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779805"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598768"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Azure API Management 인스턴스에 대한 사용자 지정 도메인 이름 구성
 

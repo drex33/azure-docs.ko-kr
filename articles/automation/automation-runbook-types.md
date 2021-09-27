@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a6005c267423787fed61f2fb9badfea5769137d2
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.openlocfilehash: 44923cd63676a6eb2fa589c66726f1c14c76896c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113565367"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744814"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -134,7 +134,7 @@ Python 3 Runbook은 다음과 같은 Azure 글로벌 인프라에서 지원됩�
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell Runbook에 대해 자세히 알아보려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+* PowerShell Runbook에 대해 자세히 알아보려면 [자습서: PowerShell Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 * PowerShell 워크플로 Runbook에 대한 자세한 내용은 [자습서: PowerShell 워크플로 Runbook 만들기](learn/automation-tutorial-runbook-textual.md)를 참조하세요.
-* 그래픽 Runbook에 대한 자세한 내용은 [자습서: 그래픽 Runbook 만들기](learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
-* Python Runbook에 대한 자세한 내용은 [자습서: Python Runbook 만들기](learn/automation-tutorial-runbook-textual-python2.md)를 참조하세요.
+* 그래픽 Runbook에 대한 자세한 내용은 [자습서: 그래픽 Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
+* Python Runbook에 대한 자세한 내용은 [자습서: Python Runbook 만들기](./learn/automation-tutorial-runbook-textual-python-3.md)를 참조하세요.

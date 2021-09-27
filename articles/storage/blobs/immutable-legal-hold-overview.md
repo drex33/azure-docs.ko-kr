@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1434f689f8f629fd04ec0c0b059a1298b32d5ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 39108c5c5fd823e313ce616fbb4f6d6135e7d81e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537002"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645762"
 ---
 # <a name="legal-holds-for-immutable-blob-data"></a>변경이 불가능한 Blob 데이터에 대한 법적 보존
 
@@ -53,7 +53,7 @@ BLOB 버전에서 법적 보존을 구성하려면 먼저 부모 컨테이너에
 
 #### <a name="audit-logging"></a>감사 로깅
 
-법적 보존이 적용된 각각의 컨테이너는 정책 감사 로그를 제공합니다.  로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 감사 로그는 SEC 17a-4(f) 규정 지침에 따라 정책의 수명 동안 유지됩니다.
+법적 보존이 적용된 각각의 컨테이너는 정책 감사 로그를 제공합니다. 로그에는 사용자 ID, 명령 유형, 타임 스탬프 및 법적 보류 태그가 포함 됩니다. 감사 로그는 SEC 17a-4(f) 규정 지침에 따라 정책의 수명 동안 유지됩니다.
 
 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)는 모든 관리 서비스 활동에 대한 더 포괄적인 로그를 제공합니다. [Azure 리소스 로그](../../azure-monitor/essentials/platform-logs-overview.md)는 데이터 작업에 대한 정보를 유지합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 로그를 지속적으로 저장할 책임이 있습니다.
 

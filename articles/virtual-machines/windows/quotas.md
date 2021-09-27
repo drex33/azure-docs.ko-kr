@@ -7,12 +7,12 @@ ms.subservice: quota
 ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 8f032f2f39ea092c22e201fa7993179369ef45f8
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 66f3ce8d9513d052e121e446605863189368c2eb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697771"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766277"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>Azure PowerShell을 사용하여 vCPU 할당량 확인
 
@@ -21,7 +21,7 @@ ms.locfileid: "122697771"
 가상 머신 및 가상 머신 확장 집합에 대한 vCPU 할당량은 각 지역의 각 구독에 대해 두 가지 계층으로 정렬됩니다. 첫 번째 계층은 지역별 총 vCPU이며 두 번째 계층은 D 시리즈 vCPU와 같은 다양한 VM 크기 제품군 코어입니다. 새 VM이 배포될 때마다 VM에 대한 vCPU는 VM 크기 제품군 또는 지역별 총 vCPU 할당량에 대한 vCPU 할당량을 초과하지 않아야 합니다. 이러한 할당량 중 하나가 초과되면 VM 배포가 허용되지 않습니다. 지역에서 전체 가상 머신의 수에 대한 할당량도 있습니다. 이러한 각 할당량의 세부 정보는 [Azure Portal](https://portal.azure.com)에서 **구독** 페이지의 **사용량 + 할당량** 섹션에서 볼 수 있거나 PowerShell을 사용하여 값에 대해 쿼리할 수 있습니다.
 
 > [!NOTE]
-> 할당량은 할당 및 할당 취소된 총 코어 수를 기준으로 계산됩니다. 추가 코어가 필요한 경우 [할당량 증가를 요청](../../azure-portal/supportability/resource-manager-core-quotas-request.md)하거나 더 이상 필요하지 않은 VM을 삭제합니다. 
+> 할당량은 할당 및 할당 취소된 총 코어 수를 기준으로 계산됩니다. 추가 코어가 필요한 경우 [할당량 증가를 요청](../../azure-portal/supportability/regional-quota-requests.md)하거나 더 이상 필요하지 않은 VM을 삭제합니다. 
  
 ## <a name="check-usage"></a>사용량 확인
 
@@ -77,7 +77,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>예약 VM 인스턴스
 VM 크기 유연성 없이 단일 구독으로 범위가 설정되는 예약 VM 인스턴스는 vCPU 할당량에 새 요소를 추가합니다. 이러한 값은 구독에 배포할 수 있어야 하는 언급된 크기의 인스턴스 수를 설명합니다. 해당 할당량이 예약 VM 인스턴스를 구독에 배포할 수 있도록 예약되도록 할당량 시스템에서 자리 표시자로 작동합니다. 예를 들어 특정 구독에 10개의 Standard_D1 예약 VM 인스턴스가 있는 경우 Standard_D1 예약 VM 인스턴스에 대한 사용량 한도는 10이 됩니다. 이렇게 하면 Azure에서 Standard_D1 인스턴스에 사용될 지역별 총 vCPU 할당량에서 항상 최소 10개의 vCPU를 사용할 수 있고 Standard_D1 인스턴스에 사용될 표준 D 제품군 vCPU 할당량에서 최소 10개의 vCPU를 사용할 수 있도록 보장합니다.
 
-단일 구독 RI를 구매하는 데 할당량 증가가 필요한 경우 구독에서 [할당량 증가를 요청](../../azure-portal/supportability/resource-manager-core-quotas-request.md)할 수 있습니다.
+단일 구독 RI를 구매하는 데 할당량 증가가 필요한 경우 구독에서 [할당량 증가를 요청](../../azure-portal/supportability/regional-quota-requests.md)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

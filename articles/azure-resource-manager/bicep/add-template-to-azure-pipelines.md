@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.author: jgao
 ms.date: 06/23/2021
-ms.openlocfilehash: 28050d926bf5b4042ceb5b94796550bc517eb977
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 1c8817fcc6a0cf24a0983f2df60f02cc42b79200
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289198"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764377"
 ---
 # <a name="integrate-bicep-with-azure-pipelines"></a>Azure Pipelines와 Bicep 통합
 
@@ -87,5 +87,6 @@ Azure CLI 작업은 다음 입력을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+* Azure Pipelines와 함께 Bicep를 사용 하는 방법에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [Azure Pipelines를 사용 하 여 첫 번째 Bicep 배포 파이프라인 빌드](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) 를 참조 하세요.
 * 파이프라인에서 가상 작업을 사용하려면 [파이프라인에서 가상을 사용하여 ARM 템플릿 테스트](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/)를 참조하세요.
 * GitHub Actions와 함께 Bicep 파일을 사용하는 방법에 대한 자세한 내용은 [GitHub Actions를 사용하여 Bicep 파일 배포](./deploy-github-actions.md)를 참조하세요.

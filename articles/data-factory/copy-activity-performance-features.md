@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/24/2020
-ms.openlocfilehash: 57a10687dc3c067bfd96be2cce1d6adfe0959994
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c9cedace5f4755e22c4f08ecdde0d3f6fb8fa52f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642455"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663215"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
@@ -32,8 +32,8 @@ ms.locfileid: "122642455"
 |:--- |:--- |---- |
 | 파일 저장소 간 |- **단일 파일 간 복사**: 2~4 <br>- **여러 파일 간 복사**: 파일의 수와 크기에 따라 2~256 사이에서 변동 <br><br>예를 들어, 크기가 큰 파일 4개가 있는 폴더에서 데이터를 복사하고 계층을 보존하도록 선택하는 경우 최대 유효 DIU는 16입니다. 파일 병합을 선택할 경우에는 최대 유효 DIU는 4입니다. |파일 수와 크기에 따라 4~32 |
 | 파일 저장소에서 파일이 아닌 저장소로 |- **단일 파일에서 복사**: 2~4 <br/>- **여러 파일에서 복사**: 파일의 수와 크기에 따라 2~256 사이에서 변동 <br/><br/>예를 들어, 크기가 큰 파일 4개가 있는 폴더에서 데이터를 복사하는 경우 최대 유효 DIU는 16입니다. |- **Azure SQL Database 또는 Azure Cosmos DB에 복사**: 싱크 계층(DTU/RU) 및 소스 파일 패턴에 따라 4~16 사이입니다.<br>- **PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 복사**: 2<br>- 기타 시나리오: 4 |
-| 파일이 아닌 저장소에서 파일 저장소로 |- **파티션 옵션 사용 데이터 저장소**([Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source) 포함)에서 복사: 폴더에 쓸 때 2~256, 단일 파일에 쓸 때 2~4 참고로 원본 데이터 파티션 당 최대 4개의 DIUs를 사용할 수 있습니다.<br>- **기타 시나리오**: 2~4 |- **REST 또는 HTTP에서 복사**: 1<br/>- UNLOAD를 사용하여 **Amazon Redshift에서 복사** : 2<br>- **기타 시나리오**: 4 |
-| 파일이 아닌 저장소 간 |- **파티션 옵션 사용 데이터 저장소**([Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source) 포함)에서 복사: 폴더에 쓸 때 2~256, 단일 파일에 쓸 때 2~4 참고로 원본 데이터 파티션 당 최대 4개의 DIUs를 사용할 수 있습니다.<br/>- **기타 시나리오**: 2~4 |- **REST 또는 HTTP에서 복사**: 1<br>- **기타 시나리오**: 4 |
+| 파일이 아닌 저장소에서 파일 저장소로 |- **파티션-옵션 사용 데이터 저장소** ( [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source)등 2-4 2-256)에서 파일을 복사 합니다. 참고로 원본 데이터 파티션 당 최대 4개의 DIUs를 사용할 수 있습니다.<br>- **기타 시나리오**: 2~4 |- **REST 또는 HTTP에서 복사**: 1<br/>- UNLOAD를 사용하여 **Amazon Redshift에서 복사** : 2<br>- **기타 시나리오**: 4 |
+| 파일이 아닌 저장소 간 |- **파티션-옵션 사용 데이터 저장소** ( [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source), [Teradata](connector-teradata.md#teradata-as-source)등 2-4 2-256)에서 파일을 복사 합니다. 참고로 원본 데이터 파티션 당 최대 4개의 DIUs를 사용할 수 있습니다.<br/>- **기타 시나리오**: 2~4 |- **REST 또는 HTTP에서 복사**: 1<br>- **기타 시나리오**: 4 |
 
 복사 작업 모니터링 보기 또는 작업 출력에서 각 복사 실행에 사용된 DIUs를 볼 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-monitoring.md)을 참조하세요. 이 기본값을 재정의하려면 다음과 같이 `dataIntegrationUnits` 속성값을 지정합니다. 런타임 시 복사 작업에서 사용하는 *실제 DIU 수* 는 데이터 패턴에 따라 구성된 값보다 작거나 같습니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "122642455"
 
 준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 스토리지(자체 환경 사용 Azure Blob 또는 Azure Data Lake Storage Gen2)로 복사됩니다. 그런 다음 데이터가 준비 프로세스에서 싱크 데이터 저장소로 복사됩니다. 복사 작업은 2단계 흐름을 자동으로 관리하여, 데이터 이동이 완료되면 준비 스토리지에서 임시 데이터도 정리합니다.
 
-![준비된 복사](media/copy-activity-performance/staged-copy.png)
+:::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="준비된 복사":::
 
 준비 저장소를 사용한 데이터 이동을 활성화하면 원본 데이터 저장소에서 준비 데이터 저장소로 데이터를 이동하기 전에 데이터를 압축할지와 중간 또는 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하기 전에 압축할지 여부를 지정할 수 있습니다.
 
@@ -145,7 +145,7 @@ ms.locfileid: "122642455"
 
 복사 작업에서 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 스토리지에 데이터를 스테이징할지 여부를 지정합니다. **enableStaging** 을 `TRUE`으로 설정한 경우, 다음 표에 나열된 추가 속성을 지정해야 합니다. 
 
-| 속성 | 설명 | 기본값 | 필수 |
+| 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 스토리지 인스턴스를 참조하여 이름을 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)에 연결된 서비스로 지정합니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |

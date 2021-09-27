@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 9d603de7ae8f011ac2ae2ed96d61efb571bdcf64
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 224465fe282b086c2158f4d81ee67e5bf7cedc09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662358"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771786"
 ---
 # <a name="third-party-data-modeling-tools-for-azure-cosmos-db-graph-data"></a>Azure Cosmos DB 그래프 데이터를 위한 타사 데이터 모델링 도구
 
@@ -58,4 +58,4 @@ Hackolade는 NoSQL 데이터베이스를 위한 데이터 모델링 및 스키�
 -  [Hackolade 설명서](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## <a name="next-steps"></a>다음 단계
-- [데이터 시각화](/azure/cosmos-db/graph/graph-visualization-partners)
+- [데이터 시각화](./graph-visualization-partners.md)

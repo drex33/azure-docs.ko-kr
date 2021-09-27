@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 852bbd93fe7ac1524201db1f96a6a43c7ff60bdb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566788"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735955"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>평가 개요(Azure VM으로 마이그레이션)
 
@@ -232,7 +232,7 @@ Ultra 디스크의 경우 특정 디스크 크기에 대해 허용되는 IOPS �
     - 총 IOPS 요구 사항을 충족할 수 있는 하나의 디스크(디스크 2)가 검색되었습니다.
         - 프로비저닝할 IOPS = (원본 디스크 처리량) *1024/256
     - 총 처리량 요구 사항을 충족할 수 있는 하나의 디스크(디스크 3)가 검색되었습니다.
-1. 3개의 디스크 중 최대 디스크 크기를 가진 하나가 검색되고 사용 가능한 다음의 [Ultra 디스크 제품](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size)으로 반올림됩니다. 프로비저닝된 Ultra 디스크 크기입니다.
+1. 3개의 디스크 중 최대 디스크 크기를 가진 하나가 검색되고 사용 가능한 다음의 [Ultra 디스크 제품](../virtual-machines/disks-types.md#disk-size)으로 반올림됩니다. 프로비저닝된 Ultra 디스크 크기입니다.
 1. 프로비저닝된 IOPS는 다음 논리를 사용하여 계산됩니다.
     - 검색된 원본 처리량이 Ultra 디스크 크기에 허용되는 범위에 있는 경우 프로비저닝된 IOPS는 원본 디스크 IOPS와 동일합니다.
     - 그렇지 않은 경우 프로비저닝된 IOPS는 프로비저닝할 IOPS = (원본 디스크 처리량) *1024/256을 사용하여 계산됩니다.

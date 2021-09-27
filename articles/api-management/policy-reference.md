@@ -1,18 +1,18 @@
 ---
 title: Azure API Management에 대한 기본 제공 정책 정의
 description: Azure API Management에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 방법을 제공합니다.
-ms.date: 09/03/2021
-author: georgewallace
-ms.author: gwallace
+ms.date: 09/17/2021
+author: dlepow
+ms.author: danlep
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 46015bebad8230386a8c51bbca484aa2a637f399
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 396ad31fe74aa55f2e93501c0d2203c3a698afe8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123481277"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669204"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Azure API Management에 대한 Azure Policy 기본 제공 정책 정의
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: e722f1dfe131c59e17974ef699b1373244eb6046
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8629a706ddc28ea79f67e6cabcebbbd87eba2419
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567146"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730149"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files를 사용하는 Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -29,7 +29,6 @@ ms.locfileid: "122567146"
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -134,19 +133,18 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다.  Azure NetApp Files 인프라 설정을 진행하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공하는지 확인합니다. 다음 링크는 Azure 지역별 Azure NetApp Files 가용성을 보여줍니다. [Azure 지역별 Azure NetApp Files 가용성][anf-avail-matrix].
 
-Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침][anf-register]에 따라 Azure NetApp Files에 온보딩을 요청합니다. 
+Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포  
 
 이 단계에서는 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.  
 
-1. 아직 수행하지 않은 경우 [Azure NetApp 파일에 온보딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청합니다.  
-2. [NetApp 계정 만들기 지침](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
-3. [Azure NetApp Files 용량 풀 설정 방법에 대한 지침](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
+1. [NetApp 계정 만들기 지침](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
+2. [Azure NetApp Files 용량 풀 설정 방법에 대한 지침](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
 이 문서에 나온 SAP Netweaver 아키텍처에서는 단일 Azure NetApp Files 용량 풀인 프리미엄 SKU를 사용합니다. Azure의 SAP Netweaver 애플리케이션 워크로드에는 Azure NetApp Files 프리미엄 SKU가 권장됩니다.  
-4. [Azure NetApp Files에 서브넷을 위임하는 지침](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 설명에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
+3. [Azure NetApp Files에 서브넷을 위임하는 지침](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 설명에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
 
-5. [Azure NetApp Files용 볼륨을 만드는 지침](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 따라 Azure NetApp Files 볼륨을 배포합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. Azure NetApp Files 리소스와 Azure VM은 동일하거나 피어링된 Azure Virtual Network에 있어야 합니다. 이 예에서는 sap<b>QAS</b> 및 transSAP이라는 2개의 Azure NetApp Files 볼륨을 사용합니다. 해당 탑재 지점에 탑재되는 파일 경로는 /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys 등입니다.  
+4. [Azure NetApp Files용 볼륨을 만드는 지침](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 따라 Azure NetApp Files 볼륨을 배포합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. Azure NetApp Files 리소스와 Azure VM은 동일하거나 피어링된 Azure Virtual Network에 있어야 합니다. 이 예에서는 sap<b>QAS</b> 및 transSAP이라는 2개의 Azure NetApp Files 볼륨을 사용합니다. 해당 탑재 지점에 탑재되는 파일 경로는 /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys 등입니다.  
 
    1. 볼륨 sap<b>QAS</b>(nfs://192.168.24.5/usrsap<b>qas</b>/sapmnt<b>QAS</b>)
    2. 볼륨 sap<b>QAS</b>(nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs)

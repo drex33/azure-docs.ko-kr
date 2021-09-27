@@ -3,7 +3,7 @@ title: Azure API Management 도메인 간 정책 | Microsoft Docs
 description: Azure API Management에 사용할 수 있는 도메인 간 정책에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
-ms.author: apimpm
-ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: d5f15b6d3ba1b006c3495c6c7db693814f68a823
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739101"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601048"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -55,7 +55,7 @@ ms.locfileid: "107739101"
 |----------|-----------------|--------------|
 |cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
@@ -181,7 +181,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound

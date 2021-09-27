@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2a21e7628857eea002892c3395c3d8e426cb3ffa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008432"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124829051"
 ---
 # <a name="get-help-with-your-system"></a>시스템 지원 받기
 
@@ -57,4 +57,4 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
 ## <a name="request-a-quota-increase"></a>할당량 증가 요청
 
-Avere vFXT for Azure를 배포하는 데 필요한 구성 요소를 확인하려면 [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)을 참조하세요. Azure Portal에서 [할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)할 수 있습니다.
+Avere vFXT for Azure를 배포하는 데 필요한 구성 요소를 확인하려면 [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)을 참조하세요. Azure Portal에서 [할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)할 수 있습니다.

@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 개체
 description: 개체 작업을 위해 ARM 템플릿(Azure Resource Manager 템플릿)에서 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: aa52cee2236ac3eab5090b1caad27b6cbf516c7a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 3e6069744b1879e97ef3977916acbfc8aa6a9bd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959624"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820438"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 템플릿의 개체 함수
 
@@ -31,7 +31,7 @@ ms.locfileid: "111959624"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -42,64 +42,13 @@ ms.locfileid: "111959624"
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
+다음 예제에서는 여러 다른 형식의 contains를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -114,7 +63,7 @@ ms.locfileid: "111959624"
 
 키와 값에서 개체를 만듭니다.
 
-Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용하여 개체를 생성합니다. [개체](../bicep/data-types.md#objects)를 참조하세요.
+`createObject`함수는 Bicep에서 지원 되지 않습니다.  `{}`를 사용하여 개체를 생성합니다. [개체](../bicep/data-types.md#objects)를 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -122,8 +71,8 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 |:--- |:--- |:--- |:--- |
 | key1 |예 |문자열 |키의 이름입니다. |
 | value1 |예 |int, 부울, 문자열, 개체 또는 배열 |키의 값입니다. |
-| additional keys |예 |문자열 |키의 추가 이름입니다. |
-| additional values |예 |int, 부울, 문자열, 개체 또는 배열 |키에 대한 추가 값입니다. |
+| 추가 키 |예 |문자열 |키의 추가 이름입니다. |
+| 더 많은 값 |예 |int, 부울, 문자열, 개체 또는 배열 |키에 대 한 추가 값입니다. |
 
 함수는 짝수의 매개 변수만 사용할 수 있습니다. 각 키는 일치 값이 있어야 합니다.
 
@@ -135,20 +84,7 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 다음 예에서는 다양한 값 형식에서 개체를 만듭니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "newObject": {
-      "type": "object",
-      "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/createobject.json":::
 
 기본값을 사용하는 이전 예제의 출력은 다음과 같은 값을 가진 `newObject`라는 개체입니다.
 
@@ -170,7 +106,7 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -180,48 +116,13 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
+다음 예제에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -235,11 +136,11 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| more 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 값이 더 많습니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -247,56 +148,13 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json)에서는 배열 및 개체에 교집합을 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 개체와의 교집합을 사용하는 방법을 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "z",
-        "three": "c"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -311,7 +169,7 @@ Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열이어야 합니다. |
 
@@ -327,80 +185,13 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)에서는 json 함수를 사용하는 방법을 보여줍니다. 빈 개체에 대해 **null** 을 전달할 수 있습니다.
+다음 예제에서는 `json` 함수를 사용하는 방법을 보여 줍니다. 빈 개체에 대해 를 전달할 수 `null` 있습니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "jsonEmptyObject": {
-      "type": "string",
-      "defaultValue": "null"
-    },
-    "jsonObject": {
-      "type": "string",
-      "defaultValue": "{\"a\": \"b\"}"
-    },
-    "jsonString": {
-      "type": "string",
-      "defaultValue": "\"test\""
-    },
-    "jsonBoolean": {
-      "type": "string",
-      "defaultValue": "true"
-    },
-    "jsonInt": {
-      "type": "string",
-      "defaultValue": "3"
-    },
-    "jsonArray": {
-      "type": "string",
-      "defaultValue": "[[1,2,3 ]"
-    },
-    "concatValue": {
-      "type": "string",
-      "defaultValue": "demo value"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "emptyObjectOutput": {
-      "type": "bool",
-      "value": "[empty(json(parameters('jsonEmptyObject')))]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[json(parameters('jsonObject'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[json(parameters('jsonString'))]"
-    },
-    "booleanOutput": {
-      "type": "bool",
-      "value": "[json(parameters('jsonBoolean'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[json(parameters('jsonInt'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[json(parameters('jsonArray'))]"
-    },
-    "concatObjectOutput": {
-      "type": "object",
-      "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/json.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
 | objectOutput | Object | {"a": "b"} |
@@ -418,7 +209,7 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -428,59 +219,13 @@ int입니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 문자열에 length를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -492,7 +237,7 @@ int입니다.
 
 null을 반환합니다.
 
-`null` 함수는 Bicep에서 사용할 수 없습니다. 대신 `null` 키워드를 사용합니다.
+`null`함수는 Bicep에서 사용할 수 없습니다. 대신 `null` 키워드를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -506,23 +251,11 @@ Null 함수는 매개 변수를 허용하지 않습니다.
 
 다음 예제에서는 Null 함수를 사용합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "emptyOutput": {
-      "type": "bool",
-      "value": "[empty(null())]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/null.json":::
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -534,11 +267,11 @@ Null 함수는 매개 변수를 허용하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| 추가 인수 |예 |배열 또는 개체 |요소를 조인 하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -546,56 +279,13 @@ Null 함수는 매개 변수를 허용하지 않습니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json)에서는 배열 및 개체에 union을 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 개체에 union을 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c1"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "three": "c2",
-        "four": "d",
-        "five": "e"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "three", "four" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

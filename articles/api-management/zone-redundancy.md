@@ -5,14 +5,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions
-ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d43d6e7b04e117e4144356ac22ea2858408405df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537239"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582845"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Azure API Management의 가용성 영역 지원 
 
@@ -63,7 +63,7 @@ ms.locfileid: "122537239"
 1. 기존 위치를 선택하거나 위쪽 표시줄에서 **+ 추가** 를 선택합니다. 해당 위치는 [가용성 영역을 지원](#supported-regions)해야 합니다.
 1. 해당 위치에서 배율 **[단위](upgrade-and-scale.md)** 수를 선택합니다.
 1. **가용성 영역** 에서 하나 이상의 영역을 선택합니다. 선택한 단위 수는 가용성 영역 전체에 균등하게 분산되어야 합니다. 예를 들어, 3개 단위를 선택한 경우 각 영역이 하나의 단위를 호스트하도록 3개 영역을 선택합니다.
-1. API Management 인스턴스가 [가상 네트워크](api-management-using-with-vnet.md)에 배포된 경우 해당 위치에서 가상 네트워크 설정을 구성합니다. 해당 위치에서 사용할 수 있는 기존 가상 네트워크, 서브넷 및 공용 IP 주소를 선택합니다.
+1. API Management 인스턴스가 [가상 네트워크에](api-management-using-with-vnet.md)배포된 경우 해당 위치에서 사용할 수 있는 기존 가상 네트워크, 서브넷 및 공용 IP 주소를 선택하여 해당 위치에서 가상 네트워크 설정을 구성합니다. 기존 위치의 경우 Virtual Network 블레이드에서 가상 네트워크 및 서브넷을 구성해야 합니다.
 1. **적용** 을 선택한 다음, **저장** 을 선택합니다.
 
 :::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="영역 중복성 사용":::

@@ -1,14 +1,14 @@
 ---
 title: Media 청사진 샘플 개요
 description: Media 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 Media 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 1fb9b611434cba892f94f8a2ccf86acef04cad3c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 21b5a466b1893dd24f3ae6a878428968a8b7b834
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757136"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674911"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Media 청사진 샘플의 개요
 

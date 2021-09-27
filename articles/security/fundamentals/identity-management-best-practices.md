@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: e7241944f6178b80ad684ff35684b5b5d3f53e94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537926"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784530"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -142,7 +142,7 @@ ID 보안 점수는 Microsoft에서 게시하는 권장 보안 컨트롤 세트�
 
 ## <a name="enable-password-management"></a>암호 관리 사용
 
-테넌트가 여럿이거나 사용자가 [자신의 암호를 재설정](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)할 수 있도록 하려는 경우 남용을 방지하기 위해 적절한 보안을 사용해야 합니다.
+테넌트가 여럿이거나 사용자가 [자신의 암호를 재설정](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)할 수 있도록 하려는 경우 남용을 방지하기 위해 적절한 보안을 사용해야 합니다.
 
 **모범 사례**: 사용자에 대해 SSPR(셀프 서비스 암호 재설정)을 설정합니다.  
 **세부 정보**: Azure AD [셀프 서비스 암호 재설정](../../active-directory-b2c/user-flow-self-service-password-reset.md) 기능을 사용합니다.

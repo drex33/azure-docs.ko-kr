@@ -3,12 +3,12 @@ title: Azure Lab Services - 물리적 랩 환경에서 Linux 사용자 지정 �
 description: 물리적 랩 환경에서 Linux 사용자 지정 이미지를 가져오는 방법을 설명합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 919505e31526c3d17d42bd29d9cef3b46758c959
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 9a8591d383ac5230085bc83d1d791e9de830a99e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831398"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771368"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>물리적 랩 환경에서 Linux 사용자 지정 이미지 가져오기
 
@@ -38,7 +38,7 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
     - VM은 **1세대** VM으로 만들어야 합니다.
     - **기본 스위치** 네트워크 구성 옵션을 사용하여 VM이 인터넷에 연결되도록 허용합니다.
     - **가상 하드 디스크 연결** 설정에서 디스크의 **크기** 는 다음 이미지와 같이 128GB보다 크지 ‘않아야’ 합니다.
-       
+
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="가상 하드 디스크 연결 화면을 보여 주는 스크린샷":::
 
     - **설치 옵션** 설정에서, 이전에 Ubuntu에서 다운로드한 **.iso** 파일을 선택합니다.
@@ -52,7 +52,7 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
     이전 단계를 수행하는 경우 다음과 같은 몇 가지 사항이 중요합니다.
     - 해당 단계에서는 **deprovision+user** 명령을 실행할 때 [일반화](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) 이미지를 만듭니다. 그러나 이미지에서 중요한 정보가 모두 지워졌다거나 재배포에 적합하다는 것이 보장되지는 않습니다.
     - 마지막 단계는 **VHDX** 파일을 **VHD** 파일로 변환하는 것입니다. **Hyper-V 관리자** 를 사용하여 작업을 수행하는 방법을 보여 주는 단계는 다음과 같습니다.
-        
+
         1. **Hyper-V 관리자** > **작업** > **디스크 편집** 으로 이동합니다.
         1. 그런 다음, 디스크를 VHDX에서 VHD로 **변환** 합니다.
         1. **디스크 유형** 에서, **고정 크기** 를 선택합니다.
@@ -61,48 +61,47 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
 
 다음 PowerShell cmdlet을 사용하면 VHD 크기를 조정하고 VHDX로 변환하는 데 도움이 됩니다.
 
-- [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=windowsserver2019-ps)
-- [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps)
+- [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
+- [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
 
 ## <a name="upload-the-custom-image-to-a-shared-image-gallery"></a>공유 이미지 갤러리에 사용자 지정 이미지 업로드
 
 1. VHD를 Azure에 업로드하여 관리 디스크를 만듭니다.
     1. [Azure에 VHD 업로드 또는 다른 지역으로 관리 디스크 복사](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md)에 표시된 대로 Storage Explorer 또는 명령줄의 AzCopy를 사용할 수 있습니다.
 
-    1. VHD를 업로드한 후 Azure Portal에서 볼 수 있는 관리 디스크가 생성됩니다. 
-    
+    1. VHD를 업로드한 후 Azure Portal에서 볼 수 있는 관리 디스크가 생성됩니다.
+
     머신이 절전 모드로 전환되거나 잠기면 업로드 프로세스가 중단되고 실패할 수 있습니다. AzCopy가 완료되면, 디스크에 대한 SAS 액세스를 취소해야 합니다. 취소하지 않으면 디스크에서 이미지를 만들려고 할 때 “‘이미지 만들기’ 작업이 ‘활성 업로드’ 상태의 ‘디스크 이름’ 디스크에서 지원되지 않습니다. 오류 코드: OperationNotAllowed*.” 오류가 표시됩니다.
-    
+
     관리 디스크에 대해 Azure Portal의 **크기+성능** 탭을 사용하여 디스크 크기를 변경합니다. 앞에서 설명한 대로 크기는 128GB보다 크지 ‘않아야’ 합니다.
 
 1. 공유 이미지 갤러리에서 이미지 정의 및 버전을 생성합니다.
-    1. [이미지 정의를 만듭니다](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
+    1. [이미지 정의를 만듭니다](../virtual-machines/image-version.md).
         - **VM 세대** 에 대해 **1세대** 를 선택합니다.
         - **운영 체제** 로 **Linux** 를 선택합니다.
         - **운영 체제 상태** 로 **범용** 을 선택합니다.
-     
-    이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요. 
-    
+
+    이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
+
     기존 이미지 정의를 사용하고 사용자 지정 이미지의 새 버전을 만들도록 선택할 수도 있습니다.
-    
-1. [이미지 버전을 만듭니다](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
-   - **버전 번호** 속성은 *MajorVersion.MinorVersion.Patch* 형식을 사용합니다. Lab Services를 사용하여 랩을 만들고 사용자 지정 이미지를 선택하면 최신 버전의 이미지가 자동으로 사용됩니다. 최신 버전은 MajorVersion, MinorVersion, Patch의 순서로 가장 큰 값을 기준으로 선택됩니다.
+
+1. [이미지 버전을 만듭니다](../virtual-machines/image-version.md).
+    - **버전 번호** 속성은 *MajorVersion.MinorVersion.Patch* 형식을 사용합니다. Lab Services를 사용하여 랩을 만들고 사용자 지정 이미지를 선택하면 최신 버전의 이미지가 자동으로 사용됩니다. 최신 버전은 MajorVersion, MinorVersion, Patch의 순서로 가장 큰 값을 기준으로 선택됩니다.
     - **원본** 의 경우 드롭다운 목록에서 **디스크 및/또는 스냅샷** 을 선택합니다.
     - **OS 디스크** 속성으로 이전 단계에서 생성한 디스크를 선택합니다.
-    
+
     이미지 정의에 대해 지정할 수 있는 값에 관한 자세한 내용은 [이미지 버전](../virtual-machines/shared-image-galleries.md#image-versions)을 참조하세요.
 
 ## <a name="create-a-lab"></a>랩 만들기
-   
+
 Lab Services에서 [랩을 만들고](tutorial-setup-classroom-lab.md) 공유 이미지 갤러리에서 사용자 지정 이미지를 선택합니다.
 
-OS가 원래 Hyper-V VM에 설치된 ‘후에’ 디스크를 확장한 경우 할당되지 않은 디스크 공간을 사용하려면 Linux 파일 시스템에서 파티션을 확장해야 할 수도 있습니다.
-- 랩의 템플릿 VM에 로그인하고 [디스크 파티션 및 파일 시스템 확장](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem)에 설명된 것과 비슷한 단계를 수행합니다.
-    
+OS가 원래 Hyper-V VM에 설치된 *후* 디스크를 확장한 경우 할당되지 않은 디스크 공간을 사용하도록 Linux의 파일 시스템에 있는 파티션을 확장해야 할 수도 있습니다.  랩의 템플릿 VM에 로그인하고 [디스크 파티션 및 파일 시스템 확장](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem)에 설명된 것과 비슷한 단계를 수행합니다.
+
 OS 디스크는 일반적으로 **/dev/sad2** 파티션에 있습니다. OS 디스크 파티션의 현재 크기를 보려면 **df -h** 명령을 사용합니다.
-    
+
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 이미지 갤러리 개요](../virtual-machines/shared-image-galleries.md)
-* [공유 이미지 갤러리 연결 또는 분리](how-to-attach-detach-shared-image-gallery.md)
-* [공유 이미지 갤러리 사용](how-to-use-shared-image-gallery.md)
+- [공유 이미지 갤러리 개요](../virtual-machines/shared-image-galleries.md)
+- [공유 이미지 갤러리 연결 또는 분리](how-to-attach-detach-shared-image-gallery.md)
+- [공유 이미지 갤러리 사용](how-to-use-shared-image-gallery.md)

@@ -4,12 +4,12 @@ description: 사용자 지정 이미지 풀은 Batch 워크로드를 실행하�
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 19a6168c2d6d2a37458dbbe9d8917f6e679da47f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827490"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Shared Image Gallery를 사용하여 사용자 지정 이미지 풀 만들기
 
@@ -81,7 +81,7 @@ VM을 만드는 경우 다음 지침을 따릅니다.
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기
 
-스냅샷은 VHD의 전체 읽기 전용 복사본입니다. VM OS 또는 데이터 디스크의 스냅샷을 만들려는 경우 Azure Portal 또는 명령줄 도구를 사용할 수 있습니다. 스냅샷을 만드는 단계와 옵션은 [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) 또는 [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VM용 지침을 참조하세요.
+스냅샷은 VHD의 전체 읽기 전용 복사본입니다. VM OS 또는 데이터 디스크의 스냅샷을 만들려는 경우 Azure Portal 또는 명령줄 도구를 사용할 수 있습니다. 스냅샷을 만드는 단계 및 옵션은 VM에 대한 지침을 [참조하세요.](../virtual-machines/snapshot-copy-managed-disk.md)
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>스냅샷 하나 이상에서 이미지 만들기
 
@@ -89,7 +89,7 @@ VM을 만드는 경우 다음 지침을 따릅니다.
 
 ### <a name="create-a-shared-image-gallery"></a>Shared Image Gallery 만들기
 
-관리 이미지를 성공적으로 만들었으면 Shared Image Gallery를 만들어 사용자 지정 이미지를 사용할 수 있도록 해야 합니다. 이미지에 대한 Shared Image Gallery를 만드는 방법을 알아보려면 [Azure CLI를 사용하여 Shared Image Gallery 만들기](../virtual-machines/shared-images-cli.md) 또는 [Azure Portal을 사용하여 Shared Image Gallery 만들기](../virtual-machines/linux/shared-images-portal.md)를 참조하세요.
+관리 이미지를 성공적으로 만들었으면 Shared Image Gallery를 만들어 사용자 지정 이미지를 사용할 수 있도록 해야 합니다. 이미지에 대한 Shared Image Gallery 만드는 방법을 알아보려면 [Shared Image Gallery 만들기를](../virtual-machines/create-gallery.md)참조하세요.
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지에서 풀 만들기
 

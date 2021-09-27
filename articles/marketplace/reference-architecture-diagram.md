@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/22/2021
-ms.openlocfilehash: 63c820a7dd4bcbe1322478a46043963edc45dd2b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2789f76f5c4e0925a123da55a56da6bc420c29b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054265"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565743"
 ---
 # <a name="reference-architecture-diagram"></a>참조 아키텍처 다이어그램
 
@@ -25,7 +25,7 @@ ms.locfileid: "129054265"
 
 ## <a name="typical-components-of-a-reference-architecture-diagram"></a>참조 아키텍처 다이어그램의 일반적인 구성 요소
 
-다이어그램은 Microsoft Azure를 배포 하 고 소비 하는 솔루션, 응용 프로그램 또는 서비스 코드로 IP를 명확 하 게 식별 해야 합니다. 이 코드는 항상 재사용 가능 해야 하며 배포 당 광범위 한 사용자 지정에 의존 하지 않아야 합니다.
+다이어그램은 Microsoft Azure에 배포 된 솔루션/응용 프로그램/서비스의 반복 가능한 IP 코드를 명확 하 게 식별 해야 합니다.
 
 - Azure 리소스를 사용하는 클라우드 서비스를 포함하여 제품을 호스트하고 상호 작용하는 클라우드 서비스
 - 제품에서 사용하는 데이터 연결, 데이터 계층 및 데이터 서비스

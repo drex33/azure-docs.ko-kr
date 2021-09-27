@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 92991ef4b9889b0be2e887884ed46086b87ff9f3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91538724"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588887"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS를 위한 반복적인 앱 디자인
 
@@ -52,8 +52,6 @@ LUIS(Language Understanding) 앱은 반복을 통해 가장 효율적으로 학�
 엔터티 스키마는 사용자 발화에서 추출된 데이터인 엔터티를 중심으로 합니다. 사용자가 "I'd like to order three pizzas."라고 말하는 경우를 예로 들어 보겠습니다. 추출될 엔터티는 두 개(_three_ 및 _pizzas_)입니다. 이 엔터티는 주문을 수행하는 의도를 충족하는 데 사용됩니다.
 
 엔터티 스키마의 경우에는 발화의 의도가 클라이언트 애플리케이션에 크게 중요하지 않습니다.
-
-엔터티 스키마를 구성하는 일반적인 방법은 모든 예제 발화를 **None** 의도에 추가하는 것입니다.
 
 ### <a name="example-of-a-mixed-schema"></a>혼합 스키마 예
 

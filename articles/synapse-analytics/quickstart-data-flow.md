@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 37696d2f4054e46125b39f3d5efa794ce54f94b5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: 481d4534f7213d55c795383d6112fd93f7997c9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567726"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596869"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>빠른 시작: 데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -28,13 +28,13 @@ ms.locfileid: "107567726"
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 모니터링 작업
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Synapse 작업 영역**: [빠른 시작: Synapse 작업 영역](quickstart-create-workspace.md) 만들기의 지침에 따라 Azure Portal을 사용하여 Synapse 작업 영역을 만듭니다.
 * **Azure Storage 계정**: ADLS 스토리지를 *원본* 및 *싱크* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
-    이 자습서에서 변형하는 파일은 [여기](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv)에서 찾을 수 있는 MoviesDB.csv입니다. GitHub에서 파일을 검색하려면 해당 콘텐츠를 원하는 텍스트 편집기에 복사하여 로컬에 .csv 파일로 저장합니다. 스토리지 계정에 파일을 업로드하려면 [Azure Portal을 사용하여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조하세요. 이 예에서는 ‘sample-data’라는 컨테이너를 참조합니다.
+    이 지침서에서 변형하는 파일은 [여기](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv)에서 찾을 수 있는 MoviesDB.csv입니다. GitHub에서 파일을 검색하려면 해당 콘텐츠를 원하는 텍스트 편집기에 복사하여 로컬에 .csv 파일로 저장합니다. 스토리지 계정에 파일을 업로드하려면 [Azure Portal을 사용하여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조하세요. 이 예에서는 ‘sample-data’라는 컨테이너를 참조합니다.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Synapse Studio로 이동
 
@@ -69,7 +69,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 데이터 흐름을 만들면 데이터 흐름 캔버스로 자동 전송됩니다. 이 단계에서는 ADLS 스토리지의 MoviesDB.csv를 가져와 1910년부터 2000년까지 코미디 장르의 평균 평점을 집계하는 데이터 흐름을 만듭니다. 그런 다음 이 파일을 ADLS 스토리지에 다시 씁니다.
 
-1. 데이터 흐름 캔버스 위에서 **데이터 흐름 디버그** 슬라이더를 켭니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5-7분 정도 걸리며, 사용자는 데이터 흐름 개발을 수행할 계획이라면 먼저 디버그를 사용하는 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](../data-factory/concepts-data-flow-debug-mode.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
+1. 데이터 흐름 캔버스 위에서 **데이터 흐름 디버그** 슬라이더를 켭니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](../data-factory/concepts-data-flow-debug-mode.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
 
     ![디버그 슬라이드 켜기](media/quickstart-data-flow/debug-on.png)
 
@@ -105,15 +105,15 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 1. 필터 변환의 이름을 **Filteryears** 로 지정합니다. **필터 설정** 옆에 있는 식 상자를 클릭하여 식 작성기를 엽니다. 여기에서 필터링 조건을 지정합니다.
 
-1. 데이터 흐름 식 작성기를 사용하면 다양한 변환에 사용할 식을 대화형으로 작성할 수 있습니다. 표현식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함될 수 있습니다. 식 작성 방법에 대한 자세한 내용은 [데이터 흐름 식 작성기](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
+1. 데이터 흐름 식 작성기를 사용하면 다양한 변환에 사용할 식을 대화형으로 작성할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함될 수 있습니다. 식 작성 방법에 대한 자세한 내용은 [데이터 흐름 식 작성기](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
 
     이 빠른 시작에서는 1910년과 2000년 사이에 발표된 코미디 장르 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 200-을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    코미디 영화를 찾으려면 ```rlike()``` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. 다음과 같이 rlike 식을 연도 비교와 결합하여 값을 구합니다.
+    코미디 영화를 찾으려면 `rlike()` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. `rlike`식을 연도 비교와 통합하여 다음을 얻습니다.
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     ![필터링 조건 지정](media/quickstart-data-flow/visual-expression-builder.png)
 
@@ -137,7 +137,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 1. **평점** 열의 평균을 구하려면 ```avg()``` 집계 함수를 사용합니다. **평점** 은 문자열이고 ```avg()```은 숫자 입력을 사용하기 때문에 ```toInteger()``` 함수를 통해 값을 숫자로 변환해야 합니다. 이 식은 다음과 같습니다.
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
     완료되면 **저장 및 마침** 을 클릭합니다.
 
@@ -165,7 +165,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 ## <a name="running-and-monitoring-the-data-flow"></a>데이터 흐름 실행 및 모니터링
 
-파이프라인을 게시하기 전에 디버그할 수 있습니다. 이 단계에서는 데이터 흐름 파이프라인의 디버그 실행을 트리거합니다. 데이터 미리 보기는 데이터를 쓰지 않지만 디버그 실행은 싱크 대상에 데이터를 씁니다.
+파이프라인을 게시하기 전에 디버그할 수 있습니다. 이 단계에서는 데이터 흐름 파이프라인의 디버그 실행을 트리거합니다. 데이터 미리 보기는 데이터를 쓰지 않지만, 디버그 실행은 싱크 대상에 데이터를 씁니다.
 
 1. 파이프라인 캔버스로 이동합니다. 디버그 실행을 트리거하려면 **디버그** 를 클릭합니다.
 

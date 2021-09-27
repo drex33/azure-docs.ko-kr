@@ -8,17 +8,17 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/23/2021
-ms.openlocfilehash: 87902df54eccdd7038c8351f4ca1794b013a0f13
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 4f4b0cd13095c83f84c96e57e73f255caf4fcdc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699252"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736321"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션 
 
 > [!IMPORTANT]
-> Machine Learning Studio(클래식)에 대한 지원은 2024년 8월 31일에 종료됩니다. 해당 날짜까지 [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)으로 전환하는 것이 좋습니다.
+> Machine Learning Studio(클래식)에 대한 지원은 2024년 8월 31일에 종료됩니다. 해당 날짜까지 [Azure Machine Learning](./overview-what-is-azure-machine-learning.md)으로 전환하는 것이 좋습니다.
 >
 > 2021년 12월 1일부터 새로운 Machine Learning Studio(클래식) 리소스를 만들 수 없습니다. 2024년 8월 31일까지는 기존 Machine Learning Studio(클래식) 리소스를 계속 사용할 수 있습니다.  
 >
@@ -82,7 +82,7 @@ Azure Machine Learning으로 마이그레이션하려면 다음 방식을 사용
 
 ## <a name="step-5-cleanup-studio-classic-assets"></a>5단계: Studio(클래식) 자산 정리
 
-1. 추가 요금을 방지하기 위해 [Studio(클래식) 자산을 정리](/classic/export-delete-personal-data-dsr.md)합니다. Azure Machine Learning 워크로드의 유효성을 검사할 때까지 대체 옵션으로 자산을 유지할 수 있습니다.
+1. 추가 요금을 방지하기 위해 [Studio(클래식) 자산을 정리](./classic/export-delete-personal-data-dsr.md)합니다. Azure Machine Learning 워크로드의 유효성을 검사할 때까지 대체 옵션으로 자산을 유지할 수 있습니다.
 
 ## <a name="step-6-review-and-expand-scenarios"></a>6단계: 시나리오 검토 및 확장
 

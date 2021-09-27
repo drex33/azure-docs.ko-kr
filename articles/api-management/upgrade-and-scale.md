@@ -3,20 +3,20 @@ title: Azure API Management 인스턴스 업그레이드 및 크기 조정 | Mic
 description: 이 항목에서는 Azure API Management 인스턴스를 업그레이드하고 크기 조정하는 방법을 설명합니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
-ms.author: apimpm
-ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 9cec5717c6c25faafc7349a4c18b60cc30e97f26
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127790"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659971"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 

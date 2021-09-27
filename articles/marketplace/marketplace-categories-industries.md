@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/20/2021
-ms.openlocfilehash: a2c716479d3b8fd279da855a1df9f280e47c6c5a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 8c48f5ec6804996cb65428f2e66199cb30127849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635274"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824110"
 ---
 # <a name="marketplace-categories-and-industries"></a>마켓플레이스 범주 및 산업
 
@@ -103,6 +103,5 @@ Azure Marketplace의 범주는 IT 전문가 및 개발자를 대상으로 하는
 
 ## <a name="next-steps"></a>다음 단계
 
-- 제품을 만들려면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인하여 제품을 만들고 구성합니다. 파트너 센터에 아직 등록하지 않은 경우 [계정을 만듭니다](/azure/marketplace/create-account).
-- 제품 게시에 대한 단계별 지침은 상업용 Marketplace [제품 유형별 게시 가이드](/azure/marketplace/publisher-guide-by-offer-type)를 참조하세요.
-
+- 제품을 만들려면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인하여 제품을 만들고 구성합니다. 파트너 센터에 아직 등록하지 않은 경우 [계정을 만듭니다](./create-account.md).
+- 제품 게시에 대한 단계별 지침은 상업용 Marketplace [제품 유형별 게시 가이드](./publisher-guide-by-offer-type.md)를 참조하세요.

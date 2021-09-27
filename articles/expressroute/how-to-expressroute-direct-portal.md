@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: duau
-ms.openlocfilehash: b659fee979fd936a85c0cd5a711390594bbe79b1
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
-ms.translationtype: HT
+ms.openlocfilehash: d5b7bba4774eb81c684875a4db9ffb1afb2a60aa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795769"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811226"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute Direct 만들기
 
@@ -135,4 +135,4 @@ ExpressRoute Direct를 사용하려면 먼저 구독을 등록해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-ExpressRoute Direct에 대한 자세한 내용은 [개요](expressroute-erdirect-about.md)를 참조하세요.
+Express 경로 회로를 만든 후 [가상 네트워크를 express 경로 회로에 연결할](expressroute-howto-add-gateway-portal-resource-manager.md)수 있습니다.

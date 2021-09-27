@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 08/25/2021
 ms.author: enewman
-ms.openlocfilehash: 80a64ce36697db2ac7bf941fdb40ab997e9f700f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 14e30572ab620b36730c725c7ac5a2e762947366
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110100"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755504"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-linux"></a>Linux에서 R을 가르치기 위한 랩 설정
 
 [R](https://www.r-project.org/about.html)은 통계 컴퓨팅 및 그래픽에 사용되는 오픈 소스 언어입니다.  유전학부터 자연어 처리, 금융 데이터 분석까지의 통계 분석에 사용됩니다.  R은 [대화형 명령줄](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) 환경을 제공합니다.  [RStudio](https://www.rstudio.com/products/rstudio/)는 R 언어에 사용할 수 있는 IDE(대화형 개발 환경)입니다.  무료 버전은 코드 편집 도구, 통합 디버깅 환경 및 패키지 개발 도구를 제공합니다.
 
-이 문서에서는 통계 컴퓨팅을 사용해야 하는 클래스의 구성 요소로서 RStudio와 R에만 중점을 둡니다.  [딥 러닝](class-type-deep-learning-natural-language-processing.md)과 [Python 및 Jupyter Notebooks](class-type-jupyter-notebook.md) 클래스 유형은 RStudio를 다르게 설정합니다.  각 문서에서는 RStudio를 비롯한 많은 [데이터 과학 관련 도구](/azure/machine-learning/data-science-virtual-machine/tools-included)가 사전 설치된 [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) 마켓플레이스 이미지를 사용하는 방법을 설명합니다.  
+이 문서에서는 통계 컴퓨팅을 사용해야 하는 클래스의 구성 요소로서 RStudio와 R에만 중점을 둡니다.  [딥 러닝](class-type-deep-learning-natural-language-processing.md)과 [Python 및 Jupyter Notebooks](class-type-jupyter-notebook.md) 클래스 유형은 RStudio를 다르게 설정합니다.  각 문서에서는 RStudio를 비롯한 많은 [데이터 과학 관련 도구](../machine-learning/data-science-virtual-machine/tools-included.md)가 사전 설치된 [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) 마켓플레이스 이미지를 사용하는 방법을 설명합니다.  
 
 ## <a name="lab-account-configuration"></a>랩 계정 구성
 

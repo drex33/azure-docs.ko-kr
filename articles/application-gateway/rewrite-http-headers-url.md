@@ -1,18 +1,17 @@
 ---
-title: Azure Application Gateway를 사용하여 HTTP 헤더 및 URL 다시 쓰기 | Microsoft Docs
+title: Azure Application Gateway 사용하여 HTTP 헤더 및 URL 다시 작성
 description: 이 문서에는 Azure Application Gateway에서 HTTP 헤더 및 URL을 다시 쓰는 방법에 대한 개요가 제공됩니다.
-services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: c4e4af8fb14c48988a593261365dcfde6c7a0657
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789450"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577282"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용하여 HTTP 헤더 및 URL 다시 쓰기
 
@@ -97,7 +96,7 @@ Application Gateway는 조건에서 패턴 일치에 정규식을 사용합니�
 
 ## <a name="server-variables"></a>서버 변수
 
-Application Gateway 서버 변수를 사용하여 서버, 클라이언트와의 연결, 연결에 대한 현재 요청에 관련된 유용한 정보를 저장합니다. 저장되는 정보의 예에는 클라이언트의 IP 주소와 웹 브라우저 유형이 있습니다. 서버 변수는 동적으로(예: 새 페이지가 로드되거나 양식이 게시될 때) 변경됩니다. 이러한 변수를 사용하여 다시 쓰기 조건을 평가하고 헤더를 다시 쓸 수 있습니다. 서버 변수 값을 사용하여 헤더를 다시 쓰려면 {var_ *serverVariableName*} 구문에서 이러한 변수를 지정해야 합니다.
+Application Gateway 서버 변수를 사용하여 서버, 클라이언트와의 연결, 연결에 대한 현재 요청에 관련된 유용한 정보를 저장합니다. 저장된 정보의 예로는 클라이언트의 IP 주소 및 웹 브라우저 유형이 있습니다. 서버 변수는 동적으로(예: 새 페이지가 로드되거나 양식이 게시될 때) 변경됩니다. 이러한 변수를 사용하여 다시 쓰기 조건을 평가하고 헤더를 다시 쓸 수 있습니다. 서버 변수 값을 사용하여 헤더를 다시 쓰려면 {var_ *serverVariableName*} 구문에서 이러한 변수를 지정해야 합니다.
 
 애플리케이션 게이트웨이는 다음 서버 변수를 지원합니다.
 
@@ -139,7 +138,7 @@ Application Gateway는 상호 인증 시나리오에 대해 다음과 같은 서
 | client_certificate_serial | 설정된 SSL 연결에 대한 클라이언트 인증서의 일련 번호입니다.  |
 | client_certificate_start_date| 클라이언트 인증서의 시작 날짜입니다. |
 | client_certificate_subject| 설정된 SSL 연결에 대한 클라이언트 인증서의 "주체 DN" 문자열입니다. |
-| client_certificate_verification| 클라이언트 인증서 확인의 결과: *SUCCESS*, *FAILED:<reason>* 또는 인증서가 없는 경우 *NONE* 입니다. | 
+| client_certificate_verification| 클라이언트 인증서 확인의 결과: *SUCCESS*, *FAILED:\<reason\>* 또는 인증서가 없는 경우 *NONE* 입니다. | 
 
 ## <a name="rewrite-configuration"></a>구성 다시 쓰기
 

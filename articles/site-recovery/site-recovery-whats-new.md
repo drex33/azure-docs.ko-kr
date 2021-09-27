@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 2b733f4e525f2f47df7afde0ddc308430ae05d0b
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 0058078e04e14e6e8c823490f8c6e09a123d40f8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215306"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804782"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -43,10 +43,10 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 > 미리 보기 환경을 설정하려면 새로 설치를 수행하고 새 Recovery Services 자격 증명 모음을 사용해야 합니다. 기존 아키텍처에서 새 아키텍처로 업데이트하는 기능은 지원되지 않습니다.
 
 이 퍼블릭 미리 보기에서는 VMware 머신을 보호하기 위한 현재 아키텍처의 전체 점검을 다룹니다.
-- 새 아키텍처, 도입된 변경 내용에 관해 [알아봅니다](https://docs.microsoft.com/azure/site-recovery/vmware-azure-architecture-preview).
-- [다음 단계](https://docs.microsoft.com/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview)에 따라 필수 조건을 확인하고 ASR 복제 어플라이언스를 설정합니다.
-- VMware 머신의 [복제를 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview)합니다.
-- ASR 복제 어플라이언스의 자동 [업그레이드](https://docs.microsoft.com/azure/site-recovery/upgrade-mobility-service-preview) 및 [전환](https://docs.microsoft.com/azure/site-recovery/switch-replication-appliance-preview) 기능을 확인합니다.
+- 새 아키텍처, 도입된 변경 내용에 관해 [알아봅니다](./vmware-azure-architecture-preview.md).
+- [다음 단계](./deploy-vmware-azure-replication-appliance-preview.md)에 따라 필수 조건을 확인하고 ASR 복제 어플라이언스를 설정합니다.
+- VMware 머신의 [복제를 사용하도록 설정](./vmware-azure-set-up-replication-tutorial-preview.md)합니다.
+- ASR 복제 어플라이언스의 자동 [업그레이드](./upgrade-mobility-service-preview.md) 및 [전환](./switch-replication-appliance-preview.md) 기능을 확인합니다.
 
 
 ### <a name="update-rollup-56"></a>업데이트 롤업 56

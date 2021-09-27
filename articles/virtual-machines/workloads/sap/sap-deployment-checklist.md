@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3c91961eb6e89533ee5b995eb56fdd172d21b6f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504306"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730179"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드: 계획 및 배포 검사 목록
 
@@ -82,7 +82,7 @@ Azure와 무관한 작업은 이 검사 목록에 포함되어 있지 않습니�
     - [태그 지정 전략](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing)
     - VM 및 기타 인프라 구성 요소 및/또는 논리적 이름에 대한 명명 규칙
 5.  Microsoft Professional 또는 프리미어 지원 계약. Microsoft와 프리미어 지원 계약을 맺은 경우 담당 Microsoft TAM(기술 계정 관리자)을 확인하세요. SAP 지원 요구 사항은 [SAP 지원 노트 #2015553](https://launchpad.support.sap.com/#/notes/2015553)을 참조하세요.
-6.  Azure 구독 수 및 구독의 코어 할당량. 필요에 따라 [지원 요청을 열어 Azure 구독 할당량을 늘립니다](../../../azure-portal/supportability/resource-manager-core-quotas-request.md).
+6.  Azure 구독 수 및 구독의 코어 할당량. 필요에 따라 [지원 요청을 열어 Azure 구독 할당량을 늘립니다](../../../azure-portal/supportability/regional-quota-requests.md).
 7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 감소 및 데이터 마이그레이션 계획. SAP NetWeaver 시스템의 경우 SAP는 대량의 데이터 볼륨을 제한하는 방법에 대한 지침을 제공합니다. SAP ERP 시스템의 데이터 관리 방법은 [이 SAP 가이드](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2)를 참조하세요. 일부 콘텐츠는 NetWeaver 및 S/4HANA 시스템에도 일반적으로 적용됩니다.
 8.  자동화된 배포 방법. Azure에서 인프라 배포를 자동화하는 목표는 결정적 방식으로 배포하여 결정적 결과를 얻는 것입니다. 많은 고객이 PowerShell 또는 CLI 기반 스크립트를 사용합니다. 하지만 SAP용 Azure 인프라를 배포하고 SAP 소프트웨어를 설치하는 데 사용할 수 있는 다양한 오픈 소스 기술이 있습니다. GitHub에서 예제를 찾을 수 있습니다.
     - [Azure Cloud의 자동화된 SAP 배포](https://github.com/Azure/sap-hana)

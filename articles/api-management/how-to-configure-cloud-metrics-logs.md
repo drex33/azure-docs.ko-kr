@@ -3,7 +3,7 @@ title: Azure API Management 자체 호스팅 게이트웨이의 클라우드 메
 description: Azure API Management 자체 호스팅 게이트웨이에 대한 클라우드 메트릭 및 로그 구성 방법 알아보기
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
-ms.author: apimpm
-ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 5661218fd9e1849eb3133496d8e2640753eb2fa1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574054"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659933"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대한 클라우드 메트릭 및 로그 구성
 
@@ -49,7 +49,7 @@ ms.locfileid: "100574054"
 
 자체 호스팅 게이트웨이는 현재 Azure Monitor를 통해 다음 메트릭을 내보냅니다.
 
-| 메트릭  | 설명 |
+| 메트릭  | Description |
 | ------------- | ------------- |
 | 요청  | 해당 기간의 API 요청 수 |
 | 게이트웨이 요청의 기간 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |

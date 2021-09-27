@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 47f10b542bd2c4eb7965e6dfc25349661ca3c3d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536278"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805252"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Azure Machine Learning 비용 관리 및 최적화
 
@@ -109,7 +109,7 @@ Visual Studio Code는 기계 학습 애플리케이션을 개발하기 위한 �
 
 ## <a name="set-data-retention--deletion-policies"></a>데이터 보존 및 삭제 정책 설정
 
-파이프라인이 실행될 때마다 각 단계에서 중간 데이터 세트가 생성됩니다. 시간이 지남에 따라 이러한 중간 데이터 세트는 스토리지 계정에서 공간을 차지합니다. 수명 주기 내내 데이터를 관리하여 데이터 세트를 보관하고 삭제하는 정책을 설정하는 것이 좋습니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
+파이프라인이 실행될 때마다 각 단계에서 중간 데이터 세트가 생성됩니다. 시간이 지남에 따라 이러한 중간 데이터 세트는 스토리지 계정에서 공간을 차지합니다. 수명 주기 내내 데이터를 관리하여 데이터 세트를 보관하고 삭제하는 정책을 설정하는 것이 좋습니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](../storage/blobs/lifecycle-management-overview.md)를 참조하세요.
 
 ## <a name="deploy-resources-to-the-same-region"></a>동일한 지역에 리소스 배포
 

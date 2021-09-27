@@ -1,18 +1,18 @@
 ---
 title: App Service Environment 네트워킹
 description: App Service Environment 네트워킹 세부 정보
-author: ccompy
+author: madsd
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 89a14dc204e10231a134477650081396fc8e433f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 177a9095a6a1cfb15a7bd17e106406521d1eda14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639019"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment 네트워킹
 
@@ -21,7 +21,19 @@ ms.locfileid: "122535502"
 > 
 
 
-ASE(App Service Environment)는 웹앱, api 앱 및 함수 앱을 호스트하는 Azure App Service의 단일 테넌트 배포입니다. ASE를 설치할 때 배포하려는 Azure VNet(Virtual Network)를 선택합니다. 모든 인바운드 및 아웃바운드 트래픽 애플리케이션은 사용자가 지정하는 VNet 내부에 있습니다. ASE는 VNet의 단일 서브넷에 배포됩니다. 동일한 서브넷에 다른 어떤 것도 배포할 수 없습니다. 서브넷은 Microsoft.Web/HostingEnvironments로 위임해야 합니다.
+ASE(App Service Environment)는 웹앱, api 앱 및 함수 앱을 호스트하는 Azure App Service의 단일 테넌트 배포입니다. ASE를 설치할 때 배포하려는 Azure VNet(Virtual Network)를 선택합니다. 모든 인바운드 및 아웃바운드 트래픽 애플리케이션은 사용자가 지정하는 VNet 내부에 있습니다. ASE는 VNet의 단일 서브넷에 배포됩니다. 동일한 서브넷에 다른 어떤 것도 배포할 수 없습니다.
+
+## <a name="subnet-requirements"></a>서브넷 요구 사항
+
+서브넷은 Microsoft. Web/hostingEnvironments에 위임 되어야 하며 비어 있어야 합니다.
+
+서브넷의 크기는 ASE 내의 App Service 계획 인스턴스의 크기 조정 제한에 영향을 줄 수 있습니다. 프로덕션 규모를 지원할 수 있는 충분 한 주소를 확보 하기 위해 서브넷에/24 주소 공간 (256 주소)을 사용 하는 것이 좋습니다.
+
+더 작은 서브넷을 사용 하려면 ASE 및 네트워크 설정에 대 한 다음 세부 정보를 알고 있어야 합니다.
+
+지정 된 서브넷에는 관리 목적으로 예약 된 5 개의 주소가 있습니다. 관리 주소를 기반으로 하는 ASE는 지원 인프라를 동적으로 확장 하 고 구성, 규모 및 부하에 따라 4 ~ 27 개의 주소를 사용 합니다. 나머지 주소는 App Service 계획의 인스턴스에 사용할 수 있습니다. 서브넷의 최소 크기는/27 주소 공간 (32 주소)입니다.
+
+주소가 부족 하 게 되 면 ASE에서 App Service 계획을 확장 하는 것을 제한 하거나, 지원 인프라의 크기를 조정할 수 없는 경우 집약적 트래픽 로드 중에 대기 시간이 길어질 수 있습니다.
 
 ## <a name="addresses"></a>주소 
 
@@ -32,7 +44,7 @@ ASE에는 생성 시 다음과 같은 네트워크 정보가 있습니다.
 | ASE 가상 네트워크 | ASE가 배포되는 VNet |
 | ASE 서브넷 | ASE가 배포되는 서브넷 |
 | 도메인 접미사 | 이 ASE에서 만든 앱에서 사용하는 도메인 접미사 |
-| 가상 IP | ASE에서 사용하는 VIP 형식입니다. 가능한 두 값은 내부 및 외부입니다. |
+| 가상 IP | 이 설정은 ASE에서 사용 하는 VIP 유형입니다. 가능한 두 값은 내부 및 외부입니다. |
 | 인바운드 주소 | 인바운드 주소는 이 ASE의 앱이 도달하는 주소입니다. 내부 VIP가 있으면 ASE 서브넷의 주소입니다. 주소가 외부에 있으면 공개 주소가 됩니다. |
 | 기본 아웃바운드 주소 | 이 ASE의 앱은 인터넷에 대한 아웃바운드 호출을 수행할 때 기본값으로 이 주소를 사용합니다. |
 

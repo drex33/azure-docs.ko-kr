@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1f7a3f31ed67817252f7ba33b9f4a83ef8ccd5c6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 203900e225700055c581ce4c7a100e055d9526b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455625"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837445"
 ---
 # <a name="use-existing-runbooks-and-modules"></a>기존 Runbook 및 모듈 사용
 
@@ -131,7 +131,7 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 P
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 * Runbook을 사용하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 * PowerShell 스크립팅에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

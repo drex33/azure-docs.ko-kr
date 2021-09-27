@@ -2,14 +2,14 @@
 title: Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
 description: 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 Azure Backup에 대한 프라이빗 엔드포인트를 만드는 프로세스를 이해합니다.
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df65aad1247f21c4deda3f7ee71f657a3b288168
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: cf26b87d0232b05cd7860981faa58a9b315f3979
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568163"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708266"
 ---
 # <a name="create-and-use-private-endpoints-for-azure-backup"></a>Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
 
@@ -126,6 +126,8 @@ Azure Resource Manager 클라이언트를 사용하여 프라이빗 엔드포인
 
 ![Azure 프라이빗 DNS 영역의 DNS 구성](./media/private-endpoints/dns-configuration.png)
 
+>[!Note]
+>프록시 서버를 사용 하는 경우 프록시 서버를 우회 하거나 프록시 서버를 통해 백업을 수행 하도록 선택할 수 있습니다. 프록시 서버를 무시 하려면 다음 섹션을 계속 진행 합니다. 프록시 서버를 사용 하 여 백업을 수행 하려면 [Recovery Services 자격 증명 모음에 대 한 프록시 서버 설정 정보](#set-up-proxy-server-for-recovery-services-vault-with-private-endpoint)를 참조 하세요.
 #### <a name="validate-virtual-network-links-in-private-dns-zones"></a>프라이빗 DNS 영역에서 가상 네트워크 링크의 유효성 검사
 
 위에 나열된 **각 프라이빗 DNS** 영역(백업, Blob, 큐)에 대해 다음을 수행합니다.
@@ -158,6 +160,7 @@ Azure Resource Manager 클라이언트를 사용하여 프라이빗 엔드포인
     > - [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
     > - [독일](../germany/germany-developer-guide.md#endpoint-mapping)
     > - [US Gov](../azure-government/documentation-government-developer-guide.md)
+    > - [지역 코드 목록 - 샘플 XML](scripts/geo-code-list.md)
 
 1. 다음으로 필수 DNS 레코드를 추가해야 합니다. 백업 DNS 영역에 추가해야 하는 레코드를 보려면 위에서 만든 프라이빗 엔드포인트로 이동한 다음 왼쪽 탐색 모음 아래에 있는 **DNS 구성** 옵션으로 이동합니다.
 
@@ -522,7 +525,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Azure VM 또는 온-프레미스 컴퓨터에 대한 프록시 서버를 구성하려면 다음 단계를 따르세요.
 
-1. 예외에 다음 도메인을 추가하고 프록시 서버를 바이패스합니다.
+1. 프록시 서버에서 액세스 해야 하는 다음 도메인을 추가 합니다.
    
    | 서비스 | 도메인 이름 | 포트 |
    | ------- | ------ | ---- |
@@ -532,7 +535,16 @@ Azure VM 또는 온-프레미스 컴퓨터에 대한 프록시 서버를 구성�
 
 1. 프록시 서버에서 이러한 도메인에 대한 액세스를 허용하고 프록시 서버가 만들어진 VNET과 프라이빗 DNS 영역(`*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`)을 연결하거나 해당 DNS 항목이 있는 사용자 지정 DNS 서버를 사용합니다. <br><br> 프록시 서버가 실행 중인 VNET과 프라이빗 엔드포인트 NIC가 생성되는 VNET을 피어링해야 프록시 서버가 요청을 개인 IP로 리디렉션할 수 있습니다. 
 
-다음 다이어그램에서는 VNet이 필수 DNS 항목이 있는 프라이빗 DNS 영역에 연결된 프록시 서버의 설정을 보여 줍니다. 프록시 서버는 자체 사용자 지정 DNS 서버를 가질 수도 있으며 위의 도메인은 169.63.129.16에 조건부로 전달될 수 있습니다.
+   >[!NOTE]
+   >위의 텍스트에서는 `<geo>`는 지역 코드(예: 미국 동부 및 북유럽의 경우 각각 *eus* 및 *ne*)를 나타냅니다. 지역 코드에 대해서는 다음 목록을 참조하세요.
+   >
+   >- [모든 퍼블릭 클라우드](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+   >- [중국](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+   >- [독일](../germany/germany-developer-guide.md#endpoint-mapping)
+   >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+   >- [지역 코드 목록-샘플 XML](scripts/geo-code-list.md)
+
+다음 다이어그램에서는 VNet이 필요한 DNS 항목을 사용 하 여 개인 DNS 영역에 연결 되어 있는 프록시 서버와 함께 Azure 사설 DNS 영역을 사용 하는 동안 설치 프로그램을 보여 줍니다. 프록시 서버에는 자체 사용자 지정 DNS 서버가 있을 수 있으며 위의 도메인은 조건부로 169.63.129.16에 전달 될 수 있습니다. DNS 확인에 대 한 사용자 지정 DNS 서버/호스트 파일을 사용 하는 경우 [dns 항목 관리](/azure/backup/private-endpoints#manage-dns-records) 및 [보호 구성](/azure/backup/private-endpoints#configure-backup)에 대 한 섹션을 참조 하세요.
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="프록시 서버 설정을 보여 주는 다이어그램." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

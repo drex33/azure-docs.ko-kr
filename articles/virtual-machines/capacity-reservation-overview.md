@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: ee14ea525575a49abd4e4026201c3fa39ffa84b9
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273411"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774531"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>주문형 용량 예약(미리 보기)
 
@@ -137,7 +137,7 @@ Azure에서 예약 요청을 수락하면 일치하는 구성의 VM에서 사용
 
 예약이 만들어지면 Azure는 지정된 위치에 요청된 용량 인스턴스 수를 따로 설정합니다. 
 
-![용량 예약 이미지 1.](\media\capacity-reservation-overview\capacity-reservation-1.jpg) 
+![용량 예약 이미지 1.](./media/capacity-reservation-overview/capacity-reservation-1.jpg) 
 
 다음 속성을 통해 전체 예약의 상태를 추적합니다.  
 - `capacity` = 고객이 예약한 인스턴스의 총 수량입니다. 
@@ -148,7 +148,7 @@ Azure에서 예약 요청을 수락하면 일치하는 구성의 VM에서 사용
 
 그런 다음 용량 예약에 대해 VM이 할당되면 예약된 용량 인스턴스 중 하나를 논리적으로 사용합니다. 
 
-![용량 예약 이미지 2.](\media\capacity-reservation-overview\capacity-reservation-2.jpg) 
+![용량 예약 이미지 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
 이제 용량 예약 상태에서 `capacity`이(가) 2로 표시되고 `virutalMachinesAllocated` 및 `virtualMachinesAssociated` 길이가 1로 표시됩니다.  
 
@@ -156,23 +156,23 @@ VM에 일치하는 속성이 있고 빈 용량 인스턴스가 하나 이상 있
 
 용량 예약에 대해 세 번째 VM이 할당되는 우리 예제를 사용하면 예약이 [초과 할당됨](capacity-reservation-overallocate.md) 상태로 전환됩니다. 이 세 번째 VM에는 사용되지 않은 할당량과 Azure에서 충족한 추가 용량이 필요합니다. 세 번째 VM이 할당되면 이제 용량 예약이 다음과 같이 표시됩니다. 
 
-![용량 예약 이미지 3.](\media\capacity-reservation-overview\capacity-reservation-3.jpg) 
+![용량 예약 이미지 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
 `capacity`는 2이고, `virutalMachinesAllocated` 및 `virtualMachinesAssociated`의 길이는 3입니다. 
 
 이제 애플리케이션이 최소 두 개의 VM으로 규모를 축소한다고 가정합니다. VM 0은 업데이트가 필요하므로 할당 취소에 대해 선택됩니다. 예약이 자동으로 다음 상태로 전환됩니다. 
 
-![용량 예약 이미지 4.](\media\capacity-reservation-overview\capacity-reservation-4.jpg) 
+![용량 예약 이미지 4.](./media/capacity-reservation-overview/capacity-reservation-4.jpg) 
 
 `capacity` 및 `virtualMachinesAllocated`의 길이는 모두 2입니다. 그러나 `virtualMachinesAssociated`의 길이는 여전히 VM 0으로 3이지만 할당 취소된 경우에도 계속 용량 예약과 연결됩니다.  
 
 용량 예약은 명시적으로 삭제될 때까지 존재합니다. 용량 예약을 삭제하려면 첫 번째 단계로 `virtualMachinesAssociated` 속성의 모든 VM을 분리합니다. 연결 취소가 완료되면 용량 예약이 다음과 같이 표시됩니다. 
 
-![용량 예약 이미지 5.](\media\capacity-reservation-overview\capacity-reservation-5.jpg) 
+![용량 예약 이미지 5.](./media/capacity-reservation-overview/capacity-reservation-5.jpg) 
 
 이제 용량 예약 상태에서 `capacity`이(가) 2로 표시되고 `virtualMachinesAssociated` 및 `virtualMachinesAllocated` 길이가 0으로 표시됩니다. 이 상태에서 용량 예약을 삭제할 수 있습니다. 삭제한 후에는 더 이상 예약에 대한 비용을 지불하지 않습니다.  
 
-![용량 예약 이미지 6.](\media\capacity-reservation-overview\capacity-reservation-6.jpg)
+![용량 예약 이미지 6.](./media/capacity-reservation-overview/capacity-reservation-6.jpg)
 
 
 ## <a name="usage-and-billing"></a>사용량 및 결제 
@@ -183,13 +183,13 @@ VM에 일치하는 속성이 있고 빈 용량 인스턴스가 하나 이상 있
 
 예를 들어, 예약된 수량 2로 용량 예약이 생성되었다고 가정해 보겠습니다. 구독으로는 동일한 크기의 일치하는 예약 VM 인스턴스 하나에 액세스할 수 있습니다. 그 결과 용량 예약에 대한 두 개의 사용 스트림이 만들어지며, 그중 하나에는 예약 인스턴스가 적용됩니다. 
 
-![용량 예약 이미지 7.](\media\capacity-reservation-overview\capacity-reservation-7.jpg)
+![용량 예약 이미지 7.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
 위의 이미지에서는 사용되지 않은 인스턴스 중 하나에 예약 VM 인스턴스 할인이 적용되고 해당 인스턴스에 대한 비용이 0이 됩니다. 다른 인스턴스의 경우 예약된 VM 크기에 대한 PAYG 요금이 부과됩니다.  
 
 용량 예약에 대해 VM이 할당되면 디스크, 네트워크, 확장 및 기타 요청된 구성 요소와 같은 다른 VM 구성 요소도 할당되어야 합니다. 이 상태에서 VM 사용량에는 할당된 VM 하나와 사용하지 않은 용량 인스턴스 하나가 반영됩니다. 예약 VM 인스턴스는 VM 또는 사용되지 않은 용량 인스턴스의 비용을 0으로 설정합니다. 할당 VM과 연결된 디스크, 네트워킹 및 기타 구성 요소에 대한 기타 요금은 청구서에도 표시됩니다. 
 
-![용량 예약 이미지 8.](\media\capacity-reservation-overview\capacity-reservation-8.jpg)
+![용량 예약 이미지 8.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
 위의 이미지에서 VM 예약 인스턴스 할인은 VM 0에 적용되어, 디스크 및 네트워킹 등 다른 구성 요소에 대해서만 요금이 부과됩니다. 사용되지 않은 다른 인스턴스는 예약된 VM 크기에 대해 PAYG 요금으로 청구됩니다.
 

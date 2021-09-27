@@ -1,38 +1,39 @@
 ---
-title: Azure Web PubSub 서비스에 대한 WebSocket 연결을 시작하는 방법
-description: 다른 언어로 Azure Web PubSub 서비스에 WebSocket 연결을 시작하는 방법에 대한 지침
+title: Azure Web PubSub에 WebSocket 연결을 시작하는 방법
+description: 다른 언어로 Azure Web PubSub 서비스에 대한 WebSocket 연결을 시작하는 방법을 알아봅니다.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 91d326197737ab6dde07bbb72584648cfe025b05
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 939bc5b6c4b272174d99787e89f04a7431a45d68
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116922"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827471"
 ---
-#  <a name="how-to-start-websocket-connection-to-the-azure-web-pubsub-service"></a>Azure Web PubSub 서비스에 대한 WebSocket 연결을 시작하는 방법
+#  <a name="start-a-websocket-connection-to-azure-web-pubsub"></a>Azure Web PubSub에 대한 WebSocket 연결 시작
 
-클라이언트는 표준 [WebSocket](https://tools.ietf.org/html/rfc6455) 프로토콜을 사용하여 Azure Web PubSub 서비스에 연결합니다. 따라서 WebSocket 클라이언트를 지원하는 언어를 사용하여 서비스용 클라이언트를 작성할 수 있습니다. 아래 섹션에서는 다양한 언어로 된 여러 WebSocket 클라이언트 샘플을 보여 줍니다.
+클라이언트는 표준 [WebSocket](https://tools.ietf.org/html/rfc6455) 프로토콜을 사용하여 Azure Web PubSub 서비스에 연결합니다. WebSocket 클라이언트가 지원되는 언어를 사용하여 서비스에 대한 클라이언트를 작성할 수 있습니다. 이 문서에서는 여러 언어로 된 여러 WebSocket 클라이언트 샘플을 볼 수 있습니다.
 
-## <a name="auth"></a>인증
-Web PubSub 서비스는 [JWT 토큰](https://tools.ietf.org/html/rfc7519.html)을 사용하여 클라이언트를 확인하고 인증합니다. 클라이언트는 토큰을 `access_token` 쿼리 매개 변수에 넣거나 서비스에 연결할 때 `Authorization` 헤더에 넣을 수 있습니다.
+## <a name="authorization"></a>권한 부여
 
-일반적인 워크플로는 클라이언트가 먼저 앱 서버와 통신하여 서비스 및 토큰의 URL을 가져오는 것입니다. 그런 다음 클라이언트는 수신한 URL과 토큰을 사용하여 서비스에 대한 WebSocket 연결을 엽니다.
+Web PubSub는 [JWT(JSON Web Token)를](https://tools.ietf.org/html/rfc7519.html) 사용하여 클라이언트의 유효성을 검사하고 권한을 부여합니다. 클라이언트는 쿼리 매개 변수에 토큰을 `access_token` 넣거나 서비스에 연결할 때 헤더에 넣을 수 `Authorization` 있습니다.
 
-포털은 또한 클라이언트가 빠른 테스트를 시작할 수 있도록 토큰과 함께 동적으로 생성된 *클라이언트 URL* 을 제공합니다.
+일반적으로 클라이언트는 먼저 앱 서버와 통신하여 서비스 및 토큰의 URL을 가져옵니다. 그런 다음 클라이언트는 수신하는 URL 및 토큰을 사용하여 서비스에 대한 WebSocket 연결을 엽니다.
+
+또한 포털은 토큰을 사용하여 클라이언트 URL을 동적으로 생성하는 도구를 제공합니다. 이 도구는 빠른 테스트를 수행하는 데 유용할 수 있습니다.
 
 :::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="클라이언트 URL 생성기를 찾을 수 있는 위치를 보여 주는 스크린샷":::
 
 > [!NOTE]
-> 토큰을 생성할 때 필요한 역할만 포함해야 합니다.
+> 토큰을 생성할 때만 필요한 역할을 포함해야 합니다.
 >
 
-샘플 워크플로를 단순화하기 위해 아래 섹션에서는 클라이언트가 연결할 포털에서 임시로 생성된 URL을 사용하고 `<Client_URL_From_Portal>`을 사용하여 값을 나타냅니다. 생성된 토큰은 기본적으로 50분 후에 만료되므로 토큰이 만료되면 다시 생성하는 것을 잊지 마세요.
+다음 섹션에서는 샘플 워크플로를 간소화하기 위해 클라이언트가 연결할 수 있도록 포털에서 임시로 생성된 URL을 사용합니다. 를 사용하여 `<Client_URL_From_Portal>` 값을 나타냅니다. 생성된 토큰은 기본적으로 50분 후에 만료되므로 토큰이 만료되면 다시 생성하는 것을 잊지 마세요.
 
-이 서비스는 두 가지 유형의 WebSocket 클라이언트를 지원합니다. 하나는 단순 WebSocket 클라이언트이고 다른 하나는 PubSub WebSocket 클라이언트입니다. 여기에서는 이 두 종류의 클라이언트가 서비스에 연결하는 방법을 보여 줍니다. 이러한 두 종류의 클라이언트에 대한 자세한 내용은 [Azure Web PubSub에 대한 WebSocket 클라이언트 프로토콜](./concept-client-protocols.md)을 확인하세요.
+이 서비스는 두 가지 유형의 WebSocket 클라이언트를 지원합니다. 하나는 간단한 WebSocket 클라이언트이고 다른 하나는 PubSub WebSocket 클라이언트입니다. 여기에서는 이 두 종류의 클라이언트가 서비스에 연결하는 방법을 보여 줍니다. 이러한 클라이언트에 대한 자세한 내용은 [Azure Web PubSub용 WebSocket 클라이언트 프로토콜을 참조하세요.](./concept-client-protocols.md)
 
 ## <a name="dependency"></a>종속성
 
@@ -52,19 +53,19 @@ Web PubSub 서비스는 [JWT 토큰](https://tools.ietf.org/html/rfc7519.html)�
 
 * [.NET Core 2.1 이상](https://dotnet.microsoft.com/download)
 * `dotnet add package Websocket.Client`
-    * [Websocket.Client](https://github.com/Marfusios/websocket-client)는 다시 연결 및 오류 처리 기능이 내장된 타사 WebSocket 클라이언트입니다.
+    * [Websocket.Client는](https://github.com/Marfusios/websocket-client) 기본 제공 다시 연결 및 오류 처리 기능이 있는 타사 WebSocket 클라이언트입니다.
 
 # <a name="java"></a>[Java](#tab/java)
-- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상.
+- [JDK(Java Development Kit)](/java/azure/jdk/) 버전 8 이상
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ---
 
-## <a name="simple-websocket-client"></a>단순 WebSocket 클라이언트
+## <a name="simple-websocket-client"></a>간단한 WebSocket 클라이언트
 
 # <a name="in-browser"></a>[브라우저에서](#tab/browser)
 
-html 페이지의 `script` 블록 내부:
+HTML `script` 페이지의 블록 내에서 다음을 수행합니다.
 ```html
 <script>
     // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
@@ -129,7 +130,7 @@ namespace subscriber
             // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
             using (var client = new WebsocketClient(new Uri("<Client_URL_From_Portal>")))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -203,7 +204,7 @@ public final class SimpleClient {
 
 # <a name="in-browser"></a>[브라우저에서](#tab/browser)
 
-html 페이지의 `script` 블록 내부:
+HTML `script` 페이지의 블록 내에서 다음을 수행합니다.
 ```html
 <script>
     // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
@@ -270,7 +271,7 @@ namespace subscriber
                 return inner;
             }))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -340,9 +341,9 @@ public final class SubprotocolClient {
 
 ---
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 포털에서 생성된 URL을 사용하여 서비스에 연결하는 방법을 보여 줍니다.  클라이언트가 실제 애플리케이션에서 URL을 가져오기 위해 앱 서버와 통신하는 방법을 보려면 아래 자습서를 확인합니다.
+이 문서에서는 포털에서 생성된 URL을 사용하여 서비스에 연결하는 방법을 배웠습니다. 클라이언트가 앱 서버와 통신하여 실제 애플리케이션에서 URL을 얻는 방법을 확인하려면 이 자습서를 읽고 샘플을 확인하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Web PubSub를 사용하여 채팅방 만들기](./tutorial-build-chat.md)

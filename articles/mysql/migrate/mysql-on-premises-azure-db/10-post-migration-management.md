@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: bed5253a1d5948e7d016bca9e46236d6b57bac57
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 9894769ecd3d7144fa2cf4bb245575d397c60148
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292951"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823993"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-post-migration-management"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 마이그레이션 후 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "114292951"
 
 Azure Database for MySQL은 [Azure Monitor](../../../azure-monitor/overview.md), [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) 및 [Azure Sentinel](../../../sentinel/overview.md)과 같은 Azure 기반 도구를 사용하여 이러한 유형의 작업 활동을 모두 모니터링할 수 있는 기능을 제공합니다. Azure 기반 도구 외에도 이러한 로그를 사용하도록 SIEM(보안 정보 및 이벤트 관리) 시스템을 구성할 수 있습니다.
 
-새 클라우드 기반 워크로드를 모니터링하는 데 어떤 도구를 사용하더라도 Azure 및 데이터베이스 관리자에게 의심스러운 활동을 알리기 위해 경고를 만들어야 합니다. 특정 경고 이벤트에 잘 정의된 수정 경로가 있는 경우 이벤트 해결을 위해 경고가 자동화된 [Azure Runbook](../../../automation/automation-quickstart-create-runbook.md)을 발생할 수 있습니다.
+새 클라우드 기반 워크로드를 모니터링하는 데 어떤 도구를 사용하더라도 Azure 및 데이터베이스 관리자에게 의심스러운 활동을 알리기 위해 경고를 만들어야 합니다. 특정 경고 이벤트에 잘 정의된 수정 경로가 있는 경우 이벤트 해결을 위해 경고가 자동화된 [Azure Runbook](../../../automation/learn/powershell-runbook-managed-identity.md)을 발생할 수 있습니다.
 
 완벽하게 모니터링되는 환경을 만드는 첫 번째 단계는 MySQL 로그 데이터가 Azure Monitor로 이동될 수 있도록 하는 것입니다. 자세한 내용은 [Azure Portal에서 Azure Database for MySQL에 대한 감사 로그 구성 및 액세스](../../howto-configure-audit-logs-portal.md)를 참조하세요.
 

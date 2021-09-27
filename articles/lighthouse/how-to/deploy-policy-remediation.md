@@ -1,14 +1,14 @@
 ---
 title: 수정할 수 있는 정책 배포
 description: Azure Lighthouse를 통해 수정 작업을 사용하는 정책을 배포하려면 고객 테넌트에서 관리 ID를 만들어야 합니다.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: how-to
-ms.openlocfilehash: 65fb11ff98d51ca6ee9f9280bdd50997e6eeef26
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 2270644a2d3e841a40046743bd6092a3ba44105d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788664"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611456"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 

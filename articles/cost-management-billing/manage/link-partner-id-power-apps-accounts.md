@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb6608e03debb7811497a1347c718bb2845cf87c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: c7bc61691f0035c9f1aa0361ae3439cfb1e1485e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604401"
 ---
 # <a name="link-a-partner-id-to-your-power-apps-accounts"></a>Power Apps 계정에 파트너 ID 연결
 
@@ -39,7 +39,7 @@ Microsoft는 PAL을 통해 Power Apps 고객이 있는 파트너를 식별하고
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal에서 [파트너 ID에 연결](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade)로 이동합니다.
-1. 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID를 입력합니다. 파트너 프로필에 표시된 **연결된 MPN ID** 를 사용해야 합니다.  
+1. 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID를 입력합니다. 파트너 센터 프로필에 표시  **된 연결 된 MPN ID**  를 사용 해야 합니다. 이를 일반적으로 [파트너 위치 계정 MPN ID](/partner-center/account-structure)라고 합니다.  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="파트너 ID 창 링크를 보여주는 스크린샷" lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 1. 다른 고객에게 파트너 ID를 연결하려면 디렉터리를 전환합니다. **디렉터리 전환** 아래에서 해당 디렉터리를 선택합니다.  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/switch-directory.png" alt-text="디렉터리를 전환할 수 있는 디렉터리 + 구독 창을 보여주는 스크린샷" lightbox="./media/link-partner-id-power-apps-accounts/switch-directory.png" :::

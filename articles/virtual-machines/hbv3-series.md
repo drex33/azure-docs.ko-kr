@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 28198fe22bb20e3bb1e4a08715686eca62f1fbba
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 3a71623eda2d849c036b1ad013618548f9a4c7f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689058"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823467"
 ---
 # <a name="hbv3-series"></a>ESv3 시리즈
 
@@ -50,7 +50,7 @@ HBv3 시리즈 Vm은 유체 역학, 명시적 및 암시적 유한 요소 분석
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -58,6 +58,11 @@ HBv3 시리즈 Vm은 유체 역학, 명시적 및 암시적 유한 요소 분석
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

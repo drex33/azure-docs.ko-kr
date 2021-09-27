@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: de462f24f05b93f40453cd74c85a41b5c11ac0d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187184"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656306"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -40,6 +40,10 @@ ARM 템플릿(Azure Resource 템플릿)에서 배포 스크립트를 사용하�
 
 > [!NOTE]
 > 이제 Azure 로그인에 대한 다시 시도 논리가 래퍼 스크립트에 기본적으로 제공됩니다. 배포 스크립트와 동일한 템플릿에서 권한을 부여하는 경우 배포 스크립트 서비스는 관리 ID 역할 할당이 복제될 때까지 10초 간격으로 10분 동안 로그인을 다시 시도합니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+ARM 템플릿 테스트 도구 키트에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [배포 스크립트를 사용 하 여 arm 템플릿 확장](/learn/modules/extend-resource-manager-template-deployment-scripts) 을 참조 하세요.
 
 ## <a name="configure-the-minimum-permissions"></a>최소 권한 구성
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 2f7425d987e878d843271b7222d00f4e326d6478
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: e0afdfcd03bb0b4cc3f8399fa1af79e72b1e4ed8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568394"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784454"
 ---
 # <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 프로세스 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)
 
@@ -102,12 +102,13 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 
 ### <a name="log-analytics-fields"></a>Log Analytics 필드
 
-다음 필드는 Log Analytics에서 레코드마다 생성되며, 사용자 지정 커넥터를 만들 때 재정의할 수 있습니다.
+다음 필드는 각 레코드에 대해 Log Analytics에서 생성되며, 사용자 지정 커넥터를 만들 때 재정의할 수 있습니다.
 
 | 필드         | 형식     | 토론(Discussion)      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블로 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 | | | |
 
 > [!NOTE]
@@ -116,13 +117,13 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 
 ## <a name="event-fields"></a>이벤트 필드
 
-이벤트 필드는 모든 스키마에 공통되며, 활동 자체와 보고 디바이스를 설명합니다.
+이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
 | 필드               | 클래스       | 형식       |  설명        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
-| **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. 그러지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
+| **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. 그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
 | **EventEndTime**        | 필수   | Alias      |      [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다.    |
 | **EventType**           | 필수   | Enumerated |    레코드에서 보고하는 작업을 설명합니다. <br><br>프로세스 레코드의 경우 지원되는 값은 다음과 같습니다. <br>- `ProcessCreated` <br>- `ProcessTerminated` |
 | **EventResult**         | 필수   | Enumerated |  지원되는 다음 값 중 하나로 정규화된 이벤트의 결과를 설명합니다. <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA`(해당 사항 없음) <br><br>원본에서 **EventResult** 값을 얻기 위해 분석해야 하는 **EventResultDetails** 필드에 대한 값만 제공할 수 있습니다.<br><br>**참고**: 프로세스 이벤트는 일반적으로 성공만 보고합니다. |
@@ -176,7 +177,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 | **ActingProcessFileOriginalName** | 선택     | 문자열     |작동 중인 프로세스 이미지 파일에 있는 버전 정보의 제품 원본 파일 이름입니다.       <br><br> 예제: `Notepad++.exe` |
 | **ActingProcessIsHidden**          | 선택 사항     | 부울    |      작동 중인 프로세스가 숨겨진 모드인지 나타냅니다.  |
 | **ActingProcessInjectedAddress**   | 선택     | 문자열     |      담당 작업 프로세스가 저장되는 메모리 주소입니다.           |
-| **ActingProcessId**| 필수    | int        | 작동하는 프로세스 PID(프로세스 ID)입니다.<br><br>예제: `48610176`           <br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows와 Linux에서는 이 값이 숫자여야 합니다. <br><br>Windows 또는 Linux 머신을 사용하고 다른 형식을 사용하는 경우에는 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
+| **ActingProcessId**| 필수    | int        | 작동하는 프로세스 PID(프로세스 ID)입니다.<br><br>예제: `48610176`           <br><br>**참고**: 형식은 다양한 시스템을 지원하도록 *문자열* 로 정의되지만, Windows와 Linux에서 이 값은 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용한 경우 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
 | **ActingProcessGuid**              | 선택     | 문자열     |  작업 프로세스의 생성된 GUID(고유 식별자)입니다. 시스템 전체에서 프로세스를 식별할 수 있습니다.  <br><br> 예: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessIntegrityLevel**    | 선택     | 문자열     |       모든 프로세스에는 토큰에 표시되는 무결성 수준이 있습니다. 무결성 수준은 보호 또는 액세스의 프로세스 수준을 결정합니다. <br><br> Windows는 **낮음**, **중간**, **높음** 및 **시스템** 과 같은 무결성 수준을 정의합니다. 표준 사용자는 **중간** 무결성 수준을 받고 고급 사용자는 **높음** 무결성 수준을 받습니다. <br><br> 자세한 내용은 [필수 무결성 제어 - Win32 앱](/windows/win32/secauthz/mandatory-integrity-control)을 참조하세요. |
 | **ActingProcessMD5**               | 선택     | 문자열     |작업 프로세스 이미지 파일의 MD5 해시입니다.  <br><br>예제: `75a599802f1fa166cdadb360960b1dd0`|
@@ -227,7 +228,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 | <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | 필수    | String     | 대상 프로세스를 실행하는 데 사용되는 명령줄입니다.   <br><br> 예제: `"choco.exe" -v`  |
 | <a name="targetprocesscurrentdirectory"></a> **TargetProcessCurrentDirectory**       | 선택    | 문자열     | 대상 프로세스가 실행되는 현재 디렉터리입니다.  <br><br> 예제: `c:\windows\system32`  |
 | **TargetProcessCreationTime**      | 필수    | DateTime   |    대상 프로세스 이미지 파일에 있는 버전 정보의 제품 버전입니다.   |
-| **TargetProcessId**| 필수    | String     |  대상 프로세스의 PID(프로세스 ID)입니다.     <br><br>예: `48610176`<br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows와 Linux에서는 이 값이 숫자여야 합니다. <br><br>Windows 또는 Linux 머신을 사용하고 다른 형식을 사용하는 경우에는 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.         |
+| **TargetProcessId**| 필수    | String     |  대상 프로세스의 PID(프로세스 ID)입니다.     <br><br>예: `48610176`<br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows와 Linux에서는 이 값이 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용한 경우 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.         |
 | **TargetProcessGuid**              | 선택    | 문자열     |대상 프로세스의 생성된 GUID(고유 식별자)입니다. 시스템 전체에서 프로세스를 식별할 수 있습니다.   <br><br>  예제: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
 | **TargetProcessIntegrityLevel**    | 선택    | 문자열     |   모든 프로세스에는 토큰에 표시되는 무결성 수준이 있습니다. 무결성 수준은 보호 또는 액세스의 프로세스 수준을 결정합니다. <br><br> Windows는 **낮음**, **중간**, **높음** 및 **시스템** 과 같은 무결성 수준을 정의합니다. 표준 사용자는 **중간** 무결성 수준을 받고 고급 사용자는 **높음** 무결성 수준을 받습니다. <br><br> 자세한 내용은 [필수 무결성 제어 - Win32 앱](/windows/win32/secauthz/mandatory-integrity-control)을 참조하세요. |
 | **TargetProcessTokenElevation**    | 선택    | 문자열     |생성되거나 종료된 프로세스에 적용된 UAC(사용자 액세스 제어) 권한 상승의 유무를 나타내는 토큰 유형입니다.   <br><br>    예제: `None`     |
@@ -240,7 +241,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 프로세스 이벤트
 자세한 내용은 다음을 참조하세요.
 
 - [Azure Sentinel의 정규화](normalization.md)
-- [Azure Sentinel 인증 정규화 스키마 참조(퍼블릭 미리 보기)](authentication-normalization-schema.md)
+- [Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
 - [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
 - [Azure Sentinel 네트워크 정규화 스키마 참조](normalization-schema.md)

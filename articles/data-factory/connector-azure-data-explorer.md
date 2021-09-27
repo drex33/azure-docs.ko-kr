@@ -1,29 +1,29 @@
 ---
 title: Azure Data Explorer로/에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Data Explorer로/에서 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: susabat
-author: ssabat
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 Azure Data Explorer 데이터를 복사하는 방법을 알아봅니다.
+ms.author: orspodek
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 4f3718699e7438b3b45c84eebebbbbf75126d793
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 511e1d58e3abf3c44025a02059c5d6aa947809c0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304589"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771900"
 ---
-# <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
+# <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Azure Data Explorer 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview)로/에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 Azure Data Explorer 데이터를 복사하는 방법을 [설명합니다.](/azure/data-explorer/data-explorer-overview) 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->일반적인 Azure Data Factory 및 Azure Data Explorer 통합에 대한 자세한 내용은 [Azure Data Explorer와 Azure Data Factory 통합](/azure/data-explorer/data-factory-integration)에서 자세히 알아보세요.
+>서비스와의 Azure Data Explorer 통합에 대한 자세한 내용은 Azure Data Explorer [통합을](/azure/data-explorer/data-factory-integration)읽어보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -46,7 +46,7 @@ Azure Data Explorer 커넥터를 사용하여 다음을 수행할 수 있습니�
 ## <a name="getting-started"></a>시작
 
 >[!TIP]
->Azure Data Explorer 커넥터에 대한 연습은 [Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사](/azure/data-explorer/data-factory-load-data) 및 [데이터베이스에서 Azure Data Explorer로 대량 복사](/azure/data-explorer/data-factory-template)를 참조하세요.
+>Azure Data Explorer 커넥터에 대한 연습은 Azure Data Explorer [데이터 복사](/azure/data-explorer/data-factory-load-data) 및 [데이터베이스에서 Azure Data Explorer 대량 복사를](/azure/data-explorer/data-factory-template)참조하세요.
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -100,7 +100,7 @@ Azure Data Explorer 커넥터는 다음과 같은 인증 형식을 지원합니�
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
 
 >[!NOTE]
->Data Factory UI를 사용하여 작성하는 경우 기본적으로 로그인 사용자 계정을 사용하여 Azure Data Explorer 클러스터, 데이터베이스, 테이블을 나열합니다. 새로 고침 단추 옆의 드롭다운을 클릭하여 서비스 주체를 사용하여 개체를 나열하도록 선택하거나 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력할 수 있습니다.
+>UI를 사용하여 작성하면 기본적으로 로그인 사용자 계정이 Azure Data Explorer 클러스터, 데이터베이스 및 테이블을 나열하는 데 사용됩니다. 새로 고침 단추 옆의 드롭다운을 클릭하여 서비스 주체를 사용하여 개체를 나열하도록 선택하거나 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력할 수 있습니다.
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
@@ -111,7 +111,7 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 | 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “Authority ID”라고 합니다. Azure Portal의 오른쪽 위 모서리를 마우스 포인터로 가리켜 검색합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 클라이언트 ID”라고 합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 키”라고 합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 보안 데이터를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 키”라고 합니다. 이 필드를 **SecureString으로** 표시하여 안전하게 저장하거나 [Azure Key Vault 저장된 보안 데이터를 참조합니다.](store-credentials-in-key-vault.md) | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 **예: 서비스 주체 키 인증 사용**
@@ -141,7 +141,7 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
 
 시스템이 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행하여 권한을 부여합니다.
 
-1. 팩터리와 함께 생성된 **관리 ID개체 ID** 의 값을 복사하여 [Data Factory 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
+1. 팩터리 또는 Synapse 작업 영역과 함께 생성된 **관리 ID 개체 ID** 값을 복사하여 관리 ID [정보를](data-factory-service-identity.md#retrieve-managed-identity) 검색합니다.
 
 2. Azure Data Explorer에서 관리 ID에 올바른 권한을 부여합니다. 역할 및 사용 권한과 사용 권한 관리에 대한 자세한 내용은 [Azure Data Explorer 데이터베이스 권한 관리](/azure/data-explorer/manage-database-permissions)를 참조하세요. 일반적으로 다음을 수행해야 합니다.
 
@@ -149,7 +149,7 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
 
 >[!NOTE]
->Data Factory UI를 사용하여 작성하는 경우 로그인 사용자 계정은 Azure Data Explorer 클러스터, 데이터베이스 및 테이블을 나열하는 데 사용됩니다. 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력합니다.
+>UI를 사용하여 작성하면 로그인 사용자 계정이 Azure Data Explorer 클러스터, 데이터베이스 및 테이블을 나열하는 데 사용됩니다. 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력합니다.
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
@@ -185,7 +185,7 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
     - **원본으로** 데이터베이스에 적어도 **데이터베이스 뷰어** 역할을 부여합니다.
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
      
-2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials).
+2. 하나 또는 여러 사용자 할당 관리 id를 data factory 또는 Synapse 작업 영역에 할당 하 고 사용자가 할당 한 각 관리 id에 대 한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials) .
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
@@ -217,7 +217,7 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [Azure Data Factory의 데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 Azure Data Explorer 데이터 세트에서 지원하는 속성을 나열합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 Azure Data Explorer 데이터 세트에서 지원하는 속성을 나열합니다.
 
 Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 속성을 **AzureDataExplorerTable** 로 설정합니다.
 
@@ -249,13 +249,13 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [Azure Data Factory의 파이프라인 및 작업](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Azure Data Explorer 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
+활동을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동](concepts-pipelines-activities.md)을 참조 하세요. 이 섹션에서는 Azure Data Explorer 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
 
 ### <a name="azure-data-explorer-as-source"></a>Azure Data Explorer가 원본인 경우
 
 Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 **형식** 속성을 **AzureDataExplorerSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **형식** 속성을 **AzureDataExplorerSource** 로 설정해야 합니다. | 예 |
 | Query | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예 |
@@ -347,6 +347,6 @@ Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+* 복사 작업에서 원본 및 싱크로 지원하는 데이터 저장소 목록은 지원되는 데이터 저장소 를 [참조하세요.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-* [Azure Data Factory에서 Azure Data Explorer로 데이터를 복사](/azure/data-explorer/data-factory-load-data)하는 방법에 대해 자세히 알아보세요.
+* [Azure Data Factory 및 Synapse Analytics 데이터를 Azure Data Explorer 복사하는](/azure/data-explorer/data-factory-load-data)방법에 대해 자세히 알아봅니다.

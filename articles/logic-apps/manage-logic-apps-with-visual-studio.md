@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 04/23/2021
-ms.openlocfilehash: 14b3487a158062e3186b485a8bcbd4584a0f09d2
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
-ms.translationtype: HT
+ms.openlocfilehash: fff316c328ac61f48693e635745ca42a9c773c4d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113665352"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646628"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -127,7 +127,7 @@ B2B(Business-to-Business) 엔터프라이즈 통합 시나리오에 대한 논�
 
 1. Visual Studio에서 솔루션 또는 논리 앱이 포함된 Azure Resource Group 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 **<logic-app-name>.json** 파일의 바로 가기 메뉴를 연 다음 **Logic Apps 디자이너로 열기** 를 선택합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기 **\<logic-app-name\> .json** 파일의 바로 가기 메뉴를 열고 논리 **앱 디자이너로 열기를** 선택합니다. (키보드: Ctrl + L)
 
    ![Logic Apps 디자이너로 논리 앱 .json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

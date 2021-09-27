@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/06/2021
-ms.openlocfilehash: 0b927f945dc7e891e93df6cd455840e6ff19a2fd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 5f18e2a1fc64e33faecf17c95e9261e023cc6c9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772449"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779714"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
@@ -39,11 +39,11 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory** 를 차례로 선택합니다.
    
-   ![새로 만들기 창에서 Data Factory 선택 항목을 보여 주는 스크린샷.](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="새로 만들기 창에서 Data Factory 선택 항목을 보여 주는 스크린샷.":::
 
 2. **새 데이터 팩터리** 페이지에서 다음 그림에 표시된 필드의 값을 제공합니다. 
       
-   ![새 데이터 팩터리 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png" alt-text="새 데이터 팩터리 페이지를 보여 주는 스크린샷.":::
  
     * **Name**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory** 를 사용합니다. 데이터 팩터리를 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
@@ -62,7 +62,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 1. 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 시작합니다. 
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png )
+   :::image type="content" source="./media/doc-common-process/get-started-page.png " alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 2. **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **작업 주기 또는 작업 일정** 에서 **지금 한 번 실행** 을 선택한 후 **다음** 을 선택합니다.
 
@@ -70,7 +70,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
     
 4. 커넥터 갤러리에서 **Azure Data Lake Storage Gen1** 을 선택하고, **계속** 을 선택합니다.
     
-    ![Azure Data Lake Storage Gen1 연결을 선택하는 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png" alt-text="Azure Data Lake Storage Gen1 연결을 선택하는 페이지를 보여 주는 스크린샷.":::
     
 5. **새 연결(Azure Data Lake Storage Gen1)** 페이지에서 다음 단계를 따르세요.
    1. 계정 이름으로 Data Lake Storage Gen1을 선택하고 **Tenant** 를 지정하거나 유효한지 검사합니다.
@@ -79,7 +79,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
    > [!IMPORTANT]
    > 이 연습에서는 Azure 리소스용 관리 ID를 사용하여 Azure Data Lake Storage Gen1을 인증합니다. Azure Data Lake Storage Gen1에서 관리 ID에 적절한 권한을 부여하려면 [다음 지침](connector-azure-data-lake-store.md#managed-identity)을 따릅니다.
    
-   ![Azure Data Lake Storage Gen1 연결의 구성을 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png" alt-text="Azure Data Lake Storage Gen1 연결의 구성을 보여 주는 스크린샷.":::
       
 6. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다. 
     1. **연결** 섹션에서 새로 만든 연결을 선택합니다.
@@ -90,13 +90,13 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
     
 7. **대상 데이터 저장소** 페이지에서 **+새 연결** > **Azure Data Lake Storage Gen2** > **계속** 을 선택합니다.
 
-    ![Azure Data Lake Storage Gen2 연결을 선택하는 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png" alt-text="Azure Data Lake Storage Gen2 연결을 선택하는 페이지를 보여 주는 스크린샷.":::
 
 8. **새 연결(Azure Data Lake Storage Gen2)** 페이지에서 다음 단계를 따르세요.
    1. **Storage 계정 이름** 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
    1. **만들기** 를 선택하여 연결을 만듭니다. 
 
-   ![Azure Data Lake Storage Gen2 연결의 구성을 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png" alt-text="Azure Data Lake Storage Gen2 연결의 구성을 보여 주는 스크린샷.":::
 
 9. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다. 
     1. **연결** 블록에서 새로 만든 연결을 선택합니다. 
@@ -109,19 +109,19 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 11. **요약** 페이지에서 설정을 검토하고, **다음** 을 선택합니다.
 
-    ![요약 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png" alt-text="요약 페이지를 보여 주는 스크린샷":::
 
 12. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인을 모니터링합니다.
 
-    ![배포 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png" alt-text="배포 페이지를 보여 주는 스크린샷.":::
 
 13. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **파이프라인 이름** 열에는 활동 실행 세부 정보를 보고 파이프라인을 다시 실행하기 위한 링크가 있습니다.
 
-    ![파이프라인 실행 모니터링 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png" alt-text="파이프라인 실행 모니터링 페이지를 보여 주는 스크린샷.":::
 
 14. 파이프라인 실행과 연결된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 맨 위에 있는 이동 경로 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. 
 
-    ![모니터링 활동 실행 페이지를 보여 주는 스크린샷.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png" alt-text="모니터링 활동 실행 페이지를 보여 주는 스크린샷.":::
 
 15. 각 복사 작업의 실행 세부 정보를 모니터링하려면 작업 모니터링 보기의 **작업 이름** 열 아래에서 **세부 정보** 링크(안경 이미지)를 선택합니다. 원본에서 싱크로 복사된 데이터 양, 데이터 처리량, 해당 기간의 실행 단계 및 사용된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
 

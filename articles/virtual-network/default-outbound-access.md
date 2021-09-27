@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: allensu
-ms.openlocfilehash: f4c06fb4c97ea38c494f18e5bf72e9eb015299a8
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 0ca1f0ee6bcac39f0f73286fe8c426be9447c345
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539583"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754461"
 ---
 # <a name="default-outbound-access-in-azure"></a>Azure의 기본 아웃 바운드 액세스
 
@@ -62,7 +62,7 @@ Azure에 가상 머신을 배포하고 명시적인 아웃바운드 연결이 �
 
 2.  Virtual Machine Scale Sets에 대해 유연한 오케스트레이션 모드를 사용합니다.
 
-    * 유연한 확장 집합은 기본적으로 안전합니다. 유연한 확장 집합을 통해 만든 모든 인스턴스에는 연결된 기본 아웃 바운드 액세스 IP가 없습니다. 자세한 내용은 [Virtual Machine Scale Sets에 대한 유연한 오케스트레이션 모드](https://aka.ms/vmssflex/docs)를 참조하세요.
+    * 유연한 확장 집합은 기본적으로 안전합니다. 유연한 확장 집합을 통해 만든 모든 인스턴스에는 연결된 기본 아웃 바운드 액세스 IP가 없습니다. 자세한 내용은 [Virtual Machine Scale Sets에 대한 유연한 오케스트레이션 모드](../virtual-machines/flexible-virtual-machine-scale-sets.md)를 참조하세요.
 
 ## <a name="if-i-need-outbound-access-what-is-the-recommended-way"></a>아웃 바운드 액세스가 필요한 경우 권장 되는 방법은 무엇인가요?
 

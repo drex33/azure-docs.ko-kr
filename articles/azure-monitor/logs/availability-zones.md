@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c01e83fbbf117c5491e9e12ac24aa0d5d2fa8b67
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 3025d24e0e70d15e675eed59cacf7c5c8fb8c72b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531178"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584981"
 ---
 # <a name="availability-zones-in-azure-monitor"></a>Azure Monitor의 가용성 영역
 
-[Azure 가용성 영역](../../availability-zones/az-overview.md)은 데이터 센터 실패로부터 애플리케이션과 데이터를 보호하고 Application Insights 및 Log Analytics 작업 영역에 의존하는 기타 기능과 같은 Azure Monitor 기능에 대한 복원력을 제공할 수 있습니다. 작업 영역이 가용성 영역에 연결되면 특정 데이터 센터가 오작동하거나 완전히 다운되더라도 해당 지역의 다른 영역 가용성에 의존하여 활성 상태를 유지하고 작동합니다. 대체 영역으로 전환하거나 인시던트를 파악하기 위해 아무것도 수행할 필요가 없습니다. 
+[Azure 가용성 영역은](../../availability-zones/az-overview.md) 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하 고 Application Insights 및 Log Analytics 작업 영역을 사용 하는 기타 기능과 같은 Azure Monitor 기능에 대 한 복원 력을 제공할 수 있습니다. 작업 영역이 가용성 영역에 연결되면 특정 데이터 센터가 오작동하거나 완전히 다운되더라도 해당 지역의 다른 영역 가용성에 의존하여 활성 상태를 유지하고 작동합니다. 대체 영역으로 전환하거나 인시던트를 파악하기 위해 아무것도 수행할 필요가 없습니다. 
 
 
 ## <a name="regions"></a>영역

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: 38ab651ec864060aeb3bfcfd7f89a387d604723c
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 0e38c7171d523f8b73df1b53750710bc170e1e81
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568363"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781271"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
 
@@ -67,12 +67,13 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 ### <a name="log-analytics-fields"></a>Log Analytics 필드
 
 
-다음 필드는 Log Analytics에서 레코드마다 생성되며, 사용자 지정 커넥터를 만들 때 재정의할 수 있습니다.
+다음 필드는 각 레코드에 대해 Log Analytics에서 생성되며, 사용자 지정 커넥터를 만들 때 재정의할 수 있습니다.
 
 | 필드         | 형식     | 토론(Discussion)      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 EventVendor 및 Eventvendor 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 이벤트 테이블이 나 WindowsEvent 테이블에 Sysmon 이벤트를 수집할 수 있습니다. |
 
 
 > [!NOTE]
@@ -82,23 +83,23 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 ### <a name="event-fields"></a>이벤트 필드
 
 
-이벤트 필드는 모든 스키마에 공통되며, 활동 자체와 보고 디바이스를 설명합니다.
+이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
 | 필드               | 클래스       | 형식       |  설명        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
-| **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
+| **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
 | **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. <br><br>그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |
-| **EventEndTime**        | 필수   | Alias      |      [TimeGenerated](#timegenerated) 필드에 대한 별칭.    |
+| **EventEndTime**        | 필수   | Alias      |      [TimeGenerated](#timegenerated) 필드에 대한 별칭입니다.    |
 | **EventType**           | 필수   | Enumerated |    레코드에서 보고하는 작업을 설명합니다. <br><br>레지스트리 레코드의 경우, 지원되는 값은 다음과 같습니다. <br>- `RegistryKeyCreated` <br>- `RegistryKeyDeleted`<br>- `RegistryKeyRenamed` <br>- `RegistryValueDeleted` <br>- `RegistryValueSet`|
-| **EventOriginalUid**    | 선택    | 문자열     |   원본에서 제공하는 경우 원래 레코드의 고유 ID.<br><br>예: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | 선택    | 문자열     |   원본에서 제공하는 경우 원본 이벤트 유형 또는 ID.<br><br>예: `4657`|
+| **EventOriginalUid**    | 선택    | 문자열     |   원본에서 제공하는 경우 원래 레코드의 고유 ID입니다.<br><br>예: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
+| **EventOriginalType**   | 선택    | 문자열     |   원본에서 제공하는 경우 원본 이벤트 유형 또는 ID입니다.<br><br>예: `4657`|
 | <a name ="eventproduct"></a>**EventProduct**        | 필수   | String     |             이벤트를 생성하는 제품 <br><br>예: `Sysmon`<br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.           |
 | **EventProductVersion** | 선택    | 문자열     | 이벤트를 생성하는 제품의 버전 <br><br>예: `12.1`      |
 | **EventVendor**         | 필수   | String     |           이벤트를 생성하는 제품의 공급 업체 <br><br>예: `Microsoft`  <br><br>**참고**: 이 필드는 원본 레코드에서 사용할 수 없습니다. 이러한 경우 이 필드는 파서에서 설정해야 합니다.  |
-| **EventSchemaVersion**  | 필수   | String     |    스키마의 버전입니다. 여기에 설명된 스키마의 버전은 `0.1`입니다         |
-| **EventReportUrl**      | 선택    | 문자열     | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL.|
-| **Dvc** | 필수       | String     |               이벤트가 발생한 디바이스의 고유 식별자. <br><br>이 필드는 [DvcId](#dvcid), [DvcHostname](#dvchostname) 또는 [DvcIpAddr](#dvcipaddr) 필드의 별칭을 지정할 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [EventProduct](#eventproduct) 필드와 동일한 값을 사용하세요.         |
+| **EventSchemaVersion**  | 필수   | String     |    스키마의 버전입니다. 여기에 설명된 스키마의 버전은 `0.1`입니다.         |
+| **EventReportUrl**      | 선택    | 문자열     | 이벤트에 대한 추가 정보를 제공하는 리소스에 대해 이벤트에 제공된 URL입니다.|
+| **Dvc** | 필수       | String     |               이벤트가 발생한 디바이스의 고유 식별자입니다. <br><br>이 필드는 [DvcId](#dvcid), [DvcHostname](#dvchostname) 또는 [DvcIpAddr](#dvcipaddr) 필드의 별칭을 지정할 수 있습니다. 명백한 디바이스가 없는 클라우드 원본의 경우 [EventProduct](#eventproduct) 필드와 동일한 값을 사용하세요.         |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | 권장 | IP 주소 |         레지스트리 이벤트가 발생한 디바이스의 IP 주소.  <br><br>예: `45.21.42.12`    |
 | <a name ="dvchostname"></a>**DvcHostname**         | 권장 | 호스트 이름   |               레지스트리 이벤트가 발생한 디바이스의 호스트 이름. <br><br>예: `ContosoDc.Contoso.Azure`               |
 | <a name ="dvcid"></a>**DvcId**               | 선택    | 문자열     |  레지스트리 이벤트가 발생한 디바이스의 고유 ID. <br><br>예: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
@@ -124,15 +125,15 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 |<a name="registrypreviousvalue"></a>**RegistryPreviousValue**     | 권장        | String        | 레지스트리를 수정하는 작업의 경우, 원래 값 형식은 표준 형식으로 정규화됩니다. 자세한 내용은 [값 형식](#value-types)을 참조하세요. <br><br>형식이 변경되지 않은 경우, 이 필드의 값은 [RegistryValueType](#registryvaluetype) 필드의 값과 같습니다.  <br><br>예: `Path`       |
 |**RegistryPreviousValueType**     | 권장        |   String      |레지스트리를 수정하는 작업의 경우, 원래 값 형식. <br><br>형식이 변경되지 않은 경우, 이 필드의 값은 [RegistryValueType](#registryvaluetype) 필드와 같으며 표준 형식으로 정규화됩니다. 자세한 내용은 [값 형식](#value-types)을 참조하세요.<br><br>예: `Reg_Expand_Sz`         |
 |**RegistryPreviousValueData**     | 권장        |   String      |레지스트리를 수정하는 작업에 대한 원래 레지스트리 데이터. <br><br>예제: `C:\Windows\system32;C:\Windows;`         |
-|**사용자** | Alias | |[ActorUsername](#actorusername) 필드의 별칭. <br><br>예: `CONTOSO\ dadmin` |
+|**사용자** | Alias | |[ActorUsername](#actorusername) 필드에 대한 별칭입니다. <br><br>예: `CONTOSO\ dadmin` |
 |**처리**     |  Alias       |         |  [ActingProcessName](#actingprocessname) 필드의 별칭.<br><br>예: `C:\Windows\System32\rundll32.exe`       |
-| <a name="actorusername"></a>**ActorUsername**  | 필수    | String     | 이벤트를 시작한 사용자의 사용자 이름. <br><br>예: `CONTOSO\WIN-GG82ULGC9GO$`     |
+| <a name="actorusername"></a>**ActorUsername**  | 필수    | String     | 이벤트를 시작한 사용자의 사용자 이름입니다. <br><br>예: `CONTOSO\WIN-GG82ULGC9GO$`     |
 | **ActorUsernameType**              | 필수    | Enumerated |   [ActorUsername](#actorusername) 필드에 저장된 사용자 이름의 형식을 지정합니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요. <br><br>예: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | 권장  | String     |   작업자의 고유 ID. 특정 ID는 이벤트를 생성하는 시스템에 따라 달라집니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.  <br><br>예: `S-1-5-18`    |
-| **ActorUserIdType**| 권장  | String     |  [ActorUserId](#actoruserid) 필드에 저장된 ID의 형식. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요. <br><br>예: `SID`         |
-| **ActorSessionId** | 선택     | 문자열     |   작업자 로그인 세션의 고유 ID.  <br><br>예: `999`<br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows에서는 이 값이 숫자여야 합니다. Windows 머신을 사용하고 원본이 다른 형식을 보내는 경우, 값을 변환해야 합니다. 예를 들어, 원본이 16진수 값을 보내는 경우, 10진수 값으로 변환합니다.   |
+| <a name="actoruserid"></a>**ActorUserId**    | 권장  | String     |   작업자의 고유 ID입니다. 특정 ID는 이벤트를 생성하는 시스템에 따라 달라집니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요.  <br><br>예: `S-1-5-18`    |
+| **ActorUserIdType**| 권장  | String     |  [ActorUserId](#actoruserid) 필드에 저장된 ID의 형식입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요. <br><br>예: `SID`         |
+| **ActorSessionId** | 선택     | 문자열     |   작업자 로그인 세션의 고유 ID입니다.  <br><br>예: `999`<br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows에서는 이 값이 숫자여야 합니다. Windows 머신을 사용하고 원본이 다른 형식을 보내는 경우, 값을 변환해야 합니다. 예를 들어, 원본이 16진수 값을 보내는 경우, 10진수 값으로 변환합니다.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | 선택     | 문자열     |   작업 프로세스 이미지 파일의 파일 이름. 이 이름은 일반적으로 프로세스 이름으로 간주됩니다.  <br><br>예: `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| 필수    | 정수        | 작동하는 프로세스 PID(프로세스 ID).<br><br>예제: `48610176`           <br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows와 Linux에서는 이 값이 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용하는 경우에는 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
+| **ActingProcessId**| 필수    | 정수        | 작업 프로세스 PID(프로세스 ID)입니다.<br><br>예제: `48610176`           <br><br>**참고**: 형식은 다양한 시스템을 지원하도록 *문자열* 로 정의되지만, Windows와 Linux에서 이 값은 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용한 경우 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
 | **ActingProcessGuid**              | 선택     | 문자열     |  작업 프로세스의 생성된 GUID(고유 식별자).   <br><br> 예: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | 선택     | 문자열     |  부모 프로세스 이미지 파일의 파일 이름. 이 값은 일반적으로 프로세스 이름으로 간주됩니다.    <br><br>예: `C:\Windows\explorer.exe` |
 | **ParentProcessId**| 필수    | 정수    | 부모 프로세스의 프로세스 ID(PID).   <br><br>     예제: `48610176`    |
@@ -174,5 +175,5 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 - [Azure Sentinel의 정규화](normalization.md)
 - [Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
-- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)](file-event-normalization-schema.md)
+- [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
 - [Azure Sentinel 네트워크 정규화 스키마 참조](normalization-schema.md)

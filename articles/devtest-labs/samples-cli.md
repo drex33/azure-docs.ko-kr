@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services용 Azure CLI 샘플 | Microsoft Docs
+title: Azure CLI 샘플
 description: 이 문서에서는 Azure Lab Services에서 랩을 관리하는 데 도움이 되는 Azure CLI 스크립팅 샘플 목록을 제공합니다.
-ms.topic: article
+ms.topic: landing-page
 ms.date: 06/26/2020
-ms.openlocfilehash: f184d6753fc0280eae1d46b676f160778070fa3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab30d65917c488de4988e82e42edc0511f1447b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86166096"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563154"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Azure Lab Services용 Azure CLI 샘플
 

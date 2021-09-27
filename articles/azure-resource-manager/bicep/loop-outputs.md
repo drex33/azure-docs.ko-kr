@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: 67c4a99dbdb370202e4bbf080f32c626b71093b1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 28aa16d5f65891df063db7b43211e466855dfeec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213842"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832052"
 ---
 # <a name="output-iteration-in-bicep"></a>Bicep의 출력 반복
 
 이 문서에서는 Bicep 파일에서 출력에 대한 값을 두 개 이상 만드는 방법을 보여 줍니다. 파일의 `output` 섹션에 루프를 추가하고, 배포하는 동안 여러 항목을 동적으로 반환할 수 있습니다.
 
 [모듈](loop-modules.md), [리소스](loop-resources.md), [리소스의 속성](loop-properties.md), [변수](loop-variables.md)와 함께 루프를 사용할 수도 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+루프 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
 
 ## <a name="syntax"></a>구문
 

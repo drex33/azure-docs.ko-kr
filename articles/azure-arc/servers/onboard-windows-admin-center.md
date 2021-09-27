@@ -3,12 +3,12 @@ title: Windows Admin Center에서 하이브리드 컴퓨터를 Azure에 연결
 description: 이 문서에서는 Windows Admin Center에서 Azure Arc 지원 서버를 사용하여 에이전트를 설치하고 머신을 Azure에 연결하는 방법을 설명합니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1abfe2e69a8f3e7b2ab1abcc2d34c79877b750d3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: cc5e47c1f52f0a35048cc796015184d2a0d2dda7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538682"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788955"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Windows Admin Center에서 하이브리드 컴퓨터를 Azure에 연결
 
@@ -16,7 +16,7 @@ ms.locfileid: "122538682"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Arc 지원 서버 - [필수 구성 요소](agent-overview.md#prerequisites)를 검토하고 구독, Azure 계정 및 리소스에서 요구 사항을 충족하는지 확인합니다.
+* Azure Arc 사용 서버- [필수 구성 요소](agent-overview.md#prerequisites) 를 검토 하 고 구독, Azure 계정 및 리소스가 요구 사항을 충족 하는지 확인 합니다.
 
 * Windows Admin Center - 요구 사항을 검토하여 [Azure 통합을 배포하고 구성](/windows-server/manage/windows-admin-center/azure/azure-integration)할 [환경을 준비](/windows-server/manage/windows-admin-center/deploy/prepare-environment)합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "122538682"
 
 ## <a name="deploy"></a>배포:
 
-Arc 지원 서버를 사용하여 Windows 서버를 구성하려면 다음 단계를 수행합니다.
+Azure Arc 사용 서버를 사용 하 여 Windows 서버를 구성 하려면 다음 단계를 수행 합니다.
 
 1. Windows Admin Center에 로그인합니다.
 

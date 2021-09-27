@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.author: phjensen
-ms.openlocfilehash: 5eae527b288570053e1e899bc776d541ffa9e60b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6a5fb518622a36ffe5562e76ffb09a472c12fe01
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535770"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737318"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 설치
 
@@ -40,7 +40,10 @@ ms.locfileid: "122535770"
 1. **OS 패치됨**: [Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법](../virtual-machines/workloads/sap/hana-installation.md#operating-system)에서 패치 및 SMT 설치에 대해 참조하세요.
 1. **시간 동기화가 설정됩니다**. 고객은 NTP 호환 시간 서버를 제공하고 이에 따라 OS를 구성해야 합니다.
 1. **HANA 설치됨** : [HANA 데이터베이스에 SAP NetWeaver 설치](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database)에서 HANA 설치 지침을 참조하세요.
-1. **[스토리지와의 통신 사용](#enable-communication-with-storage)** (자세한 내용은 별도의 섹션 참조): 고객은 프라이빗/공개 키 쌍으로 SSH를 설정하고 스토리지 백 엔드에서 설정을 위해 실행할 예정인 스냅샷 도구가 있는 각 노드의 공개 키를 Microsoft Operations에 제공해야 합니다.
+1. **[스토리지와의 통신 사용(자세한](#enable-communication-with-storage)** 내용은 별도 섹션 참조): 배포에 사용 중인 스토리지 백 엔드를 선택합니다.
+
+   # <a name="azure-netapp-files"></a>[Azure NetApp Files](#tab/azure-netapp-files)
+    
    1. **Azure NetApp Files(자세한 내용은 별도의 섹션 참조)** : 고객은 서비스 주체 인증 파일을 생성해야 합니다.
       
       > [!IMPORTANT]
@@ -48,14 +51,25 @@ ms.locfileid: "122535770"
       > - (https://)management.azure.com:443
       > - (https://)login.microsoftonline.com:443
       
+   # <a name="azure-large-instance-bare-metal"></a>[Azure Large Instance(운영 체제 미설치)](#tab/azure-large-instance)
+      
    1. **Azure 대규모 인스턴스(자세한 내용은 별도의 섹션 참조)** : 고객은 프라이빗/공개 키 쌍으로 SSH를 설정하고 스토리지 백 엔드에서 설정을 위해 실행할 예정인 스냅샷 도구가 있는 각 노드의 공개 키를 Microsoft Operations에 제공해야 합니다.
 
       SSH를 사용하여 노드 중 하나에 연결하여 이를 테스트합니다(예: `ssh -l <Storage UserName> <Storage IP Address>`).
       스토리지 프롬프트의 로그아웃에 `exit`를 입력합니다.
 
       Microsoft Operations는 프로비전 시 스토리지 사용자 및 스토리지 IP를 제공합니다.
-  
-1. **[SAP HANA와의 통신 사용](#enable-communication-with-sap-hana)** (자세한 내용은 별도의 섹션 참조): 고객은 스냅샷을 수행하기 위해 필수 권한이 있는 적합한 SAP HANA 사용자를 설정해야 합니다.
+      
+      ---
+
+1. **[스토리지와의 통신 사용(자세한](#enable-communication-with-storage)** 내용은 별도 섹션 참조): 배포에 사용 중인 스토리지 백 엔드를 선택합니다.
+
+1. **[데이터베이스와의 통신 사용(자세한](#enable-communication-with-database)** 내용은 별도 섹션 참조): 
+   
+   # <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
+   
+   고객은 스냅샷을 수행하는 데 필요한 권한으로 적절한 SAP HANA 사용자를 설정해야 합니다.
+
    1. 이 설정은 `grey` 텍스트를 사용하여 다음과 같이 명령줄에서 테스트할 수 있습니다.
       1. HANAv1
 
@@ -66,16 +80,15 @@ ms.locfileid: "122535770"
             `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
       - 위의 예제는 SAP HANA에 대한 비SSL 통신 예제입니다.
+      
+   ---
+
 
 ## <a name="enable-communication-with-storage"></a>스토리지와의 통신 사용
 
-이 섹션에서는 스토리지와의 통신을 사용하는 방법에 대해 설명합니다.  
+이 섹션에서는 스토리지와의 통신을 사용하는 방법에 대해 설명합니다. 사용 중인 스토리지 백 엔드가 올바르게 선택되었는지 확인합니다.
 
-다음 중 하나의 지침에 따라 구성에 대한 스토리지를 구성합니다.
-1. [Azure NetApp Files(Virtual Machine 포함)](#azure-netapp-files-with-virtual-machine) 
-1. [Azure Large Instance(운영 체제 미설치)](#azure-large-instance-bare-metal)
-
-### <a name="azure-netapp-files-with-virtual-machine"></a>Azure NetApp Files(Virtual Machine 포함)
+# <a name="azure-netapp-files-with-virtual-machine"></a>[Azure NetApp Files(Virtual Machine 포함)](#tab/azure-netapp-files)
 
 RBAC 서비스 주체 만들기
 
@@ -118,7 +131,7 @@ RBAC 서비스 주체 만들기
 
 1. 출력 콘텐츠를 잘라내어 `azacsnap` 명령과 동일한 시스템에 저장된 `azureauth.json`이라는 파일에 붙여 넣고 적합한 시스템 권한으로 파일을 보호합니다.
 
-### <a name="azure-large-instance-bare-metal"></a>Azure Large Instance(운영 체제 미설치)
+# <a name="azure-large-instance-bare-metal"></a>[Azure Large Instance(운영 체제 미설치)](#tab/azure-large-instance)
 
 스토리지 백 엔드와의 통신은 암호화된 SSH 채널을 통해 실행됩니다. 다음 예제 단계는 이 통신에 대해 SSH를 설정하는 방법에 대한 지침을 제공하는 것입니다.
 
@@ -183,7 +196,13 @@ RBAC 서비스 주체 만들기
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
     ```
 
-## <a name="enable-communication-with-sap-hana"></a>SAP HANA와의 통신 사용
+---
+
+## <a name="enable-communication-with-database"></a>데이터베이스와의 통신 사용
+
+이 섹션에서는 스토리지와의 통신을 사용하는 방법에 대해 설명합니다. 사용 중인 스토리지 백 엔드가 올바르게 선택되었는지 확인합니다.
+
+# <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
 
 스냅샷 도구는 SAP HANA와 통신하며 데이터베이스 저장 지점을 시작 및 릴리스할 수 있는 적합한 권한이 있는 사용자가 필요합니다. 다음 예제에서는 SAP HANA 데이터베이스와의 통신을 위한 SAP HANA v2 사용자 및 `hdbuserstore` 설정을 보여줍니다.
 
@@ -313,6 +332,8 @@ hdbsql \
 
 > [!NOTE]
 > `\` 문자는 명령줄에서 전달되는 여러 매개 변수의 명확성을 높이기 위한 명령줄 줄 바꿈입니다.
+
+---
 
 ## <a name="installing-the-snapshot-tools"></a>스냅샷 도구 설치
 
@@ -476,39 +497,47 @@ userdel -f -r azacsnap
     ```bash
     echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
+    
+1. 저장소 백 엔드에 따라 수행할 작업:
 
-1. Azure 대규모 인스턴스의 경우
-    1. "루트" 사용자(설치를 실행하는 사용자)에서 azacsnap의 백 엔드 스토리지에 대한 SSH 키를 복사합니다. 여기서는 "루트" 사용자가 스토리지에 대한 연결을 이미 구성했다고 가정합니다.
-       > "[스토리지와의 통신 사용](#enable-communication-with-storage)" 섹션을 참조하세요.
+    # <a name="azure-netapp-files-with-vm"></a>[Azure NetApp Files (VM 포함)](#tab/azure-netapp-files)
 
-        ```bash
-        cp -pr ~/.ssh /home/azacsnap/.
-        ```
+    1. Azure NetApp Files의 경우
+        1. .NET Core 단일 파일 추출 지침에 따라 사용자의 `DOTNET_BUNDLE_EXTRACT_BASE_DIR` 경로를 구성합니다.
+            1. SUSE Linux
 
-    1. SSH 파일에 대해 사용자 권한을 올바르게 설정합니다.
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+                ```
 
-        ```bash
-        chown -R azacsnap.sapsys /home/azacsnap/.ssh
-        ```
+            1. RHEL
 
-1. Azure NetApp Files의 경우
-    1. .NET Core 단일 파일 추출 지침에 따라 사용자의 `DOTNET_BUNDLE_EXTRACT_BASE_DIR` 경로를 구성합니다.
-        1. SUSE Linux
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+                ```
+
+    # <a name="azure-large-instance-bare-metal"></a>[Azure Large Instance(운영 체제 미설치)](#tab/azure-large-instance)
+
+    1. Azure 대규모 인스턴스의 경우
+        1. "루트" 사용자(설치를 실행하는 사용자)에서 azacsnap의 백 엔드 스토리지에 대한 SSH 키를 복사합니다. 여기서는 "루트" 사용자가 스토리지에 대한 연결을 이미 구성했다고 가정합니다.
+           > "[스토리지와의 통신 사용](#enable-communication-with-storage)" 섹션을 참조하세요.
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+            cp -pr ~/.ssh /home/azacsnap/.
             ```
 
-        1. RHEL
+        1. SSH 파일에 대해 사용자 권한을 올바르게 설정합니다.
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+            chown -R azacsnap.sapsys /home/azacsnap/.ssh
             ```
+
+    ---
 
 1. 대상 사용자 azacsnap에 대한 SAP HANA 연결 보안 사용자 저장소를 복사합니다. 여기서는 "루트" 사용자가 보안 사용자 저장소를 이미 구성했다고 가정합니다.
-    > "[SAP HANA와의 통신 사용](#enable-communication-with-sap-hana)" 섹션을 참조하세요.
+    > "[데이터베이스와 통신 사용](#enable-communication-with-database)" 섹션을 참조 하세요.
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -563,7 +592,7 @@ userdel -f -r azacsnap
 1. 첫 번째 스냅샷 백업 실행
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-설치하기 전 "[SAP HANA와의 통신 사용](#enable-communication-with-sap-hana)"이 완료되지 않은 경우 2단계가 필요합니다.
+설치 하기 전에 "[데이터베이스와 통신 사용](#enable-communication-with-database)"을 수행 하지 않은 경우 2 단계를 수행 해야 합니다.
 
 > [!NOTE]
 > 테스트 명령이 올바르게 실행되어야 합니다. 그렇지 않으면 명령이 실패할 수 있습니다.
@@ -571,6 +600,8 @@ userdel -f -r azacsnap
 ## <a name="configuring-the-database"></a>데이터베이스 구성
 
 이 섹션에서는 데이터베이스를 구성하는 방법을 설명합니다.
+
+# <a name="sap-hana"></a>[SAP HANA](#tab/sap-hana)
 
 ### <a name="sap-hana-configuration"></a>SAP HANA 구성
 
@@ -661,6 +692,8 @@ hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifil
 global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

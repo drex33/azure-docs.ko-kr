@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1cdd083c1f3e394feea1e29434f87878ace8dbfc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688966"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546228"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Azure Dedicated Host 예약을 사용하여 비용 절감
 
@@ -43,7 +43,7 @@ Azure Dedicated Host의 예약 인스턴스로 커밋하면 비용을 절감할 
 
 - **클라우드** - 예약은 독일 또는 중국 지역에서 구매하는 데 사용할 수 없습니다.
 
-- **할당량 부족** - 단일 구독으로 범위가 한정되는 예약은 vCPU 할당량을 새 예약 인스턴스에 대한 구독에서 사용할 수 있어야 합니다. 예를 들어 대상 구독에서 DSv3 시리즈에 대한 할당량 한도가 10개 vCPU인 경우 이 시리즈를 지원하는 전용 호스트에 대한 예약을 구입할 수 없습니다. 예약에 대한 할당량 확인에는 구독에 이미 배포된 VM 및 전용 호스트가 포함됩니다. [할당량 증가 요청을 만들어](../azure-portal/supportability/resource-manager-core-quotas-request.md) 이 문제를 해결할 수 있습니다.
+- **할당량 부족** - 단일 구독으로 범위가 한정되는 예약은 vCPU 할당량을 새 예약 인스턴스에 대한 구독에서 사용할 수 있어야 합니다. 예를 들어 대상 구독에서 DSv3 시리즈에 대한 할당량 한도가 10개 vCPU인 경우 이 시리즈를 지원하는 전용 호스트에 대한 예약을 구입할 수 없습니다. 예약에 대한 할당량 확인에는 구독에 이미 배포된 VM 및 전용 호스트가 포함됩니다. [할당량 증가 요청을 만들어](../azure-portal/supportability/regional-quota-requests.md) 이 문제를 해결할 수 있습니다.
 
 - **용량 제한** - 드문 경우, Azure는 지역의 낮은 용량으로 인해 전용 호스트 SKU의 하위 집합에 대한 새로운 예약 구매를 제한합니다.
 
@@ -86,7 +86,9 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 
 - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
 
-## <a name="usage-data-and-reservation-utilization"></a>사용량 현황 데이터 및 예약 사용률
+- **관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.
+
+## <a name="usage-data-and-reservation-utilization"></a>사용량 데이터 및 예약 사용률
 
 예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 예약 할인을 받은 VM 인스턴스를 예약별로 확인할 수 있습니다.
 

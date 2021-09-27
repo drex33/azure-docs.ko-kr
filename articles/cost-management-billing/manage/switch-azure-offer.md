@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/27/2021
 ms.author: banders
-ms.openlocfilehash: 7388ee42195d93a9b7d9a64567f25be91b0eb38d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 73f40b059e5577ba893b26ab715a8158e3a33482
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111957"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836913"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
 
@@ -108,7 +108,7 @@ Azure 제품을 전환할 때 발생하는 상황에 대한 세부 정보는 다
 
 #### <a name="quota-increases-are-reset"></a>할당량 증가가 다시 설정됩니다.
 
-제품을 전환할 경우 [기본 제한을 초과하는 제한 또는 할당량 증가](../../azure-portal/supportability/resource-manager-core-quotas-request.md)는 다시 설정됩니다. 기본 제한을 초과하는 더 많은 리소스가 있더라도 서비스 작동이 중단되지 않습니다. 예를 들어 구독에서 200개 코어를 사용하고 제안을 전환하면 코어 할당량이 기본값인 20개 코어로 다시 설정됩니다. 200개 코어를 사용하는 VM은 영향을 받지 않으며 계속 실행됩니다. 그렇지만 다른 할당량 증가 요청을 지정하지 않는 경우 더 많은 코어를 프로비저전할 수 없습니다.
+제품을 전환할 경우 [기본 제한을 초과하는 제한 또는 할당량 증가](../../azure-portal/supportability/regional-quota-requests.md)는 다시 설정됩니다. 기본 제한을 초과하는 더 많은 리소스가 있더라도 서비스 작동이 중단되지 않습니다. 예를 들어 구독에서 200개 코어를 사용하고 제안을 전환하면 코어 할당량이 기본값인 20개 코어로 다시 설정됩니다. 200개 코어를 사용하는 VM은 영향을 받지 않으며 계속 실행됩니다. 그렇지만 다른 할당량 증가 요청을 지정하지 않는 경우 더 많은 코어를 프로비저전할 수 없습니다.
 
 #### <a name="billing"></a>결제
 

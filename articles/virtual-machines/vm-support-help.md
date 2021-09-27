@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 3729651cc3a97a13435b0891e135e550dc48a255
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 35ac935c79c4fe23edcd142b1d7cf9d70c5a6386
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634515"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754547"
 ---
 # <a name="support-and-troubleshooting-for-azure-vms"></a>Azure VM에 대한 지원 및 문제 해결
 
@@ -48,7 +48,7 @@ Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 �
 | [Azure 가상 머신 이미지](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
 | [Azure 가상 머신 마이그레이션](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
 | [Azure 가상 머신 모니터링](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure 가상 머신 네트워킹](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Azure 가상 머신 네트워킹](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
 | [Azure 가상 머신 스토리지](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 

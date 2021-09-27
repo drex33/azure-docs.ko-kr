@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: ad62ff0c7d3e6249ecb8497953501466b5152265
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: a7369854717fe9790badbe6cd9f4410a594ce1cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531167"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619417"
 ---
 # <a name="amazon-s3-multi-cloud-scanning-connector-for-azure-purview"></a>Azure Purview용 Amazon S3 다중 클라우드 검사 커넥터
 
@@ -77,58 +77,28 @@ Amazon S3 버킷을 Purview 데이터 원본으로 추가하고 S3 데이터를 
 > [!div class="checklist"]
 > * Azure Purview 데이터 원본 관리자여야 합니다.
 > * [Purview 계정 생성](#create-a-purview-account)(아직 없는 경우)
-> * [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-bucket-scan)
 > * [Purview에 사용할 새 AWS 역할 생성](#create-a-new-aws-role-for-purview)
+> * [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-s3-scan)
 > * [암호화된 Amazon S3 버킷에 대한 스캔 구성](#configure-scanning-for-encrypted-amazon-s3-buckets)(관련된 경우)
 > * 버킷을 Purview 리소스로 추가하는 경우 [AWS ARN](#retrieve-your-new-role-arn), [버킷 이름](#retrieve-your-amazon-s3-bucket-name) 및 경우에 따라 [AWS 계정 ID](#locate-your-aws-account-id) 값이 필요합니다.
 
 ### <a name="create-a-purview-account"></a>Purview 계정 만들기
 
-- **Purview 계정이 이미 있는 경우,** AWS S3 지원에 필요한 구성을 계속할 수 있습니다. [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-bucket-scan)부터 시작하세요.
+- **Purview 계정이 이미 있는 경우,** AWS S3 지원에 필요한 구성을 계속할 수 있습니다. [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-s3-scan)부터 시작하세요.
 
 - **Purview 계정을 만들어야 하는 경우,** [Azure Purview 계정 인스턴스 만들기](create-catalog-portal.md)의 지침을 따르세요. 계정을 만든 후 여기로 돌아와서 구성을 완료하고 Amazon S3 용 Purview 커넥터 사용을 시작합니다.
 
-### <a name="create-a-purview-credential-for-your-aws-bucket-scan"></a>AWS 버킷 스캔을 위한 Purview 자격 증명 만들기
-
-이 절차는 AWS 버킷을 스캔할 때 사용할 새 Purview 자격 증명을 생성하는 방법에 대해 설명합니다.
-
-> [!TIP]
-> [스캔을 구성](#create-a-scan-for-one-or-more-amazon-s3-buckets)하는 동안 프로세스 중간에 새 자격 증명을 만들 수도 있습니다. 이 경우 **자격 증명** 필드에서 **새로 만들기** 를 선택합니다.
->
-
-1. Purview에서 **관리 센터** 로 이동하고 **보안 및 액세스** 아래에서 **자격 증명** 을 선택합니다.
-
-1. **새로 만들기** 를 선택하고 오른쪽에 나타나는 **새 자격 증명** 창에서 다음 필드를 사용하여 Purview 자격 증명을 만듭니다.
-
-    |필드 |설명  |
-    |---------|---------|
-    |**이름**     |자격 증명에 대한 의미 있는 이름을 입력하거나 기본값을 사용합니다.        |
-    |**설명**     |이 자격 증명에 대한 선택적 설명(예: `Used to scan the tutorial S3 buckets`)을 입력합니다.         |
-    |**인증 방법**     |역할 ARN을 사용하여 버킷에 액세스하고 있으니 **역할 ARN** 을 선택합니다.         |
-    |**Microsoft 계정 ID**     |이 값을 클립 보드에 복사하려면 클릭합니다. 이 값은 [AWS에서 역할 ARN을 생성](#create-a-new-aws-role-for-purview)할 때 **Microsoft 계정 ID** 로 사용합니다.           |
-    |**외부 ID**     |이 값을 클립 보드에 복사하려면 클릭합니다. 이 값은 [AWS에서 역할 ARN을 생성](#create-a-new-aws-role-for-purview)할 때 **외부 ID** 로 사용합니다.        |
-    |**역할 ARN**     | [Amazon IAM 역할을 생성](#create-a-new-aws-role-for-purview)했으면 IAM 영역에서 역할로 이동하여 **역할 ARN** 값을 복사한 다음, 여기에 입력합니다. 예: `arn:aws:iam::284759281674:role/S3Role`. <br><br>자세한 내용은 [새 역할 ARN 검색](#retrieve-your-new-role-arn)을 참조하세요. |
-    | | |
-
-    자격 증명 만들기를 마치면 **만들기** 를 선택합니다.
-
-1. 아직 없는 경우, 다음 단계로 사용할 **Microsoft 계정 ID** 및 **외부 ID** 값을 복사 후 붙여넣어 [Purview의 새 AWS 역할을 만듭니다](#create-a-new-aws-role-for-purview).
-
-Purview 자격 증명에 대한 자세한 정보는 [Azure Purview에서 원본 인증을 위한 자격 증명](manage-credentials.md)을 참조하세요.
-
 ### <a name="create-a-new-aws-role-for-purview"></a>Purview에 대한 새 AWS 역할 만들기
 
-이 절차를 수행하려면 AWS 역할을 만들 때 Azure 계정 ID 및 외부 ID 값을 입력해야 합니다.
-
-이 값이 없으면 먼저 [Purview 자격 증명](#create-a-purview-credential-for-your-aws-bucket-scan)에서 찾습니다.
+이 절차에서는 Azure 계정 ID 및 외부 ID에 대한 값을 찾고, AWS 역할을 만든 다음, Purview에서 역할 ARN에 대한 값을 입력하는 방법을 설명합니다.
 
 **Microsoft 계정 ID 및 외부 ID를 찾으려면 다음을 수행합니다**.
 
 1. Purview에서 **관리 센터** > **보안 및 액세스** > **자격 증명** 으로 이동합니다.
 
-1. [AWS 버킷 검색에 대해 만든](#create-a-purview-credential-for-your-aws-bucket-scan) 자격 증명을 선택하고, 도구 모음에서 **편집** 을 선택합니다.
+1. **새로** 만들기를 선택하여 새 자격 증명을 만듭니다.
 
-1. 오른쪽에 표시되는 **자격 증명 편집** 창에서 **Microsoft 계정 ID** 및 **외부 ID** 값을 개별 파일로 복사하거나 AWS의 관련 필드에 붙여넣으면 편리합니다.
+    오른쪽에 표시되는 **새 자격 증명** 창에서 Microsoft 계정 ID 및 외부 **ID**  값을 별도의 파일에 복사하거나 AWS의 관련 필드에 붙여넣는 데 편리하게 보관합니다.
 
     예를 들면 다음과 같습니다.
 
@@ -145,7 +115,7 @@ Purview 자격 증명에 대한 자세한 정보는 [Azure Purview에서 원본 
 
     |필드  |Description  |
     |---------|---------|
-    |**계정 ID**     |    Microsoft 계정 ID를 입력합니다. `615019938638`     |
+    |**계정 ID**     |    Microsoft 계정 ID를 입력합니다. `181328463391`     |
     |**외부 ID**     |   옵션에서 **외부 ID 필요...** 를 선택한 다음, 지정된 필드에 외부 ID를 입력합니다. <br>`e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
 
@@ -181,6 +151,37 @@ Purview 자격 증명에 대한 자세한 정보는 [Azure Purview에서 원본 
     예를 들면 다음과 같습니다.
 
     ![역할을 만들기 전에 세부 정보를 검토합니다.](./media/register-scan-amazon-s3/review-role.png)
+
+
+### <a name="create-a-purview-credential-for-your-aws-s3-scan"></a>AWS S3 검색에 대 한 부서의 범위 자격 증명 만들기
+
+이 절차는 AWS 버킷을 스캔할 때 사용할 새 Purview 자격 증명을 생성하는 방법에 대해 설명합니다.
+
+> [!TIP]
+> [부서의 범위에 대 한 새 AWS 역할 만들기](#create-a-new-aws-role-for-purview)에서 계속 진행 하는 경우 부서의 범위에 **새 자격 증명** 창이 이미 열려 있을 수 있습니다.
+>
+> [스캔을 구성](#create-a-scan-for-one-or-more-amazon-s3-buckets)하는 동안 프로세스 중간에 새 자격 증명을 만들 수도 있습니다. 이 경우 **자격 증명** 필드에서 **새로 만들기** 를 선택합니다.
+>
+
+1. Purview에서 **관리 센터** 로 이동하고 **보안 및 액세스** 아래에서 **자격 증명** 을 선택합니다.
+
+1. **새로 만들기** 를 선택하고 오른쪽에 나타나는 **새 자격 증명** 창에서 다음 필드를 사용하여 Purview 자격 증명을 만듭니다.
+
+    |필드 |Description  |
+    |---------|---------|
+    |**이름**     |이 자격 증명에 대 한 의미 있는 이름을 입력 합니다.        |
+    |**설명**     |이 자격 증명에 대한 선택적 설명(예: `Used to scan the tutorial S3 buckets`)을 입력합니다.         |
+    |**인증 방법**     |역할 ARN을 사용하여 버킷에 액세스하고 있으니 **역할 ARN** 을 선택합니다.         |
+    |**Microsoft 계정 ID**     |이 값을 클립 보드에 복사하려면 클릭합니다. 이 값은 [AWS에서 역할 ARN을 생성](#create-a-new-aws-role-for-purview)할 때 **Microsoft 계정 ID** 로 사용합니다.           |
+    |**외부 ID**     |이 값을 클립 보드에 복사하려면 클릭합니다. 이 값은 [AWS에서 역할 ARN을 생성](#create-a-new-aws-role-for-purview)할 때 **외부 ID** 로 사용합니다.        |
+    |**역할 ARN**     | [AMAZON iam 역할을 만들었으면](#create-a-new-aws-role-for-purview)AWS IAM 영역의 역할로 이동 하 여 **역할 arn** 값을 복사 하 고 여기에 입력 합니다. 예: `arn:aws:iam::181328463391:role/S3Role`. <br><br>자세한 내용은 [새 역할 ARN 검색](#retrieve-your-new-role-arn)을 참조하세요. |
+    | | |
+
+    자격 증명 만들기를 마치면 **만들기** 를 선택합니다.
+
+1. 아직 없는 경우, 다음 단계로 사용할 **Microsoft 계정 ID** 및 **외부 ID** 값을 복사 후 붙여넣어 [Purview의 새 AWS 역할을 만듭니다](#create-a-new-aws-role-for-purview).
+
+Purview 자격 증명에 대한 자세한 정보는 [Azure Purview에서 원본 인증을 위한 자격 증명](manage-credentials.md)을 참조하세요.
 
 
 ### <a name="configure-scanning-for-encrypted-amazon-s3-buckets"></a>암호화된 Amazon S3 버킷에 대한 스캔 구성
@@ -248,13 +249,13 @@ AWS 버킷은 여러 암호화 유형을 지원합니다. **AWS-KMS** 암호화�
 
 **역할 ARN을 검색하려면 다음을 수행 합니다.**
 
-1. AWS **IAM(ID 및 액세스 관리)**  > **역할** 영역에서 [Purview에 대해 만든](#create-a-purview-credential-for-your-aws-bucket-scan) 새 역할을 검색하고 선택합니다.
+1. AWS **IAM(ID 및 액세스 관리)**  > **역할** 영역에서 [Purview에 대해 만든](#create-a-purview-credential-for-your-aws-s3-scan) 새 역할을 검색하고 선택합니다.
 
 1. 역할의 **요약** 페이지에서 **역할 ARN** 값의 오른쪽에 있는 **클립보드로 복사** 단추를 선택합니다.
 
     ![역할 ARN 값을 클립보드에 복사합니다.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. [Amazon S3 버킷에 대한 스캔을 만들](#create-a-scan-for-one-or-more-amazon-s3-buckets)때 바로 사용할 수 있도록 안전한 위치에 이 값을 붙여넣습니다.
+부서의 범위에서 AWS S3의 자격 증명을 편집 하 고 검색 된 역할을 **역할 ARN** 필드에 붙여 넣을 수 있습니다. 자세한 내용은 [하나 이상의 Amazon S3 버킷에 대 한 검색 만들기](#create-a-scan-for-one-or-more-amazon-s3-buckets)를 참조 하세요.
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Amazon S3 버킷 이름 검색
 
@@ -276,8 +277,10 @@ AWS 버킷은 여러 암호화 유형을 지원합니다. **AWS-KMS** 암호화�
 
     `s3://purview-tutorial-bucket`
 
-> [!NOTE]
+> [!TIP]
 > 버킷의 루트 수준만 Purview 데이터 원본으로 지원됩니다. 예를 들어 하위 폴더가 포함된 다음 URL은 지원되지 않습니다. `s3://purview-tutorial-bucket/view-data`
+>
+> 그러나 특정 S3 버킷에 대한 검색을 구성하는 경우 검사에 대해 하나 이상의 특정 폴더를 선택할 수 있습니다. 자세한 내용은 검사 범위를 [정하는 단계를 참조하세요.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 >
 
 ### <a name="locate-your-aws-account-id"></a>AWS 계정 ID 찾기
@@ -311,10 +314,10 @@ Purview에 데이터 원본으로 등록하려는 S3 버킷이 하나만 있는 
 
 1. **원본 등록(Amazon S3)** 창이 열리면 다음 세부 정보를 입력합니다.
 
-    |필드  |설명  |
+    |필드  |Description  |
     |---------|---------|
     |**이름**     |의미 있는 이름을 입력하거나 제공된 기본값을 사용합니다.         |
-    |**버킷 URL**     | 다음 구문을 사용하여 AWS 버킷 URL을 입력합니다. `s3://<bucketName>`     <br><br>**참고**: 하위 폴더 없이 버킷의 루트 수준만 사용해야 합니다. 자세한 내용은 [Amazon S3 버킷 이름 검색](#retrieve-your-amazon-s3-bucket-name)을 참조하세요. |
+    |**버킷 URL**     | 다음 구문을 사용하여 AWS 버킷 URL을 입력합니다. `s3://<bucketName>`     <br><br>**참고:** 버킷의 루트 수준만 사용해야 합니다. 자세한 내용은 [Amazon S3 버킷 이름 검색](#retrieve-your-amazon-s3-bucket-name)을 참조하세요. |
     |**컬렉션 선택** |컬렉션 내에서 데이터 원본을 등록하도록 선택한 경우 해당 컬렉션은 이미 나열되어 있습니다. <br><br>필요에 따라 다른 컬렉션을 선택하거나, 컬렉션을 할당하지 않으려면 **없음** 을 선택하거나, 지금 새 컬렉션을 만들려면 **새로 만들기** 를 선택합니다. <br><br>Purview 컬렉션에 대한 자세한 내용은 [Azure Purview에서 데이터 원본 관리](manage-data-sources.md#manage-collections)를 참조하세요.|
     | | |
 
@@ -343,7 +346,7 @@ Amazon 계정에 여러 S3 버킷이 있고 모든 버킷을 Purview 데이터 �
 
 1. **원본 등록(Amazon S3)** 창이 열리면 다음 세부 정보를 입력합니다.
 
-    |필드  |설명  |
+    |필드  |Description  |
     |---------|---------|
     |**이름**     |의미 있는 이름을 입력하거나 제공된 기본값을 사용합니다.         |
     |**AWS 계정 ID**     | AWS 계정 ID를 입력합니다. 자세한 내용은 [AWS 계정 ID 찾기](#locate-your-aws-account-id)를 참조하세요.|
@@ -365,11 +368,11 @@ Amazon 계정에 여러 S3 버킷이 있고 모든 버킷을 Purview 데이터 �
 
 1. 오른쪽에 **스캔...** 창이 열리면 다음 필드를 정의한 후 **계속** 을 선택합니다.
 
-    |필드  |설명  |
+    |필드  |Description  |
     |---------|---------|
     |**이름**     |  스캔에 대한 의미 있는 이름을 입력하거나 기본값을 사용합니다.       |
     |**형식** |모든 버킷이 포함된 AWS 계정을 추가한 경우에만 표시됩니다. <br><br>현재 옵션에는 **모두** > **Amazon S3** 만 포함됩니다. Purview의 지원 매트릭스가 확장되면서, 선택 가능한 옵션이 더 추가될 예정이니 기대해 주세요. |
-    |**자격 증명**     |  역할 ARN이 있는 Purview 자격 증명을 선택합니다. <br><br>**팁**: 지금 새 자격 증명을 만들려면 **새로 만들기** 를 선택합니다. 자세한 내용은 [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-bucket-scan)를 참조하세요.     |
+    |**자격 증명**     |  역할 ARN이 있는 Purview 자격 증명을 선택합니다. <br><br>**팁**: 지금 새 자격 증명을 만들려면 **새로 만들기** 를 선택합니다. 자세한 내용은 [AWS 버킷 스캔을 위한 Purview 자격 증명 만들기](#create-a-purview-credential-for-your-aws-s3-scan)를 참조하세요.     |
     | **Amazon S3**    |   모든 버킷이 포함된 AWS 계정을 추가한 경우에만 표시됩니다. <br><br>검색할 버킷을 하나 이상 선택하거나 **모두 선택** 하여 계정의 모든 버킷을 검색합니다.      |
     | | |
 
@@ -378,6 +381,10 @@ Amazon 계정에 여러 S3 버킷이 있고 모든 버킷을 Purview 데이터 �
     > [!TIP]
     > 계속하기 전에 다른 값을 입력하고 연결을 직접 테스트하려면 오른쪽 아래에서 **연결 테스트** 를 선택한 후 **계속** 을 선택합니다.
     >
+
+1. <a name="scope-your-scan"></a>검색 범위 창에서 **검사에** 포함할 특정 버킷 또는 폴더를 선택합니다.
+
+    전체 AWS 계정에 대한 검색을 만들 때 검사할 특정 버킷을 선택할 수 있습니다. 특정 AWS S3 버킷에 대한 검색을 만들 때 검색할 특정 폴더를 선택할 수 있습니다.
 
 1. **Select a scan rule set**(스캔 규칙 집합 선택) 창에서 **AmazonS3** 기본 규칙 집합을 선택하거나 **New scan rule set**(새 스캔 규칙 집합)을 선택하여 새 사용자 지정 규칙 집합을 만듭니다. 규칙 집합을 선택한 후 **계속** 을 선택합니다.
 

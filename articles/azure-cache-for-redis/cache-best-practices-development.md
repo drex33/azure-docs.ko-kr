@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 1a91b5e11707d8f17effa6b2d711aaaa1a97afed
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 20725796abed454aaccdea73f13d898ca48f615c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117092"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626117"
 ---
 # <a name="development"></a>개발
 
@@ -69,3 +69,9 @@ Azure Cache for Redis에는 기본적으로 TLS 암호화 통신이 필요합니
 * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
 * [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 * [ASP.NET 세션 상태 제공자](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Cache for Redis 개발 FAQ](cache-development-faq.yml)
+- [성능 테스트](cache-best-practices-performance.md)
+- [Azure Cache for Redis를 위한 장애 조치(failover) 및 패치](cache-failover.md)

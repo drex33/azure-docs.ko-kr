@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 119cf21f90102f7ebccd8e4e06cd5e5dee3c4bfe
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 3a2c203fc0c9f6b04f274ef5298523983e1f172d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427987"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614242"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대한 FAQ
 
@@ -54,9 +54,9 @@ ms.locfileid: "123427987"
 
 아니요, Azure NetApp Files는 현재 이중 스택(IPv4 및 IPv6) VNet을 지원하지 않습니다.  
 
-### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재에 Azure VMWare Solutions를 사용하는 IP 주소 수가 [1000개로 제한되나요](azure-netapp-files-resource-limits.md#resource-limits)?
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재의 Azure VMware 솔루션을 사용 하는 IP 주소의 수가 [1000 개로 제한](azure-netapp-files-resource-limits.md#resource-limits)되나요?
 
-아니요. Azure VMWare Solutions는 ER 게이트웨이 뒤에 있으므로 온-프레미스 시스템과 비슷하게 동작합니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files에 표시되지 않으며 1000개의 IP 주소 제한은 적용되지 않습니다.
+아니요. Azure VMware 솔루션은 온-프레미스 시스템과 유사 하 게 작동 하는 ER 게이트웨이 뒤에 있습니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files에 표시되지 않으며 1000개의 IP 주소 제한은 적용되지 않습니다.
  
 ## <a name="security-faqs"></a>보안 FAQ
 
@@ -108,7 +108,7 @@ API 작업의 전체 목록은 [Azure NetApp Files REST API](/rest/api/netapp/)�
 
 ### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Azure NetApp Files 볼륨을 삭제하면 데이터가 안전하게 삭제되나요? 
 
-Azure NetApp Files 볼륨의 삭제는 즉각적인 효과와 함께 프로그래밍 방식으로 수행됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
+Azure NetApp Files 볼륨의 삭제는 즉각적인 효과를 사용 하 여 프로그래밍 방식으로 수행 됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
 
 ## <a name="performance-faqs"></a>성능 FAQ
 
@@ -277,7 +277,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 예. [사용된 스냅샷 용량](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots)은 볼륨의 프로비저닝된 공간에 포함됩니다. 볼륨이 가득 찬 경우 다음 작업을 수행하는 것이 좋습니다.
 
 * [볼륨의 크기를 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)합니다.
-* [이전 스냅샷을 제거](azure-netapp-files-manage-snapshots.md#delete-snapshots)하여 호스팅 볼륨의 공간을 확보합니다. 
+* [이전 스냅샷을 제거](snapshots-delete.md)하여 호스팅 볼륨의 공간을 확보합니다. 
 
 ### <a name="does-azure-netapp-files-support-auto-grow-for-volumes-or-capacity-pools"></a>Azure NetApp Files는 볼륨 또는 용량 풀에 대해 자동 증가를 지원하나요?
 
@@ -317,7 +317,7 @@ NetApp은 SaaS 기반 솔루션인 [NetApp Cloud Sync](https://cloud.netapp.com/
     
 Azure NetApp Files는 NFS 및 SMB 볼륨을 제공합니다.  모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 
 
-[지역 간 복제](cross-region-replication-introduction.md) 기능을 사용하면 한 지역의 Azure NetApp Files 볼륨(원본)에서 다른 지역의 다른 Azure NetApp Files 볼륨(대상)으로 데이터를 비동기식으로 복제할 수 있습니다.  [기존 볼륨의 스냅샷을 사용하여 새 볼륨을 만들](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume) 수도 있습니다.
+[지역 간 복제](cross-region-replication-introduction.md) 기능을 사용하면 한 지역의 Azure NetApp Files 볼륨(원본)에서 다른 지역의 다른 Azure NetApp Files 볼륨(대상)으로 데이터를 비동기식으로 복제할 수 있습니다.  [기존 볼륨의 스냅샷을 사용하여 새 볼륨을 만들](snapshots-restore-new-volume.md) 수도 있습니다.
 
 NetApp은 SaaS 기반 솔루션인 [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service)를 제공합니다. 이 솔루션을 사용하면 NFS 또는 SMB 데이터를 Azure NetApp Files NFS 내보내기 또는 SMB 공유에 복제할 수 있습니다. 
 

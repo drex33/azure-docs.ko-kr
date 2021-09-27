@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5561e0a211d191daf4b769da7ccd8a924d5c5696
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96555155"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607143"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Azure Purview의 비즈니스 용어집 기능 이해
 
@@ -65,7 +65,7 @@ Azure Purview는 비즈니스 용어집의 용어에 대한 8가지 기본 제�
 - 데이터 자산에 저장된 데이터의 특성 이해
 - 액세스 제어 정책 정의
 
-Purview에는 현재 100개 이상의 시스템 분류자가 있으며 사용자가 카탈로그에서 고유한 분류자를 정의할 수도 있습니다. 검사 프로세스의 일부로, 이러한 분류를 자동으로 검색하고 데이터 자산 및 스키마에 적용합니다. 그러나 언제든지 재정의할 수 있습니다. 사용자 재정의는 자동 검색으로 대체되지 않습니다.
+Purview는 현재 200개 이상의 시스템 분류자를 보유하고 있으며 카탈로그에서 사용자 고유의 분류자를 정의할 수 있습니다. 검사 프로세스의 일부로, 이러한 분류를 자동으로 검색하고 데이터 자산 및 스키마에 적용합니다. 그러나 언제든지 재정의할 수 있습니다. 사용자 재정의는 자동 검색으로 대체되지 않습니다.
 
 ### <a name="sensitivity-labels"></a>민감도 레이블
 

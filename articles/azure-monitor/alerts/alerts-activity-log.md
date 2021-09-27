@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 08/12/2021
-ms.openlocfilehash: 8f26806a08ca463350e54d5ce1319fe0323715e7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 273f8b3a747685c250958e745ce6a37754859329
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220040"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744592"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -269,6 +269,5 @@ Azure CLI 명령 [az monitor activity-log alert delete](/cli/azure/monitor/activ
 
 - [활동 로그에 대한 웹후크 스키마](./activity-log-alerts-webhook.md)를 알아봅니다.
 - [활동 로그 개요](./activity-log-alerts.md)를 읽습니다.
-- [작업 그룹](../platform/action-groups.md)에 대해 자세히 알아보세요.  
+- [작업 그룹](./action-groups.md)에 대해 자세히 알아보세요.  
 - [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.
-

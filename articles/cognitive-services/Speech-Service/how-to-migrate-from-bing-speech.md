@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: lajanuar
-ms.openlocfilehash: fc08bea2700e1b9abaed6c4b8ce29b0ce10f8956
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.author: pafarley
+ms.openlocfilehash: 9e3408ef27f4ee31f3308754cf5a0352b22c375b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529655"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828770"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
 
@@ -29,7 +29,7 @@ ms.locfileid: "122529655"
 * [사용자 지정 음성 텍스트 변환](./custom-speech-overview.md)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](./how-to-custom-voice-create-voice.md)
-* [음성 번역](speech-translation.md)([텍스트 번역](../translator/translator-info-overview.md) 제외)
+* [음성 번역](speech-translation.md)([텍스트 번역](../translator/translator-overview.md) 제외)
 
 [Speech SDK](speech-sdk.md) 는 기능 측면에서 Bing Speech 클라이언트 라이브러리를 대신하지만 다른 API를 사용합니다.
 

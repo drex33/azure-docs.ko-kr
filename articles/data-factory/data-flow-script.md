@@ -8,18 +8,16 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 73fe862475b866e625d4bf2bdce3c044b6dcc87b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 22962d1f817379bc57273b40c3c8298354089d3f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061583"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641411"
 ---
 # <a name="data-flow-script-dfs"></a>DFS(데이터 흐름 스크립트)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 DFS(데이터 흐름 스크립트)는 매핑 데이터 흐름에 포함된 변환을 실행하는 데 사용되는 코딩 언어와 유사한 기본 메타데이터입니다. 모든 변환은 작업을 적절하게 실행하는 데 필요한 정보를 제공하는 일련의 속성으로 표현됩니다. 스크립트는 브라우저 UI의 상단 리본에 있는 “스크립트” 단추를 클릭하여 ADF에서 보고 편집할 수 있습니다.
 
@@ -282,7 +280,7 @@ aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ### <a name="compare-previous-or-next-row-values"></a>이전 또는 다음 행 값 비교
-이 샘플 코드 조각에서는 현재 행의 열 값과 현재 행의 열 값을 비교 하는 데 창 변환을 사용할 수 있는 방법을 보여 줍니다. 이 예에서는 파생 열을 사용 하 여 전체 데이터 집합에서 창 파티션을 사용할 수 있도록 더미 값을 생성 합니다. 서로게이트 키 변환은 각 행에 대 한 고유 키 값을 할당 하는 데 사용 됩니다. 데이터 변환에이 패턴을 적용 하는 경우 데이터를 분할 하는 데 사용할 열이 있는 경우 서로게이트 키를 제거 하 고, 데이터를 분할 하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
+이 샘플 조각에서는 창 변환을 사용하여 현재 행 컨텍스트의 열 값을 현재 행 앞과 뒤의 행에 있는 열 값과 비교하는 방법을 보여줍니다. 이 예제에서는 파생 열을 사용하여 전체 데이터 집합에서 창 파티션을 사용하도록 설정하는 더미 값을 생성합니다. 서로게이트 키 변환은 각 행에 고유한 키 값을 할당하는 데 사용됩니다. 이 패턴을 데이터 변환에 적용할 때 정렬할 열인 경우 서로게이트 키를 제거하고 데이터를 분할하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
 
 ```
 source1 keyGenerate(output(sk as long),

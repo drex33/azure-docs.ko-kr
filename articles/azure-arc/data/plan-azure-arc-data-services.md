@@ -8,12 +8,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: b1e7c210dc7e9a0482f6f2471e5079f71a4ac621
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0d9ae624ddc0a4e5a2f5d9ac38428f4f3c10a01e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566981"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832399"
 ---
 # <a name="plan-to-deploy-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 배포 계획
 
@@ -44,6 +44,9 @@ Azure Arc 지원 데이터 서비스를 배포하기 전에 필수 조건을 이
 인프라가 준비되면 다음과 같은 방식으로 Azure Arc 지원 데이터 서비스를 배포합니다.
 1. Kubernetes 클러스터의 유효성이 검사된 배포 중 하나에서 Azure Arc 지원 데이터 컨트롤러 만들기
 1. Azure Arc 지원 SQL Managed Instance 및/또는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 만듭니다.
+
+> [!CAUTION]
+> 일부 데이터 서비스 계층 및 모드는 [일반적으로 사용할 수](release-notes.md) 있으며 일부는 미리 보기 상태입니다. 동일한 데이터 컨트롤러에서 GA와 preview 서비스를 혼합 하지 않는 것이 좋습니다. 동일한 데이터 컨트롤러에서 GA 및 preview 서비스를 혼합 하는 경우 현재 상태에서 업그레이드할 수 없습니다. 이 시나리오에서를 업그레이드 하려는 경우 데이터 컨트롤러 및 데이터 서비스를 제거 하 고 다시 만들어야 합니다.
 
 ## <a name="overview-create-the-azure-arc-enabled-data-controller"></a>개요: Azure Arc 지원 데이터 컨트롤러 만들기
 
@@ -78,12 +81,12 @@ Azure Arc 지원 데이터 서비스를 배포하기 전에 필수 조건을 이
 - **Azure 리소스 그룹 이름** - Azure에서 데이터 컨트롤러 리소스를 만들고자 하는 리소스 그룹 이름  모든 Azure Arc 지원 SQL Managed Instances 및 PostgreSQL 하이퍼스케일 서버 그룹도 이 리소스 그룹에서 만들어집니다.
 - **Azure 위치** - Azure에서 데이터 컨트롤러 리소스 메타데이터를 저장할 Azure 위치 사용 가능한 지역 목록은 [Azure 글로벌 인프라/지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 참조하세요. 배포 중인 데이터 컨트롤러에서 관리하는 Azure 리소스에 대한 메타데이터 및 청구 정보는 위치 매개 변수로 지정하는 Azure의 위치에만 저장됩니다. 직접 연결 모드에서 배포하는 경우 데이터 컨트롤러에 대한 위치 매개 변수는 대상으로 지정하는 사용자 지정 위치 리소스의 위치와 동일합니다.
 - **서비스 주체 정보** - [업로드 필수 조건](upload-metrics-and-logs-to-azure-monitor.md) 문서에 설명된 대로 *직접* 연결 모드로 배포할 때 Azure Arc 데이터 컨트롤러를 만드는 동안 서비스 주체 정보가 필요합니다. *간접* 연결 모드의 경우 서비스 주체는 여전히 수동으로 내보내고 업로드해야 하지만 Azure Arc 데이터 컨트롤러가 만들어진 후에 필요합니다.
-- **인프라** - 청구를 위해 Arc 지원 데이터 서비스를 실행 중인 인프라를 나타내야 합니다.  옵션은 `alibaba`, `aws`, `azure`, `gcp`, `onpremises` 또는 `other`입니다.
+- **인프라** -청구를 위해 Azure Arc 사용 데이터 서비스를 실행 하는 인프라를 나타내는 데 필요 합니다.  옵션은 `alibaba`, `aws`, `azure`, `gcp`, `onpremises` 또는 `other`입니다.
 
 ## <a name="additional-concepts-for-direct-connected-mode"></a>직접 연결 모드에 대한 추가 개념
 
 [연결 모드](./connectivity.md)에 설명된 대로 Azure Arc 데이터 컨트롤러는 **직접** 또는 **간접** 연결 모드로 배포할 수 있습니다. Azure Arc 데이터 서비스를 **직접** 연결 모드로 배포하려면 몇 가지 추가 개념과 고려 사항을 이해해야 합니다.
-먼저 Arc 지원 데이터 서비스가 배포될 Kubernetes 클러스터는 [Azure Arc 지원 Kubernetes 클러스터](../kubernetes/overview.md)여야 합니다. Kubernetes 클러스터를 Azure Arc에 온보딩하면 사용 정보, 로그, 메트릭 등의 자동 업로드와 같은 기능에 활용되는 Azure 연결이 제공됩니다. Kubernetes 클러스터를 Azure에 연결하면 Azure Portal에서 직접 클러스터에 Azure Arc 데이터 서비스를 배포하고 관리할 수도 있습니다.
+먼저 Azure Arc 사용 데이터 서비스가 배포 될 Kubernetes 클러스터는 [Azure arc 사용 가능 Kubernetes 클러스터](../kubernetes/overview.md)여야 합니다. Kubernetes 클러스터를 Azure Arc에 온보딩하면 사용 정보, 로그, 메트릭 등의 자동 업로드와 같은 기능에 활용되는 Azure 연결이 제공됩니다. Kubernetes 클러스터를 Azure에 연결하면 Azure Portal에서 직접 클러스터에 Azure Arc 데이터 서비스를 배포하고 관리할 수도 있습니다.
 
 Kubernetes 클러스터를 Azure에 연결하려면 다음 단계가 포함됩니다.
 - [Azure에 클러스터 연결](../kubernetes/quickstart-connect-cluster.md)
@@ -110,4 +113,3 @@ Azure Arc 데이터 컨트롤러를 만들 때는 다음과 같이 다양한 옵
 - [Azure Data Studio를 사용하여 간접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-indirect-azure-data-studio.md)
 - [Azure Data Studio의 Jupyter Notebook을 통해 Azure Portal에서 간접 연결 모드로 데이터 컨트롤러 만들기](create-data-controller-indirect-azure-portal.md)
 - [kubectl 또는 oc와 같은 Kubernetes 도구를 사용하여 간접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)
-

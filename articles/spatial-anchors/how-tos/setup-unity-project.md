@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 03/30/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d87c789b4c5f1decc468838ccabd136cec32cabc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5a3c8c3369890bdbbd30a98f6f76c88b9358dcdf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535460"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791805"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Unity 프로젝트에서 Azure Spatial Anchors 구성
 
@@ -34,7 +34,7 @@ Unity 프로젝트에 Azure Spatial Anchors SDK를 포함하려면 먼저 Unity 
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### <a name="hololens-only-configure-your-unity-project-xr-settings"></a>HoloLens만 해당: Unity 프로젝트 XR 설정 구성
-HoloLens에서 MixedReality 앱을 개발할 때 Unity에서 XR 구성을 설정해야 합니다. 자세한 내용은 [XR 구성 설정 - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)와 [Unity 버전 및 XR 플러그 인 선택 - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/choosing-unity-version)를 참조하세요.
+HoloLens에서 MixedReality 앱을 개발할 때 Unity에서 XR 구성을 설정해야 합니다. 자세한 내용은 [XR 구성 설정 - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)와 [Unity 버전 및 XR 플러그 인 선택 - Mixed Reality | Microsoft Docs](/windows/mixed-reality/develop/unity/choosing-unity-version)를 참조하세요.
 
 Azure Spatial Anchors SDK 2.9 이상은 Windows XR 플러그 인(com.unity.xr.windowsmr)만 지원하므로 Azure Spatial Anchor HoloLens Unity 패키지에는 com.unity.xr.windowsmr 패키지에 대한 명시적 종속성이 있습니다.
 

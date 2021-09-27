@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ed819b22caab25fea8ae002d482cf2df5d0bf60c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799330"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733064"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -22,7 +22,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 ## <a name="multi-language-luis-apps"></a>다국어 LUIS 앱
 
-챗봇과 같은 다국어 LUIS 클라이언트 애플리케이션이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Translator 서비스](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
+챗봇과 같은 다국어 LUIS 클라이언트 애플리케이션이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Translator 서비스](../translator/translator-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
 
 ## <a name="languages-supported"></a>지원되는 언어
 
@@ -111,7 +111,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](.
 
 |문화권|Version|목적|
 |--|--|--|
-|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할하는 기계 학습 기반 토크나이저를 사용하여 단어를 분할하여 토큰화합니다.<br>사용자가 `Ich fahre einen krankenwagen`을 발화로 입력하면 `Ich fahre einen kranken wagen`으로 전환됩니다. `kranken` 및 `wagen`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
+|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할하는 기계 학습 기반 토크나이저를 사용하여 단어를 분할하여 토큰화합니다.<br>사용자가 `Ich fahre einen krankenwagen`을 발화로 입력하면 `Ich fahre einen kranken wagen`로 전환됩니다. `kranken` 및 `wagen`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |독일어<br>`de-de`|1.0.2|단어를 공백으로 분할하여 토큰화합니다.<br> 사용자가 `Ich fahre einen krankenwagen`을 발화로 입력하면 단일 토큰으로 유지됩니다. 따라서 `krankenwagen`은 단일 엔터티로 표시됩니다. |
 |네덜란드어<br>`nl-nl`|1.0.0|복합 단어를 단일 구성 요소로 분할하는 기계 학습 기반 토크나이저를 사용하여 단어를 분할하여 토큰화합니다.<br>사용자가 `Ik ga naar de kleuterschool`을 발화로 입력하면 `Ik ga naar de kleuter school`로 전환됩니다. `kleuter` 및 `school`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |네덜란드어<br>`nl-nl`|1.0.1|단어를 공백으로 분할하여 토큰화합니다.<br> 사용자가 `Ik ga naar de kleuterschool`을 발화로 입력하면 단일 토큰으로 유지됩니다. 따라서 `kleuterschool`은 단일 엔터티로 표시됩니다. |

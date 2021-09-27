@@ -7,12 +7,12 @@ ms.subservice: process-automation
 ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5a86a5c8c0922e0861411e93376047344ba6c5af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528466"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789107"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Azure Automation 계정 인증 개요
 
@@ -24,7 +24,7 @@ Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서�
 
 Azure Automation을 처음 시작하려면 Automation 계정을 하나 이상 만들어야 합니다. Automation 계정을 사용하면 다른 Automation 계정의 리소스에서 사용자의 Automation 리소스, Runbook, 자산, 구성을 격리할 수 있습니다. Automation 계정을 사용하여 리소스를 별도의 논리적 환경 또는 위임된 책임으로 구분할 수 있습니다. 예를 들어 개발, 프로덕션, 온-프레미스 환경에 서로 다른 계정을 사용할 수 있습니다. 또는 [업데이트 관리](update-management/overview.md)로 모든 컴퓨터의 운영 체제 업데이트를 관리하는 Automation 계정을 전용으로 사용할 수 있습니다. 
 
-Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계정과 다릅니다. Automation 계정 만들기에 대한 소개는 [Automation 계정 만들기](automation-quickstart-create-account.md)를 참조하세요.
+Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계정과 다릅니다. Automation 계정 만들기에 대한 소개는 [Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
 ## <a name="automation-resources"></a>자동화 리소스
 

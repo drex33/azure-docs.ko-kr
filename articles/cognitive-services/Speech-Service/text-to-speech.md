@@ -3,20 +3,21 @@ title: 텍스트 음성 변환 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service의 텍스트 음성 변환 기능을 통해 애플리케이션, 도구 또는 디바이스에서 텍스트를 자연스러운 사람과 같은 합성된 음성으로 변환할 수 있습니다. 이 문서에서는 텍스트 음성 변환 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.author: lajanuar
+ms.date: 09/01/2020
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 84eb522123e5a77de667231b5f91d96a0e7c6a56
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 7be06937cf9f3117d426fd9c19cbb6059826e6ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272964"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736908"
 ---
 # <a name="what-is-neural-text-to-speech"></a>인공신경망 텍스트 음성 변환이란 무엇인가요?
 
@@ -84,7 +85,7 @@ Microsoft 인공신경망 텍스트 음성 변환은 심층적인 인공신경�
 
 ## <a name="migrate-to-neural-voice"></a>인공신경망 음성으로 마이그레이션
 
-표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.  **2021년 8월 31일** 이전에는 모든 기존 음성 구독으로 공지가 전송되었습니다. 사용 중단 기간(**2021년 8월 31일 ~ 2024년 8월 31일**) 동안 기존 사용자는 표준 음성을 계속 사용할 수 있으며 모든 신규 사용자/신규 음성 리소스는 인공신경망 음성으로 이동해야 합니다.
+표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.  **2021년 8월 31일** 이전에는 모든 기존 음성 구독으로 공지가 전송되었습니다. 사용 중지 기간 (**8 월 2021-31 2024 년 8 월 31 일까** 지) 동안 기존 표준 음성 사용자는 계속 해 서 표준 음성을 사용할 수 있습니다. 모든 새 사용자/새 음성 리소스는 신경망로 이동 해야 합니다.
 
 **필요한 동작**
 

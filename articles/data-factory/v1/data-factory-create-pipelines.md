@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2c166da02d145e9995526279121c1dd360557ad
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: e764623fa84be4ffe023545495528e18f3a9adb2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568056"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624422"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -35,7 +36,7 @@ ms.locfileid: "122568056"
 
 활동은 0개 이상의 입력 [데이터 세트](data-factory-create-datasets.md)를 받고 하나 이상의 출력 [데이터 세트](data-factory-create-datasets.md)를 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
-![파이프라인, 활동, 데이터 세트 간 관계](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+:::image type="content" source="media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png" alt-text="파이프라인, 활동, 데이터 세트 간 관계":::
 
 파이프라인을 사용하면 개별 활동 단위가 아닌 하나의 집합으로서 활동을 관리할 수 있습니다. 예를 들어 파이프라인의 활동을 개별적으로 처리하지 않고 파이프라인을 배포하고, 예약하고, 일시 중단하고, 계속할 수 있습니다.
 
@@ -142,7 +143,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 ### <a name="policies"></a>정책
 정책은 특히 테이블의 조각을 처리할 때 활동의 런타임 동작에 영향을 줍니다. 다음 테이블에서는 자세한 내용을 제공합니다.
 
-| 속성 | 허용된 값 | 기본값 | 설명 |
+| 속성 | 허용된 값 | 기본값 | Description |
 | --- | --- | --- | --- |
 | 동시성 |정수 <br/><br/>최대값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
@@ -271,13 +272,13 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 
 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 지정하여 두 활동을 연결할 수 있습니다. 두 번째 활동은 첫 번째 활동이 완료된 경우에만 실행됩니다.
 
-![동일한 파이프라인에서 활동 연결](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-one-pipeline.png" alt-text="동일한 파이프라인에서 활동 연결":::
 
 이 샘플에서 파이프라인에는 두 개의 Activity1과 Activity2가 있습니다. Activity1은 Dataset1을 입력으로 받고 출력으로 Dataset2를 생성합니다. Activity는 Dataset2를 입력으로 받고 출력으로 Dataset3를 생성합니다. Activity1의 출력(Dataset2)이 Activity2의 입력이므로 Activity2는 Activity가 성공적으로 완료되고 Dataset2 조각을 생성한 후에만 실행됩니다. Activity1이 어떤 이유로든 실패하여 Dataset2 조각을 생성하지 않는 경우 Activity2는 해당 조각에 대해 실행되지 않습니다(예: 오전 9시 ~ 오전 10시).
 
 다른 파이프라인에 있는 활동을 연결할 수도 있습니다.
 
-![두 개의 파이프라인에서 활동 연결](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-two-pipelines.png" alt-text="두 개의 파이프라인에서 활동 연결":::
 
 이 샘플에서 Pipeline1은 Dataset1을 입력으로 받고 Dataset2를 출력으로 생성하는 하나의 활동만 포함합니다. Pipeline2는 Dataset2를 입력으로 받고 Dataset3를 출력으로 생성하는 하나의 활동만 포함합니다.
 

@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory의 ORC 형식
+title: ORC 형식 지원
+description: 이 항목에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 ORC 형식을 처리 하는 방법에 대해 설명 합니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 이 항목에서는 Azure Data Factory에서 ORC 형식을 처리하는 방법에 대해 설명합니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 72c81c2e8eec02be96512ce4100e3b9c48b96318
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: f0bd3840d7c1b1d3fde7c93f11e39d236a954847
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252966"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743787"
 ---
-# <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory의 ORC 형식
+# <a name="orc-format-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics의 ORC 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -70,7 +70,7 @@ ORC 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 복사 작업 ***\*source\* 섹션*** 에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **OrcSource** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
@@ -133,7 +133,7 @@ source(allowSchemaDrift: true,
 
 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 `orc`여야 합니다. | 예 | `orc` | format |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
@@ -159,7 +159,7 @@ OrcSource sink(
 > [!IMPORTANT]
 > 자체 호스팅 통합 런타임에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64-bit JRE 8(Java Runtime Environment) 또는 OpenJDK** 및 **Microsoft Visual C++ 2010 재배포 가능 패키지** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-자체 호스팅 IR에서 ORC 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
+ORC 파일 직렬화/deserialization을 사용하여 자체 호스팅 IR에서 실행되는 복사의 경우 서비스는 먼저 JRE에 대한 레지스트리를 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 확인하고(없는 경우) 두 번째로 OpenJDK에 대한 시스템 변수를 확인하여 Java 런타임을 *`JAVA_HOME`* 찾습니다.
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
@@ -168,9 +168,9 @@ OrcSource sink(
 > [!TIP]
 > 자체 호스팅 통합 런타임을 사용하여 데이터를 ORC 형식으로 또는 그 반대로 복사하고 'java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**'라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
-![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="자체 호스팅 IR에서 JVM 힙 크기 설정":::
 
-예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 ADF는 최소 64MB 및 최대 1G를 사용합니다.
+예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 서비스는 최소 64MB 및 최대 1G를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

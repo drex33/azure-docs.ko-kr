@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
 ms.custom: ''
-ms.openlocfilehash: 1eb74fc900ebbf70f8938c31721f717117a4fdd6
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 0028bced72633c1544f6c53fa0f429ca570026c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538958"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621626"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -192,7 +192,7 @@ access_token = token_response.get('access_token')
 FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
 - **Content-Type**: application/json
-- **Authorization**: Bearer <Access-Token>
+- **권한 부여:** Bearer \<Access-Token\>
 - **Accept**: application/json
 
 ### <a name="input-payload-to-create-metadata"></a>메타데이터를 만들기 위한 입력 페이로드

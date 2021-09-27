@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a00022227959d8506bd976c33787bcc5a23273f
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 026adbac5ad66772711bcd3988a9c95da49ae6a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778803"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837483"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -246,7 +246,7 @@ Azure 클라우드에 있는 모든 Runbook리소스를 공유할 수 있도록 
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 * Runbook을 사용하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 * PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation#automation)을 참조하세요.

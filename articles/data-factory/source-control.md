@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
-ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: c020f337f43ef5bfd187c7db94b6ce20a645c026
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598093"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665469"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "122598093"
 작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 본 문서에서는 git 리포지토리에서 구성하고 작업하는 방법과 함께 모범 사례 및 문제 해결 가이드를 간략하게 설명합니다.
 
 > [!NOTE]
-> Azure Government Cloud의 경우 *GitHub Enterprise Server* 만 사용할 수 있습니다.
+> Azure 중국 Azure Gov에 GitHub 공개 지원이 추가되었습니다. [공지 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918)를 참조하세요.
 
 Azure Data Factory와 Git를 통합하는 방법에 대한 자세한 내용은 아래의 15분 자습서 비디오를 참조하세요.
 
@@ -58,19 +58,19 @@ Azure Repos 및 GitHub 모두에 대한 데이터 팩터리에 Git 리포지토�
 
 Azure Data Factory 홈페이지 맨 위에 있는 **코드 리포지토리 설정** 을 선택합니다.
 
-![홈페이지에서 코드 리포지토리 구성](media/doc-common-process/set-up-code-repository.png)
+:::image type="content" source="media/doc-common-process/set-up-code-repository.png" alt-text="홈페이지에서 코드 리포지토리 구성":::
 
 ### <a name="configuration-method-2-authoring-canvas"></a>구성 방법 2: 제작 캔버스
 
 Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 설정** 을 선택합니다.
 
-![제작에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
+:::image type="content" source="media/author-visually/configure-repo-2.png" alt-text="제작에서 코드 리포지토리 설정 구성":::
 
 ### <a name="configuration-method-3-management-hub"></a>구성 방법 3: 관리 허브
 
 ADF UX의 관리 허브로 이동합니다. **소스 제어** 섹션에서 **Git 구성** 을 선택합니다. 연결된 리포지토리가 없는 경우 **구성** 을 클릭합니다.
 
-![관리 허브에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-3.png)
+:::image type="content" source="media/author-visually/configure-repo-3.png" alt-text="관리 허브에서 코드 리포지토리 설정 구성":::
 
 ### <a name="configuration-method-4-during-factory-creation"></a>구성 방법 4: 팩터리를 만드는 동안
 
@@ -79,7 +79,7 @@ Azure Portal에서 새 데이터 팩터리를 만들 때 **Git 구성** 탭에�
 > [!NOTE]
 > Azure Portal에서 Git을 구성할 때 프로젝트 이름 및 리포지토리 이름과 같은 설정은 드롭다운에 포함되지 않고 수동으로 입력해야 합니다.
 
-![Azure Portal에서 코드 리포지토리 설정 구성](media/author-visually/configure-repo-4.png)
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Azure Portal에서 코드 리포지토리 설정 구성":::
 
 ## <a name="author-with-azure-repos-git-integration"></a>Azure Repos Git 통합을 통한 작성
 
@@ -90,11 +90,11 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 
 ### <a name="azure-repos-settings"></a>Azure Repos 설정
 
-![코드 리포지토리 설정 구성](media/author-visually/repo-settings.png)
+:::image type="content" source="media/author-visually/repo-settings.png" alt-text="코드 리포지토리 설정 구성":::
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | 설명 | 값 |
+| 설정 | Description | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -140,7 +140,7 @@ GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 �
 
 ### <a name="github-settings"></a>GitHub 설정
 
-![GitHub 리포지토리 설정](media/author-visually/github-integration-image2.png)
+:::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="GitHub 리포지토리 설정":::
 
 구성 창에 다음 GitHub 리포지토리 설정이 표시됩니다.
 
@@ -176,15 +176,15 @@ Azure Data Factory에서 GitHub에 처음으로 연결하는 경우 다음 단�
 
 1. GitHub로 이동하여 **설정** 을 엽니다.
 
-    ![GitHub 설정 열기](media/author-visually/github-settings.png)
+    :::image type="content" source="media/author-visually/github-settings.png" alt-text="GitHub 설정 열기":::
 
 1. **애플리케이션** 을 선택합니다. **권한 있는 OAuth 앱** 탭에는 *AzureDataFactory* 가 표시됩니다.
 
-    ![OAuth 앱 선택](media/author-visually/github-organization-select-application.png)
+    :::image type="content" source="media/author-visually/github-organization-select-application.png" alt-text="OAuth 앱 선택":::
 
 1. 애플리케이션을 선택하고 조직에 대한 액세스 권한을 애플리케이션에 부여합니다.
 
-    ![액세스 권한 부여](media/author-visually/github-organization-grant.png)
+    :::image type="content" source="media/author-visually/github-organization-grant.png" alt-text="액세스 권한 부여":::
 
 이러한 단계를 수행하면 팩터리는 조직 내에서 퍼블릭 및 프라이빗 리포지토리에 연결할 수 있습니다. 
 
@@ -205,13 +205,17 @@ _원본 제어_ 라고도 하는 버전 제어 시스템을 통해 개발자는 
 
 ### <a name="creating-feature-branches"></a>기능 분기 만들기
 
-데이터 팩터리와 연결된 각 Azure Repos Git 리포지토리에는 협업 분기가 생성됩니다. (`main`은 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 새 분기 창이 나타나면 기능 분기의 이름을 입력합니다.
+데이터 팩터리와 연결된 각 Azure Repos Git 리포지토리에는 협업 분기가 생성됩니다. (`main`는 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 
 
-![새 분기 만들기](media/author-visually/new-branch.png)
+:::image type="content" source="media/author-visually/new-branch.png" alt-text="새 분기 만들기":::
+
+새 분기 창이 표시 되 면 기능 분기의 이름을 입력 하 고 작업의 기반이 되는 분기를 선택 합니다.
+
+:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="비공개 분기를 기반으로 분기를 만드는 방법을 보여 주는 스크린샷":::
 
 기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Azure Repos Git로 이동합니다. (기본값은 `main`입니다.) 협업 분기에서 Data Factory 서비스에 게시할 수만 있습니다. 
 
-![새 끌어오기 요청 만들기](media/author-visually/create-pull-request.png)
+:::image type="content" source="media/author-visually/create-pull-request.png" alt-text="새 끌어오기 요청 만들기":::
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
@@ -232,11 +236,11 @@ Azure Data Factory는 게시 분기를 한 번에 하나만 포함할 수 있습
 
 협업 분기에 변경 내용을 병합한 후에(기본값은 `main`) **게시** 를 클릭하여 기본 분기의 코드 변경 내용을 Data Factory 서비스에 수동으로 게시합니다.
 
-![Data Factory 서비스에 변경 내용 게시](media/author-visually/publish-changes.png)
+:::image type="content" source="media/author-visually/publish-changes.png" alt-text="Data Factory 서비스에 변경 내용 게시":::
 
 사이드 창이 열리면 게시 분기 및 보류 중인 변경 사항이 올바른지 확인합니다. 변경 내용을 확인한 후 **확인** 을 클릭하여 게시를 확인합니다.
 
-![올바른 게시 분기 확인](media/author-visually/configure-publish-branch.png)
+:::image type="content" source="media/author-visually/configure-publish-branch.png" alt-text="올바른 게시 분기 확인":::
 
 > [!IMPORTANT]
 > 기본 분기는 Data Factory 서비스에 배포된 내용을 반영하지 않습니다. 따라서 기본 분기를 *반드시* Data Factory 서비스에 수동으로 게시해야 합니다.
@@ -279,7 +283,7 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 <u>*코드 흐름:*</u>***협업 분기 -> 라이브 모드***
 
-![협업 분기에서 코드 강제 게시](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+:::image type="content" source="media/author-visually/force-publish-changes-from-collaboration-branch.png" alt-text="협업 분기에서 코드 강제 게시":::
 
 #### <a name="option-2-disconnect-and-reconnect-git-repository"></a>옵션 2: Git 리포지토리 연결 끊기 및 다시 연결
 
@@ -297,11 +301,11 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 다른 Git 리포지토리로 전환하려면 **소스 제어** 의 관리 허브에서 Git 구성 페이지로 이동합니다. **연결 끊기** 를 선택합니다. 
 
-![GIT 아이콘](media/author-visually/remove-repository.png)
+:::image type="content" source="media/author-visually/remove-repository.png" alt-text="GIT 아이콘":::
 
 데이터 팩터리 이름을 입력하고 **확인** 을 클릭하여 데이터 팩터리와 연결된 Git 리포지토리를 제거합니다.
 
-![현재 Git 리포지토리와 연결 제거](media/author-visually/remove-repository-2.png)
+:::image type="content" source="media/author-visually/remove-repository-2.png" alt-text="현재 Git 리포지토리와 연결 제거":::
 
 현재 리포지토리와 연결을 제거한 후에 다른 리포지토리를 사용하도록 Git 설정을 구성한 다음, 기존 Data Factory 리소스를 새 리포지토리로 가져올 수 있습니다.
 

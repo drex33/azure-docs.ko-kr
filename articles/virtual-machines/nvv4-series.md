@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: e07ff969e8245d245cf724152b6257904f7cb860
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: f1312a27b77c7c9a4c4df75fef3ddd8010b5661c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698475"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823378"
 ---
 # <a name="nvv4-series"></a>NVv4 시리즈 
 
@@ -42,7 +42,7 @@ NVv4 시리즈 가상 머신은 기본 주파수 2.45GHz, 3.1GHz의 모든 코�
 
 <sup>1</sup> NVv4 시리즈 VM 기능 AMD 동시 다중 스레딩 기술
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -50,7 +50,10 @@ Windows를 실행하는 Azure NVv4 시리즈 VM의 GPU 기능을 활용하려면
 
 AMD GPU 드라이버를 수동으로 설치하려면 지원되는 운영 체제, 드라이버, 설치, 확인 단계에 대한 [Windows용 N 시리즈 AMD GPU 드라이버 설치](./windows/n-series-amd-driver-setup.md)를 참조하세요.
 
-## <a name="other-sizes"></a>기타 크기
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -58,6 +61,10 @@ AMD GPU 드라이버를 수동으로 설치하려면 지원되는 운영 체제,
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: MABS로 파일 데이터 백업
 description: MABS로 서버 및 클라이언트 컴퓨터에서 파일 데이터를 백업할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: 71b12c98713dff2340bdda1baf486dcd5cfdb70a
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 5c5535969340b5612758ee0781e030fad0ec6dc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681682"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806709"
 ---
 # <a name="back-up-file-data-with-mabs"></a>MABS로 파일 데이터 백업
 
@@ -73,7 +73,7 @@ MABS 인프라를 설정한 후에는 백업하려는 파일 데이터가 있는
 
 1. **온라인 보존 정책 지정** 에서 일별/주별/월별/연도별 백업에서 만들어진 복구 지점이 Azure에서 유지되는 방법을 지정할 수 있습니다.
 
-1. **온라인 복제 선택** 에서 데이터의 최초 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아봅니다](/azure/backup/backup-azure-backup-import-export).
+1. **온라인 복제 선택** 에서 데이터의 최초 전체 복제를 수행하는 방법을 지정합니다. 네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. [자세히 알아봅니다](./backup-azure-backup-import-export.md).
 
 1. **요약** 페이지에서 설정을 검토합니다. **그룹 만들기** 를 클릭하면 데이터의 최초 복제가 발생합니다. 작업이 완료되면 보호 그룹 상태가 **상태** 페이지에 **정상** 으로 표시됩니다. 그런 다음 백업이 보호 그룹 설정에 따라 수행됩니다.
 

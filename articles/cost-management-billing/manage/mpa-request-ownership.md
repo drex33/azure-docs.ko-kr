@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
-ms.translationtype: HT
+ms.openlocfilehash: 682c07b4ab34bacbca280cea54e5df8a06c735c5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091480"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616501"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -40,7 +40,7 @@ ms.locfileid: "101091480"
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 왼쪽 아래에서 **전송 요청** 을 선택한 다음, **새 요청 추가** 를 선택합니다.  
     [![전송 요청 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **이전 요청 보내기** 를 선택합니다.  
+1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **요청 보내기** 를 선택합니다.  
     [![전송 요청 전송을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)

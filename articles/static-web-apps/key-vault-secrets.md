@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 3f373122d6d68e6435cfe7083115c91718e05a09
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 1d6aa4d6e8a04a65366d6f109fd755be4f075d6b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528757"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777149"
 ---
 # <a name="securing-authentication-secrets-in-azure-key-vault"></a>Azure Key Vault에서 인증 비밀 보호
 
@@ -29,7 +29,10 @@ ms.locfileid: "122528757"
 Key Vault 통합은 다음에 사용할 수 없습니다.
 
 - [정적 웹앱의 스테이징 버전](./review-publish-pull-requests.md). Key Vault 통합은 프로덕션 환경에서만 지원됩니다.
-- [관리형 함수를 사용하는 정적 웹앱](./apis.md). 
+- [관리형 함수를 사용하는 정적 웹앱](./apis.md).
+
+> [!NOTE]
+> 관리 ID 사용은 Azure Static Web Apps 표준 계획에서만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 AAD Pod 관리 ID를 사용하�
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 1ecf9b45983dbc34938593424644a646dc3d96cb
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: df893949214fc73813bb1b45a663f052ae3ed3c8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101232"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124829083"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory Pod 관리 ID 사용(미리 보기)
 
@@ -73,7 +73,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network
 >     * [NMI(Node Managed Identity)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): AKS 클러스터의 각 노드에서 DaemonSet로 실행되는 Pod입니다. NMI는 각 노드에서 [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux)에 대한 보안 토큰 요청을 가로채고, 해당 요청을 자신에게 리디렉션하고, Pod가 토큰을 요청하는 ID에 액세스하고 애플리케이션을 대신하여 Azure Active Directory 테넌트에서 토큰을 가져올 수 있는지 확인합니다.
 > 2. 관리형 모드: 이 모드에는 NMI만 있습니다. 사용자가 ID를 수동으로 할당하고 관리해야 합니다. 자세한 내용은 [관리형 모드의 Pod ID](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/)를 참조하세요.
 >
->[설치 가이드](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/)에 표시된 대로 Helm 차트 또는 YAML 매니페스트를 통해 Azure Active Directory Pod ID를 설치할 때 `standard` 모드와 `managed` 모드 중에서 선택할 수 있습니다. 대신 이 문서에 표시된 대로 [AKS 클러스터 추가 기능](/azure/aks/use-azure-ad-pod-identity)을 사용하여 Azure Active Directory Pod ID를 설치하기로 결정하면 설치 프로그램에서 `managed` 모드를 사용합니다.
+>[설치 가이드](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/)에 표시된 대로 Helm 차트 또는 YAML 매니페스트를 통해 Azure Active Directory Pod ID를 설치할 때 `standard` 모드와 `managed` 모드 중에서 선택할 수 있습니다. 대신 이 문서에 표시된 대로 AKS 클러스터 추가 기능을 사용하여 Azure Active Directory Pod ID를 설치하기로 결정하면 설치 프로그램에서 `managed` 모드를 사용합니다.
 
 [az aks get-credentials][az-aks-get-credentials]를 사용하여 AKS 클러스터에 로그인합니다. 또한 이 명령은 개발 컴퓨터에서 `kubectl` 클라이언트 인증서를 다운로드하고 구성합니다.
 

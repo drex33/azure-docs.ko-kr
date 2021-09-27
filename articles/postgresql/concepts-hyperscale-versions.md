@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 299005d8d7c961335decbce46bab8c558d2589a1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8dd0929d56bac0b2f825d976ba07bd0956c0d063
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536063"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755198"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)에서 지원되는 데이터베이스 버전
 
@@ -22,15 +22,15 @@ ms.locfileid: "122536063"
 
 ### <a name="postgresql-version-13"></a>PostgreSQL 버전 13
 
-현재 부 릴리스는 13.3입니다. 이 부 릴리스의 향상된 기능 및 수정사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-2.html)를 참조하세요.
+현재 부 릴리스는 13.4입니다. 이 부 릴리스의 향상된 기능 및 수정사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/release-13-4.html)를 참조하세요.
 
 ### <a name="postgresql-version-12"></a>PostgreSQL 버전 12
 
-현재 부 릴리스는 12.7입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-6.html)를 참조하세요.
+현재 부 릴리스는 12.8입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/release-12-8.html)를 참조하세요.
 
 ### <a name="postgresql-version-11"></a>PostgreSQL 버전 11
 
-현재 부 릴리스는 11.12입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-11.html)를 참조하세요.
+현재 부 릴리스는 11.13입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/release-11-13.html)를 참조하세요.
 
 ### <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 이상
 

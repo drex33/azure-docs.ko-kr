@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 07/21/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50299b64577ed93f7aa1b09f2b5b20ccca88404e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 3ccdbb04942e946d251008187693ee948b960178
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472608"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836932"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
@@ -28,7 +28,7 @@ ms.locfileid: "114472608"
 
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 속성 |웹후크의 이름입니다. 클라이언트에 노출되지 않으므로 원하는 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |웹후크의 URL입니다. 클라이언트가 웹후크에 연결된 Runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 Runbook을 호출할 수 있는 보안 토큰이 포함됩니다. 따라서 비밀번호와 같은 URL을 처리해야 합니다. 보안상의 이유로 Azure Portal의 URL은 웹후크가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
@@ -94,7 +94,7 @@ ms.locfileid: "114472608"
 
 ## <a name="create-a-webhook"></a>웹후크 만들기
 
-웹후크에는 게시된 Runbook이 필요합니다. 이 단계에서는 [Azure Automation Runbook 만들기](automation-quickstart-create-runbook.md)에서 만든 Runbook의 수정 버전을 사용합니다. 이 단계를 수행하려면 다음 코드를 사용하여 PowerShell Runbook을 편집합니다.
+웹후크에는 게시된 Runbook이 필요합니다. 이 단계에서는 [Azure Automation Runbook 만들기](./learn/powershell-runbook-managed-identity.md)에서 만든 Runbook의 수정 버전을 사용합니다. 이 단계를 수행하려면 다음 코드를 사용하여 PowerShell Runbook을 편집합니다.
 
 ```powershell
 param

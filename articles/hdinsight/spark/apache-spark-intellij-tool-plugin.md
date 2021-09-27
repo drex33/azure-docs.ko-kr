@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 21f815af73b264f7be6ffaf1e59909a7139ea022
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
-ms.translationtype: HT
+ms.openlocfilehash: aeb6c9e266bdb663b9a664c8509e9cafab8a5128
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113297553"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743005"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "113297553"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 퍼블릭 클라우드의 HDinsight 클러스터만 지원되고 다른 보안 클라우드 유형(예: 정부 클라우드)은 지원되지 않습니다.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 공용 클라우드의 HDInsight 클러스터만 지원 되 고 다른 안전한 클라우드 유형 (예: 정부 클라우드)은 지원 되지 않습니다.
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 문서에서는 Java 버전 8.0.202를 사용합니다.
 
@@ -236,7 +236,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
     |작업 구성|기본 키 및, 또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)을 참조하세요.  [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md)을 참조하세요.|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen 2 클러스터만 지원됩니다. 자세한 내용은 [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)을 참조하세요.  [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/quickstart-storage-explorer.md)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
     |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드** 를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|

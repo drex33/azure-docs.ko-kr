@@ -3,16 +3,17 @@ title: 데이터 관리 게이트웨이 문제 해결
 description: 데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e136ec96cc2a698f0b0e794830403dcbc284341c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388348"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554243"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -69,7 +70,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 
 
 
-![키의 내용 또는 형식이 잘못됨](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png" alt-text="키의 내용 또는 형식이 잘못됨":::
 
 #### <a name="cause"></a>원인
 입력된 게이트웨이 키의 내용 또는 형식이 잘못되었습니다. 그 이유 중 하나는 포털에서 키의 일부만 복사했거나 잘못된 키를 사용하고 있기 때문일 수 있습니다.
@@ -82,7 +83,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![게이트웨이 키가 잘못되었거나 비어 있음을 나타내는 오류 메시지를 강조 표시하는 스크린샷](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png" alt-text="게이트웨이 키가 잘못되었거나 비어 있음을 나타내는 오류 메시지를 강조 표시하는 스크린샷":::
 
 #### <a name="cause"></a>원인
 게이트웨이 키가 다시 생성되었거나 게이트웨이가 Azure Portal에서 삭제되었습니다. 데이터 관리 게이트웨이 설치가 최신이 아닌 경우에도 발생할 수 있습니다.
@@ -97,7 +98,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 
 `Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
-![게이트웨이 키가 잘못되었거나 비어 있음](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png" alt-text="게이트웨이 키가 잘못되었거나 비어 있음":::
 
 #### <a name="cause"></a>원인
 게이트웨이가 삭제되었거나 연결된 게이트웨이 키가 다시 생성되었기 때문에 이 오류가 발생할 수 있습니다.
@@ -110,12 +111,12 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 ### <a name="7-problem"></a>7. 문제
 게이트웨이를 등록할 때 인증서의 경로와 암호를 입력해야 할 수 있습니다.
 
-![인증서의 경로 및 암호를 입력하는 위치를 보여 주는 스크린샷](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/specify-certificate.png" alt-text="인증서의 경로 및 암호를 입력하는 위치를 보여 주는 스크린샷":::
 
 #### <a name="cause"></a>원인
 게이트웨이가 이전에 다른 컴퓨터에 등록되었습니다. 게이트웨이의 초기 등록 과정에서 암호화 인증서가 게이트웨이에 연결되었습니다. 이 인증서는 게이트웨이에서 자체 생성되었거나 사용자가 제공했을 수 있습니다.  이 인증서는 데이터 저장소(연결된 서비스)의 자격 증명을 암호화하는 데 사용됩니다.  
 
-![인증서 내보내기](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/export-certificate.png" alt-text="인증서 내보내기":::
 
 다른 호스트 컴퓨터에서 게이트웨이를 복원할 때 등록 마법사가 이전에 이 인증서로 암호화된 자격 증명의 암호를 해제하라는 메시지를 표시합니다.  이 인증서가 없으면 새 게이트웨이에서 자격 증명의 암호를 해독할 수 없으며 이 새 게이트웨이와 연결된 후속 복사 작업 실행이 실패합니다.  
 
@@ -155,7 +156,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 
 `Error: Gateway cannot connect to cloud service through service bus`
 
-![게이트웨이를 클라우드 서비스에 연결할 수 없음](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png" alt-text="게이트웨이를 클라우드 서비스에 연결할 수 없음":::
 
 #### <a name="cause"></a>원인
 게이트웨이가 Service Bus를 통해 클라우드 서비스에 연결할 수 없습니다.
@@ -189,7 +190,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 
 이 오류가 표시되면 데이터 관리 게이트웨이 구성 관리자의 설정 페이지가 다음 스크린샷처럼 보일 수 있습니다.
 
-![데이터베이스에 연결할 수 없음](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png" alt-text="데이터베이스에 연결할 수 없음":::
 
 #### <a name="cause"></a>원인
 게이트웨이 컴퓨터에서 TLS/SSL 인증서가 손실되었을 수 있습니다. 게이트웨이에서 현재 TLS 암호화에 사용되는 인증서를 로드할 수 없습니다. 다음 메시지와 비슷한 오류 메시지가 이벤트 로그에 표시될 수도 있습니다.
@@ -203,10 +204,10 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 2. **설정** 탭으로 전환합니다.  
 3. **변경** 단추를 클릭하여 TLS/SSL 인증서를 변경합니다.
 
-   ![인증서 변경 단추](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
+   :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png" alt-text="인증서 변경 단추":::
 4. 새 인증서를 TLS/SSL 인증서로 선택합니다. 사용자 또는 조직에서 만든 모든 TLS/SSL 인증서를 사용할 수 있습니다.
 
-   ![인증서 지정](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
+   :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png" alt-text="인증서 지정":::
 
 ## <a name="copy-activity-fails"></a>복사 작업 실패
 ### <a name="problem"></a>문제
@@ -232,7 +233,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 3. **연결 테스트** 에서 게이트웨이 그룹 값을 추가합니다.
 4. **연결 테스트** 를 클릭하여 연결 정보와 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.
 
-![진단 탭의 연결 테스트](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png" alt-text="진단 탭의 연결 테스트":::
 
 ## <a name="gateway-logs"></a>게이트웨이 로그
 ### <a name="send-gateway-logs-to-microsoft"></a>Microsoft로 게이트웨이 로그 보내기
@@ -240,21 +241,21 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 
 1. 데이터 관리 게이트웨이 구성 관리자의 **진단** 탭으로 전환합니다.
 
-    ![데이터 관리 게이트웨이 - 진단 탭](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png" alt-text="데이터 관리 게이트웨이 - 진단 탭":::
 2. **로그 보내기** 를 클릭하여 다음 대화 상자를 표시합니다.
 
-    ![데이터 관리 게이트웨이 - 로그 보내기](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png" alt-text="데이터 관리 게이트웨이 - 로그 보내기":::
 3. (선택 사항) **로그 보기** 를 클릭하여 이벤트 뷰어에서 로그를 검토합니다.
 4. (선택 사항) **개인 정보 취급 방침** 을 클릭하여 Microsoft 웹 서비스 개인 정보 취급 방침을 검토합니다.
 5. 업로드할 항목에 만족하면 **로그 보내기** 를 클릭하여 문제를 해결하기 위해 지난 7일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
 
-    ![send-logs 작업의 상태를 볼 수 있는 위치를 보여 주는 스크린샷](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png" alt-text="send-logs 작업의 상태를 볼 수 있는 위치를 보여 주는 스크린샷":::
 6. 작업이 완료되면 다음 스크린샷과 같은 대화 상자가 표시됩니다.
 
-    ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png" alt-text="데이터 관리 게이트웨이 - 로그 보내기 상태":::
 7. **보고서 ID** 를 저장하고 Microsoft 지원과 공유합니다. 보고서 ID는 문제를 해결하기 위해 업로드한 게이트웨이 로그를 찾는 데 사용됩니다.  또한 보고서 ID는 이벤트 뷰어에도 저장됩니다.  이벤트 ID '25'를 찾을 수 있으며 날짜와 시간을 확인할 수 있습니다.
 
-    ![데이터 관리 게이트웨이 - 로그 보내기 보고서 ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    :::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png" alt-text="데이터 관리 게이트웨이 - 로그 보내기 보고서 ID":::    
 
 ### <a name="archive-gateway-logs-on-gateway-host-machine"></a>게이트웨이 호스트 컴퓨터에 게이트웨이 로그 보관
 게이트웨이에 문제가 있고 게이트웨이 로그를 직접 공유할 수 없는 일부 시나리오가 있습니다.
@@ -265,11 +266,11 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
 
 이러한 시나리오에서는 게이트웨이 로그를 zip 파일로 저장하고 나중에 Microsoft 지원에 문의할 때 공유할 수 있습니다. 예를 들어 다음 스크린샷과 같이 게이트웨이를 등록하는 동안 오류가 발생하는 경우가 있습니다.   
 
-![데이터 관리 게이트웨이 - 등록 오류](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png" alt-text="데이터 관리 게이트웨이 - 등록 오류":::
 
 **게이트웨이 로그 보관** 링크를 클릭하여 로그를 보관하고 저장한 다음 Microsoft 지원과 zip 파일을 공유합니다.
 
-![데이터 관리 게이트웨이 - 로그 보관](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png" alt-text="데이터 관리 게이트웨이 - 로그 보관":::
 
 ### <a name="locate-gateway-logs"></a>게이트웨이 로그 찾기
 Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인할 수 있습니다.
@@ -279,4 +280,4 @@ Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인
 
    게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 
-![데이터 관리 게이트웨이 - 이벤트 뷰어의 로그](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+:::image type="content" source="media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png" alt-text="데이터 관리 게이트웨이 - 이벤트 뷰어의 로그":::

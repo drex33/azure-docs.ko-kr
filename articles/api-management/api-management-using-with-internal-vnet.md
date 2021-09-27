@@ -1,34 +1,34 @@
 ---
 title: Azure API Management를 사용하여 내부 가상 네트워크에 연결
-description: 내부 모드를 사용하여 가상 네트워크에서 Azure API Management 설정하고 구성하는 방법을 알아봅니다.
-author: vladvino
+description: 내부 모드를 사용 하 여 가상 네트워크에서 Azure API Management를 설정 하 고 구성 하는 방법을 알아봅니다.
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83c0e0a7e04130a25267f7a9dafc1cdd888eb53a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: ee5d0ac639cbd36215df5545d684909af3acd748
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537264"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563835"
 ---
-# <a name="connect-to-a-virtual-network-in-internal-mode-using-azure-api-management"></a>Azure API Management 사용하여 내부 모드에서 가상 네트워크에 커넥트 
-Azure VNET(가상 네트워크)를 사용하면 Azure API Management 여러 VPN 기술을 사용하여 인터넷에 액세스할 수 없는 API를 관리할 수 있습니다. [외부](./api-management-using-with-vnet.md) 또는 내부 모드를 통해 API Management를 배포할 수 있습니다. VNET 연결 옵션, 요구 사항 및 고려 사항은 [Azure API Management 가상 네트워크 사용을](virtual-network-concepts.md)참조하세요.
+# <a name="connect-to-a-virtual-network-in-internal-mode-using-azure-api-management"></a>Azure API Management를 사용 하 여 내부 모드에서 가상 네트워크에 커넥트 
+Azure Vnet (가상 네트워크)를 사용 하 여 Azure API Management는 여러 VPN 기술을 사용 하 여 인터넷에 액세스할 수 없는 Api를 관리 하 여 연결을 만들 수 있습니다. [외부](./api-management-using-with-vnet.md) 또는 내부 모드를 통해 API Management를 배포할 수 있습니다. VNET 연결 옵션, 요구 사항 및 고려 사항은 [Azure API Management에서 가상 네트워크 사용](virtual-network-concepts.md)을 참조 하세요.
 
-이 문서에서는 내부 VNET 모드에서 API Management를 배포하는 방법을 알아봅니다. 이 모드에서는 액세스 권한을 제어하는 VNET 내에서만 다음 서비스 엔드포인트를 볼 수 있습니다.
+이 문서에서는 내부 VNET 모드에서 API Management를 배포하는 방법을 알아봅니다. 이 모드에서는 사용자가 제어 하는 액세스 권한을 가진 VNET 내에서 다음 서비스 끝점만 볼 수 있습니다.
 * API 게이트웨이
 * 개발자 포털
 * 직접 관리
 * Git 
 
 > [!NOTE]
-> 서비스 엔드포인트는 공용 DNS에 등록되지 않습니다. VNET에 대한 [DNS를 구성할](#dns-configuration) 때까지 서비스 엔드포인트에 액세스할 수 없습니다.
+> 서비스 엔드포인트는 공용 DNS에 등록되지 않습니다. VNET에 대해 [DNS를 구성할](#dns-configuration) 때까지 서비스 끝점에 액세스할 수 없게 됩니다.
 
 내부 모드에서 API Management를 사용하여 다음을 수행합니다.
 
-* Azure VPN 연결 또는 Azure ExpressRoute 사용하여 프라이빗 데이터 센터에서 호스트되는 API를 외부의 타사에서 안전하게 액세스할 수 있도록 합니다.
+* Azure VPN 연결 또는 Azure Express 경로를 사용 하 여 외부의 타사에서 개인 데이터 센터에 호스트 된 Api를 안전 하 게 액세스할 수 있도록 합니다.
 * 공통 게이트웨이를 통해 클라우드 기반 API와 온-프레미스 API를 공개함으로써 하이브리드 클라우드 시나리오를 사용하도록 설정합니다.
 * 단일 게이트웨이 엔드포인트를 사용하여 여러 지리적 위치에서 호스팅되는 API를 관리합니다.
 
@@ -38,91 +38,91 @@ Azure VNET(가상 네트워크)를 사용하면 Azure API Management 여러 VPN 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-일부 필수 조건은 `stv2` `stv1` API Management 인스턴스에 대한 컴퓨팅 [플랫폼의](compute-infrastructure.md) 버전( 또는 )에 따라 다릅니다. 
+일부 필수 구성 요소는 `stv2` `stv1` API Management 인스턴스에 대 한 [계산 플랫폼](compute-infrastructure.md) 의 버전 (또는)에 따라 달라 집니다. 
 
 > [!TIP]
-> 포털을 사용하여 API Management 인스턴스의 네트워크 구성을 만들거나 업데이트하면 인스턴스가 컴퓨팅 `stv2` 플랫폼에서 호스트됩니다.
+> 포털을 사용 하 여 API Management 인스턴스의 네트워크 구성을 만들거나 업데이트 하는 경우 인스턴스는 `stv2` 계산 플랫폼에서 호스팅됩니다.
 
 ### <a name="stv2"></a>[stv2](#tab/stv2)
 
 + **API Management 인스턴스.** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
-* API Management 인스턴스와 동일한 지역 및 구독에 있는 가상 네트워크 및 **서브넷.** 서브넷에는 다른 Azure 리소스가 포함될 수 있습니다.
+* API Management 인스턴스와 동일한 지역 및 구독에 있는 **가상 네트워크 및 서브넷** 서브넷은 다른 Azure 리소스를 포함할 수 있습니다.
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
    > [!NOTE]
-   > 플랫폼의 내부 가상 네트워크에 API Management 서비스를 배포하는 경우 `stv2` 공용 IP 주소 리소스를 사용하여 표준 [SKU의](../load-balancer/skus.md)내부 부하 분산 시스템 뒤에서 호스팅됩니다.
+   > 플랫폼의 내부 가상 네트워크에 API Management 서비스를 배포 하는 경우 `stv2` 공용 IP 주소 리소스를 사용 하 여 [표준 SKU](../load-balancer/skus.md)의 내부 부하 분산 장치 뒤에 호스트 됩니다.
 
 ### <a name="stv1"></a>[stv1](#tab/stv1)
 
 + **API Management 인스턴스.** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
-* API Management 인스턴스와 동일한 지역 및 구독에 있는 가상 네트워크 및 **서브넷.**
+* API Management 인스턴스와 동일한 지역 및 구독에 있는 **가상 네트워크 및 서브넷**
 
-    서브넷은 API Management 인스턴스 전용이어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
+    서브넷은 API Management 인스턴스에 전용 이어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
 
    > [!NOTE]
-   > 플랫폼의 내부 가상 네트워크에 API Management 서비스를 배포하는 경우 `stv1` [기본 SKU](../load-balancer/skus.md)의 내부 부하 분산 시스템 뒤에 호스트됩니다.
+   > 플랫폼의 내부 가상 네트워크에 API Management 서비스를 배포 하는 경우 `stv1` [기본 SKU](../load-balancer/skus.md)의 내부 부하 분산 장치 뒤에 호스팅됩니다.
 
 ---
 
 ## <a name="enable-vnet-connection"></a>VNET 연결 사용
 
-### <a name="enable-vnet-connectivity-using-the-azure-portal-stv2-platform"></a>Azure Portal(플랫폼)를 사용하여 VNET 연결 사용 `stv2`
+### <a name="enable-vnet-connectivity-using-the-azure-portal-stv2-platform"></a>Azure Portal (플랫폼)를 사용 하 여 VNET 연결 사용 `stv2`
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 API Management 인스턴스를 찾습니다. **API Management 서비스** 를 검색하고 선택합니다.
 1. API Management 인스턴스를 선택합니다.
 1. **가상 네트워크** 를 선택합니다.
-1. **내부** 액세스 유형을 선택합니다.
-1. API Management 서비스가 프로비전되는 위치(지역) 목록에서 다음을 수행합니다. 
+1. **내부** 액세스 유형을 선택 합니다.
+1. API Management 서비스가 프로 비전 되는 위치 (지역) 목록에서: 
     1. **위치** 를 선택합니다.
-    1. **가상 네트워크,** **서브넷** 및 **IP 주소를** 선택합니다. 
+    1. **가상 네트워크**, **서브넷** 및 **IP 주소** 를 선택 합니다. 
         * VNET 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 Resource Manager VNET으로 채워집니다.
 1. **적용** 을 선택합니다. API Management 인스턴스의 **가상 네트워크** 페이지가 새 VNET 및 선택한 서브넷 항목으로 업데이트됩니다.
-   :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Azure Portal 내부 VNET 설정":::
+   :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Azure Portal에서 내부 VNET 설정":::
 1. API Management 인스턴스의 나머지 위치에 대한 VNET 설정을 계속 구성합니다.
 1. 위쪽 탐색 모음에서 **저장** 을 선택하고 **네트워크 구성 적용** 을 선택합니다.
 
     API Management 인스턴스를 업데이트하는 데 15~45분이 걸릴 수 있습니다.
 
-배포에 성공하면, **개요** 블레이드에 API Management 서비스의 **개인** 가상 IP 주소와 **공용** 가상 IP 주소가 표시됩니다. IP 주소에 대한 자세한 내용은 이 문서의 [라우팅을](#routing) 참조하세요.
+배포에 성공하면, **개요** 블레이드에 API Management 서비스의 **개인** 가상 IP 주소와 **공용** 가상 IP 주소가 표시됩니다. IP 주소에 대 한 자세한 내용은이 문서의 [라우팅](#routing) 을 참조 하세요.
 
-:::image type="content" source="media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png" alt-text="Azure Portal 주소가 지정되는 공용 및 개인 IP"::: 
+:::image type="content" source="media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png" alt-text="Azure Portal에서 주소가 지정 된 공용 및 개인 IP"::: 
 
 > [!NOTE]
-> 게이트웨이 URL이 공용 DNS에 등록되지 않았으므로 Azure Portal 사용할 수 있는 테스트 콘솔이 **내부** VNET 배포 서비스에 대해 작동하지 않습니다. 대신, **개발자 포털** 에 제공된 테스트 콘솔을 사용해야 합니다.
+> 게이트웨이 URL은 공용 DNS에 등록 되지 않으므로 Azure Portal에서 사용할 수 있는 테스트 콘솔은 **내부** VNET 배포 된 서비스에 대해 작동 하지 않습니다. 대신, **개발자 포털** 에 제공된 테스트 콘솔을 사용해야 합니다.
 
-### <a name="enable-connectivity-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 연결 사용
+### <a name="enable-connectivity-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 연결 사용
 
-#### <a name="api-version-2021-01-01-preview-stv2-platform"></a>API 버전 2021-01-01-preview( `stv2` 플랫폼)
+#### <a name="api-version-2021-01-01-preview-stv2-platform"></a>API 버전 2021-01-01-미리 보기 ( `stv2` 플랫폼)
 
 * Azure Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip)
 
      [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet-publicip%2Fazuredeploy.json)
 
-#### <a name="api-version-2020-12-01-stv1-platform"></a>API 버전 2020-12-01( `stv1` 플랫폼)
+#### <a name="api-version-2020-12-01-stv1-platform"></a>API 버전 2020-12-01 ( `stv1` 플랫폼)
 
 * Azure Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet)
 
      [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
-### <a name="enable-connectivity-using-azure-powershell-cmdlets-stv1-platform"></a>Azure PowerShell cmdlet을 사용하여 연결 사용( `stv1` 플랫폼)
+### <a name="enable-connectivity-using-azure-powershell-cmdlets-stv1-platform"></a>Azure PowerShell cmdlet을 사용 하 여 연결 사용 ( `stv1` 플랫폼)
 
-VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.apimanagement/new-azapimanagement) [업데이트합니다.](/powershell/module/az.apimanagement/update-azapimanagementregion)
+VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.apimanagement/new-azapimanagement) [업데이트](/powershell/module/az.apimanagement/update-azapimanagementregion) 합니다.
 
 ## <a name="dns-configuration"></a>DNS 구성
 
 외부 VNET 모드에서 Azure는 DNS를 관리합니다. 내부 VNET 모드의 경우, 자체 DNS를 관리해야 합니다. 다음이 권장됩니다.
-1. Azure DNS 프라이빗 영역 를 [구성합니다.](../dns/private-dns-overview.md)
-1. Azure DNS 프라이빗 영역을 API Management 서비스를 배포한 VNET에 연결합니다. 
+1. Azure [DNS 개인 영역](../dns/private-dns-overview.md)을 구성 합니다.
+1. Azure DNS 개인 영역을 API Management 서비스를 배포한 VNET에 연결 합니다. 
 
 [Azure DNS에서 프라이빗 영역을 설정](../dns/private-dns-getstarted-portal.md)하는 방법을 알아봅니다.
 
 > [!NOTE]
-> API Management 서비스는 해당 IP 주소에 대한 요청을 수신 대기하지 않습니다. 해당 서비스 엔드포인트에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이 엔드포인트에는 다음이 필요합니다.
+> API Management 서비스는 해당 IP 주소에 대 한 요청을 수신 하지 않습니다. 해당 서비스 엔드포인트에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이 엔드포인트에는 다음이 필요합니다.
 > * API 게이트웨이
 > * Azure Portal
 > * 개발자 포털
@@ -140,7 +140,7 @@ VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.a
 | 엔드포인트 직접 관리 | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
-이러한 API Management 서비스 엔드포인트에 액세스하려면 API Management를 배포한VNET에 연결된 서브넷에 가상 머신을 생성할 수 있습니다. 서비스의 내부 가상 IP 주소가 10.1.0.5라고 가정하면 다음과 같이 호스트 파일을 매핑할 수 있습니다. Windows 이 파일은 에 `%SystemDrive%\drivers\etc\hosts` 있습니다. 
+이러한 API Management 서비스 엔드포인트에 액세스하려면 API Management를 배포한VNET에 연결된 서브넷에 가상 머신을 생성할 수 있습니다. 서비스의 내부 가상 IP 주소가 10.1.0.5 인 것으로 가정 하면 다음과 같이 호스트 파일을 매핑할 수 있습니다. Windows에서이 파일은에 `%SystemDrive%\drivers\etc\hosts` 있습니다. 
 
 | 내부 가상 IP 주소 | 엔드포인트 구성 |
 | ----- | ----- |
@@ -191,7 +191,7 @@ DIP 주소는 서비스의 각 기본 가상 머신에 할당되고 VNET *내의
 
 #### <a name="example"></a>예제
 
-내부 VNET의 Premium 계층에 1개의 API Management [용량 단위를](api-management-capacity.md) 배포하는 경우 3개의 IP 주소가 사용됩니다. 프라이빗 VIP에 대해 1개, VM 2개에 대해 각각 하나씩 사용됩니다. 4단위까지 확장하면 서브넷의 추가 DIP에 더 많은 IP가 소비됩니다.  
+내부 VNET의 Premium 계층에 1개의 API Management [용량 단위를](api-management-capacity.md) 배포하는 경우 3개의 IP 주소가 사용됩니다. 프라이빗 VIP의 경우 1개, VM 2개에 대한 DIP에 각각 하나씩 사용됩니다. 4단위로 확장하는 경우 서브넷의 추가 DIP에 더 많은 IP가 소비됩니다.  
 
 대상 엔드포인트에 고정된 DIP 집합만 허용 목록에 있는 경우 나중에 새 단위를 추가하면 연결 오류가 발생합니다. 이러한 이유로 서브넷은 전적으로 제어에 있으므로 백 엔드에서 전체 서브넷을 허용 나열하는 것이 좋습니다.
 
@@ -208,7 +208,7 @@ DIP 주소는 서비스의 각 기본 가상 머신에 할당되고 VNET *내의
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
-[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration
+[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
 

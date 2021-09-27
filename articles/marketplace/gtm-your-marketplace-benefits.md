@@ -4,21 +4,24 @@ description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2021
+ms.date: 09/23/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dcd7c7c64c0a686abe88b9e0d5810ff84aab27f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9d957adf84bf6f9cf9b48c5d5554d27206d8c382
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528966"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708382"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
 Microsoft 상업용 Marketplace에 게시했으므로 이제 제품이 성공적으로 표시되는지 확인하려고 합니다. 제품 성장 가속화에 필요한 판매, 기술 및 마케팅 혜택을 제공합니다.
 
 제품이 Microsoft AppSource 또는 Azure Marketplace에 게시되면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165457)로 이동하여 적합한 마케팅, 영업, 기술 혜택에 액세스하고 이를 활성화합니다. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
+
+> [!NOTE]
+> 이 문서의 이미지에서 참조 되는 통화 ($)는 Microsoft AppSource 및 Azure Marketplace를 통해 판매 된 누적 청구 판매량을 기반으로 하는 Marketplace 보상 혜택 계층입니다.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 

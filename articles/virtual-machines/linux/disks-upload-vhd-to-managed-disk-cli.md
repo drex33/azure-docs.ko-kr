@@ -4,16 +4,16 @@ description: Azure 관리 디스크에 VHD를 업로드하고 Azure CLI를 사�
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: e78998d089ffe6446e9b7dbdf898b2d4ee4ba3a1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 08c58a65a8801646d0dd6d0bd51bbab8d57d97e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694932"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754607"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD 업로드 또는 다른 지역에 관리 디스크 복사 - Azure CLI
 
@@ -51,10 +51,10 @@ Azure에 VHD를 업로드하려면 이 업로드 프로세스를 위해 구성�
 `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>`을 선택한 값으로 바꿉니다. `--upload-size-bytes` 매개 변수에는 `34359738880`의 예제 값이 포함되어 있으므로 해당 값을 적절한 값으로 바꿉니다.
 
 > [!TIP]
-> OS 디스크를 만드는 경우 --hyper-v-generation <yourGeneration>을 `az disk create`에 추가합니다.
+> OS 디스크를 만드는 경우 `az disk create`에 `--hyper-v-generation <yourGeneration>`을 추가합니다.
 
 ```azurecli
-az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
 프리미엄 SSD 또는 표준 SSD를 업로드하려면 **standard_lrs** 를 **premium_LRS** 또는 **standardssd_lrs** 로 바꿉니다. Ultra 디스크는 현재 지원되지 않습니다.
@@ -102,12 +102,12 @@ az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 다음 스크립트는 해당 작업을 자동으로 수행합니다. 프로세스는 앞에서 설명한 단계와 유사하지만 기존 디스크로 작업하므로 몇 가지 차이점이 있습니다.
 
 > [!IMPORTANT]
-> Azure에서 관리 디스크의 디스크 크기(바이트)를 지정하는 경우 오프셋 512를 더해야 합니다. Azure에서 디스크 크기를 반환할 때는 바닥글이 생략되기 때문입니다. 이렇게 하지 않으면 복사에 실패합니다. 다음 스크립트는 해당 작업을 자동으로 수행합니다.
+> Azure에서 관리 디스크의 디스크 크기(바이트)를 지정하는 경우 오프셋 512를 더해야 합니다. Azure에서 디스크 크기를 반환할 때는 바닥글이 생략되기 때문입니다. 이렇게 하지 않으면 복사가 실패합니다. 다음 스크립트는 해당 작업을 자동으로 수행합니다.
 
 `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourTargetLocationHere>`(위치 값의 예: uswest2)를 해당 값으로 바꾼 후 관리 디스크를 복사하기 위해 다음 스크립트를 실행합니다.
 
 > [!TIP]
-> OS 디스크를 만드는 경우 --hyper-v-generation <yourGeneration>을 `az disk create`에 추가합니다.
+> OS 디스크를 만드는 경우 `az disk create`에 `--hyper-v-generation <yourGeneration>`을 추가합니다.
 
 ```azurecli
 sourceDiskName=<sourceDiskNameHere>
@@ -115,10 +115,12 @@ sourceRG=<sourceResourceGroupHere>
 targetDiskName=<targetDiskNameHere>
 targetRG=<targetResourceGroupHere>
 targetLocation=<yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+targetOS=<yourOSTypeHere>
 
 sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 

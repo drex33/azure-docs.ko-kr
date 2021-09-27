@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 API 편집 | Microsoft Docs
 description: APIM(API Management)을 사용하여 API를 편집하는 방법에 대해 알아봅니다. APIM 인스턴스에서 작업을 추가, 삭제 또는 이름을 변경하거나 API의 swagger를 편집합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: apimpm
-ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: db8ceb0921d7ed18cfaa7651d208d5f7e899a6e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654445"
 ---
 # <a name="edit-an-api"></a>API 편집
 

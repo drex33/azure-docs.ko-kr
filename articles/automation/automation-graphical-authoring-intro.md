@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 57d5627e45e79263408b9b5760c8332122ce8c91
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: af5a1a8353435d9f54b28bce46897f55f8b560a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167399"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812653"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
@@ -254,7 +255,7 @@ Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력** 을 �
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 속성 | 필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 합니다. 문자로 시작해야 하며, 문자, 숫자, 밑줄만 사용할 수 있습니다. 이름은 공백을 포함할 수 없습니다. |
 | Description |(선택 사항) 입력 매개 변수의 용도에 대한 설명입니다. |
@@ -432,7 +433,7 @@ Azure Automation의 각 그래픽 Runbook에는 초안 버전과 게시된 버�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 그래픽 Runbook을 시작하려면 [자습서: 그래픽 Runbook 만들기](learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
+* 그래픽 Runbook을 시작하려면 [자습서: 그래픽 Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.
 * Automation 실행 계정을 사용하여 인증하는 방법을 알아보려면 [실행 계정](automation-security-overview.md#run-as-account)을 참조하세요.
 * PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/#automation)을 참조하세요.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f9dcea1c9f25772d45e6d01e1a6b17635df9cf48
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: 90ce78bfab0cacbaea871402394fe8963775844c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287521"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824678"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -64,7 +64,7 @@ Automation 계정을 만들려면 권한과 사용 권한이 필요합니다. �
 
 ### <a name="1-create-an-automation-account"></a><a name="about"></a>1. Automation 계정 만들기
 
-실행 권한을 사용하여 Azure Automation 계정을 만듭니다. 자세한 내용은 [Azure Automation 계정 만들기](../automation/automation-quickstart-create-account.md)를 참조하세요.
+실행 권한을 사용하여 Azure Automation 계정을 만듭니다. 자세한 내용은 [Azure Automation 계정 만들기](../automation/quickstarts/create-account-portal.md)를 참조하세요.
 
 :::image type="content" source="./media/custom-route-alert-portal/create-account.png" alt-text="Automation 계정 추가" lightbox="./media/custom-route-alert-portal/create-account-expand.png":::
 

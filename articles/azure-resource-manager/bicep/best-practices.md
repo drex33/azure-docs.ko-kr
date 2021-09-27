@@ -5,16 +5,20 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 7dae6525b457c544c98c59ffd1195f9ec31e2ae7
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 46efbf883e6dc0409e7f8d5f8d379693079acafc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540851"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788442"
 ---
 # <a name="best-practices-for-bicep"></a>Bicep에 대한 모범 사례
 
 이 문서에서는 Bicep 파일을 만들 때 따라야 하는 모범 사례를 권장합니다. 이러한 모범 사례를 통해 Bicep 파일을 더 쉽게 이해하고 사용할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Bicep 모범 사례 및 실습 지침에 대 한 자세한 내용은 **Microsoft Learn** 에 [대 한 공동 작업을 위한 Bicep 코드 구조](/learn/modules/structure-bicep-code-collaboration/) 를 참조 하세요.
 
 ## <a name="parameters"></a>매개 변수
 

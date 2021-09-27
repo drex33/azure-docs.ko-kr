@@ -3,34 +3,39 @@ title: Azure IoT Central 대시보드 만들기 및 관리 | Microsoft Docs
 description: Azure IoT Central에서 애플리케이션 및 개인 대시보드를 만들고 관리하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 08/19/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 723af65800674fcb539c5f3003b9504b02969e6f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: bcd9b0f4aa1b4a7f89479270ebce65fba9968e56
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696727"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810755"
 ---
 # <a name="create-and-manage-dashboards"></a>대시보드 만들기 및 관리
 
-기본 ‘애플리케이션 대시보드’는 애플리케이션으로 처음 이동할 때 로드되는 페이지입니다. 관리자는 모든 애플리케이션 사용자에게 표시되는 애플리케이션 대시보드를 최대 10개까지 만들 수 있습니다. 관리자만 애플리케이션 수준 대시보드를 만들고 편집하고 삭제할 수 있습니다.
+기본 *조직 대시보드는* 애플리케이션으로 처음 이동하면 로드되는 페이지입니다. 관리자는 특정 조직과 연결된 추가 조직 대시보드를 만들 수 있습니다. 조직 대시보드는 대시보드가 연결된 조직에 대한 액세스 권한이 있는 사용자에게만 표시됩니다. 조직 대시보드 권한이 있는 역할의 사용자만 [조직 대시보드를](howto-manage-users-roles.md#customizing-the-app) 만들고 편집하고 삭제할 수 있습니다.
 
-또한 사용자는 자신의 *개인 대시보드* 를 만들 수도 있습니다. 사용자는 애플리케이션 대시보드와 개인 대시보드 간을 전환할 수 있습니다.
+> [!TIP]
+> 대시보드 설정에서 대시보드가 연결된 조직을 확인할 수 있습니다.
+
+또한 사용자는 자신의 *개인 대시보드* 를 만들 수도 있습니다. 사용자는 조직 대시보드와 개인 대시보드 간에 전환할 수 있습니다.
 
 ## <a name="create-a-dashboard"></a>대시보드 만들기
 
-다음 스크린샷은 사용자 지정 애플리케이션 템플릿에서 만든 애플리케이션의 대시보드를 보여 줍니다. 기본 애플리케이션 대시보드를 개인 대시보드로 바꿀 수 있습니다. 관리자인 경우 이를 다른 애플리케이션 수준 대시보드로 바꿀 수도 있습니다. 이렇게 하려면 페이지의 왼쪽 위에서 **새 대시보드** 를 선택합니다.
+다음 스크린샷은 **사용자 지정 애플리케이션** 템플릿에서 만든 애플리케이션의 대시보드를 보여 줍니다. 적절한 권한이 있는 역할에 있는 경우 기본 대시보드를 사용자 지정할 수 있습니다. 새 대시보드를 만들려면 페이지의 왼쪽 위 모서리에서 **+ 새 대시보드를** 선택합니다.
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="새 대시보드 단추를 보여 주는 스크린샷":::
 
-**새 대시보드** 를 선택하여 대시보드 편집기를 엽니다. 편집기에서 대시보드에 이름을 지정하고 라이브러리에서 항목을 선택합니다. 라이브러리에는 대시보드를 사용자 지정하는 데 사용할 수 있는 타일 및 대시보드 기본 형식이 포함되어 있습니다.
+대시보드 **만들기** 패널에서 대시보드 이름을 지정하고 대시보드 유형으로 **조직** 또는 **개인을** 선택합니다. 조직 대시보드를 만드는 경우 대시보드가 연결된 [조직을](howto-create-organizations.md) 선택합니다. 조직 대시보드 및 해당 타일은 조직 및 해당 하위 조직에 표시되는 디바이스만 표시합니다.
+
+대시보드를 만든 후 라이브러리에서 항목을 선택하여 대시보드에 추가합니다. 라이브러리에는 대시보드를 사용자 지정하는 데 사용하는 타일 및 대시보드 기본형이 포함되어 있습니다.
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="대시보드 라이브러리를 보여 주는 스크린샷":::
 
-관리자인 경우 개인 대시보드 또는 애플리케이션 대시보드를 만들 수 있습니다. 모든 애플리케이션 사용자는 관리자가 만드는 애플리케이션 대시보드를 볼 수 있습니다. 모든 사용자는 자신만 볼 수 있는 개인 대시보드를 만들 수 있습니다.
+관리자인 경우 개인 대시보드 또는 조직 대시보드를 만들 수 있습니다. 할당된 조직과 연결된 조직 대시보드가 사용자에게 표시됩니다. 모든 사용자는 자신만 볼 수 있는 개인 대시보드를 만들 수 있습니다.
 
 제목을 입력하고 만들려는 대시보드 유형을 선택합니다. [타일을 추가](#add-tiles)하여 대시보드를 사용자 지정합니다.
 
@@ -39,17 +44,21 @@ ms.locfileid: "122696727"
 
 ## <a name="manage-dashboards"></a>대시보드 관리
 
-여러 개인 대시보드를 사용하고 서로 전환하거나 기본 애플리케이션 대시보드 중 하나를 선택할 수 있습니다.
+여러 개인 대시보드가 있고 대시보드 간에 전환하거나 조직 대시보드 중 하나를 선택할 수 있습니다.
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="대시보드를 전환하는 방법을 보여 주는 스크린샷":::
 
-개인 대시보드를 편집할 수 있고, 필요하지 않은 대시보드를 삭제할 수 있습니다. 관리자인 경우 애플리케이션 수준 대시보드도 편집하거나 삭제할 수 있습니다.
+개인 대시보드를 편집할 수 있고, 필요하지 않은 대시보드를 삭제할 수 있습니다. 올바른 [권한이](howto-manage-users-roles.md#customizing-the-app)있는 경우 조직 대시보드도 편집하거나 삭제할 수 있습니다.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="대시보드를 삭제하는 방법을 보여 주는 스크린샷":::
 
+대시보드 이름을 바꾸거나 할당된 조직을 보려면 **대시보드 설정** 를 선택합니다.
+
+:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="대시보드 이름을 바꾸는 방법을 보여 주는 스크린샷":::
+
 ## <a name="add-tiles"></a>타일 추가
 
-다음 스크린샷은 사용자 지정 애플리케이션 템플릿에서 만든 애플리케이션의 대시보드를 보여 줍니다. 현재 대시보드를 사용자 지정하려면 **편집** 을 선택합니다. 개인 또는 애플리케이션 대시보드를 추가하려면 **새 대시보드** 를 선택합니다.
+다음 스크린샷은 **사용자 지정 애플리케이션** 템플릿에서 만든 애플리케이션의 대시보드를 보여줍니다. 현재 대시보드를 사용자 지정하려면 **편집** 을 선택합니다. 개인 또는 조직 대시보드를 추가하려면 **새 대시보드** 를 선택합니다.
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="사용자 지정 애플리케이션 템플릿을 기반으로 하는 애플리케이션용 대시보드를 보여 주는 스크린샷":::
 

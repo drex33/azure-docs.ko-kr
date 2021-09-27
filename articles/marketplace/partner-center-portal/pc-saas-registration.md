@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 1c769cdac870c7384495d41158bd7ad516608575
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048343"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632959"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -109,7 +109,14 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
   }
 ```
 
-응답의 `"access_token"` 필드 값은 모든 SaaS 처리 및 Marketplace 계량 API를 호출할 때 권한 부여 매개 변수로 전달할 `<access_token>`입니다.
+| 요소 | Description |
+| ------- | ----------- |
+| `access_token` | 이 요소는 `<access_token>` 모든 SaaS 처리 및 Marketplace 계량 API를 호출할 때 권한 부여 매개 변수로 전달하는 입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
+| `expires_in` | 액세스 토큰의 발급 시간부터 만료 이전까지 계속 유효한 시간(초)입니다. 발급 시간은 토큰의 `iat` 클레임에서 확인할 수 있습니다. |
+| `expires_on` | 액세스 토큰이 만료되는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `exp` 클레임에 해당함). |
+| `not_before` | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함). |
+| `resource` | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다. |
+| `token_type` | 토큰의 형식은 "전달자" 액세스 토큰입니다. 즉, 리소스가 이 토큰의 전달자에 액세스 권한을 제공할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

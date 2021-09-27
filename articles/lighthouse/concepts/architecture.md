@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 아키텍처
 description: Azure Lighthouse의 테넌트 간 관계와 고객의 테넌트에서 만들어 이러한 관계를 사용하도록 설정하는 리소스에 대해 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: bdcd1057d4ba2adfe8ab312228acd562b384b09d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 92890199b11da69fac58ec4ff2bccc1ab347d076
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795516"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629126"
 ---
 # <a name="azure-lighthouse-architecture"></a>Azure Lighthouse 아키텍처
 
@@ -51,7 +51,7 @@ Azure Lighthouse는 리소스에 대한 한 테넌트에서 다른 테넌트로�
 
 ## <a name="how-azure-lighthouse-works"></a>Azure Lighthouse의 작동 방식
 
-Azure Lighthouse의 개략적인 작동 방식은 다음과 같습니다.
+높은 수준에서 관리 테 넌 트에 대해 Azure Lighthouse가 작동 하는 방식은 다음과 같습니다.
 
 1. 그룹, 서비스 주체 또는 사용자가 고객의 Azure 리소스를 관리하는 데 필요한 [역할](tenants-users-roles.md#role-support-for-azure-lighthouse)을 식별합니다.
 2. [관리되는 서비스 제안을 Azure Marketplace에 게시](../how-to/publish-managed-services-offers.md)하거나 [Azure Resource Manager 템플릿을 배포](../how-to/onboard-customer.md)하여 이 액세스 권한을 지정하고 고객을 Azure Lighthouse에 온보딩합니다. 이 온보딩 프로세스는 위에서 설명한 두 개의 리소스(등록 정의 및 등록 할당)를 고객의 테넌트에 만듭니다.
@@ -61,6 +61,6 @@ Azure Lighthouse의 개략적인 작동 방식은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 등록 정의 및 등록 할당 작업에 대한 [Azure CLI](/cli/azure/managedservices/assignment) 및 [Azure Powershell](/powershell/module/az.managedservices/new-azmanagedservicesdefinition) 명령을 검토합니다.
+- 등록 정의 및 등록 할당 작업에 대한 [Azure CLI](/cli/azure/managedservices) 및 [Azure Powershell](/powershell/module/az.managedservices) 명령을 검토합니다.
 - Azure Lighthouse에 대한 [향상된 서비스 및 시나리오에](cross-tenant-management-experience.md#enhanced-services-and-scenarios)에 대해 알아봅니다.
 - [테넌트, 사용자 및 역할](tenants-users-roles.md)이 Azure Lighthouse에서 작동하는 방법에 대해 자세히 알아봅니다.

@@ -8,16 +8,16 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c57744817e26cc79c101246f146d32d3db061ed5
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 9ee927ff858c1242ddab687e28707049a27a23bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361482"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624845"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage에서 Blob 다운로드
 
-AzCopy v10 명령줄 유틸리티를 사용하여 Blob Storage에서 blob과 디렉터리를 다운로드할 수 있습니다. 
+AzCopy v10 명령줄 유틸리티를 사용하여 Blob Storage에서 blob과 디렉터리를 다운로드할 수 있습니다.
 
 파일 업로드, Blob Storage와 동기화 또는 계정 간 Blob 복사와 같은 다른 작업 형식의 예를 보려면 이 문서의 [다음 단계](#next-steps) 섹션에 있는 링크를 참조하세요.
 
@@ -25,7 +25,7 @@ AzCopy v10 명령줄 유틸리티를 사용하여 Blob Storage에서 blob과 디
 
 AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 제공하는 방법에 관해 알아보려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조하세요.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
 > SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
@@ -39,7 +39,7 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 **구문**
 
-``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'`
 
 **예제**
 
@@ -105,7 +105,7 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDi
 
 ## <a name="download-specific-blobs"></a>특정 blob 다운로드
 
-전체 파일 이름, 와일드카드 문자(*)가 포함된 부분 이름을 사용하거나 날짜 및 시간을 사용하여 특정 blob을 다운로드할 수 있습니다. 
+전체 파일 이름, 와일드카드 문자(*)가 포함된 부분 이름을 사용하거나 날짜 및 시간을 사용하여 특정 blob을 다운로드할 수 있습니다.
 
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
@@ -158,9 +158,9 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 
 `--include-pattern`및 `--exclude-pattern` 옵션은 경로가 아니라 blob 이름에만 적용됩니다.  디렉터리 트리에 있는 모든 텍스트 파일(blob)을 복사하려면 `–recursive` 옵션을 사용하여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`을 사용하고 `*.txt`를 지정하여 모든 텍스트 파일을 가져옵니다.
 
-#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>날짜 및 시간 이전 또는 이후 수정된 blob 다운로드 
+#### <a name="download-blobs-that-were-modified-before-or-after-a-date-and-time"></a>날짜 및 시간 이전 또는 이후 수정된 blob 다운로드
 
-`--include-before` 또는 `--include-after` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. ISO-8601 형식으로 날짜와 시간을 지정합니다(예: `2020-08-19T15:04:00Z`). 
+`--include-before` 또는 `--include-after` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. ISO-8601 형식으로 날짜와 시간을 지정합니다(예: `2020-08-19T15:04:00Z`).
 
 다음 예에서는 지정한 날짜 또는 그 이후에 수정된 파일을 다운로드합니다.
 
@@ -184,9 +184,9 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 
 #### <a name="download-previous-versions-of-a-blob"></a>이전 버전의 blob 다운로드
 
-[Blob 버전 관리](../blobs/versioning-enable.md)를 사용하도록 설정한 경우 blob의 이전 버전을 하나 이상 다운로드할 수 있습니다. 
+[Blob 버전 관리](../blobs/versioning-enable.md)를 사용하도록 설정한 경우 blob의 이전 버전을 하나 이상 다운로드할 수 있습니다.
 
-먼저 [버전 ID](../blobs/versioning-overview.md)목록을 포함하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시되어야 합니다. 예를 들면 다음과 같습니다. 
+먼저 [버전 ID](../blobs/versioning-overview.md)목록을 포함하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시되어야 합니다. 예를 들면 다음과 같습니다.
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -194,11 +194,11 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 2020-08-17T05:50:36.7607103Z
 ```
 
-그런 다음 `--list-of-versions` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 버전 목록이 포함된 텍스트 파일의 위치를 지정합니다(예: `D:\\list-of-versions.txt` ).  
+그런 다음 `--list-of-versions` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 버전 목록이 포함된 텍스트 파일의 위치를 지정합니다(예: `D:\\list-of-versions.txt` ).
 
 #### <a name="download-a-blob-snapshot"></a>Blob 스냅샷 다운로드
 
-Blob 스냅샷의 **DateTime** 값을 참조하여 [blob 스냅샷을](../blobs/snapshots-overview.md) 다운로드할 수 있습니다. 
+Blob 스냅샷의 **DateTime** 값을 참조하여 [blob 스냅샷을](../blobs/snapshots-overview.md) 다운로드할 수 있습니다.
 
 **구문**
 

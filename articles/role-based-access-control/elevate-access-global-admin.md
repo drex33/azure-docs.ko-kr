@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/09/2020
+ms.date: 09/10/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a7897590f8803be105eabb5cdee194e6574e8b9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 96e2f7176f85d5571ce73c4efdd592dd3964400d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696659"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781526"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -327,6 +327,93 @@ az role assignment list --role "User Access Administrator" --scope "/"
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
     ```
+
+## <a name="view-elevate-access-logs"></a>액세스 권한 상승 로그 보기
+
+액세스 권한이 상승되면 로그에 항목이 추가됩니다. Azure AD의 전역 관리자는 액세스 권한이 상승된 시기와 누가 액세스했는지 확인할 수 있습니다. 액세스 권한 상승 로그 항목은 표준 활동 로그에 표시되지 않고 대신 디렉터리 활동 로그에 표시됩니다. 이 섹션에서는 액세스 권한 상승 로그를 볼 수 있는 다양한 방법을 설명합니다.
+
+### <a name="view-elevate-access-logs-using-the-azure-portal"></a>Azure Portal 사용하여 액세스 권한 상승 로그 보기
+
+1. 액세스 권한을 높이려면 이 문서의 앞부분에 있는 단계를 따르세요.
+
+1. 글로벌 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+1. **모니터**  >  **활동 로그 를** 엽니다.
+
+1. 활동 목록을 디렉터리 **작업** **으로 변경합니다.**
+
+1. 액세스 권한 상승 작업을 나타내는 다음 작업을 검색합니다.
+
+    `Assigns the caller to User Access Administrator role`
+
+    ![모니터의 디렉터리 활동 로그를 보여주는 스크린샷](./media/elevate-access-global-admin/monitor-directory-activity.png)
+
+1. 이 문서의 앞부분에 있는 단계에 따라 상승된 액세스를 제거합니다.
+
+### <a name="view-elevate-access-logs-using-azure-cli"></a>Azure CLI 사용하여 액세스 권한 상승 로그 보기
+
+1. 액세스 권한을 높이려면 이 문서의 앞부분에 있는 단계를 따르세요.
+
+1. [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 전역 관리자로 로그인합니다.
+
+1. [az rest](/cli/azure/reference-index#az_rest) 명령을 사용하여 타임스탬프 예제와 같이 날짜를 기준으로 필터링하고 로그를 저장할 파일 이름을 지정해야 하는 다음 호출을 수행합니다.
+
+    는 `url` API를 호출하여 Microsoft.Insights 로그를 검색합니다. 출력이 파일에 저장됩니다.
+
+    ```azurecli
+    az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+    ```
+
+1.  출력 파일에서 를 `elevateAccess` 검색합니다.
+
+    로그는 작업이 발생한 시기와 호출한 사람의 타임스탬프를 볼 수 있는 다음과 유사합니다.
+
+    ```json
+      "submissionTimestamp": "2021-08-27T15:42:00.1527942Z",
+      "subscriptionId": "",
+      "tenantId": "33333333-3333-3333-3333-333333333333"
+    },
+    {
+      "authorization": {
+        "action": "Microsoft.Authorization/elevateAccess/action",
+        "scope": "/providers/Microsoft.Authorization"
+      },
+      "caller": "user@example.com",
+      "category": {
+        "localizedValue": "Administrative",
+        "value": "Administrative"
+      },
+    ```
+
+1. 이 문서의 앞부분에 있는 단계에 따라 상승된 액세스를 제거합니다.
+
+### <a name="delegate-access-to-a-group-to-view-elevate-access-logs-using-azure-cli"></a>Azure CLI 사용하여 액세스 권한 상승 로그를 보려면 그룹에 대한 액세스 위임
+
+액세스 권한 상승 로그를 주기적으로 받으려면 그룹에 대한 액세스를 위임한 다음 Azure CLI 사용할 수 있습니다.
+
+1. **Azure Active Directory**  >  **그룹을 엽니다.**
+
+1. 새 보안 그룹을 만들고 그룹 개체 ID를 확인합니다.
+
+1. 액세스 권한을 높이려면 이 문서의 앞부분에 있는 단계를 따르세요.
+
+1. [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 전역 관리자로 로그인합니다.
+
+1. [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용하여 디렉터리 수준에서만 로그를 읽을 수 있는 그룹에 [읽기](built-in-roles.md#reader) 역할을 할당합니다. 이 그룹은 에 `Microsoft/Insights` 있습니다.
+
+    ```azurecli
+    az role assignment create --assignee "{groupId}" --role "Reader" --scope "/providers/Microsoft.Insights"
+    ```
+
+1. 이전에 만든 그룹에 로그를 읽을 사용자를 추가합니다.
+
+1. 이 문서의 앞부분에 있는 단계에 따라 상승된 액세스를 제거합니다.
+
+이제 그룹의 사용자가 [az rest](/cli/azure/reference-index#az_rest) 명령을 주기적으로 실행하여 액세스 권한 상승 로그를 볼 수 있습니다.
+
+```azurecli
+az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: faee5c872b70f55011c6213a04e14c6f69bcc8df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900419"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730461"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-[Azure 청구 지원](../azure-portal/supportability/resource-manager-core-quotas-request.md)에 문의하여 구독을 사용하도록 설정하면 대상 위치에 필요한 크기의 VM을 만드십시오. 그 다음 실패한 작업을 다시 시도하십시오.
+[Azure 청구 지원](../azure-portal/supportability/regional-quota-requests.md)에 문의하여 구독을 사용하도록 설정하면 대상 위치에 필요한 크기의 VM을 만드십시오. 그 다음 실패한 작업을 다시 시도하십시오.
 
 대상 위치에 용량 제한이 있는 경우 해당 위치에 복제를 사용하지 않도록 설정하십시오. 그 다음 구독에 필요한 크기의 VM을 만들기에 충분한 할당량이 있는 다른 위치로 복제를 사용하도록 설정합니다.
 

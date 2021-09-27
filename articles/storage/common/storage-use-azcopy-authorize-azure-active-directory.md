@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e6b2e331c274013ccad445c4e203388b8b7b8048
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.openlocfilehash: d5aced875863f892ec9dda0022f4571ce15349c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903872"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638238"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>AzCopy & Azure AD(Active Directory)로 Blob 액세스 권한 부여
 
-Azure AD를 사용하여 AzCopy에 권한 부여 자격 증명을 제공할 수 있습니다. 이렇게 하면 명령마다 SAS(공유 액세스 서명)를 추가하지 않아도 됩니다. 
+Azure AD를 사용하여 AzCopy에 권한 부여 자격 증명을 제공할 수 있습니다. 이렇게 하면 명령마다 SAS(공유 액세스 서명)를 추가하지 않아도 됩니다.
 
-먼저 역할 할당을 확인합니다. 그런 다음, 권한을 부여할 _보안 주체_ 의 유형을 선택합니다. [사용자 ID](../../active-directory/fundamentals/add-users-azure-active-directory.md), [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 및 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)는 각 보안 주체의 유형입니다.
+먼저 역할 할당을 확인합니다. 그런 다음, 권한을 부여할 *보안 주체* 의 유형을 선택합니다. [사용자 ID](../../active-directory/fundamentals/add-users-azure-active-directory.md), [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 및 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)는 각 보안 주체의 유형입니다.
 
-사용자 ID는 Azure AD에 ID가 있는 사용자입니다. 권한 부여를 위한 가장 쉬운 보안 주체입니다. 관리 ID 및 서비스 주체는 사용자 개입 없이 실행되는 스크립트 내에서 AzCopy를 사용하려는 경우에 유용한 옵션입니다. 관리 ID는 Azure VM(Virtual Machine)에서 실행되는 스크립트에, 서비스 주체는 온-프레미스에서 실행되는 스크립트에 더 적합합니다. 
+사용자 ID는 Azure AD에 ID가 있는 사용자입니다. 권한 부여를 위한 가장 쉬운 보안 주체입니다. 관리 ID 및 서비스 주체는 사용자 개입 없이 실행되는 스크립트 내에서 AzCopy를 사용하려는 경우에 유용한 옵션입니다. 관리 ID는 Azure VM(Virtual Machine)에서 실행되는 스크립트에, 서비스 주체는 온-프레미스에서 실행되는 스크립트에 더 적합합니다.
 
 AzCopy에 대한 자세한 내용은 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요.
 
@@ -145,7 +145,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> 이 예제에 나와 있는 것처럼 프롬프트를 사용하는 것이 좋습니다. 이렇게 하면 암호가 콘솔의 명령 기록에 표시되지 않습니다.  
+> 이 예제에 나와 있는 것처럼 프롬프트를 사용하는 것이 좋습니다. 이렇게 하면 암호가 콘솔의 명령 기록에 표시되지 않습니다.
 
 이제 다음 명령을 입력하고 ENTER 키를 누릅니다.
 
@@ -153,7 +153,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-`<application-id>` 자리 표시자를 서비스 주체 앱 등록의 애플리케이션 ID로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다. 
+`<application-id>` 자리 표시자를 서비스 주체 앱 등록의 애플리케이션 ID로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다.
 
 #### <a name="authorize-a-service-principal-by-using-a-certificate"></a>인증서를 사용하여 서비스 주체 권한 부여
 
@@ -181,13 +181,13 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 `<path-to-certificate-file>` 자리 표시자를 인증서 파일의 상대 경로 또는 정규화된 경로로 바꿉니다. AzCopy는 이 인증서 경로를 저장하지만 인증서 사본을 저장하지는 않으므로 인증서를 그대로 유지해야 합니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다.
 
 > [!NOTE]
-> 이 예제에 나와 있는 것처럼 프롬프트를 사용하는 것이 좋습니다. 이렇게 하면 암호가 콘솔의 명령 기록에 표시되지 않습니다. 
+> 이 예제에 나와 있는 것처럼 프롬프트를 사용하는 것이 좋습니다. 이렇게 하면 암호가 콘솔의 명령 기록에 표시되지 않습니다.
 
 ## <a name="authorize-without-a-secret-store"></a>비밀 저장소 없이 권한 부여
 
-`azcopy login` 명령은 OAuth 토큰을 검색한 다음, 해당 토큰을 시스템의 비밀 저장소에 배치합니다. 운영 체제에 Linux *인증 키* 와 같은 비밀 저장소가 없는 경우 토큰을 배치할 수 없기 때문에 `azcopy login` 명령이 작동하지 않습니다. 
+`azcopy login` 명령은 OAuth 토큰을 검색한 다음, 해당 토큰을 시스템의 비밀 저장소에 배치합니다. 운영 체제에 Linux *인증 키* 와 같은 비밀 저장소가 없는 경우 토큰을 배치할 수 없기 때문에 `azcopy login` 명령이 작동하지 않습니다.
 
-`azcopy login` 명령을 사용하는 대신, 메모리 내 환경 변수를 설정할 수 있습니다. 그런 다음, AzCopy 명령을 실행합니다. AzCopy는 작업 완료에 필요한 인증 토큰을 검색합니다. 작업 완료 후에는 토큰이 메모리에서 사라집니다. 
+`azcopy login` 명령을 사용하는 대신, 메모리 내 환경 변수를 설정할 수 있습니다. 그런 다음, AzCopy 명령을 실행합니다. AzCopy는 작업 완료에 필요한 인증 토큰을 검색합니다. 작업 완료 후에는 토큰이 메모리에서 사라집니다.
 
 ### <a name="authorize-a-user-identity"></a>사용자 ID 권한 부여
 
@@ -264,10 +264,10 @@ export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-`<application-id>` 자리 표시자를 서비스 주체 앱 등록의 애플리케이션 ID로 바꿉니다. `<client-secret>` 자리 표시자를 클라이언트 암호로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다. 
+`<application-id>` 자리 표시자를 서비스 주체 앱 등록의 애플리케이션 ID로 바꿉니다. `<client-secret>` 자리 표시자를 클라이언트 암호로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다.
 
 > [!NOTE]
-> 메시지를 표시하여 사용자에게서 암호를 수집하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시되지 않습니다. 
+> 메시지를 표시하여 사용자에게서 암호를 수집하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시되지 않습니다.
 
 그런 다음, azcopy 명령을 실행합니다(예: `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -275,7 +275,7 @@ export AZCOPY_TENANT_ID=<tenant-id>
 
 권한 부여에 자체 자격 증명을 사용하려는 경우 인증서를 앱 등록에 업로드한 다음, 해당 인증서를 사용하여 로그인할 수 있습니다.
 
-앱 등록에 인증서를 업로드하는 것과 함께 AzCopy가 실행될 컴퓨터나 VM에 인증서 사본을 저장해야 합니다. 이 인증서 사본은 .PFX 또는 .PEM 형식이면서, 프라이빗 키를 포함해야 합니다. 프라이빗 키는 암호로 보호되어야 합니다. 
+앱 등록에 인증서를 업로드하는 것과 함께 AzCopy가 실행될 컴퓨터나 VM에 인증서 사본을 저장해야 합니다. 이 인증서 사본은 .PFX 또는 .PEM 형식이면서, 프라이빗 키를 포함해야 합니다. 프라이빗 키는 암호로 보호되어야 합니다.
 
 다음 명령을 입력하고 ENTER 키를 누릅니다.
 
@@ -286,10 +286,10 @@ export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-`<path-to-certificate-file>` 자리 표시자를 인증서 파일의 상대 경로 또는 정규화된 경로로 바꿉니다. AzCopy는 이 인증서 경로를 저장하지만 인증서 사본을 저장하지는 않으므로 인증서를 그대로 유지해야 합니다. `<certificate-password>` 자리 표시자를 인증서 암호로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다. 
+`<path-to-certificate-file>` 자리 표시자를 인증서 파일의 상대 경로 또는 정규화된 경로로 바꿉니다. AzCopy는 이 인증서 경로를 저장하지만 인증서 사본을 저장하지는 않으므로 인증서를 그대로 유지해야 합니다. `<certificate-password>` 자리 표시자를 인증서 암호로 바꿉니다. `<tenant-id>` 자리 표시자를 스토리지 계정이 속한 조직의 테넌트 ID로 바꿉니다. 테넌트 ID를 찾으려면 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택합니다.
 
 > [!NOTE]
-> 메시지를 표시하여 사용자에게서 암호를 수집하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시되지 않습니다. 
+> 메시지를 표시하여 사용자에게서 암호를 수집하는 것이 좋습니다. 이렇게 하면 암호가 명령 기록에 표시되지 않습니다.
 
 그런 다음, azcopy 명령을 실행합니다(예: `azcopy list https://contoso.blob.core.windows.net`).
 

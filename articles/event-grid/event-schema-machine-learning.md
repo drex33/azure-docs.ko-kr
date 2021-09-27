@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서 Azure Machine Learning
 description: Azure Event Grid를 사용하여 Machine Learning 작업 영역 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: e47c2137840e21eab73906d42b1e1536422f872d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 7b2a4bb1fafed62669ded2e6ff1dd0f8b7aaac74
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638643"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로서 Azure Machine Learning
 

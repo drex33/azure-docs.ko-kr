@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 랩에 Git 리포지토리 추가 | Microsoft Docs
+title: 랩에 Git 리포지토리 추가
 description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 GitHub 또는 Azure DevOps Services Git 리포지토리를 추가하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2024c94c433559f067874fa852478a37e41eb53d
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 20fa9f872b4e1ef4650dcdb114f92616a2f1bbe0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539892"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668719"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 

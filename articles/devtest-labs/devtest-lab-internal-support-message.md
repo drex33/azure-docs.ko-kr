@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 랩에 내부 지원 정책 추가
+title: 랩에 내부 지원 계정 추가
 description: Azure DevTest Labs의 랩에 내부 지원 정책을 게시하는 방법 알아보기
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 20cd7494eb0a0df340866d344b48d87e94cca490
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612152"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에 내부 지원 정책 추가
 

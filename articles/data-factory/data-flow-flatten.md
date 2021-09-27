@@ -1,7 +1,7 @@
 ---
 title: 데이터 흐름 매핑의 평면화 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 평면화 변환을 사용하여 계층 구조 데이터 비정규화
+description: Azure Data Factory 및 Synapse Analytics 파이프라인에서 평면화 변환을 사용 하 여 계층적 데이터를 비 정규화 합니다.
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: e632260e8af6e4bac9fac9ec43f25bf636b98b4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 17bac4e1efc514440943cb474f2f86a7148d2ef4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642434"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060141"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 평면화 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 평면화 변환을 사용하여 JSON과 같은 계층 구조 내부의 배열 값을 가져와서 개별 행으로 언롤합니다. 해당 프로세스를 비정규화라고 합니다.
 
@@ -27,7 +29,7 @@ ms.locfileid: "122642434"
 
 평면화 변환에는 다음 구성 설정이 포함됩니다.
 
-![평면화 설정](media/data-flow/flatten1.png "평면화 설정")
+:::image type="content" source="media/data-flow/flatten1.png" alt-text="평면화 설정":::
 
 ### <a name="unroll-by"></a>언롤 기준
 
@@ -47,7 +49,7 @@ ms.locfileid: "122642434"
 
 평면화 변환은 규칙 기반 매핑을 지원하여 규칙에 따라 배열을 평면화하고 계층 수준을 기반으로 구조를 평면화하는 동적 및 유연한 변환을 생성할 수 있습니다.
 
-![평면화 패턴](media/data-flow/flatten-pattern.png "평면화 패턴")
+:::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="평면화 패턴":::
 
 ### <a name="matching-condition"></a>일치 조건
 
@@ -55,7 +57,7 @@ ms.locfileid: "122642434"
 
 ### <a name="deep-column-traversal"></a>심도 있는 열 통과
 
-복잡한 개체를 전체 열로 처리하는 대신 ADF에 복잡한 개체의 모든 하위 열을 개별적으로 처리하도록 지시하는 선택적 설정입니다.
+복합 개체를 전체 열로 처리 하는 대신 개별적으로 복합 개체의 모든 하위 열을 처리 하도록 서비스에 지시 하는 선택적 설정입니다.
 
 ### <a name="hierarchy-level"></a>계층 구조 수준
 

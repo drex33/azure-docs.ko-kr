@@ -5,14 +5,14 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.date: 07/14/2020
+ms.date: 09/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1ffdba78d43d558f5d84ec30153df17dfba83cc1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 02a1a6d5088a722c0b919811afc0ac89c7c52550
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460125"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593575"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -25,15 +25,6 @@ ms.locfileid: "114460125"
 | 어떤 영향이 있나요? | 원인 | 해결 방법 |
 | --- | --- | --- |
 | &nbsp;Azure&nbsp;Digital&nbsp;Twins에서 이 문제는 다음 명령 그룹에 영향을 미칩니다.<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | 이는 Cloud Shell의 알려진 문제, [Cloud Shell에서 토큰 가져오기가 400 클라이언트 오류: 잘못된 요청과 함께 간헐적으로 실패](https://github.com/Azure/azure-cli/issues/11749)로 인한 결과입니다.<br><br>이는 Azure Digital Twins 인스턴스 인증 토큰과 Cloud Shell의 기본 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 기반 인증의 문제를 나타냅니다. <br><br>`az dt` 또는 `az dt endpoint` 명령 그룹의 Azure Digital Twins 명령에 영향을 미치지 않는데, Cloud Shell의 관리 ID 인증 관련 문제가 없는 다른 유형의 인증 토큰(Azure Resource Manager 기반)을 사용하기 때문입니다. | 이 문제를 해결하는 한 가지 방법은 Cloud Shell에서 `az login` 명령을 다시 실행하고 다음에 나오는 로그인 단계를 완료하는 것입니다. 이 작업을 통해 관리 ID 인증 외부로 세션이 전환되어 근본적인 문제가 방지됩니다. 그런 다음, 명령을 다시 실행할 수 있습니다.<br><br>그렇지 않으면 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료합니다.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Azure Portal 아이콘 모음에 있는 Cloud Shell 아이콘의 스크린샷." lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>마지막 해결 방법은 Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI를 설치](/cli/azure/install-azure-cli)하는 것입니다. 로컬 CLI에서는 이 문제가 발생하지 않습니다. |
-
-
-## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설정 이후 역할 할당 누락
-
-**문제 설명:** 일부 사용자가 [인스턴스 및 인증 설정(스크립팅)](how-to-set-up-instance-scripted.md)의 역할 할당 부분에서 문제를 겪을 수 있습니다. 스크립트는 실패를 나타내지는 않지만 *Azure Digital Twins 데이터 소유자* 역할이 사용자에게 할당되지 않으며, 이 문제는 향후 다른 리소스를 만드는 데 영향을 미칩니다.
-
-| 어떤 영향이 있나요? | 원인 | 해결 방법 |
-| --- | --- | --- |
-| 스크립트를 실행한 후 역할 할당이 성공적으로 설정되었는지 확인하려면 설정 문서의 [사용자 역할 할당 확인](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 섹션에 있는 지침을 따릅니다. 사용자에게 이 역할이 표시되지 않는 경우 이 문제가 영향을 미치는 것입니다. | 개인 [Microsoft 계정(MSA)](https://account.microsoft.com/account)으로 로그인한 사용자의 경우 명령에서 사용자를 식별하는 사용자의 보안 주체 ID가 사용자의 로그인 이메일과 다를 수 있으며, 이로 인해 스크립트에서 검색하여 적절하게 역할을 할당하는 데 사용하기 어려울 수 있습니다. | 이를 해결하려면 [CLI 지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions) 또는 [Azure Portal 지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)을 사용하여 수동으로 역할 할당을 설정할 수 있습니다. |
 
 ## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Azure.Identity 1.2.0의 대화형 브라우저 인증 문제
 

@@ -8,16 +8,16 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: dc2c284bf1d44ca4fbdd4ddbea95048c38cdbf55
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f07db873196adbbc9926e8155c78394163cb609c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566415"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766429"
 ---
 # <a name="azure-storage-archive-backup-and-disaster-recovery-partners"></a>Azure Storage 보관, 백업, 재해 복구 파트너
 
-이 문서에서는 보관, 백업, BCDR(비즈니스 연속성 및 재해 복구) 워크로드를 위해 Azure Storage와 통합한 Microsoft 파트너를 소개합니다. 파트너 솔루션은 Azure Storage의 확장성 및 비용 이점을 활용합니다. 해당 솔루션을 사용하여 백업 문제를 해결하거나, 재해 복구 사이트를 생성하거나, 사용하지 않는 콘텐츠를 장기간 보존할 수 있습니다. 해당 솔루션은 Azure Storage가 충족하는 모든 규정 준수 표준과 Azure 기능(예: [변경이 불가능한 스토리지](../../../blobs/immutable-storage-overview.md) 및 [수명 주기 관리](../../../blobs/storage-lifecycle-management-concepts.md))을 통해 테이프 기반 백업을 쉽게 바꾸고 경제적인 온디맨드 복구 사이트를 제공합니다.
+이 문서에서는 보관, 백업, BCDR(비즈니스 연속성 및 재해 복구) 워크로드를 위해 Azure Storage와 통합한 Microsoft 파트너를 소개합니다. 파트너 솔루션은 Azure Storage의 확장성 및 비용 이점을 활용합니다. 해당 솔루션을 사용하여 백업 문제를 해결하거나, 재해 복구 사이트를 생성하거나, 사용하지 않는 콘텐츠를 장기간 보존할 수 있습니다. 해당 솔루션은 Azure Storage가 충족하는 모든 규정 준수 표준과 Azure 기능(예: [변경이 불가능한 스토리지](../../../blobs/immutable-storage-overview.md) 및 [수명 주기 관리](../../../blobs/lifecycle-management-overview.md))을 통해 테이프 기반 백업을 쉽게 바꾸고 경제적인 온디맨드 복구 사이트를 제공합니다.
 
 ## <a name="verified-partners"></a>확인된 파트너
 

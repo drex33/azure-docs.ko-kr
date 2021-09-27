@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure CLI를 사용하여 하이브리드 클�
 ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e493e035caf3a201d3670bb352c19455b3cfee72
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2e9427d714681883fd5422ab0a7d17fd337c9568
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529349"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807438"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure VM 확장 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "122529349"
 
 ## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
 
-ConnectedMachine 명령은 Azure CLI의 일부로 제공되지 않습니다. Azure CLI를 사용하여 Arc 지원 서버에서 관리하는 하이브리드 서버의 VM 확장을 관리하려면 먼저 ConnectedMachine 확장을 로드해야 합니다. 다음 명령을 실행하여 가져옵니다.
+ConnectedMachine 명령은 Azure CLI의 일부로 제공되지 않습니다. Azure CLI 사용하여 Azure Arc 지원 서버에서 관리되는 하이브리드 서버에서 VM 확장을 관리하기 전에 ConnectedMachine 확장을 로드해야 합니다. 다음 명령을 실행하여 가져옵니다.
 
 ```azurecli
 az extension add --name connectedmachine
@@ -30,21 +30,21 @@ az extension add --name connectedmachine
 
 ## <a name="enable-extension"></a>확장 사용
 
-Arc 지원 서버에서 VM 확장을 사용하려면 [az connectedmachine extension create](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create)를 `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, `--publisher` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 VM 확장을 사용하도록 설정하려면 , , 및 매개 변수와 함께 [az connectedmachine extension create를](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create) `--machine-name` `--extension-name` `--location` `--type` `settings` `--publisher` 사용합니다.
 
-다음 예제에서는 Arc 지원 서버에서 Log Analytics VM 확장을 사용하도록 설정합니다.
+다음 예제에서는 Azure Arc 지원 서버에서 Log Analytics VM 확장을 사용하도록 설정합니다.
 
 ```azurecli
 az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
-다음 예제에서는 Arc 지원 서버에서 사용자 지정 스크립트 확장을 사용하도록 설정합니다.
+다음 예제에서는 Azure Arc 지원 서버에서 사용자 지정 스크립트 확장을 사용하도록 설정합니다.
 
 ```azurecli
 az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
-다음 예제에서는 Arc 지원 서버에서 Key Vault VM 확장을 사용하도록 설정합니다.
+다음 예제에서는 Azure Arc 지원 서버에서 Key Vault VM 확장을 사용하도록 설정합니다.
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
@@ -52,9 +52,9 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 
 ## <a name="list-extensions-installed"></a>설치된 확장 나열
 
-Arc 지원 서버의 VM 확장 목록을 가져오려면 [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list)를 `--machine-name` 및 `--resource-group` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 VM 확장 목록을 얻으려면 및 매개 변수와 함께 [az connectedmachine extension list를](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list) `--machine-name` `--resource-group` 사용합니다.
 
-예:
+예제:
 
 ```azurecli
 az connectedmachine extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
@@ -77,7 +77,7 @@ az connectedmachine extension list --machine-name "myMachineName" --resource-gro
 
 ## <a name="remove-an-installed-extension"></a>설치된 확장 제거
 
-Arc 지원 서버에서 설치된 VM 확장을 제거하려면 [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete)를 `--extension-name`, `--machine-name`, `--resource-group` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 설치된 VM 확장을 제거하려면 , 및 매개 변수와 함께 [az connectedmachine extension delete를](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) `--extension-name` `--machine-name` `--resource-group` 사용합니다.
 
 예를 들어, Linux용 Log Analytics VM 확장을 제거하려면 다음 명령을 실행합니다.
 

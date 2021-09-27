@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: 7983ae912d29f2a27d35b261d1654205fe503651
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: be8c322bafb5dfaf3fadecfadfd5f9b1ec9a95f1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305073"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804085"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대한 오케스트레이션 모드
 
@@ -110,11 +110,11 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 | 가용성 SLA  | 지금은 아님  | 단일 배치 그룹에서 FD가 1을 초과하는 경우 99.95%, 여러 영역에 분산된 인스턴스의 경우 99.99%  | 99.95%  |
 | VM, NIC, 디스크에 대한 모든 컨트롤  | 예  | 가상 머신 확장 집합 VM API를 사용한 제한된 컨트롤  | Yes  |
 | 자동 크기 조정(수동, 메트릭 기반, 일정 기반)  | 예  | 예  | 아니요  |
-| 특정 장애 도메인에 VM 할당  | 예  | 아니요  | 아니요  |
+| 특정 장애 도메인에 VM 할당  | 예  | 예  | 아니요  |
 | VM 인스턴스를 삭제할 때 NIC 및 디스크 자동 제거  | 예  | 예  | 예  |
 | 업그레이드 정책(VM 확장 집합)  | 아니요, 업그레이드 정책은 생성 중에 null 또는 []이어야 합니다  | 자동, 롤링, 수동  | 해당 없음  |
-| 자동 이미지 기반 OS 업데이트  | 아니요  | 예  | 해당 없음  |
-| 게스트 보안 패치 중  | 예  | 아니요  | 예  |
+| 자동 이미지 기반 OS 업데이트  | 예  | 예  | 해당 없음  |
+| 게스트 보안 패치 중  | 예  | 예  | 예  |
 | 알림 종료(VM 확장 집합)  | 예  | 예  | 해당 없음  |
 | 인스턴스 복구(VM 확장 집합)  | 예  | 예  | 해당 없음  |
 | 가속화된 네트워킹  | 예  | 예  | 예  |
@@ -133,7 +133,7 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 | 집합의 VM 나열  | 예  | 예  | 예, AvSet의 VM을 나열합니다.  |
 | Azure Alerts  | 예  | 예  | 예  |
 | VM 인사이트  | 예  | 예  | 예  |
-| Azure Backup  | 예  | 아니요  | 예  |
+| Azure Backup  | 예  | 예  | 예  |
 | Azure Site Recovery  | 예(PowerShell을 통해)  | 아니요  | 예  |
 | Service Fabric  | 예  | 예  | 아니요  |
 | Azure Kubernetes Service(AKS) / AKE  | 아니요  | 예  | 아니요  |
@@ -164,7 +164,6 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
     | 기능  | Flexible 오케스트레이션에서 지원됨(미리 보기)  | Uniform 오케스트레이션에서 지원됨(일반 공급)  | AvSets에서 지원됨(일반 공급)  |
     |-|-|-|-|
     | 최대 인스턴스 수(FD 가용성 보장 포함)  | 1000  | 3000  | 200  |
-
 
 ## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Flexible 오케스트레이션을 사용하여 확장 집합 문제 해결
 문제 해결 시나리오에 적합한 솔루션을 찾습니다.

@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 0266e1fd000640aa4931dcc86f3c91a7ab7cc898
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 9f22ac56e4af170352170a1eade93d222502a482
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104790"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591865"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -146,7 +146,7 @@ SAP 커넥터는 [SAP .NET Connector(NCo) 라이브러리](https://support.sap.c
 
 ISE는 Azure 가상 네트워크로 보호되는 리소스에 대한 액세스를 제공하며, 논리 앱 워크플로가 온-프레미스 데이터 게이트웨이를 사용하지 않고 온-프레미스 리소스에 직접 액세스할 수 있게 해주는 다른 ISE 네이티브 커넥터를 제공합니다.
 
-1. Blob 컨테이너가 포함된 Azure Storage 계정이 아직 없는 경우 [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) 또는 [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)를 사용하여 컨테이너를 만듭니다.
+1. Blob 컨테이너가 포함된 Azure Storage 계정이 아직 없는 경우 [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) 또는 [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md)를 사용하여 컨테이너를 만듭니다.
 
 1. 로컬 컴퓨터에 [최신 SAP 클라이언트 라이브러리를 다운로드하여 설치](#sap-client-library-prerequisites)합니다. 이제 다음과 같은 어셈블리 파일이 생겼습니다.
 
@@ -856,7 +856,7 @@ SAP 커넥터를 사용하여 논리 앱 워크플로에 대한 비동기 요청
 
     ```xml
     <setting name="SapTraceLevel" serializeAs="String">
-       <value>"Verbose"</value>
+       <value>Verbose</value>
     </setting>
     ```
 
@@ -1649,7 +1649,7 @@ SAP 원격 분석을 Application insights로 보내도록 설정하려면 다음
 
    [![Application Insights가 쿼리를 만들기 위한 ‘로그’ 창으로 열린 Azure Portal을 보여 주는 스크린샷](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
 
-1. **로그** 창에서 특정 요구 사항에 따라 [KQL(Kusto Query Language)](/data-explorer/kusto/concepts)을 사용하여 [쿼리](/data-explorer/kusto/query)를 만들 수 있습니다.
+1. **로그** 창에서 특정 요구 사항에 따라 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/concepts/)을 사용하여 [쿼리](/azure/data-explorer/kusto/query/)를 만들 수 있습니다.
 
    다음 예제 쿼리와 유사한 쿼리 패턴을 사용할 수 있습니다.
 
@@ -1817,6 +1817,8 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
   * 상태 저장 SAP 작업의 경우 비 클러스터 모드에서 또는 장애 조치(failover)용으로만 설정된 클러스터에서 데이터 게이트웨이를 사용합니다.
 
 * 현재 SAP 커넥터는 SAP 라우터 문자열을 지원하지 않습니다. 온-프레미스 데이터 게이트웨이가 연결하려는 SAP 시스템과 동일한 LAN에 있어야 합니다.
+
+* **\[ BAPI] SAP** 작업의 호출 메서드에서 자동 커밋 기능은 작업에서 반환된 **CallBapiResponse** 개체에 하나 이상의 경고가 있는 경우 BAPI 변경 내용을 커밋하지 않습니다. 경고에도 불구하고 BAPI 변경 내용을 커밋하려면 **\[ BAPI - RFC] 상태 저장** 세션 작업 만들기를 사용하여 세션을 명시적으로 만들고, SAP 작업에서 **\[ BAPI 호출 메서드에서** 자동 커밋 기능을 사용하지 않도록 설정하고, 대신 **\[ BAPI] 트랜잭션 커밋** 작업을 호출합니다.
 
 * [ISE의 논리 앱에서는](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)를 대신 사용합니다.
 

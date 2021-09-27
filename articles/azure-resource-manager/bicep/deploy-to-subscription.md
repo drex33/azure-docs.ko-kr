@@ -3,12 +3,12 @@ title: Bicep을 사용하여 테넌트로 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다. 리소스 그룹을 만드는 방법을 보여주는 스크린샷
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: a683e0c46547be3ecb48a20a88f9a95a5b6c8ef8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: df9938e209e163b19e666a26dec4176e83fc79e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453429"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793743"
 ---
 # <a name="subscription-deployments-with-bicep-files"></a>Bicep 파일을 사용한 구독 배포
 
@@ -18,6 +18,10 @@ ms.locfileid: "114453429"
 
 > [!NOTE]
 > 구독 수준 배포에서 800개의 다른 리소스 그룹에 배포할 수 있습니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+배포 범위 및 실습 지침에 대해 자세히 알아보려면 **Microsoft Learn** 에서 [Bicep를 사용 하 여 구독, 관리 그룹 및 테 넌 트에 리소스 배포](/learn/modules/deploy-resources-scopes-bicep/) 를 참조 하세요.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 

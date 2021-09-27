@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
-ms.translationtype: HT
+ms.openlocfilehash: a754656db58b1cc3c1414eb36601c873d8ecc785
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671107"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서는 다음 방법을 사용하여 Linux 컴퓨터에 Log Analytics 에이전트를 설치하는 방법을 자세히 설명합니다.
@@ -75,10 +75,11 @@ OMS 에이전트는 Linux에 대한 제한된 사용자 지정 및 강화 지원
 
 현재 지원되는 사항은 다음과 같습니다. 
 - FIP
+- SELINUX (CENTOS 및 RHEL의 Marketplace 이미지 및 기본 설정)
 
 지원되지 않는 옵션은 다음과 같습니다.
 - CIS
-- SELINUX
+- SELINUX (MLS와 같은 사용자 지정 강화)
 
 CIS 및 SELINUX 강화 지원은 [Azure Monitoring Agent](./azure-monitor-agent-overview.md)에 대해 계획되어 있습니다. 추가 강화 및 사용자 지정 방법은 지원되지 않으며 OMS 에이전트에 대해 계획되지도 않습니다.  
 
@@ -189,7 +190,7 @@ Linux용 Log Analytics 에이전트는 자동으로 압축이 풀리는 설치 �
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정해야 합니다. 다음은 그 예입니다. 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정해야 합니다. 예를 들면 다음과 같습니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

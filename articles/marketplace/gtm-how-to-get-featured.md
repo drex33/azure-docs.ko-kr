@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2021
-ms.openlocfilehash: 7c3a2a00c0323bc9e80b1d94d445f873d5b86d34
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: 60ed6920d6d4f914fc8f8b410c83ba124bf393c5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541341"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646476"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Microsoft AppSource 및 Azure Marketplace에서 추천 앱으로 소개되는 방법
 
 Azure Marketplace와 AppSource에는 **추천 앱** 섹션이 있으며, 여기에 앱이 추천될 수 있습니다.
 
-* 첫째, 평가판, 컨설팅 또는 트랜잭션 제안이 있는 경우 [상업용 Marketplace 혜택](./gtm-your-marketplace-benefits.md)을 통해 **상업용 Marketplace 특별 범주 배치 혜택** 을 이용할 수 있습니다. 요건을 갖춘 경우 상업용 Marketplace 목록이 목록 왼쪽에 있는 범주 중 하나에서 자동으로 추천 항목으로 소개됩니다. 특별 배치의 범주와 시점은 가용성에 따라 달라집니다. 마켓플레이스 목록을 더 효과적으로 표시하려면 [목록 최적화 모범 사례(microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4)에 관한 비디오를 시청하세요.
+* 첫째, 컨설팅 또는 트랜잭션 제안이 있는 경우 [상업적 marketplace 혜택](./gtm-your-marketplace-benefits.md)을 통해 **상용 marketplace 주요 범주 배치 혜택** 을 받을 자격이 있을 수 있습니다. 요건을 갖춘 경우 상업용 Marketplace 목록이 목록 왼쪽에 있는 범주 중 하나에서 자동으로 추천 항목으로 소개됩니다. 특별 배치의 범주와 시점은 가용성에 따라 달라집니다. 마켓플레이스 목록을 더 효과적으로 표시하려면 [목록 최적화 모범 사례(microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4)에 관한 비디오를 시청하세요.
 * 둘째, 아래의 모범 사례 목록과 기준을 검토하여 추천 기회를 얻을 수 있습니다.
 
 추천 앱 선택 알고리즘은 미국의 개인 신용 점수와 같이 Microsoft에서 앱 점수를 생성합니다.  추천 앱의 주간 선택은 앱 및 서비스 성능 계산을 기반으로 합니다.

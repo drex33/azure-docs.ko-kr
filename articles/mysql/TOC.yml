@@ -103,7 +103,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -384,6 +384,8 @@
                   displayName: 'debug, slow query log , performance'
     - name: 샘플
       items:
+        - name: Azure CLI 샘플
+          href: sample-scripts-azure-cli.md
         - name: Java 연결 풀링 구성
           href: sample-scripts-java-connection-pooling.md
 - name: 유연한 서버(미리 보기)
@@ -428,7 +430,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -521,7 +523,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: 서버 다시 시작
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -580,7 +582,7 @@
           items:
             - name: 서버 복원
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restore-server-cli.md
@@ -590,6 +592,10 @@
               href: flexible-server/how-to-troubleshoot-common-connection-issues.md
             - name: CLI 오류 문제 해결
               href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: 샘플
+      items:
+        - name: Azure CLI 샘플
+          href: flexible-server/sample-scripts-azure-cli.md
 - name: 마이그레이션
   items:
     - name: MySQL 온-프레미스에서 Azure Database for MySQL 데이터 마이그레이션 >
@@ -666,7 +672,7 @@
       href: /answers/topics/azure-database-mysql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: 비디오
+    - name: 동영상
       items:
         - name: 제품 비디오
           href: videos.md

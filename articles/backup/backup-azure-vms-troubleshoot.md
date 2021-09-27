@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: 6170c6e00d232e65125963680c522610cb5239ec
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d3afc24f11400a5d2e7e099690ba9312e9b25ae7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535490"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599870"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -257,7 +257,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **2단계**: VM의 부하(낮은 CPU/IOPS 등)가 낮은 시간으로 백업 일정을 변경해 봅니다.
 
-**3단계**: [VM의 크기를 늘리고](../virtual-machines/windows/resize-vm.md) 작업을 다시 시도합니다.
+**3단계**: [VM의 크기를 늘리고](../virtual-machines/resize-vm.md) 작업을 다시 시도합니다.
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound - VM이 더 이상 존재하지 않음 / 400094, BCMV2VMNotFound- 가상 머신이 존재하지 않거나 Azure 가상 머신을 찾을 수 없어 작업을 수행할 수 없음
 

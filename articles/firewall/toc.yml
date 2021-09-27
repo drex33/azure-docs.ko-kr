@@ -99,7 +99,7 @@
     - name: IP 그룹 만들기
       href: create-ip-group.md
     - name: Windows Virtual Desktop 보호
-      href: protect-windows-virtual-desktop.md
+      href: protect-azure-virtual-desktop.md
     - name: AKS(Azure Kubernetes Service) 보호
       href: protect-azure-kubernetes-service.md
     - name: DNS 설정

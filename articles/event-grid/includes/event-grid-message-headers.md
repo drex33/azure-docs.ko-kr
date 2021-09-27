@@ -1,19 +1,19 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 09/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c37e2c28eb6aee9edf4bdd97066ce5f15e7447c1
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: ab3994f44ed5a77ba228d9338d40599012597a95
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413904"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910391"
 ---
 ## <a name="message-headers"></a>메시지 헤더
 다음은 메시지 헤더에서 수신되는 속성입니다.

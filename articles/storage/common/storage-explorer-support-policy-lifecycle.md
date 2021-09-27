@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 87520d26ac4f83297d076ff7539a7731ddbd09fd
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: 37486f22aba1be1ac987238d38e69b95553a8629
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708819"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638219"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure Storage Explorer 지원 수명 주기 및 정책
 
@@ -39,7 +39,7 @@ Storage Explorer는 [최신 수명 주기 정책](https://support.microsoft.com/
 
 이 표에서는 각 Azure Storage Explorer 릴리스의 릴리스 날짜와 지원 종료 날짜를 설명합니다.
 
-| Storage Explorer 버전  | 릴리스 날짜       | 지원 종료 날짜 |
+| Storage Explorer 버전  | 릴리스 날짜         | 지원 종료 날짜 |
 |:-------------------------:|:------------------:|:-------------------:|
 | v1.20.1                   | 2021년 7월 23일      | 2022년 7월 23일       |
 | v1.20.0                   | 2021년 6월 25일      | 2022년 6월 25일       |
@@ -56,7 +56,7 @@ Storage Explorer는 [최신 수명 주기 정책](https://support.microsoft.com/
 | v1.14.0                   | 2020년 6월 24일      | 2021년 7월 14일       |
 | v1.13.1                   | 2020년 5월 18일       | 2021년 7월 14일       |
 | v1.13.0                   | 2020년 5월 1일        | 2021년 7월 14일       |
-| v1.12.0                   | 2020년 1월 16일   | 2021년 7월 14일       |
+| v1.12.0                   | 2020년 1월 16일     | 2021년 7월 14일       |
 | v1.11.2                   | 2019년 12월 17일  | 2021년 7월 14일       |
 | v1.11.1                   | 2019년 11월 20일  | 2021년 7월 14일       |
 | v1.11.0                   | 2019년 11월 4일   | 2021년 7월 14일       |
@@ -69,7 +69,7 @@ Storage Explorer는 [최신 수명 주기 정책](https://support.microsoft.com/
 | v1.6.2                    | 2019년 1월 8일    | 2021년 7월 14일       |
 | v1.6.1                    | 2018년 12월 18일  | 2021년 7월 14일       |
 | v1.6.0                    | 2018년 12월 4일   | 2021년 7월 14일       |
-| v1.5.0                    | 2018년 10월 29일   | 2021년 7월 14일       |
+| v1.5.0                    | 2018년 10월 29일     | 2021년 7월 14일       |
 | v1.4.4                    | 2018년 10월 15일   | 2021년 7월 14일       |
 | v1.4.2                    | 2018년 9월 24일 | 2021년 7월 14일       |
 | v1.4.1                    | 2018년 8월 28일    | 2021년 7월 14일       |

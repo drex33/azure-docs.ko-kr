@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure 구독
 description: Azure Event Grid를 사용하여 구독 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: reference
-ms.date: 02/12/2021
-ms.openlocfilehash: b9753ecfb46f5ac5f383f19e3d409e703c144d48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: b7a09dd16d6620dca74a45f796cccf2308a53396
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363188"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629221"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure 구독
 

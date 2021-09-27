@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 10c946010fa3caba14130c3c7055c711323ad93c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
-ms.translationtype: HT
+ms.openlocfilehash: 1c894c6162a8c9e24794f5c52ce1f6cefb6fa85a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110498295"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563710"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -104,7 +104,7 @@ ms.locfileid: "110498295"
 
 HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -256,7 +256,9 @@ HTTP 요청에 대해 form-urlencoded 데이터를 본문에 제공하려면 `ap
 
 ## <a name="asynchronous-request-response-behavior"></a>비동기 요청-응답 동작
 
-기본적으로 Azure Logic Apps의 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴](/azure/architecture/patterns/async-request-reply)을 따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 수신기에서 처리를 중지하고 ["200 정상"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 202가 아닌 다른 응답을 반환할 때까지 호출자에서 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URL 및 새로 고침 ID를 지정하는 `location` 헤더가 응답에 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
+다중 테넌트 및 단일 테넌트 Azure Logic Apps *상태 비저장* 워크플로의 경우 모든 HTTP 기반 작업은 기본 동작으로 표준 [비동기 작업 패턴을](/azure/architecture/patterns/async-request-reply) 따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 `location` 수신자가 처리를 중지하고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 기타 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정하는 헤더가 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
+
+단일 테넌트 Azure Logic Apps *상태 비동기* 워크플로의 경우 HTTP 기반 작업은 비동기 작업 패턴을 사용하지 않습니다. 대신 동기적으로만 [실행되고,"202 수락됨"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 있는 그대로 반환하고 워크플로 실행의 다음 단계를 진행합니다. 응답에 헤더가 포함된 경우 `location` 상태 비지정 워크플로는 상태를 확인하기 위해 지정된 URI를 폴링하지 않습니다. 표준 [비동기 작업 패턴을](/azure/architecture/patterns/async-request-reply)따르려면 상태 비동기 워크플로를 대신 사용합니다.
 
 * Logic App 디자이너에서 트리거가 아닌 HTTP 작업에는 기본적으로 사용하도록 설정된 **비동기 패턴** 설정이 포함되어 있습니다. 이 설정은 호출자에서 처리가 완료될 때까지 기다리지 않고 다음 작업으로 이동할 수 있지만 처리가 중지될 때까지 상태를 계속 확인하도록 지정합니다. 이 설정이 사용하지 않도록 설정되면 호출자에서 처리가 완료될 때까지 기다린 후에 다음 작업으로 이동하도록 지정합니다.
 
@@ -306,6 +308,22 @@ HTTP 요청에는 [제한 시간 제한](../logic-apps/logic-apps-limits-and-con
 * HTTP 작업을 [HTTP 웹후크 작업](../connectors/connectors-native-webhook.md)으로 바꿉니다. 이렇게 하면 요청 처리가 완료된 후 수신기가 상태 및 결과로 응답할 때까지 기다립니다.
 
 <a name="disable-location-header-check"></a>
+
+### <a name="set-up-interval-between-retry-attempts-with-the-retry-after-header"></a>Retry-After 헤더를 사용하여 재시도 간격 설정
+
+다시 시도 사이의 시간(초)을 지정하려면 HTTP 작업 응답에 헤더를 추가할 수 `Retry-After` 있습니다. 예를 들어 대상 엔드포인트가 상태 코드를 반환하는 경우 `429 - Too many requests` 재시도 사이에 더 긴 간격을 지정할 수 있습니다. `Retry-After`헤더는 `202 - Accepted` 상태 코드에서도 작동합니다.
+
+다음은 를 포함하는 HTTP 작업 응답을 보여 주는 동일한 `Retry-After` 예제입니다.
+
+```json
+{
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
+}
+```
+
 
 ## <a name="disable-checking-location-headers"></a>위치 헤더 확인을 사용하지 않도록 설정
 

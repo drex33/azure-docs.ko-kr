@@ -3,7 +3,7 @@ title: 사용자 등록 및 제품 구독을 위임하는 방법
 description: Azure API Management에서 사용자 등록 및 제품 구독을 타사에 위임하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2021
-ms.author: apimpm
-ms.openlocfilehash: dcfa41d939ce578872a3b0650500829f5f4fd303
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: a642206389c5c92209a8d47e7a72992296b46428
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530318"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603622"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 

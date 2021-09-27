@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal을 사용하여 Azure Backup 워�
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 4b20448896de05e888de33b2a680623b662b5e5a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627238"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크로드 모니터링
 
@@ -155,6 +155,14 @@ SQL 및 SAP HANA 같은 Azure 워크로드 백업 솔루션의 경우 로그 백
 3. **등록** 을 클릭하여 구독에서 이 기능을 사용하도록 설정합니다.
     > [!NOTE]
     > 등록이 적용되려면 최대 24시간이 걸릴 수 있습니다. 여러 구독에 대해 이 기능을 사용으로 설정하려면 화면 상단에서 관련 구독을 선택하여 위의 프로세스를 반복합니다. 경고를 계속 수신하려면 초기 등록 후 새 리소스가 구독에 생성된 경우 미리 보기 플래그를 다시 등록하는 것이 좋습니다.
+
+4. 또한 기능 등록 정보가 예상대로 Azure Backup 서비스와 동기화되도록 리소스 공급자를 등록하는 것이 좋습니다. 리소스 공급자를 등록하려면 기능 플래그를 등록한 구독에서 다음 PowerShell 명령을 실행합니다.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
+```
+
+Recovery Services 자격 증명 모음에 대한 경고를 받으려면 _ProviderNamespace_ 매개 변수에 _Microsoft.RecoveryServices_ 값을 사용합니다. Backup 자격 증명 모음에 대한 경고를 받으려면 _Microsoft.DataProtection_ 값을 사용합니다.
 
 ### <a name="viewing-fired-alerts-in-the-azure-portal"></a>Azure Portal에서 발생된 경고 보기 
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b3e33fecc1df930cf4fb01808b2a8400a210fce8
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: e804168d56092b6e5451aa26c7a2106b96672865
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707152"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587350"
 ---
 # <a name="prepare-an-msix-image-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 MSIX 이미지 준비
 
@@ -86,7 +86,7 @@ MSIX 이미지를 확장하려면 다음을 수행합니다.
 
     압축 풀기가 완료되면 다음 메시지가 표시됩니다.
 
-    > Successfully unpacked and applied ACLs for package:<package name>.msix(&lt;package name&gt;.msix 패키지에 대해 압축을 풀고 ACL을 적용했습니다.)
+    > Successfully unpacked and applied ACLs for package:\<package name\>.msix(&lt;package name&gt;.msix 패키지에 대해 압축을 풀고 ACL을 적용했습니다.)
 
     >[!NOTE]
     > 네트워크 또는 인터넷에 연결되지 않은 디바이스에서 비즈니스 또는 교육용 Microsoft Store의 패키지를 사용하는 경우 앱을 실행하려면 Microsoft Store에서 패키지 라이선스를 다운로드하고 설치해야 합니다. 라이선스를 다운로드하려면 [오프라인으로 패키지 사용](app-attach.md#use-packages-offline)을 참조하세요.

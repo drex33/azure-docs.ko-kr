@@ -3,16 +3,17 @@ title: Azure Data Factory 복사 작업에서 저장 프로시저 호출
 description: Azure SQL Database 또는 Azure Data Factory 복사 작업의 SQL Server에서 저장 프로시저를 호출하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6f06b84ac0807a37c7adc603a557894be85a4cea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e662797c3ab3c2b3b26f78010ba51a9ae4327886
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374969"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670959"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업에서 저장 프로시저 호출
 > [!NOTE]

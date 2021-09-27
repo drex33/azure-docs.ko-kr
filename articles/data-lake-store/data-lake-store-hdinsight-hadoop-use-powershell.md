@@ -1,18 +1,18 @@
 ---
 title: PowerShell - HDInsight 및 Data Lake Storage Gen1 - 추가 기능 스토리지 - Azure
 description: Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 추가 스토리지로 사용하는 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fcf0dbff9de4bee2d83d824dfd4a724f57039dd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 60bb4a49fd264f992af20ceaf3acb1217148ec24
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704123"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655641"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9c73d8865b2cd019e940a753425d13b67567b39b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 7cb5d96c7651713f02d606be1038f55cd430162f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471207"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599243"
 ---
 # <a name="encryption-scopes-for-blob-storage"></a>Blob Storage의 암호화 범위
 
@@ -30,13 +30,13 @@ ms.locfileid: "123471207"
 
 ### <a name="key-management"></a>키 관리
 
-암호화 범위를 정의할 때 범위가 Microsoft 관리형 키로 보호되는지 아니면 Azure Key Vault에 저장된 고객 관리형 키로 보호되는지 지정할 수 있습니다. 같은 스토리지 계정의 서로 다른 암호화 범위에서는 Microsoft 관리형 또는 고객 관리형 키를 사용할 수 있습니다. 또한 암호화 범위를 보호하는 데 사용되는 키 형식을 언제든 고객 관리형 키에서 Microsoft 관리형 키로 전환할 수 있으며, 그 반대도 마찬가지입니다. 고객 관리형 키에 관한 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요. Microsoft 관리형 키에 관한 자세한 내용은 [암호화 키 관리 정보](../common/storage-service-encryption.md#about-encryption-key-management)를 참조하세요.
+암호화 범위를 정의할 때 범위가 Microsoft 관리형 키로 보호되는지 아니면 Azure Key Vault에 저장된 고객 관리형 키로 보호되는지 지정할 수 있습니다. 같은 스토리지 계정의 서로 다른 암호화 범위에서는 Microsoft 관리형 또는 고객 관리형 키를 사용할 수 있습니다. 암호화 범위를 보호 하는 데 사용 되는 키 유형을 고객이 관리 하는 키에서 Microsoft 관리 키로 또는 그 반대로 전환할 수도 있습니다. 고객 관리형 키에 관한 자세한 내용은 [Azure Storage 암호화용 고객 관리형 키](../common/customer-managed-keys-overview.md)를 참조하세요. Microsoft 관리형 키에 관한 자세한 내용은 [암호화 키 관리 정보](../common/storage-service-encryption.md#about-encryption-key-management)를 참조하세요.
 
 고객 관리형 키로 암호화 범위를 정의하는 경우 키 버전을 자동 또는 수동으로 업데이트하도록 선택할 수 있습니다. 키 버전을 자동으로 업데이트하도록 선택하면 Azure Storage는 매일 키 자격 증명 모음 또는 관리형 HSM에서 새 버전의 고객 관리형 키를 확인하고 키를 최신 버전으로 자동 업데이트합니다. 고객 관리형 키의 키 버전 업데이트에 관한 자세한 내용은 [키 버전 업데이트](../common/customer-managed-keys-overview.md#update-the-key-version)를 참조하세요.
 
 Azure Policy는 암호화 범위에서 고객 관리 키를 사용하도록 요구하는 기본 제공 정책을 제공합니다. 자세한 내용은 [기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#storage)의 **저장소** 섹션을 참조하세요.
 
-스토리지 계정에는 키 버전이 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 최대 10,000개일 수 있습니다. 스토리지 계정에 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 이미 10,000개 있는 경우 고객 관리형 키로 보호되는 추가 암호화 범위에 대해 키 버전을 수동으로 업데이트해야 합니다.  
+스토리지 계정에는 키 버전이 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 최대 10,000개일 수 있습니다. 스토리지 계정에 자동으로 업데이트되는 고객 관리형 키로 보호되는 암호화 범위가 이미 10,000개 있는 경우 고객 관리형 키로 보호되는 추가 암호화 범위에 대해 키 버전을 수동으로 업데이트해야 합니다.
 
 ### <a name="infrastructure-encryption"></a>인프라 암호화
 
@@ -55,7 +55,7 @@ Azure Storage의 인프라 암호화를 사 하면 데이터를 이중으로 암
 
 다음 표에는 컨테이너의 기본 암호화 범위가 구성되는 방식에 따라 Blob 업로드 작업의 동작이 요약되어 있습니다.
 
-| 컨테이너에 정의된 암호화 범위는... | 기본 암호화 범위를 사용하여 Blob을 업로드하는 중... | 기본 범위 이외의 암호화 범위를 사용하여 Blob을 업로드하는 중... |
+| 컨테이너에 정의 된 암호화 범위는 ... | 기본 암호화 범위를 사용 하 여 blob을 업로드 하는 중 ... | 기본 범위 이외의 암호화 범위를 사용 하 여 blob을 업로드 하는 중 ... |
 |--|--|--|
 | 재정의가 허용된 기본 암호화 범위 | 성공 | 성공 |
 | 재정의가 허용되지 않는 기본 암호화 범위 | 성공 | 실패 |
@@ -82,12 +82,12 @@ Azure Storage의 인프라 암호화를 사 하면 데이터를 이중으로 암
 
 ## <a name="feature-support"></a>기능 지원
 
-이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

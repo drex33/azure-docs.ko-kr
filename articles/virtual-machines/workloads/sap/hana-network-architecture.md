@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5add931f71dfdb5034e614b3d6c3ddc8703293a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 6e37ab692b1e8f4a498d4b279ef3e45940e7d7f2
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461575"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708323"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -201,7 +201,7 @@ HANA 대규모 인스턴스 및 VM 간에 전송되는 데이터는 암호화되
  - 서로 다른 지역의 HANA 대규모 인스턴스 장치 간에 백업을 복사하여 시스템 복사본 또는 시스템 새로 고침을 수행합니다.
 
 
-![다른 Azure 지역의 Azure 대규모 인스턴스 스탬프에 연결된 가상 네트워크](./media/hana-overview-architecture/image8-multiple-regions.png)
+[![다른 Azure 지역의 Azure 대규모 인스턴스 스탬프에 연결된 가상 네트워크](./media/hana-overview-architecture/image8-multiple-regions.png)](./media/hana-overview-architecture/image8-multiple-regions.png#lightbox)
 
 앞의 그림은 두 지역의 가상 네트워크가 두 개의 ExpressRoute 회로에 연결되는 방법을 보여 줍니다. 이러한 회로는 두 Azure 지역(회색 선)에서 Azure(대규모 인스턴스)의 SAP HANA에 연결하는 데 사용됩니다. 이러한 두 개의 교차 연결에 대한 이유는 한쪽의 MSEE 중단을 방지하기 위함입니다. 두 Azure 지역에 있는 두 가상 네트워크 간의 통신 흐름은 두 개의 서로 다른 지역(파란색 점선)에 있는 두 가상 네트워크의 [글로벌 피어링](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure)을 통해 처리되어야 합니다. 두꺼운 빨간색 선은 ExpressRoute Global Reach 연결을 설명합니다. 이 연결을 통해 서로 다른 지역에 있는 테넌트의 HANA 대규모 인스턴스 단위가 서로 통신할 수 있습니다. 
 

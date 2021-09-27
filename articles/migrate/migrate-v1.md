@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: a0f3e3b927f5f3aed0a29473af4046fb5c09cf4f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: a24675bb1dc0977165dfe891f36f2f83476198f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465076"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615133"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -247,7 +247,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 1. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
 2. --install 인수를 사용하여 번들을 설치합니다.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+    `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/agents/agents-overview.md#supported-operating-systems)해 보세요.
 
@@ -260,7 +260,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+    `sh InstallDependencyAgent-Linux64.bin`
 
 - Windows 및 Linux 운영 체제에 대한 [종속성 에이전트 지원](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems)에 대해 자세히 알아보세요.
 - 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).

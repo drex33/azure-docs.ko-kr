@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: e10c1f8622e1bbb60a3fbb4f5d6fd5bd3da46255
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
-ms.translationtype: HT
+ms.openlocfilehash: 044c435052f6b49ed0736943b46e8d9bc6911be6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550447"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672384"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Text Analytics API 버전 3.x로 마이그레이션
 
@@ -143,7 +143,7 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 
 #### <a name="rest-api"></a>REST API
 
-애플리케이션에서 REST API를 사용하는 경우 핵심 구 추출을 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+애플리케이션에서 REST API를 사용하는 경우 핵심 구 추출을 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`
 
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

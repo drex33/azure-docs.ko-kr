@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e0df727c93e5307e9b66ad5755c8218954a7ff7b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
-ms.translationtype: HT
+ms.openlocfilehash: e65dc85dff7692f82118871ab93c628efe6cecf8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552553"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661681"
 ---
 # <a name="device-update-agent-provisioning"></a>디바이스 업데이트 에이전트 프로비저닝
 
@@ -185,7 +185,7 @@ IoT Hub에서 각 디바이스 ID 아래에 최대 50개의 모듈 ID를 만들 
        
     1. 일부 텍스트가 표시된 창이 열립니다. IoT 디바이스에 디바이스 업데이트 에이전트를 처음으로 프로비저닝할 때 ‘connection_String=’ 뒤의 전체 문자열을 삭제합니다. 자리 표시자 텍스트입니다.
     
-    1. 터미널에서 <your-connection-string>을 디바이스 업데이트 에이전트 인스턴스의 디바이스 연결 문자열로 바꿉니다. Enter를 선택한 다음 **저장** 을 선택합니다. 다음 예제와 같이 표시됩니다.
+    1. 터미널에서을 \<your-connection-string\> 장치 업데이트 에이전트의 인스턴스에 대 한 장치의 연결 문자열로 바꿉니다. Enter를 선택한 다음 **저장** 을 선택합니다. 다음 예제와 같이 표시됩니다.
     
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

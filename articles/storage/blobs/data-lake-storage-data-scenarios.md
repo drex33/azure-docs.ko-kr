@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 4ed2458b09d200542ce8789d90250027a07a970d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7670430d112482addea26c9fc1bc97c2434bc2e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555344"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
 빅 데이터 처리에는 네 가지 주요 단계가 있습니다.
 
 > [!div class="checklist"]
-> * 실시간으로 또는 배치로 대량의 데이터를 데이터 저장소에 수집
-> * 데이터 처리
-> * 데이터 다운로드
-> * 데이터 시각화
+> - 실시간으로 또는 배치로 대량의 데이터를 데이터 저장소에 수집
+> - 데이터 처리
+> - 데이터 다운로드
+> - 데이터 시각화
 
 이 문서에서는 각 처리 단계에 대 한 옵션 및 도구를 중점적으로 설명 합니다.
 
-Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 전체 목록은 [azure 서비스와 Azure Data Lake Storage 통합](./data-lake-storage-supported-azure-services.md) (영문)을 참조 하세요.
+Azure Data Lake Storage Gen2와 함께 사용할 수 있는 azure 서비스의 전체 목록은 [azure 서비스와 Azure Data Lake Storage 통합](./data-lake-storage-supported-azure-services.md) (영문)을 참조 하세요.
 
 ## <a name="ingest-the-data-into-data-lake-storage-gen2"></a>데이터를 Data Lake Storage Gen2에 수집
 
@@ -37,7 +37,7 @@ Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 �
 
 ### <a name="ad-hoc-data"></a>임시 데이터
 
-빅 데이터 애플리케이션의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다. 
+빅 데이터 애플리케이션의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다.
 
 다음은 임시 데이터를 수집하는 데 사용할 수 있는 도구 목록입니다.
 
@@ -104,13 +104,13 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 
 ### <a name="really-large-datasets"></a>매우 큰 데이터 세트
 
-용량이 수 테라바이트에 달하는 데이터 세트를 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 Azure ExpressRoute를 사용할 수 있습니다.  
+용량이 수 테라바이트에 달하는 데이터 세트를 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 Azure ExpressRoute를 사용할 수 있습니다.
 
 Azure ExpressRoute를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 프라이빗 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="process-the-data"></a>데이터 처리
 
-Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 빅 데이터 애플리케이션을 사용하여 해당 데이터에 대한 분석을 실행할 수 있습니다. 
+Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 빅 데이터 애플리케이션을 사용하여 해당 데이터에 대한 분석을 실행할 수 있습니다.
 
 ![Data Lake Storage Gen2에서 데이터 분석](./media/data-lake-storage-data-scenarios/analyze-data.png "Data Lake Storage Gen2에서 데이터 분석")
 
@@ -119,21 +119,21 @@ Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 
 |도구 | 지침 |
 |---|--|
 |Azure HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[빠른 시작: Azure Databricks를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[빠른 시작: Azure Databricks 사용하여 Azure Data Lake Storage Gen2의 데이터 분석](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>데이터 시각화
 
-Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이터의 시각적 표현을 만듭니다. [Power BI를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석을](/power-query/connectors/datalakestorage)참조 하세요.
+Power BI 커넥터를 사용하여 Data Lake Storage Gen2에 저장된 데이터의 시각적 표현을 만듭니다. Power BI [사용하여 Azure Data Lake Storage Gen2에서 데이터 분석을](/power-query/connectors/datalakestorage)참조하세요.
 
 ## <a name="download-the-data"></a>데이터 다운로드
 
 다음과 같은 시나리오를 위해 Azure Data Lake Storage Gen2에서 데이터를 다운로드하거나 이동할 수도 있습니다.
 
-* 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen2에서 Azure SQL Database 또는 SQL Server 인스턴스로 데이터를 이동할 수 있습니다.
+- 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen2에서 Azure SQL Database 또는 SQL Server 인스턴스로 데이터를 이동할 수 있습니다.
 
-* 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
+- 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
 
-![Data Lake Storage Gen2에서 송신 데이터](./media/data-lake-storage-data-scenarios/egress-data.png "Data Lake Storage Gen2에서 송신 데이터")
+![Data Lake Storage Gen2에서 데이터 Egress](./media/data-lake-storage-data-scenarios/egress-data.png "Data Lake Storage Gen2에서 데이터 Egress")
 
 다음은 Data Lake Storage Gen2에서 데이터를 다운로드하는 데 사용할 수 있는 도구 목록입니다.
 
@@ -142,4 +142,4 @@ Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이
 |Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](./data-lake-storage-use-distcp.md) |
 |Azure Storage Explorer|[Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리](data-lake-storage-explorer.md)|
-|AzCopy 도구|[AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)|
+|AzCopy 도구|[AzCopy 및 Blob Storage를 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)|

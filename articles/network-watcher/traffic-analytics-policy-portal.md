@@ -3,21 +3,18 @@ title: Azure Policy를 사용하여 Traffic Analytics 배포 및 관리
 titleSuffix: Azure Network Watcher
 description: 이 문서에서는 기본 제공 정책을 사용하여 Traffic Analytics의 배포를 관리하는 방법을 설명합니다.
 services: network-watcher
-documentationcenter: na
 author: moagra
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2021
 ms.author: moagra
-ms.openlocfilehash: 3be6d5b30d270c9687b7100c07ee675268cee5c0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 9d916122714b1dddab7d1d9b6d13e6fd58d14d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609151"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619366"
 ---
 # <a name="deploy-and-manage-traffic-analytics-using-azure-policy"></a>Azure Policy를 사용하여 Traffic Analytics 배포 및 관리 
 
@@ -112,7 +109,7 @@ Network Watcher는 지역 서비스이므로 이 정책은 선택한 범위의 �
 - 스토리지 ID: 스토리지 계정의 전체 리소스 ID입니다. 이 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다.
 - Network Watcher RG: Network Watcher 리소스를 포함하는 리소스 그룹의 이름입니다. 이름을 변경하지 않은 경우 기본값인 ‘NetworkWatcherRG’를 입력하면 됩니다.
 - Network Watcher 이름: 지역별 Network Watcher 서비스의 이름입니다. 형식: NetworkWatcher_RegionName. 예: NetworkWatcher_centralus.
-- 작업 영역 리소스 ID: Traffic Analytics을 사용하도록 설정해야 하는 작업 영역의 리소스 ID입니다. 형식은 "/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"입니다.
+- 작업 영역 리소스 ID: Traffic Analytics을 사용하도록 설정해야 하는 작업 영역의 리소스 ID입니다. 형식 `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`
 - WorkspaceID: 작업 영역 GUID
 - WorkspaceRegion: 작업 영역의 지역(NSG의 지역과 같을 필요는 없음)
 - TimeInterval: 처리된 로그가 작업 영역으로 푸시되는 빈도입니다. 현재 허용되는 값은 60분~10분입니다. 기본값은 60분입니다.

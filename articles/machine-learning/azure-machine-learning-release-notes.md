@@ -8,19 +8,58 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/18/2021
-ms.openlocfilehash: 2c195111f6df96b5b8ec04f7aad3dace7ab8371f
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.date: 08/18/2021
+ms.openlocfilehash: f4c7c43c0406ed7a6c05c3d83e467bc335c43093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539143"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628112"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠를 보려면 Azure Machine Learning의 [**Python용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 확인하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-09-07"></a>2021-09-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1340"></a>Azure Machine Learning Python v 1.34.0 SDK
+  + **azureml-automl-core**
+    + 이전에 학습 된 예측 파이프라인을 다시 맞추기 위한 지원이 추가 되었습니다.
+    + 예측을 위해 학습 데이터 (샘플 내 예측)에 대 한 예측을 가져오는 기능을 추가 했습니다.
+  + **azureml-automl-runtime**
+    + AutoML 분류자 모델의 배포 된 끝점에서 예측 된 확률을 반환 하는 지원을 추가 합니다.
+    + 사용자가 모든 예측이 정수 여야 함을 지정 하는 예측 옵션이 추가 되었습니다.
+    + Training_data_label_column_name를 사용 하 여 로컬 실험을 위한 모델 설명 기능 이름의 일부가 되지 않도록 대상 열 이름이 제거 되었습니다.
+    + 데이터 집합 입력으로
+    + 이전에 학습 된 예측 파이프라인을 다시 맞추기 위한 지원이 추가 되었습니다.
+    + 예측을 위해 학습 데이터 (샘플 내 예측)에 대 한 예측을 가져오는 기능을 추가 했습니다.
+  + **azureml-core**
+    + 테이블 형식 데이터 집합에서 스트림 열 유형, 탑재 및 스트림 열을 설정 하는 지원이 추가 되었습니다.
+    + Kubernetes.attach_configuration (identity_type = None, identity_ids = None)에 추가 된 새 선택적 필드를 사용 하 여 SystemAssigned 또는 UserAssigned 된 id로 KubernetesCompute을 연결할 수 있습니다. Print (compute_target) 또는 compute_target ()를 호출할 때 새 id 필드가 포함 됩니다. identity_type, identity_id, principal_id 및 tenant_id/client_id.
+  + **azureml-dataprep**
+    + 테이블 형식 데이터 집합의 스트림 열 유형 설정에 대 한 지원이 추가 되었습니다. 테이블 형식 데이터 집합에서 스트림 열을 탑재 및 다운로드 하는 지원이 추가 되었습니다.
+  + **azureml-defaults**
+    + 종속성 `azureml-inference-server-http==0.3.1` 이에 추가 되었습니다 `azureml-defaults` .
+  + **azureml.mlflow**
+    + `max_results`및 선택적 매개 변수를 추가 하 여 LIST_EXPERIMENTS API의 페이지 매김을 허용 `page_token` 합니다. 설명서는 MLflow 공식 문서를 참조 하세요.
+  + **azureml-sdk**
+    + 사용 되지 않는 패키지 (azureml 교육)의 종속성이 azureml-sdk 내에서 바뀌었습니다.
+    + Responsibleai에 azureml 추가-sdk 스페셜 기능
+  + **azureml-train-automl-client**
+    + `test_data` `test_size` 에서 및 매개 변수를 노출 `AutoMLConfig` 합니다. 이러한 매개 변수를 사용 하 여 모델 이후에 테스트 실행을 자동으로 시작할 수 있습니다. 
+    + 학습 단계를 완료 했습니다. 테스트 실행은 최상의 모델을 사용 하 여 예측을 계산 하 고 이러한 예측이 제공 되 면 메트릭을 생성 합니다.
+
+## <a name="2021-08-24"></a>2021-08-24
+
+### <a name="azure-machine-learning-experimentation-user-interface"></a>Azure Machine Learning 실험 사용자 인터페이스
+  + **삭제 실행**
+    + 실행 삭제는 사용자가 작업 영역에서 하나 이상의 실행을 삭제할 수 있는 새로운 기능입니다.
+    + 이 기능을 통해 사용자는 저장소 비용을 줄이고 UI에서 직접 실행 및 실험을 정기적으로 삭제 하 여 저장소 용량을 관리할 수 있습니다.
+  + **일괄 처리 취소 실행**
+    + 일괄 처리 취소 실행은 사용자가 실행 목록에서 취소할 실행을 하나 또는 여러 개 선택할 수 있게 해 주는 새로운 기능입니다. 
+    + 이 기능을 통해 사용자는 여러 개의 지연 된 실행을 취소 하 고 클러스터에서 공간을 확보할 수 있습니다.
 
 ## <a name="2021-08-18"></a>2021-08-18
 

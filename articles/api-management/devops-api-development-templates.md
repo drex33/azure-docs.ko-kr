@@ -2,17 +2,17 @@
 title: ARM 템플릿을 사용하는 Azure API Management에 대한 CI/CD
 description: Azure Resource Manager 템플릿을 사용하여 CI/CD 파이프라인에서 API 배포를 관리하는, Azure API Management를 사용하는 API DevOps 소개
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.author: apimpm
-ms.openlocfilehash: e7d0515262fc06d850b61f257e7cd577797bcf39
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 7e1ea1b11304e43a74659221c352f207856369c8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665761"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하는 API Management에 대한 CI/CD
 

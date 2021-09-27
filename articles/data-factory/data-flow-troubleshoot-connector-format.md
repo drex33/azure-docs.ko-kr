@@ -4,14 +4,15 @@ description: Azure Data Factory에서 커넥터 및 형식과 관련된 데이�
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/17/2021
-ms.openlocfilehash: 79a64a7eb1e06fef3c9e534a69324faaf9f23107
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: a4125b5755d262a441d470e8fc970ef55ea74de2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641867"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 매핑 데이터 흐름의 커넥터 및 형식 문제 해결하기
 
@@ -75,7 +76,7 @@ Cosmos DB/JSON에서 다른 데이터 저장소로 데이터를 이동하거나 
 
     1. 해당 데이터 흐름 소스 **디버그 설정** 을 사용해 샘플 파일/테이블을 갖춘 **프로젝션 가져오기** 가 전체 스키마를 가져오도록 합니다. 다음 그림의 단계를 따를 수 있습니다.<br/>
 
-        ![원본 스키마를 사용자 지정하는 첫 번째 옵션의 첫 번째 부분을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png" alt-text="원본 스키마를 사용자 지정하는 첫 번째 옵션의 첫 번째 부분을 보여 주는 스크린샷":::<br/>
          1. 데이터 흐름 캔버스에서 **디버그 설정** 을 선택합니다.
          1. 팝업 창에서 **cosmosSource** 탭에 **샘플 테이블** 을 선택하고 **테이블** 블록에 자신의 테이블 이름을 입력합니다.
          1. **저장** 을 선택하여 설정을 저장합니다.
@@ -83,7 +84,7 @@ Cosmos DB/JSON에서 다른 데이터 저장소로 데이터를 이동하거나 
     
     1. 나머지 데이터 이동/전송에 해당 원본 데이터 세트를 사용하도록 **디버그 세팅** 을 되돌립니다. 다음 그림의 단계로 진행할 수 있습니다.<br/>
 
-        ![원본 스키마를 사용자 지정하는 첫 번째 옵션의 두 번째 부분을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png" alt-text="원본 스키마를 사용자 지정하는 첫 번째 옵션의 두 번째 부분을 보여 주는 스크린샷"::: <br/>   
          1. 데이터 흐름 캔버스에서 **디버그 설정** 을 선택합니다.
          1. 팝업 창에서 **cosmosSource** 탭에 **원본 데이터 세트** 를 선택합니다.
          1. **저장** 을 선택하여 설정을 저장합니다.<br/>
@@ -92,7 +93,7 @@ Cosmos DB/JSON에서 다른 데이터 저장소로 데이터를 이동하거나 
 
 - **옵션-2**: 해당 스키마 및 원본 데이터의 DSL 언어에 익숙한 경우, 해당 데이터를 읽기 위해 추가/누락 열을 추가하여 수동으로 데이터 흐름 원본 스크립트를 업데이트할 수도 있습니다. 다음 그림에서 그 예시를 보여 주고 있습니다. 
 
-    ![원본 스키마를 사용자 지정하는 두 번째 옵션을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png" alt-text="원본 스키마를 사용자 지정하는 두 번째 옵션을 보여 주는 스크린샷":::
 
 ### <a name="support-map-type-in-the-source"></a>원본에서 맵 형식 지원
 
@@ -247,7 +248,7 @@ Azure PostgreSQL 서버에 대해 유연한 서버 또는 하이퍼스케일(Cit
 - [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
     이 문서에서 다음 그림의 내용을 참조하세요.<br/>
 
-    ![위의 문서에서 참조 콘텐츠를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png" alt-text="위의 문서에서 참조 콘텐츠를 보여 주는 스크린샷":::
 
 #### <a name="recommendation"></a>권장
 복사 작업을 사용하여 이 이슈를 차단 해제할 수 있습니다. 
@@ -395,7 +396,7 @@ Azure Synapse Analytics를 사용하고 있으며, 연결된 서비스는 실제
 #### <a name="symptoms"></a>증상
 Synapse를 데이터 흐름의 원본/싱크로 사용하여 데이터를 미리 보고, 실행을 디버그/트리거하며, 준비 모드에서 PolyBase를 사용하도록 설정하고, MI(관리 ID) 인증을 사용하도록 준비 모드 저장소의 연결된 서비스(Blob, Gen2 등)를 생성하는 경우 다음 그림에 표시된 오류를 나타내며 작업이 실패할 수 있습니다. <br/>
 
-![서비스 ID 오류를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/service-identity-error.png" alt-text="서비스 ID 오류를 보여 주는 스크린샷":::
 
 #### <a name="error-message"></a>오류 메시지
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
@@ -480,7 +481,7 @@ Model.Json 파일의 최종 이름에 특수 문자가 포함되어 있는 이�
 #### <a name="symptoms"></a>증상
 CDM에 대한 manifest.json을 사용하는 경우 데이터 미리 보기에 데이터가 표시되지 않거나 파이프라인을 실행한 후에 데이터가 표시되지 않습니다. 머리글만 표시됩니다. 아래 그림에서 이 이슈를 확인할 수 있습니다.<br/>
 
-![데이터 출력 없음 증상을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/no-data-output.png" alt-text="데이터 출력 없음 증상을 보여 주는 스크린샷":::
 
 #### <a name="cause"></a>원인
 매니페스트 문서에서는 CDM 폴더에 대해 설명합니다. 예를 들어 폴더에 있는 엔터티, 해당 엔터티의 참조 및 이 인스턴스에 해당하는 데이터를 설명합니다. 매니페스트 문서에 데이터를 읽을 수 있는 위치를 ADF에 나타내는 `dataPartitions` 정보가 없으며, 이로 인해 제로 데이터가 반환됩니다. 
@@ -495,11 +496,11 @@ CDM 엔터티의 한 특성(문자열 형식)에서 JSON 배열이 데이터로 
 
 - CSV 원본 데이터(두 번째 열 참조)에서: <br/>
 
-    ![CSV 원본 데이터의 특성을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-csv.png" alt-text="CSV 원본 데이터의 특성을 보여 주는 스크린샷":::
 
 - CDM 원본 데이터 미리 보기에서: <br/>
 
-    ![CDM 원본 데이터의 별도 열을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-cdm.png" alt-text="CDM 원본 데이터의 별도 열을 보여 주는 스크린샷":::
 
  
 데이터베이스가 드리프트된 열을 매핑하고 데이터 흐름 식을 사용하여 이 특성을 배열로 변환할 수도 있습니다. 그러나 읽을 때 이 특성이 별도의 열로 읽히므로 배열로의 변환이 작동하지 않습니다.  
@@ -538,7 +539,7 @@ Power BI에서 생성된 model.json에서 CDM를 사용합니다. 데이터 흐�
 #### <a name="symptoms"></a>증상
 모델 형식을 사용하여 데이터 흐름에서 CDM을 사용하는 경우 데이터를 미리 볼 수 없으며 `DF-CDM_005 The corpus path is null or empty` 오류가 발생합니다. 이 오류는 다음 그림에 표시됩니다.  
 
-![자료 모음 경로 오류를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/corpus-path-error.png" alt-text="자료 모음 경로 오류를 보여 주는 스크린샷":::
 
 #### <a name="cause"></a>원인
 model.json의 데이터 파티션 경로는 데이터 레이크가 아닌 Blob Storage 위치를 가리킵니다. 이 위치에는 ADLS Gen2에 대한 기본 URL인 **.dfs.core.windows.net** 이 있어야 합니다. 
@@ -546,14 +547,14 @@ model.json의 데이터 파티션 경로는 데이터 레이크가 아닌 Blob S
 #### <a name="recommendation"></a>권장
 이 이슈를 해결하려면 [ADF에서 인라인 데이터 세트 및 공통 데이터 모델에 대한 지원을 데이터 흐름에 추가](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798) 문서를 참조할 수 있습니다. 다음 그림에서는 이 문서에서 자료 모음 경로 오류를 수정하는 방법을 보여 줍니다.
 
-![자료 모음 경로 오류를 수정하는 방법을 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/fix-format-issue.png" alt-text="자료 모음 경로 오류를 수정하는 방법을 보여 주는 스크린샷":::
 
 ### <a name="unable-to-read-csv-data-files"></a>CSV 데이터 파일을 읽을 수 없음
 
 #### <a name="symptoms"></a>증상 
 인라인 데이터 세트를 매니페스트를 원본으로 사용하는 공통 데이터 모델로 사용하며, 매니페스트 파일, 루트 경로, 엔터티 이름 및 경로를 제공했습니다. 매니페스트에는 CSV 파일 위치가 포함된 데이터 파티션이 있습니다. 한편, 엔터티 스키마와 csv 스키마는 동일하며 모든 유효성 검사가 성공했습니다. 그러나 데이터 미리 보기에서는 데이터가 아닌 스키마만 로드되고 데이터는 표시되지 않습니다. 이 상황은 다음 그림에 나와 있습니다.
 
-![데이터 파일을 읽을 수 없는 이슈를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/unable-read-data.png" alt-text="데이터 파일을 읽을 수 없는 이슈를 보여 주는 스크린샷":::
 
 #### <a name="cause"></a>원인
 CDM 폴더는 논리적 및 물리적 모델로 구분되지 않으며, CDM 폴더에는 물리적 모델만 있습니다. 다음 두 문서에서는 [논리적 정의](/common-data-model/sdk/logical-definitions) 및 [논리적 엔터티 정의 확인](/common-data-model/sdk/convert-logical-entities-resolved-entities)의 차이점에 대해 설명합니다.<br/> 
@@ -613,11 +614,11 @@ CDM을 원본으로 사용하는 데이터 흐름의 경우, 논리적 모델을
 데이터 흐름을 사용하여 스키마가 서로 다른 CSV 및 Excel 파일과 같은 파일을 읽는 경우 데이터 흐름 디버그, 샌드박스 또는 활동 실행이 실패합니다.
 - CSV의 경우 파일의 스키마가 다른 경우 데이터의 잘못된 정렬이 있는 것입니다. 
 
-    ![첫 번째 스키마 오류를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-1.png" alt-text="첫 번째 스키마 오류를 보여 주는 스크린샷":::
 
 - Excel의 경우 파일의 스키마가 다를 때 오류가 발생합니다.
 
-    ![두 번째 스키마 오류를 보여 주는 스크린샷](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-2.png" alt-text="두 번째 스키마 오류를 보여 주는 스크린샷":::
 
 #### <a name="cause"></a>원인
 

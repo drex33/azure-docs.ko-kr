@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure Maps
 description: Azure Event Grid를 사용한 Azure Maps 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 2715cd4ea67ebac0767332a90770ffae9a5d6069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626953"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Maps
 

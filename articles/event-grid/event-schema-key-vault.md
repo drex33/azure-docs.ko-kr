@@ -2,13 +2,13 @@
 title: Event Grid 원본으로 사용되는 Azure Key Vault
 description: Azure Event Grid를 사용한 Azure Key Vault 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 31a5e77cc238dcfc774ebc851e864c916206fd9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: fccd93b97455a673da5a3b92dcd54cf494f0cecb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536811"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612779"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 사용되는 Azure Key Vault
 
@@ -50,8 +50,8 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },
@@ -77,8 +77,8 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },
@@ -94,7 +94,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -110,7 +110,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -125,7 +125,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | 유형 | Description |
 | ---------- | ----------- |---|
 | `id` | 문자열 | 이 이벤트를 트리거한 개체의 ID |
 | `VaultName` | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름 |

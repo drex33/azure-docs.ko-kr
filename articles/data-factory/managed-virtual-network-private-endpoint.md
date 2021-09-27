@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 07/20/2021
-ms.openlocfilehash: 29bd9cf165ef8247a4185b17d479b01c4e14fa87
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/15/2021
+ms.openlocfilehash: 845860e8aaebf7d74f294135f8eec92a8146bd3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627618"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리형 가상 네트워크(미리 보기)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 이 문서에서는 Azure Data Factory의 관리형 가상 네트워크 및 관리형 프라이빗 엔드포인트에 대해 설명합니다.
 
@@ -83,6 +83,9 @@ Azure Data Factory는 프라이빗 링크를 지원합니다. 프라이빗 링�
 기본적으로 관리형 가상 네트워크의 Azure Integration Runtime은 데이터 팩터리당 하나의 컴퓨팅 노드를 예약하지 않으므로 퍼블릭 Azure Integration Runtime보다 시간이 더 오래 걸립니다. 따라서 각 작업을 시작하기 위해 준비가 필요하며, 이는 Azure Integration Runtime보다는 가상 네트워크 조인에서 주로 발생합니다. 파이프라인 작업 및 외부 작업을 포함한 복사가 아닌 작업의 경우 처음 트리거할 때 60분의 TTL(Time To Live)이 있습니다. TTL 내에서는 노드가 이미 준비되어 있으므로 큐 시간이 단축됩니다. 
 > [!NOTE]
 > 복사 작업은 아직 TTL을 지원하지 않습니다.
+
+> [!NOTE]
+> 2 관리 가상 네트워크에서는 복사 작업을 위한 DIU가 지원 되지 않습니다.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Azure PowerShell을 통해 관리형 가상 네트워크 만들기
 ```powershell

@@ -8,14 +8,14 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e9f4602582a8c24f74d6603b732e7b91d97fa8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b5d0bc4ea9f3fbc2995b148c327309a38a858aeb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002694"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648395"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 
@@ -150,6 +150,6 @@ index.Analyzers = new Analyzer[]
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)를 통해 자유롭게 도움을 요청하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
+SDK에 대한 귀하의 피드백을 환영합니다! 만약 문제가 발생하면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search)에 대해 자유롭게 도움을 요청해 주십시오. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
 
 Azure Search를 이용해 주셔서 감사합니다!

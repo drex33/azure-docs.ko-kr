@@ -1,14 +1,14 @@
 ---
-title: 브라우저를 통해 가상 머신에 연결 - Azure | Microsoft Docs
+title: 브라우저를 통해 가상 머신에 연결
 description: 브라우저를 통해 가상 머신에 연결하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 352fc5fd3ff53a00d9f62966ecf21417ad898706
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dbbaa4286aac91e362a2024f1705add8f48d566d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87288055"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645002"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>브라우저를 통해 가상 머신에 연결 
 

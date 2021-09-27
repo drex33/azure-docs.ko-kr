@@ -9,13 +9,13 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 04/06/2020
-ms.openlocfilehash: 058e602568083471cc5e0053dea0ed77b0b9474f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: 9452b12a8ad26ec2da5c488dc83f624863a4c647
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528908"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582566"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석 데이터의 스트리밍 내보내기 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -462,7 +462,10 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL Analytics의 탐색 메뉴�
 
 <sup>1</sup> 해당 메트릭은 2개 이상의 vCore을 포함한 vCore 구매 모델, 또는 200 DTU 이상의 DTU 기반 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다.
 
-<sup>2</sup> 해당 메트릭은 2개 이상의 vCore을 포함한 vCore 구매 모델, 또는 200 DTU 이상의 DTU 기반 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 해당 메트릭은 현재 하이퍼스케일 데이터베이스 또는 데이터 웨어하우스에서는 사용할 수 없습니다.
+<sup>2</sup> 해당 메트릭은 2개 이상의 vCore을 포함한 vCore 구매 모델, 또는 200 DTU 이상의 DTU 기반 구매 모델을 사용하는 데이터베이스에 사용할 수 있습니다. 이 메트릭은 현재 Synapse Analytics SQL 풀에 사용할 수 없습니다.
+
+> [!NOTE]
+> 7 일 이상 비활성 상태인 데이터베이스에 대해서는 기본 및 고급 메트릭을 모두 사용할 수 없습니다.
 
 ### <a name="basic-logs"></a>기본 로그
 

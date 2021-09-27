@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ae8cdb3b6f470d8dd9f1500d5dd0af51d594b8e8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d13b76e406398dcad37abb170b1f43439ab8bad4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432291"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662904"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>상업용 Marketplace에서 기존 제품 업데이트
 
@@ -32,12 +32,12 @@ ms.locfileid: "123432291"
     - **완료되지 않음**: 섹션에 이루어진 업데이트에 수정해야 하는 오류가 있거나 추가 정보를 입력해야 합니다.
 2. **게시** 를 선택하여 게시를 위해 업데이트된 제품을 제출합니다. 그러면 제품이 표준 [유효성 검사 및 게시 단계](review-publish-offer.md#validation-and-publishing-steps)를 거칩니다.
 
+> [!IMPORTANT]
+> 제품 미리 보기를 사용할 수 있게 되면 검토하고 **라이브로 전환** 을 선택하여 원하는 사용자(공용 또는 프라이빗)에 업데이트된 제품을 게시해야 합니다.
+
 ## <a name="changing-offer-type"></a>제품 유형 변경
 
 [!INCLUDE [change-offer-type](includes/change-offer-type.md)]
-
-> [!IMPORTANT]
-> 제품 미리 보기를 사용할 수 있게 되면 검토하고 **라이브로 전환** 을 선택하여 원하는 사용자(공용 또는 프라이빗)에 업데이트된 제품을 게시해야 합니다.
 
 ## <a name="add-a-plan-to-an-existing-offer"></a>기존 제품에 플랜 추가
 

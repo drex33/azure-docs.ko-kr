@@ -9,18 +9,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ffdb6dd0d998cfe12b50dab85f49f06e30903d6f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: f4a03a73a85fa265517b421c2179a077d73a75be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567870"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600345"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Azure Storage 인벤토리를 사용하여 컨테이너당 Blob 수 및 총 크기 계산
 
 이 문서에서는 Azure Blob Storage 인벤토리 기능과 Azure Synapse를 사용하여 컨테이너당 Blob의 수 및 총 크기를 계산합니다. 이 값은 컨테이너당 Blob 사용량을 최적화하는 경우에 유용합니다.
 
-Blob 메타데이터는 이 메서드에 포함되지 않습니다. Azure Blob Storage 인벤토리 기능은 기본 매개 변수와 함께 [목록 Blob](/rest/api/storageservices/list-blobs) REST API를 사용합니다. 따라서 예제에서는 스냅샷, ‘$’ 컨테이너 등을 지원하지 않습니다.
+Blob 메타데이터는 이 메서드에 포함되지 않습니다. Azure Blob Storage 인벤토리 기능은 기본 매개 변수와 함께 [목록 Blob](/rest/api/storageservices/list-blobs) REST API를 사용합니다. 따라서 이 예제에서는 스냅샷, '$' 컨테이너 등을 지원하지 않습니다.
 
 ## <a name="enable-inventory-reports"></a>인벤토리 보고서 사용
 
@@ -50,7 +50,7 @@ Azure Synapse 작업 영역을 만든 후 다음 단계를 수행합니다.
     `bulk` 매개 변수의 경우 분석하려는 인벤토리 보고서 CSV 파일의 URL을 사용합니다.
 
     ```sql
-    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container,
             COUNT(*) As TotalBlobCount,
             SUM([Content-Length]) As TotalBlobSize
     FROM OPENROWSET(

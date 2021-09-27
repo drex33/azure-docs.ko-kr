@@ -3,12 +3,12 @@ title: Windows 디바이스에 C# 에이전트 설치
 description: 32비트 또는 64비트 Windows 디바이스에 Defender for IoT 에이전트를 설치하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: f76d9122b4f50d475efbbac465096022261a9ef4
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 1a9bab1f9e24fba6a2b04b6d0bb5d9f2560dcc1d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643976"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows용 Defender for IoT C# 기반 보안 에이전트 배포
 
@@ -73,7 +73,7 @@ Get-Help 예제: ```Get-Help .\InstallSecurityAgent.ps1```
 
 다음을 실행하여 에이전트 배포 상태를 확인합니다.
 
-```sc.exe query "ASC IoT Agent"```
+`sc.exe query "ASC IoT Agent"`
 
 ### <a name="uninstall-the-agent"></a>에이전트 제거
 

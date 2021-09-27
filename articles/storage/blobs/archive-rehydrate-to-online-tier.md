@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: c033920b88f2863d34f43bf0affe4b9165995a3a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: a1681640b97d6ee183eefd7f65edd9b2d944f0f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633871"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층으로 리하이드레이션
 
@@ -119,7 +119,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob’s access tier to hot with standard priority.
+# Change the blob's access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```

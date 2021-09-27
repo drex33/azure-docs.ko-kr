@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 3acbef6c8521022ae847925e48d3cd42e13dc56e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 85cfe6887ded3844e2143754c31a3c6efee5e132
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965401"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579463"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -50,78 +50,101 @@ SAP 시작 서비스는 SAP 시스템 모니터링을 비롯한 서비스의 호
 3. 트랜잭션 RZ10을 실행합니다.
 4. 적절한 프로필(*DEFAULT.PFL*)을 선택합니다.
 5. **연장 유지 관리** > **변경** 을 선택합니다. 
-6. 프로필 매개 변수 "service/protectedwebmethods"를 선택하고 다음 값을 갖도록 수정한 다음 복사를 클릭합니다.  
- 
-SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList 
+6. 프로필 매개 변수 "service/protectedwebmethods"를 선택하고 다음 값을 포함하도록 수정한 다음 복사를 클릭합니다.  
 
-7. 돌아가서 **프로필** > **저장** 을 선택합니다.
-8. 이 매개 변수의 변경 사항을 저장한 후 SAP 시스템의 각 인스턴스에서 SAPStartSRV 서비스를 다시 시작합니다. (서비스를 다시 시작하면 SAP 시스템이 다시 시작되지 않고 SAPStartSRV 서비스(Windows) 또는 디먼 프로세스(Unix/Linux) 8a만 다시 시작됩니다.) Windows 시스템에서는 SAP MMC(Microsoft Management Console)/SAP MC(관리 콘솔)를 사용하여 단일 창에서 이 작업을 수행할 수 있습니다.  각 인스턴스를 마우스 오른쪽 단추로 클릭하고 모든 작업 -> 서비스 다시 시작을 선택합니다.
-   ![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png) 8b. Linux 시스템에서는 sapcontrol -nr <NN> -function RestartService 명령을 사용합니다. 여기서 NN은 로그인한 호스트를 다시 시작하기 위한 SAP 인스턴스 번호입니다.
-9. SAP 서비스가 다시 시작되면 다음 명령을 실행하여 업데이트된 웹 메서드 보호 제외 규칙이 각 인스턴스에 적용되었는지 확인하세요. sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user “<adminUser>” “<adminPassword>” 출력은 다음과 같아야 합니다. - ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
-10. 결론 및 유효성 검사를 위해 웹 메서드에 대해 테스트 쿼리를 수행하여 각 인스턴스에 로그인하고 다음 명령을 실행하여 연결의 유효성을 검사할 수 있습니다. 모든 인스턴스의 경우: sapcontrol -nr <NN> -function GetProcessList, ENQUE 인스턴스의 경우: sapcontrol -nr <NN> -function EnqGetStatistic, ABAP 인스턴스의 경우: sapcontrol -nr <NN> -function ABAPGetWPTable, ABAP/J2EE/JEE 인스턴스의 경우: sapcontrol -nr <NN> -function GetQueueStatistic
+   ```service/protectedwebmethods instruction
+      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList```
+
+7. Go back and select **Profile** > **Save**.
+8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
+   8a. On Windows systems, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC).  Right-click on each instance and choose All Tasks -> Restart Service.
+![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png)
+
+   8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
+   
+   ```RestartService
+   sapcontrol -nr <NN> -function RestartService```
+   
+9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
+
+**Logged as \<sidadm\>** 
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
+
+**Logged as different user** 
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
+
+   The output should look like :-
+   ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
+
+10. To conclude and validate, a test query can be done against web methods to validate the connection by logging into each instance and running the following commands:
+
+    - For all instances : `sapcontrol -nr <NN> -function GetProcessList`
+    - For the ENQUE instance : `sapcontrol -nr <NN> -function EnqGetStatistic`
+    - For ABAP instances : `sapcontrol -nr <NN> -function ABAPGetWPTable`
+    - For ABAP/J2EE/JEE instances : `sapcontrol -nr <NN> -function GetQueueStatistic`
 
 >[!Important] 
->SAPControl 웹 메서드가 보호되지 않도록 하려면 SAP 시스템의 각 인스턴스에서 sapstartsrv 서비스를 다시 시작하는 것이 중요합니다.  이러한 읽기 전용 SOAP API는 NetWeaver 공급자가 SAP 시스템에서 메트릭 데이터를 가져오는 데 필요하며 이러한 메서드를 보호 해제하지 않으면 NetWeaver 메트릭 통합 문서에서 시각화가 비어 있거나 누락됩니다.
+>It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
    
 >[!Tip]
-> ACL(액세스 제어 목록)을 사용하여 서버 포트에 대한 액세스를 필터링합니다. 자세한 내용은 [이 SAP Note](https://launchpad.support.sap.com/#/notes/1495075)를 참조하세요.
+> Use an access control list (ACL) to filter the access to a server port. For more information, see [this SAP note](https://launchpad.support.sap.com/#/notes/1495075).
 
-Azure Portal에 NetWeaver 공급자를 설치하려면:
+To install the NetWeaver provider on the Azure portal:
 
-1. 이전 필수 구성 요소 단계를 완료하고 서버가 다시 시작되었는지 확인합니다.
-1. Azure Portal의 **SAP 솔루션을 위한 Azure Monitor** 에서 **공급자 추가** 를 선택한 후 다음을 수행합니다.
+1. Make sure you've completed the earlier prerequisite steps and that the server has been restarted.
+1. On the Azure portal, under **Azure Monitor for SAP Solutions**, select **Add provider**, and then:
 
-   1. **유형** 으로 **SAP NetWeaver** 를 선택합니다.
+   1. For **Type**, select **SAP NetWeaver**.
 
-   1. **호스트 이름** 에 SAP 시스템의 호스트 이름을 입력합니다.
+   1. For **Hostname**, enter the host name of the SAP system.
 
-   1. **하위 도메인** 에 해당하는 경우 하위 도메인을 입력합니다.
+   1. For **Subdomain**, enter a subdomain if one applies.
 
-   1. **인스턴스 번호** 에 입력한 호스트 이름에 해당하는 인스턴스 번호를 입력합니다. 
+   1. For **Instance No**, enter the instance number that corresponds to the host name you entered. 
 
-   1. **SID** 에 시스템 ID를 입력합니다.
+   1. For **SID**, enter the system ID.
    
-   ![SAP NetWeaver 공급자를 추가하기 위한 구성 옵션을 보여 주는 스크린샷.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+   ![Screenshot showing the configuration options for adding a SAP NetWeaver provider.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
-1.  완료되면 **공급자 추가** 를 선택합니다. 필요에 따라 다른 공급자를 계속 추가하거나 **검토 + 만들기** 를 선택하여 배포를 완료합니다.
+1.    When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
 
 >[!Important]
->SAP 애플리케이션 서버(예: 가상 머신)가 Azure Active Directory에서 관리하는 것과 같은 네트워크 도메인의 일부인 경우 해당 하위 도메인을 하위 도메인 텍스트 상자에 입력하는 것이 중요합니다.  가상 네트워크 내부에 있는 SAP 수집기 VM에 대한 Azure Monitor는 도메인에 가입되어 있지 않으므로 호스트 이름이 정규화된 도메인 이름이 아니면 SAP 시스템 내부의 인스턴스 호스트 이름을 확인할 수 없습니다.  이를 제공하지 않으면 NetWeaver 통합 문서에서 시각화가 누락되거나 불완전하게 됩니다.
+>If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
  
->예를 들어, SAP 시스템의 호스트 이름에 “myhost.mycompany.global.corp”의 정규화된 도메인 이름이 있는 경우 myhost의 호스트 이름을 입력하고 “mycompany.global.corp”의 하위 도메인을 제공합니다.  NetWeaver 공급자가 SAP 시스템에서 GetSystemInstanceList API를 호출하면 SAP는 시스템에 있는 모든 인스턴스의 호스트 이름을 반환합니다.  수집기 VM은 이 목록을 사용하여 각 인스턴스 기능(예: ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP 등)에 특정한 메트릭을 가져오기 위해 추가 API 호출을 수행합니다. 지정된 경우 수집기 VM은 하위 도메인 “mycompany.global.corp”를 사용하여 SAP 시스템에 있는 각 인스턴스의 정규화된 도메인 이름을 빌드합니다.  
+>For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then please enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
  
->SAP 시스템이 네트워크 도메인의 일부인 경우 호스트 이름 필드에 IP 주소를 지정하지 마세요.
+>Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.
 
    
-### <a name="sap-hana-provider"></a>SAP HANA 공급자 
+### SAP HANA provider 
 
-1. **공급자** 탭을 선택하여 구성하려는 공급자를 추가합니다. 여러 공급자를 차례로 추가하거나 모니터링 리소스를 배포한 후에 추가할 수 있습니다. 
+1. Select the **Providers** tab to add the providers you want to configure. You can add multiple providers one after another, or add them after you deploy the monitoring resource. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="공급자를 추가하는 탭을 보여 주는 스크린샷." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Screenshot showing the tab where you add providers." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
-1. **공급자 추가** 를 선택한 후 다음을 수행합니다.
+1. Select **Add provider**, and then:
 
-   1. **유형** 으로 **SAP HANA** 를 선택합니다. 
+   1. For **Type**, select **SAP HANA**. 
 
       > [!IMPORTANT]
-      > SAP HANA `master` 노드에 대해 SAP HANA 공급자가 구성되어 있는지 확인합니다.
+      > Ensure that a SAP HANA provider is configured for the SAP HANA `master` node.
 
-   1. **IP 주소** 에 HANA 서버의 개인 IP 주소를 입력합니다.
+   1. For **IP address**, enter the private IP address for the HANA server.
 
-   1. **데이터베이스 테넌트** 에 사용할 테넌트의 이름을 입력합니다. 모든 테넌트를 선택할 수 있지만, 더 광범위한 모니터링 영역을 사용할 수 있도록 **SYSTEMDB** 를 사용하는 것이 좋습니다. 
+   1. For **Database tenant**, enter the name of the tenant you want to use. You can choose any tenant, but we recommend using **SYSTEMDB** because it enables a wider array of monitoring areas. 
 
-   1. **SQL 포트** 에 HANA 데이터베이스와 연결된 포트 번호를 입력합니다. *[3]*  +  *[인스턴스#]*  +  *[13]* 형식이어야 합니다. 예를 들어 **30013** 입니다. 
+   1. For **SQL port**, enter the port number associated with your HANA database. It should be in the format of *[3]* + *[instance#]* + *[13]*. An example is **30013**. 
 
-   1. **데이터베이스 사용자 이름** 에 사용할 사용자 이름을 입력합니다. 데이터베이스 사용자에게 *모니터링* 및 *카탈로그 읽기* 역할이 할당되어 있는지 확인합니다.
+   1. For **Database username**, enter the username you want to use. Ensure the database user has the *monitoring* and *catalog read* roles assigned.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="SAP HANA 공급자를 추가하기 위한 구성 옵션을 보여 주는 스크린샷." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Screenshot showing configuration options for adding an SAP HANA provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
-1. 완료되면 **공급자 추가** 를 선택합니다. 필요에 따라 다른 공급자를 계속 추가하거나 **검토 + 만들기** 를 선택하여 배포를 완료합니다.
+1. When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
 
    
-### <a name="microsoft-sql-server-provider"></a>Microsoft SQL Server 공급자
+### Microsoft SQL Server provider
 
-1. Microsoft SQL Server 공급자를 추가하기 전에 SQL Server Management Studio에서 다음 스크립트를 실행하여 공급자를 구성하기 위한 적절한 권한을 가진 사용자를 만듭니다.
+1. Before you add the Microsoft SQL Server provider, run the following script in SQL Server Management Studio to create a user with the appropriate permissions for configuring the provider.
 
    ```sql
    USE [<Database to monitor>]
@@ -172,7 +195,7 @@ Azure Portal에 NetWeaver 공급자를 설치하려면:
 
 1. **유형** 으로 **고가용성 클러스터(Pacemaker)** 를 선택합니다. 
    
-1. **HA 클러스터 내보내기 엔드포인트** 에 엔드포인트 URL을 입력하여 클러스터의 각 노드에 대한 공급자를 구성합니다. **SUSE** 기반 클러스터의 경우 **http://<IP  address>:9664/metrics** 를 입력합니다. **RHEL** 기반 클러스터의 경우 **http://<IP address>:44322/metrics?names=ha_cluster** 를 입력합니다.
+1. **HA 클러스터 내보내기 엔드포인트** 에 엔드포인트 URL을 입력하여 클러스터의 각 노드에 대한 공급자를 구성합니다. **SUSE** 기반 클러스터의 경우 **http://\<IP  address\>:9664/metrics** 를 입력합니다. **RHEL** 기반 클러스터의 경우 **http://\<IP address\>:44322/metrics?names=ha_cluster** 를 입력합니다.
  
 1. 각 상자에 시스템 ID, 호스트 이름 및 클러스터 이름을 입력합니다.
    

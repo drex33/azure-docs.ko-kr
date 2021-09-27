@@ -7,8 +7,8 @@ metadata:
   description: 'Azure Storage 설명서 허브 페이지입니다. 클라우드 및 하이브리드 스토리지 솔루션에 대한 서비스와 데이터를 전송, 공유, 백업하는 서비스의 설명서를 안내합니다.'
   ms.service: storage
   ms.topic: hub-page
-  author: twooley
-  ms.author: twooley
+  author: tamram
+  ms.author: tamram
   ms.date: 04/14/2021
 highlightedContent:
   items:

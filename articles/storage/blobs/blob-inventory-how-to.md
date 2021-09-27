@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: e7b92b2b9c4885e09bc2a700fbf3a8f1a37dbfa4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530562"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615570"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Azure Storage Blob 인벤토리 보고서 사용
 
-Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 컨테이너, Blob, 스냅샷 및 Blob 버전의 개요를 제공합니다. 인벤토리 보고서를 사용하여 전체 데이터 크기, 사용 기간, 암호화 상태, 불변성 정책, 법적 보류 등의 다양한 Blob 및 컨테이너 특성을 이해할 수 있습니다. 이 보고서는 비즈니스 및 규정 준수 요구 사항에 대한 데이터 개요를 제공합니다. 
+Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 컨테이너, Blob, 스냅샷 및 Blob 버전의 개요를 제공합니다. 인벤토리 보고서를 사용하여 전체 데이터 크기, 사용 기간, 암호화 상태, 불변성 정책, 법적 보류 등의 다양한 Blob 및 컨테이너 특성을 이해할 수 있습니다. 이 보고서는 비즈니스 및 규정 준수 요구 사항에 대한 데이터 개요를 제공합니다.
 
 Blob 인벤토리 보고서에 대해 자세히 알아보려면 [Azure Storage Blob 인벤토리](blob-inventory.md)를 참조하세요.
 
@@ -44,7 +44,7 @@ Blob 인벤토리 보고서에 대해 자세히 알아보려면 [Azure Storage B
 
 7. **인벤토리에 대한 개체 유형** 에서 Blob 또는 컨테이너에 대해 보고서를 만들지 여부를 선택합니다.
 
-   **Blob** 을 선택한 경우 **Blob 하위 유형** 에서 보고서에 포함할 Blob의 유형을 선택하고, 인벤토리 보고서에 Blob 버전 및/또는 스냅샷을 포함할지 여부를 선택합니다. 
+   **Blob** 을 선택한 경우 **Blob 하위 유형** 에서 보고서에 포함할 Blob의 유형을 선택하고, 인벤토리 보고서에 Blob 버전 및/또는 스냅샷을 포함할지 여부를 선택합니다.
 
    > [!NOTE]
    > 해당하는 옵션을 사용하는 새 규칙을 저장하려면 계정에서 버전 및 스냅샷을 사용하도록 설정해야 합니다.
@@ -91,30 +91,30 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+   - `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 6. [New-AzStorageBlobInventoryPolicyRule](/powershell/module/az.storage/new-azstorageblobinventorypolicyrule) 명령을 사용하여 인벤토리 규칙을 만듭니다. 각 규칙에는 보고서 필드가 나열됩니다. 보고서 필드의 전체 목록은 [Azure Storage Blob 인벤토리](blob-inventory.md)를 참조하세요.
 
-   ```Powershell
+   ```powershell
     $containerName = "my-container"
 
     $rule1 = New-AzStorageBlobInventoryPolicyRule -Name Test1 -Destination $containerName -Disabled -Format Csv -Schedule Daily -PrefixMatch con1,con2 `
-                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold 
+                -ContainerSchemaField Name,Metadata,PublicAccess,Last-modified,LeaseStatus,LeaseState,LeaseDuration,HasImmutabilityPolicy,HasLegalHold
 
     $rule2 = New-AzStorageBlobInventoryPolicyRule -Name test2 -Destination $containerName -Format Parquet -Schedule Weekly  -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
                 -BlobSchemaField name,Last-Modified,Metadata,LastAccessTime
 
     $rule3 = New-AzStorageBlobInventoryPolicyRule -Name Test3 -Destination $containerName -Format Parquet -Schedule Weekly -IncludeBlobVersion -IncludeSnapshot -BlobType blockBlob,appendBlob -PrefixMatch aaa,bbb `
-                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime 
+                -BlobSchemaField name,Creation-Time,Last-Modified,Content-Length,Content-MD5,BlobType,AccessTier,AccessTierChangeTime,Expiry-Time,hdi_isfolder,Owner,Group,Permissions,Acl,Metadata,LastAccessTime
 
     $rule4 = New-AzStorageBlobInventoryPolicyRule -Name test4 -Destination $containerName -Format Csv -Schedule Weekly -BlobType blockBlob -BlobSchemaField Name,BlobType,Content-Length,Creation-Time
 
    ```
 
-7. [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy)를 사용하여 Blob 인벤토리 정책을 만듭니다. `-Rule` 매개 변수를 사용하여 이 명령으로 규칙을 전달합니다. 
-  
+7. [Set-AzStorageBlobInventoryPolicy](/powershell/module/az.storage/set-azstorageblobinventorypolicy)를 사용하여 Blob 인벤토리 정책을 만듭니다. `-Rule` 매개 변수를 사용하여 이 명령으로 규칙을 전달합니다.
+
    ```powershell
    $policy = Set-AzStorageBlobInventoryPolicy -StorageAccount $storageAccount -Rule $rule1,$rule2,$rule3,$rule4  
    ```
@@ -132,9 +132,10 @@ CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 �
    ```azurecli
       az account set --subscription <subscription-id>
    ```
+
    `<subscription-id>` 자리 표시자 값을 구독의 ID로 바꿉니다.
 
-3. JSON 문서에서 정책의 규칙을 정의합니다. 다음은 `policy.json`이라는 예제 JSON 파일의 콘텐츠를 보여 줍니다. 
+3. JSON 문서에서 정책의 규칙을 정의합니다. 다음은 `policy.json`이라는 예제 JSON 파일의 콘텐츠를 보여 줍니다.
 
     ```json
     {
@@ -178,7 +179,8 @@ CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 �
       }
      ]
    }
-   ``` 
+
+   ```
 
 4. [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create) 만들기 명령을 사용하여 Blob 인벤토리 정책을 만듭니다. `--policy` 매개 변수를 사용하여 JSON 문서의 이름을 제공합니다.
 
@@ -191,4 +193,4 @@ CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 �
 ## <a name="next-steps"></a>다음 단계
 
 - [컨테이너당 Blob의 개수 및 총 크기 계산](calculate-blob-count-size.md)
-- [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)
+- [Azure Blob Storage 수명 주기 관리](./lifecycle-management-overview.md)

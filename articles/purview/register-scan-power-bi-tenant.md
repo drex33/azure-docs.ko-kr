@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 07/28/2021
-ms.openlocfilehash: c29070f85fe0024113b6d5d4857733b23b522615
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 8352c530a675220a63481a801fa77509c30f7531
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530535"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651658"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테넌트 등록 및 검사(미리 보기)
 
@@ -60,13 +60,16 @@ ms.locfileid: "122530535"
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="서비스 사용자가 읽기 전용 Power BI 관리자 API 권한을 가져오도록 허용하는 방법을 보여 주는 이미지":::
 
-1. **관리 API 설정** > **자세한 메타데이터로 관리 API 응답 향상** > 토글 사용을 선택하여 검사의 일환으로 Purview 데이터 맵에서 자동으로 Power BI 데이터 세트 메타데이터를 상세하게 검색하도록 허용합니다.
+1. **관리자 API 설정** 자세한 메타데이터를 사용하여 관리  >  **API 응답 향상** > 토글을 사용하도록 설정하여 Purview 데이터 맵 검사의 일부로 Power BI 데이터 세트의 자세한 메타데이터를 자동으로 검색할 수 있도록 합니다.
+
+    > [!IMPORTANT]
+    > Power BI 테넌트에서 관리 API 설정을 업데이트한 후 검색 및 테스트 연결을 등록하기 전에 약 15분 정도 기다립니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="하위 아티팩트 검사를 사용하는 Power BI 관리 포털 구성을 보여주는 이미지":::
 
     > [!Caution]
     > (자신의 Purview 관리 ID를 멤버로 하는) 만들어 놓은 보안 그룹이 읽기 전용 Power BI 관리자 API를 사용하도록 하는 경우, 해당 테넌트 내의 모든 Power BI 아티팩트에 관한 메타데이터(예: 대시보드 및 보고서 이름, 소유자, 설명 등)에도 해당 보안 그룹이 액세스할 수 있게 됩니다. 메타데이터를 Azure Purview에 끌어오면 Power BI 권한이 아니라 Purview 권한이 해당 메타데이터를 확인할 수 있는 인원을 결정합니다.
-
+  
     > [!Note]
     > 개발자 설정에서 해당 보안 그룹을 제거할 수는 있지만 이미 추출된 메타데이터는 해당 Purview 계정에서 제거되지 않습니다. 원하는 경우 이를 개별적으로 삭제할 수는 있습니다.
 
@@ -181,7 +184,7 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
    
    4. 웹 브라우저에서 다음 URL을 실행하여 서비스 사용자의 테넌트별 로그인 URL을 생성합니다.
    
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonece=67890
+     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
     
     매개 변수를 올바른 정보로 바꿔야 합니다. <purview_tenant_id>는 Azure Purview 계정이 프로비전되는 Azure Active Directory 테넌트 ID(GUID)입니다.
     <client_id_to_delegate_the_pbi_admin>은 서비스 사용자에 해당하는 애플리케이션 ID입니다.
@@ -224,6 +227,7 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
 
 -   교차 테넌트 시나리오의 경우 현재 Power BI 테넌트에서 등록하고 검사하는 데 사용할 수 있는 UX 환경이 없습니다.
 -   Purview 스튜디오를 사용하여 PowerShell에 등록한 Power BI 교차 테넌트를 편집하면 일치하지 않는 검사 동작으로 인해 데이터 원본 등록이 손상될 수 있습니다.
+-   [Power BI 메타 데이터 검색 제한 사항을](https://docs.microsoft.com/power-bi/admin/service-admin-metadata-scanning#considerations-and-limitations)검토 합니다.
 
         
 ## <a name="next-steps"></a>다음 단계

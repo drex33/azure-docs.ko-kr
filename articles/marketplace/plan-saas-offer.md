@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2021
-ms.openlocfilehash: 7afdd852bebc4eeff24671d8d60cb8805f86f29c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.openlocfilehash: e31fff677b6e1363d0afda420d521d31b2cf4247
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566789"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657560"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 SaaS 제품을 계획하는 방법
 
@@ -182,7 +182,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 **호출 설명**
 
 1. 제목
-1. 설명
+1. Description
 1. 유용한 링크
 1. 스크린샷
 
@@ -265,12 +265,8 @@ Microsoft를 통해 판매되는 SaaS 앱 제품은 정액제, 사용자당 또�
 | Azure 사용량 비용(D1/1개 코어) | 고객이 아닌 게시자에게 직접 청구됩니다. |
 | Microsoft에서 고객에게 청구하는 요금 | 월간 $100.00(게시자는 발생 또는 이전된 인프라 비용을 라이선스 요금으로 계산해야 함) |
 | **Microsoft에 청구되는 요금** | **매월 $100** |
-| Microsoft는 라이선스 비용의 80%를 지불합니다.<br>`*` Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.| 매월 $80.00<br>``*`` 매월 $90.00 |
-|||
-
-**`*` Marketplace 서비스 요금 절감** – 상업용 Marketplace에 게시한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명된 대로 Marketplace 서비스 요금을 20%에서 10%로 낮춥니다. 제품이 자격을 얻으려면 Microsoft에서 해당 제품을 Azure IP 공동 판매 인센티브 제품으로 지정해야 합니다. 할인된 Marketplace 서비스 요금을 적용받으려면 적어도 매달 말일로부터 5영업일 전까지 자격을 충족해야 합니다. 자격이 충족되면 다음 달 1일부터 유효한 모든 거래에 할인된 서비스 요금이 적용되며 Azure IP 공동 판매 인센티브 상태를 상실할 때까지 계속 적용됩니다. IP 공동 판매 자격에 대한 자세한 내용은 [공동 판매 상태의 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조하세요. 할인된 Marketplace 서비스 요금은 Azure IP 공동 판매 인센티브 VM, 관리형 앱 및 상업용 Marketplace를 통해 제공되는 그 외의 모든 적격 거래 가능 IaaS 솔루션에 적용됩니다.
-
-## <a name="preview-audience"></a>미리 보기 대상 그룹
+| Microsoft는 3%의 Marketplace 서비스 요금을 청구하고 라이선스 비용의 97%를 지불합니다. | 매월 $97.00 |
+|
 
 미리 보기 대상 그룹은 제품이 온라인 스토어에 라이브로 게시되기 전에 제품에 액세스할 수 있습니다. 이들은 상업용 Marketplace에서 제품이 어떻게 표시되는지 살펴볼 수 있으며, 파트너가 제품을 실시간으로 게시하기 전에 기능을 종합적으로 테스트할 수 있습니다. 
 

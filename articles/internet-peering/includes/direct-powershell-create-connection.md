@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
 description: 포함 파일
 services: internet-peering
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4fee795996809b0ed3878e8904f10aca50c722e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: f7e9b1ed926918496e1205f4a9e642f1cb59522d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110721696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908949"
 ---
 다음 예제에서는 시애틀에서 10Gbps 직접 피어링을 만드는 방법을 보여줍니다.
 
@@ -33,7 +33,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> 이전 예제의 <index> **$peeringLocation[]** <index>에 대한 값은 선택한 피어링 위치와 일치해야 합니다.
+> 이전 예제의  **$peeringLocation[]** 에 대한 값은 선택한 피어링 위치와 일치해야 합니다.
 
 지정된 피어링 위치에서 중복이 필요한 경우 다른 연결을 만듭니다.
 

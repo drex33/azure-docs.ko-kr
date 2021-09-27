@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: 10d2d57a0fe47915cc7a0687d7341f91ad3f258f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566319"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586672"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -96,6 +96,7 @@ Azure Cosmos DB에서는 읽기 요청의 100%가 선택한 일관성 수준의 
 - 단일 쓰기 지역이 있는 계정에 대한 다른 지역 클라이언트의 일관성 = 일관적인 접두사
 - 다중 쓰기 지역이 있는 계정에 대한 단일 지역에 쓰는 클라이언트의 일관성 = 일관적인 접두사
 - 다중 쓰기 지역이 있는 계정에 대한 다중 지역에 쓰는 클라이언트의 일관성 = 최종
+- [Azure Cosmos DB 통합 캐시를](integrated-cache.md) 사용하는 클라이언트에 대한 일관성 = 최종
 
   세션 일관성은 단일 영역과 전역으로 배포되는 애플리케이션에 모두 가장 널리 사용되는 일관성 수준입니다. 최종 일관성에 필적할 만한 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공할 뿐만 아니라 사용자 컨텍스트 내에서 작동하도록 작성된 애플리케이션의 요구 사항에 맞는 일관성을 보증합니다. 다음 그림은 악보와의 세션 일관성을 보여 줍니다. "미국 서부 2 쓰기 권한자" 및 "미국 서부 2 읽기 권한자"는 동일한 세션(세션 A)을 사용하고 있으므로 동일한 데이터를 동시에 읽을 수 있습니다. "오스트레일리아 동부" 지역은 "세션 B"를 사용하는 반면, 나중에 쓰기와 동일한 순서로 데이터를 받습니다.
 

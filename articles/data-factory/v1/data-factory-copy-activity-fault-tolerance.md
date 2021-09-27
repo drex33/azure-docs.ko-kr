@@ -3,16 +3,17 @@ title: 호환되지 않는 행을 건너뛰어 Azure Data Factory 복사 작업�
 description: 복사 중에 호환되지 않는 행을 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법 알아보기
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10e4bedae5b7c429152a3503fff2cb2769d66eb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 81e92c73c27d70e2f21ede7d732e5cda4f03289b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629449"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>호환되지 않는 행을 건너뛰어 복사 작업에 내결함성 추가
 
@@ -75,7 +76,7 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
 ## <a name="monitoring"></a>모니터링
 복사 작업 실행이 완료되면 모니터링 섹션에서 건너뛴 행의 수를 볼 수 있습니다.
 
-![건너뛰는 호환되지 않는 행 모니터링](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+:::image type="content" source="./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png" alt-text="건너뛰는 호환되지 않는 행 모니터링":::
 
 호환되지 않는 행을 기록하도록 구성한 경우 `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` 경로에서 해당 로그 파일을 찾을 수 있습니다. 이 로그 파일에서 건너뛴 행과 비호환성의 근본 원인을 확인할 수 있습니다.
 

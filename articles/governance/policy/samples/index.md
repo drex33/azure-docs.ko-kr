@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 08/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: ca5c973b8efe6ec97eb5d4e6dada5418d7433c0f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2c8dbaa1496d8f67c30cc3021697760d67206b8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650480"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -38,8 +38,7 @@ ms.locfileid: "122180088"
 다음은 Azure의 [규정 준수](../concepts/regulatory-compliance.md) 기본 제공입니다.
 
 - [오스트레일리아 정부 ISM PROTECTED](./australia-ism.md)
-- [Azure Security Benchmark v2](./azure-security-benchmark.md)
-- [Azure Security Benchmark v1](./azure-security-benchmarkv1.md)
+- [Azure Security Benchmark](./azure-security-benchmark.md)
 - [캐나다 연방 PBMM](./canada-federal-pbmm.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
@@ -57,7 +56,7 @@ ms.locfileid: "122180088"
 
 다음은 Azure Government의 [규정 준수](../concepts/regulatory-compliance.md) 기본 제공입니다.
 
-- [Azure Security Benchmark v2](./gov-azure-security-benchmark.md)
+- [Azure Security Benchmark](./gov-azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.3.0](./gov-cis-azure-1-3-0.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./gov-cis-azure-1-1-0.md)
 - [CMMC Level 3](./gov-cmmc-l3.md)

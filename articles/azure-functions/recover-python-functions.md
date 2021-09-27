@@ -1,17 +1,15 @@
 ---
 title: Azure Functions에서 Python 함수 앱 문제 해결
 description: Python 함수 문제를 해결하는 방법을 알아봅니다.
-author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
 ms.custom: devx-track-python
-ms.openlocfilehash: 56da006dc5a0eef46d5b13984983ca680359b968
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
-ms.translationtype: HT
+ms.openlocfilehash: 3d6be539763e655405a1e46b628e68cb5690e4f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168096"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654350"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Azure Functions에서 Python 오류 문제 해결
 
@@ -171,14 +169,14 @@ PowerShell의 Windows: `py -c 'import platform; print(platform.architecture()[0]
 
 Unix와 유사한 셸: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-Python 인터프리터 비트 수와 운영 체제 아키텍처가 일치하지 않는 경우 [Python Software Foundation](https://python.org/downloads/release)에서 적절한 Python 인터프리터를 다운로드하세요.
+Python 인터프리터 비트 수와 운영 체제 아키텍처가 일치하지 않는 경우 [Python Software Foundation](https://www.python.org/downloads)에서 적절한 Python 인터프리터를 다운로드하세요.
 
 #### <a name="the-python-interpreter-is-not-supported-by-azure-functions-python-worker"></a>Azure Functions Python Worker가 Python 인터프리터를 지원하지 않음
 
 Azure Functions Python Worker는 Python 3.6, 3.7, 3.8만 지원합니다.
 Python 인터프리터가 Windows의 `py --version` 또는 Unix와 유사한 시스템에서 `python3 --version`으로 예상 버전과 일치하는지 확인하세요. 반환 결과가 Python 3.6.x, Python 3.7.x 또는 Python 3.8.x인지 확인합니다.
 
-[Python](https://python.org/downloads/release) 인터프리터 버전이 예상과 다른 경우 에서 Python 3.6, 3.7 또는 3.8 인터프리터를 다운로드하세요.
+[Python](https://www.python.org/downloads) 인터프리터 버전이 예상과 다른 경우 에서 Python 3.6, 3.7 또는 3.8 인터프리터를 다운로드하세요.
 
 ---
 

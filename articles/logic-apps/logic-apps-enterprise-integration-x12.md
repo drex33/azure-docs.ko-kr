@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
 ms.date: 07/16/2021
-ms.openlocfilehash: 5328fad1530ee8dd7b4a2c79581d443488c44b28
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4b1c6d33146233882dd4ee0656c2d1ee7ee6ec79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453844"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589723"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps과 엔터프라이즈 통합 팩을 사용하여 B2B 엔터프라이즈 통합용 X12 메시지 교환
 
@@ -348,7 +348,7 @@ HIPAA 스키마 및 277 또는 837 메시지 유형을 사용하는 경우 몇 �
 
    스키마를 업데이트하려면 다음 단계를 수행합니다.
 
-   1. Azure Portal에서 통합 계정으로 이동합니다. 해당 스키마를 찾아서 다운로드합니다. 메시지 유형을 바꾸고, 스키마 파일의 이름을 바꾸고, 수정된 스키마를 통합 계정에 업로드합니다. 자세한 내용은 [스키마 편집](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas)을 참조하세요.
+   1. Azure Portal에서 통합 계정으로 이동합니다. 해당 스키마를 찾아서 다운로드합니다. 메시지 유형을 바꾸고, 스키마 파일의 이름을 바꾸고, 수정된 스키마를 통합 계정에 업로드합니다. 자세한 내용은 [스키마 편집](logic-apps-enterprise-integration-schemas.md#edit-schema)을 참조 하세요.
 
    1. 규약의 메시지 설정에서 수정된 스키마를 선택합니다.
 

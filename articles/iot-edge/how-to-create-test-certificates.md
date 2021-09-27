@@ -7,12 +7,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 500c7627f36dd1eddfbb12ac26729fd6dbc027aa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 460c8f4d5d59b0f43d0706587dafab60289b1984
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535475"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610981"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -208,8 +208,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-device-identity-<name>.cert.pem`을 사용합니다. IoT Edge 디바이스를 IoT Hub에 등록하려면 `iot-edge-device-identity-<name>-full-chain.cert.pem` 및 `iot-edge-device-identity-<name>.key.pem` 인증서를 사용합니다. 자세한 내용은 [x.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-x509-certs.md)을 참조하세요.
-
+DPS의 IoT Edge 디바이스에 대한 개별 등록을 위해서는 `iot-edge-device-identity-<name>.cert.pem`을 사용합니다. IoT Hub IoT Edge 디바이스를 등록하려면 `iot-edge-device-identity-<name>-full-chain.cert.pem` 및 `iot-edge-device-identity-<name>.key.pem` 인증서를 사용합니다. 자세한 내용은 [x.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-windows-x509.md)을 참조하세요.
 
 ### <a name="linux"></a>Linux
 

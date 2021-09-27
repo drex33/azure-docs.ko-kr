@@ -1,25 +1,26 @@
 ---
-title: Azure Data Factory를 사용하여 Oracle Cloud Storage에서 데이터 복사
+title: Oracle Cloud Storage 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용하여 Oracle Cloud Storage 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Oracle Cloud Storage에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: caf817d8b31743f091a4655f6b9ddcfc0007e130
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 3ace2498c568d5193d110845bc7927983fd419ff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311926"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678747"
 ---
-# <a name="copy-data-from-oracle-cloud-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle Cloud Storage에서 데이터 복사
+# <a name="copy-data-from-oracle-cloud-storage-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Oracle Cloud Storage 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Oracle Cloud Storage에서 데이터를 복사하는 방법을 간략하게 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Oracle Cloud Storage에서 데이터를 복사하는 방법을 간략하게 설명합니다. 자세한 내용은 Azure Data Factory [및](../synapse-analytics/overview-what-is.md) [Synapse Analytics](introduction.md) 대한 소개 문서를 읽어보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -49,7 +50,7 @@ Oracle Cloud Storage에서 데이터를 복사하려면 [여기](https://docs.or
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -66,7 +67,7 @@ Oracle Cloud Storage에서 데이터를 복사하려면 [여기](https://docs.or
 
 ## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보 
 
-다음 섹션에서는 Oracle Cloud Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Oracle Cloud Storage 특정 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -76,7 +77,7 @@ Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | **type** 속성은 **OracleCloudStorage** 로 설정해야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. 액세스 키와 비밀을 찾으려면 [필수 구성 요소](#prerequisites)를 참조하세요. |예 |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 엔드포인트를 `https://<namespace>.compat.objectstorage.<region identifier>.oraclecloud.com`으로 지정합니다. 자세한 내용은 [여기](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/s3compatibleapi.htm)를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. |예 |
 
@@ -229,7 +230,7 @@ Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 원본 폴더 구조가 있고 굵게 표시된 파일을 복사하려고 한다고 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Data Factory 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 버킷: `bucket`<br>- 폴더 경로: `FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `bucket/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -247,4 +248,4 @@ Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

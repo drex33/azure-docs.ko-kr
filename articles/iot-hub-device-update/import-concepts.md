@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/10/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 39a1acb596f4d56915aabfa0a64fc69d6e55aec2
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: d01aa7f81d954183fcf487985e887bc81fa6c70c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769098"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638655"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub"></a>Device Update for IoT Hub로 업데이트 가져오기
 Device Update for IoT Hub에서 디바이스에 업데이트를 배포하려면 먼저 해당 업데이트를 디바이스 업데이트 서비스로 _가져와야 합니다_. 다음은 업데이트를 가져올 때 이해해야 할 몇 가지 중요한 개념에 대한 개요입니다.
@@ -25,7 +25,7 @@ Device Update for IoT Hub에서 디바이스에 업데이트를 배포하려면 
 
 또한 누적 업데이트 버전은 모든 공급자 및 이름에 걸쳐 100개로 제한됩니다.
 
-업데이트 제출 시 개별 파일에 허용되는 최대 파일 크기는 800MB입니다. 한 번의 업데이트 제출에 있는 모든 파일의 _결합된_ 합계도 800MB를 초과해서는 안 됩니다.
+허용되는 최대 파일 크기는 업데이트 제출의 개별 파일에 대해 2GB입니다. 하나의 업데이트 제출에 있는 모든 파일의 _결합된_ 합계도 2GB를 초과하지 않아야 합니다.
 
 ## <a name="import-manifest"></a>매니페스트 가져오기
 

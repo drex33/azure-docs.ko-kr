@@ -14,12 +14,12 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6754ac10f614082f09a460b55dc712f5bc0c27be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 2b4db3701ee5d66616d6e3888a12cb73232f62b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702613"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603090"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>진단 로그 - Azure Content Delivery Network
 
@@ -196,12 +196,11 @@ Azure CDN 엔드포인트에서 로깅을 사용하도록 설정하려면 다음
 6.  각 blob *PT1H.json* 파일은 특정 CDN 엔드포인트 또는 사용자 지정 도메인에 대해 1시간의 분석 로그를 표시합니다.
 7.  이 JSON 파일 콘텐츠의 스키마는 핵심 분석 로그의 스키마 섹션에 설명되어 있습니다.
 
-
 #### <a name="blob-path-format"></a>Blob 경로 형식
 
-핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. 스토리지 탐색기 도구는 '/'를 디렉터리 구분 기호로 해석하고 계층 구조를 표시합니다. Azure Blob에 대한 경로는 계층 구조가 있고 Blob 이름을 나타내는 것처럼 표시됩니다. blob의 이름은 다음 명명 규칙을 따릅니다.    
+핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. 스토리지 탐색기 도구는 '/'를 디렉터리 구분 기호로 해석하고 계층 구조를 표시합니다. Azure Blob에 대한 경로는 계층 구조가 있고 Blob 이름을 나타내는 것처럼 표시됩니다. blob의 이름은 다음 명명 규칙을 따릅니다.
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **필드 설명:**
 

@@ -2,17 +2,18 @@
 title: SQL Server 저장 프로시저 작업
 description: SQL Server 저장 프로시저 작업을 사용하여 Data Factory 파이프라인에서 Azure SQL Database 또는 Azure Synapse Analytics에 저장 프로시저를 호출하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 88a4281d564b7061e831a66b35e768e6377a0115
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: bc69be48f172267c2d8894eb2a82f32a4970386f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568048"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559343"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -64,7 +65,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ```
     `Id`은(는) 고유 식별자이고 `datetimestamp` 열은 해당 ID가 생성된 날짜와 시간입니다.
     
-    ![예제 데이터](./media/data-factory-stored-proc-activity/sample-data.png)
+    :::image type="content" source="./media/data-factory-stored-proc-activity/sample-data.png" alt-text="샘플 데이터":::
 
     이 샘플에서는 저장 프로시저가 Azure SQL Database에 있습니다. 저장 프로시저가 Azure Synapse Analytics 및 SQL Server Database에 있는 경우 접근 방식은 유사합니다. SQL Server Database의 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
     
@@ -87,10 +88,10 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **인텔리전스 + 분석** 을 클릭한 다음 **Data Factory** 를 클릭합니다.
 
-    ![새 데이터 팩터리 1](media/data-factory-stored-proc-activity/new-data-factory.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory.png" alt-text="새 데이터 팩터리 1":::
 3. **새 data factory** 블레이드에서 이름으로 **SProcDF** 를 입력합니다. Azure Data Factory 이름은 **전역적으로 고유** 합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다.
 
-   ![새 데이터 팩터리 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory-blade.png" alt-text="새 데이터 팩터리 2":::
 4. Azure **구독** 을 선택합니다.
 5. **리소스 그룹** 에 대해 다음 단계 중 하나를 수행합니다.
    1. **새로 만들기** 를 클릭하고 리소스 그룹의 이름을 입력합니다.
@@ -100,7 +101,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 8. **새 Data Factory** 블레이드에서 **만들기** 를 클릭합니다.
 9. Azure Portal의 **대시보드** 에 생성된 데이터 팩터리가 표시됩니다. 데이터 팩터리 만들기를 완료한 후에는 데이터 팩터리 페이지가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
 
-   ![Data Factory 홈페이지](media/data-factory-stored-proc-activity/data-factory-home-page.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-home-page.png" alt-text="Data Factory 홈페이지":::
 
 ### <a name="create-an-azure-sql-linked-service"></a>Azure SQL 연결된 서비스 만들기
 데이터 팩터리를 만든 후 sampletable 테이블 및 usp_sample 저장 프로시저가 포함된 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결하는 Azure SQL 연결 서비스를 만듭니다.
@@ -108,7 +109,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 1. **SProcDF** 에 대한 **Data Factory** 블레이드에서 **작성 및 배포** 를 클릭하여 Data Factory 편집기를 시작합니다.
 2. 명령 모음에서 **새 데이터 저장소** 를 클릭하고 **Azure SQL Database** 를 선택합니다. 편집기에 Azure SQL 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
-   ![새 데이터 저장소 1](media/data-factory-stored-proc-activity/new-data-store.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-store.png" alt-text="새 데이터 저장소 1":::
 3. JSON 스크립트에서 다음과 같이 변경합니다.
 
    1. `<servername>`을 사용자의 서버 이름으로 바꿉니다.
@@ -116,17 +117,17 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
    3. `<username@servername>`을 데이터베이스에 대한 액세스 권한이 있는 사용자 계정으로 바꿉니다.
    4. `<password>`를 사용자 계정의 암호로 바꿉니다.
 
-      ![새 데이터 저장소 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      :::image type="content" source="media/data-factory-stored-proc-activity/azure-sql-linked-service.png" alt-text="새 데이터 저장소 2":::
 4. 연결된 서비스를 배포하려면 명령 모음에서 **배포** 를 클릭합니다. 왼쪽의 트리 뷰에 AzureSqlLinkedService가 표시되는지 확인합니다.
 
-    ![연결된 서비스 1이 있는 트리 뷰](media/data-factory-stored-proc-activity/tree-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view.png" alt-text="연결된 서비스 1이 있는 트리 뷰":::
 
 ### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
 저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 세트를 지정해야 합니다. 이는 출력 데이터 세트가 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 세트는 저장 프로시저를 실행하려는 Azure SQL Database 또는 Azure Synapse Analytics 또는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 세트는 **더미 데이터 세트**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 세트)일 수 있습니다. 더미 데이터 세트는 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다.
 
 1. 도구 모음에서 **... 추가**, **새 데이터 세트**, **Azure SQL** 을 차례로 클릭합니다. 명령 모음에서 **새 데이터 세트** 를 클릭하고 **Azure SQL** 을 선택합니다.
 
-    ![연결된 서비스 2가 있는 트리 뷰](media/data-factory-stored-proc-activity/new-dataset.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-dataset.png" alt-text="연결된 서비스 2가 있는 트리 뷰":::
 2. 다음 JSON 스크립트를 복사하여 JSON 편집기에 붙여 넣습니다.
 
     ```JSON
@@ -147,7 +148,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ```
 3. 데이터 세트를 배포하려면 명령 모음에서 **배포** 를 클릭합니다. 트리 뷰에 데이터 세트가 표시되는지 확인합니다.
 
-    ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/tree-view-2.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view-2.png" alt-text="연결된 서비스와 트리 뷰":::
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>SqlServerStoredProcedure 작업을 사용하여 파이프라인 만들기
 이제 저장 프로시저 작업을 사용하여 파이프라인 만들겠습니다.
@@ -197,16 +198,16 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 1. **X** 를 클릭하여 Data Factory 편집기 블레이드를 닫고 Data Factory 블레이드로 돌아가서 **다이어그램** 을 클릭합니다.
 
-    ![다이어그램 타일 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-tile.png" alt-text="다이어그램 타일 1":::
 2. **다이어그램 보기** 에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
 
-    ![다이어그램 타일 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-view.png" alt-text="다이어그램 타일 2":::
 3. [다이어그램 보기]에서 `sprocsampleout` 데이터 세트를 두 번 클릭합니다. 준비 상태의 조각이 표시됩니다. 조각은 JSON에서 시작 시간 및 종료 시간 사이의 매시간 생성되므로 5개 조각입니다.
 
-    ![다이어그램 타일 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-slices.png" alt-text="다이어그램 타일 3":::
 4. 조각이 **준비** 상태이면 데이터베이스에 대해 `select * from sampletable` 쿼리를 실행하여 저장 프로시저에 의해 데이터가 테이블에 삽입되었는지 확인합니다.
 
-   ![출력 데이터](./media/data-factory-stored-proc-activity/output.png)
+   :::image type="content" source="./media/data-factory-stored-proc-activity/output.png" alt-text="출력 데이터":::
 
    Azure Data Factory 파이프라인 모니터링에 대한 자세한 내용은 [파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
@@ -300,7 +301,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name | 작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
@@ -313,7 +314,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 ## <a name="passing-a-static-value"></a>정적 값 전달
 이제 '문서 샘플'이라는 정적 값이 포함된 테이블에 'Scenario'라는 다른 열을 추가해 보겠습니다.
 
-![샘플 데이터 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+:::image type="content" source="./media/data-factory-stored-proc-activity/sample-data-2.png" alt-text="샘플 데이터 2":::
 
 **테이블:**
 

@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: ee0bafdfe7d7caae2d4ba65e9967d9c46e6b3e3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 05ccdc3613141e7b04c3255a6035c7a03ad25995
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536118"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579732"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Azure Database for MySQL Flexible Server 입력 데이터 복제를 구성하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "122536118"
 이 문서에서는 원본 및 복제본 서버를 구성하여 Azure Database for MySQL Flexible Server에서 [입력 데이터 복제](concepts-data-in-replication.md)를 설정하는 방법을 설명합니다. 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 있다고 가정합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md)가 온-프레미스, VM(가상 머신) 또는 클라우드 데이터베이스 서비스에서 원본 MySQL 서버의 데이터를 동기화합니다. 입력 데이터 복제는 위치 기반의 이진 로그(binlog) 파일을 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
@@ -28,7 +28,7 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server-instance-to-use-as-a-replica"></a>복제본으로 사용할 Azure Database for MySQL Flexible Server 인스턴스 만들기
 
-1. Azure Database for MySQL Flexible Server의 새 인스턴스 만들기(예: "replica.mysql.database.azure.com")를 만듭니다. 서버를 만드는 방법은 [Azure Portal을 사용하여 Azure Database for MySQL Flexible Server 서버 만들기](quickstart-create-server-portal.md)를 참조하세요. 이 서버는 입력 데이터 복제에 대한 "복제본" 서버입니다.
+1. Azure Database for MySQL 유연한 서버의 새 인스턴스를 `replica.mysql.database.azure.com` 만듭니다(예: ). 서버를 만드는 방법은 [Azure Portal을 사용하여 Azure Database for MySQL Flexible Server 서버 만들기](quickstart-create-server-portal.md)를 참조하세요. 이 서버는 입력 데이터 복제에 대한 "복제본" 서버입니다.
 
 2. 동일한 사용자 계정 및 해당 권한을 만듭니다.
 

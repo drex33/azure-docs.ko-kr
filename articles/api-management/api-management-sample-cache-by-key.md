@@ -3,7 +3,7 @@ title: Azure API Management의 사용자 지정 캐싱
 description: Azure API Management에서 키를 통해 항목을 캐시하는 방법을 알아봅니다. 요청 헤더를 사용하여 키를 수정할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
-ms.author: apimpm
-ms.openlocfilehash: cf9901b4e49460dd2fb91dceaf239571058c5284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 6349ddde5b5c2e8b38be402617c6189d6e4e68c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88213316"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656002"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management의 사용자 지정 캐싱
 Azure API Management 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md) 에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 전체 HTTP 응답(또는 표현)을 캐싱하는 데 유용하지만 표현의 일부만 캐싱하는 데 유용한 경우도 있습니다. 새 [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) 및 [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](./api-management-advanced-policies.md#SendRequest) 정책에 값을 추가합니다.

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4ddbe9ff6a3dfa195d0739205c3e32070b170f30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674505"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560755"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats API
 
@@ -70,15 +70,15 @@ Azure FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하�
 
 **머리글** | **설명 및 예**
 --- | ---
-콘텐츠 형식  | 요청 형식입니다(Content-Type: application/<format>). Azure FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
-권한 부여  | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer <Access-Token>
+콘텐츠 형식  | 요청 형식입니다(Content-Type: application/\<format\>). Azure FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
+권한 부여  | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: 전달자 \<Access-Token\>
 수락 | 응답 형식입니다. Azure FarmBeats Datahub API의 경우 형식은 JSON입니다. Accept: application/json
 
 ### <a name="api-requests"></a>API 요청
 
 REST API 요청을 수행하려면 HTTP(GET, POST, PUT 또는 DELETE) 메서드, API 서비스에 대한 URL과 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다.
 
-API 서비스에 대한 URL은 Datahub URL(예: https://\<yourdatahub-website-name>.azurewebsites.net)입니다.
+API 서비스에 대 한 URL은 Datahub URL (예:)입니다 `https://<yourdatahub-website-name>.azurewebsites.net` .
 
 필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure FarmBeats API는 Azure Active Directory에서 사용자 또는 앱 등록�
     - **개요** 로 돌아가서 **로컬 디렉터리에서 애플리케이션 관리** 옆의 링크를 선택합니다.
     - **속성** 으로 이동하여 **개체 ID** 를 캡처합니다.
 
-4. Datahub Swagger(https://<yourdatahub>.azurewebsites.net/swagger/index.html)로 이동하고 다음을 수행합니다.
+4. Datahub Swagger ()로 이동 `https://<yourdatahub>.azurewebsites.net/swagger/index.html` 하 고 다음을 수행 합니다.
     - **RoleAssignment API** 로 이동합니다.
     - POST를 수행하여 방금 만든 **개체 ID** 에 대한 **RoleAssignment** 개체를 만듭니다.
  

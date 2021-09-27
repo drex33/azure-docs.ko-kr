@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 08/30/2021
-ms.openlocfilehash: f0ea6469d17248a0d37a7ababf767d494545fbbb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 93bf2af561fda849766c1eccdf351917be14f2e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678348"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행하는 대신 대부분의 기존 Apache Kafka 클라이언트 애플리케이션에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 API 호환 엔드포인트를 제공합니다. Event Hubs는 버전 1.0 이상에서 Apache Kafka의 생산자 및 소비자 API 클라이언트를 지원합니다.
@@ -93,7 +93,7 @@ Kafka용 Event Hubs에서 OAuth를 사용하는 방법을 보여주는 추가 **
 
 ## <a name="other-event-hubs-features"></a>기타 Event Hubs 기능 
 
-Apache Kafka용 Event Hubs 기능은 Azure Event Hubs에서 동시에 사용 가능한 세 가지 프로토콜 중 하나로 HTTP와 AMQP를 보완합니다. 현재 Apache Kafka 생산자가 Apache Kafka를 통해 계속 게시할 수 있도록 이러한 프로토콜 중 하나로 쓰고 다른 프로토콜로 읽을 수 있지만 읽기 권한자는 Azure Stream Analytics 또는 Azure Functions와 같은 Event Hubs의 AMQP 인터페이스와 기본 통합의 이점을 제공합니다. 반대로 Azure Event Hubs를 대상 엔드포인트로 AMQP 라우팅 네트워크에 쉽게 통합할 수 있지만 Apache Kafka 통합을 통해 데이터를 읽을 수 있습니다.  
+Apache Kafka용 Event Hubs 기능은 Azure Event Hubs에서 동시에 사용 가능한 세 가지 프로토콜 중 하나로 HTTP와 AMQP를 보완합니다. 현재 Apache Kafka 생산자가 Apache Kafka를 통해 계속 게시할 수 있도록 이러한 프로토콜 중 하나로 쓰고 다른 프로토콜로 읽을 수 있지만 읽기 권한자는 Azure Stream Analytics 또는 Azure Functions와 같은 Event Hubs의 AMQP 인터페이스와 기본 통합의 이점을 제공합니다. 반대로, Azure Event Hubs 대상 엔드포인트로 AMQP 라우팅 네트워크에 쉽게 통합하고 Apache Kafka 통합을 통해 데이터를 읽을 수 있습니다.  
 
 또한 Azure Blob Storage와 Azure Data Lake Storage를 통해 매우 비용 효율적인 장기 보관을 가능하게 하는 [캡처](event-hubs-capture-overview.md)와 같은 Event Hubs 기능과 [지리적 재해 복구](event-hubs-geo-dr.md)는 Kafka용 Event Hubs 기능에서도 작동합니다.
 

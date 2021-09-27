@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 27b051a54fc17b0d7d65fff4d7f02e806baa3fd0
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601726"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,9 @@ Azure Cosmos DB의 API for MongoDB는 Azure Cosmos DB의 핵심 인덱스 관리
 
 ## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>MongoDB 서버 버전 3.6 이상에 대한 인덱싱
 
-Azure Cosmos DB의 API for MongoDB 서버 버전 3.6 이상은 `_id` 필드를 자동으로 인덱싱하며, 이 필드는 삭제할 수 없습니다. 분할 키별 `_id` 필드의 고유성을 자동으로 적용합니다. Azure Cosmos DB의 API for MongoDB에서는 분할 및 인덱싱이 별도의 개념입니다. 분할 키를 인덱싱할 필요는 없습니다. 그러나 문서의 다른 속성과 마찬가지로 이 속성이 쿼리에서 일반 필터인 경우 분할 키를 인덱싱하는 것이 좋습니다.
+MongoDB server 버전 3.6 +에 대 한 Azure Cosmos DB의 API는 `_id` 필드 및 분할 키 (분할 된 컬렉션에만 해당)를 자동으로 인덱싱합니다. API는 분할 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 
 
-추가 필드를 인덱싱하려면 MongoDB 인덱스 관리 명령을 적용합니다. MongoDB에서와 마찬가지로, Azure Cosmos DB의 API for MongoDB는 `_id` 필드만 자동으로 인덱싱합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
-
-쿼리에 정렬을 적용하려면 정렬 작업에 사용되는 필드에 대한 인덱스를 만들어야 합니다.
+MongoDB 용 api는 기본적으로 모든 필드를 인덱싱하는 Azure Cosmos DB SQL api와 다르게 동작 합니다.
 
 ### <a name="editing-indexing-policy"></a>인덱싱 정책 편집
 
@@ -51,11 +49,13 @@ Azure Portal에서 `name`에 동일한 단일 필드 인덱스를 만들 수 있
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="인덱싱 정책 편집기에서 이름 인덱스 추가":::
 
-사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컨테이너당 최대 500개의 단일 필드 인덱스를 만들 수 있습니다.
+사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컬렉션 당 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스(MongoDB 서버 버전 3.6 이상)
+MongoDB에 대 한 API에서는 쿼리가 한 번에 여러 필드를 정렬할 수 있어야 하는 경우 복합 인덱스가 **필요** 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 인덱싱 비용을 줄이기 위해 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
 
-Azure Cosmos DB의 API for MongoDB는 버전 3.6 및 4.0 유선 프로토콜을 사용하는 계정에 대한 복합 인덱스를 지원합니다. 하나의 복합 인덱스에 최대 8개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
+복합 인덱스의 각 필드에 대 한 복합 인덱스 또는 단일 필드 인덱스는 쿼리를 필터링 하는 데 동일한 성능을 생성 합니다.
+
 
 > [!NOTE]
 > 중첩된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
@@ -440,4 +440,4 @@ Azure Cosmos DB의 API for MongoDB 버전 3.6 이상과 달리 버전 3.2는 기
 * 분할 및 인덱싱 간의 관계에 대해 알아보려면 [Azure Cosmos 컨테이너를 쿼리](../how-to-query-container.md)하는 방법 문서를 참조하세요.
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

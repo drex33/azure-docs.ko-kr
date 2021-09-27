@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b28041d0bfcc60b3973e17d1883ef63be521a515
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95978043"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613102"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -70,11 +70,11 @@ ms.locfileid: "95978043"
 
       OpenSSL 도구에는 다음 구문이 있습니다.
 
-      ```rand -hex <key length>```
+      `rand -hex <key length>`
 
       다음은 그 예입니다.
 
-      ```OpenSSL> rand -hex 32``` 
+      `OpenSSL> rand -hex 32` 
 
       가동 중지 시간을 방지하려면 기본 및 백업 키를 모두 만듭니다. 백업 키는 기본 키를 업데이트하는 경우 콘텐츠에 중단 없는 액세스를 제공합니다.
     

@@ -2,14 +2,14 @@
 title: Java Message Service API 및 Azure Service Bus와 함께 AMQP 사용
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용합니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: e6225f83cde584dae3cd5633584249c24a2e475e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 83a19e7a360edfb5c883a1ecc717fc7bf96bfec4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536491"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662847"
 ---
 # <a name="use-the-java-message-service-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) 사용
 

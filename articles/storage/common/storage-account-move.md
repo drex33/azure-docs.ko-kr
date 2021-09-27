@@ -10,12 +10,12 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ff972965533dac423cafc731aa4a10165570977
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: c447d5cacc0c1d60a7594c1b6e6f2082941f7ae9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258758"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587445"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure 스토리지 계정을 다른 지역으로 이동
 
@@ -24,13 +24,13 @@ ms.locfileid: "123258758"
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> 
-> * 템플릿을 내보냅니다.
-> * 대상 지역과 스토리지 계정 이름을 추가하여 템플릿을 수정합니다.
-> * 템플릿을 배포하여 새 스토리지 계정을 만듭니다.
-> * 새 스토리지 계정을 구성합니다.
-> * 새 스토리지 계정으로 데이터를 이동합니다.
-> * 원본 지역에서 리소스를 삭제합니다.
+>
+> - 템플릿을 내보냅니다.
+> - 대상 지역과 스토리지 계정 이름을 추가하여 템플릿을 수정합니다.
+> - 템플릿을 배포하여 새 스토리지 계정을 만듭니다.
+> - 새 스토리지 계정을 구성합니다.
+> - 새 스토리지 계정으로 데이터를 이동합니다.
+> - 원본 지역에서 리소스를 삭제합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,11 +42,11 @@ ms.locfileid: "123258758"
 
 ## <a name="prepare"></a>준비
 
-시작하려면 리소스 관리자 템플릿을 내보낸 다음 수정합니다. 
+시작하려면 리소스 관리자 템플릿을 내보낸 다음 수정합니다.
 
 ### <a name="export-a-template"></a>템플릿 내보내기
 
-이 템플릿에는 스토리지 계정을 설명하는 설정이 포함되어 있습니다. 
+이 템플릿에는 스토리지 계정을 설명하는 설정이 포함되어 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -73,6 +73,7 @@ PowerShell을 사용하여 템플릿을 내보내려면:
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
+
 2. ID가 둘 이상의 구독과 연결된 경우 활성 구독을 이동하려는 스토리지 계정의 구독으로 설정합니다.
 
    ```azurepowershell-interactive
@@ -94,7 +95,7 @@ PowerShell을 사용하여 템플릿을 내보내려면:
 
 ---
 
-### <a name="modify-the-template"></a>템플릿 수정 
+### <a name="modify-the-template"></a>템플릿 수정
 
 스토리지 계정 이름 및 지역을 변경하여 템플릿을 수정합니다.
 
@@ -117,7 +118,7 @@ Azure Portal을 사용하여 템플릿을 배포하려면:
 6. **파일 로드** 를 선택한 다음 지침에 따라 마지막 섹션에서 다운로드한 **template.json** 파일을 로드합니다.
 
 7. **template.json** 파일에서 스토리지 계정 이름의 기본값을 설정하여 대상 스토리지 계정의 이름을 지정합니다. 이 예제에서는 스토리지 계정 이름의 기본값을 `mytargetaccount`로 설정합니다.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -127,7 +128,7 @@ Azure Portal을 사용하여 템플릿을 배포하려면:
             "type": "String"
         }
     },
- 
+
 8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
     ```json
@@ -138,6 +139,7 @@ Azure Portal을 사용하여 템플릿을 배포하려면:
          "location": "centralus"
          }]          
     ```
+
     지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.  지역 코드는 공백이 없는 지역 이름입니다(예: **Central US** = **centralus**).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -145,7 +147,7 @@ Azure Portal을 사용하여 템플릿을 배포하려면:
 PowerShell을 사용하여 템플릿을 배포하려면:
 
 1. **template.json** 파일에서 스토리지 계정 이름의 기본값을 설정하여 대상 스토리지 계정의 이름을 지정합니다. 이 예제에서는 스토리지 계정 이름의 기본값을 `mytargetaccount`로 설정합니다.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -155,7 +157,7 @@ PowerShell을 사용하여 템플릿을 배포하려면:
             "type": "String"
         }
     },
-    ``` 
+    ```
 
 2. **template.json** 파일의 **위치** 속성을 대상 지역으로 편집합니다. 이 예제에서는 대상 지역을 `eastus`로 설정합니다.
 
@@ -173,13 +175,14 @@ PowerShell을 사용하여 템플릿을 배포하려면:
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
+
 ---
 
 <a id="move"></a>
 
 ## <a name="move"></a>이동
 
-템플릿을 배포하여 대상 지역에 새 스토리지 계정을 만듭니다. 
+템플릿을 배포하여 대상 지역에 새 스토리지 계정을 만듭니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -187,11 +190,11 @@ PowerShell을 사용하여 템플릿을 배포하려면:
 
 2. 다음 속성 값을 입력하거나 선택합니다.
 
-- **구독**: Azure 구독을 선택합니다.
+   - **구독**: Azure 구독을 선택합니다.
 
-- **리소스 그룹**: **새로 만들기** 를 클릭하고 리소스 그룹에 이름을 지정합니다.
+   - **리소스 그룹**: **새로 만들기** 를 클릭하고 리소스 그룹에 이름을 지정합니다.
 
-- **지역**: Azure 위치를 선택합니다.
+   - **지역**: Azure 위치를 선택합니다.
 
 3. **위에 명시된 사용 약관에 동의함** 확인란을 클릭한 다음 **구매 선택** 단추를 클릭합니다.
 
@@ -212,11 +215,12 @@ PowerShell을 사용하여 템플릿을 배포하려면:
    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"  
    ```
+
 ---
 
 ### <a name="configure-the-new-storage-account"></a>새 스토리지 계정 구성
 
-일부 기능은 템플릿으로 내보내지 않으므로 새 스토리지 계정에 추가해야 합니다. 
+일부 기능은 템플릿으로 내보내지 않으므로 새 스토리지 계정에 추가해야 합니다.
 
 다음 표에 이러한 기능과 함께 새 스토리지 계정에 이 기능을 추가하기 위한 지침이 나와 있습니다.
 
@@ -228,14 +232,14 @@ PowerShell을 사용하여 템플릿을 배포하려면:
 | **경고** | [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **CDN(콘텐츠 전송 네트워크)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
 
-> [!NOTE] 
-> 원본 스토리지 계정에 대한 CDN을 설정하는 경우 기존 CDN의 원본을 새 계정의 기본 Blob 서비스 엔드포인트(또는 기본 정적 웹 사이트 엔드포인트)로 변경하면 됩니다. 
+> [!NOTE]
+> 원본 스토리지 계정에 대한 CDN을 설정하는 경우 기존 CDN의 원본을 새 계정의 기본 Blob 서비스 엔드포인트(또는 기본 정적 웹 사이트 엔드포인트)로 변경하면 됩니다.
 
 ### <a name="move-data-to-the-new-storage-account"></a>새 스토리지 계정으로 데이터 이동
 
 AzCopy는 데이터를 이동하는 데 선호되는 도구입니다. 성능에 최적화되어 있습니다.  더 빠른 방법 중 하나는 스토리지 서버 간에 데이터를 직접 복사하여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용하거나 사용자 지정 스크립트의 일부로 사용합니다. [AzCopy 시작](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-Azure Data Factory를 사용하여 데이터를 이동할 수도 있습니다. Azure Data Factory는 직관적인 사용자 인터페이스를 제공합니다. Azure Data Factory를 사용하려면 다음 링크 중 하나를 참조하세요. 
+Azure Data Factory를 사용하여 데이터를 이동할 수도 있습니다. Azure Data Factory는 직관적인 사용자 인터페이스를 제공합니다. Azure Data Factory를 사용하려면 다음 링크 중 하나를 참조하세요.
 
   - [Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](/azure/data-factory/connector-azure-blob-storage)
   - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](/azure/data-factory/connector-azure-data-lake-storage)
@@ -267,12 +271,12 @@ Azure Portal을 사용하여 스토리지 계정을 제거하려면:
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
 ```
+
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure 스토리지 계정을 한 지역에서 다른 지역으로 이동하고 원본 리소스를 정리했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-
 
 - [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [다른 지역으로 Azure VM 이동](../../site-recovery/azure-to-azure-tutorial-migrate.md)

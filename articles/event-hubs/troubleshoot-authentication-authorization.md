@@ -2,13 +2,13 @@
 title: 인증 및 권한 부여 문제 해결 - Azure Event Hubs
 description: 이 문서에서는 Azure Event Hubs와 관련된 인증 및 권한 부여 문제를 해결하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.openlocfilehash: 0561ab94f113bf849d5492b93171c9b14540de44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92329613"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656838"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>인증 및 권한 부여 문제 해결 - Azure Event Hubs
 [연결 문제 해결](troubleshooting-guide.md) 문서에서는 Azure Event Hubs와의 연결 문제 해결에 대한 팁을 제공합니다. 이 문서에서는 Azure Event Hubs 관련 인증 및 권한 부여 문제를 해결하기 위한 팁과 권장 사항을 제공합니다. 
@@ -25,9 +25,9 @@ Azure AD(Azure Active Directory)를 사용하여 Azure Event Hubs를 인증하�
 
 ### <a name="resource-scopes"></a>리소스 범위
 - **소비자 그룹**: 이 범위에서 역할 할당은 이 엔터티에만 적용됩니다. 현재 Azure Portal은 이 수준에서 보안 주체에 대한 Azure 역할 할당을 지원하지 않습니다. 
-- **이벤트 허브**: 역할 할당은 Event Hubs 엔터티와 그 아래에 있는 소비자 그룹에 적용됩니다.
-- **네임스페이스**: 역할 할당은 네임스페이스에 있는 Event Hubs의 전체 토폴로지 및 이와 연결된 소비자 그룹에 적용됩니다.
-- **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Event Hubs 리소스에 적용됩니다.
+- **이벤트 허브**: 역할 할당이 Event Hubs 엔터티와 그 아래에 있는 소비자 그룹에 적용됩니다.
+- **네임스페이스**: 역할 할당이 네임스페이스 아래에 있는 Event Hubs의 전체 토폴로지 및 연결된 소비자 그룹에 적용됩니다.
+- **리소스 그룹**: 역할 할당이 리소스 그룹 아래에 있는 모든 Event Hubs 리소스에 적용됩니다.
 - **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Event Hubs 리소스에 적용됩니다.
 
 자세한 내용은 다음 문서를 참조하세요.

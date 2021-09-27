@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 28bd7af9722bd76d6580257ffaf0446c79522502
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 2d0187dcac4de0fc49bbc504d8a3010801d44ecb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461552"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781328"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -66,7 +66,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 - [다단계 인증](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [셀프 서비스 암호 관리](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [셀프 서비스 그룹 관리](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
+- [셀프 서비스 그룹 관리](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 - [권한 있는 계정 관리](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 - [애플리케이션 사용 현황 모니터링](../../active-directory/hybrid/whatis-hybrid-identity.md)

@@ -3,16 +3,17 @@ title: Blob Storage에서 SQL Database로 데이터 복사 - Azure
 description: 이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob Storage에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 24cedc6a1e0be66e9a924a50e25257f18b7f96a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3ae57d6efbdff7c1b54c02b97a0b121b9a14b416
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376890"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638789"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
@@ -50,13 +51,13 @@ ms.locfileid: "100376890"
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴의 **모든 서비스** 를 클릭하고 **Storage 계정** 을 선택합니다.
 
-    ![찾아보기 - Storage 계정](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png" alt-text="찾아보기 - Storage 계정":::
 3. **Storage 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure Storage 계정** 을 선택합니다.
 4. **설정** 아래에 있는 **액세스 키** 링크를 선택합니다.
 5. **Storage 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 복사하거나 **key1** 을 적어둡니다.
 
-    ![스토리지 액세스 키](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    :::image type="content" source="media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png" alt-text="스토리지 액세스 키":::
 7. **X** 를 클릭하여 모든 블레이드를 닫습니다.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집

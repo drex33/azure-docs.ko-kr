@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e15b3f81cf5f29efa739939fe29df25f338187cc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 82f40d33d0465a7981105472ccd0487e7e24da80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475261"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635131"
 ---
 # <a name="optimizing-log-alert-queries"></a>경고 쿼리 최적화
 이 문서에서는 최적의 성능을 얻기 위해 [로그 경고](./alerts-unified-log.md) 쿼리를 작성하고 변환하는 방법을 설명합니다. 최적화된 쿼리는 자주 실행되는 경고의 대기 시간 및 부하를 줄입니다.
@@ -21,7 +21,7 @@ ms.locfileid: "110475261"
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>경고가 아닌 문제를 나타내는 쿼리
 
-경고 흐름은 경고에 대한 문제를 나타내는 결과를 변환하기 위해 작성되었습니다. 예를 들어 다음과 같은 쿼리의 경우:
+경고 흐름은 경고에 대한 문제를 나타내는 결과를 변환하기 위해 작성되었습니다. 예를 들어 다음과 같은 쿼리의 경우
 
 ``` Kusto
 SecurityEvent
@@ -47,7 +47,7 @@ SecurityEvent
 
 명확한 범위를 정의하려면 Azure의 로그 경고 규칙에 대한 쿼리는 항상 테이블로 시작되어야 합니다. 이를 통해 쿼리 성능과 결과의 관련성을 모두 개선할 수 있습니다. 경고 규칙의 쿼리는 자주 실행되므로 `search` 및 `union`의 사용은 여러 테이블에서의 검색으로 이어지게 되며, 과도한 오버헤드로 인해 경고에 대기 시간이 추가됩니다. 이러한 연산자는 또한 쿼리를 최적화하는 경고 서비스의 기능을 축소합니다.
 
-또한 상호 리소스 쿼리를 기대하는 `search` 및 `union` 연산자를 사용하는 로그 경고 규칙을 만들거나 수정하는 기능은 지원하지 않습니다.
+`search` `union` 리소스 간 쿼리를 제외 하 고 또는 연산자를 사용 하는 로그 경고 규칙을 만들거나 수정 하는 것은 지원 되지 않습니다.
 
 예를 들어 다음 경고 쿼리는 _SecurityEvent_ 테이블로 범위가 지정되며 특정 이벤트 ID를 검색합니다. 쿼리가 반드시 처리해야 하는 유일한 테이블입니다.
 

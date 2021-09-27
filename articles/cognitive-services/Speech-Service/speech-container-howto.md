@@ -8,30 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/01/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: a78408759492cdba97bca8b6e4b71411af192f9f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: a1f82384d7191c65293c85bdc3ef70347c6646f5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224120"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799038"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech Service API용 Docker 컨테이너 설치 및 실행 
 
-컨테이너를 사용하면 사용자 환경에서 음성 서비스 API의 일부를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
+컨테이너를 사용 하면 사용자 환경에서 음성 서비스 Api의 _일부_ 를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
 
 음성 컨테이너는 고객이 강력한 클라우드 기능 및 에지 지역성 모두에 최적화된 음성 애플리케이션 아키텍처를 구축할 수 있도록 합니다. 클라우드 기반 Azure Speech Service와 동일한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 사용하는 여러 컨테이너를 사용할 수 있습니다.
 
+> [!IMPORTANT]
+> 2021 년 8 월 31 일에 표준 음성 합성 음성 및 텍스트 음성 변환 컨테이너를 사용 중지 했습니다. 대신 신경망 및 음성 변환 컨테이너를 사용 하도록 응용 프로그램을 마이그레이션하는 것이 좋습니다. 응용 프로그램을 업데이트 하는 방법에 대 한 자세한 내용은 [다음 단계를 따르세요](./text-to-speech.md#migrate-to-neural-voice) .
+
 | 컨테이너 | 기능 | 최신 | 릴리스 상태 |
 |--|--|--|--|
-| 음성 텍스트 변환 | 감정을 분석하고 연속적인 실시간 음성 또는 일괄 오디오 녹음을 기록하며 중간 결과를 제공합니다.  | 2.13.0 | 일반 공급 |
-| 사용자 지정 음성 텍스트 변환 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)의 사용자 지정 모델을 사용하여 연속적인 실시간 음성 또는 일괄 오디오 녹음을 텍스트로 기록하고 중간 결과를 제공합니다. | 2.13.0 | 일반 공급 |
-| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 사용하여 텍스트를 자연스러운 음성으로 변환합니다. | 1.14.1 | 일반 공급 |
+| 음성 텍스트 변환 | 감정을 분석하고 연속적인 실시간 음성 또는 일괄 오디오 녹음을 기록하며 중간 결과를 제공합니다.  | 2.14.0 | 일반 공급 |
+| 사용자 지정 음성 텍스트 변환 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)의 사용자 지정 모델을 사용하여 연속적인 실시간 음성 또는 일괄 오디오 녹음을 텍스트로 기록하고 중간 결과를 제공합니다. | 2.14.0 | 일반 공급 |
+| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 사용하여 텍스트를 자연스러운 음성으로 변환합니다. | 1.15.0 | 일반 공급 |
 | 음성 언어 식별 | 오디오 파일에서 음성 언어를 감지합니다. | 1.3.0 | 미리 보기 |
-| 인공신경망 텍스트 음성 변환 | 심층 신경망 기술을 사용하여 텍스트를 자연스러운 음성으로 변환함으로써 보다 자연스러운 합성 음성을 사용할 수 있도록 합니다. | 1.8.0 | 일반 공급 |
+| 인공신경망 텍스트 음성 변환 | 심층 신경망 기술을 사용하여 텍스트를 자연스러운 음성으로 변환함으로써 보다 자연스러운 합성 음성을 사용할 수 있도록 합니다. | 1.9.0 | 일반 공급 |
 
 ## <a name="prerequisites"></a>필수 조건
 

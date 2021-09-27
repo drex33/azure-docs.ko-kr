@@ -7,20 +7,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.openlocfilehash: a61eaa10420a9a4a413074559a158e2a32f5cf95
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634998"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
 
-이 문서는 신용 카드로 Azure online에 등록하고 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. Microsoft 고객 계약 청구 계정이 있는 경우, 대신 [Microsoft Azure에 대한 청구서 지불](../understand/pay-bill.md)을 참조하세요.
+이 문서는 신용 카드로 Azure online에 등록 하 고 Microsoft Online Services 프로그램 청구 계정이 있는 고객에 게 적용 됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. Microsoft 고객 계약 청구 계정이 있는 경우 대신 [Microsoft Azure 요금](../understand/pay-bill.md) 청구를 참조 하세요.
 
-지불이 수신되지 않거나 지불을 처리할 수 없는 경우 이메일을 받게 되고 Azure Portal에서 구독 기한이 지난 것을 알리는 경고가 표시됩니다. 기본 결제 방법이 신용 카드인 경우 [계정 관리자](../understand/subscription-transfer.md#whoisaa)는 Azure Portal에서 미납된 요금을 납부할 수 있습니다. 청구서로 지불하는 경우(수표/전신 송금) 청구서 맨 아래에 기재된 위치로 결제 금액을 송금합니다.
+지불이 수신되지 않거나 지불을 처리할 수 없는 경우 이메일을 받게 되고 Azure Portal에서 구독 기한이 지난 것을 알리는 경고가 표시됩니다. 기본 지불 방법이 신용 카드인 경우 [계정 관리자](../understand/subscription-transfer.md#whoisaa) 는 Azure Portal의 미해결 요금을 청구할 수 있습니다. 청구서로 지불하는 경우(수표/전신 송금) 청구서 맨 아래에 기재된 위치로 결제 금액을 송금합니다.
 
 > [!IMPORTANT]
 > * 동일한 신용 카드를 사용하는 구독이 여러 개 있고 모두 기한이 초과된 경우 전체 미결 잔액을 한 번에 지불해야 합니다.
@@ -29,19 +29,19 @@ ms.locfileid: "91297587"
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Azure Portal에서 미지불액 해결
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.
+1. **Cost Management + 청구** 를 검색합니다.
 1. **개요** 페이지에서 기한이 지난 구독을 선택합니다.
 1. **구독 개요** 페이지에서 빨간색 연체 배너를 클릭하여 잔액을 결제합니다.
     > [!NOTE]
     > 계정 관리자가 아닌 경우 잔액을 결제할 수 없습니다.
-1. 새 **잔액 결제** 페이지에서 **결제 방법 선택**을 클릭합니다.
+1. 새 **잔액 결제** 페이지에서 **결제 방법 선택** 을 클릭합니다.
     ![결제 방법 선택 링크를 보여 주는 스크린샷](./media/resolve-past-due-balance/settle-balance-screen.png)
 
 1. 오른쪽의 새 블레이드에 있는 드롭다운에서 신용 카드를 선택하거나 파란색 **새 결제 방법 추가** 링크를 클릭하여 새 카드를 추가합니다. 이 신용 카드는 현재 실패한 결제 방법을 사용하는 모든 구독에 대해 활성 결제 방법이 됩니다.
      > [!NOTE]
      > * 총 미결 잔액은 실패한 결제 방법을 사용하는 모든 Microsoft 서비스에 대해 미납된 요금을 반영합니다.
      > * 선택한 결제 방법에도 Microsoft 서비스에 대한 미납된 요금이 청구되는 경우 총 미결 잔액에 반영됩니다. 이러한 미납된 요금도 지불해야 합니다.
-1. **지불**을 클릭합니다.
+1. **지불** 을 클릭합니다.
 
 ## <a name="troubleshoot-declined-credit-card"></a>거부된 신용 카드 문제 해결
 

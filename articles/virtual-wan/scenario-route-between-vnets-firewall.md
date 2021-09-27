@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ebe1f337e2799e2ebeafc0f4a051ed7c3d81e434
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: f6581638379154675f1d93213ecaecf8b1ccb012
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162008"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649003"
 ---
 # <a name="scenario-azure-firewall---custom"></a>시나리오: Azure Firewall - 사용자 지정
 
@@ -68,8 +68,6 @@ VPN, ExpressRoute 및 사용자 VPN 연결은 집합적으로 분기라고 하�
 
 :::image type="content" source="./media/routing-scenarios/between-vnets-firewall/routing.png" alt-text="그림 1":::
 
-> [!NOTE]
-> 가상 WAN 허브와 연결된 가상 네트워크는 동일한 Azure 지역에 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: a5b84673a879c086fe1fc0543da1ab0037d32ac1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2c7c2a6d0056cb16f2ff79cb662cce2604d835b5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767625"
 ---
 # <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 복사 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "123255968"
 
 Azure Data Factory 및 Synapse 파이프라인에서는 복사 작업을 사용하여 온-프레미스와 클라우드에 있는 데이터 저장소 간에 데이터를 복사할 수 있습니다. 데이터를 복사한 후 다른 작업을 사용하여 추가 변환 및 분석을 수행할 수 있습니다. 복사 작업을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
-![복사 작업의 역할](media/copy-activity-overview/copy-activity.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity.png" alt-text="복사 작업의 역할":::
 
 복사 작업은 [통합 런타임](concepts-integration-runtime.md)에서 실행됩니다. 다양한 데이터 복사 시나리오에서 다양한 유형의 통합 런타임을 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure Data Factory 및 Synapse 파이프라인에서는 복사 작업을 사용�
 2. 직렬화/역직렬화, 압축/압축 해제, 열 매핑 등을 수행합니다. 이러한 작업은 입력 데이터 세트, 출력 데이터 세트 및 복사 작업의 구성에 따라 달라집니다.
 3. 싱크/대상 데이터 저장소에 데이터를 씁니다.
 
-![복사 작업 개요](media/copy-activity-overview/copy-activity-overview.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="복사 작업 개요":::
 
 ## <a name="supported-data-stores-and-formats"></a>지원되는 데이터 저장소 및 형식
 
@@ -127,7 +127,7 @@ Azure Data Factory 및 Synapse 파이프라인에서는 복사 작업을 사용�
 
 | 속성 | 설명 | 필수 여부 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업의 경우 `Copy`로 설정합니다. | 예 |
+| type | 복사 작업의 경우 `Copy`로 설정합니다. | 예 |
 | 입력 | 원본 데이터를 가리키도록 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
 | outputs | 싱크 데이터를 가리키도록 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
 | typeProperties | 복사 작업을 구성할 속성을 지정합니다. | 예 |
@@ -161,7 +161,7 @@ Data Factory 및 Synapse 파이프라인을 사용하면 원본 데이터 저장
 - **작업 수준 다시 시도:** 복사 작업에 대한 재시도 횟수를 설정할 수 있습니다. 파이프라인을 실행하는 동안 이 복사 작업이 실행되지 않으면 다음 자동 다시 시도가 마지막 시도의 실패 지점에서 시작됩니다.
 - **실패한 작업에서 다시 실행:** 파이프라인 실행이 완료된 후 ADF UI 모니터링 보기에서 또는 프로그래밍 방식으로 실패한 작업에서 다시 실행을 트리거할 수도 있습니다. 실패한 작업이 복사 작업인 경우 파이프라인은 이 작업에서 다시 실행될 뿐만 아니라 이전 실행의 실패 지점에서 다시 시작합니다.
 
-    ![복사 다시 시작](media/copy-activity-overview/resume-copy.png)
+    :::image type="content" source="media/copy-activity-overview/resume-copy.png" alt-text="복사 다시 시작":::
 
 주의할 사항:
 
@@ -190,7 +190,7 @@ Data Factory 및 Synapse 파이프라인을 사용하면 원본 데이터 저장
 
 복사 작업 원본 탭에서 다음 구성을 찾을 수 있습니다. 또한 정의된 열 이름을 사용하여 일반적으로 복사 작업 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)에서 이러한 추가 열도 매핑할 수 있습니다. 
 
-![복사 작업에서 열 추가](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+:::image type="content" source="./media/copy-activity-overview/copy-activity-add-additional-columns.png" alt-text="복사 작업에서 열 추가":::
 
 >[!TIP]
 >이 기능은 최신 데이터 세트 모델에서 작동합니다. UI에서 이 옵션이 표시되지 않으면 새 데이터 세트를 만들어 보세요.
@@ -255,7 +255,7 @@ SQL 데이터베이스/Azure Synapse Analytics로 데이터를 복사하는 경�
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
-![싱크 테이블 만들기](media/copy-activity-overview/create-sink-table.png)
+:::image type="content" source="media/copy-activity-overview/create-sink-table.png" alt-text="싱크 테이블 만들기":::
 
 ## <a name="fault-tolerance"></a>내결함성
 

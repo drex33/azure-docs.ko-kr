@@ -1,15 +1,14 @@
 ---
 title: Azure Kubernetes Service에서 관리 ID 사용
 description: AKS(Azure Kubernetes Service)에서 관리 ID를 사용하는 방법 알아보기
-services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: e9a7a0a46e36d544a5b7d785da2b64ecde4f3faa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530575"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585305"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 ID 사용
 
@@ -83,7 +82,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > 업데이트 후에는 클러스터의 컨트롤 플레인과 추가 기능 pod가 관리 ID를 사용하도록 전환되지만 kubelet은 agentpool을 업그레이드할 때까지 서비스 주체를 계속 사용합니다. 노드에서 `az aks nodepool upgrade --node-image-only`를 수행하여 관리 ID에 대한 업데이트를 완료합니다. 
-
+>
+> 클러스터가--연결-acr을 사용 하 여 Azure Container Registry에서 이미지를 가져오는 경우 클러스터를 관리 되는 Id로 업데이트 한 후 관리 되는 `az aks update --attach-acr <ACR Resource ID>` id에 대해 새로 만든 kubelet를 사용 하 여 acr에서 끌어올 수 있는 권한을 가져오도록 해야 합니다. 그렇지 않으면 업그레이드 후 ACR에서 끌어올 수 없습니다.
+>
+> Azure CLI는 마이그레이션 후 추가 기능의 권한이 올바르게 설정 되었는지 확인 합니다. Azure CLI를 사용 하 여 마이그레이션 작업을 수행 하지 않는 경우에는 추가 기능 id의 권한을 직접 처리 해야 합니다. [ARM](../role-based-access-control/role-assignments-template.md)을 사용 하는 한 가지 예는 다음과 같습니다. 
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>AKS 클러스터용 시스템 할당 관리 ID 가져오기 및 사용
 
@@ -147,7 +149,7 @@ az identity create --name myIdentity --resource-group myResourceGroup
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```

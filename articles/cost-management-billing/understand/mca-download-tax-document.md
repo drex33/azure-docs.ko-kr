@@ -6,16 +6,16 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.subservice: billing
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ee059bc69a671d0623d4d43990e694b87bf177ff
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 7e41f50e61de324cc244d12be8b9ea70d6c38795
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648699"
 ---
 # <a name="view-and-download-tax-documents-for-your-azure-invoice"></a>Azure 청구서에 대한 세금 문서 보기 및 다운로드
 
@@ -24,12 +24,12 @@ Azure Portal에서 청구서에 액세스할 수 있는 경우 Azure 청구서�
 ## <a name="view-and-download-tax-documents"></a>세금 문서 보기 및 다운로드
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. *Cost Management + 청구*를 검색합니다.
+1. *Cost Management + 청구* 를 검색합니다.
 1. 액세스 권한에 따라 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다.
-1. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다.
+1. 왼쪽 메뉴에서 **청구** 아래의 **청구서** 를 선택합니다.
 1. 송장 그리드에서 다운로드하려는 세금 문서에 해당하는 송장의 행을 찾습니다.
 1. 다운로드 아이콘 또는 행 끝에 있는 줄임표(`...`)를 클릭합니다.
-7. 다운로드 메뉴에서 **세금 문서**를 선택합니다. 청구 프로필의 국가/지역에 따라 송장당 둘 이상의 세금 문서가 표시될 수 있습니다.
+7. 다운로드 메뉴에서 **세금 문서** 를 선택합니다. 청구 프로필의 국가/지역에 따라 송장당 둘 이상의 세금 문서가 표시될 수 있습니다.
 
 ## <a name="check-billing-account-type"></a>청구 계정 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

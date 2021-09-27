@@ -3,16 +3,16 @@ title: REST API를 사용하여 Azure IoT Central에서 사용자 및 역할 관
 description: IoT Central REST API를 사용하여 애플리케이션에서 사용자 및 역할을 관리하는 방법
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df4476177175fd5aadc57c3d68bedc97531aee0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 54917fced3fb561add82d8e1f78078e7562858e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448499"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680455"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>IoT Central REST API를 사용하여 사용자 및 역할을 관리하는 방법
 
@@ -21,6 +21,9 @@ IoT Central REST API를 사용하면 IoT Central 애플리케이션과 통합되
 모든 IoT Central REST API 호출에는 권한 부여 헤더가 필요합니다. 자세히 알아보려면 [IoT Central REST API 호출을 인증하고 권한을 부여하는 방법](howto-authorize-rest-api.md)을 참조하세요.
 
 IoT Central REST API에 대한 참조 설명서는 [Azure IoT Central REST API 참조](/rest/api/iotcentral/)를 참조하세요.
+
+> [!TIP]
+> [PREVIEW API](/rest/api/iotcentral/1.1-previewdataplane/users) 에는 새 [조직 기능](howto-create-organizations.md)에 대 한 지원이 포함 되어 있습니다.
 
 ## <a name="manage-roles"></a>역할 관리
 
@@ -183,7 +186,7 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-vers
 }
 ```
 
-REST API 호출에 서비스 주체 인증을 사용해야 하는 경우에 유용한 서비스 주체 사용자를 추가할 수도 있습니다. 자세한 내용은 [서비스 주체 사용자 추가 또는 업데이트](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user)를 참조하세요.
+REST API 호출에 서비스 주체 인증을 사용해야 하는 경우에 유용한 서비스 주체 사용자를 추가할 수도 있습니다. 자세한 내용은 [서비스 주체 사용자 추가 또는 업데이트](/rest/api/iotcentral/1.0dataplane/users/create#add-or-update-a-service-principal-user)를 참조하세요.
 
 ### <a name="change-the-role-of-a-user"></a>사용자의 역할 변경
 

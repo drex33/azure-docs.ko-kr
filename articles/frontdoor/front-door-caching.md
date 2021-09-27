@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 09/13/2021
 ms.author: duau
-ms.openlocfilehash: 977a0d3eb0081818c0afe4f544dd33169cea0e95
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
-ms.translationtype: HT
+ms.openlocfilehash: 1fb1aafed996fa79177157f6c20e6727ee532e7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563118"
 ---
 # <a name="caching-with-azure-front-door"></a>Azure Front Door를 사용한 캐싱
 다음 문서는 캐싱을 사용한 회람 규칙을 사용하는 Front Door의 동작을 설명합니다. Front Door는 동적 사이트 가속 및 부하 분산을 지원하는 최신 CDN(Content Delivery Network)이며 다른 CDN과 마찬가지로 캐싱 동작도 지원합니다.
@@ -81,6 +81,9 @@ Front Door는 콘텐츠를 에지에서 동적으로 압축하므로 클라이�
 요청이 gzip 및 Brotli 압축을 지원하는 경우 Brotli 압축이 우선적으로 적용됩니다.</br>
 자산에 대한 요청이 압축을 지정하고 요청의 결과로 캐시 누락이 발생한 경우, Front Door는 POP 서버에서 직접 자산을 압축합니다. 이후 압축된 파일은 캐시에서 제공됩니다. 결과 항목은 transfer-encoding: chunked를 사용하여 반환됩니다.
 
+> [!NOTE]
+> 범위 요청은 다른 크기로 압축될 수 있습니다. Azure Front Door GET HTTP 요청에 대해 콘텐츠 길이 값이 동일해야 합니다. 클라이언트가 헤더를 사용하여 바이트 범위 요청을 보내면 `accept-encoding` 원본이 다른 콘텐츠 길이로 응답하면 Azure Front Door 503 오류를 반환합니다. 원본/Azure Front Door 압축을 사용하지 않도록 설정하거나 바이트 범위 요청에 대한 요청에서 제거할 규칙 집합 규칙을 만들 수 `accept-encoding` 있습니다.
+
 ## <a name="query-string-behavior"></a>쿼리 문자열 동작
 Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예들 들어 `http://www.contoso.com/content.mov?field1=value1&field2=value2`입니다. 요청의 쿼리 문자열에 키-값 쌍이 둘 이상인 경우 해당 순서는 중요하지 않습니다.
 - **쿼리 문자열 무시**: 해당 모드에서는 Front Door가 첫 번째 요청에서 요청자의 쿼리 문자열을 백 엔드에 전달하고 자산을 캐시합니다. 캐시된 자산이 만료될 때까지 Front Door 환경에서 제공되는 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
@@ -121,11 +124,20 @@ Cache-Control: private, Cache-Control: no-cache, Cache-Control: no-store와 같�
 - Content-Length
 - Transfer-Encoding
 
-## <a name="cache-duration"></a>캐시 기간
+## <a name="cache-behavior-and-duration"></a>캐시 동작 및 지속 시간
 
-캐시 기간은 Front Door 디자이너와 규칙 엔진 모두에서 구성할 수 있습니다. Front Door 디자이너에 설정된 캐시 기간은 최소 캐시 기간입니다. 원본의 캐시 제어 헤더가 재정의 값보다 큰 TTL을 가지는 경우에는 이 재정의가 작동하지 않습니다. 
+프런트 도어 디자이너 라우팅 규칙과 규칙 엔진 모두에서 캐시 동작 및 기간을 구성할 수 있습니다. 규칙 엔진 캐싱 구성은 항상 Front 도어 디자이너 라우팅 규칙 구성을 재정의 합니다.
 
-규칙 엔진을 통해 설정된 캐시 기간은 진정한 캐시 재정의이며, 이는 원본 응답 헤더와 관계없이 재정의 값을 사용함을 의미합니다.
+* *캐싱이* **사용 하지 않도록 설정** 된 경우 전면 도어는 원본 응답 지시문에 관계 없이 응답 콘텐츠를 캐시 하지 않습니다.
+
+* *캐싱이* **설정** 된 경우 캐시의 *기본 지속 기간* 값 마다 캐시 동작이 다릅니다.
+    * *사용 캐시 기본 지속 기간* 을 **예** 로 설정 하면 Front 도어가 항상 원본 응답 헤더 지시어를 인식 합니다. 원본 지시어가 없는 경우 전면 도어는 1 일에서 3 일 사이에 콘텐츠를 캐시 합니다.
+    * *사용 캐시 기본 지속 기간* 을 **아니요** 로 설정 하면 프런트 도어는 항상 *캐시 기간* (필수 필드)으로 재정의 됩니다. 즉, 원본 응답 지시문의 값을 무시 하 고 캐시 기간에 대 한 콘텐츠를 캐시 합니다. 
+
+> [!NOTE]
+> * 전면 도어 디자이너 라우팅 규칙에 설정 된 *캐시 기간이* **최소 캐시 기간** 입니다. 원본에서 캐시 컨트롤 헤더의 TTL이 재정의 값 보다 크면이 재정의는 작동 하지 않습니다.
+> * 자주 요청 되는 콘텐츠를 위한 공간을 확보 하기 위해 콘텐츠가 자주 요청 되지 않은 경우에는 캐시 된 콘텐츠가 만료 되기 전에 Azure Front 도어에서 제거 될 수 있습니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 

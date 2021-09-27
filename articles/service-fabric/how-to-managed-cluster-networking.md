@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에 대한 네트워크 설정 구�
 description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대해 Service Fabric 관리형 클러스터를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: d953e9cd96c509a2410087588125b023613b380c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 432246ca0550e4fab678a3a190221de88ce04478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867369"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638446"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 
@@ -199,7 +199,9 @@ Azure Portal을 사용하여 RDP(원격 데스크톱 프로토콜)에 대한 인
 
    ![인바운드 NAT 규칙][Inbound-NAT-Rules]
 
-   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트가 50000 이상 범위에 있고, 대상 포트는 포트 3389이며, 대상 노드의 RDP 서비스에 매핑됩니다.
+   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 5만에서 시작 하 고 대상 포트는 포트 3389 이며, 대상 노드의 RDP 서비스에 매핑됩니다.
+   >[!NOTE]
+   > BYOLB 기능을 사용 하 고 RDP를 사용 하려는 경우에는 별도로 NAT 풀을 구성 해야 합니다. 이러한 노드 유형에 대 한 NAT 규칙을 자동으로 만들지 않습니다.
 
 4. 특정 노드(확장 집합 인스턴스)에 원격으로 연결합니다. 클러스터를 만들 때 설정한 사용자 이름 및 암호 또는 구성한 다른 자격 증명을 사용할 수 있습니다.
 
@@ -315,7 +317,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
             }
    ```
 
-2. 사용자의 IPv6 사용 관리형 클러스터를 배포합니다. 필요에 따라 [샘플 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-IPv6/AzureDeploy.json)을 사용자 지정하거나 직접 빌드합니다.
+2. 사용자의 IPv6 사용 관리형 클러스터를 배포합니다. 필요에 따라 [샘플 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6)을 사용자 지정하거나 직접 빌드합니다.
    다음 예제에서는 `westus`에서 `MyResourceGroup`라는 리소스 그룹을 만들고 이 기능을 사용하도록 설정된 클러스터를 배포합니다.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -403,7 +405,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
    > [!NOTE]
    > VNetRoleAssignmentID는 [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16)여야 합니다. 템플릿에 이 역할 할당을 포함하여 재배포하는 경우 GUID가 원래 사용된 것과 동일한지 확인합니다. 이 리소스는 한 번만 만들면 되므로, 배포 후 클러스터 템플릿에서 격리하거나 제거하는 것이 좋습니다.
 
-   다음은 이 단계에 사용할 수 있는 [VNet 서브넷을 만들고 역할 할당을 수행하는 ARM(Azure Resource Manager) 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json)입니다.
+   다음은 이 단계에 사용할 수 있는 [VNet 서브넷을 만들고 역할 할당을 수행하는 ARM(Azure Resource Manager) 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json)입니다.
 
 3. 아래와 같이 역할이 설정된 후 클러스터 배포에 대한 `subnetId` 속성을 구성합니다.
 
@@ -419,7 +421,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
             ...
             }
    ```
-   [사용자 고유의 VNet 클러스터 샘플 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/AzureDeploy.json)을 참조하거나 사용자 고유의 템플릿을 사용자 지정합니다.
+   [사용자 고유의 VNet 클러스터 샘플 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET)을 참조하거나 사용자 고유의 템플릿을 사용자 지정합니다.
 
 4. 구성된 관리형 클러스터 ARM(Azure Resource Manager) 템플릿을 배포합니다.
 
@@ -437,7 +439,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 * 개인 또는 공용 트래픽에 대해 미리 구성된 Load Balancer 고정 IP 주소 사용
 * 특정 노드 형식에 Load Balancer 매핑
-* 각 노드 유형이 자체 VNET에 배포되기 때문에 노드 유형별 NSG 규칙을 구성합니다.
+* 각 노드 유형이 고유한 NSG를 사용 하 여 자체 서브넷에 배포 되기 때문에 노드 유형별 네트워크 보안 그룹 규칙을 구성 합니다. 
 * 보유하고 있을 수 있는 기존 정책 및 컨트롤 유지
 
 > [!NOTE]
@@ -445,7 +447,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 **기능 요구 사항**
  * 기본 및 표준 SKU Azure Load Balancer 형식이 지원됩니다.
- * 기존 Azure Load Balancer에 구성된 백 엔드 및 NAT 풀이 있어야 합니다. 예제는 전체 [여기에서 역할 만들기 및 할당하기 샘플](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role)을 참조하세요. 
+ * 기존 Azure Load Balancer에 구성된 백 엔드 및 NAT 풀이 있어야 합니다. 예제는 전체 [여기에서 역할 만들기 및 할당하기 샘플](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)을 참조하세요. 
 
 다음은 고객이 사용할 수 있는 몇 가지 예제 시나리오입니다.
 
@@ -532,7 +534,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
 
 5. 필요에 따라 노드 유형에 적용된 관리형 클러스터 NSG 규칙을 구성하여 Azure Load Balancer 구성한 모든 필수 트래픽 또는 트래픽이 차단되도록 합니다.
 
-   인바운드 규칙을 여는 방법에 대한 예제는 [사용자 고유의 부하 분산 장치 샘플 ARM(Azure Resource Manager) 템플릿 가져오기](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/AzureDeploy.json)를 참조하세요.
+   인바운드 규칙을 여는 방법에 대한 예제는 [사용자 고유의 부하 분산 장치 샘플 ARM(Azure Resource Manager) 템플릿 가져오기](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB)를 참조하세요.
 
 6. 구성된 관리형 클러스터 ARM 템플릿 배포
 

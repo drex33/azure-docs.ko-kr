@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: ac0d8adff819e51be8c5649130447590741bc082
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 765eb53098f757d29072d736d50086f31bb11dc3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649760"
 ---
 # <a name="deploy-an-application-managed-by-open-service-mesh-osm-using-azure-application-gateway-ingress-aks-add-on"></a>Azure Application Gateway 수신 AKS 추가 기능으로 OSM(Open Service Mesh)에서 관리하는 애플리케이션 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "123441306"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 연습에 설명된 단계에서는 AKS 클러스터에 대해 이전에 OSM AKS 추가 기능을 사용하도록 설정했다고 가정합니다. 그렇지 않은 경우 계속하기 전에 [OSM AKS 추가](./open-service-mesh-deploy-add-on.md) 기능 배포 문서를 검토하세요. 또한 AKS 클러스터는 Kubernetes 버전 `1.19+` 이상이어야 하고, Kubernetes RBAC를 사용하도록 설정하고, 클러스터와의 `kubectl` 연결을 설정해야 합니다. 이러한 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하고 AKS OSM 추가 기능을 설치해야 합니다.
+이 연습에 설명된 단계에서는 AKS 클러스터에 대해 이전에 OSM AKS 추가 기능을 사용하도록 설정했다고 가정합니다. 그렇지 않은 경우 계속하기 전에 [OSM AKS 추가](./open-service-mesh-deploy-addon-az-cli.md) 기능 배포 문서를 검토하세요. 또한 AKS 클러스터는 Kubernetes 버전 `1.19+` 이상이어야 하고, Kubernetes RBAC를 사용하도록 설정하고, 클러스터와의 `kubectl` 연결을 설정해야 합니다. 이러한 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작](./kubernetes-walkthrough.md)을 참조하고 AKS OSM 추가 기능을 설치해야 합니다.
 
 다음 리소스가 설치되어 있어야 합니다.
 
@@ -100,10 +100,10 @@ spec:
 
 이 자습서에서는 다음과 같은 애플리케이션 구성 요소를 포함하는 OSM으로 구성된 애플리케이션을 사용합니다.
 
-- bookbuyer
-- bookthief
-- bookstore
-- bookwarehouse
+- `bookbuyer`
+- `bookthief`
+- `bookstore`
+- `bookwarehouse`
 
 이러한 각 애플리케이션 구성 요소에 대한 네임스페이스를 만듭니다.
 
@@ -175,9 +175,9 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## <a name="update-the-bookbuyer-service"></a>bookbuyer 서비스 업데이트
+## <a name="update-the-bookbuyer-service"></a>서비스 업데이트 `Bookbuyer`
 
-bookbuyer 서비스를 다음 서비스 매니페스트를 사용하여 올바른 인바운드 포트 구성으로 업데이트합니다.
+다음 `bookbuyer` 서비스 매니페스트를 사용하여 서비스를 올바른 인바운드 포트 구성으로 업데이트합니다.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -199,22 +199,22 @@ EOF
 
 ## <a name="verify-the-bookstore-application"></a>Bookstore 애플리케이션 확인
 
-지금 bookstore 다중 컨테이너 애플리케이션이 배포되어 있지만 AKS 클러스터 내에서만 액세스할 수 있습니다. 나중에 AKS 클러스터 외부에서 애플리케이션을 공개하는 Azure Application Gateway 수신 컨트롤러를 추가합니다. 애플리케이션이 클러스터 내에서 실행되고 있는지 확인하기 위해 포트 전달을 사용하여 bookbuyer 구성 요소 UI를 확인합니다.
+지금 bookstore 다중 컨테이너 애플리케이션이 배포되어 있지만 AKS 클러스터 내에서만 액세스할 수 있습니다. 나중에 AKS 클러스터 외부에서 애플리케이션을 공개하는 Azure Application Gateway 수신 컨트롤러를 추가합니다. 애플리케이션이 클러스터 내에서 실행되고 있는지 확인하기 위해 포트를 앞으로 사용하여 `bookbuyer` 구성 요소 UI를 확인합니다.
 
-먼저 bookbuyer Pod의 이름을 가져오겠습니다.
+먼저 `bookbuyer` Pod의 이름을 살펴보겠습니다.
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
 ```
 
-다음과 비슷한 결과가 표시됩니다. Bookbuyer Pod에 고유한 이름이 추가됩니다.
+다음과 비슷한 결과가 표시됩니다. `bookbuyer`Pod에 고유한 이름이 추가됩니다.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Pod의 이름이 있으면 이제 port-forward 명령을 사용하여 로컬 시스템에서 AKS 클러스터 내부의 애플리케이션까지의 터널을 설정할 수 있습니다. 다음 명령을 실행하여 로컬 시스템 포트 8080에 대한 포트 전달을 설정합니다. 특정 bookbuyer Pod 이름을 다시 사용합니다.
+Pod의 이름이 있으면 이제 port-forward 명령을 사용하여 로컬 시스템에서 AKS 클러스터 내부의 애플리케이션까지의 터널을 설정할 수 있습니다. 다음 명령을 실행하여 로컬 시스템 포트 8080에 대한 포트 전달을 설정합니다. 다시 특정 `bookbuyer` Pod 이름을 사용합니다.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -227,11 +227,11 @@ Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-포트 전달 세션이 준비되는 동안 브라우저에서 다음 URL로 이동합니다(`http://localhost:8080`). 이제 아래 이미지와 비슷한 브라우저에서 bookbuyer 애플리케이션 UI를 볼 수 있습니다.
+포트 전달 세션이 준비되는 동안 브라우저에서 다음 URL로 이동합니다(`http://localhost:8080`). 이제 `bookbuyer` 아래 이미지와 비슷한 브라우저에서 애플리케이션 UI를 볼 수 있습니다.
 
 ![App Gateway UI 이미지에 대한 OSM bookbuyer 앱](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-## <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application"></a>bookbuyer 애플리케이션을 노출하는 Azure Application Gateway 만들기 
+## <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application"></a>애플리케이션을 노출하는 Azure Application Gateway 만들기 `bookbuyer`
 
 > [!NOTE]
 > 다음 지침에서는 수신에 사용할 Azure Application Gateway의 새 인스턴스를 만듭니다. 기존 Azure Application Gateway를 사용하려는 경우 Application Gateway 수신 컨트롤러 추가 기능 사용 설정에 대한 섹션으로 건너뜁니다.
@@ -287,9 +287,9 @@ appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
 
-## <a name="expose-the-bookbuyer-service-to-the-internet"></a>bookbuyer 서비스를 인터넷에 공개
+## <a name="expose-the-bookbuyer-service-to-the-internet"></a>인터넷에 `bookbuyer` 서비스 노출
 
-AKS 클러스터에 다음 수신 매니페스트를 적용하여 Azure Application Gateway를 통해 bookbuyer 서비스를 인터넷에 공개합니다.
+AKS 클러스터에 다음 수신 매니페스트를 적용하여 `bookbuyer` Azure Application Gateway 통해 인터넷에 서비스를 노출합니다.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -326,7 +326,7 @@ Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.2
 ingress.extensions/bookbuyer-ingress created
 ```
 
-수신 매니페스트의 호스트 이름이 테스트에 사용되는 의사(pseudo) 이름이기 때문에 인터넷에서 DNS 이름을 사용할 수 없습니다. 또는 curl 프로그램을 사용하여 호스트 이름 헤더를 Azure Application Gateway 공용 IP 주소로 넘겨 bookbuyer 서비스에 성공적으로 연결하는 200 코드를 수신할 수 있습니다.
+수신 매니페스트의 호스트 이름이 테스트에 사용되는 의사(pseudo) 이름이기 때문에 인터넷에서 DNS 이름을 사용할 수 없습니다. 또는 curl 프로그램을 사용하고 호스트 이름 헤더를 Azure Application Gateway 공용 IP 주소에 붙여넣고 서비스에 성공적으로 연결하는 200 코드를 받을 수 `bookbuyer` 있습니다.
 
 ```azurecli-interactive
 appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress")

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.openlocfilehash: 95db93d0233b22117984bd705dd6ec8d54c4581a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: fb12a8617396eb0c582ed2b00f856af7f91765fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642168"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611418"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "122642168"
 이 문서에서는 원본 및 복제본 서버를 구성하여 Azure Database for MySQL에서 [입력 데이터 복제](concepts-data-in-replication.md)를 설정하는 방법에 대해 설명합니다. 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 있다고 가정합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md)가 온-프레미스, VM(가상 머신) 또는 클라우드 데이터베이스 서비스에서 원본 MySQL 서버의 데이터를 동기화합니다. 입력 데이터 복제는 MySQL 고유의 이진 로그(binlog) 파일 위치 기반 또는 GTID 기반 복제를 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
@@ -29,7 +29,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
 
 ## <a name="create-an-azure-database-for-mysql-single-server-instance-to-use-as-a-replica"></a>복제본으로 사용할 Azure Database for MySQL 단일 서버 인스턴스 만들기
 
-1. Azure Database for MySQL 단일 서버의 새 인스턴스(예: "replica.mysql.database.azure.com")를 만듭니다. 서버를 만드는 방법은 [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 참조하세요. 이 서버는 입력 데이터 복제에 대한 "복제본" 서버입니다.
+1. Azure Database for MySQL 단일 서버의 새 인스턴스를 `replica.mysql.database.azure.com` 만듭니다(예: ). 서버를 만드는 방법은 [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 참조하세요. 이 서버는 입력 데이터 복제에 대한 "복제본" 서버입니다.
 
    > [!IMPORTANT]
    > 입력 데이터 복제는 이러한 계층에서만 지원되므로 Azure Database for MySQL 서버는 범용 또는 메모리 최적화 가격 책정 계층에서 만들어야 합니다.

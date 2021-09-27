@@ -10,13 +10,13 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/22/2021
-ms.openlocfilehash: 256f8f6f792f9bf373af4be9b429a9485b17b7a8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/24/2021
+ms.openlocfilehash: c73546c23a619f1d38caf10383097b4ded638581
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528461"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057287"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -134,6 +134,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[서비스 주체의 재작성을 제안 하 Azure Portal 오류 메시지가 잘못 되었습니다.](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|9 월 2021|||
 |[연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|2021년 1월|해결 방법 있음||
 |[ @query매개 변수를 사용할 때 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있습니다.](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|2021년 1월|해결 방법 있음||
 |[서버 신뢰 그룹에서 관리되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
@@ -167,6 +168,18 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있으면 중요 비즈니스용 계층에서 범용 계층으로 특정 시점 데이터베이스 복원에 실패함||해결됨|2019년 10월|
 |보안 연결을 사용하는 외부(비 Azure) 메일 서버와 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함된 데이터베이스는 SQL Managed Instance에서 지원되지 않습니다.||해결됨|2019년 8월|
+
+### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>서비스 주체의 재작성을 제안 하 Azure Portal 오류 메시지가 잘못 되었습니다.
+
+서비스 주체가 이미 존재 하는 경우에도 Azure SQL Managed Instance에 대 한 Azure Portal의 _Active Directory 관리자_ 블레이드가 다음 오류 메시지를 표시 하 고 있을 수 있습니다.
+
+"Managed Instance Azure Active Directory에 액세스 하려면 서비스 주체가 필요 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. "
+
+관리 되는 인스턴스의 서비스 주체가 이미 존재 하는 경우이 오류 메시지를 무시 하 고 관리 되는 인스턴스의 AAD 인증을 사용할 수 있습니다. 
+
+서비스 사용자가 있는지 여부를 확인 하려면 Azure Portal의 응용 프로그램 _Enterprise_ 페이지로 이동 하 고 _응용 프로그램 종류_ 드롭다운 목록에서 _관리 id_ 를 선택한 다음 _적용_ 을 클릭 하 고 검색 상자에 관리 되는 인스턴스의 이름을 입력 합니다. 인스턴스 이름이 결과 목록에 표시 되는 경우 서비스 주체는 이미 존재 하며 추가 작업이 필요 하지 않습니다.
+
+오류 메시지의 지침을 이미 따르고 오류 메시지에서 링크를 클릭 한 경우 관리 되는 인스턴스의 서비스 사용자가 다시 생성 되었습니다. 이 경우 Azure AD 인증이 제대로 작동 하려면 새로 만든 서비스 사용자에 게 Azure AD 읽기 권한을 할당 하세요. 다음 [지침](./authentication-aad-configure.md?tabs=azure-powershell#powershell)에 따라 Azure PowerShell를 통해이 작업을 수행할 수 있습니다.
 
 ### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.
 

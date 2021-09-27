@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용하여 Azure Virtual Machine 
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f82adee9690c0114fef17640672c7326cffc8481
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 0aa66b5c853faf26320510b3fe78ac71cd9d8afc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966079"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820335"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -31,7 +31,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>응답
 
-|Name  |유형  |설명  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](/rest/api/backup/recovery-points/list#recoverypointresourcelist)      |       정상  |
 
@@ -216,7 +216,7 @@ X-Powered-By: ASP.NET
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -361,7 +361,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses"></a>응답
 
-|Name  |유형  |설명  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](/rest/api/backup/recovery-points-crr/list#recoverypointresourcelist)      |       정상  |
 
@@ -603,7 +603,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 }
 ```
 
-주 지역 복원 작업과 마찬가지로 비동기 작업이며 [별도로 추적](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response)해야 합니다.
+주 지역 복원 작업과 마찬가지로 비동기 작업이며 [별도로 추적](#restore-response)해야 합니다.
 
 
 

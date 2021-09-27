@@ -8,12 +8,13 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a840aa9ac67ff751ef6889c5375c5b79880e79b9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: 3ab9c444fbd2413d0534aba7b1db62198e92a82f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609691"
 ---
 # <a name="azure-direct-routing-infrastructure-requirements"></a>Azure 직접 라우팅 인프라 요구 사항 
 

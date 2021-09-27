@@ -3,20 +3,18 @@ title: 인사이트 토큰 사용 - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: Bing Visual Search API에서 이미지의 인사이트 토큰을 사용하여 이미지에 대한 중요 정보를 얻는 방법을 보여줍니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
-ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 685bdc3f67594c51f6ab749c33ab30e940faee34
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.openlocfilehash: 04239a1fb2ce060ac2622c8607d66c5b5aacc790
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288287"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663196"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 사이트 가져오기
 

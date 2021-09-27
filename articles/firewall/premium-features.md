@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 2a76ee1c5009091247d9629bdbb0edc0b8c8a217
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d1a46cd010f0a629e787a7ebabcfe002837b7ad3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528774"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811170"
 ---
 # <a name="azure-firewall-premium-features"></a>Azure Firewall 프리미엄 기능
 
@@ -138,13 +138,13 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 Azure Firewall 프리미엄에는 다음과 같이 알려진 문제가 있습니다.
 
 
-|문제  |설명  |완화 방법  |
+|문제  |Description  |완화 방법  |
 |---------|---------|---------|
 |ESNI는 HTTPS에서 FQDN 해결을 위해 지원됩니다.|암호화된 SNI는 HTTPS 핸드셰이크에서 지원되지 않습니다.|오늘날 Firefox만 사용자 지정 구성을 통해 ESNI를 지원합니다. 제안된 해결 방법은 이 기능을 사용하지 않도록 설정하는 것입니다.|
 |클라이언트 인증서(TLS)|클라이언트 인증서는 클라이언트와 서버 간에 상호 ID 신뢰를 구축하는 데 사용합니다. 클라이언트 인증서는 TLS 협상 중에 사용합니다. Azure Firewall은 서버와의 연결을 재협상하고 클라이언트 인증서의 프라이빗 키에 액세스할 수 없습니다.|없음|
 |QUIC/HTTP3|QUIC는 HTTP의 새 주 버전입니다. 80(PLAN)과 443(SSL)을 통한 UDP 기반 프로토콜입니다. FQDN/URL/TLS 검사는 지원되지 않습니다.|UDP 80/443을 네트워크 규칙으로 전달하도록 구성합니다.|
 신뢰할 수 없는 고객 서명 인증서|고객이 서명한 인증서는 인트라넷 기반 웹 서버에서 수신되면 방화벽에서 신뢰되지 않습니다.|수정 사항을 조사하고 있습니다.
-|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이고 IDPS가 새 경고를 발행하며 대상이 공용 IP 주소인 경우, 표시된 원본 IP 주소가 잘못된 것입니다(원래 IP 주소 대신 내부 IP 주소가 표시됨).|수정 사항을 조사하고 있습니다.|
+|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이고 IDPS에서 새 경고를 발생시키고 대상이 공용 IP 주소인 경우 표시된 원본 IP 주소가 잘못되었습니다(내부 IP 주소가 원래 IP 주소 대신 표시).|수정 사항을 조사하고 있습니다.|
 |인증서 전파|CA 인증서가 방화벽에 적용된 후 인증서가 적용되는 데 5-10분 정도 걸릴 수 있습니다.|수정 사항을 조사하고 있습니다.|
 |TLS 1.3 지원|TLS 1.3은 부분적으로 지원됩니다. 클라이언트에서 방화벽으로의 TLS 터널은 TLS 1.2를 기반으로 하고, 방화벽에서 외부 웹 서버로의 TLS 터널은 TLS 1.3을 기반으로 합니다.|업데이트는 조사 중입니다.|
 |KeyVault 프라이빗 엔드포인트|KeyVault는 네트워크 공개를 제한하기 위해 프라이빗 엔드포인트 액세스를 지원합니다. 신뢰할 수 있는 Azure 서비스는 [KeyVault 문서](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)에 설명된 대로 예외가 구성된 경우 이 제한을 바이패스할 수 있습니다. Azure Firewall은 현재 신뢰할 수 있는 서비스로 나열되지 않으며 Key Vault에 액세스할 수 없습니다.|수정 사항을 조사하고 있습니다.|

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: cc568964c3f961cad63591ea14885fb23eea03da
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 18055232714914456ec2db51891edc70ac89057e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187619"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779638"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(.NET)
 
@@ -279,8 +279,8 @@ ms.locfileid: "123187619"
 
 * [IoT Hub 파일 업로드 구성](iot-hub-configure-file-upload.md)
 
-* [Azure Blob Storage 설명서](/azure/storage/blobs/storage-blobs-introduction)
+* [Azure Blob Storage 설명서](../storage/blobs/storage-blobs-introduction.md)
 
-* [Azure Blob Storage API 참조](/azure/storage/blobs/reference)
+* [Azure Blob Storage API 참조](../storage/blobs/reference.md)
 
 * [Azure IoT SDK](iot-hub-devguide-sdks.md)

@@ -9,12 +9,12 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8c6bc1d7d8fb98541a25c7e91f0e023e2941e559
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: a1710b293278e3b36fdabdf70bd698d8408e946d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668495"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680075"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 Web Application Firewall v2 사용자 지정 규칙 만들기 및 사용
 
@@ -131,7 +131,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>예 2
 
-GeoMatch 연산자를 사용하여 미국으로부터의 트래픽을 허용하려고 합니다.
+GeoMatch 운영자를 사용하여 미국으로부터의 트래픽만 허용하고 관리되는 규칙을 적용하려고 합니다.
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -142,14 +142,14 @@ $condition = New-AzApplicationGatewayFirewallCondition `
    -Operator GeoMatch `
    -MatchValue "US" `
    -Transform Lowercase `
-   -NegationCondition $False
+   -NegationCondition $True
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name "allowUS" `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Block
 ```
 
 해당 JSON:
@@ -161,11 +161,12 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
         "name": "allowUS",
         "ruleType": "MatchRule",
         "priority": 2,
-        "action": "Allow",
+        "action": "Block",
         "matchConditions": [
           {
             "matchVariable": "RemoteAddr",
             "operator": "GeoMatch",
+            "NegationConditon": false,
             "matchValues": [
               "US"
             ]

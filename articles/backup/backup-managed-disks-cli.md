@@ -2,13 +2,13 @@
 title: Azure CLI를 사용하여 Azure Managed Disks 백업
 description: Azure CLI를 사용하여 Azure Managed Disks를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 06/18/2021
-ms.openlocfilehash: 42bbc54a545cdddf049163b3040d9701f4304a52
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.openlocfilehash: ce1e4b3f88e844165581c95f74955de04686855b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112381210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659703"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-cli"></a>Azure CLI를 사용하여 Azure Managed Disks 백업
 
@@ -283,7 +283,7 @@ az dataprotection backup-vault update -g testBkpVaultRG --vault-name TestBkpVaul
 
 ### <a name="assign-permissions"></a>권한 할당
 
-RBAC를 통해 자격 증명 모음(자격 증명 모음 MSI로 표시) 및 관련 디스크 및/또는 디스크 RG에 몇 가지 권한을 할당해야 합니다. 이 작업은 Azure Portal 또는 CLI를 통해 수행할 수 있습니다. 관련된 모든 권한은 [백업 구성](backup-managed-disks.md#configure-backup)의 1,2,3 포인트에 자세히 설명되어 있습니다.
+RBAC를 통해 자격 증명 모음(자격 증명 모음 MSI로 표시) 및 관련 디스크 및/또는 디스크 RG에 몇 가지 권한을 할당해야 합니다. 이 작업은 Azure Portal 또는 CLI를 통해 수행할 수 있습니다. 관련 권한을 할당하려면 [관리 디스크의 백업을 구성하기 위한 필수 구성요약을 참조하세요.](backup-managed-disks-ps.md#assign-permissions)
 
 ### <a name="prepare-the-request"></a>요청 준비
 

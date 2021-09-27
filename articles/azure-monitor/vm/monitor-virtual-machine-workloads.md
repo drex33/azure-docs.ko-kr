@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: e411f7fd6f8d8a21b2016cbe16d0c7a947313331
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 64ef920e727baf559b71cac416404fb740e47625
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674867"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788556"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-workloads"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링 - 워크로드
 이 문서는 [Azure Monitor에서 가상 머신 및 해당 워크로드 모니터링](monitor-virtual-machine.md) 시나리오의 일부입니다. 가상 머신의 게스트 운영 체제에서 실행되는 워크로드를 모니터링하는 방법에 대해 설명합니다. 이 문서에는 가상 머신의 다양한 데이터 원본을 분석하고 경고하는 방법에 대한 자세한 내용이 포함되어 있습니다.
@@ -186,7 +186,7 @@ Windows 서비스 또는 Linux 디먼의 상태를 모니터링하려면 [Azure 
 > [!NOTE]
 > 변경 내용 추적 및 분석 솔루션은 VM 인사이트의 [변경 분석](vminsights-change-analysis.md) 기능과 다릅니다. 이 기능은 공개 미리 보기에 있지만 아직 이 시나리오에 포함되지 않았습니다.
 
-가상 머신에서 변경 내용 추적 솔루션을 사용하도록 설정하는 다양한 옵션은 [변경 내용 추적 및 인벤토리 사용](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory)을 참조하세요. 이 솔루션에는 가상 머신을 규모에 맞게 구성하는 방법이 포함되어 있습니다. 솔루션을 지원하려면 [Azure Automation 계정을 만들어야](../../automation/automation-quickstart-create-account.md) 합니다.
+가상 머신에서 변경 내용 추적 솔루션을 사용하도록 설정하는 다양한 옵션은 [변경 내용 추적 및 인벤토리 사용](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory)을 참조하세요. 이 솔루션에는 가상 머신을 규모에 맞게 구성하는 방법이 포함되어 있습니다. 솔루션을 지원하려면 [Azure Automation 계정을 만들어야](../../automation/quickstarts/create-account-portal.md) 합니다.
 
 변경 내용 추적 및 인벤토리를 사용하도록 설정하면 두 개의 새 테이블이 Log Analytics 작업 영역에 만들어집니다. 다음 표를 로그 쿼리 경고 규칙에 사용합니다.
 

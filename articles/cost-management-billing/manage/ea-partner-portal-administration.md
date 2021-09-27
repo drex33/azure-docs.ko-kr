@@ -6,14 +6,14 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 0b500d76adfc81cc336d30bdc7dc3a931a684bae
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
-ms.translationtype: HT
+ms.openlocfilehash: 21331458406035306e6f43a0536dd717ebfbc4ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655736"
 ---
 # <a name="azure-ea-portal-administration-for-partners"></a>파트너 대신 Azure EA Portal 관리
 

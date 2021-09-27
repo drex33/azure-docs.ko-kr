@@ -1,15 +1,15 @@
 ---
 title: Azure DevTest Labs를 사용하기 위한 일반 시나리오
 description: 이 문서에서는 Azure DevTest Labs를 사용하기 위한 기본 시나리오와 조직에서 서비스를 사용하기 위한 두 가지 일반적인 경로를 제공합니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: d6508bc4fdcb5f6dfae877fcdb8d407350f1047f
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: fc4c7ca1cdbc8e503ad6c0d94fcec2d9697baae4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293566"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657484"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용하기 위한 일반 시나리오
 엔터프라이즈의 요구에 따라 다양한 요구 사항을 충족하도록 DevTest Labs를 구성할 수 있습니다.  이 문서에서는 일반 시나리오에 대해 설명합니다. 각 시나리오에서는 DevTest Labs를 사용하여 얻은 이점과 이러한 시나리오를 구현하는 데 사용할 리소스를 다룹니다.  

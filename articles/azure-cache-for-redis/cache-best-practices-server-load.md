@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis의 서버 로드 사용 및 모니터링 모범 사례
+title: 서버 로드 사용 및 모니터링에 대한 모범 사례
 titleSuffix: Azure Cache for Redis
 description: Azure Cache for Redis의 서버 로드를 사용하고 모니터링 하는 방법을 알아봅니다.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: ceeff68f65ace76f4fe9060edeb775085508c969
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 51a0a5ede1c9d978fcc7eea98c7519c70bd9126e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116371"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626136"
 ---
 # <a name="manage-server-load-for-azure-cache-for-redis"></a>Azure Cache for Redis의 서버 로드 관리
 
@@ -34,7 +34,7 @@ Redis 서버에 대한 연결을 만들고 닫는 작업은 많은 비용을 필
 
 ## <a name="memory-pressure"></a>메모리 부족
 
-서버에서 메모리 사용량이 높으면 시스템에서 데이터를 디스크로 페이징해야 하므로 페이지 폴트가 발생하여 시스템의 속도가 상당히 느려질 수 있습니다.
+서버의 메모리 사용량이 많으면 시스템에서 데이터를 디스크에 페이징해야 할 가능성이 높아져 페이지 오류가 발생하여 시스템 속도가 크게 느려질 수 있습니다.
 
 ## <a name="avoid-long-running-commands"></a>장기 실행 명령 방지
 
@@ -42,11 +42,15 @@ Redis 서버는 단일 스레드 시스템입니다. 장기 실행 명령을 실
 
 ## <a name="monitor-server-load"></a>모니터 서버 로드
 
-서버 로드 모니터링을 추가하여 높은 서버 로드가 발생하는 경우 알림을 받을 수 있도록 합니다. 모니터링을 통해 애플리케이션의 제약 조건을 이해할 수 있습니다. 그 후 문제를 완화하기 위해 사전에 자동 관리할 수 있습니다. 성능 저하를 방지하려면 서버 로드를 80% 미만으로 유지하는 것이 좋습니다.
+서버 부하가 높을 때 알림을 받을 수 있도록 서버 로드에 대한 모니터링을 추가합니다. 모니터링을 통해 애플리케이션의 제약 조건을 이해할 수 있습니다. 그 후 문제를 완화하기 위해 사전에 자동 관리할 수 있습니다. 성능 저하를 방지하려면 서버 로드를 80% 미만으로 유지하는 것이 좋습니다.
 
 ## <a name="plan-for-server-maintenance"></a>서버 유지 관리 계획
 
 캐시 서버가 유지 관리 중인 동안 최대 로드를 처리할 수 있는 충분한 서버 용량이 있는지 확인 합니다. 최대 로드 상태에서 노드를 다시 부팅하여 시스템을 테스트 합니다. 패치의 배포를 시뮬레이션 하는 방법에 대한 자세한 정보는 [재부팅](cache-administration.md#reboot)을 참조하세요.
+
+## <a name="test-for-increased-server-load-after-failover"></a>장애 조치(failover) 후 서버 부하 증가 테스트
+
+표준 및 프리미엄 S SKU의 경우 각 캐시는 두 개의 노드에서 호스트됩니다. 부하 분산책은 클라이언트 연결을 두 노드에 분산합니다. 주 노드에서 계획되거나 계획되지 않은 유지 관리가 발생하면 노드는 모든 클라이언트 연결을 종료합니다. 이러한 상황에서는 모든 클라이언트 연결이 단일 노드에 연결되어 나머지 노드 하나에서 서버 부하가 증가할 수 있습니다. 주 노드를 다시 부팅하고 서버 부하가 너무 높아지지 않고 한 노드에서 모든 클라이언트 연결을 처리할 수 있는지 확인하여 이 시나리오를 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

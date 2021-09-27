@@ -6,13 +6,13 @@ ms.author: guyhay
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 09/17/2020
-ms.openlocfilehash: 372eb428c1ddde52cb557265052bc9fee27d7c83
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 2014f0cde340b0070b8c8e5e7fbbd7c2ab6667fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280408"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797575"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Azure portal을 사용하여 Data Lake Storage Gen2 클러스터 생성
 
@@ -86,6 +86,7 @@ Azure Data Lake Storage Gen2와 사용할 스토리지 계정을 만드세요.
     > [!NOTE]
     > * Data Lake Storage Gen2를 사용하여 보조 스토리지 계정을 추가하려면 스토리지 계정 수준에서 추가하려는 새 Data Lake Storage Gen2에 앞서 만든 관리 ID를 할당합니다. HDInsight의 "추가 스토리지 계정" 블레이드를 통해 Data Lake Storage Gen2 보조 스토리지 계정 추가는 불가능합니다.
     > * HDInsight에서 사용하는 Azure Blob storage 계정에서 RA-GRS 또는 RA-ZRS를 사용 하도록 설정할 수 있습니다. 그러나 RA-GRS 또는 RA-ZRS 보조 엔드포인트에 클러스터 제작은 불가능합니다.
+    > * HDInsight는 Data Lake Storage Gen2를 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지) 또는 GZRS(지역 영역 중복 스토리지)로 설정하는 것을 지원하지 않습니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

@@ -3,16 +3,16 @@ title: Azure IoT Central 솔루션에서 속성 사용
 description: Azure IoT Central 솔루션에서 읽기 전용 및 쓰기 가능한 속성을 사용하는 방법에 대해 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/06/2020
+ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0dd00dffaa5112ce04723a12e8b8634f6149690
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 07038a98b3be23295599febe0af16cb081facd5d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588042"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797331"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 속성 사용
 
@@ -214,8 +214,8 @@ hubClient.getTwin((err, twin) => {
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업이 성공적으로 완료되었습니다. |
 | `'ac': 202` 또는 `'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
-| `'ac': 4xx` | 오류 | 요청된 속성 변경이 올바르지 않거나 오류가 발생했습니다. |
-| `'ac': 5xx` | 오류 | 디바이스에서 요청된 변경을 처리하는 동안 예기치 않은 오류가 발생했습니다. |
+| `'ac': 4xx` | Error | 요청된 속성 변경이 올바르지 않거나 오류가 발생했습니다. |
+| `'ac': 5xx` | Error | 디바이스에서 요청된 변경을 처리하는 동안 예기치 않은 오류가 발생했습니다. |
 
 디바이스 쌍에 대한 자세한 내용은 [백 엔드 서비스에서 디바이스 구성](../../iot-hub/tutorial-device-twins.md)을 참조하세요.
 

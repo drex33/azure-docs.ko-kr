@@ -3,16 +3,17 @@ title: Azure Synapse Analytics에(서) 데이터 복사
 description: Azure Data Factory를 사용하여 Azure Synapse Analytics에(서) 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e46d4c07f3de2441f53648b228ab7a9d2a41ab61
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 489c4ee4c48c0d38d46d4ce3b73d820261f65616
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753368"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653416"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics에(서) 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

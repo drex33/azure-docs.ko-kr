@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 632fac953a54e661164152cda79082aed2c0bc06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: d311efbc6b79443bcea9288d5150a7489deb6991
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690479"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653441"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Microsoft 고객 계약 청구 계정 시작
 

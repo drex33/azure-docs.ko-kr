@@ -1,13 +1,9 @@
 ---
 title: SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 description: 본 문서에서는 SAP NetWeaver에 대한 고가용성 Azure Virtual Machines에 대해 알아봅니다.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -16,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b63dc024124665e76e27241101de9b70e62fa17
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
-ms.translationtype: HT
+ms.openlocfilehash: 2f9d8c2c6b300a13956e3bdf4e4c4591e7f2ee87
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486250"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591276"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 Azure Virtual Machines
 
@@ -1330,7 +1326,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 **SAP PR1** 클러스터 그룹이 클러스터 노드 A(예: **pr1-ascs-0**)에서 실행되고 있습니다. **SAP PR1** 클러스터 그룹에 속하고 ASCS/SCS 인스턴스에서 사용하는 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다.
 
-![그림 61: 장애 조치(Failover) 클러스터 관리자: 클러스터 노드 A에서 실행 중인 SAP <SID> 클러스터 그룹][sap-ha-guide-figure-5000]
+![그림 61: 장애 조치(Failover) 클러스터 관리자: SAP \< SID \> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다.][sap-ha-guide-figure-5000]
 
 _**그림 61:** 장애 조치(Failover) 클러스터 관리자: 클러스터 노드 A에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 
@@ -1359,7 +1355,7 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
 
    장애 조치 후 SAP <*SID*> 클러스터 그룹이 클러스터 노드 B(예: **pr1-ascs-1** 에서 실행 중)에서 실행되고 있습니다.
 
-   ![그림 63: 장애 조치(Failover) 클러스터 관리자에서 클러스터 노드 B에서 실행 중인 SAP <SID> 클러스터 그룹][sap-ha-guide-figure-5002]
+   ![그림 63: 장애 조치(Failover) 클러스터 관리자에서 SAP \< SID \> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다.][sap-ha-guide-figure-5002]
 
    _**그림 63**: 장애 조치(Failover) 클러스터 관리자에서 클러스터 노드 B에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 

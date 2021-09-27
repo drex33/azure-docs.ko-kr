@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 48c6232678adceed0bc239ff788f8a191d9d88c2
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 42040653f432577457cea6e5325fe686878e9da3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304707"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820152"
 ---
 # <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SQL Server 간 데이터 복사 및 변환
 
@@ -62,7 +62,7 @@ ms.locfileid: "123304707"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -84,7 +84,7 @@ ms.locfileid: "123304707"
 
 SQL Server 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **SqlServer** 로 설정해야 합니다. | 예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 **connectionString** 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>암호를 Azure Key Vault에 입력할 수도 있습니다. SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 다음에 나오는 JSON 예제를 참조하고 [Azure Key Vault에 로그인 정보를 저장](store-credentials-in-key-vault.md)합니다. |예 |
@@ -198,7 +198,7 @@ SQL Server 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
 SQL Server 데이터베이스 간에 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SqlServerTable** 로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -237,7 +237,7 @@ SQL Server 데이터베이스 간에 데이터를 복사하려면 다음 속성�
 
 SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **SqlSource** 로 설정합니다. 복사 작업 source 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **SqlSource** 로 설정해야 합니다. | 예 |
 | SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
@@ -350,7 +350,7 @@ GO
 
 SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlSink** 로 설정합니다. 복사 작업 sink 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성을 **SqlSink** 로 설정해야 합니다. | 예 |
 | preCopyScript |이 속성은 데이터를 SQL Server에 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
@@ -440,7 +440,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 
 복사 작업의 SQL Server 커넥터는 데이터를 병렬로 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
 분할된 복사본을 사용하도록 설정하면 복사 작업에서 SQL Server 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`의 값을 4로 설정하면 서비스는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 SQL Server에서 데이터의 일부를 검색합니다.
 
@@ -501,7 +501,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 테이블에 물리적 파티션이 있는 경우 다음과 같이 "HasPartition"이 "예"로 표시됩니다.
 
-![SQL 쿼리 결과](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="SQL 쿼리 결과":::
 
 ## <a name="best-practice-for-loading-data-into-sql-server"></a>데이터를 SQL Server에 로드하는 모범 사례
 
@@ -526,7 +526,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 예를 들어 **저장 프로시저 작업** 과 연결된 **복사 작업** 이 있는 파이프라인을 만들 수 있습니다. 복사 작업은 원본 저장소의 데이터를 SQL Server 준비 테이블(예: **UpsertStagingTable**)을 데이터 세트의 테이블 이름으로 복사합니다. 그런 다음 저장 프로시저 작업은 저장 프로시저를 호출하여 준비 테이블의 원본 데이터를 대상 테이블에 통합하고 준비 테이블을 정리합니다.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용하여 저장 프로시저를 정의합니다. 대상이 **프로필 ID**, **상태**, **카테고리** 라는 세 개의 열이 있는 **마케팅** 테이블이라고 가정합니다. **프로필 ID** 열에 따라 upsert를 수행합니다.
 
@@ -619,7 +619,7 @@ END
 
 다음 표에는 SQL Server 원본에서 지원하는 속성이 나와 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |- |
 | 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
@@ -642,12 +642,12 @@ source(allowSchemaDrift: true,
 
 다음 표에는 SQL Server 싱크에서 지원하는 속성이 나와 있습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
 | 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 선택합니다. | 예 | `true` 또는 `false` | skipKeyWrites |
-| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | recreate<br/>truncate |
 | Batch 크기 | 각 일괄 처리에 작성되는 행 수를 지정합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 예 | 정수 | batchSize |
 | 사전 및 사후 SQL 스크립트 | 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 지정합니다. | 예 | String | preSQLs<br>postSQLs |
 
@@ -720,13 +720,13 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="using-always-encrypted"></a>Always Encrypted 사용
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 SQL Server 간에 데이터를 복사하는 경우 다음 단계를 따르세요. 
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 SQL Server 간에 데이터를 복사하는 경우 다음 단계를 수행합니다. 
 
 1. [Azure Key Vault](../key-vault/general/overview.md)에 [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)를 저장합니다. [Azure Key Vault를 사용하여 Always Encrypted를 구성하는 방법](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)을 자세히 알아보세요.
 
 2. [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)가 저장된 키 자격 증명 모음에 액세스할 수 있는지 확인합니다. 필요한 권한은 이 [문서](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults)를 참조하세요.
 
-3. 연결된 서비스를 만들어 SQL Database에 연결하고 관리 ID 또는 서비스 주체를 사용하여 'Always Encrypted' 기능을 사용하도록 설정합니다. 
+3. 연결된 서비스를 만들어 SQL 데이터베이스에 연결하고 관리 ID 또는 서비스 주체를 사용하여 ‘Always Encrypted’ 기능을 사용하도록 설정합니다. 
 
 
 >[!NOTE]
@@ -739,13 +739,13 @@ IncomingStream sink(allowSchemaDrift: true,
 
 1. 원격 연결을 허용하도록 SQL Server 인스턴스를 구성합니다. **SQL Server Management Studio** 를 시작하고, 마우스 오른쪽 단추로 **서버** 를 클릭하고, **속성** 을 선택합니다. 목록에서 **연결** 을 선택하고, **이 서버에 대한 원격 연결 허용** 확인란을 선택합니다.
 
-    ![원격 연결 사용](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
+    :::image type="content" source="media/copy-data-to-from-sql-server/AllowRemoteConnections.png" alt-text="원격 연결 사용":::
 
     자세한 단계는 [원격 액세스 서버 구성 옵션 구성](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option)을 참조하세요.
 
 2. **SQL Server 구성 관리자** 를 시작합니다. 사용하려는 인스턴스에 대한 **SQL Server 네트워크 구성** 을 확장하고 **MSSQLSERVER용 프로토콜** 을 선택합니다. 오른쪽 창에 프로토콜이 표시됩니다. 마우스 오른쪽 단추로 **TCP/IP** 를 클릭하고 **사용** 을 선택하여 TCP/IP를 사용하도록 설정합니다.
 
-    ![TCP/IP 사용](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
+    :::image type="content" source="./media/copy-data-to-from-sql-server/EnableTCPProptocol.png" alt-text="TCP/IP 사용":::
 
     자세한 내용 및 TCP/IP 프로토콜을 사용하도록 설정하는 다른 방법은 [서버 네트워크 프로토콜 설정 또는 해제](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol)를 참조하세요.
 

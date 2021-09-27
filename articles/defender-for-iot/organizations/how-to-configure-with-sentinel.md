@@ -3,12 +3,12 @@ title: 조직용 Defender for IoT를 사용하여 Azure Sentinel 구성
 description: Defender for IoT 솔루션에서 데이터를 수신하도록 Azure Sentinel을 구성하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 06/14/2021
-ms.openlocfilehash: f747f5c2d32e0f0485677bdd1f1b878b4dc1e6d3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 1c3c03c99c733ea41a4f7b2a4eddd9ae750c92c6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529846"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771500"
 ---
 # <a name="connect-your-data-from-defender-for-iot-for-organizations-to-azure-sentinel-public-preview"></a>조직의 Defender for IoT에서 Azure Sentinel로 데이터 연결(공개 미리 보기)
 
@@ -56,4 +56,4 @@ SecurityAlert | where ProductName == "Azure Security Center for IoT"
 
 이 문서에서는 Defender for IoT를 Azure Sentinel에 연결하는 방법을 알아봤습니다. 위협 탐지 및 보안 데이터 액세스에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- Azure Sentinel을 사용하여 [빠른 시작: Azure Sentinel을 시작](/azure/defender-for-iot/organizations/articles/sentinel/get-visibility.md)하는 방법을 알아봅니다.
+- Azure Sentinel을 사용하여 [빠른 시작: Azure Sentinel을 시작](../../sentinel/get-visibility.md)하는 방법을 알아봅니다.

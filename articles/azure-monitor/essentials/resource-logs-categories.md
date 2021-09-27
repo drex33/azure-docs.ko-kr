@@ -2,13 +2,13 @@
 title: Azure Monitor 리소스 로그 지원 서비스 및 범주
 description: Azure Monitor 참조. Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마를 이해합니다.
 ms.topic: reference
-ms.date: 08/04/2021
-ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 894c18a6f2b3ecd48171312fa5f8aef56bcf0e01
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530158"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635074"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원되는 범주
 
@@ -58,6 +58,18 @@ ms.locfileid: "122530158"
 |로그인|로그인|Yes|
 
 
+## <a name="microsoftagfoodplatformfarmbeats"></a>Microsoft.AgFoodPlatform/farmBeats
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|ApplicationAuditLogs|애플리케이션 감사 로그|Yes|
+|FarmManagementLogs|팜 관리 로그|Yes|
+|FarmOperationLogs|팜 작업 로그|Yes|
+|ProviderAuthLogs|공급자 인증 로그|Yes|
+|SatelliteLogs|위성 로그|Yes|
+|WeatherLogs|날씨 로그|Yes|
+
+
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
 |범주|범주 표시 이름|내보낼 비용|
@@ -71,6 +83,7 @@ ms.locfileid: "122530158"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|No|
+|WebSocketConnectionLogs|Websocket 연결과 관련된 로그|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -86,6 +99,7 @@ ms.locfileid: "122530158"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ApplicationConsole|애플리케이션 콘솔|No|
+|IngressLogs|수신 로그|Yes|
 |SystemLogs|시스템 로그|No|
 
 
@@ -103,9 +117,10 @@ ms.locfileid: "122530158"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|DscNodeStatus|디스크 노드 상태|No|
-|JobLogs|작업 로그|No|
-|JobStreams|작업 스트림|No|
+|AuditEvent|AuditEvent|Yes|
+|DscNodeStatus|DscNodeStatus|No|
+|JobLogs|JobLogs|No|
+|JobStreams|JobStreams|No|
 
 
 ## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft.AutonomousDevelopmentPlatform/accounts
@@ -117,11 +132,26 @@ ms.locfileid: "122530158"
 |요청|요청|Yes|
 
 
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|vmwaresyslog|VMware VCenter Syslog|Yes|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ServiceLog|서비스 로그|예|
+
+
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|예|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -146,6 +176,13 @@ ms.locfileid: "122530158"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |BotRequest|채널에서 봇으로 요청|No|
+
+
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|ConnectedClientList|연결 된 클라이언트 목록|Yes|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -396,6 +433,13 @@ ms.locfileid: "122530158"
 |관리|관리|No|
 
 
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft DesktopVirtualization/scalingplans
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|자동 확장|로그 자동 크기 조정|Yes|
+
+
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
 
 |범주|범주 표시 이름|내보낼 비용|
@@ -535,7 +579,16 @@ ms.locfileid: "122530158"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
+|계산|계산|Yes|
 |요청|요청|No|
+
+
+## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|AuditLogs|감사 로그|No|
+|DiagnosticLogs|진단 로그|Yes|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -598,6 +651,7 @@ ms.locfileid: "122530158"
 |명령|명령|No|
 |FailedIngestion|실패한 수집 작업|No|
 |IngestionBatching|수집 일괄 처리|No|
+|저널|저널|예|
 |쿼리|쿼리|No|
 |SucceededIngestion|성공한 수집 작업|No|
 |TableDetails|테이블 세부 정보|No|
@@ -656,6 +710,14 @@ ms.locfileid: "122530158"
 |---|---|---|
 |KeyDeliveryRequests|키 전송 요청|예|
 |MediaAccount|미디어 계정 상태|Yes|
+
+
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|PipelineDiagnostics|파이프라인 진단 로그|Yes|
+|PipelineOperational|파이프라인 작업 로그|Yes|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -768,6 +830,13 @@ ms.locfileid: "122530158"
 |TunnelDiagnosticLog|터널 진단 로그|No|
 
 
+## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft NetworkFunction/azureTrafficCollectors
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|Yes|
+
+
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
 
 |범주|범주 표시 이름|내보낼 비용|
@@ -787,6 +856,7 @@ ms.locfileid: "122530158"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |엔진|엔진|No|
+
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -808,6 +878,7 @@ ms.locfileid: "122530158"
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
+|보안|PurviewAccountAuditEvents|Yes|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -845,6 +916,14 @@ ms.locfileid: "122530158"
 |OperationLogs|작업 로그|예|
 
 
+## <a name="microsoftsecurityinsightssettings"></a>microsoft securityinsights/설정
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|분석|분석|Yes|
+|DataConnectors|데이터 수집 – 커넥터|Yes|
+
+
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |범주|범주 표시 이름|내보낼 비용|
@@ -863,7 +942,9 @@ ms.locfileid: "122530158"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|AllLogs|Azure 웹 PubSub 서비스 로그.|Yes|
+|ConnectivityLogs|Azure 웹 PubSub 서비스에 대 한 연결 로그입니다.|Yes|
+|HttpRequestLogs|Azure 웹 PubSub 서비스에 대 한 Http 요청 로그입니다.|Yes|
+|MessagingLogs|Azure 웹 PubSub 서비스에 대 한 메시징 로그.|Yes|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances

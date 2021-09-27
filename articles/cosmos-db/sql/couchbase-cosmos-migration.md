@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: e638c7051aab49887b3391644c3e947beea04927
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 1ab1bd7c5c4dee610485c556eb3dc0e62ee6d9cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117127"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657712"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -166,13 +166,13 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 
 여기서 *_repo* 는 리포지토리의 개체이고 *doc* 은 POJO 클래스의 개체입니다. `.save`를 사용하여 삽입하거나 upsert할 수 있습니다(지정된 ID의 문서가 있는 경우). 다음 코드 조각에서는 doc 개체를 삽입하거나 업데이트하는 방법을 보여 줍니다.
 
-```_repo.save(doc);```
+`_repo.save(doc);`
 
 ### <a name="delete-operation"></a>삭제 작업
 
 다음 코드 조각을 고려합니다. 여기서 doc 개체가 ID 및 파티션 키를 가져야 해당 개체를 찾아서 삭제할 수 있습니다.
 
-```_repo.delete(doc);```
+`_repo.delete(doc);`
 
 ### <a name="read-operation"></a>읽기 작업
 

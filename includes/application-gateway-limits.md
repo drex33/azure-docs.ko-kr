@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 03/04/2020
+ms.date: 09/09/2021
 ms.author: victorh
-ms.openlocfilehash: 3e2b9ab4eaf794e5cf64861d7c641b82f18b64dc
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: 377c87473239078ab99d8fba064ff1067517c7a4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201292"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778876"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "114201292"
 | 백 엔드 주소 풀 |100<sup>1</sup> | |
 | 풀당 백 엔드 서버 |1,200 | |
 | HTTP 수신기 |200<sup>1</sup> |트래픽을 라우팅하는 100개의 활성 수신기로 제한됩니다. 활성 수신기 수 = 총 수신기 수 - 비활성 수신기 수입니다.<br>라우팅 규칙 내의 기본 구성이 트래픽을 라우팅하도록 설정된 경우(예: 수신기, 백 엔드 풀 및 HTTP 설정을 사용하는 경우) 이러한 설정은 수신기로도 간주됩니다.|
-| HTTP 부하 분산 규칙 |100<sup>1</sup> | |
+| HTTP 부하 분산 규칙 |400<sup>1</sup> | |
 | 백 엔드 HTTP 설정 |100<sup>1</sup> | |
 | 게이트웨이당 인스턴스 |V1 SKU - 32<br>V2 SKU - 125 | |
 | SSL 인증서 |100<sup>1</sup> |HTTP 수신기당 1 |

@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩 ID 구성
+title: 랩 ID 구성
 description: Azure DevTest에서 랩 ID를 구성하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/20/2020
-ms.openlocfilehash: a652eb5751f9b723911a1c1baaaaf9860febc5b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3cc14d87cfea331d8a11e09071005c23be942405
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88719685"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638732"
 ---
 # <a name="configure-a-lab-identity"></a>랩 ID 구성
 

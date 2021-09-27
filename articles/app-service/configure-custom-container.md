@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d51ab96f0a9bc09f966890b848201df7091db621
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6c202c3f192e9097eb3f861f53a384a60882dcd1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541426"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657085"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -337,7 +337,8 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     EXPOSE 80 2222
     ```
 
-    이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. 컨테이너의 2222 포트는 개인 가상 네트워크의 브리지 네트워크 내에서만 액세스할 수 있으며, 인터넷에서 공격자가 액세스할 수 없습니다.
+    > [!NOTE] 
+    > 루트 암호는 `Docker!` 컨테이너를 사용하여 SSH 세션에 액세스할 수 있도록 App Service 사용하는 것과 정확히 일치해야 합니다. 이 구성은 컨테이너에 대한 외부 연결을 허용하지 않습니다. 컨테이너의 포트 2222는 프라이빗 가상 네트워크의 브리지 네트워크 내에서만 액세스할 수 있으며 인터넷의 공격자가 액세스할 수 없습니다.
 
 - 컨테이너에 대한 시작 스크립트에서 SSH 서버를 시작합니다.
 
@@ -406,7 +407,7 @@ wordpress:
 #### <a name="unsupported-options"></a>지원되지 않는 옵션
 
 - build(허용 안 함)
-- [depends_on](faq-app-service-linux.yml#how-do-i-use-depends-on-) (무시 됨)
+- [](faq-app-service-linux.yml#how-do-i-use-depends-on-) depends_on(무시됨)
 - networks(무시됨)
 - secrets(무시됨)
 - 포트 80 및 8080 이외의 포트(무시됨)

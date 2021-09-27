@@ -8,12 +8,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 046d94202769845f58c7f528bddb37e29e0c312a
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: dcad59c6434f6751cba8633868a9dc9969ffc0ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531223"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610544"
 ---
 # <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인을 실행하는 사용자 지정 이벤트 트리거 만들기
 
@@ -96,7 +96,7 @@ Data Factory는 이벤트에서 [Event Grid 이벤트 스키마](../event-grid/e
 
 ## <a name="advanced-filtering"></a>고급 필터링
 
-사용자 지정 이벤트 트리거는 [Event Grid 고급 필터링](../event-grid/event-filtering.md#advanced-filtering)과 유사한 고급 필터링 기능을 지원합니다. 이러한 조건부 필터를 사용하면 이벤트 페이로드의 _값_ 을 기반으로 파이프라인을 트리거할 수 있습니다. 예를 들어 이벤트 페이로드에 _Department라는 필드가 있을 수 있으며 파이프라인은 _Department_ 가 _Finance_ 와 동일한 경우에만 트리거되어야 합니다. 목록 [1, 2, 3, 4, 5]의 _date_ 필드, 목록 [11 , 12]가 __아닌__ _month_ 필드, ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'] 중 하나를 포함하는 _tag_ 필드와 같은 복잡한 논리를 지정할 수도 있습니다.
+사용자 지정 이벤트 트리거는 [Event Grid 고급 필터링](../event-grid/event-filtering.md#advanced-filtering)과 유사한 고급 필터링 기능을 지원합니다. 이러한 조건부 필터를 사용하면 이벤트 페이로드의 _값_ 을 기반으로 파이프라인을 트리거할 수 있습니다. 예를 들어 부서 라는 이벤트 페이로드의 필드가 있을 수 있으며,이 경우에는 _부서가_ _재무_ 와 동일한 경우에만 _파이프라인을 트리거합니다_. 목록 [1, 2, 3, 4, 5]의 _date_ 필드, 목록 [11 , 12]가 __아닌__ _month_ 필드, ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'] 중 하나를 포함하는 _tag_ 필드와 같은 복잡한 논리를 지정할 수도 있습니다.
 
  :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="고객 이벤트 트리거를 위한 고급 필터 설정 스크린샷.":::
 

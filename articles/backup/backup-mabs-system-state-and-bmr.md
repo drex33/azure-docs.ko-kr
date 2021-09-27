@@ -3,12 +3,12 @@ title: 시스템 상태 및 완전 복구 보호
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 864a20ce806d1bf8e9e728c77a9c8f17adeed18b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021625"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656192"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Azure Backup Server를 사용하여 시스템 상태 백업 및 완전 복구로 복원
 
@@ -251,11 +251,11 @@ Windows Server Backup 실행 방법:
 
 1. 버전 식별자를 확인하려면 명령 프롬프트에 다음을 입력합니다. 
 
-   ```wbadmin get versions -backuptarget \<servername\sharename\>```
+   `wbadmin get versions -backuptarget \<servername\sharename\>`
 
 1. 버전 식별자를 사용하여 시스템 상태 복원을 시작합니다. 명령 프롬프트에 다음을 입력합니다.
 
-    ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+   `wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>`
 
 1. 복구를 시작할지 확인합니다. 명령 프롬프트 창에서 프로세스를 확인할 수 있습니다. 복원 로그가 만들어집니다.
 

@@ -1,16 +1,16 @@
 ---
-title: Azure Portal에서 Azure에 하이브리드 머신 연결
-description: 이 문서에서는 Azure Portal에서 Azure Arc 지원 서버를 사용하여 에이전트를 설치하고 머신을 Azure에 연결하는 방법을 알아봅니다.
+title: 배포 스크립트를 사용 하 여 Azure에 하이브리드 컴퓨터 커넥트
+description: 이 문서에서는 Azure Portal에서 만든 배포 스크립트를 사용 하 여 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcccb9bbc4db14c2bc5553b1c88099f7b0d7f5d1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 832e54538c6eb44e90dbd7ccb8ef804e0b0c45b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567916"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651981"
 ---
-# <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
+# <a name="connect-hybrid-machines-to-azure-using-a-deployment-script"></a>배포 스크립트를 사용 하 여 Azure에 하이브리드 컴퓨터 커넥트
 
 일련의 단계를 수동으로 수행하여 환경에서 하나 또는 소수의 Windows 또는 Linux 머신에 대해 Azure Arc 지원 서버를 활성화할 수 있습니다. 또는 제공된 템플릿 스크립트를 실행하여 자동화된 방법을 사용할 수 있습니다. 이 스크립트는 두 에이전트의 다운로드 및 설치를 자동화합니다.
 
@@ -168,4 +168,4 @@ bash ~/Install_linux_azcmagent.sh
 
 - [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.
 
-- [Azure 정책](../../governance/policy/overview.md)을 사용하여 VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md)과 머신을 관리하는 방법을 알아봅니다. 머신이 예상되는 Log Analytics 작업 영역에 보고되는지, [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 사용하는지 그리고 기타 등등을 확인하세요.
+- [Azure Policy](../../governance/policy/overview.md)를 사용하여 VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md)과 머신을 관리하는 방법을 알아봅니다. 머신이 예상되는 Log Analytics 작업 영역에 보고되는지, [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 사용하는지 그리고 기타 등등을 확인하세요.

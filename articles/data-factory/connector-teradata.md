@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory를 사용하여 Teradata Vantage에서 데이터 복사
+title: Teradata Vantage에서 데이터 복사
+description: Azure Data Factory 및 Synapse Analytics Teradata Connector를 사용하면 Teradata Vantage에서 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 데이터 팩터리의 Teradata 커넥터 서비스를 통해 Teradata Vantage의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있습니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 26ac697767be4023b166b8d751bdbac331dde6a6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: ab5fc46d558a68503c018fb35e53801f9e6ee282
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304234"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771691"
 ---
-# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Teradata Vantage에서 데이터 복사
+# <a name="copy-data-from-teradata-vantage-using-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 사용하여 Teradata Vantage에서 데이터 복사 및 Synapse Analytics
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
@@ -25,7 +25,7 @@ ms.locfileid: "123304234"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Teradata Vantage에서 데이터를 복사하는 방법을 설명합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 빌드됩니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 Teradata Vantage에서 데이터를 복사하는 방법을 설명합니다. [복사 작업 개요](copy-activity-overview.md)를 기반으로 빌드됩니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -60,7 +60,7 @@ Teradata Vantage에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -82,7 +82,7 @@ Teradata Vantage에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Teradata** 로 설정되어야 합니다. | 예 |
 | connectionString | Teradata 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. | 예 |
@@ -92,7 +92,7 @@ Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
 경우에 따라 연결 문자열에서 설정할 수 있는 추가 연결 속성이 있습니다.
 
-| 속성 | 설명 | 기본값 |
+| 속성 | Description | 기본값 |
 |:--- |:--- |:--- |
 | TdmstPortNumber | Teradata 데이터베이스에 액세스하는 데 사용되는 포트 번호입니다.<br>지원팀에서 지시하지 않는 한 이 값을 변경하지 마세요. | 1025 |
 | UseDataEncryption | Teradata 데이터베이스와의 모든 통신을 암호화할지 여부를 지정합니다. 허용되는 값은 0 또는 1입니다.<br><br/>- **0(사용하지 않음, 기본값)** : 인증 정보만을 암호화합니다.<br/>- **1(사용)** : 드라이버와 데이터베이스 간에 전달되는 모든 데이터를 암호화합니다. | `0` |
@@ -190,7 +190,7 @@ Teradata 연결된 서비스는 다음 속성을 지원합니다.
 
 Teradata의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 `TeradataTable`로 설정해야 합니다. | 예 |
 | 데이터베이스 | Teradata 인스턴스의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -244,7 +244,7 @@ Teradata의 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 Teradata에서 데이터를 복사하기 위해 복사 작업의 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 `TeradataSource`로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할된 로드를 사용하도록 설정하는 경우 쿼리에 해당하는 기본 제공 파티션 매개 변수를 후크해야 합니다. 예제는 [Teradata에서 병렬 복사](#parallel-copy-from-teradata) 섹션을 참조하세요. | No(데이터 세트의 테이블이 지정된 경우) |
@@ -292,19 +292,19 @@ Teradata에서 데이터를 복사하기 위해 복사 작업의 **source** 섹�
 
 ## <a name="parallel-copy-from-teradata"></a>Teradata에서 병렬 복사
 
-Data Factory Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 테이블에서 데이터 분할 옵션을 찾을 수 있습니다.
+Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 테이블에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-teradata/connector-teradata-partition-options.png)
+:::image type="content" source="./media/connector-teradata/connector-teradata-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
-분할된 복사를 사용하도록 설정하면 Data Factory가 Teradata 원본에 대한 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`의 값을 4로 설정하면 Data Factory는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Teradata에서 데이터의 일부를 검색합니다.
+분할된 복사를 사용하도록 설정하면 서비스에서 Teradata 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 를 `parallelCopies` 4로 설정하면 서비스는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Teradata에서 데이터의 일부를 검색합니다.
 
-특히 Teradata 데이터베이스에서 대량의 데이터를 로드하는 경우 특별히 데이터 분할로 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소로 데이터를 복사하는 경우 폴더에 여러 파일(폴더 이름만 지정)로 쓰는 것이 좋습니다. 이 경우에는 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
+특히 Teradata 데이터베이스에서 대량의 데이터를 로드하는 경우 특별히 데이터 분할로 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 폴더에 여러 파일로 쓰는 것이 좋습니다(폴더 이름만 지정). 이 경우 단일 파일에 쓰는 것보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 큰 테이블에서 전체 로드입니다.                                   | **파티션 옵션**: 해시. <br><br/>실행 중에 Data Factory는 기본 인덱스 열을 자동으로 검색하고, 이에 대한 해시를 적용하고, 파티션별로 데이터를 복사합니다. |
-| 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다.                 | **파티션 옵션**: 해시.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 해시 파티션 적용에 사용되는 열을 지정합니다. 지정하지 않으면 Data Factory는 Teradata 데이터 세트에서 지정한 테이블의 PK 열을 자동으로 검색합니다.<br><br>실행 중 Data Factory는 `?AdfHashPartitionCondition`을 해시 파티션 논리로 바꾸고, Teradata로 보냅니다. |
-| 범위 분할에 대해 균등하게 분산된 값을 가진 정수 열이 있는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한값**: 파티션 열에 대해 필터링하여 하한과 상한 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` 및 `?AdfRangePartitionLowbound`를 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Teradata로 보냅니다. <br>예를 들어 하한으로 설정된 파티션 열 "ID"가 1로 설정되고 상한이 80로 설정된 경우 병렬 복사를 4로 설정하면 Data Factory가 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
+| 큰 테이블에서 전체 로드입니다.                                   | **파티션 옵션**: 해시. <br><br/>실행 중에 서비스는 자동으로 기본 인덱스 열을 검색하고, 해시를 적용하고, 파티션별로 데이터를 복사합니다. |
+| 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다.                 | **파티션 옵션**: 해시.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 해시 파티션 적용에 사용되는 열을 지정합니다. 지정하지 않으면 서비스에서 Teradata 데이터 세트에서 지정한 테이블의 PK 열을 자동으로 검색합니다.<br><br>실행 중에 서비스는 `?AdfHashPartitionCondition` 를 해시 파티션 논리로 바꾸고 Teradata로 보냅니다. |
+| 범위 분할에 대해 균등하게 분산된 값을 가진 정수 열이 있는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한값**: 파티션 열에 대해 필터링하여 하한과 상한 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행 중에 서비스는 , 및 를 `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound` 각 `?AdfRangePartitionLowbound` 파티션에 대한 실제 열 이름 및 값 범위로 바꾸고 Teradata로 보냅니다. <br>예를 들어 파티션 열 "ID"가 하한이 1로 설정되고 상한이 80으로 설정되고 병렬 복사가 4로 설정된 경우 서비스는 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
 
 **예: 해시 파티션이 있는 쿼리**
 
@@ -336,9 +336,9 @@ Data Factory Teradata 커넥터는 Teradata에서 병렬로 데이터를 복사�
 
 ## <a name="data-type-mapping-for-teradata"></a>Teradata에 대한 데이터 형식 매핑
 
-Teradata에서 데이터를 복사하는 경우 다음 매핑이 적용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Teradata에서 데이터를 복사하는 경우 Teradata의 데이터 형식에서 서비스에서 사용하는 내부 데이터 형식으로 다음 매핑이 적용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Teradata 데이터 형식 | Data Factory 중간 데이터 형식 |
+| Teradata 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
@@ -387,4 +387,4 @@ Teradata에서 데이터를 복사하는 경우 다음 매핑이 적용됩니다
 
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: 9f1fdfeadd56b070c942c023a7373b43363a1916
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528648"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777453"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 
@@ -30,12 +30,12 @@ Azure Security Center 적응형 애플리케이션 제어의 이점과 이 데�
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>적응형 애플리케이션 제어의 이점은 무엇인가요?
 
-안전한 것으로 알려진 애플리케이션의 목록을 정의하고 다른 애플리케이션이 실행될 때 경고를 생성하면 다음과 같은 여러 가지 강화된 목표를 달성할 수 있습니다.
+알려진 안전한 애플리케이션 목록을 정의하고 다른 항목이 실행될 때 경고를 생성하여 여러 감독 및 규정 준수 목표를 달성할 수 있습니다.
 
 - 맬웨어 방지 솔루션에서 놓칠 수 있는 모든 잠재적 맬웨어 식별
 - 라이선스가 부여된 소프트웨어만 사용하도록 규정하는 로컬 보안 정책으로 규정 준수 개선
-- 오래되거나 지원되지 않는 애플리케이션 실행 방지
-- 조직에서 금지된 특정 소프트웨어 방지
+- 오래된 버전 또는 지원되지 않는 애플리케이션 버전 식별 
+- 조직에서 금지되었지만 머신에서 실행되는 소프트웨어를 식별합니다.
 - 민감한 데이터에 액세스하는 앱에 대한 감독 강화
 
 현재 사용할 수 있는 적용 옵션은 없습니다. 적응형 애플리케이션 제어는 안전한 것으로 정의된 애플리케이션 이외의 애플리케이션이 실행될 때 보안 경고를 제공하기 위한 것입니다.

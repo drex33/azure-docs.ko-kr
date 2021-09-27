@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 0d37e8308afd75b310893272f338fb5a3245a8ce
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: c5232d9ed3e7ab7caec6134e4c5d3e553e2b543c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696524"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818412"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -63,5 +63,7 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 - [이전 세대](sizes-previous-gen.md)
 - [요금 계산기](https://azure.microsoft.com/pricing/calculator/).
 - [디스크 유형에 관한 자세한 내용](./disks-types.md#ultra-disk)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

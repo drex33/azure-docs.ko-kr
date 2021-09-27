@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afdea12c8eedb25a9a56cda2d57ec3a24a5afc18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d9beb1ce981826eb7555b1a55e00c7c00fb84810
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536581"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766619"
 ---
 # <a name="data-protection-overview"></a>데이터 보호 개요
 
@@ -62,11 +62,11 @@ Azure Storage 문서에서 *데이터 보호* 는 스토리지 계정 및 스토
 | Azure Resource Manager 잠금 | 예 | 아니요<sup>1</sup> | 예 | 아니요 |
 | Blob 버전에 대한 불변성 정책(미리 보기) | 예<sup>2</sup> | 예<sup>3</sup> | 예 | 예<sup>4</sup> |
 | 컨테이너의 불변성 정책 | 예<sup>5</sup> | 예 | 예 | 예 |
-| 컨테이너 일시 삭제 | 예 | 예 | 아니요 | 아니요 |
-| Blob 버전 관리<sup>6</sup> | 아니요 | 아니요 | 예 | 예 |
-| Blob 일시 삭제 | 아니요 | 아니요 | 예 | 예 |
-| 특정 시점 복원<sup>6</sup> | 아니요 | 아니요 | 예 | 예 |
-| Blob 스냅샷 | 예 | 아니요 | 아니요 | 예 |
+| 컨테이너 일시 삭제 | 예 | 예 | 예 | 아니요 |
+| Blob 버전 관리<sup>6</sup> | 아니요 | 예 | 예 | 예 |
+| Blob 일시 삭제 | 아니요 | 예 | 예 | 예 |
+| 특정 시점 복원<sup>6</sup> | 아니요 | 예 | 예 | 예 |
+| Blob 스냅샷 | 예 | 예 | 예 | 예 |
 | 보조 계정으로 데이터를 복사하는 사용자 고유의 솔루션<sup>7</sup> | 아니요 | 예 | 예 | 예 |
 
 <sup>1</sup> Azure Resource Manager 잠금은 컨테이너가 삭제되지 않도록 보호하지 않습니다.<br />
@@ -104,10 +104,10 @@ Azure Storage 문서에서 *데이터 보호* 는 스토리지 계정 및 스토
 | Blob 버전에 대한 불변성 정책(미리 보기) | 컨테이너에서 버전 수준 불변성을 활성화하는 데 비용이 청구되지 않습니다. Blob 버전에 대한 시간 기반 보존 정책 또는 법적 보존을 만들거나, 수정하거나, 삭제하면 쓰기 트랜잭션 요금이 발생합니다. |
 | 컨테이너의 불변성 정책 | 컨테이너에 대해 불변성 정책을 구성하는 데 비용이 들지 않습니다. |
 | 컨테이너 일시 삭제 | 스토리지 계정에 대해 컨테이너 일시 삭제를 사용하도록 설정하는 데 비용이 들지 않습니다. 일시 삭제된 컨테이너의 데이터는 일시 삭제된 컨테이너가 영구적으로 삭제될 때까지 활성 데이터와 동일한 비용으로 청구됩니다. |
-| Blob 버전 관리 | 스토리지 계정에 대해 Blob 버전 관리를 사용하도록 설정하는 데 비용이 들지 않습니다. Blob 버전 관리를 사용하도록 설정하면 계정에서 Blob에 대한 모든 쓰기 또는 삭제 작업이 새 버전을 만들므로 용량 비용이 늘어날 수 있습니다.<br /><br />Blob 버전은 고유한 블록이나 페이지를 기준으로 요금이 청구됩니다. 따라서 기본 Blob이 특정 버전에서 달라지므로 비용이 증가합니다. Blob 또는 Blob 버전의 계층을 변경하면 청구에 영향을 줄 수 있습니다. 자세한 내용은 [가격 책정 및 청구](versioning-overview.md#pricing-and-billing)를 참조하세요.<br /><br />비용 관리에 필요한 경우 수명 주기 관리를 사용하여 이전 버전을 삭제합니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조하세요. |
+| Blob 버전 관리 | 스토리지 계정에 대해 Blob 버전 관리를 사용하도록 설정하는 데 비용이 들지 않습니다. Blob 버전 관리를 사용하도록 설정하면 계정에서 Blob에 대한 모든 쓰기 또는 삭제 작업이 새 버전을 만들므로 용량 비용이 늘어날 수 있습니다.<br /><br />Blob 버전은 고유한 블록이나 페이지를 기준으로 요금이 청구됩니다. 따라서 기본 Blob이 특정 버전에서 달라지므로 비용이 증가합니다. Blob 또는 Blob 버전의 계층을 변경하면 청구에 영향을 줄 수 있습니다. 자세한 내용은 [가격 책정 및 청구](versioning-overview.md#pricing-and-billing)를 참조하세요.<br /><br />비용 관리에 필요한 경우 수명 주기 관리를 사용하여 이전 버전을 삭제합니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](./lifecycle-management-overview.md)를 참조하세요. |
 | Blob 일시 삭제 | 스토리지 계정에 대해 Blob 일시 삭제를 사용하도록 설정하는 데 비용이 들지 않습니다. 일시 삭제된 Blob의 데이터는 일시 삭제된 컨테이너가 영구적으로 삭제될 때까지 활성 데이터와 동일한 비용으로 청구됩니다. |
 | 지정 시간 복원 | 스토리지 계정에 대한 지정 시간 복원을 활성화하는 데 비용이 들지 않습니다. 그러나 특정 시점 복원을 사용하도록 설정하면 Blob 버전 관리, 일시 삭제 및 피드 변경도 가능해지며, 이로 인해 각각 추가 요금이 부과될 수 있습니다.<br /><br />복원 작업을 수행할 때 특정 시점 복원에 대한 비용이 청구됩니다. 복원 작업의 비용은 복원되는 데이터의 양에 따라 달라집니다. 자세한 내용은 [가격 책정 및 청구](point-in-time-restore-overview.md#pricing-and-billing)를 참조하세요. |
-| Blob 스냅샷 | 스냅샷의 데이터는 고유 블록이나 페이지를 기준으로 요금이 청구됩니다. 따라서 기본 Blob이 스냅샷에서 벗어나면 비용이 증가합니다. Blob 또는 스냅샷의 계층을 변경하면 청구에 영향을 미칠 수 있습니다. 자세한 내용은 [가격 책정 및 청구](snapshots-overview.md#pricing-and-billing)를 참조하세요.<br /><br />수명 주기 관리를 사용하여 비용을 제어하는 데 필요한 경우 이전 스냅샷을 삭제합니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조하세요. |
+| Blob 스냅샷 | 스냅샷의 데이터는 고유 블록이나 페이지를 기준으로 요금이 청구됩니다. 따라서 기본 Blob이 스냅샷에서 벗어나면 비용이 증가합니다. Blob 또는 스냅샷의 계층을 변경하면 청구에 영향을 미칠 수 있습니다. 자세한 내용은 [가격 책정 및 청구](snapshots-overview.md#pricing-and-billing)를 참조하세요.<br /><br />수명 주기 관리를 사용하여 비용을 제어하는 데 필요한 경우 이전 스냅샷을 삭제합니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](./lifecycle-management-overview.md)를 참조하세요. |
 | 보조 스토리지 계정에 데이터 복사 | 보조 스토리지 계정에서 데이터를 유지 관리하면 용량과 트랜잭션 비용이 발생합니다. 보조 스토리지 계정이 원본 계정이 아닌 다른 지역에 있는 경우 해당 보조 계정으로 데이터를 복사하면 추가로 송신 요금이 발생합니다. |
 
 ## <a name="disaster-recovery"></a>재해 복구
@@ -116,7 +116,7 @@ Azure Storage는 항상 계획된 이벤트 그리고 일시적인 하드웨어 
 
 데이터 센터에서 오류가 발생하는 경우 스토리지 계정이 두 지리적 지역에서 중복(지역 중복)되는 경우 주 지역에서 보조 지역으로 계정을 장애 조치(failover)할 수 있는 옵션이 있습니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md)를 참조하세요.
 
-고객 관리 장애 조치(failover)는 현재 계층적 네임스페이스를 사용하도록 설정한 스토리지 계정에 대해 지원되지 않습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](data-lake-storage-supported-blob-storage-features.md)을 참조하세요.
+고객 관리 장애 조치(failover)는 현재 계층적 네임스페이스를 사용하도록 설정한 스토리지 계정에 대해 지원되지 않습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능](./storage-feature-support-in-storage-accounts.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

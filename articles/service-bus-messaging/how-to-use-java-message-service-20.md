@@ -2,14 +2,14 @@
 title: Azure Service Bus 프리미엄에서 Java 메시지 서비스 2.0 API 사용
 description: Azure Service Bus로 JMS(Java 메시지 서비스) 사용
 ms.topic: article
-ms.date: 07/17/2020
+ms.date: 09/20/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b27784e4f70a72ae5b114d2796c2aaeace8068ab
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: df85a53652395e7ecdb55c1471ee81a8e49e048b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414696"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615642"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Azure Service Bus 프리미엄에서 Java 메시지 서비스 2.0 API 사용
 

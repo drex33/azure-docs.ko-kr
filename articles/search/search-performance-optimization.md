@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 169f0b76e1009931d51339fe6b058ca24608af30
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: ad59bae5d0d5309dea15effefd29a23e8029cd5b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061051"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587711"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Azure Cognitive Search의 가용성 및 비즈니스 연속성
 
@@ -106,9 +106,7 @@ Azure Cognitive Search REST API를 사용하여 [검색 인덱스에서 콘텐�
 
 ## <a name="disaster-recovery-and-service-outages"></a>재해 복구 및 서비스 중단
 
-데이터를 복원할 수 있지만 Azure Cognitive Search는 클러스터 또는 데이터 센터 수준에서 작동이 중단될 경우 서비스의 즉각적인 장애 조치(failover)를 제공하지 않습니다. 데이터 센터에서 클러스터가 실패하면 운영 팀에서는 서비스를 검색하고 복원하기 위해 작업합니다. 서비스를 복원하는 동안 가동 중지 시간이 발생하지만 [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에 따라 서비스 사용 불가 상황을 보장하기 위해 서비스 크레딧을 요청할 수 있습니다. 
-
-Microsoft의 통제 범위를 벗어나는 치명적인 장애가 발생하더라도 지속적인 서비스가 필요한 경우 다른 하위 지역에서 [추가 서비스를 프로비전](search-create-service-portal.md)하고 지역에서 복제 전략을 구현하여 인덱스가 모든 서비스에서 완전히 중복되도록 해야 합니다.
+[SLA(Service Level Agreement(서비스 수준 약정))에서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 언급했듯이 Azure Cognitive Search 서비스 인스턴스가 둘 이상의 복제본으로 구성된 경우 인덱스 쿼리 요청에 대해 높은 수준의 가용성을 보장하고 Azure Cognitive Search 서비스 인스턴스가 3개 이상의 복제본으로 구성된 경우 인덱스 업데이트 요청을 보장합니다. 그러나 재해 복구를 위한 기본 제공 메커니즘은 없습니다. Microsoft에서 제어할 수 없는 치명적인 오류가 발생할 경우 연속 서비스가 필요한 경우 다른 지역에 두 번째 서비스를 프로비전하고 지역 복제 전략을 구현하여 인덱스가 모든 서비스에서 완전히 중복되도록 하는 것이 좋습니다.
 
 [인덱서](search-indexer-overview.md)를 사용하여 인덱스를 채우고 새로 고치는 고객은 동일한 데이터 원본을 활용하여 지역별 인덱서를 통해 재해 복구를 처리할 수 있습니다. 인덱서를 실행하는 서로 다른 지역의 두 서비스는 동일한 데이터 소스에서 인덱싱하여 지리적 중복을 적용할 수 있습니다. 지역 중복 데이터 원본에서 인덱싱하는 경우에는 Azure Cognitive Search 인덱서가 주 복제본에서만 증분 인덱싱을 수행할 수 있습니다(새 문서, 수정된 문서 또는 삭제된 문서에서 업데이트 병합). 장애 조치(failover) 이벤트에서 인덱서를 새로운 주 복제본으로 다시 지정하십시오. 
 

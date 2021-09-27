@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: b67e2bf2ae5af2feb334e898ce69fd5b959c7cf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 23e75e2cf2e097e08c0b6bf3c4b0b8c9842a9184
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88689564"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609760"
 ---
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
+        "version": "[2.*, 3.0.0)"
     }
 }
 ```
@@ -26,4 +26,4 @@ ms.locfileid: "88689564"
 | 속성 | Description |
 | -------- | ----------- |
 | id | Microsoft Azure Functions 확장 번들에 대한 네임스페이스입니다. |
-| 버전 | 설치할 번들의 버전입니다. Functions 런타임은 항상 버전 범위 또는 간격으로 정의된 허용 가능한 최대 버전을 선택합니다. 위의 version 값은 1.0.0에서 2.0.0 사이의 모든 번들 버전을 허용하지만 2.0.0은 이 범위에 포함되지 않습니다. 자세한 내용은 [버전 범위를 지정하기 위한 간격 표기법](/nuget/reference/package-versioning#version-ranges)을 참조하세요. |
+| 버전 | 설치할 번들의 버전입니다. Functions 런타임은 항상 버전 범위 또는 간격으로 정의된 허용 가능한 최대 버전을 선택합니다. 위의 버전 값은 2.0.0부터 3.0.0까지의 모든 번들 버전을 허용하지만 3.0.0은 포함하지 않습니다. 자세한 내용은 [버전 범위를 지정하기 위한 간격 표기법](/nuget/reference/package-versioning#version-ranges)을 참조하세요. |

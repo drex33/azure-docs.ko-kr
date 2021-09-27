@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a2d81d9ffbb79d0f05c8e0bf44fbe9d8967cf02f
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 253d763cffc8b70d134182c13678320f4ac50f4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530483"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586327"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보호
 
@@ -49,7 +49,7 @@ Azure에서 지원되는 역할 및 역할 할당에 대한 자세한 내용은 
 
 Azure는 Azure Digital Twins [데이터 평면 API](concepts-apis-sdks.md#overview-data-plane-apis)에 대한 액세스 권한을 부여하기 위해 **두 가지 Azure 기본 제공 역할** 을 제공합니다. 이름 또는 ID로 역할을 참조할 수 있습니다.
 
-| 기본 제공 역할 | 설명 | ID | 
+| 기본 제공 역할 | Description | ID | 
 | --- | --- | --- |
 | Azure Digital Twins 데이터 소유자 | Azure Digital Twins 리소스에 대한 모든 권한을 제공합니다. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Azure Digital Twins 데이터 읽기 권한자 | Azure Digital Twins 리소스에 대한 읽기 액세스를 제공합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -84,7 +84,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 사용자가 자신의 역할에서 허용하지 않는 작업을 수행하려고 하면 서비스 요청에서 `403 (Forbidden)` 읽기 오류가 수신될 수 있습니다. 자세한 정보 및 문제 해결 단계는 [문제 해결: Azure Digital Twins 요청이 실패했습니다(상태: 403(사용할 수 없음))](troubleshoot-error-403.md) 을 참조하세요.
 
-## <a name="managed-identity-for-accessing-other-resources-preview"></a>다른 리소스에 액세스하기 위한 관리 ID(미리 보기)
+## <a name="managed-identity-for-accessing-other-resources"></a>다른 리소스에 액세스하기 위한 관리 ID
 
 Azure Digital Twins 인스턴스에 대한 [Azure Active Directory(Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **관리 ID** 를 설정하면 인스턴스가 [Azure Key Vault](../key-vault/general/overview.md)와 같은 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD의 관리 ID에 관한 자세한 내용은  [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 
 

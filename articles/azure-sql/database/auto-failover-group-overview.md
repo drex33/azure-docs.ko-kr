@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 08/30/2021
-ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/14/2021
+ms.openlocfilehash: 71b2e494d8a570c38180f4dfc86bda87b23f4e95
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256492"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554588"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -222,7 +222,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 ## <a name="best-practices-for-sql-managed-instance"></a>SQL Managed Instance의 모범 사례
 
-자동 장애 조치(failover) 그룹은 주 인스턴스에서 구성되어야 하며 다른 Azure 지역의 보조 인스턴스에 연결됩니다.  인스턴스의 모든 데이터베이스가 보조 인스턴스에 복제됩니다.
+자동 장애 조치(failover) 그룹은 주 인스턴스에서 구성되어야 하며 다른 Azure 지역의 보조 인스턴스에 연결됩니다.  인스턴스의 모든 사용자 데이터베이스는 보조 인스턴스에 복제됩니다. _master_ 및 _msdb와_ 같은 시스템 데이터베이스는 복제되지 않습니다.
 
 다음 다이어그램은 관리되는 인스턴스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
@@ -320,12 +320,13 @@ OLTP 작업을 수행할 때 `<fog-name>.zone_id.database.windows.net`을 서버
 > 장애 조치 그룹을 삭제하면 수신기 엔드포인트의 DNS 레코드도 삭제됩니다. 이 시점에 다른 사용자가 이름이 같은 장애 조치 그룹이나 서버 별칭을 만들어 다시 사용할 수 없게 만들 확률이 0이 아닙니다. 위험을 최소화하려면 일반 장애 조치 그룹 이름을 사용하지 마세요.
 
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>시스템 데이터베이스의 개체에 종속된 시나리오 사용
-시스템 데이터베이스는 장애 조치 그룹의 보조 인스턴스에 복제되지 않습니다. 시스템 데이터베이스의 개체를 사용하는 시나리오를 사용으로 설정하려면 보조 인스턴스에서 보조 데이터베이스에 같은 개체를 만들어야 합니다. 예를 들어 보조 인스턴스에서 같은 로그인을 사용하려는 경우 같은 SID를 사용하여 해당 로그인을 만들어야 합니다. 
+시스템 데이터베이스는 장애 조치 (failover) 그룹의 보조 인스턴스에 복제 **되지 않습니다** . 시스템 데이터베이스의 개체에 종속 되는 시나리오를 사용 하도록 설정 하려면 보조 인스턴스에 같은 개체를 만들고 주 인스턴스와 동기화 된 상태로 유지 해야 합니다. 예를 들어 보조 인스턴스에서 같은 로그인을 사용하려는 경우 같은 SID를 사용하여 해당 로그인을 만들어야 합니다. 
 ```SQL
 -- Code to create login on the secondary instance
 CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
-
+### <a name="synchronize-instance-properties-and-retention-policies-between-primary-and-secondary-instance"></a>주 인스턴스와 보조 인스턴스 간의 인스턴스 속성 및 보존 정책 동기화
+장애 조치 (failover) 그룹의 인스턴스는 별도의 Azure 리소스를 유지 하 고 주 인스턴스의 구성에 대 한 변경 내용은 보조 인스턴스에 자동으로 복제 되지 않습니다. _주 인스턴스와_ 보조 인스턴스 모두에 관련 된 변경 내용을 모두 수행 해야 합니다. 예를 들어 주 인스턴스에서 백업 저장소 중복성 또는 장기 백업 보존 정책을 변경 하는 경우 보조 인스턴스에서 변경 해야 합니다.
 
 ## <a name="failover-groups-and-network-security"></a>장애 조치 그룹 및 네트워크 보안
 

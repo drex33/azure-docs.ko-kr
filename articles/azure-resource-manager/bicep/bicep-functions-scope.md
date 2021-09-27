@@ -2,22 +2,17 @@
 title: Bicep 함수 - 범위
 description: Bicep 파일에서 배포 범위에 대한 값을 검색하는 데 사용할 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 2bf09aef4e3b59f6718a96c6ce2650d508872106
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027098"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827445"
 ---
 # <a name="scope-functions-for-bicep"></a>Bicep의 범위 함수
 
-Resource Manager는 Bicep 파일에서 범위 값을 가져오기 위해 다음과 같은 기능을 제공합니다.
-
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [subscription](#subscription)
-* [테넌트](#tenant)
+이 문서에서는 범위 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="managementgroup"></a>managementGroup
 

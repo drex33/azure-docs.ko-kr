@@ -3,16 +3,17 @@ title: 복사 작업 성능 및 조정 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory의 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 145d93cc073664ed1260170a9c1f7031c9831b7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377213"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559324"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -45,7 +46,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 참조로 아래 테이블에 사내 테스트에 따른 지정된 원본 및 싱크 쌍에 대한 복사 처리량(MBps)이 나와 있습니다. 비교를 위해 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 또는 [데이터 관리 게이트웨이 확장성](data-factory-data-management-gateway-high-availability-scalability.md)(여러 게이트웨이 노드)의 다른 설정이 어떻게 복사 성능에 도움이 되는지도 설명합니다.
 
-![성능 매트릭스](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/CopyPerfRef.png" alt-text="성능 매트릭스":::
 
 >[!IMPORTANT]
 >Azure Data Factory 버전 1에서 클라우드 간 복사를 위한 최소 클라우드 데이터 이동 단위는 2입니다. 지정되지 않은 경우 [클라우드 데이터 이동 단위](#cloud-data-movement-units)에서 사용 중인 기본 데이터 이동 단위를 참조하세요.
@@ -187,11 +188,11 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 클라우드 복사 시나리오에서(원본 및 싱크 데이터 저장소는 모두 클라우드에 있음) 게이트웨이는 사용되지 않습니다. Data Factory 서비스는 복사 작업을 수행합니다.
 
-![준비 복사: 클라우드 시나리오](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png" alt-text="준비 복사: 클라우드 시나리오":::
 
 하이브리드 복사 시나리오에서(원본이 온-프레미스에 있고 싱크가 클라우드에 있음) 게이트웨이가 원본 데이터 저장소에서 준비 데이터 저장소로 데이터를 이동합니다. Data Factory 서비스는 또한 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동합니다. 준비 단계를 통해 클라우드 데이터 저장소의 데이터를 온-프레미스 데이터 저장소로 복사하는 작업은 역방향 흐름으로도 지원됩니다.
 
-![준비 복사: 하이브리드 시나리오](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png" alt-text="준비 복사: 하이브리드 시나리오":::
 
 준비 저장소를 사용한 데이터 이동을 활성화하면 원본 데이터 저장소에서 중간 또는 준비 데이터 저장소로 데이터를 이동하기 전에 데이터를 압축할지 및 중간 또는 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하기 전에 압축할지 여부를 지정할 수 있습니다.
 
@@ -200,7 +201,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ### <a name="configuration"></a>구성
 복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결 서비스가 아직 없는 경우 만들어야 합니다.
 
-| 속성 | 설명 | 기본값 | 필수 |
+| 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 있는 스토리지를 사용하여 PolyBase를 통해 Azure Synapse Analytics에 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
@@ -247,7 +248,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
    **모니터링 및 관리 앱** 을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리** 를 선택합니다. 트리 뷰에서 **출력 데이터 세트** 를 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간** 에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기** 에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
-   ![작업 실행 세부 정보](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+   :::image type="content" source="./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png" alt-text="작업 실행 세부 정보":::
 
    문서의 뒷부분에서는 시나리오의 성능 및 구성을 테스트에서 복사 작업의 [성능 참조](#performance-reference)와 비교할 수 있습니다.
 2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 성능 진단에 대한 자세한 내용은 이 문서의 범위를 벗어나지만 다음과 같이 몇 가지 일반적인 고려 사항이 있습니다.
@@ -374,7 +375,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 보이는 대로 데이터를 처리하고 다음 스트리밍 순으로 이동합니다. SQL Server -> LAN -> 게이트웨이 -> WAN -> Blob 저장소 **전반적인 성능은 파이프라인을 통해 최소 처리량에서 제어됩니다**.
 
-![데이터 흐름](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/case-study-pic-1.png" alt-text="데이터 흐름":::
 
 다음 중 하나 이상의 요인으로 성능 병목 현상이 발생할 수 있습니다.
 
@@ -394,19 +395,19 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 **분석 및 성능 튜닝**: 예를 들어 쿼드 코어 컴퓨터에 게이트웨이를 설치했다고 가정할 때, Data Factory는 16개의 병렬 복사를 사용하여 파일 시스템에서 Blob Storage로 동시에 파일을 이동합니다. 이 병렬 실행 결과, 높은 처리량이 발생합니다. 또한 병렬 복사 개수를 명시적으로 지정할 수도 있습니다. 다수의 작은 파일을 복사하는 경우, 병렬 복사는 리소스를 보다 효과적으로 활용하여 처리량을 급격히 향상시키는 데 유용합니다.
 
-![시나리오 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-1.png" alt-text="시나리오 1":::
 
 **시나리오 II**: 크기가 500MB인 Blob 20개를 Blob Storage에서 Data Lake Store 분석으로 복사한 후 성능을 조정하는 경우.
 
 **분석 및 성능 튜닝**: 이 시나리오에서 Data Factory는 단일 복사(**parallelCopies** 를 1로 설정)를 사용하고 단일 클라우드 데이터 이동 단위를 사용하여 Blob Storage에서 Data Lake Store로 데이터를 복사합니다. 처리량을 관찰하면 [성능 참조 섹션](#performance-reference)에 설명된 것에 근접한 것을 볼 수 있습니다.
 
-![시나리오 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-2.png" alt-text="시나리오 2":::
 
 **시나리오 III**: 개별 파일 크기는 수십 MB를 초과하며 총 볼륨은 큽니다.
 
 **분석 및 성능 튜닝**: **parallelCopies** 를 늘린다고 해도 단일 클라우드 DMU의 리소스 제한으로 인해 복사 성능이 향상되지 않습니다. 대신, 데이터 이동을 수행할 리소스를 더 확보하기 위해서 더 많은 클라우드 DMU를 지정해야 합니다. **parallelCopies** 속성에 대한 값을 지정하지 마세요. Data Factory는 병렬 처리를 수행합니다. 이 경우 **cloudDataMovementUnits** 를 4로 설정하면 처리량은 약 4배 발생합니다.
 
-![시나리오 3](./media/data-factory-copy-activity-performance/scenario-3.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-3.png" alt-text="시나리오 3":::
 
 ## <a name="reference"></a>참조
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.

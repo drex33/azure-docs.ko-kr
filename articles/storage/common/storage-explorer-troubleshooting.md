@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9015e3ce69042a2e7d96588956becff889827ab3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 3feae35a4b7c98ea317bb9cec5dd54ca3f5db63c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225190"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562517"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -23,7 +23,7 @@ Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC 사용 권한 문제
 
-[Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 사용하면 권한 집합을 _역할_ 로 결합하여 Azure 리소스에 대한 액세스를 매우 세부적으로 관리할 수 있습니다. 다음은 Storage Explorer에서 Azure RBAC가 최적으로 작동하도록 하기 위한 몇 가지 전략입니다.
+[Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 사용하면 권한 집합을 *역할* 로 결합하여 Azure 리소스에 대한 액세스를 매우 세부적으로 관리할 수 있습니다. 다음은 Storage Explorer에서 Azure RBAC가 최적으로 작동하도록 하기 위한 몇 가지 전략입니다.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Storage Explorer에서 내 리소스에 액세스하려면 어떻게 해야 하나요?
 
@@ -31,22 +31,22 @@ Azure RBAC를 통해 스토리지 리소스에 액세스하는 데 문제가 있
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"읽기: 스토리지 계정 나열/가져오기" 권한 문제
 
-스토리지 계정 나열에 대한 권한이 있어야 합니다. 이 권한을 얻으려면 _읽기 권한자_ 역할이 할당되어야 합니다.
+스토리지 계정 나열에 대한 권한이 있어야 합니다. 이 권한을 얻으려면 *읽기 권한자* 역할이 할당되어야 합니다.
 
 #### <a name="list-storage-account-keys"></a>스토리지 계정 키 나열
 
-Storage Explorer는 계정 키를 사용하여 요청을 인증할 수도 있습니다. _기여자_ 역할과 같은 보다 강력한 역할을 통해 계정 키에 액세스할 수 있습니다.
+Storage Explorer는 계정 키를 사용하여 요청을 인증할 수도 있습니다. *기여자* 역할과 같은 보다 강력한 역할을 통해 계정 키에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 액세스 키는 이를 보유한 모든 사용자에게 무제한 권한을 부여합니다. 따라서 이러한 키를 계정 사용자에게 제공하지 않는 것이 좋습니다. 액세스 키를 철회해야 하는 경우 [Azure Portal](https://portal.azure.com/)에서 다시 생성할 수 있습니다.
 
 #### <a name="data-roles"></a>데이터 역할
 
-리소스에서 데이터를 읽을 수 있는 액세스 권한을 부여하는 역할이 하나 이상 할당되어야 합니다. 예를 들어 Blob을 나열하거나 다운로드하려면 최소한 _Storage Blob 데이터 읽기 권한자_ 역할이 필요합니다.
+리소스에서 데이터를 읽을 수 있는 액세스 권한을 부여하는 역할이 하나 이상 할당되어야 합니다. 예를 들어 Blob을 나열하거나 다운로드하려면 최소한 *Storage Blob 데이터 읽기 권한자* 역할이 필요합니다.
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Storage Explorer에서 내 리소스를 볼 때 관리 계층 역할이 필요한 이유는 무엇인가요?
 
-Azure Storage에는 _관리_ 및 _데이터_ 라는 두 가지 액세스 계층이 있습니다. 구독 및 스토리지 계정은 관리 계층을 통해 액세스됩니다. 컨테이너, Blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스됩니다. 예를 들어 Azure에서 스토리지 계정 목록을 가져오려면 관리 엔드포인트에 요청을 보냅니다. 계정의 Blob 컨테이너 목록이 필요한 경우 적절한 서비스 엔드포인트에 요청을 보냅니다.
+Azure Storage에는 *관리* 및 *데이터* 라는 두 가지 액세스 계층이 있습니다. 구독 및 스토리지 계정은 관리 계층을 통해 액세스됩니다. 컨테이너, Blob 및 기타 데이터 리소스는 데이터 계층을 통해 액세스됩니다. 예를 들어 Azure에서 스토리지 계정 목록을 가져오려면 관리 엔드포인트에 요청을 보냅니다. 계정의 Blob 컨테이너 목록이 필요한 경우 적절한 서비스 엔드포인트에 요청을 보냅니다.
 
 Azure 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수 있습니다. 예를 들어 읽기 권한자 역할은 관리 계층 리소스에 대한 읽기 전용 액세스 권한을 부여합니다.
 
@@ -54,7 +54,7 @@ Azure 역할은 관리 또는 데이터 계층 액세스 권한을 부여할 수
 
 Storage Explorer를 사용하면 Azure 리소스에 연결하는 데 필요한 정보를 수집하여 리소스에 쉽게 액세스할 수 있습니다. 예를 들어 Blob 컨테이너를 표시하기 위해 Storage Explorer는 Blob 서비스 엔드포인트에 "컨테이너 나열" 요청을 보냅니다. Storage Explorer는 해당 엔드포인트를 가져오기 위해 액세스 권한이 있는 구독 및 스토리지 계정 목록을 검색합니다. 또한 구독 및 스토리지 계정을 찾으려면 Storage Explorer에 관리 계층에 대한 액세스 권한이 있어야 합니다.
 
-관리 계층 권한을 부여하는 역할이 없는 경우 Storage Explorer는 데이터 계층에 연결하는 데 필요한 정보를 가져올 수 없습니다.
+관리 계층 권한을 부여하는 역할이 없는 경우 Storage Explorer 데이터 계층에 연결하는 데 필요한 정보를 얻을 수 없습니다.
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>관리자로부터 필요한 관리 계층 권한을 얻을 수 없는 경우 어떻게 해야 하나요?
 
@@ -72,7 +72,7 @@ Blob 컨테이너, ADLS Gen2 컨테이너나 디렉터리, 큐에 액세스하�
 1. 연결할 리소스 유형을 선택합니다.
 1. **SAS(공유 액세스 서명)** 를 선택합니다. **다음** 을 선택합니다.
 1. 받은 SAS URL을 입력하고 연결에 대한 고유한 표시 이름을 입력합니다. **다음** 을 선택하고 **연결** 을 선택합니다.
- 
+
 리소스에 연결하는 방법에 대한 자세한 내용은 [개별 리소스 연결](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource)을 참조하세요.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장되는 Azure 기본 제공 역할
@@ -115,11 +115,11 @@ Storage Explorer를 사용하는 데 필요한 권한을 제공할 수 있는 �
 이러한 단계를 수행 하 여 찾을 수 있습니다.
 
 1. OpenSSL을 설치합니다.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 라이트 버전이면 충분합니다.
-    * Mac 및 Linux: 운영 체제에 포함되어야 합니다.
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html): 라이트 버전이면 충분합니다.
+    - Mac 및 Linux: 운영 체제에 포함되어야 합니다.
 2. OpenSSL을 실행합니다.
-    * Windows: 설치 디렉터리를 열고 **/bin/** 을 선택한 다음 **openssl.exe** 를 두 번 클릭합니다.
-    * Mac 및 Linux: 터미널에서 `openssl`을 실행합니다.
+    - Windows: 설치 디렉터리를 열고 **/bin/** 을 선택한 다음 **openssl.exe** 를 두 번 클릭합니다.
+    - Mac 및 Linux: 터미널에서 `openssl`을 실행합니다.
 3. 스토리지 리소스가 뒤에 있는 Microsoft 또는 Azure 호스트 이름에 대해 `s_client -showcerts -connect <hostname>:443` 명령을 실행합니다. 여기에서 Storage Explorer에서 자주 액세스하는 호스트 이름 목록을 찾을 수 있습니다.
 4. 자체 서명된 인증서를 찾습니다. 제목 `("s:")` 및 발급자 `("i:")`가 동일한 경우 인증서가 자체 서명되었을 가능성이 큽니다.
 5. 자체 서명된 인증서를 찾으면 각 인증서에 대해 `-----BEGIN CERTIFICATE-----`에서 `-----END CERTIFICATE-----`까지(및 포함) 모든 항목을 복사하여 새 .cer 파일에 붙여넣습니다.
@@ -192,7 +192,7 @@ Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 �
 1. Storage Explorer를 엽니다.
 2. 모든 계정을 제거한 다음, Storage Explorer를 닫습니다.
 3. 시스템에서 `.IdentityService` 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
-4. Mac 또는 Linux를 실행하는 경우 운영 체제의 키 저장소에서 Microsoft.Developer.IdentityService 항목도 삭제해야 합니다. Mac에서 키 저장소는 *Gnome Keychain* 애플리케이션입니다. Linux에서 애플리케이션의 이름은 일반적으로 _Keyring_ 이지만 배포에 따라 다를 수 있습니다.
+4. Mac 또는 Linux를 실행하는 경우 운영 체제의 키 저장소에서 Microsoft.Developer.IdentityService 항목도 삭제해야 합니다. Mac에서 키 저장소는 *Gnome Keychain* 애플리케이션입니다. Linux에서 애플리케이션의 이름은 일반적으로 *Keyring* 이지만 배포에 따라 다를 수 있습니다.
 6. Storage Explorer를 다시 시작하고 다시 로그인합니다.
 
 ### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS: 키 집합 오류가 발생하거나 로그인 창이 표시되지 않음
@@ -225,19 +225,19 @@ macOS 키 집합은 Storage Explorer 인증 라이브러리에서 문제를 유�
 
 성공적으로 로그인한 후 구독을 검색할 수 없는 경우 다음 단계에 따라 문제를 해결합니다.
 
-* 해당 계정이 원하는 구독에 액세스할 수 있는지 확인합니다. 사용하려는 Azure 환경의 포털에 로그인하여 액세스 권한이 있는지 확인할 수 있습니다.
-* 올바른 Azure 환경(Azure, Azure 중국 21Vianet, Azure 독일, Azure 미국 정부 또는 사용자 지정 환경)을 통해 로그인했는지 확인합니다.
-* 프록시 서버 뒤에 있는 경우 Storage Explorer 프록시를 올바르게 구성했는지 확인합니다.
-* 계정을 제거하고 다시 추가해 봅니다.
-* "추가 정보" 또는 "오류 세부 정보" 링크가 있는 경우 실패한 테넌트에 대해 보고되는 오류 메시지를 확인합니다. 오류 메시지에 어떻게 응답해야 할지 잘 모르는 경우 [GitHub에서 문제를 열어](https://github.com/Microsoft/AzureStorageExplorer/issues) 볼 수 있습니다.
+- 해당 계정이 원하는 구독에 액세스할 수 있는지 확인합니다. 사용하려는 Azure 환경의 포털에 로그인하여 액세스 권한이 있는지 확인할 수 있습니다.
+- 올바른 Azure 환경(Azure, Azure 중국 21Vianet, Azure 독일, Azure 미국 정부 또는 사용자 지정 환경)을 통해 로그인했는지 확인합니다.
+- 프록시 서버 뒤에 있는 경우 Storage Explorer 프록시를 올바르게 구성했는지 확인합니다.
+- 계정을 제거하고 다시 추가해 봅니다.
+- "추가 정보" 또는 "오류 세부 정보" 링크가 있는 경우 실패한 테넌트에 대해 보고되는 오류 메시지를 확인합니다. 오류 메시지에 어떻게 응답해야 할지 잘 모르는 경우 [GitHub에서 문제를 열어](https://github.com/Microsoft/AzureStorageExplorer/issues) 볼 수 있습니다.
 
 ## <a name="cant-remove-an-attached-storage-account-or-resource"></a>연결된 스토리지 계정 또는 리소스를 제거할 수 없음
 
 연결된 계정이나 스토리지 리소스를 UI를 통해 제거할 수 없는 경우 다음 폴더를 삭제하여 연결된 리소스를 모두 수동으로 삭제할 수 있습니다.
 
-* Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux: `~/.config/StorageExplorer`
+- Windows: `%AppData%/StorageExplorer`
+- macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
+- Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
 > 이러한 폴더를 삭제하기 전에 먼저 Storage Explorer를 닫습니다.
@@ -280,9 +280,9 @@ Fiddler와 같은 네트워킹 도구가 문제를 진단하는 데 도움이 �
 1. 네트워킹 도구를 로컬 호스트에서 실행되는 프록시 서버로 구성합니다. 실제 프록시 뒤에서 계속 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
 2. 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
 3. 로컬 호스트 및 네트워킹 도구의 포트 번호(예: "localhost:8888")를 사용하도록 Storage Explorer 프록시 설정을 구성합니다.
- 
+
 올바르게 설정되면 네트워킹 도구가 Storage Explorer에서 만든 네트워크 요청을 관리 및 서비스 엔드포인트에 기록합니다.
- 
+
 네트워킹 도구가 Storage Explorer 트래픽을 로깅하지 않는 경우 다른 애플리케이션을 사용하여 도구를 테스트해 보세요. 예를 들어 웹 브라우저에서 스토리지 리소스(예: `https://contoso.blob.core.windows.net/`)에 대한 엔드포인트 URL을 입력하면 다음과 유사한 응답을 받게 됩니다.
 
   ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
@@ -295,8 +295,8 @@ Fiddler와 같은 네트워킹 도구가 문제를 진단하는 데 도움이 �
 
 프록시 설정이 올바른 경우 다음을 위해 프록시 서버 관리자에게 문의해야 할 수 있습니다.
 
-* 프록시가 Azure 관리 또는 리소스 엔드포인트에 대한 트래픽을 차단하지 않는지 확인합니다.
-* 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage Explorer는 기본 인증 프로토콜만 지원합니다. Storage Explorer는 NTLM 프록시를 지원하지 않습니다.
+- 프록시가 Azure 관리 또는 리소스 엔드포인트에 대한 트래픽을 차단하지 않는지 확인합니다.
+- 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage Explorer는 기본 인증 프로토콜만 지원합니다. Storage Explorer는 NTLM 프록시를 지원하지 않습니다.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>"하위 항목을 검색할 수 없음" 오류 메시지
 
@@ -317,17 +317,17 @@ Fiddler와 같은 네트워킹 도구가 문제를 진단하는 데 도움이 �
 1. Storage Explorer를 시작합니다. 메뉴에서 **도움말** > **개발자 도구 설정/해제** 로 이동합니다.
 2. 열린 창의 **애플리케이션** 탭에서 **로컬 스토리지**(왼쪽) > **file://** 로 이동합니다.
 3. 문제가 있는 연결 유형에 따라 키를 찾은 다음 해당 값을 텍스트 편집기에 복사합니다. 이 값은 다음과 같은 사용자 지정 연결 이름의 배열입니다.
-    * Storage 계정
-        * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Blob 컨테이너
-        * `StorageExplorer_CustomConnections_Blobs_v1`
-        * `StorageExplorer_CustomConnections_Blobs_v2`
-    * 파일 공유
-        * `StorageExplorer_CustomConnections_Files_v1`
-    * 큐
-        * `StorageExplorer_CustomConnections_Queues_v1`
-    * 테이블
-        * `StorageExplorer_CustomConnections_Tables_v1`
+    - Storage 계정
+        - `StorageExplorer_CustomConnections_Accounts_v1`
+    - Blob 컨테이너
+        - `StorageExplorer_CustomConnections_Blobs_v1`
+        - `StorageExplorer_CustomConnections_Blobs_v2`
+    - 파일 공유
+        - `StorageExplorer_CustomConnections_Files_v1`
+    - 큐
+        - `StorageExplorer_CustomConnections_Queues_v1`
+    - 테이블
+        - `StorageExplorer_CustomConnections_Tables_v1`
 4. 현재 연결 이름을 저장한 후 개발자 도구의 값을 `[]`로 설정합니다.
 
 손상되지 않은 연결을 유지하려면 다음 단계를 사용하여 손상된 연결을 찾을 수 있습니다. 기존 연결이 모두 끊어져도 괜찮다면 이 단계를 건너뛰고 플랫폼별 지침에 따라 연결 데이터를 지울 수 있습니다.
@@ -366,9 +366,9 @@ Fiddler와 같은 네트워킹 도구가 문제를 진단하는 데 도움이 �
 
 SAS URL을 통해 서비스에 연결 중이고 오류가 발생하는 경우 다음을 수행합니다.
 
-* URL이 리소스를 읽거나 나열하는 데 필요한 권한을 제공하는지 확인합니다.
-* URL이 만료되지 않았는지 확인합니다.
-* SAS URL이 액세스 정책을 기반으로 하는 경우 액세스 정책이 철회되지 않았는지 확인합니다.
+- URL이 리소스를 읽거나 나열하는 데 필요한 권한을 제공하는지 확인합니다.
+- URL이 만료되지 않았는지 확인합니다.
+- SAS URL이 액세스 정책을 기반으로 하는 경우 액세스 정책이 철회되지 않았는지 확인합니다.
 
 실수로 잘못된 SAS URL을 사용하여 연결했는데 분리할 수 없는 경우 다음 단계를 수행합니다.
 
@@ -400,49 +400,53 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer를 사용하려면 시스템에 .NET Core가 설치되어 있어야 합니다. .NET Core 2.1을 권장하지만 Storage Explorer는 2.2에서도 작동합니다.
+Storage Explorer 하려면 .net Core 3.1이 시스템에 설치 되어 있어야 합니다.
 
 > [!NOTE]
-> Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다. 최신 버전의 .NET Core가 설치되어 있는 경우 [Storage Explorer를 패치](#patching-storage-explorer-for-newer-versions-of-net-core)해야 합니다. Storage Explorer 1.8.0 이상을 실행하는 경우 .NET Core 2.1 이상이 필요합니다.
+> 1.8.0 1.20.1를 통해 Storage Explorer 버전은 .net Core 2.1이 필요 합니다. Storage Explorer 버전 1.7.0 이하에는 .NET Core 2.0이 필요합니다.
 
 ### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Storage Explorer .tar.gz 파일을 다운로드합니다.
 2. [.NET Core Runtime](/dotnet/core/install/linux) 설치
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Storage Explorer .tar.gz 파일을 다운로드합니다.
 2. [.NET Core Runtime](/dotnet/core/install/linux) 설치
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Storage Explorer .tar.gz 파일을 다운로드합니다.
 2. [.NET Core Runtime](/dotnet/core/install/linux) 설치
+
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
+
 ---
 
 Storage Explorer에 필요한 많은 라이브러리에는 Canonical의 표준 Ubuntu가 미리 설치되어 있습니다. 사용자 지정 환경에는 이러한 라이브러리 중 일부가 누락되었을 수 있습니다. Storage Explorer를 시작하는 데 문제가 있는 경우 시스템에 다음 패키지가 설치되어 있는지 확인하는 것이 좋습니다.
@@ -470,16 +474,16 @@ Storage Explorer 1.7.0 이하의 경우 Storage Explorer에서 사용하는 .NET
 3. 패키지의 압축을 풉니다.
 4. `streamjsonrpc.1.5.43/lib/netstandard1.1/` 폴더를 엽니다.
 5. `StreamJsonRpc.dll`을 Storage Explorer 폴더의 다음 위치로 복사합니다.
-   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   - `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   - `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-the-azure-portal-doesnt-work"></a>Azure Portal의 "탐색기에서 열기"가 작동하지 않음
 
 Azure Portal의 **탐색기에서 열기** 단추가 작동하지 않으면 호환 가능한 브라우저를 사용하고 있는지 확인합니다. 다음 브라우저는 호환성 테스트를 거쳤습니다.
-* Microsoft Edge
-* Mozilla Firefox
-* Google Chrome
-* Microsoft Internet Explorer
+- Microsoft Edge
+- Mozilla Firefox
+- Google Chrome
+- Microsoft Internet Explorer
 
 ## <a name="gathering-logs"></a>로그 수집
 
@@ -538,7 +542,7 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 6. 작업 단추를 클릭합니다.
 7. 다음 대화 상자에서 "루트 인증서 신뢰"를 선택한 다음 "예"를 선택합니다.
 8. 작업 단추를 다시 클릭합니다.
-9. "루트 인증서를 바탕 화면으로 내보내기"를 선택합니다.
+9. "루트 인증서를 바탕 화면으로 내보내기"를 선택 합니다.
 10. 바탕 화면으로 이동합니다.
 11. FiddlerRoot.cer 파일을 찾습니다.
 12. 두 번 클릭하여 열기
@@ -558,7 +562,7 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 2부: 문제 재현
 1. Fiddler 이외의 모든 앱을 닫습니다.
 2. Fiddler 로그를 지웁니다(왼쪽 상단의 보기 메뉴 옆에 있는 X 아이콘).
-3. 선택 사항/권장 사항: Fiddler가 설정하는 동안 몇 분 기다린 다음 네트워크 호출이 표시되면 해당 호출을 마우스 오른쪽 단추로 클릭하고 '지금 필터링' > '<process name> 숨기기'를 선택합니다.
+3. 선택/권장: 몇 분 동안 Storage Explorer 설정 된 네트워크 호출이 표시 되는 경우이를 마우스 오른쪽 단추로 클릭 하 고 ' 지금 필터링 ' > ' 숨기기 (프로세스 이름) '를 선택 합니다.
 4. Storage Explorer 시작
 5. 문제 재현
 6. 파일 > 저장 > 모든 세션...을 클릭하고 원하는 위치에 저장합니다.

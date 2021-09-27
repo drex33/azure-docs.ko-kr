@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 2478c50b9753f3518a0a09533842a4d7abde762c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8cf8ecaaafa9697286dcaa0ae61d00853d53a311
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528509"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743487"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블을 사용하여 데이터베이스에서 델타 복사
 
@@ -90,37 +90,37 @@ ms.locfileid: "122528509"
     
 4. **데이터베이스에서 델타 복사** 템플릿으로 이동합니다. 데이터를 복사하려는 원본 데이터베이스에 대해 **새** 연결을 만듭니다.
 
-    ![원본 테이블에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="원본 테이블에 대한 새 연결 만들기":::
 
 5. 데이터를 복사하려는 대상 데이터 저장소에 대해 **새** 연결을 만듭니다.
 
-    ![대상 테이블에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png" alt-text="대상 테이블에 대한 새 연결 만들기":::
 
 6. 2단계와 3단계에서 만든 외부 컨트롤 테이블 및 저장 프로시저에 대한 **새** 연결을 만듭니다.
 
-    ![제어 테이블 데이터 저장소에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png" alt-text="제어 테이블 데이터 저장소에 대한 새 연결 만들기":::
 
 7. **이 템플릿 사용** 을 선택합니다.
     
 8. 다음 예제와 같이 이용 가능한 파이프라인이 표시됩니다.
   
-    ![파이프라인 검토](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png" alt-text="파이프라인 검토":::
 
 9. **저장 프로시저** 를 선택합니다. **저장 프로시저 이름** 에 **[dbo].[update_watermark]** 를 선택합니다. **매개 변수 가져오기** 를 선택하고 **동적 콘텐츠 추가** 를 선택합니다.  
 
-    ![저장 프로시저 작업 설정](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png" alt-text="저장 프로시저 작업 설정":::   
 
 10. 콘텐츠 **\@@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** 를 작성하고 **마침** 을 클릭합니다.  
 
-    ![저장 프로시저에 대한 매개 변수 콘텐츠 작성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png" alt-text="저장 프로시저에 대한 매개 변수 콘텐츠 작성":::        
      
 11. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
 
-    ![**디버그** 선택](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png" alt-text="**디버그** 선택":::
 
 12. 다음 예제와 유사한 결과가 표시됩니다.
 
-    ![결과 검토](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png" alt-text="결과 검토":::
 
 13. 원본 테이블에 새 행을 만들 수 있습니다. 새로운 행을 만드는 샘플 SQL 언어는 다음과 같습니다.
 
@@ -138,7 +138,7 @@ ms.locfileid: "122528509"
 
 15. (선택 사항:) Azure Synapse Analytics를 데이터 대상으로 선택하는 경우 Azure Synapse Analytics Polybase가 필요로 하는 Azure Blob Storage에 대한 연결도 제공해야 합니다. 해당 템플릿은 컨테이너 경로를 생성합니다. 파이프라인을 실행한 후 컨테이너가 Blob Storage에 만들어졌는지 확인합니다.
     
-    ![PolyBase 구성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
+    :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="PolyBase 구성":::
     
 ## <a name="next-steps"></a>다음 단계
 

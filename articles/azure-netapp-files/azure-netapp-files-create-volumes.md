@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/06/2021
 ms.author: b-juche
-ms.openlocfilehash: ed67984dac9d1beb7106c78a8ffa35d778f69d59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e9d3f2443d73f75e96e0036d5c546d00238a58d8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535619"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614375"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -62,7 +62,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 이름은 문자로 시작해야 합니다. 문자, 숫자, 밑줄('_') 및 하이픈('-')만 포함할 수 있습니다.
+        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 이름은 문자로 시작해야 합니다. 문자, 숫자, 밑줄(‘_’), 하이픈(‘-’)만 포함할 수 있습니다.
 
         `default` 또는 `bin`을 볼륨 이름으로 사용할 수 없습니다.
 
@@ -96,7 +96,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 
-        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조하세요.
+        스냅샷 정책을 만드는 방법에 대한 자세한 내용은 [스냅샷 정책 관리](snapshots-manage-policy.md)를 참조하세요.
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -117,8 +117,8 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 
     * Active Directory LDAP 사용자 및 확장 그룹(최대 1024개 그룹)을 사용하여 볼륨에 액세스하려면 **LDAP** 옵션을 선택합니다. [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)의 지침에 따라 필요한 구성을 완료합니다. 
  
-    *  필요에 따라 **Unix 권한** 을 사용자 지정하여 탑재 경로에 대한 변경 권한을 지정합니다. 탑재 경로 아래에 있는 파일에는 설정이 적용되지 않습니다. 기본 설정은 `0770`입니다. 이 기본 설정은 소유자 및 그룹에 읽기, 쓰기 및 실행 권한을 부여하지만 다른 사용자에게는 권한이 부여되지 않습니다.     
-        등록 요구 사항 및 고려 사항은 **Unix 권한** 설정에 적용됩니다. [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md)의 지침을 따릅니다.   
+    *  필요에 따라 **Unix 권한** 을 사용자 지정하여 탑재 경로에 대한 변경 권한을 지정합니다. 탑재 경로 아래에 있는 파일에는 설정이 적용되지 않습니다. 기본 설정은 `0770`입니다. 이 기본 설정은 소유자와 그룹에 읽기, 쓰기, 실행 권한을 부여하지만 다른 사용자에게는 권한이 부여되지 않습니다.     
+        등록 요구 사항과 고려 사항은 **Unix 권한** 설정에 적용됩니다. [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md)의 지침을 따릅니다.   
 
     * 필요에 따라 [NFS 볼륨에 대한 내보내기 정책을 구성](azure-netapp-files-configure-export-policy.md)합니다.
 

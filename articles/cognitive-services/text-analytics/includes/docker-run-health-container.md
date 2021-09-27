@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2021
+ms.date: 09/02/2021
 ms.author: aahi
-ms.openlocfilehash: 2bd9d1c6a76e8bf2726831859045363809458228
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 68f320a7af2d41bfb29f6d7f7f84ccdf718044d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123122500"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799088"
 ---
 ## <a name="install-the-container"></a>컨테이너 설치
 
@@ -50,6 +50,22 @@ Logging:Disk:Format=json
 - 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
 - EULA(최종 사용자 사용권 계약) 및 RAI(책임 있는 AI) 사용 약관에 동의합니다.
 - 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
+
+### <a name="run-the-container-with-client-library-support"></a>클라이언트 라이브러리 지원으로 컨테이너를 실행 합니다.
+
+컨테이너 버전부터 `3.0.017010001-onprem-amd64` 또는 컨테이너를 사용 하는 경우 `latest` 상태 컨테이너에 대 한 Text Analytics를 실행 하 여 Text Analytics [클라이언트 라이브러리](../quickstarts/client-libraries-rest-api.md) 상태 작업을 수행할 수 있습니다. 이렇게 하려면 다음 매개 변수를 명령에 추가 합니다 `docker run` .
+
+`enablelro=true`
+
+이후에 Text Analytics 클라이언트를 인증할 때 컨테이너가 실행 되는 끝점을 사용 합니다.
+
+`http://localhost:5000`
+
+예를 들어 c #을 사용 하는 경우 다음 코드를 사용 합니다.
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
 
 ### <a name="demo-ui-to-visualize-output"></a>출력을 시각화하는 데모 UI
 

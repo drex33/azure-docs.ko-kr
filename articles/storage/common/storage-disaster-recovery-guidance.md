@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 383757cf20c7ac508aa396b947640c3a1221052d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 18f6be8421d424b8eefe04c5cb2e3f8026858ec7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567301"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626725"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -30,7 +30,7 @@ Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조�
 
 ## <a name="choose-the-right-redundancy-option"></a>적절한 중복 옵션 선택
 
-Azure Storage는 내구성 및 고가용성을 보장하기 위해 스토리지 계정의 여러 복사본을 유지 관리합니다. 계정에 대해 선택하는 중복 옵션은 필요한 복원력 수준에 따라 달라집니다. 지역 가동 중단으로부터 보호하려는 경우 보조 지역에서 읽기 액세스 옵션을 제공하거나 제공하지 않는 지역 중복 스토리지에 대한 계정을 구성합니다.  
+Azure Storage는 내구성 및 고가용성을 보장하기 위해 스토리지 계정의 여러 복사본을 유지 관리합니다. 계정에 대해 선택하는 중복 옵션은 필요한 복원력 수준에 따라 달라집니다. 지역 가동 중단으로부터 보호하려는 경우 보조 지역에서 읽기 액세스 옵션을 제공하거나 제공하지 않는 지역 중복 스토리지에 대한 계정을 구성합니다.
 
 **GRS(지역 중복 스토리지) 또는 GZRS(지역 영역 중복 스토리지)** 는 수백 킬로미터 떨어져 있는 두 지리적 지역에서 비동기적으로 데이터를 복사합니다. 주 지역에서 중단이 발생하는 경우 보조 지역이 데이터의 중복 원본으로 사용됩니다. 장애 조치(failover)를 시작하여 보조 엔드포인트를 기본 엔드포인트으로 변환할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Storage의 중복성에 대한 자세한 내용은 [Azure Storage 중복�
 - [Azure용 복원 애플리케이션 디자인](/azure/architecture/framework/resiliency/app-design): Azure에서 고가용성 애플리케이션을 설계하기 위한 주요 개념을 간략하게 설명합니다.
 - [복원력 검사 목록](/azure/architecture/checklist/resiliency-per-service): 애플리케이션이 고가용성을 위한 디자인 모범 사례를 구현하는지 확인하기 위한 검사 목록입니다.
 - [지리적 중복성을 사용하여 고가용성 애플리케이션 설계](geo-redundant-design.md): 지역 중복 스토리지를 활용하는 애플리케이션을 빌드하기 위한 설계 지침입니다.
-- [자습서: Blob Storage로 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md): 실패 및 복구를 시뮬레이션할 때 엔드포인트 간을 자동으로 전환하는 고가용성 애플리케이션을 빌드하는 방법을 보여주는 자습서입니다. 
+- [자습서: Blob Storage로 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md): 실패 및 복구를 시뮬레이션할 때 엔드포인트 간을 자동으로 전환하는 고가용성 애플리케이션을 빌드하는 방법을 보여주는 자습서입니다.
 
 또한 Azure Storage 데이터에 대해 고가용성을 유지하기 위한 다음 모범 사례도 참조하세요.
 
@@ -67,7 +67,8 @@ Azure Storage의 중복성에 대한 자세한 내용은 [Azure Storage 중복�
 
 고객이 관리하는 계정 장애 조치(failover)를 사용하면 어떤 이유로든 주 지역을 사용할 수 없게 될 경우 전체 스토리지 계정을 보조 지역으로 장애 조치(failover)할 수 있습니다. 강제로 보조 지역으로 장애 조치(failover)하는 경우 클라이언트는 장애 조치(failover)가 완료된 후에 보조 엔드포인트에 데이터를 쓰기 시작할 수 있습니다. 장애 조치(failover)에는 일반적으로 약 1시간이 걸립니다.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> 이 기능은 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 계정에서 아직 지원되지 않습니다. 자세히 알아보려면 [Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 스토리지 기능](../blobs/storage-feature-support-in-storage-accounts.md)을 참조하세요.
 
 ### <a name="how-an-account-failover-works"></a>계정 장애 조치(failover)가 작동하는 방식
 
@@ -93,7 +94,7 @@ DNS 항목이 업데이트되면 지역 중복 계정의 쓰기 액세스 권한
 ### <a name="anticipate-data-loss"></a>데이터 손실 예상
 
 > [!CAUTION]
-> 계정 장애 조치(Failover)를 수행하면 일반적으로 데이터가 일부 손실됩니다. 계정 장애 조치(failover)를 시작할 때 진행되는 과정을 이해하는 것이 중요합니다.  
+> 계정 장애 조치(Failover)를 수행하면 일반적으로 데이터가 일부 손실됩니다. 계정 장애 조치(failover)를 시작할 때 진행되는 과정을 이해하는 것이 중요합니다.
 
 데이터는 비동기적으로 주 지역에서 보조 지역으로 기록되므로 주 지역에 쓴 데이터가 보조 지역으로 복사되기 전에 항상 지연이 발생합니다. 주 지역을 사용할 수 없는 경우 가장 최근 쓰기가 보조 지역에 아직 복사되지 않을 수 있습니다.
 

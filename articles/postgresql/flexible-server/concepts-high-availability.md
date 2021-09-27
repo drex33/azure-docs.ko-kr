@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: cf2fcf836962bbdb8a3af1671ecf9e11f6b4efa1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c8108540f77d323c46cc88caa628764b40c59e74
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770251"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597990"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 고가용성 개념
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 **영역 중복** 서버 배포를 사용하여 자동 장애 조치(failover) 기능이 있는 고가용성 구성을 제공합니다. 영역 중복 구성으로 배포하는 경우 유동 서버는 다른 가용성 영역에서 대기 복제본을 자동으로 프로비저닝하고 관리합니다. PostgreSQL 스트리밍 복제를 사용하여 **동기** 모드의 대기 복제본 서버에 데이터가 복제됩니다. 
 

@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩 정책 관리 | Microsoft 문서
+title: 랩 정책 관리
 description: VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 랩 정책을 정의하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 166e3fd1717268e3af1f72ae297e76c45af0f6f9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530355"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612171"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
 

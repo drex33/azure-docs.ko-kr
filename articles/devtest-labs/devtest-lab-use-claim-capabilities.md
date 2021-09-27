@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 클레임 기능 사용 | Microsoft Docs
+title: 클레임 기능 사용
 description: Azure DevTest Labs의 클레임/클레임 취소 기능 사용에 대한 다양한 시나리오를 알아봅니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d50ab660433ac9b2616a897e1110d466eb143a9a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476532"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559288"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Azure DevTest Labs의 클레임 기능 사용
 Azure DevTest Labs 서비스를 사용하면 개발자와 테스터의 유효성과 효율성이 향상됩니다. 이 문서에서는 Azure DevTest Labs에서 가상 머신을 클레임하거나 클레임 취소하는 기능에 대해 집중적으로 설명합니다. 또한, 이 기능에서 사용자 환경을 개선하는 다양한 방법을 보여 줍니다. 이 기능을 사용할 수 있는 다양한 시나리오를 살펴보기 전에 **클레임** 이란 무엇이며 작동하는 방식은 무엇인지 살펴보겠습니다.

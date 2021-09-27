@@ -7,12 +7,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 689a9d34dc796516aa281964552e11d70c74c1de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 58bd77eb815a510328c49ca7c614b0bc680a4b94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571431"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름을 사용하여 고정 길이 텍스트 파일 처리
 
@@ -26,13 +26,13 @@ Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용하여 고�
 
 2. 고정 폭 파일을 처리하는 데 사용되는 데이터 흐름 작업을 추가합니다.
 
-    ![고정 폭 파이프라인](media/data-flow/fwpipe.png)
+    :::image type="content" source="media/data-flow/fwpipe.png" alt-text="고정 폭 파이프라인":::
 
 3. 데이터 흐름 작업에서 **새 매핑 데이터 흐름** 을 선택합니다.
 
 4. 원본, 파생 열, 선택 및 싱크 변환을 추가합니다.
 
-    ![고정 폭 데이터 흐름](media/data-flow/fw2.png)
+    :::image type="content" source="media/data-flow/fw2.png" alt-text="고정 폭 데이터 흐름":::
 
 5. 새 데이터 세트를 사용하도록 Delimited Text 형식으로 원본 변환을 구성합니다.
 
@@ -64,27 +64,27 @@ Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용하여 고�
 
 10. 식 작성기에서 다음을 입력합니다.
 
-    ```substring(Column_1,1,4)```
+    `substring(Column_1,1,4)`
 
-    ![파생 열(derived column)](media/data-flow/fwderivedcol1.png)
+    :::image type="content" source="media/data-flow/fwderivedcol1.png" alt-text="파생 열(derived column)":::
 
 11. 구문 분석을 해야 하는 모든 열에 대해 10단계를 반복합니다.
 
 12. **검사** 탭을 선택하여 생성될 새 열을 확인합니다.
 
-    ![검사](media/data-flow/fwinspect.png)
+    :::image type="content" source="media/data-flow/fwinspect.png" alt-text="검사":::
 
 13. 변환 선택을 사용하여 변환에 필요하지 않은 열을 제거합니다.
 
-    ![변환 선택:](media/data-flow/fwselect.png)
+    :::image type="content" source="media/data-flow/fwselect.png" alt-text="변환 선택:":::
 
 14. 싱크를 사용하여 데이터를 폴더에 출력합니다.
 
-    ![고정 폭 싱크](media/data-flow/fwsink.png)
+    :::image type="content" source="media/data-flow/fwsink.png" alt-text="고정 폭 싱크":::
 
     출력은 다음과 같습니다.
 
-    ![고정 폭 출력](media/data-flow/fxdoutput.png)
+    :::image type="content" source="media/data-flow/fxdoutput.png" alt-text="고정 폭 출력":::
 
   이제 고정 폭 데이터가 분할되어 각각 문자 4개를 사용하여 Col1, Col2, Col3, Col4 등에 할당됩니다. 위의 예제에 따라 데이터는 네 개의 열로 분할됩니다.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.author: sngun
-ms.openlocfilehash: 2f25cfa8f2c9c70b6cc97dc96d504b41078f5b5f
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 55e84478d8744aae05f8f3a0df89aac605d6de12
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667675"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779923"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용하여 Azure Cosmos DB 데이터 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. 
    |CassandraRequests     |   Cassandra      |    프런트 엔드에서 사용자 개시 요청을 로그해 Cassandra를 위한 Azure Cosmos DB API 요청을 처리합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.     |     `operationName`, `requestCharge`, `piiCommandText`    |
    |GremlinRequests     |    Gremlin    |     프런트 엔드에서 사용자 개시 요청을 로그해 Gremlin을 위한 Azure Cosmos DB API 요청을 처리합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.    |   `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting`       |
    |QueryRuntimeStatistics     |   SQL      |     이 표에서는 SQL API 계정에 대해 실행되는 쿼리 작업에 대해 자세히 설명합니다. 기본값으로, 쿼리 텍스트와 해당 매개 변수는 요청에 의해 사용할 수 있는 전체 텍스트 쿼리 로깅으로 개인 데이터를 로깅하지 않도록 난독 처리됩니다.    |    `databasename`, `partitionkeyrangeid`, `querytext`    |
-   |PartitionKeyStatistics     |    모든 API     |   파티션 키의 스토리지 크기(KB)를 나타내 논리 파티션 키의 통계를 로그합니다. 이 표는 스토리지 기울이기 문제 해결에 유용합니다. 이 PartitionKeyStatistics 로그는 다음 조건이 충족되는 경우에만 내보내집니다. <br/><ul><li> 문서의 1% 이상에 동일한 논리 파티션 키가 있습니다. </li><li> 모든 키 중에서 스토리지 크기가 가장 큰 상위 3개 키는 PartitionKeyStatistics 로그에 의해 캡처됩니다. </li></ul> 이전 조건이 충족되지 않으면, 파티션 키 통계 데이터를 사용할 수 없습니다. 위의 조건이 계정에 대해 충족되지 않아도 괜찮습니다. 이는 일반적으로 논리 파티션 스토리지 기울이기가 없음을 의미합니다. |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
+   |PartitionKeyStatistics     |    모든 API     |   파티션 키의 예상 저장소 크기 (KB)를 표시 하 여 논리 파티션 키의 통계를 기록 합니다. 이 표는 스토리지 기울이기 문제 해결에 유용합니다. 이 PartitionKeyStatistics 로그는 다음 조건이 충족되는 경우에만 내보내집니다. <br/><ul><li> 실제 파티션에 있는 문서 중 1% 이상에 동일한 논리 파티션 키가 있습니다. </li><li> 실제 파티션의 모든 키 중에서 가장 큰 저장소 크기가 있는 상위 3 개 키는 분할 된 공간 로그에 의해 캡처됩니다. </li></ul> 이전 조건이 충족되지 않으면, 파티션 키 통계 데이터를 사용할 수 없습니다. 위의 조건이 계정에 대해 충족되지 않아도 괜찮습니다. 이는 일반적으로 논리 파티션 스토리지 기울이기가 없음을 의미합니다. <br/><br/>참고: 파티션 키의 예상 크기는 물리적 파티션의 문서 크기를 대략적으로 가정 하는 샘플링 방법을 사용 하 여 계산 됩니다. 문서 크기가 실제 파티션에서 일관 되지 않은 경우 예상 파티션 키 크기가 정확 하지 않을 수 있습니다.  |   `subscriptionId`, `regionName`, `partitionKey`, `sizeKB`      |
    |PartitionKeyRUConsumption     |   SQL API    |     파티션 키의 집계된 초당 RU/s 소비를 로그합니다. 이 표는 핫 파티션 문제 해결에 유용합니다. 현재 Azure Cosmos DB SQL API 계정 및 포인트 읽기/쓰기 및 저장 프로시저 작업에 대해서만 파티션 키를 보고합니다.   |     `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId`   |
    |ControlPlaneRequests     |   모든 API       |    컨트롤 플레인 작업(예: 계정 만들기, 지역 추가 또는 제거, 계정 복제 설정 업데이트 등)에 대한 세부 정보를 로그합니다.     |    `operationName`, `httpstatusCode`, `httpMethod`, `region`       |
    |TableApiRequests     |   Table API    |     프런트 엔드에서 사용자가 시작한 요청을 로그하여 테이블에 쓸 Azure Cosmos DB API를 제공합니다. 이 범주를 사용하도록 설정하는 경우 DataPlaneRequests를 비활성화해야 합니다.       |    `operationName`, `requestCharge`, `piiCommandText`     |

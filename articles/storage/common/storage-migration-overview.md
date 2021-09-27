@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 1d0459e8ac0002f69ac0e4d33a921bd64fc385d5
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 2d02399daf6a7ea56c41f936544697f9df91a62c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537655"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601276"
 ---
 # <a name="azure-storage-migration-overview"></a>Azure Storage 마이그레이션 개요
 
@@ -53,8 +53,7 @@ ms.locfileid: "122537655"
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | **대상 스토리지 서비스 선택**            | - Azure Blob Storage 및 Data Lake Storage<br>- Azure Files<br>- Azure NetApp Files<br>- ISV 솔루션 |
 | **마이그레이션 방법 선택**                  | - 온라인<br>- 오프라인<br> - 둘의 조합                                  |
-| **작업에 가장 적합한 마이그레이션 도구 선택** | - 상용 도구(Azure 및 ISV)<br> - 오픈 소스                             
-
+| **작업에 가장 적합한 마이그레이션 도구 선택** | - 상용 도구(Azure 및 ISV)<br> - 오픈 소스
 
 평가 단계에 도움이 될 수 있는 여러 가지 ISV(상용) 도구가 있습니다. [비교 행렬](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)을 참조하세요.
 
@@ -116,9 +115,11 @@ ms.locfileid: "122537655"
 
 블록 기반 디바이스의 마이그레이션은 일반적으로 가상 머신 또는 물리적 호스트 마이그레이션의 일부로 수행됩니다. 마이그레이션 후까지 블록 스토리지 결정을 미루어야 한다는 것은 일반적인 오해입니다. 워크로드 요구 사항을 적절히 고려하여 이러한 결정을 미리 내리면 클라우드로 더욱 원활하게 마이그레이션할 수 있습니다.
 
-마이그레이션할 워크로드 및 사용할 접근법에 대한 자세한 내용은 [Azure Disk Storage 설명서](../../virtual-machines/disks-types.md) 및 [Disk Storage 제품 페이지](https://azure.microsoft.com/services/storage/disks/#resources)의 리소스를 참조하세요. 요구 사항에 적합한 디스크 및 [디스크 버스팅](../../virtual-machines/disk-bursting.md)과 같은 최신 기능에 대해 알아볼 수 있습니다. 기본 블록 기반 디바이스와 함께 가상 머신을 마이그레이션하는 방법에 대한 자세한 내용은 [Azure Migrate](../../migrate/index.yml) 설명서를 참조하세요.
+마이그레이션할 워크로드 및 사용할 접근법에 대한 자세한 내용은 [Azure Disk Storage 설명서](../../virtual-machines/disks-types.md) 및 [Disk Storage 제품 페이지](https://azure.microsoft.com/services/storage/disks/#resources)의 리소스를 참조하세요. 요구 사항에 적합한 디스크 및 [디스크 버스팅](../../virtual-machines/disk-bursting.md)과 같은 최신 기능에 대해 알아볼 수 있습니다. 블록 기반 디바이스의 마이그레이션은 다음 두 가지 방법으로 수행할 수 있습니다.
+- 기본 블록 기반 디바이스와 함께 전체 가상 머신을 마이그레이션하는 경우 [Azure Migrate](../../migrate/index.yml) 설명서를 참조하세요.
+- 블록 기반 디바이스만 마이그레이션하고 더 복잡한 사용 사례의 경우 [Cirrus Migrate Cloud 를](../solution-integration/validated-partners/data-management/cirrus-data-migration-guide.md)사용합니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
 - [데이터 전송에 사용할 Azure 솔루션 선택](./storage-choose-data-transfer-solution.md)
 - [상용 마이그레이션 도구 비교](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)

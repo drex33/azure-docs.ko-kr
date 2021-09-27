@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: 785741c029fa3b44fffca5140906689f478fb247
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 5ea384a580109d40dfbb072b7bad16924307873e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081230"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837331"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Application Gateway 인프라 구성
 
@@ -117,7 +117,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway에서 지원됩니다. �
 
   **시나리오 1**: 가상 어플라이언스에 대한 UDR
 
-  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 V2에서 지원되지 않습니다.
+  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 시나리오는 V2에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

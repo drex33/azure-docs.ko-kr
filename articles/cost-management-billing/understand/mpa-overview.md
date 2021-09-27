@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.openlocfilehash: 71a3ce7a33f920c361dfe1e7d0004b52e8211336
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150095"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559615"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
@@ -53,19 +53,19 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. **Cost Management + 청구** 에서 검색합니다.
 
    ![스크린샷은 Cost Management + Billing에 대한 Azure Portal 검색을 보여줍니다.](./media/mpa-overview/search-cmb.png)
 
-1. 왼쪽에서 **고객**을 선택한 다음, 목록에서 고객을 선택합니다.
+1. 왼쪽에서 **고객** 을 선택한 다음, 목록에서 고객을 선택합니다.
 
    ![고객 선택을 보여 주는 스크린샷](./media/mpa-overview/mpa-customers.png)
 
-1. 왼쪽에서 **정책**을 선택합니다.
+1. 왼쪽에서 **정책** 을 선택합니다.
 
    ![정책을 보여 주는 스크린샷](./media/mpa-overview/mpa-change-policy.png)
 
-1. **예**를 선택합니다.
+1. **예** 를 선택합니다.
 
 ## <a name="resellers"></a>재판매인
 

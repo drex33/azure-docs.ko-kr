@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 3c2e900090b3f3908318bfbc3f1ea1e6f2588dee
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/16/2021
+ms.openlocfilehash: aa10c93b63fd621397318c701deef8c3912b05da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431281"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601725"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -110,7 +110,7 @@ Azure Portal에서 또는 SDK를 사용하여 컨테이너 또는 데이터베�
 
 * 400RU/s 
 * 현재 스토리지(GB * 10RU/s)(이 제약 조건은 경우에 따라 완화될 수 있음, [높은 스토리지/낮은 처리량 프로그램](#high-storage-low-throughput-program) 참조)
-* 데이터베이스 또는 컨테이너에 프로비저닝된 최고 RU/s / 100
+* 데이터베이스 또는 컨테이너/100에서 프로 비전 된 최고/초
 
 ### <a name="changing-the-provisioned-throughput"></a>프로비저닝된 처리량 변경
 
@@ -123,7 +123,7 @@ Azure Portal 또는 다음 SDK를 사용하여 컨테이너 또는 데이터베�
 
 **프로비저닝된 처리량을 늘리는** 경우 대부분의 경우에는 작업이 즉시 수행됩니다. 그러나 필요한 리소스를 프로비저닝하는 시스템 작업으로 인해 작업이 더 오래 걸릴 수 있는 경우가 있습니다. 이 경우 이 작업이 진행 중인 동안 프로비저닝된 처리량을 수정하려고 하면 다른 크기 조정 작업이 진행 중임을 설명하는 오류 메시지와 함께 HTTP 423 응답이 생성됩니다.
 
-[프로비전된 처리량 크기 조정에 대한 모범 사례(RU/s)](scaling-provisioned-throughput-best-practices.md) 문서에서 자세히 알아보세요.
+[프로 비전 된 처리량 확장에 대 한 모범 사례](scaling-provisioned-throughput-best-practices.md) 문서에서 자세히 알아보세요.
 
 > [!NOTE]
 > 프로비저닝된 처리량을 크게 증가시켜야 하는 매우 큰 수집 워크로드를 계획하는 경우 크기 조정 작업에는 SLA가 없으며 이전 단락에서 언급했듯이 증가량이 클 경우 시간이 오래 걸릴 수 있음을 명심합니다. 미리 계획하고 워크로드가 시작되기 전에 크기 조정을 시작하고 아래 방법을 사용하여 진행률을 확인하는 것이 좋습니다.

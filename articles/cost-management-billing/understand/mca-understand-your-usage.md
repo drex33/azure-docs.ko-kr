@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 826217091b3297da0c068336ff67a0a58841716d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 4e494b38bea9b799a6a2ee82b3fbb9847446d699
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690462"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611711"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 사용량 및 요금 파일의 용어
 
@@ -22,9 +22,9 @@ ms.locfileid: "88690462"
 
 Azure 사용량 및 요금 CSV 파일에는 현재 청구 기간에 대한 일별 요금과 측정기 수준 사용 요금이 포함되어 있습니다.
 
-Azure 사용량 및 요금 파일을 가져오려면 [Microsoft 고객 계약에 대한 Azure 사용량 및 요금 보기 및 다운로드](download-azure-daily-usage.md)를 참조하세요. 스프레드시트 애플리케이션에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다.
+Azure 사용량 및 요금 파일을 가져오려면 [Microsoft 고객 계약에 대한 Azure 사용량 및 요금 보기 및 다운로드](download-azure-daily-usage.md)를 참조하세요. 스프레드시트 응용 프로그램에서 열 수 있는 쉼표로 구분 된 값 (.csv) 파일 형식으로 사용할 수 있습니다.
 
-사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용량 요금에서는 신용 또는 할인이 고려되지 않습니다.
+사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용 요금은 크레딧을 고려 하거나 할인을 고려 하지 않습니다.
 
 ## <a name="changes-from-azure-ea-usage-and-charges"></a>Azure EA 사용량 및 요금에 대한 변경 내용
 
@@ -32,8 +32,8 @@ EA 고객이었으면 Azure 청구 프로필 사용량 CSV 파일의 용어가 A
 
 | Azure EA 사용량 CSV | Microsoft 고객 계약 Azure 사용량 및 요금 CSV |
 | --- | --- |
-| Date | date |
-| Month| date |
+| 날짜 | 날짜 |
+| 월| date |
 | 일 | date |
 | Year | date |
 | Product | product |
@@ -51,7 +51,7 @@ EA 고객이었으면 Azure 청구 프로필 사용량 CSV 파일의 용어가 A
 | ServiceInfo1 | serviceInfo1 |
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
-| 태그들 | tags |
+| 태그 | tags |
 | StoreServiceIdentifier | 해당 없음 |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
@@ -90,7 +90,7 @@ meterSubCategory | 미터 하위 분류 범주의 이름
 meterRegion | 서비스에 대한 측정기를 사용할 수 있는 지역의 이름입니다. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.
 제품 | 구매한 제품의 이름
 PayGPrice | 리소스의 소매 가격입니다.
-PricingModel | 미터 요금을 책정하는 방식을 나타내는 식별자(값: 주문형, 예약, 지점)
+PricingModel | 미터의 가격이 책정 되는 방법을 나타내는 식별자입니다 (값: 요청 시, 예약, 지점).
 productId | 요금이 발생하는 제품의 고유 식별자
 product | 요금이 발생하는 제품의 이름
 구독 ID | 요금이 발생하는 구독의 고유 식별자
@@ -107,8 +107,8 @@ resourceLocation | 리소스가 실행되는 데이터 센터의 위치를 식�
 위치 | 동일한 지역에 대해 서로 다른 리소스 위치가 구성된 경우 리소소의 정규화된 위치
 quantity | 구매하거나 사용한 단위 수
 unitOfMeasure | 서비스 청구를 위한 측정 단위. 예를 들어 컴퓨팅 서비스는 시간당 청구됩니다.
-chargeType | 요금의 유형. 값 <ul><li>AsCharged-Usage: Azure 서비스 사용량을 기준으로 발생하는 요금. 여기에는 예약된 인스턴스로 인해 요금이 청구되지 않은 VM에 대한 사용량이 포함됩니다.</li><li>AsCharged-PurchaseMarketplace: Marketplace 구매의 일회성 요금 또는 고정된 반복 요금</li><li>AsCharged-UsageMarketplace: 소비 단위를 기반으로 청구되는 Marketplace 서비스에 대한 요금</li></ul>
-isAzureCreditEligible | 서비스에 대한 요금을 Azure 크레딧을 사용하여 지불할 수 있는지 여부를 나타내는 플래그(값: True, False)
+chargeType | 요금의 유형. 값 <ul><li>AsCharged-사용량: Azure 서비스 사용량을 기준으로 계산 되는 요금입니다. 여기에는 예약된 인스턴스로 인해 요금이 청구되지 않은 VM에 대한 사용량이 포함됩니다.</li><li>AsCharged: Marketplace 구매에서 일회성 또는 고정 된 반복 요금</li><li>AsCharged: 소비 단위를 기준으로 요금이 청구 되는 마켓플레이스 서비스에 대 한 요금</li></ul>
+isAzureCreditEligible | Azure 크레딧을 사용 하기 위해 서비스에 대 한 요금이 청구 될 수 있는지 여부를 나타내는 플래그 (값: True, False)
 serviceInfo1 | 서비스 관련 메타데이터
 serviceInfo2 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다.
 additionalInfo | 추가 서비스 관련 메타데이터

@@ -5,19 +5,17 @@ description: 모델을 배포 전에 프로파일링하는 방법을 알아봅�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: c222eebc1c2705cc2a5a65b5e11eb12b9a014d6e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 1e7554e03ba1d64cd436cb46e3304574688738cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296363"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602245"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>모델을 프로파일링하여 리소스 사용률 확인
 

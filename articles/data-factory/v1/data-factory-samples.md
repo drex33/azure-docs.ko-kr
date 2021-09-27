@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4fc4cea51494333bed90cd6c277469a58e2c6a3f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 5985c653d02a041e648f306847b5bcfd93783302
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530810"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615228"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -54,21 +55,21 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.
 
-    ![샘플 파이프라인 타일](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="샘플 파이프라인 타일":::
 3. **샘플 파이프라인** 블레이드에서 배포할 **샘플** 을 클릭합니다.
 
-    ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="샘플 파이프라인 블레이드":::
 4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure Storage 계정 이름 및 계정 키, 논리적 SQL Server 이름, 데이터베이스, 사용자 ID, 암호 등입니다.
 
-    ![샘플 블레이드](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="샘플 블레이드":::
 5. 구성 설정 지정을 마쳤으면 **만들기** 를 클릭하여 샘플 파이프라인 및 파이프라인에서 사용되는 연결된 서비스/테이블을 만듭니다/배포합니다.
 6. 이전에 **샘플 파이프라인** 블레이드에서 클릭한 샘플 타일에 배포 상태가 표시됩니다.
 
-    ![배포 상태](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="배포 상태":::
 7. 샘플 타일에 **배포 성공** 메시지가 표시되면 **샘플 파이프라인** 블레이드를 닫습니다.  
 8. **데이터 팩터리** 블레이드에서 연결된 서비스, 데이터 집합 및 파이프라인이 데이터 팩터리에 추가된 것을 확인할 수 있습니다.  
 
-    ![데이터 팩터리 블레이드](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="데이터 팩터리 블레이드":::
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio의 샘플
 ### <a name="prerequisites"></a>필수 구성 요소
@@ -88,10 +89,10 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
    4. 프로젝트의 **위치** 를 선택합니다.
    5. **확인** 을 클릭합니다.
 
-      ![새 프로젝트 대화 상자](./media/data-factory-samples/vs-new-project-adf-templates.png)
+      :::image type="content" source="./media/data-factory-samples/vs-new-project-adf-templates.png" alt-text="새 프로젝트 대화 상자":::
 3. **데이터 팩터리 템플릿** 대화 상자에서 **사용 사례 템플릿** 섹션에 있는 샘플 템플릿을 선택하고 **다음** 을 클릭합니다. 다음 단계는 **고객 프로파일링** 템플릿 사용 방법에 대해 안내합니다. 단계는 다른 샘플에 대해서도 유사합니다.
 
-    ![데이터 팩터리 템플릿 대화 상자](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
+    :::image type="content" source="./media/data-factory-samples/vs-data-factory-templates-dialog.png" alt-text="데이터 팩터리 템플릿 대화 상자":::
 4. **데이터 팩터리 구성** 대화 상자에서 **데이터 팩터리 기본 사항** 페이지에 있는 **다음** 을 클릭합니다.
 5. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
    1. **새 데이터 팩터리 만들기** 를 선택합니다. **기존 데이터 팩터리 사용** 을 선택할 수도 있습니다.
@@ -108,7 +109,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
 11. **Microsoft 계정에 로그인** 대화 상자가 표시되면 Azure 구독이 있는 계정의 자격 증명을 입력하고 **로그인** 을 클릭합니다.
 12. 다음 대화 상자가 표시됩니다.
 
-    ![게시 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="게시 대화 상자":::
 13. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
 
     1. **기존 데이터 팩터리 사용** 옵션을 확인합니다.

@@ -3,12 +3,12 @@ title: Azure Event Hubs에 대한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 05/04/2021
-ms.openlocfilehash: 39bad6fabb0f8f639449cd20033b8b31139d98b1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: ef789153dd807e68736c12f779cad22311c63443
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784986"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure Event Hubs에 대한 네트워크 보안 
 이 문서에서는 Azure Event Hubs에서 다음 보안 기능을 사용하는 방법을 설명합니다. 
@@ -73,7 +73,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 기능은 **기본** 및 **프리미엄** 계층에서 지원되지 않습니다. 
+> 이 기능은 **기본** 계층에서 지원되지 않습니다. 
 
 
 자세한 내용은 [이벤트 허브에 대한 프라이빗 엔드포인트를 구성하는 방법](private-link-service.md)을 참조하세요.

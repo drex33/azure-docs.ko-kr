@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2284344e525608c2c1498503f3bf479df1cea559
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
-ms.translationtype: HT
+ms.openlocfilehash: 208f4ff6b43a722e14a788d052350117aeac56dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504508"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562498"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers"></a>컨테이너에 대한 일시 삭제 사용 및 관리
 
@@ -45,7 +45,7 @@ PowerShell에서 컨테이너 일시 삭제를 사용하려면 먼저 [Az.Storag
 ```azurepowershell-interactive
 Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -RetentionDays 7 
+    -RetentionDays 7
 ```
 
 컨테이너 일시 삭제를 사용하지 않으려면 **Disable-AzStorageContainerDeleteRetentionPolicy** 명령을 호출합니다.

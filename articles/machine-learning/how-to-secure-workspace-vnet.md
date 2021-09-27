@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 6d7faa793b296259968eb54980fe8ff8e32514f2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 8bc1b41ea2a5b2ca0069bb21371bc5bdf9422dbf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105508"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646115"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -27,7 +27,7 @@ ms.locfileid: "123105508"
 >
 > * [Virtual Network 개요](how-to-network-security-overview.md)
 > * [학습 환경 보호](how-to-secure-training-vnet.md)
-> * [유추 환경 보호](how-to-secure-inferencing-vnet.md)
+> * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
@@ -45,6 +45,8 @@ ms.locfileid: "123105508"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 구조를 이해하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조하세요.
+
++ 모범 사례에 대 한 자세한 내용은 [엔터프라이즈 보안에 대 한 Azure Machine Learning 모범 사례](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) 문서를 참조 하세요.
 
 + 컴퓨팅 리소스에 사용할 기존 가상 네트워크 및 서브넷입니다.
 
@@ -78,6 +80,9 @@ ACR이 가상 네트워크 뒤에 있으면 Azure Machine Learning에서 ACR을 
 
 > [!IMPORTANT]
 > Docker 이미지를 빌드하는 데 사용되는 컴퓨팅 클러스터는 모델을 학습하고 배포하는 데 사용되는 패키지 리포지토리에 액세스할 수 있어야 합니다. 공용 리포지토리에 대한 액세스를 허용하는 네트워크 보안 규칙을 추가하거나, [프라이빗 Python 패키지를 사용](how-to-use-private-python-packages.md)하거나, 이미 패키지가 포함된 [사용자 지정 Docker 이미지](how-to-train-with-custom-image.md)를 사용해야 할 수 있습니다.
+
+> [!WARNING]
+> Azure Container Registry 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는 경우 Azure Machine Learning 계산 클러스터에서 관리 되는 id를 사용할 수 없습니다. 계산 클러스터에서 관리 되는 id를 사용 하려면 작업 영역에 대 한 Azure Container Registry를 사용 하 여 서비스 끝점을 사용 합니다.
 
 ## <a name="required-public-internet-access"></a>필수 공용 인터넷 액세스
 
@@ -168,7 +173,7 @@ Azure Machine Learning는 연결된 키 자격 증명 모음 인스턴스를 사
 > [!TIP]
 > 작업 영역을 만들 때 기존 Azure Container Registry를 사용하지 않았다면 없을 수 있습니다. 기본적으로 작업 영역은 ACR 인스턴스가 필요할 때까지 만들지 않습니다. 인스턴스를 강제로 만들도록 하려면 이 섹션의 단계를 사용하기 전에 작업 영역을 사용하여 모델을 학습하거나 배포합니다.
 
-Azure Container Registry는 서비스 엔드포인트나 프라이빗 엔드포인트 중 하나를 사용하도록 구성될 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
+Azure Container Registry 서비스 엔드포인트 또는 프라이빗 엔드포인트를 사용하도록 구성할 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
 
 1. 작업 영역에 대한 Azure Container Registry 이름을 찾아 다음 방법 중 하나를 사용합니다.
 
@@ -264,18 +269,7 @@ validate=False)
 
 ## <a name="securely-connect-to-your-workspace"></a>작업 영역에 안전하게 연결
 
-다음 메서드를 사용하여 보안 작업 영역에 연결할 수 있습니다.
-
-* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) - 프라이빗 연결을 통해 VNet에 온-프레미스 네트워크를 연결합니다. 공용 인터넷을 통해 연결됩니다. 사용할 수 있는 VPN 게이트웨이의 두 가지 유형은 다음과 같습니다.
-
-    * [지점 및 사이트 간](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): 각 클라이언트 컴퓨터는 VPN 클라이언트를 사용하여 VNet에 연결합니다.
-    * [사이트 간](../vpn-gateway/tutorial-site-to-site-portal.md): VPN 디바이스는 VNet을 온-프레미스 네트워크에 연결합니다.
-
-* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) - 프라이빗 연결을 통해 온-프레미스 네트워크를 클라우드에 연결합니다. 연결 공급자를 사용하여 연결합니다.
-* [Azure Bastion](../bastion/bastion-overview.md) - 이 시나리오에서는 VNet 내에 Azure 가상 머신(점프 상자라고도 함)을 만듭니다. 그런 다음, Azure Bastion을 사용하여 VM에 연결합니다. Bastion을 사용하면 로컬 웹 브라우저에서 RDP 또는 SSH 세션을 사용하여 VM에 연결할 수 있습니다. 그런 다음, 점프 상자를 개발 환경으로 사용합니다. VNet 내부에 있기 때문에 작업 영역에 직접 액세스할 수 있습니다. 점프 상자를 사용하는 예제는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md)를 참조하세요.
-
-> [!IMPORTANT]
-> __VPN Gateway__ 또는 __ExpressRoute__ 를 사용하는 경우 온-프레미스 리소스와 VNet 간에 이름 확인이 작동하는 방식을 계획해야 합니다. 자세한 내용은 [사용자 지정 DNS 서버 사용](how-to-custom-dns.md)을 참조하세요.
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## <a name="workspace-diagnostics"></a>작업 영역 진단
 
@@ -283,11 +277,11 @@ validate=False)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 Azure Machine Learning 워크플로 보호 과정을 안내하는 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
 
 * [Virtual Network 개요](how-to-network-security-overview.md)
 * [학습 환경 보호](how-to-secure-training-vnet.md)
-* [유추 환경 보호](how-to-secure-inferencing-vnet.md)
+* [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 * [방화벽 사용](how-to-access-azureml-behind-firewall.md)

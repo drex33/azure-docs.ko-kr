@@ -3,19 +3,17 @@ title: Bing Video Search API를 사용하여 비디오 인사이트 가져오기
 titleSuffix: Azure Cognitive Services
 description: Bing Video Search API를 사용하여 관련 비디오와 같은 비디오에 대한 자세한 정보를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: scottwhi
-ms.openlocfilehash: cbbde354c1bc68a2b1017c3ccba61b846fa62916
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5e69d7467c1708661625a7a2296c8dc0ca7a4ccb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94380762"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611791"
 ---
 # <a name="get-insights-about-a-video"></a>비디오에 대한 인사이트 가져오기
 

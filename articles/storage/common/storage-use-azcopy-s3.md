@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac73d0e57377a8922691ea06c8de3df5ef577680
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
-ms.translationtype: HT
+ms.openlocfilehash: 68aaa447aef65a109105f870b805dd485f322643
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502439"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639986"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용하여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -21,9 +21,9 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명을 제공하는 방법 선택
 
-* Azure Storage로 권한을 부여하려면 Azure AD(Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용합니다.
+- Azure Storage로 권한을 부여하려면 Azure AD(Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용합니다.
 
-* AWS S3로 권한을 부여하려면 AWS 액세스 키와 비밀 액세스 키를 사용합니다.
+- AWS S3로 권한을 부여하려면 AWS 액세스 키와 비밀 액세스 키를 사용합니다.
 
 ### <a name="authorize-with-azure-storage"></a>Azure Storage를 사용하여 권한 부여
 
@@ -34,7 +34,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 >
 > SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다.
 >
-> 예를 들면 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`와 같습니다.
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3로 권한 부여
 
@@ -53,7 +53,7 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 > [!TIP]
 > 이 섹션의 예제에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
- 이 예제는 계층 구조 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md)를 사용하면 해당 계정에서 같은 URL 구문(`blob.core.windows.net`)을 사용할 수 있습니다. 
+ 이 예제는 계층 구조 네임스페이스가 있는 계정에서도 작동합니다. [Data Lake Storage의 다중 프로토콜 액세스](../blobs/data-lake-storage-multi-protocol-access.md)를 사용하면 해당 계정에서 같은 URL 구문(`blob.core.windows.net`)을 사용할 수 있습니다.
 
 ### <a name="copy-an-object"></a>개체 복사
 
@@ -153,7 +153,7 @@ azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.
 
 AWS S3에는 Azure Blob 컨테이너와 다른 버킷 명명 규칙 집합이 있습니다. [여기](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules)에서 자세한 정보를 확인할 수 있습니다. 버킷 그룹을 Azure Storage 계정에 복사하도록 선택하면 이름 지정 차이로 인해 복사 작업이 실패할 수 있습니다.
 
-AzCopy는 마침표를 포함하는 버킷과 연속 하이픈을 포함하는 버킷의 가장 일반적인 두 가지 문제를 처리합니다. AWS S3 버킷 이름은 마침표와 연속 하이픈을 포함할 수 있지만 Azure의 컨테이너는 포함할 수 없습니다. AzCopy는 마침표를 하이픈으로, 연속 하이픈을 연속 하이픈 수를 나타내는 숫자로 바꿉니다(예: `my----bucket`이라는 버킷은 `my-4-bucket`이 됩니다. 
+AzCopy는 마침표를 포함하는 버킷과 연속 하이픈을 포함하는 버킷의 가장 일반적인 두 가지 문제를 처리합니다. AWS S3 버킷 이름은 마침표와 연속 하이픈을 포함할 수 있지만 Azure의 컨테이너는 포함할 수 없습니다. AzCopy는 마침표를 하이픈으로, 연속 하이픈을 연속 하이픈 수를 나타내는 숫자로 바꿉니다(예: `my----bucket`이라는 버킷은 `my-4-bucket`이 됩니다.
 
 또한 AzCopy는 파일을 복사할 때 이름 충돌을 확인하고 해결하려 합니다. 예를 들어 이름이 `bucket-name` 및 `bucket.name`인 버킷이 있으면 AzCopy는 이름이 `bucket.name`인 버킷을 먼저 `bucket-name`으로 확인한 다음 `bucket-name-2`로 확인합니다.
 

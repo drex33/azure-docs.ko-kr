@@ -7,12 +7,12 @@ ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 295cfe41e66791233ce7057a55717714902db9a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566219"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806518"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -29,6 +29,9 @@ ms.locfileid: "122566219"
 이 문서에서는 논리 앱이 인바운드 호출을 수신하고 응답할 수 있도록 요청 트리거와 응답 작업을 사용하는 방법을 보여줍니다.
 
 Azure API Management로 논리 앱을 노출시키거나 인바운드 호출을 시작하는 IP 주소를 제한하는 [Azure AD OAuth(Azure Active Directory 공개 인증)](../active-directory/develop/index.yml) 이전에 SSL(Secure Sockets Layer)로 알려져 있던 [TLS(전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)와 같은 논리 앱에 대한 인바운드 호출의 보안, 권한 부여, 암호화에 대한 자세한 내용은 [보안 액세스와 데이터 - 요청 기반 트리거를 위한 인바운드 호출 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)를 참조하세요.
+
+> [!NOTE]
+> 단일 테 넌 트 Azure Logic Apps의 **논리 앱 (표준)** 리소스 종류의 경우 Azure AD OAuth는 현재 요청 기반 트리거 (예: 요청 트리거 및 HTTP Webhook 트리거)에 대 한 인바운드 호출에 사용할 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

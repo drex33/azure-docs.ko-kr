@@ -7,14 +7,14 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8c6f5954e173f58333ec3970cb09ca0404adf964
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 734c469afa43a178f5c7a50550426a47940b8f35
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822826"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820023"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -45,7 +45,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 다음은 자체 호스팅 IR로 복사 시 데이터 흐름 단계를 대략적으로 요약한 것입니다.
 
-![데이터 흐름에 대한 대략적인 개요](media/create-self-hosted-integration-runtime/high-level-overview.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="데이터 흐름에 대한 대략적인 개요":::
 
 1. 데이터 개발자는 먼저 Azure Portal 또는 PowerShell cmdlet을 사용하여 Azure Data Factory 또는 Synapse 작업 영역 내에서 자체 호스팅 통합 런타임을 생성합니다.  그런 다음, 데이터 개발자는 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만들어 서비스가 데이터 저장소에 연결하는 데 사용해야 하는 자체 호스팅 통합 런타임 인스턴스를 지정합니다.
 
@@ -226,19 +226,19 @@ dmgcmd ACTION args...
 
 자체 호스팅 통합 런타임의 기본 로그온 서비스 계정은 **NT SERVICE\DIAHostService** 입니다. **서비스 -> 통합 런타임 서비스 -> 속성 -> 로그온** 에서 볼 수 있습니다.
 
-![자체 호스팅 통합 런타임 서비스 계정](media/create-self-hosted-integration-runtime/shir-service-account.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="자체 호스팅 통합 런타임 서비스 계정":::
 
 계정에 서비스로 로그온 권한이 있는지 확인합니다. 그렇지 않으면, 자체 호스팅 통합 런타임을 성공적으로 시작할 수 없습니다. **로컬 보안 정책 -> 보안 설정 -> 로컬 정책 -> 사용자 권한 할당 -> 서비스로 로그온** 에서 권한이 있는지 확인할 수 있습니다.
 
-![로컬 보안 정책 - 사용자 권한 할당의 스크린샷](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="로컬 보안 정책 - 사용자 권한 할당의 스크린샷":::
 
-![서비스로 로그온 사용자 권한 할당의 스크린샷](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="서비스로 로그온 사용자 권한 할당의 스크린샷":::
 
 ## <a name="notification-area-icons-and-notifications"></a>알림 영역 아이콘 및 알림
 
 알림 영역에서 아이콘이나 메시지 위로 커서를 이동하면 자체 호스팅 통합 런타임의 상태에 대한 세부 정보를 볼 수 있습니다.
 
-![알림 영역의 알림](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="알림 영역의 알림":::
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성
 

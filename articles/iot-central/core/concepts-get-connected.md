@@ -3,7 +3,7 @@ title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529663"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653781"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -65,7 +65,6 @@ X.509 인증서가 있는 디바이스를 애플리케이션에 연결하려면 
 다음 유틸리티를 테스트용으로만 사용하여 루트, 중간 및 디바이스 인증서를 생성할 수 있습니다.
 
 - [Azure IoT 디바이스 프로비전 디바이스 SDK용 도구](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): X.509 인증서 및 키를 생성하고 확인하는 데 사용할 수 있는 Node.js 도구 모음입니다.
-- DevKit 디바이스를 사용하는 경우 이 [명령줄 도구](https://aka.ms/iotcentral-docs-dicetool)는 IoT Central 애플리케이션에 추가하여 인증서를 확인할 수 있는 CA 인증서를 생성합니다.
 - [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): 다음을 수행하는 PowerShell 및 Bash 스크립트의 모음입니다.
   - 인증서 체인을 만듭니다.
   - 인증서를 .cer 파일로 저장하여 IoT Central 애플리케이션에 업로드합니다.
@@ -190,6 +189,16 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+다음 DPS 페이로드를 사용 하 여 장치를 장치 템플릿에 연결 합니다.
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+DPS 페이로드에 대 한 자세한 내용은 [자습서: 클라이언트 응용 프로그램을 만들어 Azure IoT 중앙 응용 프로그램에 연결](tutorial-connect-device.md)에 사용 된 샘플 코드를 참조 하세요.
 
 ## <a name="device-status-values"></a>디바이스 상태 값
 

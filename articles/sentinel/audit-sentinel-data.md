@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 4378065a8d1a91f9051c04dbb71a90e2a4ab862c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567817"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777396"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Azure Sentinel 쿼리 및 활동 감사
 
@@ -47,7 +47,7 @@ Azure Sentinel로 SOC 환경에서 활동을 감사하는 경우 **AzureActivity
 
 **AzureActivity 테이블을 쿼리하려면** 다음을 수행합니다.
 
-1. [Azure 활동](connect-azure-activity.md) 데이터 원본을 연결하여 AzureActivity라는 **로그** 화면의 새 테이블에 감사 이벤트 스트리밍을 시작합니다.
+1. [Azure 활동](./data-connectors-reference.md#azure-activity) 데이터 원본을 연결하여 AzureActivity라는 **로그** 화면의 새 테이블에 감사 이벤트 스트리밍을 시작합니다.
 
 1. 그런 다음 다른 테이블과 같이 KQL을 사용하여 데이터를 쿼리합니다.
 

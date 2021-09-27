@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: ec65980e3886b62b8718799d1566a11d5c13a679
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 936e031e72a98f2329202df4fb3b7a97e7f9d237
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528077"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754484"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -258,7 +258,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - Redis Cache 
 - Application Gateway(v1) SKU
 - Service Fabric
-- API Management
+- API Management(stv1)
 - ADDS(Active Directory Domain Service)
 - Logic Apps
 - HDInsight

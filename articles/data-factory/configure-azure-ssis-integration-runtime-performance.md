@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 93fdb913da430241835d448945747ba5ab736f45
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 907b946dec3112d152212d26a1d3dffca41150fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567318"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828388"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -103,7 +103,7 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 
 y축은 1시간 안에 실행을 완료한 패키지의 수입니다. 이것은 1개의 메모리 사용 패키지를 테스트한 결과일 뿐입니다. 패키지의 처리량을 알고 싶은 경우 직접 테스트해보는 것이 좋습니다.
 
-![SSIS Integration Runtime 패키지 실행 속도](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png" alt-text="SSIS Integration Runtime 패키지 실행 속도":::
 
 ### <a name="configure-for-overall-throughput"></a>전체 처리량에 대한 구성
 
@@ -111,7 +111,7 @@ y축은 1시간 안에 실행을 완료한 패키지의 수입니다. 이것은 
 
 y축은 1시간 안에 실행을 완료한 패키지의 수입니다. 이것은 1개의 메모리 사용 패키지를 테스트한 결과일 뿐입니다. 패키지의 처리량을 알고 싶은 경우 직접 테스트해보는 것이 좋습니다.
 
-![SSIS Integration Runtime 최대 전체 처리량](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png" alt-text="SSIS Integration Runtime 최대 전체 처리량":::
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: 3c0e2033ee559af38a6816bdfa611eea86b14dea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5112cf06952754eb1313166b82a9cf14876c797f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94658318"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598273"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Azure Firewall 원격 작업 지원
 
@@ -24,7 +24,7 @@ Azure Firewall은 Azure 가상 네트워크 리소스를 보호하는 클라우�
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Azure Windows Virtual Desktop 지원
 
-Windows Virtual Desktop은 Azure에서 실행되는 포괄적인 데스크톱 및 앱 가상화 서비스입니다. 간소화된 관리, 다중 세션 Windows 10, 엔터프라이즈용 Microsoft 365 앱에 대한 최적화, RDS(Remote Desktop Services) 환경에 대한 지원을 제공하는 유일한 VDI(가상 데스크톱 인프라)입니다. 몇 분 내에 Azure에서 Windows 데스크톱 및 앱을 배포하고 크기를 조정하며 기본 제공 보안 및 규정 준수 기능을 사용할 수 있습니다. Windows Virtual Desktop을 사용하여 가상 네트워크에 대한 인바운드 액세스를 열 필요는 없습니다. 하지만 가상 네트워크에서 실행하는 Windows Virtual Desktop 가상 머신에 대한 아웃바운드 네트워크 연결 집합을 허용해야 합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](protect-windows-virtual-desktop.md)를 참조하세요.
+Windows Virtual Desktop은 Azure에서 실행되는 포괄적인 데스크톱 및 앱 가상화 서비스입니다. 간소화된 관리, 다중 세션 Windows 10, 엔터프라이즈용 Microsoft 365 앱에 대한 최적화, RDS(Remote Desktop Services) 환경에 대한 지원을 제공하는 유일한 VDI(가상 데스크톱 인프라)입니다. 몇 분 내에 Azure에서 Windows 데스크톱 및 앱을 배포하고 크기를 조정하며 기본 제공 보안 및 규정 준수 기능을 사용할 수 있습니다. Windows Virtual Desktop을 사용하여 가상 네트워크에 대한 인바운드 액세스를 열 필요는 없습니다. 하지만 가상 네트워크에서 실행하는 Windows Virtual Desktop 가상 머신에 대한 아웃바운드 네트워크 연결 집합을 허용해야 합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](protect-azure-virtual-desktop.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 8f3cf8303a0667d3479500d6c3956be3b21959c0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.openlocfilehash: 9489d325f7a67e4a8258933ce3601d4a29b3e98f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587654"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob Storage 모니터링 데이터 참조
 
@@ -22,7 +22,7 @@ Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [
 
 ## <a name="metrics"></a>메트릭
 
-다음 표에는 Azure Storage에 대해 수집된 플랫폼 메트릭이 나와 있습니다. 
+다음 표에는 Azure Storage에 대해 수집된 플랫폼 메트릭이 나와 있습니다.
 
 ### <a name="capacity-metrics"></a>용량 메트릭
 
@@ -74,7 +74,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="resource-logs-preview"></a>리소스 로그(미리 보기)
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 공개 미리 보기 상태 이며 모든 공용 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 다음 표에는 Azure Monitor Logs 또는 Azure Storage에서 수집되는 경우 Azure Storage 리소스 로그의 속성이 나와 있습니다. 속성은 작업, 서비스, 작업을 수행하는 데 사용된 인증 유형을 설명합니다.
 

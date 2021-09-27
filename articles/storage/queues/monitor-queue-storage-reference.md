@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 506f5a46688f597b8ac5db341c5bbe5eb5fb67c8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 58f2771cd8bf9704a098cdad5d72131b0a67bad1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763148"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804423"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Azure Queue Storage 모니터링 데이터 참조
 
@@ -38,7 +38,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 다음 표에서는 [Queue Storage 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)을 보여 줍니다.
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | ------------------- | ----------------- |
 | **QueueCapacity** | 스토리지 계정에 사용한 Queue Storage 양입니다. <br><br> 단위: `Bytes` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
 | **QueueCount** | 스토리지 계정의 큐 수입니다. <br><br> 단위: `Count` <br> 집계 유형: `Average` <br> 값 예제: `1024` |
@@ -61,7 +61,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="resource-logs-preview"></a>리소스 로그(미리 보기)
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor Azure Storage 로그는 공개 미리 보기로 제공되며 모든 퍼블릭 및 미국 정부 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 다음 표에는 Azure Monitor Logs 또는 Azure Storage에서 수집되는 경우 Azure Storage 리소스 로그의 속성이 나와 있습니다. 속성은 작업, 서비스, 작업을 수행하는 데 사용된 인증 유형을 설명합니다.
 

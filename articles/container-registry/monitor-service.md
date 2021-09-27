@@ -6,13 +6,13 @@ ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 03/19/2021
-ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.date: 08/13/2021
+ms.openlocfilehash: ff82571b791f20cf46150be06e583af29f13dbd5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294946"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586971"
 ---
 # <a name="monitor-azure-container-registry"></a>Azure Container Registry 모니터링
 
@@ -20,7 +20,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
-각 레지스트리에 대한 Azure Portal의 **개요** 페이지에는 밀어넣기 및 끌어오기 작업과 같은 최근 리소스 사용량 및 활동에 대한 간략한 보기가 포함되어 있습니다. 이 개괄적인 정보는 유용하지만, 표시되는 모니터링 데이터의 양이 적습니다. 
+각 레지스트리에 대한 Azure Portal의 **개요** 페이지에는 밀어넣기 및 끌어오기 작업과 같은 최근 리소스 사용량 및 활동에 대한 간략한 보기가 포함되어 있습니다. 이러한 개략적인 정보는 유용 하지만 적은 양의 데이터만 표시 됩니다. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="레지스트리 메트릭 개요"::: 
 
@@ -55,7 +55,7 @@ Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자�
 > [!TIP]
 > Portal에서 레지스트리로 이동하여 레지스트리 진단 설정을 만들 수도 있습니다. 메뉴의 **모니터링** 아래에서 **진단 설정** 을 선택합니다.
 
-다음 이미지에서는 레지스트리에 대한 진단 설정을 사용하도록 설정할 때의 옵션을 보여 줍니다.
+다음 이미지는 레지스트리에 대 한 진단 설정을 사용 하도록 설정 하는 경우의 옵션을 보여 줍니다.
 
 :::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="컨테이너 레지스트리에 대한 진단 설정":::
 
@@ -76,7 +76,6 @@ Azure Container Registry용으로 수집된 플랫폼 메트릭 목록은 [Azure
 
 다음 Azure CLI 명령을 사용하여 Azure Container Registry 메트릭에 대한 정보를 얻을 수 있습니다.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) - Azure Container Registry에서 사용하는 현재 스토리지 표시
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) - 메트릭 정의 및 차원 나열
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) - 메트릭 값 검색
 
@@ -208,3 +207,4 @@ If you are creating or running an application which run on <*service*> [Azure Mo
 
 - Azure Container Registry에서 만든 메트릭, 로그 및 기타 중요한 값에 대한 참조는 [Azure Container Registry 모니터링 데이터 참조](monitor-service-reference.md)를 참조하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.
+- 레지스트리의 저장소 사용 및 기타 리소스 소비에 대 한 스냅숏을 가져오는 방법에 대 한 자세한 내용은 [레지스트리 사용 표시](container-registry-skus.md#show-registry-usage) 를 참조 하세요.

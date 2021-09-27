@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 7468b544f36645609e1da344aef583c33157da7d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 680b383cee86ec4233579b9305c47e60ad4d5ff4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537794"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625349"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -102,11 +102,30 @@ FROM f
 ]
 ```
 
-집계 시스템 함수를 사용하는 쿼리와 `DISTINCT`를 사용하는 하위 쿼리는 지원되지 않습니다. 예를 들어 다음 쿼리는 지원되지 않습니다.
+집계 시스템 함수 및 가 있는 하위 쿼리가 있는 `DISTINCT` 쿼리는 특정 SDK 버전에서만 지원됩니다. 예를 들어 다음 셰이프의 쿼리는 아래의 특정 SDK 버전에서만 지원됩니다.
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+**지원되는 SDK 버전:**
+
+|**SDK**|**지원되는 버전**|
+|-------|----------------------|
+|.NET SDK|3.18.0 이상|
+|Java SDK|4.19.0 이상|
+|Node.js SDK|지원되지 않음|
+|Python SDK|지원되지 않음|
+
+집계 시스템 함수 및 가 있는 하위 쿼리가 있는 쿼리에는 몇 가지 추가 제한 사항이 있습니다. `DISTINCT`
+
+|**제한 사항**|**예제**|
+|-------|----------------------|
+|외부 쿼리의 WHERE 절|SELECT COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName WHERE lastName = "Smith"|
+|외부 쿼리의 ORDER BY 절|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName ORDER BY lastName|
+|외부 쿼리의 GROUP BY 절|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
+|중첩된 하위query|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
+|여러 집계|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
 
 ## <a name="like"></a>LIKE
 

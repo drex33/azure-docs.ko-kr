@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 26a83b28fd6e1fdaded9884deb0d7197e0a59a6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567716"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784908"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
@@ -147,7 +147,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 작업을 
 |`forecast_horizon`|앞으로 어느 정도의 기간에 대해 예측할 것인지 정의합니다. 구간은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`enable_dnn`|[예측 DNN을 사용하도록 설정]()합니다.||
 |`time_series_id_column_names`|타임스탬프가 동일한 여러 행이 있는 데이터에서 시계열을 고유하게 식별하는 데 사용되는 열 이름입니다. 시계열 식별자가 정의되지 않은 경우 데이터 세트는 하나의 시계열로 간주됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [frequency]에 대해 자세히 알아보세요. (#frequency--target-data-aggregation)||
+|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [frequency]에 대해 자세히 알아보세요. (#frequency-target-data-aggregation)||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연에 대한 기능은 `target_lags`가 설정되고 `feature_lags`가 `auto`로 설정된 경우 자동화된 ML에 의해 자동으로 결정됩니다. 기능 지연을 사용하도록 설정하면 정확도를 향상시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용하지 않도록 설정되어 있습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 이동 기간 집계](#target-rolling-window-aggregation)에 대해 자세히 알아봅니다.||
@@ -360,7 +360,7 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
-```
+``` 
  
 ## <a name="forecasting-with-best-model"></a>최적 모델로 예측
 
@@ -413,6 +413,95 @@ day_datetime,store,week_of_year
 
 > [!NOTE]
 > `target_lags` 및/또는 `target_rolling_window_size`를 사용하도록 설정한 경우 자동화된 ML을 사용한 예측에서 샘플 내 예측은 지원되지 않습니다.
+
+## <a name="forecasting-at-scale"></a>대규모 예측 
+
+단일 기계 학습 모델이 부족하고 여러 기계 학습 모델이 필요한 시나리오가 있습니다. 예를 들어 브랜드의 각 개별 매장에 대한 판매를 예측하거나 개별 사용자에게 환경을 조정합니다. 각 인스턴스에 대한 모델을 빌드하면 많은 기계 학습 문제에 대한 결과가 향상될 수 있습니다. 
+
+그룹화는 그룹별 개별 모델을 학습하기 위해 결합할 수 있는 Time Series 예측의 개념입니다. 이 방법은 다른 엔터티의 기록 또는 추세를 활용할 수 있는 그룹의 다듬기, 채우기 또는 엔터티가 필요한 계열이 있는 경우에 특히 유용할 수 있습니다. 많은 모델 및 계층적 시간 계열 예측은 이러한 대규모 예측 시나리오에 대한 자동화된 기계 학습을 통해 구동되는 솔루션입니다. 
+
+### <a name="many-models"></a>많은 모델
+
+자동화된 기계 학습을 Azure Machine Learning 많은 모델 솔루션을 사용하면 수백만 개의 모델을 병렬로 학습시키고 관리할 수 있습니다. 많은 모델 솔루션 가속기는 Azure Machine Learning 파이프라인을 활용하여 모델을 [학습합니다.](concept-ml-pipelines.md) 특히 [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) 개체 및 [ParalleRunStep이](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) 사용되며 [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig)를 통해 설정된 특정 구성 매개 변수가 필요합니다. 
+
+
+다음 다이어그램은 여러 모델 솔루션에 대한 워크플로를 보여 주는 다이어그램입니다. 
+
+![많은 모델 개념 다이어그램](./media/how-to-auto-train-forecast/many-models.svg)
+
+다음 코드에서는 사용자가 여러 모델을 실행하도록 설정해야 하는 주요 매개 변수를 보여 제공합니다.
+
+```python
+from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
+
+partition_column_names = ['Store', 'Brand']
+automl_settings = {"task" : 'forecasting',
+                   "primary_metric" : 'normalized_root_mean_squared_error',
+                   "iteration_timeout_minutes" : 10, #This needs to be changed based on the dataset. Explore how long training is taking before setting this value 
+                   "iterations" : 15,
+                   "experiment_timeout_hours" : 1,
+                   "label_column_name" : 'Quantity',
+                   "n_cross_validations" : 3,
+                   "time_column_name": 'WeekStarting',
+                   "max_horizon" : 6,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,}
+
+mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partition_column_names=partition_column_names)
+
+```
+
+### <a name="hierarchical-time-series-forecasting"></a>계층적 시간 계열 예측
+
+대부분의 애플리케이션에서 고객은 비즈니스의 매크로 및 마이크로 수준에서 예측을 이해해야 합니다. 서로 다른 지리적 위치에서 제품의 판매를 예측하는지 또는 회사의 여러 조직에 대한 예상 인력 수요를 이해하는지 여부입니다. 계층 데이터를 지능적으로 예측하도록 기계 학습 모델을 학습시키는 기능은 필수적입니다. 
+
+계층적 계열은 각 고유 계열이 지리 또는 제품 유형과 같은 차원에 따라 계층 구조로 정렬되는 구조입니다. 다음 예제에서는 계층 구조를 형성하는 고유한 특성이 있는 데이터를 보여 주는 예제입니다. 계층 구조는 다음과 같은 제품 유형(예: 장난감 또는 태블릿, 제품 유형을 액세서리 및 디바이스로 분할하는 제품 범주, 제품이 판매되는 지역)으로 정의됩니다. 
+
+![계층적 데이터에 대한 원시 데이터 테이블 예제](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+ 
+이를 추가로 시각화하기 위해 계층의 리프 수준에는 특성 값의 고유한 조합이 포함된 모든 계열이 포함됩니다. 계층 구조의 상위 수준 각각은 계열을 정의하기 위해 하나의 더 작은 차원을 고려하고 하위 수준에서 부모 노드로 각 자식 노드 집합을 집계합니다.
+ 
+![데이터에 대한 계층 시각적 개체](./media/how-to-auto-train-forecast/data-tree.svg)
+
+계층적 Time Series 솔루션은 다대다 모델 솔루션을 기반으로 하며 비슷한 구성 설정을 공유합니다.
+
+다음 코드에서는 계층적 Time Series 예측 실행을 설정하는 주요 매개 변수를 보여 줍니다. 
+
+```python
+
+from azureml.train.automl.runtime._hts.hts_parameters import HTSTrainParameters
+
+model_explainability = True
+
+engineered_explanations = False # Define your hierarchy. Adjust the settings below based on your dataset.
+hierarchy = ["state", "store_id", "product_category", "SKU"]
+training_level = "SKU"# Set your forecast parameters. Adjust the settings below based on your dataset.
+time_column_name = "date"
+label_column_name = "quantity"
+forecast_horizon = 7
+
+
+automl_settings = {"task" : "forecasting",
+                   "primary_metric" : "normalized_root_mean_squared_error",
+                   "label_column_name": label_column_name,
+                   "time_column_name": time_column_name,
+                   "forecast_horizon": forecast_horizon,
+                   "hierarchy_column_names": hierarchy,
+                   "hierarchy_training_level": training_level,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,
+                   "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
+                   "iteration_timeout_minutes" : 10,
+                   "iterations" : 10,
+                   "n_cross_validations": 2}
+
+hts_parameters = HTSTrainParameters(
+    automl_settings=automl_settings,
+    hierarchy_column_names=hierarchy,
+    training_level=training_level,
+    enable_engineered_explanations=engineered_explanations
+)
+```
 
 ## <a name="example-notebooks"></a>노트북 예제
 

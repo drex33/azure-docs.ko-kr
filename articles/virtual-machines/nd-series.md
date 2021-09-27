@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c14624cae8ebe97e51c7d761b835316e05b1e003
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 3cd771b8d7d145f7ffb17f73f3eb8cc18b630177
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690264"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803828"
 ---
 # <a name="nd-series"></a>ND 시리즈
 
@@ -31,7 +31,7 @@ ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 G
 Nvidia NVLink Interconnect: 지원되지 않음<br>
 
 > [!IMPORTANT]
-> 이 VM 시리즈의 경우, 구독의 지역당 vCPU(코어) 할당량이 초기에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다.
+> 이 VM 시리즈의 경우, 구독의 지역당 vCPU(코어) 할당량이 초기에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
 >
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
@@ -44,7 +44,6 @@ Nvidia NVLink Interconnect: 지원되지 않음<br>
 
 *RDMA 지원
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -54,7 +53,9 @@ Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드�
 
 NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운영 체제, 드라이버, 설치 및 인증 단계에 대해서는 [Windows용 N 시리즈 GPU 드라이버 설정](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설정](./linux/n-series-driver-setup.md)을 참조하세요.
 
-## <a name="other-sizes"></a>기타 크기
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -62,6 +63,10 @@ NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운�
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

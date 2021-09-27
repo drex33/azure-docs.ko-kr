@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 0e2ba661d2eaa6dd3899bdd0cb5e70e8e083526a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 748e7e09332e9feded9af0bc6cfa9a38d27086f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227112"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615209"
 ---
 # <a name="performance-testing"></a>성능 테스트
 
@@ -54,3 +54,9 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+- [개발](cache-best-practices-development.md)
+- [Azure Cache for Redis 개발 FAQ](cache-development-faq.yml)
+- [Azure Cache for Redis를 위한 장애 조치(failover) 및 패치](cache-failover.md)

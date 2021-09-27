@@ -8,12 +8,12 @@ ms.date: 8/24/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a09af98e613a7e57cc9a8060192e0e54c073cf95
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 14dac03b3e94eb77a6683271bc55283da1da114c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256207"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596888"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -1149,7 +1149,7 @@ if ($role -eq $null) {
 오류 경로 중 하나를 통해 발생할 수 있는 두 가지 주요 오류 클래스가 있습니다.
 
 - 클라우드 스토리지 오류
-    - *일시적인 스토리지 서비스 가용성 문제* - 자세한 내용은 [Azure Storage에 대한 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/v1_2/)를 참조하세요.
+    - *일시적인 스토리지 서비스 가용성 문제* - 자세한 내용은 [Azure Storage에 대한 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)를 참조하세요.
     - *액세스할 수 없는 Azure 파일 공유* - 일반적으로 Azure 파일 공유가 여전히 동기화 그룹의 클라우드 엔드포인트일 때 Azure 파일 공유를 삭제하면 이 오류가 발생합니다.
     - *액세스할 수 없는 스토리지 계정* - 일반적으로 동기화 계정의 클라우드 엔드포인트인 Azure 파일 공유가 있는데 스토리지 계정을 삭제하면 이 오류가 발생합니다. 
 - 서버 오류 

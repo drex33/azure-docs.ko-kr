@@ -4,34 +4,17 @@ description: Bicep 파일에서 배열 작업에 사용하는 함수에 대해 �
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 06/01/2021
-ms.openlocfilehash: e782ec0d77930651346cc0fc97e52d5c473b9245
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027127"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794104"
 ---
 # <a name="array-functions-for-bicep"></a>Bicep의 배열 함수
 
-Resource Manager는 Bicep에서 배열 작업을 수행하기 위한 여러 함수를 제공합니다.
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-값으로 구분되는 문자열 값의 배열을 가져오려면 [split](./bicep-functions-string.md#split)을 참조하세요.
+이 문서에서는 배열 작업을 위한 Bicep 함수에 대해 설명 합니다.
 
 ## <a name="array"></a>array
 
@@ -68,7 +51,7 @@ output objectOutput array = array(objectToConvert)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | intOutput | Array |  [1] |
 | stringOutput | Array | ["efgh"] |
@@ -82,10 +65,10 @@ output objectOutput array = array(objectToConvert)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array |연결할 첫 번째 배열입니다. |
-| 추가 인수 |예 |array |연결할 추가 배열(순서대로)입니다. |
+| 추가 인수 |예 |array |연결에 대 한 순차적인 순서로 배열 추가 |
 
 이 함수는 여러 배열을 가져와서 결합합니다.
 
@@ -114,7 +97,7 @@ output return array = concat(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -126,7 +109,7 @@ output return array = concat(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -162,7 +145,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -179,7 +162,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -203,7 +186,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -217,7 +200,7 @@ output stringEmpty bool = empty(testString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -242,7 +225,7 @@ output stringOutput string = first('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -255,7 +238,7 @@ output stringOutput string = first('One Two Three')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -263,7 +246,7 @@ output stringOutput string = first('One Two Three')
 
 ### <a name="return-value"></a>반환 값
 
-공통 요소가 있는 배열 또는 개체입니다.
+공통 요소가 있는 배열 또는 개체입니다. 요소의 순서는 첫 번째 배열 매개 변수에 의해 결정 됩니다.
 
 ### <a name="example"></a>예제
 
@@ -299,10 +282,44 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+첫 번째 배열 매개 변수는 교차 된 요소의 순서를 결정 합니다. 다음 예제에서는 반환 된 요소의 순서가 첫 번째 배열에 기반 하는 방법을 보여 줍니다.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+  4
+]
+
+var array2 = [
+  3
+  2
+  1
+]
+
+var array3 = [
+  4
+  1
+  3
+  2
+]
+
+output commonUp array = intersection(array1, array2, array3)
+output commonDown array = intersection(array2, array3, array1)
+```
+
+위 예제의 출력은 다음과 같습니다.
+
+| 이름 | 유형 | 값 |
+| ---- | ---- | ----- |
+| commonUp | array | [1, 2, 3] |
+| commonDown | array | [3, 2, 1] |
 
 ## <a name="last"></a>last
 
@@ -312,7 +329,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -337,7 +354,7 @@ output stringOutput string = last('One Two three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -350,7 +367,7 @@ output stringOutput string = last('One Two three')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -386,7 +403,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -400,7 +417,7 @@ output objectLength int = length(objectToTest)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -427,7 +444,7 @@ output intOutput int = max(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -440,7 +457,7 @@ output intOutput int = max(0,3,2,5,4)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -467,7 +484,7 @@ output intOutput int = min(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -476,7 +493,7 @@ output intOutput int = min(0,3,2,5,4)
 
 `range(startIndex, count)`
 
-시작 정수 및 항목의 수를 포함하는 정수 배열을 만듭니다.
+시작 정수에서 항목 수를 포함하는 정수 배열을 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -502,7 +519,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -543,7 +560,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -585,7 +602,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -598,11 +615,11 @@ output stringOutput string = take(testString, charactersToTake)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| 추가 인수 |예 |배열 또는 개체 |요소를 조인 하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -642,11 +659,11 @@ output arrayOutput array = union(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
+* 값으로 구분되는 문자열 값의 배열을 가져오려면 [split](./bicep-functions-string.md#split)을 참조하세요.

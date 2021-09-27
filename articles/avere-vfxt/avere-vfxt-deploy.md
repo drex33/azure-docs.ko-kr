@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 330fa1368c078f1e44dd436cd3bea6407c6f4cc6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92342419"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794655"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -85,7 +85,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 다�
 
 ![배포 템플릿 2페이지](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT 클러스터 노드 수** - 클러스터의 노드 수를 선택합니다. 최소값은 노드 3개, 최대값은 12개입니다.
+* **Avere vFXT 클러스터 노드 수** - 클러스터의 노드 수를 선택합니다. 최소값은 3개 노드이고 최대 노드는 20개입니다.
 
 * **클러스터 관리 암호** - 클러스터 관리용 암호를 만듭니다. 이 암호와 사용자 이름 ```admin```을 함께 사용하여 클러스터 제어판에 로그인해 클러스터를 모니터링하고 클러스터 설정을 구성합니다.
 

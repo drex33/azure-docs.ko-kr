@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9025038727c6f71022f30f80ee67db6ccc5289b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 6ed309637c03fc4701f2b973f64b2473f43b0d2a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740324"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734880"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 Parquet 파일 쿼리
 
@@ -42,7 +42,7 @@ from openrowset(
 > PARQUET 파일의 텍스트 인코딩과 데이터 정렬이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
 > 다음 T-SQL 문 `alter database current collate Latin1_General_100_BIN2_UTF8`'을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
 
-_BIN2 데이터 정렬을 사용하는 경우 추가 성능을 향상시킬 수 있습니다. BIN2 데이터 정렬은 parquet 문자열 정렬 규칙과 호환되므로 쿼리에 필요한 데이터를 포함하지 않는 parquet 파일의 일부(파일/열 세그먼트 정리)를 제거할 수 있습니다. BIN2가 아닌 데이터 정렬을 사용하는 경우 parquet 채우기의 모든 데이터는 SQL 프로세스 내에서 필터링이 수행되어 Synapse SQL로 로드되며, 이는 불필요한 데이터를 파일에서 제거하는 것보다 훨씬 느릴 수 있습니다. BIN2 데이터 정렬에는 parquet 및 CosmosDB에서만 작동하는 추가 성능 최적화가 있습니다. 단점은 대/소문자 구분 안함과 같은 세분화된 비교 규칙을 잃게 된다는 것입니다.
+데이터 정렬을 사용 하는 경우 `Latin1_General_100_BIN2_UTF8` 다른 데이터 정렬과 비교 하 여 추가적인 성능 향상을 얻을 수 있습니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬은 parquet 문자열 정렬 규칙과 호환 됩니다. SQL 풀은 쿼리에 필요한 데이터 (파일/열 세그먼트 정리)를 포함 하지 않을 parquet 파일의 일부를 제거할 수 있습니다. 다른 데이터 정렬을 사용 하는 경우 parquet 파일의 모든 데이터가 Synapse SQL 로드 되 고 SQL 프로세스 내에서 필터링 됩니다. `Latin1_General_100_BIN2_UTF8`데이터 정렬에는 parquet 및 CosmosDB에 대해서만 작동 하는 추가 성능 최적화가 있습니다. 단점은 대/소문자 구분 안함과 같은 세분화된 비교 규칙을 잃게 된다는 것입니다.
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 

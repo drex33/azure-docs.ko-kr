@@ -8,48 +8,48 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
 ms.custom: monitoring
-ms.openlocfilehash: 37a916ca07a1767855b32b79ccb35722cc389f65
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 98c077ff578cfbe70bfe3a871e5a1eb4d5fbd755
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830993"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584259"
 ---
 # <a name="best-practices-for-monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링에 대한 모범 사례
 
-이 문서에서는 여러 개의 일반적인 스토리지 모니터링 시나리오를 제공하고 이를 수행하기 위한 모범 사례 지침을 제공합니다.  
+이 문서에서는 여러 개의 일반적인 스토리지 모니터링 시나리오를 제공하고 이를 수행하기 위한 모범 사례 지침을 제공합니다.
 
 ## <a name="identify-storage-accounts-with-no-or-low-use"></a>사용하지 않거나 사용률이 낮은 스토리지 계정 식별
 
-Storage Insights는 Azure Storage 메트릭과 로그를 기반으로 하는 대시보드입니다. Storage Insights를 사용하여 모든 계정의 트랜잭션 볼륨과 사용 용량을 검사할 수 있습니다. 이 정보를 사용하면 사용 중지하려는 계정을 결정할 수 있습니다. Storage Insights를 구성하려면 [Azure Monitor Storage 인사이트를 사용하여 스토리지 서비스 모니터링](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)을 참조하세요. 
+Storage Insights는 Azure Storage 메트릭과 로그를 기반으로 하는 대시보드입니다. Storage Insights를 사용하여 모든 계정의 트랜잭션 볼륨과 사용 용량을 검사할 수 있습니다. 이 정보를 사용하면 사용 중지하려는 계정을 결정할 수 있습니다. Storage Insights를 구성하려면 [Azure Monitor Storage 인사이트를 사용하여 스토리지 서비스 모니터링](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)을 참조하세요.
 
 ### <a name="analyze-transaction-volume"></a>트랜잭션 볼륨 분석
 
-[Azure 모니터의 Storage Insights 보기](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json#view-from-azure-monitor)에서 **트랜잭션** 열을 사용하여 계정을 오름차순으로 정렬합니다. 다음 이미지는 지정된 기간 동안 트랜잭션 볼륨이 낮은 계정을 보여 줍니다. 
+[Azure 모니터의 Storage Insights 보기](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json#view-from-azure-monitor)에서 **트랜잭션** 열을 사용하여 계정을 오름차순으로 정렬합니다. 다음 이미지는 지정된 기간 동안 트랜잭션 볼륨이 낮은 계정을 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
 > ![Storage Insights의 트랜잭션 볼륨](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-volume.png)
 
-해당 트랜잭션에 대한 자세한 내용을 보려면 계정 링크를 클릭합니다. 이 예제에서 대부분의 요청은 Blob Storage 서비스에 대해 수행됩니다. 
+해당 트랜잭션에 대한 자세한 내용을 보려면 계정 링크를 클릭합니다. 이 예제에서 대부분의 요청은 Blob Storage 서비스에 대해 수행됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![서비스 유형별 트랜잭션](./media/blob-storage-monitoring-scenarios/storage-insights-transactions-by-storage-type.png)
 
-수행되는 요청의 유형을 확인하려면 **API 이름별 트랜잭션** 차트를 자세히 살펴보세요. 
+수행되는 요청의 유형을 확인하려면 **API 이름별 트랜잭션** 차트를 자세히 살펴보세요.
 
 > [!div class="mx-imgBorder"]
 > ![스토리지 트랜잭션 API](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-apis.png)
 
-이 예제에서 모든 요청은 목록 작업 또는 계정 속성 정보에 대한 요청입니다. 읽기 및 쓰기 트랜잭션이 없습니다. 따라서 계정이 의미 있는 방식으로 사용되지 않는다고 생각할 수 있습니다. 
+이 예제에서 모든 요청은 목록 작업 또는 계정 속성 정보에 대한 요청입니다. 읽기 및 쓰기 트랜잭션이 없습니다. 따라서 계정이 의미 있는 방식으로 사용되지 않는다고 생각할 수 있습니다.
 
 ### <a name="analyze-used-capacity"></a>사용된 용량 분석
 
- [Azure 모니터의 Storage Insights 보기](../common/storage-insights-overview.md#view-from-azure-monitor)에 있는 **용량** 탭에서 **계정 사용 용량** 열을 사용하여 계정을 오름차순으로 정렬합니다. 다음 이미지는 다른 계정보다 용량 볼륨이 낮은 계정을 보여 줍니다. 
+[Azure monitor의 Storage Insights 보기](../common/storage-insights-overview.md#view-from-azure-monitor)의 **용량** 탭에서 **Account used Capacity** 열을 사용 하 여 계정을 오름차순으로 정렬 합니다. 다음 이미지는 다른 계정보다 용량 볼륨이 낮은 계정을 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
 > ![사용된 스토리지 용량](./media/blob-storage-monitoring-scenarios/storage-insights-capacity-used.png)
 
-이 사용된 용량과 연결된 Blob을 검사하기 위해 Storage Explorer를 사용할 수 있습니다. Blob이 많은 경우 [Blob 인벤토리 정책](blob-inventory.md)을 사용하여 보고서를 생성하는 것이 좋습니다. 
+이 사용된 용량과 연결된 Blob을 검사하기 위해 Storage Explorer를 사용할 수 있습니다. Blob이 많은 경우 [Blob 인벤토리 정책](blob-inventory.md)을 사용하여 보고서를 생성하는 것이 좋습니다.
 
 ## <a name="monitor-the-use-of-a-container"></a>컨테이너 사용 모니터링
 
@@ -59,7 +59,6 @@ Storage Insights는 Azure Storage 메트릭과 로그를 기반으로 하는 대
 
 다음은 읽기 트랜잭션 수와 각 컨테이너에서 읽은 바이트 수를 가져오는 쿼리입니다.
 
-
 ```kusto
 StorageBlobLogs
 | where OperationName  == "GetBlob"
@@ -67,17 +66,17 @@ StorageBlobLogs
 | summarize ReadSize = sum(ResponseBodySize), ReadCount = count() by tostring(ContainerName)
 ```
 
-다음 쿼리에서는 유사한 쿼리를 사용하여 쓰기 작업에 대한 정보를 가져옵니다. 
+다음 쿼리에서는 유사한 쿼리를 사용하여 쓰기 작업에 대한 정보를 가져옵니다.
 
 ```kusto
 StorageBlobLogs
 | where OperationName == "PutBlob" or
   OperationName == "PutBlock" or
   OperationName == "PutBlockList" or
-  OperationName == "AppendBlock" or 
+  OperationName == "AppendBlock" or
   OperationName == "SnapshotBlob" or
-  OperationName == "CopyBlob" or 
-  OperationName == "SetBlobTier" 
+  OperationName == "CopyBlob" or
+  OperationName == "SetBlobTier"
 | extend ContainerName = split(parse_url(Uri).Path, "/")[1]
 | summarize WriteSize = sum(RequestBodySize), WriteCount = count() by tostring(ContainerName)
 ```
@@ -86,11 +85,11 @@ StorageBlobLogs
 
 ## <a name="audit-account-activity"></a>계정 작업 감사
 
-대부분의 경우, 보안 및 규정 준수를 위해 스토리지 계정의 활동을 감사해야 합니다. 스토리지 계정에 대한 작업은 *컨트롤 플레인* 과 *데이터 평면* 의 두 가지 범주로 나뉩니다. 
+대부분의 경우, 보안 및 규정 준수를 위해 스토리지 계정의 활동을 감사해야 합니다. 스토리지 계정에 대한 작업은 *컨트롤 플레인* 과 *데이터 평면* 의 두 가지 범주로 나뉩니다.
 
-컨트롤 플레인 작업은 스토리지 계정을 만들거나 기존 스토리지 계정의 속성을 업데이트하기 위한 모든 Azure Resource Manager 요청입니다. 자세한 내용은 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 참조하세요. 
+컨트롤 플레인 작업은 스토리지 계정을 만들거나 기존 스토리지 계정의 속성을 업데이트하기 위한 모든 Azure Resource Manager 요청입니다. 자세한 내용은 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 참조하세요.
 
-데이터 평면 작업은 스토리지 서비스 엔드포인트에 대한 요청 때문에 발생하는 스토리지 계정의 데이터에 대한 작업입니다. 예를 들어 스토리지 계정에 Blob을 업로드하거나 스토리지 계정에서 Blob을 다운로드할 때 데이터 평면 작업이 실행됩니다. 자세한 내용은 [Azure Storage API](/rest/api/storageservices/)를 참조하세요. 
+데이터 평면 작업은 스토리지 서비스 엔드포인트에 대한 요청 때문에 발생하는 스토리지 계정의 데이터에 대한 작업입니다. 예를 들어 스토리지 계정에 Blob을 업로드하거나 스토리지 계정에서 Blob을 다운로드할 때 데이터 평면 작업이 실행됩니다. 자세한 내용은 [Azure Storage API](/rest/api/storageservices/)를 참조하세요.
 
 이 섹션에서는 컨트롤 플레인 및 데이터 평면 작업의 “언제”, “누가”, “무엇을”, “어떻게” 정보를 식별하는 방법을 보여줍니다.
 
@@ -101,13 +100,12 @@ Resource Manager 작업은 [Azure 활동 로그](../../azure-monitor/essentials/
 > [!div class="mx-imgBorder"]
 > ![활동 로그](./media/blob-storage-monitoring-scenarios/activity-log.png)
 
-
 모든 로그 항목을 열어 활동을 설명하는 JSON을 표시합니다. 다음 JSON은 컨트롤 플레인 작업의 “언제”, “무엇을”, “어떻게” 정보를 보여줍니다.
 
 > [!div class="mx-imgBorder"]
 > ![활동 로그 JSON](./media/blob-storage-monitoring-scenarios/activity-log-json.png)
 
-“누가” 정보의 가용성은 컨트롤 플레인 작업을 수행하는 데 사용된 인증 메서드에 따라 다릅니다. Azure AD 보안 주체가 권한 부여를 수행한 경우 해당 보안 주체의 개체 식별자도 이 JSON 출력에 나타납니다(예: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). 이메일 주소나 이름과 같은 기타 ID 관련 정보가 항상 표시되는 것은 아니므로 개체 식별자는 항상 보안 주체를 고유하게 식별하는 가장 좋은 방법입니다. 
+“누가” 정보의 가용성은 컨트롤 플레인 작업을 수행하는 데 사용된 인증 메서드에 따라 다릅니다. Azure AD 보안 주체가 권한 부여를 수행한 경우 해당 보안 주체의 개체 식별자도 이 JSON 출력에 나타납니다(예: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). 이메일 주소나 이름과 같은 기타 ID 관련 정보가 항상 표시되는 것은 아니므로 개체 식별자는 항상 보안 주체를 고유하게 식별하는 가장 좋은 방법입니다.
 
 개체 식별자 값을 사용하고 Azure Portal의 Azure AD 페이지에서 보안 주체를 검색하여 친숙한 해당 보안 주체의 이름을 찾을 수 있습니다. 다음 스크린샷에서는 Azure AD의 검색 결과를 보여줍니다.
 
@@ -116,30 +114,30 @@ Resource Manager 작업은 [Azure 활동 로그](../../azure-monitor/essentials/
 
 ### <a name="auditing-data-plane-operations"></a>데이터 평면 작업 감사
 
-데이터 평면 작업은 [스토리지용 Azure 리소스 로그](monitor-blob-storage.md#analyzing-logs)에 캡처됩니다. 기본 쿼리 환경을 위해 Log Analytics 작업 영역으로 로그를 내보내도록 [진단 설정을 구성](monitor-blob-storage.md#send-logs-to-azure-log-analytics)할 수 있습니다. 
+데이터 평면 작업은 [스토리지용 Azure 리소스 로그](monitor-blob-storage.md#analyzing-logs)에 캡처됩니다. 기본 쿼리 환경을 위해 Log Analytics 작업 영역으로 로그를 내보내도록 [진단 설정을 구성](monitor-blob-storage.md#send-logs-to-azure-log-analytics)할 수 있습니다.
 
-다음은 로그 항목 목록에서 “언제”, “누가”, “무엇을”, “어떻게” 정보를 검색하는 Log Analytics 쿼리입니다. 
+다음은 로그 항목 목록에서 “언제”, “누가”, “무엇을”, “어떻게” 정보를 검색하는 Log Analytics 쿼리입니다.
 
 ```kusto
-StorageBlobLogs 
-| where TimeGenerated > ago(3d) 
+StorageBlobLogs
+| where TimeGenerated > ago(3d)
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-감사의 “언제” 부분에서 `TimeGenerated` 필드는 로그 항목이 기록된 시간을 보여줍니다. 
+감사의 “언제” 부분에서 `TimeGenerated` 필드는 로그 항목이 기록된 시간을 보여줍니다.
 
-감사의 “무엇” 부분에서 `Uri` 필드는 항목을 수정했거나 읽었는지 보여줍니다. 
+감사의 “무엇” 부분에서 `Uri` 필드는 항목을 수정했거나 읽었는지 보여줍니다.
 
-감사의 “어떻게” 부분에서 `OperationName` 필드는 실행된 작업을 보여줍니다. 
+감사의 “어떻게” 부분에서 `OperationName` 필드는 실행된 작업을 보여줍니다.
 
-감사의 “누구” 부분에서 `AuthenticationType`은 요청에 사용된 인증 유형을 보여줍니다. 이 필드는 계정 키, SAS 토큰 또는 Azure AD(Azure Active Directory) 인증 사용을 포함하여 Azure Storage가 지원하는 인증 유형을 표시할 수 있습니다. 
+감사의 “누구” 부분에서 `AuthenticationType`은 요청에 사용된 인증 유형을 보여줍니다. 이 필드는 계정 키, SAS 토큰 또는 Azure AD(Azure Active Directory) 인증 사용을 포함하여 Azure Storage가 지원하는 인증 유형을 표시할 수 있습니다.
 
 요청이 Azure AD를 사용하여 인증된 경우 `RequesterObjectId` 필드는 보안 주체를 식별하는 가장 안정적인 방법을 제공합니다. `RequesterObjectId` 필드를 사용하고 Azure Portal의 Azure AD 페이지에서 보안 주체를 검색하여 친숙한 해당 보안 주체의 이름을 찾을 수 있습니다. 다음 스크린샷에서는 Azure AD의 검색 결과를 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
 > ![Azure Active Directory 검색](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
 
-경우에 따라 사용자 계정 이름 또는 *UPN* 이 로그에 나타날 수 있습니다. 예를 들어, 보안 주체가 Azure AD 사용자이면 UPN이 표시될 수 있습니다. 사용자가 할당한 관리 ID와 같은 다른 보안 주체 유형의 경우 또는 교차 Azure AD 테넌트 인증과 같은 특정 시나리오에서는 UPN이 로그에 표시되지 않습니다. 
+경우에 따라 사용자 계정 이름 또는 *UPN* 이 로그에 나타날 수 있습니다. 예를 들어, 보안 주체가 Azure AD 사용자이면 UPN이 표시될 수 있습니다. 사용자가 할당한 관리 ID와 같은 다른 보안 주체 유형의 경우 또는 교차 Azure AD 테넌트 인증과 같은 특정 시나리오에서는 UPN이 로그에 표시되지 않습니다.
 
 이 쿼리는 OAuth 보안 주체가 수행한 모든 읽기 작업을 보여 줍니다.
 
@@ -155,15 +153,15 @@ StorageBlobLogs
 
 ## <a name="optimize-cost-for-infrequent-queries"></a>자주 발생하지 않는 쿼리 비용 최적화
 
-풍부한 네이티브 쿼리 기능을 위해 로그를 Log Analytics로 내보낼 수 있습니다. 스토리지 계정에 많은 트랜잭션이 있는 경우, Log Analytics에서 로그를 사용하는 비용이 높을 수 있습니다. [Azure Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요. 가끔 로그를 쿼리하려는 경우(예: 준수 감사에 대한 로그 쿼리), 로그를 스토리지 계정으로 내보낸 다음, 로그 데이터 위에 서버리스 쿼리 솔루션을 사용하여 총 비용을 절감할 수 있습니다(예: Azure Synapse).
+풍부한 네이티브 쿼리 기능을 위해 로그를 Log Analytics로 내보낼 수 있습니다. 스토리지 계정에 많은 트랜잭션이 있는 경우, Log Analytics에서 로그를 사용하는 비용이 높을 수 있습니다. 자세한 내용은 [Azure Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요. 가끔 로그를 쿼리하려는 경우(예: 준수 감사에 대한 로그 쿼리), 로그를 스토리지 계정으로 내보낸 다음, 로그 데이터 위에 서버리스 쿼리 솔루션을 사용하여 총 비용을 절감할 수 있습니다(예: Azure Synapse).
 
-Azure Synapse를 사용하면 서버리스 SQL 풀을 만들어 필요할 때 로그 데이터를 쿼리할 수 있습니다. 이렇게 하면 비용을 크게 절감할 수 있습니다. 
+Azure Synapse를 사용하면 서버리스 SQL 풀을 만들어 필요할 때 로그 데이터를 쿼리할 수 있습니다. 이렇게 하면 비용을 크게 절감할 수 있습니다.
 
-1. 스토리지 계정으로 로그를 내보냅니다. [진단 설정 만들기](monitor-blob-storage.md#creating-a-diagnostic-setting)를 참조하세요.
+1. 스토리지 계정으로 로그를 내보냅니다. 자세한 내용은 [진단 설정 만들기](monitor-blob-storage.md#creating-a-diagnostic-setting)를 참조 하세요.
 
-2. Synapse 작업 영역을 만들고 구성합니다. [빠른 시작: Synapse 작업 영역 만들기](../../synapse-analytics/quickstart-create-workspace.md)를 참조하세요.
+2. Synapse 작업 영역을 만들고 구성합니다. 자세한 내용은 [빠른 시작: Synapse 작업 영역 만들기](../../synapse-analytics/quickstart-create-workspace.md)를 참조 하세요.
 
-2. 로그를 쿼리합니다. [Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 JSON 파일 쿼리](../../synapse-analytics/sql/query-json-files.md)를 참조하세요.
+2. 로그를 쿼리합니다. 자세한 내용은 [Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 JSON 파일 쿼리](../../synapse-analytics/sql/query-json-files.md)를 참조 하세요.
 
    예를 들면 다음과 같습니다.
 
@@ -171,7 +169,7 @@ Azure Synapse를 사용하면 서버리스 SQL 풀을 만들어 필요할 때 �
     select
         JSON_VALUE(doc, '$.time') AS time,
         JSON_VALUE(doc, '$.properties.accountName') AS accountName,
-        JSON_VALUE(doc, '$.identity.type') AS identityType,    
+        JSON_VALUE(doc, '$.identity.type') AS identityType,
         JSON_VALUE(doc, '$.identity.requester.objectId') AS requesterObjectId,
         JSON_VALUE(doc, '$.operationName') AS operationName,
         JSON_VALUE(doc, '$.callerIpAddress') AS callerIpAddress,
@@ -191,4 +189,3 @@ Azure Synapse를 사용하면 서버리스 SQL 풀을 만들어 필요할 때 �
 - [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)
 - [자습서: Azure Data Explorer 및 Azure Monitor에서 Kusto 쿼리 사용](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Azure Monitor에서 로그 쿼리 시작](../../azure-monitor/logs/get-started-queries.md).
-

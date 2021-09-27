@@ -1,32 +1,32 @@
 ---
 title: 레거시를 사용하여 MongoDB로부터 데이터 복사
+description: 레거시 Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 활동을 사용하여 Mongo DB에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 레거시 Azure Data Factory 파이프라인의 복사 작업을 통해 Mongo DB로부터 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아보기.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: f4ad8489e696a903621636a361dfc8ff1f4751c1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: b014cf900cccc056e09f84966a059160de930239
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305242"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750636"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사(레거시)
+# <a name="copy-data-from-mongodb-using-azure-data-factory-or-synapse-analytics-legacy"></a>Azure Data Factory 또는 Synapse Analytics(레거시)를 사용하여 MongoDB에서 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [현재 버전](connector-mongodb.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MongoDB 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용하여 MongoDB 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!IMPORTANT]
->ADF는 이 ODBC 기반 구현에 비해 향상된 MongoDB 지원을 제공하는 새 MongoDB 커넥터를 발표했습니다. 자세한 내용은 [MongoDB 커넥터](connector-mongodb.md) 문서를 참조하세요. 이 레거시 MongoDB 커넥터는 역방향 호환성을 위해 현재 상태 그대로 계속 지원되며, 새 워크로드인 경우 새 커넥터를 사용하세요.
+>이 서비스는 이 ODBC 기반 구현과 비교하여 더 나은 네이티브 MongoDB 지원을 제공하는 새 [MongoDB 커넥터를](connector-mongodb.md) 릴리스했습니다. 자세한 내용은 MongoDB 커넥터 문서를 참조하세요. 이 레거시 MongoDB 커넥터는 이전 버전과의 호환성을 위해 그대로 지원되지만 새 워크로드의 경우 새 커넥터를 사용하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -55,7 +55,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -86,7 +86,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
 | authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous** 입니다. |예 |
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
+| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
 | enableSsl | TLS를 사용하여 서버 연결을 암호화할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
@@ -152,7 +152,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **MongoDbSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "collectionName"이 지정된 경우) |
@@ -198,9 +198,9 @@ Azure Data Factory 서비스는 컬렉션에 있는 **최신 100개의 문서** 
 
 ## <a name="data-type-mapping-for-mongodb"></a>MongoDB에 대한 데이터 형식 매핑
 
-MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+MongoDB에서 데이터를 복사할 때 MongoDB 데이터 형식에서 내부적으로 서비스 내에서 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| MongoDB 데이터 형식 | Data Factory 중간 데이터 형식 |
+| MongoDB 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | 이진 |Byte[] |
 | Boolean |부울 |
@@ -220,12 +220,12 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>가상 테이블을 사용하는 복합 형식에 대한 지원
 
-Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB 데이터베이스에 연결하고 데이터를 복사합니다. 서로 다른 형식의 문서 간에 배열 또는 개체와 같은 복합 형식의 경우, 드라이버는 해당 가상 테이블에 데이터를 다시 정규화합니다. 특히, 테이블에 그러한 열이 포함되어 있으면 드라이버는 다음 가상 테이블을 생성합니다.
+이 서비스는 기본 제공 ODBC 드라이버를 사용하여 MongoDB 데이터베이스에 연결하고 데이터를 복사합니다. 서로 다른 형식의 문서 간에 배열 또는 개체와 같은 복합 형식의 경우, 드라이버는 해당 가상 테이블에 데이터를 다시 정규화합니다. 특히, 테이블에 그러한 열이 포함되어 있으면 드라이버는 다음 가상 테이블을 생성합니다.
 
 * **기본 테이블**: 복합 형식 열을 제외하고 실제 테이블과 동일한 데이터가 포함되어 있습니다. 기본 테이블은 나타내는 실제 테이블과 동일한 이름을 사용합니다.
 * **가상 테이블** : 각 복합 형식 열에 대해 생성되며, 중첩된 데이터를 확장합니다. 가상 테이블 이름은 실제 테이블의 이름, 구분 기호 "_", 그리고 배열 또는 개체 이름을 사용하여 지정합니다.
 
-가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 가상 테이블을 쿼리 및 조인하여 MongoDB 배열의 콘텐츠에 액세스할 수 있습니다.
+가상 테이블은 실제 테이블의 데이터를 참조하여 드라이버가 정규화 해제된 데이터에 액세스할 수 있도록 합니다. 가상 테이블을 쿼리 및 조인하여 MongoDB 배열의 콘텐츠에 액세스할 수 있습니다.
 
 ### <a name="example"></a>예제
 
@@ -267,4 +267,4 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 | 2222 |1 |2 |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

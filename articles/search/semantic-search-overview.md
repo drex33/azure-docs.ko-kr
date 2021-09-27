@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1b50fbbdd38d1bb24c1732c465784c3ddb757e3f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 057afd588193a8fdfba020e25d086dc915bb9eaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612836"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
@@ -36,6 +36,13 @@ ms.locfileid: "114454785"
 
 의미 체계 검색은 검색 결과의 품질을 향상하는 기능 모음입니다. 검색 서비스에서 사용하도록 설정된 경우 의미 체계 검색은 쿼리 실행 파이프라인을 두 가지 방식으로 확장합니다. 첫째, 초기 결과 집합에 보조 순위를 추가하여 의미 체계 측면에서 가장 관련성이 높은 결과를 목록의 맨 위로 올립니다. 둘째, 사용자의 검색 환경을 개선하기 위해 검색 페이지에서 렌더링할 수 있는 캡션과 답변을 응답에서 추출하여 반환합니다.
 
+| 기능 | Description |
+|---------|-------------|
+| [의미 체계 순위 다시 지정](semantic-ranking.md) | 컨텍스트 또는 의미 체계 의미를 사용하여 기존 결과에 대한 새로운 관련성 점수를 계산합니다. |
+| [의미 체계 캡션 및 강조 표시](semantic-how-to-query-request.md) | 문서에서 콘텐츠를 가장 잘 요약하는 문장과 구를 추출하고, 쉽게 검색할 수 있는 주요 통과에 대한 강조 표시를 제공합니다. 결과 페이지에서 개별 콘텐츠 필드가 너무 조밀한 경우 결과를 요약하는 캡션이 유용합니다. 강조 표시된 텍스트는 사용자가 일치 항목으로 간주되는 이유를 빠르게 확인할 수 있도록 가장 관련성이 높은 용어와 구를 승격시킵니다. |
+| [의미 체계 답변](semantic-answers.md) | 의미 체계 쿼리에서 반환되는 선택적 및 추가 하위 구조입니다. 질문처럼 보이는 쿼리에 직접 답변을 제공합니다. 문서에 답변의 특징이 있는 텍스트가 있어야 합니다. |
+| [맞춤법 검사](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 오타를 수정합니다. |
+
 ## <a name="how-semantic-ranking-works"></a>의미 체계 순위 지정의 작동 방식
 
 *의미 체계 순위 지정* 은 용어 간의 컨텍스트 및 관련성을 검색하여 쿼리에 더 적합한 일치 항목을 승격합니다. 언어 이해는 콘텐츠 내에서 요약 또는 *캡션* 및 *답변* 을 찾고 응답에 포함합니다. 이를 검색 결과 페이지에서 렌더링하여 보다 생산적인 검색 환경을 제공할 수 있습니다.
@@ -47,17 +54,6 @@ ms.locfileid: "114454785"
 다음 동영상에서는 기능의 개요를 제공합니다.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
-## <a name="features-in-semantic-search"></a>의미 체계 검색의 기능
-
-의미 체계 검색은 다음과 같은 새로운 기능을 통해 정밀도와 재현율을 향상합니다.
-
-| 기능 | Description |
-|---------|-------------|
-| [맞춤법 검사](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 오타를 수정합니다. |
-| [의미 체계 순위 지정](semantic-ranking.md) | 컨텍스트나 의미 체계 의미를 사용하여 새 관련성 점수를 계산합니다. |
-| [의미 체계 캡션 및 강조 표시](semantic-how-to-query-request.md) | 콘텐츠를 가장 잘 요약한 문서의 문장과 구에 간편한 검색을 위한 주요 구절을 강조합니다. 결과 페이지에서 개별 콘텐츠 필드가 너무 조밀한 경우 결과를 요약하는 캡션이 유용합니다. 강조 표시된 텍스트는 사용자가 일치 항목으로 간주되는 이유를 빠르게 확인할 수 있도록 가장 관련성이 높은 용어와 구를 승격시킵니다. |
-| [의미 체계 답변](semantic-answers.md) | 의미 체계 쿼리에서 반환되는 선택적 및 추가 하위 구조입니다. 질문처럼 보이는 쿼리에 직접 답변을 제공합니다. |
 
 ### <a name="order-of-operations"></a>작업 순서
 
@@ -77,15 +73,15 @@ ms.locfileid: "114454785"
 
 ## <a name="semantic-capabilities-and-limitations"></a>의미 체계 기능 및 제한 사항
 
-의미 체계 검색은 최신 기술이므로 수행할 수 있는 작업과 수행할 수 없는 작업에 대한 기대치를 설정하는 것이 중요합니다. 의미 체계 검색은 다음 두 가지 방식으로 검색 결과의 품질을 향상합니다.
+의미 체계 검색은 최신 기술이므로 수행할 수 있는 작업과 수행할 수 없는 작업에 대한 기대치를 설정하는 것이 중요합니다. 수행할 수 있는 일은 다음을 수행하여 검색 품질을 개선하는 것입니다.
 
-* 첫째, 의미 체계 측면에서 원래 쿼리의 의도에 더 가까운 일치 항목을 위로 올립니다.
+* 원래 쿼리의 의도에 의미상 더 가까운 일치 항목 승격
 
-* 둘째, 페이지에 캡션과 잠재적 답변이 있을 때 결과를 사용하기 쉽게 만듭니다.
+* 각 결과에서 캡션으로 사용할 수 있는 문자열 및 잠재적으로 답변으로 검색 결과 페이지에서 렌더링할 수 있는 문자열을 찾습니다.
 
-의미 체계 검색이 모든 시나리오에서 유용한 것은 아니므로, 계속 진행하기 전에 해당 기능을 활용할 수 있는 콘텐츠가 있는지 확인합니다. 의미 체계 검색의 언어 모델은 정보가 풍부한 산문 구조의 검색 가능한 콘텐츠에서 가장 효과적입니다. 예를 들어 답변에 대해 콘텐츠를 평가할 때 모델은 답변처럼 보이는 축자 문자열을 검사하고 추출하지만 쿼리에 대한 답변이나 일치하는 문서의 캡션으로 새 문자열을 작성하지는 않습니다. “연비가 가장 높은 자동차”란 질문에 답변하려면 “출시된 모든 자동차 중에서 하이브리드 자동차의 연비가 가장 높다”와 같은 문구가 인덱스에 포함되어 있어야 합니다.
+수행할 수 없는 일은 전체 모음에 대해 쿼리를 다시 실행하여 의미상 관련 결과를 찾는 것입니다. 의미 체계 검색은 기본 순위 알고리즘에 따라 점수가 매겨진 상위 50개 결과로 구성된 *기존* 결과 집합의 순위를 다시 지정합니다. 또한 의미 체계 검색은 새 정보 또는 문자열을 만들 수 없습니다. 캡션 및 답변은 콘텐츠에서 축자 추출되므로 결과에 답변과 같은 텍스트가 포함되지 않으면 언어 모델에서 해당 텍스트를 생성하지 않습니다.
 
-의미 체계 검색은 한 문서나 문서 모음 내 다양한 콘텐츠의 정보를 유추하거나 정보 간 상관 관계를 지정할 수 없습니다. 예를 들어 지리적 입력이 없는 "사막의 리조트 호텔"에 대한 쿼리가 있는 경우 엔진은 두 주에 모두 사막이 있더라도 애리조나나 네바다에 위치한 호텔의 일치 항목을 생성하지 않습니다. 마찬가지로 쿼리에 "지난 5년 동안" 절이 포함된 경우 엔진은 반환할 현재 날짜를 기준으로 시간 간격을 계산하지 않습니다. Cognitive Search에서 위의 시나리오에 유용할 수 있는 메커니즘에는 외견상 다른 용어 간의 연결을 작성할 수 있는 [동의어 맵](search-synonyms.md) 또는 OData 식으로 지정된 [날짜 필터](search-query-odata-filter.md)가 포함됩니다.
+의미 체계 검색은 모든 시나리오에서 유용하지는 않지만 특정 콘텐츠는 해당 기능에서 상당한 이점을 얻을 수 있습니다. 의미 체계 검색의 언어 모델은 정보가 풍부한 산문 구조의 검색 가능한 콘텐츠에서 가장 효과적입니다. 기술 자료, 온라인 설명서 또는 설명이 포함된 문서는 의미 체계 검색 기능에서 가장 많은 혜택을 볼 수 있습니다.
 
 ## <a name="availability-and-pricing"></a>가용성 및 가격 책정
 
@@ -98,7 +94,31 @@ ms.locfileid: "114454785"
 
 의미 체계 검색 없이 맞춤법 검사를 무료로 사용할 수 있습니다. 의미 체계 검색에 대한 요금은 쿼리 요청에 `queryType=semantic`이 포함되고 검색 문자열이 비어 있지 않은 경우에 부과됩니다(예: `search=pet friendly hotels in new york`). queryType이 `semantic`으로 설정된 경우에도 빈 검색(`search=*`인 쿼리)에는 요금이 부과되지 않습니다.
 
-검색 서비스에서 의미 체계 검색 기능을 사용하지 않으려는 경우, 실수로 사용량이 증가하고 요금이 부과되지 않도록 [의미 체계 검색을 사용하지 않도록 설정](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)할 수 있습니다.
+## <a name="disable-semantic-search"></a>의미 체계 검색 사용 안 함
+
+기능이 활성화된 검색 서비스만 요금이 부과될 수 있습니다. 그러나 실수로 인 한 사용을 완전히 방지 하려면 [사용 안 함 옵션](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)을 설정 합니다.
+
+* Management REST API 버전 2021-04-01-미리 보기는이 옵션을 제공 합니다.
+
+* 기능을 사용 하지 않도록 설정 하려면 소유자 또는 참가자 권한이 필요 합니다.
+
+```http
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "location": "{{region}}",
+      "sku": {
+        "name": "standard"
+      },
+      "properties": {
+        "semanticSearch": "disabled"
+      }
+    }
+```
+
+의미 체계 검색을 다시 사용 하도록 설정 하려면 위의 요청을 다시 실행 하 고 "semanticSearch"를 "free" (기본값) 또는 "standard"로 설정 합니다.
+
+> [!TIP]
+> 관리 REST API 호출은 Azure Active Directory를 통해 인증 됩니다. 보안 원칙 및 요청을 설정 하는 방법에 대 한 지침은이 블로그 게시물 [Postman을 사용 하 여 AZURE REST api 게시물 (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)을 참조 하세요. 이전 예제는 블로그 게시물에 제공 된 명령 및 Postman 컬렉션을 사용 하 여 테스트 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

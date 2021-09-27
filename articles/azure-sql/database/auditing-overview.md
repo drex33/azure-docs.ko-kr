@@ -10,12 +10,12 @@ ms.author: arupp
 ms.reviewer: vanto
 ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 5750192116b9d6008bf1bb903dd36875b6939ffb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 512f43c102aa40707170021ec1b1fd6372437d64
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866484"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793547"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -159,7 +159,7 @@ Azure Monitor Log Analytics 작업 영역에 대한 자세한 내용은 [Azure M
 
 ## <a name="analyze-audit-logs-and-reports"></a><a id="subheading-3"></a>감사 로그 및 보고서 분석
 
-Azure Monitor 로그에 감사 로그를 작성하도록 선택한 경우:
+Log Analytics에 감사 로그를 작성하도록 선택한 경우:
 
 - [Azure Portal](https://portal.azure.com) 사용 관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기** 를 선택합니다.
 

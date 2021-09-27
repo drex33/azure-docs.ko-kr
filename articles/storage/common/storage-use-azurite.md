@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e01957c04e422f26601eab6f4e53694e317e22a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e097a9860c4e3cde968bc9b7c7bddb7eebd99349
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624864"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
@@ -53,7 +53,7 @@ azurite
 
 [릴리스 빌드 구성](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration)으로 변경하고 프로젝트를 실행합니다.
 
->[!NOTE]
+> [!NOTE]
 > 디버그 빌드 구성을 사용하여 프로젝트를 시작하면 오류가 발생할 수 있습니다. 이는 Visual Studio에서 Visual Studio에 기본 제공되는 레거시 스토리지 에뮬레이터를 시작하려고 할 수 있기 때문입니다. Azurite에서 레거시 스톨리지 에뮬레이터에 필요한 수신 대기 포트를 사용하므로 레거시 에뮬레이터를 시작하려는 시도가 차단됩니다.
 
 다음 이미지는 Azure 함수 프로젝트를 실행할 때 나타나는 명령줄 출력을 보여 줍니다.
@@ -68,7 +68,7 @@ Visual Studio Code 내에서 **확장** 창을 선택하고, **확장: 마켓플
 
 브라우저에서 [Visual Studio Code 확장 시장](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite)으로 이동할 수도 있습니다. **설치** 단추를 선택하여 Visual Studio Code를 열고, Azurite 확장 페이지로 직접 이동합니다.
 
-이 확장에서 지원하는 Visual Studio Code 명령은 다음과 같습니다. 명령 팔레트를 열려면 Visual Studio Code에서 F1 키를 누릅니다. 
+이 확장에서 지원하는 Visual Studio Code 명령은 다음과 같습니다. 명령 팔레트를 열려면 Visual Studio Code에서 F1 키를 누릅니다.
 
    - **Azurite: Clean** - 모든 Azurite 서비스 지속성 데이터 다시 설정
    - **Azurite: Clean Blob Service** - Blob service 정리
@@ -173,7 +173,7 @@ Azurite가 설치되고 빌드되면 [명령줄에서 Azurite 실행](#run-azuri
 ## <a name="run-azurite-from-a-command-line"></a>명령줄에서 Azurite 실행
 
 > [!NOTE]
-> Visual Studio Code 확장만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용합니다. 
+> Visual Studio Code 확장만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용합니다.
 
 명령줄을 사용하여 즉시 시작하려면 *c:\azurite* 라는 디렉터리를 만들고, 다음 명령을 실행하여 Azurite를 시작합니다.
 
@@ -333,6 +333,8 @@ azurite --location c:\azurite
 azurite -s
 azurite --silent
 ```
+
+
 ### <a name="debug-log"></a>디버그 로그
 
 **선택 사항** - 디버그 로그에는 모든 요청 및 예외 스택 추적에 대한 자세한 정보가 포함됩니다. `-d` 또는 `--debug` 스위치에 유효한 로컬 파일 경로를 제공하여 디버그 로그를 사용하도록 설정합니다.
@@ -350,6 +352,8 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
+
+
 ### <a name="version"></a>버전
 
 **선택 사항** - `-v` 또는 `--version` 스위치를 사용하여 설치된 Azuite 버전 번호를 표시합니다.
@@ -397,7 +401,6 @@ Azurite는 `basic` 매개 변수를 `--oauth` 스위치에 지정하여 기본 �
 ```console
 azurite --skipApiVersionCheck
 ```
-
 
 ## <a name="authorization-for-tools-and-sdks"></a>도구 및 SDK에 대한 권한 부여
 

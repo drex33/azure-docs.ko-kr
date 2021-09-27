@@ -1,15 +1,15 @@
 ---
-title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만들기 | Microsoft Docs
+title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만들기
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 42025ec3e2c509e2fcf7aa4874d9d5363f134a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464463"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604496"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
@@ -208,8 +208,7 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 작업 영역 기반 리소스에는 레거시 연속 내보내기 기능이 지원되지 않습니다. 대신 Application Insights 리소스 내에서 **진단 설정** > **진단 설정 추가** 를 선택합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다.
 
 > [!NOTE]
-> 현재 원격 분석 내보내기에 대한 추가 요금은 없습니다. 이 기능에 대한 가격 책정 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 제공됩니다.  청구가 시작되기 전에 알림이 전송됩니다. 알림 기간 후에도 계속 <feature name>을 사용하도록 선택하면 해당되는 요금이 청구됩니다. 
- 
+> 현재 원격 분석 내보내기에 대한 추가 요금은 없습니다. 이 기능에 대한 가격 책정 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 제공됩니다.  청구가 시작되기 전에 알림이 전송됩니다. 알림 기간이 끝난 후에도 원격 분석 내보내기를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

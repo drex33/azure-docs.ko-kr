@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: f46a421ae2ad1a4d9c590c7e0b47784760ebcb9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: c943db2577de8fc1e4adc0e9cfbf408bffb5f2c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782804"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585375"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터에 스폿 노드 풀 추가
 
@@ -69,7 +69,7 @@ az aks nodepool add \
 이 명령은 또한 [클러스터 자동 크기 조정기][cluster-autoscaler]를 사용하도록 설정하며, 스폿 노드 풀과 함께 사용하는 것이 좋습니다. 클러스터에서 실행되는 워크로드에 따라 클러스터 자동 크기 조정기는 노드 풀의 노드 수를 확장하고 축소합니다. 스폿 노드 풀의 경우 추가 노드가 여전히 필요한 경우 클러스터 자동 크기 조정기가 제거 후 노드 수를 확장합니다. 노드 풀에 포함될 수 있는 최대 노드 수를 변경하는 경우 클러스터 자동 크기 조정기와 관련된 `maxCount` 값도 조정해야 합니다. 클러스터 자동 크기 조정기를 사용하지 않는 경우 제거 시 스폿 풀은 결국 0으로 감소하고 추가 스폿 노드를 수신하려면 수동 작업이 필요합니다.
 
 > [!Important]
-> 일괄 처리 작업 및 테스트 환경과 같이 중단을 처리할 수 있는 스폿 노드 풀에서만 워크로드를 예약합니다. 스폿 노드 풀에서 노드 제거를 처리할 수 있는 워크로드만 예약되도록 스폿 노드 풀에 [taint 및 toleration][taints-tolerations]을 설정하는 것이 좋습니다. 예를 들어 위의 명령 ny 기본 값은 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 의 taint를 추가하므로 해당 toleration이 있는 Pod만 이 노드에 예약됩니다.
+> 일괄 처리 작업 및 테스트 환경과 같이 중단을 처리할 수 있는 스폿 노드 풀에서만 워크로드를 예약합니다. 스폿 노드 풀에서 노드 제거를 처리할 수 있는 워크로드만 예약되도록 스폿 노드 풀에 [taint 및 toleration][taints-tolerations]을 설정하는 것이 좋습니다. 예를 들어 위의 명령은 기본적으로 *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* 테인트(테인트)를 추가하므로 이 노드에서 해당 toleration이 있는 Pod만 예약됩니다.
 
 ## <a name="verify-the-spot-node-pool"></a>스폿 노드 풀 확인
 

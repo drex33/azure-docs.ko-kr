@@ -1,11 +1,8 @@
 ---
 title: RHEL의 Azure VM(가상 머신)에 IBM Db2 HADR 설정 | Microsoft Docs
 description: Azure VM(가상 머신) RHEL에서 IBM Db2 LUW의 고가용성을 설정합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-sap
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/27/2021
 ms.author: juergent
-ms.openlocfilehash: 9bdd5c8ce5974d73b76dd793445a19a9714f6038
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 99ea40f7fcfe0a5d3f34c9c9a9a7bbee58fd1186
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136844"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562405"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
@@ -336,7 +333,7 @@ Azure Load Balancer를 구성하려면 [Azure 표준 Load Balancer SKU](../../..
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력합니다(예: **Db2-connection**).
 
-   다. **할당** 을 **정적** 으로 설정하고, 시작 부분에 정의된 IP 주소 **Virtual-IP** 를 입력합니다.
+   c. **할당** 을 **정적** 으로 설정하고, 시작 부분에 정의된 IP 주소 **Virtual-IP** 를 입력합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -362,7 +359,7 @@ Azure Load Balancer를 구성하려면 [Azure 표준 Load Balancer SKU](../../..
 
    b. 새 상태 프로브의 이름을 입력합니다(예: **Db2-hp**).
 
-   다. 프로토콜로 **TCP** 를 선택하고 포트 **62500** 을 선택합니다. **5** 로 설정된 **간격** 값 및 **2** 로 설정된 **비정상 임계값** 의 값을 유지합니다.
+   c. 프로토콜로 **TCP** 를 선택하고 포트 **62500** 을 선택합니다. **5** 로 설정된 **간격** 값 및 **2** 로 설정된 **비정상 임계값** 의 값을 유지합니다.
 
    d. **확인** 을 선택합니다.
 
@@ -655,10 +652,10 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **On RHEL 7.x - pcs resource move \<res_name> <host>:** 위치 제약 조건을 생성하고 인수 문제를 일으킬 수 있음
-- **On RHEL 8.x - pcs resource move \<res_name> --master:** 위치 제약 조건을 생성하고 인수 문제를 일으킬 수 있음
-- **pcs resource clear \<res_name>** : 위치 제약 조건 지우기
-- **pcs resource cleanup \<res_name>** : 리소스의 모든 오류 지우기
+- **On RHEL 7.x - pcs resource move \<res_name\> \<host\>:** 위치 제약 조건을 생성하고 인수 문제를 일으킬 수 있음
+- **On RHEL 8.x - pcs resource move \<res_name\> --master:** 위치 제약 조건을 생성하고 인수 문제를 일으킬 수 있음
+- **pcs resource clear \<res_name\>** : 위치 제약 조건 지우기
+- **pcs resource cleanup \<res_name\>** : 리소스의 모든 오류 지우기
 
 ### <a name="test-a-manual-takeover"></a>수동 인수 테스트
 
@@ -876,7 +873,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
+[dbms-db2]:dbms_guide_ibm.md
 
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
@@ -885,12 +882,12 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 [rhel-azr-supp]:https://access.redhat.com/articles/3131341
 [rhel-azr-inst]:https://access.redhat.com/articles/3252491
 [rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
+[ascs-ha-rhel]:high-availability-guide-rhel.md
+[glusterfs]:high-availability-guide-rhel-glusterfs.md
+[rhel-pcs-azr]:high-availability-guide-rhel-pacemaker.md
+[anf-rhel]:high-availability-guide-rhel-netapp-files.md
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
+[azr-sap-plancheck]:sap-deployment-checklist.md

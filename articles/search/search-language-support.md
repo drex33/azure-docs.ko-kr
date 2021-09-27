@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 09/08/2021
+ms.openlocfilehash: 6511764697adcd6c8743efe41d276ccef3ff1bb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801607"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823907"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Azure Cognitive Search에서 여러 언어에 대한 인덱스를 만드는 방법
+# <a name="create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Azure Cognitive Search 여러 언어에 대한 인덱스 만들기
 
 다국어 검색 애플리케이션의 핵심 요구 사항은 사용자의 언어로 검색하고 결과를 볼 수 있는 기능입니다. Azure Cognitive Search에서 다국어 앱의 언어 요구 사항을 충족시키는 한 가지 방법은 문자열을 특정 언어로 저장하는 전용 필드를 만든 다음, 쿼리 시 전체 텍스트 검색을 해당 필드로 제한하는 것입니다.
 
-+ 필드 정의에서 대상 언어의 언어 규칙을 호출하는 언어 분석기를 설정합니다. 지원되는 분석기의 전체 목록을 보려면 [언어 분석기 추가](index-add-language-analyzers.md)를 참조하세요.
++ 필드 정의에서 대상 언어의 언어 규칙을 호출하는 언어 [분석기를 지정합니다.](index-add-language-analyzers.md) 
 
-+ 쿼리 요청에서 매개 변수를 설정하여 전체 텍스트 검색 범위를 특정 필드로 지정한 후 전달하려는 검색 환경과 호환되는 콘텐츠를 제공하지 않는 필드의 결과를 트리밍합니다.
++ 쿼리 요청에서 매개 `searchFields` 변수를 설정하여 전체 텍스트 검색 범위를 특정 필드로 지정한 다음 를 사용하여 `select` 호환되는 콘텐츠가 있는 필드만 반환합니다.
 
 이 기술의 성공은 필드 콘텐츠의 무결성에 달려 있습니다. Azure Cognitive Search는 문자열을 변환하거나 쿼리 실행의 일부로 언어 검색을 수행하지 않습니다. 필드에 예상하는 문자열이 포함되어 있는지 확인하는 것은 사용자의 몫입니다.
 
@@ -141,7 +141,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [언어 분석기](index-add-language-analyzers.md)
++ [언어 분석기 추가](index-add-language-analyzers.md)
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](/rest/api/searchservice/search-documents)
 + [AI 보강 개요](cognitive-search-concept-intro.md)

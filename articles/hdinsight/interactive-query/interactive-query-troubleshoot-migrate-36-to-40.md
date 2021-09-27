@@ -4,12 +4,12 @@ description: HDInsight 3.6에서 4.0으로 Hive 워크로드 마이그레이션�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/12/2021
-ms.openlocfilehash: eb19f3bd726efe018b4c593f324eb1cacd2cc2c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: eecf8cd36c1f631176ce836523be802d751ed55b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625965"
 ---
 # <a name="troubleshooting-guide-for-migration-of-hive-workloads-from-hdinsight-36-to-hdinsight-40"></a>HDInsight 3.6에서 HDInsight 4.0으로 Hive 워크로드 마이그레이션을 위한 문제 해결 가이드
 
@@ -18,9 +18,11 @@ ms.locfileid: "122566210"
 ## <a name="reduce-latency-when-running-describe-table_name"></a>`DESCRIBE TABLE_NAME` 실행 시 대기 시간 줄이기
 
 해결 방법:
+
 * 한 일괄 처리 내에 메타스토어에서 검색할 수 있는 최대 개체(테이블/파티션) 수를 늘립니다. 만족스러운 대기 시간 수준에 도달할 때까지 큰 수(기본값은 300)로 설정합니다. 숫자가 높을수록 Hive 메타스토어 서버에 필요한 왕복 횟수가 줄어들지만 클라이언트 측에서 더 높은 메모리 요구 사항이 발생할 수도 있습니다.
 
-    ```hive.metastore.batch.retrieve.max=2000```
+  `hive.metastore.batch.retrieve.max=2000`
+
 * Hive 및 모든 오래된 서비스 다시 시작
 
 ## <a name="unable-to-query-gzipped-text-file-if-skipheaderlinecount-and-skipfooterlinecount-are-set-for-table"></a>skip.header.line.count 및 skip.footer.line.count가 테이블에 대해 설정된 경우 Gzipped 텍스트 파일을 쿼리할 수 없음
@@ -137,14 +139,17 @@ Hive 메타스토어가 HDInsight 4.0에 포함되어 있지 않기 때문에 Me
 
 ## <a name="permission-errors-in-hive-job-after-upgrading-to-hdinsight-40"></a>HDInsight 4.0으로 업그레이드한 후 Hive 작업의 권한 오류
 
-* HDInsight 4.0에서 Hive 구성 요소가 있는 모든 클러스터 모양은 새 권한 부여 공급자로 구성됩니다. ```org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider```
+* HDInsight 4.0에서 Hive 구성 요소가 있는 모든 클러스터 모양은 새 권한 부여 공급자로 구성됩니다. 
+
+  `org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider`
 
 * HDFS 파일 권한은 액세스 중인 파일에 대해 Hive 사용자에게 할당되어야 합니다. 오류 메시지는 문제를 해결하는 데 필요한 세부 정보를 제공합니다.
 
 * HDInsight 3.6 Hive 클러스터에서 사용되는 ```MetaStoreAuthzAPIAuthorizerEmbedOnly``` 공급자로 전환할 수도 있습니다.
-```org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly```
 
-    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="MetaStoreAuthzAPIAuthorizerEmbedOnly로 권한 부여 설정" border="true":::
+  `org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly`
+
+  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="MetaStoreAuthzAPIAuthorizerEmbedOnly로 권한 부여 설정" border="true":::
 
 ## <a name="unable-to-query-table-with-opencsvserde"></a>OpenCSVSerde로 테이블을 쿼리할 수 없음
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/16/2021
 ms.author: pafarley
-ms.openlocfilehash: 79846dcb5acb50549231d247530512564ae1beea
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542527"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569495"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -153,7 +153,8 @@ Speech Service 구독에 권장되는 지역 목록은 [Azure 계정 설정](cus
 
 ## <a name="pronunciation-data-for-training"></a>학습용 발음 데이터
 
-사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 
+사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 사용자 지정 발음을 지원하는 언어 목록은 [Speech-to-text 테이블의](language-support.md#speech-to-text) **사용자 지정** 열에서 **발음을** 참조하세요.
+
 > [!IMPORTANT]
 > 사용자 지정 발음 파일을 사용하여 일반적인 단어의 발음을 변경하는 것은 권장되지 않습니다.
 
@@ -166,13 +167,6 @@ Speech Service 구독에 권장되는 지역 목록은 [Azure 계정 설정](cus
 | IEEE | i triple e |
 
 구어체는 철자로 풀어 쓴 음성 시퀀스로 문자, 단어, 음절 또는 세 가지 모두의 조합으로 구성될 수 있습니다.
-
-사용자 지정 발음은 영어(`en-US`) 및 독일어(`de-DE`)에서 사용할 수 있습니다. 다음 표는 언어별로 지원되는 문자를 보여줍니다.
-
-| 언어 | Locale | 문자 |
-|----------|--------|------------|
-| 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 다음 표를 사용하여 발음에 대한 관련 데이터 파일이 올바른 형식인지 확인합니다. 발음 파일은 작으며 크기는 몇 킬로바이트여야 합니다.
 

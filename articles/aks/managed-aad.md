@@ -5,28 +5,28 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: b7918ecc31fe152bd25153ac8c899ce3ff8fdacb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 79193066e8733ebc8b614e7735eed402e1124fda
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640600"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642133"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
-AKS 관리형 Azure AD 통합은 Azure AD 통합 환경을 간소화하도록 설계되었습니다. 이전에는 사용자가 클라이언트 앱, 서버 앱을 만들어야 했고, 사용자에게 디렉터리 읽기 권한을 부여하는 Azure AD 테넌트가 필요했습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
+AKS 관리 Azure AD 통합은 Azure AD 통합 프로세스를 간소화합니다. 이전에는 사용자가 클라이언트 및 서버 앱을 만들어야 했으며 Azure AD 테넌트에 디렉터리 읽기 권한을 부여해야 했습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
 
 ## <a name="azure-ad-authentication-overview"></a>Azure AD 인증 개요
 
 클러스터 관리자는 사용자의 ID 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 구성할 수 있습니다. OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
 
-Azure AD 통합 흐름에 대한 자세한 정보는 [Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-active-directory-integration)를 참조하세요.
+Azure AD 통합 흐름에 대한 자세한 정보는 [Azure Active Directory 통합 개념 설명서](concepts-identity.md#azure-ad-integration)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항 
 
 * AKS 관리형 Azure AD 통합을 사용하지 않도록 설정할 수 없습니다
 * AKS 관리형 Azure AD 통합 클러스터를 레거시 AAD로 변경하는 기능은 지원되지 않습니다
-* AKS 관리형 Azure AD 통합에 Kubernetes RBAC를 사용하지 않는 클러스터는 지원되지 않습니다
+* Kubernetes RBAC를 사용하지 않는 클러스터는 AKS 관리형 Azure AD 통합에 대해 지원되지 않습니다.
 * AKS 관리형 Azure AD 통합에 연결된 Azure AD 테넌트 변경은 지원되지 않습니다
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -50,7 +50,7 @@ kubelogin --version
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-클러스터의 경우 Azure AD 그룹이 필요합니다. 이 그룹은 클러스터가 클러스트 관리자 권한을 부여하기 위한 관리자 그룹으로 필요합니다. 기존 Azure AD 그룹을 사용하거나 그룹을 새로 만들 수 있습니다. Azure AD 그룹의 개체 ID를 기록합니다.
+클러스터의 경우 Azure AD 그룹이 필요합니다. 이 그룹은 클러스터 관리자 권한을 부여하기 위해 클러스터에 관리자 그룹으로 등록됩니다. 기존 Azure AD 그룹을 사용하거나 그룹을 새로 만들 수 있습니다. Azure AD 그룹의 개체 ID를 기록합니다.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -100,7 +100,7 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 만들어지면 응답 �
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Azure AD를 사용하는 클러스터에 액세스
 
-다음 단계를 수행하려면 [Azure Kubernetes Service 클러스터 사용자](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요합니다.
+Azure AD 정의 그룹을 사용하여 클러스터에 액세스하기 전에 [Azure Kubernetes Service 클러스터 사용자](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요합니다.
 
 클러스터에 액세스하는 데 사용할 사용자 자격 증명을 가져옵니다.
  
@@ -187,6 +187,115 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 마이그레이션되면 
 ## <a name="non-interactive-sign-in-with-kubelogin"></a>kubelogin을 사용한 비 대화형 로그인
 
 현재 kubectl에서 사용할 수 없는, 연속 통합 파이프라인과 같은 몇 가지 비 대화형 시나리오가 있습니다. [`kubelogin`](https://github.com/Azure/kubelogin)을 사용하여 비 대화형 서비스 주체 로그인으로 클러스터에 액세스할 수 있습니다.
+
+## <a name="disable-local-accounts-preview"></a>로컬 계정 사용 안 함(미리 보기)
+
+AKS 클러스터를 배포할 때 로컬 계정은 기본적으로 사용하도록 설정됩니다. RBAC 또는 Azure Active Directory 통합을 사용하는 경우에도 기본적으로 감사할 수 없는 백도어 옵션으로 `--admin` 액세스 권한이 있습니다. 이를 고려하여 AKS는 사용자에게 플래그 `disable-local-accounts`을 통해 로컬 계정을 사용하지 않도록 할 수 있는 기능을 제공합니다. 기능이 클러스터에서 사용하도록 설정되었는지 여부를 나타내는 필드 `properties.disableLocalAccounts`도 관리 클러스터 API에 추가되었습니다.
+
+> [!NOTE]
+> Azure AD 통합이 사용하도록 설정된 클러스터에서 `aad-admin-group-object-ids`로 지정된 그룹에 속한 사용자는 관리자가 아닌 자격 증명을 통해 계속 액세스할 수 있습니다. Azure AD 통합을 사용하지 않고 `properties.disableLocalAccounts`를 true로 설정하지 않은 클러스터에서는 사용자 및 관리자 자격 증명을 모두 얻지 못합니다.
+
+### <a name="register-the-disablelocalaccountspreview-preview-feature"></a>`DisableLocalAccountsPreview` 미리 보기 기능 등록
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+로컬 계정 없이 AKS 클러스터를 사용하려면 구독에서 `DisableLocalAccountsPreview` 기능 플래그를 사용하도록 설정해야 합니다. 최신 버전의 Azure CLI 및 `aks-preview` 확장을 사용하는지 확인합니다.
+
+다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `DisableLocalAccountsPreview` 기능 플래그를 등록합니다.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
+```
+
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
+```
+
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="create-a-new-cluster-without-local-accounts"></a>로컬 계정이 없는 새 클러스터 만들기
+
+로컬 계정 없이 새 AKS 클러스터를 만들려면 `disable-local-accounts` 플래그와 함께 [az aks create][az-aks-create] 명령을 사용합니다.
+
+```azurecli-interactive
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
+```
+
+출력에서 `properties.disableLocalAccounts` 필드가 true로 설정되어 있는지 확인하여 로컬 계정이 사용하지 않도록 설정되었는지 확인합니다.
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+관리자 자격 증명을 가져오려고 하면 기능에서 액세스를 차단하고 있음을 나타내는 오류 메시지와 함께 실패합니다.
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### <a name="disable-local-accounts-on-an-existing-cluster"></a>기존 클러스터에서 로컬 계정 사용 안 함
+
+기존 AKS 클러스터에서 로컬 계정을 사용하지 않도록 설정하려면 `disable-local-accounts` 플래그와 함께 [az aks update][az-aks-update] 명령을 사용합니다.
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
+```
+
+출력에서 `properties.disableLocalAccounts` 필드가 true로 설정되어 있는지 확인하여 로컬 계정이 사용하지 않도록 설정되었는지 확인합니다.
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+관리자 자격 증명을 가져오려고 하면 기능에서 액세스를 차단하고 있음을 나타내는 오류 메시지와 함께 실패합니다.
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### <a name="re-enable-local-accounts-on-an-existing-cluster"></a>기존 클러스터에서 로컬 계정 다시 사용
+
+AKS는 또한 `enable-local` 플래그를 사용하여 기존 클러스터에서 로컬 계정을 다시 사용하는 기능을 제공합니다.
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --enable-local
+```
+
+출력에서 `properties.disableLocalAccounts` 필드가 false로 설정되어 있는지 확인하여 로컬 계정이 다시 사용하도록 설정되었는지 확인합니다.
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": false,
+    ...
+}
+```
+
+관리자 자격 증명 가져오기가 성공합니다.
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Merged "<cluster-name>-admin" as current context in C:\Users\<username>\.kube\config
+```
 
 ## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Azure AD와 AKS를 사용하여 조건부 액세스 사용
 
@@ -285,6 +394,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
+### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임스페이스 수준에서 Just-In-Time 액세스 적용
+
+1. AKS 클러스터를 [Azure RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac)와 통합합니다.
+2. 역할 할당을 통해 Just-In-Time 액세스와 통합하려는 그룹을 클러스터의 네임스페이스와 연결합니다.
+
+```azurecli-interactive
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+```
+3. 네임스페이스 수준에서 방금 구성한 그룹을 PIM과 연결하여 구성을 완료합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -315,11 +433,11 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
@@ -327,3 +445,7 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update

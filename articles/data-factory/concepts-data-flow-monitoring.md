@@ -1,46 +1,46 @@
 ---
 title: 매핑 데이터 흐름 모니터링
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory에서 매핑 데이터 흐름을 시각적으로 모니터링하는 방법
+description: Azure Data Factory 및 Synapse Analytics에서 데이터 흐름의 매핑을 시각적으로 모니터링 하는 방법
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/18/2021
-ms.openlocfilehash: b64ed4b59c2aba13640dec2f19dfa4e42696ce59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: a86faad201b2a00e288cd20c34b7e44152baac58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642974"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812057"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-데이터 흐름 빌드 및 디버그를 완료한 후에는 파이프라인의 컨텍스트 내에서 일정에 따라 실행되도록 데이터 흐름을 예약하는 것이 좋습니다. 트리거를 사용하여 Azure Data Factory에서 파이프라인을 예약할 수 있습니다. 파이프라인에서 데이터 흐름을 테스트하고 디버깅하려면, Azure Data Factory 파이프라인 작성기에서 도구 모음 리본 또는 지금 트리거 옵션에 있는 디버그 단추를 사용하여 단일 실행을 수행함으로써 파이프라인 컨텍스트 내 데이터 흐름을 테스트하면 됩니다.
+데이터 흐름 빌드 및 디버그를 완료한 후에는 파이프라인의 컨텍스트 내에서 일정에 따라 실행되도록 데이터 흐름을 예약하는 것이 좋습니다. 트리거를 사용 하 여 파이프라인을 예약할 수 있습니다. 파이프라인에서 데이터 흐름을 테스트 하 고 디버깅 하려면 파이프라인 작성기에서 도구 모음 리본 또는 지금 트리거 옵션을 사용 하 여 파이프라인 컨텍스트 내에서 데이터 흐름을 테스트 하는 단일 실행 실행을 실행할 수 있습니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
-파이프라인을 실행할 때 Data Flow 작업을 비롯하여 파이프라인에 포함된 모든 작업과 파이프라인을 모니터링할 수 있습니다. 왼쪽 Azure Data Factory UI 패널에서 모니터 아이콘을 클릭합니다. 아래와 비슷한 화면이 표시됩니다. 강조 표시된 아이콘을 사용하면 Data Flow 작업을 비롯한 파이프라인의 작업을 드릴할 수 있습니다.
+파이프라인을 실행할 때 Data Flow 작업을 비롯하여 파이프라인에 포함된 모든 작업과 파이프라인을 모니터링할 수 있습니다. 왼쪽 UI 패널에서 모니터 아이콘을 클릭 합니다. 아래와 비슷한 화면이 표시됩니다. 강조 표시된 아이콘을 사용하면 Data Flow 작업을 비롯한 파이프라인의 작업을 드릴할 수 있습니다.
 
-![스크린샷은 자세한 정보를 위해 파이프라인을 선택할 수 있는 아이콘을 보여 줍니다.](media/data-flow/monitor-new-001.png "Data Flow 모니터링")
+:::image type="content" source="media/data-flow/monitor-new-001.png" alt-text="스크린샷은 자세한 정보를 위해 파이프라인을 선택할 수 있는 아이콘을 보여 줍니다.":::
 
 실행 시간 및 상태를 포함하여 이 수준에서 통계를 볼 수 있습니다. 작업 수준의 실행 ID는 파이프라인 수준의 실행 ID와 다릅니다. 이전 수준의 실행 ID는 파이프라인의 실행 ID입니다. 안경 아이콘을 선택하면 데이터 흐름 실행에 대한 심층 정보가 제공됩니다.
 
-![스크린샷은 데이터 흐름 실행의 세부 정보를 볼 수 있는 안경 아이콘을 보여 줍니다.](media/data-flow/monitoring-details.png "Data Flow 모니터링")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="스크린샷은 데이터 흐름 실행의 세부 정보를 볼 수 있는 안경 아이콘을 보여 줍니다.":::
 
 그래픽 노드 모니터링 보기에서는 데이터 흐름 그래프의 간소화된 보기 전용 버전을 볼 수 있습니다. 변환 단계 레이블이 포함된 더 큰 그래프 노드를 사용하여 세부 정보 보기를 확인하려면 캔버스 오른쪽에 있는 확대/축소 슬라이더를 사용합니다. 오른쪽 검색 단추를 사용하여 그래프에서 데이터 흐름 논리의 일부를 찾을 수도 있습니다.
 
-![스크린샷은 그래프의 보기 전용 버전을 보여 줍니다.](media/data-flow/mon003.png "Data Flow 모니터링")
+:::image type="content" source="media/data-flow/mon003.png" alt-text="스크린샷은 그래프의 보기 전용 버전을 보여 줍니다.":::
 
 ## <a name="view-data-flow-execution-plans"></a>데이터 흐름 실행 플랜 보기
 
-Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이터 흐름에 따라 최적 코드 경로를 결정합니다. 또한 실행 경로는 여러 스케일 아웃 노드 및 데이터 파티션에서 발생할 수 있습니다. 따라서 모니터링 그래프는 변환의 실행 경로를 고려하여 흐름의 디자인을 나타냅니다. 개별 노드를 선택하면 클러스터에서 함께 실행된 코드를 나타내는 “스테이지”를 볼 수 있습니다. 표시되는 타이밍 및 개수는 디자인의 개별 스테이지와는 반대로 해당 그룹 또는 단계를 나타냅니다.
+Spark에서 데이터 Flow 실행 되 면 서비스는 전체 데이터 흐름을 기반으로 최적의 코드 경로를 결정 합니다. 또한 실행 경로는 여러 스케일 아웃 노드 및 데이터 파티션에서 발생할 수 있습니다. 따라서 모니터링 그래프는 변환의 실행 경로를 고려하여 흐름의 디자인을 나타냅니다. 개별 노드를 선택하면 클러스터에서 함께 실행된 코드를 나타내는 “스테이지”를 볼 수 있습니다. 표시되는 타이밍 및 개수는 디자인의 개별 스테이지와는 반대로 해당 그룹 또는 단계를 나타냅니다.
 
-![스크린샷은 데이터 흐름에 대한 페이지를 보여 줍니다.](media/data-flow/monitor-new-005.png "Data Flow 모니터링")
+:::image type="content" source="media/data-flow/monitor-new-005.png" alt-text="스크린샷은 데이터 흐름에 대한 페이지를 보여 줍니다.":::
 
 * 모니터링 창에서 열린 공간을 선택하면 맨 아래 창의 통계에 변환 계보에 대한 싱크 데이터가 발생한 변환과 각 싱크의 타이밍 및 행 개수가 표시됩니다.
 
@@ -61,13 +61,13 @@ Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이
   * 클러스터 시작 시간: 데이터 흐름 실행을 위해 JIT Spark 컴퓨팅 환경을 확보하는 데 걸리는 시간입니다.
   * 변환 수: 흐름에서 실행 중인 변환 단계의 수입니다.
   
-![스크린샷은 새로 고침 옵션을 보여 줍니다.](media/data-flow/monitornew.png "Data Flow 모니터링 새로 만들기")
+:::image type="content" source="media/data-flow/monitornew.png" alt-text="스크린샷은 새로 고침 옵션을 보여 줍니다.":::
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>총 싱크 처리 시간 및 변환 처리 시간
 
 각 변환 단계에는 각 파티션 실행 시간을 합산하여 해당 단계를 완료하는 데 걸리는 총 시간이 포함됩니다. 싱크를 클릭하면 "싱크 처리 시간"이 표시됩니다. 이 시간에는 데이터를 대상 저장소에 쓰는 데 걸린 I/O 시간 *및* 총 변환 시간이 포함됩니다. 싱크 처리 시간과 총 변환의 차이는 데이터를 쓰는 I/O 시간입니다.
 
-ADF 파이프라인 모니터링 보기에서 데이터 흐름 작업의 JSON 출력을 열면 각 파티션 변환 단계에 대한 자세한 타이밍을 볼 수도 있습니다. JSON에는 각 파티션에 대한 밀리초 타이밍이 포함되어 있는 반면 UX 모니터링 보기는 함께 추가된 파티션의 집계 타이밍입니다.
+파이프라인 모니터링 보기의 데이터 흐름 작업에서 JSON 출력을 여는 경우 각 파티션 변환 단계에 대 한 자세한 타이밍을 볼 수도 있습니다. JSON에는 각 파티션에 대한 밀리초 타이밍이 포함되어 있는 반면 UX 모니터링 보기는 함께 추가된 파티션의 집계 타이밍입니다.
 
 ```
  {
@@ -98,16 +98,16 @@ ADF 파이프라인 모니터링 보기에서 데이터 흐름 작업의 JSON �
 
 데이터 흐름 싱크에서 오류 행 처리를 사용하도록 설정하면 모니터링 출력에 반영됩니다. 싱크를 "오류 발생 시 성공 보고"로 설정하면 싱크 모니터링 노드를 클릭할 때 모니터링 출력에 성공 및 실패한 행 수가 표시됩니다.
 
-![스크린샷에 오류 행 수가 표시됩니다.](media/data-flow/error-row-2.png "오류 행 모니터링 성공")
+:::image type="content" source="media/data-flow/error-row-2.png" alt-text="스크린샷에 오류 행 수가 표시됩니다.":::
 
 "오류 발생 시 실패 보고"를 선택하면 동일한 출력이 작업 모니터링 출력 텍스트에만 표시됩니다. 이는 데이터 흐름 작업이 실행 실패를 반환하고 세부 모니터링 보기를 사용할 수 없기 때문입니다.
 
-![스크린샷에 작업의 오류 행 수가 표시됩니다.](media/data-flow/error-rows-4.png "오류 행 모니터링 실패")
+:::image type="content" source="media/data-flow/error-rows-4.png" alt-text="스크린샷에 작업의 오류 행 수가 표시됩니다.":::
 
 ## <a name="monitor-icons"></a>모니터 아이콘
 
 이 아이콘은 변환 데이터가 클러스터에 이미 캐시되어 타이밍 및 실행 경로에서 고려되었음을 의미합니다.
 
-![스크린샷에 디스크 아이콘이 표시됩니다.](media/data-flow/mon005.png "Data Flow 모니터링")
+:::image type="content" source="media/data-flow/mon005.png" alt-text="스크린샷에 디스크 아이콘이 표시됩니다.":::
 
 변환에 녹색 원 아이콘도 표시됩니다. 이 아이콘은 데이터가 이동되는 싱크 수를 나타냅니다.

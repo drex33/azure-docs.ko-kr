@@ -6,12 +6,12 @@ ms.date: 05/04/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: bfbf876f8621beec4d8eddb80c3db285cd6d4c49
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: bf417b6ca70012a3cf4bce17640aa4bc9ab9fd08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688298"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611209"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Azure Resource Manager 템플릿 사양
 
@@ -23,6 +23,10 @@ ms.locfileid: "110688298"
 
 > [!NOTE]
 > Azure PowerShell에서 템플릿 사양을 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+템플릿 사양에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [템플릿 사양을 사용 하 여 재사용 가능한 인프라 코드의 라이브러리 게시](/learn/modules/arm-template-specs) 를 참조 하세요.
 
 ## <a name="why-use-template-specs"></a>템플릿 사양을 사용하는 이유는 무엇인가요?
 

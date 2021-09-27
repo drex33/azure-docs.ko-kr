@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d20f504e4c35bcb314e599b3111a3c66805568e7
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: f15ffe95f002ac74553363485fe90d16f8864347
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676320"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552530"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 감사 로깅
 
@@ -45,9 +45,15 @@ pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포
    2. 사이드바에서 **서버 매개 변수** 를 선택합니다.
    3. `shared_preload_libraries` 매개 변수를 검색합니다.
    4. **pgaudit** 를 선택합니다.
+     :::image type="content" source="./media/concepts-audit/share-preload-parameter.png" alt-text="Azure Database for PostgreSQL 보여 shared_preload_libraries 사용하도록 설정하는 스크린샷 ":::
    5. 서버를 다시 시작하여 변경 내용을 적용합니다.
+   6. psql에서 다음 쿼리를 실행하여 **shared_preload_libraries pgaudit가** 로드되어 있는지 확인할 수 있습니다.
+        ```SQL
+      show shared_preload_libraries;
+      ```
+      쿼리 결과에는 shared_preload_libraries 반환되는 **pgaudit가** 표시됩니다.
 
-   6. 클라이언트(예: psql)를 사용하여 서버에 연결하고 pgAudit 확장을 사용하도록 설정합니다.
+   7. 클라이언트(예: psql)를 사용하여 서버에 연결하고 pgAudit 확장을 사용하도록 설정합니다.
       ```SQL
       CREATE EXTENSION pgaudit;
       ```
@@ -60,9 +66,20 @@ pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포
 pgAudit를 사용하면 세션 또는 개체 감사 로깅을 구성할 수 있습니다. [세션 감사 로깅](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging)은 실행된 문의 자세한 로그를 내보냅니다. [개체 감사 로깅](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging)은 특정 관계로 범위가 지정된 감사입니다. 하나 또는 두 가지 로깅 유형을 설정하도록 선택할 수 있습니다. 
 
 > [!NOTE]
-> pgAudit 설정은 전역으로 지정되며, 데이터베이스 또는 역할 수준에서 지정할 수 없습니다.
+> pgAudit 설정은 전역적으로 지정되며 데이터베이스 또는 역할 수준에서 지정할 수 없습니다.
 
-[pgAudit를 설치](#installing-pgaudit)한 후 해당 매개 변수를 구성하여 로깅을 시작할 수 있습니다. [pgAudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)는 각 매개 변수의 정의를 제공합니다. 먼저 매개 변수를 테스트하고 예상대로 동작하는지 확인합니다.
+[pgAudit를 설치](#installing-pgaudit)한 후 해당 매개 변수를 구성하여 로깅을 시작할 수 있습니다. pgAudit를 구성하려면 아래 지침을 따르면 됩니다. 다음과 같이 [Azure Portal](https://portal.azure.com)을 사용합니다.
+
+   1. Azure Database for PostgreSQL 서버를 선택합니다.
+   2. 사이드바에서 **서버 매개 변수** 를 선택합니다.
+   3. `pg_audit`매개 변수를 검색합니다.
+   4. 편집할 적절한 설정 매개 변수를 선택합니다. 예를 들어 로깅을 시작하려면 Azure Database for PostgreSQL 보여 주는 `pgaudit.log` `WRITE` :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="스크린샷 - pgaudit를 사용하여 로깅 구성 ":::
+   5. **저장** 단추를 클릭하여 변경 내용을 저장합니다.
+
+
+
+[pgAudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)는 각 매개 변수의 정의를 제공합니다. 먼저 매개 변수를 테스트하고 예상대로 동작하는지 확인합니다.
+
 
 > [!NOTE]
 > `pgaudit.log_client`를 On으로 설정하면 로그를 파일에 기록하는 대신 psql과 같은 클라이언트 프로세스로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>

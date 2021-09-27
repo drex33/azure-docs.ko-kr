@@ -1,15 +1,15 @@
 ---
 title: Azure DevTest Labs 인프라 강화
 description: 이 문서에서는 Azure DevTest Labs 인프라 강화를 위한 지침을 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ceba7023df2a704d43a47f3804c18fd6c0bb113d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85478793"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550750"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs 인프라 강화
 엔터프라이즈급으로 DevTest Labs를 구현하기 전에 몇 가지 중요한 사항을 결정해야 합니다. 높은 수준에서 이러한 결정 사항을 파악하는 조직은 향후에도 적절한 디자인 관련 결정을 내릴 수 있습니다. 하지만 이러한 결정 사항으로 인해 조직의 개념 증명 시작이 지연되어서는 안 됩니다. 초기 강화 계획에 포함되는 세 가지 주요 영역은 다음과 같습니다.

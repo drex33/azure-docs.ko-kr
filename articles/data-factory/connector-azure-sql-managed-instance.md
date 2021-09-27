@@ -1,26 +1,26 @@
 ---
 title: Azure SQL Managed Instance에서 데이터 복사 및 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Azure SQL Managed Instance에서 데이터를 복사하고 변환하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용 하 여 Azure SQL Managed Instance에서 데이터를 복사 하 고 변환 하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 2fe779877c42935977b5fecb26bd3fe2c1428a33
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 1e56f1ecf0345ccb13e7e5899fb1602dcad666b2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313965"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744040"
 ---
-# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Managed Instance에서 데이터 복사 및 변환
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Azure SQL Managed Instance에서 데이터 복사 및 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SQL Managed Instance 간에 데이터를 복사하고 Data Flow를 사용하여 Azure SQL Managed Instance에서 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 복사 작업을 사용 하 여 azure SQL Managed Instance에서 azure로 데이터를 복사 하 고 데이터 Flow를 사용 하 여 azure SQL Managed Instance에서 데이터를 변환 하는 방법을 설명 합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -39,7 +39,7 @@ SQL Managed Instance 커넥터는 다음과 같은 작업에 지원됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-SQL Managed Instance [퍼블릭 엔드포인트](../azure-sql/managed-instance/public-endpoint-overview.md)에 액세스하려면 Azure Data Factory에서 관리하는 Azure 통합 런타임을 사용할 수 있습니다. Azure Data Factory가 데이터베이스에 연결할 수 있도록 퍼블릭 엔드포인트를 사용 설정하고 네트워크 보안 그룹에서 퍼블릭 엔드포인트 트래픽을 허용합니다. 자세한 내용은 [이 참고 자료](../azure-sql/managed-instance/public-endpoint-configure.md)를 참조하세요.
+[공용 끝점](../azure-sql/managed-instance/public-endpoint-overview.md)Managed Instance SQL에 액세스 하려면 관리 되는 Azure 통합 런타임을 사용할 수 있습니다. 공용 끝점을 사용 하도록 설정 하 고 서비스를 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에 대 한 공용 끝점 트래픽도 허용 해야 합니다. 자세한 내용은 [이 참고 자료](../azure-sql/managed-instance/public-endpoint-configure.md)를 참조하세요.
 
 SQL Managed Instance 프라이빗 엔드포인트에 액세스하려면 데이터베이스에 액세스할 수 있는 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 설정합니다. Managed Instance와 동일한 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비저닝하는 경우 통합 런타임 컴퓨터가 Managed Instance와 다른 서브넷에 있는지 확인합니다. Managed Instance와 다른 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비저닝하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 SQL Managed Instance에 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.
 
@@ -82,11 +82,11 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
 | type | type 속성은 **AzureSqlMI** 로 설정해야 합니다. | 예 |
 | connectionString |이 속성은 SQL 인증을 사용하여 SQL Managed Instance에 연결하는 데 필요한 **connectionString** 정보를 지정합니다. 자세한 내용은 다음 예를 참조하세요. <br/>기본 포트는 1433입니다. 퍼블릭 엔드포인트를 사용하여 SQL Managed Instance를 사용하는 경우 포트 3342를 명시적으로 지정합니다.<br> Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 다음에 나오는 JSON 예제를 참조하고 [Azure Key Vault에 로그인 정보를 저장](store-credentials-in-key-vault.md)합니다. |예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Azure Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 애플리케이션이 상주하는 테넌트 정보(예: 도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 이 서비스의 클라우드 환경이 사용됩니다. | 예 |
 | alwaysEncryptedSettings | 관리 ID 또는 서비스 주체를 사용하여 SQL Server에 저장된 중요한 데이터를 보호하기 위해 Always Encrypted를 사용하도록 설정하는 데 필요한 **alwaysencryptedsettings** 정보를 지정합니다. 자세한 내용은 표 다음에 나오는 JSON 예제와 [Always Encrypted 사용](#using-always-encrypted) 섹션을 참조하세요. 지정하지 않으면 기본 Always Encrypted 설정이 사용하도록 설정되지 않습니다. |예 |
-| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리되는 인스턴스에 퍼블릭 엔드포인트가 있고 Azure Data Factory에서 액세스할 수 있도록 허용하는 경우 자체 호스팅 통합 런타임 또는 Azure 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리 되는 인스턴스에 공용 끝점이 있고 서비스에서 액세스할 수 있도록 허용 하는 경우 자체 호스팅 통합 런타임 또는 Azure integration runtime을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 > [!NOTE]
 > SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true)는 데이터 흐름에서 지원되지 않습니다. 
@@ -181,25 +181,25 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
     - 애플리케이션 키
     - 테넌트 ID
 
-3. Azure Data Factory 관리 ID용 [로그인을 만듭니다](/sql/t-sql/statements/create-login-transact-sql). SSMS(SQL Server Management Studio)에서 SQL Server 계정 **sysadmin** 을 사용하여 관리되는 인스턴스에 연결합니다. **마스터** 데이터베이스에서 다음 T-SQL을 실행합니다.
+3. 관리 id에 대 한 [로그인을 만듭니다](/sql/t-sql/statements/create-login-transact-sql) . SSMS(SQL Server Management Studio)에서 SQL Server 계정 **sysadmin** 을 사용하여 관리되는 인스턴스에 연결합니다. **마스터** 데이터베이스에서 다음 T-SQL을 실행합니다.
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. Azure Data Factory 관리 ID용 [포함된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities). 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행합니다. 
+4. 관리 ID에 대한 [포함된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities). 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행합니다. 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 Data Factory 관리 ID에 필요한 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](/sql/t-sql/statements/alter-role-transact-sql)를 참조하세요.
+5. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 관리 ID에 필요한 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](/sql/t-sql/statements/alter-role-transact-sql)를 참조하세요.
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-6. Azure Data Factory에서 SQL Managed Instance 연결된 서비스를 구성합니다.
+6. SQL Managed Instance 연결된 서비스를 구성합니다.
 
 **예제: 서비스 주체 인증 사용**
 
@@ -227,31 +227,31 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
 
 ### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
-특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. SQL Managed Instance 인증에 관리 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스에 액세스하고 해당 데이터베이스에 대해 데이터를 복사할 수 있습니다.
+데이터 팩터리 또는 Synapse 작업 영역은 다른 Azure 서비스에 대한 인증을 위한 서비스를 나타내는 [Azure 리소스에 대한 관리 ID와](data-factory-service-identity.md) 연결될 수 있습니다. SQL Managed Instance 인증에 관리 ID를 사용할 수 있습니다. 지정된 서비스는 이 ID를 사용하여 데이터베이스에서 또는 데이터베이스로 데이터를 액세스하고 복사할 수 있습니다.
 
 관리 ID 인증을 사용하려면 다음 단계를 수행합니다.
 
 1. 단계에 따라 [Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 수행합니다.
 
-2. Azure Data Factory 관리 ID용 [로그인을 만듭니다](/sql/t-sql/statements/create-login-transact-sql). SSMS(SQL Server Management Studio)에서 SQL Server 계정 **sysadmin** 을 사용하여 관리되는 인스턴스에 연결합니다. **마스터** 데이터베이스에서 다음 T-SQL을 실행합니다.
+2. 관리 ID에 대한 [로그인을 만듭니다.](/sql/t-sql/statements/create-login-transact-sql) SSMS(SQL Server Management Studio)에서 SQL Server 계정 **sysadmin** 을 사용하여 관리되는 인스턴스에 연결합니다. **마스터** 데이터베이스에서 다음 T-SQL을 실행합니다.
 
     ```sql
-    CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. Azure Data Factory 관리 ID용 [포함된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities). 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행합니다. 
+3. 관리 ID에 대한 [포함된 데이터베이스 사용자를 만듭니다](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities). 데이터를 복사할 데이터베이스에 연결하고 다음 T-SQL을 실행합니다. 
   
     ```sql
-    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
     ```
 
-4. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 Data Factory 관리 ID에 필요한 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](/sql/t-sql/statements/alter-role-transact-sql)를 참조하세요.
+4. SQL 사용자 및 다른 사용자에 대해 일반적으로 수행하는 것처럼 관리 ID에 필요한 권한을 부여합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](/sql/t-sql/statements/alter-role-transact-sql)를 참조하세요.
 
     ```sql
-    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your_factory_or_workspace_name]
     ```
 
-5. Azure Data Factory에서 SQL Managed Instance 연결된 서비스를 구성합니다.
+5. SQL Managed Instance 연결된 서비스를 구성합니다.
 
 **예제: 관리 ID 인증 사용**
 
@@ -277,7 +277,7 @@ SQL Managed Instance 연결된 서비스에서 지원되는 속성은 다음과 
 
 SQL Managed Instance 간에 데이터를 복사하기 위해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **AzureSqlMITable** 로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -316,7 +316,7 @@ SQL Managed Instance 간에 데이터를 복사하기 위해 지원되는 속성
 
 SQL Managed Instance에서 데이터를 복사하기 위해 복사 작업 원본 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SqlMISource** 로 설정해야 합니다. | 예 |
 | SqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
@@ -429,7 +429,7 @@ GO
 
 SQL Managed Instance로 데이터를 복사하기 위해 복사 작업 싱크 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SqlMISink** 로 설정해야 합니다. | 예 |
 | preCopyScript |이 속성은 SQL Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업용 SQL 쿼리를 지정하며 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
@@ -438,7 +438,7 @@ SQL Managed Instance로 데이터를 복사하기 위해 복사 작업 싱크 �
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정된 테이블 형식의 매개 변수 이름입니다.  |예 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예 |
-| writeBatchSize |*일괄 처리당* SQL 테이블에 삽입할 행 수입니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다.  |예 |
+| writeBatchSize |*일괄 처리당* SQL 테이블에 삽입할 행 수입니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 서비스는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다.  |예 |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 “00:30:00”(30분)을 지정할 수 있습니다. |예 |
 | maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
@@ -519,17 +519,17 @@ SQL Managed Instance로 데이터를 복사하기 위해 복사 작업 싱크 �
 
 복사 작업의 Azure SQL Managed Instance 커넥터는 데이터를 병렬로 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
-분할된 복사본을 사용하도록 설정하면 복사 작업이 SQL MI 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`의 값을 4로 설정하면, Data Factory는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 SQL MI에서 데이터의 일부를 검색합니다.
+분할된 복사본을 사용하도록 설정하면 복사 작업이 SQL MI 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 를 `parallelCopies` 4로 설정하면 서비스는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 SQL MI에서 데이터의 일부를 검색합니다.
 
 특히 SQL MI 데이터베이스에서 대량의 데이터를 로드하는 경우 특별히 데이터 분할로 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 폴더에 여러 파일로 쓰는 것이 좋습니다(폴더 이름만 지정). 이 경우 단일 파일에 쓰는 것보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행 중에 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. <br><br/>테이블에 물리적 파티션이 있는지 확인하려면 [이 쿼리](#sample-query-to-check-physical-partition)를 참조하세요. |
-| 데이터 분할을 위해 실제 파티션을 사용하지 않지만 정수 또는 날짜/시간 열을 사용하여 대규모 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**(선택 사항): 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 인덱스 또는 기본 키 열이 사용됩니다.<br/>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블의 행을 필터링하려는 것이 아니라 테이블의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>예를 들어 파티션 열 "ID"의 값 범위가 1에서 100이고 하한을 20으로 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션(ID 범위: <=20, [21, 50], [51, 80] 및 >=81)으로 데이터를 검색합니다. |
-| 실제 파티션이 없는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블에서 행을 필터링하려는 것이 아니라 쿼리 결과의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`을 각 파티션의 실제 열 이름과 값 범위로 바꾸고 SQL MI로 보냅니다. <br>예를 들어 파티션 열 "ID"의 값 범위가 1에서 100이고 하한을 20으로 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션(ID 범위: <=20, [21, 50], [51, 80] 및 >=81)으로 데이터를 검색합니다. <br><br>다양한 시나리오에 대한 추가적인 샘플 쿼리는 다음과 같습니다.<br> 1. 전체 테이블 쿼리: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열을 선택하고 where 절 필터를 추가하여 테이블 쿼리: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용하여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션을 사용하여 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행하는 동안 서비스에서 실제 파티션을 자동으로 검색하여 데이터를 파티션별로 복사합니다. <br><br/>테이블에 물리적 파티션이 있는지 확인하려면 [이 쿼리](#sample-query-to-check-physical-partition)를 참조하세요. |
+| 데이터 분할을 위해 실제 파티션을 사용하지 않지만 정수 또는 날짜/시간 열을 사용하여 대규모 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**(선택 사항): 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 인덱스 또는 기본 키 열이 사용됩니다.<br/>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블의 행을 필터링하려는 것이 아니라 테이블의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>예를 들어 "ID" 파티션 열의 값 범위가 1~100이고 하한을 20으로 설정하고 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 서비스에서 4개의 파티션별로(각각 ID 범위: 20 이하, [21, 50], [51, 80] 및 81 이상) 데이터를 검색합니다. |
+| 실제 파티션이 없는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블에서 행을 필터링하려는 것이 아니라 쿼리 결과의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>실행 중에 서비스는 `?AdfRangePartitionColumnName` 각 파티션의 실제 열 이름 및 값 범위로 바뀌고 SQL MI로 보내집니다. <br>예를 들어 "ID" 파티션 열의 값 범위가 1~100이고 하한을 20으로 설정하고 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 서비스에서 4개의 파티션별로(각각 ID 범위: 20 이하, [21, 50], [51, 80] 및 81 이상) 데이터를 검색합니다. <br><br>다양한 시나리오에 대한 추가적인 샘플 쿼리는 다음과 같습니다.<br> 1. 전체 테이블 쿼리: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열을 선택하고 where 절 필터를 추가하여 테이블 쿼리: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용하여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션을 사용하여 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 파티션 옵션을 사용하여 데이터를 로드하는 모범 사례:
@@ -580,7 +580,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 테이블에 물리적 파티션이 있는 경우 다음과 같이 "HasPartition"이 "예"로 표시됩니다.
 
-![SQL 쿼리 결과](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="SQL 쿼리 결과":::
 
 ## <a name="best-practice-for-loading-data-into-sql-managed-instance"></a>SQL Managed Instance로 데이터를 로드하는 모범 사례
 
@@ -591,11 +591,11 @@ SQL Managed Instance로 데이터를 복사하는 경우 다른 쓰기 동작이
 - [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드하려고 합니다.
 - [사용자 지정 논리를 사용하여 작성](#write-data-with-custom-logic): 대상 테이블에 최종 삽입하기 전에 추가 처리가 필요합니다. 
 
-Azure Data Factory에서 구성하는 방법 및 모범 사례는 각 섹션을 참조하세요.
+구성하는 방법 및 모범 사례는 각 섹션을 참조하세요.
 
 ### <a name="append-data"></a>데이터 추가
 
-데이터 추가는 SQL Managed Instance 싱크 커넥터의 기본 동작입니다. Azure Data Factory는 대량 삽입을 수행하여 테이블에 효율적으로 쓰기 작업을 수행합니다. 이에 따라 복사 작업에 원본 및 싱크를 구성할 수 있습니다.
+데이터 추가는 SQL Managed Instance 싱크 커넥터의 기본 동작입니다. 서비스는 대량 삽입을 수행 하 여 테이블에 효율적으로 씁니다. 이에 따라 복사 작업에 원본 및 싱크를 구성할 수 있습니다.
 
 ### <a name="upsert-data"></a>데이터 Upsert
 
@@ -603,9 +603,9 @@ Azure Data Factory에서 구성하는 방법 및 모범 사례는 각 섹션을 
 
 현재 복사 작업은 데이터를 데이터베이스 임시 테이블로 로드하는 것을 기본적으로 지원하지 않습니다. 여러 작업의 조합을 사용하여 이를 설정하는 고급 방법은 [SQL Database 대량 Upsert 최적화 시나리오](https://github.com/scoriani/azuresqlbulkupsert)를 참조하세요. 다음은 영구 테이블을 준비 프로세스로 사용하는 샘플을 보여 줍니다.
 
-예를 들어 Azure Data Factory에서 **저장 프로시저 작업** 과 연결된 **복사 작업** 을 사용하여 파이프라인을 만들 수 있습니다. 복사 작업은 원본 저장소에서 Azure SQL Managed Instance 준비 테이블(예: 데이터 세트의 테이블 이름 **UpsertStagingTable**)로 데이터를 복사합니다. 그런 다음 저장 프로시저 작업은 저장 프로시저를 호출하여 준비 테이블의 원본 데이터를 대상 테이블에 통합하고 준비 테이블을 정리합니다.
+예를 들어 **저장 프로시저 작업** 과 연결된 **복사 작업** 이 있는 파이프라인을 만들 수 있습니다. 복사 작업은 원본 저장소에서 Azure SQL Managed Instance 준비 테이블(예: 데이터 세트의 테이블 이름 **UpsertStagingTable**)로 데이터를 복사합니다. 그런 다음 저장 프로시저 작업은 저장 프로시저를 호출하여 준비 테이블의 원본 데이터를 대상 테이블에 통합하고 준비 테이블을 정리합니다.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용하여 저장 프로시저를 정의합니다. 대상이 **프로필 ID**, **상태**, **카테고리** 라는 세 개의 열이 있는 **마케팅** 테이블이라고 가정합니다. **프로필 ID** 열에 따라 upsert를 수행합니다.
 
@@ -630,7 +630,7 @@ END
 
 ### <a name="overwrite-the-entire-table"></a>전체 테이블 덮어쓰기
 
-**preCopyScript** 속성은 복사 작업 싱크에서 구성할 수 있습니다. 이 경우, 실행되는 각 복사 작업에 대해 Azure Data Factory는 스크립트를 먼저 실행합니다. 그런 다음, 복사를 실행하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제합니다.
+**preCopyScript** 속성은 복사 작업 싱크에서 구성할 수 있습니다. 이 경우 서비스는 실행되는 각 복사 작업에 대해 스크립트를 먼저 실행합니다. 그런 다음, 복사를 실행하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제합니다.
 
 ### <a name="write-data-with-custom-logic"></a>사용자 지정 논리를 사용하여 데이터 작성
 
@@ -671,7 +671,7 @@ SQL Managed Instance로 데이터를 복사하는 경우, 원본 테이블의 �
     END
     ```
 
-3. Azure Data Factory에서 다음과 같이 복사 작업의 **SQL MI 싱크** 섹션을 정의합니다.
+3. 파이프라인에서 복사 작업의 **SQL MI 싱크** 섹션을 다음과 같이 정의 합니다.
 
     ```json
     "sink": {
@@ -696,7 +696,7 @@ SQL Managed Instance로 데이터를 복사하는 경우, 원본 테이블의 �
 
 Azure SQL Managed Instance 원본에서 지원하는 속성은 다음 표와 같습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |- |
 | 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
@@ -719,12 +719,12 @@ source(allowSchemaDrift: true,
 
 Azure SQL Managed Instance 싱크에서 지원하는 속성은 다음 표와 같습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
 | 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 선택합니다. | 예 | `true` 또는 `false` | skipKeyWrites |
-| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | recreate<br/>truncate |
 | Batch 크기 | 각 일괄 처리에 작성되는 행 수를 지정합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 예 | 정수 | batchSize |
 | 사전 및 사후 SQL 스크립트 | 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 지정합니다. | 예 | String | preSQLs<br>postSQLs |
 
@@ -755,9 +755,9 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>SQL Managed Instance에 대한 데이터 형식 매핑
 
-복사 작업을 사용하여 데이터를 SQL Managed Instance에서/로 복사하는 경우, SQL Managed Instance 데이터 유형에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+복사 활동을 사용하여 SQL Managed Instance 데이터를 복사하는 경우 SQL Managed Instance 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| SQL Managed Instance 데이터 형식 | Azure Data Factory 중간 데이터 형식 |
+| SQL Managed Instance 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -812,4 +812,4 @@ IncomingStream sink(allowSchemaDrift: true,
 >3. 원본 및 싱크 데이터 저장소 모두 키 공급자 인증 유형과 동일한 서비스 주체를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

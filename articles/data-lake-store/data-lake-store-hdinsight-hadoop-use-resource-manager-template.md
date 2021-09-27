@@ -1,18 +1,18 @@
 ---
 title: 템플릿 - Data Lake Storage Gen1이 포함된 HDInsight 클러스터
 description: Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1이 포함된 Azure HDInsight 클러스터를 만들고 사용할 수 있습니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d2a8868dffa232aef58f9e57398987f1db755b3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 1cf45c977feae9f8c9bba6b63421805c35735ceb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597344"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]

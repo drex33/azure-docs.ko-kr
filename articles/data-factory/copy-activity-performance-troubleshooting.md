@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: a2f3ddf20b41ae1a1638a8c8a1900207f5b880df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255811"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767479"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "123255811"
 
 복사 활동을 실행한 후 [복사 활동 모니터링](copy-activity-monitoring.md) 보기에서 실행 결과 및 성능 통계를 수집할 수 있습니다. 다음은 예제입니다.
 
-![복사 활동 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="복사 활동 실행 세부 정보 모니터링":::
 
 ## <a name="performance-tuning-tips"></a>성능 튜닝 팁
 

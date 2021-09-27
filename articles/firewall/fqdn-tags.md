@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 56f2a02109acd4f76cf5eb3b13dd70c878694f72
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94653337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604249"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 
@@ -36,7 +36,7 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 엔드포인트을 다루지 않습니다. [서비스 엔드포인트](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.<br><br>Azure Firewall을 ASE와 통합하는 방법에 대한 자세한 내용은 [App Service Environment 잠금](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)을 참조하세요.|
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.|
 |Azure HDInsight|HDInsight 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 HDInsight의 고객 관련 스토리지 또는 SQL 트래픽을 포함하지 않습니다. 이 기능은 [서비스 엔드포인트](../virtual-network/tutorial-restrict-network-access-to-resources.md)를 사용하여 사용하도록 설정하거나 수동으로 추가합니다.|
-|WindowsVirtualDesktop(WVD)|아웃바운드 Windows Virtual Desktop 플랫폼 트래픽을 허용합니다. 이 태그는 WVD에서 만든 배포 관련 스토리지 및 Service Bus 엔드포인트를 포함하지 않습니다. 또한 DNS 및 KMS 네트워크 규칙이 필요합니다. Azure Firewall을 WVD와 통합하는 방법에 관한 자세한 내용은 [Azure Firewall을 사용하여 Window Virtual Desktop 배포 보호](protect-windows-virtual-desktop.md)를 참조하세요.|
+|WindowsVirtualDesktop(WVD)|아웃바운드 Windows Virtual Desktop 플랫폼 트래픽을 허용합니다. 이 태그는 WVD에서 만든 배포 관련 스토리지 및 Service Bus 엔드포인트를 포함하지 않습니다. 또한 DNS 및 KMS 네트워크 규칙이 필요합니다. Azure Firewall을 WVD와 통합하는 방법에 관한 자세한 내용은 [Azure Firewall을 사용하여 Window Virtual Desktop 배포 보호](protect-azure-virtual-desktop.md)를 참조하세요.|
 |AKS(Azure Kubernetes Service)|AKS에 대한 아웃바운드 액세스를 허용합니다. 자세한 내용은 [Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호](protect-azure-kubernetes-service.md)를 참조하세요.|
 
 > [!NOTE]

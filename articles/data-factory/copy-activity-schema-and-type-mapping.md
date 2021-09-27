@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 046b25164df92c609196a701d35f989aa397253b
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: af22c23184da4163deb07b2b9d5fa470bd35042d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825094"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760501"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>복사 활동의 스키마 및 데이터 형식 매핑
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "122825094"
 
 작성 UI -> 복사 작업 -> 매핑 탭 또는 복사 작업에서 프로그래밍 방식으로 매핑 지정 -> `translator` 속성에서 매핑을 구성할 수 있습니다. 다음 속성은 `translator` -> `mappings` 배열 -> 개체 -> 맵 데이터에 특정 열/필드를 가리키는 `source` 및 `sink`에서 지원됩니다.
 
-| 속성 | Description                                                  | 필수 |
+| 속성 | 설명                                                  | 필수 |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | 원본 또는 싱크 열/필드의 이름입니다. 테이블 형식 소스 및 싱크에 적용됩니다. | 예      |
 | ordinal  | 열 인덱스입니다. 1부터 시작합니다. <br>헤더 줄이 없는 분리된 텍스트를 사용하는 경우 적용되며 필요합니다. | 예       |
@@ -56,7 +56,7 @@ ms.locfileid: "122825094"
 
 다음은 `mappings` 외에도 `translator`에서 지원되는 속성입니다.
 
-| 속성            | Description                                                  | 필수 |
+| 속성            | 설명                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | 계층 구조 원본에서 데이터를 복사하는 경우(예: Cosmos DB, MongoDB 또는 REST 커넥터)에 적용됩니다.<br>동일한 패턴으로 **배열 필드 내부** 의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 예       |
 
@@ -68,7 +68,7 @@ ms.locfileid: "122825094"
 
 2. 필요한 필드를 매핑하고 나머지를 제외/삭제합니다.
 
-![테이블 형식에 테이블 형식 매핑](media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png" alt-text="테이블 형식에 테이블 형식 매핑":::
 
 다음과 같이 복사 작업 페이로드에서 동일한 매핑을 구성할 수 있습니다(`translator` 참조).
 
@@ -187,11 +187,11 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 > [!NOTE]
 > 컬렉션 참조로 표시된 배열이 비어 있고 확인란이 선택된 레코드의 경우 전체 레코드를 건너뜁니다.
 
-![UI를 사용하여 테이블 형식에 계층 구조 매핑](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png" alt-text="UI를 사용하여 테이블 형식에 계층 구조 매핑":::
 
 **고급 편집기** 로 전환할 수도 있습니다. 이 경우 필드의 JSON 경로를 직접 보고 편집할 수 있습니다. 이 보기에서 새 매핑을 추가하도록 선택한 경우 JSON 경로를 지정합니다.
 
-![고급 편집기를 사용하여 테이블 형식에 계층 구조 매핑](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png" alt-text="고급 편집기를 사용하여 테이블 형식에 계층 구조 매핑":::
 
 다음과 같이 복사 작업 페이로드에서 동일한 매핑을 구성할 수 있습니다(`translator` 참조).
 
@@ -308,7 +308,7 @@ Data Factory 제작 UI에서 다음과 같은 매핑을 정의할 수 있습니�
 
 다음은 데이터 형식 변환에 대한 복사 작업에서 지원되는 속성입니다(프로그램 방식으로 제작의 `translator` 섹션 아래).
 
-| 속성                         | Description                                                  | 필수 |
+| 속성                         | 설명                                                  | 필수 |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | 새 데이터 형식 변환 환경을 사용하도록 설정합니다. <br>이전 버전과의 호환성으로 인해 기본값은 false입니다.<br><br>2020년 6월 하순 이후 Data Factory 제작 UI를 통해 만들어진 새 복사 작업의 경우, 해당 데이터 형식 변환은 기본적으로 최상의 환경에서 사용하도록 설정되며, 해당 시나리오에 대한 복사 작업 -> 매핑 탭에서 다음과 같은 형식 변환 설정을 확인할 수 있습니다. <br>파이프라인을 프로그래밍 방식으로 만들려면 `typeConversion` 속성을 true로 명시적으로 설정하여 사용하도록 설정해야 합니다.<br>이 기능을 릴리스하기 전에 만든 기존 복사 작업의 경우 이전 버전과의 호환성을 위해 작성 UI에 대한 형식 변환 옵션이 표시되지 않습니다. | 예       |
 | typeConversionSettings           | 형식 변환 설정 그룹입니다. `typeConversion`이 `true`로 설정된 경우에 적용됩니다. 다음 속성은 모두 이 그룹 아래에 있습니다. | 예       |

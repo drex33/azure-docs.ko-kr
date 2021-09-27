@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 09f62865c80c05fd0860fa39b18d99c583cf3e56
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: d8e4610ee7fc6690f3d0784415cea09259dd99ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461626"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645724"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm"></a>Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성.
 
@@ -45,7 +45,7 @@ az storage account update \
 그런 다음, 저장소 계정이 관리되는 HSM에 대한 사용 권한을 가지도록 **관리되는 HSM 암호화 서비스 암호화 사용자** 역할을 저장소 계정의 관리 ID에 할당합니다. 관리 ID에 가능한 최소 권한을 부여하려면 역할 할당 범위를 개별 키 수준으로 지정하는 것이 좋습니다.
 
 스토리지 계정에 대한 역할 할당을 만들려면 [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
-  
+
 ```azurecli
 storage_account_principal = $(az storage account show \
     --name <storage-account> \

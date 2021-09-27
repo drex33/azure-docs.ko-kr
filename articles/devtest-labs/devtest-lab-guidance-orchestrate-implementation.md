@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs의 구현 오케스트레이션
+title: 오케스트레이션 구현
 description: 이 문서에서는 조직의 Azure DevTest Labs 구현을 오케스트레이션하기 위한 지침을 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 10ca9af9f68f6d95181418721ec90dac5dfd4ad4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92330617"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601485"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
 이 문서에서는 Azure DevTest Labs의 빠른 배포와 구현을 위한 권장 방식을 제공합니다. 아래 그림에는 다양한 업계 요구 사항과 시나리오 지원을 위한 유연성을 확인하면서 진행할 수 있는 전체 프로세스가 규범 지침 형식으로 강조 표시되어 있습니다.

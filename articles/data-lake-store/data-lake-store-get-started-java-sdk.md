@@ -1,18 +1,18 @@
 ---
 title: Java SDK - Data Lake Storage Gen1 - Azure에서의 파일 시스템 작업
 description: Azure Data Lake Storage Gen1용 Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 Data Lake Storage Gen1에 대한 파일 시스템 작업을 수행할 수 있습니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.custom: devx-track-java
-ms.author: twooley
-ms.openlocfilehash: a2c55a2d3277bbb6c3cf72f5ea703780d2a5e9bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: 83ab4ce998183057420e93b120931807140e5f09
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87318847"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571219"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
     </dependencies>
     ```
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [SLF4J](https://www.slf4j.org/) 로깅 외관을 사용하며, 이로 인해 Log4j, Java 로깅, Logback 혹은 로깅 없음과 같이 널리 사용되는 여러 로깅 프레임워크 중에서 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [SLF4J](https://www.slf4j.org/) 로깅 외관을 사용하며, 여기에서 Log4j, Java 로깅, Logback 등의 널리 사용되는 여러 로깅 프레임워크 중에서 선택하거나 로깅 없음을 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 3. 애플리케이션에 다음 import 문을 추가합니다.
 

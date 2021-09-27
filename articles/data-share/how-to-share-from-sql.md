@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/24/2021
-ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 7dcf326ea0834bdf644e2b717517f67d41d330e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644677"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743279"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -259,6 +259,8 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
    이메일에서 초대를 열려면 받은 편지함에서 데이터 공급자의 초대를 확인합니다. 이 초대는 Microsoft Azure에서 **<yourdataprovider@domain.com>이(가) 보낸 Azure Data Share 초대** 라는 제목으로 보낸 것입니다. **초대 보기** 를 클릭하여 Azure에서 초대를 확인합니다. 
 
    Azure Portal에서 직접 초대를 열려면 Azure Portal에서 **데이터 공유 초대** 를 검색합니다. 그러면 데이터 공유 초대 목록으로 이동됩니다.
+
+   테넌트 게스트 사용자인 경우 처음으로 Data Share 초대를 보기 전에 테넌트 이메일 주소를 확인하라는 메시지가 표시됩니다. 확인되면 12개월 동안 유효합니다.
 
    ![초대 목록](./media/invitations.png "초대 목록") 
 

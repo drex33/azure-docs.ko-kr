@@ -1,13 +1,9 @@
 ---
 title: SLES에서 Azure NetApp Files를 사용하여 대기 상태로 SAP HANA 스케일 아웃 | Microsoft Docs
 description: SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포하는 방법을 알아봅니다.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
 ms.author: radeltch
-ms.openlocfilehash: 37a3923abf32259499d876074ceda29c27e87d3c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
-ms.translationtype: HT
+ms.openlocfilehash: a4e3d2b2c6b7c56771ebfddd60bb5ec13ab78d28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551971"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643634"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -28,9 +24,8 @@ ms.locfileid: "106551971"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -71,7 +66,7 @@ ms.locfileid: "106551971"
 * SAP Note [2205917]: SAP 애플리케이션용 SUSE Linux Enterprise Server에 권장되는 OS 설정이 있습니다.
 * SAP Note [1944799]: SAP 애플리케이션용 SUSE Linux Enterprise Server에 대한 SAP 지침이 있습니다.
 * SAP Note [2178632]: Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보가 있습니다.
-* SAP Note [2191498]: Azure에서 Linux에 필요한 SAP Host Agent 버전이 있습니다.
+* SAP 노트 [2191498]: Azure에서 Linux에 필요한 SAP Host Agent 버전이 있습니다.
 * SAP Note [2243692]: Azure에서 Linux의 SAP 라이선스에 대한 정보가 있습니다.
 * SAP Note [1984787]: SUSE Linux Enterprise Server 12에 대한 일반 정보가 있습니다.
 * SAP Note [1999351]: SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보가 있습니다.
@@ -87,13 +82,13 @@ ms.locfileid: "106551971"
 
 ## <a name="overview"></a>개요
 
-HANA 고가용성을 달성하는 한 가지 방법은 호스트 자동 장애 조치(failover)를 구성하는 것입니다. 호스트 자동 장애 조치(failover)를 구성하려면 하나 이상의 가상 머신을 HANA 시스템에 추가하여 대기 노드로 구성합니다. 활성 노드에 장애가 발생하면 대기 노드가 자동으로 인수합니다. Azure 가상 머신으로 제시된 구성에서는 [Azure NetApp Files에서 NFS](../../../azure-netapp-files/azure-netapp-files-introduction.md)를 사용하여 자동 장애 조치(failover)를 수행합니다.  
+HANA 고가용성을 달성하는 한 가지 방법은 호스트 자동 장애 조치(failover)를 구성하는 것입니다. 호스트 자동 장애 조치를 구성하려면 하나 이상의 가상 머신을 HANA 시스템에 추가하여 대기 노드로 구성합니다. 활성 노드에 장애가 발생하면 대기 노드가 자동으로 인수합니다. Azure 가상 머신으로 제시된 구성에서는 [Azure NetApp Files에서 NFS](../../../azure-netapp-files/azure-netapp-files-introduction.md)를 사용하여 자동 장애 조치를 수행합니다.  
 
 > [!NOTE]
 > 대기 노드는 모든 데이터베이스 볼륨에 액세스할 수 있어야 합니다. HANA 볼륨은 NFSv4 볼륨으로 탑재되어야 합니다. NFSv4 프로토콜의 향상된 파일 임대 기반 잠금 메커니즘은 `I/O` 펜싱에 사용됩니다. 
 
 > [!IMPORTANT]
-> 지원되는 구성을 빌드하려면 HANA 데이터 및 로그 볼륨을 NFSv4.1 볼륨으로 배포하고 NFSv4.1 프로토콜을 사용하여 탑재해야 합니다. 대기 노드가 있는 HANA 호스트 자동 장애 조치(failover) 구성은 NFSv3에서 지원되지 않습니다.
+> 지원되는 구성을 빌드하려면 HANA 데이터 및 로그 볼륨을 NFSv4.1 볼륨으로 배포하고 NFSv4.1 프로토콜을 사용하여 탑재해야 합니다. 대기 노드가 있는 HANA 호스트 자동 장애 조치 구성은 NFSv3에서 지원되지 않습니다.
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
@@ -119,25 +114,21 @@ Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-i
 
 Azure 지역별 Azure NetApp Files 가용성에 대한 자세한 내용은 [Azure 지역별 Azure NetApp Files 가용성][anf-avail-matrix]을 참조하세요.  
 
-Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침][anf-register]으로 이동하여 Azure NetApp Files에 온보딩을 요청하세요. 
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포  
 
 다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.  
 
-1. 아직 리소스를 배포하지 않은 경우 [Azure NetApp Files에 온보딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청합니다.  
+1. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
 
-2. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
-
-3. [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
+2. [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
 
    이 문서에 제시된 HANA 아키텍처는 *Ultra* 서비스 수준에서 단일 Azure NetApp Files 용량 풀을 사용합니다. Azure의 HANA 워크로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)을 사용하는 것이 좋습니다.  
 
-4. [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
+3. [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
 
-5. [Azure NetApp Files에 대한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.  
+4. [Azure NetApp Files에 대한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.  
 
-   볼륨을 배포할 때 **NFSv4.1** 버전을 선택해야 합니다. 현재 NFSv4.1에 액세스하려면 허용 목록에 추가해야 합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
+   볼륨을 배포할 때 **NFSv4.1** 버전을 선택해야 합니다. 현재 NFSv 4.1에 대 한 액세스를 allowlist에 추가 해야 합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
    
    Azure NetApp Files 리소스와 Azure VM은 동일하거나 피어링된 Azure 가상 네트워크에 있어야 합니다. 예를 들어 **HN1**-data-mnt00001, **HN1**-log-mnt00001 등은 볼륨 이름이고 nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001 등은 Azure NetApp Files 볼륨의 파일 경로입니다.  
 
@@ -564,11 +555,11 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
      * **루트 사용자 이름** [root]: Enter 키를 눌러 기본값 적용
      * **루트 사용자 암호**: 루트 사용자의 암호 입력
      * 호스트 hanadb2의 역할: **1** 입력(작업자의 경우)
-     * 호스트 hanadb2에 대한 **호스트 장애 조치(failover) 그룹** [기본값]: Enter 키를 눌러 기본값 적용
-     * 호스트 hanadb2 [<<assign automatically>>]의 **스토리지 파티션 번호**: Enter 키를 눌러 기본값 적용
+     * 호스트 hanadb2에 대한 **호스트 장애 조치 그룹** [기본값]: Enter 키를 눌러 기본값 적용
+     * 호스트 hanadb2 []에 대 한 **Storage 파티션 번호** 의 경우 \<\<assign automatically\> \> enter 키를 눌러 기본값을 적용 합니다.
      * 호스트 hanadb2에 대한 **작업자 그룹** [기본값]: Enter 키를 눌러 기본값 적용
      * 호스트 hanadb3의 **역할 선택**: **2** 입력(대기)
-     * 호스트 hanadb3에 대한 **호스트 장애 조치(failover) 그룹** [기본값]: Enter 키를 눌러 기본값 적용
+     * 호스트 hanadb3에 대한 **호스트 장애 조치 그룹** [기본값]: Enter 키를 눌러 기본값 적용
      * 호스트 hanadb3에 대한 **작업자 그룹** [기본값]: Enter 키를 눌러 기본값 적용
      * **SAP HANA 시스템 ID**: **HN1** 입력
      * **인스턴스 번호** [00]: **03** 입력
@@ -583,7 +574,7 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
      * **시스템 관리자(hn1adm) 암호**: 암호 입력
      * **시스템 데이터베이스 사용자(system) 암호**: 시스템 암호 입력
      * **시스템 데이터베이스 사용자(system) 암호 확인**: 시스템 암호 입력
-     * **컴퓨터를 다시 부팅한 후 시스템 다시 시작?** [n]: **n** 입력 
+     * **머신을 다시 부팅한 후 시스템 다시 시작?** [n]: **n** 입력 
      * **계속하시겠습니까(y/n)** : 요약의 유효성을 검사하고 모든 항목이 양호하면 **y** 입력
 
 
@@ -690,7 +681,7 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
     echo b > /proc/sysrq-trigger
    </code></pre>
 
-   c. 시스템에서 장애 조치(failover) 완료 여부를 모니터링합니다. 장애 조치(failover)가 완료되면 상태를 캡처합니다. 예를 들면 다음과 같습니다.  
+   c. 시스템에서 장애 조치 완료 여부를 모니터링합니다. 장애 조치가 완료되면 상태를 캡처합니다. 예를 들면 다음과 같습니다.  
 
     <pre><code>
     # Check the instance status
@@ -713,7 +704,7 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
    </code></pre>
 
    > [!IMPORTANT]
-   > 노드에 커널 패닉이 발생하면 모든 HANA 가상 머신에서 `kernel.panic`을 20초로 설정하여 SAP HANA 장애 조치(failover)로 인한 지연을 방지합니다. 이 구성은 `/etc/sysctl`에서 수행합니다. 가상 머신을 다시 부팅하여 변경 내용을 활성화합니다. 이 변경을 수행하지 않으면 노드에 커널 패닉이 발생할 때 장애 조치(failover)가 10분 이상 걸릴 수 있습니다.  
+   > 노드에 커널 패닉이 발생하면 ‘모든’ HANA 가상 머신에서 `kernel.panic`을 20초로 설정하여 SAP HANA 장애 조치로 인한 지연을 방지합니다. 이 구성은 `/etc/sysctl`에서 수행합니다. 가상 머신을 다시 부팅하여 변경 내용을 활성화합니다. 이 변경을 수행하지 않으면 노드에 커널 패닉이 발생할 때 장애 조치가 10분 이상 걸릴 수 있습니다.  
 
 2. 다음을 수행하여 이름 서버를 종료합니다.
 
@@ -745,7 +736,7 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
     </code></pre>
     
-    대기 노드 **hanadb3** 이 마스터 노드가 됩니다. 장애 조치(failover) 테스트가 완료된 후 리소스 상태는 다음과 같습니다.  
+    대기 노드 **hanadb3** 이 마스터 노드가 됩니다. 장애 조치 테스트가 완료된 후 리소스 상태는 다음과 같습니다.  
 
     <pre><code>
         # Check the instance status
@@ -801,7 +792,7 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill
    </code></pre>
 
-   노드 **hanadb1** 이 마스터 노드의 역할을 재개합니다. 장애 조치(failover) 테스트가 완료된 후 상태는 다음과 같습니다.
+   노드 **hanadb1** 이 마스터 노드의 역할을 재개합니다. 장애 조치 테스트가 완료된 후 상태는 다음과 같습니다.
 
    <pre><code>
     # Check the instance status
@@ -863,4 +854,4 @@ Azure에서 SAP용 인프라를 설계할 때는 최소 처리량 특성으로 �
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](./hana-vm-operations-netapp.md)
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(가상 머신)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

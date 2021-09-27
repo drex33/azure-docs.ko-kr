@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/11/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8f48e6bd94566922066b277553f64b25f5d55a45
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 75e3dc21c5cb5e8590b63c3382260331bb0bd844
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696340"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754652"
 ---
 # <a name="h-series"></a>H 시리즈
 
@@ -47,7 +47,7 @@ H 시리즈 VM은 높은 CPU 주파수 또는 많은 코어당 메모리 요구 
 
 ## <a name="software-specifications"></a>소프트웨어 사양
 
-| 소프트웨어 사양     |HC 시리즈 VM           |
+| 소프트웨어 사양     |H 시리즈 VM           |
 |-----------------------------|-----------------------|
 | 최대 MPI 작업 크기            | 4800 코어(단일 가상 머신 확장 집합에 300개 VM, singlePlacementGroup=true)  |
 | MPI 지원                 | Intel MPI 5.x, MS-MPI  |
@@ -58,7 +58,7 @@ H 시리즈 VM은 높은 CPU 주파수 또는 많은 코어당 메모리 요구 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>기타 크기
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
 
 - [범용](sizes-general.md)
 - [메모리에 최적화](sizes-memory.md)
@@ -66,6 +66,11 @@ H 시리즈 VM은 높은 CPU 주파수 또는 많은 코어당 메모리 요구 
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

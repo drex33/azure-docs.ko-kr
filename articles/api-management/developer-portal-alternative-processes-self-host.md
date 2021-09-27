@@ -3,16 +3,16 @@ title: 자체 호스팅 개발자 포털의 대안
 titleSuffix: Azure API Management
 description: Azure API Management에서 개발자 포털을 자체 호스팅할 때 사용할 수 있는 대안에 대해 알아봅니다.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: 207f5cbfb0e8f6d9d52920f7e4c72d7e663489fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: fb8514423bf4efd42373ad2f111aa3a96c5c0969
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459353"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582900"
 ---
 # <a name="alternative-approaches-to-self-host-developer-portal"></a>자체 호스팅 개발자 포털의 대안
 

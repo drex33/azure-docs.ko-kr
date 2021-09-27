@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: bd59098a9a03cff5d30a776eb7489df39514bf3b
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 63798523e11df8729dd87a7b179b34058a691bc5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251797"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798525"
 ---
 # <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory-and-azure-synapse-pipelines"></a>Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업별로 지원되는 파일 형식 및 압축 코덱
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

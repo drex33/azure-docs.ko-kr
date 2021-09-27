@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: bf21a264e64fd43ba98f73f96afc6fe2f1bfd069
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: a7cd2530762ae3045e2bcd6302e4e5f31f9dd993
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317453"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777947"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Oracle 간에 데이터 복사
 
@@ -237,7 +237,7 @@ Oracle 간에 데이터를 복사하려면 데이터 세트의 type 속성을 `O
 
 Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 `OracleSource`로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 `OracleSource`로 설정해야 합니다. | 예 |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할된 로드를 사용하도록 설정하는 경우 쿼리에 해당하는 기본 제공 파티션 매개 변수를 후크해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조하세요. | 예 |
@@ -284,7 +284,7 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 `Ora
 
 Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 `OracleSink`로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 `OracleSink`로 설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기가 `writeBatchSize`에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
@@ -327,7 +327,7 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 `Oracle
 
 Oracle 커넥터는 Oracle에서 병렬로 데이터를 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-oracle/connector-oracle-partition-options.png)
+:::image type="content" source="./media/connector-oracle/connector-oracle-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
 분할된 복사를 사용하도록 설정하면 서비스가 Oracle 원본에 대한 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`를 4로 설정하는 경우, 서비스는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색합니다.
 

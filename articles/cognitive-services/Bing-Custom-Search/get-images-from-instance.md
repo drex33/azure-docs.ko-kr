@@ -3,19 +3,17 @@ title: 사용자 지정 보기에서 이미지 가져오기 - Bing Custom Search
 titleSuffix: Azure Cognitive Services
 description: Bing Custom Search를 사용하여 웹의 사용자 지정 보기에서 이미지를 가져오는 방법에 대한 간략한 개요입니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: scottwhi
-ms.openlocfilehash: 5025a68030f5dc3aec07d33af3f98370c8d64b87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 86eb2a3faf2d431fe78a46b1d3935fe60404171a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96338472"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643102"
 ---
 # <a name="get-images-from-your-custom-view"></a>사용자 지정 보기에서 이미지 가져오기
 

@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/06/2021
+ms.date: 09/16/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: fc202359e90024ee73c3041013eef9c2da814045
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: ce5f1e0057f3ed6146ab942aa94302a96c503c19
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835832"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646742"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -62,10 +62,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 
 ![공존](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
 
-> [!NOTE]
-> 가상 네트워크를 중계 라우터로 구성할 수 없습니다.
-> 
-> 
+
 
 ## <a name="selecting-the-steps-to-use"></a>사용할 단계 선택
 두 가지 절차 중에서 선택할 수 있습니다. 연결할 기존 가상 네트워크가 있는지 아니면 새 가상 네트워크를 만들 것인지에 따라 구성 절차를 선택합니다.

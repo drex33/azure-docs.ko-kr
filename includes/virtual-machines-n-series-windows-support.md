@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines-windows
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5a48dd8158ed08aee3da459b4373fb0e4b36fb52
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: a188812751552532ae1536529b12e54d55a24a2b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364806"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056634"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -40,13 +40,13 @@ Nvidia K80 GPU가 설치된 NC 시리즈는 GRID/그래픽 애플리케이션을
 
 Nvidia 확장은 항상 최신 드라이버를 설치합니다. 이전 버전을 사용하는 고객을 위해 여기에서 이전 버전에 대한 링크를 제공합니다.
 
-Windows Server 2019, Windows Server 2016 1607, 1709 및 Windows 10(최대 빌드 20H2)의 경우:
-- [GRID 12.2(462.31)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe)
-- [GRID 12.1(461.33)](https://download.microsoft.com/download/9/7/e/97e1be73-d24b-410b-9c08-cc98c7becfa3/461.33_grid_win10_server2016_server2019_64bit_azure_swl.exe)(.exe) 
+Windows Server 2019, 1607, 1709 및 Windows 10 Windows Server 2016 (최대 빌드: 21h1):
+- [그리드 13 (471.68)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 12.2(462.31)](https://download.microsoft.com/download/0/0/1/001f0edf-d852-4297-9cb7-10b31b1abf45/462.31_grid_win10_server2016_server2019_64bit_azure_swl.exe)(.exe) 
 
 Windows Server 2012 R2의 경우: 
-- [GRID 12.2(462.31)](https://download.microsoft.com/download/1/2/0/120551f5-cc05-4911-bd29-88fb2747213c/462.31_grid_server2012R2_64bit_azure_swl.exe)(.exe)
-- [GRID 12.1(461.33)](https://download.microsoft.com/download/9/9/c/99caf5c6-af9f-48b2-bcb0-af5ec64b8592/461.33_grid_server2012R2_64bit_azure_swl.exe)(.exe) 
+- [그리드 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
+- [GRID 12.2(462.31)](https://download.microsoft.com/download/1/2/0/120551f5-cc05-4911-bd29-88fb2747213c/462.31_grid_server2012R2_64bit_azure_swl.exe)(.exe) 
 
 
 모든 이전 Nvidia GRID 드라이버 링크의 전체 목록을 보려면 [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)를 방문하세요.

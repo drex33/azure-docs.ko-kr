@@ -4,22 +4,31 @@ description: Azure 활동 로그를 보고 Azure Monitor 로그, Azure Event Hub
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/09/2021
 ms.author: bwren
-ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 61640d3abc371a92d5588c8b14308ba74152a442
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537378"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799760"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
-활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](./platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 사용하기 위해 [Azure Monitor 로그](../logs/data-platform-logs.md)에 대한 활동 로그를 Azure Event Hubs로 보내 Azure 외부로 전달하거나 Azure Storage로 보내 아카이브하도록 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대한 세부 정보를 제공합니다.
+활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](./platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다.   이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대한 세부 정보를 제공합니다.
+
+추가 기능에 대해 다음과 같은 이유로 이러한 위치 중 하나 이상에 활동 로그를 전송 하는 진단 설정을 만들어야 합니다. 
+-   더 복잡 한 쿼리 및 경고에 대 한 [로그를 Azure Monitor](../logs/data-platform-logs.md) 하 고 더 긴 보존 (최대 2 년) 
+-   azure Event Hubs Azure 외부로 전달
+-   저렴 한 장기 보관을 위해 Azure Storage 하려면
 
 진단 설정을 만드는 방법에 대한 자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](./diagnostic-settings.md)를 참조하세요.
 
 > [!NOTE]
 > 활동 로그의 항목은 시스템에서 생성되며 변경하거나 삭제할 수 없습니다.
+
+## <a name="retention-period"></a>재방문 주기 기간 
+
+활동 로그 이벤트는 Azure에서 **90 일간** 보존 된 후 삭제 됩니다. 이 시간 동안 볼륨에 상관 없이 항목에 대 한 요금은 청구 되지 않습니다. 더 긴 보존 등의 추가 기능을 사용 하려면 진단 설정을 만들고 필요에 따라 해당 위치를 다른 위치로 라우팅합니다. 이 문서의 이전 섹션에서 조건을 참조 하세요. 
 
 ## <a name="view-the-activity-log"></a>활동 로그 보기
 Azure Portal의 대부분의 메뉴에서 활동 로그에 액세스할 수 있습니다. 활동 로그를 여는 메뉴에서 해당 초기 필터가 결정됩니다. **모니터** 메뉴에서 열 경우 필터만 구독에 표시됩니다. 리소스의 메뉴에서 열 경우 필터가 해당 리소스로 설정됩니다. 다른 모든 항목을 볼 수 있도록 언제든지 필터를 변경할 수 있습니다. **필터 추가** 를 클릭하여 필터에 추가 속성을 추가합니다.
@@ -59,9 +68,9 @@ Azure Portal의 대부분의 메뉴에서 활동 로그에 액세스할 수 있�
 - 여러 Azure 구독 및 테넌트의 로그 항목을 분석을 위해 한곳에 취합합니다.
 - 로그 쿼리를 사용하여 복잡한 분석을 수행하 고 활동 로그 항목에 대한 심층적인 인사이트를 확보합니다.
 - 활동 항목이 있는 로그 경고를 사용하여 보다 복잡한 경고 논리를 허용합니다.
-- 활동 로그 항목을 90일 이상 저장합니다.
+- 활동 로그 항목을 활동 로그 보존 기간 보다 오래 저장 합니다.
 - Log Analytics 작업 영역에 저장된 활동 로그 데이터에 대한 데이터 수집 요금이 부과되지 않습니다.
-- Log Analytics 작업 영역에 저장된 활동 로그 데이터에 대한 데이터 보존 요금이 90일까지 부과되지 않습니다.
+- 지정 된 작업에 대해 활동 로그 보존 기간이 만료 될 때까지 데이터 보존 요금은 청구 되지 않습니다.
 
 활동 로그를 Log Analytics 작업 영역으로 전송하는 [진단 설정을 만듭니다](./diagnostic-settings.md). 단일 구독에서 최대 5개의 작업 영역으로 활동 로그를 보낼 수 있습니다. 
 
@@ -144,8 +153,8 @@ AzureActivity
 ```
 
 
-## <a name="send-to--azure-storage"></a>Azure Storage로 보내기
-감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 활동 로그를 보냅니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다.
+## <a name="send-to-azure-storage"></a>Azure 스토리지로 보내기
+활동 로그 보존 기간 보다 오래 된 로그 데이터를 유지 하려는 경우 감사, 정적 분석 또는 백업을 위해 활동 로그를 Azure Storage 계정으로 보냅니다. 이러한 이유 중 하나로 항목을 유지 해야 하는 경우가 아니면 Azure storage를 설정할 필요가 없습니다.  
 
 활동 로그를 Azure로 보내면 이벤트가 발생하는 즉시 스토리지 계정에 스토리지 컨테이너가 만들어집니다. 컨테이너의 Blob은 다음과 같은 명명 규칙을 사용합니다.
 

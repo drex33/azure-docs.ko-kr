@@ -3,7 +3,7 @@ title: Azure API Management 정책 샘플 | Microsoft Docs
 description: Azure API Management에 사용할 수 있는 정책에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 10/31/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d361a7a5d5f0f6b536caf9918dc3e1578b6f364e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506692"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554573"
 ---
 # <a name="api-management-policy-samples"></a>API Management 정책 샘플
 

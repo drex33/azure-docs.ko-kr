@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: ad9e7979eddac3fc102d9fddae68c230a7418762
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: dfbaf2947dd3eaacd155a240541a6abae3894b35
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259556"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599984"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -78,7 +78,7 @@ Azure Files를 사용하지 않는 경우 다음을 고려해야 합니다.
 * 앱은 함수 런타임 v1을 사용할 수 없습니다.
 * Azure Portal과 같은 클라이언트의 로그 스트리밍 환경은 기본적으로 파일 시스템 로그입니다. Application Insights 로그를 대신 사용해야 합니다.
 
-위의 내용이 적절하게 고려되는 경우 Azure Files 없이 앱을 만들 수 있습니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 및 `WEBSITE_CONTENTSHARE` 애플리케이션 설정을 지정하지 않고 함수 앱을 만듭니다.
+위의 내용이 적절하게 고려되는 경우 Azure Files 없이 앱을 만들 수 있습니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 및 `WEBSITE_CONTENTSHARE` 애플리케이션 설정을 지정하지 않고 함수 앱을 만듭니다. 표준 배포에 대 한 ARM 템플릿을 생성 하 고이 두 설정을 제거한 다음 템플릿을 배포 하 여이 작업을 수행할 수 있습니다. 
 
 ## <a name="mount-file-shares"></a>파일 공유 탑재
 

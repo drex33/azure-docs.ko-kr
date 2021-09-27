@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b344e2a845a9da8333860599bd4ff9041108202f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d4659e44475c09a1a42c06041e3f180357af9ee2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556036"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 감사 로깅
 
@@ -27,12 +27,30 @@ Azure Database for PostgreSQL - 유연한 서버의 데이터베이스 작업 �
 
 Azure Storage, Event Hubs 또는 Azure Monitor 로그에 로깅을 설정하는 방법을 알아보려면 [서버 로그 문서](concepts-logging.md)의 리소스 로그 섹션을 참조하세요.
 
-## <a name="enabling-pgaudit"></a>pgAudit 사용
+## <a name="installing-pgaudit"></a>pgAudit 설치
 
-pgAudit를 사용하도록 설정하려면 클라이언트(예: psql)를 사용하여 서버에 연결하고 다음 명령을 실행하여 pgAudit 확장을 사용하도록 설정해야 합니다.
-```SQL
-CREATE EXTENSION pgaudit;
-```
+pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함시켜야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경하려면 서버를 다시 시작해야 합니다. 매개 변수는 [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate)를 사용하여 바꿀 수 있습니다.
+
+[Azure Portal](https://portal.azure.com) 사용:
+
+   1. Azure Database for PostgreSQL 유연한 서버를 선택 합니다.
+   2. 사이드바에서 **서버 매개 변수** 를 선택합니다.
+   3. `shared_preload_libraries` 매개 변수를 검색합니다.
+   4. **pgaudit** 를 선택합니다.
+     :::image type="content" source="./media/concepts-audit/shared-preload-libraries.png" alt-text=" Pgaudit에 대 한 Azure Database for PostgreSQL 사용 shared_preload_libraries를 보여 주는 스크린샷 ":::
+   5. Psql에서 다음 쿼리를 실행 하 여 shared_preload_libraries에서 **pgaudit** 가 로드 되는지 확인할 수 있습니다.
+        ```SQL
+      show shared_preload_libraries;
+      ```
+      반환 되는 쿼리 결과에 **pgaudit** 가 표시 됩니다 shared_preload_libraries
+
+   6. 클라이언트(예: psql)를 사용하여 서버에 연결하고 pgAudit 확장을 사용하도록 설정합니다.
+      ```SQL
+      CREATE EXTENSION pgaudit;
+      ```
+
+> [!TIP]
+> 오류가 표시되면 `shared_preload_libraries`를 저장한 후 서버를 다시 시작했는지 확인합니다.
 
 ## <a name="pgaudit-settings"></a>pgAudit 설정
 
@@ -41,7 +59,16 @@ pgAudit를 사용하면 세션 또는 개체 감사 로깅을 구성할 수 있�
 > [!NOTE]
 > pgAudit 설정은 전역으로 지정되며, 데이터베이스 또는 역할 수준에서 지정할 수 없습니다.
 
-[pgAudit를 사용하도록 설정](#enabling-pgaudit)한 후 해당 매개 변수를 구성하여 로깅을 시작할 수 있습니다. [pgAudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)는 각 매개 변수의 정의를 제공합니다. 먼저 매개 변수를 테스트하고 예상대로 동작하는지 확인합니다.
+[pgAudit를 사용하도록 설정](#installing-pgaudit)한 후 해당 매개 변수를 구성하여 로깅을 시작할 수 있습니다. PgAudit를 구성 하려면 아래 지침을 따를 수 있습니다. 다음과 같이 [Azure Portal](https://portal.azure.com)을 사용합니다.
+
+   1. Azure Database for PostgreSQL 서버를 선택합니다.
+   2. 사이드바에서 **서버 매개 변수** 를 선택합니다.
+   3. `pg_audit`매개 변수를 검색 합니다.
+   4. 편집할 적절 한 설정 매개 변수를 선택 합니다. 예를 들어 `pgaudit.log` Azure Database for PostgreSQL을 보여 주는 스크린샷으로 설정 된 로깅을 시작 하려면 `WRITE` :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="pgaudit를 사용 하 여 로깅을 구성"::: 합니다.
+   5. **저장** 단추를 클릭 하 여 변경 내용을 저장 합니다.
+
+
+[pgAudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings)는 각 매개 변수의 정의를 제공합니다. 먼저 매개 변수를 테스트하고 예상대로 동작하는지 확인합니다.
 
 > [!NOTE]
 > `pgaudit.log_client`를 On으로 설정하면 로그를 파일에 기록하는 대신 psql과 같은 클라이언트 프로세스로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>
@@ -57,9 +84,9 @@ pgAudit를 사용하면 세션 또는 개체 감사 로깅을 구성할 수 있�
 빠르게 시작하려면 `pgaudit.log`를 `WRITE`로 설정하고, 서버 로그를 열어 출력을 검토합니다. 
 
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
-로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hubs의 경우에는 [Azure 로그 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
+로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hub의 경우에는 [Azure 로그 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
 
-Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로 AzureDiagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
+Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로, AzureDiagnostics 테이블에서 쿼리될 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
 
 이 쿼리를 사용하여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 

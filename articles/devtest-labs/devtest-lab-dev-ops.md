@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs 및 DevOps 통합 | Microsoft Docs
+title: Azure DevTest Labs 및 DevOps 통합
 description: 엔터프라이즈 환경의 CI(연속 통합) 및 CD(연속 업데이트) 파이프라인 내에서 Azure DevTest Labs의 랩을 사용하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9c18df3c651dc3f11bbaaec4e71aea38644dffe1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481071"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595088"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Azure DevTest Labs 및 Azure DevOps 통합
 DevOps는 소프트웨어 개발(Dev)을 시스템 관련 작업(Ops)과 통합하는 소프트웨어 개발 방법입니다. 이 시스템은 비즈니스 목표와 연계하여 새로운 기능, 업데이트 및 수정 사항을 제공할 수 있습니다. 이 방법은 목표, 사용 패턴 및 고객 피드백을 기준으로 하는 새 기능 디자인부터 문제 발생 시 시스템 수정, 복구 및 강화에 이르는 모든 작업을 포함합니다. 이 방법의 쉽게 식별되는 구성 요소는 CI(연속 통합) 및 CD(연속 업데이트) 파이프라인입니다. CI/CD 파이프라인은 커밋부터 시스템을 생성하는 빌드, 테스트 및 배포를 포함하는 일련의 단계를 통해 정보, 코드 및 리소스를 가져와 시스템을 생성합니다. 이 문서에서는 엔터프라이즈 환경의 파이프라인 내에서 랩을 효과적으로 사용하는 다양한 방법을 중점적으로 설명합니다. 

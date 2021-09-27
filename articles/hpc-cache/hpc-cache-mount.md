@@ -4,14 +4,14 @@ description: Azure HPC Cache 서비스에 클라이언트를 연결하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 09/20/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4e3c2a336d58e90bc446c77b164148359f9588fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91651431"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675911"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Azure HPC Cache 마운트
 
@@ -91,6 +91,8 @@ mount 명령을 만들려면 다음 절차를 수행합니다.
 
    ![“클립보드로 복사” 단추를 가리킬 때 텍스트가 표시되는 프로토타입 mount 명령 필드 스크린샷](media/mount-command-copy.png)
 
+   아래에는 동일한 클라이언트 경로와 네임 스페이스 경로가 있지만 다른 캐시 탑재 주소를 사용 하는 대체 탑재 명령이 표시 됩니다. 최상의 성능을 위해 HPC 캐시에서 사용 가능한 모든 주소 간에 클라이언트를 균등 하 게 탑재 해야 합니다.
+
 1. 클라이언트 머신에서 복사한 mount 명령을 사용하여 머신을 Azure HPC Cache에 연결합니다. 클라이언트 명령줄에서 직접 명령을 실행하거나 클라이언트 설치 스크립트 또는 템플릿에 mount 명령을 포함할 수 있습니다.
 
 ## <a name="understand-mount-command-syntax"></a>mount 명령 구문 이해
@@ -135,6 +137,13 @@ root@test-client:/tmp#
 
 ![테이블의 첫 번째 열인 “네임스페이스 경로”가 강조 상자로 둘러싸인 포털 설정 > 네임스페이스 페이지 스크린샷](media/view-namespace-paths.png)
 
+## <a name="use-all-available-mount-addresses"></a>사용 가능한 모든 탑재 주소 사용
+
+캐시에 대해 나열 된 모든 IP 주소 간에 클라이언트 트래픽을 분산 해야 합니다. 모든 클라이언트를 한 주소에 탑재 하는 경우 캐시의 성능이 저하 됩니다.
+
+다른 클라이언트에 대해 수동으로 또는 스크립트를 만들어 다른 탑재 주소를 선택할 수 있습니다. 또한 라운드 로빈 DNS (RRDNS) 용으로 구성 된 DNS 서버를 사용 하 여 모든 사용 가능한 주소 간에 클라이언트 탑재를 자동으로 회전할 수 있습니다. 자세한 내용은 [HPC 캐시 트래픽 부하 분산](client-load-balancing.md) 을 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
+* [클라이언트 부하를 분산](client-load-balancing.md)하 여 캐시의 모든 처리량을 사용 하는 방법에 대해 자세히 알아보세요.
 * 데이터를 캐시의 스토리지 대상으로 이동하려면 [새 Azure Blob Storage 채우기](hpc-cache-ingest.md)를 참조하세요.

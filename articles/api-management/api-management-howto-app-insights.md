@@ -3,18 +3,18 @@ title: Azure Application Insights와 Azure API Management 통합
 titleSuffix: Azure API Management
 description: Azure Application Insights에서 Azure API Management의 이벤트를 기록하고 보는 방법을 알아봅니다.
 services: api-management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
-ms.author: apimpm
-ms.openlocfilehash: c3c3647831e871e886f44c74d91f1f2827ac26f4
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 94c83ace24a5605a72809a30291ae6c1229870e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662212"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676583"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 

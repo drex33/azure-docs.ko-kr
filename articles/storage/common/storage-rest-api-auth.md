@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87c73dc2d5afaf4969a04e850811375d7d46cf07
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 803b356f2011328b47ff17a12176e3c6b22f5497
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113728987"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579499"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증으로 REST API 작업 호출
 

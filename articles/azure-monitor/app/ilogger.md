@@ -3,12 +3,12 @@ title: .NET을 사용한 Application Insights 로깅
 description: .NET에서 ILogger 인터페이스와 함께 Application Insights를 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 0457656ae06d4a86c8a4151ce8b89d3e42978d74
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 274fa5a9ab3fef94f892ed75fd69bc6cca6cccc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617795"
 ---
 # <a name="application-insights-logging-with-net"></a>.NET을 사용한 Application Insights 로깅
 
@@ -34,7 +34,7 @@ ms.locfileid: "122529951"
 
 Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가하려면 `Microsoft.ApplicationInsights.AspNetCore` NuGet 패키지를 사용합니다. 이를 [연결된 서비스로서의 Visual Studio](/visualstudio/azure/azure-app-insights-add-connected-service)를 통해 또는 수동으로 구성할 수 있습니다.
 
-기본적으로 ASP.NET Core 애플리케이션은 [코드](./asp-net-core.md) 방식 또는 [코드리스](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) 방식을 사용하여 구성할 때 Application Insights 로깅 공급자가 등록됩니다. 등록된 공급자는 심각도가 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 이상인 로그 이벤트를 자동으로 캡처하도록 구성됩니다. 심각도 및 범주를 사용자 지정할 수 있습니다. 자세한 내용은 [로깅 수준](#logging-level)을 참조하세요.
+기본적으로 ASP.NET Core 애플리케이션은 [코드](./asp-net-core.md) 방식 또는 [코드리스](./azure-web-apps-net-core.md#enable-agent-based-monitoring) 방식을 사용하여 구성할 때 Application Insights 로깅 공급자가 등록됩니다. 등록된 공급자는 심각도가 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 이상인 로그 이벤트를 자동으로 캡처하도록 구성됩니다. 심각도 및 범주를 사용자 지정할 수 있습니다. 자세한 내용은 [로깅 수준](#logging-level)을 참조하세요.
 
 1. NuGet 패키지가 설치되었는지 확인합니다.
 
@@ -67,11 +67,8 @@ Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가�
 
             public void ConfigureServices(IServiceCollection services)
             {
-                services.AddApplicationInsightsTelemetry(
-                    Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
-
-                // An alternative overload, when not using appsettings.json or user secrets.
-                // services.AddApplicationInsightsTelemetry();
+                services.AddApplicationInsightsTelemetry();
+                // Configure the Connection String/Instrumentation key in appsettings.json
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -202,8 +199,8 @@ namespace WebApplication
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(
-                Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+            services.AddApplicationInsightsTelemetry();
+            // Configure the Connection String/Instrumentation key in appsettings.json
         }
 
         // The ILogger<Startup> is resolved by dependency injection

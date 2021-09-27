@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: 0a4b6e1f90e24b3289b453e849b4ad979b10e202
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: a5a65f99fec0bb0db245450ead9747776e194b46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319920"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614432"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>VM 인사이트에 대한 Log Analytics 작업 영역 구성
 VM 인사이트는 Azure Monitor의 Log Analytics 작업 영역 하나 이상에서 데이터를 수집합니다. 에이전트를 온보딩하기 전에 작업 영역을 만들고 구성해야 합니다. 이 문서에서는 작업 영역 요구 사항을 설명하고 VM 인사이트에 작업 영역을 구성합니다.
@@ -38,15 +38,13 @@ VM 인사이트는 Azure Monitor의 Log Analytics 작업 영역 하나 이상에
 
 
 * [Azure Portal](../logs/quick-create-workspace.md)
-* [Azure CLI](../logs/quick-create-workspace-cli.md)
+* [Azure CLI](../logs/resource-manager-workspace.md)
 * [PowerShell](../logs/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>지원되는 지역
-VM 인사이트는 다음을 제외하고 [Log Analytics에서 지원하는 모든 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 Log Analytics 작업 영역을 지원합니다.
+VM insights는 [Log Analytics에서 지](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)원하는 모든 지역에서 Log Analytics 작업 영역을 지원 합니다.
 
-- 독일 중서부
-- 한국 중부
 
 >[!NOTE]
 >모든 지역에서 Azure VM을 모니터링할 수 있습니다. VM 자체는 Log Analytics 작업 영역에서 지원하는 지역으로 제한되지 않습니다.

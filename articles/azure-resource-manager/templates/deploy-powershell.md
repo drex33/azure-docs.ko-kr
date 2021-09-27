@@ -4,12 +4,12 @@ description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee67ca1f924c2159ab85a47ffdf73dfb7c3fc9f5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 27f6e398beacde13fa02ebdc1653b30ed7742300
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957834"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573201"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
 
@@ -141,7 +141,7 @@ New-AzResourceGroupDeployment `
   -Name linkedTemplateWithRelativePath `
   -ResourceGroupName "myResourceGroup" `
   -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
-  -QueryString $sasToken
+  -QueryString "$sasToken"
 ```
 
 자세한 내용은 [연결된 템플릿에 상대 경로 사용](./linked-templates.md#linked-template)을 참조하세요.
@@ -166,7 +166,7 @@ New-AzTemplateSpec `
 그런 다음 템플릿 사양의 ID를 가져와서 배포합니다.
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `

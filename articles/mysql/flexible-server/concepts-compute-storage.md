@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 9b8699598a9bac4781346ff939736b2bd6ee72f2
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: d38c2518b3504b79f70c58aff1e6cf832d05c8a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113429947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633928"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL에서 컴퓨팅 및 스토리지 옵션 - 유연한 서버(미리 보기)
 
@@ -40,7 +40,7 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
-서버를 만든 후에는 컴퓨팅 계층, 컴퓨팅 크기 및 스토리지 크기가 변경됩니다. 컴퓨팅 크기 조정에는 다시 시작이 필요하고 60-120초 정도 걸리며, 스토리지 크기 조정을 다시 시작하지 않아도 됩니다. 백업 보존 기간을 개별적으로 늘리거나 줄일 수 있습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
+서버를 만든 후 컴퓨팅 계층, 컴퓨팅 크기 및 스토리지 크기를 변경할 수 있습니다. 컴퓨팅 크기 조정에는 다시 시작이 필요하고 60-120초 정도 걸리며, 스토리지 크기 조정을 다시 시작하지 않아도 됩니다. 백업 보존 기간을 개별적으로 늘리거나 줄일 수 있습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
 
 ## <a name="compute-tiers-size-and-server-types"></a>컴퓨팅 계층, 크기 및 서버 유형
 
@@ -60,7 +60,7 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 | Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               | 5461
 | Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               | 10923
 | Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
-| Standard_D48ds_v4    | 48     | 192               | 20000              | 1,152                              | 32768
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              | 32768
 | Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
 | **메모리 최적화** |        |                   |                    |                                   |
 | Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
@@ -68,7 +68,7 @@ Azure Database for MySQL 유연한 서버는 버스트 가능, 범용 및 메모
 | Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
 | Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               | 21845
 | Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               | 43691
-| Standard_E48ds_v4    | 48     | 384               | 20000              | 1,152                              | 65536
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              | 65536
 | Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
 
 사용 가능한 컴퓨팅 시리즈에 대한 자세한 내용은 [버스트 가능(B 시리즈)](../../virtual-machines/sizes-b-series-burstable.md), [범용(Ddsv4 시리즈)](../../virtual-machines/ddv4-ddsv4-series.md) 및 [메모리 최적화(Edsv4 시리즈)](../../virtual-machines/edv4-edsv4-series.md)에 대한 Azure VM 설명서를 참조하세요.

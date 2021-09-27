@@ -2,7 +2,6 @@
 title: 명함 - 양식 인식기
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer API - 사용 및 제한으로 명함 분석과 관련된 개념을 알아봅니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8210380fefe6b7f781175fc603a9529e2fd23710
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 779c65487fd34a94426c2f9dc8a6ffaad36d2313
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676526"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기로 미리 작성된 명함 모델
 
@@ -47,7 +46,7 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| 유형 | 설명 | 텍스트 | 값(표준화된 출력) |
+|이름| 유형 | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----|:----|
 | ContactNames | 개체의 배열 | 명함에서 추출 된 연락처 이름 | [{ "FirstName": "Chris", "LastName": "Smith" }] | |
 | FirstName | 문자열 | 연락처의 이름 | "Chris" | "Chris" |

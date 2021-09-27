@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 177c02da26ffcedd0453538bc32158cf2f014896
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 1f3db34f477e228157cfa8378f171adf7a239811
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369289"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828840"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -88,7 +88,7 @@ QnA Maker를 사용하여 만든 각 [Azure 리소스](azure-resources.md#resour
 
 QnA Maker 리소스에서 생성된 첫 번째 기술 자료는 리소스의 언어를 설정합니다. QnA Maker 리소스에 대해 하나의 언어만 설정할 수 있습니다.
 
-언어별로 QnA Maker 리소스를 구조화하거나, 쿼리 예측 엔드포인트에 보내기 전에 [번역기](../../translator/translator-info-overview.md)를 사용하여 다른 언어의 쿼리를 기술 자료의 언어로 변경할 수 있습니다.
+언어별로 QnA Maker 리소스를 구조화하거나, 쿼리 예측 엔드포인트에 보내기 전에 [번역기](../../translator/translator-overview.md)를 사용하여 다른 언어의 쿼리를 기술 자료의 언어로 변경할 수 있습니다.
 
 # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 

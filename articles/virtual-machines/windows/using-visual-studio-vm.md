@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: de2c782b7b311256e287f49f931ed6ab1de09c55
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: d77e0c04e5fac91de2142d14ba88d3188303945d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688539"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582147"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 **:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
@@ -46,7 +46,7 @@ Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https:
 ## <a name="what-features-are-installed"></a>어떤 기능이 설치되나요?
 각 이미지는 해당 Visual Studio 에디션에 대해 권장되는 기능 집합을 포함합니다. 일반적으로 설치에는 다음이 포함됩니다.
 
-* 해당 워크로드의 권장되는 선택적 구성 요소를 포함하는 모든 사용 가능한 워크로드. Visual Studio에 포함된 워크로드, 구성 요소 및 SDK에 대한 자세한 내용은 [Visual Studio 설명서](/visualstudio/install/workload-and-component-ids)에서 확인할 수 있습니다.
+* 각 워크로드의 권장되는 선택적 구성 요소를 포함하여 사용 가능한 모든 워크로드. Visual Studio에 포함된 워크로드, 구성 요소 및 SDK에 대한 자세한 내용은 [Visual Studio 설명서](/visualstudio/install/workload-and-component-ids)에서 확인할 수 있습니다.
 * .NET 4.6.2 및 4.7.NET SDK, 대상 지정 팩 및 개발자 도구
 * Visual F#
 * Visual Studio용 GitHub 확장
@@ -81,27 +81,27 @@ Azure에는 모든 범위의 가상 머신 크기가 제공됩니다. Visual Stu
     
 최신 컴퓨터 크기에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터에 대한 크기](../sizes.md)를 참조하세요.
 
-Azure를 사용하면 VM의 크기를 조정하여 처음에 선택한 내용을 다시 조정할 수 있습니다. 좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다. 자세한 내용은 [Windows VM 크기 조정](./resize-vm.md)을 참조하세요.
+Azure를 사용하면 VM의 크기를 조정하여 처음에 선택한 내용을 다시 조정할 수 있습니다. 좀 더 적절한 크기를 사용하여 새 VM을 프로비전할 수도 있고, 기존 VM의 크기를 다른 기본 하드웨어에 맞게 조정할 수도 있습니다. 자세한 내용은 [Windows VM 크기 조정](../resize-vm.md)을 참조하세요.
 
 ## <a name="after-the-vm-is-running-whats-next"></a>VM을 실행한 후 다음 단계는 무엇인가요?
-Visual Studio는 Azure의 "BYOL(사용자 라이선스 필요)" 모델을 따릅니다. 전용 하드웨어를 설치하는 것과 마찬가지로, 첫 번째 단계 중 하나는 Visual Studio 설치의 사용을 허가하는 것입니다. Visual Studio의 잠금을 해제하려면 다음 중 하나를 수행합니다.
-- Visual Studio 구독과 연결된 Microsoft 계정으로 로그인합니다. 
+Visual Studio Azure의 "사용자 라이선스 가져오기" 모델을 따릅니다. 전용 하드웨어를 설치하는 것과 마찬가지로, 첫 번째 단계 중 하나는 Visual Studio 설치의 사용을 허가하는 것입니다. Visual Studio의 잠금을 해제하려면 다음 중 하나를 수행합니다.
+- Visual Studio 구독과 연결된 Microsoft 계정 로그인 
 - 초기 구매 시 제공된 제품 키로 Visual Studio의 잠금을 해제합니다.
 
 자세한 내용은 [Visual Studio에 로그인](/visualstudio/ide/signing-in-to-visual-studio) 및 [Visual Studio 잠금 해제 방법](/visualstudio/ide/how-to-unlock-visual-studio)을 참조하세요.
 
 ## <a name="how-do-i-save-the-development-vm-for-future-or-team-use"></a>나중에 또는 팀에서 사용하도록 개발 VM을 저장하려면 어떻게 해야 하나요?
 
-개발 환경의 스펙트럼은 방대하며, 좀 더 복잡한 환경을 구축하게 되면 실질적인 비용이 발생합니다. 환경 구성에 관계없이 나중에 사용할 수 있도록 또는 팀의 다른 멤버를 위해 구성된 VM을 "기본 이미지"로 저장하거나 캡처할 수 있습니다. 그런 다음, 새 VM을 부팅할 때, Azure Marketplace 이미지가 아닌 기본 이미지에서 프로비전하면 됩니다.
+개발 환경의 스펙트럼은 매우 크고, 더 복잡한 환경을 구축하는 것과 관련된 실제 비용이 있습니다. 환경의 구성에 관계없이 나중에 사용하거나 팀의 다른 구성원을 위해 구성된 VM을 "기본 이미지"로 저장하거나 캡처할 수 있습니다. 그런 다음, 새 VM을 부팅할 때, Azure Marketplace 이미지가 아닌 기본 이미지에서 프로비전하면 됩니다.
 
 빠른 요약: 시스템 준비 도구(Sysprep)를 사용하여 실행 중인 VM을 종료한 다음, Azure Portal의 UI를 통해 VM을 이미지 *(그림 1)* 로 캡처합니다. Azure에서는 선택한 스토리지 계정의 이미지를 포함하는 `.vhd` 파일을 저장합니다. 그러면 새 이미지가 구독의 리소스 목록에 이미지 리소스로 표시됩니다.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(그림 1) Azure Portal의 UI를 통해 이미지를 캡처합니다.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI"><center> *(그림 1) Azure Portal의 UI를 통해 이미지를 캡처합니다.*</center>
 
 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](./capture-image-resource.md)를 참조하세요.
 
 > [!IMPORTANT]
-> VM을 준비하려면 Sysprep 사용을 잊지 마세요. 이 단계를 누락하면 Azure가 이미지에서 VM을 프로비전할 수 없습니다.
+> Sysprep을 사용하여 VM을 준비해야 합니다. 이 단계를 누락하면 Azure가 이미지에서 VM을 프로비전할 수 없습니다.
 
 > [!NOTE]
 > 이미지를 스토리지하는 데 약간의 비용이 발생하지만 이러한 추가 비용은 VM이 필요한 각 팀 멤버들이 VM을 처음부터 다시 구축하는 데 드는 오버헤드 비용에 비하면 미미할 수 있습니다. 예를 들어, 전체 팀에서 재사용할 수 있는 127GB 이미지를 만들고 1달 동안 저장하는 데는 몇 달러가 필요합니다. 그러나 이러한 비용은 각 직원이 개인적으로 사용하기 위해 적절히 구성된 개발 박스를 빌드하고 유효성을 검사하기 위해 투입하는 시간에 비하면 별로 크지 않습니다.

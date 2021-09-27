@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: aahi
-ms.openlocfilehash: 5b1883b06ae234ed8a4f9adf949cf26919f7b877
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
-ms.translationtype: HT
+ms.openlocfilehash: d86e9d5cbd9168625f71ce7b4ebb0be598d00557
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550159"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677425"
 ---
 # <a name="how-to-use-text-analytics-for-health"></a>의료분야 Text Analytics 사용 방법
 
@@ -83,7 +83,7 @@ ms.locfileid: "113550159"
 
 ## <a name="using-the-client-library"></a>클라이언트 라이브러리 사용
 
-Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용하면 클라이언트 개체를 통해 의료 분야 Text Analytics를 호출할 수 있습니다. 참조 문서를 참조하고 GitHub의 예를 참조하세요.
+Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하면 클라이언트 라이브러리를 사용 하 여 상태에 대 한 Text Analytics를 호출할 수 있습니다. 참조 문서를 참조하고 GitHub의 예를 참조하세요.
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)

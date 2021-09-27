@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 857e5ba3c4251e49dd84726697164f87e0a96bc6
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
-ms.translationtype: HT
+ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653181"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620201"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Azure Blob Storage에서 변경 피드 처리
 
@@ -31,13 +31,15 @@ ms.locfileid: "110653181"
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
+
+
 ## <a name="read-records"></a>레코드 읽기
 
 > [!NOTE]
 > 변경 피드는 스토리지 계정에 있는 변경할 수 없는 읽기 전용 엔터티입니다. 제한 없는 애플리케이션에서 편리한 방식으로 동시에 또는 독립적으로 변경 피드를 읽고 처리할 수 있습니다. 애플리케이션에서 레코드를 읽어도 레코드는 변경 피드에서 제거되지 않습니다. 사용하는 각 판독기의 읽기 또는 반복 상태는 독립적이며 애플리케이션에서만 유지 관리됩니다.
 
 이 예제에서는 변경 피드의 모든 레코드를 반복하고, 목록에 추가한 다음, 해당 목록을 호출자에게 반환합니다.
- 
+
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
 {
@@ -59,7 +61,7 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionSt
 }
 ```
 
-이 예제에서는 목록의 각 레코드에서 몇 가지 값을 콘솔에 출력합니다. 
+이 예제에서는 목록의 각 레코드에서 몇 가지 값을 콘솔에 출력합니다.
 
 ```csharp
 public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
@@ -81,7 +83,7 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 
 변경 피드에 읽기 위치를 저장한 다음, 나중에 레코드 반복을 다시 시작하도록 선택할 수 있습니다. 변경 피드 커서를 가져와 읽기 위치를 저장할 수 있습니다. 커서는 **문자열** 이며 애플리케이션은 애플리케이션의 디자인에 적합한 방식(예: 파일 또는 데이터베이스)으로 해당 문자열을 저장할 수 있습니다.
 
-이 예제에서는 변경 피드의 모든 레코드를 반복하고, 목록에 추가하고, 커서를 저장합니다. 목록 및 커서가 호출자에게 반환됩니다. 
+이 예제에서는 변경 피드의 모든 레코드를 반복하고, 목록에 추가하고, 커서를 저장합니다. 목록 및 커서가 호출자에게 반환됩니다.
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -103,10 +105,10 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
     foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
     {
-    
+
         changeFeedEvents.Add(changeFeedEvent);             
     }
-    
+
     // Update the change feed cursor.  The cursor is not required to get each page of events,
     // it is intended to be saved and used to resume iterating at a later date.
     cursor = enumerator.Current.ContinuationToken;
@@ -118,7 +120,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 변경 피드에 커밋될 때 변경 피드 레코드를 처리하도록 선택할 수 있습니다. [사양](storage-blob-change-feed.md#specifications)을 참조하세요. 변경 이벤트는 평균 60초 동안 변경 피드에 게시됩니다. 폴링 간격을 지정할 때 이 기간의 새로운 변경 내용을 폴링하는 것이 좋습니다.
 
-이 예제에서는 정기적으로 변경 내용을 폴링합니다.  변경 레코드가 있는 경우 이 코드는 해당 레코드를 처리하고 변경 피드 커서를 저장합니다. 이러한 방식으로 프로세스가 중지되었다가 다시 시작되는 경우 애플리케이션은 커서를 사용하여 마지막으로 중지했던 레코드의 처리를 다시 시작할 수 있습니다. 이 예제에서는 커서를 로컬 애플리케이션 구성 파일에 저장하지만 애플리케이션은 시나리오에 가장 적합한 형식으로 커서를 저장할 수 있습니다. 
+이 예제에서는 정기적으로 변경 내용을 폴링합니다.  변경 레코드가 있는 경우 이 코드는 해당 레코드를 처리하고 변경 피드 커서를 저장합니다. 이러한 방식으로 프로세스가 중지되었다가 다시 시작되는 경우 애플리케이션은 커서를 사용하여 마지막으로 중지했던 레코드의 처리를 다시 시작할 수 있습니다. 이 예제에서는 커서를 로컬 애플리케이션 구성 파일에 저장하지만 애플리케이션은 시나리오에 가장 적합한 형식으로 커서를 저장할 수 있습니다.
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -151,7 +153,7 @@ public async Task ChangeFeedStreamAsync
                         "Event Type: " + eventType + "\n" +
                         "Api: " + api);
                 }
-            
+
                 // helper method to save cursor. 
                 SaveCursor(enumerator.Current.ContinuationToken);
             }

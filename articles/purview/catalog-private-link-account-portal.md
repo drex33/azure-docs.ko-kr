@@ -7,19 +7,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 26b98ad9c4c042c1e6bf60889625a4d23090f6f5
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: a98b0c43af2f20142b47baf31580153c3bf90024
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539602"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576151"
 ---
 # <a name="connect-privately-and-securely-to-your-purview-account"></a>Purview 계정에 비공개로 안전하게 연결
-이 가이드에서는 VNet 및 개인 네트워크에서만 Azure Purview 계정에 연결할 수 있도록 Purview 계정에 대한 프라이빗 엔드포인트를 배포하는 방법을 배웁니다. 이 목표를 달성하려면 Azure Purview 계정에 대한 _계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트를 배포해야 합니다.
+이 가이드에서는 VNet 및 개인 네트워크에서만 Azure Purview 계정에 연결할 수 있도록 Purview 계정에 대한 프라이빗 엔드포인트를 배포하는 방법을 배웁니다. 이 목표를 달성하려면 Azure Purview 계정에 대한 _계정_ 및 _포털_ 프라이빗 엔드포인트를 배포해야 합니다.
 
 Azure Purview _계정_ 프라이빗 엔드포인트는 가상 네트워크 내에서 시작된 클라이언트 호출만 Azure Purview 계정에 액세스할 수 있는 시나리오를 사용하도록 설정하여 다른 보안 계층을 추가하는 데 사용됩니다. 이 프라이빗 엔드포인트는 포털 프라이빗 엔드포인트의 필수 조건이기도 합니다.
 
 개인 네트워크를 사용하여 Azure Purview Studio에 연결하려면 Azure Purview _포털_ 프라이빗 엔드포인트가 필요합니다.
+
+> [!NOTE]
+> _계정_ 및 _포털_ 프라이빗 엔드포인트만 만드는 경우 검색을 실행할 수 없습니다. 프라이빗 네트워크에서 검사를 사용하도록 설정하려면 또한 [을(를) 통해서도 검색 프라이빗 엔드포인트를 만들어야](catalog-private-link-end-to-end.md)합니다.
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Azure Purview 및 Private Link 아키텍처를 보여 주는 다이어그램.":::
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 135d9235a94dd22311a804ee8c20046d2608a95c
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 8e4988605aae724bb20bc02ce77db451efbcaed8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822223"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824790"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 파이프라인 및 작업
 
@@ -32,7 +32,7 @@ Data Factory 또는 Synapse Workspace에는 하나 이상의 파이프라인이 
 
 Azure Data Factory 및 Azure Synapse Analytics에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md) 및 [제어 작업](#control-flow-activities)의 세 가지 작업 그룹이 있습니다. 활동은 0개 이상의 입력 [데이터 세트](concepts-datasets-linked-services.md)를 받고 하나 이상의 출력 [데이터 세트](concepts-datasets-linked-services.md)를 생성할 수 있습니다. 다음 다이어그램은 파이프라인, 작업 및 데이터 세트 간 관계를 보여 줍니다.
 
-![데이터 세트, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+:::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="데이터 세트, 작업 및 파이프라인 간 관계":::
 
 파이프라인에서 입력 데이터 세트는 활동에 대한 입력을 나타내고, 출력 데이터 세트는 활동에 대한 출력을 나타냅니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 데이터 세트를 만든 후 파이프라인의 작업에 사용할 수 있습니다. 예를 들어 데이터 세트는 복사 작업 또는 HDInsightHive 작업의 입력/출력 데이터 세트일 수 있습니다. 데이터 세트에 대한 자세한 내용은 [Azure Data Factory의 데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
 
@@ -109,10 +109,10 @@ Azure Data Factory 및 Azure Synapse Analytics는 개별적으로 추가하거�
 태그 | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>사용할 수 없는 문자: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | No
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 예
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 예
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | No 
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | 예 
 주석 | 파이프라인과 연결된 태그 목록입니다. | Array | 예
 
 ## <a name="activity-json"></a>활동 JSON

@@ -2,13 +2,13 @@
 title: Azure 리소스 배포를 위한 Bicep 언어
 description: Azure에 인프라를 배포하기 위한 Bicep 언어를 설명합니다. JSON을 사용하여 템플릿을 개발하는 것보다 향상된 제작 환경을 제공합니다.
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: ace417bb8a71a277bbcb4ef178c6aaf24b97533b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568133"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831943"
 ---
 # <a name="what-is-bicep"></a>Bicep이란?
 
@@ -112,8 +112,7 @@ ARM 템플릿을 선택한 고객의 경우 Bicep이 제작 환경을 개선할 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-- 단일 행 개체 및 배열은 지원하지 않습니다. 예를 들어 `['a', 'b', 'c']`은 지원되지 않습니다. 자세한 내용은 [배열](data-types.md#arrays) 및 [개체](data-types.md#objects)를 참조하세요.
-- 긴 줄을 여러 줄로 나누는 것은 지원하지 않습니다. 예를 들면 다음과 같습니다.
+- Bicep는 줄 바꿈를 구분 합니다. 예를 들면 다음과 같습니다.
 
     ```bicep
     resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {

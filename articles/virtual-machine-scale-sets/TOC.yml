@@ -160,6 +160,32 @@
         - name: 벤치마크 점수
           href: ../virtual-machines/windows/compute-benchmark-scores.md
           maintainContext: true
+        - name: 용량 예약(미리 보기)
+          items:
+            - name: 개요
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overview.md
+              maintainContext: true
+            - name: 용량 예약 만들기
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-create.md
+              maintainContext: true
+            - name: 용량 예약 초과 할당
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-overallocate.md
+              maintainContext: true
+            - name: 용량 예약 수정
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-modify.md
+              maintainContext: true
+            - name: 가상 머신 확장 집합 연결
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
+              maintainContext: true
+            - name: 가상 머신 확장 집합 제거
+              displayName: on-demand capacity reservation
+              href: ../virtual-machines/capacity-reservation-remove-virtual-machine-scale-set.md
+              maintainContext: true
       maintainContext: true
     - name: Linux 보증 배포판
       href: ../virtual-machines/linux/endorsed-distros.md

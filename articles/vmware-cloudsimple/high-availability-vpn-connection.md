@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0dda4f6bbc5f9942522fb19031091b76105acf64
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: f2ea74aa319bd3cf736a50542e2e8d0285a13646
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390997"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577754"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>온-프레미스에서 CloudSimple VPN 게이트웨이로의 고가용성 연결 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "114390997"
 
 외부 인터페이스에서 1단계(IKEv1)를 사용하도록 설정하려면 Cisco ASA 방화벽에서 다음 CLI 명령을 입력합니다.
 
-```crypto ikev1 enable outside```
+`crypto ikev1 enable outside`
 
 ### <a name="2-create-an-ikev1-policy"></a>2. IKEv1 정책 만들기
 
@@ -121,13 +121,13 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 외부 인터페이스에 암호화 맵을 적용합니다.
 
-```crypto map mymap interface outside```
+`crypto map mymap interface outside`
 
 ### <a name="8-confirm-applicable-nat-rules"></a>8. 적용 가능한 NAT 규칙 확인
 
 다음은 사용되는 NAT 규칙입니다. VPN 트래픽에 다른 NAT 규칙이 적용되지 않는지 확인합니다.
 
-```nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside```
+`nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside`
 
 ### <a name="sample-ipsec-site-to-site-vpn-established-output-from-cisco-asa"></a>Cisco ASA의 샘플 IPsec 사이트 간 VPN 설정 출력
 

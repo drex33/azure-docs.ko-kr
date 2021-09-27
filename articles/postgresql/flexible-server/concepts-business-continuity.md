@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/24/2021
-ms.openlocfilehash: 64206d1e5a26d163c5d5ed81c3c762a10de0fe96
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 571311d5d455bedc61bae06634324cc5a380f7ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769591"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555982"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버를 사용한 비즈니스 연속성 개요
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버의 **비즈니스 연속성** 은 비즈니스가 중단, 특히 자사의 컴퓨팅 인프라에서 계속 운영할 수 있도록 하는 메커니즘, 정책 및 절차를 나타냅니다. 대부분의 경우 유연한 서버는 클라우드 환경에서 발생할 수 있는 중단 이벤트를 처리하고 애플리케이션 및 비즈니스 프로세스를 계속 실행합니다. 그러나 자동으로 처리할 수 없는 몇 가지 이벤트는 다음과 같습니다.
 

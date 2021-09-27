@@ -1,29 +1,29 @@
 ---
 title: MongoDB에서 또는 MongoDB로 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MongoDB에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 MongoDB로 데이터를 복사하는 방법을 알아봅니다.
-ms.author: chez
-author: chez-charlie
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 MongoDB에서 지원 되는 싱크 데이터 저장소로 또는 지원 되는 원본 데이터 저장소에서 MongoDB로 데이터를 복사 하는 방법에 대해 알아봅니다.
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 6788de24c3e8fc74ac69f73b5e91c13b56843eda
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 5642577cf8b8e1edf741c09bf4e1968d5cd69770
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307322"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831719"
 ---
-# <a name="copy-data-from-or-to-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 또는 MongoDB로 데이터 복사
+# <a name="copy-data-from-or-to-mongodb-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 MongoDB에서 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MongoDB 데이터베이스에서 및 MongoDB 데이터베이스로 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 MongoDB 데이터베이스 간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!IMPORTANT]
->ADF는 더 나은 네이티브 MongoDB 지원을 제공하는 이 새 버전의 MongoDB 커넥터를 릴리스합니다. 이전 버전과 호환성에 대해 있는 그대로 지원되는 솔루션에서 이전 버전의 MongoDB 커넥터를 사용하는 경우 [MongoDB 커넥터(레거시)](connector-mongodb-legacy.md) 문서를 참조하세요.
+>새 MongoDB 커넥터는 향상 된 기본 MongoDB 지원을 제공 합니다. 솔루션에서 레거시 MongoDB 커넥터를 사용 하는 경우 이전 버전과의 호환성을 위해서만 지원 됩니다. [MongoDB connector (레거시)](connector-mongodb-legacy.md) 문서를 참조 하세요.
 
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -50,7 +50,7 @@ MongoDB 데이터베이스에서 지원되는 싱크 데이터 저장소로 데�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -136,7 +136,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **MongoDbV2Source** 로 설정해야 합니다. | 예 |
 | filter | 쿼리 연산자를 사용하여 선택 영역 필터를 지정합니다. 컬렉션의 모든 문서를 반환하려면 이 매개 변수를 생략하거나 빈 문서({})를 전달합니다. | 예 |
@@ -147,7 +147,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | batchSize | MongoDB 인스턴스의 응답을 각각 일괄 처리로 반환할 문서 수를 지정합니다. 대부분의 경우 일괄 처리 크기를 수정해도 사용자 또는 애플리케이션에 영향이 없습니다. Cosmos DB는 각 일괄 처리가 문서 크기의 batchSize 수의 합인 40MB를 초과할 수 없도록 제한하므로 문서 크기가 대규모인 경우 이 값을 줄입니다. | 예<br/>(기본값은 **100**) |
 
 >[!TIP]
->ADF는 **Strict 모드** 로 BSON 문서를 사용하는 것을 지원합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
+>이 서비스는 **Strict 모드** 에서 bson 문서를 사용 하도록 지원 합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
 
 **예:**
 
@@ -191,10 +191,10 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성을 **MongoDbV2Sink** 로 설정해야 합니다. |예 |
-| writeBehavior |MongoDB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id`가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 `_id`를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
+| writeBehavior |MongoDB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고:** 이 원래 문서 `_id` 또는 열 매핑에 의해 지정되지 않은 경우 서비스에서 문서에 대한 를 자동으로 `_id` 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
 | writeBatchSize | **writeBatchSize** 속성은 각 일괄 처리에서 작성할 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄여 볼 수 있습니다. |예<br />(기본값: **10,000**) |
 | writeBatchTimeout | 시간 초과 전 배치 삽입 작업을 완료하기 위한 대기 시간입니다. 허용된 값은 시간 범위입니다. | 예<br/>(기본값은 **00:30:00** - 30분) |
 
@@ -238,7 +238,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 이 MongoDB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
 
 * 두 MongoDB 컬렉션 간에 데이터를 있는 그대로 복사
-* Azure Cosmos DB, Azure Blob Storage, Azure Data Lake Store 및 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등 다양한 원본에서 MongoDB로 JSON 문서 가져오기
+* Azure Cosmos DB, Azure Blob Storage, Azure Data Lake Store 및 기타 지원되는 파일 기반 저장소를 포함하여 다양한 원본에서 MongoDB로 JSON 문서를 가져옵니다.
 * MongoDB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 
 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마* 라고도 함) 섹션을 건너뛰세요.
@@ -250,4 +250,4 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 07/08/2021
 ms.author: inhenkel
-ms.openlocfilehash: bac6d089f34cd916b0bd7f621958aaf6d30a82eb
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
-ms.translationtype: HT
+ms.openlocfilehash: ae414b91ef1c24df64d1201a5d171b065cdc268b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113601086"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646045"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
@@ -31,6 +31,15 @@ Media Services 이벤트의 가용성은 Event Grid [가용성](../../../event-g
 Event Grid는 [이벤트 구독](../../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다.
 
 자세한 내용은 [Media Services 이벤트 스키마](../media-services-event-schemas.md)를 참조하세요.
+
+## <a name="samples-and-how-to"></a>샘플 및 방법
+
+[.net 용 Media Services 샘플 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet) 는 최신 Event Grid 및 Event Hubs 클라이언트 라이브러리를 사용 하 여 사용자 지정 응용 프로그램에서 이벤트를 수신 하는 방법을 보여 줍니다.
+
+또한 다음 방법 문서에서는 CLI 및 Azure Portal를 통해 Event Grid를 사용 하는 방법을 보여 줍니다.
+
+* [이벤트 모니터링 - Portal](../monitor-events-portal-how-to.md)
+* [이벤트 모니터링 - CLI](../job-state-events-cli-how-to.md)
 
 ## <a name="practices-for-consuming-events"></a>이벤트 사용에 관한 지침
 

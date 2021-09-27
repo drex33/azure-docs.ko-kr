@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 10f46f5788cd2f17be4b46c2f655fb4e05fed1d9
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 5c0c9a44126ed5bd16544e8f5819eeb3add4a789
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678310"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>프라이빗 엔드포인트에서 Azure Migrate 사용
 
@@ -131,16 +131,18 @@ Azure Migrate: 검색 및 평가는 간단한 Azure Migrate 어플라이언스�
 #### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
-2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
-3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
+
+3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+
+4. 다음 명령을 `AzureMigrateInstaller.ps1` 실행하여 라는 스크립트를 실행합니다.
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **프라이빗 엔드포인트 연결** 을 사용하는 Azure Migrate 프로젝트에 대해 **VMware 환경에서 실행되는 서버** 를 검색 및 평가하도록 어플라이언스가 설정됩니다.
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="프라이빗 엔드포인트에 대해 원하는 구성으로 어플라이언스를 설정하는 방법을 보여 주는 스크린샷." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="프라이빗 엔드포인트에 대해 원하는 구성으로 어플라이언스를 설정하는 방법을 보여 주는 스크린샷." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
 
 스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
 
@@ -302,7 +304,7 @@ Azure Migrate 프로젝트 프라이빗 엔드포인트 또는 이 네트워크�
 
 다음으로, 지침에 따라 [복제를 검토 및 시작](./tutorial-migrate-physical-virtual-machines.md#replicate-machines)하고 [마이그레이션을 수행](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration)합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
+
 - [마이그레이션 프로세스](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration)를 완료합니다.
 - [마이그레이션 후 작업 모범 사례](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices)를 검토합니다.

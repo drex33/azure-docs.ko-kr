@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: aaca4774f6f56d38624b4811375a6661299161cc
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 9b378b4cfb9bb35f1fb2a555afed195ac6b84dc3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821773"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678690"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 식 및 함수
 
@@ -210,11 +210,35 @@ Baba's book store
 ## <a name="functions"></a>Functions
 
 식 내에서 함수를 호출할 수 있습니다. 다음 섹션에서는 식에서 사용할 수 있는 함수에 대한 정보를 제공합니다.  
+  
+## <a name="date-functions"></a>날짜 함수  
+
+| 날짜 또는 시간 함수 | Task |
+| --------------------- | ---- |
+| [addDays](control-flow-expression-language-functions.md#addDays) | 타임스탬프에 일 수를 더합니다. |
+| [addHours](control-flow-expression-language-functions.md#addHours) | 타임스탬프에 시간 수를 더합니다. |
+| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | 타임스탬프에 분 수를 더합니다. |
+| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | 타임스탬프에 초 수를 더합니다. |
+| [addToTime](control-flow-expression-language-functions.md#addToTime) | 타임스탬프에 시간 단위 수를 더합니다. [getFutureTime](control-flow-expression-language-functions.md#getFutureTime)도 참조합니다. |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | UTC(Universal Time Coordinated)의 타임스탬프를 대상 표준 시간대로 변환합니다. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | 원본 표준 시간대의 타임스탬프를 UTC(Universal Time Coordinated)로 변환합니다. |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | 타임 스탬프에서 월 구성 요소인 날짜를 반환합니다. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | 타임 스탬프에서 주 구성 요소인 날짜를 반환합니다. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | 타임 스탬프에서 연 구성 요소인 날짜를 반환합니다. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | 타임스탬프를 선택적 형식의 문자열로 반환합니다. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. [addToTime](control-flow-expression-language-functions.md#addToTime)도 참조합니다. |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime)도 참조합니다. |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | 타임스탬프에 대한 날의 시작을 반환합니다. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | 타임스탬프에 대한 시간의 시작을 반환합니다. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | 타임스탬프에 대한 월의 시작을 반환합니다. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | 타임스탬프에서 시간 단위 수를 뺍니다. [getPastTime](control-flow-expression-language-functions.md#getPastTime)도 함께 참조하세요. |
+| [ticks](control-flow-expression-language-functions.md#ticks) | 지정한 타임스탬프에 대한 `ticks` 속성 값을 반환합니다. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | 현재 타임스탬프를 문자열로 반환합니다. |
 
 ## <a name="string-functions"></a>문자열 함수  
 
-문자열로 작업하려면 이러한 문자열 함수 및 일부 [컬렉션 함수](#collection-functions)도 사용할 수 있습니다.
-문자열 함수는 문자열에서만 작동합니다.
+문자열로 작업하려면 이러한 문자열 함수 및 일부 [컬렉션 함수](#collection-functions)도 사용할 수 있습니다.  문자열 함수는 문자열에서만 작동합니다.
 
 | 문자열 함수 | Task |
 | --------------- | ---- |
@@ -315,31 +339,6 @@ Baba's book store
 | [rand](control-flow-expression-language-functions.md#rand) | 지정된 범위에서 임의의 정수를 반환합니다. |
 | [range](control-flow-expression-language-functions.md#range) | 지정한 정수에서 시작하는 정수 배열을 반환합니다. |
 | [sub](control-flow-expression-language-functions.md#sub) | 첫 번째 숫자에서 두 번째 숫자를 뺀 결과를 반환합니다. |
-  
-## <a name="date-functions"></a>날짜 함수  
-
-| 날짜 또는 시간 함수 | Task |
-| --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | 타임스탬프에 일 수를 더합니다. |
-| [addHours](control-flow-expression-language-functions.md#addHours) | 타임스탬프에 시간 수를 더합니다. |
-| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | 타임스탬프에 분 수를 더합니다. |
-| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | 타임스탬프에 초 수를 더합니다. |
-| [addToTime](control-flow-expression-language-functions.md#addToTime) | 타임스탬프에 시간 단위 수를 더합니다. [getFutureTime](control-flow-expression-language-functions.md#getFutureTime)도 참조합니다. |
-| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | UTC(Universal Time Coordinated)의 타임스탬프를 대상 표준 시간대로 변환합니다. |
-| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. |
-| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | 원본 표준 시간대의 타임스탬프를 UTC(Universal Time Coordinated)로 변환합니다. |
-| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | 타임 스탬프에서 월 구성 요소인 날짜를 반환합니다. |
-| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | 타임 스탬프에서 주 구성 요소인 날짜를 반환합니다. |
-| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | 타임 스탬프에서 연 구성 요소인 날짜를 반환합니다. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | 타임스탬프를 선택적 형식의 문자열로 반환합니다. |
-| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. [addToTime](control-flow-expression-language-functions.md#addToTime)도 참조합니다. |
-| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime)도 참조합니다. |
-| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | 타임스탬프에 대한 날의 시작을 반환합니다. |
-| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | 타임스탬프에 대한 시간의 시작을 반환합니다. |
-| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | 타임스탬프에 대한 월의 시작을 반환합니다. |
-| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | 타임스탬프에서 시간 단위 수를 뺍니다. [getPastTime](control-flow-expression-language-functions.md#getPastTime)도 함께 참조하세요. |
-| [ticks](control-flow-expression-language-functions.md#ticks) | 지정한 타임스탬프에 대한 `ticks` 속성 값을 반환합니다. |
-| [utcNow](control-flow-expression-language-functions.md#utcNow) | 현재 타임스탬프를 문자열로 반환합니다. |
 
 ## <a name="function-reference"></a>함수 참조
 

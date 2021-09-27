@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 660c80a471739f7dc0163e915f45e3a067e1e4b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ec01461246496a7471a061f81d629f5e060a5eb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871965"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824469"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
 
@@ -88,7 +88,7 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 #### <a name="check-azure-service-usage-limits"></a>Azure 서비스 사용 제한 확인
 
 대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조하세요.
-[리소스 관리자 코어 할당량 증가 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
+[리소스 관리자 코어 할당량 증가 요청](../azure-portal/supportability/regional-quota-requests.md)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
 

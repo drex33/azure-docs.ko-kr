@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8429ed368e8465c45137e555444a18b8a66769dd
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 93a217a88b75ec6c472972d3f12cb33e33561f2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123271956"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579788"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -21,7 +21,7 @@ ms.locfileid: "123271956"
 
 IoT Edge for Linux on Windows(EFLOW) 가상 머신을 배포, 프로비저닝하고 상태를 확인하는 PowerShell 함수를 이해합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명된 명령은 `AzureEFLOW.psm1` 파일에서 가져온 것입니다. 이 파일은 `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW` 아래의 `WindowsPowerShell` 디렉터리에 있는 시스템에서 찾을 수 있습니다.
 
@@ -84,9 +84,9 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 | vmDiskSize | 8GB에서 256GB 사이 | 동적으로 확장되는 가상 하드 디스크의 최대 디스크 크기입니다.<br><br>**기본값**: 10GB. |
 | vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
 | vswitchType | **내부** 또는 **외부** | EFLOW VM에 할당된 가상 스위치의 유형입니다. |
-| ip4Address | DHCP 서버 범위의 IPv4 주소 | EFLOW VM의 고정 IPv4 주소입니다. _참고: ICS 기본 스위치에서만 지원됩니다_. |
-| ip4PrefixLength | 서브넷의 IPv4 접두사 길이 | IPv4 서브넷 접두사 길이, 고정 IPv4 주소가 지정된 경우에만 유효합니다.  _참고: ICS 기본 스위치에서만 지원됩니다_. |
-| ip4GatewayAddress | 서브넷 게이트웨이의 IPv4 주소 | 게이트웨이 IPv4 주소, 고정 IPv4 주소가 지정된 경우에만 유효합니다.  _참고: ICS 기본 스위치에서만 지원됩니다_. |
+| ip4Address | DHCP 서버 범위의 IPv4 주소 | EFLOW VM의 고정 IPv4 주소입니다. |
+| ip4PrefixLength | 서브넷의 IPv4 접두사 길이 | IPv4 서브넷 접두사 길이, 고정 IPv4 주소가 지정된 경우에만 유효합니다. |
+| ip4GatewayAddress | 서브넷 게이트웨이의 IPv4 주소 | 게이트웨이 IPv4 주소, 고정 IPv4 주소가 지정된 경우에만 유효합니다. |
 | gpuName | GPU 디바이스 이름 |  통과에 사용할 GPU 디바이스의 이름입니다. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization** 또는 없음(CPU만 해당) |  GPU 통과 유형 |
 | gpuCount | 1과 디바이스의 GPU 코어 수 사이의 정수 값 | VM의 GPU 디바이스 수입니다. <br><br>**참고**: ParaVirtualization을 사용하는 경우 gpuCount = 1로 설정해야 합니다. |
@@ -176,7 +176,7 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
-| 명령을 사용합니다. | 문자열 | VM에서 실행할 명령입니다. |
+| 명령을 사용합니다. | String | VM에서 실행할 명령입니다. |
 | ignoreError | 없음 |  이 플래그가 있으면 명령의 오류를 무시합니다. |
 
 자세한 내용을 보려면 `Get-Help Invoke-EflowVmCommand -full` 명령을 사용하세요.
@@ -257,4 +257,4 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 다음 문서에서 이러한 명령을 사용하여 IoT Edge for Linux on Windows를 설치 및 프로비저닝하는 방법을 알아봅니다.
 
-* [Azure IoT Edge for Linux on Windows 설치](./how-to-install-iot-edge-windows-on-windows.md)
+* [Azure IoT Edge for Linux on Windows 설치](./how-to-install-iot-edge-on-windows.md)

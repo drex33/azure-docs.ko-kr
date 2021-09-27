@@ -9,13 +9,13 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 5e389f0cf1318ceb0c1842fb263726a81a085ce6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: bea14b1630cbe5d1c4035e9abea62130cd546964
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642787"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831411"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>스토리지 이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -48,8 +48,6 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Data Factory UI에 새 스토리지 이벤트 트리거를 만드는 작성자 페이지의 스크린샷":::
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text=" Azure Synapse UI에 새 스토리지 이벤트 트리거를 만드는 작성자 페이지의 스크린샷.":::
-
----
 
 5. Azure 구독 드롭다운에서 또는 스토리지 계정 리소스 ID를 수동으로 사용하여 스토리지 계정을 선택합니다. 이벤트가 발생할 컨테이너를 선택합니다. 컨테이너 선택은 필수이지만 모든 컨테이너를 선택하면 많은 이벤트가 발생할 수 있습니다.
 

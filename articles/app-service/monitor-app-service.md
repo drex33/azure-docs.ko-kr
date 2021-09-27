@@ -7,19 +7,19 @@ ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 537173792c4e14ac1dfdb142d8ab15e3e68e5649
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
-ms.translationtype: HT
+ms.openlocfilehash: 1c3ff0fb224d5c1f8fe0133f184044b8aa5b30a3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230589"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837141"
 ---
 # <a name="monitoring-app-service"></a>App Service 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 App Service에서 생성되어 [Azure Monitor](../azure-monitor/overview.md)에 제공되는 모니터링 데이터에 대해 설명합니다. 사용자는 App Service 앱을 디버그하는 데 도움이 되는 [기본 제공 진단으로 리소스를 모니터링](troubleshoot-diagnostic-logs.md)할 수도 있습니다. 이 기능을 사용하는 모든 Azure 서비스에 공통되는 Azure Monitor 기능에 익숙하지 않은 경우, [Azure Monitor로 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 읽어 보세요.
 
 > [!NOTE]
-> Azure Monitor와 App Service의 통합은 [미리 보기](https://aka.ms/appsvcblog-azmon)에 있습니다.
+> App Service 진단 설정 통합은 [미리 보기로](https://aka.ms/appsvcblog-azmon)제공됩니다.
 >
 
 ## <a name="monitoring-data"></a>데이터 모니터링 

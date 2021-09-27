@@ -1,19 +1,19 @@
 ---
 title: C++ 클라이언트 라이브러리를 사용하여 Azure Storage 리소스 나열
 description: Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: c034f8df787d60ab8d260fb9f99c0938d4fb55af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279632"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560433"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
 
@@ -24,11 +24,11 @@ ms.locfileid: "106279632"
 
 Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
 
-* 계정에서 컨테이너 나열
-* 컨테이너 또는 가상 Blob 디렉터리에서 Blob 나열
-* 계정에서 큐 나열
-* 계정에서 테이블 나열
-* 테이블에 엔터티 쿼리
+- 계정에서 컨테이너 나열
+- 컨테이너 또는 가상 Blob 디렉터리에서 Blob 나열
+- 계정에서 큐 나열
+- 계정에서 테이블 나열
+- 테이블에 엔터티 쿼리
 
 이러한 각 메서드는 다른 시나리오에 대해 다른 오버로드를 사용하여 표시됩니다.
 
@@ -59,8 +59,8 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 
 분할된 목록 작업에 대한 응답에는 다음이 포함됩니다.
 
-* *_segment* 은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
-* *continuation_token* 은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
+- *_segment* 은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
+- *continuation_token* 은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
 
 예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)에서 사용할 수 있습니다.
 
@@ -187,18 +187,18 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 
 이 문서에서는 Storage Client Library for C++에서 다양한 개체에 대한 각기 다른 목록 API의 오버로드에 대해 다루었습니다. 요약:
 
-* 여러 스레드 시나리오에서 비동기 API를 사용하는 것이 좋습니다.
-* 분할된 목록은 대부분의 시나리오에서 권장됩니다.
-* lazy 목록은 동기 시나리오에서 편리한 래퍼로 라이브러리에서 제공됩니다.
-* greedy 목록은 권장되지 않으며 라이브러리에서 제거되었습니다.
+- 여러 스레드 시나리오에서 비동기 API를 사용하는 것이 좋습니다.
+- 분할된 목록은 대부분의 시나리오에서 권장됩니다.
+- lazy 목록은 동기 시나리오에서 편리한 래퍼로 라이브러리에서 제공됩니다.
+- greedy 목록은 권장되지 않으며 라이브러리에서 제거되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
-* [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)
-* [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
-* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)
+- [C++에서 Blob Storage를 사용하는 방법](../blobs/quickstart-blobs-c-plus-plus.md)
+- [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+- [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
+- [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)
+- [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
+- [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

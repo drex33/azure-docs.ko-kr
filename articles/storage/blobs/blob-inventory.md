@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 771a2f6ba2206394162f767e9ad8d139fdb9cdd4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: 9cf53cdf35435030b9aa16b8336d80d887e6efbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584212"
 ---
 # <a name="azure-storage-blob-inventory"></a>Azure Storage Blob 인벤토리
 
@@ -31,7 +31,7 @@ Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 컨테이�
 
 - **사용자 지정 스키마**
 
-  보고서에 표시할 필드를 선택할 수 있습니다. 지원되는 필드 목록에서 선택합니다. 이 목록은 이 문서의 뒷부분에 나와 있습니다. 
+  보고서에 표시할 필드를 선택할 수 있습니다. 지원되는 필드 목록에서 선택합니다. 이 목록은 이 문서의 뒷부분에 나와 있습니다.
 
 - **CSV 및 Apache Parquet 출력 형식**
 
@@ -45,7 +45,7 @@ Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 컨테이�
 
 스토리지 계정에 하나 이상의 규칙이 있는 정책을 추가하여 Blob 인벤토리 보고서를 사용합니다. 자세한 지침은 [Azure Storage Blob 인벤토리 보고서 사용](blob-inventory-how-to.md)을 참조하세요.
 
-## <a name="upgrading-an-inventory-policy"></a>인벤토리 정책 업그레이드 
+## <a name="upgrading-an-inventory-policy"></a>인벤토리 정책 업그레이드
 
 2021년 6월 전에 인벤토리를 구성한 기존 Azure Storage Blob 인벤토리 사용자인 경우 정책을 로드하고 변경한 다음, 정책을 다시 저장하면 새 기능을 사용할 수 있습니다. 정책을 다시 로드하면 정책의 새 필드가 기본값으로 채워집니다. 원한다면 이 값을 변경할 수 있습니다. 또한 다음 두 가지 기능을 사용할 수 있습니다.
 
@@ -59,20 +59,20 @@ Azure Storage Blob 인벤토리 기능은 스토리지 계정 내의 컨테이�
 
 ```json
 {
+  "enabled": true,
+  "rules": [
+  {
     "enabled": true,
-    "rules": [
-    {
-        "enabled": true,
-        "name": "inventoryrule1",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    },
-    {
-        "enabled": true,
-        "name": "inventoryrule2",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    }]
+    "name": "inventoryrule1",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  },
+  {
+    "enabled": true,
+    "name": "inventoryrule2",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  }]
 }
 ```
 
@@ -123,43 +123,42 @@ Azure Portal의 **Blob 인벤토리** 섹션에서 **코드 보기** 탭을 선�
 
 ```json
 {
-    "destination": "inventory-destination-container",
+  "destination": "inventory-destination-container",
+  "enabled": true,
+  "rules": [
+  {
+    "definition": {
+      "filters": {
+        "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
+        "includeSnapshots": false,
+        "includeBlobVersions": true,
+      },
+      "format": "csv",
+      "objectType": "blob",
+      "schedule": "daily",
+      "schemaFields": ["Name", "Creation-Time"]
+    },
     "enabled": true,
-    "rules": [
-                             {
-            "definition": {
-                "filters": {
-                    "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
-                    "includeSnapshots": false,
-                    "includeBlobVersions": true,
-                },
-                "format": "csv",
-                "objectType": "blob",
-                "schedule": "daily",
-                "schemaFields": ["Name", "Creation-Time"]
-            }
-            "enabled": true,
-            "name": "blobinventorytest",
-            "destination": "inventorydestinationContainer"
-        },
-                             {
-            "definition": {
-                "filters": {
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
-                },
-                "format": "csv",
-                "objectType": "container",
-                "schedule": "weekly",
-                "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
-            }
-            "enabled": true,
-            "name": "containerinventorytest",
-            "destination": "inventorydestinationContainer"
-        }
-    ]
+    "name": "blobinventorytest",
+    "destination": "inventorydestinationContainer"
+  },
+  {
+    "definition": {
+      "filters": {
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
+      },
+      "format": "csv",
+      "objectType": "container",
+      "schedule": "weekly",
+      "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
+    },
+    "enabled": true,
+    "name": "containerinventorytest",
+    "destination": "inventorydestinationContainer"
+    }
+  ]
 }
-
 ```
 
 ### <a name="custom-schema-fields-supported-for-blob-inventory"></a>Blob 인벤토리에 대해 지원되는 사용자 지정 스키마 필드
@@ -183,8 +182,6 @@ Azure Portal의 **Blob 인벤토리** 섹션에서 **코드 보기** 탭을 선�
 - IsCurrentVersion(보고서에 Blob 버전을 포함하도록 선택하는 경우에 사용 가능한 필수 필드)
 - 메타데이터
 - LastAccessTime
-
-
 
 ### <a name="custom-schema-fields-supported-for-container-inventory"></a>컨테이너 인벤토리에 대해 지원되는 사용자 지정 스키마 필드
 
@@ -212,24 +209,24 @@ Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 �
 규칙에 대한 인벤토리 실행이 완료되면 `BlobInventoryPolicyCompleted` 이벤트가 생성됩니다. 인벤토리가 실행되기 전에 사용자 오류로 인해 인벤토리 실행이 실패하는 경우에도 이 이벤트가 발생합니다. 예를 들어 잘못된 정책 또는 대상 컨테이너가 없어서 발생하는 오류는 이 이벤트를 트리거합니다. 다음 json은 `BlobInventoryPolicyCompleted` 이벤트 예시를 보여줍니다.
 
 ```json
-{ 
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
-  "subject": "BlobDataManagement/BlobInventory", 
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-  "data": { 
-    "scheduleDateTime": "2021-05-28T03:50:27Z", 
-    "accountName": "testaccount", 
-    "ruleName": "Rule_1", 
-    "policyRunStatus": "Succeeded", 
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
-  }, 
-  "dataVersion": "1.0", 
-  "metadataVersion": "1", 
-  "eventTime": "2021-05-28T15:03:18Z" 
-} 
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
 ```
 
 다음 표에는 `BlobInventoryPolicyCompleted` 이벤트의 스키마가 설명되어 있습니다.
@@ -257,60 +254,59 @@ Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 �
 
 규칙에 대한 인벤토리를 실행할 때마다 다음 파일이 생성됩니다.
 
-- **인벤토리 파일**: 규칙에 대한 인벤토리를 실행하면 하나 이상의 CSV 또는 Apache Parquet 형식 파일이 생성됩니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. CS 형식 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
+- **인벤토리 파일:** 규칙에 대 한 인벤토리 실행은 하나 이상의 CSV 또는 Apache Parquet 형식 파일을 생성 합니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. CS 형식 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Microsoft Excel에서 열린 인벤토리 CSV 파일의 스크린샷":::
 
-  > [!NOTE] 
+  > [!NOTE]
   > Apache Parquet 형식의 보고서는 날짜를 `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC` 형식으로 표시합니다.
 
+- **체크섬 파일:** 체크섬 파일에는 매니페스트 json 파일 콘텐츠의 MD5 체크섬이 포함 되어 있습니다. 체크섬 파일의 이름은 `<ruleName>-manifest.checksum`입니다. 체크섬 파일이 생성되면 인벤토리 실행이 완료되었다는 뜻입니다.
 
-- **체크섬 파일**: 체크섬 파일에는 manifest.json 파일 콘텐츠의 MD5 체크섬이 포함됩니다. 체크섬 파일의 이름은 `<ruleName>-manifest.checksum`입니다. 체크섬 파일이 생성되면 인벤토리 실행이 완료되었다는 뜻입니다.
+- **매니페스트 파일:** 매니페스트. json 파일에는 해당 규칙에 대해 생성 된 인벤토리 파일의 세부 정보가 포함 됩니다. 파일 이름은 `<ruleName>-manifest.json`입니다. 또한 이 파일은 사용자가 제공하는 규칙 정의와 해당 규칙에 대한 인벤토리의 경로를 캡처합니다. 다음 json은 샘플 manifest.json 파일의 콘텐츠를 보여줍니다.
 
-- **매니페스트 파일**: manifest.json 파일에는 해당 실행에 대해 생성된 인벤토리 파일의 세부 정보가 포함됩니다. 파일 이름은 `<ruleName>-manifest.json`입니다. 또한 이 파일은 사용자가 제공하는 규칙 정의와 해당 규칙에 대한 인벤토리의 경로를 캡처합니다. 다음 json은 샘플 manifest.json 파일의 콘텐츠를 보여줍니다.
-
-  ```json 
-  { 
-  "destinationContainer" : "inventory-destination-container", 
-  "endpoint" : "https://testaccount.blob.core.windows.net", 
-  "files" : [ 
-        { 
-            "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv", 
-            "size" : 12710092 
-        } 
-    ], 
-    "inventoryCompletionTime" : "2021-05-26T13:35:56Z", 
-    "inventoryStartTime" : "2021-05-26T13:25:36Z", 
-    "ruleDefinition" : { 
-        "filters" : { 
-            "blobTypes" : [ "blockBlob" ], 
-            "includeBlobVersions" : false, 
-            "includeSnapshots" : false, 
-            "prefixMatch" : [ "penner-test-container-100003" ] 
-        }, 
-        "format" : "csv", 
-        "objectType" : "blob", 
-        "schedule" : "daily", 
-        "schemaFields" : [ 
-            "Name", 
-            "Creation-Time", 
-            "BlobType", 
-            "Content-Length", 
-            "LastAccessTime", 
-            "Last-Modified", 
-            "Metadata", 
-            "AccessTier" 
-        ] 
-    }, 
-    "ruleName" : "Rule_1", 
-    "status" : "Succeeded", 
-    "summary" : { 
-        "objectCount" : 110000, 
-        "totalObjectSize" : 23789775 
-    }, 
-    "version" : "1.0" 
-    } 
-   ```
+  ```json
+  {
+  "destinationContainer" : "inventory-destination-container",
+  "endpoint" : "https://testaccount.blob.core.windows.net",
+  "files" : [
+    {
+      "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv",
+      "size" : 12710092
+    }
+  ],
+  "inventoryCompletionTime" : "2021-05-26T13:35:56Z",
+  "inventoryStartTime" : "2021-05-26T13:25:36Z",
+  "ruleDefinition" : {
+    "filters" : {
+      "blobTypes" : [ "blockBlob" ],
+      "includeBlobVersions" : false,
+      "includeSnapshots" : false,
+      "prefixMatch" : [ "penner-test-container-100003" ]
+    },
+    "format" : "csv",
+    "objectType" : "blob",
+    "schedule" : "daily",
+    "schemaFields" : [
+      "Name",
+      "Creation-Time",
+      "BlobType",
+      "Content-Length",
+      "LastAccessTime",
+      "Last-Modified",
+      "Metadata",
+      "AccessTier"
+    ]
+  },
+  "ruleName" : "Rule_1",
+  "status" : "Succeeded",
+  "summary" : {
+    "objectCount" : 110000,
+    "totalObjectSize" : 23789775
+  },
+  "version" : "1.0"
+  }
+  ```
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -325,6 +321,19 @@ Blob 인벤토리 대금 청구는 2021년 10월 1일부터 시작됩니다. 지
 `includeSnapshots` 및 `includeVersions` 필터를 `false`로 설정했더라도 Blob의 스냅샷 및 버전에 대한 요금이 계산됩니다. 이러한 필터 값은 요금 청구에 영향을 주지 않습니다. 이러한 필터 값은 보고서에 표시되는 항목을 필터링하는 데만 사용할 수 있습니다.
 
 Azure Storage Blob 인벤토리의 가격 책정에 대한 자세한 내용은 [Azure Blob Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![예](../media/icons/yes-icon.png) <sup>2</sup> |
+| Premium 블록 Blob | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS (네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층적 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
+
+<sup>2</sup> 기능은 미리 보기 수준에서 지원 됩니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -342,4 +351,4 @@ Azure Storage Blob 인벤토리의 가격 책정에 대한 자세한 내용은 [
 
 - [Azure Storage Blob 인벤토리 보고서 사용](blob-inventory-how-to.md)
 - [컨테이너당 Blob의 개수 및 총 크기 계산](calculate-blob-count-size.md)
-- [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)
+- [Azure Blob Storage 수명 주기 관리](./lifecycle-management-overview.md)

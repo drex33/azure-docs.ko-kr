@@ -1,19 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1의 암호화 | Microsoft Docs
 description: Azure Data Lake Storage Gen1의 암호화를 통해 데이터를 보고하고 엔터프라이즈 보안 정책을 구현하고 규정 준수 요구 사항을 충족할 수 있습니다. 이 문서에서는 디자인 개요를 제공하고 구현의 일부 기술적인 측면을 설명합니다.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: dda173278f2bb788b0768fc891b951793224bf77
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: f0b24fd25a0fa95d6ed8561349987f9cb5fc5ee3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006161"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596128"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 데이터 암호화
 

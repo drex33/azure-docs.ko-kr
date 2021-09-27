@@ -3,7 +3,7 @@ title: Azure API Management의 API 템플릿 | Microsoft Docs
 description: Azure API Management의 개발자 포털에서 API 페이지의 콘텐츠를 사용자 지정하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-python
-ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1572843dfdff0f19a5c997781d1b3e5f223fad11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87851717"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629828"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 

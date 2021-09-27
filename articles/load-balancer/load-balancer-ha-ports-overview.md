@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 6f089af71e4d32023e9cebd6613872f7db0eed7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ec8431c7f84431702a60ef85e32d47c604289b3a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94694962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678216"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -46,7 +46,7 @@ NVA HA 시나리오의 경우 HA 포트는 다음과 같은 장점을 제공합�
 
 다음 다이어그램은 허브 및 스포크 가상 네트워크 배포를 나타냅니다. 스포크는 신뢰할 수 있는 공간을 벗어나기 전에 허브 가상 네트워크 및 NVA를 통해 트래픽을 강제 터널링합니다. NVA는 HA 포트가 구성된 내부 Standard Load Balancer를 통해 지원됩니다. 그에 따라 모든 트래픽을 처리하고 전달할 수 있습니다. 다음 다이어그램과 같이 구성된 경우 HA 포트 부하 분산 규칙은 추가적으로 수신 및 송신 트래픽에 대한 흐름 대칭을 제공합니다.
 
-<a node="diagram"></a>
+<a name="diagram"></a>
 ![HA 모드로 배포된 NVA가 있는 허브 및 스포크 가상 네트워크의 다이어그램](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]

@@ -1,19 +1,19 @@
 ---
 title: 사전 구매를 사용하여 Azure Databricks 비용 최적화
 description: 요금을 절감하기 위해 예약된 용량으로 Azure Databricks 요금을 선불할 수 있는 방법에 대해 알아봅니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 8047c57c929deeffcb69943ce17fa5fe81d31af1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599164"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645059"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 
@@ -53,6 +53,7 @@ Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용�
     - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다.
+    - **관리 그룹** -관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.
 1. 구매하려는 Azure Databricks 커밋 단위 수를 선택하고 구매를 완료합니다.
 
 

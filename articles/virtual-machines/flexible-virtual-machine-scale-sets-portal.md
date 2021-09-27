@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: cef23894759b0b2dca7098ef1c430548d1720406
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 5d25e46ae62962e3f94d4a3f9222f91ebfa1d430
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699309"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823453"
 ---
 # <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-azure-portal"></a>미리 보기: Azure Portal에서 유연한 확장 집합에서 가상 머신 만들기
 
@@ -37,9 +37,7 @@ ms.locfileid: "122699309"
 
 Flexible 오케스트레이션 모드로 가상 머신 확장 집합을 배포하려면 먼저 미리 보기 기능에 대한 구독을 등록해야 합니다. 기능 등록에는 최대 15분이 걸립니다.
 
-확장 집합 미리 보기에 대한 유연한 오케스트레이션 모드를 실행할 때 아래 단계에 연결된 ‘미리 보기’ Azure Portal을 사용합니다. 
-
-1. https://preview.portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. **구독** 으로 이동합니다.
 1. 구독의 이름을 선택함으로써 유연한 오케스트레이션 모드에서 확장 집합을 만들려는 구독에 대한 세부 정보 페이지로 이동합니다.
 1. **설정** 아래 메뉴에서 **미리 보기 기능** 을 선택합니다.
@@ -57,9 +55,7 @@ Flexible 오케스트레이션 모드로 가상 머신 확장 집합을 배포�
 
 ### <a name="create-a-virtual-machine-scale-set-in-flexible-orchestration-mode-through-the-azure-portal"></a>Azure Portal을 통해 Flexible 오케스트레이션 모드의 가상 머신 확장 집합 만들기
 
-확장 집합 미리 보기에 대한 유연한 오케스트레이션 모드를 실행할 때 아래 단계에 연결된 ‘미리 보기’ Azure Portal을 사용합니다. 
-
-1. https://preview.portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 검색 창에서 **가상 머신 확장 집합** 을 검색하고 선택합니다.
 1. **가상 머신 확장 집합** 페이지에서 **만들기** 를 선택합니다.
 1. **가상 머신 확장 집합 만들기** 페이지에서 **오케스트레이션** 섹션을 봅니다.

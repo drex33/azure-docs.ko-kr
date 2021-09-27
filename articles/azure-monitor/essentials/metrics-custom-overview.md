@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
-ms.translationtype: HT
+ms.openlocfilehash: d7c73473952bfec537cc26c9f50092a198afc1d5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614470"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭(미리 보기)
 
@@ -187,7 +187,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 > Azure Portal에서 메트릭을 보는 자세한 방법은 [Azure 메트릭 탐색기 시작](./metrics-getting-started.md)을 참조하세요.
 
 ## <a name="supported-regions"></a>지원되는 지역
-공개 미리 보기 중 사용자 지정 메트릭을 게시할 수 있는 기능은 일부 Azure 지역에서만 사용할 수 있습니다. 이 제한 사항은 지원되는 지역 중 하나의 리소스에 대해서만 메트릭을 게시할 수 있음을 의미합니다. Azure 지역에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요. 아래 엔드포인트에서 사용되는 Azure 지역 코드는 공백이 제거된 지역 이름입니다. 다음 표에는 사용자 지정 메트릭에 대해 지원되는 Azure 지역이 나열되어 있습니다. 이러한 지역의 리소스에 대한 메트릭이 게시되어야 하는 해당 엔드포인트도 나와 있습니다.
+공개 미리 보기 중 사용자 지정 메트릭을 게시할 수 있는 기능은 일부 Azure 지역에서만 사용할 수 있습니다. 이 제한 사항은 지원되는 지역 중 하나의 리소스에 대해서만 메트릭을 게시할 수 있음을 의미합니다. Azure 지역에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요. 아래 끝점에서 사용 되는 Azure 지역 코드는 공백이 제거 된 지역 이름입니다. 다음 표에는 사용자 지정 메트릭이 지원되는 Azure 지역 집합이 나와 있습니다. 이러한 지역의 리소스에 대한 메트릭이 게시되어야 하는 해당 엔드포인트도 나와 있습니다.
 
 |Azure 지역 |지역별 엔드포인트 접두사|
 |---|---|

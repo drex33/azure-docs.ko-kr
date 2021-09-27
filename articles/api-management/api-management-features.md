@@ -3,17 +3,17 @@ title: Azure API Management 계층의 기능 기반 비교 | Microsoft Docs
 description: 제공되는 기능을 기준으로 API Management 계층을 비교합니다. 각 가격 책정 계층에서 사용할 수 있는 주요 기능이 요약된 표를 참조하세요.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: apimpm
-ms.openlocfilehash: 53804e99a3bc341669c0d4943464835cc7d1e531
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 55e5d8de3761bb50295f849232363b5643329c2b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596356"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 

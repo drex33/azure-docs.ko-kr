@@ -4,16 +4,16 @@ ms.topic: include
 ms.service: azure-video-analyzer
 ms.date: 05/03/2021
 ms.author: juliako
-ms.openlocfilehash: 341730ee0ed64809cec3f60a0e28cb6367fa863f
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: ca59a7d54b405c323529353878f2e2de27b5566a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113559461"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056636"
 ---
 ### <a name="get-the-sample-code"></a>샘플 코드 가져오기
 
-1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다.
+1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-python)를 복제합니다.
 1. Visual Studio Code를 시작하고 리포지토리가 다운로드된 폴더를 엽니다.
 1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json** 이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
 1. 위의 설정 단계에서 만든 스토리지 계정의 파일 공유를 찾아 "deployment-output" 파일 공유 아래에서 **appsettings.json** 파일을 찾습니다. 파일을 클릭한 다음, "다운로드" 단추를 누릅니다. 콘텐츠는 다음과 같은 새 브라우저 탭에서 열립니다.

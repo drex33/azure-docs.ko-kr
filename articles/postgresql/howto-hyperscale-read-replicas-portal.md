@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.openlocfilehash: 74c9df5ee9eb6cd6a61104b4c9cce91b284dbb29
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 45867bc93b90c76d971fc4b7d8e4d8cc094929d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528308"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629012"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---hyperscale-citus-from-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)에서 읽기 복제본 만들기 및 관리
 
@@ -47,13 +47,7 @@ ms.locfileid: "122528308"
 
 ## <a name="delete-a-primary-server-group"></a>주 서버 그룹 삭제
 
-주 서버 그룹을 삭제하려면 독립 실행형 하이퍼스케일(Citus) 서버 그룹을 삭제하는 것과 동일한 단계를 사용합니다. 
-
-> [!IMPORTANT]
->
-> 주 서버 그룹을 삭제하면 모든 읽기 복제본에 대한 복제가 중지됩니다. 읽기 복제본은 이제 읽기와 쓰기를 모두 지원하는 독립 실행형 서버 그룹이 됩니다.
-
-Azure Portal에서 서버 그룹을 삭제하려면 다음 단계를 수행합니다.
+주 서버 그룹을 삭제하려면 독립 실행형 하이퍼스케일(Citus) 서버 그룹을 삭제하는 것과 동일한 단계를 사용합니다. Azure Portal에서 다음 단계를 따릅니다.
 
 1. Azure Portal에서 주 Azure Database for PostgreSQL 서버 그룹을 선택합니다.
 

@@ -1,24 +1,19 @@
 ---
 title: Azure 트래픽 분석 스키마 | Microsoft Docs
 description: Azure 네트워크 보안 그룹 흐름 로그를 분석하는 트래픽 분석 스키마를 이해합니다.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 manager: agummadi
-editor: ''
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: fb32ff13df7329e6e78095b8ee28639312cc62b5
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: 2ec8f1df778a95b571f89f3213c2cc71163de955
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216246"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597230"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석에서 스키마 및 데이터 집계
 
@@ -143,7 +138,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | 흐름의 원본 IP와 연결된 로컬 네트워크 게이트웨이 |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | 흐름의 대상 IP와 연결된 로컬 네트워크 게이트웨이 |
 | ConnectionType_s | 가능한 값: VNetPeering, VpnGateway, ExpressRoute |    연결 유형 |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | 연결 이름. flowtype P2S의 경우 <gateway name>_<VPN Client IP>로 형식이 지정됩니다 |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | 연결 이름. flowtype P2S의 경우 \<gateway name\>_\<VPN Client IP\>로 형식이 지정됩니다 |
 | ConnectingVNets_s | 공백으로 구분된 가상 네트워크 이름 목록 | 허브 및 스포크 토폴로지의 경우 허브 가상 네트워크가 여기에 채워집니다. |
 | Country_s | 두 자로 된 국가 코드(ISO 3166-1 alpha-2) | 흐름 유형이 ExternalPublic인 경우에 채워집니다. PublicIPs_s 필드의 모든 IP 주소가 동일한 국가 코드를 공유합니다. |
 | AzureRegion_s | Azure 지역 위치 | 흐름 유형이 AzurePublic인 경우에 채워집니다. PublicIPs_s 필드의 모든 IP 주소가 Azure 지역을 공유합니다. |

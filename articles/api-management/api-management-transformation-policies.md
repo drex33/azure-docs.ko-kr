@@ -3,7 +3,7 @@ title: Azure API Management 변환 정책 | Microsoft Docs
 description: Azure API Management에서 사용할 수 있는 변환 정책에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: apimpm
-ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 8cbef3416230d087b7ca627e877e0030f0ace9b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012440"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647103"
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -402,7 +402,7 @@ ms.locfileid: "107012440"
 
 ### <a name="properties"></a>속성
 
-|이름|Description|필수|기본값|
+|속성|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |template|본문 설정 정책이 실행될 템플릿 모드를 변경하는 데 사용됩니다. 현재 지원되는 유일한 값:<br /><br />- liquid - 본문 설정 정책은 liquid 템플릿 엔진을 사용합니다. |예||
 
@@ -517,9 +517,9 @@ OriginalUrl.
 
 ### <a name="properties"></a>속성
 
-|이름|Description|필수|기본값|
+|속성|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|예|override|
+|exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
 |name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|
 
 ### <a name="usage"></a>사용량
@@ -572,7 +572,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>속성
 
-|이름|Description|필수|기본값|
+|속성|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |exists-action|쿼리 매개 변수가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 쿼리 매개 변수 값을 바꿉니다.<br />- skip: 기존 쿼리 매개 변수 값을 바꾸지 않습니다.<br />- append: 기존 쿼리 매개 변수 값에 값을 추가합니다.<br />- delete: 요청에서 쿼리 매개 변수를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 쿼리 매개 변수가 설정되며, 나열된 값만 결과에 설정됩니다.|예|override|
 |name|설정할 쿼리 매개 변수의 이름을 지정합니다.|예|해당 없음|

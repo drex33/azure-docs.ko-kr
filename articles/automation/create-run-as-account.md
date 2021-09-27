@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7ed16e9bbd1071e4831e814e617d69dc4a638510
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 4c66a06d9ee54a590f83c026604d72e3933b21fa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078260"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836875"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정을 만드는 방법
 
@@ -50,7 +50,7 @@ Azure Portal 실행 또는 클래식 실행 계정을 만들 때 기본적으로
 엔터프라이즈 또는 타사 CA(인증 기관)의 인증서를 사용하려는 경우 Automation을 사용하려면 인증서에 다음 구성이 필요합니다.
 
    * 제공자 지정 **Microsoft Enhanced RSA 및 AES 암호화 제공자**
-   * 내보낼 수 있는 것으로 표시
+   * 내보낼 수 있음으로 표시
    * SHA256 알고리즘을 사용하도록 구성됨
    * `*.pfx` 또는 `*.cer` 형식으로 저장됩니다.
 
@@ -116,6 +116,6 @@ PowerShell 스크립트에는 여러 가지 구성 지원이 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
+* PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](./learn/powershell-runbook-managed-identity.md)를 참조하세요.
 
 * Python 3 Runbook을 시작하려면 [자습서: Python 3 Runbook 만들기](learn/automation-tutorial-runbook-textual-python-3.md)를 참조하세요.

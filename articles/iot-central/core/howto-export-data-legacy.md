@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 8235da7781ec55a90c81fca3a6393e5d1eda5c2f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c751e67ff65fc9487fd59ab511ae0cae28bb223b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123481203"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615152"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기(레거시)를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 
@@ -555,7 +555,7 @@ Blob Storage의 경우 마지막으로 기록된 변경 내용 이후 모든 변
 
 ‘디바이스’ 및 ‘디바이스 템플릿’ 스트림이 켜진 미리 보기 애플리케이션에 기존 데이터 내보내기가 있는 경우 **2020년 6월 30일** 까지 내보내기를 업데이트합니다.  이 요구 사항은 Azure Blob Storage, Azure Event Hubs 및 Azure Service Bus에 대한 내보내기에 적용됩니다.
 
-2020년 2월 3일부터 디바이스 및 디바이스 템플릿이 사용하도록 설정된 애플리케이션의 모든 새 내보내기는 위에서 설명한 데이터 형식을 사용합니다. 이 날짜 전에 만든 모든 내보내기는 2020년 6월 30일까지 이전 데이터 형식으로 유지되며, 해당 날짜에 해당 내보내기는 자동으로 새 데이터 형식으로 마이그레이션됩니다. 새 데이터 형식은 IoT Central 퍼블릭 API의 [디바이스](/rest/api/iotcentral/1.0/devices/get), [디바이스 속성](/rest/api/iotcentral/1.0/devices/get-properties) 및 [디바이스 템플릿](/rest/api/iotcentral/1.0/device-templates/get) 개체와 일치합니다.
+2020년 2월 3일부터 디바이스 및 디바이스 템플릿이 사용하도록 설정된 애플리케이션의 모든 새 내보내기는 위에서 설명한 데이터 형식을 사용합니다. 이 날짜 전에 만든 모든 내보내기는 2020년 6월 30일까지 이전 데이터 형식으로 유지되며, 해당 날짜에 해당 내보내기는 자동으로 새 데이터 형식으로 마이그레이션됩니다. 새 데이터 형식은 IoT Central 퍼블릭 API의 [디바이스](/rest/api/iotcentral/1.0dataplane/devices/get), [디바이스 속성](/rest/api/iotcentral/1.0dataplane/devices/get-properties) 및 [디바이스 템플릿](/rest/api/iotcentral/1.0dataplane/device-templates/get) 개체와 일치합니다.
 
 **디바이스** 의 경우 이전 데이터 형식과 새 데이터 형식의 주목할 만한 차이점은 다음과 같습니다.
 - 디바이스의 `@id`가 제거되고, `deviceId`가 `id`로 이름이 바뀌었습니다. 

@@ -3,15 +3,15 @@ title: Functions 2.x 이상에 대한 Azure Cosmos DB 입력 바인딩
 description: Azure Functions에서 Azure Cosmos DB 입력 바인딩을 사용하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 5566ca21b9ac1f0491673af21d85201a2fd18efc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 50a4e4ecbfb646603411944a2e65944b536aeb43
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615969"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대한 Azure Cosmos DB 입력 바인딩
 
@@ -35,6 +35,7 @@ Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azu
 * [HTTP 트리거, 경로 데이터에서 ID 조회, SqlQuery 사용](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
 * [HTTP 트리거, 여러 문서 가져오기, SqlQuery 사용](#http-trigger-get-multiple-docs-using-sqlquery-c)
 * [HTTP 트리거, 여러 문서 가져오기, DocumentClient 사용](#http-trigger-get-multiple-docs-using-documentclient-c)
+* [HTTP 트리거, CosmosClient를 사용하여 여러 문서 얻기(v4 확장)](#http-trigger-get-multiple-docs-using-cosmosclient-c)
 
 예제에서는 간단한 `ToDoItem` 형식을 참조하세요.
 
@@ -351,6 +352,68 @@ namespace CosmosDBSamplesV2
                     log.LogInformation(result.Description);
                 }
             }
+            return new OkResult();
+        }
+    }
+}
+```
+
+<a id="http-trigger-get-multiple-docs-using-cosmosclient-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-cosmosclient"></a>HTTP 트리거, 여러 문서 얻기, CosmosClient 사용
+
+다음 예제에서는 문서 목록을 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 이 코드는 `CosmosClient` [확장 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 있는 Azure Cosmos DB 바인딩에서 제공하는 인스턴스를 사용하여 문서 목록을 읽습니다. `CosmosClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
+
+```csharp
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public static class DocsByUsingCosmosClient
+    {  
+        [FunctionName("DocsByUsingCosmosClient")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
+                Route = null)]HttpRequest req,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                containerName: "Items",
+                Connection = "CosmosDBConnection")] CosmosClient client,
+            ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            var searchterm = req.Query["searchterm"].ToString();
+            if (string.IsNullOrWhiteSpace(searchterm))
+            {
+                return (ActionResult)new NotFoundResult();
+            }
+
+            Container container = client.GetDatabase("ToDoItems").GetContainer("Items");
+
+            log.LogInformation($"Searching for: {searchterm}");
+
+            QueryDefinition queryDefinition = new QueryDefinition(
+                "SELECT * FROM items i WHERE CONTAINS(i.Description, @searchterm)")
+                .WithParameter("@searchterm", searchterm);
+            using (FeedIterator<ToDoItem> resultSet = container.GetItemQueryIterator<ToDoItem>(queryDefinition))
+            {
+                while (resultSet.HasMoreResults)
+                {
+                    FeedResponse<ToDoItem> response = await resultSet.ReadNextAsync();
+                    ToDoItem item = response.First();
+                    log.LogInformation(item.Description);
+                }
+            }
+
             return new OkResult();
         }
     }
@@ -1620,7 +1683,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 특성을 사용합니다.
 
-특성의 생성자는 데이터베이스 이름과 컬렉션 이름을 사용합니다. 이러한 설정 및 구성할 수 있는 다른 속성에 대한 자세한 내용은 [다음 구성 섹션](#configuration)을 참조하세요.
+특성의 생성자는 데이터베이스 이름과 컬렉션 이름을 사용합니다. [확장 버전 4.x에서는](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 일부 설정 및 속성이 제거되거나 이름이 변경되었습니다. 모든 버전에 대해 구성할 수 있는 설정 및 기타 속성에 대한 자세한 내용은 [다음 구성 섹션을](#configuration)참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -1654,10 +1717,10 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction**     | 해당 없음 | `in`로 설정해야 합니다.         |
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
-|**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
+|**collectionName** <br> 또는 <br> **containerName**|**CollectionName** <br> 또는 <br> **ContainerName**| 문서를 포함하는 컬렉션의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerName` 합니다. |
 |**id**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. `id` 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). `id` 및 `sqlQuery` 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다. |
+|**connectionStringSetting** <br> 또는 <br> **connection**  |**ConnectionStringSetting** <br> 또는 <br> **연결**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `Connection` 합니다. 값은 연결 문자열을 포함하거나 연결을 정의하는 구성 섹션 또는 접두사 중 하나를 포함하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요. |
 |**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. 이는 [분할된](../cosmos-db/partitioning-overview.md#logical-partitions) 컬렉션에서 조회 작업을 하는 데 필요합니다.|
 |**preferredLocations**| **PreferredLocations**| (선택적) Azure Cosmos DB 서비스에서 지역 복제된 데이터베이스 계정의 기본 설정 위치(지역)를 정의합니다. 값은 쉼표로 구분해야 합니다. 예를 들면 “미국 동부, 미국 중남부, 북유럽”입니다. |
 

@@ -1,29 +1,29 @@
 ---
 title: Amazon Redshift에서 데이터 가져오기
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용하여 Amazon Redshift 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Amazon Redshift에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: e341ab94cbc54c420489d501ae62c00660759788
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: ff1aa2fdb5f5adca47130cd3ff00d09e5f2f0649
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315711"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828260"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Amazon Redshift 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-amazon-redshift-connector.md)
 > * [현재 버전](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 Amazon Redshift 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -85,7 +85,7 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
 | 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
-| password |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| password |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 **예:**
@@ -161,7 +161,7 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
 | redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 예 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
-| bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않은 경우 Data Factory 서비스는 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
+| bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않으면 서비스에서 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
 
 **예제: UNLOAD를 사용하여 복사 작업에서 Amazon Redshift 원본**
 
@@ -189,7 +189,7 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 이 샘플 사용 사례의 경우 복사 작업은 "redshiftUnloadSettings"에 구성된 대로 Amazon Redshift에서 Amazon S3으로 데이터를 언로드한 다음 "stagingSettings"에 지정된 대로 Amazon S3에서 Azure Blob으로 데이터를 복사하고, 마지막으로 PolyBase를 사용하여 Azure Synapse Analytics로 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
 
-![Redshift에서 Azure Synapse Analytics로의 복사 워크플로](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+:::image type="content" source="media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png" alt-text="Redshift에서 Azure Synapse Analytics로의 복사 워크플로":::
 
 ```json
 "activities":[
@@ -237,9 +237,9 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Amazon Redshift에 대한 데이터 형식 매핑
 
-Amazon Redshift에서 데이터를 복사하는 경우 Amazon Redshift 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Amazon Redshift 데이터를 복사하는 경우 Amazon Redshift 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Amazon Redshift 데이터 형식 | Data Factory 중간 데이터 형식 |
+| Amazon Redshift 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | bigint |Int64 |
 | BOOLEAN |String |
@@ -259,4 +259,4 @@ Amazon Redshift에서 데이터를 복사하는 경우 Amazon Redshift 데이터
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

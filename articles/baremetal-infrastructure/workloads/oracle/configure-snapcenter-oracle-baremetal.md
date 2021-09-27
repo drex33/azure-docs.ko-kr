@@ -4,12 +4,12 @@ description: BareMetal Infrastructure에서 Oracle용 SnapCenter을 구성하는
 ms.topic: how-to
 ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
-ms.openlocfilehash: cd3163b90d65f3e33fa56a190ed854069afd6703
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.openlocfilehash: edc75bd8d5fb2a64e22b2dd8f53fceda092161c3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579211"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676108"
 ---
 # <a name="configure-snapcenter-for-oracle-on-baremetal-infrastructure"></a>BareMetal Infrastructure에서 Oracle용 SnapCenter 구성
 
@@ -82,7 +82,7 @@ ping이 확인되면 기본 스토리지를 추가할 때 사용한 단계를 �
     - **자격 증명 이름**: 사용자 이름 및 sudoers를 식별하는 이름을 입력합니다.
     - **인증**: Linux
     - **사용자 이름**: 새로 만든 사용자 이름을 입력합니다.
-    - **암호**: <Enter Password>
+    - **암호**: \<enter password\>
     - **sudo 권한 사용** 확인란을 선택합니다.
     
 7. **확인** 을 선택합니다.

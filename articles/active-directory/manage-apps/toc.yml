@@ -5,8 +5,6 @@
   items:
     - name: 애플리케이션 관리란?
       href: what-is-application-management.md
-    - name: SSO(Single Sign-On)란?
-      href: what-is-single-sign-on.md
     - name: Docs의 새로운 기능
       href: whats-new-docs.md
 - name: 빠른 시작
@@ -57,22 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Single Sign-On
       items:
+        - name: Single Sign-On이란?
+          href: what-is-single-sign-on.md
         - name: Single Sign-On 배포 계획
           href: plan-sso-deployment.md
-        - name: Single Sign-On 옵션
-          href: sso-options.md
-        - name: OIDC 기반 SSO
-          href: configure-oidc-single-sign-on.md
-        - name: SAML 기반 SSO
-          href: configure-saml-single-sign-on.md
-        - name: 암호 기반 SSO
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: 연결 기반 SSO
-          href: configure-linked-sign-on.md
-        - name: 헤더 기반 SSO(온-프레미스 앱)
-          href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
-        - name: 한 번 클릭 SSO
-          href: one-click-sso-tutorial.md
     - name: 애플리케이션 보안
       items:
         - name: 앱 액세스 옵션
@@ -158,16 +144,18 @@
       items:
         - name: Azure AD를 사용하여 하이브리드 액세스 보호
           href: secure-hybrid-access.md
-        - name: 파트너 통합을 사용하여 하이브리드 액세스 보호
-          href: secure-hybrid-access-integrations.md
-        - name: Datawiza
-          href: datawiza-with-azure-ad.md
-        - name: F5
+        - name: F5 및 Azure AD 통합
           href: f5-aad-integration.md
         - name: Azure IaaS에 F5 BIG-IP VE 배포
           href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP 암호 없는 VPN
+        - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
           href: f5-aad-password-less-vpn.md
+    - name: Single Sign-On
+      items:
+        - name: 암호 기반 Single Sign-On
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: 연결된 Single Sign-On
+          href: configure-linked-sign-on.md
     - name: 문제 해결
       items:
         - name: 암호 기반 Single Sign-On 문제 해결
@@ -208,5 +196,5 @@
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

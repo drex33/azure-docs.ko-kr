@@ -3,17 +3,18 @@ title: ODBC 데이터 저장소에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터를 이동하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 43987b333279675204179a90f01f2aa668abb2c1
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 269d0d0bb1d9fb61dada1640a4a5c63106654abd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619555"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -355,10 +356,10 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 1. **데이터 관리 게이트웨이 구성 관리자** 를 시작합니다. "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이** 를 검색하여 **Microsoft 데이터 관리 게이트웨이** 애플리케이션에 대한 링크를 찾을 수 있습니다.
 
-    ![게이트웨이 검색](./media/data-factory-odbc-connector/search-gateway.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/search-gateway.png" alt-text="게이트웨이 검색":::
 2. **진단** 탭으로 전환합니다.
 
-    ![게이트웨이 진단](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+    :::image type="content" source="./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png" alt-text="게이트웨이 진단":::
 3. 데이터 저장소(연결된 서비스)의 **형식** 을 선택합니다.
 4. **인증** 을 지정하고 데이터 저장소에 연결된 **자격 증명** 을 입력하거나 **연결 문자열** 을 입력합니다.
 5. **연결 테스트** 를 클릭하여 데이터 저장소에 대한 연결을 테스트합니다.

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c95643e3853c1034e550ca9fad053171a5db0f67
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/03/2021
+ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308034"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836203"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Salesforce 간에 데이터 복사
 
@@ -40,7 +40,7 @@ Salesforce 에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - Salesforce 개발자, Professional, Enterprise 또는 Unlimited Edition.
 - Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인 간에 데이터 복사
 
-Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 Salesforce에서 데이터를 복사하는 경우 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)를 사용하고 데이터 크기에 따라 REST 및 Bulk API 중에서 자동으로 선택합니다. 결과 집합이 클 경우 Bulk API를 사용하여 성능을 향상 시킬 수 있습니다. Salesforce에 데이터를 쓸 때 커넥터는 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)의 Bulk API를 사용합니다. 또한 연결된 서비스의 [`apiVersion`속성](#linked-service-properties)을 통해 데이터를 읽고 쓰는 데 사용되는 API 버전을 명시적으로 설정할 수 있습니다.
+Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. Salesforce에서 데이터를 복사 하는 경우 커넥터는 데이터 크기에 따라 REST 및 대량 Api 사이에서 자동으로 선택 합니다. 결과 집합이 클 경우 대량 API를 사용 하 여 성능을 향상 시킬 수 있습니다. 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -67,7 +67,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -96,7 +96,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. <br/><br/>일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. Salesforce의 [신뢰할 수 있는 IP 주소 목록](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm)에 Integration Runtime의 IP를 추가하는 경우에만 보안 토큰을 건너뛸 수 있습니다. Azure IR을 사용하는 경우 [Azure Integration Runtime IP 주소](azure-integration-runtime-ip-addresses.md)를 참조하세요.<br/><br/>보안 토큰을 가져오기 및 재설정하는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조하세요. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| apiVersion | 사용할 Salesforce REST/Bulk API 버전을 지정합니다. 예: `48.0` 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)를 사용하여 Salesforce에서 데이터를 복사하고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)을 사용하여 Salesforce에 데이터를 복사합니다. | 예 |
+| apiVersion | 사용할 Salesforce REST/Bulk API 버전을 지정합니다. 예: `52.0` | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 **예: 자격 증명 저장**
@@ -173,7 +173,7 @@ Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 **API 이름** 에 "__c" 부분이 필요합니다.
 
-![Salesforce 연결 API 이름](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce 연결 API 이름":::
 
 **예:**
 
@@ -210,7 +210,7 @@ Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성
 
 Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SalesforceSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **SalesforceSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
@@ -219,7 +219,7 @@ Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 **API 이름** 에 "__c" 부분이 필요합니다.
 
-![Salesforce 연결 API 이름 목록](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce 연결 API 이름 목록":::
 
 **예:**
 

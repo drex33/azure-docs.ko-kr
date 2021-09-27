@@ -4,19 +4,18 @@ summary: Azure Applied AI Services의 일부인 Azure Form Recognizer는 기계 
 metadata:
   title: Form Recognizer 설명서 - 빠른 시작, 자습서, API 참조 - Azure Applied AI Services | Microsoft Docs
   description: Azure Applied AI Services의 일부인 Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
-  services: cognitive-services
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: 66c0369aa188c32c3e0ad9f4da7ca0899921dbb7
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: 0119e4a8f0c3437953b7941e22fb4b6a2586c70d
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122326216"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128645249"
 landingContent:
 - title: Azure Form Recognizer 정보
   linkLists:

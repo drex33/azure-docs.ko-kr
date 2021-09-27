@@ -3,16 +3,17 @@ title: Data Factory를 사용하여 Cassandra에서 데이터 이동
 description: Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 48362434ed36d8ee6d8d164aa9bb5e2df782c95b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387413"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629354"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -267,7 +268,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | INT |Int32 |
 | TEXT |String |
 | timestamp |DateTime |
-| TIMEUUID |GUID |
+| TIMEUUID |Guid |
 | UUID |GUID |
 | VARCHAR |String |
 | VARINT |Decimal |

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 80bb166925964624dc4a4b9811989ab15a5cfe9a
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 9bf6403f57ed7b49fb6b60d1f674a10616c017f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593879"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -143,7 +143,7 @@ Azure Cosmos DB 리소스를 만든 후에는 다음 Azure Cosmos DB 구성 선�
 
     이 명령은 다음과 유사한 JSON 문서를 출력합니다.
 
-    ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
+    `{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}`
 
 * [진단 설정](../cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)로 보낼 수 있습니다.  
 
@@ -203,7 +203,7 @@ Azure Cosmos DB 리소스를 만든 후에는 다음 Azure Cosmos DB 구성 선�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
     * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)을 읽어보세요.
 * Azure Cosmos DB API for MongoDB로 마이그레이션

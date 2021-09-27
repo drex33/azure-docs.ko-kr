@@ -1,13 +1,9 @@
 ---
 title: RHEL에서 Azure NetApp Files를 사용하여 대기 상태로 SAP HANA 스케일 아웃 | Microsoft Docs
 description: SAP 애플리케이션용 Azure NetApp Files를 사용한 Red Hat Enterprise Linux의 SAP NetWeaver 고가용성 가이드
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: 4947585b1f20b8142c51d9d7e28c6d8504b6d6d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 204760390d47547e076384da349a84f70b0f8495
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552992"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -28,9 +24,8 @@ ms.locfileid: "101669649"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -127,23 +122,19 @@ Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-i
 
 Azure 지역별 Azure NetApp Files 가용성에 대한 자세한 내용은 [Azure 지역별 Azure NetApp Files 가용성][anf-avail-matrix]을 참조하세요.  
 
-Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침][anf-register]으로 이동하여 Azure NetApp Files에 온보딩을 요청하세요. 
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포  
 
-다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일한 Azure 가상 네트워크 또는 피어링된 Azure 가상 네트워크에 배포해야 합니다.  
+다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.   
 
-1. 아직 리소스를 배포하지 않은 경우 [Azure NetApp Files에 온보딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청합니다.  
+1. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
 
-2. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.  
-
-3. [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
+2. [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.  
 
    이 문서에 제시된 HANA 아키텍처는 *Ultra* 서비스 수준에서 단일 Azure NetApp Files 용량 풀을 사용합니다. Azure의 HANA 워크로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)을 사용하는 것이 좋습니다.  
 
-4. [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
+3. [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.  
 
-5. [Azure NetApp Files에 대한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.  
+4. [Azure NetApp Files에 대한 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)의 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.  
 
    볼륨을 배포할 때 **NFSv4.1** 버전을 선택해야 합니다. 지정된 Azure NetApp Files [서브넷](/rest/api/virtualnetwork/subnets)에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다. 
    
@@ -375,7 +366,7 @@ Azure에서 SAP용 인프라를 설계할 때 최소 처리량 특성으로 변�
     </code></pre>
 
 > [!TIP]
-> SAP 호스트 에이전트가 포트 범위를 관리할 수 있도록 sysctl 구성 파일에서 net.ipv4.ip_local_port_range 및 net.ipv4.ip_local_reserved_ports를 명시적으로 설정하지 마세요. 자세한 내용은 SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.  
+> SAP 호스트 에이전트가 포트 범위를 관리할 수 있도록 sysctl 구성 파일에서 net.ipv4.ip_local_port_range 및 net.ipv4.ip_local_reserved_ports를 명시적으로 설정하지 마십시오. 자세한 내용은 SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조하세요.  
 
 5. **[A]** [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]의 권장대로 sunrpc 설정을 조정합니다.  
 
@@ -573,7 +564,7 @@ Azure에서 SAP용 인프라를 설계할 때 최소 처리량 특성으로 변�
      * **루트 사용자 이름** [root]: Enter 키를 눌러 기본값 적용
      * 호스트 hanadb2의 역할: **1** 입력(작업자의 경우)
      * 호스트 hanadb2에 대한 **호스트 장애 조치 그룹** [기본값]: Enter 키를 눌러 기본값 적용
-     * 호스트 hanadb2 [<<assign automatically>>]의 **스토리지 파티션 번호**: Enter 키를 눌러 기본값 적용
+     * 호스트 hanadb2 []에 대 한 **Storage 파티션 번호** 의 경우 \<\<assign automatically\> \> enter 키를 눌러 기본값을 적용 합니다.
      * 호스트 hanadb2에 대한 **작업자 그룹** [기본값]: Enter 키를 눌러 기본값 적용
      * 호스트 hanadb3의 **역할 선택**: **2** 입력(대기)
      * 호스트 hanadb3에 대한 **호스트 장애 조치 그룹** [기본값]: Enter 키를 눌러 기본값 적용

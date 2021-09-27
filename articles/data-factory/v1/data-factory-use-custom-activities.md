@@ -2,18 +2,19 @@
 title: Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 description: 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bbf5a61e48a36a3eaa92a8c46e9cf943b8892247
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393023"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580644"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -382,7 +383,7 @@ public IDictionary<string, string> Execute(
     > [!IMPORTANT]
     > 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
 
-    ![이진 출력 파일](./media/data-factory-use-custom-activities/Binaries.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/Binaries.png" alt-text="이진 출력 파일":::
 
 13. 명명된 Blob 컨테이너 **customactivitycontainer** 가 아직 없는 경우 새로 만듭니다.
 
@@ -428,17 +429,17 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    2. **새** 블레이드에서 **데이터 + 분석** 을 클릭합니다.
    3. **데이터 분석** 블레이드에서 **Data Factory** 를 클릭합니다.
 
-      ![새 Azure Data Factory 메뉴](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-menu.png" alt-text="새 Azure Data Factory 메뉴":::
 2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 'CustomActivityFactory'는 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **yournameCustomActivityFactory**) 해당 데이터 팩터리를 다시 만듭니다.
 
-    ![새 Azure Data Factory 블레이드](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-blade.png" alt-text="새 Azure Data Factory 블레이드":::
 3. **리소스 그룹 이름** 을 클릭하여 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다.
 4. **subscription** 및 Data Factory를 만들려는 **region** 을 제대로 사용하고 있는지 확인합니다.
 5. **새 Data Factory** 블레이드에서 **만들기** 를 클릭합니다.
 6. Azure 포털의 **대시보드** 에 생성된 데이터 팩터리가 표시됩니다.
 7. 데이터 팩터리 만들기를 완료한 후에는 Data Factory 블레이드가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
 
-    ![데이터 팩터리 블레이드](media/data-factory-use-custom-activities/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/data-factory-blade.png" alt-text="데이터 팩터리 블레이드":::
 
 ### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Azure Data Factory에 연결합니다. 이 단계에서는 Azure Storage 계정 및 Azure Batch 계정을 데이터 팩터리에 연결합니다.
@@ -447,16 +448,16 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 1. **CustomActivityFactory** 에 대한 **Data Factory** 블레이드에서 **작성 및 배포 타일** 을 클릭합니다. 데이터 팩터리 편집기가 표시됩니다.
 2. 명령 모음에서 **새 데이터 스토리지** 를 클릭하고 **Azure Storage** 를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
-    ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-data-store-menu.png" alt-text="새 데이터 저장소 - Azure Storage":::
 3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
-    ![Azure Storage 연결 서비스](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/azure-storage-linked-service.png" alt-text="Azure Storage 연결 서비스":::
 4. 명령 모음에서 **배포** 를 클릭하여 연결된 서비스를 배포합니다.
 
 #### <a name="create-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
 1. 데이터 팩터리 편집기의 명령 모음에서 **추가** 를 클릭하고 **새 컴퓨팅** 을 클릭한 다음, 메뉴에서 **Azure Batch** 를 선택합니다.
 
-    ![새 컴퓨팅 - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-compute-batch.png" alt-text="새 컴퓨팅 - Azure Batch":::
 2. JSON 스크립트를 다음과 같이 변경합니다.
 
    1. **accountName** 속성의 Azure Batch 계정 이름을 지정합니다. **Azure Batch 계정 블레이드** 의 **URL** 은 `http://accountname.region.batch.azure.com` 형식을 사용합니다. JSON의 **batchUri** 속성에 대해 URL에서 `accountname.`을 제거하고 `accountName` JSON 속성에 대해 `accountname`을 사용합니다.
@@ -632,13 +633,13 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 1. Azure 포털의 Data Factory 블레이드에서 **다이어그램** 을 클릭합니다.
 
-    ![다이어그램 타일](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryBlade.png" alt-text="다이어그램 타일":::
 2. 다이어그램 뷰에서 OutputDataset을 클릭합니다.
 
-    ![다이어그램 뷰](./media/data-factory-use-custom-activities/diagram.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/diagram.png" alt-text="다이어그램 뷰":::
 3. 5개의 출력 조각이 준비 상태로 표시됩니다. 준비 상태가 아닌 경우 아직 생성되지 않았습니다.
 
-   ![출력 분할](./media/data-factory-use-custom-activities/OutputSlices.png)
+   :::image type="content" source="./media/data-factory-use-custom-activities/OutputSlices.png" alt-text="출력 분할":::
 4. 출력 파일이 **adftutorial** 컨테이너의 Blob Storage에 생성되었는지 확인합니다.
 
    ![사용자 지정 작업의 출력][image-data-factory-output-from-custom-activity]
@@ -669,15 +670,15 @@ Visual Studio에서 데이터 팩터리 프로젝트를 만드는 경우 다음�
 ## <a name="data-factory-and-batch-integration"></a>Data Factory 및 Batch 통합
 Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx** 라는 이름으로 작업을 만듭니다. 왼쪽 메뉴에서 **작업** 을 클릭합니다.
 
-![Azure Data Factory - Batch 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-jobs.png" alt-text="Azure Data Factory - Batch 작업":::
 
 조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 5개 조각이 있는 경우 이 작업(job)에 5개 작업(task)이 만들어집니다. Batch 풀에 여러 컴퓨팅 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 컴퓨팅 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 컴퓨팅에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
 
-![Azure Data Factory - Batch 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png" alt-text="Azure Data Factory - Batch 작업 태스크":::
 
 다음 다이어그램에서는 Azure Data Factory 및 Batch 작업 간의 관계를 보여 줍니다.
 
-![데이터 팩터리 및 Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+:::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryAndBatch.png" alt-text="Data Factory & Batch":::
 
 ## <a name="troubleshoot-failures"></a>오류 문제 해결
 문제 해결은 몇 가지 기본적인 방법으로 구성됩니다.
@@ -1048,7 +1049,7 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 
 
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 
 [new-azure-batch-account]: /previous-versions/azure/mt125880(v=azure.100)
 [new-azure-batch-pool]: /previous-versions/azure/mt125936(v=azure.100)

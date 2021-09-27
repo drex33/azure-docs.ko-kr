@@ -87,70 +87,102 @@
       href: storage-service-add-ons.md
     - name: 볼륨 하드 할당량 변경의 의미
       href: volume-hard-quota-guidelines.md
+    - name: Azure Government용 Azure NetApp Files
+      href: azure-government.md
 - name: 방법 가이드
   items:
-    - name: Azure NetApp Files에 등록
-      href: azure-netapp-files-register.md
-    - name: NetApp 계정 만들기
-      href: azure-netapp-files-create-netapp-account.md
-    - name: 용량 풀 만들기 및 관리
+    - name: 등록 및 설정
+      items:
+        - name: Azure NetApp Files에 등록
+          href: azure-netapp-files-register.md
+        - name: NetApp 계정 만들기
+          href: azure-netapp-files-create-netapp-account.md
+        - name: Azure NetApp Files에 서브넷 위임
+          href: azure-netapp-files-delegate-subnet.md
+    - name: Active Directory 관리
+      items:
+        - name: Active Directory 연결 만들기 및 관리
+          href: create-active-directory-connections.md
+        - name: TLS를 통해 ADDS LDAP 구성
+          href: configure-ldap-over-tls.md
+    - name: 용량 풀 관리
       items:
         - name: 용량 풀 설정
           href: azure-netapp-files-set-up-capacity-pool.md
         - name: 수동 QoS 용량 풀 관리
           href: manage-manual-qos-capacity-pool.md
-    - name: Azure NetApp Files에 서브넷 위임
-      href: azure-netapp-files-delegate-subnet.md
-    - name: Active Directory 연결 만들기 및 관리
-      href: create-active-directory-connections.md
-    - name: NFS 볼륨 만들기 및 관리
+        - name: 태그를 사용하여 청구 관리
+          href: manage-billing-tags.md
+    - name: 볼륨 관리
       items:
-        - name: NFS 볼륨 만들기
-          href: azure-netapp-files-create-volumes.md
-        - name: NFSv4.1 기본 도메인 구성
-          href: azure-netapp-files-configure-nfsv41-domain.md
-        - name: NFSv4.1 Kerberos 암호화 구성
-          href: configure-kerberos-encryption.md
-        - name: NFS에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
-          href: configure-ldap-extended-groups.md
-        - name: Azure NetApp Files에 대한 NFS 클라이언트 구성
-          href: configure-nfs-clients.md
-    - name: SMB 볼륨 만들기 및 관리
+        - name: NFS 볼륨 관리
+          items:
+            - name: NFS 볼륨 만들기
+              href: azure-netapp-files-create-volumes.md
+            - name: NFSv4.1 기본 도메인 구성
+              href: azure-netapp-files-configure-nfsv41-domain.md
+            - name: NFSv4.1 Kerberos 암호화 구성
+              href: configure-kerberos-encryption.md
+            - name: NFS에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
+              href: configure-ldap-extended-groups.md
+            - name: Azure NetApp Files에 대한 NFS 클라이언트 구성
+              href: configure-nfs-clients.md
+        - name: SMB 볼륨 관리
+          items:
+            - name: SMB 볼륨 만들기
+              href: azure-netapp-files-create-volumes-smb.md
+            - name: 기존 SMB 볼륨에서 지속적인 가용성 사용
+              href: enable-continuous-availability-existing-SMB.md
+        - name: 이중 프로토콜 볼륨 관리
+          items:
+            - name: 이중 프로토콜 볼륨 만들기
+              href: create-volumes-dual-protocol.md
+        - name: 볼륨 액세스 및 암호화 관리
+          items:
+            - name: NFS 또는 이중 프로토콜에 대한 내보내기 정책 구성
+              href: azure-netapp-files-configure-export-policy.md
+            - name: Unix 권한 구성 및 소유권 모드 변경
+              href: configure-unix-permissions-change-ownership-mode.md
+        - name: 볼륨 탑재 또는 분리
+          items:
+            - name: 볼륨 탑재 또는 분리
+              href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+        - name: 볼륨 용량 및 성능 관리
+          items:
+            - name: 볼륨 용량 모니터링
+              href: monitor-volume-capacity.md
+            - name: 용량 풀 또는 볼륨 크기 조정
+              href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+            - name: 볼륨의 서비스 수준을 동적으로 변경
+              href: dynamic-change-volume-service-level.md
+    - name: 데이터 보호 관리
       items:
-        - name: SMB 볼륨 만들기
-          href: azure-netapp-files-create-volumes-smb.md
-        - name: 기존 SMB 볼륨에서 지속적인 가용성 사용
-          href: enable-continuous-availability-existing-SMB.md
-    - name: 이중 프로토콜 볼륨 만들기
-      href: create-volumes-dual-protocol.md
-    - name: TLS를 통해 ADDS LDAP 구성
-      href: configure-ldap-over-tls.md
-    - name: NFS 또는 이중 프로토콜에 대한 내보내기 정책 구성
-      href: azure-netapp-files-configure-export-policy.md
-    - name: 볼륨 탑재 또는 분리
-      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-    - name: Unix 권한 구성 및 소유권 모드 변경
-      href: configure-unix-permissions-change-ownership-mode.md
-    - name: 스냅샷 관리
-      href: azure-netapp-files-manage-snapshots.md
-    - name: 용량 풀 또는 볼륨 크기 조정
-      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: 볼륨 용량 모니터링
-      href: monitor-volume-capacity.md
-    - name: 볼륨의 서비스 수준을 동적으로 변경
-      href: dynamic-change-volume-service-level.md
-    - name: 지역 간 복제 관리
-      items:
-        - name: 볼륨 복제 만들기
-          href: cross-region-replication-create-peering.md
-        - name: 복제 관계의 상태 표시
-          href: cross-region-replication-display-health-status.md
-        - name: 재해 복구 관리
-          href: cross-region-replication-manage-disaster-recovery.md
-        - name: 볼륨 복제 또는 볼륨 삭제
-          href: cross-region-replication-delete.md
-    - name: 태그를 사용하여 청구 관리
-      href: manage-billing-tags.md
+        - name: 볼륨 스냅샷 관리
+          items:
+            - name: 주문형 스냅샷 만들기
+              href: azure-netapp-files-manage-snapshots.md
+            - name: 스냅샷 정책 관리
+              href: snapshots-manage-policy.md
+            - name: 스냅샷 경로 숨기기 편집
+              href: snapshots-edit-hide-path.md
+            - name: 새 볼륨으로 스냅샷 복원
+              href: snapshots-restore-new-volume.md
+            - name: 클라이언트를 사용하여 스냅샷에서 파일 복원
+              href: snapshots-restore-file-client.md
+            - name: 스냅샷 되돌리기를 사용하여 볼륨 복원
+              href: snapshots-revert-volume.md
+            - name: 스냅샷 삭제
+              href: snapshots-delete.md
+        - name: 지역 간 복제 관리
+          items:
+            - name: 볼륨 복제 만들기
+              href: cross-region-replication-create-peering.md
+            - name: 복제 관계의 상태 표시
+              href: cross-region-replication-display-health-status.md
+            - name: 재해 복구 관리
+              href: cross-region-replication-manage-disaster-recovery.md
+            - name: 볼륨 복제 또는 볼륨 삭제
+              href: cross-region-replication-delete.md
     - name: 개발
       items:
         - name: REST API

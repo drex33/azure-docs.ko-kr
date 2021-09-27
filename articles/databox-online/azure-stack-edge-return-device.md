@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: ab087747bbc6ee9edcb072223c2edf3465ba4cba
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 3fa49fdab111c60c9f73dad5703c39dbc33e1472
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460551"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554218"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스에서 반환
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
 이 문서에서는 데이터를 지우고 Azure Stack Edge 디바이스를 반환하는 방법을 설명합니다. 디바이스를 반환한 후에는 디바이스와 연결된 리소스를 삭제할 수도 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "110460551"
 
 반환 프로세스를 시작하려면 다음 단계를 수행하세요.
 
-1. Azure Portal에서 Azure Stack Edge/Data Box Gateway 리소스로 이동합니다. **개요** 에서 오른쪽 창의 명령 모음으로 이동하고 **디바이스 반환** 을 선택합니다. 
+1. Azure Portal Azure Stack Edge 리소스로 이동합니다. **개요** 에서 오른쪽 창의 명령 모음으로 이동하고 **디바이스 반환** 을 선택합니다. 
 
     ![디바이스 반환 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -87,16 +87,31 @@ ms.locfileid: "110460551"
 
 7. Azure Stack Edge 운영 팀이 이메일을 받으면 역방향 배송 레이블을 보냅니다. 이 레이블을 받으면 운송업체에서 디바이스 픽업을 예약할 수 있습니다. 
 
+## <a name="pack-the-device"></a>디바이스 팩
+
+디바이스를 포장하려면 다음 단계를 수행합니다.
+
+1. 디바이스를 종료합니다. 로컬 웹 UI에서 **유지 관리 > 전원 설정** 으로 이동합니다.
+2. **종료** 를 선택합니다. 확인 메시지가 표시되면 **예** 를 클릭하여 계속합니다. 자세한 내용은 [전원 관리](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#manage-power)를 참조하세요.
+3. 전원 케이블을 분리하고 디바이스에서 모든 네트워크 케이블을 제거합니다.
+4. 다음 지침에 따라 배송 패키지를 신중하게 준비합니다.
+    1. Azure에서 요청한 배송 상자 또는 포장 포장이 있는 원래 배송 상자를 사용합니다. 
+    1. 상자의 아래쪽 밑면을 놓습니다.
+    1. 깔개기 위에 디바이스를 놓아서 깔개에 깔고 있는 것을 주의를 기울입니다.
+    1. 패키지에 맨 위 톱니 조각을 놓습니다.
+    1. 전원 코드를 접근자 트레이에 놓고 레일을 맨 위 돋매기 위에 놓습니다.
+    1. 상자를 봉인하고 패키지의 Azure에서 받은 배송 레이블을 부착합니다.
+    
+    > [!IMPORTANT]
+    > 반송 배송을 준비하기 위한 적절한 지침이 관찰되지 않으면 디바이스가 손상되고 손상된 디바이스 요금이 적용될 수 있습니다. 제품 [서비스 약관](https://www.microsoft.com/licensing/product-licensing/products) 및 [분실 또는 손상된 디바이스에 대한 FAQ를](https://azure.microsoft.com/pricing/details/databox/edge/)검토합니다.
+ 
+
+
 ## <a name="schedule-a-pickup"></a>픽업 예약
 
 픽업을 예약하려면 다음 단계를 수행합니다.
 
-1. 디바이스를 종료합니다. 로컬 웹 UI에서 **유지 관리 > 전원 설정** 으로 이동합니다.
-2. **종료** 를 선택합니다. 확인 메시지가 표시되면 **예** 를 클릭하여 계속합니다. 자세한 내용은 [전원 관리](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power)를 참조하세요.
-3. 전원 케이블을 분리하고 디바이스에서 모든 네트워크 케이블을 제거합니다.
-4. 가지고 있는 상자나 Azure에서 받은 빈 상자를 사용하여 배송 꾸러미를 준비합니다. 디바이스와 함께 제공된 전원 코드를 상자에 넣습니다.
-5. Azure에서 받은 배송 레이블을 상자에 붙입니다.
-6. 해당 지역 운송업체에서 픽업하도록 예약합니다. 미국 내에서 디바이스를 반환하는 경우 UPS 또는 FedEx를 이용할 수 있습니다. UPS로 픽업을 예약하려면 다음을 수행합니다.
+1. 해당 지역 운송업체에서 픽업하도록 예약합니다. 미국 내에서 디바이스를 반환하는 경우 UPS 또는 FedEx를 이용할 수 있습니다. UPS로 픽업을 예약하려면 다음을 수행합니다.
 
     1. 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
     2. 통화 시 인쇄된 레이블에 표시된 역방향 배송 추적 번호를 알려줍니다.
@@ -109,7 +124,7 @@ ms.locfileid: "110460551"
 Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
 
 - 디바이스가 온전하고 정상적인 상태로 도착하면 해당 리소스에 대한 청구 미터가 중지됩니다. Azure Stack Edge 운영 팀은 디바이스가 반환된 것을 확인하기 위해 연락합니다. 그러면 Microsoft Azure Portal에서 디바이스와 연결된 리소스를 삭제할 수 있습니다.
-- 디바이스가 많이 손상된 상태로 도착하면 벌금이 부과될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요.  
+- 디바이스가 크게 손상된 경우 요금이 적용될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요.  
 
 
 Microsoft Azure Portal에서 디바이스를 삭제할 수 있습니다.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: db99be325d50f89e6e1c96c1471431815b98936d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567914"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824298"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Azure Logic Apps에서 고객 관리형 키를 설정하여 ISE(통합 서비스 환경)에 대한 미사용 데이터 암호화
 
@@ -30,6 +30,8 @@ Azure Logic Apps는 Azure Storage를 사용하여 자동으로 [미사용 데이
   * Azure Government: 애리조나, 버지니아 및 텍사스
 
 * *ISE를 만들 때만* 고객 관리형 키를 지정할 수 있으며 그 이후에는 지정할 수 없습니다. ISE를 만든 후에는 이 키를 사용하지 않도록 설정할 수 없습니다. 현재, ISE에 대한 고객 관리형 키 순환은 지원되지 않습니다.
+
+* 고객 관리 키를 저장 하는 주요 자격 증명 모음은 ISE와 동일한 Azure 지역에 있어야 합니다.
 
 * 고객 관리형 키를 지원하려면 [시스템 할당 또는 사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 중 하나를 사용하도록 설정해야 합니다. 이 ID를 사용하면 ISE에서는 Azure 가상 네트워크 안에 있거나 이 네트워크에 연결된 가상 머신, 기타 시스템 또는 서비스와 같은 보호된 리소스에 액세스하도록 인증할 수 있습니다. 이렇게 하면 자격 증명을 사용하여 로그인할 필요가 없습니다.
 

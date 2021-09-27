@@ -6,19 +6,19 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: owend
-ms.openlocfilehash: e5b5f61900f3ca82509718e765f2a62ccd163ecf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 65d1b6cbee1040846fec2d8e1dd8153eedf9eabc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145882"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580968"
 ---
 # <a name="best-practices-for-long-running-operations"></a>장기 실행 작업에 대한 모범 사례
 
 Azure Analysis Services에서 *노드* 는 서버 리소스가 실행되는 호스트 가상 머신을 나타냅니다. 장기 실행 쿼리, 새로 고침 작업 및 쿼리 스케일 아웃 동기화와 같은 일부 작업은 서버 리소스가 다른 노드로 이동하는 경우 실패할 수 있습니다. 이 시나리오의 일반적인 오류 메시지는 다음과 같습니다.
 
 - "장기 실행 XMLA 요청을 찾으려고 시도하는 동안 오류가 발생했습니다. 서비스를 업그레이드하거나 서버를 다시 시작하여 요청이 중단되었을 수 있습니다. "
-- “모델 '<database>'에 대한 ID '<guid>' 작업이 서비스 오류(비활동)로 인해 '업데이트 없이 중단되었으므로 새로 고침 요청을 취소하는 중' 메시지와 함께 취소되었습니다. 이는 내부 서비스 문제입니다. 이 문제가 반복적으로 발생하는 경우 도움을 받으려면 작업을 다시 제출하거나 티켓을 제출하세요."
+- “모델 '\<database\>'에 대한 ID '\<guid\>' 작업이 서비스 오류(비활동)로 인해 '업데이트 없이 중단되었으므로 새로 고침 요청을 취소하는 중' 메시지와 함께 취소되었습니다. 이는 내부 서비스 문제입니다. 이 문제가 반복적으로 발생하는 경우 도움을 받으려면 작업을 다시 제출하거나 티켓을 제출하세요."
 
 장기 실행 작업이 중단될 수 있는 많은 이유가 있습니다. 예를 들어 Azure의 업데이트는 다음과 같습니다. 
 - 운영 체제 패치 

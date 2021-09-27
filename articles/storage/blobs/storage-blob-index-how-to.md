@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: d4743a529649c7223449b35092b1505ee534eeaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282028"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615673"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그를 사용하여 Azure Blob Storage 데이터 관리 및 찾기
 
@@ -57,7 +57,7 @@ Blob 인덱스 태그는 키-값 태그 특성을 사용하여 스토리지 계�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다.
 
 2. **데이터 스토리지** 에서 **컨테이너** 옵션으로 이동한 후 컨테이너를 선택합니다.
 
@@ -192,11 +192,14 @@ static async Task BlobIndexTagsExample()
 
 이 작업은 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 또는 사용자 지정 Azure 역할을 통해 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 사용 권한을 받은 보안 주체가 수행할 수 있습니다.
 
+> [!NOTE]
+> 인덱스 태그를 사용하여 이전 버전을 검색할 수 없습니다. 이전 버전의 태그는 Blob 인덱스 엔진에 전달되지 않습니다. 자세한 내용은 [조건 및 알려진 문제](storage-manage-find-blobs.md#conditions-and-known-issues)를 참조하세요.
+
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal 내에서 Blob 인덱스 태그 필터는 `@container` 매개 변수를 자동으로 적용하여 선택한 컨테이너를 범위로 지정합니다. 전체 스토리지 계정에서 태그가 지정된 데이터를 필터링하고 찾으려면 REST API, SDK 또는 도구를 사용하세요.
 
-1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다.
 
 2. **데이터 스토리지** 아래의 **컨테이너** 옵션으로 이동한 후 컨테이너를 선택합니다.
 
@@ -238,7 +241,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags3 = container2.GetAppendBlobClient("myAppendBlob03.logs");
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
-           
+
           // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
@@ -247,7 +250,7 @@ static async Task FindBlobsByTagsExample()
               { "Priority", "01" },
               { "Date", "2020-04-20" }
           };
-          
+
           CreateAppendBlobOptions appendOptions2 = new CreateAppendBlobOptions();
           appendOptions2.Tags = new Dictionary<string, string>
           {
@@ -292,7 +295,7 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정을 선택합니다.
 
 2. **Blob Service** 에서 **수명 주기 관리** 옵션으로 이동합니다.
 
@@ -310,11 +313,11 @@ static async Task FindBlobsByTagsExample()
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/net)
 
-[수명 주기 관리](storage-lifecycle-management-concepts.md) 정책은 제어 평면 수준의 각 스토리지 계정에 적용됩니다. .NET의 경우 [Microsoft Azure 관리 스토리지 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) 버전 16.0.0 이상을 설치합니다.
+[수명 주기 관리](./lifecycle-management-overview.md) 정책은 제어 평면 수준의 각 스토리지 계정에 적용됩니다. .NET의 경우 [Microsoft Azure 관리 스토리지 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) 버전 16.0.0 이상을 설치합니다.
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
- - Blob 인덱스 태그에 대한 자세한 내용은 [Blob 인덱스 태그를 통해 Azure Blob 데이터 관리 및 찾기](storage-manage-find-blobs.md )를 참조하세요.
- - 수명 주기 관리에 대한 자세한 내용은 [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하세요.
+- Blob 인덱스 태그에 대한 자세한 내용은 [Blob 인덱스 태그를 통해 Azure Blob 데이터 관리 및 찾기](storage-manage-find-blobs.md )를 참조하세요.
+- 수명 주기 관리에 대한 자세한 내용은 [Azure Blob Storage 수명 주기 관리](./lifecycle-management-overview.md)를 참조하세요.

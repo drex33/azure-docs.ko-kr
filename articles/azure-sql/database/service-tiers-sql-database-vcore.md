@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 07/14/2021
+ms.date: 09/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3e80c1153737514575017685310b6e5306a47167
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: a92dd67011d7ef7d5ad162983de51b98839c4a84
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730846"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634332"
 ---
 # <a name="vcore-purchase-model-overview---azure-sql-database"></a>vCore 구매 모델 개요 - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,14 @@ vCore 구매 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스
 |적합한 대상|대부분의 비즈니스 워크로드. 예산에 맞게 균형 있고 확장 가능한 컴퓨팅 및 스토리지 옵션을 제공합니다. |여러 개의 격리된 복제본을 사용하여 비즈니스 애플리케이션에서 오류에 대한 가장 높은 복원력을 제공하고, 데이터베이스 복제본별로 최고 I/O 성능을 제공합니다.|확장성이 우수한 스토리지 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드.  둘 이상의 격리된 데이터베이스 복제본의 구성을 허용하여 오류에 대한 더 높은 복원력을 제공합니다. |
 |스토리지|원격 스토리지를 사용합니다.<br/>**SQL Database 프로비전된 컴퓨팅**:<br/>5GB~4TB<br/>**서버리스 컴퓨팅**:<br/>5GB - 3TB|로컬 SSD 스토리지를 사용합니다.<br/>**SQL Database 프로비전된 컴퓨팅**:<br/>5GB~4TB|필요에 따라 자동으로 증가하는 유연한 스토리지. 최대 100TB의 스토리지를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 스토리지에 대한 로컬 SSD 스토리지를 사용합니다. 마지막 장기 데이터 저장소인 Azure 원격 스토리지를 사용합니다. |
 |IOPS 및 처리량(근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.|하이퍼스케일은 여러 수준에서 캐싱을 사용하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크로드에 따라 달라집니다.|
-|가용성|1개 복제본, 읽기 크기 조정 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA(고가용성)|1개 읽기/쓰기 복제본 및 0-4개 [읽기 크기 조정 복제본](read-scale-out.md)|
-|Backup|[RA-GRS(읽기 액세스 지역 중복 스토리지)](../../storage/common/geo-redundant-design.md), 1-35일(기본적으로 7일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1-35일(기본값: 7일)|Azure 원격 스토리지의 스냅샷 기반 백업. 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행되며 컴퓨팅 I/O 성능에 영향을 주지 않습니다. 복원은 속도가 빠르며, 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠이 아닌 몇 분이 소요됨).|
+|가용성|복제본 1개, 읽기 확장 복제본 없음, <br/>영역 중복 HA(고가용성)(미리 보기)|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA(고가용성)|1개 읽기/쓰기 복제본 및 0-4개 [읽기 크기 조정 복제본](read-scale-out.md)|
+|Backup|지역 중복, 영역 중복 또는 로컬 중복 \* 백업 스토리지 \* 선택, 1-35일 보존(기본값 7일)|지역 중복, 영역 중복 또는 로컬 중복 \* 백업 스토리지 \* 선택, 1-35일 보존(기본값 7일)|지역 중복, 영역 중복 또는 로컬 중복 \* \* \* \* 백업 스토리지, 7일 보존 중에서 선택할 수 있습니다.<p>Azure 원격 스토리지의 스냅샷 기반 백업. 복원은 빠른 복구를 위해 스냅샷을 사용합니다. 백업은 즉시 수행되며 컴퓨팅 I/O 성능에 영향을 주지 않습니다. 복원은 빠르며 데이터 크기 작업이 아닙니다(시간이 아닌 몇 분이 소요).|
 |메모리 내|지원되지 않음|지원 여부|일부 지원. 메모리 최적화 테이블 형식, 테이블 변수 및 고유하게 컴파일된 모듈이 지원됩니다.|
 |||
 
+\* 미리 보기로 제공됩니다.
+
+\*\* 미리 보기에서 새 하이퍼스케일 데이터베이스에만 해당
 
 ### <a name="choosing-a-service-tier"></a>서비스 계층 선택
 

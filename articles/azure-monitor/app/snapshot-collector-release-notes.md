@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 85af8d4b2845bdf70a0ca486350be534b5fef4d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093263"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559809"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.ApplicationInsights.SnapshotCollector에 대한 릴리스 정보
 
@@ -21,6 +21,25 @@ ms.locfileid: "97093263"
 버그 보고서 및 피드백의 경우, https://github.com/microsoft/ApplicationInsights-SnapshotCollector 에서 GitHub에 대한 문제를 엽니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+## <a name="141"></a>[1.4.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.1)
+1.4.0에 도입된 주요 변경을 되돌리기 위한 포인트 릴리스입니다.
+### <a name="bug-fixes"></a>버그 수정
+- [WebJobs에서 메서드를 찾을 수 없는](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15) 수정
+
+## <a name="140"></a>[1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
+여러 개선된 문제를 해결하고 애플리케이션 Insights Azure Active Directory(AAD) 인증에 대한 지원을 추가했습니다.
+### <a name="changes"></a>변경
+- Snapshot Collector 패키지 크기가 60% 감소했습니다. 10.34MB에서 4.11MB로.
+- Snapshot Collector netstandard2.0만 대상으로 지정합니다.
+- 애플리케이션 Insights SDK 종속성을 2.15.0으로 변경합니다.
+- 덤프를 작성할 때 MinidumpWithThreadInfo를 다시 추가합니다.
+- 호환성이 저하된 변경에서 Snapshot Collector 에이전트와 업로더 간의 동기화를 개선하려면 CompatibilityVersion을 추가합니다.
+- snapshotUploader LogFile 명명 알고리즘을 변경하여 App Service 과도한 파일 I/O를 방지합니다.
+- pid, 역할 이름 및 프로세스 시작 시간을 업로드된 Blob 메타데이터에 추가합니다.
+- Snapshot Collector 및 스냅샷 업로더에서 가능한 경우 System.Diagnostics.Process를 사용합니다.
+### <a name="new-features"></a>새 기능
+- SnapshotCollector에 Azure Active Directory 인증을 추가합니다. 여기에서 애플리케이션 Insights Azure AD 인증에 [](./azure-ad-authentication.md)대해 자세히 알아봅니다.
 
 ## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 1\.4.0-pre에서 픽스를 백포트하는 포인트 릴리스입니다.

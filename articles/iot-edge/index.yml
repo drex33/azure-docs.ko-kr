@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   ms.date: 08/05/2019
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: 069fe408fc4b4dac10484a9780c70cdfc722abc2
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: e8514f4eff76d62fb48cbaf3641842cdb8cbb4c9
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121721999"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128557209"
 landingContent:
 - title: Linux 디바이스용 제품 개발
   linkLists:
@@ -53,7 +53,7 @@ landingContent:
     - text: 단일 디바이스 등록
       url: how-to-register-device.md
     - text: 규모에 맞게 디바이스를 안전하게 등록 및 프로비저닝
-      url: how-to-auto-provision-symmetric-keys.md
+      url: how-to-provision-devices-at-scale-linux-symmetric.md
     - text: Linux 디바이스에 IoT Edge 런타임 설치
       url: how-to-install-iot-edge.md
     - text: Windows 디바이스에 IoT Edge 런타임 설치

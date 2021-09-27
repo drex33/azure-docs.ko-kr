@@ -1,20 +1,20 @@
 ---
 title: PowerShell에서 Azure Queue Storage를 사용하는 방법 - Azure Storage
 description: PowerShell을 통해 Azure Queue Storage에서 작업을 수행합니다. Azure Queue Storage를 사용하여 HTTP/HTTPS에서 액세스할 수 있는 많은 수의 메시지를 저장할 수 있습니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/15/2019
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1436114a070dff7120a7de10937cbfa58644d305
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: a607d1c494aee2881e623e01e6cd9637cb94dc9d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276249"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582291"
 ---
 # <a name="how-to-use-azure-queue-storage-from-powershell"></a>PowerShell에서 Azure Queue Storage를 사용하는 방법
 

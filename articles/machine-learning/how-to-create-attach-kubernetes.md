@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/08/2021
-ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 09/16/2021
+ms.openlocfilehash: 7a0b2f24b10ace50d1e994284cb48b50799dfd57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867591"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618194"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -44,7 +44,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
 
     권한 있는 IP 범위는 표준 Load Balancer에서만 작동합니다.
 
-- > __다른 Azure 구독__ 에서 AKS 클러스터를 연결하려면 사용자(Azure AD 계정)에게 AKS 클러스터에 대한 **기여자** 역할이 부여되어야 합니다. [Azure Portal](https://ms.portal.azure.com/)에서 액세스를 확인합니다.
+- __다른 Azure 구독__ 에서 AKS 클러스터를 연결하려면 사용자(Azure AD 계정)에게 AKS 클러스터에 대한 **기여자** 역할이 부여되어야 합니다. [Azure Portal](https://ms.portal.azure.com/)에서 액세스를 확인합니다.
 
 - 프라이빗 AKS 클러스터를 사용하려면(Azure Private Link 사용) 먼저 클러스터를 만든 다음, 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [프라이빗 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조하세요.
 
@@ -57,9 +57,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
     > [!IMPORTANT]
     > __개발-테스트__ 클러스터는 프로덕션 수준 트래픽에 적합하지 않으며, 추론 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장하지 않습니다.
 
-- 클러스터를 만들거나 연결할 때 클러스터를 __프로덕션__ 에 사용하는 경우 12개 이상의 __가상 CPU__ 를 포함해야 합니다. 가상 CPU 수는 클러스터의 __노드 수__ 와 선택한 VM 크기로 제공되는 __코어 수__ 를 곱하여 계산할 수 있습니다. 예를 들어 4개의 가상 코어가 있는 "Standard_D3_v2"의 VM 크기를 사용하는 경우 노드 수로 3 이상을 선택해야 합니다.
-
-    __개발-테스트__ 클러스터의 경우 둘 이상의 가상 CPU를 사용하는 것이 좋습니다.
+- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용 되는 경우 3 개 이상의 __노드__ 를 포함 해야 합니다. __개발-테스트__ 클러스터의 경우 노드를 하나 이상 포함 해야 합니다.
 
 - Azure Machine Learning SDK는 AKS 클러스터 크기 조정을 지원하지 않습니다. 클러스터 노드의 크기를 조정하려면 Azure Machine Learning 스튜디오에서 AKS 클러스터에 대한 UI를 사용합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다. AKS 클러스터의 노드 크기를 조정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

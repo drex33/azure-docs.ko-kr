@@ -2,13 +2,13 @@
 title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
 description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 ms.topic: article
-ms.date: 09/01/2021
-ms.openlocfilehash: 0e5c6654cb3efc85e3d3bd7756c90612bd6c18cd
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/15/2021
+ms.openlocfilehash: 74ad1674bc09f1514264f4b7f1521526f8da2fd5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429121"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597154"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 Azure AD(Azure Active Directory) 및 SAS(공유 액세스 서명)라는 두 가지 방법으로 Azure Service Bus 리소스에 대한 액세스를 인증하고 권한을 부여할 수 있습니다. 이 문서에서는 이 두 가지 유형의 보안 메커니즘을 사용하는 방법에 관해 자세히 설명합니다. 

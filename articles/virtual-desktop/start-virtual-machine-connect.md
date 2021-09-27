@@ -3,15 +3,15 @@ title: 가상 머신 연결 시작 - Azure
 description: 연결 시 가상 머신 시작 기능을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 301a2b0626b6dd40f90a8b693e3284c12d948fa1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 85110db5b3f9e11105fa27a9ed8767d3d7e9e2bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528367"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592245"
 ---
 # <a name="start-virtual-machine-on-connect"></a>연결 시 Virtual Machine 시작
 
@@ -51,10 +51,16 @@ Azure Portal을 사용하여 연결 시 VM 시작에 대한 사용자 지정 역
 
 3. 다음으로, 사용자 지정 역할의 이름을 지정하고 설명을 추가합니다. 이름은 “start VM on connect”로 지정하는 것이 좋습니다.
 
-4. **사용 권한** 탭에서 역할을 할당하는 구독에 다음 권한을 추가합니다. 
+4. **권한** 탭에서 역할을 할당 하는 구독에 대해 다음 두 가지 권한 집합 중 하나를 추가 합니다. 
  
    - Microsoft.Compute/virtualMachines/start/action
-   - Microsoft.Compute/virtualMachines/read
+   - Microsoft.Compute/virtualMachines/read 
+   - Microsoft.Compute/virtualMachines/instanceView/read 
+
+   이러한 권한을 대신 사용할 수도 있습니다.
+
+   - Microsoft.Compute/virtualMachines/start/action
+   - Microsoft.Compute/virtualMachines/*/read 
 
 5. 작업을 마쳤으면 **확인** 을 선택합니다.
 
@@ -85,7 +91,7 @@ JSON 파일을 사용하여 사용자 지정 역할을 만드는 경우 다음 �
   "Description": "Start VM on connect with AVD (Custom)",
   "Actions": [
     "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/read"
+    "Microsoft.Compute/virtualMachines/*/read"
   ],
   "NotActions": [],
   "DataActions": [],

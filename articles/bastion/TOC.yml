@@ -41,10 +41,18 @@
           href: create-host-cli.md
     - name: 가상 머신에 연결
       items:
-        - name: SSH(Linux)
-          href: bastion-connect-vm-ssh.md
-        - name: RDP(Windows)
-          href: bastion-connect-vm-rdp.md
+        - name: Windows VM
+          items:
+            - name: RDP 연결
+              href: bastion-connect-vm-rdp-windows.md
+            - name: SSH 연결
+              href: bastion-connect-vm-ssh-windows.md
+        - name: Linux VM
+          items:
+            - name: RDP 연결
+              href: bastion-connect-vm-rdp-linux.md
+            - name: SSH 연결
+              href: bastion-connect-vm-ssh-linux.md
     - name: SKU 업그레이드
       href: upgrade-sku.md
     - name: 호스트 크기 조정 구성

@@ -10,12 +10,12 @@ ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3125852edd149f6daf7589248be54bafcc1ca2d
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
-ms.translationtype: HT
+ms.openlocfilehash: 9c66b970a99ad6dd69b9336d1638b2c156868324
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688197"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627941"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>일시 삭제된 Blob 관리 및 복원
 
@@ -57,7 +57,7 @@ Blob 버전 관리를 사용하지 않는 경우에 Azure Portal에서 일시 �
 
 #### <a name="restore-soft-deleted-blobs-when-versioning-is-enabled"></a>버전 관리를 사용하는 경우 일시 삭제된 Blob 복원하기
 
-버전 관리를 사용하는 경우 Azure Portal에서 일시 삭제된 Blob을 복원하려면, 일시 삭제된 blob을 선택하여 해당 속성을 표시한 다음, **버전** 탭을 선택합니다. 현재 버전으로 승격하려는 버전을 선택하고 **현재 버전 만들기** 를 선택합니다.  
+버전 관리를 사용하는 경우 Azure Portal에서 일시 삭제된 Blob을 복원하려면, 일시 삭제된 blob을 선택하여 해당 속성을 표시한 다음, **버전** 탭을 선택합니다. 현재 버전으로 승격하려는 버전을 선택하고 **현재 버전 만들기** 를 선택합니다.
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-promote-version-portal.png" alt-text="Azure Portal에서 Blob을 복원하기 위해 버전을 승격하는 방법을 보여 주는 스크린샷":::
 
@@ -112,13 +112,13 @@ IEnumerable<IListBlobItem> allBlobSnapshots = container.ListBlobs(
 CloudBlockBlob copySource = allBlobSnapshots.First(snapshot => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)snapshot).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```  
+```
 
 ---
 
 #### <a name="restore-soft-deleted-blobs-when-versioning-is-enabled"></a>버전 관리를 사용하는 경우 일시 삭제된 Blob 복원하기
 
-버전 관리를 사용하는 경우 일시 삭제된 Blob을 복원하려면 [Blob 복사](/rest/api/storageservices/copy-blob) 또는 [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url) 작업을 사용하여 기본 Blob을 통해 이전 버전을 복사합니다.  
+버전 관리를 사용하는 경우 일시 삭제된 Blob을 복원하려면 [Blob 복사](/rest/api/storageservices/copy-blob) 또는 [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url) 작업을 사용하여 기본 Blob을 통해 이전 버전을 복사합니다.
 
 ##### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -132,7 +132,7 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="manage-soft-deleted-blobs-and-directories-hierarchical-namespace"></a>일시 삭제된 Blob 및 디렉터리 관리(계층 구조 네임스페이스)
 
-계층 구조 네임스페이스가 있는 계정에서 일시 삭제된 Blob 및 디렉터리를 복원할 수 있습니다. 
+계층 구조 네임스페이스가 있는 계정에서 일시 삭제된 Blob 및 디렉터리를 복원할 수 있습니다.
 
 > [!IMPORTANT]
 > 계층 구조 네임스페이스 기능을 사용하도록 설정한 계정의 일시 삭제는 현재 미리 보기 상태로 지원되며 모든 Azure 지역에서 전역적으로 사용할 수 있습니다.
@@ -150,31 +150,31 @@ Azure Portal을 사용하여 일시 삭제된 Blob 및 디렉터리를 보고 �
 Blob 또는 디렉터리가 일시 삭제되면 기본적으로 Azure Portal에 표시되지 않습니다. 일시 삭제된 Blob 및 디렉터리를 보려면 컨테이너의 **개요** 페이지로 이동하고 **삭제된 Blob 표시** 설정을 토글합니다. 일시 삭제된 Blob 및 디렉터리는 **삭제됨** 상태로 표시됩니다. 다음 이미지는 일시 삭제된 디렉터리를 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal에서 일시 삭제된 Blob(계층 구조 네임스페이스 지원 계정)을 나열하는 방법을 보여 주는 스크린샷](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
+> ![Azure Portal 일시 삭제된 Blob을 나열하는 방법(계층 구조 네임스페이스 사용 계정)을 보여주는 스크린샷](media/soft-delete-blob-manage/soft-deleted-blobs-list-portal-hns.png)
 
 > [!NOTE]
-> 일시 삭제된 항목(하위 디렉터리 및 Blob)을 포함하는 디렉터리의 이름을 바꾸면 일시 삭제된 해당 항목이 디렉터리에서 연결 해제되므로 **삭제된 Blob 표시** 설정을 전환할 때 Azure Portal에 표시되지 않습니다. Azure Portal에서 보려는 경우 디렉터리의 이름을 원래 이름으로 다시 되돌리거나 원래 디렉터리 이름을 사용하는 별도의 디렉터리를 만들어야 합니다. 
+> 일시 삭제된 항목(하위 디렉터리 및 Blob)을 포함하는 디렉터리의 이름을 바꾸면 일시 삭제된 해당 항목이 디렉터리에서 연결 해제되므로 **삭제된 Blob 표시** 설정을 전환할 때 Azure Portal에 표시되지 않습니다. Azure Portal에서 보려는 경우 디렉터리의 이름을 원래 이름으로 다시 되돌리거나 원래 디렉터리 이름을 사용하는 별도의 디렉터리를 만들어야 합니다.
 
 그런 다음, 목록에서 삭제된 디렉터리 또는 Blob을 선택하여 해당 속성을 표시합니다. **개요** 탭 아래에서 상태가 **삭제됨** 으로 설정되어 있는지 확인합니다. 또한 포털은 Blob이 영구적으로 삭제될 때까지 남은 일 수를 표시합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal에서 일시 삭제된 Blob(계층 구조 네임스페이스 지원 계정)의 속성을 보여 주는 스크린샷](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)
+> ![Azure Portal(계층 구조 네임스페이스 사용 계정)에서 일시 삭제된 Blob의 속성을 보여주는 스크린샷](media/soft-delete-blob-manage/soft-deleted-blob-properties-portal-hns.png)
 
 #### <a name="restore-soft-delete-blobs-and-directories"></a>일시 삭제된 Blob 및 디렉터리 복원
 
 Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 먼저 Blob 또는 디렉터리의 속성을 표시한 다음, **개요** 탭에서 **삭제 취소** 단추를 선택합니다. 다음 이미지는 일시 삭제된 디렉터리의 삭제 취소 단추를 보여 줍니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal에서 일시 삭제된 Blob(계층 구조 네임스페이스 지원 계정)을 복원하는 방법을 보여 주는 스크린샷](media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal-hns.png)
+> ![Azure Portal(계층 구조 네임스페이스 사용 계정)에서 일시 삭제된 Blob을 복원하는 방법을 보여주는 스크린샷](media/soft-delete-blob-manage/undelete-soft-deleted-blob-portal-hns.png)
 
 ### <a name="restore-soft-deleted-blobs-and-directories-by-using-powershell"></a>PowerShell을 사용하여 일시 삭제된 Blob 및 디렉터리 복원
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.
 
-1. **Az.Storage** 미리 보기 모듈이 설치되어 있는지 확인합니다. [PowerShell을 사용하여 Blob 일시 삭제 사용](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace)을 참조하세요.
+1. **Az.Storage** 미리 보기 모듈이 설치되어 있는지 확인합니다. 자세한 내용은 [PowerShell을 통해 Blob 일시 삭제 사용을](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace)참조하세요.
 
-2. 스토리지 계정 키, 연결 문자열 또는 Azure AD(Azure Active Directory)를 사용하여 스토리지 계정 권한을 부여합니다. [계정에 연결](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account)을 참조하세요.
+2. 스토리지 계정 키, 연결 문자열 또는 Azure AD(Azure Active Directory)를 사용하여 스토리지 계정 권한을 부여합니다. 자세한 내용은 [계정에 커넥트 참조하세요.](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account)
 
    다음 예제에서는 스토리지 계정 키를 사용하여 권한을 부여합니다.
 
@@ -195,10 +195,10 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
 ### <a name="restore-soft-deleted-blobs-and-directories-by-using-azure-cli"></a>Azure CLI를 사용하여 일시 삭제된 Blob 및 디렉터리 복원
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.
 
-1. `storage-preview` 확장이 설치되어 있는지 확인합니다. [PowerShell을 사용하여 Blob 일시 삭제 사용](soft-delete-blob-enable.md?tabs=azure-CLI#enable-blob-soft-delete-hierarchical-namespace)을 참조하세요.
+1. `storage-preview` 확장이 설치되어 있는지 확인합니다. 자세한 내용은 [PowerShell을 사용하여 Blob 일시 삭제 사용을](soft-delete-blob-enable.md?tabs=azure-CLI#enable-blob-soft-delete-hierarchical-namespace)참조하세요.
 
 2. 삭제한 항목의 목록을 가져옵니다.
 
@@ -211,14 +211,14 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
    ```azurecli
    $dirName="my-directory"
-   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName —deletion-id "<deletionId>" --auth-mode login
+   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName -deletion-id "<deletionId>" --auth-mode login
    ```
 
    일시 삭제된 항목을 포함하는 디렉터리의 이름을 바꾸면 해당 항목은 디렉터리에서 분리됩니다. 해당 항목을 복원하려는 경우 디렉터리의 이름을 원래 이름으로 다시 되돌리거나 원래 디렉터리 이름을 사용하는 별도의 디렉터리를 만들어야 합니다. 그러지 않고 일시 삭제된 해당 항목을 복원하려고 하면 오류가 표시됩니다.
 
 ### <a name="restore-soft-deleted-blobs-and-directories-by-using-net"></a>.NET을 사용하여 일시 삭제된 Blob 및 디렉터리 복원
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.
 
 1. 명령 프롬프트를 열고 디렉터리(`cd`)를 프로젝트 폴더로 변경합니다. 예는 다음과 같습니다.
@@ -227,7 +227,7 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
    cd myProject
    ```
 
-2. `dotnet add package` 명령을 사용하여 [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet 패키지의 `Azure.Storage.Files.DataLake -v 12.7.0` 버전을 설치합니다. 
+2. `dotnet add package` 명령을 사용하여 [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet 패키지의 `Azure.Storage.Files.DataLake -v 12.7.0` 버전을 설치합니다.
 
    ```console
    dotnet add package Azure.Storage.Files.DataLake -v -v 12.7.0 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
@@ -248,31 +248,31 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
 4. 다음 코드는 디렉터리를 삭제한 다음, 일시 삭제된 디렉터리를 복원합니다.
 
-   이 메서드는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들었다고 가정합니다. [DataLakeServiceClient ](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만드는 방법을 알아보려면 [계정에 연결](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account)을 참조하세요.
+   이 메서드는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들었다고 가정합니다. [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient)  인스턴스를 만드는 방법을 알아보려면 [계정에 연결](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account)을 참조하세요.
 
    ```csharp
       public void RestoreDirectory(DataLakeServiceClient serviceClient)
       {
-          DataLakeFileSystemClient fileSystemClient = 
+          DataLakeFileSystemClient fileSystemClient =
              serviceClient.GetFileSystemClient("my-container");
 
-          DataLakeDirectoryClient directory = 
+          DataLakeDirectoryClient directory =
               fileSystem.GetDirectoryClient("my-directory");
 
           // Delete the Directory
           await directory.DeleteAsync();
- 
+
           // List Deleted Paths
           List<PathHierarchyDeletedItem> deletedItems = new List<PathHierarchyDeletedItem>();
           await foreach (PathHierarchyDeletedItem deletedItem in fileSystemClient.GetDeletedPathsAsync())
           {
             deletedItems.Add(deletedItem);
           }
- 
+
           Assert.AreEqual(1, deletedItems.Count);
           Assert.AreEqual("my-directory", deletedItems[0].Path.Name);
           Assert.IsTrue(deletedItems[0].IsPath);
- 
+
           // Restore deleted directory.
           Response<DataLakePathClient> restoreResponse = await fileSystemClient.RestorePathAsync(
           deletedItems[0].Path.Name,
@@ -286,7 +286,7 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
 ### <a name="restore-soft-deleted-blobs-and-directories-by-using-java"></a>Java를 사용하여 일시 삭제된 Blob 및 디렉터리 복원
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.
 
 1. 시작하려면 텍스트 편집기에서 *pom.xml* 파일을 엽니다. 종속성 그룹에 다음 종속성 요소를 추가합니다.
@@ -305,7 +305,7 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
    Put imports here
    ```
 
-3. 다음 코드 조각은 `my-file`이라는 일시 삭제된 파일을 복원합니다. 
+3. 다음 코드 조각은 `my-file`이라는 일시 삭제된 파일을 복원합니다.
 
    이 메서드는 **DataLakeServiceClient** 인스턴스를 만들었다고 가정합니다. **DataLakeServiceClient**  인스턴스를 만드는 방법을 알아보려면 [계정에 연결](data-lake-storage-directory-file-acl-java.md#connect-to-the-account)을 참조하세요.
 
@@ -313,16 +313,16 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
    public void RestoreFile(DataLakeServiceClient serviceClient){
 
-       DataLakeFileSystemClient fileSystemClient = 
+       DataLakeFileSystemClient fileSystemClient =
            serviceClient.getFileSystemClient("my-container");
-       
-       DataLakeFileClient fileClient = 
+
+       DataLakeFileClient fileClient =
            fileSystemClient.getFileClient("my-file");
 
        String deletionId = null;
 
        for (PathDeletedItem item : fileSystemClient.listDeletedPaths()) {
-    
+
            if (item.getName().equals(fileClient.getFilePath())) {
               deletionId = item.getDeletionId();
            }
@@ -337,7 +337,7 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
 
 ### <a name="restore-soft-deleted-blobs-and-directories-by-using-python"></a>Python을 사용하여 일시 삭제된 Blob 및 디렉터리 복원
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에만 적용됩니다.
 
 1. [pip](https://pypi.org/project/pip/)를 사용하여 Python용 Azure Data Lake Storage 클라이언트 라이브러리를 `12.4.0` 이상 버전을 설치합니다. 이 명령은 Python용 Azure Data Lake Storage 클라이언트 라이브러리의 최신 버전을 설치합니다.
@@ -369,12 +369,12 @@ Azure Portal에서 일시 삭제된 Blob 또는 디렉터리를 복원하려면 
             directory_path = 'my-directory'
             directory_client = file_system_client.create_directory(directory_path)
             resp = directory_client.delete_directory()
-        
+
             restored_directory_client = file_system_client.undelete_path(directory_client, resp['deletion_id'])
             props = restored_directory_client.get_directory_properties()
-        
+
             print(props)
-   
+
         except Exception as e:
             print(e)
 

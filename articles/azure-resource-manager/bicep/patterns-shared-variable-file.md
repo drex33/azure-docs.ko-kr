@@ -5,12 +5,12 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 812cb0b861418d3bd3d13959cf074442d9a81538
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: eb9a24c0c5b6b7bd037fe5da13fe108878f55a15
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539422"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648319"
 ---
 # <a name="shared-variable-file-pattern"></a>공유 변수 파일 패턴
 
@@ -24,7 +24,7 @@ Bicep 코드를 작성하는 경우 Bicep 파일 세트에서 다시 사용하�
 
 ## <a name="solution"></a>솔루션
 
-공유해야 하는 변수가 포함된 JSON 파일을 만듭니다. `json()` 및 `loadTextContent()` Bicep 함수를 사용하여 파일을 로드하고 변수에 액세스합니다. 배열 변수의 경우 `concat()` 함수를 사용하여 공유 값을 특정 리소스의 사용자 지정 값과 결합합니다.
+공유해야 하는 변수가 포함된 JSON 파일을 만듭니다. 함수 및 [ `loadTextContent()` 함수를](bicep-functions-files.md#loadtextcontent) 사용하여 파일을 로드하고 변수에 액세스합니다. [ `json()` ](bicep-functions-object.md#json) 배열 변수의 경우 [ `concat()` 함수를](bicep-functions-array.md#concat) 사용하여 공유 값을 특정 리소스에 대한 사용자 지정 값과 결합합니다.
 
 ## <a name="example-1-naming-prefixes"></a>예제 1: 명명 접두사
 

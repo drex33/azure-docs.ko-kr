@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 37600a101c44f556eed3678910254f9832f77366
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: a8fd97d2059145b67049f8278cbd03913390b072
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539585"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572873"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Azure Purview 계정에 대해 프라이빗 엔드포인트 사용
 
@@ -29,7 +29,7 @@ Azure Purview 계정에 대해 [Azure 프라이빗 엔드포인트](../private-l
 
 :::image type="content" source="media/catalog-private-link/purview-private-link-overview.png" alt-text="프라이빗 엔드포인트가 있는 Azure Purview를 보여 주는 스크린샷"::: 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Purview 계정에 대한 프라이빗 엔드포인트를 배포하기 전에 다음 사전 요구 사항을 충족하는지 확인합니다.
 
@@ -42,12 +42,10 @@ Azure Purview 계정에 대한 프라이빗 엔드포인트를 배포하기 전�
 
 다음 권장 검사 목록을 사용하여 프라이빗 엔드포인트의 Azure Purview 계정 배포를 수행합니다.
 
-
 |시나리오  |목표  |
 |---------|---------|
-|**시나리오 1** - [Purview 계정에 비공개로 안전하게 연결](./catalog-private-link-account-portal.md)   | 프라이빗 엔드포인트를 통해 _Azure Purview Studio_ 및 Atlas API에 대한 액세스를 비롯하여 Azure Purview 계정에 대한 액세스를 사용하도록 설정해야 합니다. (_계정_ 및 _포털_ 프라이빗 엔드포인트 배포)   |
-|**시나리오 2** - [비공개로 안전하게 데이터 원본 검사](./catalog-private-link-ingestion.md)  | 자체 호스팅 통합 런타임을 사용하여 온-프레미스 및 가상 네트워크 뒤의 Azure에서 데이터 원본을 검사해야 합니다. (_수집_ 프라이빗 엔드포인트 배포)    |
-|**시나리오 3** - [Azure Purview에 연결하고 데이터 원본을 비공개로 안전하게 검사](./catalog-private-link-end-to-end.md) |Azure Purview Studio, Atlas API에 대한 액세스를 포함하여 프라이빗 엔드포인트를 통해서만 Azure Purview 계정에 대한 액세스를 제한하고, 자체 호스팅 통합 런타임을 사용하여 온-프레미스 및 가상 네트워크 뒤의 Azure에서 데이터 원본을 검사하여 엔드투엔드 네트워크 격리를 보장해야 합니다. (_계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트 배포)   |
+|**시나리오 1**  -  [Azure Purview에 커넥트 데이터 원본을 비공개 및 안전하게 검사](./catalog-private-link-end-to-end.md) |Azure Purview Studio, Atlas API에 대한 액세스를 포함하여 프라이빗 엔드포인트를 통해서만 Azure Purview 계정에 대한 액세스를 제한하고, 자체 호스팅 통합 런타임을 사용하여 온-프레미스 및 가상 네트워크 뒤의 Azure에서 데이터 원본을 검사하여 엔드투엔드 네트워크 격리를 보장해야 합니다. (_계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트 배포)   |
+|**시나리오 2**  -  [Purview 계정에 비공개 및 안전하게 커넥트](./catalog-private-link-account-portal.md)   | 프라이빗 엔드포인트를 통해 _Azure Purview Studio_ 및 Atlas API에 대한 액세스를 비롯하여 Azure Purview 계정에 대한 액세스를 사용하도록 설정해야 합니다. (_계정_ 및 _포털_ 프라이빗 엔드포인트 배포)   |
 
 ## <a name="support-matrix-for-scanning-data-sources-through-_ingestion_-private-endpoint"></a>_수집_ 프라이빗 엔드포인트를 통한 데이터 원본 검사 관련 지원 매트릭스
 
@@ -64,6 +62,8 @@ Azure Purview 계정에서 _수집_ 프라이빗 엔드포인트를 사용하고
 |Azure SQL Managed Instance | 자체 호스팅 IR| SQL 인증|
 |Azure Cosmos DB| 자체 호스팅 IR| 계정 키|
 |SQL Server | 자체 호스팅 IR| SQL 인증|
+|Azure Synapse Analytics | 자체 호스팅 IR| 서비스 주체|
+|Azure Synapse Analytics | 자체 호스팅 IR| SQL 인증|
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
 
@@ -77,4 +77,5 @@ Azure Purview 프라이빗 엔드포인트와 관련된 현재 제한 사항 목
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수집 프라이빗 엔드포인트 배포](./catalog-private-link-ingestion.md)
+- [엔드투엔드 프라이빗 네트워킹 배포](./catalog-private-link-end-to-end.md)
+- [Purview Studio용 프라이빗 네트워킹 배포](./catalog-private-link-account-portal.md)

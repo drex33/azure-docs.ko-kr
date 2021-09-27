@@ -2,22 +2,18 @@
 title: 네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 titleSuffix: Azure Network Watcher
 description: 네트워크 성능 모니터에서 연결 모니터로 마이그레이션하는 방법에 대해 알아봅니다.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 0ec16b16c8e71d764fb0fe21520eb407493ed8d7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 84daa5527617584d420db02b012bec28760a146c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614565"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 
@@ -58,7 +54,7 @@ ms.locfileid: "113105366"
 1. 드롭다운 목록에서 구독 및 작업 영역을 선택한 다음 마이그레이션할 NPM 기능을 선택합니다. 
 1. **가져오기** 를 선택하여 테스트를 마이그레이션합니다.
 * 작업 영역에서 NPM를 사용하도록 설정하지 않은 경우 "올바른 NPM 구성을 찾을 수 없습니다."라는 오류가 표시됩니다. 
-* 2 단계에서 선택한 기능에 테스트가 없으면 "선택한 작업 영역에 <feature> 구성이 없습니다.”라는 오류가 표시됩니다.
+* 2 단계에서 선택한 기능에 테스트가 없으면 "선택한 작업 영역에 \<feature\> 구성이 없습니다.”라는 오류가 표시됩니다.
 * 유효한 테스트가 없으면 "선택한 작업 영역에 유효한 테스트가 없습니다."라는 오류가 표시됩니다.
 * 테스트에 더 이상 활성 상태가 아니나 과거에 활성 상태였던 에이전트가 포함될 수 있습니다. "일부 테스트에 더 이상 활성 상태가 아닌 에이전트가 포함되어 있습니다. 비활성 에이전트 목록- {0}. 이러한 에이전트는 이전에 실행되었을 수 있지만 종료되었거나 더 이상 실행되지 않습니다. 에이전트를 사용하도록 설정하고 연결 모니터로 마이그레이션합니다. 활성 상태가 아닌 에이전트 없이 테스트를 마이그레이션하려면 계속을 클릭하십시오.”라는 오류 메시지가 표시될 수 있습니다.
 

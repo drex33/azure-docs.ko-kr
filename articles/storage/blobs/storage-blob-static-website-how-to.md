@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
-ms.openlocfilehash: b4279d296c9948d9fbb06174c7c379cd067666dc
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 46c22fe3033a9fc9cda90bf9901f10f20355838e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677304"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645895"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -35,15 +35,15 @@ ms.locfileid: "110677304"
 
 4. **사용** 을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
 
-5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html*)를 지정합니다. 
+5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html*)를 지정합니다.
 
-   기본 인덱스 페이지는 사용자가 정적 웹 사이트의 루트로 이동할 때 표시됩니다.  
+   기본 인덱스 페이지는 사용자가 정적 웹 사이트의 루트로 이동할 때 표시됩니다.
 
-6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html*)를 지정합니다. 
+6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html*)를 지정합니다.
 
    기본 오류 페이지는 사용자가 정적 웹 사이트에서 존재하지 않는 페이지로 이동하려고 할 때 표시됩니다.
 
-7. **저장** 을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
+7. **저장** 을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다.
 
     ![스토리지 계정에서 정적 웹 사이트 호스팅 설정](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -69,11 +69,11 @@ CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 �
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
    ```
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-   * 브라우저에서 존재하지 않는 페이지를 요청하는 경우 사용자에게 표시되는 오류 문서 이름으로 `<error-document-name>` 자리 표시자를 바꿉니다.
+   - 브라우저에서 존재하지 않는 페이지를 요청하는 경우 사용자에게 표시되는 오류 문서 이름으로 `<error-document-name>` 자리 표시자를 바꿉니다.
 
-   * `<index-document-name>` 자리 표시자를 인덱스 문서의 이름으로 바꿉니다. 이 문서는 일반적으로 "index.html"입니다.
+   - `<index-document-name>` 자리 표시자를 인덱스 문서의 이름으로 바꿉니다. 이 문서는 일반적으로 "index.html"입니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,9 +113,9 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+   - `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 6. 정적 웹 사이트 호스팅을 사용하도록 설정합니다.
 
@@ -123,13 +123,13 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * 브라우저에서 존재하지 않는 페이지를 요청하는 경우 사용자에게 표시되는 오류 문서 이름으로 `<error-document-name>` 자리 표시자를 바꿉니다.
+   - 브라우저에서 존재하지 않는 페이지를 요청하는 경우 사용자에게 표시되는 오류 문서 이름으로 `<error-document-name>` 자리 표시자를 바꿉니다.
 
-   * `<index-document-name>` 자리 표시자를 인덱스 문서의 이름으로 바꿉니다. 이 문서는 일반적으로 "index.html"입니다.
+   - `<index-document-name>` 자리 표시자를 인덱스 문서의 이름으로 바꿉니다. 이 문서는 일반적으로 "index.html"입니다.
 
 ---
 
-## <a name="upload-files"></a>파일 업로드 
+## <a name="upload-files"></a>파일 업로드
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -143,11 +143,11 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
    ![파일 업로드](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
-4. 브라우저에서 파일의 콘텐츠를 표시하려면 해당 파일의 콘텐츠 형식이 `text/html`로 설정되어 있는지 확인합니다. 
+4. 브라우저에서 파일의 콘텐츠를 표시하려면 해당 파일의 콘텐츠 형식이 `text/html`로 설정되어 있는지 확인합니다.
 
    ![콘텐츠 형식 확인](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > Storage Explorer는 `.html`과 같은 일반적으로 인식되는 확장에 대해 이 속성을 자동으로 `text/html`로 설정합니다. 그러나 이를 직접 설정해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정하지 않으면 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시합니다. 이 속성을 설정하려면 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 클릭합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -160,12 +160,12 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
-> [!NOTE] 
-> 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시하는 경우 명령에 `--content-type 'text/html; charset=utf-8'`을 추가할 수 있습니다. 
+> [!NOTE]
+> 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시하는 경우 명령에 `--content-type 'text/html; charset=utf-8'`을 추가할 수 있습니다.
 
-* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-* `<source-path>` 자리 표시자를 업로드할 파일의 위치에 대한 경로로 바꿉니다.
+- `<source-path>` 자리 표시자를 업로드할 파일의 위치에 대한 경로로 바꿉니다.
 
 > [!NOTE]
 > Azure CLI의 위치 설치를 사용하는 경우 로컬 컴퓨터의 모든 위치에 대한 경로를 사용할 수 있습니다(예: `C:\myFolder`).
@@ -184,12 +184,12 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 -Context $ctx
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시하는 경우 명령에 `-Properties @{ ContentType = "text/html; charset=utf-8";}`을 추가할 수 있습니다.
 
-* `<path-to-file>` 자리 표시자 값을 업로드하려는 파일의 정규화된 경로로 바꿉니다(예: `C:\temp\index.html`).
+- `<path-to-file>` 자리 표시자 값을 업로드하려는 파일의 정규화된 경로로 바꿉니다(예: `C:\temp\index.html`).
 
-* `<blob-name>` 자리 표시자 값을 결과 Blob에 지정할 이름으로 바꿉니다(예: `index.html`).
+- `<blob-name>` 자리 표시자 값을 결과 Blob에 지정할 이름으로 바꿉니다(예: `index.html`).
 
 ---
 
@@ -213,9 +213,9 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
 ```
 
-* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-* `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+- `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -226,9 +226,9 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+- `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 ---
 
@@ -270,9 +270,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
    ![Azure Storage 정적 웹 사이트 GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-   >[!NOTE]
+   > [!NOTE]
    > **GetWebContent** 확인란은 해당 API 멤버가 지정된 시간 프레임 내에 사용된 경우에만 표시됩니다. 데이터를 반환하는 멤버에만 집중하기 위해 특정 시간 프레임에 사용된 API 멤버만 포털에 표시됩니다. 이 목록에서 특정 API 멤버를 찾을 수 없는 경우 시간 프레임을 확장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 정적 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다. [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)을 참조하세요.
+- 정적 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다. [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)을 참조하세요.

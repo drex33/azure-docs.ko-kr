@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/23/2021
 ms.author: b-juche
-ms.openlocfilehash: 0b05b934b4dc57b4db941755cfcfb2f8d21fc2c6
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: bae0f764df3951150d438c790c326429b5adb5a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824988"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614166"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -50,7 +50,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  볼륨당 최대 내보내기 정책 규칙 수     |    5  |    No    | 
 |  수동 QoS 볼륨에 할당된 최소 처리량     |    1MiB/s   |    No    |    
 |  수동 QoS 볼륨에 할당된 최대 처리량     |    4,500MiB/s    |    No    |    
-|  지역 간 복제 데이터 보호 볼륨(대상 볼륨) 수     |    5    |    예    |     
+|  지역 간 복제 데이터 보호 볼륨(대상 볼륨) 수     |    10    |    예    |     
 
 자세한 내용은 [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조하세요.
 

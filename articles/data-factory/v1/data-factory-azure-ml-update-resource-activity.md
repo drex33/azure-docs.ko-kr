@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 42a1318ffb4c0063875939c8d3633ea513818ba4
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 2d1cd9053f5be915015653e1b522e82eff7b978c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538915"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571238"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>리소스 작업 업데이트를 사용하여 ML Studio(클래식) 모델 업데이트
 
@@ -47,7 +48,7 @@ ms.locfileid: "122538915"
 
 다음 그림에서는 ML Studio(클래식)에서 학습 및 점수 매기기 엔드포인트 간의 관계를 보여 줍니다.
 
-![웹 서비스](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="웹 서비스":::
 
 **ML Studio(클래식) Batch Execution 작업** 을 사용하여 **학습 웹 서비스** 를 호출할 수 있습니다. 학습 웹 서비스를 호출하는 것은 점수 매기기 데이터에 대해 ML Studio(클래식) 웹 서비스(점수 매기기 웹 서비스)를 호출하는 것과 동일합니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 ML Studio(클래식) 웹 서비스를 호출하는 방법에 대해 자세히 설명합니다. 
 
@@ -59,7 +60,7 @@ ms.locfileid: "122538915"
 * **배치 실행** 을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
 * **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 엔드포인트 페이지 자체의 오른쪽 하단에 있습니다.
 
-![업데이트 가능한 엔드포인트](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png" alt-text="업데이트 가능한 엔드포인트":::
 
 다음 예제에서는 AzureML 연결된 서비스에 샘플 JSON 정의를 제공합니다. 연결된 서비스는 인증을 위해 apiKey를 사용합니다.  
 
@@ -111,7 +112,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 샘플 파이프라인의 다이어그램 보기는 다음과 같습니다. 보다시피 Studio(클래식) Batch Execution 작업은 학습 입력을 사용하여 학습 출력(iLearner 파일)을 생성합니다. Studio(클래식) 업데이트 리소스 작업이 이 학습 출력을 사용하여 점수 매기기 웹 서비스 엔드포인트에서 모델을 업데이트합니다. 업데이트 리소스 작업은 출력을 생성하지 않습니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
-![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="파이프라인 다이어그램":::
 
 ### <a name="azure-blob-storage-linked-service"></a>Azure Blob Storage 연결된 서비스:
 Azure Storage는 다음 데이터를 보관합니다.
@@ -258,7 +259,7 @@ Studio(클래식) 업데이트 리소스 작업은 어떠한 출력도 생성하
 ### <a name="pipeline"></a>파이프라인
 파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource** 라는 두 활동이 있습니다. ML Studio(클래식) Batch Execution 작업은 학습 데이터를 입력으로 사용하고 iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
-![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="파이프라인 다이어그램":::
 
 ```JSON
 {

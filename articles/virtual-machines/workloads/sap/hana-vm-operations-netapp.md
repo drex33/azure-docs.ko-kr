@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 09/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6b0fa5e1af60b65c513fd3fa6250dba2a978879
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 4683b38ba6a59b0a50f7e0ea4165657407b59b69
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965899"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823182"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -40,7 +40,7 @@ SAP Netweaver 및 SAP HANA에 Azure NetApp Files를 고려하는 경우 다음�
 - 짧은 대기 시간을 위해 Azure NetApp 스토리지와 근접하게 가상 머신을 배포하는 것이 중요합니다.  
 - 선택한 가상 네트워크에 Azure NetApp Files로 위임된 서브넷이 있어야 합니다.
 - 데이터베이스 서버에서 ANF 볼륨까지의 대기 시간이 1밀리초 미만으로 측정되는지 확인합니다.
-- Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 할당량과 서비스 수준의 함수입니다. HANA Azure NetApp 볼륨을 크기 조정할 때 결과 처리량이 HANA 시스템 요구 사항을 충족해야 합니다.
+- Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명된 대로 볼륨 할당량과 서비스 수준의 함수입니다. HANA Azure NetApp 볼륨을 크기 조정할 때 결과 처리량이 HANA 시스템 요구 사항을 충족해야 합니다. 또는 볼륨 용량 및 처리량을 독립적으로 구성하고 확장할 수 있는 [수동 QoS](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) 용량 풀을 사용하는 것이 [좋습니다(이 문서의](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) 특정 예제에 SAP HANA).
 - 볼륨을 "통합"하여 더 큰 볼륨에서 더 많은 성능을 얻으세요. 예를 들어 /sapmnt, /usr/sap/trans, ...에 대해 하나의 볼륨을 사용합니다. 가능한 경우  
 - Azure NetApp Files는 [내보내기 정책](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)을 제공합니다. 사용자는 허용되는 클라이언트, 액세스 유형(읽기 및 쓰기, 읽기 전용 등)을 제어할 수 있습니다. 
 - Azure NetApp Files 기능은 아직 영역을 인식하지 않습니다. 현재 Azure NetApp Files 기능은 Azure 지역의 모든 가용성 영역에 배포되지 않습니다. 일부 Azure 지역에서 잠재적 대기 시간 영향을 염두에 두어야 합니다.   
@@ -61,7 +61,7 @@ Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수�
 
 아래 표는 단일 용량의 최대 물리적 대역폭 용량을 초과하기 때문에 백업을 저장하기 위해 큰 "Standard" 볼륨을 만드는 것이 합리적이며 12TB 이상의 "Ultra" 볼륨을 만드는 것은 의미가 없음을 보여줍니다. 
 
-용량과 단일 Linux 세션의 최대 쓰기 처리량은 1.2~1.4GB/초입니다. /hana/data에 대해 더 많은 처리량이 필요한 경우 SAP HANA 데이터 볼륨 파티셔닝을 사용하여 데이터를 다시 로드하는 동안 I/O 작업을 스트라이핑하거나 여러 NFS 공유에 있는 여러 HANA 데이터 파일에 대해 HANA 저장점을 스트라이핑할 수 있습니다. HANA 데이터 볼륨 스트라이핑에 대한 자세한 내용은 다음 문서를 참조하세요.
+용량과 단일 Linux 세션의 최대 쓰기 처리량은 1.2~1.4GB/초입니다. /hana/data에 대해 더 많은 처리량이 필요한 경우 SAP HANA 데이터 볼륨 파티셔닝을 사용하여 데이터를 다시 로드하는 동안 I/O 작업을 스트라이핑하거나 여러 NFS 공유에 있는 여러 HANA 데이터 파일에 대해 HANA 저장점을 스트라이핑할 수 있습니다. 읽기 처리량을 개선하기 위해 NFS nconnect 탑재 옵션을 사용할 수 있습니다. Azure NetApp Files Linux 성능 및 nconnect에 대한 자세한 내용은 [Azure NetApp Files Linux NFS 탑재 옵션 모범 사례를 읽어보세요.](../../../azure-netapp-files/performance-linux-mount-options.md) HANA 데이터 볼륨 스트라이핑에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [HANA 관리자 가이드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [SAP HANA - 데이터 볼륨 분할에 대한 블로그](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -75,9 +75,11 @@ Azure NetApp 볼륨의 처리량은 [Azure NetApp Files에 대한 서비스 수�
 | 2TB | 32MB/초 | 128MB/초 | 256MB/초 |
 | 4 TB | 64MB/초 | 256MB/초 | 512MB/초 |
 | 10TB | 160MB/초 | 640MB/초 | 1,280MB/초 |
-| 15TB | 240MB/초 | 960MB/초 | 1,400MB/초 |
-| 20TB | 320MB/초 | 1,280MB/초 | 1,400MB/초 |
-| 40TB | 640MB/초 | 1,400MB/초 | 1,400MB/초 |
+| 15TB | 240MB/초 | 960MB/초 | 1,400MB/초<sup>1</sup> |
+| 20TB | 320MB/초 | 1,280MB/초 | 1,400MB/초<sup>1</sup> |
+| 40TB | 640MB/초 | 1,400MB/초<sup>1</sup> | 1,400MB/초<sup>1</sup> |
+
+<sup>1:</sup>쓰기 또는 단일 세션 읽기 처리량 제한(NFS 탑재 옵션 nconnect를 사용하지 않는 경우) 
 
 데이터가 스토리지 백 엔드의 동일한 SSD에 기록된다는 점을 이해하는 것이 중요합니다. 환경을 관리할 수 있도록 용량 풀의 성능 할당량이 생성되었습니다.
 스토리지 KPI는 모든 HANA 데이터베이스 크기에 대해 동일합니다. 거의 모든 경우에서 이러한 가정은 현실과 고객의 기대를 반영하지 않습니다. HANA 시스템의 크기는 반드시 작은 시스템의 스토리지 처리량은 낮아야 하고, 큰 시스템의 스토리지 처리량은 커야 한다는 의미가 아닙니다. 그러나 일반적으로 대규모 HANA 데이터베이스 인스턴스에 대한 처리량 요구 사항이 더 높을 것으로 예상할 수 있습니다. 기본 하드웨어에 대한 SAP의 크기 조정 규칙의 결과로 이러한 대규모 HANA 인스턴스는 인스턴스 재시작 후 데이터 로드와 같은 작업에서 더 많은 CPU 리소스를 제공하고 더 높은 병렬성을 제공합니다. 결과적으로 볼륨 크기는 고객의 기대와 요구 사항에 맞게 채택되어야 합니다. 그리고 순수 용량 요구 사항에 따라 달라지는 것도 아닙니다.
@@ -90,9 +92,9 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 | 데이터 볼륨 쓰기 | 250MB/초 | 4 TB | 2TB |
 | 데이터 볼륨 읽기 | 400MB/초 | 6.3TB | 3.2TB |
 
-세 가지 KPI가 모두 요구되므로 최소 읽기 요구 사항을 충족하려면 **/hana/data** 볼륨의 크기를 더 큰 용량으로 조정해야 합니다.
+세 가지 KPI가 모두 요구되므로 최소 읽기 요구 사항을 충족하려면 **/hana/data** 볼륨의 크기를 더 큰 용량으로 조정해야 합니다. 수동 QoS 용량 풀을 사용하는 경우 볼륨의 크기와 처리량을 독립적으로 정의할 수 있습니다. 용량과 처리량은 모두 동일한 용량 풀에서 가져와지므로 풀의 서비스 수준과 크기는 총 성능을 제공할 만큼 충분히 커야 [합니다(여기](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md)예제 참조).
 
-높은 대역폭이 필요하지 않은 HANA 시스템의 경우 ANF 볼륨 크기가 더 작을 수 있습니다. HANA 시스템에 더 많은 처리량이 필요한 경우 온라인으로 용량 크기를 조정하여 볼륨을 조정할 수 있습니다. 백업 볼륨에 대해 정의된 KPI는 없습니다. 그러나 백업 볼륨 처리량은 성능이 좋은 환경에 필수적입니다. 로그 및 데이터 볼륨 성능은 고객의 기대에 맞게 설계되어야 합니다.
+높은 대역폭이 필요 없는 HANA 시스템의 경우 더 작은 볼륨 크기 또는 수동 QoS의 경우 처리량을 직접 조정하여 ANF 볼륨 처리량을 낮출 수 있습니다. HANA 시스템에 더 많은 처리량이 필요한 경우 온라인으로 용량 크기를 조정하여 볼륨을 조정할 수 있습니다. 백업 볼륨에 대해 정의된 KPI는 없습니다. 그러나 백업 볼륨 처리량은 성능이 좋은 환경에 필수적입니다. 로그 및 데이터 볼륨 성능은 고객의 기대에 맞게 설계되어야 합니다.
 
 > [!IMPORTANT]
 > 단일 NFS 볼륨에 배포하는 용량에 관계없이 처리량은 단일 세션의 소비자가 활용하는 1.2~1.4GB/초 대역폭의 범위에서 안정될 것으로 예상됩니다. 이는 ANF 제품의 기본 아키텍처와 NFS 관련 Linux 세션 제한과 관련이 있습니다. [Azure NetApp Files에 대한 성능 벤치 마크 테스트 결과](../../../azure-netapp-files/performance-benchmarks-linux.md) 문서에 설명된 성능 및 처리량 수치는 여러 클라이언트 VM이 있는 한 공유 NFS 볼륨에서 여러 세션에 걸쳐 테스트한 결과입니다. 이 시나리오는 SAP에서 측정하는 시나리오와 다릅니다. 즉, ANF에서 호스트되는 단일 NFS 볼륨에 대해 단일 VM에서 처리량을 측정합니다.
@@ -141,8 +143,9 @@ ANF를 사용하는 경우, 기본 인프라가 구축되는 방식을 이해하
 
 SAP HANA는 다음을 지원합니다.
 
-- SAP HANA 1.0 SPS7의 스토리지 기반 스냅샷 백업
-- SAP HANA 2.0 SPS4의 MDC(다중 데이터베이스 컨테이너) HANA 환경을 위한 스토리지 기반 스냅샷 백업 지원
+- SAP HANA 1.0 SPS7 이상의 단일 컨테이너 시스템에 대한 Storage 기반 스냅샷 백업 지원 
+- SAP HANA 2.0 SPS1 이상의 단일 테넌트에서 MDC(다중 데이터베이스 컨테이너) HANA 환경에 대한 Storage 기반 스냅샷 백업 지원
+- SAP HANA 2.0 SPS4 이상의 다중 테넌트에서 MDC(다중 데이터베이스 컨테이너) HANA 환경에 대한 Storage 기반 스냅샷 백업 지원
 
 
 스토리지 기반 스냅샷 백업 만들기는 간단한 4단계 절차입니다. 
@@ -177,8 +180,11 @@ BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHO
 > [!CAUTION]
 > 스냅샷 자체는 방금 스냅샷한 볼륨과 동일한 물리적 스토리지에 있으므로 보호된 백업이 아닙니다. 하루에 하나 이상의 스냅샷을 다른 위치로 "보호"해야 합니다. 이는 동일한 환경, 원격 Azure 지역 또는 Azure Blob 스토리지에서 수행할 수 있습니다.
 
+저장소 스냅숏 기반 응용 프로그램 일치 백업에 사용할 수 있는 솔루션:
 
-Commvault 백업 제품 사용자의 경우, Commvault IntelliSnap V.11.21 이상이 두 번째 옵션이 될 수 있습니다. 이 Commvault 버전 이상에서는 Azure NetApp 파일 지원을 제공합니다. [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) 문서에서 자세한 정보를 제공합니다.
+- Microsoft [Azure 애플리케이션 AzAcSnap (일관적인 스냅숏 도구)](../../../azure-netapp-files/azacsnap-introduction.md) 는 저장소 스냅숏을 만들기 전에 응용 프로그램 일치 상태로 전환 하는 데 필요한 모든 오케스트레이션을 처리 하 여 해당 데이터베이스를 작동 상태로 반환 하는 명령줄 도구입니다. AzAcSnap는 HANA Large Instance 및 Azure NetApp Files에 대 한 스냅숏 기반 백업을 지원 합니다. 자세한 내용은 Azure 애플리케이션 일치 하는 스냅숏 도구를 참조 하세요. 
+- Commvault 백업 제품 사용자의 경우 다른 옵션은 Commvault IntelliSnap 11.21 이상입니다. 이 버전의 Commvault는 Azure NetApp Files 스냅숏 지원을 제공 합니다. [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) 문서에서 자세한 정보를 제공합니다.
+
 
 
 ### <a name="back-up-the-snapshot-using-azure-blob-storage"></a>Azure Blob 스토리지를 사용하여 스냅샷 백업

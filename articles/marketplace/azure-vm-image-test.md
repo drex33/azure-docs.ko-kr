@@ -4,15 +4,15 @@ description: Azure Marketplace에서 Azure 가상 머신 제품을 테스트하�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: kriti-ms
-ms.author: krsh
+author: ebolton-cyber
+ms.author: edewebolton
 ms.date: 03/10/2021
-ms.openlocfilehash: c885f7e953849825c9a0ef87f68df6e9e2d3360a
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
-ms.translationtype: HT
+ms.openlocfilehash: 876f4b42c77caba27ed94b42d784004b0bfd32ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528579"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598159"
 ---
 # <a name="test-a-virtual-machine-image"></a>가상 머신 이미지 테스트
 
@@ -280,4 +280,4 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너 센터](https://partner.microsoft.com/)에 로그인합니다.
+- [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.

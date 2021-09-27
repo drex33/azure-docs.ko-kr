@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: d32058fed80db335086c6ec508441817002feca9
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.openlocfilehash: dae63f442c2e2df068cc3f17bb5355abd4b7de77
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900758"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615627"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Azure AD 자격 증명을 통해 PowerShell 명령을 실행하여 Blob 데이터에 액세스하기
 
@@ -27,7 +27,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 Azure AD 보안 주�
 
 Blob 데이터에 작업에 대한 Azure Storage 확장을 지원합니다. 호출할 수 있는 작업은 PowerShell에 로그인하는 데 사용되는 Azure AD 보안 주체가 부여받은 권한에 따라 달라집니다. Azure Storage 컨테이너에 대한 권한은 Azure RBAC를 통해 할당됩니다. 예를 들어, **Blob Data Reader** 역할에 할당되면 컨테이너에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **Blob Data Contributor** 역할에 할당되면 컨테이너 혹은 컨테이터에 포함된 데이터를 읽거나, 쓰거나, 삭제하는 스크립팅 명령을 실행할 수 있습니다.
 
-컨테이너의 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [OAuth 토큰을 이용한 스토리지 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조하세요.  
+컨테이너의 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [OAuth 토큰을 이용한 스토리지 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Resource Manager **읽기 전용** 잠금을 사용하여 스토리지 계정이 잠긴 경우, 해당 스토리지 계정에 대한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용되지 않습니다. **키 나열** 은 POST 작업으로, 계정에 대해 **읽기 전용** 잠금이 설정된 경우 모든 POST 작업이 차단됩니다. 그렇기 때문에 계정이 **읽기 전용** 잠금으로 잠겨 있으면, 계정 키가 없는 사용자는 Azure AD 자격 증명을 사용하여 Blob 데이터에 액세스해야 합니다. PowerShell에서 `-UseConnectedAccount` 매개 변수를 포함하여 Azure AD 자격 증명을 사용한 **AzureStorageContext** 개체를 만듭니다.
@@ -48,7 +48,7 @@ Azure PowerShell를 사용하여 로그인한 뒤 Azure AD 자격 증명을 사�
 
     PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 로그인](/powershell/azure/authenticate-azureps)을 참조하세요.
 
-1. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 호출하여 Azure 리소스 그룹을 만듭니다. 
+1. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 호출하여 Azure 리소스 그룹을 만듭니다.
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 1c17fceb267018901975f942f7cfc804f450ead9
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: fcc79c6b1828d4feb33a73f04e98f92abbf7384e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597021"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Azure CDN와 고정적 웹 사이트 통합
 
-[Azure Content Delivery Network(CDN)](../../cdn/cdn-overview.md)를 사용하도록 설정하여 Azure Storage 계정에 호스팅된 [고정적 웹 사이트](storage-blob-static-website.md)에서 콘텐츠를 캐시할 수 있습니다. Azure CDN를 사용하여 고정적 웹 사이트의 사용자 지정 도메인 엔드포인트를 구성하고, 사용자 지정 TLS/SSL 인증서를 프로비전하고, 사용자 지정 다시 쓰기 규칙을 구성할 수 있습니다. Azure CDN을 구성하면 추가 비용이 발생하지만 전세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 또한 Azure CDN은 고유한 인증서를 사용하여 TLS 암호화를 제공합니다. 
+[Azure Content Delivery Network(CDN)](../../cdn/cdn-overview.md)를 사용하도록 설정하여 Azure Storage 계정에 호스팅된 [고정적 웹 사이트](storage-blob-static-website.md)에서 콘텐츠를 캐시할 수 있습니다. Azure CDN를 사용하여 고정적 웹 사이트의 사용자 지정 도메인 엔드포인트를 구성하고, 사용자 지정 TLS/SSL 인증서를 프로비전하고, 사용자 지정 다시 쓰기 규칙을 구성할 수 있습니다. Azure CDN을 구성하면 추가 비용이 발생하지만 전세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 또한 Azure CDN은 고유한 인증서를 사용하여 TLS 암호화를 제공합니다.
 
 Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
@@ -36,7 +36,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
 1. **CDN 엔드포인트 이름** 필드에서 CDN 엔드포인트에 대한 이름을 지정합니다. CDN 엔드포인트는 Azure에서 고유해야 하며 엔드포인트 URL의 첫 부분을 제공합니다. 형식은 엔드포인트 이름이 고유한지 유효성을 검사합니다.
 
-1. **기존 호스트 이름** 필드에서 고정적 웹 사이트 엔드포인트를 지정합니다. 
+1. **기존 호스트 이름** 필드에서 고정적 웹 사이트 엔드포인트를 지정합니다.
 
    정적 웹 사이트 엔드포인트를 찾으려면 스토리지 계정에 대한 **정적 웹 사이트** 설정으로 이동합니다.  기본 엔드포인트를 복사하여 CDN 구성에 붙여넣습니다.
 
@@ -63,9 +63,9 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
 더 이상 Azure CDN에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
-* 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](./anonymous-read-access-configure.md)를 참조하세요.
-* Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
-* 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
+- 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](./anonymous-read-access-configure.md)를 참조하세요.
+- Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
+- 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
 
 Azure CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료되거나 엔드포인트가 [삭제](../../cdn/cdn-purge-endpoint.md)될 때까지 캐시된 상태로 유지됩니다. TTL(Time-to-Live)이 만료되면 Azure CDN에서 CDN 엔드포인트가 여전히 유효하며 개체에 익명으로 액세스할 수 있는지 확인합니다. 그렇지 않으면 개체가 더 이상 캐시되지 않습니다.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 67010d698c51e0eb66abcfa35fc629ec58d28789
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 62616465b98feca1052ac3e45932120fdf0ffd42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424225"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584511"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell을 사용하여 개인 피어링을 위한 IPv6 지원 추가(미리 보기)
 
@@ -154,7 +154,7 @@ IPv6 프라이빗 피어링을 사용하여 새로운 Azure 리소스 집합에 
 ## <a name="limitations"></a>제한 사항
 IPv6은 공용 Azure 지역에서 배포에 연결하는 데 사용할 수 있지만 다음과 같은 사용 사례를 지원하지는 않습니다.
 
-* 영역이 중복되지 *않은* 기존 ExpressRoute 게이트웨이에 대한 연결
+* 영역 중복 되지 않는 *기존* express 경로 게이트웨이에 대 한 연결입니다. 표준 고정 IP 주소를 사용 하 여 모든 SKU (영역 중복 및 아님 모두)의 *새로* 만든 express 경로 게이트웨이는 이중 스택 express 경로 연결에 사용할 수 있습니다.
 * ExpressRoute 회로 간의 Global Reach 연결
 * 가상 WAN으로 ExpressRoute 사용
 * 비ExpressRoute Direct 회로가 있는 FastPath

@@ -12,12 +12,12 @@ ms.date: 09/28/2020
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너, 스트리밍, 알고리즘
-ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9a2481705ef1bed5a4b6d20bdfcbe68022c5f9e2
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97862301"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057382"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Anomaly Detector API에 대해 Docker 컨테이너 설치 및 실행 
 
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 Anomaly Detector 컨테이너를 사용하기 전에 다음 사전 요구 사항을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -124,7 +124,7 @@ ApiKey={API_KEY}
 
 `<container-registry>`와 `<container-name>`을 사용하는 컨테이너의 값으로 대체합니다. 동일한 컨테이너일 필요는 없습니다. Anomaly Detector 컨테이너 및 LUIS 컨테이너를 HOST에서 함께 실행하거나 여러 Anomaly Detector 컨테이너를 실행할 수 있습니다.
 
-포트 5000에서 첫 번째 컨테이너를 실행합니다.
+호스트 포트 5000에서 첫 번째 컨테이너를 실행 합니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -134,11 +134,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-포트 5001에서 두 번째 컨테이너를 실행합니다.
+호스트 포트 5001에서 두 번째 컨테이너를 실행 합니다.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \

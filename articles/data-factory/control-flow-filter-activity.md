@@ -1,7 +1,7 @@
 ---
-title: Azure Data Factory의 필터 작업
+title: Filter 작업
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 필터 작업은 입력을 필터링합니다.
+description: 필터 작업은 Azure Data Factory 및 Synapse Analytics 파이프라인에 대 한 입력을 필터링 합니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/04/2018
-ms.openlocfilehash: 2ec871aeb6fb7146e66c3d3124ed8bba3400d4c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: d5a78ca89841abc1d6f060a2f84b7db5ec3758e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642398"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831631"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
+# <a name="filter-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -112,7 +112,7 @@ items | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+지원되는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)

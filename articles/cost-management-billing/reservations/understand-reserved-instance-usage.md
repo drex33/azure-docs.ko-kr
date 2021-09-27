@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: f6aad15d70157dda110fce233fbdafb7f3d896ad
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
-ms.translationtype: HT
+ms.openlocfilehash: 0636e09e4dc955f887086085a5c0cc5c941d32ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055062"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646197"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종량제 요금을 사용하는 개별 구독에 대한 Azure 예약 사용량 이해
 
@@ -54,7 +54,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 1. **추가 정보** 필드의 **ReservationId** 는 VM에 적용된 예약입니다.
 2. **ConsumptionMeter** 는 VM에 대한 요금제 ID입니다.
 3. **예약 - 기본 VM** **요금제 하위 범주** 줄은 명령문 섹션에 있는 $0인 비용을 나타냅니다. 예약에서 이미 이 VM 실행 비용을 지불했습니다.
-4. **요금제 ID** 는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
+4. **요금제 ID** 는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 측정기 ID는 예약 할인을 충족 하는 모든 VM에 대해 표시 됩니다.
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
 ## <a name="usage-for-sql-database--cosmos-db-reservations"></a>SQL Database 및 Cosmos DB 예약의 사용량

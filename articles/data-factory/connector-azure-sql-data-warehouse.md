@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 2131e74935ee831925dbe307a79c26909078e575
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: fb28edc395738a2993750d97e26b9a98999b1284
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313989"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744051"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory-or-synapse-pipelines"></a>Azure Data Factory 또는 Synapse 파이프라인을 사용하여 Azure Synapse Analytics에서 데이터 복사 및 변환
 
@@ -60,7 +60,7 @@ ms.locfileid: "123313989"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -82,7 +82,7 @@ ms.locfileid: "123313989"
 
 Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성            | Description                                                  | 필수                                                     |
+| 속성            | 설명                                                  | 필수                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | type 속성은 **AzureSqlDW** 로 설정해야 합니다.             | 예                                                          |
 | connectionString    | **connectionString** 속성에 대해 Azure Synapse Analytics 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
@@ -246,7 +246,7 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
 
 Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성  | Description                                                  | 필수                    |
+| 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable** 로 설정해야 합니다. | 예                         |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -285,7 +285,7 @@ Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음
 
 Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | Description                                                  | 필수 |
+| 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정해야 합니다. | 예      |
 | SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
@@ -402,7 +402,7 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics에 데
 
 데이터를 Azure Synapse Analytics에 복사하려면 복사 작업의 싱크 유형을 **SqlDWSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink** 로 설정해야 합니다. | 예                                           |
 | allowPolyBase     | PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure Synapse Analytics로 데이터 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
@@ -436,7 +436,7 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics에 데
 
 복사 작업의 Azure Synapse Analytics 커넥터는 데이터를 병렬로 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
 분할된 복사본을 사용하도록 설정하면 복사 작업이 Azure Synapse Analytics 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`를 4로 설정하는 경우, 이 서비스는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Azure Synapse Analytics에서 데이터의 일부를 검색합니다.
 
@@ -543,7 +543,7 @@ Azure Synapse Analytics COPY 문은 Azure Blob, Azure Data Lake Storage Gen1 및
 
 복사 작업의 `allowCopyCommand`에서 다음 COPY 문 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Azure Synapse Analytics의 각 대상 열에 대한 기본값을 지정합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
 | additionalOptions | [COPY 문](/sql/t-sql/statements/copy-into-transact-sql)의 "With" 절에서 직접 Azure Synapse Analytics COPY 문에 전달되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
@@ -656,7 +656,7 @@ Azure Synapse Analytics COPY 문은 Azure Blob, Azure Data Lake Storage Gen1 및
 
 복사 작업의 `polyBaseSettings`에서 다음 PolyBase 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
 | rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage** 입니다. | 예                                            |
@@ -884,7 +884,7 @@ SQL 예제: ```Select * from MyTable where customerId > 1000 and customerId < 20
 - 직렬화 가능
 - 없음(격리 수준 무시)
 
-![격리 수준](media/data-flow/isolationlevel.png)
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="격리 수준":::
 
 ### <a name="sink-transformation"></a>싱크 변환
 
@@ -907,7 +907,7 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 
 **사전 및 사후 SQL 스크립트**: 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 입력합니다.
 
-![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="사전 및 사후 SQL 처리 스크립트":::
 
 ### <a name="error-row-handling"></a>오류 행 처리
 

@@ -4,17 +4,17 @@ description: 고객의 리소스를 관리하기 위해 사용하는 사용자 �
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 09/08/2021
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca8c972f1d5c8819d5902966adde1070691301ba
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: f554c8e29cbff3b78a3390cb3f6ef155a7a61b6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695232"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744186"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -66,12 +66,12 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>연결된 파트너 ID 가져오기
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>연결된 파트너 ID 업데이트
@@ -80,7 +80,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>연결된 파트너 ID 삭제
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Azure CLI를 사용하여 새 파트너 ID에 연결

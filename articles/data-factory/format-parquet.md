@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 58dfe48ca6b0f9cdf1db1f4342e1ee19b5c4c9ce
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: f0391e0993470bc8980a60ab6398d3e144b04acc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255008"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743751"
 ---
 # <a name="parquet-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 Parquet 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -68,7 +68,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSource** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
@@ -77,7 +77,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 싱크의 type 속성은 **ParquetSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **Parquet 쓰기 설정** 표를 참조하세요. |    예      |
@@ -85,7 +85,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 `formatSettings`에서 지원되는 **Parquet 쓰기 설정**:
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 type을 **ParquetWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택하고 파일당 최대 행 수를 지정할 수 있습니다.  | 예 |
@@ -114,7 +114,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 아래 그림은 매핑 데이터 흐름에서 parquet 원본 구성의 예입니다.
 
-![Parquet 원본](media/data-flow/parquet-source.png)
+:::image type="content" source="media/data-flow/parquet-source.png" alt-text="Parquet 원본":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 
@@ -139,7 +139,7 @@ source(allowSchemaDrift: true,
 
 아래 그림은 매핑 데이터 흐름에서 parquet 싱크 구성의 예입니다.
 
-![Parquet 싱크](media/data-flow/parquet-sink.png)
+:::image type="content" source="media/data-flow/parquet-sink.png" alt-text="Parquet 싱크":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 
@@ -172,7 +172,7 @@ Parquet 복합 데이터 형식(예: MAP, LIST, STRUCT)은 현재 복사 작업�
 > [!TIP]
 > 자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
-![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="자체 호스팅 IR에서 JVM 힙 크기 설정":::
 
 예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 서비스는 최소 64MB 및 최대 1G를 사용합니다.
 

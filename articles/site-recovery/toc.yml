@@ -200,6 +200,8 @@
       items:
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
+        - name: Transport Layer Security(전송 계층 보안)
+          href: transport-layer-security.md
 - name: 방법 가이드
   items:
     - name: Azure 간 재해 복구

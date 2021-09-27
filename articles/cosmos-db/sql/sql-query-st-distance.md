@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1edb20524327841125461b7b0d4a85cac4567160
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: b1cf5bdad567a82bd3936f2b2a187375259407ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530142"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625352"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -56,6 +56,9 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 ## <a name="remarks"></a>설명
 
 이 시스템 함수는 집계가 있는 쿼리를 제외하고 [지리 공간적 인덱스](../index-policy.md#spatial-indexes)의 이점을 제공합니다.
+
+> [!NOTE]
+> GeoJSON 사양에서는 다각형 내의 요소를 시계 반대 방향 순서로 지정 해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

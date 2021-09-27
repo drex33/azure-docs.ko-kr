@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 모니터링 및 경고 | Microsoft Docs
+title: 경고 Azure Key Vault
 description: 대시보드를 만들어 키 자격 증명 모음의 상태를 모니터링하고 경고를 구성합니다.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 3229e8a3ee482067677cdd5af1fb98b120ef8dd0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 4c1f63bdc13822b7eb48dc5410a990dc75f3453e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082111"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060785"
 ---
-# <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault 모니터링 및 경고
+# <a name="alerting-for-azure-key-vault"></a>Azure Key Vault 대한 경고
 
 ## <a name="overview"></a>개요
 
@@ -27,63 +27,6 @@ ms.locfileid: "110082111"
 + 지정된 임계값에 대한 경고를 만드는 방법
 
 Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [Azure Monitor의 Key Vault에 대한 자세한 정보](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
-
-## <a name="basic-key-vault-metrics-to-monitor"></a>모니터링할 기본 Key Vault 메트릭
-
-+ 자격 증명 모음 가용성  
-+ 자격 증명 모음 포화도 
-+ 서비스 API 대기 시간 
-+ 총 서비스 API 적중(활동 유형으로 필터링) 
-+ 오류 코드(상태 코드로 필터링) 
-
-**자격 증명 모음 가용성** -이 메트릭은 항상 100%여야 합니다. 이 메트릭은 키 자격 증명 모음에 가동 중단이 발생하면 신속하게 사용자에게 표시할 수 있기 때문에 중요한 모니터링 메트릭입니다. 
-
-**자격 증명 모음 포화도** – 키 자격 증명 모음이 서비스할 수 있는 초당 요청 수는 수행 중인 작업 유형에 따라 다릅니다. 일부 자격 증명 모음 작업에서는 초당 요청 수 임계값이 더 낮습니다. 이 메트릭은 모든 작업 유형에서 키 자격 증명 모음의 총 사용을 집계하여 현재 키 자격 증명 모음 사용량을 표시하는 백분율 값을 제시합니다. 키 자격 증명 모음 서비스 한도의 전체 목록은 다음 문서를 참조하세요. [Azure Key Vault 서비스 제한 사항](service-limits.md)
-
-**서비스 API 대기 시간** - 이 메트릭은 서비스에서 측정된 키 자격 증명 모음의 호출에 대한 평균 대기 시간을 보여줍니다. 클라이언트와 서비스 간의 네트워크 또는 클라이언트에서 사용하는 시간은 포함되지 않습니다.
-
-**총 API 적중** - 이 메트릭은 키 자격 증명 모음에 대한 모든 호출을 보여줍니다. 키 자격 증명 모음을 호출하는 애플리케이션을 식별하는 데 도움이 됩니다. 
-
-**오류 코드** – 이 메트릭은 키 자격 증명 모음에 비정상적인 규모의 오류가 발생하면 표시합니다. 오류 코드 및 문제 해결 지침의 전체 목록은 다음 문서를 참조하세요. [Azure Key Vault REST API 오류 코드](rest-error-codes.md)
-
-## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>메트릭을 구성하고 대시보드를 만드는 방법
-
-1. Azure Portal에 로그인합니다.
-2. Key Vault로 이동
-3. **모니터링** 에서 **메트릭** 선택 
-
-> [!div class="mx-imgBorder"]
-> ![모니터링 섹션에서 메트릭 옵션을 강조 표시하는 스크린샷.](../media/alert-1.png)
-
-4. 대시보드에 표시하려는 차트의 제목을 업데이트합니다. 
-5. 범위를 선택합니다. 이 예제에서는 단일 키 자격 증명 모음을 선택합니다. 
-6. **전체 자격 증명 모음 가용성** 및 집계 **평균** 메트릭 선택 
-7. 시간 범위를 지난 24시간으로, 시간 세분성을 1분으로 업데이트합니다. 
-
-> [!div class="mx-imgBorder"]
-> ![전체 자격 증명 모음 가용성 메트릭을 표시하는 스크린샷.](../media/alert-2.png)
-
-8. 자격 증명 모음 포화도 및 서비스 API 대기 시간 메트릭에 대해 위의 단계를 반복합니다. **대시보드에 고정** 을 선택하여 메트릭을 대시보드에 저장합니다. 
-
-> [!IMPORTANT]
-> "대시보드에 고정"을 선택하고 구성한 모든 메트릭을 저장합니다. 저장하지 않고 페이지를 나갔다가 돌아오면 구성 변경 내용이 사라집니다. 
-
-9. 키 자격 증명 모음의 모든 작업 유형을 모니터링하려면 **총 서비스 API 적중** 메트릭을 사용하고 **활동 유형별 분할 적용** 을 선택합니다.
-
-> [!div class="mx-imgBorder"]
-> ![분할 적용 단추를 표시하는 스크린샷.](../media/alert-3.png)
-
-10. 키 자격 증명 모음에서 오류 코드를 모니터링하려면 **총 서비스 API 결과** 메트릭을 사용하고 **활동 유형별 분할 적용** 을 선택합니다.
-
-> [!div class="mx-imgBorder"]
-> ![선택한 총 서비스 API 결과 메트릭을 표시하는 스크린샷.](../media/alert-4.png)
-
-이제 다음과 같은 대시보드가 있습니다. 각 타일의 오른쪽 위에 있는 점 3개를 클릭하여 필요한 대로 타일을 다시 정렬하고 크기를 변경할 수 있습니다. 
-
-대시보드를 저장하고 게시하면 Azure 구독에 새 리소스를 만듭니다. 언제든지 "공유 대시보드"를 검색하여 이 항목을 볼 수 있습니다. 
-
-> [!div class="mx-imgBorder"]
-> ![게시된 대시보드를 표시하는 스크린샷.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Key Vault에 대한 경고를 구성하는 방법 
 
@@ -210,4 +153,9 @@ Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모
 
 ## <a name="next-steps"></a>다음 단계
 
-축하합니다. 이제 모니터링 대시보드를 만들고 키 자격 증명 모음에 대한 경고를 구성했습니다. 위의 모든 단계를 수행한 후에는, 키 자격 증명 모음이 구성한 경고 기준에 부합하면 이메일 경고를 받게 됩니다. 아래에 예제가 나와 있습니다. 이 문서에서 설정한 도구를 사용하여 키 자격 증명 모음의 상태를 적극적으로 모니터링합니다.
+축하합니다. 이제 모니터링 대시보드를 만들고 키 자격 증명 모음에 대한 경고를 구성했습니다.
+
+위의 모든 단계를 수행한 후에는, 키 자격 증명 모음이 구성한 경고 기준에 부합하면 이메일 경고를 받게 됩니다. 아래에 예제가 나와 있습니다. 이 문서에서 설정한 도구를 사용하여 키 자격 증명 모음의 상태를 적극적으로 모니터링합니다.
+
+- [Key Vault 모니터링](monitor-key-vault.md)
+- [모니터링 Key Vault 데이터 참조](monitor-key-vault-reference.md)

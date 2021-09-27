@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1aaabce5dc13098d183ee595d27b5b45a3fd0caa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449205"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586291"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>요청을 회람 규칙에 매칭하는 방법
 
@@ -69,8 +69,8 @@ Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 �
 ### <a name="path-matching"></a>경로 매칭
 특정 프런트 엔드 호스트를 확인하고 해당 프런트 엔드 호스트를 사용하여 가능한 회람 규칙을 경로에만 필터링하면 Front Door에서 요청 경로에 따라 회람 규칙을 필터링합니다. 프런트 엔드 호스트와 유사한 논리를 사용하겠습니다.
 
-1. 정확히 일치하는 경로가 있는 회람 규칙을 찾습니다.
-2. 정확히 일치하는 경로가 없을 경우 일치하는 와일드카드 경로가 있는 회람 규칙을 찾습니다.
+1. 정확히 일치하는 경로가 있는 라우팅 규칙을 찾습니다.
+2. 정확히 일치하는 경로가 없을 경우 일치하는 와일드카드 경로가 있는 라우팅 규칙을 찾습니다.
 3. 일치하는 경로가 있는 회람 규칙이 없을 경우 요청을 거부하고 400: 잘못된 요청 오류 HTTP 응답을 반환합니다.
 
 >[!NOTE]
@@ -123,7 +123,8 @@ Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 �
 > | profile.domain.com/other | 없음 오류 400: 잘못된 요청 |
 
 ### <a name="routing-decision"></a>라우팅 의사 결정
-단일 Front Door 회람 규칙에 대한 매칭이 완료되면 요청을 처리하는 방법을 선택해야 합니다. Front Door는 일치하는 회람 규칙에 사용 가능한 캐시된 응답이 있을 경우 동일한 응답을 클라이언트로 다시 제공합니다. 그렇지 않을 경우 일치하는 회람 규칙에 [URL 재작성(사용자 지정 전달 경로)](front-door-url-rewrite.md)이 구성되어 있는지 여부가 평가됩니다. 사용자 지정 전달 경로가 정의되어 있지 않을 경우 구성된 백 엔드 풀의 적절한 백 엔드로 요청이 그대로 전달됩니다. 또는 정의된 [사용자 지정 전달 규칙](front-door-url-rewrite.md)에 따라 요청 경로가 업데이트된 후 백 엔드로 전달됩니다.
+
+단일 Front Door 라우팅 규칙과 일치한 후 요청을 처리하는 방법을 선택합니다. Front Door 일치하는 라우팅 규칙에 사용할 수 있는 캐시된 응답이 있는 경우 캐시된 응답이 클라이언트에 다시 제공됩니다. Front Door 일치하는 라우팅 규칙에 대해 캐시된 응답이 없는 경우 다음에 평가되는 내용은 일치하는 라우팅 규칙에 대한 [URL wewrite(사용자 지정 전달 경로)를](front-door-url-rewrite.md) 구성했는지 여부입니다. 사용자 지정 전달 경로가 정의되지 않은 경우 요청은 구성된 백 엔드 풀의 적절한 백 엔드에 있는 그대로 전달됩니다. 사용자 지정 전달 경로가 정의된 경우 요청 경로는 정의된 [사용자 지정 전달 경로에](front-door-url-rewrite.md) 따라 업데이트된 다음 백 엔드로 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

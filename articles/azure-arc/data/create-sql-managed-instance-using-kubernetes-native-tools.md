@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: dbc2f2efffcab9800deff27e42e4130061c531d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 502b3ffc28e1eb1880e2611b0bf33dbe4cf1aeb4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566982"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675310"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 Azure SQL 관리형 인스턴스 만들기
 
@@ -58,6 +58,8 @@ metadata:
     examplelabel1: examplelabelvalue1
     examplelabel2: examplelabelvalue2
 spec:
+  security:
+    adminLoginSecret: sql1-login-secret
   scheduling:
     default:
       resources:
@@ -182,7 +184,7 @@ kubectl describe pod/<pod name> --namespace arc
 
 ## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
 
-생성 관련 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
+생성과 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

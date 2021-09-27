@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 2d4885f23e775f84a412d176568d992ebe01166b
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
-ms.translationtype: HT
+ms.openlocfilehash: 32605a78336c8d9e1aeb730be50441d43b8fe45c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875704"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659137"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
@@ -395,16 +395,13 @@ Install-Module -Name Az.ImportExport
 
 4. 선택한 Blob에 필요한 디스크 수를 확인하려면 다음 명령을 실행합니다.
 
-   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     다음 표에는 매개 변수가 나와 있습니다.
 
     |명령줄 매개 변수|Description|
     |--------------------------|-----------------|
     |**/logdir:**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
-    |**/sn:**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|
-    |**/sk:**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|
-    |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|
     |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|
     |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|
 
@@ -417,7 +414,7 @@ Install-Module -Name Az.ImportExport
 다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.
 
 ```powershell
-    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```
 
 내보내기 Blob 목록 파일에는 다음과 같이 Blob 이름과 Blob 접두사가 포함될 수 있습니다.

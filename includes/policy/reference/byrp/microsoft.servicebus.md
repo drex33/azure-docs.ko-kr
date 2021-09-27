@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f2239f1f6e505dc78c02b7d0f57936fb81fe713c
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3a740b3364ddb0ddc29439dcb8f35cab2713df30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469028"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571019"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "123469028"
 |[Azure Service Bus 네임스페이스는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c06e275-d63d-4540-b761-71f364c2111d) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Service Bus 네임스페이스에 매핑하면 데이터 누출 위험이 줄어듭니다. [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../../articles/service-bus-messaging/private-link-service.md)에서 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_Audit.json) |
 |[프라이빗 엔드포인트로 Service Bus 네임스페이스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d890f7f-100c-473d-baa1-2777e2266535) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 Service Bus 네임스페이스에 매핑하면 데이터 누출 위험을 줄일 수 있습니다. [https://docs.microsoft.com/azure/service-bus-messaging/private-link-service](../../../../articles/service-bus-messaging/private-link-service.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_PrivateEndpoint_DeployIfNotExists.json) |
 |[Service Bus의 진단 설정을 이벤트 허브에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |이 진단 설정이 누락된 Service Bus를 만들거나 업데이트할 때 Service Bus의 진단 설정을 배포하여 지역별 이벤트 허브로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |
-|[Service Bus의 진단 설정을 Log Analytics 작업 영역에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04d53d87-841c-4f23-8a5b-21564380b55e) |이 진단 설정이 누락된 Service Bus를 만들거나 업데이트할 때 Service Bus의 진단 설정을 배포하여 지역별 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
-|[Service Bus의 리소스 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |리소스 로그 사용을 감사합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 사용할 활동 내역을 다시 만들 수 있습니다. |AuditIfNotExists, 사용 안 함 |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|[Service Bus의 진단 설정을 Log Analytics 작업 영역에 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04d53d87-841c-4f23-8a5b-21564380b55e) |이 진단 설정이 누락된 Service Bus를 만들거나 업데이트할 때 Service Bus의 진단 설정을 배포하여 지역별 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
+|[Service Bus에서 리소스 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |리소스 로그 사용을 감사합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 사용할 활동 내역을 다시 만들 수 있습니다. |AuditIfNotExists, 사용 안 함 |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |[Service Bus 네임스페이스는 이중 암호화를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Febaf4f25-a4e8-415f-86a8-42d9155bef0b) |이중 암호화를 사용하도록 설정하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이중 암호화를 사용하도록 설정하면 스토리지 계정의 데이터가 두 개의 다른 암호화 알고리즘과 두 개의 다른 키를 사용하여 두 번 암호화됩니다(서비스 수준에서 한 번, 인프라 수준에서 한 번). |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_InfrastructureEncryptionEnabled_Audit.json) |
 |[Service Bus 프리미엄 네임스페이스는 암호화에 고객 관리형 키를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F295fc8b1-dc9f-4f53-9c61-3f313ceab40a) |Azure Service Bus는 Microsoft 관리형 키(기본값) 또는 고객 관리형 키를 사용하여 미사용 데이터를 암호화하는 옵션을 지원합니다. 고객 관리형 키를 사용하여 데이터를 암호화하도록 선택하면 Service Bus가 네임스페이스의 데이터를 암호화하는 데 사용할 키에 대한 액세스 권한을 할당, 회전, 비활성화 및 취소할 수 있습니다. Service Bus는 프리미엄 네임스페이스에 대해 고객 관리형 키를 사용한 암호화만 지원합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_CustomerManagedKeyEnabled_Audit.json) |

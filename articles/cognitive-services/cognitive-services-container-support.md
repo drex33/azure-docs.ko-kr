@@ -16,7 +16,7 @@ ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/26/2021
-ms.locfileid: "129056084"
+ms.locfileid: "129061887"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 

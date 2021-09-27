@@ -2,15 +2,15 @@
 title: Event Grid 소스로서의 Azure Cache for Redis
 description: Azure Event Grid를 사용하여 Azure Cache for Redis 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 09/15/2021
 author: curib
 ms.author: cauribeg
-ms.openlocfilehash: 1a2995bc9ef40cd4eab320ce1bb4c5faf61e0e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fa890dd62ce6c5695128e666556cd00f9a08711b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371280"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626934"
 ---
 # <a name="azure-cache-for-redis-as-an-event-grid-source"></a>Event Grid 소스로서의 Azure Cache for Redis
 

@@ -1,22 +1,22 @@
 ---
 title: Search 인덱스에 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 Azure Search 인덱스로 데이터를 푸시하거나 복사하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Azure Search 인덱스에 데이터를 푸시하거나 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: fbeeb112712afa5a47401d10b3f4b2d9f01d1713
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 289a347e0007547b1fdba2ffd2b3a4674efb524d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313750"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744103"
 ---
-# <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cognitive Search 인덱스에 데이터 복사
+# <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Azure Cognitive Search 인덱스로 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-search-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123313750"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cognitive Search 인덱스로 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 데이터를 Azure Cognitive Search 인덱스에 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -42,7 +42,7 @@ ms.locfileid: "123313750"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -65,11 +65,11 @@ ms.locfileid: "123313750"
 
 Azure Cognitive Search 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureSearch** 로 설정되어야 합니다. | 예 |
 | url | 검색 서비스에 대한 URL입니다. | 예 |
-| key | 검색 서비스에 대한 관리 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| key | 검색 서비스에 대한 관리 키입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 > [!IMPORTANT]
@@ -106,7 +106,7 @@ Azure Cognitive Search에 데이터를 복사할 수 있도록 다음과 같은 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **AzureSearchIndex** 로 설정해야 합니다. | 예 |
-| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
+| indexName | 검색 인덱스의 이름입니다. 서비스에서 인덱스 만들기를 수행하지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 **예:**
 
@@ -135,7 +135,7 @@ Azure Cognitive Search에 데이터를 복사할 수 있도록 다음과 같은 
 
 Azure Cognitive Search에 데이터를 복사하려면 복사 작업의 원본 형식을 **AzureSearchIndexSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload** 입니다. | 예 |
@@ -207,4 +207,4 @@ Azure Cognitive Search 서비스는 일괄 처리로 문서 작성을 지원합�
 현재 다른 데이터 형식(예: ComplexType)은 지원되지 않습니다. Azure Cognitive Search 지원 데이터 형식의 전체 목록은 [지원되는 데이터 형식(Azure Cognitive Search)](/rest/api/searchservice/supported-data-types)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

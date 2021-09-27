@@ -3,14 +3,14 @@ title: Azure Functions 바인딩 확장 등록
 description: 환경에 따라 Azure Functions 바인딩 확장을 등록하는 방법을 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/16/2020
+ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: bfcefb23fa68e2aa70d4680fcca2462b24322014
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 262e0fc02632465a03391dbfeaa0902d1b6b9ec3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566509"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609761"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -20,7 +20,7 @@ Azure Functions 버전 2.x부터 함수 런타임에는 기본적으로 HTTP 및
 
 다음 표는 바인딩을 등록하는 방법과 시기를 나타냅니다.
 
-| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 3.x/2.x)  |
+| 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> 함수 2.x 이상  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|자동|자동<sup>*</sup>|
 |.NET 언어 이외의 언어|자동|[확장 번들](#extension-bundles)을 사용하거나(권장) [명시적으로 확장 설치](#explicitly-install-extensions)|

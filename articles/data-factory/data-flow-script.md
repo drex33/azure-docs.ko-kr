@@ -7,21 +7,23 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/15/2021
-ms.openlocfilehash: 0860d59d7d04354b6236d02126492468dec5921b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: 73fe862475b866e625d4bf2bdce3c044b6dcc87b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642383"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061583"
 ---
 # <a name="data-flow-script-dfs"></a>DFS(데이터 흐름 스크립트)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 DFS(데이터 흐름 스크립트)는 매핑 데이터 흐름에 포함된 변환을 실행하는 데 사용되는 코딩 언어와 유사한 기본 메타데이터입니다. 모든 변환은 작업을 적절하게 실행하는 데 필요한 정보를 제공하는 일련의 속성으로 표현됩니다. 스크립트는 브라우저 UI의 상단 리본에 있는 “스크립트” 단추를 클릭하여 ADF에서 보고 편집할 수 있습니다.
 
-![스크립트 단추](media/data-flow/scriptbutton.png "스크립트 단추")
+:::image type="content" source="media/data-flow/scriptbutton.png" alt-text="스크립트 단추":::
 
 예를 들어 원본 변환의 `allowSchemaDrift: true,`는 원본 데이터 세트의 모든 열이 스키마 프로젝션에 포함되지 않은 경우에도 해당 데이터 흐름의 모든 열을 포함하도록 서비스에 지시합니다.
 
@@ -35,7 +37,7 @@ DFS는 사용자 인터페이스에 의해 자동으로 생성됩니다. 스크�
 
 PowerShell 또는 API와 함께 사용할 데이터 흐름 스크립트를 작성하는 경우 서식이 지정된 텍스트를 한 줄로 축소해야 합니다. 탭과 줄바꿈을 이스케이프 문자로 유지할 수 있습니다. 그러나 JSON 속성에 맞게 텍스트 서식을 지정해야 합니다. 스크립트 편집기 UI의 맨 아래에는 스크립트를 한 줄로 서식 지정하는 단추가 있습니다.
 
-![복사 단추](media/data-flow/copybutton.png "복사 단추")
+:::image type="content" source="media/data-flow/copybutton.png" alt-text="복사 단추":::
 
 ## <a name="how-to-add-transforms"></a>변환 추가 방법
 변환 추가에는 핵심 변환 데이터를 추가하고, 입력 스트림을 다시 라우팅한 다음 출력 스트림 다시 라우팅하는 세 기본 단계가 필요합니다. 이는 예제를 통해 보는 살펴보는 것이 가장 쉽습니다.
@@ -277,6 +279,19 @@ window(over(stocksymbol),
 
 ```
 aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+
+### <a name="compare-previous-or-next-row-values"></a>이전 또는 다음 행 값 비교
+이 샘플 코드 조각에서는 현재 행의 열 값과 현재 행의 열 값을 비교 하는 데 창 변환을 사용할 수 있는 방법을 보여 줍니다. 이 예에서는 파생 열을 사용 하 여 전체 데이터 집합에서 창 파티션을 사용할 수 있도록 더미 값을 생성 합니다. 서로게이트 키 변환은 각 행에 대 한 고유 키 값을 할당 하는 데 사용 됩니다. 데이터 변환에이 패턴을 적용 하는 경우 데이터를 분할 하는 데 사용할 열이 있는 경우 서로게이트 키를 제거 하 고, 데이터를 분할 하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
+
+```
+source1 keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey1
+SurrogateKey1 derive(dummy = 1) ~> DerivedColumn1
+DerivedColumn1 window(over(dummy),
+    asc(sk, true),
+    prevAndCurr = lag(title,1)+'-'+last(title),
+        nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,16 +3,17 @@ title: OData 소스에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 OData 소스에서 데이터를 이동하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a3d44d8aaf7c83eee7cbd7feab83c2ffdc5d8f2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580304"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

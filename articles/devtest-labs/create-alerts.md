@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 랩에 대한 활동 로그 경고 만들기
+title: 랩에 대 한 활동 로그 경고 만들기
 description: 이 문서에서는 Azure DevTest Labs의 랩에 대한 활동 로그 경고를 만드는 단계를 제공합니다.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: f774e3291961c58f55a9ed24026535e076235b98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0ebb5ae118d6485afd697ff9b5db7113a101b358
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588766"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628169"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에 대한 활동 로그 경고 만들기
 이 문서에서는 Azure DevTest Labs의 랩에 대한 활동 로그 경고를 만드는 방법을 설명합니다(예: VM을 만들 때 또는 VM이 삭제될 때).
@@ -79,4 +79,3 @@ ms.locfileid: "100588766"
 - 다른 작업 유형을 사용하여 작업 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md)를 참조하세요.
 - 활동 로그에 대해 자세히 알아보려면 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 - 활동 로그에 대한 경고 설정에 대한 자세한 내용은 [활동 로그에 대한 경고](../azure-monitor/alerts/activity-log-alerts.md)를 참조하세요.
-

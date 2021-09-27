@@ -4,12 +4,12 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. A
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca107ec2f0ce04bf7b1eae3a98087217c267d33d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 6f608822a8c9b348c16021e64a9fe6a63170d6d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646970"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -32,11 +32,12 @@ Azure Functions를 통해 함수 앱의 `FUNCTIONS_EXTENSION_VERSION` 애플리�
 
 다음 표에서는 자동 업데이트를 사용 설정하는 각 주 버전에 대한 `FUNCTIONS_EXTENSION_VERSION` 값이 표시됩니다.
 
-| 주 버전 | `FUNCTIONS_EXTENSION_VERSION` 값 |
-| ------------- | ----------------------------------- |
-| 3.x  | `~3` |
-| 2.x  | `~2` |
-| 1.x  | `~1` |
+| 주 버전 | `FUNCTIONS_EXTENSION_VERSION` 값 | 추가 구성  |
+| ------------- | ----------------------------------- | ------------------------- |
+| 4.x           | `~4`                                | [Windows에서 .net 6을 사용 하도록 설정 합니다.](./functions-versions.md#migrating-from-3x-to-4x) |
+| 3.x           | `~3`                                |                           |
+| 2.x           | `~2`                                |                           |
+| 1.x           | `~1`                                |                           |
 
 런타임 버전을 변경하면 함수 앱을 다시 시작하게 됩니다.
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/12/2021
-ms.openlocfilehash: 0c2cfe51e84931b90ab80588b16fe126aadaf4c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bd9bfff8faf8f5c5e2c81ea9a8abea23af0da6ca
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642510"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771653"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 LastModifiedDate를 기준으로 새 파일 및 변경된 파일을 증분 방식으로 복사
 
@@ -50,7 +50,7 @@ ms.locfileid: "122642510"
 
 1. 왼쪽 창에서 **리소스 만들기** 를 선택합니다. **통합** > **데이터 팩터리** 를 선택합니다.
 
-   ![데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="데이터 팩터리 선택":::
 
 2. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory** 를 입력합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "122642510"
 
 1. Azure Data Factory 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 엽니다.
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 2. **속성** 페이지에서 다음 단계를 수행합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "122642510"
 
     1. **다음** 을 선택합니다.
 
-    ![데이터 복사 속성 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/copy-data-tool-properties-page.png" alt-text="데이터 복사 속성 페이지":::
 
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "122642510"
 
     1. 갤러리에서 **Azure Blob Storage** 를 선택한 다음 **계속** 을 선택합니다.
 
-        ![Azure Blob Storage 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png" alt-text="Azure Blob Storage 선택":::
 
     1. **새 연결(Azure Blob Storage)** 페이지의 **Azure 구독** 목록에서 자신의 Azure 구독을 선택하고 **스토리지 계정 이름** 목록에서 자신의 스토리지 계정을 선택합니다. 연결을 테스트한 다음 **만들기** 를 선택합니다.
 
@@ -129,27 +129,27 @@ ms.locfileid: "122642510"
 
 6. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
 
-    ![요약 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png" alt-text="요약 페이지":::
 
 7. **배포** 페이지에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다.
 
-    ![배포 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png" alt-text="배포 페이지":::
 
 8. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 애플리케이션이 **모니터** 탭으로 전환되며 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 에서 링크를 선택하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다.
 
-    ![목록 새로 고침 및 작업 실행 세부 정보 보기](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png" alt-text="목록 새로 고침 및 작업 실행 세부 정보 보기":::
 
 9. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 복사 작업에 대한 자세한 내용을 보려면 **활동 실행** 페이지에서 **활동 이름** 열에 있는 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조하세요.
 
-    ![파이프라인의 복사 작업](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png" alt-text="파이프라인의 복사 작업":::
 
     Blob Storage 계정의 원본 컨테이너에 파일이 없기 때문에 계정에서 대상 컨테이너로 복사된 파일이 표시되지 않습니다.
 
-    ![원본 컨테이너 또는 대상 컨테이너에 파일이 없음](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png" alt-text="원본 컨테이너 또는 대상 컨테이너에 파일이 없음":::
 
 10. 빈 텍스트 파일을 만들고 이름을 **file1.txt** 로 합니다. 스토리지 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 해당 작업을 수행할 수 있습니다.
 
-    ![file1.txt를 만들고 원본 컨테이너에 업로드합니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png" alt-text="file1.txt를 만들고 원본 컨테이너에 업로드합니다.":::
 
 11. **파이프라인 실행** 보기로 돌아가려면 **활동 실행** 페이지의 이동 경로 메뉴에서 **모든 파이프라인 실행** 링크를 선택하고 동일한 파이프라인이 자동으로 다시 트리거될 때까지 기다립니다.  
 
@@ -157,7 +157,7 @@ ms.locfileid: "122642510"
 
     원본 컨테이너에서 Blob Storage 계정의 대상 컨테이너로 하나의 파일(file1.txt)이 복사된 것을 볼 수 있습니다.
 
-    ![원본 컨테이너에서 대상 컨테이너로 file1.txt가 복사됨](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png" alt-text="원본 컨테이너에서 대상 컨테이너로 file1.txt가 복사됨":::
 
 13. 다른 빈 텍스트 파일을 만들고 이름을 **file2.txt** 로 합니다. Blob Storage 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다.
 
@@ -165,7 +165,7 @@ ms.locfileid: "122642510"
 
     [Azure Storage Explorer](https://storageexplorer.com/)를 사용해 파일을 검색하여 파일을 한 개만 복사했는지 확인할 수도 있습니다.
 
-    ![Azure Storage Explorer를 사용하여 파일 검사](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png" alt-text="Azure Storage Explorer를 사용하여 파일 검사":::
 
 ## <a name="next-steps"></a>다음 단계
 다음 자습서로 진행하여 Azure에서 Apache Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보세요.

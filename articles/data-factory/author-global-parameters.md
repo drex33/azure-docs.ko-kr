@@ -8,12 +8,12 @@ author: minhe-msft
 ms.author: hemin
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3ae53df3827349e208f0097e084c38b2ab4314b
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 2a10184ab7bbd4093d2358c88576990ddda8bd94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681259"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788024"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -25,21 +25,21 @@ ms.locfileid: "122681259"
 
 전역 매개 변수를 만들려면 **관리** 섹션의 *전역 매개 변수* 탭으로 이동합니다. **새로 만들기** 를 선택하여 생성 측면 탐색을 엽니다.
 
-![전역 매개 변수를 만들기 위해 선택한 새로 만들기 단추를 강조 표시하는 스크린샷.](media/author-global-parameters/create-global-parameter-1.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-1.png" alt-text="전역 매개 변수를 만들기 위해 선택한 새로 만들기 단추를 강조 표시하는 스크린샷.":::
 
 측면 탐색에서 이름을 입력하고 데이터 형식을 선택하며 매개 변수 값을 지정합니다.
 
-![새 전역 매개 변수의 이름, 데이터 형식 및 값을 추가하는 위치를 보여주는 스크린샷.](media/author-global-parameters/create-global-parameter-2.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-2.png" alt-text="새 전역 매개 변수의 이름, 데이터 형식 및 값을 추가하는 위치를 보여주는 스크린샷.":::
 
 전역 매개 변수를 생성된 후에는 매개 변수의 이름을 클릭하여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경하려면 **모두 편집** 을 선택합니다.
 
-![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-3.png)
+:::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="전역 매개 변수 만들기":::
 
 ## <a name="using-global-parameters-in-a-pipeline"></a>파이프라인에서 전역 매개 변수 사용
 
 전역 매개 변수는 모든 [파이프라인 식](control-flow-expression-language-functions.md)에서 사용할 수 있습니다. 파이프라인이 데이터 세트 또는 데이터 흐름과 같은 다른 리소스를 참조하는 경우 해당 리소스의 매개 변수를 통해 전역 매개 변수 값을 전달할 수 있습니다. 전역 매개 변수는 `pipeline().globalParameters.<parameterName>`으로 참조됩니다.
 
-![전역 매개 변수 사용](media/author-global-parameters/expression-global-parameters.png)
+:::image type="content" source="media/author-global-parameters/expression-global-parameters.png" alt-text="전역 매개 변수 사용":::
 
 ## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> CI/CD의 전역 매개 변수
 
@@ -50,7 +50,7 @@ ms.locfileid: "122681259"
 
 일반적인 사용 사례의 경우 ARM 템플릿에 전역 매개 변수를 포함하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-deployment.md)에 설명된 솔루션과 기본적으로 통합됩니다. 자동 게시 및 Purview 연결의 경우 **PowerShell 스크립트** 메서드가 필요합니다. 나중에 PowerShell 스크립트 메서드에 대해 자세히 알아볼 수 있습니다. 전역 매개 변수는 환경에 따라 자주 변경되므로 기본적으로 ARM 템플릿 매개 변수로 추가됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함하도록 설정할 수 있습니다.
 
-![ARM 템플릿에 포함](media/author-global-parameters/include-arm-template.png)
+:::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="ARM 템플릿에 포함":::
 
 > [!NOTE]
 > **ARM 템플릿** 구성에 포함은 "Git 모드"에서만 사용할 수 있습니다. 현재 “라이브 모드” 또는 “Data Factory” 모드에서는 사용할 수 없습니다. 자동 게시 또는 Purview 연결의 경우 전역 매개 변수 포함 메서드를 사용하지 말고 PowerShell 스크립트 메서드를 사용하세요. 
@@ -67,13 +67,13 @@ ARM 템플릿에 전역 매개 변수를 추가하면 다른 환경의 고객 �
 
 팩터리를 게시하거나 전역 매개 변수를 사용하여 ARM 템플릿을 내보낼 때 *your-factory-name_GlobalParameters.json* 이라는 파일과 함께 *globalParameters* 라는 폴더가 생성됩니다. 이 파일은 게시된 팩터리의 각 전역 매개 변수 형식 및 값을 포함하는 JSON 개체입니다.
 
-![전역 매개 변수 게시](media/author-global-parameters/global-parameters-adf-publish.png)
+:::image type="content" source="media/author-global-parameters/global-parameters-adf-publish.png" alt-text="전역 매개 변수 게시":::
 
 TEST 또는 PROD와 같은 새 환경에 배포하는 경우 이 전역 매개 변수 파일의 복사본을 만들고 적절한 환경별 값을 덮어쓰는 것이 좋습니다. 원래 전역 매개 변수 파일을 다시 게시하면 파일은 덮어쓰므로 다른 환경의 복사본은 그대로 유지됩니다.
 
 예를 들어 'ADF-DEV'라는 팩터리가 있고 값이 'dev'인 'environment'라는 문자열 형식의 전역 매개 변수를 사용하는 경우 *ADF-DEV_GlobalParameters.json* 이라는 파일을 게시하면 생성됩니다. 'ADF_TEST'라는 테스트 팩터리에 배포하는 경우 JSON 파일의 복사본(예: ADF-TEST_GlobalParameters.json이라고 함)을 만들고 매개 변수 값을 환경별 값으로 바꿉니다. 매개 변수 'environment'는 이제 'test' 값을 가질 수 있습니다. 
 
-![전역 매개 변수 배포](media/author-global-parameters/powershell-task.png)
+:::image type="content" source="media/author-global-parameters/powershell-task.png" alt-text="전역 매개 변수 배포":::
 
 아래 PowerShell 스크립트를 사용하여 전역 매개 변수를 추가 환경으로 승격합니다. ARM 템플릿 배포 전에 Azure PowerShell DevOps 작업을 추가합니다. DevOps 작업에서 새 매개 변수 파일, 대상 리소스 그룹 및 대상 데이터 팩터리의 위치를 지정해야 합니다.
 

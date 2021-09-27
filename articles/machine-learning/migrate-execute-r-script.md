@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7d8f014b752d4ff0838195671ef8c919a164ebef
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 925288281f19869f68baca1b22b7fdb3da8d05a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699326"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128634088"
 ---
 # <a name="migrate-execute-r-script-modules-in-studio-classic"></a>Studio(클래식)에서 R 스크립트 실행 모듈 마이그레이션
 
@@ -87,7 +87,7 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=data.set)) 
 } 
 ```
-자세한 내용은 디자이너 [R 스크립트 실행 모듈 참조](/algorithm-module-reference/execute-r-script.md)를 참조하세요.
+자세한 내용은 디자이너 [R 스크립트 실행 모듈 참조](./algorithm-module-reference/execute-r-script.md)를 참조하세요.
 
 ### <a name="install-r-packages-from-the-internet"></a>인터넷에서 새 R 패키지 설치
 

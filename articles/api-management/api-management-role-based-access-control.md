@@ -3,7 +3,7 @@ title: Azure API Management에서 역할 기반 액세스 제어를 사용하는
 description: Azure API Management에서 기본 제공 역할을 사용하고 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 407defa76b5677e3e5136a5e28a64eb4a78c3cd2
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
-ms.translationtype: HT
+ms.openlocfilehash: 90278abd972b0a6f56e820090435f4cfb8ebbeb6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191211"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643292"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 
@@ -33,7 +33,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당하는 방법에 대한 자세한 내용은 [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | 설명
+| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | API Management 서비스 참가자 | ✓ | ✓ | ✓ | ✓ | 슈퍼 사용자입니다. API Management 서비스 및 엔터티(예: API 및 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
 | API Management 읽기 권한자 | ✓ | | || API Management 서비스 및 엔터티에 대한 읽기 전용 액세스 권한을 보유합니다. |

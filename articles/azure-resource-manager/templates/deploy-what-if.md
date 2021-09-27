@@ -6,18 +6,22 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 73ff2c609438ead1e1fa42468e97be801a76e7e2
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 95d07e313b5b8d970b2d8471295ed00c29961b96
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626098"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM 템플릿 배포 가상 작업
 
 Azure Resource Manager 템플릿(ARM 템플릿)을 배포하기 전에 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager는 템플릿을 배포하는 경우 리소스가 어떻게 변경되는지 확인할 수 있도록 하는 가상 작업을 제공합니다. 가상 작업은 기존 리소스를 변경하지 않습니다. 대신, 지정된 템플릿이 배포되는 경우 변경 내용을 예측합니다.
 
 Azure PowerShell, Azure CLI 또는 REST API 작업을 사용하여 가상 작업을 사용할 수 있습니다. 가상은 리소스 그룹, 구독, 관리 그룹, 테넌트 수준 배포에 지원됩니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+가상 및 실습 지침에 대 한 자세한 내용은 **Microsoft Learn** 를 [사용 하 여 Azure 배포 변경 내용 미리 보기](/learn/modules/arm-template-whatif) 를 참조 하세요.
 
 ## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 

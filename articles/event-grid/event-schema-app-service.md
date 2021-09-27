@@ -3,14 +3,14 @@ title: Event Grid 원본으로서의 Azure App Service
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure App Service를 사용하는 방법을 설명합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 09/15/2021
 ms.author: jafreebe
-ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 92667242b52ee58383f68e5b032eb5580cad2826
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443780"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647445"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure App Service
 
@@ -38,13 +38,13 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 |    Microsoft.Web/sites.AppUpdated.ChangedAppSettings      |    사이트의 앱 설정이 변경되면 트리거됨             |
 |    Microsoft.Web/serverfarms.AppServicePlanUpdated        |    App Service 계획이 업데이트되면 트리거됨                 |
 
-## <a name="properties-common-to-all-events"></a>모든 이벤트에 공통 되는 속성
+## <a name="properties-common-to-all-events"></a>모든 이벤트에 공통된 속성
 
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 엔드포인트로 보냅니다.
 이 섹션에는 각 이벤트에 대한 데이터가 어떻게 표시되는지 예가 포함되어 있습니다. 각 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-|     속성          |     Type     |     Description                                                                                                                                |
+|     속성          |     유형     |     Description                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `topic`              |    문자열    |    이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다.                                      |
 |    `subject`            |    문자열    |    게시자가 정의한 이벤트 주체에 대한 경로입니다.                                                                                              |
@@ -60,7 +60,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 이벤트가 트리거될 때 Event Grid 서비스는 해당 이벤트에 대한 데이터를 구독 엔드포인트로 보냅니다.
 이 섹션에는 각 이벤트에 대한 데이터가 어떻게 표시되는지 예가 포함되어 있습니다. 각 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-|     속성          |     Type     |     Description                                                                                                                                |
+|     속성          |     유형     |     Description                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `source`              |    문자열    |    이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다.                                      |
 |    `subject`            |    문자열    |    게시자가 정의한 이벤트 주체에 대한 경로입니다.                                                                                              |
@@ -128,14 +128,14 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    Type      |    설명                                                                                                       |
+|    속성                |    유형      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                    |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                 |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                    |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 
@@ -194,14 +194,14 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    Type      |    설명                                                                                                       |
+|    속성                |    유형      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                    |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                 |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                    |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 
@@ -260,14 +260,14 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    Type      |    설명                                                                                                       |
+|    속성                |    유형      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                 |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                    |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|   `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|   `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                 |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                    |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 |    `sourceSlot`              |    문자열    |    교환의 원본 슬롯입니다.                                                                                       |
@@ -327,14 +327,14 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체에는 다음 속성이 포함되어 있습니다.
 
-|    속성                |    Type      |    설명                                                                                                       |
+|    속성                |    유형      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                 |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                    |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                 |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                    |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 
@@ -393,14 +393,14 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-|    속성                |    Type      |    설명                                                                                                       |
+|    속성                |    유형      |    설명                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    object    |    앱에 대한 작업의 세부 정보입니다.                                                                                       |
 |    `action`                  |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                    |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`         |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`    |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|    `requestId`               |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                 |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                    |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 
@@ -477,7 +477,7 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-|    속성                         |    Type      |    설명                                                                                                       |
+|    속성                         |    유형      |    설명                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appServicePlanEventTypeDetail`    |    object    |    App Service 계획에 대한 작업의 세부 정보입니다.                                                                          |
 |    `stampKind`                        |    문자열    |    App Service 계획이 존재하는 환경의 종류입니다.                                                                     |
@@ -491,13 +491,13 @@ Azure App Service는 다음과 같은 이벤트 유형을 내보냅니다.
 |    `Capacity`                         |    문자열    |    App Service 계획의 용량입니다.                                                                                      |
 |    `action`                           |    문자열    |    작업의 동작 유형입니다.                                                                                   |
 |    `name`                             |    문자열    |    이 이벤트가 발생한 웹 사이트의 이름입니다.                                                                          |
-|    `clientRequestId`                  |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 클라이언트 요청 ID입니다.         |
-|    `correlationRequestId`             |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 한 상관 관계 요청 ID입니다.    |
-|    `requestId`                        |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 app service에서 생성 된 요청 ID입니다.                |
+|    `clientRequestId`                  |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 클라이언트 요청 ID         |
+|    `correlationRequestId`             |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 상관 관계 요청 ID입니다.    |
+|    `requestId`                        |    문자열    |    이 이벤트를 트리거한 사이트 API 작업에 대해 앱 서비스에서 생성한 요청 ID입니다.                |
 |    `address`                         |    문자열    |    이 작업의 HTTP 요청 URL입니다.                                                                                |
 |    `verb`                             |    문자열    |    이 작업의 HTTP 동사입니다.                                                                                       |
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
-* Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md) 를 참조 하세요.
+* Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.

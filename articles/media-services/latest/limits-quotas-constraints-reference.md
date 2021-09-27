@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 4c0cb8241f6eb284acecfcb5921db616af336da8
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: a269f2d93730b6219a2d29d797d94c101b5fdc57
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866934"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052826"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services 할당량 및 제한
@@ -74,7 +74,7 @@ ms.locfileid: "122866934"
 | 라이브 이벤트당 라이브 출력 |3<sup>(5)</sup> |
 | 최대 라이브 출력 기간 | [DVR 창의 크기](live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> 라이브 이벤트 제한에 대한 자세한 내용은 [라이브 이벤트 유형 비교 및 제한](live-event-types-comparison-reference.md)을 참조하세요.
+<sup>4</sup> 라이브 이벤트 제한에 대한 자세한 내용은 [라이브 이벤트 유형 비교 및 제한](live-event-types-comparison-reference.md)을 참조하세요. 선택한 스트리밍 사용 사례 및 지역 데이터 센터에 따라 AMS는 Media Services 계정당 5개 이상의 라이브 이벤트를 수용할 수 있습니다. 계정 할당량을 늘리려면 지원 요청을 제출하세요.
 
 <sup>5</sup> 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다.
 

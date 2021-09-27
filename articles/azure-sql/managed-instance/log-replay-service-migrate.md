@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 09/07/2021
-ms.openlocfilehash: 85bf8c07da9d283011d17f1f96ad76e0fa411213
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/21/2021
+ms.openlocfilehash: 2928ce1f58ddefce368a361b32fe65f9c79994cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535314"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630246"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스(미리 보기)를 사용하여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,11 +89,6 @@ LRS에는 백업 파일에 대한 특정 명명 규칙이 필요하지 않습니
 - Azure Blob Storage 컨테이너 프로비전
 - Blob Storage 컨테이너에 대해 읽기 및 나열 권한이 생성된 SAS(공유 액세스 서명) 보안 토큰
 
-### <a name="migration-of-multiple-databases"></a>여러 데이터베이스의 마이그레이션
-서로 다른 데이터베이스에 대한 백업 파일을 Blob Storage에 있는 별도 폴더에 두어야 합니다.
-
-Blob Storage에서 적절한 폴더를 가리켜 각 데이터베이스에 대해 개별적으로 LRS를 시작합니다. LRS는 단일 관리되는 인스턴스당 최대 100개의 동시 복원 프로세스를 지원할 수 있습니다.
-
 ### <a name="azure-rbac-permissions"></a>Azure RBAC 권한
 제공된 클라이언트를 통해 LRS를 실행하려면 다음 Azure 역할 중 하나가 필요합니다.
 - 구독 소유자 역할
@@ -108,6 +103,7 @@ Blob Storage에서 적절한 폴더를 가리켜 각 데이터베이스에 대�
 - 백업 압축을 사용합니다.
 - Cloud Shell은 항상 최신 cdmlet 릴리스에 맞게 업데이트되므로 Cloud Shell을 사용해 스크립트를 실행합니다.
 - LRS을 시작한 후 36시간 이내에 마이그레이션을 완료하도록 계획합니다. 이는 시스템 관리 소프트웨어 패치를 설치할 수 없도록 하는 유예 기간입니다.
+- 개별 데이터베이스에 대한 모든 백업 파일을 단일 폴더에 배치합니다. 동일한 데이터베이스에 대 한 하위 폴더를 사용 하지 마십시오.
 
 > [!IMPORTANT]
 > - 마이그레이션 프로세스가 완료될 때까지 LRS를 통해 복원되는 데이터베이스를 사용할 수 없습니다. 
@@ -385,6 +381,22 @@ Azure CLI를 통해 LRS 연속 모드의 마이그레이션 프로세스를 완�
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
+### <a name="migration-of-multiple-databases"></a>여러 데이터베이스의 마이그레이션
+서로 다른 데이터베이스에 대 한 백업 파일을 Azure Blob Storage 컨테이너 내의 개별 폴더에 두어야 합니다. 단일 데이터베이스에 대 한 모든 백업 파일은 개별 데이터베이스에 대 한 하위 폴더를 포함 하지 않기 때문에 동일한 폴더 내에 배치 해야 합니다. LRS는 Azure Blob storage 컨테이너 및 개별 데이터베이스 폴더의 전체 URI 경로를 가리키는 각 데이터베이스에 대해 개별적으로 시작 해야 합니다.
+
+다음은 여러 데이터베이스에 대해 LRS를 호출할 때 필요한 폴더 구조 및 URI 사양의 예입니다. Azure Blob Storage 컨테이너 및 개별 데이터베이스 폴더에 대 한 전체 URI 경로를 지정 하 여 각 데이터베이스에 대해 개별적으로 LRS을 시작 합니다.
+
+```URI
+-- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
+```
+
 ## <a name="functional-limitations"></a>기능 제한 사항
 
 LRS의 기능 제한 사항은 다음과 같습니다.
@@ -394,7 +406,8 @@ LRS의 기능 제한 사항은 다음과 같습니다.
 - LRS에서 사용할 SAS 토큰은 전체 Azure Blob Storage 컨테이너에 대해 생성되어야 하며, 읽기 및 나열 권한만 있어야 합니다.
 - 서로 다른 데이터베이스에 대한 백업 파일은 Blob Storage에서 별도의 폴더에 있어야 합니다.
 - 파일 이름 에% 및 $ 문자를 포함 하는 백업 파일은 LRS에서 사용할 수 없습니다. 이러한 파일 이름 이름을 바꾸는 것이 좋습니다.
-- Blob Storage에서 백업 파일이 포함된 별도의 폴더를 가리키는 각 데이터베이스에 대해 LRS를 별도로 시작해야 합니다.
+- 개별 데이터베이스에 대 한 하위 폴더에 백업을 저장 하는 것은 지원 되지 않습니다. 단일 데이터베이스에 대 한 모든 백업은 단일 폴더의 루트에 배치 해야 합니다.
+- 여러 데이터베이스의 경우 각 데이터베이스에 대해 별도의 폴더에 백업 파일을 배치 해야 합니다. 개별 데이터베이스 폴더를 포함 하는 전체 URI 경로를 가리키는 각 데이터베이스에 대해 LRS을 별도로 시작 해야 합니다. 
 - LRS는 단일 관리되는 인스턴스당 최대 100개의 동시 복원 프로세스를 지원할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결

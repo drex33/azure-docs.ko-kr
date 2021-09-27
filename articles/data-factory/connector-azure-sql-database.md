@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: c594d253c193928eae47949474aaa75c4f27b60d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: ce4d1030999978ba5814d7978238c6f70026b34c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314007"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785119"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure SQL Database에서 데이터 복사 및 변환
 
@@ -61,7 +61,7 @@ ms.locfileid: "123314007"
 
    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -85,14 +85,14 @@ ms.locfileid: "123314007"
 
 Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureSqlDatabase** 로 설정해야 합니다. | 예 |
 | connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. <br/>Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 다음에 나오는 JSON 예제를 참조하고 [Azure Key Vault에 로그인 정보를 저장](store-credentials-in-key-vault.md)합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 애플리케이션이 상주하는 테넌트 정보(예: 도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 Data Factory 또는 Synapse 파이프라인의 클라우드 환경이 사용됩니다. | No |
+| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리 또는 Synapse 파이프라인의 클라우드 환경이 사용됩니다. | 예 |
 | alwaysEncryptedSettings | 관리 ID 또는 서비스 주체를 사용하여 SQL Server에 저장된 중요한 데이터를 보호하기 위해 Always Encrypted를 사용하도록 설정하는 데 필요한 **alwaysencryptedsettings** 정보를 지정합니다. 자세한 내용은 표 다음에 나오는 JSON 예제와 [Always Encrypted 사용](#using-always-encrypted) 섹션을 참조하세요. 지정하지 않으면 기본 Always Encrypted 설정이 사용하도록 설정되지 않습니다. |예 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. | 예 |
 
@@ -276,7 +276,7 @@ Azure의 다른 리소스에 인증할 때 서비스를 나타내는 [Azure 리�
 
 Azure SQL Database 데이터 세트에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable** 로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -519,7 +519,7 @@ Azure SQL Database로 데이터를 복사하기 위해 복사 작업 **sink** �
 
 복사 작업의 Azure SQL Database 커넥터는 데이터를 병렬로 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
-![파티션 옵션의 스크린샷](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="파티션 옵션의 스크린샷":::
 
 분할된 복사본을 사용하도록 설정하면 복사 작업이 Azure SQL Database 원본에 대해 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`를 4로 설정하는 경우, 서비스는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Azure SQL Database에서 데이터의 일부를 검색합니다.
 
@@ -580,7 +580,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 테이블에 물리적 파티션이 있는 경우 다음과 같이 "HasPartition"이 "예"로 표시됩니다.
 
-![SQL 쿼리 결과](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="SQL 쿼리 결과":::
 
 ## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Azure SQL Database에 데이터를 로드하는 모범 사례
 
@@ -605,7 +605,7 @@ Azure SQL Database로 데이터를 복사하는 경우 다른 쓰기 동작이 �
 
 예를 들어 **저장 프로시저 작업** 과 연결된 **복사 작업** 이 있는 파이프라인을 만들 수 있습니다. 복사 작업은 원본 저장소에서 Azure SQL Database 준비 테이블(예: 데이터 세트의 테이블 이름 **UpsertStagingTable**)로 데이터를 복사합니다. 그런 다음 저장 프로시저 작업은 저장 프로시저를 호출하여 준비 테이블의 원본 데이터를 대상 테이블에 통합하고 준비 테이블을 정리합니다.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용하여 저장 프로시저를 정의합니다. 대상이 **프로필 ID**, **상태**, **카테고리** 라는 세 개의 열이 있는 **마케팅** 테이블이라고 가정합니다. **프로필 ID** 열에 따라 upsert를 수행합니다.
 
@@ -702,7 +702,7 @@ Azure SQL Database에 특정한 설정은 원본 변환의 **원본 옵션** 탭
 
 **저장 프로시저**: 원본 데이터베이스에서 실행되는 저장 프로시저에서 프로젝션 및 원본 데이터를 생성하려면 이 옵션을 선택합니다. 스키마, 프로시저 이름 및 매개 변수를 입력하거나, 새로 고침을 클릭하여 서비스에 스키마 및 프로시저 이름을 검색할 수 있습니다. 그런 다음, 가져오기를 클릭하여 ``@paraName`` 형식을 사용하여 모든 프로시저 매개 변수를 가져올 수 있습니다.
 
-![저장 프로시저](media/data-flow/stored-procedure-2.png "저장 프로시저")
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="저장 프로시저":::
 
 - SQL 예제: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - 매개 변수가 있는 SQL 예제: ``"select * from {$tablename} where orderyear > {$year}"``
@@ -717,7 +717,7 @@ Azure SQL Database에 특정한 설정은 원본 변환의 **원본 옵션** 탭
 - 직렬화 가능
 - 없음(격리 수준 무시)
 
-![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="격리 수준":::
 
 ### <a name="sink-transformation"></a>싱크 변환
 
@@ -725,7 +725,7 @@ Azure SQL Database 관련 설정은 싱크 변환의 **설정** 탭에서 사용
 
 **업데이트 메서드:** 데이터베이스 대상에서 허용되는 작업을 결정합니다. 기본값은 삽입만 허용하는 것입니다. 행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 행 변경 변환이 필요합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.
 
-![키 열](media/data-flow/keycolumn.png "키 열")
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="키 열":::
 
 여기에서 키로 선택한 열 이름은 서버에서 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 클릭합니다.
 
@@ -741,11 +741,11 @@ Azure SQL Database 관련 설정은 싱크 변환의 **설정** 탭에서 사용
 
 **TempDB 사용:** 기본적으로 서비스는 전역 임시 테이블을 사용하여 로드 프로세스의 일부로 데이터를 저장합니다. 또는 "TempDB 사용" 옵션을 선택 취소하고 대신 이 싱크에 사용되는 데이터베이스에 있는 사용자 데이터베이스에 임시 보관 테이블을 저장할 것을 서비스에 요청할 수 있습니다.
 
-![임시 DB 사용](media/data-flow/tempdb.png "임시 DB 사용")
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="임시 DB 사용":::
 
 **사전 및 사후 SQL 스크립트**: 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 입력합니다.
 
-![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="사전 및 사후 SQL 처리 스크립트":::
 
 ### <a name="error-row-handling"></a>오류 행 처리
 
@@ -763,7 +763,7 @@ Azure SQL DB에 쓸 때 대상에서 설정된 제약 조건으로 인해 특정
 
 **오류 발생 시 성공 보고:** 사용하도록 설정된 경우 오류 행이 있는 경우에도 데이터 흐름이 성공으로 표시됩니다. 
 
-![오류 행 처리](media/data-flow/sql-error-row-handling.png "오류 행 처리")
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="오류 행 처리":::
 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL Database에 대한 데이터 형식 매핑
@@ -818,13 +818,13 @@ Azure SQL Database 간에 데이터를 복사하는 경우, Azure SQL Database �
 
 ## <a name="using-always-encrypted"></a>Always Encrypted 사용
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 SQL Server 간에 데이터를 복사하는 경우 다음 단계를 따르세요. 
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 SQL Server 간에 데이터를 복사하는 경우 다음 단계를 수행합니다. 
 
 1. [Azure Key Vault](../key-vault/general/overview.md)에 [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)를 저장합니다. [Azure Key Vault를 사용하여 Always Encrypted를 구성하는 방법](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)을 자세히 알아보세요.
 
 2. [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)가 저장된 키 자격 증명 모음에 액세스할 수 있는지 확인합니다. 필요한 권한은 이 [문서](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults)를 참조하세요.
 
-3. 연결된 서비스를 만들어 SQL Database에 연결하고 관리 ID 또는 서비스 주체를 사용하여 'Always Encrypted' 기능을 사용하도록 설정합니다. 
+3. 연결된 서비스를 만들어 SQL 데이터베이스에 연결하고 관리 ID 또는 서비스 주체를 사용하여 ‘Always Encrypted’ 기능을 사용하도록 설정합니다. 
 
 >[!NOTE]
 >SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)는 아래 시나리오를 지원합니다. 

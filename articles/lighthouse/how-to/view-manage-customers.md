@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 고객과 위임된 리소스 보기 및 관리
 description: Azure Lighthouse를 사용하는 서비스 공급자는 Azure Portal의 내 고객으로 이동하여 위임된 모든 고객 리소스 및 구독을 볼 수 있습니다.
-ms.date: 08/12/2021
+ms.date: 09/17/2021
 ms.topic: how-to
-ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 4cce38b435ee2613b885dfad959871579579ddce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537334"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673637"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Azure Portal에서 고객과 위임된 리소스 보기 및 관리
 
@@ -72,14 +72,18 @@ Azure Lighthouse에 고객을 온보딩할 때 [관리형 서비스 등록 할�
 
 1. Azure Portal 위쪽에서 **디렉터리 + 구독** 또는 **설정** 아이콘을 선택합니다.
 1. [디렉터리 + 구독 설정 페이지](../../azure-portal/set-preferences.md#directories--subscriptions)에서 **고급 필터** 토글이 [꺼져 있는지](../../azure-portal/set-preferences.md#subscription-filters) 확인합니다.
-1. **기본 구독 필터** 섹션에서 적절한 디렉터리와 구독을 선택합니다.
+1. **기본 구독 필터** 섹션에서 적절한 디렉터리와 구독을 선택합니다. (전체 구독이 아닌 하나 이상의 리소스 그룹에 대 한 액세스 권한이 부여 된 경우 해당 리소스 그룹이 속하는 구독을 선택 합니다. 그런 다음 해당 구독의 컨텍스트에서 작업 하지만 지정 된 리소스 그룹에만 액세스할 수 있습니다.
 
-:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="하나의 위임된 구독을 표시하는 필터 스크린샷":::
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="하나의 위임 된 구독이 선택 된 기본 구독 필터의 스크린샷":::
 
-그런 다음, [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)을 지원하는 서비스에 액세스하면 서비스는 기본적으로 필터에 포함한 위임된 구독의 컨텍스트로 설정됩니다. 위의 단계를 수행하고 **모두 선택** 확인란을 선택하여 변경하거나 대신 사용할 하나 이상의 구독을 선택할 수 있습니다.
+그런 다음 [교차 테 넌 트 관리 환경을](../concepts/cross-tenant-management-experience.md)지 원하는 서비스에 액세스 하면 서비스는 기본적으로 필터에 포함 된 위임 된 구독의 컨텍스트로 사용 됩니다.
 
-> [!NOTE]
-> 전체 구독에 액세스하는 대신, 하나 이상의 리소스 그룹에 대한 액세스 권한이 부여된 경우, 해당 리소스 그룹이 속한 구독을 선택합니다. 그러면 해당 구독의 컨텍스트에서 작업하게 되지만 지정된 리소스 그룹에만 액세스할 수 있습니다.
+위의 단계를 수행 하 고 다른 구독을 선택 하거나 여러 구독을 선택 하 여 언제 든 지 기본 구독을 변경할 수 있습니다. 액세스 권한이 있는 모든 구독을 필터에 포함 하려면 **모든 디렉터리** 를 선택 하 고 **모두 선택** 상자를 선택 하면 됩니다.
+
+:::image type="content" source="../media/subscription-filter-all.png" alt-text="모든 디렉터리와 구독이 선택 된 기본 구독 필터의 스크린샷":::
+
+> [!IMPORTANT]
+> **모두 선택** 상자를 선택 하 여 *현재* 액세스 권한이 있는 모든 구독을 표시 하도록 필터를 설정 합니다. 나중에 추가 구독에 대 한 액세스 권한을 얻는 경우 (예: 새 고객을 Azure Lighthouse에 등록 한 후) 이러한 구독은 필터에 자동으로 추가 되지 않습니다. **디렉터리 + 구독** 으로 돌아가서 추가 구독을 선택 **하거나 선택 취소 한 다음 다시 확인** 을 클릭 합니다.
 
 개별 서비스 내에서 구독이나 리소스 그룹을 선택하여 테넌트 간 관리 환경을 지원하는 서비스 내에서 위임된 구독이나 리소스 그룹과 관련된 기능에 액세스할 수도 있습니다.
 

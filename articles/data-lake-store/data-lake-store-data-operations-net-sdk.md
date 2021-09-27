@@ -1,20 +1,20 @@
 ---
-title: Data Lake Storage Gen1의 .NET SDK-파일 시스템 작업-Azure
-description: 폴더 만들기 등의 Data Lake Storage Gen1에 대 한 파일 시스템 작업에 Azure Data Lake Storage Gen1 .NET SDK를 사용 합니다.
-author: twooley
+title: Data Lake Storage Gen1의 .net SDK-파일 시스템 작업-Azure
+description: 폴더 만들기 등의 Data Lake Storage Gen1에 대 한 파일 시스템 작업에 Azure Data Lake Storage Gen1 .net SDK를 사용 합니다.
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4757e9524740acd6eaaed0bc95acb5674c502cb1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431740"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642209"
 ---
-# <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>.NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업
+# <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>.net SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업
 
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
@@ -24,13 +24,13 @@ ms.locfileid: "102431740"
 >
 >
 
-이 문서에서는 .NET SDK를 사용 하 여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행 하는 방법에 대해 알아봅니다. 파일 시스템 작업에는 Data Lake Storage Gen1 계정에 폴더 만들기, 파일 업로드, 파일 다운로드 등이 포함됩니다.
+이 문서에서는 .net SDK를 사용 하 여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행 하는 방법에 대해 알아봅니다. 파일 시스템 작업에는 Data Lake Storage Gen1 계정에 폴더 만들기, 파일 업로드, 파일 다운로드 등이 포함됩니다.
 
-.NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 계정 관리 작업을 수행 하는 방법에 대 한 지침은 [.NET sdk를 사용 하 여 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조 하세요.
+.net sdk를 사용 하 여 Data Lake Storage Gen1에 대 한 계정 관리 작업을 수행 하는 방법에 대 한 지침은 [.net sdk를 사용 하 여 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Visual Studio 2013 이상** 이 문서의 지침에서는 Visual Studio 2019을 사용 합니다.
+* **Visual Studio 2013 혹은 그 이상**. 이 문서의 지침에서는 Visual Studio 2019를 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -40,8 +40,8 @@ ms.locfileid: "102431740"
 
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
 
-1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트** 를 차례로 선택 합니다.
-1. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트** 를 차례로 선택합니다.
+1. **콘솔 앱(.NET Framework)** , **다음** 을 차례로 선택합니다.
 1. **프로젝트 이름** 에 `CreateADLApplication`를 입력하고 **만들기** 를 선택합니다.
 1. NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -157,7 +157,7 @@ var directoryEntry = client.GetDirectoryEntry(fileName);
 PrintDirectoryEntry(directoryEntry);
 ```
 
-메서드의 정의는 `PrintDirectoryEntry` [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)샘플의 일부로 사용할 수 있습니다.
+메서드의 정의는 `PrintDirectoryEntry` [GitHub에 대 한](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)샘플의 일부로 사용할 수 있습니다.
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
 
@@ -181,7 +181,7 @@ foreach (var entry in client.EnumerateDirectory("/Test"))
 }
 ```
 
-메서드의 정의는 `PrintDirectoryEntry` [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)샘플의 일부로 사용할 수 있습니다.
+메서드의 정의는 `PrintDirectoryEntry` [GitHub에 대 한](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)샘플의 일부로 사용할 수 있습니다.
 
 ## <a name="delete-directories-recursively"></a>디렉터리를 재귀적으로 삭제
 
@@ -197,9 +197,9 @@ client.DeleteRecursive("/Test");
 다음은 Data Lake Storage Gen1 Filesystem SDK를 사용 하는 방법을 보여 주는 몇 가지 샘플입니다.
 
 * [GitHub의 기본 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [GitHub에 대 한 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 참조](/dotnet/api/overview/azure/data-lake-store)

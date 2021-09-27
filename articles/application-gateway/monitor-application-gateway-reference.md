@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
 ms.date: 06/10/2021
-ms.openlocfilehash: dce23e60b3a3be5ba7647de1f45380d188c07094
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 5ece5b220a59f562774fde7b093236ed5946f019
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296001"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836250"
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -147,7 +147,7 @@ Azure Application Gateway는 Azure Monitor의 일부 메트릭에 대한 차원�
 
 | 범주 | 표시 이름 | 정보|
 |:---------|:-------------|------------------|
-| **Activitylog**   | 활동 로그 | 활동 로그 항목은 기본적으로 수집됩니다. [Azure 활동 로그](../azure-resource-manager/management/view-activity-logs.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. |
+| **Activitylog**   | 활동 로그 | 활동 로그 항목은 기본적으로 수집됩니다. [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. |
 |**ApplicationGatewayAccessLog**|액세스 로그| 이 로그를 사용하여 Application Gateway 액세스 패턴을 확인하고 중요한 정보를 분석할 수 있습니다. 여기에는 호출자의 IP 주소, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함됩니다. 액세스 로그는 60초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 instanceId 속성으로 식별됩니다.|
 | **ApplicationGatewayPerformanceLog**|성능 로그|이 로그를 사용하여 Application Gateway 인스턴스를 수행하는 방법을 확인할 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다. 성능 로그는 v1 SKU에 대해서만 사용할 수 있습니다. v2 SKU의 경우 성능 데이터에 대한 [메트릭](#metrics)을 사용합니다.|
 |**ApplicationGatewayFirewallLog**|방화벽 로그|이 로그를 사용하면 웹 애플리케이션 방화벽으로 구성된 애플리케이션 게이트웨이의 검색 모드 또는 방지 모드를 통해 로깅된 요청을 확인할 수 있습니다. 방화벽 로그는 60초마다 수집됩니다.|

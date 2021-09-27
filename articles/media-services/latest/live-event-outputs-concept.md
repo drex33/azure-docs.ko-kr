@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5269be27a0e31e9626cd26960092356bce0d8ff4
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: fb80374976752961b5c199fc06a8acba572c4d89
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635032"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054474"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -175,7 +175,7 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예들 들어 `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`입니다.
 * *stream name*: 특정 연결에 대한 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용하는 라이브 인코더에 의해 추가됩니다. 연결을 설명하는 이름을 사용하도록 라이브 인코더를 구성할 수 있습니다(예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-static-hostname-ingest-url"></a>비정적 호스트 이름 수집 URL
@@ -221,9 +221,11 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 
 ## <a name="live-outputs"></a>라이브 출력
 
-라이브 이벤트로 들어오는 스트림이 있으면 [자산](/rest/api/media/assets), [라이브 출력](/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있도록 합니다.  
+라이브 이벤트로 들어오는 스트림이 있으면 [자산](/rest/api/media/assets), [라이브 출력](/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관 하 고 [스트리밍 끝점](/rest/api/media/streamingendpoints)을 통해 뷰어에 사용할 수 있도록 합니다. 
+
+AMS의 기본 할당은 Media Services 계정 당 5 개의 라이브 이벤트입니다. 이 한도를 늘리려면 Azure Portal에 지원 티켓을 제출 하십시오. AMS는 스트리밍 상황과 지역 데이터 센터 전반에 따라 라이브 이벤트 제한을 늘릴 수 있습니다.
 
 라이브 출력에 대한 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr-time-how-to.md)을 참조하세요.
 ## <a name="live-event-output-questions"></a>라이브 이벤트 출력 관련 질문
 
-[FAQ의 라이브 이벤트 질문](frequently-asked-questions.yml)을 참조하세요.
+[FAQ의 라이브 이벤트 질문](frequently-asked-questions.yml)을 참조하세요. 라이브 이벤트 할당량에 대 한 자세한 내용은 [할당량 및 제한](limits-quotas-constraints-reference.md) 을 참조 하세요.

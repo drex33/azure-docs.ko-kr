@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.openlocfilehash: 06ed84bf63f79087efef33b1061e21b61315e78e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.date: 08/18/2021
+ms.openlocfilehash: c9c924b6188372da2ff772f7283f6ea47f89ef92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969469"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735933"
 ---
 # <a name="access-control-in-azure-purview"></a>Azure Purview의 액세스 제어
 
@@ -21,7 +21,7 @@ Azure Purview는 **컬렉션** 을 사용하여 원본, 자산 및 기타 아티
 > [!NOTE]
 > 현재 이 정보는 **2021년 8월 18일 이후** 에 만든 Azure Purview 계정에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 사용 권한을 관리하지는 않습니다. 8월 18일 전에 만든 Purview 인스턴스의 액세스 제어에 대한 자세한 내용은 페이지 맨 아래에 있는 [**레거시 권한 가이드**](#legacy-permission-guide)를 참조하세요.
 >
-> 모든 레거시 계정은 향후 몇 주 동안 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 할당된 모든 권한이 자동으로 루트 컬렉션에 다시 배포됩니다. 이때 권한은 Access Control(IAM)이 아닌 컬렉션을 통해 관리되어야 합니다. IAM 권한은 Purview 아티팩트에 더 이상 적용되지 않습니다.
+> 모든 레거시 계정은 향후 몇 주 동안 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 변경되는 사항에 대한 자세한 내용은 [업그레이드된 계정 가이드](concept-account-upgrade.md)를 참조하세요.
 
 ## <a name="collections"></a>컬렉션
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 94034e1a7c297e33209c42b5aa93fed2b52feb3f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 5e851a266dd74758987c5e6bdeef1d76e3d50db9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316539"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763959"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SFTP 서버에서 데이터 복사
 
@@ -55,7 +55,7 @@ Azure Portal UI에서 다음 단계를 사용하여 SFTP 연결된 서비스를 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -282,7 +282,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 *SftpReadSettings* 로 설정해야 합니다. | 예                                           |
 | ***복사할 파일 찾기*** |  |  |
@@ -346,7 +346,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 싱크의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 *SftpWriteSettings* 로 설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |

@@ -261,7 +261,7 @@
       href: create-zone-redundant-vnet-gateway.md
     - name: 패킷 캡처 구성
       href: packet-capture.md
-    - name: 상태 모니터링
+    - name: 모니터링
       items:
         - name: VPN Gateway 모니터링
           href: monitor-vpn-gateway.md
@@ -270,8 +270,9 @@
         - name: 리소스 로그 기반의 경고 설정
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: 문제 해결
-      href: vpn-gateway-troubleshoot.md
       items:
+        - name: VPN Gateway 문제 해결
+          href: vpn-gateway-troubleshoot.md
         - name: 진단 로그를 사용하여 Azure VPN Gateway 문제 해결
           href: troubleshoot-vpn-with-azure-diagnostics.md
         - name: 커뮤니티에서 제안한 VPN 또는 방화벽 디바이스 설정

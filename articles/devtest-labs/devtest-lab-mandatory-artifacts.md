@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에 대한 필수 아티팩트 지정 | Microsoft Docs
+title: 필수 아티팩트 지정
 description: 랩의 가상 머신(VM)에서 모든 사용자 선택 아티팩트를 설치하기 전에 설치해야 하는 필수 아티팩트를 지정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8963db2f99cc893937365a4eac0a656e1ba90613
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678500"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에 대한 필수 아티팩트 지정
 랩의 소유자는 랩에서 만들어진 모든 머신에 적용되는 필수 아티팩트를 지정할 수 있습니다. 랩의 각 머신을 회사 네트워크에 연결하려는 경우의 시나리오를 가정합니다. 이 경우 각 랩 사용자는 해당 머신이 회사 도메인에 연결됐는지 확인하려면 가상 머신 생성 동안 도메인 가입 아티팩트를 추가해야 합니다. 즉, 랩 사용자가 해당 머신에 필수 아티팩트를 적용하는 것을 잊어버린 경우 기본적으로 머신을 다시 만들어야 합니다. 랩 소유자는 도메인 가입 아티팩트를 랩의 필수 아티팩트로 만듭니다. 이 단계를 수행하면 각 머신이 회사 네트워크에 연결되어 있는지 확인하여 랩 사용자의 시간과 노력을 절약해줍니다.
@@ -76,4 +76,3 @@ Windows 및 Linux 머신에 대한 필수 아티팩트를 각각 선택할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 * [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
-

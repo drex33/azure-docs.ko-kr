@@ -1,29 +1,28 @@
 ---
-title: Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
+title: PostgreSQL에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 PostgreSQL에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 활동을 사용하여 PostgreSQL에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: ff06a443d6bcd6bc2428efdbd7d52ce8ac7cda3f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 4f9ac376379141f91bacd3c941b15a819f12bb2c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316924"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824723"
 ---
-# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
+# <a name="copy-data-from-postgresql-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 PostgreSQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [현재 버전](connector-postgresql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 PostgreSQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 PostgreSQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -54,7 +53,7 @@ Integration Runtime은 버전 3.7부터 시작하는 기본 제공 PostgreSQL �
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -248,4 +247,4 @@ PostgreSQL에서 데이터를 복사하기 위해 복사 작업 **원본** 섹�
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

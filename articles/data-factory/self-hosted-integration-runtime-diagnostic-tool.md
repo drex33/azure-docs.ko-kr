@@ -4,18 +4,19 @@ description: 자체 호스팅 통합 런타임용 진단 도구
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 - devx-track-azurepowershell
 ms.date: 07/28/2021
-ms.openlocfilehash: b8aa070759ea29c9c2853d0c8a6af184bc169569
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b3c98d4e85b1a7d04b017eea2da00f36a479eeac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536609"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598578"
 ---
 # <a name="diagnostic-tool-for-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임용 진단 도구
 자체 호스팅 통합 런타임은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다. 자체 호스팅 통합 런타임을 설치하려면 온-프레미스 머신이나 개인 네트워크 내부의 가상 머신이 필요합니다. 네트워크, 방화벽, 종속성 또는 OS 관련 문제와 같은 온-프레미스 머신의 문제를 조사하는 것이 어려운 경우도 있습니다. 이 문서에서는 온-프레미스 환경에서 발생하는 문제를 해결하는 새로운 진단 도구에 대해 설명합니다.

@@ -3,16 +3,17 @@ title: Data Factory를 사용하여 Salesforce로부터 데이터 이동하기
 description: Azure Data Factory를 사용하여 Salesforce에서 데이터를 이동하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 61ba29c656859f21c135b0466e5d48440f7a8d17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: f25329389952546007ddf6365fa7b40c9870e264
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741588"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610386"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -64,7 +65,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 | 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **Salesforce** 로 설정되어야 합니다. |예 |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 ‘https:\//login.salesforce.com’입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |예 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https:\//login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |예 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -81,7 +82,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
 
-![스크린샷에서 사용자 지정 개체의 API 이름을 볼 수 있는 사용자 지정 개체 정의의 세부 정보를 확인할 수 있습니다.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="스크린샷에서 사용자 지정 개체의 API 이름을 볼 수 있는 사용자 지정 개체 정의의 세부 정보를 확인할 수 있습니다.":::
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력과 출력 테이블 및 다양한 정책과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
@@ -97,7 +98,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
 
-![스크린샷에서 사용자 지정 개체의 API 이름을 볼 수 있는 사용자 지정 필드와 관계를 확인할 수 있습니다.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="스크린샷 사용자 지정 개체의 A P I 이름을 볼 수 있는 사용자 지정 필드 & 관계를 보여 줍니다.":::
 
 ## <a name="query-tips"></a>쿼리 팁
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>DateTime 열에서 where 절을 사용하여 데이터 검색
@@ -192,7 +193,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
 
-![스크린샷에서 단일 레이블, 복수 레이블, 개체 이름 및 API 이름을 볼 수 있는 사용자 지정 개체 정의 세부 정보를 확인할 수 있습니다.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="스크린샷에서 단일 레이블, 복수 레이블, 개체 이름 및 API 이름을 볼 수 있는 사용자 지정 개체 정의 세부 정보를 확인할 수 있습니다.":::
 
 **Azure Blob 출력 데이터 세트:**
 
@@ -273,7 +274,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
 
-![스크린샷에서 API 이름을 호출한 사용자 지정 필드와 관계를 확인할 수 있습니다.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="스크린샷은 A P I 이름이 호출된 사용자 지정 필드 & 관계를 보여줍니다.":::
 
 
 ### <a name="type-mapping-for-salesforce"></a>Salesforce에 대한 형식 매핑

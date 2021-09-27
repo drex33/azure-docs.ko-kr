@@ -3,20 +3,18 @@ title: 검색 결과를 필터링하는 방법 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: "'responseFilter' 쿼리 매개 변수를 사용하여 Bing에서 응답에 포함하는 답변 유형(예: 이미지, 비디오 및 뉴스)을 필터링할 수 있습니다."
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: scottwhi
-ms.openlocfilehash: 571314009b6f58e5c2ab6aac02cfebc82c53f42f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8bc11b3f59246c736f8c099e97637c3605405924
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96351864"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625493"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 

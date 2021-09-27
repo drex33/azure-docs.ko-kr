@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-storage
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 77ab092fc62fb3f7a6270a4b5f38aeeed16d60fc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 1af52e4344b7a70331e3b5d9cdc13d9ff4227068
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698867"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053339"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
 
@@ -49,7 +49,7 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 
 <sup>1</sup> Lsv2 시리즈 VM에는 OS 페이징/스왑 파일용 표준 SCSI 기반 임시 리소스 디스크가 있습니다(Windows의 D:, Linux의 /dev/sdb). 이 디스크는 모든 8 vCPU에 대해 80GiB 스토리지, 4,000 IOPS 및 80MBps 전송 속도를 제공합니다(예: Standard_L80s_v2는 40,000 IOPS 및 800MBPS에서 800GiB 제공). 이 경우 NVMe 드라이브는 완전히 애플리케이션 전용일 수 있습니다. 이는 임시 디스크이며 중지/할당 취소 시 모든 데이터가 손실됩니다.
 
-<sup>2</sup> 로컬 NVMe 디스크는 임시 디스크이며 VM을 중지/할당 취소할 경우 이러한 디스크의 데이터가 손실됩니다.
+<sup>2</sup> 로컬 NVMe 디스크는 사용 후 삭제되며, VM을 중지/할당을 중단하면 이러한 디스크에서 데이터가 손실됩니다. 로컬 NVMe 디스크는 호스트에서 암호화를 [사용하도록 설정하더라도 Azure Storage 암호화로](disk-encryption.md) [암호화되지](disk-encryption.md#supported-vm-sizes)않습니다.
 
 <sup>3</sup> Hyper-V NVMe Direct 기술은 게스트 VM 공간에 안전하게 매핑된 로컬 NVMe 드라이브에 대한 무제한 액세스를 제공합니다.  최상의 성능을 위해 Azure Marketplace에서 최신 WS2019 빌드나 Ubuntu 18.04 또는 16.04를 사용해야 합니다.  쓰기 성능은 IO 크기, 드라이브 로드 및 용량 사용률에 따라 달라집니다.
 

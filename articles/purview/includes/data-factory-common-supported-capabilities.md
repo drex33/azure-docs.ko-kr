@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 08/25/2021
-ms.openlocfilehash: 61f0dc4bf556c992721b5cd7cd2859ef30d8cbb9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: cb10d36bd426655db6a059dad3bda70cf21cf123
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909584"
 ---
 ### <a name="copy-activity-support"></a>복사 작업 지원
 
@@ -47,7 +47,6 @@ ms.locfileid: "123355515"
 - PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 데이터를 복사합니다.
 - 이진 파일, 구분 기호로 분리된 텍스트, Excel, JSON 및 XML 파일에 대한 압축 설정입니다.
 - Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server 및 SAP 테이블의 원본 파티션 옵션입니다.
-- 파일 기반 저장소에 대한 원본 파티션 검색 옵션입니다.
 - 파일당 최대 행 수 설정을 사용하여 파일 기반 싱크로 데이터를 복사합니다.
 
 추가 계보에는 다음 커넥터에 대한 데이터 자산 스키마 (자산-> 스키마 탭에 표시)가 보고됩니다.

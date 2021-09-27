@@ -3,16 +3,16 @@ title: 개발자 포털에서 커뮤니티 위젯 사용
 titleSuffix: Azure API Management
 description: API Management 개발자 포털의 커뮤니티 위젯에 대한 정보와, 위젯을 코드에서 삽입하고 사용하는 방법에 대해 알아봅니다.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: de6160aa2e556297287ae9e9ecd58a93e54d863f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
-ms.translationtype: HT
+ms.openlocfilehash: 3fe751483ea22ff3464cc1fd505b313a5a48ade7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741310"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656325"
 ---
 # <a name="use-community-widgets-in-the-developer-portal"></a>개발자 포털에서 커뮤니티 위젯 사용
 

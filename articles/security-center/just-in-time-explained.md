@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a095d2f6e05957e4a3daac76f3ac745e5a20de4a
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.openlocfilehash: 8a6fe163ade61df65f6ff0d9ba4f2862866094b7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631688"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT(Just-In-Time) VM 액세스 이해
 
@@ -47,7 +47,7 @@ Just-In-Time VM 액세스를 사용하도록 설정하면 인바운드 트래픽
 사용자가 VM에 대한 액세스를 요청하면 Security Center 사용자에게 해당 VM에 대한 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한이 있는지 확인합니다. 요청이 승인되면 Security Center는 지정된 시간 동안 관련 IP 주소 또는 범위에서 선택한 포트에 대한 인바운드 트래픽을 허용하도록 NSG와 Azure Firewall을 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 이미 설정된 연결은 중단되지 않습니다.
 
 > [!NOTE]
-> JIT는 [Azure Firewall Manager](../firewall-manager/overview.md)에서 제어하는 Azure Firewall로 보호되는 VM을 지원하지 않습니다.
+> JIT는 [Azure Firewall Manager](../firewall-manager/overview.md)에서 제어하는 Azure Firewall로 보호되는 VM을 지원하지 않습니다.  Azure Firewall 규칙(클래식)으로 구성해야 하며 방화벽 정책을 사용할 수 없습니다.
 
 
 

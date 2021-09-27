@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: b5b40f4e4dfa72eacdcf178dedbc11c969bf7315
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: abece146cb2394046b7f46aa96ea70dc124cade0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424675"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649060"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Azure Route Server 문제 해결
 
@@ -26,7 +26,7 @@ NVA에서 기본 경로를 보급하는 경우 Azure Route Server는 NVA 자체�
 | 0.0.0.0/0 | 인터넷 |
 
 
-### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-go-down"></a>NVA에서 Azure Route Server의 BGP 피어 IP로 ping할 수 있는데 둘 사이에서 BGP 피어링을 설정한 후에는 더 이상 같은 IP를 ping할 수 없는 이유는 무엇인가요? BGP 피어링이 중단되는 이유는 무엇인가요?
+### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-or-why-is-the-bgp-peering-flapping"></a>NVA에서 Azure Route Server의 BGP 피어 IP로 ping할 수 있는데 둘 사이에서 BGP 피어링을 설정한 후에는 더 이상 같은 IP를 ping할 수 없는 이유는 무엇인가요? 또는 BGP 피어 링 플 래핑 무엇 인가요?
 
 일부 NVA에서는 Azure Route Server 서브넷에 대한 고정 경로를 추가해야 합니다. 예를 들어 Azure Route Server가 10.0.255.0/27에 있고 NVA가 10.0.1.0/24에 있으면 NVA의 라우팅 테이블에 다음 경로를 추가해야 합니다.
 
@@ -40,10 +40,6 @@ NVA에서 기본 경로를 보급하는 경우 Azure Route Server는 NVA 자체�
 Azure Route Server를 가상 네트워크에 배포하는 경우 게이트웨이와 가상 네트워크 간 컨트롤 플레인을 업데이트해야 합니다. 해당 업데이트를 수행하는 동안 가상 네트워크 VM의 온-프레미스 네트워크에 대한 연결이 끊어지는 기간이 있습니다. 프로덕션 환경에서 Azure Route Server를 배포하기 위해 유지 관리를 예약하는 것이 좋습니다.  
 
 ## <a name="control-plane-issues"></a>컨트롤 플레인 문제
-
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>NVA와 Azure Route Server 간에 BGP 피어링이 업 다운을 반복(“플래핑”)하는 이유는 무엇인가요?
-
-BGP 타이머 설정이 플래핑 발생 원인일 수 있습니다. 기본적으로 Azure Route Server의 연결 유지 타이머는 60초로 설정되고 대기 타이머는 180초로 설정됩니다.
 
 ### <a name="why-does-my-on-premises-network-connected-to-azure-vpn-gateway-not-receive-the-default-route-advertised-by-azure-route-server"></a>Azure VPN 게이트웨이에 연결된 온-프레미스 네트워크가 Azure Route Server에서 보급한 기본 경로를 수신하지 못하는 이유는 무엇인가요?
 

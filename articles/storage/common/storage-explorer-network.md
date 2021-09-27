@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
-ms.openlocfilehash: a4afdc8897e15fcb563812bda9da378c66ca4bd9
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 2731f4473b726e7433167fe15c9e1f29c775d9cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432431"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627884"
 ---
 # <a name="network-connections-in-storage-explorer"></a>저장소 탐색기의 네트워크 연결
 
@@ -20,31 +20,32 @@ ms.locfileid: "113432431"
 
 ## <a name="hostnames-accessed-by-storage-explorer"></a>저장소 탐색기에서 액세스하는 호스트 이름
 
-저장소 탐색기는 사용 중에 다양한 엔드포인트에 요청합니다. 다음 목록에서는 저장소 탐색기 요청을 수행할 일반적인 호스트 이름을 자세히 설명합니다.
+저장소 탐색기는 사용 중에 다양한 엔드포인트에 요청합니다. 다음 목록에서는 Storage Explorer 요청하는 일반적인 호스트 이름을 자세히 설명합니다.
+
 - ARM 엔드포인트:
-    - `management.azure.com`(글로벌 Azure)
-    - `management.chinacloudapi.cn`(Azure 중국)
-    - `management.microsoftazure.de`(Azure 독일)
-    - `management.usgovcloudapi.net`(Azure 미국 정부)
+  - `management.azure.com`(글로벌 Azure)
+  - `management.chinacloudapi.cn`(Azure 중국)
+  - `management.microsoftazure.de`(Azure 독일)
+  - `management.usgovcloudapi.net`(Azure 미국 정부)
 - 로그인 엔드포인트:
-    - `login.microsoftonline.com`(글로벌 Azure)
-    - `login.chinacloudapi.cn`(Azure 중국)
-    - `login.microsoftonline.de`(Azure 독일)
-    - `login.microsoftonline.us`(Azure 미국 정부)
+  - `login.microsoftonline.com`(글로벌 Azure)
+  - `login.chinacloudapi.cn`(Azure 중국)
+  - `login.microsoftonline.de`(Azure 독일)
+  - `login.microsoftonline.us`(Azure 미국 정부)
 - 그래프 엔드포인트:
-    - `graph.windows.net`(글로벌 Azure)
-    - `graph.chinacloudapi.cn`(Azure 중국)
-    - `graph.cloudapi.de`(Azure 독일)
-    - `graph.windows.net`(Azure 미국 정부)
+  - `graph.windows.net`(글로벌 Azure)
+  - `graph.chinacloudapi.cn`(Azure 중국)
+  - `graph.cloudapi.de`(Azure 독일)
+  - `graph.windows.net`(Azure 미국 정부)
 - Azure Storage 엔드포인트:
-    - `(blob|file|queue|table|dfs).core.windows.net`(글로벌 Azure)
-    - `(blob|file|queue|table|dfs).core.chinacloudapi.net`(Azure 중국)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net`(Azure 독일)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net`(Azure 미국 정부)
-- 저장소 탐색기 업데이트: `storageexplorerpublish.blob.core.windows.net` 
+  - `(blob|file|queue|table|dfs).core.windows.net`(글로벌 Azure)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn`(Azure 중국)
+  - `(blob|file|queue|table|dfs).core.cloudapi.de`(Azure 독일)
+  - `(blob|file|queue|table|dfs).core.usgovcloudapi.net`(Azure 미국 정부)
+- 저장소 탐색기 업데이트: `storageexplorerpublish.blob.core.windows.net`
 - Microsoft 링크 전달:
-    - `aka.ms`
-    - `go.microsoft.com`
+  - `aka.ms`
+  - `go.microsoft.com`
 - 리소스가 뒤에 있는 모든 사용자 지정 도메인, 개인 링크 또는 Azure Stack 인스턴스별 엔드포인트
 - 원격 에뮬레이터 호스트 이름
 
@@ -151,55 +152,55 @@ AzCopy에서 프록시를 사용하지 않으려면 **설정**(왼쪽 세로 도
 - 업데이트 확인 및 다운로드
 - 구독 나열
 - 스토리지 계정 기능
-    - 목록
+  - 목록
 - Blob 기능
-    - 컨테이너
-        - 만들기
-        - 목록
-        - 저장된 액세스 정책 관리
-        - 공용 액세스 수준 변경
-        - 임대
-        - 속성
-        - 삭제
-    - Blob
-        - 목록
-        - 통계
-        - 삭제 취소
-    - ADLS Gen2 Blob
-        - 목록
-        - 통계
-        - ACL 관리(기존 엔터티 보기 및 수정만 해당)
-        - ACL 전파
-        - 이동
-        - 이름 바꾸기
-        - 폴더 만들기
+  - 컨테이너
+    - 만들기
+    - 목록
+    - 저장된 액세스 정책 관리
+    - 공용 액세스 수준 변경
+    - 임대
+    - 속성
+    - 삭제
+  - Blob
+    - 목록
+    - 통계
+    - 삭제 취소
+  - ADLS Gen2 Blob
+    - 목록
+    - 통계
+    - ACL 관리(기존 엔터티 보기 및 수정만 해당)
+    - ACL 전파
+    - 이동
+    - 이름 바꾸기
+    - 폴더 만들기
 - 큐 기능
-    - 큐
-        - 만들기
-        - 목록
-        - 액세스 정책 관리
-        - 속성
-        - 삭제
-        - 지우기
-    - 큐 메시지
-        - 목록
-        - 이동
-        - 추가
-        - 큐에서 제거
+  - 큐
+    - 만들기
+    - 목록
+    - 액세스 정책 관리
+    - 속성
+    - 삭제
+    - 지우기
+  - 큐 메시지
+    - 목록
+    - 이동
+    - 추가
+    - 큐에서 제거
 - 파일 공유 기능
-    - 파일 및 폴더
-        - 새 폴더
-        - 속성
+  - 파일 및 폴더
+    - 새 폴더
+    - 속성
 - 디스크 기능
-    - 리소스 그룹 나열
-    - 디스크 나열
-    - 디스크 업로드
-    - 디스크 다운로드
-    - 디스크 복사
-    - 스냅숏 만들기
-    - 디스크 삭제
+  - 리소스 그룹 나열
+  - 디스크 나열
+  - 디스크 업로드
+  - 디스크 다운로드
+  - 디스크 복사
+  - 스냅숏 만들기
+  - 디스크 삭제
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프록시 문제 해결](./storage-explorer-troubleshooting.md#proxy-issues)
-* [인증서 문제 해결](./storage-explorer-troubleshooting.md#ssl-certificate-issues)
+- [프록시 문제 해결](./storage-explorer-troubleshooting.md#proxy-issues)
+- [인증서 문제 해결](./storage-explorer-troubleshooting.md#ssl-certificate-issues)

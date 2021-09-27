@@ -5,18 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 34bc70fa88aa3c108a946b4e040bf60f56ec95e1
-ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
-ms.translationtype: HT
+ms.openlocfilehash: 82c763647911037985dc3395a2176e8c43f34114
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113644332"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629581"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>VM 세션에서 전체 화면 보기로 변경: Azure Bastion
 
-이 문서는 가상 컴퓨터 보기를 전체 화면으로 변경하고 브라우저에서 뒤로 이동하는 데 도움이 됩니다. VM을 사용하려면 먼저 다음 단계를 따라 [베스천 호스트 만들기](./tutorial-create-host-portal.md) 단계를 수행해야 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp.md) 또는 [SSH](bastion-connect-vm-ssh.md)를 사용하여 작업하려는 VM에 연결합니다.
+이 문서는 가상 컴퓨터 보기를 전체 화면으로 변경하고 브라우저에서 뒤로 이동하는 데 도움이 됩니다. VM을 사용하려면 먼저 다음 단계를 따라 [베스천 호스트 만들기](./tutorial-create-host-portal.md) 단계를 수행해야 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp-windows.md) 또는 [SSH](bastion-connect-vm-ssh-linux.md)를 사용하여 작업하려는 VM에 연결합니다.
 
 ## <a name="launch-the-clipboard-tool"></a>클립보드 도구 시작
 

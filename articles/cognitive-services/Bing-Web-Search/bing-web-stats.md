@@ -3,20 +3,18 @@ title: Bing Web Search API에 대한 분석 추가
 titleSuffix: Azure Cognitive Services
 description: Bing Statistics는 Bing Image Search API에 대한 분석을 제공합니다. 분석에는 호출량, 주요 쿼리 문자열, 지리적 분포 등이 포함됩니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 02fea02cca5950ef8467377a866e9a765af9e2e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 878a6fd49a46b47c3243b168469a15909102a019
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96349557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587065"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Bing Search API에 대한 분석 추가
 

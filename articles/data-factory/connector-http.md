@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4463c3ffb8deaf0a88b978b39f3a52c83f3f8304
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: c4702172923bd070ad59c4c36265e525308d82af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303866"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831745"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -66,7 +66,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -335,7 +335,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **HttpFile** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 예 |

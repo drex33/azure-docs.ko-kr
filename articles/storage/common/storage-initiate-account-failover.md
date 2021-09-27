@@ -10,12 +10,12 @@ ms.date: 05/07/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd1bbf0d1c5a49bde35d303e6780737fb43ca997
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ab764fd95168fef768efd0687adb5e2841bfb140
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528299"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609292"
 ---
 # <a name="initiate-a-storage-account-failover"></a>스토리지 계정 장애 조치(failover) 시작
 
@@ -124,7 +124,7 @@ az storage account failover \ --name accountName
 - CPU, 메모리, 디스크 및 WAN 용량과 같은 백그라운드 복제에 사용할 수 있는 리소스입니다. 라이브 트래픽은 지역 복제보다 우선합니다.
 - Blob 스토리지를 사용하는 경우 Blob당 스냅샷 수입니다.
 - Table 스토리지를 사용하는 경우 [데이터 분할 전략](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage)입니다. 복제 프로세스는 사용하는 파티션 키 수를 초과하여 확장할 수 없습니다.
-  
+
 ## <a name="next-steps"></a>다음 단계
 
 - [재해 복구 및 저장소 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)

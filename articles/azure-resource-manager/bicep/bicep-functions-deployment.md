@@ -4,22 +4,17 @@ description: Bicep 파일에서 배포 정보를 검색하는 데 사용할 함�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 53e9f34e2d04f68add7babd8c12b4fd583015847
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: e909ea77da32675beec6d5117430717acf274ab1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027119"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731106"
 ---
 # <a name="deployment-functions-for-bicep"></a>Bicep의 배포 함수
 
-Resource Manager는 Bicep 파일의 현재 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
-
-* [deployment](#deployment)
-* [environment](#environment)(환경)
-
-리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](./bicep-functions-resource.md)를 참조하세요.
+이 문서에서는 현재 배포와 관련된 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="deployment"></a>배포
 
@@ -200,4 +195,4 @@ output environmentOutput object = environment()
 
 ## <a name="next-steps"></a>다음 단계
 
-* Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
+* 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](./bicep-functions-resource.md)를 참조하세요.

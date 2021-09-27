@@ -8,12 +8,12 @@ ms.date: 08/28/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3e793f7a1c2e927be9b0431df05bdc228355429f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 7e235bd04b0693a0fabc9f4432aff01c85b5c67e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110199"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824712"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>SSISDB 로그를 자동으로 정리하는 방법
 
@@ -34,7 +34,7 @@ SSIS 패키지 실행 로그를 관리하려면 SSMS(SQL Server Management Studi
 - **주기적으로 이전 버전 제거**: 저장된 프로젝트 버전을 정리합니다. 기본적으로 *True* 로 설정됩니다.
 - **프로젝트당 최대 버전 수**: 저장된 프로젝트 버전의 최대 수를 지정합니다. 기본적으로 *10* 으로 설정되며, 관련 SSISDB 저장 프로시저가 호출되면 이전 버전이 삭제됩니다.
 
-![SSISDB 로그 정리 속성](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-ssisdb-properties.png" alt-text="SSISDB 로그 정리 속성":::
 
 SSISDB 로그 정리 속성이 구성되면 관련 SSISDB 저장 프로시저 `[internal].[cleanup_server_retention_window_exclusive]`를 호출하여 SSIS 패키지 실행 로그를 정리할 수 있습니다.
 
@@ -55,7 +55,7 @@ SSIS IR 작업 로그를 정리하려면 관련 SSISDB 저장 프로시저 `[int
 ## <a name="clean-up-ssisdb-logs-automatically-via-adf"></a>ADF를 통해 자동으로 SSISDB 로그 정리
 Azure SQL 데이터베이스 서버/Managed Instance를 사용하여 SSISDB를 호스트하는지 여부에 관계없이, 항상 ADF를 사용하여 일정에 따라 SSISDB 로그를 자동으로 정리할 수 있습니다. 이렇게 하려면 관련 SSISDB 저장 프로시저를 호출하는 단일 SQL 실행 태스크가 들어 있는 포함된 패키지를 사용하여 ADF 파이프라인에서 SSIS 패키지 실행 작업을 준비하면 됩니다. [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244) 블로그의 예제 4)를 참조하세요.
 
-![ADF를 통해 SSISDB 로그 정리](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png" alt-text="ADF를 통해 SSISDB 로그 정리":::
 
 **SQLStatementSource** 매개 변수의 경우 `EXEC internal.cleanup_server_retention_window_exclusive`를 입력하여 SSIS 패키지 실행 로그를 정리할 수 있습니다. 
 
@@ -68,7 +68,7 @@ ADF 파이프라인이 준비되면 일정 트리거를 연결하여 주기적�
 ## <a name="clean-up-ssisdb-logs-automatically-via-azure-sql-managed-instance-agent"></a>Azure SQL Managed Instance 에이전트를 통해 자동으로 SSISDB 로그 정리
 Azure SQL Managed Instance를 사용하여 SSISDB를 호스트하는 경우에는 기본 제공 작업 오케스트레이터/스케줄러인 Azure SQL Managed Instance 에이전트를 사용하여 일정에 따라 자동으로 SSISDB 로그를 정리할 수도 있습니다. Azure SQL Managed Instance에서 최근에 SSISDB를 만든 분들을 위해, Azure SQL Managed Instance 에이전트 아래에 SSIS 패키지 실행 로그를 명확하게 정리할 수 있는 **SSIS 서버 유지 관리 작업** 이라는 T-SQL 작업을 만들어 두었습니다. 기본적으로 사용되지 않으며 매일 실행되는 일정으로 구성됩니다.  사용하도록 설정하거나 일정을 다시 구성하려면 SSMS를 사용하여 Azure SQL Managed Instance에 연결하면 됩니다. 연결되면 SSMS의 **개체 탐색기** 창에서 **SQL Server 에이전트** 노드를 확장하고, **작업** 하위 노드를 확장하고, **SSIS 서버 유지 관리 작업** 을 두 번 클릭하여 사용하도록 설정/다시 구성할 수 있습니다.
 
-![Azure SQL Managed Instance 에이전트를 통해 SSISDB 로그 정리](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/clean-up-logs-ssms-maintenance-job.png" alt-text="Azure SQL Managed Instance 에이전트를 통해 SSISDB 로그 정리":::
 
 Azure SQL Managed Instance 에이전트에서 아직 **SSIS 서버 유지 관리 작업** 을 만들지 않은 경우 Azure SQL Managed Instance에서 다음 T-SQL 스크립트를 실행하여 수동으로 추가할 수 있습니다.
 
@@ -375,7 +375,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 Azure Portal에서 SSISDB 로그 정리 작업을 모니터링할 수 있습니다. 각 실행의 상태, 시작 시간 및 종료 시간을 볼 수 있습니다.
 
-![Azure Portal에서 SSISDB 로그 정리 작업 모니터링](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+:::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png" alt-text="Azure Portal에서 SSISDB 로그 정리 작업 모니터링":::
 
 ### <a name="monitor-ssisdb-log-clean-up-job-using-t-sql"></a>T-SQL을 사용하여 SSISDB 로그 정리 작업 모니터링
 

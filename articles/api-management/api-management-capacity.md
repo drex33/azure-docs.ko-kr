@@ -3,21 +3,21 @@ title: Azure API Management 인스턴스의 용량 | Microsoft Docs
 description: 이 문서에서는 용량 메트릭이 무엇인지, 그리고 정보에 근거하여 Azure API Management 인스턴스를 확장할지 여부를 결정하는 방법을 설명합니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
-ms.author: apimpm
+ms.author: danlep
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 88909f2f4c7ed6d0b079af53eeaa1f11416d176c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93081062"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629749"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API Management 인스턴스의 용량
 

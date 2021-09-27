@@ -3,16 +3,16 @@ title: REST API를 사용하여 Azure IoT Central에서 디바이스 관리
 description: IoT Central REST API를 사용하여 애플리케이션에서 디바이스를 제어하는 방법
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/01/2020
+ms.date: 08/28/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2e808ee2d36237a830877e7f043656ce9189bd89
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 052dc4d0d275c120d7bb9379937fadfe0e005bdd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461282"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656724"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>IoT Central REST API를 사용하여 디바이스를 제어하는 방법
 
@@ -30,6 +30,9 @@ IoT Central REST API를 사용하면 IoT Central 애플리케이션과 통합되
 모든 IoT Central REST API 호출에는 권한 부여 헤더가 필요합니다. 자세히 알아보려면 [IoT Central REST API 호출을 인증하고 권한을 부여하는 방법](howto-authorize-rest-api.md)을 참조하세요.
 
 IoT Central REST API에 대한 참조 설명서는 [Azure IoT Central REST API 참조](/rest/api/iotcentral/)를 참조하세요.
+
+> [!TIP]
+> [미리 보기 API에는](/rest/api/iotcentral/1.1-previewdataplane/devices) 새 [조직 기능](howto-create-organizations.md)에 대한 지원이 포함되어 있습니다.
 
 ## <a name="components-and-modules"></a>구성 요소 및 모듈
 

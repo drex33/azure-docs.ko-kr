@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-ms.openlocfilehash: 7a2dc8350ecfed3a5fc234a7630870a43c8580c8
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 68f0d94482d65f261b40095ac715ad65f76fe7af
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567856"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124772204"
 ---
 # <a name="monitoring-azure-kubernetes-service-aks-with-azure-monitor"></a>Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링
 이 시나리오에서는 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service)의 상태 및 성능을 모니터링하는 방법을 설명합니다. 여기에는 추세를 식별하기 위해 수집된 데이터의 모니터링, 분석 및 시각화에 중요한 원격 분석 컬렉션과 중요한 문제에 대해 사전에 알림을 받도록 경고를 구성하는 방법이 포함됩니다.
@@ -27,7 +27,7 @@ ms.locfileid: "122567856"
 > [!NOTE]
 > Azure Monitor는 클라우드 리소스의 가용성과 성능을 모니터링하도록 설계되었습니다. Azure Monitor에 저장된 작동 데이터는 보안 인시던트를 조사하는 데 유용할 수 있지만 Azure의 다른 서비스는 보안을 모니터링하도록 설계되었습니다. AKS에 대한 보안 모니터링은 [Azure Sentinel](../sentinel/overview.md) 및 [Azure Security Center](../security-center/security-center-introduction.md)를 통해 수행됩니다. Azure의 보안 모니터링 도구 및 Azure Monitor와의 관계에 대한 설명은 [Azure Monitor를 사용하여 가상 머신 모니터링 - 보안 모니터링](../azure-monitor/vm/monitor-virtual-machine-security.md)을 참조하세요.
 >
-> 보안 서비스를 사용하여 AKS를 모니터링하는 방법에 대한 자세한 내용은 [Azure Defender for Kubernetes - 이점 및 특징](../security-center/defender-for-kubernetes-introduction.md)과 [AKS(Azure Kubernetes Service) 진단 로그를 Azure Sentinel에 연결](../sentinel/connect-azure-kubernetes-service.md)을 참조하세요.
+> 보안 서비스를 사용하여 AKS를 모니터링하는 방법에 대한 자세한 내용은 [Azure Defender for Kubernetes - 이점 및 특징](../security-center/defender-for-kubernetes-introduction.md)과 [AKS(Azure Kubernetes Service) 진단 로그를 Azure Sentinel에 연결](../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks)을 참조하세요.
 ## <a name="container-insights"></a>컨테이너 인사이트
 AKS는 다른 Azure 리소스와 마찬가지로 기본 상태 및 성능을 모니터링하는 데 사용할 수 있는 [플랫폼 메트릭 및 리소스 로그](monitor-aks-reference.md)를 생성합니다. 모니터링을 확장하려면 [컨테이너 인사이트](../azure-monitor/containers/container-insights-overview.md)를 사용하도록 설정합니다. 컨테이너 인사이트는 다른 클러스터 구성 외에도 AKS에서 호스팅되는 관리되는 Kubernetes 클러스터의 상태 및 성능을 모니터링하는 Azure Monitor의 기능입니다. 컨테이너 인사이트는 다양한 모니터링 시나리오에 대해 수집된 데이터를 분석하는 대화형 보기와 통합 문서를 제공합니다. 
 

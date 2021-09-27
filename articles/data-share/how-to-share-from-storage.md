@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 04/20/2021
-ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 61189ba63c072f2c08acc55047d494b076288953
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819271"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743258"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 
@@ -110,7 +110,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **계속** 을 선택합니다.
 
-1. **검토 + 만들기** 탭에서 패키지 콘텐츠, 설정, 수신자 및 동기화 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다.
+1. **검토 + 만들기** 탭에서 패키지 콘텐츠, 설정, 수신자 및 동기화 설정을 검토합니다. 그런 다음 **생성** 를 선택합니다.
 
 이제 Azure 데이터 공유를 만들었습니다. 데이터 공유의 수신자는 초대를 수락할 수 있습니다. 
 
@@ -143,6 +143,8 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 1. 메일에서 초대를 열려면 받은 편지함에서 데이터 공급자의 초대를 확인합니다. Microsoft Azure의 초대는 " *\<yourdataprovider\@domain.com>* 에서 보낸 Azure Data Share 초대"라는 제목으로 전송됩니다. **초대 보기** 를 선택하여 Azure에서 초대를 확인합니다. 
 
    Azure Portal에서 초대를 열려면 *Data Share 초대* 를 검색합니다. Data Share 초대 목록이 표시됩니다.
+
+   테넌트 게스트 사용자인 경우 처음으로 Data Share 초대를 보기 전에 테넌트 이메일 주소를 확인하라는 메시지가 표시됩니다. 확인되면 12개월 동안 유효합니다.
 
    ![Azure Portal의 초대 목록을 보여 주는 스크린샷.](./media/invitations.png "초대 목록.") 
 

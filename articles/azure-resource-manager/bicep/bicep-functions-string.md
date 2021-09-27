@@ -4,51 +4,17 @@ description: 문자열 작업을 위해 Bicep 파일에서 사용할 함수를 �
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 879ea209fd0d645ba0f5045002ee32cc288acd18
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: d94f2b97a9ff78b715682052a647f02af6286af3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026911"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794085"
 ---
 # <a name="string-functions-for-bicep"></a>Bicep에 대한 문자열 함수
 
-Bicep 파일에서 Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
-
-* [base64](#base64)
-* [base64ToJson](#base64tojson)
-* [base64ToString](#base64tostring)
-* [concat](#concat)
-* [contains](#contains)
-* [dataUri](#datauri)
-* [dataUriToString](#datauritostring)
-* [empty](#empty)
-* [endsWith](#endswith)
-* [first](#first)
-* [format](#format)
-* [guid](#guid)
-* [indexOf](#indexof)
-* [json](#json)
-* [last](#last)
-* [lastIndexOf](#lastindexof)
-* [length](#length)
-* [newGuid](#newguid)
-* [padLeft](#padleft)
-* [replace](#replace)
-* [skip](#skip)
-* [split](#split)
-* [startsWith](#startswith)
-* [string](#string)
-* [substring](#substring)
-* [take](#take)
-* [toLower](#tolower)
-* [toUpper](#toupper)
-* [trim](#trim)
-* [uniqueString](#uniquestring)
-* [uri](#uri)
-* [uriComponent](#uricomponent)
-* [uriComponentToString](#uricomponenttostring)
+이 문서에서는 문자열 작업을 위한 Bicep 함수에 대해 설명 합니다.
 
 ## <a name="base64"></a>base64
 
@@ -84,7 +50,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -125,7 +91,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -167,7 +133,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -185,7 +151,7 @@ output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
@@ -197,7 +163,7 @@ output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -235,7 +201,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -274,7 +240,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -309,7 +275,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -322,7 +288,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -346,7 +312,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -384,7 +350,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -401,7 +367,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -426,7 +392,7 @@ output stringOutput string = first('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -463,7 +429,7 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정된 숫자: 8,175,133 |
 
@@ -551,7 +517,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -575,7 +541,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -600,7 +566,7 @@ output stringOutput string = last('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -636,7 +602,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -652,7 +618,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -688,7 +654,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -732,7 +698,7 @@ output guidOutput string = guidValue
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -758,7 +724,7 @@ output nameOutput string = storageName
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -794,7 +760,7 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -829,7 +795,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -871,7 +837,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -912,7 +878,7 @@ output secondOutput array = split(secondString, delimiters)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -949,7 +915,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -997,7 +963,7 @@ output intOutput string = string(testInt)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -1042,7 +1008,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1083,7 +1049,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -1117,7 +1083,7 @@ output toUpperOutput string = toUpper(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1151,7 +1117,7 @@ output toUpperOutput string = toUpper(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1184,7 +1150,7 @@ output return string = trim(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1304,7 +1270,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1343,7 +1309,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1382,7 +1348,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1391,5 +1357,5 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 ## <a name="next-steps"></a>다음 단계
 
 * Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
-* 만든 Bicep 파일을 배포하는 방법을 보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.
+* 리소스 종류를 생성할 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
+* 생성한 Bicep 파일을 배포하는 방법을 알아보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.

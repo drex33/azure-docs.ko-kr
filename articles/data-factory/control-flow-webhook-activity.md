@@ -1,7 +1,7 @@
 ---
-title: Azure Data Factory의 웹후크 작업
+title: 웹후크 작업
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 웹후크 작업은 사용자가 지정한 특정 조건에 따라 연결된 데이터 세트의 유효성이 검사될 때까지 파이프라인을 계속 실행하지 않습니다.
+description: Azure Data Factory 및 Synapse Analytics에 대 한 웹 후크 작업은 사용자 지정 코드를 통해 파이프라인의 실행을 제어 합니다.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -9,19 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 3c2194aff9296230333c433b65f3be303768f9fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 8b0443cd44dffeec1ea9a70e460ca0f72e05b24d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642538"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798829"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 웹후크 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-웹후크 작업은 사용자 지정 코드를 통해 파이프라인의 실행을 제어할 수 있습니다. 웹후크 작업을 사용하면 고객의 코드는 엔드포인트를 호출하고 엔드포인트에 콜백 URL을 전달할 수 있습니다. 파이프라인 실행은 다음 작업을 진행하기 전에 콜백이 호출될 때까지 기다립니다.
+웹 후크 작업은 사용자 지정 코드를 통해 파이프라인의 실행을 제어할 수 있습니다. 웹 후크 작업을 사용 하면 코드에서 끝점을 호출 하 고 콜백 URL을 전달할 수 있습니다. 파이프라인 실행은 다음 작업을 진행하기 전에 콜백이 호출될 때까지 기다립니다.
 
 > [!IMPORTANT]
 > 웹후크 작업을 사용하면 이제 오류 상태와 사용자 지정 메시지를 작업 및 파이프라인에 다시 표시할 수 있습니다. _reportStatusOnCallBack_ 을 true로 설정하고 콜백 페이로드에 _StatusCode_ 및 _Error_ 를 포함합니다. 자세한 내용은 [참고 사항](#additional-notes) 섹션을 참조하세요.
@@ -60,19 +60,19 @@ ms.locfileid: "122642538"
 -------- | ----------- | -------------- | --------
 **name** | 웹후크 작업의 이름입니다. | String | 예 |
 **type** | “WebHook”로 설정해야 합니다. | String | 예 |
-**method** | 대상 엔드포인트에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 “POST”입니다. | Yes |
-**url** | 대상 엔드포인트 및 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | Yes |
+**method** | 대상 엔드포인트에 대한 REST API 메서드입니다. | 문자열입니다. 지원되는 형식은 “POST”입니다. | 예 |
+**url** | 대상 엔드포인트 및 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예 |
 **headers** | 요청에 전송되는 헤더입니다. 요청에 언어 및 형식을 설정하려면 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`과 같이 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예. `"headers":{ "Content-Type":"application/json"}`와 같은 `Content-Type` 헤더가 필요합니다. |
-**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 JSON의 **resultType** 값이 포함된 식입니다. 요청 페이로드의 스키마는 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema)를 참조하세요. | Yes |
-**인증** | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 “Basic” 및 “ClientCertificate”입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | No |
+**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 JSON의 **resultType** 값이 포함된 식입니다. 요청 페이로드의 스키마는 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema)를 참조하세요. | 예 |
+**인증** | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 “Basic” 및 “ClientCertificate”입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열 또는 문자열의 **resultType** 값이 포함된 식입니다. | 예 |
 **timeout** | 작업이 **callBackUri** 로 지정된 콜백이 호출될 때까지 대기하는 시간입니다. 기본값은 10분(“00:10:00”)입니다. 값은 *d*.*hh*:*mm*:*ss* 의 TimeSpan 형식을 가집니다. | String | 예 |
-**콜백에 대한 보고서 상태** | 사용자가 웹후크 작업의 실패 상태를 보고할 수 있습니다. | 부울 | No |
+**콜백에 대한 보고서 상태** | 사용자가 웹후크 작업의 실패 상태를 보고할 수 있습니다. | 부울 | 예 |
 
 ## <a name="authentication"></a>인증
 
 웹후크 작업은 다음 인증 유형을 지원합니다.
 
-### <a name="none"></a>None
+### <a name="none"></a>없음
 
 인증이 필요 없는 경우 **authentication** 속성을 포함하지 않습니다.
 
@@ -102,7 +102,7 @@ PFX 파일의 Base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 
 ### <a name="managed-identity"></a>관리 ID
 
-데이터 팩터리에 대한 관리 ID를 사용하여 요청되는 액세스 토큰에 대한 리소스 URI를 지정합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 ID의 작동 방식에 대한 자세한 내용은 [Azure 리소스의 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+데이터 팩터리 또는 Synapse 작업 영역에 관리 되는 id를 사용 하 여 액세스 토큰을 요청 하는 리소스 URI를 지정 합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 ID의 작동 방식에 대한 자세한 내용은 [Azure 리소스의 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ```json
 "authentication": {
@@ -112,11 +112,11 @@ PFX 파일의 Base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 ```
 
 > [!NOTE]
-> 데이터 팩터리가 Git 리포지토리로 구성된 경우, 기본 또는 클라이언트 인증서 인증을 사용하기 위해 Azure Key Vault에 자격 증명을 저장해야 합니다. Azure Data Factory는 Git에 암호를 저장하지 않습니다.
+> 서비스가 Git 리포지토리로 구성 된 경우 기본 또는 클라이언트 인증서 인증을 사용 하도록 Azure Key Vault에 자격 증명을 저장 해야 합니다. 서비스는 Git에 암호를 저장 하지 않습니다.
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
 
-Data Factory는 URL 엔드포인트에 보낸 본문에서 추가 속성 **callBackUri** 를 전달합니다. Data Factory는 지정된 시간 제한 값 전에 해당 URI가 호출될 것으로 예상합니다. URI가 호출되지 않은 경우 작업은 “TimedOut” 상태와 함께 실패합니다.
+서비스는 URL 끝점으로 전송 된 본문에서 추가 속성 **Callbackuri** 를 전달 합니다. 서비스에서는 지정 된 시간 제한 값 보다 먼저이 URI를 호출 해야 합니다. URI가 호출되지 않은 경우 작업은 “TimedOut” 상태와 함께 실패합니다.
 
 사용자 지정 엔드포인트에 대한 호출이 실패할 경우 웹후크 작업이 실패합니다. 모든 오류 메시지를 콜백 본문에 추가하고 이후 작업에서 사용할 수 있습니다.
 
@@ -145,7 +145,7 @@ Data Factory는 URL 엔드포인트에 보낸 본문에서 추가 속성 **callB
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory에서 지원하는 다음 제어 흐름 작업을 확인하세요.
+다음 지원 되는 제어 흐름 작업을 참조 하세요.
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)

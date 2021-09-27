@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 14ac7953654941de176bf74bd38787b33b9c864c
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 8f65fff40419ef11dcb5d90c670d10573a114fd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225755"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657066"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service용 Node.js 앱 구성
 
@@ -320,7 +320,7 @@ fi
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서는 네트워크 부하 분산기에서 [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)가 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+App Service에서 [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)에서는 [신뢰 프록시](https://expressjs.com/guide/behind-proxies.html)를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -351,7 +351,7 @@ if (req.secure) {
 
 ## <a name="monitor-with-application-insights"></a>Application Insights로 모니터링
 
-Application Insights를 사용하면 코드를 변경하지 않고도 애플리케이션의 성능, 예외 및 사용 현황을 모니터링할 수 있습니다. App Insights 에이전트를 연결하려면 포털에서 웹앱으로 이동하고 **설정** 아래에서 **Application Insights** 를 선택한 다음 **Application Insights 켜기** 를 선택합니다. 다음으로, 기존 App Insights 리소스를 선택하거나 새 리소스를 만듭니다. 마지막으로 아래쪽에서 **적용** 을 선택합니다. PowerShell을 사용하여 웹앱을 계측하려면 [다음 지침](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)을 참조하세요.
+Application Insights를 사용하면 코드를 변경하지 않고도 애플리케이션의 성능, 예외 및 사용 현황을 모니터링할 수 있습니다. App Insights 에이전트를 연결하려면 포털에서 웹앱으로 이동하고 **설정** 아래에서 **Application Insights** 를 선택한 다음 **Application Insights 켜기** 를 선택합니다. 다음으로, 기존 App Insights 리소스를 선택하거나 새 리소스를 만듭니다. 마지막으로 아래쪽에서 **적용** 을 선택합니다. PowerShell을 사용하여 웹앱을 계측하려면 [다음 지침](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)을 참조하세요.
 
 이 에이전트는 서버 쪽 Node.js 애플리케이션을 모니터링합니다. 클라이언트 쪽 JavaScript를 모니터링하려면 [JavaScript SDK를 프로젝트에 추가](../azure-monitor/app/javascript.md)합니다. 
 
@@ -369,6 +369,23 @@ Application Insights를 사용하면 코드를 변경하지 않고도 애플리�
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.
 - App Service에서 앱을 개발 모드로 실행합니다. 예를 들어 [MEAN.js](https://meanjs.org/)에서는 [`NODE_ENV` 앱 설정을 설정](configure-common.md)하여 런타임 시 앱을 개발 모드로 설정할 수 있습니다.
+
+::: zone pivot="platform-windows"
+
+#### <a name="you-do-not-have-permission-to-view-this-directory-or-page"></a>이 디렉터리 또는 페이지를 볼 수 있는 권한이 없습니다.
+
+Node.js 코드를 App Service의 네이티브 Windows 앱에 배포한 후에는 `You do not have permission to view this directory or page.` 앱의 URL로 이동할 때 브라우저에 메시지가 표시 될 수 있습니다. 이는 *web.config* 파일 ( [템플릿](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) 및 [예제](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config)참조)이 없기 때문일 수 있습니다.
+
+Git을 사용 하 여 파일을 배포 하거나 [빌드 자동화](deploy-zip.md#enable-build-automation-for-zip-deploy)를 사용 하는 ZIP 배포를 사용 하는 경우 배포 엔진은 다음 조건 중 하나에 해당 하는 경우 자동으로 앱의 웹 루트 ()에 *web.config* 를 생성 합니다 `%HOME%\site\wwwroot` .
+
+- 프로젝트 루트에는  `start` JavaScript 파일의 경로를 포함 하는 스크립트를 정의 하는 package가 있습니다.
+- 프로젝트 루트에 *server.js* 또는 *app.js* 있습니다.
+
+생성 된 *web.config* 은 검색 된 시작 스크립트에 맞게 조정 됩니다. 다른 배포 방법의 경우이 *web.config* 를 수동으로 추가 합니다. 파일의 형식이 올바르게 지정 되었는지 확인 합니다. 
+
+예를 들어 Visual Studio Code를 통해 [ZIP 배포](deploy-zip.md) 를 사용 하는 경우 기본적으로 사용 하도록 설정 되어 있지 않기 때문에 [빌드 자동화를 사용 하도록 설정](deploy-zip.md#enable-build-automation-for-zip-deploy) 해야 합니다. [`az webapp up`](/cli/azure/webapp#az_webapp_up) 빌드 자동화를 사용 하는 ZIP 배포를 사용 합니다.
+
+::: zone-end
 
 ::: zone pivot="platform-linux"
 

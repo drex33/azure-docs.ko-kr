@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory를 사용하여 HDFS에서 데이터 복사
+title: HDFS에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 HDFS 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 클라우드 또는 온-프레미스 HDFS 원본에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 8b02fb7fddd64bd9ce7bbc7cd7a64ae6dfef4681
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 8bf95b8f237cbaaa81f520c150154d93fbc0c173
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308348"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831789"
 ---
-# <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS 서버에서 데이터 복사
+# <a name="copy-data-from-the-hdfs-server-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 HDFS 서버에서 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-hdfs-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123308348"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 HDFS(Hadoop 분산 파일 시스템) 서버에서 데이터를 복사하는 방법에 대해 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 HDFS(Hadoop 분산 파일 시스템) 서버에서 데이터를 복사하는 방법에 대해 설명합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -59,7 +59,7 @@ ms.locfileid: "123308348"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -81,13 +81,13 @@ ms.locfileid: "123308348"
 
 HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | *type* 속성은 *Hdfs* 로 설정해야 합니다. | 예 |
 | url |HDFS에 대한 URL |예 |
 | authenticationType | 가능한 값은 *Anonymous* 또는 *Windows* 입니다. <br><br> 온-프레미스 환경을 설정하려면 [HDFS 커넥터에 Kerberos 인증 사용](#use-kerberos-authentication-for-the-hdfs-connector) 섹션을 참조하세요. |예 |
 | userName |Windows 인증에 대한 사용자 이름. Kerberos 인증의 경우 **\<username>@\<domain>.com** 을 지정합니다. |예(Windows 인증에 대한) |
-| password |Windows 인증에 대한 암호. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure 키 자격 증명 모음에 저장된 암호를 참조](store-credentials-in-key-vault.md)합니다. |예(Windows 인증에 대한) |
+| password |Windows 인증에 대한 암호. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(Windows 인증에 대한) |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자세한 내용은 [사전 요구 사항](#prerequisites) 섹션을 참조하세요. 통합 런타임이 지정되지 않은 경우 서비스는 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 **예제: 익명 인증 사용**
@@ -136,13 +136,13 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [Azure Data Factory의 데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. 
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. 
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 형식 기반 데이터 세트의 `location` 설정에서 HDFS에 다음 속성이 지원됩니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location` 아래 *type* 속성은 *HdfsLocation* 으로 설정되어야 합니다. | 예      |
 | folderPath | 파일 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 작업 원본 설정에서 경로를 지정합니다. | 예       |
@@ -176,7 +176,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [Azure Data Factory의 파이프라인 및 작업](concepts-pipelines-activities.md)을 참조하세요. 이 섹션에서는 HDFS 원본에서 지원하는 속성의 목록을 제공합니다.
+활동을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동](concepts-pipelines-activities.md)을 참조 하세요. 이 섹션에서는 HDFS 원본에서 지원하는 속성의 목록을 제공합니다.
 
 ### <a name="hdfs-as-source"></a>원본으로 HDFS
 
@@ -184,7 +184,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 HDFS에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 **HdfsReadSettings** 로 설정되어야 합니다. | 예                                           |
 | ***복사할 파일 찾기*** |  |  |
@@ -203,7 +203,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 | ***DistCp 설정*** |  | |
 | distcpSettings | HDFS DistCp를 사용할 때 사용할 속성 그룹입니다. | 예 |
 | resourceManagerEndpoint | YARN(Yet Another Resource Negotiator) 엔드포인트 | 예(DistCp를 사용하는 경우) |
-| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 Data Factory에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
+| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 생성 되 고 복사 작업이 완료 된 후 제거 됩니다. | 예(DistCp를 사용하는 경우) |
 | distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 예 |
 
 **예:**
@@ -265,7 +265,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 섹션에서는 복사 작업 원본에서 파일 목록 경로를 사용할 때 발생하는 동작을 설명합니다. 원본 폴더 구조가 다음과 같고 굵게 표시된 파일을 복사하려는 것으로 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Azure Data Factory 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트:**<br>- 폴더 경로: `root/FolderA`<br><br>**복사 작업 원본에서는 다음이 해당됩니다.**<br>- 파일 목록 경로: `root/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -273,7 +273,7 @@ HDFS 연결된 서비스에 다음 속성이 지원됩니다.
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html)는 Hadoop 클러스터에 분산된 복사를 수행하는 Hadoop 네이티브 명령줄 도구입니다. DistCp에서 명령을 실행하면 먼저 복사할 모든 파일을 나열하고 Hadoop 클러스터에서 여러 맵 작업을 만들며 각 맵 작업은 원본에서 싱크로 이진 복사를 수행합니다.
 
-복사 작업은 DistCp를 사용하여 Azure Blob Storage([준비된 복사](copy-activity-performance.md) 포함) 또는 Azure Data Lake Store에 있는 그대로 파일을 복사하도록 지원합니다. 이 경우 DistCp는 자체 호스팅 통합 런타임에서 실행되는 대신 클러스터의 기능을 활용할 수 있습니다. DistCp를 사용하면 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 구성하고 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링합니다.
+복사 작업은 DistCp를 사용하여 Azure Blob Storage([준비된 복사](copy-activity-performance.md) 포함) 또는 Azure Data Lake Store에 있는 그대로 파일을 복사하도록 지원합니다. 이 경우 DistCp는 자체 호스팅 통합 런타임에서 실행되는 대신 클러스터의 기능을 활용할 수 있습니다. DistCp를 사용하면 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. 구성에 따라 복사 작업 자동으로 DistCp 명령을 생성하고, Hadoop 클러스터에 제출하고, 복사 상태를 모니터링합니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
@@ -339,7 +339,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 **KDC 서버에서 다음을 수행합니다.**
 
-사용할 Azure Data Factory의 보안 주체를 만들고 암호를 지정합니다.
+보안 주체를 만들고 암호를 지정합니다.
 
 > [!IMPORTANT]
 > 사용자 이름에는 호스트 이름을 포함하면 안 됩니다.
@@ -370,7 +370,7 @@ Kadmin> addprinc <username>@<REALM.COM>
         kdc = <your_kdc_server_address>
     ```
 
-**데이터 팩터리:**
+**데이터 팩터리 또는 Synapse 작업 영역에서 다음을 수행합니다.**
 
 * HDFS 데이터 원본에 연결하는 Kerberos 주체 이름 및 암호와 Windows 인증을 함께 사용하여 HDFS 커넥터를 구성합니다. 구성 세부 정보에서 [HDFS 연결된 서비스 속성](#linked-service-properties)을 확인합니다.
 
@@ -459,7 +459,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     다. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택합니다. 모든 옵션을 선택할 수 있습니다.
 
-    !["네트워크 보안: Kerberos에 허용된 암호화 유형 구성" 창의 스크린샷](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    :::image type="content" source="media/connector-hdfs/config-encryption-types-for-kerberos.png" alt-text="&quot;네트워크 보안의 스크린샷: Kerberos 창에 대해 허용 되는 암호화 유형 구성 &quot;":::
 
     d. `Ksetup` 명령을 사용하여 특정 영역에서 사용할 암호화 알고리즘을 지정합니다.
 
@@ -477,7 +477,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     d. 영역에서 보안 주체를 추가합니다.
 
-       !["보안 ID 매핑" 창](media/connector-hdfs/map-security-identity.png)
+       :::image type="content" source="media/connector-hdfs/map-security-identity.png" alt-text="&quot;보안 Id 매핑 &quot; 창의 스크린샷":::
 
 **자체 호스팅 Integration Runtime 컴퓨터에서:**
 
@@ -488,26 +488,26 @@ Kadmin> addprinc <username>@<REALM.COM>
    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
-**데이터 팩터리:**
+**Data factory 또는 Synapse 작업 영역에서 다음을 수행 합니다.**
 
 * HDFS 데이터 원본에 연결하는 도메인 계정 또는 Kerberos 주체와 Windows 인증을 함께 사용하여 HDFS 커넥터를 구성합니다. 구성 세부 정보에서 [HDFS 연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-조회 작업 속성에 대한 자세한 내용은 [Azure Data Factory의 조회 작업](control-flow-lookup-activity.md)을 참조하세요.
+조회 작업 속성에 대한 자세한 내용은 [조회 작업](control-flow-lookup-activity.md)을 참조하세요.
 
 ## <a name="delete-activity-properties"></a>삭제 작업 속성
 
-삭제 작업 속성에 대한 자세한 내용은 [Azure Data Factory의 삭제 작업](delete-activity.md)을 참조하세요.
+삭제 작업 속성에 대한 자세한 내용은 [삭제 작업](delete-activity.md)을 참조하세요.
 
 ## <a name="legacy-models"></a>레거시 모델
 
 >[!NOTE]
->다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. Azure Data Factory 작성 UI가 새 모델을 생성하도록 전환되었으므로 앞에서 설명한 새 모델을 사용하는 것이 좋습니다.
+>다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 작성 UI가 새 모델을 생성하도록 전환되었으므로 앞에서 설명한 새 모델을 사용하는 것이 좋습니다.
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 *type* 속성을 *FileShare* 로 설정해야 합니다. |예 |
 | folderPath | 파일 경로입니다. 와일드카드 필터가 지원됩니다. 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0~1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -552,13 +552,13 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 *type* 속성을 *HdfsSource* 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 *true* 로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 *true*(기본값) 및 *false* 입니다. | 예 |
 | distcpSettings | HDFS DistCp를 사용하는 경우의 속성 그룹입니다. | 예 |
 | resourceManagerEndpoint | YARN Resource Manager 엔드포인트 | 예(DistCp를 사용하는 경우) |
-| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 Data Factory에 의해 생성되고 복사 작업을 완료한 후에 제거됩니다. | 예(DistCp를 사용하는 경우) |
+| tempScriptPath | 임시 DistCp 명령 스크립트를 저장하는 데 사용되는 폴더 경로입니다. 스크립트 파일이 생성 되 고 복사 작업이 완료 된 후 제거 됩니다. | 예(DistCp를 사용하는 경우) |
 | distcpOptions | DistCp 명령에 제공된 추가 옵션입니다. | 예 |
 | maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
@@ -576,4 +576,4 @@ Kadmin> addprinc <username>@<REALM.COM>
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

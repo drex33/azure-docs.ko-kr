@@ -8,12 +8,12 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: faa4c57a4fc5e75d0e6262833c27833e9069fb30
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 9def9f39e28851498c7bf87d5b6b2e7d0a26f2c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568077"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599414"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
@@ -157,16 +157,16 @@ Spring Boot 버전 | Spring Cloud 버전
 > - Spring Boot를 2.5.2 또는 2.4.8로 업그레이드하여 CVE 보고서 [CVE-2021-22119: spring-security-oauth2-client를 사용한 서비스 거부 공격](https://tanzu.vmware.com/security/cve-2021-22119)을 해결하세요. Spring Security를 ​​사용하는 경우 5.5.1, 5.4.7, 5.3.10 또는 5.2.11로 업그레이드하세요.
 > - 앱과 Spring Cloud Service Registry 간의 TLS 인증을 통해 Spring Boot 2.4.0에서 문제가 확인되었습니다. 2.4.1 이상을 사용하세요. 2\.4.0을 계속 사용하는 경우 해결 방법은 [FAQ](./faq.md?pivots=programming-language-java#development)를 참조하세요.
 
-### <a name="dependencies-for-spring-boot-version-2223"></a>Spring Boot 버전 2.2/2.3에 대한 종속성
+### <a name="dependencies-for-spring-boot-version-23"></a>스프링 부팅 버전 2.3에 대 한 종속성
 
-Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
+스프링 부팅 버전 2.3의 경우 응용 프로그램 POM 파일에 다음 종속성을 추가 합니다.
 
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.3.4.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -183,9 +183,9 @@ Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-24"></a>Spring Boot 버전 2.4에 대한 종속성
+### <a name="dependencies-for-spring-boot-version-2425"></a>스프링 부팅 버전 2.4/2.5에 대 한 종속성
 
-Spring Boot 버전 2.2의 경우, 애플리케이션 POM 파일에 다음 종속성을 추가합니다.
+스프링 부팅 버전 2.4/2.5의 경우 응용 프로그램 POM 파일에 다음 종속성을 추가 합니다.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -292,41 +292,10 @@ public class GatewayApplication {
  > [!WARNING]
  > 구성 속성에서 `spring.jmx.enabled=true`로 지정하십시오. 그러지 않으면 Azure Portal에서 메트릭을 시각화할 수 없습니다.
 
-### <a name="distributed-tracing"></a>분산 추적
-
-또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [분산 추적에 대한 설명서](./how-to-distributed-tracing.md)를 참조하세요.
-
-#### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
-
-pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-sleuth</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-zipkin</artifactId>
-</dependency>
-```
-
-#### <a name="spring-boot-24"></a>Spring Boot 2.4
-
-*pom.xml* 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속성을 포함합니다.
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-</dependency>
-```
-
 ## <a name="see-also"></a>참고 항목
 
 * [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)
 * [구성 서버 설정](./how-to-config-server.md)
-* [Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)
 * [Spring 빠른 시작 가이드](https://spring.io/quickstart)
 * [Spring Boot 설명서](https://spring.io/projects/spring-boot)
 

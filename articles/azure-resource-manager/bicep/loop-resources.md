@@ -4,13 +4,13 @@ description: Bicep 파일의 루프 및 배열을 사용하여 여러 리소스 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 1b044b4ae3f5d73ad535d44153ea3d47023aeaaa
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225309"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662099"
 ---
 # <a name="resource-iteration-in-bicep"></a>Bicep의 리소스 반복
 
@@ -19,6 +19,10 @@ ms.locfileid: "123225309"
 [모듈](loop-modules.md), [속성](loop-properties.md), [변수](loop-variables.md) 및 [출력](loop-outputs.md)과 함께 루프를 사용할 수도 있습니다.
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+루프 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,7 +36,7 @@ ms.locfileid: "123225309"
   }]
   ```
 
-  자세한 내용은 [루프 인덱스](#loop-index)를 참조하세요.
+  자세한 정보는 [루프 인덱스](#loop-index)를 참조하세요.
 
 - 배열 반복.
 
@@ -42,7 +46,7 @@ ms.locfileid: "123225309"
   }]
   ```
 
-  자세한 내용은 [루프 배열](#loop-array)를 참조하세요.
+  자세한 내용은 [루프 배열](#loop-array)을 참조하세요.
 
 - 배열과 인덱스를 반복합니다.
 
@@ -52,11 +56,15 @@ ms.locfileid: "123225309"
   }]
   ```
 
-  자세한 내용은 [루프 배열 및 인덱스](#loop-array-and-index)를 참조하세요.
+  자세한 정보는 [루프 배열 및 인덱스](#loop-array-and-index)를 참조하세요.
 
 ## <a name="loop-limits"></a>루프 한계
 
-Bicep 파일의 루프 반복은 음수일 수 없으며 800회 반복을 초과할 수 없습니다.
+Bicep 루프에는 다음과 같은 제한이 있습니다.
+
+- 중첩된 자식 리소스가 있는 리소스를 반복할 수 없습니다. 자식 리소스를 최상위 리소스로 변경해야 합니다.  [자식 리소스에 대한 반복을](#iteration-for-a-child-resource)참조하세요.
+- 여러 수준의 속성을 반복할 수 없습니다. [Bicep의 속성 반복을](./loop-properties.md)참조하세요.
+- 루프 반복은 음수이거나 800회 반복을 초과할 수 없습니다.
 
 ## <a name="loop-index"></a>루프 인덱스
 
@@ -165,7 +173,7 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 
 ## <a name="deploy-in-batches"></a>일괄 배포
 
-기본적으로 Resource Manager는 병렬로 리소스를 만듭니다. 루프를 사용하여 한 리소스 종류의 여러 인스턴스를 만드는 경우 해당 인스턴스는 모두 동시에 배포됩니다. 생성되는 순서는 정해져 있지 않습니다. Bicep 파일에서 총 리소스 제한이 800개라는 점을 제외하고 병렬로 배포되는 리소스의 수에는 제한이 없습니다.
+기본값으로 Resource Manager는 병렬로 리소스를 만듭니다. 루프를 사용하여 한 리소스 종류의 여러 인스턴스를 만드는 경우 해당 인스턴스는 모두 동시에 배포됩니다. 생성되는 순서는 정해져 있지 않습니다. Bicep 파일에서 총 리소스 제한이 800개라는 점을 제외하고 병렬로 배포되는 리소스의 수에는 제한이 없습니다.
 
 한 리소스 종류의 모든 인스턴스를 동시에 업데이트하려고 하지는 않을 수 있습니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다. 일괄 처리할 인스턴스의 하위 집합을 지정하고 동시에 배포할 수 있습니다. 다른 인스턴스는 해당 일괄 처리가 완료되기를 기다립니다.
 

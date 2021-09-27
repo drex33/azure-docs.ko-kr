@@ -1,7 +1,7 @@
 ---
-title: Azure Data Factory를 사용하여 Azure Machine Learning 스튜디오(클래식) 모델 업데이트
+title: Azure Machine Learning Studio(클래식) 모델 업데이트
+description: Azure Data Factory 또는 Synapse Analytics Azure Machine Learning Studio(클래식)를 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Azure Machine Learning 스튜디오(클래식)를 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -9,30 +9,30 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.openlocfilehash: 0afbd758022805735231b415e0e06643722488cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 2d8db7d24ac11d4024a990a201086633133aeb89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642503"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769582"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 스튜디오(클래식) 모델 업데이트
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서는 주요 Azure Data Factory - Azure Machine Learning 스튜디오(클래식) 통합 문서인 [Azure Machine Learning 스튜디오(클래식) 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
+이 문서에서는 기본 Azure Machine Learning Studio(클래식) 통합 문서인 [Azure Machine Learning Studio(클래식)를 사용하여 예측 파이프라인 만들기를 보완합니다.](transform-data-using-machine-learning.md) 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
 
 ## <a name="overview"></a>개요
 Azure Machine Learning 스튜디오(클래식) 모델을 조작하는 프로세스의 일부로 모델을 학습하고 저장합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
 
 Azure Machine Learning 스튜디오(클래식)를 사용하여 만드는 모델은 일반적으로 정적이 아닙니다. 새 데이터를 사용할 수 있는 경우 또는 API 소비자가 자체적인 데이터를 가진 경우 모델을 재학습해야 합니다. 
 
-재학습은 자주 발생할 수 있습니다. 일괄 처리 실행 작업 및 리소스 업데이트 작업을 사용하면 Azure Machine Learning 스튜디오(클래식) 모델을 조작하여 Data Factory를 통해 예측 웹 서비스를 다시 학습하고 업데이트할 수 있습니다.
+재학습은 자주 발생할 수 있습니다. Batch Execution 작업 및 리소스 업데이트 활동을 사용하면 예측 웹 서비스를 재학습하고 업데이트하는 Azure Machine Learning Studio(클래식) 모델을 운영할 수 있습니다.
 
 다음 그림에서는 학습 및 예측 웹 서비스 간의 관계를 보여 줍니다.
 
-![웹 서비스](./media/update-machine-learning-models/web-services.png)
+:::image type="content" source="./media/update-machine-learning-models/web-services.png" alt-text="웹 서비스":::
 
 ## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Azure Machine Learning 스튜디오(클래식) 업데이트 리소스 작업
 
@@ -72,14 +72,14 @@ Azure Machine Learning 스튜디오(클래식)를 사용하여 만드는 모델�
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
-- **일괄 처리 실행 작업** 을 사용하여 **학습 웹 서비스** 를 호출합니다. 학습 웹 서비스를 호출하는 것은 [Azure Machine Learning 스튜디오(클래식) 및 Data Factory 일괄 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에 설명된 예측 웹 서비스를 호출하는 것과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트하는 데 사용할 수 있는 iLearner 파일입니다.
+- **일괄 처리 실행 작업** 을 사용하여 **학습 웹 서비스** 를 호출합니다. 학습 웹 서비스를 호출하는 것은 [Azure Machine Learning Studio(클래식) 및 Batch Execution 작업 사용하여 예측 파이프라인 만들기에](transform-data-using-machine-learning.md)설명된 예측 웹 서비스를 호출하는 것과 같습니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트하는 데 사용할 수 있는 iLearner 파일입니다.
 - **리소스 업데이트 작업** 을 통해 **예측 웹 서비스** 의 **리소스 업데이트 엔드포인트** 를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning 스튜디오(클래식) 연결된 서비스
 
 위에서 언급한 엔드투엔드 워크플로가 작동하려면 두 개의 Azure Machine Learning 스튜디오(클래식)에 연결된 서비스를 만들어야 합니다.
 
-1. 교육 웹 서비스에 대한 Azure Machine Learning 스튜디오(클래식)에 연결된 서비스입니다. 이 연결된 서비스는 [Azure Machine Learning 스튜디오(클래식) 및 Data Factory를 사용하여 예측 파이프라인 만들기에 언급된 것과 동일한 방식으로 일괄 실행 작업에서 사용됩니다](transform-data-using-machine-learning.md). 차이점은 학습 웹 서비스의 출력이 리소스 업데이트 작업에서 예측 웹 서비스를 업데이트하는 데 사용하는 iLearner 파일이라는 것입니다.
+1. 학습 웹 서비스에 Azure Machine Learning Studio(클래식) 연결된 서비스인 이 연결된 서비스는 Batch Execution 작업 Azure Machine Learning [Studio(클래식) 및 Batch Execution 작업 사용하여 예측 파이프라인 만들기에서](transform-data-using-machine-learning.md)설명한 것과 동일한 방식으로 사용됩니다. 차이점은 학습 웹 서비스의 출력이 리소스 업데이트 작업에서 예측 웹 서비스를 업데이트하는 데 사용하는 iLearner 파일이라는 것입니다.
 2. 예측 웹 서비스의 리소스 업데이트 엔드포인트에 대한 Azure Machine Learning 스튜디오(클래식) 연결된 서비스. 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다.
 
 두 번째 Azure Machine Learning 스튜디오(클래식) 연결된 서비스의 경우, Azure Machine Learning 스튜디오(클래식) 웹 서비스가 기본 웹 서비스 또는 새 웹 서비스일 때 구성이 다릅니다. 차이점은 다음 섹션에서 별도로 설명합니다.
@@ -126,7 +126,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 }
 ```
 
-다음 시나리오는 보다 자세한 내용을 제공합니다. Azure Data Factory 파이프라인에서 Azure Machine Learning 스튜디오(클래식)를 재학습 및 업데이트하는 예제가 있습니다.
+다음 시나리오는 보다 자세한 내용을 제공합니다. 파이프라인에서 Azure Machine Learning Studio(클래식) 모델을 재학습하고 업데이트하는 예제가 있습니다.
 
 
 ## <a name="sample-retraining-and-updating-an-azure-machine-learning-studio-classic-model"></a>샘플: Azure Machine Learning 스튜디오(클래식) 모델 다시 교육 및 업데이트
@@ -175,7 +175,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 2. 웹 서비스 목록에서 **학습 웹 서비스** 를 클릭합니다.
 3. **API 키** 텍스트 상자 옆의 복사를 클릭합니다. 클립보드의 키를 Data Factory JSON 편집기에 붙여넣습니다.
 4. **Azure Machine Learning 스튜디오(클래식)** 에서 **일괄 실행** 링크를 클릭합니다.
-5. **요청** 섹션에서 **요청 URI** 를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.
+5. 요청 **섹션에서** **요청 URI를** 복사하여 JSON 편집기로 붙여넣습니다.
 
 ### <a name="linked-service-for-azure-machine-learning-studio-classic-updatable-scoring-endpoint"></a>Azure Machine Learning 스튜디오(클래식) 업데이트 가능한 채점 엔드포인트에 대한 연결된 서비스:
 다음 JSON 코드 조각에서는 점수 매기기 웹 서비스의 업데이트 가능한 엔드포인트를 가리키는 Azure Machine Learning 스튜디오(클래식) 연결된 서비스를 정의합니다.

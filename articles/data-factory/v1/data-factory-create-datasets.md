@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 78e0973cd4e187f819332e23ead056f57d4cd378
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766936"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653062"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Azure Data Factory의 데이터 세트(버전 1)
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -38,7 +39,7 @@ ms.locfileid: "108766936"
 
 다음 다이어그램에서는 Data Factory의 파이프라인, 활동, 데이터 세트 및 연결된 서비스 간의 관계를 보여 줍니다.
 
-![파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/data-factory-create-datasets/relationship-between-data-factory-entities.png" alt-text="파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계":::
 
 ## <a name="dataset-json"></a>데이터 세트 JSON
 Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩니다.

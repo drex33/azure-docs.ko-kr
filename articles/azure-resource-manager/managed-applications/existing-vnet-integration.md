@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
-ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0f35e12b62b0efd9f79f83a1832c317d7eabe99b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648338"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Azure Managed Application에서 기존 가상 네트워크 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "84260686"
 
 ## <a name="main-template"></a>기본 템플릿
 
-먼저 **mainTemplate.json** 파일을 살펴보겠습니다. 가상 머신 및 관련 리소스를 배포하기 위한 전체 템플릿은 다음과 같습니다. 나중에 기존 가상 네트워크 사용과 관련된 템플릿 부분을 좀더 자세히 살펴보겠습니다.
+먼저 _mainTemplate.json_ 파일을 살펴보겠습니다. 가상 머신 및 관련 리소스를 배포하기 위한 전체 템플릿은 다음과 같습니다. 나중에 기존 가상 네트워크 사용과 관련된 템플릿 부분을 좀더 자세히 살펴보겠습니다.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +38,7 @@ ms.locfileid: "84260686"
 
 ## <a name="ui-definition"></a>UI 정의
 
-이제 **createUiDefinition.json** 파일을 살펴보겠습니다. 전체 파일은 다음과 같습니다.
+이제 _createUiDefinition.json_ 파일을 살펴보겠습니다. 전체 파일은 다음과 같습니다.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 

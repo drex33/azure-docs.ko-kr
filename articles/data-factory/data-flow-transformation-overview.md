@@ -8,17 +8,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: f16c323f861c5d105cb7761c33f6457df54c355c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 393e6dbc0f30e4a541408119db6f606f24023d5d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642951"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059742"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 다음은 현재 매핑 데이터 흐름에서 지원되는 변환 목록입니다. 각 변환을 클릭하여 구성 세부 정보를 알아보세요.
 

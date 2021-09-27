@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.openlocfilehash: cd231c63235436c70590d7334236474c4ebf791a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530922"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815358"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -57,5 +57,4 @@ Cloud Foundry는 연속 통합(CI) 및 지속적인 업데이트(CD) 사용을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Marketplace에서 Pivotal Cloud Foundry 배포](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 - [Azure에서 Cloud Foundry에 앱 배포](./cloudfoundry-deploy-your-first-app.md)

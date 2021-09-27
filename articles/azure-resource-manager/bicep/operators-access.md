@@ -4,13 +4,13 @@ description: Bicep 리소스 액세스 연산자 및 속성 액세스 연산자�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: b5eebb9b5dd6d39ae790b8fda7133e94ecd0cdb5
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: f3ed1ca46c2dfbcab8bfbdc720ff7ab448cbc742
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224282"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744453"
 ---
 # <a name="bicep-accessor-operators"></a>Bicep 접근자 연산자
 
@@ -25,11 +25,15 @@ ms.locfileid: "123224282"
 
 ## <a name="index-accessor"></a>인덱스 접근자
 
-`array[index]`
+`array[integerIndex]`
 
-`object['index']`
+`object['stringIndex']`
 
-배열의 요소를 가져오려면 `[index]`를 사용하고 인덱스에 정수를 제공합니다.
+인덱스 접근자를 사용 하 여 배열의 요소 또는 개체의 속성을 가져옵니다.
+
+**배열의** 경우 인덱스를 **정수로** 제공 합니다. 정수는 검색할 요소의 0부터 시작 하는 위치와 일치 합니다.
+
+**개체** 의 경우 인덱스를 **문자열로** 제공 합니다. 문자열은 검색할 개체의 이름과 일치 합니다.
 
 다음 예제에서는 배열의 요소를 가져옵니다.
 
@@ -49,7 +53,7 @@ output accessorResult string = arrayVar[1]
 | ---- | ---- | ---- |
 | accessorResult | 문자열 | 'Contoso' |
 
-인덱스 접근자를 사용하여 이름을 기준으로 개체 속성을 가져올 수도 있습니다. 인덱스에 정수가 아닌 문자열을 사용해야 합니다. 다음 예제에서는 개체에 대한 속성을 가져옵니다.
+다음 예제에서는 개체에 대 한 속성을 가져옵니다.
 
 ```bicep
 var environmentSettings = {
@@ -163,7 +167,7 @@ output outputQ int = x.q
 | Name | 유형 | 값 |
 | ---- | ---- | ---- |
 | `outputZ` | 문자열 | 'Hello' |
-| `outputQ` | 정수 | 42 |
+| `outputQ` | integer | 42 |
 
 일반적으로 Bicep 파일에 배포된 리소스에 속성 접근자를 사용합니다. 다음 예제에서는 공용 IP 주소를 만들고 속성 접근자를 사용하여 배포된 리소스에서 값을 반환합니다.
 

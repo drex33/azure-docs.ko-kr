@@ -6,16 +6,16 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
-ms.openlocfilehash: c9c489ab15f7b6a44e4aadeef8cd98b0d935e1ba
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 63c4a4b53889f2c762b7c1dadffe432cd7383b4c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821647"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758051"
 ---
 # <a name="set-variable-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics 변수 작업 설정
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ Data Factory 또는 Synapse 파이프라인에서 정의된 String, Bool 또는 
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요
@@ -38,7 +38,7 @@ variableName | 이 작업에 의해 설정된 변수의 이름 | 예
 
 이 패턴의 예는 다음과 같습니다.
 
-![변수 증가](media/control-flow-set-variable-activity/increment-variable.png "변수 증가")
+:::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="변수 증가":::
 
 ``` json
 {

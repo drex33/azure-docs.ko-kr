@@ -1,14 +1,14 @@
 ---
 title: Defender for IoT 설치
 description: Azure Defender for IoT용 센서 및 온-프레미스 관리 콘솔을 설치하는 방법을 알아봅니다.
-ms.date: 06/21/2021
+ms.date: 09/23/2021
 ms.topic: how-to
-ms.openlocfilehash: 5cd5bf569f1e27d66a5fb14d4f580d6842313419
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 88c8b75d7ba466a96559d265a16ddd8959b00a42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529573"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628713"
 ---
 # <a name="defender-for-iot-installation"></a>Defender for IoT 설치
 
@@ -20,15 +20,15 @@ ms.locfileid: "122529573"
 
 이 문서에서는 다음 설치 정보에 대해 설명합니다.
 
-  - **하드웨어:** Dell 및 HPE 물리적 어플라이언스 세부 정보.
+- **하드웨어:** Dell 및 HPE 물리적 어플라이언스 세부 정보.
 
-  - **소프트웨어:** 센서 및 온-프레미스 관리 콘솔 소프트웨어 설치.
+- **소프트웨어:** 센서 및 온-프레미스 관리 콘솔 소프트웨어 설치.
 
-  - **가상 어플라이언스:** 가상 머신 세부 정보 및 소프트웨어 설치.
+- **가상 어플라이언스:** 가상 머신 세부 정보 및 소프트웨어 설치.
 
 설치 후 센서를 네트워크에 연결합니다.
 
-## <a name="about-defender-for-iot-appliances"></a>Defender for IoT 어플라이언스 정보 
+## <a name="about-defender-for-iot-appliances"></a>Defender for IoT 어플라이언스 정보
 
 다음 섹션에서는 Defender for IoT 센서 어플라이언스 및 Defender for IoT 온-프레미스 관리 콘솔용 어플라이언스에 대한 정보를 제공합니다.
 
@@ -62,7 +62,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 ### <a name="hardware-specifications-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에 대한 하드웨어 사양
 
- | 항목 | 설명 |
+ | 항목 | Description |
  |----|--|
  **설명** | 다중 계층 아키텍처에서 온-프레미스 관리 콘솔은 지리적으로 분산된 사이트에 대한 표시 여부 및 제어 능력을 제공합니다. SIEM, 티켓 시스템, 차세대 방화벽, 보안 원격 액세스 플랫폼, Defender for IoT ICS 맬웨어 샌드박스를 비롯하여 SOC 보안 스택과 통합됩니다. |
  **배포 유형** | Enterprise |
@@ -99,11 +99,11 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 설치하기 전에 다음이 있는지 확인합니다.
 
-  - Rufus가 설치되어 있습니다.
+- Rufus가 설치되어 있습니다.
   
-  - USB 버전 3.0 이상을 사용하는 키에 대한 디스크. 최소 크기는 4GB입니다.
+- USB 버전 3.0 이상을 사용하는 키에 대한 디스크. 최소 크기는 4GB입니다.
 
-  - ISO 설치 관리자 이미지 파일.
+- ISO 설치 관리자 이미지 파일.
 
 키에 대한 디스크는 이 프로세스에서 지워집니다.
 
@@ -119,13 +119,13 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 Dell 어플라이언스에 소프트웨어를 설치하기 전에 어플라이언스의 BIOS 구성을 조정해야 합니다.
 
-  - [Dell PowerEdge R340 전면 패널](#dell-poweredge-r340-front-panel) 및 [Dell PowerEdge R340 후면 패널](#dell-poweredge-r340-back-panel)에는 드라이버 및 포트와 같은 설치에 필요한 정보와 함께 전면 및 후면 패널에 대한 설명이 포함되어 있습니다.
+- [Dell PowerEdge R340 전면 패널](#dell-poweredge-r340-front-panel) 및 [Dell PowerEdge R340 후면 패널](#dell-poweredge-r340-back-panel)에는 드라이버 및 포트와 같은 설치에 필요한 정보와 함께 전면 및 후면 패널에 대한 설명이 포함되어 있습니다.
 
-  - [Dell BIOS 구성](#dell-bios-configuration)은 Dell 어플라이언스 관리 인터페이스에 연결하고 BIOS를 구성하는 방법에 대한 정보를 제공합니다.
+- [Dell BIOS 구성](#dell-bios-configuration)은 Dell 어플라이언스 관리 인터페이스에 연결하고 BIOS를 구성하는 방법에 대한 정보를 제공합니다.
 
-  - [소프트웨어 설치(Dell R340)](#software-installation-dell-r340)는 Defender for IoT 센서 소프트웨어를 설치하는 데 필요한 절차를 설명합니다.
+- [소프트웨어 설치(Dell R340)](#software-installation-dell-r340)는 Defender for IoT 센서 소프트웨어를 설치하는 데 필요한 절차를 설명합니다.
 
-### <a name="dell-poweredge-r340xl-requirements"></a>Dell PowerEdge R340XL 요구 사항 
+### <a name="dell-poweredge-r340xl-requirements"></a>Dell PowerEdge R340XL 요구 사항
 
 Dell PowerEdge R340XL 어플라이언스를 설치하려면 다음이 필요합니다.
 
@@ -143,36 +143,32 @@ Dell PowerEdge R340XL 어플라이언스를 설치하려면 다음이 필요합�
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 전면 패널.":::
 
- 1. 왼쪽 제어판 
- 1. 광학 드라이브(선택 사항) 
- 1. 오른쪽 제어판 
- 1. 정보 태그 
+ 1. 왼쪽 제어판
+ 1. 광학 드라이브(선택 사항)
+ 1. 오른쪽 제어판
+ 1. 정보 태그
  1. 드라이브  
 
 ### <a name="dell-poweredge-r340-back-panel"></a>Dell PowerEdge R340 후면 패널
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 후면 패널.":::
 
-1. 직렬 포트 
-1. NIC 포트(Gb 1) 
-1. NIC 포트(Gb 1) 
-1. 절반 높이 PCIe 
-1. 전체 높이 PCIe 확장 카드 슬롯 
-1. 전원 공급 장치 1 
-1. 전원 공급 장치 2 
-1. 시스템 ID 
-1. 시스템 상태 표시기 케이블 포트(CMA) 단추 
-1. USB 3.0 포트(2) 
-1. iDRAC9 전용 네트워크 포트 
-1. VGA 포트 
+1. 직렬 포트
+1. NIC 포트(Gb 1)
+1. NIC 포트(Gb 1)
+1. 절반 높이 PCIe
+1. 전체 높이 PCIe 확장 카드 슬롯
+1. 전원 공급 장치 1
+1. 전원 공급 장치 2
+1. 시스템 ID
+1. 시스템 상태 표시기 케이블 포트(CMA) 단추
+1. USB 3.0 포트(2)
+1. iDRAC9 전용 네트워크 포트
+1. VGA 포트
 
 ### <a name="dell-bios-configuration"></a>Dell BIOS 구성
 
 소프트웨어를 사용하기 위해 Dell 어플라이언스를 조정하려면 Dell BIOS 구성이 필요합니다.
-
-BIOS 구성은 미리 정의된 구성을 통해 수행됩니다. [도움말 센터](https://cyberx-labs.zendesk.com/hc/)에서 파일에 액세스할 수 있습니다.
-
-Dell 어플라이언스로 구성 파일을 가져옵니다. 구성 파일을 사용하기 전에 Dell 어플라이언스와 관리 컴퓨터 간의 통신을 설정해야 합니다.
 
 Dell 어플라이언스는 LC(수명 주기 컨트롤러)와 통합된 iDRAC에서 관리합니다. LC는 모든 Dell PowerEdge 서버에 포함되어 있으며, Dell PowerEdge 어플라이언스를 배포, 업데이트, 모니터링, 유지 관리하는 데 도움이 되는 기능을 제공합니다.
 
@@ -180,11 +176,11 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 연결이 설정되면 BIOS를 구성할 수 있습니다.
 
-Dell BIOS를 구성하려면 다음을 수행합니다.
+**Dell BIOS를 구성하려면:**
 
 1. [iDRAC IP 주소 구성](#configure-idrac-ip-address)
 
-1. [BIOS 구성 파일 가져오기](#import-the-bios-configuration-file)
+1. [BIOS 구성](#configuring-the-bios)
 
 #### <a name="configure-idrac-ip-address"></a>iDRAC IP 주소 구성
 
@@ -207,55 +203,9 @@ Dell BIOS를 구성하려면 다음을 수행합니다.
 
 1. **뒤로** > **마침** 을 선택합니다.
 
-#### <a name="import-the-bios-configuration-file"></a>BIOS 구성 파일 가져오기
+#### <a name="configuring-the-bios"></a>BIOS 구성
 
-이 섹션에서는 구성 파일을 사용하여 BIOS를 구성하는 방법을 설명합니다.
-
-1. 미리 구성된 고정 IP 주소 **10.100.100.200** 을 사용하여 PC를 **iDRAC** 포트에 연결합니다.
-
-   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="미리 구성된 IP 주소 포트의 스크린샷.":::
-
-1. 브라우저를 열고 **10.100.100.250** 을 입력하여 iDRAC 웹 인터페이스에 연결합니다.
-
-1. Dell 기본 관리자 권한으로 로그인합니다.
-
-   - 사용자 이름: **root**
-
-   - 암호: **calvin**
-
-1. 어플라이언스의 자격 증명은 다음과 같습니다.
-
-   - 사용자 이름: **XXX**
-
-   - 암호: **XXX**
-
-     서버 프로필 가져오기 작업이 시작됩니다.
-
-     > [!NOTE]
-     > 파일을 가져오기 전에 다음을 확인합니다.
-     > - 현재 iDRAC에 연결된 유일한 사용자입니다.
-     > - 시스템이 BIOS 메뉴에 없습니다.
-
-1. **구성** > **서버 구성 프로필** 로 이동합니다. 다음 매개 변수를 설정합니다.
-
-   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="서버 프로필의 구성을 보여 주는 스크린샷.":::
-
-   | 매개 변수 | 구성 |
-   |--|--|
-   | 위치 유형 | **로컬** 을 선택합니다. |
-   | 파일 경로 | **파일 선택** 을 선택하고 구성 XML 파일을 추가합니다. |
-   | 구성 요소 가져오기 | **BIOS, NIC, RAID** 를 선택합니다. |
-   | 최대 대기 시간 | **20분** 을 선택합니다. |
-
-1. **가져오기** 를 선택합니다.
-
-1. 프로세스를 모니터링하려면 **유지 관리** > **작업 큐** 로 이동합니다.
-
-   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="작업 큐를 보여 주는 스크린샷.":::
-
-#### <a name="manually-configuring-bios"></a>수동으로 BIOS 구성 
-
-다음과 같은 경우에는 어플라이언스 BIOS를 수동으로 구성해야 합니다.
+다음과 같은 경우 어플라이언스 BIOS를 구성해야 합니다.
 
 - 화살표를 통해 어플라이언스를 구입하지 않았습니다.
 
@@ -263,9 +213,9 @@ Dell BIOS를 구성하려면 다음을 수행합니다.
 
 BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
-수동으로 구성하려면 다음을 수행합니다.
+**BIOS를 구성하려면:**
 
-1. 키보드 및 화면을 사용하여 직접 어플라이언스 BIOS에 액세스하거나 iDRAC을 사용합니다.
+1. 키보드 및 화면을 사용하여 어플라이언스의 BIOS에 직접 액세스하거나 iDRAC를 사용합니다.
 
    - 어플라이언스가 Defender for IoT 어플라이언스가 아닌 경우 브라우저를 열고 이전에 구성한 IP 주소로 이동합니다. Dell 기본 관리자 권한으로 로그인합니다. 사용자 이름에 **root** 를 사용하고 암호에 **calvin** 을 사용합니다.
 
@@ -327,11 +277,11 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 1. **SENSOR-RELEASE-\<version\> Enterprise** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="센서 버전 및 엔터프라이즈 유형을 선택합니다.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="센서 버전 및 엔터프라이즈 유형을 선택합니다.":::
 
 1. 어플라이언스 프로필 및 네트워크 속성을 정의합니다.
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="어플라이언스 프로필 및 네트워크 속성을 보여 주는 스크린샷.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="어플라이언스 프로필 및 네트워크 속성을 보여 주는 스크린샷.":::
 
    | 매개 변수 | 구성 |
    |--|--|
@@ -355,16 +305,16 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 이 섹션에서는 다음 단계를 포함하여 HPE ProLiant DL20 설치 프로세스에 대해 설명합니다.
 
-  - 원격 액세스를 사용하도록 설정하고 기본 관리자 암호를 업데이트합니다.
-  - BIOS 및 RAID 설정을 구성합니다.
-  - 소프트웨어를 설치합니다.
+- 원격 액세스를 사용하도록 설정하고 기본 관리자 암호를 업데이트합니다.
+- BIOS 및 RAID 설정을 구성합니다.
+- 소프트웨어를 설치합니다.
 
 ### <a name="about-the-installation"></a>설치 정보
 
-  - 엔터프라이즈 및 SMB 어플라이언스를 설치할 수 있습니다. 설치 프로세스는 배열 구성을 제외하고 두 어플라이언스 유형 모두 동일합니다.
-  - 기본 관리자가 제공됩니다. 네트워크 구성 프로세스 중에 암호를 변경하는 것이 좋습니다.
-  - 네트워크 구성 프로세스 중에 네트워크 포트 1에서 iLO 포트를 구성합니다.
-  - 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
+- 엔터프라이즈 및 SMB 어플라이언스를 설치할 수 있습니다. 설치 프로세스는 배열 구성을 제외하고 두 어플라이언스 유형 모두 동일합니다.
+- 기본 관리자가 제공됩니다. 네트워크 구성 프로세스 중에 암호를 변경하는 것이 좋습니다.
+- 네트워크 구성 프로세스 중에 네트워크 포트 1에서 iLO 포트를 구성합니다.
+- 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
 
 ### <a name="hpe-proliant-dl20-front-panel"></a>HPE ProLiant DL20 전면 패널
 
@@ -388,17 +338,17 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
     :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="시스템 구성 창을 보여 주는 스크린샷.":::
 
-    1.  **네트워크 인터페이스 어댑터** 필드에서 **공유 네트워크 포트-LOM** 을 선택합니다.
-    
-    1.  DHCP를 사용하지 않도록 설정합니다.
-    
-    1.  IP 주소, 서브넷 마스크, 게이트웨이 IP 주소를 입력합니다.
+    1. **네트워크 인터페이스 어댑터** 필드에서 **공유 네트워크 포트-LOM** 을 선택합니다.
+
+    1. DHCP를 사용하지 않도록 설정합니다.
+
+    1. IP 주소, 서브넷 마스크, 게이트웨이 IP 주소를 입력합니다.
 
 1. **F10: 저장** 을 선택합니다.
 
 1. **Esc** 키를 선택하여 **iLO 5 구성 유틸리티** 로 돌아간 다음 **사용자 관리** 를 선택합니다.
 
-1. **사용자 편집/제거** 를 선택합니다. 관리자는 정의된 유일한 기본 사용자입니다. 
+1. **사용자 편집/제거** 를 선택합니다. 관리자는 정의된 유일한 기본 사용자입니다.
 
 1. 기본 암호를 변경하고 **F10: 저장** 을 선택합니다.
 
@@ -406,7 +356,7 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 다음 절차에서는 엔터프라이즈 및 SMB 어플라이언스에 대해 HPE BIOS를 구성하는 방법을 설명합니다.
 
-HPE BIOS를 구성하려면 다음을 수행합니다.
+**HPE BIOS를 구성 하려면**:
 
 1. **시스템 유틸리티** > **시스템 구성** > **BIOS/플랫폼 구성(RBSU)** 을 선택합니다.
 
@@ -449,6 +399,7 @@ HPE BIOS를 구성하려면 다음을 수행합니다.
     :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="첫 번째 부팅 재정의 창을 보여 주는 스크린샷.":::
 
     :::image type="content" source="media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="두 번째 부팅 재정의 창을 보여 주는 스크린샷.":::
+
 ### <a name="software-installation-hpe-proliant-dl20-appliance"></a>소프트웨어 설치(HPE ProLiant DL20 어플라이언스)
 
 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
@@ -465,7 +416,7 @@ HPE BIOS를 구성하려면 다음을 수행합니다.
 
     :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="CLI 창에서 영어 선택.":::
 
-1. **SENSOR-RELEASE-<version> Enterprise** 를 선택합니다.
+1. **SENSOR-RELEASE-\<version> Enterprise** 를 선택합니다.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="버전을 선택하는 화면의 스크린샷.":::
 
@@ -488,11 +439,11 @@ HPE BIOS를 구성하려면 다음을 수행합니다.
 
 ## <a name="hpe-proliant-dl360-installation"></a>HPE ProLiant DL360 설치
 
-  - 기본 관리자가 제공됩니다. 네트워크 구성 중에 암호를 변경하는 것이 좋습니다.
+- 기본 관리자가 제공됩니다. 네트워크 구성 중에 암호를 변경하는 것이 좋습니다.
 
-  - 네트워크를 구성하는 동안 iLO 포트를 구성합니다.
+- 네트워크를 구성하는 동안 iLO 포트를 구성합니다.
 
-  - 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
+- 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
 
 ### <a name="hpe-proliant-dl360-front-panel"></a>HPE ProLiant DL360 전면 패널
 
@@ -506,9 +457,9 @@ HPE BIOS를 구성하려면 다음을 수행합니다.
 
 HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
-  - "원격 액세스를 사용하도록 설정하고 암호 업데이트"
+- "원격 액세스를 사용하도록 설정하고 암호 업데이트"
 
-  - "HPE BIOS 구성"
+- "HPE BIOS 구성"
 
 엔터프라이즈 구성이 동일합니다.
 
@@ -549,7 +500,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 1. **영어** 를 선택합니다.
 
-1. **SENSOR-RELEASE-<version> Enterprise** 를 선택합니다.
+1. **SENSOR-RELEASE-\<version> Enterprise** 를 선택합니다.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="버전 선택을 보여 주는 스크린샷.":::
 
@@ -561,7 +512,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
     | ----------| ------------- |
     | **하드웨어 프로필** | **회사** 를 선택합니다. |
     | **관리 인터페이스** | **eno2** |
-    | **기본 네트워크 매개 변수(고객이 제공)** | **관리 네트워크 IP 주소:** <br/>**서브넷 마스크:** <br/>**어플라이언스 호스트 이름:** <br/>**DNS:** <br/>**기본 게이트웨이 IP 주소:**|
+    | **기본 네트워크 매개 변수(고객이 제공)** | **관리 네트워크 IP 주소:** <br> **서브넷 마스크:** <br/>**어플라이언스 호스트 이름:** <br/>**DNS:** <br/>**기본 게이트웨이 IP 주소:**|
     | **입력 인터페이스:**  | 시스템에서 입력 인터페이스 목록을 생성합니다.<br/><br/>입력 인터페이스를 미러링하려면 쉼표 구분 기호를 사용하여 목록에 표시된 모든 항목을 복사합니다.<br/><br/> 브리지 인터페이스를 구성하지 않아도 됩니다. 이 옵션은 특별한 사용 사례로만 사용됩니다. |
 
 1. 약 10분 후에 두 개의 자격 증명 집합이 표시됩니다. 하나는 **CyberX** 사용자를 위한 것이고, 다른 하나는 **지원** 사용자를 위한 것입니다.
@@ -572,9 +523,9 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 ## <a name="hp-edgeline-300-installation"></a>HP EdgeLine 300 설치
 
-•   기본 관리자가 제공됩니다. 네트워크 구성 중에 암호를 변경하는 것이 좋습니다.
+- 기본 관리자가 제공됩니다. 네트워크 구성 중에 암호를 변경하는 것이 좋습니다.
 
-•   이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
+- 이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
 
 ### <a name="hp-edgeline-300-back-panel"></a>HP EdgeLine 300 후면 패널
 
@@ -605,7 +556,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 다음 절차에서는 HP EL300 어플라이언스에 대한 BIOS를 구성하는 방법을 설명합니다.
 
-BIOS를 구성하려면 다음을 수행합니다.
+**BIOS를 구성 하려면**:
 
 1. 어플라이언스를 켜고 **F9** 키를 눌러 BIOS를 시작합니다.
 
@@ -652,12 +603,12 @@ BIOS를 구성하려면 다음을 수행합니다.
     | 매개 변수 | 구성 |
     |--|--|
     | **하드웨어 프로필 구성** | **오피스** |
-    | **관리 네트워크 인터페이스 구성** | **enp3s0** <br />또는 <br />**가능한 값** |
+    | **관리 네트워크 인터페이스 구성** | **enp3s0** <br /> 또는 <br />**가능한 값** |
     | **관리 네트워크 IP 주소 구성:** | **고객이 제공한 IP 주소** |
     | **서브넷 마스크 구성:** | **고객이 제공한 IP 주소** |
     | **DNS 구성:** | **고객이 제공한 IP 주소** |
     | **기본 게이트웨이 IP 주소 구성:** | **고객이 제공한 IP 주소** |
-    | **입력 인터페이스 구성** | **enp4s0** <br />또는 <br />**가능한 값** |
+    | **입력 인터페이스 구성** | **enp4s0** <br /> 또는 <br />**가능한 값** |
     | **브리지 인터페이스 구성** | 해당 없음 |
 
 1. 설정을 적용하고 `Y`을 입력하여 계속합니다.
@@ -676,11 +627,11 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-V 배포 옵션을 모두 지원합니다. 설치를 시작하기 전에 다음 항목을 갖추고 있는지 확인합니다.
 
-  - VMware(ESXi 5.5 이상) 또는 Hyper-V 하이퍼바이저(Windows 10 Pro 또는 Enterprise)가 설치되어 있고 작동함
+- VMware(ESXi 5.5 이상) 또는 Hyper-V 하이퍼바이저(Windows 10 Pro 또는 Enterprise)가 설치되어 있고 작동함
 
-  - 가상 머신에 사용 가능한 하드웨어 리소스
+- 가상 머신에 사용 가능한 하드웨어 리소스
 
-  - Azure Defender for IoT 센서용 ISO 설치 파일
+- Azure Defender for IoT 센서용 ISO 설치 파일
 
 하이퍼바이저가 실행 중인지 확인합니다.
 
@@ -726,7 +677,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 1. VHD의 이름과 위치를 입력합니다.
 
-1. 아키텍처에 따라 필요한 크기를 입력합니다.   
+1. 아키텍처에 따라 필요한 크기를 입력합니다.
 
 1. 요약을 검토하고 **마침** 을 선택합니다.
 
@@ -756,7 +707,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 1. 가상 머신을 시작합니다.
 
-2. **작업** 메뉴에서 **연결** 을 선택하여 소프트웨어 설치를 계속합니다.
+1. **작업** 메뉴에서 **연결** 을 선택하여 소프트웨어 설치를 계속합니다.
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>소프트웨어 설치(ESXi 및 Hyper-V)
 
@@ -799,7 +750,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 ### <a name="bios-configuration"></a>BIOS 구성
 
-어플라이언스에 대한 BIOS를 구성하려면 다음을 수행합니다.
+**어플라이언스에 대한 BIOS를 구성하려면:**
 
 1. [원격 액세스 활성화 및 암호 업데이트](#enable-remote-access-and-update-the-password).
 
@@ -807,32 +758,32 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 ### <a name="software-installation"></a>소프트웨어 설치
 
-이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다. 
+이 설치 프로세스는 20분 정도 걸립니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
 
-설치 과정에서 보조 NIC를 추가할 수 있습니다. 설치하는 동안 보조 NIC를 설치하지 않도록 선택하는 경우, 나중에 [보조 NIC를 추가](#add-a-secondary-nic)할 수 있습니다. 
+설치 과정에서 보조 NIC를 추가할 수 있습니다. 설치하는 동안 보조 NIC를 설치하지 않도록 선택하는 경우, 나중에 [보조 NIC를 추가](#add-a-secondary-nic)할 수 있습니다.
 
 소프트웨어를 설치하려면 다음을 수행합니다.
 
 1. 설치 프로세스에 대한 기본 설정 언어를 선택합니다.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="설치 프로세스에 대한 기본 설정 언어를 선택합니다.":::     
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="설치 프로세스에 대한 기본 설정 언어를 선택합니다.":::
 
 1. **MANAGEMENT-RELEASE-\<version\>\<deployment type\>** 를 선택합니다.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="버전을 선택합니다.":::   
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="버전을 선택합니다.":::
 
 1. 설치 마법사에서 네트워크 속성을 정의합니다.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="어플라이언스 프로필을 보여 주는 스크린샷.":::   
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="어플라이언스 프로필을 보여 주는 스크린샷.":::
 
    | 매개 변수 | 구성 |
    |--|--|
-   | **관리 네트워크 인터페이스 구성** | Dell의 경우: **eth0, eth1** <br /> HP의 경우: **enu1, enu2** <br /> 또는 <br />**가능한 값** |
+   | **관리 네트워크 인터페이스 구성** | Dell의 경우: **eth0, eth1** <br /> HP의 경우: **enu1, enu2** <br>  또는 <br />**가능한 값** |
    | **관리 네트워크 IP 주소 구성:** | **고객이 제공한 IP 주소** |
    | **서브넷 마스크 구성:** | **고객이 제공한 IP 주소** |
    | **DNS 구성:** | **고객이 제공한 IP 주소** |
    | **기본 게이트웨이 IP 주소 구성:** | **고객이 제공한 IP 주소** |
-   
+
 1. **(선택 사항)** 보조 NIC(네트워크 인터페이스 카드)를 설치하려면 다음 어플라이언스 프로필 및 네트워크 속성을 정의합니다.
 
     :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="보조 NIC 설치 질문을 보여 주는 스크린샷.":::
@@ -843,7 +794,7 @@ BIOS를 구성하려면 다음을 수행합니다.
    | **센서 모니터링 인터페이스에 대한 IP 주소를 구성합니다.** | **고객이 제공한 IP 주소** |
    | **센서 모니터링 인터페이스에 대한 서브넷 마스크를 구성합니다.** | **고객이 제공한 IP 주소** |
 
-1. 설정을 수락하고 `Y`을 입력하여 계속 진행합니다. 
+1. 설정을 수락하고 `Y`을 입력하여 계속 진행합니다.
 
 1. 약 10분 후에 두 개의 자격 증명 집합이 표시됩니다. 하나는 **CyberX** 사용자를 위한 것이고, 다른 하나는 **지원** 사용자를 위한 것입니다.
 
@@ -861,9 +812,8 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="보조 NIC의 전체 아키텍처.":::
 
-두 NIC 모두 UI(사용자 인터페이스)를 지원합니다. 
-
-보조 NIC를 배포하지 않도록 선택하면 주 NIC를 통해 모든 기능을 사용할 수 있습니다. 
+두 NIC 모두 UI(사용자 인터페이스)를 지원합니다.
+보조 NIC를 배포하지 않도록 선택하면 주 NIC를 통해 모든 기능을 사용할 수 있습니다.
 
 온-프레미스 관리 콘솔을 이미 구성했고 온-프레미스 관리 콘솔에 보조 NIC를 추가하려는 경우 다음 단계를 수행합니다.
 
@@ -898,18 +848,18 @@ BIOS를 구성하려면 다음을 수행합니다.
 sudo ethtool -p <port value> <time-in-seconds>
 ```
 
-이 명령을 수행하면 지정된 기간 동안 포트의 표시등이 깜박입니다. 예를 들어 `sudo ethtool -p eno1 120`을 입력하면 2분간 포트 eno1 플래시를 통해 어플라이언스 후면의 포트를 찾을 수 있습니다. 
+이 명령을 수행하면 지정된 기간 동안 포트의 표시등이 깜박입니다. 예를 들어 `sudo ethtool -p eno1 120`을 입력하면 2분간 포트 eno1 플래시를 통해 어플라이언스 후면의 포트를 찾을 수 있습니다.
 
 ## <a name="virtual-appliance-on-premises-management-console-installation"></a>가상 어플라이언스: 온-프레미스 관리 콘솔 설치
 
 온-프레미스 관리 콘솔 VM은 다음 아키텍처를 지원합니다.
 
-| Architecture | 사양 | 사용량 | 
+| Architecture | 사양 | 사용량 |
 |--|--|--|
-| Enterprise <br/>(기본 및 가장 일반적으로 사용) | CPU: 8 <br/>메모리: 32G RAM<br/> HDD: 1.8TB | 대규모 프로덕션 환경 | 
+| Enterprise <br/>(기본 및 가장 일반적으로 사용) | CPU: 8 <br/>메모리: 32G RAM<br/> HDD: 1.8TB | 대규모 프로덕션 환경 |
 | Small | CPU: 4 <br/> 메모리: 8G RAM<br/> HDD: 500GB | 대규모 프로덕션 환경 |
-| Office | CPU: 4 <br/>메모리: 8G RAM <br/> HDD: 100GB | 소규모 테스트 환경 | 
-   
+| Office | CPU: 4 <br/>메모리: 8G RAM <br/> HDD: 100GB | 소규모 테스트 환경 |
+
 ### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-V 배포 옵션을 모두 지원합니다. 설치를 시작하기 전에 다음을 확인합니다.
@@ -919,7 +869,7 @@ sudo ethtool -p <port value> <time-in-seconds>
 - 가상 머신에 하드웨어 리소스를 사용할 수 있습니다.
 
 - 온-프레미스 관리 콘솔용 ISO 설치 파일이 있습니다.
-    
+
 - 하이퍼바이저가 실행 중입니다.
 
 ### <a name="create-the-virtual-machine-esxi"></a>가상 머신 만들기(ESXi)
@@ -1044,7 +994,7 @@ Hyper-V를 사용하여 가상 머신을 만들려면 다음을 수행합니다.
 
 ### <a name="nuvo-5006lp-installation"></a>Nuvo 5006LP 설치
 
-이 섹션에서는 Nuvo 5006LP 설치 프로시저를 제공합니다. Nuvo 5006LP 어플라이언스에 소프트웨어를 설치하기 전에 어플라이언스의 BIOS 구성을 조정해야 합니다. 
+이 섹션에서는 Nuvo 5006LP 설치 프로시저를 제공합니다. Nuvo 5006LP 어플라이언스에 소프트웨어를 설치하기 전에 어플라이언스의 BIOS 구성을 조정해야 합니다.
 
 #### <a name="nuvo-5006lp-front-panel"></a>Nuvo 5006LP 전면 패널
 
@@ -1073,7 +1023,7 @@ Hyper-V를 사용하여 가상 머신을 만들려면 다음을 수행합니다.
 
 다음 프로시저에서는 Nuvo 5006LP BIOS를 구성하는 방법을 설명합니다. 운영 체제가 이전에 어플라이언스에 설치되었는지 확인합니다.
 
-BIOS를 구성하려면 다음을 수행합니다.
+**BIOS를 구성 하려면**:
 
 1. 어플라이언스 전원을 켭니다.
 
@@ -1085,11 +1035,13 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 1. **부팅** 으로 이동하여 **LAN에 PXE 부팅** 이 **사용 안 함** 으로 설정되어 있는지 확인합니다.
 
-1. **F10** 키를 눌러 저장한 다음 **끝내기** 를 선택합니다. 
+1. **F10** 키를 눌러 저장한 다음 **끝내기** 를 선택합니다.
 
 #### <a name="software-installation-nuvo-5006lp"></a>소프트웨어 설치(Nuvo 5006LP)
 
 설치를 완료하는 데 약 20분이 소요됩니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
+
+**소프트웨어를 설치 하려면**:
 
 1. 키에 대한 외부 CD 또는 디스크를 ISO 이미지와 연결합니다.
 
@@ -1097,7 +1049,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 1. **영어** 를 선택합니다.
 
-1. **XSENSE-RELEASE-<version> Office...** 을 선택합니다.
+1. **XSENSE-RELEASE-\<version> Office...** 을 선택합니다.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="설치할 센서 버전을 선택합니다.":::
 
@@ -1109,10 +1061,10 @@ BIOS를 구성하려면 다음을 수행합니다.
     | ----------| ------------- |
     | **하드웨어 프로필** | **Office** 를 선택합니다. |
     | **관리 인터페이스** | **eth0** |
-    | **관리 네트워크 IP 주소** | **고객이 제공한 IP 주소** | 
-    | **관리 서브넷 마스크** | **고객이 제공한 IP 주소** | 
+    | **관리 네트워크 IP 주소** | **고객이 제공한 IP 주소** |
+    | **관리 서브넷 마스크** | **고객이 제공한 IP 주소** |
     | **DNS** | **고객이 제공한 IP 주소** |
-    | **기본 게이트웨이 IP 주소** | **0.0.0.0** | 
+    | **기본 게이트웨이 IP 주소** | **0.0.0.0** |
     | **입력 인터페이스** | 입력 인터페이스 목록은 시스템에 의해 생성됩니다. <br />입력 인터페이스를 미러링하려면 쉼표 구분 기호를 사용하여 목록에 표시된 모든 항목을 복사합니다. |
     | **브리지 인터페이스** | - |
 
@@ -1124,7 +1076,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 이 섹션에서는 Fitlet2 설치 절차를 제공합니다. Fitlet 어플라이언스에 소프트웨어를 설치하기 전에 어플라이언스의 BIOS 구성을 조정해야 합니다.
 
-#### <a name="fitlet2-front-panel"></a>Fitlet2 전면 패널 
+#### <a name="fitlet2-front-panel"></a>Fitlet2 전면 패널
 
 :::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="Fitlet 2의 전면 패널 보기입니다.":::
 
@@ -1133,6 +1085,8 @@ BIOS를 구성하려면 다음을 수행합니다.
 :::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="Fitlet 2의 후면 패널 보기입니다.":::
 
 #### <a name="configure-the-fitlet2-bios"></a>Fitlet2 BIOS 구성
+
+**FITLET2 BIOS를 구성 하려면**:
 
 1. 어플라이언스 전원을 켭니다.
 
@@ -1165,7 +1119,9 @@ BIOS를 구성하려면 다음을 수행합니다.
 1. **CSM 구성** > **CSM 지원** 으로 이동합니다.
 
 1. **+/-** 를 눌러 **사용** 을 선택합니다.
+
 1. **고급** > **부팅 옵션 필터[레거시 전용]** 로 이동하고 다음 필드의 설정을 **레거시** 로 변경합니다.
+
     - 네트워크
     - Storage
     - 동영상
@@ -1184,7 +1140,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 1. **부팅** > **부팅 모드** 로 이동하여 **레거시** 를 선택합니다.
 
 1. **부팅 옵션 #1 – [USB CD/DVD]** 를 선택합니다.
- 
+
 1. **저장 및 끝내기** 를 선택합니다.
 
 #### <a name="software-installation-fitlet2"></a>소프트웨어 설치(Fitlet2)
@@ -1197,7 +1153,7 @@ BIOS를 구성하려면 다음을 수행합니다.
 
 1. **영어** 를 선택합니다.
 
-1. **XSENSE-RELEASE-<version> Office...** 을 선택합니다.
+1. **XSENSE-RELEASE-\<version> Office...** 을 선택합니다.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="설치할 센서 버전을 선택합니다.":::
 
@@ -1212,10 +1168,10 @@ BIOS를 구성하려면 다음을 수행합니다.
     | ----------| ------------- |
     | **하드웨어 프로필** | **Office** 를 선택합니다. |
     | **관리 인터페이스** | **em1** |
-    | **관리 네트워크 IP 주소** | **고객이 제공한 IP 주소** | 
-    | **관리 서브넷 마스크** | **고객이 제공한 IP 주소** | 
+    | **관리 네트워크 IP 주소** | **고객이 제공한 IP 주소** |
+    | **관리 서브넷 마스크** | **고객이 제공한 IP 주소** |
     | **DNS** | **고객이 제공한 IP 주소** |
-    | **기본 게이트웨이 IP 주소** | **0.0.0.0** | 
+    | **기본 게이트웨이 IP 주소** | **0.0.0.0** |
     | **입력 인터페이스** | 입력 인터페이스 목록은 시스템에 의해 생성됩니다. <br />입력 인터페이스를 미러링하려면 쉼표 구분 기호를 사용하여 목록에 표시된 모든 항목을 복사합니다. |
     | **브리지 인터페이스** | - |
 
@@ -1231,11 +1187,11 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 설치 후 유효성 검사에는 다음 테스트를 포함해야 합니다.
 
-  - **온전성 테스트**: 시스템이 실행 중인지 확인합니다.
+- **온전성 테스트**: 시스템이 실행 중인지 확인합니다.
 
-  - **버전**: 버전이 올바른지 확인합니다.
+- **버전**: 버전이 올바른지 확인합니다.
 
-  - **ifconfig**: 설치 프로세스 중에 구성된 모든 입력 인터페이스가 실행 중인지 확인합니다.
+- **ifconfig**: 설치 프로세스 중에 구성된 모든 입력 인터페이스가 실행 중인지 확인합니다.
 
 ### <a name="check-system-health-by-using-the-gui"></a>GUI를 사용하여 시스템 상태 확인
 
@@ -1259,9 +1215,10 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 - **핵심 로그**: 전체 시스템 로그를 내보내지 않고 최근 로그 행을 볼 수 있도록 핵심 로그의 마지막 500행을 제공합니다.
 
-- **작업 관리자**: 프로세스의 테이블에 표시되는 작업을 다음 계층으로 변환합니다. 
+- **작업 관리자**: 프로세스의 테이블에 표시되는 작업을 다음 계층으로 변환합니다.
   
-  - 영구 계층(Redis) 
+  - 영구 계층(Redis)
+
   - 현금 계층(SQL)
 
 - **네트워크 통계**: 네트워크 통계를 표시합니다.
@@ -1269,10 +1226,15 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 - **TOP**: 프로세스의 테이블을 표시합니다. 실행 중인 시스템의 동적 실시간 보기를 제공하는 Linux 명령입니다.
 
 - **백업 메모리 확인**: 다음을 확인하여 백업 메모리의 상태를 제공합니다.
-  - 백업 폴더의 위치 
+
+  - 백업 폴더의 위치
+
   - 백업 폴더의 크기
+
   - 백업 폴더의 제한 사항
+
   - 마지막 백업이 수행된 시간
+
   - 추가 백업 파일에 사용할 수 있는 공간
 
 - **ifconfig**: 어플라이언스의 실제 인터페이스에 대한 매개 변수를 표시합니다.
@@ -1281,7 +1243,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 - **Core 로그의 오류**: Core 로그 파일의 오류를 표시합니다.
 
-도구에 액세스하려면 다음을 수행합니다.
+**도구에 액세스 하려면**:
 
 1. **지원** 사용자 자격 증명을 사용하여 센서에 로그인합니다.
 
@@ -1291,9 +1253,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 ### <a name="check-system-health-by-using-the-cli"></a>CLI를 사용하여 시스템 상태 확인
 
-**테스트 1: 온전성**
+시스템이 작동 중인지 확인 하 고 시스템의 온전성을 테스트 하기 전에 실행 중인지 확인 합니다.
 
-시스템이 실행 중인지 확인합니다.
+**시스템의 온전성을 테스트 하려면 다음을 수행 합니다**.
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1305,9 +1267,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 1. **System is UP! (prod)** 가 맨 아래에 표시되는지 확인합니다.
 
-**테스트 2: 버전 확인**
-
 올바른 버전을 사용하고 있는지 확인합니다.
+
+**시스템의 버전을 확인하려면:**
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1315,9 +1277,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 1. 올바른 버전이 표시되는지 확인합니다.
 
-**테스트 3: 네트워크 유효성 검사**
-
 설치 프로세스 중에 구성된 모든 입력 인터페이스가 실행 중인지 확인합니다.
+
+**시스템의 네트워크 상태를 확인하려면:**
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1327,9 +1289,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="인터페이스 목록을 보여 주는 스크린샷.":::
 
-**테스트 4: UI에 대한 관리 액세스**
-
 콘솔 웹 GUI에 액세스할 수 있는지 확인합니다.
+
+**관리가 UI에 액세스할 수 있는지 확인하려면:**
 
 1. 이더넷 케이블을 사용하여 랩톱을 관리 포트(**Gb1**)에 연결합니다.
 
@@ -1397,13 +1359,15 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 다른 문제에 대해서는 [Microsoft 지원](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)에 문의하세요.
 
-## <a name="appendix-a-mirroring-port-on-vswitch-esxi"></a>부록 A: vSwitch에서 포트 미러링(ESXi)
+## <a name="configure-a-span-port"></a>SPAN 포트 구성
 
-### <a name="configure-a-span-port-on-an-existing-vswitch"></a>기존 vSwitch에서 SPAN 포트 구성
+vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 해결 방법을 사용할 수 있습니다. 해결 방법은 ESXi 또는 Hyper-V를 사용하여 구현할 수 있습니다.
 
-vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 해결 방법을 사용할 수 있습니다.
+:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="아키텍처에서 센서를 배치해야 하는 위치의 스크린샷.":::
 
-SPAN 포트를 구성하려면 다음을 수행합니다.
+### <a name="configure-a-span-port-with-esxi"></a>ESXi를 사용하여 SPAN 포트 구성
+
+**ESXi를 사용하여 SPAN 포트를 구성하려면**,
 
 1. vSwitch 속성을 엽니다.
 
@@ -1427,15 +1391,134 @@ SPAN 포트를 구성하려면 다음을 수행합니다.
 
 1. **확인** 을 선택합니다.
 
-1. 센서에 연결하고 미러링이 작동하는지 확인합니다.
+1. 센서에 커넥트 미러링이 작동하는지 확인합니다.
 
-## <a name="appendix-b-access-sensors-from-the-on-premises-management-console"></a>부록 B: 온-프레미스 관리 콘솔에서 센서에 액세스
+### <a name="configure-a-span-port-with-hyper-v"></a>Hyper-V를 사용하여 SPAN 포트 구성
+
+시작하기 전에 다음을 수행해야 합니다.
+
+- 실행 중인 ClearPass VA 인스턴스가 없는지 확인합니다.
+
+- 관리 포트가 아닌 데이터 포트에서 SPAN 보장을 사용하도록 설정합니다.
+
+- 데이터 포트 SPAN 구성이 IP 주소로 구성되지 않았는지 확인합니다.
+
+**Hyper-V를 사용하여 SPAN 포트를 구성하려면**,
+
+1. 가상 스위치 관리자를 엽니다.
+
+1. 가상 스위치 목록에서 전용 스팬 네트워크 어댑터 유형으로 **새 가상 네트워크 스위치** > **외부** 를 선택합니다.
+
+    :::image type="content" source="media/tutorial-install-components/new-virtual-network.png" alt-text="가상 스위치를 만들기 전에 새 가상 네트워크 및 외부를 선택하는 스크린샷":::
+
+1. 선택 **가상 스위치를 만들** 합니다.
+
+1. 연결 형식 아래에서 **외부 네트워크** 를 선택합니다.
+
+1. **관리 운영 체제에서 이 네트워크 어댑터를 공유할 수 있음** 확인란이 선택되어 있는지 확인합니다.
+
+   :::image type="content" source="media/tutorial-install-components/external-network.png" alt-text="외부 네트워크를 선택하고 관리 운영 체제에서 네트워크 어댑터를 공유할 수 있도록 허용":::
+
+1. **확인** 을 선택합니다.
+
+#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>가상 스위치에 ClearPass SPAN 가상 인터페이스 연결
+
+Windows PowerShell 또는 Hyper-V 관리자를 통해 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결할 수 있습니다.
+
+**PowerShell을 사용하여 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
+
+1. 새로 추가된 SPAN 가상 스위치를 선택하고, 다음 명령을 사용하여 새 네트워크 어댑터를 추가합니다.
+
+    ```bash
+    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
+    ```
+
+1. 다음 명령을 사용하여 포트 미러링을 SPAN 대상으로 선택한 인터페이스에 사용하도록 설정합니다.
+
+    ```bash
+    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
+    ```
+
+    | 매개 변수 | Description |
+    |--|--|
+    | VK-C1000V-LongRunning-650 | CPPM VA 이름 |
+    |vSwitch_Span |새로 추가된 SPAN 가상 스위치 이름 |
+    |Monitor |새로 추가된 어댑터 이름 |
+
+1. **확인** 을 선택합니다.
+
+이러한 명령은 새로 추가된 어댑터 하드웨어의 이름을 `Monitor`로 설정합니다. Hyper-V 관리자를 사용하는 경우 새로 추가된 어댑터 하드웨어의 이름은 `Network Adapter`로 설정됩니다.
+
+**Hyper-V 관리자를 사용하여 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
+
+1. 하드웨어 목록에서 **네트워크 어댑터** 를 선택합니다.
+
+1. 가상 스위치 필드에서 **vSwitch_Span** 을 선택합니다.
+
+    :::image type="content" source="media/tutorial-install-components/vswitch-span.png" alt-text="가상 스위치 화면에서 다음 옵션을 선택하는 스크린샷":::
+
+1. 하드웨어 목록의 네트워크 어댑터 드롭다운 목록 아래에서 **고급 기능** 을 선택합니다.
+
+1. 포트 미러링 섹션에서 새 가상 인터페이스에 대한 미러링 모드로 **대상** 을 선택합니다.
+
+    :::image type="content" source="media/tutorial-install-components/destination.png" alt-text="미러링 모드를 구성하는 데 필요한 선택 항목의 스크린샷":::
+
+1. **확인** 을 선택합니다.
+
+#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 Microsoft NDIS 캡처 확장 사용
+
+Microsoft NDIS 캡처 확장을 새 가상 스위치에 사용하도록 설정해야 합니다.
+
+**새로 추가 된 가상 스위치에 대해 MICROSOFT NDIS 캡처 확장을 사용 하도록 설정 하려면 다음을 수행 합니다**.
+
+1. Hyper-V 호스트에서 가상 스위치 관리자를 엽니다.
+
+1. 가상 스위치 목록에서 `vSwitch_Span`이라는 가상 스위치 이름을 펼치고, **확장** 을 선택합니다.
+
+1. 스위치 확장 필드에서 **Microsoft NDIS 캡처** 를 선택합니다.
+
+    :::image type="content" source="media/tutorial-install-components/microsoft-ndis.png" alt-text="스위치 확장 메뉴에서 Microsoft NDIS를 선택하여 사용하도록 설정하는 스크린샷":::
+
+1. **확인** 을 선택합니다.
+
+#### <a name="set-the-mirroring-mode-on-the-external-port"></a>외부 포트에서 미러링 모드 설정
+
+미러링 모드는 새 가상 스위치의 외부 포트에서 원본으로 설정해야 합니다.
+
+외부 원본 포트로 들어오는 트래픽을 대상으로 구성한 가상 네트워크 어댑터로 전달하도록 Hyper-V 가상 스위치(vSwitch_Span)를 구성해야 합니다.
+
+다음 PowerShell 명령을 사용하여 외부 가상 스위치 포트를 원본 미러 모드로 설정합니다.
+
+```bash
+$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
+$ExtPortFeature.SettingData.MonitorMode=2
+Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
+```
+
+| 매개 변수 | Description |
+|--|--|
+| vSwitch_Span | 새로 추가된 SPAN 가상 스위치 이름 |
+| MonitorMode=2 | 원본 |
+| MonitorMode=1 | 대상 |
+| MonitorMode=0 | 없음 |
+
+다음 PowerShell 명령을 사용하여 모니터링 모드 상태를 확인합니다.
+
+```bash
+Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
+```
+
+| 매개 변수 | Description |
+|--|--|
+| vSwitch_Span | 새로 추가된 SPAN 가상 스위치 이름 |
+
+## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서 액세스
 
 사용자가 센서에 직접 액세스하지 못하도록 하여 시스템 보안을 강화할 수 있습니다. 대신, 사용자가 단일 방화벽 규칙을 사용하여 온-프레미스 관리 콘솔에서 센서에 액세스할 수 있도록 프록시 터널링을 사용합니다. 이 기술은 센서를 벗어나는 네트워크 환경에 대한 무단 액세스 가능성을 줄입니다. 센서에 로그인할 때의 사용자 환경은 동일하게 유지됩니다.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="센서에 대한 액세스를 보여 주는 스크린샷.":::
 
-터널링을 사용하도록 설정하려면 다음을 수행합니다.
+**터널링을 사용 하려면**:
 
 1. **CyberX** 또는 **지원** 사용자 자격 증명을 사용하여 온-프레미스 관리 콘솔의 CLI에 로그인합니다.
 

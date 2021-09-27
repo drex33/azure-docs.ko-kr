@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: 133496614db862d4c1af31afb015a535ddbfd188
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d49b587262bfceb8072761cec6981ab908abb21e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535549"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732950"
 ---
 # <a name="what-is-data-wrangling"></a>데이터 랭글링이 무엇인가요?
 
@@ -57,7 +57,7 @@ Data Factory는 M을 Azure Data Factory 데이터 흐름으로 변환하여 파�
 
 파워 쿼리 작업을 만들면 모든 원본 데이터 세트가 데이터 세트 쿼리가 되고 **ADFResource** 폴더에 배치됩니다. 기본적으로 UserQuery는 첫 번째 데이터 세트 쿼리를 가리킵니다. 데이터 세트 쿼리에 대한 변경 내용이 지원되지 않거나 유지되지 않으므로 UserQuery에서 모든 변환을 수행해야 합니다. 현재는 쿼리 이름을 바꾸고 쿼리를 추가 및 삭제하는 것은 지원되지 않습니다.
 
-![랭글링](media/wrangling-data-flow/editor.png)
+:::image type="content" source="media/wrangling-data-flow/editor.png" alt-text="랭글링":::
 
 현재 모든 파워 쿼리 M 함수가 제작 중에도 사용할 수 있는 데이터 랭글링을 지원하는 것은 아닙니다. 파워 쿼리 작업을 빌드하는 동안 함수가 지원되지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 

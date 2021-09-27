@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 7b0ac0fdb6ee5b734d642612c1fea16665e07684
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 76f2f7e838a52c77059d1c3cd8e448f5bbd66ca4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435513"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061659"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>모범 사례: Azure Communication Services 통화 SDK
 이 문서에서는 SDK를 호출하는 ACS(Azure Communication Services)와 관련된 모범 사례에 대한 정보를 제공합니다.
@@ -45,8 +45,8 @@ Communication Services 애플리케이션은 더 이상 필요하지 않을 때 
 ### <a name="hang-up-the-call-on-onbeforeunload-event"></a>onbeforunload 이벤트에서 통화 중단
 애플리케이션은 `onbeforeunload` 이벤트가 발생할 때 `call.hangup`을 호출해야 합니다.
 
-### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>모바일의 여러 탭에서 여러 호출 처리
-디바이스의 마이크 및 카메라에 대한 리소스 할당으로 인해 정의되지 않은 동작이 발생할 수 있기 때문에 애플리케이션은 여러 브라우저 탭의 호출에 동시에 연결해서는 안 됩니다. 개발자는 새 호출을 시작하기 전에 백그라운드에서 완료되면 항상 호출을 중단하는 것이 좋습니다.
+### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>모바일에서 여러 탭에 대 한 여러 호출 처리
+응용 프로그램은 장치에서 마이크 및 카메라에 대 한 리소스 할당으로 인해 정의 되지 않은 동작이 발생할 수 있으므로 동시에 여러 브라우저 탭에서 호출에 연결 해서는 안 됩니다. 개발자는 새 항목을 시작 하기 전에 백그라운드에서 완료 될 때 항상 호출을 끊기로 권장 합니다.
 ```JavaScript 
 document.addEventListener("visibilitychange", function() {
     if (document.visibilityState != 'visible') {
@@ -55,9 +55,17 @@ document.addEventListener("visibilitychange", function() {
 });
  ```
 
-### <a name="hang-up-the-call-on-microphonemuteunexpectedly-ufd"></a>microphoneMuteUnexpectedly UFD에서 통화 중단
-iOS/Safari 사용자가 PSTN 전화를 받으면 Azure Communication Services에서 마이크에 액세스할 수 없습니다. Azure Communication Services는 `microphoneMuteUnexpectedly` 통화 진단 이벤트를 발생시키며 이 시점에서 Communication Services는 마이크에 다시 액세스할 수 없습니다.
-이러한 상황이 발생하면 통화를 중단( `call.hangUp` )하는 것이 좋습니다.
+### <a name="handle-os-muting-call-when-phone-call-comes-in"></a>전화 통화가 들어오면 OS 음소거 통화를 처리 합니다.
+ACS 호출 (iOS 및 Android 모두)에 있는 동안 전화 통화가 OS에 제공 되 면 사용자 마이크 및 카메라가 자동으로 음소거 됩니다. Android에서 호출은 전화 통화가 끝난 후 자동으로 unmutes 하 고 비디오를 다시 시작 합니다. IOS에서 사용자 작업은 "음소거" 및 "비디오 시작"을 다시 수행 해야 합니다. 의 품질 이벤트를 사용 하 여 마이크가 예기치 않게 음소거 되었다는 알림을 수신할 수 있습니다 `microphoneMuteUnexpectedly` . 호출에 올바르게 다시 참가할 수 있도록 하려면 SDK 1.2.2-beta. 1 이상을 사용 해야 합니다.
+```JavaScript
+const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
+const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
+if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
+  // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
+}
+ ```
+ 
+ ' Call. startVideo (localVideoStream) '를 시작 하려면
 
 ### <a name="device-management"></a>디바이스 관리
 Azure Communication Services SDK를 사용하여 디바이스 및 미디어 작업을 관리할 수 있습니다.

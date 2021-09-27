@@ -8,12 +8,12 @@ ms.author: lle
 author: lrtoyou1223
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
-ms.openlocfilehash: b59655f343c8b5aa279dae9197c1d7fa41e0c318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 65473b226ac8c188660862bddadb30ba44c4136d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566597"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811664"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 
@@ -40,17 +40,17 @@ Azure Data Factory UI를 사용하여 공유되는 자체 호스팅 IR을 만들
 
 1. 공유할 자체 호스팅 IR에서 **다른 데이터 팩터리에 대한 권한 부여** 를 선택하고 ‘통합 런타임 설치’ 페이지에서 연결된 IR을 만들 데이터 팩터리를 선택합니다.
       
-    ![공유 탭에서 권한을 부여하는 단추](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
+    :::image type="content" source="media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png" alt-text="공유 탭에서 권한을 부여하는 단추":::  
     
 2. 공유할 자체 호스팅 IR의 위에 있는 ‘리소스 ID’를 복사합니다.
          
 3. 권한이 부여된 데이터 팩터리에서 연결된 자체 호스팅 IR을 새로 만들고 리소스 ID를 입력합니다.
       
-    ![자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-1.png" alt-text="자체 호스팅 통합 런타임을 만드는 단추":::
    
-    ![연결된 자체 호스팅 통합 런타임을 만드는 단추](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-2.png" alt-text="연결된 자체 호스팅 통합 런타임을 만드는 단추"::: 
 
-    ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-3.png" alt-text="이름 및 리소스 ID 입력용 상자":::
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell을 사용하여 공유되는 자체 호스팅 IR 만들기
 
@@ -227,15 +227,15 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 #### <a name="shared-ir"></a>공유된 IR
 
-![공유된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-shared-IR.png" alt-text="공유된 통합 런타임을 찾기 위한 선택 항목":::
 
-![공유된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png" alt-text="공유된 통합 런타임 모니터링":::
 
 #### <a name="linked-ir"></a>연결된 IR
 
-![연결된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir.png" alt-text="연결된 통합 런타임을 찾기 위한 선택 항목":::
 
-![연결된 통합 런타임 모니터링](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png" alt-text="연결된 통합 런타임 모니터링":::
 
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항

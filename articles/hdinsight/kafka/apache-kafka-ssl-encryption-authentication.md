@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: d061832022b983e4d5fd55e72c1d4789b82f6633
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 0cac23b153940156b3c88a3b71e8900f1b21a695
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863227"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742976"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대해 TLS 암호화 및 인증 설정
 
@@ -291,7 +291,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     
-    keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
+    keytool -keystore kafka.client.keystore.jks -import -file client-signed-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
 1. 클라이언트 머신(hn1)에 `client-ssl-auth.properties` 파일을 만듭니다. 파일에 다음 줄이 있어야 합니다.

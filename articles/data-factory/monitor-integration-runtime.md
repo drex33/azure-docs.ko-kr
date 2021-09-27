@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 10770e3df3f666163958344868a86ee8e7374d55
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536946"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750594"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -43,7 +43,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
 | 주 | Azure 통합 런타임의 상태. | 
@@ -72,7 +72,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 
+| 속성 | Description | 
 | -------- | ----------- | 
 | Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예제: 온라인/오프라인/제한됨/기타. 해당 상태에 대한 자세한 정보는 다음 섹션을 참조하세요. | 
@@ -224,7 +224,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Azure Portal에서 Azure-SSIS IR를 모니터링하려면 모든 통합 런타임을 볼 수 있는 ADF UI에서 **모니터** 허브의 **통합 런타임** 페이지로 이동합니다.
 
-![모든 통합 런타임 모니터링](media/monitor-integration-runtime/monitor-integration-runtimes.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-integration-runtimes.png" alt-text="모든 통합 런타임 모니터링":::
 
 그런 다음 Azure-SSIS IR 이름을 선택하여 해당 모니터링 페이지를 엽니다. 여기서 전체/노드별 속성 및 상태를 볼 수 있습니다. 이 페이지에서는 Azure-SSIS IR의 일반, 배포 및 고급 설정을 구성하는 방법에 따라 다양한 정보 제공/기능 타일을 찾을 수 있습니다.
 
@@ -238,19 +238,19 @@ Azure Portal에서 Azure-SSIS IR를 모니터링하려면 모든 통합 런타�
 
 기능 타일에 대한 세부 정보는 다음을 참조하세요.
 
-![Azure-SSIS IR 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png" alt-text="Azure-SSIS IR 모니터링":::
 
 #### <a name="status-tile"></a>STATUS 타일
 
 Azure-SSIS IR 모니터링 페이지의 **STATUS** 타일에서 전체 상태(예: **실행 중** 또는 **중지 됨**)를 볼 수 있습니다. **실행** 상태를 선택하면 Azure-SSIS IR를 중지하는 라이브 **중지** 단추가 있는 창이 표시됩니다. **중지 됨** 상태를 선택하면 Azure-SSIS IR을 시작하는 라이브 **시작** 단추가 있는 창이 표시됩니다. 또한 팝업 창에는 Azure-SSIS IR에서 실행되는 Execute SSIS Package 작업을 사용하여 ADF 파이프라인을 자동 생성할 수 있는 **Execute SSIS package** 단추([ADF 파이프라인에서 Execute SSIS Package 작업으로 SSIS packages 실행](./how-to-invoke-ssis-package-ssis-activity.md) 참조) 및 Azure-SSIS IR 리소스 ID(`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`)를 복사할 수 있는 **리소스 ID** 텍스트 상자가 있습니다. ADF 및 Azure-SSIS IR 이름을 포함하는 Azure-SSIS IR 리소스 ID의 접미사는 ISVs(독립 소프트웨어 공급 업체)에서 추가 프리미엄/라이선스 SSIS 구성 요소를 구매하고 Azure-SSIS IR에 바인딩하는 데 사용할 수 있는 클러스터 ID를 형성합니다([Azure-SSIS IR에서 프리미엄/라이선스 구성 요소 설치](./how-to-develop-azure-ssis-ir-licensed-components.md) 참조).
 
-![Azure-SSIS IR - STATUS 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png" alt-text="Azure-SSIS IR - STATUS 타일 모니터링":::
 
 #### <a name="ssisdb-server-endpoint-tile"></a>SSISDB SERVER ENDPOINT 타일
 
 Azure SQL Database 서버 또는 관리형 인스턴스가 호스트하는 SSISDB에 패키지가 저장되는 프로젝트 배포 모델을 사용하는 경우 Azure-SSIS IR 모니터링 페이지에 **SSISDB SERVER ENDPOINT** 타일이 표시됩니다([Azure-SSIS IR 배포 설정 구성](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page) 참조). 이 타일에서는 Azure SQL Database 서버 또는 관리형 인스턴스를 지정하는 링크를 선택하여 창을 표시할 수 있습니다. 이 창에서는 텍스트 상자에서 서버 엔드포인트를 복사하고 SSMS에서 연결하여 패키지를 배포, 구성, 실행 및 관리할 수 있습니다. 팝업 창에서 **Azure SQL Database 또는 관리형 인스턴스 설정 보기** 링크를 선택하여 Azure Portal에서 SSISDB를 다시 구성하거나 크기를 조정할 수도 있습니다.
 
-![Azure-SSIS IR - SSISDB 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png" alt-text="Azure-SSIS IR - SSISDB 타일 모니터링":::
 
 #### <a name="proxy--staging-tile"></a>PROXY / STAGING 타일
 
@@ -260,35 +260,35 @@ Azure SQL Database 서버 또는 관리형 인스턴스가 호스트하는 SSISD
 
 Azure-SSIS IR을 VNet에 조인하는 경우 Azure-SSIS IR 모니터링 페이지에서 **VALIDATE VNET / SUBNET** 타일이 표시됩니다([VNet에 Azure-SSIS IR 조인](./join-azure-ssis-integration-runtime-virtual-network.md) 참조). 이 타일에서는 VNet 및 서브넷을 지정하는 링크를 선택하여 창을 표시할 수 있습니다. 여기서 VNet 리소스 ID(`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`)와 서브넷 이름을 텍스트 상자에서 복사하고 VNet 및 서브넷 구성의 유효성을 검사하여 필요한 인바운드/아웃바운드 네트워크 트래픽 및 Azure-SSIS IR 관리에 방해되지 않도록 할 수 있습니다.
 
-![Azure-SSIS IR - VALIDATE 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png" alt-text="Azure-SSIS IR - VALIDATE 타일 모니터링":::
 
 #### <a name="diagnose-connectivity-tile"></a>DIAGNOSE CONNECTIVITY 타일
 
 Azure-SSIS IR 모니터링 페이지의 **DIAGNOSE CONNECTIVITY** 타일에서 **연결 테스트** 링크를 선택하여 창을 표시할 수 있습니다. 여기서는 Azure-SSIS IR 및 관련 패키지/구성/데이터 저장소 및 관리 서비스는 FQDN(정규화된 도메인 이름)/IP 주소 및 지정 포트를 통해 연결을 확인할 수 있습니다([Azure-SSIS IR에서 연결 테스트](./ssis-integration-runtime-diagnose-connectivity-faq.md) 참조).
 
-![Azure-SSIS IR - DIAGNOSE 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png" alt-text="Azure-SSIS IR - DIAGNOSE 타일 모니터링":::
 
 #### <a name="static-public-ip-addresses-tile"></a>STATIC PUBLIC IP ADDRESSES 타일
 
 Azure-SSIS IR에 대한 고정적인 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **STATIC PUBLIC IP ADDRESSES** 타일이 표시됩니다([Azure-SSIS IR에 대한 고정 공용 IP 주소 가져오기](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP) 참조). 이 타일에서 Azure-SSIS IR에 대한 첫 번째/두 번째 고정적인 공용 IP 주소를 지정하는 링크를 선택하여 텍스트 상자에서 해당 리소스 ID(`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`)를 복사할 수 있는 창을 표시할 수 있습니다. 팝업 창에서 **첫 번째/두 번째 고정적인 공용 IP 주소 설정 확인** 링크를 선택하여 Azure Portal에서 첫 번째/두 번째 고정 공용 IP 주소를 관리할 수도 있습니다.
 
-![Azure-SSIS IR - STATIC 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Azure-SSIS IR - STATIC 타일 모니터링":::
 
 #### <a name="package-stores-tile"></a>PACKAGE STORES 타일
 
 패키지 배포 모델을 사용하는 경우 패키지는 Azure SQL Managed Instance에서 호스트하고 Azure-SSIS IR 패키지 저장소를 통해 관리형 파일 시스템/Azure Files/SQL Server 데이터베이스(MSDB)에 저장되며, Azure-SSIS IR 모니터링 페이지에 **PACKAGE STORES** 타일이 표시됩니다([Azure-SSIS IR 배포 설정 구성](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page) 참조). 이 타일에서 Azure-SSIS IR에 연결된 패키지 저장소 수를 지정하는 링크를 선택하여 창을 표시할 수 있습니다. 이 링크를 통해 Azure-SSIS IR 패키지 저장소에 대한 관련 연결 서비스를 Azure SQL Managed Instance에서 호스트하는 파일 시스템/Azure Files/MSDB 위에 다시 구성할 수 있습니다.
 
-![Azure-SSIS IR - PACKAGE 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png" alt-text="Azure-SSIS IR - PACKAGE 타일 모니터링":::
 
 #### <a name="errors-tile"></a>ERROR(S) 타일
 
 Azure-SSIS IR의 시작/중지/유지 관리/업그레이드에 문제가 있는 경우 Azure-SSIS IR 모니터링 페이지에 추가 **ERROR(S)** 타일이 표시됩니다. 이 타일에서는 Azure-SSIS IR에서 생성된 오류 수를 지정하는 링크를 선택하여 창을 표시할 수 있습니다. 여기에서 해당 오류에 대한 세부 정보를 확인하고 복사하여 문제 해결 가이드에서 권장 해결 방법을 찾을 수 있습니다([Azure-SSIS IR 문제 해결](./ssis-integration-runtime-management-troubleshoot.md) 참조).
 
-![Azure-SSIS IR - ERROR 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+:::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png" alt-text="Azure-SSIS IR - ERROR 타일 모니터링":::
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure-SSIS 통합 런타임 모니터링
 
-Azure Monitor로 Azure-SSIS IR를 모니터링하려면 [Azure Monitor를 사용하여 SSIS 작업 모니터링](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)을 참조하세요.
+Azure Monitor로 Azure-SSIS IR를 모니터링하려면 [Azure Monitor를 사용하여 SSIS 작업 모니터링](./monitor-ssis.md)을 참조하세요.
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 자세한 정보
 

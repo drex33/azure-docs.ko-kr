@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 5a9e69b0672a5b4235effcd68b50eeddc5ec9f82
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b1e7f42274b8402b55d358e10cde30f93520dd72
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528669"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824698"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용하여 ADF로 SQL Server 에이전트 작업 마이그레이션
 
@@ -42,10 +42,10 @@ ms.locfileid: "122528669"
 ## <a name="migrate-ssis-jobs-to-adf"></a>SSIS 작업을 ADF로 마이그레이션
 
 1. SSMS의 개체 탐색기에서 SQL Server 에이전트를 선택하고 작업을 선택한 다음 마우스 오른쪽 단추를 클릭하고 **ADF로 SSIS 작업 마이그레이션** 을 선택합니다.
-![작업을 선택하고 SSIS 작업을 ADF로 마이그레이션할 수 있는 SQL Server Management Studio 개체 탐색기를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/menu.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/menu.png" alt-text="작업을 선택하고 SSIS 작업을 ADF로 마이그레이션할 수 있는 SQL Server Management Studio 개체 탐색기를 보여 주는 스크린샷":::
 
 1. Azure에 로그인하고 Azure 구독, Data Factory, Integration Runtime을 선택합니다. 마이그레이션할 SSIS 작업에 SSIS 파일 시스템 패키지가 있는 경우 패키지 위치 매핑 단계에서 사용되는 Azure Storage는 선택 사항입니다.
-![메뉴](media/how-to-migrate-ssis-job-ssms/step1.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step1.png" alt-text="메뉴":::
 
 1. SSIS 패키지의 경로와 SSIS 작업의 구성 파일을 마이그레이션된 파이프라인이 액세스할 수 있는 대상 경로에 매핑합니다. 이 매핑 단계에서는 다음을 수행할 수 있습니다.
 
@@ -53,28 +53,28 @@ ms.locfileid: "122528669"
     1. 원본 폴더 경로를 업데이트합니다. 유효한 경로는 패키지의 폴더 경로 또는 부모 폴더 경로입니다.
     1. 대상 폴더 경로를 업데이트합니다. 기본값은 1단계에서 선택된 기본 스토리지 계정의 상대 경로입니다.
     1. **매핑 삭제** 를 통해 선택한 매핑을 삭제합니다.
-![매핑을 추가할 수 있는 Map SSIS 패키지 및 구성 경로 페이지를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/step2.png)
- ![원본 및 대상 폴더 경로를 업데이트할 수 있는 Map SSIS 패키지 및 구성 경로 페이지를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2.png" alt-text="캡처는 매핑을 추가할 수 있는 Map S I s 패키지 및 구성 경로 페이지를 표시 합니다.":::
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2-1.png" alt-text="원본 및 대상 폴더 경로를 업데이트할 수 있는 Map S I s 패키지 및 구성 경로 페이지가 스크린샷에 표시 됩니다.":::
 
 1. 마이그레이션이 적용될 작업을 선택하고 해당하는 *실행된 SSIS 패키지 작업* 의 설정을 구성합니다.
 
     - *기본 설정* 은 기본적으로 선택한 모든 단계에 적용됩니다. 각 속성에 대한 자세한 내용은 패키지 위치가 *파일 시스템(패키지)* 일 때 [SSIS 패키지 작업 실행](how-to-invoke-ssis-package-ssis-activity.md)의 *설정 탭* 을 참조하세요.
-    ![해당하는 실행된 SSIS 패키지 작업의 설정을 구성할 수 있는 선택된 SSIS 작업 페이지를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step3-1.png" alt-text="해당하는 실행된 SSIS 패키지 작업의 설정을 구성할 수 있는 선택된 SSIS 작업 페이지를 보여 주는 스크린샷":::
     - *단계 설정* 은 선택한 단계에 대한 설정을 구성합니다.
         
         **기본 설정 적용**: 기본값이 선택되어 있습니다. 선택한 단계에 대해서만 설정을 구성하려면 선택을 해제합니다.  
         기타 속성에 대한 자세한 내용은 패키지 위치가 *파일 시스템(패키지)* 일 때 [SSIS 패키지 작업 실행](how-to-invoke-ssis-package-ssis-activity.md)에 대한 *설정 탭* 을 참조하세요.
-    ![기본 설정을 적용할 수 있는 SSIS 작업 선택 페이지를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step3-2.png" alt-text="기본 설정을 적용할 수 있는 SSIS 작업 선택 페이지를 보여 주는 스크린샷":::
 
 1. ARM 템플릿을 생성하고 배포합니다.
     1. 마이그레이션된 ADF 파이프라인의 ARM 템플릿의 출력 경로를 선택하거나 입력합니다. 폴더가 존재하지 않는 경우 자동으로 만들어집니다.
     2. **데이터 팩터리에 ARM 템플릿 배포** 옵션을 선택합니다.
         - 기본값은 선택되지 않습니다. 생성된 ARM 템플릿을 나중에 수동으로 배포할 수 있습니다.
         - 생성된 ARM 템플릿을 데이터 팩터리에 직접 배포하려면 선택합니다.
-    ![마이그레이션 구성 페이지를 보여 주는 스크린샷으로, 여기서 마이그레이션된 ADF 파이프라인의 ARM 템플릿에 대한 출력 경로를 선택하거나 입력하고, 데이터 팩터리에 ARM 템플릿 배포 옵션을 선택할 수 있습니다.](media/how-to-migrate-ssis-job-ssms/step4.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step4.png" alt-text="마이그레이션 구성 페이지를 보여 주는 스크린샷으로, 여기서 마이그레이션된 ADF 파이프라인의 ARM 템플릿에 대한 출력 경로를 선택하거나 입력하고, 데이터 팩터리에 ARM 템플릿 배포 옵션을 선택할 수 있습니다.":::
 
 1. 마이그레이션 후 결과를 확인합니다.
-![마이그레이션 진행 상황을 표시하는 마이그레이션 결과 페이지를 보여 주는 스크린샷](media/how-to-migrate-ssis-job-ssms/step5.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step5.png" alt-text="마이그레이션 진행 상황을 표시하는 마이그레이션 결과 페이지를 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

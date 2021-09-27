@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
+title: Zoho (미리 보기)에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 Zoho에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Zoho에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9dff844b3922742fb2790a7b0fca22b4b12bbb2c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 65ce2a9e4f1fa8c83f11f391d16deb7512667cee
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311049"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779752"
 ---
-# <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
+# <a name="copy-data-from-zoho-using-azure-data-factory-or-synapse-analytics-preview"></a>Azure Data Factory 또는 Synapse Analytics (미리 보기)를 사용 하 여 Zoho에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Zoho에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 Zoho에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
@@ -36,7 +36,7 @@ Zoho에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 이 커넥터는 Xero 액세스 토큰 인증 및 OAuth 2.0 인증을 지원합니다.
 
-Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
+서비스는 연결을 사용할 수 있는 기본 제공 드라이버를 제공 하므로이 커넥터를 사용 하 여 드라이버를 수동으로 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -50,7 +50,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -73,7 +73,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Zoho 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Zoho** 로 설정해야 합니다. | 예 |
 | connectionProperties | Zoho에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
@@ -81,9 +81,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 엔드포인트(endpoint) | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | 예 |
 | authenticationType | 허용되는 값은 `OAuth_2.0`와 `Access Token`입니다. | 예 |
 | clientId | Zoho 애플리케이션과 연결된 클라이언트 ID입니다. | 예(OAuth 2.0 인증의 경우) | 
-| clientSecrect | Zoho 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예(OAuth 2.0 인증의 경우) | 
-| refreshToken | Zoho 애플리케이션과 연결된 OAuth 2.0 새로 고침 토큰으로, 만료되면 액세스 토큰을 새로 고치는 데 사용됩니다. 새로 고침 토큰은 만료되지 않습니다. 새로 고침 토큰을 가져오려면 `offline` access_type을 요청해야 합니다. [이 문서](https://www.zoho.com/crm/developer/docs/api/auth-request.html)에서 자세히 알아보세요. <br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| 예(OAuth 2.0 인증의 경우) |
-| accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| clientSecrect | Zoho 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예(OAuth 2.0 인증의 경우) | 
+| refreshToken | Zoho 애플리케이션과 연결된 OAuth 2.0 새로 고침 토큰으로, 만료되면 액세스 토큰을 새로 고치는 데 사용됩니다. 새로 고침 토큰은 만료되지 않습니다. 새로 고침 토큰을 가져오려면 `offline` access_type을 요청해야 합니다. [이 문서](https://www.zoho.com/crm/developer/docs/api/auth-request.html)에서 자세히 알아보세요. <br>이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다.| 예(OAuth 2.0 인증의 경우) |
+| accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
@@ -151,7 +151,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ZohoObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **ZohoObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -181,7 +181,7 @@ Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Zoh
 
 Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ZohoSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **ZohoSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -223,4 +223,4 @@ Zoho에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Zoho
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: d8aa5f6bf955bcc3ee3fa86c17375d47402628ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 89cfaadb7d490c1d6ebf9cac21c08a402c9d8997
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528246"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565762"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -23,7 +23,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **시나리오** | **도구** | **용도**
 --- | --- | ---
-**VMware 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행되는 서버 검색<br/><br/> 설치된 소프트웨어 인벤토리, ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스, 에이전트 없는 종속성 분석을 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
+**VMware 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행되는 서버 검색<br/><br/> 설치된 소프트웨어 인벤토리 검색, ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스, 에이전트 없는 종속성 분석을 수행합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 **VMware 환경에서 실행되는 에이전트 없는 서버 마이그레이션** | Azure Migrate: Server Migration | VMware 환경 내에서 실행되는 서버를 검색합니다. <br/><br/> 서버에 에이전트를 설치하지 않고 서버를 복제합니다.
 **Hyper-V 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-V 환경 내에서 실행되는 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 **온-프레미스에서 물리적 또는 가상화된 서버 검색 및 평가** |  Azure Migrate: 검색 및 평가 |  온-프레미스에서 물리적 또는 가상화된 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
@@ -587,18 +587,27 @@ NIC당 전송된 데이터 | BWin32_PerfFormattedData_Tcpip_NetworkInterface | B
 서비스 중 하나에 대해 이전 버전을 실행하고 있는 경우 서비스를 제거하고 최신 버전으로 수동으로 업데이트해야 합니다.
 
 1. 최신 어플라이언스 서비스 버전을 확인하려면 LatestComponents.json 파일을 [다운로드](https://aka.ms/latestapplianceservices)합니다.
+
 2. 다운로드되면 메모장에서 LatestComponents.json 파일을 엽니다.
+
 3. 파일에서 최신 서비스 버전 및 해당 다운로드 링크를 찾습니다. 다음은 그 예입니다.
 
-    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+   `"Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"`
 
 4. 파일의 다운로드 링크를 사용하여 오래된 서비스의 최신 버전을 다운로드합니다.
+
 5. 다운로드되면 관리자 명령 창에서 다음 명령을 실행하여 다운로드한 MSI의 무결성을 확인합니다.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` 예:  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+   `C:\> Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]`
+
+    예:
+
+    `C:\> CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5`
 
 5. 명령 출력이 파일의 서비스에 대한 해시 값 항목(예: 위의 MD5 해시 값)과 일치하는지 확인합니다.
+
 6. 이제 MSI를 실행하여 서비스를 설치합니다. 자동 설치이며, 완료되면 설치 창이 닫힙니다.
+
 7. 설치가 완료되면 **제어판** > **프로그램 및 기능** 에서 서비스 버전을 확인합니다. 이제 서비스 버전을 json 파일에 표시된 최신 버전으로 업그레이드해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

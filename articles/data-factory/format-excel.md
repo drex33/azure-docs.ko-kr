@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 7a1a0331276169bb81dcf86c74aab1a16855b25c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 66f0f310faa32e65dea657d7b15ceae7e4f84ba0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255850"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831343"
 ---
 # <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 Excel 파일 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -124,7 +124,7 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon
 
 아래 이미지는 데이터 세트 모드를 사용하는 매핑 데이터 흐름의 Excel 원본 구성의 예입니다.
 
-![Excel 원본](media/data-flow/excel-source.png)
+:::image type="content" source="media/data-flow/excel-source.png" alt-text="Excel 원본":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 
@@ -136,7 +136,7 @@ source(allowSchemaDrift: true,
 
 인라인 데이터 세트를 사용하는 경우 매핑 데이터 흐름에 다음 원본 옵션이 표시됩니다.
 
-![Excel 원본 인라인 데이터 세트](media/data-flow/excel-source-inline-dataset.png)
+:::image type="content" source="media/data-flow/excel-source-inline-dataset.png" alt-text="Excel 원본 인라인 데이터 세트":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 

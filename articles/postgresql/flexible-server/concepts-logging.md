@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 7c269c26710711c23dd200f688bf1eb55d3925fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606388"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597971"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 로그
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL를 사용하여 Postgres의 표준 로그를 구성하고 액세스할 수 있습니다. 로그는 구성 오류 및 비정상적인 성능 문제를 인지하고, 해결하며, 복구하는 데 사용됩니다. 구성 및 액세스할 수 있는 로깅 정보에는 오류, 쿼리 정보, autovacuum 레코드, 연결 및 검사점이 있습니다. (트랜잭션 로그 액세스는 불가능합니다).
 
@@ -24,7 +23,7 @@ Azure Database for PostgreSQL를 사용하여 Postgres의 표준 로그를 구�
 
 ## <a name="configure-logging"></a>로깅 구성
 
-로깅 서버 매개 변수를 사용하면 서버에서 로깅을 구성할 수 있습니다. Postgres 로그 매개 변수에 대한 자세한 내용을 알아보려면 Postgres 설명서의 [로그할 시기](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) 및 [로그할 항목](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) 섹션을 참조하세요. Azure Database for PostgreSQL에서 대부분의 Postgres 로깅 매개 변수를 구성할 수 있습니다.
+로깅 서버 매개 변수를 사용하면 서버에서 로깅을 구성할 수 있습니다. Postgres 로그 매개 변수에 대한 자세한 내용을 알아보려면 Postgres 설명서의 [로그할 시기](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) 및 [로그할 항목](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) 섹션을 참조하세요. Azure Database for PostgreSQL에서 전부는 아니지만 대부분의 Postgres 로깅 매개 변수를 구성할 수 있습니다.
 
 Azure Database for PostgreSQL 매개 변수를 구성하는 방법을 알아보려면 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조하세요.
 
@@ -62,7 +61,7 @@ Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다.
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
 | LogicalServerName | 서버의 이름 | 
 | _ResourceId | 리소스 URI |
-| 접두사 | 로그 줄의 접두사 |
+| 접두사 | 로그 줄의 prefix |
 
 
 ## <a name="next-steps"></a>다음 단계

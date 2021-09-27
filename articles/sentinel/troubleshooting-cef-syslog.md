@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 18166bc22f34fe8bd4757ffd3a0d468c6a75b23c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 545ab178c99b8d5ab6db1d6619a9859eb3133306
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699304"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124781347"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>CEF 또는 Syslog 데이터 커넥터 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "122699304"
 
 ## <a name="validate-cef-connectivity"></a>CEF 연결 유효성 검사
 
-[로그 전달자를 배포하고](connect-common-event-format.md) [CEF 메시지를 보내도록 보안 솔루션을 구성했으면](connect-cef-solution-config.md), 이 섹션의 단계에 따라 보안 솔루션과 Azure Sentinel 간의 연결을 확인합니다.
+[로그 전달자를 배포하고](connect-common-event-format.md) [CEF 메시지를 보내도록 보안 솔루션을 구성했으면](./connect-common-event-format.md), 이 섹션의 단계에 따라 보안 솔루션과 Azure Sentinel 간의 연결을 확인합니다.
 
 1. 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -269,15 +269,15 @@ ms.locfileid: "122699304"
 
 Azure Virtual Machine을 Syslog 수집기로 사용하는 경우 다음을 확인합니다.
 
-- Syslog 데이터 커넥터를 설정하는 동안 [MMA/OMS 에이전트 ](connect-windows-security-events.md#connector-options)에 대한 [Azure Security Center 자동 프로비저닝 설정](/azure/security-center/security-center-enable-data-collection)을 해제해야 합니다.
+- Syslog 데이터 커넥터를 설정하는 동안 [MMA/OMS 에이전트 ](connect-windows-security-events.md#connector-options)에 대한 [Azure Security Center 자동 프로비저닝 설정](../security-center/security-center-enable-data-collection.md)을 해제해야 합니다.
 
     이는 데이터 커넥터가 완전히 설정된 후 다시 설정할 수 있습니다.
 
-- [Common Event Format 데이터 커넥터 Python 스크립트](connect-cef-agent.md)를 배포하기 전에 가상 머신이 기존 Syslog 작업 영역에 벌써 연결되어 있지 않은지 확인합니다. 이 정보는 Log Analytics 작업 영역 가상 머신 목록에서 찾을 수 있습니다. 여기서 Syslog 작업 영역에 연결된 VM은 **연결됨** 으로 나열됩니다.
+- [Common Event Format 데이터 커넥터 Python 스크립트](./connect-log-forwarder.md)를 배포하기 전에 가상 머신이 기존 Syslog 작업 영역에 벌써 연결되어 있지 않은지 확인합니다. 이 정보는 Log Analytics 작업 영역 가상 머신 목록에서 찾을 수 있습니다. 여기서 Syslog 작업 영역에 연결된 VM은 **연결됨** 으로 나열됩니다.
 
 - Azure Sentinel이 올바른 Syslog 작업 영역에 연결되고 **SecurityInsights** 솔루션이 설치되었는지 확인합니다.
 
-    자세한 내용은 [1단계: 로그 전달자 배포](connect-cef-agent.md)를 참조하세요.
+    자세한 내용은 [1단계: 로그 전달자 배포](./connect-log-forwarder.md)를 참조하세요.
 
 - 머신의 크기가 최소 필수 조건 이상으로 올바르게 설정되었는지 확인합니다. 자세한 내용은 [CEF 필수 조건](connect-common-event-format.md#prerequisites)을 참조하세요.
 
@@ -299,7 +299,7 @@ Syslog 서버(rsyslog 또는 syslog-ng)는 관련 구성 파일에 정의된 모
 
 Azure Sentinel에 수집하려는 시설 및 심각도 로그 수준에 대한 세부 정보를 추가해야 합니다. 구성 프로세스가 완료될 때까지 약 20분 정도 걸립니다.
 
-자세한 내용은 [배포 스크립트 설명](connect-cef-agent.md#deployment-script-explained) 및 [Azure Portal에서 Syslog 구성](/azure/azure-monitor/agents/data-sources-syslog.md)을 참조하세요.
+자세한 내용은 [배포 스크립트 설명](./connect-log-forwarder.md#deployment-script-explained) 및 [Azure Portal에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md)을 참조하세요.
 
 
 **예를 들어 rsyslog 서버의 경우** 다음 명령을 실행하여 Syslog 전달에 대한 현재 설정을 표시하고 구성 파일의 변경 내용을 검토합니다.
@@ -506,9 +506,9 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 - 포트 25524나 25526 또는 둘 다에서 이동하는 데이터 패킷을 볼 수 있는지 확인합니다.
 
-- 가상 머신이 TCP를 통해 포트 443에 대한 아웃바운드 연결이 있거나 [Log Analytics 엔드포인트에](/azure/azure-monitor/agents/log-analytics-agent#network-requirements) 연결할 수 있는지 확인합니다.
+- 가상 머신이 TCP를 통해 포트 443에 대한 아웃바운드 연결이 있거나 [Log Analytics 엔드포인트에](../azure-monitor/agents/log-analytics-agent.md#network-requirements) 연결할 수 있는지 확인합니다.
 
-- 방화벽 정책을 통해 Syslog 수집기에서 필요한 URL에 액세스할 수 있는지 확인합니다. 자세한 내용은 [Log Analytics 에이전트 방화벽 요구 사항](/azure/azure-monitor/agents/log-analytics-agent##firewall-requirements)을 참조하세요.
+- 방화벽 정책을 통해 Syslog 수집기에서 필요한 URL에 액세스할 수 있는지 확인합니다. 자세한 내용은 [Log Analytics 에이전트 방화벽 요구 사항](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)을 참조하세요.
 
 - Azure Virtual Machine이 작업 영역의 가상 머신 목록에 연결되었다고 표시되어 있는지 확인합니다.
 

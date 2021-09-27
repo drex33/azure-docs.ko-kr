@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4463659077943507651ddd2ad30ee2a1af9cf7a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: a2c760e4b1ca923496d11002f2e30b72672f32df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785216"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778403"
 ---
 # <a name="azure-functions-hosting-options"></a>Azure Functions 호스팅 옵션
 
@@ -34,8 +34,8 @@ Azure에서 함수 앱을 만들 때는 앱의 호스팅 계획을 선택해야 
 | 계획 | 이점 |
 | --- | --- |  
 |**[소비 계획](consumption-plan.md)**| 크기를 자동으로 조정하고 함수가 실행 중일 때만 컴퓨팅 리소스에 대한 비용을 지불합니다.<br/><br/>소비 계획에서 Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가되고 제거됩니다.<br/><br/> ✔ 기본 호스팅 계획<br/>✔ 함수가 실행되는 경우에만 지불<br/>✔ 높은 부하 기간 동안에도 자동으로 크기 조정|  
-|**[프리미엄 계획](functions-premium-plan.md)**|유휴 상태 후 지연 없이 애플리케이션을 실행하고, 더 강력한 인스턴스에서 실행되고, 가상 네트워크에 연결하는 사전 준비가 된 작업자를 사용하여 수요에 따라 크기가 자동으로 조정됩니다. <br/><br/>다음과 같은 상황에서 Azure Functions 프리미엄 계획을 고려합니다. <br/><br/>✔ 함수 앱을 계속해서 또는 거의 계속해서 실행<br/>✔ 소형 실행 수도 많고 실행 요금도 높지만 소비 계획에서 GB 초는 낮음<br/>✔ 소비 계획에서 제공하는 것보다 많은 CPU 또는 메모리 옵션이 필요함<br/>✔ 코드가 소비 계획에 허용된 최대 실행 시간보다 오래 실행해야 함<br/>✔ 가상 네트워크 연결처럼 소비 계획에서 사용할 수 없는 기능이 필요함|  
-|**[전용 계획](dedicated-plan.md)** |App Service 계획 내에서 함수를 정기적인 [App Service 계획 요금](https://azure.microsoft.com/pricing/details/app-service/windows/)으로 실행합니다.<br/><br/>[Durable Functions](durable/durable-functions-overview.md)를 사용할 수 없는 장기 실행 시나리오에 적합합니다. 다음 상황에서 App Service 플랜을 고려합니다.<br/><br/>✔ 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있음<br/>✔ 함수를 실행할 사용자 지정 이미지를 제공하고자 함 <br/>✔ 예측 크기 조정 및 비용이 필요함|  
+|**[프리미엄 계획](functions-premium-plan.md)**|유휴 상태 후 지연 없이 애플리케이션을 실행하고, 더 강력한 인스턴스에서 실행되고, 가상 네트워크에 연결하는 사전 준비가 된 작업자를 사용하여 수요에 따라 크기가 자동으로 조정됩니다. <br/><br/>다음과 같은 상황에서 Azure Functions 프리미엄 계획을 고려합니다. <br/><br/>✔ 함수 앱을 계속해서 또는 거의 계속해서 실행<br/>✔ 소형 실행 수도 많고 실행 요금도 높지만 소비 계획에서 GB 초는 낮음<br/>✔ 소비 계획에서 제공하는 것보다 많은 CPU 또는 메모리 옵션이 필요함<br/>✔ 코드가 소비 계획에 허용된 최대 실행 시간보다 오래 실행해야 함<br/>✔ 가상 네트워크 연결처럼 소비 계획에서 사용할 수 없는 기능이 필요함<br/>✔ 함수를 실행할 사용자 지정 Linux 이미지를 제공하려고 합니다. |  
+|**[전용 계획](dedicated-plan.md)** |App Service 계획 내에서 함수를 정기적인 [App Service 계획 요금](https://azure.microsoft.com/pricing/details/app-service/windows/)으로 실행합니다.<br/><br/>[Durable Functions](durable/durable-functions-overview.md)를 사용할 수 없는 장기 실행 시나리오에 적합합니다. 다음 상황에서 App Service 플랜을 고려합니다.<br/><br/>✔ 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있음<br/>✔ 예측 크기 조정 및 비용이 필요함|  
 
 이 문서의 비교 테이블에는 다음과 같이 가장 많은 양의 컨트롤과 격리를 제공하여 그 안에서 함수 앱을 실행할 수 있는 호스팅 옵션도 포함되어 있습니다.  
 

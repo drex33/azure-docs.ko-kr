@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 9c6be388d02ebec99a3ec9ad105cff68c6e3f1bd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e490d3a1b38c70e7d5ed7fa11ac5b5055225fb8b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536099"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059121"
 ---
 # <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>HTTP 데이터 수집기 API를 사용하여 Azure Monitor에 로그 데이터 전송(미리 보기)
 
@@ -573,6 +573,7 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.Locale;
 
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 

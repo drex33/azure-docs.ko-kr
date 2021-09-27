@@ -1,28 +1,28 @@
 ---
 title: SAP ECC에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 SAP ECC에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/28/2020
-ms.openlocfilehash: bf20bc4b3e796f118b829cc979af1ff4ac75a0c6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 47e7b51a75569ea1c23910b78a1b5396759381f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316829"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764073"
 ---
-# <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
+# <a name="copy-data-from-sap-ecc-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 SAP ECC에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP ECC(Enterprise Central Component)에서 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 [작업 복사 개요](copy-activity-overview.md)를 참조하세요.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory 백서를 사용한 SAP 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에 대한 전반적인 지원을 알아보려면 각 SAP 커넥터, 비교 및 지침에 대한 자세한 소개와 함께 Azure Data Factory 사용하여 SAP [데이터 통합 백서를](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -50,7 +50,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 1. SAP GUI를 사용하여 SAP 시스템에 연결합니다. 
 2. **시스템** -> **상태** 로 이동합니다. 
 3. SAP_BASIS의 릴리스를 확인하여 701보다 크거나 같은지 확인합니다.  
-      ![SAP_BASIS 확인](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="SAP_BASIS 확인":::
 
 >[!TIP]
 >SAP 테이블 또는 뷰를 통해 SAP ECC에서 데이터를 복사하려면 빠르고 확장성이 뛰어난 [SAP 테이블](connector-sap-table.md) 커넥터를 사용합니다.
@@ -77,7 +77,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -99,7 +99,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapEcc`로 설정해야 합니다. | 예 |
 | `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
@@ -138,7 +138,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 `type` 속성을 
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
@@ -212,9 +212,9 @@ SAP ECC에서 데이터를 복사하려면 복사 작업의 `source` 섹션에�
 
 ## <a name="data-type-mappings-for-sap-ecc"></a>SAP ECC에 대한 데이터 형식 매핑
 
-SAP ECC에서 데이터를 복사하는 경우 SAP ECC 데이터에 대한 OData 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로의 다음 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+SAP ECC에서 데이터를 복사 하는 경우 SAP ECC 데이터의 OData 데이터 형식에서 서비스가 내부적으로 사용 하는 중간 데이터 형식으로 다음 매핑이 사용 됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| OData 데이터 형식 | Data Factory 중간 데이터 형식 |
+| OData 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | `Edm.Binary` | `String` |
 | `Edm.Boolean` | `Bool` |
@@ -241,4 +241,4 @@ SAP ECC에서 데이터를 복사하는 경우 SAP ECC 데이터에 대한 OData
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

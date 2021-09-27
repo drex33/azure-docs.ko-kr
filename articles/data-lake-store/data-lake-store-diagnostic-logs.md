@@ -1,23 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1에 대한 진단 로그 보기 | Microsoft Docs
 description: 'Azure Data Lake Storage Gen1에 대한 진단 로그를 설정하고 액세스하는 방법을 이해합니다. '
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
-ms.author: twooley
-ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: 325bca316aaf4add854ea473f71c9f9883fa42eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582803"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602938"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
@@ -115,7 +109,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| 이름 | 유형 | 설명 |
+| 이름 | 유형 | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -167,7 +161,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| 이름 | 유형 | 설명 |
+| 이름 | 유형 | Description |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |

@@ -8,13 +8,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 1595d2984c4130fa89c52aec615941051fa1bb82
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 4c1ec8e8ca10764c630320c1d448b812da7a3cc4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099357"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750728"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -30,7 +30,7 @@ Azure Data Factory 및 Synapse 파이프라인의 매핑 데이터 흐름은 대
 
 디버그 모드를 사용하여 변환 논리를 확인한 후에는 데이터 흐름을 파이프라인의 작업으로써 처음부터 끝까지 테스트합니다. 데이터 흐름은 [데이터 흐름 작업 실행](control-flow-execute-data-flow-activity.md)을 사용하여 파이프라인에서 작동합니다. 데이터 흐름 작업에는 다른 작업과 달리 변환 논리의 자세한 실행 계획 및 성능 프로필을 표시하는 고유한 모니터링 환경이 있습니다. 데이터 흐름의 자세한 모니터링 정보를 보려면 파이프라인의 활동 실행 출력에서 안경 아이콘을 클릭합니다. 자세한 내용은 [매핑 데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조하세요.
 
-![데이터 흐름 모니터링](media/data-flow/monitoring-details.png "데이터 흐름 모니터 2")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="데이터 흐름 모니터링":::
 
 데이터 흐름 성능을 모니터링할 때 다음과 같은 네 가지 병목 현상을 살펴봐야 합니다.
 
@@ -39,7 +39,7 @@ Azure Data Factory 및 Synapse 파이프라인의 매핑 데이터 흐름은 대
 * 변환 시간
 * 싱크에 쓰기 
 
-![데이터 흐름 모니터링](media/data-flow/monitoring-performance.png "데이터 흐름 모니터 3")
+:::image type="content" source="media/data-flow/monitoring-performance.png" alt-text="데이터 흐름 모니터링":::
 
 클러스터 시작 시간은 Apache Spark 클러스터를 가동하는 데 걸리는 시간입니다. 이 값은 모니터링 화면의 오른쪽 위 모서리에 있습니다. 데이터 흐름은 각 작업이 격리된 클러스터를 사용하는 Just-In-Time 모델에서 실행됩니다. 이 시작 시간은 일반적으로 3-5입니다. 순차적 작업의 경우 Time to Live 값을 사용하여 이 시간을 줄일 수 있습니다. 자세한 내용은 [통합 런타임 성능](concepts-integration-runtime-performance.md#time-to-live)의 **TTL(Time to live)** 섹션을 참조하세요.
 
@@ -55,7 +55,7 @@ UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드�
 
 **최적화** 탭에는 Spark 클러스터의 파티션 구성표를 구성하는 설정이 포함되어 있습니다. 이 탭은 데이터 흐름의 모든 변환에 있으며 변환이 완료된 **후** 데이터를 다시 분할할 것인지 여부를 지정합니다. 데이터 분할을 조정하면 전반적인 데이터 흐름 성능에 긍정적인 영향과 부정적인 영향을 모두 줄 수 있는 컴퓨팅 노드 간의 데이터 분산 및 데이터 위치 최적화를 제어할 수 있습니다.
 
-![[파티션 옵션], [파티션 유형] 및 [파티션 수]로 구성된 [최적화] 탭을 보여주는 스크린샷](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="[파티션 옵션], [파티션 유형] 및 [파티션 수]로 구성된 [최적화] 탭을 보여주는 스크린샷":::
 
 변환의 현재 출력 분할을 유지하도록 서비스에 지시하는 *현재 분할 사용* 이 기본적으로 선택됩니다. 데이터를 다시 분할하는 데 시간이 걸리므로 대부분의 시나리오에서는 *현재 분할 사용* 을 선택하는 것이 좋습니다. 데이터를 상당히 왜곡하는 집계 및 조인 이후 또는 SQL DB에서 원본 분할을 사용하는 경우 데이터를 다시 분할해야 할 수도 있습니다.
 
@@ -93,7 +93,7 @@ UI에서 데이터 흐름을 디자인하고 테스트할 때 디버그 모드�
 
 데이터 흐름 활동의 모든 파이프라인 실행에서 모든 자세한 원격 분석 로그를 완전히 기록할 필요가 없는 경우 필요에 따라 로깅 수준을 ‘기본’ 또는 ‘없음’으로 설정할 수 있습니다. '자세한 정보' 모드(기본값)에서 데이터 흐름을 실행하는 경우 서비스에 데이터 변환 중 각 개별 파티션 수준에서 작업을 완전히 기록하도록 요청하는 것입니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결하는 경우에만 자세한 정보를 사용하면 전체 데이터 흐름 및 파이프라인 성능을 향상시킬 수 있습니다. ‘기본’ 모드에서는 변환 기간만 기록하고, ‘없음’의 경우 기간 요약만 제공합니다.
 
-![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
+:::image type="content" source="media/data-flow/logging.png" alt-text="로깅 수준":::
 
 ## <a name="optimizing-sources"></a>원본 최적화
 
@@ -111,7 +111,7 @@ Azure SQL Database에는 '원본' 분할이라는 고유한 분할 옵션이 있
 > [!TIP]
 > 원본 분할의 경우 SQL Server I/O는 병목 상태입니다. 너무 많은 파티션을 추가하면 원본 데이터베이스가 포화될 수 있습니다. 일반적으로 이 옵션을 사용하는 경우 파티션 4개 또는 5개가 적절합니다.
 
-![원본 분할](media/data-flow/sourcepart3.png "원본 분할")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="원본 분할":::
 
 #### <a name="isolation-level"></a>격리 수준
 
@@ -123,9 +123,9 @@ Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics 원본
 
-Azure Synapse Analytics를 사용하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 서비스가 ```Staging```을 사용하여 Synapse에서 읽을 수 있으며, 이는 가장 성능이 좋은 대량 로드 기능을 위해 [Synapse COPY 문](/sql/t-sql/statements/copy-into-transact-sql.md) 명령을 사용하여 읽기 성능을 크게 향상시킵니다. ```Staging```을 사용하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정해야 합니다.
+Azure Synapse Analytics를 사용하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 서비스가 ```Staging```을 사용하여 Synapse에서 읽을 수 있으며, 이는 가장 성능이 좋은 대량 로드 기능을 위해 [Synapse COPY 문](/sql/t-sql/statements/copy-into-transact-sql) 명령을 사용하여 읽기 성능을 크게 향상시킵니다. ```Staging```을 사용하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정해야 합니다.
 
-![준비 사용](media/data-flow/enable-staging.png "준비 사용")
+:::image type="content" source="media/data-flow/enable-staging.png" alt-text="준비 사용":::
 
 ### <a name="file-based-sources"></a>파일 기반 원본
 
@@ -159,7 +159,7 @@ SQL 데이터베이스에 로드하기 전에 인덱스를 비활성화하면 �
 
 두 가지 작업 모두 매핑 데이터 흐름의 Azure SQL DB 또는 Synapse 싱크 내에서 SQL 사전 및 사후 SQL 스크립트를 사용하여 수행할 수 있습니다.
 
-![인덱스 사용 안 함](media/data-flow/disable-indexes-sql.png "인덱스 사용 안 함")
+:::image type="content" source="media/data-flow/disable-indexes-sql.png" alt-text="인덱스 사용 안 함":::
 
 > [!WARNING]
 > 인덱스를 사용하지 않도록 설정하면 데이터 흐름이 데이터베이스를 효과적으로 제어하며 이 시점에는 쿼리가 성공할 가능성이 거의 없습니다. 결과적으로 이 충돌을 방지하기 위해 많은 ETL 작업이 야간에 트리거됩니다. 자세한 내용은 [SQL 인덱스를 사용하지 않도록 설정하는 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints)을 참조하세요.
@@ -184,7 +184,7 @@ Azure Synapse Analytics에 쓸 때 **준비 사용** 을 true로 설정해야 �
 
 파일을 쓸 때 이름 지정 옵션을 선택할 수 있으며 각 옵션은 성능에 영향을 줍니다.
 
-![싱크 옵션](media/data-flow/file-sink-settings.png "싱크 옵션")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="싱크 옵션":::
 
 **기본값** 옵션을 선택하면 가장 빠르게 씁니다. 각 파티션은 Spark 기본 이름을 사용하는 파일을 동일하게 취급합니다. 이는 데이터 폴더에서 읽기만 하는 경우에 유용합니다.
 
@@ -216,7 +216,7 @@ CosmosDB에 쓸 때 데이터 흐름이 실행되는 동안 처리량과 일괄 
 
 큰 데이터베이스 쿼리와 같이 쿼리하는 데 더 오래 걸릴 수 있는 데이터 원본으로 작업하는 경우 조인에 대해 브로드캐스트를 끄는 것이 좋습니다. 원본의 쿼리 시간이 길면 클러스터가 컴퓨팅 노드에 브로드캐스트를 시도할 때 Spark 시간 초과가 발생할 수 있습니다. 나중에 조회 변환에 사용하기 위해 값을 집계하는 스트림이 데이터 흐름에 있는 경우에도 브로드캐스트를 끄는 것이 좋습니다. 이 패턴은 Spark 최적화 프로그램을 혼동시키고 시간 초과를 일으킬 수 있습니다.
 
-![조인 변환 최적화](media/data-flow/joinoptimize.png "조인 최적화")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="조인 변환 최적화":::
 
 #### <a name="cross-joins"></a>크로스 조인
 
@@ -234,7 +234,7 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 조인 및 집계와 같은 특정 변환은 데이터 파티션을 다시 섞으며, 이로 인해 경우에 따라 데이터가 기울어질 수 있습니다. 데이터가 기울어졌다는 것은 데이터가 모든 파티션에 균등하게 분산되지 않았다는 뜻입니다. 데이터가 많이 기울어지면 다운스트림 변환 및 싱크 쓰기 속도가 저하될 수 있습니다. 데이터 흐름 실행의 모든 시점에서 모니터링 표시의 변환을 클릭하여 데이터 왜도를 확인할 수 있습니다.
 
-![왜도 및 첨도](media/data-flow/skewness-kurtosis.png "왜도 및 첨도")
+:::image type="content" source="media/data-flow/skewness-kurtosis.png" alt-text="왜도 및 첨도":::
 
 모니터링 표시에는 왜도 및 첨도 메트릭과 함께 각 파티션에 데이터가 분산되는 방식이 표시됩니다. **왜도** 는 데이터에 허용되는 비대칭성과 데이터가 양수, 0, 음수 또는 정의되지 않은 값을 가질 수 있는지 여부를 측정하는 방법입니다. 음수 기울이기는 왼쪽 꼬리가 오른쪽보다 긴 것을 의미합니다. **첨도** 는 데이터 꼬리가 굵은지 아니면 얇은지 측정하는 방법입니다. 높은 첨도 값은 바람직하지 않습니다. 적절한 왜도 범위는 -3에서 3 사이이고 첨도 범위는 10 미만입니다. 이러한 숫자를 해석하는 쉬운 방법은 파티션 차트를 살펴보고 1개 막대가 나머지 막대보다 유달리 큰지 확인하는 것입니다.
 

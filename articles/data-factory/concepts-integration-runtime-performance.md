@@ -8,13 +8,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 6cc19a1c37071fc7a9af9c3474e0b706283cdf9d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 13f632da70944d7c1aec00df112782429dc9620e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116918"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787910"
 ---
 # <a name="optimizing-performance-of-the-azure-integration-runtime"></a>Azure Integration Runtime 성능 최적화
 

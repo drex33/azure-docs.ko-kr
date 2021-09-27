@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure Container Registry에 로그인할 때 발생하는 일반적인 문제에 대한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d8579d2a590f722c40dc3582a03efb602dde6520
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 48b3069911b16fce23017d562d0b99fbd8f0268c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078151"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733013"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -54,7 +54,7 @@ Azure Kubernetes Service에서 레지스트리를 사용하는 데 문제가 있
 관련 링크:
 
 * [인증 개요](container-registry-authentication.md#authentication-options)
-* [컨테이너 레지스트리 FAQ](container-registry-faq.md)
+* [컨테이너 레지스트리 FAQ](container-registry-faq.yml)
 
 ### <a name="specify-correct-registry-name"></a>올바른 레지스트리 이름 지정
 
@@ -72,7 +72,7 @@ az acr login --name myregistry
 
 관련 링크:
 
-* [az acr login이 성공했지만 '권한 없음: 인증 필요' 오류로 인해 docker 명령이 실패함](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
+* [az acr login이 성공했지만 '권한 없음: 인증 필요' 오류로 인해 docker 명령이 실패함](container-registry-faq.yml#az-acr-login-succeeds-but-docker-fails-with-error--unauthorized--authentication-required)
 
 ### <a name="confirm-credentials-to-access-registry"></a>레지스트리에 액세스할 자격 증명 확인
 
@@ -83,7 +83,7 @@ az acr login --name myregistry
   * 암호 - 서비스 주체 암호(*클라이언트 암호* 라고도 함)
 * Azure Kubernetes Service 또는 Azure DevOps와 같은 Azure 서비스를 사용하여 레지스트리에 액세스하는 경우 서비스에 대한 레지스트리 구성을 확인합니다. 
 * Docker 디먼을 사용하지 않고 레지스트리 로그인을 사용하도록 설정하는 `--expose-token` 옵션과 함께 `az acr login`을 실행한 경우 사용자 이름 `00000000-0000-0000-0000-000000000000`으로 인증해야 합니다.
-* 레지스트리가 [익명 끌어오기 액세스](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)로 구성된 경우 이전 Docker 로그인에서 저장된 기존 Docker 자격 증명은 익명 액세스를 차단할 수 있습니다. 레지스트리에서 익명 끌어오기 작업을 시도하기 전에 `docker logout`을 실행합니다.
+* 레지스트리가 [익명 끌어오기 액세스](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-)로 구성된 경우 이전 Docker 로그인에서 저장된 기존 Docker 자격 증명은 익명 액세스를 차단할 수 있습니다. 레지스트리에서 익명 끌어오기 작업을 시도하기 전에 `docker logout`을 실행합니다.
 
 관련 링크:
 
@@ -131,12 +131,12 @@ Azure CLI를 사용하여 포털 또는 레지스트리 관리에서 레지스�
 
 ## <a name="advanced-troubleshooting"></a>고급 문제 해결
 
-레지스트리에서 [리소스 로그 수집](monitor-service.md)이 사용하도록 설정된 경우 ContainterRegistryLoginEvents 로그를 검토합니다. 이 로그는 들어오는 ID와 IP 주소를 포함하여 인증 이벤트와 상태를 저장합니다. 로그에서 [레지스트리 인증 실패](monitor-service.md#registry-authentication-failures)를 쿼리합니다. 
+레지스트리에서 [리소스 로그 컬렉션](monitor-service.md) 을 사용 하는 경우 ContainerRegistryLoginEvents 로그를 검토 합니다. 이 로그는 들어오는 ID와 IP 주소를 포함하여 인증 이벤트와 상태를 저장합니다. 로그에서 [레지스트리 인증 실패](monitor-service.md#registry-authentication-failures)를 쿼리합니다. 
 
 관련 링크:
 
-* [Azure Container Registry 모니터링](monitor-service.md)
-* [컨테이너 레지스트리 FAQ](container-registry-faq.md)
+* [진단 평가 및 감사를 위한 로그](./monitor-service.md)
+* [컨테이너 레지스트리 FAQ](container-registry-faq.yml)
 * [Azure Container Registry의 모범 사례](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>다음 단계

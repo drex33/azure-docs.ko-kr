@@ -1,14 +1,14 @@
 ---
 title: 위임 업데이트
 description: 이전에 Azure Lighthouse에 등록한 고객에 대한 위임을 업데이트하는 방법에 대해 알아봅니다.
-ms.date: 02/16/2021
+ms.date: 09/08/2021
 ms.topic: how-to
-ms.openlocfilehash: e8044732cd1cb544515bcfe5b2c0ac3b40bf0cfe
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: 41ba14433f1af7abb60034e4034f0585ed9968f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389258"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736662"
 ---
 # <a name="update-a-delegation"></a>위임 업데이트
 
@@ -58,12 +58,12 @@ ms.locfileid: "114389258"
 
 ## <a name="updating-managed-service-offers"></a>관리 서비스 제안 업데이트
 
-Azure Marketplace에 게시된 관리 서비스 제안을 통해 고객을 온보딩하고 권한 부여를 업데이트하려는 경우 해당 고객에 대한 플랜에서 업데이트할 [권한 부여](../../marketplace/plan-managed-service-offer.md)와 함께 [새 버전의 제안을 게시](../../marketplace/update-existing-offer.md)하여 위임을 업데이트할 수 있습니다. 그런 다음, 고객은 Azure Portal에서 최신 버전으로 업데이트할 수 있습니다.
+Azure Marketplace 게시된 관리 서비스 제안을 통해 고객을 온보딩하고 권한 부여를 업데이트하려는 경우 해당 고객에 대한 플랜에서 업데이트된 사용하려는 [권한 부여를](../../marketplace/create-managed-service-offer-plans.md#authorizations) 사용하여 [새 버전의 제안을 게시하면](../../marketplace/update-existing-offer.md) 됩니다. 그러면 고객은 [Azure Portal 변경 내용을 검토하고 새 버전 을 수락할](view-manage-service-providers.md#update-service-provider-offers)수 있습니다.
 
-관리 테넌트를 변경하려는 경우 고객이 수락할 [새 관리 서비스 제안을 만들고 게시](../../marketplace/plan-managed-service-offer.md)해야 합니다.
+관리 테넌트를 변경하려는 경우 고객이 수락할 [새 관리 서비스 제안을 만들고 게시](publish-managed-services-offers.md)해야 합니다.
 
-> [!TIP]
-> 앞서 설명한 대로 동일한 고객과 테넌트 관리 간에 여러 다른 제안을 사용하지 않는 것이 좋습니다. 동일한 관리 테넌트를 사용하는 동일한 고객에 대한 새 제안을 게시하는 경우 고객이 최신 제안을 수락하기 전에 이전 제안이 제거되었는지 확인해야 합니다.
+> [!IMPORTANT]
+> 앞서 언급했듯이 동일한 고객에 대해 여러 제안을 사용하고 테넌트를 관리하는 것을 방지하는 것이 좋습니다. 동일한 관리 테넌트를 사용하는 동일한 고객에 대한 새 제안을 게시하는 경우 고객이 최신 제안을 수락하기 전에 이전 제안이 제거되었는지 확인해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

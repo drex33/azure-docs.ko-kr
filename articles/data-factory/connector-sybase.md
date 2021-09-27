@@ -1,28 +1,28 @@
 ---
-title: Azure Data Factory를 사용하여 Sybase에서 데이터 복사
+title: Sybase에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 Sybase에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Sybase에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 84aacb94e2367d8df3311743efaef96ce49d7e55
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: d487a862c6079272c400db964d2a8e898d3121a6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304339"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820110"
 ---
-# <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
+# <a name="copy-data-from-sybase-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Sybase에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-sybase-connector.md)
 > * [현재 버전](connector-sybase.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Sybase 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 Sybase 데이터베이스에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -59,7 +59,7 @@ Sybase IQ와 ASE는 지원하지 않습니다. 대신 일반 ODBC 커넥터를 S
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -82,14 +82,14 @@ Sybase IQ와 ASE는 지원하지 않습니다. 대신 일반 ODBC 커넥터를 S
 
 Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Sybase** 로 설정되어야 합니다. | 예 |
 | 서버 | Sybase 서버의 이름입니다. |예 |
 | 데이터베이스 | Sybase 데이터베이스의 이름입니다. |예 |
 | authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows** 입니다. |예 |
 | 사용자 이름 | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예:**
@@ -196,9 +196,9 @@ Sybase에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에
 
 ## <a name="data-type-mapping-for-sybase"></a>Sybase에 대한 데이터 형식 매핑
 
-Sybase에서 데이터를 복사할 경우 Sybase 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Sybase에서 데이터를 복사할 때 Sybase 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-Sybase는 T-SQL 형식을 지원합니다. SQL 형식의 매핑 테이블을 Azure Data Factory 중간 데이터 형식에 매핑하려면 [Azure SQL Database 커넥터 - 데이터 형식 매핑](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) 섹션을 참조하세요.
+Sybase는 T-SQL 형식을 지원합니다. SQL 형식에서 중간 서비스 데이터 형식으로의 매핑 테이블에 대한 자세한 내용은 [Azure SQL Database Connector - 데이터 형식 매핑 섹션을](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) 참조하세요.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
@@ -207,4 +207,4 @@ Sybase는 T-SQL 형식을 지원합니다. SQL 형식의 매핑 테이블을 Azu
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

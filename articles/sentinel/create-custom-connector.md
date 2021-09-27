@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: b0a0b8cb4d3ff5ce10348608d66a451517b60016
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 3b578ffbb734c738aa3f082d192eae8557f4e307
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539578"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755104"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
 
@@ -183,10 +183,10 @@ RESTful API 및 [PowerShell](../azure-functions/functions-reference-powershell.m
 
 이 방법의 예제는 다음을 참조하세요.
 
-- [Azure Function을 사용하여 Azure Sentinel에 VMware Carbon Black Cloud Endpoint Standard 연결하기](connect-vmware-carbon-black.md)
-- [Azure Function으로 Azure Sentinel에 Okta Single Sign-On 연결](connect-okta-single-sign-on.md)
-- [Azure Function을 사용하여 Azure Sentinel에 Proofpoint TAP 연결](connect-proofpoint-tap.md)
-- [Azure 함수를 사용하여 Qualys VM을 Azure Sentinel에 연결](connect-qualys-vm.md)
+- [Azure Function을 사용하여 Azure Sentinel에 VMware Carbon Black Cloud Endpoint Standard 연결하기](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Azure Function으로 Azure Sentinel에 Okta Single Sign-On 연결](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Azure Function을 사용하여 Azure Sentinel에 Proofpoint TAP 연결](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Azure 함수를 사용하여 Qualys VM을 Azure Sentinel에 연결](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [XML, CSV 또는 다른 형식의 데이터를 수집합니다.](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Azure Sentinel로 확대/축소 모니터링](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516)(블로그)
 - [Office 365 관리 API 데이터를 Azure Sentinel로 가져오기 위한 함수 앱 배포](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)(Azure Sentinel GitHub 커뮤니티)

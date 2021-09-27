@@ -2,19 +2,22 @@
 title: Bicep 함수 - 모든
 description: Bicep에서 형식을 변환하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: c4bf30d88f9cad54e83ad1d813242dc09e6c01a5
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 00d99a9329f48b089563b4366ae9683ce2874901
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027130"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827574"
 ---
 # <a name="any-function-for-bicep"></a>Bicep의 Any 함수
 
 Bicep은 Bicep 형식 시스템의 형식 오류를 해결하기 위해 `any()`라는 함수를 지원합니다. 제공하는 값의 형식이 시스템에서 예상하는 형식과 일치하지 않는 경우 해당 함수를 사용합니다. 예를 들어 속성에 숫자가 필요하지만, `'0.5'`와 같이 문자열로 제공해야 하는 경우, `any()` 함수를 사용하여 형식 시스템에서 보고하는 오류를 표시하지 않습니다.
 
 해당 함수는 Azure Resource Manager 템플릿 런타임에는 존재하지 않습니다. Bicep에서만 사용되며, 빌드된 템플릿에 대한 JSON으로 내보내지 않습니다.
+
+> [!NOTE]
+> 형식 오류를 해결 하려면 함수를 사용 하는 데 필요한 형식이 누락 되거나 잘못 된 경우 알려주세요 `any()` . [누락 된 형식 유효성 검사/](https://github.com/Azure/bicep/issues/784) 잘못 GitHub 문제에 대 한 세부 정보를 추가 합니다.
 
 ## <a name="any"></a>any
 
@@ -71,6 +74,6 @@ publicIPAddress: any((pipId == '') ? null : {
 
 `any()` 함수의 더 복잡한 사용 방법은 다음 예제를 참조하세요.
 
-* [특정 이름이 필요한 자식 리소스](https://github.com/Azure/bicep/blob/main/docs/examples/201/api-management-create-all-resources/main.bicep#L246)
+* [특정 이름이 필요한 자식 리소스](https://github.com/Azure/bicep/blob/62eb8109ae51d4ee4a509d8697ef9c0848f36fe4/docs/examples/201/api-management-create-all-resources/main.bicep#L247)
 * [리소스 종류가 있음에도 정의되지 않은 리소스 속성](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
 

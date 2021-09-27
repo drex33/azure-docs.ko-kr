@@ -3,16 +3,17 @@ title: 수 테라바이트 분량의 데이터를 Azure Synapse Analytics에 로
 description: Azure Data Factory를 사용하여 15분 이내에 Azure Synapse Analytics에 1TB의 데이터를 로드하는 방법을 보여 줍니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f6aa32cd5408c6a82716096d855203157f729f48
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: d773c25059f1d5767df735ff89bd7701d4733c4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601599"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure Synapse Analytics에 1TB 로드
 > [!NOTE]
@@ -62,15 +63,15 @@ Azure Synapse Analytics로 시작하는 것은 이제 **Azure Data Factory** 를
 
     6000 DWU로 전용 SQL 풀을 만들기 위해서는 성능 슬라이더를 맨 오른쪽으로 이동시킵니다.
 
-    ![성능 슬라이더](media/data-factory-load-sql-data-warehouse/performance-slider.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-slider.png" alt-text="성능 슬라이더":::
 
     6,000 DWU를 포함하도록 구성되지 않은 기존 데이터베이스의 경우 Azure Portal을 사용하여 확장할 수 있습니다.  Azure Portal에서 데이터베이스로 이동하면 다음 이미지에 표시된 **개요** 패널에 **크기 조정** 단추가 있습니다.
 
-    ![크기 조정 단추](media/data-factory-load-sql-data-warehouse/scale-button.png)    
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-button.png" alt-text="크기 조정 단추":::    
 
     **크기 조정** 단추를 클릭하여 다음 패널을 열고, 슬라이더를 최대값으로 이동하고 나서, **저장** 단추를 클릭합니다.
 
-    ![크기 조정 대화 상자](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-dialog.png" alt-text="크기 조정 대화 상자":::
 
     이 실험에서는 `xlargerc`리소스 클래스를 사용하여 Azure Synapse Analytics로 데이터를 로드합니다.
 
@@ -121,7 +122,7 @@ Azure Synapse Analytics로 시작하는 것은 이제 **Azure Data Factory** 를
    6. **만들기** 를 클릭합니다.
 4. 만들기가 완료되면 다음 이미지와 같이 **Data Factory** 블레이드가 표시됩니다.
 
-   ![데이터 팩터리 홈페이지](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
+   :::image type="content" source="media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png" alt-text="데이터 팩터리 홈페이지":::
 5. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **복사 마법사** 를 시작합니다.
 
    > [!NOTE]
@@ -138,41 +139,41 @@ Azure Synapse Analytics로 시작하는 것은 이제 **Azure Data Factory** 를
 2. **지금 한 번 실행** 옵션을 선택합니다.   
 3. **다음** 을 클릭합니다.  
 
-    ![복사 마법사 - 속성 페이지](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png" alt-text="복사 마법사 - 속성 페이지":::
 
 ## <a name="step-2-configure-source"></a>2단계: 원본 구성
 이 섹션에서는 1TB TPC-H 라인 항목 파일이 포함된 원본: Azure Blob을 구성하는 단계를 보여 줍니다.
 
 1. 데이터 저장소로 **Azure Blob Storage** 를 선택하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 원본 페이지 선택](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-source-connection.png" alt-text="복사 마법사 - 원본 페이지 선택":::
 
 2. Azure Blob Storage 계정의 연결 정보를 입력하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 원본 연결 정보](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/source-connection-info.png" alt-text="복사 마법사 - 원본 연결 정보":::
 
 3. TPC-H 라인 항목 파일이 포함된 **폴더** 를 선택하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 입력 폴더 선택](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-input-folder.png" alt-text="복사 마법사 - 입력 폴더 선택":::
 
 4. **다음** 을 클릭하면 파일 형식 설정이 자동으로 검색됩니다.  열 구분 기호가 기본 쉼표 ‘,’가 아닌 ‘|’인지 확인하세요.  데이터를 미리 본 후 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 파일 형식 설정](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/file-format-settings.png" alt-text="복사 마법사 - 파일 형식 설정":::
 
 ## <a name="step-3-configure-destination"></a>3단계: 대상 구성
 이 섹션에서는 대상인 Azure Synapse Analytics 데이터베이스의 `lineitem` 테이블을 구성하는 방법을 보여 줍니다.
 
 1. 대상 저장소로 **Azure Synapse Analytics** 를 선택하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 대상 데이터 저장소 선택](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-destination-data-store.png" alt-text="복사 마법사 - 대상 데이터 저장소 선택":::
 
 2. Azure Synapse Analytics의 연결 정보를 입력합니다.  `xlargerc` 역할(자세한 내용은 **필수 구성 요소** 섹션 참조)의 구성원인 사용자를 지정하는지 확인하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 대상 연결 정보](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/destination-connection-info.png" alt-text="복사 마법사 - 대상 연결 정보":::
 
 3. 대상 테이블을 선택하고 **다음** 을 클릭합니다.
 
-    ![복사 마법사 - 테이블 매핑 페이지](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/table-mapping-page.png" alt-text="복사 마법사 - 테이블 매핑 페이지":::
 
 4. 스키마 매핑 페이지에서 "열 매핑 적용" 옵션을 선택 취소하고 **다음** 을 클릭합니다.
 
@@ -180,22 +181,22 @@ Azure Synapse Analytics로 시작하는 것은 이제 **Azure Data Factory** 를
 
 **Polybase 허용** 은 기본적으로 선택됩니다.  **다음** 을 클릭합니다.
 
-![복사 마법사 - 스키마 매핑 페이지](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
+:::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-settings-page.png" alt-text="복사 마법사 - 스키마 매핑 페이지":::
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>5단계: 로드 결과 배포 및 모니터링
 1. **마침** 단추를 클릭하여 배포합니다.
 
-    ![복사 마법사 - 요약 페이지 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/summary-page.png" alt-text="복사 마법사 - 요약 페이지 1":::
 
 2. 배포가 완료된 후 `Click here to monitor copy pipeline`을 클릭하여 복사 실행 진행률을 모니터링합니다. **Activity Windows**(활동 기간) 목록에서 직접 만든 복사 파이프라인을 선택합니다.
 
-    ![복사 마법사 - 요약 페이지 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png" alt-text="복사 마법사 - 요약 페이지 2":::
 
     오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
     다음 스크린샷처럼 Azure Blob Storage 1TB를 Azure Synapse Analytics로 복사하는 데는 14분이 걸려, 1.22GBps의 효과적인 처리량을 얻었습니다!
 
-    ![복사 마법사 - 성공 대화 상자](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/succeeded-info.png" alt-text="복사 마법사 - 성공 대화 상자":::
 
 ## <a name="best-practices"></a>모범 사례
 Azure Synapse Analytics 데이터베이스 실행하는 데는 다음의 몇 가지 모범 사례가 있습니다.

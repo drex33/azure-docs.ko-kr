@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory의 Avro 형식
+title: Avro 형식
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 이 항목에서는 Azure Data Factory에서 Avro 형식을 처리하는 방법에 대해 설명합니다.
+description: 이 항목에서는 Azure Data Factory 및 Synapse Analytics에서 Avro 형식을 처리 하는 방법에 대해 설명 합니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6a4e3f033583f70250e12702b948fcd30875fb65
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 45c96b1e0777dd42bd1a7175a057e5a48f691ff4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250699"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779676"
 ---
-# <a name="avro-format-in-azure-data-factory"></a>Azure Data Factory의 Avro 형식
+# <a name="avro-format-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics의 Avro 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-**Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
+**Avro 파일을 구문 분석 하거나 데이터를 avro 형식으로 기록** 하려는 경우이 문서를 따릅니다. 
 
 Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다.
 
@@ -32,7 +32,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **Avro** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
-| avroCompressionCodec | Avro 파일에 쓸 때 사용할 압축 코덱입니다. Avro 파일에서 읽을 때 Data Factory는 파일 메타데이터를 기반으로 압축 코덱을 자동으로 결정합니다.<br>지원되는 형식은 **없음**(기본값), **deflate**, **snappy** 입니다. 현재 복사 작업은 Avro 파일을 읽고 쓸 때 Snappy를 지원하지 않습니다. | 예       |
+| avroCompressionCodec | Avro 파일에 쓸 때 사용할 압축 코덱입니다. Avro 파일에서 읽을 때 서비스는 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 합니다.<br>지원되는 형식은 **없음**(기본값), **deflate**, **snappy** 입니다. 현재 복사 작업은 Avro 파일을 읽고 쓸 때 Snappy를 지원하지 않습니다. | 예       |
 
 > [!NOTE]
 > Avro 파일에서는 열 이름에 공백이 지원되지 않습니다.
@@ -78,7 +78,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon 
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **AvroSink** 로 설정해야 합니다. | 예      |
 | formatSettings          | 속성 그룹입니다. 아래의 **Avro 쓰기 설정** 표를 참조하세요.| 예      |
@@ -86,7 +86,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon 
 
 `formatSettings`에서 지원되는 **Avro 쓰기 설정**:
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 type을 **AvroWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택하고 파일당 최대 행 수를 지정할 수 있습니다.  | 예 |
@@ -114,7 +114,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon 
 
 다음 표에는 Avro 싱크에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열의 데이터로: String <br> 단일 파일로 출력: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

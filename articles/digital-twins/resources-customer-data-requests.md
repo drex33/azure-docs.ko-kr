@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: 이 문서에서는 Azure Digital Twins에서 개인 데이터를 내보내고 삭제하는 프로세스를 보여 줍니다.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 9/14/2021
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: c50ff2e1a8e63fd775b7b09863ffcd9d832d8683
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
-ms.translationtype: HT
+ms.openlocfilehash: ef68e552d57df0fc202b9d75ae76065e3119ccff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642798"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digital Twins 고객 데이터 요청 기능
 
@@ -31,7 +31,7 @@ Azure Digital Twins의 많은 디지털 트윈은 개인 엔터티를 직접 나
 
 Azure Digital Twins는 *개인 데이터* 를 관리자 및 사용자와 연결된 데이터로 간주합니다. 
 
-Azure Digital Twins는 환경에 대한 액세스 권한이 있는 사용자의 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) *개체 ID* 를 저장합니다. Azure Portal의 Azure Digital Twins는 사용자 이메일 주소를 표시하지만 이러한 이메일 주소는 Azure Digital Twins 내에 저장되지 않습니다. Azure Active Directory 개체 ID를 사용하여 Azure Active Directory에서 동적으로 조회됩니다.
+Azure Digital Twins는 환경에 대한 액세스 권한이 있는 사용자의 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) **개체 ID** 를 저장합니다. Azure Portal의 Azure Digital Twins는 사용자 이메일 주소를 표시하지만 이러한 이메일 주소는 Azure Digital Twins 내에 저장되지 않습니다. Azure Active Directory 개체 ID를 사용하여 Azure Active Directory에서 동적으로 조회됩니다.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 

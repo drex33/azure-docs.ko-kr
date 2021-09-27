@@ -1,20 +1,20 @@
 ---
 title: Azure Synapse Analytics에 데이터 로드
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse 파이프라인을 사용하여 Azure Synapse Analytics로 데이터를 복사합니다.
+description: Azure Data Factory 또는 Azure Synapse 파이프라인을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 합니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/28/2021
-ms.openlocfilehash: 0beaad10d588de56bcdf2c458863893e1da8f896
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: e91d2dbae4f73e99a5e341330c0841e8173cedc8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642687"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819917"
 ---
 # <a name="load-data-into-azure-synapse-analytics-using-azure-data-factory-or-a-synapse-pipeline"></a>Azure Data Factory 또는 Synapse 파이프라인을 사용하여 Azure Synapse Analytics로 데이터 로드
 
@@ -71,7 +71,7 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics로 데
 
 2. **속성** 페이지의 **작업 종류** 에서 **기본 제공 복사 작업** 을 선택한 후 **다음** 을 선택합니다.
 
-    ![속성 페이지](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png" alt-text="속성 페이지":::
 
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
     >[!TIP]
@@ -82,17 +82,17 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics로 데
 
     1. 갤러리에서 **Azure SQL Database** 를 선택하고 **계속** 을 선택합니다. 검색 상자에 "SQL"을 입력하여 커넥터를 필터링할 수 있습니다.
 
-        ![Azure SQL DB 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+        :::image type="content" source="./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png" alt-text="Azure SQL DB 선택":::
     
     1. **새 연결(Azure SQL Database)** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택하고 사용자 이름 및 암호를 지정합니다. **연결 테스트** 를 선택하여 설정의 유효성을 검사한 후 **만들기** 를 선택합니다.
 
-        ![Azure SQL DB 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+        :::image type="content" source="./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png" alt-text="Azure SQL DB 구성":::
     
     1. **원본 데이터 저장소** 페이지에서 새로 만든 연결을 **연결** 섹션의 원본으로 선택합니다.
 
     1. **원본 테이블** 섹션에서 **SalesLT** 를 입력하여 테이블을 필터링합니다. 복사할 모든 테이블을 사용하려면 **(모두 선택)** 상자를 선택하고 **다음** 을 선택합니다.
 
-    !['원본 데이터 저장소' 페이지의 구성을 보여 주는 스크린샷.](./media/load-azure-sql-data-warehouse/source-data-store-page.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/source-data-store-page.png" alt-text="'원본 데이터 저장소' 페이지의 구성을 보여 주는 스크린샷.":::
 
 4. **필터 적용** 페이지에서 설정을 지정하거나 **다음** 을 선택합니다. 이 페이지의 **데이터 미리 보기** 단추를 선택하여 데이터를 미리 보고 입력 데이터의 스키마를 볼 수 있습니다. 
 
@@ -107,21 +107,21 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics로 데
 
     1. 갤러리에서 **Azure Synapse Analytics** 를 선택하고 **계속** 을 선택합니다.
 
-        ![Azure Synapse Analytics 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+        :::image type="content" source="./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png" alt-text="Azure Synapse Analytics 선택":::
 
     1. **새 연결(Azure Synapse Analytics)** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택하고 사용자 이름 및 암호를 지정합니다. **연결 테스트** 를 선택하여 설정의 유효성을 검사한 후 **만들기** 를 선택합니다.
 
-        ![Azure Synapse Analytics 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+        :::image type="content" source="./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png" alt-text="Azure Synapse Analytics 구성":::
 
     1. **대상 데이터 저장소** 페이지에서 새로 만든 연결을 **연결** 섹션의 싱크로 선택합니다.
 
 6. **테이블 매핑** 섹션에서 콘텐츠를 검토하고 **다음** 을 선택합니다. 지능형 테이블 매핑이 표시됩니다. 원본 테이블은 테이블 이름에 따라 대상 테이블에 매핑됩니다. 원본 테이블이 대상에 없으면 기본적으로 서비스에서 같은 이름으로 대상 테이블을 만듭니다. 기존 대상 테이블에 원본 테이블을 매핑할 수도 있습니다.
 
-   ![‘대상 데이터 저장소’ 페이지의 구성을 보여 주는 스크린샷.](./media/load-azure-sql-data-warehouse/destination-data-store-page.png)
+   :::image type="content" source="./media/load-azure-sql-data-warehouse/destination-data-store-page.png" alt-text="‘대상 데이터 저장소’ 페이지의 구성을 보여 주는 스크린샷.":::
 
 1. **열 매핑** 페이지에서 콘텐츠를 검토하고 **다음** 을 선택합니다. 지능형 테이블 매핑은 열 이름을 기반으로 합니다. 서비스에서 테이블을 자동으로 만들도록 하면 원본과 대상 저장소가 서로 호환되지 않을 때 데이터 형식이 변환될 수 있습니다. 원본 및 대상 열 간에 지원되지 않는 데이터 형식 변환이 있는 경우 해당 테이블 옆에 오류 메시지가 표시됩니다.
 
-    ![열 매핑 페이지](./media/load-azure-sql-data-warehouse/schema-mapping.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/schema-mapping.png" alt-text="열 매핑 페이지":::
 
 1. **설정** 페이지에서 다음 단계를 완료합니다.
 
@@ -132,7 +132,7 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics로 데
 
     1. **형식 기본값 사용** 옵션 선택을 취소하고 **다음** 을 선택합니다.
 
-    ![PolyBase 구성](./media/load-azure-sql-data-warehouse/configure-polybase.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/configure-polybase.png" alt-text="PolyBase 구성":::
 
 8. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
 
@@ -152,13 +152,13 @@ Azure Data Factory 및 Synapse 파이프라인은 Azure Synapse Analytics로 데
 
 12. 파이프라인 실행 보기로 다시 전환하려면 위쪽에서 **모든 파이프라인 실행** 링크를 선택합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다.
 
-    ![작업 실행 모니터링](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/activity-monitoring.png" alt-text="작업 실행 모니터링":::
 
 1. 복사 작업별로 실행 세부 사항을 모니터링하려면 활동 실행 보기의 **작업 이름 **에서** 세부 정보** 링크(안경 아이콘)를 선택합니다. 원본에서 싱크로 복사된 데이터 양, 데이터 처리량, 해당 기간의 실행 단계 및 사용된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
 
-    ![활동 실행 세부 정보 모니터링 첫 번째](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png" alt-text="활동 실행 세부 정보 모니터링 첫 번째":::
 
-    ![활동 실행 세부 정보 모니터링 두 번째](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png" alt-text="활동 실행 세부 정보 모니터링 두 번째":::
 
 ## <a name="next-steps"></a>다음 단계
 

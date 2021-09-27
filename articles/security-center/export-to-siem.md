@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: f2014d2ecea91ae650ec1fb1d730ee9b64c66c98
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
-ms.translationtype: HT
+ms.openlocfilehash: ad4d401072bc96784b45c0f5fd43d08f3de8ade0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530274"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823830"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍
 
@@ -56,7 +56,7 @@ Azure Defender를 Azure Sentinel에 연결하면 Azure Sentinel로 수집된 Azu
 Azure Sentinel에서 Security Center 경고를 조사하는 또 다른 대안은 감사 로그를 Azure Sentinel로 스트리밍하는 것입니다.
     - [Windows 보안 이벤트 연결](../sentinel/connect-windows-security-events.md)
     - [Syslog를 사용하여 Linux 기반 소스에서 데이터 수집](../sentinel/connect-syslog.md)
-    - [Azure 활동 로그에서 데이터 연결](../sentinel/connect-azure-activity.md)
+    - [Azure 활동 로그에서 데이터 연결](../sentinel/data-connectors-reference.md#azure-activity)
 
 > [!TIP]
 > 분석을 위해 Azure Sentinel에 수집된 데이터 볼륨과 Azure Monitor Log Analytics 작업 영역에 저장된 데이터 볼륨을 기준으로 Azure Sentinel에 요금이 청구됩니다. Azure Sentinel은 유연하고 예측 가능한 가격 책정 모델을 제공합니다. [Azure Sentinel 가격 책정 페이지에서 자세히 알아보세요](https://azure.microsoft.com/pricing/details/azure-sentinel/).

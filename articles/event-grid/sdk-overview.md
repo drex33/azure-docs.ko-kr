@@ -3,12 +3,12 @@ title: Azure Event Grid SDK
 description: Azure Event Grid에 대한 SDK를 설명합니다. 이러한 SDK는 관리, 게시 및 소비를 제공합니다.
 ms.topic: reference
 ms.date: 05/17/2021
-ms.openlocfilehash: 330f0399a16e6765a754d342580a221adc6fb7d9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 5e196f2dc57d7f6e4d7ef1040f6a65d2101cf0dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062779"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644983"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>관리 및 게시에 대한 Event Grid SDK
 
@@ -20,7 +20,7 @@ Event Grid는 사용자가 프로그래밍 방식으로 리소스를 관리하�
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
-* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
+* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-resourcemanager-eventgrid)
 * [Node](https://www.npmjs.com/package/@azure/arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)

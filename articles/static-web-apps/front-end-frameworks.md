@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 767b20600c8edb2752a87a10c788ee446a8f15b3
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
-ms.translationtype: HT
+ms.openlocfilehash: be5415658de782c362eca0f40a17a4578932aafa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813977"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777225"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps"></a>Azure Static Web Apps를 사용하여 프런트 엔드 프레임워크와 라이브러리 구성
 
-Azure Static Web Apps를 사용하려면 프런트 엔드 프레임워크 또는 라이브러리의 [빌드 구성 파일](github-actions-workflow.md)에 적절한 구성 값이 있어야 합니다.
+Azure Static Web Apps를 사용하려면 프런트 엔드 프레임워크 또는 라이브러리의 [빌드 구성 파일](build-configuration.md)에 적절한 구성 값이 있어야 합니다.
 
 ## <a name="configuration"></a>구성
 
@@ -24,9 +24,9 @@ Azure Static Web Apps를 사용하려면 프런트 엔드 프레임워크 또는
 
 테이블 열의 의도는 다음 항목에 설명되어 있습니다.
 
-- **출력 위치**: [빌드된 버전의 애플리케이션 파일을 포함하는 폴더](github-actions-workflow.md#build-and-deploy)인 `output_location`의 값을 나열합니다.
+- **출력 위치**: [빌드된 버전의 애플리케이션 파일을 포함하는 폴더](build-configuration.md)인 `output_location`의 값을 나열합니다.
 
-- **사용자 지정 빌드 명령**: 프레임워크에 `npm run build`나 `npm run azure:build`와 다른 명령이 필요하면 [사용자 지정 빌드 명령](github-actions-workflow.md#custom-build-commands)을 정의할 수 있습니다.
+- **사용자 지정 빌드 명령**: 프레임워크에 `npm run build`나 `npm run azure:build`와 다른 명령이 필요하면 [사용자 지정 빌드 명령](build-configuration.md#custom-build-commands)을 정의할 수 있습니다.
 
 | 프레임워크 | 앱 아티팩트 위치 | 사용자 지정 빌드 명령 |
 |--|--|--|
@@ -65,4 +65,4 @@ Azure Static Web Apps를 사용하려면 프런트 엔드 프레임워크 또는
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빌드 및 워크플로 구성](github-actions-workflow.md)
+- [빌드 및 워크플로 구성](build-configuration.md)

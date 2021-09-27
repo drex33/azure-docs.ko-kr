@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e8f678db8b5df57ec716d80c9bde04a2ecc2b7a3
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 2472a3495b872a17b073a86a6d99c6ddbf218343
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122780135"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755348"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Azure 체험 계정으로 Azure Database for MySQL - 유연한 서버를 사용해 보세요.
 
@@ -34,7 +34,10 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
 - Azure 체험 계정 체험 계정이 없으면 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/). 
 
 
-## <a name="create-an-instance-of-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버의 인스턴스 만들기
+## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버 만들기
+
+이 문서에서는 Azure Portal를 사용 하 여 공용 액세스 연결 방법으로 유연한 서버를 만듭니다. 또는 각 빠른 시작을 참조 하 여 [Azure CLI](./quickstart-create-server-cli.md) 또는 [ARM 템플릿이나](./quickstart-create-arm-template.md) [VNET 내에서](./quickstart-create-connect-server-vnet.md)유연한 서버를 만듭니다.
+
 
 1. Azure 체험 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
     
@@ -61,7 +64,7 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-all.PNG" alt-text="유연한 서버를 만들기 위한 기본 설정 보여 주는 스크린샷":::
 
 
-    |설정    |제안 값    |Description  |
+    |설정    |제안 값    |설명  |
     |---------|---------|---------|
     |Subscription    |사용자의 구독    |평가판 Azure 구독을 선택합니다.|
     |Resource group    |리소스 그룹    |새 리소스 그룹 또는 구독의 기존 리소스 그룹을 입력합니다.|
@@ -109,7 +112,7 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="검토 + 만들기 블레이드를 보여 주는 스크린샷":::
 
     >[!IMPORTANT]
-    >Azure 체험 계정을 사용하는 경우 서비스 사용량이 월간 한도 이내이면(사용량 정보를 확인하려면 아래의 [**체험 서비스 사용량 모니터링 및 추적**](#monitor-and-track-free-services-usage) 섹션 참조), 서비스 요금이 청구되지 않습니다. 현재 체험 서비스에 대한 **비용 요약** 환경을 개선하기 위해 노력하고 있습니다. 
+    >Azure 무료 계정에서 유연한 서버 인스턴스를 만드는 동안 **계산 + Storage: 비용 요약** 블레이드 및 **검토 + 만들기** 탭에서 **월별 예상 비용** 을 볼 수 있습니다. 그러나 Azure 무료 계정을 사용 하 고 있고 무료 서비스 사용이 월간 한도 내에 있는 경우 (아래에서 사용 정보를 확인 하 고, [**무료 서비스 사용 현황 모니터링 및 추적**](#monitor-and-track-free-services-usage) 참조), 서비스에 대 한 요금은 청구 되지 않습니다. 현재 체험 서비스에 대한 **비용 요약** 환경을 개선하기 위해 노력하고 있습니다. 
     
 1. **만들기** 를 선택하여 서버를 프로비전합니다. 
  

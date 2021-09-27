@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 168c187c4e573193b439e790fb94290aadec046a
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778875"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730398"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에서 API 지원
 
@@ -49,7 +49,7 @@ API 엔드포인트는 _api_ 경로를 통해 웹앱에서 사용할 수 있습�
 
 | 관리형 함수 | 사용자 고유 함수 가져오기 |
 | --- | --- |
-| _api_ 경로가 고정되어 있는 동안 관리형 함수 앱의 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](github-actions-workflow.md#build-and-deploy)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
+| _api_ 경로가 고정되어 있는 동안 관리형 함수 앱의 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](build-configuration.md)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
 
 ## <a name="troubleshooting-and-logs"></a>문제 해결 및 로그
 

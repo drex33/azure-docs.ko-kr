@@ -5,12 +5,12 @@ services: automation
 ms.date: 09/16/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 5246ffe9a59a07f0279cba1435ef8726a9da1ead
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 436282ad8a2816e3307d2ad270209980b2fa0427
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629657"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058440"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -210,26 +210,11 @@ The subscription named <subscription name> cannot be found.
 * 구독 이름이 잘못되었습니다.
 * 구독 세부 정보를 가져오려는 Azure AD 사용자가 구독의 관리자로 구성되지 않았습니다.
 * cmdlet을 사용할 수 없습니다.
+* 컨텍스트 전환이 발생했습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-다음 단계에 따라 Azure에서 인증되고 선택하려고 하는 구독에 액세스할 수 있는 권한이 있는지 확인합니다.
-
-1. 스크립트가 독립 실행형으로 작동하는지 확인하기 위해 Azure Automation 외부에서 테스트합니다.
-1. `Select-*` cmdlet을 실행하기 전에 스크립트에서 [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet을 실행하는지 확인합니다.
-1. Runbook의 시작 부분에 `Disable-AzContextAutosave -Scope Process`를 추가합니다. 이 cmdlet은 모든 자격 증명이 현재 Runbook의 실행에만 적용되도록 합니다.
-1. 오류 메시지가 계속 표시되면 `Connect-AzAccount`에 대한 `AzContext` 매개 변수를 추가하여 코드를 수정한 다음, 코드를 실행합니다.
-
-   ```powershell
-   Disable-AzContextAutosave -Scope Process
-
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-
-   $context = Get-AzContext
-
-   Get-AzVM -ResourceGroupName myResourceGroup -AzContext $context
-    ```
+컨텍스트 전환은 [Azure Automation 컨텍스트 전환을](../context-switching.md)참조하세요.
 
 ## <a name="scenario-runbooks-fail-when-dealing-with-multiple-subscriptions"></a><a name="runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 Runbook 실패
 
@@ -263,31 +248,7 @@ Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
 
 ### <a name="resolution"></a>해결 방법
 
-Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 실수로 잘못된 구독에 액세스하려고 하지 않도록 하려면 아래 지침을 따라야 합니다.
-
-* 잘못된 구독을 참조하지 않으려면 각 Runbook을 시작할 때 다음 코드를 사용하여 Automation Runbook에서 컨텍스트 저장을 사용하지 않도록 설정합니다.
-
-   ```powershell
-   Disable-AzContextAutosave -Scope Process
-   ```
-
-* Azure PowerShell cmdlet은 `-DefaultProfile` 매개 변수를 지원합니다. 동일한 프로세스에서 여러 PowerShell 스크립트를 실행하도록 지원하기 위해 모든 Az 및 AzureRm cmdlet에 추가되었습니다. 이를 통해 컨텍스트와 각 cmdlet에 사용할 구독을 지정할 수 있습니다. Runbook을 사용하면 Runbook을 만들 때(즉, 계정이 로그인할 때) 및 변경될 때마다 Runbook에 컨텍스트 개체를 저장하고 Az cmdlet을 지정할 때 컨텍스트를 참조해야 합니다.
-
-   > [!NOTE]
-   > [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) 또는 [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription)과 같은 cmdlet을 사용하여 직접 컨텍스트를 조작하는 경우에도 컨텍스트 개체를 전달해야 합니다.
-
-   ```powershell
-   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
-   $context = Add-AzAccount `
-             -ServicePrincipal `
-             -TenantId $servicePrincipalConnection.TenantId `
-             -ApplicationId $servicePrincipalConnection.ApplicationId `
-             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
-             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-   $context = Set-AzContext -SubscriptionName $subscription `
-       -DefaultProfile $context
-   Get-AzVm -DefaultProfile $context
-   ```
+실수로 잘못된 구독에 액세스하지 않으려면 [Azure Automation 컨텍스트 전환을](../context-switching.md)참조하세요.
   
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>시나리오: 다단계 인증을 사용하도록 설정하여 Azure에 대한 인증이 실패함
 

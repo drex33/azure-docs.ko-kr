@@ -1,21 +1,15 @@
 ---
 title: 비디오에서 관찰된 사람 추적
-titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 비디오 개념에서 관찰된 사람 추적에 대한 개요를 제공합니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.service: azure-video-analyzer
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: juliako
-ms.openlocfilehash: 469073650bbcf00ba2634ac5be68c10bf7ac49ee
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: c24d7f4a67afbf194be498e4fcd15779a806a3b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115394"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605148"
 ---
 # <a name="trace-observed-people-in-a-video"></a>비디오에서 관찰된 사람 추적
 

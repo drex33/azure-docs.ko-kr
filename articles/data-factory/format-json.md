@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 09bb503be37df8afe54f6dcc8c427bf12f9e7dc1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: dbee4a0c4aa82d34df6b5ea6e3e7274868be5d62
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252993"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743847"
 ---
 # <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 JSON 형식
 
@@ -73,7 +73,7 @@ JSON 파일에서 데이터를 추출하고 [스키마 매핑](copy-activity-sch
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **JSONSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **JSON 읽기 설정** 표를 참조하세요. | 예       |
@@ -223,7 +223,7 @@ JSON 파일에서 데이터를 복사하는 경우 복사 작업은 다음과 �
 
 데이터 흐름에서 JSON 데이터 세트를 원본으로 사용하면 5개의 추가 설정을 설정할 수 있습니다. 이러한 설정은 **원본 옵션** 탭의 **JSON 설정** 아코디언에서 찾을 수 있습니다. **문서 양식** 설정의 경우 **단일 문서**, **줄당 문서** 및 **문서 배열** 유형 중 하나를 선택할 수 있습니다.
 
-![JSON 설정](media/data-flow/json-settings.png "JSON 설정")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="JSON 설정":::
 
 #### <a name="default"></a>기본값
 
@@ -359,11 +359,11 @@ JSON 데이터에서 문자를 이스케이프하는 데 백슬래시를 사용�
 
 출력 스키마 쪽 창에서 열 위로 마우스를 이동하고 더하기 아이콘을 클릭합니다. 열을 복합 유형으로 만들려면 **하위 열 추가** 를 선택합니다.
 
-![하위 열 추가](media/data-flow/derive-add-subcolumn.png "하위 열 추가")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="하위 열 추가":::
 
 동일한 방식으로 열 및 하위 열을 더 추가할 수 있습니다. 복합 필드가 아닌 각 필드에 대해 식 편집기의 오른쪽에 식을 추가할 수 있습니다.
 
-![복합 열 추가](media/data-flow/derive-complex-column.png "열 추가")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="복합 열 추가":::
 
 #### <a name="entering-the-json-structure-manually"></a>수동으로 JSON 구조 입력
 

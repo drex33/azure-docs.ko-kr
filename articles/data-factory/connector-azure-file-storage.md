@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 50136700ce4cc39a2a8166ce4c7d7d2960b53990
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 893142b873e408f5e884bdd1248d0275b6979757
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313924"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744148"
 ---
 # <a name="copy-data-from-or-to-azure-files-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Files에서 또는 Azure Files로부터 데이터 복사
 
@@ -140,12 +140,12 @@ Data Factory는 Azure Files 계정 키 인증에 대해 다음 속성을 지원�
 
 공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 공유 액세스 서명을 사용하여 스토리지 계정의 개체에 대해 지정된 시간 동안 제한된 권한을 클라이언트에 부여할 수 있습니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: 공유 액세스 서명 모델 이해](../storage/common/storage-sas-overview.md)를 참조하세요.
 
-Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속성을 지원합니다.
+이 서비스는 공유 액세스 서명 인증을 사용하기 위해 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureFileStorage**. | 예 |
-| sasUri | 리소스에 대한 공유 액세스 서명 URI를 지정합니다. <br/>이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 사용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. | 예 |
+| sasUri | 리소스에 대한 공유 액세스 서명 URI를 지정합니다. <br/>이 필드를 **SecureString** 으로 표시하여 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 사용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. | 예 |
 | fileShare | 파일 공유를 지정합니다. | 예 |
 | 스냅샷 | 스냅샷에서 복사하려면 [파일 공유 스냅샷](../storage/files/storage-snapshots-files.md)의 날짜를 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
@@ -173,7 +173,7 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 }
 ```
 
-**예: Azure Key Vault에 계정 키 저장**
+**예: SAS 토큰을 Azure Key Vault 저장**
 
 ```json
 {
@@ -192,7 +192,8 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
-            }
+            },
+            "fileShare": "<file share name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -408,7 +409,7 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 
 원본 폴더 구조가 다음과 같고 굵게 표시된 파일을 복사하려는 것으로 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | ADF 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 폴더 경로: `root/FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `root/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -440,11 +441,11 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 ## <a name="legacy-models"></a>레거시 모델
 
 >[!NOTE]
->다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞의 섹션에서 설명한 새 모델을 사용하는 것이 좋습니다. 그러면 ADF 작성 UI가 새 모델을 생성하도록 전환됩니다.
+>다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞의 섹션에서 설명한 새 모델을 사용하는 것이 좋습니다. 그러면 작성 UI가 새 모델을 생성하도록 전환됩니다.
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **FileShare** |예 |
 | folderPath | 파일의 경로입니다. <br/><br/>와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -571,4 +572,4 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

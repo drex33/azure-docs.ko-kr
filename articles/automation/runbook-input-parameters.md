@@ -3,17 +3,17 @@ title: Azure Automation에서 Runbook 입력 매개 변수 구성
 description: 이 문서에서는 Runbook이 시작될 때 Runbook에 데이터를 전달할 수 있도록 하는 Runbook 입력 매개 변수를 구성하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 95a6cc87471fcf2209d452f90e1e5f52cae122c5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 61a5f24f66f9f7461b4993fcfba70f6be8bb9be1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831297"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644109"
 ---
-# <a name="configure-runbook-input-parameters"></a>Runbook 입력 매개 변수 구성
+# <a name="configure-runbook-input-parameters-in-automation"></a>Automation에서 Runbook 입력 매개 변수 구성
 
 Runbook 입력 매개 변수는 시작하는 Runbook에 데이터를 전달할 수 있도록 하여 Runbook의 유연성을 늘립니다. 이러한 매개 변수는 Runbook 동작이 특정 시나리오 및 환경에 대한 대상이 되도록 합니다. 이 문서에서는 Runbook에서 입력 매개 변수를 구성하고 사용하는 방법을 설명합니다.
 
@@ -71,7 +71,7 @@ PowerShell 및 PowerShell 워크플로 Runbook은 입력 매개 변수에 대해
 
 ### <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 
-그래픽 Runbook에 대한 입력 매개 변수 구성을 설명하기 위해 가상 머신(단일 VM 또는 리소스 그룹 내의 모든 VM)에 대한 세부 정보를 출력하는 그래픽 Runbook을 만들겠습니다. 자세한 내용은 [내 첫 번째 그래픽 Runbook](./learn/automation-tutorial-runbook-graphical.md)을 참조하세요.
+그래픽 Runbook에 대한 입력 매개 변수 구성을 설명하기 위해 가상 머신(단일 VM 또는 리소스 그룹 내의 모든 VM)에 대한 세부 정보를 출력하는 그래픽 Runbook을 만들겠습니다. 자세한 내용은 [내 첫 번째 그래픽 Runbook](./learn/powershell-runbook-managed-identity.md)을 참조하세요.
 
 그래픽 Runbook은 다음과 같은 주요 Runbook 활동을 사용합니다.
 
@@ -113,7 +113,7 @@ PowerShell 및 PowerShell 워크플로 Runbook은 입력 매개 변수에 대해
 
 PowerShell, PowerShell 워크플로 및 그래픽 Runbook과 달리 Python Runbook에서는 명명된 매개 변수를 사용하지 않습니다. Runbook 편집기는 모든 입력 매개 변수를 인수 값 배열로 구문 분석합니다. `sys` 모듈을 Python 스크립트에 가져온 다음 `sys.argv` 배열을 사용하여 배열에 액세스할 수 있습니다. 배열의 첫 번째 요소인 `sys.argv[0]`는 스크립트의 이름입니다. 따라서 첫 번째 실제 입력 매개 변수는 `sys.argv[1]`입니다.
 
-Python Runbook에서 입력 매개 변수를 사용하는 방법의 예제를 보려면 [Azure Automation의 내 첫 번째 Python Runbook](./learn/automation-tutorial-runbook-textual-python2.md)을 참조하세요.
+Python Runbook에서 입력 매개 변수를 사용하는 방법의 예제를 보려면 [Azure Automation의 내 첫 번째 Python Runbook](./learn/automation-tutorial-runbook-textual-python-3.md)을 참조하세요.
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Runbook의 입력 매개 변수에 값 할당
 
@@ -288,7 +288,7 @@ JSON 파일에서 Runbook에 전달하려는 데이터를 저장하는 것이 �
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-Azure Automation에서 **Test-Json** 이라는 새 PowerShell Runbook을 만듭니다. [내 첫 번째 PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 참조하세요.
+Azure Automation에서 **Test-Json** 이라는 새 PowerShell Runbook을 만듭니다.
 
 JSON 데이터를 허용하려면 Runbook에서 개체를 입력 매개 변수로 사용해야 합니다. 그러면 Runbook이 JSON 파일에 정의된 속성을 사용할 수 있습니다.
 
@@ -298,10 +298,10 @@ Param(
      [object]$json
 )
 
-# Connect to Azure account
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json

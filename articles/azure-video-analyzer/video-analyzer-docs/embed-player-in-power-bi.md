@@ -4,18 +4,21 @@ description: 연속 비디오 녹화 또는 이벤트 기반 기록을 위해 Az
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 08/06/2021
-ms.openlocfilehash: cbb40db29f9f2257d058268e6c639d2a6b89822e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 38fcd60352fe151637e0e7f8fa4dfe9159b12915
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567704"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620714"
 ---
 # <a name="embed-player-widget-in-power-bi"></a>Power BI에 플레이어 위젯 포함
 
 Azure Video Analyzer를 사용하면 비디오 및 연결된 유추 메타데이터를 Video Analyzer 클라우드 리소스에 [기록](detect-motion-record-video-clips-cloud.md)할 수 있습니다. Video Analyzer에는 쉽게 포함할 수 있는 [플레이어 위젯](player-widget.md)이 있으며, 이 위젯을 통해 클라이언트 앱은 비디오 및 유추 메타데이터를 재생할 수 있습니다.
 
 대시보드를 통해 유용하게 비즈니스를 모니터링하고 가장 중요한 모든 메트릭을 한눈에 볼 수 있습니다. Power BI 대시보드는 IoT Hub의 원격 분석을 비롯하여 여러 데이터 원본과 비디오를 결합할 수 있는 강력한 도구입니다. 이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/) 웹 서비스를 사용하여 하나 이상의 플레이어 위젯을 대시보드에 추가하는 방법을 알아봅니다.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Microsoft Power BI Azure Video Analyzer 플레이어 위젯을 포함하기 위한 블록 다이어그램입니다.":::
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료
 
@@ -27,20 +30,20 @@ Azure Video Analyzer를 사용하면 비디오 및 연결된 유추 메타데이
 - 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [동작 감지 및 비디오 녹화](detect-motion-record-video-clips-cloud.md) 또는 [연속 비디오 녹화](continuous-video-recording.md) 완료 - 비디오 싱크가 있는 파이프라인이 필요합니다.
 
-  > [!NOTE] 
+  > [!NOTE]
   > 계속하려면 Video Analyzer 계정에 최소 하나의 녹화된 비디오가 있어야 합니다. Azure Video Analyzer 계정 > 비디오 > Video Analyzer 섹션에 로그인하여 비디오 목록을 확인하세요.
 
 - [Power BI](https://powerbi.microsoft.com/) 계정
 
 ## <a name="create-a-token"></a>토큰 만들기
 
-1. 단계에 따라 [토큰을 만듭니다](player-widget.md#create-a-token).
+1. 단계에 따라 [토큰을 만듭니다](access-policies.md#creating-a-token).
 2. ‘발급자, 대상 그룹, 키 유형, 알고리즘, 키 ID, RSA 키 모듈러스, RSA 키 엔드포인트, 토큰’에 대해 생성된 값을 저장해야 합니다. 이러한 값은 아래 액세스 정책을 만들 때 필요합니다.
 
 ## <a name="get-embed-code-for-player-widget"></a>플레이어 위젯에 대한 embed 태그 가져오기
 
 1. 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 필수 조건을 완료하는 데 사용된 Video Analyzer 계정을 찾고 Video Analyzer 계정 창을 엽니다.
-2. 단계에 따라 [액세스 정책을 만듭니다](player-widget.md#create-an-access-policy).
+2. 단계에 따라 [액세스 정책을 만듭니다](access-policies.md#creating-an-access-policy).
 3. **Video Analyzer** 목록에서 **비디오** 를 선택합니다.
 4. 목록에서 원하는 비디오를 선택합니다.
 5. **위젯** 설정을 클릭합니다. **Use widget in your application**(애플리케이션에서 위젯 사용) 창이 오른쪽에 열립니다. **Option 2 – using HTML**(옵션 2 - HTML 사용)까지 아래로 스크롤하고 코드를 복사하여 텍스트 편집기에 붙여넣습니다. **닫기** 단추를 클릭합니다.
@@ -55,7 +58,7 @@ Azure Video Analyzer를 사용하면 비디오 및 연결된 유추 메타데이
 
 1. 브라우저에서 [Power BI 서비스](http://app.powerbi.com/)를 엽니다. 탐색 창에서 **내 작업 영역** 을 선택합니다.
 
-   :::image type="content" source="./media/power-bi/power-bi-workspace.png" alt-text="Power BI 작업 영역 홈페이지의 스크린샷":::
+   :::image type="content" source="./media/power-bi/powerbi-ws.png" alt-text="Power BI 작업 영역 홈페이지의 스크린샷":::
 
 2. **새로 만들기** > **대시보드** 를 클릭하여 새 대시보드를 만들거나 기존 대시보드를 엽니다. **편집** 드롭다운 화살표를 선택한 다음, **타일 추가** 를 선택합니다. **웹 콘텐츠** > **다음** 을 선택합니다.
 3. **웹 콘텐츠 타일 추가** 에서 이전 섹션의 **embed 태그** 를 입력합니다. **적용** 을 클릭합니다.
@@ -64,18 +67,19 @@ Azure Video Analyzer를 사용하면 비디오 및 연결된 유추 메타데이
 
 4. 대시보드에 고정된 플레이어 위젯이 비디오에 표시됩니다.
 
-   :::image type="content" source="./media/power-bi/one-player-added.png" alt-text="하나의 비디오 플레이어 위젯이 추가된 스크린샷":::
+   :::image type="content" source="./media/power-bi/one-player.png" alt-text="하나의 비디오 플레이어 위젯이 추가된 스크린샷":::
 
 5. Azure Video Analyzer 비디오 섹션에서 더 많은 비디오를 추가하려면 이 섹션의 단계를 동일하게 수행합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 동일한 Video Analyzer 계정에서 여러 비디오를 추가하려면 단일 액세스 정책 및 토큰 세트로 충분합니다.
 
 다음은 단일 Power BI 대시보드에 고정된 여러 비디오의 샘플입니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/two-players-added.png" alt-text="예제로 추가된 두 비디오 플레이어 위젯의 스크린샷":::
+> :::image type="content" source="./media/power-bi/two-players.png" alt-text="예제로 추가된 두 비디오 플레이어 위젯의 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Power BI AI 유추 이벤트의 실시간 시각화](visualize-ai-events-power-bi.md)
 - [위젯 API](https://github.com/Azure/video-analyzer/tree/main/widgets)에 대해 자세히 알아보기

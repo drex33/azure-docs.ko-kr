@@ -2,13 +2,13 @@
 title: Bicep 함수
 description: Bicep 파일에서 값을 검색하고, 문자열과 숫자로 작업하고, 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 06/16/2021
-ms.openlocfilehash: dcc0e71917431ac2a181ae87374499a89a27482c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: bd697d6c1a1eaac7877341ffbbc10b1027882dd6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303988"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794029"
 ---
 # <a name="bicep-functions"></a>Bicep 함수
 
@@ -52,6 +52,13 @@ ms.locfileid: "123303988"
 
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)(환경)
+
+## <a name="file-functions"></a>파일 함수
+
+다음 함수는 외부 파일의 콘텐츠를 Bicep 파일에 로드 하는 데 사용할 수 있습니다.
+
+* [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## <a name="logical-functions"></a>논리 함수
 

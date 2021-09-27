@@ -1,15 +1,15 @@
 ---
 title: 위임에 대한 액세스 권한 제거
 description: Azure Lighthouse의 서비스 공급자에게 위임된 리소스에 대한 액세스 권한을 제거하는 방법을 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bae8407e09ab07a13c12abe3ee6371c04155cced
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: 16d92c58e08e06832781ff7d5095039cedbb344f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389845"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736589"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 

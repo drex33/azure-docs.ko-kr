@@ -4,7 +4,6 @@ description: Raspberry Pi가 Azure 클라우드에 데이터를 보내도록 Ras
 author: wesmc7777
 keywords: raspberry pi 시뮬레이터, azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 05/27/2021
@@ -12,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
-ms.openlocfilehash: b971236c68392cfb724e95802acc34f97a73a293
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 72708e33aa4d3677bb6c2e424f56eb4d81a29f04
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566640"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587969"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터 연결(Node.js)
 
@@ -25,18 +24,10 @@ ms.locfileid: "122566640"
 
 이 자습서에서는 Raspberry Pi 온라인 시뮬레이터 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 Pi 시뮬레이터를 클라우드에 원활하게 연결하는 방법을 알아봅니다.
 
-<p>
-<div id="diag" style="width:100%; text-align:center">
-<img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
-</div>
-</p>
-<p>
-<div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
-<img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
-</a>
-</div>
-</p>
+:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt-text="커넥트 Azure IoT Hub에 대한 Raspberry Pi 웹 시뮬레이터" border="false":::
+
+[:::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt-text="Raspberry Pi 시뮬레이터 시작":::](https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted)
+
 
 물리적 디바이스가 있는 경우 시작하려면 [Azure IoT Hub에 Raspberry Pi 연결](iot-hub-raspberry-pi-kit-node-get-started.md)을 방문하세요.
 

@@ -6,17 +6,16 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: e4e6af7e0fd475d60c38a021d2cefec4cbc39de3
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 54261049799cc02695d1162012cac9b7bff3558f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530795"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559250"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 제한
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스(컴퓨팅, 메모리, 스토리지) 계층에 대해 알아보려면 [컴퓨팅 및 스토리지](concepts-compute-storage.md) 문서를 참조하세요.
 

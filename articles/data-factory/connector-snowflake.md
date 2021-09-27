@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 8df5c60881ad449d8733abaf4f0eb7bcde6dde9a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c4a6c17bd16a4a2ba005cb28757e341afaff120b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307666"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763883"
 ---
 # <a name="copy-and-transform-data-in-snowflake-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Snowflake에서 데이터 복사 및 변환
 
@@ -48,7 +48,7 @@ ms.locfileid: "123307666"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -167,12 +167,12 @@ Snowflake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션
 | 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성을 **SnowflakeSource** 로 설정해야 합니다. | 예      |
-| Query          | Snowflake에서 데이터를 읽을 SQL 쿼리를 지정합니다. 스키마 이름, 테이블 및 열에 소문자가 포함된 경우 쿼리의 개체 식별자(예: `select * from "schema"."myTable"`)를 인용합니다.<br>저장 프로시저 실행은 지원되지 않습니다. | 아니요       |
+| Query          | Snowflake에서 데이터를 읽을 SQL 쿼리를 지정합니다. 스키마 이름, 테이블 및 열에 소문자가 포함된 경우 쿼리의 개체 식별자(예: `select * from "schema"."myTable"`)를 인용합니다.<br>저장 프로시저 실행은 지원되지 않습니다. | 예       |
 | exportSettings | Snowflake에서 데이터를 검색하는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 서비스에서 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요       |
 | ***`exportSettings` 아래에서:*** |  |  |
-| 형식 | **SnowflakeExportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 COPY 명령에 제공되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [Snowflake 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조하세요. | 아니요 |
+| type | **SnowflakeExportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 COPY 명령에 제공되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [Snowflake 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)을 참조하세요. | 예 |
 
 #### <a name="direct-copy-from-snowflake"></a>Snowflake에서 직접 복사
 
@@ -300,9 +300,9 @@ Snowflake로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에
 | preCopyScript     | 각 실행 시 Snowflake에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
 | importSettings | Snowflake에 데이터를 쓰는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 서비스에서 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요 |
 | ***`importSettings` 아래에서:*** |                                                              |  |
-| 형식 | **SnowflakeImportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
-| additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조하세요. | 아니요 |
-| additionalFormatOptions | 키-값 쌍의 사전으로 COPY 명령에 제공되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [Snowflake 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조하세요. | 아니요 |
+| type | **SnowflakeImportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
+| additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조하세요. | 예 |
+| additionalFormatOptions | 키-값 쌍의 사전으로 COPY 명령에 제공되는 추가 파일 형식 옵션입니다. 예: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. 자세한 내용은 [Snowflake 형식 유형 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)을 참조하세요. | 예 |
 
 #### <a name="direct-copy-to-snowflake"></a>Snowflake로 직접 복사
 
@@ -457,11 +457,11 @@ source(allowSchemaDrift: true,
 
 다음 표에서는 Snowflake 싱크에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 설정이 표시됩니다. 커넥터는 Snowflake [내부 데이터 전송](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)을 활용합니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | Snowflake 대상에서 허용되는 작업을 지정합니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
-| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 아니요 | Array | 키 |
-| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
+| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 예 | Array | 키 |
+| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | recreate<br/>truncate |
 
 #### <a name="snowflake-sink-script-examples"></a>Snowflake 싱크 스크립트 예제
 

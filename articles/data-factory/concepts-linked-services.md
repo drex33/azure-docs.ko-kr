@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 96d7792ee9c867263b7ab7f21cea652414f28478
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: d9b6695824b5fc19d2cd2ee40aec929a372750f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822394"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812035"
 ---
 # <a name="linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics 연결된 서비스
 
@@ -41,7 +41,7 @@ Azure Data Factory 및 Azure Synapse Analytics는 하나 이상의 파이프라�
 
 다음 다이어그램에서는 서비스의 파이프라인, 활동, 데이터 세트 및 연결된 서비스 간의 관계를 보여 줍니다.
 
-![파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계":::
 
 ## <a name="linked-service-json"></a>연결된 서비스 JSON
 

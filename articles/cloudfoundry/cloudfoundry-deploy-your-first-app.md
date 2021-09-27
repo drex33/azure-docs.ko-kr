@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 1cffc36cbd4f24bbcbb5996a323ffa963e311693
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.openlocfilehash: 9ebfd3a9ce02ece7fc36fdce004dac29539f4fae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530960"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737100"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "107530960"
 
 Azure에 Cloud Foundry 환경을 만들기 위한 여러 가지 옵션이 있습니다.
 
-- Azure Marketplace에서 [Pivotal Cloud Foundry 제품][pcf-azuremarketplace]을 사용하여 PCF Ops Manager 및 Azure Service Broker를 포함하는 표준 환경을 만듭니다. Pivotal 설명서에서 마켓플레이스 제품을 배포하기 위한 [전체 지침][pcf-azuremarketplace-pivotaldocs]을 찾을 수 있습니다.
+- Azure Marketplace에서 Pivotal Cloud Foundry 제품을 사용하여 PCF Ops Manager 및 Azure Service Broker를 포함하는 표준 환경을 만듭니다. Pivotal 설명서에서 마켓플레이스 제품을 배포하기 위한 [전체 지침][pcf-azuremarketplace-pivotaldocs]을 찾을 수 있습니다.
 - [Pivotal Cloud Foundry를 수동으로 배포][pcf-custom]하여 사용자 지정된 환경을 만듭니다.
 - [BOSH](https://bosh.io) 디렉터, Cloud Foundry 환경의 배포를 조정하는 VM을 설정하여 [오픈 소스 Cloud Foundry 패키지를 직접 배포][oss-cf-bosh]합니다.
 
@@ -141,7 +141,6 @@ cf scale -i 2 hello-spring-cloud
 
 <!-- LINKS -->
 
-[pcf-azuremarketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html

@@ -4,12 +4,12 @@ description: X.509 인증서를 사용하여 보호되는 Service Fabric 클러�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 2674e0e01432fdd45ae01632c69ada66222247f6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 580831c402c8d07eead9f3b90215faa106640bfc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293258"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601979"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 인증서 관리
 
@@ -449,7 +449,7 @@ A의 SAN 목록은 C에 완벽하게 포함되어 있으므로 A.갱신 = C.지�
 
 해당 인시던트를 완화하기 위해 다음을 수행하는 것이 좋습니다.
   - 여러 자격 증명 모음 인증서의 SAN을 혼용해서는 안 됩니다. 각 자격 증명 모음 인증서는 고유한 용도가 있으며, 주체와 SAN은 특이성과 함께 이를 반영해야 합니다.
-  - SAN 목록에 주체 일반 이름(문자적으로 “CN=<subject common name>”)을 포함합니다.  
+  - SAN 목록에 주체 일반 이름을 포함 합니다 (as, 문자 그대로 `CN=<subject common name>` ).  
   - 확실하지 않은 경우 KVVM 확장으로 프로비저닝된 인증서 갱신 시 링크 사용하지 않도록 설정하세요. 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>사용자 할당 관리 ID를 사용하는 이유는 무엇인가요? 사용자 할당 관리 ID를 사용할 때의 결과는 어떻게 되나요?

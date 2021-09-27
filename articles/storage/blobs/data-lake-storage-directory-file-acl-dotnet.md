@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e993a22a512a94c8b5b8b050205db0c4ce0b1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2e13e8127377e99faea8da89912ee6f3d9fb1f20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650323"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590331"
 ---
 # <a name="use-net-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 .NET을 사용하여 디렉터리 및 파일 관리
 
@@ -49,11 +49,11 @@ using System.IO;
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다. 
+이 문서의 코드 조각을 사용하려면 스토리지 계정을 나타내는 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만들어야 합니다.
 
-### <a name="connect-by-using-an-account-key"></a>계정 키를 사용한 연결
+### <a name="connect-by-using-an-account-key"></a>계정 키를 사용하여 연결
 
-계정에 연결하는 가장 쉬운 방법입니다. 
+계정에 연결하는 가장 쉬운 방법입니다.
 
 이 예시에서는 계정 키를 사용하여 [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) 인스턴스를 만듭니다.
 
@@ -74,7 +74,7 @@ using System.IO;
 
 컨테이너는 파일의 파일 시스템 역할을 합니다. [DataLakeServiceClient.CreateFileSystem](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) 메서드를 호출하여 만들 수 있습니다.
 
-다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다. 
+다음 예제에서는 `my-file-system`라는 컨테이너를 만듭니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateContainer":::
 
@@ -82,19 +82,19 @@ using System.IO;
 
 [DataLakeFileSystemClient.CreateDirectoryAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) 메서드를 호출하여 디렉터리 참조를 만듭니다.
 
-이 예시에서는 `my-directory`라는 디렉터리를 컨테이너에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가합니다. 
+이 예시에서는 `my-directory`라는 디렉터리를 컨테이너에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-[DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync) 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다. 
+[DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync) 메서드를 호출하여 디렉터리 이름을 바꾸거나 이동합니다. 원하는 디렉터리의 경로를 매개 변수로 전달합니다.
 
-이 예시에서는 한 하위 디렉터리를 `my-subdirectory-renamed`라는 이름으로 바꿉니다.
+이 예제에서는 한 하위 디렉터리를 `my-subdirectory-renamed`라는 이름으로 바꿉니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
-이 예시에서는 `my-subdirectory-renamed`라는 디렉터리를 `my-directory-2`라는 디렉터리의 하위 디렉터리로 이동합니다. 
+이 예제에서는 `my-subdirectory-renamed`라는 디렉터리를 `my-directory-2`라는 디렉터리의 하위 디렉터리로 이동합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 
@@ -102,7 +102,7 @@ using System.IO;
 
 [DataLakeDirectoryClient.Delete](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.delete) 메서드를 호출하여 디렉터리를 삭제합니다.
 
-다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.  
+다음 예제에서는 `my-directory`라는 디렉터리를 삭제합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
 
@@ -110,7 +110,7 @@ using System.IO;
 
 먼저 [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) 메서드를 호출하여 파일을 업로드합니다. [DataLakeFileClient.FlushAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) 메서드를 호출하여 업로드가 완료됐는지 확인합니다.
 
-다음 예제에서는 한 텍스트 파일을 `my-directory`라는 디렉터리에 업로드합니다. 
+다음 예제에서는 한 텍스트 파일을 `my-directory`라는 디렉터리에 업로드합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
 
@@ -125,11 +125,11 @@ using System.IO;
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFileBulk":::
 
-## <a name="download-from-a-directory"></a>디렉터리에서 다운로드 
+## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
-먼저, 다운로드하려는 파일을 나타내는 [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) 인스턴스를 만듭니다. [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) 메서드를 사용하고 반환 값을 구문 분석하여 [스트림](/dotnet/api/system.io.stream) 개체를 획득합니다. .NET 파일 처리 API를 이용해서 스트림에서 바이트를 파일에 저장합니다. 
+먼저, 다운로드하려는 파일을 나타내는 [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) 인스턴스를 만듭니다. [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) 메서드를 사용하고 반환 값을 구문 분석하여 [스트림](/dotnet/api/system.io.stream) 개체를 획득합니다. .NET 파일 처리 API를 이용해서 스트림에서 바이트를 파일에 저장합니다.
 
-이 예시에서는 [BinaryReader](/dotnet/api/system.io.binaryreader)와 [FileStream](/dotnet/api/system.io.filestream)을 사용해 바이트를 파일에 저장합니다. 
+이 예시에서는 [BinaryReader](/dotnet/api/system.io.binaryreader)와 [FileStream](/dotnet/api/system.io.filestream)을 사용해 바이트를 파일에 저장합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DownloadBinaryFromDirectory":::
 

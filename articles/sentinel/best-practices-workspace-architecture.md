@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 591d248bed623a31d9c120ae669615efa5c5544d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253812"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763256"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Azure Sentinel 작업 영역 아키텍처 모범 사례
 
@@ -42,7 +42,7 @@ Azure Sentinel 작업 영역 배포를 계획하는 경우 Log Analytics 작업 
 
 MSSP(관리되는 보안 서비스 공급자)와 같이 여러 테넌트가 있는 경우 Azure AD 테넌트에 대해 하나 이상의 작업 영역을 만들어 자체 Azure AD 테넌트 내에서만 작동하는 기본 제공 [서비스 간 데이터 커넥터](connect-data-sources.md#service-to-service-integration)를 지원하는 것이 좋습니다.
 
-진단 설정을 기반으로 하는 모든 커넥터는 리소스가 있는 동일한 테넌트에 있지 않은 작업 영역에 연결할 수 없습니다. 이는 [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure 활동](connect-azure-activity.md) 또는 [Azure Active Directory](connect-azure-active-directory.md)와 같은 커넥터에 적용됩니다.
+진단 설정을 기반으로 하는 모든 커넥터는 리소스가 있는 동일한 테넌트에 있지 않은 작업 영역에 연결할 수 없습니다. 이는 [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure 활동](./data-connectors-reference.md#azure-activity) 또는 [Azure Active Directory](connect-azure-active-directory.md)와 같은 커넥터에 적용됩니다.
 
 [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)를 사용하여 서로 다른 테넌트에서 여러 Azure Sentinel 인스턴스를 관리할 수 있습니다.
 

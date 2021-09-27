@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: ec83b7a8de449a73dc227941f864ac7cd8495e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3328fb0fb20a9b0e492c3cd4281ee35dcf12dda0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566570"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792033"
 ---
 # <a name="assessment-overview-migrate-to-azure-app-service"></a>평가 개요(Azure App Service로 마이그레이션)
 
@@ -92,7 +92,7 @@ Azure Migrate를 사용하여 평가를 만들기 위해 [모범 사례를 검�
 
 ### <a name="azure-app-service-plan"></a>Azure App Service 요금제
 
-App Service의 앱은 항상 [App Service 요금제](/azure/app-service/overview-hosting-plans)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. 대략적으로 요금제/SKU는 아래 표에 따라 결정됩니다.
+App Service의 앱은 항상 [App Service 요금제](../app-service/overview-hosting-plans.md)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. 대략적으로 요금제/SKU는 아래 표에 따라 결정됩니다.
 
 **격리 필요** | **예약 인스턴스** | **App Service 요금제/SKU**
 --- | --- | ---
@@ -103,7 +103,7 @@ App Service의 앱은 항상 [App Service 요금제](/azure/app-service/overview
 
 ### <a name="azure-app-service-cost-details"></a>Azure App Service 비용 정보
 
-[App Service 요금제](/azure/app-service/overview-hosting-plans)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다. App Service에서는 웹앱이 아닌 App Service 요금제에 따라 요금을 지불합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다.
+[App Service 요금제](../app-service/overview-hosting-plans.md)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다. App Service에서는 웹앱이 아닌 App Service 요금제에 따라 요금을 지불합니다. 하나 이상의 앱은 동일한 컴퓨팅 리소스(또는 동일한 App Service 계획)에서 실행하도록 구성될 수 있습니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다.
 비용을 최적화하기 위해 Azure Migrate 평가는 권장되는 각 App Service 요금제에 여러 웹앱을 할당합니다. 각 요금제 인스턴스에 할당되는 웹앱 수는 아래 표와 같습니다.
 
 **App Service 계획** | **App Service 요금제당 웹앱 수**
@@ -113,7 +113,7 @@ P1v2  | 8
 P1v3  | 16
 
 > [!NOTE]
-> 언제든지 App Service 계획을 확장하고 축소할 수 있습니다. [자세히 알아보기](/azure/app-service/overview-hosting-plans#what-if-my-app-needs-more-capabilities-or-features/).
+> 언제든지 App Service 계획을 확장하고 축소할 수 있습니다. [자세히 알아보기](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
 ## <a name="next-steps"></a>다음 단계
 - 평가를 만드는 모범 사례를 [검토합니다](best-practices-assessment.md). 

@@ -2,14 +2,14 @@
 title: 고객 관리형 키를 사용하여 레지스트리 암호화
 description: Azure 컨테이너 레지스트리의 저장 데이터 암호화 및 Azure Key Vault에 저장된 고객 관리형 키를 사용하여 프리미엄 레지스트리를 암호화하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 399b1940ff3d87fa862e234948742a35d814f558
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: a5fd3140474b1d6d7c36d686c14f2dc4e6a9ef73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634904"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561606"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -44,7 +44,7 @@ ms.locfileid: "122634904"
 
 자세한 내용은 이 도움말 뒷부분에 있는 [키 버전이 있거나 없는 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 [키 버전 업데이트](#update-key-version)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 Azure CLI 단계를 사용하려면 Azure CLI 버전 2.2.0 이상 또는 Azure Cloud Shell이 필요합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -546,7 +546,7 @@ Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.C
 
 **사용자가 할당한 ID**
 
-사용자가 할당한 ID에서 이 문제가 발생하면 먼저 [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) 명령을 사용하여 ID를 재할당합니다. ID의 리소스 ID를 전달하거나 레지스트리와 동일한 리소스 그룹에 있는 경우 ID의 이름을 사용합니다. 예를 들어:
+사용자가 할당한 ID에서 이 문제가 발생하면 먼저 [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) 명령을 사용하여 ID를 재할당합니다. Id의 리소스 ID를 전달 하거나, 레지스트리와 동일한 리소스 그룹에 있는 id의 이름을 사용 합니다. 예:
 
 ```azurecli
 az acr identity assign -n myRegistry \
@@ -564,6 +564,12 @@ az acr identity assign -n myRegistry \
 암호화된 레지스트리를 만든 후 키 자격 증명 모음 방화벽 또는 가상 네트워크를 사용하도록 설정하면 HTTP 403 또는 이미지 가져오기 또는 자동화된 키 순환과 관련된 기타 오류가 표시될 수 있습니다. 이 문제를 해결하려면 처음에 암호화를 위해 사용한 관리 ID 및 키를 다시 구성합니다. [Rotate key](#rotate-key)(키 순환)의 단계를 참조하세요. 
 
 문제가 지속되면 Azure 지원에 문의하세요.
+
+### <a name="accidental-deletion-of-key-vault-or-key"></a>실수로 키 자격 증명 모음 또는 키를 삭제했습니다.
+
+고객 관리형 키로 레지스트리를 암호화하는 데 사용되는 키 자격 증명 모음 또는 키를 삭제하면 레지스트리의 콘텐츠에 액세스할 수 없게 됩니다. 키 자격 증명 모음(기본 옵션)에서 [일시 삭제를](../key-vault/general/soft-delete-overview.md) 사용하도록 설정한 경우 삭제된 자격 증명 모음 또는 키 자격 증명 모음 개체를 복구하고 레지스트리 작업을 다시 시작할 수 있습니다.
+
+키 자격 증명 모음 삭제 및 복구 시나리오는 [일시 삭제 및 제거 보호를 Azure Key Vault 복구 관리를](../key-vault/general/key-vault-recovery.md)참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

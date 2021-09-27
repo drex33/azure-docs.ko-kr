@@ -4,12 +4,12 @@ description: IoT용 Defender를 사용하여 보안 메시지를 보내는 방�
 ms.topic: how-to
 ms.date: 2/8/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 2f5c6581772599c5527f037987e34bca643781bd
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 791e49c4e8f0e503c67f24e440fc229998b7b9da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018815"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680505"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
@@ -26,14 +26,14 @@ ms.locfileid: "113018815"
 
 ## <a name="defender-for-iot-capabilities"></a>IoT 기능용 Defender
 
-IoT용 Defender는 전송한 데이터가 [IoT 스키마용 Defender](https://aka.ms/iot-security-schemas)를 준수하고 메시지가 보안 메시지로 설정되어 있는 한 모든 종류의 보안 메시지 데이터를 처리하고 분석할 수 있습니다.
+IoT용 Defender는 전송한 데이터가 IoT 스키마용 Defender를 준수하고 메시지가 보안 메시지로 설정되어 있는 한 모든 종류의 보안 메시지 데이터를 처리하고 분석할 수 있습니다.
 
 ## <a name="security-message"></a>보안 메시지
 
 IoT용 Defender는 다음 기준을 사용하여 보안 메시지를 정의합니다.
 
 - Azure IoT SDK를 사용하여 메시지를 보낸 경우
-- 메시지가 [보안 메시지 스키마](https://aka.ms/iot-security-schemas)를 준수하는 경우
+- 메시지가 보안 메시지 스키마를 준수하는 경우
 - 메시지를 보내기 전에 보안 메시지로 설정된 경우
 
 각 보안 메시지에는 `AgentId`, `AgentVersion`, `MessageSchemaVersion`, 보안 이벤트 목록과 같은 보낸 사람의 메타데이터가 포함됩니다.
@@ -85,7 +85,7 @@ IoT용 Defender는 다음 기준을 사용하여 보안 메시지를 정의합�
 
 IoT용 Defender에서 처리하기 위해 디바이스에서 디바이스 데이터를 보내려면 다음 API 중 하나를 사용하여 IoT용 Defender 처리 파이프라인으로 올바르게 라우팅하기 위한 메시지를 표시합니다.
 
-올바른 헤더로 표시된 경우에도 전송되는 모든 데이터는 [IoT 메시지 스키마용 Defender](https://aka.ms/iot-security-schemas)를 준수해야 합니다.
+올바른 헤더로 표시된 경우에도 전송되는 모든 데이터는 IoT 메시지 스키마용 Defender를 준수해야 합니다.
 
 ### <a name="send-security-message-api"></a>보안 메시지 보내기 API
 
@@ -219,7 +219,7 @@ public void SendSecurityMessage(string message)
 ## <a name="next-steps"></a>다음 단계
 
 - Defender for IoT 서비스 [개요](overview.md) 읽기
-- Defender for IoT [디바이스 빌더용 에이전트 기반 솔루션이란?](architecture-agent-based.md)에 대해 자세히 알아보기
+- Defender for IoT에 대한 자세한 내용 [디바이스 작성기용 에이전트 기반 솔루션](architecture-agent-based.md)
 - [서비스](quickstart-onboard-iot-hub.md)를 사용하도록 설정합니다.
 - [Azure Defender for IoT 에이전트 질문과 대답](resources-agent-frequently-asked-questions.md) 읽기
 - [원시 보안 데이터](how-to-security-data-access.md)에 액세스하는 방법을 알아봅니다.

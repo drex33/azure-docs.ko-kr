@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 17670189113e106b4a3d4c5cc288772a49e1f83b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92900823"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816111"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -101,7 +101,6 @@ Pod ID 프로젝트를 사용하면 Azure 서비스 지원에 대한 인증이 �
 
 Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. [비밀 저장소 CSI 드라이버용 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)를 사용하여 Azure Key Vault를 AKS 클러스터와 통합할 수 있습니다. 비밀 저장소 CSI 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 비밀 콘텐츠를 검색하여 요청 Pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 협력하여 비밀 저장소 CSI 드라이버를 AKS 작업자 노드에 배포합니다. Pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 비밀 저장소 CSI 드라이버를 통해 필요한 비밀 콘텐츠를 검색할 수 있습니다.
 
-비밀 저장소 CSI 드라이버가 설치된 Azure Key Vault는 1.16 이상의 Kubernetes 버전을 필요로 하는 Linux 노드 및 Pod용으로 사용할 수 있습니다. Windows 노드 및 Pod의 경우 1.18 이상의 Kubernetes 버전이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

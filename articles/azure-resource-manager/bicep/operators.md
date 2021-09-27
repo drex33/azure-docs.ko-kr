@@ -4,13 +4,13 @@ description: Azure Resource Manager 배포에 사용할 수 있는 Bicep 연산�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 13591112171919d6c58959c40dffa1340f3e8ebd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221049"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764317"
 ---
 # <a name="bicep-operators"></a>Bicep 연산자
 
@@ -38,7 +38,9 @@ ms.locfileid: "123221049"
 | `?` `:` | 3개로 구성된 조건식 | 오른쪽에서 왼쪽
 | `??` | Coalesce | 왼쪽에서 오른쪽
 
-`(`와 `)` 사이에 식을 포함하면 기본 Bicep 연산자 우선 순위를 재정의할 수 있습니다. 예를 들어, 식 x + y / z는 나누기를 먼저 평가한 다음, 더하기를 평가합니다. 그러나 식 (x + y) / z는 더하기를 먼저 평가하고 나누기를 두 번째로 평가합니다.
+## <a name="parentheses"></a>괄호
+
+식을 괄호로 묶으면 기본 Bicep 연산자 우선 순위를 재정의할 수 있습니다. 예를 들어 식은 `x + y / z` 먼저 나누기를 평가한 다음 더하기를 계산 합니다. 그러나이 식은 `(x + y) / z` 더하기 first 및 나누기 초를 계산 합니다.
 
 ## <a name="accessor"></a>접근자
 
@@ -74,7 +76,7 @@ ms.locfileid: "123221049"
 | ---- | ---- | ---- |
 | `&&` | [And](./operators-logical.md#and-) | 모든 값이 true이면 `true`를 반환합니다. |
 | `||`| [Or](./operators-logical.md#or-) | 한쪽 값이 true이면 `true`를 반환합니다. |
-| `!` | [Not](./operators-logical.md#not-) | 부울 값을 부정합니다. |
+| `!` | [Not](./operators-logical.md#not-) | 부울 값을 부정합니다. 하나의 피연산자를 사용 합니다. |
 | `??` | [Coalesce](./operators-logical.md#coalesce-) | null이 아닌 첫 번째 값을 반환합니다. |
 | `?` `:` | [조건 식](./operators-logical.md#conditional-expression--) | True 또는 false의 조건을 평가하고 값을 반환합니다. |
 
@@ -88,8 +90,8 @@ ms.locfileid: "123221049"
 | `/` | [나누기](./operators-numeric.md#divide-) | 정수를 정수로 나눕니다. |
 | `%` | [모듈로](./operators-numeric.md#modulo-) | 정수를 정수로 나누고 나머지를 반환합니다. |
 | `+` | [추가](./operators-numeric.md#add-) | 두 개의 정수를 더합니다. |
-| `-` | [빼기](./operators-numeric.md#subtract--) | 정수에서 정수를 뺍니다. |
-| `-` | [빼기](./operators-numeric.md#minus--) | 정수에 `-1`을 곱합니다. |
+| `-` | [빼기](./operators-numeric.md#subtract--) | 다른 정수에서 정수 하나를 뺍니다. 두 개의 연산자를 취합니다. |
+| `-` | [빼기(일체형)](./operators-numeric.md#minus--) | 정수에 `-1`을 곱합니다. 하나의 연산자(operand)를 취합니다. |
 
 > [!NOTE]
 > 빼기(subtract) 및 빼기(minus)는 동일한 연산자를 사용합니다. 빼기(subtract)는 두 개의 피연산자를 사용하고 빼기(minus)는 피연산자 하나를 사용하기 때문에 기능이 서로 다릅니다.

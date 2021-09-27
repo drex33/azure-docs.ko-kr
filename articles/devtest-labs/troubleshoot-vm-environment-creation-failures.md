@@ -1,14 +1,14 @@
 ---
-title: VM 및 환경 오류 문제 해결 - Azure DevTest Labs
+title: VM 및 환경 오류 문제 해결
 description: Azure DevTest Labs에서 VM(가상 머신) 및 환경 만들기 오류 문제를 해결하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c0765254110302c6306cd37b9d55b8465510a586
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476481"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561280"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Azure DevTest Labs에서 VM(가상 머신) 및 환경 만들기 오류 문제 해결
 DevTest Labs는 컴퓨터 이름이 잘못되었거나 랩 정책을 위반하는 경우 사용자에게 경고합니다. 경우에 따라 문제가 발생했음을 알리는 랩 VM 또는 환경 상태 옆에 빨간색 `X`가 표시됩니다.  이 문서에서는 기본 문제를 찾고 차후에 문제를 방지하는 데 사용할 수 있는 몇 가지 트릭을 제공합니다.

@@ -1,26 +1,26 @@
 ---
 title: MongoDB Atlas에서 또는 MongoDB Atlas로 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 MongoDB 아틀라스에서 지원 되는 싱크 데이터 저장소로 또는 지원 되는 원본 데이터 저장소에서 MongoDB 아틀라스로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MongoDB Atlas에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 MongoDB Atlas로 데이터를 복사하는 방법을 알아봅니다.
-ms.author: chez
-author: chez-charlie
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: b2c174fce6e79b574276d1f95cfc4e1c93c321cd
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: bd99246d5174049e2f58f3c4dc114dcb8ef41eb6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318381"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827146"
 ---
-# <a name="copy-data-from-or-to-mongodb-atlas-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB Atlas에서 또는 MongoDB Atlas로 데이터 복사
+# <a name="copy-data-from-or-to-mongodb-atlas-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 MongoDB 아틀라스에서 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MongoDB Atlas 데이터베이스에서 또는 MongoDB Atlas 데이터베이스로 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 MongoDB Atlas 데이터베이스 간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -98,7 +98,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB Atlas 데이터 세트에 대해 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **MongoDbAtlasCollection** 으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB Atlas 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
@@ -141,7 +141,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 | batchSize | MongoDB Atlas 인스턴스의 응답을 각각 일괄 처리로 반환할 문서 수를 지정합니다. 대부분의 경우 일괄 처리 크기를 수정해도 사용자 또는 애플리케이션에 영향이 없습니다. Cosmos DB는 각 일괄 처리가 문서 크기의 batchSize 수의 합인 40MB를 초과할 수 없도록 제한하므로 문서 크기가 대규모인 경우 이 값을 줄입니다. | 예<br/>(기본값은 **100**) |
 
 >[!TIP]
->ADF는 **Strict 모드** 로 BSON 문서를 사용하는 것을 지원합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
+>이 서비스는 **Strict 모드** 에서 bson 문서를 사용 하도록 지원 합니다. 필터 쿼리가 Shell 모드가 아닌 Strict 모드에 있는지 확인합니다. 자세한 설명은 [MongoDB 설명서](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)를 참조하세요.
 
 **예:**
 
@@ -188,7 +188,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성을 **MongoDbAtlasSink** 로 설정해야 합니다. |예 |
-| writeBehavior |MongoDB Atlas에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id`가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 `_id`를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
+| writeBehavior |MongoDB Atlas에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id` `_id` 원본 문서 또는 열 매핑에서가 지정 되지 않은 경우 서비스는 문서에 대해를 자동으로 생성 합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
 | writeBatchSize | **writeBatchSize** 속성은 각 일괄 처리에서 작성할 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄여 볼 수 있습니다. |예<br />(기본값: **10,000**) |
 | writeBatchTimeout | 시간 초과 전 배치 삽입 작업을 완료하기 위한 대기 시간입니다. 허용된 값은 시간 범위입니다. | 예<br/>(기본값은 **00:30:00** - 30분) |
 
@@ -232,7 +232,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 이 MongoDB Atlas 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
 
 * 두 MongoDB Atlas 컬렉션 간에 데이터를 있는 그대로 복사
-* Azure Cosmos DB, Azure Blob storage, Azure Data Lake Store 및 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등의 다양한 원본에서 MongoDB Atlas로 JSON 문서 가져오기
+* Azure Cosmos DB, Azure Blob storage, Azure Data Lake Store 및 기타 지원 되는 파일 기반 저장소를 포함 하 여 다양 한 원본에서 MongoDB 아틀라스로 JSON 문서를 가져옵니다.
 * MongoDB Atlas 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 
 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마* 라고도 함) 섹션을 건너뛰세요.
@@ -243,4 +243,4 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 데이터를 MongoDB Atlas에서 테이블 형식 싱크로 또는 그 반대로 복사하려면 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: 79d9d15ff2707dfac7e206cf5a289d7eac00ffb4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 954b4deb6a095ee862e46cb13d177d9b66cf0dca
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447569"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053863"
 ---
 # <a name="peering-service-partners"></a>Peering Service 파트너
 
@@ -46,6 +46,7 @@ Microsoft는 전 세계 ISP(인터넷 서비스 공급자), IXP(인터넷 교환
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |유럽|
 | [CMC 네트워크](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |아프리카|
 | [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |아프리카|
+| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |유럽|
 
 > [!NOTE]
 >Peering Service 파트너 프로그램을 등록하는 방법에 대한 자세한 내용은 peeringservice@microsoft.com에 문의하세요.

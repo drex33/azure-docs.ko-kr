@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/15/2021
-ms.openlocfilehash: 979855c0ad6a19c03c0c2c23cde935bc03cba157
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 09/02/2021
+ms.openlocfilehash: 07a0848de708f3d01cc081130a02ffa6e11f07db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567615"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818887"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능 보관
 
@@ -29,6 +29,115 @@ ms.locfileid: "122567615"
 >
 > 여러분도 참여할 수 있습니다! [Azure Sentinel 위협 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에 참여하세요.
 >
+
+## <a name="march-2021"></a>2021년 3월
+
+- [보기 모드에서 통합 문서가 자동으로 새로 고쳐지도록 설정](#set-workbooks-to-automatically-refresh-while-in-view-mode)
+- [Azure Firewall에 대한 신규 검색](#new-detections-for-azure-firewall)
+- [자동화 규칙 및 인시던트 트리거 플레이북(공개 미리 보기)](#automation-rules-and-incident-triggered-playbooks-public-preview) (완전히 새로운 플레이북 문서 포함)
+- [새로운 경고 강화: 향상된 엔터티 매핑 및 사용자 지정 세부 정보(공개 미리 보기)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
+- [Azure Sentinel 통합 문서를 인쇄하거나 PDF로 저장](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [인시던트 필터 및 정렬 기본 설정이 세션에 저장됨(공개 미리 보기)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Microsoft 365 Defender 인시던트 통합(공개 미리 보기)](#microsoft-365-defender-incident-integration-public-preview)
+- [Azure Policy를 사용하는 새로운 Microsoft 서비스 커넥터](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>보기 모드에서 통합 문서가 자동으로 새로 고쳐지도록 설정
+
+Azure Sentinel 사용자는 이제 새로운 [Azure Monitor 기능](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555)을 사용하여 보기 세션 중에 통합 문서 데이터를 자동으로 새로 고칠 수 있습니다.
+
+각 통합 문서 또는 통합 문서 템플릿에서 :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **자동 새로 고침** 을 선택하여 간격 옵션을 표시합니다. 현재 보기 세션에 사용할 옵션을 선택하고 **적용** 을 선택합니다.
+
+- 지원되는 새로 고침 간격의 범위는 **5분** 에서 **1일** 사이입니다.
+- 기본적으로 자동 새로 고침은 꺼져 있습니다. 성능을 최적화하기 위해 자동 새로 고침은 통합 문서를 닫을 때마다 꺼지며 백그라운드에서 실행되지 않습니다. 다음에 통합 문서를 열 때 필요에 따라 자동 새로 고침을 다시 켭니다.
+- 통합 문서를 편집하는 동안 자동 새로 고침이 일시 중지되며, 편집 모드에서 보기 모드로 다시 전환할 때마다 자동 새로 고침 간격이 다시 시작됩니다.
+
+    :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **새로 고침** 단추를 선택하여 통합 문서를 수동으로 새로 고치는 경우에도 간격이 다시 시작됩니다.
+
+자세한 내용은 [데이터 시각화 및 모니터링](monitor-your-data.md)과 [Azure Monitor 설명서](../azure-monitor/visualize/workbooks-overview.md)를 참조하세요.
+
+### <a name="new-detections-for-azure-firewall"></a>Azure Firewall에 대한 신규 검색
+
+Azure Firewall에 대한 몇 가지 기본 검색이 Azure Sentinel의 [Analytics](./understand-threat-intelligence.md) 영역에 추가되었습니다. 새로운 검색을 사용하면 내부 네트워크의 컴퓨터가 검색 규칙 쿼리에 정의되어 있는 알려진 IOC와 연결된 인터넷 도메인 이름 또는 IP 주소를 쿼리하거나 연결하려고 하면 보안 팀이 경고를 받을 수 있습니다.
+
+새 검색에는 다음이 포함됩니다.
+
+- [Solorigate 네트워크 비콘](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [알려진 GALLIUM 도메인 및 해시](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [알려진 IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [알려진 Phosphorus 그룹 도메인/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [DCU 무력화에 포함된 THALLIUM 도메인](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [알려진 ZINC 관련 맬웨어 해시](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [알려진 STRONTIUM 그룹 도메인](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [NOBELIUM - 도메인 및 IP IOC - 2021년 3월](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+
+
+Azure 방화벽에 대한 검색은 기본 제공 템플릿 갤러리에 지속적으로 추가됩니다. Azure 방화벽에 대한 최신 검색을 보려면 **규칙 템플릿** 아래에서 **데이터 원본** 을 **Azure Firewall** 로 필터링합니다.
+
+:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Analytics 효율성 통합 문서의 새로운 검색":::
+
+자세한 내용은 [Azure Sentinel의 Azure Firewall에 대한 신규 검색](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958)을 참조하세요.
+
+### <a name="automation-rules-and-incident-triggered-playbooks-public-preview"></a>자동화 규칙 및 인시던트 트리거 플레이북(공개 미리 보기)
+
+자동화 규칙은 인시던트 처리 자동화를 중앙에서 관리할 수 있는 Azure Sentinel의 새로운 개념입니다. 자동화 규칙을 사용하면 이전처럼 경고가 아닌 인시던트에 플레이북을 할당하는 것 외에도, 한 번에 여러 분석 규칙에 대한 응답을 자동화하고, 플레이북 없이도 인시던트에 자동으로 태그를 지정하거나, 할당하거나, 종료하고, 실행되는 작업의 순서를 제어할 수 있습니다. 자동화 규칙은 Azure Sentinel에서 자동화 사용을 간소화하고 인시던트 오케스트레이션 프로세스의 복잡한 워크플로를 단순화할 수 있습니다.
+
+이러한 [자동화 규칙에 대한 전체 설명](automate-incident-handling-with-automation-rules.md)을 통해 자세히 알아보세요.
+
+위에서 언급했듯이 이제 경고 트리거 외에 인시던트 트리거를 사용하여 플레이북을 활성화할 수 있습니다. 인시던트 트리거는 플레이북으로 작업할 입력 집합을 더 크게 제공하여(인시던트에는 경고 및 엔터티 데이터가 모두 포함되기 때문에) 대응 워크플로에 훨씬 더 강력한 성능과 유연성을 제공합니다. 인시던트 트리거 플레이북은 자동화 규칙에서 호출하여 활성화됩니다.
+
+[플레이북의 향상된 기능](automate-responses-with-playbooks.md) 및 플레이북을 자동화 규칙과 함께 사용하여 [응답 워크플로를 정교하게 만드는](tutorial-respond-threats-playbook.md) 방법에 대해 자세히 알아보세요.
+
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview"></a>새로운 경고 강화: 향상된 엔터티 매핑 및 사용자 지정 세부 정보(공개 미리 보기)
+
+두 가지 새로운 방법으로 경고를 보강하여 보다 유용하고 유익하게 만들 수 있습니다.
+
+먼저 엔터티 매핑을 다음 단계로 끌어 올립니다. 이제 사용자, 호스트 및 IP 주소에서 파일 및 프로세스, 사서함, Azure 리소스 및 IoT 디바이스에 이르기까지 거의 20가지의 엔터티를 매핑할 수 있습니다. 각 엔터티에 대해 여러 식별자를 사용하여 엔터티 고유의 식별을 강화할 수도 있습니다. 이를 통해 인시던트의 훨씬 더 풍부한 데이터 세트를 제공하여 보다 광범위한 상관 관계와 강력한 조사가 가능해집니다. 경고에서 [엔터티를 매핑하는 새로운 방법을 알아보세요](map-data-fields-to-entities.md).
+
+[엔터티에 대해 자세히 알아보고](entities-in-azure-sentinel.md) [사용 가능한 엔터티 및 식별자의 전체 목록](entities-reference.md)을 확인하세요.
+
+원시 이벤트의 세부 정보를 노출하도록 경고를 사용자 지정하여 조사 및 대응 기능을 더욱 강화할 수 있습니다. 인시던트에 대한 이벤트 콘텐츠 가시성을 제공하면 보안 위협을 조사하고 대처하는 기능을 강화하고 유연성을 제공할 수 있습니다. 경고에서 [사용자 지정 세부 정보를 노출하는 방법을 알아보세요](surface-custom-details-in-alerts.md).
+
+
+
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Azure Sentinel 통합 문서를 인쇄하거나 PDF로 저장
+
+이제 Azure Sentinel 통합 문서를 인쇄하여 PDF로 내보내고 로컬에 저장하거나 공유할 수 있습니다.
+
+통합 문서에서 옵션 메뉴 > :::image type="icon" source="media/whats-new/print-icon.png" border="false":::**내용 인쇄** 를 선택합니다. 그런 다음, 프린터를 선택하거나 필요에 따라 **PDF로 저장** 을 선택합니다.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="통합 문서를 인쇄하거나 PDF로 저장합니다.":::
+
+자세한 내용은 [데이터 시각화 및 모니터링](monitor-your-data.md)을 참조하세요.
+
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>인시던트 필터 및 정렬 기본 설정이 세션에 저장됨(공개 미리 보기)
+
+이제 인시던트 필터 및 정렬이 제품의 다른 영역으로 이동하는 동안에도 Azure Sentinel 세션 전체에 저장됩니다.
+동일한 세션에 있는 한, Azure Sentinel의 [인시던트](investigate-cases.md) 영역으로 다시 돌아오면 필터와 정렬이 그대로 표시됩니다.
+
+> [!NOTE]
+> Azure Sentinel을 종료하거나 브라우저를 새로 고치면 인시던트 필터 및 정렬이 저장되지 않습니다.
+
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Microsoft 365 Defender 인시던트 통합(공개 미리 보기)
+
+Azure Sentinel의 [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) 인시던트 통합을 통해 모든 M365D 인시던트를 Azure Sentinel로 스트리밍하고 두 포털 간에 동기화 상태를 유지할 수 있습니다. M365D(이전의 Microsoft Threat Protection 또는 MTP)의 인시던트에는 연결된 모든 경고, 엔터티 및 관련 정보가 포함되어 있어서 Azure Sentinel에서 심사 및 예비 조사를 수행하기에 충분한 컨텍스트를 제공합니다. Sentinel에서는 인시던트가 M365D와 양방향 동기화된 상태로 유지되어 사고 조사에서 두 포털의 이점을 모두 활용할 수 있습니다.
+
+Azure Sentinel과 Microsoft 365 Defender를 함께 사용하면 두 곳의 장점을 모두 활용할 수 있습니다. SIEM이 조직의 전체 정보 리소스 범위에 대해 제공하는 광범위한 인사이트와 Microsoft 365 리소스를 보호하기 위해 XDR이 제공하는 사용자 지정 및 맞춤형 심층적인 조사 기능이 함께 조정 및 동기화되어 원활한 SOC 운영에 활용할 수 있습니다.
+
+자세한 내용은 [Azure Sentinel과 Microsoft 365 Defender 통합](microsoft-365-defender-sentinel-integration.md)을 참조하세요.
+
+### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Azure Policy를 사용하는 새로운 Microsoft 서비스 커넥터
+
+[Azure Policy](../governance/policy/overview.md)는 정책을 사용하여 리소스의 속성을 적용하고 제어할 수 있는 Azure 서비스입니다. 정책을 사용하면 리소스가 IT 거버넌스 표준을 준수하도록 유지할 수 있습니다.
+
+정책으로 제어할 수 있는 리소스 속성 중에는 진단 및 감사 로그를 만들고 처리하는 것이 있습니다. Azure Sentinel은 Azure Policy를 사용하여 Azure Sentinel에 수집하려는 로그가 있는 특정 유형의 모든(현재 및 미래) 리소스에 공통 진단 로그 설정 집합을 적용할 수 있습니다. Azure Policy를 활용하면 리소스마다 더 이상 진단 로그를 설정할 필요가 없습니다.
+
+이제 다음 Azure 서비스에 Azure Policy 기반 커넥터를 사용할 수 있습니다.
+- [Azure Key Vault](./data-connectors-reference.md#azure-key-vault)(공개 미리 보기)
+- [Azure Kubernetes Service](./data-connectors-reference.md#azure-kubernetes-service-aks)(공개 미리 보기)
+- [Azure SQL 데이터베이스/서버](./data-connectors-reference.md#azure-sql-databases)(GA)
+
+고객은 특정 인스턴스에 대한 로그를 여전히 수동으로 보낼 수 있으며 정책 엔진을 사용할 필요가 없습니다.
+
 
 ## <a name="february-2021"></a>2021년 2월
 
@@ -60,36 +169,36 @@ Azure Sentinel **통합 문서** 영역에서 CMMC 통합 문서에 액세스할
 
 Microsoft의 타사 통합 컬렉션은 지난 2개월 동안 30개의 커넥터가 추가되면서 계속 증가하고 있습니다. 목록은 다음과 같습니다.
 
-- [Agari 피싱 방어 및 브랜드 보호](connect-agari-phishing-defense.md)
-- [Akamai Security Events](connect-akamai-security-events.md)
-- [Active Directory용 Alsid](connect-alsid-active-directory.md)
-- [Apache HTTP 서버](connect-apache-http-server.md)
-- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Agari 피싱 방어 및 브랜드 보호](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview)
+- [Akamai Security Events](./data-connectors-reference.md#akamai-security-events-preview)
+- [Active Directory용 Alsid](./data-connectors-reference.md#alsid-for-active-directory)
+- [Apache HTTP 서버](./data-connectors-reference.md#apache-http-server)
+- [Aruba ClearPass](./data-connectors-reference.md#aruba-clearpass-preview)
 - [Blackberry CylancePROTECT](connect-data-sources.md)
-- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Broadcom Symantec DLP](./data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
-- [Cisco Meraki](connect-cisco-meraki.md)
-- [Cisco Umbrella](connect-cisco-umbrella.md)
-- [Cisco UCS(Unified Computing System)](connect-cisco-ucs.md)
+- [Cisco Meraki](./data-connectors-reference.md#cisco-meraki-preview)
+- [Cisco Umbrella](./data-connectors-reference.md#cisco-umbrella-preview)
+- [Cisco UCS(Unified Computing System)](./data-connectors-reference.md#cisco-unified-computing-system-ucs-preview)
 - [ESET Enterprise Inspector](connect-data-sources.md)
 - [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace(이전의 G Suite)](connect-google-workspace.md)
-- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
-- [Juniper SRX](connect-juniper-srx.md)
+- [Google Workspace(이전의 G Suite)](./data-connectors-reference.md#google-workspace-g-suite-preview)
+- [Imperva WAF Gateway](./data-connectors-reference.md#imperva-waf-gateway-preview)
+- [Juniper SRX](./data-connectors-reference.md#juniper-srx-preview)
 - [Netskope](connect-data-sources.md)
-- [NXLog DNS Logs](connect-nxlog-dns.md)
-- [NXLog Linux Audit](connect-nxlog-linuxaudit.md)
+- [NXLog DNS Logs](./data-connectors-reference.md#nxlog-dns-logs-preview)
+- [NXLog Linux Audit](./data-connectors-reference.md#nxlog-linuxaudit-preview)
 - [Onapsis 플랫폼](connect-data-sources.md)
-- [Proofpoint On Demand Email Security(POD)](connect-proofpoint-pod.md)
+- [Proofpoint On Demand Email Security(POD)](./data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)
 - [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
-- [Salesforce 서비스 클라우드](connect-salesforce-service-cloud.md)
+- [Salesforce 서비스 클라우드](./data-connectors-reference.md#salesforce-service-cloud-preview)
 - [SonicWall 방화벽](connect-data-sources.md)
-- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
-- [Squid Proxy](connect-squid-proxy.md)
+- [Sophos Cloud Optix](./data-connectors-reference.md#sophos-cloud-optix-preview)
+- [Squid Proxy](./data-connectors-reference.md#squid-proxy-preview)
 - [Symantec Endpoint Protection](connect-data-sources.md)
-- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Thycotic Secret Server](./data-connectors-reference.md#thycotic-secret-server-preview)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMware ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](./data-connectors-reference.md#vmware-esxi-preview)
 
 ### <a name="ueba-insights-in-the-entity-page-public-preview"></a>엔터티 페이지의 UEBA 인사이트(공개 미리 보기)
 
@@ -155,13 +264,13 @@ Azure Sentinel에 이제 Azure SQL 데이터베이스 커넥터가 제공됩니�
 
 Azure SQL은 사용자 개입 없이 업그레이드, 패치, 백업 및 모니터링과 같은 데이터베이스 관리 기능 대부분을 처리하는 완전 관리형 Platform as a Service(PaaS) 데이터베이스 엔진입니다.
 
-자세한 내용은 [Azure SQL 데이터베이스 진단 및 감사 로그 연결](connect-azure-sql-logs.md)을 참조하세요.
+자세한 내용은 [Azure SQL 데이터베이스 진단 및 감사 로그 연결](./data-connectors-reference.md#azure-sql-databases)을 참조하세요.
 
 ### <a name="dynamics-365-connector-public-preview"></a>Dynamics 365 커넥터(공개 미리 보기)
 
 Azure Sentinel에 이제 Microsoft Dynamics 365용 커넥터가 제공됩니다. 이를 통해 Dynamics 365 애플리케이션의 사용자, 관리자 및 지원 활동 로그를 Azure Sentinel에 수집할 수 있습니다. 이러한 데이터를 사용하여, 발생하는 데이터 처리 작업 전체를 감사하고 보안 위반 가능성을 분석할 수 있습니다.
 
-자세한 내용은 [Dynamics 365 활동 로그를 Azure Sentinel에 연결](connect-dynamics-365.md)을 참조하세요.
+자세한 내용은 [Dynamics 365 활동 로그를 Azure Sentinel에 연결](./data-connectors-reference.md#dynamics-365)을 참조하세요.
 
 ### <a name="improved-incident-comments"></a>인시던트 주석 기능 향상
 

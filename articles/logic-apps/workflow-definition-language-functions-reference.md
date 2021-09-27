@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/16/2021
-ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: f1b4efafd7868d4c42528ce7de5eae56051dcb83
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866583"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736658"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1188,15 +1188,6 @@ coalesce(null, null, null)
 
 둘 이상의 문자열을 결합하고 결합된 문자열을 반환합니다.
 
-> [!NOTE]
-> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 및 디코딩을 수행하므로 인코딩 또는 디코딩이 필요한 데이터와 함께 `concat()` 함수를 사용할 때 이러한 변환을 수동으로 수행할 필요가 없습니다.
-> 
-> * `concat('data:;base64,',<value>)`
-> * `concat('data:,',encodeUriComponent(<value>))`
-> 
-> 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 
-> 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 참조하세요.
-
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1208,8 +1199,16 @@ concat('<text1>', '<text2>', ...)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | String | 결합된 입력 문자열에서 만든 문자열 |
+| <*text1text2...* > | String | 결합 된 입력 문자열에서 만든 문자열입니다. <p><p>**참고**: 결과의 길이는 104857600 자를 초과할 수 없습니다. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 및 디코딩을 수행하므로 인코딩 또는 디코딩이 필요한 데이터와 함께 `concat()` 함수를 사용할 때 이러한 변환을 수동으로 수행할 필요가 없습니다.
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 검토 하세요.
 
 *예제*
 
@@ -1220,9 +1219,6 @@ concat('Hello', 'World')
 ```
 
 그리고 다음 결과를 반환합니다. `"HelloWorld"`
-  
-> [!NOTE]
-> 문자열의 길이는 104,857,600자를 넘지 않아야 합니다.
 
 <a name="contains"></a>
 
@@ -1912,8 +1908,7 @@ first(createArray(0, 1, 2))
 
 ### <a name="float"></a>float
 
-부동 소수점 수에 대한 문자열 버전을 실제 부동 소수점 수로 변환합니다.
-이 함수는 논리 앱이나 흐름 같은 앱에 사용자 지정 매개 변수를 전달할 때만 사용할 수 있습니다.
+부동 소수점 수에 대한 문자열 버전을 실제 부동 소수점 수로 변환합니다. 이 함수는 논리 앱이나 흐름 같은 앱에 사용자 지정 매개 변수를 전달할 때만 사용할 수 있습니다.
 
 ```
 float('<value>')
@@ -1921,12 +1916,12 @@ float('<value>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | String | 변환할 유효한 부동 소수점 수를 가진 문자열 |
+| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 있는 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | 지정한 문자열에 대한 부동 소수점 수 |
+| <*float-value*> | Float | 지정된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
 ||||
 
 *예제*
@@ -2352,7 +2347,7 @@ indexOf('hello world', 'world')
 
 ### <a name="int"></a>int
 
-문자열에 대한 정수 버전을 반환합니다.
+정수의 문자열 버전을 실제 정수로 변환합니다.
 
 ```
 int('<value>')
@@ -2360,12 +2355,12 @@ int('<value>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | String | 변환할 문자열 |
+| <*value*> | 예 | String | 변환할 정수의 문자열 버전입니다. 최소값과 최대값은 정수 데이터 형식에 대한 제한과 동일합니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | 정수 | 지정한 문자열에 대한 정수 버전 |
+| <*integer-result*> | 정수 | 지정된 문자열의 정수 버전입니다. 최소값과 최대값은 정수 데이터 형식에 대한 제한과 동일합니다. |
 ||||
 
 *예제*
@@ -2688,7 +2683,7 @@ join([<collection>], '<delimiter>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | 지정한 배열의 모든 항목에서 만든 결과 문자열 |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | 지정된 배열의 모든 항목에서 생성된 결과 문자열입니다. <p><p>**참고:** 결과의 길이는 104,857,600자를 초과할 수 없습니다. |
 ||||
 
 *예제*
@@ -2700,9 +2695,6 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 그리고 다음 결과를 반환합니다. `"a.b.c"`
-  
-> [!NOTE]
-> 문자열의 길이는 104,857,600자를 넘지 않아야 합니다.
 
 <a name="last"></a>
 
@@ -3307,7 +3299,7 @@ range(<startIndex>, <count>)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | 예 | 정수 | 배열을 첫 번째 항목으로 시작하는 정수 값 |
-| <*count*> | 예 | 정수 | 배열에 있는 정수의 숫자 |
+| <*count*> | 예 | 정수 | 배열에 있는 정수의 수입니다. `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. <p><p>**참고**: 및 값의 합계 `startIndex` 는 `count` 2147483647을 초과 하면 안 됩니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3324,9 +3316,6 @@ range(1, 4)
 ```
 
 그리고 다음 결과를 반환합니다. `[1, 2, 3, 4]`
-  
-> [!NOTE]
-> `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. `startIndex` 및 `count` 값의 합계는 2,147,483,647을 초과할 수 없습니다.
 
 <a name="replace"></a>
 

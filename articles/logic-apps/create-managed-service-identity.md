@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 06/25/2021
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 76edcac6b77b70928cb2d6cd378b421b68b3d3ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 884decde4df80f6e8837245faad0136fe715371f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535875"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775204"
 ---
 # <a name="authenticate-access-to-azure-resources-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -30,16 +30,12 @@ ms.locfileid: "122535875"
 
 Azure Logic Apps는 [*시스템 할당* 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)와 [*사용자 할당* 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 모두 지원합니다. 이러한 ID는 논리 앱 워크플로가 실행되는 위치에 따라 논리 앱 그룹에서 공유할 수 있습니다.
 
-* 다중 테넌트(소비 플랜) 기반 논리 앱은 시스템 할당 ID와 단일 사용자 할당 ID를 모두 지원합니다. 그러나 논리 앱 수준 또는 연결 수준에서는 이러한 할당 ID 유형을 동시에 사용하도록 설정할 수 없으므로 한 가지 관리 ID 유형만 사용할 수 있습니다.
-
-  단일 테넌트(표준 플랜) 기반 논리 앱은 현재 시스템 할당 ID만 지원합니다.
-
-  다중 테넌트(소비 플랜) 및 단일 테넌트(표준 플랜)에 대한 자세한 내용은 [단일 테넌트 대 다중 테넌트 및 통합 서비스 환경](single-tenant-overview-compare.md) 설명서를 참조하세요.
+* **논리 앱 (소비)** 리소스 유형은 시스템 할당 id 또는 *단일* 사용자 할당 id 중 하나를 사용 하도록 지원 합니다. 그러나 논리 앱 수준 또는 연결 수준에서는 이러한 할당 ID 유형을 동시에 사용하도록 설정할 수 없으므로 한 가지 관리 ID 유형만 사용할 수 있습니다. 현재 **논리 앱 (표준)** 리소스 유형은 자동으로 사용 하도록 설정 되 고 사용자 할당 id가 아닌 시스템 할당 id만 지원 합니다. 이러한 다른 논리 앱 리소스 유형에 대 한 자세한 내용은 [단일 테 넌 트 및 다중 테 넌 트 및 통합 서비스 환경](single-tenant-overview-compare.md)설명서를 검토 하세요.
 
 <a name="built-in-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
 
-* Azure AD Open 인증을 지원하는 특정 기본 제공 및 관리형 커넥터 작업만 인증을 위해 관리 ID를 사용할 수 있습니다. 다음 표에서는 *샘플 선택* 만 제공합니다. 전체 목록을 보려면 [인증을 지원하는 트리거 및 동작에 대한 인증 유형](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조하세요.
+* Azure ad OAuth (azure AD Open Authentication)를 지 원하는 특정 기본 제공 및 관리 되는 커넥터 작업만 인증을 위해 관리 id를 사용할 수 있습니다. 다음 표에서는 *샘플 선택* 만 제공합니다. 전체 목록을 보려면 [인증을 지원하는 트리거 및 동작에 대한 인증 유형](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조하세요.
 
   | 작업 유형 | 지원되는 작업 |
   |----------------|----------------------|
@@ -56,6 +52,12 @@ Azure Logic Apps는 [*시스템 할당* 관리 ID](../active-directory/managed-i
 * 액세스하려는 대상 Azure 리소스. 이 리소스에서는 논리 앱에서 대상 리소스에 대한 액세스를 인증하는 데 도움이 되는 관리 ID에 대한 역할을 추가합니다.
 
 * [관리 ID를 지원하는 트리거 또는 작업](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 사용하려는 논리 앱입니다.
+
+  | 논리 앱 리소스 유형 | 관리 id 지원 |
+  |-------------------------|--------------------------|
+  | **논리 앱(사용)** | 시스템 할당 또는 사용자 할당 |
+  | **논리 앱(표준)** | 시스템 할당 id (자동으로 사용 하도록 설정 됨) |
+  |||
 
 ## <a name="enable-managed-identity"></a>관리 ID 사용
 

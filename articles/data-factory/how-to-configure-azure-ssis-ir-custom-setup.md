@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/30/2021
-ms.openlocfilehash: ec309debca7d3852411318ed56a914d47494fe2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 626afa6926dea10a633a5c7d5438ec8b8c578b6a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536077"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798658"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -74,40 +74,40 @@ ADF UI에서 표준 사용자 지정 설정으로 Azure-SSIS IR를 프로비저�
 
    a. **로컬 및 연결됨** 아래에서 마우스 오른쪽 단추로 **스토리지 계정** 을 클릭한 다음, **Azure Storage에 연결** 을 선택합니다.
 
-      ![Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Azure Storage에 연결":::
 
    b. **스토리지 계정 또는 서비스** 를 선택하고 **계정 이름 및 키** 를 선택한 후 **다음** 을 선택합니다.
 
    다. Azure Storage 계정 이름과 키를 입력하고 **다음** 을 선택하고 **연결** 을 선택합니다.
 
-      ![스토리지 계정 이름 및 키 제공](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png" alt-text="스토리지 계정 이름 및 키 제공":::
 
    d. 연결된 Azure Storage 계정 아래에서 마우스 오른쪽 단추로 **Blob 컨테이너** 를 클릭하고, **Blob 컨테이너 만들기** 를 선택하고, 새 Blob 컨테이너의 이름을 지정합니다.
 
-      ![Blob 컨테이너 만들기](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png" alt-text="Blob 컨테이너 만들기":::
 
    e. 새 Blob 컨테이너를 선택하고, 사용자 지정 설치 스크립트 및 관련 파일을 업로드합니다. *main.cmd* 는 폴더가 아니라 Blob 컨테이너의 최상위 수준에 업로드해야 합니다. Blob 컨테이너에는 필요한 사용자 지정 설치 파일만 포함되어 있으므로 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다. 사용자 지정 설치의 최대 기간은 현재 45분 이내로 설정되어 있습니다. 여기에는 Blob 컨테이너에서 모든 파일을 다운로드하여 Azure-SSIS IR에 설치하는 시간이 포함됩니다. 설치에 더 많은 시간이 필요한 경우 지원 티켓을 제출합니다.
 
-      ![Blob 컨테이너에 파일 업로드](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png" alt-text="Blob 컨테이너에 파일 업로드":::
 
    f. Blob 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다.
 
-      ![Blob 컨테이너에 대한 공유 액세스 서명 가져오기](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png" alt-text="Blob 컨테이너에 대한 공유 액세스 서명 가져오기":::
 
    g. 충분히 긴 만료 시간 및 읽기/쓰기/목록 권한을 사용하여 Blob 컨테이너에 대한 SAS URI를 만듭니다. 사용자 지정 설정 스크립트 및 관련 파일을 다운로드하여 실행하기 위해 SAS URI가 필요합니다. 이는 Azure-SSIS IR 노드가 이미지로 다시 설치되거나 다시 시작될 때마다 발생합니다. 또한 설치 실행 로그를 업로드하려면 쓰기 권한이 있어야 합니다.
 
       > [!IMPORTANT]
       > 특히 이 기간 동안 정기적으로 Azure-SSIS IR을 중지하고 시작하는 경우 SAS URI가 만료되지 않고 만들기에서 삭제까지의 Azure-SSIS IR의 전체 수명 주기 동안 사용자 지정 설치 리소스가 항상 사용할 수 있는지 확인합니다.
 
-      ![Blob 컨테이너에 대한 공유 액세스 서명 생성](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png" alt-text="Blob 컨테이너에 대한 공유 액세스 서명 생성":::
 
    h. Blob 컨테이너의 SAS URI를 복사하여 저장합니다.
 
-      ![공유 액세스 서명 복사 및 저장](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png" alt-text="공유 액세스 서명 복사 및 저장":::
 
 1. **통합 런타임 설정** 창의 **고급 설정** 페이지에서 **추가 시스템 구성/구성 요소 설치를 사용하여 Azure-SSIS Integration Runtime 사용자 지정** 확인란을 선택합니다. 그런 다음 **사용자 지정 설치 컨테이너 SAS URI** 텍스트 상자에서 Blob 컨테이너의 SAS URI를 입력합니다.
 
-   ![사용자 지정 설치가 포함된 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png" alt-text="사용자 지정 설치가 포함된 고급 설정":::
 
 표준 사용자 지정 설치가 완료되고 Azure-SSIS IR이 시작되면 Blob 컨테이너의 *main.cmd.log* 폴더에서 모든 사용자 지정 설치 로그를 확인할 수 있습니다. 여기에는 *main.cmd* 및 기타 실행 로그의 표준 출력이 포함됩니다.
 
@@ -269,7 +269,7 @@ Azure PowerShell을 사용하여 사용자 지정 설정과 함께 Azure-SSIS IR
 
    a. **로컬 및 연결됨** 아래에서 마우스 오른쪽 단추로 **스토리지 계정** 을 클릭한 다음, **Azure Storage에 연결** 을 선택합니다.
 
-      ![Azure Storage에 연결](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Azure Storage에 연결":::
 
    b. **Blob 컨테이너** 를 선택하고 **SAS(공유 액세스 서명 URL)** 를 선택한 후 **다음** 을 선택합니다.
 
@@ -283,7 +283,7 @@ Azure PowerShell을 사용하여 사용자 지정 설정과 함께 Azure-SSIS IR
 
       * *UserScenarios* 폴더 - 실제 사용자 시나리오의 몇 가지 사용자 지정 설치 샘플이 포함되어 있습니다. Azure-SSIS IR에 여러 샘플을 설치하려는 경우, 사용자 지정 설치 스크립트(*main.cmd*) 파일을 단일 파일로 결합하고 모든 관련 파일을 사용하여 Blob 컨테이너에 업로드할 수 있습니다.
 
-        ![공개 미리 보기 Blob 컨테이너의 콘텐츠](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png" alt-text="공개 미리 보기 Blob 컨테이너의 콘텐츠":::
 
    e. *UserScenarios* 폴더를 두 번 클릭하여 다음 항목을 찾습니다.
 
@@ -343,7 +343,7 @@ Azure PowerShell을 사용하여 사용자 지정 설정과 함께 Azure-SSIS IR
       
         먼저 [최신 Zulu OpenJDK(예: *zulu8.33.0.1-jdk8.0.192-win_x64.zip*)를 다운로드](https://www.azul.com/downloads/zulu/zulu-windows/)한 다음, *main.cmd* 및 *install_openjdk.ps1* 과 함께 모두 Blob 컨테이너에 업로드합니다.
 
-        ![사용자 시나리오 폴더의 폴더](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png" alt-text="사용자 시나리오 폴더의 폴더":::
 
    f. 표준 사용자 지정 설치 샘플을 사용해 보려면, 선택한 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/02/2021
+ms.date: 09/24/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: 567e09dfcc47926b8b25fa8c634a11ee339ab2ea
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0a55820202d5bfe6d0948afdd00ac99c6d9d666e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475857"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129056084"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -54,7 +54,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | [텍스트 분석][ta-containers-language] |  **텍스트 언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | 일반 공급 |
 | [텍스트 분석][ta-containers-sentiment] | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석은 각 문서 및 문서 속 문장에 대한 감정 레이블(예: *긍정* 또는 *부정*)을 반환합니다. |  일반 공급 |
 | [텍스트 분석][ta-containers-health] |  **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출하고 레이블을 지정합니다. | 미리 보기 |
-| [Translator][tr-containers] | **Translator** | 텍스트를 여러 언어 및 방언으로 번역합니다. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. | 
+| [Translator][tr-containers] | **Translator** | 텍스트를 여러 언어 및 방언으로 번역합니다. | 게이트를 미리 봅니다. [액세스를 요청합니다](https://aka.ms/csgate-translator). | 
 
 ### <a name="speech-containers"></a>음성 컨테이너
 

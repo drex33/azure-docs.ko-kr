@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2020
-ms.openlocfilehash: abe7270cd825fa53d139bd87796c3300a8fe9a65
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: dff54916007046d3d0d8d6741ca6fce7409c5d99
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642839"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787985"
 ---
 # <a name="datasets-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -38,7 +38,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 
 다음 다이어그램에서는 파이프라인, 활동, 데이터 세트 및 연결된 서비스 간의 관계를 보여 줍니다.
 
-![파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="파이프라인, 활동, 데이터 세트, 연결된 서비스 간 관계":::
 
 
 ## <a name="dataset-json"></a>데이터 세트 JSON

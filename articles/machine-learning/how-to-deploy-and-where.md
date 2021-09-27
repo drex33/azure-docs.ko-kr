@@ -5,19 +5,17 @@ description: 기계 학습 모델을 배포하는 방법과 위치에 대해 알
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 0802c515b99bd8e307c610ec4bc714083b86ca3f
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: b5514df10228a9e5638712976a0602fc33c8a990
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597825"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604363"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 기계 학습 모델 배포 
 
@@ -183,7 +181,7 @@ az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-
 프로젝트 환경을 만들 때 [Azure Machine Learning 추론 큐레이트 환경](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference)을 기본 Docker 이미지로 사용할 수 있습니다. 위에서 필요한 종속성을 설치하고 결과 Docker 이미지를 작업 영역과 연결된 리포지토리에 저장합니다.
 
 > [!NOTE]
-> Azure 기계 학습 [추론 원본 디렉터리](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) 업로드는 **.gitignore** 또는 **.amlignore** 를 준수하지 않습니다.
+> Azure 기계 학습 [추론 원본 디렉터리](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) 업로드는 **.gitignore** 또는 **.amlignore** 를 준수하지 않습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

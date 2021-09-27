@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace의 관리되는 서비스 제안
 description: Azure Marketplace에서 관리 서비스 제품을 통해 고객에게 Azure Lighthouse 관리 서비스를 제공합니다.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 10b32445fcf6d014219dd8559c9c1ac9b2905044
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: 5d96a23f1dbdba74eefbf4f483a441c25e2dd47b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114391679"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732925"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Azure Marketplace의 관리되는 서비스 제안
 
@@ -18,7 +18,7 @@ ms.locfileid: "114391679"
 
 관리형 서비스 제품으로 Azure Lighthouse에 고객을 온보딩하는 프로세스를 간소화할 수 있습니다. 고객이 Azure Marketplace에서 제품을 구매하는 경우 등록해야 하는 구독 및/또는 리소스 그룹을 지정할 수 있습니다.
 
-그런 다음, 조직의 사용자가 제품을 만들 때 정의한 액세스 권한에 따라 관리 테넌트 안에서 [Azure 위임된 리소스 관리](architecture.md)를 통해 해당 리소스에 대해 작업할 수 있습니다. 이것은 고객 리소스에 액세스할 수 있는Azure Active Directory(Azure AD) 사용자, 그룹 및 서비스 주체를 지정하는 매니페스트와 액세스 수준을 정의하는 [역할](tenants-users-roles.md)을 통해 수행됩니다.
+각 제품에 대해 조직의 사용자가 고객 테 넌 트의 리소스에 대해 작업 해야 하는 액세스 권한을 정의 합니다. 이것은 고객 리소스에 액세스할 수 있는Azure Active Directory(Azure AD) 사용자, 그룹 및 서비스 주체를 지정하는 매니페스트와 액세스 수준을 정의하는 [역할](tenants-users-roles.md)을 통해 수행됩니다.
 
 > [!NOTE]
 > 관리형 서비스 제품은 Azure Government 및 기타 국가 클라우드에서 제공되지 않을 수 있습니다.

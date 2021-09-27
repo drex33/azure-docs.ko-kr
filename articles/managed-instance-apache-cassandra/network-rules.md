@@ -6,12 +6,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 05/21/2021
 ms.author: chrande
-ms.openlocfilehash: 7b9e7463811d4bd5cd092828759487557bab50b0
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: fc96e4a09a24348ab8344733c8059925af209b39
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567577"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767150"
 ---
 # <a name="required-outbound-network-rules"></a>필수 아웃바운드 네트워크 규칙
 
@@ -35,8 +35,7 @@ Azure Firewall을 사용하여 아웃바운드 액세스를 제한하는 경우 
 | AzureActiveDirectory| HTTPS | 443 | Azure Active Directory 인증에 필요합니다.|
 | GuestandHybridManagement | HTTPS | 443 |  Cassandra 노드에 대한 정보를 수집하고 관리하는 데 필요(예: 재부팅) |
 | ApiManagement  | HTTPS | 443 | Cassandra 노드에 대한 정보를 수집하고 관리하는 데 필요(예: 재부팅) |
-| `Storage.<Region>`  | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다. **데이터 센터를 배포한 각 지역에 대한 항목이 필요합니다.** |
-
+| Storage.\<Region\>  | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다. **데이터 센터를 배포한 각 지역에 대한 항목이 필요합니다.** |
 
 ## <a name="azure-global-required-network-rules"></a>Azure 글로벌 필수 네트워크 규칙
 
@@ -44,17 +43,28 @@ Azure Firewall을 사용하지 않는 경우 필요한 네트워크 규칙 및 I
 
 | 대상 엔드포인트                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-|snovap`<region>`.blob.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다.|
-|*.store.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다.|
-|*.blob.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 노드와 백업을 저장하기 위해 노드와 Azure Storage 간의 보안 통신에 필요합니다. *백업 기능이 수정 중이며 스토리지 이름은 GA의 패턴을 따름*|
-|vmc-p-`<region>`.vault.azure.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure KeyVault | HTTPS | 443 | 노드와 Azure Key Vault 간의 보안 통신에 필요합니다. 인증서 및 키는 클러스터 내부의 통신을 보호하는 데 사용됩니다.|
+|snovap\<region\>.blob.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다.|
+|\*.store.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 제어 평면 통신 및 구성을 위한 노드와 Azure Storage 간의 보안 통신에 필요합니다.|
+|\*.blob.core.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | 노드와 백업을 저장하기 위해 노드와 Azure Storage 간의 보안 통신에 필요합니다. *백업 기능이 수정 중이며 스토리지 이름은 GA의 패턴을 따름*|
+|vmc-p-\<region\>.vault.azure.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure KeyVault | HTTPS | 443 | 노드와 Azure Key Vault 간의 보안 통신에 필요합니다. 인증서 및 키는 클러스터 내부의 통신을 보호하는 데 사용됩니다.|
 |management.azure.com:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Cassandra 노드에 대한 정보를 수집하고 관리하는 데 필요(예: 재부팅)|
-|*.servicebus.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure EventHub | HTTPS | 443 | Azure에 로그를 전달하는 데 필요|
+|\*.servicebus.windows.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure EventHub | HTTPS | 443 | Azure에 로그를 전달하는 데 필요|
 |jarvis-west.dc.ad.msft.net:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Monitor | HTTPS | 443 | 메트릭 Azure를 전달하는 데 필요 |
 |login.microsoftonline.com:443</br> 또는</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure AD | HTTPS | 443 | Azure Active Directory 인증에 필요합니다.|
 | packages.microsoft.com | HTTPS | 443 | Azure 보안 스캐너 정의 및 서명 업데이트에 필요 |
+| azure.microsoft.com | HTTPS | 443 | 가상 머신 확장 집합에 대한 정보를 얻는 데 필요 |
+| \<region\>-dsms.dsms.core.windows.net | HTTPS | 443 | 로깅을 위한 인증서 |
+| gcs.prod.monitoring.core.windows.net | HTTPS | 443 | 로깅에 필요한 로깅 엔드포인트 |
+| global.prod.microsoftmetrics.com | HTTPS | 443 | 메트릭에 필요 |
+| shavsalinuxscanpkg.blob.core.windows.net | HTTPS | 443 | 보안 스캐너를 다운로드/업데이트하는 데 필요 |
+| crl.microsoft.com | HTTPS | 443 | 공용 Microsoft 인증서에 액세스하는 데 필요 |
+| global-dsms.dsms.core.windows.net | HTTPS | 443 | 공용 Microsoft 인증서에 액세스하는 데 필요 |
 
-## <a name="managed-instance-for-apache-cassandra-internal-port-usage"></a>Apache Cassandra 내부 포트 사용에 대한 Managed Instance
+### <a name="dns-access"></a>DNS 액세스
+
+시스템은 DNS 이름을 사용하여 부하 분산 장치를 사용할 수 있도록 이 문서에 설명된 Azure 서비스에 연결합니다. 따라서 가상 네트워크는 해당 주소를 확인할 수 있는 DNS 서버를 실행해야 합니다. 가상 네트워크의 가상 머신은 DHCP 프로토콜을 통해 전달되는 이름 서버를 사용합니다. 대부분의 경우 Azure는 가상 네트워크에 대한 DNS 서버를 자동으로 설정합니다. 시나리오에서 발생하지 않는 경우 이 문서에 설명된 DNS 이름을 시작하는 것이 좋습니다.
+
+## <a name="internal-port-usage"></a>내부 포트 사용
 
 다음 포트는 VNET(또는 피어링된 vnets./express 경로) 내에서만 액세스할 수 있습니다. Apache Cassandra 인스턴스용 Managed Instance에는 공용 IP가 없으므로 인터넷에서 액세스할 수 없도록 해야 합니다.
 
@@ -65,8 +75,6 @@ Azure Firewall을 사용하지 않는 경우 필요한 네트워크 규칙 및 I
 | 7001 | 가십 - Cassandra 노드가 서로 대화하는 데 사용 |
 | 9042 | Cassandra - 클라이언트에서 Cassandra에 연결하는 데 사용 |
 | 7199 | 내부 |
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

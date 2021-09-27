@@ -3,12 +3,12 @@ title: Azure Portal을 사용하여 리소스 배포
 description: Azure Portal 및 Azure Resource Manage를 사용하여 구독의 리소스 그룹에 리소스를 배포합니다.
 ms.topic: conceptual
 ms.date: 05/05/2021
-ms.openlocfilehash: 718d8be4e51bf41467bea398440b24f98ac1f6e9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 03b1cda06bf6865dda1b8d40096f6b76588d8184
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957906"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762192"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>ARM 템플릿 및 Azure Portal을 사용하여 리소스 배포
 
@@ -126,6 +126,5 @@ Azure Portal 사용하여 Azure 리소스를 배포하려면 일반적으로 다
 
 ## <a name="next-steps"></a>다음 단계
 
-- 감사 로그를 보려면 [Resource Manager로 작업 감사](../management/view-activity-logs.md)를 참조하세요.
 - 배포 오류를 해결하려면 [배포 작업 보기](deployment-history.md)를 참조하세요.
 - 배포 또는 리소스 그룹에서 템플릿을 내보내려면 [ARM 템플릿 내보내기](export-template-portal.md)를 참조하세요.

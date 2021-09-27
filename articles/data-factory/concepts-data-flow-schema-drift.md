@@ -1,7 +1,7 @@
 ---
 title: 매핑 데이터 흐름의 스키마 드리프트
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 스키마 드리프트를 사용하여 Azure Data Factory에서 복원력 있는 데이터 흐름 빌드
+description: 스키마 드리프트를 사용 하 여 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복원 력 데이터 흐름 빌드
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/15/2020
-ms.openlocfilehash: 4af9a815b2107126cdda1f15d37a9718e50fa3fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: f82d28ba819e03e1e4c01b6fda11eeab7ede6e0e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642316"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815387"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>매핑 데이터 흐름의 스키마 드리프트
 
@@ -33,17 +33,17 @@ Azure Data Factory는 기본적으로 실행 간에 변경되는 유연한 스�
 
 흐름 전체의 스키마 드리프트를 허용하도록 데이터 흐름의 아키텍처를 결정해야 합니다. 이렇게 하면 원본의 스키마 변경으로부터 보호할 수 있습니다. 그러나 데이터 흐름 전체에서 열과 형식의 초기 바인딩이 손실됩니다. Azure Data Factory는 스키마 드리프트 흐름을 지연 바인딩 흐름으로 처리하므로 변환을 빌드할 때 흐름 전체의 스키마 보기에 드리프트된 열 이름이 제공되지 않습니다.
 
-이 비디오에서는 데이터 흐름의 스키마 드리프트 기능을 사용하여 ADF에서 쉽게 빌드할 수 있는 일부 복잡한 솔루션을 소개합니다. 이 예제에서는 유연한 데이터베이스 스키마를 기반으로 재사용 가능한 패턴을 빌드합니다.
+이 비디오에서는 데이터 흐름의 **스키마 드리프트** 기능을 사용 하 여 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 쉽게 작성할 수 있는 복잡 한 솔루션 중 일부를 소개 합니다. 이 예제에서는 유연한 데이터베이스 스키마를 기반으로 재사용 가능한 패턴을 빌드합니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>원본의 스키마 드리프트
 
-원본 정의에서 데이터 흐름으로 들어오는 열은 원본 프로젝션에 없는 경우 “드리프트됨”으로 정의됩니다. 원본 변환의 프로젝션 탭에서 원본 프로젝션을 볼 수 있습니다. 원본의 데이터 세트를 선택하면 ADF는 자동으로 데이터 세트에서 스키마를 가져오고 해당 데이터 세트 스키마 정의에서 프로젝션을 만듭니다.
+원본 정의에서 데이터 흐름으로 들어오는 열은 원본 프로젝션에 없는 경우 “드리프트됨”으로 정의됩니다. 원본 변환의 프로젝션 탭에서 원본 프로젝션을 볼 수 있습니다. 원본에 대 한 데이터 집합을 선택 하는 경우 서비스는 데이터 집합에서 스키마를 자동으로 가져오고 해당 데이터 집합 스키마 정의에서 프로젝션을 만듭니다.
 
 원본 변환에서 스키마 드리프트는 데이터 세트 스키마에 정의되지 않은 열을 읽는 것으로 정의됩니다. 스키마 드리프트를 사용하려면 원본 변환에서 **스키마 드리프트 허용** 을 선택합니다.
 
-![스키마 드리프트 원본](media/data-flow/schemadrift001.png "스키마 드리프트 원본")
+:::image type="content" source="media/data-flow/schemadrift001.png" alt-text="스키마 드리프트 원본":::
 
 스키마 드리프트가 사용되면 실행 중에 원본에서 들어오는 모든 필드를 읽고 전체 흐름을 통해 싱크에 전달합니다. 기본적으로 ‘드리프트된 열’이라고 하는 새로 검색된 모든 열은 문자열 데이터 형식으로 도착합니다. 데이터 흐름이 드리프트된 열의 데이터 형식을 자동으로 유추하도록 하려면 원본 설정에서 **드리프트된 열 형식 유추** 를 선택합니다.
 
@@ -51,11 +51,11 @@ Azure Data Factory는 기본적으로 실행 간에 변경되는 유연한 스�
 
 싱크 변환에서 스키마 드리프트는 싱크 데이터 스키마에 정의된 항목 위에 추가 열을 쓰는 경우입니다. 스키마 드리프트를 사용하려면 싱크 변환에서 **스키마 드리프트 허용** 을 선택합니다.
 
-![스키마 드리프트 싱크](media/data-flow/schemadrift002.png "스키마 드리프트 싱크")
+:::image type="content" source="media/data-flow/schemadrift002.png" alt-text="스키마 드리프트 싱크":::
 
 스키마 드리프트가 사용되는 경우 매핑 탭에서 **자동 매핑** 슬라이더가 켜져 있는지 확인합니다. 이 슬라이더를 켜면 들어오는 모든 열이 대상에 기록됩니다. 그러지 않으면 규칙 기반 매핑을 사용하여 드리프트된 열을 써야 합니다.
 
-![싱크 자동 매핑](media/data-flow/automap.png "싱크 자동 매핑")
+:::image type="content" source="media/data-flow/automap.png" alt-text="싱크 자동 매핑":::
 
 ## <a name="transforming-drifted-columns"></a>드리프트된 열 변환
 
@@ -71,11 +71,11 @@ Azure Data Factory는 기본적으로 실행 간에 변경되는 유연한 스�
 
 드리프트된 열을 명시적으로 참조하기 위해 데이터 미리 보기 빠른 작업을 통해 해당 열의 매핑을 빠르게 생성할 수 있습니다. [디버그 모드](concepts-data-flow-debug-mode.md)가 켜지면 데이터 미리 보기 탭으로 이동하고 **새로 고침** 을 클릭하여 데이터 미리 보기를 가져옵니다. 데이터 팩터리가 드리프트된 열이 있음을 검색하면 **드리프트된 열 매핑** 을 클릭하고 스키마 보기 다운스트림의 모든 드리프트된 열을 참조할 수 있는 파생 열을 생성할 수 있습니다.
 
-![트리프트된 열 매핑이 호출된 데이터 미리 보기 탭을 보여 주는 스크린샷](media/data-flow/mapdrifted1.png "드리프트된 열 매핑")
+:::image type="content" source="media/data-flow/mapdrifted1.png" alt-text="트리프트된 열 매핑이 호출된 데이터 미리 보기 탭을 보여 주는 스크린샷":::
 
 생성된 파생 열 변환에서 각 드리프트된 열은 검색된 이름과 데이터 형식에 매핑됩니다. 위 데이터 미리 보기에서 ‘movieId’ 열은 정수로 검색됩니다. **드리프트된 열 매핑** 을 클릭한 후 movieId가 파생 열에 `toInteger(byName('movieId'))`로 정의되고 다운스트림 변환의 스키마 보기에 포함됩니다.
 
-![파생 열의 설정 탭을 보여 주는 스크린샷](media/data-flow/mapdrifted2.png "드리프트된 열 매핑")
+:::image type="content" source="media/data-flow/mapdrifted2.png" alt-text="파생 열의 설정 탭을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 흐름 식 언어](data-flow-expression-functions.md)에서 “byName” 및 “byPosition”을 포함하여 열 패턴과 스키마 드리프트에 대한 추가 기능을 찾습니다.

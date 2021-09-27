@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: a5032ce26fcce2dbee2a95385292c5b455904586
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/07/2021
+ms.openlocfilehash: 38d6f8d8b96526c8ba190559a639985bedf96cff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567317"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798563"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -36,7 +36,7 @@ ms.locfileid: "122567317"
 
 3. 파이프라인을 1시간마다 실행하는 일정 트리거
 
-   ![다이어그램에서 일정 트리거를 사용하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 A W S S3 연결된 서비스로 흐르는 입력 데이터 세트로 전달됩니다. 복사 작업은 또한 Azure Storage 연결된 서비스로 흐르는 출력 데이터 세트로 흐릅니다.](media/pricing-concepts/scenario1.png)
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트로 흐릅니다. 이 데이터 세트는 A W S S3 연결된 서비스로 흐르고 복사 작업은 출력 데이터 세트로도 흐릅니다. 이 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -67,7 +67,7 @@ ms.locfileid: "122567317"
 2. 데이터 변환에 대한 하나의 Azure Databricks 작업
 3. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-![다이어그램에서 일정 트리거를 사용하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트, 출력 데이터 세트, 그리고 Azure Databricks에서 실행되는 DataBricks 작업으로 흐릅니다. 입력 데이터 세트는 A W S S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.](media/pricing-concepts/scenario2.png)
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 Azure Databricks 실행되는 입력 데이터 세트, 출력 데이터 세트 및 DataBricks 작업으로 흐릅니다. 입력 데이터 세트는 A W S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -101,7 +101,7 @@ ms.locfileid: "122567317"
 3. 데이터 변환에 대한 하나의 Azure Databricks 작업
 4. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-![다이어그램에서 일정 트리거를 사용하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트, 출력 데이터 세트, 그리고 Azure Databricks에서 실행되는 DataBricks 작업으로 흐르는 조회 활동으로 흐릅니다. 입력 데이터 세트는 A W S S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.](media/pricing-concepts/scenario3.png)
+:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="다이어그램은 일정 트리거가 있는 파이프라인을 보여줍니다. 파이프라인에서 복사 작업은 입력 데이터 세트, 출력 데이터 세트 및 Azure Databricks 실행되는 DataBricks 작업으로 흐르는 조회 작업으로 흐릅니다. 입력 데이터 세트는 A W S3 연결된 서비스로 흐릅니다. 출력 데이터 세트는 Azure Storage 연결된 서비스로 흐릅니다.":::
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -125,6 +125,16 @@ ms.locfileid: "122567317"
   - 데이터 이동 활동 = $0.166(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.25/시간)
   - 파이프라인 활동 = $0.00003(실행 시간의 1분에 대해 비례합니다. Azure Integration Runtime에서 $0.002/시간)
   - 외부 파이프라인 활동 = $0.000041(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.00025/시간)
+
+## <a name="run-ssis-packages-on-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에서 SSIS 패키지 실행
+
+Azure-SSIS IR(통합 런타임)은 ADF(Azure Data Factory)에서 SSIS 패키지 실행을 위한 Azure VM(가상 머신)의 특수 클러스터입니다. 프로비전하는 경우 SSIS 패키지를 실행하는 데 사용하는지 여부에 관계없이 다른 전용 Azure VM과 마찬가지로 요금이 청구됩니다. 실행 비용과 관련하여 ADF 포털의 설정 창에 시간당 예상 비용이 표시됩니다. 예를 들면 다음과 같습니다.  
+
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="SSIS 가격 책정 예제":::
+
+위의 예제에서 Azure-SSIS IR 2시간 동안 계속 실행하면 **2(시간) x US$1.158/시간 = US$2.316이** 청구됩니다.
+
+Azure-SSIS IR 실행 비용을 관리하려면 VM 크기를 축소하고, 클러스터 크기를 확장하고, 상당한 절감을 제공하는 AHB(Azure 하이브리드 혜택) 옵션을 통해 사용자 고유의 SQL Server 라이선스를 가져오거나, [가격 책정 Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/)참조하거나, SSIS 워크로드를 처리하기 위해 편리하거나 요청 시/적시에 Azure-SSIS IR 중지하기 & 시작할 수 있습니다.  Azure-SSIS IR 다시 [구성](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) 및 [Azure-SSIS IR 일정을](how-to-schedule-azure-ssis-integration-runtime.md)참조하세요.
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>일반 workday에 대한 매핑 데이터 흐름 디버그 사용
 
@@ -171,7 +181,8 @@ ms.locfileid: "122567317"
 
 ## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Azure Data Factory 관리 VNET의 데이터 통합
 이 시나리오에서는 Azure Blob Storage에서 원래 파일을 삭제하고, Azure SQL Database에서 Azure Blob Storage로 데이터를 복사하려고 합니다. 서로 다른 파이프라인에서 이 실행을 두 번 수행합니다. 이러한 두 파이프라인의 실행 시간은 겹칩니다.
-![Scenario4](media/pricing-concepts/scenario-4.png) 시나리오를 달성하려면 다음 항목을 사용하여 2개의 파이프라인을 만들어야 합니다.
+:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="시나리오 4":::
+이 시나리오를 수행하려면 다음 항목을 사용하여 두 개의 파이프라인을 만들어야 합니다.
   - 파이프라인 활동 – 활동 삭제.
   - Azure Blob storage에서 복사될 데이터에 대한 입력 데이터 세트가 있는 복사 작업
   - Azure SQL Database의 데이터에 대한 출력 데이터 세트

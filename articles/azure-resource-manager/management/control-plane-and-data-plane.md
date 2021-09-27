@@ -3,12 +3,12 @@ title: 컨트롤 플레인 및 데이터 평면 작업
 description: 컨트롤 플레인과 데이터 평면 작업의 차이점을 설명합니다. 컨트롤 플레인 작업은 Azure Resource Manager가 처리합니다. 데이터 평면 작업은 서비스가 처리합니다.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 0e1dbf525266fdcf7ca34a449cc51169dda027d5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544097"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755979"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure 컨트롤 플레인과 데이터 평면
 
@@ -33,7 +33,7 @@ Azure 작업은 컨트롤 플레인과 데이터 평면이라는 두 가지 범�
 * Azure 독일의 경우 URL은 `https://management.microsoftazure.de/`입니다.
 * Microsoft Azure 중국 21Vianet의 경우 URL은 `https://management.chinacloudapi.cn`입니다.
 
-어떤 작업이 Azure Resource Manager URL을 사용하는지 검색하려면 [Azure REST API](/rest/api/azure/)를 참조하세요. 예를 들어, MySQL에 대한 [만들기 또는 업데이트 작업](/rest/api/mysql/databases/createorupdate)은 요청 URL이 다음과 같기 때문에 컨트롤 플레인 작업입니다.
+어떤 작업이 Azure Resource Manager URL을 사용하는지 검색하려면 [Azure REST API](/rest/api/azure/)를 참조하세요. 예를 들어, MySQL에 대한 [만들기 또는 업데이트 작업](/rest/api/mysql/flexibleserver(preview)/servers/update)은 요청 URL이 다음과 같기 때문에 컨트롤 플레인 작업입니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -44,7 +44,7 @@ Azure Resource Manager는 모든 컨트롤 플레인 요청을 처리합니다. 
 * [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [관리 잠금](lock-resources.md)
-* [활동 로그](view-activity-logs.md)
+* [활동 로그](../../azure-monitor/essentials/activity-log.md)
 
 요청을 인증한 후 Azure Resource Manager는 컨트롤 플레인을 리소스 공급자에게 보내고, 리소스 공급자가 작업을 완료합니다.
 
@@ -52,7 +52,7 @@ Azure Resource Manager는 모든 컨트롤 플레인 요청을 처리합니다. 
 
 ## <a name="data-plane"></a>데이터 평면
 
-데이터 평면 작업에 대한 요청은 사용자 인스턴스와 관련된 엔드포인트로 전송됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)은 요청 URL이 다음과 같기 때문에 데이터 평면 작업입니다.
+데이터 평면 작업에 대한 요청은 사용자 인스턴스와 관련된 엔드포인트로 전송됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)은 요청 URL이 다음과 같기 때문에 데이터 평면 작업입니다.
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

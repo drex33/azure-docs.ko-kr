@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3b8e4395cd2ac46acb94abced52aa28eccf4f3d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92314855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615988"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위를 사용하여 그룹 상태에 따라 작업 실행
 
@@ -61,7 +61,7 @@ ms.locfileid: "92314855"
 
    1. 아직 Bing 지도 연결이 아직 없으면 연결을 만들도록 요청하는 메시지가 표시됩니다.
 
-      | 설정 | 값 | 설명 |
+      | 설정 | 값 | Description |
       | ------- | ----- | ----------- |
       | **연결 이름** | BingMapsConnection | 연결 이름을 입력합니다. | 
       | **API 키** | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. | 
@@ -111,13 +111,13 @@ ms.locfileid: "92314855"
 
    1. **제목** 필드에 다음 텍스트를 입력합니다.
 
-      ```Time to leave: Traffic more than 10 minutes```
+     `Time to leave: Traffic more than 10 minutes`
 
    1. **본문** 필드에 후행 공백이 있는 다음 텍스트를 입력합니다. 
 
-      ```Travel time:```
+     `Travel time:`
 
-      커서가 **본문** 필드에 있는 동안 동적 콘텐츠 목록이 열려 있으므로 이 시점에서 사용할 수 있는 매개 변수를 선택할 수 있습니다.
+     커서가 **본문** 필드에 있는 동안 동적 콘텐츠 목록이 열려 있으므로 이 시점에서 사용할 수 있는 매개 변수를 선택할 수 있습니다.
 
    1. 동적 콘텐츠 목록에서 **식** 을 선택합니다.
 

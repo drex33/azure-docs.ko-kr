@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/12/2018
-ms.openlocfilehash: 8388734349f64c9e444f0e6d180cd33f93cf2e7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: e5594ea57dce2d7cf03989da9288ab2869e28e06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642558"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743804"
 ---
 # <a name="system-variables-supported-by-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에서 지원하는 시스템 변수
 

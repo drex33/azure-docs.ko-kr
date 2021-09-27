@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 340121b40845369fe05e36a302556543078629eb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289125"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771853"
 ---
-# <a name="create-and-use-managed-identity-for-document-translation"></a>문서 번역의 관리 ID 만들기 및 사용
+# <a name="create-and-use-managed-identity"></a>관리 ID 만들기 및 사용
 
 > [!IMPORTANT]
 >
@@ -26,16 +26,7 @@ ms.locfileid: "114289125"
 
  Azure 관리 ID는 Azure 관리되는 리소스에 대한 Azure AD(Azure Active Directory) ID와 특정 권한을 만드는 서비스 주체입니다. 관리 ID를 사용하여 Azure AD 인증을 지원하는 모든 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 Azure RBAC([Azure 역할 기반 액세스 제어](../../../role-based-access-control/overview.md))를 사용하여 관리 ID에 역할을 할당합니다.  Azure에서 관리 ID를 사용하기 위해 추가되는 비용은 없습니다.
 
-관리 ID는 프라이빗 및 퍼블릭 액세스가 가능한 Azure Blob Storage 계정을 둘 다 지원합니다.  퍼블릭 액세스 권한이 있는 스토리지 계정의 경우 SAS(공유 액세스 서명)를 사용하여 제한된 액세스 권한을 부여하도록 선택할 수 있습니다.  이 문서에서는 시스템이 할당한 관리 ID를 사용하여 Azure Blob Storage 계정에서 번역 문서에 대한 액세스를 관리하는 방법을 살펴봅니다.
-
-> [!NOTE]
->
-> 퍼블릭 인터넷에서 사용할 수 있는 Azure Blob Storage 계정을 사용하는 모든 작업의 경우 제한된 기간 동안 제한된 권한이 있는 **SAS**(공유 액세스 서명) URL을 제공하고 POST 요청에서 전달할 수 있습니다.
->
-> * SAS URL을 검색하려면 Azure Portal의 스토리지 리소스로 이동하고 **Storage Explorer** 탭을 선택합니다.
-> * 컨테이너로 이동하고 마우스 오른쪽 단추를 클릭한 후 **공유 액세스 서명 가져오기** 를 선택합니다. 스토리지 계정 자체가 아니라 컨테이너에 대한 SAS를 가져오는 것이 중요합니다.
-> * **읽기**, **쓰기**, **삭제** 및 **목록 보기** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다.
-> * 그런 다음, **URL** 섹션의 값을 임시 위치에 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+관리 ID는 프라이빗 및 퍼블릭 액세스가 가능한 Azure Blob Storage 계정을 둘 다 지원합니다.  **공용 액세스 권한이 있는** 저장소 계정의 경우 SAS (공유 액세스 서명)를 사용 하 여 제한 된 액세스 권한을 부여 하도록 선택할 수 있습니다.  이 문서에서는 시스템이 할당한 관리 ID를 사용하여 Azure Blob Storage 계정에서 번역 문서에 대한 액세스를 관리하는 방법을 살펴봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,11 +36,21 @@ ms.locfileid: "114289125"
 
 * **글로벌이 아닌** 지역에 할당된 [**단일 서비스 Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)(다중 서비스 Cognitive Services 아님) 리소스. 자세한 단계는 [Azure Portal을 사용하여 Cognitive Services 리소스 만들기](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)를 ‘참조’하세요.
 
-* Translator 리소스와 동일한 지역의 [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 계정에 방화벽이 있는 경우 [신뢰할 수 있는 Azure 서비스에 대한 예외](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) 확인란이 선택되어 있어야 합니다.
+* Azure Portal을 사용하여 [**Azure RBAC(Azure 역할 기반 액세스 제어)**](../../../role-based-access-control/role-assignments-portal.md)를 간략히 이해합니다.
+
+* Translator 리소스와 동일한 지역의 [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 
+
+* **저장소 계정이 방화벽 뒤에 있는 경우 다음 구성을 사용 하도록 설정 해야 합니다**. </br>
+
+  * 저장소 계정 페이지의 왼쪽 메뉴에서 **보안 + 네트워킹** → **네트워킹** 을 선택 합니다.
+    :::image type="content" source="../media/managed-identities/security-and-networking-node.png" alt-text="스크린샷: 보안 + 네트워킹 탭":::
+
+  * 주 창에서 **선택한 네트워크에서 액세스 허용** 을 선택 합니다.
+  :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="스크린샷: 선택한 네트워크 라디오 단추를 선택 합니다.":::
+
+  * 선택한 네트워크 페이지에서 **예외** 범주로 이동 하 고  [**신뢰할 수 있는 서비스 목록에 대 한 Azure 서비스에서이 저장소 계정에 액세스 하도록 허용**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) 확인란을 사용 하도록 설정 합니다.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="스크린샷: 신뢰할 수 있는 서비스 허용 확인란, 포털 보기":::
-
-* Azure Portal을 사용하여 [**Azure RBAC(Azure 역할 기반 액세스 제어)** ](../../../role-based-access-control/role-assignments-portal.md)를 간략히 이해합니다.
 
 ## <a name="managed-identity-assignments"></a>관리 ID 할당
 
@@ -75,22 +76,22 @@ ms.locfileid: "114289125"
 
 1. **권한** 에서 **Azure 역할 할당** 을 선택합니다.
 
-    :::image type="content" source="../media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="스크린샷: Azure Portal에서 시스템이 할당한 관리 ID 사용":::
+    :::image type="content" source="../media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="스크린샷: Azure Portal에서 시스템 할당 관리 ID 사용":::
 
 1. Azure 역할 할당 페이지가 열립니다. 드롭다운 메뉴에서 구독을 선택한 다음, **&plus;역할 할당 추가** 를 선택합니다.
 
     :::image type="content" source="../media/managed-identities/azure-role-assignments-page-portal.png" alt-text="스크린샷: Azure Portal의 Azure 역할 할당 페이지":::
 
->[!NOTE]
->
-> 추가 > 역할 할당 추가 옵션이 사용되지 않기 때문에 Azure Portal에서 역할을 할당할 수 없거나 “이 범위에서 역할 할당을 추가할 권한이 없습니다.” 권한 오류가 표시되는 경우 현재 스토리지 리소스의 스토리지 범위에서 [**소유자**](../../../role-based-access-control/built-in-roles.md#owner) 또는 [**사용자 액세스 관리자**](../../../role-based-access-control/built-in-roles.md#user-access-administrator)와 같은 Microsoft.Authorization/roleAssignments/write 권한이 있는 할당된 역할을 가진 사용자로 로그인되어 있는지 확인합니다.
+    >[!NOTE]
+    >
+    > Azure Portal 역할을 할당할 수 없는 경우 추가 > 역할 할당 추가 옵션이 비활성화 되어 있거나 사용 권한 오류를 가져옵니다. "이 범위에서 역할 할당을 추가할 수 있는 권한이 없습니다." 라는 메시지가 표시 되 면 현재 할당 된 역할이 할당 된 사용자로 로그인 했는지 확인 합니다. 여기에는 저장소 리소스에 대 한 저장소 범위에서 [**소유자**](../../../role-based-access-control/built-in-roles.md#owner) 또는 [**사용자 액세스 관리자**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) 와 같은 Microsoft 권한 부여/역할 할당/쓰기 권한이 있습니다.
 
-7. 다음으로, **Storage Blob 데이터 기여자** 역할을 Translator 서비스 리소스에 할당하려고 합니다. **역할 할당 추가** 팝업 창에서 다음과 같이 필드를 완료하고 **저장** 을 선택합니다.
+1. 다음으로, **Storage Blob 데이터 기여자** 역할을 Translator 서비스 리소스에 할당하려고 합니다. **역할 할당 추가** 팝업 창에서 다음과 같이 필드를 완료하고 **저장** 을 선택합니다.
 
     | 필드 | 값|
     |------|--------|
     |**범위**| **_스토리지_**.|
-    |**구독**| **_스토리지 리소스와 연결된 구독_**.|
+    |**구독**| **_스토리지 리소스와 연결된 구독_** 입니다.|
     |**리소스**| **_스토리지 리소스의 이름_**.|
     |**역할** | **_Storage Blob 데이터 기여자_**.|
 

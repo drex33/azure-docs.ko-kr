@@ -3,17 +3,18 @@ title: Data Factory에 대한 데이터 관리 게이트웨이
 description: Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 50e9dbddd0a84f104aed9275f985f444990dbc30
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 14f3a838fb5c2893e25828234121f053ee951afc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677167"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662004"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -47,7 +48,7 @@ ms.locfileid: "110677167"
 ### <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
 복사 활동을 사용하여 온-프레미스와 클라우드 간에 데이터를 복사할 때 해당 활동은 게이트웨이를 사용하여 온-프레미스 데이터 소스와 클라우드 간에 데이터를 전송합니다.
 
-높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용하여 복사하는 단계의 요약은 다음과 같습니다. ![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용하여 복사하는 단계의 요약은 다음과 같습니다. :::image type="content" source="./media/data-factory-data-management-gateway/data-flow-using-gateway.png" alt-text="게이트웨이를 사용하는 데이터 흐름":::
 
 1. 데이터 개발자는 [Azure Portal](https://portal.azure.com) 또는 [PowerShell Cmdlet](/powershell/module/az.datafactory/) 중 하나를 사용하는 Azure Data Factory에 대한 게이트웨이를 만듭니다.
 2. 데이터 개발자는 게이트웨이 지정하여 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 연결된 서비스 데이터 설정의 일부로서 데이터 개발자는 자격 증명 설정 애플리케이션을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 애플리케이션 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
@@ -108,31 +109,31 @@ ms.locfileid: "110677167"
 #### <a name="if-you-have-already-created-the-logical-gateway-in-the-portal"></a>포털에서 논리 게이트웨이를 이미 만든 경우
 1. Azure Portal에서 **Data Factory** 페이지로 이동하여 **연결된 서비스** 타일을 클릭합니다.
 
-    ![Data Factory 페이지](media/data-factory-data-management-gateway/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-blade.png" alt-text="Data Factory 페이지":::
 2. **연결된 서비스** 페이지의 포털에서 만든 논리 **게이트웨이** 를 선택합니다.
 
-    ![논리 게이트웨이](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-select-gateway.png" alt-text="논리 게이트웨이":::
 3. **데이터 게이트웨이** 페이지에서 **데이터 게이트웨이 다운로드 및 설치** 를 클릭합니다.
 
-    ![포털의 다운로드 링크](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/download-and-install-link-on-portal.png" alt-text="포털의 다운로드 링크":::
 4. **구성** 페이지에서 **키 다시 만들기** 를 클릭합니다. 신중하게 읽은 후 경고 메시지에 대해 예를 클릭합니다.
 
-    ![키 다시 만들기 단추](media/data-factory-data-management-gateway/recreate-key-button.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/recreate-key-button.png" alt-text="키 다시 만들기 단추":::
 5. 키 옆의 복사 단추를 클릭합니다. 키가 클립보드에 복사됩니다.
 
-    ![키 복사](media/data-factory-data-management-gateway/copy-gateway-key.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/copy-gateway-key.png" alt-text="키 복사":::
 
 ### <a name="system-tray-icons-notifications"></a>시스템 트레이 아이콘/알림
 다음 이미지는 표시될 몇몇 트레이 아이콘을 보여 줍니다.
 
-![시스템 트레이 아이콘](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-tray-icons.png" alt-text="시스템 트레이 아이콘":::
 
 커서를 시스템 트레이 아이콘/알림 메시지 위로 이동하면 게이트웨이/업데이트 작업의 상태에 관한 세부 정보가 팝업 창에 표시됩니다.
 
 ### <a name="ports-and-firewall"></a>포트 및 방화벽
 다음과 같은 고려해야 할 두 방화벽이 있습니다. 조직의 중앙 라우터에서 실행되는 **회사 방화벽** 및 게이트웨이를 설치한 로컬 컴퓨터에서 디먼으로 구성 **Windows 방화벽** 입니다.
 
-![방화벽](./media/data-factory-data-management-gateway/firewalls2.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/firewalls2.png" alt-text="방화벽":::
 
 회사 방화벽 수준에서 다음 도메인 및 아웃바운드 포트를 구성 해야 합니다.
 
@@ -167,11 +168,11 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 ### <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
 회사 네트워크 환경에서 프록시 서버를 사용하여 인터넷에 액세스하는 경우 데이터 관리 게이트웨이가 적절한 프록시 설정을 사용하도록 구성합니다. 초기 등록 단계에서 프록시를 설정할 수 있습니다.
 
-![등록 중에 프록시 설정](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyDuringRegistration.png" alt-text="등록 중에 프록시 설정":::
 
 게이트웨이는 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설치 중에 **변경** 링크를 클릭합니다. **프록시 설정** 대화가 표시됩니다.
 
-![구성 관리자를 사용한 프록시 설정 1](media/data-factory-data-management-gateway/SetProxySettings.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxySettings.png" alt-text="구성 관리자를 사용한 프록시 설정 1":::
 
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
@@ -190,7 +191,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 
 구성 관리자 도구를 사용하여 HTTP 프록시를 확인하고 업데이트할 수 있습니다.
 
-![구성 관리자를 사용한 프록시 설정 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyConfigManager.png" alt-text="구성 관리자를 사용한 프록시 설정 2":::
 
 > [!NOTE]
 > NTLM 인증을 사용하여 프록시 서버를 설치하면 게이트웨이 호스트 서비스가 도메인 계정에서 실행됩니다. 나중에 도메인 계정의 암호를 변경하는 경우에는 서비스의 구성 설정을 업데이트하여 서비스를 다시 시작해야 합니다. 이 요구 사항을 감안하여, 암호를 자주 업데이트하지 않아도 되는 전용 도메인 계정을 사용해 프록시 서버에 액세스하는 것이 좋습니다.
@@ -260,15 +261,15 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
 데이터 관리 게이트웨이 구성 관리자의 홈 탭에 업데이트 일정 및 게이트웨이가 마지막 설치/업데이트된 시간이 표시됩니다.
 
-![업데이트를 예약](media/data-factory-data-management-gateway/UpdateSection.png)
+:::image type="content" source="media/data-factory-data-management-gateway/UpdateSection.png" alt-text="업데이트를 예약":::
 
 업데이트를 즉시 설치할 수도 있고, 게이트웨이가 예약된 시간에 자동으로 업데이트되도록 기다릴 수도 있습니다. 예를 들어 다음 이미지에는 게이트웨이 구성 관리자에 표시된 알림 메시지와, 업데이트를 즉시 설치하려는 경우 클릭할 수 있는 업데이트 단추가 나와 있습니다.
 
-![DMG 구성 관리자에서 업데이트](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png" alt-text="DMG 구성 관리자에서 업데이트":::
 
 시스템 트레이의 알림 메시지는 다음 그림과 같습니다.
 
-![시스템 트레이 메시지](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png" alt-text="시스템 트레이 메시지":::
 
 시스템 트레이에 업데이트 작업(수동 또는 자동)의 상태가 표시됩니다. 다음 번에 게이트웨이 구성 관리자를 시작하면 게이트웨이가 업데이트되었다는 메시지가 알림 표시줄에 표시되며 [새로운 기능 항목](data-factory-gateway-release-notes.md) 링크가 표시됩니다.
 
@@ -347,16 +348,16 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 1. Azure Portal에서 Data Factory의 홈페이지로 이동하여 **연결된 서비스** 타일을 클릭합니다.
 
-    ![데이터 팩터리 홈페이지](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
 2. **연결된 서비스** 페이지에서 **게이트웨이** 를 선택합니다.
 
-    ![연결된 서비스 페이지](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-linked-services-blade.png" alt-text="연결된 서비스 페이지":::
 3. **게이트웨이** 페이지에서 게이트웨이의 메모리 및 CPU 사용량을 볼 수 있습니다.
 
-    ![게이트웨이의 CPU 및 메모리 사용량](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-simple-monitoring.png" alt-text="게이트웨이의 CPU 및 메모리 사용량":::
 4. **고급 설정** 을 사용하도록 설정하여 네트워크 사용량과 같은 자세한 정보를 확인할 수 있습니다.
     
-    ![게이트웨이의 고급 모니터링](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png" alt-text="게이트웨이의 고급 모니터링":::
 
 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.
 
@@ -406,29 +407,29 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 1. 포털에서 **데이터 팩터리 홈페이지** 로 이동하여 **연결된 서비스** 타일을 클릭합니다.
 
-    ![데이터 게이트웨이 링크](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DataGatewaysLink.png" alt-text="데이터 게이트웨이 링크":::
 2. **연결된 서비스** 페이지의 **데이터 게이트웨이** 섹션에서 게이트웨이를 선택합니다.
 
-    ![게이트웨이가 선택된 연결된 서비스 페이지](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png" alt-text="게이트웨이가 선택된 연결된 서비스 페이지":::
 3. **데이터 게이트웨이** 페이지에서 **데이터 게이트웨이 다운로드 및 설치** 를 클릭합니다.
 
-    ![게이트웨이 다운로드 링크](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DownloadGatewayLink.png" alt-text="게이트웨이 다운로드 링크":::
 4. 그러면 **구성** 페이지에서 **데이터 게이트웨이 다운로드 및 설치** 를 클릭하고 지침에 따라 데이터 게이트웨이를 컴퓨터에 설치합니다.
 
-    ![구성 페이지](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigureBlade.png" alt-text="구성 페이지":::
 5. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 를 열어 둡니다.
 
-    ![구성 관리자](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigurationManager.png" alt-text="Configuration Manager":::
 6. 포털의 **구성** 페이지에서 명령 모음에 있는 **키 다시 만들기** 를 클릭하고 경고 메시지가 나타나면 **예** 를 클릭합니다. 키 텍스트 옆의 **복사 단추** 를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.
 
-    ![키 다시 만들기 2](./media/data-factory-data-management-gateway/RecreateKey.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/RecreateKey.png" alt-text="키 다시 만들기 2":::
 7. 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자** 의 **게이트웨이 등록** 페이지에서 **키** 를 텍스트 상자에 붙여 넣습니다. (선택 사항) **게이트웨이 키 표시** 확인란을 클릭하여 키 텍스트를 확인합니다.
 
-    ![키 복사 및 등록](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/CopyKeyAndRegister.png" alt-text="키 복사 및 등록":::
 8. **등록** 을 클릭하여 클라우드 서비스에 게이트웨이를 등록합니다.
 9. **설정** 탭에서 **변경** 을 클릭하여 이전 게이트웨이에 사용된 것과 동일한 인증서를 선택하고 **암호** 를 입력한 다음 **마침** 을 클릭합니다.
 
-   ![인증서 지정](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   :::image type="content" source="./media/data-factory-data-management-gateway/SpecifyCertificate.png" alt-text="인증서 지정":::
 
    이전 게이트웨이에서 인증서를 내보낼 수 있습니다. 이전 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작하고 **인증서** 탭으로 전환한 후 **내보내기** 단추를 클릭하고 지침을 따르면 됩니다.
 10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈페이지에 **등록** 이 **등록됨** 으로 설정되고 **상태** 가 **시작됨** 으로 설정됩니다.
@@ -443,7 +444,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
 5. **connectionString** 에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.
 6. 명령 모음에서 **암호화** 단추를 클릭하여 ClickOnce **자격 증명 관리자** 애플리케이션을 시작합니다. **자격 증명 설정** 대화 상자가 표시됩니다.
 
-    ![자격 증명 대화 상자 설정](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/setting-credentials-dialog.png" alt-text="자격 증명 대화 상자 설정":::
 7. **자격 증명 설정** 대화 상자에서 다음 단계를 수행합니다.
    1. 데이터 팩터리 서비스가 사용하려는 **인증** 을 선택하여 데이터베이스에 연결합니다.
    2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다.

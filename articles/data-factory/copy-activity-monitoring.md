@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: ed65bb5bcde37bf4ad18d9650697d51640ac1e4a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822403"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767587"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -30,17 +30,17 @@ ms.locfileid: "122822403"
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-![파이프라인 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run.png" alt-text="파이프라인 실행 모니터링":::
 
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-![파이프라인 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run-synapse.png" alt-text="파이프라인 실행 모니터링":::
 
 ---
 
 이 수준에서는 복사 작업 입력, 출력, 오류(복사 작업 실행이 실패한 경우)에 대한 링크뿐만 아니라 기간/상태와 같은 통계도 볼 수 있습니다. 복사 작업 이름 옆의 **자세히** 단추(안경)를 클릭하면 복사 작업 실행에 대한 자세한 정보가 제공됩니다. 
 
-![복사 작업 실행 모니터링](./media/copy-activity-overview/monitor-copy-activity-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run.png" alt-text="복사 작업 실행 모니터링":::
 
 이 그래픽 모니터링 보기에서 이 서비스는 데이터 읽기/쓰기 볼륨, 원본에서 싱크로 복사된 데이터 파일/행 수, 처리량, 복사 시나리오에 적용된 구성, 복사 작업이 진행되는 단계와 소요되는 기간 및 세부 정보를 비롯한 복사 작업 실행 정보를 제공합니다. 가능한 각 메트릭과 메트릭에 대한 세부 설명을 다룬 [이 표](#monitor-programmatically)를 참조하세요. 
 
@@ -50,13 +50,13 @@ ms.locfileid: "122822403"
 
 **예: Amazon S3에서 Azure Data Lake Storage Gen2로 복사**
 
-![복사 작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="복사 작업 실행 세부 정보 모니터링":::
 
 ## <a name="monitor-programmatically"></a>프로그래밍 방식으로 모니터링
 
 복사 작업 실행 세부 정보 및 성능 특성도 **복사 작업 실행 결과** > **출력** 섹션에 반환되며, 이는 UI 모니터링 보기를 렌더링하는 데 사용됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 내 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적인 프로그래밍 방식으로 활동 실행을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure Data Factory 또는 Synapse 파이프라인 모니터링](monitor-programmatically.md)을 참조하세요.
 
-| 속성 이름  | Description | 출력 단위 |
+| 속성 이름  | 설명 | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽어 온 실제 데이터 양입니다. | Int64 값(바이트) |
 | DataWritten | 싱크에 기록/커밋된 실제 데이터 양입니다. 각 데이터 저장소가 데이터를 저장하는 방법과 관련되므로 `dataRead`의 크기와 크기가 다를 수 있습니다. | Int64 값(바이트) |

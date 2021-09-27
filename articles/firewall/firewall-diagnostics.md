@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 8a86c3d9c81d332fdd1072f937d8e222d5a6436d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 62659116599a60d5a9407fea4d2b1f06594ef475
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529172"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824442"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -103,9 +103,9 @@ Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
-* **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
+* **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-monitor/essentials/activity-log.md) 문서에 자세히 나와 있습니다.
 * **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
-* **Azure Sentinel**: Azure Firewall 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다. Azure Sentinel의 Azure Firewall 데이터 커넥터는 현재 공용 미리 보기로 제공됩니다. 자세한 내용은 [Azure Firewall에서 데이터 연결](../sentinel/connect-azure-firewall.md)을 참조하세요.
+* **Azure Sentinel**: Azure Firewall 로그를 Azure Sentinel에 연결하여 통합 문서에서 로그 데이터를 볼 수 있도록 설정하고, 이 데이터를 사용하여 사용자 지정 경고를 만들고, 이 경고를 통합하여 조사를 개선할 수 있습니다. Azure Sentinel의 Azure Firewall 데이터 커넥터는 현재 공용 미리 보기로 제공됩니다. 자세한 내용은 [Azure Firewall에서 데이터 연결](../sentinel/data-connectors-reference.md#azure-firewall)을 참조하세요.
 
    개요는 Mohit Kumar의 다음 비디오를 참조하십시오.
    > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]

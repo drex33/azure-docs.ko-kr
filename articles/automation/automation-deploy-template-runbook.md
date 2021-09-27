@@ -3,19 +3,19 @@ title: Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 �
 description: 이 문서에서는 PowerShell Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템플릿을 배포하는 방법에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2021
+ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 12ac36645b037eb54522ecc8251501bdb6552776
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 61ff25cd9878ee94ce0ba6db7b2c4e4ac8e649de
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639606"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057760"
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-automation-powershell-runbook"></a>Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
+# <a name="deploy-an-azure-resource-manager-template-in-an-automation-powershell-runbook"></a>Automation PowerShell runbook에서 Azure Resource Manager 템플릿 배포
 
-[Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용하여 Azure 리소스를 배포하는 [Automation PowerShell Runbook을](./learn/automation-tutorial-runbook-textual-powershell.md) 작성할 수 있습니다. 템플릿을 사용하면 Azure Automation 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
+[Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용 하 여 Azure 리소스를 배포 하는 [Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md) 을 작성할 수 있습니다. 템플릿을 사용 하면 Azure Automation를 사용 하 여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
 이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
@@ -25,15 +25,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * 사용자 할당 관리 ID가 하나 이상 있는 Azure Automation 계정. 자세한 내용은 [Azure Automation 계정에 대해 사용자 할당 관리 ID 사용](./add-user-assigned-identity.md)을 참조하세요.
 
-* Az modules: `Az.Accounts` , `Az.ManagedServiceIdentity` , 및 `Az.Resources` `Az.Storage` . Automation 계정으로 가져옵니다. 자세한 내용은 [Az 모듈 가져오기](./shared-resources/modules.md#import-az-modules)를 참조하세요.
+* Az modules:,, `Az.Accounts` `Az.ManagedServiceIdentity` `Az.Resources` 및 `Az.Storage` Automation 계정으로 가져옵니다. 자세한 내용은 [Az 모듈 가져오기](./shared-resources/modules.md#import-az-modules)를 참조하세요.
 
 * [Azure Storage 계정](../storage/common/storage-account-create.md). Resource Manager 템플릿을 저장하는 위치입니다.
 
-* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity)모듈도 필요합니다. `Az.ManagedServiceIdentity` 는 미리 보기 모듈이며 Az 모듈의 일부로 설치되지 않습니다. 설치하려면 다음을 실행합니다. `Install-Module -Name Az.ManagedServiceIdentity`
+* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 모듈 [Az. ManagedServiceIdentity](/powershell/module/az.managedserviceidentity)도 필요 합니다. `Az.ManagedServiceIdentity` 는 미리 보기 모듈 이며 Az module의 일부로 설치 되지 않습니다. 설치 하려면를 실행 합니다. `Install-Module -Name Az.ManagedServiceIdentity`
 
 ## <a name="assign-permissions-to-managed-identities"></a>관리 ID에 권한 할당
 
-관리 ID에 권한을 할당하여 Runbook에서 스토리지 관련 작업을 수행합니다.
+Runbook에서 저장소 관련 작업을 수행 하려면 관리 되는 id에 대 한 사용 권한을 할당 합니다.
 
 1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 대화형으로 Azure에 로그인하고 지침을 따릅니다.
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     $runbookScript = "path\runbookScript.ps1"
     ```
 
-1. 시스템 할당 관리 ID에 역할을 `reader` 할당하여 cmdlet을 실행합니다. `Get-AzUserAssignedIdentity`
+1. `reader`시스템 할당 관리 id에 역할을 할당 하 여 cmdlet을 실행 `Get-AzUserAssignedIdentity` 합니다.
 
     ```powershell
     $SAMI = (Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount).Identity.PrincipalId
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         -RoleDefinitionName "Reader"
     ```
 
-1. 스토리지 계정에 대한 작업의 사용자 할당 관리 ID에 역할을 `Storage Account Contributor` 할당합니다.
+1. `Storage Account Contributor`저장소 계정에 대 한 작업에 대 한 사용자 할당 관리 id에 역할을 할당 합니다.
 
     ```powershell
     $UAMI_ID = (Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity).PrincipalId
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 
-이 예제에서는 새 Azure Storage 계정을 배포하는 Resource Manager 템플릿을 사용합니다. 라는 로컬 파일을 만든 `storageTemplate.json` 후 다음 코드를 붙여넣습니다.
+이 예제에서는 새 Azure Storage 계정을 배포 하는 리소스 관리자 템플릿을 사용 합니다. 라는 로컬 파일을 만들고 `storageTemplate.json` 다음 코드를 붙여 넣습니다.
 
 ```json
 {
@@ -139,9 +139,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="save-the-resource-manager-template-in-azure-files"></a>Azure Files에 Resource Manager 템플릿 저장
 
-PowerShell을 사용하여 Azure 파일 공유를 만들고 을 `storageTemplate.json` 업로드합니다. Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 관한 지침은 [Windows에서 Azure File 시작](../storage/files/storage-files-quick-create-use-windows.md)을 참조하세요.
+PowerShell을 사용 하 여 Azure 파일 공유를 만들고 업로드 `storageTemplate.json` 합니다. Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 관한 지침은 [Windows에서 Azure File 시작](../storage/files/storage-files-quick-create-use-windows.md)을 참조하세요.
 
-다음 명령을 실행하여 파일 공유를 만들고 Resource Manager 템플릿을 해당 파일 공유에 업로드합니다.
+다음 명령을 실행 하 여 파일 공유를 만들고 해당 파일 공유에 리소스 관리자 템플릿을 업로드 합니다.
 
 ```powershell
 # Get the access key for your storage account
@@ -159,7 +159,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $s
 
 ## <a name="create-the-powershell-runbook-script"></a>PowerShell Runbook 스크립트 만들기
 
-`storageTemplate.json`Azure Storage 파일을 가져오고 템플릿을 배포하여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.  라는 로컬 파일을 만든 `runbookScript.ps1` 후 다음 코드를 붙여넣습니다.
+`storageTemplate.json`Azure Storage에서 파일을 가져오고 템플릿을 배포 하 여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.  라는 로컬 파일을 만들고 `runbookScript.ps1` 다음 코드를 붙여 넣습니다.
 
 
 ```powershell
@@ -189,9 +189,15 @@ param (
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+$AzureContext = (Connect-AzAccount -Identity).context
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
+    -Name $userAssignedManagedIdentity `
+    -DefaultProfile $AzureContext
+$AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -DefaultProfile $AzureContext
 
 #Set the parameter values for the Resource Manager template
 $Parameters = @{
@@ -218,7 +224,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Azure Automation 계정으로 Runbook 가져오기 및 게시
 
-PowerShell을 사용하여 Runbook을 Automation 계정으로 가져온 다음 Runbook을 게시합니다. Azure Portal Runbook 가져오기 및 게시에 대한 자세한 내용은 Azure Automation [Runbook 관리를 참조하세요.](manage-runbooks.md)
+PowerShell을 사용 하 여 runbook을 Automation 계정으로 가져온 다음 runbook을 게시 합니다. Azure Portal runbook 가져오기 및 게시에 대 한 자세한 내용은 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조 하세요.
 
 `runbookScript.ps1`을 PowerShell Runbook으로 Automation 계정에 가져오려면 다음 PowerShell 명령을 실행합니다.
 

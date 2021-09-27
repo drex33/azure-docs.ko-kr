@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9e16037c1fc0b2addc825718e4fecb13a270129
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 31759756a886093c53d1537db609bfc58fb4af8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541570"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610468"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -153,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 오디오 데이터를 게시하는 동안 스트리밍(청크 분할)을 업로드하는 것이 좋습니다. 이렇게 하면 대기 시간이 크게 줄어들 수 있습니다. 스트리밍을 사용하도록 설정하는 방법에 대해서는 [다른 프로그래밍 언어의 샘플 코드](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment)를 참조하세요.
 
 >[!NOTE]
-> 현재 발음 평가 기능은 `en-US` 언어를 지원하며, 이 언어는 모든 [음성 텍스트 변환 지역](regions.md#speech-to-text)에서 사용할 수 있습니다. `en-GB` 및 `zh-CN` 언어에 대한 지원은 `westus`, `eastasia`, `centralindia` 지역에서 사용 가능한 프리뷰 상태에 있습니다.
+> 현재 발음 평가 기능은 `en-US` 언어를 지원하며, 이 언어는 모든 [음성 텍스트 변환 지역](regions.md#speech-to-text)에서 사용할 수 있습니다. 및 언어에 대한 `en-GB` `zh-CN` 지원은 미리 보기 상태입니다.
 
 ### <a name="sample-request"></a>샘플 요청
 

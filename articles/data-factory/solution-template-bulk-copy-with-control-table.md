@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: ba4d84a6d3eda01f3d9192aef521d7d45a811083
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 94f7210c05056db2ead8b1aa54d9a0d16e3d8849
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536150"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743572"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>제어 테이블을 사용하여 데이터베이스에서 대량 복사
 
@@ -67,33 +67,33 @@ Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스 
 
 2. **데이터베이스에서 대량 복사** 템플릿으로 이동합니다. 1단계에서 만든 외부 제어 테이블에 대한 **새** 연결을 만듭니다.
 
-    ![제어 테이블에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png" alt-text="제어 테이블에 대한 새 연결 만들기":::
 
 3. 데이터를 복사하는 원본 데이터베이스에 대해 **새** 연결을 만듭니다.
 
-    ![원본 데이터베이스에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png" alt-text="원본 데이터베이스에 대한 새 연결 만들기":::
     
 4. 데이터를 복사하는 대상 데이터 저장소에 대해 **새** 연결을 만듭니다.
 
-    ![대상 저장소에 대한 새 연결 만들기](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png" alt-text="대상 저장소에 대한 새 연결 만들기":::
 
 5. **이 템플릿 사용** 을 선택합니다.
 
 6. 다음 예제와 같이 파이프라인이 표시됩니다.
 
-    ![파이프라인 검토](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png" alt-text="파이프라인 검토":::
 
 7. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
 
-    ![**디버그** 클릭](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png" alt-text="**디버그** 클릭":::
 
 8. 결과는 다음 예제와 유사합니다.
 
-    ![결과 검토](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png" alt-text="결과 검토":::
 
 9. (선택 사항) ‘Azure Synapse Analytics’를 데이터 대상으로 선택했다면 Azure Synapse Analytics Polybase에 필요한 경우 스테이징을 위해 Azure Blob 스토리지에 대한 연결을 입력해야 합니다. 이 템플릿은 Blob 스토리지에 대한 컨테이너 경로를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
     
-    ![Polybase 설정](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
+    :::image type="content" source="media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png" alt-text="Polybase 설정":::
        
 ## <a name="next-steps"></a>다음 단계
 

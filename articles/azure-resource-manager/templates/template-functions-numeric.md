@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 숫자
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 9f9959c07f936fc800fac836553fb0f37f4f4e83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: ccfed6794b81b7910310cc5a9fd02dcf0cdb0e0f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959645"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820423"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>ARM 템플릿의 숫자 함수
 
@@ -46,42 +46,13 @@ Bicep에서 `add` 함수는 지원되지 않습니다. 대신 [`+` 연산자](..
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)에서는 두 개의 매개 변수를 추가합니다.
+다음 예제에서는 두 개의 매개 변수를 추가합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to add"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to add"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "addResult": {
-      "type": "int",
-      "value": "[add(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/add.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -115,36 +86,7 @@ Bicep에서 `add` 함수는 지원되지 않습니다. 대신 [`+` 연산자](..
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageCount": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/copyindex.json":::
 
 ### <a name="return-value"></a>반환 값
 
@@ -171,42 +113,13 @@ Bicep에서 `div` 함수는 지원되지 않습니다. 대신 [`/` 연산자](..
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
+다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 8,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "divResult": {
-      "type": "int",
-      "value": "[div(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/div.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -216,11 +129,11 @@ Bicep에서 `div` 함수는 지원되지 않습니다. 대신 [`/` 연산자](..
 
 값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
 
-Bicep에서 `float` 함수는 지원되지 않습니다.
+`float`함수는 Bicep에서 지원 되지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
@@ -232,19 +145,7 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 다음 예제에서는 float를 사용해서 매개 변수를 논리 앱에 전달하는 방법을 보여 줍니다.
 
-```json
-{
-  "type": "Microsoft.Logic/workflows",
-  "properties": {
-    ...
-    "parameters": {
-      "custom1": {
-        "value": "[float('3.0')]"
-      },
-      "custom2": {
-        "value": "[float(3)]"
-      },
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/float.json":::
 
 ## <a name="int"></a>int
 
@@ -264,32 +165,13 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json)은 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
+다음 예제 템플릿은 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "4"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intResult": {
-      "type": "int",
-      "value": "[int(parameters('stringToConvert'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/int.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -301,7 +183,7 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -311,35 +193,13 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)에서는 배열 및 정소 목록에 최대값을 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 정수 목록과 함께 max를 사용 하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -352,7 +212,7 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -362,35 +222,13 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)에서는 배열 및 정소 목록에 최소값을 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 정수 목록과 함께 min을 사용 하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -401,7 +239,7 @@ Bicep에서 `float` 함수는 지원되지 않습니다.
 
 제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다.
 
-Bicep에서 `mod` 함수는 지원되지 않습니다. 대신 [% 연산자](../bicep/operators-numeric.md#modulo-)를 사용하세요.
+`mod`함수는 Bicep에서 지원 되지 않습니다. 대신 [% 연산자](../bicep/operators-numeric.md#modulo-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -416,42 +254,13 @@ Bicep에서 `mod` 함수는 지원되지 않습니다. 대신 [% 연산자](../b
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
+다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "modResult": {
-      "type": "int",
-      "value": "[mod(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mod.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -461,7 +270,7 @@ Bicep에서 `mod` 함수는 지원되지 않습니다. 대신 [% 연산자](../b
 
 제공된 두 정수의 곱하기를 반환합니다.
 
-Bicep에서 `mul` 함수는 지원되지 않습니다. 대신 [* 연산자](../bicep/operators-numeric.md#multiply-)를 사용하세요.
+`mul`함수는 Bicep에서 지원되지 않습니다. 대신 [* 연산자](../bicep/operators-numeric.md#multiply-)를 사용하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -476,42 +285,13 @@ Bicep에서 `mul` 함수는 지원되지 않습니다. 대신 [* 연산자](../b
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
+다음 예제에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to multiply"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to multiply"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "mulResult": {
-      "type": "int",
-      "value": "[mul(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mul.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -534,42 +314,13 @@ Bicep에서 `mul` 함수는 지원되지 않습니다. 대신 [* 연산자](../b
 
 ### <a name="example"></a>예제
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)에서는 다른 매개 변수에서 매개 변수를 뺍니다.
+다음 예제에서는 다른 매개 변수에서 매개 변수 하나를 뺍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer subtracted from"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer to subtract"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "subResult": {
-      "type": "int",
-      "value": "[sub(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/sub.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

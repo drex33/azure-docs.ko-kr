@@ -3,19 +3,17 @@ title: Bing Video Search API를 사용하여 웹에서 인기 비디오 검색
 titleSuffix: Azure Cognitive Services
 description: Bing Video Search API를 사용하여 웹에서 인기 비디오를 검색하는 방법을 알아봅니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: scottwhi
-ms.openlocfilehash: cfeebcda201df592f6c396dcc780208a36d1e989
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fca6bfa797e7d2b382e1336359c52f448f94a148
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600668"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용하여 인기 비디오 가져오기 
 

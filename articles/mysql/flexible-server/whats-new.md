@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: c9cf2c790e5dedb25c923718fbbb807b792f48a2
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: cfbff4be8048090ec606fd8640281dccd17fe084
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128634101"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 새로운 기능(미리 보기)
 
@@ -28,11 +28,11 @@ ms.locfileid: "122597396"
 
 - **동일한 영역의 고가용성을 사용하는 단일 영역 내 고가용성**
 
-  이제 서비스는 고객이 고가용성을 사용하도록 설정할 때 대기 서버에 대한 기본 가용성 영역을 유연하게 선택할 수 있도록 합니다. 이 기능을 사용하면 고객은 기본 서버와 동일한 영역에 대기 서버를 배치하여 기본 서버와 대기 서버 간의 복제 지연 시간을 줄일 수 있습니다. 또한 동일한 Azure 영역 내에 배치되는 경우 애플리케이션 서버와 데이터베이스 서버 간의 대기 시간을 줄일 수 있습니다. [자세히 알아보기](https://aka.ms/SameZone-HA).
+  이제 서비스는 고객이 고가용성을 사용하도록 설정할 때 대기 서버에 대한 기본 가용성 영역을 유연하게 선택할 수 있도록 합니다. 이 기능을 사용하면 고객은 기본 서버와 동일한 영역에 대기 서버를 배치하여 기본 서버와 대기 서버 간의 복제 지연 시간을 줄일 수 있습니다. 또한 동일한 Azure 영역 내에 배치되는 경우 애플리케이션 서버와 데이터베이스 서버 간의 대기 시간을 줄일 수 있습니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
 
 - **영역 중복 고가용성을 사용하는 대기 영역 선택**
 
-  이제 이 서비스를 사용하여 고객은 대기 서버 영역 위치를 선택할 수 있습니다. 고객은 이 기능을 사용하여 대기 서버를 선택한 영역에 배치할 수 있습니다. 대기 데이터베이스 서버와 대기 애플리케이션을 같은 영역에 배치하면 대기 시간이 줄어들고 고객이 재해 복구 상황과 “영역 다운” 시나리오에 더 잘 대비할 수 있습니다. [자세히 알아보기](https://aka.ms/standby-selection).
+  이제 이 서비스를 사용하여 고객은 대기 서버 영역 위치를 선택할 수 있습니다. 고객은 이 기능을 사용하여 대기 서버를 선택한 영역에 배치할 수 있습니다. 대기 데이터베이스 서버와 대기 애플리케이션을 같은 영역에 배치하면 대기 시간이 줄어들고 고객이 재해 복구 상황과 “영역 다운” 시나리오에 더 잘 대비할 수 있습니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **프라이빗 DNS 영역 통합**
 
@@ -44,7 +44,7 @@ ms.locfileid: "122597396"
 
 - **가용성 영역의 서버에 대한 지정 시간 복원**
 
-  이제 서비스에 대한 지정 시간 복원 환경을 통해 고객은 가용성 영역을 구성할 수 있으며, 동일한 영역에 데이터베이스 서버와 대기 애플리케이션을 공동으로 배치하여 대기 시간을 줄이고 고객이 재해 복구 상황 및 "영역 축소" 시나리오에 더 잘 대비할 수 있도록 합니다. [자세히 알아보기](https://aka.ms/standby-selection).
+  이제 서비스에 대한 지정 시간 복원 환경을 통해 고객은 가용성 영역을 구성할 수 있으며, 동일한 영역에 데이터베이스 서버와 대기 애플리케이션을 공동으로 배치하여 대기 시간을 줄이고 고객이 재해 복구 상황 및 "영역 축소" 시나리오에 더 잘 대비할 수 있도록 합니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **프라이빗 미리 보기에서 사용할 수 있는 validate_password 및 caching_sha2_password 플러그 인**
 
@@ -93,7 +93,7 @@ ms.locfileid: "122597396"
 
 - **12개월 무료 제공**
 
-  2021년 6월 15일부터 [Azure 무료 계정](https://azure.microsoft.com/free/)은 고객에게 매월 750시간의 사용량과 32GB의 스토리지를 포함하는 Azure Database for MySQL – 유연한 서버에 최대 12개월 동안 무료로 액세스할 수 있는 혜택을 제공합니다. 고객은 이 제공 서비스를 활용하여 Azure Database for MySQL – 유연한 서버를 사용하는 애플리케이션을 개발하고 배포할 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2165892).
+  2021년 6월 15일부터 [Azure 무료 계정](https://azure.microsoft.com/free/)은 고객에게 매월 750시간의 사용량과 32GB의 스토리지를 포함하는 Azure Database for MySQL – 유연한 서버에 최대 12개월 동안 무료로 액세스할 수 있는 혜택을 제공합니다. 고객은 이 제공 서비스를 활용하여 Azure Database for MySQL – 유연한 서버를 사용하는 애플리케이션을 개발하고 배포할 수 있습니다. [자세히 알아보기](./how-to-deploy-on-azure-free-account.md).
 
 - **스토리지 자동 증가**
 

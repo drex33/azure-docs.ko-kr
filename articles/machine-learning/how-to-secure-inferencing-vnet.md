@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 27c2b5d5af181aea982a6aed735997f5ac866b6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 1899f2ff3492bc53957aa31f2cbf9eaa2bf3de0d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740842"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -59,6 +59,10 @@ ms.locfileid: "122566919"
 * 가상 네트워크에서 Azure Container Instances를 사용하는 경우 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있어야 합니다. 그렇지 않은 경우 가상 네트워크가 다른 리소스 그룹에 있을 수 있습니다.
 * 작업 영역에 __프라이빗 엔드포인트__ 가 있는 경우 Azure Container Instances에 사용되는 가상 네트워크는 작업 영역 프라이빗 엔드포인트에서 사용하는 것과 동일해야 합니다.
 * 가상 네트워크 내에서 Azure Container Instances를 사용하는 경우 작업 영역에 대한 ACR(Azure Container Registry)은 가상 네트워크에 있을 수 없습니다.
+
+### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+* 작업 영역에 프라이빗 __엔드포인트__ 가 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
 
 <a id="aksvnet"></a>
 

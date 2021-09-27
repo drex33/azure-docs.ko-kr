@@ -2,14 +2,14 @@
 title: 보관 계층 지원
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260786"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632465"
 ---
 # <a name="archive-tier-support"></a>보관 계층 지원
 
@@ -76,7 +76,7 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 
     - Azure Virtual Machines의 SQL Server:
 
-        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+        `$bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
 1. 복구 지점을 표시할 날짜 범위를 추가합니다. 예를 들어 지난 124일에서 지난 95일까지의 복구 지점을 보려면 다음 명령을 사용합니다.
 
@@ -88,6 +88,16 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
     >[!NOTE]
     >다른 시간 범위에 대한 복구 지점을 표시하려면 시작 날짜와 종료 날짜를 적절하게 수정합니다.
 ## <a name="use-powershell"></a>PowerShell 사용
+
+### <a name="check-the-archivable-status-of-all-the-recovery-points"></a>모든 복구 지점의 보관 가능 상태 확인
+
+이제 다음 cmdlet을 사용하여 백업 항목의 모든 복구 지점의 보관 가능한 상태를 확인할 수 있습니다.
+
+```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
+
+$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
+```
 
 ### <a name="check-archivable-recovery-points"></a>보관 가능 복구 지점 확인
 
@@ -149,7 +159,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 보관의 복구 지점에 대해 Azure Backup에서는 통합 복원 방법론을 제공합니다.
 
-통합 복원은 2단계 프로세스로 이루어집니다. 첫 번째 단계는 보관에 저장된 복구 지점을 리하이드레이션하고 이를 10~30일의 기간(리하이드레이션 기간이라고도 함) 동안 자격 증명 모음 표준 계층에 임시로 저장하는 것입니다. 기본값은 15일입니다. 리하이드레이션에는 두 가지 우선 순위(표준/높은 우선 순위)가 있습니다. [리하이드레이션 우선 순위](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier)에 대해 자세히 알아보세요.
+통합 복원은 2단계 프로세스로 이루어집니다. 첫 번째 단계는 보관에 저장된 복구 지점을 리하이드레이션하고 이를 10~30일의 기간(리하이드레이션 기간이라고도 함) 동안 자격 증명 모음 표준 계층에 임시로 저장하는 것입니다. 기본값은 15일입니다. 리하이드레이션에는 두 가지 우선 순위(표준/높은 우선 순위)가 있습니다. [리하이드레이션 우선 순위](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority)에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >
@@ -171,6 +181,17 @@ SQL Server를 복원하려면 [다음 단계](backup-azure-sql-automation.md#res
 ```azurepowershell
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
+
+### <a name="move-recovery-points-to-archive-tier-at-scale"></a>대규모로 복구 지점을 보관 계층으로 이동
+
+이제 샘플 스크립트를 사용하여 대규모 작업을 수행할 수 있습니다. 샘플 스크립트를 실행하는 방법에 대해 [자세히 알아봅니다.](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) 여기에서 스크립트를 다운로드할 수 [있습니다.](https://github.com/hiaga/Az.RecoveryServices)
+
+Azure Backup 제공된 샘플 스크립트를 사용하여 다음 작업을 수행할 수 있습니다.
+
+- Azure VM의 SQL 서버에 대한 특정 데이터베이스/모든 데이터베이스에 적합한 모든 복구 지점을 보관 계층으로 이동합니다.
+- 특정 Azure Virtual Machine에 대한 모든 권장 복구 지점을 보관 계층으로 이동합니다.
+ 
+요구 사항에 따라 스크립트를 작성하거나 위의 샘플 스크립트를 수정하여 필요한 백업 항목을 가져올 수도 있습니다.
 
 ## <a name="use-the-portal"></a>포털 사용
 
@@ -211,7 +232,7 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 | 워크로드 | 미리 보기 | 일반 공급 |
 | --- | --- | --- |
-| Azure VM의 SQL Server | 미국 동부, 미국 중남부, 미국 중북부, 서유럽 | 오스트레일리아 동부, 인도 중부, 북유럽, 동남 아시아, 동아시아, 오스트레일리아 남동부, 캐나다 중부, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 인도 남부, 영국 서부, 영국 남부, 미국 중부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중서부 |
+| Azure VM의 SQL Server | 남부 중부, 미국 중 북부, 유럽 서부 | 오스트레일리아 동부, 중앙 인도, 북부, 남부 동아시아, 동아시아, 오스트레일리아 동부, 캐나다 중부, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 남부, 영국 서부, 영국 남부, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부에서 미국, 미국 동부 |
 | Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 북유럽, 오스트레일리아 남동부, 프랑스 중부, 프랑스 남부, 일본 서부, 한국 중부, 한국 남부 | 없음 |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>오류 코드 및 문제 해결 단계

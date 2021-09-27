@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8ff219e326f7c8a2bbc075594ff8ffb30e9b04f5
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: d44ccec62a9da63fccc45a0735ff16f615dfbb4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289175"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643140"
 ---
 # <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
@@ -126,6 +126,9 @@ Azure Bastion은 VNet 또는 피어링된 VNet 내부에 배포되고 Azure 지�
 예, Bastion을 통한 연결은 단일 테넌트에 대한 다른 구독에서 피어링된 VNet에 대해 계속 작동합니다. 서로 다른 두 테넌트 간의 구독은 지원되지 않습니다. **연결** 드롭다운 메뉴에서 Bastion을 보려면 사용자는 **구독 > 전역 구독** 에서 액세스할 수 있는 하위 항목을 선택해야 합니다.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="전역 구독 필터" lightbox="./media/bastion-faq/global-subscriptions.png":::
+
+### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Bastion은 Azure Virtual Desktop에 대한 연결을 지원하나요?
+아니요, Azure Virtual Desktop에 대한 Bastion 연결은 지원되지 않습니다.
 
 ### <a name="i-have-access-to-the-peered-vnet-but-i-cant-see-the-vm-deployed-there"></a>피어링된 VNet에 액세스할 수 있지만 여기에 배포된 VM은 볼 수 없습니다.
 

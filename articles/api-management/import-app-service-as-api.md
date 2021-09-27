@@ -3,17 +3,17 @@ title: Azure API Management에 Azure 웹앱 가져오기 | Microsoft Docs
 description: 이 문서에서는 Azure API Management를 사용하여 Azure App Service에서 호스트되는 웹 API를 가져오는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/27/2021
-ms.author: apimpm
-ms.openlocfilehash: de51a32f737e71501723847ec473387ac419f8a6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 8d98a6c115b7f3d06b80a938c090bfa1b9c9794e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230789"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585093"
 ---
 # <a name="import-an-azure-web-app-as-an-api"></a>Azure 웹앱을 API로 가져오기
 

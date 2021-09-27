@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: cda5595eb2c8b72f6b38ade1feefe84904312412
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: aa30b85047460bffe0177c9154152d18262b44be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261254"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823846"
 ---
 # <a name="connect-your-data-source-to-azure-sentinels-data-collector-api-to-ingest-data"></a>데이터 원본을 Azure Sentinel의 Data Collector API에 연결하여 데이터 수집
 
@@ -38,7 +38,7 @@ ms.locfileid: "123261254"
 
 - Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
-- 작업 영역 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+- 작업 영역 공유 키에 대한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/agents/agent-windows.md).
 
 ## <a name="configure-and-connect-your-data-source"></a>데이터 원본 구성 및 연결
 

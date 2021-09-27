@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 30a8208babab2991c9d9e86cc419ac50e1530d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a856ae7d38439d11ba0ddd65ebecdda7a3d2ce48
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101100089"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750206"
 ---
 # <a name="azure-front-door-standardpremium-preview-health-probe-monitoring"></a>Azure Front Door 표준/프리미엄(미리 보기) 상태 프로브 모니터링
 
@@ -31,19 +31,19 @@ Front Door는 HTTP 또는 HTTPS 프로토콜을 통한 프로브 전송을 지�
 
 ## <a name="supported-http-methods-for-health-probes"></a>상태 프로브에 지원되는 HTTP 메서드
 
-Front Door는 상태 프로브를 전송하는 데 다음과 같은 HTTP 메서드를 지원합니다.
+Front Door는 상태 프로브를 보내기 위해 다음과 같은 HTTP 메서드를 지원합니다.
 
 * **GET:** GET 메서드는 요청 URI로 식별되는 모든 정보(엔터티 형식)를 검색함을 의미합니다.
-* **HEAD:** 서버가 응답에서 메시지 본문을 반환해서는 안 된다는 점을 제외하고 HEAD 메서드는 GET 메서드와 동일합니다. 새 Front Door 프로필의 경우 기본적으로 프로브 메서드가 HEAD로 설정됩니다.
+* **HEAD:** HEAD 메서드는 서버가 응답에서 메시지 본문을 반환해서는 안 된다는 점을 제외하면 GET 메서드와 동일합니다. 새 Front Door 프로필의 경우 기본적으로 프로브 메서드가 HEAD로 설정됩니다.
 
 > [!NOTE]
-> 백 엔드에 대한 부하 및 비용을 낮추기 위해 Front Door는 상태 프로브에 HEAD 요청을 사용하도록 권장합니다.
+> 백 엔드에 대한 부하 및 비용을 낮추기 위해 Front Door는 상태 프로브에 HEAD 요청을 사용할 것을 권장합니다.
 
 ## <a name="health-probe-responses"></a>상태 프로브 응답
 
 | 응답  | 설명 | 
 | ------------- | ------------- |
-| 상태 확인  |  200 정상 상태 코드는 백 엔드가 정상임을 나타냅니다. 그 외 코드는 모두 실패로 간주됩니다. 어떠한 이유로(네트워크 오류를 포함) 유효한 HTTP 응답이 프로브에 대해 수신되지 않으면 프로브가 실패로 계산됩니다.|
+| 상태 확인  |  200 정상 상태 코드는 백 엔드가 정상임을 나타냅니다. 그 외 코드는 모두 실패로 간주됩니다. 어떠한 이유로(네트워크 오류 포함) 유효한 HTTP 응답이 프로브에 대해 수신되지 않으면 프로브가 실패로 계산됩니다.|
 | 대기 시간 측정  | 대기 시간은 응답의 마지막 바이트를 수신하는 순간 프로브 요청을 보내기 직전에 측정된 벽시계 시간입니다. 각 요청에 대한 새 TCP 연결을 사용하므로 이 측정값은 기존 웜 연결을 사용하는 백 엔드에 편향되지 않습니다.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Front Door가 백 엔드 상태를 결정하는 방법
@@ -60,8 +60,10 @@ Azure Front Door는 상태를 확인하기 위해 모든 알고리즘에서 아�
 
     * _x_ 는 부하 분산 설정의 SuccessfulSamplesRequired 속성을 변경하여 구성됩니다.
 
-1. 백 엔드 풀의 정상 백 엔드 집합에 대해 Front Door는 각 백 엔드에 대한 대기 시간(왕복 시간)을 추가로 측정하고 유지합니다.
+1. 백 엔드 풀의 정상 백 엔드 세트에 대해 Front Door는 각 백 엔드에 대한 대기 시간(왕복 시간)을 추가로 측정하고 유지합니다.
 
+> [!NOTE]
+> 단일 끝점이 여러 백 엔드 풀의 멤버인 경우 Azure Front 도어가 백 엔드에 전송 되는 상태 프로브 수를 최적화 하 여 백 엔드에 대 한 부하를 줄입니다. 상태 프로브 요청은 가장 낮은 구성 된 샘플 간격에 따라 전송 됩니다. 모든 풀의 끝점 상태는 동일한 상태 프로브의 응답에 의해 결정 됩니다.
 
 ## <a name="complete-health-probe-failure"></a>상태 프로브 실패 완료
 
@@ -75,4 +77,4 @@ Azure Front Door는 상태를 확인하기 위해 모든 알고리즘에서 아�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Front Door 표준/프리미엄 프로필을 만드는](create-front-door-portal.md) 방법을 알아봅니다.
+[Front Door 표준/프리미엄을 만드는](create-front-door-portal.md) 방법을 알아봅니다.

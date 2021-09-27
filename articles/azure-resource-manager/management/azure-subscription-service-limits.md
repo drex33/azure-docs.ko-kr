@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최댓값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 2d3af7c035518ace6abca01b9e9e3867c49d4330
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: 685a66e120a1387ce71d0d2902dfa54e390d1d66
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099387"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645552"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -86,7 +86,7 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용하는 경우 다음 
 
 ## <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 제한
 
-[!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## <a name="azure-cloud-services-limits"></a>Azure Cloud Services 제한
 
@@ -174,6 +174,11 @@ Azure Machine Learning 컴퓨팅 할당량의 최신 값은 [Azure Machine Learn
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+
+## <a name="azure-data-factory-limits"></a>Azure Data Factory 제한
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
+
 ## <a name="azure-netapp-files"></a>Azure NetApp Files
 
 [!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
@@ -228,13 +233,14 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용하
 
 [!INCLUDE [cdn-limits](../../../includes/cdn-limits.md)]
 
-## <a name="data-factory-limits"></a>데이터 팩터리 제한
-
-[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## <a name="data-lake-analytics-limits"></a>Data Lake Analytics 제한
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
+
+## <a name="data-factory-limits"></a>데이터 팩터리 제한
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## <a name="data-lake-storage-limits"></a>Data Lake Storage 제한
 

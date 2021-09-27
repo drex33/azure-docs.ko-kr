@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9e5ffa69105e05cbb465b13672ae08be7c9dff5d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385050"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557900"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -68,5 +68,5 @@ ms.locfileid: "100385050"
 
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 엔드포인트 제거](cdn-purge-endpoint.md)
-* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](/rest/api/cdn/cdn/endpoints/loadcontent)
-* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](/rest/api/cdn/cdn/endpoints/purgecontent)
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](/rest/api/cdn/endpoints/load-content)
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](/rest/api/cdn/endpoints/purge-content)

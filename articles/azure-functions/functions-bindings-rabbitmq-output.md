@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: de6c5528bb62cecb130667b2e80a8884c7608a58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097316"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807087"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Azure Functions에 대한 RabbitMQ 출력 바인딩 개요
 
@@ -308,7 +308,7 @@ C# 스크립트 함수를 사용하는 경우:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-큐 메시지는 context.bindings를 통해 사용 가능합니다.<NAME> 여기서 <NAME>은 function.json에 정의된 이름과 일치합니다. 페이로드가 JSON인 경우 값은 개체로 역직렬화됩니다.
+큐 메시지는 context.bindings를 통해 사용 가능합니다.\<NAME\> 여기서 \<NAME\>은 function.json에 정의된 이름과 일치합니다. 페이로드가 JSON인 경우 값은 개체로 역직렬화됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

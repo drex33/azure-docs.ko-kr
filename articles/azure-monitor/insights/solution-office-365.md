@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 5aca623f9292a1e34eacd209b204436dc7fbdcea
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: c0cb4d4c1c9d37c7b449dd3e6d3c07ec2bd2476d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220841"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737395"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "123220841"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>솔루션 업데이트
-> 이 솔루션은 [Azure Sentinel](../../sentinel/overview.md)의 [Office 365](../../sentinel/connect-office-365.md) 일반 공급 솔루션과 [Azure AD 보고 및 모니터링 솔루션](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md)으로 대체되었습니다. 이와 함께 개선된 구성 환경으로 이전 Azure Monitor Office 365 솔루션의 업데이트된 버전을 제공합니다. 2020년 10월 31일까지 기존 솔루션을 계속 사용할 수 있습니다.
+> 이 솔루션은 [Azure Sentinel](../../sentinel/overview.md)의 [Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365) 일반 공급 솔루션과 [Azure AD 보고 및 모니터링 솔루션](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md)으로 대체되었습니다. 이와 함께 개선된 구성 환경으로 이전 Azure Monitor Office 365 솔루션의 업데이트된 버전을 제공합니다. 2020년 10월 31일까지 기존 솔루션을 계속 사용할 수 있습니다.
 > 
 > Azure Sentinel은 로그를 수집하고 탐지, 조사, 헌팅 및 기계 학습 기반 인사이트를 포함한 추가 SIEM 기능을 제공하는 클라우드 네이티브 보안 정보 및 이벤트 관리 솔루션입니다. 이제 Azure Sentinel을 사용하면 Office 365 SharePoint 작업 및 Exchange 관리 로그 수집이 제공됩니다.
 > 
@@ -91,10 +91,10 @@ ms.locfileid: "123220841"
 > ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>Q: Azure Sentinel 즉시 사용 가능한 보안 지향 콘텐츠를 사용하려면 어떻게 해야 하나요?
 > Azure Sentinel은 Office 365 및 Azure AD 로그를 기반으로 즉시 사용 가능한 보안 지향 대시보드, 사용자 지정 경고 쿼리, 헌팅 쿼리, 조사 및 자동화된 응답 기능을 제공합니다. Azure Sentinel GitHub 및 자습서를 살펴보고 자세히 알아봅니다.
 >
-> - [처음부터 위협 감지](/azure/sentinel/detect-threats-built-in)
-> - [의심스러운 위협을 검색하는 사용자 지정 분석 규칙 만들기](/azure/sentinel/detect-threats-custom)
-> - [데이터 모니터링](/azure/sentinel/monitor-your-data)
-> - [Azure Sentinel을 사용하여 인시던트 조사](/azure/sentinel/investigate-cases)
+> - [처음부터 위협 감지](../../sentinel/detect-threats-built-in.md)
+> - [의심스러운 위협을 검색하는 사용자 지정 분석 규칙 만들기](../../sentinel/detect-threats-custom.md)
+> - [데이터 모니터링](../../sentinel/monitor-your-data.md)
+> - [Azure Sentinel을 사용하여 인시던트 조사](../../sentinel/investigate-cases.md)
 > - [Azure Sentinel에서 자동화된 위협 응답 설정](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Azure Sentinel GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -265,7 +265,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | 형식 | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
+| 작업 | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |

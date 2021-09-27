@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: a8c5e7f21747bc4f37f766106931a8f303fa33d3
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: db9b8b71ddbdccb2cdc4893ce7ea041304bafba9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273403"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776617"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>용량 예약 만들기(미리 보기)
 
@@ -157,12 +157,12 @@ ms.locfileid: "123273403"
     -CapacityToReserve 5
     ```
 
-자세히 알아보려면 Azure PowerShell 명령 [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup) 및 [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation)으로 이동합니다.
+자세히 알아보려면 Azure PowerShell 명령 [New-AzResourceGroup](/powershell/module/az.Resources/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup) 및 [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation)으로 이동합니다.
 
 
 ### <a name="arm-template"></a>[ARM 템플릿](#tab/arm1)
 
- [ARM 템플릿](/azure/azure-resource-manager/templates/overview)은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이 템플릿은 선언적 구문을 사용합니다. 선언적 구문에서는 배포를 만들기 위한 프로그래밍 명령의 시퀀스를 작성하지 않고 의도하는 배포를 설명합니다. 
+ [ARM 템플릿](../azure-resource-manager/templates/overview.md)은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이 템플릿은 선언적 구문을 사용합니다. 선언적 구문에서는 배포를 만들기 위한 프로그래밍 명령의 시퀀스를 작성하지 않고 의도하는 배포를 설명합니다. 
 
 ARM 템플릿을 사용하면 관련 리소스 그룹을 배포할 수 있습니다. 단일 템플릿에서 용량 예약 그룹 및 용량 예약을 만들 수 있습니다. Azure Portal, Azure CLI 또는 Azure PowerShell을 통하거나 CI/CD(지속적인 통합/지속적인 업데이트) 파이프라인에서 템플릿을 배포할 수 있습니다. 
 

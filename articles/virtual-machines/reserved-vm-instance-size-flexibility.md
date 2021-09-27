@@ -1,19 +1,17 @@
 ---
 title: 가상 머신 크기 유연성 - Azure Reserved VM Instances
 description: 예약 할인은 예약 VM 인스턴스를 구입할 때에 어떤 크기 계열을 적용하는지 알아봅니다.
-author: yashesvi
 ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
-ms.author: yashar
-ms.openlocfilehash: 5576ee62f1945266dfb4bc2d9e41124a88ab17f5
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 7b556f485feaa1d6073802aac5aa02ad71e86856
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694232"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599053"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 

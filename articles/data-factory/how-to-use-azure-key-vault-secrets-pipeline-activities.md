@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 7ea57756eb272da42470fa60af2e4a0d5cd1abea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b94ceb3bc190f57e3e5190e89e1018fc8a6e77f6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642947"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831146"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
@@ -28,19 +28,19 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
 
 1. 데이터 팩터리의 속성을 열고 관리 ID 애플리케이션 ID 값을 복사합니다.
 
-    ![관리 ID 값](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png" alt-text="관리 ID 값":::
 
 2. 키 자격 증명 모음 액세스 정책을 열고 비밀을 가져오고 나열할 수 있는 관리 ID 권한을 추가합니다.
 
-    !['액세스 정책 추가' 작업이 강조 표시된 '액세스 정책' 페이지를 보여 주는 스크린샷](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="&quot; &quot; &quot; 액세스 정책 추가 &quot; 작업이 강조 표시 된 액세스 정책 페이지를 보여 주는 스크린샷":::
 
-    ![Key Vault 액세스 정책](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Key Vault 액세스 정책":::
 
     **추가** 를 클릭한 다음 **저장** 을 클릭합니다.
 
 3. 키 자격 증명 모음 비밀로 이동하여 비밀 식별자를 복사합니다.
 
-    ![비밀 식별자](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png" alt-text="비밀 식별자":::
 
     Data Factory 파이프라인을 실행하는 동안 가져오려는 비밀 URI를 적어 둡니다.
 
@@ -54,7 +54,7 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
     |인증     |MSI         |
     |리소스        |https://vault.azure.net       |
 
-    ![웹 활동](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="웹 작업":::
 
     > [!IMPORTANT]
     > 비밀 URI 끝에 **?api-version=7.0** 을 추가해야 합니다.  
@@ -64,7 +64,7 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
 
 5. 다른 작업의 값을 사용하려면 코드 식 **@activity('Web1').output.value** 을 사용합니다.
 
-    ![코드 식](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png" alt-text="코드 식":::
 
 ## <a name="next-steps"></a>다음 단계
 

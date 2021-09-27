@@ -4,17 +4,17 @@ description: 논리 값을 결정하기 위해 Bicep 파일에서 사용할 함�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 8fe09057ea293300754fc35614c00a9b808da247
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: e3a811102c31301386135042c79c205eeb9f7f9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529093"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758430"
 ---
 # <a name="logical-functions-for-bicep"></a>Bicep에 대한 논리 함수
 
-Resource Manager는 Bicep에 대한 `bool` 함수를 제공합니다. 
+Bicep은 `bool` 값을 부울로 변환하는 함수를 제공합니다.
 
 Azure Resource Manager 템플릿의 대부분의 논리 함수는 Bicep에서 [논리 연산자](./operators-logical.md)로 대체되었습니다.
 
@@ -36,7 +36,7 @@ Azure Resource Manager 템플릿의 대부분의 논리 함수는 Bicep에서 [�
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json)에서는 문자열 또는 정수에 bool을 사용하는 방법을 보여줍니다.
+다음 예제에서는 문자열 또는 정수에 bool을 사용하는 방법을 보여 줍니다.
 
 ```bicep
 output trueString bool = bool('true')
@@ -56,5 +56,4 @@ output falseInt bool = bool(0)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 대부분의 논리 연산은 [Bicep 논리 연산자](./operators-logical.md)를 참조하세요.
-* Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
+* 논리 값과 관련된 다른 작업은 논리 [연산자 를](./operators-logical.md)참조하세요.

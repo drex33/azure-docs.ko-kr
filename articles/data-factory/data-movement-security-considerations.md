@@ -1,18 +1,19 @@
 ---
 title: 보안 고려 사항
 description: Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다.
-ms.author: abnarain
-author: nabhishek
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/03/2021
-ms.openlocfilehash: 54c96aced03853b8a3f78ff0f348eeb6459afccc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 2b39017bb8d1a7e8527f8302190921463247f721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760302"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779695"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 
@@ -21,7 +22,7 @@ ms.locfileid: "108760302"
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
 
- [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+ [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
@@ -112,7 +113,7 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](./create-self-hosted-integration-runtime.md)을 참조하세요. 
 
-![자체 호스팅 통합 런타임 채널](media/data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-movement-security-considerations/data-management-gateway-channels.png" alt-text="자체 호스팅 통합 런타임 채널":::
 
 명령 채널은 Data Factory의 데이터 이동 서비스와 자체 호스팅 통합 런타임 간의 통신을 허용합니다. 통신에는 활동과 관련된 정보가 들어 있습니다. 데이터 채널은 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터를 전송하는 데 사용됩니다.    
 
@@ -156,11 +157,11 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 #### <a name="express-route"></a>Express 경로
 
-![게이트웨이가 있는 ExpressRoute 사용](media/data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="게이트웨이가 있는 ExpressRoute 사용"::: 
 
 #### <a name="ipsec-vpn"></a>IPSec VPN
 
-![게이트웨이가 있는 IPSec VPN](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="게이트웨이가 있는 IPSec VPN":::
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a>IP 주소에 대한 방화벽 구성 및 허용 목록 설정
 
@@ -187,7 +188,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 | ------------- | ---------------------------------------- |
 | 8060(TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
-![게이트웨이 포트 요구 사항](media/data-movement-security-considerations/gateway-port-requirements.png) 
+:::image type="content" source="media/data-movement-security-considerations/gateway-port-requirements.png" alt-text="게이트웨이 포트 요구 사항"::: 
 
 #### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>데이터 저장소에서 IP 구성 및 허용 목록 설정
 

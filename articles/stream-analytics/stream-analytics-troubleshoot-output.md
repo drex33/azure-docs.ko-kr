@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
-ms.translationtype: HT
+ms.openlocfilehash: 393d710ba411a6573a4cce155abd7c1aeae06aa8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112912792"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754879"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "112912792"
 
    * **입력 이벤트** 값이 0보다 크면 작업에서 입력 데이터를 읽을 수 있습니다. **입력 이벤트** 값이 0보다 크지 않은 경우 작업의 입력에 문제가 있습니다. 자세한 내용은 [입력 연결 문제 해결](stream-analytics-troubleshoot-input.md)을 참조하세요. 작업에 참조 데이터 입력이 있는 경우 **입력 이벤트** 메트릭을 볼 때 논리적 이름으로 분할을 적용합니다. 참조 데이터에서만 입력 이벤트가 없으면 입력 소스가 올바른 참조 데이터 세트를 가져오도록 올바르게 구성되지 않은 것일 수 있습니다.
    * **데이터 변환 오류** 가 값이 0보다 크고 증가하는 경우 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류](data-errors.md)를 참조하세요.
-   * **런타임 오류** 가 값이 0보다 크면 작업에서 데이터를 받지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동한 다음, **실패** 상태를 필터링합니다.
+   * **런타임 오류** 가 값이 0보다 크면 작업에서 데이터를 받지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-monitor/essentials/activity-log.md)로 이동한 다음, **실패** 상태를 필터링합니다.
    * **입력 이벤트** 값이 0보다 크고 **출력 이벤트** 값이 0이면 다음 명령문 중 하나가 true입니다.
       * 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
       * 이벤트 또는 필드가 잘못되어 쿼리 처리 후 제로 출력이 발생할 수 있습니다.

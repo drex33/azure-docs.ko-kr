@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 6c454c23eec0bb5b0fef1ceca3ad8f8e4c52493d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377127"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812600"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -19,62 +19,11 @@ AKS 클러스터를 만드는 과정에서 필요에 따라 클러스터 구성�
 
 ## <a name="os-configuration"></a>OS 구성
 
-AKS는 이제 1.18보다 높은 kubernetes 버전의 클러스터에 대해 GA(일반 공급)에서 기본 노드 운영 체제(OS)로 Ubuntu 18.04를 지원합니다. 1.18보다 낮은 버전의 경우 AKS Ubuntu 16.04가 여전히 기본 베이스 이미지입니다. kubernetes v1.18 이상에서 기본 베이스는 AKS Ubuntu 18.04입니다.
-
-> [!IMPORTANT]
-> Kubernetes v1.18 이상에서 생성된 노드 풀의 기본값은 `AKS Ubuntu 18.04` 노드 이미지입니다. 지원되는 Kubernetes 버전 1.18 이하의 노드 풀은 노드 이미지로 `AKS Ubuntu 16.04`를 수신하지만, 노드 풀 Kubernetes 버전이 v1.18 이상으로 업데이트되면 `AKS Ubuntu 18.04`로 업데이트됩니다.
-> 
-> 1\.18 이상에서 클러스터를 사용하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크로드를 테스트하는 것이 좋습니다.
-
-
-### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>새 클러스터에서 AKS Ubuntu 18.04(GA) 사용
-
-Kubernetes v1.18 이상에서 생성된 클러스터의 기본값은 `AKS Ubuntu 18.04` 노드 이미지입니다. 지원되는 Kubernetes 버전 1.18 이하의 노드 풀은 여전히 노드 이미지로 `AKS Ubuntu 16.04`를 수신하지만, 클러스터 또는 노드 풀 Kubernetes 버전이 v1.18 이상으로 업데이트되면 `AKS Ubuntu 18.04`로 업데이트됩니다.
-
-1\.18 이상에서 클러스터를 사용하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크로드를 테스트하는 것이 좋습니다.
-
-`AKS Ubuntu 18.04` 노드 이미지를 사용하여 클러스터를 생성하려면 아래와 같이 kubernetes v1.18 이상을 실행하는 클러스터를 생성하면 됩니다.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>기존 클러스터에서 AKS Ubuntu 18.04(GA) 사용
-
-Kubernetes v1.18 이상에서 생성된 클러스터의 기본값은 `AKS Ubuntu 18.04` 노드 이미지입니다. 지원되는 Kubernetes 버전 1.18 이하의 노드 풀은 여전히 노드 이미지로 `AKS Ubuntu 16.04`를 수신하지만, 클러스터 또는 노드 풀 Kubernetes 버전이 v1.18 이상으로 업데이트되면 `AKS Ubuntu 18.04`로 업데이트됩니다.
-
-1\.18 이상에서 클러스터를 사용하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크로드를 테스트하는 것이 좋습니다.
-
-클러스터 또는 노드 풀에 `AKS Ubuntu 18.04` 노드 이미지가 준비된 경우 아래와 같이 v1.18 이상으로 간단히 업그레이드할 수 있습니다.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-하나의 노드 풀만 업그레이드하려는 경우 다음을 수행합니다.
-
-```azurecli
-az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>기존 클러스터에서 AKS Ubuntu 18.04(GA) 테스트
-
-Kubernetes v1.18 이상에서 생성된 노드 풀의 기본값은 `AKS Ubuntu 18.04` 노드 이미지입니다. 지원되는 Kubernetes 버전 1.18 이하의 노드 풀은 여전히 노드 이미지로 `AKS Ubuntu 16.04`를 수신하지만, 노드 풀 Kubernetes 버전이 v1.18 이상으로 업데이트되면 `AKS Ubuntu 18.04`로 업데이트됩니다.
-
-프로덕션 노드 풀을 업그레이드하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크로드를 테스트하는 것이 좋습니다.
-
-`AKS Ubuntu 18.04` 노드 이미지를 사용하여 노드 풀을 생성하려면 Kubernetes v1.18 이상을 실행하는 노드 풀을 생성하기만 하면 됩니다. 클러스터 제어 영역이 v1.18 이상이어야 하지만, 다른 노드 풀은 이전 버전의 Kubernetes에 남아 있을 수 있습니다.
-아래에서는 먼저 컨트롤 플레인을 업그레이드한 다음, 새 노드 이미지 OS 버전을 받을 v1.18로 새 노드 풀을 생성합니다.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
-
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
+AKS는 클러스터에 대 한 GA (일반 공급)의 기본 노드 OS (운영 체제)로 Ubuntu 18.04를 지원 합니다.
 
 ## <a name="container-runtime-configuration"></a>컨테이너 런타임 구성
 
-컨테이너 런타임은 컨테이너를 실행하고 노드에서 컨테이너 이미지를 관리하는 소프트웨어입니다. 런타임은 Linux 또는 Windows에서 컨테이너를 실행하기 위해 sys-calls 또는 OS(운영 체제) 특정 기능을 추상화하는 데 도움이 됩니다. Linux 노드 풀의 경우 `containerd`는 Kubernetes 버전 1.19 이상을 사용하는 노드 풀에 사용되고, Docker는 Kubernetes 1.18 및 이전 버전을 사용하는 노드 풀에 사용됩니다. Windows Server 2019 노드 풀의 경우 `containerd`는 미리 보기에서 사용할 수 있으며 Kubernetes 1.20 이상을 사용하는 노드 풀에서 사용할 수 있지만, 기본적으로는 Docker가 계속 사용됩니다.
+컨테이너 런타임은 컨테이너를 실행하고 노드에서 컨테이너 이미지를 관리하는 소프트웨어입니다. 런타임은 Linux 또는 Windows에서 컨테이너를 실행하기 위해 sys-calls 또는 OS(운영 체제) 특정 기능을 추상화하는 데 도움이 됩니다. Linux 노드 풀의 경우 `containerd` 는 Kubernetes 버전 1.19 이상을 사용 하는 노드 풀에 사용 됩니다. Windows Server 2019 노드 풀의 경우 `containerd`는 미리 보기에서 사용할 수 있으며 Kubernetes 1.20 이상을 사용하는 노드 풀에서 사용할 수 있지만, 기본적으로는 Docker가 계속 사용됩니다.
 
 [`Containerd`](https://containerd.io/)는 노드에서 컨테이너를 실행하고 이미지를 관리하는 데 필요한 최소한의 기능 세트를 제공하는 [OCI](https://opencontainers.org/)(Open Container Initiative) 준수 핵심 컨테이너 런타임입니다. 이는 2017년 3월의 CNCF(Cloud Native Compute Foundation)에 [기증](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/)되었습니다. AKS가 사용하는 현재 Moby(업스트림 Docker) 버전은 위에 표시된 대로 이미 활용되고 `containerd`를 기반으로 빌드됩니다.
 

@@ -1,31 +1,31 @@
 ---
 title: SAP BW에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SAP Business Warehouse에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 SAP Business Warehouse 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 9adeff6f440f65d8bcfdf7bb16fff8f23aad856e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 7a1f472858480fff785f28abef9262721bcbc799
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836075"
 ---
-# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
+# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 SAP Business Warehouse 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [현재 버전](connector-sap-business-warehouse.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 BW(SAP Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory 백서를 사용한 SAP 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에 대한 서비스의 전반적인 지원을 알아보려면 각 SAP 커넥터, 비교 및 지침에 대한 자세한 소개와 함께 Azure Data Factory 사용하여 SAP [데이터 통합 백서를](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -66,7 +66,7 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -88,14 +88,14 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SapBw** 로 설정해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
-| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예:**
@@ -156,7 +156,7 @@ SAP BW에서 데이터를 복사하려면 데이터 세트의 형식 속성을 *
 
 SAP BW에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 원본의 형식 속성을 **SapBwSource** 로 설정해야 합니다. | 예 |
 | Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
@@ -197,9 +197,9 @@ SAP BW에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW에 대한 데이터 형식 매핑
 
-SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+SAP BW 데이터를 복사할 때 SAP BW 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| SAP BW 데이터 형식 | Data Factory 중간 데이터 형식 |
+| SAP BW 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | ACCP | Int |
 | CHAR | String |
@@ -231,4 +231,4 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

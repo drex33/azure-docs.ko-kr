@@ -3,12 +3,12 @@ title: 신뢰할 수 있는 Azure 서비스를 사용하여 네트워크 제한 
 description: 신뢰할 수 있는 Azure 서비스 인스턴스가 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하여 이미지를 끌어오거나 푸시할 수 있도록 합니다.
 ms.topic: article
 ms.date: 05/19/2021
-ms.openlocfilehash: f99215059308c6a2db1e7bce6b9f03580d2b53a4
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: da22d525bbe86403f26daf7c3505c5dadffe4b81
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286273"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654156"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>신뢰할 수 있는 서비스에서 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하도록 허용(미리 보기)
 
@@ -45,7 +45,7 @@ Azure Container Registry에는 다음을 포함하여 레지스트리에 대한 
 | Azure Security Center | [컨테이너 레지스트리용 Azure Defender](scan-images-defender.md)를 통한 취약성 검사 | No |
 |ACR 작업     | [ACR 작업에서 상위 레지스트리 또는 다른 레지스트리에 액세스](container-registry-tasks-cross-registry-authentication.md)       | Yes |
 |Machine Learning | 사용자 지정 Docker 컨테이너 이미지를 사용하여 Machine Learning 작업 영역에서 모델을 [배포](../machine-learning/how-to-deploy-custom-container.md) 또는 [학습](../machine-learning/how-to-train-with-custom-image.md)합니다. | Yes |
-|Azure Container Registry | [다른 Azure Container Registry에서 이미지 가져오기](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
+|Azure Container Registry | 네트워크 제한 Azure container registry에서 [이미지 가져오기](container-registry-import-images.md) | No |
 
 > [!NOTE]
 > 현재 신뢰할 수 있는 서비스 허용 설정을 사용하는 것은 App Service 및 Azure Container Instances를 비롯한 특정 다른 관리형 Azure 서비스에 적용되지 않습니다.

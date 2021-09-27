@@ -7,20 +7,20 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jingwang
-ms.openlocfilehash: 8d765a5150180303f55cc669da3ddb84deea68da
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: e68cb1e537fcf89a947a06ac11ff08f3ca6bec9d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815218"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>GitHub를 사용하여 Common Data Model 엔터티 참조 읽기
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory의 GitHub 커넥터는 데이터 흐름 매핑에서 [Common Data Model](format-common-data-model.md) 형식에 대한 엔터티 참조 스키마를 수신하는 데만 사용됩니다.
+Azure Data Factory 및 Synapse Analytics 파이프라인의 GitHub 커넥터는 데이터 흐름 매핑에서 [공통 데이터 모델](format-common-data-model.md) 형식에 대 한 엔터티 참조 스키마를 수신 하는 데만 사용 됩니다.
 
 ## <a name="create-a-linked-service-to-github-using-ui"></a>UI를 사용하여 GitHub에 연결된 서비스 만들기
 

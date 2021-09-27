@@ -2,18 +2,18 @@
 title: Azure 예약 구매
 description: Azure 예약을 구매하는 데 도움이 되는 중요 사항에 대해 알아보세요.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primattal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: d9de6322ac84a86902b5ef218df9abe8528b95a9
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.openlocfilehash: bbd57ed54171785ab8f2aedea93fa8c56cc0319c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231488"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653377"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -41,16 +41,18 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
     - 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 예약 공유 범위에는 등록 시 여러 Active Directory 테넌트가 포함됩니다.
     - Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다.
     - 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
+- **관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다. 관리 그룹에 대한 예약을 구입하려면 관리 그룹에 대한 읽기 권한이 있어야 하며 청구 구독에 대한 예약 소유자 또는 예약 구매자여야 합니다.
 
 사용 요금에 예약 할인을 적용할 때 Azure는 다음과 같은 순서로 예약을 처리합니다.
 
 1. 단일 리소스 그룹 범위를 사용하여 예약
 2. 단일 구독 범위를 사용하여 예약
-3. 공유 범위(여러 구독)를 사용하여 예약(앞에서 설명됨)
+3. 관리 그룹으로 범위가 한정된 예약
+4. 공유 범위(여러 구독)를 사용하여 예약(앞에서 설명됨)
 
 예약을 구매한 후 언제든지 범위를 업데이트할 수 있습니다. 업데이트하려면 예약으로 이동하고, **구성** 을 클릭하여 예약 범위를 다시 지정합니다. 예약 범위 재지정은 상거래 트랜잭션이 아닙니다. 따라서 예약 기간이 변경되지 않았습니다. 범위 업데이트에 대한 자세한 내용은 [예약을 구매한 후 범위 업데이트](manage-reserved-vm-instance.md#change-the-reservation-scope)를 참조하세요.
 
-![예약 범위 변경을 보여주는 예제](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="예약 범위 변경을 보여주는 예제" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## <a name="discounted-subscription-and-offer-types"></a>할인된 구독 및 제안 유형
 

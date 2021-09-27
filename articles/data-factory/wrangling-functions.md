@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f75ae0030316fafcc734644d4def4ad94d04b0d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528894"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732990"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
@@ -111,7 +111,7 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 
 이 옵션은 리본의 추출 옵션에서 액세스할 수 있습니다.
 
-![Power Query 열 추가](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query 열 추가":::
 
 ### <a name="for-tablecombinecolumns"></a>```Table.CombineColumns```의 경우
 

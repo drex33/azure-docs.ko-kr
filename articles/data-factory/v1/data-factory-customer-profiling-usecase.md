@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b8193039edd21db5a52eabca37c1e61880e49cfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f763c2ca499d68808c70318d2e3651c99b5b09af
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779752"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664210"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
@@ -30,26 +31,26 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.
 
-    ![샘플 파이프라인 타일](./media/data-factory-samples/SamplePipelinesTile.png)
+    :::image type="content" source="./media/data-factory-samples/SamplePipelinesTile.png" alt-text="샘플 파이프라인 타일":::
 3. **샘플 파이프라인** 블레이드에서 배포할 **고객 프로파일링** 을 클릭합니다.
 
-    ![샘플 파이프라인 블레이드](./media/data-factory-samples/SampleTile.png)
+    :::image type="content" source="./media/data-factory-samples/SampleTile.png" alt-text="샘플 파이프라인 블레이드":::
 4. 샘플에 대한 구성 설정을 지정합니다. 예를 들어 Azure Storage 계정 이름과 키, 논리적 SQL Server 이름, 데이터베이스, 사용자 ID, 암호 등입니다.
 
-    ![샘플 블레이드](./media/data-factory-samples/SampleBlade.png)
+    :::image type="content" source="./media/data-factory-samples/SampleBlade.png" alt-text="샘플 블레이드":::
 5. 구성 설정 지정을 마쳤으면 **만들기** 를 클릭하여 샘플 파이프라인 및 파이프라인에서 사용되는 연결된 서비스/테이블을 만듭니다/배포합니다.
 6. 이전에 **샘플 파이프라인** 블레이드에서 클릭한 샘플 타일에 배포 상태가 표시됩니다.
 
-    ![배포 상태](./media/data-factory-samples/DeploymentStatus.png)
+    :::image type="content" source="./media/data-factory-samples/DeploymentStatus.png" alt-text="배포 상태":::
 7. 샘플 타일에 **배포 성공** 메시지가 표시되면 **샘플 파이프라인** 블레이드를 닫습니다.  
 8. **데이터 팩터리** 블레이드에서 연결된 서비스, 데이터 집합 및 파이프라인이 데이터 팩터리에 추가된 것을 확인할 수 있습니다.  
 
-    ![데이터 팩터리 블레이드](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    :::image type="content" source="./media/data-factory-samples/DataFactoryBladeAfter.png" alt-text="데이터 팩터리 블레이드":::
 
 ## <a name="solution-overview"></a>솔루션 개요
 이 간단한 사용 사례는 Azure 데이터 팩터리를 사용하여 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법의 예로 사용할 수 있습니다.
 
-![엔드투엔드 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+:::image type="content" source="./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png" alt-text="엔드투엔드 워크플로":::
 
 이 그림은 배포된 후 Azure 포털에서 데이터 파이프라인을 표시하는 방법을 보여줍니다.
 

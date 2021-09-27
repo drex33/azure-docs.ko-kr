@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: c617b4c3558be2409c8bf2272e805a8b8cb9d349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 75061400eb68e3c17a24839e9e155e3a284607c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589799"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>IoT Hub에 IoT Edge 디바이스 등록
 
@@ -37,9 +37,9 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 
 설정할 디바이스가 많고 각 디바이스를 수동으로 프로비저닝하지 않으려면 다음 문서 중 하나를 읽고 IoT Hub Device Provisioning Service에서 IoT Edge를 사용하는 방법을 알아보세요.
 
-* [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-x509-certs.md)
+* [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-x509.md)
 * [TPM을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-simulated-device-linux.md)
-* [대칭 키를 사용하 여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-symmetric-keys.md)
+* [대칭 키를 사용하 여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

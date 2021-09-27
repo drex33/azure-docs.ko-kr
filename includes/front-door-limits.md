@@ -1,19 +1,19 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 6f950725e0cb889a55f39cd4fe1dd00760274880
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355150"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778878"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -89,3 +89,5 @@ ms.locfileid: "123355150"
 * 최대 규칙 엔진 동작 헤더 값 문자: 640자.
 * 최대 규칙 엔진 조건 헤더 값 문자: 256자.
 * 최대 ETag 헤더 크기: 128바이트
+
+규칙 엔진 구성에 적용되는 제한에 대한 자세한 내용은 [규칙 엔진 용어를 참조하세요.](../articles/frontdoor/front-door-rules-engine.md#terminology)

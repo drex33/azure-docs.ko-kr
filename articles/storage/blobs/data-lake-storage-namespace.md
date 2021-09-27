@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
-ms.translationtype: HT
+ms.openlocfilehash: 4eaee714d079836e0919621b2d2e5661d07dfe80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220507"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664849"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 
@@ -35,9 +35,9 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 후에는 해당 네임스페이스를 다시 플랫 네임스페이스로 되돌릴 수 없습니다. 따라서 개체 저장소 워크로드의 특성에 따라 계층 구조 네임스페이스를 사용하도록 설정하는 것이 적절한지를 고려해야 합니다.
 
-일부 워크로드는 계층 구조 네임스페이스를 사용하도록 설정해도 유용하지 않을 수 있습니다. 예를 들어 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 있습니다. 
+일부 워크로드는 계층 구조 네임스페이스를 사용하도록 설정해도 유용하지 않을 수 있습니다. 예를 들어 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 있습니다.
 
-또한 Blob 스토리지 기능 및 Azure 서비스 에코시스템에 대한 지원은 계속 증가하고 있지만, 계층 구조 네임스페이스가 있는 계정에서는 아직 지원되지 않는 일부 기능 및 Azure 서비스가 있습니다. [알려진 문제](data-lake-storage-known-issues.md)를 참조하세요. 
+또한 Blob 스토리지 기능 및 Azure 서비스 에코시스템에 대한 지원은 계속 증가하고 있지만, 계층 구조 네임스페이스가 있는 계정에서는 아직 지원되지 않는 일부 기능 및 Azure 서비스가 있습니다. [알려진 문제](data-lake-storage-known-issues.md)를 참조하세요.
 
 일반적으로 디렉터리를 조작하는 파일 시스템용으로 설계된 스토리지 워크로드에 대해 계층 구조 네임스페이스를 설정하는 것이 좋습니다. 여기에는 분석 처리에 주로 사용되는 모든 워크로드가 포함됩니다. 계층 구조 네임스페이스를 사용하면 높은 수준의 구성이 필요한 데이터 세트에도 유용합니다.
 

@@ -7,14 +7,17 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: denisgun
 ms.service: virtual-desktop
-ms.openlocfilehash: ddf70a56d3a787387d1364c88f26cd0faa5df6b3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: ec7efa35e6b6f036935e6a81f01348f3633f83be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219895"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627849"
 ---
 # <a name="screen-capture-protection"></a>화면 캡처 보호
+
+>[!IMPORTANT]
+>화면 캡처 보호는 Microsoft 365 정부 (GCC), GCC-High 및 Microsoft 365 DoD 환경에 대해 아직 지원 되지 않습니다.
 
 화면 캡처 보호 기능은 클라이언트 엔드포인트에서 중요한 정보가 캡처되지 않도록 방지합니다. 이 기능을 사용하도록 설정하면 원격 콘텐츠가 자동으로 차단되거나 스크린샷 및 화면 공유에서 숨겨집니다. 또한 원격 데스크톱 클라이언트는 화면을 캡처할 수 있는 악성 소프트웨어로부터 콘텐츠를 숨깁니다.
 

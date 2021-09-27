@@ -1,18 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1의 보안 개요 | Microsoft Docs
 description: 인증, 권한 부여, 네트워크 격리, 데이터 보호, 감사를 비롯한 Azure Data Lake Storage Gen1의 보안 기능에 대해 알아봅니다.
-services: data-lake-store
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: twooley
-ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: f6ea097209666d75696203163b2b99b927344fdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92146301"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651183"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -101,7 +100,7 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 
 ![활동 로그](./media/data-lake-store-security-overview/activity-logs.png "활동 로그")
 
-활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 
 ### <a name="diagnostics-logs"></a>진단 로그
 

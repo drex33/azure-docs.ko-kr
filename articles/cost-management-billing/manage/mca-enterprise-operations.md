@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: e5b1ecfd7b434ceefcff65178b7532575a759d45
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: HT
+ms.openlocfilehash: 66115b572f4a69b40c07f08dc1c849ce6ffb96c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440629"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659213"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료
 

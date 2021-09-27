@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f7e5340b69bacb14180b4feee7ada22c7ca298d0
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.openlocfilehash: aafd6f2e0d5c10b1e3e1698176734a83083ef72d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592703"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744510"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
@@ -156,7 +156,7 @@ SecurityEvent
 
 ## <a name="activity-log-example-when-rule-is-disabled"></a>규칙을 사용하지 않도록 설정한 경우 활동 로그 예제
 
-쿼리가 7일 동안 실패하면 Azure Monitor에서 로그 경고를 사용하지 않도록 설정하고 규칙의 청구를 중지합니다. Azure Monitor가 [Azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md)에서 로그 경고를 사용하지 않도록 설정한 정확한 시간을 확인할 수 있습니다. 
+쿼리가 7일 동안 실패하면 Azure Monitor에서 로그 경고를 사용하지 않도록 설정하고 규칙의 청구를 중지합니다. Azure Monitor가 [Azure 활동 로그](../../azure-monitor/essentials/activity-log.md)에서 로그 경고를 사용하지 않도록 설정한 정확한 시간을 확인할 수 있습니다. 
 
 이 예제를 참조하세요.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 37671dcb12f2ed1f230e236d68dcf2e6a49bae30
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: da4412d81dfaf6bb88b62aee26dfcd4cfd2402db
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531327"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810132"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 파일 이벤트 정규화 스키마 참조(공개 미리 보기)
 
@@ -54,9 +54,9 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 파일 이벤트 파�
 
 파일 이벤트 모델을 사용하는 콘텐츠에서 새 파서를 사용할 수 있도록 KQL 함수를 `imFileEvent` 원본 중립 파서에 추가합니다.
 
-## <a name="normalized-content-for-process-activity-data"></a>프로세스 활동 데이터에 대한 정규화된 콘텐츠
+## <a name="normalized-content-for-file-activity-data"></a>파일 작업 데이터에 대한 정규화된 콘텐츠
 
-파일 작업 ASIM 스키마 지원에는 정규화된 인증 파서가 있는 다음과 같은 기본 제공 분석 규칙에 대한 지원도 포함됩니다. Azure Sentinel GitHub 리포지토리에 대한 링크가 참조로 아래에 제공되지만, 이러한 규칙은 [Azure Sentinel 분석 규칙 갤러리](detect-threats-built-in.md)에서도 찾을 수 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
+파일 활동 ASIM 스키마에 대한 지원은 정규화된 파일 작업 파서를 사용하여 다음과 같은 기본 제공 분석 규칙에 대한 지원도 포함합니다. Azure Sentinel GitHub 리포지토리에 대한 링크가 참조로 아래에 제공되지만, 이러한 규칙은 [Azure Sentinel 분석 규칙 갤러리](detect-threats-built-in.md)에서도 찾을 수 있습니다. 연결된 GitHub 페이지를 사용하여 나열된 규칙에 대한 관련 헌팅 쿼리를 복사합니다.
 
 
 - [SUNBURST 및 SUPERNOVA 백도어 해시(정규화된 파일 이벤트)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
@@ -81,6 +81,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 파일 이벤트 파�
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블에 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 | | | |
 
 > [!NOTE]
@@ -91,7 +92,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 파일 이벤트 파�
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  Description       |
+| 필드               | 클래스       | 형식       |  설명       |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |

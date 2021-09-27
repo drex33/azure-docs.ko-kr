@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 4a21ede66501832512530513423bed018c92f1aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132638"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646951"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Azure Portal에서 청구 계정을 살펴볼 때 발생하는 문제 해결
 
@@ -32,7 +32,7 @@ Azure Portal에서 청구 계정을 볼 수 없는 경우 다음 옵션을 시�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 페이지 오른쪽 위에서 프로필(이메일 주소)을 선택합니다.
-1. **디렉터리 전환**을 선택합니다.  
+1. **디렉터리 전환** 을 선택합니다.  
     ![포털에서 디렉터리 전환을 선택하는 방법을 보여주는 스크린샷](./media/troubleshoot-account-not-found/select-switch-directory.png)
 1. **모든 디렉터리** 섹션에서 디렉터리를 선택합니다.  
     ![포털에서 디렉터리를 선택하는 방법을 보여주는 스크린샷](./media/troubleshoot-account-not-found/select-directory.png)

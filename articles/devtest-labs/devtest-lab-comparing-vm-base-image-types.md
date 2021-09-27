@@ -1,14 +1,14 @@
 ---
-title: DevTest Labs에서 사용자 지정 이미지와 수식 비교 | Microsoft 문서
+title: 사용자 지정 이미지와 수식 비교
 description: 사용자 환경에 가장 적합한 것이 무엇인지 결정할 수 있도록, VM 기반으로서 사용자 지정 이미지와 수식 사이의 차이점에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: f1fdb46decda2f72e64eff95cf57dba002168943
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: d78d6ba1f380b820fff9df7d82691334d40be8ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634006"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648509"
 ---
 # <a name="compare-custom-images-and-formulas-in-devtest-labs"></a>DevTest Lab에서 사용자 지정 이미지와 수식 비교
 [사용자 지정 이미지](devtest-lab-create-template.md) 및 [수식](devtest-lab-manage-formulas.md)은 모두 [새로 생성된 VM](devtest-lab-add-vm.md)의 기반으로 사용될 수 있습니다.  사용자 지정 이미지와 수식의 주요 차이점은 사용자 지정 이미지는 단지 VHD를 기반으로 한 이미지인 반면, 수식은 VHD *뿐만 아니라* 미리 구성된 설정(예: VM 크기, 가상 네트워크, 서브넷 및 아티팩트)을 기반으로 한 이미지라는 점입니다. 미리 구성된 설정은 VM을 만들 때 재정의될 수 있는 기본 값으로 설정됩니다. 

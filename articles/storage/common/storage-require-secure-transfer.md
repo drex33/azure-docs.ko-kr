@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c44336e41c173cffad28a52bed3c29ec13df497f
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
-ms.translationtype: HT
+ms.openlocfilehash: 65d877bce0bdcab35248d4b9a41b92f46c132903
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112323163"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630739"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>보안 연결을 보장하려면 보안 전송 필요
 
@@ -30,8 +30,8 @@ Azure Policy는 스토리지 계정에 보안 전송이 필요하도록 하는 �
 
 > [!NOTE]
 > Azure Storage에서 사용자 지정 도메인 이름에 대해 HTTPS를 지원하지 않으므로 사용자 지정 도메인 이름을 사용할 때 이 옵션이 적용되지 않습니다.
-> 
-> 이 보안 전송 설정은 TCP에는 적용되지 않습니다. 보안이 설정되지 않은 TCP를 사용하는 Azure Blob Storage에서 NFS 3.0 프로토콜 지원을 통한 연결이 성공합니다.  
+>
+> 이 보안 전송 설정은 TCP에는 적용되지 않습니다. 보안이 설정되지 않은 TCP를 사용하는 Azure Blob Storage에서 NFS 3.0 프로토콜 지원을 통한 연결이 성공합니다.
 
 ## <a name="require-secure-transfer-in-the-azure-portal"></a>Azure Portal에서 보안 전송 필요
 
@@ -54,15 +54,15 @@ Azure Policy는 스토리지 계정에 보안 전송이 필요하도록 하는 �
 
 ## <a name="require-secure-transfer-from-code"></a>코드에서 보안 전송 필요
 
-프로그래밍 방식으로 보안 전송을 요구하려면 스토리지 계정에서 _enableHttpsTrafficOnly_ 속성을 _True_ 로 설정합니다. 스토리지 리소스 공급자 REST API, 클라이언트 라이브러리 또는 도구를 사용하여 이 속성을 설정할 수 있습니다.
+프로그래밍 방식으로 보안 전송을 요구하려면 스토리지 계정에서 *enableHttpsTrafficOnly* 속성을 *True* 로 설정합니다. 스토리지 리소스 공급자 REST API, 클라이언트 라이브러리 또는 도구를 사용하여 이 속성을 설정할 수 있습니다.
 
-* [REST API](/rest/api/storagerp/storageaccounts)
-* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
-* [CLI](/cli/azure/storage/account)
-* [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
-* [Python SDK](https://pypi.org/project/azure-mgmt-storage)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
+- [REST API](/rest/api/storagerp/storageaccounts)
+- [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+- [CLI](/cli/azure/storage/account)
+- [NodeJS](https://www.npmjs.com/package/@azure/arm-storage/)
+- [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+- [Python SDK](https://pypi.org/project/azure-mgmt-storage)
+- [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)
 
 ## <a name="require-secure-transfer-with-powershell"></a>PowerShell을 통한 보안 전송 필요
 

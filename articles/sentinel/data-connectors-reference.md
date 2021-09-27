@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: d3f727b251c13bdc52de793919d85e984d8b78f2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 8cbd8861e7dc01e8615225dd88960b581fd4c2f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261234"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755080"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Azure Sentinel 데이터 커넥터 찾기
 
@@ -72,7 +72,7 @@ ms.locfileid: "123261234"
 > [!IMPORTANT]
 > 이 단계를 수행하는 경우 데이터 커넥터를 배포하기 전에 이 작업을 수행합니다.
 >
-Agari 함수 앱을 사용하여 Security Graph API를 통해 Azure Sentinel과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용하려면 [Sentinel 위협 인텔리전스 플랫폼 커넥터](connect-threat-intelligence.md)를 사용하도록 설정하고 Azure Active Directory에 [애플리케이션을 등록](/graph/auth-register-app-v2)해야 합니다.
+Agari 함수 앱을 사용하여 Security Graph API를 통해 Azure Sentinel과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용하려면 [Sentinel 위협 인텔리전스 플랫폼 커넥터](./connect-threat-intelligence-tip.md)를 사용하도록 설정하고 Azure Active Directory에 [애플리케이션을 등록](/graph/auth-register-app-v2)해야 합니다.
 
 이 프로세스는 [함수 앱 배포](connect-azure-functions-template.md) 시 사용할 세 가지 정보인 **그래프 테넌트 ID**, **그래프 클라이언트 ID** 및 **그래프 클라이언트 암호** 를 제공합니다(위 표의 *애플리케이션 설정* 참조).
 
@@ -163,7 +163,6 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 | --- | --- |
 | **데이터 수집 방법** | [**Log Analytics 에이전트 - 사용자 지정 로그**](connect-custom-logs.md) <br><br>[Alsid에 대한 추가 구성](#extra-configuration-for-alsid)|
 | **Log Analytics 테이블** | AlsidForADLog_CL |
-| **사용자 지정 로그 샘플 파일:** | https://github.com/Azure/azure-quickstart-templates/blob/master/alsid-syslog-proxy/logs/AlsidForAD.log |
 | **Kusto 함수 별칭:** | afad_parser |
 | **Kusto 함수 URL:** | https://aka.ms/sentinel-alsidforad-parser |
 | **지원 요소** | [Alsid](https://www.alsid.com/contact-us/) |
@@ -291,7 +290,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 #### <a name="data-structure-changes"></a>데이터 구조 변경
 
-이 커넥터는 최근에 활동 로그 이벤트를 수집하기 위한 백 엔드 메커니즘을 변경했습니다. 이제 **진단 설정** 파이프라인을 사용하고 있습니다. 이 커넥터에 기존 방식을 계속 사용하고 있다면 새 버전으로 *업그레이드* 하는 것이 좋습니다. 그러면 리소스 로그에 대한 일관성이 향상되고 더 나은 기능이 제공됩니다. 아래의 지침을 참조하세요.
+이 커넥터는 최근에 활동 로그 이벤트를 수집하기 위한 백 엔드 메커니즘을 변경했습니다. 이제 **진단 설정** 파이프라인을 사용하고 있습니다. 이 커넥터에 기존 방식을 계속 사용하고 있다면 새 버전으로 *업그레이드* 하는 것이 좋습니다. 그러면 리소스 로그에 대한 일관성이 향상되고 더 나은 기능이 제공됩니다. 아래의 지침을 따르세요.
 
 **AzureActivity** 테이블의 [구조가 일부 변경](../azure-monitor/essentials/activity-log.md#data-structure-changes)되었지만 **진단 설정** 메서드는 활동 로그 서비스에서 보낸 기존 메서드와 동일한 데이터를 보냅니다.
 
@@ -308,7 +307,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 새 Azure 활동 로그 커넥터를 설정하기 전에 레거시 메서드에서 기존 구독의 연결을 끊어야 합니다.
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **Azure 활동** 을 선택한 다음 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 클릭합니다.
+1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **Azure 활동** 을 선택한 다음, 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 클릭합니다.
 
 1. **지침** 탭 아래 **구성** 섹션의 1단계에서 레거시 메서드에 연결된 기존 구독 목록을 검토하여 새 메서드에 추가할 구독을 확인한 다음, 아래의 **모두 연결 끊기** 단추를 클릭하여 한 번에 모두 연결을 끊습니다.
 
@@ -1109,7 +1108,7 @@ end
 | **Log Analytics 테이블** | Okta_CL |
 | **Azure 함수 앱 코드** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **API 자격 증명** | <li>API 토큰 |
-| **공급업체 문서/<br>설치 지침** | <li>[Okta 시스템 로그 API 문서](https://developer.okta.com/docs/reference/api/system-log/)<li>[API 토큰 만들기](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Azure Sentinel에 Okta SSO 연결](connect-okta-single-sign-on.md) |
+| **공급업체 문서/<br>설치 지침** | <li>[Okta 시스템 로그 API 문서](https://developer.okta.com/docs/reference/api/system-log/)<li>[API 토큰 만들기](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Azure Sentinel에 Okta SSO 연결](#okta-single-sign-on-preview) |
 | **커넥터 배포 지침** | <li>ARM(Azure Resource Manager) 템플릿을 통한 [단일 클릭 배포](connect-azure-functions-template.md?tabs=ARM)<li>[수동 배포](connect-azure-functions-template.md?tabs=MPS) |
 | **애플리케이션 설정** | <li>apiToken<li>workspaceID<li>workspaceKey<li>uri(`https://<OktaDomain>/api/v1/logs?since=` 스키마를 따릅니다. [도메인 네임스페이스를 식별합니다](https://developer.okta.com/docs/reference/api-overview/#url-namespace).) <li>logAnalyticsUri(선택 사항) |
 | **지원 요소** | Microsoft |
@@ -1610,7 +1609,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 
 Zimperium Mobile Threat Defense 데이터 커넥터는 Zimperium 위협 로그를 Azure Sentinel에 연결하여 대시보드를 확인하고, 사용자 지정 경고를 만들고, 조사를 개선합니다. 이 커넥터는 조직의 모바일 위협 환경에 대한 자세한 인사이트를 제공하고 보안 작업 기능을 향상시킵니다. 자세한 지침은 다음을 참조하세요.
 
-Azure Sentinel 연결에 대한 자세한 내용은 [Zimperium을 Azure Sentinel에 연결](connect-zimperium-mtd.md)을 참조하세요.
+Azure Sentinel 연결에 대한 자세한 내용은 [Zimperium을 Azure Sentinel에 연결](#zimperium-mobile-thread-defense-preview)을 참조하세요.
 
 | 커넥터 특성 | Description |
 | --- | --- |

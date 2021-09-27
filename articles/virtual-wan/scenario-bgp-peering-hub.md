@@ -8,14 +8,21 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1f57d48d2fecded727e4087a138fa67c514bea0e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e570e5f06af814a6d0cbb581275d1c70ebf0df8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529312"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780797"
 ---
 # <a name="scenario-bgp-peering-with-a-virtual-hub-preview"></a>시나리오: 가상 허브와 BGP 피어링(미리 보기)
+
+> [!IMPORTANT]
+> Virtual WAN 허브 기능을 사용하는 BGP 피어링은 현재 제어된 공개 미리 보기 상태입니다. 이 기능을 사용하려는 경우 Virtual WAN 리소스의 리소스 ID와 함께 이메일( **previewbgpwithvhub@microsoft.com** )을 보내세요. 기능 활성화 확인을 받은 후에는 다음 doucmentation [페이지](create-bgp-peering-hub-portal.md) 를 따라 주요 고려 사항 및 자세한 구성 가이드를 참조 하세요. 
+>
+> 리소스 ID를 찾으려면 Azure Portal을 열고 Virtual WAN 리소스로 이동하고, **설정 > 속성 > 리소스 ID** 를 클릭합니다.<br> 예: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
+>
+
 
 가상 허브 라우터라고도 하는 Azure Virtual WAN 허브 라우터는 경로 관리자 역할을 하며, 가상 허브 내부와 가상 허브 간의 라우팅 작업을 단순화합니다. 즉, 가상 허브 라우터는 다음을 수행합니다.
 

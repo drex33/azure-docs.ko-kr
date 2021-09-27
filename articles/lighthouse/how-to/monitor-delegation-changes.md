@@ -1,15 +1,15 @@
 ---
 title: 관리 테넌트에서 위임 변경 내용 모니터링
 description: 관리 테넌트에 대한 모든 Azure Lighthouse 위임 활동을 모니터링하는 방법을 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2472e7519a6c45ff62fb0c0280f0886b4aa0ff4d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 7eb38ac8ac7f86fd179663fe7bfb3aa1fb4e8830
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077703"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819587"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테넌트에서 위임 변경 내용 모니터링
 
@@ -41,7 +41,9 @@ ms.locfileid: "112077703"
 액세스 권한을 상승시킨 후에는 테넌트 수준 활동 로그 데이터를 쿼리할 수 있도록 계정에 적절한 권한을 할당할 수 있습니다. 이 계정에 Azure 기본 제공 역할인 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 관리 테넌트의 루트 범위에서 할당해야 합니다.
 
 > [!IMPORTANT]
-> 루트 범위에서 역할 할당을 부여하는 것은 테넌트의 모든 리소스에 동일한 권한이 적용됨을 의미합니다. 이는 광범위한 수준의 액세스이기 때문에 [서비스 주체 계정에 이 역할을 할당하고 해당 계정을 사용하여 데이터를 쿼리](#use-a-service-principal-account-to-query-the-activity-log)할 수도 있습니다. 또한 루트 범위에서 개별 사용자 또는 사용자 그룹에 모니터링 리더 역할을 할당하여 [Azure Portal에서 직접 위임 정보를 볼](#view-delegation-changes-in-the-azure-portal) 수 있습니다. 광범위한 수준의 액세스이므로 이 작업을 수행할 경우 해당 권한은 가능한 한 최소한의 사용자로 제한해야 합니다.
+> 루트 범위에서 역할 할당을 부여하는 것은 테넌트의 모든 리소스에 동일한 권한이 적용됨을 의미합니다. 이는 광범위 한 액세스 이기 때문에 [서비스 주체 계정에이 역할을 할당 하 고 해당 계정을 사용 하 여 데이터를 쿼리](#use-a-service-principal-account-to-query-the-activity-log)하는 것이 좋습니다.
+> 
+> 또한 루트 범위에서 개별 사용자 또는 사용자 그룹에 모니터링 리더 역할을 할당하여 [Azure Portal에서 직접 위임 정보를 볼](#view-delegation-changes-in-the-azure-portal) 수 있습니다. 광범위한 수준의 액세스이므로 이 작업을 수행할 경우 해당 권한은 가능한 한 최소한의 사용자로 제한해야 합니다.
 
 다음 방법 중 하나를 사용하여 루트 범위를 할당합니다.
 

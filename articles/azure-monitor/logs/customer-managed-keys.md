@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 50200c4116dd8186a4ba51725f5880d25c753923
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: fdf632c298eeee10bac000f9695fc5e568043acd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272406"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607789"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -164,11 +164,15 @@ Azure Monitor 데이터에 대한 액세스와 키를 보호하기 위해 Key Va
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
@@ -296,6 +300,9 @@ BYOS(Bring Your Own Storage)를 작업 영역에 연결하면 서비스에서 *s
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -303,6 +310,9 @@ az monitor log-analytics workspace linked-storage create --type Query --resource
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -340,6 +350,9 @@ Content-type: application/json
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -347,6 +360,9 @@ az monitor log-analytics workspace linked-storage create --type ALerts --resourc
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 

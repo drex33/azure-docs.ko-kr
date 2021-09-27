@@ -8,14 +8,14 @@ ms.date: 10/06/2019
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8eaac1c68c9cff329fcc7b2c408063f01762169b
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: bacf4f808a7e963c11e8790636dabe1f3f4e4a47
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529548"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129044192"
 ---
-# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
+# <a name="use-distributed-tracing-with-azure-spring-cloud-deprecated"></a>Azure Spring Cloud 분산 추적 사용(사용되지 않습니다.)
 
 Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
 

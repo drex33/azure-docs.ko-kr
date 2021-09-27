@@ -9,12 +9,12 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d85659730ae78277056ec88c8a35c545646b38ab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5dcf695c17ac533acce2d73edf0b6f95efb3fe84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536211"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811898"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -52,7 +52,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 아래 이미지에는 이 수명 주기의 여러 단계가 강조 표시되어 있습니다.
 
-![Azure Pipelines를 사용하는 지속적인 통합 다이어그램](media/continuous-integration-deployment/continuous-integration-image12.png)
+:::image type="content" source="media/continuous-integration-deployment/continuous-integration-image12.png" alt-text="Azure Pipelines를 사용하는 지속적인 통합 다이어그램":::
 
 ## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Azure Pipelines 릴리스를 사용하여 지속적인 통합 자동화
 
@@ -72,25 +72,25 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 1.  페이지의 왼쪽에서 **파이프라인** 을 선택한 다음 **릴리스** 를 선택합니다.
 
-    ![파이프라인, 릴리스 선택](media/continuous-integration-deployment/continuous-integration-image6.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image6.png" alt-text="파이프라인, 릴리스 선택":::
 
 1.  **새 파이프라인** 을 선택하거나, 기존 파이프라인이 있는 경우에는 **새로 만들기** 를 선택한 다음 **새 릴리스 파이프라인** 을 선택합니다.
 
 1.  **빈 작업** 템플릿을 선택합니다.
 
-    ![빈 작업 선택](media/continuous-integration-deployment/continuous-integration-image13.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image13.png" alt-text="빈 작업 선택":::
 
 1.  **단계 이름** 상자에 사용자 환경의 이름을 입력합니다.
 
 1.  **아티팩트 추가** 를 선택한 다음 개발 Data Factory로 구성된 Git 리포지토리를 선택합니다. **기본 분기** 에 대한 리포지토리의 [게시 분기](source-control.md#configure-publishing-settings)를 선택합니다. 기본적으로 이 게시 분기는 `adf_publish`입니다. **기본 버전** 의 경우 **기본 분기에서 최신 버전** 을 선택합니다.
 
-    ![아티팩트 추가](media/continuous-integration-deployment/continuous-integration-image7.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image7.png" alt-text="아티팩트 추가":::
 
 1.  Azure Resource Manager 배포 작업을 추가합니다.
 
     a.  단계 보기에서 **단계 작업 보기** 를 선택합니다.
 
-    ![단계 보기](media/continuous-integration-deployment/continuous-integration-image14.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image14.png" alt-text="단계 보기":::
 
     b.  새 작업을 만듭니다. **ARM 템플릿 배포** 를 검색한 후 **추가** 를 선택합니다.
 
@@ -109,13 +109,13 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
     > [!WARNING]
     > 전체 배포 모드에서는 리소스 그룹에 있지만 새 Resource Manager 템플릿에 지정되지 않은 리소스가 **삭제** 됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
 
-    ![Data Factory Prod 배포](media/continuous-integration-deployment/continuous-integration-image9.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image9.png" alt-text="Data Factory Prod 배포":::
 
 1.  릴리스 파이프라인을 저장합니다.
 
 1. 릴리스를 트리거하려면 **릴리스 만들기** 를 선택합니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](/azure/devops/pipelines/release/triggers)를 참조하세요.
 
-   ![릴리스 만들기 선택](media/continuous-integration-deployment/continuous-integration-image10.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image10.png" alt-text="릴리스 만들기 선택":::
 
 > [!IMPORTANT]
 > CI/CD 시나리오에서는 서로 다른 환경에서의 IR(통합 런타임) 형식이 동일해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서 동일한 IR이 자체 호스팅 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 연결된 자체 호스팅으로 구성해야 합니다.
@@ -155,7 +155,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
     1.  Key Vault 작업에서 키 자격 증명 모음을 생성된 구독을 선택합니다. 필요한 경우 자격 증명을 제공하고 키 자격 증명 모음을 선택합니다.
 
-    ![Key Vault 작업 추가](media/continuous-integration-deployment/continuous-integration-image8.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image8.png" alt-text="Key Vault 작업 추가":::
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure Pipelines 에이전트에 권한 부여
 
@@ -191,19 +191,19 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 1. 데이터 팩터리의 **관리** 허브로 이동하고 “원본 제어” 섹션에서 **ARM 템플릿** 을 선택합니다. **ARM 템플릿** 섹션에서 **ARM 템플릿 내보내기** 를 선택하여 개발 환경에서 데이터 팩터리의 Resource Manager 템플릿을 내보냅니다.
 
-   ![Resource Manager 템플릿 내보내기](media/continuous-integration-deployment/continuous-integration-image-1.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image-1.png" alt-text="Resource Manager 템플릿 내보내기":::
 
 1. 테스트 및 프로덕션 Data Factory에서 **ARM 템플릿 가져오기** 를 선택합니다. 이 작업을 통해 Azure Portal로 이동합니다. 여기서 내보낸 템플릿을 가져올 수 있습니다. **편집기에서 사용자 고유의 템플릿 빌드** 를 선택하여 Resource Manager 템플릿 편집기를 엽니다.
 
-   ![사용자 고유의 템플릿 빌드](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+   :::image type="content" source="media/continuous-integration-deployment/custom-deployment-build-your-own-template.png" alt-text="사용자 고유의 템플릿 빌드"::: 
 
 1. **파일 로드** 를 선택하고 생성된 Resource Manager 템플릿을 선택합니다. 이는 1단계에서 내보낸 .zip 파일에 있는 **arm_template.json** 파일입니다.
 
-   ![템플릿 편집](media/continuous-integration-deployment/custom-deployment-edit-template.png)
+   :::image type="content" source="media/continuous-integration-deployment/custom-deployment-edit-template.png" alt-text="템플릿 편집":::
 
 1. 설정 섹션에서 연결된 서비스 자격 증명과 같은 구성 값을 입력합니다. 완료되면 **구매** 를 선택하여 Resource Manager 템플릿을 배포합니다.
 
-   ![설정 섹션](media/continuous-integration-deployment/continuous-integration-image5.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image5.png" alt-text="설정 섹션":::
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
@@ -220,14 +220,14 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 기본 Resource Manager 매개 변수 구성을 재정의하려면 **관리** 허브로 이동하고 “소스 제어” 섹션의 **ARM 템플릿** 을 선택합니다. **ARM 매개 변수 구성** 섹션 아래 “매개 변수 구성 편집”의 **편집** 아이콘을 클릭하여 Resource Manager 매개 변수 구성 코드 편집기를 엽니다.
 
-![사용자 지정 매개 변수 관리](media/author-management-hub/management-hub-custom-parameters.png)
+:::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="사용자 지정 매개 변수 관리":::
 
 > [!NOTE]
 > **ARM 매개 변수 구성** 은 “GIT 모드”에서만 사용하도록 설정됩니다. 현재 “라이브 모드” 또는 “Data Factory” 모드에서는 사용할 수 없습니다.
 
 사용자 지정 Resource Manager 매개 변수 구성을 생성하면 git 분기의 루트 폴더에 **arm-template-parameters-definition.json** 이라는 파일이 생성됩니다. 정확한 파일 이름을 사용해야 합니다.
 
-![사용자 지정 매개 변수 파일](media/continuous-integration-deployment/custom-parameters.png)
+:::image type="content" source="media/continuous-integration-deployment/custom-parameters.png" alt-text="사용자 지정 매개 변수 파일":::
 
 협업 분기에서 게시하는 경우 Data Factory가 이 파일을 읽고 해당 구성을 사용하여 매개 변수화된 속성을 생성합니다. 파일이 없는 경우 기본 템플릿이 사용됩니다.
 
@@ -343,7 +343,7 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
 * 데이터 세트에 대해 형식별 사용자 지정을 사용할 수 있지만, 명시적으로 \* 수준으로 구성하지 않고도 구성할 수 있습니다. 이전 예에서 `typeProperties` 아래의 모든 데이터 세트 속성은 매개 변수화됩니다.
 
 > [!NOTE]
-> 파이프라인에 대해 구성된 경우 **Azure 경고 및 매트릭스** 는 ARM 배포의 매개 변수로 현재 지원되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용하려면 [Data Factory 모니터링, 경고 및 매트릭스](./monitor-using-azure-monitor.md#data-factory-metrics)를 따르세요.
+> 파이프라인에 대해 **Azure 경고 및 매트릭스가** 구성 된 경우 현재 ARM 배포에 대 한 매개 변수로 지원 되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용하려면 [Data Factory 모니터링, 경고 및 매트릭스](./monitor-metrics-alerts.md)를 따르세요.
 > 
 
 ### <a name="default-parameterization-template"></a>기본 매개 변수화 템플릿
@@ -616,7 +616,7 @@ Data Factory에 CI/CD를 설정한 경우 팩터리가 증가함에 따라 Azure
 
 Git를 구성한 경우에는 연결된 템플릿이 생성되어 linkedTemplates라는 새 폴더의 adf_publish 분기에 전체 Resource Manager 템플릿과 함께 저장됩니다.
 
-![연결된 Resource Manager 템플릿 폴더](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+:::image type="content" source="media/continuous-integration-deployment/linked-resource-manager-templates.png" alt-text="연결된 Resource Manager 템플릿 폴더":::
 
 연결된 Resource Manager 템플릿은 일반적으로 마스터 템플릿과 마스터에 연결된 자식 템플릿 세트로 구성됩니다. 부모 템플릿은 ArmTemplate_master.json, 자식 템플릿은 ArmTemplate_0.json, ArmTemplate_1.json 등의 패턴으로 이름이 지정됩니다. 
 
@@ -718,7 +718,7 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 > [!NOTE]
 > `-deleteDeployment` 플래그는 ARM의 배포 기록에서 ADF 배포 항목의 삭제를 지정하는 데 사용됩니다.
 
-![Azure PowerShell 작업](media/continuous-integration-deployment/continuous-integration-image11.png)
+:::image type="content" source="media/continuous-integration-deployment/continuous-integration-image11.png" alt-text="Azure PowerShell 작업":::
 
 다음은 배포 전과 배포 후에 사용할 수 있는 스크립트입니다. 이는 삭제된 리소스 및 리소스 참조에 대한 스크립트입니다.
 

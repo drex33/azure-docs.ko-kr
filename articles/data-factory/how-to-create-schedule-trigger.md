@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
-ms.openlocfilehash: 833800da17302d2f28619cd1f66acfc476175a7f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: c21d06a97acd433445ee73e90833684c5cc36dac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824617"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815006"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -37,20 +37,20 @@ ms.locfileid: "122824617"
 1. Data Factory의 **편집** 탭 또는 Azure Synapse의 통합 탭으로 전환합니다. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-    ![편집 탭으로 전환](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab.png" alt-text="편집 탭으로 전환":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![편집 탭으로 전환](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png" alt-text="편집 탭으로 전환":::
 
 ---
     
 2. 메뉴에서 **트리거** 를 선택한 다음 **새로 만들기/편집** 을 선택합니다. 
 
-    ![새 트리거 메뉴](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="새 트리거 메뉴":::
 
 1. **트리거 추가** 페이지에서 **트리거 선택...** 을 선택한 다음 **+새로 만들기** 를 선택합니다. 
 
-    ![트리거 추가 - 새 트리거](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/add-trigger-new-button.png" alt-text="트리거 추가 - 새 트리거":::
 
 1. **새 트리거** 페이지에서 다음 단계를 수행합니다. 
 
@@ -66,30 +66,30 @@ ms.locfileid: "122824617"
     :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="일, 주 또는 월의 고급 되풀이 옵션":::
     1. 종료 날짜 시간을 지정하려면 **종료 날짜 지정** 을 선택하고 _종료 날짜_ 를 지정한 다음 **확인** 을 선택합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 솔루션을 게시한 후에만 적용됩니다.
 
-        ![트리거 설정](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-01.png" alt-text="트리거 설정":::
 
-        ![종료 날짜에 대한 트리거 설정](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+        :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-02.png" alt-text="종료 날짜에 대한 트리거 설정":::
 
 1. **새 트리거** 창의 **활성화됨** 옵션에서 **예** 를 선택한 다음 **확인** 을 선택합니다. 나중에 트리거를 비활성화하려면 이 확인란을 사용할 수 있습니다. 
 
-    ![트리거 설정 - 다음 단추](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/trigger-settings-next.png" alt-text="트리거 설정 - 다음 단추":::
 
 1. **새 트리거** 창에서 경고 메시지를 검토한 다음 **확인** 을 선택합니다.
 
-    ![트리거 설정 - 마침 단추](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-finish.png" alt-text="트리거 설정 - 마침 단추":::
 
 1. **모두 게시** 를 선택하여 변경 내용을 게시합니다. 변경 내용을 게시할 때까지 트리거는 파이프라인 실행 트리거를 시작하지 않습니다. 
 
-    ![게시 단추](./media/how-to-create-schedule-trigger/publish-2.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/publish-2.png" alt-text="게시 단추":::
 
 1. 왼쪽의 **파이프라인 실행** 탭으로 전환하고 **새로 고침** 을 선택하여 목록을 새로 고칩니다. 예약된 트리거에 의해 트리거된 파이프라인 실행이 표시됩니다. **트리거 기준** 열의 값을 확인합니다. **지금 트리거** 옵션을 사용하는 경우 목록에서 수동 트리거 실행이 표시됩니다. 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs.png" alt-text="트리거된 실행 모니터링":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![트리거된 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png" alt-text="트리거된 실행 모니터링":::
     
 ---
 
@@ -97,10 +97,10 @@ ms.locfileid: "122824617"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs.png" alt-text="트리거 실행 모니터링":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-    ![트리거 실행 모니터링](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    :::image type="content" source="./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png" alt-text="트리거 실행 모니터링":::
     
 ---
 

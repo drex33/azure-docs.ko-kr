@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3098d8ae1879c13e8380e9370475347bea064135
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88272574"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617966"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 탑재
 
@@ -100,7 +100,7 @@ IP 주소는 vserver에 대해 정의된 클라이언트 측 IP 주소 중 하�
 
 클라이언트 탑재를 원활하게 수행하려면 mount 명령에 다음 설정 및 인수를 전달합니다.
 
-``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | 필수 설정 | Description |
 --- | ---

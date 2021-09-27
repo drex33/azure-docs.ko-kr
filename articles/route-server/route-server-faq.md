@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: e17d49654b3c658ed133686e11d70c72b7f7f3b8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 382e768caa569d58476246bfd97ae4ac8321b52a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649022"
 ---
 # <a name="azure-route-server-faq"></a>Azure Route Server FAQ
 
@@ -48,6 +48,10 @@ Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 �
 
 Azure Route Server는 공용 IP 주소가 필요하므로 Route Server 구성을 관리하는 백엔드 서비스에 대한 연결을 보장해야 합니다. 
 
+### <a name="does-azure-route-server-support-ipv6"></a>Azure Route Server는 IPv6를 지원하나요?
+
+아니요. 나중에 IPv6 지원을 추가할 것입니다. 
+
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Azure Route Server가 둘 이상의 NVA에서 동일한 경로를 수신하는 경우 어떻게 처리하나요?
 
 경로의 AS 경로 길이가 동일한 경우 Azure Route Server는 가상 네트워크의 VM에 대해 각각 다른 다음 홉이 있는 경로의 여러 복사본을 프로그래밍합니다. VM이 이 경로의 대상으로 트래픽을 보낼 때 VM 호스트는 ECMP(등가 다중 경로) 라우팅을 수행합니다. 그러나 한 NVA가 다른 NVA보다 짧은 AS 경로 길이로 경로를 보내는 경우 Azure Route Server는 다음 홉이 이 NVA로 설정된 경로만 가상 네트워크의 VM으로 프로그래밍합니다.
@@ -55,6 +59,9 @@ Azure Route Server는 공용 IP 주소가 필요하므로 Route Server 구성을
 ### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>Azure Route Server는 수신하는 경로의 BGP 커뮤니티를 유지하나요?
 
 예. Azure Route Server는 BGP 커뮤니티를 있는 그대로 사용하여 경로를 전파합니다.
+
+### <a name="what-is-the-bgp-timer-setting-of-azure-route-server"></a>Azure Route Server의 BGP 타이머 설정은 무엇인가요?
+Keep-alive 타이머는 60초로 설정되고 보류 타이머는 180초로 설정됩니다.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>어떤 ASN(자율 시스템 번호)을 사용할 수 있나요?
 
@@ -92,7 +99,7 @@ Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
 | Azure Route Server가 ExpressRoute 또는 VPN 게이트웨이에 보급할 수 있는 경로 수 | 200 |
 | Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 가상 네트워크 포함)의 VM 수 | 2000 |
 
-Azure Route Server에서 지원할 수 있는 Vm 수는 하드 제한 되지 않습니다. 이는 Azure 지역 내에서 경로 서버 인프라를 배포 하는 방법에 따라 달라 집니다.
+Azure Route Server에서 지원할 수 있는 VM 수는 하드 제한이 아닙니다. 이는 Azure 지역 내에서 Route Server 인프라를 배포하는 방법에 따라 달라집니다.
 
 NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server 간에 BGP 세션이 끊어지면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
 

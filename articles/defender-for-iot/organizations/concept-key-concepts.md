@@ -1,16 +1,16 @@
 ---
 title: 주요 장점
 description: Defender for IoT의 기본 개념을 알아봅니다.
-ms.date: 12/13/2020
+ms.date: 09/09/2021
 ms.topic: article
-ms.openlocfilehash: ca1e5a4d8554b208f5275fd0e7519f2db3fafc08
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: be5c7f31cb652bb40f4bae35fa42b76d7a576276
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113021271"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836476"
 ---
-# <a name="basic-concepts"></a>기본 개념 
+# <a name="basic-concepts"></a>기본 개념
 
 이 문서에서는 Azure Defender for IoT의 주요 이점을 설명합니다.
 
@@ -63,9 +63,9 @@ Defender for IoT는 업계에서 유일하게 독점적 NTA(네트워크 트래�
 
 ## <a name="air-gapped-networks"></a>에어-갭이 있는 네트워크
 
-에어 갭이 있는 환경에서 작업하는 경우 Defender for IoT의 온-프레미스 관리 콘솔은 모든 시설 전반에서 주요 IoT 및 OT 위험 표시기 및 경고에 대한 실시간 보기를 제공합니다. SOC 워크플로 및 Runbook과 긴밀하게 통합되어 있어서 위협 완화 작업 및 사이트 간 상관관계의 우선 순위를 쉽게 파악할 수 있습니다.  
+에어 갭이 있는 환경에서 작업하는 경우 Defender for IoT의 온-프레미스 관리 콘솔은 모든 시설 전반에서 주요 IoT 및 OT 위험 표시기 및 경고에 대한 실시간 보기를 제공합니다. SOC 워크플로 및 Runbook과 긴밀하게 통합되어 있어서 위협 완화 작업 및 사이트 간 상관관계의 우선 순위를 쉽게 파악할 수 있습니다.
 
-Defender for IoT는 모든 디바이스에 대한 통합 보기를 제공합니다. 또한 유형(PLC, RTU, DCS 등), 제조업체, 모델, 펌웨어 수정 수준과 더불어 경고 정보와 같은 디바이스에 대한 중요한 정보를 제공합니다.  
+Defender for IoT는 모든 디바이스에 대한 통합 보기를 제공합니다. 또한 유형(PLC, RTU, DCS 등), 제조업체, 모델, 펌웨어 수정 수준과 더불어 경고 정보와 같은 디바이스에 대한 중요한 정보를 제공합니다.
 
 Defender for IoT를 사용하면 여러 배포를 효과적으로 관리하고 네트워크를 종합적이면서도 통합적으로 볼 수 있습니다. Defender for IoT는 경고 처리 및 운영 네트워크 보안에 대한 제어를 최적화합니다.
 
@@ -113,6 +113,7 @@ Defender for IoT를 사용하면 여러 배포를 효과적으로 관리하고 �
 
 사용자 지정된 조건부 경고 트리거 및 메시징은 특정 네트워크 활동을 정확하게 파악하고 보안, IT, 운영 팀에 새로운 정보를 효과적으로 제공하는 데 도움이 됩니다.
 
+지원되는 프로토콜의 전체 목록은 [지원되는 프로토콜 을 참조하세요.](concept-supported-protocols.md#supported-protocols)
 
 ## <a name="high-availability"></a>고가용성
 

@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: 1e656227387bebc9806ad06574084bd01fcc0b35
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: f9c5df5bf086e5d80c8f506aa8bb718427755d7a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680683"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance 연결 문제 및 기타 오류 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -70,15 +70,15 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-26-error-locating-server-specified"></a>오류 26: 지정된 서버를 찾는 동안 오류 발생
 
-``System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)``
+`System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)`
 
 #### <a name="error-40-could-not-open-a-connection-to-the-server"></a>오류 40: 서버에 대한 연결을 열 수 없음
 
-``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
+`A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)`
 
 #### <a name="error-10053-a-transport-level-error-has-occurred-when-receiving-results-from-the-server"></a>오류 10053: 서버에서 결과를 받을 때 전송 수준 오류 발생
 
-``10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)``
+`10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)`
 
 애플리케이션에서 서버에 연결할 수 없는 경우 이러한 문제가 발생합니다.
 
@@ -98,7 +98,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="login-failed-for-user--user-name-"></a>'<사용자 이름>' 사용자에 대한 로그인 실패
 
-``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
+`Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)`
 
 이 문제를 해결하려면 서비스 관리자에게 문의하여 유효한 사용자 이름과 암호를 확인합니다.
 
@@ -152,19 +152,19 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="systemdatasqlclientsqlexception-0x80131904-connection-timeout-expired"></a>System.Data.SqlClient.SqlException (0x80131904): 연결 제한 시간이 만료됨
 
-``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
+`System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;`
 
 ### <a name="systemdatasqlclientsqlexception-0x80131904-timeout-expired"></a>System.Data.SqlClient.SqlException (0x80131904): 제한 시간이 만료됨
 
-``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
+`System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.`
 
 ### <a name="systemdataentitycoreentityexception-the-underlying-provider-failed-on-open"></a>System.Data.Entity.Core.EntityException: 열 때 기본 공급자가 실패
 
-``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
+`System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out`
 
 ### <a name="cannot-connect-to--server-name-"></a><서버 이름>에 연결할 수 없음
 
-``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
+`Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out`
 
 이러한 예외는 연결 또는 쿼리 문제로 인해 발생할 수 있습니다. 이 오류의 원인이 연결 문제인지 확인하려면 [연결 문제로 인해 오류가 발생했는지 확인](#confirm-whether-an-error-is-caused-by-a-connectivity-issue)을 참조하세요.
 
@@ -174,7 +174,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-10928-resource-id-d"></a>오류 10928: 리소스 ID:%d
 
-``10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.``
+`10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.`
 
 이 문제를 해결하려면 다음 방법 중 하나를 시도해 보세요.
 
@@ -203,11 +203,11 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-10929-resource-id-1"></a>오류 10929: 리소스 ID: 1
 
-``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
+`10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.`
 
 ### <a name="error-40501-the-service-is-currently-busy"></a>오류 40501: 현재 서비스 사용량이 너무 많습니다.
 
-``40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.``
+`40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.`
 
 이는 리소스 한도를 초과했음을 나타내는 엔진 제한 오류입니다.
 
@@ -215,7 +215,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-40544-the-database-has-reached-its-size-quota"></a>오류 40544: 데이터베이스가 크기 할당량에 도달했습니다.
 
-``40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.``
+`40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.`
 
 이 오류는 데이터베이스가 크기 할당량에 도달했을 때 발생합니다.
 
@@ -245,7 +245,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-40549-session-is-terminated-because-you-have-a-long-running-transaction"></a>오류 40549: 트랜잭션을 오래 실행하여 세션이 종료됩니다.
 
-``40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.``
+`40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.`
 
 이 오류가 반복적으로 발생하는 경우 다음 단계를 수행하여 문제를 해결해 보세요.
 
@@ -270,7 +270,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>오류 40551: TEMPDB 사용량이 너무 많아 세션이 종료됨
 
-``40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.``
+`40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.`
 
 이 문제를 해결하려면 아래 단계를 수행합니다.
 
@@ -280,7 +280,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-40552-the-session-has-been-terminated-because-of-excessive-transaction-log-space-usage"></a>오류 40552: 트랜잭션 로그 공간 사용량이 너무 많아 세션이 종료됨
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 이 문제를 해결하려면 다음 방법을 사용해 보세요.
 
@@ -297,7 +297,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 ### <a name="error-40553-the-session-has-been-terminated-because-of-excessive-memory-usage"></a>오류 40553: 메모리 사용량이 너무 많아 세션이 종료됨
 
-``40553 : The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.``
+`40553: The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.`
 
 이 문제를 해결하려면 쿼리를 최적화해 보세요.
 

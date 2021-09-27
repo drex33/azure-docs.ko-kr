@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 4e8f1847459d16f82b029f9719d87b61dd243524
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: ecb99e0add9700bce297f2dfc31e8220e02b0315
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542382"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652968"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용하여 네트워크 연결 모니터링
 
@@ -74,7 +74,7 @@ NSG(네트워크 보안 그룹) 또는 방화벽에 대한 규칙은 원본과 �
 
 ### <a name="agents-for-on-premises-machines"></a>온-프레미스 컴퓨터용 에이전트
 
-연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치합니다.  그런 다음, [네트워크 성능 모니터 솔루션](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution)을 사용하도록 설정합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결되므로 에이전트가 모니터링을 시작하려면 먼저 작업 영역 ID 및 기본 키를 설정해야 합니다.
+연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치합니다.  그런 다음, [네트워크 성능 모니터 솔루션](/azure/azure-monitor/insights/network-performance-monitor#configure-the-solution)을 사용하도록 설정합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결되므로 에이전트가 모니터링을 시작하려면 먼저 작업 영역 ID 및 기본 키를 설정해야 합니다.
 
 Windows 머신에 Log Analytics 에이전트를 설치하려면 [Windows에 Log Analytics 에이전트 설치](../azure-monitor/agents/agent-windows.md)를 참조하세요.
 
@@ -406,7 +406,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
    
 네트워크 성능 모니터 및 연결 모니터(클래식)에서 연결 모니터로 마이그레이션해야 하는 몇 가지 이유가 있습니다. 다음은 Azure의 연결 모니터가 네트워크 성능 모니터 및 연결 모니터(클래식)에 대해 수행하는 방식을 보여 주는 몇 가지 사용 사례입니다. 
 
- | 기능  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
+ | 특징  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
  | -------  | --------------------------- | -------------------------- | ------------------ | 
  | Azure 및 하이브리드 모니터링을 위한 통합 환경 | 사용할 수 없음 | 사용할 수 없음 | 사용 가능 |
  | 구독 간, 지역 간, 작업 영역 간 모니터링 | 구독 간, 지역 간 모니터링을 허용하지만 작업 영역 간 모니터링을 허용하지 않음 | 사용할 수 없음 | 구독 간, 작업 영역 간 모니터링을 허용함, Azure 에이전트에는 지역 경계가 있음  |

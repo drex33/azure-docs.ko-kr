@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/24/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 625df6ed5147b77a9829b6e7b3396f4855068d62
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 0bf72b57a5ecaed85659ed461b66597db7f2fd19
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538498"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061431"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -46,6 +46,7 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 * 영국 남부 및 영국 서부
 * 아랍에미리트 북부 및 아랍에미리트 중부
 * 노르웨이 동부 및 노르웨이 서부
+* US Gov 버지니아 및 US Gov 텍사스
 
 ### <a name="azure-regional-non-standard-pairs"></a>Azure 지역 비표준 쌍
 

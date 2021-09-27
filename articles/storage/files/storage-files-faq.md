@@ -3,16 +3,16 @@ title: Azure Files에 대한 FAQ(질문과 대답) | Microsoft Docs
 description: Azure Files에 관해 자주 묻는 질문에 대한 답변을 얻습니다. Azure 파일 공유를 클라우드 또는 온-프레미스 Windows, Linux 또는 macOS 배포에 동시에 탑재할 수 있습니다.
 author: roygara
 ms.service: storage
-ms.date: 02/23/2020
+ms.date: 09/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 3a19493657e368bf65921f4be7bdd5c9154b77a4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f3ce223174bc92fefd9f31c53709665749eca112
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536782"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627903"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -165,7 +165,7 @@ ms.locfileid: "123536782"
   **Windows 탐색기에서 계층화된 파일에 썸네일 또는 미리 보기가 표시되지 않는 이유는 무엇인가요?**  
     계층화된 파일의 경우 서버 엔드포인트에 썸네일 및 미리 보기가 표시되지 않습니다. 이러한 동작은 Windows의 썸네일 캐시 기능이 오프라인 특성을 사용하여 파일 읽기를 의도적으로 건너뛰기 때문에 발생할 수 있습니다. 클라우드 계층화를 사용하는 경우 계층화된 파일을 통해 읽으면 해당 파일을 다운로드(회수)할 수 있습니다.
 
-    이 동작은 Azure 파일 동기화와 관련이 없습니다. Windows 탐색기는 오프라인 특성이 설정된 모든 파일에 대해 “회색 X”를 표시합니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시됩니다. 이 동작에 관한 자세한 설명은 [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)를 참조하세요.
+    이 동작은 Azure 파일 동기화와 관련이 없습니다. Windows 탐색기는 오프라인 특성이 설정된 모든 파일에 대해 “회색 X”를 표시합니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시됩니다. 이 동작에 대 한 자세한 설명은 [오프 라인으로 표시 된 파일에 대 한 미리 보기를 가져오지 않는 이유](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105) 를 참조 하세요.
 
     계층화된 파일 관리 방법에 관한 질문은 [계층화된 파일을 관리하는 방법](../file-sync/file-sync-how-to-manage-tiered-files.md)을 참조하세요.
 
@@ -245,7 +245,7 @@ ms.locfileid: "123536782"
    Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure Storage 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](../common/storage-compliance-offerings.md)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 * <a id="afs-power-outage"></a>
-  **서버 엔드포인트를 종료하는 정전이 있는 경우 Azure 파일 동기화 미치는 영향** 영향을 미치지 않습니다. Azure 파일 동기화 서버 엔드포인트가 다시 온라인이 되면 클라우드 엔드포인트 및 서버 엔드포인트가 동기화되도록 서버 엔드포인트에 대한 변경 내용을 조정합니다.
+  **서버 엔드포인트를 종료하는 정전이 있는 경우 Azure 파일 동기화 미치는 영향** 영향을 미치지 않습니다. Azure 파일 동기화 서버 엔드포인트가 다시 온라인 상태이면 클라우드 엔드포인트 및 서버 엔드포인트가 동기화되도록 서버 엔드포인트에 대한 변경 내용을 조정합니다.
 
 * <a id="file-auditing"></a>
 **Azure Files의 파일 액세스 및 변경 내용을 감사하려면 어떻게 해야 하나요?**

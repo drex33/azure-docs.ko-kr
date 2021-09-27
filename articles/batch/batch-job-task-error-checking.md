@@ -3,14 +3,14 @@ title: 작업 및 태스크 오류 확인
 description: 작업 및 태스크에서 확인할 오류와 해결하는 방법을 알아봅니다.
 author: mscurrell
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 09/08/2021
 ms.author: markscu
-ms.openlocfilehash: d8cf3b5e28d4455e00e0bdcbae2063771d3e8acd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 31ca874ebb4e3d11d46ff47e775605ffdd015f63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95736802"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815371"
 ---
 # <a name="job-and-task-error-checking"></a>작업 및 태스크 오류 검사
 
@@ -25,7 +25,7 @@ ms.locfileid: "95736802"
 작업을 추가하는 경우 작업이 실패할 수 있는 방법에 영향을 줄 수 있는 다음 매개 변수를 지정할 수 있습니다.
 
 - [작업 제약 조건](/rest/api/batchservice/job/add#jobconstraints)
-  - 선택적으로 `maxWallClockTime` 속성을 지정하여 작업을 활성화하거나 실행할 수 있는 최대 시간을 설정할 수 있습니다. 이를 초과하면 작업에 대한 [executionInfo](/rest/api/batchservice/job/get#cloudjob)에 설정된 `terminateReason` 속성과 함께 작업이 종료됩니다.
+  - 선택적으로 `maxWallClockTime` 속성을 지정하여 작업을 활성화하거나 실행할 수 있는 최대 시간을 설정할 수 있습니다. 이를 초과하면 작업에 대한 [executionInfo](/rest/api/batchservice/job/get#jobexecutioninformation)에 설정된 `terminateReason` 속성과 함께 작업이 종료됩니다.
 - [작업 준비 태스크](/rest/api/batchservice/job/add#jobpreparationtask)
   - 지정된 경우 작업 준비 태스크는 노드의 작업에 대해 작업을 처음 실행할 때 실행됩니다. 작업 준비 태스크가 실패할 수 있으며 이로 인해 태스크가 실행되지 않고 작업이 완료되지 않습니다.
 - [작업 릴리스 태스크](/rest/api/batchservice/job/add#jobreleasetask)
@@ -41,7 +41,7 @@ ms.locfileid: "95736802"
 
 ### <a name="job-preparation-tasks"></a>작업 준비 태스크
 
-작업에 대해 작업 준비 태스크가 지정된 경우 해당 작업의 태스크가 한 노드에서 처음으로 실행될 때 해당 태스크의 인스턴스가 실행됩니다. 작업에 대해 구성된 작업 준비 태스크는 풀의 노드 수까지 실행되는 여러 작업 준비 태스크 인스턴스와 함께 태스크 템플릿으로 간주할 수 있습니다.
+작업에 대해 [작업 준비 태스크가](batch-job-prep-release.md#job-preparation-task) 지정 된 경우 해당 작업의 인스턴스가 한 노드에서 처음으로 실행 될 때 해당 작업의 인스턴스가 실행 됩니다. 작업에 대해 구성된 작업 준비 태스크는 풀의 노드 수까지 실행되는 여러 작업 준비 태스크 인스턴스와 함께 태스크 템플릿으로 간주할 수 있습니다.
 
 오류가 있는지 확인하려면 작업 준비 태스크 인스턴스를 확인해야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "95736802"
 
 ### <a name="job-release-tasks"></a>작업 릴리스 태스크
 
-작업에 대해 작업 릴리스 태스크가 지정된 경우 작업을 종료하면 작업 준비 태스크가 실행된 각 풀 노드에서 작업 릴리스 태스크의 인스턴스가 실행됩니다. 오류가 있는지 확인하려면 작업 릴리스 태스크 인스턴스를 확인해야 합니다.
+작업에 대해 [작업 해제 태스크가](batch-job-prep-release.md#job-release-task) 지정 된 경우 작업이 종료 될 때 작업 준비 태스크가 실행 된 각 풀 노드에서 작업 해제 태스크의 인스턴스가 실행 됩니다. 오류가 있는지 확인하려면 작업 릴리스 태스크 인스턴스를 확인해야 합니다.
 
 - 실행 중인 작업 릴리스 태스크의 모든 인스턴스는 [목록 준비 및 릴리스 태스크 상태](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) API를 사용하여 작업에서 가져올 수 있습니다. 모든 태스크와 마찬가지로 `failureInfo`, `exitCode`, `result` 등의 속성과 함께 사용 가능한 [실행 정보](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation)가 있습니다.
 - 하나 이상의 작업 릴리스 태스크가 실패한 경우에도 작업이 종료되고 `completed` 상태로 전환됩니다.
@@ -92,4 +92,4 @@ ms.locfileid: "95736802"
 ## <a name="next-steps"></a>다음 단계
 
 - 애플리케이션에서 포괄적인 오류 검사를 구현하는지 확인합니다. 즉시 문제를 검색하고 진단하는 것이 중요할 수 있습니다.
-- [작업 및 태스크](jobs-and-tasks.md)에 대해 자세히 알아봅니다.
+- 작업 [및 태스크](jobs-and-tasks.md) 와 [작업 준비 및 릴리스 작업](batch-job-prep-release.md)에 대해 자세히 알아보세요.

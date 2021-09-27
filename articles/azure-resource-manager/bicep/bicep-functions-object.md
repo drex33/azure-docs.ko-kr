@@ -4,24 +4,17 @@ description: Bicep 파일에서 개체 작업에 사용하는 함수에 대해 �
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: cc83fcce125a045bbff05147ad22be46a085fe22
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027103"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124758449"
 ---
 # <a name="object-functions-for-bicep"></a>Bicep에 대한 개체 함수
 
-Resource Manager는 Bicep 파일에서 개체 작업을 위한 여러 함수를 제공합니다.
-
-* [contains](#contains)
-* [empty](#empty)
-* [intersection](#intersection)
-* [json](#json)
-* [length](#length)
-* [union](#union)
+이 문서에서는 개체 작업을 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="contains"></a>포함
 
@@ -31,7 +24,7 @@ Resource Manager는 Bicep 파일에서 개체 작업을 위한 여러 함수를 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -67,7 +60,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -84,7 +77,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -108,7 +101,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -122,7 +115,7 @@ output stringEmpty bool = empty(testString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -163,7 +156,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -178,7 +171,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열이어야 합니다. |
 
@@ -214,7 +207,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
 | objectOutput | Object | {"a": "b"} |
@@ -232,7 +225,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -268,7 +261,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -282,7 +275,7 @@ output objectLength int = length(objectToTest)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
@@ -326,7 +319,7 @@ output arrayOutput array = union(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

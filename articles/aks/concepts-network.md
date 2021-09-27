@@ -4,12 +4,12 @@ description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56c98163434fbe2d29cf49bf750d6f7d1cfe0d2b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
-ms.translationtype: HT
+ms.openlocfilehash: bdedde17692aca614c3d33b884950a4cd01b02e4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105343"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610715"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -134,7 +134,8 @@ kubenet과 Azure CNI 간에는 다음의 동작 차이점이 존재합니다.
 | VPN 또는 Express 경로를 사용하여 온-프레미스 액세스                                                | Pod에 의해 시작된 경우 작동함 | 두 가지 방식 작동 |
 | 서비스 엔드포인트에 의해 보호되는 리소스 액세스                                             | 지원 여부 | 지원 여부 |
 | 부하 분산 장치 서비스, App Gateway 또는 수신 컨트롤러를 사용하는 Expose Kubernetes 서비스 | 지원 여부 | 지원 여부 |
-| 기본 Azure DNS 및 프라이빗 영역                                                          | 지원 여부 | 지원 여부 |
+| 기본 Azure DNS 및 프라이빗 영역                                                          | 지원 여부 | 지원됨 |
+| Windows 노드 풀 지원                                                               | 지원되지 않음 | 지원됨 |
 
 DNS에 대해서는, kubenet 및 Azure CNI 플러그인 DNS 모두 자체 자동 크기 조정기로 AKS에서 실행되는 배포인 CoreDNS를 통해 제공됩니다. Kubernetes의 CoreDNS에 대한 자세한 내용은 [DNS 서비스 사용자 지정](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)을 참조하세요. CoreDNS는 알 수 없는 도메인을 AKS 클러스터가 배포되는 Azure 가상 네트워크의 DNS 기능으로 전달하도록 기본적으로 구성됩니다. 따라서 Azure DNS와 프라이빗 영역은 AKS에서 실행되는 Pod에 대해 작동합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 권장 보안 방법
 description: Azure Lighthouse를 사용하는 경우 보안 및 액세스 제어를 고려하는 것이 중요합니다.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: 52bc5301633f8e9d92aeaeee22ecf34b6458fccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768266"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782369"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -44,6 +44,9 @@ ms.locfileid: "113768266"
 관련 그룹을 만든 후 필요에 따라 사용자를 할당할 수 있습니다. 실제로 액세스 권한이 필요한 사용자만 추가합니다. 그룹 멤버 자격을 정기적으로 검토하고 더 이상 적절하지 않거나 포함할 필요가 없는 모든 사용자를 제거해야 합니다.
 
 [퍼블릭 관리형 서비스 제품을 통해 고객을 온보딩](../how-to/publish-managed-services-offers.md)할 경우 포함하는 모든 그룹(또는 사용자 또는 서비스 주체)은 해당 플랜을 구입하는 모든 고객에 대해 동일한 사용 권한을 갖습니다. 각 고객에 작동할 다른 그룹을 할당하려면 각 고객에게 단독으로 사용되는 별도의 프라이빗 플랜을 게시하거나 Azure Resource Manager 템플릿을 사용하여 고객을 개별적으로 온보딩해야 합니다. 예를 들어, 액세스 권한이 매우 제한된 퍼블릭 플랜을 게시한 다음, 고객이 사용자 지정된 Azure Resource Manager 템플릿을 사용하여 추가 액세스를 위해 해당 리소스를 직접 온보딩하도록 하여 필요에 따라 추가 액세스 권한을 부여할 수 있습니다.
+
+> [!TIP]
+> 관리 테넌트에서 사용자가 자신의 역할을 일시적으로 승격할 수 있는 *적격 권한 부여* 를 만들 수도 있습니다. 적격 권한 부여를 사용하면 권한 있는 역할에 대한 사용자의 영구 할당 수를 최소화하여 테넌트에서 사용자의 권한 있는 액세스와 관련된 보안 위험을 줄일 수 있습니다. 이 기능은 현재 퍼블릭 미리 보기로 제공되며 특정 라이선스 요구 사항이 있습니다. 자세한 내용은 [적격 권한 부여 만들기](../how-to/create-eligible-authorizations.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5ed4ae8fd3de642332cc59e7514b05b6154dd556
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528180"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054454"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure Purview에서 지원되는 데이터 원본 및 파일 형식
 
@@ -35,7 +35,7 @@ Purview는 [여기](purview-connector-overview.md)에 나열된 모든 데이터
 > 모든 Gzip 파일은 내부 단일 csv 파일에 매핑되어야 합니다. Gzip 파일에는 시스템 및 사용자 지정 분류 규칙이 적용됩니다. 현재는 내부 여러 파일 또는 csv 이외의 파일 형식에 매핑된 gzip 파일 검사를 지원하지 않습니다. 또한 Purview 스캐너는 스키마 추출 및 분류를 위해 snappy 압축 PARQUET 형식 검사를 지원합니다. 
 
 > [!Note]
-> Purview 스캐너는 스키마 추출을 위해 AVRO, ORC 및 PARQUET 파일 형식의 복잡한 데이터 형식을 지원하지 않습니다.   
+> 부서의 범위 스캐너는 AVRO, ORC 및 PARQUET 파일 형식의 복잡 한 데이터 형식 (예: 맵, 목록, 구조체)을 스키마 추출을 지원 하지 않습니다.   
 
 ## <a name="sampling-within-a-file"></a>파일 내 샘플링
 
@@ -69,5 +69,5 @@ Purview에서 파티션 파일의 폴더 또는 그룹이 시스템 리소스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 시작 키트 실행 및 데이터 검사](tutorial-scan-data.md)
+- [부서의 범위에서 검색 및 수집](concept-scans-and-ingestion.md)
 - [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md)

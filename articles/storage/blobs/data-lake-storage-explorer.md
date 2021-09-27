@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e6147918e7cd56aed5b5b333a8e9825a34d60fd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5307a56ba2384f9e0294634530823238fd903859
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652278"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766752"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리
 
@@ -42,11 +42,11 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 **Azure 계정 추가** 를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
 
-![Microsoft Azure Storage Explorer를 보여 주고, Azure 계정 옵션 추가 및 로그인 단추를 강조 표시하는 스크린샷.](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Microsoft Azure Storage Explorer를 보여 주고, Azure 계정 옵션 추가 및 로그인 단추를 강조 표시하는 스크린샷.](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 작업이 완료되면 Azure Storage Explorer는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
-![Microsoft Azure Storage Explorer - 연결 창](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Microsoft Azure Storage Explorer - 연결 창](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 

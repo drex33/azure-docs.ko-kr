@@ -1,7 +1,7 @@
 ---
 title: 데이터 흐름 매핑의 정렬 변환
+description: Azure Data Factory 및 Synapse Analytics 파이프라인의 매핑 데이터 정렬 변환에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 매핑 데이터 정렬 변환
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2020
-ms.openlocfilehash: 88253393820892f20544f5cbf6a83b21e24e8ec8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 8781836be58403dfef130f55fa698b281360e641
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642954"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059891"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 정렬 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 정렬 변환을 사용하면 현재 데이터 스트림의 들어오는 행을 정렬할 수 있습니다. 개별 열을 선택하고 오름차순이나 내림차순으로 정렬할 수 있습니다.
 
@@ -28,7 +30,7 @@ ms.locfileid: "122642954"
 
 ## <a name="configuration"></a>구성
 
-![정렬 설정](media/data-flow/sort.png "정렬")
+:::image type="content" source="media/data-flow/sort.png" alt-text="정렬 설정":::
 
 **대/소문자 구분:** 문자열 또는 텍스트 필드를 정렬할 때 대/소문자를 구분할지 여부
 
@@ -55,7 +57,7 @@ ms.locfileid: "122642954"
 
 ### <a name="example"></a>예제
 
-![정렬 설정](media/data-flow/sort.png "정렬")
+:::image type="content" source="media/data-flow/sort.png" alt-text="정렬 설정":::
 
 위의 정렬 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 나와 있습니다.
 

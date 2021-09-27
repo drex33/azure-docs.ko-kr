@@ -1,17 +1,17 @@
 ---
 title: Data Lake Storage Gen1으로 HDInsight 클러스터 만들기
 description: Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight Hadoop 클러스터 만들기 및 사용
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
-ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: 1d973597fe646c154d848bf7206ffcc214f8429d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96340257"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661738"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 

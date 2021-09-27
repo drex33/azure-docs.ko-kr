@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/26/2021
+ms.date: 09/24/2021
 ms.author: radeltch
-ms.openlocfilehash: 6162f02de8eb742653aef0d527c525e1b792a033
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: 2556286834271de1deb5fc9ec8935d9f606ad15a
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534516"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129044243"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용한 SAP HANA 스케일 업의 고가용성
 
@@ -27,7 +27,6 @@ ms.locfileid: "110534516"
 
 [anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -132,23 +131,19 @@ Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-i
 
 Azure 지역별 Azure NetApp Files 가용성에 대한 자세한 내용은 [Azure 지역별 Azure NetApp Files 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)을 참조하세요.
 
-Azure NetApp Files를 배포하기 전에 [Azure NetApp Files에 등록 지침](../../../azure-netapp-files/azure-netapp-files-register.md)으로 이동하여 Azure NetApp Files에 온보딩을 요청하세요.
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포
 
 다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.
 
-1. 아직 리소스를 배포하지 않은 경우 [Azure NetApp Files에 온보딩](../../../azure-netapp-files/azure-netapp-files-register.md)을 요청합니다.
+1. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.
 
-2. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)의 지침에 따라 선택한 Azure 지역에서 NetApp 계정을 만듭니다.
-
-3.  [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.
+2.  [Azure NetApp Files 용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 Azure NetApp Files 용량 풀을 설정합니다.
 
     이 문서에 제시된 HANA 아키텍처는 *Ultra* 서비스 수준에서 단일 Azure NetApp Files 용량 풀을 사용합니다. Azure의 HANA 워크로드의 경우 Azure NetApp Files *Ultra* 또는 *Premium* [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)을 사용하는 것이 좋습니다.
 
-4.  [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.
+3.  [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침에 따라 Azure NetApp Files에 서브넷을 위임합니다.
 
-5.  [Azure NetApp Files용 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.
+4.  [Azure NetApp Files용 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.
 
     볼륨을 배포할 때 NFSv 4.1 버전을 선택해야 합니다. 지정된 Azure NetApp Files 서브넷에 볼륨을 배포합니다. Azure NetApp 볼륨의 IP 주소는 자동으로 할당됩니다.
 
@@ -553,10 +548,13 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예제에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias SITE1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL
     ```
 
 3. **[A]** 두 노드에서 SAP HANA를 시작합니다. <sid\>adm으로 실행합니다.  

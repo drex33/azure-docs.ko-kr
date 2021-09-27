@@ -5,17 +5,15 @@ description: Azure Machine Learning에서 관리형 온라인 엔드포인트에
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/03/2021
 ms.topic: conceptual
 ms.custom: how-to, deploy, devplatv2
-ms.openlocfilehash: acf8b01a0d1179cb029e0729cbeb57f856b1f11a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: bb07d499007cbbc0cb502611056aaef583cbb16a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448154"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588811"
 ---
 # <a name="view-costs-for-an-azure-machine-learning-managed-online-endpoint-preview"></a>Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기
 

@@ -4,13 +4,13 @@ description: Azure Monitor Logs를 사용하여 HDInsight 클러스터에서 실
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
-ms.date: 08/02/2021
-ms.openlocfilehash: 0627cbb6c590178c5f393cfd519fb4a4504d050f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 09/21/2021
+ms.openlocfilehash: c4fc351105c82213549fdb357d19b480c5a51ed4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529966"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648034"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링
 
@@ -189,6 +189,8 @@ HDInsight는 다음 유형의 로그를 가져와 Azure Monitor Logs를 통한 �
 
 * Log Analytics 작업 영역. 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Azure Monitor Logs 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../azure-monitor/vm/monitor-virtual-machine.md)를 참조하세요.
 
+* 방화벽 뒤의 클러스터에서 Azure Monitor 통합을 사용하려는 경우 방화벽 [뒤의 클러스터에 대한 필수 구성을 완료합니다.](#oms-with-firewall)
+
 * Azure HDInsight 클러스터를 만듭니다. Azure Monitor Logs는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
 
   * Hadoop은
@@ -285,6 +287,25 @@ az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
+## <a name=""></a><a name="oms-with-firewall">방화벽 뒤의 클러스터에 대한 필수 조건</a>
+
+방화벽 뒤에서 HDInsight와의 Azure Monitor 통합을 성공적으로 설정하려면 일부 고객이 다음 엔드포인트를 사용하도록 설정해야 할 수 있습니다.
+
+|에이전트 리소스 | 포트 | Direction | HTTPS 검사 무시 |
+|---|---|---|---|
+| \*.ods.opinsights.azure.com | 포트 443 | 아웃바운드 | 예 |
+| \*.oms.opinsights.azure.com |포트 443 | 아웃바운드 | 예 |
+| \*.azure-automation.net | 포트 443 | 아웃바운드 | 예 |
+
+와일드카드 스토리지 엔드포인트 사용과 관련된 보안 제한이 있는 경우 대체 옵션이 있습니다. 대신 다음을 수행할 수 있습니다.
+
+1. 전용 스토리지 계정 만들기
+2. 해당 로그 분석 작업 영역에서 전용 스토리지 계정 구성
+3. 방화벽에서 전용 스토리지 계정 사용
+
+### <a name="data-collection-behind-a-firewall"></a>방화벽 뒤에 있는 데이터 수집
+설정에 성공하면 데이터 수집에 필요한 엔드포인트를 사용하도록 설정하는 것이 중요합니다. \*데이터 수집이 성공하려면 .blob.core.windows.net 엔드포인트를 사용하도록 설정하는 것이 좋습니다.
+
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>HDInsight 클러스터 관리 솔루션 설치
 
@@ -317,6 +338,24 @@ HDInsight는 다음 유형의 로그를 가져와 Azure Monitor Logs를 통한 �
 * `log_auth_CL` - 이 테이블은 성공 및 실패한 로그인 시도를 포함한 SSH 로그를 제공합니다.
 * `log_ambari_audit_CL` - 이 테이블은 Ambari의 감사 로그를 제공합니다.
 * `log_ranger_audti_CL` - 이 테이블은 ESP 클러스터에서 Apache 레인저의 감사 로그를 제공합니다.
+
+---
+
+## <a name="update-the-log-analytics-oms-agent-used-by-hdinsight-azure-monitor-integration"></a>HDInsight Azure Monitor Integration에서 사용하는 Log Analytics(OMS) 에이전트 업데이트
+
+클러스터에서 Azure Monitor 통합을 사용하도록 설정하면 Log Analytics 에이전트 또는 OMS(Operations Management Suite) 에이전트가 클러스터에 설치되고 Azure Monitor 통합을 사용하지 않도록 설정하고 다시 사용하도록 설정하지 않는 한 업데이트되지 않습니다. 클러스터에서 OMS 에이전트를 업데이트해야 하는 경우 다음 단계를 완료합니다. 방화벽 뒤에 있는 경우 이러한 단계를 완료하기 전에 [방화벽 뒤에 있는 클러스터에 대한 필수 구성을](#oms-with-firewall) 완료해야 할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다. 클러스터가 새 포털 페이지에서 열립니다.
+1. 왼쪽 창 메뉴의 **모니터링** 에서 **Azure Monitor** 를 선택합니다.
+1. 현재 Log Analytics 작업 영역의 이름을 기록해 둡니다.
+1. 기본 보기의 **Azure Monitor 통합** 아래에서 토글을 사용하지 않도록 설정하고 **저장을** 선택합니다. 
+1. 설정이 저장되면 **Azure Monitor 통합** 토글을 다시 사용하도록 설정하고 동일한 Log Analytics 작업 영역이 선택되었는지 확인하고 **저장을** 선택합니다.
+
+클러스터에서 Azure Monitor 통합을 사용하도록 설정한 경우 OMS 에이전트를 업데이트하면 OMI(Open Management Infrastructure) 버전도 업데이트됩니다. 다음 명령을 실행하여 클러스터에서 OMI 버전을 확인할 수 있습니다. 
+
+```
+ sudo /opt/omi/bin/omiserver –version
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ed4dfc315ae953c99db2ebe2eaa009f9ef072a7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259967"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620277"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -259,7 +259,7 @@ Service Fabric 클러스터 엔드포인트에 연결합니다.
 | --aad | 인증에 Azure Active Directory를 사용합니다. |
 | --ca | 유효로 처리될 CA 인증서 디렉터리 또는 CA 번들 파일에 대한 절대 경로입니다. CA 인증서 디렉터리를 사용하는 경우 OpenSSL에서 제공하는 `c_rehash <directory>`를 먼저 실행하여 인증서 해시를 계산하고 적절한 기호 링크를 만들어야 합니다. 이는 클러스터에서 반환된 인증서가 유효한지 확인하는 데 사용됩니다. |
 | --cert | 클라이언트 인증서 파일에 대한 절대 경로입니다. |
-| --endpoint | 포트 및 HTTP 또는 HTTPS 접두사를 포함하는 클러스터 엔드포인트 URL입니다. 일반적으로 엔드포인트는 https\://<your-url>\:19080과 유사합니다. 지정된 엔드포인트가 없는 경우 기본값은 http/\:localhost\:19080입니다.  기본값\: http//\:localhost\: 19080. |
+| --endpoint | 포트 및 HTTP 또는 HTTPS 접두사를 포함하는 클러스터 엔드포인트 URL입니다. 일반적으로 엔드포인트는 와 같이 `https\://<your-url>\:19080` 보입니다. 엔드포인트가 지정되지 않은 경우 기본값은 `http\://localhost\:19080` 입니다. |
 | --key | 클라이언트 인증서 키 파일에 대한 절대 경로입니다. |
 | --no-verify | HTTPS 사용 시 인증서에 대한 확인 비활성화, 참고\: 안전 하지 않은 옵션 이므로 프로덕션 환경에 사용해서는 안됩니다. |
 | --pem | .pem 파일의 클라이언트 인증서에 대한 절대 경로입니다. |

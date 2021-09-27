@@ -2,13 +2,13 @@
 title: Azure Batch 풀에서 노드 엔드포인트 구성
 description: Azure Batch 풀의 컴퓨팅 노드에서 SSH 또는 RDP 포트에 대한 액세스를 구성하거나 비활성화하는 방법입니다.
 ms.topic: how-to
-ms.date: 02/13/2018
-ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: a3c7d3d8f4aeaea17334b4dc3c65ee47ab982462
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92109309"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779961"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 원격 액세스 구성 또는 비활성화
 

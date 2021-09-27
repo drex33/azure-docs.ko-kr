@@ -1,25 +1,26 @@
 ---
 title: 데이터 흐름 매핑의 피벗 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 매핑 데이터 흐름 피벗 변환을 사용하여 행에서 열로 데이터 피벗
+description: Azure Data Factory 및 Synapse Analytics 파이프라인에서 데이터 흐름 피벗 변환 매핑을 사용 하 여 행에서 열로 데이터를 피벗 합니다.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/17/2020
-ms.openlocfilehash: bb46b41e72d98be0a3b474f109adfa7303bd8f2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c6aa95864ad12d5776a8e90eb2b1bd8dac1f04a2
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642799"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059932"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 피벗 변환
 
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 피벗 변환을 사용하여 단일 열의 고유한 행 값에서 여러 열을 만들 수 있습니다. Pivot은 열별 그룹화를 선택하고 [집계 함수](data-flow-expression-functions.md#aggregate-functions)를 사용하여 피벗 열을 생성하는 집계 변환입니다.
 
@@ -31,7 +32,7 @@ ms.locfileid: "122642799"
 
 ### <a name="group-by"></a>Group By
 
-![옵션으로 그룹화](media/data-flow/pivot2.png "옵션으로 그룹화")
+:::image type="content" source="media/data-flow/pivot2.png" alt-text="옵션으로 그룹화":::
 
 피벗된 열을 집계할 열을 선택합니다. 출력 데이터는 값으로 동일하게 그룹화된 모든 행을 단일 행으로 그룹화합니다. 피벗 열에서 수행되는 집계는 각 그룹에 대해 발생합니다.
 
@@ -39,7 +40,7 @@ ms.locfileid: "122642799"
 
 ### <a name="pivot-key"></a>피벗 키
 
-![피벗 키](media/data-flow/pivot3.png "피벗 키")
+:::image type="content" source="media/data-flow/pivot3.png" alt-text="피벗 키":::
 
 피벗 키는 행 값이 새 열로 피벗되는 열입니다. 기본적으로 피벗 변환은 고유한 각 행 값에 대해 새 열을 만듭니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "122642799"
 
 ### <a name="pivoted-columns"></a>피벗 열
 
-![피벗 열](media/data-flow/pivot4.png "피벗 열")
+:::image type="content" source="media/data-flow/pivot4.png" alt-text="피벗 열":::
 
 열이 되는 각각의 고유 피벗 키 값의 경우 각 그룹에 대해 집계된 행 값을 생성합니다. 피벗 키 당 여러 열을 만들 수 있습니다. 각 피벗 열은 [집계 함수](data-flow-expression-functions.md#aggregate-functions)를 하나 이상 포함해야 합니다.
 
@@ -61,7 +62,7 @@ ms.locfileid: "122642799"
 
 아래 도움말 그래픽에서는 다른 피벗 구성 요소가 상호 작용하는 방법을 보여 줍니다.
 
-![피벗 도움말 그래픽](media/data-flow/pivot5.png "피벗 도움말 그래픽")
+:::image type="content" source="media/data-flow/pivot5.png" alt-text="피벗 도움말 그래픽":::
 
 ## <a name="pivot-metadata"></a>피벗 메타데이터
 
@@ -73,7 +74,7 @@ ms.locfileid: "122642799"
 
 피벗은 행 값에 따라 새 열 이름을 동적으로 생성합니다. 데이터 흐름에서 나중에 참조할 수 있는 메타데이터에 이러한 새 열을 추가할 수 있습니다. 이렇게 하려면 데이터 미리 보기에서 [맵 드리프트](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) 빠른 작업을 사용합니다. 
 
-![열 피벗](media/data-flow/newpivot1.png "맵 드리프트 피벗 열")
+:::image type="content" source="media/data-flow/newpivot1.png" alt-text="열 피벗":::
 
 ### <a name="sinking-pivoted-columns"></a>피벗된 열 싱크
 

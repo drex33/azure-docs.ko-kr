@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: f5a2102cedfa2b8631c1eb7ff6a3ff2452d315e3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: e0525d7d70f9b5195a6b011717b7d27219b0d929
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690530"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676868"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Azure Databricks 사전 구매 할인이 적용되는 방법
 
@@ -37,7 +37,7 @@ Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용�
 
 ## <a name="determine-plan-use"></a>요금제 사용 결정
 
-DBCU 요금제 사용을 결정하려면 Azure Portal > **예약**으로 이동하여 구매한 Databricks 요금제를 클릭합니다. 현재까지 사용률은 나머지 단위로 표시됩니다. 예약 사용 결정에 대한 자세한 내용은 [예약 사용량 참조](reservation-apis.md#see-reservation-usage) 문서를 참조하세요.
+DBCU 요금제 사용을 결정하려면 Azure Portal > **예약** 으로 이동하여 구매한 Databricks 요금제를 클릭합니다. 현재까지 사용률은 나머지 단위로 표시됩니다. 예약 사용 결정에 대한 자세한 내용은 [예약 사용량 참조](reservation-apis.md#see-reservation-usage) 문서를 참조하세요.
 
 ## <a name="how-discount-application-shows-in-usage-data"></a>사용량 데이터에 할인 애플리케이션이 표시되는 방식
 

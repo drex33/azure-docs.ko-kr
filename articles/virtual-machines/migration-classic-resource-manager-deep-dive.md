@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: af032e52886772de6238d1f6dff456189e7e8b3e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 90486f944c2c891415b61fd29731f6f485ca0f04
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698124"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673163"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
@@ -168,7 +168,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 | 가상 네트워크 |가상 네트워크 |가상 네트워크는 모든 속성과 함께 Resource Manager 배포 모델로 마이그레이션됩니다. `-migrated`이름을 사용하여 새 리소스 그룹이 생성됩니다. |
 | 예약된 IP |정적 할당 방법의 공용 IP 주소 |부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 머신의 마이그레이션과 함께 마이그레이션됩니다. [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip)를 사용하여 연결되지 않은 예약 IP를 마이그레이션할 수 있습니다.  |
 | VM당 공용 IP 주소 |동적 할당 방법의 공용 IP 주소 |VM에 연결된 공용 IP 주소는 할당 방법이 정적으로 설정된 공용 IP 주소 리소스로 변환됩니다. |
-| NSG |NSG |서브넷과 연결된 네트워크 보안 그룹은 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup)을 사용하여 연결되지 않은 NSG를 마이그레이션할 수 있습니다.|
+| NSG |NSG |가상 머신 또는 서브넷과 연결된 네트워크 보안 그룹은 Resource Manager 배포 모델로 마이그레이션의 일부로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup)을 사용하여 연결되지 않은 NSG를 마이그레이션할 수 있습니다.|
 | DNS 서버 |DNS 서버 |가상 네트워크 또는 VM과 연결된 DNS 서버는 해당 리소스 마이그레이션 중 모든 속성과 함께 마이그레이션됩니다. |
 | UDR |UDR |서브넷과 연결된 사용자 정의 경로는 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 UDR는 제거되지 않습니다. 마이그레이션이 진행 중인 동안에는 UDR의 관리 평면 작업이 차단됩니다. [Move-AzureRouteTable](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable)을 사용하여 연결되지 않은 UDR을 마이그레이션할 수 있습니다. |
 | VM 네트워크 구성의 IP 전달 속성 |NIC의 IP 전달 속성 |마이그레이션 중 VM의 IP 전달 속성이 네트워크 인터페이스의 속성으로 변환됩니다. |

@@ -3,20 +3,24 @@ title: Bicep 배포 가상
 description: Bicep 파일을 배포하기 전에 리소스에 어떤 변경이 발생하는지 확인합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
-ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 697a72e33b4f03f7441e51085f2519fa32f88590
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634589"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793686"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Bicep 배포 가상 작업
 
 Bicep 파일을 배포하기 전에 발생하는 변경 내용을 미리 볼 수 있습니다. Azure Resource Manager는 Bicep 파일을 배포하는 경우 리소스가 어떻게 변경되는지 확인할 수 있도록 하는 가상 작업을 제공합니다. 가상 작업은 기존 리소스를 변경하지 않습니다. 대신, 지정된 Bicep 파일이 배포되는 경우 변경 내용을 예측합니다.
 
 Azure PowerShell, Azure CLI 또는 REST API 작업을 사용하여 가상 작업을 사용할 수 있습니다. 가상은 리소스 그룹, 구독, 관리 그룹, 테넌트 수준 배포에 지원됩니다.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+what-if 작업에 대해 자세히 알아보고 실습 지침은 **Microsoft Learn** [what-if를 사용하여 Azure 배포 변경 내용 미리 보기를](/learn/modules/arm-template-whatif/) 참조하세요.
 
 ## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
@@ -196,7 +200,11 @@ Azure CLI의 경우 `--result-format` 매개 변수를 사용합니다.
 
 ### <a name="set-up-environment"></a>환경 설정
 
-가상이 작동하는 방식을 확인하기 위해 일부 테스트를 실행해 보겠습니다. 먼저 [가상 네트워크를 만드는 Bicep 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep)을 배포합니다. 이 가상 네트워크를 사용하여 변경 내용이 어떻게 가상으로 보고되는지 테스트할 수 있습니다. Bicep 파일의 복사본을 다운로드합니다.
+가상이 작동하는 방식을 확인하기 위해 일부 테스트를 실행해 보겠습니다. 먼저 가상 네트워크를 만드는 Bicep 파일을 배포합니다. 이 가상 네트워크를 사용하여 변경 내용이 어떻게 가상으로 보고되는지 테스트할 수 있습니다. Bicep 파일의 복사본을 다운로드합니다.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+Bicep 파일을 배포하려면 다음을 사용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +232,11 @@ az deployment group create \
 
 ### <a name="test-modification"></a>테스트 수정
 
-배포가 완료되면 가상 작업을 테스트할 준비가 된 것입니다. 이번에는 [가상 네트워크를 변경하는 Bicep 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep)을 배포합니다. 원래 태그 중 하나가 누락되고, 서브넷이 제거되고, 주소 접두사가 변경되었습니다. Bicep 파일의 복사본을 다운로드합니다.
+배포가 완료되면 가상 작업을 테스트할 준비가 된 것입니다. 이번에는 가상 네트워크를 변경하는 Bicep 파일을 배포합니다. 원래 태그 중 하나가 누락되고, 서브넷이 제거되고, 주소 접두사가 변경되었습니다. Bicep 파일의 복사본을 다운로드합니다.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+변경 내용을 보려면 다음을 사용합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -374,6 +386,24 @@ Are you sure you want to execute the deployment?
 ```
 
 예상되는 변경 내용을 확인하고 배포를 실행하려는 것을 확인할 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+예제 리소스가 더 이상 필요하지 않은 경우 Azure CLI 또는 Azure PowerShell 사용하여 리소스 그룹을 삭제합니다.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## <a name="sdks"></a>SDK
 

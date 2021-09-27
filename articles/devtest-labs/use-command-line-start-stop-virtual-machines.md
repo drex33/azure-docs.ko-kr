@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs에서 명령줄 도구를 사용하여 VM 시작 및 중지
+title: 명령줄 도구를 사용 하 여 Vm 시작 및 중지
 description: Azure DevTest Labs에서 명령줄 도구를 사용하여 가상 머신을 시작하고 중지하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62d4a33df13b1eb5cc7a0360a90ab92c2914b1f0
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: e0c75cda526f5a365badf3f97aeb92a94b93588f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692449"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655565"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>명령줄 도구를 사용하여 Azure DevTest Labs의 가상 머신 시작 및 중지
 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용하여 Azure DevTest Labs의 랩에서 가상 머신을 시작하거나 중지하는 방법을 보여 줍니다. PowerShell/CLI 스크립트를 만들면 작업을 자동화할 수 있습니다. 

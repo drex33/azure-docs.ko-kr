@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
-ms.translationtype: HT
+ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234576"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662175"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -171,7 +171,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드는 기본적으로 false로 설정될 수 있도록 명명됩니다. `instrumentationKey`를 제외한 모든 필드는 선택 사항입니다.
 
-| 이름 | 설명 | 기본값 |
+| 이름 | Description | 기본값 |
 |------|-------------|---------|
 | instrumentationKey | **필수**<br>Azure Portal에서 가져온 계측 키입니다. | 문자열<br/>null |
 | accountId | 앱이 사용자를 계정으로 그룹화하는 경우 계정 ID(선택 사항)입니다. 공백, 쉼표, 세미콜론, 등호 또는 세로 막대를 사용할 수 없습니다. | 문자열<br/>null |
@@ -279,7 +279,7 @@ cfg: { // Application Insights Configuration
 
 ``` 
 
-클라이언트가 통신하는 타사 서버에서 `Request-Id` 및 `Request-Context` 헤더를 수락할 수 없고 해당 서버에서 구성을 업데이트할 수 없는 경우 `correlationHeaderExcludeDomains` 구성 속성을 통해 해당 서버를 제외 목록에 배치해야 합니다. 이 속성은 와일드 카드를 지원합니다.
+클라이언트가 통신하는 타사 서버에서 `Request-Id` 및 `Request-Context` 헤더를 수락할 수 없고 해당 서버에서 구성을 업데이트할 수 없는 경우 `correlationHeaderExcludedDomains` 구성 속성을 통해 해당 서버를 제외 목록에 배치해야 합니다. 이 속성은 와일드 카드를 지원합니다.
 
 서버 쪽에서 해당 헤더와의 연결을 수락할 수 있어야 합니다. 서버 쪽 `Access-Control-Allow-Headers` 구성에 따라 `Request-Id` 및 `Request-Context`를 수동으로 추가하여 서버 쪽 목록을 확장해야 하는 경우가 많습니다.
 

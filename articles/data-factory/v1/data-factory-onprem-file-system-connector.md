@@ -3,16 +3,17 @@ title: Azure Data Factory를 사용하여 파일 시스템에서 데이터 복�
 description: Azure Data Factory를 사용하여 온-프레미스 파일 시스템에서 데이터를 복사하는 방법에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 186aeeaba01d07a33afd0de8d348a110df8fb44f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 8ef1f7b9fca7d21c06aa33f552cdf77b7f92e0bc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741656"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611677"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

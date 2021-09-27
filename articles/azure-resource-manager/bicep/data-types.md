@@ -2,13 +2,13 @@
 title: Bicep의 데이터 형식
 description: Bicep에서 사용 가능한 데이터 형식 설명
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: 936f17273a95ceb77030497b27f7f73defc37896
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221699"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624401"
 ---
 # <a name="data-types-in-bicep"></a>Bicep의 데이터 형식
 
@@ -49,7 +49,7 @@ var mixedArray = [
 ]
 ```
 
-Bicep의 배열은 0부터 사용됩니다. 다음 예제에서 `exampleArray[0]` 식은 1로 계산되고 `exampleArray[2]` 식은 3으로 계산됩니다. 인덱서의 인덱스는 다른 식일 수 있습니다. `exampleArray[index]` 식은 2로 계산됩니다. 정수 인덱서는 배열 형식의 식에만 사용할 수 있습니다.
+Bicep의 배열은 0부터 시작 합니다. 다음 예제에서 `exampleArray[0]` 식은 1로 계산되고 `exampleArray[2]` 식은 3으로 계산됩니다. 인덱서의 인덱스는 다른 식일 수 있습니다. `exampleArray[index]` 식은 2로 계산됩니다. 정수 인덱서는 배열 형식의 식에만 사용할 수 있습니다.
 
 ```bicep
 var index = 1
@@ -77,7 +77,7 @@ param exampleBool bool = true
 param exampleInt int = 1
 ```
 
-인라인 매개 변수로 전달된 정수의 경우 값 범위는 배포에 사용하는 SDK 또는 명령줄 도구를 통해 제한될 수 있습니다. 예를 들어, PowerShell을 사용하여 Bicep을 배포하는 경우 정수 형식의 범위는 -2147483648 ~ 2147483647일 수 있습니다. 이 제한을 피하려면 [매개 변수 파일](parameter-files.md)에 큰 정수 값을 지정합니다. 리소스 종류는 정수 속성에 대해 고유한 한도를 적용합니다.
+Bicep에서 정수는 64 비트 정수입니다. 인라인 매개 변수로 전달 되는 경우 배포에 사용 하는 SDK 또는 명령줄 도구를 사용 하 여 값 범위를 제한할 수 있습니다. 예를 들어, PowerShell을 사용하여 Bicep을 배포하는 경우 정수 형식의 범위는 -2147483648 ~ 2147483647일 수 있습니다. 이 제한을 피하려면 [매개 변수 파일](parameter-files.md)에 큰 정수 값을 지정합니다. 리소스 종류는 정수 속성에 대해 고유한 한도를 적용합니다.
 
 부동 소수점, 10진 또는 이진 형식은 현재 지원되지 않습니다.
 
@@ -107,7 +107,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -131,7 +131,7 @@ output accessorResult string = environmentSettings['dev'].name
 
 ## <a name="strings"></a>문자열
 
-Bicep에서 문자열은 작은 따옴표로 표시되며 한 줄에 선언되어야 합니다. 코드 포인트가 *0* 에서 *10FFFF* 사이인 모든 유니코드 문자가 허용됩니다.
+Bicep에서 문자열은 작은 따옴표로 표시되며 한 줄에 선언되어야 합니다. 코드 포인트가 *0* 과 *10FFFF* 사이인 모든 유니코드 문자를 사용할 수 있습니다.
 
 ```bicep
 param exampleString string = 'test value'
@@ -141,20 +141,20 @@ param exampleString string = 'test value'
 
 | 이스케이프 시퀀스 | 표시 값 | 참고 |
 |:-|:-|:-|
-| \\ | \ ||
-| \' | ' ||
-| \n | LF(줄 바꿈) ||
-| \r | CR(캐리지 반환) ||
-| \t | 탭 문자 ||
-| \u{x} | 유니코드 코드 포인트 *x* | *x* 는 *0* 과 *10FFFF*(모두 포함) 사이의 16진수 코드 포인트 값을 나타냅니다. 앞에 오는 0은 허용됩니다. *FFFF* 이상의 코드 포인트는 서로게이트 쌍으로 내보내집니다.
-| \$ | $ | *{* 뒤에 오는 경우에만 이스케이프하면 됩니다. |
+| `\\` | `\` ||
+| `\'` | `'` ||
+| `\n` | LF(줄 바꿈) ||
+| `\r` | CR(캐리지 반환) ||
+| `\t` | 탭 문자 ||
+| `\u{x}` | 유니코드 코드 포인트 `x` | **x** 는 *0* 과 *10FFFF* 사이의 16 진수 코드 포인트 값 (모두 포함)을 나타냅니다. 앞에 오는 0은 허용됩니다. *FFFF* 위의 코드 포인트가 서로게이트 쌍으로 내보내집니다.
+| `\$` | `$` | 가 뒤에 오는 경우에만 이스케이프 `{` 합니다. |
 
 ```bicep
 // evaluates to "what's up?"
 var myVar = 'what\'s up?'
 ```
 
-Bicep의 모든 문자열은 보간을 지원합니다. 식을 주입하려면 *${* 및 *}`로 둘러쌉니다. 참조되는 식은 여러 줄에 걸쳐 있을 수 없습니다.
+Bicep의 모든 문자열은 보간을 지원합니다. 식을 삽입 하려면 및로 묶습니다 `${` `}` . 참조되는 식은 여러 줄에 걸쳐 있을 수 없습니다.
 
 ```bicep
 var storageName = 'storage${uniqueString(resourceGroup().id)}
@@ -162,7 +162,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}
 
 ## <a name="multi-line-strings"></a>다중 선 문자열
 
-Bicep에서 다중 선 문자열은 선택적으로 새 줄(여는 시퀀스)로 이어지는 3개의 작은따옴표 문자(`'''`)와 3개의 작은따옴표 문자(`'''` - 닫는 시퀀스) 사이에 정의됩니다. 여는 시퀀스와 닫는 시퀀스 사이에 입력된 문자를 그대로 읽으며 이스케이프가 필요하거나 가능하지 않습니다.
+Bicep에서 여러 줄 문자열은 두 개의 작은따옴표 문자 ( `'''` )와 선택적으로 줄 바꿈 (여는 시퀀스)과 세 개의 작은따옴표 문자 ( `'''` -닫는 시퀀스) 사이에 정의 됩니다. 여는 시퀀스와 닫는 시퀀스 사이에 입력된 문자를 그대로 읽으며 이스케이프가 필요하거나 가능하지 않습니다.
 
 > [!NOTE]
 > Bicep 파서는 모든 문자를 있는 그대로 읽기 때문에 Bicep 파일의 줄 끝에 따라 줄바꿈을 `\r\n` 또는 `\n`으로 해석할 수 있습니다.
@@ -216,6 +216,27 @@ param password string
 @secure()
 param configValues object
 ```
+
+## <a name="data-type-assignability"></a>데이터 형식 할당 기능
+
+Bicep에서 한 형식 (원본 유형)의 값을 다른 유형 (대상 유형)에 할당할 수 있습니다. 다음 표에서는 대상 유형 (세로로 나열 됨)에 할당할 수 있거나 할당할 수 없는 원본 유형 (가로로 나열 됨)을 보여 줍니다. 테이블에서은 `X` 할당 가능 하 고, 빈 공간은 할당할 수 없음을 의미 하며, `?` 형식이 호환 되는 경우에만 의미 합니다.
+
+| 형식 | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | 명명 된 리소스 | 명명 된 모듈 | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **명명 된 리소스** |X| | | | | | |?| |?| | |
+| **명명 된 모듈**   |X| | | | | | |?| | |?| |
 
 ## <a name="next-steps"></a>다음 단계
 

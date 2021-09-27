@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen2의 액세스 제어 목록 | Microsoft Docs
+title: Azure Data Lake Storage Gen2의 액세스 제어 목록
 description: Azure Data Lake Storage Gen2에서 POSIX와 유사한 ACL 액세스 제어 목록을 사용하는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 41afd3cf3720c5fa86acf75acadc07e60fa2f3cc
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: aee02d46f0932a084dccb4b1bc4c8f288a372104
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968848"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552277"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 ACL(액세스 제어 목록)
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)
 [보안 주체](../../role-based-access-control/overview.md#security-principal)를 파일 및 디렉터리에 대한 액세스 수준과 연결할 수 있습니다. 각 연결은 ‘ACL(액세스 제어 목록)’에 항목으로 캡처됩니다. 스토리지 계정의 각 파일과 디렉터리에는 액세스 제어 목록이 있습니다. 보안 주체가 파일이나 디렉터리에 대한 작업을 시도하는 경우 ACL 검사는 해당 보안 주체(사용자, 그룹, 서비스 주체 또는 관리 ID)에게 작업을 수행할 수 있는 올바른 권한 수준이 있는지 확인합니다.
 
 > [!NOTE]
-> ACL은 동일한 테넌트의 보안 주체에만 적용되며 공유 키 또는 SAS(공유 액세스 서명) 토큰 인증을 사용하는 사용자에게는 적용되지 않습니다. 이는 ID가 호출자와 연결되어 있지 않으며 따라서 보안 주체 권한 기반 권한 부여를 수행할 수 없기 때문입니다.  
+> ACL은 동일한 테넌트의 보안 주체에만 적용되며 공유 키 또는 SAS(공유 액세스 서명) 토큰 인증을 사용하는 사용자에게는 적용되지 않습니다. 이는 ID가 호출자와 연결되어 있지 않으며 따라서 보안 주체 권한 기반 권한 부여를 수행할 수 없기 때문입니다.
 
 <a id="set-access-control-lists"></a>
 
@@ -92,9 +92,9 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 ## <a name="common-scenarios-related-to-acl-permissions"></a>ACL 권한과 관련된 일반적인 시나리오
 
-다음 표에서는 보안 주체가 **작업** 열에 나열된 작업을 수행할 수 있도록 하는 데 필요한 ACL 항목을 보여 줍니다. 
+다음 표에서는 보안 주체가 **작업** 열에 나열된 작업을 수행할 수 있도록 하는 데 필요한 ACL 항목을 보여 줍니다.
 
-다음 표의 열은 가상 디렉터리 계층 구조의 각 수준을 나타냅니다. 컨테이너(`/`)의 루트 디렉터리에 대한 열, **Oregon** 이라는 하위 디렉터리, Oregon 디렉터리의 **Portland** 라는 하위 디렉터리, Portland 디렉터리의 **Data.txt** 라는 텍스트 파일이 있습니다. 
+다음 표의 열은 가상 디렉터리 계층 구조의 각 수준을 나타냅니다. 컨테이너(`/`)의 루트 디렉터리에 대한 열, **Oregon** 이라는 하위 디렉터리, Oregon 디렉터리의 **Portland** 라는 하위 디렉터리, Portland 디렉터리의 **Data.txt** 라는 텍스트 파일이 있습니다.
 
 > [!IMPORTANT]
 > 이 표에서는 Azure 역할 할당 없이 ACL **만** 사용한다고 가정합니다. Azure RBAC와 ACL을 결합하는 비슷한 표를 보려면 [권한 표: AZURE RBAC와 ACL 결합](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)을 참조하세요.
@@ -130,8 +130,8 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 항목을 만든 사용자는 자동으로 항목의 소유 사용자가 됩니다. 소유 사용자는 다음을 수행할 수 있습니다.
 
-* 소유한 파일의 권한을 변경합니다.
-* 소유 사용자가 대상 그룹의 멤버이면 소유한 파일의 소유 그룹을 변경합니다.
+- 소유한 파일의 권한을 변경합니다.
+- 소유 사용자가 대상 그룹의 멤버이면 소유한 파일의 소유 그룹을 변경합니다.
 
 > [!NOTE]
 > 소유 사용자는 파일 또는 디렉터리의 소유 사용자를 *변경할 수 없습니다*. 슈퍼 사용자만 파일 또는 디렉터리의 소유 사용자를 변경할 수 있습니다.
@@ -142,21 +142,22 @@ POSIX ACL에서 모든 사용자는 *주 그룹* 과 연결됩니다. 예를 들
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 
-* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 만들어집니다. 이 경우 소유 그룹은 OAuth를 사용하여 컨테이너를 만든 사용자로 설정됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용하여 컨테이너를 만드는 경우 소유자 및 소유 그룹은 **$superuser** 로 설정됩니다.
-* **사례 2**(기타 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 디렉터리에서 복사됩니다.
+- **사례 1:** 루트 디렉터리 `/` 입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 만들어집니다. 이 경우 소유 그룹은 OAuth를 사용하여 컨테이너를 만든 사용자로 설정됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우에는 소유자와 소유 그룹이로 설정 됩니다 `$superuser` .
+- **사례 2 (다른 모든 경우):** 새 항목이 만들어지면 소유 그룹이 부모 디렉터리에서 복사 됩니다.
 
 #### <a name="changing-the-owning-group"></a>소유 그룹 변경
 
 소유 그룹은 다음에 의해 변경될 수 있습니다.
-* 모든 슈퍼 사용자
-* 소유 사용자가 대상 그룹의 구성원이기도 한 경우 소유 사용자입니다.
+
+- 모든 슈퍼 사용자
+- 소유 사용자가 대상 그룹의 구성원이기도 한 경우 소유 사용자입니다.
 
 > [!NOTE]
-> 소유 그룹은 파일 또는 디렉터리의 ACL을 변경할 수 없습니다.  루트 디렉터리의 경우 소유 그룹은 계정을 만든 사용자로 설정되지만, 위의 **사례 1** 에서 단일 사용자 계정은 소유 그룹을 통해 권한을 제공하는 데 적합하지 않습니다. 해당하는 경우 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
+> 소유 그룹은 파일 또는 디렉터리의 ACL을 변경할 수 없습니다. 루트 디렉터리의 경우 소유 그룹은 계정을 만든 사용자로 설정되지만, 위의 **사례 1** 에서 단일 사용자 계정은 소유 그룹을 통해 권한을 제공하는 데 적합하지 않습니다. 해당하는 경우 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
 
 ## <a name="how-permissions-are-evaluated"></a>권한 평가 방법
 
-ID는 다음 순서로 평가됩니다. 
+ID는 다음 순서로 평가됩니다.
 
 1. 슈퍼 사용자
 2. 소유 사용자
@@ -169,13 +170,13 @@ ID는 다음 순서로 평가됩니다.
 다음 의사 코드는 스토리지 계정에 대한 액세스 검사 알고리즘을 나타냅니다. 이 알고리즘은 ID가 평가되는 순서를 보여 줍니다.
 
 ```python
-def access_check( user, desired_perms, path ) : 
+def access_check( user, desired_perms, path ) :
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
   # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
   # path is the file or directory
   # Note: the "sticky bit" isn't illustrated in this algorithm
-  
+
   # Handle super users.
   if (is_superuser(user)) :
     return True
@@ -200,8 +201,8 @@ def access_check( user, desired_perms, path ) :
   for entry in entries:
     if (user_is_member_of_group(user, entry.identity)) :
         if ((desired_perms & entry.permissions & mask) == desired_perms)
-            return True 
-        
+            return True
+
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -210,7 +211,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>마스크
 
-액세스 검사 알고리즘에서 설명한 대로 마스크는 명명된 사용자, 소유 그룹 및 명명된 그룹에 대한 액세스를 제한합니다.  
+액세스 검사 알고리즘에서 설명한 대로 마스크는 명명된 사용자, 소유 그룹 및 명명된 그룹에 대한 액세스를 제한합니다.
 
 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리("/")의 액세스 ACL에 대한 마스크는 기본적으로 디텍터리에 대해 **750**, 파일에 대해 **640** 으로 설정됩니다. 다음 표에서는 이러한 권한 수준의 기호 표기법을 보여 줍니다.
 
@@ -220,7 +221,7 @@ def access_check( user, desired_perms, path ) :
 |소유 그룹|`r-x`|`r--`|
 |기타|`---`|`---`|
 
-저장소 전용 시스템의 파일과는 관련이 없으므로 파일은 X비트를 받지 않습니다. 
+저장소 전용 시스템의 파일과는 관련이 없으므로 파일은 X비트를 받지 않습니다.
 
 마스크는 호출별로 지정할 수 있습니다. 이렇게 하면 클러스터와 같은 다양한 소비 시스템에서 파일 작업에 대한 다른 유효한 마스크를 갖출 수 있습니다. 지정된 요청에 마스크가 지정되면 기본 마스크를 완전히 재정의합니다.
 
@@ -245,11 +246,11 @@ Azure Data Lake Storage Gen2에 대한 umask는 007로 설정된 상수 값입�
 
 | umask 구성 요소     | 숫자 형식 | 약식 | 의미 |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | 소유 사용자의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. | 
-| umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. | 
+| umask.owning_user   |    0         |   `---`      | 소유 사용자의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. |
+| umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. |
 | umask.other         |    7         |   `RWX`      | 기타의 경우 자식 항목의 액세스 ACL에 있는 모든 권한을 제거합니다. |
 
-Azure Data Lake Storage Gen2에서 효과적으로 사용되는 umask 값은 기본 ACL이 부모 디렉터리에 정의되어 있지 않은 한 **기타** 에 대한 값이 기본적으로 새 자식 항목에 전송되지 않는다는 것을 의미합니다. 이 경우 umask는 사실상 무시되고 기본 ACL에서 정의한 권한은 자식 항목에 적용됩니다. 
+Azure Data Lake Storage Gen2에서 효과적으로 사용되는 umask 값은 기본 ACL이 부모 디렉터리에 정의되어 있지 않은 한 **기타** 에 대한 값이 기본적으로 새 자식 항목에 전송되지 않는다는 것을 의미합니다. 이 경우 umask는 사실상 무시되고 기본 ACL에서 정의한 권한은 자식 항목에 적용됩니다.
 
 다음 의사 코드는 하위 항목의 ACL을 만들 때 umask가 적용되는 방식을 보여 줍니다.
 
@@ -279,7 +280,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>ACL을 적용하는 가장 좋은 방법은 무엇인가요?
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
 ### <a name="how-are-azure-rbac-and-acl-permissions-evaluated"></a>Azure RBAC 및 ACL 권한은 어떻게 평가되나요?
 
@@ -287,9 +288,9 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Azure 역할 할당 및 ACL 항목에 대해 어떤 제한이 있나요?
 
-다음 표에서는 Azure RBAC를 사용하여 "정교하지 않은" 권한(스토리지 계정 또는 컨테이너에 적용되는 권한)을 관리하고 ACL을 사용하여 "세분화된" 권한(파일 및 디렉터리에 적용되는 권한)을 관리할 때 고려해야 하는 제한 사항에 대한 요약 보기를 제공합니다. ACL 할당에 보안 그룹을 사용합니다. 그룹을 사용하면 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACL 항목의 최대 수를 초과할 가능성이 줄어듭니다. 
+다음 표에서는 Azure RBAC를 사용하여 "정교하지 않은" 권한(스토리지 계정 또는 컨테이너에 적용되는 권한)을 관리하고 ACL을 사용하여 "세분화된" 권한(파일 및 디렉터리에 적용되는 권한)을 관리할 때 고려해야 하는 제한 사항에 대한 요약 보기를 제공합니다. ACL 할당에 보안 그룹을 사용합니다. 그룹을 사용하면 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACL 항목의 최대 수를 초과할 가능성이 줄어듭니다.
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)]
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-azure-rbac"></a>Data Lake Storage Gen2에서 Azure RBAC의 상속을 지원하나요?
 
@@ -297,7 +298,7 @@ Azure 역할 할당은 상속됩니다. 할당은 구독, 리소스 그룹 및 �
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 
-기본 ACL을 사용하여 부모 디렉터리 아래에 만들어진 새로운 자식 하위 디렉터리 및 파일에 대한 ACL을 설정할 수 있습니다. 기존 하위 항목에 대한 ACL을 업데이트하려면 원하는 디렉터리 계층 구조에 대한 ACL을 재귀적으로 추가, 업데이트 또는 제거해야 합니다. 지침은 이 문서의 [ACL 설정 방법](#set-access-control-lists) 섹션에서 참조하세요. 
+기본 ACL을 사용하여 부모 디렉터리 아래에 만들어진 새로운 자식 하위 디렉터리 및 파일에 대한 ACL을 설정할 수 있습니다. 기존 하위 항목에 대한 ACL을 업데이트하려면 원하는 디렉터리 계층 구조에 대한 ACL을 재귀적으로 추가, 업데이트 또는 제거해야 합니다. 지침은 이 문서의 [ACL 설정 방법](#set-access-control-lists) 섹션에서 참조하세요.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>디렉터리 및 해당 내용을 재귀적으로 삭제하는 데 필요한 권한은 무엇인가요?
 
@@ -343,20 +344,20 @@ OID가 표시됩니다.
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>컨테이너의 ACL을 설정할 수 있나요?
 
-아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유합니다. 예를 들어 컨테이너 이름이 `my-container`인 경우 루트 디렉터리의 이름은 `my-container/`입니다. 
+아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대 한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유합니다. 예를 들어 컨테이너 이름이 인 경우 `my-container` 루트 디렉터리의 이름은 `my-container/` 입니다.
 
-Azure Storage REST API에는 [Set Container ACL](/rest/api/storageservices/set-container-acl)이라는 작업이 포함되어 있지만 해당 작업은 컨테이너 또는 컨테이너의 루트 디렉터리에 대한 ACL을 설정하는 데 사용할 수 없습니다. 대신 이 작업을 사용하여 컨테이너의 Blob에 [공개적으로 액세스할 수 있는지](anonymous-read-access-configure.md) 여부를 나타낼 수 있습니다. 
+Azure Storage REST API에는 [Set Container ACL](/rest/api/storageservices/set-container-acl)이라는 작업이 포함되어 있지만 해당 작업은 컨테이너 또는 컨테이너의 루트 디렉터리에 대한 ACL을 설정하는 데 사용할 수 없습니다. 대신 이 작업을 사용하여 컨테이너의 Blob에 [공개적으로 액세스할 수 있는지](anonymous-read-access-configure.md) 여부를 나타낼 수 있습니다.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
-* [Linux의 POSIX Access Control 목록](https://www.linux.com/news/posix-acls-linux)(영문)
-* [HDFS 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(영문)
-* [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-* [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
+- [Linux의 POSIX Access Control 목록](https://www.linux.com/news/posix-acls-linux)(영문)
+- [HDFS 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(영문)
+- [POSIX FAQ](https://www.opengroup.org/austin/papers/posix_faq.html)
+- [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+- [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+- [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+- [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
+- [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
 ## <a name="see-also"></a>참고 항목
 

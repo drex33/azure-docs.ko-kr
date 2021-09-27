@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: b568b11b7e0e630dcceef53e4c0f513dc0a7732c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547560"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>MSIX 앱 연결에 대한 파일 공유 설정
 
@@ -44,12 +44,12 @@ MSIX 앱 연결 성능을 최적화하기 위해 수행하는 몇 가지 다른 
 - MSIX 앱 연결에 사용하는 스토리지 솔루션은 세션에서 호스팅하는 것과 동일한 데이터 센터 위치에 있어야 합니다.
 - 성능 병목 현상을 방지하려면 다음 VHD, VHDX 및 CIM 파일을 바이러스 백신 검사에서 제외합니다.
    
-    - <MSIXAppAttachFileShare\>\*.VHD
-    - <MSIXAppAttachFileShare\>\*.VHDX
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
-    - <MSIXAppAttachFileShare>.CIM
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
+    - `<MSIXAppAttachFileShare\>\*.VHD`
+    - `<MSIXAppAttachFileShare\>\*.VHDX`
+    - `\\storageaccount.file.core.windows.net\share*.VHD`
+    - `\\storageaccount.file.core.windows.net\share*.VHDX`
+    - `<MSIXAppAttachFileShare>.CIM`
+    - `\\storageaccount.file.core.windows.net\share**.CIM`
 
 - FSLogix 프로필 컨테이너에서 MSIX 앱 연결에 대한 스토리지 패브릭을 분리합니다.
 - 모든 VM 시스템 계정 및 사용자 계정에는 파일 공유에 액세스할 수 있는 읽기 전용 권한이 있어야 합니다.

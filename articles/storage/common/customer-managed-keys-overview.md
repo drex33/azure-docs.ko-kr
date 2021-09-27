@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: cc0e6dc0e11809fb1e8cf046821231cc98f769f6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 18131a4519d571a109559ed65d9e95ec6ffc3129
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593100"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Azure Storage 암호화용 고객 관리형 키
 
@@ -49,7 +49,7 @@ Azure Key Vault의 고객 관리형 키에 액세스하려면 스토리지 계�
 
 - *wrapkey*
 - *unwrapkey*
-- *get*  
+- *get*
 
 키 권한에 대한 자세한 내용은 [키 유형, 알고리즘 및 작업](../../key-vault/keys/about-keys-details.md#key-access-control)을 참조하세요.
 
@@ -76,7 +76,7 @@ Blob Storage 및 Azure Files의 데이터는 스토리지 계정에 고객 관�
 키 자격 증명 모음의 고객 관리형 키로 Azure Storage 암호화를 구성하는 방법에 대해 알아보려면 [Azure Key Vault에 저장된 고객 관리형 키로 암호화 구성](customer-managed-keys-configure-key-vault.md)을 참조하세요. 관리되는 HSM의 고객 관리형 키를 구성하려면 [Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키로 암호화 구성](customer-managed-keys-configure-key-vault-hsm.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 고객 관리형 키는 Azure AD의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에 고객 관리형 키를 구성하는 경우 관리 ID가 스토리지 계정에 내부적으로 자동 할당됩니다. 이후에 구독, 리소스 그룹 또는 스토리지 계정을 Azure AD 디렉터리 간에 이동하는 경우, 스토리지 계정과 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 내용은 FAQ에서 **Azure AD 디렉터리 간 구독 전송** 및 [Azure 리소스에 대한 관리 ID의 알려진 문제](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조하세요.  
+> 고객 관리형 키는 Azure AD의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에 고객 관리형 키를 구성하는 경우 관리 ID가 스토리지 계정에 내부적으로 자동 할당됩니다. 이후에 구독, 리소스 그룹 또는 스토리지 계정을 Azure AD 디렉터리 간에 이동하는 경우, 스토리지 계정과 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 내용은 FAQ에서 **Azure AD 디렉터리 간 구독 전송** 및 [Azure 리소스에 대한 관리 ID의 알려진 문제](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조하세요.
 
 Azure Storage 암호화는 2048, 3072, 4096 크기의 RSA 및 RSA HSM 키를 지원합니다. 키에 대한 자세한 내용은 [키 정보](../../key-vault/keys/about-keys.md)를 참조하세요.
 

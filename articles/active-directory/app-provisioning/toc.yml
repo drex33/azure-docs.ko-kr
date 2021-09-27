@@ -78,12 +78,6 @@
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: 온-프레미스 앱 프로비전
       items:
-        - name: ECMA 커넥터 호스트 필수 구성 요소
-          href: on-premises-ecma-prerequisites.md
-        - name: ECMA 커넥터 호스트 설치
-          href: on-premises-ecma-install.md
-        - name: ECMA 커넥터 호스트 구성
-          href: on-premises-ecma-configure.md
         - name: 일반 SQL 커넥터 구성
           href: on-premises-sql-connector-configure.md
         - name: SCIM 지원 앱에 대한 온-프레미스 애플리케이션 프로비전

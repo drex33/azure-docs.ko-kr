@@ -1,16 +1,16 @@
 ---
-title: Azure DevTest Labs에서 Service Fabric 클러스터 환경 만들기
+title: Service Fabric 클러스터 환경 만들기
 description: 자체 포함 Service Fabric 클러스터로 환경을 만들고 일정을 사용하여 클러스터를 시작 및 중지하는 방법을 알아봅니다.
 author: EMaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: e85e4dd34a63500b569b75bb953a4c6061aefe5e
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 42a8c3b11f2da5910ff3aed1a1eface827100289
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586008"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593841"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Azure DevTest Labs에서 자체 포함 Service Fabric 클러스터로 환경 만들기
 이 문서에서는 Azure DevTest Labs에서 자체 포함 Service Fabric 클러스터로 환경을 만드는 방법에 대한 정보를 제공합니다. 

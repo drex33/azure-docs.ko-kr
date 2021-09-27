@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 95081b661d4f33577df07420ab194ec48488221a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: ea5cd9dffeb8efdeb9dc29fa9d38696973285e47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549239"
 ---
 # <a name="required-url-list"></a>필수 URL 목록
 
@@ -87,7 +87,7 @@ Azure Virtual Desktop용으로 생성한 Azure 가상 머신은 Azure 상용 클
 | 168.63.129.16 | 80 | [세션 호스트 상태 모니터링](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | 해당 없음 |
 
 >[!IMPORTANT]
->이제 Azure Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-windows-virtual-desktop.md)를 참조하세요.
+>이제 Azure Virtual Desktop에서 FQDN 태그를 지원합니다. 자세한 내용은 [Azure Firewall을 사용하여 Windows Virtual Desktop 배포 보호](../firewall/protect-azure-virtual-desktop.md)를 참조하세요.
 >
 >서비스 문제를 방지하기 위해 URL 대신 FQDN 태그를 사용하는 것이 좋습니다. 나열된 URL과 태그는 Azure Virtual Desktop 사이트 및 리소스에만 해당합니다. Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함되지 않습니다.
 

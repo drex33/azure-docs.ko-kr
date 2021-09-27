@@ -2,13 +2,13 @@
 title: Azure Event Grid 이벤트 스키마
 description: 모든 이벤트에 대해 제공되는 속성 및 스키마에 대해 설명합니다. 이벤트는 4개의 필수 문자열 속성 집합으로 구성됩니다.
 ms.topic: reference
-ms.date: 07/07/2020
-ms.openlocfilehash: 6354401902a841322e58dc7989f10279efee6c2c
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 3a6f63cc6d12b44ea2cb7fc02d1ae7df096358b8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550769"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
@@ -75,7 +75,7 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 있습니다.
 
-| 속성 | Type | 필수 | Description |
+| 속성 | 형식 | 필수 | Description |
 | -------- | ---- | -------- | ----------- |
 | 토픽 | 문자열 | 아니요. 하지만 포함된 경우 Event Grid 토픽 Azure Resource Manager ID와 정확히 일치해야 합니다. 포함되지 않은 경우 Event Grid는 이벤트로 스탬프 처리됩니다. | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체의 경로입니다. |

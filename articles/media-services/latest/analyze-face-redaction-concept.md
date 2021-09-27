@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 2c434720863a7ecff4192720874547f6f8c2e8ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955469"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621417"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Face Detector 사전 설정을 사용하여 얼굴 찾기 및 편집(흐리게)
 
@@ -31,7 +31,7 @@ Azure Media Services v3 API에는 클라우드에서 확장성 있는 얼굴 감
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 프라이버시 및 보안
 
-Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Azure Media Services 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 비디오를 처리하고 저장하기 위해 Azure Media Services 서비스에 업로드하려면 비디오에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Azure Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md)에서 확인할 수 있습니다. Azure Media Services를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
+Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Azure Media Services 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 비디오를 처리하고 저장하기 위해 Azure Media Services 서비스에 업로드하려면 비디오에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Azure Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml)에서 확인할 수 있습니다. Azure Media Services를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
 
 ## <a name="face-redaction-modes"></a>얼굴 편집 모드
 
@@ -54,12 +54,13 @@ Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을
 ### <a name="analyze-mode"></a>분석 모드
 
 2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치 목록이 있는, 얼굴 ID 및 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
+얼굴 id의 후속 실행은 분석 패스의 후속 실행에서 동일 하지 않을 것을 권장 합니다.
 
 | 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |"ignite-sample.mp4" |WMV, MPV 또는 MP4 형식의 동영상 |
 | 사전 설정 구성 |Face Detector 구성 |**mode**: FaceRedactorMode.Analyze, **resolution**: AnalysisResolution.SourceResolution|
-| 출력 자산 |ignite-sample_annotations.json |얼굴 위치의 주석 데이터(JSON 형식). 사용자가 흐리게 표시하는 테두리 상자를 수정하기 위해 편집할 수 있습니다. 아래 샘플을 참조하세요. |
+| 출력 자산 |ignite-sample_annotations.json |얼굴 위치의 주석 데이터(JSON 형식). 얼굴 id는 이후 분석 패스의 후속 실행에서 동일 하지 않을 수 있습니다. 사용자가 흐리게 표시하는 테두리 상자를 수정하기 위해 편집할 수 있습니다. 아래 샘플을 참조하세요. |
 | 출력 자산 |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |검색된 각 얼굴을 잘라낸 jpg(숫자는 얼굴의 레이블 ID) |
 
 #### <a name="output-example"></a>출력 예제
@@ -132,6 +133,7 @@ Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을
 #### <a name="example-output"></a>예제 출력
 
 IDList에서 하나의 ID가 선택된 출력입니다.
+얼굴 id는 이후 분석 패스의 후속 실행에서 동일 하지 않을 수 있습니다.
 
 예제 foo_IDList.txt
 

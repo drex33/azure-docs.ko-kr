@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
-ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6d5787268cd5f7d25b54f8c7bc63f59c20a8495b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013926"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606991"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Visual Studio Code에서 Azure Stream Analytics에 대한 사용자 지정 .NET 역직렬 변환기 만들기
 
@@ -114,7 +114,7 @@ Stream Analytics 작업에 대한 사용자 지정 역직렬 변환기를 성공
    **ProtobufCloudDeserializer** 를 선택한 다음, 드롭다운 목록에서 **Azure Stream Analytics** 를 선택합니다.
    :::image type="content" source="./media/custom-deserializer/create-launch-file-vscode-2.png" alt-text="launch 파일 만들기 2":::
 
-   **launch.json** 파일을 편집하여 <ASAScript>.asaql을 ProtobufCloudDeserializer.asaql로 바꿉니다.
+   **launch.json** 파일을 편집하여 \<ASAScript\>.asaql을 ProtobufCloudDeserializer.asaql로 바꿉니다.
    :::image type="content" source="./media/custom-deserializer/configure-launch-file-vscode.png" alt-text="launch 파일 구성":::
 
 3. **F5** 키를 눌러 디버깅을 시작합니다. 프로그램이 중단점에서 정상적으로 중지됩니다. 이는 로컬 입력 및 라이브 입력 데이터 모두에 대해 작동합니다.

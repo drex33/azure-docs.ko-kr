@@ -1,10 +1,5 @@
 - name: Cloud Foundry 설명서
   href: index.yml
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: Marketplace 템플릿
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
 - name: 자습서
   items:
     - name: Azure에서 CF 만들기

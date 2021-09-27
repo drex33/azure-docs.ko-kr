@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 09994e329072ab0ed67a9cb29c09ff245b288923
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432075"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605452"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -67,6 +67,7 @@ OAuth 인증을 사용하여 단일 파일을 업로드합니다. AzCopy에 아�
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
 위와 동일하지만 이번에는 파일 콘텐츠의 MD5 해시를 계산하고 Blob의 콘텐츠-MD5 속성으로 저장합니다.
 
 ```azcopy
@@ -80,13 +81,13 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ```
 
 SAS 토큰과 파이핑(블록 Blob에만 해당)를 사용하여 단일 파일을 업로드합니다.
-  
+
 ```azcopy
 cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]
 ```
 
 SAS 토큰을 사용하여 전체 디렉터리를 업로드합니다.
-  
+
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
@@ -98,7 +99,7 @@ azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[p
 ```
 
 SAS 토큰 및 와일드카드(*) 문자를 사용하여 파일 집합을 업로드합니다.
- 
+
 ```azcopy
 azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
@@ -109,10 +110,10 @@ SAS 토큰 및 와일드카드(*) 문자를 사용하여 파일 및 디렉터리
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-파일 및 디렉터리를 Azure Storage 계정에 업로드하고 Blob에 쿼리 문자열로 인코딩된 태그를 설정합니다. 
+파일 및 디렉터리를 Azure Storage 계정에 업로드하고 Blob에 쿼리 문자열로 인코딩된 태그를 설정합니다.
 
 - {Key = "bla bla", val = "foo"} 및 {key = "bla bla 2", val = "bar"} 태그를 설정하려면 다음 구문을 사용합니다. `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-    
+
 - 키와 값은 URL로 인코딩되고 키-값 쌍은 앰퍼샌드('&')로 구분됩니다.
 
 - Blob에서 태그를 설정하는 동안, 없는 경우 서비스로부터 권한 부여 오류가 반환되는 추가 권한(tags의 ‘t’)이 SAS에 있습니다.
@@ -130,27 +131,27 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 ```
 
 SAS 토큰을 사용하여 단일 파일을 다운로드 한 다음 출력을 파일로 파이핑합니다(블록 Blob에만 해당).
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-``` 
+```
 
 SAS 토큰을 사용하여 전체 디렉터리를 다운로드합니다.
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive
-``` 
+```
 
 URL에 와일드카드 문자(*)를 사용하는 방법에 대한 참고:
 
-URL에 와일드카드 문자를 사용하기 위해 지원되는 방법은 오직 2가지입니다. 
+URL에 와일드카드 문자를 사용하기 위해 지원되는 방법은 오직 2가지입니다.
 
-- URL의 마지막 슬래시(/) 바로 다음에 한 개를 사용할 수 있습니다. 와일드카드 문자를 이렇게 사용하면 디렉터리에 있는 모든 파일이 하위 디렉터리에 배치되지 않고 대상에 직접 복사됩니다. 
+- URL의 마지막 슬래시(/) 바로 다음에 한 개를 사용할 수 있습니다. 와일드카드 문자를 이렇게 사용하면 디렉터리에 있는 모든 파일이 하위 디렉터리에 배치되지 않고 대상에 직접 복사됩니다.
 
-- URL이 Blob이 아닌 컨테이너를 참조하는 경우 와일드카드 문자를 컨테이너 이름에 사용할 수도 있습니다. 이 방법을 사용하여 컨테이너의 하위 집합에서 파일을 가져올 수 있습니다. 
+- URL이 Blob이 아닌 컨테이너를 참조하는 경우 와일드카드 문자를 컨테이너 이름에 사용할 수도 있습니다. 이 방법을 사용하여 컨테이너의 하위 집합에서 파일을 가져올 수 있습니다.
 
 포함하는 디렉터리 자체를 복사하지 않고 디렉터리의 콘텐츠를 다운로드합니다.
- 
+
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/folder]/*?[SAS]" "/path/to/dir"
 ```
@@ -173,7 +174,7 @@ SAS 토큰을 사용하여 단일 Blob을 다른 Blob으로 복사합니다.
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-SAS 토큰과 인증 토큰을 사용하여 단일 Blob을 다른 Blob으로 복사합니다. 원본 계정 URL의 끝에 SAS 토큰을 사용해야 하지만 `azcopy login` 명령을 사용하여 AzCopy에 로그인하는 경우 대상 계정이 필요하지 않습니다. 
+SAS 토큰과 인증 토큰을 사용하여 단일 Blob을 다른 Blob으로 복사합니다. 원본 계정 URL의 끝에 SAS 토큰을 사용해야 하지만 `azcopy login` 명령을 사용하여 AzCopy에 로그인하는 경우 대상 계정이 필요하지 않습니다.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
@@ -192,27 +193,27 @@ azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccou
 ```
 
 액세스 키 및 SAS 토큰을 사용하여 단일 개체를 AWS(Amazon Web Services) S3에서 Blob Storage로 복사합니다. 먼저 AWS S3 원본에 대해 환경 변수 `AWS_ACCESS_KEY_ID` 및 `AWS_SECRET_ACCESS_KEY`를 설정합니다.
-  
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 액세스 키 및 SAS 토큰을 사용하여 전체 디렉터리를 AWS S3에서 Blob Storage로 복사합니다. 먼저 AWS S3 원본에 대해 환경 변수 `AWS_ACCESS_KEY_ID` 및 `AWS_SECRET_ACCESS_KEY`를 설정합니다.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
-    
+
   [폴더] 자리 표시자에 대한 자세한 내용은 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 을 참조하세요.
 
 액세스 키 및 SAS 토큰을 사용하여 모든 버킷을 AWS(Amazon Web Services) S3에서 Blob Storage로 복사합니다. 먼저 AWS S3 원본에 대해 환경 변수 `AWS_ACCESS_KEY_ID` 및 `AWS_SECRET_ACCESS_KEY`를 설정합니다.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 액세스 키 및 SAS 토큰을 사용하여 모든 버킷을 AWS(Amazon Web Services) 지역에서 Blob Storage로 복사합니다. 먼저 AWS S3 원본에 대해 환경 변수 `AWS_ACCESS_KEY_ID` 및 `AWS_SECRET_ACCESS_KEY`를 설정합니다.
- 
+
 ```azcopy
 - azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
@@ -223,22 +224,22 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-파일 및 디렉터리를 Azure Storage 계정으로 전송하고 쿼리 문자열로 인코딩되어 제공된 태그를 Blob에 설정합니다. 
+파일 및 디렉터리를 Azure Storage 계정으로 전송하고 쿼리 문자열로 인코딩되어 제공된 태그를 Blob에 설정합니다.
 
 - {key = "bla bla", val = "foo"} 및 {key = "bla bla 2", val = "bar"} 태그를 설정하려면 다음 구문을 사용합니다. `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-        
+
 - 키와 값은 URL로 인코딩되고 키-값 쌍은 앰퍼샌드('&')로 구분됩니다.
-    
+
 - Blob에서 태그를 설정하는 동안, 없는 경우 서비스로부터 권한 부여 오류가 반환되는 추가 권한(tags의 ‘t’)이 SAS에 있습니다.
 
 서비스 계정 키와 SAS 토큰을 사용하여 단일 개체를 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 Google Cloud Storage 원본에 대해 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정합니다.
-  
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 서비스 계정 키와 SAS 토큰을 사용하여 전체 디렉터리를 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 Google Cloud Storage 원본에 대해 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정합니다.
- 
+
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
@@ -249,14 +250,14 @@ azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destacc
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 하 고 GOOGLE_CLOUD_PROJECT =<`project-id` gc 원본에 대해> 합니다.
+서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GCS 원본에 대한 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT=<> 설정합니다. `project-id`
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 `project-id` GOOGLE CLOUD Storage 원본에 대해 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT =<>를 설정 합니다.
- 
+서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 Google Cloud Storage 원본에 대한 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT= `project-id`<> 설정합니다.
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
@@ -287,25 +288,25 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--content-type** 문자열: 파일의 콘텐츠 형식을 지정합니다. no-guess-mime-type을 의미합니다. 다운로드 시 반환됩니다.
 
-**--** 이름으로 클라이언트에서 제공한 키 이름으로 클라이언트에서 요청 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션 Azure Blob Storage 수 있습니다. 제공 된 키 이름은 Azure Key Vault에서 페치 되며 데이터를 암호화 하는 데 사용 됩니다.
+**--cpk-by-name** 문자열 클라이언트가 이름으로 키를 제공하므로 Azure Blob에 대한 요청을 하는 클라이언트는 요청별로 암호화 키를 제공하는 옵션을 Storage. 제공된 키 이름은 Azure Key Vault 가져와 데이터를 암호화하는 데 사용됩니다.
 
-**--cpk-값**                          클라이언트에서 제공 하는 키 이름을 사용 하 여 요청을 Azure Blob Storage에 대 한 요청을 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션입니다. 제공 된 키와 해당 해시가 환경 변수에서 인출 됩니다.
+**--cpk-by-value**                          클라이언트가 이름으로 제공한 키를 사용하면 Azure Blob에 대한 요청을 하는 클라이언트가 요청별로 암호화 키를 제공하는 옵션을 Storage 수 있습니다. 제공된 키와 해당 해시는 환경 변수에서 페치됩니다.
 
 **--decompress**: 다운로드 시 파일의 content-encoding이 파일이 압축되었음을 나타내는 경우 해당 파일의 압축을 자동으로 풉니다. 지원되는 content-encoding 값은 `gzip` 및 `deflate`입니다. 파일 확장명 `.gz`/`.gzip` 또는 `.zz`는 필요하지 않으며 있는 경우 제거됩니다.
 
-**--예행 실행**                              이 명령으로 복사할 파일 경로를 인쇄 합니다. 이 플래그는 실제 파일을 복사 하지 않습니다.
+**--dry-run**                              이 명령으로 복사할 파일 경로를 인쇄합니다. 이 플래그는 실제 파일을 복사하지 않습니다.
 
 **--disable-auto-decoding**    Windows에서 잘못된 문자의 자동 디코딩을 사용하도록 설정하려면 기본적으로 False입니다. `true`로 설정하여 자동 디코딩을 사용하지 않도록 설정할 수 있습니다.
 
 **--exclude-attributes** 문자열: (Windows에만 해당) 해당 특성이 특성 목록과 일치하는 파일을 제외합니다. 예: A;S;R
 
-**--exclude-blob-type** 문자열: 필요에 따라 컨테이너 또는 계정에서 Blob을 복사할 때 제외할 Blob 형식(`BlockBlob`/ `PageBlob`/ `AppendBlob`)을 지정합니다. 비 Azure 서비스에서 서비스로 데이터를 복사하는 경우에는 이 플래그를 사용할 수 없습니다. 둘 이상의 Blob은 `;`으로 구분해야 합니다. 
+**--exclude-blob-type** 문자열: 필요에 따라 컨테이너 또는 계정에서 Blob을 복사할 때 제외할 Blob 형식(`BlockBlob`/ `PageBlob`/ `AppendBlob`)을 지정합니다. 비 Azure 서비스에서 서비스로 데이터를 복사하는 경우에는 이 플래그를 사용할 수 없습니다. 둘 이상의 Blob은 `;`으로 구분해야 합니다.
 
 **--exclude-path** 문자열: 복사 시 해당 경로를 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사(예: `myFolder;myFolder/subDirName/file.pdf`)를 확인합니다. 계정 순회와 함께 사용하는 경우 경로는 컨테이너 이름을 포함하지 않습니다.
 
 **--exclude-pattern** 문자열: 복사 시 해당 파일을 제외합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다.
 
-**--exclude-regex** 문자열이 정규식과 일치 하는 파일의 상대 경로를 모두 제외 합니다. 정규식을 '; '으로 구분 합니다.
+**--exclude-regex** 문자열 정규식과 일치하는 파일의 모든 상대 경로를 제외합니다. 정규식을 ';'로 구분합니다.
 
 **--follow-symlinks**: 로컬 파일 시스템에서 업로드할 때 바로 가기 링크를 따릅니다.
 
@@ -323,15 +324,15 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--include-path** 문자열: 복사 시 해당 경로만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원하지 않습니다. 상대 경로 접두사(예: `myFolder;myFolder/subDirName/file.pdf`)를 확인합니다.
 
-**--디렉터리-스텁**               기본적으로 디렉터리 스텁을 무시 하려면 False로 설정 합니다. 디렉터리 스텁은 메타 데이터가 ' hdi_isfolder: t r u e ' 인 blob입니다. 값을 true로 설정 하면 전송 중에 디렉터리 스텁이 유지 됩니다.
+**--include-directory-stub**               디렉터리 스텁을 무시하려면 기본적으로 False입니다. 디렉터리 스텁은 'hdi_isfolder:true' 메타데이터가 있는 Blob입니다. 값을 true로 설정하면 전송 중에 디렉터리 스텁이 유지됩니다.
 
 **--include-pattern** 문자열: 복사 시 해당 파일만 포함합니다. 이 옵션은 와일드카드 문자(*)를 지원합니다. `;`을 사용하여 파일을 구분합니다.
 
-**--regex** 문자열에는 정규식과 일치 하는 파일의 상대 경로만 포함 됩니다. 정규식을 '; '으로 구분 합니다.
+**--include-regex** 문자열 정규식과 일치하는 파일의 상대 경로만 포함합니다. 정규식을 ';'로 구분합니다.
 
 **--list-of-versions** 문자열: 각 버전 ID가 별도의 줄에 나열되는 파일을 지정합니다. 원본이 단일 Blob을 가리켜야 하며 이 플래그를 사용하여 파일에 지정된 모든 버전 ID가 원본 Blob에만 속해야 합니다. AzCopy가 지정된 버전을 제공된 대상 폴더에 다운로드합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](./storage-use-azcopy-v10.md#transfer-data)를 참조하세요.
 
-**--log-level** 문자열: 로그 파일에서 로그의 세부 정보 표시 수준을 정의합니다. 예: INFO(모든 요청/응답), WARNING(느린 응답), ERROR(실패하 요청만) 및 NONE(출력 로그 없음). (기본값 `INFO`). 
+**--log-level** 문자열: 로그 파일에서 로그의 세부 정보 표시 수준을 정의합니다. 예: INFO(모든 요청/응답), WARNING(느린 응답), ERROR(실패하 요청만) 및 NONE(출력 로그 없음). (기본값 `INFO`).
 
 **--metadata** 문자열: 해당 키-값 쌍을 메타데이터로 하여 Azure Storage에 업로드합니다.
 
@@ -348,7 +349,6 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 **--smb-정보를 유지**   합니다.   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. Azure Files에서 지원하는 특성 비트만 전송되고 다른 모든 항목은 무시됩니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
 **--유지-권한**                False 이면 기본적으로 False입니다. 인식 리소스 (Windows 및 Azure Files 또는 Data Lake Storage gen 2 Data Lake Storage gen 2) 간에 acl을 유지 합니다. 계층 네임 스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요 합니다. 다운로드를 위해 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 경우에는--backup 플래그를 사용 하 여 사용 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴).
-
 
 **--put-md5**: 각 파일의 MD5 해시를 만들고 해당 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시는 생성되지 않습니다.) 업로드 시에만 사용할 수 있습니다.
 
@@ -372,6 +372,6 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [azcopy](storage-ref-azcopy.md)

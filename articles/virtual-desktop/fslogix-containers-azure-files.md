@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 013dea780c1f5819d9b9caefeec3b66066d1f44c
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: 93ef2ea1bcb10c08cfe6dc47027d12eeae3002b7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547488"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
 Azure Virtual Desktop 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장합니다. FSLogix는 Azure Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시 이 컨테이너가 기본적으로 지원되는 VHD(가상 하드 디스크) 및 VHDX(Hyper-V 가상 하드 디스크)를 사용하여 컴퓨팅 환경에 동적으로 연결됩니다. 사용자 프로필은 즉시 제공되어 시스템에서 네이티브 사용자 프로필과 똑같이 표시됩니다. 이 문서에서는 Azure Virtual Desktop에서 Azure Files 함수를 사용하여 FSLogix 프로필 컨테이너를 사용하는 방법을 설명합니다.
 
->[!NOTE]
->Azure의 다양한 FSLogix 프로필 컨테이너 스토리지 옵션에 대한 비교 자료를 찾고 있다면 [FSLogix 프로필 컨테이너의 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.
+> [!NOTE]
+> Azure의 다양한 FSLogix 프로필 컨테이너 스토리지 옵션에 대한 비교 자료를 찾고 있다면 [FSLogix 프로필 컨테이너의 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.
 
 ## <a name="user-profiles"></a>사용자 프로필
 
@@ -77,7 +77,7 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Active Directory 도메인 서비스와 Azure Files 통합
 
-FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용합니다. 2019년 8월 7일에 Microsoft Azure Files는 [AD DS(Azure Active Directory 도메인 서비스)를 사용하여 Azure Files 인증](../storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표했습니다. 비용 및 관리 오버헤드를 모두 해결함으로써 Azure AD DS 인증을 사용하는 Azure Files는 Azure Virtual Desktop 서비스의 사용자 프로필에 대한 프리미엄 솔루션입니다.
+FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [Azure Active Directory 도메인 서비스 (Azure AD DS)를 사용 하 여 Azure Files 인증](../storage/files/storage-files-active-directory-overview.md)의 일반 공급을 발표 했습니다. 비용 및 관리 오버헤드를 모두 해결함으로써 Azure AD DS 인증을 사용하는 Azure Files는 Azure Virtual Desktop 서비스의 사용자 프로필에 대한 프리미엄 솔루션입니다.
 
 ## <a name="best-practices-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 모범 사례
 

@@ -10,18 +10,18 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: a0f4a8602b3f4b10ac1ef6ca1ac65e5bedc76210
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187400"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593233"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Notebook 만들기, 개발, 유지 관리
 
 Synapse Notebook은 라이브 코드, 시각화, 내레이션 텍스트를 포함하는 파일을 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. Notebook은 데이터 준비, 데이터 시각화, 기계 학습 및 기타 빅 데이터 시나리오에서도 널리 사용됩니다.
 
-Synapse Notebook의 이점은 다음과 같습니다.
+Synapse Notebook의 이점은 다음과 같습니다. 
 
 * 시작에 필요한 설정 작업이 전혀 없습니다.
 * 기본 제공 엔터프라이즈 보안 기능으로 데이터 보안을 유지합니다.
@@ -42,10 +42,11 @@ Synapse 팀은 새로운 Notebook 구성 요소를 Synapse Studio로 가져와�
 |끌어서 놓아 셀 이동| 지원되지 않음 |&#9745;|
 |개요(목차)| 지원되지 않음 |&#9745;|
 |변수 탐색기| 지원되지 않음 |&#9745;|
-|도구 모음 단추를 사용하여 텍스트 셀 서식 지정|&#9745;| 사용할 수 없음 |
+|도구 모음 단추를 사용하여 텍스트 셀 서식 지정|&#9745;| 지원되지 않음|
 |코드 셀 주석 달기| 지원되지 않음 | &#9745;|
 
-
+> [!NOTE]
+> 변수 탐색기는 python만 지원 합니다.
 ## <a name="create-a-notebook"></a>Notebook 만들기
 
 Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기** 에서 새 Notebook을 만들거나 Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Synapse Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식합니다.
@@ -64,7 +65,7 @@ Notebook을 개발하기 위한 다양한 작업을 제공합니다.
 + [IDE 스타일 IntelliSense](#ide-style-intellisense)
 + [코드 조각](#code-snippets)
 + [도구 모음 단추를 사용하여 텍스트 셀 서식 지정](#format-text-cell-with-toolbar-buttons)
-+ [셀 작업 실행 취소](#undo-cell-operation)
++ [셀 실행 취소/다시 실행 작업](#undo-redo-cell-operation)
 + [코드 셀 주석 달기](#Code-cell-commenting)
 + [셀 이동](#move-a-cell)
 + [셀 삭제](#delete-a-cell)
@@ -91,13 +92,10 @@ Notebook에 새 셀을 추가하는 방법은 여러 가지입니다.
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-1. 왼쪽 위에 있는 **+ 셀** 단추를 펼치고 **코드 셀** 또는 **Markdown 셀** 을 선택합니다.
+1. 두 셀 사이의 공간을 마우스로 가리키고 **Code** 또는 **Markdown** 를 선택 합니다.
     ![add-azure-notebook-cell-with-cell-button 스크린샷](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. 셀의 시작 부분에 있는 더하기 기호를 선택하고 **코드 셀** 또는 **Markdown 셀** 을 선택합니다.
 
-    ![add-azure-notebook-cell-between-space 스크린샷](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
-
-3. [명령 모드에서 aznb 바로 가기 키](#shortcut-keys-under-command-mode)를 사용합니다. 현재 셀 위에 셀을 삽입하려면 **A** 를 누릅니다. 현재 셀 아래에 셀을 삽입하려면 **B** 를 누릅니다.
+2. [명령 모드에서 aznb 바로 가기 키](#shortcut-keys-under-command-mode)를 사용합니다. 현재 셀 위에 셀을 삽입하려면 **A** 를 누릅니다. 현재 셀 아래에 셀을 삽입하려면 **B** 를 누릅니다.
 
 ---
 
@@ -105,10 +103,10 @@ Notebook에 새 셀을 추가하는 방법은 여러 가지입니다.
 
 Synapse Notebook은 4개의 Apache Spark 언어를 지원합니다.
 
-* pySpark(Python)
+* PySpark(Python)
 * Spark(Scala)
-* SparkSQL
-* .NET for Apache Spark(C#)
+* Spark SQL
+* .NET Spark(C#)
 
 새로 추가한 셀의 주 언어는 위쪽 명령 모음의 드롭다운 목록에서 설정할 수 있습니다.
 
@@ -138,7 +136,7 @@ Synapse Notebook의 여러 언어 간에 직접 데이터나 변수를 참조할
 1. 셀 1에서는 Scala를 사용하여 SQL 풀 커넥터에서 DataFrame을 읽고 임시 테이블을 생성합니다.
 
    ```scala
-   %%scala
+   %%spark
    val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
@@ -166,8 +164,8 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 |언어| 구문 강조 표시 | 구문 오류 표식  | 구문 코드 완성 | 변수 코드 완성| 시스템 함수 코드 완성| 사용자 함수 코드 완성| 스마트 들여쓰기 | 코드 접기|
 |--|--|--|--|--|--|--|--|--|
 |PySpark(Python)|예|예|예|예|예|예|예|예|
-|Spark(Scala)|예|예|예|예|-|-|-|예|
-|SparkSQL|예|예|-|-|-|-|-|-|
+|Spark(Scala)|예|예|예|예|예|예|-|예|
+|SparkSQL|예|예|예|예|예|-|-|-|
 |.NET for Spark(C#)|예|예|예|예|예|예|예|예|
 
 >[!Note]
@@ -196,7 +194,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 ---
 
-<h3 id="undo-cell-operation">셀 작업 실행 취소</h3>
+<h3 id="undo-redo-cell-operation">셀 실행 취소/다시 실행 작업</h3>
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
@@ -218,6 +216,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 > [!NOTE]
 > 셀 내 텍스트 작업과 코드 셀 주석 달기 작업은 실행 취소할 수 없습니다.
+> 이제 기록된 최근 셀 작업을 10개까지 실행 취소/다시 실행할 수 있습니다.
 
 
 ---
@@ -294,7 +293,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-셀 도구 모음에서 **기타 명령** 줄임표(...)를 선택하고 현재 셀의 입력을 축소하려면 **입력** 을 선택합니다. 셀을 펼치려면 셀이 축소된 상태에서 **입력 숨김** 을 선택합니다.
+셀 도구 모음에서 **더 많은 명령** 줄임표 (...)를 선택 하 고 **입력을 숨겨** 현재 셀의 입력을 축소 합니다. 확장 하려면 셀을 축소 하는 동안 **입력 표시** 를 선택 합니다.
 
    ![azure-notebook-collapse-cell-input 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -310,7 +309,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-셀 도구 모음에서 **기타 명령** 줄임표(...)를 선택하고 현재 셀의 출력을 축소하려면 **출력** 을 선택합니다. 셀의 출력이 숨겨져 있을 때 확장하려면 동일한 단추를 선택합니다.
+셀 도구 모음에서 **더 많은 명령** 줄임표 (...)를 선택 하 고 현재 셀의 출력을 축소 하려면 **출력을 숨깁니다** . 확장 하려면 셀의 출력을 숨기는 동안 **출력 표시** 를 선택 합니다.
 
    ![azure-notebook-collapse-cell-output 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 

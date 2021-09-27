@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: c16b4a91f297621fa96e0e18f816d77e9f3b4e2a
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
-ms.translationtype: HT
+ms.openlocfilehash: a1752e1ea264f8abacfee575546f7bdf6b5eb966
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322407"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624086"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Azure Migrate을 사용하여 ExpressRoute를 통해 데이터 복제: Server Migration
 
@@ -157,7 +157,7 @@ Microsoft.Network/privateDnsZones/read <br/> Microsoft.Network/privateEndpoints/
 
 캐시 스토리지 계정의 DNS 확인을 설명하는 예제입니다. 
 
-- nslookup _storageaccountname_.blob.core.windows.net을 입력합니다. <storage-account-name>을 Azure Migrate에서 생성되는 캐시 스토리지 계정 이름으로 바꿉니다.  
+- nslookup _storageaccountname_.blob.core.windows.net을 입력합니다. \<storage-account-name\>을 Azure Migrate 만든 캐시 스토리지 계정의 이름으로 대체합니다.  
 
     다음과 같은 메시지가 표시됩니다.  
 

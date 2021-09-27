@@ -1,14 +1,14 @@
 ---
 title: Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
 description: Azure Pipelines 빌드 및 릴리스 파이프라인에서 Azure DevTest Labs를 사용하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: df9e496aa930c328832d59901aa8165e61cd076f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88080337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552626"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
 이 문서에서는 Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs를 사용하는 방법에 대한 정보를 제공합니다. 

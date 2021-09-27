@@ -5,13 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: ''
-ms.openlocfilehash: c4a4b0fa982945b20616d576af4b3e8039d828c0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 85dff004bdaf61297d9f88766e4cadc97f7d6b88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530831"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624257"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -91,8 +90,8 @@ FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가�
 
 **머리글** | **설명 및 예**
 --- | ---
-콘텐츠 형식  | 요청 형식입니다(Content-Type: application/<format>). FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
-권한 부여 | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer <Access-Token>
+콘텐츠 형식  | 요청 형식입니다(Content-Type: application/\<format\>). FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
+권한 부여 | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer \<Access-Token\>
 수락  | 응답 형식입니다. FarmBeats Datahub API의 경우 형식은 JSON입니다. Accept: application/json
 
 
@@ -112,7 +111,7 @@ REST API 요청을 수행하려면 다음을 결합합니다.
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>”
+"Authorization: Bearer <Access-Token>"
 ```
 
 대부분의 GET, POST 및 PUT 호출에는 JSON 요청 본문이 필요합니다.
@@ -136,20 +135,22 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 파트너가 FarmBeats Datahub에 연결할 자격 증명을 확보하면 파트너는 Translator 구성 요소에서 다음 단계를 수행합니다.
 
-1.  업로드할 이미지 유형에 따라 다음 필드에 대한 새 확장 유형을 만듭니다.
+1. 업로드할 이미지 유형에 따라 다음 필드에 대한 새 확장 유형을 만듭니다.
 
-    - **장면 소스**: 예: drone_partner_name
-    - **장면 형식**: 예: drone
-    - **장면 파일 형식**: 예: chlorophyll index
-    - **장면 파일 콘텐츠 형식**: 예: image/tiff
+   - **장면 소스**: 예: drone_partner_name
+   - **장면 형식**: 예: drone
+   - **장면 파일 형식**: 예: chlorophyll index
+   - **장면 파일 콘텐츠 형식**: 예: image/tiff
 
-2.  /Farms API를 호출하여 Azure FarmBeats 시스템 내에서 팜 목록을 가져옵니다.
-3.  팜 목록에서 단일 팜을 선택할 수 있는 기능을 고객에게 제공합니다.
+2. /Farms API를 호출하여 Azure FarmBeats 시스템 내에서 팜 목록을 가져옵니다.
 
-    파트너 시스템은 경로 계획과 드론 비행 및 이미지 수집을 수행할 파트너 소프트웨어 내에 팜이 표시되어야 합니다.
+3. 팜 목록에서 단일 팜을 선택할 수 있는 기능을 고객에게 제공합니다.
 
-4.  /Scene API를 호출하고 고유한 장면 ID로 새 장면을 만드는 데 필요한 세부 정보를 제공합니다.
-5.  FarmBeats 시스템에서 선택한 팜의 컨텍스트에서 필요한 이미지를 FarmBeats Datahub에 업로드하기 위한 Blob SAS URL을 수신합니다.
+   파트너 시스템은 경로 계획과 드론 비행 및 이미지 수집을 수행할 파트너 소프트웨어 내에 팜이 표시되어야 합니다.
+
+4. /Scene API를 호출하고 고유한 장면 ID로 새 장면을 만드는 데 필요한 세부 정보를 제공합니다.
+
+5. FarmBeats 시스템에서 선택한 팜의 컨텍스트에서 필요한 이미지를 FarmBeats Datahub에 업로드하기 위한 Blob SAS URL을 수신합니다.
 
 API 호출에 대한 자세한 흐름은 다음과 같습니다.
 
@@ -341,7 +342,7 @@ API 호출에 대한 자세한 흐름은 다음과 같습니다.
 
 이 단계는 일회성 설정입니다. 이 새 장면 형식의 범위는 Azure FarmBeats가 설치된 구독으로 제한됩니다.
 
-예를 들어 SceneSource: "SlantRange"를 추가하려면 "SceneSource" 입력 페이로드 키를 사용하여 /ExtendedType API의 ID에 대해 PUT을 수행합니다.
+예를 들어 SceneSource: "SlantRange"를 추가하려면 키 "SceneSource" 입력 페이로드를 사용하여 /ExtendedType API의 ID에 PUT을 수행합니다.
 
 ```json
 {

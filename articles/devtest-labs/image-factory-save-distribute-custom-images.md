@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 이미지 저장 및 배포 | Microsoft Docs
+title: 이미지 저장 및 배포
 description: 이 문서에서는 Azure DevTest Labs에 이미 만들어진 VM(가상 머신)에서 사용자 지정 이미지를 저장하는 단계를 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d89a792e66d227eaeb20e48c80d432aa0cf56871
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476243"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623573"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>사용자 지정 이미지 저장 및 여러 랩에 배포
 이 문서에서는 이미 만들어진 VM(가상 머신)에서 사용자 지정 이미지를 저장하는 단계를 설명합니다. 사용자 지정 이미지를 조직의 다른 DevTest Labs에 배포하는 방법도 설명합니다.

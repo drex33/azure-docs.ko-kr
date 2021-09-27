@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b82071c393cea168fccb5e06db85e71852bbd4f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783762"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636765"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage Explorer 보안 가이드
 
@@ -98,7 +98,7 @@ Storage Explorer를 사용하면 Azure Blob Storage 컨테이너의 액세스 �
 Blob 컨테이너에 퍼블릭 액세스를 사용하도록 설정하는 경우 다음 지침을 따르는 것이 좋습니다.
 
 - **잠재적으로 중요한 데이터가 있을 수 있는 Blob 컨테이너에 대해 퍼블릭 액세스를 사용하도록 설정하지 않음.** Blob 컨테이너에 프라이빗 데이터가 아예 없는지 확인합니다.
-- **Blob 또는 컨테이너 액세스 권한을 사용하여 잠재적으로 중요한 데이터를 Blob 컨테이너에 업로드하지 않음** 
+- **Blob 또는 컨테이너 액세스 권한을 사용하여 잠재적으로 중요한 데이터를 Blob 컨테이너에 업로드하지 않음**
 
 ## <a name="next-steps"></a>다음 단계
 

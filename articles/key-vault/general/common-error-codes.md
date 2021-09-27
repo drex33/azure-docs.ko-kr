@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9ae13b88d767e43c425ceb86d0be455cebc0e6ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bd66619c65dd39e32a11b81096d4b763430fc16c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462531"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553682"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Azure Key Vault의 일반적인 오류 코드
 
@@ -23,7 +23,7 @@ ms.locfileid: "96462531"
 | 오류 코드 | 사용자 메시지 |
 |--|--|
 | VaultAlreadyExists |  지정하려는 이름이 이미 사용 중이므로 해당 이름으로 새 키 자격 증명 모음을 만들려는 시도가 실패했습니다. 이 이름의 키 자격 증명 모음을 최근에 삭제한 경우에도 일시 삭제된 상태에 있을 수 있습니다. [여기](./key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)에서 일시 삭제된 상태인지 확인할 수 있습니다. |
-| VaultNameNotValid |  자격 증명 모음 이름은 24자의 영숫자여야 하며 영문자로 시작해야 합니다. |
+| VaultNameNotValid |  자격 증명 모음 이름은 3~24자의 문자열이어야 하며 숫자(0-9), 문자(a-z, A-Z) 및 하이픈(-)만 포함할 수 있습니다. |
 | AccessDenied |  액세스 정책에 해당 작업을 수행할 수 있는 권한이 없을 수 있습니다. |
 | ForbiddenByFirewall |  클라이언트 주소가 인증되지 않았고 호출자는 신뢰할 수 있는 서비스가 아닙니다. |
 | ConflictError |  동일한 항목에 대해 여러 작업을 요청하고 있습니다.  |

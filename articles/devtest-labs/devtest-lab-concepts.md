@@ -1,14 +1,14 @@
 ---
-title: DevTest Labs 개념 | Microsoft 문서
+title: Azure DevTest Labs 개념
 description: DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: e505ecb8ce4dc070b4ed79cd55514c4ef8ba0ead
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 0363eaec2d9485b34cc8dee10f50373363d43d51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954096"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637240"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요

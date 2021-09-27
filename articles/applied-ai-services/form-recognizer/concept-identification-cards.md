@@ -2,7 +2,6 @@
 title: IDs - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer 미리 빌드된 ID API를 사용하여 ID 문서에서 데이터 추출과 관련된 개념을 알아봅니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: bfa6cb13533a92c65369b8016971e0c1e37cdb61
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 81ee4dda78fd4444f5e297abacbd2e08f07eaaa8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546543"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>미리 빌드된 ID(ID) 문서 모델 Form Recognizer
 
@@ -54,7 +53,7 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| 유형 | Description | 값(표준화된 출력) |
+|속성| 유형 | Description | 값(표준화된 출력) |
 |:-----|:----|:----|:----|
 |  CountryRegion | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 | "USA" |
 |  DateOfBirth | date | YYYY-MM-DD 형식의 DOB | "1980-01-01" |

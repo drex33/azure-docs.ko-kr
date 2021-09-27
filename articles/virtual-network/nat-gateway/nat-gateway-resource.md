@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 366d7210c499c2f0ab523b687b07edcb8f1719bd
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 79abb40532ad4b7940ecf94552b5ee5c0727f2b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297127"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636632"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -180,7 +180,7 @@ NAT 게이트웨이는 서브넷의 아웃바운드 시나리오보다 우선적
 #### <a name="zone-isolation-with-zonal-stacks"></a>영역 스택을 사용하여 영역 격리
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="영역 격리를 사용하는 Virtual Network NAT, 여러 개 만들기 "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="영역 격리를 사용 하는 NAT Virtual Network 여러 영역 스택 만들기">
 </p>
 
 *그림: 영역 격리를 사용하는 Virtual Network NAT, 여러 "영역 스택" 만들기*
@@ -257,7 +257,7 @@ PAT가 수행되면 이러한 흐름은 다음과 같습니다.
 
 #### <a name="source-snat-port-reuse"></a>원본(SNAT) 포트 다시 사용
 
-NAT 게이트웨이 대해 선택적으로 원본(SNAT) 포트를 사용합니다.  다음은 이 개념을 앞 흐름 집합의 추가 흐름으로 보여 줍니다.  예제의 VM은 65.52.0.2에 대한 흐름입니다.
+NAT 게이트웨이 대해 선택적으로 원본(SNAT) 포트를 사용합니다.  다음은 이 개념을 이전 흐름 집합에 대한 추가 흐름으로 보여 줍니다.  예제의 VM은 65.52.0.2에 대한 흐름입니다.
 
 | 흐름 | 원본 튜플 | 대상 튜플 |
 |:---:|:---:|:---:|

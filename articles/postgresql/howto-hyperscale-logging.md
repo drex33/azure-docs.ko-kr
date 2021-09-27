@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/20/2021
-ms.openlocfilehash: c65d2947e6e0f9505f1827ec8dbb32f59855d332
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 9/13/2021
+ms.openlocfilehash: 72996a44892d17a44ea58405e92bb9ac6cc52c68
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633902"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546440"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 로그 – 하이퍼스케일(Citus)
 
@@ -55,6 +55,15 @@ AzureDiagnostics
 ```
 
 위의 예에 있는 서버 이름을 사용 중인 서버 이름으로 바꿉니다. 코디네이터 노드 이름에는 `-c` 접미사가 있고 작업자 노드는 `-w0`, `-w1` 등의 접미사를 사용하여 이름이 지정됩니다.
+
+Azure 로그는 다양 한 방식으로 필터링 할 수 있습니다. 메시지가 정규식과 일치 하는 과거 날짜 내에 로그를 찾는 방법은 다음과 같습니다.
+
+```kusto
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| order by TimeGenerated desc
+| where Message matches regex ".*error.*"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

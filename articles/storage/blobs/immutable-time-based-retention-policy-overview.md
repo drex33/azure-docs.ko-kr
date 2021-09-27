@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1022ebd9166e3e2e92a4c67cd434190c91dd09c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ed76c271590b4f5fbc79c7713b70186a8d9eb426
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528951"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552069"
 ---
 # <a name="time-based-retention-policies-for-immutable-blob-data"></a>변경이 불가능한 Blob 데이터에 대한 시간 기반 보존 정책
 
@@ -28,7 +28,7 @@ Blob Storage 불변성 정책에 대한 자세한 내용은 [비즈니스에 중
 
 시간 기반 보존 정책을 구성하면 영향을 받는 개체가 *유효* 보존 기간 동안 변경이 불가능한 상태로 유지됩니다. 개체의 유효 보존 기간은 Blob을 만든 시간과 사용자가 지정 보존 간격의 차이와 같습니다. 정책의 보존 간격을 연장할 수 있으므로 변경이 불가능한 스토리지는 사용자가 지정한 보존 간격의 가장 최근 값을 사용하여 유효 보존 기간을 계산합니다.
 
-예를 들어 사용자가 보존 기간 5년의 시간 기반 보존 정책을 만든다고 가정합니다. 해당 컨테이너의 기존 _testblob1_ Blob이 1년 전에 만들어졌으므로 _testblob1_ 의 유효 보존 기간은 4년입니다. 새 _testblob2_ Blob이 컨테이너에 업로드되면 _testblob2_ 의 유효 보존 기간은 만든 시점으로부터 5년입니다.
+예를 들어 사용자가 보존 기간 5년의 시간 기반 보존 정책을 만든다고 가정합니다. 해당 컨테이너의 기존 *testblob1* Blob이 1년 전에 만들어졌으므로 *testblob1* 의 유효 보존 기간은 4년입니다. 새 *testblob2* Blob이 컨테이너에 업로드되면 *testblob2* 의 유효 보존 기간은 만든 시점으로부터 5년입니다.
 
 ## <a name="locked-versus-unlocked-policies"></a>잠긴 정책 및 잠금 해제된 정책
 
@@ -98,7 +98,7 @@ Blob Storage 불변성 정책에 대한 자세한 내용은 [비즈니스에 중
 
 이전 버전에서 상속된 정책이 잠기면 보존 간격을 늘릴 수 있습니다. 정책은 삭제할 수 없으며 보존 간격도 줄일 수 없습니다.
 
-현재 버전에 구성된 정책이 없으면 이전 버전에서 정책을 상속하지 않습니다. 버전에 대한 사용자 지정 정책은 구성할 수 있습니다.  
+현재 버전에 구성된 정책이 없으면 이전 버전에서 정책을 상속하지 않습니다. 버전에 대한 사용자 지정 정책은 구성할 수 있습니다.
 
 현재 버전에 대한 정책이 수정되면 정책이 현재 버전에서 상속된 경우에도 기존 이전 버전에 대한 정책이 변경되지 않은 상태로 유지됩니다.
 
@@ -124,9 +124,9 @@ Blob Storage 불변성 정책에 대한 자세한 내용은 [비즈니스에 중
 
 이 설정은 시간 기반 보존 정책의 일부이므로 추가 Blob은 *유효* 보존 기간 동안 변경이 불가능한 상태로 유지됩니다. 추가 Blob의 초기 생성 이후에 새 데이터를 추가할 수 있으므로 보존 기간이 결정되는 방식에 약간의 차이가 있습니다. 유효 보존은 추가 Blob의 마지막 수정 시간과 사용자가 지정한 보존 간격 간의 차이입니다. 마찬가지로 보존 간격이 늘어나면 변경이 불가능한 스토리지는 사용자가 지정한 보존 간격의 가장 최근 값을 사용하여 유효 보존 기간을 계산합니다.
 
-예를 들어 사용자가 **AllowProtectedAppendWrites** 속성이 사용하도록 설정되고 보존 간격이 90일인 시간 기반 보존 정책을 만든다고 가정합니다. 오늘 _logblob1_ 추가 Blob이 컨테이너에 만들어지고, 새 로그가 다음 10일 동안 추가 Blob에 계속 추가되므로 _logblob1_ 의 유효 보존 기간은 오늘부터 100일(마지막으로 추가한 시간 + 90일)입니다.
+예를 들어 사용자가 **AllowProtectedAppendWrites** 속성이 사용하도록 설정되고 보존 간격이 90일인 시간 기반 보존 정책을 만든다고 가정합니다. 오늘 *logblob1* 추가 Blob이 컨테이너에 만들어지고, 새 로그가 다음 10일 동안 추가 Blob에 계속 추가되므로 *logblob1* 의 유효 보존 기간은 오늘부터 100일(마지막으로 추가한 시간 + 90일)입니다.
 
-잠금 해제된 시간 기반 보존 정책을 사용하면 **AllowProtectedAppendWrites** 속성 설정을 언제든지 사용하도록 설정하고 사용하지 않도록 설정할 수 있습니다. 시간 기반 보존 정책이 잠기면 **AllowProtectedAppendWrites** 속성 설정을 변경할 수 없습니다.
+잠금 해제된 시간 기반 보존 정책을 사용하면 **언제든지 AllowProtectedAppendWrites** 속성 설정을 사용하도록 설정하고 사용하지 않도록 설정할 수 있습니다. 시간 기반 보존 정책이 잠기면 **AllowProtectedAppendWrites** 속성 설정을 변경할 수 없습니다.
 
 ## <a name="audit-logging"></a>감사 로깅
 

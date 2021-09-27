@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/24/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a7f066a350eae18b9c847d206310cfc3ab8bd57
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
-ms.translationtype: HT
+ms.openlocfilehash: 4e980417c2c48455e43143fb2f870a63d6395f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913386"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546209"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
 이 문서에서는 BareMetal Infrastructure라고도 하는 HLI(HANA(대규모 인스턴스))에서 OS(운영 체제) 업그레이드에 관해 자세히 설명합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "112913386"
 >OS 업그레이드는 사용자의 책임입니다. Microsoft Operations 지원이 업그레이드의 주요 영역에서 안내를 제공할 수 있지만 업그레이드를 계획할 때는 운영 체제 공급업체에도 문의하세요.
 
 HLI 프로비저닝 중에 Microsoft Operations 팀은 운영 체제를 설치합니다.
-사용자가 운영 체제를 유지 관리해야 합니다. 예를 들어, 사용자는 HLI에서 패치, 튜닝, 업그레이드 등을 수행해야 합니다. 운영 체제를 대폭 변경하기 전에(예: SP1을 SP2로 업그레이드) 지원 티켓을 열어 Microsoft Operations 팀에 문의하세요. 그러면 해당 팀이 사용자에게 조언을 제공할 수 있습니다. 업그레이드하기 1주 이상 전에 이 티켓을 여는 것이 좋습니다. 
+사용자가 운영 체제를 유지 관리해야 합니다. 예를 들어, 사용자는 HLI에서 패치, 튜닝, 업그레이드 등을 수행해야 합니다. 운영 체제를 대폭 변경하기 전에(예: SP1을 SP2로 업그레이드) 지원 티켓을 열어 Microsoft Operations 팀에 문의하세요. 사용자에 게 문의 합니다. 업그레이드하기 1주 이상 전에 이 티켓을 여는 것이 좋습니다. 
 
 티켓에 포함된 내용은 다음과 같습니다.
 

@@ -3,15 +3,15 @@ title: Azure API Management 일시 삭제(미리 보기) | Microsoft Docs
 description: 일시 삭제를 통해 삭제한 API Management 인스턴스를 복구할 수 있습니다.
 ms.service: api-management
 ms.topic: conceptual
-author: vladvino
-ms.author: apimpm
+author: dlepow
+ms.author: danlep
 ms.date: 11/27/2020
-ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0cf99dfe2fb697b0a28db1fbacecaa2e2021a9d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652388"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622021"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management 일시 삭제(미리 보기)
 

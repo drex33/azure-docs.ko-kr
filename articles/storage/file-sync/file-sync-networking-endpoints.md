@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 798d0aaa6f4423679576c37a0af7bf64de37a313
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
-ms.translationtype: HT
+ms.openlocfilehash: f128aac2135b85c3e612ce1249766b7e5db29f05
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549622"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -30,7 +30,7 @@ Azure Files와 Azure 파일 동기화에서 모두 Azure 관리 개체, 스토�
 이 문서에서는 다음을 가정합니다.
 - Azure 구독이 있습니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 온-프레미스에서 연결하려는 스토리지 계정에 Azure 파일 공유를 이미 만들었습니다. Azure 파일 공유를 만드는 방법을 알아보려면 [Azure 파일 공유 만들기](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)를 참조하세요.
-- 스토리지 동기화 서비스를 이미 만들었으며 이 서비스를 사용하여 Windows 파일 서버를 등록했습니다. Azure 파일 동기화를 배포하는 방법은 [Azure 파일 동기화 배포](file-sync-deployment-guide.md)를 참조하세요.
+- 다음 엔드포인트에 대한 도메인 트래픽을 허용합니다. [Azure 서비스 엔드포인트를 참조하세요.](../file-sync/file-sync-firewall-and-proxy.md#firewall)
 
 또한 다음 작업도 수행해야 합니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.

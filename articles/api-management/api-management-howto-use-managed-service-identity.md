@@ -3,21 +3,21 @@ title: Azure API Management의 관리 ID 사용 | Microsoft Docs
 description: Azure Portal, PowerShell 및 Resource Manager 템플릿을 사용하여 API Management에서 시스템 할당 및 사용자 할당 ID를 만드는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fa70be7a890bdfe0bbac9ee7acf2b8ae373e60e0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 32dd5d723a7592e265a7aea791b8aa7161107239
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535846"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594710"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management의 관리 ID 사용
 

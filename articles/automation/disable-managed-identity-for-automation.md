@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7c0d2d1f64d0d931c670b87438a032c646c45f9d
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 178da223b5d5f14cc27034c39bd4cc3a05f82631
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114673923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606592"
 ---
 # <a name="disable-system-assigned-managed-identity-for-azure-automation-account-preview"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용 안 함(미리 보기)
 
@@ -78,14 +78,14 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     
     # If you have multiple subscriptions, set the one to use
     # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
 
-1. 변수에 적절한 값을 제공한 다음 스크립트를 실행합니다.
+1. 변수에 적절한 값을 제공한 다음, 스크립트를 실행합니다.
 
     ```powershell
     $subscriptionID = "subscriptionID"
@@ -126,6 +126,6 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Automation에서 관리 ID를 사용하도록 설정하는 방법에 관한 자세한 내용은 [Automation의 관리 ID 사용하도록 설정 및 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+- Azure Automation에서 관리 ID를 활성화하는 방법에 대한 자세한 내용은 [Automation의 관리 ID 활성화 및 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
 
 - Automation 계정 보안의 개요는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.

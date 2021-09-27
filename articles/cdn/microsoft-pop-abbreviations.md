@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: d0a58639de2d03458a68c283d00e49e0988db701
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: abf23ead4d5ba46364c354e0c63a4d09ea89b959
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593917"
 ---
 # <a name="microsoft-pop-locations-by-abbreviation-for-azure-cdn"></a>Azure CDN의 약어별 Microsoft POP 위치
 
@@ -31,5 +31,5 @@ ms.locfileid: "110483337"
 ## <a name="next-steps"></a>다음 단계
 
 * [도시별 Microsoft POP 위치의 Azure CDN](cdn-pop-locations.md#microsoft)을 봅니다.
-* 허용 목록에 대한 최신 IP 주소를 보려면 [Azure CDN 에지 노드 API](/rest/api/cdn/cdn/edgenodes)를 참조하세요.
+* 허용 목록에 대한 최신 IP 주소를 보려면 [Azure CDN 에지 노드 API](/rest/api/cdn/edge-nodes/list)를 참조하세요.
 * [Azure CDN 프로필을 만드는 방법](cdn-create-new-endpoint.md)에 대해 알아봅니다.

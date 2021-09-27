@@ -4,16 +4,16 @@ description: Azure Reservations를 관리하는 방법을 알아봅니다. 예�
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: yashesvi
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: cee0acf851d82ba09867b8d66c09a17b21e7af45
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: cbfe1aae48f09330a025861a82cfd8caaa878e41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989060"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621890"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -52,6 +52,8 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 공유 범위에서 단일 범위로 변경하는 경우, 자신이 소유자인 구독만 선택할 수 있습니다. 동일한 청구 컨텍스트 내에서 예약된 구독만을 선택할 수 있습니다.
 
 범위는 종량제 요금을 사용하는 개별 구독(MS-AZR-0003P 또는 MS-AZR-0023P 제안), 엔터프라이즈 제안 MS-AZR-0017P 또는 MS-AZR-0148P 또는 CSP 구독 유형에만 적용됩니다.
+
+모든 구독이 관리 그룹에서 이동되면 예약 범위가 자동으로 공유로 변경됩니다.
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>기본적으로 예약을 관리할 수 있는 사용자
 

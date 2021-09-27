@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: 복제본 세트 만들기
       href: tutorial-create-replica-set.md
+    - name: 재해 복구 훈련 수행
+      href: tutorial-perform-disaster-recovery-drill.md
     - name: 사용자 지정 관리형 도메인 만들기
       href: tutorial-create-instance-advanced.md
     - name: 포리스트 트러스트 만들기

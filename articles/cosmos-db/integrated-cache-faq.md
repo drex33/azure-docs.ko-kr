@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 7fee5b4133cc048576ff0b794d441fac3ee162e6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: a8d1dc69ef64726f55dffd20221a19c3f3114964
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035946"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595145"
 ---
 # <a name="azure-cosmos-db-integrated-cache-frequently-asked-questions"></a>Azure Cosmos DB 통합 캐시 관련 질문과 대답
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,6 +56,10 @@ Azure Cosmos DB 통합 캐시는 Azure Cosmos DB에 기본 제공되는 메모�
 
 SQL API 너머로 통합 캐시를 확장하는 것은 장기 로드맵에 계획되어 있지만 통합 캐시의 초기 공개 미리 보기 이후로 예정되어 있습니다.
 
+### <a name="what-consistency-does-the-integrated-cache-support"></a>통합 캐시는 어떤 일관성을 지원하나요?
+
+통합 캐시는 세션 및 최종 일관성을 모두 지원합니다. 캐시된 데이터에 상한을 배치하는 선택적 [MaxIntegratedCacheStaleness](integrated-cache.md#maxintegratedcachestaleness)를 구성할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [통합 캐시](integrated-cache.md)
@@ -63,4 +67,4 @@ SQL API 너머로 통합 캐시를 확장하는 것은 장기 로드맵에 계�
 - [전용 게이트웨이](dedicated-gateway.md)
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d9e402b2015370eca5782ec91dd6afb8f7c6d962
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: f4d5de43786952b3581067c69e2b8840d3aa7296
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701268"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553339"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 관리
 Azure Private Link는 Private Link 서비스 소비자가 서비스를 사용하기 위해 서비스 공급자에게 연결을 요청할 수 있는 승인 호출 흐름 모델에서 작동합니다. 그런 다음 서비스 공급자는 소비자의 연결을 허용할지 여부를 결정할 수 있습니다. Azure Private Link를 사용하면 서비스 공급자가 리소스에서 프라이빗 엔드포인트 연결을 관리할 수 있습니다. 이 문서에서는 프라이빗 엔드포인트 연결을 관리하는 방법에 대한 지침을 제공합니다.
@@ -36,7 +36,8 @@ Private Link 서비스 소비자가 선택할 수 있는 두 가지 연결 승�
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Azure PaaS 리소스에서 프라이빗 엔드포인트 연결 관리
-Portal은 Azure PaaS 리소스에서 프라이빗 엔드포인트 연결을 관리하기 위한 기본 방법입니다. 현재 Azure PaaS 리소스의 연결 관리를 위한 PowerShell/CLI 지원이 없습니다.
+Portal은 Azure PaaS 리소스에서 프라이빗 엔드포인트 연결을 관리하기 위한 기본 방법입니다. 
+
 1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. Private Link 센터로 이동합니다.
 3. **리소스** 에서 프라이빗 엔드포인트 연결을 관리할 리소스 유형을 선택합니다.
@@ -46,7 +47,7 @@ Portal은 Azure PaaS 리소스에서 프라이빗 엔드포인트 연결을 관�
 
 ## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>고객/파트너 소유 Private Link 서비스에서 프라이빗 엔드포인트 연결 관리
 
-Azure PowerShell 및 Azure CLI는 Microsoft 파트너 서비스 또는 고객 소유 서비스에서 프라이빗 엔드포인트 연결을 관리하는 데 선호되는 방법입니다. 현재 Private Link 서비스에서 연결 관리를 위한 포털 지원이 없습니다.  
+Azure PowerShell 및 Azure CLI는 Microsoft 파트너 서비스 또는 고객 소유 서비스에서 프라이빗 엔드포인트 연결을 관리하는 데 선호되는 방법입니다. 
  
 ### <a name="powershell"></a>PowerShell 
   

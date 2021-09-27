@@ -6,12 +6,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 5ad806603ea64f643122ebc1f753e52b9d9e4225
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 4e17abb80e54591ab3f5909f3f7a9827e4007c64
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251438"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594880"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용하여 어플라이언스 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "123251438"
 - 물리적 서버용 어플라이언스를 설정하려면 스크립트만 사용할 수 있습니다. [이 문서](how-to-set-up-appliance-physical.md)를 따르세요.
 - Azure Government 클라우드에서 어플라이언스를 설정하려면 스크립트만 사용하면 됩니다. [이 문서](deploy-appliance-script-government.md)를 따르세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 스크립트를 사용하여 VMware 또는 Hyper-V 환경의 기존 서버에 Azure Migrate 어플라이언스를 배포할 수 있습니다.
 
@@ -73,15 +73,16 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 > 기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다. Azure Migrate 어플라이언스에서 스크립트를 실행하면 작업 구성이 제거되고 새로 정의된 구성으로 대체됩니다.
 
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
+
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 공용 클라우드** 에서 **기본 _(퍼블릭 엔드포인트)_ 연결** 을 사용하는 Azure Migrate 프로젝트에 대해 **VMware 환경에서 실행되는 서버** 를 검색, 평가 및 마이그레이션하도록 어플라이언스가 설정됩니다.
 
-    :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="원하는 구성으로 VMware 어플라이언스를 설정하는 방법을 보여주는 스크린샷" lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
+   :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="원하는 구성으로 VMware 어플라이언스를 설정하는 방법을 보여주는 스크린샷" lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
 
 6. 설치 프로그램 스크립트는 다음을 수행합니다.
 
@@ -90,8 +91,8 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
  - IIS 재작성 모듈을 다운로드하여 설치합니다.
  - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
  - 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+    - **구성 파일:**`%ProgramData%\Microsoft Azure\Config`
+    - **로그 파일:**`%ProgramData%\Microsoft Azure\Logs`
 
 스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
 
@@ -134,10 +135,9 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
+4. 다음 명령을 `AzureMigrateInstaller.ps1` 실행하여 라는 스크립트를 실행합니다.
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 공용 클라우드** 에서 **기본 _(퍼블릭 엔드포인트)_ 연결** 을 사용하는 Azure Migrate 프로젝트에 대해 **Hyper-V 환경에서 실행되는 서버** 를 검색 및 평가하도록 어플라이언스가 설정됩니다.
 

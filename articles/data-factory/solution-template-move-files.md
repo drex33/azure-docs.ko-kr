@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 270f6e83a7073bf39f4bc7efae8adea1ca56627e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d6be1c8c0abf050a95d02c764580657b88975e0f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536287"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743424"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory를 사용하여 데이터 이동
 
@@ -48,25 +48,25 @@ ADF 복사 작업은 스토리지 저장소 간에 이진 파일을 복사할 �
 
 1. **Move files** 템플릿으로 이동합니다. 기존 연결을 선택하거나 파일을 이동하려는 원본 파일 스토어에 대해 **새로운** 연결을 만듭니다. **DataSource_Folder** 와 **DataSource_File** 은 원본 파일 스토어의 동일한 연결에 대한 참조입니다.
 
-    ![원본에 대한 새 연결 만들기](media/solution-template-move-files/move-files1.png)
+    :::image type="content" source="media/solution-template-move-files/move-files1.png" alt-text="원본에 대한 새 연결 만들기":::
 
 2. 기존 연결을 선택하거나 파일을 이동하려는 대상 파일 스토어에 대한 **새** 연결을 만듭니다.
 
-    ![대상에 대한 새 연결 만들기](media/solution-template-move-files/move-files2.png)
+    :::image type="content" source="media/solution-template-move-files/move-files2.png" alt-text="대상에 대한 새 연결 만들기":::
 
 3. **이 템플릿 사용** 을 선택합니다.
     
 4. 다음 예제와 같이 파이프라인이 표시됩니다.
 
-    ![파이프라인 표시](media/solution-template-move-files/move-files4.png)
+    :::image type="content" source="media/solution-template-move-files/move-files4.png" alt-text="파이프라인 표시":::
 
 5. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.   매개 변수는 파일을 이동시키려는 원본 폴더 및 대상 폴더의 경로입니다. 
 
-    ![파이프라인 실행](media/solution-template-move-files/move-files5.png)
+    :::image type="content" source="media/solution-template-move-files/move-files5.png" alt-text="파이프라인 실행":::
 
 6. 결과를 검토합니다.
 
-    ![결과 검토](media/solution-template-move-files/move-files6.png)
+    :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="결과 검토":::
 
 ## <a name="next-steps"></a>다음 단계
 

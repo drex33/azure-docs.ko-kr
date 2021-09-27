@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2ecc10c43600a20ceb7209f651f27e78e7b286be
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537930"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763313"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Azure Sentinel에서 위협 지표 작업
 
@@ -179,7 +179,7 @@ Azure Sentinel에서 분석 규칙에서 생성된 경고는 Azure Sentinel 메�
 |로그 원본  |설명  |
 |---------|---------|
 |[CEF](connect-common-event-format.md)     |  일치는 `DeviceVendor`이 `Cisco`로 나열된 모든 위치를 제외하고 Log Analytics **CommonSecurityLog** 테이블에 포함된 모든 CEF 로그에 대해 수행됩니다. <br><br>Microsoft에서 생성한 위협 인텔리전스를 CEF 로그와 일치하려면, CEF 로그의 `RequestURL` 필드에 도메인을 매핑해야 합니다.      |
-|[DNS](connect-dns.md)     | 일치는 클라이언트에서 DNS 서비스(`SubType == "LookupQuery"`)로 DNS 쿼리를 조회하는 모든 DNS 로그에 대해 수행됩니다. DNS 쿼리는 IPv4(`QueryType=”A”`) 및 IPv6 쿼리(`QueryType=” AAAA”`)에 대해서만 처리됩니다.<br><br>모든 열이 Windows DNS 서버의 표준이고 도메인이 기본적으로 `Name` 열에 있기 때문에, Microsoft에서 생성한 위협 인텔리전스를 DNS 로그와 일치시키기 위해 열의 수동 매핑이 필요하지 않습니다.   |
+|[DNS](./data-connectors-reference.md#domain-name-server)     | 일치는 클라이언트에서 DNS 서비스(`SubType == "LookupQuery"`)로 DNS 쿼리를 조회하는 모든 DNS 로그에 대해 수행됩니다. DNS 쿼리는 IPv4(`QueryType=”A”`) 및 IPv6 쿼리(`QueryType=” AAAA”`)에 대해서만 처리됩니다.<br><br>모든 열이 Windows DNS 서버의 표준이고 도메인이 기본적으로 `Name` 열에 있기 때문에, Microsoft에서 생성한 위협 인텔리전스를 DNS 로그와 일치시키기 위해 열의 수동 매핑이 필요하지 않습니다.   |
 |[Syslog](connect-syslog.md)     |  일치는 현재 `Facility`이 `cron`인 Syslog 이벤트에 대해서만 수행됩니다. <br><br>Microsoft에서 생성한 위협 인텔리전스를 Syslog와 일치시키기 위해 열의 수동 매핑이 필요하지 않습니다. 세부 정보는 기본적으로 Syslog의 `SyslogMessage` 필드에 있으며, 규칙은 SyslogMessage에서 직접 도메인을 구문 분석합니다.     |
 |     |         |
 

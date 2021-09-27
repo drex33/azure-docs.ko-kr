@@ -2,26 +2,24 @@
 title: Azure 웹 앱 확장에 대 한 릴리스 정보-Application Insights
 description: Application Insights를 사용 하 여 런타임 계측에 대 한 Azure Web Apps 확장에 대 한 정보를 릴리스 합니다.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b0ddf90f5e6ffbe685c4aea1239323beea6c106
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042609"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828817"
 ---
-# <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Application Insights에 대 한 Azure 웹 앱 확장 릴리스 정보
+# <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Application Insights용 Azure 웹앱 확장에 대한 릴리스 정보
 
 이 문서에는 Application Insights를 사용 하는 런타임 계측에 대 한 Azure Web Apps 확장의 릴리스 정보가 포함 되어 있습니다. 이는 사전 설치 된 확장에만 적용 됩니다.
 
-Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아보세요](azure-web-apps.md) .
+[Application Insights에 대 한 Azure 웹 앱 확장](azure-web-apps.md)에 대해 자세히 알아보세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 - 현재 확장 된 확장의 버전을 확인 하는 방법
-    - `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`로 이동합니다. 자세한 내용은 [확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드](./azure-web-apps.md?tabs=net#troubleshooting) 를 참조 하세요.
+    - `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`로 이동합니다. 자세한 내용은 [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting)또는 [Node.js](./azure-web-apps-nodejs.md#troubleshooting) 에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드를 참조 하세요.
 
 - 개인 확장을 사용 하는 경우 어떻게 되나요?
     - 더 이상 지원 되지 않으므로 개인 사이트 확장을 제거 합니다.
@@ -36,19 +34,19 @@ Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아
 
 ### <a name="2837"></a>2.8.37
 
-- AppSvc Windows 확장: 모든 버전의 System.Diagnostics.DiagnosticSource.dll에서 .NET Core 작업을 수행 했습니다.
+- appsvc Windows 확장: 모든 버전의 System.Diagnostics.DiagnosticSource.dll를 사용 하 여 .net Core를 사용할 수 있습니다.
 
 ### <a name="2836"></a>2.8.36
 
-- AppSvc Windows 확장: .NET Core에서 AI SDK와 함께 작동 하도록 설정 합니다.
+- appsvc Windows 확장: .net Core에서 AI SDK와 함께 작동 하도록 설정 합니다.
 
 ### <a name="2835"></a>2.8.35
 
-- AppSvc Windows 확장: .NET Core 3.1 지원을 추가 했습니다.
+- appsvc Windows 확장: .net Core 3.1 지원을 추가 했습니다.
 
 ### <a name="2833"></a>2.8.33
 
-- .NET, .NET core, Java 및 Node.js 에이전트 및 Windows 확장: 소 버린 클라우드 지원. 연결 문자열을 사용 하 여 소 버린 클라우드로 데이터를 보낼 수 있습니다.
+- .net, .net core, Java, Node.js 에이전트 및 Windows 확장: 소 버린 클라우드 지원. 연결 문자열을 사용 하 여 소 버린 클라우드로 데이터를 보낼 수 있습니다.
 
 ### <a name="2831"></a>2.8.31
 
@@ -70,18 +68,18 @@ Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아
 
 ### <a name="2814"></a>2.8.14
 
-- 2.3.0 SDK 버전을 .NET Core 2.1, 2.2를 대상으로 하는 앱에 대 한 최신 (2.6.1)에서 최신 ()로 업데이트 ASP.NET Core 했습니다. .NET Core 2.0을 대상으로 하는 앱은 SDK의 2.1.1 계속 사용 합니다.
+- 2.3.0 SDK 버전을 .net Core 2.1, 2.2를 대상으로 하는 앱에 대 한 최신 (2.6.1)에서 최신 ()로 업데이트 ASP.NET Core 했습니다. .NET Core 2.0을 대상으로 하는 앱은 SDK의 2.1.1 계속 사용 합니다.
 
 ### <a name="2812"></a>2.8.12
 
 - ASP.NET Core 2.2 앱에 대 한 지원.
-- 응용 프로그램이 이미 SDK를 사용 하 여 계측 된 경우에도 SDK를 주입 하는 ASP.NET Core 확장의 버그를 수정 했습니다. 2.1 및 2.2 앱의 경우, 이제 응용 프로그램 폴더에 ApplicationInsights.dll 있으면 확장이 백오프 됩니다. 2.0 앱의 경우, 호출로 ApplicationInsights를 사용 하도록 설정한 경우에만 확장이 백업 됩니다 `UseApplicationInsights()` .
+- 응용 프로그램이 이미 sdk를 사용 하 여 계측 된 경우에도 sdk를 주입 하는 ASP.NET Core 확장의 버그를 수정 했습니다. 2.1 및 2.2 앱의 경우, 이제 응용 프로그램 폴더에 ApplicationInsights.dll 있으면 확장이 백오프 됩니다. 2.0 앱의 경우, 호출로 ApplicationInsights를 사용 하도록 설정한 경우에만 확장이 백업 됩니다 `UseApplicationInsights()` .
 
 - ASP.NET Core 앱에 대 한 불완전 한 HTML 응답을 영구적으로 수정 합니다. 이 픽스는 이제 .NET Core 2.2 앱에 대해 작동 하도록 확장 되었습니다.
 
-- ASP.NET Core apps ()에 대 한 JavaScript 주입을 해제 하는 지원이 추가 되었습니다 `APPINSIGHTS_JAVASCRIPT_ENABLED=false appsetting` . ASP.NET core의 경우 명시적으로 해제 하지 않는 한 JavaScript 주입은 기본적으로 "옵트아웃" 모드입니다. 기본 설정은 현재 동작을 유지 하기 위해 수행 됩니다.
+- ASP.NET Core apps ()에 대 한 JavaScript 주입을 해제 하는 지원이 추가 되었습니다 `APPINSIGHTS_JAVASCRIPT_ENABLED=false appsetting` . ASP.NET core의 경우 명시적으로 해제 하지 않는 한 JavaScript 주입은 기본적으로 "옵트아웃" 모드로 설정 됩니다. 기본 설정은 현재 동작을 유지 하기 위해 수행 됩니다.
 
-- Ikey가 없는 경우에도 삽입을 발생 시킨 ASP.NET Core 확장 버그를 수정 했습니다.
+- ikey가 없는 경우에도 삽입을 발생 시킨 ASP.NET Core 확장 버그를 수정 했습니다.
 - SDK 버전 접두사 논리에서 원격 분석에 잘못 된 SDK 버전을 발생 시킨 버그를 수정 했습니다.
 
 - 원격 분석이 수집 된 방법을 식별 하기 위해 ASP.NET Core 앱에 대 한 SDK 버전 접두사가 추가 되었습니다.
@@ -93,4 +91,4 @@ Application Insights에 대 한 Azure 웹 앱 확장에 대해 [자세히 알아
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 앱 서비스에 대 한 모니터링을 구성 하는 방법에 대 한 자세한 내용은 [Azure App Service 설명서](azure-web-apps.md) 를 참조 하세요. 
+- Azure 앱 서비스에 대 한 모니터링을 구성 하는 방법에 대 한 자세한 내용은 [Azure App Service에 대 한 응용 프로그램 모니터링 설명서](azure-web-apps.md) 를 참조 하세요. 

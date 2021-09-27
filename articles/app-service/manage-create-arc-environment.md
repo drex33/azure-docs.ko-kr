@@ -3,12 +3,12 @@ title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
 description: Azure Arc 지원 Kubernetes 클러스터에서 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: f6d917a9bd18c16e283f8c61e6cb6d15fcd4882f
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 7fbdae7b5e8b3bda94c1f1ddbb2a70720596d1fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568037"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639036"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
@@ -187,14 +187,13 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
         --workspace-name $workspaceName \
         --query customerId \
         --output tsv)
-    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64) # Needed for the next step
+    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64 -w0) # Needed for the next step
     logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $groupName \
         --workspace-name $workspaceName \
         --query primarySharedKey \
         --output tsv)
-    logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
-    logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
+    logAnalyticsKeyEnc=$(printf %s $logAnalyticsKey | base64 -w0) # Needed for the next step
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/powershell)

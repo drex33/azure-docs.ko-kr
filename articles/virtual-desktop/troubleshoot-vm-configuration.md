@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d32ea2a26bfcf4f1186cc93f65d67ed10b1eb4e9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: aa54932a6093c5c1a22285de9449b2faee06fe67
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529486"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818545"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -358,5 +358,5 @@ Azure Gallery에서 최신 버전의 Windows 10 버전 1903 이미지를 사용�
 - Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

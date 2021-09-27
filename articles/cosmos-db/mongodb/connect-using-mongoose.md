@@ -9,12 +9,12 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4e5abd957f65fd62bd3933c9f67288b063a6274f
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 39e2e9c0258be13698d3569dcc6e64d02bff8f42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039732"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554507"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -54,12 +54,14 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
 
 1. 선택한 폴더에 Node.js 애플리케이션을 만들려면 노드 명령 프롬프트에서 다음 명령을 실행합니다.
 
-    ```npm init```
+   `npm init`
 
-    질문에 답변하면 프로젝트를 이동할 준비가 됩니다.
+   질문에 답변하면 프로젝트를 이동할 준비가 됩니다.
 
 2. 폴더에 새 파일을 추가하고 이름을 ```index.js```로 지정합니다.
+
 3. ```npm install``` 옵션 중 하나를 사용하여 필요한 패키지를 설치합니다.
+
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -70,7 +72,7 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
      >[!Note]
      > ```--save``` 플래그는 package.json 파일에 종속성을 추가합니다.
 
-4. index.js 파일의 종속성을 가져옵니다.
+4. 파일의 종속성을 가져옵니다 `index.js` .
 
     ```JavaScript
    var mongoose = require('mongoose');
@@ -326,8 +328,8 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 - Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](connect-using-mongochef.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](connect-using-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
-- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

@@ -3,12 +3,12 @@ title: Defender for IoT API 작업
 description: 외부 REST API를 사용하여 센서 및 관리 콘솔에서 발견된 데이터에 액세스하고 해당 데이터를 사용하여 작업을 수행합니다.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 7b97be1e30440131045dccf1822fe6855e747768
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600630"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender for IoT 센서 및 관리 콘솔 API
 
@@ -277,7 +277,7 @@ Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니�
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:<span>//127<span>.0.0.1/api/v1/devices?authorized=true |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
 
 ### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>디바이스 연결 정보 검색-/api/v1/devices/connections
 
@@ -450,8 +450,8 @@ Defender for IoT 센서가 검색한 모든 디바이스 목록을 요청합니�
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections |
-> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
 
 ### <a name="retrieve-information-on-cves---apiv1devicescves"></a>CVE에서 정보 검색-/api/v1/devices/cves
 
@@ -565,8 +565,8 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 
 | 유형 | API | 예제 |
 |--|--|--|
-| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves |
-| GET | curl -k -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top= | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
 
 ### <a name="retrieve-alert-information---apiv1alerts"></a>경고 정보 검색-/api/v1/alerts
 
@@ -708,7 +708,7 @@ IP 주소에서 식별된 CVE를 나타내는 JSON 개체의 배열입니다.
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
 
 ### <a name="retrieve-timeline-events---apiv1events"></a>타임 라인 이벤트 검색-/api/v1/events
 
@@ -2084,97 +2084,51 @@ response:
 
 ```rest
 [
-
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Traffic Detected on sensor Interface",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 0,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808245000,
-        
         "sensorId": 1,
-        
         "message": "The sensor resumed detecting network traffic on ens224.",
-        
         "destinationDevice": 0,
-        
         "id": 1,
-        
         "severity": "Warning"
-    
     },
-    
     {
-    
         "engine": "Anomaly",
-        
         "handled": false,
-        
         "title": "Address Scan Detected",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 4,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808260000,
-        
         "sensorId": 1,
-        
         "message": "Address scan detected.\nScanning address: 10.10.10.22\nScanned subnet: 10.11.0.0/16\nScanned addresses: 10.11.1.1, 10.11.20.1, 10.11.20.10, 10.11.20.100, 10.11.20.2, 10.11.20.3, 10.11.20.4, 10.11.20.5, 10.11.20.6, 10.11.20.7...\nIt is recommended to notify the security officer of the incident.",
-        
         "destinationDevice": 0,
-        
         "id": 2,
-        
         "severity": "Critical"
-    
     },
-    
     {
-    
         "engine": "Operational",
-        
         "handled": false,
-        
         "title": "Suspicion of Unresponsive MODBUS Device",
-        
         "additionalInformation": null,
-        
         "sourceDevice": 194,
-        
         "zoneId": 1,
-        
         "siteId": 1,
-        
         "time": 1594808285000,
-        
         "sensorId": 1,
-        
         "message": "Outstation device 10.13.10.1 (Protocol Address 53) seems to be unresponsive to MODBUS requests.",
-        
         "destinationDevice": 0,
-        
         "id": 3,
-        
         "severity": "Minor"
-    
     }
-  
 ]
 ```
 
@@ -2183,7 +2137,7 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | GET | curl -k -H "권한 부여: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor=' | curl -k -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1' |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
 ### <a name="qradar-alerts"></a>QRadar 경고
 
@@ -2286,7 +2240,7 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 
 | 유형 | API | 예제 |
 |--|--|--|
-| PUT | curl -k -X PUT -d '{"action": "<ACTION>"}' -H "권한 부여: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID> | 말아-k-X PUT-d ' {"action": "handle"} '-H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/alerts/1-1594550943000 |
+| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000` |
 
 ### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>경고 제외(유지 관리 기간)-/external/v1/maintenanceWindow
 
@@ -2307,13 +2261,9 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - **엔진**: 유지 관리 프로세스 중에 경고를 표시하지 않을 보안 엔진을 정의합니다.
 
    - 예외적
-
    - 맬웨어
-
    - 작동
-
    - 정책 위반
-
    - 프로토콜 위반
 
 - **sensorIds**: 유지 관리 프로세스 중에 경고를 표시하지 않을 Defender for IoT 센서를 정의합니다. /api/v1/appliances(GET)에서 검색된 것과 동일한 ID입니다.
@@ -2327,11 +2277,8 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - **400(잘못된 요청)** : 다음과 같은 경우에 나타납니다
 
    - **Ttl** 매개 변수가 숫자가 아니거나 양수가 아닙니다.
-
    - **서브넷** 매개 변수가 잘못된 형식을 사용하여 정의되었습니다.
-
    - **TicketId** 매개 변수가 없습니다.
-
    - **엔진** 매개 변수가 기존 보안 엔진과 일치하지 않습니다.
 
 - **404(찾을 수 없음)** : 센서 중 하나가 존재하지 않습니다.
@@ -2362,9 +2309,7 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 - **400(잘못된 요청)** : 다음과 같은 경우에 나타납니다
 
    - **Ttl** 매개 변수가 숫자가 아니거나 양수가 아닙니다.
-
    - **TicketId** 매개 변수가 없습니다.
-
    - **Ttl** 매개 변수가 없습니다.
 
 - **404(찾을 수 없음)** : 티켓 ID가 열린 유지 관리 창에 연결되어 있지 않습니다.
@@ -2444,10 +2389,10 @@ UUID를 포함하는 경고에 대해 수행할 작업을 나타내는 JSON 개�
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "권한 부여 <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| PUT | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "권한 부여: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| Delete | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "권한 부여: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "권한 부여: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
+| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| Delete | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation
 
@@ -2510,7 +2455,7 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation' |
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation'` |
 
 ### <a name="change-password---externalauthenticationset_password"></a>암호 변경-/external/authentication/set_password
 
@@ -2584,7 +2529,7 @@ response:
 
 | 유형 | API | 예제 |
 |--|--|--|
-| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password` |
 
 ### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>시스템 관리자에 의한 사용자 암호 업데이트-/external/authentication/set_password_by_admin
 
@@ -2665,7 +2610,7 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | 유형 | API | 예제 |
 > |--|--|--|
-> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin` |
 
 ## <a name="next-steps"></a>다음 단계
 

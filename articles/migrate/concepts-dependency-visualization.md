@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 240f87a6b3154995340830e1861c8a76e6e3557f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 55e8efc7b49f14f6eb4cfe399866e53df29e3e36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259672"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767065"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
 
@@ -31,7 +31,7 @@ ms.locfileid: "123259672"
 
 **옵션** | **세부 정보** | **퍼블릭 클라우드** | **Azure Government**
 ----  |---- | ----
-**에이전트 없음** | VSphere API를 사용하여 VMware 서버에서 데이터를 폴링합니다.<br/><br/> 서버에 에이전트를 설치할 필요가 없습니다.<br/><br/> 이 옵션은 현재 미리 보기로 제공되며 VMware 서버에 대해서만 사용할 수 있습니다. | 지원됨. | 지원됨.
+**에이전트 없음** | VSphere API를 사용하여 VMware 서버에서 데이터를 폴링합니다.<br/><br/> 서버에 에이전트를 설치할 필요가 없습니다.<br/><br/> 이 옵션은 현재 VMware의 서버에만 해당됩니다. | 지원됨. | 지원됨.
 **에이전트 기반 분석** | Azure Monitor의 [서비스 맵 솔루션](../azure-monitor/vm/service-map.md)을 사용하여 종속성 시각화 및 분석을 사용하도록 설정합니다.<br/><br/> 분석하려는 각 온-프레미스 서버에 에이전트를 설치해야 합니다. | 지원됨 | 지원되지 않습니다.
 
 ## <a name="agentless-analysis"></a>에이전트 없는 분석

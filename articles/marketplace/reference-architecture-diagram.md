@@ -7,13 +7,13 @@ ms.reviewer: stmummer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: f7dfaf8e8afb4d7a5e39c16cf280c10dcae05859
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.date: 09/22/2021
+ms.openlocfilehash: 63c820a7dd4bcbe1322478a46043963edc45dd2b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133046"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129054265"
 ---
 # <a name="reference-architecture-diagram"></a>참조 아키텍처 다이어그램
 
@@ -24,6 +24,8 @@ ms.locfileid: "108133046"
 참조 아키텍처 다이어그램을 작성하는 데 도움이 되는 시작점은 [Azure 아키텍처 모델](/azure/architecture/browse/)을 활용하는 것입니다.
 
 ## <a name="typical-components-of-a-reference-architecture-diagram"></a>참조 아키텍처 다이어그램의 일반적인 구성 요소
+
+다이어그램은 Microsoft Azure를 배포 하 고 소비 하는 솔루션, 응용 프로그램 또는 서비스 코드로 IP를 명확 하 게 식별 해야 합니다. 이 코드는 항상 재사용 가능 해야 하며 배포 당 광범위 한 사용자 지정에 의존 하지 않아야 합니다.
 
 - Azure 리소스를 사용하는 클라우드 서비스를 포함하여 제품을 호스트하고 상호 작용하는 클라우드 서비스
 - 제품에서 사용하는 데이터 연결, 데이터 계층 및 데이터 서비스

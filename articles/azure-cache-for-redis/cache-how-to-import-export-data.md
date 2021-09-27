@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 0430217ab8c2f113127c6a2e519d9e394fc3d3e7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 91991be65e132ebdcdc06fa5e3a7729debec7062
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318684"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836951"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 
@@ -59,7 +59,7 @@ ms.locfileid: "123318684"
 
     ![가져오기](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-monitor/essentials/activity-log.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
 
     ![가져오기 진행](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
@@ -89,7 +89,7 @@ ms.locfileid: "123318684"
 
     ![내보내기](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-monitor/essentials/activity-log.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
 
     ![데이터 내보내기 완료](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 

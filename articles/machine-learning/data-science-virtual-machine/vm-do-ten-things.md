@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: e4e4a7169d7550523fb2e712560d1bdf86197558
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: b855f8fd464335e368e70f193f27d9baf5a10b11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112679137"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567505"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine을 사용하는 데이터 과학
 
@@ -329,7 +329,7 @@ DSVM에 미리 빌드된 도구는 많은 일반적인 데이터 분석 요구 �
 
 - [이미지 내 제품을 검색하는 엔드투엔드 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술에는 많은 실제 비즈니스 영역에서 엄청난 보상을 가져올 수 있는 잠재력이 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
 
-- [오디오 딥 러닝](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): 이 자습서에서는 [도시 소리 데이터 세트](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)에서 오디오 이벤트를 검색하기 위한 딥 러닝 모델을 학습시키는 방법을 보여 줍니다. 또한 오디오 데이터를 사용하는 방법에 대한 개요를 제공합니다.
+- [오디오 딥 러닝](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): 이 자습서에서는 [도시 소리 데이터 세트](https://urbansounddataset.weebly.com/)에서 오디오 이벤트를 검색하기 위한 딥 러닝 모델을 학습시키는 방법을 보여 줍니다. 또한 오디오 데이터를 사용하는 방법에 대한 개요를 제공합니다.
 
 - [텍스트 문서 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 Hierarchical Attention Network 및 LSTM(Long Short Term Memory) 네트워크라는 두 가지 신경망 아키텍처를 빌드하고 학습시키는 방법을 보여 줍니다. 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. 
 

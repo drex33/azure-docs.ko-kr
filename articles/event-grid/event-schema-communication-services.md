@@ -4,12 +4,12 @@ description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure Communi
 ms.topic: conceptual
 ms.date: 06/11/2021
 ms.author: mikben
-ms.openlocfilehash: e6e4245d9f38c00ec337d689a11d185299d71891
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b6bef963fe4f326bf0737ede96f62bfc9ffa9267
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529291"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635321"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure Communication Services에서 이벤트 처리
 
@@ -51,6 +51,10 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 | Microsoft.Communication.ChatMessageEditedInThread | 채팅 스레드에서 메시지가 편집될 때 게시됩니다. |  
 | Microsoft.Communication.ChatMessageDeletedInThread | 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.  |  
 | Microsoft.Communication.RecordingFileStatusUpdated | 기록 파일을 사용할 수 있을 때 게시됨 |
+| Microsoft Communication (미리 보기) | 통신 서비스 사용자가 통신 서비스와의 연결이 끊어진 상태로 지정 된 후에 게시 됨 |
+
+> [!NOTE]
+> Microsoft Communication to Disconnected 이벤트는 공개 미리 보기 상태입니다. 이 미리 보기 시간 동안에는 사용자의 연결 끊김 상태와 연결 된 로그를 전역적으로 복제할 수 있습니다. Event Grid를 통해이 이벤트를 구독 하 여 연결 되지 않은 상태를 가져올 수 있습니다.
 
 Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스에서 내보낸 이벤트를 구독할 수 있습니다. [Communication Services에서 SMS 이벤트를 처리하는 방법](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)을 확인하여 이벤트 처리를 시작합니다.
 
@@ -122,7 +126,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
     "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
     "From": "15555555555",
     "To": "15555555555",
-    "Message": "Great to connect with ACS events ",
+    "Message": "Great to connect with ACS events",
     "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
   },
   "eventType": "Microsoft.Communication.SMSReceived",
@@ -862,6 +866,30 @@ Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스�
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2021-07-27T15:20:34.2199328Z"
+ }
+]
+```
+
+### <a name="microsoftcommunicationuserdisconnectedpreview"></a>Microsoft.Communication.UserDisconnected(미리 보기)
+
+```json
+[
+ {
+  "id": "8f60490d-0719-4d9d-a1a6-835362fb752e",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/}{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "user/{rawId}",
+  "data": {
+    "userCommunicationIdentifier": {
+      "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_0000000b-d198-0d50-84f5-084822008d40",
+      "communicationUser": {
+        "id": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_0000000b-d198-0d50-84f5-084822008d40"
+      }
+    }
+  },
+  "eventType": "Microsoft.Communication.UserDisconnected",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-08-10T20:25:38Z"
  }
 ]
 ```

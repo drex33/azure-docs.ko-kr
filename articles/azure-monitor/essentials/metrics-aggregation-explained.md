@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor Metrics 메트릭 집계 및 표시 설명
+title: Azure Monitor 메트릭 집계 및 표시 설명
 description: Azure Monitor에서 메트릭이 집계되는 방식에 대한 자세한 정보
 author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.openlocfilehash: 9c543b1bebfdeb47c1a1e1326f49247d8103191f
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.date: 08/31/2021
+ms.openlocfilehash: 71c348d313c236d438521d70ca135feee647bb32
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529499"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744525"
 ---
-# <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor Metrics 메트릭 집계 및 표시 설명
+# <a name="azure-monitor-metrics-aggregation-and-display-explained"></a>Azure Monitor 메트릭 집계 및 표시 설명
 
 이 문서에서는 Azure Monitor [플랫폼 메트릭](../data-platform.md) 및 [사용자 지정 메트릭](../essentials/metrics-custom-overview.md)을 지원하는 Azure Monitor 시계열 데이터베이스의 메트릭 집계에 대해 설명합니다. 이 문서는 표준 [Application Insights 메트릭](../app/app-insights-overview.md)에도 적용됩니다. 
 

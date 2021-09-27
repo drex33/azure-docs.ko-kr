@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc6175ca771a8be262c9a2d1ba92871a43140367
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 38c5a15cbb21ae464ac4adbac9bf900ac14d7a1d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257365"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806441"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -103,7 +103,7 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용하는 데이터 저�
 
 다음은 Azure-SSIS IR에 필요한 연결을 보여 주는 다이어그램입니다.
 
-![Azure-SSIS IR에 필요한 연결을 보여 주는 다이어그램.](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png" alt-text="Azure-SSIS IR에 필요한 연결을 보여 주는 다이어그램.":::
 
 ### <a name="set-up-permissions"></a><a name="perms"></a> 권한 설정
 
@@ -137,7 +137,7 @@ Azure-SSIS IR을 가상 네트워크에 조인하는 동안 Azure-SSIS IR의 자
 
 - 둘 다 DNS 이름이 있어야 합니다. 만들 때 DNS 이름을 제공하지 않은 경우 Azure Portal에서 DNS 이름을 제공할 수 있습니다.
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+:::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 
 - 공용 IP 주소와 가상 네트워크는 동일한 구독 및 동일한 지역에 속해야 합니다.
 
@@ -178,7 +178,7 @@ Azure-SSIS IR에 사용되는 서브넷에 NSG를 구현해야 하는 경우 다
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Azure ExpressRoute 또는 UDR 사용
 Azure-SSIS IR의 아웃바운드 트래픽을 검사하려는 경우 Azure-SSIS IR에서 시작된 트래픽을 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 강제 터널링(BGP 경로인 0.0.0.0/0을 가상 네트워크에 보급)을 통해 온-프레미스 방화벽 어플라이언스로 라우팅하거나 [UDR](../virtual-network/virtual-networks-udr-overview.md)을 통해 NVA(네트워크 가상 어플라이언스)에 방화벽 또는 [Azure Firewall](../firewall/index.yml)로 라우팅할 수 있습니다. 
 
-![Azure-SSIS IR의 NVA 시나리오](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png" alt-text="Azure-SSIS IR의 NVA 시나리오":::
 
 전체 시나리오가 작동하게 하려면 다음 작업을 수행해야 합니다.
    -   Azure Batch 관리 서비스와 Azure-SSIS IR 간의 인바운드 트래픽은 방화벽 어플라이언스를 통해 라우팅할 수 없습니다.
@@ -188,7 +188,7 @@ Azure Batch 관리 서비스와 Azure-SSIS IR 간의 인바운드 트래픽은 �
 
 예를 들어 Azure-SSIS IR이 `UK South`에 있고 Azure Firewall을 통과하는 아웃바운드 트래픽을 검사하려는 경우 먼저 [서비스 태그 IP 범위 다운로드 링크](https://www.microsoft.com/download/details.aspx?id=56519)에서 또는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 `BatchNodeManagement.UKSouth` 서비스 태그의 IP 범위 목록을 가져옵니다. 그러고 나서 다음 홉 형식이 **가상 어플라이언스** 인 0.0.0.0/0 경로와 함께 다음 홉 형식이 **인터넷** 인 관련 IP 범위 경로의 다음 UDR을 적용합니다.
 
-![Azure Batch UDR 설정](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png" alt-text="Azure Batch UDR 설정":::
 
 > [!NOTE]
 > 이 방법은 추가 유지 관리 비용이 발생합니다. 정기적으로 IP 범위를 확인하고 UDR에 새 IP 범위를 추가하여 Azure-SSIS IR 중단을 방지합니다. 서비스 IP에 표시되는 새 IP는 다음 달에 적용되기 때문에 매월 IP 범위를 확인하는 것이 좋습니다. 
@@ -274,7 +274,7 @@ Azure-SSIS IR의 아웃바운드 트래픽을 검사하는 기능이 필요하�
 -   Azure ExpressRoute 시나리오에서는 Azure-SSIS IR를 호스트하는 서브넷에서 다음 홉 형식이 **인터넷** 인 0.0.0.0/0 경로를 적용할 수 있습니다. 
 -   NVA 시나리오에서는 Azure-SSIS IR을 호스트하는 서브넷에 적용된 기존 0.0.0.0/0 경로를 **가상 어플라이언스** 다음 홉 형식에서 **인터넷** 다음 홉 형식으로 수정할 수 있습니다.
 
-![경로 추가](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png" alt-text="경로 추가":::
 
 > [!NOTE]
 > 다음 홉 형식 **인터넷** 으로 경로를 지정하더라도 모든 트래픽이 인터넷을 통해 이동하는 것은 아닙니다. 대상 주소가 Azure 서비스 중 하나의 주소인 한 Azure는 트래픽을 인터넷으로 라우팅하지 않고 Azure의 백본 네트워크를 통해 해당 서비스로 직접 라우팅합니다.
@@ -358,7 +358,7 @@ Azure-SSIS IR을 조인하기 전에 포털을 사용하여 Azure Resource Manag
 
    1. 왼쪽에서 **리소스 공급자** 를 선택하고 **Microsoft.Batch** 가 등록된 공급자인지 확인합니다. 
 
-   !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="&quot;등록 된 &quot; 상태 확인":::
 
    목록에서 **Microsoft.Batch** 가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
 
@@ -376,33 +376,33 @@ Azure-SSIS IR을 조인하기 전에 포털을 사용하여 클래식 가상 네
 
 1. **가상 네트워크(클래식)** 페이지에서 **속성** 을 선택합니다. 
 
-   ![클래식 가상 네트워크 리소스 ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png" alt-text="클래식 가상 네트워크 리소스 ID":::
 
 1. **RESOURCE ID** 에 대한 복사 단추를 선택하여 클래식 네트워크의 리소스 ID를 클립보드에 복사합니다. 클립 보드의 ID를 OneNote 또는 파일에 저장합니다. 
 
 1. 왼쪽 메뉴에서 **서브넷** 을 선택합니다. 사용 가능한 주소 수가 Azure-SSIS IR의 노드보다 많은지 확인합니다. 
 
-   ![가상 네트워크에서 사용 가능한 주소 수](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png" alt-text="가상 네트워크에서 사용 가능한 주소 수":::
 
 1. **MicrosoftAzureBatch** 를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
 
    1. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하고 **역할 할당** 탭을 선택합니다. 
 
-       !["액세스 제어" 및 "추가" 단추](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
+       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png" alt-text="&quot;액세스 제어 &quot; 및 &quot; &quot; 단추 추가":::
 
    1. **역할 할당 추가** 를 선택합니다.
 
    1. **역할 할당 추가** 페이지에서 **역할** 로 **클래식 가상 머신 기여자** 를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864** 를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch** 를 선택합니다. 
 
-       ![‘역할 할당 추가’ 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png" alt-text="&quot;역할 할당 추가 페이지의 검색 결과 &quot;":::
 
    1. **저장** 을 선택하여 설정을 저장하고 페이지를 닫습니다. 
 
-       ![액세스 설정 저장](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
+       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png" alt-text="액세스 설정 저장":::
 
    1. 참가자 목록에 **Microsoft Azure Batch** 가 보이는지 확인합니다. 
 
-       ![Azure Batch 액세스 확인](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
+       :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png" alt-text="Azure Batch 액세스 확인":::
 
 1. 가상 네트워크가 있는 Azure 구독에 Azure Batch 공급자가 등록되었는지 확인합니다. 또는 Azure Batch 공급자를 등록합니다. 구독에 Azure Batch 계정이 이미 있는 경우에는 Azure Batch에 대한 구독이 등록됩니다. (Data Factory 포털에 Azure-SSIS IR을 만들면 Azure Batch 공급자가 자동으로 등록됩니다.) 
 
@@ -412,7 +412,7 @@ Azure-SSIS IR을 조인하기 전에 포털을 사용하여 클래식 가상 네
 
    1. 왼쪽에서 **리소스 공급자** 를 선택하고 **Microsoft.Batch** 가 등록된 공급자인지 확인합니다. 
 
-   !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png" alt-text="&quot;등록 된 &quot; 상태 확인":::
 
    목록에서 **Microsoft.Batch** 가 보이지 않으면 지금 등록할 수 있도록 구독에서 [빈 Azure Batch 계정을 만듭니다](../batch/batch-account-create-portal.md). 나중에 삭제할 수 있습니다. 
 
@@ -424,23 +424,23 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **데이터 팩터리** 를 선택합니다. 메뉴에 **데이터 팩터리** 가 표시되지 않으면 **다른 서비스** 를 선택한 뒤 **INTELLIGENCE + ANALYTICS** 섹션에서 **데이터 팩터리** 를 선택합니다. 
 
-   ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="데이터 팩터리 목록":::
 
 1. 목록에서 Azure-SSIS IR이 있는 데이터 팩터리를 선택합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다. 
 
-   ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
 
 1. 데이터 팩터리 UI에서 **편집** 탭으로 전환하고 **연결** 을 선택한 다음, **통합 런타임** 탭으로 전환합니다. 
 
-   !["통합 런타임" 탭](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png" alt-text="&quot;통합 런타임 &quot; 탭":::
 
 1. Azure-SSIS IR이 실행 중이면 **통합 런타임** 목록의 **동작** 열에서 Azure-SSIS IR의 **중지** 단추를 선택합니다. Azure-SSIS IR을 중지하지 않으면 편집할 수 없습니다. 
 
-   ![IR 중지](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png" alt-text="IR 중지":::
 
 1. **통합 런타임** 목록의 **작업** 열에서 Azure-SSIS IR의 **편집** 단추를 선택합니다. 
 
-   ![통합 런타임 편집](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+   :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png" alt-text="통합 런타임 편집":::
 
 1. 통합 런타임 설정 패널에서 **다음** 단추를 선택하여 **일반 설정** 및 **SQL 설정** 섹션을 진행합니다. 
 
@@ -468,7 +468,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    1. **VNet 유효성 검사** 를 선택합니다. 유효성 검사에 성공하면 **계속** 을 선택합니다. 
 
-   ![가상 네트워크 관련 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png" alt-text="가상 네트워크 관련 고급 설정":::
 
 1. **요약** 섹션에서 Azure-SSIS IR에 대한 모든 설정을 검토합니다. 그런 다음 **업데이트** 를 선택합니다.
 

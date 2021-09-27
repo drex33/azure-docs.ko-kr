@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory를 사용하여 HBase에서 데이터 복사
+title: HBase에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 HBase에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 HBase에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 2e316f18a0aa7139f47c654b4ac758af10feef34
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: c419310df8892133fadd20ff4ec52d504adfcbe1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312282"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815046"
 ---
-# <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HBase에서 데이터 복사 
+# <a name="copy-data-from-hbase-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 HBase에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HBase에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 HBase에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -30,9 +30,9 @@ ms.locfileid: "123312282"
 
 HBase에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
+서비스는 연결을 사용할 수 있는 기본 제공 드라이버를 제공 하므로이 커넥터를 사용 하 여 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -79,7 +79,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | httpPath | HDInsights 클러스터 사용 시 HBase 서버에 해당하는 부분 URL(예: `/hbaserest0`)입니다. | 예 |
 | authenticationType | HBase 서버에 연결하는 데 사용할 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **Basic** 입니다. | 예 |
 | 사용자 이름 | HBase 인스턴스에 연결하는 데 사용되는 사용자 이름입니다.  | 예 |
-| password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | enableSsl | TLS를 사용하여 서버 연결을 암호화할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
 | trustedCertPath | TLS를 통해 연결할 때 서버를 확인하는 데 사용되는 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
 | allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급된 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
@@ -152,7 +152,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 HBase에서 데이터를 복사하려면 데이터 세트의 type 속성을 **HBaseObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **HBaseObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -225,4 +225,4 @@ HBase에서 데이터를 복사하려면 복사 작업의 원본 형식을 **HBa
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

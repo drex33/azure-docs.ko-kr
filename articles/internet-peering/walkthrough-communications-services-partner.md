@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 395ca8022b0355ff79c200dfbe87bc78e29de089
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124566"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060861"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Communication Services에 대한 Azure Internet 피어링 연습
 
@@ -52,7 +52,7 @@ Azure Internet 피어링을 사용하여 직접 연결을 설정하려면 다음
 다음 단계는 Peering Service에 대한 직접 피어링 연결을 만드는 것입니다.
 
 > [!NOTE]
-> ASN 연결이 승인되면 사용자의 ASN 및 구독 ID로 peeringservices@microsoft.com에서 이메일을 보내 구독을 Communication Services와 연결합니다. 
+> ASN 연결이 승인되면 사용자의 ASN 및 구독 ID로 peeringservice@microsoft.com에서 이메일을 보내 구독을 Communication Services와 연결합니다. 
 
 **2. Peering Service에 대한 직접 피어링 연결을 만듭니다.**
 

@@ -3,14 +3,14 @@ title: Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미�
 description: 이 문서에서는 Azure Automation 계정에 사용자 할당 관리 ID를 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ce409853cddfd0278692e2c6e233331530296d6b
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 7b1a75aac3166b1fdd3cdd39f5f66bd380339975
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214264"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061792"
 ---
 # <a name="using-a-user-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 사용자 할당 관리 ID 사용(미리 보기)
 
@@ -23,7 +23,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](automation-quickstart-create-account.md)를 참조하세요.
+- Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
 - 시스템이 할당한 관리 ID. 자세한 내용은 [Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
 
@@ -49,7 +49,7 @@ Azure Portal, PowerShell, Azure REST API 또는 ARM 템플릿을 사용하여 Az
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -319,8 +319,14 @@ New-AzRoleAssignment `
 Automation 계정에 사용자 할당 관리 ID를 사용 설정하고 대상 리소스에 ID 액세스를 부여하면, 관리 ID를 지원하는 리소스를 대상으로 해당 ID를 Runbook에서 지정할 수 있습니다. ID를 지원하려면 Az cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount)를 사용합니다.
 
 ```powershell
-Connect-AzAccount -Identity `
-    -AccountId <user-assigned-identity-ClientId> 
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with user-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId>).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 ## <a name="generate-an-access-token-without-using-azure-cmdlets"></a>Azure cmdlet을 사용 하지 않고 액세스 토큰 생성

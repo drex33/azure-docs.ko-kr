@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c2d67cd8e62a0b74ed5959cebfe691ffb044d975
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 195325ff9bad726ed62c5955b393d31e4c457f2e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536159"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836780"
 ---
 # <a name="create-azure-arc-data-controller-using-the-cli"></a>CLI를 사용하여 Azure Arc 데이터 컨트롤러 만들기
 
@@ -117,10 +117,7 @@ az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespac
 
 #### <a name="configure-storage-azure-stack-hci-with-aks-hci"></a>스토리지 구성(AKS-HCI가 포함된 Azure Stack HCI)
 
-AKS-HCI와 Azure Stack HCI를 사용하는 경우 Azure Stack HCA AKS-HCI 버전에 따라 다음 중 하나를 수행합니다.
-
-- 1\.20 이상 버전의 경우 `fsGroupPolicy:File`(자세한 내용은 - https://kubernetes-csi.github.io/docs/support-fsgroup.html) )을 사용하여 사용자 지정 스토리지 클래스를 만듭니다. 
-- 버전 1.19의 경우 다음을 사용합니다. 
+AKS를 사용 하 여 Azure Stack HCI를 사용 하는 경우를 사용 하 여 사용자 지정 저장소 클래스를 만듭니다 `fsType` .
 
    ```json
    fsType: ext4
@@ -232,7 +229,7 @@ az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --na
 특정 스토리지 클래스 및/또는 서비스 유형을 지정하도록 배포 프로필을 사용자 지정하려면 다음 명령을 실행하여 kubeadm 배포 프로필을 기반으로 새 사용자 지정 배포 프로필 파일을 만듭니다. 이 명령은 현재 작업 디렉터리에 `custom` 디렉터리를 만들고 해당 디렉터리에 사용자 지정 배치 프로필 파일 `control.json`을 만듭니다.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-kubeadm --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-kubeadm --path ./custom 
 ```
 
 다음 명령을 실행하여 사용 가능한 스토리지 클래스를 조회할 수 있습니다.

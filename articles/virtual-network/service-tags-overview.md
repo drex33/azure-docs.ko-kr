@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2021
+ms.date: 9/20/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 79785c82e06c9dc1621b3278ef886866ae9695ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768475"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590293"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -100,7 +100,8 @@ ms.locfileid: "122768475"
 | **HDInsight** | Azure HDInsight. | 인바운드 | 예 | 예 |
 | **인터넷** | 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure에서 소유하는 퍼블릭 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다. | 모두 | 예 | 예 |
 | **LogicApps** | Logic Apps입니다. | 모두 | 예 | 예 |
-| **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
+| **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 아니요 |
+| **MicrosoftAzureFluidRelay** | 이 태그는 Azure Microsoft Fluid Relay Server에 사용되는 IP 주소를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **PowerBI** | PowerBi. *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 예|
@@ -155,6 +156,19 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 - [Azure 독일](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 해당 파일의 IP 주소 범위는 CIDR 표기법으로 되어 있습니다. 
+
+다음 AzureCloud 태그는 일반 스키마에 따라 형식이 지정 된 지역 이름이 아닙니다. 
+- AzureCloud (FranceCentral)
+- AzureCloud (FranceSouth)
+- AzureCloud (GermanyWestCentral)
+- AzureCloud (GermanyNorth)
+- AzureCloud. norwaye (없음)
+- AzureCloud (NorwayWest)
+- AzureCloud (SwitzerlandNorth)
+- AzureCloud (SwitzerlandWest)
+- AzureCloud (EastUSSTG)
+- AzureCloud (SouthCentralUSSTG)
+
 
 > [!NOTE]
 >이 정보의 일부는 [Azure 퍼블릭](https://www.microsoft.com/download/details.aspx?id=41653), [Azure 중국](https://www.microsoft.com/download/details.aspx?id=42064) 및 [Azure 독일](https://www.microsoft.com/download/details.aspx?id=54770)용 XML 파일에 게시되었습니다. 이러한 XML 다운로드는 2020년 6월 30일부터 더 이상 지원되지 않으며 해당 날짜 이후에는 더 이상 사용할 수 없습니다. 이전 섹션에서 설명한 대로 검색 API 또는 JSON 파일 다운로드를 사용하여 마이그레이션해야 합니다.

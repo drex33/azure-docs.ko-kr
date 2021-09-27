@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 4497b58e40ccc280661d45932586c14bb8a21108
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 61ba348c93b034b5ed1419c22330e2ce842b7136
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537867"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784207"
 ---
 # <a name="public-ip-addresses"></a>공용 IP 주소
 
@@ -42,10 +42,10 @@ Virtual Machine Scale Sets의 경우 [공용 IP 접두사](public-ip-address-pre
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 | 예 | 예 |예 |
 | 가상 네트워크 게이트웨이(VPN) |게이트웨이 IP 구성 |예(비 AZ만 해당) |예(AZ만 해당) | 아니요 |아니요 |
 | 가상 네트워크 게이트웨이(ER) |게이트웨이 IP 구성 |Yes | 아니요 | 예(미리 보기) |No |
-| NAT 게이트웨이 |게이트웨이 IP 구성 |아니요 |예 | 아니요 |아니요 |
+| NAT 게이트웨이 |게이트웨이 IP 구성 |아니요 |예 | 예 |아니요 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) | 아니요 | 아니요 |
-| Azure Firewall | 프런트 엔드 구성 | 아니요 | 예 | 아니요 | 아니요 |
-| 베스천 호스트 | 공용 IP 구성 | 아니요 | 예 | 아니요 | 아니요 |
+| Azure Firewall | 프런트 엔드 구성 | 아니요 | 예 | 예 | 아니요 |
+| 베스천 호스트 | 공용 IP 구성 | 아니요 | 예 | 예 | 아니요 |
 
 ## <a name="ip-address-version"></a>IP 주소 버전
 
@@ -61,20 +61,13 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 
 - 항상 고정 할당 메서드를 사용합니다.
 - 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
-- 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups)을 사용하여 인바운드 트래픽을 허용 목록에 추가합니다.
-- 네트워크 인터페이스, 표준 퍼블릭 부하 분산 장치 또는 Application Gateway에 할당되었습니다. Azure 부하 분산 장치에 대한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- "기본적으로 보안" 모델에 맞게 설계되었으며 프런트 엔드로 사용될 때 인바운드 트래픽에 닫힙니다.  NSG(네트워크 [보안 그룹)를](./network-security-groups-overview.md#network-security-groups) 사용하여 데이터 평면 트래픽을 허용 목록에 추가해야 합니다(예: 표준 SKU 공용 IP가 연결된 가상 머신의 NIC에서).
 - 영역 중복(3개 영역에서 모두 보급됨), 영역(미리 선택한 특정 가용성 영역에서 보장됨) 또는 “영역 없음”(미리 선택한 특정 가용성 영역과 연결되지 않음)이 될 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 IP는 [3개의 가용성 영역이 라이브 상태인 지역](../availability-zones/az-region.md)에서만 만들 수 있습니다.** 영역이 라이브 상태가 되기 전에 만든 IP는 영역 중복이 아닙니다.
 - [라우팅 기본 설정](routing-preference-overview.md)으로 활용하여 Azure와 인터넷 간에 트래픽이 라우팅되는 방식을 보다 세부적으로 제어할 수 있습니다.
 - [영역 간 부하 분산 장치](../load-balancer/cross-region-overview.md)(미리 보기 기능)의 애니캐스트 프런트 엔드 IP로 사용할 수 있습니다.
  
 > [!NOTE]
-> [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신이 가능합니다.
-
-> [!NOTE]
-> [인스턴스 메타데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)를 사용하는 경우 기본 SKU를 사용하는 공용 IP 주소만 이용할 수 있습니다. 표준 SKU는 지원되지 않습니다.
-
-> [!NOTE]
-> 표준 SKU 공용 IP 주소를 사용하는 경우 리소스 블레이드 아래에 진단 설정이 표시되지 않습니다. 표준 공용 IP 리소스를 위한 로깅을 사용하도록 설정하려면 Azure Monitor 블레이드에서 진단 설정으로 이동한 다음, IP 주소 리소스를 선택합니다.
+> [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
 
 ### <a name="basic"></a>기본
 
@@ -87,14 +80,14 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 - [라우팅 기본 설정](routing-preference-overview.md) 또는 [지역 간 부하 분산 장치](../load-balancer/cross-region-overview.md) 기능을 지원하지 않습니다.
 
 > [!NOTE]
-> 표준 SKU에 만든 후 기본 SKU IPv4 주소를 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](./public-ip-upgrade-portal.md)를 참조하세요.
+> 기본 SKU IPv4 주소는 만든 후 표준 SKU로 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](./public-ip-upgrade-portal.md)를 참조하세요.
 
 >[!IMPORTANT]
-> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
+> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
 ## <a name="ip-address-assignment"></a>IP 주소 할당
 
- 표준 공용 IPv4, 기본 공용 IPv4, 표준 공용 IPv6 주소는 모두 **고정** 할당을 지원합니다.  리소스는 생성될 때 IP 주소에 할당됩니다. 이 IP 주소는 리소스가 삭제되면 해제됩니다.  
+표준 공용 IPv4, 기본 공용 IPv4, 표준 공용 IPv6 주소는 모두 **고정** 할당을 지원합니다.  리소스는 생성될 때 IP 주소에 할당됩니다. 이 IP 주소는 리소스가 삭제되면 해제됩니다.  
 
 > [!NOTE]
 > 할당 방법을 **고정** 으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
@@ -115,11 +108,7 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 
 ## <a name="dns-name-label"></a>DNS 이름 레이블
 
-공용 IP 리소스에 대한 DNS 레이블을 지정하려면 이 옵션을 선택합니다. 이 기능은 IPv4 주소(32비트 A 레코드)와 IPv6 주소(128비트 AAAA 레코드)에서 모두 작동합니다.
-
-### <a name="dns-hostname-resolution"></a>DNS 호스트 이름 확인
-
-이렇게 선택하면 Azure 관리형 DNS에 공용 IP를 위한 **domainnamelabel**.**location**.cloudapp.azure.com의 매핑이 생성됩니다. 
+공용 IP 리소스에 대한 DNS 레이블을 지정하려면 이 옵션을 선택합니다. 이 기능은 IPv4 주소(32비트 A 레코드)와 IPv6 주소(128비트 AAAA 레코드)에서 모두 작동합니다.  이렇게 선택하면 Azure 관리형 DNS에 공용 IP를 위한 **domainnamelabel**.**location**.cloudapp.azure.com의 매핑이 생성됩니다. 
 
 예를 들어 다음을 사용하여 공용 IP를 만듭니다.
 
@@ -131,11 +120,7 @@ FQDN(정규화된 도메인 이름)인 **contoso.westus.cloudapp.azure.com** 은
 > [!IMPORTANT]
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 
-### <a name="dns-recommendations"></a>DNS 권장 사항
-
-공용 IP의 FQDN을 지역 간에 마이그레이션할 수 없습니다. FQDN을 사용하여 공용 IP를 가리키는 사용자 지정 CNAME 레코드를 만듭니다. 다른 공용 IP로 이동해야 하는 경우 CNAME 레코드를 업데이트합니다.
-
-DNS 레코드를 위한 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 DNS 공급자를 사용할 수 있습니다.
+공용 IP를 사용하는 서비스에 대해 사용자 지정 도메인을 원하는 경우 [DNS 레코드에 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 DNS 공급자를 사용할 수 있습니다.
 
 ## <a name="other-public-ip-address-features"></a>기타 공용 IP 주소 기능
 

@@ -8,13 +8,13 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 05/20/2021
-ms.openlocfilehash: 96c383c56c33fa91693599ccf043af415536c9c6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642563"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743888"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 작업
 
@@ -67,7 +67,7 @@ staging.linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용�
 staging.folderPath | Azure Synapse Analytics 원본 또는 싱크를 사용하는 경우 PolyBase 스테이징에 사용되는 Blob Storage 계정의 폴더 경로입니다. | String | 데이터 흐름이 Azure Synapse Analytics에서 읽거나 쓰는 경우에만
 traceLevel | 데이터 흐름 작업 실행의 로깅 수준을 설정합니다. | Fine, Coarse, None | 예
 
-![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
+:::image type="content" source="media/data-flow/activity-data-flow.png" alt-text="데이터 흐름 실행":::
 
 ### <a name="dynamically-size-data-flow-compute-at-runtime"></a>런타임에 동적으로 데이터 흐름 컴퓨팅 크기 설정
 
@@ -76,7 +76,7 @@ traceLevel | 데이터 흐름 작업 실행의 로깅 수준을 설정합니다.
 > [!NOTE]
 > Azure Synapse 데이터 흐름에서 드라이버 및 작업자 노드 코어를 선택할 때, 최소 3 개의 노드가 항상 사용됩니다.
 
-![동적 데이터 흐름](media/data-flow/dyna1.png "동적 데이터 흐름")
+:::image type="content" source="media/data-flow/dyna1.png" alt-text="동적 데이터 흐름":::
 
 [여기에서 이 기술에 대해 설명하는 간단한 동영상 자습서를 확인하세요.](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
@@ -86,7 +86,7 @@ traceLevel | 데이터 흐름 작업 실행의 로깅 수준을 설정합니다.
 
 8+8(총 16개 v-코어) 구성의 범용(컴퓨팅 최적화는 큰 규모의 워크로드에는 권장되지 않음) 최소 컴퓨팅 형식 및 10분이 대부분의 프로덕션 워크로드에 대한 최소 권장 사항입니다. Azure IR는 소형 TTL을 설정하여 콜드 클러스터에 대해 몇 분의 시작 시간을 발생시키지 않는 웜 클러스터를 유지할 수 있습니다. Azure IR 데이터 흐름 구성에서 “빠른 다시 사용”을 선택하여 데이터 흐름의 실행 속도를 높일 수 있습니다. 자세한 내용은 [Azure 통합 런타임](concepts-integration-runtime.md)을 참조하세요.
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+:::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
 > [!IMPORTANT]
 > 데이터 흐름 작업의 통합 런타임 선택은 파이프라인의 '트리거된 실행'에만 적용됩니다. 데이터 흐름을 사용하는 파이프라인 디버깅은 디버그 세션에 지정된 클러스터에서 실행됩니다.
@@ -99,7 +99,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 데이터 흐름 활동의 모든 파이프라인 실행에서 모든 자세한 원격 분석 로그를 완전히 기록할 필요가 없는 경우 필요에 따라 로깅 수준을 ‘기본’ 또는 ‘없음’으로 설정할 수 있습니다. '자세한 정보' 모드(기본값)에서 데이터 흐름을 실행하는 경우 서비스에 데이터 변환 중 각 개별 파티션 수준에서 작업을 완전히 기록하도록 요청하는 것입니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결하는 경우에만 자세한 정보를 사용하면 전체 데이터 흐름 및 파이프라인 성능을 향상시킬 수 있습니다. ‘기본’ 모드에서는 변환 기간만 기록하고, ‘없음’의 경우 기간 요약만 제공합니다.
 
-![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
+:::image type="content" source="media/data-flow/logging.png" alt-text="로깅 수준":::
 
 ## <a name="sink-properties"></a>싱크 속성
 
@@ -111,7 +111,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 이 옵션은 “작업에 출력”에 대해 캐시 싱크를 사용하는 것으로 설정된 데이터 흐름에만 사용할 수 있습니다. 파이프라인에 직접 삽입되는 데이터 흐름의 출력은 2MB로 제한됩니다. “첫 행 전용”을 설정하면 데이터 흐름 활동 출력을 파이프라인에 직접 삽입하는 경우 데이터 흐름에서 데이터 출력을 제한할 수 있습니다.
 
-![싱크 속성](media/data-flow/sink-properties.png "싱크 속성 설정")
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="싱크 속성":::
 
 ## <a name="parameterizing-data-flows"></a>데이터 흐름 매개 변수화
 
@@ -119,7 +119,7 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 데이터 흐름에서 매개 변수가 있는 데이터 세트를 사용하는 경우 **설정** 탭에서 매개 변수 값을 설정합니다.
 
-![데이터 흐름 실행 매개 변수](media/data-flow/params.png "매개 변수")
+:::image type="content" source="media/data-flow/params.png" alt-text="데이터 흐름 실행 매개 변수":::
 
 ### <a name="parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름
 
@@ -129,13 +129,13 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 자동 확인 Azure 통합 런타임을 사용하고 compute.coreCount 및 compute.computeType의 값을 지정하는 경우 코어 수 또는 컴퓨팅 유형을 매개 변수화할 수 있습니다.
 
-![데이터 흐름 실행 매개 변수 예제](media/data-flow/parameterize-compute.png "매개 변수 예")
+:::image type="content" source="media/data-flow/parameterize-compute.png" alt-text="데이터 흐름 실행 매개 변수 예제":::
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>데이터 흐름 작업의 파이프라인 디버그
 
 데이터 흐름 작업을 사용하여 파이프라인 디버그를 실행하려면 위쪽 표시줄의 **데이터 흐름 디버그** 슬라이더를 통해 데이터 흐름 디버그 모드로 전환해야 합니다. 디버그 모드를 사용하면 활성 Spark 클러스터에 대해 데이터 흐름을 실행할 수 있습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
-![디버그 단추를 표시하는 스크린샷](media/data-flow/debug-button-3.png)
+:::image type="content" source="media/data-flow/debug-button-3.png" alt-text="디버그 단추를 표시하는 스크린샷":::
 
 디버그 파이프라인은 데이터 흐름 작업 설정에 지정된 통합 런타임 환경이 아닌 활성 디버그 클러스터에 대해 실행됩니다. 디버그 모드를 시작할 때 디버그 컴퓨팅 환경을 선택할 수 있습니다.
 

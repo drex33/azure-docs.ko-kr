@@ -4,12 +4,12 @@ ms.author: vimeht
 ms.date: 7/8/2021
 ms.topic: include
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 58977fdfb05a2f2b152d66fb12065d88a98b2b2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d7970fff815449adf6412c2748e22b2d471e52b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802797"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645464"
 ---
  > [!NOTE]
  > 지정된 리소스나 작업에 조정 가능한 한도가 없는 경우 기본 한도와 최대 한도는 동일합니다.
@@ -37,6 +37,6 @@ ms.locfileid: "121802797"
 | 인스턴스당, 공급자당 업데이트 이름 수 | 25 | 25 | 아니요 |
 | 인스턴스당, 업데이트 공급자와 이름당 업데이트 버전 수 | 100 | 100 | 아니요 |
 | 인스턴스당 총 업데이트 수 | 100 | 100 | 아니요 |
-| 최대 단일 업데이트 파일 크기 | 800MB | 800MB | No |
-| 단일 가져오기 작업 내 모든 파일의 최대 결합 크기 | 800MB | 800MB | No |
+| 최대 단일 업데이트 파일 크기 | 2GB | 2GB | No |
+| 단일 가져오기 작업 내 모든 파일의 최대 결합 크기 | 2GB | 2GB | No |
 | 인스턴스당 디바이스 그룹 수 | 75 | 75 | 아니요 |

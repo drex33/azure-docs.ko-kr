@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020, devx-track-azurecli
 ms.date: 04/27/2020
-ms.openlocfilehash: 81ce470c53374331afcc91c89fd97e96c3fa0c35
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: 20f99d020f61186341e938208aeb819895118d73
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887417"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824376"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -34,11 +34,11 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |âœ” |âœ” |âœ” |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |âœ” |âœ” |âœ” |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |âœ” |
-| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |âœ” | |âœ” |
-| [Hadoop 명령](#hadoop-command-line) |âœ” |âœ” |âœ” |
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+| [Hadoop 명령](#hadoop-command-line) |✔ |✔ |✔ |
 
 > [!NOTE]  
 > Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 이 명령을 통해 로컬 파일 시스템의 데이터를 Azure Storage로 로드할 수만 있습니다.  
@@ -76,12 +76,12 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 | 클라이언트 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |âœ” |âœ” |âœ” |
-| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |âœ” |âœ” |âœ” |
-| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |âœ” |
-| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |âœ” |
-| [Microsoft Azure용 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |âœ” |
-| [Cyberduck](https://cyberduck.io/) | |âœ” |âœ” |
+| [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
+| [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) |✔ |✔ |✔ |
+| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [Microsoft Azure용 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ea85ca0cf1160b4ad738ea45ce33e72d07dc5fbf
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: eded4bfc37df72b9163aeac51d66c973b24838b2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681398"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750267"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
-Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
+Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
 
 Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습니다. 
 
@@ -167,7 +167,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 ### <a name="azure-sentinel-data-connector"></a>Azure Sentinel 데이터 커넥터
 
-로그를 Azure Sentinel에 연결하고, 통합 문서에서 데이터를 보고 분석하고, 사용자 지정 경고를 만들고, 조사 프로세스에 통합할 수 있습니다. Azure Sentinel에 연결하려면 [Azure Sentinel에 연결](../sentinel/connect-azure-ddos-protection.md)을 참조하세요. 
+로그를 Azure Sentinel에 연결하고, 통합 문서에서 데이터를 보고 분석하고, 사용자 지정 경고를 만들고, 조사 프로세스에 통합할 수 있습니다. Azure Sentinel에 연결하려면 [Azure Sentinel에 연결](../sentinel/data-connectors-reference.md#azure-ddos-protection)을 참조하세요. 
 
 ![Azure Sentinel DDoS 커넥터](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 

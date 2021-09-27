@@ -1,29 +1,29 @@
 ---
-title: Azure Data Factory를 사용하여 MySQL에서 데이터 복사
+title: MySQL에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: MySQL 데이터베이스에서 싱크로 지원되는 데이터 저장소로 데이터를 복사할 수 있게 해주는 Azure Data Factory의 MySQL 커넥터에 대해 알아봅니다.
+description: MySQL 데이터베이스에서 싱크로 지원되는 데이터 저장소로 데이터를 복사할 수 있는 Azure Data Factory 및 Synapse Analytics MySQL 커넥터에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 56a52c597de5715bf0ca1761a9ae88554deed162
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 98211fd52546f0301552641fc57badddc92fcae3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315704"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831697"
 ---
-# <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
+# <a name="copy-data-from-mysql-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 MySQL에서 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-mysql-connector.md)
 > * [현재 버전](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MySQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 MySQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!NOTE]
 >[Azure Database for MySQL](../mysql/overview.md) 서비스 간에 데이터를 복사하려면 특수 [Azure Database for MySQL 커넥터](connector-azure-database-for-mysql.md)를 사용합니다.
@@ -57,7 +57,7 @@ Integration Runtime은 버전 3.7부터 시작하는 기본 제공 MySQL 드라�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -203,7 +203,7 @@ MySQL에서 데이터를 복사하려는 경우 다음과 같은 속성이 지�
 
 MySQL에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MySqlSource** | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
@@ -244,9 +244,9 @@ MySQL에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에�
 
 ## <a name="data-type-mapping-for-mysql"></a>MySQL에 대한 데이터 형식 매핑
 
-MySQL에서 데이터를 복사하는 경우 MySQL 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+MySQL에서 데이터를 복사 하는 경우 MySQL 데이터 형식에서 내부적으로 서비스에 사용 되는 중간 데이터 형식으로 다음 매핑이 사용 됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| MySQL 데이터 형식 | Data Factory 중간 데이터 형식 |
+| MySQL 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -295,4 +295,4 @@ MySQL에서 데이터를 복사하는 경우 MySQL 데이터 형식에서 Azure 
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -1,22 +1,22 @@
 ---
 title: Amazon S3(Simple Storage Service)에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Amazon S3(단순 저장 서비스)에서 지원되는 싱크 데이터 스토리지로 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용 하 여 Amazon Simple Storage Service (S3)에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 16b157e9a26a1a512d4d0ef94db1816210f8cf16
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: baaf601ce6ab21a524cbabc7188de24231002ffd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304661"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762088"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon S3(단순 저장 서비스)에서 데이터 복사
+# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -24,10 +24,10 @@ ms.locfileid: "123304661"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Amazon S3(Simple Storage Service)에서 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Amazon S3(Simple Storage Service)에서 데이터를 복사하는 방법을 설명합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 >[!TIP]
->Amazon S3에서 Azure Storage로의 데이터 마이그레이션 시나리오에 대한 자세한 내용은 [Azure Data Factory를 사용하여 Amazon S3에서 Azure Storage로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)을 참조하세요.
+>amazon s3에서 Azure Storage로 데이터 마이그레이션 시나리오에 대 한 자세한 내용은 amazon s 3 [에서 Azure Storage로 데이터 마이그레이션을](data-migration-guidance-s3-azure-storage.md)참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -63,7 +63,7 @@ Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -85,13 +85,13 @@ Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에�
 
 Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 속성 **유형** 은 **AmazonS3** 으로 설정되어야 합니다. | 예 |
 | authenticationType | Amazon S3에 연결하는 데 사용할 인증 유형을 지정합니다. AWS ID 및 액세스 관리(IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대한 액세스 키를 사용하도록 선택할 수 있습니다.<br>허용되는 값은 `AccessKey`(기본값) 및 `TemporarySecurityCredentials`입니다. |예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| sessionToken | [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) 인증을 사용하는 경우에 적용됩니다. AWS에서 [임시 보안 자격 증명을 요청](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken)하는 방법을 알아봅니다.<br>AWS 임시 자격 증명은 설정에 따라 15분에서 36시간 사이에 만료됩니다. 작업이 실행될 때 자격 증명이 유효한지 확인합니다. 예를 들어 조작 가능한 워크로드의 경우 주기적으로 새로 고쳐 Azure Key Vault에 저장할 수 있습니다.<br>이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| sessionToken | [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) 인증을 사용하는 경우에 적용됩니다. AWS에서 [임시 보안 자격 증명을 요청](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken)하는 방법을 알아봅니다.<br>AWS 임시 자격 증명은 설정에 따라 15분에서 36시간 사이에 만료됩니다. 작업이 실행될 때 자격 증명이 유효한지 확인합니다. 예를 들어 조작 가능한 워크로드의 경우 주기적으로 새로 고쳐 Azure Key Vault에 저장할 수 있습니다.<br>이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 S3 엔드포인트 `https://<service url>`를 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. |예 |
 
@@ -153,7 +153,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location`에서 속성 **유형** 은 **AmazonS3Location** 으로 설정되어야 합니다. | 예      |
 | bucketName | S3 버킷 이름입니다.                                          | 예      |
@@ -198,7 +198,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                                    |
+| 속성                 | 설명                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings`에서의 속성 **유형** 은 **AmazonS3ReadSettings** 로 설정되어야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |
@@ -274,7 +274,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 원본 폴더 구조가 있고 굵게 표시된 파일을 복사하려고 한다고 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Data Factory 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 버킷: `bucket`<br>- 폴더 경로: `FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `bucket/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 데이터 세트에 구성된 경로에 대한 상대 경로를 사용하여 복사할 파일 목록(한 줄당 하나의 파일)을 포함하는 동일한 데이터 저장소에 있는 텍스트 파일을 가리킵니다. |
 
@@ -297,11 +297,11 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 ## <a name="legacy-models"></a>레거시 모델
 
 >[!NOTE]
->다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞서 설명한 새 모델을 사용하는 것이 좋습니다. Data Factory 작성 UI가 새 모델 생성으로 전환되었습니다.
+>다음 모델은 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞서 설명한 새 모델을 사용하는 것이 좋습니다. 새 모델을 생성하도록 작성 UI가 전환되었습니다.
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 속성 **유형** 을 **AmazonS3Object** 로 설정해야 합니다. |예 |
 | bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
@@ -381,7 +381,7 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>복사 작업에 대한 레거시 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 속성 **유형** 을 **FileSystemSource** 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **recursive** 를 **true** 로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |
@@ -420,4 +420,4 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

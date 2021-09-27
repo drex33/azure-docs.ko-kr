@@ -9,16 +9,16 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: c536e8749ce41f51f161d9659beca3ab0ccd30ae
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: d15a3c20be365f994f219e5ea74c7aee5b0c5b28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032256"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560414"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
-스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 즉, 대부분의 요청은 로그 레코드를 생성하지만 스토리지 분석 로그의 완성도와 적시성은 보장되지 않습니다. 
+스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 즉, 대부분의 요청은 로그 레코드를 생성하지만 스토리지 분석 로그의 완성도와 적시성은 보장되지 않습니다.
 
 > [!NOTE]
 > Azure Monitor에서 스토리지 분석 로그 대신 Azure 스토리지 로그를 사용하는 것이 좋습니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블에 대한 로그를 지원합니다. 다음 문서에서 자세한 내용을 참조하세요.
@@ -28,7 +28,7 @@ ms.locfileid: "123032256"
 > - [Azure Queue Storage 모니터링](../queues/monitor-queue-storage.md)
 > - [Azure Table Storage 모니터링](../tables/monitor-table-storage.md)
 
- 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. [Azure Portal](https://portal.azure.com/)에서, 또는 PowerShell이나 Azure CLI를 통해 사용 설정할 수 있습니다. 단계별 안내는 [Azure 스토리지 분석 로그(클래식) 설정 및 관리](manage-storage-analytics-logs.md)를 참조하세요. 
+ 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. [Azure Portal](https://portal.azure.com/)에서, 또는 PowerShell이나 Azure CLI를 통해 사용 설정할 수 있습니다. 단계별 안내는 [Azure 스토리지 분석 로그(클래식) 설정 및 관리](manage-storage-analytics-logs.md)를 참조하세요.
 
 REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석 로그를 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다. .NET을 사용하여 스토리지 분석 로그를 사용 설정하는 예제를 보려면 [로그 사용](manage-storage-analytics-logs.md)을 참조하세요.
 
@@ -38,6 +38,8 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 >  스토리지 분석 로깅은 현재 Blob, 큐 및 Table Service에서만 사용할 수 있습니다. 스토리지 분석 로깅은 프리미엄 성능 [BlockBlobStorage](./storage-account-create.md) 계정에도 사용할 수 있습니다. 그러나 프리미엄 성능을 사용하는 범용 v2 계정에는 사용할 수 없습니다.
 
 ## <a name="requests-logged-in-logging"></a>로깅에 로그인된 요청
+
+
 ### <a name="logging-authenticated-requests"></a>인증된 요청 로깅
 
  다음과 같은 유형의 인증된 요청이 기록됩니다.
@@ -59,7 +61,7 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
   기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
-  
+
 > [!NOTE]
 > Storage Analytics는 데이터 평면에 대한 모든 내부 호출을 로그합니다. Azure Storage 리소스 공급자의 호출도 로그됩니다. 이러한 요청을 식별하려면 요청 URL에서 쿼리 문자열 `<sk=system-1>`을 찾습니다.
 
@@ -74,7 +76,7 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 
 매시간 여러 파일이 포함된 다량의 로그 데이터가 발생하는 경우 Blob 메타데이터를 사용하여 Blob 메타데이터 필드를 검토함으로써 로그에 포함된 데이터를 확인할 수 있습니다. 또한 이는 데이터가 로그 파일에 기록되는 동안 지연이 발생할 수 있으므로 유용합니다. Blob 메타데이터는 Blob 이름보다 Blob 콘텐츠를 보다 정확하게 표시합니다.
 
-대부분의 스토리지 검색 도구를 사용하여 Blob의 메타데이터를 볼 수 있습니다. 또한 PowerShell을 사용하거나 프로그래밍 방식으로 이 정보를 읽을 수 있습니다. 다음 PowerShell 코드 조각은 로그 Blob 목록을 이름으로 필터링하여 시간을 지정하고, 메타데이터로 필터링하여 **write** 작업이 포함된 해당 로그만 식별하는 예제입니다.  
+대부분의 스토리지 검색 도구를 사용하여 Blob의 메타데이터를 볼 수 있습니다. 또한 PowerShell을 사용하거나 프로그래밍 방식으로 이 정보를 읽을 수 있습니다. 다음 PowerShell 코드 조각은 로그 Blob 목록을 이름으로 필터링하여 시간을 지정하고, 메타데이터로 필터링하여 **write** 작업이 포함된 해당 로그만 식별하는 예제입니다.
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -88,9 +90,9 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  
  }  
- ```  
+ ```
 
-프로그래밍 방식으로 Blob을 나열하는 방법에 대한 자세한 내용은 [Blob 리소스 열거](/rest/api/storageservices/Enumerating-Blob-Resources) 및 [Blob 리소스의 속성과 메타데이터 설정 및 검색](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources)을 참조하세요.  
+프로그래밍 방식으로 Blob을 나열하는 방법에 대한 자세한 내용은 [Blob 리소스 열거](/rest/api/storageservices/Enumerating-Blob-Resources) 및 [Blob 리소스의 속성과 메타데이터 설정 및 검색](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources)을 참조하세요.
 
 ### <a name="log-naming-conventions"></a>로그 명명 규칙
 
@@ -138,10 +140,9 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 스토리지 분석 로그(클래식) 사용 및 관리](manage-storage-analytics-logs.md)
-* [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
-* [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
-* [스토리지 분석 메트릭(클래식)](storage-analytics-metrics.md)
+- [Azure 스토리지 분석 로그(클래식) 사용 및 관리](manage-storage-analytics-logs.md)
+- [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
+- [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+- [스토리지 분석 메트릭(클래식)](storage-analytics-metrics.md)

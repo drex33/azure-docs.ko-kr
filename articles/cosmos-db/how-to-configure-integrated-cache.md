@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667658"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618631"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Azure Cosmos DB 통합 캐시를 구성하는 방법(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -100,7 +100,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 
 -   클라이언트가 전용 게이트웨이 엔드포인트에 연결됩니다.
 -  클라이언트가 게이트웨이 모드를 사용합니다(Python 및 Node.js SDK는 항상 게이트웨이 모드를 사용함).
--   요청의 일관성을 최종으로 설정해야 합니다.
+-   요청에 대 한 일관성은 session 또는 최종적인로 설정 되어야 합니다.
 
 > [!NOTE]
 > 통합 캐시에 관한 피드백이 있나요? 많은 의견 부탁드립니다. 언제든지 자유롭게 Azure Cosmos DB 엔지니어링 팀(cosmoscachefeedback@microsoft.com)과 피드백을 직접 공유해 주세요.

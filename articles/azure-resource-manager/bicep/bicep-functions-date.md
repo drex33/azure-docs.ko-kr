@@ -4,20 +4,17 @@ description: 날짜 작업을 위해 Bicep 파일에서 사용할 함수를 설�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 3f8715dd0dc1931e9086fd94e99661fb9cfda2d1
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: 45e0180a11209b39b4c37f16f9940686c042ee89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027122"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794123"
 ---
 # <a name="date-functions-for-bicep"></a>Bicep의 날짜 함수
 
-Bicep 파일에서 Resource Manager는 날짜 작업을 위한 다음 함수를 제공합니다.
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+이 문서에서는 날짜 작업을 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 
@@ -55,7 +52,7 @@ output add1HourOutput string = add1Hour
 
 이전 예제가 기본 시간 `2020-04-07 14:53:14Z`로 배포되는 경우 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | add3YearsOutput | String | 4/7/2023 2:53:14 PM |
 | subtract9DaysOutput | String | 3/29/2020 2:53:14 PM |
@@ -123,7 +120,7 @@ output utcCustomOutput string = utcCustomValue
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | utcOutput | 문자열 | 20190305T175318Z |
 | utcShortOutput | 문자열 | 2019/03/05 |

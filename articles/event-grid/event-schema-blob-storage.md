@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure Blob Storage
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 05/12/2021
-ms.openlocfilehash: 37637a486bd80e9d0018495e6fd4713bab36e8ff
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.date: 09/08/2021
+ms.openlocfilehash: fcd8ff40e8a31c3329f6526a488a6a6a5261383e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541954"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797632"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Blob Storage
 
@@ -32,6 +32,7 @@ ms.locfileid: "111541954"
  |**Microsoft.Storage.BlobCreated** |Blob 생성 또는 교체 시 트리거됩니다. <br>특히 이 이벤트는 클라이언트가 Blob REST API에서 사용할 수 있는 `PutBlob`, `PutBlockList` 또는 `CopyBlob` 작업을 사용할 때, **그리고** 블록 Blob이 완전히 커밋될 때 트리거됩니다. <br>**계층 구조 네임스페이스** 기능이 사용되는 계정에서 클라이언트가 `CopyBlob` 작업을 사용하는 경우, `CopyBlob` 작업은 약간 다르게 작동합니다. 이 경우 **Microsoft.Storage.BlobCreated** 이벤트는 블록 Blob이 완전히 커밋될 때가 아니라 `CopyBlob` 작업이 **시작** 될 때 트리거됩니다.   |
  |**Microsoft.Storage.BlobDeleted** |Blob 삭제 시 트리거됩니다. <br>특히 해당 이벤트는 클라이언트가 `DeleteBlob` Blob REST API에서 사용할 수 있는 작업을 호출하는 경우 트리거됩니다. |
  |**Microsoft.Storage.BlobTierChanged** |Blob 액세스 계층이 변경될 때 트리거됩니다. 특히 클라이언트가 Blob REST API에서 사용할 수 있는 `Set Blob Tier` 작업을 호출하면 이 이벤트는 계층 변경이 완료된 후에 트리거됩니다. |
+|**Microsoft. Storage. AsyncOperationInitiated** |보관 계층에서 핫 또는 쿨 계층으로 데이터를 이동하거나 복사하는 작업이 시작될 때 트리거됩니다. 특히 클라이언트가 `Set Blob Tier` API를 호출하여 Blob을 보관 계층에서 핫 또는 쿨 계층으로 이동하거나 클라이언트가 `Copy Blob` API를 호출하여 보관 계층의 Blob에서 핫 또는 쿨 계층의 Blob으로 데이터를 복사할 때 이 이벤트가 트리거됩니다.|
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Azure Data Lake Storage Gen 2 REST API에 대한 이벤트 목록
 
@@ -210,6 +211,34 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
     "eventTime": "2021-05-04T15:00:00.8350154Z"
 }
 ```
+
+### <a name="microsoftstorageasyncoperationinitiated-event"></a>Microsoft. Storage. AsyncOperationInitiated 이벤트
+
+```json
+{
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+    "subject": "/blobServices/default/containers/testcontainer/blobs/00000.avro",
+    "eventType": "Microsoft.Storage.AsyncOperationInitiated",
+    "id": "8ea4e3f2-101e-003d-5ff4-4053b2061016",
+    "data": {
+        "api": "SetBlobTier",
+        "clientRequestId": "777fb4cd-f890-4c5b-b024-fb47300bae62",
+        "requestId": "8ea4e3f2-101e-003d-5ff4-4053b2000000",
+        "contentType": "application/octet-stream",
+        "contentLength": 3660,
+        "blobType": "BlockBlob",
+        "url": "https://my-storage-account.blob.core.windows.net/testcontainer/00000.avro",
+        "sequencer": "000000000000000000000000000089A4000000000018c6d7",
+        "storageDiagnostics": {
+            "batchId": "34128c8a-7006-0014-00f4-406dc6000000"
+        }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "eventTime": "2021-05-04T14:44:59.3204652Z"
+}
+```
+
 
 ### <a name="microsoftstorageblobrenamed-event"></a>Microsoft.Storage.BlobRenamed 이벤트
 
@@ -537,7 +566,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -552,7 +581,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -566,7 +595,7 @@ Blob Storage 계정에 계층 구조 네임스페이스가 있는 경우, 데이
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `api` | 문자열 | 이벤트를 트리거하는 작업입니다. |
 | `clientRequestId` | 문자열 | 스토리지 API 작업에 대한 클라이언트 제공 요청 ID입니다. 해당 ID는 로그의 ‘client-request-id’ 필드를 사용하여 Azure Storage 진단 로그와의 상관관계를 지정하는 데 사용할 수 있으며, ‘x-ms-client-request-id’ 헤더를 사용하여 클라이언트 요청에 제공할 수 있습니다. [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |

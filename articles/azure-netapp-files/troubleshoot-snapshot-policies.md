@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 6ba8b18876bdae2754a6a772ce3909ff2f5a71b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e86761ed15089ef8544ec80b23f3ab585522df7a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91651007"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613121"
 ---
 # <a name="troubleshoot-snapshot-policies"></a>스냅샷 정책 문제 해결
 
@@ -36,4 +36,4 @@ ms.locfileid: "91651007"
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [스냅샷 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+* [스냅샷 정책 관리](snapshots-manage-policy.md)

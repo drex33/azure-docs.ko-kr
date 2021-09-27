@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 95262d66be9300cc1c88ec80e3da4a5367705c76
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: cf692cb638db516fdabbdb7700137a2dcc4a01be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969418"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603945"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 
@@ -28,7 +28,7 @@ Blob 인덱스 태그를 통해 다음을 수행할 수 있습니다.
 
 - 인덱스 태그 평가를 기반으로 Blob API에 대한 조건부 동작 지정
 
-- [Blob 수명 주기 관리](storage-lifecycle-management-concepts.md)와 같은 기능에 대한 고급 컨트롤을 위해 인덱스 태그 사용
+- [Blob 수명 주기 관리](./lifecycle-management-overview.md)와 같은 기능에 대한 고급 컨트롤을 위해 인덱스 태그 사용
 
 스토리지 계정에 수백만 개의 Blob이 있고 여기에 다양한 애플리케이션이 액세스하는 시나리오를 생각해 보겠습니다. 단일 프로젝트에서 관련된 모든 데이터를 찾으려고 합니다. 데이터가 서로 다른 명명 규칙을 사용하여 여러 컨테이너에 분산되어 있을 수 있기 때문에 범위에 무엇이 있는지 확실하지 않습니다. 그런데 애플리케이션은 모든 데이터를 프로젝트에 기반한 태그와 함께 업로드합니다. 수백만 개의 Blob을 검색하고 이름과 속성을 비교하는 대신 `Project = Contoso`를 검색 기준으로 사용할 수 있습니다. Blob 인덱스는 전체 스토리지 계정에서 모든 컨테이너를 필터링하여 `Project = Contoso`에서 Blob 집합을 50개만 빠르게 찾아서 반환합니다.
 
@@ -67,10 +67,7 @@ Blob에 단일 태그를 적용하여 데이터 처리가 완료된 시간을 �
 
 Blob에 여러 태그를 적용하여 데이터를 더 자세히 설명할 수 있습니다.
 
-> "Project" = 'Contoso'  
-> "Classified" = 'True'  
-> "Status" = 'Unprocessed'  
-> "Priority" = '01'
+> "Project" = 'Contoso' "Classified" = 'True' "Status" = 'Unprocessed' "Priority" = '01'
 
 기존 인덱스 태그 특성을 수정하려면 기존 태그 특성을 검색하고, 태그 특성을 수정한 후 [Set Blob Tags](/rest/api/storageservices/set-blob-tags) 작업으로 바꿉니다. Blob에서 모든 인덱스 태그를 제거하려면 태그 속성을 지정하지 않고 `Set Blob Tags` 작업을 호출합니다. Blob 인덱스 태그는 Blob 데이터 콘텐츠에 대한 하위 리소스이므로 `Set Blob Tags`는 기본 콘텐츠를 수정하지 않으며 Blob의 마지막 수정 시간 또는 eTag를 변경하지 않습니다. 모든 현재 기본 Blob에 대한 인덱스 태그를 만들거나 수정할 수 있습니다. 인덱스 태그는 이전 버전에 대해서도 유지되지만 Blob 인덱스 엔진에는 전달되지 않으므로 인덱스 태그를 쿼리하여 이전 버전을 검색할 수 없습니다. 스냅샷 또는 일시 삭제된 Blob의 태그는 수정할 수 없습니다.
 
@@ -138,7 +135,7 @@ Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     >      |  보다 큼 | `"Date" > '2018-06-18'` |
@@ -163,7 +160,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 아래 표는 조건부 연산에 유효한 연산자를 보여줍니다.
 
-|  연산자  |  설명  | 예제 |
+|  연산자  |  Description  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     <>     |   같지 않음   | `"Status" <> 'Done'` |
@@ -179,7 +176,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 ## <a name="platform-integrations-with-blob-index-tags"></a>Blob 인덱스 태그를 사용한 플랫폼 통합
 
-Blob 인덱스 태그는 Blob 데이터를 분류, 관리 및 검색하는 데 도움이 될 뿐만 아니라 [수명 주기 관리](storage-lifecycle-management-concepts.md)와 같은 다른 Blob Storage 기능과의 통합도 제공합니다.
+Blob 인덱스 태그는 Blob 데이터를 분류, 관리 및 검색하는 데 도움이 될 뿐만 아니라 [수명 주기 관리](./lifecycle-management-overview.md)와 같은 다른 Blob Storage 기능과의 통합도 제공합니다.
 
 ### <a name="lifecycle-management"></a>수명 주기 관리
 
@@ -260,7 +257,7 @@ Blob 인덱스 태그는 Blob 데이터에 대한 하위 리소스입니다. Blo
 | [Get Blob Tags](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-인덱스 태그 작업에는 기본 Blob 데이터와 별도로 추가 권한이 필요합니다. [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대한 권한이 부여됩니다. [Storage Blob 데이터 읽기 권한자](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에게는 `Find Blobs by Tags` 및 `Get Blob Tags` 작업에 대한 권한만 부여됩니다.
+인덱스 태그 작업에는 기본 Blob 데이터와 별도로 추가 권한이 필요합니다. [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대한 권한이 부여됩니다. [Storage Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 에는 작업에 대 한 권한만 부여 됩니다 `Get Blob Tags` .
 
 ### <a name="sas-permissions"></a>SAS 권한
 
@@ -293,7 +290,7 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 |              |   메타데이터   |   Blob 인덱스 태그  |
 |--------------|--------------|--------------------|
 | **제한**      | 숫자 제한 없음, 총 8KB, 대/소문자 구분 안 함 | Blob당 태그 최대 10개, 태그당 768바이트, 대/소문자 구분 |
-| **업데이트**    | 보관 계층에서 허용되지 않음, `Set Blob Metadata`는 기존 메타데이터를 모두 대체함, `Set Blob Metadata`는 Blob의 마지막 수정 시간을 변경함 | 모든 액세스 계층에 허용됨, `Set Blob Tags`는 기존 태그를 모두 대체함, `Set Blob Tags`는 Blob의 마지막 수정 시간을 변경하지 않음 |
+| **업데이트**    | 보관 계층에서 허용 되지 않습니다. `Set Blob Metadata` 기존 메타 데이터를 모두 바꾸고 `Set Blob Metadata` blob의 마지막 수정 시간을 변경 합니다. | 모든 액세스 계층에 대해 허용 되는 모든 `Set Blob Tags` 기존 태그를 바꾸고 `Set Blob Tags` blob의 마지막 수정 시간을 변경 하지 않습니다. |
 | **스토리지**     | Blob 데이터와 함께 저장됨 | Blob 데이터의 하위 리소스 |
 | **인덱싱 및 쿼리** | Azure Search와 같은 별도의 서비스를 사용해야 함 | 인덱싱 및 쿼리 기능이 Blob Storage에 기본 제공됨 |
 | **암호화** | Blob 데이터에 사용되는 동일한 암호화 키를 사용하여 미사용 시 암호화됨 | Microsoft 관리형 암호화 키를 사용하여 미사용 시 암호화됨 |
@@ -306,18 +303,18 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 
 스토리지 계정 내 월 평균 인덱스 태그 수에 대한 요금이 청구됩니다. 인덱싱 엔진에 대한 비용은 없습니다. 블로그 태그 설정, Blob 태그 얻기, Blob 태그 찾기에 대한 요청은 현재 해당 트랜잭션 요율로 청구됩니다. 태그로 Blob 찾기 트랜잭션을 수행하는 경우 사용하는 목록 트랜잭션 수는 요청의 절 수와 같습니다. 예를 들어 (StoreID = 100) 쿼리는 하나의 목록 트랜잭션입니다.  (StoreID = 100 AND SKU = 10010) 쿼리는 두 개의 목록 트랜잭션입니다. [자세한 내용은 블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
-## <a name="regional-availability-and-storage-account-support"></a>지역 가용성 및 스토리지 계정 지원
+<a id="regional-availability-and-storage-account-support"></a>
 
-Blob 인덱스 태그는 HNS(계층 구조 네임스페이스)를 사용하지 않는 범용 v2 계정에서만 사용할 수 있습니다. 범용 v1 계정은 지원되지 않지만 범용 v1 계정을 범용 v2 계정으로 업그레이드할 수 있습니다.
+## <a name="feature-support"></a>기능 지원
 
-프리미엄 스토리지 계정에서는 인덱스 태그가 지원되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-Blob 인덱스 태그는 현재 모든 공용 지역에서 사용할 수 있습니다.
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
-시작하려면 [Blob 인덱스 태그를 사용하여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조하세요.
-
-> [!IMPORTANT]
-> 이 문서의 [조건 및 알려진 문제](#conditions-and-known-issues) 섹션을 참조하세요.
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
 ## <a name="conditions-and-known-issues"></a>조건 및 알려진 문제
 
@@ -327,7 +324,7 @@ Blob 인덱스 태그는 현재 모든 공용 지역에서 사용할 수 있습�
 
 - 인덱스 태그가 있는 페이지 Blob을 업로드하면 태그가 유지되지 않습니다. 페이지 Blob을 업로드한 후 태그를 설정하세요.
 
-- Blob 스토리지 버전 관리가 사용되는 경우 현재 버전에서도 인덱스 태그를 사용할 수 있습니다. 인덱스 태그는 이전 버전에 대해 유지되지만 이러한 태그는 Blob 인덱스 엔진에는 전달되지 않으므로 이전 버전을 검색할 수 없습니다. 이전 버전을 현재 버전으로 승격하는 경우 이전 버전의 태그가 현재 버전의 태그가 됩니다. 이러한 태그는 현재 버전과 연결되어 있으므로 Blob 인덱스 엔진에 전달되고 쿼리할 수 있습니다. 
+- Blob 스토리지 버전 관리가 사용되는 경우 현재 버전에서도 인덱스 태그를 사용할 수 있습니다. 인덱스 태그는 이전 버전에 대해 유지되지만 이러한 태그는 Blob 인덱스 엔진에는 전달되지 않으므로 이전 버전을 검색할 수 없습니다. 이전 버전을 현재 버전으로 승격하는 경우 이전 버전의 태그가 현재 버전의 태그가 됩니다. 이러한 태그는 현재 버전과 연결되어 있으므로 Blob 인덱스 엔진에 전달되고 쿼리할 수 있습니다.
 
 - 인덱스 태그가 인덱싱되었는지 확인하는 API는 없습니다.
 
@@ -353,4 +350,4 @@ Blob 인덱스 태그는 문자열 데이터 형식만 지원하고 쿼리는 �
 
 Blob 인덱스를 사용하는 방법의 예는 [Blob 인덱스를 사용하여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조하세요.
 
-[수명 주기 관리](storage-lifecycle-management-concepts.md)에 대해 알아보고 Blob 인덱스 일치를 사용하여 규칙을 설정합니다.
+[수명 주기 관리](./lifecycle-management-overview.md)에 대해 알아보고 Blob 인덱스 일치를 사용하여 규칙을 설정합니다.

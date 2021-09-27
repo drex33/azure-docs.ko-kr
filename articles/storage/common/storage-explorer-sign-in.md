@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
-ms.openlocfilehash: 92447c4d0c8d0a1fac6e59a11a81dc7beae52516
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: bf7fe9dc4d8c60b7e8779100bd959ee7e85415e0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583859"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
 
-로그인은 Storage Explorer를 사용하여 Azure Storage 리소스에 액세스하기 위한 권장 방법입니다. 로그인하면 RBAC 및 Gen2 POSIX ACL과 같은 Azure AD 지원 권한을 활용할 수 있습니다. 
+로그인은 Storage Explorer를 사용하여 Azure Storage 리소스에 액세스하기 위한 권장 방법입니다. 로그인하면 RBAC 및 Gen2 POSIX ACL과 같은 Azure AD 지원 권한을 활용할 수 있습니다.
 
 ## <a name="how-to-sign-in"></a>로그인 방법
 
@@ -59,5 +59,5 @@ Storage Explorer에 로그인하려면 **연결 대화 상자** 를 엽니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md)
-* [로그인 문제 해결](./storage-explorer-troubleshooting.md#sign-in-issues)
+- [Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md)
+- [로그인 문제 해결](./storage-explorer-troubleshooting.md#sign-in-issues)

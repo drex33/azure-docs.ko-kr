@@ -1,26 +1,26 @@
 ---
 title: MongoDB용 Azure Cosmos DB API에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용하여 지원되는 원본 데이터 저장소에서 Azure Cosmos DB의 MongoDB API에서 지원되는 싱크 저장소로 데이터를 복사하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 MongoDB용 Azure Cosmos DB API로, 또는 이러한 데이터 저장소나 API에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 0147782482308ac8b625926e51c59315f084237d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 6720bcfdd4e0ce804bfd15803e1ed186d94e5181
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304668"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762093"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
+# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Azure Cosmos DB의 API for MongoDB에서 데이터를 복사합니다.
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 Azure Cosmos DB의 API for MongoDB에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업](copy-activity-overview.md)을 기준으로 합니다.
 
 >[!NOTE]
 >이 커넥터는 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 작업만 지원합니다. SQL API는 [Cosmos DB SQL API 커넥터](connector-azure-cosmos-db.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
@@ -47,7 +47,7 @@ MongoDB용 Azure Cosmos DB API 커넥터를 사용하여 다음을 수행할 수
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -101,7 +101,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB용 Azure Cosmos DB API 데이터 세트에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **CosmosDbMongoDbApiCollection** 으로 설정해야 합니다. |예 |
 | collectionName |Azure Cosmos DB 컬렉션의 이름입니다. |예 |
@@ -193,7 +193,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbMongoDbApiSink** 로 설정해야 합니다. |예 |
-| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id`가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 `_id`를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
+| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고:** 이 원래 문서 `_id` 또는 열 매핑에 의해 지정되지 않은 경우 서비스에서 문서에 대한 를 자동으로 `_id` 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |
 | writeBatchSize | **writeBatchSize** 속성은 각 일괄 처리에서 작성할 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄여 볼 수 있습니다. |예<br />(기본값: **10,000**) |
 | writeBatchTimeout | 시간 초과 전 배치 삽입 작업을 완료하기 위한 대기 시간입니다. 허용된 값은 시간 범위입니다. | 예<br/>(기본값은 **00:30:00** - 30분) |
 
@@ -237,7 +237,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 이 Azure Cosmos DB 커넥터를 사용하여 손쉽게 다음을 수행할 수 있습니다.
 
 * 두 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사
-* MongoDB, Azure Blob Storage, Azure Data Lake Store 및 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등 다양한 원본에서 Azure Cosmos DB로 JSON 문서 가져오기
+* MongoDB, Azure Blob Storage, Azure Data Lake Store 및 서비스에서 지원하는 기타 파일 기반 저장소를 포함하여 다양한 원본에서 Azure Cosmos DB로 JSON 문서를 가져옵니다.
 * Azure Cosmos DB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 
 스키마 중립적 복사를 수행하려면 다음을 수행합니다.
@@ -251,16 +251,16 @@ MongoDB용 Azure Cosmos DB API에서 테이블 형식 싱크로 또는 싱크에
 
 Cosmos DB에 대한 쓰기 작업을 위해 특별히 원본 데이터에서 올바른 개체 ID로 Cosmos DB를 채울 수 있도록 하려면(예: SQL 데이터베이스 테이블에 "ID" 열이 있고 삽입/upsert하기 위해 MongoDB에서 문서 ID로 해당 값을 사용함) MongoDB strict 모드 정의(`_id.$oid`)에 따라 적절한 스키마 매핑을 다음과 같이 설정해야 합니다.
 
-![MongoDB 싱크에서 ID 매핑](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+:::image type="content" source="./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png" alt-text="MongoDB 싱크에서 ID 매핑":::
 
 복사 작업을 실행한 후에 싱크에 아래 BSON ObjectId 작업이 생성됩니다.
 
 ```json
 {
-    "_id&quot;: ObjectId(&quot;592e07800000000000000000")
+    "_id": ObjectId("592e07800000000000000000")
 }
 ``` 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

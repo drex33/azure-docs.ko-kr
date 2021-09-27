@@ -1,15 +1,15 @@
 ---
 title: 릴리스 정보 - Azure Event Grid IoT Edge | Microsoft Docs
 description: IoT Edge의 Azure Event Grid 릴리스 정보
-ms.date: 07/08/2020
+ms.date: 09/15/2021
 ms.subservice: iot-edge
 ms.topic: article
-ms.openlocfilehash: 06084169767330ac8fb573dafc3d004446034f44
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 38136a122a4cd74eac7c8fa7c104a02d86074442
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379820"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634713"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>릴리스 정보: IoT Edge의 Azure Event Grid
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-ms.openlocfilehash: de71203ab8b61aa3c81d610b231deedab4c63baa
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 43ee281bc9696740c7909ef6b6758d4542808721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693674"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755219"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Azure RBAC 변경 사항에 대한 활동 로그 보기
 
@@ -47,7 +47,7 @@ ms.locfileid: "110693674"
 | 이벤트 범주 | <ul><li>관리</li></ul> |
 | 작업 | <ul><li>역할 할당 만들기</li><li>역할 할당 삭제</li><li>사용자 지정 역할 정의 만들기 또는 업데이트</li><li>사용자 지정 역할 정의 삭제</li></ul> |
 
-활동 로그에 대한 자세한 내용은 [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)(활동 로그를 보고 리소스에 대한 작업 모니터링)를 참조하세요.
+활동 로그에 대한 자세한 내용은 [Azure 활동 로그 를 참조하세요.](../azure-monitor/essentials/activity-log.md)
 
 
 ## <a name="interpret-a-log-entry"></a>로그 항목 해석
@@ -235,5 +235,5 @@ AzureActivity
 ![고급 분석 포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)(활동 로그를 보고 리소스에 대한 작업을 모니터링)합니다.
+* [View activity logs to monitor actions on resources](../azure-monitor/essentials/activity-log.md)(활동 로그를 보고 리소스에 대한 작업을 모니터링)합니다.
 * [Azure 활동 로그로 구독 활동을 모니터링](../azure-monitor/essentials/platform-logs-overview.md)합니다.

@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: 5cba4a7d66f5b2bb705df8c685b6c8be05e04a08
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: b4be8fde0e771414d8b637af0c2aed33eeb48123
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816020"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -89,7 +89,7 @@ WEBSITE_CLASSIC_MODE
 | `WEBSITE_RUN_FROM_ZIP` | 더 이상 사용되지 않습니다. `WEBSITE_RUN_FROM_PACKAGE`을 사용합니다. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Kudu 배포 엔진 사용을 중지하려면 WebDeploy에 대해 `false`로 설정합니다. 기본값은 `true`입니다. Visual Studio(WebDeploy/MSDeploy)를 사용하여 Linux 앱에 배포하려면 `false`로 설정합니다. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | WebDeploy 배포 중에 복사할 수 없을 때 DLL의 이름을 바꾸려면 `1`로 설정합니다. 이 설정은 `WEBSITE_WEBDEPLOY_USE_SCM`이 `false`로 설정된 경우에는 적용할 수 없습니다. |
-| `WEBSITE_DISABLE_SCM_SEPARATION` | 기본적으로, 주 앱과 Kudu 앱은 다른 샌드박스에서 실행됩니다. 앱을 중지할 때 Kudu 앱이 계속 실행되고 있으면 Git 배포 및 MSDeploy를 계속 사용할 수 있습니다. 각 앱에는 자체 로컬 파일이 있습니다. 이 분리를 해제(`false`로 설정)하는 것은 더 이상 완전히 지원되지 않는 레거시 모드입니다. |
+| `WEBSITE_DISABLE_SCM_SEPARATION` | 기본적으로, 주 앱과 Kudu 앱은 다른 샌드박스에서 실행됩니다. 앱을 중지할 때 Kudu 앱이 계속 실행되고 있으면 Git 배포 및 MSDeploy를 계속 사용할 수 있습니다. 각 앱에는 자체 로컬 파일이 있습니다. 이 분리를 해제(`true`로 설정)하는 것은 더 이상 완전히 지원되지 않는 레거시 모드입니다. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | `1`를 설정하여 반환하기 전에 REST API에서 `site` 및 `siteconfig` 업데이트를 호출하고 모든 인스턴스에 완전히 적용되도록 합니다. ARM 템플릿을 사용하여 배포하는 경우의 기본값은 `1`이며, 이는 후속 ARM 호출로 인한 경합 상태를 방지하기 위한 것입니다. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | ARM 템플릿 배포의 ARM 템플릿에서 `1`로 설정하여 앱 생성의 일부로 Kudu 앱을 미리 시작합니다. |
 | `WEBSITE_START_SCM_WITH_PRELOAD` | Linux 앱의 경우, URL을 ping하여 Always On를 사용하도록 설정할 때 Kudu 앱을 강제로 미리 로드하려면 `true`로 설정합니다. 기본값은 `false`입니다. Windows 앱의 경우 Kudu 앱은 항상 미리 로드됩니다. |
@@ -486,8 +486,8 @@ WEBSITE_SOCKET_STATISTICS_ENABLED
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` 또는 `false`. 기본값은 `true`입니다. 대화형 로그인 중에 발생하는 [암호화 nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) 유효성 검사 오류를 일시적으로 디버깅하는 경우를 제외하고, 이 값을 `false`로 설정하면 안 됩니다. 이 애플리케이션 설정은 V1(classic) 구성 환경에서 사용하기 위한 것입니다. V2 인증 구성 스키마를 사용하는 경우, 대신 `login.nonce.validateNonce` 구성 값을 사용해야 합니다. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | 이 환경 변수는 Azure App Service 플랫폼에서 자동으로 채워지고 통합 인증 모듈을 구성하는 데 사용됩니다. 이 환경 변수의 값은 Azure Resource Manager의 최신 앱의 V2(non-classic) 인증 구성에 해당합니다. 명백하게 구성하기에 적합하지 않습니다. |
 | `WEBSITE_AUTH_ENABLED` | 읽기 전용입니다. Windows 또는 Linux 앱에 삽입되어 App Service 인증이 사용되는지 여부를 나타냅니다. |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | 기본적으로, 자동으로 생성된 키는 암호화 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_DecryptionKey` 설정에 우선합니다. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | 기본적으로 자동으로 생성된 키는 서명 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_ValidationKey` 설정에 우선합니다. ||
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | 기본적으로, 자동으로 생성된 키는 암호화 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_DecryptionKey` 설정에 우선합니다. |
+| `WEBSITE_AUTH_SIGNING_KEY` | 기본적으로 자동으로 생성된 키는 서명 키로 사용됩니다. 재정의하려면 원하는 키로 설정합니다. 이는 여러 앱에서 토큰 또는 세션을 공유하려는 경우에 권장됩니다. 지정된 경우 `MACHINEKEY_ValidationKey` 설정에 우선합니다. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 1ec3d86ea66e436732cd8d1044c0658238ba781f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 22f17c59b93a3defd6c372eb6a871496850ba122
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086265"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670769"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Azure Database for MySQL을 사용하여 애플리케이션을 빌드하기 위한 모범 사례
 
@@ -45,7 +45,7 @@ VM에서 가속 네트워킹을 사용하도록 설정하면 VM의 대기 시간
 
 `tmp_table_size` 및 `max_heap_table_size`에 가능한 최대 크기를 계산하려면 다음 수식을 사용합니다.
 
-```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
+`(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections`
 
 > [!NOTE]
 > 총 메모리는 프로비전된 vCore에서 서버에 포함된 총 메모리 양을 나타냅니다.  예를 들어 범용 2개 vCore의 Azure Database for MySQL 서버에서 총 메모리는 5GB * 2가 됩니다. 각 계층의 메모리에 대한 자세한 정보는 [가격 책정 계층](./concepts-pricing-tiers.md) 설명서를 참조하세요.
@@ -125,7 +125,7 @@ show global status like 'created_tmp_tables';
 
 쿼리가 디스크로 넘치는 워크로드 백분율을 계산하려면 다음 수식에 메트릭 값을 사용합니다.
 
-```(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100```
+`(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100`
 
 이상적으로 이 백분율은 25% 미만이어야 합니다. 백분율이 25% 이상이면 tmp_table_size 및 max_heap_table_size의 두 서버 매개 변수를 수정하는 것이 좋습니다.
 

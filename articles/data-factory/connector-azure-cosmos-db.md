@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/09/2021
-ms.openlocfilehash: 774a168fa84114b91f4a931542f64ba81fd54155
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 836ad2692dffbb6c4977f5757c6f305c6fd66d40
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642927"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761881"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 
@@ -51,6 +51,30 @@ Data Factory 및 Synapse 파이프라인은 Azure Cosmos DB에 쓸 때 최상의
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+## <a name="create-a-linked-service-to-azure-cosmos-db-using-ui"></a>UI를 사용하여 Azure Cosmos DB에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Cosmos DB에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+2. Cosmos를 검색하고 Azure Cosmos DB(SQL API) 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Azure Cosmos DB(SQL API) 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-cosmos-db/configure-azure-cosmos-db-linked-service.png" alt-text="Azure Cosmos DB의 연결된 서비스 구성의 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 
 다음 섹션에서는 Azure Cosmos DB(SQL API)에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -283,10 +307,10 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **CosmosDbSqlApiSource** 로 설정해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 지역의 기본 목록입니다. | 예 |
 | pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 쪽 동적 페이지 크기를 1000까지 사용함을 의미하는 “-1”입니다. | 예 |
 | detectDatetime | 문서의 문자열 값에서 날짜/시간을 검색할지를 지정합니다. 허용되는 값은 **true**(기본값), **false** 입니다. | 예 |

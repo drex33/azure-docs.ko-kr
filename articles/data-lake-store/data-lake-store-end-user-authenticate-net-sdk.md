@@ -1,18 +1,18 @@
 ---
 title: 최종 사용자 인증 - .NET 및 Data Lake Storage Gen1 - Azure
 description: Azure Active Directory와 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 67ba4f12aec9e987d79109b7197d03301bf40650
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 06b06cd4e84a5f5f117e7617b0f681817a549ece
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89004785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635473"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "89004785"
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* **Visual Studio 2013 이상**. 아래 지침에서는 Visual Studio 2019를 사용합니다.
+* **Visual Studio 2013 혹은 그 이상**. 아래 지침에서는 Visual Studio 2019를 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 

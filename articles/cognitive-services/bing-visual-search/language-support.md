@@ -3,19 +3,17 @@ title: 언어 지원 - Bing Visual Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Visual Search API에서 지원되는 자연 언어, 국가 및 지역 목록입니다. Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: scottwhi
-ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a1362f9cf3963416853cf5933ee622d204578d33
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96501161"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669534"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
 

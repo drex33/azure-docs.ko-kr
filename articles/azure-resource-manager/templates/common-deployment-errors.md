@@ -5,12 +5,12 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b26af22423f7af64d3dbcffd7d7ed20c1069a60
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: be79c143cf38602dbe8f406d8aa3e2988de2c9d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314970"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785233"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -91,7 +91,7 @@ ms.locfileid: "108314970"
 
 유효성 검사 오류는 배포 전에 확인할 수 있는 시나리오에서 발생합니다. 유효성 검사 오류에는 템플릿의 구문 오류나 구독 할당량을 초과하는 리소스를 배포하려는 구문 오류가 포함됩니다. 배포 오류는 배포 프로세스 중 발생하는 조건에서 발생합니다. 배포 오류에는 병렬로 배포 중인 리소스에 액세스하려는 시도가 포함됩니다.
 
-두 가지 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 두 가지 오류 유형 모두 [활동 로그](../management/view-activity-logs.md)에 나타납니다. 하지만 배포가 시작된 것은 아니므로 유효성 검사 오류는 배포 기록에 나타나지 않습니다.
+두 가지 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 두 가지 오류 유형 모두 [활동 로그](../../azure-monitor/essentials/activity-log.md)에 나타납니다. 하지만 배포가 시작된 것은 아니므로 유효성 검사 오류는 배포 기록에 나타나지 않습니다.
 
 ### <a name="validation-errors"></a>유효성 검사 오류
 
@@ -251,5 +251,4 @@ az deployment operation group list \
 ## <a name="next-steps"></a>다음 단계
 
 * 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](template-tutorial-troubleshoot.md)을 참조하세요.
-* 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../management/view-activity-logs.md)를 참조하세요.
 * 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](deployment-history.md)를 참조하세요.

@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 06/04/2021
-ms.openlocfilehash: 91eb5d1072f1385c025d9d93b89466aaa9320ecd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 02e67e6521e1f5fa3c29375a15953557613f7d7d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642252"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763693"
 ---
 # <a name="best-practices-for-writing-to-files-to-data-lake-with-data-flows"></a>데이터 흐름을 사용하여 데이터 레이크에 파일 쓰기 모범 사례
 
@@ -55,24 +55,24 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **DeltaLake** 를 입력합니다.
 1. 팩터리의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
-    ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="데이터 흐름 작업":::
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.
 
-    ![데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷입니다.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="데이터 흐름 작업을 드롭할 수 있는 파이프라인 캔버스를 보여주는 스크린샷입니다.":::
 1. **데이터 흐름 추가** 팝업에서 **새 데이터 흐름 만들기** 를 선택하고 데이터 흐름의 이름을 **DeltaLake** 로 설정합니다. 완료되었으면 마침을 클릭합니다.
 
-    ![새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="새 데이터 흐름을 만들 때 데이터 흐름의 이름을 붙이는 위치를 보여주는 스크린샷":::
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>데이터 흐름 캔버스의 변환 논리 빌드
 
 모든 원본 데이터를 사용하고(이 자습서에서는 Parquet 파일 원본 사용) 싱크 변환을 사용하여 데이터 레이크 ETL에 가장 효과적인 메커니즘을 통해 데이터를 Parquet 형식으로 가져옵니다.
 
-![최종 흐름](media/data-flow/parts-final.png "최종 흐름")
+:::image type="content" source="media/data-flow/parts-final.png" alt-text="최종 흐름":::
 
 ### <a name="tutorial-objectives"></a>자습서 개체
 
@@ -101,7 +101,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 데이터 흐름 원본의 데이터 파티션에 액세스할 때 ```releaseyear``` 위의 최상위 폴더만 가리키고 각 후속 폴더에 대해 와일드카드 패턴을 사용합니다(예: ```**/**/*.parquet```).
 1. 데이터 값을 조작하거나 폴더 이름에 대한 가상 값을 생성해야 하는 경우에도 파생 열 변환을 사용하여 폴더 이름에 사용할 값을 만듭니다.
 
-![키 분할](media/data-flow/key-parts.png "키 분할")
+:::image type="content" source="media/data-flow/key-parts.png" alt-text="키 분할":::
    
 ### <a name="name-folder-as-data-values"></a>데이터 값으로 폴더 이름 지정
 
@@ -113,7 +113,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 1. 폴더 이름을 생성하는 데 사용할 열을 선택합니다.
 1. 데이터 값을 조작하거나 폴더 이름에 대한 가상 값을 생성해야 하는 경우에도 파생 열 변환을 사용하여 폴더 이름에 사용할 값을 만듭니다.
 
-![폴더 옵션](media/data-flow/folders.png "폴더")
+:::image type="content" source="media/data-flow/folders.png" alt-text="폴더 옵션":::
 
 ### <a name="name-file-as-data-values"></a>데이터 값으로 파일 이름 지정
 

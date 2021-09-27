@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 8f30e48db1cafa7ea132de1e19b7ed45990a75b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2c775706070207ce637b69c2405a3c05c55a85c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536373"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811503"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용하여 SQL Server Integration Services 패키지 실행
 
@@ -34,11 +34,11 @@ AzureDTExec를 사용하려면 최신 버전의 SSMS(버전 18.3 이상)를 다�
 ## <a name="configure-the-azuredtexec-utility"></a>AzureDTExec 유틸리티 구성하기
 로컬 머신에 SSMS 설치 시 AzureDTExec도 함께 설치됩니다. 설정을 구성하려면 **관리자 권한으로 실행** 옵션을 사용하여 SSMS를 시작합니다. 그런 다음 **도구** > **Azure로 마이그레이션**  >  **Azure 지원 DTExec 구성** 을 선택합니다.
 
-![Azure 지원 dtexec 메뉴 구성](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png" alt-text="Azure 지원 dtexec 메뉴 구성":::
 
 이 작업을 수행할 경우, *AzureDTExec.settings* 파일에 쓰기 위해 관리자 권한으로 열어야 하는 **AzureDTExecConfig** 창이 열립니다. SSMS를 관리자로 실행하지 않은 경우, UAC(사용자 계정 컨트롤) 창이 열립니다. 관리자 암호를 입력하여 권한을 승급합니다.
 
-![Azure 지원 dtexec 설정 구성](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png" alt-text="Azure 지원 dtexec 설정 구성":::
 
 **AzureDTExecConfig** 창에서 다음과 같이 구성 설정을 입력합니다.
 

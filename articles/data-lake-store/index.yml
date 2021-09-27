@@ -6,15 +6,15 @@ metadata:
   description: 모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 대규모의 Hadoop 호환 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법에 대해 알아봅니다.
   ms.service: data-lake-store
   ms.topic: landing-page
-  author: twooley
-  ms.author: twooley
+  author: normesta
+  ms.author: normesta
   ms.date: 03/11/2020
-  ms.openlocfilehash: 09685af7a10c8624cb8b1442189cd68057031e9d
-  ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+  ms.openlocfilehash: f94c92bd1fbeeba31f9b45e766ff8f37b4bee556
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92106538"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128678614"
 landingContent:
 - title: Azure Data Lake Storage Gen1 정보
   linkLists:

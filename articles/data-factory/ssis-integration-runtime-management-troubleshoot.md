@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 3419483442a208bd2ed15071ffcbd447dfe1bd26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9cced212913ad8f31f71445a6bf3e70fc3bb3f8e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528726"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743117"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 문제 해결
 
@@ -174,7 +174,7 @@ Azure-SSIS IR을 Azure Virtual Network에 참가하는 경우 IR이 특정 IP �
 | Azure-SSIS IR에 제공된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공하고 Azure-SSIS IR을 다시 시작하세요. |
 | 제공된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS IR에 대해 IP 두 개의 표준 주소를 제공하세요. | 도움이 필요하면 [공용 IP 주소의 SKU](../virtual-network/public-ip-addresses.md#sku)를 참조하세요. |
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+:::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 
 ### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
 

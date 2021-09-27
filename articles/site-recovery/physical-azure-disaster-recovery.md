@@ -4,12 +4,12 @@ description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레�
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2021
-ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 93a7d3274dbe682a6a08763302804c250545ec47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290274"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591257"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -82,7 +82,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 - 도메인 또는 로컬 계정을 사용할 수 있습니다.
 - Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 그러려면 레지스터의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
-- CLI에서 설정을 사용하지 않도록 설정하기 위한 레지스트리 항목을 추가하려면 다음을 입력합니다. ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- CLI에서 설정을 사용 하지 않도록 설정 하는 레지스트리 항목을 추가 하려면 다음을 입력 합니다. `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - Linux에서 계정은 원본 Linux 서버의 루트여야 합니다.
 
 

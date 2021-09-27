@@ -3,13 +3,13 @@ title: Azure Functions 개발 지침
 description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 함수를 개발하는 데 필요한 Azure Functions 개념 및 기술에 대해 알아봅니다.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 10/12/2017
-ms.openlocfilehash: 93ac3458e2d9954c9ec17294fe89199d11cc765f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 9/02/2021
+ms.openlocfilehash: 49c6fc554eab18ec598db7ec21ef8c15b95d7be9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536393"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669648"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -111,17 +111,18 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 
 Azure Functions의 일부 연결은 비밀 대신 ID를 사용하도록 구성됩니다. 지원은 연결을 사용하는 확장에 따라 다릅니다. 경우에 따라 연결하는 서비스에서 ID 기반 연결을 지원하는 경우에도 Functions에서 연결 문자열이 필요할 수 있습니다.
 
-ID 기반 연결은 모든 플랜의 다음 트리거 및 바인딩 확장에서 지원됩니다.
+ID 기반 연결은 다음 트리거 및 바인딩 확장에서 지원됩니다.
 
 > [!NOTE]
 > ID 기반 연결은 Durable Functions에서 지원되지 않습니다.
 
-| 확장 이름 | 확장 버전                                                                                     |
-|----------------|-------------------------------------------------------------------------------------------------------|
-| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
-| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) |
-| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) |
-| Azure Service Bus    | [버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
+| 확장 이름 | 확장 버전                                                                                     | 계획 지원     |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------|
+| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 모두                 |
+| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 모두                 |
+| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | 모두            |
+| Azure Service Bus    | [버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | 모두         |
+| Azure Cosmos DB   | [버전 4.0.0-tooling 이상](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) | 탄력적 Premium |
 
 
 Functions 런타임(`AzureWebJobsStorage`)에서 사용하는 저장소 연결은 ID 기반 연결을 사용하여 구성할 수도 있습니다. 아래의 [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity)을 참조하세요.
@@ -142,15 +143,17 @@ Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관�
 | Azure 큐 | [Storage 큐 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage 큐 데이터 메시지 처리자](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage 큐 데이터 메시지 보내는 사람](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage 큐 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
 | Event Hubs   |    [Azure Event Hubs 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
 | Service Bus | [Azure Service Bus 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
+| Azure Cosmos DB | 기본 제공 데이터 [구독자 Cosmos DB Cosmos DB](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions)기본 제공 [데이터 기여자](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions) |
 
 #### <a name="connection-properties"></a>연결 속성
 
-Azure 서비스에 대한 ID 기반 연결은 다음 속성을 허용합니다.
+Azure 서비스에 대 한 id 기반 연결에는 다음 속성이 적용 `<CONNECTION_NAME_PREFIX>` 됩니다. 여기서은 `connection` 트리거 또는 바인딩 정의의 속성 값입니다.
 
 | 속성    | 확장에 필요함 | 환경 변수 | Description |
 |---|---|---|---|
 | 서비스 URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | 연결 중인 서비스의 데이터 평면 URI입니다. |
 | 정규화된 네임스페이스 | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | 정규화된 Event Hubs 및 Service Bus 네임스페이스입니다. |
+| 계정 끝점 | Azure Cosmos DB | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | Azure Cosmos DB 계정 끝점 URI입니다. |
 | 토큰 자격 증명 | (선택 사항) | `<CONNECTION_NAME_PREFIX>__credential` | 연결을 위해 토큰을 가져오는 방법을 정의합니다. "managedidentity"로 설정해야 하는 사용자가 할당한 ID를 지정할 때만 권장됩니다. 이는 Azure Functions 서비스에서 호스팅되는 경우에만 유효합니다. |
 | 클라이언트 ID | (선택 사항) | `<CONNECTION_NAME_PREFIX>__clientId` | `credential`이 "managedidentity"로 설정된 경우 이 속성은 토큰을 가져올 때 사용할 사용자가 할당한 ID를 지정합니다. 속성은 애플리케이션에 할당된 사용자가 할당한 ID에 해당하는 클라이언트 ID를 허용합니다. 지정하지 않으면 시스템 할당 ID가 사용됩니다. 이 속성은 [이 설정되지 않아야 하는 ](#local-development-with-identity-based-connections)로컬 개발 시나리오`credential`에서 다르게 사용됩니다. |
 
@@ -189,6 +192,20 @@ Azure Blob를 사용하는 ID 기반 연결에 필요한 `local.settings.json` �
   "IsEncrypted": false,
   "Values": {
     "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
+
+`local.settings.json`Azure Cosmos DB와 id 기반 연결에 필요한 속성의 예: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__accountEndpoint": "<accountEndpoint>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
     "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"

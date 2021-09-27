@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 6dc086aae55f3b35dbb7dc787df6a65b7ade108f
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 046b2cefb20f9c413798e310f760a90a15dee441
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674214"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805338"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
-Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
+Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. DDoS 공격 기간 동안 상세 메트릭을 비롯한 다양한 원격 분석이 Azure Monitor를 통해 노출됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 로깅을 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk(Azure Event Hubs), OMS Log Analytics 및 Azure Storage와 통합하면 고급 분석을 사용할 수 있습니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 

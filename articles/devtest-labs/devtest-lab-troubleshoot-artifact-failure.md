@@ -1,14 +1,14 @@
 ---
 title: Azure DevTest Labs 가상 머신에서 아티팩트 실패 진단
 description: DevTest Labs는 아티팩트 실패를 진단하는 데 사용할 수 있는 정보를 제공합니다. 이 문서에서는 아티팩트 실패 문제를 해결하는 방법을 안내합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e7c343eee8c3484e12139c2bef963fc463ffc28d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480816"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567452"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
 아티팩트를 만든 후에 성공 또는 실패 여부를 확인할 수 있습니다. Azure DevTest Labs의 아티팩트 로그는 아티팩트 실패를 진단하는 데 사용할 수 있는 정보를 제공합니다. Windows VM에 대한 아티팩트 로그 정보를 보기 위한 두 가지 옵션이 있습니다.
@@ -49,4 +49,3 @@ ms.locfileid: "85480816"
 
 ## <a name="next-steps"></a>다음 단계
 * [랩에 Git 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
-

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: b11fff95543abb4fc74b2087deffe56786998e28
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 272575ab5fac1888e6f9c3d84317e0450447f3c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662650"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관
 
@@ -45,8 +45,6 @@ Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터�
 - Java 클라이언트 라이브러리
 - Python 클라이언트 라이브러리
 - Node.js 클라이언트 라이브러리
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>계층을 지원하는 스토리지 계정
 
@@ -90,9 +88,9 @@ Blob이 보관 스토리지에 있는 동안 Blob 데이터는 오프라인 상�
 
 ## <a name="account-level-tiering"></a>계정 수준 계층화
 
-세 액세스 계층에 있는 Blob은 동일한 계정 내에서 공존할 수 있습니다. 명시적으로 할당된 계층이 없는 Blob은 계정 액세스 계층 설정에서 계층을 유추합니다. 액세스 계층이 계정에서 비롯되면 **유추된 액세스 계층** Blob 속성이 "true"로 설정되고 **액세스 계층** Blob 속성이 계정 계층과 일치하는 것으로 표시됩니다. Azure Portal에서 _유추된 액세스 계층_ 속성은 Blob 액세스 계층을 **핫(유추)** 또는 **쿨(유추)** 로 지정하여 표시됩니다.
+세 액세스 계층에 있는 Blob은 동일한 계정 내에서 공존할 수 있습니다. 명시적으로 할당된 계층이 없는 Blob은 계정 액세스 계층 설정에서 계층을 유추합니다. 액세스 계층이 계정에서 비롯되면 **유추된 액세스 계층** Blob 속성이 "true"로 설정되고 **액세스 계층** Blob 속성이 계정 계층과 일치하는 것으로 표시됩니다. Azure Portal에서 *유추된 액세스 계층* 속성은 Blob 액세스 계층을 **핫(유추)** 또는 **쿨(유추)** 로 지정하여 표시됩니다.
 
-계정 액세스 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 _유추된 액세스 계층_ 개체에 적용됩니다. 계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob Storage 계정에서는 이 변경이 무료입니다. Blob Storage 또는 GPv2 계정에서 쿨에서 핫으로 전환하는 경우 읽기 작업(10,000개 단위) 및 데이터 검색(GB 단위) 모두에 대한 요금이 청구됩니다.
+계정 액세스 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 *유추된 액세스 계층* 개체에 적용됩니다. 계정 계층이 핫에서 쿨로 전환되면 GPv2 계정에서만 집합 계층 없이 모든 Blob의 경우 쓰기 작업(10,000개당)에 대한 요금이 청구됩니다. Blob Storage 계정에서는 이 변경이 무료입니다. Blob Storage 또는 GPv2 계정에서 쿨에서 핫으로 전환하는 경우 읽기 작업(10,000개 단위) 및 데이터 검색(GB 단위) 모두에 대한 요금이 청구됩니다.
 
 핫 및 쿨 액세스 계층만 기본 계정 액세스 계층으로 설정할 수 있습니다. 보관은 개체 수준에서만 설정할 수 있습니다. Blob 업로드 시 기본 계정 계층에 관계없이 핫, 쿨 또는 보관으로 선택할 액세스 계층을 지정할 수 있습니다. 이 기능을 사용하면 데이터를 보관 계층에 직접 기록하여 Blob 스토리지에서 데이터를 만드는 순간부터 비용을 절감할 수 있습니다.
 
@@ -109,7 +107,7 @@ Blob 수준 계층화를 사용하면 [Blob 배치](/rest/api/storageservices/pu
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 
-Blob Storage 수명 주기 관리는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료하는 데 사용할 수 있는 풍부한 규칙 기반 정책을 제공합니다. 자세히 알아보려면 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조하세요.
+Blob Storage 수명 주기 관리는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료하는 데 사용할 수 있는 풍부한 규칙 기반 정책을 제공합니다. 자세히 알아보려면 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](./lifecycle-management-overview.md)를 참조하세요.
 
 > [!NOTE]
 > 블록 Blob 스토리지 계정(프리미엄 성능)에 저장된 데이터는 현재 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용하여 핫, 쿨 또는 보관으로 계층화할 수 없습니다.
@@ -180,10 +178,21 @@ Blob이 워머 계층으로 이동하면(보관->쿨, 보관->핫 또는 쿨->�
 
 Blob 수준 계층화와 함께 다양한 액세스 계층을 선택 영역에서 사용할 수 있습니다. 전체 목록은 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요.
 
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/yes-icon.png) |
+| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 액세스 계층에서 Blob 및 계정을 관리하는 방법을 알아봅니다.
 
 - [Azure Storage 계정에서 Blob 계층을 관리하는 방법](manage-access-tier.md)
 - [Azure Storage 계정의 기본 계정 액세스 계층을 관리하는 방법](../common/manage-account-default-access-tier.md)
-- [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](storage-lifecycle-management-concepts.md)
+- [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](./lifecycle-management-overview.md)

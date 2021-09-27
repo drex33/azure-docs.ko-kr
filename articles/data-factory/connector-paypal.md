@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사
+title: PayPal 데이터 복사(미리 보기)
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 PayPal 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 PayPal에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: db9861fbefff2613a2989ee379f487d6c3a644e6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: bbe4197276b7e407155ee46aad65463df8d538ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317393"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824805"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사
+# <a name="copy-data-from-paypal-using-azure-data-factory-or-synapse-analytics-preview"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 PayPal 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 PayPal에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 PayPal 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "123317393"
 
 PayPal에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
+이 서비스는 연결을 사용하도록 설정하는 기본 제공 드라이버를 제공하므로 이 커넥터를 사용하여 드라이버를 수동으로 설치할 필요가 없습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -47,7 +47,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -70,12 +70,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 PayPal 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **PayPal** 로 설정해야 합니다. | 예 |
 | host | PayPal 인스턴스의 URL입니다. 즉, api.sandbox.paypal.com입니다.  | 예 |
 | clientId | PayPal 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
-| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
@@ -178,4 +178,4 @@ PayPal에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pa
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

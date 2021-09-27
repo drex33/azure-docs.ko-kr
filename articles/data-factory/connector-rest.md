@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: 16bb4ac7062c39ad57becce4d5280ed227160690
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: dc9aec86e01655087a64c3ac0a494d448889f857
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311588"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733086"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사 및 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -163,7 +163,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
@@ -193,7 +193,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
-| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
 
 
 **예제**
@@ -257,7 +257,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사합니다. | 예 |
@@ -382,7 +382,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **POST**(기본값), **PUT**, **PATCH** 입니다. | 예 |
@@ -444,7 +444,7 @@ REST는 통합 데이터 세트와 인라인 데이터 세트 모두에 대한 �
 
 ### <a name="source-transformation"></a>원본 변환
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST** 입니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사합니다. | 예 |
@@ -455,7 +455,7 @@ REST는 통합 데이터 세트와 인라인 데이터 세트 모두에 대한 �
 
 ### <a name="sink-transformation"></a>싱크 변환
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 쓰는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |
@@ -465,7 +465,7 @@ REST는 통합 데이터 세트와 인라인 데이터 세트 모두에 대한 �
 
 CRUD 작업을 위해 REST 싱크로 보낼 상대 행 데이터와 함께 delete, insert, update 및 upsert 메서드를 설정할 수 있습니다.
 
-![데이터 흐름 REST 싱크](media/data-flow/data-flow-sink.png)
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="데이터 흐름 REST 싱크":::
 
 ## <a name="sample-data-flow-script"></a>샘플 데이터 흐름 스크립트
 
@@ -586,21 +586,21 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 ### <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
 1. **OAuth를 사용하여 REST 또는 HTTP에서 복사** 템플릿으로 이동합니다. 원본 연결에 대한 새 연결을 만듭니다. 
-    ![새 연결 만들기](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="새 연결 만들기":::
 
     다음은 새 연결된 서비스(REST) 설정에 대한 주요 단계입니다.
     
      1. **기준 URL** 에서 원본 REST 서비스에 대한 URL 매개 변수를 지정합니다. 
      2. **인증 유형** 을 *익명* 으로 선택합니다.
-        ![새 REST 연결](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="새 REST 연결":::
 
 2. 대상 연결에 대한 새 연결을 만듭니다.  
-    ![새 2세대 연결](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="새 2세대 연결":::
 
 3. **이 템플릿 사용** 을 선택합니다.
-    ![이 템플릿 사용](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="이 템플릿 사용":::
 
-4. 다음 예제와 같이 생성된 파이프라인이 표시됩니다. ![ 스크린샷은 템플릿에서 만든 파이프라인을 보여 줍니다.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. 다음 예제와 같이 생성된 파이프라인이 표시됩니다. :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text=" 스크린샷은 템플릿에서 만든 파이프라인을 보여 줍니다.":::
 
 5. **웹** 작업을 선택합니다. **설정** 에서 데이터를 복사하려는 서비스의 로그인 API에서 OAuth 전달자 토큰을 검색할 해당 **URL**, **메서드**, **헤더**, **본문** 을 지정합니다. 템플릿의 자리 표시자는 AAD(Azure Active Directory) OAuth의 샘플을 보여 줍니다. AAD 인증은 기본적으로 REST 커넥터에서 지원됩니다. 여기에는 OAuth 흐름에 대한 예제만 있습니다. 
 
@@ -611,7 +611,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
     | 헤더 | 헤더는 HTTP 요청에 있는 하나의 헤더 이름을 참조하는 사용자 정의 항목입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
 
-    ![파이프라인](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="파이프라인":::
 
 6. **데이터 복사** 작업에서 *원본* 탭을 선택하면, 이전 단계에서 검색된 전달자 토큰(access_token)이 추가 헤더의 **권한 부여** 로 데이터 복사 작업에 전달되는 것을 볼 수 있습니다. 파이프라인 실행을 시작하기 전에 다음 속성의 설정을 확인합니다.
 
@@ -620,20 +620,20 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
     | 요청 메서드 | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 
     | 추가 헤더 | 추가 HTTP 요청 헤더입니다.| 
 
-   ![원본 인증 복사](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="원본 인증 복사":::
 
 7. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
-   ![파이프라인 실행](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="파이프라인 실행"::: 
 
-8. 파이프라인 실행이 성공적으로 완료되면 다음 예제와 유사한 결과가 표시됩니다. ![파이프라인 실행 결과](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. 파이프라인 실행이 성공적으로 완료되면 다음 예제와 유사한 결과가 표시됩니다. :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="파이프라인 실행 결과"::: 
 
 9. **작업** 열에서 WebActivity의 "출력" 아이콘을 클릭하면 서비스에서 반환되는 access_token이 표시됩니다.
 
-   ![토큰 출력](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="토큰 출력"::: 
 
 10. **작업** 열에서 CopyActivity의 "입력" 아이콘을 클릭하면 WebActivity로 검색된 access_token이 인증을 위해 CopyActivity에 전달됩니다. 
 
-    ![토큰 입력](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="토큰 입력":::
         
     >[!CAUTION] 
     >토큰을 일반 텍스트로 로그하지 않으려면 Web 작업에서 "보안 출력"을, 복사 작업에서 "보안 입력"을 사용합니다.

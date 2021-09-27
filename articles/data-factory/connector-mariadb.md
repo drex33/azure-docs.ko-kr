@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
+title: MariaDB에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 Iadb에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MariaDB에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c4f68389bdfc009f0bfca3b1c9618cc2d17590e6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 1338608b97bf8b406e7a600bcb5106ab4144edfa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316168"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827286"
 ---
-# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
+# <a name="copy-data-from-mariadb-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Iadb에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MariaDB에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 Iadb에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -30,7 +30,7 @@ ms.locfileid: "123316168"
 
 MariaDB에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
+서비스는 연결을 사용할 수 있는 기본 제공 드라이버를 제공 하므로이 커넥터를 사용 하 여 드라이버를 수동으로 설치할 필요가 없습니다.
 
 이 커넥터는 현재 10.0~10.2 버전의 MariaDB를 지원합니다.
 
@@ -73,7 +73,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 MariaDB 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **MariaDB** | 예 |
 | connectionString | MariaDB에 연결할 ODBC 연결 문자열입니다. <br/>Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -197,4 +197,4 @@ MariaDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **M
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

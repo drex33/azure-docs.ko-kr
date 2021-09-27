@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 35b29ae6116e2e040f2383606fa20c5ab6316315
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7c29ae41acd800a3e8893ec50ef25cb77c89fe04
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253472"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810178"
 ---
 #  <a name="data-collection-best-practices"></a>데이터 수집 모범 사례
 
@@ -99,7 +99,7 @@ EDR, 다른 보안 이벤트, Sysmon 등의 엔드포인트 솔루션에서 로�
 
 |문제/요구 사항  |가능한 해결 방법  |고려 사항  |
 |---------|---------|---------|
-|**Teams, 메시지 추적, 피싱 데이터 등에서 원시 데이터 수집**     |    기본 제공 [Office 365 커넥터](connect-office-365.md) 기능을 사용한 후 다른 원시 데이터용 사용자 지정 커넥터 생성  |  이벤트를 해당 recordID에 매핑하는 작업은 어려울 수 있습니다.  |
+|**Teams, 메시지 추적, 피싱 데이터 등에서 원시 데이터 수집**     |    기본 제공 [Office 365 커넥터](./data-connectors-reference.md#microsoft-office-365) 기능을 사용한 후 다른 원시 데이터용 사용자 지정 커넥터 생성  |  이벤트를 해당 recordID에 매핑하는 작업은 어려울 수 있습니다.  |
 |**국가, 부서 등을 분할하는 데 RBAC 필요**     | 데이터에 태그를 추가하고 필요한 각 분리에 대한 전용 작업 영역을 만들어 데이터 수집 사용자 지정|   사용자 지정 데이터 수집에는 추가 수집 비용이 있습니다.     |
 |**단일 작업 영역에 여러 테넌트 필요**     |  Azure LightHouse와 통합 인시던트 보기를 사용하여 데이터 수집 사용자 지정|  사용자 지정 데이터 수집에는 추가 수집 비용이 있습니다.  <br><br>자세한 내용은 [작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장](extend-sentinel-across-workspaces-tenants.md)을 참조하세요.      |
 | | | |

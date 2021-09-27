@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7059990f56cfa0f3eae9a10f3a7d3760095a1e83
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 0a00ad012f38a142332a62846e78c2ae87460464
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699322"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128705624"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Azure Machine Learning 디자이너에서 Studio(클래식) 실험 다시 빌드
 
@@ -26,7 +26,7 @@ Studio(클래식) **실험** 은 Azure Machine Learning의 **파이프라인** �
 SDK를 사용한 파이프라인 빌드에 대한 자세한 내용은 [Azure Machine Learning 파이프라인이란](concept-ml-pipelines.md#building-pipelines-with-the-python-sdk)을 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md#create-a-workspace).
@@ -51,7 +51,7 @@ Azure Machine Learning에서 시각적 그래프를 **파이프라인 초안** �
 
 1. 매개 변수를 조정합니다.
     
-    각 모듈을 선택하고 모듈 설정 패널에서 오른쪽으로 매개 변수를 조정합니다. 매개 변수를 사용하여 Studio(클래식) 실험의 기능을 다시 만듭니다. 각 모듈에 대한 자세한 내용은 [모듈 참조](/algorithm-module-reference/module-reference.md)를 참조하세요.
+    각 모듈을 선택하고 모듈 설정 패널에서 오른쪽으로 매개 변수를 조정합니다. 매개 변수를 사용하여 Studio(클래식) 실험의 기능을 다시 만듭니다. 각 모듈에 대한 자세한 내용은 [모듈 참조](./algorithm-module-reference/module-reference.md)를 참조하세요.
 
 ## <a name="submit-a-run-and-check-results"></a>실행 제출 및 결과 확인
 

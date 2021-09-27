@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: e23eaead0d9c8dd162d73176330f620a9ee8e737
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5030abe5dbc93a1b04588d548d353701a5a77ad4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536588"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559269"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 논리 복제 및 논리 디코딩
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 데이터 추출 및 복제 방법론을 지원합니다.
 1. **논리적 복제**

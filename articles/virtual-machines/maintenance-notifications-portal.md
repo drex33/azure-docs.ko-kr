@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 09/08/2021
 ms.author: shants
-ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: f0d07f37d01c2634df17d1f53aad4fd180e60ba4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698793"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818331"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>포털을 사용하여 계획된 유지 관리 알림 처리
 
@@ -27,9 +27,7 @@ Azure Portal을 사용하여 유지 관리하도록 예약된 VM을 찾아볼 �
 
 2. 왼쪽 탐색 모음에서 **Virtual Machines** 를 클릭합니다.
 
-3. Virtual Machines 창에서 **열 편집** 단추를 선택하여 사용 가능한 열 목록을 엽니다.
-
-4. 다음 열을 선택하여 추가합니다.
+3. Virtual Machines 창에서 **유지 관리-> 가상 머신 유지 관리** 단추를 선택 하 여 유지 관리 열이 있는 목록을 엽니다.
 
    **유지 관리 상태**: VM에 대한 유지 관리 상태를 표시합니다. 가능한 값은 다음과 같습니다.
       

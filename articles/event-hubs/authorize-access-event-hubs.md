@@ -2,14 +2,14 @@
 title: Azure Event Hubs에 대한 액세스 권한 부여
 description: 이 문서에서는 Azure Event Hubs 리소스에 대한 액세스 권한을 부여하는 여러 옵션에 대한 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.author: spelluru
-ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: df4498de020b2e389622fb5f495e5f42f69f186d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92332385"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561028"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
 Event Hubs에서 이벤트/데이터를 게시하거나 이용할 때마다 클라이언트가 Event Hubs 리소스에 액세스하려고 합니다. 안전한 리소스에 대한 모든 요청은 서비스에서 클라이언트가 데이터를 게시/이용하는 데 필요한 권한을 가지고 있는지 확인할 수 있도록 권한을 부여해야 합니다. 
@@ -43,7 +43,7 @@ SAS를 사용한 권한 부여에 대한 자세한 내용은 [공유 액세스 �
 - GitHub 리포지토리에 게시된 [Azure RBAC 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)을 검토합니다. 
 - 다음 문서를 참조하세요.
     - [Azure Active Directory를 사용하여 애플리케이션에서 Azure Event Hubs에 대한 요청 인증](authenticate-application.md)
-    - [Azure Active Directory에서 관리 ID를 인증하여 Event Hubs 리소스에 액세스](authenticate-managed-identity.md)
+    - [Azure Active Directory를 사용하여 관리 ID를 인증하여 Event Hubs 리소스에 액세스](authenticate-managed-identity.md)
     - [공유 액세스 서명을 사용하여 Azure Event Hubs에 대한 요청 인증](authenticate-shared-access-signature.md)
     - [Azure Active Directory를 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)
     - [공유 액세스 서명을 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여](authorize-access-shared-access-signature.md)

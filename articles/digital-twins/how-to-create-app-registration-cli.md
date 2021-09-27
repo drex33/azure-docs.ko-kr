@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 클라이언트 앱에 대한 인증 옵션으로 CLI를 사용하여 Azure AD 앱 등록을 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7c9f69d33c89fba209ecf7ad76bc1aa8e2b6b666
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 6b769bbc1b3edb9a680fc6e2823a4e5eaeeaa201
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224888"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617757"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Azure Digital Twins에서 사용할 앱 등록 만들기(CLI)
 

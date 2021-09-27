@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs에 대한 엔터프라이즈 참조 아키텍처
+title: Enterprise 참조 아키텍처
 description: 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs에 대한 참조 아키텍처 지침을 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 2a7c98784e230292afdb5cd217c2f0455034ad70
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.openlocfilehash: e76219222db1dbe6aa7cdc7d7a2ef5be995109e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652361"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈의 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs 기반 솔루션을 배포하는 데 도움이 되는 참조 아키텍처를 제공합니다. 이 문서의 내용은 다음과 같습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "111814587"
 
 ![참조 아키텍처 다이어그램](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 다음은 참조 아키텍처의 주요 요소입니다.
 
 - **Azure AD(Azure Active Directory)** : DevTest Labs에서는 [ID 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용합니다. DevTest Labs를 기반으로 환경에 대한 액세스 권한을 사용자에게 부여하는 경우 다음 두 가지 주요 측면을 고려하세요.

@@ -8,12 +8,12 @@ ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
 ms.date: 06/21/2021
-ms.openlocfilehash: 1d501a461caab23fb45441473fda60e13c7e8334
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e1d1b8a876d55698db83b0c7d331f45797c3c1b3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535946"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743177"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>SSIS Integration Runtime에서 연결 진단 기능 사용
 
@@ -23,9 +23,9 @@ SSIS Integration Runtime에서 SSIS(SQL Server Integration Services) 패키지�
 
 *연결 진단* 기능을 사용하여 연결을 테스트하면 연결 문제를 해결할 수 있습니다. 해당 기능은 Azure Data Factory 포털의 SSIS Integration Runtime 모니터링 페이지에 있습니다.
 
- ![모니터 페이지 - 연결 진단](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png" alt-text="모니터 페이지 - 연결 진단":::
 
- ![모니터 페이지 - 연결 테스트](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png" alt-text="모니터 페이지 - 연결 테스트":::
 
 다음 섹션에서는 연결을 테스트할 때 발생하는 일반적인 오류에 대해 알아봅니다. 각 섹션에서 다음에 대해 설명합니다.
 

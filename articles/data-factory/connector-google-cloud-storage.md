@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory를 사용하여 Google Cloud Storage에서 데이터 복사
+title: Google Cloud Storage 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Google Cloud Storage에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 사용하여 Google Cloud Storage 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6dc99ca4c6d7b004bd8994c89a3e79e1f2d817d4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 64e8622380f94ff56833e295adf8fa67e49e1ae7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312773"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815088"
 ---
-# <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Google Cloud Storage에서 데이터 복사
+# <a name="copy-data-from-google-cloud-storage-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Google Cloud Storage 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 GCS(Google Cloud Storage)에서 데이터를 복사하는 방법을 간략하게 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 GCS(Google Cloud Storage)에서 데이터를 복사하는 방법을 간략하게 설명합니다. 자세한 내용은 Azure Data Factory [및](../synapse-analytics/overview-what-is.md) [Synapse Analytics](introduction.md) 대한 소개 문서를 읽어보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -42,13 +42,13 @@ Google Cloud Storage 계정에는 다음 설정이 필요합니다.
 3. GCP에서 클라우드 IAM을 사용하여 서비스 계정을 만들고 적절한 수준의 권한을 정의합니다. 
 4. 이 서비스 계정에 대한 액세스 키를 생성합니다.
 
-![Google Cloud Storage에 대한 액세스 키 검색](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
+:::image type="content" source="media/connector-google-cloud-storage/google-storage-cloud-settings.png" alt-text="Google Cloud Storage에 대한 액세스 키 검색":::
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
 Google Cloud Storage에서 데이터를 복사하려면 개체 작업에 대한 ` storage.objects.get`과 ` storage.objects.list`의 사용 권한이 부여되었는지 확인합니다.
 
-Data Factory UI를 사용하여 작성하는 경우, 연결된 서비스에 대한 연결 테스트 및 루트에서 검색 등의 작업을 수행하려면 ` storage.buckets.list`의 추가 권한이 필요합니다. 이러한 권한을 부여하지 않으려면 UI에서 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기" 옵션을 선택할 수 있습니다.
+UI를 사용하여 작성할 경우 ` storage.buckets.list` 연결된 서비스에 대한 연결 테스트 및 루트에서 검색과 같은 작업에 추가 권한이 필요합니다. 이러한 권한을 부여하지 않으려면 UI에서 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기" 옵션을 선택할 수 있습니다.
 
 Google Cloud Storage 역할 및 관련 사용 권한의 전체 목록은 Google Cloud 사이트의 [클라우드 저장소에 대한 IAM 역할](https://cloud.google.com/storage/docs/access-control/iam-roles)을 참조하세요.
 
@@ -64,7 +64,7 @@ Google Cloud Storage 역할 및 관련 사용 권한의 전체 목록은 Google 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -86,11 +86,11 @@ Google Cloud Storage 역할 및 관련 사용 권한의 전체 목록은 Google 
 
 Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **GoogleCloudStorage** 로 설정해야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. 액세스 키와 비밀을 찾으려면 [필수 구성 요소](#prerequisites)를 참조하세요. |예 |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 GCS 엔드포인트를 `https://storage.googleapis.com` 로 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. |예 |
 
@@ -123,7 +123,7 @@ Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Google Cloud Storage에 다음 속성이 지원됩니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location` 아래 **type** 속성은 **GoogleCloudStorageLocation** 으로 설정되어야 합니다. | 예      |
 | bucketName | GCS 버킷 이름입니다.                                          | 예      |
@@ -167,7 +167,7 @@ Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Google Cloud Storage에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                                    |
+| 속성                 | 설명                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings` 아래의 **type** 속성은 **GoogleCloudStorageReadSettings** 로 설정되어야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |
@@ -243,7 +243,7 @@ Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 원본 폴더 구조가 있고 굵게 표시된 파일을 복사하려고 한다고 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Data Factory 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 버킷: `bucket`<br>- 폴더 경로: `FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `bucket/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -261,7 +261,7 @@ Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="legacy-models"></a>레거시 모델
 
-Amazon S3 커넥터를 사용하여 Google Cloud Storage에서 데이터를 복사하는 경우 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞서 설명한 새 모델을 사용하는 것이 좋습니다. Data Factory 작성 UI가 새 모델 생성으로 전환되었습니다.
+Amazon S3 커넥터를 사용하여 Google Cloud Storage에서 데이터를 복사하는 경우 이전 버전과의 호환성을 위해 그대로 계속 지원됩니다. 앞서 설명한 새 모델을 사용하는 것이 좋습니다. 새 모델을 생성하도록 작성 UI가 전환되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

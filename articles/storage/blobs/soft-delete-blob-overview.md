@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 39dd221210b558a3b6ce59200aebaa4aa2278fb5
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
-ms.translationtype: HT
+ms.openlocfilehash: 1c645e50a49a268d762b1195e91484783a73367c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688142"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562553"
 ---
 # <a name="soft-delete-for-blobs"></a>Blob에 대한 일시 삭제
 
@@ -26,7 +26,6 @@ Blob 일시 삭제는 지정된 기간 동안 시스템에 삭제된 데이터�
 >
 >
 > 미리 보기에 등록하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u)을 참조하세요.
-
 
 ## <a name="recommended-data-protection-configuration"></a>권장되는 데이터 보호 구성
 
@@ -69,13 +68,13 @@ Blob에 스냅샷이 있는 경우 스냅샷도 삭제해야 Blob을 삭제할 �
 
 또한 기본 Blob을 삭제하지 않고 활성 스냅샷을 하나 이상 삭제할 수 있습니다. 이 경우 스냅샷은 일시 삭제됩니다.
 
-계층 구조 네임스페이스 기능이 활성화된 계정에서 디렉터리를 삭제하면 디렉터리와 해당 내용이 모두 일시 삭제된 것으로 표시됩니다. 
+계층 구조 네임스페이스 기능이 활성화된 계정에서 디렉터리를 삭제하면 디렉터리와 해당 내용이 모두 일시 삭제된 것으로 표시됩니다.
 
 일시 삭제된 개체는 명시적으로 표시되거나 나열되지 않은 경우 보이지 않습니다. 일시 삭제된 개체를 나열하는 방법에 대한 자세한 내용은 [일시 삭제된 Blob 관리 및 복원](soft-delete-blob-manage.md)을 참조하세요.
 
 ### <a name="how-overwrites-are-handled-when-soft-delete-is-enabled"></a>일시 삭제 사용 시 덮어쓰기가 처리되는 방법
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 이 섹션은 계층 구조 네임스페이스가 있는 계정에는 적용되지 않습니다.
 
 [Blob 배치](/rest/api/storageservices/put-blob), [블록 목록 배치](/rest/api/storageservices/put-block-list) 또는 [Blob 복사](/rest/api/storageservices/copy-blob)와 같은 작업을 호출하면 Blob의 데이터를 덮어씁니다. Blob 일시 삭제를 사용하는 경우 Blob을 덮어쓰면 쓰기 작업 전에 Blob 상태의 일시 삭제된 스냅샷이 자동으로 만들어집니다. 보존 기간이 만료되면 일시 삭제된 스냅샷이 영구적으로 삭제됩니다.
@@ -106,7 +105,7 @@ Premium Storage 계정의 경우 일시 삭제된 스냅샷은 스냅샷 100개�
 
 ## <a name="blob-soft-delete-and-versioning"></a>Blob 일시 삭제 및 버전 관리
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 버전 관리는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다.
 
 스토리지 계정에 Blob 버전 관리와 Blob 일시 삭제를 모두 사용하는 경우 Blob을 덮어쓰면 자동으로 새 버전이 만들어집니다. 새 버전은 일시 삭제되지 않으며 일시 삭제 보존 기간이 만료되어도 제거되지 않습니다. 일시 삭제된 스냅샷이 만들어지지 않습니다. Blob을 삭제하면 현재 Blob 버전이 이전 버전이 되므로 현재 버전이 더 이상 존재하지 않게 됩니다. 새 버전이 만들어지지 않으며 일시 삭제된 스냅샷이 만들어지지 않습니다.
@@ -122,7 +121,7 @@ Premium Storage 계정의 경우 일시 삭제된 스냅샷은 스냅샷 100개�
 
 ## <a name="blob-soft-delete-protection-by-operation"></a>작업별로 Blob 일시 삭제 방지
 
-다음 표에서는 Blob 버전 관리를 사용하거나 사용하지 않고 Blob 일시 삭제를 사용하는 경우의 삭제 및 쓰기 작업에 대한 예상 동작을 설명합니다. 
+다음 표에서는 Blob 버전 관리를 사용하거나 사용하지 않고 Blob 일시 삭제를 사용하는 경우의 삭제 및 쓰기 작업에 대한 예상 동작을 설명합니다.
 
 ### <a name="storage-account-no-hierarchical-namespace"></a>스토리지 계정(계층 구조 네임스페이스 없음)
 
@@ -148,6 +147,21 @@ Premium Storage 계정의 경우 일시 삭제된 스냅샷은 스냅샷 100개�
 |[Blob 삭제](/rest/api/storageservices/delete-blob)|일시 삭제된 개체가 만들어집니다. 일시 삭제된 개체는 보존 기간 후 삭제됩니다. 스냅숏이 있는 blob에 대해서는 일시 삭제가 지원되지 않습니다.|
 |blob 또는 디렉터리의 이름을 바꾸는 [경로 -생성](/rest/api/storageservices/datalakestoragegen2/path/create) | 기존 대상 blob 또는 빈 디렉터리가 일시 삭제되고 원본에서 이 파일을 바꿉니다. 일시 삭제된 개체는 보존 기간 후 삭제됩니다.|
 
+## <a name="feature-support"></a>기능 지원
+
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
+
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예 ](../media/icons/yes-icon.png) <sup>2</sup><sup>3</sup>                | ![No](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예 ](../media/icons/yes-icon.png) <sup>2</sup><sup>3</sup>                | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+
+<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
+
+<sup>3</sup> 자세한 내용은 [Azure Data Lake Storage Gen2의 알려진 문제를 참조하세요.](data-lake-storage-known-issues.md) 이러한 문제는 계층 구조 네임스페이스 기능을 사용하도록 설정된 모든 계정에 적용됩니다.
+
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
 일시 삭제된 모든 데이터는 활성 데이터와 동일한 요율로 요금이 청구됩니다. 보존 기간이 경과한 후 영구적으로 삭제되는 데이터에 대한 비용은 청구되지 않습니다.
@@ -160,7 +174,7 @@ Blob을 덮어쓰거나 삭제하는 경우 스냅샷 또는 버전의 자동 �
 
 Blob Storage의 가격 책정에 대한 자세한 내용은 [Blob Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 페이지를 참조하세요.
 
-## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Blob 일시 삭제 및 가상 머신 디스크  
+## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Blob 일시 삭제 및 가상 머신 디스크
 
 Blob 일시 삭제는 내부적으로 페이지 Blob인 프리미엄 및 표준 비관리 디스크 모두에 사용할 수 있습니다. 일시 삭제는 [Blob 삭제](/rest/api/storageservices/delete-blob), [Blob 배치](/rest/api/storageservices/put-blob), [블록 목록 배치](/rest/api/storageservices/put-block-list) 및 [Blob 복사](/rest/api/storageservices/copy-blob) 작업에서 삭제하거나 덮어쓴 데이터를 복구하는 데 도움이 될 수 있습니다.
 

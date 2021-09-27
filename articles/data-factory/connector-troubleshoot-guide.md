@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 27e9f92f7ea2be3ebdafbf973c4d1def179d5636
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 0808b52c777389cfdf641094fd152ee9f11b482f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864149"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782725"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Azure Data Factory 및 Azure Synapse Analytics 커넥터 문제 해결
 
@@ -154,7 +154,7 @@ ms.locfileid: "122864149"
 
 - **해결 방법**: 임시 방편으로 스테이징된 복사본을 사용하여 Azure Data Lake Storage Gen1에 대해 TLS(전송 계층 보안) 유효성 검사를 건너뜁니다. 이 문제를 재현하여 네트워크 모니터(netmon) 추적을 수집한 다음 네트워크 팀의 지원을 받아 로컬 네트워크 구성을 확인해야 합니다.
 
-    ![문제 해결을 위한 Azure Data Lake Storage Gen1 연결 다이어그램.](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/adls-troubleshoot.png" alt-text="문제 해결을 위한 Azure Data Lake Storage Gen1 연결 다이어그램.":::
 
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>오류 메시지: 원격 서버에서 다음과 같은 오류를 반환했습니다. (403) 사용할 수 없음
@@ -1208,7 +1208,7 @@ ms.locfileid: "122864149"
 
     2. *diawp.exe.config* 파일을 열고 `<runtime>` 섹션의 끝에 다음과 같이 `<enforceFIPSPolicy enabled="false"/>`를 추가합니다.
 
-        ![FIPS가 사용하지 않도록 설정된 diawp.exe.config 파일의 섹션을 보여 주는 스크린샷.](./media/connector-troubleshoot-guide/disable-fips-policy.png)
+        :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="FIPS가 사용하지 않도록 설정된 diawp.exe.config 파일의 섹션을 보여 주는 스크린샷.":::
 
     3. 파일을 저장하고 자체 호스팅 IR 머신을 다시 시작합니다.
 

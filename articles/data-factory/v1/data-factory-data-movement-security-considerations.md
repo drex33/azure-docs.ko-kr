@@ -3,16 +3,17 @@ title: Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 description: Azure Data Factory에서 데이터 이동 보안에 대해 알아봅니다.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0823c085470e83c82164fa578f1465e95eda81f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596204"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -80,7 +81,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>하이브리드 시나리오(데이터 관리 게이트웨이 사용)
 하이브리드 시나리오에서는 데이터 관리 게이트웨이를 온-프레미스 네트워크 또는 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 게이트웨이는 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 
 
-![데이터 관리 게이트웨이 채널](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png" alt-text="데이터 관리 게이트웨이 채널":::
 
 **명령 채널** 은 Data Factory의 데이터 이동 서비스와 데이터 관리 게이트웨이 간의 통신을 허용합니다. 통신에는 활동과 관련된 정보가 들어 있습니다. 데이터 채널은 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터를 전송하는 데 사용됩니다.    
 
@@ -100,7 +101,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 #### <a name="click-once-credentials-manager-app"></a>클릭 한 번 자격 증명 관리자 앱
 파이프라인을 제작할 때 Azure Portal/복사 마법사에서 클릭 한번 기반의 자격 증명 관리자 앱을 시작할 수 있습니다. 이 애플리케이션은 자격 증명이 일반 텍스트로 전송되지 않도록 합니다. 기본적으로 보안 통신을 위해 게이트웨이가 있는 시스템에서 **8050** 포트를 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
   
-![게이트웨이용 HTTPS 포트](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/https-port-for-gateway.png" alt-text="게이트웨이용 HTTPS 포트":::
 
 현재 Data Management Gateway는 단일 **인증서** 를 사용합니다. 이 인증서는 게이트웨이 설치 중 작성됩니다(2016년 11월 이후에 작성된 Data Management Gateway 및 2.4.xxxx.x 이상 버전에 적용됨). 이 인증서를 자신의 SSL/TLS 인증서로 바꿀 수 있습니다. 이 인증서는 일회용 신임 관리자 애플리케이션에서 데이터 저장소 자격 증명을 설정하기 위해 게이트웨이 시스템에 안전하게 연결하는 데 사용됩니다. 게이트웨이가 있는 컴퓨터에서 Windows [DPAPI](/previous-versions/ms995355(v=msdn.10))를 사용하여 데이터 저장소 자격 증명을 안전하게 온-프레미스에 저장합니다. 
 
@@ -132,11 +133,11 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 **ExpressRoute:**
  
-![게이트웨이와 함께 ExpressRoute 사용](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-factory-data-movement-security-considerations/express-route-for-gateway.png" alt-text="게이트웨이와 함께 ExpressRoute 사용"::: 
 
 **IPSec VPN:**
 
-![게이트웨이가 있는 IPSec VPN](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="게이트웨이가 있는 IPSec VPN":::
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>방화벽 구성 및 게이트웨이의 IP 주소 필터링
 
@@ -162,7 +163,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 
-![게이트웨이 포트 요구 사항](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/gateway-port-requirements.png" alt-text="게이트웨이 포트 요구 사항":::
 
 #### <a name="ip-configurationsfiltering-in-data-store"></a>데이터 저장소의 IP 구성/필터링
 클라우드의 일부 데이터 저장소에도 액세스하는 머신의 IP 주소를 승인해야 합니다. 게이트웨이 머신의 IP 주소가 방화벽에 올바르게 승인되거나/구성되어 있는지 확인합니다.

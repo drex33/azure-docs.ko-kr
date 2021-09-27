@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: f0242840e856a1ab78f6f6c5b89db3794ee206b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6bb70ae35378934557281d83c815c763285c4e56
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528311"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806403"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용하여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -66,7 +66,7 @@ Data Factory 네이티브 통합 런타임 모드의 단일 복사 작업 실행
 
 이 이미지는 공용 인터넷을 통한 데이터 마이그레이션을 보여줍니다.
 
-![공용 네트워크를 통해 데이터를 마이그레이션하기 위한 솔루션 아키텍처를 보여주는 다이어그램](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png" alt-text="공용 네트워크를 통해 데이터를 마이그레이션하기 위한 솔루션 아키텍처를 보여주는 다이어그램":::
 
 - 이 아키텍처에서 데이터는 공용 인터넷을 통해 HTTPS를 사용하여 안전하게 전송됩니다. 
 - 공용 네트워크 환경에서 Data Factory DistCp 모드를 사용하는 것이 좋습니다. 기존의 강력한 클러스터를 활용하면 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 스케줄링 및 통합 모니터링 경험의 이점을 얻을 수 있습니다.
@@ -75,7 +75,7 @@ Data Factory 네이티브 통합 런타임 모드의 단일 복사 작업 실행
 
 이 이미지는 프라이빗 링크를 통해 데이터를 마이그레이션하는 것을 보여줍니다. 
 
-![프라이빗 네트워크를 통해 데이터를 마이그레이션하기 위한 솔루션 아키텍처를 보여주는 다이어그램](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png" alt-text="프라이빗 네트워크를 통해 데이터를 마이그레이션하기 위한 솔루션 아키텍처를 보여주는 다이어그램":::
 
 - 이 아키텍처에서 데이터는 Azure ExpressRoute를 통한 개인 피어링 링크를 통해 마이그레이션됩니다. 데이터는 공용 인터넷을 통과하지 않습니다.
 - DistCp 도구는 Azure Storage 가상 네트워크 엔드포인트를 사용하는 ExpressRoute 개인 피어링을 지원하지 않습니다. 통합 런타임을 통해 Data Factory의 기본 기능을 사용하여 데이터를 마이그레이션하는 것이 좋습니다.
@@ -117,7 +117,7 @@ HDFS에 많은 파일이 있는 경우 초기 파일 검색은 필터 조건과 
 
 HDFS에서 Azure Blob 스토리지로 데이터를 마이그레이션하는 경우 다음 파이프라인을 고려하세요. 
 
-![가격 책정 파이프라인을 보여주는 다이어그램](media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png" alt-text="가격 책정 파이프라인을 보여주는 다이어그램":::
 
 다음 정보를 가정하겠습니다. 
 
@@ -130,7 +130,7 @@ HDFS에서 Azure Blob 스토리지로 데이터를 마이그레이션하는 경�
 
 다음은 가정에 따라 예상되는 가격입니다. 
 
-![가격 책정 계산을 보여주는 표](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png" alt-text="가격 책정 계산을 보여주는 표":::
 
 > [!NOTE]
 > 가상의 가격 책정 예제입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라집니다.

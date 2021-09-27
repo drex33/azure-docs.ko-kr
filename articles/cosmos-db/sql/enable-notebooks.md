@@ -5,20 +5,22 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 09/24/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: ae854f35326be99c0b6e1ac88db9c56fba865787
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 03a493807b0f7eb0f6e1f08794a53b18b3a7dbe4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117031"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060520"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대하여 Notebook을 사용하도록 설정하기(미리 보기)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
+> 현재 노트북 기능을 일시적으로 사용할 수 없습니다. Azure Cosmos DB 팀이 수정 작업을 수행 하 고 있습니다.  
+>
 > Azure Cosmos DB의 기본 제공 Notebook은 현재 [29개 지역](#supported-regions)에서 사용할 수 있습니다. Notebook을 사용하려면 [새 Cosmos 계정을 생성](#create-a-new-cosmos-account)하거나 해당 지역 중 하나에서 [기존 계정에 Notebook을 사용하도록 설정](#enable-notebooks-in-an-existing-cosmos-account)하세요. 
 
 Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal에서 데이터를 분석하고 시각화할 수 있습니다. 이 문서에서는 Azure Cosmos DB 계정에 대해 이 기능을 사용하도록 설정하는 방법을 설명합니다.

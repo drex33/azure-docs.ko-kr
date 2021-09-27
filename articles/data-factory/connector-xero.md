@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory를 사용하여 Xero에서 데이터 복사
+title: Xero에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 Xero에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Xero에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c95efb768dc66dd35a88d0cd57d37e4d7e43ce3c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 17b92068145ac07833f7e73cc4d694a89f39ad7f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779847"
 ---
-# <a name="copy-data-from-xero-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사
+# <a name="copy-data-from-xero-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Xero에서 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Xero에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 Xero에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -48,7 +48,7 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -71,17 +71,17 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 다음은 Xero 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Xero** 로 설정해야 합니다. | 예 |
 | connectionProperties | Xero에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
 | ***`connectionProperties`*** 의 하위 속성: | | |
 | 호스트 | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
 | authenticationType | 허용되는 값은 `OAuth_2.0`와 `OAuth_1.0`입니다. | 예 |
-| consumerKey | OAuth 2.0에 대해 Xero 애플리케이션의 **클라이언트 ID** 를 지정합니다.<br>OAuth 1.0에 대해 Xero 애플리케이션에 연결된 소비자 키를 지정합니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| privateKey | OAuth 2.0에 대해 Xero 애플리케이션에 대한 **클라이언트 비밀** 을 지정합니다.<br>OAuth 1.0에 대해 Xero 프라이빗 애플리케이션용으로 생성된 .pem 파일의 프라이빗 키를 지정합니다. [퍼블릭/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성** 하기 위해 `openssl genrsa -out privatekey.pem 512`을 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| consumerKey | OAuth 2.0에 대해 Xero 애플리케이션의 **클라이언트 ID** 를 지정합니다.<br>OAuth 1.0에 대해 Xero 애플리케이션에 연결된 소비자 키를 지정합니다.<br>이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| privateKey | OAuth 2.0에 대해 Xero 애플리케이션에 대한 **클라이언트 비밀** 을 지정합니다.<br>OAuth 1.0에 대해 Xero 프라이빗 애플리케이션용으로 생성된 .pem 파일의 프라이빗 키를 지정합니다. [퍼블릭/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성** 하기 위해 `openssl genrsa -out privatekey.pem 512`을 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br>이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenantId | Xero 애플리케이션과 연결된 테넌트 ID입니다. OAuth 2.0 인증에 적용됩니다.<br>[액세스 권한이 부여된 테넌트 확인 섹션](https://developer.xero.com/documentation/oauth2/auth-flow)에서 테넌트 ID를 가져오는 방법에 대해 알아보기. | 예(OAuth 2.0 인증의 경우) |
-| refreshToken | OAuth 2.0 인증에 적용됩니다.<br/>OAuth 2.0 새로 고침 토큰은 Xero 애플리케이션과 연결되며, 액세스 토큰을 새로 고치는 데 사용됩니다. 액세스 토큰은 30분 후에 만료됩니다. [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서는 Xero 권한 부여 흐름이 작동하는 방법 및 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다. 새로 고침 토큰을 가져오려면, [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청해야 합니다. <br/>**인식 제한**: Xero는 액세스 토큰 새로 고침에 사용된 후 새로 고침 토큰을 다시 설정한다는 점을 참고합니다. 조작 가능한 워크로드의 경우, 각 복사 작업을 실행하기 전에 ADF에서 사용할 유효한 새로 고침 토큰을 설정해야 합니다.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예(OAuth 2.0 인증의 경우) |
+| refreshToken | OAuth 2.0 인증에 적용됩니다.<br/>OAuth 2.0 새로 고침 토큰은 Xero 애플리케이션과 연결되며, 액세스 토큰을 새로 고치는 데 사용됩니다. 액세스 토큰은 30분 후에 만료됩니다. [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서는 Xero 권한 부여 흐름이 작동하는 방법 및 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다. 새로 고침 토큰을 가져오려면, [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청해야 합니다. <br/>**인식 제한**: Xero는 액세스 토큰 새로 고침에 사용된 후 새로 고침 토큰을 다시 설정한다는 점을 참고합니다. 운영 워크로드의 경우 각 복사 작업을 실행하기 전에 서비스에서 사용할 유효한 새로 고침 토큰을 설정해야 합니다.<br/>이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예(OAuth 2.0 인증의 경우) |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통한 연결 시, 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |
@@ -161,7 +161,7 @@ Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니
 
 Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **XeroObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **XeroObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |

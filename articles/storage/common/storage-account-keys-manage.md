@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 600c651601e4281b717c1c8fa7808f3663be4af6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093946"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664754"
 ---
 # <a name="manage-storage-account-access-keys"></a>스토리지 계정 액세스 키 관리
 
@@ -57,7 +57,7 @@ $storageAccountKey = `
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 계정 액세스 키를 나열하려면 다음 예제와 같이 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 
+Azure CLI를 사용하여 계정 액세스 키를 나열하려면 다음 예제와 같이 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account keys list \
@@ -97,7 +97,7 @@ Azure Portal을 사용하여 키 만료 정책을 설정하는 기능은 아직 
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-키 만료 정책을 생성하려면 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 명령을 사용하고 `-KeyExpirationPeriodInDay` 매개 변수를 순환하기 전에 액세스 키를 활성화할 수 있는 일 수로 설정합니다. 
+키 만료 정책을 생성하려면 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 명령을 사용하고 `-KeyExpirationPeriodInDay` 매개 변수를 순환하기 전에 액세스 키를 활성화할 수 있는 일 수로 설정합니다.
 
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
@@ -107,32 +107,31 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
 > [!TIP]
 > [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 명령의 `-KeyExpirationPeriodInDay` 매개 변수를 설정하여 스토리지 계정을 만들 때 키 만료 정책을 설정할 수도 있습니다.
 
-정책이 적용되었는지 확인하려면, 이전 명령에서 `$account` 변수로 반환된 [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount)의 `KeyPolicy` 속성을 사용합니다. 
-  
+정책이 적용되었는지 확인하려면, 이전 명령에서 `$account` 변수로 반환된 [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount)의 `KeyPolicy` 속성을 사용합니다.
+
 ```powershell
 $account.KeyPolicy
-``` 
+```
 
 키 만료 기간이 콘솔 출력에 나타납니다.
 
 > [!div class="mx-imgBorder"]
 > ![액세스 키 만료 기간](./media/storage-account-keys-manage/key-policy-powershell.png)
 
-만료 기간보다 오랫동안 활성 상태인 경우, 기존 키를 순환할 수 있습니다. 키를 만든 시기를 확인하려면, `KeyCreationTime` 속성을 사용합니다. 
-  
+만료 기간보다 오랫동안 활성 상태인 경우, 기존 키를 순환할 수 있습니다. 키를 만든 시기를 확인하려면, `KeyCreationTime` 속성을 사용합니다.
+
 ```powershell
 $account.KeyCreationTime
-``` 
+```
 
 두 액세스 키에 대한 액세스 키 생성 시간이 콘솔 출력에 표시됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![액세스 키 생성 시간](./media/storage-account-keys-manage/key-creation-time-powershell.png)
 
-
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-기존 스토리지 계정에서 키 만료 정책을 생성하려면, [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 사용하고 `--key-exp-days` 매개 변수를 순환하기 전에 액세스 키를 활성화할 수 있는 일 수로 설정합니다. 
+기존 스토리지 계정에서 키 만료 정책을 생성하려면, [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 사용하고 `--key-exp-days` 매개 변수를 순환하기 전에 액세스 키를 활성화할 수 있는 일 수로 설정합니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -144,7 +143,7 @@ az storage account update \
 > [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령의 `-KeyExpirationPeriodInDay` 매개 변수를 설정하여 스토리지 계정을 만들 때 키 만료 정책을 설정할 수도 있습니다.
 
 정책이 적용되었는지 확인하려면, [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 호출하고 `-query` 매개 변수에 `{KeyPolicy:keyPolicy}` 문자열을 사용합니다.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -162,9 +161,8 @@ az storage account show \
 }
 ```
 
-
 만료 기간보다 오랫동안 활성 상태인 경우, 기존 키를 순환할 수 있습니다. 키가 만들어진 시기를 확인하려면, [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 사용한 다음 query 매개 변수에 `keyCreationTime` 문자열을 사용합니다.
-  
+
 ```azurecli-interactive
 az storage account show \
   -n <storage-account-name> \
@@ -176,22 +174,22 @@ az storage account show \
 
 ### <a name="query-for-policy-violations"></a>정책 위반에 대한 쿼리
 
-[Azure Log Analytics 작업 영역](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics)으로 로그를 보내는 진단 설정을 생성하는 경우, Azure Monitor 로그 쿼리를 사용하여 키가 만료되었는지 여부를 확인할 수 있습니다. 
+[Azure Log Analytics 작업 영역](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics)으로 로그를 보내는 진단 설정을 생성하는 경우, Azure Monitor 로그 쿼리를 사용하여 키가 만료되었는지 여부를 확인할 수 있습니다.
 
 키가 만료되었는지 확인하려면 **로그 검색** 표시줄에 다음 쿼리를 입력합니다.
 
-```Kusto
+```kusto
 StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
 ```
 
 쿼리 만료가 가까운지 확인하는 데 도움이 되는 쿼리를 생성할 수도 있습니다. 다음 쿼리는 이 정보를 제공합니다.
 
-```Kusto
-resources  
-| where type =~ 'microsoft.storage/storageAccounts' 
-| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
-| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
-| project name, days, KeyExpiryStatus  
+```kusto
+resources 
+| where type =~ 'microsoft.storage/storageAccounts'
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
+| project name, days, KeyExpiryStatus  
 ```
 
 ### <a name="rotate-access-keys"></a>액세스 키를 순환
@@ -241,13 +239,13 @@ Azure CLI를 사용하여 스토리지 계정 액세스 키를 회전하는 방�
     ```azurecli-interactive
     az storage account keys renew \
       --resource-group <resource-group> \
-      --account-name <storage-account>
+      --account-name <storage-account> \
       --key primary
     ```
 
 1. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
 
-2. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성하려면 `key1` 대신 `key2`를 키 이름으로 사용합니다.
+2. 같은 방식으로 보조 액세스 키를 다시 생성합니다. 보조 키를 다시 생성하려면 `primary` 대신 `secondary`를 키 이름으로 사용합니다.
 
 ---
 

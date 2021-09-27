@@ -1,29 +1,29 @@
 ---
-title: Azure Data Factory에서 지원되는 파일 형식(레거시)
+title: 지원 되는 파일 형식 (레거시)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 이 항목에서는 Azure Data Factory에서 파일 기반 커넥터가 지원하는 파일 형식 및 압축 코드를 설명합니다.
+description: Azure Data Factory 및 Synapse Analytics에서 파일 기반 커넥터에 의해 지원 되는 파일 형식 및 압축 코덱에 대해 알아봅니다.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: cf1df8645a6b5c7a33305c87732a9c3b108b523d
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c998e64656ed26a3fa42761169c70b81270628dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256642"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792755"
 ---
-# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱(레거시)
+# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-and-synapse-analytics-legacy"></a>Azure Data Factory 및 Synapse Analytics의 지원 되는 파일 형식 및 압축 코덱 (레거시)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *이 문서는 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md)* 커넥터에 적용됩니다.
 
 >[!IMPORTANT]
->Data Factory에서는 새 형식 기반 데이터 세트 모델을 도입했습니다. 자세한 내용은 해당 형식 문서를 참조하세요. <br>- [Avro 형식](format-avro.md)<br>- [이진 형식](format-binary.md)<br>- [구분된 텍스트 형식](format-delimited-text.md)<br>- [JSON 형식](format-json.md)<br>- [ORC 형식](format-orc.md)<br>- [Parquet 형식](format-parquet.md)<br>이 문서에서 설명하는 나머지 구성은 이전 버전과의 호환성을 위해 있는 그대로 계속 지원됩니다. 앞으로는 새 모델을 사용하는 것이 좋습니다. 
+>이 서비스에는 새로운 형식 기반 데이터 집합 모델이 도입 되었습니다. 자세한 내용은 해당 형식 문서를 참조 하세요. <br>- [Avro 형식](format-avro.md)<br>- [이진 형식](format-binary.md)<br>- [구분된 텍스트 형식](format-delimited-text.md)<br>- [JSON 형식](format-json.md)<br>- [ORC 형식](format-orc.md)<br>- [Parquet 형식](format-parquet.md)<br>이 문서에서 설명하는 나머지 구성은 이전 버전과의 호환성을 위해 있는 그대로 계속 지원됩니다. 앞으로는 새 모델을 사용하는 것이 좋습니다. 
 
 ## <a name="text-format-legacy"></a><a name="text-format"></a> 텍스트 형식(레거시)
 
@@ -40,7 +40,7 @@ ms.locfileid: "123256642"
 | quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |예 |
 | nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |예 |
 | encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](/dotnet/api/system.text.encoding)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **UTF-8** 입니다. |예 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |예 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 집합의 경우 서비스는 첫 번째 행을 헤더로 읽습니다. 출력 데이터 집합의 경우 서비스는 첫 번째 행을 헤더로 작성 합니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |예 |
 | skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |예 |
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. |**True(기본값)**<br/>False |예 |
 
@@ -347,7 +347,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 **다음 사항에 유의하세요.**
 
-* `structure` 및 `jsonPathDefinition`이 Data Factory 데이터 세트에 정의되지 않은 경우 복사 작업은 첫 번째 개체에서 스키마를 검색하고 전체 개체를 평면화합니다.
+* `structure`및 `jsonPathDefinition` 가 데이터 집합에 정의 되지 않은 경우 복사 작업은 첫 번째 개체에서 스키마를 검색 하 고 전체 개체를 평면화 합니다.
 * JSON 입력에 배열이 있는 경우 복사 작업은 기본적으로 전체 배열 값을 문자열로 변환합니다. `jsonNodeReference` 및/또는 `jsonPathDefinition`을 사용하여 데이터를 추출하거나 `jsonPathDefinition`에서 지정하지 않고 건너뛸 수 있습니다.
 * 동일한 수준에 중복된 이름이 있는 경우 복사 활동에서는 마지막 이름이 선택됩니다.
 * 속성 이름은 대/소문자를 구분합니다. 이름은 같지만 대/소문자가 다른 두 속성은 별도의 두 속성으로 간주됩니다.
@@ -424,12 +424,12 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 * 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
 * 열 이름에는 공백이 지원되지 않습니다.
-* Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory는 LZO를 제외한 압축 형식의 Parquet 파일에서 데이터 읽기를 지원합니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+* Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. 이 서비스는 LZO를 제외 하 고 이러한 압축 형식으로 Parquet 파일에서 데이터를 읽을 수 있도록 지원 합니다 .이 파일은 메타 데이터의 압축 코덱을 사용 하 여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 서비스는 Parquet 형식의 기본값인 SNAPPY를 선택 합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-자체 호스팅 IR에서 Parquet 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
+자체 호스팅 IR에서 Parquet 파일 serialization/deserialization을 사용하여 실행되는 복사의 경우 서비스는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
@@ -437,15 +437,15 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 >[!TIP]
 >자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
-![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="자체 호스팅 IR에서 JVM 힙 크기 설정":::
 
-예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 ADF는 최소 64MB 및 최대 1G를 사용합니다.
+예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 서비스는 최소 64MB 및 최대 1G를 사용 합니다.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
 
-| Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
+| 중간 서비스 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | 해당 없음 | 해당 없음 |
+| Boolean | 부울 | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -484,21 +484,21 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 * 복합 데이터 형식(구조체, 매핑, 목록, 공용 구조체)은 지원되지 않습니다.
 * 열 이름에는 공백이 지원되지 않습니다.
-* ORC 파일에는 3개의 [압축 관련 옵션](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+* ORC 파일에는 3개의 [압축 관련 옵션](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. 이 서비스는 이러한 압축된 형식으로 ORC 파일에서 데이터를 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 서비스는 ORC의 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-자체 호스팅 IR에서 ORC 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
+ORC 파일 serialization/deserialization을 사용하여 자체 호스팅 IR에서 실행되는 복사의 경우 서비스는 먼저 JRE에 대한 레지스트리를 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 확인하고(없는 경우) OpenJDK에 대한 시스템 변수를 검사하여 Java 런타임을 *`JAVA_HOME`* 찾습니다.
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 파일에 대한 데이터 형식 매핑
 
-| Data Factory 중간 데이터 형식 | ORC 형식 |
+| 중간 서비스 데이터 형식 | ORC 형식 |
 |:--- |:--- |
-| Boolean | Boolean |
+| Boolean | 부울 |
 | SByte | Byte |
 | Byte | Short |
 | Int16 | Short |
@@ -540,7 +540,7 @@ Hive 테이블에서 Avro 형식을 사용하려면 [Apache Hive의 자습서](h
 
 ## <a name="compression-support-legacy"></a><a name="compression-support"></a> 압축 지원(레거시)
 
-Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터를 지원합니다. 입력 데이터 세트에서 `compression` 속성을 지정하는 경우 복사 작업은 원본에서 압축된 데이터를 읽고 압축을 풉니다. 출력 데이터 세트에서 속성을 지정하는 경우 복사 작업은 데이터를 압축하고 싱크에 작성합니다. 다음은 몇 가지 샘플 시나리오입니다.
+이 서비스는 복사하는 동안 데이터 압축/압축 풀기 를 지원합니다. 입력 데이터 세트에서 `compression` 속성을 지정하는 경우 복사 작업은 원본에서 압축된 데이터를 읽고 압축을 풉니다. 출력 데이터 세트에서 속성을 지정하는 경우 복사 작업은 데이터를 압축하고 싱크에 작성합니다. 다음은 몇 가지 샘플 시나리오입니다.
 
 * Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL Database에 결과 데이터를 작성합니다. `compression` `type` 속성을 GZIP으로 설정하여 입력 Azure Blob 데이터 세트를 정의합니다.
 * 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure Blob에 압축된 데이터를 작성합니다. `compression` `type` 속성을 GZip으로 설정하여 출력 Azure Blob 데이터 세트를 정의합니다.
@@ -584,11 +584,11 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
     자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 
 > [!NOTE]
-> 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
+> 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때 서비스는 메타데이터에서 압축 코덱을 검색하고 사용합니다. 이러한 형식의 파일에 쓸 때 서비스는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>지원되는 파일 형식 및 압축 형식
 
-Azure Data Factory의 확장성 기능을 사용하여 지원되지 않는 파일을 변환할 수 있습니다.
+확장성 기능을 사용하여 지원되지 않는 파일을 변환할 수 있습니다.
 두 가지 옵션으로 Azure Functions를 사용하는 것과 Azure Batch를 사용한 사용자 지정 작업이 있습니다.
 
 Azure 함수를 사용하여 [tar 파일의 내용을 추출](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)하는 샘플을 볼 수 있습니다. 자세한 내용은 [Azure Functions 작업](./control-flow-azure-function-activity.md)을 참조하세요.

@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1b21416e06948c9a32831dc23c66c31b62a3ddae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: ad9adb2c9f6b8308aba79f9e9bd1eadbf755760a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307807"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763940"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -63,7 +63,7 @@ SharePoint Online 목록 커넥터는 서비스 주체 인증을 사용하여 Sh
         </AppPermissionRequests>
         ```
 
-        ![SharePoint 권한 부여](media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png)
+        :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission.png" alt-text="SharePoint 권한 부여":::
 
     3. 이 앱에 대해 "신뢰"를 클릭합니다.
 
@@ -79,7 +79,7 @@ SharePoint Online 목록 커넥터는 서비스 주체 인증을 사용하여 Sh
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -134,7 +134,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 이 섹션에서는 SAP 테이블 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource** 로 설정해야 합니다. | 예 |
 | listName | SharePoint Online 목록의 이름입니다. | 예 |
@@ -167,7 +167,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링을 위한 사용자 지정 OData 쿼리 옵션입니다. 예: `"$top=10&$select=Title,Number"`. | 예 |
@@ -234,7 +234,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
 
 **웹 작업** 을 사용하여 인증하고 SPO에서 액세스 토큰을 구한 다음, 이후의 **복사 작업** 에 전달하여 **HTTP 커넥터를 원본** 으로 데이터를 복사함으로써 SharePoint Online에서 파일을 복사할 수 있습니다.
 
-![Sharepoint 파일 복사 흐름](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
+:::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="Sharepoint 파일 복사 흐름":::
 
 1. [필수 구성 요소](#prerequisites) 섹션에 따라 AAD 애플리케이션을 만들고 SharePoint Online에 권한을 부여합니다. 
 

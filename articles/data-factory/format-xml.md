@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory의 XML 포맷
+title: XML 형식
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 이 항목에서는 Azure Data Factory에서 XML 포맷을 처리하는 방법에 대해 설명합니다.
+description: 이 항목에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 XML 형식을 처리 하는 방법에 대해 설명 합니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9ee58b4afc33109ad8c205606e52fd1d76695d30
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 202c2ea7014ea0295fb342b1fc7fabd70d87ac29
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257305"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743555"
 ---
-# <a name="xml-format-in-azure-data-factory"></a>Azure Data Factory의 XML 포맷
+# <a name="xml-format-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인의 XML 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -36,7 +36,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 | nullValue | Null 값의 문자열 표현을 지정합니다.<br/>기본값은 **빈 문자열** 입니다. | 예 |
 | 압축 | 파일 압축을 구성하는 속성 그룹입니다. 작업 실행 중 압축/압축 풀기를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
 | type<br>( *`compression`아래*) | XML 파일을 읽고 쓰는 데 사용되는 압축 코덱입니다. <br>허용되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy** 또는 **lz4** 입니다. 기본값은 압축되지 않습니다.<br>**참고** 현재 복사 작업은 “snappy” & “lz4”을 지원하지 않으며, 매핑 데이터 흐름은 “ZipDeflate”, “TarGzip”, “Tar”를 지원하지 않습니다.<br>**참고** 복사 작업을 통해 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때, 기본적으로 파일은 `<path specified in dataset>/<folder named as source compressed file>/`과 같이 폴더로 추출됩니다. 즉, [복사 작업 원본](#xml-as-source)에서 `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder`를 사용하여 압축된 파일의 이름을 폴더 구조로 유지할지 여부를 제어합니다. | 아니요.  |
-| 수준<br/>( *`compression`아래*) | 압축 비율입니다. <br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
+| 수준<br/>( *`compression` 아래*) | 압축 비율입니다. <br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
 
 다음은 Azure Blob Storage에 대한 XML 데이터 세트의 예입니다.
 
@@ -73,7 +73,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 복사 작업 ***\*원본\**** 섹션에서 지원되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 형식 속성을 **XmlSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **XML 읽기 설정** 표를 참조하세요. | 예       |
@@ -89,8 +89,8 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 | namespacePrefixes | Xml 파일을 구문 분석할 때 필드의 이름을 결정하는 데 사용되는 네임스페이스 URI-접두사 매핑<br/>XML 파일에 네임스페이스 및 네임스페이스가 사용되는 경우 기본적으로 필드 이름은 XML 문서에 있는 것과 동일합니다.<br>이 맵에서 네임스페이스 URI에 대해 정의된 항목이 있는 경우 필드 이름은 `prefix:fieldName` 입니다. | 예 |
 | detectDataType | 정수, 더블 및 부울 데이터 형식의 검색 여부. 허용되는 값은 **true**(기본값), **false** 입니다.| 예 |
 | compressionProperties | 지정된 압축 코덱에 대한 데이터의 압축을 푸는 방법에 대한 속성 그룹입니다. | 예       |
-| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로)  | **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source zip file>/`에 압축을 푼 파일을 씁니다.<br>- **False** 로 설정하면 Data Factory가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
-| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로) | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True(기본값)** 로 설정하면 Data Factory는 `<path specified in dataset>/<folder named as source compressed file>/`에 압축을 푼 파일을 씁니다. <br>- **False** 로 설정하면 Data Factory가 압축 해제한 파일을 직접 `<path specified in dataset>`에 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
+| preserveZipFileNameAsFolder<br>( *`compressionProperties`->`type`아래 `ZipDeflateReadSettings`* 으로)  | **ZipDeflate** 압축을 사용하여 입력 데이터 세트를 구성할 때 적용됩니다. 복사 중에 원본 zip 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>/<folder named as source zip file>/`에 씁니다.<br>- **false** 로 설정하면, 서비스가 압축을 푼 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 zip 파일에 중복된 파일 이름이 없는지 확인합니다.  | 예 |
+| preserveCompressionFileNameAsFolder<br>( *`compressionProperties`->`type` 아래 `TarGZipReadSettings` 또는 `TarReadSettings`* 으로) | 입력 데이터 세트가 **TarGzip**/**Tar** 압축을 사용하여 구성될 때 적용됩니다. 복사 중에 원본 압축 파일 이름을 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **true(기본값)** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>/<folder named as source compressed file>/`에 씁니다. <br>- **false** 로 설정하면, 서비스가 압축 해제한 파일을 `<path specified in dataset>`에 직접 씁니다. 레이싱 또는 예기치 않은 동작을 방지하기 위해 다른 원본 파일에 중복된 파일 이름이 없는지 확인합니다. | 예 |
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
@@ -100,7 +100,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 다음 표에서는 XML 원본에서 지원하는 속성을 나열합니다. 해당 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다. 
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 예 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 예 | String | partitionRootPath |

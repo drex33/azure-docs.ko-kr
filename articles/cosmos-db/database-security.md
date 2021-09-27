@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ms.author: mjbrown
-ms.openlocfilehash: 53e6ef24ba7f9df42ce15d62d11cf4f455825caa
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 818c380d1ec2b3d7095eccec94b8e6f324cb45d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439455"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615013"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,7 +99,7 @@ ms.locfileid: "123439455"
 
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> 키 순환 및 다시 생성
 
-키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다.
+키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다. 키 업데이트 및 키 다시 세대에 대한 계정을 모니터링하려면 [메트릭 및 경고로 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조하세요.
 
 # <a name="sql-api"></a>[SQL API](#tab/sql-api)
 
@@ -272,6 +272,21 @@ ms.locfileid: "123439455"
     :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="보조 키를 다시 생성하는 방법을 보여 주는 Azure Portal 스크린샷" border="true":::
 
 ---
+
+## <a name="track-the-status-of-key-regeneration"></a>키 다시 재생성 상태 추적
+
+키를 회전하거나 다시 생성한 후에는 활동 로그에서 키를 추적할 수 있습니다. 다음 단계를 사용하여 상태를 추적합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.
+
+1. 활동 **로그** 창을 열고 다음 필터를 설정합니다.
+
+   * 리소스 **유형을** **Azure Cosmos DB 계정으로 설정합니다.**
+   * 키를 **회전하도록** **작업을** 설정합니다.
+
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="활동 로그에서 키 다시 세대의 상태" border="true":::
+
+1. 키 다시 재생성 이벤트와 해당 상태, 작업이 발생한 시간, 키 다시 재생성을 시작한 사용자의 세부 정보가 표시됩니다. 키 생성 작업은 **수락됨** 상태로 시작된 다음, **시작됨으로 변경된** 다음, 작업이 완료되면 **성공으로** 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

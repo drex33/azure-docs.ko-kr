@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e289ad866ba53de761077f22b27ef4ff763451ff
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: ccf2f423137e4732b2785f23256577c92eee07ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468556"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595658"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -46,7 +46,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 AzCopy 디렉터리를 경로에 추가하지 않도록 선택하는 경우 디렉터리를 AzCopy 실행 파일의 위치로 변경하고 Windows PowerShell 명령 프롬프트에서 `azcopy` 또는 `.\azcopy`를 입력해야 합니다.
 
-Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. AzCopy를 사용하여 의미 있는 작업을 수행할 수 있으려면 먼저 스토리지 서비스에 권한 부여 자격 증명을 제공하는 방법을 결정해야 합니다. 
+Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. AzCopy를 사용하여 의미 있는 작업을 수행할 수 있으려면 먼저 스토리지 서비스에 권한 부여 자격 증명을 제공하는 방법을 결정해야 합니다.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -64,7 +64,7 @@ AD(Azure Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용�
 
 #### <a name="option-1-use-azure-active-directory"></a>옵션 1: Azure Active Directory 사용
 
-이 옵션은 Blob Storage에만 사용할 수 있습니다. Azure Active Directory를 사용하면 각 명령에 SAS 토큰을 추가할 필요 없이 자격 증명을 한 번 제공할 수 있습니다.  
+이 옵션은 Blob Storage에만 사용할 수 있습니다. Azure Active Directory를 사용하면 각 명령에 SAS 토큰을 추가할 필요 없이 자격 증명을 한 번 제공할 수 있습니다.
 
 > [!NOTE]
 > 현재 릴리스에서는 스토리지 계정 간에 Blob을 복사하려는 경우 각 원본 URL에 SAS 토큰을 추가해야 합니다. SAS 토큰은 대상 URL에서만 생략할 수 있습니다. 예제는 [스토리지 계정 간에 Blob 복사](#transfer-data)를 참조하세요.
@@ -84,7 +84,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 SAS 토큰 및 SAS 토큰을 얻는 방법에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](./storage-sas-overview.md)을 참조하세요.
 
 > [!NOTE]
-> 스토리지 계정의 [보안 전송 필요](storage-require-secure-transfer.md) 설정에 따라 스토리지 계정에 대한 연결이 TLS(전송 계층 보안)로 보호되는지 여부가 결정 됩니다. 이 설정은 기본적으로 사용하도록 설정되어 있습니다.   
+> 스토리지 계정의 [보안 전송 필요](storage-require-secure-transfer.md) 설정에 따라 스토리지 계정에 대한 연결이 TLS(전송 계층 보안)로 보호되는지 여부가 결정 됩니다. 이 설정은 기본적으로 사용하도록 설정되어 있습니다.
 
 <a id="transfer-data"></a>
 
@@ -116,7 +116,7 @@ SAS 토큰 및 SAS 토큰을 얻는 방법에 대한 자세한 내용은 [SAS(�
 
 ### <a name="list-of-commands"></a>명령 목록
 
-다음 표에는 모든 AzCopy v10 명령이 나열되어 있습니다. 각 명령은 참조 문서에 연결됩니다. 
+다음 표에는 모든 AzCopy v10 명령이 나열되어 있습니다. 각 명령은 참조 문서에 연결됩니다.
 
 |명령|Description|
 |---|---|
@@ -140,7 +140,7 @@ SAS 토큰 및 SAS 토큰을 얻는 방법에 대한 자세한 내용은 [SAS(�
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|원본 위치를 대상 위치로 복제합니다.|
 
 > [!NOTE]
-> AzCopy에는 파일의 이름을 바꾸는 명령이 없습니다. 
+> AzCopy에는 파일의 이름을 바꾸는 명령이 없습니다.
 
 ## <a name="use-in-a-script"></a>스크립트에서 사용
 

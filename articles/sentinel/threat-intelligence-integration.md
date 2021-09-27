@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: c231840b6255ef693353d83323710cb3243efaef
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 82a2dca4c38a8d8602bf41ee36760e846edb5d78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214307"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774750"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Azure Sentinel에서 위협 인텔리전스 통합
 
@@ -75,7 +75,7 @@ TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라
 
 ### <a name="agari-phishing-defense-and-brand-protection"></a>Agari 피싱 방어 및 브랜드 보호
 
-- [Agari 피싱 방어 및 브랜드 보호](https://agari.com/products/phishing-defense/)에 연결하려면 Azure Sentinel에서 기본 제공하는 [Agari 데이터 커넥터](connect-agari-phishing-defense.md)를 사용합니다.
+- [Agari 피싱 방어 및 브랜드 보호](https://agari.com/products/phishing-defense/)에 연결하려면 Azure Sentinel에서 기본 제공하는 [Agari 데이터 커넥터](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview)를 사용합니다.
 
 ### <a name="anomali-threatstream"></a>Anomali ThreatStream
 

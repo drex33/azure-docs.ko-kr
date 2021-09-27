@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/24/2021
+ms.date: 09/12/2021
 tags: azure-synpase
-ms.openlocfilehash: 869498111df151f78cb0a1d9ad7ede1dd84aaf42
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: 8a3740a228aa03a23f3584c3412b8451ebacc35e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582624"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812406"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -52,6 +52,13 @@ SQL Database 구성 창의 **보안** 에서 **동적 데이터 마스킹** 블�
 
 DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가** 를 클릭한 다음 **저장** 을 클릭하기만 하면 됩니다.
 
+## <a name="manage-dynamic-data-masking-using-t-sql"></a>T-SQL 사용하여 동적 데이터 마스킹 관리
+
+- 동적 데이터 마스크를 만들려면 [Dynamic Data 마스크 만들기를 참조하세요.](/sql/relational-databases/security/dynamic-data-masking#creating-a-dynamic-data-mask)
+- 기존 열에서 마스크를 추가하거나 편집하려면 기존 [열에서 마스크 추가 또는 편집을 참조하세요.](/sql/relational-databases/security/dynamic-data-masking#adding-or-editing-a-mask-on-an-existing-column)
+- 마스킹되지 않은 데이터를 볼 수 있는 권한을 부여하려면 [마스킹되지 않은 데이터를 볼 수 있는 권한 부여를 참조하세요.](/sql/relational-databases/security/dynamic-data-masking#granting-permissions-to-view-unmasked-data)
+- 동적 데이터 마스크를 삭제하려면 [Dynamic Data 마스크 삭제를 참조하세요.](/sql/relational-databases/security/dynamic-data-masking#dropping-a-dynamic-data-mask)
+
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
 ### <a name="data-masking-policies"></a>데이터 마스킹 정책
@@ -82,7 +89,19 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 
 ## <a name="permissions"></a>사용 권한
 
-동적 데이터 마스킹은 Azure SQL Database 관리자, 서버 관리자 또는 RBAC(역할 기반 액세스 제어) [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할로 구성할 수 있습니다.
+동적 데이터 마스킹을 구성하는 기본 제공 역할은 다음과 같습니다.
+- [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager)
+- [SQL DB 기여자](../../role-based-access-control/built-in-roles.md#sql-db-contributor)
+- [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor)
+
+동적 데이터 마스킹을 사용하는 데 필요한 작업은 다음과 같습니다.
+
+읽기/쓰기:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/* 읽기:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/read Write:
+-   Microsoft.Sql/servers/databases/dataMaskingPolicies/write
+
+T-SQL 명령으로 동적 데이터 마스킹을 사용할 때의 사용 권한에 대한 자세한 내용은 [사용 권한을 참조하세요.](/sql/relational-databases/security/dynamic-data-masking#permissions)
 
 ## <a name="see-also"></a>참고 항목
 

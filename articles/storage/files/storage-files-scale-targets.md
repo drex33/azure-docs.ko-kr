@@ -4,15 +4,15 @@ description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 09/16/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 871cb72c163472dbe3409738199e710300c5057d
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867330"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651544"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -100,7 +100,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 | 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 **(재귀적이지 않음)** | 500만 개 개체 | 예 |
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 64KiB | 예 |
 | 파일 크기 | 100GiB | 아니요 |
-| 계층화할 파일에 대한 최소 파일 크기 | V9 이상: 파일 시스템 클러스터 크기를 기준으로 합니다(이중 파일 시스템 클러스터 크기). 예를 들어 파일 시스템 클러스터 크기가 4KiB이면 최소 파일 크기는 8KiB입니다.<br> V8 이하: 64KiB  | 예 |
+| 계층화할 파일에 대한 최소 파일 크기 | 파일 시스템 클러스터 크기를 기준으로 합니다 (이중 파일 시스템 클러스터 크기). 예를 들어 파일 시스템 클러스터 크기가 4KiB이면 최소 파일 크기는 8KiB입니다. | 예 |
 
 > [!Note]  
 > Azure 파일 동기화 엔드포인트는 Azure 파일 공유의 크기로 확장할 수 있습니다. Azure 파일 공유 크기 제한에 도달하면 동기화가 작동할 수 없습니다.

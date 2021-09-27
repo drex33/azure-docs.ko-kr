@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: afd401e71f7f369987ca165c66f5a5b33e55cb24
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 970dc9c2b69056fbb85f120ad141fbba73d18471
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314026"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811917"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Databricks Delta Lake 간에 데이터 복사
 
@@ -79,7 +79,7 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -282,7 +282,7 @@ Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업
 
 Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | 복사 작업 싱크의 type 속성을 **AzureDatabricksDeltaLakeSink** 로 설정합니다. | 예      |
 | preCopyScript | 각 실행 시 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업의 SQL 쿼리를 지정합니다. 예: `VACUUM eventsTable DRY RUN` 이 속성을 사용하여 미리 로드된 데이터를 정리하거나 자르기 테이블 또는 Vacuum문을 추가할 수 있습니다. | 예       |

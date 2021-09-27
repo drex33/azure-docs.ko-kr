@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 할당을 관리하는 방법
 description: 공식 Azure Blueprints PowerShell 모듈인 Az.Blueprint를 사용하여 청사진 할당을 관리하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 943f2bcceef76a2b867b7459f88f6d5041f38ef5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 0ce2132fe9d43ef0d5df1a4e0eec3a80a3a5c5ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538642"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612817"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용하여 할당을 관리하는 방법
 
@@ -16,7 +16,7 @@ ms.locfileid: "122538642"
 
 ## <a name="add-the-azblueprint-module"></a>Az.Blueprint 모듈을 추가합니다.
 
-Azure PowerShell을 사용하도록 설정하여 청사진 할당을 관리하려면 해당 모듈을 추가해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
+Azure PowerShell을 사용하도록 설정하여 청사진 할당을 관리하려면 해당 모듈을 추가해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [Azure PowerShell Docker 이미지](/powershell/azure/azureps-in-docker)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
 
 ### <a name="base-requirements"></a>기본 요구 사항
 

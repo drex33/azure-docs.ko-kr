@@ -4,12 +4,12 @@ description: Apache Storm 워크로드를 Spark Streaming 또는 Spark Structure
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: c4f4156f80fac0c9e5eaae360aa937544d88aa9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868769"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656800"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
 
@@ -35,12 +35,12 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 |---|---|---|---|
 |**이벤트 처리 보장**|최소 한 번 <br> 정확히 한 번(Trident) |[정확히 한 번](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[정확히 한 번](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**처리 모델**|실시간 <br> Micro Batch(Trident) |Micro Batch |Micro Batch |
-|**이벤트 시간 지원**|[예](https://storm.apache.org/releases/2.0.0/Windowing.html)|예|[예](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
+|**이벤트 시간 지원**|[예](https://storm.apache.org/releases/2.0.0/Windowing.html)|아니요|[예](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**언어**|Java 등|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark Streaming vs Spark Structured Streaming
 
-Spark Structured Streaming은 Spark Streaming(DStreams)을 대체합니다. Structured Streaming은 향상 및 유지 관리를 계속해서 받고 있지만, DStreams은 유지 관리 모드에서만 그러합니다. **참고: 이 점을 강조하려면 링크가 필요** Structured Streaming은 즉시 지원되는 원본 및 싱크에 대한 DStreams처럼 많은 기능을 지니지 않으므로, 요구 사항을 평가하여 적절한 Spark Stream 처리 옵션을 선택해야 합니다.
+Spark Structured Streaming은 Spark Streaming(DStreams)을 대체합니다. Structured Streaming은 향상 및 유지 관리를 계속해서 받고 있지만, DStreams은 유지 관리 모드에서만 그러합니다. Structured Streaming은 즉시 지원되는 원본 및 싱크에 대한 DStreams처럼 많은 기능을 지니지 않으므로, 요구 사항을 평가하여 적절한 Spark Stream 처리 옵션을 선택해야 합니다.
 
 ## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Streaming(단일 이벤트) 처리 vs Micro-Batch 처리
 

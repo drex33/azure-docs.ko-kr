@@ -1,15 +1,16 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b84292fb0dedb1facf30fcdf54ed2d569b3c054
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: c64893c136e607de622abd053fbd86bbc2f9229e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592352"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **Azure Storage 연결된 서비스** 에서 **계정 키** 를 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있으며, 이렇게 하면 데이터 팩터리에 Azure Storage에 대한 전역 액세스가 제공됩니다. 다음 테이블은 Azure Storage 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.

@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 552d53ff0257105ff61397e281504c5270512319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f03426ab734101657ad5609fcd7782f7c75a6f9b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128553206"
 ---
 # <a name="use-powershell-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 PowerShell을 사용하여 디렉터리 및 파일 관리
 
@@ -27,20 +27,20 @@ ms.locfileid: "103573866"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독 자세한 내용은 [Azure 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)를 참조 하세요.
 
-- 계층 구조 네임스페이스가 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
+- 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
-- .NET Framework 4.7.2 이상이 설치되어 있습니다. [.NET Framework 다운로드](https://dotnet.microsoft.com/download/dotnet-framework)를 참조하세요.
+- .NET Framework 4.7.2 이상이 설치되어 있습니다. 자세한 내용은 [.NET Framework 다운로드](https://dotnet.microsoft.com/download/dotnet-framework)를 참조 하세요.
 
 - PowerShell 버전 `5.1` 이상
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
-1. 다음 명령을 사용하여 설치된 PowerShell 버전이 `5.1` 이상인지 확인합니다.    
+1. 다음 명령을 사용하여 설치된 PowerShell 버전이 `5.1` 이상인지 확인합니다.
 
    ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
+   echo $PSVersionTable.PSVersion.ToString()
    ```
 
    PowerShell 버전을 업그레이드하려면 [기존 Windows PowerShell 업그레이드](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)를 참조하세요.
@@ -55,7 +55,7 @@ ms.locfileid: "103573866"
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
-명령으로 스토리지 계정에 대해 권한 부여를 획득하는 방법을 선택합니다. 
+명령으로 스토리지 계정에 대해 권한 부여를 획득하는 방법을 선택합니다.
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-azure-ad"></a>옵션 1: Azure AD(Azure Active Directory)를 사용하여 권한 부여 획득
 
@@ -67,11 +67,11 @@ ms.locfileid: "103573866"
    Connect-AzAccount
    ```
 
-2. ID가 둘 이상의 구독에 연결되어 있으면 활성 구독을 디렉터리를 만들고 관리할 스토리지 계정의 구독으로 설정합니다. 이 예제에서는 `<subscription-id>` 자리 표시자 값을 해당 구독의 ID로 바꿉니다.
+2. ID가 둘 이상의 구독에 연결되어 있으면 활성 구독을 디렉터리를 만들고 관리하려는 스토리지 계정의 구독으로 설정합니다. 이 예제에서는 `<subscription-id>` 자리 표시자 값을 해당 구독의 ID로 바꿉니다.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
-   ``` 
+   ```
 
 3. 스토리지 계정 컨텍스트를 가져옵니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "103573866"
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>옵션 2: 스토리지 계정 키를 사용하여 권한 부여 획득
 
-이 방법에서는 시스템이 Azure RBAC 또는 ACL 권한을 확인하지 않습니다. 계정 키를 사용하여 스토리지 계정 컨텍스트를 가져옵니다.
+이 접근 방법에서는 시스템이 Azure RBAC 또는 ACL 권한을 확인하지 않습니다. 계정 키를 사용하여 스토리지 계정 컨텍스트를 가져옵니다.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
@@ -89,7 +89,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -Storag
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 파일의 파일 시스템 역할을 합니다. `New-AzStorageContainer` cmdlet을 사용하여 만들 수 있습니다. 
+컨테이너는 파일의 파일 시스템 역할을 합니다. `New-AzStorageContainer` cmdlet을 사용하여 만들 수 있습니다.
 
 다음 예제에서는 `my-file-system`이라는 컨테이너를 만듭니다.
 
@@ -100,7 +100,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-`New-AzDataLakeGen2Item` cmdlet을 사용하여 디렉터리 참조를 만듭니다. 
+`New-AzDataLakeGen2Item` cmdlet을 사용하여 디렉터리 참조를 만듭니다.
 
 이 예제에서는 `my-directory`라는 디렉터리를 컨테이너에 추가합니다.
 
@@ -110,7 +110,7 @@ $dirname = "my-directory/"
 New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory
 ```
 
-이 예제에서는 동일한 디렉터리를 추가하지만 사용 권한, umask, 속성 값 및 메타데이터 값도 설정합니다. 
+이 예제에서는 동일한 디렉터리를 추가하지만 사용 권한, umask, 속성 값 및 메타데이터 값도 설정합니다.
 
 ```powershell
 $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Directory -Permission rwxrwxrwx -Umask ---rwx---  -Property @{"ContentEncoding" = "UDF8"; "CacheControl" = "READ"} -Metadata  @{"tag1" = "value1"; "tag2" = "value2" }
@@ -151,7 +151,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > 메시지를 표시하지 않고 덮어쓰려면 `-Force` 매개 변수를 사용합니다.
 
-이 예제에서는 `my-directory` 디렉터리를 `my-subdirectory` 디렉터리의 하위 디렉터리인 `my-directory-2`로 이동합니다. 
+이 예제에서는 `my-directory` 디렉터리를 `my-subdirectory` 디렉터리의 하위 디렉터리인 `my-directory-2`로 이동합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -169,7 +169,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $dirname
 ```
 
 `-Force` 매개 변수를 사용하여 프롬프트 없이 파일을 제거할 수 있습니다.
@@ -199,7 +199,7 @@ $dirname = "my-directory/"
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-다음 예제에는 디렉터리에 있는 각 항목의 `ACL`, `Permissions`, `Group` 및 `Owner` 속성이 나와 있습니다. `-FetchProperty` 매개 변수는 `ACL` 속성에 대한 값을 가져오는 데 필요합니다. 
+다음 예제에는 디렉터리에 있는 각 항목의 `ACL`, `Permissions`, `Group` 및 `Owner` 속성이 나와 있습니다. `-FetchProperty` 매개 변수는 `ACL` 속성에 대한 값을 가져오는 데 필요합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -218,14 +218,14 @@ $properties.Owner
 
 `New-AzDataLakeGen2Item` cmdlet을 사용하여 디렉터리에 파일을 업로드합니다.
 
-다음 예제에서는 `upload.txt`라는 파일을 `my-directory`라는 디렉터리에 업로드합니다. 
+다음 예제에서는 `upload.txt`라는 파일을 `my-directory`라는 디렉터리에 업로드합니다.
 
 ```powershell
 $localSrcFile =  "upload.txt"
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $destPath = $dirname + (Get-Item $localSrcFile).Name
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force 
+New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $destPath -Source $localSrcFile -Force
 ```
 
 이 예제에서는 동일한 파일을 업로드한 후 대상 파일의 사용 권한, umask, 속성 값 및 메타데이터 값을 설정합니다. 또한 이 예제에서는 이러한 값을 콘솔에 출력합니다.
@@ -262,12 +262,12 @@ $file.Properties.Metadata
 
 `Remove-AzDataLakeGen2Item` cmdlet을 사용하여 파일을 삭제합니다.
 
-이 예제에서는 `upload.txt`라는 파일을 삭제합니다. 
+이 예제에서는 `upload.txt`라는 파일을 삭제합니다.
 
 ```powershell
 $filesystemName = "my-file-system"
 $filepath = "upload.txt"
-Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath 
+Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $filepath
 ```
 
 `-Force` 매개 변수를 사용하여 프롬프트 없이 파일을 제거할 수 있습니다.

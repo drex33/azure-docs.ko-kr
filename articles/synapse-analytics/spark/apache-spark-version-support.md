@@ -6,14 +6,14 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021
+ms.date: 09/22/2021
 ms.author: midesa
-ms.openlocfilehash: c312aad4cd3cea5af3c074c7e32498d9ee30cad5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 9f13a0797caa13f0d4367357308809c97bde0b17
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450228"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577773"
 ---
 # <a name="azure-synapse-runtimes"></a>Azure Synapse 런타임
 Azure Synapse용 Apache Spark 풀은 런타임을 사용하여 필수 구성 요소 버전, Azure Synapse 최적화, 패키지 및 커넥터를 특정 Apache Spark 버전과 연결합니다. 이러한 런타임은 새로운 향상된 기능 및 패치를 포함하도록 주기적으로 업그레이드됩니다. 
@@ -34,7 +34,7 @@ Azure Synapse용 Apache Spark 풀은 런타임을 사용하여 필수 구성 요
 |  런타임 이름  | 릴리스 날짜 |  릴리스 스테이지 |
 | ----- | ----- | ----- |
 | [Apache Spark 2.4용 Azure Synapse 런타임](./apache-spark-24-runtime.md) | 2020년 12월 15일 | GA|
-| [Apache Spark 3.0용 Azure Synapse 런타임](./apache-spark-3-runtime.md) | 2021년 5월 26일 | 미리 보기 |
+| [Apache Spark 3.1용 Azure Synapse 런타임](./apache-spark-3-runtime.md) | 2021년 5월 26일 | GA |
 
 ## <a name="runtime-release-stages"></a>런타임 릴리스 단계
 

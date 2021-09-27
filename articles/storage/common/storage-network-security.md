@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597684"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606079"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -116,6 +116,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+
 ---
 
 ## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
@@ -126,7 +127,7 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](../../virtual-ne
 
 각 스토리지 계정은 [IP 네트워크 규칙](#grant-access-from-an-internet-ip-range)과 결합될 수 있는 최대 200개의 가상 네트워크 규칙을 지원합니다.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 네트워크 규칙에 포함된 서브넷을 삭제하면 스토리지 계정에 대한 네트워크 규칙에서 제거됩니다. 동일한 이름으로 새 서브넷을 만들면 스토리지 계정에 액세스할 수 없습니다. 액세스를 허용하려면 스토리지 계정에 대한 네트워크 규칙에서 새 서브넷에 명시적으로 권한을 부여해야 합니다.
 
 ### <a name="available-virtual-network-regions"></a>사용 가능한 가상 네트워크 지역
@@ -252,21 +253,21 @@ IP 네트워크 규칙을 이용해 IP 네트워크 규칙을 만들어서 특�
 
 IP 주소 범위에는 다음과 같은 제한 사항이 적용됩니다.
 
-- IP 네트워크 규칙은 **퍼블릭 인터넷** IP 주소에만 허용됩니다. 
+- IP 네트워크 규칙은 **퍼블릭 인터넷** IP 주소에만 허용됩니다.
 
-  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 사설망에는 _10.*_ , _172.16.*_  - _172.31.*_ 및 _192.168.*_ 로 시작하는 주소가 포함됩니다.
+  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 *10. * *, *172.16** 으로 시작 하는 주소가 포함 됩니다. -* 172.31. * * 및 * 192.168. * *.
 
-- *16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용해 허용되는 인터넷 주소 범위를 제공하거나 *16.17.18.19* 같은 개별 IP 주소를 제공해야 합니다. 
+- *16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용해 허용되는 인터넷 주소 범위를 제공하거나 *16.17.18.19* 같은 개별 IP 주소를 제공해야 합니다.
 
-- "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다. 
+- "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
 
 - 스토리지 방화벽 규칙의 구성에는 IPV4 주소만 지원됩니다.
 
 IP 네트워크 규칙은 다음과 같은 경우에는 사용할 수 없습니다.
 
 - 스토리지 계정과 동일한 Azure 지역에 있는 클라이언트에 대한 액세스를 제한할 때.
-  
-  IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요. 
+
+  IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
 
 - 서비스 엔드포인트가 있는 VNet에 있는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 있는 클라이언트에 대한 액세스를 제한할 때.
 
@@ -388,7 +389,6 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 > [!NOTE]
 > 리소스 인스턴스 규칙은 현재 Azure Synapse에서만 지원됩니다. 이 문서의 [시스템 할당 관리 ID를 기반으로 하는 신뢰할 수 있는 액세스](#trusted-access-system-assigned-managed-identity) 섹션에 나열된 다른 Azure 서비스에 대한 지원은 수 주 안에 제공될 예정입니다.
 
-
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal에서 리소스 네트워크 규칙을 추가하거나 제거할 수 있습니다.
@@ -399,11 +399,11 @@ Azure Portal에서 리소스 네트워크 규칙을 추가하거나 제거할 �
 
 3. **네트워킹** 을 선택해 네트워킹의 구성 페이지를 표시합니다.
 
-4. **리소스 종류** 드롭다운 목록에서 리소스 인스턴스의 리소스 종류를 선택합니다. 
+4. **리소스 종류** 드롭다운 목록에서 리소스 인스턴스의 리소스 종류를 선택합니다.
 
 5. **인스턴스 이름** 드롭다운 목록에서 리소스 인스턴스를 선택합니다. 활성 테넌트, 구독 또는 리소스 그룹에 모든 리소스 인스턴스를 포함하도록 선택할 수도 있습니다.
 
-6. **저장** 을 선택하여 변경 내용을 적용합니다. 리소스 인스턴스는 네트워크 설정 페이지의 **리소스 인스턴스** 섹션에 표시됩니다. 
+6. **저장** 을 선택하여 변경 내용을 적용합니다. 리소스 인스턴스는 네트워크 설정 페이지의 **리소스 인스턴스** 섹션에 표시됩니다.
 
 리소스 인스턴스를 제거하려면 리소스 인스턴스 옆에 있는 삭제 아이콘(:::image type="icon" source="media/storage-network-security/delete-icon.png":::)을 선택합니다.
 
@@ -551,7 +551,7 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-trusted-azure-services"></a>신뢰할 수 있는 Azure 서비스에 액세스 권한 부여 
+## <a name="grant-access-to-trusted-azure-services"></a>신뢰할 수 있는 Azure 서비스에 액세스 권한 부여
 
 일부 Azure 서비스는 네트워크 규칙에 포함될 수 없는 네트워크에서 작동합니다. 다른 앱에 적용되는 네트워크 규칙을 그대로 유지하면서 이러한 신뢰할 수 있는 Azure 서비스의 하위 집합에 스토리지 계정의 액세스 권한을 부여할 수 있습니다. 해당 신뢰할 수 있는 서비스는 강력한 인증으로 스토리지 계정에 안전하게 연결합니다.
 
@@ -566,7 +566,7 @@ az storage account network-rule list \
 
 ### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>구독에 등록된 리소스에 대한 신뢰할 수 있는 액세스
 
-**구독에 등록된 경우** 일부 서비스의 리소스는 로그 또는 백업과 같은 선택 작업에 대해 **동일한 구독** 에 있는 스토리지 계정에 액세스할 수 있습니다.  다음 표에서는 각 서비스와 허용되는 작업에 대해 설명합니다. 
+**구독에 등록된 경우** 일부 서비스의 리소스는 로그 또는 백업과 같은 선택 작업에 대해 **동일한 구독** 에 있는 스토리지 계정에 액세스할 수 있습니다.  다음 표에서는 각 서비스와 허용되는 작업에 대해 설명합니다.
 
 | 서비스                  | 리소스 공급자 이름     | 허용되는 연산                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -595,10 +595,9 @@ az storage account network-rule list \
 > [!TIP]
 > 특정 리소스에 액세스 권한을 부여할 때는 방법은 리소스 인스턴스 규칙을 사용하기를 권합니다. 특정 리소스 인스턴스에 액세스 권한을 부여하려면 이 문서의 [Azure 리소스 인스턴스에 대한 액세스 권한 부여(미리 보기)](#grant-access-specific-instances) 섹션을 참조하세요.
 
-
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Cognitive Services를 사용하는 것으로 설정하여 스토리지 계정에 액세스할 수 있습니다. [자세한 정보](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
@@ -620,7 +619,7 @@ az storage account network-rule list \
 
 ## <a name="grant-access-to-storage-analytics"></a>스토리지 분석에 대한 액세스 권한 부여
 
-경우에 따라 네트워크 경계 밖에서 리소스 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 스토리지 계정에 대한 신뢰할 수 있는 서비스 액세스를 구성하는 경우, 네트워크 규칙 예외를 만들어서 로그 파일, 메트릭 테이블 또는 양쪽 다에 대하여 읽기 액세스를 허용할 수 있습니다. 단계별 지침은 아래의 **예외 관리** 섹션을 참조하세요. 스토리지 분석 작업에 대한 자세한 내용은 [Azure Storage 분석을 사용하여 로그 및 메트릭 데이터 수집](./storage-analytics.md)을 참조하세요. 
+경우에 따라 네트워크 경계 밖에서 리소스 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 스토리지 계정에 대한 신뢰할 수 있는 서비스 액세스를 구성하는 경우, 네트워크 규칙 예외를 만들어서 로그 파일, 메트릭 테이블 또는 양쪽 다에 대하여 읽기 액세스를 허용할 수 있습니다. 단계별 지침은 아래의 **예외 관리** 섹션을 참조하세요. 스토리지 분석 작업에 대한 자세한 내용은 [Azure Storage 분석을 사용하여 로그 및 메트릭 데이터 수집](./storage-analytics.md)을 참조하세요.
 
 <a id="manage-exceptions"></a>
 

@@ -1,20 +1,20 @@
 ---
 title: Azure Security Benchmark Foundation 청사진 샘플 개요
 description: Azure Security Benchmark Foundation 청사진 샘플의 개요 및 아키텍처.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 82521251ca395a0d5a1409dae62954950b7da8a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739262"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614734"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플의 개요
 
-Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 준수하는 Azure 환경을 구축하는 데 도움이 되는 일련의 기준 인프라 패턴을 제공합니다. 청사진은 고객이 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하는 클라우드 기반 아키텍처를 배포하는 데 도움이 됩니다. 이 기본 청사진 샘플은 [Azure Security Benchmark 샘플 청사진](../azure-security-benchmark.md)의 확장입니다. [Azure Security Benchmark](../../../../security/benchmarks/index.yml)에 정의된 정책 및 기타 가드레일에 따라 네트워크 경계, 모니터링 및 기타 리소스를 배포하고 구성합니다.
+Azure Security Benchmark Foundation 청사진 샘플은 안전하고 규정을 준수하는 Azure 환경을 구축하는 데 도움이 되는 일련의 기준 인프라 패턴을 제공합니다. 청사진은 고객이 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하는 클라우드 기반 아키텍처를 배포하는 데 도움이 됩니다. [Azure Security Benchmark](../../../../security/benchmarks/index.yml)에 정의된 정책 및 기타 가드레일에 따라 네트워크 경계, 모니터링 및 기타 리소스를 배포하고 구성합니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 이 청사진 샘플로 만들어진 기본 환경은 [허브 및 스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)의 아키텍처 원칙을 기반으로 합니다.
 청사진은 추가/선택적 관리, 유지 관리, 관리 및 연결 인프라를 호스트하는 연결, 유지 관리 및 점프 박스 서브넷을 위해 Azure Bastion, 게이트웨이 및 방화벽과 같은 공통 및 공유 리소스, 서비스 및 아티팩트를 포함하는 허브 가상 네트워크를 배포합니다. 웹 및 데이터베이스 서비스와 같은 애플리케이션 워크로드를 호스트하기 위해 하나 이상의 스포크 가상 네트워크가 배포됩니다. 스포크 가상 네트워크는 원활하고 안전한 연결을 위해 Azure 가상 네트워크 피어링을 사용하여 허브 가상 네트워크에 연결됩니다. 샘플 청사진을 다시 할당하거나 수동으로 Azure 가상 네트워크를 만들고 허브 가상 네트워크와 피어링하여 추가 스포크를 추가할 수 있습니다. 스포크 가상 네트워크 및 서브넷에 대한 모든 외부 연결은 허브 가상 네트워크 그리고 방화벽, 게이트웨이 및 유지 관리 점프 박스를 통해 라우팅하도록 구성됩니다.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: 9ba66a8eb76c2c0bdcc2dd086d3abcfc47bcba65
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583152"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678140"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서를 실행하거나 다시 설정하는 방법
 
@@ -45,7 +45,7 @@ ms.locfileid: "112583152"
 
 + 인덱서 작업은 복제본당 최대 하나이며 동시 작업은 없습니다.
 
-  인덱서 실행이 이미 수용작업에 포함된 경우, "인덱서 '<indexer-name>'을 실행하지 못했습니다, 오류: "다른 인덱서 호출이 현재 진행 중입니다. 동시 호출은 허용되지 않습니다."라는 알림을 받습니다.
+  인덱서 실행이 이미 용량에 있는 경우 "인덱서를 실행 하지 못했습니다." \<indexer-name\> 오류: "다른 인덱서 호출이 현재 진행 중입니다. 동시 호출은 허용 되지 않습니다. "
 
 + 기술 세트를 사용하는 경우 최대 실행 시간은 두 시간이며 사용하지 않는 경우에는 최대 24시간입니다. 
 

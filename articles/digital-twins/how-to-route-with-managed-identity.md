@@ -1,5 +1,5 @@
 ---
-title: 관리 ID를 사용하여 이벤트 라우팅(미리 보기)
+title: 관리 ID를 사용하여 이벤트 라우팅
 titleSuffix: Azure Digital Twins
 description: Azure Digital Twins를 위해 시스템 할당 ID를 사용하도록 설정하고 Azure Portal 또는 CLI를 사용하여 이벤트를 전달하는 방법을 참조하세요.
 author: baanders
@@ -8,16 +8,16 @@ ms.date: 6/15/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: subject-rbac-steps, contperf-fy21q4
-ms.openlocfilehash: 8990536b4ddc09f5673fe00a70bc4f12f4f4a169
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4d50c40426d5fb687b28a965b9d921ef6fc4df38
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468796"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651924"
 ---
-# <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview"></a>Azure Digital Twins 이벤트 라우팅을 위한 관리 ID 사용(미리 보기)
+# <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events"></a>관리 id를 사용 하 여 Azure Digital Twins 이벤트 라우팅
 
-이 문서에서는 [Azure Digital Twins 인스턴스에 대한 시스템 할당 ID](concepts-security.md#managed-identity-for-accessing-other-resources-preview)(현재 미리 보기)를 사용하도록 설정하고 지원되는 라우팅 대상으로 이벤트를 전달할 때 ID를 사용하는 방법을 설명합니다. 라우팅에 관리 ID를 설정할 필요는 없지만 인스턴스가 [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 대상 및 [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)와 같은 다른 Azure AD 보호 리소스에 쉽게 액세스하는 데 도움이 될 수 있습니다.
+이 문서에서는 [Azure Digital Twins 인스턴스에 대해 시스템 할당 id](concepts-security.md#managed-identity-for-accessing-other-resources)를 사용 하도록 설정 하 고, 지원 되는 라우팅 대상으로 이벤트를 전달할 때 id를 사용 하는 방법을 설명 합니다. 라우팅에 관리 ID를 설정할 필요는 없지만 인스턴스가 [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 대상 및 [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)와 같은 다른 Azure AD 보호 리소스에 쉽게 액세스하는 데 도움이 될 수 있습니다.
 
 이 문서에서 설명하는 단계는 다음과 같습니다. 
 
@@ -45,7 +45,7 @@ Azure Digital Twins 인스턴스에 시스템 할당 ID를 사용하도록 설�
 
 이 탭에서 이 기능을 설정하려면 **시스템 관리 ID** 에 대해 **설정** 옵션을 선택합니다.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Azure Digital Twins 리소스 만들기 대화 상자의 고급 탭을 보여주는 Azure Portal의 스크린샷. 시스템 관리 ID가 켜져 있습니다.":::
+:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Azure Digital Twins 리소스 만들기 대화 상자의 고급 탭을 보여주는 Azure Portal의 스크린샷. 시스템 관리 ID가 켜져 있습니다.":::
 
 그런 후 아래의 탐색 단추를 사용하여 남은 인스턴스 설정을 계속할 수 있습니다.
    
@@ -71,13 +71,13 @@ az dt create --dt-name <new-instance-name> --resource-group <resource-group> --a
 
 1. 포털 검색 창에서 인스턴스 이름을 검색하고 해당 세부 정보를 확인합니다.
 
-1. 왼쪽 메뉴에서 **ID(미리 보기)** 를 선택합니다.
+1. 왼쪽 메뉴에서 **id** 를 선택 합니다.
 
 1. 이 페이지에서 이 기능을 설정하려면 **설정** 옵션을 선택합니다.
 
 1. **저장** 단추를 선택하고 **예** 를 선택하여 확인합니다.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Azure Digital Twins 인스턴스의 ID(미리 보기) 페이지를 보여주는 Azure Portal의 스크린샷.":::
+    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Azure Digital Twins 인스턴스의 Id 페이지를 보여 주는 Azure Portal의 스크린샷":::
 
 변경 사항이 저장되면 새 ID의 **개체 D** 및 **권한** 에 대해 추가 필드가 이 페이지에 표시됩니다.
 

@@ -6,12 +6,12 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 05/30/2021
-ms.openlocfilehash: f0dfc7c77ce0eeedc6a85760627988e3eddc838e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: 2d65b537ef0bad56127fcfcc1e87f1b1cfc15f2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784922"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583768"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증
 
@@ -214,8 +214,10 @@ POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 
 자동화된 배포의 경우 대화형 로그인을 사용하여 Power BI 작업 영역에 대한 ASA 작업 액세스 권한을 부여하는 것은 불가능합니다. 이는 서비스 주체를 사용하여 ASA 작업의 관리 ID에 대한 사용 권한을 부여함으로써 수행할 수 있습니다. 이 작업은 다음과 같은 PowerShell을 사용하여 수행할 수 있습니다.
 
-Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>" Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
-
+```powershell
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ## <a name="remove-managed-identity"></a>관리 ID 제거
 

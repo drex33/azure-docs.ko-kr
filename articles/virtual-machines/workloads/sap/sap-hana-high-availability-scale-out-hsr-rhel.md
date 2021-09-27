@@ -9,14 +9,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2021
+ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: 36925ac45d4773407d28020b58ef4d7ac8b279e1
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: d69c92a133ae49ba4a1e2544403e2eeec24b7a65
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129053073"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606972"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에 배포된 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -617,11 +617,11 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
      * **루트 사용자 이름 [root] 입력**: Enter 키를 눌러 기본값 적용
      * **'hana-s1-db2' [1]의 역할 선택**: 1(작업자의 경우)
      * **'hana-s1-db2' 호스트에 대한 호스트 장애 조치(failover) 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
-     * **호스트 'hana-s1-db2'에 Storage 파티션 번호 입력 [ \<\<assign automatically\> \> ]**: Enter 키를 눌러 기본값을 적용합니다.
+     * **' hana-s1-db2 ' [ \<\<assign automatically\> \> ]에 대 한 enter Storage 파티션 번호** 의 경우 enter 키를 눌러 기본값을 적용 합니다.
      * **'hana-s1-db2' 호스트에 대한 작업자 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
      * **'hana-s1-db3' [1]의 역할 선택**: 1(작업자의 경우)
      * **'hana-s1-db3' 호스트에 대한 호스트 장애 조치(failover) 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
-     * **호스트 'hana-s1-db3'에 Storage 파티션 번호 입력 [ \<\<assign automatically\> \> ]**: Enter 키를 눌러 기본값을 적용합니다.
+     * **' hana-db3 ' [ \<\<assign automatically\> \> ]에 대 한 enter Storage 파티션 번호** 의 경우 enter 키를 눌러 기본값을 적용 합니다.
      * **'hana-s1-db3' 호스트에 대한 작업자 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
      * **시스템 관리자(hn1adm) 암호**: 암호 입력
      * **SAP 호스트 에이전트 사용자(sapadm) 암호 입력**: 암호 입력
@@ -918,13 +918,12 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
 
 3. **[AH]** 클러스터에서 <sid\>adm용 클러스터 노드에 sudoers 구성을 요구합니다. 이 예제에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
     ```bash
-    sudo visudo -f /etc/sudoers.d/20-saphana
-    # Insert the following lines and then save
-    Cmnd_Alias HANA_S1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SOK -t crm_config -s SAPHanaSR
-    Cmnd_Alias HANA_S1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SFAIL -t crm_config -s SAPHanaSR
-    Cmnd_Alias HANA_S2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SOK -t crm_config -s SAPHanaSR
-    Cmnd_Alias HANA_S2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SFAIL -t crm_config -s SAPHanaSR
-    hn1adm ALL=(ALL) NOPASSWD: HANA_S1_SOK, HANA_S1_SFAIL, HANA_S2_SOK, HANA_S2_SFAIL
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # SAPHanaSR-ScaleOut needs for srHook
+     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
+     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
+     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
+     EOF
     ```
 
 4. **[1,2]** 두 복제 사이트에서 SAP HANA를 시작합니다. <sid\>adm으로 실행합니다.  

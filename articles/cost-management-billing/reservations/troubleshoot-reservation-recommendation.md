@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/19/2020
-ms.openlocfilehash: a3137d779908bf2791ca396068a8c9edf5d56739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: 9ab8626a10e729e5bdf070f355fcc480d6dc4f16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492251"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646818"
 ---
 # <a name="troubleshoot-azure-reservation-recommendations"></a>Azure 예약 추천 사항 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "92492251"
 ## <a name="symptoms"></a>증상
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고, **예약** 으로 이동합니다.
-2. **+ 추가** , 제품을 차례로 선택합니다.
+2. **+ 추가**, 제품을 차례로 선택합니다.
 3. **추천** 탭에서 예상과 일치하지 않는 추천 사항이 없거나 이러한 추천 사항이 표시되지 않을 수 있습니다.
 
 ## <a name="cause"></a>원인

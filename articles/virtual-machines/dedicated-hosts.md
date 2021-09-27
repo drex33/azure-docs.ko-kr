@@ -1,20 +1,20 @@
 ---
 title: 가상 머신용 Azure Dedicated Host 개요
 description: Azure Dedicated Host를 사용하여 가상 머신을 배포하는 방법에 대해 자세히 알아봅니다.
-author: cynthn
+author: brittanyrowe
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
-ms.author: cynthn
-ms.reviewer: zivr
-ms.openlocfilehash: 957bc2f34ddbc1af019afe0154d3a27ca6e3e368
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.author: brittanyrowe
+ms.reviewer: brittanyrowe
+ms.openlocfilehash: 6e34d5c638c8501840c9ef8d9bbaf22ae2874ff1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451568"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557101"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
 
@@ -80,7 +80,6 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 자동 VM 배치를 사용하는 경우 알려진 문제 및 제한 사항:
 
-- 전용 호스트에는 Azure 하이브리드 혜택을 적용할 수 없습니다.
 - VM을 다시 배포할 수 없습니다.
 - 전용 호스트가 있는 Lsv2, NVasv4, NVsv3, Msv2 또는 M 시리즈 VM을 사용할 수 없습니다.
 
@@ -176,7 +175,7 @@ Azure는 호스트의 상태를 모니터하고 관리합니다. 호스트를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 전용 호스트를 배포 하려면 [전용 호스트에 vm 및 확장 집합 배포](./dedicated-hosts-how-to.md)를 참조 하세요.
+- 전용 호스트를 배포하려면 [전용 호스트에 VM 및 확장 집합 배포를 참조하세요.](./dedicated-hosts-how-to.md)
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md)이 있습니다.
 

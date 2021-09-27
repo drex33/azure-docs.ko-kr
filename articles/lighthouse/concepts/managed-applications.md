@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 및 Azure 관리형 애플리케이션
 description: Azure Lighthouse 및 Azure 관리형 애플리케이션을 함께 사용할 수 있는 방법에 대해 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 09e07aca77fc53cb9eab2ba0c980b6c838ef6726
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 629f9f1f6b6db69816d26cc7eed1e305dd55923b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962630"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768575"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 

@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: fd0fb07ad96d9897859281ef368452c96798d542
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 68c43d149da28f7a140ac4f4fd32d76fe53f3e2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663310"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -73,7 +73,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 위의 예에서 프라이빗 엔드포인트를 호스팅하는 VNet 외부에서 해결되면 Data Factory 'DataFactory A'에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.datafactory.azure.net |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 > |
@@ -81,7 +81,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 프라이빗 엔드포인트를 호스팅하는 VNet에서 확인되면 DataFactoryA에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
 | DataFactoryA.{지역}.privatelink.datafactory.azure.net   | A | < 프라이빗 엔드포인트 IP 주소 > |
@@ -241,7 +241,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 > 공용 네트워크 액세스 비활성화는 Azure Integration Runtime 및 SSIS(SQL Server Integration Services) Integration Runtime이 아닌 자체 호스팅 통합 런타임에만 적용할 수 있습니다.
 
 > [!NOTE]
-> 포털에 대한 프라이빗 엔드포인트를 만든 후에도 공용 네트워크를 통해 Azure Data Factory 포털에 액세스할 수 있습니다.
+> 포털에 대 한 개인 끝점을 만든 후에도 공용 네트워크를 통해 Azure Data Factory 포털에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

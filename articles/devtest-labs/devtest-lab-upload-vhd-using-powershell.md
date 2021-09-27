@@ -1,14 +1,14 @@
 ---
-title: PowerShell을 사용하여 Azure DevTest Labs에 VHD 파일 업로드 | Microsoft Docs
+title: 업로드 PowerShell을 사용 하 여 Azure DevTest Labs VHD 파일
 description: 이 문서에서는 PowerShell을 사용하여 Azure DevTest Labs에 VHD 파일을 업로드하는 방법을 보여 주는 연습을 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2b393b886a50f60a918690ee2a5583f9623dbe39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d2ee739dccc60321a814862fabe1b44aac7192dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88650760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566353"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>PowerShell을 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
 

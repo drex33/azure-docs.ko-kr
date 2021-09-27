@@ -4,12 +4,12 @@ description: 이 참조 문서에서는 애플리케이션에 Video Analyzer 플
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: b70bfc9a10e357c6f1e64c1737fdb4c049b505f5
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: ffc17e756a303723fe1d21c6ba221fed31147eaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037446"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620576"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Azure Video Analyzer 플레이어 위젯 사용
 
@@ -24,95 +24,15 @@ ms.locfileid: "123037446"
 > * 플레이어를 사용하여 페이지 만들기
 > * 스트리밍 엔드포인트와 토큰을 플레이어에게 전달
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에는 다음이 필요합니다.
 
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
-* [Visual Studio Code](https://code.visualstudio.com/) 또는 HTML 파일에 대한 기타 편집기.
-* [지속적인 비디오 녹화 및 재생](./use-continuous-video-recording.md) 또는 [에지 디바이스에서 동작 감지 및 비디오 녹화](./detect-motion-record-video-clips-cloud.md).
-
-또한 다음 리소스에 익숙해지면 도움이 됩니다.
-
-- [웹 구성 요소](https://developer.mozilla.org/docs/Web/Web_Components)
-- [TypeScript](https://www.typescriptlang.org)
-
-## <a name="create-a-token"></a>토큰 만들기
-
-이 섹션에서는 이 문서의 뒷부분에서 사용할 JWT(JSON Web Token)를 만듭니다. JWT 토큰을 생성하는 샘플 애플리케이션을 사용하고 액세스 정책을 만드는 데 필요한 모든 필드를 제공합니다.
-
-> [!NOTE] 
-> RSA 또는 ECC 인증서를 기반으로 JWT 토큰을 생성하는 방법을 알고 있는 경우 이 섹션을 건너뛸 수 있습니다.
-
-1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다. 그런 다음 *src/jwt-token-issuer* 폴더로 이동하여 *JWTTokenIssuer* 애플리케이션을 찾습니다.
-
-    > [!NOTE] 
-    > 대상 그룹 값 구성에 대한 자세한 내용은 [액세스 정책](./access-policies.md)을 참조하세요.
-
-2. Visual Studio Code를 연 다음 *JWTTokenIssuer* 애플리케이션을 다운로드한 폴더로 이동합니다. 이 폴더에는 *\*.csproj* 파일이 있어야 합니다.
-3. 탐색기 창에서 *program.cs* 파일로 이동합니다.
-4. 77행에서 대상을 Azure Video Analyzer 엔드포인트로 변경한 다음 /Videos/\*로 변경합니다. 다음과 같이 표시됩니다.
-
-   ```
-   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
-   ```
-
-   > [!NOTE] 
-   > Azure Portal에 있는 Video Analyzer 리소스의 개요 섹션에서 Video Analyzer 엔드포인트를 찾을 수 있습니다. 이 값은 이 문서 뒷부분의 [동영상 리소스 나열](#list-video-resources)에서 `clientApiEndpointUrl`로 참조됩니다.
-
-   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="플레이어 위젯 엔드포인트를 보여 주는 스크린샷.":::
-    
-5. 줄 78에서 발급자를 인증서의 발급자 값으로 변경합니다(예: `https://contoso.com`).
-6. 파일을 저장합니다. **'jwt 토큰 발급자'에서 빌드 및 디버그에 필요한 자산이 누락되었다는 메시지가 표시될 수 있습니다. 추가할까요?** **Yes** 를 선택합니다.
-   
-   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Visual Studio Code의 필수 자산 프롬프트를 보여 주는 스크린샷.":::
-   
-7. 명령 프롬프트 창을 열고 *JWTTokenIssuer* 파일이 있는 폴더로 이동합니다. 두 명령 `dotnet build` 다음에 `dotnet run`을 실행합니다. Visual Studio Code에 C# 확장이 있는 경우 F5를 선택하여 *JWTTokenIssuer* 애플리케이션을 실행할 수도 있습니다.
-
-애플리케이션이 빌드되고 실행됩니다. 빌드 후 자체 서명된 인증서를 만들고 해당 인증서에서 JWT 토큰 정보를 만듭니다. *JWTTokenIssuer* 가 빌드된 디렉터리의 디버그 폴더에 있는 *JWTTokenIssuer.exe* 파일을 실행할 수도 있습니다. 애플리케이션을 실행하는 이점은 다음과 같이 입력 옵션을 지정할 수 있다는 것입니다.
-
-- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
-
-*JWTTokenIssuer* 는 JWT 및 다음 필수 구성 요소를 만듭니다.
-
-- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
-
-**나중에 사용할 수 있도록 이러한 값을 복사하여 저장해야 합니다.**
-
-## <a name="create-an-access-policy"></a>액세스 정책 만들기
-
-액세스 정책은 특정 비디오 스트림에 대한 액세스 권한 및 기간을 정의합니다. 이 자습서에서는 Azure Portal에서 Video Analyzer에 대한 액세스 정책을 구성합니다.  
-
-1. Azure Portal에 로그인하여 Video Analyzer 계정이 있는 리소스 그룹으로 이동합니다.
-1. Video Analyzer 리소스를 선택합니다.
-1. **Video Analyzer** 아래에서 **액세스 정책** 을 선택합니다.
-
-   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="액세스 정책 옵션을 보여 주는 스크린샷.":::
-   
-1. **새로 만들기** 를 선택하고 다음 정보를 입력합니다.
-
-   - **액세스 정책 이름**: 아무 이름이나 선택할 수 있습니다.
-
-   - **발급자**: 이 값은 JWT 발행자와 일치해야 합니다. 
-
-   - **대상**: JWT의 대상입니다. 기본값은 `${System.Runtime.BaseResourceUrlPattern}`입니다. 대상 및 `${System.Runtime.BaseResourceUrlPattern}`에 대해 자세히 알아보려면 [액세스 정책](./access-policies.md)을 참조하세요.
-
-   - **키 형식**: RSA 
-
-   - **알고리즘**: 지원되는 값은 RS256, RS384 및 RS512입니다.
-
-   - **키 ID**: 이 ID는 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#create-a-token)를 참조하세요.
-
-   - **RSA 키 모듈러스**: 이 값은 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#create-a-token)를 참조하세요.
-
-   - **RSA 키 지수**: 이 값은 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#create-a-token)를 참조하세요.
-
-   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="액세스 정책 포털을 보여 주는 스크린샷."::: 
-   
-   > [!NOTE] 
-   > 이러한 값은 이전 단계에서 만든 *JWTTokenIssuer* 애플리케이션에서 제공됩니다.
-
-1. **저장** 을 선택합니다.
+* [VISUAL STUDIO CODE](https://code.visualstudio.com/) 또는 HTML 파일에 대한 다른 편집기입니다.
+* [지속적인 비디오 녹화 및 재생](./use-continuous-video-recording.md) 또는 [에지 디바이스에서 동작 감지 및 비디오 녹화](./detect-motion-record-video-clips-cloud.md)
+* [토큰](./access-policies.md#creating-a-token) 만들기
+* 액세스 [정책](./access-policies.md#creating-an-access-policy) 만들기
 
 ## <a name="list-video-resources"></a>동영상 리소스 나열
 
@@ -132,7 +52,7 @@ function getVideos()
 }
 ```
    > [!NOTE]
-   >`clientApiEndPoint` 및 토큰은 [토큰 만들기](#create-a-token)에서 수집됩니다.
+   >`clientApiEndPoint`및 토큰은 토큰을 [만들어](./access-policies.md#creating-a-token) 수집됩니다.
 
 ## <a name="add-the-video-analyzer-player-component"></a>Video Analyzer 플레이어 구성 요소 추가
 
@@ -161,6 +81,33 @@ function getVideos()
 1. 플레이어에 비디오를 로드하여 시작합니다.
    ```javascript
    avaPlayer.load();
+   ```
+   
+## <a name="add-the-zone-drawer-component"></a>영역 서랍 구성 요소 추가
+
+1. 문서에 AVA-Zone-Drawer 요소를 추가합니다.
+   ```html
+   <ava-zone-drawer width="720px" id="zoneDrawer"></ava-zone-drawer>
+   ```
+1. 페이지에 있는 Video Analyzer 영역 서랍에 대한 링크를 가져옵니다.
+   ```javascript
+   const zoneDrawer = document.getElementById("zoneDrawer");
+   ```
+1. 플레이어에 영역 서랍을 로드합니다.
+   ```javascript
+   zoneDrawer.load();
+   ```
+1. 영역을 만들고 저장하려면 여기에 이벤트 수신기를 추가해야 합니다.
+   ```javascript
+   zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_SAVE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
    ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
@@ -192,6 +139,19 @@ function getVideos()
             videoName: document.getElementById("videoName").value
         } );
         avaPlayer.load();
+    
+        const zoneDrawer = document.getElementById("zoneDrawer");
+        zoneDrawer.load();
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_SAVE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
     }
 </script>
 Client API endpoint URL: <input type="text" id="clientApiEndpointUrl" /><br><br>
@@ -200,7 +160,10 @@ Token: <input type="text" id="token" /><br><br>
 <textarea rows="20" cols="100" id="videoList"></textarea><br><br>
 Video name: <input type="text" id="videoName" /><br><br>
 <button type="submit" onclick="playVideo()">Play Video</button><br><br>
-<ava-player width="720px" id="avaPlayer"></ava-player>
+<textarea rows="5" cols="100" id="zoneList"></textarea><br><br>
+<ava-zone-drawer width="720px" id="zoneDrawer">
+    <ava-player id="avaPlayer"></ava-player>
+</ava-zone-drawer>
 </body>
 </html>
 ```
@@ -270,7 +233,8 @@ npm install @azure/video-analyzer/widgets
 또는 TypeScript에 다음을 사용하여 애플리케이션 코드 내에서 가져올 수 있습니다.
 
 ```typescript
-import { Player } from '@video-analyzer/widgets';
+import { Player } from '@azure/video-analyzer-widgets';
+import { ZoneDrawer } from '@azure/video-analyzer-widgets';
 ```
 
 플레이어 위젯을 동적으로 만들려는 경우 Javascript에 다음을 사용할 수 있습니다.
@@ -278,22 +242,29 @@ import { Player } from '@video-analyzer/widgets';
 <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
-이 방법을 사용하여 가져오는 경우 가져오기가 완료된 후에는 프로그래밍 방식으로 플레이어 개체를 만들어야 합니다. 앞의 예에서는 `ava-player` HTML 태그를 사용하여 페이지에 모듈을 추가했습니다. 코드를 통해 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
+
+이 메서드를 사용하여 가져오는 경우 가져오기가 완료된 후 영역 서랍 및 플레이어 개체를 프로그래밍 방식으로 만들어야 합니다.  앞의 예제에서는 HTML 태그를 사용하여 모듈을 페이지에 `ava-player` 추가했습니다. 코드를 통해 영역 서랍 개체와 플레이어 개체를 만들려면 JavaScript에서 다음을 수행할 수 있습니다.
+
 
 ```javascript
-const avaPlayer = new ava.widgets.player();
+const zoneDrawer = new window.ava.widgets.zoneDrawer();
+document.firstElementChild.appendChild(zoneDrawer);
+const playerWidget = new window.ava.widgets.player();
+zoneDrawer.appendChild(playerWidget);
 ```
 
 또는 Typescript에서 다음을 수행할 수 있습니다.
 
 ```typescript
 const avaPlayer = new Player();
+const zoneDrawer = new ZoneDrawer();
 ```
 
 그런 다음 HTML에 추가해야 합니다.
 
 ```javascript
-document.firstElementChild.appendChild(avaPlayer);
+document.firstElementChild.appendChild(zoneDrawer);
+zoneDrawer.appendChild(playerWidget);
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,20 +1,15 @@
 ---
 title: Azure Video Analyzer for Media를 사용하여 애니메이션 캐릭터 검색(이전의 Video Indexer)
-titleSuffix: Azure Video Analyzer
 description: 이 항목에서는 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용하여 애니메이션 캐릭터 검색을 사용하는 방법을 보여 줍니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4246bbd679efe9c56d47868beac9b46ab64fda53
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: d12b7a1911bb0c63d7f546a8b7a30e0287a05759
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121543"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610601"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
 

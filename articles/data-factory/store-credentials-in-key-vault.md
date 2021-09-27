@@ -7,12 +7,12 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: abnarain
-ms.openlocfilehash: 922387e352882cc81a2e8e0f4a02124bee41fa06
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2ac261adeade46b14651583cf28803cab039d754
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642328"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743160"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -48,11 +48,11 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 **연결** -> **연결된 서비스** -> **새로 만들기** 를 선택합니다. 새롭게 연결된 서비스에서 “Azure Key Vault”를 검색하고 선택합니다.
 
-![Azure Key Vault 검색](media/store-credentials-in-key-vault/search-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/search-akv.png" alt-text="Azure Key Vault 검색":::
 
 자격 증명이 저장된 프로비전된 Azure Key Vault를 선택합니다. **연결 테스트** 를 수행하여 AKV 연결이 유효한지 확인할 수 있습니다. 
 
-![Azure Key Vault 구성](media/store-credentials-in-key-vault/configure-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv.png" alt-text="Azure Key Vault 구성":::
 
 **JSON 예제:**
 
@@ -86,7 +86,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 >[!TIP]
 >SQL Server, Blob Storage 등의 연결된 서비스에서 연결 문자열을 사용하는 커넥터의 경우, 비밀 필드만 저장하거나(예: AKV의 암호) AKV의 전체 연결 문자열을 저장하도록 선택할 수 있습니다. UI에서 두 옵션을 모두 찾을 수 있습니다.
 
-![Azure Key Vault 비밀 구성](media/store-credentials-in-key-vault/configure-akv-secret.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv-secret.png" alt-text="Azure Key Vault 비밀 구성":::
 
 **JSON 예제: ("암호" 섹션 참조)**
 

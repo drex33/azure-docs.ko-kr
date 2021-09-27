@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0dc36b817d5b5cdf731edecd64e1879c153d866a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 444803285eca144ff5abd7cdaa83c90670774955
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015133"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784492"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "98015133"
 5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정** 으로 이동하여 [**이벤트 순서 지정**](./stream-analytics-time-handling.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
 
 6. 활동 및 리소스 로그를 사용하여 디버그:
-    - [활동 로그](../azure-resource-manager/management/view-activity-logs.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
+    - [활동 로그](../azure-monitor/essentials/activity-log.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
     - [작업 리소스 로그](stream-analytics-job-diagnostic-logs.md)를 사용하여 오류를 식별하고 디버그합니다.
 
 ## <a name="resource-utilization-is-high"></a>리소스 사용률이 높습니다.

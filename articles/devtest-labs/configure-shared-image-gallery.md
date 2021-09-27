@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 공유 이미지 갤러리 구성 | Microsoft Docs
+title: 공유 이미지 갤러리 구성
 description: 사용자가 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있도록 하는 Azure DevTest Labs에서 공유 이미지 갤러리를 구성하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: febcff640efc29eb4916250366641635f9d8721e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e6275b8903df7e815e763b04198265060943e124
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788424"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128634846"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 이미지 갤러리 구성
 이제 DevTest Labs는 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) 기능을 지원합니다. 랩 사용자가 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있습니다. 또한 사용자 지정 관리 VM 이미지를 중심으로 구조와 조직을 구축할 수도 있습니다. Shared Image Gallery 기능 지원 사항:

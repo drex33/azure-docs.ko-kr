@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 09859a953b0127733cbf1b0876c1d2ffa6082096
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279479"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661643"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -33,37 +33,37 @@ ms.locfileid: "106279479"
 >| 오류 | 정보 |
 >|--|--|
 >|**MPE_RTMP_APPID_AUTH_FAILURE** ||
->|설명 | 잘못된 수집 URL입니다. |
+>|Description | 잘못된 수집 URL입니다. |
 >|추천 솔루션| APPID는 RTMP 수집 URL의 GUID 토큰입니다. API의 수집 URL과 일치하는지 확인합니다. |
 >|**MPE_INGEST_ENCODER_CONNECTION_DENIED** ||
->| 설명 |인코더 IP가 구성된 IP 허용 목록에 없습니다. |
+>| Description |인코더 IP가 구성된 IP 허용 목록에 없습니다. |
 >| 추천 솔루션| 인코더의 IP가 IP 허용 목록에 있는지 확인합니다. *whoismyip* 또는 *CIDR 계산기* 와 같은 온라인 도구를 사용하여 적절한 값을 설정합니다.  인코더가 실제 라이브 이벤트 전에 서버에 도달할 수 있는지 확인합니다. |
 >|**MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED** ||
->| 설명|RTMP 인코더에서 `setDataFrame` 명령을 보내지 않았습니다. |
+>| Description|RTMP 인코더에서 `setDataFrame` 명령을 보내지 않았습니다. |
 >| 추천 솔루션|대부분의 상용 인코더는 스트림 메타데이터를 전송합니다. 단일 비트 전송률 수집을 푸시하는 인코더의 경우 문제가 되지 않을 수 있습니다. LiveEvent는 스트림 메타데이터가 없을 때 들어오는 비트 전송률을 계산할 수 있습니다.  PassThru 채널 또는 이중 푸시 시나리오에 대한 다중 비트 전송률 수집의 경우 수집 URL에 ‘videodatarate’및 ‘audiodatarate’와 함께 쿼리 문자열을 추가할 수 있습니다. 대략적인 값이 작동할 수 있습니다. 단위는 Kbit입니다. 예: `rtmp://hostname:1935/live/GUID_APPID/streamname?videodatarate=5000&audiodatarate=192` |
 >|**MPE_INGEST_CODEC_NOT_SUPPORTED** ||
->| 설명|지정된 코덱이 지원되지 않습니다.|
+>| Description|지정된 코덱이 지원되지 않습니다.|
 >| 추천 솔루션| LiveEvent가 지원되지 않는 코덱을 수신했습니다. 예를 들어 RTMP 수집, LiveEvent가 AVC가 아닌 비디오 코덱을 수신했습니다.  인코더 사전 설정을 확인합니다. |
 >|**MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED** ||
->| 설명 |실제 미디어 데이터를 제공하기 전에 미디어 설명 정보를 받지 못했습니다. |
+>| Description |실제 미디어 데이터를 제공하기 전에 미디어 설명 정보를 받지 못했습니다. |
 >| 추천 솔루션|LiveEvent는 인코더로부터 스트림 설명(헤더 또는 FLV 태그)을 수신하지 않습니다. 프로토콜 위반입니다. 인코더 공급업체에 문의하세요. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| 설명|오디오 또는 비디오 형식의 품질 수가 최대 허용 한도를 초과했습니다. |
+>| Description| 오디오 또는 비디오 형식의 품질 수준 수가 허용 된 최대 한도를 초과 했습니다. 이 제한을 초과 하는 품질 수준은 서비스에서 무시 됩니다.|
 >| 추천 솔루션|라이브 이벤트 모드가 Live Encoding인 경우 인코더는 비디오 및 오디오의 단일 비트 전송률을 푸시해야 합니다.  같은 비트 전송률에서 중복 푸시를 사용할 수 있습니다. 인코더 사전 설정 또는 출력 설정을 확인하여 단일 비트 전송률 스트림을 출력하는지 확인합니다. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
->| 설명|라이브 이벤트 또는 채널 서비스의 총 수신 비트 전송률이 최대 허용 한도를 초과했습니다. |
+>| Description|라이브 이벤트 또는 채널 서비스의 총 수신 비트 전송률이 최대 허용 한도를 초과했습니다. |
 >| 추천 솔루션|인코더가 들어오는 최대 비트 전송률을 초과했습니다. 이 한도는 기여하는 인코더에서 들어오는 모든 데이터를 집계합니다. 비트 전송률을 줄이기 위해 인코더 사전 설정 또는 출력 설정을 확인합니다. |
 >|**MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID** ||
->| 설명|RTMP 인코더에서 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 잘못되었습니다. |
+>| Description|RTMP 인코더에서 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 잘못되었습니다. |
 >| 추천 솔루션|더 이상 사용되지 않습니다. |
 >|**MPE_INGEST_FRAMERATE_EXCEEDED** ||
->| 설명|프레임 속도가 있는 들어오는 인코더 수집 스트림이 라이브 이벤트/채널 인코딩에 허용되는 최대 30fps를 초과했습니다. |
+>| Description|프레임 속도가 있는 들어오는 인코더 수집 스트림이 라이브 이벤트/채널 인코딩에 허용되는 최대 30fps를 초과했습니다. |
 >| 추천 솔루션|인코더 사전 설정을 확인하여 프레임 속도를 36fps 미만으로 낮춥니다. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| 설명|들어오는 인코더 수집 스트림이 허용된 해상도를 초과했습니다. 라이브 이벤트/채널 인코딩의 경우 1920x1088, 통과 라이브 이벤트/채널의 경우 4096 x 2160입니다. |
+>| Description|들어오는 인코더 수집 스트림이 허용된 해상도를 초과했습니다. 라이브 이벤트/채널 인코딩의 경우 1920x1088, 통과 라이브 이벤트/채널의 경우 4096 x 2160입니다. |
 >| 추천 솔루션|한도를 초과하지 않도록 비디오 해상도를 낮추기 위해 인코더 사전 설정을 확인합니다. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
->| 설명|라이브 이벤트가 한 번에 많은 양의 오디오 데이터를 수신했거나 키 프레임 없이 많은 양의 비디오 데이터를 수신했습니다. 올바른 데이터로 다시 시도할 수 있도록 인코더 연결을 끊었습니다. |
+>| Description|라이브 이벤트가 한 번에 많은 양의 오디오 데이터를 수신했거나 키 프레임 없이 많은 양의 비디오 데이터를 수신했습니다. 올바른 데이터로 다시 시도할 수 있도록 인코더 연결을 끊었습니다. |
 >| 추천 솔루션|인코더가 모든 키 프레임 간격(GOP)에 대해 키 프레임을 전송하는지 확인합니다.  “CBR(상수 비트 전송률)” 또는 “키 프레임 맞춤”과 같은 설정을 사용하도록 설정합니다. 기여하는 인코더를 다시 설정하면 도움이 되는 경우가 있습니다. 도움이 되지 않으면 인코더 공급업체에 문의하세요. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
@@ -74,16 +74,16 @@ ms.locfileid: "106279479"
 >| 오류 | 정보 |
 >|--|--|
 >|**MPE_RTMP_SESSION_IDLE_TIMEOUT** |
->| 설명|허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다. |
+>| Description|허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다. |
 >|추천 솔루션|일반적으로 인코더가 입력 피드 수신을 중지하여 푸시할 데이터가 없으므로 세션이 유휴 상태가 될 때 발생합니다. 인코더 또는 입력 피드 상태가 정상인지 확인합니다. |
 >|**MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID** |
->|설명| RTMP 인코더에서 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 잘못되었습니다. |
+>|Description| RTMP 인코더에서 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 잘못되었습니다. |
 >| 추천 솔루션| 더 이상 사용되지 않습니다. |
 >|**MPE_CAPACITY_LIMIT_REACHED** |
->| 설명|데이터를 너무 빨리 보내는 인코더입니다. |
+>| Description|데이터를 너무 빨리 보내는 인코더입니다. |
 >| 추천 솔루션|인코더가 짧은 기간에 대규모 조각 세트를 버스트하는 경우에 발생합니다.  이론적으로 네트워크 문제 때문에 인코더가 데이터를 푸시할 수 없고 네트워크를 사용할 수 있을 때 데이터를 버스트하는 경우 발생할 수 있습니다. 인코더 로그 또는 시스템 로그에서 이유를 찾으세요. |
 >|**알 수 없는 오류 코드** |
->| 설명| 이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다. 인코더가 짧은 기간에 대규모 조각 세트를 전송하는 경우에 발생할 수 있습니다.  인코더가 네트워크 문제 때문에 데이터를 한동안 푸시하지 못한 다음, 네트워크를 사용할 수 있게 되었을 때 연기된 모든 조각을 한 번에 전송하는 경우에도 발생할 수 있습니다. |
+>| Description| 이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다. 인코더가 짧은 기간에 대규모 조각 세트를 전송하는 경우에 발생할 수 있습니다.  인코더가 네트워크 문제 때문에 데이터를 한동안 푸시하지 못한 다음, 네트워크를 사용할 수 있게 되었을 때 연기된 모든 조각을 한 번에 전송하는 경우에도 발생할 수 있습니다. |
 >|추천 솔루션| 인코더 로그를 확인합니다.|
 
 ## <a name="other-error-codes"></a>기타 오류 코드

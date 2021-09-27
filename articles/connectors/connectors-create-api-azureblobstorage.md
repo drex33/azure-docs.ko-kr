@@ -3,20 +3,20 @@ title: Azure Blob Storage에 연결
 description: Azure Logic Apps를 사용하여 Azure Storage 계정에서 Blob을 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 06/23/2021
 tags: connectors
-ms.openlocfilehash: e3d8730976d623b5304a50341bcf257f35047e25
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 7fc6b33248af8b638218858c95d1c0de8b056e76
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359554"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824856"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
-[Azure Blob Storage 커넥터](/connectors/azureblobconnector/)를 사용하여 Azure Logic Apps 내에서 Azure Storage 계정의 Blob으로 저장된 파일에 액세스하고 파일을 관리할 수 있습니다. 이 커넥터는 논리 앱 워크플로 내에서 Blob 작업에 대한 트리거와 작업을 제공합니다. 이 작업(operation)을 사용하여 스토리지 계정에서 파일을 관리하기 위한 작업(task)과 워크플로를 자동화할 수 있습니다. [사용 가능한 커넥터 작업](/connectors/azureblobconnector/#actions)에는 Blob 확인, 삭제, 읽기, 업로드 등이 포함됩니다. [사용 가능한 트리거](/connectors/azureblobconnector/#triggers)는 Blob이 추가되거나 수정될 때 발생합니다. 
+[Azure Blob Storage 커넥터](/connectors/azureblobconnector/)를 사용하여 Azure Logic Apps 내에서 Azure Storage 계정의 Blob으로 저장된 파일에 액세스하고 파일을 관리할 수 있습니다. 이 커넥터는 논리 앱 워크플로 내에서 Blob 작업에 대한 트리거와 작업을 제공합니다. 이 작업(operation)을 사용하여 스토리지 계정에서 파일을 관리하기 위한 작업(task)과 워크플로를 자동화할 수 있습니다. [사용 가능한 커넥터 작업](/connectors/azureblobconnector/#actions)에는 Blob 확인, 삭제, 읽기, 업로드 등이 포함됩니다. [사용 가능한 트리거](/connectors/azureblobconnector/#triggers)는 Blob이 추가되거나 수정될 때 발생합니다.
 
 표준 및 사용량 논리 앱 리소스 종류에서 Blob Storage에 연결할 수 있습니다. 단일 테넌트, 다중 테넌트 또는 ISE(통합 서비스 환경)의 논리 앱에서 커넥터를 사용할 수 있습니다. 단일 테넌트 환경의 논리 앱에서 Blob Storage는 기본 제공 작업과 관리형 커넥터 작업을 제공합니다.
 
@@ -40,14 +40,14 @@ Blob Storage 커넥터 대신 [HTTP 트리거 또는 작업에서 관리 ID를 �
 
 - 기본적으로 Blob Storage 작업은 ‘50MB 이하’의 파일을 읽거나 쓸 수 있습니다. 50MB보다 큰 최대 1,024MB의 파일을 처리하기 위해 Blob Storage 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원합니다. [**Blob 콘텐츠 가져오기** 작업](/connectors/azureblobconnector/#get-blob-content)은 암시적으로 청크를 사용합니다.
 - Blob Storage 트리거는 청크를 지원하지 않습니다. 파일 콘텐츠를 요청하는 경우 트리거는 50MB 이하의 파일만 선택합니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
-  - [**Blob이 추가되거나 수정된 경우(속성만)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only))와 같이 파일 속성을 반환하는 Blob Storage 트리거를 사용합니다.
+  - [**Blob이 추가되거나 수정된 경우(속성만)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only))와 같이 파일 속성을 반환하는 Blob Storage 트리거를 사용합니다.
   - 전체 파일을 읽고 청크를 암시적으로 사용하는 Blob Storage [**Blob 콘텐츠 가져오기** 작업](/connectors/azureblobconnector/#get-blob-content)을 사용하여 트리거를 따릅니다.
 
 ## <a name="add-blob-storage-trigger"></a>Blob Storage 트리거 추가
 
 Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족될 때 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 통해 시작되어야 합니다. 
 
-이 커넥터에는 [**Azure Storage에서 Blob이 추가되거나 수정된 경우** 또는 **Blob이 추가되거나 수정된 경우(속성만)** ](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only))라는 하나의 사용 가능한 트리거가 있습니다. 스토리지 컨테이너에서 Blob의 속성이 추가되거나 업데이트된 경우 트리거가 실행합니다. 매번 Logic Apps 엔진은 논리 앱 인스턴스를 만들고 워크플로를 실행하기 시작합니다.
+이 커넥터에는 [**Azure Storage에서 Blob이 추가되거나 수정된 경우** 또는 **Blob이 추가되거나 수정된 경우(속성만)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only))라는 하나의 사용 가능한 트리거가 있습니다. 스토리지 컨테이너에서 Blob의 속성이 추가되거나 업데이트된 경우 트리거가 실행합니다. 매번 Logic Apps 엔진은 논리 앱 인스턴스를 만들고 워크플로를 실행하기 시작합니다.
 
 ### <a name="single-tenant"></a>[단일 테넌트](#tab/single-tenant)
 
@@ -169,7 +169,7 @@ Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-concept
 
 ## <a name="access-storage-accounts-behind-firewalls"></a>방화벽 뒤의 스토리지 계정에 액세스
 
-[방화벽과 방화벽 규칙으로 액세스를 제한](../storage/common/storage-network-security.md)하여 Azure Storage 계정에 네트워크 보안을 추가할 수 있습니다. 그러나 이 설정은 스토리지 계정에 액세스해야 하는 Azure와 기타 Microsoft 서비스에 문제를 만듭니다. 데이터 센터의 로컬 통신이 내부 IP 주소를 추상화하므로 IP 제한을 통해 방화벽 규칙을 설정할 수 없습니다. 
+[방화벽과 방화벽 규칙으로 액세스를 제한](../storage/common/storage-network-security.md)하여 Azure Storage 계정에 네트워크 보안을 추가할 수 있습니다. 그러나 이 설정은 스토리지 계정에 액세스해야 하는 Azure와 기타 Microsoft 서비스에 문제를 만듭니다. 데이터 센터의 로컬 통신이 내부 IP 주소를 추상화하므로 IP 제한을 통해 방화벽 규칙을 설정할 수 없습니다.
 
 Blob Storage 커넥터를 사용하여 방화벽 뒤에 있는 스토리지 계정에 액세스하려면 다음을 수행합니다.
 
@@ -183,19 +183,24 @@ Blob Storage 커넥터를 사용하여 방화벽 뒤에 있는 스토리지 계�
 
 ### <a name="access-storage-accounts-in-other-regions"></a>다른 지역의 스토리지 계정에 액세스
 
-Logic Apps는 둘 다 동일한 지역에 있는 경우 방화벽 뒤에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 해결 방법으로 논리 앱을 스토리지 계정과 다른 지역에 배치합니다. 그런 다음, [해당 지역의 관리형 커넥터의 아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)에 대한 액세스 권한을 부여합니다.
+Logic Apps는 둘 다 동일한 지역에 있는 경우 방화벽 뒤에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 해결 방법으로 논리 앱을 스토리지 계정과 다른 지역에 배치합니다. 그런 다음, [해당 지역의 관리형 커넥터의 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses#azure-logic-apps)에 대한 액세스 권한을 부여합니다.
 
 > [!NOTE]
-> 이 솔루션은 Azure Table Storage 커넥터와 Azure Queue Storage 커넥터에는 적용되지 않습니다. 대신에 Table Storage 또는 Queue Storage에 액세스하려면 [기본 제공 HTTP 트리거와 작업을 사용](../logic-apps/logic-apps-http-endpoint.md)합니다.
+> 이 솔루션은 Azure Table Storage 커넥터와 Azure Queue Storage 커넥터에는 적용되지 않습니다. 대신 Table Storage 또는 큐 Storage 액세스하려면 기본 제공 HTTP 트리거 및 작업 를 [사용합니다.](../logic-apps/logic-apps-http-endpoint.md)
 
 스토리지 계정 방화벽에 아웃바운드 IP 주소를 추가하려면 다음을 수행합니다.
 
-1. 논리 앱 지역의 [아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 기록해 둡니다.
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 스토리지 계정의 페이지를 엽니다. 탐색 메뉴의 **보안 + 네트워킹** 에서 **네트워킹** 을 선택합니다. 
-1. **다음에서 액세스 허용** 아래에서 **선택한 네트워크** 옵션을 선택합니다. 이제 페이지에 관련 설정이 표시됩니다.
-1. **방화벽** 에서 액세스해야 하는 IP 주소 또는 범위를 추가합니다. 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="허용 목록에 IP 주소와 범위를 추가하는 방화벽 설정을 보여 주는 Azure Portal의 Blob Storage 계정 네트워킹 페이지 스크린샷":::
+1. 논리 앱의 지역에 대한 [관리 커넥터 아웃바운드 IP 주소를](/connectors/common/outbound-ip-addresses#azure-logic-apps) 기록해 둡니다.
+
+1. [Azure Portal](https://portal.azure.com)로그인하고 스토리지 계정 리소스를 찾습니다.
+
+1. 스토리지 계정 리소스 메뉴의 **보안 + 네트워킹** 아래에서 **네트워킹을** 선택합니다.
+
+1. **다음에서 액세스 허용** 에서 **선택한 네트워크** 를 선택합니다. 이제 관련 설정이 페이지에 표시됩니다.
+
+1. **방화벽** 에서 액세스해야 하는 IP 주소 또는 범위를 추가합니다.
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-ip-configure.png" alt-text="허용 목록에 IP 주소와 범위를 추가하는 방화벽 설정을 보여 주는 Azure Portal의 Blob Storage 계정 네트워킹 페이지 스크린샷":::
 
 ### <a name="access-storage-accounts-through-trusted-virtual-network"></a>신뢰할 수 있는 가상 네트워크를 통해 스토리지 계정에 액세스
 

@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트를 사용하여 가상 네트워크와 Azure
 description: 이 자습서에서는 Azure Virtual Network에 함수를 연결하고 프라이빗 엔드포인트를 사용하여 잠그는 방법을 보여줍니다.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: a410d6717a73df2c7e947fd15c6c89040f08846c
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 8007fde1d4aaf52a98bf924f607450462a993c1d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204744"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708437"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>자습서: 프라이빗 엔드포인트를 사용하여 Azure 가상 네트워크와 Azure Functions 통합
 
@@ -36,7 +36,7 @@ ms.locfileid: "114204744"
 
 1. **기본 사항** 페이지에서 다음 표를 사용하여 함수 앱 설정을 구성합니다.
 
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
@@ -82,7 +82,7 @@ ms.locfileid: "114204744"
 
 1. **기본 사항** 탭에서 다음 표를 사용하여 스토리지 계정 설정을 구성합니다. 다른 모든 설정에는 기본값을 사용할 수 있습니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용하여 만든 리소스 그룹입니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "114204744"
 
 1. **기본 정보** 탭에서 다음 표를 사용하여 Service Bus 설정을 구성합니다. 다른 모든 설정에는 기본값을 사용할 수 있습니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용하여 만든 리소스 그룹입니다. |
@@ -125,7 +125,7 @@ ms.locfileid: "114204744"
 
 1. **기본 사항** 탭에서 다음 표를 사용하여 가상 네트워크 설정을 구성합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용하여 만든 리소스 그룹입니다. |
@@ -136,7 +136,7 @@ ms.locfileid: "114204744"
 
     :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="가상 네트워크 구성 뷰의 스크린샷입니다.":::
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **서브넷 이름** | functions | 함수 앱이 연결될 서브넷의 이름입니다. | 
     | **서브넷 주소 범위** | 10.0.1.0/24 | 서브넷 주소 범위입니다. 위의 이미지에서 IPv4 주소 공간은 10.0.0.0/16입니다. 값이 10.1.0.0/16인 경우 권장 서브넷 주소 범위는 10.1.1.0/24입니다. |
@@ -157,7 +157,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 
 1. **기본 사항** 탭에서 다음 표에 나와 있는 프라이빗 엔드포인트 설정을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용하여 만든 리소스 그룹을 선택합니다. |
@@ -166,7 +166,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 
 1. **리소스** 탭에서 다음 표에 나와 있는 프라이빗 엔드포인트 설정을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.Storage/storageAccounts | 스토리지 계정에 대한 리소스 종류입니다. |
@@ -179,7 +179,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 
 1. Blob에 대한 다른 프라이빗 엔드포인트를 만듭니다. **리소스** 탭에서 다음 표에 나와 있는 설정을 사용합니다. 다른 모든 설정의 경우에는 파일에 대한 프라이빗 엔드포인트를 만드는 데 사용한 것과 동일한 값을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.Storage/storageAccounts | 스토리지 계정에 대한 리소스 종류입니다. |
@@ -188,7 +188,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
     | **대상 하위 리소스** | blob | 스토리지 계정의 Blob에 사용될 프라이빗 엔드포인트입니다. |
 1. 테이블에 대한 다른 프라이빗 엔드포인트를 만듭니다. **리소스** 탭에서 다음 표에 나와 있는 설정을 사용합니다. 다른 모든 설정의 경우에는 파일에 대한 프라이빗 엔드포인트를 만드는 데 사용한 것과 동일한 값을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.Storage/storageAccounts | 스토리지 계정에 대한 리소스 종류입니다. |
@@ -211,7 +211,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 
 1. **기본 사항** 탭에서 다음 표에 나와 있는 프라이빗 엔드포인트 설정을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용하여 만든 리소스 그룹입니다. |
@@ -220,7 +220,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 
 1. **리소스** 탭에서 다음 표에 나와 있는 프라이빗 엔드포인트 설정을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.ServiceBus/namespaces | Service Bus에 대한 리소스 종류입니다. |
@@ -235,7 +235,7 @@ Azure 프라이빗 엔드포인트는 개인 IP 주소를 사용하여 특정 Az
 1. **+ 기존 가상 네트워크 추가** 를 선택하여 최근에 만든 가상 네트워크를 추가합니다.
 1. **네트워크 추가** 탭에서 다음 테이블의 네트워크 설정을 사용합니다.
 
-    | 설정 | 제안 값 | 설명|
+    | 설정 | 제안 값 | Description|
     |---------|-----------------|------------|
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. |
     | **가상 네트워크** | myVirtualNet | 함수 앱이 연결되는 가상 네트워크의 이름입니다. |
@@ -304,6 +304,8 @@ Azure Functions Service Bus 트리거에서 이벤트를 가져오는 큐를 만
 
 1. 앞서 만든 **함수** 서브넷을 선택합니다. **확인** 을 선택합니다.  이제 함수 앱이 가상 네트워크와 통합되었습니다.
 
+    가상 네트워크 및 함수 앱이 다른 구독에 있는 경우 먼저 가상 네트워크에서 **App Service Microsoft Azure** 서비스 주체에 대 한 **참가자** 액세스 권한을 제공 해야 합니다.
+
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="서브넷에 함수 앱을 연결하는 방법을 보여주는 스크린샷입니다.":::
 
 ## <a name="configure-your-function-app-settings"></a>함수 앱 설정 구성
@@ -314,7 +316,7 @@ Azure Functions Service Bus 트리거에서 이벤트를 가져오는 큐를 만
 
     :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="프라이빗 엔드포인트에 대한 함수 앱 설정을 구성하는 방법을 보여주는 스크린샷입니다.":::
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | 만든 스토리지 계정의 연결 문자열입니다. 이 스토리지 연결 문자열은 [스토리지 계정 연결 문자열 가져오기](#get-the-storage-account-connection-string) 섹션에서 가져온 것입니다. 이 설정을 통해 함수 앱은 런타임 시 정상 작업에 보안 스토리지 계정을 사용할 수 있습니다. | 
     | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | 만든 스토리지 계정의 연결 문자열입니다. 이 설정을 통해 함수 앱에서 배포 중에 사용되는 Azure Files에 대한 보안 스토리지 계정을 사용할 수 있습니다. |
@@ -342,7 +344,7 @@ Azure Functions Service Bus 트리거에서 이벤트를 가져오는 큐를 만
 
 1. **설정** 탭에서 다음 표에 나와 있는 배포 설정을 사용합니다.
 
-    | 설정      | 제안 값  | 설명      |
+    | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **원본** | GitHub | 2단계에서 샘플 코드에 대한 GitHub 리포지토리를 만들어야 합니다. | 
     | **조직**  | myOrganization | 리포지토리가 체크인된 조직입니다. 일반적으로 사용자의 계정입니다. |

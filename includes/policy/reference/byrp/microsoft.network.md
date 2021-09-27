@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 979e305a5831dfdcf05761eae30b6520aab28114
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0f35e90494345e044b7a04604e4d6049bbaa9c2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479837"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627422"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -32,6 +32,7 @@ ms.locfileid: "123479837"
 |[\[미리 보기\]: 프라이빗 DNS 영역 사용을 위해 Azure Recovery Services 자격 증명 모음 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F942bd215-1a66-44be-af65-6a1c0318dbe2) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Recovery Services 자격 증명 모음으로 확인됩니다. [https://aka.ms/privatednszone](../../../../articles/private-link/private-endpoint-dns.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Site%20Recovery/SiteRecovery_PrivateDnsZones_DeployIfNotExist.json) |
 |[프라이빗 DNS 영역을 사용하도록 Azure Synapse 작업 영역 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e5ed725-f16c-478b-bd4b-7bfa2f7940b9) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Azure Synapse 작업 영역으로 확인됩니다. [https://docs.microsoft.com/azure/synapse-analytics/security/how-to-connect-to-workspace-from-restricted-network#appendix-dns-registration-for-private-endpoint](../../../../articles/synapse-analytics/security/how-to-connect-to-workspace-from-restricted-network.md#appendix-dns-registration-for-private-endpoint)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateDnsZones_DeployIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 Azure Web PubSub 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b026355-49cb-467b-8ac4-f777874e175a) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Azure Web PubSub 서비스로 확인됩니다. [https://aka.ms/awps/privatelink](https://aka.ms/awps/privatelink)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PrivateEndpointDNSZone_DeployIfNotExists.json) |
+|[개인 DNS 영역을 사용 하도록 BotService 리소스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a4e6f44-f2af-4082-9702-033c9e88b9f8) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. BotService 관련 리소스를 확인 하기 위해 가상 네트워크에 연결 되는 개인 DNS 영역입니다. [https://aka.ms/privatednszone](../../../../articles/private-link/private-endpoint-dns.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Bot%20Service/BotService_PrivateDNSZone_DeployIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 Cognitive Services 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4bc6f10-cb41-49eb-b000-d5ab82e2a091) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Cognitive Services 계정으로 확인됩니다. [https://go.microsoft.com/fwlink/?linkid=2110097](../../../../articles/cognitive-services/cognitive-services-virtual-networks.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_PrivateDnsZones_DeployIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 컨테이너 레지스트리 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9585a95-5b8c-4d03-b193-dc7eb5ac4c32) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Container Registry를 확인합니다. [https://aka.ms/privatednszone](../../../../articles/private-link/private-endpoint-dns.md) 및 [https://aka.ms/acr/private-link](../../../../articles/container-registry/container-registry-private-link.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PrivateDNSZone_DeployIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 CosmosDB 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa63cc0bd-cda4-4178-b705-37dc439d3e0f) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 CosmosDB 계정으로 확인됩니다. [https://aka.ms/privatednszone](../../../../articles/private-link/private-endpoint-dns.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_PrivateDNSZone_DeployIfNotExists.json) |

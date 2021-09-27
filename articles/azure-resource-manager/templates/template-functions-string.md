@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 문자열
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 05/14/2021
-ms.openlocfilehash: e8b99fa59feeaa3e18916089c71f17fa48627627
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: bfb80a03012f5a1a9194789a82efd5cccd1eb18d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959495"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806998"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿의 문자열 함수
 
@@ -66,48 +66,13 @@ Base64 표현을 포함하는 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 `base64` 함수를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringData": {
-      "type": "string",
-      "defaultValue": "one, two, three"
-    },
-    "jsonFormattedData": {
-      "type": "string",
-      "defaultValue": "{'one': 'a', 'two': 'b'}"
-    }
-  },
-  "variables": {
-    "base64String": "[base64(parameters('stringData'))]",
-    "base64Object": "[base64(parameters('jsonFormattedData'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "base64Output": {
-      "type": "string",
-      "value": "[variables('base64String')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[base64ToString(variables('base64String'))]"
-    },
-    "toJsonOutput": {
-      "type": "object",
-      "value": "[base64ToJson(variables('base64Object'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/base64.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -131,48 +96,13 @@ JSON 개체입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
+다음 예제에서는 `base64ToJson` 함수를 사용하여 base64 값을 변환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringData": {
-      "type": "string",
-      "defaultValue": "one, two, three"
-    },
-    "jsonFormattedData": {
-      "type": "string",
-      "defaultValue": "{'one': 'a', 'two': 'b'}"
-    }
-  },
-  "variables": {
-    "base64String": "[base64(parameters('stringData'))]",
-    "base64Object": "[base64(parameters('jsonFormattedData'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "base64Output": {
-      "type": "string",
-      "value": "[variables('base64String')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[base64ToString(variables('base64String'))]"
-    },
-    "toJsonOutput": {
-      "type": "object",
-      "value": "[base64ToJson(variables('base64Object'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/base64.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -196,48 +126,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
+다음 예에서는 함수를 사용 하 여 `base64ToString` base64 값을 변환 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringData": {
-      "type": "string",
-      "defaultValue": "one, two, three"
-    },
-    "jsonFormattedData": {
-      "type": "string",
-      "defaultValue": "{'one': 'a', 'two': 'b'}"
-    }
-  },
-  "variables": {
-    "base64String": "[base64(parameters('stringData'))]",
-    "base64Object": "[base64(parameters('jsonFormattedData'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "base64Output": {
-      "type": "string",
-      "value": "[variables('base64String')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[base64ToString(variables('base64String'))]"
-    },
-    "toJsonOutput": {
-      "type": "object",
-      "value": "[base64ToJson(variables('base64Object'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/base64.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -251,10 +146,10 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 문자열 또는 배열입니다. |
-| 추가 인수 |예 |문자열 또는 배열 |연결 순서로 나타낸 추가 문자열 또는 배열입니다. |
+| 추가 인수 |예 |문자열 또는 배열 |연결에 대 한 순서에 따라 더 많은 문자열 또는 배열 |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다. 그러나 매개 변수에 대한 배열과 문자열을 둘 다 제공할 수는 없습니다. 문자열은 다른 문자열과만 연결됩니다.
 
@@ -264,72 +159,23 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
+다음 예제에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "prefix": {
-      "type": "string",
-      "defaultValue": "prefix"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "concatOutput": {
-      "type": "string",
-      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
+다음 예제에서는 두 개의 배열을 결합하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        "1-1",
-        "1-2",
-        "1-3"
-      ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        "2-1",
-        "2-2",
-        "2-3"
-      ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "return": {
-      "type": "array",
-      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/concat-array.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -341,7 +187,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -352,64 +198,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
+다음 예제에서는 여러 다른 형식의 contains를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -436,39 +231,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
+다음 예에서는 값을 데이터 URI로 변환 하 고 데이터 URI를 문자열로 변환 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "Hello"
-    },
-    "dataFormattedString": {
-      "type": "string",
-      "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "dataUriOutput": {
-      "value": "[dataUri(parameters('stringToTest'))]",
-      "type": "string"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[dataUriToString(parameters('dataFormattedString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/datauri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -491,39 +260,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
+다음 예제 템플릿에서는 값을 데이터 URI로 변환 하 고 데이터 URI를 문자열로 변환 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "Hello"
-    },
-    "dataFormattedString": {
-      "type": "string",
-      "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "dataUriOutput": {
-      "value": "[dataUri(parameters('stringToTest'))]",
-      "type": "string"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[dataUriToString(parameters('dataFormattedString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/datauri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -536,7 +279,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -546,48 +289,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
+다음 예제에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -612,45 +320,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
+다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `startsWith` `endsWith` .
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "startsTrue": {
-      "value": "[startsWith('abcdef', 'ab')]",
-      "type": "bool"
-    },
-    "startsCapTrue": {
-      "value": "[startsWith('abcdef', 'A')]",
-      "type": "bool"
-    },
-    "startsFalse": {
-      "value": "[startsWith('abcdef', 'e')]",
-      "type": "bool"
-    },
-    "endsTrue": {
-      "value": "[endsWith('abcdef', 'ef')]",
-      "type": "bool"
-    },
-    "endsCapTrue": {
-      "value": "[endsWith('abcdef', 'F')]",
-      "type": "bool"
-    },
-    "endsFalse": {
-      "value": "[endsWith('abcdef', 'e')]",
-      "type": "bool"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/startsendswith.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -667,7 +343,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -677,36 +353,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[first(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[first('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/first.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -723,7 +376,7 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | formatString | 예 | 문자열 | 합성 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정된 문자열에 포함할 값입니다. |
-| 추가 인수 | 예 | 문자열, 정수 또는 부울 | 서식이 지정된 문자열에 포함할 추가 값입니다. |
+| 추가 인수 | 예 | 문자열, 정수 또는 부울 | 형식이 지정 된 문자열에 포함할 값이 더 있습니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -731,40 +384,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 서식 함수를 사용하는 방법을 보여 줍니다.
+다음 예제에서는 서식 함수를 사용하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "greeting": {
-      "type": "string",
-      "defaultValue": "Hello"
-    },
-    "name": {
-      "type": "string",
-      "defaultValue": "User"
-    },
-    "numberToFormat": {
-      "type": "int",
-      "defaultValue": 8175133
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "formatTest": {
-      "type": "string",
-      "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/format.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정된 숫자: 8,175,133 |
 
@@ -779,7 +405,7 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |문자열 |GUID를 만들기 위해 해시 함수에 사용되는 값입니다. |
-| 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+| 필요에 따라 더 많은 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -813,31 +439,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
+다음 예제에서는 에서 결과를 `guid` 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "guidPerSubscription": {
-      "value": "[guid(subscription().subscriptionId)]",
-      "type": "string"
-    },
-    "guidPerResourceGroup": {
-      "value": "[guid(resourceGroup().id)]",
-      "type": "string"
-    },
-    "guidPerDeployment": {
-      "value": "[guid(resourceGroup().id, deployment().name)]",
-      "type": "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/guid.json":::
 
 ## <a name="indexof"></a>indexof
 
@@ -858,41 +462,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 및 함수를 사용하는 방법을 `indexOf` `lastIndexOf` 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "firstT": {
-      "value": "[indexOf('test', 't')]",
-      "type": "int"
-    },
-    "lastT": {
-      "value": "[lastIndexOf('test', 't')]",
-      "type": "int"
-    },
-    "firstString": {
-      "value": "[indexOf('abcdef', 'CD')]",
-      "type": "int"
-    },
-    "lastString": {
-      "value": "[lastIndexOf('abcdef', 'AB')]",
-      "type": "int"
-    },
-    "notFound": {
-      "value": "[indexOf('abcdef', 'z')]",
-      "type": "int"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -916,7 +492,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -926,36 +502,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 배열 및 문자열과 함께 함수를 사용하는 방법을 보여 `last` 있습니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[last(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[last('One Two Three')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -979,41 +532,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 및 함수를 사용하는 방법을 `indexOf` `lastIndexOf` 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "firstT": {
-      "value": "[indexOf('test', 't')]",
-      "type": "int"
-    },
-    "lastT": {
-      "value": "[lastIndexOf('test', 't')]",
-      "type": "int"
-    },
-    "firstString": {
-      "value": "[indexOf('abcdef', 'CD')]",
-      "type": "int"
-    },
-    "lastString": {
-      "value": "[lastIndexOf('abcdef', 'AB')]",
-      "type": "int"
-    },
-    "notFound": {
-      "value": "[indexOf('abcdef', 'z')]",
-      "type": "int"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1029,7 +554,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -1039,59 +564,13 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
+다음 예제에서는 `length` 배열 및 문자열과 함께 함수를 사용하는 방법을 보여 있습니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1123,75 +602,23 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 새 식별자를 포함하는 매개 변수를 보여 줍니다.
+다음 예제에서는 새 식별자를 포함하는 매개 변수를 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "guidValue": {
-      "type": "string",
-      "defaultValue": "[newGuid()]"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "guidOutput": {
-      "type": "string",
-      "value": "[parameters('guidValue')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/newguid.json":::
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-다음 예제에서는 newGuid 함수를 사용하여 스토리지 계정에 대한 고유한 이름을 만듭니다. 이 템플릿은 스토리지 계정이 짧은 시간 동안 존재하고 다시 배포되지 않는 테스트 환경에 사용할 수 있습니다.
+다음 예제에서는 `newGuid` 함수를 사용하여 스토리지 계정에 대한 고유한 이름을 만듭니다. 이 템플릿은 스토리지 계정이 짧은 시간 동안 존재하고 다시 배포되지 않는 테스트 환경에 사용할 수 있습니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "guidValue": {
-      "type": "string",
-      "defaultValue": "[newGuid()]"
-    }
-  },
-  "variables": {
-    "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "West US",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "nameOutput": {
-      "type": "string",
-      "value": "[variables('storageName')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/newguid-storageaccount.json":::
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1217,31 +644,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다.
+다음 예제는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "123"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "stringOutput": {
-      "type": "string",
-      "value": "[padLeft(parameters('testString'),10,'0')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/padleft.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1265,35 +674,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
+다음 예제에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "123-123-1234"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "firstOutput": {
-      "type": "string",
-      "value": "[replace(parameters('testString'),'-', '')]"
-    },
-    "secondOutput": {
-      "type": "string",
-      "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/replace.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1317,51 +704,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
+다음 예제에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToSkip": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToSkip": {
-      "type": "int",
-      "defaultValue": 4
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/skip.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1385,42 +734,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
+다음 예에서는 쉼표와 쉼표 또는 세미콜론을 사용 하 여 입력 문자열을 분할 합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstString": {
-      "type": "string",
-      "defaultValue": "one,two,three"
-    },
-    "secondString": {
-      "type": "string",
-      "defaultValue": "one;two,three"
-    }
-  },
-  "variables": {
-    "delimiters": [ ",", ";" ]
-  },
-  "resources": [],
-  "outputs": {
-    "firstOutput": {
-      "type": "array",
-      "value": "[split(parameters('firstString'),',')]"
-    },
-    "secondOutput": {
-      "type": "array",
-      "value": "[split(parameters('secondString'),variables('delimiters'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/split.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -1444,45 +764,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
+다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `startsWith` `endsWith` .
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "startsTrue": {
-      "value": "[startsWith('abcdef', 'ab')]",
-      "type": "bool"
-    },
-    "startsCapTrue": {
-      "value": "[startsWith('abcdef', 'A')]",
-      "type": "bool"
-    },
-    "startsFalse": {
-      "value": "[startsWith('abcdef', 'e')]",
-      "type": "bool"
-    },
-    "endsTrue": {
-      "value": "[endsWith('abcdef', 'ef')]",
-      "type": "bool"
-    },
-    "endsCapTrue": {
-      "value": "[endsWith('abcdef', 'F')]",
-      "type": "bool"
-    },
-    "endsFalse": {
-      "value": "[endsWith('abcdef', 'e')]",
-      "type": "bool"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/startsendswith.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1509,54 +797,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
+다음 예제에서는 다양 한 형식의 값을 문자열로 변환 하는 방법을 보여 줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testObject": {
-      "type": "object",
-      "defaultValue": {
-        "valueA": 10,
-        "valueB": "Example Text"
-      }
-    },
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "a",
-        "b",
-        "c"
-      ]
-    },
-    "testInt": {
-      "type": "int",
-      "defaultValue": 5
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "objectOutput": {
-      "type": "string",
-      "value": "[string(parameters('testObject'))]"
-    },
-    "arrayOutput": {
-      "type": "string",
-      "value": "[string(parameters('testArray'))]"
-    },
-    "intOutput": {
-      "type": "string",
-      "value": "[string(parameters('testInt'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/string.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -1597,31 +844,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)에서는 매개 변수에서 하위 문자열을 추출합니다.
+다음 예제에서는 매개 변수에서 하위 문자열을 추출합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "substringOutput": {
-      "value": "[substring(parameters('testString'), 4, 3)]",
-      "type": "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/substring.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1629,7 +858,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 `take(originalValue, numberToTake)`
 
-문자열 시작부터 지정된 수의 문자를 포함하는 문자열 또는 배열 시작부터 지정된 수의 요소를 포함하는 배열을 반환합니다.
+배열 또는 문자열을 반환합니다. 배열에는 배열의 시작부터 지정된 개수의 요소가 있습니다. 문자열에는 문자열의 시작부터 지정된 수의 문자가 있습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1644,51 +873,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
+다음 예제에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToTake": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToTake": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/take.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -1711,35 +902,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
+다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "toLowerOutput": {
-      "value": "[toLower(parameters('testString'))]",
-      "type": "string"
-    },
-    "toUpperOutput": {
-      "type": "string",
-      "value": "[toUpper(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/tolower.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1762,35 +931,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
+다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "toLowerOutput": {
-      "value": "[toLower(parameters('testString'))]",
-      "type": "string"
-    },
-    "toUpperOutput": {
-      "type": "string",
-      "value": "[toUpper(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/tolower.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1813,31 +960,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)에서는 매개 변수에서 공백 문자를 자릅니다.
+다음은 매개 변수에서 공백 문자를 자르는 예입니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testString": {
-      "type": "string",
-      "defaultValue": "    one two three   "
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "return": {
-      "type": "string",
-      "value": "[trim(parameters('testString'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/trim.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1852,7 +981,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |문자열 |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
-| 필요에 따라 추가하는 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
+| 필요에 따라 더 많은 매개 변수 |예 |문자열 |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -1899,25 +1028,9 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)은 `uniquestring`의 결과를 반환합니다.
+다음 예제에서는 에서 결과를 `uniquestring` 반환합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "uniqueRG": {
-      "value": "[uniqueString(resourceGroup().id)]",
-      "type": "string"
-    },
-    "uniqueDeploy": {
-      "value": "[uniqueString(resourceGroup().id, deployment().name)]",
-      "type": "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uniquestring.json":::
 
 ## <a name="uri"></a>uri
 
@@ -1929,14 +1042,14 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명된 대로 후행 슬래시(`/`)의 처리와 관련된 동작을 주의해서 살펴봅니다.  |
+| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표에 설명된 대로 후행 슬래시()의 처리에 대한 동작을 `/` 관찰합니다.  |
 | relativeUri |예 |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
-* **baseUri** 가 후행 슬래시로 끝나는 경우 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
+* **baseUri가** 후행 슬래시로 끝나는 경우 결과는 **baseUri** 다음에 **relativeUri** 가 입니다.
 
-* **baseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생합니다.
+* **baseUri가** 후행 슬래시로 끝나지 않으면 두 가지 중 하나가 발생합니다.
 
-   * **baseUri** 에 슬래시가 전혀 없는 경우(앞의 `//` 제외) 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
+   * **baseUri에** 슬래시가 전혀 없는 `//` 경우(앞부분에 있는 것 외에) 결과는 baseUri 다음에 **relativeUri** 가 입니다. 
 
    * **baseUri** 에 슬래시가 있지만 슬래시로 끝나지 않는 경우 마지막 슬래시부터 나오는 모든 항목은 **baseuri** 에서 제거되고 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
 
@@ -1963,38 +1076,13 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
+다음 예제 템플릿에서는 , 및 를 사용하는 방법을 `uri` `uriComponent` `uriComponentToString` 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "uriOutput": {
-      "type": "string",
-      "value": "[variables('uriFormat')]"
-    },
-    "componentOutput": {
-      "type": "string",
-      "value": "[variables('uriEncoded')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[uriComponentToString(variables('uriEncoded'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2018,38 +1106,13 @@ URI로 인코딩된 값의 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
+다음 예제 템플릿에서는 , 및 를 사용하는 방법을 `uri` `uriComponent` `uriComponentToString` 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "uriOutput": {
-      "type": "string",
-      "value": "[variables('uriFormat')]"
-    },
-    "componentOutput": {
-      "type": "string",
-      "value": "[variables('uriEncoded')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[uriComponentToString(variables('uriEncoded'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2073,38 +1136,13 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 ### <a name="examples"></a>예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
+다음 예제에서는 , 및 를 사용하는 방법을 `uri` `uriComponent` `uriComponentToString` 보여줍니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-    "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
-    "uriEncoded": "[uriComponent(variables('uriFormat'))]"
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "uriOutput": {
-      "type": "string",
-      "value": "[variables('uriFormat')]"
-    },
-    "componentOutput": {
-      "type": "string",
-      "value": "[variables('uriEncoded')]"
-    },
-    "toStringOutput": {
-      "type": "string",
-      "value": "[uriComponentToString(variables('uriEncoded'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |

@@ -4,12 +4,12 @@ description: 사용 계획 및 프리미엄 계획 함수 앱의 크기 조정 �
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: azure-functions
-ms.openlocfilehash: ff7194b5dfda09253526aa79b52be475c131a411
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c67177570906e0122df6116f1a0a159d64f3486b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567433"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571314"
 ---
 # <a name="event-driven-scaling-in-azure-functions"></a>Azure Functions에서 이벤트 기반 크기 조정
 
@@ -55,7 +55,7 @@ $resource | Set-AzResource -Force
 
 ## <a name="best-practices-and-patterns-for-scalable-apps"></a>확장성 있는 앱의 모범 사례 및 패턴
 
-함수 앱에는 호스트 구성, 런타임 공간 및 리소스 효율성을 비롯하여 크기 조정 방법에 영향을 주는 여러 측면이 있습니다.  자세한 내용은 [성능 고려 사항 문서의 확장성 섹션](functions-best-practices.md#scalability-best-practices)을 참조하세요. 또한 함수 앱의 확장에 따라 연결이 어떻게 작동하는지도 알고 있어야 합니다. 자세한 내용은 [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)을 참조하세요.
+함수 앱에는 호스트 구성, 런타임 공간 및 리소스 효율성을 비롯하여 크기 조정 방법에 영향을 주는 여러 측면이 있습니다.  자세한 내용은 [성능 고려 사항 문서의 확장성 섹션](performance-reliability.md#scalability-best-practices)을 참조하세요. 또한 함수 앱의 확장에 따라 연결이 어떻게 작동하는지도 알고 있어야 합니다. 자세한 내용은 [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)을 참조하세요.
 
 Python 및 Node.js의 크기 조정에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드 - 크기 조정 및 동시성](functions-reference-python.md#scaling-and-performance) 및 [Azure Functions Node.js 개발자 가이드 - 크기 조정 및 동시성](functions-reference-node.md#scaling-and-concurrency)을 참조하세요.
 

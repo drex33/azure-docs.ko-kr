@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory의 Until 작업
+title: Until 작업
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Until 작업은 작업과 관련된 조건이 참으로 평가되거나 시간이 초과될 때까지 일단의 반복 작업을 실행합니다.
+description: Azure Data Factory 및 Synapse Analytics 파이프라인의 Until 활동은 활동과 연결 된 조건이 true로 평가 되거나 제한 시간이 초과 될 때까지 루프에서 일련의 활동을 실행 합니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 2191dd75f2dbf24a59dbb7c43f8ef9ec62705aee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d31e6c5b5a21f3064abf16779bd0a44e877b2737
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642551"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814999"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
+# <a name="until-activity-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics의 Until 활동
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
+Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. until 작업의 시간 제한 값을 지정할 수 있습니다. 
 
 ## <a name="syntax"></a>구문
 
@@ -63,10 +63,10 @@ type | **Until** 로 설정해야 합니다. | String | 예
 ## <a name="example-1"></a>예 1
 
 > [!NOTE]
-> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용 하 여 파이프라인을 만드는 단계별 지침이 포함 된 연습은 [자습서: Azure PowerShell를 사용 하 여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조 하세요.
 
 ### <a name="pipeline-with-until-activity"></a>Until 작업이 포함된 파이프라인
-이 예제의 파이프라인에는 **Until** 및 **Wait** 라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
+이 예제의 파이프라인에는 **Until** 및 **Wait** 라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. 식 및 함수에 대 한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조 하세요. 
 
 ```json
 {
@@ -287,7 +287,7 @@ while ($True) {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+지원되는 다른 제어 흐름 작업을 참조하세요. 
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)

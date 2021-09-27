@@ -3,12 +3,12 @@ title: Advisor로 운영 우수성 개선
 description: Azure Advisor를 사용하여 Azure 구독의 운영 우수성을 최적화하고 완성합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 151edab6c389e32abaaa73fec3012fa3bdcdf75a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579958"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650423"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Azure Advisor를 사용하여 운영 우수성 달성
 
@@ -69,6 +69,8 @@ Azure Advisor에서 유효성 검사 환경을 사용하도록 설정된 호스�
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>트래픽 분석을 사용하여 Azure 리소스에서 트래픽 패턴에 대한 인사이트를 볼 수 있음
 트래픽 분석은 Azure의 사용자 및 애플리케이션 작업에 대한 가시성을 제공하는 클라우드 기반 솔루션입니다. 트래픽 분석은 NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 트래픽 흐름에 대한 인사이트를 제공합니다. 트래픽 분석을 사용하면 Azure 및 비 Azure 배포 전반에서 상위 토커를 확인하고, 사용자 환경에서 열린 포트, 프로토콜 및 악성 흐름을 조사하고, 네트워크 배포를 성능에 맞게 최적화할 수 있습니다. 10분 및 60분의 처리 간격으로 흐름 로그를 처리하여 트래픽에 대한 분석을 더 빠르게 할 수 있습니다. Azure 리소스에 트래픽 분석을 사용하도록 설정하는 것이 좋습니다. 
 
+## <a name="increase-vcpu-limits-for-your-deployments-for-pay-as-you-go-subscription-preview"></a>종 량 제 구독에 대 한 배포에 대 한 vCPU 한도 늘리기 (미리 보기)
+이 환경은 증가 하는 요구에 도움이 되 고 할당량 제한으로 인 한 배포 문제를 방지 하기 위해 할당량을 늘릴 수 있는 쉬운 방법을 제공 하기 위해 만들어졌습니다. 제한 된 구독에 대해 "빠른 수정" 옵션을 사용 하도록 설정 했습니다 .이 옵션을 사용 하면 한 번의 클릭으로 10에서 20 까지의 vCPUs 할당량을 늘릴 수 있습니다. 이 간소화 된 방법은 할당량을 늘리기 위해 사용자를 대신 하 여 [할당량 REST API](https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670) 를 호출 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

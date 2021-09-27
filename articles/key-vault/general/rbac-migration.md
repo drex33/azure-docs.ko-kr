@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 5f92ecca8ccecda0f4ba6e7e87dc0287c75ed41b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531271"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761622"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 권한 모델로 마이그레이션
 
@@ -31,7 +31,7 @@ Azure RBAC로 마이그레이션하기 전에 이점 및 제한 사항을 이해
 
 Azure RBAC 단점:
 - 역할 할당 대기 시간 - 역할 할당을 적용하는 데 몇 분 정도 걸릴 수 있습니다. 자격 증명 모음 액세스 정책은 즉시 할당됩니다.
-- 역할 할당 수 제한 - 구독당 2,000개 역할 할당 vs. 키 자격 증명 모음당 1,024개 액세스 정책
+- 제한 된 수의 역할 할당-Azure RBAC는 구독 당 모든 서비스 및 1024 액세스 Key Vault 정책에 대해 2000 역할 할당만 허용 합니다.
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Azure 역할 매핑에 대한 액세스 정책
 

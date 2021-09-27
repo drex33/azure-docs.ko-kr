@@ -11,28 +11,28 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 1be2b8200cd9e7b83fb3d113966a13c32e126d34
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726863"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589267"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>.NET을 사용하여 저장된 액세스 정책 만들기
 
 저장된 액세스 정책은 서버 쪽의 서비스 수준 SAS(공유 액세스 서명)에 대한 제어 수준을 높입니다. 저장된 액세스 정책을 정의하면 공유 액세스 서명을 그룹화하고 정책으로 제한된 공유 액세스 서명을 추가로 제한하는 데 도움이 됩니다. 저장된 액세스 정책을 사용하여 SAS의 시작 시간, 만료 시간 또는 사용 권한을 변경하거나, 발급된 SAS를 철회할 수 있습니다.
-  
-다음 Azure Storage 리소스는 저장된 액세스 정책을 지원합니다.  
-  
-- Blob 컨테이너  
-- 파일 공유  
-- 큐  
-- 테이블  
-  
+
+다음 Azure Storage 리소스는 저장된 액세스 정책을 지원합니다.
+
+- Blob 컨테이너
+- 파일 공유
+- 큐
+- 테이블
+
 > [!NOTE]
 > 컨테이너에 대한 저장된 액세스 정책은 컨테이너 자체 또는 컨테이너에 포함된 Blob에 대한 사용 권한을 부여하는 공유 액세스 서명과 연결될 수 있습니다. 마찬가지로, 파일 공유에 대한 저장된 액세스 정책은 공유 자체 또는 공유에 포함된 파일에 대한 사용 권한을 부여하는 공유 액세스 서명과 연결될 수 있습니다.  
 >
-> 저장된 액세스 정책은 서비스 SAS에만 지원됩니다. 계정 SAS 또는 사용자 위임 SAS의 경우 저장된 액세스 정책이 지원되지 않습니다.  
+> 저장된 액세스 정책은 서비스 SAS에만 지원됩니다. 계정 SAS 또는 사용자 위임 SAS의 경우 저장된 액세스 정책이 지원되지 않습니다.
 
 저장된 액세스 정책에 대한 자세한 내용은 [저장된 액세스 정책 정의](/rest/api/storageservices/define-stored-access-policy)를 참조하세요.
 

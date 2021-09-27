@@ -1,6 +1,6 @@
 ---
 title: Media Services 규정 준수
-description: Azure Media Services는 Azure Government를 준수합니다.
+description: Azure Media Services 고객이 규정 준수 의무를 Azure Government 데 도움이 됩니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -9,36 +9,42 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/11/2021
 ms.author: inhenkel
-ms.openlocfilehash: 978af4754e6e083e8bf5375ade84891019abccca
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: 6e2276fcf06909d46808ebd7971096831dc4d094
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068584"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641325"
 ---
 # <a name="media-services-regulatory-compliance"></a>Media Services 규정 준수
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Media Services는 정보 영향 수준 2에서 5까지 미국 FedRAMP(Federal Risk and Authorization Management Program)와 US Department of Defense(미국방부)의 까다로운 요구 사항을 충족합니다. Azure Government, Office 365 U.S. Government, Dynamics 365 Government, Federal, Defense Agency를 포함한 보호된 서비스를 배포하여 다양한 규정 준수 서비스를 사용할 수 있습니다.
+Media Services FedRAMP(미국 연방 위험 & 권한 부여 관리 프로그램) 및 US DoD(Department of Defense) SRG(Cloud Computing Security Requirements Guide) IL(영향 수준) 2, IL4 및 IL5의 까다로운 요구 사항을 충족합니다. Azure Government, Office 365 GCC High 및 DoD에 권한 있는 서비스를 배포하고 Dynamics 365 미국 정부, 연방 및 방어 기관은 규정 준수 의무를 충족하면서 다양한 클라우드 서비스를 사용할 수 있습니다.
 
-## <a name="fedramp-and-us-department-of-defense-compliance"></a>FedRAMP 및 US Department of Defense(미국방부) 규정 준수
+## <a name="fedramp-and-dod-compliance"></a>FedRAMP 및 DoD 규정 준수
 
-Media Services Public 서비스는 DoD CC SRG IL 2(국방부 클라우드 컴퓨팅 보안 요구 사항 가이드 2) 및 FedRAMP High를 준수합니다.
+Azure Public의 Media Services 다음을 유지 관리합니다.
 
-Media Services Government 서비스는 DoD CC SRG IL 2, DoD CC SRG IL 4, DoD CC SRG IL 5, FedRAMP High를 준수합니다.
+- P-ATO(FedRAMP High Authorization to Operate)
+- DoD IL2 Pa(권한 부여)
 
-2020년에는 3PAO 및 JAB의 Media Services 검토 계획이 없습니다.
+Azure Government Media Services 다음을 유지 관리합니다.
 
-[FedRAMP 및 DoD CC SRG 감사 범위에 대한 Azure 서비스](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) 문서에서 Azure 서비스 규정 준수에 대해 자세히 알아보세요.
+- FedRAMP High P-ATO
+- DoD IL2 PA
+- DoD IL4 PA
+- DoD IL5 PA
+
+미국 정부의 Azure 규정 준수 범위에 대한 자세한 내용은 Azure [FedRAMP High,](/azure/compliance/offerings/offering-fedramp) [DoD IL2, DoD IL4](/azure/compliance/offerings/offering-dod-il2)및 [DoD IL5](/azure/compliance/offerings/offering-dod-il5) 설명서를 참조하세요. [](/azure/compliance/offerings/offering-dod-il4) FedRAMP 및 DoD 감사 범위는 [감사 범위별 클라우드 서비스를](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md)참조하세요.
 
 ## <a name="azure-compliance-documentation"></a>Azure 규정 준수 설명서
 
-조직이 글로벌, 미국 정부, 지역, 금융 서비스, 의료, 미디어, 제조에 대한 법률 또는 규정 표준을 준수해야 하는 경우 [Azure 규정 준수 설명서](../../compliance/index.yml)를 먼저 확인하세요.
+전 세계 규제 산업 및 시장에서 사용자 고유의 규정 준수 의무를 충족할 수 있도록 Azure는 광범위한(규정 [준수 제안의](/azure/compliance/offerings/)총 수) 및 깊이(평가 범위의 고객 관련 서비스 수) 측면에서 업계에서 가장 큰 규정 준수 포트폴리오를 유지 [관리합니다.](https://azure.microsoft.com/services/) 서비스 가용성에 대해서는 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 
-또한 감사 보고서, 개인 정보 보호 및 GDPR(일반 데이터 보호 규정)에 대한 검사 목록, 규정 준수 청사진, 국가 및 지역 지침, 구현 및 매핑, 백서 및 분석 보고서와 같은 추가 규정 준수 리소스도 확인할 수 있습니다.
+Azure 규정 준수 제품은 전역적으로 적용 가능한, 미국 정부, 산업별 및 지역/국가별 네 가지 세그먼트로 그룹화됩니다.  규정 준수 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다. 자세한 내용은 Azure 규정 준수 설명서 를 [참조하세요.](../../compliance/index.yml) 또한 감사 보고서, 개인 정보 보호 및 GDPR(일반 데이터 보호 규정)에 대한 검사 목록, 규정 준수 청사진, 국가 및 지역 지침, 구현 및 매핑, 백서 및 분석 보고서와 같은 추가 규정 준수 리소스도 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

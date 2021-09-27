@@ -3,16 +3,17 @@ title: Azure Blob Storage 간 데이터 복사
 description: 'Azure Data Factory에서 Blob 데이터를 복사하는 방법을 알아봅니다. 샘플 사용: Azure Blob Storage 및 Azure SQL Database 간에 데이터를 복사하는 방법입니다.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753566"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599813"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -188,7 +189,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     4. Data Factory의 **위치** 를 선택합니다.
     5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.
     6. **만들기** 를 클릭합니다.
-3. 만들기가 완료되면 다음 이미지와 같이 **데이터 팩터리** 블레이드가 나타납니다. ![데이터 팩터리 홈페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. 만들기가 완료되면 다음 이미지와 같이 **데이터 팩터리** 블레이드가 나타납니다. :::image type="content" source="./media/data-factory-azure-blob-connector/data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
 
 ### <a name="copy-wizard"></a>복사 마법사
 1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **데이터 복사 마법사** 를 별도의 탭에서 시작합니다.  
@@ -203,27 +204,27 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     5. **시작 날짜 시간** 을 **04/21/2017** 로 변경합니다.
     6. **종료 날짜 시간** 을 **04/25/2017** 로 변경합니다. 캘린더를 탐색하는 대신 날짜를 입력할 수 있습니다.
     8. **다음** 을 클릭합니다.
-        ![복사 도구 - 속성 페이지](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="복사 도구 - 속성 페이지":::
 3. **원본 데이터 저장소** 페이지에서 **Azure Blob Storage** 타일을 클릭합니다. 이 페이지를 사용하여 복사 작업에 사용할 원본 데이터 저장소를 지정합니다. 기존 데이터 저장소 연결된 서비스를 사용하거나 새 데이터 저장소를 지정할 수 있습니다. 기존의 연결된 서비스를 사용하려면 **기존의 연결된 서비스에서** 를 클릭하고 올바로 연결된 서비스를 선택합니다.
-    ![복사 도구 - 원본 데이터 저장소 페이지](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="복사 도구 - 원본 데이터 저장소 페이지":::
 4. **Azure Blob Storage 계정 지정** 페이지에서 다음을 수행합니다.
     1. **연결 이름** 에 대해 자동 생성된 이름을 유지합니다. 연결 이름은 Azure Storage 유형의 링크된 서비스의 이름입니다.
     2. **계정 선택 방법** 에 **Azure 구독에서** 옵션이 선택되었는지 확인합니다.
     3. Azure 구독을 선택하거나 **Azure 구독** 에 대해 **모두 선택** 을 유지합니다.
     4. 선택한 구독에서 사용할 수 있는 Azure Storage 계정 목록에서 **Azure Storage 계정** 을 선택합니다. **계정 선택 방법** 으로 **수동으로 입력** 옵션을 선택하여 스토리지 계정 설정을 수동으로 입력할 수도 있습니다.
     5. **다음** 을 클릭합니다.  
-        ![복사 도구 - Azure Blob Storage 계정 지정](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="복사 도구 - Azure Blob Storage 계정 지정":::
 5. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
     1. **adfblobcontainer** 를 두 번 클릭합니다.
     2. **input** 을 선택하고 **선택** 을 클릭합니다. 이 연습에서는 입력 폴더를 선택합니다. 대신 폴더에서 emp.txt 파일을 선택할 수도 있습니다.
-        ![복사 도구 - 입력 파일 또는 폴더 1 선택](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png" alt-text="복사 도구 - 입력 파일 또는 폴더 1 선택":::
 6. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
     1. **파일 또는 폴더** 가 **adfblobconnector/input** 으로 설정되었는지 확인합니다. 파일이 하위 폴더(예: 2017/04/01, 2017/04/02)에 있는 경우 파일 또는 폴더에 대해 adfblobconnector/input/{year}/{month}/{day}를 입력합니다. 텍스트 상자 밖으로 TAB을 누르면 연도(yyyy), 월(MM) 및 일(dd)의 형식을 선택하는 세 개의 드롭다운 목록이 나타납니다.
     2. **파일을 재귀적으로 복사** 는 설정하지 마십시오. 대상에 복사할 파일의 폴더를 반복적으로 탐색하려면 이 옵션을 선택합니다.
     3. **이진 복사** 옵션을 사용하지 마십시오. 원본 파일을 대상으로 이진 복사본을 수행하려면 이 옵션을 선택합니다. 이 연습을 선택하지 마십시오. 다음 페이지에서 더 많은 옵션을 볼 수 있습니다.
     4. **압축 유형** 이 **없음** 으로 설정되었는지 확인합니다. 소스 파일이 지원되는 형식 중 하나로 압축된 경우 이 옵션의 값을 선택합니다.
     5. **다음** 을 클릭합니다.
-    ![복사 도구 - 입력 파일 또는 폴더 2 선택](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/chose-input-file-folder.png" alt-text="복사 도구 - 입력 파일 또는 폴더 2 선택":::
 7. **파일 형식 설정** 페이지에 파일을 구문 분석하여 마법사에 의해 자동으로 감지되는 구분 기호와 스키마가 표시됩니다.
     1. 다음 옵션을 확인합니다.  
         a. **파일 형식** 이 **텍스트 형식** 으로 설정되었습니다. 드롭다운 목록에서 지원되는 모든 형식을 볼 수 있습니다. 예: JSON, Avro, ORC, Parquet.
@@ -236,9 +237,9 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     3. 페이지 맨 아래에서 emp.txt 파일의 데이터 **미리 보기** 를 참조하세요.
     4. 아래쪽의 **스키마** 탭을 클릭하면 원본 파일의 데이터를 보고 복사 마법사가 추론한 스키마를 볼 수 있습니다.
     5. 구분 기호를 검토하고 데이터를 미리 본 후에 **다음** 을 클릭합니다.
-    ![복사 도구 - 파일 형식 설정](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png" alt-text="복사 도구 - 파일 형식 설정":::
 8. **대상 데이터 저장소 페이지** 에서 **Azure Blob Storage** 를 선택하고 **다음** 을 클릭합니다. 이 연습에서는 Azure Blob Storage를 원본 및 대상 데이터 저장소로 사용하고 있습니다.  
-    ![복사 도구 - 대상 데이터 저장소 선택](media/data-factory-azure-blob-connector/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/select-destination-data-store.png" alt-text="복사 도구 - 대상 데이터 저장소 선택":::
 9. **Azure Blob Storage 계정 지정** 페이지에서 다음을 수행합니다.  
     1. **연결 이름** 필드에 **AzureStorageLinkedService** 를 입력합니다.
     2. **계정 선택 방법** 에 **Azure 구독에서** 옵션이 선택되었는지 확인합니다.
@@ -253,20 +254,20 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     1. **압축 유형** 이 **없음** 으로 설정되었는지 확인합니다.
     1. **복사 동작** 이 **파일 병합** 으로 설정되어 있는지 확인합니다. 같은 이름의 출력 파일이 이미 존재하면 새로운 내용이 끝에 동일한 파일에 추가됩니다.
     1. **다음** 을 클릭합니다.
-       ![복사 도구 - 출력 파일 또는 폴더 선택](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+       :::image type="content" source="media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png" alt-text="복사 도구 - 출력 파일 또는 폴더 선택":::
 11. **파일 형식 설정** 페이지에서 설정을 검토하고 **다음** 을 클릭합니다. 추가 옵션 중 하나는 출력 파일에 헤더를 추가하는 것입니다. 이 옵션을 선택하면 원본의 스키마에서 열 이름과 함께 머리글 행이 추가됩니다. 원본에 대한 스키마를 볼 때 기본 열 이름의 이름을 바꿀 수 있습니다. 예를 들어 첫 번째 열을 이름으로, 두 번째 열을 성으로 변경할 수 있습니다. 그런 다음 출력 파일은 이러한 이름을 가진 머리글을 열 이름으로 생성합니다.
-    ![복사 도구 - 대상의 파일 형식 설정](media/data-factory-azure-blob-connector/file-format-destination.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/file-format-destination.png" alt-text="복사 도구 - 대상의 파일 형식 설정":::
 12. **성능 설정** 페이지에서 **클라우드 단위** 및 **병렬 사본** 이 **자동** 으로 설정되었는지 확인하고 다음을 클릭합니다. 이러한 설정에 대한 자세한 내용은 [복사 활동 성능 및 튜닝 가이드](data-factory-copy-activity-performance.md#parallel-copy)를 참조하세요.
-    ![복사 도구 - 성능 설정](media/data-factory-azure-blob-connector/copy-performance-settings.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-performance-settings.png" alt-text="복사 도구 - 성능 설정":::
 14. **요약** 페이지에서 모든 설정(작업 속성, 원본 및 대상 설정 및 복사 설정)을 검토하고 **다음** 을 클릭합니다.
-    ![복사 도구 - 요약 페이지](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-summary-page.png" alt-text="복사 도구 - 요약 페이지":::
 15. **요약** 페이지에서 정보를 검토하고 **마침** 을 클릭합니다. 마법사는 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 세트(입력 및 출력), 하나의 파이프라인을 만듭니다.
-    ![복사 도구 - 배포 페이지](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
+    :::image type="content" source="media/data-factory-azure-blob-connector/copy-tool-deployment-page.png" alt-text="복사 도구 - 배포 페이지":::
 
 ### <a name="monitor-the-pipeline-copy-task"></a>파이프라인(복사 활동) 모니터링
 
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다.
-2. **애플리케이션 모니터 및 관리** 를 별도의 탭에서 보아야 합니다. ![앱 모니터 및 관리](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. **애플리케이션 모니터 및 관리** 를 별도의 탭에서 보아야 합니다. :::image type="content" source="media/data-factory-azure-blob-connector/monitor-manage-app.png" alt-text="앱 모니터 및 관리":::
 3. 상단의 **시작** 시간을 `04/19/2017` 및 **종료** 시간을 `04/27/2017`로 변경한 다음 **적용** 을 클릭합니다.
 4. **활동 창** 목록에 5개의 활동 창이 표시됩니다. **WindowStart** 시간은 파이프라인 시작부터 파이프라인 종료 시간까지의 모든 날을 포함해야 합니다.
 5. 모든 활동 창의 상태가 준비로 설정될 때까지 **활동 창** 목록에 대한 **새로 고침** 단추를 몇 번 클릭합니다.
@@ -283,11 +284,11 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 ### <a name="data-factory-entities"></a>데이터 팩터리 엔터티
 이제 데이터 팩터리 홈 페이지로 다시 탭으로 전환합니다. 현재 데이터 팩터리에는 두 개의 연결된 서비스, 두 개의 데이터 세트 및 한 개의 파이프라인이 있습니다.
 
-![엔터티가 있는 데이터 팩터리 홈 페이지](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png" alt-text="엔터티가 있는 데이터 팩터리 홈 페이지":::
 
 **작성자를 클릭하고 배포** 하여 데이터 팩터리 편집기를 시작합니다.
 
-![데이터 팩터리 편집기](media/data-factory-azure-blob-connector/data-factory-editor.png)
+:::image type="content" source="media/data-factory-azure-blob-connector/data-factory-editor.png" alt-text="데이터 팩터리 편집기":::
 
 데이터 팩터리에 다음과 같은 데이터 팩터리 엔티티가 표시되어야 합니다.
 

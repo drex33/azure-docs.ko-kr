@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 56f79028b2424d8383a0a4a3cb27639f3924ff90
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 9aee2c46f677f5265b7eafce9cc7af7214f745df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779622"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652949"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 에이전트 없는 VMware 가상 머신의 마이그레이션 확장
 
@@ -75,11 +75,14 @@ ms.locfileid: "122779622"
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
-2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
-3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
+
+3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+
+4. `AzureMigrateInstaller.ps1`다음 명령을 실행 하 여 이라는 스크립트를 실행 합니다.
+
+  `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. 시나리오, 클라우드, 구성, 연결 옵션 중에서 선택하여 원하는 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **기본(‘퍼블릭 엔드포인트’) 연결** 을 사용하는 Azure Migrate 프로젝트에 대해 VMware 환경에서 실행되는 서버에서 동시 복제를 시작하도록 **스케일 아웃 어플라이언스** 가 설정됩니다.
 
@@ -141,14 +144,17 @@ ms.locfileid: "122779622"
 스케일 아웃 어플라이언스 등록을 완료하려면 **가져오기** 를 클릭하여 기본 어플라이언스에서 필요한 구성 파일을 가져옵니다.
 
 1. **가져오기** 를 클릭하면 기본 어플라이언스에서 필요한 구성 파일을 가져오는 방법에 대한 지침이 포함된 팝업 창이 열립니다.
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="구성 가져오기 모달":::
+
 1. 기본 어플라이언스에 로그인(원격 데스크톱)하고 다음 PowerShell 명령을 실행합니다.
 
-    ``` PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' ```
+   `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-    ``` PS .\ExportConfigFiles.ps1 ```
+    `PS .\ExportConfigFiles.ps1 `
 
 1. 위의 명령을 실행하여 만든 zip 파일을 스케일 아웃 어플라이언스로 복사합니다. zip 파일에는 스케일 아웃 어플라이언스를 등록하는 데 필요한 구성 파일이 포함되어 있습니다.
+
 1. 이전 단계에서 열린 팝업 창에서 복사된 구성 zip 파일의 위치를 선택하고 **저장** 을 클릭합니다.
 
 파일을 가져오면 스케일 아웃 어플라이언스의 등록이 완료되고 마지막으로 성공한 가져오기의 타임스탬프가 표시됩니다. 또한 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.

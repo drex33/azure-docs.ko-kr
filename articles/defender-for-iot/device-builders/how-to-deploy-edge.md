@@ -2,13 +2,13 @@
 title: IoT Edge 보안 모듈 배포
 description: IoT Edge에 Defender for IoT 보안 에이전트를 배포하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: 45f7351b47554ce3eb6906d5b6011de945182484
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: f5d6dbf45745629fb656812bf75a3b69381260eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018132"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678576"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 디바이스에 보안 모듈 배포
 
@@ -57,8 +57,11 @@ ms.locfileid: "113018132"
 #### <a name="step-1-modules"></a>1단계: 모듈
 
 1. **AzureSecurityCenterforIoT** 모듈을 선택합니다.
+
 1. **모듈 설정** 탭에서 **이름** 을 **azureiotsecurity** 로 변경합니다.
+
 1. **환경 변수** 탭에서 필요한 경우 변수를 추가합니다. 예를 들어 *디버그 수준* 을 추가하고 ‘치명적’, ‘오류’, ‘경고’, ‘정보’ 등의 값 중 하나로 설정할 수 있습니다.
+
 1. **컨테이너 만들기 옵션** 탭에서 다음 구성을 추가합니다.
 
     ``` json
@@ -82,19 +85,19 @@ ms.locfileid: "113018132"
 1. **모듈 쌍 설정** 탭에서 다음 구성을 추가합니다.
 
    모듈 쌍 속성:
-   
+
    ``` json
      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
    ```
 
-   모듈 쌍 속성 콘텐츠: 
+   모듈 쌍 속성 콘텐츠:
 
    ```json
      {
 
      }
    ```
-    
+
    에이전트를 구성하는 방법에 대한 자세한 내용은 [보안 에이전트 구성](./how-to-agent-configuration.md)을 참조하세요.
 
 1. **업데이트** 를 선택합니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f7537790c22bf09da89cd02ba213b1573f19d9c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: a14d99a81aaad48c8daf0c0bf0d49b3a7e229f3d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600288"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 프라이빗 클라우드 vCenter의 이름 확인을 위한 DNS 구성
 
@@ -43,10 +43,10 @@ DNS 구성에 대해 이러한 옵션 중 하나를 사용합니다.
 
 구성할 특정 파일 및 매개 변수는 개별 DNS 설정에 따라 달라질 수 있습니다.
 
-예를 들어 기본 BIND 서버 구성의 경우 DNS 서버에서/etc/named.conf 파일을 편집하고 다음 영역 정보를 추가합니다.
+예를 들어 기본 BIND 서버 구성의 경우 `/etc/named.conf` DNS 서버에서 파일을 편집하고 다음 영역 정보를 추가합니다.
 
 > [!NOTE]
->이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+>이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ```
 zone "az.cloudsimple.io"

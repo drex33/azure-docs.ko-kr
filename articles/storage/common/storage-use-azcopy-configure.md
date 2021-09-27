@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1f07907d3a4f421fa9f7a03c48d5f74496a1d45a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 8fc9934c5d524550929c3400af9f257c4cbcccc8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303079"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665913"
 ---
 # <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>AzCopy에서 로그 및 플랜 파일을 사용하여 오류 찾기 및 작업 계속하기
 
@@ -24,13 +24,13 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 ## <a name="log-and-plan-files"></a>로그 및 계획 파일
 
-AzCopy는 모든 작업에 대해 *로그* 및 *플랜* 파일을 만듭니다. 이러한 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
+AzCopy는 모든 작업에 대해 *로그* 및 *플랜* 파일을 만듭니다. 이러한 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다.
 
 로그에는 실패 상태(`UPLOADFAILED`, `COPYFAILED` 및 `DOWNLOADFAILED`), 전체 경로 및 실패 이유가 포함됩니다.
 
-기본적으로 로그 및 플랜 파일은 Windows의 `%USERPROFILE%\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 있지만, 해당 위치를 변경할 수 있습니다. 
+기본적으로 로그 및 플랜 파일은 Windows의 `%USERPROFILE%\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 있지만, 해당 위치를 변경할 수 있습니다.
 
-관련 오류가 파일에 표시되는 첫 번째 오류가 아닐 수도 있습니다. 네트워크 오류, 시간 제한 및 서버 사용 중 오류와 같은 오류의 경우 AzCopy는 최대 20회 다시 시도하고 일반적으로 다시 시도 프로세스는 성공합니다.  표시되는 첫 번째 오류는 성공적으로 재시도한 무해한 오류일 수 있습니다.  따라서 파일의 첫 번째 오류를 확인하는 대신 `UPLOADFAILED`, `COPYFAILED` 또는 `DOWNLOADFAILED` 근처에 있는 오류를 확인합니다. 
+관련 오류가 파일에 표시되는 첫 번째 오류가 아닐 수도 있습니다. 네트워크 오류, 시간 제한 및 서버 사용 중 오류와 같은 오류의 경우 AzCopy는 최대 20회 다시 시도하고 일반적으로 다시 시도 프로세스는 성공합니다.  표시되는 첫 번째 오류는 성공적으로 재시도한 무해한 오류일 수 있습니다.  따라서 파일의 첫 번째 오류를 확인하는 대신 `UPLOADFAILED`, `COPYFAILED` 또는 `DOWNLOADFAILED` 근처에 있는 오류를 확인합니다.
 
 > [!IMPORTANT]
 > Microsoft 지원에 요청을 제출하거나 타사 관련 문제를 해결할 때 실행하려는 명령의 수정된 버전을 공유합니다. 이렇게 하면 실수로 다른 사용자와 SAS를 공유하지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
@@ -108,7 +108,7 @@ azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-t
 
 ## <a name="change-the-default-log-level"></a>기본 로그 수준 변경
 
-기본적으로 AzCopy 로그 수준은 `INFO`로 설정됩니다. 디스크 공간 절약을 위해 로그의 세부 정보 표시를 줄이려는 경우 ``--log-level`` 옵션을 사용하여 설정을 덮어씁니다. 
+기본적으로 AzCopy 로그 수준은 `INFO`로 설정됩니다. 디스크 공간 절약을 위해 로그의 세부 정보 표시를 줄이려는 경우 ``--log-level`` 옵션을 사용하여 설정을 덮어씁니다.
 
 사용 가능한 로그 수준은 `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` 및 `FATAL`입니다.
 

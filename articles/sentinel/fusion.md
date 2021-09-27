@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2021
 ms.author: yelevin
-ms.openlocfilehash: b68d2a8219e7aa23aac3187333160dfd4276e7b8
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 090e82a3efd27629633772b0549ee6d2452e159d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567713"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818941"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Azure Sentinel의 고급 다단계 공격 감지
 
@@ -746,9 +746,9 @@ Azure Sentinel은 기계 학습 기반의 Fusion 기술을 사용하면 킬 체�
 Azure Sentinel은 다음 데이터 원본에서 다양한 유형의 여러 경고가 검색되고 랜섬웨어 활동과 관련될 수 있는 경우 인시던트를 생성합니다.
 
 - [Azure Defender(Azure Security Center)](connect-azure-security-center.md)
-- [엔드포인트에 대한 Microsoft Defender](connect-microsoft-defender-advanced-threat-protection.md)
-- [Microsoft Defender for Identity](connect-azure-atp.md)
-- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [엔드포인트에 대한 Microsoft Defender](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Azure Sentinel 예약된 분석 규칙](detect-threats-built-in.md#scheduled). Fusion은 전술 정보가 포함된 예약된 분석 규칙만 고려합니다.
 
 이러한 Fusion 인시던트를 **랜섬웨어 활동과 관련된 여러 경고가 검색됨** 이라고 하며, 관련 경고가 특정 기간 내에 검색되고 공격의 **실행** 및 **방어 우회** 단계와 연결된 경우에 생성됩니다.

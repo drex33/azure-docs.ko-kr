@@ -1,22 +1,22 @@
 ---
-title: '가상 머신으로 혹은 가상 머신에서 복사하여 붙여넣기: Azure Bastion'
-description: Bastion을 사용하여 Azure VM으로 혹은 Azure VM에서 복사하고 붙여넣는 방법에 대해 알아봅니다.
+title: 'Windows 가상 머신에서 복사 하 여 붙여넣기: Azure 방호'
+description: 요새를 사용 하 여 Windows VM에서 복사 하 여 붙여 넣는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: b8c90e3c8bea7f6471a60804f546957f5236b70b
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: 5ce8faa76e1ddbd8d1d1adb52759dba0afe9c737
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536016"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629619"
 ---
-# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 머신에 복사하여 붙여넣기: Azure Bastion
+# <a name="copy-and-paste-to-a-windows-virtual-machine-azure-bastion"></a>Windows 가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
-이 문서는 Azure Bastion을 사용할 때 가상 머신으로 혹은 가상 머신에서 복사하여 붙여넣는 방법에 대한 설명을 제공합니다. VM을 사용하려면 먼저 다음 단계를 따라 [베스천 호스트를 만들어야](./tutorial-create-host-portal.md) 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp.md) 또는 [SSH](bastion-connect-vm-ssh.md)를 사용하여 작업하려는 VM에 연결합니다.
+이 문서는 Azure Bastion을 사용할 때 가상 머신으로 혹은 가상 머신에서 복사하여 붙여넣는 방법에 대한 설명을 제공합니다. VM을 사용하려면 먼저 다음 단계를 따라 [베스천 호스트를 만들어야](./tutorial-create-host-portal.md) 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp-windows.md) 또는 [SSH](bastion-connect-vm-ssh-windows.md)를 사용하여 작업하려는 VM에 연결합니다.
 
 고급 클립보드 API 액세스를 지원하는 브라우저의 경우 로컬 디바이스에서 애플리케이션 간에 복사하여 붙여넣는 것과 동일한 방식으로 로컬 디바이스와 원격 세션 간에 복사하여 붙여넣을 수 있습니다. 다른 브라우저의 경우에는 Bastion 클립보드 액세스 도구 팔레트를 사용할 수 있습니다.
 

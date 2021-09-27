@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: API Management의 개발자 포털에 대한 질문과 대답입니다. 개발자 포털은 API 소비자가 API를 탐색할 수 있는 사용자 지정 가능한 웹 사이트입니다.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 07/30/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0c8757211bf11e97cde091d49eb6512bb0e4f7cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567219"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656344"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>API Management 개발자 포털 - 질문과 대답
 
@@ -79,7 +79,7 @@ CORS를 수동으로 사용 설정할 수도 있습니다.
 1. **전역 수준에서 수동으로 적용** 링크를 클릭하여 생성된 정책 코드를 확인합니다.
 2. Azure Portal의 API Management 서비스에서 **API** 섹션의 **모든 API** 로 이동합니다.
 3. **인바운드 처리** 섹션에서 **</>** 아이콘을 선택합니다.
-4. XML 파일의 **<inbound>** 섹션에 정책을 삽입합니다. **<origin>** 값이 개발자 포털의 도메인과 일치해야 합니다.
+4. XML 파일의 **\<inbound\>** 섹션에 정책을 삽입합니다. **\<origin\>** 값이 개발자 포털의 도메인과 일치해야 합니다.
 
 > [!NOTE]
 > 
@@ -135,7 +135,7 @@ API Management 서비스가 VNet에 있는 경우 [VNet 연결 질문](#do-i-nee
 
 ## <a name="whats-the-browser-support-for-the-portal"></a>포털에 대해 어떤 브라우저가 지원되나요?
 
-| 브라우저                     | 지원 여부       |
+| 브라우저                     | 지원됨       |
 |-----------------------------|-----------------|
 | Apple Safari                | 예<sup>1</sup> |
 | Google Chrome               | 예<sup>1</sup> |

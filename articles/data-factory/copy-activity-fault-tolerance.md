@@ -1,39 +1,39 @@
 ---
-title: Azure Data Factory의 복사 작업 내결함성
+title: 복사 작업의 내결함성
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 복사 중에 호환되지 않는 데이터를 건너뛰어 Azure Data Factory 복사 작업에 내결함성을 추가하는 방법을 알아봅니다.
+description: 호환 되지 않는 데이터를 건너뛰어 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업에 내결함성을 추가 하는 방법에 대해 알아봅니다.
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/09/2021
 ms.author: yexu
-ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: c6b5a08cc4f0cc90f8ae827f4f8c2c7469e92b44
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255034"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767568"
 ---
-#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
+#  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업에 대 한 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [현재 버전](copy-activity-fault-tolerance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-원본 저장소에서 대상 저장소로 데이터를 복사하는 경우 Azure Data Factory 복사 작업이 데이터 이동 중에 오류가 발생하여 중단되지 않도록 특정 수준의 내결함성을 제공합니다. 예를 들어 대상 데이터베이스에서 기본 키가 생성되었지만 원본 데이터베이스에 기본 키가 정의되어 있지 않은 경우 원본 저장소에서 대상 저장소로 수백만 개의 행을 복사합니다. 원본에서 대상으로 중복 행을 복사하는 경우 대상 데이터베이스에서 PK 위반 오류가 발생합니다. 현재 복사 작업은 이러한 오류를 처리하는 두 가지 방법을 제공합니다. 
+원본 저장소에서 대상 저장소로 데이터를 복사 하는 경우 복사 작업은 데이터 이동 중에 중단이 발생 하지 않도록 특정 수준의 내결함성을 제공 합니다. 예를 들어 대상 데이터베이스에서 기본 키가 생성되었지만 원본 데이터베이스에 기본 키가 정의되어 있지 않은 경우 원본 저장소에서 대상 저장소로 수백만 개의 행을 복사합니다. 원본에서 대상으로 중복 행을 복사하는 경우 대상 데이터베이스에서 PK 위반 오류가 발생합니다. 현재 복사 작업은 이러한 오류를 처리하는 두 가지 방법을 제공합니다. 
 - 오류가 발생하면 복사 작업을 중단할 수 있습니다. 
 - 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 자세한 내용은 [복사 작업의 세션 로그](copy-activity-log.md)를 참조하세요.
 
 ## <a name="copying-binary-files"></a>이진 파일 복사 
 
-ADF는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오를 지원합니다. 다음 시나리오에서 복사 작업을 중단하거나 나머지 항목을 계속 복사하도록 선택할 수 있습니다.
+이 서비스는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오를 지원 합니다. 다음 시나리오에서 복사 작업을 중단하거나 나머지 항목을 계속 복사하도록 선택할 수 있습니다.
 
-1. ADF를 통해 복사할 파일을 다른 애플리케이션에서 동시에 삭제하고 있습니다.
-2. 이러한 파일 또는 폴더의 ACL에서 ADF에 구성된 연결 정보보다 높은 권한 수준을 요구하기 때문에 일부 특정 폴더 또는 파일에서 ADF의 액세스를 허용하지 않습니다.
-3. ADF에 데이터 일관성 확인 설정을 사용하도록 설정하면 원본 및 대상 저장소 간에 하나 이상의 파일이 일치하는 것으로 확인되지 않습니다.
+1. 서비스에서 복사할 파일을 다른 응용 프로그램에서 동시에 삭제 하 고 있습니다.
+2. 이러한 파일 또는 폴더의 Acl에는 구성 된 연결 정보 보다 높은 권한 수준이 필요 하기 때문에 일부 특정 폴더 또는 파일은 서비스 액세스를 허용 하지 않습니다.
+3. 데이터 일관성 확인 설정을 사용 하는 경우 하나 이상의 파일이 원본 및 대상 저장소 간에 일치 하는지 확인 되지 않습니다.
 
 ### <a name="configuration"></a>구성 
 스토리지 저장소 간에 이진 파일을 복사하는 경우 다음과 같이 내결함성을 사용하도록 설정할 수 있습니다. 
@@ -79,8 +79,8 @@ ADF는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | 데이터 이동 중에 건너뛸 오류 유형을 지정하는 속성 그룹입니다. | | 예
-fileMissing | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 파일을 건너뛸지 여부를 결정할 수 있습니다. 그러면 ADF가 복사하는 동안 다른 애플리케이션에서 건너뛴 파일을 삭제합니다. <br/> -True: 다른 애플리케이션에서 삭제할 파일을 건너뛰어 나머지 항목을 복사하려고 합니다. <br/> -False: 데이터 이동 중에 원본 저장소에서 파일이 삭제되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 기본적으로 true로 설정됩니다. | True(기본값) <br/>False | 예
-fileForbidden | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 사용하여 특정 파일을 건너뛸지 여부를 결정합니다. 이러한 파일 또는 폴더의 ACL은 ADF에 구성된 연결보다 높은 수준의 권한을 요구합니다. <br/> -True: 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 폴더 또는 파일에 대한 권한 문제가 발생하면 복사 작업을 중단하려고 합니다. | True <br/>False(기본값) | 예
+fileMissing | SkipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택 하 여 서비스에서 복사 작업을 수행 하는 동안 다른 응용 프로그램에서 삭제 되는 파일을 건너뛸지 여부를 결정 합니다. <br/> -True: 다른 애플리케이션에서 삭제할 파일을 건너뛰어 나머지 항목을 복사하려고 합니다. <br/> -False: 데이터 이동 중에 원본 저장소에서 파일이 삭제되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 기본적으로 true로 설정됩니다. | True(기본값) <br/>False | 예
+fileForbidden | SkipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 사용 하 여 특정 파일을 건너뛸지 여부를 결정 합니다. 이러한 파일 또는 폴더의 Acl에는 구성 된 연결 보다 높은 권한 수준이 필요 합니다. <br/> -True: 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 폴더 또는 파일에 대한 권한 문제가 발생하면 복사 작업을 중단하려고 합니다. | True <br/>False(기본값) | 예
 dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 원본 및 대상 저장소 간에 일치하지 않는 데이터를 건너뛸지 여부를 결정합니다. <br/> -True: 일치하지 않는 데이터를 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 일관되지 않은 데이터가 발견되면 복사 활동을 중단하려고 합니다. <br/>이 속성은 validateDataConsistency를 True로 설정한 경우에만 유효합니다. | True <br/>False(기본값) | 예
 invalidFileName | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나로, 대상 저장소에 대한 파일 이름이 잘못된 경우 특정 파일을 건너뛸지 여부를 결정합니다. <br/> \- True: 파일 이름이 잘못된 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> - False: 파일 이름이 잘못된 경우 복사 작업을 중단하려고 합니다. <br/>이 속성은 스토리지 저장소에서 ADLS Gen2로 이진 파일을 복사하거나 AWS S3에서 스토리지 저장소로만 이진 파일을 복사하는 경우에 작동합니다. | True <br/>False(기본값) | 예
 logSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
@@ -133,9 +133,9 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 
 열 | Description 
 -------- | -----------  
-타임스탬프 | ADF에서 파일을 건너뛴 타임스탬프입니다.
+타임스탬프 | 파일을 건너뛴 타임 스탬프입니다.
 Level | 이 항목의 로그 수준입니다. 파일 건너뛰기를 표시하는 항목의 경우 ‘경고’ 수준입니다.
-OperationName | 각 파일에 대한 ADF 복사 활동 동작입니다. 건너뛸 파일을 지정하는 경우 ‘FileSkip’입니다.
+OperationName | 각 파일에 대 한 복사 작업 동작입니다. 건너뛸 파일을 지정하는 경우 ‘FileSkip’입니다.
 OperationItem | 건너뛸 파일 이름입니다.
 메시지 | 파일을 건너뛰는 이유를 설명하는 추가 정보입니다.
 
@@ -145,7 +145,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-위의 로그에서 ADF가 bigfile.csv를 복사할 때 다른 애플리케이션이 이 파일을 삭제했기 때문에 이 파일을 건너뛴 것을 알 수 있습니다. 그리고 3_nopermission.txt를 건너뛴 이유는 권한 문제로 인해 ADF가 이 파일에 액세스할 수 없었기 때문입니다.
+위의 로그에서 다른 응용 프로그램이 서비스를 복사할 때이 파일을 삭제 했기 때문에 bigfile.csv를 건너뜀을 확인할 수 있습니다. 사용 권한 문제로 인해 서비스에서 해당 서비스에 액세스할 수 없으므로 및 3_nopermission.txt을 건너뛰었습니다.
 
 
 ## <a name="copying-tabular-data"></a>테이블 형식 데이터 복사 
@@ -229,9 +229,9 @@ linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azu
 
 열 | Description 
 -------- | -----------  
-타임스탬프 | ADF에서 호환되지 않는 행을 건너뛴 타임스탬프입니다.
+타임스탬프 | 호환 되지 않는 행을 건너뛴 타임 스탬프입니다.
 Level | 이 항목의 로그 수준입니다. 이 항목이 건너뛴 행을 표시하는 경우 '경고' 수준입니다.
-OperationName | 각 행에 대한 ADF 복사 작업 동작입니다. 호환되지 않는 특정 행을 건너뛰었음을 지정하는 경우 'TabularRowSkip'입니다.
+OperationName | 각 행에 대 한 복사 작업 동작 동작입니다. 호환되지 않는 특정 행을 건너뛰었음을 지정하는 경우 'TabularRowSkip'입니다.
 OperationItem | 원본 데이터 저장소에서 건너뛴 행입니다.
 메시지 | 이 특정 행이 호환되지 않는 이유를 보여 주는 추가 정보입니다.
 

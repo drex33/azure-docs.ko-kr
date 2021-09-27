@@ -1,18 +1,18 @@
 ---
 title: 최종 사용자 인증 - Java 및 Data Lake Storage Gen1 - Azure
 description: Azure Active Directory와 Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.custom: devx-track-java
-ms.author: twooley
-ms.openlocfilehash: ece996f7edb8d37cea47756c5b7e635e02409b35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: normesta
+ms.openlocfilehash: c3b15eb3b978c446e7c4848b6f893b66cb9cc5c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87318864"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605528"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]

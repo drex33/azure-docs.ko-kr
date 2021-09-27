@@ -12,17 +12,17 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 97085073a566d525eedeb6bd2e72273dad36e1d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a12036994371517238d98481b5c88e3f653ab833
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535677"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708836"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database 및 SQL Managed Instance에서 고가용성 아키텍처의 목표는 유지 관리 작업 및 가동 중단의 영향에 대해 걱정하지 않고 데이터베이스가 최소 99.99%의 시간 동안 가동 및 실행되도록 보장하는 것입니다. (다른 계층의 특정 SLA에 대한 자세한 내용은 [Azure SQL Database 및 SQL Managed Instance에 대한 SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database)를 참조하세요.) Azure는 패치, 백업, Windows 및 Azure SQL 업그레이드와 같은 중요한 서비스 작업뿐만 아니라 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획되지 않은 이벤트도 자동으로 처리합니다.  Azure SQL Database의 기본 데이터베이스가 패치되거나 장애 조치(failover)될 때 앱에서 [다시 시도 논리를 사용](develop-overview.md#resiliency)하는 경우 가동 중지 시간의 영향은 별로 크지 않습니다. SQL Database 및 SQL Managed Instance는 가장 심각한 상황에서도 빠르게 복구할 수 있으므로 데이터를 항상 사용할 수 있습니다.
+Azure SQL Database 및 SQL Managed Instance에서 고가용성 아키텍처의 목표는 데이터베이스가 가동 중 이며 최소 99.99%의 시간 동안 실행 되도록 보장 하는 것입니다. 다른 계층의 특정 SLA에 대 한 자세한 내용은 [Azure SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/)에 대 한 Azure SQL Database 및 sla에 대 한 [sla](https://azure.microsoft.com/support/legal/sla/azure-sql-database) 를 참조 하세요. 유지 관리 작업 및 중단의 영향에 대해 rrying. Azure는 패치, 백업, Windows 및 Azure SQL 업그레이드와 같은 중요한 서비스 작업뿐만 아니라 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획되지 않은 이벤트도 자동으로 처리합니다.  Azure SQL Database의 기본 데이터베이스가 패치되거나 장애 조치(failover)될 때 앱에서 [다시 시도 논리를 사용](develop-overview.md#resiliency)하는 경우 가동 중지 시간의 영향은 별로 크지 않습니다. SQL Database 및 SQL Managed Instance는 가장 심각한 상황에서도 빠르게 복구할 수 있으므로 데이터를 항상 사용할 수 있습니다.
 
 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실되지 않고, 유지 관리 작업이 워크로드에 영향을 주지 않으며, 데이터베이스가 소프트웨어 아키텍처에서 단일 실패 지점이 되지 않도록 설계되었습니다. 데이터베이스를 업그레이드하거나 유지 관리하는 동안 워크로드를 중지해야 하는 유지 관리 기간이나 가동 중지 시간이 없습니다.
 

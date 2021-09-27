@@ -1,14 +1,14 @@
 ---
 title: 여러 랩 및 구독에서의 Azure DevTest Labs 사용량
 description: 여러 랩 및 구독에서 Azure DevTest Labs 사용량을 보고하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 671941e259bd1329dab3e30c1c95eb77ed3091f9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102452648"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642836"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>여러 랩 및 구독에서의 Azure DevTest Labs 사용량 보고
 

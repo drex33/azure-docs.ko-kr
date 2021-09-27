@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4f619266d225e4dd36bb68ca9ebcaaae366891cb
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: e9245f99b08b5e94c97b5c091eebe93a12b7904f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821899"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811718"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics에서 메타데이터 가져오기 작업
 
@@ -168,7 +168,7 @@ ms.locfileid: "122821899"
 
 현재, 메타데이터 가져오기 작업은 다음과 같은 유형의 메타데이터 정보를 반환할 수 있습니다.
 
-속성 | Description | 필수
+속성 | 설명 | 필수
 -------- | ----------- | --------
 fieldList | 필요한 메타데이터 정보의 유형입니다. 지원되는 메타데이터에 대한 자세한 내용은 이 문서의 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | 예 
 데이터 세트 | GetMetadata 작업 시 메타데이터를 검색할 참조 데이터 세트입니다. 지원되는 커넥터에 대한 정보는 [기능](#supported-capabilities) 섹션을 참조하세요. 데이터 세트 구문 세부 정보는 특정 커넥터 항목을 참조하세요. | 예

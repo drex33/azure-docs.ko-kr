@@ -1,15 +1,15 @@
 ---
 title: 기업용 Azure DevTest Labs 도입
 description: 이 문서는 기업에서 Azure DevTest Labs를 사용하는 것에 대한 규범적인 지침을 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 81767c36b2a5b46eb41be1e516a14fb3ebe3fb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1e5be75d7049d9cfdc97a764fdca8d1e63876aaf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476991"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671168"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>기업의 DevTest Labs
 기업은 민첩성, 유연성 및 경제성을 포함하는 [이점](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case)때문에 클라우드를 빠르게 채택하고 있습니다. 첫 번째 단계는 보통 개발 및 테스트 워크 로드입니다. Azure DevTest Labs는 기업에 도움이 되고 [주요 개발/테스트 시나리오](devtest-lab-guidance-get-started.md)를 지원하는 [기능](devtest-lab-concepts.md)을 제공합니다.

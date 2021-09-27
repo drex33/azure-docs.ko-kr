@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: d83d6ad6834ea38b293054e59eb39a35be5c507e
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 29aeee156ee87c055a3581e9dc2fd0bd86a2064d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111508"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551048"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,14 +40,24 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 ## <a name="permission-model"></a><a id="permission-model"></a> 권한 모델
 
 > [!IMPORTANT]
-> 이 권한 모델은 데이터 읽기 및 쓰기를 수행할 수 있게 해주는 데이터베이스 작업만 지원합니다. 컨테이너 만들기 또는 처리량 변경과 같은 관리 작업은 지원하지 **않습니다**. 즉, **Azure Cosmos DB 데이터 평면 SDK** 를 사용하여 AAD ID로 관리 작업을 인증할 수 없습니다. 그 대신, 다음을 통해 [Azure RBAC](role-based-access-control.md)를 사용해야 합니다.
-> - [ARM(Azure Resource Manager) 템플릿](manage-with-templates.md)
-> - [Azure PowerShell 스크립트](manage-with-powershell.md),
-> - [Azure CLI 스크립트](sql/manage-with-cli.md),
-> - 다음에서 사용할 수 있는 Azure 관리 라이브러리
+> 이 권한 모델은 데이터 읽기 및 쓰기와 관련된 데이터베이스 작업만 다룹니다. 관리 리소스에 대한 모든 종류의 관리 작업은 *다루지* 않습니다. 예를 들면 다음과 같습니다.
+> - 데이터베이스 만들기/바꾸기/삭제
+> - 컨테이너 만들기/바꾸기/삭제
+> - 컨테이너 처리량 바꾸기
+> - 저장 프로시저 만들기/바꾸기/삭제/읽기
+> - 트리거 만들기/바꾸기/삭제/읽기
+> - 사용자 정의 함수 만들기/바꾸기/삭제/읽기
+>
+> *Azure Cosmos DB 데이터 평면 SDK를 사용하여* Azure AD ID로 관리 작업을 인증할 수 없습니다. 대신 다음 옵션 중 하나를 통해 [Azure RBAC를](role-based-access-control.md) 사용해야 합니다.
+> - [ARM 템플릿(Azure Resource Manager 템플릿)](./sql/manage-with-templates.md)
+> - [스크립트 Azure PowerShell](./sql/manage-with-powershell.md)
+> - [스크립트 Azure CLI](./sql/manage-with-cli.md)
+> - 다음에서 사용할 수 있는 Azure 관리 라이브러리:
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+>   
+> 읽기 데이터베이스 및 읽기 컨테이너는 [메타데이터 요청으로 간주됩니다.](#metadata-requests) 다음 섹션에 명시된 대로 이러한 작업에 대한 액세스 권한을 부여할 수 있습니다.
 
 다음 표에서는 권한 모델에서 제공되는 모든 작업을 보여줍니다.
 

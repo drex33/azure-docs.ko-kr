@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 27117f8839c6ea0d98c2f15e01ee6a3ab3ec36c6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 5d61b7047262c86471dba988bd0f80cb4fdac8ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663633"
 ---
 # <a name="kubernetes-hosted-client-application"></a>Kubernetes 호스트 클라이언트 애플리케이션
 
@@ -29,3 +29,8 @@ Redis 서버에 연결하는 Pod를 호스팅하는 Kubernetes 노드에 충분�
 ## <a name="noisy-neighbor-problem"></a>노이지 네이버 문제
 
 *노이지 네이버* 문제에 주의합니다. 클라이언트를 실행하는 Pod는 동일한 노드에서 실행되는 다른 Pod의 영향을 받고 Redis 연결 또는 IO 작업을 제한할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [개발](cache-best-practices-development.md)
+- [Azure Cache for Redis 개발 FAQ](cache-development-faq.yml)

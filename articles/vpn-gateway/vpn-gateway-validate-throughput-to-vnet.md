@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7a50328629f6236893fd7832ea1f96acc8e75112
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: b5c3853ca2849590b0338c3f82b3e8606cd35d2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289447"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643672"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -47,7 +47,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 1. ISP(인터넷 서비스 공급자) 대역폭을 결정합니다.
 1. VM, VPN Gateway 또는 ISP 중 가장 낮은 대역폭을 활용하여 예상 처리량을 계산합니다. 이 값은 초당 메가비트를 8로 나눈 값입니다.
 
-계산된 처리량이 애플리케이션의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/windows/resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의할 수도 있습니다.
+계산된 처리량이 애플리케이션의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의할 수도 있습니다.
 
 > [!NOTE]
 > VPN Gateway 처리량은 사이트 간\VNET 간 또는 지점 및 사이트 간 모든 연결의 집계입니다.

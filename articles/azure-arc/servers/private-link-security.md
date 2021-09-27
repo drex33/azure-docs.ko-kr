@@ -2,13 +2,13 @@
 title: Azure Private Link를 사용하여 네트워크를 Azure Arc에 안전하게 연결
 description: Azure Private Link를 사용하여 네트워크를 Azure Automation에 안전하게 연결하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/20/2021
-ms.openlocfilehash: 1bd683631e9a7edb321abb56ed423cac11b42557
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.date: 09/14/2021
+ms.openlocfilehash: 53bd9310c193d4fad1d550fbf33446754c30ecd6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631517"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-arc"></a>Azure Private Link를 사용하여 네트워크를 Azure Arc에 안전하게 연결
 
@@ -26,7 +26,7 @@ Azure Arc 지원 서버부터는 프라이빗 링크 범위 모델을 사용하�
 Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 - 공용 네트워크 액세스를 개방하지 않고 Azure Arc에 비공개로 연결
-- Arc 지원 머신 또는 서버의 데이터가 승인된 사설 네트워크를 통해서만 액세스할 수 있는지 확인합니다. 여기에는 배포 후 관리 및 모니터링 지원을 제공하는 컴퓨터 또는 서버에 설치된 [VM 확장](manage-vm-extensions.md)의 데이터도 포함됩니다.
+- Azure Arc 지원 컴퓨터 또는 서버의 데이터는 권한 있는 프라이빗 네트워크를 통해서만 액세스할 수 있는지 확인합니다. 여기에는 배포 후 관리 및 모니터링 지원을 제공하는 컴퓨터 또는 서버에 설치된 [VM 확장](manage-vm-extensions.md)의 데이터도 포함됩니다.
 - 프라이빗 엔드포인트를 통해 연결되는 특정 Azure Arc 지원 서버 및 기타 Azure 서비스 리소스(예: Azure Monitor)를 정의하여 프라이빗 네트워크에서 데이터 반출을 방지합니다.
 - ExpressRoute 및 Private Link를 사용하여 온-프레미스 개인 네트워크를 Azure Arc에 안전하게 연결
 - Microsoft Azure 백본 네트워크 내에서 모든 트래픽을 유지합니다.
@@ -35,7 +35,7 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Arc Private Link 범위(미리 보기)는 프라이빗 엔드포인트(및 해당 엔드포인트가 포함된 가상 네트워크)를 Azure 리소스(이 경우 Azure Arc 지원 서버)에 연결합니다. Azure Automation 업데이트 관리 또는 Azure Monitor와 같은 Arc 지원 서버에서 지원되는 VM 확장 중 하나를 사용하도록 설정하면 해당 리소스가 다른 Azure 리소스를 연결합니다. 예:
+Azure Arc Private Link 범위(미리 보기)는 프라이빗 엔드포인트(및 해당 엔드포인트가 포함된 가상 네트워크)를 Azure 리소스(이 경우 Azure Arc 지원 서버)에 연결합니다. Azure Automation 업데이트 관리 또는 Azure Monitor 같이 지원되는 Azure Arc 지원되는 서버 중 하나를 사용하도록 설정하면 해당 리소스가 다른 Azure 리소스에 연결됩니다. 예:
 
 - Log Analytics 작업 영역 - Azure Automation 업데이트 관리, Azure Automation 변경 내용 추적 및 인벤토리, Azure Monitor VM 인사이트, Log Analytics 에이전트를 사용한 Azure Monitor 로그 수집에 필요합니다.
 - Azure Automation 계정은 업데이트 관리와 변경 내용 추적 및 인벤토리에 필요합니다.
@@ -44,7 +44,7 @@ Azure Arc Private Link 범위(미리 보기)는 프라이빗 엔드포인트(및
 
 :::image type="content" source="./media/private-link-security/private-link-topology.png" alt-text="기본 리소스 토폴로지 다이어그램" border="true":::
 
-앞서 나열된 Arc 지원 서버에서 다른 Azure 리소스에 연결하려면 각 서비스에 대해 프라이빗 링크를 구성해야 합니다. [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) 또는 [Azure Blob Storage](../../private-link/tutorial-private-endpoint-storage-portal.md)에 대한 프라이빗 링크 구성에 대한 자세한 내용은 다음 항목을 참조하세요.
+이전에 나열된 Azure Arc 지원 서버에서 다른 Azure 리소스에 연결하려면 각 서비스에 대한 Private Link 구성해야 합니다. [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) 또는 [Azure Blob Storage](../../private-link/tutorial-private-endpoint-storage-portal.md)에 대한 프라이빗 링크 구성에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Private Link가 이제 일반 공급됩니다. 프라이빗 엔드포인트 및 Private Link 서비스(표준 부하 분산 장치 뒤의 서비스)가 모두 일반 공급됩니다. 다른 Azure PaaS는 다른 일정에 따라 Azure Private Link에 온보딩됩니다. Private Link에서 Azure PaaS의 정확한 상태는 [Private Link 가용성](../../private-link/availability.md)을 참조하세요. 알려진 제한은 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md#limitations) 및 [Private Link Service](../../private-link/private-link-service-overview.md#limitations)를 참조하세요.
@@ -57,7 +57,7 @@ Azure Arc Private Link 범위(미리 보기)는 프라이빗 엔드포인트(및
 
 ## <a name="restrictions-and-limitations"></a>제한 사항
 
-Arc 지원 서버 Private Link Scope 개체에는 프라이빗 링크 설정을 계획할 때 고려해야 하는 몇 가지 제한 사항이 있습니다.
+Azure Arc 지원 서버 Private Link Scope 개체에는 Private Link 설정을 계획할 때 고려해야 하는 여러 제한이 있습니다.
 
 - 최대 하나의 Azure Arc Private Link 범위를 가상 네트워크에 연결할 수 있습니다.
 
@@ -65,9 +65,9 @@ Arc 지원 서버 Private Link Scope 개체에는 프라이빗 링크 설정을 
 
 - 모든 온-프레미스 머신은 동일한 DNS 전달자를 사용하는 올바른 프라이빗 엔드포인트 정보(FQDN 레코드 이름 및 프라이빗 IP 주소)를 확인하여 동일한 프라이빗 엔드포인트를 사용해야 합니다. 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)을 참조하세요.
 
-- Azure Arc 지원 컴퓨터 또는 서버, Azure Arc 프라이빗 링크 범위 및 가상 네트워크는 동일한 Azure 지역에 있어야 합니다.
+- Azure Arc 사용 가능한 서버와 Azure Arc Private Link 범위는 동일한 Azure 지역에 있어야 합니다. 프라이빗 엔드포인트와 가상 네트워크도 동일한 Azure 지역에 있어야 하지만 이 지역은 Azure Arc Private Link 범위 및 Arc 지원 서버와 다를 수 있습니다.
 
-- Azure Active Directory 및 Azure Resource Manager 서비스 태그에 대한 트래픽은 미리 보기 중에 온-프레미스 네트워크 방화벽을 통해 허용되어야 합니다. 
+- Azure Active Directory 및 Azure Resource Manager 서비스 태그에 대한 트래픽은 미리 보기 중에 온-프레미스 네트워크 방화벽을 통해 허용되어야 합니다.
 
 - 사용할 다른 Azure 서비스(예: Azure Monitor)에는 가상 네트워크에서 고유한 프라이빗 엔드포인트가 필요합니다.
 
@@ -134,7 +134,7 @@ Azure Arc 지원 서버는 여러 Azure 서비스와 통합되어 하이브리�
 
 1. Azure Arc Private Link 범위의 이름을 지정합니다. 의미 있고 명확한 이름을 사용하는 것이 가장 좋습니다.
 
-   필요에 따라 이 Azure Arc Private Link 범위(미리 보기)와 연결된 모든 Arc 지원 컴퓨터 또는 서버에서 프라이빗 엔드포인트를 통해 데이터를 서비스로 보낼 수 있습니다. **공용 네트워크 액세스 사용** 을 선택하는 경우 이 Azure Arc Private Link 범위(미리 보기)와 연결 된 컴퓨터 또는 서버가 개인 네트워크나 공용 네트워크를 통해 서비스와 통신할 수 있습니다. 사용자의 생각이 바뀌면 범위를 만든 후 이 설정을 변경하면 됩니다.
+   필요에 따라이 Azure Arc 개인 링크 범위 (미리 보기)와 연결 된 모든 Azure Arc 사용 컴퓨터 또는 서버에서 개인 끝점을 통해 데이터를 서비스로 보낼 수 있습니다. **공용 네트워크 액세스 사용** 을 선택하는 경우 이 Azure Arc Private Link 범위(미리 보기)와 연결 된 컴퓨터 또는 서버가 개인 네트워크나 공용 네트워크를 통해 서비스와 통신할 수 있습니다. 사용자의 생각이 바뀌면 범위를 만든 후 이 설정을 변경하면 됩니다.
 
 1. **검토 + 만들기** 를 선택합니다.
 
@@ -173,7 +173,7 @@ Azure Arc Private Link 범위(미리 보기)를 만들고 나면 프라이빗 �
    b. **프라이빗 DNS 영역과 통합** 에 대해 **예** 를 선택하고, 새 프라이빗 DNS 영역을 자동으로 만들도록 합니다. 실제 DNS 영역은 아래 스크린샷에 표시된 것과 다를 수도 있습니다.
 
      > [!NOTE]
-     > **아니요** 를 선택하고 DNS 레코드를 수동으로 관리하려면, 먼저 이 프라이빗 엔드포인트 및 AMPLS 구성을 포함한 프라이빗 범위 구성을 포함한 프라이빗 링크 설정을 완료합니다. 그런 다음 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)의 지침에 따라 DNS를 구성합니다. Private Link 설정을 위한 준비로 빈 레코드를 만들지 않도록 합니다. 만드는 DNS 레코드는 기존 설정을 재정의하고 Arc 지원 서버와의 연결에 영향을 줄 수 있습니다.
+     > **아니요** 를 선택하고 DNS 레코드를 수동으로 관리하려면, 먼저 이 프라이빗 엔드포인트 및 AMPLS 구성을 포함한 프라이빗 범위 구성을 포함한 프라이빗 링크 설정을 완료합니다. 그런 다음 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)의 지침에 따라 DNS를 구성합니다. Private Link 설정을 위한 준비로 빈 레코드를 만들지 않도록 합니다. 만든 DNS 레코드는 기존 설정을 재정의 하 고 Azure Arc 사용 서버와의 연결에 영향을 줄 수 있습니다.
 
    다.    **검토 + 만들기** 를 선택합니다.
 
@@ -228,9 +228,9 @@ Azure Arc Private Link 범위(미리 보기)를 만들고 나면 프라이빗 �
 ## <a name="connect-to-an-azure-arc-enabled-servers"></a>Azure Arc 지원 서버에 연결
 
 > [!NOTE]
-> 프라이빗 엔드포인트가 있는 Azure Arc Connected Machine 에이전트의 최소 지원 버전은 버전 1.4입니다. 포털에서 생성된 Arc 지원 서버 배포 스크립트는 최신 버전을 다운로드합니다.
+> 개인 끝점을 사용 하는 Azure Arc 연결 컴퓨터 에이전트의 지원 되는 최소 버전은 버전 1.4입니다. 포털에서 생성 된 Azure Arc 사용 서버 배포 스크립트는 최신 버전을 다운로드 합니다.
 
-### <a name="configure-a-new-arc-enabled-server-to-use-private-link"></a>프라이빗 링크를 사용하도록 새 Arc 지원 서버 구성
+### <a name="configure-a-new-azure-arc-enabled-server-to-use-private-link"></a>개인 링크를 사용 하도록 새 Azure Arc 사용 서버 구성
 
 컴퓨터 또는 서버를 Azure Arc 지원 서버와 처음 연결하는 경우 필요에 따라 프라이빗 링크 범위에 연결할 수 있습니다. 다음 단계는 아래와 같습니다. 
 
@@ -257,7 +257,7 @@ Azure Arc Private Link 범위(미리 보기)를 만들고 나면 프라이빗 �
 
     1. 완료되면 **다음: 태그** 를 선택합니다.
 
-1. **인증** 페이지에서 **여러 서버 추가** 를 선택한 경우 드롭다운 목록에서 Arc 지원 서버에 대해 생성된 서비스 사용자를 선택합니다. Arc 지원 서버에 대한 서비스 사용자를 만들지 경우 먼저 [서비스 사용자를 만드는 방법](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)을 검토하여 필요한 권한과 만드는 단계를 숙지합니다. 계속하려면 **다음: 태그** 를 선택합니다.
+1. **인증** 페이지에서 **여러 서버 추가를** 선택한 경우 드롭다운 목록에서 Azure Arc 지원 서버에 대해 만든 서비스 주체를 선택합니다. Azure Arc 지원 서버에 대한 서비스 주체를 만들지 않은 경우 먼저 필요한 사용 권한 및 서비스 주체를 만드는 단계를 숙지하기 위해 [서비스 주체를 만드는 방법을](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 검토합니다. 계속하려면 **다음: 태그** 를 선택합니다.
 
 1. **태그** 페이지에서 제안된 기본 **실제 위치 태그** 를 검토하고 값을 입력하거나 표준을 지원하는 **사용자 지정 태그** 를 하나 이상 지정합니다.
 
@@ -274,9 +274,9 @@ Windows 에이전트는 [https://aka.ms/AzureConnectedMachineAgent](https://aka.
 > [!NOTE]
 > Linux 서버에 Connected Machine 에이전트를 배포하는 경우 네트워크 연결을 확인하는 동안 5분 정도 지연될 수 있습니다. 그 다음에는 방화벽이 올바르게 구성된 경우에도 `you do not have access to login.windows.net` 오류가 발생합니다. 이는 알려진 문제이며 향후 에이전트 릴리스에서 수정될 예정입니다. 방화벽이 올바르게 구성된 경우 온보딩이 계속해서 성공합니다.
 
-### <a name="configure-an-existing-arc-enabled-server"></a>기존 Arc 지원 서버 구성
+### <a name="configure-an-existing-azure-arc-enabled-server"></a>기존 Azure Arc 지원 서버 구성
 
-프라이빗 링크 범위 이전에 설정된 Arc 지원 서버의 경우 다음 단계를 완료하여 Arc 지원 서버 프라이빗 링크 범위 사용을 시작하도록 허용할 수 있습니다.
+프라이빗 링크 범위 이전에 설정된 Azure Arc 지원 서버의 경우 다음 단계를 완료하여 범위 Private Link Azure Arc 지원 서버를 사용하도록 허용할 수 있습니다.
 
 1. Azure Portal에서 Azure Arc Private Link 범위 리소스로 이동합니다.
 

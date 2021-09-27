@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: f83a2a8aab4f1daf9fe4317491b2ed3591ec227d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 9d717912e62340c939649271d2ccf3339a72b0e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689712"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633472"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
 
@@ -375,7 +375,7 @@ CoreMark는 [GitHub](https://github.com/eembc/coremark)에서 다운로드할 �
 
 벤치마크를 빌드하고 실행하려면 다음을 입력합니다.
 
-```> make```
+`> make`
 
 전체 결과는 ```run1.log``` 및 ```run2.log``` 파일에서 볼 수 있습니다. 
 ```run1.log```에는 CoreMark 결과가 포함됩니다. 성능 매개 변수를 사용한 벤치마크 결과입니다.
@@ -385,7 +385,7 @@ CoreMark는 [GitHub](https://github.com/eembc/coremark)에서 다운로드할 �
 
 기본적으로 벤치마크는 10-100초 사이에 실행됩니다. 재정의하려면 ```ITERATIONS=N```을 사용합니다.
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 위의 플래그는 10번의 반복에 대한 벤치마크를 실행합니다. 
 **결과는 벤치마크가 10초 이상 실행된 경우에만 보고에 유효합니다!**
@@ -394,7 +394,7 @@ CoreMark는 [GitHub](https://github.com/eembc/coremark)에서 다운로드할 �
 
 ```XCFLAGS=-DMULTITHREAD=N```을 사용합니다. 여기서 N은 병렬로 실행할 스레드 수입니다. 여러 컨텍스트에서 여러 구현을 실행할 수 있습니다.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 위의 내용은 4개 코어에서 실행하기 위한 벤치마크를 컴파일합니다.
 

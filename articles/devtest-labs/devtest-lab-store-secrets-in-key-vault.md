@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장 | Microsoft Docs
+title: 키 자격 증명 모음에 비밀 저장
 description: Azure Key Vault에 비밀을 저장하고, VM, 수식 또는 환경을 만드는 동안 사용하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2aaa177c895b57a07ed94de48081de69beedcda8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596026"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장
 Azure DevTest Labs를 사용하는 경우 복잡한 비밀을 입력해야 할 수 있습니다. 예를 들어 Windows VM의 암호, Linux VM의 공용 SSH 키 또는 아티팩트를 통해 Git 리포지토리를 복제하기 위한 개인용 액세스 토큰 등입니다. 비밀은 일반적으로 길며 임의 문자를 포함합니다. 따라서 특히 여러 번 동일한 비밀을 사용하는 경우 비밀 입력은 까다롭고 불편할 수 있습니다.

@@ -3,16 +3,16 @@ title: Azure IoT Edge용 모듈 개발 | Microsoft Docs
 description: 런타임 및 IoT Hub과 통신할 수 있는 Azure IoT Edge용 사용자 지정 모듈을 개발합니다.
 author: kgremban
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fafb9475d308863113fa943d4e52cf3c1b5652cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5a04acfdec42319b998b2854be9690bab360558c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528388"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550536"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -76,12 +76,12 @@ IoT Hub는 다음과 같은 점에서 디바이스와 비슷하게 모듈 인스
 
 IoT Edge 모듈은 로컬 브로커로 작동하고 메시지를 클라우드로 전달하는 IoT Edge 허브를 통해 클라우드에 메시지를 전파할 수 있습니다. 디바이스-클라우드 메시지의 복잡한 처리를 사용하도록 설정하기 위해 IoT Edge 모듈은 다른 모듈 또는 디바이스에서 해당 로컬 IoT Edge 허브로 보내는 메시지를 가로채서 처리하고 처리된 데이터가 포함된 새 메시지를 보낼 수 있습니다. 따라서 IoT Edge 모듈 체인을 만들어서 로컬 처리 파이프라인을 빌드할 수 있습니다.
 
-라우팅을 사용하여 디바이스-클라우드 원격 분석 메시지를 보내려면 Azure IoT SDK의 ModuleClient를 사용합니다. Azure IoT SDK에서 각 모듈은 특수 MQTT 항목에 매핑되는 *입력* 및 *출력* 엔드포인트 개념을 포함합니다. `ModuleClient.sendMessageAsync` 메서드를 사용하여 모듈의 출력 엔드포인트에서 메시지를 보냅니다. 그런 후 edgeHub에서 경로를 구성하여 이 출력 엔드포인트를 IoT Hub로 보냅니다.
+라우팅을 사용 하 여 장치-클라우드 원격 분석 메시지를 보내려면 Azure IoT SDK의 ModuleClient를 사용 합니다. Azure IoT SDK에서 각 모듈은 특수 MQTT 항목에 매핑되는 *입력* 및 *출력* 엔드포인트 개념을 포함합니다. `ModuleClient.sendMessageAsync` 메서드를 사용하여 모듈의 출력 엔드포인트에서 메시지를 보냅니다. 그런 후 edgeHub에서 경로를 구성하여 이 출력 엔드포인트를 IoT Hub로 보냅니다.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-MQTT 브로커로 디바이스-클라우드 원격 분석 메시지를 보내는 것은 사용자 정의 항목으로 메시지를 게시하는 것과 비슷하지만 해당 모듈에 대해 `devices/<device_name>/<module_name>/messages/events` IoT Hub 특수 항목이 사용됩니다. 권한 부여는 적절하게 설정되어 있어야 합니다. 또한 이 항목의 메시지를 클라우드로 전달하도록 MQTT 브리지를 구성해야 합니다.
+MQTT 브로커로 디바이스-클라우드 원격 분석 메시지를 보내는 것은 사용자 정의 항목으로 메시지를 게시하는 것과 비슷하지만 해당 모듈에 대해 `devices/<device_name>/modules/<module_name>/messages/events` IoT Hub 특수 항목이 사용됩니다. 권한 부여를 적절 하 게 설정 해야 합니다. 또한 이 항목의 메시지를 클라우드로 전달하도록 MQTT 브리지를 구성해야 합니다.
 
 ::: moniker-end
 
@@ -90,20 +90,20 @@ MQTT 브로커로 디바이스-클라우드 원격 분석 메시지를 보내는
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-MQTT 브로커를 사용하여 메시지를 처리하는 것은 사용자 정의 항목으로 메시지를 구독하는 것과 비슷하지만 모듈의 출력 큐의 `devices/<device_name>/<module_name>/messages/events` IoT Edge 특수 항목을 사용합니다. 권한 부여는 적절하게 설정되어 있어야 합니다. 선택적으로 선택한 항목으로 새 메시지를 보낼 수 있습니다.
+MQTT 브로커를 사용하여 메시지를 처리하는 것은 사용자 정의 항목으로 메시지를 구독하는 것과 비슷하지만 모듈의 출력 큐의 `devices/<device_name>/modules/<module_name>/messages/events` IoT Edge 특수 항목을 사용합니다. 권한 부여를 적절 하 게 설정 해야 합니다. 선택적으로 선택한 항목으로 새 메시지를 보낼 수 있습니다.
 
 ::: moniker-end
 
 #### <a name="twins"></a>쌍
 
-트윈은 IoT Hub에서 제공되는 기본 형식 중 하나입니다. 메타데이터, 구성 및 조건을 포함하여 상태 정보를 저장하는 JSON 문서가 있습니다. 각 모듈 또는 디바이스에는 고유한 트윈이 포함됩니다.
+트윈은 IoT Hub에서 제공되는 기본 형식 중 하나입니다. 메타 데이터, 구성 및 조건을 포함 하 여 상태 정보를 저장 하는 JSON 문서가 있습니다. 각 모듈 또는 디바이스에는 고유한 트윈이 포함됩니다.
 
 Azure IoT SDK로 모듈 트윈을 가져오려면 `ModuleClient.getTwin` 메서드를 호출합니다.
 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-MQTT 클라이언트로 모듈 트윈을 가져오려면 트윈을 가져오는 것이 일반적인 MQTT 패턴이 아니기 때문에 약간의 추가 작업이 수행됩니다. 먼저 모듈이 IoT Hub 특수 항목 `$iothub/twin/res/#`를 구독해야 합니다. 이 항목 이름은 IoT Hub에서 상속되며, 모든 디바이스/모듈이 동일한 항목을 구독해야 합니다. 디바이스가 서로 트윈을 수신하지는 않습니다. IoT Hub 및 edgeHub는 모든 디바이스가 동일한 항목 이름을 수신 대기하더라도 어떤 트윈을 어디로 전달할지 알고 있습니다. 구독을 만든 후에는 모듈이 ID 요청 ID가 `$iothub/twin/GET/?$rid=1234`인 IoT Hub 특수 항목에 메시지를 게시하여 트윈을 요청해야 합니다. 이 요청 ID는 요청된 데이터와 함께 IoT Hub에서 다시 전송되는 임의 ID(즉, GUID)입니다. 클라이언트는 이 방법으로 요청을 응답과 연결합니다. 결과 코드는 성공이 200으로 인코딩되는 HTTP와 비슷한 상태 코입니다.
+MQTT 클라이언트를 사용 하 여 모듈 쌍을 가져오려면 쌍 가져오기는 일반적인 MQTT 패턴이 아니기 때문에 약간 더 많은 작업이 수반 됩니다. 먼저 모듈이 IoT Hub 특수 항목 `$iothub/twin/res/#`를 구독해야 합니다. 이 항목 이름은 IoT Hub에서 상속되며, 모든 디바이스/모듈이 동일한 항목을 구독해야 합니다. 디바이스가 서로 트윈을 수신하지는 않습니다. 모든 장치가 동일한 토픽 이름을 수신 하는 경우에도 IoT Hub에서 어떤 쌍을 전달 해야 하는지 알 수 있습니다. 구독을 만든 후에는 모듈이 ID 요청 ID가 `$iothub/twin/GET/?$rid=1234`인 IoT Hub 특수 항목에 메시지를 게시하여 트윈을 요청해야 합니다. 이 요청 ID는 요청된 데이터와 함께 IoT Hub에서 다시 전송되는 임의 ID(즉, GUID)입니다. 클라이언트는 이 방법으로 요청을 응답과 연결합니다. 결과 코드는 성공이 200으로 인코딩되는 HTTP와 비슷한 상태 코입니다.
 
 ::: moniker-end
 
@@ -112,7 +112,7 @@ Azure IoT SDK로 모듈 트윈 패치를 받으려면 콜백 함수를 구현하
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-MQTT 클라이언트로 모듈 트윈 패치를 받는 프로세스는 전체 트윈을 받는 것과 매우 비슷합니다. 클라이언트가 특수 IoT Hub 항목 `$iothub/twin/PATCH/properties/desired/#`을 구독해야 합니다. 구독이 수행된 후 IoT Hub가 원하는 트윈 섹션 변경 사항을 보내면 클라이언트가 이를 수신합니다.
+MQTT 클라이언트를 사용 하 여 모듈 쌍 패치를 수신 하기 위해 프로세스는 전체 쌍을 받는 것과 비슷합니다. 클라이언트는 특수 IoT Hub 항목을 구독 해야 `$iothub/twin/PATCH/properties/desired/#` 합니다. 구독이 수행된 후 IoT Hub가 원하는 트윈 섹션 변경 사항을 보내면 클라이언트가 이를 수신합니다.
 
 ::: moniker-end
 
@@ -165,6 +165,31 @@ IoT Edge는 요구에 맞는 시나리오를 빌드할 수 있도록 여러 가�
 IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다.
 
 Windows 컨테이너를 사용한 개발에 대한 자세한 내용은 이 문서의 [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) 버전을 참조하세요.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+<!--1.2-->
+:::moniker range="iotedge-2020-11"
+
+## <a name="module-security"></a>모듈 보안
+
+보안을 고려 하 여 모듈을 개발 해야 합니다. 모듈 보안 설정에 대 한 자세한 내용은 [Docker 보안](https://docs.docker.com/engine/security/)을 참조 하세요.
+
+모듈 보안을 개선 하기 위해 기본적으로 일부 컨테이너 기능을 사용 하지 않도록 설정 IoT Edge. 필요한 경우 기본값을 재정의 하 여 모듈에 권한 있는 기능을 제공할 수 있습니다.
+
+### <a name="allow-elevated-docker-permissions"></a>상승 된 Docker 권한 허용
+
+IoT Edge 장치의 config.xml ml 파일에는 라는 매개 변수가 있습니다 `allow_elevated_docker_permissions` . 이 플래그를 **true** 로 설정 하면 플래그는 `--privileged` 물론 `CapAdd` [컨테이너 만들기 옵션](how-to-use-create-options.md)에서 Docker hostconfig의 필드에 정의 하는 추가 기능을 사용할 수 있습니다.
+
+>[!NOTE]
+>현재이 플래그는 배포에서 모듈에 권한 있는 사용 권한을 부여할 수 있도록 하는 기본적으로 **true** 입니다. 장치 보안을 향상 시키려면이 플래그를 false로 설정 하는 것이 좋습니다. 나중에이 플래그는 기본적으로 **false** 로 설정 됩니다.
+
+### <a name="enable-cap_chown-and-cap_setuid"></a>CAP_CHOWN 및 CAP_SETUID 사용
+
+Docker 기능 **CAP_CHOWN** 및 **CAP_SETUID** 은 기본적으로 사용 하지 않도록 설정 되어 있습니다. 이러한 기능을 사용 하 여 호스트 장치에서 보안 파일을 작성 하 고 잠재적으로 루트 액세스 권한을 얻을 수 있습니다.
+
+이러한 기능이 필요한 경우 컨테이너 만들기 옵션에서 CapADD를 사용 하 여 수동으로 다시 사용 하도록 설정할 수 있습니다.
 
 :::moniker-end
 <!-- end 1.2 -->

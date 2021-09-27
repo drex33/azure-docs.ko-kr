@@ -10,12 +10,12 @@ ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 658483d1479036c7cc90dbaf439dbee6706dd475
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 3ce2f92f88e24eb634222db5ffab45acaf1a5820
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529875"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577995"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행
 
@@ -118,10 +118,10 @@ Azure Portal에서 새 함수 앱을 만들려면 다음 단계를 따르세요.
     eventInfo.AppendLine(string.Format("{0} operation occurred.", eventApi));
     eventInfo.AppendLine(string.Format("Blob URL: {0}", eventBlobUrl));
     eventInfo.AppendLine($@"Additional event details:
-        Id=[{eventGridEvent.Id}] 
-        EventType=[{eventGridEvent.EventType}] 
-        EventTime=[{eventGridEvent.EventTime}] 
-        Subject=[{eventGridEvent.Subject}] 
+        Id=[{eventGridEvent.Id}]
+        EventType=[{eventGridEvent.EventType}]
+        EventTime=[{eventGridEvent.EventTime}]
+        Subject=[{eventGridEvent.Subject}]
         Topic=[{eventGridEvent.Topic}]");
 
     // If event was BlobCreated and API call was CopyBlob, respond to the event.
@@ -236,7 +236,7 @@ Azure Function을 로컬에서 테스트하고 나면 다음 단계로 이전에
 
 함수를 게시하려면 다음 단계를 수행합니다.
 
-1. 솔루션 탐색기에서 Azure Functions 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
+1. 솔루션 탐색기에서 Azure Functions 프로젝트를 선택 하 고 저장 하거나 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다.
 1. **게시** 창에서 대상으로 **Azure** 를 선택한 후 **다음** 을 선택합니다.
 1. **Azure Function 앱(Windows)** 을 특정 대상으로 선택한 후 **다음** 을 선택합니다.
 1. **Functions 인스턴스** 탭의 드롭다운 메뉴에서 구독을 선택한 다음 사용 가능한 함수 앱 목록에서 Azure Function 앱을 찾습니다.
@@ -247,7 +247,7 @@ Azure Function을 로컬에서 테스트하고 나면 다음 단계로 이전에
 
     :::image type="content" source="media/archive-rehydrate-handle-event/visual-studio-publish-azure-function.png" alt-text="Visual Studio에서 Azure Function을 게시하는 페이지를 보여 주는 스크린샷":::
 
-Azure Function에서 코드를 변경할 때마다 업데이트된 함수를 Azure에 게시해야 합니다. 
+Azure Function에서 코드를 변경할 때마다 업데이트된 함수를 Azure에 게시해야 합니다.
 
 ## <a name="subscribe-to-blob-rehydration-events-from-a-storage-account"></a>스토리지 계정에서 blob 리하이드레이션 이벤트 구독
 
@@ -285,7 +285,7 @@ Azure Function을 테스트하기 위해 이벤트 구독이 포함된 스토리
 - 이벤트가 **Microsoft.Storage.BlobCreated** 이고 API 작업이 **Blob 복사** 인 경우.
 - 이벤트가 **Microsoft.Storage.BlobTierChanged** 이고 API 작업이 **Blob 계층 설정** 인 경우.
 
-Blob을 리하이드레이션하여 함수를 테스트하는 방법을 알아보려면 다음 두 프로시저 중 하나를 참조하세요.  
+Blob을 리하이드레이션하여 함수를 테스트하는 방법을 알아보려면 다음 두 프로시저 중 하나를 참조하세요.
 
 - [복사 작업을 사용하여 blob 리하이드레이션](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
 - [계층을 변경하여 blob 리하이드레이션](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier)

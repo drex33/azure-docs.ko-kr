@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: dc42882a15b70d7d656decebf8c7b2346c516c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 48a695f4217c7300c4d7db6edc23452ad4eaa55f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566699"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631707"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center에서 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -67,22 +67,22 @@ Security Center 에이전트가 컴퓨터에 설치된 경우 경고의 공격�
 ## <a name="simulate-alerts-on-your-azure-vms-linux"></a>Azure VM(Linux)에서 경고 시뮬레이션 <a name="validate-linux"></a>
 
 Security Center 에이전트가 컴퓨터에 설치된 경우 경고의 공격받은 리소스에 해당하는 컴퓨터에서 다음 단계를 따릅니다.
-1. 실행 파일을 편리한 위치에 복사하고 이름을 **./asc_alerttest_662jfi039n** 으로 바꿉니다. 예를 들면 다음과 같습니다.
 
-    ```cp /bin/echo ./asc_alerttest_662jfi039n```
+1. 실행 파일을 편리한 위치에 복사하고 이름을 로 `./asc_alerttest_662jfi039n` 바꿉니다. 예:
+
+    `cp /bin/echo ./asc_alerttest_662jfi039n`
 
 1. 명령 프롬프트를 열고 다음 파일을 실행합니다.
 
-    ```./asc_alerttest_662jfi039n testing eicar pipe```
+    `./asc_alerttest_662jfi039n testing eicar pipe`
 
-1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 경고가 표시됩니다.
-
+1. 5~10분 정도 기다린 다음 Security Center 경고를 엽니다. 경고가 표시됩니다.
 
 ## <a name="simulate-alerts-on-kubernetes"></a>Kubernetes에서 경고 시뮬레이션 <a name="validate-kubernetes"></a>
 
 Azure Kubernetes Service를 Security Center와 통합한 경우 다음 kubectl 명령을 사용하여 경고가 작동하는지 테스트할 수 있습니다.
 
-```kubectl get pods --namespace=asc-alerttest-662jfi039n```
+`kubectl get pods --namespace=asc-alerttest-662jfi039n`
 
 Kubernetes 노드 및 클러스터를 방어하는 방법에 대한 자세한 내용은 [Azure Defender for Kubernetes 소개](defender-for-kubernetes-introduction.md)를 참조하세요.
 

@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: edd90071125c65b7d4af3d0065e92b30f35e5f65
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 7c3ad407b0c412e3cf4dbb5cc1635376c718a747
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436956"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605813"
 ---
 # <a name="azcopy-v10-configuration-settings-azure-storage"></a>AzCopy v10 구성 설정(Azure Storage)
 
@@ -59,7 +59,6 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 | GOOGLE_APPLICATION_CREDENTIALS | 서비스 계정 키 파일의 절대 경로는 Google Cloud Storage를 사용하여 권한을 부여할 키를 제공합니다. [AzCopy를 사용하여 Google Cloud Storage에서 Azure Storage로 데이터 복사(미리 보기)](storage-ref-azcopy-configuration-settings.md) |
 | HTTPS_PROXY | AzCopy의 프록시 설정을 구성합니다. 이 변수를 프록시 IP 주소 및 프록시 포트 번호로 설정합니다. 예: `xx.xxx.xx.xxx:xx`. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다. [프록시 설정 구성](#configure-proxy-settings)을 참조하세요. |
 
-
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
 
 AzCopy에 대한 프록시 설정을 구성하려면 `HTTPS_PROXY` 환경 변수를 설정합니다. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다.
@@ -74,7 +73,7 @@ AzCopy에 대한 프록시 설정을 구성하려면 `HTTPS_PROXY` 환경 변수
 
 ### <a name="bypassing-a-proxy"></a>프록시 우회
 
-Windows에서 AzCopy를 실행 중이고 설정을 자동 검색하는 대신 프록시를 전혀 사용하지 _않도록_ 지시하려면 다음 명령을 사용합니다. 이 설정을 사용하면 AzCopy에서 프록시를 조회하거나 사용하지 않습니다.
+Windows에서 AzCopy를 실행 중이고 설정을 자동 검색하는 대신 프록시를 전혀 사용하지 *않도록* 지시하려면 다음 명령을 사용합니다. 이 설정을 사용하면 AzCopy에서 프록시를 조회하거나 사용하지 않습니다.
 
 | 운영 체제 | 환경 | 명령  |
 |--------|-----------|----------|

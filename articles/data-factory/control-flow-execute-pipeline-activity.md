@@ -1,7 +1,7 @@
 ---
-title: Azure Data Factory에서 파이프라인 실행 작업
+title: 파이프라인 작업 실행
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 파이프라인 실행 작업을 사용하여 하나의 Data Factory 파이프라인에서 다른 Data Factory 파이프라인을 호출하는 방법에 대해 알아봅니다.
+description: 파이프라인 실행 작업을 사용 하 여 Azure Data Factory 또는 Synapse Analytics의 다른 파이프라인에서 파이프라인 하나를 호출 하는 방법에 대해 알아봅니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: b46fbddb2a6446eaa711a8ba2c548fff634eee48
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 047548a39c16c5f6b6ee3f7d359a8664c87e7062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642803"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566599"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 작업
+# <a name="execute-pipeline-activity-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics에서 파이프라인 실행 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
-
-
+파이프라인 실행 작업을 통해 Data Factory 또는 Synapse 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
 
 ## <a name="syntax"></a>구문
 
@@ -69,7 +67,7 @@ name | 파이프라인 실행 작업의 이름입니다. | String | 예
 type | **ExecutePipeline** 으로 설정되어야 합니다. | String | 예
 pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
 매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | No
-waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | No
+waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 true입니다. | 부울 | No
 
 ## <a name="sample"></a>샘플
 이 시나리오에는 두 개의 파이프라인이 있습니다.
@@ -256,7 +254,7 @@ waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 �
 
 ```
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+지원되는 다른 제어 흐름 작업을 참조하세요. 
 
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)

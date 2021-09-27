@@ -1,7 +1,7 @@
 ---
 title: 매핑 데이터 흐름의 순위 변환
+description: 매핑 데이터 흐름 순위 변환을 사용하여 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 순위 열을 생성하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory의 매핑 데이터 흐름 순위 변환을 사용하는 순위 열 생성 방법
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/05/2020
-ms.openlocfilehash: 6577425827668f0eaddb19b276e940fff7dafa1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: c3af0355a02badb5aaa5d5b13a51b74392c931d8
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642858"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059884"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 순위 변환 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 순위 변환을 사용하여 사용자가 지정한 정렬 조건에 따라 정렬된 순위를 생성합니다. 
 
@@ -27,7 +29,7 @@ ms.locfileid: "122642858"
 
 ## <a name="configuration"></a>구성
 
-![순위 설정](media/data-flow/rank-configuration.png "순위 설정")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="순위 설정":::
 
 **대/소문자 구분 안 함:** 정렬 열이 문자열 형식인 경우 대/소문자가 순위 지정에 반영됩니다. 
 
@@ -57,7 +59,7 @@ ms.locfileid: "122642858"
 
 ### <a name="example"></a>예제
 
-![순위 설정](media/data-flow/rank-configuration.png "순위 설정")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="순위 설정":::
 
 위의 순위 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 나와 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3a0280b635efd297633d8901c80d7f4fdf6f8741
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567098"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583724"
 ---
 # <a name="source-control-in-synapse-studio"></a>Synapse Studio에서 원본 제어
 
@@ -23,6 +23,9 @@ ms.locfileid: "122567098"
 
 > [!NOTE]
 > Azure Government 클라우드에서는 Synapse Studio git 통합을 사용할 수 없습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+사용자는 Synapse 작업 영역에서 Azure 기여자(Azure RBAC) 이상 역할이 있어야 Synapse를 사용하여 Git 리포지토리를 구성, 편집 및 연결을 끊을 수 있습니다. 
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Synapse Studio에서 Git 리포지토리 구성 
 
@@ -40,9 +43,6 @@ Synapse Studio의 허브 관리로 이동합니다. **소스 제어** 섹션에�
 
 ![관리 허브에서 코드 리포지토리 설정 구성](media/configure-repo-2.png)
 
-> [!NOTE]
-> 작업 영역 기여자, 소유자 또는 상위 수준 역할로 부여된 사용자는 Azure Synapse studio에서 git 리포지토리를 구성하고, 설정을 편집하고, 연결을 끊을 수 있습니다. 
-
 작업 영역에서 Azure DevOps 또는 GitHub git 리포지토리를 연결할 수 있습니다.
 
 ## <a name="connect-with-azure-devops-git"></a>Azure DevOps Git을 사용하여 연결 
@@ -57,7 +57,7 @@ Git 리포지토리에 연결하는 경우 먼저 리포지토리 유형을 Azur
 
 구성 창에 다음 Azure DevOps Git 설정이 표시됩니다.
 
-| 설정 | 설명 | 값 |
+| 설정 | Description | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -161,9 +161,13 @@ GitHub 조직에 연결하려면 조직이 Synapse Studio에 권한을 부여해
 
 ### <a name="creating-feature-branches"></a>기능 분기 만들기
 
-Synapse Studio와 연결된 각 Git 리포지토리에는 공동 작업 분기가 있습니다. (`main` 또는 `master`는 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 새 분기 창이 나타나면 기능 분기의 이름을 입력합니다.
+Synapse Studio와 연결된 각 Git 리포지토리에는 공동 작업 분기가 있습니다. (`main` 또는 `master`는 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 
 
 ![새 분기 만들기](media/create-new-branch.png)
+
+새 분기 창이 나타나면 기능 분기의 이름을 입력하고 작업을 기반으로 할 분기를 선택합니다.
+
+![프라이빗 분기를 기반으로 분기 만들기 ](media/create-branch-from-private-branch.png)
 
 기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Git 공급자로 이동합니다. 협업 분기에서 Synapse 서비스에 게시할 수만 있습니다. 
 

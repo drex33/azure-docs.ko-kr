@@ -1,20 +1,19 @@
 ---
-title: Kubernetes에 자체 호스팅 게이트웨이 배포 | Microsoft Docs
+title: Kubernetes에 자체 호스팅 게이트웨이 배포
 description: Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 Kubernetes에 배포하는 방법 알아보기
-services: api-management
-author: vladvino
+author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.workload: mobile
 ms.topic: article
-ms.author: apimpm
+ms.author: danlep
 ms.date: 05/25/2021
-ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
-ms.translationtype: HT
+ms.openlocfilehash: dda6fcbf71914fefcd1afd2056864ad66aa11d4d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690487"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609824"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
@@ -43,25 +42,27 @@ ms.locfileid: "114690487"
 8. 명령을 터미널(또는 명령) 창에 붙여넣습니다. 첫 번째 명령은 4단계에서 생성한 액세스 토큰을 포함하는 Kubernetes 비밀을 만듭니다. 두 번째 명령은 6단계에서 다운로드한 구성 파일을 Kubernetes 클러스터에 적용하고 파일이 현재 디렉터리에 있는 것으로 예상합니다.
 9. 명령을 실행하여 [기본 네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)에 필요한 Kubernetes 개체를 만들고 Microsoft Container Registry에서 다운로드한 [컨테이너 이미지](https://aka.ms/apim/sputnik/dhub)에서 자체 호스팅 게이트웨이 Pod를 시작합니다.
 10. 다음 명령을 실행하여 배포가 성공했는지 확인합니다. 모든 개체를 만들고 Pod가 초기화될 때까지 시간이 약간 걸릴 수 있습니다.
+
     ```console
     kubectl get deployments
     NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. 다음 명령을 실행하여 서비스가 성공적으로 만들어졌는지 확인합니다. 서비스 IP와 포트가 다를 것입니다.
+
     ```console
     kubectl get services
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Azure Portal로 돌아가서 **개요** 를 선택합니다.
-13. **상태** 에 녹색 확인 표시가 있고 그 뒤에 YAML 파일에 지정된 복제본 수와 일치하는 노드 수가 표시되는지 확인합니다. 이 상태는 배포된 자체 호스팅 게이트웨이 Pod가 API Management 서비스와 성공적으로 통신하고 있으며 "하트비트"가 규칙적이라는 것을 의미합니다.
+1. Azure Portal로 돌아가서 **개요** 를 선택합니다.
+1. **상태** 에 녹색 확인 표시가 있고 그 뒤에 YAML 파일에 지정된 복제본 수와 일치하는 노드 수가 표시되는지 확인합니다. 이 상태는 배포된 자체 호스팅 게이트웨이 Pod가 API Management 서비스와 성공적으로 통신하고 있으며 "하트비트"가 규칙적이라는 것을 의미합니다.
 
     ![게이트웨이 상태](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> 게이트웨이가 여러 개 있는 경우 <code>kubectl logs deployment/<gateway-name></code> 명령을 실행하여 임의로 선택한 Pod의 로그를 확인합니다.
-> 명령 옵션 전체 세트에 대해 <code>kubectl logs -h</code>를 실행합니다(예: 특정 Pod 또는 컨테이너에 대한 로그를 보는 방법).
+> 게이트웨이가 여러 개 있는 경우 `kubectl logs deployment/<gateway-name>` 명령을 실행하여 임의로 선택한 Pod의 로그를 확인합니다.
+> 명령 옵션 전체 세트에 대해 `kubectl logs -h`를 실행합니다(예: 특정 Pod 또는 컨테이너에 대한 로그를 보는 방법).
 
 ## <a name="production-deployment-considerations"></a>프로덕션 배포 고려 사항
 

@@ -3,20 +3,20 @@ title: Azure API Management에서 외부 캐시 사용 | Microsoft Docs
 description: Azure API Management에서 외부 캐시를 구성하고 사용하는 방법을 알아봅니다. 외부 캐시를 사용하면 기본 제공 캐시의 몇 가지 제한 사항을 극복할 수 있습니다.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.author: apimpm
-ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: ef7e91c482e628bfcc0a7396976ca9e26b4ac474
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018225"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678880"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
 
@@ -50,7 +50,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 
 이 섹션에서는 Azure에서 Azure Cache for Redis를 만드는 방법을 설명합니다. Azure 내부 또는 외부에 Azure Cache for Redis가 이미 있으면 다음 섹션으로 <a href="#add-external-cache">건너뛸</a> 수 있습니다.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](../azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Kubernetes에 Redis 캐시 배포
 

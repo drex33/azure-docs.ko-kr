@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0931d5668835229be858a8725fd1a2d90c81081d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: eaa4eafa283ad46ae977d9449dcf9f9273bef38c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432953"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669116"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -49,7 +49,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
    > [!NOTE]
    > ASE 이외의 항목을 서브넷에 포함해서는 안 됩니다. 향후 확장이 가능한 주소 공간을 선택해야 합니다. 이 설정은 나중에 변경할 수 없습니다. 주소 256개를 포함할 수 있는 `/24` 크기를 사용하는 것이 좋습니다.
 
-규모를 확장 또는 축소할 때 적절한 크기의 새 역할이 추가된 다음, 워크로드가 현재 크기에서 대상 크기로 마이그레이션됩니다. 원본 VM은 워크로드가 마이그레이션된 후에만 제거됩니다. 100개의 ASP 인스턴스가 있는 ASE가 있는 경우 VM 수를 두 배로 늘려야 하는 기간이 있습니다.  이러한 이유로 필요할 수 있는 모든 변경 사항을 수용하기 위해 '/24'를 사용하는 것이 좋습니다.  
+규모를 확장 또는 축소할 때 적절한 크기의 새 역할이 추가된 다음, 워크로드가 현재 크기에서 대상 크기로 마이그레이션됩니다. 원본 Vm은 워크 로드가 마이그레이션된 후에만 제거 됩니다. 100개의 ASP 인스턴스가 있는 ASE가 있는 경우 VM 수를 두 배로 늘려야 하는 기간이 있습니다.  이러한 이유로 필요할 수 있는 모든 변경 사항을 수용하기 위해 '/24'를 사용하는 것이 좋습니다.  
 
 ## <a name="ase-dependencies"></a>ASE 종속성 ##
 

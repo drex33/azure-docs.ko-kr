@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)에서 Windows Server 노드 풀 및 �
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b278be45af62d50c8df85ed833ebbeb99dd5c35d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529235"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595297"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대해 자주 묻는 질문과 대답
 
@@ -191,6 +191,13 @@ Set-TimeZone -Id "Russian Standard Time"
 ```
 
 실행 중인 컨테이너 또는 사용 가능한 표준 시간대 목록의 현재 표준 시간대를 확인하려면 [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone)을 사용합니다.
+
+## <a name="can-i-maintain-session-affinity-from-client-connections-to-pods-with-windows-containers"></a>Windows 컨테이너를 사용하여 클라이언트 연결에서 Pod에 대한 세션 선호도를 유지할 수 있나요?
+WS2022 OS 버전에서 지원되지만, 클라이언트 IP로 세션 선호도를 달성하는 현재 방법은 노드당 단일 인스턴스를 실행하도록 원하는 Pod를 제한하고 로컬 노드의 Pod로 트래픽을 이동하도록 Kubernetes 서비스를 구성하여 수행됩니다. 이를 위해 다음 구성을 사용할 수 있습니다.
+1. 최소 버전 1.20을 실행하는 AKS 클러스터
+1. Windows 노드당 하나의 인스턴스만 허용하도록 Pod를 제한합니다. 배포 구성에서 선호도 방지를 사용하여 이를 달성할 수 있습니다.
+1. Kubernetes 서비스 구성에서 "externalTrafficPolicy=Local"을 설정합니다. 이렇게 하면 Kubernetes 서비스가 로컬 노드 내의 Pod로만 트래픽을 안내합니다.
+1. Kubernetes 서비스 구성에서 "sessionAffinity: ClientIP"를 설정합니다. 이렇게 하면 Azure Load Balancer 세션 선호도로 구성됩니다.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>지원되지 않는 기능이 필요한 경우 어떻게 하나요?
 

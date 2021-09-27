@@ -2,18 +2,18 @@
 title: 구입할 Azure 예약 결정
 description: 이 문서는 어떤 예약을 구매할지 결정하는 데 도움이 됩니다.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 7482835f09ec5de0beff6b97b190c5eedfb11b7f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604325"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>구매할 예약 결정
 
@@ -52,7 +52,7 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 - **vCore** 에 대해 **MeterName** 필터를 적용합니다.
 - 이름에 _Compute_ 가 있는 모든 사용량 레코드에 대해 **MeterSubCategory** 필터를 적용합니다.
 
-**AdditionalInfo** 에서 **vCores** 값을 가져옵니다. 사용된 vCores의 수를 알려줍니다. 수량은 **vCores** 에 데이터베이스가 사용된 시간을 곱한 값입니다.
+**AdditionalInfo에서** **vCores 값을 얻습니다.** 사용된 vCores의 수를 알려줍니다. 수량은 **vCores** 에 데이터베이스가 사용된 시간을 곱한 값입니다.
 
 데이터는 다음에 대한 일관된 사용량에 대해 알려줍니다.
 
@@ -86,6 +86,7 @@ Azure Portal의 예약으로 이동하여 100 DWU의 배수로 Azure Synapse Ana
 - 권장 사항은 인스턴스 크기 패밀리가 아닌 개별 크기에 대해 계산됩니다.
 - 범위에 대한 예약을 구입하는 당일에 권장되는 범위 수량이 줄어듭니다.
     - 그러나 범위에 걸친 예약 수량 권장 사항에 대한 업데이트는 최대 25일까지 걸릴 수 있습니다. 예를 들어 범위 권장 사항을 기반으로 구매하는 경우 단일 구독 범위 권장 사항을 조정하는 데 최대 25일이 걸릴 수 있습니다.
+- 현재 Azure는 관리 그룹 범위에 대한 권장 사항을 생성하지 않습니다.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Azure Portal의 권장 사항
 

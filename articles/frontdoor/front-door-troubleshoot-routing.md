@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/30/2020
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 15cdcefe628a392704e650b560243e2f6a134ec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ed47d310f418936b84c505fcf254947a67f0eb6d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629991"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824394"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>일반적인 라우팅 문제 해결
 
@@ -29,19 +29,27 @@ ms.locfileid: "94629991"
 
 * Azure Front Door를 거치지 않고 백 엔드로 전송되는 일반 요청이 성공합니다. Azure Front Door를 통해 전송하면 503 오류 응답이 발생합니다.
 * Azure Front Door의 실패 알림은 일반적으로 약 30초 후에 표시됩니다.
+* 로그가 인 간헐적인 503 `ErrorInfo: OriginInvalidResponse` 오류입니다.
 
 ### <a name="cause"></a>원인
 
-이 문제의 원인은 다음 두 가지 중 하나일 수 있습니다.
+이 문제의 원인은 다음 세 가지 중 하나일 수 있습니다.
  
 * 백 엔드가 Azure Front Door에서 요청을 받기 위해 구성된 시간 제한(기본값은 30초)보다 오래 걸립니다.
-* Azure Front Door에서 요청에 대한 응답을 보내는 데 걸리는 시간이 시간 제한 값보다 오래 걸립니다. 
+* Azure Front Door에서 요청에 대한 응답을 보내는 데 걸리는 시간이 시간 제한 값보다 오래 걸립니다.
+* 클라이언트가 (압축 사용)를 사용하여 바이트 범위 요청을 `Accept-Encoding header` 보냈습니다.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
 * Azure Front Door를 거치지 않고 백 엔드에 직접 요청을 보냅니다. 백 엔드가 일반적으로 응답하는 데 걸리는 시간을 확인합니다.
 * Azure Front Door를 통해 요청을 보내고 503 응답이 표시되는지 확인합니다. 그렇지 않은 경우에는 시간 제한 문제가 아닐 수 있습니다. 지원에 문의
-* Azure Front Door를 통해 전송할 때 503 오류 응답 코드가 생성되는 경우 Azure Front Door에 대해 `sendReceiveTimeout` 필드를 구성합니다. 기본 시간 제한을 최대 4분(240초)으로 늘릴 수 있습니다. 설정은 `backendPoolSettings` 아래에 있고 `sendRecvTimeoutSeconds`라고 합니다. 
+* 요청이 Azure Front Door 503 오류 응답 코드가 발생하는 경우 Azure Front Door 대한 **보내기/받기 시간 제한(초)**  설정을 구성합니다. 기본 시간 제한은 최대 4분(240초)으로 연장할 수 있습니다. Front Door *디자이너로* 가서 설정 선택하여 설정을 구성할 수 **있습니다.**
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Front Door 디자이너의 송/수신 시간 제한 필드 스크린샷.":::
+
+* 시간 제한으로 문제가 해결되지 않으면 Fiddler 또는 브라우저의 개발자 도구와 같은 도구를 사용하여 클라이언트가 Accept-Encoding 헤더를 사용하여 바이트 범위 요청을 보내는지 확인하여 원본이 다른 콘텐츠 길이로 응답하도록 합니다. 그렇다면 원본/Azure Front Door 압축을 사용하지 않도록 설정하거나 바이트 범위 요청에 대한 요청에서 제거하는 규칙 집합 규칙을 만들 수 `accept-encoding` 있습니다.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="규칙 엔진의 수락 인코딩 규칙 스크린샷.":::
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>사용자 지정 도메인에 전송된 요청이 400 상태 코드를 반환합니다.
 

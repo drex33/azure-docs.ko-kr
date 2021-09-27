@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c7264e83fd830eb513a1ac74fdaaace2de1193ed
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 507077913a672da6f9572a283367c5713a9d5e39
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603508"
 ---
 # <a name="configure-a-lifecycle-management-policy"></a>수명 주기 관리 정책 구성
 

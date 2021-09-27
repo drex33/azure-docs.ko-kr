@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f0cac775870345ae298672c2af5dad8277c592e6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639789"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions의 RabbitMQ 트리거 개요
 
@@ -219,9 +219,9 @@ Python에서는 특성을 지원하지 않습니다.
 |**queueName**|**QueueName**| 메시지를 받을 큐의 이름입니다. |
 |**hostName**|**HostName**|(ConnectStringSetting을 사용하는 경우 무시됨) <br>큐의 호스트 이름(예: 10.26.45.210)|
 |**userNameSetting**|**UserNameSetting**|(ConnectionStringSetting을 사용하는 경우 무시됨) <br>큐에 액세스하는 사용자 이름이 포함된 앱 설정의 이름입니다. 예: UserNameSetting: "%< UserNameFromSettings >%"|
-|**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting을 사용하는 경우 무시됨) <br>큐에 액세스하기 위한 암호를 포함하는 앱 설정의 이름입니다. 예: PasswordSetting: "%< PasswordFromSettings >%"|
-|**connectionStringSetting**|**ConnectionStringSetting**|RabbitMQ 메시지 큐 연결 문자열을 포함하는 앱 설정의 이름입니다. local.settings.json의 앱 설정을 통하지 않고 직접 연결 문자열을 지정하는 경우에는 트리거가 작동하지 않습니다. (예: *function.json*: connectionStringSetting: "rabbitMQConnection" <br> *local.settings.json*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**포트**|(ConnectionStringSetting를 사용하는 경우 무시됨) 사용되는 포트를 가져오거나 설정합니다. 기본값은 rabbitmq 클라이언트의 기본 포트 설정인 5672을 가리키는 0입니다.|
+|**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting을 사용하는 경우 무시됨) <br>큐에 액세스하기 위한 암호가 포함된 앱 설정의 이름입니다. 예: PasswordSetting: "%< PasswordFromSettings >%"|
+|**connectionStringSetting**|**ConnectionStringSetting**|RabbitMQ 메시지 큐 연결 문자열이 포함된 앱 설정의 이름입니다. local.settings.json의 앱 설정을 통하지 않고 직접 연결 문자열을 지정하는 경우에는 트리거가 작동하지 않습니다. (예: *function.json*: connectionStringSetting: "rabbitMQConnection" <br> *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
+|**port**|**포트**|(ConnectionStringSetting을 사용하는 경우 무시됨) 사용되는 포트를 가져오거나 설정합니다. 기본값은 RabbitMQ 클라이언트의 기본 포트 설정인 5672를 가리키는 0입니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -247,7 +247,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-큐 메시지는 context.bindings<NAME>를 통해 사용 가능합니다. 여기서 <NAME>은 function.json에 정의된 이름과 일치합니다. 페이로드가 JSON인 경우 값은 개체로 역직렬화됩니다.
+큐 메시지는 context.bindings를 통해 사용 가능합니다.\<NAME\> 여기서 \<NAME\>은 function.json에 정의된 이름과 일치합니다. 페이로드가 JSON인 경우 값은 개체로 역직렬화됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

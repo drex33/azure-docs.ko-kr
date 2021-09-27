@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: 이 빠른 시작의 단계에 따라 Azure API Management 개발자 포털에 있는 요소의 스타일을 사용자 지정합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
-ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: ebdb3e9d4cd2d0c4e1e418fd962f6f32edd2f749
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93145772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659118"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 

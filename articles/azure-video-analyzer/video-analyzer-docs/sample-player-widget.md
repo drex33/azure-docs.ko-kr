@@ -4,19 +4,19 @@ description: 이 참조 문서에서는 Video Analyzer 플레이어 위젯 샘�
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 08/13/2021
-ms.openlocfilehash: abea3bdd1098dbb32be35d632c7a8b0ad51fc49e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 75f72a638f562ac96d297901c046222c8414816b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058494"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128705635"
 ---
 # <a name="azure-video-analyzer-player-widget-sample"></a>Azure Video Analyzer 플레이어 위젯 샘플
 
 이 샘플 애플리케이션은 비디오 재생, 영역 그리기 및 비디오 클립 생성 기능과 Video Analyzer의 플레이어 위젯의 통합을 보여 제공합니다.
 
 * [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp) 복제
-* [ **src/video-player** 폴더의 README에 있는](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/README.md) 지침을 따릅니다.
+* [ **src/video-player** 폴더의 README에 있는](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/readme.md) 지침을 따릅니다.
 
 ## <a name="get-started"></a>시작하기
 README 지침에 따라 앱이 실행되고 나면 http://localhost:3000/
@@ -68,7 +68,7 @@ Video Player 페이지는 포털에 보이는 일반적인 플레이어를 표�
     ]
   }
 ```
-**클립보드에** 복사 단추를 사용하여 이러한 좌표를 복사할 수 있습니다. 각 영역과 선 옆에 있는 세 개의 점을 사용하여 영역과 줄의 이름을 바꾸고 삭제할 수 있습니다.  
+**클립보드에** 복사 단추를 사용하여 이러한 좌표를 복사할 수 있습니다. 각 영역과 선 옆에 있는 세 개의 점을 사용하여 영역 및 줄의 이름을 바꾸고 삭제할 수 있습니다.  
 ![영역 서랍의 스크린샷.](./media/sample-player-widget/widget-zone-drawer.png)
 
 ## <a name="video-clips"></a>비디오 클립

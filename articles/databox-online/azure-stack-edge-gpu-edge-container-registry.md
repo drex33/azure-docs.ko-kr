@@ -1,19 +1,18 @@
 ---
 title: Azure Stack Edge Pro GPU 디바이스에서 Edge 컨테이너 레지스트리 사용
 description: Azure Stack Edge Pro GPU 디바이스에서 로컬 Edge 컨테이너 레지스트리를 사용하도록 설정하는 방법을 설명합니다.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 18fa68b6d0d0922bad0a632ba10bd82a8cfe8506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560338"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643026"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 Edge 컨테이너 레지스트리 사용
 
@@ -38,7 +37,7 @@ Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 디바이스의 Edge�
 
 1. [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에 설명된 대로 Azure Stack Edge Pro 디바이스를 활성화했습니다.
 
-1. 디바이스에 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성할 때 디바이스에 Kubernetes 클러스터도 만들었습니다.
+1. 디바이스에서 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성할 때 디바이스에 Kubernetes 클러스터도 만들었습니다.
 
 1. 로컬 웹 UI의 **디바이스** 페이지에 Kubernetes API 엔드포인트가 있습니다. 자세한 내용은 [Kubernetes API 엔드포인트 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)의 지침을 참조하세요.
 
@@ -59,7 +58,7 @@ Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 디바이스의 Edge�
     
     이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-    다음은 이 명령의 샘플 출력입니다.  
+    다음은 이 명령의 샘플 출력입니다.    
             
     ```powershell
     [10.128.44.40]: PS>Set-HcsKubernetesContainerRegistry
@@ -78,9 +77,9 @@ Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 디바이스의 Edge�
     Endpoint                                   IPAddress    Username     Password
     --------                                   ---------    --------     --------
     ecr.dbe-hw6h1t2.microsoftdatabox.com:31001 10.128.44.41 ase-ecr-user i3eTsU4zGYyIgxV
-    ``` 
+    ```    
 
-1. `Get-HcsKubernetesContainerRegistryInfo`의 출력에서 ​​사용자 이름과 암호를 기록해 둡니다. 이러한 자격 증명은 이미지를 푸시하는 동안 Edge 컨테이너 레지스트리에 로그인하는 데 사용됩니다.         
+1. `Get-HcsKubernetesContainerRegistryInfo`의 출력에서 ​​사용자 이름과 암호를 기록해 둡니다. 이러한 자격 증명은 이미지를 푸시하는 동안 Edge 컨테이너 레지스트리에 로그인하는 데 사용됩니다.            
 
 
 ## <a name="manage-container-registry-images"></a>컨테이너 레지스트리 이미지 관리
@@ -95,7 +94,7 @@ Edge 컨테이너 레지스트리에 액세스하려면 다음 단계를 따르�
         ![디바이스의 Edge 컨테이너 레지스트리 엔드포인트 페이지](media/azure-stack-edge-gpu-edge-container-registry/get-edge-container-registry-endpoint-1.png) 
     1. 이 엔드포인트를 복사하고 해당 DNS 항목을 클라이언트의 `C:\Windows\System32\Drivers\etc\hosts` 파일에 작성하여 Edge 컨테이너 레지스트리 엔드포인트에 연결합니다. 
 
-        <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
+        \<IP address of the Kubernetes main node\>    \<Edge container registry endpoint\> 
         
         ![Edge 컨테이너 레지스트리 엔드포인트에 대한 DNS 항목 추가](media/azure-stack-edge-gpu-edge-container-registry/add-domain-name-service-entry-hosts-1.png)    
 

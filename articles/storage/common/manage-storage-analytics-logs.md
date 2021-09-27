@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-azurepowershell
-ms.openlocfilehash: 0470813cf19305124956925a0730344c3183866a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: a5e23ed381ad1e973e0ae6343fb3c0566aac6a7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673258"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Azure Storage Analytics 로그(클래식) 사용 및 관리
 
@@ -50,8 +50,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 3. **상태** 가 **사용**(On)으로 설정되어 있는지 확인하고, 로깅을 사용하도록 설정하려는 **서비스** 를 선택합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Azure Portal에서 로깅 구성](./media/manage-storage-analytics-logs/enable-diagnostics.png)    
-
+   > ![Azure Portal에서 로깅 구성](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
 4. **데이터 삭제** 확인란이 선택되어 있는지 확인합니다.  그런 다음 확인란 바로 아래의 슬라이더 컨트롤을 옮기거나 해당 슬라이더 컨트롤 옆의 텍스트 상자에 표시되는 값을 직접 수정하여 로그 데이터를 얼마 동안 보존하려는지 날짜를 설정합니다. 새 스토리지 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 로그 데이터를 삭제할 수 있습니다.
 
@@ -90,28 +89,28 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+   - `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다. 
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-6. **Set-AzStorageServiceLoggingProperty** 를 사용하여 현재 로그 설정을 변경합니다. Storage 로깅을 제어하는 cmdlet은 로그에 대한 요청 유형의 쉼표로 구분된 목록이 포함된 문자열인 **LoggingOperations** 매개 변수를 사용합니다. 가능한 세 가지 요청 유형은 **읽기**, **쓰기** 및 **삭제** 입니다. 로깅을 해제하려면 **LoggingOperations** 매개 변수에 **none** 값을 사용합니다.  
+6. **Set-AzStorageServiceLoggingProperty** 를 사용하여 현재 로그 설정을 변경합니다. Storage 로깅을 제어하는 cmdlet은 로그에 대한 요청 유형의 쉼표로 구분된 목록이 포함된 문자열인 **LoggingOperations** 매개 변수를 사용합니다. 가능한 세 가지 요청 유형은 **읽기**, **쓰기** 및 **삭제** 입니다. 로깅을 해제하려면 **LoggingOperations** 매개 변수에 **none** 값을 사용합니다.
 
-   다음 명령은 기본 스토리지 계정의 큐 서비스의 읽기, 쓰기 및 삭제 요청에 대해 보존 기간이 5일로 설정된 로깅을 설정합니다.  
+   다음 명령은 기본 스토리지 계정의 큐 서비스의 읽기, 쓰기 및 삭제 요청에 대해 보존 기간이 5일로 설정된 로깅을 설정합니다.
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context $ctx
-   ```  
+   ```
 
    > [!WARNING]
    > 로그는 계정에 데이터로 저장됩니다. 로그 데이터는 시간이 지남에 따라 계정에 누적되어 스토리지 비용을 가중시킬 수 있습니다. 단기간에만 로그 데이터가 필요한 경우, 데이터 보존 정책을 수정하여 비용을 줄일 수 있습니다. 오래된 로그 데이터(보존 정책의 기간을 초과한 데이터)는 시스템이 삭제합니다. 계정에 대한 로그 데이터를 얼마나 오래 보존하고자 하는지에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [스토리지 메트릭에 대한 청구](storage-analytics-metrics.md#billing-on-storage-metrics)를 참조하세요.
-   
-   다음 명령은 기본 스토리지 계정의 테이블 서비스에 대해 로깅을 해제합니다.  
+
+   다음 명령은 기본 스토리지 계정의 테이블 서비스에 대해 로깅을 해제합니다.
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context $ctx 
-   ```  
+   ```
 
-   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
+   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 ### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -122,13 +121,13 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
+var serviceProperties = queueClient.GetServiceProperties();
 
 serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
+serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
-``` 
+```
 
 ---
 
@@ -154,7 +153,7 @@ queueClient.SetServiceProperties(serviceProperties);
    > ![Azure Portal에서 보존 기간을 수정하기](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
    새 스토리지 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
-   
+
 4. **저장** 을 클릭합니다.
 
    진단 로그는 스토리지 계정의 이름이 *$logs* 인 Blob 컨테이너에 저장됩니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나, 스토리지 클라이언트 라이브러리나 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
@@ -187,28 +186,28 @@ queueClient.SetServiceProperties(serviceProperties);
    $ctx = $storageAccount.Context
    ```
 
-   * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
+   - `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다. 
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 6. [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty)를 통하여 현재의 로그 보존 정책을 확인할 수 있습니다. 다음의 예제에서는 Blob 스토리지 서비스와 큐 스토리지 서비스의 보존 기간을 콘솔에 출력합니다.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
-   ```  
+   ```
 
    콘솔 출력에서 보존 기간은 `RetentionDays` 열 제목 아래에 표시됩니다.
 
    > [!div class="mx-imgBorder"]
    > ![PowerShell 출력의 보존 정책](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty)를 사용하여 보존 기간을 변경합니다. 다음 예제에서는 보존 기간을 4일로 변경합니다.  
+7. [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty)를 사용하여 보존 기간을 변경합니다. 다음 예제에서는 보존 기간을 4일로 변경합니다.
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
-   ```  
+   ```
 
-   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
+   Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 
 ### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -216,7 +215,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ViewRetentionPeriod":::
 
-다음 예제에서는 보존 기간을 4일로 변경합니다. 
+다음 예제에서는 보존 기간을 4일로 변경합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
@@ -240,7 +239,7 @@ Console.WriteLine("Retention period for logs from the queue service is: " +
    queueserviceProperties.Logging.RetentionDays.ToString());
 ```
 
-다음의 예제에서는 Blob 스토리지 서비스와 큐 스토리지 서비스의 로그 보존 기간을 4일로 변경합니다. 
+다음의 예제에서는 Blob 스토리지 서비스와 큐 스토리지 서비스의 로그 보존 기간을 4일로 변경합니다.
 
 ```csharp
 
@@ -249,7 +248,7 @@ queueserviceProperties.Logging.RetentionDays = 4;
 
 blobClient.SetServiceProperties(blobserviceProperties);
 queueClient.SetServiceProperties(queueserviceProperties);  
-``` 
+```
 
 ---
 
@@ -264,18 +263,18 @@ queueClient.SetServiceProperties(queueserviceProperties);
 
 ## <a name="view-log-data"></a>로그 데이터 보기
 
- 로그 데이터를 보고 분석하려면 관심 있는 로그 데이터가 포함된 Blob을 로컬 컴퓨터에 다운로드해야 합니다. 많은 스토리지 검색 도구를 사용하여 스토리지 계정에서 blob을 다운로드할 수 있습니다. 또한 Azure Storage 팀에서 제공한 명령줄 Azure 복사 도구([AzCopy](storage-use-azcopy-v10.md))를 사용하여 로그 데이터를 다운로드할 수 있습니다.  
- 
->[!NOTE]
-> `$logs` 컨테이너는 Event Grid와 통합되지 않으므로 로그 파일이 기록될 때 알림을 수신하지 않습니다. 
+ 로그 데이터를 보고 분석하려면 관심 있는 로그 데이터가 포함된 Blob을 로컬 컴퓨터에 다운로드해야 합니다. 많은 스토리지 검색 도구를 사용하여 스토리지 계정에서 blob을 다운로드할 수 있습니다. 또한 Azure Storage 팀에서 제공한 명령줄 Azure 복사 도구([AzCopy](storage-use-azcopy-v10.md))를 사용하여 로그 데이터를 다운로드할 수 있습니다.
 
- 관심 있는 로그 데이터를 다운로드하고 동일한 로그 데이터를 두 번 이상 다운로드하지 않으려면  
+> [!NOTE]
+> `$logs` 컨테이너는 Event Grid와 통합되지 않으므로 로그 파일이 기록될 때 알림을 수신하지 않습니다.
 
--   로그 데이터가 포함된 Blob에 날짜 및 시간 명명 규칙을 사용하여 분석을 위해 이미 다운로드한 Blob을 추적함으로써 동일한 데이터를 두 번 이상 다시 다운로드하는 것을 방지합니다.  
+ 관심 있는 로그 데이터를 다운로드하고 동일한 로그 데이터를 두 번 이상 다운로드하지 않으려면
 
--   로그 데이터가 포함된 Blob에 메타데이터를 사용하여 Blob이 로그 데이터를 저장하는 특정 기간을 식별함으로써 다운로드해야 하는 정확한 Blob을 식별합니다.  
+-   로그 데이터가 포함된 Blob에 날짜 및 시간 명명 규칙을 사용하여 분석을 위해 이미 다운로드한 Blob을 추적함으로써 동일한 데이터를 두 번 이상 다시 다운로드하는 것을 방지합니다.
 
-AzCopy를 시작하려면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요. 
+-   로그 데이터가 포함된 Blob에 메타데이터를 사용하여 Blob이 로그 데이터를 저장하는 특정 기간을 식별함으로써 다운로드해야 하는 정확한 Blob을 식별합니다.
+
+AzCopy를 시작하려면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요.
 
 다음 예에서는 2014년 5월 20일 오전 9시, 오전 10시 및 오전 11시에 시작하는 시간 동안 큐 서비스에 대한 로그 데이터를 다운로드하는 방법을 보여 줍니다.
 
@@ -289,7 +288,7 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 
 ## <a name="next-steps"></a>다음 단계
 
-* Storage Analytics에 대한 자세한 내용은 스토리지 분석을 위한 [Storage Analytics](storage-analytics.md)를 참조하세요.
-* .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요. 
-* REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.
-* Storage Analytics 로그 형식에 대하여 자세히 알아보세요. [Storage Analytics 로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요.
+- Storage Analytics에 대한 자세한 내용은 스토리지 분석을 위한 [Storage Analytics](storage-analytics.md)를 참조하세요.
+- .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요.
+- REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.
+- Storage Analytics 로그 형식에 대하여 자세히 알아보세요. [Storage Analytics 로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요.

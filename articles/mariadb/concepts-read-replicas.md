@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3b7306555e59759f79ffad8e984f0688820247de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664217"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641297"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -23,7 +23,7 @@ ms.locfileid: "98664217"
 GTID 복제에 대해 자세히 알아보려면 [MariaDB 복제 설명서](https://mariadb.com/kb/en/library/gtid/)를 참조하세요.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 를 참조하고 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 를 참조하고 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
 

@@ -1,15 +1,15 @@
 ---
 title: Azure PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 description: PowerShell을 사용하여 VHD 파일에서 Azure DevTest Labs에 사용자 지정 이미지 만들기 자동화
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8994f51311ec2b6942e807e5e501a25b45130f60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e0a44b51ae96eca8abef9dd5fc17107264f83b2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675244"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 

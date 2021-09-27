@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dcb652e66617fc5697be20b1f270d580184e9165
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 4e3b5b200ee39c4b777d85ba42e26dde91f0e046
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662378"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675291"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -2900,7 +2901,7 @@ Cassandra 연결된 서비스를 정의하려면 연결된 서비스의 **type**
 
 | 속성 | Description | 필수 |
 | --- | --- | --- |
-| 호스트 |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
+| host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
 | 포트 |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요. 기본값: 9042 |
 | authenticationType |Basic 또는 Anonymous |예 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |

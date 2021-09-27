@@ -3,19 +3,17 @@ title: Bing 인사이트의 예 - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Bing Visual Search가 사용하고 Bing.com에 이미지 인사이트를 표시할 수 있는 방법의 예제가 포함되어 있습니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: scottwhi
-ms.openlocfilehash: e0a3bdc7e68301c067b7e1ca80a3e708522e0df1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 51248cb5e37e6f109873340cca74c46e4af6a721
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96493358"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669667"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Bing 인사이트 사용 예
 

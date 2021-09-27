@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 20d5dc867455d46cd7f06f7c436c20430a09b1e5
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
-ms.translationtype: HT
+ms.openlocfilehash: b52f599dd3430f963b03b5fdba41f71abf11ee43
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707670"
 ---
 # <a name="visualize-data"></a>데이터 시각화
 Azure Synapse는 통합 분석 서비스로, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있습니다. 데이터 시각화는 데이터에 대한 통찰력을 얻을 수 있는 핵심 구성 요소입니다. 이를 통해 사람이 크고 작은 데이터를 더 쉽게 이해할 수 있습니다. 또한 데이터 그룹의 패턴, 추세, 이상값을 더 쉽게 검색할 수 있습니다. 
@@ -53,7 +53,7 @@ Azure Synapse Notebook을 사용하는 경우 차트 옵션을 통해 테이블 
 <code>display(df, summary = true)</code>를 사용하여 열 이름, 열 형식, 고유 값, 각 열에 누락된 값을 포함하는 지정된 Apache Spark DataFrame의 통계 요약을 확인할 수 있습니다. 또한 특정 열을 선택하여 최솟값, 최댓값, 평균값, 표준 편차를 볼 수 있습니다.
     ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
-### <a name="displayhtmldf-option"></a>displayHTML(df) 옵션
+### <a name="displayhtml-option"></a>displayHTML () 옵션
 Azure Synapse Analytics Notebooks는 ```displayHTML``` 함수를 사용하여 HTML 그래픽을 지원합니다.
 
 다음 이미지는 [D3.js](https://d3js.org/)를 사용하여 시각화를 만드는 방법의 예제입니다.
@@ -254,14 +254,30 @@ h = plotly.offline.plot(fig, output_type='div')
 # display this html
 displayHTML(h)
 ```
+### <a name="pandas"></a>Pandas
+
+Pandas 데이터 프레임의 html 출력을 기본 출력으로 볼 수 있습니다. 노트북은 스타일이 지정 된 html 콘텐츠를 자동으로 표시 합니다. 
+
+   ![Panda 그래프 예제입니다.](./media/apache-spark-data-viz/support-panda.png#lightbox)
+
+```python
+import pandas as pd 
+import numpy as np 
+
+df = pd.DataFrame([[38.0, 2.0, 18.0, 22.0, 21, np.nan],[19, 439, 6, 452, 226,232]], 
+
+                  index=pd.Index(['Tumour (Positive)', 'Non-Tumour (Negative)'], name='Actual Label:'), 
+
+                  columns=pd.MultiIndex.from_product([['Decision Tree', 'Regression', 'Random'],['Tumour', 'Non-Tumour']], names=['Model:', 'Predicted:'])) 
+
+df 
+```
 
 
 ### <a name="additional-libraries"></a>추가 라이브러리 
 이러한 라이브러리 외에도 Azure Synapse Analytics 런타임에는 데이터 시각화에 자주 사용되는 다음과 같은 라이브러리 집합도 포함되어 있습니다.
-- [Matplotlib](https://matplotlib.org/)
-- [Bokeh](https://bokeh.org/)
+
 - [Seaborn](https://seaborn.pydata.org/) 
-- [Plotly](https://plotly.com/)
 
 사용할 수 있는 라이브러리와 버전에 대한 최신 데이터 정보는 Azure Synapse Analytics 런타임 [설명서](./spark/../apache-spark-version-support.md)를 참조하세요.
 

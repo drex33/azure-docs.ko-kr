@@ -1,13 +1,9 @@
 ---
 title: SLES에서 HSR 및 Pacemaker를 사용하여 SAP HANA 스케일 아웃 | Microsoft Docs
 description: SLES에서 HSR 및 Pacemaker를 사용하는 SAP HANA 스케일 아웃입니다.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/26/2021
 ms.author: radeltch
-ms.openlocfilehash: 211fa45626a8ca4db8e555795adccc55bc6c0a3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: ab66bcdc834fd894d7d258ab9c7c08a0049b07ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534465"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673144"
 ---
 # <a name="high-availability-for-sap-hana-scale-out-system-with-hsr-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 HSR를 사용하는 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -30,7 +26,6 @@ ms.locfileid: "110534465"
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -622,11 +617,11 @@ Azure NetApp 볼륨은 별도의 서브넷, 즉 [Azure NetApp Files](../../../az
      * **루트 사용자 이름 [root] 입력**: Enter 키를 눌러 기본값 적용
      * **'hana-s1-db2' [1]의 역할 선택**: 1(작업자의 경우)
      * **'hana-s1-db2' 호스트에 대한 호스트 장애 조치(failover) 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
-     * **'hana-s1-db2' 호스트에 대한 스토리지 파티션 번호 입력[<<assign automatically>>]** : Enter 키를 눌러 기본값 적용
+     * **' hana-s1-db2 ' [ \<\<assign automatically\> \> ]에 대 한 enter Storage 파티션 번호** 의 경우 enter 키를 눌러 기본값을 적용 합니다.
      * **'hana-s1-db2' 호스트에 대한 작업자 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
      * **'hana-s1-db3' [1]의 역할 선택**: 1(작업자의 경우)
      * **'hana-s1-db3' 호스트에 대한 호스트 장애 조치(failover) 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
-     * **'hana-s1-db3' 호스트에 대한 스토리지 파티션 번호 입력[<<assign automatically>>]** : Enter 키를 눌러 기본값 적용
+     * **' hana-db3 ' [ \<\<assign automatically\> \> ]에 대 한 enter Storage 파티션 번호** 의 경우 enter 키를 눌러 기본값을 적용 합니다.
      * **'hana-s1-db3' 호스트에 대한 작업자 그룹 입력 [기본값]** : Enter 키를 눌러 기본값 적용
      * **시스템 관리자(hn1adm) 암호**: 암호 입력
      * **SAP 호스트 에이전트 사용자(sapadm) 암호 입력**: 암호 입력

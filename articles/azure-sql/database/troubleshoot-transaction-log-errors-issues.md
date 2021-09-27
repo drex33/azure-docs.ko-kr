@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 07/23/2021
-ms.openlocfilehash: 0b9e47d23968c29a0c69a2da198bcf8d183f1bb0
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: 2bddb630cd2dad83992cfd740fb44b127a770c51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675249"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672802"
 ---
 # <a name="troubleshooting-transaction-log-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 트랜잭션 로그 오류 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -130,7 +130,7 @@ OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) AS est;
 
 ### <a name="error-40552-the-session-has-been-terminated-because-of-excessive-transaction-log-space-usage"></a>오류 40552: 트랜잭션 로그 공간 사용량이 너무 많아 세션이 종료됨
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 이 문제를 해결하려면 다음 방법을 사용해 보세요.
 
@@ -154,4 +154,3 @@ OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) AS est;
 - 단일 데이터베이스의 DTU 리소스 한도는 [DTU 구매 모델을 사용한 단일 데이터베이스의 리소스 한도](resource-limits-dtu-single-databases.md)를 참조하세요.
 - 탄력적 풀의 DTU 리소스 한도에 대해서는 [DTU 구매 모델을 사용하는 탄력적 풀의 리소스 한도](resource-limits-dtu-elastic-pools.md)를 참조하세요.
 - SQL Managed Instance의 리소스 한도는 [SQL Managed Instance의 리소스 한도](../managed-instance/resource-limits.md)를 참조하세요.
-

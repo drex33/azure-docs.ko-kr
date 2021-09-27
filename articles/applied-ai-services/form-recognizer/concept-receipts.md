@@ -2,7 +2,6 @@
 title: 영수증 - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer API 사용 및 제한으로 영수증 분석과 관련된 개념을 알아봅니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1efe839a1344f28d2f3033d67de2dd7035320f08
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: f9e6478acb2e0c21b2794b9c613f60dface3859f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122568001"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673999"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Form Recognizer 미리 빌드된 영수증 모델
 
@@ -58,7 +57,7 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| 유형 | 설명 | 텍스트 | 값(표준화된 출력) |
+|속성| 유형 | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
 | ReceiptType | 문자열 | 판매 영수증의 유형 |  | 항목화 |
 | MerchantName | 문자열 | 영수증을 발급한 판매자의 이름 | Contoso |  |

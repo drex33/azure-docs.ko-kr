@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: b4b953c527010cb4ec15f0adf52df6bb3b0d7db0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635178"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674949"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>작업 영역에서 컴퓨팅 인스턴스 터미널에 액세스
 
@@ -81,7 +81,7 @@ ms.locfileid: "122635178"
 ## <a name="add-new-kernels"></a>새 커널 추가
 
 > [!WARNING]
->  컴퓨팅 인스턴스를 사용자 지정하는 동안, **azureml_py36** 또는 **azureml_py38** conda 환경을 삭제하지 않아야 합니다.  또한 **Python 3.6 - AzureML** 또는 **Python 3.8 - AzureML** 커널을 삭제하지 않아야 합니다. Jupyter/JupyterLab 기능에 필요합니다.
+>  컴퓨팅 인스턴스를 사용자 지정하는 동안, **azureml_py36** 또는 **azureml_py38** conda 환경을 삭제하지 않아야 합니다.  또한 **python 3.6-azureml** 또는 **Python 3.8-azureml** 커널을 삭제 하지 마세요. Jupyter/JupyterLab 기능에 필요합니다.
 
 새 Jupyter 커널을 컴퓨팅 인스턴스에 추가하려면 다음을 수행합니다.
 

@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 17ec535c03cd007a44fdd0b9633667f0e4343181
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: 80cc94941331a024a183e19c383ee20b900251ea
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707639"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -25,7 +25,7 @@ ms.locfileid: "123034537"
 
 ### <a name="provisioned-throughput"></a>프로비전된 처리량
 
-[요청 단위(RU/s 또는 RU)](request-units.md)를 기준으로 컨테이너 수준 또는 데이터베이스 수준에서 처리량을 프로비저닝할 수 있습니다. 다음 표에는 컨테이너/데이터베이스당 스토리지 및 처리량 제한이 나열되어 있습니다.
+[요청 단위(RU/s 또는 RU)](request-units.md)를 기준으로 컨테이너 수준 또는 데이터베이스 수준에서 처리량을 프로비저닝할 수 있습니다. 다음 표에는 컨테이너/데이터베이스당 스토리지 및 처리량 제한이 나열되어 있습니다. Storage는 결합 된 데이터 및 인덱스 저장소 크기를 나타냅니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
@@ -56,7 +56,7 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 * 400RU/s 
 * 현재 스토리지(GB) * 10RU/s
-* 컨테이너에서 프로비저닝된 최고 RU/s / 100
+* 100 컨테이너에서 프로 비전 된 최고/초
 
 예: 400RU/s, 0GB 스토리지로 프로비저닝된 컨테이너가 있다고 가정합니다. 처리량을 50000RU/s까지 늘리고 20GB의 데이터를 가져옵니다. 이제 최소 RU/s는 `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500RU/s입니다. 시간이 지남에 따라 스토리지는 200GB로 확장됩니다. 이제 최소 RU/s는 `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000RU/s입니다. 
 
@@ -67,7 +67,7 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 * 400RU/s 
 * 현재 스토리지(GB) * 10RU/s
-* 데이터베이스에 프로비저닝된 최고 RU/s / 100
+* 100 데이터베이스에서 프로 비전 된 최고/초
 * 400 + MAX(컨테이너 수 - 25, 0) * 100 RU/s
 
 예제: 400RU/s, 15GB 스토리지 및 10개의 컨테이너로 프로비저닝된 데이터베이스가 있다고 가정합니다. 이제 최소 RU/s는 `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400RU/s입니다. 데이터베이스에 30개 컨테이너가 있는 경우 최소 RU/s는 `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s입니다. 
@@ -116,16 +116,16 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 데이터베이스 수 | 제한 없음 |
+| 최대 데이터베이스 수 | 500 |
 | 처리량을 공유하는 데이터베이스당 최대 컨테이너 수 |25 |
-| 전용 처리량을 사용하는 데이터베이스 또는 계정당 최대 컨테이너 수  |무제한 |
+| 전용 처리량을 사용하는 데이터베이스 또는 계정당 최대 컨테이너 수  | 500 |
 | 최대 지역 수 | 제한 없음(모든 Azure 지역) |
 
 ### <a name="serverless"></a>서버를 사용하지 않음
 
 | 리소스 | 제한 |
 | --- | --- |
-| 최대 데이터베이스 수 | 제한 없음 |
+| 최대 데이터베이스 수 | 500 |
 | 계정당 컨테이너 수  | 100 |
 | 최대 지역 수 | 1(모든 Azure 지역) |
 

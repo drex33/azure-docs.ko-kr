@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 9f7f5569d5381a7d1ff4d7ebbeac535105f22c93
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
-ms.translationtype: HT
+ms.openlocfilehash: 0650691e9786ac88184c8354052ea96329e8f933
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567752"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639720"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구로 Azure Arc 데이터 컨트롤러 만들기
 
@@ -250,7 +250,7 @@ kubectl create -n arc -f <path to the edited template file on your computer>
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: sa-mssql-controller
+  name: sa-arc-controller
 ---
 apiVersion: arcdata.microsoft.com/v1
 kind: DataController
@@ -335,7 +335,7 @@ kubectl describe pod/<pod name> --namespace arc
 
 ## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
 
-생성 관련 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
+생성과 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

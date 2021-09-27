@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: ca8e0f2303ed31660e92f084c0f6760a60f40c22
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659479"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3단계 - V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
 
@@ -77,11 +77,11 @@ Postman 컬렉션에서 2020-05-01 버전 문자열을 사용해야 합니다.
 
 단순히 PackageManager를 사용하여 최신 SDK를 설치하려면 다음 명령을 사용합니다.
 
-```Install-Package Microsoft.Azure.Management.Media```
+`Install-Package Microsoft.Azure.Management.Media`
 
 또는 .NET CLI를 사용하여 최신 SDK를 설치하려면 다음 명령을 사용합니다.
 
-```dotnet add package Microsoft.Azure.Management.Media```
+`dotnet add package Microsoft.Azure.Management.Media`
 
 또한 다양한 시나리오에 대해 전체 .NET 샘플을 [Azure-Samples/media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet)에서 사용할 수 있습니다. 이 리포지토리의 프로젝트는 v3 버전을 사용하여 다양한 Azure Media Services 시나리오를 구현하는 방법을 보여 줍니다.
 

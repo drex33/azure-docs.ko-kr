@@ -2,7 +2,6 @@
 title: 레이아웃 - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Form Recognizer API 사용 및 제한으로 레이아웃 분석과 관련된 개념을 알아봅니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: af45cf3d3f9ae534be52ae617b13c76eb0d2eae8
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 247400ea72567108fb9dc320bddd1b87d6ef6ced
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567978"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641677"
 ---
 # <a name="form-recognizer-layout-service"></a>Form Recognizer 레이아웃 서비스
 

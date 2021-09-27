@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673277"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 애플리케이션의 요청에 대한 승인을 위해 Azure AD에서 토큰 가져오기
 
@@ -35,7 +35,7 @@ Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 �
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
-Azure AD를 사용하여 스토리지 리소스에 대한 액세스 권한을 부여하는 첫 번째 단계는 [Azure Portal](https://portal.azure.com)에서 Azure AD 테넌트에 클라이언트 애플리케이션을 등록하는 것입니다. 클라이언트 애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID* 라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Storage 애플리케이션을 등록하려면 [빠른 시작: Microsoft id 플랫폼에 애플리케이션 등록](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 표시된 단계를 따르세요. 
+Azure AD를 사용하여 스토리지 리소스에 대한 액세스 권한을 부여하는 첫 번째 단계는 [Azure Portal](https://portal.azure.com)에서 Azure AD 테넌트에 클라이언트 애플리케이션을 등록하는 것입니다. 클라이언트 애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID* 라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Storage 애플리케이션을 등록하려면 [빠른 시작: Microsoft id 플랫폼에 애플리케이션 등록](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 표시된 단계를 따르세요.
 
 다음 이미지는 웹 애플리케이션 등록을 위한 일반 설정을 보여 줍니다. 이 예제에서 리디렉션 URI는 개발 환경에서 샘플 애플리케이션을 테스트하기 위해 `http://localhost:5000/signin-oidc`(으)로 설정됩니다. 나중에 Azure Portal에서 등록된 애플리케이션의 **인증** 설정에서 이 설정을 수정할 수 있습니다.
 
@@ -140,7 +140,7 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 토큰을 획득하고 이를 사용하여 Azure Storage에서 Blob을 만드는 완성된 샘플 웹 애플리케이션은 [GitHub](https://aka.ms/aadstorage)에서 사용할 수 있습니다. 완성된 샘플을 검토하고 실행하면 코드 예제를 해석하는 데 도움이 될 수 있습니다. 완성된 샘플을 실행하는 방법에 대한 지침은 [완료된 샘플 보기 및 실행](#view-and-run-the-completed-sample) 섹션을 참조하세요.
 
-#### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
+#### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용
 
 Visual Studio에서 Azure Storage Client 클라이언트 라이브러리를 설치합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔** 을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력하여 .NET용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치합니다.
 

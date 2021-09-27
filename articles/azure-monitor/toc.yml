@@ -79,6 +79,8 @@
               href: app/resource-manager-web-app.md
             - name: Azure 기능
               href: app/resource-manager-function-app.md
+            - name: Azure CLI로 관리
+              href: insights/azure-cli-application-insights-component.md
         - name: 컨테이너 인사이트
           href: containers/resource-manager-container-insights.md
         - name: 데이터 수집 규칙
@@ -1021,10 +1023,6 @@
           items:
             - name: 연속 내보내기
               href: app/export-telemetry.md
-            - name: Stream Analytics로 내보내기
-              href: app/export-stream-analytics.md
-            - name: Stream Analytics를 사용하여 SQL로 내보내기
-              href: app/code-sample-export-sql-stream-analytics.md
             - name: 데이터 모델 내보내기
               href: app/export-data-model.md
         - name: Visual Studio
@@ -1342,7 +1340,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

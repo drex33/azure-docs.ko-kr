@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 33e332b05cbb6c0d20b73a13134590ed3cda4f38
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 8d5feae71fc6b901f761e6a52805a7ac5fad04a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298784"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673543"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -181,7 +181,7 @@ VM에 대한 복제가 시작되면 초기 복제 주기가 발생하며 이때 
 
 ### <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용할 때 복제를 제한하려면 어떻게 해야 하나요?  
 
-NetQosPolicy를 사용하여 제한할 수 있습니다. 예를 들면 다음과 같습니다.
+NetQosPolicy를 사용하여 제한할 수 있습니다. 이 제한은 Azure Migrate 어플라이언스의 아웃 바운드 연결에만 적용 됩니다. 예를 들면 다음과 같습니다.
 
 NetQosPolicy에서 사용할 AppNamePrefix는 "GatewayWindowsService.exe"입니다. 다음과 같은 정책을 만들어 어플라이언스에서 복제 트래픽을 제한하는 정책을 Azure Migrate 어플라이언스에서 만들 수 있습니다.
 

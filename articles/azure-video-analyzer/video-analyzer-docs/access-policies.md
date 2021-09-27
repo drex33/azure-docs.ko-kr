@@ -3,12 +3,12 @@ title: Azure Video Analyzer 액세스 정책
 description: 이 문서에서는 Azure Video Analyzer가 액세스 정책에서 JWT 토큰을 사용하여 비디오를 보호하는 방법을 설명합니다.
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: 3cf450249567d07bf6855d115a0e39640074eeb0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: fe421e429357000bf6380cdf18f3a029fea4f7c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604197"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670484"
 ---
 # <a name="access-policies"></a>액세스 정책
 
@@ -130,31 +130,84 @@ RSA 및 ECC 형식이라는 두 가지 유형의 키가 지원됩니다.
 > [!NOTE]  
 > Video Analyzer는 최대 20개의 정책을 지원합니다.  ${System.Runtime.BaseResourceUrlPattern}을 사용하면 하나의 액세스 정책 및 여러 토큰을 사용하여 특정 리소스에 보다 유연하게 액세스할 수 있습니다.  그러면 이러한 토큰을 통해 대상 그룹을 기반으로 하는 다양한 Video Analyzer 리소스에 액세스할 수 있습니다. 
 
+## <a name="creating-a-token"></a>토큰 만들기
+
+이 섹션에서는이 문서의 뒷부분에서 사용할 JWT 토큰을 만듭니다.  JWT 토큰을 생성하는 샘플 애플리케이션을 사용하고 액세스 정책을 만드는 데 필요한 모든 필드를 제공합니다.
+
+> [!NOTE] 
+> RSA 또는 ECC 인증서를 기반으로 JWT 토큰을 생성 하는 방법을 잘 알고 있는 경우이 섹션을 건너뛸 수 있습니다.
+
+1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다. 그런 다음 JWTTokenIssuer 응용 프로그램 폴더 *src/jwt-* JWTTokenIssuer로 이동 하 여 응용 프로그램을 찾습니다.
+2. Visual Studio Code를 연 다음 JWTTokenIssuer 애플리케이션을 다운로드한 폴더로 이동합니다. 이 폴더에는 *\*.csproj* 파일이 있어야 합니다.
+3. 탐색기 창에서 *program.cs* 파일로 이동합니다.
+4. 77 줄에서 대상 그룹을 Video Analyzer 끝점으로 변경 하 고/videos/를 입력 합니다 \* . 그러면 다음과 같이 표시 됩니다.
+
+   ```
+   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
+   ```
+
+   > [!NOTE] 
+   > 비디오 분석기 끝점은 Azure Portal 비디오 분석기 리소스의 개요 섹션에서 찾을 수 있습니다.
+
+   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="플레이어 위젯 엔드포인트를 보여 주는 스크린샷.":::
+    
+5. 78 줄에서 발급자를 인증서의 발급자 값으로 변경 합니다. 예: `https://contoso.com`
+6. 파일을 저장합니다.    
+
+   > [!NOTE]
+   > Select 라는 메시지가 표시 될 수 있습니다 `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` `Yes` .
+   
+   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Visual Studio Code의 필수 자산 프롬프트를 보여 주는 스크린샷.":::
+   
+7. 명령 프롬프트 창을 열고 JWTTokenIssuer 파일이 있는 폴더로 이동 합니다. 두 명령 `dotnet build` 다음에 `dotnet run`을 실행합니다. Visual Studio Code에 C# 확장이 있는 경우 F5를 선택하여 JWTTokenIssuer 애플리케이션을 실행할 수도 있습니다.
+
+응용 프로그램이 빌드되고 실행 됩니다. 빌드 후 자체 서명된 인증서를 만들고 해당 인증서에서 JWT 토큰 정보를 만듭니다. JWTTokenIssuer이 빌드된 디렉터리의 debug 폴더에 있는 JWTTokenIssuer.exe 파일을 실행할 수도 있습니다. 애플리케이션을 실행하는 이점은 다음과 같이 입력 옵션을 지정할 수 있다는 것입니다.
+
+- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
+
+JWTTokenIssuer는 JWT 토큰 및 다음과 같은 필요한 구성 요소를 만듭니다.
+
+- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
+
+나중에 사용할 수 있도록 이러한 값을 복사해야 합니다.
+
+
 ## <a name="creating-an-access-policy"></a>액세스 정책 만들기
 
 액세스 정책을 만드는 방법에는 다음 두 가지가 있습니다.
 
 ### <a name="in-the-azure-portal"></a>Azure Portal에서
 
-1. Azure Portal에 로그인하여 Video Analyzer 계정이 있는 리소스 그룹으로 이동합니다.
-2. Video Analyzer 리소스를 선택합니다.
-3. Video Analyzer 아래에서 액세스 정책을 선택합니다.
+1. Azure Portal 로그인하고 Video Analyzer 계정이 있는 리소스 그룹으로 이동합니다.
+1. Video Analyzer 리소스를 선택합니다.
+1. **Video Analyzer에서** **액세스 정책을** 선택합니다.
 
-   :::image type="content" source="./media/access-policies/access-policies-menu.png" alt-text="Azure Portal의 액세스 정책 메뉴":::
-4. 새로 만들기를 클릭하고 다음을 입력합니다.
+   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="플레이어 위젯 - 포털 액세스 정책.":::
+   
+1. **새로 설정을** 선택하고 다음 정보를 입력합니다.
+
+   > [!NOTE] 
+   > 이러한 값은 이전 단계에서 만든 JWTTokenIssuer 애플리케이션에서 제공됩니다.
 
    - 액세스 정책 이름 - 임의의 이름입니다.
+
    - 발급자 - JWT 토큰 발급자와 일치해야 합니다. 
-   - 대상 그룹 - JWT 토큰의 대상 그룹 -- ${System.Runtime.BaseResourceUrlPattern}이 기본값입니다. 
-   - 키 유형 - kty 
-   - 알고리즘 - alg
-   - 키 ID - kid 
-   - N / X 값 
-   - E / Y 값 
 
-   :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Azure Portal의 액세스 정책":::
-5. `Save`을 클릭합니다.
+   - 대상 그룹 - JWT 토큰의 대상 그룹 `${System.Runtime.BaseResourceUrlPattern}` -이 기본값입니다.
 
+   - 키 유형 - RSA 
+
+   - 알고리즘 - 지원되는 값은 RS256, RS384, RS512입니다.
+
+   - 키 ID - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+
+   - RSA 키 모듈러스 - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+
+   - RSA 키 지수 - 인증서에서 생성됩니다. 자세한 내용은 [토큰 만들기](#creating-a-token)를 참조하세요.
+
+   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="플레이어 위젯 - 액세스 정책 포털"::: 
+   
+1. **저장** 을 선택합니다.
 ### <a name="create-access-policy-via-api"></a>API를 통해 액세스 정책 만들기
 
 ARM(Azure Resource Manager) API 참조 

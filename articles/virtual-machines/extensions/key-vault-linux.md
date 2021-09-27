@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56feecac6edae1c25c8706891ed7c2697a2508e1
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: a55a49232e18c61f1c5b1915c06cd61e1f13ab0b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674436"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -28,6 +28,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 - Ubuntu-1804
 - Suse-15 
+- [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
 
 > [!NOTE]
 > 확장된 보안 기능을 이용하려면 Ubuntu-1604 및 Debian-9 시스템의 업그레이드를 준비하십시오. 해당 버전의 지정된 지원 기간은 곧 종료됩니다.
@@ -286,7 +287,7 @@ Key Vault VM 확장 로그는 VM에서 로컬로 존재하며 문제 해결의 �
 |--|--|
 | /var/log/waagent.log  | 확장에 대한 업데이트가 발생한 시간을 표시합니다. |
 | /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*    | Key Vault VM 확장 서비스 로그를 검토하여 akvvm_service 서비스와 인증서 다운로드의 상태를 확인합니다. PEM 파일의 다운로드 위치는 이 파일에서 인증서 파일 이름이라는 항목을 사용하여 찾을 수도 있습니다. certificateStoreLocation을 지정하지 않으면 기본적으로 //var/lib/waagent/Microsoft.Azure.KeyVault.Store/로 설정됩니다. |
-| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/* | Key Vault VM 확장 서비스의 구성과 이진 파일입니다. |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-\<most recent version\>/config/*   | Key Vault VM 확장 서비스의 구성과 이진 파일입니다. |
 |||
   
 ### <a name="using-symlink"></a>Symlink 사용

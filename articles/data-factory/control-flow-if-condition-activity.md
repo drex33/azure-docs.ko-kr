@@ -1,23 +1,23 @@
 ---
-title: Azure Data Factory의 If 조건 작업
+title: If Condition 작업
 titleSuffix: Azure Data Factory & Azure Synapse
-description: If 조건 작업을 사용하면 조건에 따라 프로세스 흐름을 제어할 수 있습니다.
+description: If Condition 작업 사용하면 Azure Data Factory 또는 Synapse Analytics 파이프라인의 조건에 따라 처리 흐름을 제어할 수 있습니다.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: cc897e9657120b3a290c151a4c6582f29e905b4e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 04c0a91a7f4848f2422c0f6ed1e117686345bf78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642393"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811689"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
+# <a name="if-condition-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인의 If Condition 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 실행하고, 조건이 `false`로 평가되면 다른 작업 집합을 실행합니다. 
@@ -68,7 +68,7 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 -------- | ----------- | -------------- | --------
 name | if 조건 작업의 이름입니다. | String | 예
 type | **IfCondition** 으로 설정해야 함 | String | 예
-식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | Yes
+식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
 ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
 
@@ -76,7 +76,7 @@ ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합�
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 출력 폴더로 복사합니다. 출력 폴더는 파이프라인 매개 변수 routeSelection의 값에 의해 결정됩니다. routeSelection의 값이 true이면 데이터가 outputPath1로 복사됩니다. 또한 routeSelection의 값이 false이면 데이터가 outputPath2로 복사됩니다. 
 
 > [!NOTE]
-> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 파이프라인을 만드는 단계별 지침이 포함된 연습은 자습서: Azure PowerShell [사용하여 데이터 팩터리 만들기를](quickstart-create-data-factory-powershell.md)참조하세요.
 
 ### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>IF 조건 작업이 포함된 파이프라인(Adfv2QuickStartPipeline.json)
 
@@ -287,7 +287,7 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 
+지원되는 다른 제어 흐름 작업을 참조하세요. 
 
 - [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)

@@ -1,28 +1,27 @@
 ---
 title: Amazon S3(Simple Storage Service) Compatible Storage에서 데이터 복사
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용 하 여 Amazon S3 호환 Storage에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory를 사용하여 Amazon S3 Compatible Storage에서 지원되는 싱크 데이터 스토리지로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 98191eb2e958510fe01fc5a02e0490bf7c2d41ae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 82abc8fcfacc09621b66192c1f40b8c33d73ae50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563464"
 ---
-# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon S3 Compatible Storage에서 데이터 복사
+# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Amazon S3 호환 Storage에서 데이터 복사
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Amazon S3(Amazon Simple Storage Service) Compatible Storage에서 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
-
-
+이 문서에서는 Amazon S3(Amazon Simple Storage Service) Compatible Storage에서 데이터를 복사하는 방법을 설명합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -41,7 +40,7 @@ ms.locfileid: "123307000"
 
 Amazon S3 Compatible Storage에서 데이터를 복사하려면 Amazon S3 개체 작업에 대한 `s3:GetObject`와 `s3:GetObjectVersion`의 사용 권한이 부여되었는지 확인합니다.
 
-Data Factory UI를 사용하여 작성하는 경우, 연결된 서비스에 대한 연결 테스트 및 루트에서 검색 등의 작업을 수행하려면 `s3:ListAllMyBuckets` 및 `s3:ListBucket`/`s3:GetBucketLocation`의 추가 권한이 필요합니다. 해당 권한을 부여하지 않으려면 UI에서 “파일 경로에 대한 연결 테스트” 또는 “지정된 경로에서 찾아보기” 옵션을 선택할 수 있습니다.
+UI를 사용 하 여 작성 하는 `s3:ListAllMyBuckets` 경우 `s3:ListBucket` / `s3:GetBucketLocation` 연결 된 서비스에 대 한 연결 테스트 및 루트에서 검색 등의 작업을 수행 하려면 추가 및 권한이 필요 합니다. 해당 권한을 부여하지 않으려면 UI에서 “파일 경로에 대한 연결 테스트” 또는 “지정된 경로에서 찾아보기” 옵션을 선택할 수 있습니다.
 
 Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에서 사용 권한 지정](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)을 참조하세요.
 
@@ -74,7 +73,7 @@ Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에�
 
 ## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보 
 
-다음 섹션에서는 Amazon S3 Compatible Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Amazon S3 Compatible Storage에 한정 된 엔터티를 정의 하는 데 사용 되는 속성에 대해 자세히 설명 합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -84,7 +83,7 @@ Amazon S3 Compatible 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AmazonS3Compatible** 로 설정되어야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
-| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 S3 엔드포인트 `https://<service url>`를 지정합니다. | 예 |
 | forcePathStyle | 가상 호스트 스타일 액세스 대신 S3 [경로 스타일 액세스](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access)를 사용할지를 나타냅니다. 허용되는 값은 **false**(기본값), **true** 입니다.<br> 경로 스타일 액세스가 필요한지 여부는 각 데이터 저장소의 설명서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 해당 속성을 지정하지 않으면 서비스는 기본 Azure 통합 런타임을 사용합니다. |예 |
@@ -244,7 +243,7 @@ Amazon S3 Compatible 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 원본 폴더 구조가 있고 굵게 표시된 파일을 복사하려고 한다고 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Data Factory 구성                                            |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 버킷: `bucket`<br>- 폴더 경로: `FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `bucket/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -263,4 +262,4 @@ Amazon S3 Compatible 연결된 서비스에 다음 속성이 지원됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

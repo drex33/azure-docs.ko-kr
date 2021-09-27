@@ -7,18 +7,16 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 7f426c04793c754619cd40bfdfcb4a7b9fc7d904
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 6612ded8cdc5e5e1a5ef38c18cc854fde41f2733
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059913"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641430"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 구문 분석 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 구문 분석 변환을 사용하여 문서 형식으로 된 데이터의 열을 구문 분석합니다. 구문 분석할 수 있는 현재 지원되는 포함 문서 형식은 JSON, XML 및 구분 기호로 분리된 텍스트입니다.
 
@@ -61,7 +59,7 @@ ms.locfileid: "129059913"
 
 검사 탭 및 데이터 미리 보기를 참조하여 출력이 올바르게 매핑되었는지 확인합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```
 source(output(
@@ -114,7 +112,7 @@ ParseCsv select(mapColumn(
 
 ### <a name="syntax"></a>구문
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```
 parse(json = jsonString ? (trade as boolean,

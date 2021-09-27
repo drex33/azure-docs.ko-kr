@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 73a1ae771ba3e3e5876b2efd3914b9e38ab0e426
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222354"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796612"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -71,7 +71,7 @@ AI 보강은 Azure Cognitive Services도 사용할 수 있는 지역에서 사�
 
 ### <a name="use-cases-for-custom-skills"></a>사용자 지정 기술의 사용 사례
 
-사용자 지정 기술은 양식 인식, 또는 [사용자 지정 기술 웹 인터페이스](cognitive-search-custom-skill-interface.md)에서 제공하고 래핑하는 모델을 사용하는 사용자 지정 엔터티 검색처럼 좀 더 복잡한 시나리오를 지원할 수 있습니다. 사용자 지정 기술의 예로는 [Form Recognizer](../cognitive-services/form-recognizer/overview.md), [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md) 통합, [사용자 지정 엔터티 인식](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 등이 있습니다.
+사용자 지정 기술은 양식 인식, 또는 [사용자 지정 기술 웹 인터페이스](cognitive-search-custom-skill-interface.md)에서 제공하고 래핑하는 모델을 사용하는 사용자 지정 엔터티 검색처럼 좀 더 복잡한 시나리오를 지원할 수 있습니다. 사용자 지정 기술의 예로는 [Form Recognizer](../applied-ai-services/form-recognizer/overview.md), [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md) 통합, [사용자 지정 엔터티 인식](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 등이 있습니다.
 
 ## <a name="enrichment-steps"></a>보강 단계 <a name="enrichment-steps"></a>
 

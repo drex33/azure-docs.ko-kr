@@ -1,7 +1,7 @@
 ---
 title: 데이터 흐름 매핑의 조회 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 데이터 흐름 매핑에서 조회 변환을 사용하여 다른 원본에서 데이터를 참조합니다.
+description: Azure Data Factory 및 Synapse Analytics 파이프라인에 대한 매핑 데이터 흐름에서 조회 변환을 사용하여 다른 원본의 데이터를 참조합니다.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/19/2021
-ms.openlocfilehash: f6250b15f854870d14d9977c8eebd7c71e565635
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 8c5371fee2b0e7c4440762f9d7e609bf2dd496be
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642435"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060122"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 조회 변환을 사용하여 데이터 흐름 스트림의 다른 원본에서 데이터를 참조할 수 있습니다. 조회 변환은 일치하는 데이터의 열을 원본 데이터에 추가합니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "122642435"
 
 ## <a name="configuration"></a>구성
 
-![스크린샷은 다음 텍스트에 설명된 레이블이 있는 조회 설정 탭을 보여줍니다.](media/data-flow/lookup1.png "조회")
+:::image type="content" source="media/data-flow/lookup1.png" alt-text="스크린샷은 다음 텍스트에 설명된 레이블이 있는 조회 설정 탭을 보여줍니다.":::
 
 **기본 스트림:** 들어오는 데이터 스트림입니다. 이 스트림은 조인의 왼쪽에 해당합니다.
 
@@ -47,13 +49,13 @@ ms.locfileid: "122642435"
 
 조회 조건에서 같지 않음(! =) 또는 보다 큼(>)과 같은 조건부 연산자를 사용하려면 두 열 사이의 연산자 드롭다운을 변경합니다. 비동등 조인에서는 **최적화** 탭에서 **고정** 브로드캐스팅을 사용하여 두 스트림 중 하나 이상을 브로드캐스트해야 합니다.
 
-![비동등 조회](media/data-flow/non-equi-lookup.png "비동등 조회")
+:::image type="content" source="media/data-flow/non-equi-lookup.png" alt-text="비동등 조회":::
 
 ## <a name="analyzing-matched-rows"></a>일치하는 행 분석
 
 조회 변환 후 `isMatch()` 함수를 사용하여 조회가 개별 행과 일치하는지 여부를 확인할 수 있습니다.
 
-![조회 패턴](media/data-flow/lookup111.png "조회 패턴")
+:::image type="content" source="media/data-flow/lookup111.png" alt-text="조회 패턴":::
 
 이 패턴의 예는 조건부 분할 변환을 사용하여 `isMatch()` 함수에서 분할을 수행하는 것입니다. 위의 예제에서는 일치하는 행이 위쪽 스트림을 통과하고 일치하지 않는 행이 ```NoMatch``` 스트림을 통해 흐릅니다.
 
@@ -63,7 +65,7 @@ ms.locfileid: "122642435"
 
 ## <a name="broadcast-optimization"></a>브로드캐스트 최적화
 
-![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 조인")
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="브로드캐스트 조인":::
 
 조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅** 를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정** 을 선택합니다.
 
@@ -89,7 +91,7 @@ ms.locfileid: "122642435"
 ```
 ### <a name="example"></a>예제
 
-![스크린샷은 다음 코드에 대한 조회 설정 탭을 보여줍니다.](media/data-flow/lookup-dsl-example.png "조회")
+:::image type="content" source="media/data-flow/lookup-dsl-example.png" alt-text="스크린샷은 다음 코드에 대한 조회 설정 탭을 보여줍니다.":::
 
 위의 조회 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 나와 있습니다.
 

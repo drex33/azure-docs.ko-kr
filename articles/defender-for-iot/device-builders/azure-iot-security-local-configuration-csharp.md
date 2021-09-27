@@ -4,12 +4,12 @@ description: Defender for IoT 보안 서비스인 C#용 보안 에이전트 로�
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: c83aec4772942aeb269f04804d55fd887e552925
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 810ca270fed350da8beaa1c63fafe39df4ab6a61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658279"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해(C# 에이전트)
 
@@ -77,7 +77,7 @@ Windows의 경우:
 | moduleName | 문자열 | Defender-IoT-micro-agent ID의 이름입니다. 이 이름은 디바이스의 모듈 ID 이름과 일치해야 합니다. |
 | deviceId | 문자열 | 디바이스의 Azure IoT Hub 등록 ID입니다. |
 | schedulerInterval | TimeSpan string | 내부 스케줄러 간격입니다. |
-| gatewayHostname | 문자열 | Azure Iot Hub의 호스트 이름입니다. 일반적으로 <my-hub>.azure-devices.net |
+| gatewayHostname | 문자열 | Azure Iot Hub의 호스트 이름입니다. 일반적으로 \<my-hub\> azure-devices.net |
 | filePath | string - path to file | 인증 암호를 포함하는 파일의 경로입니다.|
 | type | ‘SymmetricKey’, ‘SelfSignedCertificate’ | 인증을 위한 사용자 비밀입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 를 선택하고, 비밀이 자체 서명된 인증서인 경우 자체 서명된 인증서를 선택합니다. |
 | identity | ‘DPS’, ‘Module’, ‘Device’ | 인증 ID - DPS를 통해 인증하는 경우 DPS, 모듈 자격 증명을 사용하여 인증하는 경우 Module, 디바이스 자격 증명을 사용하여 인증하는 경우 Device.

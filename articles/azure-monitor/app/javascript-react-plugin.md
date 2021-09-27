@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: b703d8bc5253d8f5daeded8211e36dc119188b08
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: 7dd25881791340a02ced78a341e58d106c6f1a40
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565500"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 React 플러그 인
 
@@ -26,8 +26,7 @@ npm 패키지 설치:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js
-npm install @microsoft/applicationinsights-web
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 

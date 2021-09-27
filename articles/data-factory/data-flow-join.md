@@ -1,7 +1,7 @@
 ---
 title: 데이터 흐름 매핑의 조인 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 매핑 데이터 흐름에서 조인 변환을 사용하여 두 데이터 원본의 데이터 결합
+description: Azure Data Factory 또는 Synapse Analytics 매핑 데이터 흐름에서 조인 변환을 사용하여 두 데이터 원본의 데이터를 결합합니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2020
-ms.openlocfilehash: 77df05774f695235b1ccc1a11713ea68cacafefb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 2a1efc21511fe665d4e54cf955244daf598d4f8b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642436"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060179"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조인 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 조인 변환을 사용하여 매핑 데이터 흐름에서 두 원본 또는 스트림의 데이터를 결합합니다. 출력 스트림은 조인 조건에 따라 일치하는 두 원본의 모든 열을 포함합니다. 
 
@@ -63,19 +65,19 @@ ms.locfileid: "122642436"
 1. **조인 유형** 선택
 1. 조인 조건에 대해 일치시킬 키 열을 선택합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색합니다. 계산된 값을 통해 비교하려면 열 드롭다운 위로 마우스를 이동하여 **계산 열** 을 선택합니다.
 
-![조인 변환](media/data-flow/join.png "Join")
+:::image type="content" source="media/data-flow/join.png" alt-text="조인 변환":::
 
 ### <a name="non-equi-joins"></a>비동등 조인
 
 조인 조건에서 같지 않음(! =) 또는 보다 큼(>)과 같은 조건부 연산자를 사용하려면 두 열 사이의 연산자 드롭다운을 변경합니다. 비동등 조인에서는 **최적화** 탭에서 **고정** 브로드캐스팅을 사용하여 두 스트림 중 하나 이상을 브로드캐스트해야 합니다.
 
-![비동등 조인](media/data-flow/non-equi-join.png "비동등 조인")
+:::image type="content" source="media/data-flow/non-equi-join.png" alt-text="비동등 조인":::
 
 ## <a name="optimizing-join-performance"></a>조인 성능 최적화
 
 SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합 조인 작업이 아닙니다. 조인 키는 정렬할 필요가 없습니다. 조인 작업은 Spark의 최적 조인 작업(브로드캐스트 또는 맵 쪽 조인)을 기반으로 수행됩니다.
 
-![조인 변환 최적화](media/data-flow/joinoptimize.png "조인 최적화")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="조인 변환 최적화":::
 
 조인, 조회 및 있음 변환에서 하나 또는 두 데이터 스트림이 작업자 노드 메모리에 맞는 경우 **브로드캐스팅** 를 사용하도록 설정하여 성능을 최적화할 수 있습니다. 기본적으로 spark 엔진은 한쪽에서 브로드캐스트할지 여부를 자동으로 결정합니다. 브로드캐스트할 쪽을 수동으로 선택하려면 **고정** 을 선택합니다.
 
@@ -85,7 +87,7 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 데이터 스트림을 셀프 조인하려면 선택 변환이 있는 기존 스트림에 별칭을 추가합니다. 변환 옆에 있는 더하기 아이콘을 클릭하고 **새 분기** 를 선택하여 새 분기를 만듭니다. 원본 스트림에 별칭을 추가하려면 선택 변환을 추가합니다. 조인 변환을 추가하고 원본 스트림을 **왼쪽 스트림** 으로 선택하고 선택 변환을 **오른쪽 스트림** 으로 선택합니다.
 
-![셀프 조인](media/data-flow/selfjoin.png "셀프 조인")
+:::image type="content" source="media/data-flow/selfjoin.png" alt-text="셀프 조인":::
 
 ## <a name="testing-join-conditions"></a>조인 조건 테스트
 
@@ -108,9 +110,9 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 
 아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`를 사용하는 `JoinMatchedData`라는 조인 변환입니다.  조인 조건은 각 스트림의 `hack_license`, `medallion`, `vendor_id` 및 `pickup_datetime` 열이 일치하는 경우 true를 반환하는 식 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}`입니다. `joinType`은 `'inner'`입니다. `broadcast`가 `'left'` 값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용하도록 설정하고 있습니다.
 
-Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
+UI에서 이 변환은 아래 이미지와 같습니다.
 
-![스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식이 표시됩니다.](media/data-flow/join-script1.png "조인 예제")
+:::image type="content" source="media/data-flow/join-script1.png" alt-text="스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식이 표시됩니다.":::
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 
@@ -130,9 +132,9 @@ TripData, TripFare
 
 아래 예제는 왼쪽 스트림 `LeftStream` 및 오른쪽 스트림 `RightStream`을 사용하는 `JoiningColumns`라는 조인 변환입니다. 이 변환은 열 `leftstreamcolumn`이 `rightstreamcolumn` 열보다 큰 모든 행을 결합하여 두 개의 스트림과 조인을 사용합니다. `joinType`은 `cross`입니다. 브로드캐스트를 사용할 수 없으며 `broadcast`는 `'none'` 값을 갖습니다.
 
-Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
+UI에서 이 변환은 아래 이미지와 같습니다.
 
-![스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식(크로스)이 표시됩니다.](media/data-flow/join-script2.png "조인 예제")
+:::image type="content" source="media/data-flow/join-script2.png" alt-text="스크린샷에는 조인 설정 탭이 선택된 변환과 내부 조인 형식(크로스)이 표시됩니다.":::
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 

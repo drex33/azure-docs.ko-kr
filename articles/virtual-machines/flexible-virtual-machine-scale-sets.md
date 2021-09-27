@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/11/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: bf52db4950fd14e15cbd52d94b2e4ffbb9d225bb
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: dc687c2f3d14c2da02fa3ce5b3a3357292977771
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314551"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648965"
 ---
 # <a name="preview-flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: 가상 머신 확장 집합에 대한 유연한 오케스트레이션
 
@@ -54,9 +54,7 @@ Flexible 오케스트레이션 모드로 가상 머신 확장 집합을 배포�
 
 ### <a name="azure-portal"></a>Azure portal
 
-확장 집합 미리 보기에 대한 유연한 오케스트레이션 모드를 실행할 때 아래 단계에 연결된 *미리 보기* Azure Portal을 사용합니다. 
-
-1. https://preview.portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. **구독** 으로 이동합니다.
 1. 구독의 이름을 선택함으로써 유연한 오케스트레이션 모드에서 확장 집합을 만들려는 구독에 대한 세부 정보 페이지로 이동합니다.
 1. **설정** 아래 메뉴에서 **미리 보기 기능** 을 선택합니다.
@@ -86,6 +84,12 @@ Register-AzProviderFeature -FeatureName SkipPublicIpWriteRBACCheckForVMNetworkIn
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
+기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 [az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
 
@@ -102,6 +106,11 @@ az feature register --namespace Microsoft.Compute --name SkipPublicIpWriteRBACCh
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
+기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Flexible 오케스트레이션 모드 시작하기
 
@@ -123,6 +132,11 @@ az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 
     VM을 만들 때 가상 머신 확장 집합에 추가되도록 선택적으로 지정할 수 있습니다. VM은 VM을 만들 때만 확장 집합에 추가할 수 있습니다.
 
+유연한 오케스트레이션 모드는 Azure에 배포 된 모든 IaaS Vm의 90%를 포함 하는 [메모리 보존 업데이트 또는 실시간 마이그레이션을](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)지 원하는 VM sku와 함께 사용할 수 있습니다. 여기에는 B-, D-, E-및 F 시리즈 Vm과 같은 일반적인 용도의 크기 패밀리가 포함 됩니다. 현재 유연한 모드는 G-, H-, L-, M, N 시리즈 Vm을 포함 하 여 메모리 보존 업데이트를 지원 하지 않는 VM Sku 또는 패밀리를 통해 오케스트레이션 할 수 없습니다. [계산 리소스 SKU API](/rest/api/compute/resource-skus/list) 를 사용 하 여 특정 VM SKU가 지원 되는지 여부를 확인할 수 있습니다.
+
+```azurecli-interactive
+az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
+```
 
 ## <a name="explicit-network-outbound-connectivity-required"></a>명시적인 네트워크 아웃바운드 연결 필요 
 
@@ -137,7 +151,7 @@ az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 
 명시적 아웃바운드 연결을 필요로 하는 일반적인 시나리오는 다음과 같습니다. 
 
-- Windows VM을 활성화하려면 VM 인스턴스에서 Windows 활성화 키 관리 서비스(KMS)로의 아웃바운드 연결을 정의해야 합니다. 더 많은 정보는 [Azure Windows VM 활성화 문제 해결](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)을 참조하세요.  
+- Windows VM을 활성화하려면 VM 인스턴스에서 Windows 활성화 키 관리 서비스(KMS)로의 아웃바운드 연결을 정의해야 합니다. 더 많은 정보는 [Azure Windows VM 활성화 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)을 참조하세요.  
 - 스토리지 계정 또는 Key Vault에 액세스합니다. Azure 서비스 연결은 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 설정할 수도 있습니다. 
 
 안전한 아웃바운드 연결을 정의하는 방법에 대한 세부 정보는 [Azure에서 기본값 아웃바운드 액세스](https://aka.ms/defaultoutboundaccess)를 참조하세요.

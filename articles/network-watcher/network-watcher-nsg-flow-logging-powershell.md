@@ -2,23 +2,19 @@
 title: NSG 흐름 로그 관리 - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 PowerShell을 사용하여 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
-services: network-watcher
-documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 79a48f479bedfbe7ecbe5199c7af08a3321badd7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 94a604c687326d7fb43b4b9e44aaad682d7e5ee4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100413"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585817"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -35,7 +31,7 @@ ms.locfileid: "123100413"
 > [!NOTE]
 > - 이 문서에서 사용되는 [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) 및 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) 명령을 실행하려면 Network Watcher의 리소스 그룹에 대한 추가 ‘판독기’ 권한이 필요합니다. 또한 이러한 명령은 오래되어 곧 더 이상 사용되지 않을 수 있습니다.
 > - 대신 새로운 [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) 및 [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) 명령을 사용하는 것이 좋습니다.
-> - 새로운 [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) 명령은 유연하게 적용하도록 네 가지 변형을 제공합니다. 이 명령의 ‘Location <String>’ 변형을 사용하는 경우 Network Watcher의 리소스 그룹에 대한 추가 ‘판독기’ 권한이 필요합니다. 다른 변형은 추가 권한이 필요하지 않습니다. 
+> - 새로운 [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) 명령은 유연하게 적용하도록 네 가지 변형을 제공합니다. 이 명령의 ‘Location \<String\>’ 변형을 사용하는 경우 Network Watcher의 리소스 그룹에 대한 추가 ‘판독기’ 권한이 필요합니다. 다른 변형은 추가 권한이 필요하지 않습니다. 
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 

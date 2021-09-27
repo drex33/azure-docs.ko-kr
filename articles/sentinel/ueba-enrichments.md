@@ -1,26 +1,19 @@
 ---
 title: Azure Sentinel UEBA 강화 참조 | Microsoft Docs
 description: 이 문서에서는 Azure Sentinel의 엔터티 동작 분석에 의해 생성된 엔터티 보강을 표시합니다.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 3253a399015e533fc299bc7a338ce091769f4c65
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: 6420ef1345e20c2aec511a0a0284753a78895020
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721702"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627352"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure Sentinel UEBA 보강 참조
 
@@ -199,7 +192,7 @@ BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#
 
 | 보강 이름 | [기준](#baseline-explained)(일) | Description | 샘플 값 |
 | --- | --- | --- | --- |
-| **사용자가 작업을 마지막으로 수행**<br>*(LastTimeUserPerformedAction)* | 180 | 사용자가 마지막으로 동일한 작업을 수행했습니다. | <Timestamp> |
+| **사용자가 작업을 마지막으로 수행**<br>*(LastTimeUserPerformedAction)* | 180 | 사용자가 마지막으로 동일한 작업을 수행했습니다. | \<Timestamp\> |
 | **유사한 작업이 과거에 수행되지 않음**.<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | 사용자가 동일한 리소스 공급자에서 작업을 수행하지 않았습니다. | True, False |
 | **원본 IP 위치**<br>*(SourceIPLocation)* | *해당 사항 없음* | 작업의 원본 IP에서 확인된 국가입니다. | [Surrey, 영국] |
 | **일반적이지 않고 많은 양의 작업**<br>*(UncommonHighVolumeOfOperations)* | 7 | 사용자가 동일한 공급자 내에서 많은 유사한 작업을 수행했습니다. | True, False |

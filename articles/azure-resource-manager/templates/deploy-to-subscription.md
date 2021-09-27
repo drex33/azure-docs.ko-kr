@@ -2,14 +2,14 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a2b9fedbd2916953b0ff2166bc7fddb5f877ee07
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
-ms.translationtype: HT
+ms.openlocfilehash: 2afcd6fa4598a881f0adc5f82c43c8d9c8021064
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754089"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672821"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -73,8 +73,8 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -82,8 +82,8 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -99,7 +99,7 @@ Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az_depl
 az deployment sub create \
   --name demoSubDeployment \
   --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
@@ -111,7 +111,7 @@ PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.reso
 New-AzSubscriptionDeployment `
   -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -146,7 +146,7 @@ ARM 템플릿 배포를 위한 배포 명령 및 옵션에 대한 자세한 내�
 
 [확장 리소스](scope-extension-resources.md)의 범위는 배포 대상과 다른 대상으로 지정할 수 있습니다.
 
-템플릿을 배포하는 사용자가 지정된 범위에 액세스할 수 있어야 합니다.
+템플릿을 배포하는 사용자는 지정된 범위에 대한 액세스 권한이 있어야 합니다.
 
 이 섹션에서는 다양한 범위를 지정하는 방법을 보여 줍니다. 단일 템플릿에서 여러 범위를 결합할 수 있습니다.
 
@@ -210,7 +210,7 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -241,7 +241,7 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -285,14 +285,14 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -308,7 +308,7 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
+              "apiVersion": "2021-04-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -352,7 +352,7 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2020-09-01",
       "name": "[parameters('policyName')]",
       "properties": {
         "scope": "[subscription().id]",
@@ -407,7 +407,7 @@ New-AzSubscriptionDeployment `
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "locationpolicy",
       "properties": {
         "policyType": "Custom",
@@ -425,7 +425,7 @@ New-AzSubscriptionDeployment `
     },
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "location-lock",
       "dependsOn": [
         "locationpolicy"
@@ -485,7 +485,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
+역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용하며 보안 주체에 역할을 할당합니다.
 

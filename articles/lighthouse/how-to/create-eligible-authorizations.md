@@ -1,14 +1,14 @@
 ---
 title: 적격 권한 부여 만들기
 description: Azure Lighthouse에 고객을 온보딩하는 경우 관리 테넌트의 사용자가 Just-In-Time 방식으로 해당 역할을 승격할 수 있습니다.
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1754a7d43f184e340badb7adb29de8caa3901372
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: b36c3a91c780c2d374ceafe14a671aaa135a2d3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038688"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777833"
 ---
 # <a name="create-eligible-authorizations"></a>적격 권한 부여 만들기
 
@@ -62,7 +62,7 @@ Azure Resource Manager 템플릿으로 고객을 온보딩하거나 Azure Market
 
 각 적격 권한 부여에는 사용자가 적시에 사용할 수 있는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)이 포함되어야 합니다.
 
-역할은 사용자 액세스 관리자를 제외하고 Azure 위임 리소스 관리가 지원되는 모든 Azure 기본 제공 역할일 수 있습니다.
+역할은 사용자 액세스 관리자를 제외하고 [Azure 위임 리소스 관리에 지원되는 모든 Azure](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)기본 제공 역할일 수 있습니다.
 
 > [!IMPORTANT]
 > 동일한 역할을 사용하는 여러 적격한 권한 부여를 포함하는 경우 각 적격한 권한 부여에는 동일한 액세스 정책 설정이 있어야 합니다.

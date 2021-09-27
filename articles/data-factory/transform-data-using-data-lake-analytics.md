@@ -1,35 +1,35 @@
 ---
 title: U-SQL 스크립트를 사용하여 데이터 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Lake Analytics 컴퓨팅 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
+description: Azure Data Factory 및 Synapse Analytics 사용하여 Azure Data Lake Analytics 컴퓨팅 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2018
-ms.openlocfilehash: abb3d151e943dd539fe7c2e349b662412ab24f7c
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: fae713e7998a2a5e9686b38bba1ae40b40a2bf32
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567886"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806318"
 ---
-# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 처리 
+# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics-with-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics 사용하여 Azure Data Lake Analytics U-SQL 스크립트를 실행하여 데이터 처리
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-usql-activity.md)
 > * [현재 버전](transform-data-using-data-lake-analytics.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure 데이터 팩터리의 파이프라인은 연결된 컴퓨팅 서비스를 사용하여 스토리지 서비스의 데이터를 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서는 **Azure Data Lake Analytics** 컴퓨팅 연결 서비스에서 **U-SQL** 스크립트를 실행하는 **Data Lake Analytics U-SQL 작업** 에 대해 설명합니다. 
+Azure Data Factory 또는 Synapse Analytics 작업 영역의 파이프라인은 연결된 컴퓨팅 서비스를 사용하여 연결된 스토리지 서비스의 데이터를 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서는 **Azure Data Lake Analytics** 컴퓨팅 연결 서비스에서 **U-SQL** 스크립트를 실행하는 **Data Lake Analytics U-SQL 작업** 에 대해 설명합니다. 
 
 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 만들기 전에 Azure Data Lake Analytics 계정을 만듭니다. Azure Data Lake Analytics에 대해 알아보려면 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
-Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 연결하는 **Azure 데이터 레이크 분석** 연결 서비스를 만듭니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
+**Azure Data Lake Analytics** 연결된 서비스를 만들어 Azure Data Lake Analytics 컴퓨팅 서비스를 Azure Data Factory 또는 Synapse Analytics 작업 영역에 연결합니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 
 
@@ -52,7 +52,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | 설명                              | 필수 |
+| 속성                | Description                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -87,7 +87,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
-다음 JSON 조각은 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 정의합니다. 작업 정의에 앞에서 만든 Azure Data Lake Analytics 연결된 서비스에 대한 참조가 있습니다. Data Lake Analytics U-SQL 스크립트를 실행하려면 Data Factory는 Data Lake Analytics에 지정한 스크립트를 제출하고 필수 입력 및 출력은 Data Lake Analytics의 스크립트에 정의되어 출력을 가져옵니다. 
+다음 JSON 조각은 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 정의합니다. 작업 정의에 앞에서 만든 Azure Data Lake Analytics 연결된 서비스에 대한 참조가 있습니다. Data Lake Analytics U-SQL 스크립트를 실행하기 위해 서비스는 지정한 스크립트를 Data Lake Analytics 제출하고, 필요한 입력 및 출력은 Data Lake Analytics 가져오고 출력하기 위해 스크립트에 정의됩니다. 
 
 ```json
 {
@@ -116,14 +116,14 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | 설명                              | 필수 |
+| 속성            | Description                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 파이프라인의 작업 이름입니다.     | 예      |
 | description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL** 입니다. | 예      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
-| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage** 에 연결하는 연결된 서비스입니다. | 예      |
+| scriptLinkedService | 스크립트가 포함된 **Azure Data Lake Store** 또는 **Azure Storage** 연결하는 연결된 서비스 | 예      |
 | degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 예       |
 | priority            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 예       |
 | 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 예       |
@@ -161,7 +161,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-위의 스크립트 예제에서 스크립트에 대한 입력 및 출력은 **\@in** 및 **\@out** 매개 변수에 정의됩니다. U-SQL 스크립트의 **\@in** 및 **\@out** 매개 변수 값은 'parameters' 섹션을 사용하여 Data Factory를 통해 동적으로 전달됩니다. 
+위의 스크립트 예제에서 스크립트에 대한 입력 및 출력은 **\@in** 및 **\@out** 매개 변수에 정의됩니다. U-SQL 스크립트의 **\@ in** 및 **\@ out** 매개 변수에 대 한 값은 ' parameters ' 섹션을 사용 하 여 서비스에 의해 동적으로 전달 됩니다. 
 
 Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 degreeOfParallelism나 우선 순위와 같은 다른 속성을 지정할 수 있습니다.
 

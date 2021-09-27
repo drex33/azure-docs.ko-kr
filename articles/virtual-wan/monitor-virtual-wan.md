@@ -7,24 +7,31 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: d3cffbe9ebaa71ca5c4dfd8681159f83ff06eb38
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: d1ac031b79372987561651044e81da2e3d2d2779
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821467"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636538"
 ---
 # <a name="monitoring-virtual-wan"></a>Virtual WAN 모니터링
 
-Azure Monitor를 사용하여 Azure Virtual WAN을 모니터링할 수 있습니다. Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다. Virtual WAN VPN 게이트웨이, ExpressRoute 게이트웨이 및 Azure Firewall에는 Azure Monitor를 통해 사용할 수 있는 로깅 및 메트릭이 있습니다.
+Azure Monitor를 사용하여 Azure Virtual WAN을 모니터링할 수 있습니다. Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다. Virtual WAN VPN 게이트웨이, ExpressRoute 게이트웨이 및 Azure Firewall에는 Azure Monitor를 통해 사용할 수 있는 로깅 및 메트릭이 있습니다. 
 
 이 문서에서는 포털을 통해 사용할 수 있는 메트릭과 진단에 대해 설명합니다. 메트릭은 경량이며 거의 실시간 시나리오를 지원할 수 있으므로 경고 및 신속한 이슈 검색에 유용합니다.
 
 ### <a name="monitoring-secured-hub-azure-firewall"></a>보안 허브 모니터링(Azure Firewall) 
 
-Azure Firewall 로그를 사용하여 보안 허브를 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
-
 Azure Firewall을 사용하여 가상 허브를 보호하도록 선택한 경우 [Azure Firewall 로그 및 메트릭](../firewall/logs-and-metrics.md)에서 관련 로그 및 메트릭을 사용할 수 있습니다.
+Azure Firewall 로그 및 메트릭을 사용하여 보안 허브를 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
+보안 허브로 보호 및 변환하는 모든 Azure Virtual WAN 허브가 있는 리소스 그룹에 명시적 방화벽 리소스 개체가 만들어집니다. 
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-resources-portal.png" alt-text="스크린샷은 vWAN 허브 리소스 그룹의 방화벽 리소스를 보여줍니다.":::
+
+진단 및 로깅 구성은 **진단 설정** 탭에 액세스하는 위치에서 수행해야 합니다.
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="스크린샷은 방화벽 진단 설정을 보여줍니다.":::
+
 
 ## <a name="metrics"></a>메트릭
 
@@ -53,11 +60,11 @@ Azure Monitor의 메트릭은 특정 시간에 시스템의 일부 측면을 설
 | 메트릭 | Description|
 | --- | --- |
 | **BGP 피어 상태** | 피어 및 인스턴스당 BGP 연결 상태입니다.|
-| **보급된 BGP 경로** | 피어 및 인스턴스당 보급된 경로 수입니다.|
-| **학습된 BGP 경로** | 피어 및 인스턴스당 학습된 경로 수입니다.|
+| **보급된 BGP 경로** | 피어당 및 인스턴스당 보급된 경로 수입니다.|
+| **학습된 BGP 경로** | 피어당 및 인스턴스당 학습된 경로 수입니다.|
 | **VNET 주소 접두사 수** | 게이트웨이에서 사용된/학습된 VNET 주소 접두사의 수입니다.|
 
-**분할 적용** 을 선택하고 원하는 값을 선택하여 피어 및 인스턴스당 메트릭을 검토할 수 있습니다. 
+**분할 적용을** 선택하고 기본 값을 선택하여 피어 및 인스턴스 메트릭별로 검토할 수 있습니다. 
 
 #### <a name="traffic-flow-metrics"></a>트래픽 흐름 메트릭
 | 메트릭 | Description|
@@ -78,7 +85,7 @@ Azure Monitor의 메트릭은 특정 시간에 시스템의 일부 측면을 설
 | 메트릭 | Description|
 | --- | --- |
 | **게이트웨이 P2S 대역폭** | 게이트웨이의 평균 지점 및 사이트 간 집계 대역폭(초당 바이트)입니다. |
-| **P2S 연결 수** |게이트웨이의 지점 및 사이트 간 연결 수입니다. 게이트웨이의 지점 및 사이트 간 연결 수입니다. Azure Monitor에서 정확한 메트릭을 보고 있는지 확인하려면 **P2S 연결 수** 의 **집계 유형** 으로 **합계** 를 선택합니다. 또한 **인스턴스** 로 분할하는 경우 **최댓값** 도 선택할 수 있습니다. |
+| **P2S 연결 수** |게이트웨이의 지점 및 사이트 간 연결 수입니다. 게이트웨이의 지점 및 사이트 간 연결 수입니다. Azure Monitor 정확한 메트릭을 확인하려면 **P2S 연결 수에** 대한 **집계 유형을** **합계로** 선택합니다. 또한 **인스턴스** 로 분할하는 경우 **최댓값** 도 선택할 수 있습니다. |
 | **사용자 VPN 경로 수** | VPN Gateway에 구성된 사용자 VPN 경로 수입니다. 이 메트릭은 **정적** 및 **동적** 경로로 구분할 수 있습니다.
 
 ### <a name="azure-expressroute-gateways"></a>Azure ExpressRoute 게이트웨이
@@ -96,11 +103,11 @@ Azure Monitor의 메트릭은 특정 시간에 시스템의 일부 측면을 설
 
 1. 포털에서 게이트웨이가 있는 가상 허브로 이동합니다.
 
-2. **VPN(사이트 간)** 을 선택하여 사이트 간 게이트웨이를 찾거나 **ExpressRoute** 를 선택하여 ExpressRoute 게이트웨이를 찾거나 **사용자 VPN(지점-사이트 간)** 을 선택하여 지점-사이트 간 게이트웨이를 찾습니다. 페이지에서 게이트웨이 정보를 볼 수 있습니다. 이 정보를 복사합니다. 이 정보는 나중에 Azure Monitor를 사용하여 진단을 확인하는 데 사용됩니다.
+2. **VPN(사이트 간)** 을 선택하여 사이트 간 게이트웨이를 찾거나 **ExpressRoute** 를 선택하여 ExpressRoute 게이트웨이를 찾거나 **사용자 VPN(지점-사이트 간)** 을 선택하여 지점-사이트 간 게이트웨이를 찾습니다.
 
 3. **메트릭** 을 선택합니다.
 
-   :::image type="content" source="./media/monitor-virtual-wan/metrics.png" alt-text="Azure Monitor에서 보기가 선택된 사이트 간 VPN 창을 보여 주는 스크린샷.":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-metrics.png" alt-text="스크린샷은 Azure Monitor 보기가 선택된 사이트-사이트 VPN 창을 보여줍니다.":::
 
 4. **메트릭** 페이지에서 관심 있는 메트릭을 볼 수 있습니다.
 
@@ -114,9 +121,9 @@ Azure Monitor의 메트릭은 특정 시간에 시스템의 일부 측면을 설
 
 | 메트릭 | Description|
 | --- | --- |
-| **게이트웨이 진단 로그** | 상태, 구성, 서비스 업데이트, 추가 진단 등의 게이트웨이 관련 진단입니다.|
-| **터널 진단 로그** | 사이트 간 IPsec 터널의 연결 및 연결 해제 이벤트, 협상된 SA, 연결 해제 이유, 추가 진단 등의 IPsec 터널 관련 로그입니다.|
-| **경로 진단 로그** | 정적 경로 이벤트, BGP, 경로 업데이트, 추가 진단 등과 관련된 로그입니다. |
+| **게이트웨이 진단 로그** | 상태, 구성, 서비스 업데이트 및 추가 진단과 같은 게이트웨이 관련 진단|
+| **터널 진단 로그** | 이러한 로그는 사이트간 IPsec 터널에 대한 연결 및 연결 끊기 이벤트, 협상된 SAS, 연결 끊기 이유 및 추가 진단과 같은 IPsec 터널 관련 로그입니다.|
+| **경로 진단 로그** | 정적 경로, BGP, 경로 업데이트 및 추가 진단에 대한 이벤트와 관련된 로그입니다. |
 | **IKE 진단 로그** | IPsec 연결에 대한 IKE 관련 진단입니다. |
 
 ### <a name="point-to-site-vpn-gateways"></a>지점-사이트 간 VPN 게이트웨이
@@ -125,39 +132,55 @@ Azure Monitor의 메트릭은 특정 시간에 시스템의 일부 측면을 설
 
 | 메트릭 | Description|
 | --- | --- |
-| **게이트웨이 진단 로그** | 상태, 구성, 서비스 업데이트, 기타 진단 등의 게이트웨이 관련 진단입니다. |
+| **게이트웨이 진단 로그** | 상태, 구성, 서비스 업데이트 및 기타 진단과 같은 게이트웨이 관련 진단 |
 | **IKE 진단 로그** | IPsec 연결에 대한 IKE 관련 진단입니다.|
 | **P2P 진단 로그** | 사용자 VPN(지점 및 사이트 간) P2S 구성 및 클라이언트 이벤트입니다. 여기에는 클라이언트 연결/연결 끊기, VPN 클라이언트 주소 할당 및 기타 진단이 포함됩니다.|
 
-### <a name="view-diagnostic-logs"></a><a name="diagnostic-steps"></a>진단 로그 보기
+### <a name="express-route-gateways"></a>Express Route 게이트웨이
 
-다음 단계를 통해 진단을 찾아서 볼 수 있습니다.
+Azure Virtual WAN Express Route 게이트웨이에 대한 진단 로그는 지원되지 않습니다.
 
-1. 포털에서 Virtual WAN 리소스로 이동합니다. 포털의 Virtual WAN 페이지 **개요** 섹션에서 **Essentials** 를 선택하여 보기를 확장하고 리소스 그룹 정보를 가져옵니다. 리소스 그룹 정보를 복사합니다.
+### <a name="view-diagnostic-logs-configuration"></a><a name="diagnostic-steps"></a>진단 로그 구성 보기
 
-   :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="‘복사’ 단추를 가리키는 화살표가 있는 '개요' 섹션을 보여 주는 스크린샷.":::
+다음 단계는 진단 설정을 만들고, 편집하고, 보는 데 도움이 됩니다.
 
-2. 검색 창에서 **모니터** 로 이동한 다음, 설정 섹션에서 **진단 설정** 을 선택하고 리소스 그룹, 리소스 종류, 리소스 정보를 입력합니다. 이 정보는 이 문서의 앞부분에 있는 [게이트웨이 메트릭 보기](#metrics-steps) 섹션의 2단계에서 복사한 리소스 그룹 정보입니다.
+1. 포털에서 Virtual WAN 리소스로 이동한 다음, **연결** 그룹에서 **허브를** 선택합니다. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="'리소스' 드롭다운을 가리키는 화살표가 있는 '모니터링' 섹션을 보여 주는 스크린샷.":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub.png" alt-text="vWAN 포털에서 허브 선택을 보여 주는 스크린샷.":::
 
-3. 결과 페이지에서 **+ 진단 설정 추가** 를 선택한 다음 옵션을 선택합니다. Log Analytics로 보내거나 이벤트 허브로 스트리밍하거나 단순히 스토리지 계정에 보관하도록 선택할 수 있습니다.
+2. 왼쪽의 **연결** 그룹 아래에서 진단을 검사할 게이트웨이를 선택합니다.
 
-   :::image type="content" source="./media/monitor-virtual-wan/5.png" alt-text="메트릭 페이지":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub-gateway.png" alt-text="허브에 대한 연결 섹션을 보여 주는 스크린샷":::
+
+3. 페이지의 오른쪽 부분에서 **Azure Monitor 보기** 링크를 마우스 오른쪽 **단추로**  클릭하고 옵션을 선택합니다. Log Analytics로 보내거나 이벤트 허브로 스트리밍하거나 단순히 스토리지 계정에 보관하도록 선택할 수 있습니다.
+
+   :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="로그에 대한 Azure Monitor 보기 선택 스크린샷":::
+
+4. 이 페이지에서 새 진단 **설정(+진단 설정** 추가)을 만들거나 기존 설정을 편집(설정 **편집)할** 수 있습니다. 아래 예제와 같이 진단 로그를 Log Analytics로 보내거나, 이벤트 허브로 스트리밍하거나, 타사 솔루션으로 보내거나, 스토리지 계정에 보관하도록 선택할 수 있습니다.
+
+    :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="진단 로그 설정 선택 스크린샷.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics 샘플 쿼리
 
-로그는 **Azure Log Analytics 작업 영역** 에 있습니다. Log Analytics에서 쿼리를 설정할 수 있습니다. 다음 예제에는 사이트 간 경로 진단을 가져오는 쿼리가 포함되어 있습니다.
+진단 데이터를 Log Analytics 작업 영역으로 보내도록 선택한 경우 아래 예제와 같은 SQL 같은 쿼리를 사용하여 데이터를 검사할 수 있습니다. 자세한 내용은 [Log Analytics 쿼리 언어 를 참조하세요.](/services-hub/health/log_analytics_query_language)
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+다음 예제에는 사이트 간 경로 진단을 가져오는 쿼리가 포함되어 있습니다.
 
-필요에 따라 **= =** 뒤에서 아래 값을 바꿉니다.
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+이 문서의 이전 섹션에서 보고된 테이블에 따라 필요에 따라 **= =** 뒤의 아래 값을 대체합니다.
 
 * ‘GatewayDiagnosticLog’
 * ‘IKEDiagnosticLog’
 * ‘P2SDiagnosticLog’
 * ‘TunnelDiagnosticLog’
 * ‘RouteDiagnosticLog’
+
+쿼리를 실행하려면 진단 로그를 받도록 구성한 Log Analytics 리소스를 연 다음, 창 왼쪽의 **일반** 탭에서 **로그를** 선택해야 합니다.
+
+:::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics 쿼리 샘플.":::
+
+사이트 간 및 지점 및 사이트 간 Azure VPN Gateway 대한 추가 Log Analytics 쿼리 샘플은 [진단 로그를 사용하여 Azure VPN Gateway 문제 해결 페이지를 참조하세요.](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md) Azure Firewall 경우 로그 분석을 더 쉽게 하기 위해 [통합 문서가](../firewall/firewall-workbook.md) 제공됩니다. 그래픽 인터페이스를 사용하면 Log Analytics 쿼리를 수동으로 작성하지 않고도 진단 데이터를 조사할 수 있습니다. 
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>활동 로그
 

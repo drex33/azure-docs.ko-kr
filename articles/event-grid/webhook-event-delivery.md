@@ -2,13 +2,13 @@
 title: WebHook 이벤트 전달
 description: 이 문서에서는 웹후크를 사용할 때의 웹후크 이벤트 전달 및 엔드포인트 유효성 검사에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 09/02/2021
-ms.openlocfilehash: 04ae18ca6aab01331bdc1005498820177dfec56d
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/15/2021
+ms.openlocfilehash: 58da34498fa3e2fc81c8fe1476b1098688b9c6c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625167"
 ---
 # <a name="webhook-event-delivery"></a>웹후크 이벤트 전달
 웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.
@@ -66,7 +66,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 ]
 ```
 
-엔드포인트 소유권을 증명하려면 다음 예제와 같이 속성의 유효성 검사 코드를 다시 `validationResponse` 에코합니다.
+엔드포인트 소유권을 증명하려면 `validationResponse` 다음 예제와 같이 속성의 유효성 검사 코드를 다시 에코합니다.
 
 ```json
 {

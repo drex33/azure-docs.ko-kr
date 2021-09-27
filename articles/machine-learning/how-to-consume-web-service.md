@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.custom: devx-track-python,devx-track-csharp
-ms.openlocfilehash: 1d037931125dd60fc285588f31228a748008d25c
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 7c95844bf9a639a89fdd39b702c7d6327a9f6fe8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112114898"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740742"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -97,7 +97,7 @@ Azure Machine Learning 스튜디오에서 __엔드포인트__, __실시간 엔�
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
 
 > [!TIP]
-> IP 주소는 배포에 따라 달라집니다. 각 AKS 클러스터는 해당 클러스터에 대한 배포에서 공유하는 고유한 IP 주소를 갖게됩니다.
+> IP 주소는 배포에 따라 달라집니다. 각 AKS 클러스터에는 해당 클러스터에 대한 배포에서 공유하는 자체 IP 주소가 있습니다.
 
 ### <a name="secured-web-service"></a>보안 웹 서비스
 

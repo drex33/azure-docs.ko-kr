@@ -10,15 +10,15 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: abe88555bc7d545e62faa4c22a5e3f02e5eef630
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0d3ef1e9a7a4d30e4a716992caf4ec3f2f04cc1c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529045"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625585"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>SQL Server에서 Azure SQL Managed Instance로의 마이그레이션에 대한 평가 규칙
-[!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 마이그레이션 도구는 SQL Server 데이터베이스를 Azure SQL Managed Instance로 마이그레이션하기 전에 해결해야 하는 문제를 식별하는 다양한 평가 규칙을 실행하여 원본 SQL Server 인스턴스의 유효성을 검사합니다. 
 

@@ -87,6 +87,8 @@ items:
         href: az-cli-prerequisites.md
       - name: 고객 관리 암호화 키 사용
         href: customer-keys.md
+      - name: 클라이언트 트래픽 부하 분산
+        href: client-load-balancing.md
       - name: 제품 개요
         href: 'https://azure.microsoft.com/services/hpc-cache/'
       - name: 가격 책정 및 구매 옵션

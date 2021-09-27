@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.openlocfilehash: d766903d6de975a10dfd29bdf367ac2831321e50
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577090"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777434"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -195,7 +195,12 @@ Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버
 
 #### <a name="download-the-master-target-installation-packages"></a>마스터 대상 설치 패키지 다운로드
 
-[최신 Linux 마스터 대상 설치 비트를 다운로드합니다](https://aka.ms/latestlinuxmobsvc).
+Ubuntu 20.04에 대 한 최신 Linux 마스터 대상 설치 비트를 [다운로드](https://aka.ms/latestlinuxmobsvc) 합니다.
+
+Ubuntu 16.04에 대 한 이전 Linux 마스터 대상 설치 비트를 [다운로드](https://aka.ms/oldlinuxmobsvc) 합니다.
+
+> [!NOTE]
+> 최신 Ubuntu 운영 체제 버전을 사용 하 여 마스터 대상 서버를 설정 하는 것이 좋습니다.
 
 Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 

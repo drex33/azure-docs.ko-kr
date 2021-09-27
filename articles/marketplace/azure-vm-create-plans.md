@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/26/2021
-ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: eb94adfa104b68f515374090cfd07f300896a163
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529200"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708817"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>가상 머신 제품 플랜 만들기
 
@@ -218,6 +218,9 @@ Windows **릴리스** 또는 Linux **공급업체** 를 선택합니다.
 3. 이미 게시된 1세대를 포함하는 기존 VM을 업데이트하려면 **기술 구성** 페이지에서 세부 정보를 편집합니다.
 
 1세대와 2세대 기능의 차이점에 대한 자세한 내용은 [Azure의 2세대 VM 지원](../virtual-machines/generation-2.md)을 참조하세요.
+
+> [!NOTE]
+> 게시된 세대에는 고객이 사용할 수 있는 상태로 유지되는 이미지 버전이 하나 이상 필요합니다. 전체 계획(모든 세대 및 이미지와 함께)을 제거하려면 계획 **개요** 페이지에서 **계획 사용 안 함(이** 문서의 첫 번째 섹션 참조)을 선택합니다.
 
 ### <a name="vm-images"></a>VM 이미지
 

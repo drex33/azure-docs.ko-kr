@@ -8,12 +8,12 @@ ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.openlocfilehash: 9142f03f5f23e843018f7d9b702ef8da3d650758
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: c050023c9cb859f3100f7e2165ba3a069ff4e372
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578687"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784550"
 ---
 # <a name="text-normalization-for-case-insensitive-filtering-faceting-and-sorting"></a>대/소문자를 구분하지 않는 필터링, 패싯 및 정렬에 대한 텍스트 정규화
 
@@ -32,7 +32,7 @@ Azure Cognitive Search 인덱스에서 문서를 검색하고 찾아오려면 �
 
 ## <a name="normalizers"></a>Normalizers
 
-*Normalizers* 는 키워드 일치를 위해 전처리를 담당하는 검색 엔진의 구성 요소입니다. Normalizers는 쿼리를 토큰화하지 않는다는 점을 제외하고 분석기와 유사합니다. Normalizers를 사용하여 수행할 수 있는 일부 변환은 다음과 같습니다.
+*normalizer는* 키워드 일치를 위한 텍스트 전처리를 담당하는 검색 엔진의 구성 요소입니다. Normalizers는 쿼리를 토큰화하지 않는다는 점을 제외하고 분석기와 유사합니다. Normalizers를 사용하여 수행할 수 있는 일부 변환은 다음과 같습니다.
 
 + 소문자 또는 대문자로 변환합니다.
 + Ö 또는 ê와 같은 악센트 및 분음 부호를 ASCII 해당 문자 "o" 및 "e"로 일반화합니다.

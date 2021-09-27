@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e5100c12940083626d94367bb70b280a49711b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: c537e9a9dd733d84161e59999ff17b8b0251f623
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665162"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061184"
 ---
 # <a name="enable-key-vault-logging"></a>Key Vault 로깅을 사용하도록 설정
 
@@ -229,12 +229,9 @@ PowerShell에서 이 두 번째 cmdlet을 실행할 때 Blob 이름의 `/` 구�
 
 ## <a name="use-azure-monitor-logs"></a>Azure Monitor 로그 사용
 
-Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault `AuditEvent` 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다.
-
-이를 설정하는 방법을 포함한 자세한 내용은 [Azure Monitor의 Azure Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md)를 참조하세요.
+Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault `AuditEvent` 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다.  자세한 내용은 [Key Vault 모니터링을](monitor-key-vault.md)참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Key Vault 로그 해석 방법을 비롯한 개념 정보는 [Key Vault 로깅](logging.md)을 참조하세요.
-- .NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
-- 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](developers-guide.md)를 참조하세요.
+- 키 자격 증명 모음에서 Azure Monitor 사용하는 방법에 대한 자세한 내용은 [Key Vault 모니터링을](monitor-key-vault.md)참조하세요.

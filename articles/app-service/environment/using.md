@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 131c8d2abc21e046a96488a602b831361f64dcf4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 150e5d0e0d7360bcf9d4f42038e3ff49366d80a8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568279"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767891"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
 
@@ -188,9 +188,9 @@ ASE를 삭제하려면 다음을 수행합니다.
 
 ASEv3에서는 보유한 ASE 배포 유형에 따라 다른 가격 책정 모델이 있습니다. 세 가지 가격 책정 모델은 다음과 같습니다. 
 
-- **ASEv3**: ASE가 비어 있으면 하나의 인스턴스가 Windows I1v2인 ASP가 있는 것처럼 요금이 부과됩니다. 하나의 인스턴스 요금은 추가 요금이 아니라 ASE가 비어 있는 경우에만 적용됩니다.
-- **가용성 영역 ASEv3**: 최소 9개의 Windows I1v2 인스턴스 요금이 있습니다. 9개 이상의 App Service 요금제 인스턴스가 있는 경우 가용성 영역 지원에 대한 추가 요금이 부과되지 않습니다. AZ ASEv3의 모든 App Service 요금제에는 각 가용성 영역에 인스턴스가 있는지 확인하기 위해 최소 인스턴스 수가 3입니다. 요금제가 스케일 아웃되면 가용성 영역 전반에 분산됩니다. 
-- **전용 호스트 ASEv3**: 전용 호스트 배포를 사용하면 ASEv3 생성 시 가격 책정에 따라 2개의 전용 호스트에 대해 요금이 부과된 다음, 스케일링 시 코어 요금에 따라 격리된 V2 비율의 일부에 대해 요금이 부과됩니다.
+- **ASEv3**: ASE가 비어 있는 경우 Windows I1v2 인스턴스 하나가 포함된 하나의 ASP가 있는 것처럼 요금이 부과됩니다. 하나의 인스턴스 요금은 추가 요금이 아니라 ASE가 비어 있는 경우에만 적용됩니다.
+- **가용성 영역 ASEv3**: 최소 9개의 Windows I1v2 인스턴스 요금이 있습니다. 9개 이상의 App Service 요금제 인스턴스가 있는 경우 가용성 영역 지원에 대한 추가 요금이 부과되지 않습니다. AZ ASEv3의 모든 App Service 요금제에는 각 가용성 영역에 인스턴스가 있는지 확인하기 위해 최소 3개의 인스턴스가 있습니다. 요금제가 스케일 아웃되면 가용성 영역 전반에 분산됩니다. 
+- **전용 호스트 ASEv3**: 전용 호스트 배포를 사용하면 ASEv3 생성 시 가격 책정에 따라 2개의 전용 호스트에 대해 요금이 부과된 다음, 스케일링 시 코어 요금에 따라 격리된 V2 요금의 적은 비율에 대해 요금이 부과됩니다.
 
 격리된 v2에 대한 예약 인스턴스 가격 책정을 사용할 수 있으며 [예약 할인이 Azure App Service에 적용되는 방식][reservedinstances]에 설명되어 있습니다. 예약 인스턴스 가격 책정과 함께 가격 책정은 **격리된 v2 요금제** 에 따라 [App Service 가격 책정][pricing]으로 제공됩니다. 
 
@@ -220,5 +220,5 @@ ASEv3에서는 보유한 ASE 배포 유형에 따라 다른 가격 책정 모델
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
-[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[reservedinstances]: ../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/

@@ -3,17 +3,17 @@ title: 자체 호스팅 Azure API Management 게이트웨이에 대한 사용자
 description: 이 항목에서는 자체 호스팅 Azure API Management 게이트웨이에 대한 사용자 지정 도메인 이름을 구성하는 단계를 설명합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 03/31/2020
-ms.author: apimpm
-ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: b2ddd4c4486930cd7e5327068a5fe3827ac0581a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491033"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667638"
 ---
 # <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이에 대한 사용자 지정 도메인 이름 구성
 

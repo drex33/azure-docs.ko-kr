@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 08/11/2021
+ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: 35af9d16ff5c3e0fdfc4fe2c62abfd232439520e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 621d74d37ef8593ee109aa9e5e099bcc2b381383
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528618"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672587"
 ---
 ### <a name="financial-account-identification"></a>금융 계정 ID
 
@@ -64,7 +64,7 @@ ms.locfileid: "122528618"
 
         지급 지시 정보에 대한 SWIFT 코드. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `SWIFTCode`를 추가합니다. 검색되는 경우 `SWIFTCode`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `SWIFTCode`을 추가합니다. 검색되는 경우 `SWIFTCode`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
@@ -91,7 +91,7 @@ ms.locfileid: "122528618"
 
         신용 카드 번호. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CreditCardNumber`를 추가합니다. 검색되는 경우 `CreditCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CreditCardNumber`을 추가합니다. 검색되는 경우 `CreditCardNumber`가 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="2":::
@@ -110,7 +110,7 @@ ms.locfileid: "122528618"
     :::column span="":::
         **엔터티**
 
-        신용 카드
+        국제 은행 계좌 번호
 
     :::column-end:::
     :::column span="2":::
@@ -118,7 +118,7 @@ ms.locfileid: "122528618"
 
         지급 지시 정보에 대한 IBAN 코드. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `InternationalBankingAccountNumber`를 추가합니다. 검색되는 경우 `InternationalBankingAccountNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `InternationalBankingAccountNumber`을 추가합니다. 검색되는 경우 `InternationalBankingAccountNumber`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
@@ -150,7 +150,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보** `domain=phi` 또한 반환됩니다.
         
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ARNationalIdentityNumber`를 추가합니다. 검색되는 경우 `ARNationalIdentityNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ARNationalIdentityNumber`를 추가합니다. 검색되는 경우 `ARNationalIdentityNumber`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -174,7 +174,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ATIdentityCard`를 추가합니다. 검색되는 경우 `ATIdentityCard`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ATIdentityCard`를 추가합니다. 검색되는 경우 `ATIdentityCard`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -233,7 +233,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUDriversLicenseNumber`를 추가합니다. 검색되는 경우 `AUDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUDriversLicenseNumber`를 추가합니다. 검색되는 경우 `AUDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -286,7 +286,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUDriversLicense`를 추가합니다. 검색되는 경우 `AUDriversLicense`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUDriversLicense`를 추가합니다. 검색되는 경우 `AUDriversLicense`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -304,7 +304,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUMedicalAccountNumber`를 추가합니다. 검색되는 경우 `AUMedicalAccountNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `AUMedicalAccountNumber`를 추가합니다. 검색되는 경우 `AUMedicalAccountNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -362,7 +362,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BENationalNumber`를 추가합니다. 검색되는 경우 `BENationalNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BENationalNumber`을 추가합니다. 검색되는 경우 `BENationalNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -406,7 +406,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRLegalEntityNumber`를 추가합니다. 검색되는 경우 `BRLegalEntityNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRLegalEntityNumber`을 추가합니다. 검색되는 경우 `BRLegalEntityNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -425,7 +425,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRCPFNumber`를 추가합니다. 검색되는 경우 `BRCPFNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRCPFNumber`를 추가합니다. 검색되는 경우 `BRCPFNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -443,7 +443,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRNationalIDRG`를 추가합니다. 검색되는 경우 `BRNationalIDRG`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `BRNationalIDRG`를 추가합니다. 검색되는 경우 `BRNationalIDRG`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -466,7 +466,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CABankAccountNumber`를 추가합니다. 검색되는 경우 `CABankAccountNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CABankAccountNumber`을 추가합니다. 검색되는 경우 `CABankAccountNumber`이 API 응답에 반환됩니다.
     
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -486,7 +486,7 @@ ms.locfileid: "122528618"
 
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CADriversLicenseNumber`를 추가합니다. 검색되는 경우 `CADriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CADriversLicenseNumber`를 추가합니다. 검색되는 경우 `CADriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -507,7 +507,7 @@ ms.locfileid: "122528618"
 
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAHealthServiceNumber`를 추가합니다. 검색되는 경우 `CAHealthServiceNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAHealthServiceNumber`를 추가합니다. 검색되는 경우 `CAHealthServiceNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -526,7 +526,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAPassportNumber`를 추가합니다. 검색되는 경우 `CAPassportNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAPassportNumber`를 추가합니다. 검색되는 경우 `CAPassportNumber`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -543,7 +543,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAPersonalHealthIdentification`을 추가합니다. 검색되는 경우 `CAPersonalHealthIdentification`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CAPersonalHealthIdentification`을 추가합니다. 검색되는 경우 `CAPersonalHealthIdentification`이 API 응답에 반환됩니다.
 
         `domain=phi` 또한 반환됩니다.
       
@@ -562,7 +562,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CASocialInsuranceNumber`를 추가합니다. 검색되는 경우 `CASocialInsuranceNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CASocialInsuranceNumber`를 추가합니다. 검색되는 경우 `CASocialInsuranceNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -585,7 +585,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CLIdentityCardNumber`를 추가합니다. 검색되는 경우 `CLIdentityCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CLIdentityCardNumber`을 추가합니다. 검색되는 경우 `CLIdentityCardNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -609,7 +609,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CNResidentIdentityCardNumber`를 추가합니다. 검색되는 경우 `CNResidentIdentityCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CNResidentIdentityCardNumber`을 추가합니다. 검색되는 경우 `CNResidentIdentityCardNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -653,7 +653,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUDriversLicenseNumber`를 추가합니다. 검색되는 경우 `EUDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUDriversLicenseNumber`를 추가합니다. 검색되는 경우 `EUDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -688,7 +688,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUNationalIdentificationNumber`를 추가합니다. 검색되는 경우 `EUNationalIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUNationalIdentificationNumber`를 추가합니다. 검색되는 경우 `EUNationalIdentificationNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -723,7 +723,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUSocialSecurityNumber`를 추가합니다. 검색되는 경우 `EUSocialSecurityNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `EUSocialSecurityNumber`를 추가합니다. 검색되는 경우 `EUSocialSecurityNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -763,7 +763,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `FRDriversLicenseNumber`를 추가합니다. 검색되는 경우 `FRDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `FRDriversLicenseNumber`를 추가합니다. 검색되는 경우 `FRDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -799,7 +799,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `FRNationalID`를 추가합니다. 검색되는 경우 `FRNationalID`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `FRNationalID`를 추가합니다. 검색되는 경우 `FRNationalID`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -910,7 +910,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DEIdentityCardNumber`를 추가합니다. 검색되는 경우 `DEIdentityCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DEIdentityCardNumber`를 추가합니다. 검색되는 경우 `DEIdentityCardNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -963,7 +963,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DEValueAddedNumber`를 추가합니다. 검색되는 경우 `DEValueAddedNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DEValueAddedNumber`을 추가합니다. 검색되는 경우 `DEValueAddedNumber`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -985,7 +985,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `HKIdentityCardNumber`를 추가합니다. 검색되는 경우 `HKIdentityCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `HKIdentityCardNumber`을 추가합니다. 검색되는 경우 `HKIdentityCardNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1009,7 +1009,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `HUPersonalIdentificationNumber`를 추가합니다. 검색되는 경우 `HUPersonalIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `HUPersonalIdentificationNumber`을 추가합니다. 검색되는 경우 `HUPersonalIdentificationNumber`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1086,7 +1086,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `INUniqueIdentificationNumber`를 추가합니다. 검색되는 경우 `INUniqueIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `INUniqueIdentificationNumber`을 추가합니다. 검색되는 경우 `INUniqueIdentificationNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1111,7 +1111,7 @@ ms.locfileid: "122528618"
 
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IDIdentityCardNumber`를 추가합니다. 검색되는 경우 `IDIdentityCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IDIdentityCardNumber`를 추가합니다. 검색되는 경우 `IDIdentityCardNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1135,7 +1135,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IEPersonalPublicServiceNumber`를 추가합니다. 검색되는 경우 `IEPersonalPublicServiceNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IEPersonalPublicServiceNumber`를 추가합니다. 검색되는 경우 `IEPersonalPublicServiceNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1154,7 +1154,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IEPersonalPublicServiceNumberV2`를 추가합니다. 검색되는 경우 `IEPersonalPublicServiceNumberV2`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `IEPersonalPublicServiceNumberV2`를 추가합니다. 검색되는 경우 `IEPersonalPublicServiceNumberV2`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1177,7 +1177,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ILNationalID`를 추가합니다. 검색되는 경우 `ILNationalID`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ILNationalID`을 추가합니다. 검색되는 경우 `ILNationalID`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1218,7 +1218,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ITDriversLicenseNumber`를 추가합니다. 검색되는 경우 `ITDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ITDriversLicenseNumber`를 추가합니다. 검색되는 경우 `ITDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1277,7 +1277,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPBankAccountNumber`를 추가합니다. 검색되는 경우 `JPBankAccountNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPBankAccountNumber`를 추가합니다. 검색되는 경우 `JPBankAccountNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1296,7 +1296,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPDriversLicenseNumber`를 추가합니다. 검색되는 경우 `JPDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPDriversLicenseNumber`를 추가합니다. 검색되는 경우 `JPDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1348,7 +1348,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ITValueAddedTaxNumber`를 추가합니다. 검색되는 경우 `ITValueAddedTaxNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ITValueAddedTaxNumber`를 추가합니다. 검색되는 경우 `ITValueAddedTaxNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1366,7 +1366,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPResidenceCardNumber`를 추가합니다. 검색되는 경우 `JPResidenceCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPResidenceCardNumber`를 추가합니다. 검색되는 경우 `JPResidenceCardNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1384,7 +1384,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPSocialInsuranceNumber`를 추가합니다. 검색되는 경우 `JPSocialInsuranceNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `JPSocialInsuranceNumber`를 추가합니다. 검색되는 경우 `JPSocialInsuranceNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1424,7 +1424,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `LUNationalIdentificationNumberNatural`를 추가합니다. 검색되는 경우 `LUNationalIdentificationNumberNatural`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `LUNationalIdentificationNumberNatural`을 추가합니다. 검색되는 경우 `LUNationalIdentificationNumberNatural`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1598,7 +1598,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PHUnifiedMultiPurposeIDNumber`를 추가합니다. 검색되는 경우 `PHUnifiedMultiPurposeIDNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PHUnifiedMultiPurposeIDNumber`을 추가합니다. 검색되는 경우 `PHUnifiedMultiPurposeIDNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1622,7 +1622,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTCitizenCardNumber`를 추가합니다. 검색되는 경우 `PTCitizenCardNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTCitizenCardNumber`을 추가합니다. 검색되는 경우 `PTCitizenCardNumber`이 API 응답에 반환됩니다.
           
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1641,7 +1641,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTTaxIdentificationNumber`를 추가합니다. 검색되는 경우 `PTTaxIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTTaxIdentificationNumber`를 추가합니다. 검색되는 경우 `PTTaxIdentificationNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1664,7 +1664,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTTaxIdentificationNumber`를 추가합니다. 검색되는 경우 `PTTaxIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `PTTaxIdentificationNumber`을 추가합니다. 검색되는 경우 `PTTaxIdentificationNumber`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1688,7 +1688,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ZAIdentificationNumber`를 추가합니다. 검색되는 경우 `ZAIdentificationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ZAIdentificationNumber`을 추가합니다. 검색되는 경우 `ZAIdentificationNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1713,7 +1713,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `KRResidentRegistrationNumber`를 추가합니다. 검색되는 경우 `KRResidentRegistrationNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `KRResidentRegistrationNumber`을 추가합니다. 검색되는 경우 `KRResidentRegistrationNumber`가 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1737,7 +1737,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ESDNI`를 추가합니다. 검색되는 경우 `ESDNI`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `ESDNI`을 추가합니다. 검색되는 경우 `ESDNI`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1795,7 +1795,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CHSocialSecurityNumber`를 추가합니다. 검색되는 경우 `CHSocialSecurityNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `CHSocialSecurityNumber`을 추가합니다. 검색되는 경우 `CHSocialSecurityNumber`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -1819,7 +1819,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `TWNationalID`를 추가합니다. 검색되는 경우 `TWNationalID`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `TWNationalID`을 추가합니다. 검색되는 경우 `TWNationalID`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1838,7 +1838,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `TWResidentCertificate`를 추가합니다. 검색되는 경우 `TWResidentCertificate`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `TWResidentCertificate`를 추가합니다. 검색되는 경우 `TWResidentCertificate`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1878,7 +1878,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKDriversLicenseNumber`를 추가합니다. 검색되는 경우 `UKDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKDriversLicenseNumber`을 추가합니다. 검색되는 경우 `UKDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1916,7 +1916,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKNationalHealthNumber`를 추가합니다. 검색되는 경우 `UKNationalHealthNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKNationalHealthNumber`를 추가합니다. 검색되는 경우 `UKNationalHealthNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1934,7 +1934,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKNationalInsuranceNumber`를 추가합니다. 검색되는 경우 `UKNationalInsuranceNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `UKNationalInsuranceNumber`를 추가합니다. 검색되는 경우 `UKNationalInsuranceNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -1992,7 +1992,7 @@ ms.locfileid: "122528618"
     :::column span="2":::
         **세부 정보**
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `USSocialSecurityNumber`를 추가합니다. 검색되는 경우 `USSocialSecurityNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `USSocialSecurityNumber`을 추가합니다. 검색되는 경우 `USSocialSecurityNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -2011,7 +2011,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `USDriversLicenseNumber`를 추가합니다. 검색되는 경우 `USDriversLicenseNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `USDriversLicenseNumber`를 추가합니다. 검색되는 경우 `USDriversLicenseNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::
@@ -2063,7 +2063,7 @@ ms.locfileid: "122528618"
     :::column-end:::
     :::column span="2":::
 
-        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DrugEnforcementAgencyNumber`를 추가합니다. 검색되는 경우 `DrugEnforcementAgencyNumber`가 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `piiCategories` 매개 변수에 `DrugEnforcementAgencyNumber`를 추가합니다. 검색되는 경우 `DrugEnforcementAgencyNumber`이 API 응답에 반환됩니다.
       
         `domain=phi` 또한 반환됩니다.
     :::column-end:::

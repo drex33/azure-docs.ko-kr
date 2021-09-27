@@ -4,15 +4,16 @@ description: 이 문서는 Azure 구독의 청구 소유권을 이전하기 전�
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: d234227de98beeed6898697fb6ed8e0865546e16
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
-ms.translationtype: HT
+ms.openlocfilehash: 6ce3a4b19bd1ba32a466bede87e111744e1a8a52
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555847"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658472"
 ---
 # <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Azure 플랜에 따라 한 파트너에서 다른 파트너로 구독 양도(미리 보기)
 

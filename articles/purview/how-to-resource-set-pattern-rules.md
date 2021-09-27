@@ -6,17 +6,17 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/15/2021
-ms.openlocfilehash: 00b3abc14207e2cb20d61f20639bf326a426cf37
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
-ms.translationtype: HT
+ms.date: 09/24/2021
+ms.openlocfilehash: 8e1ec11d3c3a22d192939dc08807abe606599d57
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813612"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708031"
 ---
 # <a name="create-resource-set-pattern-rules"></a>리소스 집합 패턴 규칙 만들기
 
-대규모 데이터 처리 시스템은 일반적으로 단일 테이블을 디스크에 여러 파일로 저장합니다. 이 개념은 리소스 집합을 사용하는 Azure Purview에서 등장합니다. 리소스 집합은 스토리지의 많은 자산을 나타내는 데이터 카탈로그의 단일 개체입니다. 더 자세히 알아보려면 [리소스 집합 이해](concept-resource-sets.md)를 참조하세요.
+대규모 데이터 처리 시스템은 일반적으로 스토리지에 단일 테이블을 여러 파일로 저장합니다. 이 개념은 리소스 집합을 사용하는 Azure Purview에서 등장합니다. 리소스 집합은 스토리지의 많은 자산을 나타내는 데이터 카탈로그의 단일 개체입니다. 더 자세히 알아보려면 [리소스 집합 이해](concept-resource-sets.md)를 참조하세요.
 
 스토리지 계정을 스캔하는 경우 Azure Purview는 정의된 패턴 집합을 사용하여 자산 그룹이 리소스 집합인지 여부를 확인합니다. 경우에 따라 Azure Purview의 리소스 집합 그룹화에서 데이터 자산을 정확하게 반영하지 못할 수도 있습니다. 리소스 집합 패턴 규칙을 사용하면 Azure Purview에서 리소스 집합으로 그룹화된 자산을 검색하는 방법과 카탈로그 내에 표시되는 방법을 사용자 지정하거나 재정의할 수 있습니다.
 
@@ -26,12 +26,13 @@ ms.locfileid: "111813612"
 - Azure 파일
 - Amazon S3
 
+리소스 집합 패턴 규칙을 만들려면 고급 리소스 집합 기능 집합을 사용하도록 설정해야 합니다. 자세한 내용은 [고급 리소스 집합 이해를 참조하세요.](concept-resource-sets.md#advanced-resource-sets)
 
 ## <a name="how-to-create-a-resource-set-pattern-rule"></a>리소스 집합 패턴 규칙을 만드는 방법
 
 아래 단계에 따라 새 리소스 집합 패턴 규칙을 만듭니다.
 
-1. 관리 센터로 이동합니다. 리소스 집합 제목 아래에 있는 메뉴에서 **패턴 규칙** 을 선택합니다. 새 규칙 세트를 만들려면 **+ 새로 만들기** 를 선택합니다.
+1. 데이터 맵으로 이동합니다. 원본 관리 제목 아래의 메뉴에서 **패턴 규칙을** 선택합니다. 새 규칙 세트를 만들려면 **+ 새로 만들기** 를 선택합니다.
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="새 리소스 집합 패턴 규칙 만들기" border="true":::
 
@@ -84,7 +85,7 @@ ms.locfileid: "111813612"
 
 다음은 정적 및 동적 치환에 사용할 수 있는 형식입니다.
 
-| Type | 구조체 |
+| 유형 | 구조체 |
 | ---- | --------- |
 | 문자열 | 공백과 같은 구분 기호를 포함하는 1개 이상의 유니코드 문자입니다. |
 | int | 1개 이상의 0-9 ASCII 문자로, 접두어는 0일 수 있습니다(예: 0001). |

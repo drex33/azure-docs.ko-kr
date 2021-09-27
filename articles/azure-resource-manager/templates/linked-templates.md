@@ -2,14 +2,14 @@
 title: 배포용 링크 템플릿
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: b8be710611d892913c43e9d500a051a3d3b55ca5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951143"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820504"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -67,7 +67,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -77,7 +77,7 @@ ms.locfileid: "111951143"
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-04-01",
+              "apiVersion": "2021-04-01",
               "name": "[parameters('storageAccountName')]",
               "location": "West US",
               "sku": {
@@ -104,7 +104,7 @@ ms.locfileid: "111951143"
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2021-04-01",
   "name": "nestedTemplate1",
   "properties": {
     "expressionEvaluationOptions": {
@@ -131,7 +131,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -215,7 +215,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -258,7 +258,7 @@ ms.locfileid: "111951143"
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2018-06-01-preview",
+              "apiVersion": "2021-02-01-preview",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -308,7 +308,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2021-04-01",
       "name": "mainTemplate",
       "properties": {
         ...
@@ -322,7 +322,7 @@ ms.locfileid: "111951143"
     {
       "name": "outer",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "outer"
@@ -334,7 +334,7 @@ ms.locfileid: "111951143"
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "outer",
               "properties": {
                 ...
@@ -352,7 +352,7 @@ ms.locfileid: "111951143"
     {
       "name": "inner",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "inner"
@@ -386,7 +386,7 @@ ms.locfileid: "111951143"
           "resources": [
             {
               "type": "Microsoft.Compute/virtualMachines",
-              "apiVersion": "2020-06-01",
+              "apiVersion": "2021-04-01",
               "name": "inner",
               "properties": {
                 ...
@@ -418,7 +418,7 @@ ms.locfileid: "111951143"
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -456,7 +456,7 @@ GitHub의 템플릿에 연결하는 경우 원시 URL을 사용합니다. 링크
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -479,7 +479,7 @@ GitHub의 템플릿에 연결하는 경우 원시 URL을 사용합니다. 링크
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -522,7 +522,7 @@ GitHub의 템플릿에 연결하는 경우 원시 URL을 사용합니다. 링크
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "childLinked",
       "properties": {
         "mode": "Incremental",
@@ -644,7 +644,7 @@ QueryString에 선행 "?"가 없는지 확인합니다. 배포는 배포용 URI�
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2020-10-01",
+    "apiVersion": "2021-04-01",
     "name": "[concat('nestedTemplate', copyIndex())]",
     // yes, copy works here
     "copy": {
@@ -662,7 +662,7 @@ QueryString에 선행 "?"가 없는지 확인합니다. 배포는 배포용 URI�
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2021-04-01",
             "name": "[concat(variables('storageName'), copyIndex())]",
             "location": "West US",
             "sku": {
@@ -726,7 +726,7 @@ Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리
   "resources": [
     {
       "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
+      "apiVersion": "2021-02-01",
       "name": "[parameters('publicIPAddresses_name')]",
       "location": "southcentralus",
       "properties": {
@@ -761,7 +761,7 @@ Resource Manager는 각 템플릿을 배포 기록에서 별도 배포로 처리
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -831,7 +831,7 @@ done
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -893,7 +893,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자습서를 진행하려면 [자습서: 연결된 템플릿 배포](./deployment-tutorial-linked-template.md)를 참조하세요.
-* 리소스의 배포 순서를 정의하는 방법에 대한 자세한 내용은 [ARM 템플릿에서 리소스를 배포하는 순서 정의](./resource-dependency.md)를 참조하세요.
-* 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
-* 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [ 템플릿과 Azure PowerShell로 리소스 배포](deploy-powershell.md) 또는 [ 템플릿과 Azure CLI로 리소스 배포](deploy-cli.md)를 참조하세요.
+- 자습서를 진행하려면 [자습서: 연결된 템플릿 배포](./deployment-tutorial-linked-template.md)를 참조하세요.
+- 리소스의 배포 순서를 정의하는 방법에 대한 자세한 내용은 [ARM 템플릿에서 리소스를 배포하는 순서 정의](./resource-dependency.md)를 참조하세요.
+- 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
+- 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [ 템플릿과 Azure PowerShell로 리소스 배포](deploy-powershell.md) 또는 [ 템플릿과 Azure CLI로 리소스 배포](deploy-cli.md)를 참조하세요.

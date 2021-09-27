@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 468244b786d418117f12b445d86b67580db913da
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: e100acf7006c3ab4ad5fad9281f372a37ac8c6b4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642212"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663671"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Azure Database for MySQL 단일 서버에 대한 루트 CA 변경 내용 이해
 
@@ -22,7 +22,7 @@ Azure Database for MySQL 단일 서버는 표준 유지 관리 및 보안 모범
 > [!NOTE]
 > 이 문서는 [Azure Database for MySQL - 단일 서버](single-server-overview.md)에만 적용됩니다. [Azure Database for MySQL - 유연한 서버](flexible-server/overview.md)의 경우 SSL을 통해 통신하는 데 필요한 인증서는 [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)입니다.
 >
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 >
 
 #### <a name="why-is-a-root-certificate-update-required"></a>루트 인증서 업데이트가 필요한 이유는 무엇인가요?

@@ -1,7 +1,6 @@
 ---
 title: Azure Arc 지원 PostgreSQL 하이퍼스케일로 AdventureWorks 샘플 데이터베이스 가져오기
 description: Azure Arc 지원 PostgreSQL 하이퍼스케일로 AdventureWorks 샘플 데이터베이스 복원
-services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
@@ -9,12 +8,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: f802bb5d681e9e77d258d6071def53d4c5e4958f
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: f3174e0980470f9ad23a53810767d75ba375bd9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113731110"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650176"
 ---
 # <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일로 AdventureWorks 샘플 데이터베이스 가져오기
 
@@ -38,7 +37,7 @@ AdventureWorks .sql 파일을 PostgreSQL 하이퍼스케일 서버 그룹 컨테
 >  GitHub에서 파일을 다운로드하려면 컨테이너가 443을 통해 인터넷에 연결되어 있어야 합니다.
 
 > [!NOTE]
->  Postgres 하이퍼스케일 서버 그룹의 코디네이터 노드의 Pod 이름을 사용합니다. 해당 이름은 <server group name>c-0(예: postgres01c-0, 여기서 c는 코디네이터 노드임을 나타냄)입니다.  Pod 이름이 확실하지 않은 경우 `kubectl get pod` 명령을 실행합니다.
+>  Postgres 하이퍼스케일 서버 그룹의 코디네이터 노드의 Pod 이름을 사용합니다. 해당 이름은 \<server group name\>c-0(예: postgres01c-0, 여기서 c는 코디네이터 노드임을 나타냄)입니다.  Pod 이름이 확실하지 않은 경우 `kubectl get pod` 명령을 실행합니다.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"

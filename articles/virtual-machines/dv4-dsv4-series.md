@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: a32fdd1da872c45c0e2402cdddd0685ef4296c7a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: e33dba0f48f59f9be02e9cbab8346efd078cb893
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691216"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803914"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4 및 Dsv4 시리즈
 
@@ -85,3 +85,22 @@ Dsv4 시리즈 크기는 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 
 <sup>1</sup> Dsv4 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.<br>
 <sup>2</sup> 가속화된 네트워킹은 단일 NIC에만 적용할 수 있습니다. 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes-and-information"></a>기타 크기 및 정보
+
+- [범용](sizes-general.md)
+- [메모리에 최적화](sizes-memory.md)
+- [Storage에 최적화](sizes-storage.md)
+- [GPU에 최적화](sizes-gpu.md)
+- [고성능 컴퓨팅](sizes-hpc.md)
+- [이전 세대](sizes-previous-gen.md)
+
+가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
+
+디스크 유형에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+[ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

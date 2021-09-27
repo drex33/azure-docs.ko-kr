@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: eb53f7f673034dde8381182aeebc0fa12d520575
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867483"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673524"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -23,6 +23,29 @@ ms.locfileid: "122867483"
 
 > [!IMPORTANT]
 > 2021년 8월 18일 이후에 Azure Purview 계정을 만든 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 버전의 자체 호스팅 통합 런타임을 다운로드하여 설치해야 합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+- 지원되는 Windows 버전은 다음과 같습니다.
+  - Windows 8.1
+  - Windows 10
+  - Windows Server 2012
+  - Windows Server 2012 R2
+  - Windows Server 2016
+  - Windows Server 2019
+
+도메인 컨트롤러에는 자체 호스팅 통합 런타임을 설치할 수 없습니다.
+
+- 자체 호스팅 통합 런타임을 사용하려면 .NET Framework 4.7.2 이상인 64비트 운영 체제가 필요합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
+- 자체 호스팅 통합 런타임 머신에 권장되는 최소 구성은 코어 4개, 8GB RAM 및 80GB 여유가 있는 하드 드라이브 공간을 포함하는 2GHz 프로세서입니다. 시스템 요구 사항에 대한 세부 정보는 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)를 참조하세요.
+- 호스트 머신이 최대 절전 모드로 전환된 경우, 자체 호스팅 통합 런타임이 데이터 요청에 응답하지 않습니다. 따라서 자체 호스팅 통합 런타임을 설치하기 전에 컴퓨터에서 전원 관리 옵션을 적절하게 구성하세요. 머신이 최대 절전 모드로 전환된 경우, 자체 호스팅 통합 런타임 설치 관리자가 메시지를 표시합니다.
+- 자체 호스팅 통합 런타임을 성공적으로 설치 및 구성하기 위해서는 머신의 관리자여야 합니다.
+- 검색 실행은 설정한 일정에 따라 특정 빈도로 발생 합니다. 머신의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 리소스 사용량은 검색 되는 데이터의 양에 따라 크게 달라 집니다. 여러 검색 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가 하는 것을 볼 수 있습니다.
+- Parquet, ORC 또는 Avro 형식의 데이터를 추출하는 동안 작업이 실패할 수 있습니다.
+
+## <a name="setting-up-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 설정
+
+자체 호스팅 통합 런타임을 만들고 설정하려면 다음 프로시저를 따르세요.
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 

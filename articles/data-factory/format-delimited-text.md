@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 64ef52e542d5e014ab3e79d98f730f691fa28a50
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 4b21aa5d63f371749081d7bc71577c7d0f5a2d49
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257381"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787682"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 구분된 텍스트 형식
 
@@ -28,7 +28,7 @@ ms.locfileid: "123257381"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 구분된 텍스트 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **DelimitedText** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다.  | 예      |
@@ -78,7 +78,7 @@ ms.locfileid: "123257381"
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | Description                                                  | 필수 |
+| 속성       | 설명                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 읽기 설정** 표를 참조하세요. |  예       |
@@ -86,7 +86,7 @@ ms.locfileid: "123257381"
 
 **아래의 지원되는** 구분된 텍스트 읽기 설정`formatSettings`:
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **DelimitedTextReadSettings** 로 설정해야 합니다. | 예      |
 | skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. | 예       |
@@ -126,7 +126,7 @@ ms.locfileid: "123257381"
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | Description                                                  | 필수 |
+| 속성       | 설명                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 쓰기 설정** 표를 참조하세요. |    예      |
@@ -134,7 +134,7 @@ ms.locfileid: "123257381"
 
 **아래의 지원되는** 구분된 텍스트 쓰기 설정`formatSettings`:
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 형식을 **DelimitedTextWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | fileExtension | 출력 파일의 이름을 지정하는 데 사용되는 파일 확장명입니다(예: `.csv`, `.txt`). 출력 DelimitedText 데이터 세트에 `fileName`이 지정되지 않은 경우 이 속성을 반드시 지정해야 합니다. 출력 데이터 세트에서 파일 이름이 구성되어 있으면 해당 이름이 싱크 파일 이름으로 사용되고 파일 확장명 설정은 무시됩니다.  | 출력 데이터 세트에 파일 이름이 지정되지 않은 경우 예입니다. |
@@ -149,7 +149,7 @@ ms.locfileid: "123257381"
 
 다음 표에서는 구분된 텍스트 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -167,7 +167,7 @@ ms.locfileid: "123257381"
 
 아래 그림은 매핑 데이터 흐름에서 구분된 텍스트 원본 구성의 예입니다.
 
-![DelimitedText 원본](media/data-flow/delimited-text-source.png)
+:::image type="content" source="media/data-flow/delimited-text-source.png" alt-text="DelimitedText 원본":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 
@@ -186,7 +186,7 @@ source(
 
 다음 표에서는 구분된 텍스트 소스에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열 데이터로 파일 이름 지정: String <br> 단일 파일로 출력: `['<fileName>']` <br> 열 데이터로 폴더 이름 지정: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
@@ -197,7 +197,7 @@ source(
 
 아래 그림은 매핑 데이터 흐름에서 구분된 텍스트 싱크 구성의 예입니다.
 
-![DelimitedText 싱크](media/data-flow/delimited-text-sink.png)
+:::image type="content" source="media/data-flow/delimited-text-sink.png" alt-text="DelimitedText 싱크":::
 
 연결된 데이터 흐름 스크립트는 다음과 같습니다.
 

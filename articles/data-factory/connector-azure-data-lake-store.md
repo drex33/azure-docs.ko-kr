@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e1ec23300f5bccfea161ec967702e65152bc658f
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 87e377c5fbfd5c8a6045e7178351419c246a0bc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314621"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652475"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -61,7 +61,7 @@ Azure Data Lake Storage Gen1 커넥터는 다음과 같은 작업에 지원됩�
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -193,7 +193,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
 
 **예:**
 
@@ -439,7 +439,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 원본 변환 시 Azure Data Lake Storage Gen1의 컨테이너, 폴더 또는 개별 파일에서 읽을 수 있습니다. **원본 옵션** 탭을 사용하여 파일을 읽는 방법을 관리할 수 있습니다. 
 
-![원본 옵션](media/data-flow/sourceOptions1.png "원본 옵션")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="원본 옵션":::
 
 **와일드카드 경로:** 와일드카드 패턴을 사용하면 서비스가 일치하는 각 폴더와 파일을 단일 원본 변환에서 반복하도록 지시합니다. 이는 단일 흐름 내에서 여러 파일을 처리하는 효과적인 방법입니다. 기존 와일드카드 패턴을 마우스로 가리키면 표시되는 + 기호를 사용하여 와일드카드 일치 패턴을 여러 개 추가합니다.
 
@@ -461,11 +461,11 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 먼저, 분할된 폴더와 읽으려는 리프 파일이 있는 경로를 모두 포함하도록 와일드카드를 설정합니다.
 
-![파티션 원본 파일 설정](media/data-flow/partfile2.png "파티션 파일 설정")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="파티션 원본 파일 설정":::
 
 파티션 루트 경로 설정을 사용하여 폴더 구조의 최상위 수준을 정의합니다. 데이터 미리 보기를 통해 데이터 콘텐츠를 보면 서비스가 각 폴더 수준에서 찾은 해결된 파티션을 추가함을 확인할 수 있습니다.
 
-![파티션 루트 경로](media/data-flow/partfile1.png "파티션 루트 경로 미리 보기")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="파티션 루트 경로":::
 
 **파일 목록:** 파일 집합입니다. 처리할 상대 경로 파일 목록이 포함된 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
 
@@ -477,15 +477,15 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 와일드카드가 있는 원본 경로를 사용하는 경우 구문은 다음과 같습니다.
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 "원본"은 다음과 같이 지정할 수 있습니다.
 
-```/data/sales```
+`/data/sales`
 
 "대상"은 다음과 같이 지정할 수 있습니다.
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 이 경우 /data/sale 아래에 원본이 있는 모든 파일이 /backup/priorSales로 이동됩니다.
 
@@ -498,7 +498,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 싱크 변환에서 Azure Data Lake Storage Gen1의 컨테이너 또는 폴더에 쓸 수 있습니다. **설정** 탭을 사용하여 파일을 작성하는 방법을 관리할 수 있습니다.
 
-![싱크 옵션](media/data-flow/file-sink-settings.png "싱크 옵션")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="싱크 옵션":::
 
 **폴더 선택 취소:** 데이터를 쓰기 전에 대상 폴더를 지울 것인지 여부를 결정합니다.
 

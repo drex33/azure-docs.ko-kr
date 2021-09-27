@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 2cee2aed6922a5a5d3f457c9f14fb54c07b18cd3
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 1aa06faa180f884a2b5848181f9b1a3a5a785c11
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310490"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665286"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -38,7 +38,7 @@ Azure DDoS 보호는 고객 데이터를 저장하지 않습니다.
 - **적응형 튜닝:** 지능형 트래픽 프로파일링으로 시간별 애플리케이션 트래픽을 학습하고, 사용자의 서비스에 가장 적합한 프로필을 업데이트합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다.
 - **다중 계층화된 보호:** WAF(웹 애플리케이션 방화벽)를 사용하여 배포된 경우 DDoS Protection 표준은 네트워크 계층(Azure DDoS Protection 표준에서 제공하는 계층 3 및 4)과 애플리케이션 계층(WAF에서 제공하는 계층 7)에서 모두 보호합니다. WAF 제품에는 Azure [pplication Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)와 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall)에서 사용할 수 있는 타사 웹 애플리케이션 방화벽 제품이 포함됩니다.
 - **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
-- **공격 분석:** 공격 진행 중에 5분 단위로 세부 보고서를 가져오고, 공격이 종료된 후에는 전체 요약을 가져옵니다. 스트림 완화 흐름은 공격 진행 중에 거의 실시간 모니터링을 위해 [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md) 또는 오프라인 SIEM(보안 정보 및 이벤트 관리) 시스템에 기록됩니다.
+- **공격 분석:** 공격 진행 중에 5분 단위로 세부 보고서를 가져오고, 공격이 종료된 후에는 전체 요약을 가져옵니다. 스트림 완화 흐름은 공격 진행 중에 거의 실시간 모니터링을 위해 [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) 또는 오프라인 SIEM(보안 정보 및 이벤트 관리) 시스템에 기록됩니다.
 - **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
 - **공격 경고:** 기본 제공되는 공격 메트릭을 사용하여 공격 시작 및 중지 시와 공격이 진행되는 동안 경고를 구성할 수 있습니다. 경고는 Microsoft Azure Monitor 로그, Splunk, Azure Storage, 이메일 및 Azure Portal과 같은 작업 소프트웨어에 통합됩니다.
 - **DDoS 신속 대응**: 공격 조사 및 분석에 관한 도움을 받으려면 DRR(DDoS Protectionㅍ신속 대응) 팀에 참여하세요. 자세히 알아보려면 [DDoS 신속 대응](ddos-rapid-response.md)을 참조하세요.
@@ -58,5 +58,5 @@ DDoS Protection 표준은 [가상 네트워크에 배포되는 서비스](../vir
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [DDoS Protection 계획 만들기](manage-ddos-protection.md)
+* [빠른 시작: DDoS Protection 계획 만들기](manage-ddos-protection.md)
+* [모듈 학습: Azure DDoS Protection 소개](/learn/modules/introduction-azure-ddos-protection/)

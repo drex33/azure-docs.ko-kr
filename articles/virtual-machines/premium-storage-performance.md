@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6cd71daa43eb311316bb0da8b54bbef8733fb168
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 5c6530f138167cbd21ed1b40dee3b056ceb8c638
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694331"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803852"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -311,7 +311,7 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 * **reiserFS** 의 경우 장애물을 사용하지 않도록 설정하려면 barrier=none mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier=flush를 사용합니다.
 * **ext3/ext4** 의 경우 장애물을 사용하지 않도록 설정하려면 barrier=0 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 장애물 = 1을 사용합니다.
-* **XFS** 의 경우 장애물을 사용하지 않도록 설정하려면 nobarrier mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier를 사용합니다.  이후 Linux 커널 버전에서 XFS 파일 시스템의 디자인이 항상 내구성을 보장하며, 장애물을 사용하지 않도록 설정해도 아무런 효과가 없습니다.  
+* **XFS** 의 경우 장애물을 사용하지 않도록 설정하려면 nobarrier mount 옵션을 사용합니다.  장애물을 명시적으로 사용하도록 설정하려면 barrier를 사용합니다. 주요 Linux 커널의 4.10 버전을 사용 하는 경우 XFS 파일 시스템 디자인은 항상 내구성을 보장 합니다. 장애물을 사용 하지 않도록 설정 해도 아무런 영향을 주지 않으며 "nobarrier" 옵션은 사용 되지 않습니다. 그러나 일부 Linux 배포판에서 이전 커널 버전을 사용 하는 배포 릴리스에 대 한 변경 내용을 포팅 했을 수 있습니다. 배포 공급 업체에 문의 하 여 실행 중인 배포 및 버전의 상태를 확인 하십시오.
 
 ## <a name="disk-striping"></a>디스크 스트라이프
 

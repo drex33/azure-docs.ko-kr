@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8bd683be329572189daedc74f089ef89d9f015ea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259751"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609672"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Azure Communication Services 메시징 정책
 
@@ -101,7 +101,6 @@ Azure Communication Services에서는 모든 메시징 캠페인에 대해 이�
  
 이러한 메시지에는 권유나 광고를 포함할 수 없습니다.
 
-
 ## <a name="opt-out"></a>옵트아웃
 
 메시지 수신자는 적절한 수단을 통해 동의를 철회하고 향후 메시지 수신을 옵트아웃(거부)할 수 있습니다. 메시지 수신자가 동의를 철회하는 독점적인 수단을 귀사가 지정할 수는 없습니다. 
@@ -115,7 +114,6 @@ Azure Communication Services에서는 모든 메시징 캠페인에 대해 이�
 ### <a name="opt-out-best-practices"></a>옵트아웃 모범 사례:
 
 키워드 외에 다른 일반적인 옵트아웃 메커니즘에는 지정된 옵트아웃 이메일 주소, 고객 지원 담당자의 전화 번호 또는 웹 페이지에서 구독 취소 링크를 고객에게 제공하는 것이 포함됩니다. 
-
 
 ### <a name="how-we-handle-opt-out-requests"></a>옵트아웃 요청을 처리하는 방법:
 

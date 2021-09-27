@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2086351f1e66cbd2ef41ac98b2ab86fe7275823b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98231845"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621360"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Azure 네트워킹 서비스를 사용하여 원격으로 작업
 
@@ -52,7 +52,7 @@ Azure에 배포된 리소스에 액세스하기 위해 원격 개발자는 액�
 
 대규모 VPN 연결을 집계하는 경우, 다양한 지역 허브 및 스포크 가상 네트워크에 있는 서로 다른 온-프레미스 전체 위치의 리소스 간 모든 연결을 지원하고, 여러 홈 광대역 네트워크의 활용을 최적화하기 위해 Azure Virtual WAN을 사용할 수 있습니다. 자세한 내용은 [가정에서 작업을 수행하는 데 도움이 필요하십니까? Azure Virtual WAN이 도움이 될 수 있는 곳은 다음과 같습니다.](../virtual-wan/work-remotely-support.md)를 참조하세요.
 
-원격 직원을 지원하는 또 다른 방법은Azure Firewall을 사용하여 보호되는 Azure Virtual Network에 호스트되는 VDI(가상 데스크톱 인프라)를 배포하는 것입니다. 예를 들어, Windows Virtual Desktop(WVD)은 Azure에서 실행되는 데스크톱 및 앱 가상화 서비스입니다. Windows Virtual Desktop을 사용하면 추가 게이트웨이 서버를 실행할 필요 없이 Azure 구독에 확장 가능하고 유연한 환경을 설정할 수 있습니다. 가상 네트워크의 WVD 가상 컴퓨터에 대해서만 책임이 있습니다. 자세한 내용은 [Azure Firewall 원격 작업 지원](../firewall/remote-work-support.md)을 참조하세요. 
+원격 직원을 지원하는 또 다른 방법은Azure Firewall을 사용하여 보호되는 Azure Virtual Network에 호스트되는 VDI(가상 데스크톱 인프라)를 배포하는 것입니다. 예를 들어 AVD(Azure Virtual Desktop)는 Azure에서 실행되는 데스크톱 및 앱 가상화 서비스입니다. Azure Virtual Desktop을 사용하면 추가 게이트웨이 서버를 실행할 필요 없이 Azure 구독에서 확장 가능하고 유연한 환경을 설정할 수 있습니다. 가상 네트워크의 AVD 가상 머신만 담당합니다. 자세한 내용은 [Azure Firewall 원격 작업 지원](../firewall/remote-work-support.md)을 참조하세요. 
 
 Azure에는 다양한 에코 시스템 파트너도 있습니다. Azure의 파트너 네트워크 가상 어플라이언스를 통해 VPN 연결을 확장할 수도 있습니다. 자세한 내용은 [원격 작업에 대한 NVA(네트워크 가상 어플라이언스)](../vpn-gateway/nva-work-remotely-support.md)를 참조하세요.
 

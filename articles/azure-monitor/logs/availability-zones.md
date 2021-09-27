@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3025d24e0e70d15e675eed59cacf7c5c8fb8c72b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e10ace3ca0932cf5803719429a68b89a4118dfa
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584981"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059324"
 ---
 # <a name="availability-zones-in-azure-monitor"></a>Azure Monitor의 가용성 영역
 
-[Azure 가용성 영역은](../../availability-zones/az-overview.md) 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하 고 Application Insights 및 Log Analytics 작업 영역을 사용 하는 기타 기능과 같은 Azure Monitor 기능에 대 한 복원 력을 제공할 수 있습니다. 작업 영역이 가용성 영역에 연결되면 특정 데이터 센터가 오작동하거나 완전히 다운되더라도 해당 지역의 다른 영역 가용성에 의존하여 활성 상태를 유지하고 작동합니다. 대체 영역으로 전환하거나 인시던트를 파악하기 위해 아무것도 수행할 필요가 없습니다. 
+[Azure 가용성 영역은](../../availability-zones/az-overview.md) 데이터 센터 오류로부터 애플리케이션 및 데이터를 보호하고 Application Insights 같은 Azure Monitor 기능 및 Log Analytics 작업 영역에 의존하는 기타 기능에 대한 복원력을 제공할 수 있습니다. 작업 영역이 가용성 영역에 연결되면 특정 데이터 센터가 오작동하거나 완전히 다운되더라도 해당 지역의 다른 영역 가용성에 의존하여 활성 상태를 유지하고 작동합니다. 대체 영역으로 전환하거나 인시던트를 파악하기 위해 아무것도 수행할 필요가 없습니다. 
 
 
 ## <a name="regions"></a>영역
@@ -49,9 +49,9 @@ Azure Monitor에서 가용성 영역을 지원하려면 [Azure Monitor 전용 �
 작업 영역에 대한 모든 쿼리는 단일 통합 결과 세트를 제공하기 위해 필요한 대로 두 클러스터를 모두 쿼리합니다. 즉, 통합 문서 및 대시보드와 같은 작업 영역에 의존하는 모든 Azure Monitor 기능은 두 클러스터의 데이터를 기반으로 하는 전체 통합 결과 집합을 계속 가져옵니다.
 
 ## <a name="billing"></a>결제
-[전용 클러스터 사용 비용](logs-dedicated-clusters.md#create-a-dedicated-cluster)이 있습니다. 1,000GB의 일별 용량 예약이 필요합니다. 이는 2021년 8월 4일에 500GB로 줄어듭니다. 
+[전용 클러스터 사용 비용](logs-dedicated-clusters.md#create-a-dedicated-cluster)이 있습니다. 500GB의 일일 용량 예약이 필요합니다. 
 
-이미 전용 클러스터가 있고 데이터 액세스를 위해 유지하기로 선택한 경우 두 전용 클러스터에 대한 요금이 부과됩니다. 2021년 8월 4일부터 전용 클러스터의 최소 필수 용량 예약이 500GB/일로 감소하므로 요금을 줄이기 위해 이 최소 용량을 이전 클러스터에 적용하는 것이 좋습니다.
+이미 전용 클러스터가 있고 데이터 액세스를 위해 유지하기로 선택한 경우 두 전용 클러스터에 대한 요금이 부과됩니다. 2021년 8월 4일부터 전용 클러스터에 필요한 최소 용량 예약이 1000GB/일별에서 500GB/일별로 감소하므로 요금을 줄이기 위해 이전 클러스터에 최소값을 적용하는 것이 좋습니다.
 
 새 클러스터는 구성하는 동안 이중으로 청구되지 않도록 첫 번째 날에는 요금이 청구되지 않습니다. 마이그레이션이 완료되기 전에 수집된 데이터만 마이그레이션 날짜에 요금이 계속 청구됩니다. 
 

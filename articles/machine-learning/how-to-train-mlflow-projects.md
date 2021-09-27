@@ -3,20 +3,20 @@ title: MLflow 프로젝트를 사용하여 학습
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning을 사용해 MLflow를 설정하여 ML 모델에서 메트릭 및 아티팩트를 로깅합니다.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 06/16/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f9a298a311ac30b03be569a35aa59c0c6157601e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 11358869e727948627e76c0f56c049b95c0abbb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287608"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784784"
 ---
 # <a name="train-ml-models-with-mlflow-projects-and-azure-machine-learning"></a>MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습
 

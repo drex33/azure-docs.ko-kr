@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 6bce47e07d2f9c2a9a8ac2043488739d2d2421c6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 99b87fd0066d67d09979965bab3a67d1b549afd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773830"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599509"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -95,13 +95,13 @@ FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가�
 
 **머리글** | **설명 및 예**
 --- | ---
-콘텐츠 형식 | 요청 형식입니다(Content-Type: application/<format>). FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
-권한 부여 | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer <Access-Token>
+콘텐츠 형식 | 요청 형식(Content-Type: `application/<format>` )입니다. FarmBeats Datahub API의 경우 형식은 JSON입니다. Content-Type: application/json
+권한 부여 | API 호출을 수행하는 데 필요한 액세스 토큰을 지정합니다. 권한 부여: Bearer \<Access-Token\>
 수락 | 응답 형식입니다. FarmBeats Datahub API의 경우 형식은 JSON입니다. Accept: application/json
 
 **API 요청**
 
-REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 샘플은 다음과 같습니다. https://\<yourdatahub-website-name>.azurewebsites.net
+REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 샘플은 다음과 같습니다. `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 

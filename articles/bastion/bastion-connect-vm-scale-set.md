@@ -2,17 +2,17 @@
 title: Azure Bastion을 사용하여 Windows Virtual Machine Scale Sets에 연결
 description: Azure Bastion을 사용하여 Azure Virtual Machine Scale Sets에 연결하는 방법을 알아봅니다.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: charwen
-ms.openlocfilehash: 361bb52ffd9762a49a549fe3fc5ac5cd652416ca
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.date: 09/20/2021
+ms.author: cherylmc
+ms.openlocfilehash: e57ee80fa7727a6f5e7e1ec59857746cb4b8d590
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534158"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620658"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Azure Bastion을 사용하여 가상 머신 확장 집합에 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "110534158"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-가상 머신 확장 집합이 상주하는 가상 네트워크에 대해 Azure Bastion 호스트를 설정했는지 확인합니다. 자세한 내용은 [Azure Bastion 호스트 만들기](./tutorial-create-host-portal.md)를 참조하세요. Bastion 서비스가 가상 네트워크에서 프로비저닝되어 배포되면 서비스를 사용하여 이 가상 네트워크의 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. Bastion은 RDP를 사용하여 Windows 가상 머신 확장 집합에 연결하고 SSH를 사용하여 Linux 가상 머신 확장 집합에 연결한다고 가정합니다. Linux VM에 연결에 대한 자세한 내용은 [VM에 연결 - Linux](bastion-connect-vm-ssh.md)을 참조하세요.
+가상 머신 확장 집합이 상주하는 가상 네트워크에 대해 Azure Bastion 호스트를 설정했는지 확인합니다. 자세한 내용은 [Azure Bastion 호스트 만들기](./tutorial-create-host-portal.md)를 참조하세요. Bastion 서비스가 가상 네트워크에서 프로비저닝되어 배포되면 서비스를 사용하여 이 가상 네트워크의 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. Bastion은 RDP를 사용하여 Windows 가상 머신 확장 집합에 연결하고 SSH를 사용하여 Linux 가상 머신 확장 집합에 연결한다고 가정합니다. Linux VM에 연결에 대한 자세한 내용은 [VM에 연결 - Linux](bastion-connect-vm-ssh-linux.md)을 참조하세요.
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>RDP를 사용하여 연결
 

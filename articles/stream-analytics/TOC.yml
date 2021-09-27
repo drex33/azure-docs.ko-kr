@@ -324,6 +324,12 @@
           href: stream-analytics-machine-learning-anomaly-detection.md
         - name: ML REST API 사용
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+    - name: Application Insights에서 내보내기
+      items:
+        - name: Stream Analytics로 내보내기
+          href: app-insights-export-stream-analytics.md
+        - name: Stream Analytics를 사용하여 SQL로 내보내기
+          href: app-insights-export-sql-stream-analytics.md
     - name: 작업 다이어그램을 사용하여 디버그
       href: stream-analytics-job-diagram-with-metrics.md
     - name: ML 함수로 크기 조정

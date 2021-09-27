@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c468dccd9058125169181c3fc456b71b7ea7ffec
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d7e471ea01a7b0244080a0df9738aa3b8f70268d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590953"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Network Watcher 확장을 최신 버전으로 업데이트
 
@@ -34,7 +34,7 @@ ms.locfileid: "122528754"
 
 ## <a name="latest-version"></a>최신 버전
 
-Network Watcher 확장의 최신 버전은 현재 `1.4.1884.1`입니다.
+Network Watcher 확장의 최신 버전은 현재 `1.4.1974.1`입니다.
 
 ## <a name="update-your-extension-using-a-powershell-script"></a>PowerShell 스크립트를 사용하여 확장 업데이트
 여러 VM을 한 번에 업데이트해야 하는 대량 배포를 사용하는 고객 선택한 VM을 수동으로 업데이트하려면 다음 섹션을 참조하세요. 
@@ -59,7 +59,7 @@ param(
     [Parameter(Mandatory=$false)]
     [Switch] $NoUpdate = $false,
     [Parameter(Mandatory=$false)]
-    [string] $MinVersion = "1.4.1654.1"
+    [string] $MinVersion = "1.4.1974.1"
 )
 
 

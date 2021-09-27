@@ -4,18 +4,18 @@ titleSuffix: Azure API Management
 description: API 소비자가 API를 탐색할 수 있는 사용자 지정 가능한 웹 사이트인 API Management의 개발자 포털에 대해 알아봅니다.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3f5da5ed6c828278eb25a9fa4fa5cfb90e16f8f4
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
-ms.translationtype: HT
+ms.openlocfilehash: 4fa9b0e777ce64322ebad74c8279724817530790
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664583"
 ---
 # <a name="overview-of-the-developer-portal"></a>개발자 포털 개요
 

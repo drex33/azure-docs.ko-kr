@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da85ec5781ff9575cf380092fea9e41d6af8786
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: ee3e5b7b172bc6441e0148c3cbfa4bab02e6949b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686125"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586469"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Azure 외부 서비스 요금의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시하지 않은 외부 서비스입니다. 일부 Microsoft 제품은 Azure Marketplace를 통해서도 판매됩니다.
@@ -61,14 +61,14 @@ Azure Marketplace 요금은 현지 통화로 표시됩니다.
 Azure Marketplace 청구서는 다음 단계에 따라 Azure Portal에서 보고 다운로드할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.
-1. 왼쪽 메뉴에서 **청구서**를 선택합니다.
+1. **Cost Management + 청구** 를 검색합니다.
+1. 왼쪽 메뉴에서 **청구서** 를 선택합니다.
 1. 구독 드롭다운에서 Marketplace 서비스와 연결된 구독을 선택합니다.
-1. 청구서 목록에서 **유형** 열을 검토합니다. Marketplace 서비스 청구서인 경우 유형은 **Azure Marketplace 및 Reservations**입니다. 
+1. 청구서 목록에서 **유형** 열을 검토합니다. Marketplace 서비스 청구서인 경우 유형은 **Azure Marketplace 및 Reservations** 입니다. 
 
     ![청구서 그리드의 Azure Marketplace 유형에 대한 스크린샷](./media/understand-azure-marketplace-charges/marketplace-type-twd.png)
 
-1. Azure Marketplace 및 Reservations 청구서만 표시하도록 유형별로 필터링하려면 **유형** 필터를 선택합니다. 그런 다음, 드롭다운에서 **Azure Marketplace 및 Reservations**를 선택합니다.
+1. Azure Marketplace 및 Reservations 청구서만 표시하도록 유형별로 필터링하려면 **유형** 필터를 선택합니다. 그런 다음, 드롭다운에서 **Azure Marketplace 및 Reservations** 를 선택합니다.
 
     ![드롭다운에서 선택한 Azure Marketplace 및 예약을 보여 주는 선택한 유형 필터의 스크린샷](./media/understand-azure-marketplace-charges/type-filter.png)
 
@@ -92,9 +92,9 @@ MCA 또는 MPA가 없는 경우 다음 단계에 따라 Azure Portal에서 Marke
     ![청구서 그리드에서 선택한 지금 결제 링크를 보여 주는 스크린샷](./media/understand-azure-marketplace-charges/pay-now-twd.png)
 
     >[!NOTE]
-    > 청구서 유형이 **Azure Marketplace 및 Reservations**이고 청구서 결제 상태가 만기일이거나 이를 넘긴 경우에만 **지금 결제** 링크가 표시됩니다.
+    > 청구서 유형이 **Azure Marketplace 및 Reservations** 이고 청구서 결제 상태가 만기일이거나 이를 넘긴 경우에만 **지금 결제** 링크가 표시됩니다.
 
-1. 새 페이지에서 파란색 **결제 방법 선택**을 클릭합니다.
+1. 새 페이지에서 파란색 **결제 방법 선택** 을 클릭합니다.
 
     ![선택한 결제 방법 선택 링크를 보여 주는 스크린샷](./media/understand-azure-marketplace-charges/select-payment-method-pay-now-twd.png)
 
@@ -106,7 +106,7 @@ MCA 또는 MPA가 없는 경우 다음 단계에 따라 Azure Portal에서 Marke
 외부 서비스를 구매할 때 리소스에 대한 Azure 구독을 선택합니다. 선택한 Azure 구독의 결제 방법은 외부 서비스에 대한 지불 방법이 됩니다. 외부 서비스에 대한 결제 방법을 변경하려면 해당 외부 서비스에 연결된 [Azure 구독의 지불 방법을 변경](../manage/change-credit-card.md)해야 합니다. 다음 단계를 수행하여 외부 서비스 주문이 연결된 구독을 파악할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 탐색 메뉴에서 **모든 리소스**를 클릭합니다.
+1. 왼쪽 탐색 메뉴에서 **모든 리소스** 를 클릭합니다.
      ![모든 리소스 메뉴 항목의 스크린샷](./media/understand-azure-marketplace-charges/all-resources.png)
 1. 외부 서비스를 검색합니다.
 1. **구독** 열에서 구독의 이름을 찾습니다.
@@ -118,15 +118,15 @@ MCA 또는 MPA가 없는 경우 다음 단계에 따라 Azure Portal에서 Marke
 외부 서비스 주문을 취소하려는 경우 [Azure Portal](https://portal.azure.com)에서 리소스를 삭제합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 탐색 메뉴에서 **모든 리소스**를 클릭합니다.
+1. 왼쪽 탐색 메뉴에서 **모든 리소스** 를 클릭합니다.
     ![모든 리소스 메뉴 항목의 스크린샷](./media/understand-azure-marketplace-charges/all-resources.png)
 1. 외부 서비스를 검색합니다.
 1. 삭제하려는 리소스 옆에 있는 확인란을 선택합니다.
-1. 명령 모음에서 **삭제**를 선택합니다.
+1. 명령 모음에서 **삭제** 를 선택합니다.
     ![삭제 단추의 스크린샷](./media/understand-azure-marketplace-charges/delete-button.png)
 1. 확인 블레이드에서 *‘예’* 를 입력합니다.
     ![리소스 삭제](./media/understand-azure-marketplace-charges/delete-resource.PNG)
-1. **삭제**를 클릭합니다.
+1. **삭제** 를 클릭합니다.
 
 ## <a name="check-billing-account-type"></a>청구 계정 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-mca.md)]

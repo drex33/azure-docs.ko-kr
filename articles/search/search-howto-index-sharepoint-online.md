@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 61e9787c0a85ad412d3e70cfb2452d288a48d36a
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: 3a6bb0fd360b334299c6cd1be2795121a3b53203
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983053"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777529"
 ---
 # <a name="index-data-from-sharepoint-online"></a>SharePoint Online의 데이터 인덱싱
 
@@ -28,7 +28,6 @@ ms.locfileid: "112983053"
 
 Azure Cognitive Search의 인덱서는 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하는 크롤러입니다. SharePoint Online 인덱서는 SharePoint Online 사이트에 연결한 후 하나 이상의 문서 라이브러리에 있는 문서를 인덱싱합니다. 인덱서는 다음과 같은 기능을 제공합니다.
 + 하나 이상의 SharePoint Online 문서 라이브러리에 있는 콘텐츠를 인덱싱합니다.
-+ Azure Cognitive Search 서비스와 동일한 테넌트에 있는 SharePoint Online 문서 라이브러리의 콘텐츠를 인덱싱합니다. 인덱서는 Azure Cognitive Search 서비스와는 다른 테넌트에 있는 SharePoint 사이트에서 작동하지 않습니다. 
 + 인덱서는 증분 인덱싱을 지원합니다. 증분 인덱싱에서는 문서 라이브러리에서 변경된 콘텐츠를 식별하고 후속 인덱싱 실행 시 업데이트 된 내용만 인덱싱됩니다. 예를 들어, 처음에 5개의 PDF가 인덱서에서 인덱싱되는 경우 1개가 업데이트되면 인덱서가 다시 실행된 후 업데이트된 1개의 PDF만 인덱싱합니다.
 + 텍스트 및 정규화된 이미지는 기본적으로 인덱싱되는 문서에서 추출됩니다. 필요에 따라 추가 콘텐츠 보강을 위해 파이프라인에 기술 세트를 추가할 수 있습니다. 기술 세트에 대한 자세한 내용은 [Azure Cognitive Search의 기술 세트 개념](cognitive-search-working-with-skillsets.md) 문서를 참조하세요.
 
@@ -50,8 +49,11 @@ SharePoint Online 인덱서를 설정하려면 Azure Portal 및 미리 보기 RE
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
-### <a name="step-1-enable-system-assigned-managed-identity"></a>1단계: 시스템이 할당한 관리 ID 사용
-시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다.
+### <a name="step-1-optional-enable-system-assigned-managed-identity"></a>1 단계 (선택 사항): 시스템 할당 관리 id 사용
+
+시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다. 이 id는 검색 서비스가 프로 비전 된 테 넌 트를 자동으로 검색 하는 데 사용 됩니다.
+
+SharePoint Online 사이트가 검색 서비스와 동일한 테 넌 트에 있는 경우 검색 서비스에 대 한 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다. SharePoint Online 사이트가 검색 서비스와 다른 테 넌 트에 있는 경우 시스템 할당 관리 id를 사용 하도록 설정할 필요가 없습니다.
 
 ![시스템이 할당한 관리 ID 사용](media/search-howto-index-sharepoint-online/enable-managed-identity.png "시스템이 할당한 관리 ID 사용")
 
@@ -117,10 +119,13 @@ api-key: [admin key]
 {
     "name" : "sharepoint-datasource",
     "type" : "sharepoint",
-    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID]" },
+    "credentials" : { "connectionString" : "SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID];TenantId=[SharePoint Online site tenant id]" },
     "container" : { "name" : "defaultSiteLibrary", "query" : null }
 }
 ```
+
+> [!NOTE]
+> SharePoint Online 사이트가 검색 서비스와 같은 테 넌 트에 있고 시스템 할당 관리 id가 사용 되는 경우는 `TenantId` 연결 문자열에 포함 될 필요가 없습니다. SharePoint Online 사이트가 검색 서비스와 다른 테 넌 트에 있는 경우에는를 `TenantId` 포함 해야 합니다.
 
 ### <a name="step-4-create-an-index"></a>4단계: 인덱스 만들기
 인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.

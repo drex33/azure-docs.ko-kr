@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: bf1ca9de6d7ee8ac6c7e87bd444cbd1d98b56f51
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 0d7d68f9452f5f551361a48580e223b0dd614a09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463408"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818124"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 Linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -70,19 +70,15 @@ Azure NetApp Files는 여러 [Azure 지역](https://azure.microsoft.com/global-i
 
 [Azure 지역별 Azure NetApp Files 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)을 사용하여 지역별 Azure NetApp Files 가용성을 확인합니다.
 
-Azure NetApp Files를 배포하기 전에 [Azure NetApp Files 지침의 등록](../../../azure-netapp-files/azure-netapp-files-register.md)을 참조하세요.
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Azure NetApp Files 리소스 배포
 
 다음 지침에서는 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md)를 이미 배포했다고 가정합니다. Azure NetApp Files 리소스가 탑재될 Azure NetApp Files 리소스와 VM을 동일하거나 피어링된 Azure Virtual Network에 배포해야 합니다.
 
-1. 아직 리소스를 배포하지 않은 경우 [Azure NetApp Files를 등록](../../../azure-netapp-files/azure-netapp-files-register.md)합니다.
+1. 선택한 Azure 지역에서 [Azure NetApp Files 계정을 만듭니다](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-2. 선택한 Azure 지역에서 [Azure NetApp Files 계정을 만듭니다](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+2. [Azure NetApp Files 용량 풀을 설정합니다](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). 이 문서에 제공된 SAP BI 플랫폼 아키텍처는 프리미엄 서비스 수준에서 단일 Azure NetApp Files 용량 풀을 사용합니다. Azure의 SAP BI 파일 리포지토리 서버에는 Azure NetApp Files 프리미엄 또는 울트라 [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)을 사용하는 것이 좋습니다.
 
-3. [Azure NetApp Files 용량 풀을 설정합니다](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). 이 문서에 제공된 SAP BI 플랫폼 아키텍처는 프리미엄 서비스 수준에서 단일 Azure NetApp Files 용량 풀을 사용합니다. Azure의 SAP BI 파일 리포지토리 서버에는 Azure NetApp Files 프리미엄 또는 울트라 [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)을 사용하는 것이 좋습니다.
-
-4. [Azure NetApp Files에 서브넷을 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)합니다.
+3. [Azure NetApp Files에 서브넷을 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)합니다.
 
 5. [Azure NetApp Files용 NFS 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) 지침에 따라 Azure NetApp Files 볼륨을 배포합니다.
 

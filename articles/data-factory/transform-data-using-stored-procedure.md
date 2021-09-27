@@ -1,32 +1,32 @@
 ---
 title: 저장 프로시저 작업을 이용한 데이터 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: SQL Server 저장 프로시저 작업을 사용하여 Data Factory 파이프라인의 Azure SQL Database/Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다.
+description: SQL Server 저장 프로시저 작업을 사용 하 여 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 Azure SQL Database/Data Warehouse의 저장 프로시저를 호출 하는 방법을 설명 합니다.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 11/27/2018
-ms.openlocfilehash: c3815bfca83d6dcf789a780a2d82ff1d4bb62285
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: d2dacc3379d1587352c7593c3766294613229fad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538570"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798354"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics에서 SQL Server 저장 프로시저 작업을 사용 하 여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-stored-proc-activity.md)
 > * [현재 버전](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 팩터리의 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환](transform-data.md) 문서에서 빌드합니다.
+Data Factory 또는 Synapse [파이프라인](concepts-pipelines-activities.md) 의 데이터 변환 작업을 사용 하 여 원시 데이터를 예측 및 통찰력으로 변환 하 고 처리 합니다. 저장 프로시저 작업은 파이프라인이 지 원하는 변환 작업 중 하나입니다. 이 문서는 데이터 변환 및 지원되는 변환 작업의 일반적인 개요를 제공하는 [데이터 변환](transform-data.md) 문서를 기반으로 합니다.
 
 > [!NOTE]
-> Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](introduction.md)를 읽고 [자습서: 데이터 변환](tutorial-transform-data-spark-powershell.md)을 수행하세요. 
+> Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](introduction.md)를 읽고 [자습서: 데이터 변환](tutorial-transform-data-spark-powershell.md)을 수행하세요.  Synapse Analytics에 대해 자세히 알아보려면 [Azure Synapse Analytics 란?](../synapse-analytics/overview-what-is.md)을 참조 하세요.
 
 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
 
@@ -76,7 +76,7 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 | storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 예       |
 
 ## <a name="parameter-data-type-mapping"></a>매개 변수 데이터 형식 매핑
-매개 변수에 지정하는 데이터 형식은 사용하는 데이터 원본의 데이터 형식에 매핑되는 Azure Data Factory 유형입니다. 커넥터 설명서에서 설명된 데이터 원본의 데이터 형식 매핑을 찾을 수 있습니다. 예를 들면 다음과 같습니다.
+매개 변수에 대해 지정 하는 데이터 형식은 사용 하는 데이터 원본의 데이터 형식에 매핑되는 내부 서비스 유형입니다. 커넥터 설명서에서 설명된 데이터 원본의 데이터 형식 매핑을 찾을 수 있습니다. 예를 들면 다음과 같습니다.
 
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#data-type-mapping-for-azure-synapse-analytics)
 - [Azure SQL Database 데이터 형식 매핑](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)

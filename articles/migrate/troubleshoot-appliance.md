@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/01/2020
-ms.openlocfilehash: c67ad02737fc8a40895f99cd3acf05ba98e7643e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: d6d87d7503a68091e72f1aa84703966ab28f32b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305898"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654521"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 문제 해결
 
@@ -275,10 +275,7 @@ $HostIntance | fl *
 
 - 이 오류가 발생하면 어플라이언스 구성 관리자에 제공된 사용자 계정(도메인/로컬)이 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가되었는지 확인합니다.
 - 원격 관리 사용자 그룹이 없는 경우 WinRMRemoteWMIUsers_ 그룹에 사용자 계정을 추가합니다.
-- 대상 서버의 명령 프롬프트에서 다음 명령을 실행하여 서버에서 WS-Management 프로토콜이 사용하도록 설정되어 있는지 확인할 수도 있습니다.
-    
-    ```` winrm qc ````
-
+- 대상 서버의 명령 프롬프트에서 다음 명령을 실행 하 여 서버에서 WS-Management 프로토콜이 사용 하도록 설정 되었는지 확인할 수도 있습니다. `winrm qc`
 - 여전히 문제가 발생하면 사용자 계정에 WMI 제어판의 CIMV2 네임스페이스 및 하위 네임스페이스에 대한 액세스 권한이 있는지 확인합니다. 다음 단계에 따라 액세스 권한을 설정할 수 있습니다.
 
     1. 어플라이언스에서 유효성 검사가 실패한 서버로 이동합니다.

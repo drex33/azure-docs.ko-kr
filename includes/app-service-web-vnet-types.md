@@ -1,15 +1,15 @@
 ---
-author: ccompy
+author: madsd
 ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
-ms.author: ccompy
-ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: madsd
+ms.openlocfilehash: 8d4c2968e3b21269d233f584747856804f8ff9c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528364"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641936"
 ---
 * 격리 계층을 제외한 모든 범위의 요금제를 지원하는 다중 테넌트 시스템입니다.
 * App Service Environment는 VNet에 배포되고 격리된 가격 책정 계획 앱을 지원합니다.
@@ -19,7 +19,7 @@ VNet 통합 기능은 다중 테넌트 앱에서 사용됩니다. 앱이 [App Se
 VNet 통합은 VNet의 리소스에 대한 액세스 권한을 앱에 부여하지만, VNet에서 앱에 대한 인바운드 프라이빗 액세스 권한은 부여하지 않습니다. 프라이빗 사이트 액세스는 Azure 가상 네트워크 내에서와 같은 프라이빗 네트워크에서만 앱에 액세스할 수 있도록 합니다. VNet 통합은 앱에서 VNet으로 아웃바운드 호출을 수행하는 데만 사용됩니다. VNet 통합 기능은 동일한 지역의 VNet에서 사용할 때와 다른 지역의 VNet에서 사용할 때 다르게 작동합니다. VNet 통합 기능에는 두 가지 변형이 있습니다.
 
 * **지역 VNet 통합**: 동일한 지역의 Azure Resource Manager 가상 네트워크에 연결하는 경우 통합하는 VNet에 전용 서브넷이 있어야 합니다.
-* **게이트웨이 필수 VNet 통합**: 다른 지역의 VNet 또는 동일한 지역의 클래식 가상 네트워크에 연결하는 경우 대상 VNet에서 프로비전된 Azure Virtual Network 게이트웨이가 필요 합니다.
+* **게이트웨이 필수 VNet 통합:** 다른 지역의 VNet 또는 동일한 지역의 클래식 가상 네트워크에 직접 연결하는 경우 대상 VNet에 프로비전된 Azure Virtual Network 게이트웨이가 필요합니다.
 
 VNet 통합 기능에는 다음이 적용됩니다.
 

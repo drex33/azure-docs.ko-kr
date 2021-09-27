@@ -4,14 +4,14 @@ description: Azure의 모든 메트릭, 경고, 진단 로그에 대한 원스�
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 09/14/2021
 ms.author: duau
-ms.openlocfilehash: abcec496f6bf3fdcd42dcffa66ecfb67533c7052
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: ebb661500fdf14d19218704906d24f391389bec8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449498"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667214"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -27,9 +27,14 @@ ms.locfileid: "123449498"
 
 메트릭을 선택하면 기본 집계가 적용됩니다. 필요에 따라 분할을 적용하여 차원이 다른 메트릭을 표시할 수 있습니다.
 
+> [!IMPORTANT]
+> Azure Portal ExpressRoute 메트릭을 볼 때 최상의 결과를 위해 **5분 이상** 시간 세분성을 선택합니다.
+> 
+> :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="시간 세분성 옵션의 스크린샷.":::
+
 ### <a name="aggregation-types"></a>집계 형식:
 
-메트릭 탐색기는 [집계 형식](../azure-monitor/essentials/metrics-charts.md#aggregation)으로 SUM, MAX, MIN, AVG 및 COUNT를 지원합니다. 각 ExpressRoute 메트릭에 대한 인사이트를 검토할 때는 권장 집계 형식을 사용해야 합니다.
+메트릭 탐색기는 [집계 형식](../azure-monitor/essentials/metrics-charts.md#aggregation)으로 SUM, MAX, MIN, AVG 및 COUNT를 지원합니다. 각 ExpressRoute 메트릭에 대한 인사이트를 검토할 때 권장되는 집계 유형을 사용해야 합니다.
 
 * Sum: 집계 간격 중에 캡처된 모든 값의 합계입니다. 
 * Count: 집계 간격 중에 캡처된 측정 수입니다. 
@@ -37,33 +42,59 @@ ms.locfileid: "123449498"
 * Min: 집계 간격 중에 캡처된 가장 작은 값입니다. 
 * Max: 집계 간격 중에 캡처된 가장 큰 값입니다. 
 
-### <a name="available-metrics"></a>사용 가능한 메트릭
+### <a name="expressroute-circuit"></a>ExpressRoute 회로
 
-|**메트릭**|**범주**|**차원**|**기능**|
-| --- | --- | --- | --- |
-|ARP 가용성|가용성|<ul><li>피어(기본/보조 ExpressRoute 라우터)</li><li> 피어링 유형(프라이빗/퍼블릭/Microsoft)</li></ul>|ExpressRoute|
-|BGP 가용성|가용성|<ul><li> 피어(기본/보조 ExpressRoute 라우터)</li><li> 피어링 유형</li></ul>|ExpressRoute|
-|BitsInPerSecond|트래픽|<ul><li> 피어링 유형(ExpressRoute)</li><li>링크(ExpressRoute Direct)</li></ul>|<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute 게이트웨이 연결</li></ul>|
-|BitsOutPerSecond|트래픽| <ul><li>피어링 유형(ExpressRoute)</li><li> 링크(ExpressRoute Direct)</li></ul> |<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>ExpressRoute 게이트웨이 연결</li></ul>|
-|CPU 사용률|성능| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
-|초당 패킷|성능| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
-|피어에 보급된 경로 수 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
-|피어에서 학습된 경로 수 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
-|경로 변경 빈도 |가용성| <ul><li>인스턴스</li></ul>|ExpressRoute 가상 네트워크 게이트웨이|
-|가상 네트워크의 VM 수 |가용성| 해당 없음 |ExpressRoute 가상 네트워크 게이트웨이|
-|GlobalReachBitsInPerSecond|트래픽|<ul><li>피어링 회로 Skey(서비스 키)</li></ul>|Global Reach|
-|GlobalReachBitsOutPerSecond|트래픽|<ul><li>피어링 회로 Skey(서비스 키)</li></ul>|Global Reach|
-|AdminState|물리적 연결|링크|ExpressRoute Direct|
-|LineProtocol|물리적 연결|링크|ExpressRoute Direct|
-|RxLightLevel|물리적 연결|<ul><li>링크</li><li>레인</li></ul>|ExpressRoute Direct|
-|TxLightLevel|물리적 연결|<ul><li>링크</li><li>레인</li></ul>|ExpressRoute Direct|
+| 메트릭 | 범주 | 단위 | 집계 형식 | Description | 차원 |  진단 설정을 통해 내보내기 가능? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [Arp 가용성](#arp) | 가용성 | 백분율 | 평균 | 모든 피어에 대한 MSEE의 ARP 가용성 | PeeringType, 피어 |  Yes | 
+| [Bgp 가용성](#bgp) | 가용성 | 백분율 | 평균 | 모든 피어에 대한 MSEE의 BGP 가용성 | PeeringType, 피어 |  Yes | 
+| [BitsInPerSecond](#circuitbandwidth) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 수신 비트 | PeeringType | No | 
+| [BitsOutPerSecond](#circuitbandwidth) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 송신 비트 | PeeringType | No | 
+| DroppedInBitsPerSecond | 트래픽 | BitsPerSecond | 평균 | 초당 삭제된 수신 데이터 비트 수 | 피어링 유형 | 예 | 
+| DroppedOutBitsPerSecond | 트래픽 | BitPerSecond | 평균 | 초당 삭제된 송신 데이터 비트 수 | 피어링 유형 | Yes | 
+| GlobalReachBitsInPerSecond | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 수신 비트 | PeeredCircuitSKey | 예 | 
+| GlobalReachBitsOutPerSecond | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 송신 비트 | PeeredCircuitSKey | No | 
+
 >[!NOTE]
 >*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 사용은 하나 이상의 Global Reach 연결이 설정된 경우에만 표시됩니다.
 >
 
+### <a name="expressroute-gateways"></a>ExpressRoute 게이트웨이
+
+| 메트릭 | 범주 | 단위 | 집계 형식 | Description | 차원 | 진단 설정을 통해 내보내기 가능? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [CPU 사용률](#cpu) | 성능 | 개수 | 평균 | ExpressRoute 게이트웨이의 CPU 사용률 | roleInstance | Yes | 
+| [초당 패킷 수](#packets) | 성능 | 초당 개수 | 평균 | ExpressRoute 게이트웨이의 패킷 수 | roleInstance | No | 
+| [피어에 알린 경로 수](#advertisedroutes) | 가용성 | 개수 | 최대 | ExpressRouteGateway에서 피어에 알린 경로 수 | roleInstance | Yes | 
+| [피어에서 학습 한 경로 수](#learnedroutes)| 가용성 | 개수 | 최대 | ExpressRouteGateway가 피어에서 학습한 경로 수 | roleInstance | Yes | 
+| [경로 변경 빈도](#frequency) | 가용성 | 개수 | 합계 | ExpressRoute 게이트웨이의 경로 변경 빈도 | roleInstance | No | 
+| [가상 네트워크의 Vm 수](#vm) | 가용성 | 개수 | 최대 | Virtual Network의 VM 수 | 차원 없음 | No | 
+
+### <a name="expressroute-gateway-connections"></a>Express 경로 게이트웨이 연결
+
+| 메트릭 | 범주 | 단위 | 집계 형식 | Description | 차원 | 진단 설정을 통해 내보내기 가능? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#connectionbandwidth) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 수신 비트 | 연결 이름 | No | 
+| [BitsOutPerSecond](#connectionbandwidth) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 송신 비트 | 연결 이름 | No | 
+| DroppedInBitsPerSecond | 트래픽 | BitsPerSecond | 평균 | 초당 삭제된 수신 데이터 비트 수 | 연결 이름 | 예 | 
+| DroppedOutBitsPerSecond | 트래픽 | BitPerSecond | 평균 | 초당 삭제된 송신 데이터 비트 수 | 연결 이름 | Yes | 
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+| 메트릭 | 범주 | 단위 | 집계 형식 | Description | 차원 | 진단 설정을 통해 내보내기 가능? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#directin) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 수신 비트 | 링크 | Yes | 
+| [BitsOutPerSecond](#directout) | 트래픽 | BitsPerSecond | 평균 | 초당 Azure 송신 비트 | 링크 | 예 | 
+| DroppedInBitsPerSecond | 트래픽 | BitsPerSecond | 평균 | 초당 삭제된 수신 데이터 비트 수 | 링크 | 예 | 
+| DroppedOutBitsPerSecond | 트래픽 | BitPerSecond | 평균 | 초당 삭제된 송신 데이터 비트 수 | 링크  | Yes | 
+| [AdminState](#admin) | 물리적 연결 | 개수 | 평균 | 포트의 관리 상태 | 링크 | Yes | 
+| [LineProtocol](#line) | 물리적 연결 | 개수 | 평균 | 포트의 회선 프로토콜 상태 | 링크 | Yes | 
+| [RxLightLevel](#rxlight) | 물리적 연결 | 개수 | 평균 | Rx Light 수준(dBm) | 링크, 레인 | Yes | 
+| [TxLightLevel](#txlight) | 물리적 연결 | 개수 | 평균 | Tx Light 수준(dBm) | 링크, 레인 | Yes |
+
 ## <a name="circuits-metrics"></a>회로 메트릭
 
-### <a name="bits-in-and-out---metrics-across-all-peerings"></a>비트 입력 및 출력 - 모든 피어링에 대한 메트릭
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a><a name = "circuitbandwidth"></a>비트 입력 및 출력 - 모든 피어링에 대한 메트릭
 
 집계 형식: *Avg*
 
@@ -79,7 +110,7 @@ ms.locfileid: "123449498"
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="피어링당 메트릭":::
 
-### <a name="bgp-availability---split-by-peer"></a>BGP 가용성 - 피어로 분할  
+### <a name="bgp-availability---split-by-peer"></a><a name = "bgp"></a>BGP 가용성-피어로 분할  
 
 집계 형식: *Avg*
 
@@ -87,7 +118,7 @@ ms.locfileid: "123449498"
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="피어당 BGP 가용성":::
 
-### <a name="arp-availability---split-by-peering"></a>ARP 가용성 - 피어링당 분할  
+### <a name="arp-availability---split-by-peering"></a><a name = "arp"></a>ARP 가용성-피어 링으로 분할  
 
 집계 형식: *Avg*
 
@@ -97,7 +128,7 @@ ms.locfileid: "123449498"
 
 ## <a name="expressroute-direct-metrics"></a>ExpressRoute Direct 메트릭
 
-### <a name="admin-state---split-by-link"></a>관리 상태 - 링크당 분할
+### <a name="admin-state---split-by-link"></a><a name = "admin"></a>관리 상태 - 링크당 분할
 
 집계 형식: *Avg*
 
@@ -105,7 +136,7 @@ ExpressRoute Direct 포트 쌍의 각 링크에 대한 관리 상태를 볼 수 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="ER Direct 관리 상태":::
 
-### <a name="bits-in-per-second---split-by-link"></a>초당 비트 입력 수 - 링크당 분할
+### <a name="bits-in-per-second---split-by-link"></a><a name = "directin"></a>초당 비트 수-링크로 분할
 
 집계 형식: *Avg*
 
@@ -113,7 +144,7 @@ ExpressRoute Direct 포트 쌍의 두 링크에서 초당 비트 입력 수를 �
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Direct 초당 비트 입력 수":::
 
-### <a name="bits-out-per-second---split-by-link"></a>초당 비트 출력 수 - 링크당 분할
+### <a name="bits-out-per-second---split-by-link"></a><a name = "directout"></a>초 당 비트 아웃-링크로 분할
 
 집계 형식: *Avg*
 
@@ -121,7 +152,7 @@ ExpressRoute Direct 포트 쌍의 두 링크에서 초당 비트 출력 수를 �
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direct 초당 비트 출력 수":::
 
-### <a name="line-protocol---split-by-link"></a>라인 프로토콜 - 링크당 분할
+### <a name="line-protocol---split-by-link"></a><a name = "line"></a>줄 프로토콜-링크로 분할
 
 집계 형식: *Avg*
 
@@ -129,7 +160,7 @@ ExpressRoute Direct 포트 쌍의 각 링크에서 라인 프로토콜을 볼 �
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct 라인 프로토콜":::
 
-### <a name="rx-light-level---split-by-link"></a>Rx 라이트 수준 - 링크당 분할
+### <a name="rx-light-level---split-by-link"></a><a name = "rxlight"></a>Rx 라이트 수준-링크로 분할
 
 집계 형식: *Avg*
 
@@ -137,7 +168,7 @@ ExpressRoute Direct 포트 쌍의 각 링크에서 라인 프로토콜을 볼 �
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct 라인 Rx 라이트 수준":::
 
-### <a name="tx-light-level---split-by-link"></a>Tx 라이트 수준 - 링크당 분할
+### <a name="tx-light-level---split-by-link"></a><a name = "txlight"></a>Tx 라이트 수준-링크로 분할
 
 집계 형식: *Avg*
 
@@ -160,7 +191,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 게이트웨이에 성능 문제가 발생할 수 있는 시기를 인식할 수 있도록 이러한 각 메트릭에 대한 경고를 설정하는 것이 좋습니다.
 
-### <a name="cpu-utilization---split-instance"></a>CPU 사용률 - 분할 인스턴스
+### <a name="cpu-utilization---split-instance"></a><a name = "cpu"></a>CPU 사용률 - 분할 인스턴스
 
 집계 형식: *Avg*
 
@@ -168,7 +199,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="CPU 사용률-분할 메트릭 스크린샷":::
 
-### <a name="packets-per-second---split-by-instance"></a>초당 패킷 - 인스턴스당 분할
+### <a name="packets-per-second---split-by-instance"></a><a name = "packets"></a>초당 패킷-인스턴스당 분할
 
 집계 형식: *Avg*
 
@@ -176,7 +207,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="초당 패킷-분할 메트릭 스크린샷":::
 
-### <a name="count-of-routes-advertised-to-peer---split-by-instance"></a>피어에 보급된 경로 수 - 인스턴스당 분할
+### <a name="count-of-routes-advertised-to-peer---split-by-instance"></a><a name = "advertisedroutes"></a>인스턴스당 피어 분할에 알린 경로 수
 
 집계 형식: *Count*
 
@@ -184,7 +215,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="피어에 보급된 경로 수 스크린샷":::
 
-### <a name="count-of-routes-learned-from-peer---split-by-instance"></a>피어에서 학습된 경로 수 - 인스턴스당 분할
+### <a name="count-of-routes-learned-from-peer---split-by-instance"></a><a name = "learnedroutes"></a>인스턴스당 피어 분할에서 배운 경로 수
 
 집계 형식: *Max*
 
@@ -192,7 +223,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="피어에서 학습된 경로 수 스크린":::
 
-### <a name="frequency-of-routes-change---split-by-instance"></a>경로 변경 빈도 - 인스턴스당 분할
+### <a name="frequency-of-routes-change---split-by-instance"></a><a name = "frequency"></a>경로 변경 빈도-인스턴스당 분할
 
 집계 형식: *Sum*
 
@@ -200,7 +231,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="경로 변경 빈도 메트릭 스크린샷":::
 
-### <a name="number-of-vms-in-the-virtual-network"></a>가상 네트워크의 VM 수
+### <a name="number-of-vms-in-the-virtual-network"></a><a name = "vm"></a>Virtual Network Vm 수
 
 집계 형식: *Max*
 
@@ -208,7 +239,7 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="가상 네트워크의 가상 머신 수 메트릭 스크린샷":::
 
-## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 게이트웨이 연결(비트/초)
+## <a name="expressroute-gateway-connections-in-bitsseconds"></a><a name = "connectionbandwidth"></a>ExpressRoute 게이트웨이 연결(비트/초)
 
 집계 형식: *Avg*
 
@@ -245,14 +276,14 @@ ExpressRoute 게이트웨이를 배포하면 Azure에서 게이트웨이의 컴�
 
 ExpressRoute 회로 리소스로 이동하고 *로그* 탭을 선택하여 ExpressRoute 메트릭을 볼 수도 있습니다. 쿼리하는 모든 메트릭에 대해 아래 열이 출력에 포함됩니다.
 
-|**열**|**형식**|**설명**|
-| --- | --- | --- |
-|TimeGrain|문자열|PT1M(메트릭 값은 1분마다 푸시됨)|
-|개수|real|일반적으로 2와 같음(각 MSEE는 1분마다 단일 메트릭 값을 푸시함)|
-|최소|real|두 MSEE에 의해 푸시되는 두 메트릭 값의 최소값|
-|최대|real|두 MSEE에 의해 푸시되는 두 메트릭 값의 최대값|
-|평균|real|(최소 + 최대)/2와 같음|
-|합계|real|두 MSEE의 두 메트릭 값 합계(쿼리된 메트릭에 대해 초점을 맞출 주 값)|
+| **열** | **형식** | **설명** | 
+|  ---  |  ---  |  ---  | 
+| TimeGrain | 문자열 | PT1M(메트릭 값은 1분마다 푸시됨) | 
+| 개수 | real | 일반적으로 2와 같음(각 MSEE는 1분마다 단일 메트릭 값을 푸시함) | 
+| 최소 | real | 두 MSEE에 의해 푸시되는 두 메트릭 값의 최소값 | 
+| 최대 | real | 두 MSEE에 의해 푸시되는 두 메트릭 값의 최대값 | 
+| 평균 | real | (최소 + 최대)/2와 같음 | 
+| 합계 | real | 두 MSEE의 두 메트릭 값 합계(쿼리된 메트릭에 대해 초점을 맞출 주 값) | 
   
 ## <a name="next-steps"></a>다음 단계
 

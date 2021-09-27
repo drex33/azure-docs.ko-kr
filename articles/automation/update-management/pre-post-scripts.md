@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f94a21268625adf3df4dda2f022868f7cc40f72f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 8f35472fae9c8dec647ff57d39f1572e64f3890b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060323"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680721"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -181,7 +181,7 @@ Python 2에서 예외 처리는 [try](https://www.python-course.eu/exception_han
 
 사전 작업 및 사후 작업은 Runbook으로 실행되며 배포의 Azure VM에서 기본적으로 실행되지 않습니다. Azure VM과 상호 작용하려면 다음 항목이 있어야 합니다.
 
-* [관리 ID](../automation-security-overview.md#managed-identities-preview) 또는 실행 계정
+* 실행 계정
 * 실행하려는 Runbook
 
 Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하여 Azure VM과 상호 작용해야 합니다. 이 작업을 수행하는 방법의 예는 Runbook 예제 [업데이트 관리 – 실행 명령을 사용하여 스크립트 실행](https://github.com/azureautomation/update-management-run-script-with-run-command)을 참조하세요.
@@ -190,7 +190,7 @@ Azure 머신과 상호 작용하려면 [Invoke-AzVMRunCommand](/powershell/modul
 
 사전 작업 및 사후 작업은 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 비 Azure 머신과 상호 작용하려면 다음 항목이 있어야 합니다.
 
-* [관리 ID](../automation-security-overview.md#managed-identities-preview) 또는 실행 계정
+* 실행 계정
 * 머신에 설치된 Hybrid Runbook Worker
 * 로컬에서 실행하려는 Runbook
 * 부모 Runbook
@@ -242,7 +242,7 @@ If (<My custom error logic>)
 
 .DESCRIPTION
   This script is intended to be run as a part of Update Management pre/post-scripts.
-  It requires the Automation account's system-assigned managed identity.
+  It requires a RunAs account.
 
 .PARAMETER SoftwareUpdateConfigurationRunContext
   This is a system variable which is automatically passed in by Update Management during a deployment.
@@ -251,20 +251,21 @@ If (<My custom error logic>)
 param(
     [string]$SoftwareUpdateConfigurationRunContext
 )
-
 #region BoilerplateAuthentication
-# Ensures you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave -Scope Process
+#This requires a RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-# Connect to Azure with system-assigned managed identity
-$AzureContext = (Connect-AzAccount -Identity).context
+Add-AzAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-# set and store context
-$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
+$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
-$context = ConvertFrom-Json $SoftwareUpdateConfigurationRunContext
+$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
 #Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId
@@ -284,11 +285,6 @@ Set-AutomationVariable -Name $runId -Value $vmIds
 $variable = Get-AutomationVariable -Name $runId
 #>
 ```
-
-Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡니다. 사용자 할당 관리 ID를 사용하려면 다음을 수행합니다.
-1. 줄 22에서 를 제거합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
-1. , 및 으로 대체합니다. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`
-1. 클라이언트 ID를 입력합니다.
 
 > [!NOTE]
 > 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.

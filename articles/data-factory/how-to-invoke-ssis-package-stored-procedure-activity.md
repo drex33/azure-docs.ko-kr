@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08c0e844b941a8b8bc9ed110300b6bc3e5c1474c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e8176095bb50f4ead8337997669f4856de4b5873
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535665"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811587"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 
@@ -40,14 +40,14 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. 
 3. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **데이터 + 분석**, **Data Factory** 를 차례로 클릭합니다. 
    
-   ![새로 만들기->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png" alt-text="새로 만들기->DataFactory":::
 2. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다. 
       
-     ![새 데이터 팩터리 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png" alt-text="새 데이터 팩터리 페이지":::
  
    Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
-     ![사용할 수 없는 이름 - 오류](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png" alt-text="사용할 수 없는 이름 - 오류":::
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다. 
 4. **리소스 그룹** 에 대해 다음 단계 중 하나를 수행합니다.
      
@@ -61,10 +61,10 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 7. **만들기** 를 클릭합니다.
 8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
-     ![데이터 팩터리 배포 중 타일](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     :::image type="content" source="media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png" alt-text="데이터 팩터리 배포 중 타일":::
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
    
-     ![데이터 팩터리 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>저장 프로시저 작업을 사용하여 파이프라인 만들기
@@ -72,14 +72,14 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 1. 홈페이지에서 **오케스트레이션** 을 클릭합니다. 
 
-    ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 2. **작업** 도구 상자에서 **일반** 을 펼치고, **저장 프로시저** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
 
-    ![저장 프로시저 작업 끌어서 놓기](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png" alt-text="저장 프로시저 작업 끌어서 놓기":::
 3. 저장 프로시저 작업에 대한 속성 창에서 **SQL 계정** 탭으로 전환한 후 **+ 새로 만들기** 를 클릭합니다. SSIS 카탈로그를 호스트하는 Azure SQL의 데이터베이스(SSIDB 데이터베이스)에 대한 연결을 만듭니다. 
    
-    ![새 연결된 서비스 단추](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png" alt-text="새 연결된 서비스 단추":::
 4. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **유형** 에 대해 **Azure SQL Database** 를 선택합니다.
@@ -91,7 +91,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     7. **연결 테스트** 단추를 클릭하여 데이터베이스에 대한 연결을 테스트합니다.
     8. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다. 
 
-        ![새 연결된 서비스 추가 프로세스를 보여주는 스크린샷.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png" alt-text="새 연결된 서비스 추가 프로세스를 보여주는 스크린샷.":::
 5. 속성 창의 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환한 후 다음 단계를 수행합니다. 
 
     1. **편집** 을 선택합니다. 
@@ -107,29 +107,29 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
         ```
 
-        ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png" alt-text="Azure SQL Database 연결된 서비스":::
 6. 파이프라인 구성에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 를 클릭합니다. **파이프라인 유효성 검사 보고서** 를 닫으려면 **>>** 를 클릭합니다.
 
-    ![파이프라인 유효성 검사](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png" alt-text="파이프라인 유효성 검사":::
 7. **모두 게시** 단추를 클릭하여 Data Factory에 파이프라인을 게시합니다. 
 
-    ![게시](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png" alt-text="게시":::    
 
 ### <a name="run-and-monitor-the-pipeline"></a>파이프라인 실행 및 모니터링
 이 섹션에서는 파이프라인 실행을 트리거한 후 모니터링합니다. 
 
 1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거** 를 클릭하고 **지금 트리거** 를 클릭합니다. 
 
-    ![지금 트리거](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    :::image type="content" source="media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png" alt-text="지금 트리거":::
 
 2. **파이프라인 실행** 창에서 **마침** 을 선택합니다. 
 3. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: 실행 시작 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침** 을 클릭합니다.
 
-    ![파이프라인 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="파이프라인 실행":::
 
 3. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 파이프라인에는 작업이 하나만 있으므로(저장 프로시저 작업) 하나의 작업 실행만 파이프라인으로 표시됩니다.
 
-    ![작업 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png" alt-text="작업 실행":::
 
 4. SQL Database의 SSISDB 데이터베이스에 대해 다음 **쿼리** 를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
 
@@ -137,7 +137,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     select * from catalog.executions
     ```
 
-    ![패키지 실행 확인](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="패키지 실행 확인":::
 
 
 > [!NOTE]

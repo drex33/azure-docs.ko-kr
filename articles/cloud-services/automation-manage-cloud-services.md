@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: cc352a35308cbc77dc544c780ea7045cff561b02
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: 6dd814f2c834428d321747a989af8beb76890bd0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824518"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799171"
 ---
 # <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services(클래식) 관리
 
@@ -40,4 +40,4 @@ Azure Cloud Services를 관리하는 Azure Automation을 사용하는 몇 가지
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 클라우드 서비스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure Automation에 대해 자세히 알아보세요.
 
 * [Azure Automation 개요](../automation/automation-intro.md)
-* [내 첫 번째 runbook](../automation/learn/automation-tutorial-runbook-graphical.md)
+* [내 첫 번째 runbook](../automation/learn/powershell-runbook-managed-identity.md)

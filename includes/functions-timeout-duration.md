@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: functions
 author: nzthiago
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
-ms.openlocfilehash: f4305152e9aec28b7a6b6307815de616abd4dfbd
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: ba6929739504dfdf0b699e89393018f68751ce07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113131961"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637625"
 ---
 ## <a name="function-app-timeout-duration"></a><a name="timeout"></a>함수 앱 시간 제한 기간 
 
@@ -32,4 +32,4 @@ ms.locfileid: "113131961"
 | App Service | 3.x | 30 | 제한 없음 |
 
 > [!NOTE] 
-> 함수 앱 시간 제한 설정에 관계없이 230초는 HTTP 트리거 함수가 요청에 응답하는 데 걸리는 최대 시간입니다. 이는 [Azure Load Balancer의 기본 유휴 시간 제한](../articles/app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) 때문입니다. 처리 시간을 늘리려면 [Durable Functions 비동기 패턴](../articles/azure-functions/durable/durable-functions-overview.md#async-http) 사용을 고려하거나 [실제 작업을 연기하고 즉각적인 응답을 반환합니다](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).
+> 함수 앱 시간 제한 설정에 관계없이 230초는 HTTP 트리거 함수가 요청에 응답하는 데 걸리는 최대 시간입니다. 이는 [Azure Load Balancer의 기본 유휴 시간 제한](../articles/app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) 때문입니다. 처리 시간을 늘리려면 [Durable Functions 비동기 패턴](../articles/azure-functions/durable/durable-functions-overview.md#async-http) 사용을 고려하거나 [실제 작업을 연기하고 즉각적인 응답을 반환합니다](../articles/azure-functions/performance-reliability.md#avoid-long-running-functions).

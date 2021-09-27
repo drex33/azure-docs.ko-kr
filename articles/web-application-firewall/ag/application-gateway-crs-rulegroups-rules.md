@@ -5,19 +5,19 @@ description: 이 페이지는 웹 애플리케이션 방화벽 CRS 규칙 그룹
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a3908710febab64b8f4bb41692397f87eaee5613
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ad8b70e7a5b07b2e933bc01af42dca0e89683959
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434505"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638010"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙
 
-Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이러한 보호는 OWASP 핵심 규칙 집합 3.2 3.1, 3.0 또는 2.2.9를 기반으로 정의된 규칙을 통해 수행됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
+Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이러한 보호는 OWASP 핵심 규칙 집합 3.2 3.1, 3.0 또는 2.2.9를 기반으로 정의된 규칙을 통해 수행됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다. 드물게 게시 된 규칙 집합을 업데이트 해야 하는 경우 여기에 문서화 됩니다.
 
 ## <a name="core-rule-sets"></a>핵심 규칙 집합
 
@@ -291,7 +291,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 |941360|JavaScript 난독 처리가 검색되었습니다.|
 
-### <a name="request-942-application-attack-sqli"></a><a name="crs942-32"></a> 요청-942-공격-SQLI
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-32"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 |RuleId|설명|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
@@ -486,7 +486,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |932180|제한된 파일 업로드 시도|
 |932190|원격 명령 실행: 와일드 카드 바이패스 기술 시도|
 
-### <a name="request-933-application-attack-php"></a><a name="crs933-31"></a> REQUEST-933-APPLICATION-ATTACK-PHP
+### <a name="request-933-application-attack-php"></a><a name="crs933-31"></a> 요청-933-응용 프로그램-공격-PHP
 
 |RuleId|설명|
 |---|---|
@@ -505,7 +505,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |933180|PHP 삽입 공격 = 변수 함수 호출 발견|
 |933190|PHP 삽입 공격: PHP 닫는 태그 발견|
 
-### <a name="request-941-application-attack-xss"></a><a name="crs941-31"></a> REQUEST-941-APPLICATION-ATTACK-XSS
+### <a name="request-941-application-attack-xss"></a><a name="crs941-31"></a> 요청-941-응용 프로그램-공격-XSS
 
 |RuleId|설명|
 |---|---|
@@ -537,7 +537,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 
 
-### <a name="request-942-application-attack-sqli"></a><a name="crs942-31"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-31"></a> 요청-942-공격-SQLI
 
 |RuleId|설명|
 |---|---|
@@ -676,7 +676,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |920274|요청 헤더에 잘못된 문자(매우 엄격한 집합 이외의)|
 |920460|비정상적인 이스케이프 문자|
 
-### <a name="request-921-protocol-attack"></a><a name="crs921-30"></a> REQUEST-921-PROTOCOL-ATTACK
+### <a name="request-921-protocol-attack"></a><a name="crs921-30"></a> 요청-921-프로토콜-공격
 
 |RuleId|설명|
 |---|---|
@@ -691,7 +691,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |921170|HTTP 매개 변수 오염|
 |921180|HTTP 매개 변수 오염(%@{TX.1})|
 
-### <a name="request-930-application-attack-lfi"></a><a name="crs930-30"></a> REQUEST-930-APPLICATION-ATTACK-LFI
+### <a name="request-930-application-attack-lfi"></a><a name="crs930-30"></a> 요청-930-응용 프로그램-공격-LFI
 
 |RuleId|설명|
 |---|---|
@@ -700,7 +700,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |930120|OS 파일 액세스 시도|
 |930130|제한된 파일 액세스 시도|
 
-### <a name="request-931-application-attack-rfi"></a><a name="crs931-30"></a> REQUEST-931-APPLICATION-ATTACK-RFI
+### <a name="request-931-application-attack-rfi"></a><a name="crs931-30"></a> 요청-931-응용 프로그램-공격-RFI
 
 |RuleId|설명|
 |---|---|
@@ -709,7 +709,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |931120|가능한 원격 파일 포함(RFI) 공격 = URL 페이로드가 후행 물음표 문자(?)에 사용됨|
 |931130|가능한 원격 파일 포함(RFI) 공격 = 오프-도메인 참조/링크|
 
-### <a name="request-932-application-attack-rce"></a><a name="crs932-30"></a> REQUEST-932-APPLICATION-ATTACK-RCE
+### <a name="request-932-application-attack-rce"></a><a name="crs932-30"></a> 요청-932-R)
 
 |RuleId|설명|
 |---|---|
@@ -720,7 +720,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |932170|원격 명령 실행 = Shellshock(CVE-2014-6271)|
 |932171|원격 명령 실행 = Shellshock(CVE-2014-6271)|
 
-### <a name="request-933-application-attack-php"></a><a name="crs933-30"></a> REQUEST-933-APPLICATION-ATTACK-PHP
+### <a name="request-933-application-attack-php"></a><a name="crs933-30"></a> 요청-933-응용 프로그램-공격-PHP
 
 |RuleId|설명|
 |---|---|
@@ -736,7 +736,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |933161|PHP 삽입 공격 = 저가치 PHP 함수 호출 발견|
 |933111|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
 
-### <a name="request-941-application-attack-xss"></a><a name="crs941-30"></a> REQUEST-941-APPLICATION-ATTACK-XSS
+### <a name="request-941-application-attack-xss"></a><a name="crs941-30"></a> 요청-941-응용 프로그램-공격-XSS
 
 |RuleId|설명|
 |---|---|
@@ -763,7 +763,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 |941320|가능한 XSS 공격 감지됨 - HTML 태그 처리기|
 
-### <a name="request-942-application-attack-sqli"></a><a name="crs942-30"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-30"></a> 요청-942-공격-SQLI
 
 |RuleId|설명|
 |---|---|
@@ -795,7 +795,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |942251|HAVING 삽입 감지|
 |942460|메타 문자 이상 감지 경고 - 반복적인 단어가 아닌 문자|
 
-### <a name="request-943-application-attack-session-fixation"></a><a name="crs943-30"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
+### <a name="request-943-application-attack-session-fixation"></a><a name="crs943-30"></a> 요청-943-응용 프로그램-공격-세션-고정
 
 |RuleId|설명|
 |---|---|
@@ -805,7 +805,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="29-rule-sets"></a><a name="owasp229"></a> 2.9 규칙 집합
+## <a name="229-rule-sets"></a><a name="owasp229"></a> 2.2.9 규칙 집합
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 

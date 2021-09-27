@@ -225,6 +225,8 @@
           href: sql/cli-samples.md
         - name: Azure 리소스 관리자
           href: sql/templates-samples-sql.md
+        - name: Bicep
+          href: sql/bicep-samples.md
     - name: 개념
       items:
         - name: 모델링 및 분할
@@ -788,7 +790,7 @@
                 - name: 저속 요청 문제 해결
                   href: sql/troubleshoot-dot-net-sdk-slow-request.md
                 - name: 사용할 수 없는 서비스 문제 해결
-                  href: troubleshoot-service-unavailable.md
+                  href: sql/troubleshoot-service-unavailable.md
             - name: .Java
               items:
                 - name: Java SDK v4 문제 해결
@@ -1065,6 +1067,8 @@
         - name: Resource Manager 템플릿을 사용하여 관리
           href: cassandra/templates-samples.md
           displayName: ARM
+        - name: Bicep을 사용하여 관리
+          href: cassandra/manage-with-bicep.md
         - name: Powershell을 사용하여 관리
           href: cassandra/powershell-samples.md
         - name: Azure CLI를 사용하여 관리
@@ -1205,6 +1209,8 @@
         - name: Resource Manager 템플릿을 사용하여 관리
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
+        - name: Bicep을 사용하여 관리
+          href: mongodb/manage-with-bicep.md
         - name: Powershell을 사용하여 관리
           href: mongodb/powershell-samples.md
         - name: Azure CLI를 사용하여 관리
@@ -1289,6 +1295,8 @@
         - name: Resource Manager 템플릿을 사용하여 관리
           href: graph/resource-manager-template-samples.md
           displayName: ARM
+        - name: Bicep을 사용하여 관리
+          href: graph/manage-with-bicep.md
         - name: Powershell을 사용하여 관리
           href: graph/powershell-samples.md
         - name: Azure CLI를 사용하여 관리
@@ -1364,6 +1372,8 @@
           href: table/find-request-unit-charge.md
         - name: Resource Manager 템플릿을 사용하여 관리
           href: table/resource-manager-templates.md
+        - name: Bicep을 사용하여 관리
+          href: table/manage-with-bicep.md
           displayName: ARM
         - name: Powershell을 사용하여 관리
           href: table/powershell-samples.md
@@ -1402,6 +1412,9 @@
           href: sql/manage-with-powershell.md
         - name: Azure CLI 사용
           href: sql/manage-with-cli.md
+        - name: Bicep 사용
+          href: sql/manage-with-bicep.md
+          displayName: ARM
         - name: Resource Manager 템플릿 사용
           href: sql/manage-with-templates.md
           displayName: ARM
@@ -1504,6 +1517,8 @@
               href: monitor-server-side-latency.md
             - name: 요청 단위 사용량 모니터링
               href: monitor-request-unit-usage.md
+            - name: 키 업데이트 모니터링
+              href: monitor-account-key-updates.md
             - name: 정규화된 요청 단위 사용량 모니터링
               href: monitor-normalized-request-units.md
         - name: Azure Monitor 로그 사용
@@ -1544,7 +1559,7 @@
       href: partners-migration-cosmosdb.md
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-cosmos-db.html
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?query=Cosmos%20DB'

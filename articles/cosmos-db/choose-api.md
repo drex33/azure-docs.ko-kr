@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.openlocfilehash: 8e512c06901a533ef381bc389def45f07e8a028d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 6d13f5f79da2906d1b994d4ab83e06d0593eaefe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586646"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Azure Cosmos DB에서 API 선택
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,8 +51,8 @@ Oracle, DynamoDB, HBase 등의 다른 데이터베이스에서 마이그레이�
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>MongoDB용 API로 마이그레이션하기 위한 용량 계획
 
 기존 데이터베이스 클러스터에서 Azure Cosmos DB SQL API로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
-    * 기존 분할 및 복제된 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+* 기존 분할 된 및 복제 된 데이터베이스 클러스터의 vcore 및 서버 수를 알고 있는 경우 [vcore 또는 vcore를 사용 하 여 요청 단위를 추정 하](convert-vcore-to-request-unit.md)는 방법을 참조 하세요.
+* 현재 데이터베이스 작업에 대 한 일반적인 요청 요금을 알고 있는 경우 [Azure Cosmos DB capacity planner를 사용 하 여 요청 단위](estimate-ru-with-capacity-planner.md)를 계산 하는 방법을 참조 하세요.
 
 ## <a name="api-for-mongodb"></a>MongoDB용 API
 
@@ -65,8 +65,8 @@ MongoDB용 API는 4.0, 3.6 및 3.2 MongoDB 서버 버전과 호환됩니다. 서
 ### <a name="capacity-planning-for-migration-to-api-for-mongodb"></a>MongoDB용 API로 마이그레이션하기 위한 용량 계획
 
 기존 데이터베이스 클러스터에서 Azure Cosmos DB API for MongoDB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
-    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](./mongodb/estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+* 기존 데이터베이스 클러스터의 vcore 및 서버 수를 알고 있는 경우 [vcore 또는 vcore를 사용 하 여 요청 단위를 추정 하](convert-vcore-to-request-unit.md)는 방법을 참조 하세요.
+* 현재 데이터베이스 작업에 대 한 일반적인 요청 요금을 알고 있는 경우 [Azure Cosmos DB capacity planner를 사용 하 여 요청 단위](./mongodb/estimate-ru-capacity-planner.md)를 계산 하는 방법을 참조 하세요.
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -84,7 +84,7 @@ Azure Cosmos DB의 Gremlin API는 [Apache TinkerPop](https://tinkerpop.apache.or
 
 이 API는 키/값 형식으로 데이터를 저장합니다. 현재 Azure Table Storage를 사용하고 있는 경우 대기 시간, 스케일링, 처리량, 글로벌 배포, 인덱스 관리, 낮은 쿼리 성능에 대해 몇 가지 제한 사항이 있을 수 있습니다. Table API는 이러한 제한을 해결하며, Azure Cosmos DB의 이점을 사용하기 위해서는 앱을 마이그레이션하는 것이 좋습니다. Table API는 OLTP 시나리오만 지원합니다.
 
-Azure Table Storage에 대해 작성된 애플리케이션은 코드를 거의 변경하지 않고 Table API로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 자세히 알아보려면 [Table API](introduction.md) 문서를 참조하세요.
+Azure Table Storage에 대해 작성된 애플리케이션은 코드를 거의 변경하지 않고 Table API로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 자세히 알아보려면 [Table API](table/introduction.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

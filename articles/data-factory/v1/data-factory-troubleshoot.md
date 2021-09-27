@@ -2,6 +2,7 @@
 title: Azure 데이터 팩터리 문제 해결
 description: Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
@@ -9,12 +10,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: fbc21ea65e410c71641d81794cbfe2ff256e18af
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: e3a2eed5dea712d7309955dbf14b18b5ab9587f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654231"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -128,7 +129,7 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 [json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/

@@ -113,6 +113,8 @@
           href: playback-recordings-how-to.md
         - name: Azure Video Analyzer 플레이어 위젯 사용
           href: player-widget.md
+        - name: 플레이어 위젯 샘플 앱
+          href: sample-player-widget.md
         - name: 재생에 대한 액세스 정책 사용
           href: access-policies.md
     - name: 레코드
@@ -135,6 +137,8 @@
       items:
         - name: 모니터링 및 로깅
           href: monitor-log-edge.md
+        - name: 퍼블릭 엔드포인트
+          href: access-public-endpoints-networking.md
     - name: 시각화
       items:
         - name: Power BI에 플레이어 위젯 포함
@@ -173,3 +177,5 @@
       href: faq-edge.yml
     - name: 할당량 및 제한 사항
       href: quotas-limitations.md
+    - name: Azure Video Analytics Terraform 리소스
+      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer'

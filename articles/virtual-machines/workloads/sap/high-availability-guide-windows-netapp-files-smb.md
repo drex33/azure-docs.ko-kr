@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
-ms.openlocfilehash: b6eceec68433c9cacfa4aa507e260cae86766609
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 59c977b94efe62489208fca0d2514a5d2e381aff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568113"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803687"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files(SMB)를 사용하는 Windows의 Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -31,7 +31,6 @@ ms.locfileid: "122568113"
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -111,10 +110,9 @@ SMB 파일 공유에 대한 필수 구성 요소는 다음과 같습니다.
 
 Azure NetApp Files를 사용하기 위한 준비 과정으로 다음 단계를 수행합니다.  
 
-1. [Azure NetApp Files에 등록](../../../azure-netapp-files/azure-netapp-files-register.md)하는 단계를 따릅니다.  
-2. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)에 설명된 단계에 따라 Azure NetApp 계정을 만듭니다.  
-3. [용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 용량 풀을 설정합니다.
-4. Azure NetApp Files 리소스는 위임된 서브넷에 있어야 합니다. 위임된 서브넷을 만들려면 [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침을 따릅니다.  
+1. [NetApp 계정 만들기](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)에 설명된 단계에 따라 Azure NetApp 계정을 만듭니다.  
+2. [용량 풀 설정](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)의 지침에 따라 용량 풀을 설정합니다.
+3. Azure NetApp Files 리소스는 위임된 서브넷에 있어야 합니다. 위임된 서브넷을 만들려면 [Azure NetApp Files에 서브넷 위임](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)의 지침을 따릅니다.  
 
    > [!IMPORTANT]
    > SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다. [Active Directory 연결에 대한 요구 사항](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)을 검토합니다.  
@@ -122,9 +120,9 @@ Azure NetApp Files를 사용하기 위한 준비 과정으로 다음 단계를 �
    > Active Directory 연결을 만들 때 SAP 애플리케이션에 대해 13자 호스트 이름 제한을 방지하기 위해 SMB 서버(컴퓨터 계정) 접두사를 8자 미만으로 입력해야 합니다. 접미사는 SMB 컴퓨터 계정 이름에 자동으로 추가됩니다.     
    > SAP 애플리케이션에 대한 호스트 이름 제한은 [2718300 - 실제 및 가상 호스트 이름 길이 제한](https://launchpad.support.sap.com/#/notes/2718300) 및 [611361 - SAP ABAP 플랫폼 서버의 호스트 이름](https://launchpad.support.sap.com/#/notes/611361)에 설명되어 있습니다.  
 
-5. [Active Directory 연결 만들기](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)에 설명된 대로 Active Directory 연결을 만듭니다.  
-6. [SMB 볼륨 추가](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)의 지침에 따라 SMB Azure NetApp Files SMB 볼륨을 만듭니다.  
-7. Windows 가상 머신에 SMB 볼륨을 탑재합니다.
+4. [Active Directory 연결 만들기](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)에 설명된 대로 Active Directory 연결을 만듭니다.  
+5. [SMB 볼륨 추가](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)의 지침에 따라 SMB Azure NetApp Files SMB 볼륨을 만듭니다.  
+6. Windows 가상 머신에 SMB 볼륨을 탑재합니다.
 
 > [!TIP]
 > [Azure Portal](https://portal.azure.com/#home)에서 Azure NetApp Files 개체로 이동하는 경우 **볼륨** 블레이드를 클릭한 다음, **탑재 지침** 을 클릭하여 Azure NetApp Files 볼륨을 탑재하는 방법에 대한 지침을 찾을 수 있습니다.  
@@ -213,12 +211,12 @@ SAP ASCS/SCS 인스턴스를 다시 시작합니다. [SAP ASCS/SCS 인스턴스�
 
 ## <a name="optional-configurations"></a>선택적 구성
 
-다음 다이어그램에서는 총 VM 수를 줄이기 위해 Microsoft Windows 장애 조치 클러스터를 실행하는 Azure VM의 여러 SAP 인스턴스를 보여 줍니다.
+다음 다이어그램은 총 VM 수를 줄이기 위해 Microsoft Windows 장애 조치(failover) 클러스터를 실행하는 Azure VM의 여러 SAP 인스턴스를 보여 줍니다.
 
-SAP ASCS/SCS 클러스터의 로컬 SAP Application Server 또는 Microsoft SQL Server Always On 노드의 SAP ASCS/SCS 클러스터 역할일 수 있습니다.
+SAP ASCS/SCS 클러스터의 로컬 SAP 애플리케이션 서버 또는 Microsoft SQL Server Always On 노드의 SAP ASCS/SCS 클러스터 역할일 수 있습니다.
 
 > [!IMPORTANT]
-> SQL Server Always On 노드에 로컬 SAP Application Server를 설치하는 것은 지원되지 않습니다.
+> SQL Server Always On 노드에 로컬 SAP 애플리케이션 서버를 설치할 수는 없습니다.
 >
 
 SAP ASCS/SCS와 Microsoft SQL Server 데이터베이스는 모두 SPOF(단일 실패 지점)입니다. Windows 환경에서 이러한 SPOF를 보호하기 위해 Azure NetApp Files SMB가 사용됩니다.

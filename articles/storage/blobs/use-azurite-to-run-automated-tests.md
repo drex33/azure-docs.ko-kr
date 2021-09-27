@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: ikivanc
-ms.openlocfilehash: 7ad2fb4a808f2fef794a904287c25bd0643a085f
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 21a0d2157cdb8b6b2c31520596327b3b433ef93a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378604"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674550"
 ---
 # <a name="run-automated-tests-by-using-azurite"></a>Azurite를 사용하여 자동화된 테스트 실행
 
@@ -33,10 +33,10 @@ Azurite 스토리지 에뮬레이터를 사용하여 Azure Blob Storage용 프�
    ```bash
    # Install Azurite
    npm install -g azurite
-   
+
    # Create an Azurite directory
-   mkdir c:/azurite
-   
+   mkdir c:\azurite
+
    # Launch Azurite locally
    azurite --silent --location c:\azurite --debug c:\azurite\debug.log
    ```
@@ -101,7 +101,7 @@ Azurite 스토리지 에뮬레이터를 사용하여 Azure Blob Storage용 프�
 ## <a name="run-tests-on-azure-pipelines"></a>Azure Pipelines에서 테스트 실행
 
 테스트를 로컬로 실행한 후에는 테스트가 [Azure Pipelines](/azure/devops/pipelines)에서 통과하는지 확인합니다. Docker Azurite 이미지를 Azure의 호스트된 에이전트로 사용하거나 npm을 사용하여 Azurite를 설치합니다. 다음 Azure Pipelines 예제에서는 npm을 사용하여 Azurite를 설치합니다.
-  
+
 ```yaml
 trigger:
 - master
@@ -115,7 +115,7 @@ steps:
 - bash: |
     pip install -r requirements_tests.txt
   displayName: 'Setup requirements for tests'
-  
+
 - bash: |
     sudo npm install -g azurite
     sudo mkdir azurite

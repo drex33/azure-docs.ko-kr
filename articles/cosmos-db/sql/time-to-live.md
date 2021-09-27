@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 09/16/2021
 ms.reviewer: sngun
-ms.openlocfilehash: e859e244e41b6bbd065244a285653b2d9d3988e9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 800ac96aee933791d0507e21ec5623ce47e82efb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623744"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -22,6 +22,7 @@ Azure Cosmos DB는 **TTL(Time to Live)** 을 통해 일정 기간이 지난 후 
 
 만료된 항목 삭제는 남은 [요청 단위](../request-units.md), 즉 사용자 요청에 따라 사용되지 않은 요청 단위를 사용하는 백그라운드 작업입니다. TTL이 만료된 후에도 컨테이너가 요청으로 오버로드되고 사용 가능한 RU가 부족하면 데이터 삭제가 지연됩니다. 삭제 작업을 수행할 수 있는 RU가 충분하면 데이터가 삭제됩니다. 데이터 삭제가 지연되더라도 TTL이 만료된 후에는 쿼리(모든 API에 의해)에서 데이터가 반환되지 않습니다.
 
+> [!NOTE]
 > 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse Link](../synapse-link.md)를 통해 NoETL HTAP 시나리오를 사용하도록 설정하는 분석 저장소 TTL을 찾고 있다면 [여기](../analytical-store-introduction.md#analytical-ttl)를 클릭하세요.
 
 ## <a name="time-to-live-for-containers-and-items"></a>컨테이너 및 항목에 대한 TTL(Time to live)

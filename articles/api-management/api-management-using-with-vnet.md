@@ -2,18 +2,18 @@
 title: Azure API Management를 사용하여 가상 네트워크에 연결
 description: Azure API Management에서 가상 네트워크 연결을 설정하고 웹 서비스에 액세스하는 방법에 대해 알아봅니다.
 services: api-management
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 6eb89c069cb8ce1017b84f5c886231ae767a25a8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 008e3874961af2c3e8ff8dfe3f162254fb9d5f5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537408"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669249"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Azure API Management를 사용하여 가상 네트워크에 연결
 
@@ -109,7 +109,8 @@ API Management 서비스를 VNET에 연결한 후에는 공용 서비스와 마�
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="VNET에서 API 추가":::
 
-## <a name="network-configuration"></a>네트워크 구성
+## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>일반적인 네트워크 구성 이슈
+
 네트워크 구성 설정에 대 한 자세한 내용은 다음 섹션을 참조 하십시오. 
 
 이러한 설정은 API Management 서비스를 VNET에 배포 하는 동안 발생할 수 있는 일반적인 잘못 된 구성 문제를 해결 합니다.
@@ -148,7 +149,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [캐시](api-management-caching-policies.md) 정책을 위해 Redis Service에 액세스         | 외부 및 내부  |
 | * / 4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [속도 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대한 동기화 카운터         | 외부 및 내부  |
-| */6390                       | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
+| */6390                       | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | **Azure 인프라 부하 분산 장치**                          | 외부 및 내부  |
 
 #### <a name="stv1"></a>[stv1](#tab/stv1)
 
@@ -166,7 +167,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [캐시](api-management-caching-policies.md) 정책을 위해 Redis Service에 액세스         | 외부 및 내부  |
 | * / 4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [속도 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대한 동기화 카운터         | 외부 및 내부  |
-| * / *                         | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
+| * / *                         | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 Load Balancer (Premium SKU에 대 한 중요)                         | 외부 및 내부  |
 
 ---
 
@@ -188,7 +189,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
   
 ### <a name="regional-service-tags"></a>지역 서비스 태그
 
-Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API Management 인스턴스를 포함하는 지역에 해당하는 해당 태그의 지역 버전(예: Storage)을 사용할 수 있습니다. 미국 서부 지역의 API Management 인스턴스)에 대한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
+Storage, SQL 및 Event Hubs 서비스 태그에 대 한 아웃 바운드 연결을 허용 하는 nsg 규칙은 API Management 인스턴스가 포함 된 지역 (예: Storage)에 해당 하는 태그의 지역 버전을 사용할 수 있습니다. 미국 서 부 지역의 API Management 인스턴스에 대 한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
 
 > [!IMPORTANT]
 > 미국 서부 지역의 Blob 스토리지에 대한 아웃바운드 연결을 허용하여 VNET에서 API Management 인스턴스에 대한 [개발자 포털](api-management-howto-developer-portal.md)을 게시하도록 설정합니다. 예를 들어 NSG 규칙에서 **Storage.WestUS** 서비스 태그를 사용합니다. 현재 모든 API Management 인스턴스에 대한 개발자 포털을 게시하려면 미국 서부 지역의 Blob 스토리지에 대한 연결이 필요합니다.
@@ -207,10 +208,14 @@ Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을
   VNET 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 `port 443`에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이 액세스는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer  
-  `AZURE_LOAD_BALANCER`하나의 계산 단위도 배포 되므로 SKU에 대 한 서비스 태그의 인바운드 요청을 허용할 필요가 없습니다 `Developer` . 그러나 Load Balancer의 상태 프로브 오류로 인해 배포가 실패하므로 `Premium`와 같은 상위 SKU로 크기를 조정하는 경우에는 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)의 인바운드는 심각한 상태가 됩니다.
+  `AZURE_LOAD_BALANCER`하나의 계산 단위도 배포 되므로 SKU에 대 한 서비스 태그의 인바운드 요청을 허용할 필요가 없습니다 `Developer` . 그러나 `AZURE_LOAD_BALANCER`  `Premium` 부하 분산 장치의 상태 프로브 오류로 인해 제어 평면과 데이터 평면에 대 한 모든 인바운드 액세스를 차단 하는 것 처럼 상위 SKU로 확장 하는 경우에는 인바운드가 중요 한 것으로 보입니다.
 
 ### <a name="application-insights"></a>Application Insights  
   API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링을 사용 하도록 설정한 경우 VNET에서 [원격 분석 끝점](../azure-monitor/app/ip-addresses.md#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 합니다.
+
+### <a name="kms-endpoint"></a>KMS 끝점
+
+Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1688의 아웃 바운드 연결을 클라우드의 [KMS 끝점](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) 으로 허용 합니다. 이 구성은 Windows 활성화를 완료 하기 위해 Azure KMS (키 관리 서비스) 서버에 Windows VM 트래픽을 라우팅합니다.
 
 ### <a name="force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance"></a>Express 경로 또는 네트워크 가상 어플라이언스를 사용 하 여 온-프레미스 방화벽에 트래픽 강제 터널링  
   일반적으로 자체 기본 경로(0.0.0.0/0)를 구성하고 정의하여 강제로 API Management 위임 서브넷의 모든 트래픽을 온-프레미스 방화벽이나 네트워크 가상 어플라이언스를 통해 흐르게 합니다. 이 트래픽 흐름은 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 다음과 같은 몇 가지 방법을 통해 이 문제를 해결할 수 있습니다. 
@@ -230,6 +235,7 @@ Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을
       - Azure Portal 진단
       - SMTP 릴레이
       - 개발자 포털 CAPTCHA
+      - Azure KMS 서버
 
 ## <a name="routing"></a>라우팅
 
@@ -335,7 +341,7 @@ Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을
   | **필수** | API Management에 대해 필요한 Azure 서비스 연결을 검토하려면 선택합니다. 실패는 인스턴스가 API를 관리하기 위한 핵심 작업을 수행할 수 없음을 나타냅니다. |
   | **선택 사항** | 선택적 서비스 연결을 검토하려면 선택합니다. 오류는 특정 기능(예: SMTP)이 작동하지 않음을 나타냅니다. 오류가 발생하면 API Management 인스턴스를 사용 및 모니터링하고 커밋된 SLA를 제공하는 기능이 저하될 수 있습니다. |
 
-  연결 문제를 해결하려면 [네트워크 구성 설정을](#network-configuration) 검토하고 필요한 네트워크 설정을 수정합니다.
+  연결 문제를 해결하려면 [네트워크 구성 설정을](#network-configuration-issues) 검토하고 필요한 네트워크 설정을 수정합니다.
 
 * **증분 업데이트**  
   네트워크를 변경할 때 [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status)를 참조하여 API Management 서비스에서 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/13/2021
-ms.openlocfilehash: 776068748b9cd7e90b9d9418bdf9a31fe36ff180
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.date: 09/13/2021
+ms.openlocfilehash: 960ade1209b6473884e75c660d658abaf6e73af7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609957"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -213,6 +213,8 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
    이제 자동으로 생성된 프로젝트 파일이 포함된 프로젝트가 탐색기 창에 표시됩니다. 예를 들어 프로젝트에 워크플로 이름을 표시하는 폴더가 있습니다. 이 폴더에서 **workflow.json** 파일에는 워크플로의 기본 JSON 정의가 포함되어 있습니다.
 
    ![프로젝트 폴더, 워크플로 폴더 및 "workflow.json" 파일이 표시된 탐색기 창을 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
+
+   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="enable-built-in-connector-authoring"></a>
 
@@ -559,7 +561,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
    ![실행 상태 및 기록이 포함된 워크플로의 개요 페이지를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |

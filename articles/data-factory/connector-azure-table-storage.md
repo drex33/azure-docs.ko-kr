@@ -1,22 +1,22 @@
 ---
 title: Azure Table Storage 간 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Data Factory를 사용하여 지원되는 원본 스토리지에서 Azure Table Storage로 데이터를 복사하거나, Table Storage에서 지원되는 싱크 스토리지로 데이터를 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용 하 여 지원 되는 원본 저장소에서 Azure Table storage로 또는 테이블 저장소에서 지원 되는 싱크 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: d61d2b7799ab715532b703b5c73ad045e8be6226
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: e88b4cfc2d49aa072021ed81dc4c1eb7105c6112
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313967"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811945"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
+# <a name="copy-data-to-and-from-azure-table-storage-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Azure Table storage 간에 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-table-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123313967"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table Storage 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 Azure Table storage 간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ ms.locfileid: "123313967"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -73,9 +73,9 @@ ms.locfileid: "123313967"
 
 ### <a name="use-an-account-key"></a>계정 키 사용
 
-계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. 데이터 팩터리에 Storage에 대한 전역 액세스를 제공합니다. 다음과 같은 속성이 지원됩니다.
+계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. Storage에 대 한 전역 액세스를 서비스에 제공 합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureTableStorage** 로 설정되어야 합니다. |예 |
 | connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
@@ -130,12 +130,12 @@ ms.locfileid: "123313967"
 
 ### <a name="use-shared-access-signature-authentication"></a>공유 액세스 서명 인증 사용
 
-공유 액세스 서명을 사용하여 Storage 연결된 서비스를 만들 수도 있습니다. 이 서비스는 스토리지의 모든/특정 리소스에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다.
+공유 액세스 서명을 사용하여 Storage 연결된 서비스를 만들 수도 있습니다. 저장소의 모든/특정 리소스에 대해 제한 된/시간 제한 액세스를 서비스에 제공 합니다.
 
 공유 액세스 서명은 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 이를 사용하여 스토리지 계정의 개체에 대해 지정된 시간 동안 지정된 권한 집합이 있는 제한된 권한을 클라이언트에 부여할 수 있습니다. 계정 액세스 키를 공유할 필요가 없습니다. 공유 액세스 서명은 스토리지 리소스에 대해 인증된 액세스에 필요한 모든 정보를 쿼리 매개 변수에 포함하는 URI입니다. 공유 액세스 서명을 사용하여 스토리지 리소스에 액세스하려면 클라이언트에서 공유 액세스 서명을 해당 생성자 또는 메서드에 전달하기만 하면 됩니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: 공유 액세스 서명 모델 이해](../storage/common/storage-sas-overview.md)를 참조하세요.
 
 > [!NOTE]
-> Data Factory에서 이제 **서비스 공유 액세스 서명** 과 **계정 공유 액세스 서명** 이 모두 지원됩니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요. 
+> **서비스 공유 액세스 서명** 및 **계정 공유 액세스 서명은** 이제 지원 됩니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요. 
 
 > [!TIP]
 > 스토리지 계정에 대한 서비스 공유 액세스 서명을 생성하려면 다음 PowerShell 명령을 실행합니다. 자리 표시자를 바꾸고 필요한 권한을 부여합니다.
@@ -147,7 +147,7 @@ ms.locfileid: "123313967"
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureTableStorage** 로 설정되어야 합니다. |예 |
-| sasUri | 테이블에 대한 공유 액세스 서명 URI의 SAS URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 활용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
+| sasUri | 테이블에 대한 공유 액세스 서명 URI의 SAS URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 활용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
 >[!NOTE]
@@ -205,7 +205,7 @@ ms.locfileid: "123313967"
 
 공유 액세스 서명 URI를 만들 때 고려해야 할 사항은 다음과 같습니다.
 
-- 데이터 팩터리에서 연결된 서비스(읽기, 쓰기, 읽기/쓰기)를 사용하는 방법에 따라 개체에 대한 적절한 읽기/쓰기 권한을 설정합니다.
+- 연결된 서비스(읽기, 쓰기, 읽기/쓰기)를 사용하는 방법에 따라 개체에 대한 적절한 읽기/쓰기 권한을 설정합니다.
 - **만료 시간** 을 적절하게 설정합니다. Storage 개체에 대한 액세스가 파이프라인의 활성 기간 내에 만료되지 않도록 합니다.
 - URI는 필요에 따라 적절한 테이블 수준에서 만들어야 합니다.
 
@@ -240,12 +240,12 @@ Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성�
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Data Factory에서의 스키마
+### <a name="schema-inference-by-the-service"></a>서비스에 의한 스키마 유추
 
-Azure Table과 같이 스키마가 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
+Azure Table과 같은 스키마 없는 데이터 저장소의 경우 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
 
-* 복사 작업에서 열 매핑을 지정하는 경우 Data Factory는 원본 측 열 목록을 사용하여 데이터를 검색합니다. 이 경우 열 값이 행에 포함되어 있지 않으면 null 값이 제공됩니다.
-* 복사 작업에서 열 매핑을 지정하지 않으면 Data Factory는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 전체 스키마가 첫 번째 행에 포함되어 있지 않으면(예: 일부 열에 null 값이 있음) 복사 작업의 결과에서 일부 열이 누락됩니다.
+* 복사 작업에서 열 매핑을 지정하면 서비스에서 원본 쪽 열 목록을 사용하여 데이터를 검색합니다. 이 경우 열 값이 행에 포함되어 있지 않으면 null 값이 제공됩니다.
+* 복사 작업에서 열 매핑을 지정하지 않으면 서비스에서 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 전체 스키마가 첫 번째 행에 포함되어 있지 않으면(예: 일부 열에 null 값이 있음) 복사 작업의 결과에서 일부 열이 누락됩니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -266,7 +266,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 >[!NOTE]
 >Azure Table 쿼리 작업은 [Azure Table service에서 적용된](/rest/api/storageservices/setting-timeouts-for-table-service-operations) 대로 30초 후에 시간 초과됩니다. [쿼리 디자인](../storage/tables/table-storage-design-for-query.md) 문서에서 쿼리를 최적화하는 방법을 알아보세요.
 
-Azure Data Factory에서 datetime 형식 열에 대해 데이터를 필터링하려는 경우 다음 예제를 참조하세요.
+datetime 형식 열에 대해 데이터를 필터링하려면 다음 예제를 참조하세요.
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
@@ -284,7 +284,7 @@ Azure Data Factory에서 datetime 형식 열에 대해 데이터를 필터링하
 
 Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식을 **AzureTableSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 sink의 type 속성은 **AzureTableSink** 로 설정해야 합니다. |예 |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |예 |
@@ -352,11 +352,11 @@ Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식�
 
 ## <a name="data-type-mapping-for-azure-table"></a>Azure 테이블에 대한 데이터 형식 매핑
 
-Azure Table 간에 데이터를 복사하는 경우 Azure Table 데이터 형식에서 Data Factory 중간 데이터 형식으로 다음과 같은 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Azure Table 간 데이터를 복사하는 경우 Azure Table 데이터 형식에서 서비스 내에서 내부적으로 사용되는 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 Azure Table에서 데이터를 이동하는 경우 Azure Table OData 형식에서 .NET 형식으로 또는 그 반대로 다음과 같은 [Azure Table에서 정의된 매핑](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)이 사용됩니다.
 
-| Azure Table 데이터 형식 | Data Factory 중간 데이터 형식 | 세부 정보 |
+| Azure Table 데이터 형식 | 중간 서비스 데이터 형식 | 세부 정보 |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |바이트 배열은 최대 64KB입니다. |
 | Edm.Boolean |bool |부울 값입니다. |
@@ -372,4 +372,4 @@ Azure Table에서 데이터를 이동하는 경우 Azure Table OData 형식에�
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b0643f0245a208d2011d7508b4b7593e81e6d510
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649476"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -70,7 +70,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 
 ## <a name="load-balancing-rules"></a>부하 분산 규칙
 
-부하 분산 장치 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어오는 트래픽이 배포되는 방법을 정의하는 데 사용됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
+부하 분산 장치 규칙은 들어오는 트래픽이 백 엔드 풀 내의 **모든** 인스턴스에 배포 되는 방식을 정의 하는 데 사용 됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
 
 예를 들어 포트 80에 대한 부하 분산 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
 

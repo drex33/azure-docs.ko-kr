@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API Management 정책 샘플 - Application Gateway를 사용하는 경우 요청 IP 주소를 필터링하는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
-author: jftl6y
+author: dlepow
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
-ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0308d8ee4b2b23c578a804c981613338d682a9ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92076116"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590642"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Application Gateway를 사용하는 경우 요청 IP 주소 필터링
 

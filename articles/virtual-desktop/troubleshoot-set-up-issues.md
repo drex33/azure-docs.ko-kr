@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6eb6dd71ae95b3af4ee913e1ac88d9988d2b23a9
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: 7e2c4c6a68bb8db4434a233e7b7c658074ed015a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762535"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804128"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -71,7 +71,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 다음 지침에 따라 Azure Resource Manager 템플릿 및 PowerShell DSC의 실패한 배포 문제를 해결합니다.
 
 1. [Azure Resource Manager에서 배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 사용하여 배포 오류를 검토합니다.
-2. 배포에 오류가 없으면 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 사용하여 활동 로그의 오류를 검토합니다.
+2. 배포에 오류가 없으면 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-monitor/essentials/activity-log.md)를 사용하여 활동 로그의 오류를 검토합니다.
 3. 오류가 식별되면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/templates/common-deployment-errors.md)의 오류 메시지와 리소스를 사용하여 문제를 해결합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제하고 템플릿을 다시 배포하는 작업을 다시 시도합니다.
 
@@ -288,5 +288,5 @@ the VM.\\\"
 - Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
-- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+- 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-monitor/essentials/activity-log.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](../azure-resource-manager/templates/deployment-history.md)를 참조하세요.

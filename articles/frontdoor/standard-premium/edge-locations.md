@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 8208f6fbbd3efd70b2bb33e2c1163665326cec63
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 38cb0070b8460dd330a035b5cd611121845cbaba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482875"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652323"
 ---
 # <a name="azure-front-door-standardpremium-edge-locations-by-metro"></a>도시별 Azure Front Door 표준/프리미엄 에지 위치
 > [!div class="op_single_selector"]
@@ -31,5 +31,5 @@ ms.locfileid: "110482875"
 ## <a name="next-steps"></a>다음 단계
 
 * [약어로 Azure Front Door 에지 위치](edge-locations-by-abbreviation.md)를 봅니다.
-* Azure Front Door의 최신 에지 노드 목록을 가져오려면 [에지 노드 목록 - REST API](/rest/api/cdn/cdn/edgenodes/list)를 참조하세요.
+* Azure Front Door의 최신 에지 노드 목록을 가져오려면 [에지 노드 목록 - REST API](/rest/api/cdn/edge-nodes/list)를 참조하세요.
 * [Azure Front Door 표준/프리미엄 프로필을 만드는 방법](create-front-door-portal.md)에 대해 알아봅니다.

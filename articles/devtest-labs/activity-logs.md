@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs의 활동 로그 | Microsoft Docs
+title: 활동 로그
 description: 이 문서에서는 Azure DevTest Labs의 활동 로그를 볼 수 있는 단계를 제공합니다.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 51bdfc6c3857a3e59d75094b4c847c80c58de045
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e5c7453a1cc4959f6517050ed4c1896890b2610b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582773"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654273"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩을 위한 활동 로그 보기 
 하나 이상의 랩을 만든 후에는 랩에 액세스, 수정 및 관리하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. Azure DevTest Labs는 Azure Monitor, 특히 **활동 로그** 를 사용하여 랩에 대한 이러한 작업 정보를 제공합니다. 
@@ -47,4 +47,3 @@ ms.locfileid: "100582773"
 
 - 활동 로그에 대한 **경고** 설정에 대한 자세한 내용은 [경고 만들기](create-alerts.md)를 참조하세요.
 - 활동 로그에 대해 자세히 알아보려면 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)를 참조하세요.
-

@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/24/2021
 tags: azure-synapse
-ms.openlocfilehash: bcda86cd166e410bfc546c802466180557a92dc8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: b24fcbac37288dd3c49fe64fe517dd31bbab03d2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825059"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788404"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -134,7 +134,7 @@ ms.locfileid: "122825059"
 - DBCC SHOW_STATISTICS
 - sys.dm_db_stats_histogram
 
-[sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 사용하여 Azure Storage 계정에 저장된 감사 파일에서 정보를 반환합니다.
+[sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 사용하여 Azure Storage 계정에 저장된 감사 파일에서 정보를 반환합니다.
 
 ## <a name="permissions"></a><a id="permissions"></a>권한
 
@@ -218,10 +218,10 @@ REST API를 사용하여 분류 및 권장 사항을 프로그래밍 방식으�
 
 다음 SQL 드라이버를 사용하여 분류 메타데이터를 검색할 수 있습니다.
 
-- [ODBC 드라이버](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [OLE DB 드라이버](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [JDBC 드라이버](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [ODBC 드라이버](/sql/connect/odbc/data-classification)
+- [OLE DB 드라이버](/sql/connect/oledb/features/using-data-classification)
+- [JDBC 드라이버](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## <a name="faq---advanced-classification-capabilities"></a>FAQ - 고급 분류 기능
 

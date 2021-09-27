@@ -3,15 +3,15 @@ title: Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미�
 description: 이 문서에서는 Azure Automation 계정에 관리 ID를 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/12/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 882a55d017ed23dc7abbc9096e38f70abb41c425
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: b84c73e5286dc633b54ade2d59d43957f517361e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214276"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057665"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)
 
@@ -21,7 +21,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](automation-quickstart-create-account.md)를 참조하세요.
+- Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
 - 최신 버전의 Azure 계정 모듈. 현재 최신 버전은 2.2.8입니다. (이 버전에 대한 자세한 내용은 [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/)를 참조하세요.)
 
@@ -48,7 +48,7 @@ Azure Portal, PowerShell, Azure REST API 또는 ARM 템플릿을 사용하여 Az
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Identity
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -270,11 +270,17 @@ New-AzRoleAssignment `
 
 ## <a name="authenticate-access-with-system-assigned-managed-identity"></a>시스템 할당 관리 ID로 액세스 인증
 
-Automation 계정에 관리 ID를 사용 설정하고 대상 리소스에 ID 액세스를 부여하면, 관리 ID를 지원하는 리소스를 대상으로 해당 ID를 Runbook에서 지정할 수 있습니다. ID를 지원하려면 Az cmdlet `Connect-AzAccount` cmdlet를 사용합니다. PowerShell 참조에서 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount)를 참조하세요. `SubscriptionID`를 실제 구독 ID로 바꾸고 다음 명령을 실행합니다.
+Automation 계정에 관리 ID를 사용 설정하고 대상 리소스에 ID 액세스를 부여하면, 관리 ID를 지원하는 리소스를 대상으로 해당 ID를 Runbook에서 지정할 수 있습니다. ID를 지원하려면 Az cmdlet `Connect-AzAccount` cmdlet를 사용합니다. PowerShell 참조에서 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount)를 참조하세요.
 
 ```powershell
-Connect-AzAccount -Identity
-$AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 > [!NOTE]

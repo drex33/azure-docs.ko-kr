@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: e071298ce1ed191f79e071f18916d8afba10d625
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a0dd6e3e8f4c2a7645da1ceccf77f7607d2b84b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478809"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656952"
 ---
 # <a name="connection-resilience"></a>연결 복원력
 
@@ -26,17 +26,19 @@ ms.locfileid: "123478809"
 
 ## <a name="configure-appropriate-timeouts"></a>적절한 시간 제한 구성
 
-10~15초의 *연결 시간 제한* 과 5초의 *명령 시간 제한* 을 사용하도록 클라이언트 라이브러리를 구성합니다. *연결 시간 제한* 은 클라이언트가 Redis 서버와의 연결을 설정하기 위해 기다리는 시간입니다. 대부분의 클라이언트 라이브러리에는 클라이언트가 Redis 서버의 응답을 기다리는 시간인 *명령 시간 제한* 에 대한 다른 시간 제한 구성이 있습니다.
+연결 복원력에서 고려해야 할 두 가지 시간 제한 값은 [연결 시간 제한](#connect-timeout) 및 명령 시간 [제한](#command-timeout)입니다.
 
-일부 라이브러리의 *명령 시간 제한* 은 기본적으로 5초로 설정되어 있습니다. 시나리오와 캐시에 저장된 값의 크기에 따라 더 높거나 낮게 조정하는 것이 좋습니다.
+### <a name="connect-timeout"></a>Connect timeout
 
-*명령 시간 제한* 이 너무 작으면 연결이 불안정해 보일 수 있습니다. 그러나 *명령 시간 제한* 이 너무 크면 애플리케이션이 명령 시간 초과 여부를 확인하기 위해 오랜 시간을 기다려야 할 수 있습니다.
+`connect timeout`클라이언트가 Redis 서버와의 연결을 설정하기 위해 대기하는 시간입니다. 5초의 를 사용하도록 클라이언트 라이브러리를 `connect timeout` 구성하여 더 높은 CPU 조건에서도 시스템에 연결할 수 있는 충분한 시간을 제공합니다.
 
-최소 15초 이상의 *연결 시간 제한* 을 사용하도록 클라이언트 라이브러리를 구성하여 더 높은 CPU 조건에서도 연결할 수 있는 충분한 시스템 시간을 제공합니다. *연결 시간 제한* 값이 짧으면 해당 시간 프레임 안에 연결이 설정된다고 보장할 수 없습니다.
+작은 `connection timeout` 값은 해당 시간 프레임에서 연결이 설정되도록 보장하지 않습니다. 문제가 발생하는 경우(높은 클라이언트 CPU, 높은 서버 CPU 등) 짧은 `connection timeout` 값으로 인해 연결 시도가 실패합니다. 이 동작으로 인해 상황이 더 나빠지기도 합니다. 시간 제한이 더 짧으면 도움이 되기보다 오히려 문제를 악화시킵니다. 시스템이 다시 연결을 시도하는 프로세스를 강제로 다시 시작하여 *연결 -> 실패 -> 다시 시도* 루프로 이어질 수 있습니다.
 
-무언가 잘못된 상황에서(높은 클라이언트 CPU, 서버 CPU 등) 연결 시간 제한 값이 짧으면 연결 시도가 실패하게 됩니다. 이 동작으로 인해 상황이 더 나빠지기도 합니다. 시간 제한이 더 짧으면 도움이 되기보다 오히려 문제를 악화시킵니다. 시스템이 다시 연결을 시도하는 프로세스를 강제로 다시 시작하여 *연결 -> 실패 -> 다시 시도* 루프로 이어질 수 있습니다.
+### <a name="command-timeout"></a>명령 시간 제한
 
-일반적으로 *연결 시간 제한* 은 15초 이상으로 유지하는 것이 좋습니다. 빠르게 다시 시도하고 실패하는 것보다 15초 또는 20초 후에 연결 시도에 성공하도록 하는 것이 좋습니다. 이러한 다시 시도 루프로 인해 시스템이 초기에 시간이 약간 더 걸리는 것보다 작동 중단이 더 길어질 수 있습니다.
+대부분의 클라이언트 라이브러리에는 클라이언트가 Redis 서버의 응답을 기다리는 시간에 대한 또 다른 시간 제한 `command timeouts` 구성이 있습니다. 5초 미만의 초기 설정을 권장하지만 `command timeout` 시나리오 및 캐시에 저장된 값의 크기에 따라 더 높거나 낮은 값을 설정하는 것이 좋습니다.
+
+가 `command timeout` 너무 작으면 연결이 불안정해 보일 수 있습니다. 그러나 `command timeout` 경우는 너무 큰, 애플리케이션은 명령 시간 부족 되는지 여부를 확인 하려면 오랜 시간 동안 기다려야 할 수 있습니다.
 
 ## <a name="avoid-client-connection-spikes"></a>클라이언트 연결 급증 방지
 
@@ -66,3 +68,9 @@ ms.locfileid: "123478809"
 ## <a name="idle-timeout"></a>유휴 상태 시간 제한
 
 Azure Cache for Redis에는 현재 연결에 대한 10분의 유휴 시간 제한이 있으므로 클라이언트 애플리케이션의 유휴 시간 제한 설정은 10분 미만이어야 합니다. 대부분의 일반적인 클라이언트 라이브러리에는 클라이언트 라이브러리가 Redis `PING` 명령을 Redis 서버에 자동으로 주기적으로 보낼 수 있도록 하는 구성 설정이 있습니다. 그러나 이러한 유형의 설정 없이 클라이언트 라이브러리를 사용하는 경우 고객 애플리케이션 자체에서 연결을 유지해야 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [개발을 위한 모범 사례](cache-best-practices-development.md)
+- [Azure Cache for Redis 개발 FAQ](cache-development-faq.yml)
+- [장애 조치(failover) 및 패치](cache-failover.md)

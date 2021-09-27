@@ -1,13 +1,9 @@
 ---
 title: Azure VM에서 SAP NetWeaver에 대한 고가용성
 description: Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 가이드입니다.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aab3807a9a69052de3e6b66b44e6ebacc616fce6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: ef0f3cf29927e0d15702a9429fcabc54d10a8506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112297632"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648661"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -1609,7 +1605,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 **SAP PR1** 클러스터 그룹이 클러스터 노드 A(예: **pr1-ascs-0**)에서 실행되고 있습니다. **SAP PR1** 클러스터 그룹에 속하고 ASCS/SCS 인스턴스에서 사용하는 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다.
 
-![그림 61: 장애 조치(Failover) 클러스터 관리자: 클러스터 노드 A에서 실행 중인 SAP <SID> 클러스터 그룹][sap-ha-guide-figure-5000]
+![그림 61: 장애 조치(Failover) 클러스터 관리자: SAP \< SID \> 클러스터 그룹이 클러스터 노드 A에서 실행되고 있습니다.][sap-ha-guide-figure-5000]
 
 _**그림 61:** 장애 조치(Failover) 클러스터 관리자: 클러스터 노드 A에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 
@@ -1638,7 +1634,7 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
 
    장애 조치 후 SAP <*SID*> 클러스터 그룹이 클러스터 노드 B(예: **pr1-ascs-1** 에서 실행 중)에서 실행되고 있습니다.
 
-   ![그림 63: 장애 조치(Failover) 클러스터 관리자에서 클러스터 노드 B에서 실행 중인 SAP <SID> 클러스터 그룹][sap-ha-guide-figure-5002]
+   ![그림 63: 장애 조치(Failover) 클러스터 관리자 SAP SID \< \> 클러스터 그룹이 클러스터 노드 B에서 실행되고 있습니다.][sap-ha-guide-figure-5002]
 
    _**그림 63**: 장애 조치(Failover) 클러스터 관리자에서 클러스터 노드 B에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 7dd40b52cbc74e62a6dbb8ed83d19c968e48d9c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 6a21299d505d0132bab432223095850b3006b05e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822817"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651278"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
@@ -29,25 +29,25 @@ ms.locfileid: "122822817"
 
 식 작성기를 여는 데에는 여러 진입점이 있습니다. 이는 모두 데이터 흐름 변환의 특정 컨텍스트에 따라 다릅니다. 가장 일반적인 사용 사례는 사용자가 데이터 흐름 식 언어를 사용하여 열을 만들거나 업데이트하는 [파생 열](data-flow-derived-column.md) 및 [집계](data-flow-aggregate.md)와 같은 변환에 있습니다. 열 목록 위에 있는 **식 작성기 열기** 를 선택하여 식 작성기를 열 수 있습니다. 열 컨텍스트를 클릭하고 해당 식에 대한 식 작성기를 직접 열 수도 있습니다.
 
-![식 작성기 열기 파생](media/data-flow/open-expression-builder-derive.png "식 작성기 열기 파생")
+:::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="식 작성기 열기 파생":::
 
 [필터](data-flow-filter.md)와 같은 일부 변환에서 파란색 식 텍스트 상자를 클릭하면 식 작성기가 열립니다. 
 
-![파란색 식 상자](media/data-flow/expressionbox.png "파란색 식 상자")
+:::image type="content" source="media/data-flow/expressionbox.png" alt-text="파란색 식 상자":::
 
 일치 또는 group-by 조건에서 열을 참조하는 경우 식이 열에서 값을 추출할 수 있습니다. 식을 만들려면 **계산 열** 을 선택합니다.
 
-![계산 열 옵션](media/data-flow/computedcolumn.png "계산 열 옵션")
+:::image type="content" source="media/data-flow/computedcolumn.png" alt-text="계산 열 옵션":::
 
 식 또는 리터럴 값이 유효한 입력인 경우 **동적 콘텐츠 추가** 를 선택하여 리터럴 값으로 평가되는 식을 작성합니다.
 
-![동적 콘텐츠 추가 옵션](media/data-flow/add-dynamic-content.png "동적 콘텐츠 추가 옵션")
+:::image type="content" source="media/data-flow/add-dynamic-content.png" alt-text="동적 콘텐츠 추가 옵션":::
 
 ## <a name="expression-elements"></a>식 요소
 
 매핑 데이터 흐름에서 식은 열 값, 매개 변수, 함수, 지역 변수, 연산자 및 리터럴로 구성될 수 있습니다. 이러한 식은 문자열, 부울 또는 정수와 같은 Spark 데이터 유형으로 평가되어야 합니다.
 
-![식 요소](media/data-flow/expression-elements.png "식 요소")
+:::image type="content" source="media/data-flow/expression-elements.png" alt-text="식 요소":::
 
 ### <a name="functions"></a>Functions
 
@@ -57,7 +57,7 @@ ms.locfileid: "122822817"
 
 배열 유형을 반환하는 열이나 함수를 처리할 때 대괄호([])를 사용하여 특정 요소에 액세스합니다. 인덱스가 존재하지 않으면 식은 NULL로 평가됩니다.
 
-![식 작성기 배열](media/data-flow/expression-array.png "식 데이터 미리 보기")
+:::image type="content" source="media/data-flow/expression-array.png" alt-text="식 작성기 배열":::
 
 > [!IMPORTANT]
 > 매핑 데이터 흐름에서 배열은 1부터 시작하므로 첫 번째 요소가 인덱스 1에서 참조됩니다. 예를 들어, myArray[1]은 'myArray'라는 배열의 첫 번째 요소에 액세스합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "122822817"
 
 특수 문자나 공백이 포함된 열 이름이 있는 경우 식에서 참조할 수 있도록 이름을 중괄호로 묶습니다.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### <a name="parameters"></a>매개 변수
 
@@ -84,7 +84,7 @@ ms.locfileid: "122822817"
 
 `outputs()`는 매개 변수를 사용하지 않고 전체 캐시 싱크를 복합 열의 배열로 반환합니다. 싱크에 키 열이 지정되어 있으면 호출할 수 없으며 캐시 싱크에 행 수가 적은 경우에만 사용해야 합니다. 일반적인 사용 사례에서는 증분 키의 최댓값을 추가합니다. 캐시된 단일 집계 행 `CacheMaxKey`에 열 `MaxKey`가 포함된 경우 `CacheMaxKey#outputs()[1].MaxKey`를 호출하여 첫 번째 값을 참조할 수 있습니다.
 
-![캐시된 조회](media/data-flow/cached-lookup-example.png "캐시된 조회")
+:::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="캐시된 조회":::
 
 ### <a name="locals"></a>로컬
 
@@ -94,7 +94,7 @@ ms.locfileid: "122822817"
 
 [디버그 모드](concepts-data-flow-debug-mode.md)가 켜져 있는 경우 디버그 클러스터를 대화형으로 사용하여 식이 평가하는 대상을 미리 볼 수 있습니다. 데이터 미리 보기의 결과를 업데이트하려면 데이터 미리 보기 옆에 있는 **새로 고침** 을 선택합니다. 입력 열이 주어지면 각 행의 출력을 볼 수 있습니다.
 
-![진행 중인 미리 보기](media/data-flow/preview-expression.png "식 데이터 미리 보기")
+:::image type="content" source="media/data-flow/preview-expression.png" alt-text="진행 중인 미리 보기":::
 
 ## <a name="string-interpolation"></a>문자열 보간
 
@@ -126,7 +126,7 @@ ms.locfileid: "122822817"
 
 식 상단에 주석을 넣으면 변환 식을 문서화할 수 있도록 변환 텍스트 상자에 표시됩니다.
 
-![변환 텍스트 상자의 설명](media/data-flow/comment-expression.png "의견")
+:::image type="content" source="media/data-flow/comment-expression.png" alt-text="변환 텍스트 상자의 설명":::
 
 ## <a name="regular-expressions"></a>정규식
 
@@ -159,13 +159,13 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 ### <a name="convert-to-dates-or-timestamps"></a>날짜 또는 타임스탬프로 변환
 
-타임스탬프 출력에 문자열 리터럴을 포함하려면 변환을 ```toString()```으로 래핑합니다.
+타임스탬프 출력에 문자열 리터럴을 포함하려면 변환을 `toString()`으로 래핑합니다.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 epoch에서 날짜 또는 타임스탬프로 밀리초를 변환하려면 `toTimestamp(<number of milliseconds>)`를 사용합니다. 초 단위 시간은 1,000을 곱합니다.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 이전 식 끝에 있는 후행 "l"는 인라인 구문으로 긴 유형으로의 변환을 의미합니다.
 

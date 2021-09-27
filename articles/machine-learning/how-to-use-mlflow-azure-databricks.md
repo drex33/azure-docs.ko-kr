@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 62fd9820d1ec743d7424679753828b0cb7837fbc
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: 9f5fae1fb1a4afaca021eddd8b04625d87b9b2d9
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031052"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708000"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 Azure Databricks ML 실험 추적
 
@@ -214,7 +214,9 @@ display(preds)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-작업 영역에서 기록된 메트릭과 아티팩트를 사용하지 않으려는 경우에는 개별적으로 삭제할 수 있는 기능을 현재 사용할 수 없습니다. 대신, 스토리지 계정 및 작업 영역을 포함하는 리소스 그룹을 삭제하여 요금이 발생하지 않도록 합니다.
+Azure Databricks 작업 영역을 유지하지만 더 이상 Azure ML 작업 영역이 필요하지 않은 경우 Azure ML 작업 영역을 삭제할 수 있습니다. 이 작업을 수행하면 Azure Databricks 작업 영역과 Azure ML 작업 영역의 연결이 해제됩니다. 
+
+작업 영역에서 기록된 메트릭 및 아티팩트 사용을 계획하지 않는 경우 이 시점에서 개별적으로 삭제하는 기능을 사용할 수 없습니다. 대신, 스토리지 계정 및 작업 영역을 포함하는 리소스 그룹을 삭제하여 요금이 발생하지 않도록 합니다.
 
 1. Azure Portal의 맨 왼쪽에서 **리소스 그룹** 을 선택합니다.
 

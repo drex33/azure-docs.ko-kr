@@ -1,17 +1,17 @@
 ---
 title: Azure Files API 참조
 description: Azure Files API 참조, 추가 정보 파일 및 클라이언트 라이브러리 패키지를 찾습니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 08/05/2021
 ms.service: storage
 ms.topic: reference
-ms.openlocfilehash: d98d100261d91f46b9e9de57c8e2a1f478d73888
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0092c1317e7274bdac5f7e2b2caf999aaf7040a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648984"
 ---
 # <a name="azure-files-api-reference"></a>Azure Files API 참조
 

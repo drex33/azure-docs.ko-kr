@@ -7,15 +7,14 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/17/2021
-ms.openlocfilehash: a4125b5755d262a441d470e8fc970ef55ea74de2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a723f2317e9408f35ef506d96d7fb9714c9f4b3
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641867"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059799"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 매핑 데이터 흐름의 커넥터 및 형식 문제 해결하기
-
 
 본 문서에서는 ADF(Azure Data Factory)에서의 매핑 데이터 흐름의 커넥터 및 형식에 대한 문제 해결 방법을 살펴봅니다.
 

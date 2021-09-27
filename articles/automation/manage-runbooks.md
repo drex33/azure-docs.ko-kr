@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 관리
 description: 이 문서에서는 Azure Automation에서 Runbook을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/03/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c33b4dfdcecf64c692ad5e0df5de3ea80cc34d84
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: f30f2ea398404821face86470a43bbf6f86ffd7f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737570"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652019"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -19,10 +19,10 @@ ms.locfileid: "108737570"
 
 ## <a name="create-a-runbook"></a>Runbook 만들기
 
-Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 새 Runbook을 만듭니다. Runbook을 만든 후에는 다음의 정보를 사용하여 Runbook을 편집할 수 있습니다.
+Azure Portal 또는 PowerShell을 사용 하 여 Azure Automation에서 새 runbook을 만듭니다. Runbook을 만든 후에는 다음의 정보를 사용하여 Runbook을 편집할 수 있습니다.
 
 * [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
-* [Automation Runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습](automation-powershell-workflow.md)
+* [Automation runbook에 대 한 주요 PowerShell 워크플로 개념 알아보기](automation-powershell-workflow.md)
 * [Azure Automation에서 Python 2 패키지 관리](python-packages.md)
 * [Azure Automation에서 Python 3 패키지(미리 보기) 관리](python-3-packages.md)
 
@@ -84,7 +84,7 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 > [!NOTE]
 > 그래픽 Runbook을 가져온 후에는 이를 다른 형식으로 변환할 수 있습니다. 하지만 그래픽 Runbook을 텍스트 Runbook으로 변환할 수는 없습니다.
 
-### <a name="import-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook 가져오기
+### <a name="import-a-runbook-with-powershell"></a>PowerShell을 사용 하 여 runbook 가져오기
 
 [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) cmdlet을 사용하여 스크립트 파일을 초안 Runbook으로 가져옵니다. 해당 Runbook이 이미 있는 경우 cmdlet에 `Force` 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
 
@@ -167,16 +167,12 @@ $JobInfo.GetEnumerator() | Sort-Object Key -Descending | Select-Object -First 1
 여러 작업을 동시에 실행하는 경우 일부 Runbook에서는 이상하게 작동합니다. 이 경우 이미 실행 중인 작업이 Runbook에 있는지 확인하는 논리를 구현해야 합니다. 기본 예제는 다음과 같습니다.
 
 ```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-$cnParams = @{
-    ServicePrincipal      = $true
-    Tenant                = $connection.TenantId
-    ApplicationId         = $connection.ApplicationId
-    CertificateThumbprint = $connection.CertificateThumbprint
-}
-Connect-AzAccount @cnParams
-$AzureContext = Set-AzContext -SubscriptionId $connection.SubscriptionID
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
+
+$AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
 
 # Check for already running or new runbooks
 $runbookName = "RunbookName"
@@ -195,16 +191,6 @@ if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Stat
     # Insert Your code here
 }
 ```
-또는 PowerShell의 스플래팅 기능을 사용하여 연결 정보를 `Connect-AzAccount`에 전달할 수 있습니다. 이 경우 이전 샘플의 처음 몇 줄은 다음과 같습니다.
-
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount @connection
-$AzureContext = Set-AzContext -SubscriptionId $connection.SubscriptionID
-```
-
-자세한 내용은 [스플래팅 정보](/powershell/module/microsoft.powershell.core/about/about_splatting)를 참조하세요.
 
 ## <a name="handle-transient-errors-in-a-time-dependent-script"></a>시간 종속 스크립트의 일시적인 오류 처리
 
@@ -222,14 +208,10 @@ Runbook은 [구독](automation-runbook-execution.md#subscriptions)을 사용하�
 ```powershell
 Disable-AzContextAutosave -Scope Process
 
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-$cnParams = @{
-    ServicePrincipal      = $true
-    Tenant                = $connection.TenantId
-    ApplicationId         = $connection.ApplicationId
-    CertificateThumbprint = $connection.CertificateThumbprint
-}
-Connect-AzAccount @cnParams
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 $childRunbookName = 'ChildRunbookDemo'
 $accountName = 'MyAutomationAccount'

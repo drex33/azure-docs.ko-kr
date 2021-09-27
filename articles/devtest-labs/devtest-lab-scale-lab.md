@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 랩의 할당량 및 한도 규모 조정 | Microsoft Docs
+title: 랩의 할당량 및 제한 크기 조정
 description: 이 문서에서는 Azure DevTest Labs에서 랩을 스케일링할 수 있는 방법을 설명합니다. 사용 할당량 및 제한을 확인하고 증가를 요청합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 357e8b4746aa5be368ecf87d12c86014cc525704
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87533957"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666555"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>DevTest Labs의 할당량 및 한도 규모 조정
 DevTest Labs에서 작업할 때 일부 Azure 리소스에 대한 특정 기본 한도가 있으며 이 한도가 DevTest Labs 서비스에 영향을 미칠 수 있습니다. 이러한 한도를 **할당량** 이라고 합니다.

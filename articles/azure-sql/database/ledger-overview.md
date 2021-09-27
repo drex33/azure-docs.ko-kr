@@ -1,27 +1,26 @@
 ---
 title: Azure SQL Database 원장 개요
 description: Azure SQL Database 원장 기능의 기본 사항을 알아봅니다.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 6b8ca057d896cc7fa353e8b09b1d1667b87cc273
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5651981c663ba5d119a5ae4089ab3f693dad1552
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528319"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128705690"
 ---
 # <a name="azure-sql-database-ledger"></a>Azure SQL Database 원장
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
+> Azure SQL Database 원장은 현재 공개 미리 보기로 제공됩니다.
 
 데이터베이스 시스템에 저장된 데이터의 무결성에 대한 신뢰를 얻는 일은 금융, 의료 및 기타 중요한 데이터를 관리하는 모든 조직에서 오랫동안 문제가 되었습니다. [Azure SQL Database](sql-database-paas-overview.md) 원장 기능은 데이터베이스에서 변조 증거 기능을 제공합니다. 감사자 또는 다른 비즈니스 당사자와 같은 다른 당사자에게 데이터가 변조되지 않았음을 암호화된 방식으로 증명할 수 있습니다.
 
@@ -61,7 +60,7 @@ ms.locfileid: "122528319"
 
 데이터베이스에서 받은 각 트랜잭션은 암호화된 해시(SHA-256)입니다. 해시 함수는 트랜잭션의 값과 이전 트랜잭션의 해시를 해시 함수에 대한 입력으로 사용합니다. (값에는 트랜잭션에 포함된 행의 해시가 포함됩니다.) 함수는 블록체인과 같은 모든 트랜잭션을 암호화하여 연결합니다. 
 
-암호화된 해시([데이터베이스 다이제스트](#database-digests))는 데이터베이스의 상태를 나타냅니다. 정기적으로 생성되어 변조 방지 스토리지 위치의 Azure SQL Database 외부에 저장됩니다. 스토리지 위치의 예로는 [Azure Confidential Ledger](../../confidential-ledger/index.yml) 및 [Azure Blob Storage의 변경이 불가능한 스토리지 기능](../../storage/blobs/immutable-storage-overview.md)이 있습니다. 데이터베이스 다이제스트는 나중에 다이제스트의 해시 값을 데이터베이스에 있는 계산된 해시와 비교하여 데이터베이스의 무결성을 확인하는 데 사용합니다. 
+암호화된 해시된 데이터베이스 [다이제스트는 데이터베이스의](#database-digests) 상태를 나타냅니다. 정기적으로 생성되어 변조 방지 스토리지 위치의 Azure SQL Database 외부에 저장됩니다. 스토리지 위치의 예로는 [Azure Confidential Ledger](../../confidential-ledger/index.yml) 및 [Azure Blob Storage의 변경이 불가능한 스토리지 기능](../../storage/blobs/immutable-storage-overview.md)이 있습니다. 데이터베이스 다이제스트는 나중에 다이제스트의 해시 값을 데이터베이스에 있는 계산된 해시와 비교하여 데이터베이스의 무결성을 확인하는 데 사용합니다. 
 
 원장 기능은 다음 두 가지 형식으로 Azure SQL Database 테이블에 도입되었습니다.
 

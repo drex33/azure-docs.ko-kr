@@ -3,12 +3,12 @@ title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
 ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 22c6e1382fdfbd7cafb423e99239fe2480d3b088
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 31cf137577301402cd9e26d96a1204f427331daf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322134"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658301"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -19,16 +19,11 @@ ms.locfileid: "122322134"
 | 샘플 | Description |
 |---------|---------|
 | [오스트레일리아 정부 ISM PROTECTED](./ism-protected/index.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
-| [Azure Security Benchmark](./azure-security-benchmark.md) | [Azure Security Benchmark](../../../security/benchmarks/overview.md) 규정을 준수하기 위한 가드 레일을 제공합니다. |
 | [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Azure Security Benchmark Foundation을 배포하고 구성합니다. |
 | [캐나다 연방 PBMM](./canada-federal-pbmm.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md) | CIS Microsoft Azure Foundations Benchmark v1.3.0 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md) | CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [CMMC Level 3](./cmmc-l3.md) | CMMC 수준 3 규정 준수를 위한 가드 레일을 제공합니다. |
-| [DoD 영향 수준 4](./dod-impact-level-4/index.md) | DoD 영향 수준 4를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
-| [DoD 영향 수준 5](./dod-impact-level-5/index.md) | DoD 영향 수준 5를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
-| [FedRAMP Moderate](./fedramp-m/index.md) | FedRAMP Moderate를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
-| [FedRAMP High](./fedramp-h/index.md) | FedRAMP High를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | HIPAA HITRUST를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [IRS 1075 2016년 9월](./irs-1075-sept2016.md) | IRS 1075 규정 준수를 위한 가드레일을 제공합니다.|
 | [ISO 27001](./iso-27001-2013.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
@@ -36,7 +31,6 @@ ms.locfileid: "122322134"
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 더 많은 인프라를 제공합니다. |
 | [미디어](./media/index.md) | Media MPAA를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [뉴질랜드 ISM 제한됨](./new-zealand-ism.md) | 특정 뉴질랜드 정보 보안 수동 컨트롤을 해결하는 정책을 할당합니다. |
-| [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | NIST SP 800-171 R2 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | SWIFT CSP-CSCF v2020 규정 준수를 지원합니다. |

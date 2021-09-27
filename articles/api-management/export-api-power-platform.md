@@ -2,17 +2,17 @@
 title: Azure API Management에서 Microsoft Power Platform으로 API 내보내기 | Microsoft Docs
 description: Microsoft Power Platform의 Power Apps 및 Power Automate에 대한 사용자 지정 커넥터로서 API Management에서 API를 내보내는 방법을 알아봅니다.
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 07/27/2021
-ms.author: apimpm
-ms.openlocfilehash: 6560995ba770e01c910c2b8fc923c9fcbad6f3d3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 7bc73c3134d01dd88112dd1564b12ecfe5f710b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529706"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639055"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Azure API Management에서 Power Platform으로 API 내보내기 
 

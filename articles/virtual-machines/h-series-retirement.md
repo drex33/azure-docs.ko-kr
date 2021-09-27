@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: amverma
-ms.openlocfilehash: 023fb8a352e1e02023fe0ce16afba9531625e370
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 98465066f79f93777255a3072c472d342b557bdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600231"
 ---
 # <a name="migrate-your-h-and-h_promo-series-virtual-machines-by-august-31-2022"></a>2022년 8월 31일까지 H 및 H_Promo 시리즈 가상 머신 마이그레이션
 Microsoft Azure에서 최신 세대의 HPC(고성능 컴퓨팅), 범용 및 메모리 최적화 가상 머신을 도입함에 따라 원래 H 시리즈(H 시리즈 프로모션 포함) 가상 머신에서 최신 제품으로 워크로드를 마이그레이션하는 것이 좋습니다.
@@ -54,4 +54,4 @@ InfiniBand 네트워킹 인터페이스를 노출하는 H 시리즈 VM 크기(�
 
 
 ### <a name="resize-the-current-virtual-machine"></a>현재 가상 머신 크기 조정
-[PowerShell](./windows/resize-vm.md), [Azure CLI](./linux/change-vm-size.md)를 사용하거나 Azure Portal을 통해 가상 머신의 크기를 조정할 수 있습니다.
+[가상 컴퓨터의 크기를 조정할](resize-vm.md)수 있습니다.

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 08e20a497c7fddfe00e70fcf1d9d4c6e5f76054f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 4711e63e1d9309d3111e3207f6cb824704ac4290
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567902"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652797"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Azure Virtual WAN을 사용한 SD-WAN 연결 아키텍처
 
@@ -71,5 +71,5 @@ v-CPE 게이트웨이(NVA)를 통해 Azure에 연결되므로 Azure 워크로드
 
 ## <a name="additional-information"></a>추가 정보
 
-* [FAQ 포함](virtual-wan-faq.md)
+* [Azure 가상 WAN FAQ](virtual-wan-faq.md)
 * [원격 연결 해결](work-remotely-support.md)

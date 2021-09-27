@@ -4,12 +4,12 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 ms.topic: conceptual
 ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9dc4b87713d5b397b900f19e83c297130a10be3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: cf8b4ceb70eec2ac6dbb79b8193276997f8e06f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567384"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664526"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -468,7 +468,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 배포하는 동
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -492,7 +492,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 배포하는 동
 param location string = resourceGroup().location
 param utcShort string = utcNow('d')
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -535,7 +535,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -558,7 +558,7 @@ param tagValues object = {
   Environment: 'Production'
 }
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -590,7 +590,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -611,7 +611,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -645,7 +645,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -667,7 +667,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -843,7 +843,7 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 * 각 리소스, 리소스 그룹 및 구독에는 최대 50개의 태그 이름/값 쌍이 지정될 수 있습니다. 허용되는 최대 수보다 많은 태그를 적용해야 하는 경우 태그 값에 JSON 문자열을 사용합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹 또는 구독은 각각 50개의 태그 이름/값 쌍이 있는 여러 리소스를 포함할 수 있습니다.
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 스토리지 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
 * Cloud Services와 같은 클래식 리소스에는 태그를 적용할 수 없습니다.
-* Azure IP 그룹 및 Azure Firewall 정책은 PATCH 작업을 지원하지 않습니다. 즉, 포털을 통해 태그를 업데이트할 수 없습니다. 대신 해당 리소스에 대한 업데이트 명령을 사용합니다. 예를 들어 [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) 명령을 사용하여 IP 그룹에 대한 태그를 업데이트할 수 있습니다. 
+* Azure IP 그룹 및 Azure Firewall 정책은 PATCH 작업을 지원하지 않습니다. 즉, 포털을 통해 태그를 업데이트할 수 없습니다. 대신 해당 리소스에 대한 업데이트 명령을 사용합니다. 예를 들어 [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) 명령을 사용하여 IP 그룹에 대한 태그를 업데이트할 수 있습니다.
 * 태그 이름에는 다음 문자를 포함할 수 없습니다: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
@@ -852,7 +852,7 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
    > * Azure Front Door는 태그 이름에 `#` 또는 `:` 사용을 지원하지 않습니다.
    >
    > * 다음 Azure 리소스는 15개의 태그만 지원합니다.
-   >     * Azure Automation 
+   >     * Azure Automation
    >     * Azure CDN
    >     * Azure DNS(영역 및 A 레코드)
    >     * Azure 프라이빗 DNS(영역, A 레코드 및 가상 네트워크 링크)

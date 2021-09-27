@@ -3,12 +3,12 @@ title: AuthN/AuthZ의 파일 기반 구성
 description: 특정 미리 보기 기능을 사용하려면 구성 파일을 사용하여 App Service에서 인증 및 권한 부여를 구성합니다.
 ms.topic: article
 ms.date: 07/15/2021
-ms.openlocfilehash: 54fa47055a1f0bba3075d6e77c4fa27d63caf2b6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2875c529e644b46d08251ae57ee9f424492a2433
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657218"
 ---
 # <a name="file-based-configuration-in-azure-app-service-authentication"></a>Azure App Service 인증의 파일 기반 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "122528476"
 
 1. 프로젝트의 루트에서 구성에 관한 새 JSON 파일을 만듭니다(웹/함수 앱의 D:\home\site\wwwroot에 배포됨). [파일 기반 구성 참조](#configuration-file-reference)에 따라 원하는 구성을 입력합니다. 기존 Azure Resource Manager 구성을 수정하는 경우 `authsettings` 컬렉션에서 캡처된 속성을 구성 파일로 변환해야 합니다.
 
-2. `Microsoft.Web/sites/<siteName>/config/authsettingsV2` 아래의 [Azure Resource Manager](../azure-resource-manager/management/overview.md) API에서 캡쳐되는 기존 구성을 수정합니다. 이를 수정하기 위해 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 또는 [Azure Resource Explorer](https://resources.azure.com/) 같은 도구를 사용할 수 있습니다. authsettingsV2 컬렉션 내에서 세 개의 속성을 설정해야 하며, 다른 속성은 제거할 수 있습니다.
+2. `Microsoft.Web/sites/<siteName>/config/authsettingsV2` 아래의 [Azure Resource Manager](../azure-resource-manager/management/overview.md) API에서 캡쳐되는 기존 구성을 수정합니다. 이를 수정하기 위해 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 또는 [Azure Resource Explorer](https://resources.azure.com/) 같은 도구를 사용할 수 있습니다. authsettingsV2 컬렉션 내에서 두 개의 속성을 설정해야 합니다(다른 속성은 제거할 수 있음).
 
     1. `platform.enabled`을 “true”로 설정합니다.
     2. `platform.configFilePath`를 파일 이름으로 설정합니다(예: "auth.json").

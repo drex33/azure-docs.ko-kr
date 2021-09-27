@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Azure API Management의 Open API, WSDL, WADL 형식 지원과 관련해서 알려진 이슈 및 제한 사항의 세부 정보입니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: vlvinogr
 editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
-ms.author: apimpm
-ms.openlocfilehash: c5f1509a5d037e5866ed86266693e955bdca2d6f
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: f23f1a4200c973a90bee84cadfa9e49eef7523dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186428"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675443"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 

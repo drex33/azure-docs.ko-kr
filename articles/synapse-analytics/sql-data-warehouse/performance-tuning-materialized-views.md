@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/17/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: ce3f7b923cec3dec28043f43babbaa86a0c6d92e
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 2b3e2af66334ebb82c8113caac2f8b78d5c8bf20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662071"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674493"
 ---
 # <a name="performance-tune-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -57,9 +57,6 @@ Azure Synapse의 전용 SQL 풀은 표준 및 구체화된 뷰를 지원합니�
 - 집계 함수를 광범위하게 지원합니다. [CREATE MATERIALIZED VIEW AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql)를 참조하세요.
 - 쿼리 관련 구체화된 뷰 권장 사항을 지원합니다.  [EXPLAIN(Transact-SQL)](/sql/t-sql/queries/explain-transact-sql)을 참조하세요.
 - 기본 테이블의 데이터 변경 내용으로 자동 및 동기식 데이터 새로 고침 추가적인 조치가 필요하지 않습니다.
->[!note] 
-> CASE 식을 사용하여 만든 구체화된 뷰에는 뷰를 만들 때만 CASE 조건을 충족하는 값이 저장됩니다.  구체화된 뷰는 뷰가 만들어진 후의 CASE 식에서 생성되는 증분 데이터 변경 내용을 반영하지 않습니다.   
-
  
 ## <a name="common-scenarios"></a>일반적인 시나리오  
 

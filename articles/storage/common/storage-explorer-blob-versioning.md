@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: ea0b0470c83df147526a145a7c54f7245a72c4c4
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: dfff19eee4c852e336d0d943a9509d286d510347
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626687"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure Storage Explorer Blob 버전 관리 가이드
 
@@ -62,7 +62,7 @@ Storage Explorer는 Blob을 볼 수 있는 네 가지 보기를 지원합니다.
 
 - 활성 버전이 없는 Blob
 - 현재 버전
-- 최신 활성 이전 버전 
+- 최신 활성 이전 버전
 
 현재 버전이 없지만 활성 이전 버전은 있는 Blob의 경우에는 Storage Explorer에 최신 활성 이전 버전이 해당 Blob의 표현으로 표시됩니다.
 
@@ -73,13 +73,13 @@ Storage Explorer는 Blob을 볼 수 있는 네 가지 보기를 지원합니다.
 - 활성 버전이 없는 Blob
 - 일시 삭제된, 버전이 없는 Blob
 - 현재 버전
-- 최신 이전 버전 
+- 최신 이전 버전
 
 현재 버전이 없는 Blob의 경우에는 Storage Explorer에 최신 이전 버전이 해당 Blob의 표현으로 표시됩니다.
 
-> [!Note]
+> [!NOTE]
 > 서비스 제한으로 인해 Blob 버전을 나열할 때 가상 디렉터리의 계층 보기를 가져오려면 Storage Explorer에서 몇 가지 추가 처리가 필요합니다. 다음 보기에서는 Blob을 나열하는 데 시간이 더 오래 걸립니다.
-> 
+>
 > - 활성 Blob 및 현재 버전이 없는 Blob
 > - 모든 Blob 및 현재 버전이 없는 Blob
 
@@ -117,6 +117,6 @@ Blob 버전은 개별적으로 삭제 취소할 수 없습니다. 삭제는 한�
 
 ## <a name="see-also"></a>참고 항목
 
-* [Blob 버전 관리](../blobs/versioning-overview.md)
-* [Blob에 대한 일시 삭제](../blobs/soft-delete-blob-overview.md)
-* [Azure Storage Explorer 일시 삭제 가이드](./storage-explorer-soft-delete.md)
+- [Blob 버전 관리](../blobs/versioning-overview.md)
+- [Blob에 대한 일시 삭제](../blobs/soft-delete-blob-overview.md)
+- [Azure Storage Explorer 일시 삭제 가이드](./storage-explorer-soft-delete.md)

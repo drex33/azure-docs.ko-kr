@@ -5,12 +5,12 @@ ms.service: container-service
 ms.custom: subject-monitoring
 ms.date: 07/29/2021
 ms.topic: reference
-ms.openlocfilehash: 4dfbe6ba3e8bb64e2fdf41a06932f84fb1b7be94
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 9e8a12f8d3075bade1619ce766c74dc8cac23481
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530459"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816061"
 ---
 # <a name="monitoring-aks-data-reference"></a>AKS 데이터 모니터링 참조
 
@@ -55,9 +55,9 @@ AKS에 대한 모니터링 데이터의 수집 및 분석에 대한 세부 정�
 
 [Azure Monitor에서 지원되는 모든 리소스 로그 범주 유형](../azure-monitor/essentials/resource-logs-schema.md) 목록을 참조하세요. 
 
-| 범주                | 설명 |
+| 범주                | Description |
 |:---|:---|
-| cluster-autoscale       | AKS 클러스터가 스케일 업 또는 다운되는 이유를 이해합니다. 예상과 다를 수 있습니다. 이 정보는 클러스터에서 흥미로운 일이 발생했을 수 있는 시간 간격을 상관시킬 때도 유용합니다. |
+| cluster-autoscaler       | AKS 클러스터가 스케일 업 또는 다운되는 이유를 이해합니다. 예상과 다를 수 있습니다. 이 정보는 클러스터에서 흥미로운 일이 발생했을 수 있는 시간 간격을 상관시킬 때도 유용합니다. |
 | 가드                   | 관리형 Azure Active Directory 및 Azure RBAC 감사 관리형 Azure AD의 경우 토큰 입력 및 사용자 정보 출력이 포함되며 Azure RBAC의 경우 액세스 리뷰 입출력이 포함됩니다. |
 | kube-apiserver          | API 서버의 로그 |
 | kube-audit              | get, list, create, update, delete, patch 및 post를 포함하여 모든 감사 이벤트의 감사 로그 데이터 |
@@ -99,4 +99,4 @@ AKS에 대한 모니터링 데이터의 수집 및 분석에 대한 세부 정�
 ## <a name="see-also"></a>참고 항목
 
 - Azure AKS 모니터링에 대한 설명은 [Azure AKS 모니터링](monitor-aks.md)을 참조하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/essentials/monitor-azure-resource)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

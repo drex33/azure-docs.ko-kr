@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0d06e40fc33a713904fb171a3a44ba8e977a254f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680284"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -41,7 +41,7 @@ ms.locfileid: "123467649"
 변경 피드는 블록 Blob에 대한 [개체 복제](object-replication-overview.md) 및 [특정 시점 복원](point-in-time-restore-overview.md)에 대한 필수 기능입니다.
 
 > [!NOTE]
-> 변경 피드는 Blob에 발생하는 변경 내용에 대한 지속적이고 순서가 지정된 로그 모델을 제공합니다. 변경 내용은 변경 후 몇 분 내에 변경 피드 로그에 기록되고 사용할 수 있습니다. 애플리케이션에서 이보다 훨씬 더 빠르게 이벤트에 대응해야 하는 경우 [Blob Storage 이벤트](storage-blob-event-overview.md)를 대신 사용하는 것이 좋습니다. [Blob Storage 이벤트](storage-blob-event-overview.md)는 Azure Functions 또는 애플리케이션에서 Blob에 발생하는 변경에 빠르게 대응할 수 있도록 하는 실시간 일회성 이벤트를 제공합니다. 
+> 변경 피드는 Blob에 발생하는 변경 내용에 대한 지속적이고 순서가 지정된 로그 모델을 제공합니다. 변경 내용은 변경 후 몇 분 내에 변경 피드 로그에 기록되고 사용할 수 있습니다. 애플리케이션에서 이보다 훨씬 더 빠르게 이벤트에 대응해야 하는 경우 [Blob Storage 이벤트](storage-blob-event-overview.md)를 대신 사용하는 것이 좋습니다. [Blob Storage 이벤트](storage-blob-event-overview.md)는 Azure Functions 또는 애플리케이션에서 Blob에 발생하는 변경에 빠르게 대응할 수 있도록 하는 실시간 일회성 이벤트를 제공합니다.
 
 ## <a name="enable-and-disable-the-change-feed"></a>변경 피드를 사용하거나 사용하지 않도록 설정
 
@@ -99,6 +99,7 @@ PowerShell을 사용하여 변경 피드를 사용하도록 설정합니다.
    ```
 
 ### <a name="template"></a>[템플릿](#tab/template)
+
 Azure Resource Manager 템플릿을 사용하여 Azure Portal을 통해 기존 스토리지 계정에서 변경 피드를 사용하도록 설정합니다.
 
 1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
@@ -153,7 +154,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure Portal을 통해 기존 �
 
 변경 피드의 사용 가능한 시간별 세그먼트는 해당 세그먼트에 대한 변경 피드 파일의 경로를 지정하는 매니페스트 파일에 설명되어 있습니다. `$blobchangefeed/idx/segments/` 가상 디렉터리의 목록에는 시간별로 정렬된 세그먼트가 표시됩니다. 세그먼트 경로는 세그먼트에서 나타내는 시간별 시간 범위의 시작을 설명합니다. 이 목록을 사용하여 관심 있는 로그 세그먼트를 필터링할 수 있습니다.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
@@ -163,7 +164,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`은 변경 피드를 사용하도록 설정하면 자동으로 만들어집니다. 이 파일은 무시해도 됩니다. 항상 비어 있는 초기화 파일입니다. 
+> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`은 변경 피드를 사용하도록 설정하면 자동으로 만들어집니다. 이 파일은 무시해도 됩니다. 항상 비어 있는 초기화 파일입니다.
 
 세그먼트 매니페스트 파일(`meta.json`)은 `chunkFilePaths` 속성에서 해당 세그먼트에 대한 변경 피드 파일의 경로를 표시합니다. 세그먼트 매니페스트 파일의 예제는 다음과 같습니다.
 
@@ -196,7 +197,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed` 컨테이너는 계정에서 변경 피드 기능을 사용하도록 설정한 후에만 표시됩니다. Blob을 컨테이너에 나열하려면 먼저 변경 피드를 사용하도록 설정한 후 몇 분 정도 기다려야 합니다. 
+> `$blobchangefeed` 컨테이너는 계정에서 변경 피드 기능을 사용하도록 설정한 후에만 표시됩니다. Blob을 컨테이너에 나열하려면 먼저 변경 피드를 사용하도록 설정한 후 몇 분 정도 기다려야 합니다.
 
 <a id="log-files"></a>
 
@@ -288,7 +289,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 ## <a name="conditions-and-known-issues"></a>조건 및 알려진 문제
 
-이 섹션에서는 변경 피드의 현재 릴리스에서 알려진 문제 및 조건에 대해 설명합니다. 
+이 섹션에서는 변경 피드의 현재 릴리스에서 알려진 문제 및 조건에 대해 설명합니다.
 
 - 단일 변경에 대한 이벤트 레코드 변경 내용이 변경 피드에 두 번 이상 나타날 수 있습니다.
 - 변경 피드 로그 파일의 수명은 아직 해당 파일에 대한 시간 기반 보존 정책을 설정하여 관리할 수 없으며, Blob은 삭제할 수 없습니다.
@@ -299,12 +300,12 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 ## <a name="feature-support"></a>기능 지원
 
-이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다. 
+이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) | 
-| Premium 블록 Blob          | ![예](../media/icons/no-icon.png)|![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

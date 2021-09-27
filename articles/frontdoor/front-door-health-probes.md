@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 6ccd231c69d69900f81ab91d39eada1f67c7886f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084991"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792470"
 ---
 # <a name="health-probes"></a>상태 프로브
 
@@ -64,6 +64,8 @@ Azure Front Door는 상태를 확인하기 위해 모든 알고리즘에서 아�
 
 3. 백 엔드 풀의 정상 백 엔드 세트에 대해 Front Door는 각 백 엔드에 대한 대기 시간(왕복 시간)을 추가로 측정하고 유지합니다.
 
+> [!NOTE]
+> 단일 끝점이 여러 백 엔드 풀의 멤버인 경우 Azure Front 도어가 백 엔드에 전송 되는 상태 프로브 수를 최적화 하 여 백 엔드에 대 한 부하를 줄입니다. 상태 프로브 요청은 가장 낮은 구성 된 샘플 간격에 따라 전송 됩니다. 모든 풀의 끝점 상태는 동일한 상태 프로브의 응답에 의해 결정 됩니다.
 
 ## <a name="complete-health-probe-failure"></a>상태 프로브 실패 완료
 

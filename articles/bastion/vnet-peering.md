@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: ccbee86e8f5ae2ab514c8ec7ece4d41e1e890e4e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 4e5f474f08116cea39b565e76a9736b3e94eec9f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733289"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668795"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>VNet 피어링 및 Azure Bastion
 
@@ -45,17 +45,17 @@ VNet 피어링이 구성되면 Azure Bastion을 허브 및 스포크 또는 전�
    * 가상 머신의 개인 IP를 사용하는 NIC에 대한 읽기 권한자 역할
    * Azure Bastion 리소스에 대한 읽기 권한자 역할
    * Virtual Network에 대한 리더 역할(피어링된 Virtual Network가 없는 경우 필요하지 않음).
-3. **연결** 드롭다운 메뉴에서 Bastion을 보려면 **구독 > 전역 구독** 에서 액세스할 수 있는 하위 항목을 선택해야 합니다.
+3. 커넥트 드롭다운 메뉴에서 Bastion을 보려면 구독 **>** 전역 구독 에서 액세스할 수 있는 **구독을** 선택해야 합니다.
 4. 연결할 가상 머신을 선택합니다.
 5. Azure Bastion은 피어링된 VNet에서 원활하게 검색됩니다.
 6. 한 번의 클릭으로 RDP/SSH 세션이 브라우저에서 열립니다.
 
-  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="연결":::
+Azure Bastion을 통해 VM에 연결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-   Azure Bastion을 통해 VM에 연결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-
-   * [VM에 연결 - RDP](bastion-connect-vm-rdp.md).
-   * [VM에 연결 - SSH](bastion-connect-vm-ssh.md).
+   * [Windows VM에 커넥트 - RDP](bastion-connect-vm-rdp-windows.md)
+   * [Windows VM에 커넥트 - SSH](bastion-connect-vm-ssh-windows.md)
+   * [Linux VM에 커넥트 - SSH](bastion-connect-vm-ssh-linux.md)
+   * [Linux VM에 커넥트 - RDP](bastion-connect-vm-rdp-linux.md)
 
 ## <a name="faq"></a>FAQ
 

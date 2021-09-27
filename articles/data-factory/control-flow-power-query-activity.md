@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ab19b62ff4aaca1b3357d586e3bba4252e8a5d9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 07e663b7b631cbc083916e48924d740255e46e37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528782"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638770"
 ---
-# <a name="power-query-activity-in-data-factory"></a>데이터 팩터리의 파워 쿼리 작업
+# <a name="power-query-activity-in-azure-data-factory"></a>Azure Data Factory의 파워 쿼리 작업
 
 파워 쿼리 활동을 사용하여 Data Factory 파이프라인에서 대규모로 랭글링 데이터를 실행하는 파워 쿼리 매시업을 빌드하고 실행할 수 있습니다. 새 리소스 메뉴 옵션 또는 파이프라인에 파워 작업을 추가하여 새 파워 쿼리 매시업을 만들 수 있습니다.
 
-![팩터리 리소스 창의 파워 쿼리 스크린샷](media/data-flow/power-query-wrangling.png)
+:::image type="content" source="media/data-flow/power-query-wrangling.png" alt-text="팩터리 리소스 창의 파워 쿼리 스크린샷":::
 
 이전에는 Azure Data Factory의 데이터 랭글링을 Data Flow 메뉴 옵션에서 작성했으나, 새 파워 쿼리 작업에서 작성할 수 있도록 변경되었습니다. 파워 쿼리 매시업 편집기 내에서 직접 작업하여 대화형 데이터 검색을 수행한 뒤 작업을 저장할 수 있습니다. 완료되면 파워 쿼리 활동을 사용하여 파이프라인에 추가할 수 있습니다. Azure Data Factory는 Azure Data Factory의 데이터 흐름 Spark 환경을 사용하여 자동으로 스케일링하고 데이터 랭글링을 운영합니다.
 

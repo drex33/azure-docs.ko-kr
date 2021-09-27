@@ -3,12 +3,12 @@ title: Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설
 description: 이 문서에서는 Windows PowerShell DSC로 Azure Arc 사용 서버를 사용하여 컴퓨터를 Azure에 연결하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 357d89a989efbc3b8deded193808d47753b722d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538738"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789088"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설치 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "122538738"
 
 - [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC 모듈
 
-- 컴퓨터를 비대화형으로 Azure Arc 사용 서버에 연결할 서비스 주체. Arc 사용 서버의 서비스 주체를 아직 만들지 않은 경우 [규모에 맞는 온보딩을 위해 서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 섹션의 단계를 수행합니다.
+- 컴퓨터를 비대화형으로 Azure Arc 사용 서버에 연결할 서비스 주체. Azure Arc 지원 서버에 대한 서비스 주체를 아직 만들지 않은 경우 [대규모로 온보딩할](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 서비스 주체 만들기 섹션의 단계를 따릅니다.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>ConnectedMachine DSC 모듈 설치
 
@@ -90,4 +90,4 @@ PowerShell 갤러리의 [CompositeResource](https://www.powershellgallery.com/pa
 
 * [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).
+* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM 인사이트로](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 사용 등).

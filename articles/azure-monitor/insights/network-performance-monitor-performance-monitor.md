@@ -2,15 +2,15 @@
 title: 네트워크 성능 모니터의 성능 모니터
 description: 네트워크 성능 모니터의 성능 모니터 기능을 사용하면 네트워크의 다양한 지점 간 네트워크 연결을 모니터링할 수 있습니다. 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스를 모니터링할 수 있습니다.
 ms.topic: conceptual
-author: abshamsft
-ms.author: absha
+author: KumudD
+ms.author: kumud
 ms.date: 02/20/2018
-ms.openlocfilehash: 505584abbe573c94056888b07406437650b09611
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ae9b17a90bcef6a4cd7caeed87efe363583ce774
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101728624"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794275"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 

@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7dc8d113b8d47ea75938cc7fcd7c24c8a132a3b4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 3f3db4b694dd825b15cf80be247bf43780e1d381
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471756"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563004"
 ---
 # <a name="key-types-algorithms-and-operations"></a>키 유형, 알고리즘 및 작업
 
@@ -75,7 +75,7 @@ Key Vault는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스
 
 ##  <a name="key-operations"></a>키 작업
 
-관리형 HSM에서 키 개체에 대해 지원하는 작업은 다음과 같습니다.  
+관리형 HSM을 비롯한 Key Vault 주요 개체에 대해 다음과 같은 작업을 지원합니다.  
 
 -   **만들기**: 클라이언트가 Key Vault에 키를 만들 수 있습니다. 키 값은 Key Vault에서 생성되고 저장되며 클라이언트에 릴리스되지 않습니다. Key Vault에 비대칭 키를 만들 수 있습니다.  
 -   **Import**: 클라이언트가 기존 키를 Key Vault로 가져올 수 있습니다. JWK 구조 내에서 다양한 패키징 메서드를 사용하여 Key Vault로 비대칭 키를 가져올 수 있습니다. 

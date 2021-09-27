@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 301181b291521b8a8b19a7d7266e90fa2c542e49
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681411"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562934"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -171,26 +171,29 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
       --resource-group $kvgp
     ```
 
-1. GET, LIST, SET 권한을 포함한 액세스 정책을 VM의 관리 ID에 할당합니다.
+1. 다음 방법 중 하나를 사용하여 VM의 관리 ID에 GET, LIST 및 SET 권한을 포함한 액세스 정책을 할당합니다.
 
-    Azure Key Vault에서 **액세스 정책** > **액세스 정책 추가 - 비밀 권한: Get, List 및 Set** > **보안 주체 선택** 을 선택합니다. [VM의 이름](#deploy-a-linux-vm-for-your-sap-data-connector)을 입력한 다음, **추가** > **저장** 을 선택합니다.
+    - **Azure Portal 통해:**
 
-    자세한 내용은 [Key Vault 설명서](../key-vault/general/assign-access-policy-portal.md)를 참조하세요.
+        Azure Key Vault에서 **액세스 정책** > **액세스 정책 추가 - 비밀 권한: Get, List 및 Set** > **보안 주체 선택** 을 선택합니다. [VM의 이름](#deploy-a-linux-vm-for-your-sap-data-connector)을 입력한 다음, **추가** > **저장** 을 선택합니다.
 
-1. 다음 명령을 실행하여 [VM의 보안 주체 ID](#deploy-a-linux-vm-for-your-sap-data-connector)를 가져오고 Azure 리소스 그룹의 이름을 입력합니다.
+        자세한 내용은 [Key Vault 설명서](../key-vault/general/assign-access-policy-portal.md)를 참조하세요.
 
-    ```azurecli
-    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-    ```
+    - **Azure CLI 통해:**
 
-    다음 단계에서 사용할 수 있도록 보안 주체 ID가 표시됩니다.
+        1. 다음 명령을 실행하여 [VM의 보안 주체 ID](#deploy-a-linux-vm-for-your-sap-data-connector)를 가져오고 Azure 리소스 그룹의 이름을 입력합니다.
 
-1. 다음 명령을 실행하여 VM의 액세스 권한을 Key Vault에 할당하고, 리소스 그룹의 이름 및 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
+            ```azurecli
+            VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
+            ```
 
-    ```azurecli
-    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
-    ```
+            다음 단계에서 사용할 수 있도록 보안 주체 ID가 표시됩니다.
 
+        1. 다음 명령을 실행하여 VM의 액세스 권한을 Key Vault 할당하고, 리소스 그룹의 이름과 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
+
+            ```azurecli
+            az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
+            ```
 ## <a name="deploy-your-sap-data-connector"></a>SAP 데이터 커넥터 배포
 
 Azure Sentinel SAP 데이터 커텍터 배포 스크립트는 [필수 소프트웨어](#automatically-installed-software)를 설치한 다음, [새로 만든 VM](#deploy-a-linux-vm-for-your-sap-data-connector)에 커넥터를 설치하고 [전용 키 자격 증명 모음](#create-key-vault-for-your-sap-credentials)에 자격 증명을 저장합니다.

@@ -9,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 53ea8657535cb353b2da0f2a5b35398aa972128a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 75b89acff320b3083c098a0546882d80bdcfc5ad
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567115"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060899"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -385,7 +385,7 @@ Azure Portal에서 sasURL을 사용자의 정보로 채운 후 메서드 이름�
 
 | Name | 유형 | Description |
 |-|-|-|
-| 상태 | 문자열 | `NotStarted`, `Running`, `Completed`, `Failed`, `Unknown` 중 하나입니다. |
+| 상태 | 문자열 | ,, `NotStarted` `Running` `Completed` , `Failed` , ' 취소 됨 ' 또는 `Unknown` 중 하나입니다. |
 | message | 문자열 | 오류가 발생하면 메시지이고, 그러지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 

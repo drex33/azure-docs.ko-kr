@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 14f44504e48279d0a8bd8f8e95e98113a4647023
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 10b622a707747e69beba1e2be5f989ee2bcd4804
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531295"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804545"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps"></a>Azure Static Web Apps의 사용자 정보 액세스
 
@@ -152,6 +152,8 @@ public static class StaticWebAppsAuth
 ```
 
 ---
+
+사용자가 로그인하면 `x-ms-client-principal` Static Web Apps 에지 노드를 통해 사용자 정보에 대한 요청에 헤더가 추가됩니다.
 
 <sup>1</sup> Internet Explorer에서는 [fetch](https://caniuse.com/#feat=fetch) API 및 [await](https://caniuse.com/#feat=mdn-javascript_operators_await) 연산자가 지원되지 않습니다.
 

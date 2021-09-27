@@ -3,12 +3,12 @@ title: Service Fabric 클러스터에서 Windows 운영 체제 패치
 description: Windows에서 실행되는 Service Fabric 클러스터 노드를 패치하는 자동 OS 이미지 업그레이드를 사용하도록 설정하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 187217a0d8195917d1dfe7d726b987efbb07f8f8
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 5a3b2c78f0a7a3103c2fc56fe518739ac648ad31
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109739091"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796498"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -24,6 +24,8 @@ Azure에서 운영 체제를 최신 패치로 유지하는 모범 사례는 [Vir
 Service Fabric 클러스터와 Service Fabric 확장의 내구성 설정이 일치해야 합니다. 그렇지 않으면 불일치로 인해 업그레이드 오류가 발생합니다. 내구성 수준은 [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명된 지침에 따라 수정할 수 있습니다.
 
 브론즈 내구성이 있으면 자동 OS 이미지 업그레이드를 사용할 수 없습니다. 실버 이상의 내구성 수준에는 [패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md)(Azure가 아닌 호스트 클러스터에만 사용)이 *권장되지 않지만*, Service Fabric 업그레이드 도메인과 관련하여 Windows 업데이트를 자동화하는 유일한 옵션입니다.
+
+패치 오케스트레이션 응용 프로그램에서 자동 OS 이미지 업그레이드로 전환 하려면 먼저 패치 오케스트레이션 응용 프로그램의 사용을 사용 중단 해야 합니다.
 
 ## <a name="enable-auto-os-upgrades-and-disable-windows-update"></a>자동 OS 업그레이드 사용 및 Windows 업데이트 사용 안 함
 

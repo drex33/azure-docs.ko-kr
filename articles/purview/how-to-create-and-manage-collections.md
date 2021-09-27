@@ -8,21 +8,21 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6b4f0913813372f6f69f30f98f6969b4f6d66418
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: b613efec12eb9ab54a053c6d495654d89aa7258b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835700"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796935"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Azure Purview에서 컬렉션 만들기 및 관리
 
 > [!NOTE]
-> 현재 이 가이드는 **2021년 8월 18일** 이후에 만든 Purview 인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 권한을 관리할 수는 없습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션을 만드는 방법에 대한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
+> 현재 이 가이드는 **2021년 8월 18일 이후에** 만든 Azure Purview 인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 권한을 관리할 수는 없습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션을 만드는 방법에 대한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
 >
-> 모든 레거시 계정은 돌아오는 주에 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 할당된 모든 권한이 자동으로 루트 컬렉션에 다시 배포됩니다.
+> 모든 레거시 계정은 돌아오는 주에 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 변경되는 사항에 대한 자세한 내용은 [업그레이드된 계정 가이드](concept-account-upgrade.md)를 참조하세요.
 
-Purview의 컬렉션은 비즈니스 흐름에 따라 자산과 원본을 구성하는 데 사용할 수 있지만 Purview 전체에서 액세스를 관리하는 데 사용되는 도구이기도 합니다. 이 가이드에서는 이러한 컬렉션의 생성 및 관리를 안내할 뿐만 아니라 원본을 등록하고 컬렉션에 자산을 추가하는 방법에 대한 단계를 다룹니다.
+Azure Purview의 컬렉션은 비즈니스 흐름에 따라 자산 및 원본을 구성하는 데 사용할 수 있지만 Purview에서 액세스를 관리하는 데 사용되는 도구이기도 합니다. 이 가이드에서는 이러한 컬렉션의 생성 및 관리를 안내할 뿐만 아니라 원본을 등록하고 컬렉션에 자산을 추가하는 방법에 대한 단계를 다룹니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

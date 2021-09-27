@@ -5,20 +5,18 @@ description: 코드를 배포하지 않으면 수동으로 항목 스크립트�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 8735898a462d9488aec95bf9f5840bf9b9be2bb6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 80dd7b06b725e4e30aa51eaabede4e6a91c69554
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428437"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649325"
 ---
-# <a name="no-code-model-deployment-preview"></a>코드 없는 모델 배포(미리 보기)
+# <a name="no-code-model-deployment-preview"></a>코드 모델 배포 안 함 (미리 보기)
 
 코드 없는 모델 배포는 현재 미리 보기로 제공되며 다음과 같은 기계 학습 프레임워크를 지원합니다.
 

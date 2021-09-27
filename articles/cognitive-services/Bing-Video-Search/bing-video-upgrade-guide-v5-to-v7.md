@@ -3,19 +3,17 @@ title: Bing Video Search API v5에서 v7로 업그레이드
 titleSuffix: Azure Cognitive Services
 description: Bing Video Search 애플리케이션에서 버전 7을 사용하도록 업데이트해야 하는 부분을 식별합니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: scottwhi
-ms.openlocfilehash: e47691c82d43a35a7235eb5c3fd3cf7bca081aee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9c76c2247e92a5ebc70797cdb6794eb727280e4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96351915"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600726"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Video Search API 업그레이드 가이드
 

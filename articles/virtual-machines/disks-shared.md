@@ -4,15 +4,15 @@ description: 여러 Linux VM에서 Azure 관리 디스크를 공유하는 방법
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0c72a263ff9d20f0cb70a0721625446b6a2e0ff9
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 56ba97d5a13744ee034024f510eac70d4f343877
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689354"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129052807"
 ---
 # <a name="share-an-azure-managed-disk"></a>Azure 관리 디스크 공유
 
@@ -58,7 +58,7 @@ WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같
 ### <a name="linux"></a>Linux
 
 Azure 공유 디스크는 다음에서 지원됩니다.
-- [SUSE SLE for SAP 및 SUSE SLE HA 15 SP1 이상](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
+- [SUSE SLE HA 15 SP1 이상](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 이상](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL 8 버전의 RHEL 개발자 미리 보기](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
@@ -152,6 +152,44 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 #### <a name="ultra-pricing"></a>울트라 가격
 
 울트라 공유 디스크는 프로비전된 용량, 프로비전된 총 IOPS(diskIOPSReadWrite + diskIOPSReadOnly) 및 프로비전된 총 처리량 MBps(diskMBpsReadWrite + diskMBpsReadOnly)를 기준으로 가격이 책정됩니다. 추가 VM 탑재마다 추가 요금이 부과되지 않습니다. 예를 들어 다음 구성(diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1)이 포함된 울트라 공유 디스크는 2개 VM 또는 5개의 VM에 탑재되었는지 여부에 관계없이 1024GiB, 10100 IOPS 및 601MBps로 청구됩니다.
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+**Q: 관리되지 않는 디스크 또는 페이지 Blob에 공유 디스크 기능이 지원되는가요?**
+
+**A:** 아니요. 이 기능은 울트라 디스크 및 Premium SSD 관리 디스크에 대해서만 지원됩니다.
+
+**Q: 공유 디스크를 지원하는 지역은 무엇인가요?**
+
+**A:** 지역 정보는 개념 [문서](/azure/virtual-machines/disks-shared)를 참조하세요.
+
+**Q: 공유 디스크를 OS 디스크로 사용할 수 있나요?**
+
+**A:** 아니요. 공유 디스크는 데이터 디스크에 대해서만 지원됩니다.
+
+**Q: 공유 디스크를 지원하는 디스크 크기는 무엇인가요?**
+
+**A:** 지원되는 크기는 [개념 문서](/azure/virtual-machines/disks-shared)를 참조하세요.
+
+**Q: 기존 디스크가 있는 경우 공유 디스크를 사용하도록 설정할 수 있나요?**
+
+**A:** API 버전 2019-07-01 이상 버전을 사용하여 만든 모든 관리 디스크는 공유 디스크를 사용하도록 설정할 수 있습니다. 이렇게 하려면 연결된 모든 VM에서 디스크를 분리해야 합니다. 그런 다음, 디스크에서 maxShares 속성을 편집합니다.
+
+**Q: 공유 모드에서 디스크를 더 이상 사용하지 않으려면 사용하지 않도록 설정하려면 어떻게 해야 합니까?**
+
+**A:** 연결된 모든 VM에서 디스크를 분리합니다. 그런 다음 디스크의 maxShare 속성을 **1로** 변경합니다.
+
+**Q: 공유 디스크의 크기를 변경할 수 있나요?**
+
+**A:** 예.
+
+**Q: 공유 디스크도 사용하도록 설정된 디스크에서 쓰기 가속기를 사용하도록 설정할 수 있나요?**
+
+**A:** 아니요. 공유 디스크도 사용하도록 설정된 디스크에서는 쓰기 가속기를 사용하도록 설정할 수 없습니다.
+
+**Q: 공유 디스크를 사용하도록 설정된 디스크에 호스트 캐싱을 사용하도록 설정할 수 있나요?**
+
+**A:** 유일하게 지원되는 호스트 캐싱 옵션은 **없음** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

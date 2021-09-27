@@ -618,6 +618,8 @@
       items:
         - name: Speech Studio 개요
           href: speech-studio-overview.md
+        - name: Speech Studio의 역할 기반 액세스 제어
+          href: speech-studio-role-based-access-control.md
     - name: 엔터프라이즈 준비
       items:
         - name: 지역 지원

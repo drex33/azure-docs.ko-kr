@@ -1,17 +1,17 @@
 ---
 title: Azure Arc에 Azure API Management 게이트웨이 배포
 description: Azure Arc를 사용하여 자체 호스팅 Azure API Management 게이트웨이를 배포합니다.
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: aad3015ed129b438e9f359d7cb3fc89b6658e5c9
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: bfcb6e738c480281361d544c4aa7a8dd355d92de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768322"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590706"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Azure Arc에 Azure API Management 게이트웨이 배포(미리 보기)
 

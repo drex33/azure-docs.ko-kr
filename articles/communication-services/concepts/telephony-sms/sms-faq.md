@@ -9,12 +9,13 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: fcbff4d8f6122681e9947f83b02dff1ae6d60835
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.subservice: sms
+ms.openlocfilehash: 7b10040aa8aabd16d84326c73bd422f9b66ef04e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251173"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635986"
 ---
 # <a name="sms-faq"></a>SMS FAQ
 
@@ -29,7 +30,7 @@ SLA와 일치하는 고품질 서비스를 계속 제공할 수 있도록 Azure 
 
 SMS의 속도 제한:
 
-|작업(Operation)|Scope|시간 범위| 제한(요청 #) | 분당 메시지 단위|
+|작업|Scope|시간 범위| 제한(요청 #) | 분당 메시지 단위|
 |---------|-----|-------------|-------------------|-------------------------|
 |메시지 보내기|숫자당|60|200|200|
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: ded1479b6967d7cf3b9957e83b7bb38472ebcc0c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 8dddf347cfa46b24e990365765e1587526fd084c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482881"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129096047"
 ---
 | 약어 | Location | 지역 |
 | --- | --- | --- |
@@ -54,6 +54,7 @@ ms.locfileid: "110482881"
 | GVA | 제네바, 스위스 | 스위스 북부, 유럽 |
 | HEL | 헬싱키, 핀란드 | 서유럽 |
 | HK  | 홍콩, 홍콩 특별행정구 | 동아시아 |
+| HKB | 홍콩, 홍콩 특별행정구 | 동아시아 |
 | HKG | 차이완, 홍콩 특별행정구 | 동아시아 |
 | HNL | 호놀룰루, 하와이, 미국 | 미국 서부, 북아메리카 |
 | HOU | 휴스턴, 텍사스, 미국 | 미국 중부, 북아메리카 |

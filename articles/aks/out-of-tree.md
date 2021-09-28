@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 8/25/2021
 ms.author: juda
-ms.openlocfilehash: 533f4317c6c189e0691ab26822fe917c7567c1ce
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 98f8fe2e00a7671078da7dae2174401b6c33fd30
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544449"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667619"
 ---
 # <a name="enable-cloud-controller-manager-preview"></a>클라우드 컨트롤러 관리자 사용 (미리 보기)
 
@@ -42,7 +42,7 @@ Kubernetes 커뮤니티는 이제 클라우드 공급자가 [클라우드 공급
 클라우드 컨트롤러 관리자 기능을 사용 하려면 `EnableCloudControllerManager` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다. 
 
 ```azurecli
-az feature register –name EnableCloudControllerManager --namespace Microsoft.ContainerService
+az feature register --name EnableCloudControllerManager --namespace Microsoft.ContainerService
 ```
 [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 

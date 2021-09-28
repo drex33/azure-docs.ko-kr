@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: bb35fd8a8a2cf032e42d8d286707a66fc2a8faed
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: b6b8f300fe4e9f89e58afca14d39ac938b08b644
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673182"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -98,7 +98,7 @@ az vm create \
 [여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
-이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](../sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
+이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](../sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](../resize-vm.md)할 수 있습니다.
 
 [az network nic create](/cli/azure/network/nic)를 사용하여 다른 NIC를 만듭니다. 다음 예제에서는 이전 단계에서 만든 백 엔드 서브넷 및 네트워크 보안 그룹에 연결된 *myNic3* 라는 NIC를 만듭니다.
 

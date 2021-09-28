@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 33fa0218a81d57ae6d33578cd08917bfd2055770
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
-ms.translationtype: HT
+ms.openlocfilehash: 55cf993dd8f4dad17533ef759e135c1604a48901
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690778"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061393"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -98,7 +98,7 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 분류 모델의 주요 목표는 학습 데이터로부터의 학습을 기반으로 하여 새 데이터가 분류될 범주를 예측하는 것입니다. 일반적인 분류 예로 사기 탐지, 필기 인식 및 개체 검색이 있습니다. [자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)에 대한 자세한 내용 및 예제를 참조하세요.
 
-분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b) Python Notebook을 참조하세요.
+분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) Python Notebook을 참조하세요.
 
 ### <a name="regression"></a>회귀
 
@@ -256,7 +256,7 @@ Azure Machine Learning을 사용하면 자동화된 ML을 사용하여 Python �
 
 [이 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)에서 ONNX 형식으로 변환하는 방법을 참조하세요. [ONNX에서 지원되는 알고리즘](how-to-configure-auto-train.md#select-your-experiment-type)에 대해 알아보세요.
 
-또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [ML.NET을 사용하여 .NET 애플리케이션에서 AutoML ONNX 모델 사용](./how-to-use-automl-onnx-model-dotnet.md) 및 [ONNX 런타임 C# API를 사용하여 ONNX 모델 추론](https://www.onnxruntime.ai/docs/reference/api/csharp-api.html)에 대해 자세히 알아봅니다. 
+또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [ML.NET을 사용하여 .NET 애플리케이션에서 AutoML ONNX 모델 사용](./how-to-use-automl-onnx-model-dotnet.md) 및 [ONNX 런타임 C# API를 사용하여 ONNX 모델 추론](https://onnxruntime.ai/docs/api/csharp-api.html)에 대해 자세히 알아봅니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

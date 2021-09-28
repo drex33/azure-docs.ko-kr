@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: f806a700fa9f1788e2435a43d8fdcb19fa8134ce
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: b7594a8d5e958b05c001f3943437e86b5830bd80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372657"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667087"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Live Video Analytics on IoT Edge 문제 해결
 
@@ -39,7 +39,7 @@ Live Video Analytics 배포의 일부로 IoT Hub 및 IoT Edge 디바이스와 �
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
 JSON 코드가 제대로 구성되지 않으면 다음 오류가 표시될 수 있습니다.   
-&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
+&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '\<deployment manifest.json\>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
 
 이 오류가 발생하면 JSON에 누락된 괄호가 있는지 또는 파일 구조와 관련된 기타 문제가 있는지 확인하는 것이 좋습니다. 파일 구조의 유효성을 검사하려면 [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer)과 같은 클라이언트 또는 [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/)와 같은 온라인 도구를 사용하면 됩니다.
 

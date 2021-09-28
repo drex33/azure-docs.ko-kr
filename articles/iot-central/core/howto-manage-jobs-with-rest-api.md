@@ -3,16 +3,16 @@ title: REST API를 사용하여 Azure IoT Central에서 작업 관리
 description: IoT Central REST API를 사용하여 애플리케이션에서 작업을 만들고 관리하는 방법
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9eeb3619697e1b602053cac77fc42ae13663c388
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
-ms.translationtype: HT
+ms.openlocfilehash: 47548b3c7e1fa7503e3f30c155755d6fe4f29031
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113516194"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667049"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-create-and-manage-jobs"></a>IoT Central REST API를 사용하여 작업을 만들고 관리하는 방법
 
@@ -30,6 +30,11 @@ IoT Central REST API를 사용하면 IoT Central 애플리케이션과 통합되
 모든 IoT Central REST API 호출에는 권한 부여 헤더가 필요합니다. 자세히 알아보려면 [IoT Central REST API 호출을 인증하고 권한을 부여하는 방법](howto-authorize-rest-api.md)을 참조하세요.
 
 IoT Central REST API에 대한 참조 설명서는 [Azure IoT Central REST API 참조](/rest/api/iotcentral/)를 참조하세요.
+
+> [!TIP]
+> [미리 보기 API에는](/rest/api/iotcentral/1.1-previewdataplane/jobs) 새 [조직 기능](howto-create-organizations.md)에 대한 지원이 포함되어 있습니다.
+
+UI에서 작업을 만들고 관리하는 방법을 알아보려면 [Azure IoT Central 애플리케이션에서 대량으로 디바이스 관리를 참조하세요.](howto-manage-devices-in-bulk.md)
 
 ## <a name="job-payloads"></a>작업 페이로드
 

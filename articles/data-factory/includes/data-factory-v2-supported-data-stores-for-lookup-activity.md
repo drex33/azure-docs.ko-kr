@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 조회 작업에 지원되는 커넥터
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2021
+ms.date: 09/22/2021
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 75c73848429ac8b3ab69c58abdda20dcc7633626
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2e89de7bd709f68dc10fe6b835c5b5d016da4835
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128910160"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129095952"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
@@ -31,7 +31,8 @@ ms.locfileid: "128910160"
 | &nbsp; |[Azure SQL Database Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../connector-azure-table-storage.md) |
-| **데이터베이스** |[Oracle 용 Amazon RDS](../connector-amazon-rds-for-oracle.md) |
+| **데이터베이스** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
+| &nbsp; |[amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
 | &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |

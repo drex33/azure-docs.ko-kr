@@ -11,12 +11,12 @@ author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
 ms.date: 09/09/2021
-ms.openlocfilehash: 9521da542bd45332596986797bb05979946e3066
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de90958966fed08b33cf7236384c082e332719fd
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599889"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059495"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure SQL 데이터 동기화는 무엇인가요?
 
@@ -61,7 +61,7 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 | 시나리오 | 권장되는 솔루션 |
 |----------|----------------------------|
 | 재해 복구 | [Azure 지역 중복 백업](automated-backups-overview.md) |
-| 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)](read-scale-out.md) |
+| 읽기 크기 조정 | [읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 워크 로드의 부하 분산](read-scale-out.md) |
 | ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | SQL Server에서 Azure SQL Database로 마이그레이션. 하지만 소스 및 대상이 동기화된 상태로 유지되는지 확인하기 위해 마이그레이션이 완료된 후 SQL 데이터 동기화를 사용할 수 있습니다.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
@@ -137,7 +137,7 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 
 - 동기화 구성원과 허브 모두에 대해 스냅샷 격리를 사용하도록 설정해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
-- 데이터 동기화 프라이빗 링크를 사용하려면 구성원 및 허브 데이터베이스가 모두 동일한 클라우드 유형(예: 퍼블릭 클라우드 또는 정부 클라우드의 둘 다)에서 Azure(동일 또는 다른 지역)에서 호스트되어야 합니다. 또한 프라이빗 링크를 사용하려면 허브 및 구성원 서비스를 호스트하는 구독에 대해 Microsoft.Network 리소스 공급자를 등록해야 합니다. 마지막으로 Azure Portal의 “프라이빗 엔드포인트 연결” 섹션 내에서 또는 PowerShell을 통해 동기화 구성 중에 데이터 동기화에 대한 프라이빗 링크를 수동으로 승인해야 합니다. 비공개 링크 승인 방법에 대한 자세한 내용은 [SQL 데이터 동기화 설정](./sql-data-sync-sql-server-configure.md)을 참조하세요. 서비스 관리 프라이빗 엔드포인트를 승인한 후에는 동기화 서비스와 구성원/허브 데이터베이스 사이의 모든 통신이 프라이빗 링크를 통해 수행됩니다. 이 기능을 사용하도록 기존 동기화 그룹을 업데이트할 수 있습니다.
+- 데이터 동기화 프라이빗 링크를 사용하려면 구성원 및 허브 데이터베이스를 동일한 클라우드 유형(예: 퍼블릭 클라우드 또는 정부 클라우드의 둘 다)에서 Azure(동일 또는 다른 지역)에서 호스트해야 합니다. 또한 프라이빗 링크를 사용하려면 허브 및 구성원 서비스를 호스트하는 구독에 대해 Microsoft.Network 리소스 공급자를 등록해야 합니다. 마지막으로 Azure Portal의 “프라이빗 엔드포인트 연결” 섹션 내에서 또는 PowerShell을 통해 동기화 구성 중에 데이터 동기화에 대한 프라이빗 링크를 수동으로 승인해야 합니다. 비공개 링크 승인 방법에 대한 자세한 내용은 [SQL 데이터 동기화 설정](./sql-data-sync-sql-server-configure.md)을 참조하세요. 서비스 관리 프라이빗 엔드포인트를 승인한 후에는 동기화 서비스와 구성원/허브 데이터베이스 사이의 모든 통신이 프라이빗 링크를 통해 수행됩니다. 이 기능을 사용하도록 기존 동기화 그룹을 업데이트할 수 있습니다.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
@@ -187,7 +187,7 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 ### <a name="network-requirements"></a>네트워크 요구 사항
 
 > [!NOTE]
-> 동기화 프라이빗 링크를 사용하는 경우 이러한 네트워크 요구 사항은 적용되지 않습니다. 
+> 동기화 프라이빗 링크를 사용하는 경우 이러한 네트워크 요구 사항이 적용되지 않습니다. 
 
 동기화 그룹이 설정되었으면 데이터 동기화 서비스를 허브 데이터베이스에 연결해야 합니다. 동기화 그룹을 설정할 때 Azure SQL Server는 해당 `Firewalls and virtual networks` 설정에 다음 구성을 포함해야 합니다.
 
@@ -223,10 +223,10 @@ SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>데이터 동기화를 사용해서 서로 다른 구독에 속해 있는 SQL Database의 데이터베이스 간에 동기화를 수행할 수 있나요?
 
-예. 구독이 다른 테 넌 트에 속하는 경우에도 다른 구독이 소유 하는 리소스 그룹에 속하는 데이터베이스 간에 동기화 할 수 있습니다.
+예. 구독이 다른 테넌트에도 속하는 경우에도 서로 다른 구독이 소유한 리소스 그룹에 속하는 데이터베이스 간에 동기화할 수 있습니다.
 
 - 구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
-- 그렇지 않으면 PowerShell을 사용 하 여 동기화 구성원을 추가 해야 합니다.
+- 그렇지 않으면 PowerShell을 사용하여 동기화 멤버를 추가해야 합니다.
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>데이터 동기화를 사용해서 서로 다른 클라우드(예: Azure 퍼블릭 클라우드 및 Azure 중국 21Vianet)에 속해 있는 SQL Database의 데이터베이스 간에 동기화를 수행할 수 있나요?
 

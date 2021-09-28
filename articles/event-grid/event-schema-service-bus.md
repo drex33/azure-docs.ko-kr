@@ -2,13 +2,13 @@
 title: Event Grid 원본으로서의 Azure Service Bus
 description: Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: f872ffeb0bab2369aca24e202f8e756406a89c76
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.date: 09/15/2021
+ms.openlocfilehash: b47c7f359d35cdd65d72e5f298e784a6a80b38ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112415431"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666460"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure App Service
 

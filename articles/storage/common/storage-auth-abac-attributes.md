@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 45a0fbac0fbe1bd513717ba1ab1d30b3cffbf78e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 791e533cc1f0dafa8724faa8cc3a46d1f8c770d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666006"
 ---
 # <a name="actions-and-attributes-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Azure Storage에서 Azure 역할 할당 조건에 대한 작업 및 특성(미리 보기)
 
@@ -58,11 +58,11 @@ ms.locfileid: "110065947"
 > | --- | --- | --- |
 > | Blob 삭제 | Blob을 삭제하기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | Blob 읽기 | Blob을 읽기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | 태그 조건이 있는 Blob에서 콘텐츠 읽기  | REST 작업: Blob 가져오기, Blob 메타데이터 가져오기, Blob 속성 가져오기, 블록 목록 가져오기, 페이지 범위 가져오기 및 Blob 콘텐츠 쿼리 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**하위 작업**<br/>`Blob.Read.WithTagConditions` | 
+> | 태그 조건이 있는 Blob에서 콘텐츠 읽기  | REST 작업: Blob 가져오기, Blob 메타데이터 가져오기, Blob 속성 가져오기, 블록 목록 가져오기, 페이지 범위 가져오기 및 Blob 콘텐츠 쿼리 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**하위 작업**<br/>`Blob.Read.WithTagConditions` |
 > | Blob에 쓰기 | Blob에 쓰기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | Blob 인덱스 태그를 사용하여 Blob에 쓰기 | REST 작업: Blob 배치, 블록 목록 배치, Blob 복사 및 URL에서 Blob 복사 |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**하위 작업**<br/>`Blob.Write.WithTagHeaders` | 
+> | Blob 인덱스 태그를 사용하여 Blob에 쓰기 | REST 작업: Blob 배치, 블록 목록 배치, Blob 복사 및 URL에서 Blob 복사 |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**하위 작업**<br/>`Blob.Write.WithTagHeaders` |
 > | Blob 또는 스냅샷을 만들거나 데이터를 추가합니다. | Blob을 만들기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Blob 인덱스 태그를 사용하여 Blob에 콘텐츠 쓰기 | REST 작업: Blob 배치, 블록 목록 배치, Blob 복사 및 URL에서 Blob 복사 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**하위 작업**<br/>`Blob.Write.WithTagHeaders` | 
+> | Blob 인덱스 태그를 사용하여 Blob에 콘텐츠 쓰기 | REST 작업: Blob 배치, 블록 목록 배치, Blob 복사 및 URL에서 Blob 복사 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**하위 작업**<br/>`Blob.Write.WithTagHeaders` |
 > | Blob 버전 삭제 | Blob 버전을 삭제하기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
 > | Blob의 소유권 변경 | Blob의 소유권을 변경하기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
 > | Blob의 권한 수정 | Blob의 사용 권한을 수정하기 위한 DataAction입니다. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
@@ -141,4 +141,3 @@ ms.locfileid: "110065947"
 - [Azure 역할 할당 조건 예(미리 보기)](storage-auth-abac-examples.md)
 - [Azure 역할 할당 조건 형식 및 구문(미리 보기)](../../role-based-access-control/conditions-format.md)
 - [Azure ABAC(Azure 특성 기반 액세스 제어)란 무엇인가요?(미리 보기)](../../role-based-access-control/conditions-overview.md)
-

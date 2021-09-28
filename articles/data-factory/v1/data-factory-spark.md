@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73e20cfcdd0c56f2136b4ce658f7d2d2bed53022
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 65d7a45ab8e0432fa62d5e298fe50be50580804e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530798"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667258"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -83,7 +84,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. 데이터 팩터리가 만들어지면 **데이터 팩터리** 페이지가 표시되며, 여기에 데이터 팩터리의 내용이 표시됩니다. **데이터 팩터리** 페이지가 표시되지 않으면 대시보드에서 데이터 팩터리의 타일을 선택합니다.
 
-    ![데이터 팩터리 블레이드](./media/data-factory-spark/data-factory-blade.png)
+    :::image type="content" source="./media/data-factory-spark/data-factory-blade.png" alt-text="데이터 팩터리 블레이드":::
 
 ### <a name="create-linked-services"></a>연결된 서비스 생성
 이 단계에서는 두 개의 연결된 서비스를 만듭니다. 한 서비스는 Spark 클러스터를 데이터 팩터리에 연결하고, 다른 서비스는 스토리지를 데이터 팩터리에 연결합니다.
@@ -95,11 +96,11 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. **새 데이터 저장소** 를 선택하고 **Azure Storage** 를 선택합니다.
 
-   ![새 데이터 저장소](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   :::image type="content" source="./media/data-factory-spark/new-data-store-azure-storage-menu.png" alt-text="새 데이터 저장소":::
 
 1. Storage 연결된 서비스를 만드는 데 사용하는 JSON 스크립트가 편집기에 표시됩니다.
 
-   ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png" alt-text="AzureStorageLinkedService":::
 
 1. **계정 이름** 및 **계정 키** 를 스토리지 계정의 이름 및 액세스 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
@@ -110,7 +111,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. 데이터 팩터리 편집기에서 **자세히** > **새 계산** > **HDInsight 클러스터** 를 차례로 선택합니다.
 
-    ![HDInsight 연결된 서비스 만들기](media/data-factory-spark/new-hdinsight-linked-service.png)
+    :::image type="content" source="media/data-factory-spark/new-hdinsight-linked-service.png" alt-text="HDInsight 연결된 서비스 만들기":::
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 편집기에서 다음 단계를 수행합니다.
 
@@ -232,13 +233,13 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 ### <a name="monitor-a-pipeline"></a>파이프라인 모니터링
 1. **데이터 팩터리** 블레이드에서 **모니터링 및 관리** 를 선택하여 다른 탭에서 모니터링 애플리케이션을 시작합니다.
 
-    ![타일 모니터링 및 관리](media/data-factory-spark/monitor-and-manage-tile.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="& 관리 타일 모니터링":::
 
 1. 위쪽의 **시작 시간** 필터를 **2/1/2017** 로 변경하고 **적용** 을 선택합니다.
 
 1. 파이프라인의 시작 시간(2017년 2월 1일)과 종료 시간(2017년 2월 2일) 사이에는 하루가 있기 때문에 하나의 활동 창만 표시됩니다. 데이터 조각이 **준비** 상태인지 확인합니다.
 
-    ![파이프라인 모니터링](media/data-factory-spark/monitor-and-manage-app.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-app.png" alt-text="파이프라인 모니터링":::
 
 1. **활동 창** 목록에서 하나의 활동 실행을 선택하여 세부 정보를 확인합니다. 오류가 있으면 오른쪽 창에 오류에 대한 세부 정보가 표시됩니다.
 
@@ -248,7 +249,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. **새로 만들기** > **PySpark** 를 차례로 선택하여 새 노트북을 시작합니다.
 
-    ![새 Jupyter 노트북](media/data-factory-spark/jupyter-new-book.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-new-book.png" alt-text="새 Jupyter 노트북":::
 
 1. 텍스트를 복사하여 붙여넣고 두 번째 명령문의 끝에서 Shift+Enter를 눌러 다음 명령을 실행합니다.
 
@@ -259,7 +260,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
     ```
 1. hvac 테이블의 데이터가 표시되는지 확인합니다.
 
-    ![Jupyter 쿼리 결과](media/data-factory-spark/jupyter-notebook-results.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-notebook-results.png" alt-text="Jupyter 쿼리 결과":::
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 자세한 지침은 [Spark SQL 쿼리 실행](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 섹션을 참조하세요.
@@ -272,15 +273,15 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 1. [https://editor.swagger.io](`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`) 로 이동합니다.
 
-    ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application.png" alt-text="YARN UI 애플리케이션":::
 
 1. 실행 시도 중 하나에 대한 **로그** 를 선택합니다.
 
-    ![애플리케이션 페이지](media/data-factory-spark/yarn-applications.png)
+    :::image type="content" source="media/data-factory-spark/yarn-applications.png" alt-text="애플리케이션 페이지":::
 
 1. 로그 페이지에 다음과 같은 추가 오류 정보가 표시됩니다.
 
-    ![로그 오류](media/data-factory-spark/yarnui-application-error.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application-error.png" alt-text="로그 오류":::
 
 다음 섹션에서는 데이터 팩터리에서 Spark 클러스터 및 Spark 작업을 사용하는 데이터 팩터리 엔터티에 대한 정보를 제공합니다.
 
@@ -321,7 +322,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 다음 표에서는 JSON 정의에서 사용되는 JSON 속성을 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
 | name | 파이프라인의 작업 이름입니다. | 예 |
 | description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 예 |
@@ -341,7 +342,7 @@ Pig 및 Hive 작업에서 수행하는 것처럼 Spark 작업은 인라인 스�
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 구조를 만듭니다. 그런 다음 **entryFilePath** 로 표시된 루트 폴더의 해당 하위 폴더에 종속 파일을 업로드합니다. 예를 들어 Python 파일은 루트 폴더의 pyFiles 하위 폴더에 업로드하고, jar 파일은 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스에 필요한 Blob Storage의 폴더 구조는 다음과 같습니다.
 
-| 경로 | 설명 | 필수 | Type |
+| 경로 | Description | 필수 | Type |
 | ---- | ----------- | -------- | ---- |
 | . | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |

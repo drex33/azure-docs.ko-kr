@@ -2,13 +2,13 @@
 title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업하는 방법을 알아보세요.
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: 9bbb29aa4741f71448876a0af947964f728b0fb0
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.date: 09/17/2021
+ms.openlocfilehash: 4561ff53588c6662759b0e86529f20e7cf837bbe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113300739"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668141"
 ---
 # <a name="back-up-azure-managed-disks"></a>Azure Managed Disks 백업
 
@@ -81,124 +81,128 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
 
 ## <a name="configure-backup"></a>백업 구성
 
-- Azure Disk backup은 운영 계층 백업만 지원 하며, 현재는 자격 증명 모음 저장소 계층에 대 한 백업 복사를 사용할 수 없습니다. 백업 자격 증명 모음 저장소 중복성 설정(LRS/GRS)은 운영 계층에 저장된 백업에 적용되지 않습니다.
-증분 스냅숏은 부모 디스크의 저장소 유형과 관계없이 표준 HDD 저장소에 저장됩니다. 안정성을 높이기 위해 증분 스냅숏은 기본적으로 [영역 중복 저장소](../storage/common/storage-redundancy.md)를 지원하는 지역의 ZRS에 저장됩니다.
+- Azure Disk Backup은 운영 계층 백업만 지원합니다. 자격 증명 모음 스토리지 계층에 백업 복사는 현재 지원되지 않습니다. LRS/GRS(Backup 자격 증명 모음 스토리지 중복 설정)는 운영 계층에 저장된 백업에 적용되지 않습니다. 
+  증분 스냅샷은 부모 디스크의 선택한 스토리지 유형에 관계없이 표준 HDD 스토리지에 저장됩니다. 추가 안정성을 위해 증분 스냅샷은 ZRS 지원 지역에서 기본적으로 ZRS(영역 [중복 Storage)에](/azure/storage/common/storage-redundancy) 저장됩니다.
 
-- Azure Disk backup은 한 구독의 백업 자격 증명 모음과 다른 구독의 원본 디스크를 사용하여 구독 간 백업 및 복원을 지원합니다. 그러나 지역 간 백업 및 복원은 지원되지 않습니다. 따라서 백업 자격 증명 모음과 백업할 디스크는 동일한 구독이나 다른 구독에 있을 수 있습니다. 그러나 백업할 백업 자격 증명 모음과 디스크는 모두 동일한 지역에 있어야 합니다.
+- Azure Disk Backup은 한 구독의 백업 자격 증명 모음과 다른 구독의 원본 디스크를 통해 구독 간 백업 및 복원을 지원합니다. 따라서 지역 간 백업 및 복원은 지원되지 않으며 이를 통해 Backup 자격 증명 모음과 디스크를 동일하거나 다른 구독에서 백업할 수 있습니다. 그러나 백업할 백업 자격 증명 모음과 디스크는 모두 동일한 지역에 있어야 합니다.
 
-- 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹은 변경할 수 없습니다. 
+- 디스크 백업을 구성한 후에는 백업 인스턴스에 할당된 스냅샷 리소스 그룹을 변경할 수 없습니다.
 
-백업 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 관리 디스크의 백업을 구성하려면 백업 자격 증명 모음의 관리 ID에 스냅샷이 생성되고 관리되는 소스 디스크 및 리소스 그룹에 대한 권한 집합이 필요합니다.
+디스크 백업을 구성하려면 다음 단계를 수행합니다.
 
-시스템 할당 관리 ID는 리소스당 하나로 제한되며 이 리소스의 수명 주기에 연결됩니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 관리 ID에 대한 권한을 부여할 수 있습니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
+1. 백업 **센터**  ->  **개요로** 이동하여 **+ 백업을** 클릭하여 디스크의 백업 구성을 시작합니다.
 
-관리 디스크의 백업을 구성하려면 다음 필수 구성 요소가 필요합니다.
+   :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Azure Disk 백업을 시작하는 옵션을 보여주는 스크린샷." lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
 
-1. 백업할 소스 디스크에 있는 백업 자격 증명 모음의 관리 ID에 **디스크 백업 판독기** 역할을 할당합니다.
+1. **데이터 원본 유형** 드롭다운 목록에서 Azure **디스크를** 선택한 다음 **계속을** 클릭합니다.
 
-   1. 백업해야 하는 디스크로 이동합니다.
+   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type-inline.png" alt-text="Azure Disks를 데이터 보호 유형으로 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type-expanded.png":::
 
-   1. **액세스 제어(IAM)** 로 이동하여 **역할 할당 추가** 를 선택합니다.
+1. Backup 자격 증명 모음을 선택하고 **다음을** 클릭하여 계속 진행합니다.
 
-   1. 오른쪽 컨텍스트 창의 **역할** 드롭다운 목록에서 **디스크 백업 판독기** 를 선택합니다. 백업 자격 증명 모음의 관리 ID를 선택하고 **저장** 합니다.
+   >[!Note]
+   >- 백업 자격 증명 모음과 백업할 디스크가 모두 동일한 위치에 있는지 확인합니다.
+   >- Azure Backup 관리 디스크의 [_증분 스냅샷을_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) 사용합니다. 이 스냅샷은 부모 디스크의 스토리지 유형에 관계없이 디스크에 대한 델타 변경 내용만 표준 HDD 스토리지의 마지막 스냅샷으로 저장합니다. 추가 안정성을 위해 증분 스냅샷은 기본적으로 ZRS 지원 지역의 ZRS(영역 중복 Storage)에 저장됩니다. 현재 Azure Disk Backup은 백업을 Backup 자격 증명 모음 스토리지에 복사하지 않는 관리 디스크의 운영 백업을 지원합니다. 따라서 Backup 자격 증명 모음의 백업 스토리지 중복 설정은 복구 지점에 적용되지 않습니다.
 
-   >[!TIP]
-   >백업 자격 증명 모음 이름을 입력하여 자격 증명 모음의 관리 ID를 선택합니다.
+   :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Backup 자격 증명 모음을 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
 
-   ![디스크 백업 판독기 역할 추가](./media/backup-managed-disks/disk-backup-reader-role.png)
+1. 백업 **정책** 탭에서 백업 정책을 선택합니다.
 
-1. Azure Backup 서비스에서 백업을 만들고 관리하는 리소스 그룹에서 백업 자격 증명 모음 관리 ID에 **디스크 스냅샷 기여자** 역할을 할당합니다. 디스크 스냅샷은 구독 내의 리소스 그룹에 저장됩니다. Azure Backup 서비스가 스냅샷을 만들기, 저장 및 관리하도록 허용하려면 백업 자격 증명 모음에 대한 권한을 제공해야 합니다.
+   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy-inline.png" alt-text="Backup 정책을 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/choose-backup-policy-expanded.png":::
 
-   **스냅샷 저장 및 관리를 위한 리소스 그룹 선택:**
+1. 데이터 **원본** 탭에서 **+ 추가/편집을** 클릭하여 백업을 구성할 하나 이상의 Azure Managed Disks 선택합니다.
 
-   - 소스 디스크와 동일한 리소스 그룹을 선택하지 마세요.
+   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks-inline.png" alt-text="Azure Managed Disks 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/choose-azure-managed-disks-expanded.png":::
 
-   - 지침으로 Azure Backup 서비스에서 사용할 스냅샷 데이터 저장소로 전용 리소스 그룹을 만드는 것이 좋습니다. 전용 리소스 그룹을 사용하면 리소스 그룹에 대한 액세스 권한을 제한할 수 있으므로 안전하고 쉽게 백업 데이터를 관리할 수 있습니다.
-
-   - 이 리소스 그룹을 사용하여 백업 중이거나 백업 예정인 여러 디스크에 스냅샷을 저장할 수 있습니다.  
-
-   - 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅샷을 만들 수 없습니다. 따라서 백업할 디스크와 동일한 구독 내에 있는 리소스 그룹을 선택합니다. 관리 디스크의 [증분 스냅샷](../virtual-machines/disks-incremental-snapshots.md#restrictions)에 대해 자세히 알아보세요.
-
-   - 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹은 변경할 수 없습니다.
-
-   - 백업 작업 중에 Azure Backup은 스냅숏 리소스 그룹에 스토리지 계정을 생성합니다. 스냅숏 리소스 그룹당 하나의 저장소 계정만 생성됩니다. 계정은 스냅숏 리소스 그룹과 동일한 리소스 그룹을 사용하는 여러 디스크 백업 인스턴스에서 다시 사용됩니다.
-     
-     - 스냅숏은 저장소 계정에 저장되지 않습니다. 관리 디스크의 증분 스냅숏은 저장소 계정이 아닌 리소스 그룹에 생성되는 ARM 리소스입니다. 
-     
-     - 저장소 계정은 각 복구 지점에 대한 메타데이터를 저장하는 데 사용됩니다. Azure Backup 서비스는 디스크 백업 인스턴스당 Blob 컨테이너를 만듭니다. 각 복구 지점에는 작은 공간(몇 KiB)을 차지하는 복구 지점(예: 구독, 디스크 ID, 디스크 특성 등)을 설명하는 메타데이터를 저장하기 위해 블록 Blob이 생성됩니다.
-     
-     - 지역에서 영역 중복을 지원하는 경우 저장소 계정이 RA GZRS로 생성됩니다. 지역이 영역 중복을 지원하지 않는 경우 저장소 계정은 RA GRS로 생성됩니다.<br>기존 정책이 GRS 중복이 있는 구독 또는 리소스 그룹에서 저장소 계정 만들기를 중지하는 경우 저장소 계정은 LRS로 만들어집니다. 만든 저장소 계정은 **범용 v2** 이며 Blob 컨테이너의 핫 계층에서 블록 Blob이 저장됩니다. 
-     
-     - 복구 지점 수는 디스크 백업 인스턴스의 백업을 구성하는 데 사용되는 백업 정책에 따라 결정됩니다. 이전 블록 Blob은 해당하는 이전 복구 지점이 정리되므로 가비지 수집 프로세스에 따라 삭제됩니다.
-   
-   - Azure Backup 서비스에서 만든 스냅숏 리스 그룹 또는 저장소 계정에 리소스 잠금이나 을 적용하지 마세요. 이 서비스는 디스크의 백업을 구성할 때 백업 인스턴스에 할당된 스냅숏 리소스 그룹의 리소스를 만들고 관리합니다. 저장소 계정 및 해당 계정에 있는 리소스는 서비스에서 만들어지며 삭제하거나 이동하면 안 됩니다.
-
-     >[!NOTE]
-     >저장소 계정이 삭제되면 백업이 실패하고 기존 복구 지점의 복원이 모두 실패합니다.
-
-역할을 지정하려면 다음 단계를 따릅니다.
-
-   1. 리소스 그룹으로 이동합니다. 예를 들어 리소스 그룹은 백업할 디스크와 동일한 구독에 있는 *SnapshotRG* 입니다.
-
-   1. **액세스 제어(IAM)** 로 이동하여 **역할 할당 추가** 를 선택합니다.
-
-   1. 오른쪽 컨텍스트 창의 **역할** 드롭다운 목록에서 **디스크 스냅샷 기여자** 를 선택합니다. 백업 자격 증명 모음의 관리 ID를 선택하고 **저장** 합니다.
-
-   >[!TIP]
-   >백업 자격 증명 모음 이름을 입력하여 자격 증명 모음의 관리 ID를 선택합니다.
-
-   ![디스크 스냅샷 기여자 역할 추가](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. 백업 자격 증명 모음 관리 ID에 스냅샷 데이터 저장소 역할을 하는 소스 디스크 및 리소스 그룹에 올바른 역할 할당 세트가 있는지 확인합니다.
-
-   1. **백업 자격 증명 모음 -> ID** 로 이동하여 **Azure 역할 할당** 을 선택합니다.
-
-      ![Azure 역할 할당 선택](./media/backup-managed-disks/azure-role-assignments.png)
-
-   1. 역할, 리소스 이름 및 리소스 유형이 올바르게 반영되었는지 확인합니다.
-
-      ![역할, 리소스 이름 및 리소스 유형 확인](./media/backup-managed-disks/verify-role.png)
-
-   >[!NOTE]
-   >역할 할당이 포털에 올바르게 반영되는 동안 백업 자격 증명 모음의 관리 ID에 권한이 적용되는 데 약 15분이 걸릴 수 있습니다.
-
-1. 필수 구성 요소가 충족되면 **백업 자격 증명 모음 -> 개요** 로 이동하고 **백업** 을 선택하여 디스크 백업 구성을 시작합니다.
-
-   ![백업 선택](./media/backup-managed-disks/select-backup.png)
-
-1. **기본** 탭에서 데이터 원본 유형으로 **Azure Disk** 를 선택합니다.
-
-   ![Azure Disk 선택](./media/backup-managed-disks/select-azure-disk.png)
-
-   >[!NOTE]
-   >Azure Backup은 관리 디스크의 [증분 스냅샷](../virtual-machines/disks-incremental-snapshots.md#restrictions)을 사용합니다. 관리 디스크는 상위 디스크의 스토리지 유형에 관계없이 표준 HDD 스토리지의 마지막 스냅샷 이후 디스크에 대한 델타 변경 사항 만 저장합니다. 안정성을 높이기 위해 증분 스냅샷은 기본적으로 ZRS(Zone Redundant Storage)를 지원하는 지역의 ZRS에 저장됩니다. 현재 Azure Disk Backup은 백업을 백업 자격 증명 스토리지에 복사하지 않는 관리 디스크의 운영 백업을 지원합니다. 따라서 백업 자격 증명의 백업 스토리지 중복 설정은 복구 지점에 적용되지 않습니다.
-
-1. **백업 정책** 탭에서 백업 정책을 선택합니다.
-
-   ![백업 정책 선택](./media/backup-managed-disks/choose-backup-policy.png)
-
-1. **리소스** 탭에서 **Azure Disk 선택** 을 선택합니다. 오른쪽 컨텍스트 창에서 백업할 디스크를 선택합니다.
-
-   ![백업할 디스크 선택](./media/backup-managed-disks/select-disks-to-backup.png)
-
-   >[!NOTE]
+   >[!Note]
    >포털에서는 여러 디스크를 선택하고 백업을 구성할 수 있지만 각 디스크는 개별 백업 인스턴스입니다. 현재 Azure Disk Backup은 개별 디스크의 백업만 지원합니다. 가상 머신에 연결된 여러 디스크의 특정 시점 백업은 지원되지 않습니다.
    >
-   >포털을 사용할 때 동일한 구독 내에서 디스크 선택으로 제한됩니다. 백업할 디스크가 여러 개이거나 디스크가 서로 다른 구독에 분산되어 있는 경우 스크립트를 사용하여 자동화할 수 있습니다.
+   >Azure Portal 동일한 구독 내의 디스크만 선택할 수 있습니다. 백업할 디스크가 여러 개 있거나 디스크가 다른 구독에 있는 경우 스크립트([PowerShell](/azure/backup/backup-managed-disks-ps) / [CLI)를](/azure/backup/backup-managed-disks-cli)사용하여 자동화할 수 있습니다. 
    >
-   >Azure Disk Backup 지역 가용성, 지원되는 시나리오 및 제한 사항에 대한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조하세요.
+   >Azure Disk 백업 지역 가용성, 지원되는 시나리오 및 제한에 대한 자세한 내용은 지원 [매트릭스를](/azure/backup/disk-backup-support-matrix) 참조하세요.
 
-1. **스냅샷 리소스 그룹** 을 선택하고 **유효성 검사** 를 선택합니다. Azure Backup 서비스가 백업 자격 증명 모음에 대한 증분 스냅샷을 만들고 관리하는 리소스 그룹입니다. 관리 ID는 필수 구성 요소의 일부로 필요한 역할 권한과 함께 할당됩니다.
+1. **스냅샷 리소스 그룹을** 선택하고 **유효성 검사를** 클릭하여 필수 조건 검사를 시작합니다.
 
-   ![스냅샷 리소스 그룹 선택](./media/backup-managed-disks/select-snapshot-resource-group.png)
+   스냅샷 저장 및 관리를 위한 리소스 그룹 선택:
 
-   >[!NOTE]
-   >백업 워크플로 구성을 완료하기 전에 유효성 검사를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 다음과 같은 경우 유효성 검사가 실패할 수 있습니다.
+   - 소스 디스크와 동일한 리소스 그룹을 선택하지 마세요.
+   
+   - 지침으로 Azure Backup 서비스에서 사용할 스냅샷 데이터 저장소로 전용 리소스 그룹을 만드는 것이 좋습니다. 전용 리소스 그룹을 사용하면 리소스 그룹에 대한 액세스 권한을 제한할 수 있으므로 안전하고 쉽게 백업 데이터를 관리할 수 있습니다.
+
+   - 이 리소스 그룹을 사용하여 백업 중이거나 백업 예정인 여러 디스크에 스냅샷을 저장할 수 있습니다.
+
+   - 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅샷을 만들 수 없습니다. 따라서 디스크를 백업해야 하는 동일한 구독 내에서 리소스 그룹을 선택합니다. 관리 디스크의 증분 스냅샷에 대해 [자세히 알아보세요.](/azure/virtual-machines/disks-incremental-snapshots#restrictions)
+
+   - 디스크의 백업을 구성한 후에는 백업 인스턴스에 할당된 스냅샷 리소스 그룹을 변경할 수 없습니다.
+
+   - 백업 작업 중에 Azure Backup 스냅샷 리소스 그룹에 Storage 계정을 만듭니다. 스냅숏 리소스 그룹당 하나의 Storage 계정만 생성 됩니다. 이 계정은 스냅숏 리소스 그룹과 같은 리소스 그룹을 사용 하는 여러 디스크 백업 인스턴스에서 다시 사용 됩니다.
+
+     - Storage 계정은 스냅숏을 저장 하지 않습니다. 관리 디스크의 증분 스냅숏은 Storage 계정이 아닌 리소스 그룹에 생성 된 ARM 리소스입니다.
+     - Storage 계정 각 복구 지점에 대 한 메타 데이터를 저장 합니다. Azure Backup 서비스는 디스크 백업 인스턴스당 blob 컨테이너를 만듭니다. 각 복구 지점에는 작은 공간(몇 KiB)을 차지하는 복구 지점(예: 구독, 디스크 ID, 디스크 특성 등)을 설명하는 메타데이터를 저장하기 위해 블록 Blob이 생성됩니다.
+     - 지역에서 영역 중복을 지원하는 경우 저장소 계정이 RA GZRS로 생성됩니다. 지역이 영역 중복성을 지원 하지 않는 경우 Storage 계정은 RA GRS으로 만들어집니다.
+       기존 정책이 GRS 중복이 있는 구독 또는 리소스 그룹에서 저장소 계정 만들기를 중지하는 경우 저장소 계정은 LRS로 만들어집니다. 만든 Storage 계정은 blob 컨테이너의 핫 계층에 블록 blob이 저장 된 범용 **v2** 입니다.
+     - 복구 지점 수는 디스크 백업 인스턴스의 백업을 구성하는 데 사용되는 백업 정책에 따라 결정됩니다. 가비지 수집 프로세스에 따라 해당 하는 이전 복구 지점이 정리 되기 때문에 이전 블록 blob이 삭제 됩니다.
+
+   - Azure Backup 서비스에서 만든 스냅숏 리소스 그룹 또는 Storage 계정에 리소스 잠금이나 정책 또는 방화벽을 적용 하지 마세요. 이 서비스는 디스크 백업을 구성할 때 백업 인스턴스에 할당 된이 스냅숏 리소스 그룹의 리소스를 만들고 관리 합니다. 서비스는 Storage 계정 및 해당 리소스를 만들며 삭제 하거나 이동 해서는 안 됩니다.
+
+     >[!Note]
+     >저장소 계정이 삭제되면 백업이 실패하고 기존 복구 지점의 복원이 모두 실패합니다.
+
+   :::image type="content" source="./media/backup-managed-disks/validate-snapshot-resource-group-inline.png" alt-text="필수 구성 요소 확인을 시작 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/validate-snapshot-resource-group-expanded.png":::
+
+1. 유효성 검사가 완료 되 면 백업 준비 열에 보고 된 오류가 있는지 확인 합니다.
+
+   >[!Note]
+   >유효성 검사를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 다음과 같은 경우 유효성 검사가 실패할 수 있습니다.
    >
-   > - 디스크가 지원되지 않습니다. 지원되지 않는 시나리오는 [지원 매트릭스](disk-backup-support-matrix.md)를 참조하세요.
-   > - 백업 자격 증명 모음 관리 ID에 백업할 **디스크** 또는 증분 스냅샷이 저장되는 **스냅샷 리소스 그룹** 에 유효한 역할 할당이 없습니다.
+   >- 디스크가 지원 되지 않습니다. 지원 되지 않는 시나리오는 [지원 매트릭스](/azure/backup/disk-backup-support-matrix) 를 참조 하세요.
+   >- 백업 자격 증명 모음 관리 id에 백업할 _디스크_ 또는 증분 스냅숏이 저장 된 _스냅숏 리소스 그룹_ 에 대 한 올바른 역할 할당이 없습니다.
 
-1. 유효성 검사에 성공하면 **검토 및 구성** 을 선택하여 선택한 디스크의 백업을 구성합니다.
+   **백업 준비** 열에 _역할 할당 안 함_ 오류 메시지가 표시 되 면 백업 자격 증명 모음 관리 id에 선택한 디스크 및/또는 스냅숏 리소스 그룹에 대 한 역할 권한이 있어야 합니다. 
+
+   :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error-inline.png" alt-text="역할 할당 완료 안 함 오류 메시지를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/role-assignment-not-done-error-expanded.png":::
+
+   관리 디스크의 백업을 구성 하려면 다음 필수 구성 요소가 필요 합니다.
+
+   >[!Note]
+   >백업 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 관리 디스크의 백업을 구성 하려면 백업 자격 증명 모음의 관리 되는 id에 스냅숏이 만들어지고 관리 되는 원본 디스크 및 리소스 그룹에 대 한 권한 집합이 필요 합니다.
+
+   시스템 할당 관리 id는 리소스 당 하나로 제한 되며이 리소스의 수명 주기에 연결 됩니다. 관리 id에 사용 권한을 부여 하려면 azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+
+   - 백업 해야 하는 원본 디스크에서 백업 자격 증명 모음 관리 id에 **디스크 백업 읽기 권한자** 역할을 할당 합니다.
+   - Azure Backup 서비스에서 백업을 만들고 관리하는 리소스 그룹에서 백업 자격 증명 모음 관리 ID에 디스크 스냅샷 기여자 역할을 할당합니다. 디스크 스냅샷은 구독 내의 리소스 그룹에 저장됩니다. Azure Backup 서비스에서 스냅숏을 만들고 저장 하 고 관리할 수 있도록 하려면 백업 자격 증명 모음에 대 한 사용 권한을 제공 해야 합니다.
+
+   >[!Note]
+   >Azure Portal를 사용 하 여 백업 흐름 구성은 위의 리소스에 필요한 역할 권한을 부여 하는 데 도움이 됩니다. 
+
+1. 백업 준비 열에서 _역할 할당이 완료 되지 않음_ 오류 메시지 상태를 사용 하 여 각 행 옆의 확인란을 선택 하 고 **누락 된 역할 추가** 를 클릭 하 여 선택한 리소스에 대해 백업 자격 증명 모음 관리 id에 필요한 역할 권한을 자동으로 부여 합니다.
+
+   :::image type="content" source="./media/backup-managed-disks/add-missing-roles-inline.png" alt-text="누락 된 역할을 추가 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/add-missing-roles-expanded.png":::
+
+1. **확인** 을 클릭 하 여 동의를 제공 합니다. 사용자를 대신 하 여 역할 할당 변경 내용을 자동으로 전파 하 고 유효성을 다시 검사 하는 Azure Backup 합니다.
+
+   선택한 디스크 및 스냅숏 리소스 그룹에 대 한 백업 자격 증명 모음 관리 id에 대 한 권한을 부여 하려면 **범위** 드롭다운 목록에서 **리소스** 를 선택 합니다. 
+
+   :::image type="content" source="./media/backup-managed-disks/confirm-role-propagation-inline.png" alt-text="자동 역할 할당에 대 한 Azure Backup 동의를 제공 하는 옵션을 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/confirm-role-propagation-expanded.png":::
+
+   >[!Tip]
+   >나중에 동일한 리소스 그룹/구독에 있는 다른 디스크에 대 한 백업을 구성할 계획인 경우 리소스 그룹 또는 구독의 범위에서 사용 권한을 제공 하도록 선택할 수 있습니다.
+
+   :::image type="content" source="./media/backup-managed-disks/permission-deployment-in-progress-inline.png" alt-text="권한 배포를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/permission-deployment-in-progress-expanded.png":::
+
+   :::image type="content" source="./media/backup-managed-disks/permission-waiting-to-propagate-inline.png" alt-text="리소스 그룹에 전파 되기를 기다리는 사용 권한을 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/permission-waiting-to-propagate-expanded.png":::
+
+   :::image type="content" source="./media/backup-managed-disks/revalidating-permission-propagation-inline.png" alt-text="실패 한 시나리오에 대 한 권한 전파의 유효성을 다시 검사 하는 시도를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/revalidating-permission-propagation-expanded.png":::
+
+   >[!Note]
+   >- 경우에 따라 역할 할당이 전파 되는 데 최대 30 분이 걸릴 수 있으므로 유효성 재검사 오류가 발생 합니다. 이 시나리오에서는 잠시 후에 다시 시도 합니다.
+   >- 누락 된 **역할 추가** 작업이 백업 준비 열에서 ' 역할 할당에 대 한 사용 권한 부족 ' 오류로 인해 사용 권한을 할당 하지 못하는 경우 역할 사용 권한을 할당할 수 있는 권한이 없음을 나타냅니다. 역할 할당 템플릿 다운로드를 선택 하 여 역할 할당을 스크립트로 다운로드 하 고 IT 관리자의 지원을 검색 하 여 필수 구성 요소를 완료 하는 스크립트를 실행 합니다. 
+
+   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time-inline.png" alt-text="최대 30 초까지 시간이 오래 걸리는 권한 전파 인스턴스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time-expanded.png":::
+
+1. 유효성 검사가 완료 되 면 **다음** 을 클릭 하 여 **검토 및 구성** 탭으로 이동한 다음 **백업 구성** 을 클릭 하 여 선택한 디스크의 백업을 구성 합니다.
+
+   :::image type="content" source="./media/backup-managed-disks/configure-backup-of-selected-disks-inline.png" alt-text="선택한 디스크의 백업을 구성 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/configure-backup-of-selected-disks-expanded.png":::
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 

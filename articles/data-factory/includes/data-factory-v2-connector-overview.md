@@ -2,14 +2,14 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2021
+ms.date: 09/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: e4a3426d8a4d77b9e33ec73e2b6069a1da63f924
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3eeebaf827e1c5a244423f0cab1b4adceefceb5f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909215"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129096070"
 ---
 | 범주              | 데이터 저장소                                                   | [복사 작업](../copy-activity-overview.md)(원본/싱크) | [매핑 데이터 흐름](../concepts-data-flow-overview.md)(원본/싱크) | [조회 작업](../control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../control-flow-get-metadata-activity.md)/[유효성 검사 작업](../control-flow-validation-activity.md) | [활동 삭제](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -30,6 +30,7 @@ ms.locfileid: "128909215"
 | &nbsp;                | [Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure Table Storage](../connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **Database**          | [Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md)       | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [SQL Server Amazon RDS](../connector-amazon-rds-for-sql-server.md)       | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                              |                                                              |
 | &nbsp;                | [Amazon Redshift](../connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Drill](../connector-drill.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

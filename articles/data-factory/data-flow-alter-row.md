@@ -9,21 +9,23 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 7fe220315f7cccb749fe0974e822f157cf54ca36
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 09/09/2021
+ms.openlocfilehash: 052b91600f77d50c6ae70c6742aa4fe41c64e552
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821719"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060331"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 행 변경 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 행에 대한 삽입, 삭제, 업데이트, upsert 정책을 설정하려면 행 변경 변환을 사용합니다. 일대다 조건을 식으로 추가할 수 있습니다. 일대다 조건은 각 행이 첫 번째로 일치하는 식에 해당하는 정책으로 표시되므로 우선 순위에 따라 지정해야 합니다. 각 조건으로 인해 하나의 행(또는 여러 행)이 삽입, 업데이트, 삭제 또는 upsert될 수 있습니다. 행 변경은 데이터베이스에 대해 DDL 작업과 DML 작업을 모두 생성할 수 있습니다.
 
-![행 변경 설정](media/data-flow/alter-row1.png "행 변경 설정")
+:::image type="content" source="media/data-flow/alter-row1.png" alt-text="행 변경 설정":::
 
 행 변경 변환은 데이터 흐름의 데이터베이스, REST 또는 CosmosDB 싱크에 대해서만 작동합니다. 행에 할당하는 작업(삽입, 업데이트, 삭제, upsert)은 디버그 세션 중에 발생하지 않습니다. 파이프라인에서 데이터 흐름 실행 작업을 실행하여 데이터베이스 테이블에 행 변경 정책을 시행합니다.
 
@@ -33,7 +35,7 @@ ms.locfileid: "122821719"
 
 행 변경 변환을 만들고 조건이 `true()`인 행 정책을 지정합니다. 이전에 정의된 식과 일치하지 않는 각 행은 지정된 행 정책에 대해 표시됩니다. 기본적으로 조건 식과 일치하지 않는 각 행은 `Insert`으로 표시됩니다.
 
-![행 변경 정책](media/data-flow/alter-row4.png "행 변경 정책")
+:::image type="content" source="media/data-flow/alter-row4.png" alt-text="행 변경 정책":::
 
 > [!NOTE]
 > 모든 행을 하나의 정책으로 표시하려면 해당 정책에 대한 조건을 만들고 조건을 `true()`로 지정할 수 있습니다.
@@ -42,7 +44,7 @@ ms.locfileid: "122821719"
 
 [디버그 모드](concepts-data-flow-debug-mode.md)를 사용하여 데이터 미리 보기 창에서 행 변경 정책의 결과를 볼 수 있습니다. 행 변경 변환의 데이터 미리 보기는 대상에 대해 DDL 또는 DML 작업을 생성하지 않습니다.
 
-![행 변경 정책](media/data-flow/alter-row3.png "행 변경 정책")
+:::image type="content" source="media/data-flow/alter-row3.png" alt-text="행 변경 정책":::
 
 각 행 변경 정책은 삽입, 업데이트, upsert 또는 삭제된 동작이 발생하는지 여부를 나타내는 아이콘으로 표시됩니다. 위쪽 헤더는 미리 보기에서 각 정책의 영향을 받는 행의 수를 보여 줍니다.
 
@@ -50,7 +52,7 @@ ms.locfileid: "122821719"
 
 행 변경 정책을 준수하려면 데이터 스트림을 데이터베이스 또는 Cosmos 싱크에 작성해야 합니다. 싱크의 **설정** 탭에서 해당 싱크에 대해 허용되는 행 변경 정책을 사용하도록 설정합니다.
 
-![행 변경 싱크](media/data-flow/alter-row2.png "행 변경 싱크")
+:::image type="content" source="media/data-flow/alter-row2.png" alt-text="행 변경 싱크":::
 
 기본 동작은 삽입만 허용하는 것입니다. 업데이트, upsert 또는 삭제를 허용하려면 해당 조건에 대해 싱크에 있는 상자를 선택합니다. 업데이트, upsert 또는 삭제를 사용하도록 설정한 경우 싱크에 일치시킬 키 열을 지정해야 합니다.
 
@@ -93,7 +95,7 @@ ms.locfileid: "122821719"
 
 UI에서 이 변환은 아래 이미지와 같습니다.
 
-![행 변경 예제](media/data-flow/alter-row4.png "행 변경 예제")
+:::image type="content" source="media/data-flow/alter-row4.png" alt-text="행 변경 예제":::
 
 이 변환에 대한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
 

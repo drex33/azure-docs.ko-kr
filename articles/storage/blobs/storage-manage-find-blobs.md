@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: cf692cb638db516fdabbdb7700137a2dcc4a01be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa2284e03c8d69bacb40a2fe99d3c3cb10a73828
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603945"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154644"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 
@@ -135,7 +135,7 @@ Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     >      |  보다 큼 | `"Date" > '2018-06-18'` |
@@ -160,7 +160,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 아래 표는 조건부 연산에 유효한 연산자를 보여줍니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     <>     |   같지 않음   | `"Status" <> 'Done'` |
@@ -257,7 +257,7 @@ Blob 인덱스 태그는 Blob 데이터에 대한 하위 리소스입니다. Blo
 | [Get Blob Tags](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-인덱스 태그 작업에는 기본 Blob 데이터와 별도로 추가 권한이 필요합니다. [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대한 권한이 부여됩니다. [Storage Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 에는 작업에 대 한 권한만 부여 됩니다 `Get Blob Tags` .
+인덱스 태그 작업에는 기본 Blob 데이터와 별도로 추가 권한이 필요합니다. [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할에는 세 가지 Blob 인덱스 태그 작업 모두에 대한 권한이 부여됩니다. 
 
 ### <a name="sas-permissions"></a>SAS 권한
 
@@ -290,7 +290,7 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 |              |   메타데이터   |   Blob 인덱스 태그  |
 |--------------|--------------|--------------------|
 | **제한**      | 숫자 제한 없음, 총 8KB, 대/소문자 구분 안 함 | Blob당 태그 최대 10개, 태그당 768바이트, 대/소문자 구분 |
-| **업데이트**    | 보관 계층에서 허용 되지 않습니다. `Set Blob Metadata` 기존 메타 데이터를 모두 바꾸고 `Set Blob Metadata` blob의 마지막 수정 시간을 변경 합니다. | 모든 액세스 계층에 대해 허용 되는 모든 `Set Blob Tags` 기존 태그를 바꾸고 `Set Blob Tags` blob의 마지막 수정 시간을 변경 하지 않습니다. |
+| **업데이트**    | 보관 계층에서 허용되지 않음, `Set Blob Metadata` 모든 기존 메타데이터 바꾸기, `Set Blob Metadata` Blob의 마지막 수정 시간 변경 | 모든 액세스 계층에 대해 허용되고, `Set Blob Tags` 모든 기존 태그를 `Set Blob Tags` 대체하고, Blob의 마지막 수정 시간을 변경하지 않습니다. |
 | **스토리지**     | Blob 데이터와 함께 저장됨 | Blob 데이터의 하위 리소스 |
 | **인덱싱 및 쿼리** | Azure Search와 같은 별도의 서비스를 사용해야 함 | 인덱싱 및 쿼리 기능이 Blob Storage에 기본 제공됨 |
 | **암호화** | Blob 데이터에 사용되는 동일한 암호화 키를 사용하여 미사용 시 암호화됨 | Microsoft 관리형 암호화 키를 사용하여 미사용 시 암호화됨 |
@@ -311,8 +311,8 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 
 | Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![예](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

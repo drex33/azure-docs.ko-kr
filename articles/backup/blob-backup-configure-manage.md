@@ -2,13 +2,13 @@
 title: Azure Blob에 대한 운영 백업 구성
 description: Azure Blob에 대한 운영 백업을 구성하고 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 24a0f31a35342b53835563fdcca9754abd5d57ee
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566222"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153903"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Azure Blob에 대한 운영 백업 구성
 
@@ -139,7 +139,7 @@ Blob 백업은 스토리지 계정 수준에서 구성됩니다. 따라서 스�
 
     1. **검토 + 만들기** 를 선택하여 백업 정책을 만듭니다.
 
-1. Blob 보호를 구성하는 데 필요한 스토리지 계정을 선택합니다. 한 번에 여러 스토리지 계정을 선택하고 [선택]을 누를 수도 있습니다.<br></br>그러나 선택한 자격 증명 모음에 스토리지 계정에 대한 백업을 구성하는 데 필요한 RBAC 역할이 할당되어야 합니다. [스토리지 계정에서 Backup 자격 증명 모음에 권한 부여](#grant-permissions-to-the-backup-vault-on-storage-accounts)에 대해 자세히 알아보세요.<br></br>역할이 할당되지 않은 경우 백업을 구성하는 동안 역할을 할당할 수 있습니다. 7단계를 참조하세요.
+1. Blob 보호를 구성하는 데 필요한 스토리지 계정을 선택합니다. 한 번에 여러 스토리지 계정을 선택하고 [선택]을 누를 수도 있습니다.<br></br>그러나 선택한 자격 증명 모음에 스토리지 계정에 백업을 구성하는 데 필요한 Azure RBAC(Azure 역할 기반 액세스 제어) 역할이 할당되어 있는지 확인합니다. [스토리지 계정에서 Backup 자격 증명 모음에 권한 부여](#grant-permissions-to-the-backup-vault-on-storage-accounts)에 대해 자세히 알아보세요.<br></br>역할이 할당되지 않은 경우 백업을 구성하는 동안 역할을 할당할 수 있습니다. 7단계를 참조하세요.
 
     ![자격 증명 모음의 권한 확인](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 

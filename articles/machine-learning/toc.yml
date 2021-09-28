@@ -276,7 +276,7 @@
         - name: 보안 코딩
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: 규정 준수 감사 및 관리
+        - name: 감사 및 관리
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: 작업 영역 및 컴퓨팅 리소스

@@ -30,6 +30,8 @@
   items:
     - name: Automation 계정 인증 개요
       href: automation-security-overview.md
+    - name: 자동화에서 컨텍스트 전환
+      href: context-switching.md
     - name: Runbook 실행 개요
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker 개요

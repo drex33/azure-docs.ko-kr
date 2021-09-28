@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81ee4dda78fd4444f5e297abacbd2e08f07eaaa8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 528821649c0c212c869ac74f61a5e13e70f1671a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546543"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153846"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>미리 빌드된 ID(ID) 문서 모델 Form Recognizer
 
@@ -53,7 +53,7 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|속성| 유형 | Description | 값(표준화된 출력) |
+|이름| Type | Description | 값(표준화된 출력) |
 |:-----|:----|:----|:----|
 |  CountryRegion | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 | "USA" |
 |  DateOfBirth | date | YYYY-MM-DD 형식의 DOB | "1980-01-01" |
@@ -61,10 +61,9 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 |  DocumentNumber | 문자열 | 관련 passport 번호, 운전 면허 번호 등 | "340020013" |
 |  FirstName | 문자열 | 지정된 이름 및 중간 이니셜(해당하는 경우)을 추출했습니다 | "JENNIFER" |
 |  LastName | 문자열 | 추출된 성 | "BROOKS" |
-|  Nationality | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 | "USA" |
+|  Nationality | countryRegion | ISO 3166 표준을 준수 하는 국가 또는 지역 코드 (Passport 전용) | "USA" |
 |  성별 | 문자열 | 추출 가능한 값에는 "M", "F" 및 "X"가 포함됩니다 | "F" |
-|  MachineReadableZone | 개체 | 두 줄의 44 문자를 포함하여 Passport MRZ을 추출했습니다 | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | 문자열 | 문서 유형(예: 여권, 운전 면허증) | "passport" |
+|  MachineReadableZone | 개체 | 두 줄 44 문자를 포함 하 여 Passport MRZ을 추출 했습니다 (Passport에만 해당). | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  주소 | 문자열 | 추출된 주소(운전 면허증에만 해당) | "123 주소에서 도시 WA 99999-1234"|
 |  지역 | 문자열 | 추출된 지역, 시, 도 등(운전 면허증에만 해당) | "워싱턴" |
 
@@ -247,11 +246,6 @@ Need to update this with updated APIM links when available
               "#/readResults/0/lines/33/words/4",
               "#/readResults/0/lines/34/words/0"
             ]
-          },
-          "DocumentType": {
-            "type": "string",
-            "text": "passport",
-            "confidence": 0.995
           }
         }
       }

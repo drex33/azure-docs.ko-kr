@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Central 애플리케이션 설정 변경 | Microsoft Docs
 description: 애플리케이션 이름 및 URL을 변경하고, 이미지를 업로드하고, 애플리케이션을 삭제하여 Azure IoT Central 애플리케이션을 관리하는 방법
-author: lizross
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 5bb973708dda2da52c9647bd58f00fc4009f59c2
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 067ab65095ce309e8d05f146a1469b3f062634a3
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093861"
+ms.locfileid: "129154492"
 ---
 # <a name="change-iot-central-application-settings"></a>IoT Central 애플리케이션 설정 변경
 

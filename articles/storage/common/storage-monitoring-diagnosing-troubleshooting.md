@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4ab5db6ebae132376e9fade6533214c1d49341f6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e170cafe87e3ff23a550766ff2fc52ded7f80963
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569533"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153694"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 
@@ -356,9 +356,7 @@ catch (StorageException storageException)
 [용량 메트릭에 예기치 않은 스토리지 용량 사용 증가가 표시됨]
 
 ---
-[많은 수의 VHD가 연결된 Virtual Machines가 예기치 않게 다시 부팅됨]
 
----
 [개발 또는 테스트용으로 스토리지 에뮬레이터 사용 시 문제가 발생함]
 
 ---

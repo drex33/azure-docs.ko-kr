@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Central Explorer를 사용하여 디바이스 연결 모니터링
 description: 디바이스 메시지를 모니터링하고 IoT Central Explorer CLI를 통해 디바이스 쌍 변경 내용을 관찰합니다.
-author: lizross
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
-manager: corywink
-ms.openlocfilehash: 85c74069bae3e17ce02088478e9b9561c43a7889
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 9c257b9df42af31c443ae3e609d578db6adeb1c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094523"
+ms.locfileid: "129154834"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 

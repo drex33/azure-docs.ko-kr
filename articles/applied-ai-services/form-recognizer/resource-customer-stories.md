@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/10/2021
 ms.author: lajanuar
-ms.openlocfilehash: 53ea579092916621180fdef5306ac091d36375b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ba1dd0b77b2f4a1ce74ec24e0770300ba0ffb9b1
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666726"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154910"
 ---
 # <a name="customer-spotlight"></a>고객 주요 내용
 
@@ -34,6 +34,7 @@ ms.locfileid: "128666726"
 |<font size=5>GEP</font>| [**GEP**](https://www.gep.com/)는 Form Recognizer를 사용하여 클라이언트에 대한 청구서 처리 솔루션을 개발했습니다. "GEP에서는 AI와 자동화가 조달 및 공급망에 큰 영향을 미치는 것을 확인했습니다. AI 솔루션을 Microsoft Form Recognizer와 결합하여 클라이언트에 대해 하루에 4,000개의 청구서 처리를 자동화함으로써 수만 시간의 수동 노력을 절약하면서 세계적인 스케일로 정확도, 제어 및 규정 준수를 개선했습니다."라고 GEP의 AI 담당 부사장인 Seueudu Sethi는 말했습니다. | [블로그](https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428)|
 |<font size=5>HCA Healthcare</font>| [**HCA Healthcare**](https://hcahealthcare.com/)는 미국 전역에서 180개 이상의 병원과 2,000개 이상의 의료 현장을 갖춘 선도적인 의료 서비스 제공자 중 하나로, 매년 약 3,500만 명의 환자에게 서비스를 제공합니다. 이제 HCA Healthcare는 Microsoft와 제휴하고 Azure Form Recognizer를 활용하여 환자 온보딩 환경을 단순화하고 개선할 뿐 아니라, 반복 데이터를 치료 센터의 시스템에 입력하는 데 걸리는 관리 시간을 단축합니다. | [고객 스토리](https://customers.microsoft.com/en-us/story/1404891793134114534-hca-healthcare-healthcare-provider-azure)|
 |<font size=5>Instabase</font>| [**Instabase**](https://instabase.com/)는 복잡한 대량의 비정형 데이터를 검색, 구성, 식별 및 이해하여 조직화된 정보로 비즈니스 워크플로로 가져오는 데 도움이 되는 동종 최고의 기계 학습 프로세스를 제공하는 애플리케이션 플랫폼입니다. 이 플랫폼은 플러그형 애플리케이션의 리포지토리를 제공하여 정보를 오케스트레이션 및 활용하고, 필요에 따라 신속하게 확장하고 개선할 수 있도록 지원합니다. Instabase 애플리케이션은 광범위하고 인프라에 구애받지 않는 배포를 위해 완전히 컨테이너화됩니다. | [고객 스토리](https://customers.microsoft.com/en-gb/story/1376278902865681018-instabase-partner-professional-services-azure)|
+|<font size=5>북부 신뢰</font>| [**북부 Trust**](https://www.northerntrust.com/) 는 기업, 기관, affluent 가족 및 개인에 게 풍부한 관리, 자산 서비스, 자산 관리 및 은행에 대 한 선두 업체입니다. 대체 자산 서비스를 디지털화 하기 위한 이니셔티브의 일환으로, 북부 신뢰는 대체 자산 문서에서 구조화 되지 않은 투자 데이터를 추출 하 고 자산 소유자 클라이언트에 대해 액세스 가능 하 고 조치를 취할 수 있도록 인공 지능 기반 솔루션을 시작 했습니다. AI 솔루션을 구축 하는 기업에 대 한 가치를 가속화 하는 Microsoft Azure AI 서비스를 사용 하 여 기본 제공 되 고, AI 솔루션을 구축 하는 기업에 대 한 시간에 대 한 시간을 가속화 하 고, 비즈니스 및 컨설팅 기업의 Neudesic를 소유 하는 솔루션은 다양 한 비구조적 형식의 대문자 통화 통지, 현금 및 재고 배포 통지 및 자본 계정 문과 같은 중요 한 | [고객 스토리](https://www.businesswire.com/news/home/20210914005449/en/Northern-Trust-Automates-Data-Extraction-from-Alternative-Asset-Documentation)|
 |<font size=5>WEX</font>| [**WEX**](https://www.wexinc.com/)는 Form Recognizer를 사용하여 혜택 설명 문서를 처리하는 도구를 개발했습니다. 제품 관리 및 전략 담당 선임 부사장인 Matt Dallahan은 “이 기술은 정말 놀랍습니다. 처음에는 이러한 유형의 솔루션이 가능하지 않을 것이라 우려했지만 Form Recognizer가 거의 모든 문서를 정확하게 읽을 수 있다는 사실을 곧 알게 되었습니다." | [블로그](https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428)|
 |<font size=5>Wilson Allen</font> | [**Wilson Allen**](https://wilsonallen.com/)은 Microsoft Azure Cognitive Services에 대한 AI 컨테이너 지원을 활용하고 전 세계 기업들이 이전에는 사일로 형태의 비정형 데이터에서 뛰어난 수준의 인사이트를 얻는 데 도움이 될 수 있는 강력한 AI 솔루션을 만들었습니다. 이제 해당 클라이언트는 이 데이터를 사용하여 비즈니스 개발을 지원하고 클라이언트 관계를 발전시킬 수 있습니다. | [고객 스토리](https://customers.microsoft.com/story/814361-wilson-allen-partner-professional-services-azure)|
 |<font size=5>Zelros</font>| [**Zelros**](http://www.zelros.com/)는 보험 업계를 위한 AI 지원 소프트웨어를 제공합니다. 보험업자들은 Zelros 플랫폼을 사용하여 양식을 작성하고 고객 등록 및 클레임 처리를 원활하게 관리합니다. 이 회사는 Microsoft Azure Cognitive Services의 일부인 Form Recognizer와 자사 기술을 결합하여 자동으로 키 값 쌍 및 텍스트를 문서에서 끌어옵니다. 보험업자들은 Zelros 플랫폼을 사용하여 더 신속하고 정확하게 서류 작업을 처리할 수 있으며, 이전에는 수동 데이터 추출에 소요했던 수천 시간을 고객에게 더 나은 서비스를 제공하는 데 투입할 수 있습니다. | [고객 스토리](https://customers.microsoft.com/story/816397-zelros-insurance-azure)|

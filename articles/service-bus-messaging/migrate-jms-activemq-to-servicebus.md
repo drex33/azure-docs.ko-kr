@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 09/27/2021
 ms.author: spelluru
 ms.custom: devx-track-java
-ms.openlocfilehash: 5fcc69a765d0e3690e8b9ff9ee80b2e021810100
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4d8faa2d3ed17b404ae0609573c9f981386f10a5
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566766"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154625"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS(Java Message Service) 2.0 애플리케이션 마이그레이션
 

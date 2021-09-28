@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f44962f1dfdfe3a55272aa19d9399542cb28d736
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9aa0ac4334d50a7b3a55ff992fb3e5a984786384
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566768"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155024"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Azure Private Link 연결 문제 해결
 
@@ -107,7 +107,17 @@ Private Link와 함께 사용할 수 있는 연결 시나리오는 다음과 같
 
        ![프라이빗 링크 서비스 메트릭 확인](./media/private-link-tsg/pls-metrics.png)
 
-1. 문제가 여전히 해결되지 않고 연결 문제가 계속 발생하는 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 팀에 문의하세요.
+1. Azure Monitor 사용 [- 인사이트를](../azure-monitor/insights/network-insights-overview.md#dependency-view) 위한 네트워크 및 다음으로 진행하여 리소스의 종속성 보기를 확인합니다.
+     - Azure Monitor
+     - 네트워크
+     - Private Link 서비스
+     - 종속성 보기 
+
+![AzureMonitor](https://user-images.githubusercontent.com/20302679/135001735-56a9484b-f9b4-484b-a503-cfb9d20b264a.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/135001741-8e848c52-d4bb-4646-b0d3-a85614ebe16c.png)
+
+4. 문제가 여전히 해결되지 않고 연결 문제가 계속 발생하는 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 팀에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

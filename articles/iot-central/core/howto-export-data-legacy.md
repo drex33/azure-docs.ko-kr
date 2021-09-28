@@ -2,17 +2,17 @@
 title: Azure IoT Central에서 데이터 내보내기(레거시) | Microsoft Docs
 description: Azure IoT Central 애플리케이션에서 Azure Event Hubs, Azure Service Bus, Azure Blob Storage로 데이터를 내보내는 방법
 services: iot-central
-author: lizross
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 3f6e3aa7e550edaee312d3622dc652347b8e4fc3
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 017d563c4f253eb8cc49736f2fc3036ae4082e0a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093954"
+ms.locfileid: "129153485"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기(레거시)를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 

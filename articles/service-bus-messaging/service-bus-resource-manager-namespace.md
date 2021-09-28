@@ -5,15 +5,15 @@ documentationcenter: .net
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
+ms.date: 09/27/2021
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 973d84356c4757044f0e66f32fd0f5b96334daca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 0a60829ead884c9b76025580714f03d993101b79
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110680938"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155290"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 

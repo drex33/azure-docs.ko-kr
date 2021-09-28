@@ -6,12 +6,12 @@ author: lgayhardt
 services: azure-monitor
 ms.subservice: application-insights
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d8e785576f4fcd6b0af83c8d60accad21f90ddd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b88ee4d53f137f98aa82ee736043943f844f36ca
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634243"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154599"
 ---
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 App Service 애플리케이션 설정
 
@@ -49,11 +49,11 @@ Application Insights에 대해 구성된 애플리케이션 설정을 사용한 
 
 2. **검토 + 만들기** 를 선택 하 고 맨 아래에 **automation을 위한 템플릿을 다운로드** 합니다.
 
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="App Service 웹앱 만들기 메뉴" :::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="웹 앱 만들기 메뉴 App Service의 스크린샷" :::
 
     이 옵션은 모든 필수 설정이 구성된 최신 Azure Resource Manager 템플릿을 생성합니다.
     
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="App Service 웹앱 템플릿" border="false":::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="웹 앱 템플릿 App Service의 스크린샷" border="false":::
     
 
 다음은 `AppMonitoredSite`의 모든 인스턴스를 사이트 이름으로 바꾸는 샘플입니다.

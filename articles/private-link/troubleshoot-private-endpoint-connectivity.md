@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: cb66b9ad3106b9cad5b9b22cbe32838e13f56c28
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0df95d90d0119f8bc513fe2a26ed731d87401b3d
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528705"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154264"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
 
@@ -119,7 +119,19 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
       - 다른 원본에서 프라이빗 엔드포인트로 연결합니다. 이렇게 하면 가상 머신 관련 문제를 격리할 수 있습니다. 
       - 프라이빗 엔드포인트와 동일한 가상 네트워크의 일부인 가상 머신에 연결합니다.  
 
-1. 문제가 여전히 해결되지 않고 연결 문제가 계속 발생하는 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 팀에 문의하세요.
+1. 개인 끝점이 Load Balancer 연결 된 [개인 링크 서비스](./troubleshoot-private-link-connectivity.md) 에 연결 된 경우 백 엔드 풀이 정상 상태 인지 확인 합니다. Load Balancer 상태를 수정 하면 개인 끝점에 연결 하는 문제를 해결할 수 있습니다.
+
+    - 다음으로 이동 하 여 관련 리소스, 메트릭 및 정보에 대 한 시각적 다이어그램 또는 [종속성 보기](../azure-monitor/insights/network-insights-overview.md#dependency-view) 를 볼 수 있습니다.
+        - Azure Monitor
+        - 네트워크
+        - 프라이빗 엔드포인트
+        - 종속성 보기 
+
+![Monitor-Networks](https://user-images.githubusercontent.com/20302679/134994620-0660b9e2-e2a3-4233-8953-d3e49b93e2f2.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/134994637-fb8b4a1a-81d5-4723-b1c3-d7bdc72162f3.png)
+
+9. 문제가 여전히 해결되지 않고 연결 문제가 계속 발생하는 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 팀에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 09/22/2021
-ms.openlocfilehash: 4080839a817531be51190261fc63e67ded051f98
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4897b557626be5071a21d2cc1a6a8194eaed8994
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647996"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154283"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -266,8 +266,50 @@ Resource Manager 템플릿에서 다음을 추가합니다.
     // the ranges shown above or two numbers in the range separated by a 
     // hyphen (meaning an inclusive range). 
     ```
-
+### <a name="azure-policy-support-to-default-a-schedule"></a>기본 일정 지원 Azure Policy
 Azure Policy를 사용하여 구독의 모든 컴퓨팅 인스턴스에 대해 종료 일정이 존재하도록 하거나 아무것도 없는 경우 일정을 기본값으로 설정합니다.
+다음은 오후 10시 PST에서 종료 일정을 기본값으로 지정하는 샘플 정책입니다.
+```json
+{
+    "mode": "All",
+    "policyRule": {
+     "if": {
+      "allOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+        "equals": "ComputeInstance"
+       },
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "exists": "false"
+       }
+      ]
+     },
+     "then": {
+      "effect": "append",
+      "details": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "value": {
+         "computeStartStop": [
+          {
+           "triggerType": "Cron",
+           "cron": {
+            "startTime": "2021-03-10T21:21:07",
+            "timeZone": "Pacific Standard Time",
+            "expression": "0 22 * * *"
+           },
+           "action": "Stop",
+           "status": "Enabled"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+}    
+```
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> 스크립트를 사용하여 컴퓨팅 인스턴스 사용자 지정(미리 보기)
 

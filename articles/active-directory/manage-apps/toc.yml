@@ -10,19 +10,17 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 앱 추가
+    - name: 애플리케이션 추가
       href: add-application-portal.md
-    - name: 앱 구성
-      href: add-application-portal-configure.md
-    - name: 앱에 사용자 할당
+    - name: 사용자 할당
       href: add-application-portal-assign-users.md
-    - name: SAML 기반 Single Sign On 설정
+    - name: Single Sign-On 사용
       href: add-application-portal-setup-sso.md
-    - name: OIDC 기반 Single Sign On 설정
-      href: add-application-portal-setup-oidc-sso.md
-    - name: 앱 보기
+    - name: 속성 구성
+      href: add-application-portal-configure.md
+    - name: 애플리케이션 보기
       href: view-applications-portal.md
-    - name: 앱 삭제
+    - name: 애플리케이션 삭제
       href: delete-application-portal.md
 - name: 자습서
   items:
@@ -47,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: 앱 관리 공통 시나리오
       href: common-scenarios.md
+    - name: 홈 영역 검색 정책
+      href: home-realm-discovery-policy.md
     - name: 클라우드 앱 통합 계획
       items:
         - name: 앱 통합 시작
@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Single Sign-On
       items:
+        - name: 배포 계획
+          href: plan-sso-deployment.md
         - name: Single Sign-On이란?
           href: what-is-single-sign-on.md
-        - name: Single Sign-On 배포 계획
-          href: plan-sso-deployment.md
     - name: 애플리케이션 보안
       items:
         - name: 앱 액세스 옵션
@@ -152,10 +152,12 @@
           href: f5-aad-password-less-vpn.md
     - name: Single Sign-On
       items:
-        - name: 암호 기반 Single Sign-On
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: 연결된 Single Sign-On
+        - name: 연결됨
           href: configure-linked-sign-on.md
+        - name: OpenID Connect
+          href: add-application-portal-setup-oidc-sso.md
+        - name: 암호
+          href: configure-password-single-sign-on-non-gallery-applications.md
     - name: 문제 해결
       items:
         - name: 암호 기반 Single Sign-On 문제 해결

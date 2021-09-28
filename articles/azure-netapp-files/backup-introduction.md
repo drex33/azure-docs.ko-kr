@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 68610bea5d66316280aa63e8ad8e845e688bd9bc
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: e90156d83c801bd3a24da2aa16af07903760f971
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095832"
+ms.locfileid: "129155404"
 ---
 # <a name="understand-azure-netapp-files-backup"></a>Azure NetApp Files 백업 이해
 
@@ -35,7 +35,7 @@ Azure NetApp Files 백업의 가격은 백업에서 사용 하는 저장소의 �
 가격 책정 예를 들어 다음과 같은 상황을 가정해 보겠습니다.
 
 * 원본 볼륨은 Azure NetApp Files Premium 서비스 수준에서 가져온 것입니다. 볼륨 할당량 크기가 1000GiB이고, 1일부터 500GiB의 볼륨이 사용됩니다. 볼륨이 미국 중남부 지역에 있습니다.
-* 5 개의 로컬 스냅숏을 유지 하는 매시간 스냅숏 정책을 구성 하 고 백업 복사본 30 개를 유지 하려면 매일 백업 정책을 구성 했습니다.
+* 5 개의 로컬 스냅숏이 유지 되도록 일별 *스냅숏* 정책을 구성 하 고 백업 복사본을 30 개 유지 하는 매일 *백업* 정책을 구성 했습니다.
 * 간단히 하기 위해 원본 볼륨에는 매일 일정 1%의 데이터 변경이 있지만 사용 된 총 볼륨 크기는 증가 하지 않는다고 가정 합니다 (500 GiB에 유지 됨).
 
 백업 정책이 볼륨에 할당 되 면 서비스에서 관리 하는 Azure storage에 대 한 기준 백업이 시작 됩니다. 백업이 완료 되 면 500 GiB의 기준 백업이 볼륨의 백업 목록에 추가 됩니다. 기준 전송 후 매일 백업은 변경 된 블록만 백업 합니다. 5-GiB 일별 증분 백업이 추가 된 것으로 가정 합니다. 사용 된 총 백업 저장소는 `500GiB + 30*5GiB = 650GiB` 입니다.

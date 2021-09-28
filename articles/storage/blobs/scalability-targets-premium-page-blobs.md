@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 09/24/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d9d669d583563e81fa55d3626e6505ebe108340c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96922536"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153466"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>프리미엄 페이지 Blob 스토리지 계정의 스케일링 및 성능 목표
 
@@ -31,11 +31,13 @@ ms.locfileid: "96922536"
 
 | 총 계정 용량                            | 로컬 중복 스토리지 계정의 총 대역폭                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| 디스크 용량: 4TB(개별 디스크)/35TB(모든 디스크의 누적 합계) <br>스냅샷 용량: 10TB | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
+| 디스크 용량: 4TB(개별 디스크)/35TB(모든 디스크의 누적 합계) <br>스냅샷 용량: 10 TB<sup>3</sup> | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
 
 <sup>1</sup> 스토리지 계정으로 전송되는 모든 데이터(요청)
 
 <sup>2</sup> 스토리지 계정에서 수신하는 모든 데이터(응답)
+
+<sup>3</sup> 개별 페이지 Blob이 가질 수 있는 총 스냅샷 수는 100개입니다.
 
 프리미엄 페이지 Blob 계정은 프리미엄 성능을 위해 구성된 범용 계정입니다. 범용 v2 스토리지 계정을 사용하는 것이 좋습니다.
 

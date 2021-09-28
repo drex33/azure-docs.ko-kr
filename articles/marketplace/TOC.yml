@@ -509,36 +509,46 @@
   items:
     - name: Marketplace API 가이드
       href: marketplace-apis-guide.md
-    - name: CPP API 참조
+    - name: Marketplace 제출 API
       items:
-        - name: CPP API 개요
-          href: cloud-partner-portal-api-overview.md
-        - name: API 사전 요구 사항
-          href: cloud-partner-portal-api-prerequisites.md
-        - name: API 고려 사항
-          href: cloud-partner-portal-api-considerations.md
-        - name: 동시성 제어
-          href: cloud-partner-portal-api-concurrency-control.md
-        - name: 제품 검색
-          href: cloud-partner-portal-api-retrieve-offers.md
-        - name: 특정 제품 검색
-          href: cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: 제품 추가 또는 수정
-          href: cloud-partner-portal-api-creating-offer.md
-        - name: 제안 상태 검색
-          href: cloud-partner-portal-api-retrieve-offer-status.md
-        - name: 제안 게시
-          href: cloud-partner-portal-api-publish-offer.md
-        - name: 작업 검색
-          href: cloud-partner-portal-api-retrieve-operations.md
-        - name: 작업 취소
-          href: cloud-partner-portal-api-cancel-operations.md
-        - name: 실시간 전송
-          href: cloud-partner-portal-api-go-live.md
-        - name: 가상 머신 제품 가격 책정
-          href: cloud-partner-portal-api-setting-price.md
-        - name: 인증 오류 문제 해결
-          href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
+        - name: Marketplace 제출 API 개요
+          href: submission-api-overview.md
+        - name: 파트너 센터 제출 API
+          items:
+            - name: API 사전 요구 사항
+              href: submission-api-onboard.md
+            - name: 파트너 센터 제출 API
+              href: 'https://apidocs.microsoft.com/services/partneringestion/'
+        - name: 레거시 제출 API
+          items:
+            - name: 레거시 API 개요
+              href: cloud-partner-portal-api-overview.md
+            - name: API 사전 요구 사항
+              href: cloud-partner-portal-api-prerequisites.md
+            - name: API 고려 사항
+              href: cloud-partner-portal-api-considerations.md
+            - name: 동시성 제어
+              href: cloud-partner-portal-api-concurrency-control.md
+            - name: 제품 검색
+              href: cloud-partner-portal-api-retrieve-offers.md
+            - name: 특정 제품 검색
+              href: cloud-partner-portal-api-retrieve-specific-offer.md
+            - name: 제품 추가 또는 수정
+              href: cloud-partner-portal-api-creating-offer.md
+            - name: 제안 상태 검색
+              href: cloud-partner-portal-api-retrieve-offer-status.md
+            - name: 제안 게시
+              href: cloud-partner-portal-api-publish-offer.md
+            - name: 작업 검색
+              href: cloud-partner-portal-api-retrieve-operations.md
+            - name: 작업 취소
+              href: cloud-partner-portal-api-cancel-operations.md
+            - name: 실시간 전송
+              href: cloud-partner-portal-api-go-live.md
+            - name: 가상 머신 제품 가격 책정
+              href: cloud-partner-portal-api-setting-price.md
+            - name: 인증 오류 문제 해결
+              href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Marketplace 계량 서비스
       items:
         - name: 변칙 검색 서비스

@@ -3,13 +3,13 @@ title: Azure의 BareMetal Infrastructure란?
 description: Azure의 BareMetal Infrastructure에 대한 개요를 제공합니다.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: 135de43f26b969d3df79f6ec7348d295493e5134
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 744378fc00bc443fdae3babefdf626eacbf486e7
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765808"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154872"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Azure의 BareMetal Infrastructure란?
 
@@ -36,8 +36,8 @@ BareMetal Infrastructure는 기업 애플리케이션에서 실행하려면 인�
 BareMetal Infrastructure는 다음과 같은 이점을 제공합니다.
 
 - 특수 워크로드에 대해 인증된 하드웨어
-    - SAP([SAP 노트 #1928533](https://launchpad.support.sap.com/#/notes/1928533) 참조)
-    - Oracle([Oracle 문서 ID #948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52) 참조)
+    - Sap ( [Sap Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)를 참조 하세요. 액세스 하려면 SAP 계정이 필요 합니다.)
+    - Oracle ( [oracle 문서 ID #948372](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52)를 참조 하세요. 액세스 하려면 Oracle 계정이 필요 합니다.)
 - 하이퍼바이저가 아닌 BareMetal 인스턴스, 단일 테넌트 소유권
 - Azure 호스트 애플리케이션 VM과 BareMetal 인스턴스 간의 짧은 대기 시간(0.35밀리초)
 - 올 플래시 SSD 및 NVMe

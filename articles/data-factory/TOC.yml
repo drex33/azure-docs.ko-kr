@@ -564,6 +564,8 @@ items:
             href: control-flow-append-variable-activity.md
           - name: Execute Pipeline 작업
             href: control-flow-execute-pipeline-activity.md
+          - name: 실패 작업
+            href: control-flow-fail-activity.md
           - name: Filter 작업
             href: control-flow-filter-activity.md
           - name: ForEach 작업

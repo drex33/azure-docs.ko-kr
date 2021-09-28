@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: e95119f65e088fe9b9b6ace71b6fee98f679f5a4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 95cc91298945c50174f1edec6ca766e3f7df59c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426097"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153732"
 ---
 # <a name="high-availability-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 고가용성 - 유연한 서버 미리 보기
 
@@ -22,7 +22,7 @@ ms.locfileid: "123426097"
 
 Azure Database for MySQL - 유연한 서버 미리 보기를 사용하면 자동 장애 조치(failover)를 통해 HA(고가용성)를 구성할 수 있습니다. 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실되지 않도록 하고 데이터베이스가 소프트웨어 아키텍처에서 단일 실패 지점이 되지 않도록 설계되었습니다. 고가용성이 구성되면 유연한 서버는 대기 복제본을 자동으로 프로비전하고 관리합니다. 고가용성을 위한 두 가지 아키텍처 모델이 있습니다.
 
-* **영역 중복 HA**. 이 옵션은 여러 가용성 영역에서 인프라의 완전한 격리 및 중복성을 위해 선호됩니다. 최고 수준의 가용성을 제공하지만 영역 간에 애플리케이션 중복성을 구성해야 합니다. 가용성 영역의 인프라 오류에 대해 가장 높은 수준의 가용성을 달성하려는 경우와 가용성 영역 간의 대기 시간이 허용되는 경우 영역 중복 HA가 선호됩니다. 서버를 만들 때만 사용하도록 설정할 수 있습니다. 영역 중복 HA는 지역에서 여러 [가용성 영역을](../../availability-zones/az-overview.md) 지원하고 영역 중복 Premium [파일 공유를](../..//storage/common/storage-redundancy.md#zone-redundant-storage) 사용할 수 있는 [Azure 지역의 하위 집합에서](./overview.md#azure-regions) 사용할 수 있습니다.
+* **영역 중복 HA**. 이 옵션은 여러 가용성 영역에서 인프라의 완전한 격리 및 중복성을 위해 선호됩니다. 최고 수준의 가용성을 제공하지만 영역 간에 애플리케이션 중복성을 구성해야 합니다. 가용성 영역의 인프라 오류에 대해 가장 높은 수준의 가용성을 달성하려는 경우와 가용성 영역 간의 대기 시간이 허용되는 경우 영역 중복 HA가 선호됩니다. 서버를 만들 때만 사용하도록 설정할 수 있습니다. 영역 중복 HA는 지역에서 여러 [가용성 영역을](../../availability-zones/az-overview.md) 지원하고 영역 중복 프리미엄 [파일 공유를](../..//storage/common/storage-redundancy.md#zone-redundant-storage) 사용할 수 있는 [Azure 지역의 하위 집합에서](./overview.md#azure-regions) 사용할 수 있습니다.
 
 * **동일한 영역 HA**. 이 옵션은 기본 및 대기 서버가 동일한 가용성 영역에 있기 때문에 네트워크 대기 시간이 짧은 인프라 중복에 선호됩니다. 영역 간에 애플리케이션 중복성을 구성할 필요 없이 고가용성을 제공합니다. 네트워크 대기 시간이 가장 낮은 단일 가용성 영역 내에서 가장 높은 수준의 가용성을 달성하려는 경우 동일한 영역 HA가 선호됩니다. 동일한 영역 HA는 Azure Database for MySQL - 유연한 서버를 사용할 수 있는 모든 [Azure 지역에서](./overview.md#azure-regions) 사용할 수 있습니다.  
 
@@ -107,8 +107,8 @@ HA의 상태가 지속적으로 모니터링되고 개요 페이지에 보고됩
 * 영역 중복 고가용성은 유연한 서버를 만들 때만 설정할 수 있습니다.
 * 높은 가용성은 삼 간에 증가 하는 계산 계층에서 지원 되지 않습니다.
 * 고정적인 매개 변수 변경 내용을 선택하기 위해 주 데이터베이스 서버를 다시 시작하면 대기 복제본도 다시 시작됩니다.
-* 읽기 복제본은 영역 중복 HA 서버에 대해 지원 되지 않습니다.
-* 입력 데이터 복제 HA 서버에 대해 지원 되지 않습니다. 
+* HA 서버에 대 한 읽기 복제본은 지원 되지 않습니다.
+* 입력 데이터 복제 HA 서버에 대해 지원 되지 않습니다.
 * GTID 모드는 HA 솔루션에서 GTID를 사용 하므로 켜 집니다. 작업에 [GTIDs를 사용 하 여 복제에 대 한 제한 또는 제한이](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html)있는지 확인 합니다.  
  
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)

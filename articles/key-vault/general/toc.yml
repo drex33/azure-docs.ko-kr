@@ -106,6 +106,8 @@
           href: vs-key-vault-add-connected-service.md
     - name: 모니터링 및 제어
       items:
+        - name: Key Vault 모니터링
+          href: monitor-key-vault.md
         - name: Event Grid 알림
           items:
             - name: Logic Apps를 통해 알림 받기
@@ -114,11 +116,13 @@
               href: event-grid-tutorial.md
         - name: 로깅 사용
           href: howto-logging.md
-        - name: Azure Monitor를 사용하여 Azure Key Vault 모니터링 및 경고 구성
+        - name: Azure Key Vault 모니터링
+          href: monitor-key-vault.md
+        - name: Azure Key Vault에 대한 경고 구성
           href: alert.md
         - name: 일시 삭제 및 제거 보호를 통한 복구 관리
           href: key-vault-recovery.md
-        - name: Azure Policy과 Key Vault 통합
+        - name: Azure Policy과 Azure Key Vault 통합
           href: azure-policy.md
         - name: 개별 Key Vault 개체 백업
           href: backup.md
@@ -146,6 +150,8 @@
   items:
     - name: 새로운 기능
       href: whats-new.md
+    - name: Key Vault 데이터 참조 모니터링
+      href: monitor-key-vault-reference.md
     - name: 클라이언트 라이브러리
       href: client-libraries.md
     - name: REST API 오류 코드

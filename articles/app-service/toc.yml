@@ -104,6 +104,8 @@
       href: samples-resource-manager-templates.md
     - name: Terraform
       href: samples-terraform.md
+    - name: Bicep
+      href: samples-bicep.md
 - name: 개념
   items:
     - name: App Service 계획
@@ -321,6 +323,12 @@
       items:
         - name: 고가용성 구성
           href: how-to-zone-redundancy.md
+    - name: 프로비저닝 자동화
+      items:
+        - name: Bicep
+          href: provision-resource-bicep.md
+        - name: Terraform
+          href: provision-resource-terraform.md
 - name: 참조
   items:
     - name: 데이터 모니터링

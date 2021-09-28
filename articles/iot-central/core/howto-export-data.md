@@ -2,18 +2,18 @@
 title: Azure IoT Central에서 데이터 내보내기 | Microsoft Docs
 description: 새 데이터 내보내기를 사용하여 IoT 데이터를 Azure 및 사용자 지정 클라우드 대상으로 내보내는 방법입니다.
 services: iot-central
-author: lizross
-ms.author: lizross
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: c3747922f96e3bf1c9240d72f2bd65b3a5ac660e
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 4006a144dfba6a0332c69d160943294b3447ae7f
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093935"
+ms.locfileid: "129153580"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 

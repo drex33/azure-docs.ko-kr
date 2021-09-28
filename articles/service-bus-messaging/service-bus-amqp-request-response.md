@@ -2,13 +2,13 @@
 title: Azure Service Bus의 AMQP 1.0 요청/응답 작업
 description: 이 문서에서는 Microsoft Azure Service Bus의 AMQP 요청/응답 기반 작업 목록을 정의합니다.
 ms.topic: article
-ms.date: 04/26/2020
-ms.openlocfilehash: 2fd72e30d609d789d6513e666866878dfb4732d5
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: bb7b3ea90678be8a462f59d700f4c18feac300e5
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016872"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153561"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
@@ -119,14 +119,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:renew-lock`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:renew-lock`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
  요청 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 amqp-value 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|uuid의 배열|Yes|갱신할 메시지 잠금 토큰입니다.|  
+|`lock-tokens`|uuid의 배열|예|갱신할 메시지 잠금 토큰입니다.|  
 
 > [!NOTE]
 > 여기에서 잠금 토큰은 수신된 AMQP 메시지의 `delivery-tag` 속성을 나타냅니다. 지연된 메시지를 수신하고 해당 잠금을 갱신하려면 `delivery-tag` 대신 메시지에 있는 속성 `lock-token`을 사용합니다. 
@@ -145,7 +145,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|만료|타임 스탬프 배열|Yes|요청 잠금 토큰에 해당하는 메시지 잠금 토큰 새 만료입니다.|  
+|만료|타임 스탬프 배열|예|요청 잠금 토큰에 해당하는 메시지 잠금 토큰 새 만료입니다.|  
   
 ### <a name="peek-message"></a>메시지 보기  
 
@@ -157,14 +157,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|long|Yes|보기를 시작할 시퀀스 번호입니다.|  
+|`from-sequence-number`|long|예|보기를 시작할 시퀀스 번호입니다.|  
 |`message-count`|int|예|보려는 최대 메시지 수입니다.|  
   
 #### <a name="response"></a>응답  
@@ -180,13 +180,13 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|messages|맵 목록|Yes|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|messages|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|message|바이트 배열|Yes|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="schedule-message"></a>메시지 예약  
 
@@ -198,24 +198,24 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:schedule-message`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:schedule-message`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|messages|맵 목록|Yes|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|messages|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|message-id|문자열|Yes|string으로 `amqpMessage.Properties.MessageId`|  
+|message-id|문자열|예|string으로 `amqpMessage.Properties.MessageId`|  
 |session-id|문자열|No|`amqpMessage.Properties.GroupId as string`|  
 |파티션 키|문자열|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
 |via-partition-key|문자열|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|message|바이트 배열|Yes|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -230,7 +230,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|시퀀스 번호|long 배열|Yes|예약된 메시지의 시퀀스 번호입니다. 시퀀스 번호는 취소하는 데 사용됩니다.|  
+|시퀀스 번호|long 배열|예|예약된 메시지의 시퀀스 번호입니다. 시퀀스 번호는 취소하는 데 사용됩니다.|  
   
 ### <a name="cancel-scheduled-message"></a>예약된 메시지 취소  
 
@@ -242,14 +242,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:cancel-scheduled-message`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:cancel-scheduled-message`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|시퀀스 번호|long 배열|Yes|취소할 예약된 메시지의 시퀀스 번호입니다.|  
+|시퀀스 번호|long 배열|예|취소할 예약된 메시지의 시퀀스 번호입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -272,14 +272,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:renew-session-lock`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:renew-session-lock`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|session-id|문자열|Yes|세션 ID입니다.|  
+|session-id|문자열|예|세션 ID입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -306,16 +306,16 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:peek-message`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:peek-message`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|long|Yes|보기를 시작할 시퀀스 번호입니다.|  
+|from-sequence-number|long|예|보기를 시작할 시퀀스 번호입니다.|  
 |message-count|int|예|보려는 최대 메시지 수입니다.|  
-|session-id|문자열|Yes|세션 ID입니다.|  
+|session-id|문자열|예|세션 ID입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -330,13 +330,13 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|messages|맵 목록|Yes|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|messages|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
  메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|message|바이트 배열|Yes|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="set-session-state"></a>세션 상태 설정  
 
@@ -348,15 +348,15 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:set-session-state`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:set-session-state`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|session-id|문자열|Yes|세션 ID입니다.|  
-|session-state|바이트 배열|Yes|불투명한 이진 본문.|  
+|session-id|문자열|예|세션 ID입니다.|  
+|session-state|바이트 배열|예|불투명한 이진 본문.|  
   
 #### <a name="response"></a>응답  
 
@@ -377,14 +377,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:get-session-state`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:get-session-state`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|session-id|문자열|Yes|세션 ID입니다.|  
+|session-id|문자열|예|세션 ID입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -399,7 +399,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|session-state|바이트 배열|Yes|불투명한 이진 본문.|  
+|session-state|바이트 배열|예|불투명한 이진 본문.|  
   
 ### <a name="enumerate-sessions"></a>세션 열거  
 
@@ -411,8 +411,8 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:get-message-sessions`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:get-message-sessions`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -436,7 +436,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |skip|int|예|상태 코드가 200인 경우 건너뛴 세션 수입니다.|  
-|sessions-ids|문자열 배열|Yes|상태 코드가 200인 경우 세션 ID 배열입니다.|  
+|sessions-ids|문자열 배열|예|상태 코드가 200인 경우 세션 ID 배열입니다.|  
   
 ## <a name="rule-operations"></a>규칙 작업  
   
@@ -448,14 +448,14 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:add-rule`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:add-rule`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|문자열|Yes|구독 및 토픽 이름을 포함하지 않는 규칙 이름입니다.|  
+|rule-name|문자열|예|구독 및 토픽 이름을 포함하지 않는 규칙 이름입니다.|  
 |rule-description|map|예|다음 섹션에 지정된 대로 규칙 설명입니다.|  
   
 **rule-description** 맵은 다음 엔터티를 포함해야 합니다. 여기서 **sql-filter** 및 **correlation-filter** 는 상호 배타적입니다.  
@@ -470,27 +470,27 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|식|문자열|Yes|Sql 필터 식.|  
+|식|문자열|예|Sql 필터 식.|  
   
 **correlation-filter** 맵은 다음 항목을 하나 이상 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |correlation-id|문자열|No||  
-|message-id|문자열|No||  
+|message-id|문자열|예||  
 |to|문자열|No||  
 |reply-to|문자열|No||  
 |label|문자열|No||  
 |session-id|문자열|No||  
 |reply-to-session-id|문자열|No||  
 |content-type|문자열|No||  
-|properties|map|No|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)로 매핑합니다.|  
+|properties|map|예|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)로 매핑합니다.|  
   
 **sql-rule-action** 맵은 다음 항목을 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|식|문자열|Yes|Sql 작업 식.|  
+|식|문자열|예|Sql 작업 식.|  
   
 #### <a name="response"></a>응답  
 
@@ -509,14 +509,14 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:remove-rule`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:remove-rule`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|문자열|Yes|구독 및 토픽 이름을 포함하지 않는 규칙 이름입니다.|  
+|rule-name|문자열|예|구독 및 토픽 이름을 포함하지 않는 규칙 이름입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -535,8 +535,8 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:enumerate-rules`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
 
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
@@ -552,21 +552,21 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|예|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 성공, 그렇지 않으면 실패입니다.|  
-|규칙| 맵의 배열|Yes|규칙의 배열입니다. 각 규칙은 맵으로 표시됩니다.|
+|규칙| 맵의 배열|예|규칙의 배열입니다. 각 규칙은 맵으로 표시됩니다.|
 
 배열의 각 맵 항목에는 다음과 같은 속성이 포함됩니다.
 
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|rule-description|설명된 개체의 배열|Yes|AMQP 설명 코드 0x0000013700000004가 포함된 `com.microsoft:rule-description:list`| 
+|rule-description|설명된 개체의 배열|예|AMQP 설명 코드 0x0000013700000004가 포함된 `com.microsoft:rule-description:list`| 
 
 `com.microsoft.rule-description:list`는 설명된 개체의 배열입니다. 배열에는 다음이 포함됩니다.
 
 |인덱스|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 0 | 설명된 개체의 배열 | Yes | `filter`: 아래에 지정됨. |
-| 1 | 설명된 개체의 배열 | Yes | `ruleAction`: 아래에 지정됨. |
-| 2 | 문자열 | Yes | 규칙의 이름입니다. |
+| 0 | 설명된 개체의 배열 | 예 | `filter`: 아래에 지정됨. |
+| 1 | 설명된 개체의 배열 | 예 | `ruleAction`: 아래에 지정됨. |
+| 2 | 문자열 | 예 | 규칙의 이름입니다. |
 
 `filter`는 다음 유형 중 하나일 수 있습니다.
 
@@ -581,7 +581,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 
 |인덱스|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 0 | 문자열 | Yes | SQL 필터 식 |
+| 0 | 문자열 | 예 | SQL 필터 식 |
 
 `com.microsoft:correlation-filter:list`는 다음을 포함하는 설명된 배열입니다.
 
@@ -618,15 +618,15 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:receive-by-sequence-number`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|시퀀스 번호|long 배열|Yes|시퀀스 번호.|  
-|receiver-settle-mode|ubyte|Yes|AMQP 코어 v1.0에 지정된 대로 **수신기 장착** 모드입니다.|  
+|시퀀스 번호|long 배열|예|시퀀스 번호.|  
+|receiver-settle-mode|ubyte|예|AMQP 코어 v1.0에 지정된 대로 **수신기 장착** 모드입니다.|  
   
 #### <a name="response"></a>응답  
 
@@ -641,14 +641,14 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|messages|맵 목록|Yes|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|messages|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |lock-token|uuid|예|`receiver-settle-mode`가 1인 경우 토큰을 잠급니다.|  
-|message|바이트 배열|Yes|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
+|message|바이트 배열|예|AMQP 1.0 실시간 인코딩된 메시지입니다.|  
   
 ### <a name="update-disposition-status"></a>처리 상태 업데이트  
 
@@ -660,18 +660,18 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|문자열|Yes|`com.microsoft:update-disposition`|  
-|`com.microsoft:server-timeout`|uint|No|작업 서버 제한 시간(밀리초)입니다.|  
+|operation|문자열|예|`com.microsoft:update-disposition`|  
+|`com.microsoft:server-timeout`|uint|예|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵** 을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|문자열|Yes|완료됨<br /><br /> 중단됨<br /><br /> 일시 중단됨|  
-|lock-tokens|uuid의 배열|Yes|처리 상태를 업데이트할 메시지 잠금 토큰입니다.|  
+|disposition-status|문자열|예|완료됨<br /><br /> 중단됨<br /><br /> 일시 중단됨|  
+|lock-tokens|uuid의 배열|예|처리 상태를 업데이트할 메시지 잠금 토큰입니다.|  
 |deadletter-reason|문자열|No|처리 상태가 **일시 중단됨** 으로 설정된 경우 설정할 수 있습니다.|  
 |deadletter-description|문자열|No|처리 상태가 **일시 중단됨** 으로 설정된 경우 설정할 수 있습니다.|  
-|properties-to-modify|map|No|수정할 Service Bus broker 저장 메시지 목록입니다.|  
+|properties-to-modify|map|예|수정할 Service Bus broker 저장 메시지 목록입니다.|  
   
 #### <a name="response"></a>응답  
 

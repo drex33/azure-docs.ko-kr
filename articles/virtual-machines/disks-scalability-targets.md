@@ -3,16 +3,16 @@ title: VM 디스크의 확장성 및 성능 목표
 description: VM에 연결된 가상 머신 디스크의 확장성 및 성능 목표를 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 864716118cbb0d65c871a5a50071ff08cae0af62
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 773b4dbe5bcabc459b832f450610c395a981650a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692278"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155169"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>VM 디스크의 확장성 및 성능 목표
 

@@ -60,15 +60,17 @@
     - name: 마이크로 에이전트 Linux 의존성
       displayName: 'linux, micro agent, agent'
       href: concept-micro-agent-linux-dependencies.md
-    - name: 마이크로 에이전트 보안 경고(미리 보기)
-      href: concept-agent-based-security-alerts.md
-    - name: IoT Hub에 대한 기본 제공 경고
-      displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
-      href: concept-security-alerts.md
-    - name: IoT Hub에 대한 사용자 지정 보안 경고
-      href: concept-customizable-security-alerts.md
-    - name: IoT Hub에 대한 보안 추천 사항
-      href: concept-recommendations.md
+    - name: 보안 경고
+      items:
+        - name: 마이크로 에이전트 보안 경고(미리 보기)
+          href: concept-agent-based-security-alerts.md
+        - name: IoT Hub에 대한 기본 제공 경고
+          displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
+          href: concept-security-alerts.md
+        - name: IoT Hub에 대한 사용자 지정 보안 경고
+          href: concept-customizable-security-alerts.md
+        - name: IoT Hub에 대한 보안 추천 사항
+          href: concept-recommendations.md
     - name: Classic
       items:
         - name: Defender-IoT-micro-agent

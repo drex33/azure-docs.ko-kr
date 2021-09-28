@@ -253,8 +253,6 @@
       href: core/howto-faq.yml
     - name: 개인 기본 설정 관리
       href: core/howto-manage-preferences.md
-    - name: 라이브 채팅 토글
-      href: core/howto-show-hide-chat.md
 - name: 참조
   items:
     - name: Azure CLI

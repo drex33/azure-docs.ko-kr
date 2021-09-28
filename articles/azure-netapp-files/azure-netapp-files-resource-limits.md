@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: bae0f764df3951150d438c790c326429b5adb5a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4a97b89957a4f451aaa9c7305535f87980234db2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614166"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094294"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -34,8 +34,8 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  [구독당 지역 용량 할당량](#regional-capacity-quota)   |  25TiB  |  Yes  |
 |  구독당 Azure 지역별 NetApp 계정 수  |  10    |  예   |
 |  NetApp 계정당 용량 풀 수   |    25     |   예   |
-|  구독당 볼륨 수   |    500     |   Yes   |
-|  용량 풀당 볼륨 수     |    500   |    Yes     |
+|  구독당 볼륨 수   |    500     |   예   |
+|  용량 풀당 볼륨 수     |    500   |    예     |
 |  볼륨당 스냅샷 수       |    255     |    No        |
 |  Azure Virtual Network당 Azure NetApp Files(Microsoft.NetApp/볼륨)에 위임된 서브넷 수    |   1   |    아니요    |
 |  Azure NetApp Files를 사용하는 VNet(즉시 피어링된 VNet 포함)의 사용된 IP 수   |    1000   |    No   |
@@ -46,11 +46,15 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  단일 파일의 최대 크기     |    16TiB    |    No    |    
 |  단일 디렉터리에서 디렉터리 메타데이터의 최대 크기      |    320MB    |    No    |    
 |  단일 디렉터리의 최대 파일 수  | *약* 4백만입니다. <br> [디렉터리가 제한 크기에 도달하고 있는지 확인](#directory-limit)을 참조하세요.  |    No    |   
-|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    Yes    |    
+|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    예    |    
 |  볼륨당 최대 내보내기 정책 규칙 수     |    5  |    No    | 
 |  수동 QoS 볼륨에 할당된 최소 처리량     |    1MiB/s   |    No    |    
 |  수동 QoS 볼륨에 할당된 최대 처리량     |    4,500MiB/s    |    No    |    
 |  지역 간 복제 데이터 보호 볼륨(대상 볼륨) 수     |    10    |    예    |     
+|  볼륨 당 정책 기반 (예약 된) 백업의 최대 수  | <ul><li> 일별 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 주간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 월간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </ol></li> <br> 최대 일별, 주별 및 월별 백업 *보존 횟수는 1019입니다.*  |  N  |
+|  보호 된 볼륨의 최대 크기  |  100TiB  |  N  |
+|  구독당 백업할 수 있는 최대 볼륨 수   |  5  |  Y  |
+|  매일 볼륨당 최대 수동 백업 수 |  5  |  Y  |
 
 자세한 내용은 [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조하세요.
 

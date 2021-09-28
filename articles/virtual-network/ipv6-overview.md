@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 3f7420c2a7deaea6e1ecd83708fa5732c54ec29c
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: b6b641f82e81e69636f418c343b592336c080335
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286621"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094693"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크용 IPv6란?
 
@@ -75,12 +75,13 @@ Azure VNET용 IPv6은 고객이 Azure에서 이중 스택(IPv4 + IPv6) 애플리
 ## <a name="limitations"></a>제한 사항
 현재 릴리스의 Azure 가상 네트워크용 IPv6에는 다음과 같은 제한 사항이 있습니다.
 - Azure 가상 네트워크용 IPv6은 모든 배포 방법을 사용하는 모든 글로벌 Azure 상용 및 미국 정부 지역에서 사용할 수 있습니다.  
-- ExpressRoute 게이트웨이는 IPv6 사용 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  IPv6 트래픽 지원은 로드맵에 포함되어 있습니다.   
+- ExpressRoute 게이트웨이는 IPv6 사용 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  Express 경로에 대 한 IPv6 트래픽 지원은 미리 보기 상태입니다.   
 - VPN 게이트웨이는 IPv6 사용 VNET에서 직접 또는 "UseRemoteGateway"과 피어링되어 사용할 수 없습니다.
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다. 
 - IPv6 전용 Virtual Machines 또는 Virtual Machines Scale Sets는 지원되지 않습니다. 각 NIC는 IPv4 IP 구성을 하나 이상 포함해야 합니다. 
 - 기존 IPv4 배포에 IPv6을 추가하는 경우 기존 리소스 탐색 링크를 포함하는 VNET에 IPv6 범위를 추가할 수 없습니다.  
-- 현재 Azure 공용 DNS에 대해 IPv6용 정방향 DNS는 지원되지만 역방향 DNS는 아직 지원되지 않습니다.   
+- 현재 Azure 공용 DNS에 대해 IPv6용 정방향 DNS는 지원되지만 역방향 DNS는 아직 지원되지 않습니다.
+- 동일한 NSG 내에서 IPv4 및 i p v 6에 대 한 NSG 규칙을 만들 수는 있지만, IP 접두사를 지정할 때 동일한 규칙에서 IPv4 서브넷과 IPv6 서브넷을 결합할 수는 없습니다.
 
 ## <a name="pricing"></a>가격 책정
 

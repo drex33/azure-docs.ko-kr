@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: c9f9dec23209d8bc401313a7213239dff52a1023
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 70567f3cb1a80c7d23d19bf7de43c80723af0dfe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586206"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094004"
 ---
 # <a name="create-an-iot-central-application"></a>IoT Central 애플리케이션 만들기
 
@@ -68,7 +68,7 @@ IoT Central 애플리케이션을 만드는 방법은 여러 가지입니다. �
 
 - 사용 중인 Azure 구독
 - 사용 중인 구독이 포함된 디렉터리
-- 애플리케이션을 호스하는 위치. IoT Central은 Azure 지역을 미국, 유럽, 아시아 태평양, 오스트레일리아, 영국 또는 일본 위치로 사용합니다.
+- 애플리케이션을 호스하는 위치. IoT Central는 오스트레일리아 동부, 미국 중부, 미국 동부, 미국 동부 2, 일본 동부, 북부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부로 Azure 지역을 사용 합니다.
 
 ## <a name="azure-iot-central-site"></a>Azure IoT Central 사이트
 

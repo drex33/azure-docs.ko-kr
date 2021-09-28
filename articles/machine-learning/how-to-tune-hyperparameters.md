@@ -2,21 +2,20 @@
 title: 모델을 튜닝하는 하이퍼 매개 변수
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning을 사용하여 딥 러닝과 기계 학습 모델의 하이퍼 매개 변수 튜닝을 자동화합니다.
-ms.author: anumamah
-author: Aniththa
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 40c94b367f827d727e1d255f677e26b5b17fd95b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
-ms.translationtype: HT
+ms.openlocfilehash: 5621b4d96023da61bb21451bcb23b21c19b812eb
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440937"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093973"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델을 튜닝하는 하이퍼 매개 변수
 

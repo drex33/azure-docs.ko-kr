@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: d5c794bfc707f6429daad2e78affe592f5e3754c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: 7fe7070611fc9fc94f983a69a6fb9009af0f9c3e
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114709996"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091524"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -57,7 +57,7 @@ ms.locfileid: "114709996"
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 아키텍처를 이해하려면 [네트워크 보안 개요](how-to-network-security-overview.md)를 참조하세요.
 
@@ -65,7 +65,7 @@ ms.locfileid: "114709996"
 
 + 기본 [프라이빗 엔드포인트를 사용하는 Azure Machine Learning 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)입니다.
 
-+ [가상 네트워크에 추가된 기존 Azure 스토리지 계정](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
++ [가상 네트워크에 추가된 기존 Azure 스토리지 계정](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
 ## <a name="limitations"></a>제한 사항
 
@@ -106,7 +106,7 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
     |작업 영역 기본 Blob 스토리지| 디자이너의 모델 자산을 저장합니다. 디자이너에서 모델을 배포하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. <br> <br> 관리 ID를 사용하도록 구성된 기본이 아닌 데이터 저장소를 사용하는 경우 디자이너 파이프라인을 시각화하고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 ID를 사용하도록 설정하지 않고 학습된 모델을 배포하려고 하면 어떤 데이터 저장소를 사용 중이든 배포가 실패합니다.|
     |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장합니다. AutoML 실험을 제출하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. |
 
-1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)나 [프라이빗 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)를 사용하여 가상 네트워크에 Azure 스토리지 계정을 추가한 후 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
+1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)나 [프라이빗 엔드포인트](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts)를 사용하여 가상 네트워크에 Azure 스토리지 계정을 추가한 후 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
 
     Azure Machine Learning은 [데이터 저장소](concept-data.md#datastores)를 사용하여 스토리지 계정에 연결합니다. 새 데이터 저장소를 생성할 때 관리 ID 인증을 사용하도록 데이터 저장소를 구성하려면 다음 단계를 따르세요.
 

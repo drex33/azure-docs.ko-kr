@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: article
 ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: 382e768caa569d58476246bfd97ae4ac8321b52a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa5ea8f191c0b2ea9c7db483eb4d7b9c5a679be0
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649022"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094370"
 ---
 # <a name="azure-route-server-faq"></a>Azure Route Server FAQ
 
@@ -78,9 +78,13 @@ Keep-alive 타이머는 60초로 설정되고 보류 타이머는 180초로 설�
 
 아니요, Azure Route Server는 16비트(2바이트) ASN만 지원합니다.
 
-### <a name="can-i-configure-a-user-defined-route-udr-in-the-azurerouteserver-subnet"></a>AzureRouteServer 서브넷에서 UDR(사용자 정의 경로)을 구성할 수 있나요?
+### <a name="can-i-associate-a-user-defined-route-udr-to-the-routeserversubnet"></a>UDR(사용자 정의 경로)을 RouteServerSubnet에 연결할 수 있나요?
 
-아니요, Azure Route Server는 AzureRouteServer 서브넷에서 UDR 구성을 지원하지 않습니다.
+아니요, Azure Route Server는 RouteServerSubnet에서 UDR 구성을 지원하지 않습니다.
+
+### <a name="can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet"></a>NSG(네트워크 보안 그룹)를 RouteServerSubnet에 연결할 수 있나요?
+
+아니요, Azure Route Server는 RouteServerSubnet에 대한 NSG 연결을 지원하지 않습니다.
 
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>피어링된 두 개의 가상 네트워크에서 두 개의 경로 서버를 피어링하고, 경로 서버에 연결된 NVA가 서로 통신하도록 할 수 있나요? 
 

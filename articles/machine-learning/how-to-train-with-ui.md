@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ad339b4f81669def67022c18cc0b042c7912c95d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94eb2beb95a43e422e8bff6c3ab53f7d2e6c208b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643767"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094712"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>작업 만들기 UI를 사용하여 학습 작업 만들기(미리 보기)
 
@@ -85,7 +85,7 @@ Azure Machine Learning을 처음 사용하는 경우 새 컴퓨팅을 만들기 
 
 ### <a name="curated-environments"></a>큐레이팅 환경
 
-큐레이팅 환경은 일반적인 ML 워크로드에서 사용되는 Python 패키지의 Azure 정의 컬렉션입니다. 큐레이팅 환경은 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 실행 준비 오버헤드를 줄일 수 있는 캐시된 Docker 이미지에서 지원됩니다. “큐레이팅 환경” 페이지에 표시되는 카드에는 각 환경의 세부 정보가 표시됩니다. 자세한 내용은 [Azure Machine Learning 큐레이팅된 환경을](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments)참조하세요.
+큐레이팅 환경은 일반적인 ML 워크로드에서 사용되는 Python 패키지의 Azure 정의 컬렉션입니다. 큐레이팅 환경은 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 실행 준비 오버헤드를 줄일 수 있는 캐시된 Docker 이미지에서 지원됩니다. “큐레이팅 환경” 페이지에 표시되는 카드에는 각 환경의 세부 정보가 표시됩니다. 자세한 내용은 [Azure Machine Learning 큐 레이트 environment](resource-curated-environments.md)를 참조 하세요.
 
  [![큐레이팅 환경](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 

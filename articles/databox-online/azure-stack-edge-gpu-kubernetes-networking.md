@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 09/27/2021
 ms.author: alkohli
-ms.openlocfilehash: ece1d03787308613961fe56087f8b621a753c856
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: a969486194f66be5c7ce4c3973352ca036a025f8
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572584"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093120"
 ---
 # <a name="kubernetes-networking-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 네트워킹
 
@@ -139,10 +139,10 @@ Add-HcsNetRoute -InterfaceAlias <Port number> -DestinationPrefix <Destination IP
 출력의 예제는 다음과 같습니다.
 
 ```output
-Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
+Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.20.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
 ```
 
-위의 명령은 대상 서브넷 192.168.21.0/24를 정의하는 라우팅 테이블에 항목을 만들고, 다음 홉을 192.168.20.1로 지정하며 이 라우팅 항목에 라우팅 메트릭 100을 할당합니다. 라우팅 메트릭이 낮을수록 경로에 할당된 우선 순위가 높습니다.
+위의 명령은 192.168.20.0/24 대상 서브넷을 정의 하는 라우팅 테이블에 항목을 만들고, 다음 홉을 192.168.20.1로 지정 하 고,이 라우팅 항목에 100의 라우팅 메트릭을 할당 합니다. 라우팅 메트릭이 낮을수록 경로에 할당된 우선 순위가 높습니다.
 
 ## <a name="check-route-configuration"></a>경로 구성 확인
 

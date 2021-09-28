@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 8877ec9a9f99f389260203db020e36d67e291efa
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: efe9f6ce21e59df3d7f8009b7ff540a77b4cc50a
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083812"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094503"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>프라이빗 엔드포인트에서 Azure Migrate 사용
 
@@ -27,7 +27,7 @@ Private Link를 사용하는 ExpressRoute 개인 피어링 또는 사이트 간(
 
 ### <a name="supported-geographies"></a>지원되는 지역
 
-이 기능은 이제 지원 되는 [공용 클라우드](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) 및 [정부 클라우드 지역](/azure/migrate-support-matrix#supported-geographies-azure-government) 에서 미리 보기로 제공 됩니다.
+이 기능은 이제 지원되는 [퍼블릭 클라우드](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) 및 정부 클라우드 지역에서 미리 [보기로 제공됩니다.](/azure/migrate-support-matrix#supported-geographies-azure-government)
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
@@ -121,7 +121,7 @@ Azure Migrate: 검색 및 평가는 간단한 Azure Migrate 어플라이언스�
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2160648) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 VMware, Hyper-V, 물리적 또는 기타와 같은 선택한 시나리오에 대해 프라이빗 엔드포인트 연결이 있는 어플라이언스를 설정하여 원하는 구성으로 어플라이언스를 배포할 수 있습니다.
@@ -136,7 +136,7 @@ Azure Migrate: 검색 및 평가는 간단한 Azure Migrate 어플라이언스�
 
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 
-4. 다음 명령을 `AzureMigrateInstaller.ps1` 실행하여 라는 스크립트를 실행합니다.
+4. `AzureMigrateInstaller.ps1`다음 명령을 실행 하 여 이라는 스크립트를 실행 합니다.
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 

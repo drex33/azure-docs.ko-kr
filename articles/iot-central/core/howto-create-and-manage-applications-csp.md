@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/28/2021
 ms.topic: how-to
-ms.openlocfilehash: acbaa73fe51bd1de51084d0ec2752702ae96c66a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f0e0e947a91da29048144a94b9651e4584f26b41
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469962"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094119"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 애플리케이션 만들기 및 관리
 
@@ -76,7 +76,7 @@ Azure 구독이 없는 경우 Microsoft 파트너 센터에서 만들 수 있습
 
 ## <a name="location"></a>Location
 
-**위치** 는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽**, **미국**, **영국** 및 **일본** 지역에서 IoT Central 애플리케이션을 만들 수 있습니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
+**위치** 는 응용 프로그램을 만들 위치입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. 현재 **오스트레일리아 동부**, 미국 **중부**, **미국 동부**, 미국 **동부 2**, **일본 동부**, **서유럽**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서 부** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
 
 ## <a name="application-template"></a>애플리케이션 템플릿
 

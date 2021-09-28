@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6d199eb684802de948451bd376feda4a254aa06f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: 2ca004902a6d574348846ba2ee4829a099db8b39
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884213"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094655"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 프라이빗 Python 패키지 사용
 
@@ -91,7 +91,7 @@ myenv.python.conda_dependencies=conda_dep
 
 조직 방화벽 내에 있는 Azure 스토리지 계정에서 패키지를 사용할 수 있습니다. 스토리지 계정은 큐레이팅된 패키지 세트나 공개적으로 사용 가능한 패키지의 미러를 저장할 수 있습니다.
 
-이러한 프라이빗 스토리지를 설정하려면 [Azure Machine Learning 작업 영역과 관련 리소스 보호](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)를 참조하세요. 또한 [VNet 뒤에 ACR(Azure Container Registry)을 배치](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)해야 합니다.
+이러한 프라이빗 스토리지를 설정하려면 [Azure Machine Learning 작업 영역과 관련 리소스 보호](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)를 참조하세요. 또한 [VNet 뒤에 ACR(Azure Container Registry)을 배치](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)해야 합니다.
 
 > [!IMPORTANT]
 > 프라이빗 패키지 리포지토리를 사용하여 모델을 학습시키거나 배포할 수 있으려면 이 단계를 완료해야 합니다.

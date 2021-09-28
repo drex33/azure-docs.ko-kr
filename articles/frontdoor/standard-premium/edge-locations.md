@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 38cb0070b8460dd330a035b5cd611121845cbaba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: aa0419910c57f6bee218fb8558c6213eb267bb8b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652323"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091847"
 ---
 # <a name="azure-front-door-standardpremium-edge-locations-by-metro"></a>도시별 Azure Front Door 표준/프리미엄 에지 위치
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "128652323"
 > * [약어별 에지 위치](edge-locations-by-abbreviation.md)
 > 
 
-이 문서에서는 지역별로 정렬된 Azure Front Door용 에지 위치가 포함된 현재 도시를 나열합니다. 각 도시마다 에지 위치가 두 개 이상 포함될 수 있습니다. 현재 Azure Front Door 100개 도시 간에 116개의 에지 위치가 있습니다.
+이 문서에서는 지역별로 정렬된 Azure Front Door용 에지 위치가 포함된 현재 도시를 나열합니다. 각 도시마다 에지 위치가 두 개 이상 포함될 수 있습니다. 현재 Azure Front Door 100개 도시 간에 117개의 에지 위치가 있습니다.
 
 ## <a name="microsoft-edge-locations"></a>Microsoft Edge 위치
 

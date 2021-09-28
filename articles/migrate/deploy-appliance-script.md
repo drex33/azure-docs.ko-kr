@@ -6,12 +6,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 4e17abb80e54591ab3f5909f3f7a9827e4007c64
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 04e89d4fa783159bec8869809f6db5a7e2f6950a
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594880"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093576"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용하여 어플라이언스 설정
 
@@ -61,7 +61,7 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 VMware 어플라이언스를 설정할 수 있습니다.
@@ -122,7 +122,7 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 Hyper-V 어플라이언스를 설정할 수 있습니다.

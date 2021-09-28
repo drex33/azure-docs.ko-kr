@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리 배포 계획
 description: 이 문서에서는 Azure Automation 업데이트 관리 배포를 준비하기 위해 내려야 할 고려 사항 및 결정에 대해 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: bac463aa01a997122d86e32e140b135938d589da
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769357"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093291"
 ---
 # <a name="plan-your-update-management-deployment"></a>업데이트 관리 배포 계획
 
@@ -56,9 +56,9 @@ IT 보안 정책에서 네트워크에 있는 머신의 인터넷 연결을 허�
 
 업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 권한에 대한 내용은 [역할 기반 액세스 - 업데이트 관리](../automation-role-based-access-control.md#update-management-permissions)를 참조하세요.
 
-## <a name="step-7---windows-update-client"></a>7단계 - Windows 업데이트 클라이언트
+## <a name="step-7---windows-update-agent"></a>7 단계-Windows 업데이트 에이전트
 
-Azure Automation 업데이트 관리는 Windows 업데이트 클라이언트를 사용하여 Windows 업데이트를 다운로드하고 설치합니다. 머신의 WUA(Windows 업데이트 에이전트)에서 WSUS(Windows Server Update Services) 또는 Microsoft 업데이트에 연결하는 데 사용하는 특정 그룹 정책 설정이 있습니다. 이러한 그룹 정책 설정은 소프트웨어 업데이트 호환성을 성공적으로 검사하고 소프트웨어 업데이트를 자동으로 업데이트하는 데도 사용됩니다. 권장 사항을 검토하려면 [업데이트 관리에 대한 Windows 업데이트 설정 구성](configure-wuagent.md)을 참조하세요.
+Azure Automation 업데이트 관리는 Windows 업데이트 에이전트를 사용 하 여 Windows 업데이트를 다운로드 하 고 설치 합니다. 머신의 WUA(Windows 업데이트 에이전트)에서 WSUS(Windows Server Update Services) 또는 Microsoft 업데이트에 연결하는 데 사용하는 특정 그룹 정책 설정이 있습니다. 이러한 그룹 정책 설정은 소프트웨어 업데이트 호환성을 성공적으로 검사하고 소프트웨어 업데이트를 자동으로 업데이트하는 데도 사용됩니다. 권장 사항을 검토하려면 [업데이트 관리에 대한 Windows 업데이트 설정 구성](configure-wuagent.md)을 참조하세요.
 
 ## <a name="step-8---linux-repository"></a>8단계 - Linux 리포지토리
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 2f2315df977907e525b1303b1ef6f52b996143e1
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9355ddc7b84d2b120ee4c453fe21f0b820ea60a3
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061279"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093234"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "129061279"
 >
 
 
-이 문서에는 Azure CDN(Content Delivery Network) 제품에 대해 지역별로 정렬된 POP(point-of-presence) 위치를 포함하는 최신 도시권이 나열되어 있습니다. 각 도시권은 둘 이상의 POP를 포함할 수 있습니다. 예를 들어, Microsoft의 Azure CDN에는 100개 도시권의 116개 POP가 있습니다. 
+이 문서에는 Azure CDN(Content Delivery Network) 제품에 대해 지역별로 정렬된 POP(point-of-presence) 위치를 포함하는 최신 도시권이 나열되어 있습니다. 각 도시권은 둘 이상의 POP를 포함할 수 있습니다. 예를 들어 Microsoft의 Azure CDN 100개 도시 간에 117개의 POP가 있습니다. 
 
 > [!IMPORTANT]
 > 각 Azure CDN 제품에는 CDN 인프라를 빌드하는 각자의 고유한 방법이 있기 때문에, Microsoft는 사용할 Azure CDN 제품을 결정할 때 POP 위치를 사용하지 않는 것을 권장합니다. 대신 해당 기능 및 최종 사용자 성능을 고려해야 합니다. 각 Azure CDN 제품으로 성능을 테스트하여 사용자에게 적합한 제품을 선택하세요. 

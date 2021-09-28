@@ -4,16 +4,17 @@ description: Data Factory 정보를 사용하여 진단 로그를 사용하도�
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
+ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 5bf38491f5b3196237b586f8dc4d986d8363dc81
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 66f6c40ce77c50c18dfe3fca48e8f9367f29390b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811397"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093215"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용하여 Data Factory 모니터링 및 경고
 

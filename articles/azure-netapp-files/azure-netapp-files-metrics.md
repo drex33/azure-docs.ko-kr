@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 13a63da9abf37f57842b34f32c3ff442f4214062
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: b4ea507087bbed2ee3ac49f3c58d81bbac24c90b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402778"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094275"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -122,6 +122,22 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
 * *기타 처리량*   
     읽기 또는 쓰기를 제외한 기타 처리량(바이트/초).
 
+## <a name="volume-backup-metrics"></a>볼륨 백업 메트릭  
+
+* *볼륨 백업을 사용 하도록 설정*   
+    볼륨에 백업을 사용할 수 있는지 여부를 표시 합니다. `1`가 활성화됩니다. `0`는 사용할 수 없음을 나타냅니다.
+
+* *볼륨 백업 작업 완료*   
+    마지막 볼륨 백업 또는 복원 작업이 성공적으로 완료 되었는지 여부를 표시 합니다.  `1` 성공 합니다. `0` 실패 했습니다.
+
+* *볼륨 백업이 일시 중단 됨*   
+    볼륨에 대해 백업 정책이 일시 중단 되었는지 여부를 표시 합니다.  `1` 일시 중단 되지 않습니다. `0` 일시 중단 됩니다.
+
+* *볼륨 백업 바이트*   
+    이 볼륨에 대해 백업 된 총 바이트 수입니다.
+
+* *볼륨 백업 마지막 전송 바이트*   
+    마지막 백업 또는 복원 작업에 대해 전송 된 총 바이트 수입니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

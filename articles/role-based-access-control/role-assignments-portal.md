@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
-ms.openlocfilehash: e6a06c2a2a525e89fd6d7ab61f983f2b91c1cc8a
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: 368a3480af60b4c1a9b819d3b4667f2212e62290
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989006"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094809"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당
 
@@ -87,7 +87,7 @@ Azure RBAC에는 Azure Portal에서 Azure 역할을 할당할 수 있는 새로�
     | 형식 | 설명 |
     | --- | --- |
     | **사용자, 그룹 또는 서비스 주체** | 사용자, 그룹 또는 서비스 사용자(애플리케이션)에 역할을 할당하려면 이 유형을 선택합니다. |
-    | **사용자가 할당한 관리 ID** | [사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 역할을 할당하려면 이 형식을 선택합니다. |
+    | **사용자 할당 관리 ID** | [사용자 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 역할을 할당하려면 이 형식을 선택합니다. |
     | *시스템 할당 관리 ID* | [시스템 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 역할을 할당하려면 관리 ID가 있는 Azure 서비스 인스턴스를 선택합니다. |
 
    ![역할 할당 추가에서 보안 주체 선택의 스크린샷](./media/role-assignments-portal/add-role-assignment-type.png)
@@ -176,23 +176,21 @@ Azure RBAC에는 Azure Portal에서 Azure 역할을 할당할 수 있는 새로�
 
    ![미리 보기 환경의 멤버 선택 창 스크린샷](./media/shared/select-members.png)
 
-1. **저장** 을 클릭하여 사용자, 그룹 또는 서비스 주체를 멤버 목록에 추가합니다.
+1. **선택을 클릭하여** 사용자, 그룹 또는 서비스 주체를 멤버 목록에 추가합니다.
 
 1. 선택한 역할을 하나 이상의 관리 ID에 할당하려면 **관리 ID** 를 선택합니다.
 
 1. **멤버 선택** 을 클릭합니다.
 
-1. **관리 ID 선택** 창에서 유형이 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)인지, 아니면 [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)인지를 선택합니다.
+1. 관리 **ID 선택** 창에서 유형이 [사용자 할당 관리 ID인지](../active-directory/managed-identities-azure-resources/overview.md) 또는 시스템 할당 관리 [ID인지를](../active-directory/managed-identities-azure-resources/overview.md)선택합니다.
 
 1. 관리 ID를 찾아서 선택합니다.
 
-    시스템이 할당한 관리 ID를 선택한 경우 관리 ID가 있는 Azure 서비스 인스턴스를 선택해야 합니다.
+    시스템 할당 관리 ID의 경우 Azure 서비스 인스턴스별로 관리 ID를 선택할 수 있습니다.
 
-   ![미리 보기 환경에 대한 시스템이 할당한 관리 ID 추가에서 사용하는 보안 주체 선택 창의 스크린샷](./media/role-assignments-portal/select-managed-identity-system.png)
+   ![미리 보기 환경을 위한 관리 ID 선택 창의 스크린샷.](./media/role-assignments-portal/select-managed-identity.png)
 
-   ![미리 보기 환경에 대한 사용자가 할당한 관리 ID 추가에서 사용하는 보안 주체 선택 창의 스크린샷](./media/role-assignments-portal/select-managed-identity-user.png)
-
-1. **저장** 을 클릭하여 관리 ID를 멤버 목록에 추가합니다.
+1. **선택** 을 클릭 하 여 관리 되는 Id를 구성원 목록에 추가 합니다.
 
 1. **설명** 상자에서 이 역할 할당에 대한 설명을 입력합니다(선택 사항).
 
@@ -202,7 +200,7 @@ Azure RBAC에는 Azure Portal에서 Azure 역할을 할당할 수 있는 새로�
 
 ## <a name="step-5-optional-add-condition-preview"></a>5단계: (선택 사항) 조건 추가(미리 보기)
 
-조건을 지원하는 역할을 선택한 경우 **조건** 탭이 표시되고, 조건을 역할 할당에 추가할 수 있는 옵션이 제공됩니다. [조건](conditions-overview.md)은 필요에 따라 역할 할당에 추가하여 더 세분화된 액세스 제어를 제공할 수 있는 추가 검사입니다.
+조건을 지 원하는 역할을 선택한 경우에는 조건 **(선택 사항)** 탭이 나타나고 역할 할당에 조건을 추가 하는 옵션이 있습니다. [조건](conditions-overview.md)은 필요에 따라 역할 할당에 추가하여 더 세분화된 액세스 제어를 제공할 수 있는 추가 검사입니다.
 
 현재 [스토리지 Blob 데이터 작업](conditions-format.md#actions)을 포함하는 기본 제공 또는 사용자 지정 역할 할당에 조건을 추가할 수 있습니다. 여기에는 다음과 같은 기본 제공 역할이 포함됩니다.
 

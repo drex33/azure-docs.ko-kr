@@ -8,15 +8,15 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 57a4c866681f9970982a34545081549a407377db
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.openlocfilehash: 7401b7369d766df5513100b30b7b65c324517fbe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592037"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091993"
 ---
 # <a name="add-or-edit-azure-role-assignment-conditions-using-the-azure-portal-preview"></a>Azure Portal을 사용하여 Azure 역할 할당 조건 추가 또는 편집(미리 보기)
 
@@ -50,9 +50,9 @@ ms.locfileid: "111592037"
 
 1. [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md) 단계를 따릅니다.
 
-1. **조건** 탭에서 **조건 추가** 를 클릭합니다.
+1. **조건(선택 사항)** 탭에서 **조건 추가를** 클릭합니다.
 
-    조건 탭이 표시되지 않으면 조건을 지원하는 역할을 선택해야 합니다.
+    조건(선택 사항) 탭이 표시되지 않으면 조건을 지원하는 역할을 선택했는지 확인합니다.
 
    ![미리 보기 환경을 위한 조건 추가 탭이 있는 역할 할당 추가 페이지의 스크린샷.](./media/shared/condition.png)
 

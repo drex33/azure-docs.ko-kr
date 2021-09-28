@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 0bf72b57a5ecaed85659ed461b66597db7f2fd19
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061431"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090916"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -35,31 +35,36 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 
 ### <a name="azure-regional-pairs"></a>Azure 지역 쌍
 
-* 미국 서부 및 미국 동부
-* 미국 동부 2와 미국 중부
-* 오스트레일리아 동부 및 오스트레일리아 남동부
-* 캐나다 중부 또는 캐나다 동부
-* 인도 남부 또는 인도 중부 
-* 독일 중서부 및 독일 북부
-* 일본 동부 및 일본 서부
-* 북유럽 및 서유럽
-* 영국 남부 및 영국 서부
-* 아랍에미리트 북부 및 아랍에미리트 중부
-* 노르웨이 동부 및 노르웨이 서부
-* US Gov 버지니아 및 US Gov 텍사스
+| Geography | 지역 쌍 A | 지역 쌍 B  |
+|:--- |:--- |:--- |
+| 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 남동부 |
+| Canada | 캐나다 중부 | 캐나다 동부 |
+| 유럽 | 북유럽 | 서유럽 |
+| 독일 | 독일 중서부 | 독일 북부 |
+| 인도 | 인도 중부 |인도 남부 |
+| 일본 | 일본 동부 | 일본 서부 |
+| 북아메리카 | 미국 동부 | 미국 서부 |
+| 북아메리카 | 미국 동부 2 | 미국 중부 |
+| 북아메리카 | 미국 중북부 | 미국 중남부|
+| 노르웨이 | 노르웨이 동부 | 노르웨이 서부 |
+| 영국 | 영국 남부 | 영국 서부 |
+| 아랍에미리트연합국 | 아랍에미리트 북부 | 아랍에미리트 중부 |
+| US Government | US Gov 버지니아 | US Gov 텍사스 |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Azure 지역 비표준 쌍
 
-*   미국 서부 2 및 미국 동부
-*   미국 중남부 및 미국 중부
-*   미국 중남부 및 미국 동부
-*   미국 중남부 및 미국 동부 2
-*   미국 서부 및 미국 동부 2
-*   미국 동부 2 및 미국 서부 2
-*   오스트레일리아 동부 및 동남아시아 
-*   독일 중서부 및 영국 남부
-*   독일 중서부 및 유럽 서부
-*   독일 중서부 및 프랑스 중부
+| Geography | 지역 쌍 A | 지역 쌍 B  |
+|:--- |:--- |:--- |
+| 오스트레일리아/동남 아시아 | 오스트레일리아 동부 | 동남 아시아 |
+| 독일/영국 | 독일 중서부 | 영국 남부 |
+| 독일/유럽 | 독일 중서부 | 서유럽 | 
+| 독일/프랑스 | 독일 중서부 | 프랑스 중부 |
+| 북아메리카 | 미국 동부 | 미국 동부 2 |
+| 북아메리카 | 미국 동부 2| 미국 서부 2 |
+| 북아메리카 | 미국 중남부 | 미국 동부 |
+| 북아메리카 | 미국 중남부 | 미국 동부 2 |
+| 북아메리카 | 미국 중남부 | 미국 중부 |
+| 북아메리카 | 미국 서부 2 | 미국 동부 |
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 

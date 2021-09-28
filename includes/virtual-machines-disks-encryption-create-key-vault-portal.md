@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: de89ce807b69cf9d9ef7db180b32dd1b7fe1d50c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835598"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091188"
 ---
 디스크에 대한 고객 관리형 키를 설정하려면 처음으로 수행하는 경우 특정 순서로 리소스를 만들어야 합니다. 먼저 Azure Key Vault를 만들고 설정해야 합니다.
 
@@ -73,3 +73,11 @@ ms.locfileid: "122835598"
 1. **검토 + 만들기**, **만들기** 를 차례로 선택합니다.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역, 키 자격 증명 모음 + 키 선택기를 보여 주는 디스크 암호화 만들기 창의 스크린샷" lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
+
+1. 배포 되 면 설정 된 디스크 암호화로 이동 하 여 표시 된 경고를 선택 합니다.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="' 디스크, 이미지 또는 스냅숏을이 디스크 암호화 집합에 연결 하려면 '을 선택 하는 사용자의 스크린샷 키 자격 증명 모음에 대 한 사용 권한을 부여 해야 합니다." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
+
+1. 이렇게 하면 키 자격 증명 모음에 디스크 암호화 집합에 대 한 사용 권한이 부여 됩니다.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png" alt-text="사용 권한이 부여 되었는지 확인 하는 스크린샷" lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png":::

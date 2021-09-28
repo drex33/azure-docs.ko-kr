@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 76f2f7e838a52c77059d1c3cd8e448f5bbd66ca4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: a26e103c36e0214f78ed640654fcfd1982866f36
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061659"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091657"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>모범 사례: Azure Communication Services 통화 SDK
 이 문서에서는 SDK를 호출하는 ACS(Azure Communication Services)와 관련된 모범 사례에 대한 정보를 제공합니다.
@@ -64,8 +64,7 @@ if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMed
   // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
 }
  ```
- 
- ' Call. startVideo (localVideoStream) '를 시작 하려면
+응용 프로그램은 ' wait call. startVideo (localVideoStream); '를 호출 하 여 비디오 스트림을 시작한 다음 '이.
 
 ### <a name="device-management"></a>디바이스 관리
 Azure Communication Services SDK를 사용하여 디바이스 및 미디어 작업을 관리할 수 있습니다.

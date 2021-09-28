@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 718a0aa96579b3234bfa242408565246602762a6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 88eabcfa4b8b4eb4e3af4c366939693dc5c92ee1
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116395"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092018"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Azure Cosmos DB Java v4 SDK 요청 시간 제한 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ HTTP 408 오류는 SDK가 시간 제한이 발생하기 전에 요청을 완료�
 다음 목록에는 요청 시간 초과 예외에 대한 알려진 원인과 솔루션이 포함되어 있습니다.
 
 ### <a name="existing-issues"></a>기존 문제
-더 오랜 기간 동안 요청이 중단되거나 더 자주 시간이 초과되는 경우 Java v4 SDK를 최신 버전으로 업그레이드하세요. 참고: 버전 4.7.0 이상을 사용하는 것이 좋습니다. 자세한 내용은 [Java V4 SDK 릴리스 정보](sql-api-sdk-java-v4.md)를 참조하세요.
+더 오랜 기간 동안 요청이 중단되거나 더 자주 시간이 초과되는 경우 Java v4 SDK를 최신 버전으로 업그레이드하세요. 참고: 버전 4.18.0 이상을 사용하는 것이 좋습니다. 자세한 내용은 [Java V4 SDK 릴리스 정보](sql-api-sdk-java-v4.md)를 참조하세요.
 
 ### <a name="high-cpu-utilization"></a>높은 CPU 사용률
 높은 CPU 사용률은 가장 일반적인 경우입니다. 최적 대기 시간을 위해 CPU 사용량은 약 40%가 되어야 합니다. 최대(평균 아님) CPU 사용률을 모니터링하려면 간격으로 10초를 사용합니다. CPU 급증은 단일 쿼리에 대해 여러 연결을 수행할 수 있는 파티션 간 쿼리에서 더 일반적으로 나타나는 현상입니다.

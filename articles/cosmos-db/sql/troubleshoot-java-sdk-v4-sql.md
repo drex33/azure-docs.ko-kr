@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 678161e4eee7e954f1507c370560e6891850750b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 54f0796d52d150db272e00c5cb66aa0c68a2e51c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116927"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090992"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -46,21 +46,21 @@ IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실�
 2. 쓰기(Create, Upsert, Replace, Delete)는 결과가 '달라지므로' SDK에서 실패한 쓰기 작업을 무조건 다시 시도할 수는 없습니다. 사용자의 애플리케이션 논리에서 오류를 처리하고 다시 시도해야 합니다.
 3. [SDK 가용성 문제 해결](troubleshoot-sdk-availability.md)에서는 다중 지역 Cosmos DB 계정의 재시도에 대해 설명합니다.
 
-### <a name="retry-design"></a>디자인 다시 시도
+### <a name="retry-design"></a>다시 시도 디자인
 
-애플리케이션은 다시 시도가 도움이 되지 않는 알려진 문제가 아닌 한 모든 예외에서 다시 시도하도록 디자인해야 합니다. 예를 들어, 애플리케이션은 408 요청 시간 초과 시 다시 시도해야 합니다. 이 시간 초과는 일시적일 수 있으므로 다시 시도가 성공할 수 있습니다. 애플리케이션은 400초에서 다시 시도하면 안 됩니다. 이는 일반적으로 먼저 해결해야 하는 요청에 문제가 있음을 의미합니다. 400에서 다시 시도해도 문제가 해결되지 않으며 다시 시도하면 동일한 오류가 발생합니다. 아래 표는 알려진 실패와 다시 시도할 실패를 보여 줍니다.
+응용 프로그램은 재시도가 도움이 되지 않는 알려진 문제가 아닌 한 모든 예외에서 재시도하도록 설계해야 합니다. 예를 들어, 애플리케이션은 408 요청 시간 초과 시 재시도해야 합니다. 이 시간 초과는 일시적일 수 있으므로 재시도가 성공할 수 있습니다. 애플리케이션은 400에서 재시도하지 않아야 합니다. 이는 일반적으로 먼저 해결해야 하는 요청에 문제가 있음을 의미합니다. 400에서 재시도해도 문제가 해결되지 않으며 다시 시도하면 동일한 오류가 발생합니다. 아래 표는 알려진 실패와 재시도할 실패를 보여줍니다.
 
-## <a name="common-error-status-codes"></a>일반 오류 상태 코드 <a id="error-codes"></a>
+## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
 | 상태 코드 | 다시 시도 가능 | 설명 | 
 |----------|-------------|-------------|
 | 400 | No | 잘못된 요청(예: 잘못된 json, 잘못된 헤더, 헤더의 잘못된 파티션 키)| 
 | 401 | No | [권한 없음](troubleshoot-unauthorized.md) | 
 | 403 | No | [Forbidden](troubleshoot-forbidden.md) |
-| 404 | No | [리소스를 찾을 수 없음](troubleshoot-not-found.md) |
-| 408 | Yes | [요청 시간이 초과됨](troubleshoot-request-timeout-java-sdk-v4-sql.md) |
-| 409 | No | 충돌 실패는 쓰기 작업에서 리소스에 제공된 ID가 기존 리소스에 의해 사용된 경우입니다. ID는 동일한 파티션 키 값을 가진 모든 문서 내에서 고유해야 하므로 이 문제를 해결하려면 리소스에 다른 ID를 사용합니다. |
-| 410 | Yes | 사라짐 예외(SLA를 위반해서는 안 되는 일시적인 오류) |
+| 404 | No | [리소스를 찾을 수 없습니다](troubleshoot-not-found.md) |
+| 408 | Yes | [요청 시간이 초과되었습니다](troubleshoot-request-timeout-java-sdk-v4-sql.md) |
+| 409 | No | 충돌 실패는 쓰기 작업에서 리소스에 제공된 ID가 기존 리소스에 의해 사용된 경우입니다. ID는 동일한 파티션 키 값을 가진 모든 문서 내에서 고유해야 하므로 이 문제를 해결하려면 리소스에 다른 ID를 사용하십시오. |
+| 410 | Yes | 사라진 예외(SLA를 위반해서는 안 되는 일시적인 오류) |
 | 412 | No | 필수 조건 실패는 작업이 서버에서 사용 가능한 버전과 다른 eTag를 지정한 경우입니다. 낙관적 동시성 오류입니다. 리소스의 최신 버전을 확인하고 요청의 eTag를 업데이트한 후에 요청을 다시 시도해야 합니다.
 | 413 | No | [요청 엔터티가 너무 큼](../concepts-limits.md#per-item-limits) |
 | 429 | Yes | 429에서 다시 시도하는 것이 안전합니다. 이는 [요청이 너무 많은 경우](troubleshoot-request-rate-too-large.md) 링크를 따라가면 피할 수 있습니다.|
@@ -148,6 +148,14 @@ Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SD
 * **getRetryAfterInMilliseconds 간격으로 백오프 구현**
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다.
+
+### <a name="error-handling-from-java-sdk-reactive-chain"></a>Java SDK 사후 체인의 오류 처리
+
+Cosmos DB Java SDK의 오류 처리는 클라이언트의 응용 프로그램 논리에 제공 되는 경우에 중요 합니다. 여러 시나리오에서 사용할 수 있는 [재 행위자-핵심 프레임 워크](https://projectreactor.io/docs/core/release/reference/#error.handling) 에서 제공 하는 다양 한 오류 처리 메커니즘이 있습니다. 고객은 이러한 오류 처리 연산자를 자세히 이해 하 고 재시도 논리 시나리오에 적합 한 방법을 사용 하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-)연산자는 모든 시나리오에서 지원 되지 않으므로 사용 하지 않는 것이 좋습니다.
+> 는 `onErrorContinue()` 반응 체인의 동작을 명확 하 게 만들 수 있는 전문 운영자입니다. 다운스트림 연산자가 아닌 업스트림에서 작동 하 고, 특정 연산자 지원이 작동 해야 하며, 범위는 예기치 않은 동작을 예상 하지 않는 라이브러리 코드로 쉽게 업스트림을 전파할 수 있습니다 (의도 하지 않은 동작이 발생 함). [](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) `onErrorContinue()` 이 특수 연산자에 대 한 자세한 내용은 설명서를 참조 하십시오.
 
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터 연결 오류
 

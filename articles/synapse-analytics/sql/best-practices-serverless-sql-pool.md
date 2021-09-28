@@ -10,27 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 655294aaf575dd828c3be6f135984eaf8c851fb6
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: ba56b46f28eda42e7de0fcaa090d0cc309410cdb
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479763"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091334"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀에 대한 모범 사례
 
-이 문서에서는 서버리스 SQL 풀 사용에 대한 모범 사례의 컬렉션을 찾을 수 있습니다. 서버리스 SQL 풀은 Azure Synapse Analytics의 리소스입니다.
+이 문서에서는 서버리스 SQL 풀 사용에 대한 모범 사례의 컬렉션을 찾을 수 있습니다. 서버리스 SQL 풀은 Azure Synapse Analytics의 리소스입니다. 전용 SQL 풀을 사용 하는 경우 특정 지침은 [전용 SQL 풀에 대 한 모범 사례](best-practices-dedicated-sql-pool.md) 를 참조 하세요.
 
-서버리스 SQL 풀을 사용하여 Azure 스토리지 계정의 파일을 쿼리할 수 있습니다. SQL 주문형은 로컬 스토리지 또는 수집 기능이 없습니다. 따라서 쿼리의 모든 대상 파일이 서버리스 SQL 풀 외부에 있습니다. 스토리지에서 파일 읽기와 관련된 모든 작업이 쿼리 성능에 영향을 줄 수 있습니다.
+서버리스 SQL 풀을 사용하여 Azure 스토리지 계정의 파일을 쿼리할 수 있습니다. SQL 주문형은 로컬 스토리지 또는 수집 기능이 없습니다. 쿼리가 대상으로 하는 모든 파일은 서버를 사용 하지 않는 SQL 풀의 외부에 있습니다. 저장소에서 파일 읽기와 관련 된 모든 작업은 쿼리 성능에 영향을 줄 수 있습니다.
 
 몇 가지 일반적인 지침은 다음과 같습니다.
 - 클라이언트 애플리케이션이 서버리스 SQL 풀과 배치되었는지 확인합니다.
-  - Azure 외부에서 클라이언트 애플리케이션을 사용하는 경우(예: Power BI Desktop, SSMS, ADS) 클라이언트 컴퓨터에 가까운 일부 지역에서 서버리스 풀을 사용하고 있는지 확인합니다.
+  - Azure 외부에서 클라이언트 응용 프로그램을 사용 하는 경우 (예: Power BI Desktop, SSMS, 광고) 클라이언트 컴퓨터에 가까운 지역에서 서버 리스 풀을 사용 하 고 있는지 확인 합니다.
 - 스토리지(Azure Data Lake, Cosmos DB) 및 서버리스 SQL 풀이 동일한 지역에 있는지 확인합니다.
 - 분할을 사용하여 [스토리지 레이아웃을 최적화](#prepare-files-for-querying)하고 파일의 범위를 100MB에서 10GB로 유지합니다.
 - 많은 수의 결과를 반환하는 경우 Synapse Studio가 아닌 SSMS 또는 ADS를 사용하고 있는지 확인합니다. Synapse Studio는 대량 결과 집합을 위해 설계되지 않은 웹 도구입니다. 
-- 문자열 열을 기준으로 결과를 필터링하는 경우에는 일부 `BIN2_UTF8` 데이터 정렬을 사용하십시오.
-- Power BI 가져오기 모드나 Azure Analysis Services를 사용하여 클라이언트 쪽에서 결과를 캐시하고 주기적으로 새로 고칩니다. 서버리스 SQL 풀에서는 복잡한 쿼리를 사용하거나 많은 양의 데이터를 처리하는 경우 Power BI 직접 쿼리 모드에서 대화형 환경을 제공할 수 없습니다.
+- 문자열 열을 기준으로 결과를 필터링 하는 경우 `BIN2_UTF8` 데이터 정렬을 사용 하십시오.
+- Power BI 가져오기 모드나 Azure Analysis Services를 사용 하 여 클라이언트 쪽에서 결과를 캐시 하 고 주기적으로 새로 고칩니다. 서버리스 SQL 풀에서는 복잡한 쿼리를 사용하거나 많은 양의 데이터를 처리하는 경우 Power BI 직접 쿼리 모드에서 대화형 환경을 제공할 수 없습니다.
 
 ## <a name="client-applications-and-network-connections"></a>클라이언트 애플리케이션 및 네트워크 연결
 

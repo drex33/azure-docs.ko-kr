@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 53d93bf202e896a8c2678e78917c15cdd39d80fb
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 57486312b380fc18cfdb399343535e5e12245bff
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529596"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091602"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 및 모니터링
 
@@ -33,13 +33,17 @@ ms.locfileid: "122529596"
 * **템플릿** 은 만들려는 IoT Central 애플리케이션의 형식입니다. 업계 관련 템플릿 목록에서 새 애플리케이션을 만들어 빠르게 시작하거나, **사용자 지정 애플리케이션** 템플릿을 사용하여 처음부터 시작할 수 있습니다.
 
 * **위치** 는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. Azure IoT Central는 현재 다음 위치에서 사용할 수 있습니다.
-
-  * 아시아 태평양
-  * 오스트레일리아
-  * 유럽
-  * 일본
-  * 영국
-  * 미국
+    
+    * 오스트레일리아
+    * 미국 중부 미국
+    * 미국 동부
+    * 미국 동부 2
+    * 일본 동부
+    * 북유럽
+    * 동남아시아
+    * 영국 남부
+    * 서유럽
+    * 미국 서부
 
   위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
 

@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: db6b65636eafa784173435254ba213a9c933c928
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 17cd2ca7d4b42e79d1b5012fa36e09a509fa28fe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580930"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090973"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -43,7 +43,7 @@ Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨 백�
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일정 및 보존 설정을 사용하여 백업됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 보존 설정이 축소될 경우 다음 정리 작업에서 기존 복구 지점이 정리되고 결과적으로 삭제됩니다.
 백업 작업 취소| 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
 다른 지역 또는 구독에 VM 백업 |지원되지 않습니다.<br><br>성공적으로 백업하려면 가상 머신이 백업용 자격 증명 모음과 동일한 구독에 있어야 합니다.
-매일 백업(Azure VM 확장을 통해) | 하루에 4개의 백업 - 백업 정책에 따라 예약된 백업 1개와 주문형 백업 3개    <br><br>    그러나 실패한 시도 시 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
+매일 백업(Azure VM 확장을 통해) | 하루에 4개의 백업 - 백업 정책에 따라 예약된 백업 1개와 주문형 백업 3개    <br><br>    그러나 실패한 시도의 경우 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
 매일 백업(MARS 에이전트를 통해) | 매일 3회 백업 예약
 매일 백업(DPM/MABS를 통해) | 매일 2회 백업 예약
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
@@ -83,6 +83,15 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - VM에서 [Linux용 Azure VM 에이전트](../virtual-machines/extensions/agent-linux.md)를 사용할 수 있고 Python이 지원되면 다른 Bring-Your-Own Linux 배포가 작동할 수 있습니다.
 - Azure Backup은 Python 버전 2.7이 설치되어 있지 않은 경우 프록시 구성 Linux VM을 지원하지 않습니다.
 - Azure Backup은 스토리지 또는 다른 NFS 서버에서 Linux 또는 Windows 머신으로 탑재된 NFS 파일의 백업을 지원하지 않습니다. VM에 로컬로 연결된 디스크만 백업합니다.
+
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스용 관리 되는 사전 사후 스크립트에 대 한 지원 매트릭스
+
+Azure Backup은 고객이 자신의 사전 사후 스크립트를 작성 하도록 지원 합니다.
+
+|지원 되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
+|---------|---------|---------|
+|Azure Vm의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 4.x 이상     |
+
 
 ## <a name="backup-frequency-and-retention"></a>백업 빈도 및 보존
 

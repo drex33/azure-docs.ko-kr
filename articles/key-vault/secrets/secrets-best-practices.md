@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 09/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 977986805d88ef2677f22911bd63513a813810d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ae4d2bd17dc1a233be71f48ebd106f1db2a31de6
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634248"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094465"
 ---
 # <a name="best-practices-for-secrets-management-in-key-vault"></a>Key Vault 비밀 관리에 대한 모범 사례
 
@@ -37,7 +37,7 @@ IP 주소, 서비스 이름 및 기타 구성 설정과 같은 기타 중요한 
 
 ## <a name="configuration-and-storing"></a>구성 및 저장 
 
-클라이언트 애플리케이션 비밀, 암호, 액세스 키와 같은 자격 증명의 동적 부분을 값으로 비밀에 저장하는 것이 좋습니다. 사용자 이름, AppIds, 서비스 URL과 같은 모든 관련 정적 특성 및 식별자는 비밀 태그로 저장해야 합니다.
+클라이언트 애플리케이션 비밀, 암호, 액세스 키와 같이 순환 중에 생성되는 자격 증명의 동적 부분을 값으로 저장하는 것이 좋습니다. 사용자 이름, AppId, 서비스 URL과 같은 관련된 정적 특성 및 식별자는 순환 중에 비밀 태그로 저장되고 새 버전의 비밀에 복사되어야 합니다.
 
 비밀에 대한 자세한 내용은 다음을 참조하세요.
 - [Azure Key Vault 비밀 정보](about-secrets.md)
@@ -64,7 +64,7 @@ Azure Key Vault 액세스 제어에 대한 자세한 내용은 다음을 참조�
 ## <a name="service-limits-and-caching"></a>서비스 제한 및 캐싱
 Key Vault는 원래 [Azure Key Vault 서비스 제한](../general/service-limits.md)에 지정된 한도에 의해 만들어졌습니다. Key Vault 처리량 속도를 최대화하려면 처리량을 최대화하기 위한 몇 가지 권장 지침/모범 사례는 다음과 같습니다.
 - 최소 8시간 동안 애플리케이션에서 비밀 캐시
-- 서비스 제한을 초과하는 시나리오를 처리하기 위한 지수 백오프 재시도 논리 구현
+- 서비스 제한을 초과하는 시나리오를 처리하기 위한 지수 백오프 다시 시도 논리 구현
 
 제한 지침에 대한 자세한 내용은 다음을 참조하세요.
 - [Azure Key Vault 제한 지침](../general/overview-throttling.md)

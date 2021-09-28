@@ -2,17 +2,17 @@
 title: Azure Portal - SSE로 고객 관리형 키 사용 - 관리 디스크
 description: Azure Portal을 통해 관리 디스크에서 고객 관리형 키를 사용하도록 설정합니다.
 author: roygara
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: c5941c8307e5aacc99f6fce627dafc154b6bc786
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318475"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091179"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure Portal을 사용하여 관리 디스크용 고객 관리형 키로 서버 쪽 암호화를 사용하도록 설정합니다
 

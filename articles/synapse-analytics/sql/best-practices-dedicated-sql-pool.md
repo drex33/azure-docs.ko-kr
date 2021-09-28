@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: c0c436a2e36edbd6feb433074efc2d746ee38f18
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537327"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091828"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 모범 사례
 
-이 문서에서는 Azure Synapse Analytics에서 전용 SQL 풀의 성능을 최적화하는 데 도움이 되는 모범 사례의 컬렉션을 제공합니다. 아래에서는 솔루션을 빌드할 때 중점적으로 살펴볼 기본 지침과 중요 영역을 찾을 수 있습니다. 각 섹션에서는 개념을 소개한 다음, 개념을 보다 심도 있게 다루는 자세한 문서를 안내합니다.
+이 문서에서는 Azure Synapse Analytics에서 전용 SQL 풀의 성능을 최적화하는 데 도움이 되는 모범 사례의 컬렉션을 제공합니다.  서버리스 SQL 풀로 작업하는 경우 특정 지침은 [서버리스 SQL 풀에 대한 모범 사례를 참조하세요.](best-practices-serverless-sql-pool.md) 아래에서 솔루션을 빌드할 때 집중해야 하는 기본 지침 및 중요한 영역을 찾을 수 있습니다. 각 섹션에서는 개념을 소개한 다음, 개념을 보다 심도 있게 다루는 자세한 문서를 안내합니다.
 
 ## <a name="dedicated-sql-pools-loading"></a>전용 SQL 풀 로드
 
@@ -39,12 +39,11 @@ ms.locfileid: "122537327"
 
 통계에 대한 추가 정보는 [테이블 통계 관리](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) 및 [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) 문서에서 찾을 수 있습니다.
 
-## <a name="tune-query-performance-with-new-product-enhancements"></a>새로운 제품 향상으로 쿼리 성능 조정
+## <a name="tune-query-performance"></a>쿼리 성능 조정
 
 - [구체화된 뷰를 사용한 성능 조정](../sql-data-warehouse/performance-tuning-materialized-views.md)
 - [순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 - [결과 집합 캐싱을 사용한 성능 조정](../sql-data-warehouse/performance-tuning-result-set-caching.md)
-
 
 ## <a name="group-insert-statements-into-batches"></a>INSERT 문을 일괄 처리로 그룹화
 
@@ -79,9 +78,9 @@ Polybase는 쿼리에 가장 적합한 선택이 아닙니다. 전용 SQL 풀용
 
 ## <a name="hash-distribute-large-tables"></a>해시 배포 대형 테이블
 
-기본적으로 테이블은 라운드 로빈 분산됩니다.   이 기본 설정 때문에 사용자는 해당 테이블이 분산되는 방식을 결정하지 않고도 테이블 생성을 간편하게 시작할 수 있습니다. 일부 워크로드는 라운드 로빈 테이블만으로 충분할 수 있습니다. 그러나 대부분은 분산 열이 더 나은 성능을 제공합니다.  
+기본적으로 테이블은 라운드 로빈 분산됩니다. 이 기본 설정 때문에 사용자는 해당 테이블이 분산되는 방식을 결정하지 않고도 테이블 생성을 간편하게 시작할 수 있습니다. 일부 워크로드는 라운드 로빈 테이블만으로 충분할 수 있습니다. 그러나 대부분은 분산 열이 더 나은 성능을 제공합니다.  
 
-열을 통해 분산된 테이블의 성능이 라운드 로빈 테이블보다 우수한 가장 대표적인 예는 두 개의 대형 팩트 테이블이 조인된 경우입니다.  
+라운드 로빈 테이블보다 성능이 뛰어난 열에 의해 배포되는 테이블의 가장 일반적인 예는 두 개의 큰 팩트 테이블이 조인되는 경우입니다.  
 
 예를 들어 order_id를 사용하여 분산되는 주문 테이블과 마찬가지로 order_id를 사용하여 분산되는 트랜잭션 테이블이 있는 상태에서 주문 테이블을 order_id의 트랜잭션 테이블에 조인하면 이 쿼리는 통과 쿼리가 됩니다. 그러면 데이터 이동 작업이 사라집니다. 단계가 적을수록 쿼리는 빨라집니다. 데이터 이동이 적을수록 쿼리는 빨라집니다.
 
@@ -115,7 +114,7 @@ INSERT, UPDATE 및 DELETE 문은 트랜잭션에서 실행됩니다. 이러한 �
 
 롤백을 제거하는 다른 방법은 데이터 관리를 위한 파티션 전환과 같은 메타데이터 전용 작업을 사용하는 것입니다.  예를 들어 DELETE 문을 실행하여 order_date가 2001년 10월인 테이블의 모든 행을 삭제하는 대신, 매월 데이터를 분할할 수 있습니다. 그런 다음, 다른 테이블의 빈 파티션에 사용할 데이터가 포함된 파티션으로 전환할 수 있습니다(ALTER TABLE 예제 참조).  
 
-분할되지 않은 테이블의 경우 DELETE를 사용하는 대신, 테이블에 유지할 데이터를 기록하도록 CTAS를 사용하는 것이 좋습니다.  CTAS에 동일한 시간이 소요되는 경우 최소 트랜잭션 로깅을 사용하며 필요할 때 신속하게 취소할 수 있다는 뜻이므로 훨씬 안전하게 실행할 수 있습니다.
+분할되지 않은 테이블의 경우 DELETE를 사용하는 대신 CTAS를 사용하여 테이블에 보관할 데이터를 작성하는 것이 좋습니다.  CTAS에 동일한 시간이 소요되는 경우 최소 트랜잭션 로깅을 사용하며 필요할 때 신속하게 취소할 수 있다는 뜻이므로 훨씬 안전하게 실행할 수 있습니다.
 
 이 섹션과 관련된 콘텐츠에 대한 자세한 내용은 아래 문서에 포함되어 있습니다.
 
@@ -205,4 +204,3 @@ SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 
 
 Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  Stack Overflow에 질문하는 것을 선호하는 경우를 위해 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-synapse)도 제공합니다.
 
-기능 요청에 대해서는 [Azure Synapse Analytics 피드백](https://feedback.azure.com/forums/307516-sql-data-warehouse) 페이지를 사용하세요.  요청을 추가하거나 다른 요청을 추천해 주시면 저희가 가장 수요가 많은 기능에 집중하는 데 도움이 됩니다.

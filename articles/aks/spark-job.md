@@ -1,17 +1,15 @@
 ---
 title: AKS(Azure Kubernetes Service)로 Apache Spark 작업 실행
 description: AKS(Azure Kubernetes Service)를 사용하여 대규모 데이터 처리를 위한 Apache Spark 작업을 만들고 실행합니다.
-author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: alehall
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: dbb807881a3fe9974eae5cfe7288e188a31b7ecb
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.openlocfilehash: ffb204d02e27498c7cf82a9bc4d0a591c7e13964
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287963"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093766"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 

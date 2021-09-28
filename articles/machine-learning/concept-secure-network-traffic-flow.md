@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 05956dad7103b987bc2ca38e8dd5ea4c9cdc4a24
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6265d433e20cfc5d1ee1bc9ae87c5c764f9eff60
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634128"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092550"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>보안 작업 영역을 사용하는 경우 네트워크 트래픽 흐름
 
@@ -56,8 +56,8 @@ Azure Machine Learning 작업 영역 및 연결된 리소스가 Azure Virtual Ne
 | __시나리오__ | __필수 인바운드__ | __필수 아웃바운드__ | __추가 구성__ | 
 | ----- | ----- | ----- | ----- |
 | [스튜디오에서 작업 영역에 액세스](#scenario-access-workspace-from-studio) | 해당 없음 | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning Service</li></ul> | 사용자 지정 DNS 서버를 사용해야 할 수 있습니다. 자세한 내용은 [사용자 지정 DNS와 함께 작업 영역 사용을 참조하세요.](how-to-custom-dns.md) | 
-| [Studio에서 AutoML, 디자이너, 데이터 세트 및 데이터 저장소 사용](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | 해당 없음 | 해당 없음 | <ul><li>작업 영역 서비스 주체 구성</li><li>신뢰할 수 있는 Azure 서비스에서 액세스 허용</li></ul>자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) | 
-| [컴퓨팅 인스턴스 및 컴퓨팅 클러스터 사용](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>포트 44224의 Azure Machine Learning 서비스</li><li>포트 29876-29877의 Azure Batch 관리 서비스</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning Service</li><li>Azure Storage 계정</li><li>Azure Key Vault</li></ul> | 방화벽을 사용하는 경우 사용자 정의 경로를 만듭니다. 자세한 내용은 [인바운드 및 아웃바운드 트래픽 구성을 참조하세요.](how-to-access-azureml-behind-firewall.md) | 
+| [Studio에서 AutoML, 디자이너, 데이터 세트 및 데이터 저장소 사용](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | 해당 없음 | 해당 없음 | <ul><li>작업 영역 서비스 주체 구성</li><li>신뢰할 수 있는 Azure 서비스에서 액세스 허용</li></ul>자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) | 
+| [컴퓨팅 인스턴스 및 컴퓨팅 클러스터 사용](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>포트 44224의 Azure Machine Learning 서비스</li><li>포트 29876-29877의 Azure Batch 관리 서비스</li></ul> | <ul><li>Azure Active Directory</li><li>Azure 리소스 관리자</li><li>Azure Machine Learning Service</li><li>Azure Storage 계정</li><li>Azure Key Vault</li></ul> | 방화벽을 사용하는 경우 사용자 정의 경로를 만듭니다. 자세한 내용은 [인바운드 및 아웃바운드 트래픽 구성을 참조하세요.](how-to-access-azureml-behind-firewall.md) | 
 | [Azure Kubernetes Service 사용](#scenario-use-azure-kubernetes-service) | 해당 없음 | AKS에 대한 아웃바운드 구성에 대한 자세한 내용은 [Azure Kubernetes Service 배포하는 방법을](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster)참조하세요. | 내부 Load Balancer 구성합니다. 자세한 내용은 [Azure Kubernetes Service 배포하는 방법을](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster)참조하세요. | 
 | [Azure Machine Learning 관리되는 Docker 이미지 사용](#scenario-use-docker-images-managed-by-azure-ml) | 해당 없음 | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` 전역 컨테이너 레지스트리</li></ul> | 작업 영역에 대한 Azure Container Registry VNet 뒤에 있는 경우 컴퓨팅 클러스터를 사용하여 이미지를 빌드하도록 작업 영역을 구성합니다. 자세한 내용은 [가상 네트워크에서 작업 영역을 보호하는 방법을 참조하세요.](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) | 
 
@@ -96,7 +96,7 @@ Azure Machine Learning Studio의 다음 기능은 _데이터 프로파일링을 
 
 다음으로, 스토리지 계정의 프라이빗 __엔드포인트에__ 읽기 역할의 작업 영역에 대한 서비스 주체를 추가합니다. 이 역할은 작업 영역 및 스토리지 서브넷 정보를 확인하는 데 사용됩니다. 동일한 경우 액세스가 허용됩니다. 마지막으로 서비스 주체에는 스토리지 계정에 __대한 Blob 데이터 기여자__ 액세스 권한도 필요합니다.
 
-자세한 내용은 가상 네트워크에서 작업 영역을 보호하는 방법의 Azure Storage 계정 [섹션을 참조하세요.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)
+자세한 내용은 가상 네트워크에서 작업 영역을 보호하는 방법의 Azure Storage 계정 [섹션을 참조하세요.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/storage-traffic-studio.png" alt-text="클라이언트, 데이터 프로파일링 및 스토리지 간의 트래픽 다이어그램":::
 

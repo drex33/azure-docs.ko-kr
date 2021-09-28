@@ -3,12 +3,12 @@ title: Azure Policy의 게스트 구성 기능 이해
 description: Azure Policy에서 게스트 구성 기능을 사용하여 가상 머신 내부의 설정을 감사하거나 구성하는 방법을 알아봅니다.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12e23b8db546d2bc34bbe17871ac5fbebd7a2de8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: d9da1454fa531bcc6526cc11dda3b341be0688df
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769645"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092626"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Azure Policy의 게스트 구성 기능 이해
 
@@ -32,7 +32,7 @@ Azure Policy의 게스트 구성 기능을 사용하려면 먼저 `Microsoft.Gue
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Azure 가상 머신의 요구 사항 배포
 
-머신의 설정을 관리하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md)이 사용으로 설정되고 컴퓨터에 시스템 관리 ID가 있어야 합니다. 확장은 적용 가능한 게스트 구성 할당 및 해당 종속성을 다운로드합니다. ID는 게스트 구성 서비스를 읽고 쓸 때 머신을 인증하는 데 사용합니다. Arc Connected Machine 에이전트에 포함되어 있으므로 Arc 지원 서버에는 확장이 필요하지 않습니다.
+머신의 설정을 관리하려면 [가상 머신 확장](../../../virtual-machines/extensions/overview.md)이 사용으로 설정되고 컴퓨터에 시스템 관리 ID가 있어야 합니다. 확장 프로그램은 적용 가능한 게스트 구성 할당 및 해당 종속성을 다운로드합니다. ID는 게스트 구성 서비스를 읽고 쓸 때 머신을 인증하는 데 사용합니다. Arc Connected Machine 에이전트에 포함되어 있으므로 Arc 지원 서버에는 확장이 필요하지 않습니다.
 
 > [!IMPORTANT]
 > Azure 가상 머신을 관리하려면 게스트 구성 확장과 관리 ID가 필요합니다.
@@ -78,8 +78,8 @@ Azure Policy의 게스트 구성 기능을 사용하려면 먼저 `Microsoft.Gue
 |게시자|속성|버전|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
+|Canonical|Ubuntu Server|16.04-20.x|
+|Credativ|Debian|9-10. x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows 클라이언트|윈도우 10|
 |Oracle|Oracle-Linux|7.x-8.x|
@@ -211,7 +211,7 @@ Linux: `/var/lib/GuestConfig/Configuration`
 
 - 사용자 지정 게스트 구성 패키지 [개발 환경](../how-to/guest-configuration-create-setup.md)을 설정합니다.
 - 게스트 구성을 위한 [패키지 아티팩트를 만듭니다](../how-to/guest-configuration-create.md).
-- 사용자의 개발 환경에서 [패키지 아티팩트를 테스트](../how-to/guest-configuration-create-test.md)합니다.
-- `GuestConfiguration`모듈을 사용하여 사용자 환경을 대규모로 관리하기 위한 [Azure Policy 정의를 만듭니다](../how-to/guest-configuration-create-definition.md).
-- Azure Portal을 사용하여 [사용자 지정 정책 정의을 할당합니다](../assign-policy-portal.md).
-- [게스트 구성에 대한 규정 준수 세부 정보](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 정책 할당을 보는 방법을 알아봅니다.
+- 사용자 개발 환경에서 [패키지 아티팩트 테스트](../how-to/guest-configuration-create-test.md)합니다.
+- `GuestConfiguration` 모듈을 사용하여 사용자 환경의 대규모 관리를 위한 [Azure Policy 정의를 생성](../how-to/guest-configuration-create-definition.md)합니다.
+- Azure Portal을 사용하여 [사용자 지정 정책 정의를 할당](../assign-policy-portal.md)합니다.
+- [게스트 구성 정책 할당에 대한 규정 준수 세부 정보](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 보는 방법을 알아봅니다.

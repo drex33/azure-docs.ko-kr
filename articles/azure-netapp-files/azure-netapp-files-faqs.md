@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 3a2c203fc0c9f6b04f274ef5298523983e1f172d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 01a483e43429f45562cbb464e2b595023bd2ad5f
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614242"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091030"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대한 FAQ
 
@@ -336,6 +336,34 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제하기 위한 요�
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 통한 마이그레이션이 지원되나요?
 
 아니요. Azure Import/Export 서비스는 현재 Azure NetApp Files를 지원하지 않습니다.
+
+## <a name="azure-netapp-files-backup-faqs"></a>Azure NetApp Files 백업 FAQ
+
+이 섹션에서는 Azure NetApp Files [백업](backup-introduction.md) 기능에 대한 질문에 답변합니다. 
+
+### <a name="when-do-my-backups-occur"></a>내 백업은 언제 발생합니까?   
+
+Azure NetApp Files 백업은 백업 정책의 빈도가 입력된 후 임의 시간 프레임 내에 시작됩니다. 예를 들어 매주 백업은 오전 12시 이후에 임의로 할당된 간격 내에 일요일 시작됩니다. 자정. 이 타이밍은 현재 사용자가 수정할 수 없습니다. 기준 백업은 볼륨에 백업 정책을 할당하는 즉시 시작됩니다.
+
+### <a name="what-happens-if-a-backup-operation-encounters-a-problem"></a>백업 작업에 문제가 발생하면 어떻게 되나요?
+
+백업 작업 중에 문제가 발생하는 경우 Azure NetApp Files 백업은 사용자 상호 작용 없이 작업을 자동으로 다시 수행합니다. 재시도에 계속 실패하면 Azure NetApp Files 백업에서 작업 실패를 보고합니다.
+
+### <a name="can-i-change-the-location-or-storage-tier-of-my-backup-vault"></a>백업 자격 증명 모음의 위치 또는 스토리지 계층을 변경할 수 있나요?
+
+아니요, Azure NetApp Files Azure Storage 내에서 백업 데이터 위치를 자동으로 관리하며 이 위치 또는 Azure Storage 계층은 사용자가 수정할 수 없습니다.
+
+### <a name="what-types-of-security-are-provided-for-the-backup-data"></a>백업 데이터에 대해 제공되는 보안 유형은 무엇인가요?
+
+Azure NetApp Files 받은 백업 데이터를 인코딩하는 동안 AES-256 비트 암호화를 사용합니다. 또한 암호화된 데이터는 HTTPS TLSv1.2 연결을 사용하여 Azure Storage로 안전하게 전송됩니다. Azure NetApp Files 백업은 백업 데이터를 저장하기 위한 Azure Storage 계정의 미사용 데이터 암호화 기능에 따라 달라집니다.
+
+### <a name="what-happens-to-the-backups-when-i-delete-a-volume-or-my-netapp-account"></a>볼륨 또는 내 NetApp 계정을 삭제하면 백업은 어떻게 되나요? 
+
+ Azure NetApp Files 볼륨을 삭제하면 백업이 유지됩니다. 백업을 유지하지 않으려면 볼륨을 삭제하기 전에 백업을 사용하지 않도록 설정합니다. NetApp 계정을 삭제해도 동일한 구독의 다른 NetApp 계정에서 백업이 유지되고 표시되므로 복원에 계속 사용할 수 있습니다. 구독에서 모든 NetApp 계정을 삭제하는 경우 모든 NetApp 계정의 모든 볼륨을 삭제하기 전에 백업을 사용하지 않도록 설정해야 합니다.
+
+### <a name="whats-the-systems-maximum-backup-retries-for-a-volume"></a>볼륨에 대한 시스템의 최대 백업 재시도는 어떻게 되나요?  
+
+시스템은 예약된 백업 작업을 처리할 때 10회 재시도를 수행합니다. 작업이 실패하면 시스템에서 백업 작업이 실패합니다. 구성된 정책에 따라 예약된 백업의 경우 시스템은 1시간마다 한 번씩 데이터를 백업하려고 시도합니다. 전송되지 않았거나 마지막 시도 중에 실패한 새 스냅샷을 사용할 수 있는 경우 해당 스냅샷은 전송으로 간주됩니다. 
 
 ## <a name="product-faqs"></a>제품 FAQ
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
-ms.openlocfilehash: b2ba640fec6f9bf2cd09611456967e15ed8f7ade
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 05eca5bb95906ebb34e51f79d70a33cc003f2220
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528559"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091638"
 ---
 # <a name="manage-iot-central-from-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell에서 IoT Central 관리
 
@@ -78,7 +78,7 @@ az iot central app create \
 | 매개 변수         | Description |
 | ----------------- | ----------- |
 | resource-group    | 애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-| 위치          | 기본적으로 이 명령은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽**, **미국**, **영국**, **일본** 지역에서 IoT Central 애플리케이션을 만들 수 있습니다. |
+| 위치          | 기본적으로 이 명령은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아 동부**, 미국 **중부**, **미국 동부**, 미국 **동부 2**, **일본 동부**, **서유럽**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서 부** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
 | name              | Azure Portal의 애플리케이션 이름입니다. 특수 문자를 사용하지 말고 대신 소문자(a-z), 숫자(0-9) 및 대시(-)를 사용합니다.|
 | subdomain         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 `https://mysubdomain.azureiotcentral.com`입니다. |
 | sku               | 현재 **ST1** 또는 **ST2** 를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
@@ -108,7 +108,7 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |매개 변수         |Description |
 |------------------|------------|
 |ResourceGroupName |애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽**, **미국**, **영국**, **일본** 지역에서 IoT Central 애플리케이션을 만들 수 있습니다. |
+|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **오스트레일리아 동부**, 미국 **중부**, **미국 동부**, 미국 **동부 2**, **일본 동부**, **서유럽**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서 부** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
 |이름              |Azure Portal의 애플리케이션 이름입니다. 특수 문자를 사용하지 말고 대신 소문자(a-z), 숫자(0-9) 및 대시(-)를 사용합니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 `https://mysubdomain.azureiotcentral.com`입니다. |
 |SKU               |현재 **ST1** 또는 **ST2** 를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |

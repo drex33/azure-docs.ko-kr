@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 06/24/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: fed1ce7f236b568458f1eb1b25ce5420c2ad5501
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676611"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092164"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -30,19 +30,21 @@ Microsoft는 전체 업데이트 관리 전략의 일환으로 고려해야 하�
 
 다음 다이어그램에서는 업데이트 관리에서 보안 업데이트를 평가하고 모든 연결된 Windows Server 및 Linux 서버에 이를 적용하는 방법을 보여 줍니다.
 
-![업데이트 관리 워크플로](./media/overview/update-mgmt-updateworkflow.png)
+![업데이트 관리 워크플로](./media/overview/update-mgmt-workflow.png)
 
-업데이트 관리는 할당된 Azure 및 비 Azure 머신에서 업데이트 평가 및 업데이트 배포 결과를 로그 데이터로 저장하기 위해 Azure Monitor 로그와 통합됩니다. 이 데이터를 수집하기 위해 Automation 계정 및 Log Analytics 작업 영역이 함께 연결되며, Windows 및 Linux용 Log Analytics 에이전트가 머신에 있어야 하고 이 작업 영역에 보고하도록 구성해야 합니다. 업데이트 관리 기능은 작업 영역에 연결된 System Center Operations Manager 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집하도록 지원합니다. 머신 하나를 둘 이상의 Log Analytics 작업 영역에서 업데이트 관리에 등록(멀티 호밍)하는 것은 지원되지 않습니다.
+업데이트 관리는 할당된 Azure 및 비 Azure 머신에서 업데이트 평가 및 업데이트 배포 결과를 로그 데이터로 저장하기 위해 Azure Monitor 로그와 통합됩니다. 이 데이터를 수집하기 위해 Automation 계정 및 Log Analytics 작업 영역이 함께 연결되며, Windows 및 Linux용 Log Analytics 에이전트가 머신에 있어야 하고 이 작업 영역에 보고하도록 구성해야 합니다. 
+
+업데이트 관리 기능은 작업 영역에 연결된 System Center Operations Manager 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집하도록 지원합니다. 머신 하나를 둘 이상의 Log Analytics 작업 영역에서 업데이트 관리에 등록(멀티 호밍)하는 것은 지원되지 않습니다.
 
 다음 표에서는 업데이트 관리에 대해 지원되는 연결된 원본을 요약해서 보여 줍니다.
 
 | 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows |예 |업데이트 관리 기능은 Log Analytics 에이전트 및 필요한 업데이트 설치를 통해 Windows 머신에서 시스템 업데이트에 대한 정보를 수집합니다. |
-| Linux |예 |업데이트 관리 기능은 Log Analytics 에이전트 및 지원되는 배포판의 필수 업데이트 설치를 통해 Linux 머신에서 시스템 업데이트에 대한 정보를 수집합니다. |
+| Windows |예 |업데이트 관리 기능은 Log Analytics 에이전트 및 필요한 업데이트 설치를 통해 Windows 머신에서 시스템 업데이트에 대한 정보를 수집합니다.<br> 컴퓨터는 WSUS(Microsoft 업데이트 또는 Windows Server Update Services)에 보고해야 합니다. |
+| Linux |예 |업데이트 관리 기능은 Log Analytics 에이전트 및 지원되는 배포판의 필수 업데이트 설치를 통해 Linux 머신에서 시스템 업데이트에 대한 정보를 수집합니다.<br> 컴퓨터는 로컬 또는 원격 리포지토리에 보고해야 합니다. |
 | Operations Manager 관리 그룹 |예 |업데이트 관리 기능은 연결된 관리 그룹의 에이전트로부터 소프트웨어 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로의 직접 연결은 필요하지 않습니다. 로그 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
-업데이트 관리에 할당된 머신은 동기화하도록 구성된 원본을 기준으로 얼마나 최신 상태인지를 보고합니다. Windows 머신은 Windows Server Update Services 또는 Microsoft 업데이트에 보고하도록 구성할 수 있으며, Linux 머신은 로컬 또는 퍼블릭 리포지토리에 보고하도록 구성할 수 있습니다. 또한 Microsoft Endpoint Configuration Manager에서 업데이트 관리 기능을 사용할 수도 있습니다. 자세한 내용은 [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. 
+업데이트 관리에 할당된 머신은 동기화하도록 구성된 원본을 기준으로 얼마나 최신 상태인지를 보고합니다. Windows 컴퓨터는 [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 또는 [Microsoft 업데이트](https://www.update.microsoft.com)보고하도록 구성되어야 하며 Linux 컴퓨터는 로컬 또는 공용 리포지토리에 보고하도록 구성되어야 합니다. 또한 Microsoft Endpoint Configuration Manager에서 업데이트 관리 기능을 사용할 수도 있습니다. 자세한 내용은 [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. 
 
 Windows 머신의 WUA(Windows 업데이트 에이전트)를 WSUS에 보고하도록 구성한 경우 WSUS가 Microsoft 업데이트와 마지막으로 동기화된 시점에 따라 결과가 Microsoft 업데이트가 표시하는 내용과 다를 수 있습니다. 이 동작은 퍼블릭 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 머신에서도 동일하게 나타납니다. Windows 머신에서는 기본적으로 12시간마다 준수 검사가 실행됩니다. Linux 머신에서는 기본적으로 1시간마다 준수 검사가 이루어집니다. Log Analytics 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다. 머신에서 업데이트 준수 검사를 완료하면 에이전트가 Azure Monitor 로그에 정보를 대량으로 전달합니다. 
 
@@ -77,6 +79,14 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker로 구성된 Windows 머신의 목록을 확인하는 방법에 대한 자세한 내용은 [Hybrid Runbook Worker 보기](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers)를 참조하세요.
 
 업데이트 관리와 사용자 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 경우, Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 머신을 추가하여 Automation Runbook을 지원할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
+
+### <a name="external-dependencies"></a>외부 종속성
+
+Azure Automation 업데이트 관리 소프트웨어 업데이트를 제공하기 위해 다음과 같은 외부 의존에 따라 달라집니다.
+
+* Windows 기반 컴퓨터에서 소프트웨어 업데이트 패키지 및 소프트웨어 업데이트 적용 가능성 검사에는 WSUS(Windows Server Update Services) 또는 Microsoft 업데이트 필요합니다.
+* WSUS 서버 또는 Microsoft 업데이트 연결할 수 있도록 Windows 기반 컴퓨터에 WUA(Windows 업데이트 에이전트) 클라이언트가 필요합니다.
+* Linux 기반 컴퓨터에 OS 업데이트를 검색하고 설치하는 로컬 또는 원격 리포지토리입니다.
 
 ### <a name="management-packs"></a>관리 팩
 

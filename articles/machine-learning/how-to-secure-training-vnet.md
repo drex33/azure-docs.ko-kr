@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/22/2021
+ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 983f6dd8f917d968cf379d8fa393f68f54d326b5
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061469"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093481"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -50,7 +50,7 @@ ms.locfileid: "129061469"
 
 + 가상 네트워크 또는 서브넷에 리소스를 배포하려면 사용자 계정에 Azure RBAC(Azure 역할 기반 액세스 제어)에서 다음 작업에 대한 사용 권한이 있어야 합니다.
 
-    - 가상 네트워크 리소스의 "Microsoft.Network/virtualNetworks/*/read" ARM(Azure Resource Manager) 템플릿 배포에는 필요하지 않습니다.
+    - 가상 네트워크 리소스의 "Microsoft.Network/virtualNetworks/*/read" ARM (Azure Resource Manager) 템플릿 배포에는 필요 하지 않습니다.
     - 서브넷 리소스에 대한 "Microsoft.Network/virtualNetworks/subnet/join/action"
 
     네트워킹과 Azure RBAC에 대한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조하세요.
@@ -63,7 +63,7 @@ ms.locfileid: "129061469"
     * 컴퓨팅 클러스터는 동적으로 스케일링될 수 있습니다. 할당되지 않은 IP 주소가 부족하면 클러스터가 부분적으로 할당됩니다.
     * 컴퓨팅 인스턴스에는 IP 주소 하나만 필요합니다.
 
-* [공용 IP 주소(미리](#no-public-ip) 보기 기능)가 없는 컴퓨팅 인스턴스를 만들려면 작업 영역에서 프라이빗 엔드포인트를 사용하여 VNet에 연결해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트 구성을 참조하세요.](how-to-configure-private-link.md)
+* [공용 IP 주소](#no-public-ip) (미리 보기 기능) 없이 계산 인스턴스를 만들려면 작업 영역에서 개인 끝점을 사용 하 여 VNet에 연결 해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 개인 끝점 구성](how-to-configure-private-link.md)을 참조 하세요.
 * 가상 네트워크를 관리할 수 있는 권한을 제한하는 보안 정책이나 잠금이 없는지 확인합니다. 정책이나 잠금을 확인할 때 가상 네트워크에 대한 구독과 리소스 그룹을 모두 확인합니다.
 * 가상 네트워크의 구독 또는 리소스 그룹에 대한 보안 정책이나 잠금이 가상 네트워크를 관리하는 사용자 권한을 제한하는지 확인합니다. 
 * 트래픽을 제한하여 가상 네트워크를 보호하려면 [필수 공용 인터넷 액세스](#required-public-internet-access) 섹션을 참조하세요.
@@ -91,10 +91,10 @@ ms.locfileid: "129061469"
 
 
         > [!TIP]
-        > 컴퓨팅 인스턴스가 공용 IP 주소(미리 보기 기능)를 사용하지 않는 경우 이러한 인바운드 NSG 규칙은 필요하지 않습니다. 또한 컴퓨팅 클러스터를 사용하는 경우에도 클러스터에 이러한 규칙이 필요합니다.
-    * 컴퓨팅 클러스터의 경우 하나의 공용 IP 주소입니다. 공용 IP 생성을 금지한 Azure Policy 할당이 있는 경우 컴퓨팅 배포가 실패합니다.
+        > 계산 인스턴스가 공용 IP 주소 (미리 보기 기능)를 사용 하지 않는 경우 이러한 인바운드 NSG 규칙은 필요 하지 않습니다. 또한 계산 클러스터를 사용 하는 경우 클러스터에는 여전히 이러한 규칙이 필요 합니다.
+    * 계산 클러스터의 경우 하나의 공용 IP 주소입니다. Azure Policy 할당으로 인해 공용 IP 만들기가 금지 된 경우 계산 배포가 실패 합니다.
 
-    * 컴퓨팅 인스턴스의 경우 이제 공용 IP 주소(미리 보기 기능)를 제거할 수 있습니다. 공용 IP 생성을 금지한 Azure Policy 할당이 있는 경우 컴퓨팅 인스턴스의 배포가 성공합니다.
+    * 계산 인스턴스의 경우 이제 공용 IP 주소 (미리 보기 기능)를 제거할 수 있습니다. Azure Policy 할당으로 인해 공용 IP 만들기가 금지 된 경우 계산 인스턴스의 배포가 성공 합니다.
 
     * 부하 분산 장치 1개
 
@@ -116,7 +116,7 @@ ms.locfileid: "129061469"
 * 작업 영역에서 프라이빗 엔드포인트를 사용하는 경우 가상 네트워크 내부에서만 컴퓨팅 인스턴스에 액세스할 수 있습니다. 사용자 지정 DNS나 호스트 파일을 사용하는 경우 `<instance-name>.<region>.instances.azureml.ms`에 대한 항목을 추가합니다. 이 항목을 작업 영역 프라이빗 엔드포인트의 개인 IP 주소에 매핑합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md) 문서를 참조하세요.
 * 가상 네트워크 서비스 엔드포인트 정책은 컴퓨팅 클러스터/인스턴스 시스템 스토리지 계정에서 작동하지 않습니다.
 * 스토리지와 컴퓨팅 인스턴스가 다른 지역에 있으면 간헐적인 시간 초과가 표시될 수 있습니다.
-* 작업 영역의 Azure Container Registry 프라이빗 엔드포인트를 사용하여 가상 네트워크에 연결하는 경우 컴퓨팅 인스턴스에 대한 관리 ID를 사용할 수 없습니다. 컴퓨팅 인스턴스에서 관리 ID를 사용하려면 작업 영역에 대한 Azure Container Registry 서비스 엔드포인트를 사용합니다.
+* 작업 영역에 대 한 Azure Container Registry에서 개인 끝점을 사용 하 여 가상 네트워크에 연결 하는 경우 계산 인스턴스에 대해 관리 되는 id를 사용할 수 없습니다. 관리 id를 계산 인스턴스와 함께 사용 하려면 컨테이너 레지스트리를 VNet에 배치 하지 마십시오.
 * 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용하려는 경우:
 
     * websocket 통신을 사용하지 마세요. 네트워크에서 `*.instances.azureml.net` 및 `*.instances.azureml.ms`에 대한 websocket 통신을 허용하는지 확인합니다.
@@ -130,7 +130,7 @@ ms.locfileid: "129061469"
     NSG 규칙 사용, 사용자 정의 경로 및 입출력 요구 사항과 같은 참고 자료는 작업 영역과 다른 지역을 사용하는 경우에 정상적으로 적용됩니다.
 
     > [!WARNING]
-    > __프라이빗 엔드포인트 사용 작업 영역을__ 사용하는 경우 다른 지역에 클러스터를 만드는 것은 __지원되지 않습니다.__
+    > __개인 끝점 사용 작업 영역__ 을 사용 하는 경우 다른 지역에서 클러스터를 만드는 것은 __지원 되지 않습니다__.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 

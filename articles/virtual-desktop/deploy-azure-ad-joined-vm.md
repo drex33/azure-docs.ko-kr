@@ -8,19 +8,19 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
-ms.openlocfilehash: 039b38b39c9b130736297d10dbda74c1f5df0269
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e6325c6511c6df9c3f3c021bc24a3f66b2e56c0f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596831"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207738"
 ---
-# <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Azure AD 조인 가상 머신 배포
+# <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Azure 가상 데스크톱에서 Azure AD에 가입 된 가상 머신 배포
 
-이 문서에서는 Azure Virtual Desktop에서 Azure Active Directory 조인 가상 머신을 배포하고 액세스하는 프로세스를 설명합니다. Azure AD 조인 VM은 VM에서 온-프레미스나 가상화된 Active Directory DC(도메인 컨트롤러)로의 가시선 또는 Azure AD DS(Azure AD 도메인 서비스)로 배포에 대한 요구 사항을 제거합니다. 일부 경우에는 DC에 대한 요구 사항을 완전히 제거하여 환경의 배포와 관리를 간소화할 수 있습니다. 관리가 용이하도록 이러한 VM이 자동으로 Intune에 등록될 수도 있습니다.
+이 문서에서는 Azure Virtual Desktop에서 Azure Active Directory 조인 가상 머신을 배포하고 액세스하는 프로세스를 설명합니다. Azure AD에 가입 된 Vm은 VM에서 온-프레미스 또는 가상화 된 Active Directory 도메인 컨트롤러 (DC)로의 회선이 나 azure AD Domain services (Azure AD DS)를 배포 하는 데 필요한 요구를 제거 합니다. 일부 경우에는 DC에 대한 요구 사항을 완전히 제거하여 환경의 배포와 관리를 간소화할 수 있습니다. 관리가 용이하도록 이러한 VM이 자동으로 Intune에 등록될 수도 있습니다.
 
 > [!NOTE]
-> Azure AD 조인 VM은 현재 Azure 상업용 클라우드에서만 지원됩니다.
+> Azure AD에 가입 된 Vm은 현재 Azure 상용 클라우드에서만 지원 됩니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
@@ -34,13 +34,13 @@ ms.locfileid: "128596831"
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-다음과 같은 알려진 제한은 온-프레미스 또는 Active Directory 도메인 조인 리소스에 대한 액세스에 영향을 미칠 수 있으며 Azure AD 조인 VM이 사용자 환경에 적합한지 여부를 결정할 때 고려해야 합니다. 현재 사용자가 클라우드 기반 리소스 또는 Azure AD 기반 인증에만 액세스해야 하는 시나리오에는 Azure AD 조인 VM을 사용하는 것이 좋습니다.
+다음과 같은 알려진 제한 사항은 온-프레미스 또는 Active Directory 도메인에 가입 된 리소스에 대 한 액세스에 영향을 줄 수 있으며, Azure AD 조인 Vm이 사용자 환경에 적합 한지 여부를 결정할 때 고려해 야 합니다. 현재 사용자가 클라우드 기반 리소스나 Azure AD 기반 인증에만 액세스 해야 하는 시나리오에는 Azure AD 조인 Vm을 사용 하는 것이 좋습니다.
 
-- Azure Virtual Desktop(클래식)은 Azure AD 조인 VM을 지원하지 않습니다. 
-- Azure AD 조인 VM은 현재 외부 사용자를 지원하지 않습니다.
-- Azure AD 조인 VM은 현재 로컬 사용자 프로필만 지원합니다.
-- Azure AD 조인 VM은 FSLogix 또는 MSIX 앱 연결에 Azure Files 파일 공유에 액세스할 수 없습니다. 이러한 기능 중 하나에 액세스하려면 Kerberos 인증이 필요합니다.
-- Windows Store 클라이언트는 현재 Azure AD 조인 VM을 지원하지 않습니다.
+- Azure 가상 데스크톱 (클래식)은 Azure AD에 가입 된 Vm을 지원 하지 않습니다.
+- Azure AD에 가입 된 Vm은 현재 외부 사용자를 지원 하지 않습니다.
+- Azure AD에 가입 된 Vm은 현재 로컬 사용자 프로필만 지원 합니다.
+- Azure AD에 가입 된 Vm은 FSLogix 또는 MSIX 앱 연결에 대 한 Azure Files 파일 공유에 액세스할 수 없습니다. 이러한 기능 중 하나에 액세스 하려면 Kerberos 인증이 필요 합니다.
+- Windows 저장소 클라이언트는 현재 Azure AD에 가입 된 vm을 지원 하지 않습니다.
 - 현재 Azure Virtual Desktop은 Azure AD 조인 VM에 대한 Single Sign-On을 지원하지 않습니다.
 
 ## <a name="deploy-azure-ad-joined-vms"></a>Azure AD 조인 VM 배포
@@ -53,12 +53,12 @@ ms.locfileid: "128596831"
 
 ### <a name="assign-user-access-to-host-pools"></a>호스트 풀에 사용자 액세스 할당
 
-호스트 풀을 만든 후에는 사용자에게 해당 리소스에 액세스할 수 있도록 액세스 권한을 할당해야 합니다. 리소스에 대한 액세스 권한을 부여하려면 앱 그룹에 각 사용자를 추가합니다. [앱 그룹 관리](manage-app-groups.md)의 지침을 수행하여 앱과 데스크톱에 대한 사용자 액세스 권한을 할당합니다. 가능하면 개별 사용자 대신 사용자 그룹을 사용하는 것이 좋습니다.
+호스트 풀을 만든 후 사용자가 해당 리소스에 액세스할 수 있도록 사용자에 게 액세스 권한을 할당 해야 합니다. 리소스에 대 한 액세스 권한을 부여 하려면 각 사용자를 앱 그룹에 추가 합니다. [앱 그룹 관리](manage-app-groups.md)의 지침을 수행하여 앱과 데스크톱에 대한 사용자 액세스 권한을 할당합니다. 가능하면 개별 사용자 대신 사용자 그룹을 사용하는 것이 좋습니다.
 
-Azure AD 조인 VM의 경우 Active Directory 또는 Azure Active Directory Domain Services 기반 배포에 대한 요구 사항을 기반으로 두 가지 추가 작업을 수행해야 합니다.  
+Azure AD에 가입 된 vm의 경우 Active Directory 또는 Azure Active Directory 도메인 서비스 기반 배포에 대 한 요구 사항에 따라 두 가지 추가 작업을 수행 해야 합니다.  
 
-- VM에 로그인할 수 있도록 사용자에게 **Virtual Machine 사용자 로그인** 역할을 할당합니다.
-- 로컬 관리자 권한이 필요한 관리자에게 **Virtual Machine 관리자 로그인** 역할을 할당합니다.
+- 사용자가 Vm에 로그인 할 수 있도록 **가상 컴퓨터 사용자 로그인** 역할을 할당 합니다.
+- 로컬 관리자 권한이 필요한 관리자에 게 **가상 컴퓨터 관리자 로그인** 역할을 할당 합니다.
 
 사용자에게 Azure AD 조인 VM에 대한 액세스 권한을 부여하려면 [VM에 대한 역할 할당을 구성](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm)해야 합니다. VM, VM이 포함된 리소스 그룹 또는 구독 중 하나에 **Virtual Machine 사용자 로그인** 이나 **Virtual Machine 관리자 로그인** 역할을 할당할 수 있습니다. 호스트 풀의 모든 VM에 적용되게 하려면 리소스 그룹 수준에서 앱 그룹에 사용한 사용자 그룹과 동일한 사용자 그룹에 Virtual Machine 사용자 로그인 역할을 할당하는 것이 좋습니다.
 
@@ -82,7 +82,7 @@ Azure AD에 조인되지 않은 Windows 디바이스에서 액세스를 사용�
 
 ### <a name="enabling-mfa-for-azure-ad-joined-vms"></a>Azure AD 조인 VM에 MFA 사용
 
-Azure Virtual Desktop 앱에서 조건부 액세스 정책을 설정하여 Azure AD 조인 VM에 [다단계 인증을](set-up-mfa.md) 사용하도록 설정할 수 있습니다. 연결이 성공하려면 레거시 [사용자별 다단계 인증 을 사용하지 않도록 설정해야](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required)합니다. 비즈니스용 Windows Hello와 같은 강력한 인증 방법에 대한 로그인을 제한하지 않으려면 조건부 액세스 정책에서 [Azure Windows VM 로그인 앱](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required)을 제외해야 합니다.
+Azure 가상 데스크톱 앱에 대 한 조건부 액세스 정책을 설정 하 여 Azure AD에 가입 된 Vm에 대해 [다단계 인증](set-up-mfa.md) 을 사용 하도록 설정할 수 있습니다. 연결에 성공 하려면 [레거시 사용자별 다단계 인증을 사용 하지 않도록 설정](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required)해야 합니다. 비즈니스용 Windows Hello와 같은 강력한 인증 방법에 대한 로그인을 제한하지 않으려면 조건부 액세스 정책에서 [Azure Windows VM 로그인 앱](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required)을 제외해야 합니다.
 
 ## <a name="user-profiles"></a>사용자 프로필
 

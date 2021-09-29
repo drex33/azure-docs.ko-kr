@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba538f4753c2365406bd88286b6d54cff1a9e9ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: f2356235bf70a5fdd3e284c26d421e16ca94fb59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800825"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208498"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
 *필터* 는 쿼리에 사용되는 문서를 선택하기 위한 조건을 제공합니다. 필터는 단일 값 또는 OData [필터 식](search-query-odata-filter.md)일 수 있습니다. 전체 텍스트 검색과 달리 필터 값 또는 식만 엄격한 일치를 반환합니다.
 
-[패싯 탐색](search-filters-facets.md)과 같은 일부 검색 환경은 구현 부분에서 필터에 따라 달라 지지만, 쿼리 범위를 특정 값으로 지정할 때는 언제든지 필터를 사용할 수 있습니다. 대신 특정 필드에 대한 쿼리의 범위를 지정하는 것이 목표인 경우 아래에 설명된 대체 방법이 있습니다.
+[패싯 탐색](search-faceted-navigation.md)과 같은 일부 검색 환경은 구현 부분에서 필터에 따라 달라 지지만, 쿼리 범위를 특정 값으로 지정할 때는 언제든지 필터를 사용할 수 있습니다. 대신 특정 필드에 대한 쿼리의 범위를 지정하는 것이 목표인 경우 아래에 설명된 대체 방법이 있습니다.
 
 ## <a name="when-to-use-a-filter"></a>필터를 사용하는 경우
 
@@ -88,13 +88,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-usage-patterns"></a>필터 사용 패턴
+## <a name="filter-patterns"></a>필터 패턴
 
 다음 예제에는 필터 시나리오에 대한 여러 디자인 패턴이 나와 있습니다. 자세한 내용은 [OData 식 구문 > 예제](./search-query-odata-filter.md#examples)를 참조하세요.
 
 + 독립 실행형 **$filter** 는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 "모든 문서 일치"를 의미하는 별표입니다.
 
-  ```http
+  ```json
   {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
@@ -103,7 +103,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 + 쿼리 문자열과 **$filter** 의 조합에서 필터가 하위 집합을 만들면 쿼리 문자열이 필터링된 하위 집합에 대해 전체 텍스트 검색에 용어 입력을 제공합니다. 용어를 추가(이동 거리 극장) 하면 결과에 검색 점수가 도입되고, 여기에서 용어와 가장 일치하는 문서는 더 높은 순위를 갖습니다. 쿼리 문자열과 함께 필터를 사용하는 것이 가장 일반적인 코드 패턴입니다.
 
-  ```http
+  ```json
   {
     "search": "walking distance theaters",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
@@ -111,32 +111,27 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
-   ```
-   # <a name="match-on-hostels-rated-higher-than-4-or-5-star-motels"></a>4개 또는 5개의 별모양에서 5개보다 높은 등급의 hostels를 찾습니다.
+   ```http
+   # Match on hostels rated higher than 4 OR 5-star motels.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-   # <a name="match-on-luxury-or-high-end-in-the-description-field-or-on-category-exactly-equal-to-luxury"></a>설명 필드의 'luxury' 또는 'high-end'에 대해 일치하는 항목 또는 'Luxury'와 정확하게 일치하는 항목을 찾습니다.
+   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  을 통해 전체 텍스트 검색을 대신 를 사용하는 필터와 결합할 수도 `search.ismatchscoring` `and` 있지만 이는 검색 `or` 요청에서 및 매개 변수를 사용하는 것과 기능적으로 `search` `$filter` 동일합니다. 예를 들어 다음 두 쿼리는 동일한 결과를 생성합니다.
 
-  ```
+  ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
 
   search=pool&$filter=Rating ge 4
   ```
 
-Follow up with these articles for comprehensive guidance on specific use cases:
+## <a name="field-requirements-for-filtering"></a>필터링을 위한 필드 요구 사항
 
-+ [Facet filters](search-filters-facets.md)
-+ [Security trimming](search-security-trimming-for-azure-search.md) 
+REST API 필터링 가능은 단순 필드에 대해 기본적으로 *설정됩니다.* 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
 
-## Field requirements for filtering
-
-In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
-
-In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+.NET SDK에서는 필터링 가능이 기본적으로 *해제* 되어 있습니다. 해당 [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) 개체의 [IsFilterable 속성을](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) 로 설정하여 필드를 필터링 가능하게 만들 수 `true` 있습니다. 아래 예제에서 특성은 `BaseRate` 인덱스 정의에 매핑되는 모델 클래스의 속성에 설정됩니다.
 
 ```csharp
 [IsFilterable, IsSortable, IsFacetable]

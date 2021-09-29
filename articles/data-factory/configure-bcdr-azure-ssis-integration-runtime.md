@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 246ed5dba1c19894fee0f3cf9f4fe1a72efafa18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2da56452a8674940b3d81ffd06c722886fd07ed7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828364"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218015"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>BCDR(비즈니스 연속성 및 재해 복구)를 위한 Azure-SSIS 통합 런타임 구성 
 
@@ -62,11 +62,11 @@ Azure SQL Managed Instance 장애 조치(failover) 그룹과 동기화된 상태
 
 1. Azure Portal/ADF UI를 통해 기본 Azure SQL Managed Instance를 사용하는 새로운 Azure-SSIS IR를 만들어 기본 지역에 SSISDB를 호스트할 수 있습니다. 기본 Azure SQL Managed Instance에서 호스트하는 SSIDB에 이미 연결된 기존 Azure-SSIS IR가 있고 계속 실행 중인 경우 재구성하려면 먼저 중지해야 합니다. 이것이 기본 Azure-SSIS IR가 됩니다.
 
-   **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 [SSISDB를 사용하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb)하는 경우, **SSISDB 장애 조치(failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택합니다. **이중 대기 쌍 이름** 에 기본/보조 AZURE-SSIS IR 쌍을 식별하는 이름을 입력합니다. 기본 Azure-SSIS IR 만들기를 완료하면 해당 IR가 시작되고 읽기/쓰기 액세스 권한을 이용해 사용자 대신 만들게 될 기본 SSISDB에 연결됩니다. 방금 재구성한 경우 다시 시작해야 합니다. 또한 보조 Azure SQL Managed Instance의 **개요** 페이지에서 기본 SSISDB가 읽기 전용 액세스 권한이 있는 보조 SSISDB에 복제되었는지 여부를 확인할 수 있습니다.
+   **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 [SSISDB를 사용하도록 선택](./create-azure-ssis-integration-runtime-portal.md#creating-ssisdb)하는 경우, **SSISDB 장애 조치(failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택합니다. **이중 대기 쌍 이름** 에 기본/보조 AZURE-SSIS IR 쌍을 식별하는 이름을 입력합니다. 기본 Azure-SSIS IR 만들기를 완료하면 해당 IR가 시작되고 읽기/쓰기 액세스 권한을 이용해 사용자 대신 만들게 될 기본 SSISDB에 연결됩니다. 방금 재구성한 경우 다시 시작해야 합니다. 또한 보조 Azure SQL Managed Instance의 **개요** 페이지에서 기본 SSISDB가 읽기 전용 액세스 권한이 있는 보조 SSISDB에 복제되었는지 여부를 확인할 수 있습니다.
 
 1. Azure Portal/ADF UI를 통해 보조 Azure SQL Managed Instance를 사용하는 다른 Azure-SSIS IR를 만들어 보조 지역에 SSISDB를 호스트할 수 있습니다. 이것이 보조 Azure-SSIS IR가 됩니다. 전체 BCDR에 대해 종속된 모든 리소스(예: 사용자 지정 설치 스크립트/파일을 저장하기 위한 Azure Storage, 오케스트레이션/일정 예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 만들어졌는지 확인합니다.
 
-   **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 [SSISDB를 사용하도록 선택](./create-azure-ssis-integration-runtime.md#creating-ssisdb)하는 경우, **SSISDB 장애 조치(failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택합니다. **이중 대기 쌍 이름** 에 기본/보조 Azure-SSIS IR 쌍을 식별하는 동일한 이름을 입력합니다. 보조 Azure-SSIS IR 만들기를 완료하면 해당 IR가 시작되고 보조 SSISDB에 연결됩니다.
+   **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 [SSISDB를 사용하도록 선택](./create-azure-ssis-integration-runtime-portal.md#creating-ssisdb)하는 경우, **SSISDB 장애 조치(failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택합니다. **이중 대기 쌍 이름** 에 기본/보조 Azure-SSIS IR 쌍을 식별하는 동일한 이름을 입력합니다. 보조 Azure-SSIS IR 만들기를 완료하면 해당 IR가 시작되고 보조 SSISDB에 연결됩니다.
 
 1. Azure SQL Managed Instance에서는 DMK(데이터베이스 마스터 키)를 사용해 데이터를 암호화함으로써 SSISDB와 같이 데이터베이스에 중요한 데이터를 보호할 수 있습니다. DMK 자체는 기본적으로 SMK(서비스 마스터 키)를 사용하여 암호화됩니다. 9 월 2021 이후 SMK는 장애 조치 (failover) 그룹을 만드는 동안 기본 Azure SQL Managed Instance에서 보조 데이터베이스로 복제 됩니다. 이전에 장애 조치 (failover) 그룹을 만든 경우에는 보조 Azure SQL Managed Instance에서 SSISDB를 포함 하 여 모든 사용자 데이터베이스를 삭제 하 고 장애 조치 (failover) 그룹을 다시 만듭니다.
 
@@ -115,13 +115,13 @@ Azure SQL Managed Instance 장애 조치(failover) 그룹과 동기화된 상태
    EXEC [catalog].[failover_integration_runtime] @data_factory_name = 'YourNewADF', @integration_runtime_name = 'YourNewAzureSSISIR'
    ```
 
-1. [Azure portal/ADF UI](./create-azure-ssis-integration-runtime.md#use-the-azure-portal-to-create-an-integration-runtime) 또는 [Azure PowerShell](./create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime)을 사용하여 각각 다른 지역에서 *YourNewADF*/*YourNewAzureSSISIR* 라는 새 ADF/Azure-SSIS IR를 만듭니다. Azure Portal/ADF UI를 사용하는 경우 **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 연결 테스트 오류를 무시할 수 있습니다.
+1. [Azure portal/ADF UI](./create-azure-ssis-integration-runtime-portal.md) 또는 [Azure PowerShell](./create-azure-ssis-integration-runtime-powershell.md)을 사용하여 각각 다른 지역에서 *YourNewADF*/*YourNewAzureSSISIR* 라는 새 ADF/Azure-SSIS IR를 만듭니다. Azure Portal/ADF UI를 사용하는 경우 **Integration Runtime 설정** 창의 **배포 설정** 페이지에서 연결 테스트 오류를 무시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure-SSIS IR에 대해 다음과 같은 기타 구성 옵션을 고려할 수 있습니다.
 
-- [Azure-SSIS IR용 패키지 저장소 구성](./create-azure-ssis-integration-runtime.md#creating-azure-ssis-ir-package-stores)
+- [Azure-SSIS IR용 패키지 저장소 구성](./create-azure-ssis-integration-runtime-portal.md#creating-azure-ssis-ir-package-stores)
 
 - [Azure-SSIS IR용 사용자 지정 설정 구성](./how-to-configure-azure-ssis-ir-custom-setup.md)
 

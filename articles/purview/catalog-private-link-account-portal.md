@@ -6,23 +6,23 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: a98b0c43af2f20142b47baf31580153c3bf90024
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 0da3f53c41296f3cb467c00bb13649288ebd53c6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576151"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213844"
 ---
 # <a name="connect-privately-and-securely-to-your-purview-account"></a>Purview 계정에 비공개로 안전하게 연결
-이 가이드에서는 VNet 및 개인 네트워크에서만 Azure Purview 계정에 연결할 수 있도록 Purview 계정에 대한 프라이빗 엔드포인트를 배포하는 방법을 배웁니다. 이 목표를 달성하려면 Azure Purview 계정에 대한 _계정_ 및 _포털_ 프라이빗 엔드포인트를 배포해야 합니다.
+이 가이드에서는 VNet 및 개인 네트워크에서만 Azure Purview 계정에 연결할 수 있도록 Purview 계정에 대한 프라이빗 엔드포인트를 배포하는 방법을 배웁니다. 이러한 목표를 달성 하려면 Azure 부서의 범위 계정에 대 한 _계정_ 및 _포털_ 개인 끝점을 배포 해야 합니다.
 
 Azure Purview _계정_ 프라이빗 엔드포인트는 가상 네트워크 내에서 시작된 클라이언트 호출만 Azure Purview 계정에 액세스할 수 있는 시나리오를 사용하도록 설정하여 다른 보안 계층을 추가하는 데 사용됩니다. 이 프라이빗 엔드포인트는 포털 프라이빗 엔드포인트의 필수 조건이기도 합니다.
 
-개인 네트워크를 사용하여 Azure Purview Studio에 연결하려면 Azure Purview _포털_ 프라이빗 엔드포인트가 필요합니다.
+Azure 부서의 범위 _portal_ 개인 끝점은 개인 네트워크를 사용 하 여 [azure 부서의 범위 Studio](https://web.purview.azure.com/resource/) 에 대 한 연결을 사용 하도록 설정 하는 데 필요 합니다.
 
 > [!NOTE]
-> _계정_ 및 _포털_ 프라이빗 엔드포인트만 만드는 경우 검색을 실행할 수 없습니다. 프라이빗 네트워크에서 검사를 사용하도록 설정하려면 또한 [을(를) 통해서도 검색 프라이빗 엔드포인트를 만들어야](catalog-private-link-end-to-end.md)합니다.
+> _계정_ 및 _포털_ 전용 끝점을 만드는 경우에는 검색을 실행할 수 없습니다. 개인 네트워크에서 검색을 사용 하도록 설정 하려면 수집 [개인 끝점도 만들어야](catalog-private-link-end-to-end.md)합니다.
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Azure Purview 및 Private Link 아키텍처를 보여 주는 다이어그램.":::
 
@@ -52,30 +52,32 @@ Azure Private Link 서비스에 대한 자세한 내용은 [프라이빗 링크 
 
 3. **계정 및 포털** 에서 **+ 추가** 를 선택하여 Azure Purview 계정에 대한 프라이빗 엔드포인트를 추가합니다.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-1.png" alt-text="계정 및 포털 페이지 선택을 위한 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal.png" alt-text="계정 및 포털 페이지 선택을 위한 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
 
 4. **프라이빗 엔드포인트 만들기** 페이지에서 **Purview 하위 리소스** 에 대해 위치를 선택하고 _계정_ 프라이빗 엔드포인트의 이름을 제공한 다음 **계정** 을 선택합니다. **네트워킹** 에서 가상 네트워크와 서브넷을 선택하고 선택적으로 **프라이빗 DNS 영역과 통합** 을 선택하여 새 Azure 프라이빗 DNS 영역을 만듭니다. 
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="계정 프라이빗 엔드포인트 만들기 페이지를 보여 주는 스크린샷.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="계정 프라이빗 엔드포인트 만들기 페이지를 보여 주는 스크린샷.":::
 
-
-   > [!NOTE]
-   > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
+      > [!NOTE]
+      > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
 
 5. **확인** 을 선택합니다.
    
 6. **Purview 계정 만들기** 마법사에서 **+추가** 를 다시 선택하여 _포털_ 프라이빗 엔드포인트를 추가합니다.
      
 7. **프라이빗 엔드포인트 만들기** 페이지에서 **Purview 하위 리소스** 에 대해 위치를 선택하고 _포털_ 프라이빗 엔드포인트의 이름을 제공하고 **포털** 을 선택합니다. **네트워킹** 에서 가상 네트워크와 서브넷을 선택하고 선택적으로 **프라이빗 DNS 영역과 통합** 을 선택하여 새 Azure 프라이빗 DNS 영역을 만듭니다. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="포털 개인 끝점 만들기 페이지를 보여 주는 스크린샷":::
    
    > [!NOTE]
    > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
 
 8.  **확인** 을 선택합니다.
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-3.png" alt-text="프라이빗 엔드포인트 만들기 검토 페이지를 보여 주는 스크린샷.":::
-
 9.  **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 페이지에서 Azure가 구성의 유효성을 검사합니다.
+      
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal-2.png" alt-text="프라이빗 엔드포인트 만들기 검토 페이지를 보여 주는 스크린샷.":::
+
 
 10. "유효성 검사 통과" 메시지가 표시되면 **만들기** 를 선택합니다.
 
@@ -88,9 +90,9 @@ Azure Private Link 서비스에 대한 자세한 내용은 [프라이빗 링크 
 
 ### <a name="use-the-azure-portal-azure-purview-account"></a>Azure Portal(Azure Purview 계정) 사용
 
-1. [Azure Portal](https://portal.azure.com)로 이동한 다음 Azure Purview 계정을 클릭하고 **설정** 에서 **네트워킹** 을 선택한 다음 **프라이빗 엔드포인트 연결** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동한 다음, Azure 부서의 범위 계정을 선택 하 고 **설정** 에서 **네트워킹** 을 선택 하 고 **개인 끝점 연결** 을 선택 합니다.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="계정 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="계정 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
 
 2. **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다.
 

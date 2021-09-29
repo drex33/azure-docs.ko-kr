@@ -2,13 +2,13 @@
 title: 메시지 복제 작업 및 애플리케이션 - Azure Service Bus | Microsoft Docs
 description: 이 문서에서 Azure Functions를 사용하여 메시지 복제 작업 및 애플리케이션을 빌드하는 방법에 대한 개요 제공
 ms.topic: article
-ms.date: 12/12/2020
-ms.openlocfilehash: 4db151f54a2ad236ba937b005ba6a1fd3edd5967
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 78598401816adc32eecb34e2bd11fa49e8a44b0f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657498"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211813"
 ---
 # <a name="message-replication-tasks-and-applications"></a>메시지 복제 작업 및 애플리케이션
 

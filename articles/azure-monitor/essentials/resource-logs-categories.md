@@ -3,12 +3,12 @@ title: Azure Monitor 리소스 로그 지원 서비스 및 범주
 description: Azure Monitor 참조. Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마를 이해합니다.
 ms.topic: reference
 ms.date: 09/10/2021
-ms.openlocfilehash: 894c18a6f2b3ecd48171312fa5f8aef56bcf0e01
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635074"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211255"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원되는 범주
 
@@ -19,7 +19,7 @@ ms.locfileid: "128635074"
 
 이전에는 리소스 로그를 진단 로그라고 했습니다. Azure Monitor에서 수집하는 로그 유형이 Azure 리소스 이상을 포함하도록 전환하면서 2019년 10월에 이름이 변경되었습니다.
 
-리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이때 다른 로그 범주에 대해 추가된 서비스별 필드를 포함하는 모든 리소스 로그에 대한 공통 스키마가 있습니다. 자세한 내용은 [Azure 리소스 로그에 대한 공통 및 서비스별 스키마]()를 참조하세요.
+리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이때 다른 로그 범주에 대해 추가된 서비스별 필드를 포함하는 모든 리소스 로그에 대한 공통 스키마가 있습니다. 자세한 내용은 [Azure 리소스 로그에 대한 공통 및 서비스별 스키마](/azure/azure-monitor/essentials/resource-logs-schema)를 참조하세요.
 
 ## <a name="costs"></a>비용
 
@@ -83,7 +83,7 @@ ms.locfileid: "128635074"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|No|
-|WebSocketConnectionLogs|Websocket 연결과 관련된 로그|Yes|
+|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -132,7 +132,7 @@ ms.locfileid: "128635074"
 |요청|요청|Yes|
 
 
-## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+## <a name="microsoftavsprivateclouds"></a>microsoft avs/privateClouds
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -182,7 +182,7 @@ ms.locfileid: "128635074"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectedClientList|연결 된 클라이언트 목록|Yes|
+|ConnectedClientList|연결된 클라이언트 목록|Yes|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -433,11 +433,11 @@ ms.locfileid: "128635074"
 |관리|관리|No|
 
 
-## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft DesktopVirtualization/scalingplans
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft.DesktopVirtualization/scalingplans
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|자동 확장|로그 자동 크기 조정|Yes|
+|자동 확장|자동 조정 로그|Yes|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -712,7 +712,7 @@ ms.locfileid: "128635074"
 |MediaAccount|미디어 계정 상태|Yes|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -943,8 +943,8 @@ ms.locfileid: "128635074"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ConnectivityLogs|Azure 웹 PubSub 서비스에 대 한 연결 로그입니다.|Yes|
-|HttpRequestLogs|Azure 웹 PubSub 서비스에 대 한 Http 요청 로그입니다.|Yes|
-|MessagingLogs|Azure 웹 PubSub 서비스에 대 한 메시징 로그.|Yes|
+|HttpRequestLogs|Azure Web PubSub 서비스에 대한 Http 요청 로그입니다.|Yes|
+|MessagingLogs|Azure Web PubSub 서비스에 대한 메시징 로그.|Yes|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances

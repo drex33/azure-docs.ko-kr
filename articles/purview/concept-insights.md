@@ -4,21 +4,24 @@ description: 이 문서에서는 Azure Purview에서 제공하는 인사이트�
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: bd2a8aa4a0296cf67cf754f0d921e2791abdbb4f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: ff50729dee893caa7a1c38f57cbd23f0470fc84b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788796"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218853"
 ---
 # <a name="understand-insights-in-azure-purview"></a>Azure Purview의 인사이트 이해
 
 이 문서에서는 Azure Purview의 인사이트 기능에 대한 개요를 제공합니다.
 
-인사이트는 Purview의 핵심 요소 중 하나입니다. 이 기능은 고객에게 카탈로그에 대한 단일 창 보기를 제공하고 데이터 원본 관리자, 비즈니스 사용자, 데이터 관리자, 데이터 책임자 및 보안 관리자에게 특정 인사이트를 제공하는 것을 목표로 합니다. 현재 Purview에는 퍼블릭 미리 보기에서 고객이 사용할 수 있는 다음과 같은 인사이트 보고서가 있습니다.
+인사이트는 Purview의 핵심 요소 중 하나입니다. 이 기능은 고객에게 카탈로그에 대한 단일 창 보기를 제공하고 데이터 원본 관리자, 비즈니스 사용자, 데이터 관리자, 데이터 책임자 및 보안 관리자에게 특정 인사이트를 제공하는 것을 목표로 합니다. 현재 Purview에는 Insight의 공개 미리 보기 중에 고객이 사용할 수 있는 다음과 같은 Insights 보고서가 있습니다.
+
+> [!IMPORTANT]
+> Azure Purview Insights 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 ## <a name="asset-insights"></a>자산 인사이트
 

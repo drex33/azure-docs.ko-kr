@@ -2,13 +2,13 @@
 title: 메시지 복제 및 지역 간 페더레이션 - Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus를 사용하여 이벤트 복제 및 지역 간 페더레이션에 대한 개요를 제공합니다.
 ms.topic: article
-ms.date: 12/12/2020
-ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 0f0d2b5f96ea65a6d0fd0f5664ef98948dc46c19
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880830"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211870"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>메시지 복제 및 지역 간 페더레이션
 

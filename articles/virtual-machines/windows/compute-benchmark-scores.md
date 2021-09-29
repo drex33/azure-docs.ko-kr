@@ -3,18 +3,18 @@ title: Azure Windows VM에 대한 벤치마크 점수 컴퓨팅
 description: Windows Server를 실행하는 Azure VM의 SPECint 컴퓨팅 벤치마크 점수를 비교합니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 9d717912e62340c939649271d2ccf3339a72b0e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a91aaa470904a17ee2fbf1ad3af2ec8482137003
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633472"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215418"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
 

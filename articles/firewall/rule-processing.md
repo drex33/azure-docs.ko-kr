@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.author: victorh
-ms.openlocfilehash: 30ae9e7bf915e558a806d9297fbcc35700b64ce1
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: 2dbcb4d42372c97b12d4a71ef43ee1e10f1232bf
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571084"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209550"
 ---
 # <a name="configure-azure-firewall-rules"></a>Azure Firewall 규칙 구성
 Azure Firewall에서 클래식 규칙 또는 방화벽 정책을 사용하여 NAT 규칙, 네트워크 규칙 및 애플리케이션 규칙을 구성할 수 있습니다. 트래픽을 허용하도록 규칙을 수동으로 구성할 때까지 Azure Firewall은 기본적으로 모든 트래픽을 거부합니다.
@@ -159,6 +159,14 @@ HTTP 및 TLS에서 검사한 HTTPS 사례 모두에서, 방화벽은 패킷 대�
 ## <a name="rule-changes"></a>규칙 변경
 
 이전에 허용된 트래픽을 거부하도록 규칙을 변경하면 관련된 모든 기존 세션이 삭제됩니다.
+
+## <a name="3-way-handshake-behavior"></a>3 방향 핸드셰이크 동작
+
+상태 저장 서비스의 경우 Azure 방화벽은 원본에서 대상으로 허용 된 트래픽에 대해 TCP 3 방향 핸드셰이크를 완료 합니다.예를 들어 vnet-A에서 VNet-B로.
+
+Vnet-A에서 VNet-B로 허용 규칙을 만들면 VNet-B에서 VNet-A로 새로 시작 된 연결이 허용 됩니다.
+
+따라서 VNet-B에서 VNet-A로의 명시적 거부 규칙을 만들 필요가 없습니다. 이 거부 규칙을 만드는 경우 VNet-A에서 VNet-B로의 초기 허용 규칙에서 3 방향 핸드셰이크를 중단 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

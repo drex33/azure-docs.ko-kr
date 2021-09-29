@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 09/28/2021
 ms.author: alzam
-ms.openlocfilehash: 57328748f21dda9efe3b2208aeb4854360a76e38
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: b0988547105f953c0665ea753007c0725055fe61
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288685"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208714"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>지점 및 사이트 간 Azure VPN Gateway를 사용한 원격 작업
 
@@ -31,7 +31,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 아래 표는 클라이언트 운영 체제와 사용 가능한 인증 옵션을 보여 줍니다. 이미 사용 중인 클라이언트 OS에 따라 인증 방법을 선택하는 것이 좋습니다. 예를 들어 연결해야 하는 클라이언트 운영 체제가 혼합되어 있는 경우 인증서 기반 인증을 사용하여 OpenVPN을 선택합니다. 또한 지점 및 사이트 간 VPN은 경로 기반 VPN Gateway에서만 지원됩니다.
 
-![클라이언트 운영 체제 및 사용 가능한 인증 옵션을 보여 주는 스크린샷](./media/working-remotely-support/ostable.png "OS")
+![클라이언트 운영 체제 및 사용 가능한 인증 옵션을 보여 주는 스크린샷](./media/working-remotely-support/os-table.png "OS")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>시나리오 1 - 사용자는 Azure의 리소스에만 액세스해야 합니다.
 

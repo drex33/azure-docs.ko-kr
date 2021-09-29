@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하여
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: b7a3e59781d52010831bce5f83518bfc44987b03
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2b839350b8f993d107bce67266600d2f4b2386fd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124830123"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217375"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -149,7 +149,7 @@ az extension add --name aks-preview
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
+상태를 *등록 된* 것으로 표시 하는 데 몇 분 정도 걸릴 수 있습니다. 등록이 완료 될 때까지 기다려 주세요. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"

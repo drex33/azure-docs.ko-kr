@@ -4,15 +4,15 @@ description: Azure Purview에서 검사 규칙 집합을 만들어 조직의 데
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 9662652a6a40285ad382857975ec0dd04b8ba8be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 0b9175a2795ac926c7adf93dc81f84ff7b5a4472
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96554746"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207385"
 ---
 # <a name="create-a-scan-rule-set"></a>검사 규칙 집합 만들기
 
@@ -24,7 +24,7 @@ Azure Purview 카탈로그에서 검사 규칙 집합을 만들어 조직의 데
 
 검사 규칙 집합을 만들려면 다음을 수행합니다.
 
-1. Azure Purview 카탈로그에서 **관리 센터** 를 선택합니다.
+1. Azure [부서의 범위 Studio](https://web.purview.azure.com/resource/)에서 **데이터 맵** 을 선택 합니다.
 
 1. 왼쪽 창에서 **검사 규칙 집합** 을 선택한 다음, **새로 만들기** 를 선택합니다.
 

@@ -4,19 +4,22 @@ description: 이 방법 가이드에서는 데이터에 대한 Purview 민감도
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: cf3540f439396f3e4308eae10077693de440827f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568062"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213977"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 대한 민감도 레이블 인사이트
 
 이 방법 가이드에서는 데이터에 적용된 민감도 레이블에서 제공한 보안 인사이트에 액세스하고, 확인하고, 필터링하는 방법을 설명합니다.
+
+> [!IMPORTANT]
+> Azure 부서의 범위 민감도 레이블 Insights는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 지원되는 데이터 원본에는 Azure Blob Storage, ADLS(Azure Data Lake Storage) GEN 1, ADLS(Azure Data Lake Storage) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 버킷이 포함됩니다.
 
@@ -40,11 +43,11 @@ Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확
 
 - [Azure Purview의 자산에 대한 Microsoft 365 민감도 레이블을 확장했고](create-sensitivity-label.md), 데이터에 적용하려는 레이블을 만들거나 선택했습니다.
 
-- 데이터 원본별로 테스트 데이터에 대한 스캔을 설정하고 완료했습니다. 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조하세요.
+- 데이터 원본별로 테스트 데이터에 대한 스캔을 설정하고 완료했습니다. 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조 하세요.
 
 - [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#roles)이 있는 계정으로 Purview에 로그인했습니다.
 
-자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [Azure Purview에서 데이터에 자동으로 레이블 지정](create-sensitivity-label.md)을 참조하세요.
+자세한 내용은 [azure에서 데이터 원본 관리 부서의 범위](manage-data-sources.md) 및 [azure 부서의 범위에서 데이터에 자동으로 레이블](create-sensitivity-label.md)표시를 참조 하세요.
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Purview 민감도 레이블 지정 인사이트 사용
 
@@ -74,7 +77,7 @@ Purview는 Microsoft 365와 같이 [중요한 정보 형식](/microsoft-365/comp
     > [!NOTE]
     > 이 보고서가 비어 있는 경우 민감도 레이블을 Azure Purview로 확장하지 않았을 수 있습니다. 자세한 내용은 [Azure Purview에서 데이터에 자동으로 레이블 지정](create-sensitivity-label.md)을 참조하세요.
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="민감도 레이블 지정 인사이트" lightbox="media/insights/sensitivity-labeling-insights.png":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="민감도 레이블 지정 인사이트":::
 
    주요 **민감도 레이블 지정 인사이트** 페이지에는 다음과 같은 영역이 표시됩니다.
 
@@ -99,7 +102,7 @@ Purview는 Microsoft 365와 같이 [중요한 정보 형식](/microsoft-365/comp
 
 예:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="민감도 레이블 드릴다운" lightbox="media/insights/sensitivity-label-drilldown.png":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="민감도 레이블 드릴다운":::
 
 자세한 내용을 확인하려면 다음 중 한 가지를 수행합니다.
 

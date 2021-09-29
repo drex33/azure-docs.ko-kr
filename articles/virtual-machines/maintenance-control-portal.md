@@ -3,17 +3,17 @@ title: Azure Portal을 사용하여 Azure 가상 머신에 대한 유지 관리 
 description: 유지 관리 제어 및 Azure Portal을 사용하여 Azure VM에 유지 관리가 적용되는 시기를 제어하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 0db6f8d43a2492b59b407e43eee016d130915c77
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 6ac4be6b1c0654ea46bbbfe587a72839c3f2896b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687744"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216634"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>유지 관리 제어 및 Azure Portal을 사용하여 업데이트 제어
 

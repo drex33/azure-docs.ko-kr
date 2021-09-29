@@ -4,15 +4,14 @@ description: 이 문서에서는 Azure Purview 배포에 대한 모범 사례를
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d357a85449a6ae734b3311f2649180b36646d4f4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566913"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214335"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview 배포 모범 사례
 
@@ -168,7 +167,6 @@ Purview에는 카탈로그 관리자가 수명 주기 동안 일관성 및 유�
 |Task|세부 정보|Duration|
 |---------|---------|---------|
 |요구 사항 수집 및 동의|모든 관련자와 함께 전체 요구 사항 집합을 수집하는 방법을 설명합니다. 각 가상 사용자는 프로젝트의 각 단계에서 완료할 요구 사항의 하위 집합에 동의하도록 참여해야 합니다.|1주|
-|시작 키트 설정|[Purview 빠른 시작](create-catalog-portal.md)으로 이동하여 [Purview 시작 키트](tutorial-scan-data.md)를 설정하고 모든 관련자에게 Purview를 시연합니다.|1일|
 |Purview 탐색|홈페이지에서 Purview를 사용하는 방법을 이해합니다.|1일|
 |계보용 ADF 구성|키 파이프라인 및 데이터 자산을 식별합니다. 내부 ADF 계정에 연결하는 데 필요한 모든 정보를 수집합니다.|1일|
 |Azure Data Lake Storage와 같은 데이터 원본 검색|데이터 원본을 추가하고 검색을 설정합니다. 검사가 모든 자산을 성공적으로 검색하는지 확인합니다.|2일|
@@ -199,7 +197,7 @@ Purview에는 카탈로그 관리자가 수명 주기 동안 일관성 및 유�
 |[Power BI 검색](register-scan-power-bi-tenant.md)|조직에서 Power BI 사용하는 경우 스토리지 레이어의 계보를 포함해야 하는 요구 사항이 있는 데이터 과학자 또는 데이터 분석가가 사용 중인 모든 데이터 자산을 수집하기 위해 Power BI를 검색할 수 있습니다.|1~2주|
 |[용어집 용어 가져오기](how-to-create-import-export-glossary.md)|대부분의 경우 조직은 이미 자산에 대한 용어집 용어 및 용어 할당 컬렉션을 개발할 수 있습니다. .csv 파일을 통해 Purview로 가져오기 프로세스가 필요합니다.|1주|
 |자산에 연락처 추가|상위 자산의 경우 다른 가상 사용자가 연락처를 할당하거나 REST API를 통해 가져올 수 있도록 하는 프로세스를 설정할 수 있습니다.|1주|
-|중요한 레이블 및 검색 추가|M365의 레이블링 사용에 따라 일부 조직에서는 선택 사항일 수 있습니다.|1~2주|
+|중요한 레이블 및 검색 추가|이는 Microsoft 365의 레이블 사용에 따라 일부 조직에서 선택 사항 일 수 있습니다.|1~2주|
 |분류 및 중요한 정보 얻기|Purview의 보고 및 인사이트를 위해 이 기능에 액세스하여 다양한 보고서를 얻고 경영진에게 프레젠테이션을 제공할 수 있습니다.|1일|
 |Purview 관리형 사용자를 사용하여 추가 사용자 온보딩|이 단계에서는 Purview 관리자가 Azure Active Directory 관리자와 협력하여 Purview에 대한 액세스 권한을 부여할 새 보안 그룹을 설정해야 합니다.|1주|
 
@@ -256,7 +254,7 @@ MVP 단계가 통과되면 사전 프로덕션 마일스톤 계획을 세울 시
 * 프로덕션에 대한 인프라 및 보안 요구 사항 충족
 * 사용자에게 필요한 모든 사용 사례를 성공적으로 충족
 
-## <a name="platform-hardening"></a>플랫폼 보안 강화
+## <a name="platform-hardening"></a>플랫폼 강화
 
 추가 보안 강화 단계를 수행할 수 있습니다.
 
@@ -267,5 +265,5 @@ MVP 단계가 통과되면 사전 프로덕션 마일스톤 계획을 세울 시
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 시작 키트 실행 및 데이터 검사](tutorial-scan-data.md)
-- [자습서: 홈페이지를 탐색하고 자산 검색](tutorial-asset-search.md)
+- [컬렉션 모범 사례](concept-best-practices-collections.md)
+- [홈 페이지를 탐색하고 자산 검색](tutorial-asset-search.md)

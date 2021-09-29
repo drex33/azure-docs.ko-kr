@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 5581a19f001b4caee8ef0e0d93908bd6d98471a0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564916"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213603"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Azure Purview Data Catalog 검색
 
@@ -26,11 +26,11 @@ Azure Purview에서 검색 창은 Purview studio UX 상단에 위치합니다.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Azure Purview 검색 창의 위치를 보여 주는 스크린샷" border="true":::
 
-검색 창을 클릭하면 최근 검색 기록과 최근에 액세스한 자산을 확인할 수 있습니다. 최근에 본 모든 자산을 확인하려면 "모두 보기"를 선택합니다.
+검색 창을 선택하면 최근 검색 기록과 최근에 액세스한 자산을 확인할 수 있습니다. 최근에 본 모든 자산을 확인하려면 **모두 보기** 를 선택합니다.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="아무 키워드도 입력하지 않은 검색 창을 보여 주는 스크린샷" border="true":::
 
-이름, 데이터 형식, 분류, 용어집 용어 등의 자산을 식별하는 데 도움이 되는 키워드를 입력합니다. 원하는 자산과 관련된 키워드를 입력하면 Azure Purview는 검색 및 잠재적인 자산 일치 항목에 대한 제안을 표시합니다. 검색을 완료하려면 "검색 결과 보기"를 클릭하거나 "Enter" 키를 누릅니다.
+이름, 데이터 형식, 분류, 용어집 용어 등의 자산을 식별하는 데 도움이 되는 키워드를 입력합니다. 원하는 자산과 관련된 키워드를 입력하면 Azure Purview는 검색 및 잠재적인 자산 일치 항목에 대한 제안을 표시합니다. 검색을 완료 하려면 **검색 결과 보기** 를 선택 하거나 "enter"를 누릅니다.
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="사용자가 키워드를 입력하는 동안의 검색 창을 보여 주는 스크린샷" border="true":::
 
@@ -38,7 +38,7 @@ Azure Purview에서 검색 창은 Purview studio UX 상단에 위치합니다.
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="검색 결과를 보여 주는 스크린샷" border="true":::
 
- 스키마, 계보, 자산 소유자를 비롯한 속성을 볼 수 있는 자산 세부 정보 페이지를 확인하려면 원하는 자산을 클릭합니다.
+ 스키마, 계보, 자산 소유자를 비롯한 속성을 볼 수 있는 자산 세부 정보 페이지를 확인하려면 원하는 자산을 선택합니다.
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="자산 정보 페이지를 보여 주는 스크린샷" border="true":::
 

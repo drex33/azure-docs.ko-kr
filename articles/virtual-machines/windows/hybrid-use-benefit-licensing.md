@@ -3,19 +3,19 @@ title: Windows Server의 Azure 하이브리드 혜택
 description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
 author: xujing-ms
 ms.service: virtual-machines
-ms.subservice: azure-hybrid-benefit
+ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ac879292086b56003ac934a3f3005b2a8ecc0516
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: d634d1affd74d8a6c8be229d689bbcb6c63bd0db
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112575"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216026"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure 하이브리드 혜택
 

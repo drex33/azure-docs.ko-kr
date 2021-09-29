@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 642263d33099d497c5b9ad5f6e9d07754a7d5c14
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eec1c595119e225468bdbbe76f506b5b330a1beb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811210"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212402"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
 
@@ -50,7 +50,7 @@ Data Box Gateway의 주요 장점 중 하나는 데이터 크기에 관계없이
 - 데이터가 업로드된 후 보관 계층으로 이동해야 합니다. Azure PowerShell 스크립트 또는 Azure Storage 수명 주기 관리 정책을 사용하여 Blob 계층을 두 가지 방법으로 설정할 수 있습니다.  
     - Azure PowerShell을 사용하는 경우, 다음 [단계](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier)에 따라 데이터를 보관 계층으로 이동합니다.
     - Azure 수명 주기 관리를 사용하는 경우, 다음 단계에 따라 데이터를 보관 계층으로 이동합니다.
-        - 보관 계층을 사용하도록 Blob 수명 주기 관리 서비스의 미리보기를 [등록](../storage/blobs/lifecycle-management-overview.md)합니다.
+        - [Blob 수명 주기 관리 서비스](../storage/blobs/lifecycle-management-overview.md)를 통해 보관 계층을 사용 합니다.
         - 다음 정책을 사용하여 [수집 시 데이터를 보관](../storage/blobs/lifecycle-management-overview.md#archive-data-after-ingest)합니다.
 - Blob이 보관으로 표시되면, 핫 또는 콜드 계층으로 이동하지 않는 한 게이트웨이에서 더 이상 수정할 수 없습니다. 파일이 로컬 스토리지에 있는 경우 로컬 복사본의 변경 내용(삭제 포함)이 보관 계층으로 업로드되지 않습니다.
 - 보관 스토리지에서 데이터를 읽으려면 Blob 계층을 핫 또는 쿨로 변경하여 데이터를 리하이드레이션해야 합니다. 게이트웨이에서 [공유를 새로 고치](data-box-gateway-manage-shares.md#refresh-shares)는 것은 Blob을 다시 하이드레이션하지 않습니다.

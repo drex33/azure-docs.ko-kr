@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Purview의 검사 및 수집에 대해 �
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: a86227fe2607b116927a2bd7b032285f2b774ac6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 42162519e9e8f3835498d8955adbd7c254775dd9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819112"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211718"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Azure Purview에서 검사 및 수집
 
@@ -24,15 +24,15 @@ ms.locfileid: "124819112"
 
 각 검사에는 필요한 정보에 대한 원본만 검색하도록 적용할 수 있는 사용자 지정이 있습니다.
 
-### <a name="choose-an-authentication-method-for-your-scans"></a>검사에 대한 인증 방법 선택
+### <a name="choose-an-authentication-method-for-your-scans"></a>검색에 대 한 인증 방법 선택
 
-Purview는 기본적으로 안전합니다. 암호 또는 비밀은 Purview에 직접 저장되지 않으므로 원본에 대한 인증 방법을 선택해야 합니다. Purview 계정을 인증하는 방법에는 네 가지가 있지만 각 데이터 원본에 대해 모든 방법이 지원되는 것은 아닙니다.
+부서의 범위은 기본적으로 안전 합니다. 암호 또는 암호는 부서의 범위에 직접 저장 되지 않으므로 원본에 대 한 인증 방법을 선택 해야 합니다. 부서의 범위 계정을 인증 하는 네 가지 방법이 있지만 각 데이터 원본에 대 한 모든 방법이 지원 되는 것은 아닙니다.
  - 관리 ID
  - 서비스 주체
  - SQL 인증
  - 계정 키 또는 기본 인증
 
-가능하면 개별 데이터 원본에 대한 자격 증명을 저장하고 관리할 필요가 없으므로 관리 ID가 기본 인증 방법입니다. 이렇게 하면 사용자와 팀이 검사를 위한 인증 설정 및 문제 해결에 소요하는 시간을 크게 줄일 수 있습니다. Purview 계정에 관리 ID를 사용하도록 설정하면 id가 Azure Active Directory 만들어지고 계정의 수명 주기에 연결됩니다. 
+가능한 경우 관리 되는 Id는 개별 데이터 원본에 대 한 자격 증명을 저장 하 고 관리할 필요가 없기 때문에 기본 인증 방법입니다. 이렇게 하면 사용자와 팀이 검색에 대 한 인증을 설정 하 고 문제를 해결 하는 데 드는 시간을 크게 줄일 수 있습니다. 부서의 범위 계정에 관리 되는 id를 사용 하도록 설정 하면 Azure Active Directory에서 id가 만들어지고 계정의 수명 주기와 연결 됩니다. 
 
 ### <a name="scope-your-scan"></a>검사 범위 지정
 
@@ -46,9 +46,9 @@ Purview는 기본적으로 안전합니다. 암호 또는 비밀은 Purview에 �
 
 많은 데이터 원본 유형에 대해 이미 사용할 수 있는 [시스템 검사 규칙 집합](create-a-scan-rule-set.md#system-scan-rule-sets)이 있으며 [고유의 검사 규칙 집합을 만들어](create-a-scan-rule-set.md) 조직에 맞게 검사를 조정할 수도 있습니다.
 
-### <a name="schedule-your-scan"></a>검사 예약
+### <a name="schedule-your-scan"></a>검색 예약
 
-Purview는 선택한 특정 시간에 매주 또는 매월 검사를 선택할 수 있습니다. 매주 검색은 개발 중이거나 자주 변경되는 구조가 있는 데이터 원본에 적합할 수 있습니다. 월별 검색은 자주 변경되지 않는 데이터 원본에 더 적합합니다. 가장 좋은 방법은 검색하려는 원본의 관리자와 협력하여 원본에 대한 컴퓨팅 요구가 낮은 시간을 식별하는 것입니다.
+부서의 범위를 사용 하면 선택한 특정 시간에 매주 또는 매월 스캔을 선택할 수 있습니다. 주별 검색은 개발 중이거나 자주 변경 되는 구조의 데이터 원본에 적합 합니다. 월간 검색은 자주 변경 되지 않는 데이터 원본에 더 적합 합니다. 원본에 대 한 계산 요구가 낮은 시간을 식별 하기 위해 검색 하려는 원본의 관리자와 작업 하는 것이 좋습니다.
 
 ### <a name="how-scans-detect-deleted-assets"></a>검사를 통해 삭제된 자산을 검색하는 방법
 
@@ -63,7 +63,7 @@ Azure Purview 카탈로그는 검사를 실행할 때에만 데이터 저장소�
 Data Lake Storage Gen2 같은 대량 데이터 저장소를 열거하는 경우 정보가 누락될 수 있는 방법이 여러 가지(열거 오류 및 끊어진 이벤트 등) 있습니다. 특정 검사에서 파일이 만들어지거나 삭제되지 않았을 수 있습니다. 따라서 카탈로그는 특정 파일이 삭제된 것이 확실한 경우를 제외하고는 카탈로그에서 삭제하지 않습니다. 이 전략은 검사된 데이터 저장소에 없는 파일이 여전히 카탈로그에 있는 경우 오류가 발생할 수 있음을 의미합니다. 일부 경우에 데이터 저장소는 삭제된 특정 자산을 포착하기 전에 2-3번 검사해야 할 수 있습니다.
 
 > [!NOTE]
-> 삭제용으로 표시된 자산은 검색에 성공한 후 삭제됩니다. 삭제된 자산은 처리 및 제거되기 전에 일정 시간 동안 카탈로그에 계속 표시될 수 있습니다.
+> 삭제 하도록 표시 된 자산은 성공적으로 검색 된 후 삭제 됩니다. 삭제 된 자산은 처리 및 제거 되기 전에 카탈로그에서 계속 표시 될 수 있습니다.
 
 ## <a name="ingestion"></a>수집
 

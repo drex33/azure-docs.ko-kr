@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: ff6d911b85558e5efe9cc8302b9cb857cb7a9706
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: cc5d5aa589b56fb6e6fda1845e50606ff492fbdd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830660"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217886"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor, Service Health 및 Azure Advisor 경고는 작업 그룹을 사용하여 알림이 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -24,6 +24,8 @@ ms.locfileid: "122830660"
 * **세부 정보**: *유형* 에 따라 달라지는 해당 세부 정보입니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](./action-groups-create-resource-manager-template.md)을 참조하세요.
+
+작업 그룹은 **글로벌** 서비스 이므로 특정 Azure 지역에 대 한 종속성이 없습니다. 클라이언트의 요청은 모든 지역에서 작업 그룹 서비스에 의해 처리 될 수 있습니다. 즉, 서비스의 한 지역이 다운 되 면 트래픽은 다른 지역에서 자동으로 라우팅되고 처리 됩니다. *글로벌 서비스로* 서 클라이언트는 **재해 복구** 에 대해 걱정 하지 않아도 됩니다. 
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 작업 그룹 만들기
 

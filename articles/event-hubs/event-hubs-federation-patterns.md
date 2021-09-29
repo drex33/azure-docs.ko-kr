@@ -2,13 +2,13 @@
 title: 이벤트 복제 작업 패턴-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 특정 이벤트 복제 작업 패턴을 구현하기 위한 자세한 지침을 제공합니다.
 ms.topic: article
-ms.date: 12/12/2020
-ms.openlocfilehash: adaa124470e6b3cc94bab647967f08b63a1c4f49
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: f4fb2a166a5dfd50f3035e5efe5462313716daef
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462856"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217413"
 ---
 # <a name="event-replication-tasks-patterns"></a>이벤트 복제 작업 패턴
 

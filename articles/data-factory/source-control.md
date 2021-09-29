@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: c020f337f43ef5bfd187c7db94b6ce20a645c026
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665469"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219214"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "128665469"
 작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 본 문서에서는 git 리포지토리에서 구성하고 작업하는 방법과 함께 모범 사례 및 문제 해결 가이드를 간략하게 설명합니다.
 
 > [!NOTE]
-> Azure 중국 Azure Gov에 GitHub 공개 지원이 추가되었습니다. [공지 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918)를 참조하세요.
+> azure .gov, azure 중국에서 공개 지원을 GitHub 추가 했습니다. [알림 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918)를 참조 하세요.
 
 Azure Data Factory와 Git를 통합하는 방법에 대한 자세한 내용은 아래의 15분 자습서 비디오를 참조하세요.
 
@@ -42,7 +42,7 @@ Git 통합이 작성 환경에 제공하는 일부 장점이 아래에 나열되
     -   버그를 발생한 변경 내용을 되돌릴 수 있습니다.
 -   **부분 저장:** 데이터 팩터리 서비스에서 직접 작성하면 변경 내용을 초안으로 저장할 수 없으며 모든 게시는 데이터 팩터리 유효성 검사를 통과해야 합니다. 파이프라인이 완료되지 않았거나 컴퓨터 작동 중단 시 변경 내용을 잃지 않으려는 경우 git 통합을 사용하면 상태와 관계없이 데이터 팩터리 리소스를 점진적으로 변경할 수 있습니다. git 리포지토리를 구성하면 변경 사항을 저장하고 변경 사항을 만족스럽게 테스트한 경우에만 게시할 수 있습니다.
 -   **협업 및 제어:** 동일한 팩터리에 기여하는 팀 멤버가 여러 명인 경우에는 코드 검토 프로세스를 통해 팀원이 서로 협업하도록 할 수 있습니다. 일부 기여자는 다른 권한을 갖도록 팩터리를 설정할 수도 있습니다. 일부 팀 멤버는 Git를 통해서만 변경할 수 있고, 팀에서 특정 사용자만 팩터리에 변경 내용을 게시하도록 허용할 수 있습니다.
--   **CI/CD 향상:**  [지속적인 업데이트 프로세스](continuous-integration-deployment.md)를 통해 여러 환경에 배포하는 경우 GIT 통합을 통해 특정 작업을 더 쉽게 수행할 수 있습니다. 이러한 작업 중 일부는 다음을 포함합니다.
+-   **CI/CD 향상:**  [지속적인 업데이트 프로세스](continuous-integration-delivery.md)를 통해 여러 환경에 배포하는 경우 GIT 통합을 통해 특정 작업을 더 쉽게 수행할 수 있습니다. 이러한 작업 중 일부는 다음을 포함합니다.
     -   'dev' 팩터리에 변경 사항이 생기는 즉시 자동으로 트리거되도록 릴리스 파이프라인을 구성합니다.
     -   Resource Manager 템플릿에서 매개 변수로 사용할 수 있는 속성을 팩터리에서 사용자 지정합니다. 필수 속성 세트만 매개 변수로 유지하고 다른 모든 항목은 하드 코딩하면 유용할 수 있습니다.
 -   **성능 향상:** git 통합을 사용하는 평균 팩터리는 데이터 팩터리 서비스에서 작성하는 경우보다 10배 더 빨리 로드됩니다. 이러한 성능 향상은 리소스가 Git를 통해 다운로드되기 때문입니다.
@@ -209,9 +209,9 @@ _원본 제어_ 라고도 하는 버전 제어 시스템을 통해 개발자는 
 
 :::image type="content" source="media/author-visually/new-branch.png" alt-text="새 분기 만들기":::
 
-새 분기 창이 표시 되 면 기능 분기의 이름을 입력 하 고 작업의 기반이 되는 분기를 선택 합니다.
+새 분기 창이 나타나면 기능 분기의 이름을 입력하고 작업을 기반으로 할 분기를 선택합니다.
 
-:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="비공개 분기를 기반으로 분기를 만드는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="프라이빗 분기를 기반으로 분기를 만드는 방법을 보여주는 스크린샷":::
 
 기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Azure Repos Git로 이동합니다. (기본값은 `main`입니다.) 협업 분기에서 Data Factory 서비스에 게시할 수만 있습니다. 
 
@@ -315,4 +315,4 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 ## <a name="next-steps"></a>다음 단계
 
 * 파이프라인 모니터링 및 관리에 대한 자세한 내용은 [프로그래밍 방식으로 파이프라인 모니터링 및 관리](monitor-programmatically.md)를 참조하세요.
-* 연속 통합 및 배포를 구현하려면 [Azure Data Factory의 CI/CD(연속 통합 및 지속적인 업데이트)](continuous-integration-deployment.md)를 참조하세요.
+* 연속 통합 및 배포를 구현하려면 [Azure Data Factory의 CI/CD(연속 통합 및 지속적인 업데이트)](continuous-integration-delivery.md)를 참조하세요.

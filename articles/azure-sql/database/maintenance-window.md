@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
 ms.date: 09/14/2021
-ms.openlocfilehash: 071ccdf3d02de4836d47e02e5154d55c45102279
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bf37cfc156d45eb668a7f7da240e8a9437aa51d9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705687"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216976"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,7 +76,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 기본 이외의 유지 관리 기간은 현재 다음 지역에서 선택할 수 있습니다.
 
-| Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역에서](high-availability-sla.md) SQL Database | 
+| Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역의](high-availability-sla.md) SQL Database | 
 |:---|:---|:---|:---|
 | 오스트레일리아 동부 | 예 | 예 | 예 |
 | 오스트레일리아 남동부 | 예 | 예 | |
@@ -90,6 +90,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 미국 동부 | 예 | 예 | 예 |
 | 미국 동부 2 | 예 | 예 | 예 |
 | 동아시아 | 예 | 예 | |
+| 프랑스 중부 | 예 | 예 | |
 | 프랑스 남부 | 예 | 예 | |
 | 독일 중서부 | 예 | 예 |  |
 | 일본 동부 | 예 | 예 | 예 |
@@ -100,6 +101,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 북유럽 | 예 | 예 | 예 |
 | 남아프리카 북부 | 예 | | | 
 | 미국 중남부 | 예 | 예 | 예 |
+| 인도 남부 | 예 | 예 | |
 | 동남아시아 | 예 | 예 | 예 |
 | 스위스 북부 | 예 | 예 | |
 | 아랍에미리트 중부 | 예 | | |

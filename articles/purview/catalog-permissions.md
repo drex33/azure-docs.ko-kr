@@ -1,18 +1,17 @@
 ---
-title: 카탈로그 권한 (미리 보기)
-description: 이 문서에서는 Azure Purview에서 역할 기반 액세스 제어(RBAC)를 구성하는 방법에 대한 개요를 제공합니다.
+title: 액세스 및 사용 권한 이해
+description: 이 문서에서는 Azure 부서의 범위의 개요 권한, 액세스 제어 및 컬렉션을 제공 합니다. RBAC (역할 기반 액세스 제어)는 Azure 부서의 범위 자체 내에서 관리 되므로이 가이드에서는 정보를 보호 하기 위한 기본 사항을 다룹니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: c9c924b6188372da2ff772f7283f6ea47f89ef92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/27/2021
+ms.openlocfilehash: fc2ea92f8e5a3d727db130cc4dce7c13c449a9fa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735933"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209056"
 ---
 # <a name="access-control-in-azure-purview"></a>Azure Purview의 액세스 제어
 
@@ -31,10 +30,10 @@ Azure Purview는 **컬렉션** 을 사용하여 원본, 자산 및 기타 아티
 
 Azure Purview는 미리 정의된 역할 세트를 사용하여 누가 계정 내의 어떤 항목에 액세스할 수 있는지를 제어합니다. 이러한 역할은 현재 다음과 같습니다.
 
-- **컬렉션 관리자** - Purview 컬렉션, 해당 세부 정보 및 하위 컬렉션을 편집할 수 있습니다. 본인이 관리자로 있는 컬렉션의 다른 Purview 역할에 사용자를 추가할 수도 있습니다.
-- **데이터 원본 관리자** - 데이터 원본 및 데이터 검색을 관리할 수 있습니다.
-- **데이터 큐레이터** - 카탈로그 데이터 자산을 만들고 읽고 수정하고 삭제할 수 있으며 자산 간의 관계를 설정할 수 있습니다.
-- **데이터 읽기 권한자** - 카탈로그 데이터 자산에 액세스할 수 있지만 수정할 수는 없습니다.
+- **컬렉션 관리자** -Azure 부서의 범위에서 다른 사용자에 게 역할을 할당 하거나 컬렉션을 관리 해야 하는 사용자에 대 한 역할입니다. 컬렉션 관리자는 관리자 인 컬렉션의 역할에 사용자를 추가할 수 있습니다. 컬렉션 및 세부 정보를 편집 하 고 하위 컬렉션을 추가할 수도 있습니다.
+- **데이터 curators** 자산을 관리 하 고, 사용자 지정 분류를 구성 하 고, 용어를 설정 하 고, 정보를 검토 하는 데이터 카탈로그에 대 한 액세스를 제공 하는 역할입니다. 데이터를 만들고, 읽고, 수정 하 고, 이동 하 고, 주석을 적용 하 고, 자산을 삭제할 수 있습니다.
+- **데이터 원본 관리자** -데이터 원본 및 검색을 관리할 수 있는 역할입니다. 데이터 원본 관리자 역할의 사용자만 Azure 부서의 범위 studio에 액세스할 수 있습니다. 이 역할과 데이터 판독기 또는 데이터 큐레이터 역할을 결합 하면 광범위 한 액세스를 제공 합니다.
+- **데이터 판독기** -데이터 자산, 분류, 분류 규칙, 컬렉션, 용어집 및 정보에 대 한 읽기 전용 액세스를 제공 하는 역할입니다.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>누가 어떤 역할에 할당되어야 하나요?
 
@@ -52,7 +51,7 @@ Azure Purview는 미리 정의된 역할 세트를 사용하여 누가 계정 �
 
 ## <a name="understand-how-to-use-azure-purviews-roles-and-collections"></a>Azure Purview의 역할 및 컬렉션을 사용하는 방법 이해
 
-모든 액세스 제어는 Purview의 컬렉션에서 관리됩니다. Purview의 컬렉션은 [Purview Studio](use-purview-studio.md)에서 찾을 수 있습니다. [Azure Portal](https://portal.azure.com)에서 Purview 계정을 열고 [개요] 페이지에서 Purview Studio 타일을 선택합니다. 여기서 왼쪽 메뉴의 데이터 맵으로 이동한 다음, '컬렉션' 탭을 선택합니다.
+모든 액세스 제어는 Purview의 컬렉션에서 관리됩니다. Purview의 컬렉션은 [Purview Studio](https://web.purview.azure.com/resource/)에서 찾을 수 있습니다. [Azure Portal](https://portal.azure.com)에서 Purview 계정을 열고 [개요] 페이지에서 Purview Studio 타일을 선택합니다. 여기서 왼쪽 메뉴의 데이터 맵으로 이동한 다음, '컬렉션' 탭을 선택합니다.
 
 만들어진 Azure Purview 계정은 Purview 계정 자체와 동일한 이름을 가진 루트 컬렉션으로 시작합니다. Purview 계정의 작성자는 자동으로 이 루트 컬렉션의 컬렉션 관리자, 데이터 원본 관리자, 데이터 큐레이터 및 데이터 읽기 권한자로 추가되며, 이 컬렉션을 편집하고 관리할 수 있습니다.
 
@@ -91,7 +90,7 @@ Azure Purview 계정을 만든 후 가장 먼저 할 일은 컬렉션을 만들�
 
 ### <a name="add-users-to-roles"></a>역할에 사용자 추가
 
-역할 할당은 컬렉션을 통해 관리됩니다. [컬렉션 관리자 역할](#roles)이 할당된 사용자만이 해당 컬렉션의 다른 사용자에게 권한을 부여할 수 있습니다. 새 권한을 추가해야 하는 경우 컬렉션 관리자는 Purview Studio에 액세스하고, 데이터 맵으로 이동하고, [컬렉션] 탭으로 이동하고, 사용자를 추가해야 하는 컬렉션을 선택합니다. [역할 할당] 탭에서는 권한이 필요한 사용자를 추가하고 관리할 수 있습니다.
+역할 할당은 컬렉션을 통해 관리됩니다. [컬렉션 관리자 역할](#roles)이 할당된 사용자만이 해당 컬렉션의 다른 사용자에게 권한을 부여할 수 있습니다. 새 권한을 추가 해야 하는 경우 컬렉션 관리자는 [부서의 범위 Studio](https://web.purview.azure.com/resource/)에 액세스 하 고, 데이터 맵으로 이동한 다음, 컬렉션 탭으로 이동 하 고, 사용자를 추가 해야 하는 컬렉션을 선택 합니다. [역할 할당] 탭에서는 권한이 필요한 사용자를 추가하고 관리할 수 있습니다.
 
 전체 지침은 [역할 할당을 추가하는 방법 가이드](how-to-create-and-manage-collections.md#add-role-assignments)를 참조하세요.
 
@@ -136,7 +135,7 @@ Azure에서 두 개의 기본 제공 컨트롤 플레인 역할만 사용자 역
 #### <a name="an-example-of-assigning-someone-to-a-legacy-role"></a>레거시 역할에 사용자 할당 예제
 
 1. https://portal.azure.com 로 이동하여 Azure Purview 계정으로 이동합니다.
-1. 왼쪽에서 "액세스 제어 (IAM)"을 클릭합니다.
+1. 왼쪽에서 **액세스 제어(IAM)를** 선택합니다.
 1. 그런 다음 [여기](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group) 에 제공된 일반적인 지침을 따릅니다.
 
 ### <a name="legacy-role-definitions-and-actions"></a>레거시 역할 정의 및 작업
@@ -147,7 +146,7 @@ Azure에서 두 개의 기본 제공 컨트롤 플레인 역할만 사용자 역
 
 Azure Purview 계정에 대한 액세스 권한을 부여하여 해당 스튜디오를 사용하거나 API를 호출할 수 있도록 하려면 Azure Purview 데이터 평면 역할에 추가되어야 합니다. 이 작업을 수행할 수 있는 유일한 사용자는 Azure Purview 계정에 대한 소유자 또는 사용자 액세스 관리자입니다. 대부분의 사용자는 다음 단계를 통해 액세스 권한을 부여할 수 있는 적절한 사용자를 찾을 수 있는 로컬 관리자를 찾을 수 있습니다.
 
-회사의 [Azure Portal](https://portal.azure.com)에 대한 액세스 권한이 있는 사용자는 가입하려는 특정 Azure Purview 계정을 조회할 수 있으며, 해당 "액세스 제어 (IAM)" 탭을 클릭하여 소유자 또는 사용자 액세스 관리자(UAAs)가 누구인지 확인할 수 있습니다. 그러나 일부 경우에는 Azure Active Directory 그룹 또는 서비스 주체를 소유자 또는 UAAs로 사용할 수 있으며, 이 경우에는 직접 연락하지 못할 수 있습니다. 대신, 도움을 주는 관리자를 찾아야 합니다.
+회사의 [Azure Portal](https://portal.azure.com) 액세스할 수 있는 사용자의 경우 가입하려는 특정 Azure Purview 계정을 조회하고 해당 **액세스 제어(IAM)** 탭을 선택하고 소유자 또는 UA(사용자 액세스 관리자)가 누구인지 확인합니다. 그러나 일부 경우에는 Azure Active Directory 그룹 또는 서비스 주체를 소유자 또는 UAAs로 사용할 수 있으며, 이 경우에는 직접 연락하지 못할 수 있습니다. 대신, 도움을 주는 관리자를 찾아야 합니다.
 
 ### <a name="legacy---who-should-be-assigned-to-what-role"></a>레거시 - 누구에게 어떤 역할을 할당해야 하나요?
 

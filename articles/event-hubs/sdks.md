@@ -3,12 +3,12 @@ title: Azure Event Hubs-클라이언트 SDK | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 클라이언트 SDK에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 09/21/2021
-ms.openlocfilehash: f3fd3407ae96cf2119bb97d2a47b647c33db9332
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1a802e5d9829f533187f477bb28037c22c02f3c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623535"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215893"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - 클라이언트 SDK
 이 문서에서는 Azure Event Hubs에서 지원하는 SDK에 대해 다음과 같은 정보를 제공합니다. 
@@ -18,7 +18,7 @@ ms.locfileid: "128623535"
 - 빠른 시작 자습서 링크 
 
 ## <a name="client-sdks"></a>클라이언트 SDK
-다음 표에서는 사용 가능한 최신 Azure Event Hubs 런타임 클라이언트를 모두 설명 합니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 **메시지를 주고 받는** 것입니다.
+다음 표에서는 런타임 클라이언트에 사용 가능한 모든 최신 Azure Event Hubs 설명합니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 **메시지를 주고 받는** 것입니다.
 
 | 언어 | 패키지 | 참조 | 
 | -------- | ------- | --------------- | 
@@ -33,13 +33,13 @@ ms.locfileid: "128623535"
 | Go | [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-event-hubs-go)</li><li>[자습서](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [azure-event-hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-event-hubs-c)</li><li>[자습서](event-hubs-c-getstarted-send.md)</li></ul> |
 
-다음 표에서는 이전 Azure Event Hubs 런타임 클라이언트를 나열 합니다. 이러한 패키지는 중요 한 버그 수정 사항을 받을 수 있지만 활성 개발은 아닙니다. 위의 표에 나와 있는 최신 Sdk를 대신 사용 하는 것이 좋습니다.
+아래 표에는 이전 Azure Event Hubs 런타임 클라이언트가 나와 있습니다. 이러한 패키지는 중요한 버그 수정을 받을 수 있지만 현재 개발 중이 아닙니다. 대신 위의 표에 나열된 최신 SDK를 사용하는 것이 좋습니다.
 
 | 언어 | 패키지 | 참조 | 
 | -------- | ------- | --------------- | 
-| . NET Standard  | [EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) (**레거시**) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)</li><li>[자습서](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> | 
-|       | [EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor) (**레거시**) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.Processor)</li><li>[자습서](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
-| . .NET Framework | [Windowsazure.servicebus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) (**레거시**) |<ul><li>[자습서](event-hubs-dotnet-framework-getstarted-send.md)</li></ul> |
+| . NET Standard  | [Microsoft.Azure.EventHubs(](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) **레거시**) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)</li><li>[자습서](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> | 
+|       | [Microsoft.Azure.EventHubs.Processor(](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor) **레거시**) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.Processor)</li><li>[자습서](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
+| . NET Framework | [WindowsAzure.Messaging(](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) **레거시**) | |
 |   Java   | [azure-eventhubs](https://search.maven.org/search?q=a:azure-eventhubs) **(레거시)** | <ul><li>[GitHub 위치](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/microsoft-azure-eventhubs)</li><li>[자습서](event-hubs-java-get-started-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>관리 SDK

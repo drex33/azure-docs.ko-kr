@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/02/2021
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: a176b971d830fcabf3eba1767b9ac198a4418f0b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ab759cf81ce95ca7cf61a3777092fd92040baf6c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567412"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208479"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -46,10 +46,11 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 - 디스크에 직접 데이터를 복사하지 마세요. 미리 만든 *BlockBlob*, *PageBlob* 및 *AzureFile* 폴더에 데이터를 복사합니다.
 - *BlockBlob* 및 *PageBlob* 아래의 폴더는 컨테이너입니다. 예를 들어 컨테이너는 *BlockBlob/컨테이너* 및 *PageBlob/컨테이너* 로 만들어집니다.
-- 폴더의 이름이 기존 컨테이너와 같으면 폴더의 내용이 컨테이너의 콘텐츠와 병합됩니다. 클라우드에 아직 없는 파일 또는 Blob은 컨테이너에 추가됩니다. 파일 또는 Blob의 이름이 컨테이너에 이미 있는 파일 또는 Blob과 동일한 경우 기존 파일 또는 Blob을 덮어씁니다.
-- *BlockBlob* 및 *PageBlob* 공유에 기록된 모든 파일은 각각 블록 Blob 및 페이지 Blob으로 업로드됩니다.
+- 폴더의 이름이 기존 컨테이너와 같으면 폴더의 내용이 컨테이너의 콘텐츠와 병합됩니다. 클라우드에 아직 없는 파일 또는 Blob이 컨테이너에 추가됩니다. 파일 또는 Blob의 이름이 컨테이너에 이미 있는 파일 또는 Blob과 동일한 경우 기존 파일 또는 Blob을 덮어씁니다.
+- *BlockBlob* 및 *PageBlob* 공유에 기록된 모든 파일은 각각 블록 Blob 및 페이지 Blob으로 업로드됩니다. 
+- 파일의 계층 구조는 Blob 및 Azure Files 모두에 대해 클라우드에 업로드하는 동안 유지 관리됩니다. 예를 들어 `<container folder>\A\B\C.txt` 경로에 파일을 복사했습니다. 이 파일은 클라우드의 동일한 경로에 업로드됩니다.
 - *BlockBlob* 및 *PageBlob* 폴더 아래에 만들어진 모든 빈 디렉터리 계층 구조(어떤 파일도 없는)는 업로드되지 않습니다.
-- 데이터 업로드 중 성능을 향상하려면 [스토리지 계정에서 대용량 파일 공유를 사용하도록 설정하고 공유 용량을 100TiB로 늘리는](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) 것이 좋습니다. 대용량 파일 공유는 LRS(로컬 중복 스토리지)가 있는 스토리지 계정에서만 지원됩니다.
+- 데이터 업로드 중 성능을 향상하려면 [스토리지 계정에서 대용량 파일 공유를 사용하도록 설정하고 공유 용량을 100TiB로 늘리는](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) 것이 좋습니다. 대용량 파일 공유는 LRS(로컬 중복 스토리지)가 있는 스토리지 계정에 대해서만 지원됩니다.
 - 데이터를 Azure에 업로드할 때 오류가 발생하는 경우 오류 로그는 대상 스토리지 계정에서 만들어집니다. 업로드가 완료되면 오류 로그 경로를 포털에서 사용할 수 있으며, 정정 작업을 수행하려면 로그를 검토할 수 있습니다. 업로드된 데이터를 확인하지 않고 원본에서 데이터를 삭제하지 마세요.
 - 파일 메타데이터 및 NTFS 권한은 데이터가 Azure Files에 업로드될 때 보존되지 않습니다. 예를 들어 데이터가 복사될 때 파일의 마지막으로 수정된 특성은 유지되지 않습니다.
 - 관리 디스크를 순서대로 지정했다면 다음 추가 고려 사항을 검토합니다.

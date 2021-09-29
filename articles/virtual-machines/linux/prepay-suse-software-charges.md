@@ -4,16 +4,16 @@ description: 소프트웨어 플랜을 선결제로 지급하고 종량제 비�
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: a7f6da8a6b882741e4dc8fbf41ae8b99058d8851
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c46215bde33f726aba61ad42bf27a14ac2edb4dc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587331"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216498"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
 
@@ -39,7 +39,7 @@ Azure Portal에서 SUSE 및 RedHat 소프트웨어 플랜을 구매할 수 있�
 4. 범위를 선택합니다. 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다.
     - 단일 구독 - 플랜 할인이 이 구독에서 일치하는 사용량에 적용됩니다.
     - 공유 - 플랜 할인이 청구 컨텍스트 내의 모든 구독에서 일치하는 사용량에 적용됩니다. 기업 고객의 경우 청구 컨텍스트는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 가격이 적용되는 개별 플랜 고객의 경우 청구 컨텍스트는 계정 관리자가 만든 종량제 가격 구독이 적용되는 모든 개별 플랜입니다.
-    - 관리 그룹-관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.
+    - 관리 그룹 - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.
     - 단일 리소스 그룹 - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
 5. 제품을 선택하여 VM 크기와 이미지 형식을 선택합니다. 할인은 선택한 VM 크기에만 적용됩니다.
 6. 1년 또는 3년의 기간을 선택합니다.

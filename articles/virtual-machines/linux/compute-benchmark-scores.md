@@ -2,17 +2,17 @@
 title: Azure Linux VM의 컴퓨팅 벤치마크 점수
 description: Linux를 실행하는 Azure VM의 CoreMark 컴퓨팅 벤치마크 점수를 비교합니다.
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 698cebdcc6918e673d3914e00517f9c612876434
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3847250ee3c5a080740aef51541fdf47e5c11882
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564926"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216533"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
 

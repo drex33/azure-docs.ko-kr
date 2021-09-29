@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 6bb70ae35378934557281d83c815c763285c4e56
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5a1569f0f1c2d8eea2c13f458c0f3a09a666f04
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806403"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216672"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용하여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -93,7 +93,7 @@ Data Factory 네이티브 통합 런타임 모드의 단일 복사 작업 실행
 - HDFS에 인증하려면 [Windows (Kerberos) 또는 익명](./connector-hdfs.md#linked-service-properties)을 사용할 수 있습니다. 
 - Azure Blob 스토리지에 연결하기 위해 여러 인증 유형이 지원됩니다.  [Azure 리소스에 대한 관리 ID](./connector-azure-blob-storage.md#managed-identity)를 사용하는 것이 좋습니다. Azure AD(Azure Active Directory)에서 자동으로 관리되는 Data Factory ID를 기반으로 빌드된 관리 ID를 사용하면 연결된 서비스 정의에서 자격 증명을 제공하지 않고도 파이프라인을 구성할 수 있습니다. 또는 [서비스 주체](./connector-azure-blob-storage.md#service-principal-authentication), [공유 액세스 서명](./connector-azure-blob-storage.md#shared-access-signature-authentication) 또는 [스토리지 계정 키](./connector-azure-blob-storage.md#account-key-authentication)를 사용하여 Blob 스토리지에 인증할 수 있습니다. 
 - Data Lake Storage Gen2에 연결하기 위해 여러 인증 유형도 지원됩니다.  [Azure 리소스에 대한 관리 ID](./connector-azure-data-lake-storage.md#managed-identity)를 사용하는 것이 좋지만 [서비스 주체](./connector-azure-data-lake-storage.md#service-principal-authentication) 또는 [스토리지 계정 키](./connector-azure-data-lake-storage.md#account-key-authentication)를 사용할 수도 있습니다. 
-- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 Data Factory 연결된 서비스를 수정하지 않고 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md)하는 것이 좋습니다. 이는 또한 [CI/CD의 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd)입니다. 
+- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 Data Factory 연결된 서비스를 수정하지 않고 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md)하는 것이 좋습니다. 이는 또한 [CI/CD의 모범 사례](./continuous-integration-delivery.md#best-practices-for-cicd)입니다. 
 
 ### <a name="initial-snapshot-data-migration"></a>초기 스냅샷 데이터 마이그레이션 
 

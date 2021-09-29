@@ -4,19 +4,22 @@ description: 본 방법 가이드에서는 보유 데이터 관련 Purview 파�
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: f581594e6830efcf849f4ba51b218ce849bf3f9c
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 706c27603233369836368239645cf28222da8eaa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530778"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208544"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Azure Purview의 보유 데이터 관련 파일 확장명 인사이트 
 
 본 방법 가이드에서는 보유 데이터에서 찾은 파일 확장명이나 파일 형식에 대한 인사이트에 액세스, 확인 및 필터링하는 방법을 설명합니다.
+
+> [!IMPORTANT]
+> Azure Purview Insights 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 지원하는 데이터 원본에는 Azure Blob Storage, ADLS(Azure Data Lake Storage) GEN 1, ADLS(Azure Data Lake Storage) GEN 2, Amazon S3 버킷이 포함됩니다.
 
@@ -26,18 +29,18 @@ ms.locfileid: "122530778"
 > - 보유 데이터 관련 파일 확장명 인사이트 확인하기
 > - 보유 데이터 관련 파일 확장명에 대한 추가적인 세부 정보를 드릴다운하기
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 구성 요소
 
 Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확인합니다.
 
 - Azure 리소스 설정 및 테스트 데이터를 통해 관련 계정 채우기
 
-- 데이터 원본별로 테스트 데이터에 대한 스캔 설정 및 완료 자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조하세요.
+- 데이터 원본별로 테스트 데이터에 대한 스캔 설정 및 완료 자세한 내용은 [Azure Purview에서 데이터 원본 관리](manage-data-sources.md) 및 검사 규칙 집합 [만들기를 참조하세요.](create-a-scan-rule-set.md)
 
 - [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#roles)이 있는 계정으로 Purview에 로그인했습니다.
 
 
-자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md)를 참조하세요.
+자세한 내용은 [Azure Purview에서 데이터 원본 관리를 참조하세요.](manage-data-sources.md)
 
 ## <a name="use-purview-file-extension-insights"></a>Purview 파일 확장명 인사이트 사용하기
 

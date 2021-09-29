@@ -4,15 +4,14 @@ description: Azure Purview의 재해 복구 환경을 구성하는 방법을 알
 author: sudheerreddykoppula
 ms.author: sukoppul
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.openlocfilehash: 170f72c0076f6614e59c37ba0f06071480726b09
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
-ms.translationtype: HT
+ms.openlocfilehash: a5b06b204cf0124a73639a9c2c59a2bc05712cb7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108021168"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214297"
 ---
 # <a name="disaster-recovery-for-purview"></a>Purview 재해 복구
 

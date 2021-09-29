@@ -4,15 +4,15 @@ description: 본 문서는 Azure Purview 연결 관련 문제 해결 단계를 �
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/04/2021
-ms.openlocfilehash: 95e1dd0a75ce233ed531b331783738d72c661c40
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: cfcac68bfc09a4c3b6d4794469734d0634b3ad0c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594804"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213461"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Azure Purview 연결 관련 문제 해결
 
@@ -76,7 +76,7 @@ Azure Purview에서 새 자격 증명을 만드는 방법에 대한 자세한 �
 1. 키 자격 증명 모음으로 이동합니다.
 1. **설정** > **비밀** 을 선택합니다.
 1. 검사할 데이터 원본에 대하여 인증하기 위하여 사용하는 비밀을 선택합니다.
-1. 사용하려는 버전을 선택하고 암호나 계정 키가 옳은 것인지 **비밀 값 표시** 를 클릭하여 확인합니다. 
+1. 사용할 버전을 선택하고 비밀 값 표시를 선택하여 암호 또는 계정 키가 올바른지 **확인합니다.** 
 
 ## <a name="verify-permissions-for-the-purview-managed-identity-on-your-azure-key-vault"></a>Azure Key Vault에서 Purview 관리형 ID에 대한 권한 확인하기
 

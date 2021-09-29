@@ -1,18 +1,17 @@
 ---
-title: Data Catalog 계보 사용자 가이드(미리 보기)
+title: Data Catalog 계보 사용자 가이드
 description: 이 문서에서는 Azure Purview의 카탈로그 계보 기능에 대한 개요를 제공합니다.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.openlocfilehash: 38f150a99b2145968569e986ea158b1aa552593a
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: e2923e29652a92de188366168140bf9def43c082
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968605"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209471"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure Purview Data Catalog 계보 사용자 가이드
 
@@ -112,7 +111,7 @@ Azure Purview는 데이터 세트 및 프로세스에 대한 자산 수준 계�
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="계보 데이터 자산에서 자산으로 전환을 선택하는 방법의 스크린샷" lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-2. 계보 캔버스는 인기 있는 데이터 세트에 대해 복잡해질 수 있습니다. 혼란을 피하기 위해 기본 보기에는 자산에 대한 5가지 수준의 계보만 포커스가 표시됩니다. 계보 캔버스의 메시지 풍선을 클릭하여 나머지 계보를 확장할 수 있습니다. 데이터 소비자는 캔버스에서 관심이 없는 자산을 숨길 수도 있습니다. 더 간단하게 줄이려면 계보 캔버스의 위쪽에서 **추가 계보** 토글을 해제합니다. 이 작업을 수행하면 계보 캔버스의 모든 메시지 풍선이 숨겨집니다.
+2. 계보 캔버스는 인기 있는 데이터 세트에 대해 복잡해질 수 있습니다. 혼란을 피하기 위해 기본 보기에는 자산에 대한 5가지 수준의 계보만 포커스가 표시됩니다. 계보 캔버스에서 거품을 선택 하 여 나머지 계보를 확장할 수 있습니다. 데이터 소비자는 캔버스에서 관심이 없는 자산을 숨길 수도 있습니다. 더 간단하게 줄이려면 계보 캔버스의 위쪽에서 **추가 계보** 토글을 해제합니다. 이 작업을 수행하면 계보 캔버스의 모든 메시지 풍선이 숨겨집니다.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="더 많은 계보를 토글로 설정/해제하는 방법을 보여주는 스크린샷" lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 

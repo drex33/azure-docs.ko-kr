@@ -1,18 +1,18 @@
 ---
-title: Azure Purview(미리 보기)의 비즈니스 용어집 기능 이해
+title: Azure Purview의 비즈니스 용어집 기능 이해
 description: 이 문서는 Azure Purview에 어떤 비즈니스 용어집이 있는지 설명합니다.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
-ms.openlocfilehash: 5561e0a211d191daf4b769da7ccd8a924d5c5696
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: b332a00f511ea747c2978dafbf60ce20abca36a8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607143"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214411"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Azure Purview의 비즈니스 용어집 기능 이해
 
@@ -21,7 +21,6 @@ ms.locfileid: "128607143"
 ## <a name="business-glossary"></a>비즈니스 용어집
 
 용어집은 비즈니스 사용자를 위한 어휘를 제공합니다.  용어집은 서로 관련될 수 있는 비즈니스 용어로 구성되어 있으며, 용어들을 분류하여 다양한 컨텍스트에서 이해할 수 있게 해줍니다. 그런 다음 이러한 용어를 데이터베이스, 테이블, 열 등의 자산에 매핑할 수 있습니다. 이를 통해 데이터 리포지토리와 관련된 기술 전문 용어를 추출할 수 있으며, 비즈니스 사용자는 자신에게 친숙한 어휘로 된 데이터를 검색하고 사용할 수 있습니다.
-
 
 비즈니스 용어집은 용어 모음입니다. 각 용어는 조직의 개체를 나타내며 동일한 개체를 나타내는 여러 용어가 있을 가능성이 높습니다. 고객은 클라이언트, 구매자 또는 바이어라고도 합니다. 이러한 여러 용어는 서로 관계가 있습니다. 이러한 용어 간의 관계는 다음 중 하나일 수 있습니다.
 
@@ -65,7 +64,7 @@ Azure Purview는 비즈니스 용어집의 용어에 대한 8가지 기본 제�
 - 데이터 자산에 저장된 데이터의 특성 이해
 - 액세스 제어 정책 정의
 
-Purview는 현재 200개 이상의 시스템 분류자를 보유하고 있으며 카탈로그에서 사용자 고유의 분류자를 정의할 수 있습니다. 검사 프로세스의 일부로, 이러한 분류를 자동으로 검색하고 데이터 자산 및 스키마에 적용합니다. 그러나 언제든지 재정의할 수 있습니다. 사용자 재정의는 자동 검색으로 대체되지 않습니다.
+Purview에는 현재 200개 이상의 시스템 분류기가 있으며 카탈로그에서 사용자 고유의 분류자를 정의할 수 있습니다. 검사 프로세스의 일부로, 이러한 분류를 자동으로 검색하고 데이터 자산 및 스키마에 적용합니다. 그러나 언제든지 재정의할 수 있습니다. 사용자 재정의는 자동 검색으로 대체되지 않습니다.
 
 ### <a name="sensitivity-labels"></a>민감도 레이블
 

@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 8e4988605aae724bb20bc02ce77db451efbcaed8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b030ab291f1b1ce0d3d89ea01c63d6c2eaeff72c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824790"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218038"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 파이프라인 및 작업
 
@@ -109,10 +109,10 @@ Azure Data Factory 및 Azure Synapse Analytics는 개별적으로 추가하거�
 태그 | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>사용할 수 없는 문자: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 예
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | No
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 예
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | 예 
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | No 
 주석 | 파이프라인과 연결된 태그 목록입니다. | Array | 예
 
 ## <a name="activity-json"></a>활동 JSON
@@ -408,4 +408,4 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 - [데이터 변환 활동을 사용하여 파이프라인 빌드](tutorial-transform-data-spark-powershell.md)
 
 Azure Data Factory를 사용하여 CI/CD(지속적 통합 및 전달)를 달성하는 방법
-- [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](continuous-integration-deployment.md)
+- [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](continuous-integration-delivery.md)

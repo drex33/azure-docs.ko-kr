@@ -4,15 +4,15 @@ description: 이 자습서에서는 Azure Data Lake Storage Gen2를 검사하는
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 02bdb1812556d08b00885a68fb50443e97d6977c
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 0d2da12eed5bdfe393cb20c489df2591356b9012
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214054"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214867"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 등록 및 검사
 
@@ -28,9 +28,9 @@ Azure Data Lake Storage Gen2 데이터 원본은 다음과 같은 기능을 지�
 
 csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때 스키마가 추출됩니다.
 
-1. 첫 번째 행 값이 비어 있지 않습니다.
-2. 첫 번째 행 값이 고유합니다.
-3. 첫 번째 행 값은 날짜 및 숫자가 아닙니다.
+1. 첫 번째 행 값이 비어 있지 않음
+2. 첫 번째 행 값이 고유함
+3. 첫 번째 행 값은 날짜 및 숫자가 아님
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -138,7 +138,7 @@ Azure Data Lake Storage Gen2에 대해 다음 인증 방법이 지원됩니다.
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 Azure Data Lake Storage Gen2 원본을 선택합니다.
 

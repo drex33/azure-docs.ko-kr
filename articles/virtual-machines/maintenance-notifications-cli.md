@@ -3,17 +3,17 @@ title: CLI를 사용하여 유지 관리 알림 가져오기
 description: Azure CLI를 사용하여 Azure에서 실행 중인 Linux 가상 머신에 대한 유지 관리 알림을 확인하고 셀프 서비스 유지 관리를 시작합니다.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 7b4f79724ee3105e9a64b44617762d71f4f6a158
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 8b6f40109993df4ecd41b6f17505882e4e840ad1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698802"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215532"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용하여 계획된 유지 관리 알림 처리
 

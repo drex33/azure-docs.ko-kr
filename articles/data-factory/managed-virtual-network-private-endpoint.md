@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 10/15/2021
-ms.openlocfilehash: 845860e8aaebf7d74f294135f8eec92a8146bd3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/28/2021
+ms.openlocfilehash: f06382d44af5f883180ec1a1dfe05ccd14ceffe5
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627618"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208118"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리형 가상 네트워크(미리 보기)
 
@@ -135,19 +135,20 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ### <a name="supported-data-sources"></a>지원되는 데이터 원본
 아래 데이터 원본은 네이티브 프라이빗 엔드포인트를 지원하며 ADF 관리형 가상 네트워크 프라이빗 링크를 통해 연결할 수 있습니다.
 - Azure Blob Storage(스토리지 계정 V1 포함 안 함)
-- Azure Table Storage(스토리지 계정 V1 포함 안 함)
-- Azure Files(스토리지 계정 V1 포함 안 함)
-- Azure Data Lake Gen2
-- Azure SQL Database(Azure SQL Managed Instance 포함 안 함)
-- Azure Synapse Analytics
-- Azure CosmosDB SQL
-- Azure Key Vault
-- Azure Private Link 서비스
-- Azure Search
+- Azure Cognitive Search
+- Azure Cosmos DB SQL API
+- Azure Data Lake Storage Gen2
+- Azure Database for MariaDB
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
-- Azure Database for MariaDB
+- Azure Files(스토리지 계정 V1 포함 안 함)
+- Azure Key Vault
 - Azure Machine Learning
+- Azure Private Link 서비스
+- Azure Purview
+- Azure SQL Database(Azure SQL Managed Instance 포함 안 함)
+- Azure Synapse Analytics
+- Azure Table Storage(스토리지 계정 V1 포함 안 함)
 
 > [!Note]
 > 공용 네트워크를 통해 Data Factory에서 지 원하는 모든 데이터 원본에 계속 액세스할 수 있습니다.

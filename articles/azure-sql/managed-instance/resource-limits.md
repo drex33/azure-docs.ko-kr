@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: reference
 author: vladai78
 ms.author: vladiv
-ms.reviewer: mathoma, jovanpop, sachinp
-ms.date: 09/14/2020
-ms.openlocfilehash: c134631d33313eaefef63fde48dd1693354bf18d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.reviewer: mathoma, vladiv, sachinp
+ms.date: 09/28/2021
+ms.openlocfilehash: 7fba2ede931375d310b64bf7800b2adf43b2a24e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692869"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212782"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -142,13 +142,21 @@ SQL Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합
 
 |구독 유형| SQL Managed Instance 서브넷의 최대 수 | 최대 vCore 단위 수* |
 | :---| :--- | :--- |
-|종량제|3|320|
-|CSP |8(일부 지역의 경우 15**)|960(일부 지역의 경우 1440**)|
-|종량제 개발/테스트|3|320|
-|Enterprise 개발/테스트|3|320|
-|EA|8(일부 지역의 경우 15**)|960(일부 지역의 경우 1440**)|
-|Visual Studio Enterprise|2 |64|
-|Visual Studio Professional 및 MSDN 플랫폼|2|32|
+|CSP |16 (일부 지역에서는 30 * *)|960(일부 지역의 경우 1440**)|
+|EA|16 (일부 지역에서는 30 * *)|960(일부 지역의 경우 1440**)|
+|Enterprise 개발/테스트|6|320|
+|종량제|6|320|
+|종량제 개발/테스트|6|320|
+|Azure Pass|3|64|
+|BizSpark|3|64|
+|BizSpark Plus|3|64|
+|Microsoft Azure 스폰서쉽|3|64|
+|Microsoft 파트너 네트워크|3|64|
+|Visual Studio Enterprise(MPN)|3|64|
+|Visual Studio Enterprise|3|32|
+|Visual Studio Enterprise(BizSpark)|3|32|
+|Visual Studio Professional|3|32|
+|MSDN 플랫폼|3|32|
 
 \* 배포를 계획할 때 BC(중요 비즈니스용) 서비스 계층에는 GP(범용) 서비스 계층보다 4배 많은 vCore 용량이 필요하다는 점을 고려하세요. 예: 1GP vCore = 1vCore 단위 및 1BC vCore = 4vCore 기본 제한에 대한 사용량 분석을 간소화하려면 SQL Managed Instance가 배포된 지역의 모든 서브넷에 대한 vCore 단위를 요약하고 결과를 구독 유형의 인스턴스 단위 제한과 비교합니다. **최대 vCore 단위 수** 한도는 한 지역의 각 구독에 적용됩니다. 여러 서브넷에 배포된 모든 vCore의 합계가 **최대 vCore 단위 수** 보다 작거나 같아야 한다는 점을 제외하고 개별 서브넷당 제한은 없습니다.
 

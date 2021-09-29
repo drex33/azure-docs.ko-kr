@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 80818386ccd47619ccb23323474ac76fa2240db2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427717"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210405"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * 컬렉션의 모든 문서를 삭제해도 분석 저장소 스키마가 다시 설정되지는 않습니다.
   * 스키마의 버전은 관리되지 않습니다. 트랜잭션 저장소에서 유추된 마지막 버전을 분석 저장소에서 볼 수 있습니다.
 
-* 현재 Azure Synapse Spark는 아래 나열된 이름에 특수 문자가 일부 포함된 속성을 읽을 수 없습니다. 이러한 경우에는 자세한 내용은 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의하세요.
+* 현재 Azure Synapse Spark는 이름에 몇 가지 특수 문자가 포함된 속성을 읽을 수 없습니다( 아래 나열). Azure Synapse SQL 서버리스는 영향을 받지 않습니다.
   * :(콜론)
   * `(억음 악센트 기호)
   * ,(쉼표)
@@ -161,6 +161,21 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * =(등호)
   * "(따옴표)
  
+* 위에 나열된 문자를 사용하는 속성 이름이 있는 경우 대안은 다음과 같습니다.
+   * 이러한 문자를 방지하려면 데이터 모델을 미리 변경합니다.
+   * 현재 스키마 재설정을 지원하지 않기 때문에 애플리케이션을 변경하여 유사한 이름의 중복 속성을 추가하여 이러한 문자를 방지할 수 있습니다.
+   * 변경 피드를 사용하여 속성 이름에 이러한 문자 없이 컨테이너의 구체화된 뷰를 만듭니다.
+   * 새 Spark 옵션을 사용하여 `dropColumn` 데이터를 DataFrame에 로드할 때 영향을 받는 열을 무시합니다. 쉼표가 포함된 "FirstName,LastNAme"이라는 가상 열을 삭제하는 구문은 다음과 같습니다.
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+```
+
 * Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다.
 
 ### <a name="schema-representation"></a>스키마 표현
@@ -335,14 +350,14 @@ salary: 1000000
 
 * 분석 읽기 작업: Azure Synapse Analytics Spark 풀 및 서버리스 SQL 풀 런타임에서 분석 저장소에 대해 수행되는 읽기 작업입니다.
 
-분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) 가격 책정 페이지를 참조하세요.
+분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소에 대 한 가격 책정 모델에 대 한 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
 
-분석 저장소의 데이터는 Azure Synapse Analytics 런타임(Azure Synapse Apache Spark 풀 및 Azure Synapse 서버리스 SQL 풀)에서 수행되는 Azure Synapse Link를 통해서만 액세스할 수 있습니다. 분석 저장소의 데이터에 액세스하려면 [가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 모델에 대한 자세한 내용은 Azure Synapse Analytics 가격 책정 페이지를 참조하세요.
+azure Synapse 링크를 통해서만 분석 저장소의 데이터에 액세스할 수 있습니다. azure Synapse analytics 런타임은 azure Synapse Apache Spark 풀 및 azure Synapse 서버 리스 SQL 풀에서 수행 됩니다. 분석 저장소의 데이터에 액세스 하는 가격 책정 모델에 대 한 자세한 내용은 [Azure Synapse Analytics 가격 책정 페이지](https://azure.microsoft.com/pricing/details/synapse-analytics/) 를 참조 하세요.
 
-분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 비용 예상치를 얻으려면 [Azure Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
+분석 저장소 관점에서 Azure Cosmos DB 컨테이너에 분석 저장소를 사용 하도록 설정 하는 데 높은 수준의 비용 추정치를 얻으려면 [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) 를 사용 하 여 예상 되는 분석 저장소 및 쓰기 작업 비용을 얻을 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
 
 > [!NOTE]
-> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이 예상치에는 Azure Synapse Analytics 비용이 포함되지 않습니다.
+> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이러한 추정치에는 Azure Synapse Analytics의 비용이 포함 되지 않습니다.
 
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> 분석 TTL(Time-to-Live)

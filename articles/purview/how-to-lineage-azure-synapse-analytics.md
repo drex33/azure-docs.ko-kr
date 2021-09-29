@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: b47efc959518b7a4d35fb5ef79cd04f18cdfaa22
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 02ea61356157c7e2a421c736a1af5bd87a1bcb5c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433515"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212364"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Azure Synapse Analytics에서 Azure Purview로 계보를 가져오는 방법
 
@@ -30,9 +30,9 @@ ms.locfileid: "123433515"
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-## <a name="access-secured-azure-purview-account"></a>보안 Azure Purview 계정에 액세스
+## <a name="access-secured-azure-purview-account"></a>액세스 보안 Azure 부서의 범위 계정
       
-Purview 계정이 방화벽으로 보호되는 경우 Azure Synapse Purview 프라이빗 엔드포인트를 통해 [보안 Purview 계정에 액세스하도록](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
+부서의 범위 계정이 방화벽으로 보호 되는 경우 Azure Synapse에서 부서의 범위 개인 끝점을 통해 [보안 부서의 범위 계정에 액세스](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) 하도록 허용 하는 방법을 알아봅니다.
 
 ## <a name="bring-azure-synapse-lineage-into-purview"></a>Azure Synapse 계보를 Purview로 가져오기
 
@@ -46,7 +46,7 @@ Azure Synapse 작업 영역에서 복사 작업을 사용하여 파이프라인�
 
 ### <a name="step-3-monitor-lineage-reporting-status"></a>3단계: 계보 보고 상태 모니터링
 
-Azure Synapse 파이프라인을 실행한 후 Synapse 파이프라인 모니터링 보기에서 다음 **계보 상태** 단추를 클릭하여 계보 보고 상태를 확인할 수 있습니다. 작업 출력 JSON -> `reportLineageToPurvew` 섹션에서도 동일한 정보를 사용할 수 있습니다.
+Azure Synapse 파이프라인을 실행 한 후에는 Synapse 파이프라인 모니터링 보기에서 다음 **계보 상태** 단추를 선택 하 여 계보 보고 상태를 확인할 수 있습니다. 작업 출력 JSON -> `reportLineageToPurvew` 섹션에서도 동일한 정보를 사용할 수 있습니다.
 
 :::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="파이프라인 모니터링 보기에서 계보 보고 상태를 모니터링합니다.":::
 

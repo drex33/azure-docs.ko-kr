@@ -3,18 +3,18 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/25/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: bf887ad515f8c4349fcff54d25be1c70a30d018f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098322"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216767"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -198,7 +198,7 @@ ms.locfileid: "123098322"
 
 1. Azure EA Portal에 엔터프라이즈 관리자로 로그인합니다.
 1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
-1. **부서** 를 선택합니다.
+1. **계정** 을 선택 합니다.
 1. 마우스로 계정이 있는 행 위를 가리키고, 오른쪽에 있는 연필 아이콘을 선택합니다.
 1. 드롭다운 메뉴에서 부서를 선택합니다.
 1. **저장** 을 선택합니다.

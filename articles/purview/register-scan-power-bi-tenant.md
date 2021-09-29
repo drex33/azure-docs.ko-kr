@@ -1,20 +1,20 @@
 ---
-title: Power BI 테넌트 등록 및 검사(미리 보기)
+title: Power BI 테 넌 트 등록 및 스캔
 description: Azure Purview Portal을 활용하여 Power BI 테넌트를 등록하고 검사하는 방법을 알아봅니다.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/16/2021
-ms.openlocfilehash: 8352c530a675220a63481a801fa77509c30f7531
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 8290c4c31cca383692a4ce5908d56e1b686c4213
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651658"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211483"
 ---
-# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테넌트 등록 및 검사(미리 보기)
+# <a name="register-and-scan-a-power-bi-tenant"></a>Power BI 테 넌 트 등록 및 스캔
 
 본 문서에서는 Azure Purview Portal을 활용하여 Power BI 테넌트를 등록하고 검사하는 방법을 보여 줍니다.
 
@@ -60,10 +60,10 @@ ms.locfileid: "128651658"
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="서비스 사용자가 읽기 전용 Power BI 관리자 API 권한을 가져오도록 허용하는 방법을 보여 주는 이미지":::
 
-1. **관리자 API 설정** 자세한 메타데이터를 사용하여 관리  >  **API 응답 향상** > 토글을 사용하도록 설정하여 Purview 데이터 맵 검사의 일부로 Power BI 데이터 세트의 자세한 메타데이터를 자동으로 검색할 수 있도록 합니다.
+1. **관리 api 설정** 을 선택 하  >  **여 자세한 메타 > 데이터를 사용 하 여 관리 api 응답 향상** 부서의 범위 데이터 맵이 검색의 일부로 Power BI 데이터 집합의 자세한 메타 데이터를 자동으로 검색 하도록 설정 합니다.
 
     > [!IMPORTANT]
-    > Power BI 테넌트에서 관리 API 설정을 업데이트한 후 검색 및 테스트 연결을 등록하기 전에 약 15분 정도 기다립니다.
+    > Power bi 테 넌 트에서 관리 API 설정을 업데이트 한 후에는 검색을 등록 하 고 연결을 테스트 하기 전에 15 분 정도 기다립니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="하위 아티팩트 검사를 사용하는 Power BI 관리 포털 구성을 보여주는 이미지":::
 
@@ -129,7 +129,7 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
 
 1. 원하는 위치에 [관리 검사 PowerShell 모듈](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip)을 다운로드하고 콘텐츠를 추출합니다.
 
-2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 마우스 오른쪽 단추로 클릭한 다음, **관리자 권한으로 실행** 을 선택합니다.
+2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 선택 하 고 길게 클릭 한 다음 **관리자 권한으로 실행** 을 선택 합니다.
 
 
 3. 아직 설치하지 않았으면 컴퓨터에 모듈을 설치하고 가져옵니다.
@@ -227,7 +227,7 @@ Power BI 테넌트가 있는 Azure AD 테넌트가 Azure Purview 계정이 프�
 
 -   교차 테넌트 시나리오의 경우 현재 Power BI 테넌트에서 등록하고 검사하는 데 사용할 수 있는 UX 환경이 없습니다.
 -   Purview 스튜디오를 사용하여 PowerShell에 등록한 Power BI 교차 테넌트를 편집하면 일치하지 않는 검사 동작으로 인해 데이터 원본 등록이 손상될 수 있습니다.
--   [Power BI 메타 데이터 검색 제한 사항을](https://docs.microsoft.com/power-bi/admin/service-admin-metadata-scanning#considerations-and-limitations)검토 합니다.
+-   [Power BI 메타 데이터 검색 제한 사항을](/power-bi/admin/service-admin-metadata-scanning)검토 합니다.
 
         
 ## <a name="next-steps"></a>다음 단계

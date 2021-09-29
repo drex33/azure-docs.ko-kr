@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: aaacc12f6a577fd0a2ff0150d22902bb6e7d6cc1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 3150ad022ddde1b72d0941d552351715920a161e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753398"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217810"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>ParallelRunStep 문제 해결
 
@@ -28,17 +28,17 @@ ms.locfileid: "111753398"
 
  ParallelRunStep은 ML 파이프라인에서 단계로 실행됩니다. 첫 번째 단계로 [로컬에서 스크립트를 테스트](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)할 수 있습니다.
 
-##  <a name="script-requirements"></a>스크립트 요구 사항
+## <a name="entry-script-requirements"></a>항목 스크립트 요구 사항
 
-`ParallelRunStep`에 대한 스크립트에는 다음 두 함수가 *포함되어야 합니다*.
+에 대한 항목 스크립트는 `ParallelRunStep` 함수를 포함해야 하며 필요에 따라 함수를 *포함해야 합니다.* `run()` `init()`
 - `init()`: 이후 처리를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다. 이 함수는 프로세스를 시작할 때 한 번만 호출됩니다.
     > [!NOTE]
-    > `init` 메서드를 통해 출력 디렉터리가 생성되는 경우 `exist_ok=True`라고 지정합니다. `init` 메서드는 작업이 실행 중인 모든 노드의 각 작업자 프로세스에서 호출됩니다.
+    > `init`메서드가 출력 디렉터리를 만드는 경우 및 를 `parents=True` 지정합니다. `exist_ok=True` `init` 메서드는 작업이 실행 중인 모든 노드의 각 작업자 프로세스에서 호출됩니다.
 -  `run(mini_batch)`: 이 함수는 각 `mini_batch` 인스턴스에 대해 실행됩니다.
     -  `mini_batch`: `ParallelRunStep`은(는) run 메서드를 호출하고 목록 또는 pandas `DataFrame`을(를) 메서드에 인수로 전달합니다. 입력이 `FileDataset`이면 mini_batch의 각 항목이 파일 경로가 되고 입력이 `TabularDataset`이면 Pandas `DataFrame`입니다.
     -  `response`: run() 메서드는 Pandas `DataFrame` 또는 배열을 반환해야 합니다. append_row output_action의 경우 반환되는 요소가 공통 출력 파일에 추가됩니다. summary_only의 경우 요소의 내용이 무시됩니다. 모든 출력 작업의 경우 반환되는 각 출력 요소는 입력 미니 일괄 처리의 입력 요소에 대한 성공적인 실행 하나를 나타냅니다. 입력을 실행 출력 결과에 매핑하기에 충분한 데이터가 실행 결과에 포함되어 있는지 확인합니다. 실행 출력은 출력 파일에 기록되지만 순서대로 기록된다는 보장은 없으므로, 사용자는 출력의 키를 사용하여 입력에 매핑해야 합니다.
         > [!NOTE]
-        > 입력 요소 한 개에 대해 출력 요소 한 개가 있어야 합니다.  
+        > 입력 요소 한 개에 대해 출력 요소 한 개가 있어야 합니다.
 
 ```python
 %%writefile digit_identification.py
@@ -101,7 +101,8 @@ file_path = os.path.join(script_dir, "<file_name>")
     - `FileDataset`의 경우 최솟값이 `1`인 파일 수입니다. 여러 파일을 한 미니 일괄 처리로 결합할 수 있습니다.
     - `TabularDataset`의 경우 데이터의 크기입니다. 예제 값은 `1024`, `1024KB`, `10MB` 및 `1GB`입니다. 권장 값은 `1MB`입니다. `TabularDataset`의 미니 일괄 처리는 파일 경계를 넘지 않습니다. 예를 들어 다양한 크기의 .csv 파일이 있는 경우 가장 작은 파일은 100KB이고 가장 큰 파일은 10MB입니다. `mini_batch_size = 1MB`를 설정하는 경우 크기가 1MB보다 작은 파일은 하나의 미니 일괄 처리로 취급됩니다. 크기가 1MB보다 큰 파일은 여러 개의 미니 일괄 처리로 분할됩니다.
         > [!NOTE]
-        > SQL에서 지원되는 TabularDatasets는 분할할 수 없습니다. 단일 parquet 파일 및 단일 행 그룹의 TabularDatasets는 분할할 수 없습니다.
+        > SQL에서 지원되는 TabularDatasets는 분할할 수 없습니다.
+        > 단일 parquet 파일 및 단일 행 그룹의 TabularDatasets는 분할할 수 없습니다.
 
 - `error_threshold`: 처리 중에 무시해야 하는 `FileDataset`에 대한 `TabularDataset` 및 파일 오류에 대한 레코드 실패 횟수입니다. 전체 입력의 오류 횟수가 이 값을 초과하면 작업이 중단됩니다. 오류 임계값은 `run()` 메서드로 전송되는 개별 미니 일괄 처리가 아닌 전체 입력에 적용됩니다. 범위는 `[-1, int.max]`입니다. `-1` 부분은 처리 중에 발생하는 모든 오류를 무시한다는 뜻입니다.
 - `output_action`: 다음 값 중 하나는 출력을 구성하는 방법을 나타냅니다.
@@ -111,18 +112,18 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `source_directory`: 컴퓨팅 대상에서 실행할 모든 파일이 포함된 폴더 경로입니다(선택 사항).
 - `compute_target`: `AmlCompute`만 지원됩니다.
 - `node_count`: 사용자 스크립트를 실행하는 데 사용되는 컴퓨팅 노드의 수입니다.
-- `process_count_per_node`: 항목 스크립트를 병렬 실행할 노드당 작업자 프로세스 수입니다. GPU 머신의 경우 기본값은 1입니다. CPU 머신의 경우 기본값은 노드당 코어 수입니다. 작업자 프로세스는 가져온 미니 일괄 처리를 전달하여 `run()`을 반복적으로 호출합니다. 작업에서 실행되는 작업자 프로세스의 총수는 `process_count_per_node * node_count`이며 이 수에 따라 병렬로 실행되는 `run()`의 최대 수가 결정됩니다.  
+- `process_count_per_node`: 항목 스크립트를 병렬 실행할 노드당 작업자 프로세스 수입니다. GPU 머신의 경우 기본값은 1입니다. CPU 머신의 경우 기본값은 노드당 코어 수입니다. 작업자 프로세스는 가져온 미니 일괄 처리를 전달하여 `run()`을 반복적으로 호출합니다. 작업에서 실행되는 작업자 프로세스의 총수는 `process_count_per_node * node_count`이며 이 수에 따라 병렬로 실행되는 `run()`의 최대 수가 결정됩니다.
 - `environment`: Python 환경 정의입니다. 기존 Python 환경을 사용하도록 구성할 수도 있고 임시 환경을 설정하도록 구성할 수도 있습니다. 이 정의는 필요한 애플리케이션 종속성을 설정하는 역할도 담당합니다(선택 사항).
 - `logging_level`: 로그의 자세한 정도입니다. 값의 자세한 정도는 `WARNING`, `INFO`, `DEBUG` 순서로 높아집니다. (선택 사항이며 기본값은 `INFO`)
 - `run_invocation_timeout`: `run()` 메서드 호출 시간 제한(초)입니다. (선택 사항이며 기본값은 `60`)
-- `run_max_try`: 미니 일괄 처리의 최대 `run()` 시도 횟수입니다. 예외가 throw되거나 `run_invocation_timeout`에 도달할 때 아무 것도 반환되지 않으면 `run()`이 실패합니다(선택 사항이며 기본값은 `3`). 
+- `run_max_try`: 미니 일괄 처리의 최대 `run()` 시도 횟수입니다. 예외가 throw되거나 `run_invocation_timeout`에 도달할 때 아무 것도 반환되지 않으면 `run()`이 실패합니다(선택 사항이며 기본값은 `3`).
 
-`mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` 및 `run_max_try`를 `PipelineParameter`로 지정할 수 있습니다. 그러면 파이프라인 실행을 다시 제출할 때 매개 변수 값을 세밀하게 조정할 수 있습니다. 이 예에서는 `mini_batch_size` 및 `Process_count_per_node`에 `PipelineParameter`를 사용하고 다른 실행을 다시 제출할 때 이 값을 변경할 것입니다. 
+`mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` 및 `run_max_try`를 `PipelineParameter`로 지정할 수 있습니다. 그러면 파이프라인 실행을 다시 제출할 때 매개 변수 값을 세밀하게 조정할 수 있습니다. 이 예에서는 `mini_batch_size` 및 `Process_count_per_node`에 `PipelineParameter`를 사용하고 다른 실행을 다시 제출할 때 이 값을 변경할 것입니다.
 
 #### <a name="cuda-devices-visibility"></a>CUDA 디바이스 표시 유형
 GPU가 탑재된 컴퓨팅 대상의 경우 환경 변수 `CUDA_VISIBLE_DEVICES`는 작업자 프로세스에서 설정됩니다. AmlCompute에서는 환경 변수 `AZ_BATCHAI_GPU_COUNT_FOUND`가 자동으로 설정되며 이 변수에서 GPU 디바이스의 총수를 확인할 수 있습니다. 각 작업자 프로세스에 전용 GPU가 할당되도록 하려면 `process_count_per_node`를 머신의 GPU 디바이스 수와 동일하게 설정합니다. 각 작업자 프로세스는 `CUDA_VISIBLE_DEVICES`에 고유 인덱스를 할당합니다. 작업자 프로세스가 어떤 이유로든 중지되면 다음에 시작되는 작업자 프로세스가 해제된 GPU 인덱스를 사용합니다.
 
-GPU 디바이스의 총수가 `process_count_per_node` 미만인 경우 GPU 인덱스를 모두 사용할 때까지 작업자 프로세스에 GPU 인덱스가 할당됩니다. 
+GPU 디바이스의 총수가 `process_count_per_node` 미만인 경우 GPU 인덱스를 모두 사용할 때까지 작업자 프로세스에 GPU 인덱스가 할당됩니다.
 
 예를 들어, GPU 디바이스의 총수가 2개이고 `process_count_per_node = 4`인 경우 프로세스 0과 프로세스 1에는 인덱스 0과 1이 할당됩니다. 프로세스 2와 3에는 환경 변수가 할당되지 않습니다. GPU 할당에 이 환경 변수를 사용하는 라이브러리의 경우 프로세스 2와 3에는 GPU가 사용되지 않고 GPU 디바이스를 차지하려고 시도하지 않습니다. 프로세스 0이 중지되면 GPU 인덱스 0이 해제됩니다. GPU 인덱스 0은 다음 프로세스인 프로세스 4에 할당됩니다.
 
@@ -183,7 +184,7 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
 
 - `~/logs/sys/node/<node_id>/<process_name>.txt`: 이 파일은 작업자가 선택하거나 완료할 때 각각의 미니 일괄 처리에 대한 상세 정보를 제공합니다. 각 미니 일괄 처리에 대해 이 파일에는 다음이 포함됩니다.
 
-    - 작업자 프로세스의 IP 주소 및 PID 
+    - 작업자 프로세스의 IP 주소 및 PID
     - 전체 항목 수, 성공적으로 처리된 항목 수, 실패한 항목 수
     - 시작 시간, 기간, 처리 시간 및 실행 메서드 시간.
 
@@ -198,7 +199,7 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
     - `node_resource_usage.csv`: 노드의 리소스 사용량 개요입니다.
     - `processes_resource_usage.csv`: 각 프로세스의 리소스 사용량 개요입니다.
 
-### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
+## <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
 
 ParallelRunStep은 process_count_per_node를 기반으로 한 노드에서 여러 프로세스를 실행할 수 있습니다. 노드의 각 프로세스에서 로그를 구성하고 print 및 log 문을 결합하려면 아래와 같이 ParallelRunStep 로거를 사용하는 것이 좋습니다. EntryScript에서 로거를 가져오고 로그가 포털의 **logs/user** 폴더에 표시되도록 합니다.
 
@@ -224,33 +225,71 @@ def run(mini_batch):
     return mini_batch
 ```
 
-### <a name="where-does-the-message-from-python-logging-sink-to"></a>Python `logging`의 메시지는 어디에 싱크되나요?
+## <a name="where-does-the-message-from-python-logging-sink-to"></a>Python `logging`의 메시지는 어디에 싱크되나요?
 ParallelRunStep은 루트 로거의 처리기를 설정하며 이 처리기에서 메시지를 `logs/user/stdout/<node_id>/processNNN.stdout.txt`로 싱크합니다.
 
 `logging`은 `WARNING` 수준으로 기본 설정됩니다. 기본적으로 `INFO` 또는 `DEBUG`과 같은 `WARNING` 아래의 수준은 표시되지 않습니다.
 
-### <a name="where-is-the-message-from-subprocess-created-with-popen"></a>Popen()으로 생성된 하위 프로세스의 메시지는 어디에 있나요?
-`stdout` 또는 `stderr`이 지정되지 않은 경우 하위 프로세스는 작업자 프로세스의 설정을 상속합니다.
-
-`stdout`는 `logs/sys/node/<node_id>/processNNN.stdout.txt`에, `stderr`은 `logs/sys/node/<node_id>/processNNN.stderr.txt`에 쓰입니다.
-
-### <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>파일에 쓰기 작업을 수행하여 포털에 표시하려면 어떻게 해야 하나요?
+## <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>파일에 쓰기 작업을 수행하여 포털에 표시하려면 어떻게 해야 하나요?
 `logs` 폴더의 파일은 포털에 업로드되어 표시됩니다.
 아래와 같이 `logs/user/entry_script_log/<node_id>` 폴더를 가져와 쓰기 작업을 수행할 파일 경로를 작성할 수 있습니다.
 
 ```python
 from pathlib import Path
+from azureml_user.parallel_run import EntryScript
+
 def init():
     """Init once in a worker process."""
     entry_script = EntryScript()
-    folder = entry_script.log_dir
+    log_dir = entry_script.log_dir
+    log_dir = Path(entry_script.log_dir)  # logs/user/entry_script_log/<node_id>/.
+    log_dir.mkdir(parents=True, exist_ok=True) # Create the folder if not existing.
 
-    fil_path = Path(folder) / "<file_name>"
+    proc_name = entry_script.agent_name  # The process name in pattern "processNNN".
+    fil_path = log_dir / f"{proc_name}_<file_name>" # Avoid conflicting among worker processes with proc_name.
 ```
 
-### <a name="how-do-i-write-a-file-to-the-output-directory-and-then-view-it-in-the-portal"></a>출력 디렉터리에 파일을 쓴 다음, 이 파일을 포털에서 보려면 어떻게 할까요?
+## <a name="how-to-handle-log-in-new-processes"></a>새 프로세스에서 로그를 처리하는 방법
+모듈을 사용하여 입력 스크립트에서 새 프로세스를 [`subprocess`](https://docs.python.org/3/library/subprocess.html) 생성하고, 입력/출력/오류 파이프에 연결하고, 반환 코드를 가져올 수 있습니다.
 
-`EntryScript` 클래스에서 출력 디렉터리를 가져와 여기에 쓰기 작업을 수행할 수 있습니다. 쓰인 파일을 보려면 Azure Machine Learning 포털의 실행 단계 뷰에서 **출력 + 로그** 탭을 선택합니다. **데이터 출력** 링크를 선택한 다음, 대화 상자에 설명된 단계를 완료합니다. 
+와 함께 함수를 사용하는 것이 [`run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) `capture_output=True` 좋습니다. 오류는 에 `logs/user/error/<node_id>/<process_name>.txt` 표시됩니다.
+
+를 사용하려면 `Popen()` 다음과 같이 stdout/stderr을 파일로 리디렉션해야 합니다.
+```python
+from pathlib import Path
+from subprocess import Popen
+
+from azureml_user.parallel_run import EntryScript
+
+
+def init():
+    """Show how to redirect stdout/stderr to files in logs/user/entry_script_log/<node_id>/."""
+    entry_script = EntryScript()
+    proc_name = entry_script.agent_name  # The process name in pattern "processNNN".
+    log_dir = Path(entry_script.log_dir)  # logs/user/entry_script_log/<node_id>/.
+    log_dir.mkdir(parents=True, exist_ok=True) # Create the folder if not existing.
+    stdout_file = str(log_dir / f"{proc_name}_demo_stdout.txt")
+    stderr_file = str(log_dir / f"{proc_name}_demo_stderr.txt")
+    proc = Popen(
+        ["...")],
+        stdout=open(stdout_file, "w"),
+        stderr=open(stderr_file, "w"),
+        # ...
+    )
+
+```
+
+> [!NOTE]
+> 작업자 프로세스는 동일한 프로세스에서 "시스템" 코드와 항목 스크립트 코드를 실행합니다.
+>
+> 또는 가 지정되지 않은 경우 `stdout` `stderr` 항목 스크립트에서 로 만든 하위 `Popen()` 프로세스는 작업자 프로세스의 설정을 상속합니다.
+>
+> `stdout`는 `logs/sys/node/<node_id>/processNNN.stdout.txt`에, `stderr`은 `logs/sys/node/<node_id>/processNNN.stderr.txt`에 쓰입니다.
+
+
+## <a name="how-do-i-write-a-file-to-the-output-directory-and-then-view-it-in-the-portal"></a>출력 디렉터리에 파일을 쓴 다음, 이 파일을 포털에서 보려면 어떻게 할까요?
+
+`EntryScript` 클래스에서 출력 디렉터리를 가져와 여기에 쓰기 작업을 수행할 수 있습니다. 쓰인 파일을 보려면 Azure Machine Learning 포털의 실행 단계 뷰에서 **출력 + 로그** 탭을 선택합니다. **데이터 출력** 링크를 선택한 다음, 대화 상자에 설명된 단계를 완료합니다.
 
 다음 예제와 같이 항목 스크립트에 `EntryScript`를 사용합니다.
 
@@ -264,14 +303,14 @@ def run(mini_batch):
     (Path(output_dir) / res2).write...
 ```
 
-### <a name="how-can-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>조회 테이블이 포함된 파일과 같은 사이드 입력을 모든 작업자에게 전달하려면 어떻게 해야 하나요?
+## <a name="how-can-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>조회 테이블이 포함된 파일과 같은 사이드 입력을 모든 작업자에게 전달하려면 어떻게 해야 하나요?
 
 사용자는 ParalleRunStep의 side_inputs 매개 변수를 사용하여 스크립트에 참조 데이터를 전달할 수 있습니다. side_inputs으로 제공되는 모든 데이터 세트는 각 작업자 노드에 탑재됩니다. 사용자는 인수를 전달하여 탑재 위치를 가져올 수 있습니다.
 
 참조 데이터를 포함하는 [데이터 세트](/python/api/azureml-core/azureml.core.dataset.dataset)를 생성하고 로컬 탑재 경로를 지정한 다음, 작업 영역에 등록합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 `arguments` 섹션에서 해당 경로를 추가하여 탑재된 경로에 쉽게 액세스할 수 있습니다.
 
 > [!NOTE]
-> FileDatasets는 side_inputs에만 사용합니다. 
+> FileDatasets는 side_inputs에만 사용합니다.
 
 ```python
 local_path = "/tmp/{}".format(str(uuid.uuid4()))
@@ -296,7 +335,7 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>서비스 주체 인증으로 입력 데이터 세트를 사용하려면 어떻게 해야 하나요?
+## <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>서비스 주체 인증으로 입력 데이터 세트를 사용하려면 어떻게 해야 하나요?
 사용자는 작업 영역에서 사용되는 서비스 주체 인증으로 입력 데이터 세트를 전달할 수 있습니다. ParallelRunStep에서 이러한 데이터 세트를 사용하려면 ParallelRunStep 구성을 생성하기 위해 해당 데이터 세트를 등록해야 합니다.
 
 ```python
@@ -304,15 +343,15 @@ service_principal = ServicePrincipalAuthentication(
     tenant_id="***",
     service_principal_id="***",
     service_principal_password="***")
- 
+
 ws = Workspace(
     subscription_id="***",
     resource_group="***",
     workspace_name="***",
     auth=service_principal
     )
- 
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***')
 ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
@@ -353,6 +392,8 @@ ParallelRunStep은 비정상적으로 종료된 작업자 프로세스를 대체
 
 * [Azure Machine Learning 파이프라인을 보여주는 Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)을 참조하세요.
 
-* [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) 패키지에 대한 도움말은 SDK 참조를 확인하세요. ParallelRunStep 클래스에 대한 참조 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep)를 확인하세요.
+* [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) 패키지에 대한 도움말은 SDK 참조를 확인하세요.
+
+* ParallelRunStep 클래스에 대 한 ParallelRunConfig 클래스 및 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) 에 대 한 참조 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) 를 봅니다.
 
 * ParallelRunStep으로 파이프라인 사용에 관한 [고급 자습서](tutorial-pipeline-batch-scoring-classification.md)를 따르세요. 이 자습서에서는 다른 파일을 측면 입력으로 전달하는 방법을 보여줍니다.

@@ -2,13 +2,13 @@
 title: 이벤트 복제 작업 및 애플리케이션 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서 Azure Functions를 사용하여 이벤트 복제 작업 및 애플리케이션을 빌드하는 방법에 대한 개요를 제공합니다.
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: a65815c7da400af8b5b6d46358e6bca6edbd7543
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 92c6357e5c4302232bddabdd1e1818e2f325246b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97663645"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217337"
 ---
 # <a name="event-replication-tasks-and-applications-with-azure-functions"></a>Azure Functions를 사용하는 이벤트 복제 작업 및 애플리케이션
 

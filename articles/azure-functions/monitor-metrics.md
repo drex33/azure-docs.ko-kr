@@ -3,19 +3,16 @@ title: Azure Functions에서 Monitor 메트릭 사용
 description: Azure Monitor 메트릭을 사용하여 Azure Application Insights에서 수집하고 여기에 저장된 Azure Functions 원격 분석 데이터를 보고 쿼리하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 07/4/2021
-ms.openlocfilehash: b5f0b483295cccff8caf97503233e1e7881173cf
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.openlocfilehash: 8f9e80a50e3041ea37d765938613563b31f16af0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568617"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215760"
 ---
 # <a name="using-azure-monitor-metric-with-azure-functions"></a>Azure Functions에서 Azure Monitor 메트릭 사용
 
 Azure Functions는 실행 중에 함수 앱에서 생성된 메트릭을 분석할 수 있도록 Azure Monitor 메트릭과 통합됩니다. 자세한 내용은 [Azure Monitor 메트릭 개요](../azure-monitor/essentials/data-platform-metrics.md)를 참조하세요. 이 메트릭은 함수 앱이 App Service 플랫폼에서 실행되는 방식을 나타냅니다. 사용량 플랜 비용을 예측하는 데 사용되는 리소스 사용량 데이터를 검토할 수 있습니다. 로그 데이터를 포함하여 함수 실행의 자세한 원격 분석을 조사하려면 Azure Monitor에서 [Application Insights](functions-monitoring.md)도 사용해야 합니다. 
-
-> [!NOTE]
-> 함수 앱이 Linux에서 실행되는 경우 Azure Monitor 메트릭은 현재 사용량 플랜에서 지원되지 않습니다.
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: b9ca2a4ba836adacb81a82ad59a11c21ffd6c3fb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609278"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216881"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
@@ -89,7 +89,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 |-----------------|-------------|
 | 범위 필터 | Azure Cognitive Search에서 범위 쿼리는 필터 매개 변수를 사용하여 작성됩니다. 자세한 내용과 예제는 [범위 필터 예제](search-query-simple-examples.md#example-5-range-filters)를 참조하세요. |
 | 지리적 위치 검색 | 검색 가능한 필드가 [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types)인 경우 "주변 찾기" 또는 맵 기반 검색 컨트롤에 대한 필터 식을 만들 수 있습니다. 지리적 검색을 유도하는 필드에는 좌표가 포함됩니다. 자세한 내용과 예제는 [지역 검색 예제](search-query-simple-examples.md#example-6-geo-search)를 참조하세요. |
-| 패싯 탐색 | 패싯의 `onclick` 이벤트에 대한 응답으로 필터를 호출하면 패싯 탐색 구조가 사용자 지향 탐색의 도구가 됩니다. 따라서 패싯과 필터가 함께 사용됩니다. 패싯 탐색을 추가하는 경우 경험을 완료하려면 필터가 필요합니다. 자세한 내용은 [패싯 필터를 빌드하는 방법](search-filters-facets.md)을 참조하세요. |
+| 패싯 탐색 | [사용자는 Faceted 탐색](search-faceted-navigation.md) 트리에서 각 클릭 시 결과를 좁혀서 선택할 수 있습니다. 각 측면은 더 이상 조건과 일치하지 않는 문서를 제외하는 필터를 통해 백업됩니다. |
 
 > [!NOTE]
 > 필터 식에 사용되는 텍스트는 쿼리를 처리하는 동안 분석되지 않습니다. 텍스트 입력은 일치에서 성공하거나 실패하는, 대/소문자 구분 문자 패턴으로 가정됩니다. 필터 식은 [OData 구문](query-odata-filter-orderby-syntax.md)을 사용하여 생성되고 인덱스의 *필터링 가능한* 모든 필터에 있는 **`filter`** 매개 변수로 전달됩니다. 자세한 내용은 [Azure Cognitive Search의 필터](search-filters.md)를 참조하세요.

@@ -1,18 +1,18 @@
 ---
-title: 전용 SQL 풀을 검사하는 방법
-description: 이 방법 가이드에서는 전용 SQL 풀을 검사하는 방법에 대해 자세히 설명합니다.
+title: 전용 SQL 풀을 검색 하는 방법
+description: 이 방법 가이드에서는 Azure 부서의 범위에서 전용 SQL 풀을 검색 하는 방법에 대해 자세히 설명 합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 26d4327c5763a1296cd492730004b80947269afa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567404"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218340"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 등록 및 검사
 
@@ -141,7 +141,7 @@ Purview에서 새 SQL 전용 풀을 등록하려면 다음을 수행합니다.
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 SQL 전용 풀 원본을 선택합니다.
 

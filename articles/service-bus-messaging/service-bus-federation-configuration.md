@@ -2,13 +2,13 @@
 title: 구성된 복제 작업 - Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 복제 작업을 구성하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 09/27/2020
-ms.openlocfilehash: 9988f6ec2bec11877ed33f6cb674e7d74970ce99
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.date: 09/27/2021
+ms.openlocfilehash: 7ba89a2713157706180fe59ca63e7ea5a4f64c8b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155005"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211908"
 ---
 # <a name="configured-replication-tasks"></a>구성된 복제 작업
 

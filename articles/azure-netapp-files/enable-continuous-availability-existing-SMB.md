@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/28/2021
 ms.author: b-juche
-ms.openlocfilehash: a0ce1d23cfcc9fb2362038baa6ccdb5cfc5477fc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 705cc540097ea41bc0039336d7cc9fdc025dd247
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576678"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218387"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>기존 SMB 볼륨에서 지속적인 가용성 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "128576678"
 3. 나타나는 편집 창에서 **지속적인 가용성 사용** 확인란을 선택합니다.   
     ![지속적인 가용성 사용 옵션을 보여주는 스냅샷.](../media/azure-netapp-files/enable-continuous-availability.png)
 
-4. 서버를 다시 부팅합니다.   
+4. 기존 SMB 공유에 연결 하는 Windows 시스템을 다시 부팅 합니다.   
 
     > [!NOTE]
     > **지속적인 가용성 사용** 옵션만 선택해도 기존 SMB 세션을 계속 사용할 수 있는 것은 아닙니다. 옵션을 선택한 후에는 서버를 다시 부팅하여 변경 내용을 적용해야 합니다.  
@@ -51,7 +51,7 @@ ms.locfileid: "128576678"
  
     최신 PowerShell 버전을 설치해야 할 수 있습니다. 
 
-    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell 명령 세부 정보를 참조하세요.
+    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell 명령 세부 정보를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계  
 

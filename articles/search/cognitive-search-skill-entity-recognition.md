@@ -6,15 +6,15 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ff55bf38e88bf62b483cf70df89a17b9c5afb8d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567304"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210386"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
+# <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
 **엔터티 인식** 기술은 텍스트에서 다양한 형식의 엔터티를 추출합니다. 이 기술은 Cognitive Services의 [Text Analytics](../cognitive-services/text-analytics/overview.md)에서 제공하는 기계 학습 모델을 사용합니다.
 
@@ -47,7 +47,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 입력 이름      | Description                   |
 |---------------|-------------------------------|
 | `languageCode`    | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | `text`          | 분석할 텍스트입니다.          |

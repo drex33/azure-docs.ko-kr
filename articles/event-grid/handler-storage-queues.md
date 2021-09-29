@@ -2,13 +2,13 @@
 title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 스토리지 큐
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 Azure 스토리지 큐를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 12314aaad4204892523ab88166bf86a80c35c939
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421737"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217791"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 스토리지 큐
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Queue Storage** 가 그 중 하나입니다. 

@@ -3,17 +3,17 @@ title: 유지 관리 알림
 description: Azure에서 실행 중인 가상 머신에 대한 유지 관리 알림 개요입니다.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: bc282833b57b03faf782f40ebb42666899c56e81
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 4330f171b9fe7559a22cb90e6fbd18598f04dd40
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698784"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216083"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>계획된 유지 관리 알림 처리
 

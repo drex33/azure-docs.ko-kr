@@ -4,15 +4,15 @@ description: 이 방법 가이드에서는 Azure Cosmos Database(SQL API)를 검
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 5cbf179cd28a36705379049a66010d02d2e7cf24
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 14799d5a3ae5878461775e8f581fdda44c140d30
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536274"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209968"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Azure Cosmos Database(SQL API) 등록 및 검색
 
@@ -74,7 +74,7 @@ Azure Cosmos Database(SQL API)에 대한 인증을 설정하는 방법은 다음
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 Azure Cosmos DB 데이터 원본을 선택합니다.
 

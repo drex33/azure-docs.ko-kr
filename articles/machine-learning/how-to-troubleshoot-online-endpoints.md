@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 59c5558d75c8851b83a6902c65472a54e759ddaa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0edd6b7e9ac3229483d53d0e91c49f06633f5e51
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634155"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218454"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -102,13 +102,13 @@ az ml endpoint get-logs -h
 
 Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로비저닝하지 못했습니다. 나중에 다시 시도하거나 다른 지역에 배포해 보세요.
 
-### <a name="err_1102-no-more-role-assignments"></a>ERR_1102: 더 이상 역할 할당 없음
+### <a name="err_1102-no-more-role-assignments"></a>ERR_1102: 역할 할당이 더 이상 없습니다.
 
-이 구독에서 사용되지 않는 일부 역할 할당을 삭제합니다. Access Control 메뉴의 Azure Portal 모든 역할 할당을 확인할 수 있습니다.
+이 구독에서 사용 되지 않는 역할 할당을 삭제 합니다. Access Control 메뉴에서 Azure Portal의 모든 역할 할당을 확인할 수 있습니다.
 
-### <a name="err_1103-endpoint-quota-reached"></a>ERR_1103: 엔드포인트 할당량에 도달했습니다.
+### <a name="err_1103-endpoint-quota-reached"></a>ERR_1103: 끝점 할당량에 도달 했습니다.
 
-이 구독에서 사용되지 않는 일부 엔드포인트를 삭제합니다.
+이 구독에서 사용 되지 않는 일부 끝점을 삭제 합니다.
 
 ### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200: 사용자 컨테이너 이미지를 다운로드할 수 없음
 
@@ -181,7 +181,11 @@ az ml endpoint get-logs
 
 ### <a name="err_2101-kubernetes-unschedulable"></a>ERR_2101: Kubernetes 예약 불가능
 
-요청된 CPU 또는 메모리를 충족할 수 없습니다. 요청 또는 클러스터를 조정하세요.
+요청한 CPU 또는 메모리를 만족할 수 없습니다. 요청 또는 클러스터를 조정 하세요.
+
+### <a name="err_2102-resources-requests-invalid"></a>ERR_2102: 리소스 요청이 잘못 되었습니다.
+
+리소스에 대 한 요청은 한도 보다 작거나 같아야 합니다. 제한을 설정 하지 않으면 계산을 Azure Machine Learning 작업 영역에 연결할 때 기본값이 설정 됩니다. Azure Portal 또는 명령을 사용 하 여 제한을 확인할 수 있습니다 `az ml compute show` .
 
 ### <a name="err_2200-user-container-has-crashedterminated"></a>ERR_2200: 사용자 컨테이너에 crashed\terminated가 있음
 

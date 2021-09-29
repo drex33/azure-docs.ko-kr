@@ -2,14 +2,14 @@
 title: 리소스 그룹과 리소스 삭제
 description: 리소스 그룹과 리소스를 삭제하는 방법을 설명합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager가 리소스 삭제를 명령하는 방법을 설명합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 09/28/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: 7995539ededec882b0b69e5ba3d1c5ef42adbcdc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315240"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211236"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 리소스 그룹 및 리소스 삭제
 
@@ -119,13 +119,13 @@ az resource delete \
 
 ---
 
-## <a name="required-access"></a>필요한 액세스
+## <a name="required-access-and-deletion-failures"></a>필요한 액세스 및 삭제 실패
 
 리소스 그룹을 삭제하려면 **Microsoft.Resources/subscriptions/resourceGroups** 리소스의 삭제 작업에 대한 액세스 권한이 있어야 합니다. 리소스 그룹의 모든 리소스에 대한 삭제도 필요합니다.
 
 작업 목록은 [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 기본 제공 역할 목록은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-필요한 액세스 권한이 있지만 삭제 요청이 실패하면 리소스 그룹에 [잠금](lock-resources.md)이 있기 때문일 수 있습니다.
+필요한 액세스 권한이 있지만 삭제 요청이 실패하는 경우 [리소스 또는 리소스 그룹 에 대한 잠금이](lock-resources.md)있기 때문일 수 있습니다. 리소스 그룹을 수동으로 잠그지 않은 경우에도 관련 서비스에 [의해 자동으로 잠겼을](lock-resources.md#managed-applications-and-locks)수 있습니다. 또는 리소스가 삭제되지 않는 다른 리소스 그룹의 리소스에 연결된 경우 삭제가 실패할 수 있습니다. 예를 들어 가상 머신에서 여전히 사용 중인 서브넷이 있는 가상 네트워크는 삭제할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

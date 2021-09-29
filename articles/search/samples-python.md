@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2021
-ms.openlocfilehash: fc27ed68f5dedefa0b4bf77a206faa15c94f083f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
-ms.translationtype: HT
+ms.openlocfilehash: 17ce9f711572d1d760e44676ad8e8b51c5333985
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018318"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218412"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 Python 코드 샘플
 
@@ -40,7 +40,7 @@ Azure SDK 개발 팀의 코드 샘플에서 API 사용을 보여 줍니다. 이�
 | [문서 로드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_crud_operations.py) | [데이터 가져오기](search-what-is-data-import.md) 작업에서 문서를 인덱스에 업로드하거나 병합하는 방법을 보여줍니다. |
 | [단순 쿼리](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_simple_query.py) | [기본 쿼리](search-query-overview.md)를 설정하는 방법을 보여줍니다. |
 | [필터 쿼리](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_filter_query.py) | [필터 식](search-filters.md)을 설정하는 방법을 보여줍니다. |
-| [패싯 쿼리](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | [패싯](search-filters-facets.md)을 사용하는 방법을 보여줍니다. |
+| [패싯 쿼리](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | [패싯](search-faceted-navigation.md)을 사용하는 방법을 보여줍니다. |
 
 ## <a name="doc-samples"></a>문서 샘플
 
@@ -49,7 +49,7 @@ Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니
 | 샘플 | 아티클 |
 |---------|---------|
 | [빠른 시작](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | [빠른 시작: Python에서 검색 인덱스 만들기](search-get-started-python.md)에 대한 소스 코드입니다. 이 문서에서는 샘플 데이터를 사용하여 검색 인덱스를 만들고, 로드하고, 쿼리하는 기본 워크플로를 다룹니다. |
-| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | [자습서: 웹앱에 검색 추가](tutorial-python-overview.md)의 소스 코드입니다. 리치 클라이언트와 앱 호스팅 및 검색 요청 처리를 위한 구성 요소가 포함된 엔드투엔드 검색 앱을 보여 줍니다.|
+| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | [자습서: 웹앱에 검색 추가](tutorial-python-overview.md)에 대한 소스 코드입니다. 리치 클라이언트와 앱 호스팅 및 검색 요청 처리를 위한 구성 요소가 포함된 엔드투엔드 검색 앱을 보여 줍니다.|
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | [자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성](cognitive-search-tutorial-blob-python.md)의 소스 코드입니다. 이 문서에서는 인식 기술 세트를 사용하여 Blob 인덱서를 만드는 방법을 보여줍니다. 여기서 기술 세트는 원시 콘텐츠를 만들고 변환하여 검색 및 사용이 가능하도록 합니다. |
 | [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | [예제: Python을 사용하여 사용자 지정 기술 만들기](cognitive-search-custom-skill-python.md)의 소스 코드입니다. 이 문서에서는 Azure Machine Learning에서 딥 러닝 모델과의 인덱서 및 기술 세트 통합을 보여줍니다. |
 

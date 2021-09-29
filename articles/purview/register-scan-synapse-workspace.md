@@ -1,18 +1,18 @@
 ---
-title: Azure Synapse Analytics 작업 영역을 검사하는 방법
+title: Azure Synapse Analytics 작업 영역을 등록하고 검사하는 방법
 description: Azure Purview 데이터 카탈로그에서 Azure Synapse 작업 영역을 검사하는 방법을 알아봅니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
-ms.openlocfilehash: aeb1721f4054076701325d99379a00ba68ded172
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 8a7b23089e9b17e35b56b04991c76b37baedf231
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563042"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207795"
 ---
 # <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역 등록 및 검사
 
@@ -208,7 +208,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [Purview Studio의](https://web.purview.azure.com/resource/)왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 데이터 원본을 선택합니다.
 
@@ -241,11 +241,11 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
     * **상태 표시줄** 에는 하위 리소스의 실행 상태가 간단히 요약되어 표시됩니다. 상태는 작업 영역 수준 검사에 표시됩니다.  
     * 녹색은 성공한 검사 실행을 나타내고, 빨간색은 실패한 검사 실행을 나타내며, 회색은 검사 실행이 아직 진행 중임을 나타냅니다.  
-    * 검사 실행을 클릭하여 검사 실행에 대한 세부 정보를 확인할 수 있습니다.
+    * 검색 실행을 선택하여 검사 실행에 대한 보다 세부적인 정보를 볼 수 있습니다.
 
       :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Azure Synapse Analytics 검사 세부 정보 페이지 스크린샷" lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-    * **원본 세부 정보** 페이지 아래쪽에서 최근 실패한 검사 실행의 요약을 볼 수 있습니다. 다시 검사 실행을 클릭하여 검사 실행에 대한 세부 정보를 확인할 수 있습니다.
+    * **원본 세부 정보** 페이지 아래쪽에서 최근 실패한 검사 실행의 요약을 볼 수 있습니다. 다시 검사 실행을 선택하여 검사 실행에 대한 보다 세부적인 정보를 볼 수 있습니다.
 
 #### <a name="manage-your-scans"></a>검사 관리
 

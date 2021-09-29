@@ -1,5 +1,5 @@
 ---
-title: 모니터링 Azure Key Vault
+title: Azure Key Vault 모니터링
 description: 여기에서 시작하여 Azure Key Vault 모니터링하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,15 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 3696fc2a1231598835b483c9a411a746a56d1faf
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.custom: subject-monitoring
+ms.openlocfilehash: 753dbf0bdaa1e97a04422b567dcbc199717bbd71
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060690"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207317"
 ---
-# <a name="monitoring-azure-key-vault"></a>모니터링 Azure Key Vault
+# <a name="monitoring-azure-key-vault"></a>Azure Key Vault 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. Azure Key Vault 경우 키 자격 증명 모음으로 전송되는 요청 수가 증가하므로 크기 조정을 시작할 때 서비스를 모니터링하는 것이 중요합니다. 이로 인해 요청 대기 시간이 증가하고 극단적인 경우 요청이 제한되어 서비스 성능에 영향을 줄 수 있습니다.
 
@@ -35,14 +36,14 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 - 전체 서비스 API 대기 시간
 - 전체 자격 증명 모음 가용성
 - 전체 자격 증명 모음 포화
-- 총 서비스 API 적중 수
+- 총 서비스 API 적중 량
 - 총 서비스 API 결과
 
 ## <a name="key-vault-insights"></a>Key Vault 인사이트
 
 Azure의 일부 서비스는 Azure Portal에서 서비스 모니터링을 위한 시작점을 제공하는 미리 빌드된 모니터링 대시보드를 특별히 제공합니다. 이러한 특수 대시보드를 “인사이트”라고 합니다.
 
-Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다. 자세한 내용은 Key Vault 인사이트를 통해 키 자격 증명 모음 [서비스 모니터링을 참조하세요.](../../azure-monitor/insights/key-vault-insights-overview.md)
+Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다. 자세한 내용은 [Key Vault 인사이트를 통해 키 자격 증명 모음 서비스 모니터링을 참조하세요.](../../azure-monitor/insights/key-vault-insights-overview.md)
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
@@ -58,7 +59,7 @@ Key Vault 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 �
 
 Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. *Key Vault* 범주는 Key Vault 모니터링 데이터 [참조](monitor-key-vault-reference.md#resource-logs)에 나열됩니다.
 
-키 자격 증명 모음에 대한 진단 설정을 만들려면 [Key Vault 로깅 사용을 참조하세요.](howto-logging.md)  수집할 수 있는 메트릭 및 로그에 대해서는 다음 섹션에서 설명합니다.
+키 자격 증명 모음에 대한 진단 설정을 만들려면 [Key Vault 로깅 사용을](howto-logging.md)참조하세요.  수집할 수 있는 메트릭 및 로그에 대해서는 다음 섹션에서 설명합니다.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
@@ -74,14 +75,14 @@ Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 �
 
 [활동 로그](../../azure-monitor/platform/activity-log.md)는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그 유형입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 
-Key Vault 대해 수집된 리소스 로그 유형 목록은 모니터링 [Key Vault 데이터 참조를 참조하세요.](monitor-key-vault-reference.md#resource-logs)  
+Key Vault 대해 수집된 리소스 로그 유형 목록은 모니터링 Key Vault [데이터 참조를 참조하세요.](monitor-key-vault-reference.md#resource-logs)  
 
 Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 테이블 목록은 [Key Vault 데이터 참조 모니터링을 참조하세요.](monitor-key-vault-reference.md#azure-monitor-logs-tables)  
 
 ### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
 > [!IMPORTANT]
-> Key Vault 메뉴에서 **로그를** 선택하면 쿼리 범위가 현재 키 자격 증명 모음으로 설정된 상태로 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 키 자격 증명 모음의 데이터 또는 다른 Azure 서비스의 데이터가 포함된 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그를** 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/)를 참조하세요.
+> Key Vault 메뉴에서 **로그를** 선택하면 쿼리 범위가 현재 키 자격 증명 모음으로 설정된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 키 자격 증명 모음의 데이터 또는 다른 Azure 서비스의 데이터가 포함된 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그를** 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/)를 참조하세요.
 
 다음은 **로그 검색 검색** 표시줄에 입력하여 Key Vault 리소스를 모니터링하는 데 도움이 되는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](/azure-monitor/logs/log-query-overview)에서 작동합니다.
 
@@ -138,7 +139,7 @@ Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 �
 
     ```
 
-* 이 KeyVault를 호출하는 Who? 
+* 이 KeyVault를 호출하는 Who 있나요? 
 
     ```Kusto
     // List of callers identified by their IP address with their request count.  
@@ -194,7 +195,7 @@ Azure Key Vault 실행되는 애플리케이션을 만들거나 실행하는 경
 
 ## <a name="next-steps"></a>다음 단계
 
-축하합니다. 이제 Azure Key Vault 모니터링하고 있습니다. 경고를 설정하려는 경우 [Azure Key Vault 대한 경고를](alert.md)참조하세요.
+축하합니다. 이제 Azure Key Vault 모니터링하고 있습니다. 경고도 설정하려면 [Azure Key Vault 대한 경고를](alert.md)참조하세요.
 
 - Key Vault 만든 메트릭, 로그 및 기타 중요한 값에 대한 참조는 모니터링 Azure Key Vault [데이터 참조를](monitor-key-vault-reference.md) 참조하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource)을 참조하세요.

@@ -3,14 +3,14 @@ title: Azure Event Grid 리소스에 대한 네트워크 보안
 description: 이 문서에서는 송신용 서비스 태그, 수신용 IP 방화벽 규칙 및 Azure Event Grid를 통한 수신용 프라이빗 엔드포인트를 사용하는 방법을 설명합니다.
 author: VidyaKukke
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.author: vkukke
-ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
-ms.translationtype: HT
+ms.openlocfilehash: 041c09a23b25b2ffe487b6d13171c51f2d96e6e1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967577"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212763"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Azure Event Grid 리소스에 대한 네트워크 보안
 이 문서에서는 Azure Event Grid에서 다음 보안 기능을 사용하는 방법을 설명합니다. 

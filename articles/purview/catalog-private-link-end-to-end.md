@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: a4e1270751f0f675f579315bfc69a808ccf903ea
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 4f15d39da8f97897498f07892eb90d37a1bd8574
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250686"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209276"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
 
@@ -20,15 +20,15 @@ ms.locfileid: "123250686"
 
 Azure Purview _계정_ 프라이빗 엔드포인트는 가상 네트워크 내에서 시작된 클라이언트 호출만 Azure Purview 계정에 액세스할 수 있는 시나리오를 사용하도록 설정하여 다른 보안 계층을 추가하는 데 사용됩니다. 이 프라이빗 엔드포인트는 포털 프라이빗 엔드포인트의 필수 조건이기도 합니다.
 
-개인 네트워크를 사용하여 Azure Purview Studio에 연결하려면 Azure Purview _포털_ 프라이빗 엔드포인트가 필요합니다.
+Azure 부서의 범위 _portal_ 개인 끝점은 개인 네트워크를 사용 하 여 [azure 부서의 범위 Studio](https://web.purview.azure.com/resource/) 에 대 한 연결을 사용 하도록 설정 하는 데 필요 합니다.
 
 Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또는 온-프레미스 환경에서 데이터 원본을 검사할 수 있습니다. 수집 프라이빗 엔드포인트를 배포할 때 3가지 프라이빗 엔드포인트 리소스가 배포되고 Azure Purview 관리되는 리소스에 연결되어야 합니다.
 
-- Blob 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
-- 큐 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
-- 네임스페이스 프라이빗 엔드포인트는 Azure Purview 관리형 이벤트 허브 네임스페이스에 연결됩니다.
+ - Blob 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
+ - 큐 프라이빗 엔드포인트는 Azure Purview 관리형 스토리지 계정에 연결됩니다.
+ - 네임스페이스 프라이빗 엔드포인트는 Azure Purview 관리형 이벤트 허브 네임스페이스에 연결됩니다.
 
-   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Azure Purview 및 Private Link 아키텍처를 보여 주는 다이어그램.":::
+  :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Azure Purview 및 Private Link 아키텍처를 보여 주는 다이어그램.":::
 
 ## <a name="deployment-checklist"></a>배포 검사 목록
 이 가이드에서 자세히 설명하는 배포 옵션 중 하나를 사용하여 _계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트를 사용하는 새 Azure Purview 계정을 배포하거나 기존 Azure Purview 계정에 대해 다음 프라이빗 엔드포인트를 배포하도록 선택할 수 있습니다.
@@ -55,11 +55,11 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 
 3. **계정 및 포털** 에서 **+ 추가** 를 선택하여 Azure Purview 계정에 대한 프라이빗 엔드포인트를 추가합니다.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-1.png" alt-text="프라이빗 엔드포인트 만들기 엔드투엔드 페이지 선택을 보여 주는 스크린샷":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-end-to-end.png" alt-text="프라이빗 엔드포인트 만들기 엔드투엔드 페이지 선택을 보여 주는 스크린샷":::
 
 4. **프라이빗 엔드포인트 만들기** 페이지에서 **Purview 하위 리소스** 에 대해 위치를 선택하고 _계정_ 프라이빗 엔드포인트의 이름을 제공한 다음 **계정** 을 선택합니다. **네트워킹** 에서 가상 네트워크와 서브넷을 선택하고 선택적으로 **프라이빗 DNS 영역과 통합** 을 선택하여 새 Azure 프라이빗 DNS 영역을 만듭니다. 
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="계정 프라이빗 엔드포인트 만들기 페이지를 보여 주는 스크린샷.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="계정 프라이빗 엔드포인트 만들기 페이지를 보여 주는 스크린샷.":::
 
    > [!NOTE]
    > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
@@ -69,6 +69,8 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 6. **계정 및 포털** 마법사에서 **+추가** 를 다시 선택하여 _포털_ 프라이빗 엔드포인트를 추가합니다. 
   
 7. **프라이빗 엔드포인트 만들기** 페이지에서 **Purview 하위 리소스** 에 대해 위치를 선택하고 _포털_ 프라이빗 엔드포인트의 이름을 제공하고 **포털** 을 선택합니다. **네트워킹** 에서 가상 네트워크와 서브넷을 선택하고 선택적으로 **프라이빗 DNS 영역과 통합** 을 선택하여 새 Azure 프라이빗 DNS 영역을 만듭니다. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="포털 개인 끝점 만들기 페이지를 보여 주는 스크린샷":::
    
    > [!NOTE]
    > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
@@ -79,7 +81,7 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 
 10. 선택적으로 **프라이빗 DNS 통합** 을 선택하여 Azure 프라이빗 DNS 영역을 사용합니다.
    
-      :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-2.png" alt-text="프라이빗 엔드포인트 만들기 개요 페이지를 보여 주는 스크린샷":::
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-ingestion.png" alt-text="프라이빗 엔드포인트 만들기 개요 페이지를 보여 주는 스크린샷":::
 
       > [!IMPORTANT]
       > Azure Purview와 데이터 원본 간에 올바른 이름 확인을 허용하려면 올바른 Azure 프라이빗 DNS 영역을 선택하는 것이 중요합니다. 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
@@ -91,9 +93,9 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 
 ## <a name="option-2---enable-_account_-_portal_-and-_ingestion_-private-endpoint-on-existing-azure-purview-accounts"></a>옵션 2 - 기존 Azure Purview 계정에서 _계정_, _포털_ 및 _수집_ 프라이빗 엔드포인트를 사용하도록 설정
 
-1. [Azure Portal](https://portal.azure.com)로 이동한 다음 Azure Purview 계정을 클릭하고 **설정** 에서 **네트워킹** 을 선택한 다음 **프라이빗 엔드포인트 연결** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동한 다음, Azure 부서의 범위 계정을 선택 하 고 **설정** 에서 **네트워킹** 을 선택 하 고 **개인 끝점 연결** 을 선택 합니다.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="계정 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="계정 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷":::
 
 2. **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다.
 
@@ -114,15 +116,14 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
    
 9. Azure Purview 계정의 **설정** 에서 **네트워킹** 을 선택한 다음 **수집 프라이빗 엔드포인트 연결** 을 선택합니다.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-3.png" alt-text="기존 계정에 프라이빗 엔드포인트 추가를 보여 주는 스크린샷.":::
-
-
 10. 수집 프라이빗 엔드포인트 연결에서 **+ 새로 만들기** 를 선택하여 새 수집 프라이빗 엔드포인트를 만듭니다.
+
+      :::image type="content" source="media/catalog-private-link/purview-pe-add-ingestion-to-existing.png" alt-text="기존 계정에 프라이빗 엔드포인트 추가를 보여 주는 스크린샷.":::
 
 11. 기본 정보를 입력하고 기존 가상 네트워크와 서브넷 세부 정보를 선택합니다. 선택적으로 **프라이빗 DNS 통합** 을 선택하여 Azure 프라이빗 DNS 영역을 사용합니다. 각 목록에서 올바른 Azure 프라이빗 DNS 영역을 선택합니다.
 
-   > [!NOTE]
-   > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
+      > [!NOTE]
+      > 기존 Azure 프라이빗 DNS 영역을 사용하거나 나중에 수동으로 DNS 서버에서 DNS 레코드를 만들 수도 있습니다. 자세한 내용은 [프라이빗 엔드포인트에 대한 DNS 이름 확인 구성](./catalog-private-link-name-resolution.md)을 참조하세요.
 
 12. **만들기** 를 선택하여 설정을 완료합니다.
 

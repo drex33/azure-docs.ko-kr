@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/15/2021
-ms.openlocfilehash: 574d87c051cf4e56fbaf83186ca0e50f2f52bc45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605566"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218001"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure Purview(미리 보기)에 Data Factory 연결
 
@@ -41,9 +41,9 @@ Data Factory 작성 UI에서 연결을 설정하려면 다음을 수행합니다
 
 3. 연결되면 **Azure Purview 계정** 탭에 Purview 계정 이름이 표시됩니다.
 
-Purview 계정이 방화벽으로 보호되는 경우 Purview에 대한 관리형 프라이빗 엔드포인트를 만듭니다. Data Factory [보안 Purview 계정에 액세스하도록](how-to-access-secured-purview-account.md)하는 방법에 대해 자세히 알아봅니다. 초기 연결 중에 이 작업을 수행하거나 나중에 기존 연결을 편집할 수 있습니다.
+Purview 계정이 방화벽으로 보호되는 경우 Purview에 대한 관리형 프라이빗 엔드포인트를 만듭니다. [보안 부서의 범위 계정 Data Factory 액세스](how-to-access-secured-purview-account.md)를 허용 하는 방법에 대해 자세히 알아보세요. 초기 연결 중에 이 작업을 수행하거나 나중에 기존 연결을 편집할 수 있습니다.
 
-Purview 연결 정보는 다음과 같은 데이터 팩터리 리소스에 저장됩니다. 프로그래매틱 방식으로 연결을 설정하려면 데이터 팩터리를 업데이트하고 `purviewConfiguration` 설정을 추가하면 됩니다. SSIS 활동에서 계보를 푸시하려는 경우 `catalogUri` 태그도 추가합니다.
+Purview 연결 정보는 다음과 같은 데이터 팩터리 리소스에 저장됩니다. 프로그래매틱 방식으로 연결을 설정하려면 데이터 팩터리를 업데이트하고 `purviewConfiguration` 설정을 추가하면 됩니다. SSIS 작업에서 계보를 푸시 하려는 경우에도 태그를 추가 `catalogUri` 합니다.
 
 ```json
 {
@@ -80,9 +80,20 @@ Azure Purview에서 Data Factory를 등록하는 방법에 대한 자세한 내�
 
     작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 계정에 대한 **소유자** 또는 **사용자 액세스 관리자** 역할(Azure 기본 제공 역할)이 있으면 이 작업이 성공적으로 수행됩니다.
 
-Purview 역할 할당 정보를 읽을 권한이 있고 필요한 역할이 부여되지 않은 경우 아래 경고가 표시될 수 있습니다. 파이프라인 계보 푸시를 위한 연결이 제대로 설정되도록 하려면 Purview 계정으로 이동한 다음, 데이터 팩터리 관리 ID에 **Purview 데이터 큐레이터** 역할이 부여되었는지 확인합니다. 역할이 부여되지 않은 경우 역할 할당을 수동으로 추가합니다.
+## <a name="monitor-purview-connection"></a>부서의 범위 연결 모니터링
 
-:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Purview 계정 등록 경고 스크린샷":::
+부서의 범위 계정에 데이터 팩터리를 연결 하면 사용 하도록 설정 된 통합 기능에 대 한 세부 정보가 포함 된 다음 페이지가 표시 됩니다.
+
+:::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Azure Data Factory와 부서의 범위 간의 통합 상태를 모니터링 하기 위한 스크린샷":::
+
+**데이터 계보 파이프라인** 의 경우 다음 상태 중 하나가 표시 될 수 있습니다.
+
+- **연결** 됨: 데이터 팩터리가 부서의 범위 계정에 성공적으로 연결 되었습니다. 이는 data factory가 부서의 범위 계정과 연결 되어 있으며 계보를 푸시할 수 있는 권한이 있음을 나타냅니다. 부서의 범위 계정이 방화벽으로 보호 되는 경우 작업을 실행 하 고 계보 푸시를 수행 하는 데 사용 되는 통합 런타임이 부서의 범위 계정에 도달할 수 있는지도 확인 해야 합니다. [Azure Data Factory에서 보안 Azure 부서의 범위 계정에 액세스 하는](how-to-access-secured-purview-account.md)방법에 대해 자세히 알아보세요.
+- **연결 끊김**: 부서의 범위 data 큐레이터 role이 data factory의 관리 id에 부여 되지 않았기 때문에 데이터 팩터리가 계보를 부서의 범위에 푸시할 수 없습니다. 이 문제를 해결 하려면 부서의 범위 계정으로 이동 하 여 역할 할당을 확인 하 고 필요에 따라 수동으로 역할을 부여 합니다. [인증 설정](#set-up-authentication) 섹션에서 자세히 알아보세요.
+- **알 수 없음**: Data Factory 상태를 확인할 수 없습니다. 가능한 원인은 다음과 같습니다.
+
+    - 계정이 방화벽으로 보호 되기 때문에 현재 네트워크에서 부서의 범위 계정에 연결할 수 없습니다. 대신 부서의 범위 계정에 연결 된 개인 네트워크에서 ADF UI를 시작할 수 있습니다.
+    - 부서의 범위 계정에 대 한 역할 할당을 확인할 수 있는 권한이 없습니다. 부서의 범위 계정 관리자에 게 문의 하 여 역할 할당을 확인할 수 있습니다. [인증 설정](#set-up-authentication) 섹션에서 필요한 부서의 범위 역할에 대해 알아봅니다.
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Azure Purview에 계보 데이터 보고
 

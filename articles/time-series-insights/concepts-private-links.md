@@ -9,16 +9,16 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/01/2021
-ms.openlocfilehash: 431a8f8c3bec7c4d8d76c22fdf87ff756e68a71b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 58532e07b80e0084666e6847d5bd62313a51ee76
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057094"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207776"
 ---
 # <a name="private-network-access-with-azure-private-link-preview"></a>Azure Private Link를 사용한 프라이빗 네트워크 액세스(미리 보기) 
 
-[Azure Private Link](/private-link/private-link-overview)   는 Azure [리소스(예: Azure Event Hubs, Azure Storage](/event-hubs/event-hubs-about)및 Azure [Cosmos](/storage/common/storage-introduction)DB)와 Azure 호스팅 고객 및 파트너 서비스에 Azure [VNet(Virtual Network)의](/cosmos-db/introduction)프라이빗 엔드포인트를 통해 액세스할 수 있는 [서비스입니다.](/virtual-network/virtual-networks-overview) 
+[Azure Private Link](/azure/private-link/private-link-overview)   는 Azure [리소스(예: Azure Event Hubs, Azure Storage](/azure/event-hubs/event-hubs-about)및 Azure [Cosmos](/azure/storage/common/storage-introduction)DB)와 Azure 호스팅 고객 및 파트너 서비스에 Azure [VNet(Virtual Network)의](/azure/cosmos-db/introduction)프라이빗 엔드포인트를 통해 액세스할 수 있는 [서비스입니다.](/azure/virtual-network/virtual-networks-overview) 
 
 마찬가지로 Time Series Insights 인스턴스에 대한 프라이빗 엔드포인트를 사용하여 가상 네트워크에 있는 클라이언트가 Private Link 통해 인스턴스에 안전하게 액세스할 수 있도록 할 수 있습니다. 
 

@@ -6,15 +6,19 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: a8fd97d2059145b67049f8278cbd03913390b072
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572873"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210652"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Azure Purview 계정에 대해 프라이빗 엔드포인트 사용
+
+> [!IMPORTANT]
+> **2021년 9월 27일 15:30 UTC 이전에** Purview 계정에 대한 _포털_ 프라이빗 엔드포인트를 만든 경우 [포털 프라이빗 엔드포인트에 대한 DNS 다시 구성에](#reconfigure-dns-for-portal-private-endpoints)설명된 대로 필요한 작업을 수행해야 합니다. **이러한 작업은 2021년 10월 11일 이전에 완료해야 합니다. 이렇게 하지 않으면 기존 포털 프라이빗 엔드포인트의 작동이 중지됩니다.**
+
 
 이 문서에서는 Azure Purview에 대해 프라이빗 엔드포인트를 구성하는 방법을 설명합니다.
 
@@ -65,6 +69,49 @@ Azure Purview 계정에서 _수집_ 프라이빗 엔드포인트를 사용하고
 |Azure Synapse Analytics | 자체 호스팅 IR| 서비스 주체|
 |Azure Synapse Analytics | 자체 호스팅 IR| SQL 인증|
 
+## <a name="reconfigure-dns-for-portal-private-endpoints"></a>포털 프라이빗 엔드포인트에 대한 DNS 다시 구성
+
+**2021년 9월 27일(UTC) 15:30 이전에** Purview 계정에 대한 _포털_ 프라이빗 엔드포인트를 만든 경우 이 섹션에 설명된 대로 필요한 작업을 수행합니다.
+
+- **사용자 지정 DNS를 사용하거나 필요한 DNS A 레코드를** 컴퓨터의 호스트 파일에 직접 추가하는 경우 **아무 작업도 필요하지 않습니다.** 
+
+- Purview 계정에 **Azure 프라이빗 DNS 영역 통합을 구성한** 경우 다음 단계에 따라 프라이빗 엔드포인트를 다시 배포하여 DNS 설정을 다시 구성합니다. 
+
+    1. 새 포털 프라이빗 엔드포인트 배포:
+       
+        1. [Azure Portal](https://portal.azure.com)로 이동한 다음 Azure Purview 계정을 클릭하고 **설정** 에서 **네트워킹** 을 선택한 다음 **프라이빗 엔드포인트 연결** 을 선택합니다.
+
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="포털 프라이빗 엔드포인트 만들기를 보여 주는 스크린샷.":::
+
+        2. **+ 프라이빗 엔드포인트** 를 선택하여 새 프라이빗 엔드포인트를 만듭니다.
+
+        3. 기본 정보를 입력합니다.
+
+        4. **리소스** 탭에서 **리소스 종류** 에 대해 **Microsoft.Purview/portal을** 선택합니다.
+
+        5. **리소스에** 대해 Azure Purview 계정을 선택하고 대상 하위 리소스 에 **대해 포털** **을** 선택합니다.
+
+        6. **구성** 탭에서 가상 네트워크를 선택한 다음, Azure 프라이빗 DNS 영역을 선택하여 새 Azure DNS 영역을 만듭니다.
+            
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="포털 프라이빗 엔드포인트 및 DNS 설정 만들기를 보여 주는 스크린샷.":::
+
+        7. 요약 페이지로 이동하고 **만들기** 를 선택하여 포털 프라이빗 엔드포인트를 만듭니다.
+
+    2. Purview 계정과 연결된 이전 포털 프라이빗 엔드포인트를 삭제합니다. 
+
+    3. 포털 프라이빗 엔드포인트를 배포하는 동안 새 Azure 프라이빗 DNS 영역(privatelink.purviewstudio.azure.com)이 생성되고 해당 A 레코드(웹)가 프라이빗 DNS 영역에 있는지 확인합니다. 
+    
+    4. Azure Purview Studio를 성공적으로 로드할 수 있는지 확인합니다. DNS를 다시 구성한 후 새 DNS 라우팅이 적용되는 데 몇 분(약 10분)이 걸릴 수 있습니다. 즉시 로드되지 않으면 몇 분 정도 기다렸다가 다시 시도할 수 있습니다.
+    
+    5. 탐색이 실패하면 포털 프라이빗 엔드포인트에 연결된 개인 IP 주소로 확인되어야 하는 nslookup web.purview.azure.com 수행합니다.
+  
+    6. 있는 모든 기존 포털 프라이빗 엔드포인트에 대해 위의 1~3단계를 반복합니다. 
+
+- **온-프레미스 또는 사용자 지정 DNS** 확인(예: 자체 DNS 서버를 사용 중이거나 호스트 파일을 구성한 경우)을 구성한 경우 다음 작업을 수행합니다. 
+
+  - DNS 레코드가 `web.purview.azure.com` 이면 **아무 작업도 필요하지 않습니다.**  
+  - DNS 레코드가 `web.privatelink.purview.azure.com` 이면 레코드를 로 `web.privatelink.purviewstudio.azure.com` 업데이트합니다. 
+
 ## <a name="frequently-asked-questions"></a>질문과 대답  
 
 Azure Purview의 프라이빗 엔드포인트 배포와 관련된 FAQ는 [Azure Purview 프라이빗 엔드포인트에 대한 FAQ](./catalog-private-link-faqs.md)를 참조하세요.
@@ -77,5 +124,5 @@ Azure Purview 프라이빗 엔드포인트와 관련된 현재 제한 사항 목
 
 ## <a name="next-steps"></a>다음 단계
 
-- [엔드투엔드 프라이빗 네트워킹 배포](./catalog-private-link-end-to-end.md)
-- [Purview Studio용 프라이빗 네트워킹 배포](./catalog-private-link-account-portal.md)
+- [종단 간 개인 네트워킹 배포](./catalog-private-link-end-to-end.md)
+- [부서의 범위 Studio에 대 한 개인 네트워킹 배포](./catalog-private-link-account-portal.md)

@@ -9,19 +9,16 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 02/22/2021
+ms.date: 09/28/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 3552a8191fc5482f8a58cc3365302f44f2f364a3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 081f08ea13fddde88133a14789b4e800969413df
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284326"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214278"
 ---
-# <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 연결(미리 보기)
-
->[!IMPORTANT]
-> 이 문서에서 제공하는 기능은 미리 보기 상태입니다. 언제든지 바뀔 수 있는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로 간주해야 합니다.
+# <a name="connect-to-storage-by-using-identity-based-data-access"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트
 
 이 문서에서는 [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 통해 ID 기반 데이터 액세스 및 Azure Machine Learning 데이터 저장소를 사용하여 Azure의 스토리지 서비스에 연결하는 방법을 알아봅니다.  
 

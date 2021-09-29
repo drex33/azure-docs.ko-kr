@@ -1,18 +1,18 @@
 ---
-title: Azure Data Explorer를 검사하는 방법
-description: 이 방법 가이드에서는 Azure Data Explorer를 검사하는 방법에 대해 자세히 설명합니다.
+title: Azure 데이터 탐색기를 등록 하 고 검색 하는 방법
+description: 이 방법 가이드에서는 Azure 부서의 범위에서 Azure 데이터 탐색기를 검색 하는 방법에 대해 자세히 설명 합니다.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: adf9f3da66908dc473388f9b3da14439de86ddcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 28ed2e82108cce48ac7ce6988bd9e9833253855a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566960"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209942"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Azure Data Explorer 등록 및 검사
 
@@ -63,9 +63,7 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 
 1. Azure Portal로 이동합니다. 그런 다음, Azure 데이터 탐색기 인스턴스로 이동합니다.
 
-1. 다음 스크린샷에 표시된 것처럼 **사용 권한** 탭의 **AllDatabasesViewer** 역할에 서비스 주체를 추가합니다.
-
-    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="권한에서 서비스 주체를 추가하는 스크린샷" border="true":::
+1. **사용 권한** 탭에서 **AllDatabasesViewer** 역할에 서비스 주체를 추가 합니다.
 
 ## <a name="register-an-azure-data-explorer-account"></a>Azure Data Explorer 계정 등록
 
@@ -93,7 +91,7 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 Azure Data Explorer 원본을 선택합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 3a0280b635efd297633d8901c80d7f4fdf6f8741
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b03a7c713203dd61eb95fd5422b3002939e9011
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583724"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208740"
 ---
 # <a name="source-control-in-synapse-studio"></a>Synapse Studio에서 원본 제어
 
@@ -24,7 +24,7 @@ ms.locfileid: "128583724"
 > [!NOTE]
 > Azure Government 클라우드에서는 Synapse Studio git 통합을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 사용자는 Synapse 작업 영역에서 Azure 기여자(Azure RBAC) 이상 역할이 있어야 Synapse를 사용하여 Git 리포지토리를 구성, 편집 및 연결을 끊을 수 있습니다. 
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Synapse Studio에서 Git 리포지토리 구성 
@@ -247,4 +247,4 @@ Synapse Studio에는 한 번에 하나의 게시 분기만 있을 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연속 통합 및 배포를 구현하려면 [CI/CD(연속 통합 및 지속적인 업데이트)](continuous-integration-deployment.md)를 참조하세요.
+* 연속 통합 및 배포를 구현하려면 [CI/CD(연속 통합 및 지속적인 업데이트)](continuous-integration-delivery.md)를 참조하세요.

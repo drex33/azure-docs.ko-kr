@@ -2,13 +2,13 @@
 title: Apache Spark 앱과의 연결 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka에 대한 Azure Event Hubs에서 Apache Spark를 사용하는 방법을 설명합니다.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 8a68027643bed19db8109e66102f2ab3f9cbe36f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913741"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214468"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Apache Spark 애플리케이션을 Azure Event Hubs에 연결
 이 자습서에서는 Spark 애플리케이션을 Event Hubs에 연결하여 실시간으로 스트리밍하는 방법을 안내합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4 이상과 Apache Kafka v2.0 이상이 필요합니다.

@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 08/18/2021
-ms.openlocfilehash: 20ede2b8f12dfdb41d9b07f09f29596876809606
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: e9db19643252a94513be57c2cd3a18ee6038b742
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568139"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129220532"
 ---
 # <a name="resource-management-in-azure-sql-database"></a>Azure SQL Database의 리소스 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "122568139"
 > [!TIP]
 > Azure SQL Managed Instance 한도는 [관리되는 인스턴스에 대한 리소스 한도](../managed-instance/resource-limits.md)를 참조하세요.
 >
-> Azure Synapse Analytics 전용 SQL 풀 제한은 [용량 제한](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)과 [메모리 및 동시성 제한](/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits)을 참조하세요.
+> Azure Synapse Analytics 전용 SQL 풀 제한은 [용량 제한](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)과 [메모리 및 동시성 제한](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md)을 참조하세요.
 
 ## <a name="logical-server-limits"></a>논리 서버 제한
 
@@ -88,11 +88,11 @@ ms.locfileid: "122568139"
 
 ### <a name="memory"></a>메모리
 
-다른 리소스(CPU, 작업자, 스토리지)와 달리 메모리는 한도에 도달해도 쿼리 성능에 부정적인 영향을 미치지 않으며 오류와 실패를 일으키지 않습니다. [메모리 관리 아키텍처 가이드](/sql/relational-databases/memory-management-architecture-guide)에 자세히 설명된 대로 데이터베이스 엔진은 종종 의도적으로 사용 가능한 모든 메모리를 사용합니다. 메모리는 주로 데이터를 캐싱하는 데 사용되어 비용이 많이 드는 스토리지 액세스를 방지합니다. 스토리지에서 읽는 속도에 비해 메모리에서 읽는 속도가 빠르기 때문에 메모리 사용률이 높으면 대체로 쿼리 성능이 향상됩니다.
+다른 리소스(CPU, 작업자, 스토리지)와 달리 메모리는 한도에 도달해도 쿼리 성능에 부정적인 영향을 미치지 않으며 오류와 실패를 일으키지 않습니다. [메모리 관리 아키텍처 가이드](/sql/relational-databases/memory-management-architecture-guide)에 자세히 설명된 대로 데이터베이스 엔진은 종종 의도적으로 사용 가능한 모든 메모리를 사용합니다. 메모리는 스토리지 액세스 속도가 느려지는 것을 방지하기 위해 주로 데이터 캐싱에 사용됩니다. 스토리지에서 읽는 속도에 비해 메모리에서 읽는 속도가 빠르기 때문에 메모리 사용률이 높으면 대체로 쿼리 성능이 향상됩니다.
 
-데이터베이스 엔진이 시작되고 워크로드가 스토리지에서 데이터를 읽기 시작하면 데이터베이스 엔진은 메모리의 데이터를 적극적으로 캐시합니다. 특히 데이터베이스가 유휴 상태가 아니고 메모리에 완전히 들어가지 않는 경우 이 초기 램프업 기간 후에 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)의 `avg_memory_usage_percent` 열과 `avg_instance_memory_percent` 열이 100%에 근접하거나 도달하는 게 일반적으로 예상됩니다.
+데이터베이스 엔진 시작 후 워크로드가 스토리지에서 데이터를 읽기 시작하면 데이터베이스 엔진은 적극적으로 메모리에 데이터를 캐시합니다. 특히 데이터베이스가 유휴 상태가 아니고 메모리에 완전히 들어가지 않는 경우 이 초기 램프업 기간 후에 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)의 `avg_memory_usage_percent` 열과 `avg_instance_memory_percent` 열이 100%에 근접하거나 도달하는 게 일반적으로 예상됩니다.
 
-데이터 캐시 외에도 메모리는 데이터베이스 엔진의 다른 구성 요소에서 사용됩니다. 메모리에 대한 수요가 있는데 데이터 캐시가 사용 가능한 모든 메모리를 사용했을 때 데이터베이스 엔진은 데이터 캐시 크기를 동적으로 축소하여 다른 구성요소가 메모리를 사용할 수 있게 하고, 다른 구성요소가 메모리를 릴리스하면 데이터 캐시를 동적으로 확장합니다.
+데이터 캐시 외에도 메모리는 데이터베이스 엔진의 다른 구성 요소에서 사용됩니다. 메모리에 대한 수요가 있고 사용 가능한 모든 메모리가 데이터 캐시에서 사용된 경우 데이터베이스 엔진은 다른 구성 요소에서 메모리를 사용할 수 있도록 데이터 캐시 크기를 동적으로 줄이고 다른 구성 요소가 메모리를 해제할 때 데이터 캐시를 동적으로 증가시킵니다.
 
 드문 경우지만 상당히 까다로운 워크로드로 인해 메모리 부족 상태가 생기고 메모리 부족 오류가 발생할 수 있습니다. 해당 오류는 메모리 사용률 0%에서 100%까지 모든 수준에서 발생할 수 있습니다. 이는 메모리 한도가 상대적으로 작은 컴퓨팅 크기 및/또는 쿼리 처리에 더 많은 메모리를 사용하는 워크로드(예: [조밀한 탄력적 풀](elastic-pool-resource-management.md))에서 발생할 가능성이 더 큽니다.
 
@@ -124,7 +124,7 @@ Azure SQL Database는 핵심 서비스 기능(예: 고가용성 및 재해 복�
 
 ## <a name="resource-governance"></a>리소스 거버넌스
 
-Azure SQL Database는 리소스 제한을 적용하기 위해 클라우드에서 실행되도록 수정 및 확장된 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 기반으로 한 리소스 거버넌스 구현을 사용합니다. SQL Database에서는 풀 수준과 그룹 수준에서 모두 리소스 한도가 설정된 여러 [리소스 풀](/sql/relational-databases/resource-governor/resource-governor-resource-pool)과 [작업 그룹](/sql/relational-databases/resource-governor/resource-governor-workload-group)이 [균형 잡힌 Database-as-a-Service](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/)를 제공합니다. 사용자 워크로드와 내부 워크로드는 별도의 리소스 풀과 작업 그룹으로 분류됩니다. 지역 복제본을 포함하여 주 복제본과 읽기 가능한 보조 복제본의 사용자 워크로드는 `SloSharedPool1` 리소스 풀과 `UserPrimaryGroup.DBId[N]` 작업 그룹으로 분류됩니다. 여기서 `N`은 데이터베이스 ID 값을 나타냅니다. 또한 다양한 내부 워크로드를 위한 여러 리소스 풀과 작업 그룹이 있습니다.
+Azure SQL Database는 리소스 제한을 적용하기 위해 클라우드에서 실행되도록 수정 및 확장된 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 기반으로 한 리소스 거버넌스 구현을 사용합니다. SQL Database에서는 풀 수준과 그룹 수준에서 모두 리소스 한도가 설정된 여러 [리소스 풀](/sql/relational-databases/resource-governor/resource-governor-resource-pool)과 [작업 그룹](/sql/relational-databases/resource-governor/resource-governor-workload-group)이 [균형 잡힌 Database-as-a-Service](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/)를 제공합니다. 사용자 워크로드와 내부 워크로드는 별도의 리소스 풀과 작업 그룹으로 분류됩니다. 지역 복제본을 비롯 하 여 읽기 가능한 주 보조 복제본의 사용자 작업은 `SloSharedPool1` 리소스 풀 및 작업 그룹으로 분류 됩니다 `UserPrimaryGroup.DBId[N]` . 여기서는 `[N]` 데이터베이스 ID 값을 나타냅니다. 또한 다양한 내부 워크로드를 위한 여러 리소스 풀과 작업 그룹이 있습니다.
 
 Resource Governor를 사용하여 데이터베이스 엔진 내의 리소스를 관리하는 것 외에도 Azure SQL Database는 프로세스 수준 리소스 거버넌스를 위해 Windows [작업 개체](/windows/win32/procthread/job-objects)를 사용하고, 스토리지 할당량 관리를 위해 Windows [FSRM(파일 서버 리소스 관리자)](/windows-server/storage/fsrm/fsrm-overview)을 사용합니다.
 
@@ -134,30 +134,27 @@ Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다.
 
 데이터 IO 거버넌스는 데이터베이스의 데이터 파일에 대해 읽기 및 쓰기 물리적 IO를 제한하는 데 사용되는 Azure SQL Database의 프로세스입니다. IOPS 한도는 각 서비스 수준에서 설정되어 “시끄러운 이웃” 효과를 최소화하고, 멀티 테넌트 서비스에서 리소스를 공정하게 할당하며, 기본 하드웨어 및 스토리지의 기능을 유지합니다.
 
-단일 데이터베이스의 경우, 워크로드 그룹 제한은 데이터베이스에 대한 모든 스토리지 IO에 적용되는 반면, 리소스 풀 제한은 tempdb 데이터베이스를 비롯하여 동일한 탄력적인 풀에 있는 모든 데이터베이스에 대한 모든 스토리지 IO에 적용됩니다. 탄력적 풀의 경우, 워크로드 그룹 한도는 풀의 각 데이터베이스에 적용되는 반면, 리소스 풀 한도는 풀의 모든 데이터베이스 간에 공유되는 tempdb 데이터베이스를 비롯한 탄력적 풀 전체에 적용됩니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 동일한 풀에 있는 여러 데이터베이스에 대한 결합된 워크로드로 풀의 한도에 도달할 수 있습니다.
+단일 데이터베이스의 경우 데이터베이스에 대 한 모든 저장소 IO에 작업 그룹 제한이 적용 됩니다. 탄력적 풀의 경우 작업 그룹 제한은 풀의 각 데이터베이스에 적용 됩니다. 또한 리소스 풀 제한은 탄력적 풀의 누적 IO에 추가로 적용 됩니다. Tempdb IO는 더 높은 tempdb IO 제한이 적용 되는 기본, 표준 및 범용 서비스 계층을 제외 하 고 작업 그룹 제한의 영향을 받습니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 풀 제한은 동일한 풀의 여러 데이터베이스에 대해 결합 된 워크 로드에서 도달할 수 있습니다.
 
 예를 들어 IO 리소스 거버넌스 없이 쿼리가 1,000IOPS를 생성하는데 작업 그룹의 IOPS 최대한도가 900IOPS로 설정되었다면, 쿼리는 900IOPS를 초과할 수 없습니다. 하지만 리소스 풀의 IOPS 최대한도가 1,500IOPS로 설정되어 있고 리소스 풀과 연결된 모든 작업 그룹의 총 IO가 1,500IOPS를 초과하는 경우, 동일한 쿼리의 IO가 작업 그룹 한도인 900IOPS 미만으로 감소할 수 있습니다.
 
-[sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에서 반환된 IOPS 및 처리량 최솟값/최댓값은 보장되는 것이 아니라 한도/한계입니다. 또한 리소스 거버넌스는 특정 스토리지 대기 시간을 보장하지 않습니다. 특정한 사용자 워크로드에서 달성 가능한 최고의 대기 시간, IOPS, 처리량은 IO 리소스 거버넌스 한도뿐만 아니라 사용되는 IO 크기들의 조합, 기본 스토리지의 기능에 따라 달라집니다. SQL Database는 크기가 512KB부터 4MB까지 다양한 IO를 사용합니다. IOPS 한도를 적용하기 위해서 모든 IO가 크기와 관계없이 계산되지만, Azure Storage에 데이터 파일이 있는 데이터베이스는 예외입니다. 이 경우 256KB보다 큰 IO는 Azure Storage IO 계산에 맞게 여러 개의 256KB로 계산됩니다.
+[Sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 뷰에서 반환 되는 IOPS 및 처리량 최대값은 보장 만큼 제한/상한으로 작동 합니다. 또한 리소스 거버넌스는 특정 스토리지 대기 시간을 보장하지 않습니다. 특정한 사용자 워크로드에서 달성 가능한 최고의 대기 시간, IOPS, 처리량은 IO 리소스 거버넌스 한도뿐만 아니라 사용되는 IO 크기들의 조합, 기본 스토리지의 기능에 따라 달라집니다. SQL Database는 크기가 512KB부터 4MB까지 다양한 IO를 사용합니다. IOPS 한도를 적용하기 위해서 모든 IO가 크기와 관계없이 계산되지만, Azure Storage에 데이터 파일이 있는 데이터베이스는 예외입니다. 이 경우 256KB보다 큰 IO는 Azure Storage IO 계산에 맞게 여러 개의 256KB로 계산됩니다.
 
 Azure Storage의 데이터 파일을 사용하는 기본, 표준, 범용 데이터베이스의 경우 데이터베이스에 이 IOPS 수를 누적적으로 제공할 수 있는 데이터 파일이 충분하지 않거나 데이터가 파일에 고르게 배포되어 있지 않거나 기본 Blob의 성능 계층이 IOPS/처리량을 리소스 거버넌스 한도 이하로 제한하면 `primary_group_max_io` 값을 달성할 수 없습니다. 마찬가지로 빈번한 트랜잭션 커밋으로 생성된 소규모 로그 IO에서는 기본 Azure Storage Blob의 IOPS 한도로 인해 워크로드에서 `primary_max_log_rate` 값을 달성할 수 없습니다. Azure Premium Storage를 사용하는 데이터베이스의 경우 Azure SQL Database는 데이터베이스 크기와 관계없이 필요한 IOPS/처리량을 얻기 위해 충분히 큰 스토리지 Blob을 사용합니다. 큰 데이터베이스의 경우 총 IOPS/처리량의 용량을 늘리기 위해 여러 개의 데이터 파일이 생성됩니다.
 
 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고된 `avg_data_io_percent`와 `avg_log_write_percent` 같은 리소스 사용률 값은 리소스 거버넌스 최대한도의 백분율로 계산됩니다. 따라서 리소스 거버넌스를 제외한 다른 요소가 IOPS/처리량을 제한하면, 보고된 리소스 사용률이 100% 밑으로 유지되더라도 워크로드가 증가함에 따라 IOPS/처리량이 줄어들고 대기 시간이 증가하는 것을 확인할 수 있습니다.
 
-데이터베이스 파일당 대기 시간, 읽기 및 쓰기 IOPS, 처리량을 확인하려면 [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용합니다. 이 함수는 `avg_data_io_percent`에 계산되지 않는 백그라운드 IO를 비롯하여, 데이터베이스에 대한 모든 IO를 표시하지만, 기본 스토리지의 IOPS 및 처리량을 사용하며, 관찰된 스토리지 대기 시간에 영향을 줄 수 있습니다. 이 함수는 읽기 및 쓰기에 대한 IO 리소스 거버넌스에 의해 도입될 수 있는 추가 대기 시간을 각각 `io_stall_queued_read_ms` 열과 `io_stall_queued_write_ms` 열에서 보고합니다.
+데이터베이스 파일당 읽기 및 쓰기 IOPS, 처리량 및 대기 시간을 확인 하려면 [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용 합니다. 이 함수는 `avg_data_io_percent`에 계산되지 않는 백그라운드 IO를 비롯하여, 데이터베이스에 대한 모든 IO를 표시하지만, 기본 스토리지의 IOPS 및 처리량을 사용하며, 관찰된 스토리지 대기 시간에 영향을 줄 수 있습니다. 이 함수는 읽기 및 쓰기에 대한 IO 리소스 거버넌스에 의해 도입될 수 있는 추가 대기 시간을 각각 `io_stall_queued_read_ms` 열과 `io_stall_queued_write_ms` 열에서 보고합니다.
 
 ### <a name="transaction-log-rate-governance"></a>트랜잭션 로그 속도 거버넌스
 
-트랜잭션 로그 속도 거버넌스는 Azure SQL Database의 프로세스이며, 대량 삽입, SELECT INTO, 인덱스 빌드 같은 워크로드에 대한 높은 수집 속도를 제한하는 데 사용됩니다. 해당 한도는 로그 레코드 생성 속도에 맞춰 초 단위 미만의 수준에서 추적되고 적용되므로 데이터 파일에 대해 발급될 수 있는 IO 수와 관계없이 처리량을 제한합니다.  트랜잭션 로그 생성 속도는 현재 하드웨어 종속 및 서비스 계층 종속 지점까지 선형으로 확장됩니다.
+트랜잭션 로그 속도 거버넌스는 Azure SQL Database의 프로세스이며, 대량 삽입, SELECT INTO, 인덱스 빌드 같은 워크로드에 대한 높은 수집 속도를 제한하는 데 사용됩니다. 해당 한도는 로그 레코드 생성 속도에 맞춰 초 단위 미만의 수준에서 추적되고 적용되므로 데이터 파일에 대해 발급될 수 있는 IO 수와 관계없이 처리량을 제한합니다. 트랜잭션 로그 생성 속도는 현재 하드웨어 종속 및 서비스 계층 종속 지점까지 선형으로 확장됩니다.
 
-> [!NOTE]
-> 트랜잭션 로그 파일에 대한 실제 물리적 IO는 통제되거나 제한되지 않습니다.
+로그 속도는 다양한 시나리오에서 달성하고 유지할 수 있도록 설정되며, 전체 시스템은 사용자 로드에 미치는 영향을 최소화하면서 기능을 유지할 수 있습니다. 로그 속도 거버넌스는 트랜잭션 로그 백업이 게시된 복구성 SLA 내에 유지되도록 합니다. 이 거 버 넌 스를 통해 보조 복제본의 과도 한 백로그가 발생 하지 않으므로 장애 조치 (failover) 중에 예상 되는 가동 중지 시간이 길어질 수 있습니다.
 
-로그 속도는 다양한 시나리오에서 달성하고 유지할 수 있도록 설정되며, 전체 시스템은 사용자 로드에 미치는 영향을 최소화하면서 기능을 유지할 수 있습니다. 로그 속도 거버넌스는 트랜잭션 로그 백업이 게시된 복구성 SLA 내에 유지되도록 합니다.  또한 해당 거버넌스는 보조 복제본의 과도한 백로그를 방지합니다.
+트랜잭션 로그 파일에 대한 실제 물리적 IO는 통제되거나 제한되지 않습니다. 로그 레코드가 생성되면 각 작업을 계산하고 최대 로그 속도(초당 MB/s)를 유지하기 위해 작업을 지연해야 하는지 여부를 평가합니다. 로그 레코드가 스토리지로 플러시될 때 지연 시간은 추가되지 않고, 로그 속도가 생성되는 동안 로그 속도 거버넌스가 적용됩니다.
 
-로그 레코드가 생성되면 각 작업을 계산하고 최대 로그 속도(초당 MB/s)를 유지하기 위해 작업을 지연해야 하는지 여부를 평가합니다. 로그 레코드가 스토리지로 플러시될 때 지연 시간은 추가되지 않고, 로그 속도가 생성되는 동안 로그 속도 거버넌스가 적용됩니다.
-
-런타임에 적용되는 실제 로그 생성 속도는 피드백 메커니즘의 영향을 받아 시스템이 안정화될 수 있도록 허용 로그 속도를 일시적으로 줄일 수도 있습니다. 로그 파일 공간 관리를 사용하여 로그 공간 부족 상태를 방지하고 가용성 그룹 복제 메커니즘을 통해 전체적인 시스템 한도를 일시적으로 낮출 수 있습니다.
+런타임에 적용되는 실제 로그 생성 속도는 피드백 메커니즘의 영향을 받아 시스템이 안정화될 수 있도록 허용 로그 속도를 일시적으로 줄일 수도 있습니다. 로그 파일 공간 관리는 로그 공간 부족 상태를 방지 하 고 데이터 복제 메커니즘으로 인해 전체 시스템 제한을 일시적으로 낮출 수 있습니다.
 
 로그 속도 관리자 트래픽 셰이핑은 다음 대기 유형을 통해 표시됩니다([sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 보기에 노출됨).
 
@@ -209,7 +206,7 @@ WHERE database_id = DB_ID();
 
 이와 같은 이동은 데이터베이스 스케일링 작업과 유사하게 온라인 방식으로 진행되며, 작업 끝에 발생하는 몇 초의 짧은 장애 조치(failover) 등 유사한 [영향](single-database-scale.md#impact)을 미칩니다. 이 장애 조치(failover)는 열려 있는 연결을 종료하고 트랜잭션을 롤백하여 해당 시점의 데이터베이스를 사용하는 애플리케이션에 영향을 줄 수 있습니다.
 
-모든 데이터가 다른 컴퓨터의 로컬 스토리지 볼륨에 복사되기 때문에 더 큰 데이터베이스를 이동하려면 상당한 시간이 필요할 수 있습니다. 그동안 데이터베이스 또는 탄력적 풀 또는 tempdb 데이터베이스의 로컬 공간 사용량이 빠르게 증가하면, 공간 부족의 위험이 증가합니다. 시스템은 공간 부족 오류를 최소화하고 불필요한 장애 조치(failover)를 피하기 위해 균형 잡힌 방식으로 데이터베이스 이동을 시작합니다.
+모든 데이터는 다른 컴퓨터의 로컬 저장소 볼륨에 복사 되기 때문에 더 큰 데이터베이스를 이동 하려면 상당한 시간이 필요할 수 있습니다. 그동안 데이터베이스 또는 탄력적 풀 또는 tempdb 데이터베이스의 로컬 공간 사용량이 빠르게 증가하면, 공간 부족의 위험이 증가합니다. 시스템은 공간 부족 오류를 최소화하고 불필요한 장애 조치(failover)를 피하기 위해 균형 잡힌 방식으로 데이터베이스 이동을 시작합니다.
 
 > [!NOTE]
 > 로컬 스토리지 부족으로 인한 데이터베이스 이동은 프리미엄 또는 중요 비즈니스용 서비스 계층에서만 발생합니다. 이러한 계층에서는 데이터 파일이 로컬 스토리지에 저장되지 않으므로 하이퍼스케일, 범용, 표준 및 기본 서비스 계층에서는 발생하지 않습니다.

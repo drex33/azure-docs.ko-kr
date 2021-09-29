@@ -3,18 +3,18 @@ title: Azure VM용 자동 VM 게스트 패치
 description: Azure에서 가상 머신을 자동으로 패치하는 방법에 대해 알아봅니다.
 author: mayanknayar
 ms.service: virtual-machines
-ms.subservice: automatic-guest-patching
+ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0043935f46698f694aa76aec816c8bf72a9ee098
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a120914051f7da0ccbfffb2a7fda9ab8404e7a76
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698171"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216475"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>미리 보기: Azure VM용 자동 VM 게스트 패치
 

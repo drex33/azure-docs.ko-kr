@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 9f22ac56e4af170352170a1eade93d222502a482
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d973276781a1664680a3dec08eb894fc362911a5
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591865"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211179"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "128591865"
 
   * 다중 테넌트 Azure에서 논리 앱 워크플로를 실행하는 경우 [다중 테넌트 필수 구성 요소](#multi-tenant-azure-prerequisites)를 검토하세요.
 
-  * 프리미엄 수준 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 논리 앱 워크플로를 실행하는 경우 [ISE 필수 구성 요소](#ise-prerequisites)를 검토하세요.
+  * 프리미엄 수준 [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment-overview.md)에서 논리 앱 워크플로를 실행하는 경우 [ISE 필수 구성 요소](#ise-prerequisites)를 검토하세요.
 
 * Azure Logic Apps에서 액세스하려는 [SAP 애플리케이션 서버](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) 또는 [SAP 메시지 서버](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm). 이 커넥터를 지원하는 SAP 서버에 대한 자세한 내용은 [SAP 호환성](#sap-compatibility)을 검토하세요.
 
@@ -479,14 +479,14 @@ SAP 커넥터의 ISE 버전은 SNC X.509를 지원합니다. 다음 단계에 �
 
 IDoc를 XML 봉투에 래핑하는 경우 플랫 파일 스키마에 IDoc를 사용할 수 있습니다. 플랫 파일 IDoc를 보내려면 [IDoc 메시지를 보내는 SAP 작업 만들기](#create-sap-action-to-send-message) 일반 지침을 따르고 다음과 같이 변경합니다.
 
-1. **SAP로 메시지 보내기** 작업의 경우 SAP 작업 URI `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`를 사용합니다.
+1. **SAP로 메시지 보내기** 작업의 경우 SAP 작업 URI `http://Microsoft.LobServices.Sap/2007/03/Idoc/SendIdoc`를 사용합니다.
 
 1. XML 봉투를 사용하여 입력 메시지의 서식을 지정합니다.
 
 예를 들어 다음 예 XML 페이로드를 검토합니다.
 
 ```xml
-<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
+<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
 <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
@@ -599,7 +599,7 @@ E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
 Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
 Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 </idocData>
-</ReceiveIdoc>
+</SendIdoc>
 ```
 
 ### <a name="create-http-response-action"></a>HTTP 응답 작업 만들기
@@ -862,7 +862,7 @@ SAP 커넥터를 사용하여 논리 앱 워크플로에 대한 비동기 요청
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이의 확장된 SAP 로깅
 
-[Azure Logic Apps에 온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)를 사용하는 경우 SAP 커넥터에 대한 확장 로그 파일을 구성할 수 있습니다. 온-프레미스 데이터 게이트웨이를 사용하여 ETW(Windows용 이벤트 추적) 이벤트를 게이트웨이의 로깅 .zip 파일에 포함된 순환 로그 파일로 리디렉션할 수 있습니다.
+[Azure Logic Apps에 온-프레미스 데이터 게이트웨이](logic-apps-gateway-install.md)를 사용하는 경우 SAP 커넥터에 대한 확장 로그 파일을 구성할 수 있습니다. 온-프레미스 데이터 게이트웨이를 사용하여 ETW(Windows용 이벤트 추적) 이벤트를 게이트웨이의 로깅 .zip 파일에 포함된 순환 로그 파일로 리디렉션할 수 있습니다.
 
 게이트웨이 앱의 설정에서 [게이트웨이의 모든 구성 및 서비스 로그를 .zip 파일로 내보낼 수 있습니다](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
@@ -1820,7 +1820,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
 
 * **\[ BAPI] SAP** 작업의 호출 메서드에서 자동 커밋 기능은 작업에서 반환된 **CallBapiResponse** 개체에 하나 이상의 경고가 있는 경우 BAPI 변경 내용을 커밋하지 않습니다. 경고에도 불구하고 BAPI 변경 내용을 커밋하려면 **\[ BAPI - RFC] 상태 저장** 세션 작업 만들기를 사용하여 세션을 명시적으로 만들고, SAP 작업에서 **\[ BAPI 호출 메서드에서** 자동 커밋 기능을 사용하지 않도록 설정하고, 대신 **\[ BAPI] 트랜잭션 커밋** 작업을 호출합니다.
 
-* [ISE의 논리 앱에서는](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)를 대신 사용합니다.
+* [ISE의 논리 앱에서는](connect-virtual-network-vnet-isolated-environment-overview.md) 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](logic-apps-limits-and-config.md#message-size-limits)를 대신 사용합니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 
@@ -2017,5 +2017,5 @@ SAP 커넥터에 대한 자세한 내용은 [커넥터 참조](/connectors/sap/)
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Logic Apps에서 [온-프레미스 시스템에 연결](logic-apps-gateway-connection.md)
-* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)을 사용하여 다른 메시지 작업의 유효성을 검사하고, 변환하고, 사용하는 방법 알아보기
+* [엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md)을 사용하여 다른 메시지 작업의 유효성을 검사하고, 변환하고, 사용하는 방법 알아보기
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Purview에서 Integration Runtime을 만�
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/15/2021
-ms.openlocfilehash: eb53f7f673034dde8381182aeebc0fa12d520575
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 1a51af8fd34516ca87d7ab98332221a308480193
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673524"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217150"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -49,11 +49,11 @@ ms.locfileid: "128673524"
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
-1. Purview Studio 홈페이지의 왼쪽 탐색 창에서 **관리 센터** 를 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)홈 페이지의 왼쪽 탐색 창에서 **데이터 맵** 을 선택 합니다.
 
 2. 왼쪽 창의 **원본 및 스캔** 에서 **통합 런타임** 을 선택한 다음 **+ 새로 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="IR을 클릭합니다.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="IR을 선택 합니다.":::
 
 3. **통합 런타임 설정** 페이지에서 **자체 호스팅** 을 선택하여 자체 호스팅 IR을 만든 다음 **계속** 을 선택합니다.
 
@@ -121,13 +121,13 @@ ms.locfileid: "128673524"
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 관리
 
-자체 호스팅 통합 런타임을 **관리 센터** 내부에 위치하는 **통합 런타임** 메뉴로 이동해 IR을 선택하고 편집을 클릭해 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
+**관리 센터** 에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 편집을 선택 하 여 자체 호스팅 통합 런타임을 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="IR을 편집합니다.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="IR 세부 정보를 편집합니다.":::
 
-관리 센터의 **통합 런타임** 메뉴로 이동해 IR을 선택하고 **삭제** 를 클릭해 자체 호스팅 통합 런타임을 삭제할 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
+관리 센터에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 **삭제** 를 선택 하 여 자체 호스팅 통합 런타임을 삭제할 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,18 +1,18 @@
 ---
 title: 온-프레미스 SQL Server 등록 및 검사
-description: 이 자습서에서는 자체 호스팅 IR을 사용하여 온-프레미스 SQL 서버를 검사하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure 부서의 범위에서 자체 호스트 IR을 사용 하 여 온-프레미스 SQL 서버를 검색 하는 방법을 설명 합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/18/2020
-ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535464"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208686"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL Server 등록 및 검사
 
@@ -48,16 +48,6 @@ SQL Server 온-프레미스에 대한 인증을 설정하는 방법은 한 가�
 
 SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있어야 합니다. 이는 `sys.databases`가 master 데이터베이스에 있기 때문입니다. Purview 스캐너는 서버에서 모든 SQL 데이터베이스를 찾으려면 `sys.databases`를 열거해야 합니다.
 
-#### <a name="using-an-existing-server-administrator"></a>기존 서버 관리자 사용
-
-기존 sa(서버 관리자) 사용자를 사용하여 온-프레미스 SQL Server를 검사하려는 경우 다음을 확인합니다.
-
-1. `sa`는 Windows 인증 계정이 아닙니다.
-
-2. 사용하려는 서버 수준 로그인에는 public 및 sysadmin의 서버 역할이 있어야 합니다. 서버에 연결한 후 SSMS(SQL Server Management Studio)로 이동하고, 보안으로 이동하고, 사용할 로그인을 선택하고, **속성** 을 마우스 오른쪽 단추로 클릭한 다음 **서버 역할** 을 선택하여 이를 확인할 수 있습니다.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="서버 수준 로그인":::
-
 #### <a name="creating-a-new-login-and-user"></a>새 로그인 및 사용자 만들기
 
 새 로그인 및 사용자를 만들어 SQL Server를 검사하려면 아래 단계를 따르세요.
@@ -65,7 +55,7 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 > [!Note]
    > 아래의 모든 단계는 [여기](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)에 제공된 코드를 사용하여 실행할 수 있습니다.
 
-1. SSMS(SQL Server Management Studio)로 이동하여 서버에 연결하고 보안으로 이동한 다음 로그인을 마우스 오른쪽 단추로 클릭하고 새 로그인을 만듭니다. SQL 인증을 선택해야 합니다.
+1. SQL Server Management Studio (SSMS)로 이동 하 여 서버에 연결 하 고, 보안으로 이동 하 고, 로그인을 선택 하 여 저장 하거나 마우스 오른쪽 단추를 클릭 하 고, 새 로그인을 만듭니다. SQL 인증을 선택해야 합니다.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="새 로그인 및 사용자를 만듭니다.":::
 
@@ -75,9 +65,9 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="사용자 매핑":::
 
-4. 확인을 클릭하여 저장합니다.
+4. 확인을 선택하여 저장합니다.
 
-5. 마우스 오른쪽 단추를 클릭하고 **속성** 을 선택하여 만든 사용자로 다시 이동합니다. 새 암호를 입력하고 확인합니다. '이전 암호 지정'을 선택하고 이전 암호를 입력합니다. **새 로그인을 만드는 즉시 암호를 변경해야 합니다.**
+5. 를 선택 하거나 마우스 오른쪽 단추를 클릭 하 고 **속성** 을 선택 하 여 만든 사용자로 다시 이동 합니다. 새 암호를 입력하고 확인합니다. '이전 암호 지정'을 선택하고 이전 암호를 입력합니다. **새 로그인을 만드는 즉시 암호를 변경해야 합니다.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="암호 변경":::
 
@@ -109,7 +99,7 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 SQL Server 원본을 선택합니다.
 

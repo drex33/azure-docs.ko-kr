@@ -3,17 +3,17 @@ title: CLI를 사용하여 Azure 가상 머신에 대한 유지 관리 제어
 description: 유지 관리 제어 및 CLI를 사용하여 Azure VM에 유지 관리가 적용되는 시기를 제어하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 95054a4da3bc11e92cc140e7fb6689773b0343ac
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 3ee2fa74e8d030f12bd177999e5a2f146fa9b5c0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698829"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215570"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어
 

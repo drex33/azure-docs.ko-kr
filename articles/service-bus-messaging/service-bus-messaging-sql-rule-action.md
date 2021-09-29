@@ -2,13 +2,13 @@
 title: Azure Service Bus 구독 규칙 SQL 작업 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 규칙 작업 구문에 대한 참조를 제공합니다. 작업은 메시지에 대해 수행되는 SQL 언어 기반 구문으로 작성됩니다.
 ms.topic: article
-ms.date: 11/24/2020
-ms.openlocfilehash: 7aceb1992aafbbf92718a6bf558a72060f3275df
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 19d4ae9a188e2e675e055eae2f4aedd714e17e47
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770086"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211775"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 

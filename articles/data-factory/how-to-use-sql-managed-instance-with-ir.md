@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 6eeecadca7b49a425ecabffaeeb6d1ae1ff665aa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 070c9ff8cbca98272be6aa0cf48a97381f4ff6b4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831134"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216615"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Managed Instance 사용
 
@@ -133,7 +133,7 @@ ms.locfileid: "124831134"
 
 1. SQL Managed Instance 프라이빗 엔드포인트 또는 퍼블릭 엔드포인트를 선택합니다.
 
-    Azure Portal/ADF 앱에서 [Azure-SSIS IR을 프로비저닝](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime)하는 경우 SQL 설정 페이지에서 SSIS 카탈로그(SSISDB)를 만들 때 SQL Managed Instance **프라이빗 엔드포인트** 또는 **퍼블릭 엔드포인트** 를 사용합니다.
+    Azure Portal/ADF 앱에서 [Azure-SSIS IR을 프로비저닝](create-azure-ssis-integration-runtime-portal.md#provision-an-azure-ssis-integration-runtime)하는 경우 SQL 설정 페이지에서 SSIS 카탈로그(SSISDB)를 만들 때 SQL Managed Instance **프라이빗 엔드포인트** 또는 **퍼블릭 엔드포인트** 를 사용합니다.
 
     퍼블릭 엔드포인트 호스트 이름은 <mi_name>.public.<dns_zone>.database.windows.net 형식으로 제공되며 연결에 사용되는 포트는 3342입니다.  
 
@@ -155,7 +155,7 @@ ms.locfileid: "124831134"
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png" alt-text="스크린샷은 런타임에 연결할 가상 네트워크를 선택할 수 있는 통합 런타임 설정 고급 설정을 보여 줍니다.":::
 
-Azure-SSIS IR을 만드는 방법에 대한 자세한 정보는 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime)를 참조하세요.
+Azure-SSIS IR을 만드는 방법에 대한 자세한 정보는 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime-portal.md#provision-an-azure-ssis-integration-runtime)를 참조하세요.
 
 ## <a name="clean-up-ssisdb-logs"></a>SSISDB 로그 정리
 

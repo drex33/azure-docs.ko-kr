@@ -3,17 +3,17 @@ title: 2세대 VM에 대한 Azure 지원
 description: 2세대 VM에 대한 Azure 지원 개요
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: e8cf2cceef4027575f92bffb687fb09b58e26a9c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128565610"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216558"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 

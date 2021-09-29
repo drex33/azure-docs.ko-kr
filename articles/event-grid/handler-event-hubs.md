@@ -2,13 +2,13 @@
 title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 이벤트 허브
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 이벤트 허브를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 52517980d1c16517bd3b3047c4a56aa5567eb053
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 6ba4dec31a93b01804779cd9f614e64854fe6cce
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416401"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215038"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 이벤트 허브
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Event Hubs** 가 그 중 하나입니다. 

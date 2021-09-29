@@ -1,18 +1,18 @@
 ---
-title: Azure 스토리지 Blob을 검사하는 방법
+title: Azure storage blob을 등록 하 고 검색 하는 방법
 description: Azure Purview 데이터 카탈로그에서 Azure Blob 스토리지를 검사하는 방법을 알아봅니다.
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 7b295fd67052d91c229977571056b3ea95d56773
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 40105f18cce8fe515350903837f49d273bd39d03
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529682"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209987"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Azure Blob Storage 등록 및 검사
 
@@ -24,11 +24,11 @@ Azure Blob Storage는 메타데이터 및 스키마를 캡처하기 위해 전�
 
 csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때 스키마가 추출됩니다.
 
-1. 첫 번째 행 값이 비어 있지 않습니다.
-2. 첫 번째 행 값이 고유합니다.
-3. 첫 번째 행 값은 날짜 및 숫자가 아닙니다.
+1. 첫 번째 행 값이 비어 있지 않음
+2. 첫 번째 행 값이 고유함
+3. 첫 번째 행 값은 날짜 및 숫자가 아님
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
 - Azure Purview 데이터 원본 관리자여야 합니다.
@@ -116,7 +116,7 @@ Azure Blob 스토리지 인증을 설정하는 방법에는 다음 세 가지가
 
 새 Blob 계정을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
-1. 포털의 Purview 계정에서 Purview Studio로 이동합니다.
+1. 포털의 부서의 범위 계정에서 [부서의 범위 Studio](https://web.purview.azure.com/resource/) 로 이동 합니다.
 1. Purview Studio의 홈페이지에서 **원본 등록** 을 선택합니다.
 1. **등록** 을 선택합니다.
 1. **원본 등록** 에서 **Azure Blob Storage** 를 선택합니다.
@@ -136,7 +136,7 @@ Azure Blob 스토리지 인증을 설정하는 방법에는 다음 세 가지가
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 Azure Blob 데이터 원본을 선택합니다.
 

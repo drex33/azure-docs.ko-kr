@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 964c3f0bb346b3c2606af1227b558d06071bfe20
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 69d6cae5ccb26ef35fd121c32a9f111ff64b7a11
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535746"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215285"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -165,12 +165,12 @@ IoT Edge 에이전트 및 IoT Edge 허브 이미지에는 연결된 IoT Edge 버
 
 프라이빗 Azure 레지스트리에 사용자 지정 코드 모듈에 대한 컨테이너 이미지를 저장하는 방법을 알고 있지만, 이를 사용하여 edgeAgent 및 edgHub 런타임 모듈과 같은 퍼블릭 컨테이너 이미지를 저장할 수도 있습니다. 이러한 런타임 컨테이너가 MCR(Microsoft Container Registry)에 저장되므로 매우 엄격한 방화벽 제한이 있는 경우 이 작업을 수행해야 할 수 있습니다.
 
-Docker pull 명령을 사용하여 프라이빗 레지스트리에 배치할 이미지를 가져옵니다. IoT Edge 런타임의 각 새 릴리스로 이미지를 업데이트해야 합니다.
+Docker pull 명령을 사용하여 프라이빗 레지스트리에 배치할 이미지를 가져옵니다. 끌어오기 작업 중에 컨테이너 버전을 지정하고, 아래와 같이 컨테이너 설명 페이지에서 최신 컨테이너 버전을 찾고, 필요한 경우 끌어오기 명령에서 버전을 대체해야 합니다. IoT Edge 런타임의 각 새 릴리스로 이미지를 업데이트해야 합니다.
 
 | IoT Edge 런타임 컨테이너 | Docker pull 명령 |
 | --- | --- |
-| [Azure IoT Edge 에이전트](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge 에이전트](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
 
 다음으로, edgeAgent 및 edgeHub 시스템 모듈에 대한 파일의 deployment.template.js 이미지 참조를 업데이트해야 합니다. `mcr.microsoft.com`을 두 모듈의 레지스트리 이름 및 서버로 대체합니다.
 

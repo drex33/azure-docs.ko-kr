@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: d05c9bbf5c3ae632bef402a354690326f60cdd62
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 09c4f136d0c3a2e8ed0d2ea47dd23504a434a94e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730837"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208073"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용하여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
@@ -112,7 +112,7 @@ Azure Data Factory 복사 작업을 사용하면 원본 및 싱크 데이터 저
    
    - [서비스 주체](./connector-azure-sql-data-warehouse.md#service-principal-authentication) 또는 [SQL 인증](./connector-azure-sql-data-warehouse.md#sql-authentication)을 사용할 수도 있습니다.
 
-- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 Azure Data Factory 연결된 서비스를 수정할 필요 없이 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md)하는 것이 좋습니다. [CI/CD에 대한 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd) 중 하나이기도 합니다. 
+- Azure 리소스에 대해 관리 ID를 사용하지 않는 경우 Azure Data Factory 연결된 서비스를 수정할 필요 없이 보다 쉽게 키를 중앙에서 관리하고 순환하기 위해 [Azure Key Vault에 자격 증명을 저장](./store-credentials-in-key-vault.md)하는 것이 좋습니다. [CI/CD에 대한 모범 사례](./continuous-integration-delivery.md#best-practices-for-cicd) 중 하나이기도 합니다. 
 
 ### <a name="migrate-initial-snapshot-data"></a>초기 스냅샷 데이터 마이그레이션 
 

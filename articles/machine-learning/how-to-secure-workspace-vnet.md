@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 0656337055cb86697c129015b9e18ca8acd98446
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 10cd246d0a60184616facb799f9dc079cb5cf30d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093437"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216786"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -46,7 +46,7 @@ ms.locfileid: "129093437"
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 구조를 이해하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조하세요.
 
-+ 모범 [사례에 대해](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) 알아보려면 엔터프라이즈 보안에 대한 Azure Machine Learning 모범 사례 문서를 읽어보세요.
++ 모범 사례에 대 한 자세한 내용은 [엔터프라이즈 보안에 대 한 Azure Machine Learning 모범 사례](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) 문서를 참조 하세요.
 
 + 컴퓨팅 리소스에 사용할 기존 가상 네트워크 및 서브넷입니다.
 
@@ -82,7 +82,7 @@ ACR이 가상 네트워크 뒤에 있으면 Azure Machine Learning에서 ACR을 
 > Docker 이미지를 빌드하는 데 사용되는 컴퓨팅 클러스터는 모델을 학습하고 배포하는 데 사용되는 패키지 리포지토리에 액세스할 수 있어야 합니다. 공용 리포지토리에 대한 액세스를 허용하는 네트워크 보안 규칙을 추가하거나, [프라이빗 Python 패키지를 사용](how-to-use-private-python-packages.md)하거나, 이미 패키지가 포함된 [사용자 지정 Docker 이미지](how-to-train-with-custom-image.md)를 사용해야 할 수 있습니다.
 
 > [!WARNING]
-> Azure Container Registry 프라이빗 엔드포인트를 사용하여 가상 네트워크와 통신하는 경우 Azure Machine Learning 컴퓨팅 클러스터에서 관리 ID를 사용할 수 없습니다. 컴퓨팅 클러스터에서 관리 ID를 사용하려면 작업 영역에 대한 Azure Container Registry 서비스 엔드포인트를 사용합니다.
+> Azure Container Registry 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는 경우 Azure Machine Learning 계산 클러스터에서 관리 되는 id를 사용할 수 없습니다. 계산 클러스터에서 관리 되는 id를 사용 하려면 작업 영역에 대 한 Azure Container Registry를 사용 하 여 서비스 끝점을 사용 합니다.
 
 ## <a name="required-public-internet-access"></a>필수 공용 인터넷 액세스
 
@@ -99,20 +99,20 @@ Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 
 > [!WARNING]
 > 프라이빗 엔드포인트를 사용하여 작업 영역을 보호해도 완전한 보안이 보장되지는 않습니다. 이 문서의 나머지 부분에 있는 단계와 VNet 시리즈를 수행하여 솔루션의 개별 구성요소를 보호해야 합니다. 예를 들어 작업 영역에 프라이빗 엔드포인트를 사용하지만 Azure Storage 계정이 VNet으로 보호되지 않는 경우, 작업 영역과 스토리지 간 트래픽은 보안을 위해 VNet을 사용하지 않습니다.
 
-## <a name="secure-azure-storage-accounts"></a>Azure Storage 계정 보호
+## <a name="secure-azure-storage-accounts"></a>Azure storage 계정 보호
 
-Azure Machine Learning 프라이빗 엔드포인트 또는 서비스 엔드포인트를 사용하도록 구성된 스토리지 계정을 지원합니다. 
+Azure Machine Learning은 개인 끝점 또는 서비스 끝점을 사용 하도록 구성 된 저장소 계정을 지원 합니다. 
 
 # <a name="private-endpoint"></a>[프라이빗 엔드포인트](#tab/pe)
 
 > [!TIP]
-> 기본 스토리지 계정에 대해 두 개의 프라이빗 엔드포인트를 구성해야 합니다.
+> 기본 저장소 계정에 대해 두 개의 개인 끝점을 구성 해야 합니다.
 > * **BLOB** 대상 하위 리소스가 있는 프라이빗 엔드포인트입니다.
 > * **파일** 대상 하위 리소스가 있는 프라이빗 엔드포인트입니다(FileShare).
 >
-> 파이프라인에서 [ParallelRunStep을](./tutorial-pipeline-batch-scoring-classification.md) 사용하려는 경우 **큐** 및 **테이블** 대상 하위 리소스를 사용하여 프라이빗 엔드포인트도 구성해야 합니다. ParallelRunStep은 태스크 예약 및 디스패치에 큐와 테이블을 사용합니다.
+> 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우 **큐** 및 **테이블** 대상 하위 리소스를 사용 하 여 개인 끝점을 구성 해야 합니다. ParallelRunStep는 작업 예약 및 디스패치를 위해 큐 및 테이블을 사용 합니다.
 
-![BLOB 및 파일 옵션을 사용하여 프라이빗 엔드포인트 구성 페이지를 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="BLOB 및 파일 옵션을 사용하여 프라이빗 엔드포인트 구성 페이지를 보여 주는 스크린샷":::
 
 기본 스토리지가 **아닌** 스토리지 계정에 대한 프라이빗 엔드포인트를 구성하려면 추가하려는 스토리지 계정에 해당하는 **대상 하위 리소스** 종류를 선택합니다.
 
@@ -123,25 +123,25 @@ Azure Machine Learning 프라이빗 엔드포인트 또는 서비스 엔드포�
 
 # <a name="service-endpoint"></a>[서비스 엔드포인트](#tab/se)
 
-1. Azure Portal Azure Storage 계정을 선택합니다.
+1. Azure Portal에서 Azure Storage 계정을 선택 합니다.
 
-1. 페이지 왼쪽의 __보안 + 네트워킹__ 섹션에서 __네트워킹을__ 선택한 다음 __방화벽 및 가상 네트워크 탭을__ 선택합니다.
+1. 페이지 왼쪽의 __보안 + 네트워킹__ 섹션에서 __네트워킹__ 을 선택한 다음 __방화벽 및 가상 네트워크__ 탭을 선택 합니다.
 
-1. __선택한 네트워크__ 를 선택합니다. __가상 네트워크__ 아래에서 __기존 가상 네트워크 추가__ 링크를 선택하고 작업 영역에서 사용하는 가상 네트워크를 선택합니다.
+1. __선택한 네트워크__ 를 선택합니다. __가상 네트워크__ 에서 __기존 가상 네트워크 추가__ 링크를 선택 하 고 작업 영역에서 사용 하는 가상 네트워크를 선택 합니다.
 
     > [!IMPORTANT]
     > 스토리지 계정은 학습 또는 유추에 사용되는 컴퓨팅 인스턴스 또는 클러스터와 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
 
-1. __리소스 인스턴스 아래에서 리소스__ 유형으로 를 선택하고 인스턴스 `Microsoft.MachineLearningServices/Workspace` __이름을__ 사용하여 작업 영역을 선택합니다.  자세한 내용은 [시스템 할당 관리 ID를 기반으로 하는 신뢰할 수 있는 액세스를 참조하세요.](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity)
+1. __리소스 인스턴스__ 에서 `Microsoft.MachineLearningServices/Workspace` __리소스 형식__ 으로를 선택 하 고 __인스턴스 이름을__ 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 [시스템 할당 관리 id를 기반으로 하는 트러스트 된 액세스](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity)를 참조 하세요.
 
-1. __예외__ 아래에서 __신뢰할 수 있는 서비스 목록의 Azure 서비스가 이 스토리지 계정에 액세스할 수 있도록 허용을__ 선택합니다.
+1. __예외__ 에서 __신뢰할 수 있는 서비스 목록에서 Azure 서비스 허용을 선택 하 여이 저장소 계정에 액세스__ 합니다.
 
     * **구독에 등록된 경우** 일부 서비스의 리소스는 선택 작업에 대해 **동일한 구독** 에 있는 스토리지 계정에 액세스할 수 있습니다. 예를 들어 로그를 작성하거나 백업을 만듭니다.
     * 일부 서비스의 리소스에는 시스템이 할당한 관리 ID에 __Azure 역할을 할당하여__ 스토리지 계정에 대한 명시적 액세스 권한을 부여할 수 있습니다.
 
     자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
 
-![Azure Portal에 있는 Azure Storage 페이지의 네트워킹 영역](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Azure Portal에 있는 Azure Storage 페이지의 네트워킹 영역":::
 
 > [!TIP]
 > 서비스 엔드포인트를 사용하는 경우 퍼블릭 액세스를 사용하지 않도록 설정할 수도 있습니다. 자세한 내용은 [퍼블릭 읽기 권한 허용 안 함](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)을 참조하세요.
@@ -155,14 +155,14 @@ Azure Machine Learning는 연결된 키 자격 증명 모음 인스턴스를 사
 * Azure Container Repository 인스턴스에 대한 암호
 * 데이터 저장소에 대한 연결 문자열
 
-프라이빗 엔드포인트 또는 서비스 엔드포인트를 사용하도록 Azure Key Vault를 구성할 수 있습니다. 가상 네트워크 뒤 Azure Key Vault에서 Azure Machine Learning 실험 기능을 사용하려면 다음 단계를 사용하세요.
+Azure key vault는 개인 끝점 또는 서비스 끝점을 사용 하도록 구성할 수 있습니다. 가상 네트워크 뒤 Azure Key Vault에서 Azure Machine Learning 실험 기능을 사용하려면 다음 단계를 사용하세요.
 
 > [!TIP]
-> 프라이빗 엔드포인트 또는 서비스 엔드포인트를 사용하는지 여부에 관계없이 키 자격 증명 모음은 작업 영역의 프라이빗 엔드포인트와 동일한 네트워크에 있어야 합니다.
+> 개인 끝점 또는 서비스 끝점을 사용 하는지 여부에 관계 없이 키 자격 증명 모음은 작업 영역의 개인 끝점과 동일한 네트워크에 있어야 합니다.
 
 # <a name="private-endpoint"></a>[프라이빗 엔드포인트](#tab/pe)
 
-Azure Key Vault 프라이빗 엔드포인트를 사용하는 데 대한 자세한 내용은 Azure Private Link [와 Key Vault 통합을](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal)참조하세요.
+Azure Key Vault에서 개인 끝점을 사용 하는 방법에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 Key Vault 통합](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal)을 참조 하세요.
 
 
 # <a name="service-endpoint"></a>[서비스 엔드포인트](#tab/se)
@@ -176,9 +176,9 @@ Azure Key Vault 프라이빗 엔드포인트를 사용하는 데 대한 자세�
     1. __가상 네트워크__ 에서 __기존 가상 네트워크 추가__ 를 선택하여 실험 컴퓨팅이 상주하는 가상 네트워크를 추가합니다.
     1. __신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용하시겠습니까?__ 에 __예__ 를 선택합니다.
 
-   [![Key Vault 창의 "방화벽 및 가상 네트워크" 섹션](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+    :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="Key Vault 창의 방화벽 및 가상 네트워크 섹션":::
 
-자세한 내용은 [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security)항목을 참조 하세요.
+자세한 내용은 [Azure Key Vault 네트워크 설정 구성을 참조하세요.](/azure/key-vault/general/how-to-azure-key-vault-network-security)
 
 ---
 
@@ -187,7 +187,7 @@ Azure Key Vault 프라이빗 엔드포인트를 사용하는 데 대한 자세�
 > [!TIP]
 > 작업 영역을 만들 때 기존 Azure Container Registry를 사용하지 않았다면 없을 수 있습니다. 기본적으로 작업 영역은 ACR 인스턴스가 필요할 때까지 만들지 않습니다. 인스턴스를 강제로 만들도록 하려면 이 섹션의 단계를 사용하기 전에 작업 영역을 사용하여 모델을 학습하거나 배포합니다.
 
-개인 끝점을 사용 하도록 Azure Container Registry를 구성할 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
+Azure Container Registry 프라이빗 엔드포인트를 사용하도록 구성할 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
 
 1. 작업 영역에 대한 Azure Container Registry 이름을 찾아 다음 방법 중 하나를 사용합니다.
 
@@ -207,7 +207,7 @@ Azure Key Vault 프라이빗 엔드포인트를 사용하는 데 대한 자세�
 
     이 명령은 `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`와 비슷한 값을 반환합니다. 문자열의 마지막 부분은 작업 영역에 대한 Azure Container Registry의 이름입니다.
 
-1. 커넥트의 단계를 [Azure Container Registry 전용으로](../container-registry/container-registry-private-link.md)사용 하 여 가상 네트워크에 대 한 액세스를 제한 합니다. 가상 네트워크를 추가할 때 Azure Machine Learning 리소스에 대한 가상 네트워크와 서브넷을 선택합니다.
+1. Azure Container Registry [비공개로 커넥트](../container-registry/container-registry-private-link.md)단계를 사용하여 가상 네트워크에 대한 액세스를 제한합니다. 가상 네트워크를 추가할 때 Azure Machine Learning 리소스에 대한 가상 네트워크와 서브넷을 선택합니다.
 
 1. 작업 영역에 대한 ACR을 구성하여 [신뢰할 수 있는 서비스에 의한 액세스를 허용](../container-registry/allow-access-trusted-services.md)합니다.
 

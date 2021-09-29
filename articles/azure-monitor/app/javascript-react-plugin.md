@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 7dd25881791340a02ced78a341e58d106c6f1a40
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c95e408f116190bf90228f773a7d7c1530c6537e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128565500"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217848"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 React 플러그 인
 
@@ -128,8 +128,13 @@ import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
 
 const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    
-    appInsights.trackMetric("Component 'MyComponent' is in use");
+    const metricData = {
+        average: engagementTime,
+        name: "React Component Engaged Time (seconds)",
+        sampleCount: 1
+      };
+    const additionalProperties = { "Component Name": 'MyComponent' };
+    appInsights.trackMetric(metricData, additionalProperties);
     
     return (
         <h1>My Component</h1>

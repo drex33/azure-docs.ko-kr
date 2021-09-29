@@ -6,18 +6,20 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/02/2021
-ms.openlocfilehash: 21d3b01dae84d164d72d574e204d4f1576e9d94d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 073b4bf8c1be14aa26141e20d5f6d6f4abdf9ff1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593423"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208797"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Purview 계정에 대한 프라이빗 엔드포인트 구성 문제 해결
 
-이 가이드는 Azure Purview용 프라이빗 엔드포인트 사용과 관련된 알려진 제한 사항을 요약하고 가장 일반적인 관련 문제를 해결하기 위한 단계 및 솔루션 목록을 제공합니다. 
+> [!IMPORTANT]
+> **15:30 2021 년 9 월 27 일 이전** 에 부서의 범위 계정에 대 한 _포털_ 개인 끝점을 만든 경우 [포털 전용 끝점에 대해 DNS를 다시 구성](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints)에 설명 된 대로 필요한 작업을 수행 해야 합니다. **이러한 작업은 2021 년 10 월 11 일 이전에 완료 해야 합니다. 이렇게 하지 않으면 기존 포털 개인 끝점의 작동이 중지 됩니다**.
 
+이 가이드는 Azure Purview용 프라이빗 엔드포인트 사용과 관련된 알려진 제한 사항을 요약하고 가장 일반적인 관련 문제를 해결하기 위한 단계 및 솔루션 목록을 제공합니다. 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
@@ -44,7 +46,7 @@ ms.locfileid: "128593423"
 
 2. 포털 프라이빗 엔드포인트가 배포된 경우 계정 프라이빗 엔드포인트도 배포해야 합니다.
 
-3. 포털 프라이빗 엔드포인트가 배포되고 Azure Purview 계정에서 공용 네트워크 액세스가 거부로 설정된 경우 내부 네트워크에서 Azure Purview Studio를 시작해야 합니다. 
+3. Azure 부서의 범위 계정에서 포털 개인 끝점이 배포 되 고 공용 네트워크 액세스가 거부로 설정 된 경우 내부 네트워크에서 [Azure 부서의 범위 Studio](https://web.purview.azure.com/resource/) 를 시작 해야 합니다.
   <br>
     - 올바른 이름 확인을 검증하려면 **NSlookup.exe** 명령줄 도구를 사용하여 `web.purview.azure.com`을 쿼리할 수 있습니다. 결과는 포털 프라이빗 엔드포인트에 속하는 개인 IP 주소를 반환해야 합니다. 
     - 네트워크 연결을 확인하려면 모든 네트워크 테스트 도구를 사용하여 `web.purview.azure.com` 엔드포인트에서 포트 **443** 으로의 아웃바운드 연결을 테스트할 수 있습니다. 연결이 성공해야 합니다.    
@@ -88,7 +90,7 @@ ms.locfileid: "128593423"
    
 6. 자체 호스팅 통합 런타임 VM에서 Purview 엔드포인트에 대한 네트워크 연결 및 이름 확인을 테스트합니다.
 
-7. 자체 호스팅 통합 런타임에서 포트 443 및 개인 IP 주소를 통해 Blob 큐 및 이벤트 허브와 같은 Azure Purview 관리되는 리소스에 대한 네트워크 연결 및 이름 확인을 테스트합니다. (관리되는 스토리지 계정 및 Event Hubs 네임스페이스를 Azure Purview 계정에 할당된 해당 관리되는 리소스 이름으로 대체).
+7. 자체 호스팅 통합 런타임에서 포트 443 및 개인 IP 주소를 통해 Blob 큐 및 이벤트 허브와 같은 Azure Purview 관리되는 리소스에 대한 네트워크 연결 및 이름 확인을 테스트합니다. 관리 되는 저장소 계정 및 Event Hubs 네임 스페이스를 Azure 부서의 범위 계정에 할당 된 해당 관리 되는 리소스 이름으로 바꿉니다.
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
@@ -140,7 +142,7 @@ ms.locfileid: "128593423"
 
 10. 관리 컴퓨터 및 자체 호스팅 통합 런타임 VM이 온-프레미스 네트워크에 배포되고 환경에서 DNS 전달자를 설정한 경우 환경에서 DNS 및 네트워크 설정을 확인합니다. 
 
-11. 수집 프라이빗 엔드포인트가 사용되는 경우 자체 호스팅 통합 런타임이 Purview 계정 내에 성공적으로 등록되었고 자체 호스팅 통합 런타임 VM과 Azure Purview Studio 모두에서 실행 중인 것으로 표시되는지 확인합니다.
+11. 수집 개인 끝점을 사용 하는 경우 자체 호스팅 통합 런타임이 부서의 범위 계정 내에 성공적으로 등록 되 고 자체 호스팅 통합 런타임 VM 및 [부서의 범위 Studio](https://web.purview.azure.com/resource/) 내에서 실행 되는 것으로 표시 되는지 확인 합니다.
 
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 

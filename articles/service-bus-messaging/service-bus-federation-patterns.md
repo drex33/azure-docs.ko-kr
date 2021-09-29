@@ -2,13 +2,13 @@
 title: 메시지 복제 작업 패턴 - Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 특정 메시지 복제 작업 패턴을 구현하기 위한 자세한 지침을 제공합니다.
 ms.topic: article
-ms.date: 12/12/2020
-ms.openlocfilehash: 5e6161d39281dc48284737cf3ee1f83853db17ef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: 4effcb9f51532cb2ef87b18b264789c526b57585
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462321"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211794"
 ---
 # <a name="message-replication-tasks-patterns"></a>메시지 복제 작업 패턴
 

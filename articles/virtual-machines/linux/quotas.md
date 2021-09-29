@@ -3,17 +3,17 @@ title: vCPU 할당량
 description: Azure에 대한 vCPU 할당량에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: quota
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 43532e3153bdca21bd6070859e1e81a96cca4936
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 48bba54f8dae565a2af53c068b382f10b4b3b0f8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823434"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215608"
 ---
 # <a name="check-vcpu-quotas-using-the-azure-cli"></a>Azure CLI를 사용한 vCPU 할당량 확인
 

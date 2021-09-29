@@ -1,7 +1,7 @@
 ---
 title: CI-CD, Azure DevOps 및 GitHub 문제 해결
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Synapse Analytics의 CI CD 문제를 해결 하려면 다른 방법을 사용 합니다.
+description: 다른 방법을 사용하여 Azure Data Factory 및 Synapse Analytics CI-CD 문제를 해결합니다.
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
@@ -10,23 +10,23 @@ ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 09/09/2021
-ms.openlocfilehash: 8e4eb6d0c73481af94d8c3d9499ec03a73360ab6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afba2903fc01a8f6e866f91074bdefa427dff7aa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778080"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217975"
 ---
-# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics에서 CI-CD, Azure DevOps 및 GitHub 문제 해결 
+# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics에서 CI (지속적인 Integration-Continuous 배포), Azure DevOps 및 GitHub 문제에 대 한 일반적인 문제 해결 방법을 살펴보겠습니다.
+이 문서에서는 CI-CD(지속적인 Integration-Continuous 배포), Azure DevOps 및 Azure Data Factory 및 Synapse Analytics GitHub 문제에 대한 일반적인 문제 해결 방법을 살펴보겠습니다.
 
 소스 제어 또는 DevOps 기술 사용에 관한 질문 또는 문제가 있으면 다음 문서에서 유용한 정보를 찾아볼 수 있습니다.
 
-- 원본 [제어](source-control.md) 를 참조 하 여 서비스에서 소스 제어를 연습 하는 방법을 알아보세요. 
-- ci-cd를 통해 서비스에서 DevOps 하는 방법에 대 한 자세한 내용은 [ci cd](continuous-integration-deployment.md) 를 참조 하세요.
+- 소스 [제어를](source-control.md) 참조하여 서비스에서 소스 제어를 연습하는 방법을 알아봅니다. 
+- 서비스에서 [CI-CD를](continuous-integration-delivery.md) DevOps 방법을 자세히 알아보려면 CI-CD를 참조합니다.
 
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 
@@ -38,7 +38,7 @@ ms.locfileid: "124778080"
 
 #### <a name="cause"></a>원인
 
-토큰을 원래 테 넌 트에서 얻 었는 데, 서비스는 게스트 테 넌 트에 있고이 토큰을 사용 하 여 게스트 테 넌 트의 DevOps를 방문 하려고 시도 하는 것입니다. 이것은 예상된 동작이 아닙니다.
+관찰한 내용은 원래 테넌트에서 토큰을 얻었지만 서비스가 게스트 테넌트에서 토큰을 사용하여 게스트 테넌트에서 DevOps 방문하려고 한다는 것입니다. 이것은 예상된 동작이 아닙니다.
 
 #### <a name="recommendation"></a>권장
 
@@ -80,13 +80,13 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 #### <a name="cause"></a>원인
 
-이 오류는 대상 서비스 인스턴스에서 이름이 같지만 형식이 다른 통합 런타임 때문에 발생 합니다. Integration Runtime은 배포 동안 동일한 유형이어야 합니다.
+이 오류는 대상 서비스 인스턴스에서 이름이 같지만 형식이 다른 통합 런타임 때문입니다. Integration Runtime은 배포 동안 동일한 유형이어야 합니다.
 
 #### <a name="recommendation"></a>권장
 
-- [CI/CD에 대한 모범 사례](continuous-integration-deployment.md#best-practices-for-cicd)를 참조하세요.
+- [CI/CD에 대한 모범 사례](continuous-integration-delivery.md#best-practices-for-cicd)를 참조하세요.
 
-- Integration runtime은 자주 변경 되지 않으며 CI/CD의 모든 단계에서 유사 하므로 서비스는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용할 것으로 예상 합니다. 이름과 유형 및 속성이 다르면 소스 및 대상 통합 런타임 구성이 일치하는지 확인한 후 릴리스 파이프라인을 배포합니다.
+- 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 단계에서 유사하므로 서비스는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 가질 것으로 예상합니다. 이름과 유형 및 속성이 다르면 소스 및 대상 통합 런타임 구성이 일치하는지 확인한 후 릴리스 파이프라인을 배포합니다.
 
 - 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
 
@@ -94,7 +94,7 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 #### <a name="issue"></a>문제
 
-변경 내용을 게시 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다.
+변경 내용을 게시하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
 
 `
 "error": {
@@ -106,17 +106,17 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 `
 ### <a name="cause"></a>원인
 
-Git 구성을 분리 하 고 "리소스 가져오기" 플래그를 선택한 상태로 다시 설정 하 여 서비스를 "동기화"로 설정 합니다. 즉, 게시하는 동안 변경되지 않습니다.
+Git 구성을 분리하고 서비스를 "동기화 중"으로 설정하는 "리소스 가져오기" 플래그가 선택된 채 다시 설정했습니다. 즉, 게시하는 동안 변경되지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
 Git 구성을 분리하고 다시 설정하고, “기존 리소스 가져오기” 확인란을 선택하지 않아야 합니다.
 
-### <a name="data-factory-move-failing-from-one-resource-group-to-another"></a>한 리소스 그룹에서 다른 리소스 그룹으로의 데이터 팩터리 이동 실패
+### <a name="data-factory-move-failing-from-one-resource-group-to-another"></a>한 리소스 그룹에서 다른 리소스 그룹으로 데이터 팩터리 이동 실패
 
 #### <a name="issue"></a>문제
 
-한 리소스 그룹에서 다른 리소스 그룹으로 데이터 팩터리를 이동할 수 없습니다. 다음 오류가 발생 하 여 실패 합니다. `
+한 리소스 그룹에서 다른 리소스 그룹으로 데이터 팩터리 이동이 실패하고 다음 오류가 발생합니다. `
 {
     "code": "ResourceMoveProviderValidationFailed",
     "message": "Resource move validation failed. Please see details. Diagnostic information: timestamp 'xxxxxxxxxxxxZ', subscription id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', tracking id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', request correlation id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.",
@@ -132,7 +132,7 @@ Git 구성을 분리하고 다시 설정하고, “기존 리소스 가져오기
 
 #### <a name="resolution"></a>해결 방법
 
-이동 작업을 수행하기 위해서는 SSIS-IR 및 공유 IR을 삭제할 수 있습니다. 통합 런타임을 삭제 하지 않으려는 경우, 복사 및 복제 문서에 따라 복사를 수행 하 고 완료 된 후 이전 데이터 팩터리를 삭제 하는 것이 가장 좋습니다.
+이동 작업을 수행하기 위해서는 SSIS-IR 및 공유 IR을 삭제할 수 있습니다. 통합 런타임을 삭제하지 않으려면 복사 및 복제 문서에 따라 복사를 수행하고 완료된 후 이전 데이터 팩터리 삭제를 수행하는 것이 가장 좋습니다.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>ARM 템플릿을 내보내고 가져올 수 없음
 
@@ -144,21 +144,21 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 #### <a name="cause"></a>원인
 
-고객 역할을 사용자로 만들었지만 필요한 권한이 없습니다. UI가 로드 되 면 일련의 노출 제어 값이 확인 됩니다. 여기에서는 사용자의 액세스 역할에 *queryFeaturesValue* API 액세스 권한이 없습니다. 이 API에 액세스하기 위해 전역 매개변수 기능이 해제되어 있습니다. ARM 코드 내보내기 경로에 부분적으로 전역 매개변수 기능이 사용됩니다.
+고객 역할을 사용자로 만들었지만 필요한 권한이 없습니다. UI가 로드되면 일련의 노출 제어 값이 확인됩니다. 여기에서는 사용자의 액세스 역할에 *queryFeaturesValue* API 액세스 권한이 없습니다. 이 API에 액세스하기 위해 전역 매개변수 기능이 해제되어 있습니다. ARM 코드 내보내기 경로에 부분적으로 전역 매개변수 기능이 사용됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 역할에 다음 권한을 추가해야 합니다. *Microsoft.DataFactory/factories/queryFeaturesValue/action*. 이 권한은 기본적으로 Data Factory에 대 한 **Data Factory 참여자** 역할과 Synapse Analytics의 **참가자** 역할에 포함 됩니다.
+이 문제를 해결하려면 역할에 다음 권한을 추가해야 합니다. *Microsoft.DataFactory/factories/queryFeaturesValue/action*. 이 권한은 기본적으로 Data Factory 대한 **Data Factory 기여자** 역할 및 Synapse Analytics **참여자 역할에 포함됩니다.**
 
 ###  <a name="cannot-automate-publishing-for-cicd"></a>CI/CD에 대해 게시를 자동화할 수 없음 
 
 #### <a name="cause"></a>원인
 
-최근 까지는 포털에서 UI를 클릭 하 여 배포에 대 한 파이프라인을 게시할 수 있었습니다. 이제이 프로세스를 자동화할 수 있습니다.
+최근까지 포털에서 UI를 클릭하여 배포용 파이프라인을 게시할 수 있었습니다. 이제 이 프로세스를 자동화할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-CI/CD 프로세스가 향상되었습니다. **자동화** 된 게시 기능은 UI에서 모든 ARM 템플릿 기능을 사용 하 고 유효성을 검사 하 고 내보냅니다. 이렇게 해서 공개적으로 사용 가능한 npm 패키지 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities)를 통해 논리를 사용할 수 있게 만듭니다. 이 메서드를 사용 하면 UI로 이동 하 고 단추를 클릭 하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 이 방법은 CI/CD 파이프라인에 **진정한** 연속 통합 환경을 제공합니다. 자세한 내용은 [CI/CD 게시 개선](./continuous-integration-deployment-improvements.md) 사항을 따르세요. 
+CI/CD 프로세스가 향상되었습니다. **자동화된** 게시 기능은 UI에서 모든 ARM 템플릿 기능을 사용, 유효성 검사 및 내보냅니다. 이렇게 해서 공개적으로 사용 가능한 npm 패키지 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities)를 통해 논리를 사용할 수 있게 만듭니다. 이 메서드를 사용하면 UI로 이동하여 단추를 클릭하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 이 방법은 CI/CD 파이프라인에 **진정한** 연속 통합 환경을 제공합니다. 자세한 내용은 [CI/CD 게시 개선 사항을](./continuous-integration-delivery-improvements.md) 따르세요. 
 
 ###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>4MB ARM 템플릿 제한으로 인해 게시할 수 없음  
 
@@ -182,38 +182,38 @@ Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿�
 
 #### <a name="cause"></a>원인
 
-* 서비스에 대 한 Oauth를 구성 하지 않았습니다. 
+* 서비스에 대해 Oauth를 구성하지 않았습니다. 
 * URL이 잘못 구성되었습니다. repoConfiguration은 [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true) 형식이어야 합니다.
 
 #### <a name="resolution"></a>해결 방법 
 
-처음에 서비스에 대 한 Oauth 액세스를 부여 합니다. 그런 후 올바른 URL을 사용하여 GIT Enterprise에 연결해야 합니다. 구성을 고객 조직으로 설정해야 합니다. 예를 들어 서비스는 처음에는를 시도 하 고, *https://hostname/api/v3/search/repositories?q=user%3&lt 고객 자격 증명 &gt;* ...은 실패 합니다. 그런 후 *https://hostname/api/v3/orgs/&lt;org&gt;/&lt; repo&gt;...* 를 시도하고 성공합니다. 
+처음에는 서비스에 대한 Oauth 액세스 권한을 부여합니다. 그런 후 올바른 URL을 사용하여 GIT Enterprise에 연결해야 합니다. 구성을 고객 조직으로 설정해야 합니다. 예를 들어 서비스는 처음에 *https://hostname/api/v3/search/repositories?q=user%3&lt ;고객 자격 증명 &gt; ....을* 시도하고 실패합니다. 그런 후 *https://hostname/api/v3/orgs/&lt;org&gt;/&lt; repo&gt;...* 를 시도하고 성공합니다. 
  
-### <a name="cannot-recover-from-a-deleted-instance"></a>삭제 된 인스턴스에서 복구할 수 없습니다.
+### <a name="cannot-recover-from-a-deleted-instance"></a>삭제된 인스턴스에서 복구할 수 없음
 
 #### <a name="issue"></a>문제
-서비스의 인스턴스 또는이를 포함 하는 리소스 그룹이 삭제 되었으며 복구 해야 합니다.
+서비스의 인스턴스 또는 이를 포함하는 리소스 그룹이 삭제되었으며 복구해야 합니다.
 
 #### <a name="cause"></a>원인
 
-DevOps 또는 Git를 사용 하 여 소스 제어가 구성 된 경우에만 인스턴스를 복구할 수 있습니다. 이 작업을 수행 하면 게시 된 최신 리소스가 모두 표시 되지만 게시 **되지 않은** 파이프라인, 데이터 집합 또는 연결 된 서비스는 복원 되지 않습니다. 원본 컨트롤이 없는 경우 Azure 백 엔드에서 삭제 된 인스턴스를 복구 하는 것은 불가능 합니다. 서비스가 delete 명령을 받으면 백업 없이 인스턴스가 영구적으로 삭제 되기 때문입니다.
+DevOps 또는 Git을 사용하여 원본 제어가 구성된 경우에만 인스턴스를 복구할 수 있습니다. 이 작업은 게시된 모든 리소스를 가져오지만 게시되지 않은 파이프라인, 데이터 세트 또는 연결된 서비스는 **복원하지 않습니다.** 원본 제어가 없는 경우 Azure 백 엔드에서 삭제된 인스턴스를 복구할 수 없습니다. 서비스가 delete 명령을 받으면 백업 없이 인스턴스가 영구적으로 삭제되므로 가능합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-원본 컨트롤이 구성 된 삭제 된 서비스 인스턴스를 복구 하려면 다음 단계를 참조 하세요.
+소스 제어가 구성된 삭제된 서비스 인스턴스를 복구하려면 다음 단계를 참조하세요.
 
  * 서비스의 새 인스턴스를 만듭니다.
 
- * 동일한 설정으로 Git를 다시 구성 하지만 기존 리소스를 선택한 리포지토리로 가져오고 새 분기를 선택 해야 합니다.
+ * 동일한 설정으로 Git을 다시 구성하지만 기존 리소스를 선택한 리포지토리로 가져와서 새 분기를 선택해야 합니다.
 
  * 변경 사항을 협업 분기로 병합하기 위해 끌어오기 요청을 만들고 게시합니다.
 
- * 삭제 된 data factory 또는 Synapse 작업 영역에 자체 호스팅 Integration Runtime 있는 경우 새 팩터리 또는 작업 영역에 IR의 새 인스턴스를 만들어야 합니다.  온-프레미스 또는 가상 머신 IR 인스턴스를 제거 하 고 다시 설치 하 고 새 키를 가져와야 합니다. 새 IR 설정이 완료 된 후에는 연결 된 서비스를 업데이트 하 여 새 IR을 가리키거나 연결 된 테스트를 다시 시작 해야 합니다. 그렇지 않으면 **잘못 된 참조가** 발생 하 여 실패 합니다.
+ * 삭제된 데이터 팩터리 또는 Synapse 작업 영역에 자체 호스팅 Integration Runtime 있는 경우 새 팩터리 또는 작업 영역에 IR의 새 인스턴스를 만들어야 합니다.  온-프레미스 또는 가상 머신 IR 인스턴스를 제거하고 다시 설치해야 하며 새 키를 획득해야 합니다. 새 IR 설치가 완료되면 연결된 서비스가 새 IR을 가리키도록 업데이트되고 연결된 가 다시 테스트되어야 합니다. 그렇지 않은 경우 잘못된 참조 오류로 **실패합니다.**
 
 ### <a name="cannot-deploy-to-different-stage-using-automatic-publish-method"></a>자동 게시 방법을 사용하여 다른 스테이지에 배포할 수 없음
 
 #### <a name="issue"></a>문제
-고객이 NPM 패키지를 설치 하 고 Azure DevOps를 사용 하 여 더 높은 단계를 설정 하는 것과 같은 필요한 모든 단계를 수행한 후에도 배포에 실패
+고객은 NPM 패키지를 설치하고 Azure DevOps 사용하여 더 높은 단계를 설정하는 등 필요한 모든 단계를 수행했지만 배포는 여전히 실패합니다.
 
 #### <a name="cause"></a>원인
 
@@ -237,10 +237,10 @@ package.json 폴더가 유효하지 않으므로 다음 섹션은 유효하지 �
 ### <a name="git-repository-or-purview-connection-disconnected"></a>Git 리포지토리 또는 Purview 연결 끊김
 
 #### <a name="issue"></a>문제
-서비스 인스턴스를 배포 하는 경우 git 리포지토리 또는 부서의 범위 연결의 연결이 끊어집니다.
+서비스 인스턴스를 배포할 때 git 리포지토리 또는 purview 연결이 끊어집니다.
 
 #### <a name="cause"></a>원인
-전역 매개 변수를 배포 하기 위해 **arm 템플릿에** 를 선택한 경우 서비스 인스턴스가 arm 템플릿에 포함 됩니다. 그 결과 다른 속성은 배포 시 제거 됩니다.
+전역 매개 변수를 배포하기 위해 **ARM 템플릿에 포함을** 선택한 경우 서비스 인스턴스가 ARM 템플릿에 포함됩니다. 따라서 배포 시 다른 속성이 제거됩니다.
 
 #### <a name="resolution"></a>해상도
 CI/CD의 전역 매개 변수에 설명된 대로 **ARM 템플릿에 포함** 을 선택 취소하고 PowerShell을 통해 전역 매개 변수를 배포합니다. 
@@ -248,13 +248,13 @@ CI/CD의 전역 매개 변수에 설명된 대로 **ARM 템플릿에 포함** �
 ### <a name="extra--left--displayed-in-published-json-file"></a>게시된 JSON 파일에 불필요한 왼쪽 "["가 표시됨
 
 #### <a name="issue"></a>문제
-DevOps를 사용 하 여 게시 하는 경우 추가 "["가 표시 됩니다. 서비스는 DevOps의 ARMTemplate에 "["을 (를) 자동으로 추가 합니다. JSON 파일에 "[["와 같은 식이 표시 됩니다.
+DevOps 게시할 때 추가 "["가 표시됩니다. 이 서비스는 DevOps ARMTemplate에 "["를 하나 더 추가합니다. JSON 파일에 "[["와 같은 식이 표시됩니다.
 
 #### <a name="cause"></a>원인
 [는 ARM에서 예약 문자이므로 "["를 이스케이프하기 위해 추가 [가 자동으로 추가됩니다.
 
 #### <a name="resolution"></a>해상도
-CI/CD에 대 한 게시 프로세스 중에 정상적인 동작입니다.
+이는 CI/CD에 대한 게시 프로세스 중에 일반적인 동작입니다.
  
 ### <a name="perform-cicd-during--progressqueued-stage-of-pipeline-run"></a>파이프라인 실행의 진행 중/대기 중 스테이지에서 **CI/CD** 를 수행합니다.
 
@@ -265,39 +265,39 @@ CI/CD에 대 한 게시 프로세스 중에 정상적인 동작입니다.
 파이프라인이 진행 중/대기 중 스테이지인 경우 먼저 파이프라인 및 작업을 모니터링해야 합니다. 그런 다음, 파이프라인이 완료될 때까지 기다리거나 파이프라인 실행을 취소할 수 있습니다. 
  
 #### <a name="resolution"></a>해결 방법
-**SDK**, **Azure Monitor** 또는 [monitor](./monitor-visually.md)를 사용 하 여 파이프라인을 모니터링할 수 있습니다. 그런 다음 [CI/CD 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd) 를 따라 추가로 안내할 수 있습니다. 
+**SDK,** **Azure Monitor** 또는 모니터를 사용하여 파이프라인을 모니터링할 수 [있습니다.](./monitor-visually.md) 그런 다음 [CI/CD 모범 사례에](./continuous-integration-delivery.md#best-practices-for-cicd) 따라 자세한 지침을 확인할 수 있습니다. 
 
-### <a name="perform-unit-testing-during-development-and-deployment"></a>개발 및 배포 중에 **단위 테스트** 수행
+### <a name="perform-unit-testing-during-development-and-deployment"></a>개발 및 배포 중에 **UNIT TESTING** 수행
 
 #### <a name="issue"></a>문제
-파이프라인을 개발 하 고 배포 하는 동안 유닛 테스트를 수행 하려고 합니다.
+파이프라인을 개발 및 배포하는 동안 단위 테스트를 수행하려고 합니다.
 
 #### <a name="cause"></a>원인
-개발 및 배포 주기 동안 파이프라인을 수동으로 또는 자동으로 게시하기 전에 파이프라인에 대해 단위 테스트를 수행할 수 있습니다. 테스트 자동화를 사용하면 반복성을 보장하면서 더 적은 시간 안에 더 많은 테스트를 실행할 수 있습니다. 배포 전에 모든 파이프라인을 자동으로 다시 테스트 하면 회귀 오류에 대 한 보호를 제공 합니다. 자동화 된 테스트는 CI/CD 소프트웨어 개발 방법의 핵심 구성 요소입니다. CI/CD 배포 파이프라인에서 자동화 된 테스트를 포함 하면 품질을 크게 향상 시킬 수 있습니다. 장기 실행에서 테스트 된 파이프라인 아티팩트는 비용과 시간을 절약 하는 다시 사용 됩니다.  
+개발 및 배포 주기 동안 파이프라인을 수동으로 또는 자동으로 게시하기 전에 파이프라인에 대해 단위 테스트를 수행할 수 있습니다. 테스트 자동화를 사용하면 반복성을 보장하면서 더 적은 시간 안에 더 많은 테스트를 실행할 수 있습니다. 배포 전에 모든 파이프라인을 자동으로 다시 테스트하면 회귀 오류를 방지할 수 있습니다. 자동화된 테스트는 CI/CD 소프트웨어 개발 방법의 핵심 구성 요소입니다. CI/CD 배포 파이프라인에 자동화된 테스트를 포함하면 품질을 크게 향상시킬 수 있습니다. 장기적으로 테스트된 파이프라인 아티팩트도 재사용되어 비용과 시간을 절약할 수 있습니다.  
  
 #### <a name="resolution"></a>해결 방법
-고객은 다른 기술력과에 대 한 단위 테스트 요구 사항이 서로 다를 수 있으므로 일반적인 방법은 다음 단계를 수행 하는 것입니다.
+고객은 서로 다른 기술 세트를 사용하여 서로 다른 단위 테스트 요구 사항을 가질 수 있으므로 일반적인 방법은 다음 단계를 따르는 것입니다.
 
 1. Azure DevOps CI/CD 프로젝트를 설정하거나 .NET/PYTHON/REST 유형 SDK 기반 테스트 전략을 개발합니다.
-2. CI/CD의 경우 모든 스크립트를 포함 하 고 릴리스 파이프라인에서 리소스를 배포 하는 빌드 아티팩트를 만듭니다. SDK 기반 방법의 경우 Python에서 PyTest를 사용 하 고 .NET SDK를 사용 하 여 c #에서 Nunit을 사용 하 여 테스트 단위를 개발 합니다.
+2. CI/CD의 경우 모든 스크립트를 포함하는 빌드 아티팩트 를 만들고 릴리스 파이프라인에 리소스를 배포합니다. SDK 기반 접근 방식의 경우 Python에서 PyTest를 사용하는 테스트 단위, .NET SDK를 사용하는 C#의 Nunit 등을 사용하여 테스트 단위를 개발합니다.
 3. 릴리스 파이프라인의 일부로 또는 ADF Python/PowerShell/.NET/REST SDK를 통해 독립적으로 단위 테스트를 실행합니다. 
 
 예를 들어, 파일에서 중복 항목을 삭제한 다음, 큐레이팅된 파일을 데이터베이스에 테이블로 저장하려고 합니다. 파이프라인을 테스트하려면 Azure DevOps를 사용하여 CI/CD 프로젝트를 설정합니다.
-개발된 파이프라인을 배포하는 테스트 파이프라인 스테이지를 설정합니다. 테이블 데이터가 예상한 데이터인지 확인하기 위해 Python 테스트를 실행하도록 테스트 스테이지를 구성합니다. CI/CD를 사용하지 않는 경우 **Nunit** 를 사용하여 원하는 테스트로 배포된 파이프라인을 트리거할 수 있습니다. 결과가 만족 스 러 우면 최종적으로 프로덕션 인스턴스에 파이프라인을 게시할 수 있습니다. 
+개발된 파이프라인을 배포하는 테스트 파이프라인 스테이지를 설정합니다. 테이블 데이터가 예상한 데이터인지 확인하기 위해 Python 테스트를 실행하도록 테스트 스테이지를 구성합니다. CI/CD를 사용하지 않는 경우 **Nunit** 를 사용하여 원하는 테스트로 배포된 파이프라인을 트리거할 수 있습니다. 결과에 만족하면 마지막으로 파이프라인을 프로덕션 인스턴스에 게시할 수 있습니다. 
 
 
-### <a name="pipeline-runs-temporarily-fail-after-cicd-deployment-or-authoring-updates"></a>CI/CD 배포 후 또는 업데이트를 작성 한 후 파이프라인 실행이 일시적으로 실패 함
+### <a name="pipeline-runs-temporarily-fail-after-cicd-deployment-or-authoring-updates"></a>CI/CD 배포 또는 업데이트 작성 후 파이프라인 실행이 일시적으로 실패합니다.
 
 #### <a name="issue"></a>문제
-잠시 후에는 일시적인 오류 발생 후 사용자 작업 없이도 새 파이프라인이 성공적으로 실행 되기 시작 합니다.
+일정 시간 후에 임시 실패 후 사용자 작업 없이 새 파이프라인 실행이 성공하기 시작합니다.
 
 #### <a name="cause"></a>원인
 
-이 동작을 트리거할 수 있는 몇 가지 시나리오가 있습니다. 여기에는 이전 버전의 부모 리소스에 의해 호출 되는 종속 리소스의 새 버전이 포함 됩니다. 예를 들어 "파이프라인 실행"에 의해 호출 된 기존 자식 파이프라인이 필수 매개 변수를 포함 하도록 업데이트 되 고 기존 부모 파이프라인이 업데이트 되어 이러한 매개 변수를 전달 한다고 가정 합니다. 부모 파이프라인을 실행 하는 동안 배포를 실행 하는 동안 **파이프라인 실행** 작업 이전에 배포를 수행 하는 경우 이전 버전의 파이프라인은 새 버전의 자식 파이프라인을 호출 하 고, 예상 되는 매개 변수는 전달 되지 않습니다. 이렇게 하면 파이프라인에서 *Usererror* 를 사용 하 여 오류가 발생 합니다. 이는이를 참조 하는 파이프라인 실행 중에 연결 된 서비스에 대 한 주요 변경 내용이 있는 경우와 같이 다른 유형의 종속성 에서도 발생할 수 있습니다. 
+이 동작을 트리거할 수 있는 몇 가지 시나리오가 있으며, 모두 이전 버전의 부모 리소스에서 호출되는 종속 리소스의 새 버전을 포함합니다. 예를 들어 "파이프라인 실행"에서 호출하는 기존 자식 파이프라인이 필수 매개 변수를 갖도록 업데이트되고 기존 부모 파이프라인이 이러한 매개 변수를 전달하도록 업데이트되어 있다고 가정합니다. 부모 파이프라인 실행 중이지만 **파이프라인 실행** 작업 전에 배포가 발생하는 경우 이전 버전의 파이프라인은 새 버전의 자식 파이프라인을 호출하고 예상 매개 변수는 전달되지 않습니다. 이로 인해 *UserError* 로 인해 파이프라인이 실패합니다. 이 문제는 연결된 서비스를 참조하는 파이프라인 실행 중에 연결된 서비스에 대한 주요 변경이 발생하는 경우와 같은 다른 유형의 의존성에서도 발생할 수 있습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
-부모 파이프라인의 새 실행이 자동으로 시작 되기 때문에 일반적으로 작업이 필요 하지 않습니다. 그러나 이러한 오류를 방지 하기 위해 고객은 주요 변경 사항을 방지 하기 위해 배포를 작성 하 고 계획 하는 동안 종속성을 고려해 야 합니다. 
+부모 파이프라인의 새 실행이 자동으로 성공하기 시작하므로 일반적으로 아무 작업도 필요하지 않습니다. 그러나 이러한 오류를 방지하려면 고객은 주요 변경 내용을 방지하기 위해 배포를 작성하고 계획하는 동안의 의존도를 고려해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

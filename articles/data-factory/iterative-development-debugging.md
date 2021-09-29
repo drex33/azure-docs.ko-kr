@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: kromerm
 ms.author: makromer
-ms.openlocfilehash: e2dc44f4746c08a924eecd5f28c174a6e60395a8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 343cdb521f3a984d7d80022940a75afbb7032b6e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760248"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208074"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인을 통해 반복적인 개발 및 디버깅
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -103,4 +103,4 @@ Azure Data Factory 및 Synapse Analytics 파이프라인의 반복적인 개발 
 
 ## <a name="next-steps"></a>다음 단계
 
-변경 내용을 테스트한 후 [연속 통합 및 배포를](continuous-integration-deployment.md)사용하여 더 높은 환경으로 승격합니다.
+변경 내용을 테스트한 후 [연속 통합 및 배포를](continuous-integration-delivery.md)사용하여 더 높은 환경으로 승격합니다.

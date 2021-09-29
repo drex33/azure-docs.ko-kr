@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: 이 문서에는 Azure Arc 사용 Kubernetes 관련 된 질문과 대답 목록이 포함 되어 있습니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너, 구성, GitOps, FAQ
-ms.openlocfilehash: 068a2a2479b2f991b10995fbe04b7a29363184f0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 750b783d3234bb5ea61ed12dc4cf0471b7b231e4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679374"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215057"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>질문과 대답-Azure Arc 사용 Kubernetes
 
@@ -31,9 +31,9 @@ Azure Kubernetes 서비스 (AKS) 클러스터를 Azure Arc에 연결 하는 것�
 
 사용자 지정 위치를 사용하지 않고 Azure Monitor 및 Azure Policy(Gatekeeper)와 같은 관리 기능만 사용하려는 경우 AKS에서 기본적으로 사용할 수 있으며 이러한 경우 Azure Arc에 연결할 필요가 없습니다.
     
-## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Azure Stack Edge와 Azure Stack Hub에 있는 AKS-HCI 클러스터 및 Kubernetes 클러스터를 Azure Arc에 연결해야 하나요?
+## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-edge-to-azure-arc"></a>AKS-HCI 클러스터 및 Kubernetes 클러스터를 Azure Stack Edge의 Azure Arc에 연결 해야 하나요?
 
-예, Azure Stack Edge 또는 Azure Stack Hub에 있는 AKS-HCI 클러스터 또는 Kubernetes 클러스터를 Azure Arc에 연결하면 Azure Resource Manager에서 리소스를 표시하는 클러스터가 제공됩니다. 이 리소스 표현을 통해 클러스터 구성, Azure Monitor, Azure Policy(Gatekeeper) 등의 기능을 이러한 연결된 Kubernetes 클러스터로 확장할 수 있습니다.
+예, Azure Stack Edge에서 Azure Arc에 AKS-HCI 클러스터 또는 Kubernetes 클러스터를 연결 하면 Azure Resource Manager에서 리소스를 표시 하는 클러스터가 제공 됩니다. 이 리소스 표현을 통해 클러스터 구성, Azure Monitor, Azure Policy(Gatekeeper) 등의 기능을 이러한 연결된 Kubernetes 클러스터로 확장할 수 있습니다.
 
 Azure Arc 사용 가능 Kubernetes 클러스터가 Edge Azure Stack에 있는 경우 Azure Stack AKS HCI (>= 4 월 2021 업데이트) 또는 Windows Server 2019 Datacenter (>= 4 월 2021 업데이트)에서 AKS Kubernetes 구성은 무료로 포함 됩니다.
 

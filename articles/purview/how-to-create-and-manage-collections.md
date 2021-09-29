@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b613efec12eb9ab54a053c6d495654d89aa7258b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0a684cec230766119345b8fd8acd3df53cc3f25a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796935"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213017"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Azure Purview에서 컬렉션 만들기 및 관리
 
@@ -34,7 +34,7 @@ Azure Purview의 컬렉션은 비즈니스 흐름에 따라 자산 및 원본을
 
 ### <a name="check-permissions"></a>사용 권한 확인
 
-Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 관리자** 여야 합니다. 이러한 권한은 [Purview Studio](use-purview-studio.md)에서 확인할 수 있습니다. 이 스튜디오는 [Azure Portal](https://portal.azure.com)에서 Purview 리소스로 이동한 다음, 개요 페이지에서 Purview Studio 열기 타일을 선택하여 찾을 수 있습니다.
+Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 관리자** 여야 합니다. 이러한 권한은 [Purview Studio](https://web.purview.azure.com/resource/)에서 확인할 수 있습니다. 이 스튜디오는 [Azure Portal](https://portal.azure.com)에서 Purview 리소스로 이동한 다음, 개요 페이지에서 Purview Studio 열기 타일을 선택하여 찾을 수 있습니다.
 
 1. 왼쪽 창에서 데이터 맵 > 컬렉션을 선택하여 컬렉션 관리 페이지를 엽니다.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
-ms.openlocfilehash: a13231ea890476e5fc52cf563c250ef0124f940b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6ad246eefb86c31291d2a9745c6f77e276701744
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539698"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214088"
 ---
 # <a name="move-an-azure-synapse-analytics-workspace-from-one-region-to-another"></a>지역 간 Azure Synapse Analytics 작업 영역 이동
 
@@ -364,7 +364,7 @@ Select-Object Id,Command,JobStateInfo,PSBeginTime,PSEndTime,PSJobTypeName,Error 
 
 ## <a name="step-6-deploy-artifacts-and-pipelines-by-using-cicd"></a>6단계: CI/CD를 사용하여 아티팩트 및 파이프라인 배포 
 
- Azure Synapse 작업 영역을 Azure DevOps 또는 GitHub와 통합하는 방법 및 아티팩트를 대상 지역 작업 영역에 배포하는 방법을 알아보려면 [Azure Synapse 작업 영역에 대한 CI/CD(연속 통합 및 지속적인 업데이트)](cicd/continuous-integration-deployment.md)의 단계를 수행합니다. 
+ Azure Synapse 작업 영역을 Azure DevOps 또는 GitHub와 통합하는 방법 및 아티팩트를 대상 지역 작업 영역에 배포하는 방법을 알아보려면 [Azure Synapse 작업 영역에 대한 CI/CD(연속 통합 및 지속적인 업데이트)](cicd/continuous-integration-delivery.md)의 단계를 수행합니다. 
 
 작업 영역이 Azure DevOps와 통합되면 이름이 workspace_publish인 분기를 찾을 수 있습니다. 이 분기에는 Notebooks, SQL 스크립트, 데이터 세트, 연결된 서비스, 파이프라인, 트리거 및 Spark 작업 정의와 같이 아티팩트에 대한 정의가 포함된 작업 영역 템플릿이 포함되어 있습니다.
 

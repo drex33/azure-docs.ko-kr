@@ -1,26 +1,26 @@
 ---
 title: 전체 텍스트 쿼리 및 인덱싱 엔진 아키텍처(Lucene)
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 검사합니다.
+description: Azure Cognitive Search 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 살펴봅니다.
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/28/2021
+ms.openlocfilehash: b070cc197de1a3e4390d3957cda5b2bd65c754f3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002751"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210424"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색
 
 이 문서는 Azure Cognitive Search에서 Lucene 전체 텍스트 검색이 작동하는 방식에 대해 자세히 이해할 필요가 있는 개발자를 위해 작성되었습니다. 텍스트 쿼리의 경우 Azure Cognitive Search는 대부분의 시나리오에서 예상된 결과를 원활하게 제공하지만, 가끔은 "예상과 다른" 결과를 얻기도 합니다. 이러한 상황에서는 Lucene 쿼리 실행의 네 단계(쿼리 구문 분석, 어휘 분석, 문서 일치, 점수 매기기)에 대한 배경 지식을 갖고 있으면 쿼리 매개 변수의 특정 변경 내용 또는 원하는 결과를 제공하는 인덱스 구성을 식별하는 데 도움이 될 수 있습니다. 
 
 > [!Note] 
-> Azure Cognitive Search는 전체 텍스트 검색에 Lucene을 사용하지만 Lucene이 완전히 통합된 것은 아닙니다. Azure Cognitive Search에 중요한 시나리오를 지원하도록 Lucene 기능을 선별적으로 노출하고 확장합니다. 
+> Azure Cognitive Search 전체 텍스트 검색에 [Apache Lucene을](https://lucene.apache.org/) 사용하지만 Lucene 통합은 완전하지 않습니다. Azure Cognitive Search에 중요한 시나리오를 지원하도록 Lucene 기능을 선별적으로 노출하고 확장합니다. 
 
 ## <a name="architecture-overview-and-diagram"></a>아키텍처 개요 및 다이어그램
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 32e7c6630c23e3650a85428e34fcd9b9739acbc9
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 8a6a2b7acc4f627bb871520ee6a82be920d1135e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060236"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215912"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -44,7 +44,7 @@ ms.locfileid: "129060236"
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
-<sup>1</sup> Azure Monitor 메트릭을 사용 하는 다른 제한 사항을 검토 하려면 [여기를 클릭](../essentials/metrics-custom-overview.md#quotas-and-limits) 하세요. Linux에서 Azure Monitor 메트릭은 유일한 대상이 1.10.9.0 이상에서 지원 됩니다. 
+<sup>1</sup> Azure Monitor 메트릭 사용에 대한 다른 제한 내용을 [검토하려면 여기를 클릭하세요.](../essentials/metrics-custom-overview.md#quotas-and-limits) Linux에서는 Azure Monitor 메트릭을 유일한 대상으로 사용하는 것이 v.1.10.9.0 이상에서 지원됩니다. 
 
 ## <a name="azure-monitor-agent"></a>Azure Monitor 에이전트
 
@@ -54,7 +54,7 @@ ms.locfileid: "129060236"
 
 - Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. (Azure 외부 머신에 대해 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)가 필요합니다.) 
 - [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
-- Azure Monitor를 사용 하 여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭 (미리 보기)에 데이터를 보냅니다. 
+- Azure Monitor 사용하여 분석하기 위해 Azure Monitor 로그 및 Azure Monitor 메트릭(미리 보기)에 데이터를 보냅니다. 
 - Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -129,7 +129,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 - 종속성 에이전트를 사용하려면 Log Analytics 에이전트를 동일한 머신에 설치해야 합니다.
 - Linux 머신에서는 Azure 진단 확장 전에 Log Analytics 에이전트를 설치해야 합니다.
-- Dependency Agent의 Windows 및 Linux 버전 모두에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용 하 여 수행 됩니다. 
+- Dependency Agent Windows 및 Linux 버전 모두에서 사용자 공간 서비스 및 커널 드라이버를 사용하여 데이터 수집이 수행됩니다. 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -158,6 +158,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오는<sup>1개만)</sup>  | X | X | X | X |
 | Windows 8 Enterprise 및 Pro<br>(서버 시나리오는<sup>1개만)</sup>  |   | X | X |   |
 | Windows 7 SP1<br>(서버 시나리오는<sup>1개만)</sup>                 |   | X | X |   |
+| Azure Stack HCI                                          |   | X |   |   |
 
 <sup>1</sup> 서버 하드웨어에서 OS를 실행합니다. 즉, 항상 연결되어 있고, 항상 켜져 있고, 다른 워크로드(PC, 사무실, 브라우저 등)를 실행하지 않는 컴퓨터
 
@@ -166,6 +167,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | 운영 체제 | Azure Monitor 에이전트 <sup>1</sup> | Log Analytics 에이전트 <sup>1</sup> | 종속성 에이전트 | 진단 확장 <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
+| Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
@@ -190,7 +192,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS                                            | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X | X |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |

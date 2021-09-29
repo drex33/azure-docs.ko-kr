@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: db5cb2f6bc8b4ca3eed802552fe86830b9f1723f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6277e42daf370cef65724f8958a9851ecd51d57c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259573"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216748"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux에서 Azure Files 문제 해결(SMB)
 
@@ -40,7 +40,6 @@ ms.locfileid: "123259573"
 - SMB 유틸리티(cifs-utils)가 클라이언트에 설치되어 있지 않습니다.
 - 최소 SMB 버전 2.1은 클라이언트에서 사용할 수 없습니다.
 - SMB 3.x 암호화는 클라이언트에서 지원되지 않습니다. 위의 표에서는 암호화를 사용하여 온-프레미스 및 지역 간 탑재를 지원하는 Linux 배포 목록을 제공합니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
-- 지원되지 않는 TCP 포트 445를 통해 스토리지 계정에 연결하려고 합니다.
 - Azure VM에서 Azure 파일 공유에 연결하려고 하며, VM이 스토리지 계정과 동일한 지역에 있지 않습니다.
 - 스토리지 계정에서 [보안 전송 필요](../common/storage-require-secure-transfer.md) 설정을 사용하도록 설정한 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.x를 사용하는 연결만 허용합니다.
 

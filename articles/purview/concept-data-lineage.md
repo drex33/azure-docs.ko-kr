@@ -1,18 +1,17 @@
 ---
-title: Azure Purview의 데이터 계보(미리 보기)
+title: Azure 부서의 범위의 데이터 계보
 description: 데이터 계보의 개념을 설명합니다.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 37cffe89fc0e0cb10aaadbb8d63f9aa12d0589eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574437"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207453"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Azure Purview Data Catalog 클라이언트의 데이터 계보
 
@@ -67,4 +66,4 @@ Purview Data Catalog는 다른 데이터 처리, 스토리지 및 분석 시스�
 
 * [빠른 시작: Azure Portal에서 Azure Purview 계정 만들기](create-catalog-portal.md)
 * [빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기](create-catalog-powershell.md)
-* [빠른 시작: Purview Studio 사용](use-purview-studio.md)
+* [부서의 범위 Studio 사용](use-purview-studio.md)

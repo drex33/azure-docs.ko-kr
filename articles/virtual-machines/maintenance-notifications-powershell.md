@@ -3,18 +3,18 @@ title: PowerShell을 사용하여 Azure VM에 대한 유지 관리 알림 받기
 description: PowerShell을 사용하여 Azure에서 실행 중인 가상 머신에 대한 유지 관리 알림을 확인하고 셀프 서비스 유지 관리를 시작합니다.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9c03280532a1296d49c26b8e7502c5cbac896f8e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 0c62ee16f1e219f765f89c1c91273afa316e2b7f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687735"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215494"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용한 계획된 유지 관리 처리
 

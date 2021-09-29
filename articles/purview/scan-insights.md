@@ -4,19 +4,22 @@ description: 이 방법 가이드에서는 데이터에 대한 Purview Insights 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
-ms.openlocfilehash: 3c5a3b9b312e093d7bee5c0c555e8e2eab0c531b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 17935a3dc4aef3c5cd9d6b1e162a2002b3c06e2c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535867"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211378"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 대한 검사 인사이트
 
 이 방법 가이드에서는 데이터에 대한 Azure Purview 검사 인사이트 보고서에 액세스하고, 보고, 필터링하는 방법을 설명합니다.
+
+> [!IMPORTANT]
+> Azure Purview Insights 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 이 방법 가이드에서 배울 내용은 다음과 같습니다.
 
@@ -31,7 +34,7 @@ Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확
 * Azure 리소스를 설정하고 데이터를 사용하여 계정을 채웁니다.
 * 데이터 원본에 대한 검사를 설정하고 완료합니다.
 
-자세한 내용은 [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md)를 참조하세요.
+자세한 내용은 [Azure Purview에서 데이터 원본 관리를 참조하세요.](manage-data-sources.md)
 
 ## <a name="use-purview-scan-insights"></a>Purview Scan Insights 사용하기
 
@@ -45,11 +48,11 @@ Azure Purview에서 원본 유형을 등록하고 검사할 수 있습니다. Sc
 
    :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Azure Portal에서 Purview 실행하기":::
 
-1. Purview의 **홈** 페이지에서 **인사이트 보기** 타일을 선택하여 **인사이트** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false":::영역에 액세스합니다.
+1. Purview **홈** 페이지의 왼쪽 메뉴에서 **Insights** 선택합니다.
 
    :::image type="content" source="./media/scan-insights/view-insights.png" alt-text="Azure Portal에서 인사이트 보기":::
 
-1. **인사이트** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: 영역에서 **검사** 를 선택하여 Purview **Scan 인사이트** 보고서를 표시합니다.
+1. **인사이트** 영역에서 **검사** 를 선택하여 Purview **Scan 인사이트** 보고서를 표시합니다.
 
 ### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>상태별 검사 수를 표시하는 상위 수준 KPI와 심층 검사 보기
  
@@ -62,7 +65,7 @@ Azure Purview에서 원본 유형을 등록하고 검사할 수 있습니다. Sc
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="시간별 검사 상태 보기":::
 
-4. Azure Purview의 **데이터 맵** 환경 내에서 검사 기록과 연결되는 **검사 이름** 을 클릭하여 특정 검사를 추가로 검색할 수 있습니다. 실행 기록 페이지에서 추가적인 오류 조사에 도움이 되는 실행 ID를 가져올 수 있습니다.
+4. Azure Purview의 **데이터 맵** 환경 내에서 **검색** 기록에 연결할 검사 이름을 선택하여 특정 검사를 추가로 탐색할 수 있습니다. 실행 기록 페이지에서 추가적인 오류 조사에 도움이 되는 실행 ID를 가져올 수 있습니다.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="검사 세부 정보 보기":::
 

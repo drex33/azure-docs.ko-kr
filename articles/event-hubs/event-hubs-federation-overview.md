@@ -2,14 +2,14 @@
 title: 다중 사이트 및 다중 지역 페더레이션 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs를 사용하여 다중 사이트 및 다중 지역 페더레이션에 대한 개요를 제공합니다.
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ms.author: spelluru
-ms.openlocfilehash: 12ef895c8b16fe18ed02ebf01d17624ac71c2f3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7311854b95250f94aa51bdc954b53743fbfde3a1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861459"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217867"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>다중 사이트 및 다중 지역 페더레이션
 

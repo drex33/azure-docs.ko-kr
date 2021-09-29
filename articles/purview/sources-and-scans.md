@@ -4,16 +4,16 @@ description: 이 문서에서는 Purview에서 지원되는 데이터 원본 및
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5ed4ae8fd3de642332cc59e7514b05b6154dd556
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 1d484bce594d5894052ffeb4f1ff4a1dbf202d50
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054454"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215247"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure Purview에서 지원되는 데이터 원본 및 파일 형식
 
@@ -70,4 +70,4 @@ Purview에서 파티션 파일의 폴더 또는 그룹이 시스템 리소스 �
 ## <a name="next-steps"></a>다음 단계
 
 - [부서의 범위에서 검색 및 수집](concept-scans-and-ingestion.md)
-- [Azure Purview에서 데이터 원본 관리(미리 보기)](manage-data-sources.md)
+- [Azure Purview에서 데이터 원본 관리](manage-data-sources.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 7f5553cc51927d878487b0875e72873451a3de3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: 4e66c71dd274f6096113992d9584645d5622f1c1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059584"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211075"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>IoT 허브를 다른 Azure 지역에 복제하는 방법
 
@@ -113,25 +113,31 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 1. 허브에 대한 속성 및 설정 목록에서 **템플릿 내보내기** 를 선택합니다. 
 
-   ![IoT Hub에 대한 템플릿을 내보내는 명령을 보여주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-export-template.png" alt-text="IoT Hub에 대한 템플릿을 내보내는 명령을 보여주는 스크린샷" border="true":::
 
 1. **다운로드** 를 선택하여 템플릿을 다운로드합니다. 파일을 다시 찾을 수 있는 위치에 저장합니다. 
 
-   ![IoT Hub에 대한 템플릿을 다운로드하는 명령을 보여주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-download-template.png" alt-text="IoT Hub에 대한 템플릿을 다운로드하는 명령을 보여주는 스크린샷" border="true":::
 
 ### <a name="view-the-template"></a>템플릿 보기 
 
-1. Downloads 폴더(또는 템플릿을 내보낼 때 사용한 폴더)로 이동하여 Zip 파일을 찾습니다. Zip 파일을 열고 `template.json` 파일을 찾습니다. 이 파일을 선택하고 Ctrl+C 키를 선택하여 템플릿을 복사합니다. Zip 파일에 없는 다른 폴더로 이동하여 파일을 붙여넣습니다(Ctrl+V). 이제 템플릿을 편집할 수 있습니다.
+1. Downloads 폴더(또는 템플릿을 내보낼 때 사용한 폴더)로 이동하여 Zip 파일을 찾습니다. zip 파일을 추출하고 라는 파일을 `template.json` 찾습니다. 이를 선택하고 복사합니다. 다른 폴더로 이동하여 템플릿 파일(Ctrl+V)을 붙여넣습니다. 이제 템플릿을 편집할 수 있습니다.
  
-    다음은 라우팅 구성이 없는 일반 허브의 예입니다. **westus** 지역에 있는 **ContosoTestHub29358** 이라는 S1 계층 허브(1단위 포함)입니다. 내보낸 템플릿은 다음과 같습니다.
+    다음은 라우팅 구성이 없는 일반 허브의 예입니다. 미국 서부 지역의 **ContosoHub라는** S1 계층 허브(1단위)입니다.  내보낸 템플릿은 다음과 같습니다.
 
     ``` json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
+            "IotHubs_ContosoHub_connectionString": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_containerName": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_name": {
+                "defaultValue": "ContosoHub",
                 "type": "String"
             }
         },
@@ -139,47 +145,23 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
         "resources": [
             {
                 "type": "Microsoft.Devices/IotHubs",
-                "apiVersion": "2018-04-01",
-                "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
+                "apiVersion": "2021-07-01",
+                "name": "[parameters('IotHubs_ContosoHub_name')]",
                 "location": "westus",
                 "sku": {
                     "name": "S1",
                     "tier": "Standard",
                     "capacity": 1
                 },
+                "identity": {
+                    "type": "None"
+                },
                 "properties": {
-                    "operationsMonitoringProperties": {
-                        "events": {
-                            "None": "None",
-                            "Connections": "None",
-                            "DeviceTelemetry": "None",
-                            "C2DCommands": "None",
-                            "DeviceIdentityOperations": "None",
-                            "FileUploadOperations": "None",
-                            "Routes": "None"
-                        }
-                    },
                     "ipFilterRules": [],
                     "eventHubEndpoints": {
                         "events": {
                             "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-                        },
-                        "operationsMonitoringEvents": {
-                            "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358-operationmonitoring",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
+                            "partitionCount": 4
                         }
                     },
                     "routing": {
@@ -203,8 +185,8 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
                     "storageEndpoints": {
                         "$default": {
                             "sasTtlAsIso8601": "PT1H",
-                            "connectionString": "",
-                            "containerName": ""
+                            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+                            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
                         }
                     },
                     "messagingEndpoints": {
@@ -224,7 +206,9 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
                             "maxDeliveryCount": 10
                         }
                     },
-                    "features": "None"
+                    "features": "None",
+                    "disableLocalAuth": false,
+                    "allowedFqdnList": []
                 }
             }
         ]
@@ -237,63 +221,47 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 #### <a name="edit-the-hub-name-and-location"></a>허브 이름 및 위치 편집
 
-1. 위쪽에서 매개 변수 섹션을 제거합니다. 매개 변수를 여러 개 사용하지 않을 것이므로 허브 이름만 사용하는 것이 훨씬 간단합니다. 
+1. 맨 위에 있는 컨테이너 이름 매개 변수 섹션을 제거 합니다. **ContosoHub** 에 연결 된 컨테이너가 없습니다.
 
     ``` json
-        "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
-                "type": "String"
-            }
+    "parameters": {
+      ...
+        "IotHubs_ContosoHub_containerName": {
+            "type": "SecureString"
         },
+      ...
+    },
     ```
 
-1. 이름(이전 단계에서 제거한)을 매개 변수에서 검색하지 않고 실제(새) 이름을 사용하도록 이름을 변경합니다. 
+1. **Storageendpoints** 속성을 제거 합니다.
 
-    새 허브의 경우 원래 허브 이름에 *clone* 이라는 문자열을 붙여서 새 이름을 만듭니다. 허브 이름 및 위치를 정리하는 것부터 시작합니다.
+    ```json
+    "properties": {
+      ...
+        "storageEndpoints": {
+        "$default": {
+            "sasTtlAsIso8601": "PT1H",
+            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
+        }
+      },
+      ...
     
+    ```
+
+1. **리소스** 에서 위치를 westus에서 eastus로 변경 합니다.
+
     이전 버전: 
 
     ``` json 
-    "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
     "location": "westus",
     ```
     
     새 버전:  
 
     ``` json 
-    "name": "ContosoTestHub29358clone",
     "location": "eastus",
     ```
-
-    다음으로, **path** 값에 이전 허브 이름이 포함될 것입니다. 새 이름을 사용하도록 변경합니다. 이 값은 **eventHubEndpoints** 아래에 있는 **events** 및 **OperationsMonitoringEvents** 의 경로 값입니다.
-
-    모두 마치면 이벤트 허브 엔드포인트 섹션은 다음과 같습니다.
-
-    ``` json
-    "eventHubEndpoints": {
-        "events": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        },
-        "operationsMonitoringEvents": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone-operationmonitoring",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        }
-    ```
-
 #### <a name="update-the-keys-for-the-routing-resources-that-are-not-being-moved"></a>이동되지 않는 라우팅 리소스의 키를 업데이트합니다.
 
 라우팅이 구성된 허브의 Resource Manager 템플릿을 내보낼 때 해당 리소스의 키가 내보낸 템플릿에 제공되지 않습니다. 리소스 배치는 별표로 표시됩니다. 새 허브의 템플릿을 가져와서 허브를 만들려면 **먼저** 포털에서 해당 리소스로 이동한 후 키를 검색하여 채워야 합니다. 
@@ -351,35 +319,41 @@ IoT 허브를 한 지역에서 다른 지역으로 이동할 때 권장하는 �
 
 1. **리소스 만들기** 를 선택합니다. 
 
-1. 검색 상자에 "템플릿 배포"를 입력하고 Enter 키를 선택합니다.
+1. 검색 상자에 "템플릿 배포"를 입력 하 고 Enter 키를 선택 합니다.
 
 1. **템플릿 배포(사용자 지정 템플릿을 사용하여 배포)** 를 선택합니다. 그러면 [템플릿 배포] 화면으로 이동됩니다. **만들기** 를 선택합니다. 다음 화면이 표시됩니다.
 
-   ![사용자 고유의 템플릿을 빌드하는 명령을 보여주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png" alt-text="사용자 고유의 템플릿을 빌드하는 명령을 보여주는 스크린샷":::
 
 1. **편집기에서 사용자 고유의 템플릿 빌드** 를 선택합니다. 여기서 파일의 템플릿을 업로드할 수 있습니다. 
 
-1. **파일 로드** 를 선택합니다. 
+1. **파일 로드** 를 선택합니다.
 
-   ![템플릿 파일을 업로드하는 명령을 보여주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-upload-file.png" alt-text="템플릿 파일을 업로드하는 명령을 보여주는 스크린샷":::
 
 1. 편집한 새 템플릿을 찾아 선택한 다음, **열기** 를 선택합니다. 그러면 편집 창에 템플릿이 로드됩니다. **저장** 을 선택합니다. 
 
-   ![템플릿 로드를 보여주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png" alt-text="템플릿 로드를 보여주는 스크린샷":::
 
-1. 다음 필드를 입력합니다.
+1. 사용자 지정 배포 페이지에서 다음 필드를 입력 합니다.
 
-   **구독**: 사용할 구독을 선택합니다.
+   **구독**: 사용할 구독을 선택 합니다.
 
-   **새 리소스 그룹**: 새 위치에 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 이미 설정한 경우 새로 만들지 않고 기존 리소스 그룹을 선택할 수 있습니다.
+   **리소스 그룹**: 새 위치에 새 리소스 그룹을 만듭니다. 이미 설정 되어 있는 경우 새 항목을 만드는 대신 선택할 수 있습니다.
 
-   **위치**: 기존 리소스 그룹을 선택한 경우 리소스 그룹의 위치와 일치하도록 자동으로 채워집니다. 새 리소스 그룹을 만든 경우 해당 리소스 그룹의 위치가 됩니다.
+   **지역**: 기존 리소스 그룹을 선택한 경우 리소스 그룹의 위치와 일치 하도록 지역이 채워집니다. 새 리소스 그룹을 만든 경우 해당 리소스 그룹의 위치가 됩니다.
 
-   **동의함 확인란**: 만드는 리소스에 대한 요금을 지불하는 것에 동의하는 확인란입니다.
+   **연결 문자열**: 허브에 대 한 연결 문자열을 입력 합니다.
 
-1. **구매** 단추를 선택합니다.
+   **허브 이름**: 새 지역의 새 허브에 이름을 지정 합니다.
 
-이제 포털에서 템플릿의 유효성을 검사하고 복제된 허브를 배포합니다. 라우팅 구성 데이터가 있는 경우 해당 데이터는 새 허브에 포함되지만 이전 위치의 리소스를 가리킵니다.
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="사용자 지정 배포 페이지를 보여 주는 스크린샷":::
+
+1. **검토 + 만들기** 단추를 선택합니다.
+
+1. **생성** 단추를 선택합니다. 포털은 템플릿의 유효성을 검사 하 고 복제 된 허브를 배포 합니다. 라우팅 구성 데이터가 있는 경우 해당 데이터는 새 허브에 포함되지만 이전 위치의 리소스를 가리킵니다.
+
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="최종 사용자 지정 배포 페이지를 보여 주는 스크린샷":::
 
 ## <a name="managing-the-devices-registered-to-the-iot-hub"></a>IoT 허브에 등록된 디바이스 관리
 

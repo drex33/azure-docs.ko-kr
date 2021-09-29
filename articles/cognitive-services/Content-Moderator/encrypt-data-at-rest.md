@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 1401108a594e30790e842ec379724603f11d493f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7beb615307b602789b845e10cee28ca402acf9e9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524479"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217185"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>미사용 데이터의 Content Moderator 암호화
 
@@ -25,7 +25,7 @@ Content Moderator는 데이터가 클라우드에 유지될 때 자동으로 암
 > [!IMPORTANT]
 > 고객 관리형 키는 E0 가격 책정 계층에서만 사용할 수 있습니다. 고객 관리형 키를 사용하는 기능을 요청하려면 [Content Moderator 고객 관리형 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성하여 제출합니다. 요청 상태에 대한 답변을 받는 데는 영업일 기준 약 3~5일이 소요됩니다. 요청에 따라 공간이 확보되면 큐에 배치되고 승인될 수 있습니다. Content Moderator 서비스에서 CMK 사용이 승인되면 새 Content Moderator 리소스를 만들고 E0을 가격 책정 계층으로 선택해야 합니다. E0 가격 계층을 사용하여 Content Moderator 리소스가 만들어지면 Azure Key Vault를 사용하여 관리 ID를 설정할 수 있습니다.
 
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
+모든 Azure 지역에서 고객 관리 키를 사용할 수 있습니다.
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

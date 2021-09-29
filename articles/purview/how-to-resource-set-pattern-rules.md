@@ -4,15 +4,15 @@ description: 리소스 집합 패턴 규칙을 만들어 자산이 리소스 집
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.openlocfilehash: 8e1ec11d3c3a22d192939dc08807abe606599d57
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.date: 09/27/2021
+ms.openlocfilehash: c2d6f90bf9a3e3b3f7c03db1ab0a4fbf258703eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708031"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218872"
 ---
 # <a name="create-resource-set-pattern-rules"></a>리소스 집합 패턴 규칙 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "128708031"
 
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="새 구성 규칙을 만듭니다." border="true":::
 
-1. **추가** 를 클릭하여 규칙을 저장합니다.
+1. **추가를** 선택하여 규칙을 저장합니다.
 
 > [!NOTE]
 > 패턴 규칙을 만든 후에는 모든 새 검사가 수집 중에 규칙을 적용합니다. 데이터 카탈로그의 기존 자산은 몇 시간이 걸릴 수 있는 백그라운드 프로세스를 통해 업데이트됩니다. 

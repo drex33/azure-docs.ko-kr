@@ -3,17 +3,17 @@ title: Azure Portal을 사용한 Azure 가상 머신의 유지 관리 제어에 
 description: 유지 관리 제어로 Azure VM에 유지 관리가 적용되는 시점을 제어하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 01152d1e422088503621e684f8908182c5caa3a4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 741a7a73fc7ac4ac468febfd9beec77c3a8c9946
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691679"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216532"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>유지 관리 제어를 통한 플랫폼 업데이트 관리 
 
@@ -32,7 +32,7 @@ ms.locfileid: "122691679"
 ## <a name="limitations"></a>제한 사항
 
 - VM은 [전용 호스트](./dedicated-hosts.md)에 있거나 [격리된 VM 크기](isolation.md)를 사용하여 만들어져야 합니다.
-- 유지 관리 기간은 2시간 이상이어야 합니다. 유지 관리 기간은 고객이 업데이트를 시작한 후 완료될 때까지의 시간입니다. 
+- 유지 관리 기간은 월별로 달라질 수 있으며, 사용자가 시작한 후 보류 중인 업데이트를 적용하는 데 최대 2시간이 걸릴 수 있습니다.  
 - 35일 후에는 업데이트가 자동으로 적용됩니다.
 - 사용자에게 **리소스 참가자** 액세스 권한이 있어야 합니다.
 

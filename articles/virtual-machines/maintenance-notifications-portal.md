@@ -3,17 +3,17 @@ title: 유지 관리 알림에 포털 사용
 description: 포털을 사용하여 Azure에서 실행 중인 가상 머신에 대한 유지 관리 알림을 확인하고 셀프 서비스 유지 관리를 시작합니다.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/08/2021
 ms.author: shants
-ms.openlocfilehash: f0d07f37d01c2634df17d1f53aad4fd180e60ba4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a027014500fa9e4a6ca1f68e2da5fb62df37e5ec
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818331"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216050"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>포털을 사용하여 계획된 유지 관리 알림 처리
 

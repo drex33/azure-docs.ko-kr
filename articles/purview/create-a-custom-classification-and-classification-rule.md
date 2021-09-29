@@ -1,18 +1,18 @@
 ---
-title: 사용자 지정 분류 및 분류 규칙 만들기(미리 보기)
+title: 사용자 지정 분류 및 분류 규칙 만들기
 description: Azure Purview에서 조직에 고유한 데이터 자산의 데이터 형식을 정의하는 사용자 지정 분류를 만드는 방법을 알아봅니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 3/24/2021
-ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 12af9165b8393291b67fd0cbe4cb2ced6ae77a17
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536782"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212191"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Azure Purview의 사용자 지정 분류
 
@@ -33,9 +33,9 @@ Azure Purview Data Catalog는 데이터 자산에 있을 수 있는 일반적인
 
 사용자 지정 분류를 만들려면 다음 단계를 수행합니다.
 
-1. 카탈로그의 왼쪽 메뉴에서 **관리 센터** 를 선택합니다.
+1. 카탈로그의 왼쪽 메뉴에서 **데이터 맵** 을 선택 합니다.
 
-2. **메타데이터 관리** 에서 **분류** 를 선택합니다.
+2. **주석 관리** 에서 **분류** 를 선택 합니다.
 
 3. **+ 새로 만들기** 를 선택합니다.
 
@@ -85,19 +85,19 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 ID의 인스턴
 
 1. 이전 섹션의 지침에 따라 사용자 지정 분류를 만듭니다. 이 사용자 지정 분류를 분류 규칙 구성에 추가하여 시스템이 열에서 일치하는 항목을 찾을 때 적용하도록 합니다.
 
-2. **관리 센터** 아이콘을 선택합니다.
+2. **데이터 맵** 아이콘을 선택 합니다.
 
 3. **분류 규칙** 섹션을 선택합니다.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="분류 규칙 타일" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification-rules.png" alt-text="분류 규칙 타일" border="true":::
 
 4. **새로 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="새 분류 규칙 추가" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification-rule.png" alt-text="새 분류 규칙 추가" border="true":::
 
 5. **새 분류 규칙** 대화 상자가 열립니다. 필드를 입력하고 **정규식 규칙** 또는 **사전 규칙** 을 만들지 여부를 결정합니다.
 
-   |필드     |설명  |
+   |필드     |Description  |
    |---------|---------|
    |속성   |    필수 사항입니다. 최대 100자입니다.    |
    |Description      |선택 사항입니다. 최대 256자입니다.    |

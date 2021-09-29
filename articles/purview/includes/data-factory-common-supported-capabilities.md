@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 09/15/2021
-ms.openlocfilehash: cb10d36bd426655db6a059dad3bda70cf21cf123
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/27/2021
+ms.openlocfilehash: 8c4baccdbfb0f6162e666d6901e0080202a3b7e9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909584"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212348"
 ---
 ### <a name="copy-activity-support"></a>복사 작업 지원
 
@@ -33,18 +33,22 @@ ms.locfileid: "128909584"
 | Azure Table Storage | 예 |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
+| 오라클 \* | Yes |
 | SAP 테이블‘(SAP ECC 또는 SAP S/4HANA에 연결하는 경우)’ | Yes |
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
 *\* Azure Purview는 현재 계보 또는 스캔에 대한 쿼리 또는 저장 프로시저를 지원하지 않습니다. 계보는 테이블 및 뷰 원본으로만 제한됩니다.*
 
-#### <a name="known-limitations-on-copy-activity-lineage"></a>복사 작업 계보에 대해 알려진 제한 사항
+자체 호스팅 Integration Runtime 사용하는 경우 계보가 지원되는 최소 버전은 다음과 같습니다.
+- Oracle에서 데이터 복사: 버전 5.10 이상
+- COPY 명령 또는 PolyBase를 통해 Azure Synapse Analytics 데이터 복사: 버전 5.10 이상
+
+#### <a name="limitations-on-copy-activity-lineage"></a>복사 작업 계보에 대한 제한 사항
 
 현재 다음과 같은 복사 작업 기능을 사용하는 경우 해당 계보는 아직 지원되지 않습니다.
 
 - 이진 형식을 사용하여 Azure Data Lake Storage Gen1에 데이터를 복사합니다.
-- PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 데이터를 복사합니다.
 - 이진 파일, 구분 기호로 분리된 텍스트, Excel, JSON 및 XML 파일에 대한 압축 설정입니다.
 - Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server 및 SAP 테이블의 원본 파티션 옵션입니다.
 - 파일당 최대 행 수 설정을 사용하여 파일 기반 싱크로 데이터를 복사합니다.
@@ -69,3 +73,7 @@ ms.locfileid: "128909584"
 | Azure Synapse Analytics \* | Yes |
 
 *\* Azure Purview는 현재 계보 또는 스캔에 대한 쿼리 또는 저장 프로시저를 지원하지 않습니다. 계보는 테이블 및 뷰 원본으로만 제한됩니다.*
+
+#### <a name="limitations-on-data-flow-lineage"></a>데이터 흐름 계보에 대한 제한 사항
+
+현재 데이터 흐름 계보는 Purview [리소스 집합](../concept-resource-sets.md)과 통합되지 않습니다.

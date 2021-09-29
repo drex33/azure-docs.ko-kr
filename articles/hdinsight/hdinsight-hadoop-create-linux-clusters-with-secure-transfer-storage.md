@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: deb10f2b3e4e2b5e7d911992a601f66e1e557268
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774992"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211654"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정을 사용하는 Apache Hadoop 클러스터
 
@@ -38,6 +38,21 @@ PowerShell로 기존 스토리지 계정을 업데이트하려면 [PowerShell에
 Azure CLI 명령 [az storage account create](/cli/azure/storage/account#az_storage_account_create)의 경우 매개 변수 `--https-only`가 `true`로 설정되어 있는지 확인합니다.
 
 Azure CLI로 기존 스토리지 계정을 업데이트하려면 [에서 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)를 참조하세요.
+
+### <a name="secure-transfer-errors"></a>보안 전송 오류
+
+
+HDInsight 클러스터를 만든 후 실수로 '보안 전송 필요' 옵션을 사용하도록 설정한 경우 다음과 같은 오류 메시지가 표시될 수 있습니다.
+
+`com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
+
+Hbase 클러스터의 경우에만 다음 단계를 시도하여 클러스터 기능을 복원할 수 있습니다.
+1. Ambari에서 HBase를 중지합니다.
+2. Ambari에서 HDFS를 중지합니다.
+3. Ambari에서 HDFS --> Configs --> Advanced --> fs.defaultFS로 이동합니다.
+4. wasb를 wasbs로 변경하고 저장합니다.
+5. 가속 쓰기 기능을 사용하는 경우 hbase 구성 아래의 'hbase.rootDir'도 wasb에서 wasbs로 변경해야 합니다.
+6. 필요한 모든 서비스를 다시 시작합니다.
 
 ## <a name="add-additional-storage-accounts"></a>추가 스토리지 계정 추가
 

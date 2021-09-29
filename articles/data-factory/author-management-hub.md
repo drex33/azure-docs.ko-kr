@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: minhe-msft
 ms.author: hemin
 ms.date: 04/27/2021
-ms.openlocfilehash: 68935be6983a6503016deadc7cddd5b8ae9bb588
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4c9b56a206a4ae515fdf8eae66dabf8dfafa1fcb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793116"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218133"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Azure Data Factory의 관리 허브
 
@@ -48,7 +48,7 @@ Azure Data Factory UX의 *관리* 탭에서 액세스하는 관리 허브는 데
 
 ### <a name="parameterization-template"></a>매개 변수화 템플릿
 
-협업 분기에서 게시할 때 생성된 Resource Manager 템플릿 매개 변수를 재정의하기 위해 사용자 지정 매개 변수 파일을 생성하거나 편집할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿에서 사용자 지정 매개 변수를 사용](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)하는 방법을 알아보세요. 매개 변수화 템플릿은 git 리포지토리에서 작업하는 경우에만 사용할 수 있습니다. *arm-template-parameters-definition.json* 파일이 작업 분기에 없는 경우 기본 템플릿을 편집하면 해당 파일이 생성됩니다.
+협업 분기에서 게시할 때 생성된 Resource Manager 템플릿 매개 변수를 재정의하기 위해 사용자 지정 매개 변수 파일을 생성하거나 편집할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿에서 사용자 지정 매개 변수를 사용](continuous-integration-delivery-resource-manager-custom-parameters.md)하는 방법을 알아보세요. 매개 변수화 템플릿은 git 리포지토리에서 작업하는 경우에만 사용할 수 있습니다. *arm-template-parameters-definition.json* 파일이 작업 분기에 없는 경우 기본 템플릿을 편집하면 해당 파일이 생성됩니다.
 
 :::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="사용자 지정 매개 변수 관리":::
 

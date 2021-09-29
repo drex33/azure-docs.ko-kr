@@ -1,18 +1,18 @@
 ---
-title: Azure 파일을 검색하는 방법
-description: 이 방법 가이드에서는 Azure 파일을 검사하는 방법에 대해 자세히 설명합니다.
+title: Azure 파일을 등록하고 검사하는 방법
+description: 이 방법 가이드에서는 Azure Purview에서 Azure 파일을 검사하는 방법에 대한 세부 정보를 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 06/22/2021
-ms.openlocfilehash: dbb29fea5253bbd00e66f0ed3d123ddc38533b8e
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256441"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209911"
 ---
 # <a name="register-and-scan-azure-files"></a>Azure Files 등록 및 검사
 
@@ -77,7 +77,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 새 검사를 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [Purview Studio의](https://web.purview.azure.com/resource/)왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 Azure Files 원본을 선택합니다.
 

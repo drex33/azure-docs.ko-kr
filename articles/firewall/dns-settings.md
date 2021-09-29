@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 09/28/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4543af78b173632e3374567e9a199f182679e8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: e3c1da0e21f13357c5c537da2530e012101423dd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701720"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215703"
 ---
 # <a name="azure-firewall-dns-settings"></a>Azure Firewall DNS 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "110701720"
 
 ## <a name="dns-servers"></a>DNS 서버
 
-DNS 서버는 도메인 이름을 IP 주소로 유지 관리하고 확인합니다. 기본 설정으로 Azure Firewall에서 이름 확인에 Azure DNS를 사용합니다. **DNS 서버** 설정을 사용하여 Azure Firewall 이름 확인을 위해 자체 DNS 서버를 구성할 수 있습니다. 단일 서버 또는 여러 서버를 구성할 수 있습니다.
+DNS 서버는 도메인 이름을 IP 주소로 유지 관리하고 확인합니다. 기본 설정으로 Azure Firewall에서 이름 확인에 Azure DNS를 사용합니다. **DNS 서버** 설정을 사용하여 Azure Firewall 이름 확인을 위해 자체 DNS 서버를 구성할 수 있습니다. 단일 서버 또는 여러 서버를 구성할 수 있습니다. 여러 DNS 서버를 구성 하는 경우 사용 되는 서버는 임의로 선택 됩니다.
 
 > [!NOTE]
 > Azure Firewall Manager를 사용하여 관리되는 Azure Firewall 인스턴스의 경우 연결된 Azure Firewall 정책에서 DNS 설정이 구성됩니다.
@@ -80,6 +80,8 @@ Azure Firewall이 DNS 프록시인 경우 두 가지 캐싱 함수 형식이 가
 - **부정 캐시**: DNS 확인 시 응답이 없거나 확인되지 않습니다. 방화벽은 1시간 동안 이 정보를 캐시합니다.
 
 DNS 프록시는 네트워크 규칙의 FQDN에서 모든 확인된 IP 주소를 저장합니다. IP 주소 하나를 확인하는 FQDN을 사용하는 것이 가장 좋습니다.
+
+연결에 실패 한 경우 DNS 프록시는 Azure DNS을 포함 하 여 다른 DNS 서버에 대 한 다시 시도 또는 장애 조치 (failover)를 수행 하지 않습니다.
 
 ### <a name="policy-inheritance"></a>정책 상속
 

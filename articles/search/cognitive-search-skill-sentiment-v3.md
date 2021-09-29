@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 4baadea0d78db64d97d1ae94317d7d506a141f41
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: d42eb099091840ed5dbab61abbad47e087504ab3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537315"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214525"
 ---
 # <a name="sentiment-cognitive-skill-v3"></a>감성 인식 기술(V3)
 
@@ -60,6 +60,7 @@ Microsoft.Skills.Text.V3.SentimentSkill
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
+    "context": "/document",
     "includeOpinionMining": true,
     "inputs": [
         {

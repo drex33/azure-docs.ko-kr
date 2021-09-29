@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38c5a15cbb21ae464ac4adbac9bf900ac14d7a1d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 000f3ae98d9fad68d22ca937160c25d44e2c1ce8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806441"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208156"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -42,7 +42,7 @@ Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manag
 - 서브넷에서 NSG(네트워크 보안 그룹)를 사용하는 경우.
 - Azure ExpressRoute 또는 UDR(사용자 정의 경로)을 사용하는 경우.
 - 사용자 지정 Azure-SSIS IR을 사용하는 경우.
-- Azure Powershell 프로비전을 사용하는 경우.
+- Azure PowerShell 프로비저닝을 사용하는 경우
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 
@@ -193,7 +193,7 @@ Azure Batch 관리 서비스와 Azure-SSIS IR 간의 인바운드 트래픽은 �
 > [!NOTE]
 > 이 방법은 추가 유지 관리 비용이 발생합니다. 정기적으로 IP 범위를 확인하고 UDR에 새 IP 범위를 추가하여 Azure-SSIS IR 중단을 방지합니다. 서비스 IP에 표시되는 새 IP는 다음 달에 적용되기 때문에 매월 IP 범위를 확인하는 것이 좋습니다. 
 
-UDR 규칙을 보다 쉽게 설정하기 위해 다음 Powershell 스크립트를 실행하여 Azure Batch 관리 서비스의 UDR 규칙을 추가할 수 있습니다.
+UDR 규칙을 보다 쉽게 설정 하려면 다음 PowerShell 스크립트를 실행 하 여 Azure Batch management services에 대 한 UDR 규칙을 추가할 수 있습니다.
 ```powershell
 $Location = "[location of your Azure-SSIS IR]"
 $RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
@@ -260,7 +260,7 @@ else
 
 -   대상이 Azure SQL Database인 포트 1433, 11000~11999(가상 네트워크의 Azure-SSIS IR 노드가 서버에서 호스트되는 SSISDB에 액세스하는 경우에만 필요).
 
-    Azure Firewall을 사용하는 경우 Azure SQL 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 그렇지 않으면 방화벽 어플라이언스에서 특정 Azure SQL URL로 대상을 허용할 수 있습니다.
+    Azure Firewall 사용하는 경우 Azure SQL 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 그렇지 않으면 방화벽 어플라이언스에서 특정 Azure SQL URL로 대상을 허용할 수 있습니다.
 
 -   대상이 Azure Storage인 포트 445(Azure Files에 저장된 SSIS 패키지를 실행하는 경우에만 필요).
 
@@ -308,14 +308,14 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 
   공용 IP 주소를 노출하지 않으려면 가상 네트워크에 Azure-SSIS IR를 조인하는 대신 [자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것이 좋습니다(시나리오에 적용되는 경우).
  
-- 내 데이터 원본의 방화벽 허용 목록에 내 Azure-SSIS IR의 공용 IP 주소를 추가할 수 있나요?
+- 내 Azure-SSIS IR 공용 IP 주소를 내 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있나요?
 
-  이제 Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져올 수 있습니다. 이 경우 데이터 원본의 방화벽 허용 목록에 IP 주소를 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서의 데이터 액세스를 보호하는 아래와 같은 다른 옵션도 고려할 수 있습니다.
+  이제 Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져올 수 있습니다. 이 경우 데이터 원본에 대한 방화벽의 허용 목록에 IP 주소를 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서의 데이터 액세스를 보호하는 아래와 같은 다른 옵션도 고려할 수 있습니다.
 
-  - 온-프레미스 네트워크에 가상 네트워크를 연결하고 Azure-SSIS IR을 가상 네트워크 서브넷에 조인한 후 데이터 원본이 온-프레미스에 있는 경우 해당 서브넷의 개인 IP 주소 범위를 데이터 원본의 방화벽 허용 목록에 추가할 수 있습니다.
+  - 데이터 원본이 온-프레미스에 있는 경우 가상 네트워크를 온-프레미스 네트워크에 연결하고 Azure-SSIS IR 가상 네트워크 서브넷에 조인한 후 해당 서브넷의 개인 IP 주소 범위를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
   - 데이터 원본이 가상 네트워크 서비스 엔드포인트를 지원하는 Azure 서비스인 경우 가상 네트워크 서브넷에서 가상 네트워크 서비스 엔드포인트를 구성하고 해당 서브넷에 Azure-SSIS IR을 조인할 수 있습니다. 그런 다음 해당 서브넷을 사용하여 가상 네트워크 규칙을 데이터 원본의 방화벽에 추가할 수 있습니다.
-  - 데이터 원본이 Azure 클라우드 서비스가 아닌 경우 UDR을 사용하여 고정 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure Firewall로 아웃바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 NVA/Azure Firewall의 고정 공용 IP 주소를 데이터 원본의 방화벽 허용 목록에 추가할 수 있습니다.
-  - 위의 옵션 중 요구 사항을 충족하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것을 고려해 보세요. 그러면 자체 호스팅 IR을 호스트하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본의 방화벽 허용 목록에 추가할 수 있습니다.
+  - 데이터 원본이 Azure 클라우드 서비스가 아닌 경우 UDR을 사용하여 고정 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure Firewall로 아웃바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 데이터 원본에 대 한 방화벽의 allowlist에 NVA/Azure 방화벽의 고정 공용 IP 주소를 추가할 수 있습니다.
+  - 위의 옵션 중 요구 사항을 충족하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것을 고려해 보세요. 그런 다음 자체 호스팅 IR을 호스트 하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 allowlist 추가할 수 있습니다.
 
 - Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져오려면 두 개의 고정 공용 주소를 제공해야 하는 이유는 무엇인가요?
 
@@ -323,8 +323,8 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 
 - Azure-SSIS IR의 고정 공용 IP 주소를 가져왔지만 여전히 내 데이터 원본에 액세스할 수 없는 이유는 무엇인가요?
 
-  - 데이터 원본의 방화벽 허용 목록에 두 개의 고정 공용 IP 주소가 모두 추가되어 있는지 확인합니다. Azure-SSIS IR이 업그레이드될 때마다 해당 고정 공용 IP 주소는 사용자가 가져온 두 주소 간에 전환됩니다. 둘 중 하나만 허용 목록에 추가하면 업그레이드 후 Azure-SSIS IR의 데이터 액세스가 중단됩니다.
-  - 데이터 원본이 Azure 서비스인 경우 가상 네트워크 서비스 엔드포인트를 사용하여 구성했는지 확인하세요. 그 경우 Azure-SSIS IR에서 데이터 원본으로 가는 트래픽이 Azure 서비스가 관리하는 개인 IP 주소를 사용하도록 전환되고, 자체 고정 공용 IP 주소를 데이터 원본의 방화벽 허용 목록에 추가해도 효과가 없습니다.
+  - 두 개의 고정 공용 IP 주소가 데이터 원본에 대 한 방화벽의 allowlist에 추가 되었는지 확인 합니다. Azure-SSIS IR이 업그레이드될 때마다 해당 고정 공용 IP 주소는 사용자가 가져온 두 주소 간에 전환됩니다. Allowlist에이 중 하나만 추가 하면 업그레이드 후 Azure-SSIS IR에 대 한 데이터 액세스가 중단 됩니다.
+  - 데이터 원본이 Azure 서비스인 경우 가상 네트워크 서비스 엔드포인트를 사용하여 구성했는지 확인하세요. 해당 하는 경우 데이터 원본에 대 한 Azure-SSIS IR 트래픽을 Azure 서비스에서 관리 하는 개인 IP 주소를 사용 하도록 전환 하 고 사용자 고유의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 allowlist에 추가 하면 적용 되지 않습니다.
 
 ## <a name="azure-portal-data-factory-ui"></a>Azure Portal(데이터 팩터리 UI)
 
@@ -518,7 +518,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
 ### <a name="create-an-azure-ssis-ir-and-join-it-to-a-virtual-network"></a>Azure-SSIS IR을 만들어 가상 네트워크에 조인
 
-Azure-SSIS IR을 만드는 동시에 가상 네트워크에 조인할 수 있습니다. 전체 스크립트 및 지침은 [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime)를 참조하세요.
+Azure-SSIS IR을 만드는 동시에 가상 네트워크에 조인할 수 있습니다. 전체 스크립트 및 지침은 [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime-powershell.md)를 참조하세요.
 
 ### <a name="join-an-existing-azure-ssis-ir-to-a-virtual-network"></a>기존 Azure-SSIS IR을 가상 네트워크에 조인
 

@@ -2,13 +2,13 @@
 title: Apache Kafka용 Akka Streams 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hub에 Akka Streams를 연결하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 500a287fcf481a8ef81ce1bb22df503e8757201d
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.date: 09/23/2021
+ms.openlocfilehash: 7d322e5296742db37119c99ce390cd587ae8bd84
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113286451"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212383"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 

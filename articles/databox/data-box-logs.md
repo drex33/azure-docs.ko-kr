@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.author: alkohli
-ms.openlocfilehash: d98141c52acc3cd0628943d17a89ec9822299d48
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 842a6572ca7daf3c0039b088f25d538f709a1df7
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738143"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "129220409"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Azure Data Box에 대한 추적 및 이벤트 로깅 및 Azure Data Box Heavy 가져오기 주문
 
@@ -33,38 +33,41 @@ Data Box 또는 Data Box Heavy 가져오기 주문은 주문, 설정, 데이터 
 
 이 문서에서는 Data Box 또는 Data Box Heavy 가져오기 주문을 추적하고 감사하는 데 사용할 수 있는 다양한 메커니즘 또는 도구에 대해 자세히 설명합니다. 이 문서의 정보는 Data Box 및 Data Box Heavy 가져오기 주문에 모두 적용됩니다. 이후 섹션에서는 Data Box에 대한 모든 참조가 Data Box Heavy에도 적용됩니다.
 
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
+
 ## <a name="set-up-access-control-on-the-order"></a>주문에 대한 액세스 제어 설정
 
-주문이 처음 생성될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양한 범위에서 Azure 역할을 설정하여 Data Box 주문에 대한 액세스를 제어합니다. Azure 역할은 작업의 하위 집합에 대한 읽기-쓰기, 읽기 전용, 읽기/쓰기 액세스 권한 유형을 결정합니다.
+주문이 처음 생성될 때 주문에 액세스할 수 있는 사용자를 컨트롤할 수 있습니다. 다양한 범위에서 Azure 역할을 설정하여 Data Box 순서에 대한 액세스를 제어합니다. Azure 역할은 작업의 하위 집합에 대한 읽기-쓰기, 읽기 전용, 읽기-쓰기 액세스 유형을 결정합니다.
 
 Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다음과 같습니다.
 
-- **Data Box 읽기 권한자** - 범위에 정의된 주문에 대한 읽기 전용 액세스 권한이 있습니다. 주문 세부 정보만 볼 수 있습니다. 스토리지 계정과 관련된 다른 세부 정보에 액세스하거나 주소와 같은 주문 세부 정보를 편집할 수 없습니다.
-- **Data Box 기여자** - *스토리지 계정에 대한 쓰기 권한이 이미 있는 경우* 에만 지정된 스토리지 계정으로 데이터를 전송하는 주문을 만들 수 있습니다. 스토리지 계정에 대한 액세스 권한이 없는 경우 계정에 데이터를 복사하는 Data Box 주문조차 만들 수 없습니다. 이 역할은 스토리지 계정 관련 권한을 정의하지 않을 뿐 아니라 스토리지 계정에 대한 액세스 권한을 부여하지도 않습니다.  
+- **Data Box 읽기** - 범위에 따라 정의된 주문에 대한 읽기 전용 액세스 권한이 있습니다. 주문 세부 정보만 볼 수 있습니다. 스토리지 계정과 관련된 다른 세부 정보에 액세스하거나 주소 등과 같은 주문 세부 정보를 편집할 수 없습니다.
+- **Data Box 기여자** - *스토리지 계정에 대한 쓰기 권한이 이미 있는 경우* 지정된 스토리지 계정으로 데이터를 전송하는 주문만 만들 수 있습니다. 스토리지 계정에 액세스할 수 없는 경우 계정에 데이터를 복사하는 Data Box 순서를 만들 수도 없습니다. 이 역할은 스토리지 계정 관련 사용 권한을 정의하지 않으며 스토리지 계정에 대한 액세스 권한을 부여 하지도 않습니다.  
 
-주문에 대한 액세스 권한을 제한하려면 다음을 수행할 수 있습니다.
+주문에 대한 액세스를 제한하려면 다음을 수행할 수 있습니다.
 
-- 주문 수준에서 역할을 할당합니다. 그러면 사용자에게는 특정 Data Box 주문과 상호 작용할 수 있도록 역할에 정의된 권한만 있고 다른 권한은 없습니다.
-- 리소스 그룹 수준에서 역할을 할당합니다. 그러면 사용자는 리소스 그룹 내의 모든 Data Box 주문에 액세스할 수 있습니다.
+- 순서 수준에서 역할을 할당합니다. 사용자에게는 해당 특정 Data Box 순서와 상호작용하기 위해 역할에 따라 정의된 권한만 있고 다른 작업은 없습니다.
+- 리소스 그룹 수준에서 역할을 할당하면 사용자는 리소스 그룹 내의 모든 Data Box 주문에 액세스할 수 있습니다.
 
 권장하는 Azure RBAC 사용에 대한 자세한 내용은 [Azure RBAC에 대한 모범 사례](../role-based-access-control/best-practices.md)를 참조하세요.
 
 ## <a name="track-the-order"></a>주문 추적
 
-Azure Portal 및 배송업체 웹 사이트를 통해 주문을 추적할 수 있습니다. 언제든지 다음 메커니즘을 통해 Data Box 주문을 추적할 수 있습니다.
+Azure Portal 및 이동 통신 사업자 웹 사이트를 통해 주문을 추적할 수 있습니다. 다음 메커니즘은 언제든지 Data Box 순서를 추적하는 데 사용할 수 있습니다.
 
-- 디바이스가 Azure 데이터 센터 또는 온-프레미스에 있을 때 주문을 추적하려면 Azure Portal에서 **Data Box 주문 > 개요** 로 이동합니다.
+- 디바이스가 Azure 데이터 센터 또는 온-프레미스에 있는 경우 순서를 추적하려면 Azure Portal에서 **Data Box 순서 > 개요** 로 이동합니다.
 
-    ![주문 상태 보기 및 번호 추적](media/data-box-logs/overview-view-status-1.png)
+    ![주문 상태 및 추적 번호 보기](media/data-box-logs/overview-view-status-1.png)
 
-- 디바이스가 배송되는 동안 주문을 추적하려면 현지 배송업체 웹 사이트(예: 미국은 UPS 웹 사이트)로 이동합니다. 주문과 연결된 추적 번호를 입력합니다.
-- Data Box는 주문 상태가 변경될 때마다 주문 생성 시 입력한 이메일로 이메일 알림을 보냅니다. 모든 Data Box 주문 상태 목록을 보려면 [주문 상태 보기](data-box-portal-admin.md#view-order-status)를 참조하세요. 주문과 연결된 알림 설정을 변경하려면 [알림 세부 정보 편집](data-box-portal-admin.md#edit-notification-details)을 참조하세요.
+- 디바이스가 전송되는 동안 주문을 추적하려면 지역 이동 통신 사업자 웹사이트(예: 미국의 UPS 웹 사이트)로 이동합니다. 주문과 관련된 추적 번호를 제공 합니다.
+- 또한 Data Box는 주문 생성 시 제공된 이메일에 따라 주문 상태가 변경될 때마다 이메일 알림을 보냅니다. 모든 Data Box 주문 상태 목록은 [주문 상태 보기](data-box-portal-admin.md#view-order-status)를 참조하세요. 주문과 관련된 알림 설정을 변경하려면 [알림 세부 정보 편집](data-box-portal-admin.md#edit-notification-details)을 참조하세요.
 
-## <a name="query-activity-logs-during-setup"></a>설정하는 동안 활동 로그 쿼리
+## <a name="query-activity-logs-during-setup"></a>설정 중 활동 로그 쿼리
 
-- Data Box는 잠긴 상태로 온-프레미스에 도착합니다. Azure Portal에서 제공하는 디바이스 자격 증명을 주문에 사용할 수 있습니다.  
+- Data Box는 잠긴 상태로 온-프레미스에 도착합니다. 주문에 Azure Portal에서 사용 가능한 디바이스 자격 증명을 사용할 수 있습니다.  
 
-    Data Box가 설정되면 디바이스 자격 증명에 액세스한 모든 사람을 알아야 할 수도 있습니다. **디바이스 자격 증명** 블레이드에 액세스한 사람을 파악하려면 활동 로그를 쿼리하면 됩니다.  **디바이스 세부 정보 > 자격 증명** 블레이드에 액세스해야 하는 모든 작업은 활동 로그에 `ListCredentials` 작업으로 기록됩니다.
+    Data Box가 설정되면 디바이스 자격 증명에 액세스한 모든 사람을 알아야 할 수 있습니다. **디바이스 자격 증명** 블레이드에 액세스한 사람을 파악하기 위해 활동 로그를 쿼리할 수 있습니다.  **디바이스 세부 정보 > 자격 증명** 블레이드 액세스와 관련된 모든 작업은 `ListCredentials` 활동 로그에 작업으로 기록됩니다.
 
     ![활동 로그 쿼리](media/data-box-logs/query-activity-log-1.png)
 
@@ -79,7 +82,7 @@ Data Box 또는 Data Box Heavy에 데이터를 복사하는 동안 복사되는 
 오류 없이 복사 작업이 완료되었는지 확인합니다. 복사하는 동안 오류가 있는 경우 **연결 및 복사** 페이지에서 로그를 다운로드합니다.
 
 - 512바이트로 정렬되지 않은 파일을 Data Box의 관리 디스크 폴더에 복사한 경우 해당 파일은 준비 스토리지 계정에 페이지 Blob으로 업로드되지 않습니다. 로그에 오류가 표시됩니다. 파일을 제거하고, 512바이트로 정렬된 파일을 복사합니다.
-- VHDX, 동적 VHD 또는 차이점 보관용 VHD 파일을 복사한 경우(이러한 파일 형식은 지원되지 않음) 로그에 오류가 표시됩니다.
+- VHDX 또는 동적 VHD 또는 차이점 보관용 VHD를 복사한 경우 로그에 오류가 표시 됩니다. 이러한 파일 형식은 지원 되지 않습니다.
 
 다음은 관리 디스크에 복사할 때 발생하는 여러 가지 오류에 대한 *error.xml* 파일 샘플입니다.
 
@@ -210,6 +213,9 @@ Azure에 업로드하는 동안 CRC(순환 중복 검사) 계산이 수행됩니
 복사 로그 경로는 포털의 **개요** 블레이드에도 표시됩니다.
 
 ![완료되면 표시되는 개요 블레이드의 복사 로그 경로](media/data-box-logs/copy-log-path-1.png)
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ### <a name="upload-completed-successfully"></a>성공적으로 업로드 완료
 
@@ -358,12 +364,12 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-주문 기록은 Azure Portal에서 사용할 수 있습니다. 주문이 완료되고 디바이스 정리(디스크에서 데이터 삭제)가 완료되면 디바이스 주문으로 이동하여 **주문 세부 정보** 로 이동합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [주문 기록 다운로드](data-box-portal-admin.md#download-order-history)를 참조하세요.
+주문 기록은 Azure Portal에서 사용할 수 있습니다. 주문이 완료되고 디바이스 정리(디스크에서 데이터 지우기)가 완료되면, 디바이스 주문으로 이동하여 **주문 세부 정보** 로 이동합니다. **주문 기록 다운로드** 옵션을 사용할 수 있습니다. 자세한 정보는 [다운로드 주문 기록](data-box-portal-admin.md#download-order-history)을 참조하세요.
 
-주문 기록을 스크롤하면 다음과 같은 내용이 표시됩니다.
+주문 기록을 스크롤하면 다음을 확인할 수 있습니다.
 
-- 디바이스 배송업체 추적 정보
-- *SecureErase* 활동이 포함된 이벤트. 이러한 이벤트는 디스크의 데이터 삭제에 해당합니다.
+- 디바이스에 대한 이동 통신 사업자 추적 정보.
+- *SecureErase* 작업을 사용하는 이벤트. 이러한 이벤트는 디스크의 데이터 지우기에 해당합니다.
 - Data Box 로그 링크 *감사 로그*, *복사 로그* 및 *BOM* 파일의 경로가 표시됩니다.
 
 다음은 Azure Portal의 주문 기록 로그 샘플입니다.

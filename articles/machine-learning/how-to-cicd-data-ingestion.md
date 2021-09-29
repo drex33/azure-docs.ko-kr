@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aa94ea7bef56ecc2e01b792a0f5e8b417804fa
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: fc843d45bbdbcc8ac7de7135eb3534cc606409bd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890189"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212516"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>데이터 수집 파이프라인에 대한 DevOps
 
@@ -122,7 +122,7 @@ Azure Data Factory 파이프라인의 CI 프로세스는 데이터 수집 파이
 1. 권한이 부여된 사용자가 ***게시*** 단추를 클릭하여 소스 코드의 Azure Resource Manager 템플릿을 협업 분기에 생성합니다. 
 1. 작업 영역에서 파이프라인의 유효성을 검사(린팅 및 단위 테스트)하고, Azure Resource Manager 템플릿을 생성(빌드)하고, 생성된 템플릿을 동일한 코드 리포지토리의 기술 분기 ***adf_publish*** 에 저장(아티팩트 게시)합니다. 이 분기는 Azure Data Factory 작업 영역에서 자동으로 생성합니다. 
 
-이 프로세스에 대한 자세한 내용은 [Azure Data Factory의 연속 통합 및 지속적인 업데이트](../data-factory/continuous-integration-deployment.md)를 참조하세요.
+이 프로세스에 대한 자세한 내용은 [Azure Data Factory의 연속 통합 및 지속적인 업데이트](../data-factory/continuous-integration-delivery.md)를 참조하세요.
 
 생성된 Azure Resource Manager 템플릿이 환경의 제약을 받지 않아야 합니다. 즉, 환경에 따라 달라질 수 있는 모든 값이 매개 변수화됩니다. Azure Data Factory는 이러한 값을 대부분 매개 변수로 노출합니다. 예를 들어 다음 템플릿에서는 Azure Machine Learning 작업 영역에 대한 연결 속성이 매개 변수로 노출됩니다.
 
@@ -174,7 +174,7 @@ labels = np.array(data['target'])
 
 ![PrepareData라는 Notebook과 ML Execute Pipeline이라는 ML Execute Pipeline을 보여주는 스크린샷. 맨 위에서 설정 탭을 선택했습니다.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-Azure Data Factory 작업 영역은 기본적으로 파이프라인 변수를 Azure Resource Manager 템플릿 매개 변수로 노출하지 ***않습니다***. 작업 영역에서는 [기본 매개 변수화 템플릿](../data-factory/continuous-integration-deployment.md#default-parameterization-template)을 사용하여 Azure Resource Manager 템플릿 매개 변수로 노출해야 하는 파이프라인 속성을 지시합니다. 목록에 파이프라인 변수를 추가하려면 [기본 매개 변수화 템플릿](../data-factory/continuous-integration-deployment.md#default-parameterization-template)의 `"Microsoft.DataFactory/factories/pipelines"` 섹션을 다음 코드 조각으로 업데이트하고 그 결과로 얻은 json 파일을 원본 폴더의 루트에 배치합니다.
+Azure Data Factory 작업 영역은 기본적으로 파이프라인 변수를 Azure Resource Manager 템플릿 매개 변수로 노출하지 ***않습니다***. 작업 영역에서는 [기본 매개 변수화 템플릿](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md)을 사용하여 Azure Resource Manager 템플릿 매개 변수로 노출해야 하는 파이프라인 속성을 지시합니다. 목록에 파이프라인 변수를 추가하려면 [기본 매개 변수화 템플릿](../data-factory/continuous-integration-delivery-resource-manager-custom-parameters.md)의 `"Microsoft.DataFactory/factories/pipelines"` 섹션을 다음 코드 조각으로 업데이트하고 그 결과로 얻은 json 파일을 원본 폴더의 루트에 배치합니다.
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -481,5 +481,5 @@ stages:
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Data Factory의 소스 제어](../data-factory/source-control.md)
-* [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](../data-factory/continuous-integration-deployment.md)
+* [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](../data-factory/continuous-integration-delivery.md)
 * [Azure Databricks의 DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

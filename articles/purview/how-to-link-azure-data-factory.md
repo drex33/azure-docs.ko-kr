@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: 40b1652bec99844675e030cfd12ef8ff28a0f01f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 6778394fa152f22002ef48681942edde4b4ed460
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435459"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219119"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory와 Azure Purview를 연결하는 방법
 
@@ -44,9 +44,9 @@ ms.locfileid: "123435459"
 >[!Note]
 >Data Factory 연결을 추가하거나 제거하려면 다음 역할에 할당되어야 합니다. 관리 그룹에서의 역할 상속은 지원되지 않습니다.
 >- **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우: 루트 컬렉션의 **Collection admins** 역할
->- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우: **Owner** 또는 **User Access Administrator** 역할 
+>- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우: **Owner** 또는 **User Access Administrator** 역할
 >
-> 뿐만 아니라 사용자가 데이터 팩터리의 “Owner” 또는 “Contributor”여야 합니다. 
+> 뿐만 아니라 사용자가 데이터 팩터리의 “Owner” 또는 “Contributor”여야 합니다.
 
 Purview 계정에 기존 데이터 팩터리를 연결하려면 아래 단계를 수행합니다. [ADF에서 Data Factory를 Purview 계정에 연결](../data-factory/connect-data-factory-to-azure-purview.md)할 수도 있습니다.
 
@@ -62,14 +62,14 @@ Purview 계정에 기존 데이터 팩터리를 연결하려면 아래 단계를
 
     선택한 데이터 팩터리가 Purview 범위 계정에 이미 연결되어 있으면 경고 메시지가 표시됩니다. 확인을 선택하여 다른 부서의 범위 계정에 대한 Data Factory 연결을 끊습니다. 추가 확인은 필요하지 않습니다.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Azure Data Factory 연결을 끊을 경고를 보여주는 스크린샷." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Azure Data Factory 연결을 끊을 경고를 보여주는 스크린샷.":::
 
 >[!Note]
 >이제 10개 이하의 데이터 팩터리를 한 번에 추가할 수 있습니다. 10개 이상의 데이터 팩터리를 한 번에 추가하려면 지원 티켓을 제출하세요.
 
 ### <a name="how-authentication-works"></a>인증 작동 방법
 
-데이터 팩터리의 관리 ID는 데이터 팩터리에서 Purview로의 계보 푸시 작업을 인증하는 데 사용됩니다. UI에서 데이터 팩터리를 Purview에 연결하면 역할 할당이 자동으로 추가됩니다. 
+데이터 팩터리의 관리 ID는 데이터 팩터리에서 Purview로의 계보 푸시 작업을 인증하는 데 사용됩니다. UI에서 데이터 팩터리를 Purview에 연결하면 역할 할당이 자동으로 추가됩니다.
 
 - **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우 Purview **루트 컬렉션** 에 대한 데이터 팩터리의 관리 ID **Data Curator** 역할을 부여합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
@@ -133,7 +133,7 @@ Azure Purview에서 지원하는 몇 가지 계보 패턴이 있습니다. 생�
 - 1 싱크/출력: *Customer1.csv* (Azure Blob)
 - 1 프로세스: *CopyCustomerInfo1 \#Customer1.csv* (Data Factory 복사 작업)
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="일대일 Data Factory 복사 작업의 계보를 보여주는 스크린샷." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage.png":::
+:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="일대일 Data Factory 복사 작업의 계보를 보여주는 스크린샷.":::
 
 ### <a name="data-movement-with-11-lineage-and-wildcard-support"></a>1:1 계보 및 와일드카드를 지원하는 데이터 이동
 

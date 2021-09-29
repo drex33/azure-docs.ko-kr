@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
-ms.openlocfilehash: 8bd100826564ac865a17bf869ad54ce3f9ceef5d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: 8004ef319efc08610f9c1a5de16b7c430d51d666
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529264"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209182"
 ---
 # <a name="view-edit-and-delete-assets-in-purview-catalog"></a>Purview 카탈로그에서 자산 보기, 편집 및 삭제
 
@@ -71,7 +71,7 @@ ms.locfileid: "122529264"
 
 ## <a name="editing-assets"></a>자산 편집
 
-자산의 왼쪽 상단 모서리에 있는 편집 아이콘을 클릭하여 자산을 편집할 수 있습니다.
+자산의 왼쪽 위 모퉁이에 있는 편집 아이콘을 선택 하 여 자산을 편집할 수 있습니다.
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="자산 편집 및 삭제 단추":::
 
@@ -89,7 +89,7 @@ ms.locfileid: "122529264"
 
 ## <a name="deleting-assets"></a>자산 삭제
 
-자산 이름 아래에 있는 삭제 아이콘을 클릭하여 자산을 삭제할 수 있습니다.
+자산 이름 아래에서 삭제 아이콘을 선택 하 여 자산을 삭제할 수 있습니다.
 
 ### <a name="delete-behavior-explained"></a>삭제 동작 설명
 

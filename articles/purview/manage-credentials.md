@@ -4,15 +4,15 @@ description: Azure Purview에서 자격 증명을 만들고 관리하는 단계�
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
-ms.translationtype: HT
+ms.openlocfilehash: f3367883b35e35a4dd726b92af48a92f863cfa5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487654"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207852"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure Purview에서 원본 인증을 위한 자격 증명
 
@@ -52,7 +52,7 @@ Purview 관리 ID를 사용하여 검색을 설정하는 경우, 명시적으로
 
 자격 증명을 만들려면 먼저 하나 이상의 기존 Azure Key Vault 인스턴스를 Azure Purview 계정에 연결하세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Purview 계정을 선택하고 Azure Purview Studio를 엽니다. Azure Purview Studio에서 **관리 센터** 로 이동한 후 **자격 증명** 으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)Azure Purview 계정을 선택하고 [Purview Studio](https://web.purview.azure.com/resource/)를 엽니다. 스튜디오의 **관리 센터로** 이동한 다음 **자격 증명으로** 이동합니다.
 
 2. **자격 증명 페이지** 에서 **Key Vault 연결 관리하기** 를 선택합니다.
 

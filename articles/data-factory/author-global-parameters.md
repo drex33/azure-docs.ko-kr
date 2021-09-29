@@ -8,12 +8,12 @@ author: minhe-msft
 ms.author: hemin
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a10184ab7bbd4093d2358c88576990ddda8bd94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f57b33f94bff98714969639e935ae5010a5762cd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788024"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218152"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -48,7 +48,7 @@ ms.locfileid: "124788024"
 * ARM 템플릿에 전역 매개 변수 포함
 * PowerShell 스크립트를 통해 전역 매개 변수 배포
 
-일반적인 사용 사례의 경우 ARM 템플릿에 전역 매개 변수를 포함하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-deployment.md)에 설명된 솔루션과 기본적으로 통합됩니다. 자동 게시 및 Purview 연결의 경우 **PowerShell 스크립트** 메서드가 필요합니다. 나중에 PowerShell 스크립트 메서드에 대해 자세히 알아볼 수 있습니다. 전역 매개 변수는 환경에 따라 자주 변경되므로 기본적으로 ARM 템플릿 매개 변수로 추가됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함하도록 설정할 수 있습니다.
+일반적인 사용 사례의 경우 ARM 템플릿에 전역 매개 변수를 포함하는 것이 좋습니다. 이는 [CI/CD 문서](continuous-integration-delivery.md)에 설명된 솔루션과 기본적으로 통합됩니다. 자동 게시 및 Purview 연결의 경우 **PowerShell 스크립트** 메서드가 필요합니다. 나중에 PowerShell 스크립트 메서드에 대해 자세히 알아볼 수 있습니다. 전역 매개 변수는 환경에 따라 자주 변경되므로 기본적으로 ARM 템플릿 매개 변수로 추가됩니다. **관리** 허브에서 ARM 템플릿에 전역 매개 변수를 포함하도록 설정할 수 있습니다.
 
 :::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="ARM 템플릿에 포함":::
 
@@ -114,5 +114,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Data Factory의 [연속 통합 및 배포 프로세스](continuous-integration-deployment.md)에 대해 알아보기
+* Azure Data Factory의 [연속 통합 및 배포 프로세스](continuous-integration-delivery.md)에 대해 알아보기
 * [제어 흐름 식 언어](control-flow-expression-language-functions.md)를 사용하는 방법 알아보기

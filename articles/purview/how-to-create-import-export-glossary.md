@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/02/2021
-ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
-ms.translationtype: HT
+ms.date: 09/27/2021
+ms.openlocfilehash: dfb522e5231072e427c14dfe1c8c16889dd3ff9e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284096"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214182"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>용어집 용어를 만들고, 가져오며, 내보내는 방법
 
@@ -22,7 +22,9 @@ ms.locfileid: "106284096"
 
 다음 단계를 완료하여 새 용어집 용어를 만듭니다.
 
-1. 홈페이지의 왼쪽 탐색 영역에서 용어집 아이콘을 선택하여 용어 목록 페이지로 이동합니다.
+1. 홈페이지의 왼쪽 탐색 창에서 **데이터 카탈로그를** 선택한 다음, 페이지 가운데에 있는 **용어집 관리** 단추를 선택합니다.
+
+    :::image type="content" source="media/how-to-create-import-export-glossary/find-glossary.png" alt-text="용어집이 강조 표시된 데이터 카탈로그의 스크린샷." border="true":::
 
 2. **용어집 용어** 페이지에서 **+ 새 용어** 를 선택합니다. **시스템 기본값** 템플릿이 선택된 상태로 페이지가 열립니다. 용어집 용어를 만들 템플릿을 선택하고 **계속** 을 선택합니다.
 

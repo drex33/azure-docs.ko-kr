@@ -8,12 +8,12 @@ ms.date: 09/16/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: c6620f95c9ec217771cd14c756e60fd0eb6d90c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659283"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218245"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -49,16 +49,15 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 | 아메리카           | 유럽               | 아프리카              | 아시아 태평양   |
 |--------------------|----------------------|---------------------|----------------|
-|                    |                      |                     |                |
 | 브라질 남부       | 프랑스 중부       | 남아프리카 북부* | 오스트레일리아 동부 |
 | 캐나다 중부     | 독일 중서부 |                     | 인도 중부* |
 | 미국 중부         | 북유럽         |                     | 일본 동부     |
 | 미국 동부            | 노르웨이 동부          |                     | 한국 중부* |
 | 미국 동부 2          | 영국 남부             |                     | 동남아시아 |
-| 미국 중남부 | 서유럽          |                     |                |
+| 미국 중남부   | 서유럽          |                     |                |
 | US Gov 버지니아    |                      |                     |                |
-| 미국 서부 2        |                      |                     |                |
-| 미국 서부 3        |                      |                     |                |
+| 미국 서부 2          |                      |                     |                |
+| 미국 서부 3          |                      |                     |                |
 
 \* 이 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에게 문의하세요. 가용성 영역을 지원할 예정된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 

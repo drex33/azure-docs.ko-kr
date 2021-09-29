@@ -8,12 +8,12 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4af40f7f1caab7e4517c0dd621e400f58e3a29ad
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057289"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091372"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "106057289"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독
 
@@ -178,7 +178,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 대상 애플리케이션 보안 그룹 | **myAsgMgmtServers** 를 선택합니다. |
     | 서비스 | **사용자 지정**(기본값)을 그대로 둡니다. |
     | 대상 포트 범위 | **3389** 를 입력합니다. |
-    | 프로토콜 | **TCP** 를 선택합니다. |
+    | 프로토콜 | **임의** 를 선택합니다. |
     | 작업 | **허용**(기본값)을 그대로 둡니다. |
     | 우선 순위 | **110**(기본값)을 그대로 둡니다. |
     | Name | **Allow-RDP-All** 을 입력합니다. |

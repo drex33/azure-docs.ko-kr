@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12a2ef28e4335b933a33a244387494a0de7cd649
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92636156"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>자습서: Work.com과 Azure Active Directory 통합
 
@@ -123,13 +123,13 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     다. 로그아웃 URL
 
-### <a name="configure-workcom-single-sign-on"></a>Work.com Single Sign-On 구성
+### <a name="configure-workcom-single-sign-on&quot;></a>Work.com Single Sign-On 구성
 
 1. Work.com 테넌트에 관리자로 로그인합니다.
 
 2. **설정** 으로 이동합니다.
    
-    ![스크린샷은 사용자 메뉴에서 선택한 설정을 보여줍니다.](./media/work-com-tutorial/ic794108.png "설치 프로그램")
+    ![스크린샷은 사용자 메뉴에서 선택한 설정을 보여줍니다.](./media/work-com-tutorial/ic794108.png &quot;설치 프로그램")
 
 3. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리** 를 클릭해 관련된 섹션을 확장한 다음 **내 도메인** 을 클릭해 **내 도메인** 페이지를 엽니다. 
    
@@ -246,17 +246,17 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-workcom-test-user"></a>Work.com 테스트 사용자 만들기
+### <a name="create-workcom-test-user&quot;></a>Work.com 테스트 사용자 만들기
 
 Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다. Work.com의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>사용자 프로비전을 구성하려면
 
 1. Work.com 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **설정** 으로 이동합니다.
    
-    ![스크린샷은 사용자 메뉴에서 선택한 설정을 보여줍니다.](./media/work-com-tutorial/ic794108.png "설치 프로그램")
+    ![스크린샷은 사용자 메뉴에서 선택한 설정을 보여줍니다.](./media/work-com-tutorial/ic794108.png &quot;설치 프로그램")
 
 3. **사용자 관리 \> 사용자** 로 이동합니다.
    
@@ -294,7 +294,7 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Work.com 타일을 클릭하면 SSO가 설정된 Work.com에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Work.com 타일을 클릭하면 SSO가 설정된 Work.com에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

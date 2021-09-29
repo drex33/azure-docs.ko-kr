@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 1bec42dabde64fed8126e47e39f19536b28014f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced5b6493753baab64f5390b7dee815227334796
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714836"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549520"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>스토리지 계정에 대한 처리량 및 대기 시간 메트릭 확인
 
@@ -21,8 +21,8 @@ ms.locfileid: "101714836"
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure Portal에서 차트 구성
-> * 처리량 및 대기 시간 메트릭 확인
+> - Azure Portal에서 차트 구성
+> - 처리량 및 대기 시간 메트릭 확인
 
 [Azure Storage 메트릭](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)은 Azure Monitor를 사용하여 스토리지 계정의 성능 및 가용성에 대한 통합된 뷰를 제공합니다.
 
@@ -67,8 +67,8 @@ ms.locfileid: "101714836"
 시리즈의 4부에서는 다음 방법을 비롯하여 예제 솔루션에 대한 메트릭을 보는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * Azure Portal에서 차트 구성
-> * 처리량 및 대기 시간 메트릭 확인
+> - Azure Portal에서 차트 구성
+> - 처리량 및 대기 시간 메트릭 확인
 
 미리 작성된 스토리지 샘플을 보려면 이 링크를 따라 이동합니다.
 

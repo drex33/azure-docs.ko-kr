@@ -1,20 +1,16 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer)에 등록하고 첫 번째 비디오 업로드 - Azure
-titleSuffix: Azure Video Analyzer for Media
 description: Azure Video Analyzer for Media(이전의 Video Indexer) 포털을 사용하여 등록하고 첫 번째 비디오를 업로드하는 방법에 대해 알아봅니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 ms.topic: quickstart
 ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 8ecbf87bb7cd571b017e339bddcb384bae39bbef
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: bf8b8f640fbcb6155092a50fdbd6e1af66060e07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118763"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636157"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 

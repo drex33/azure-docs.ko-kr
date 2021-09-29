@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 8b2909d608578cf2ceff926bba5f3aa1b569b025
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 63595bc1471e550eb964e50e5d5bafacb29bd623
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136628"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596375"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>빠른 시작: .NET Core에서 Azure Cache for Redis 사용
 
@@ -29,9 +29,10 @@ ms.locfileid: "113136628"
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-a-cache"></a>캐시 만들기
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 **호스트 이름** 및 **기본** 액세스 키를 적어 둡니다. 나중에 이러한 값을 사용하여 *CacheConnection* 비밀을 구성합니다.
 

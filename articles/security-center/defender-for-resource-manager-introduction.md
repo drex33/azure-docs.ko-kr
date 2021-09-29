@@ -7,12 +7,12 @@ ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: fff9c94af2c74612e8c07be1f7e125787265a72d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: b9dce997adb1fbf16c777bc472d10008f68ef9f2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541372"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763389"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -73,7 +73,7 @@ Azure Defender for Resource Manager에서 경고를 조사하려면 다음을 �
 1. 의심스러운 활동을 찾습니다.
 
 > [!TIP]
-> 더 풍부하고 다양한 조사 환경을 위해 [Azure 활동 로그에서 데이터 연결](../sentinel/connect-azure-activity.md)에 설명된 대로 Azure 활동 로그를 Azure Sentinel로 스트리밍합니다.
+> 더 풍부하고 다양한 조사 환경을 위해 [Azure 활동 로그에서 데이터 연결](../sentinel/data-connectors-reference.md#azure-activity)에 설명된 대로 Azure 활동 로그를 Azure Sentinel로 스트리밍합니다.
 
 
 

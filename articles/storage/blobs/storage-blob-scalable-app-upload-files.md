@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: a23836ebadace19c23802a0897287932892657a0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 787cfde40013122c3827cddd4903ca15dfe51836
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459668"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624940"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -21,10 +21,10 @@ ms.locfileid: "110459668"
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 연결 문자열 구성
-> * 애플리케이션 빌드
-> * 애플리케이션 실행
-> * 연결 수의 유효성 검사
+> - 연결 문자열 구성
+> - 애플리케이션 빌드
+> - 애플리케이션 실행
+> - 연결 수의 유효성 검사
 
 Microsoft Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 애플리케이션 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob 스토리지의 확장성 및 성능 목표](../blobs/scalability-targets.md)를 방문하세요.
 
@@ -160,6 +160,7 @@ private static async Task UploadFilesAsync()
     }
 }
 ```
+
 스레딩 및 연결 제한 설정을 설정하는 것 외에 [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) 메서드에 대한 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)는 병렬 처리를 사용하지만 MD5 해시 유효성 검사를 사용하지 않도록 구성됩니다. 파일은100mb 블록으로 업로드됩니다. 이 구성은 향상된 성능을 제공하지만, 전체 100mb 블록이 다시 시도되는 오류가 있는 것처럼 성능이 저하된 네트워크를 사용할 경우 비용이 많이 들 수 있습니다.
 
 |속성|값|Description|
@@ -205,10 +206,10 @@ C:\>
 시리즈 2부에서는 다음 방법을 통해 스토리지 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
-> * 연결 문자열 구성
-> * 애플리케이션 빌드
-> * 애플리케이션 실행
-> * 연결 수의 유효성 검사
+> - 연결 문자열 구성
+> - 애플리케이션 빌드
+> - 애플리케이션 실행
+> - 연결 수의 유효성 검사
 
 스토리지 계정에서 대량의 데이터를 다운로드하는 시리즈 3부 전에 수행합니다.
 

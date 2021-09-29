@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 1d240d1a4fd37c9ec6371407969473e415a27065
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684220"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093690"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -146,7 +146,7 @@ Azure AD에서 ServiceNow에 대한 자동 사용자 프로비저닝을 구성�
 
    예를 들어 ServiceNow의 어떤 테이블에 2개의 위치(Seattle, Los Angeles)와 3개의 부서(Sales, Finance, Marketing)가 있다고 가정합시다. 부서가 "Sales"이고 위치가 "Seattle"인 사용자를 프로비저닝하려고 시도하면 해당 사용자가 성공적으로 프로비저닝됩니다. 부서가 "Sales"이고 위치가 "LA"인 사용자를 프로비저닝하려고 시도하면 해당 사용자가 프로비저닝되지 않습니다. 위치 "LA"를 ServiceNow의 참조 테이블에 추가하거나, ServiceNow의 형식과 일치하도록 Azure AD의 사용자 특성을 업데이트해야 합니다. 
 * **EntryJoiningPropertyValueIsMissing** 오류가 발생하는 경우 [특성 매핑](../app-provisioning/customize-application-attributes.md)을 검토하여 일치하는 특성을 확인합니다. 이 값이 프로비저닝하려는 사용자 또는 그룹에 있어야 합니다. 
-* 요구 사항 또는 제한 사항을 알아보려면(예: 사용자의 국가 코드를 지정하는 형식) [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html)를 검토하세요.
+* 요구 사항 또는 제한 사항을 알아보려면(예: 사용자의 국가 코드를 지정하는 형식) [ServiceNow SOAP API](https://docs.servicenow.com/bundle/rome-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html)를 검토하세요.
 * 프로비저닝 요청은 기본적으로 https://{your-instance-name}.service-now.com/{table-name}으로 보내집니다. 사용자 지정 테넌트 URL이 필요한 경우 인스턴스 이름에 전체 URL을 입력하면 됩니다.
 * **ServiceNowInstanceInvalid** 오류는 ServiceNow 인스턴스와 통신하는 데 문제가 있음을 나타냅니다. 다음은 오류의 텍스트입니다.
   

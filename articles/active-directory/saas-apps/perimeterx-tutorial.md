@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 29ffaaa1b1b6efbcd5523a76018c92645e13d187
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8160da443398787f2b0ebb3cf437383a5bdc522
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181801"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124783086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeterx"></a>자습서: PerimeterX와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -156,7 +156,7 @@ PerimeterX 테스트 사용자를 만드는 방법에 대한 지침은 [Perimete
 
 1. Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 PerimeterX에 자동으로 로그인됩니다.
 
-1. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 PerimeterX 타일을 클릭하면 SSO를 설정한 PerimeterX에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+1. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 PerimeterX 타일을 클릭하면 SSO를 설정한 PerimeterX에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

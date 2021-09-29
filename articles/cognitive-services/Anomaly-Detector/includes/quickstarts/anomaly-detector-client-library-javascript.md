@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: ca842a3d235cd58cb12bf9d8d80419e42ddf8441
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9a709b9872546e8aa4909077b3dd40a03f004d5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444533"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909499"
 ---
 JavaScript용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -24,7 +24,7 @@ JavaScript용 Anomaly Detector 클라이언트 라이브러리를 사용하여 �
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
 * 데이터 세트에서 추세 변화 포인트 검색
 
-[라이브러리 참조 설명서](https://go.microsoft.com/fwlink/?linkid=2090788) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [GitHub에서 코드 찾기](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[라이브러리 참조 설명서](https://go.microsoft.com/fwlink/?linkid=2090788) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [패키지(npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [GitHub에서 코드 찾기](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

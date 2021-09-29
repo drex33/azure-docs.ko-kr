@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 17b4b0ca07b5adc054d4fcfcf4183bb97ce134fb
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: c27d2fbe1c80c13a91ff31d5d3f655c873b63fbf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801535"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801147"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>자습서: Azure Active Directory와 Shmoop For Schools 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "108801535"
 - 사용자가 자신의 Azure AD 계정으로 Shmoop For Schools에 자동으로 로그인되도록 설정합니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -143,7 +143,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - Shmoop For Schools 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Shmoop For Schools 타일을 클릭하면 Shmoop For Schools 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Shmoop For Schools 타일을 클릭하면 Shmoop For Schools 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

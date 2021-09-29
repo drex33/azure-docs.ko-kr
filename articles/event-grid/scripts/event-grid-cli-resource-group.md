@@ -3,14 +3,14 @@ title: Azure CLI 스크립트 샘플 - 리소스 그룹 구독 | Microsoft Docs
 description: 이 문서에서는 리소스 그룹에 대한 Azure Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/22/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a72e7b1748f7e7fb96e5b282ea299a60fe5deb1d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: eb0b0e2d75aa23f973222ce82bebd3d10b65e51c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467400"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659762"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>Azure CLI를 사용하여 리소스 그룹에 대한 이벤트 구독
 

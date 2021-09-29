@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ccc36bb9f940fd018fe6d96b5338a7178657aa2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d237a1ff5ff2fa55a5a22fbc3b57c93849bdb87d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469384"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818825"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>자습서: Synapse 작업 영역을 통해 IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "114469384"
 > - Apache Spark 애플리케이션 개발
 > - Spark 풀에 애플리케이션 제출
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [IntelliJ IDEA Community 버전](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure 도구 키트 플러그 인 3.27.0-2019.2 – [IntelliJ 플러그 인 리포지토리](/java/azure/intellij/azure-toolkit-for-intellij-installation)에서 설치
@@ -145,7 +145,7 @@ Scala 애플리케이션을 만든 후에는 원격으로 실행할 수 있습�
     |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
     |작업 구성|기본 키 및 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen2 클러스터만 지원됩니다. 자세한 내용은 [Apache Spark 구성]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) 및 [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md)을 참조하세요.|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일의 경로를 입력할 수 있습니다(있는 경우). Azure 가상 파일 시스템의 파일을 찾아 볼 수도 있습니다. 여기에는 현재 ADLS Gen2 클러스터만 지원됩니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) 및 [클러스터에 리소스를 업로드하는 방법](../../storage/blobs/quickstart-storage-explorer.md).|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
     |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드** 또는 **클러스터 기본 스토리지 계정을 사용하여 업로드** 를 선택합니다.|
     |스토리지 계정|스토리지 계정을 입력합니다.|

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 3bbd18bc7851d4ccffca4f721f6e2aef45ff3c3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d444a62b7bb6be680c359d6b853a629a1e2dc5a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673725"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>자습서: Bime와 Azure Active Directory 통합
 
@@ -126,13 +126,13 @@ Bime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     다. 로그아웃 URL
 
-### <a name="configure-bime-single-sign-on"></a>Bime Single Sign-On 구성
+### <a name="configure-bime-single-sign-on&quot;></a>Bime Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 Bime 회사 사이트에 관리자로 로그인합니다.
 
 2. 도구 모음에서 **Admin** 과 **계정** 을 차례로 클릭합니다.
 
-    ![스크린샷은 선택된 관리자 항목과 선택된 계정을 보여줍니다.](./media/bime-tutorial/ic775558.png "Admin")
+    ![스크린샷은 선택된 관리자 항목과 선택된 계정을 보여줍니다.](./media/bime-tutorial/ic775558.png &quot;Admin")
 
 3. 계정 구성 페이지에서 다음 단계를 수행합니다.
 
@@ -197,7 +197,7 @@ Bime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-bime-test-user"></a>Bime 테스트 사용자 만들기
+### <a name="create-bime-test-user&quot;></a>Bime 테스트 사용자 만들기
 
 Azure AD 사용자가 Bime에 로그인할 수 있도록 하려면 Bime로 프로비전되어야 합니다. Bime의 경우 프로비전은 수동 작업입니다.
 
@@ -207,7 +207,7 @@ Azure AD 사용자가 Bime에 로그인할 수 있도록 하려면 Bime로 프�
 
 2. 도구 모음에서 **관리자** 와 **사용자** 를 차례로 클릭합니다.
 
-    ![스크린샷은 선택된 관리자 항목과 선택된 사용자를 보여줍니다.](./media/bime-tutorial/ic775561.png "Admin")
+    ![스크린샷은 선택된 관리자 항목과 선택된 사용자를 보여줍니다.](./media/bime-tutorial/ic775561.png &quot;Admin")
 
 3. **사용자 목록** 에서 **새 사용자 추가**("+")를 클릭합니다.
 
@@ -232,7 +232,7 @@ Azure AD 사용자가 Bime에 로그인할 수 있도록 하려면 Bime로 프�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Bime 타일을 클릭하면 SSO를 설정한 Bime에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Bime 타일을 클릭하면 SSO를 설정한 Bime에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

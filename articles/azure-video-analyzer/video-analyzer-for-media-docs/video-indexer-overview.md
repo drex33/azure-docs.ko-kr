@@ -2,19 +2,15 @@
 title: Video Analyzer for Media(이전 Video Indexer)란?
 titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전 Video Indexer) 서비스에 대한 개요를 제공합니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 ms.topic: overview
-ms.subservice: azure-video-analyzer-media
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: 9f7b76a0de33e89a17f89f3c93fc7de430a681c9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a6fd02283bbd6304611dab1c6cfbc8a63e01139e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658605"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>Video Analyzer for Media란?
 

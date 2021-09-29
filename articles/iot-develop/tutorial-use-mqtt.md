@@ -1,18 +1,18 @@
 ---
 title: 자습서 - MQTT를 사용하여 Azure IoT 플러그 앤 플레이 디바이스 클라이언트 만들기 | Microsoft Docs
 description: 자습서 - Azure IoT 디바이스 SDK를 사용하지 않고 MQTT 프로토콜을 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트를 직접 만듭니다.
-author: ericmitt
-ms.author: ericmitt
+author: lizross
+ms.author: lizross
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 75c98219bc8779390ccc1a60af5c990f8f082655
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: f04d6521416375674d36d8d028cc3c0ec6aa9aec
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406050"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091353"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
 

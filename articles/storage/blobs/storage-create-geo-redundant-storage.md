@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 8c9666f9cfadeda29b6259876c972bda67a9ee44
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e8009e7b86ca151b6445ff3a5c165687641318d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590350"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -31,11 +31,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 스토리지 계정 만들기
-> * 연결 문자열 설정
-> * 콘솔 애플리케이션 실행
+> - 스토리지 계정 만들기
+> - 연결 문자열 설정
+> - 콘솔 애플리케이션 실행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
-* **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
+- **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
   ![Azure Development(웹 및 클라우드 아래)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -55,8 +55,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
-* [Python 설치](https://www.python.org/downloads/)
-* [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
+- [Python 설치](https://www.python.org/downloads/)
+- [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 
 # <a name="nodejs-v12-sdk"></a>[Node.js v12 SDK](#tab/nodejs)
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="nodejs-v11-sdk"></a>[Node.js v11 SDK](#tab/nodejs11)
 
-* [Node.js](https://nodejs.org)를 설치합니다.
+- [Node.js](https://nodejs.org)를 설치합니다.
 
 ---
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. **새로 만들기** 페이지에서 **스토리지 계정 - Blob, 파일, 테이블, 큐** 를 선택합니다.
 4. 다음 정보로 스토리지 계정 양식을 작성하고(아래 이미지 참조) **만들기** 를 선택합니다.
 
-   | 설정       | 샘플 값 | Description |
+   | 설정       | 샘플 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **구독** | *내 구독* | 구독에 대한 자세한 내용은 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 참조하세요. |
    | **ResourceGroup** | *myResourceGroup* | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |

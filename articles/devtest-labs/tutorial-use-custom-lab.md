@@ -1,15 +1,15 @@
 ---
-title: Azure DevTest Labs에서 랩에 액세스 | Microsoft Docs
+title: 랩 액세스
 description: 이 자습서에서는 Azure DevTest Labs를 사용하여 만들어진 랩에 액세스하고 가상 머신을 클레임하고, 사용한 후 클레임 취소합니다.
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
-ms.openlocfilehash: 96d41b74b3c143feb64fc9c602de68182787c08b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: d9338bc746158802c86b9631323f3523d01714ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379471"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561318"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩에 액세스
 이 자습서에서는 [ 자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
@@ -77,4 +77,3 @@ VM 사용을 마친 후에는 다음 단계에 따라 VM을 클레임 취소합�
 
 > [!div class="nextstepaction"]
 > [방법: 랩에서 VM 사용](devtest-lab-add-vm.md)
-

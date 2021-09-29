@@ -2,17 +2,17 @@
 title: 자습서 - 개발자 포털 액세스 및 사용자 지정 - Azure API Management | Microsoft Docs
 description: 이 자습서에서는 API 설명서를 사용하여 원하는 대로 사용자 지정 가능한 자동 생성 웹 사이트인 API Management 개발자 포털을 사용자 지정하는 방법을 알아봅니다.
 services: api-management
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 08/31/2021
-ms.author: apimpm
-ms.openlocfilehash: c08fd4635232bdb84ce27fdc7a3e6f0d1791e921
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.author: danlep
+ms.openlocfilehash: 9220bcfc218acaaa073090fd1b05b4648510d096
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318579"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583029"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>자습서: 개발자 포털 액세스 및 사용자 지정
 

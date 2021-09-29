@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 033561ac3c4a510927691dc8db4f61196f54ec2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 243c00ef686f0259a20f564f1641b9399a6691d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92460396"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure Active Directory 통합
 
@@ -125,13 +125,13 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     다. 로그아웃 URL
 
-### <a name="configure-igloo-software-single-sign-on"></a>Igloo Software Single Sign-On 구성
+### <a name="configure-igloo-software-single-sign-on&quot;></a>Igloo Software Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 Igloo Software 회사 사이트에 관리자로 로그인합니다.
 
 2. **제어판** 으로 이동합니다.
 
-     ![제어판](./media/igloo-software-tutorial/ic799949.png "제어판")
+     ![제어판](./media/igloo-software-tutorial/ic799949.png &quot;제어판")
 
 3. **멤버 자격** 탭에서 **로그인 설정** 을 클릭합니다.
 
@@ -240,7 +240,7 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Igloo Software 타일을 클릭하면 SSO를 설정한 Igloo Software에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Igloo Software 타일을 클릭하면 SSO를 설정한 Igloo Software에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

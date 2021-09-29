@@ -3,20 +3,18 @@ title: Bing News Search API란?
 titleSuffix: Azure Cognitive Services
 description: Bing News Search API를 사용하여 헤드라인 및 추세 항목을 포함하여 카테고리 전반의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 12/18/2019
-ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: c6fad3a006d2f3da74638e0680d6ba65f736ab7b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 354dd9d01037eb8dbbb931582a935dff59dd4217
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351234"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617776"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 

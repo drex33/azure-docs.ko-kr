@@ -1,17 +1,15 @@
 ---
 title: PyTorch 모델을 Azure Functions 애플리케이션으로 배포
 description: Azure Functions와 함께 PyTorch에서 미리 학습된 ResNet 18 심층 신경망을 사용하여 1000개의 ImageNet 레이블 중 1개를 이미지에 할당합니다.
-author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 4677ec09994b9dcafbf3600c3c3cae48d71f1477
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 680bae6ddcd1f46a91bd1f332762a590fd9c60e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750188"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615190"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>자습서: PyTorch를 사용하여 Azure Functions에 미리 학습된 이미지 분류 모델 배포
 

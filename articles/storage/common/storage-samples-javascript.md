@@ -1,19 +1,19 @@
 ---
 title: JavaScript를 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. JavaScript/Node.js 스토리지 클라이언트 라이브러리를 사용하여 Blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
-ms.openlocfilehash: fa36c399807c92b4c521e5b29c0d465a42462cbe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d2a098a68c086e658ed697f0eb40176526bf6115
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740133"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549398"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>v12 JavaScript 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -149,7 +149,6 @@ ms.locfileid: "121740133"
       [컨테이너 클라이언트를 사용하여 복구 가능한 오류 트리거](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/errorsAndResponses.js#L33)
    :::column-end:::
 :::row-end:::
-
 
 ## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2 샘플
 
@@ -406,10 +405,10 @@ ms.locfileid: "121740133"
 
 전체 JavaScript 샘플 라이브러리를 보려면 다음으로 이동하세요.
 
-* [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
-* [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
-* [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
+- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
+- [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 
@@ -417,16 +416,16 @@ ms.locfileid: "121740133"
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
-* [JavaScript에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-nodejs.md)
-* [JavaScript에서 Azure Queue Service 시작](../queues/storage-quickstart-queues-nodejs.md)
-* [JavaScript에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+- [JavaScript에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-nodejs.md)
+- [JavaScript에서 Azure Queue Service 시작](../queues/storage-quickstart-queues-nodejs.md)
+- [JavaScript에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
-* Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
-* Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
-* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)
+- .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+- Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+- Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+- C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
+- 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

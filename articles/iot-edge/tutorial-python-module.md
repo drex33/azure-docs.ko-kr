@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ca31b4ed8cbc7a6328daf468c3a026665a801f1f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f5bbb05e51ec52c001b69bd726dd154c9f89de9
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726375"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084116"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Python IoT Edge 모듈 개발 및 배포
 
@@ -141,7 +141,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
             global TEMPERATURE_THRESHOLD
             while True:
                 try:
-                    input_message = await module_client.receive_message_on_input("input1")  # blocking call
+                    input_message = await module_client.on_message_received("input1")  # blocking call
                     message = input_message.data
                     size = len(message)
                     message_text = message.decode('utf-8')
@@ -164,7 +164,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
             global TEMPERATURE_THRESHOLD
             while True:
                 try:
-                    data = await module_client.receive_twin_desired_properties_patch()  # blocking call
+                    data = await module_client.on_twin_desired_properties_patch_received()  # blocking call
                     print( "The data in the desired properties patch was: %s" % data)
                     if "TemperatureThreshold" in data:
                         TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]

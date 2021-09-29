@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault에서 키 특성 만들기 및 검색 - Azure CLI
 description: Azure CLI를 사용하여 Azure Key Vault에서 키를 설정하고 검색하는 방법을 보여주는 빠른 시작
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5281c02f68598b1cf121a6ab8a574f0694f5ea2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 620ddefc6a51f1910d97d9b38f94f1e246f2159c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813444"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619442"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -45,7 +44,7 @@ ms.locfileid: "107813444"
 az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. **'https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey'** 를 사용하여 현재 버전을 가져옵니다. 
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. 현재 버전을 가져오려면 **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** 를 사용합니다. 
 
 이전에 저장한 키를 보려면 다음을 수행합니다.
 

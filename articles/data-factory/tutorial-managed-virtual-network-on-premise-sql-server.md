@@ -4,14 +4,15 @@ description: 이 자습서에서는 Azure Portal을 사용하여 Private Link Se
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: a04371fcba573be41fd5c2275371e0c590b82c08
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d924abc214d01cc4e981d7398a6a250753cb50a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736872"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605034"
 ---
 # <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory Managed VNet에서 온-프레미스 SQL Server에 액세스하는 방법
 

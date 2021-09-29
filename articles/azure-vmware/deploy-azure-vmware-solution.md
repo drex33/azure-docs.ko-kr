@@ -4,12 +4,12 @@ description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware S
 ms.topic: tutorial
 ms.custom: contperf-fy22q1, devx-track-azurecli
 ms.date: 07/28/2021
-ms.openlocfilehash: fd3d39a33fcf86556b12fefe7a07dde48dd14c2c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0df1634d047dfe6abfaa717fd10b75b99f100076
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623934"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "121729053"
 
 완료되면 마지막에 권장되는 다음 단계에 따라 이 시작 가이드의 단계를 계속 진행합니다.
 
-## <a name="register-the-microsoftavs-resource-provider"></a>**Microsoft.AVS** 리소스 공급자 등록
+## <a name="register-the-microsoftavs-resource-provider"></a>Microsoft.AVS 리소스 공급자 등록
 
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 

@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf32e654b3d5a60b542747fd731c329979412e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182821"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812585"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -97,4 +97,4 @@ Azure Automation과 관련된 가격은 [가격 책정](https://azure.microsoft.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Automation 계정 만들기](automation-quickstart-create-account.md)
+> [Automation 계정 만들기](./quickstarts/create-account-portal.md)

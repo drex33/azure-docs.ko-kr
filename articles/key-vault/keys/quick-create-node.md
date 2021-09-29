@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: a3d63a65edaca68bbb60bf7b8901e341da218377
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 82cca0492aba30b8bf04a8d3fe4c9c4c7d5be5a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733541"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775166"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 클라이언트 라이브러리(버전 4)
 
@@ -152,9 +152,9 @@ const { KeyClient } = require("@azure/keyvault-keys");
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)를 참조하세요.
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](/javascript/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](../general/developers-guide.md#authenticate-to-key-vault-in-code)를 참조하세요.
 
 'main()' 함수에 다음 코드를 추가합니다.
 
@@ -168,7 +168,7 @@ const client = new KeyClient(KVUri, credential);
 
 ### <a name="save-a-key"></a>키 저장
 
-이제 애플리케이션을 인증했으므로 [createKey 메서드](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_)를 사용하여 키를 keyvault에 배치할 수 있습니다. 메서드의 매개 변수는 키 이름과 [키 형식](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)을 허용합니다.
+이제 애플리케이션을 인증했으므로 [createKey 메서드](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_)를 사용하여 키를 keyvault에 배치할 수 있습니다. 메서드의 매개 변수는 키 이름과 [키 형식](/javascript/api/@azure/keyvault-keys/keytype)을 허용합니다.
 
 ```javascript
 await client.createKey(keyName, keyType);
@@ -184,7 +184,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### <a name="delete-a-key"></a>키 삭제
 
-마지막으로 [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) 및 [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) 메서드를 사용하여 키 자격 증명 모음에서 키를 삭제하고 제거하겠습니다.
+마지막으로 [beginDeleteKey](/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) 및 [purgeDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) 메서드를 사용하여 키 자격 증명 모음에서 키를 삭제하고 제거하겠습니다.
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);

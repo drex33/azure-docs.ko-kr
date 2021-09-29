@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 42b25599bfd1ef40f8bb0bc1a954677f68dbf668
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1c134fa24914ffc1cc2d51389cf6840986a74c58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862902"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128661567"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
@@ -24,7 +24,9 @@ Azure Database for MySQL 유연한 서버는 클라우드에서 고가용성 MyS
 > [!IMPORTANT]
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기에 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure 포털](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
@@ -57,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     지역|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.|
     워크로드 유형| 개발 | 프로덕션 워크로드의 경우 [max_connections](concepts-server-parameters.md#max_connections) 요구 사항에 따라 중소 규모 또는 큰 크기를 선택할 수 있습니다.|
     가용성 영역| 기본 설정 없음 | Azure VM의 애플리케이션, 가상 머신 확장 집합 또는 AKS 인스턴스가 특정 가용성 영역에서 프로비저닝되는 경우 영역 전체에서 네트워크 대기 시간을 줄여서 애플리케이션 및 데이터베이스를 배치하는 동일한 가용성 영역에서 유연한 서버를 지정하여 성능을 향상시킬 수 있습니다.|
-    고가용성| 선택 취소됨 | 프로덕션 서버의 경우 [영역 중복 고가용성](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#zone-redundant-high-availability)과 [동일 영역 고가용성](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability) 중에서 선택합니다. 이는 VM 오류로부터 비즈니스 연속성 및 보호를 위해 적극 권장됩니다.|
+    고가용성| 선택 취소됨 | 프로덕션 서버의 경우 [영역 중복 고가용성](concepts-high-availability.md#zone-redundant-ha-architecture)과 [동일 영역 고가용성](concepts-high-availability.md#same-zone-ha-architecture) 중에서 선택합니다. 이는 VM 오류로부터 비즈니스 연속성 및 보호를 위해 적극 권장됩니다.|
     |대기 가용성 영역| 기본 설정 없음| 대기 서버 영역 위치를 선택하고 영역 오류가 발생한 경우 애플리케이션 대기 서버를 통해 위치 지정 |
     MySQL 버전|**5.7**| MySQL 주 버전입니다.|
     관리자 사용자 이름 |**mydemouser**| 서버에 연결할 때 사용할 사용자 고유의 로그인 계정입니다. 관리자 사용자 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 일 수 없습니다.|
@@ -132,7 +134,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl
 
 이전 명령을 실행한 후에 유연한 서버에 연결하는 동안 다음과 같은 오류 메시지가 표시되는 경우 앞에서 언급한 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)"를 사용하여 방화벽 규칙을 설정하지 않았거나 옵션이 저장되지 않은 것입니다. 방화벽을 다시 설정하고 다시 시도해 보세요.
 
-오류 2002(HY000): <servername>의 MySQL 서버에 연결할 수 없음(115)
+오류 2002(HY000): \<servername\>의 MySQL 서버에 연결할 수 없음(115)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이제 Azure Database for MySQL 유연한 서버를 리소스 그룹에 만들었습니다. 이러한 리소스가 나중에 필요하지 않을 경우에는 리소스 그룹을 삭제하거나 MySQL 서버만 삭제하여 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제하려면 다음 단계를 완료합니다.

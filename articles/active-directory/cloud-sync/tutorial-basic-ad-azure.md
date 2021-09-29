@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de59b3f26a9a4696c721cab94cd5b96bd0200e9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbf02dd12c76de529026b58f98f111aa3be39502
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612128"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626440"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>자습서: 기본 Active Directory 환경
 
@@ -33,7 +33,7 @@ ms.locfileid: "98612128"
 - 가상 머신이 인터넷과 통신할 수 있는 [외부 네트워크 어댑터](/virtualization/hyper-v-on-windows/quick-start/connect-to-network).
 - [Azure 구독](https://azure.microsoft.com/free)
 - Windows Server 2016의 복사본
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > 이 자습서에서는 가장 빠른 시간 내에 자습서 환경을 만들 수 있도록 PowerShell 스크립트를 사용합니다.  각 스크립트는 스크립트의 시작 부분에 선언된 변수를 사용합니다.  사용자 환경에 맞게 변수를 변경할 수 있으며, 변경해야 합니다.

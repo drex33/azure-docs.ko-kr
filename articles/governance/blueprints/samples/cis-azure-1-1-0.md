@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
 description: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플 개요. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 03/11/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5a7b6afb2647db02f50704c8718ba8562c5c6c02
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8b9797691a84bf0aad0a50c604d53296b89d89bb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757784"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614696"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
 

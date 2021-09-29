@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a5090835089ec32c03b35e195f5a18129d7319c8
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: d32043aa51f798de96468768fd68a924914b621b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112234594"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128660731"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 
@@ -57,9 +57,9 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 다음으로 앱에 대한 캐시를 만듭니다.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
 

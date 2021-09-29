@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 5303289cd0629fea1c78e4ae746427e875f80520
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ab7bd55dd7b66d613f99b4d54a8fdf4445542545
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891638"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591827"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>빠른 시작: Go에서 Azure Cache for Redis 사용
 
@@ -31,9 +31,9 @@ ms.locfileid: "111891638"
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## <a name="review-the-code-optional"></a>코드 검토(선택 사항)
 
@@ -132,20 +132,20 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
 
 1. 해당 환경 변수로 설정합니다.
 
-    ```shell
+    ```console
     set REDIS_HOST=<Host name>:<port> (e.g. <name of cache>.redis.cache.windows.net:6380)
     set REDIS_PASSWORD=<Primary Access Key>
     ```
 
 1. 터미널 창에서 올바른 폴더로 변경합니다. 예를 들면 다음과 같습니다.
 
-    ```shell
+    ```console
     cd "C:\git-samples\azure-redis-cache-go-quickstart"
     ```
 
 1. 터미널에서 다음 명령을 실행하여 애플리케이션을 시작합니다.
 
-    ```shell
+    ```console
     go run main.go
     ```
 

@@ -5,12 +5,12 @@ author: bwren
 ms.author: bwren
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 9923bfcbd439ef5e20e44e9c397199fe06f40b43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 029202b1b05c43c29f0011d01d63cc5d5c5f029f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032911"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649703"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>자습서: Azure Monitor에서 메트릭 차트 만들기
 메트릭 탐색기는 메트릭 값으로 차트를 만들고, 추세를 시각적으로 상호 연결하고, 메트릭 값의 급증 및 급락을 조사할 수 있는 Azure Portal의 Azure Monitor 기능입니다. 메트릭 탐색기를 사용하여 Azure 리소스의 상태 및 사용률을 조사하거나 사용자 지정 메트릭에서 차트를 그릴 수 있습니다. 
@@ -77,7 +77,7 @@ Azure Monitor 메뉴 또는 Azure Portal의 리소스 메뉴에서 메트릭 탐
 
 ## <a name="advanced-chart-settings"></a>고급 차트 설정
 
-차트 스타일 및 제목을 사용자 지정하고 고급 차트 설정을 수정할 수 있습니다. 사용자 지정을 마쳤으면 대시보드에 고정하여 작업을 저장합니다. 메트릭 경고를 구성할 수도 있습니다. Azure Monitor 메트릭 탐색기의 이러한 기능과 기타 고급 기능에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](../essentials/metrics-charts.md#locking the-range-of-the-y-axis)을 참조하세요.
+차트 스타일 및 제목을 사용자 지정하고 고급 차트 설정을 수정할 수 있습니다. 사용자 지정을 마쳤으면 대시보드에 고정하여 작업을 저장합니다. 메트릭 경고를 구성할 수도 있습니다. Azure Monitor 메트릭 탐색기의 이러한 기능과 기타 고급 기능에 대한 자세한 내용은 [Azure 메트릭 탐색기의 고급 기능](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

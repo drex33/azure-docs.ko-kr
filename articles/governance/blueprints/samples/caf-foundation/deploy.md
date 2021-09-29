@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Foundation 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: daa3d4a2c8f8abec3754680ddf9fb6115f88bf6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757874"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678235"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플 배포
 
@@ -106,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |허용되는 가상 머신 SKU|정책 할당|Policy_Allowed-VM-SKUs|허용되는 가상 머신 SKU|
 |리소스 그룹에 CostCenter 태그 추가|정책 할당|Policy_CostCenter_Tag|리소스 그룹에서 CostCenter 태그와 해당 값을 추가|
 |사용자 환경에서 허용하지 않으려는 리소스 종류|정책 할당|Policy _Allowed-Resource-Types|사용자 환경에서 허용하려는 Azure 리소스|
-|Key Vault 배포|Resource Manager 템플릿|KV-AccessPolicy|**잠김** - Key Vault에서 권한을 부여할 Azure AD 그룹 또는 사용자 <Object ID>|
+|Key Vault 배포|Resource Manager 템플릿|KV-AccessPolicy|**잠김** - Key Vault에서 권한을 부여할 Azure AD 그룹 또는 사용자 \<Object ID\>|
 |Log Analytics 배포|Resource Manager 템플릿|LogAnalytics_DataRetention|**잠김** - Log Analytics에서 데이터가 유지되는 기간(일)|
 |Log Analytics 배포|Resource Manager 템플릿|LogAnalytics_Location|**잠김** - 작업 영역을 설정할 때 사용되는 영역|
 

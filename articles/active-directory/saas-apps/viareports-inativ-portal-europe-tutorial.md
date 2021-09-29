@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
-ms.openlocfilehash: e8393410c5b15ee888a2c0cee82c783f17e0e177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f34ff25a75c4a1dfab0636ece8d2c8aecf4a8b77
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92517619"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789373"
 ---
 # <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>자습서: Azure Active Directory와 Viareport(유럽) 통합
 
@@ -132,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Viareport(유럽) 타일을 클릭하면 SSO를 설정한 Viareport(유럽)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Viareport(유럽) 타일을 클릭하면 SSO를 설정한 Viareport(유럽)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

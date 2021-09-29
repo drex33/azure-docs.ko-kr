@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6b74f4616f988d27bca7c7087d33bdb5f5a2a324
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2f7929875ac9cb489f79a7755066c85848e9ebe1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130692"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753372"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>자습서: Equinix Federation App과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -131,7 +131,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 Equinix Federation App 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
  > [!NOTE]
- > **이 애플리케이션 테스트** 링크를 사용하거나 Equinix Federation App 타일을 클릭하여 Azure 애플리케이션을 테스트하는 경우 Equinix에서 기본적으로 지원하지 않는 IdP 시작 SSO이므로 작동하지 않습니다.  내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+ > **이 애플리케이션 테스트** 링크를 사용하거나 Equinix Federation App 타일을 클릭하여 Azure 애플리케이션을 테스트하는 경우 Equinix에서 기본적으로 지원하지 않는 IdP 시작 SSO이므로 작동하지 않습니다.  내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

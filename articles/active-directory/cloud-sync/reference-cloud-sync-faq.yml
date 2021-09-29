@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference
-  ms.date: 06/25/2020
+  ms.date: 09/10/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: cde28b924954db563ce3ed71873ded00a753f80f
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.openlocfilehash: 45a4273ccdfa76eb158ca8fd2ce51161fc3993b1
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113114591"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771349"
 title: Azure Active Directory Connect 클라우드 동기화 FAQ
 summary: >
   Azure AD(Azure Active Directory) Connect 클라우드 동기화에 대해 자주 묻는 질문을 참조하세요.
@@ -92,5 +92,5 @@ sections:
       아무 일도 일어나지 않습니다.  OU를 이동하거나 이름을 변경하는 경우 사용자가 삭제되지 않습니다.
   - question: >
       Azure AD Connect 클라우드 동기화에서 대규모 그룹을 지원하나요?
-    answer: "예. 현재는 OU 범위 필터링을 사용하여 동기화된 최대 50,000명의 그룹 구성원을 지원합니다. 이와 동시에, 그룹 범위 필터링을 사용하는 경우 그룹 크기를 1,500명 미만의 구성원으로 유지하는 것이 좋습니다. 그 이유는 그룹 범위 지정 필터를 통해 큰 그룹을 동기화할 수 있는 경우에도 1,500명보다 큰 일괄 처리로 해당 그룹에 구성원을 추가하면 델타 동기화에 실패하기 때문입니다. \n"
+    answer: "예. 현재는 OU 범위 필터링을 사용하여 동기화된 최대 50,000명의 그룹 구성원을 지원합니다. \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계 \n\n- [프로비저닝이란?](what-is-provisioning.md)\n- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)"

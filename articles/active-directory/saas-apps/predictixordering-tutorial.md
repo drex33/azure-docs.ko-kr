@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f48f7cf9507afae31e3c36aef517aab7b7d77ccf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7408e5203d0b2bc05895ae8ba0403ab9718d1fb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515375"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>자습서: Predictix Ordering과 Azure Active Directory 통합
 
@@ -190,7 +190,7 @@ Predictix Ordering 쪽에서 Single Sign-On을 구성하려면 Azure Portal에�
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 Predictix Ordering 타일을 선택하면 SSO를 설정한 Predictix Ordering 인스턴스에 자동으로 로그온됩니다. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+액세스 패널에서 Predictix Ordering 타일을 선택하면 SSO를 설정한 Predictix Ordering 인스턴스에 자동으로 로그온됩니다. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

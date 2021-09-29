@@ -18,8 +18,11 @@
         - name: 컨테이너 레지스트리 만들기 - PowerShell
           href: container-registry-get-started-powershell.md
         - name: 컨테이너 레지스트리 만들기 - ARM 템플릿
-          displayName: Resource Manager
+          displayName: 'Resource Manager,ARM'
           href: container-registry-get-started-geo-replication-template.md
+        - name: 컨테이너 레지스트리 만들기 - Bicep
+          displayName: 'Resource Manager,ARM'
+          href: container-registry-get-started-bicep.md
         - name: Event Grid로 이벤트 보내기 - CLI
           href: container-registry-event-grid-quickstart.md
         - name: Java 이미지 빌드 및 푸시 - CLI

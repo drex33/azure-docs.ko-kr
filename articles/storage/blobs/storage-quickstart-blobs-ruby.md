@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure Blob Storage 클라이언트 라이브러리 - Ruby'
 description: Azure Blob Storage에서 스토리지 계정 및 컨테이너를 만듭니다. Ruby용 스토리지 클라이언트 라이브러리를 사용하여 컨테이너에서 Blob을 만들고, 다운로드하고, 나열합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 96b47afb11a0105e8f6d6b58e8862994493389f4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c34c042598e94cb2a86d1a068caca40bd3240b29
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277979"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587483"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>빠른 시작: Ruby용 Azure Blob Storage 클라이언트 라이브러리
 

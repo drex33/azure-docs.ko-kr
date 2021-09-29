@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 423ac882c81582f2843eeba37d11c660662ad6e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed467b9b0d2f647122906273a6f22860f5d525ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92519404"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761052"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>자습서: Netvision Compas와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "92519404"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -167,7 +167,7 @@ Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 
 
 ### <a name="using-the-access-panel-idp-initiated"></a>액세스 패널(IDP 시작)을 사용합니다.
 
-액세스 패널에서 Netvision Compas 타일을 클릭하면 SSO를 설정한 Netvision Compas에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Netvision Compas 타일을 클릭하면 SSO를 설정한 Netvision Compas에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Netvision Compas(SP 시작)에 직접 액세스합니다.
 

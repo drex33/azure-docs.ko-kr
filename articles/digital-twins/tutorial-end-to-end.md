@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/23/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cdd4554485a7c04f2d768f7a3bf7265d6342af96
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 9d19a74dc7bacc996fe328679d9c3e12766bfadf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626193"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -84,12 +84,7 @@ Azure Digital Twins에서 이름이 각각 floor1, room21, thermostat67인 층, 
 Query
 ```
 
->[!TIP]
-> 이 간소화된 메서드는 _**AdtE2ESample**_ 프로젝트의 일부로 제공됩니다. 이 샘플 코드의 컨텍스트 외부에서 [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)을 사용하여 언제든지 인스턴스의 모든 쌍을 쿼리할 수 있습니다.
->
-> 인스턴스의 모든 디지털 쌍을 가져오는 전체 쿼리 본문은 다음과 같습니다.
-> 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 이제 프로젝트 실행을 중지할 수 있습니다. 자습서 전체에서 솔루션을 계속 사용하므로 Visual Studio에서 솔루션을 열어 둡니다.
 

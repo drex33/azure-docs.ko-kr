@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6a173ed4dae9237d8aae991c943817ed70246eea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41d89c6471670d8c01055d88c1af4c2de258d23e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649058"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637896"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>자습서: Android 애플리케이션에서 공유 디바이스 모드 사용
 

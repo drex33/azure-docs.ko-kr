@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fa227e1aa503cf17da6027da8754a6f51e7f469
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 190299cfc6e86e0085f9c727b3b216079204ec93
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183041"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>자습서: Peakon과 Azure Active Directory 통합
 
@@ -246,7 +246,7 @@ Peakon의 경우 프로비전은 수동 작업입니다.
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Peakon 타일을 클릭하면 SSO를 설정한 Peakon에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Peakon 타일을 클릭하면 SSO를 설정한 Peakon에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fdfa2385851773f30305ca9ec7f5371d39e8089
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002190"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
 
@@ -226,7 +226,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     d. **만들기** 를 클릭합니다.
  
-### <a name="creating-a-jobscience-test-user"></a>Jobscience 테스트 사용자 만들기
+### <a name="creating-a-jobscience-test-user&quot;></a>Jobscience 테스트 사용자 만들기
 
 Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscience로 프로비전되어야 합니다. Jobscience의 경우 프로비저닝은 수동 작업입니다.
 
@@ -240,7 +240,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 
 1. 설정으로 이동합니다.
    
-   ![스크린샷은 설정 항목을 보여줍니다.](./media/jobscience-tutorial/ic784358.png "설정")
+   ![스크린샷은 설정 항목을 보여줍니다.](./media/jobscience-tutorial/ic784358.png &quot;설정")
 1. **사용자 관리 \> 사용자** 로 이동합니다.
    
    ![사용자](./media/jobscience-tutorial/ic784369.png "사용자")
@@ -304,7 +304,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Jobscience 타일을 클릭하면 Jobscience 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

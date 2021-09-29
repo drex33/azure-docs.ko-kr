@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 707ee38ef71a0f3f3f09e142bd4d944bb04cff3d
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 82e21038b143e0e32a58c3aa24b227ebe850fd06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775016"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -42,7 +42,7 @@ ARO 끌어오기 비밀은 ARO에 대한 RH OpenShift 라이선스의 비용을 
 
 이 자습서를 진행하는 동안 클러스터의 가상 네트워크를 포함하는 리소스 그룹을 만듭니다. 가상 네트워크에 직접 연결하거나 가상 네트워크를 포함하는 리소스 그룹 또는 구독에 대한 기여자 및 사용자 액세스 관리자 권한 또는 소유자 권한이 있어야 합니다.
 
-또한 도구가 클러스터에 대해 사용자를 대신하여 애플리케이션 및 서비스 주체를 만들려면 충분한 Azure Active Directory 권한(테넌트의 구성원 사용자 또는 **애플리케이션 관리자** 역할이 할당된 게스트 사용자)이 필요합니다. 자세한 내용은 [구성원 및 게스트 사용자](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users) 및 [Azure Active Directory 사용자에게 관리자 및 비관리자 역할 할당](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)을 참조하세요.
+또한 도구가 클러스터에 대해 사용자를 대신하여 애플리케이션 및 서비스 주체를 만들려면 충분한 Azure Active Directory 권한(테넌트의 구성원 사용자 또는 **애플리케이션 관리자** 역할이 할당된 게스트 사용자)이 필요합니다. 자세한 내용은 [구성원 및 게스트 사용자](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) 및 [Azure Active Directory 사용자에게 관리자 및 비관리자 역할 할당](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)을 참조하세요.
 
 ### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 

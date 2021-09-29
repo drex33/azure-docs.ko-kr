@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 187808cacd40d2be0b122263e4c10672ef90fff3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ea7c3e1efac5b0710cdcf7e59f496b6c23468194
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412460"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594918"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate 검색 및 평가를 사용하여 GCP(Google Cloud Platform) 인스턴스 검색
 
@@ -185,16 +185,20 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 스크립트를 다음과 같이 실행합니다.
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
-2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
-3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우: 
+2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
+
+3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+
+4. 다음 명령을 실행하여 `AzureMigrateInstaller.ps1`이라는 스크립트를 실행합니다.
+
+   - 퍼블릭 클라우드의 경우: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Azure Government의 경우: 
+     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1`
+
+   - Azure Government의 경우: 
     
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+     `PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1`
 
     스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 

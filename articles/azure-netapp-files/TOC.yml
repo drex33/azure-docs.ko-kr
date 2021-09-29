@@ -55,10 +55,16 @@
       href: volume-quota-introduction.md
     - name: Azure NetApp Files 네트워크 계획 지침
       href: azure-netapp-files-network-topologies.md
-    - name: Azure NetApp Files 스냅샷 작동 방식
-      href: snapshots-introduction.md
     - name: 수동 QoS 용량 풀
       href: manual-qos-capacity-pool-introduction.md
+    - name: Azure NetApp Files 스냅샷 작동 방식
+      href: snapshots-introduction.md
+    - name: Azure NetApp Files 백업
+      items:
+        - name: Azure NetApp Files 백업 이해
+          href: backup-introduction.md
+        - name: Azure NetApp Files 백업에 대한 요구 사항 및 고려 사항
+          href: backup-requirements-considerations.md
     - name: 지역 간 복제
       items:
         - name: 지역 간 복제 이해
@@ -173,6 +179,24 @@
               href: snapshots-revert-volume.md
             - name: 스냅샷 삭제
               href: snapshots-delete.md
+        - name: 볼륨 백업 관리
+          items:
+            - name: 백업 구성
+              items:
+                - name: 정책 기반 백업 구성
+                  href: backup-configure-policy-based.md
+                - name: 수동 백업 구성
+                  href: backup-configure-manual.md
+            - name: 백업 정책 관리
+              href: backup-manage-policies.md
+            - name: 백업 검색
+              href: backup-search.md
+            - name: 백업 복원
+              href: backup-restore-new-volume.md
+            - name: 백업 기능 사용 안 함
+              href: backup-disable.md
+            - name: 백업 삭제
+              href: backup-delete.md
         - name: 지역 간 복제 관리
           items:
             - name: 볼륨 복제 만들기

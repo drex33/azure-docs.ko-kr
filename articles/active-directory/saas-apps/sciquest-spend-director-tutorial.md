@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a828f945c459142febbc2cee7a14d40a3d534435
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2db832bdbacb6d4448897fc7dead5cf41924834b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999861"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>자습서: SciQuest Spend Director와 Azure Active Directory 통합
 
@@ -195,7 +195,7 @@ Just-in-Time 프로비저닝을 사용하도록 설정하려면 [SciQuest Spend 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 SciQuest Spend Director 타일을 클릭하면 사용자가 SSO을 설정한 SciQuest Spend Director에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 SciQuest Spend Director 타일을 클릭하면 사용자가 SSO을 설정한 SciQuest Spend Director에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

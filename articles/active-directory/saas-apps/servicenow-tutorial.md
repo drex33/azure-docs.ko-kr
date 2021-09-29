@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 24f05c59d7ceac37ff628aec265541d323f170e3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 438d53657f2836f02de18c0cd6685aa97e0540cc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725798"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124741405"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "121725798"
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -457,7 +457,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="test-sso"></a>SSO 테스트
 
-액세스 패널에서 ServiceNow 타일을 선택하면 SSO를 설정한 ServiceNow에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 ServiceNow 타일을 선택하면 SSO를 설정한 ServiceNow에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="test-sso-for-servicenow-classic-mobile"></a>ServiceNow Classic(모바일)에 대한 SSO 테스트
 

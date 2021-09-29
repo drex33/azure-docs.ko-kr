@@ -11,12 +11,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe955ede3c2936c0c842d19fbadb9a075830822c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91280354"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603489"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 
@@ -29,9 +29,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 애플리케이션 실행 및 일시 중지
-> * [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route) 또는 [Fiddler](#simulate-a-failure-with-fiddler)를 사용하는 실패 시뮬레이션
-> * 기본 엔드포인트 복원 시뮬레이션
+> - 애플리케이션 실행 및 일시 중지
+> - [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route) 또는 [Fiddler](#simulate-a-failure-with-fiddler)를 사용하는 실패 시뮬레이션
+> - 기본 엔드포인트 복원 시뮬레이션
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

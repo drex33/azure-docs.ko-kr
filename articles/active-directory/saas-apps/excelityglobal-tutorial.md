@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9eaf68036531530f844e919bacfae922441b79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf37bedc9c52fd6ee600ed72ae97c86e5702bc6f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453841"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>자습서: ExcelityGlobal과 Azure Active Directory 통합
 
@@ -198,7 +198,7 @@ ExcelityGlobal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ExcelityGlobal 타일을 클릭하면 SSO를 설정한 ExcelityGlobal에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 ExcelityGlobal 타일을 클릭하면 SSO를 설정한 ExcelityGlobal에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

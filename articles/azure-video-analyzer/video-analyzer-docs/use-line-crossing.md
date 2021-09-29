@@ -3,12 +3,12 @@ title: Azure Video Analyzer를 사용하여 라이브 비디오에서 개체가 
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에서 개체가 선과 교차할 때 감지하는 방법을 보여줍니다.
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.openlocfilehash: 7257562626b17c8f61479eb1ba4d51fea52d3c91
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 27f14c8257d11956d0cacb3efddfb6a00ba239f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185960"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630189"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>자습서: 라이브 비디오에서 개체가 가상의 선과 교차할 때 감지
 
@@ -253,7 +253,7 @@ HTTP 확장 프로세서 노드는 0번째, 15번째, 30번째, …번째 프레
 * `direction`에 이 이벤트의 방향이 포함되어 있습니다.
 
 > [!NOTE] 
-> 이 자습서의 원클릭 배포를 사용하여 Azure 리소스를 배포한 경우 표준 DS1 가상 머신이 만들어집니다. 그러나 YOLO와 같은 리소스 집약적 AI 모델에서 정확한 결과를 얻으려면 VM 크기를 늘려야 할 수 있습니다. [VM 크기를 조정](../../virtual-machines/windows/resize-vm.md)하여 요구 사항에 따라 vcpus 및 메모리 수를 늘립니다. 그런 다음 라이브 파이프라인을 다시 활성화하여 추론을 확인합니다.
+> 이 자습서의 원클릭 배포를 사용하여 Azure 리소스를 배포한 경우 표준 DS1 가상 머신이 만들어집니다. 그러나 YOLO와 같은 리소스 집약적 AI 모델에서 정확한 결과를 얻으려면 VM 크기를 늘려야 할 수 있습니다. [VM 크기를 조정](../../virtual-machines/resize-vm.md)하여 요구 사항에 따라 vcpus 및 메모리 수를 늘립니다. 그런 다음 라이브 파이프라인을 다시 활성화하여 추론을 확인합니다.
 
 ## <a name="customize-for-your-own-environment"></a>환경에 맞게 사용자 지정
 

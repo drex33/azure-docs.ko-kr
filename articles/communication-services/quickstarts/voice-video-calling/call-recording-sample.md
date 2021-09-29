@@ -9,13 +9,14 @@ ms.author: jken
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 4a190e67b04adc858045d32159ad83e430699d30
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 397423b0bc86833b9a029c84c0d3e785ffc35049
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671871"
 ---
 # <a name="call-recording-api-quickstart"></a>통화 녹음/녹화 API 빠른 시작
 

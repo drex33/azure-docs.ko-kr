@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 48b7bbb73b40431d609a473b7d33072ee705af97
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 9847543eaa79b76301229b24f93cc5683b965c5b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801877"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124765882"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>자습서: Catchpoint와 Azure Active Directory Single Sign-On 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "108801877"
 - Azure AD 계정을 사용하여 자동으로 로그인하도록 Catchpoint 로그인을 설정합니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -177,7 +177,7 @@ Catchpoint는 기본적으로 사용하도록 설정된 Just-In-Time 사용자 �
 
 - Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다.
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Catchpoint 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Catchpoint 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 > [!NOTE]
 > 로그인 페이지를 통해 Catchpoint 애플리케이션에 로그인한 경우 **Catchpoint 자격 증명** 을 입력한 다음, **회사 자격 증명(SSO)** 필드에 유효한 **네임스페이스** 값을 입력하고 **로그인** 을 선택합니다.

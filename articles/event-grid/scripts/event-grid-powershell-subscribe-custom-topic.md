@@ -3,13 +3,13 @@ title: Azure PowerShell 스크립트 샘플 - 사용자 지정 항목 구독 | M
 description: 이 문서에서는 사용자 지정 항목에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: f37a90b84e5e55298efc0b3cd53812db95e4d86d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 30d328583246c8460e157f706ff68536d74232d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460731"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595069"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>PowerShell을 사용하여 사용자 지정 항목에 대한 이벤트 구독
 

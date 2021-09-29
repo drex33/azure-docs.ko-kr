@@ -3,17 +3,18 @@ title: '자습서: Resource Manager 템플릿을 사용하여 파이프라인 �
 description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사합니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: f396563b4429d7aa547c86a2a5b3f84ac6bab4b9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957208"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614829"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -59,7 +60,7 @@ ms.locfileid: "111957208"
 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(복사 활동)이 있는 파이프라인을 만듭니다.
 
-![Azure Blob을 Azure SQL Database로 복사](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+:::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png" alt-text="Azure Blob을 Azure SQL Database로 복사"::: 
 
 다음 섹션에서는 신속하게 자습서를 살펴보고 템플릿을 테스트할 수 있도록 데이터 팩터리 엔터티를 정의하기 위한 완전한 Resource Manager 템플릿을 제공합니다. 각 데이터 팩터리 엔터티를 정의하는 방법을 알아보려면 [템플릿의 데이터 팩터리 엔터티](#data-factory-entities-in-the-template) 섹션을 참조하세요.
 
@@ -339,15 +340,15 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 
 1. 왼쪽 메뉴에서 **데이터 팩터리** 를 클릭하거나 **모든 서비스** 를 클릭하고 **INTELLIGENCE + ANALYTICS** 범주 아래에서 **데이터 팩터리** 를 클릭합니다.
    
-    ![데이터 팩터리 메뉴](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png" alt-text="데이터 팩터리 메뉴":::
 
 1. **데이터 팩터리** 페이지에서 데이터 팩터리(AzureBlobToAzureSQLDatabaseDF)를 검색하고 찾습니다. 
    
-    ![데이터 팩터리 검색](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png" alt-text="데이터 팩터리 검색":::  
 
 1. Azure Data Factory를 클릭합니다. 데이터 팩터리의 홈 페이지가 표시됩니다.
    
-    ![데이터 팩터리의 홈 페이지](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
+    :::image type="content" source="media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png" alt-text="데이터 팩터리의 홈 페이지":::  
 
 1. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다.
 

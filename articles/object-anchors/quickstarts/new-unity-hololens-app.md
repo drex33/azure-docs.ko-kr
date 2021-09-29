@@ -7,12 +7,12 @@ ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 174701b16d8ae9c8c8e5b1edf863aa9f1a65336c
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: a83606d76beb4fd9cead19293636b9e5348d4990
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113095028"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777567"
 ---
 # <a name="quickstart-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-object-anchors"></a>빠른 시작: Azure Object Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
@@ -45,7 +45,7 @@ ms.locfileid: "113095028"
 
 ## <a name="install-mixed-reality-feature-tool-feature-packages"></a>Mixed Reality Feature 도구 기능 패키지 설치
 
-1. <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality 기능 도구</a> 설명서에 따라 도구를 설정하고 사용 방법을 알아보세요.
+1. <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality 기능 도구</a> 설명서에 따라 도구를 설정하고 사용 방법을 알아보세요.
 1. **플랫폼 지원** 섹션에서 **Mixed Reality OpenXR 플러그 인** 기능 패키지(버전 1.0.0 이상)를 Unity 포로젝트 폴더에 설치합니다.
 1. **Azure Mixed Reality Services** 섹션에서 Unity 프로젝트 폴더에 **Microsoft Azure Object Anchors** 기능 패키지를 설치합니다.
 1. **Unity 편집기** 로 돌아갑니다. **Mixed Reality Feature 도구** 기능 패키지가 설치되는 동안 몇 분 정도 걸릴 수 있습니다.

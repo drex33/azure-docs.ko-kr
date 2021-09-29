@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1dca5d704fae976798e767f3c02bf8f145fee3d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ea778b38fba59399d266584a06a8776aff95b14
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92505292"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>자습서: RightAnswers와 Azure Active Directory 통합
 
@@ -193,7 +193,7 @@ Azure AD 사용자가 RightAnswers에 로그인할 수 있도록 하려면 Right
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 RightAnswers 타일을 클릭하면 SSO를 설정한 RightAnswers에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 RightAnswers 타일을 클릭하면 SSO를 설정한 RightAnswers에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

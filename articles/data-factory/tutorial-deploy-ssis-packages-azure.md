@@ -8,12 +8,12 @@ ms.custom: seo-lt-2019
 ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 2eff29e1260198c6d5031403e9dfb9fcbd2da4e5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fcd1349df07920ff0e7669face1bfa0e66343dfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730091"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737009"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비저닝
 
@@ -73,7 +73,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 1. 홈페이지에서 **SSIS 구성** 타일을 선택합니다. 
 
-   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Azure Data Factory 홈페이지를 보여주는 스크린샷.":::
 
 1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
 
@@ -81,15 +81,15 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 1. Azure Data Factory UI에서 **관리** 탭으로 전환한 다음, **통합 런타임** 탭으로 전환하여 데이터 팩터리에서 기존 통합 런타임을 살펴봅니다. 
 
-   ![기존 IR 보기 선택](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png" alt-text="기존 IR 보기 선택":::
 
 1. **새로 만들기** 를 선택하여 Azure-SSIS IR을 만들고, **통합 런타임 설치** 창을 엽니다. 
 
-   ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png" alt-text="메뉴를 통한 통합 런타임":::
 
 1. **통합 런타임 설정** 창에서 **Azure에서 실행할 기존 SSIS 패키지 리프트 앤 시프트** 타일을 선택한 다음, **계속** 을 선택합니다.
 
-   ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png" alt-text="통합 런타임 유형 지정":::
 
 1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요. 
 
@@ -101,7 +101,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
 **통합 런타임 설치** 창의 **일반 설정** 페이지에서 다음 단계를 완료합니다. 
 
-   ![일반 설정](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png" alt-text="일반 설정":::
 
    1. **이름** 에는 통합 런타임의 이름을 입력합니다. 
 
@@ -131,7 +131,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
    
 확인란을 선택한 경우 다음 단계를 완료하여 사용자를 대신하여 만들고 관리할 SSISDB를 호스트하는 사용자 고유의 데이터베이스 서버를 가져옵니다.
 
-   ![SSISDB의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png" alt-text="SSISDB의 배포 설정":::
    
    1. **구독** 에서는 SSISDB를 호스트하는 데이터베이스 서버가 있는 Azure 구독을 선택합니다. 
 
@@ -169,7 +169,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
    
 이 확인란을 선택하면 **새로 만들기** 를 선택하여 Azure-SSIS IR에 여러 패키지 저장소를 추가할 수 있습니다. 반대로, 패키지 저장소 하나를 여러 Azure SSIS IR이 공유할 수 있습니다.
 
-![MSDB/파일 시스템/Azure Files의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+:::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png" alt-text="MSDB/파일 시스템/Azure Files의 배포 설정":::
 
 **패키지 저장소 추가** 창에서 다음 단계를 완료합니다.
    
@@ -180,7 +180,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
       > [!NOTE]
       > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본**(**계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. 
 
-      ![연결된 서비스의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png" alt-text="연결된 서비스의 배포 설정":::
 
       1. **이름** 에는 연결된 서비스의 이름을 입력합니다. 
          
@@ -230,7 +230,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
 **통합 런타임 설치** 창의 **고급 설정** 페이지에서 다음 단계를 완료합니다. 
 
-   ![고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png" alt-text="고급 설정":::
 
    1. **노드당 최대 병렬 실행 수** 에 대해 통합 런타임 클러스터에서 노드당 동시에 실행할 최대 패키지 수를 선택합니다. 지원되는 패키지 수만 표시됩니다. 둘 이상의 코어를 사용하여 계산 집약적이거나 메모리 집약적인 하나의 대형 패키지를 실행하려면 낮은 숫자를 선택합니다. 하나의 코어에서 하나 이상의 소형 패키지를 실행하려면 높은 숫자를 선택합니다. 
 
@@ -257,7 +257,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
 **관리** 허브의 **연결** 창에서 **통합 런타임** 페이지로 전환하여 **새로 고침** 을 선택합니다. 
 
-   ![[연결] 창](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png" alt-text="[연결] 창":::
 
    Azure-SSIS IR의 이름을 선택하여 편집/재구성할 수 있습니다. 또한 관련된 단추를 선택하여 Azure-SSIS IR을 모니터링/시작/중지/삭제하고, SSIS 패키지 실행 작업을 사용하여 Azure-SSIS IR에서 실행할 ADF 파이프라인을 자동으로 생성하고, Azure-SSIS IR의 JSON 코드/페이로드를 볼 수 있습니다.  Azure-SSIS IR이 중지된 상태에서만 편집/삭제할 수 있습니다.
 

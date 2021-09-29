@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 72512f062fc1cd784bcaf9ec3a6dc1b87b3c998b
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: cbd4de11b575c3c8125b829d5636d22e3131bdc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108801679"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>자습서: Dotcom-Monitor와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -143,7 +143,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - Dotcom-Monitor 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Dotcom-Monitor 타일을 클릭하면 Dotcom-Monitor 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Dotcom-Monitor 타일을 클릭하면 Dotcom-Monitor 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

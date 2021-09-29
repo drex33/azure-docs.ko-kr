@@ -3,16 +3,16 @@ title: Visual Studio Code를 사용하여 Azure API Management 인스턴스 만�
 description: Visual Studio Code를 사용하여 Azure API Management 인스턴스를 만듭니다.
 ms.service: api-management
 ms.workload: integration
-author: vladvino
-ms.author: apimpm
+author: dlepow
+ms.author: danlep
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8160948c12fd0c9652a409aa4c59e40250f7504
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649515"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625718"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 

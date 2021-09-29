@@ -1,14 +1,14 @@
 ---
 title: CMMC 수준 3 청사진 샘플
 description: CMMC 수준 3 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2925acf75ada0bd950ca52e3fe63b9c97b5e34ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757640"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632332"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>CMMC 수준 3 청사진 샘플
 
@@ -280,8 +280,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |CMMC Level 3|정책 할당|정책 평가에서 제외된 네임스페이스: Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함|정책 평가에서 제외할 Kubernetes 네임스페이스의 목록입니다.|
 |CMMC Level 3|정책 할당|App Services용 최신 Java 버전|App Services에 대해 지원되는 최신 Java 버전|
 |CMMC Level 3|정책 할당|App Services에 지원되는 Linux용 최신 Python 버전|App Services에 대해 지원되는 최신 Python 버전|
-|CMMC Level 3|정책 할당|선택 사항: Log Analytics 에이전트 배포를 감사하는 경우 범위에 추가할 지원되는 Linux OS를 포함하는 VM 이미지 목록|예제 값: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
-|CMMC Level 3|정책 할당|선택 사항: Log Analytics 에이전트 배포를 감사하는 경우 범위에 추가할 지원되는 Windows OS를 포함하는 VM 이미지 목록|예제 값: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|CMMC Level 3|정책 할당|선택 사항: Log Analytics 에이전트 배포를 감사하는 경우 범위에 추가할 지원되는 Linux OS를 포함하는 VM 이미지 목록|예제 값: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC Level 3|정책 할당|선택 사항: Log Analytics 에이전트 배포를 감사하는 경우 범위에 추가할 지원되는 Windows OS를 포함하는 VM 이미지 목록|예제 값: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC Level 3|정책 할당|Network Watcher를 사용하도록 설정해야 하는 영역 목록|지역에서 Network Watcher를 사용할 수 없는 경우 감사합니다.|
 |CMMC Level 3|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록||
 |CMMC Level 3|정책 할당|Pod가 호스트 네트워크 네임스페이스에 사용할 수 있는 허용 가능한 호스트 포트 범위의 최댓값|Pod가 호스트 네트워크 네임스페이스에 사용할 수 있는 허용 가능한 호스트 포트 범위의 최댓값입니다.|

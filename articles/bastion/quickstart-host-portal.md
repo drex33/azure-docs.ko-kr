@@ -8,16 +8,16 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: f6319369a03de754b1ce016fb20aa99e5ab466e1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223415"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677818"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>빠른 시작: VM 설정에서 Azure Bastion 구성
 
-이 빠른 시작 문서에서는 Azure Portal에서 VM 설정에 따라 Azure Bastion을 구성한 다음, 개인 IP 주소를 통해 VM에 연결하는 방법을 보여 줍니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 다른 용도로 VM의 공용 IP 주소가 필요하지 않은 경우 제거할 수 있습니다. 그런 다음, 개인 IP 주소를 사용하여 포털을 통해 VM에 연결합니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
+이 빠른 시작 문서에서는 Azure Portal에서 VM 설정에 따라 Azure Bastion을 구성한 다음, 개인 IP 주소를 통해 VM에 연결하는 방법을 보여 줍니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 다른 용도로 VM의 공용 IP 주소가 필요하지 않은 경우 제거할 수 있습니다. 그런 다음, 개인 IP 주소를 사용하여 포털을 통해 VM에 연결합니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요. 
 
 ## <a name="prerequisites"></a><a name="prereq"></a>필수 조건
 

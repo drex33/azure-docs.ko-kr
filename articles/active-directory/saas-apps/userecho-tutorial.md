@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: be52d220848a27c1307e71fdb7cc4dccfaeb9618
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb98d34d5f31b339010fa2c47a135dcf0a1cdf7c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92509464"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>자습서: UserEcho와 Azure Active Directory 통합
 
@@ -240,7 +240,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 UserEcho 타일을 클릭하면 SSO가 설정된 UserEcho에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 UserEcho 타일을 클릭하면 SSO가 설정된 UserEcho에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

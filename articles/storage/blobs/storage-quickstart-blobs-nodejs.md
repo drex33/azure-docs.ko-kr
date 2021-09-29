@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - JavaScript'
 description: 이 빠른 시작에서는 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 58c956b48c26e4614dd15cd8c4bca657409d2678
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 610e955a948af4e41a32741b7132cdadb322bbab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467637"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609235"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
@@ -21,10 +21,10 @@ ms.locfileid: "123467637"
 
 추가 리소스:
 
-* [API 참조 설명서](/javascript/api/@azure/storage-blob)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
-* [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-blob)
-* [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [API 참조 설명서](/javascript/api/@azure/storage-blob)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+- [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-blob)
+- [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -113,9 +113,9 @@ npm install
 
 Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 컨테이너
-* 컨테이너의 blob
+- 스토리지 계정
+- 스토리지 계정의 컨테이너
+- 컨테이너의 blob
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -123,20 +123,20 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 JavaScript 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
-* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
+- [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
+- [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
+- [BlobClient](/javascript/api/@azure/storage-blob/blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 이 예제 코드 조각은 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
-* [연결 문자열 가져오기](#get-the-connection-string)
-* [컨테이너 만들기](#create-a-container)
-* [컨테이너에 Blob 업로드](#upload-blobs-to-a-container)
-* [컨테이너의 Blob 나열](#list-the-blobs-in-a-container)
-* [Blob 다운로드](#download-blobs)
-* [컨테이너 삭제](#delete-a-container)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [컨테이너 만들기](#create-a-container)
+- [컨테이너에 Blob 업로드](#upload-blobs-to-a-container)
+- [컨테이너의 Blob 나열](#list-the-blobs-in-a-container)
+- [Blob 다운로드](#download-blobs)
+- [컨테이너 삭제](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -312,6 +312,6 @@ Done
 > [!div class="nextstepaction"]
 > [Azure for JavaScript 개발자 센터](/azure/developer/javascript/)
 
-* Azure Blob 스토리지를 사용하는 웹앱을 배포하는 방법에 대한 자세한 내용은 [자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)를 참조하세요.
-* Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.
-* 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
+- Azure Blob 스토리지를 사용하는 웹앱을 배포하는 방법에 대한 자세한 내용은 [자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)를 참조하세요.
+- Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.
+- 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.

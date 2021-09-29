@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 720b19ff16e72fade8bcdbd1b41304b2d87d1f2d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 99216bd26bfff76c4342f1533ff4ced070a69e92
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737665"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124735961"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
@@ -21,7 +21,7 @@ ms.locfileid: "121737665"
 ## <a name="update-august-2021"></a>업데이트(2021년 8월)
 
 - VMware 환경의 IIS 서버에서 실행되는 ASP.NET 웹앱의 대규모 검색 및 평가가 이제 미리 보기로 제공됩니다. [자세한 정보](concepts-azure-webapps-assessment-calculation.md). 시작하려면 [검색](tutorial-discover-vmware.md) 및 [평가](tutorial-assess-webapps.md) 자습서를 참조하세요.
-- Azure VM 평가 권장 사항에서 Azure [Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk)를 지원합니다.
+- Azure VM 평가 권장 사항에서 Azure [Ultra Disk](../virtual-machines/disks-types.md#ultra-disk)를 지원합니다.
 - VMware 가상 머신에 대한 대규모 소프트웨어 인벤토리 및 에이전트 없는 종속성 분석의 일반 공급으로 제공합니다.
 - Azure Migrate 어플라이언스 업데이트:
     - 어플라이언스를 진단하고 해결하여 사용자가 어플라이언스의 모든 문제를 식별하고 자체 평가할 수 있도록 합니다.

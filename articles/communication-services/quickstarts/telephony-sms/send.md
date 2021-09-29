@@ -9,14 +9,15 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: sms
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 1ace517eefe9b9f579de2975a1809278d5a5afbb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 97f7ba5fc547fb0d0bfa7d40784cf85ddffd9785
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257761"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671909"
 ---
 # <a name="quickstart-send-an-sms-message"></a>빠른 시작: SMS 메시지 보내기
 

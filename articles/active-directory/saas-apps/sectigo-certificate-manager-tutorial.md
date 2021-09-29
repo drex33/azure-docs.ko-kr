@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 05070571a4c8a1b673ff145a9449c9e744718026
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c25784583b74069f4b6462166da5c9cf1038c6d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891431"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>자습서: Sectigo Certificate Manager와 Azure Active Directory 통합
 
@@ -162,7 +162,7 @@ Sectigo Certificate Manager 쪽에서 Single Sign-On을 구성하려면 다운�
 
 #### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>내 앱 포털을 사용하여 테스트(IDP 시작 Single Sign-On)
 
-내 앱 포털에서 **Sectigo Certificate Manager** 를 선택합니다.  올바르게 구성되면 Sectigo Certificate Manager에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+내 앱 포털에서 **Sectigo Certificate Manager** 를 선택합니다.  올바르게 구성되면 Sectigo Certificate Manager에 자동으로 로그인됩니다. My Apps 포털에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

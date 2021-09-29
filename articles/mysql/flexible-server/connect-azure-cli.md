@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: f75b933769e94986b1c140fb8bcbadca44b96cf1
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b27fb9ec4ff24cd53906b304db1f32655380fc66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643594"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128595787"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>빠른 시작: Azure Database for MySQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
@@ -25,7 +25,9 @@ ms.locfileid: "122643594"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
+- 활성 구독이 있는 Azure 계정. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - [Azure CLI](/cli/azure/install-azure-cli) 최신 버전(2.20.0 이상) 설치
 - ```az login``` 명령을 통해 Azure CLI를 사용하여 로그인 
 - ```az config param-persist on```을 사용하여 매개 변수 지속성을 설정합니다. 매개 변수 지속성은 리소스 그룹이나 위치 등과 같은 많은 인수를 반복하지 않고도 로컬 컨텍스트를 사용할 수 있도록 도와줍니다.

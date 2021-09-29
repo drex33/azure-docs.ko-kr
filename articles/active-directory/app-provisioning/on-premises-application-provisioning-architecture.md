@@ -11,12 +11,12 @@ ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bd76a9633311a073f2a672efd1560272deddb48
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: cdd7995c50ef63b4ec88e65c949a4c098a4b9330
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770062"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609938"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-architecture"></a>Azure AD 온-프레미스 애플리케이션 프로비저닝 아키텍처
 
@@ -159,6 +159,3 @@ ECMA 커넥터 호스트는 현재 USER 개체 형식만 지원하기 때문에 
 ## <a name="next-steps"></a>다음 단계
 
 - [앱 프로비저닝](user-provisioning.md)
-- [Azure AD ECMA 커넥터 호스트 필수 조건](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA 커넥터 호스트 설치](on-premises-ecma-install.md)
-- [Azure AD ECMA 커넥터 호스트 구성](on-premises-ecma-configure.md)

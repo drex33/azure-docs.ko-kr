@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 268943463002ddd1dbdbf67df9587758f81f537f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1347ee33905f9c39e752c1a78e3d5573f9fb6f2d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646523"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124770931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
 
@@ -219,7 +219,7 @@ Azure AD 사용자가 Absorb LMS에 로그인하려면 Absorb LMS에서 해당 �
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Absorb LMS에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Absorb LMS 타일을 클릭하면 SSO를 설정한 Absorb LMS에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Absorb LMS 타일을 클릭하면 SSO를 설정한 Absorb LMS에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

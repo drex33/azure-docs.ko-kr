@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 Shared Services 청사진 샘플 컨트롤
 description: ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/30/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: c84a1bca5089e2287dac80758092f7377689340b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 31cc7bea93de75e8b3f6d21813d79a32c26085df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739244"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632066"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑
 
@@ -178,7 +178,7 @@ Azure의 [SQL Vulnerability Assessment 서비스](../../../../azure-sql/database
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 정보 전송 정책 및 절차
 
-이 청사진은 스토리지 계정 및 Azure Cache for Redis에 대한 안전하지 않은 연결을 감사하는 두 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 Azure 서비스를 사용한 정보 전송이 안전한지 확인하는 데 도움이 됩니다.
+이 청사진은 스토리지 계정 및 Azure Cache for Redis에 대한 안전되지 않은 연결을 감사하는 두 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 Azure 서비스를 사용한 정보 전송이 안전하게 이루어지도록 하는 데 도움이 됩니다.
 
 - Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.

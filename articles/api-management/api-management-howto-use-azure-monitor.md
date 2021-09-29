@@ -2,18 +2,18 @@
 title: 자습서 - Azure API Management에서 게시된 API 모니터링 | Microsoft Docs
 description: 이 자습서의 단계에 따라 Azure API Management에서 메트릭, 경고, 활동 로그 및 리소스 로그를 사용하여 API를 모니터링하는 방법을 알아봅니다.
 services: api-management
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
-ms.author: apimpm
-ms.openlocfilehash: f70a43efd0b56f76ee4b68e8fede3ce4e255063d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: danlep
+ms.openlocfilehash: 378fa83925808b1c9551522cfe4c47665095cd17
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642076"
 ---
 # <a name="tutorial-monitor-published-apis"></a>자습서: 게시된 API 모니터링
 

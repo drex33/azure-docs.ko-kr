@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: f847ef4f4490b64212e4cdcce3f9a89e94c7cd37
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3d3c1d9937382080ea5a735e3f67e9767919366f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058598"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740780"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -55,7 +55,7 @@ Azure 표준 Load Balancer를 사용하여 수행할 수 있는 주요 시나리
 
 - **[내부](./quickstart-load-balancer-standard-internal-portal.md)** 및 **[외부](./quickstart-load-balancer-standard-public-portal.md)** 트래픽을 Azure 가상 머신으로 부하를 분산합니다.
 
-- 영역 **[내](./tutorial-load-balancer-standard-public-zonal-portal.md)** 및 **[전반에서](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** 리소스를 배포하여 가용성을 높입니다.
+- 영역 **[내](./tutorial-load-balancer-standard-public-zonal-portal.md)** 및 **[전반에서](./quickstart-load-balancer-standard-public-portal.md)** 리소스를 배포하여 가용성을 높입니다.
 
 - Azure 가상 머신에 대한 **[아웃바운드 연결](./load-balancer-outbound-connections.md)** 을 구성합니다.
 

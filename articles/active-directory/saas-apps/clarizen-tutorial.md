@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 6ca4bda03a5696406682898eef62da9825c65214
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 04aeeea93b38ca358fd3d85be5d47a68c61d6e1d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181675"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen-one"></a>자습서: Clarizen One과 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "122181675"
 * 사용자가 해당 Azure AD 계정으로 Clarizen One에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -99,11 +99,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Clarizen One에 대한 액세스 권한을 부여합니다.
 
@@ -112,16 +112,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-clarizen-one-sso"></a>Clarizen One SSO 구성
+## <a name=&quot;configure-clarizen-one-sso&quot;></a>Clarizen One SSO 구성
 
 1. 다른 웹 브라우저 창에서 Clarizen One 회사 사이트에 관리자로 로그인합니다.
 
 1. 사용자 이름을 클릭한 다음 **설정** 을 클릭합니다.
 
-    ![사용자 이름 아래에서 "설정" 클릭](./media/clarizen-tutorial/setting.png "설정")
+    ![사용자 이름 아래에서 &quot;설정&quot; 클릭](./media/clarizen-tutorial/setting.png &quot;설정")
 
 1. **전역 설정** 탭을 클릭합니다. 그런 다음 **페더레이션 인증** 옆에 있는 **편집** 을 클릭합니다.
 
@@ -178,7 +178,7 @@ Azure AD 사용자가 Clarizen One에 로그인할 수 있도록 하려면 사�
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Clarizen One에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Clarizen One 타일을 클릭하면 SSO를 설정한 Clarizen One에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Clarizen One 타일을 클릭하면 SSO를 설정한 Clarizen One에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 4a03eb37d5ec956dfeb5eb3d637722c506f58bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c47443068aadef73a75e68d97de24981125fd973
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637730"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736995"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 스토리지에서 SQL Database로 데이터 복사
 
@@ -80,7 +80,7 @@ ms.locfileid: "122637730"
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
-   ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="새 데이터 팩터리 만들기":::
 
 1. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory** 를 입력합니다.
 
@@ -116,11 +116,11 @@ ms.locfileid: "122637730"
 
 1. Azure Data Factory 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 시작합니다.
 
-   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Azure Data Factory 홈페이지를 보여주는 스크린샷.":::
 
 1. 데이터 복사 도구의 **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **다음** 을 선택합니다.
 
-     ![속성 페이지를 보여주는 스크린샷](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+     :::image type="content" source="./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png" alt-text="속성 페이지를 보여주는 스크린샷":::
     
 1. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
@@ -140,7 +140,7 @@ ms.locfileid: "122637730"
 
 1. **파일 형식 설정** 페이지에서 *첫 행을 머리글로* 에 대한 확인란을 활성화합니다. 도구는 열 및 행 구분 기호를 자동으로 검색하며, 이 페이지에서 **데이터 미리 보기** 단추를 선택하여 데이터를 미리 보고 입력 데이터의 스키마를 볼 수 있습니다. 그런 후 **다음** 을 선택합니다. 
 
-   ![파일 형식 설정](./media/tutorial-copy-data-tool/file-format-settings-page.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/file-format-settings-page.png" alt-text="파일 형식 설정":::
 
 1. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
@@ -150,7 +150,7 @@ ms.locfileid: "122637730"
 
    다. **새 연결(Azure SQL Database)** 페이지의 드롭다운 목록에서 Azure 구독, 서버 이름 및 데이터베이스 이름을 선택합니다. 그런 다음 **인증 유형** 에서 **SQL 인증** 을 선택하고, 사용자 이름과 암호를 지정합니다. 연결을 테스트하고 **만들기** 를 선택합니다.
 
-   ![Azure SQL DB 구성](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/config-azure-sql-db.png" alt-text="Azure SQL DB 구성":::
 
    d. 새로 만든 연결된 서비스를 싱크로 선택한 후, **다음** 을 선택합니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "122637730"
 
 1. **열 매핑** 페이지에서 입력 파일의 두 번째 및 세 번째 열이 **emp** 테이블의 **FirstName** 및 **LastName** 열에 매핑됩니다. 매핑을 조정하여 오류가 없는지 확인한 다음, **다음** 을 선택합니다.
 
-   ![열 매핑 페이지](./media/tutorial-copy-data-tool/column-mapping.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/column-mapping.png" alt-text="열 매핑 페이지":::
 
 1. **설정** 페이지에서 **작업 이름** 밑에 **CopyFromBlobToSqlPipeline** 을 입력하고 **다음** 을 선택합니다.
 
@@ -168,21 +168,21 @@ ms.locfileid: "122637730"
 
 1. **배포** 페이지에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다.
 
-   ![파이프라인 모니터링](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/monitor-pipeline.png" alt-text="파이프라인 모니터링":::
 
 1. 파이프라인 실행 페이지에서 **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 선택하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
 
-   ![파이프라인 실행](./media/tutorial-copy-data-tool/pipeline-run.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/pipeline-run.png" alt-text="파이프라인 실행":::
 
 1. 복사 작업에 관한 자세한 내용은 ‘활동 실행’ 페이지의 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택하면 확인할 수 있습니다. ‘파이프라인 실행’ 보기로 돌아가려면 이동 경로 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
 
-   ![작업 실행 모니터링](./media/tutorial-copy-data-tool/activity-monitoring.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/activity-monitoring.png" alt-text="작업 실행 모니터링":::
 
 1. 데이터가 SQL Database의 **dbo.emp** 테이블에 삽입되어 있는지 확인합니다.
 
 1. 왼쪽의 **작성** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구를 통해 만든 연결된 서비스, 데이터 세트 및 파이프라인을 업데이트할 수 있습니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
 
-   ![작성자 탭 선택](./media/tutorial-copy-data-tool/author-tab.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/author-tab.png" alt-text="작성자 탭 선택":::
 
 ## <a name="next-steps"></a>다음 단계
 이 샘플의 파이프라인이 Blob 스토리지에서 SQL Database로 데이터를 복사합니다. 구체적으로 다음 작업 방법을 알아보았습니다.

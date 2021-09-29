@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: b05dbeeb69cee8afd3c237b3fbc2c3e59fef238f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4050d9452a8253bbfe468b180a8eaa701e2a3684
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112288058"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587464"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-cli-preview"></a>자습서: Azure CLI를 사용하여 Blob에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -24,14 +24,13 @@ ms.locfileid: "112288058"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-
 대부분의 경우 역할 할당은 Azure 리소스에 필요한 사용 권한을 부여합니다. 그러나 경우에 따라 역할 할당 조건을 추가하여 보다 세분화된 액세스 제어를 제공하는 것이 좋습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 역할 할당에 조건 추가
-> * BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
+> - 역할 할당에 조건 추가
+> - BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -106,7 +105,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
 1. 텍스트 파일에 다음 Blob 인덱스 태그를 추가합니다. 자세한 내용은 [Blob 인덱스 태그(미리 보기)를 사용하여 Azure Blob Storage 데이터 관리 및 찾기를 참조하세요](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 BLOB 인덱스 태그와 유사하지만 조건으로 BLOB 인덱스 태그를 사용해야 합니다. 
+    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다.
 
     | 키 | 값 |
     | --- | --- |
@@ -225,7 +224,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
     ```
 
     다음은 출력의 예입니다. 추가한 조건으로 인해 파일을 읽을 **수 없습니다.**
-    
+
     ```azurecli
     You do not have the required permissions needed to perform this operation.
     Depending on your operation, you may need to be assigned one of the following roles:
@@ -233,10 +232,10 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
         "Storage Blob Data Reader"
         "Storage Queue Data Contributor"
         "Storage Queue Data Reader"
-    
+
     If you want to use the old authentication method and allow querying for the right account key, please use the "--auth-mode" parameter and "key" value.
     ```
-    
+
 1. Cascade 프로젝트에 대한 파일의 속성을 읽습니다.
 
     ```azurecli
@@ -244,7 +243,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
     ```
 
     다음은 출력의 예입니다. Project=Cascade 태그가 있으므로 파일의 속성을 읽을 수 있습니다.
-    
+
     ```azurecli
     {
       "container": "<containerName>",
@@ -283,7 +282,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
     ```
 
     다음과 유사하게 출력됩니다.
-    
+
     ```azurecli
     [
       {
@@ -331,7 +330,7 @@ Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 �
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
     ```
-    
+
 ## <a name="step-8-clean-up-resources"></a>8단계: 리소스 정리
 
 1. [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete)를 사용하여 추가한 역할 할당 및 조건을 제거합니다.

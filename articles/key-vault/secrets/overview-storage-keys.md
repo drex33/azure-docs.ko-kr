@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c06754e82b26672a173744b9f1c0d6bd1a92d506
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6e8ad07ac5a03e1ad4df9762dfc1fbb81d820dd2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732768"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593556"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
@@ -70,7 +70,7 @@ Azure CLI [az role assignment create](/cli/azure/role/assignment) 명령을 사�
 - `--scope`: `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` 형식의 스토리지 계정 리소스 ID를 전달합니다. 구독 ID를 찾으려면 Azure CLI [az account list](/cli/azure/account?#az_account_list) 명령을 사용하고, 스토리지 계정 이름 및 스토리지 계정 리소스 그룹을 찾으려면 Azure CLI [az storage account list](/cli/azure/storage/account?#az_storage_account_list) 명령을 사용합니다.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee "https://vault.azure.net" --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>관리 스토리지 계정에 사용자 계정 권한 부여
 

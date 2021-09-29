@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: f2328bd51712089f706c8491007f9f51eba52337
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef903b03fa97e447a90f6673ebd2adb1d74ea5ca
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92508114"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>자습서: My Award Points Top Sub/Top Team과 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ My Award Points Top Sub/Top Team과 Azure AD Single Sign-On을 구성하려면 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 My Award Points Top Sub/Top Team 타일을 클릭하면 SSO를 설정한 My Award Points Top Sub/Top Team에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 My Award Points Top Sub/Top Team 타일을 클릭하면 SSO를 설정한 My Award Points Top Sub/Top Team에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

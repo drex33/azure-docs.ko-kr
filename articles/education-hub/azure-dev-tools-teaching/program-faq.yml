@@ -8,12 +8,12 @@ metadata:
   ms.subservice: education-hub
   ms.topic: overview
   ms.date: 08/31/2021
-  ms.openlocfilehash: 28972b6c29e14ca453d713e25867b8079e05c3ca
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: add297aa2c3ff9b883cbf07b2e546bbf46f09b94
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123431029"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124771482"
 title: Education Hub에 대한 질문과 대답
 summary: 이 문서에서는 Azure for Students, Azure for Students Starter 및 Azure Dev Tools for Teaching에 대한 질문과 대답을 다룹니다.
 sections:
@@ -32,7 +32,7 @@ sections:
       예  1년 후에 Azure for Students 구독을 갱신할 수 있습니다.  기념일 직전에 갱신하도록 알리는 이메일을 보내드립니다.  갱신하려면 Azure for Students [웹 사이트](https://aka.ms/azure4students)에서 제품을 다시 등록하세요.
   - question: >
       Microsoft에서 청구서를 받은 이유는 무엇인가요?
-    answer: "Azure for Students에서 지난 달에 발생한 사용량이 자세히 설명된 Microsoft의 청구서를 받을 수 있습니다.  걱정하지 마세요. 해당 사용량에 대해 비용을 지불할 필요가 없습니다. 모든 비용은 Azure for Students에서 제공하는 크레딧으로 처리됩니다.  청구서 및 청구 방식에 대해 자세히 알아보려면 docs.microsoft.com의 [문서](https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview)를 확인하세요. \n"
+    answer: "Azure for Students에서 지난 달에 발생한 사용량이 자세히 설명된 Microsoft의 청구서를 받을 수 있습니다.  걱정하지 마세요. 해당 사용량에 대해 비용을 지불할 필요가 없습니다. 모든 비용은 Azure for Students에서 제공하는 크레딧으로 처리됩니다.  청구서 및 청구 방식에 대해 자세히 알아보려면 docs.microsoft.com의 [문서](../../cost-management-billing/understand/mca-overview.md)를 확인하세요. \n"
   - question: >
       구독이란 무엇이며, Azure for Students와 어떤 관련이 있나요?
     answer: >

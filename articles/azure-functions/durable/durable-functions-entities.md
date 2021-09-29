@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c898444659c2ce071163e9ab774a4534f8c51a9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdc5ba0c21bc55c04c8407e218fd09eecd726be2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603603"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -294,8 +294,19 @@ module.exports = async function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!NOTE]
-> Python은 현재, 클라이언트에서의 엔터티 상태 읽기를 지원하지 않습니다. 대신, orchestrator의 `callEntity`를 사용합니다.
+```python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    entity_state_result = await client.read_entity_state(entityId)
+    entity_state = "No state found"
+    if entity_state_result.entity_exists:
+      entity_state = str(entity_state_result.entity_state)
+    return func.HttpResponse(entity_state)
+```
 
 ---
 

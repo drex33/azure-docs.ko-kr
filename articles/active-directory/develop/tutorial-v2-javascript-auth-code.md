@@ -3,21 +3,21 @@ title: '자습서: 인증 코드 흐름을 사용하는 JavaScript 단일 페이
 titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 사용자를 로그인하고, 인증 코드 흐름을 사용하여 Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 JavaScript SPA를 만듭니다.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2eaaeda879e9946610d2f18f7ccf530bc60f7910
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 07269bddcaf077d6224ffad5d592a9cbd3d3f754
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603641"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 

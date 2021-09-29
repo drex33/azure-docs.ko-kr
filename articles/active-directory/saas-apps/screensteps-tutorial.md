@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3310e1569cd04950c768b24a333dc6d6c7bbe09
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999793"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>자습서: ScreenSteps와 Azure Active Directory 통합
 
@@ -120,13 +120,13 @@ ScreenSteps에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     다. 로그아웃 URL
 
-### <a name="configure-screensteps-single-sign-on"></a>ScreenSteps Single Sign-On 구성
+### <a name="configure-screensteps-single-sign-on&quot;></a>ScreenSteps Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 ScreenSteps 회사 사이트에 관리자로 로그인합니다.
 
 1. **계정 설정** 을 클릭합니다.
 
-    ![계정 관리](./media/screensteps-tutorial/ic778523.png "계정 관리")
+    ![계정 관리](./media/screensteps-tutorial/ic778523.png &quot;계정 관리")
 
 1. **Single Sign-On** 을 클릭합니다.
 
@@ -229,7 +229,7 @@ ScreenSteps에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ScreenSteps 타일을 클릭하면 SSO를 설정한 ScreenSteps에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 ScreenSteps 타일을 클릭하면 SSO를 설정한 ScreenSteps에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

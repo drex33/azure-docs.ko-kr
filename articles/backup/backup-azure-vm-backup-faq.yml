@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: d579c304c9a345323fc57020435b4b3a41c70cbd
-  ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+  ms.openlocfilehash: 2b7ecc95117201d9ab60a39acf1d0f6ae60896a0
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122597867"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124799304"
 title: 질문과 대답 - Azure VM 백업
 summary: >
   이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
@@ -116,7 +116,7 @@ sections:
       클러스터의 모든 Azure VM은 개별 Azure VM으로 간주됩니다. 따라서 모든 백업 작업은 개별 Azure VM에 따라 적용됩니다.
   - question: Azure Backup이 애플리케이션 성능에 방해가 되나요?
     answer: >
-      VM 스냅샷을 만드는 데 몇 분 정도 걸리며, 이 단계에서 애플리케이션 성능에 대한 간섭은 최소화됩니다. 하지만 자격 증명 모음으로의 데이터 전송에는 몇 시간이 걸립니다. 따라서 업무 시간이 아닌 시간에 백업을 예약하는 것이 좋습니다. [백업 및 복원에 대한 모범 사례](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations)를 알아보세요.
+      VM 스냅샷을 만드는 데 몇 분 정도 걸리며, 이 단계에서 애플리케이션 성능에 대한 간섭은 최소화됩니다. 하지만 자격 증명 모음으로의 데이터 전송에는 몇 시간이 걸립니다. 따라서 업무 시간이 아닌 시간에 백업을 예약하는 것이 좋습니다. [백업 및 복원에 대한 모범 사례](./backup-azure-vms-introduction.md#backup-and-restore-considerations)를 알아보세요.
   - question: VM에 추가된 새 디스크가 자동으로 백업될까요?
     answer: >
       예, VM에 추가된 새 디스크는 다음 백업 중에 자동으로 백업됩니다.
@@ -178,7 +178,7 @@ sections:
       `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
   - question: VM을 전원이 꺼진 상태로 어떻게 복원하나요?
     answer: >
-      전원이 꺼진 상태로 VM을 복원하려면 [VM을 만들거나](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) [디스크를 복원](/azure/backup/backup-azure-arm-restore-vms#restore-disks)할 수 있지만 기존 VM을 바꿀 수는 없습니다. [사용 가능한 복원 옵션](/azure/backup/backup-azure-arm-restore-vms#restore-options)에 대해 자세히 알아보세요.
+      전원이 꺼진 상태로 VM을 복원하려면 [VM을 만들거나](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) [디스크를 복원](./backup-azure-arm-restore-vms.md#restore-disks)할 수 있지만 기존 VM을 바꿀 수는 없습니다. [사용 가능한 복원 옵션](./backup-azure-arm-restore-vms.md#restore-options)에 대해 자세히 알아보세요.
 - name: VM 백업 관리
   questions:
   - question: 백업 정책을 수정하면 어떻게 되나요?

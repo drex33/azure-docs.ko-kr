@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: thwimmer
-ms.openlocfilehash: 16fbc64f77407c02ec189e9f0bd0de40d9a7f2bd
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 84842b751c0e4351da13d26654147c9541af6973
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113759630"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643399"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 SAP Analytics Cloud 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "113759630"
 
 1. 관리자 계정 권한으로 [SAP Identity Provisioning 관리 콘솔](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/)에 로그인한 다음, **Proxy Systems(프록시 시스템)** 를 선택합니다.
 
-   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
+   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 
 2. **속성** 을 선택합니다.
 

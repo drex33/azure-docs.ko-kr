@@ -3,18 +3,18 @@ title: 자습서 - 요청 추적을 사용하여 Azure API Management에서 API 
 description: 이 자습서의 단계에 따라 추적을 사용하도록 설정하고 Azure API Management에서 요청 처리 단계를 검사합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 editor: ''
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
-ms.author: apimpm
-ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 59d095b45b10ad6ed093107cc8d4589e0915161b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643311"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>자습서: 요청 추적을 사용하여 API 디버그
 

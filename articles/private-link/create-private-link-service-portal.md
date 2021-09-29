@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6b54784b5cd77113983dea5e936d93e36aca5591
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: de7d106ae02e1150d9765e60fbfdf0dc0cb9bc74
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201848"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810318"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Link 서비스 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "122201848"
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. **CreatePrivLinkService-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **(미국) 미국 동부** 를 선택합니다. |
+    | 지역           | **(미국) 미국 동부 2** 선택 |
 
 5. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "122201848"
 
 3. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
 
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | **프로젝트 세부 정보** |   |
     | Subscription               | 구독을 선택합니다.    |    
@@ -149,9 +149,9 @@ ms.locfileid: "122201848"
 
 7. **서브넷** 에서 **myBackendSubnet** 을 선택합니다.
 
-8. **할당** 에 대해 **동적** 을 선택합니다.
+8. **할당** 에서 **동적** 을 선택합니다.
 
-9. **가용성 영역** 에 **영역 중복** 을 선택합니다.
+9. **가용성 영역** 에서 **영역 중복** 을 선택합니다.
 
     > [!NOTE]
     > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
@@ -162,24 +162,24 @@ ms.locfileid: "122201848"
 
 12. **백 엔드 풀** 탭에서 **+ 백 엔드 풀 추가** 를 선택합니다.
 
-13. **백 엔드 풀 추가** 에서 **이름** 에 **myBackendPool** 을 입력합니다.
+13. **백 엔드 풀 추가** 의 **이름** 에 **myBackendPool** 을 입력합니다.
 
-14. **백 엔드 풀 구성** 에 대해 **NIC** 또는 **IP 주소** 를 선택합니다.
+14. **백 엔드 풀 구성** 에 **NIC** 또는 **IP 주소** 를 선택합니다.
 
-15. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 을 선택합니다.
+15. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 를 선택합니다.
 
 16. **추가** 를 선택합니다.
 
-17. 페이지 하단에서 **다음: 수신 규칙** 단추를 선택합니다.
+17. 페이지 하단에 있는 **다음: 인바운드 규칙** 단추를 선택합니다.
 
 18. **인바운드 규칙** 탭의 **부하 분산 규칙** 에서 **+ 부하 분산 규칙 추가** 를 선택합니다.
 
-19. **부하 분산 장치 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
+19. **부하 분산 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Name | **myHTTPRule** 입력 |
-    | IP 버전 | 요구 사항에 따라 **IPv4** 또는 **IPv6** 을 선택합니다. |
+    | IP 버전 | 요구 사항에 따라 **IPv4** 또는 **IPv6** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontend** 를 선택합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다. |
@@ -193,7 +193,7 @@ ms.locfileid: "122201848"
 
 20. **추가** 를 선택합니다.
 
-21. 페이지 하단에서 파란색 **검토 + 만들기** 단추를 선택합니다.
+21. 페이지 하단에 있는 파란색 **검토 + 만들기** 단추를 선택합니다.
 
 22. **만들기** 를 선택합니다.
 
@@ -305,7 +305,7 @@ ms.locfileid: "122201848"
     | Subscription | 구독을 선택합니다. |
     | Resource group | **CreatePrivLinkService-rg** 를 선택합니다. 이전 섹션에서 이 리소스 그룹을 만들었습니다.|
     | **인스턴스 세부 정보** |  |
-    | 속성  | **myPrivateEndpoint** 를 입력합니다. |
+    | Name  | **myPrivateEndpoint** 를 입력합니다. |
     | 지역 | **(미국) 미국 동부 2** 를 선택합니다. |
 
 6. 페이지 아래쪽에서 **리소스** 탭 또는 **다음: 리소스** 단추를 선택합니다.

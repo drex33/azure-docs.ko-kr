@@ -10,17 +10,17 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 60de092a25350add4dc5b216bb7d079b866cc1fd
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: f5b41f98f3d0ce1ca1cab4f8a5c5715d9a10fa64
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659384"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677326"
 ---
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
@@ -155,7 +155,7 @@ console.log(token);
 액세스 토큰을 새로 고치는 것은 토큰을 발급하는 데 사용된 것과 동일한 ID로 `getToken`을 호출하는 것만큼 쉽습니다. 새로 고친 토큰의 `scopes`도 제공해야 합니다.
 
 ```javascript
-// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
 let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 

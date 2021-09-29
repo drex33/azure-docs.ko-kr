@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c348b82135f129b4c603a70c87f880e8d23d2b67
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 598f1df9808bfe4e367719615ebae332c617a984
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633630"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767834"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v3 드라이버)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "122633630"
 
 이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고, GitHub에서 복제된 Cassandra Java 앱을 만들고, Java용 [v3.x Apache Cassandra 드라이버](https://github.com/datastax/java-driver/tree/3.x)를 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "122633630"
 - [Git](https://www.git-scm.com/downloads) Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 설치합니다.
 
 > [!NOTE]
-> Java용 오픈 소스 Apache Cassandra 드라이버 [버전 3](https://github.com/datastax/java-driver/tree/3.x)을 사용하는 간단한 빠른 시작입니다. 대부분의 경우 기존 코드를 변경하지 않고도 기존 Apache Cassandra 종속 Java 애플리케이션을 Azure Cosmos DB Cassandra API에 연결할 수 있습니다. 그러나 더 나은 전체 환경을 위해 사용자 지정 재시도 및 부하 분산 정책이 포함된 [사용자 지정 Java 확장](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0)을 추가하는 것이 좋습니다. 이는 각각 Azure Cosmos DB에서 [속도 제한](/azure/cosmos-db/cassandra/scale-account-throughput#handling-rate-limiting-429-errors) 및 애플리케이션 수준 장애 조치(failover)를 처리하기 위한 것입니다. 확장을 구현하는 포괄적인 샘플은 [여기](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample)서 찾을 수 있습니다.
+> Java용 오픈 소스 Apache Cassandra 드라이버 [버전 3](https://github.com/datastax/java-driver/tree/3.x)을 사용하는 간단한 빠른 시작입니다. 대부분의 경우 기존 코드를 변경하지 않고도 기존 Apache Cassandra 종속 Java 애플리케이션을 Azure Cosmos DB Cassandra API에 연결할 수 있습니다. 그러나 더 나은 전체 환경을 위해 사용자 지정 재시도 및 부하 분산 정책이 포함된 [사용자 지정 Java 확장](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0)을 추가하는 것이 좋습니다. 이는 각각 Azure Cosmos DB에서 [속도 제한](./scale-account-throughput.md#handling-rate-limiting-429-errors) 및 애플리케이션 수준 장애 조치(failover)를 처리하기 위한 것입니다. 확장을 구현하는 포괄적인 샘플은 [여기](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample)서 찾을 수 있습니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

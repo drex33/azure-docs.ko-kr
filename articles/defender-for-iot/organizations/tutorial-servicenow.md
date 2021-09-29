@@ -6,12 +6,12 @@ ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 07/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: dd4500940b7a7b009e8cfb8acfb0411f2ade3023
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 506af89773f9639df2bd3fcc07a204531d0dcf6e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719940"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749009"
 ---
 # <a name="tutorial-integrate-servicenow-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 ServiceNow 통합
 
@@ -224,7 +224,7 @@ Defender for IoT는 통합에 사용되는 기본 포트를 변경할 수 있도
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 ServiceNow 통합을 시작하는 방법을 알아보았습니다. 계속하여 [Cisco 통합](integration-cisco-ise-pxgrid.md)에 대해 알아보세요.
+이 자습서에서는 ServiceNow 통합을 시작하는 방법을 알아보았습니다. 계속하여 [Cisco 통합](./integration-forescout.md)에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [다음 단계 단추](integration-cisco-ise-pxgrid.md)
+> [다음 단계 단추](./integration-forescout.md)

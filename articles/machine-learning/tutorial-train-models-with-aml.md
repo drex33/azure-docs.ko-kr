@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: d1ad8e4af0d3fdb0abb95fc12ec4a445afabbb1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5c3c5271e000b001ebe257a5ef421f01ac2b1e32
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459247"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597363"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>자습서: Jupyter Notebook 예제를 통해 이미지 분류 모델 학습 
 
@@ -342,11 +342,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 이 스크립트가 데이터를 가져오고 모델을 저장하는 방법은 다음과 같습니다.
 
-+ 학습 스크립트에서 인수를 읽어 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```).
+- 학습 스크립트에서 인수를 읽어 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다().
 
-+ 학습 스크립트는 **outputs** 라는 디렉터리에 모델을 저장합니다. 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서의 뒷부분에서는 이 디렉터리의 모델에 액세스합니다. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+  `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
 
-+ 학습 스크립트가 데이터 세트를 올바르게 로드하려면 `utils.py` 파일이 필요합니다. 다음 코드는 `utils.py`를 `script_folder`에 복사합니다. 그러면 원격 리소스의 학습 스크립트와 함께 이 파일에 액세스할 수 있습니다.
+- 학습 스크립트는 **outputs** 라는 디렉터리에 모델을 저장합니다. 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서의 뒷부분에서는 이 디렉터리의 모델에 액세스합니다. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+
+- 학습 스크립트가 데이터 세트를 올바르게 로드하려면 `utils.py` 파일이 필요합니다. 다음 코드는 `utils.py`를 `script_folder`에 복사합니다. 그러면 원격 리소스의 학습 스크립트와 함께 이 파일에 액세스할 수 있습니다.
 
   ```python
   import shutil

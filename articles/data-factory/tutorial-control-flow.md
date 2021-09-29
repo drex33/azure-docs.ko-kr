@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 03c51dc95998ef0d077dc34232d8aa86ab96fbb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1eaa9e7a7c35c659156cfd4bc2541cb3ca39173
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739392"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805795"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "121739392"
 
 다음 그래픽에서는 시나리오에 대한 개요를 제공합니다.
 
-![다이어그램은 복사본의 대상인 Azure Blob Storage를 표시합니다. 성공 시 세부 정보가 포함된 이메일을 보내거나 실패 시 오류 세부 정보가 포함된 이메일을 보냅니다.](media/tutorial-control-flow/overview.png)
+:::image type="content" source="media/tutorial-control-flow/overview.png" alt-text="다이어그램은 복사본의 대상인 Azure Blob Storage를 표시합니다. 성공 시 세부 정보가 포함된 이메일을 보내거나 실패 시 오류 세부 정보가 포함된 이메일을 보냅니다.":::
 
 이 자습서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
@@ -329,13 +329,13 @@ C# 프로젝트에서 `EmailRequest`라는 클래스를 만듭니다. 이 클래
 
 워크플로는 다음 예제와 같습니다.
 
-![성공 전자 메일 워크플로](media/tutorial-control-flow/success-email-workflow-trigger.png)
+:::image type="content" source="media/tutorial-control-flow/success-email-workflow-trigger.png" alt-text="성공 전자 메일 워크플로":::
 
 이 JSON 콘텐츠는 이전 섹션에서 만든 `EmailRequest` 클래스와 일치합니다.
 
 `Office 365 Outlook – Send an email` 작업을 추가합니다. **이메일 보내기** 작업의 경우 요청 **본문** JSON 스키마에 전달된 속성을 사용하여 이메일의 형식을 지정하는 방법을 사용자 지정합니다. 예를 들면 다음과 같습니다.
 
-![논리 앱 디자이너 - 이메일 보내기 작업](media/tutorial-control-flow/customize-send-email-action.png)
+:::image type="content" source="media/tutorial-control-flow/customize-send-email-action.png" alt-text="논리 앱 디자이너 - 이메일 보내기 작업":::
 
 워크플로가 저장되면 트리거에서 **HTTP POST URL** 값을 복사하여 저장합니다.
 
@@ -343,7 +343,7 @@ C# 프로젝트에서 `EmailRequest`라는 클래스를 만듭니다. 이 클래
 
 **CopySuccessEmail** 을 *CopyFailEmail* 이라는 다른 Logic Apps 워크플로로 복제합니다. 요청 트리거에서 `Request Body JSON schema`은 동일합니다. `Subject`와 같은 전자 메일의 형식을 변경하여 실패 전자 메일에 맞게 조정합니다. 다음은 예제입니다.
 
-![논리 앱 디자이너 - 실패 이메일 워크플로](media/tutorial-control-flow/fail-email-workflow.png)
+:::image type="content" source="media/tutorial-control-flow/fail-email-workflow.png" alt-text="논리 앱 디자이너 - 실패 이메일 워크플로":::
 
 워크플로가 저장되면 트리거에서 **HTTP POST URL** 값을 복사하여 저장합니다.
 

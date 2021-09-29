@@ -1,14 +1,14 @@
 ---
 title: 미디어 청사진 샘플 제어
 description: 미디어 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/13/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: f2750f4733a3a815236778c846bde4e186f30512
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 05349865fc5927c52b669e55157d97dec09f51a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161324"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674892"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>미디어 청사진 샘플의 제어 매핑
 

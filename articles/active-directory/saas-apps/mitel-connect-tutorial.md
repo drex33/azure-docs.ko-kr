@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: b246aed607d8a52e14f29ecfb47693c46067f236
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d5089f0b611af5298ed99e681d4bf2485720900
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062074"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>자습서: Mitel MiCloud Connect 또는 CloudLink 플랫폼과 Azure Active Directory 통합
 
@@ -179,7 +179,7 @@ Mitel 계정 포털에 사용자를 추가하는 방법에 대한 자세한 내�
 
 * Mitel Connect 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Mitel Connect 타일을 클릭하면 MiCloud Connect 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Mitel Connect 타일을 클릭하면 MiCloud Connect 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>CloudLink 플랫폼에서 Azure AD SSO 구성 및 테스트
@@ -305,7 +305,7 @@ CloudLink 계정 포털에서 사용자를 추가하는 방법에 대한 자세�
 
 * CloudLink 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Mitel Connect 타일을 클릭하면 CloudLink 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Mitel Connect 타일을 클릭하면 CloudLink 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

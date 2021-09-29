@@ -1,14 +1,14 @@
 ---
 title: PCI-DSS v3.2.1 청사진 샘플 제어
 description: Azure Policy 및 Azure RBAC에 대한 지불 카드 업계 데이터 보안 표준 v3.2.1 청사진 샘플의 제어 매핑입니다.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5d45e78af9bb07d433ea5aa52581fdbda6d1efea
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9233c8d2ec6f72dc08b67f318bceca29de597058
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756956"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580285"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 청사진 샘플의 제어 매핑
 

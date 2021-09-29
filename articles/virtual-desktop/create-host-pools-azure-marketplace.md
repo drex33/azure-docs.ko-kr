@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8e33c165cd249b578bd4cba9ef4f25446287d7ec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123100827"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766448"
 ---
 # <a name="tutorial-create-a-host-pool"></a>자습서: 호스트 풀 만들기
 
@@ -237,7 +237,7 @@ Azure CLI를 사용하여 Azure 가상 머신을 만드는 방법에 대한 자�
     - [Azure CLI를 사용하여 Windows VM 만들기]( /azure/virtual-machines/windows/quick-create-cli)
     - [자습서 - Azure CLI를 사용하여 Windows VM 만들기 및 관리](/cli/azure/azure-cli-vm-tutorial)
 - Linux
-    - [Azure CLI를 사용하여 Linux VM 만들기]( /virtual-machines/linux/quick-create-cli)
+    - [Azure CLI를 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
     - [자습서: Azure CLI로 Linux VM 만들기 및 관리]( /azure/virtual-machines/linux/tutorial-manage-vm) 
 ---
 

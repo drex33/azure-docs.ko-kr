@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: c2cdd4009261306357bc9d840afa83bc1ebf40df
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 863281f85eac1d467e7935f47a90aacf1b3134dd
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111638"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153447"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -162,26 +162,34 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 지역 | 가용성 | 동일한 영역 HA | 영역 중복 HA |
 | --- | --- | --- | --- |
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 오스트레일리아 남동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 브라질 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 캐나다 동부 | :heavy_check_mark: | :x: | :x: |
+| 인도 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 동아시아(홍콩) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 독일 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 한국 중부 | :heavy_check_mark: | :x: | :x: |
+| 일본 서부 | :heavy_check_mark: | :x: | :x: |
+| 한국 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 한국 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 북유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 노르웨이 동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 스위스 북부 | :heavy_check_mark: | :x: | :x: |
+| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 남아프리카 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 스위스 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 영국 서부 | :heavy_check_mark: | :x: | :x: |
+| 아랍에미리트 북부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 미국 서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 오스트레일리아 남동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| 남아프리카 북부 | :heavy_check_mark: | :x: | :x: |
-| 동아시아(홍콩) | :heavy_check_mark: | :x: | :x: |
-| 인도 중부 | :heavy_check_mark: | :x: | :x: |
+| 미국 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## <a name="contacts"></a>연락처
 

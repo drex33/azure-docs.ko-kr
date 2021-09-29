@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ff86bedf47395b50dc25e552b8b3ed4176e23b65
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6f79fb6ae221b49785a18314ba6e2ced7fd8d34d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769106"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764605"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -244,7 +244,7 @@ az login
 
 ## <a name="5-deploy-the-app"></a>5. 앱 배포
 
-1. 로컬 폴더에서 `az webapp up`을 **실행** 합니다. <app_name>을 전역적으로 고유한 앱 이름으로 **바꿉니다**.
+1. 로컬 폴더에서 `az webapp up`을 **실행** 합니다. \<app-name\>을 전역적으로 고유한 이름으로 **바꿉니다**.
 
     ```azurecli
     az webapp up --sku F1 --name <app-name> --os-type linux
@@ -302,14 +302,14 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="7-update-and-redeploy-the-code&quot;></a>7. 코드 업데이트 및 다시 배포
+## <a name="7-update-and-redeploy-the-code"></a>7. 코드 업데이트 및 다시 배포
 
 1. 로컬 디렉터리에서 **_Startup.cs_ 파일을 엽니다**. 
 
 1. 메서드 호출 `context.Response.WriteAsync`의 텍스트를 **약간 변경합니다**.
 
     ```csharp
-    await context.Response.WriteAsync(&quot;Hello Azure!");
+    await context.Response.WriteAsync("Hello Azure!");
     ```
     
 1. **변경 내용을 저장합니다**.

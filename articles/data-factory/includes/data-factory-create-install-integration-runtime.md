@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c0a0b44b3de088539a070f1182248c4e6db7303f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6bf40202908aa68345fabd2b6fe55d501e8325ff
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771188"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733028"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
@@ -101,23 +101,23 @@ ms.locfileid: "108771188"
 
 8. **통합 런타임(자체 호스팅) 등록** 페이지에 이전 섹션에서 저장한 키를 붙여넣고 **등록** 을 선택합니다. 
 
-    ![통합 런타임 등록](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/register-integration-runtime.png" alt-text="통합 런타임 등록":::
 
 9. **새 통합 런타임(자체 호스팅) 노드** 페이지에서 **마침** 을 선택합니다. 
 
 10. 자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다.
 
-    ![성공적으로 등록되었습니다.](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/registered-successfully.png" alt-text="성공적으로 등록되었습니다.":::
 
 14. **통합 런타임(자체 호스팅) 등록** 페이지에서 **구성 관리자 시작** 을 선택합니다.
 
 15. 노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다.
 
-    ![노드가 페이지에 연결됨](media/data-factory-create-install-integration-runtime/node-is-connected.png)
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/node-is-connected.png" alt-text="노드가 페이지에 연결됨":::
 
 16. 이제, Microsoft SQL Server 데이터베이스에 대한 연결을 테스트합니다.
 
-    ![진단 탭](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
+    :::image type="content" source="media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png" alt-text="진단 탭":::   
 
     a. **구성 관리자** 페이지에서 **진단** 탭으로 이동합니다.
 

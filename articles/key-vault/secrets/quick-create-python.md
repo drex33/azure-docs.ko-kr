@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d9d15735439890d16ba56ca12b5476253f6fcf5d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8d5ef1f13b7413eeb21c7e026aa1cbf9d9bb4541
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537369"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757404"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -133,7 +133,7 @@ python kv_secrets.py
 ```
 
 - 권한 오류가 발생한 경우 [`az keyvault set-policy` 명령](#grant-access-to-your-key-vault)을 실행했는지 확인합니다.
-- 동일한 비밀 이름으로 코드를 다시 실행하면 "(충돌) 비밀 <name>이 현재 삭제되었지만 복구 가능한 상태에 있습니다."라는 오류가 발생할 수 있습니다. 다른 비밀 이름을 사용합니다.
+- 동일한 비밀 이름으로 코드를 다시 실행하면 "(충돌) 비밀 \<name\>이 현재 삭제되었지만 복구 가능한 상태에 있습니다."라는 오류가 발생할 수 있습니다. 다른 비밀 이름을 사용합니다.
 
 ## <a name="code-details"></a>코드 세부 정보
 

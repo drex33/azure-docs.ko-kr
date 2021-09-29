@@ -1,19 +1,19 @@
 ---
 title: 자습서 - IoT 플러그 앤 플레이 여러 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결 | Microsoft Docs
 description: 자습서 - 여러 구성 요소를 사용하고 IoT 허브에 연결하는 IoT 플러그 앤 플레이 샘플 디바이스 코드(C, C#, Java, JavaScript 또는 Python)를 빌드하고 실행합니다. Azure IoT 탐색기 도구를 사용하여 디바이스에서 허브로 전송된 정보를 봅니다.
-author: ericmitt
-ms.author: ericmitt
+author: lizross
+ms.author: lizross
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 380f6e880dbc56457e7c54f4b30be4a63454e94b
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 9bc8e41f3977777cc0d3af03805c6fcc0c9415e9
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406042"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093082"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub"></a>자습서: Linux 또는 Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결
 

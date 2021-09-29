@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ce1d83ddd47553de1efdef80cc33bc5dd4634c81
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b2eeca4bb6f5d8af01aa283446961b56d27918d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307597"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761672"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -65,7 +65,7 @@ Azure Key Vault를 사용하면 CA에서 인증서를 가져올 수 있으며, �
 > [!NOTE]
 > 서명된 CSR을 앞에서 만든 동일한 CSR 요청과 병합해야 합니다. 그렇지 않으면 키가 일치하지 않습니다.
 
-새 CSR을 만드는 방법에 대한 자세한 내용은 [Key Vault에서 CSR 만들기 및 병합]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal)을 참조하세요.
+새 CSR을 만드는 방법에 대한 자세한 내용은 [Key Vault에서 CSR 만들기 및 병합](create-certificate-signing-request.md)을 참조하세요.
 
 ## <a name="renew-a-self-signed-certificate"></a>자체 서명된 인증서 갱신
 

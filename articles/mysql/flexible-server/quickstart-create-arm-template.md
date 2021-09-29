@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 85b7f9898906ffd34ce88fb2243534b5b53898de
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 310e3e4b4b4b00a4b3255cfd581b155c28ed7705
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643609"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128609368"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
 
@@ -27,7 +27,9 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/)
+활성 구독이 있는 Azure 계정. 
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## <a name="review-the-template"></a>템플릿 검토
 

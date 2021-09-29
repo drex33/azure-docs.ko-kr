@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/15/2021
-ms.openlocfilehash: 6387b07aa29a836eae79b6090571f143091d2115
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/08/2021
+ms.openlocfilehash: b2d00a30a1b53ecb6c854e84c3202e10a92abcea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749508"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736319"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 클러스터 만들기(미리 보기)
 
@@ -48,19 +48,23 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    ```azurecli-interactive
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
-    > [!NOTE]
-    > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
-    > - Azure Storage
-    > - Azure KeyVault
-    > - Azure Virtual Machine Scale Sets
-    > - Azure 모니터링
-    > - Azure Active Directory
-    > - Azure Security
 
-1. 관리형 인스턴스에 필요한 몇 가지 특수 권한을 Virtual Network에 적용합니다. `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>` 및 `<VNet name>`을 적절한 값으로 바꿉니다.
+   > [!NOTE]
+   > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
+   > - Azure Storage
+   > - Azure KeyVault
+   > - Azure Virtual Machine Scale Sets
+   > - Azure 모니터링
+   > - Azure Active Directory
+   > - Azure Security
+
+1. 관리형 인스턴스에 필요한 몇 가지 특수 권한을 Virtual Network에 적용합니다. `az role assignment create` 명령을 사용하여 `<subscriptionID>`, `<resourceGroupName>` 및 `<vnetName>`을 적절한 값으로 바꿉니다.
 
    ```azurecli-interactive
-   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
+   az role assignment create \
+     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+     --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>
    ```
 
    > [!NOTE]
@@ -79,12 +83,12 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    initialCassandraAdminPassword='myPassword'
     
    az managed-cassandra cluster create \
-      --cluster-name $clusterName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --initial-cassandra-admin-password $initialCassandraAdminPassword \
-      --debug
+     --cluster-name $clusterName \
+     --resource-group $resourceGroupName \
+     --location $location \
+     --delegated-management-subnet-id $delegatedManagementSubnetId \
+     --initial-cassandra-admin-password $initialCassandraAdminPassword \
+     --debug
    ```
 
 1. 마지막으로 [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) 명령을 사용하여 세 개의 노드가 있는 클러스터용 데이터 센터를 만듭니다.
@@ -94,12 +98,12 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    dataCenterLocation='eastus2'
     
    az managed-cassandra datacenter create \
-      --resource-group $resourceGroupName \
-      --cluster-name $clusterName \
-      --data-center-name $dataCenterName \
-      --data-center-location $dataCenterLocation \
-      --delegated-subnet-id $delegatedManagementSubnetId \
-      --node-count 3 
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --data-center-name $dataCenterName \
+     --data-center-location $dataCenterLocation \
+     --delegated-subnet-id $delegatedManagementSubnetId \
+     --node-count 3 
    ```
 
 1. 데이터 센터가 생성된 후 데이터 센터의 노드를 스케일 업 또는 스케일 다운하려는 경우 [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) 명령을 실행합니다. `node-count` 매개 변수 값을 원하는 값으로 변경합니다.
@@ -111,10 +115,10 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    dataCenterLocation='eastus2'
     
    az managed-cassandra datacenter update \
-      --resource-group $resourceGroupName \
-      --cluster-name $clusterName \
-      --data-center-name $dataCenterName \
-      --node-count 9 
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --data-center-name $dataCenterName \
+     --node-count 9 
    ```
 
 ## <a name="connect-to-your-cluster"></a>클러스터에 연결

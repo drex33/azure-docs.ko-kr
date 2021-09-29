@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/20/2021
-ms.openlocfilehash: 23b40998c3777a4d7d0e1d092a33d8e9b85b3d54
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4c9028b559c537c0707b0ab3264fbfa11d26a350
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970102"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664113"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -109,7 +109,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 2. **Azure Database Migration Service** 화면에서 **만들기** 를 선택합니다.
 
-    ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-sql-server-to-managed-instance-online/dms-create-service1.png)
+    ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-1.png)
 
 3. **마이그레이션 서비스 만들기** 기본 사항 화면에서:
 
@@ -120,12 +120,12 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
      - **Azure** 를 서비스 모드로 선택합니다.
      - 프리미엄 가격 책정 계층에서 SKU를 선택합니다. 
      
-    > [!NOTE]
-    > 온라인 마이그레이션은 프리미엄 계층을 사용하는 경우에만 지원됩니다.
+      > [!NOTE]
+      > 온라인 마이그레이션은 프리미엄 계층을 사용하는 경우에만 지원됩니다.
 
      - 비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
 
-    ![Azure Database Migration Service 인스턴스 기본 사항 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-create-service2.png)
+    ![Azure Database Migration Service 인스턴스 기본 사항 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-2.png)
 
      - **다음: 네트워킹** 을 선택합니다.
 
@@ -137,7 +137,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     
     - 자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지](./resource-network-topologies.md) 문서를 참조하세요.
 
-    ![Azure Database Migration Service 인스턴스 네트워킹 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
+      ![Azure Database Migration Service 인스턴스 네트워킹 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-create-service-3.png)
 
     - **검토 + 만들기** 를 선택하여 세부 정보를 검토한 다음 **만들기** 를 선택하여 서비스를 만듭니다.
 
@@ -153,11 +153,11 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 3. **새 마이그레이션 프로젝트** 를 선택합니다.
 
-     ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-sql-server-to-managed-instance-online/dms-create-project1.png)
+     ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-sql-server-to-managed-instance-online/dms-create-project-1.png)
 
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server** 를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database Managed Instance** 를 선택한 다음, **작업 형식 선택** 에서 **온라인 데이터 마이그레이션** 을 선택합니다.
 
-   ![Database Migration Service 프로젝트 만들기](media/tutorial-sql-server-to-managed-instance-online/dms-create-project2.png)
+   ![Database Migration Service 프로젝트 만들기](media/tutorial-sql-server-to-managed-instance-online/dms-create-project-2.png)
 
 5. **작업 만들기 및 실행** 을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
 
@@ -174,7 +174,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     > [!CAUTION]
     > 자체 서명 인증서를 사용하여 암호화된 TLS 연결은 강력한 보안을 제공하지 않습니다. 중간자 공격(man-in-the-middle)을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서는 자체 서명된 인증서를 사용한 TLS에 의존해서는 안 됩니다.
 
-   ![원본 세부 정보](media/tutorial-sql-server-to-managed-instance-online/dms-source-details.png)
+    ![원본 세부 정보](media/tutorial-sql-server-to-managed-instance-online/dms-source-details.png)
 
 3. **다음: 대상 선택** 선택
 
@@ -198,10 +198,10 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 1. **데이터베이스 선택** 화면에서 마이그레이션할 원본 데이터베이스를 선택합니다.
 
-   ![원본 데이터베이스 선택](media/tutorial-sql-server-to-managed-instance-online/dms-source-database.png)
+  ![원본 데이터베이스 선택](media/tutorial-sql-server-to-managed-instance-online/dms-source-database.png)
 
-> [!IMPORTANT]
-> SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 SQL Managed Instance로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 SQL Managed Instance에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
+  > [!IMPORTANT]
+  > SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 SQL Managed Instance로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 SQL Managed Instance에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](./how-to-migrate-ssis-packages.md) 문서를 참조하세요.
 
 2. **다음: 마이그레이션 설정 구성** 을 선택합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 Shared Services 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 Shared Services 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 04/30/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 872f8ea492d1983f3c527ddb1c0eac7b26406844
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1eb1e8fef7a83ee3cfdb81514b9002281a3f6fb6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739172"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674968"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 배포
 

@@ -2,19 +2,19 @@
 title: '빠른 시작: 브라우저의 JavaScript v10용 Azure Blob 스토리지'
 description: HTML 페이지에서 JavaScript v10 SDK를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
-author: twooley
+author: normesta
 ms.custom: mvc, devx-track-js
 ms.service: storage
-ms.author: twooley
+ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: b3cca61fe272b61f2227e7546b37e4ea37cfd693
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 925a29de633b5cc39b5bacc3c59cca48f4c9c612
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280142"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673353"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -43,7 +43,7 @@ Azure Portal로 돌아가서 스토리지 계정을 선택합니다. 새 CORS �
 
 다음 표에서는 각 CORS 설정을 설명하고 규칙을 정의하는 데 사용되는 값을 설명합니다.
 
-|설정  |값  | 설명 |
+|설정  |Value  | 설명 |
 |---------|---------|---------|
 | 허용된 원본 | * | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
 | 허용된 메서드     | delete, get, head, merge, post, options, put | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
@@ -84,7 +84,7 @@ az storage account generate-sas \
 
 약간 복잡한 각 매개 변수 뒤에 일련의 값이 있습니다. 이 매개 변수 값은 해당 권한의 첫 문자에서 가져옵니다. 다음 표는 값이 발생한 위치를 설명합니다.
 
-| 매개 변수        | 값   | 설명  |
+| 매개 변수        | Value   | 설명  |
 |------------------|---------|---------|
 | *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스  , 컨테이너  및 개체  입니다. |
@@ -183,7 +183,7 @@ Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저
 </script>
 ```
 
-이 코드는 스크립트 파일에 참조를 추가하고, 사용자 고유의 JavaScript 코드를 위한 공간을 제공합니다. 이 빠른 시작을 위해 *azure-storage-blob.js* 스크립트 파일을 사용하여 VS Code에서 열고, 내용을 읽고, 중단점을 설정할 수 있습니다. 프로덕션 환경에서는 zip 파일에도 제공되는 더 간단한 *azure-storage.blob.min.js* 파일을 사용해야 합니다.
+이 코드는 스크립트 파일에 참조를 추가하고, 사용자 고유의 JavaScript 코드를 위한 공간을 제공합니다. 이 빠른 시작을 위해 `azure-storage-blob.js` 스크립트 파일을 사용하여 VS Code에서 열고, 내용을 읽고, 중단점을 설정할 수 있습니다. 프로덕션 환경에서는 zip 파일에도 제공되는 더 간단한 *azure-storage.blob.min.js* 파일을 사용해야 합니다.
 
 각 Blob 스토리지 함수에 대한 자세한 내용은 [참조 설명서](/javascript/api/%40azure/storage-blob/index)에서 확인할 수 있습니다. SDK의 일부 함수는 Node.js 또는 브라우저에서만 사용할 수 있습니다.
 

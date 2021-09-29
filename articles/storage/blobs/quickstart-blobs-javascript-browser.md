@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - 브라우저의 JavaScript'
 description: 이 빠른 시작에서는 브라우저에서 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 버전 12를 사용하는 방법을 알아봅니다. 컨테이너와 개체를 Blob 스토리지에 만듭니다. 다음으로, 모든 Blob을 컨테이너에 나열하는 방법을 알아봅니다. 마지막으로, Blob과 컨테이너를 삭제하는 방법을 알아봅니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: f253be6bbcea46baa6c86f33223504bfba3ab198
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: bea5af6656aacd18805627f471d7227c2d1077bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616843"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -23,29 +23,29 @@ Azure Blob 스토리지는 대량의 비정형 데이터를 저장하도록 최�
 
 추가 리소스:
 
-* [API 참조 설명서](/javascript/api/@azure/storage-blob)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
-* [패키지(npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [API 참조 설명서](/javascript/api/@azure/storage-blob)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+- [패키지(npm)](https://www.npmjs.com/package/@azure/storage-blob)
+- [샘플](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [활성 구독이 있는 Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Azure Storage 계정](../common/storage-account-create.md)
-* [Node.JS](https://nodejs.org)
-* [Microsoft Visual Studio Code](https://code.visualstudio.com)
-* 브라우저 디버깅을 위한 Visual Studio Code 확장은 다음과 같습니다.
-    * [Microsoft Edge용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
-    * [Chrome용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-    * [Firefox용 디버거](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
+- [활성 구독이 있는 Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Azure Storage 계정](../common/storage-account-create.md)
+- [Node.JS](https://nodejs.org)
+- [Microsoft Visual Studio Code](https://code.visualstudio.com)
+- 브라우저 디버깅을 위한 Visual Studio Code 확장은 다음과 같습니다.
+  - [Microsoft Edge용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+  - [Chrome용 디버거](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+  - [Firefox용 디버거](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 ## <a name="object-model"></a>개체 모델
 
 Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 컨테이너
-* 컨테이너의 blob
+- 스토리지 계정
+- 스토리지 계정의 컨테이너
+- 컨테이너의 blob
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -53,9 +53,9 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 이 빠른 시작에서는 다음 JavaScript 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
-* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): `BlockBlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
+- [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
+- [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
+- [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): `BlockBlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -149,13 +149,13 @@ Visual Studio Code에서 새 파일을 만들고 다음 HTML 코드를 추가합
 
 코드 예제에서는 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
-* [UI 요소에 대한 필드 선언](#declare-fields-for-ui-elements)
-* [스토리지 계정 정보 추가](#add-your-storage-account-info)
-* [클라이언트 개체 만들기](#create-client-objects)
-* [스토리지 컨테이너 만들기 및 삭제](#create-and-delete-a-storage-container)
-* [Blob 나열](#list-blobs)
-* [Blob 업로드](#upload-blobs)
-* [Blob 삭제](#delete-blobs)
+- [UI 요소에 대한 필드 선언](#declare-fields-for-ui-elements)
+- [스토리지 계정 정보 추가](#add-your-storage-account-info)
+- [클라이언트 개체 만들기](#create-client-objects)
+- [스토리지 컨테이너 만들기 및 삭제](#create-and-delete-a-storage-container)
+- [Blob 나열](#list-blobs)
+- [Blob 업로드](#upload-blobs)
+- [Blob 삭제](#delete-blobs)
 
 모든 코드 조각이 *index.js* 파일에 추가되면 코드를 실행합니다.
 
@@ -304,5 +304,5 @@ Visual Studio Code에서 **터미널** 콘솔을 클릭하고, Ctrl+C를 눌러 
 > [!div class="nextstepaction"]
 > [JavaScript용 Azure 설명서](/azure/developer/javascript/)
 
-* 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
-* Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.
+- 자세한 내용은 [JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)를 참조하세요.
+- Blob 스토리지 샘플 앱을 보려면 [Azure Blob 스토리지 클라이언트 라이브러리 v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)을 계속 진행하세요.

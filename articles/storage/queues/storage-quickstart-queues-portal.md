@@ -1,8 +1,8 @@
 ---
 title: '빠른 시작: 포털에서 Azure Storage 큐 만들기'
 description: Azure Portal을 사용하여 큐를 만듭니다. 그런 다음, Azure Portal을 사용하여 메시지를 추가하고, 메시지 속성을 보고, 메시지를 큐에서 제거합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/13/2020
 ms.topic: quickstart
@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: queues
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f0e7a5a514f2d68fce025ea9fb354f29fa068561
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8140e694b900c87ca93e0e73603aa1fd95e34f09
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534392"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555382"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
 

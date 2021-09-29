@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 284ec65955de60f41d7bb0f97bf608faba3d4b79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfc36a877ea7c21d580a25fe8987d202d80d0aac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672596"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -217,7 +217,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 8. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
 
-### <a name="create-an-answerhub-test-user"></a>AnswerHub 테스트 사용자 만들기
+### <a name="create-an-answerhub-test-user&quot;></a>AnswerHub 테스트 사용자 만들기
 
 Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사용자를 AnswerHub에 추가해야 합니다. AnswerHub에서 이 작업은 수동으로 수행됩니다.
 
@@ -231,7 +231,7 @@ Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사
 
 4. 왼쪽 창의 **사용자 관리** 섹션에서 **사용자 만들기 또는 가져오기** 를 선택한 다음, **사용자 및 그룹** 을 선택합니다.
 
-    ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png "사용자 및 그룹")
+    ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png &quot;사용자 및 그룹")
 
 5. 추가하려는 유효한 Azure AD 계정의 **이메일 주소**, **사용자 이름** 및 **암호** 를 적절한 상자에 입력한 다음, **저장** 을 선택합니다.
 
@@ -242,7 +242,7 @@ Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 AnswerHub 타일을 선택하면 SSO를 설정한 AnswerHub에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 AnswerHub 타일을 선택하면 SSO를 설정한 AnswerHub에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

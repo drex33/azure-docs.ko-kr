@@ -4,12 +4,12 @@ description: Azure Arc 지원 서버 에이전트에 대한 개요 섹션의 새
 ms.topic: overview
 ms.date: 08/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 45f7ed97cf9e0fbb389ccf893f2674e2601ee7f9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0e3dbda61503442f15bc74e0ec3b771e732b96db
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680702"
 ---
 # <a name="archive-for-whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능 아카이브
 
@@ -21,6 +21,17 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
 - 알려진 문제
 - 버그 수정
 
+## <a name="april-2021"></a>2021년 4월
+
+버전 1.5
+
+### <a name="new-features"></a>새로운 기능
+
+- Red Hat Enterprise Linux 8 및 CentOS Linux 8에 대한 지원이 추가되었습니다.
+- 새 `-useStderr` 매개 변수를 통해 오류 및 자세한 정보 출력을 stderr로 지정합니다.
+- 새 `-json` 매개 변수를 통해 출력을 지정하여 JSON 형식이 되도록 합니다(-useStderr과 함께 사용하는 경우).
+- 제조업체, 모델, 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 등 다른 인스턴스 메타데이터를 수집합니다.
+ 
 ## <a name="march-2021"></a>2021년 3월
 
 버전 1.4

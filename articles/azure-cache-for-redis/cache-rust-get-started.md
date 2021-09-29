@@ -7,12 +7,12 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: acbf5933f01a465ad1855c049796901da5d1ff90
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 23e1bdc895da7ba9941901832d7fc89cd9c6196a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059737"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592625"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>빠른 시작: Rust에서 Azure Cache for Redis 사용
 
@@ -35,9 +35,9 @@ ms.locfileid: "110059737"
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## <a name="review-the-code-optional"></a>코드 검토(선택 사항)
 
@@ -177,7 +177,7 @@ fn list() {
 }
 ```
 
-여기서 `SET` 작업 중 일부를 확인할 수 있습니다. [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd)(상위 수준 API) 메서드를 사용하여 몇 가지 항목을 `users`라는 `SET`에 추가합니다. 그런 다음, [SISMEMBER](https://redis.io/commands/hset)(하위 수준 API)를 실행하여 `user1`이 있는지 확인합니다. 마지막으로 [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers)를 사용하여 모든 집합 항목을 벡터([Vec<String>](https://doc.rust-lang.org/std/vec/struct.Vec.html)) 형식으로 가져오고 반복합니다.
+여기서 `SET` 작업 중 일부를 확인할 수 있습니다. [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd)(상위 수준 API) 메서드를 사용하여 몇 가지 항목을 `users`라는 `SET`에 추가합니다. 그런 다음, [SISMEMBER](https://redis.io/commands/hset)(하위 수준 API)를 실행하여 `user1`이 있는지 확인합니다. 마지막으로 [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers)를 사용하여 모든 집합 항목을 벡터([Vec\<String\>](https://doc.rust-lang.org/std/vec/struct.Vec.html)) 형식으로 가져오고 반복합니다.
 
 ```rust
 fn set() {

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - .NET'
 description: 이 빠른 시작에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 03/03/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d5870935cd4db4c49f84254186277ce7aa431c4
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c71a362c7e8e3073929967abce4bcdc4566b8ce9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123476091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652913"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -21,25 +21,24 @@ ms.locfileid: "123476091"
 
 .NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
 
-* 컨테이너 만들기
-* Azure Storage에 Blob 업로드
-* 컨테이너의 모든 blob 나열
-* 로컬 컴퓨터에 blob 다운로드
-* 컨테이너 삭제
+- 컨테이너 만들기
+- Azure Storage에 Blob 업로드
+- 컨테이너의 모든 blob 나열
+- 로컬 컴퓨터에 blob 다운로드
+- 컨테이너 삭제
 
 추가 리소스:
 
-* [API 참조 설명서](/dotnet/api/azure.storage.blobs)
-* [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
-* [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [샘플](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
-
+- [API 참조 설명서](/dotnet/api/azure.storage.blobs)
+- [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+- [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+- [샘플](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
-* 현재 운영 체제의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)입니다. 런타임이 아니라 SDK가 있어야 합니다.
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+- 현재 운영 체제의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)입니다. 런타임이 아니라 SDK가 있어야 합니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -94,9 +93,9 @@ dotnet add package Azure.Storage.Blobs
 
 Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
-* 스토리지 계정
-* 스토리지 계정의 컨테이너
-* 컨테이너의 blob
+- 스토리지 계정
+- 스토리지 계정의 컨테이너
+- 컨테이너의 blob
 
 다음 다이어그램에서는 이러한 리소스 간의 관계를 보여줍니다.
 
@@ -104,20 +103,20 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 다음 .NET 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
+- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다.
+- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 이 예제 코드 조각은 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
-* [연결 문자열 가져오기](#get-the-connection-string)
-* [컨테이너 만들기](#create-a-container)
-* [컨테이너에 Blob 업로드](#upload-blobs-to-a-container)
-* [컨테이너의 Blob 나열](#list-the-blobs-in-a-container)
-* [Blob 다운로드](#download-blobs)
-* [컨테이너 삭제](#delete-a-container)
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [컨테이너 만들기](#create-a-container)
+- [컨테이너에 Blob 업로드](#upload-blobs-to-a-container)
+- [컨테이너의 Blob 나열](#list-the-blobs-in-a-container)
+- [Blob 다운로드](#download-blobs)
+- [컨테이너 삭제](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -225,5 +224,5 @@ Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 > [!div class="nextstepaction"]
 > [Azure Blob Storage SDK v12 .NET 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
-* 자습서, 샘플, 빠른 시작 및 기타 설명서는 [.NET 및 .NET Core 개발자용 Azure](/dotnet/azure/)를 참조하세요.
-* .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.
+- 자습서, 샘플, 빠른 시작 및 기타 설명서는 [.NET 및 .NET Core 개발자용 Azure](/dotnet/azure/)를 참조하세요.
+- .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)을 참조하세요.

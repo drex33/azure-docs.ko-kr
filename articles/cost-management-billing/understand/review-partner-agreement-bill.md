@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 9e5ecc67fe86afa15c66d175f0705818154588bf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a7c67b364fba771ad485eee8b93a62b9bdabc841
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684357"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643045"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>자습서: Microsoft 파트너 계약 청구서 검토
 
@@ -45,21 +45,21 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 계약 유형을 검사하여 Microsoft 파트너 계약의 청구 계정에 액세스할 수 있는지 확인합니다.
 
-Azure Portal에서 검색 상자에 *Cost Management + 청구*를 입력한 다음, **Cost Management + 청구**를 선택합니다.
+Azure Portal에서 검색 상자에 *Cost Management + 청구* 를 입력한 다음, **Cost Management + 청구** 를 선택합니다.
 
 ![Azure Portal 검색을 보여 주는 스크린샷](./media/review-partner-agreement-bill/billing-search-cost-management-billing.png)
 
-하나의 청구 범위에만 액세스할 수 있는 경우, 왼쪽에서 **속성**을 선택합니다. 청구 계정 유형이 **Microsoft 파트너 계약**인 경우, Microsoft 파트너 계약의 청구 계정에 액세스할 수 있습니다.
+하나의 청구 범위에만 액세스할 수 있는 경우, 왼쪽에서 **속성** 을 선택합니다. 청구 계정 유형이 **Microsoft 파트너 계약** 인 경우, Microsoft 파트너 계약의 청구 계정에 액세스할 수 있습니다.
 
 ![속성 페이지의 Microsoft 파트너 계약을 보여주는 스크린샷](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
 
-여러 청구 범위에 액세스할 수 있는 경우 청구 계정 열의 유형을 확인합니다. 범위 중 하나의 청구 계정 유형이 **Microsoft 파트너 계약**인 경우, Microsoft 파트너 계약의 청구 계정에 액세스할 수 있습니다.
+여러 청구 범위에 액세스할 수 있는 경우 청구 계정 열의 유형을 확인합니다. 범위 중 하나의 청구 계정 유형이 **Microsoft 파트너 계약** 인 경우, Microsoft 파트너 계약의 청구 계정에 액세스할 수 있습니다.
 
 ![청구 계정 목록 페이지의 Microsoft 파트너 계약을 보여주는 스크린샷](./media/review-partner-agreement-bill/mpa-in-the-list.png)
 
 ## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Azure Portal에서 송장이 발부된 트랜잭션 검토
 
-Cost Management + 청구의 페이지 왼쪽에서 **모든 트랜잭션**을 선택합니다. 액세스 권한에 따라 청구 계정, 청구 프로필 또는 고객을 선택한 다음, **모든 트랜잭션**을 선택해야 할 수도 있습니다.
+Cost Management + 청구의 페이지 왼쪽에서 **모든 트랜잭션** 을 선택합니다. 액세스 권한에 따라 청구 계정, 청구 프로필 또는 고객을 선택한 다음, **모든 트랜잭션** 을 선택해야 할 수도 있습니다.
 
 [모든 트랜젝션] 페이지에는 다음 정보가 표시됩니다.
 
@@ -85,19 +85,19 @@ Cost Management + 청구의 페이지 왼쪽에서 **모든 트랜잭션**을 �
 
 보류 중인 요금을 확인할 때 요금에 포함된 개별 트랜잭션을 분석하여 요금을 이해할 수 있습니다. 현재 보류 중인 사용 요금은 [모든 트랜잭션] 페이지에 표시되지 않습니다. Azure 구독 페이지에서 보류 중인 사용 요금을 볼 수 있습니다.
 
-Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
-페이지 왼쪽에서 **모든 트랜잭션**을 선택합니다.
+페이지 왼쪽에서 **모든 트랜잭션** 을 선택합니다.
 
-*보류 중*을 검색합니다. **Timespan** 필터를 사용하여 이번 달 또는 지난 달의 보류 중인 요금을 봅니다.
+*보류 중* 을 검색합니다. **Timespan** 필터를 사용하여 이번 달 또는 지난 달의 보류 중인 요금을 봅니다.
 
 <!-- ![Screenshot that shows the pending transactions list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-pending-transactions.png) -->
 
 ### <a name="view-pending-charges-by-customer"></a>고객별 보류 중인 요금 보기
 
-Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
-페이지 왼쪽에서 **고객**을 선택합니다.
+페이지 왼쪽에서 **고객** 을 선택합니다.
 
 <!-- ![screenshot of billing profile customers list](./media/billing-mpa-understand-your-bill/mpa-billing-profile-customers.png) -->
 
@@ -105,9 +105,9 @@ Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 �
 
 ### <a name="view-pending-usage-charges"></a>보류 중인 사용 요금 보기
 
-Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+Cost Management + 청구에서 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
-페이지 왼쪽에서 **Azure 구독**을 선택합니다. Azure 구독 페이지에는 청구 프로필의 각 구독에 대한 이번 달과 지난 달 요금이 표시 됩니다. 월간 누계 요금은 이번 달의 보류 중인 요금이며 이번 달의 청구서가 생성될 때 청구됩니다. 지난 달의 청구서가 아직 생성되지 않은 경우 지난 달의 요금 역시 보류 중 요금입니다.
+페이지 왼쪽에서 **Azure 구독** 을 선택합니다. Azure 구독 페이지에는 청구 프로필의 각 구독에 대한 이번 달과 지난 달 요금이 표시 됩니다. 월간 누계 요금은 이번 달의 보류 중인 요금이며 이번 달의 청구서가 생성될 때 청구됩니다. 지난 달의 청구서가 아직 생성되지 않은 경우 지난 달의 요금 역시 보류 중 요금입니다.
 
 <!--     ![Screenshot that shows the Azure subscriptions list for MPA billing profile](./media/billing-mpa-understand-your-bill/mpa-billing-profile-subscriptions-list.png) -->
 

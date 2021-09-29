@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Object Anchors를 사용하여 HoloLens 
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: cb9b1d5aa489950e86bc2f1575d44fd78919359e
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 53bcc84fc63666e64ffaf502a4348de87c1ab8c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254362"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796997"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>빠른 시작: Unity에서 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -70,3 +70,6 @@ Unity 시작 화면 다음에는 Object Observer가 초기화되었음을 나타
 
 > [!div class="nextstepaction"]
 > [변환 SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [개체 검색 문제 해결](../troubleshoot/object-detection.md)

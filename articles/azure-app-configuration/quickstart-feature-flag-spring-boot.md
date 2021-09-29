@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: devx-track-java
-ms.openlocfilehash: f683f570fe085753f1ebd81b859b86f70b1e9e49
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: 6e2b57ec7f5522d8789d1977afc4aa58fc24a3e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113037745"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573311"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -62,7 +62,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.0.0-beta.2</version>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
@@ -85,6 +85,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
 1. 구성 저장소에 대한 App Configuration 포털의 사이드바에서 `Access keys`를 선택합니다. 읽기 전용 키 탭을 선택합니다. 기본 연결 문자열의 값을 복사합니다.
@@ -159,7 +160,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
             return "welcome";
         }
     }

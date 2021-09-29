@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 069238a6feb4425aba1da48b89d26128d6d54775
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: d6fa93319e9e2ecdd666a92f816df5a63a4f477f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846989"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748668"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 인증서 클라이언트 라이브러리(버전 4)
 
@@ -152,9 +152,9 @@ const { CertificateClient } = require("@azure/keyvault-certificates");
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)를 참조하세요.
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](/javascript/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](../general/developers-guide.md#authenticate-to-key-vault-in-code)를 참조하세요.
 
 'main()' 함수에 다음 코드를 추가합니다.
 
@@ -168,7 +168,7 @@ const client = new Certificate(KVUri, credential);
 
 ### <a name="save-a-certificate"></a>인증서 저장
 
-이제 애플리케이션을 인증했으므로 [beginCreateCertificate 메서드](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_)를 사용하여 keyvault에 인증서를 배치할 수 있습니다. 여기에는 인증서의 이름과 [인증서 정책 속성](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy)이 있는 [인증서 정책](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)이 필요합니다.
+이제 애플리케이션을 인증했으므로 [beginCreateCertificate 메서드](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_)를 사용하여 keyvault에 인증서를 배치할 수 있습니다. 여기에는 인증서의 이름과 [인증서 정책 속성](/javascript/api/@azure/keyvault-certificates/certificatepolicy)이 있는 [인증서 정책](/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)이 필요합니다.
 
 ```javascript
 const certificatePolicy = {
@@ -191,7 +191,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### <a name="delete-a-certificate"></a>인증서 삭제
 
-마지막으로 [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) 및 [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) 메서드를 사용하여 키 자격 증명 모음에서 인증서를 삭제하고 제거하겠습니다.
+마지막으로 [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) 및 [purgeDeletedCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) 메서드를 사용하여 키 자격 증명 모음에서 인증서를 삭제하고 제거하겠습니다.
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);

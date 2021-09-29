@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e1099f271291c6d86610237454e08e06b5fe48c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61bb44a6431885c4696af840d829bc1671f1c1e5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522159"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>자습서: Azure Active Directory와 Humanity 통합
 
@@ -122,13 +122,13 @@ Humanity에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     다. 로그아웃 URL
 
-### <a name="configure-humanity-single-sign-on"></a>Humanity Single Sign-On 구성
+### <a name="configure-humanity-single-sign-on&quot;></a>Humanity Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 **Humanity** 회사 사이트에 관리자로 로그인합니다.
 
 2. 위쪽의 메뉴에서 **관리자** 를 클릭합니다.
 
-    ![관리자](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![관리자](./media/shiftplanning-tutorial/iC786619.png &quot;Admin")
 3. **통합** 아래에서 **Single Sign-On** 을 클릭합니다.
 
     ![스크린샷은 통합 메뉴에서 선택한 Single Sign-On을 보여줍니다.](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
@@ -200,7 +200,7 @@ Humanity에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-humanity-test-user"></a>Humanity 테스트 사용자 만들기
+### <a name="create-humanity-test-user&quot;></a>Humanity 테스트 사용자 만들기
 
 Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity로 프로비전되어야 합니다. Humanity의 경우 프로비전은 수동 작업입니다.
 
@@ -210,7 +210,7 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
 2. **Admin** 을 클릭합니다.
 
-    ![관리자](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![관리자](./media/shiftplanning-tutorial/iC786619.png &quot;Admin")
 
 3. **Staff** 를 클릭합니다.
 
@@ -235,7 +235,7 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Humanity 타일을 클릭하면 SSO를 설정한 Humanity에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Humanity 타일을 클릭하면 SSO를 설정한 Humanity에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

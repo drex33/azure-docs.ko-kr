@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 06/03/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 96e402a46d931223832295ccbd892eb38b909c59
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572674"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -75,11 +75,12 @@ Azure AD 조건부 액세스를 사용하는 경우 다음 사항을 고려합�
 ## <a name="prepare-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 준비
 조건부 액세스 정책을 추가하려면 보안 기본값을 사용하지 않도록 설정합니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-3. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
-4. **속성** 을 선택한 다음, **보안 기본값 관리** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
+1. **속성** 을 선택한 다음, **보안 기본값 관리** 를 선택합니다.
    ![보안 기본값 사용 안 함](media/conditional-access-user-flow/disable-security-defaults.png)
-5. **보안 기본값 사용** 아래에서 **아니요** 를 선택합니다.
+1. **보안 기본값 사용** 아래에서 **아니요** 를 선택합니다.
    ![보안 기본값 사용 토글을 아니요로 설정](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
 ## <a name="add-a-conditional-access-policy"></a>조건부 액세스 정책 추가
@@ -331,8 +332,10 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
    > Azure AD B2C에서 조건부 액세스가 일반 공급됨에 따라 이제 사용자에게 등록하는 동안 MFA 메서드에 등록하라는 메시지가 표시됩니다. 일반 공급 이전에 만든 등록 사용자 흐름은 이 새로운 동작을 자동으로 반영하지 않지만 새 사용자 흐름을 만들어 동작을 포함할 수 있습니다.
 ::: zone pivot="b2c-user-flow"
 사용자 흐름에 대한 조건부 액세스를 사용하도록 설정하려면 버전이 조건부 액세스를 지원하는지 확인합니다. 이러한 사용자 흐름 버전에는 **추천** 이라는 레이블이 지정됩니다.
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 1. **정책** 아래에서 **사용자 흐름** 을 선택합니다. 그런 다음, 사용자 흐름을 선택합니다.
 1. **속성** 을 선택하고 **조건부 액세스** 라는 레이블이 지정된 설정을 찾아서 사용자 흐름에서 조건부 액세스를 지원하는지 확인합니다.
@@ -374,14 +377,15 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
 ## <a name="review-conditional-access-outcomes-in-the-audit-report"></a>감사 보고서의 조건부 액세스 결과 검토
 조건부 액세스 이벤트의 결과를 검토하려면
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-3. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
-4. **활동** 아래에서 **감사 로그** 를 선택합니다.
-5. **범주** 를 **B2C** 로 설정하고 **활동 리소스 종류** 를 **IdentityProtection** 으로 설정하여 감사 로그를 필터링합니다. 그런 다음, **적용** 을 선택합니다.
-6. 최대 7일 동안의 최근 감사 활동을 검토합니다. 포함되는 활동 유형은 다음과 같습니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
+1. **활동** 아래에서 **감사 로그** 를 선택합니다.
+1. **범주** 를 **B2C** 로 설정하고 **활동 리소스 종류** 를 **IdentityProtection** 으로 설정하여 감사 로그를 필터링합니다. 그런 다음, **적용** 을 선택합니다.
+1. 최대 7일 동안의 최근 감사 활동을 검토합니다. 포함되는 활동 유형은 다음과 같습니다.
    - **조건부 액세스 정책 평가**: 이 감사 로그 항목은 인증 중에 조건부 액세스 평가가 수행되었음을 나타냅니다.
    - **사용자 수정**: 이 항목은 최종 사용자가 조건부 액세스 정책의 권한 부여 또는 요구 사항을 충족했으며 사용자를 완화하기(위험 줄이기) 위해 이 활동이 위험 엔진에 보고되었음을 나타냅니다.
-7. 목록에서 **조건부 액세스 정책 평가** 로그 항목을 선택하여 **활동 세부 정보: 감사 로그** 페이지를 엽니다. **추가 세부 정보** 섹션에서 감사 로그 식별자를 다음 정보와 함께 보여 줍니다.
+1. 목록에서 **조건부 액세스 정책 평가** 로그 항목을 선택하여 **활동 세부 정보: 감사 로그** 페이지를 엽니다. **추가 세부 정보** 섹션에서 감사 로그 식별자를 다음 정보와 함께 보여 줍니다.
    - **ConditionalAccessResult**: 조건부 정책 평가에 필요한 권한 부여입니다.
    - **AppliedPolicies**: 조건이 충족되고 정책이 설정된 모든 조건부 액세스 정책의 목록입니다.
    - **ReportingPolicies**: 보고서 전용 모드로 설정되고 조건이 충족된 조건부 액세스 정책의 목록입니다.

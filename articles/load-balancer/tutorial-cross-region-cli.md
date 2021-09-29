@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b9c96a6434712ed3179fe25c1014dc1fdc6e062d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791916"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736583"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>자습서: Azure CLI를 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -192,4 +192,4 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 아래 내용에 대한 다음 문서를 진행하세요.
 > [!div class="nextstepaction"]
-> [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [가용성 영역에 VM 부하 분산](./quickstart-load-balancer-standard-public-portal.md)

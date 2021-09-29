@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: aa5f908cdf25925db63054adaf1e6dab15f5260b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d1e7bfcc07e610aa83993b0eb26fe93bc187118
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459308"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124822560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>자습서: Kantega SSO for Bamboo와 Azure Active Directory 통합
 
@@ -297,7 +297,7 @@ Azure AD 사용자가 Bamboo에 로그인하려면 Bamboo에 프로비저닝되�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Kantega SSO for Bamboo 타일을 클릭하면 SSO를 설정한 Kantega SSO for Bamboo에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Kantega SSO for Bamboo 타일을 클릭하면 SSO를 설정한 Kantega SSO for Bamboo에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

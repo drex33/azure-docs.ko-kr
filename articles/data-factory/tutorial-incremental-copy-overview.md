@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 543acb129d23a0b74434535306aca801d2f5fdd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638859"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763636"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 
@@ -24,7 +24,7 @@ ms.locfileid: "122638859"
 ## <a name="delta-data-loading-from-database-by-using-a-watermark"></a>워터마크를 사용하여 데이터베이스에서 델타 데이터 로드
 이 경우 워터마크는 원본 데이터베이스에 정의합니다. 워터마크는 마지막으로 업데이트된 타임스탬프 또는 증분 키가 있는 열입니다. 델타 로딩 솔루션은 이전 워터마크와 새 워터마크 사이에 변경된 데이터를 로드합니다. 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다. 
 
-![워터마크 사용을 위한 워크플로](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-watermark.png" alt-text="워터마크 사용을 위한 워크플로":::
 
 단계별 지침은 다음 자습서를 참조하세요. 
 - [Azure SQL Database의 한 테이블에서 Azure Blob 스토리지로 데이터 증분 복사](tutorial-incremental-copy-powershell.md)
@@ -38,7 +38,7 @@ ms.locfileid: "122638859"
 
 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다.
 
-![변경 내용 추적 사용을 위한 워크플로](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png" alt-text="변경 내용 추적 사용을 위한 워크플로":::
 
 단계별 지침은 다음 자습서를 참조하세요. <br/>
 - [변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 복사](tutorial-incremental-copy-change-tracking-feature-powershell.md)

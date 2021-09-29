@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: thwimmer
-ms.openlocfilehash: a02b767a097ec2d826f44ac5975063b681242ad1
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f751b3b705cd1cacc5ef1398fb343de60b8ede6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113759553"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596793"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동으로 사용자를 프로비저닝하도록 SAP Cloud Platform Identity Authentication 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "113759553"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트
-* [A SAP Cloud Platform Identity Authentication 테넌트](https://cloudplatform.sap.com/pricing.html)
+* [A SAP Cloud Platform Identity Authentication 테넌트](https://www.sap.com/products/cloud-platform.html)
 * 관리자 권한이 있는 SAP Cloud Platform Identity Authentication의 사용자 계정
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>SAP Cloud Platform Identity Authentication에 사용자 할당

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 180d367e6175a6f637cd5598e0b1af9a89d0ec30
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 334eb66a6372272b7b5d467c5603e694b1ad8683
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724332"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610943"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell을 사용하여 스토리지 계정 키 관리
 > [!IMPORTANT]
@@ -197,7 +197,7 @@ Key Vault에 공유 액세스 서명 토큰을 생성하고 요청할 수도 있
 -
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정합니다. <YourStorageAccountName> 및 <YourKeyVaultName> 자리 표시자를 업데이트해야 합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정합니다. \<YourStorageAccountName\> 및 \<YourKeyVaultName\> 자리 표시자를 업데이트해야 합니다.
 
 또한 여기서는 Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) cmdlet을 사용하여 Azure 스토리지 계정의 컨텍스트를 가져올 것입니다.
 

@@ -2,13 +2,13 @@
 title: '빠른 시작: C를 사용하여 이벤트 보내기 - Azure Event Hubs'
 description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트를 보내는 C 애플리케이션을 만드는 연습을 제공합니다.'
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/23/2021
+ms.openlocfilehash: 5f93e3cac123db184f4a669f87f90adfebdce5b0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85315669"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215266"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>빠른 시작: C를 사용하여 Azure Event Hubs로 이벤트 전송
 

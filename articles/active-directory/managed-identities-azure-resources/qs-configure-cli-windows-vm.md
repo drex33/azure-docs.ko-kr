@@ -1,26 +1,22 @@
 ---
 title: Azure CLI를 사용하여 Azure VM에서 관리 ID 구성 - Azure AD
 description: Azure CLI를 사용하여 Azure VM에서 시스템 및 사용자 할당 관리 ID를 구성하기 위한 단계별 지침을 제공합니다.
-services: active-directory
-documentationcenter: ''
 author: barclayn
 manager: daveba
-editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8dbe9665612e888b7e7afe95a472ba6b0de8d48
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 205661a32d938352ae81073668843c569825cc8e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762518"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679611"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -100,7 +96,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
 이 섹션에서는 Azure CLI를 사용하여 Azure VM에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다. VM과 다른 RG에서 사용자 할당 관리 ID를 만드는 경우 관리 ID의 URL을 사용하여 VM에 할당해야 합니다.
-예: --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+예: `--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Azure VM 생성 중에 사용자 할당 관리 ID 할당
 

@@ -1,19 +1,19 @@
 ---
 title: Python을 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Python 스토리지 클라이언트 라이브러리를 사용하여 Blob, 큐, 테이블 및 파일에 대한 시작 샘플을 검색합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: f8e5a8593d5b473da8769c1fbeece8c9818e88fa
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 407fa4d21207b705702f2cc567ff44d22be97374
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276691"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549416"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>v12 Python 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -534,7 +534,6 @@ ms.locfileid: "106276691"
    :::column-end:::
 :::row-end:::
 
-
 ## <a name="table-samples-sdk-v21"></a>테이블 샘플(SDK v2.1)
 
 :::row:::
@@ -571,10 +570,10 @@ ms.locfileid: "106276691"
 
 전체 Python 샘플 라이브러리를 보려면 다음으로 이동하세요.
 
-* [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
-* [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
-* [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share/samples)
-* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share/samples)
+- [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 
@@ -582,17 +581,17 @@ ms.locfileid: "106276691"
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침을 찾으려면 다음 가이드를 확인하세요.
 
-* [Python에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-python.md)
-* [Python에서 Azure 큐 서비스 시작](../queues/storage-quickstart-queues-python.md)
-* [Python에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Python에서 Azure 파일 서비스 시작](../files/storage-python-how-to-use-file-storage.md)
+- [Python에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-python.md)
+- [Python에서 Azure 큐 서비스 시작](../queues/storage-quickstart-queues-python.md)
+- [Python에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-python.md)
+- [Python에서 Azure 파일 서비스 시작](../files/storage-python-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
-* Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
-* JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
-* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)
+- .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+- Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+- JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+- C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
+- 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

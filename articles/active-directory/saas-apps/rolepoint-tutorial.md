@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a2a0985b7e1dabace66548abd3faadf993d89ee
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010268"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>자습서: RolePoint와 Azure Active Directory 통합
 
@@ -188,7 +188,7 @@ RolePoint 쪽에서 Single Sign-On을 설정하려면 [RolePoint 지원 팀](mai
 
 이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
 
-액세스 패널에서 RolePoint 타일을 선택하면 SSO가 설정된 RolePoint 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+액세스 패널에서 RolePoint 타일을 선택하면 SSO가 설정된 RolePoint 인스턴스에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [My Apps 포털에서 앱 액세스 및 사용](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

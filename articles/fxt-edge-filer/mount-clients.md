@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkel
-ms.openlocfilehash: 1385e81b5e5a4047a23b47f39d206ea94ec4d79c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 77663500c6a3e4c432506a5859892506f8995de1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414329"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552607"
 ---
 # <a name="tutorial-mount-the-cluster"></a>자습서: 클러스터 탑재
 
@@ -92,7 +92,7 @@ IP 주소와 네임스페이스 경로를 결합하여 탑재 명령의 클러�
 
 클라이언트 탑재를 원활하게 수행하려면 mount 명령에 다음 설정 및 인수를 전달합니다.
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | 필수 설정 | Description |
 --- | ---
@@ -101,9 +101,9 @@ IP 주소와 네임스페이스 경로를 결합하여 탑재 명령의 클러�
 ``mountproto=netid`` | 탑재 작업에 대한 네트워크 오류를 적절하게 처리하도록 지원합니다.
 ``retry=n`` | 일시적인 탑재 오류를 방지하려면 ``retry=30``을 설정합니다. (포그라운드 탑재에는 다른 값이 권장됩니다.)
 
-| 기본 설정  | Description |
---- | ---
-``nointr``            | 클라이언트가 이 옵션을 지원하는 이전 버전의 OS 커널(2008년 4월 이전)을 사용하는 경우에는 해당 옵션을 사용하세요. "intr" 옵션이 기본값입니다.
+| 기본 설정 | Description |
+| --- | --- |
+| `nointr` | 클라이언트가 이 옵션을 지원하는 이전 버전의 OS 커널(2008년 4월 이전)을 사용하는 경우에는 해당 옵션을 사용하세요. "intr" 옵션이 기본값입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

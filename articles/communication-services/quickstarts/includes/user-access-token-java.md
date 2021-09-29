@@ -10,17 +10,17 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 62efd6215dfb83eade0e4ee4e9cfa230d1dd7971
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 414d4ffdf8678ada61048eeefccc34b8097a88a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659390"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677311"
 ---
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-install), 버전 8 이상.
@@ -167,7 +167,7 @@ System.out.println("\nIssued an access token with 'chat' scope that expires at: 
 
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
+CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity.getId());
 AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: dcc49e10e480e519573d80661248fc60e939efdb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b8d9d32fdcb7b6f10ae2742edebd18ebbf798a4c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895103"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801907"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C.와 Azure Active Directory SSO(Single Sign-On) 통합 Tanner - AppreciateHub
 
@@ -26,7 +26,7 @@ ms.locfileid: "111895103"
 * 사용자가 자신의 Azure AD 계정으로 O.C. Tanner - AppreciateHub에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -125,7 +125,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 O.C.에 자동으로 로그인됩니다. SSO를 설정할 Tanner - AppreciateHub입니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. O.C.를 클릭할 때 내 앱에서 Tanner - AppreciateHub 타일을 클릭하면 O.C.에 자동으로 로그인되어야 합니다. SSO를 설정할 Tanner - AppreciateHub입니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. O.C.를 클릭할 때 내 앱에서 Tanner - AppreciateHub 타일을 클릭하면 O.C.에 자동으로 로그인되어야 합니다. SSO를 설정할 Tanner - AppreciateHub입니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,13 +4,13 @@ metadata:
   description: 이 문서에서는 Azure Relay 서비스에 대한 질문과 대답을 제공합니다.
   ms.topic: article
   ms.service: azure
-  ms.date: 06/23/2021
-  ms.openlocfilehash: fd18d0d36cb07596ba6f8b40e699228bb95a190d
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 09/17/2021
+  ms.openlocfilehash: defbb7c8318b548de3ed5bc4aa6049944a719e6d
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253963"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128637558"
 title: Azure Relay FAQ
 summary: >
   이 문서에서는 [Azure Relay](https://azure.microsoft.com/services/service-bus/)에 대해 자주 묻는 일부 질문에 답변합니다. 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
@@ -42,7 +42,7 @@ sections:
   - question: >
       하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
     answer: >
-      릴레이 가격 책정에 대한 자세한 내용은 Service Bus 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이][가격 책정 개요] 표를 참조하세요. 페이지에 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+      릴레이 가격 책정에 대한 자세한 내용은 Service Bus 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이](https://azure.microsoft.com/pricing/details/service-bus) 표를 참조하세요. 페이지에 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
   - question: >
       하이브리드 연결의 요금은 어떻게 청구되나요?
     answer: "하이브리드 연결에 대한 세 가지 예제 청구 시나리오는 다음과 같습니다.\n\n*   시나리오 1:\n    *   하이브리드 연결 관리자의 인스턴스와 같은 수신기를 설치하고 한 달 내내 지속적으로 실행했습니다.\n    *   해당 월 동안 연결을 통해 3GB의 데이터를 보냈습니다. \n    *   총 청구 금액은 $5입니다.\n*   시나리오 2:\n    *   하이브리드 연결 관리자의 인스턴스와 같은 수신기를 설치하고 한 달 내내 지속적으로 실행했습니다.\n    *   해당 월 동안 연결을 통해 10GB의 데이터를 보냈습니다.\n    *   총 청구 금액은 $7.50입니다. 연결 및 초반 5GB에 대해 $5 + 추가 5GB의 데이터에 대해 $2.50입니다.\n*   시나리오 3:\n    *   A와 B라는 하이브리드 연결 관리자의 인스턴스를 설치하고 한 달 내내 지속적으로 실행했습니다.\n    *   해당 월 동안 A 연결을 통해 3GB의 데이터를 보냈습니다.\n    *   해당 월 동안 B 연결을 통해 6GB의 데이터를 보냈습니다.\n    *   총 청구 금액은 $10.50입니다. A 연결에 대해 $5 + B 연결에 대해 $5 + 연결 B의 6기가바이트에 대해 $0.50입니다.\n"
@@ -110,11 +110,11 @@ sections:
   - question: >
       Azure Relay API에 의해 생성된 일부 예외 및 수행할 수 있는 권장 조치는 무엇인가요?
     answer: >
-      일반적인 예외 및 수행할 수 있는 권장 조치에 대한 설명은 [릴레이 예외][릴레이 예외]를 참조하세요.
+      일반적인 예외 및 수행할 수 있는 권장 조치에 대한 설명은 [릴레이 예외](relay-exceptions.md)를 참조하세요.
   - question: >
       공유 액세스 서명이란 무엇이고 어떤 언어를 사용하여 서명을 생성할 수 있나요?
     answer: >
-      공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 C#에서 자신의 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명을 사용한 Service Bus 인증][공유 액세스 서명]을 참조하세요.
+      공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 C#에서 자신의 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명을 사용한 Service Bus 인증](../service-bus-messaging/service-bus-sas.md) 문서를 참조하세요.
   - question: >
       일부 릴레이 엔드포인트만 허용할 수 있나요?
     answer: >

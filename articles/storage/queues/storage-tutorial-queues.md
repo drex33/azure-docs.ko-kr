@@ -1,20 +1,20 @@
 ---
 title: '자습서: .NET에서 Azure Queue Storage 큐 작업'
 description: Azure Queue Storage를 사용하여 큐를 만들고 .NET 코드를 사용하여 메시지를 삽입하고, 가져오고, 삭제하는 방법에 대한 자습서입니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 06/09/2020
 ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7d960735ee3ebd056858b93576d219ade514a00
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b563c3c0f481e8a133070f4758a31dc833995127
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459704"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662498"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>자습서: .NET에서 Azure Queue Storage 큐 작업
 

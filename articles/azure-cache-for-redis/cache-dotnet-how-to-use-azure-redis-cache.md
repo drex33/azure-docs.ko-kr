@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: f01b75cac9fba9e0975882560920f6c6ceee7dc7
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 774b9f91aa900633cb6f5c50196ef44a03017b90
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136646"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670180"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>빠른 시작: .NET Framework에서 Azure Cache for Redis 사용
 
@@ -30,9 +30,9 @@ ms.locfileid: "113136646"
 - [.NET Framework 4 이상](https://dotnet.microsoft.com/download/dotnet-framework) - StackExchange.Redis 클라이언트를 사용하려면 필요합니다.
 
 ## <a name="create-a-cache"></a>캐시 만들기
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 컴퓨터에 *CacheSecrets.config* 라는 파일을 만들고 이 파일을 샘플 애플리케이션의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 여기에서 *C:\AppSecrets\CacheSecrets.config* 에 있습니다.
 

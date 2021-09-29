@@ -11,12 +11,12 @@ ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 7b50e17a8c6730aedbc8fea68a2ab4d8685b2fa5
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 9867825794c363b9df53849ad3fd1cb644492677
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228981"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816288"
 ---
 # <a name="tutorial---configure-azure-active-directory-to-issue-verifiable-credentials-preview"></a>자습서 - 확인 가능한 자격 증명을 발급하도록 Azure Active Directory 구성(미리 보기)
 
@@ -249,7 +249,7 @@ ms.locfileid: "114228981"
 1. 다음 정보를 제공하여 조직을 설정합니다.
 
       - **조직 이름**: 확인 가능한 자격 증명 내에서 비즈니스를 참조할 이름을 입력합니다. 이 값은 고객에게 표시되지 않습니다.
-      - **도메인**: DID 문서의 서비스 엔드포인트에 추가되는 도메인을 입력합니다. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) 및 기타 월렛은 이 정보를 사용하여 DID가 [도메인에 연결되어 있는지](how-to-dnsbind.md) 확인합니다. 월렛이 DID를 확인할 수 있으면 확인된 기호가 표시됩니다. 월렛이 DID를 확인할 수 없는 경우 유효성을 검사할 수 없는 조직에서 자격 증명이 발급되었음을 사용자에게 알립니다. 도메인은 DID를 사용자가 해당 비즈니스에 대해 알 수 있는 유형의 무언가에 바인딩하는 것입니다.
+      - **도메인**: DID 문서의 서비스 엔드포인트에 추가되는 도메인을 입력합니다. [Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) 및 기타 월렛은 이 정보를 사용하여 DID가 [도메인에 연결되어 있는지](how-to-dnsbind.md) 확인합니다. 월렛이 DID를 확인할 수 있으면 확인된 기호가 표시됩니다. 월렛이 DID를 확인할 수 없는 경우 유효성을 검사할 수 없는 조직에서 자격 증명이 발급되었음을 사용자에게 알립니다. 도메인은 DID를 사용자가 해당 비즈니스에 대해 알 수 있는 유형의 무언가에 바인딩하는 것입니다.
       - **키 자격 증명 모음**: 이전에 만든 키 자격 증명 모음의 이름을 입력합니다.
 
    >[!IMPORTANT]

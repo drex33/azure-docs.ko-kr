@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: cache
 ms.custom:
 - mode-portal
-ms.openlocfilehash: b53eb606fc12cf77eeaafcccf7c7286c73d46c64
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 72596521850ba3b3b10ef572aa768672869ec7ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283018"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620923"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 
@@ -27,7 +27,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 빠
 
 ## <a name="create-an-azure-cache-for-redis-cache-instance"></a>Azure Cache for Redis 캐시 인스턴스 만들기
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v10'
 description: JavaScript용 Azure Storage 클라이언트 라이브러리 v10을 통해 Node.js에서 blob 및 컨테이너 만들기, 업로드 및 삭제
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ddcce3e624de7e8bed62783bdc22c5c4211e19e2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: be5e67eeec220e2bbb8fa3cb525bb8ec9f224b06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280108"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599072"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v10 SDK를 사용하여 Blob 관리
 
@@ -120,7 +120,7 @@ const fs = require('fs');
 const path = require('path');
 ```
 
-이러한 모듈의 목적은 다음과 같습니다. 
+이러한 모듈의 목적은 다음과 같습니다.
 
 - *fs* 는 파일 시스템과 작동하는 데 사용되는 네이티브 Node.js 모듈입니다.
 
@@ -132,6 +132,7 @@ const path = require('path');
 const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
+
 다음 상수 집합은 업로드 작업 중 파일 크기 계산의 의도를 표시하는 데 유용합니다.
 
 ```javascript
@@ -191,7 +192,7 @@ const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
 
-*containerURL* 및 *blockBlobURL* 변수는 스토리지 계정에서 작동하도록 샘플 전체에서 다시 사용됩니다. 
+*containerURL* 및 *blockBlobURL* 변수는 스토리지 계정에서 작동하도록 샘플 전체에서 다시 사용됩니다.
 
 이 시점에서 컨테이너는 스토리지 계정에 존재하지 않습니다. *ContainerURL* 의 인스턴스는 취할 수 있는 URL을 나타냅니다. 이 인스턴스를 사용하면 컨테이너를 만들고 삭제할 수 있습니다. 이 컨테이너의 위치는 다음과 같은 위치와 동일합니다.
 
@@ -258,7 +259,7 @@ async function showContainerNames(aborter, serviceURL) {
 }
 ```
 
-응답이 반환되면 *containerItems* 가 반복되어 이름을 콘솔에 기록합니다. 
+응답이 반환되면 *containerItems* 가 반복되어 이름을 콘솔에 기록합니다.
 
 ### <a name="upload-text"></a>텍스트 업로드
 
@@ -405,7 +406,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-스토리지 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다. 
+스토리지 계정에 기록된 모든 데이터는 코드 샘플 끝 부분에서 자동으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

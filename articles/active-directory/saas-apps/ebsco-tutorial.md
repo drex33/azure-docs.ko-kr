@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 95e84bbe917a6b1e30ecb9dcf41f1f5e00576c82
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 075bcffd7cb2beb3e64b54536934953c49df9b76
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469256"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813603"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>자습서: EBSCO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "110469256"
 * 사용자가 자신의 Azure AD 계정으로 EBSCO에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -161,7 +161,7 @@ Azure AD는 필요한 데이터를 EBSCO 애플리케이션으로 전달합니�
 이 섹션에서는 내 앱을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 1. 내 앱에서 EBSCO 타일을 클릭하면 EBSCO 애플리케이션에 자동으로 로그온됩니다.
-내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 1. 애플리케이션에 로그인한 후에 오른쪽 위 구석에 있는 **로그인** 단추를 클릭합니다.
 

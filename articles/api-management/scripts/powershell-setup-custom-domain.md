@@ -3,21 +3,21 @@ title: Azure PowerShell 스크립트 샘플 - 사용자 지정 도메인 설정 
 description: API 관리 서비스의 프록시 또는 포털 엔드포인트에 사용자 지정 도메인을 설정하는 방법을 알아봅니다. 샘플 스크립트를 참조하고 사용 가능한 추가 리소스를 확인합니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 12/14/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ce7ac9a27dd2708e3a32758c6e86011e493ea33a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cc3c6241296d9ebed5e4c174f0aecd14055049d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817092"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648794"
 ---
 # <a name="set-up-custom-domain"></a>사용자 지정 도메인 설정
 

@@ -14,16 +14,16 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 3444d6c62b5e36b7e68cfaf6da1ec534e2ea4ec6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1ed9dbef648eace79807f06f034ba02e8bc67817
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551456"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655869"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure에서 Pivotal Cloud Foundry 클러스터 만들기
 
-이 자습서에는 Azure에서 PCF(Pivotal Cloud Foundry) 클러스터를 프로비전하는 데 필요한 매개 변수를 만들고 생성하기 위한 빠른 단계가 제공됩니다. Pivotal Cloud Foundry 솔루션을 찾으려면 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)에서 검색합니다.
+이 자습서에는 Azure에서 PCF(Pivotal Cloud Foundry) 클러스터를 프로비전하는 데 필요한 매개 변수를 만들고 생성하기 위한 빠른 단계가 제공됩니다. Pivotal Cloud Foundry 솔루션을 찾으려면 Azure Marketplace에서 검색합니다.
 
 ![Azure에서 Pivotal Cloud Foundry 검색](media/deploy/pcf-marketplace.png)
 
@@ -117,7 +117,7 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Azure에서 Cloud Foundry 클러스터 프로비전
 
-이제 [Azure에서 Pivotal Cloud Foundry 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)를 프로비전하는 데 필요한 모든 매개 변수가 있습니다.
+이제 Azure에서 Pivotal Cloud Foundry 클러스터를 프로비전하는 데 필요한 모든 매개 변수가 있습니다.
 매개 변수를 입력하고 PCF 클러스터를 만듭니다.
 
 ## <a name="verify-the-deployment-and-sign-in-to-the-pivotal-ops-manager"></a>배포를 확인하고 Pivotal Ops Manager에 로그인합니다.

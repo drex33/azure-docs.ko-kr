@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: ea7c5a82a6219e673454d627a4350291c5b3f047
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 78ed8c774bc44c7a2756019287cd4364db1fe4d4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644508"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +35,7 @@ ms.locfileid: "108761654"
 
 회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 컴퓨팅 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
 
-![데이터 팩터리 개요](media/data-factory-introduction/what-is-azure-data-factory.png) 
+:::image type="content" source="media/data-factory-introduction/what-is-azure-data-factory.png" alt-text="데이터 팩터리 개요"::: 
 
 Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니다. *데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스* 입니다. Azure Data Factory를 사용하여 다음 작업을 수행할 수 있습니다. 
 
@@ -52,7 +53,7 @@ Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니
 ## <a name="how-does-it-work"></a>작동 원리 
 Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반적으로 다음 세 단계를 수행합니다.
 
-![Azure Data Factory의 세 단계](media/data-factory-introduction/three-information-production-stages.png)
+:::image type="content" source="media/data-factory-introduction/three-information-production-stages.png" alt-text="Azure Data Factory의 세 단계":::
 
 ### <a name="connect-and-collect"></a>연결 및 수집
 기업에는 다양한 형식의 데이터가 서로 다른 원본에 있습니다. 정보 프로덕션 시스템을 구축하는 첫 번째 단계는 데이터 및 처리의 모든 필요한 원본에 연결하는 것입니다. 이러한 원본은 SaaS 서비스, 파일 공유, FTP 및 웹 서비스를 포함합니다. 그런 다음 후속 처리를 위해 중앙 집중화된 위치에 필요한 데이터를 이동합니다.
@@ -113,7 +114,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 
-![다이어그램: Data Factory, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+:::image type="content" source="./media/data-factory-introduction/data-integration-service-key-concepts.png" alt-text="다이어그램: Data Factory, 클라우드 데이터 통합 서비스 - 주요 개념":::
 
 ## <a name="supported-regions"></a>지원되는 지역
 현재 미국 서부, 미국 동부 및 북유럽 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다.

@@ -1,7 +1,6 @@
 ---
 title: '빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리'
 description: .NET용 Form Recognizer 클라이언트 라이브러리를 사용하여 사용자 지정 문서에서 키/값 쌍 및 테이블 데이터를 추출하는 양식 처리 앱을 만듭니다.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.topic: include
 ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 7bb5997df74233d9f0e89a69d5be6d9b614f52c9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5b1b4658199d624f2ebb8e1ed3dc08d64489f11b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327880"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652516"
 ---
 <!-- markdownlint-disable MD024 -->
 

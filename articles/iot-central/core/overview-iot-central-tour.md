@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: cffd8e0347f501e82ca6e62d5c120b232869cbc0
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: 187db7eefb019584835bd7f67fdb8d6abd91f45c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114653324"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083907"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -84,7 +84,7 @@ IoT 애플리케이션 내부로 이동한 후에는 왼쪽 창을 사용하여 
 
 * 디바이스를 검색하려면 **검색** 값을 입력합니다.
 * UI 언어 또는 테마를 변경하려면 **설정** 아이콘을 선택합니다. [애플리케이션 기본 설정 관리](howto-manage-preferences.md)에 대한 자세한 정보
-* 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다. **앱 정보** 링크에서 [애플리케이션에 대한 정보를 가져올](howto-faq.yml#how-do-i-get-information-about-my-application-) 수 있습니다. 무료 가격 책정 요금제에 대한 애플리케이션에서 지원 리소스에는 [라이브 채팅](howto-show-hide-chat.md)에 대한 액세스가 포함됩니다.
+* 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다. **앱 정보** 링크에서 [애플리케이션에 대한 정보를 가져올](howto-faq.yml#how-do-i-get-information-about-my-application-) 수 있습니다.
 * 애플리케이션에서 로그아웃하려면 **계정** 아이콘을 선택합니다.
 
 UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다.

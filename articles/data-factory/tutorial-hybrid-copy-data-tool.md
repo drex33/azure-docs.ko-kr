@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
-ms.openlocfilehash: 3adb1c084276bed35ec7a2f542ee7f9d319f7b2b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2311c7e0ab22510211b8fe6c6668b3253d5df28e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638326"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798316"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -80,7 +80,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 왼쪽 창에서 **모든 서비스** 를 선택합니다. **스토리지** 키워드를 사용하여 필터링한 다음, **스토리지 계정** 을 선택합니다.
 
-    ![Storage 계정 검색](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Storage 계정 검색":::
 
 1. 필요한 경우 스토리지 계정 목록에서 스토리지 계정을 필터링합니다. 그런 후 스토리지 계정을 선택합니다.
 
@@ -93,7 +93,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
-   ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="새 데이터 팩터리 만들기":::
 
 1. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory** 를 입력합니다.
 
@@ -122,7 +122,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. Azure Data Factory 홈페이지에서 **수집** 을 선택하여 데이터 복사 도구를 시작합니다.
 
-   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Azure Data Factory 홈페이지를 보여주는 스크린샷.":::
 
 1. 데이터 복사 도구의 **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **작업 주기 또는 작업 일정** 에서 **지금 한 번 실행** 을 선택한 후 **다음** 을 선택합니다.
 
@@ -134,7 +134,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **통합 런타임 설정** 대화 상자에서 **자체 호스팅** 을 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
-   ![통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png" alt-text="통합 런타임 만들기":::
 
 1. **통합 런타임 설정** 대화 상자의 **이름** 에 **TutorialIntegrationRuntime** 을 입력합니다. 그런 다음 **만들기** 를 선택합니다.
 
@@ -142,7 +142,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 다운로드한 애플리케이션을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다.
 
-    ![빠른 설치 상태](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/express-setup-status.png" alt-text="빠른 설치 상태":::
 
 1. **새 연결(SQL Server)** 대화 상자에서 **통합 런타임을 통해 연결** 에 **TutorialIntegrationRuntime** 이 선택되어 있는지 확인합니다. 그런 다음, 다음 단계를 수행합니다.
 
@@ -160,7 +160,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     g. 연결을 테스트하고 **만들기** 를 선택합니다.
 
-      ![Integration Runtime 선택](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
+      :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png" alt-text="Integration Runtime 선택":::
 
 1. **원본 데이터 저장소** 페이지에서 새로 만든 **SQL Server** 연결을 **연결** 블록에서 선택했는지 확인합니다. 그런 후 **원본 테이블** 섹션에서 **기존 테이블** 을 선택하고 목록에서 **dbo.emp** 테이블을 선택하고 **다음** 을 선택합니다. 데이터베이스에 따라 다른 테이블을 선택할 수 있습니다.
 
@@ -170,7 +170,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **새 연결** 에서 **Azure Blob Storage** 를 검색하고 선택한 다음, **계속** 을 선택합니다.
 
-   ![Blob Storage 선택](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png" alt-text="Blob Storage 선택":::
 
 1. **새 연결(Azure Blob Storage)** 대화 상자에서 다음 단계를 수행합니다.
 

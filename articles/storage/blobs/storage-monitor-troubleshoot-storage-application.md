@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 6c1d9b813db15900521968865c1036d53ad53f41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45b5a29307ca8aa37f3b369b4e79054a22fa0634
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95544788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579643"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 스토리지 애플리케이션 모니터링 및 문제 해결
 
@@ -22,10 +22,10 @@ ms.locfileid: "95544788"
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 로깅 및 메트릭 켜기
-> * 권한 부여 오류에 대한 경고를 사용 하도록 설정
-> * 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
-> * 로그 다운로드 및 분석
+> - 로깅 및 메트릭 켜기
+> - 권한 부여 오류에 대한 경고를 사용 하도록 설정
+> - 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
+> - 로그 다운로드 및 분석
 
 [Azure Storage 분석](../common/storage-analytics.md)은 스토리지 계정에 대한 로깅 및 메트릭 데이터를 제공합니다. 이 데이터는 스토리지 계정 상태에 대한 정보를 제공합니다. Azure Storage 분석에서 데이터를 수집하기 위해 로깅, 메트릭 및 경고를 구성할 수 있습니다. 이 프로세스 동안 로깅 켜기, 메트릭 구성 및 경고 설정이 진행됩니다.
 
@@ -112,10 +112,10 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 시리즈의 마지막 부분인 4부에서는 다음 방법을 비롯하여 스토리지 계정을 모니터링하고 문제를 해결하는 방법을 배웠습니다.
 
 > [!div class="checklist"]
-> * 로깅 및 메트릭 켜기
-> * 권한 부여 오류에 대한 경고를 사용 하도록 설정
-> * 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
-> * 로그 다운로드 및 분석
+> - 로깅 및 메트릭 켜기
+> - 권한 부여 오류에 대한 경고를 사용 하도록 설정
+> - 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
+> - 로그 다운로드 및 분석
 
 미리 작성된 스토리지 샘플을 보려면 이 링크를 따라 이동합니다.
 

@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: c2a704d5e87e5b5813a59f9c5951688f5c3b893a
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: f3498175030be0c6bc7b57db25dece5f8c2d83ea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113300919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626839"
 ---
 # <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension과 함께 Live Video Analytics를 사용하여 라이브 비디오 분석 
 
@@ -70,7 +70,7 @@ OpenVINO™ DL Streamer - Edge AI Extension 모듈은 OpenVINO™ DL Streamer를
 
 복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서 유추 요청은 IoT Edge의 Live Video Analytics와 함께 작동하도록 설계된 Edge 모듈인 [Intel OpenVINO™ DL Streamer – Edge AI Extension]()으로 전송됩니다.
 
-이 유추 서버의 초기 릴리스에서는 다음 [모델](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)에 액세스할 수 있습니다.
+이 유추 서버의 초기 릴리스에서는 다음 [모델](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options)에 액세스할 수 있습니다.
 
 - object_detection for person_vehicle_bike_detection ![차량 개체 감지](./media/use-intel-openvino-tutorial/object-detection.png)
 
@@ -321,7 +321,7 @@ gRPC 확장 프로세서 노드는 Intel OpenVINO™ DL Streamer – Edge AI Ext
 * `inferences` 섹션은 `type`이 `entity`임을 나타냅니다. 이 섹션에는 엔터티에 대한 추가 데이터가 포함됩니다.
 
 ## <a name="run-the-sample-program-to-detect-persons-or-vehicles-or-bikes"></a>샘플 프로그램을 실행하여 사람, 차량 또는 자전거 감지
-다른 모델을 사용하려면 배포 템플릿을 변경해야 합니다. 지원되는 모델 간에 전환하려면 lvaExtenstion 모듈에 들어 있는 환경 변수를 변경하면 됩니다. 모델에 지원되는 값과 조합에 대한 내용은 [GitHub의 이 문서](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)를 참조하세요.
+다른 모델을 사용하려면 배포 템플릿을 변경해야 합니다. 지원되는 모델 간에 전환하려면 lvaExtenstion 모듈에 들어 있는 환경 변수를 변경하면 됩니다. 모델에 지원되는 값과 조합에 대한 내용은 [GitHub의 이 문서](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options)를 참조하세요.
 
 ```
 "Env":[

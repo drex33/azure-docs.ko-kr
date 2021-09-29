@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d8091bd5e1bb95ff29d0be948a464f587a49f62f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864791"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819748"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>자습서: Azure Automation으로 Azure HDInsight 클러스터 만들기
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 기존 [Azure Automation 계정](../automation/automation-quickstart-create-account.md)
+* 기존 [Azure Automation 계정](../automation/quickstarts/create-account-portal.md)
 * 기존 [Azure Storage 계정](../storage/common/storage-account-create.md). 클러스터 스토리지로 사용됩니다.
 
 ## <a name="install-hdinsight-modules"></a>HDInsight 모듈 설치

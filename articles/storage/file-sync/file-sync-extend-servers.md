@@ -7,24 +7,24 @@ ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 52a1931ec567d03d0beaaf9180532a91ff6bed07
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 951bf6704d68ae292b835a5528d099d634eb4226
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259461"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589419"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
 이 문서에서는 Azure 파일 동기화를 사용하여 Windows 서버의 스토리지 용량을 확장하기 위한 기본 단계를 설명합니다. 자습서는 Azure VM(가상 머신)으로 Windows Server를 을 특징으로 하지만 일반적으로는 온-프레미스 서버에 이 프로세스를 수행하게 될 것입니다. [Azure 파일 동기화 배포](file-sync-deployment-guide.md) 문서의 자체 환경에서 Azure 파일 동기화 배포를 위한 지침을 찾을 수 있습니다.
 
 > [!div class="checklist"]
-> * 스토리지 동기화 서비스 배포
-> * Azure 파일 동기화에 사용할 Windows Server 준비
-> * Azure 파일 동기화 에이전트 설치
-> * 스토리지 동기화 서비스에 Windows Server 등록
-> * 동기화 그룹 및 클라우드 엔드포인트 만들기
-> * 서버 엔드포인트 만들기
+> - 스토리지 동기화 서비스 배포
+> - Azure 파일 동기화에 사용할 Windows Server 준비
+> - Azure 파일 동기화 에이전트 설치
+> - 스토리지 동기화 서비스에 Windows Server 등록
+> - 동기화 그룹 및 클라우드 엔드포인트 만들기
+> - 서버 엔드포인트 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-a-folder-and-txt-file"></a>폴더 및 .txt 파일 만들기
 
-로컬 컴퓨터에서 이름이 _FilesToSync_ 인 새 폴더를 만들고 이름이 _mytestdoc.txt_ 인 텍스트 파일을 추가합니다. 나중에 이 자습서에서 이 파일 공유에 파일을 업로드할 것입니다.
+로컬 컴퓨터에서 이름이 *FilesToSync* 인 새 폴더를 만들고 이름이 *mytestdoc.txt* 인 텍스트 파일을 추가합니다. 나중에 이 자습서에서 이 파일 공유에 파일을 업로드할 것입니다.
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -61,7 +61,7 @@ Azure 스토리지 계정을 배포한 후 파일 공유를 만듭니다.
 
     ![파일 공유 추가 단추 선택](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. 새 파일 공유의 이름을 _afsfileshare_ 로 지정합니다. **할당량** 에 대해 "5120"을 입력한 다음, **만들기** 를 선택합니다. 할당량은 최대 100TiB까지 가능하지만 이 자습서에서는 5TiB만 필요합니다.
+1. 새 파일 공유의 이름을 *afsfileshare* 로 지정합니다. **할당량** 에 대해 "5120"을 입력한 다음, **만들기** 를 선택합니다. 할당량은 최대 100TiB까지 가능하지만 이 자습서에서는 5TiB만 필요합니다.
 
     ![새 파일 공유에 대해 이름과 할당량 입력](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -69,7 +69,7 @@ Azure 스토리지 계정을 배포한 후 파일 공유를 만듭니다.
 
     ![파일 업로드](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. .txt 파일을 만들었던 _FilesToSync_ 폴더로 이동하고, _mytestdoc.txt_ 를 선택한 다음, **업로드** 를 선택합니다.
+1. .txt 파일을 만들었던 *FilesToSync* 폴더로 이동하고, *mytestdoc.txt* 를 선택한 다음, **업로드** 를 선택합니다.
 
     ![파일 공유 찾아보기](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -83,7 +83,7 @@ Azure 스토리지 계정을 배포한 후 파일 공유를 만듭니다.
 
    ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
-1. **인스턴스 세부 정보** 에서 VM 이름을 입력합니다. 예를 들어 _myVM_ 을 사용합니다.
+1. **인스턴스 세부 정보** 에서 VM 이름을 입력합니다. 예를 들어 *myVM* 을 사용합니다.
 1. **지역**, **가용성 옵션**, **이미지** 및 **크기** 에 대한 기본 설정을 변경하지 마십시오.
 1. **관리 계정** 에서 VM의 **사용자 이름** 과 **암호** 를 입력합니다.
 1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운 메뉴에서 **RDP(3389)** 및 **HTTP** 를 선택합니다.
@@ -140,7 +140,7 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
 
    ![서버 관리자 UI 왼쪽에 있는 "로컬 서버"](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
 
-1. **속성** 창에서 **IE 보안 강화 구성** 링크를 선택합니다.  
+1. **속성** 창에서 **IE 보안 강화 구성** 링크를 선택합니다.
 
     ![서버 관리자 UI의 "IE 보안 강화 구성" 창](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
@@ -164,9 +164,9 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
    이제 디스크를 온라인으로 전환했고 볼륨을 만들었습니다. Windows Server VM에서 파일 탐색기를 열어 최근에 추가된 데이터 디스크의 현재 상태를 확인합니다.
 
 1. VM의 파일 탐색기에서 **이 PC** 를 확장하고 새 드라이브를 엽니다. 이 예제에서는 F: 드라이브입니다.
-1. 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **폴더** 를 선택합니다. 폴더의 이름을 _FilesToSync_ 로 지정합니다.
+1. 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **폴더** 를 선택합니다. 폴더의 이름을 *FilesToSync* 로 지정합니다.
 1. **FilesToSync** 폴더를 엽니다.
-1. 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **텍스트 문서** 를 선택합니다. 텍스트 파일의 이름을 _MyTestFile_ 로 지정합니다.
+1. 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **텍스트 문서** 를 선택합니다. 텍스트 파일의 이름을 *MyTestFile* 로 지정합니다.
 
     ![새 텍스트 파일 추가](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -217,9 +217,9 @@ Azure 파일 동기화를 배포하려면 먼저 선택한 구독의 리소스 �
 
    | 값 | Description |
    | ----- | ----- |
-   | **이름** | 스토리지 동기화 서비스의 고유 이름(구독별)입니다.<br><br>이 자습서의 경우 _afssyncservice02_ 를 사용합니다. |
+   | **이름** | 스토리지 동기화 서비스의 고유 이름(구독별)입니다.<br><br>이 자습서의 경우 *afssyncservice02* 를 사용합니다. |
    | **구독** | 이 자습서에 대해 사용하는 Azure 구독입니다. |
-   | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다.<br><br>이 자습서의 경우 _afsresgroup101918_ 을 사용합니다. |
+   | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다.<br><br>이 자습서의 경우 *afsresgroup101918* 을 사용합니다. |
    | **위치** | 미국 동부 |
 
 1. 작업이 끝나면 **만들기** 를 선택하여 **스토리지 동기화 서비스** 를 배포합니다.
@@ -262,8 +262,8 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
    | 값 | Description |
    | ----- | ----- |
    | **Azure 구독** | 이 자습서에 대한 스토리지 동기화 서비스가 포함된 구독입니다. |
-   | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다. 이 자습서의 경우 _afsresgroup101918_ 을 사용합니다. |
-   | **스토리지 동기화 서비스** | 스토리지 동기화 서비스의 이름입니다. 이 자습서의 경우 _afssyncservice02_ 를 사용합니다. |
+   | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다. 이 자습서의 경우 *afsresgroup101918* 을 사용합니다. |
+   | **스토리지 동기화 서비스** | 스토리지 동기화 서비스의 이름입니다. 이 자습서의 경우 *afssyncservice02* 를 사용합니다. |
 
 1. **등록** 을 선택하여 서버 등록을 완료합니다.
 1. 등록 프로세스의 일부로 추가 로그인을 요구하는 메시지가 표시됩니다. 로그인하고 **다음** 을 선택합니다.

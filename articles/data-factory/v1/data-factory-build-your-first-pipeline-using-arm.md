@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d93cfc5e31212373149a534b3118eafdf7bce47f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 236456ef88609eb98be22c1230f176d8eb06effd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971816"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653460"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -330,20 +331,20 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **찾아보기** 를 클릭하고 **데이터 팩터리** 를 선택합니다.
-     ![찾아보기->데이터 팩터리](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png" alt-text="찾아보기->데이터 팩터리":::
 2. **데이터 팩터리** 블레이드에서 만든 데이터 팩터리(**TutorialFactoryARM**)를 클릭합니다.    
 3. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **다이어그램** 을 클릭합니다.
 
-     ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png" alt-text="다이어그램 타일":::
 4. **다이어그램 보기** 에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
    
-   ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png" alt-text="다이어그램 뷰"::: 
 5. 다이어그램 보기에서 **AzureBlobOutput** 데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
    
-    ![AzureBlobOutput 데이터 세트를 보여주는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png" alt-text="AzureBlobOutput 데이터 세트를 보여주는 스크린샷.":::
 6. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분** 이 걸릴 수 있습니다.
    
-    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png" alt-text="데이터 세트":::    
 7. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
 
 Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프라인 및 데이터 세트를 모니터링하는 방법에 대한 지침은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.

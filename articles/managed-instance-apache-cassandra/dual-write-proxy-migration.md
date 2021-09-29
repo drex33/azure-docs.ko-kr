@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 08/17/2021
-ms.openlocfilehash: 03862b42fb181adcf1a6c4edbed66ce61ee49e73
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: d6fa48fb35d836fc7f08c98e7b1807068c000d84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426133"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124797030"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>이중 쓰기 프록시를 사용하여 Azure Managed Instance for Apache Cassandra로 실시간 마이그레이션
 
@@ -29,7 +29,6 @@ ms.locfileid: "123426133"
 
 다음 이미지는 이 방법을 설명합니다.
 
-
 :::image type="content" source="./media/migration/live-migration.gif" alt-text="데이터를 Azure Managed Instance for Apache Cassandra로 실시간 마이그레이션하는 방법을 보여 주는 애니메이션" border="false":::
 
 ## <a name="prerequisites"></a>필수 조건
@@ -39,7 +38,6 @@ ms.locfileid: "123426133"
 * [관리형 Cassandra 가상 네트워크 내에서 Azure Databricks 계정을 프로비저닝](deploy-cluster-databricks.md)합니다. 계정에 원본 Cassandra 클러스터에 대한 네트워크 액세스 권한이 있는지 확인합니다. 기록 데이터를 로드하기 위해 이 계정에 Spark 클러스터를 만듭니다.
 
 * 원본 Cassandra 데이터베이스에서 대상 Cassandra 관리형 인스턴스 데이터베이스로 키스페이스/테이블 구성표를 이미 마이그레이션했는지 확인합니다.
-
 
 ## <a name="provision-a-spark-cluster"></a>Spark 클러스터 프로비저닝
 
@@ -92,7 +90,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 - 원본 및 대상 엔드포인트의 사용자 이름과 암호가 동일합니다.
 - 원본 및 대상 엔드포인트가 SSL(Secure Sockets Layer)을 구현합니다.
 
-원본 및 대상 엔드포인트가 이러한 조건을 충족할 수 없는 경우 계속해서 추가 구성 옵션을 살펴보세요. 
+원본 및 대상 엔드포인트가 이러한 조건을 충족할 수 없는 경우 계속해서 추가 구성 옵션을 살펴보세요.
 
 ### <a name="configure-ssl"></a>SSL 구성
 
@@ -109,7 +107,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 > [!NOTE]
 > 프록시를 통해 데이터베이스에 대한 SSL 연결을 설정하는 경우 클라이언트 애플리케이션이 이중 쓰기 프록시에 사용된 것과 동일한 키 저장소와 암호를 사용하는지 확인합니다.
-
 
 ### <a name="configure-the-credentials-and-port"></a>자격 증명 및 포트 구성
 
@@ -165,7 +162,6 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 이중 쓰기 프록시가 실행된 후 애플리케이션 클라이언트에서 포트를 변경하고 다시 시작해야 합니다. 또는 해당 방법을 선택한 경우 Cassandra 포트를 변경하고 클러스터를 다시 시작합니다. 그러면 프록시가 대상 엔드포인트로 쓰기 전달을 시작합니다. 프록시 도구에서 사용할 수 있는 [모니터링 및 메트릭](https://github.com/Azure-Samples/cassandra-proxy#monitoring)에 대해 알아볼 수 있습니다. 
-
 
 ## <a name="run-the-historical-data-load"></a>기록 데이터 로드 실행
 
@@ -233,7 +229,6 @@ DFfromSourceCassandra
 ## <a name="validate-the-source-and-target"></a>원본 및 대상의 유효성 검사
 
 기록 데이터 로드가 완료되면 데이터베이스가 동기화되고 중단할 준비가 된 것입니다. 그러나 최종적으로 중단하기 전에 원본과 대상의 유효성을 검사하여 요청 결과가 일치하는지 확인하는 것이 좋습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

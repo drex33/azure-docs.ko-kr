@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9ce6e20e5e4866bc4daa3f331fa2a8612ac6c260
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3959c4843a070a8cd25885b2a3476a909caf24e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184164"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665799"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Azure Cache for Redis 삭제
 
@@ -26,7 +26,7 @@ ms.locfileid: "96184164"
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/delete-cache/delete-cache.sh "Azure Cache for Redis")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../includes/redis-cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

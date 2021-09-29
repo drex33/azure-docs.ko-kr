@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4fbc79723dd484148ddf2f8836848aa9bc333341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d776c245600691db24d80ecb705d8bf14d8fd1ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522591"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124795377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>자습서: Mindflash와 Azure Active Directory 통합
 
@@ -177,17 +177,17 @@ Mindflash에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-mindflash-test-user"></a>Mindflash 테스트 사용자 만들기
+### <a name="create-mindflash-test-user&quot;></a>Mindflash 테스트 사용자 만들기
 
 Azure AD 사용자가 Mindflash에 로그인할 수 있도록 하려면 Mindflash로 프로비전되어야 합니다. Mindflash의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1. **Mindflash** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. **사용자 관리** 로 이동합니다.
    
-    ![사용자 관리](./media/mindflash-tutorial/ic787140.png "사용자 관리")
+    ![사용자 관리](./media/mindflash-tutorial/ic787140.png &quot;사용자 관리")
 
 1. **사용자 추가** 를 클릭한 다음 **새로 만들기** 를 클릭합니다.
 
@@ -211,7 +211,7 @@ Azure AD 사용자가 Mindflash에 로그인할 수 있도록 하려면 Mindflas
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Mindflash 타일을 클릭하면 SSO를 설정한 Mindflash에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Mindflash 타일을 클릭하면 SSO를 설정한 Mindflash에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

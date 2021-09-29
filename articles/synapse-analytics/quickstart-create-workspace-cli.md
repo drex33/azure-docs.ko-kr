@@ -2,19 +2,19 @@
 title: '빠른 시작: Azure CLI를 사용하여 Synapse 작업 영역 만들기'
 description: 이 가이드의 단계에 따라 Azure CLI를 사용하여 Azure Synapse 작업 영역을 만듭니다.
 services: synapse-analytics
-author: alehall
+author: rothja
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 08/25/2020
-ms.author: alehall
+ms.author: jroth
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b0bbe7bb1fbfcc3de0ef39fe0b31b11b6ff10
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 4856142a7c075405930969a3e1f6da5804ef8c6c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407672"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093158"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기
 

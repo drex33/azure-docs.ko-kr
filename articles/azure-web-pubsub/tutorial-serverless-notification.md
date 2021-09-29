@@ -6,12 +6,12 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.openlocfilehash: 0012b17de652d2282cfb2ca21806b95e892b80a7
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 98bb95800596ac54bae01efb501c6016767ca650
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452234"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785100"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 알림 앱 만들기
 
@@ -31,19 +31,19 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 
 * [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기
 
-* [Node.js](https://nodejs.org/en/download/), 버전 10.x.
+* [Node.js](https://nodejs.org/en/download/) 버전 10.x
    > [!NOTE]
    > 지원되는 Node.js 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 설명서](../azure-functions/functions-versions.md#languages)를 참조하세요.
 
-* Azure Function 앱을 로컬로 실행하고 Azure에 배포하기 위한 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(v3 이상 추천)
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(v3 이상 추천) - Azure Function 앱을 로컬로 실행하고 Azure에 배포합니다.
 
 * Azure 리소스 관리를 위한 [Azure CLI(Azure 명령줄 인터페이스)](/cli/azure)
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-* [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기
+* 코드 편집기(예: [Visual Studio Code](https://code.visualstudio.com/))
 
-* Azure Function 앱을 로컬로 실행하고 Azure에 배포하기 위한 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(v3 이상 추천)
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(v3 이상 추천) - Azure Function 앱을 로컬로 실행하고 Azure에 배포합니다.
 
 * Azure 리소스 관리를 위한 [Azure CLI(Azure 명령줄 인터페이스)](/cli/azure)
 
@@ -55,7 +55,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 
 ## <a name="create-and-run-the-functions-locally"></a>로컬로 함수 만들기 및 실행
 
-1. [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)가 설치되었는지 확인합니다. 그런 다음, 프로젝트에 대해 빈 디렉터리를 만듭니다. 이 작업 디렉터리 아래에서 명령을 실행합니다.
+1. [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)가 설치되었는지 확인합니다. 그런 다음, 프로젝트에 대한 빈 디렉터리를 만듭니다. 이 작업 디렉터리 아래에서 명령을 실행합니다.
 
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
     ```bash
@@ -69,18 +69,18 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 
 1. `Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
-   a. 다음 단계에서 특정 확장 패키지를 설치하기 위해 `host.json`에서 `extensionBundle`을 제거합니다. 또는 아래와 같이 단순히 호스트 json을 만듭니다.
+   a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
     ```json
     {
         "version": "2.0"
     }
     ```
-   b. 명령을 실행하여 특정 함수 확장 패키지를 설치합니다.
+   b. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
     ```bash
     func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
     ```
 
-1. `index` 함수를 만들어 클라이언트에 대해 정적 웹 페이지를 읽고 호스팅합니다.
+1. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
     ```bash
     func new -n index -t HttpTrigger
     ```
@@ -254,7 +254,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
         }
         ``` 
 
-4. 프로젝트 루트 폴더에서 클라이언트 단일 페이지 `index.html`을 추가하고 아래와 같이 콘텐츠를 복사합니다.
+4. 프로젝트 루트 폴더에서 클라이언트 단일 페이지(`index.html`)를 추가하고 아래와 같이 콘텐츠를 복사합니다.
     ```html
     <html>
         <body>
@@ -356,16 +356,16 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-1. Azure에 함수 프로젝트 배포:
+1. 함수 프로젝트를 Azure에 배포합니다.
 
-    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](/azure/azure-functions/functions-run-local) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
+    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](../azure-functions/functions-run-local.md) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
     ```
 
     > [!NOTE]
-    > 여기에서는 명령 매개 변수 `--publish-local-settings`와 함께 로컬 설정 `local.settings.json`을 배포합니다. Microsoft Azure Storage Emulator를 사용하는 경우 `no`를 입력하여 Azure에서 프롬프트 메시지 `App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]` 다음에 이 값 덮어쓰기를 건너뛸 수 있습니다. 뿐만 아니라 **Azure Portal** -> **설정** -> **구성** 에서 함수 앱 설정을 업데이트할 수 있습니다.
+    > 여기서는 로컬 설정(`local.settings.json`)을 명령 매개 변수(`--publish-local-settings`)와 함께 배포합니다. Microsoft Azure Storage 에뮬레이터를 사용하는 경우 프롬프트 메시지(`App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`)에 따라 Azure에서 이 값의 덮어쓰기를 건너뛰려면 `no`를 입력할 수 있습니다. 뿐만 아니라 **Azure Portal** -> **설정** -> **구성** 에서 함수 앱 설정을 업데이트할 수 있습니다.
 
 1. 이제 `https://<FUNCIONAPP_NAME>.azurewebsites.net/api/index` URL로 이동하여 Azure Function App에서 사이트를 확인할 수 있습니다.
 

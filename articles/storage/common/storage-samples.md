@@ -1,19 +1,19 @@
 ---
 title: Azure Storage 코드 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET, Java, Python, Node.js, Azure CLI 및 C++ 스토리지 클라이언트 라이브러리를 사용하여 Blob, 큐, 테이블 및 파일에 대한 시작 샘플을 검색합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dadc76c46e5a51a34038a38f059428ffac3bd5a8
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 4cac7e334a2d936c027c244aba22e58a364863e1
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708133"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
 
@@ -27,41 +27,40 @@ Azure Storage 샘플 코드 및 애플리케이션을 보고 다운로드하려�
 
 .NET 샘플을 탐색하려면 [.NET Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/) 를 NuGet에서 다운로드합니다. .NET 스토리지 클라이언트 라이브러리를 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에서도 사용할 수 있습니다.
 
-* [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+- [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Java 샘플
 
 Java 샘플을 탐색하려면 [Java Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-java)를 다운로드합니다.
 
-* [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+- [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
 
 ## <a name="python-samples"></a>Python 샘플
 
 Python 샘플을 탐색하려면 [Python Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-python)를 다운로드합니다.
 
-* [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+- [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
 
 ## <a name="nodejs-samples"></a>Node.js 샘플
 
 Node.js 샘플을 탐색하려면 [Node.js Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node)를 다운로드합니다.
 
-* [JavaScript/Node.js를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+- [JavaScript/Node.js를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C++ 샘플
 
 C++ 샘플을 탐색하려면 GitHub에서 [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)를 가져옵니다.
 
-* [Azure Blob 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
-* [Azure Data Lake 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
-* [Azure Files 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
+- [Azure Blob 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
+- [Azure Data Lake 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
+- [Azure Files 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
 
 ## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI 샘플을 탐색하려면 먼저 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 
-* [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)
-* [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)
-* [Azure Storage에서 Azure CLI 사용에 대한 인기 문서](/cli/azure/popular-articles-using-the-azure-cli#storage)
+- [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)
+- [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)
 
 ## <a name="api-reference-and-source-code"></a>API 참조 및 소스 코드
 
@@ -78,9 +77,9 @@ Azure CLI 샘플을 탐색하려면 먼저 [Azure CLI](/cli/azure/install-azure-
 
 다음 문서는 서비스(Blob, 파일, 큐, 테이블)에 의해 각 샘플을 인덱싱합니다.
 
-* [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
-* [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
-* [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
-* [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
-* [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)
+- [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+- [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+- [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+- [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+- [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
+- [Azure CLI를 사용한 Azure Storage 샘플](../blobs/storage-samples-blobs-cli.md)

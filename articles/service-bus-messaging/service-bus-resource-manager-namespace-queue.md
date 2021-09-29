@@ -4,18 +4,18 @@ description: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 Se
 documentationcenter: .net
 author: spelluru
 ms.author: spelluru
-ms.date: 06/08/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: a7592e0f6e042f4da085ec277fb702ad7000139a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 302326726a1b154deae88e434a80bf7aecf9922a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290147"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155328"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 

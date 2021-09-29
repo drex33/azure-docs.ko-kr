@@ -6,21 +6,21 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 09/13/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 0d531515252a6f629d6bab0282061a90aae5bdf1
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 0d69e35af1cc7adc30a7b616897f3147f9a04281
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659445"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677302"
 ---
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
@@ -109,10 +109,10 @@ print(token_result.token)
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].properties['id']
+identity = identity_token_result[0]
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-print("\nCreated an identity with ID: " + identity)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)
 ```
@@ -124,7 +124,7 @@ print(token)
 ```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token( identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 ```
 
 ## <a name="revoke-access-tokens"></a>액세스 토큰 취소

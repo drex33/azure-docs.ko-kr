@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: ea010cd348973757c5f5cc0bb705bc52f0cd9e7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c4048c3795f2e7925f70783b5c5b763d4796b9a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802824"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910244"
 ---
 C#용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 패키지를 설치하고 서비스에서 제공하는 알고리즘을 사용합니다. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류로부터 사전에 보호할 수 있습니다.
 
@@ -23,7 +23,7 @@ C#용 Anomaly Detector 다변량 클라이언트 라이브러리를 사용하여
 * 개별 시계열이 많은 것을 알 수 없는 경우 문제를 감지하기 위해 모든 신호를 확인해야 합니다.
 * 시스템 상태의 다양한 양상을 측정하는 수천 개 유형의 센서를 사용하여 고가의 물리적 자산을 사전 예방적으로 유지 관리.
 
-[라이브러리 참조 설명서](/dotnet/api/azure.ai.anomalydetector) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
+[라이브러리 참조 설명서](/dotnet/api/azure.ai.anomalydetector) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

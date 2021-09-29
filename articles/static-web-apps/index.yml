@@ -8,13 +8,13 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 49453cb08e29d8fedf9f982150ace8b9986dfaba
-  ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+  ms.date: 05/07/2021
+  ms.openlocfilehash: 6c2119b81b9eea8c4da0caa68f998e70fab4fae1
+  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108178937"
+  ms.lasthandoff: 09/28/2021
+  ms.locfileid: "129154948"
 landingContent:
 - title: Static Web Apps 정보
   linkLists:
@@ -64,6 +64,8 @@ landingContent:
       url: deploy-nuxtjs.md
     - text: Azure DevOps로 배포
       url: publish-devops.md
+    - text: ARM 템플릿을 사용하여 배포
+      url: publish-azure-resource-manager.md
   - linkListType: learn
     links:
     - text: Gatsby를 사용하여 정적 웹앱 게시
@@ -74,8 +76,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: 애플리케이션 구성
-      url: configuration.md
+    - text: 구성
+      url: configuration-overview.md
     - text: 공용 API
       url: apis.md
     - text: 스테이징 환경

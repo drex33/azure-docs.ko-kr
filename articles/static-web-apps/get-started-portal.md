@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d83a9f96745e798d307c6e5299da84f1ac717e76
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 41be62a4e7baed39cc45011ed055a1abfe097002
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609087"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804578"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 사이트 빌드
 
@@ -22,7 +22,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -99,7 +99,7 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="만들기 단추 검토":::
 
     > [!NOTE]
-    > 앱을 만든 후 이러한 값을 변경하려면 [워크플로 파일](github-actions-workflow.md)을 편집하면 됩니다.
+    > 앱을 만든 후 이러한 값을 변경하려면 [워크플로 파일](build-configuration.md)을 편집하면 됩니다.
 
 1. **만들기** 를 선택합니다.
 

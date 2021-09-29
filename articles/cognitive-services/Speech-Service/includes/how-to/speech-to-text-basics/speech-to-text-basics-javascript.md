@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: fdbb9f163d0e34ba6f71d6066531a861d6cdd53a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 98ffbd2d8bed2ea59528fc7b7098d752c658792f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056963"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -126,17 +126,17 @@ fromStream();
 
 ```javascript
 switch (result.reason) {
-    case ResultReason.RecognizedSpeech:
+    case sdk.ResultReason.RecognizedSpeech:
         console.log(`RECOGNIZED: Text=${result.text}`);
         break;
-    case ResultReason.NoMatch:
+    case sdk.ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
         break;
-    case ResultReason.Canceled:
+    case sdk.ResultReason.Canceled:
         const cancellation = CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.reason == CancellationReason.Error) {
+        if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the key and location/region info?");
@@ -170,10 +170,10 @@ recognizer.recognizing = (s, e) => {
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.result.reason == ResultReason.RecognizedSpeech) {
+    if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
         console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
-    else if (e.result.reason == ResultReason.NoMatch) {
+    else if (e.result.reason == sdk.ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
@@ -181,7 +181,7 @@ recognizer.recognized = (s, e) => {
 recognizer.canceled = (s, e) => {
     console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.reason == CancellationReason.Error) {
+    if (e.reason == sdk.CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
         console.log("CANCELED: Did you update the key and location/region info?");

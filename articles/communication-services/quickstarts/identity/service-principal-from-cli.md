@@ -5,16 +5,17 @@ description: 이 빠른 시작에서는 Azure Communication Services에 인증�
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
+ms.subservice: identity
 ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 6e573b455896b2eec6ec8163e1c463ed758279d4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c2b8dd4a40205178b3656477e89189d6f0f0bfeb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257963"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635530"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory-azure-cli"></a>빠른 시작: Azure Active Directory(Azure CLI)를 사용하여 인증
 

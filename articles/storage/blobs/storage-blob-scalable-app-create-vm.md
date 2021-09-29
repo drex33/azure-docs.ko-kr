@@ -8,12 +8,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b8c52b03cb6dec6096565e9eac26b7b2c4a30e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1674fe3aee6ea336986a9570232d070f47bbb478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89073253"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620240"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 스토리지 계정 만들기
 
@@ -22,11 +22,11 @@ ms.locfileid: "89073253"
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 스토리지 계정 만들기
-> * 가상 머신 만들기
-> * 사용자 지정 스크립트 확장 구성
+> - 스토리지 계정 만들기
+> - 가상 머신 만들기
+> - 사용자 지정 스크립트 확장 구성
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
- 
+
 이 샘플은 Azure Storage 계정의 Blob 컨테이너에 50개의 대용량 파일을 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 만든 리소스 그룹에 [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) 명령을 사용하여 스토리지 계정을 만듭니다.
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자는 Blob Storage 계정에 대한 전역적으로 고유한 이름으로 바꿉니다.
@@ -103,12 +103,12 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 이 자습서에서는 필수 구성 요소를 가상 머신에 설치해야 합니다. 사용자 지정 스크립트 확장을 사용하여 다음 작업을 완료하는 PowerShell 스크립트를 실행합니다.
 
 > [!div class="checklist"]
-> * .NET Core 2.0 설치
-> * Chocolatey 설치
-> * Git 설치
-> * 샘플 리포지토리 복제
-> * NuGet 패키지 복원
-> * 임의 데이터가 포함된 1GB 파일 50개 만들기
+> - .NET Core 2.0 설치
+> - Chocolatey 설치
+> - Git 설치
+> - 샘플 리포지토리 복제
+> - NuGet 패키지 복원
+> - 임의 데이터가 포함된 1GB 파일 50개 만들기
 
 다음 cmdlet을 실행하여 가상 머신의 구성을 완료합니다. 이 단계를 완료하려면 5-15분이 걸립니다.
 
@@ -127,9 +127,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 시리즈의 1부에서는 다음을 수행하는 방법과 같이 스토리지 계정을 만들고, 가상 머신을 배포하고, 가상 머신에서 필수 구성 요소를 구성하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 스토리지 계정 만들기
-> * 가상 머신 만들기
-> * 사용자 지정 스크립트 확장 구성
+> - 스토리지 계정 만들기
+> - 가상 머신 만들기
+> - 사용자 지정 스크립트 확장 구성
 
 시리즈의 2부로 이동하여 지수 다시 시도와 병렬 처리를 사용하여 스토리지 계정으로 대량의 데이터를 업로드합니다.
 

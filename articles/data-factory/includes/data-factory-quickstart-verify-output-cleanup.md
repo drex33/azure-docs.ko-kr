@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: e96e3fe6a1c93c914e9dec7263852b047a05e38d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 18ff33287be7f5763a23cdf33c6e023501645299
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741774"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126057168"
 ---
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -17,13 +17,13 @@ ms.locfileid: "108741774"
 
 1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 **새로 고침** 을 선택하여 출력 폴더를 확인합니다. 
     
-    ![스크린샷은 페이지를 새로 고칠 수 있는 페이지를 보여줍니다.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-refresh.png" alt-text="스크린샷은 페이지를 새로 고칠 수 있는 페이지를 보여줍니다.":::
 
 2. 폴더 목록에서 **출력** 을 선택합니다. 
 
 3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다. 
 
-    ![스크린샷은 출력 폴더 내용을 보여줍니다.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    :::image type="content" source="media/data-factory-quickstart-verify-output-cleanup/output-file.png" alt-text="스크린샷은 출력 폴더 내용을 보여줍니다.":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

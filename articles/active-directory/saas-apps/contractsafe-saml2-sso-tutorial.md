@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2d236b9910e2eda8e574d020544d625a68aefb81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 67337a8326a6eca334489b644454debea782c3c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92455318"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816894"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>자습서: ContractSafe Saml2 SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -142,7 +142,7 @@ ContractSafe Saml2 SSO에서 B.Simon이라는 사용자를 만듭니다. [Contra
 
 ## <a name="test-sso"></a>SSO 테스트
 
-액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다. 액세스 패널에서 ContractSafe Saml2 SSO 타일을 선택하면 SSO를 설정한 ContractSafe Saml2 SSO에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다. 액세스 패널에서 ContractSafe Saml2 SSO 타일을 선택하면 SSO를 설정한 ContractSafe Saml2 SSO에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

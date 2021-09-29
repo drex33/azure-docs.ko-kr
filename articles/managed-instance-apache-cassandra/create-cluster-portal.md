@@ -5,17 +5,17 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 67f317594b257776a3a8ac8c257281352516bfee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 468f5141d7e28d387719df6bddbf30f5810c5955
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749471"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557249"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
- 
+
 Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cassandra 데이터 센터에 대한 자동화된 배포 및 스케일링 작업을 제공하여 하이브리드 시나리오를 가속화하고 지속적인 유지 관리를 줄여줍니다.
 
 > [!IMPORTANT]
@@ -52,8 +52,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * **최초 Cassandra 관리자 암호** - 클러스터를 만드는 데 사용되는 암호입니다.
    * **Cassandra 관리자 암호 확인** - 암호를 다시 입력합니다.
 
-    > [!NOTE]
-    > 공개 미리 보기 중에는 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 오스트레일리아 동부 지역에서 관리형 인스턴스 클러스터를 만들 수 있습니다.
+   > [!NOTE]
+   > 공개 미리 보기 중에는 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 오스트레일리아 동부 지역에서 관리형 인스턴스 클러스터를 만들 수 있습니다.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="클러스터 만들기 양식을 작성합니다." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
@@ -63,14 +63,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="네트워킹 세부 정보를 구성합니다." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-    > [!NOTE]
-    > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
-    > - Azure Storage
-    > - Azure KeyVault
-    > - Azure Virtual Machine Scale Sets
-    > - Azure 모니터링
-    > - Azure Active Directory
-    > - Azure Security
+   > [!NOTE]
+   > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
+   > - Azure Storage
+   > - Azure KeyVault
+   > - Azure Virtual Machine Scale Sets
+   > - Azure 모니터링
+   > - Azure Active Directory
+   > - Azure Security
 
 1. 마지막 단계에서 새 VNet을 만든 경우 8단계로 건너뜁니다. 기존 VNet을 선택한 경우 클러스터를 만들기 전에 가상 네트워크 및 서브넷에 몇 가지 특수 권한을 적용해야 합니다. 이렇게 하려면 `az role assignment create` 명령을 사용하여 `<subscription ID>`, `<resource group name>` 및 `<VNet name>`을 적절한 값으로 바꿉니다.
 
@@ -83,11 +83,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 이제 네트워킹은 완료되었으므로 **검토 + 만들기** > **만들기** 를 클릭합니다.
 
-    > [!NOTE]
-    > 클러스터를 만드는 데 최대 15분이 소요될 수 있습니다.
+   > [!NOTE]
+   > 클러스터를 만드는 데 최대 15분이 소요될 수 있습니다.
 
    :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="요약을 검토하고 클러스터를 만듭니다." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
-
 
 1. 배포가 완료된 후 리소스 그룹을 확인하여 새로 만든 관리형 인스턴스 클러스터를 확인:
 
@@ -96,7 +95,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 클러스터 노드를 탐색하려면 클러스터를 만드는 데 사용한 가상 네트워크 창으로 이동하고 **개요** 창을 열어 확인합니다.
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="클러스터 리소스를 확인합니다." lightbox="./media/create-cluster-portal/resources.png" border="true":::
-
 
 ## <a name="connecting-to-your-cluster"></a>클러스터에 연결
 
@@ -119,7 +117,8 @@ export SSL_VALIDATE=false
 
 # Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
 host=("<IP>" "<IP>" "<IP>")
-cqlsh $host 9042 -u cassandra -p cassandra --ssl
+initial_admin_password="Password provided when creating the cluster"
+cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
 ## <a name="troubleshooting"></a>문제 해결

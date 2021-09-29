@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f6393eac50cc4a5b4371ffcd079ce956d90aed9c
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: db96eccb237597a3a4cebb4c2be730e76555e885
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666133"
 ---
 ## <a name="australian-government-ism-protected"></a>오스트레일리아 정부 ISM PROTECTED
 
@@ -124,8 +124,8 @@ ms.locfileid: "123097999"
 
 ## <a name="nist-sp-800-53-rev-4"></a>NIST SP 800-53 Rev. 4
 
-모든 Azure 서비스에서 사용할 수 있는 Azure Policy 기본 제공 사항이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - NIST SP 800-53 개정 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md)를 참조하세요.
-이 규정 준수 표준에 관한 자세한 내용은 [NIST SP 800-53 개정 4](https://nvd.nist.gov/800-53)를 참조하세요.
+모든 Azure 서비스에서 사용할 수 있는 Azure Policy 기본 제공 사항이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md)를 참조하세요.
+이 규정 준수 표준에 관한 자세한 내용은 [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53)를 참조하세요.
 
 |도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -140,8 +140,8 @@ ms.locfileid: "123097999"
 
 ## <a name="nist-sp-800-53-rev-5"></a>NIST SP 800-53 Rev. 5
 
-모든 Azure 서비스에서 사용할 수 있는 Azure Policy 기본 제공 사항이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - NIST SP 800-53 개정 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md)를 참조하세요.
-이 규정 준수 표준에 관한 자세한 내용은 [NIST SP 800-53 개정 5](https://nvd.nist.gov/800-53)를 참조하세요.
+모든 Azure 서비스에서 사용할 수 있는 Azure Policy 기본 제공 사항이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md)를 참조하세요.
+이 규정 준수 표준에 관한 자세한 내용은 [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53)를 참조하세요.
 
 |도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 251f534669333c17a4bb408a23b33f73c79c9e9f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618631"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229710"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Azure Cosmos DB 통합 캐시를 구성하는 방법(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -66,7 +66,7 @@ Java SDK를 사용하는 경우 `CosmosClientBuilder` 내에서 수동으로 [co
 
 ## <a name="adjust-request-consistency"></a>요청 일관성 조정
 
-최종으로 요청 일관성을 조정해야 합니다. 그러지 않으면 요청은 항상 통합 캐시를 바이패스합니다. 모든 읽기 작업에 대해 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정](consistency-levels.md#configure-the-default-consistency-level)하는 것입니다. 또한 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다. 이는 읽기의 하위 집합만 통합 캐시를 활용하려는 경우에 권장됩니다.
+세션 또는 최종에 대 한 요청 일관성을 조정 해야 합니다. 그러지 않으면 요청은 항상 통합 캐시를 바이패스합니다. 모든 읽기 작업에 대 한 특정 일관성을 구성 하는 가장 쉬운 방법은 [계정 수준에서 설정](consistency-levels.md#configure-the-default-consistency-level)하는 것입니다. 또한 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다. 이는 읽기의 하위 집합만 통합 캐시를 활용하려는 경우에 권장됩니다.
 
 > [!NOTE]
 > Python SDK를 사용하는 경우 각 요청에 대해 일관성 수준을 명시적으로 **설정해야 합니다**. 기본 계정 수준 설정은 자동으로 적용되지 않습니다.

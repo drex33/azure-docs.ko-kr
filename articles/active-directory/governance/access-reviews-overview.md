@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7e02cb82895940fca43a53c671aecd46e19ef497
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c391f6cbc588e55b0c78306bcb00f7b8ec5c068d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786630"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748489"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -44,7 +44,7 @@ Azure AD를 사용하면 조직 내의 사용자 및 외부 사용자와 협업�
 
 ## <a name="when-should-you-use-access-reviews"></a>언제 액세스 검토를 사용해야 하나요?
 
-- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스 권한이 있는 사용자 수, 전역 관리자의 수, 관리 작업을 수행하도록 할당된 후 제거되지 않은 초대된 게스트 또는 파트너가 있는지 여부를 확인하는 것이 좋습니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 전역 관리자와 같은 [Azure AD 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
+- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스 권한이 있는 사용자 수, 전역 관리자의 수, 관리 작업을 수행하도록 할당된 후 제거되지 않은 초대된 게스트 또는 파트너가 있는지 여부를 확인하는 것이 좋습니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 전역 관리자와 같은 [Azure AD 역할](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
 - **자동화가 불가능한 경우:** 보안 그룹 또는 Microsoft 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어떻게 해야 하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
 - **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
 - **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그아웃하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
@@ -63,8 +63,8 @@ Azure AD를 사용하면 조직 내의 사용자 및 외부 사용자와 협업�
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure AD 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
@@ -110,6 +110,6 @@ Azure AD 게스트 사용자 액세스는 1:5 비율 청구 모델을 대체하�
 ## <a name="next-steps"></a>다음 단계
 
 - [그룹 또는 애플리케이션의 액세스 검토 만들기](create-access-review.md)
-- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
+- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
 - [그룹 또는 애플리케이션에 대한 액세스 검토](perform-access-review.md)
 - [그룹 또는 애플리케이션의 액세스 검토 완료](complete-access-review.md)

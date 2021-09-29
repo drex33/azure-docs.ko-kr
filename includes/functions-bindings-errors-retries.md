@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 740f1e3bd8c08ae7d1684613d1920cffd1bba619
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96356196"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129237304"
 ---
 Azure Functions에서 발생하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
 
@@ -297,9 +297,9 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |---------|---------|---------| 
 |전략|해당 없음|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
 |maxRetryCount|해당 없음|필수 요소. 함수 실행당 허용되는 최대 재시도 횟수입니다. `-1`은 무기한으로 재시도하는 것을 의미합니다.|
-|delayInterval|해당 없음|`fixedDelay` 전략을 사용할 때 재시도 사이에 사용되는 지연입니다.|
-|minimumInterval|해당 없음|`exponentialBackoff` 전략을 사용하는 경우 최소 재시도 지연 시간입니다.|
-|maximumInterval|해당 없음|`exponentialBackoff` 전략을 사용하는 경우 최대 재시도 지연 시간입니다.| 
+|delayInterval|해당 없음|전략을 사용할 때 재시도 사이에 사용 되는 지연입니다 `fixedDelay` . 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.|
+|minimumInterval|해당 없음|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다. 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.|
+|maximumInterval|해당 없음|`exponentialBackoff` 전략을 사용하는 경우 최대 재시도 지연 시간입니다. 형식을 사용 하 여 문자열로 지정 `HH:mm:ss` 합니다.| 
 
 ### <a name="retry-limitations-during-preview"></a>미리 보기 중 재시도 제한 사항
 

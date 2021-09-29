@@ -14,12 +14,12 @@ metadata:
   ms.author: ajburnle
   ms.custom: it-pro, seodec18
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: a60d4a7f59888c7bd19156e567313a0110651753
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 3eda49497f84c26829a626a243f19c7ac94e3b22
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111954988"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124732649"
 title: Azure Active Directory에 대해 자주 묻는 질문과 대답
 summary: >
   Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -97,7 +97,7 @@ sections:
       예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Microsoft 365 고객인 경우 [Office 365 포털](https://portal.office.com)에서 동일한 많은 기능을 찾을 수 있습니다.
 
 
-      자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+      자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
   - question: >
       Azure AD를 사용하면 내 온-프레미스 인프라를 관리하는 데 도움이 되나요?
     answer: "예. Azure AD Premium Edition에는 Azure AD Connect Health가 제공됩니다. Azure AD Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다.  \n\n자세한 내용은 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](../hybrid/whatis-azure-ad-connect.md)을 참고하세요.  \n"

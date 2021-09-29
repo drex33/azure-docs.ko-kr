@@ -1,17 +1,17 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure DevTest Labs FAQ | Microsoft 문서
+  title: Azure DevTest Labs FAQ
   description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
-  ms.topic: article
+  ms.topic: troubleshooting
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: c1ad54ee9c95590cf25aacadf0fd549d460e2d8c
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 55a8c385479b5a14407e07288d61ff9cd1eb21a5
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253137"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128650461"
 title: Azure DevTest Labs FAQ
 summary: "\nAzure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.\n\n## <a name=\"blog-post\"></a>블로그 게시물\nDevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>이제부터 기능 업데이트는 어디에서 추적할 수 있나요?\n이제부터는 기능 업데이트와 유익한 블로그 게시물을 Azure 블로그와 Azure 업데이트에 게시할 예정입니다. 블로그 게시물은 필요할 때마다 설명서에도 연결됩니다.\n        \n[DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)와 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)를 구독하면 DevTest Labs의 새로운 기능에 대한 정보가 제공됩니다.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>기존 블로그 게시물은 어떻게 되나요?\n현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>중단 업데이트는 어디에서 볼 수 있나요?\n앞으로 중단 업데이트는 Twitter 핸들을 사용하여 게시할 예정입니다. Twitter에서 팔로우하고 중단 및 알려진 버그에 대한 최신 업데이트를 받으세요.\n\n### <a name=\"twitter\"></a>Twitter\nTwitter 핸들: [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -447,7 +447,7 @@ sections:
       VM 배포 오류는 활동 로그에 캡처됩니다. 랩 VM 활동 로그는 랩의 VM 페이지(페이지는 내 가상 머신 목록에서 VM을 선택한 후에 표시됨)에 있는 리소스 메뉴에서 **감사 로그** 또는 **가상 머신 진단** 아래에서 찾을 수 있습니다.
 
 
-      경우에 따라 VM 배포가 시작되기 전에 배포 오류가 발생합니다. 예는 VM을 사용하여 만든 리소스에 대한 구독 제한을 초과하는 경우입니다. 이 경우 오류 세부 정보는 랩 수준 활동 로그에 캡처됩니다. 활동 로그는 **구성 및 정책** 설정의 맨 아래에 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.
+      경우에 따라 VM 배포가 시작되기 전에 배포 오류가 발생합니다. 예는 VM을 사용하여 만든 리소스에 대한 구독 제한을 초과하는 경우입니다. 이 경우 오류 세부 정보는 랩 수준 활동 로그에 캡처됩니다. 활동 로그는 **구성 및 정책** 설정의 맨 아래에 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-monitor/essentials/activity-log.md)를 참조하세요.
   - question: >
       랩을 만들려고 할 때 "위치는 리소스 종류에 대해 사용할 수 없습니다"라는 오류가 발생하는 이유는 무엇인가요?
     answer: >-

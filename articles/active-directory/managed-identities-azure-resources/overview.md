@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 91728bfee6b8e303de2e7199e703a8acaa5139d8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967206"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773591"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
@@ -75,7 +75,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 서비스
 
 - 리소스 수준에서 관리 ID를 사용하거나 사용하지 않도록 설정합니다.
 - RBAC 역할을 사용하여 [권한을 부여](howto-assign-access-portal.md)합니다.
-- [Azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md)에서 CRUD(만들기, 읽기, 업데이트, 삭제) 작업을 봅니다.
+- [Azure 활동 로그](../../azure-monitor/essentials/activity-log.md)에서 CRUD(만들기, 읽기, 업데이트, 삭제) 작업을 봅니다.
 - Azure AD [로그인 로그](../reports-monitoring/concept-sign-ins.md)에서 로그인 활동을 봅니다.
 
 대신 사용자 할당 관리 ID를 선택하는 경우:
@@ -83,7 +83,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 서비스
 - ID를 [만들고, 읽고, 업데이트하고, 삭제](how-to-manage-ua-identity-portal.md)할 수 있습니다.
 - RBAC 역할 할당을 사용하여 [권한을 부여](howto-assign-access-portal.md)할 수 있습니다.
 - 사용자 할당 관리 ID는 둘 이상의 리소스에서 사용할 수 있습니다.
-- CRUD 작업은 [Azure 활동 로그](../../azure-resource-manager/management/view-activity-logs.md)에서 검토할 수 있습니다.
+- CRUD 작업은 [Azure 활동 로그](../../azure-monitor/essentials/activity-log.md)에서 검토할 수 있습니다.
 - Azure AD [로그인 로그](../reports-monitoring/concept-sign-ins.md)에서 로그인 활동을 봅니다.
 
 ARM(Azure Resource Manager) 템플릿, Azure Portal, Azure CLI, PowerShell 및 REST API를 사용하여 관리 ID에 대한 작업을 수행할 수 있습니다.

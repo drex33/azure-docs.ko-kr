@@ -1,18 +1,18 @@
 ---
 title: .NET을 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET 스토리지 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: c140234ce93ff9146ef3b1a5a135258ad707c807
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 947afa47c3ad5903e22cdd114a8020956861aa45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275705"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633738"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>v12 .NET 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -86,6 +86,7 @@ ms.locfileid: "106275705"
 :::row-end:::
 
 ### <a name="troubleshooting"></a>문제 해결
+
 :::row:::
    :::column span="2":::
       [컨테이너 클라이언트를 사용하여 복구 가능한 오류 트리거](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L166)
@@ -114,6 +115,7 @@ ms.locfileid: "106275705"
 :::row-end:::
 
 ### <a name="file-system"></a>파일 시스템
+
 :::row:::
    :::column span="":::
       [파일 시스템 클라이언트를 사용하여 파일 만들기](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L22)
@@ -148,6 +150,7 @@ ms.locfileid: "106275705"
 :::row-end:::
 
 ### <a name="file"></a>파일
+
 :::row:::
    :::column span="":::
       [파일 업로드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
@@ -270,7 +273,8 @@ ms.locfileid: "106275705"
    :::column-end:::
 :::row-end:::
 
-### <a name="troubleshooting"></a>문제 해결 
+### <a name="troubleshooting"></a>문제 해결
+
 :::row:::
    :::column span="2":::
       [큐 클라이언트를 사용하여 복구 가능한 오류 트리거](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188)
@@ -313,10 +317,10 @@ ms.locfileid: "106275705"
 
 전체 .NET 샘플 라이브러리를 보려면 다음으로 이동하세요.
 
-* [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-* [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
-* [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
-* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples)
+- [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 
@@ -324,17 +328,17 @@ ms.locfileid: "106275705"
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
-* [.NET에서 Azure Blob 서비스 시작](../blobs/storage-quickstart-blobs-dotnet.md)
-* [.NET에서 Azure 큐 서비스 시작](../queues/storage-quickstart-queues-dotnet.md)
-* [.NET에서 Azure 테이블 서비스 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)
-* [.NET에서 Azure 파일 서비스 시작](../files/storage-dotnet-how-to-use-files.md)
+- [.NET에서 Azure Blob 서비스 시작](../blobs/storage-quickstart-blobs-dotnet.md)
+- [.NET에서 Azure 큐 서비스 시작](../queues/storage-quickstart-queues-dotnet.md)
+- [.NET에서 Azure 테이블 서비스 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)
+- [.NET에서 Azure 파일 서비스 시작](../files/storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
-* Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
-* JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
-* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)
+- Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+- Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+- JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+- C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
+- 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

@@ -1,104 +1,260 @@
 ---
 title: Azure Data Lake Storage Gen2 사용에 대한 모범 사례 | Microsoft Docs
-description: Azure Data Lake Storage Gen2 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례 알아보기
+description: 성능을 최적화하고, 비용을 절감하고, Data Lake Storage Gen2 지원 Azure Storage 계정을 보호하는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 09/28/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: b2d631d165b4a8cd585fbe012d9ab9afaa2e6bf3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e1361fedfb9ee09ebbef416a0ba59eaa58f876aa
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555435"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236151"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
-이 문서에서는 Data Lake Storage Gen2 사용 스토리지 계정의 보안, 복원력 및 디렉터리 구조에 대한 모범 사례 권장 사항을 제공합니다. 성능 최적화에 대한 모범 사례 권장 사항은 [성능을 위해 Azure Data Lake Storage Gen2 최적화를 참조하세요.](data-lake-storage-performance-tuning-guidance.md)
+이 문서에서는 성능을 최적화하고, 비용을 절감하고, Data Lake Storage Gen2 지원 Azure Storage 계정을 보호하는 데 도움이 되는 모범 사례 지침을 제공합니다. 
 
-## <a name="security-considerations"></a>보안 고려 사항
+## <a name="find-documentation"></a>설명서 찾기
 
-### <a name="use-security-groups-instead-of-individual-users"></a>개별 사용자 대신 보안 그룹 사용
+Azure Data Lake Storage Gen2는 전용 서비스 또는 계정 유형이 아닙니다. 높은 처리량 분석 워크로드를 지원하는 기능 집합입니다. Data Lake Storage Gen2 설명서에서는 이러한 기능을 사용하기 위한 모범 사례 및 지침을 제공합니다. 네트워크 보안 설정, 고가용성 설계 및 재해 복구와 같은 계정 관리의 다른 모든 측면은 [Blob Storage 설명서](storage-blobs-introduction.md) 콘텐츠를 참조하세요. 
 
-ACL(액세스 제어 목록)을 적용하는 경우 항상 Azure AD 보안 그룹을 ACL 항목에서 할당된 보안 주체로 사용합니다. 개별 사용자 또는 서비스 주체를 직접 할당할 수 있는 기회를 거부합니다. 이 구조를 사용하면 ACL을 전체 디렉터리 구조에 다시 적용하지 않고도 사용자 또는 서비스 주체를 추가하고 제거할 수 있습니다. 대신 적절한 Microsoft Azure AD 보안 그룹에서 사용자 및 서비스 주체를 추가하거나 제거할 수 있습니다.
+#### <a name="evaluate-feature-support-and-known-issues"></a>기능 지원 및 알려진 문제 평가
 
-이 모범 사례를 적용하는 방법은 보안 그룹 을 [참조하세요.](data-lake-storage-access-control-model.md#security-groups)
+Blob Storage 기능을 사용하도록 계정을 구성할 때 다음 패턴을 사용합니다.
 
-Data Lake Storage Gen2 액세스 제어 모델에 대한 일반적인 내용은 [Azure Data Lake Storage Gen2의 액세스 제어 모델을 참조하세요.](data-lake-storage-access-control-model.md)
+1. Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-in-storage-accounts.md) 검토하여 계정에서 기능이 완전히 지원되는지 확인합니다. 일부 기능은 아직 지원되지 않거나 Data Lake Storage Gen2 사용 계정에서 부분적으로 지원됩니다. 기능 지원은 항상 확장되므로 업데이트를 위해 이 문서를 정기적으로 검토해야 합니다.
 
-### <a name="configure-the-azure-storage-firewall-with-azure-service-access"></a>Azure 서비스 액세스를 통해 Azure Storage 방화벽 구성
+2. Azure [Data Lake Storage Gen2의 알려진 문제를](data-lake-storage-known-issues.md) 검토하여 사용하려는 기능에 대한 제한 사항 또는 특별 지침이 있는지 확인합니다.
 
-Azure Storage 방화벽을 켜 외부 공격의 벡터를 제한합니다. [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)같은 서비스에서 스토리지 계정에 액세스하려면 해당 서비스의 인스턴스를 가상 네트워크에 배포합니다. 그런 다음 해당 서비스에 대한 스토리지 계정에 대한 액세스 권한을 부여하도록 방화벽을 구성할 수 있습니다.
+3. Data Lake Storage Gen2 사용 계정과 관련된 지침은 기능 문서를 검색합니다. 
 
-이 모범 사례를 적용하는 방법에 대한 자세한 내용은 신뢰할 수 있는 [Azure 서비스에 대한 액세스 권한 부여를 참조하세요.](../common/storage-network-security.md)
+#### <a name="understand-the-terms-used-in-documentation"></a>설명서에 사용된 용어 이해
 
-일반적인 보안 권장 사항은 [Blob Storage에 대한 보안 권장 사항을 참조하세요.](security-recommendations.md)
+콘텐츠 집합 간에 이동할 때 약간의 용어 차이가 있습니다. 예를 들어 [Blob Storage 설명서](storage-blobs-introduction.md)에 추천되는 콘텐츠는 *파일* 대신 *Blob이라는* 용어를 사용합니다. 기술적으로 스토리지 계정에 저장하는 파일은 계정의 Blob이 됩니다. 따라서 용어가 올바름입니다. 그러나 이 경우 *라는* 용어를 사용하는 경우 혼동이 발생할 수 있습니다. *파일 시스템* 을 참조하는 데 사용되는 *컨테이너라는* 용어도 표시됩니다. 이러한 용어는 동의어로 간주합니다.
 
-## <a name="resiliency-considerations"></a>복원력 고려 사항
+## <a name="optimize-for-data-ingest"></a>데이터 수집에 최적화
 
-Data Lake Storage Gen2 또는 클라우드 서비스를 사용하여 시스템을 설계할 때 가용성 요구 사항 및 서비스의 잠재적 중단에 대응하는 방법을 고려합니다. 문제는 특정 인스턴스 또는 지역 전체에 국한될 수 있으므로 둘 모두에 대한 계획이 있어야 합니다. 워크로드에 대한 복구 시간 목표 및 복구 지점 목표 서비스 수준 계약에 따라 고가용성 및 재해 복구를 위해 다소 적극적인 전략을 선택할 수 있습니다.
+원본 시스템에서 데이터를 수집할 때 원본 하드웨어, 원본 네트워크 하드웨어 또는 스토리지 계정에 대한 네트워크 연결이 병목 상태가 될 수 있습니다.  
 
-### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
+![원본 시스템에서 Data Lake Storage Gen2 데이터를 수집할 때 고려해야 할 요소를 보여주는 다이어그램.](./media/data-lake-storage-best-practices/bottleneck.png)
 
-Data Lake Storage Gen2는 이미 지역화된 하드웨어 오류를 보호하기 위해 3배의 복제를 처리합니다. ZRS(영역 중복 스토리지) 및 GZRS(지역 영역 중복 스토리지)와 같은 복제 옵션은 가용성을 향상시킵니다. 이러한 기능을 통해 워크로드는 로컬 또는 새 지역에서 별도로 복제된 인스턴스로 전환하여 서비스 중단에 대응할 수 있습니다.
+### <a name="source-hardware"></a>원본 하드웨어
 
-지역의 치명적인 오류에 대비하려면 GRS(지역 중복 스토리지) 및 RA-GRS(읽기 액세스 지역 중복 스토리지)와 같은 복제 옵션을 사용하여 다른 지역에 데이터를 복제해야 합니다. 또한 백업할 주기적 스냅샷을 만들 수 있는 데이터 손상과 같은 에지 사례에 대한 요구 사항을 고려합니다. 데이터의 중요도와 크기 및 위험 허용 오차에 따라 1시간, 6시간 및 24시간 기간의 델타 스냅샷을 롤링하는 것이 좋습니다.
+온-프레미스 머신을 사용하든, Azure에서 VM(Virtual Machines)을 사용하든 적절한 하드웨어를 신중하게 선택해야 합니다. 디스크 하드웨어의 경우 SSD(반도체 드라이브)를 사용하고 스핀들이 더 빠른 디스크 하드웨어를 선택하는 것이 좋습니다. 네트워크 하드웨어의 경우 가능한 가장 빠른 NIC(네트워크 인터페이스 컨트롤러)를 사용합니다. Azure에서는 적절한 강력한 디스크 및 네트워킹 하드웨어가 있는 Azure D14 VM을 권장합니다.
 
-적절한 복제 모델을 선택하는 것 외에도 모니터링 트리거, 실패한 시도 길이를 통해 클라이언트를 보조 지역으로 자동으로 장애 조치(fail over)하거나 수동 개입을 위해 관리자에게 알림을 보내는 방법을 고려합니다. 서비스가 온라인 상태로 돌아올 때까지 기다리는 것과 비교하여 장애 조치에 대한 절충점이 있음을 명심하세요.
+### <a name="network-connectivity-to-the-storage-account"></a>스토리지 계정에 대한 네트워크 연결
 
-### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
+원본 데이터와 스토리지 계정 간의 네트워크 연결이 병목 상태가 될 수 있습니다. 원본 데이터가 온-프레미스에 있는 경우 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)전용 링크를 사용하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Storage Gen2 사용 계정과 동일한 Azure 지역에 있는 경우 성능이 가장 좋습니다.
 
-DistCp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 간에 분산된 데이터 이동을 제공하는 Linux 명령줄 도구입니다. 두 위치는 Data Lake Storage Gen2, HDFS(Hadoop 분산 파일 시스템) 또는 S3일 수 있습니다. 이 도구는 Hadoop 클러스터(예: HDInsight)에서 MapReduce 작업을 사용하여 모든 노드의 크기를 확장합니다. Distcp는 특수 네트워크 압축 어플라이언스 없이 빅 데이터를 이동하는 가장 빠른 방법 중 하나로 간주됩니다. 또한 Distcp는 두 위치 간의 델타만 업데이트하고 자동 재시도 및 컴퓨팅의 동적 크기 조정을 처리하는 옵션을 제공합니다. 이 방법은 단일 디렉터리에 많은 대용량 파일을 가질 수 있는 Hive/Spark 테이블과 같은 항목을 복제하고 수정된 데이터만 복사하려는 경우 매우 효율적입니다. 이러한 이유로 Distcp는 빅 데이터 저장소 간에 데이터를 복사하는 데 가장 많이 권장되는 도구입니다.
+### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위한 데이터 수집 도구 구성
 
-복사 작업은 Linux cron 작업뿐만 아니라 빈도 또는 데이터 트리거를 사용하는 Apache Oozie 워크플로를 통해서도 트리거될 수 있습니다. 집약적인 복제 작업의 경우 복사 작업에 맞게 특별히 조정 및 확장할 수 있는 별도의 HDInsight Hadoop 클러스터를 스핀업하는 것이 좋습니다. 이렇게 하면 복사 작업이 중요한 작업을 방해하지 않습니다. 매우 충분한 빈도로 복제를 실행하는 경우 각 작업 간에 클러스터가 중단될 수도 있습니다. 보조 지역으로 장애 조치하는 경우 백업이 시작되면 보조 지역에서 또 다른 클러스터가 작동되어 새 데이터를 기본 Data Lake Storage Gen2 계정으로 다시 복제해야 합니다. DistCp 사용에 대한 예제는 [DistCp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen2 간에 데이터 복사](../blobs/data-lake-storage-use-distcp.md)를 참조하세요.
+최상의 성능을 얻으려면 가능한 한 많은 읽기 및 쓰기를 병렬로 수행하여 사용 가능한 모든 처리량을 사용합니다.
 
-### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory를 사용하여 복사 작업 예약
+![Data Lake Storage Gen2 성능](./media/data-lake-storage-best-practices/throughput.png)
 
-[Azure Data Factory](../../data-factory/introduction.md) 복사 작업을 사용하여 복사 작업을 예약하는 데 사용할 수도 있으며 복사 마법사를 통해 빈도로 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Storage Gen2 계정 간의 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 디렉터리에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [Data Factory 문서](../../data-factory/load-azure-data-lake-storage-gen2.md)를 참조하세요.
+다음 표에서는 몇 가지 인기 있는 검색 도구에 대한 주요 설정을 요약하여 보여줍니다.  
 
-## <a name="monitoring-considerations"></a>모니터링 고려 사항
+| 도구               | 설정 | 
+|--------------------|------------------------------------------------------|
+| [DistCp](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)             | -m(mapper) |
+| [Azure Data Factory](../../data-factory/copy-activity-performance.md) | parallelCopies    | 
+| [Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)          | fs.azure.block.size, -m(mapper)   |   
 
-Data Lake Storage Gen2는 Azure Portal의 Data Lake Storage Gen2 계정 및 Azure Monitor에서 메트릭을 제공합니다. Data Lake Storage Gen2의 가용성은 Azure Portal에 표시됩니다. Data Lake Storage Gen2 계정의 최신 가용성을 가져오려면 사용자 고유의 가상 테스트를 실행하여 가용성의 유효성을 검사해야 합니다. 총 스토리지 사용률, 읽기/쓰기 요청 수 및 수신/송신과 같은 다른 메트릭은 애플리케이션을 모니터링하여 활용할 수 있으며, 임계값(예: 평균 지연 시간 또는 분당 오류 수)이 초과되면 경고를 트리거할 수도 있습니다.
+> [!NOTE]
+> 수집 작업의 전반적인 성능은 데이터를 수집하기 위해 사용하는 도구와 관련된 다른 요인에 따라 달라집니다. 최신 지침은 사용하려는 각 도구에 대한 설명서를 참조하세요.
 
-## <a name="directory-layout-considerations"></a>디렉터리 레이아웃 고려 사항
+계정을 확장하여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 사용 계정은 광범위한 사용 사례 범주의 요구 사항을 충족하기에 충분한 처리량을 기본 구성에 제공합니다. 기본 제한에 초과하는 경우 Azure 지원 에 [문의하여](https://azure.microsoft.com/support/faq/)더 많은 처리량을 제공하도록 계정을 구성할 수 있습니다.
 
-데이터를 수집할 때 보안, 분할 및 처리를 효과적으로 활용할 수 있도록 데이터 구조를 미리 계획하는 것이 중요합니다. 다음 추천 사항 중 대다수는 모든 빅 데이터 워크로드에 적용할 수 있습니다. 모든 워크로드에는 데이터 사용 방법에 대한 요구 사항이 다르지만, 다음은 사물 인터넷(IoT) 및 일괄 처리 시나리오로 작업할 때 고려해야 할 몇 가지 일반적인 레이아웃입니다.
+## <a name="structure-data-sets"></a>구조 데이터 집합
 
-### <a name="iot-structure"></a>IoT 구조
+데이터의 구조를 미리 계획하는 것이 좋습니다. 파일 형식, 파일 크기 및 디렉터리 구조는 모두 성능 및 비용에 영향을 줄 수 있습니다. 
+
+### <a name="file-formats"></a>파일 형식
+
+다양한 형식으로 데이터를 수집할 수 있습니다. 데이터는 사람이 읽을 수 있는 형식(예: JSON, CSV 또는 XML) 또는 압축된 이진 형식(예: )으로 표시될 수 `.tar.gz` 있습니다. 데이터는 다양한 크기로도 제공됩니다. 데이터는 온-프레미스 시스템에서 SQL 테이블 내보내기의 데이터와 같은 대용량 파일(몇 테라바이트)로 구성될 수 있습니다. 또한 데이터는 IoT(사물 인터넷) 솔루션의 실시간 이벤트의 데이터와 같이 많은 수의 작은 파일(몇 킬로바이트)의 형태로 제공됩니다. 적절한 파일 형식 및 파일 크기를 선택하여 효율성과 비용을 최적화할 수 있습니다. 
+
+Hadoop은 구조적 데이터를 저장하고 처리하는 데 최적화된 파일 형식 집합을 지원합니다. 몇 가지 일반적인 형식은 Avro, Parquet 및 ORC(Optimized Row Columnar) 형식입니다. 이러한 형식은 모두 컴퓨터에서 읽을 수 있는 이진 파일 형식입니다. 파일 크기를 관리하는 데 도움이 되며 압축됩니다. 각 파일에 스키마가 포함되어 있어 자체 설명이 됩니다. 이러한 형식 간의 차이점은 데이터가 저장되는 방식입니다. Avro는 데이터를 행 기반 형식으로 저장하고 Parquet 및 ORC 형식은 데이터를 열 형식으로 저장합니다.
+
+I/O 패턴이 쓰기 집약적이거나 쿼리 패턴이 여러 레코드 행 전체를 검색하는 것을 선호하는 경우 Avro 파일 형식을 사용하는 것이 좋습니다. 예를 들어 Avro 형식은 여러 이벤트/메시지를 연속해서 쓰는 이벤트 허브 또는 Kafka와 같은 메시지 버스에서 잘 작동합니다.
+
+I/O 패턴을 더 많이 읽거나 쿼리 패턴이 레코드의 열 하위 집합에 초점을 맞춘 경우 Parquet 및 ORC 파일 형식을 고려합니다. 읽기 트랜잭션은 전체 레코드를 읽는 대신 특정 열을 검색하도록 최적화할 수 있습니다.
+
+Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈 소스 파일 형식입니다. Parquet의 열형 스토리지 구조를 사용하면 관련 없는 데이터를 건너뛸 수 있습니다. 쿼리는 스토리지에서 분석 엔진으로 보낼 데이터의 범위를 좁힐 수 있으므로 훨씬 더 효율적입니다. 또한 유사한 데이터 형식(열의 경우)이 함께 저장되기 때문에 Parquet는 데이터 스토리지 비용을 낮출 수 있는 효율적인 데이터 압축 및 인코딩 체계를 지원합니다. [Azure Synapse Analytics,](../../synapse-analytics/overview-what-is.md) [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 및 [Azure Data Factory](../../data-factory/introduction.md) 같은 서비스에는 Parquet 파일 형식을 활용하는 네이티브 기능이 있습니다.
+
+### <a name="file-size"></a>파일 크기
+
+파일이 클수록 성능이 향상되고 비용이 절감됩니다. 
+
+일반적으로 HDInsight와 같은 분석 엔진에는 나열, 액세스 확인 및 다양한 메타데이터 작업 수행과 같은 작업이 포함된 파일당 오버헤드가 있습니다. 데이터를 많은 작은 파일로 저장하는 경우 성능이 저하될 수 있습니다. 일반적으로 성능 향상을 위해 데이터를 더 큰 크기의 파일로 구성합니다(256MB~100GB 크기). 일부 엔진 및 애플리케이션은 크기가 100GB보다 큰 파일을 효율적으로 처리하는 데 문제가 있을 수 있습니다. 
+
+파일 크기를 늘리면 트랜잭션 비용도 줄일 수 있습니다. 읽기 및 쓰기 작업은 4MB 증분으로 청구되므로 파일에 4MB 또는 몇 킬로바이트만 포함되는지 여부에 관계없이 작업에 대한 요금이 청구됩니다. 가격 책정 정보는 [Azure Data Lake Storage 가격 책정을 참조하세요.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
+
+때때로 작은 파일들이 많은 원시 데이터에 대해 데이터 파이프라인의 제어가 제한될 수 있습니다. 일반적으로 시스템에는 다운스트림 응용 프로그램에서 사용하기 위해 작은 파일을 더 큰 파일로 집계하는 일종의 프로세스를 갖추는 것이 좋습니다. 실시간으로 데이터를 처리하는 경우 실시간 스트리밍 엔진(예: [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) 또는 Spark 스트리밍)을 [](https://databricks.com/glossary/what-is-spark-streaming)메시지 브로커(예: [Event Hub](../../event-hubs/event-hubs-about.md) 또는 [Apache Kafka)와](https://kafka.apache.org/)함께 사용하여 데이터를 더 큰 파일로 저장할 수 있습니다. 작은 파일을 더 큰 파일로 집계할 때 다운스트림 처리를 위해 [Apache Parquet과](https://parquet.apache.org/) 같은 읽기 최적화 형식으로 저장하는 것이 좋습니다. 
+
+### <a name="directory-structure"></a>디렉터리 구조
+
+모든 워크로드에는 데이터 사용 방법에 대한 요구 사항이 다르지만, IoT(사물 인터넷), 일괄 처리 시나리오를 사용하거나, 시리즈 데이터를 최적화할 때 고려해야 할 몇 가지 일반적인 레이아웃입니다.
+
+#### <a name="iot-structure"></a>IoT 구조
 
 IoT 워크로드에는 다양한 제품, 디바이스, 조직 및 고객에 걸쳐 수집되는 많은 데이터가 있을 수 있습니다. 다운스트림 소비자를 위해 조직의 디렉터리 레이아웃, 보안 및 효율적인 데이터 처리를 미리 계획하는 것이 중요합니다. 고려해야 할 일반적인 템플릿은 다음과 같은 레이아웃일 수 있습니다.
 
-*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
+`*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*`
 
 예를 들어 비행기 엔진에 대한 영국 내 착륙 원격 분석은 다음 구조와 같이 표시될 수 있습니다.
 
-*UK/Planes/BA1293/Engine1/2017/08/11/12/*
+`*UK/Planes/BA1293/Engine1/2017/08/11/12/*`
 
-이 예제에서는 디렉터리 구조의 끝에 날짜를 배치하여 ACL을 사용하여 지역을 보다 쉽게 보호하고 특정 사용자 및 그룹에 문제를 적용할 수 있습니다. 데이터 구조를 시작 부분에 배치하면 이러한 영역을 보호하는 것이 훨씬 더 어렵고 주체가 중요합니다. 예를 들어 영국 데이터 또는 특정 평면에 대한 액세스 권한만 제공하려는 경우 매시간 디렉터리에 있는 여러 디렉터리에 대해 별도의 권한을 적용해야 합니다. 또한 이 구조는 시간이 지남에 따라 디렉터리 수를 기하급수적으로 증가합니다.
+이 예제에서는 디렉터리 구조의 끝에 날짜를 배치하여 ACL을 사용하여 지역을 보다 쉽게 보호하고 특정 사용자 및 그룹에 문제를 적용할 수 있습니다. 데이터 구조를 처음에 배치 하는 경우 이러한 지역 및 주제를 보호 하는 것이 훨씬 더 어려워집니다. 예를 들어 영국 데이터 또는 특정 평면에만 액세스를 제공 하려는 경우 모든 시간 디렉터리에서 여러 디렉터리에 대해 별도의 권한을 적용 해야 합니다. 또한이 구조는 시간이 소요 되 면 디렉터리 수를 급격 하 게 늘립니다.
 
-### <a name="batch-jobs-structure"></a>일괄 처리 작업 구조
+#### <a name="batch-jobs-structure"></a>일괄 처리 작업 구조
 
-일괄 처리에서 일반적으로 사용되는 방법은 데이터를 "in" 디렉터리에 배치하는 것입니다. 그런 다음, 데이터가 처리되면 다운스트림 프로세스에서 사용할 수 있도록 새 데이터를 "out" 디렉터리에 배치합니다. 이 디렉터리 구조는 개별 파일에 대한 처리가 필요하고 큰 데이터 세트에 대해 대규모 병렬 처리가 필요하지 않을 수 있는 작업에 사용되는 경우가 있습니다. 위에서 권장하는 IoT 구조와 마찬가지로 좋은 디렉터리 구조에는 지역 및 주제 문제(예: 조직, 제품 또는 생산자)와 같은 항목에 대한 부모 수준 디렉터리도 있습니다. 더 나은 조직, 필터링된 검색, 보안 및 자동화를 처리할 수 있도록 구조의 날짜와 시간을 고려합니다. 날짜 구조의 세분성 수준은 데이터가 업로드되거나 처리되는 간격(예: 시간별, 일별 또는 월별)에 따라 결정됩니다.
+일괄 처리에서 일반적으로 사용 되는 방법은 데이터를 "in" 디렉터리에 배치 하는 것입니다. 그런 다음 데이터가 처리 되 면 다운스트림 프로세스에서 사용할 새 데이터를 "out" 디렉터리에 배치 합니다. 이 디렉터리 구조는 개별 파일에 대 한 처리를 필요로 하는 작업에 사용 되 고, 대량 데이터 집합에 대 한 대규모 병렬 처리가 필요 하지 않을 수 있습니다. 위에서 권장 하는 IoT 구조와 마찬가지로 좋은 디렉터리 구조에는 지역 및 주제 (예: 조직, 제품 또는 생산자)와 같은 사물에 대 한 부모 수준 디렉터리가 있습니다. 구조에서 날짜 및 시간을 고려 하 여 처리 중에 더 나은 구성, 필터링 된 검색, 보안 및 자동화를 허용 합니다. 날짜 구조의 세분성 수준은 데이터가 업로드되거나 처리되는 간격(예: 시간별, 일별 또는 월별)에 따라 결정됩니다.
 
-데이터 손상 또는 예기치 않은 형식으로 인해 파일 처리가 실패하는 경우가 있습니다. 이러한 경우 디렉터리 구조는 추가 검사를 위해 파일을 로 이동하는 **/bad** 폴더의 이점을 누릴 수 있습니다. 또한 일괄 처리 작업은 이러한 *불량* 파일에 대한 보고 또는 알림을 처리하여 수동으로 개입할 수 있습니다. 다음과 같은 템플릿 구조를 고려합니다.
+데이터 손상 또는 예기치 않은 형식으로 인해 파일 처리가 실패하는 경우가 있습니다. 이러한 경우, 디렉터리 구조는 추가 검사를 위해 파일을로 이동 하는 **/잘못** 된 폴더의 이점을 누릴 수 있습니다. 또한 일괄 처리 작업은 이러한 *불량* 파일에 대한 보고 또는 알림을 처리하여 수동으로 개입할 수 있습니다. 다음과 같은 템플릿 구조를 고려합니다.
 
-*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/* \
-*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/* \
-*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
+`*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\`
+`*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*\`
+`*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*`
 
 예를 들어 북아메리카 지역의 고객으로부터 고객 업데이트의 일일 데이터 추출 결과를 받는 마케팅 회사는 처리 전과 후에 다음 코드 조각처럼 표시될 수 있습니다.
 
-*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
-*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
+`*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\`
+`*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*`
 
-Hive 또는 기존 SQL 데이터베이스와 같은 데이터베이스로 직접 처리되는 일괄 처리 데이터의 일반적인 경우 출력이 이미 Hive 테이블 또는 외부 데이터베이스에 대한 별도의 폴더로 들어가므로 **/in** 또는 **/out** 디렉터리에 대한 필요가 없습니다. 예를 들어 고객의 일별 추출은 해당 디렉터리에 접어들 수 있습니다. 그런 [다음, Azure Data Factory,](../../data-factory/introduction.md) [Apache Oozie](https://oozie.apache.org/)또는 [Apache Airflow와](https://airflow.apache.org/) 같은 서비스는 데이터를 처리하고 Hive 테이블에 쓰기 위해 매일 Hive 또는 Spark 작업을 트리거합니다.
+일괄 처리 데이터를 hive 또는 기존의 SQL 데이터베이스와 같은 데이터베이스에 직접 처리 하는 일반적인 경우에는 출력이 이미 hive 테이블이 나 외부 데이터베이스에 대 한 별도의 폴더로 이동 하기 때문에 **/in** 또는 **/out** 디렉터리가 필요 하지 않습니다. 예를 들어 고객의 매일 추출은 해당 하는 디렉터리로 이동 합니다. 그런 다음 [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/)또는 [apache 공기 흐름과](https://airflow.apache.org/) 같은 서비스는 매일 hive 또는 Spark 작업을 트리거하여 데이터를 처리 하 고 Hive 테이블에 기록 합니다.
+
+#### <a name="time-series-data-structure"></a>시계열 데이터 구조
+
+Hive 작업의 경우 시계열 데이터의 파티션 정리를 통해 일부 쿼리가 데이터의 하위 집합만 읽을 수 있으므로 성능이 향상 됩니다.    
+
+시계열 데이터를 수집하는 이러한 파이프라인은 파일 및 폴더에 대해 구조적 명명을 사용하여 파일을 배치하는 경우가 많습니다. 다음은 날짜별로 구조화 된 데이터에 대 한 일반적인 예입니다.
+
+*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
+
+datetime 정보가 폴더 및 파일 이름 둘 다에 나타납니다.
+
+날짜 및 시간의 일반적인 패턴은 다음과 같습니다.
+
+*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
+
+앞에서 설명했듯이, 더 큰 파일 크기와 각 폴더에 포함된 적절한 파일 수의 요건에 맞는 폴더 및 파일 구성을 선택해야 합니다.
+
+## <a name="set-up-security"></a>보안 설정
+
+먼저 [Blob 저장소에 대 한 보안 권장 사항](security-recommendations.md) 문서의 권장 사항을 검토 합니다. 실수로 또는 악의적인 삭제 로부터 데이터를 보호 하 고, 방화벽 뒤의 데이터를 보호 하 고, id 관리의 기준으로 Azure Active Directory (Azure AD)를 사용 하는 방법에 대 한 모범 사례 지침을 찾을 수 있습니다. 
+
+그런 다음 [Azure Data Lake Storage Gen2의 액세스 제어 모델에서](data-lake-storage-access-control-model.md) Data Lake Storage Gen2 사용 가능한 계정과 관련 된 지침을 검토 합니다. 이 문서는 Azure RBAC (역할 기반 액세스 제어) 역할을 Acl (액세스 제어 목록)과 함께 사용 하 여 계층적 파일 시스템의 디렉터리 및 파일에 대 한 보안 권한을 적용 하는 방법을 이해 하는 데 도움이 됩니다. 
+
+## <a name="ingest-data"></a>데이터 수집
+
+이 섹션에서는 다양한 데이터 원본과 해당 데이터를 Data Lake Storage Gen2 계정에 수집할 수 있는 여러 가지 방법을 중점적으로 설명합니다.
+
+#### <a name="ad-hoc-data"></a>임시 데이터
+
+빅 데이터 응용 프로그램을 프로토타입 하는 데 사용 되는 더 작은 데이터 집합. 이러한 도구 중 하나를 사용 하 여 데이터를 수집 하는 것이 좋습니다. 
+
+- Azure portal
+- [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)
+- [Azure CLI](data-lake-storage-directory-file-acl-cli.md)
+- [REST (영문)](/rest/api/storageservices/data-lake-storage-gen2)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+- [Apache DistCp](data-lake-storage-use-distcp.md)
+- [AZCopy](../common/storage-use-azcopy-v10.md)
+
+#### <a name="streamed-data"></a>스트리밍된 데이터
+
+응용 프로그램, 장치 및 센서와 같은 다양 한 소스에서 생성 됩니다. 이러한 유형의 데이터를 수집 하는 데 사용 되는 도구는 일반적으로 이벤트에 따라 실시간으로 데이터를 캡처하고 처리 한 다음 사용자 계정에 일괄 처리로 이벤트를 씁니다. 이러한 도구 중 하나를 사용 하 여 데이터를 수집 하는 것이 좋습니다.
+
+- [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md)
+- [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md)
+
+#### <a name="relational-data"></a>관계형 데이터
+
+관계형 데이터베이스는 빅 데이터 파이프라인을 통해 처리 되는 경우 주요 통찰력을 제공할 수 있는 많은 수의 레코드를 수집 합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 를 사용 하 여 관계형 데이터를 수집 하는 것이 좋습니다.
+
+#### <a name="web-server-log-data"></a>웹 서버 로그 데이터
+
+페이지 요청 기록과 같은 정보가 포함 된 로그 파일입니다. 사용자 지정 스크립트나 응용 프로그램을 작성 하 여이 데이터를 업로드 하는 것이 좋습니다. 이렇게 하면 데이터 업로드 구성 요소를 큰 빅 데이터 응용 프로그램의 일부로 포함할 수 있습니다. 이러한 도구와 Sdk를 사용 하는 것이 좋습니다.
+
+- [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)
+- [Azure CLI](data-lake-storage-directory-file-acl-cli.md)
+- [REST (영문)](/rest/api/storageservices/data-lake-storage-gen2)
+- Azure Sdk ([.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)및 [Node.js](data-lake-storage-directory-file-acl-javascript.md))
+- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
+
+#### <a name="hdinsight-clusters"></a>HDInsight 클러스터
+
+대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen2를 데이터 스토리지 리포지토리로 지원합니다. 이러한 도구 중 하나를 사용 하 여 데이터를 수집 하는 것이 좋습니다.
+
+- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
+- [Apache DistCp](data-lake-storage-use-distcp.md)
+- [AZCopy](../common/storage-use-azcopy-v10.md)
+
+#### <a name="hadoop-clusters"></a>Hadoop 클러스터
+
+이러한 클러스터는 온-프레미스 또는 클라우드에서 실행 될 수 있습니다. 이러한 도구 중 하나를 사용 하 여 데이터를 수집 하는 것이 좋습니다.
+
+- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
+- [Apache DistCp](data-lake-storage-use-distcp.md)
+- [Azure 용 WANdisco 사용 중인 데이터 Migrator](migrate-gen2-wandisco-live-data-platform.md)
+- [Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)
+
+#### <a name="large-data-sets"></a>대량 데이터 집합
+
+용량이 수 테라바이트에 달하는 데이터 세트를 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 Azure ExpressRoute를 사용할 수 있습니다.  
+
+Azure ExpressRoute를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 프라이빗 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
+
+## <a name="process-and-analyze-data"></a>데이터 처리 및 분석
+
+Data Lake Storage Gen2에서 데이터를 사용할 수 있게 되 면 해당 데이터에 대 한 분석을 실행 하 고, 시각화를 만들며, 로컬 컴퓨터 또는 Azure SQL 데이터베이스 또는 SQL Server 인스턴스와 같은 다른 리포지토리로 데이터를 다운로드할 수 있습니다. 다음 섹션에서는 데이터를 분석, 시각화 및 다운로드 하는 데 사용할 수 있는 도구를 권장 합니다.
+
+#### <a name="tools-for-analyzing-data"></a>데이터 분석 도구
+
+- [Azure Synapse Analytics](../../synapse-analytics/get-started-analyze-storage.md)
+- [Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)
+
+#### <a name="tools-for-visualizing-data"></a>데이터 시각화 도구
+
+- [Power BI](/power-query/connectors/datalakestorage)
+- [Azure Data Lake Storage 쿼리 가속](data-lake-storage-query-acceleration.md)
+
+#### <a name="tools-for-downloading-data"></a>데이터를 다운로드 하기 위한 도구
+
+- Azure portal
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md)
+- [Azure CLI](data-lake-storage-directory-file-acl-cli.md)
+- [REST (영문)](/rest/api/storageservices/data-lake-storage-gen2)
+- Azure Sdk ([.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)및 [Node.js](data-lake-storage-directory-file-acl-javascript.md))
+- [Azure Storage Explorer](data-lake-storage-explorer.md)
+- [AZCopy](../common/storage-use-azcopy-v10.md#transfer-data)
+- [Azure Data Factory](../../data-factory/copy-activity-overview.md)
+- [Apache DistCp](./data-lake-storage-use-distcp.md)
+
+## <a name="monitor-telemetry"></a>원격 분석 모니터링
+
+사용 및 성능 모니터링은 서비스 운영화의 중요한 부분입니다. 예를 들어 자주 발생하는 작업, 대기 시간이 높은 작업 또는 서비스 쪽 제한을 유발하는 작업이 있습니다. 
+
+스토리지 계정에 대한 모든 원격 분석은 [Azure Monitor 의 Azure Storage 로그를](monitor-blob-storage.md)통해 사용할 수 있습니다. 이 기능은 Log Analytics 및 Event Hubs 스토리지 계정을 통합하는 동시에 다른 스토리지 계정에 로그를 보관할 수 있도록 합니다. 메트릭 및 리소스 로그 및 관련 스키마의 전체 목록을 보려면 [모니터링 데이터 참조 Azure Storage](monitor-blob-storage-reference.md)참조하세요.
+
+로그를 저장하도록 선택하는 위치는 로그에 액세스하려는 방법에 따라 달라집니다. 예를 들어 로그에 거의 실시간으로 액세스하고 로그의 이벤트를 Azure Monitor 다른 메트릭과 상호 연결하려는 경우 Log Analytics 작업 영역에 로그를 저장할 수 있습니다. 이렇게 하면 KQL을 사용하여 로그를 쿼리하고 작업 영역의 테이블을 열거하는 쿼리를 `StorageBlobLogs` 작성할 수 있습니다.
+
+근 실시간 쿼리 및 장기 보존을 위해 로그를 저장하려는 경우 Log Analytics 작업 영역과 스토리지 계정 모두에 로그를 보내도록 진단 설정을 구성할 수 있습니다.
+
+Splunk와 같은 다른 쿼리 엔진을 통해 로그에 액세스하려는 경우 이벤트 허브로 로그를 보내고 Event Hub에서 선택한 대상으로 로그를 검색하도록 진단 설정을 구성할 수 있습니다.
+
+Azure Monitor Azure Storage 로그는 Azure Portal, PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 사용하도록 설정할 수 있습니다. 대규모 배포의 경우 Azure Policy 수정 작업을 완전히 지원하는 데 사용할 수 있습니다. 자세한 내용은 [Azure/Community-Policy](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) 및 [ciphertxt/AzureStoragePolicy 를 참조하세요.](https://github.com/ciphertxt/AzureStoragePolicy)
+
 
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)
-- [성능을 위한 Azure Data Lake Storage Gen2 최적화](data-lake-storage-performance-tuning-guidance.md)
 - [Data Lake에 대한 hitchhiker 가이드](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
 - [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

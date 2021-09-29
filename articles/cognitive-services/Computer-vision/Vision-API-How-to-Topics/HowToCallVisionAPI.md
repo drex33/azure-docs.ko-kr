@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0014297d45c26d855a2df8c2a3fdccb2f0c047d2
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: b7835185071d85b064c942da9f86f6848443dcd1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822912"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820211"
 ---
 # <a name="call-the-image-analysis-api"></a>이미지 분석 API 호출
 
@@ -138,7 +138,7 @@ description.captions[].confidence    | `number`    | 구의 신뢰도 점수입�
     * InternalServerError
 
 > [!TIP]
-> Computer Vision을 사용하는 동안 서비스에 적용된 [요금 제한](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/)에 의한 일시적인 오류나 네트워크 중단과 같은 다른 일시적인 문제가 발생할 수 있습니다. 이러한 유형의 오류를 처리하는 방법에 대한 내용은 클라우드 디자인 패턴 가이드의 [다시 시도 패턴](https://docs.microsoft.com/azure/architecture/patterns/retry) 및 관련 [회로 차단기 패턴](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)을 참조하세요.
+> Computer Vision을 사용하는 동안 서비스에 적용된 [요금 제한](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/)에 의한 일시적인 오류나 네트워크 중단과 같은 다른 일시적인 문제가 발생할 수 있습니다. 이러한 유형의 오류를 처리하는 방법에 대한 내용은 클라우드 디자인 패턴 가이드의 [다시 시도 패턴](/azure/architecture/patterns/retry) 및 관련 [회로 차단기 패턴](/azure/architecture/patterns/circuit-breaker)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

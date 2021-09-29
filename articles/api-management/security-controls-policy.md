@@ -1,18 +1,18 @@
 ---
 title: API Management에 대한 Azure Policy 규정 준수 컨트롤
 description: API Management에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.service: api-management
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 73559161ea74b0582c60bf9d2eb4efd4a826f5ec
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c98f36e1b2e01e21d5664562cf9bb385a20f6c21
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123480476"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601003"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-management"></a>API Management에 대한 Azure Policy 규정 준수 컨트롤
 

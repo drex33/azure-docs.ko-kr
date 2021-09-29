@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 4fe0b913c003ccf4247833ba1dc12c4ec1e7248a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 030197a39ef10193887e3fc9966acd1979137291
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535842"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233127"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -96,7 +96,7 @@ Azure 지리는 하나 이상의 Azure 지역을 포함하는 전 세계 영역�
 ## <a name="cross-region-activities"></a>지역 간 활동
 그림 2 참조
 
-1. **Azure Compute(IaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 컴퓨팅 리소스를 프로비저닝해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)을 참조하세요. 
+1. **Azure Compute(IaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 컴퓨팅 리소스를 프로비저닝해야 합니다. 
 
 2. **Azure Storage** - 관리 디스크를 사용하는 경우 Azure Backup을 통해 [지역 간 백업](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines)에 대해 알아보고 Azure Site Recovery를 통해 한 지역에서 다른 지역으로의 [VM 복제](./site-recovery/azure-to-azure-tutorial-enable-replication.md)에 대해 알아봅니다. 스토리지 계정을 사용하면 Azure Storage 계정을 만들 때 기본적으로 GRS(지역 중복 스토리지)가 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 

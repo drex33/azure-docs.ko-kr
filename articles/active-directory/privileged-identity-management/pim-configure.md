@@ -14,12 +14,12 @@ ms.date: 06/25/2021
 ms.author: curtand
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697dd72ba72924a14501a1410255a817f50f6789
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d24f4806274889be1743e19b6b10c909b4a0057d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738710"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707613"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -149,7 +149,7 @@ Azure Active Directory(Azure AD) 게스트 사용자는 Azure AD 내의 B2B(Busi
 
 B2B 협업을 사용하는 경우 외부 사용자를 조직에 게스트로 초대할 수 있습니다. 게스트는 조직에서 사용자로 관리될 수 있지만 Azure AD 조직이 아닌 홈 조직에서 인증되어야 합니다. 즉, 게스트가 자신의 홈 조직에 액세스할 수 없는 경우 해당 조직에도 액세스할 수 없습니다. 예를 들어, 게스트가 조직을 떠나면 아무런 조치를 취하지 않아도 Azure AD에서 공유된 모든 리소스에 대한 액세스 권한을 자동으로 잃게 됩니다. B2B 협업에 대한 자세한 내용은 [Azure Active Directory B2B에서 게스트 사용자 엑세스란?](../external-identities/what-is-b2b.md)을 참조하세요.
 
-![홈 디렉토리에서 게스트 사용자를 인증하는 방법을 보여주는 다이어그램](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![홈 디렉토리에서 게스트 사용자를 인증하는 방법을 보여주는 다이어그램](./media/pim-configure/b2b-external-user.png)
 
 ## <a name="next-steps"></a>다음 단계
 

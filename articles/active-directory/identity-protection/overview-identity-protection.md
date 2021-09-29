@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c48b156b8f25d40f88be74287c9955a4012107
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b849d6b208208e42700037179b60b286658bc1fd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739972"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779410"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -25,7 +25,7 @@ Identity Protection은 조직에서 다음과 같은 세 가지 주요 작업을
 
 - [ID 기반 위험의 감지 및 수정을 자동화](howto-identity-protection-configure-risk-policies.md)합니다.
 - 포털에서 데이터를 사용하여 [위험을 조사](howto-identity-protection-investigate-risk.md)합니다.
-- [SIEM으로 위험 검색 데이터를 내보냅니다](../../sentinel/connect-azure-ad-identity-protection.md).
+- [SIEM으로 위험 검색 데이터를 내보냅니다](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection).
 
 Identity Protection은 사용자 보호를 위해 Microsoft가 Azure AD를 사용하는 조직, Microsoft 계정의 소비자 공간 및 Xbox를 이용한 게임 등에서 사용자 위치로부터 습득한 학습을 사용합니다. Microsoft는 하루 6조 5000억 개의 신호를 분석하여 고객을 위협으로부터 보호합니다.
 
@@ -79,7 +79,7 @@ Microsoft는 위험을 계산하는 방법에 대한 구체적인 정보를 제�
 
 Identity Protection의 데이터는 보관 및 추가 조사와 상관 관계를 위해 다른 도구로 내보낼 수 있습니다. 조직에서는 Microsoft Graph 기반 API를 사용하여 SIEM 등의 도구에서 추가로 처리할 수 있도록 이 데이터를 수집할 수 있습니다. Identity Protection API에 액세스하는 방법에 대한 정보는 [Azure Active Directory Identity Protection 및 Microsoft Graph 시작](howto-identity-protection-graph-api.md) 문서에서 확인할 수 있습니다.
 
-Identity Protection 정보를 Azure Sentinel과 통합하는 방법에 대한 정보는 [Azure AD Identity Protection에서 정보 연결](../../sentinel/connect-azure-ad-identity-protection.md) 문서에서 확인할 수 있습니다.
+Identity Protection 정보를 Azure Sentinel과 통합하는 방법에 대한 정보는 [Azure AD Identity Protection에서 정보 연결](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) 문서에서 확인할 수 있습니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -102,15 +102,15 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 | 기능 | 세부 정보  | Azure AD Free / Microsoft 365 앱 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 아니요 |예 | 
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  아니요 |예 |
-| 보안 보고서 | 개요 |  아니요 | 아니요 |예 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 예 |예 | 
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  예 |예 |
+| 보안 보고서 | 개요 |  아니요 | 예 |예 |
 | 보안 보고서 | 위험한 사용자  | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 모든 권한|
 | 보안 보고서 | 위험한 로그인  | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 모든 권한|
 | 보안 보고서 | 위험 탐지   | 예 | 제한된 정보. 세부 정보 서랍이 없습니다.| 모든 권한|
-| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
-| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
-| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
+| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 예 |예 |
+| 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
+| | MFA 등록 정책 | 아니요 | 예 | 예 |
 
 이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 

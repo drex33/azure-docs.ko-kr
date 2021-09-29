@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f6ee0323768287ee860becc5d02c85efb32e3fe
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3718cbacedf6f8770d0b7d1c83eb4035cb5676b0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704724"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784853"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -233,4 +233,4 @@ Remove-AzResourceGroup -Name 'myResourceGroupLB-CR'
 
 아래 내용에 대한 다음 문서를 진행하세요.
 > [!div class="nextstepaction"]
-> [가용성 영역 간 VM 부하 분산 장치](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [가용성 영역 간 VM 부하 분산 장치](./quickstart-load-balancer-standard-public-portal.md)

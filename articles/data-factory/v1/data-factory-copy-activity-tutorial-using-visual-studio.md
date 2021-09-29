@@ -3,17 +3,18 @@ title: '자습서: Visual Studio를 사용하여 복사 작업이 있는 파이�
 description: 이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 82025728f354b5522517e210071aeb4c7528d7cf
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5bd8bef3b45ef634577de90656c9452c44399386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677721"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629524"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -78,11 +79,11 @@ ms.locfileid: "110677721"
 
 2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트** 를 클릭합니다.  
 
-    ![새 프로젝트 대화 상자](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png" alt-text="새 프로젝트 대화 상자":::
 
 3. 프로젝트 이름, 솔루션 위치 및 솔루션 이름을 지정한 다음 **확인** 을 클릭합니다.
 
-    ![솔루션 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png" alt-text="솔루션 탐색기":::    
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -102,11 +103,11 @@ Azure SQL 연결된 서비스는 Azure SQL Database를 데이터 팩터리에 �
 
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스** 를 선택한 다음 **추가** 를 클릭합니다. 
 
-    ![새 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png" alt-text="새 연결된 서비스":::
 
 3. `<accountname>` 및 `<accountkey>`*를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 
 
-    ![Azure Storage 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png" alt-text="Azure Storage 연결된 서비스":::
 
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
@@ -308,7 +309,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 2. **Microsoft 계정에 로그인** 대화 상자가 표시되면 Azure 구독이 있는 계정의 자격 증명을 입력하고 **로그인** 을 클릭합니다.
 3. 다음 대화 상자가 표시됩니다.
    
-   ![게시 대화 상자](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
+   :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png" alt-text="게시 대화 상자":::
 4. 데이터 팩터리 구성 페이지에서 다음 단계를 수행합니다. 
    
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
@@ -328,16 +329,16 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
    5. 데이터 팩터리의 **하위 지역** 을 선택합니다. Data Factory 서비스에서 지원하는 지역만 드롭다운 목록에 표시됩니다.
    6. **다음** 을 클릭하여 **항목 게시** 페이지로 전환합니다.
       
-       ![데이터 팩터리 페이지 구성](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
+       :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png" alt-text="데이터 팩터리 페이지 구성":::   
 5. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음** 을 클릭하여 **요약** 페이지로 전환합니다.
    
-   ![항목 페이지 게시](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)     
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png" alt-text="항목 페이지 게시":::     
 6. 요약을 검토한 후 **다음** 을 클릭하여 배포 프로세스를 시작하고 **배포 상태** 를 봅니다.
    
-   ![요약 페이지 게시](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png" alt-text="요약 페이지 게시":::
 7. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다.
  
-   ![배포 상태 페이지](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
+   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png" alt-text="배포 상태 페이지":::
 
 다음 사항에 유의하세요. 
 
@@ -365,13 +366,13 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **추가 서비스** 를 클릭하고 **데이터 팩터리** 를 클릭합니다.
 
-  ![데이터 팩터리 찾아보기](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png" alt-text="데이터 팩터리 찾아보기":::
 3. 데이터 팩터리의 이름을 입력하기 시작합니다.
 
-  ![데이터 팩터리의 이름](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png" alt-text="데이터 팩터리의 이름"::: 
 4. 데이터 팩터리의 홈 페이지를 보려면 결과 목록에서 데이터 팩터리를 클릭합니다.
 
-  ![데이터 팩터리 홈페이지](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+  :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png" alt-text="데이터 팩터리 홈페이지":::
 5. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다. 
 
 ## <a name="summary"></a>요약
@@ -394,13 +395,13 @@ Azure HDInsight 클러스터를 사용하여 HDInsight Hive 활동을 통해 데
 1. **Visual Studio** 의 메뉴에서 **보기** 를 클릭한 다음 **서버 탐색기** 를 클릭합니다.
 2. 서버 탐색기 창에서 **Azure** 를 확장한 다음 **Data Factory** 를 확장합니다. **Visual Studio에 로그인** 이 표시되면 Azure 구독과 연결된 **계정** 을 입력하고 **계속** 을 클릭합니다. **암호** 를 입력하고 **로그인** 을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다.
 
-    ![서버 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
+    :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png" alt-text="서버 탐색기":::
 
 ## <a name="create-a-visual-studio-project-for-an-existing-data-factory"></a>기존 데이터 팩터리에 대한 Visual Studio 프로젝트 만들기
 
 - 서버 탐색기에서 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 **새 프로젝트로 데이터 팩터리 내보내기** 를 선택하여 기존 데이터 팩터리에 기반한 Visual Studio 프로젝트를 만듭니다.
 
-  ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+  :::image type="content" source="./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png" alt-text="VS 프로젝트로 데이터 팩터리 내보내기":::  
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Visual Studio용 데이터 팩터리 도구 업데이트
 Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음 단계를 수행합니다.
@@ -433,7 +434,7 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
 1. Visual Studio 솔루션의 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 를 가리킨 다음 **새 항목** 을 클릭합니다.
 2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성** 을 선택하고 **구성 파일** 을 선택한 다음, 구성 파일의 **이름** 을 입력하고 **추가** 를 클릭합니다.
 
-    ![구성 파일 추가](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="구성 파일 추가":::
 3. 다음 형식으로 구성 매개 변수와 해당 값을 추가합니다.
 
   ```json
@@ -511,7 +512,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 2. 기존 데이터 팩터리를 선택하거나 **데이터 팩터리 구성** 페이지에서 데이터 팩터리를 만드는 값을 지정하고 **다음** 을 클릭합니다.   
 3. **항목 게시** 페이지에서 **배포 구성 선택** 필드에 사용 가능한 구성이 있는 드롭다운 목록이 표시됩니다.
 
-    ![구성 파일 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png" alt-text="구성 파일 선택":::
 4. 사용하려는 **구성 파일** 을 선택하고 **다음** 을 클릭합니다.
 5. **요약** 페이지에서 JSON 파일의 이름이 표시되는지 확인하고 **다음** 을 클릭합니다.
 6. 배포 작업이 완료되면 **마침** 을 클릭합니다.

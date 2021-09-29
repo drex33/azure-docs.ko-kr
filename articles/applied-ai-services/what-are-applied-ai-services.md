@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: fadfffadd0d7c2e642825fa8134906e6c3697014
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 102e8717b1bb6072eb0a52efc6ac3ecdd3e9c165
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745931"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124837350"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Azure Applied AI Services란 무엇인가요?
 
@@ -27,7 +27,7 @@ Azure Applied AI Services는 개발자가 주요 비즈니스 시나리오에 AI
 
 Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증, ID 및 명함용으로 미리 빌드된 모델, 레이아웃 모델로 구성됩니다. 
 
-[Azure Form Recognizer에 대한 자세한 정보](../cognitive-services/form-recognizer/index.yml)
+[Azure Form Recognizer에 대한 자세한 정보](./form-recognizer/index.yml)
 
 ## <a name="azure-metrics-advisor"></a>Azure Metrics Advisor
 

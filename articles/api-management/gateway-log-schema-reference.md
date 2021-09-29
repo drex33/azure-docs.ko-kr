@@ -7,13 +7,13 @@ ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
-ms.author: apimpm
-ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: 0da1a897f9abe55e846006136c040d3602882b5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582505"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676507"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>참조: API Management 리소스 로그 스키마
 
@@ -25,7 +25,7 @@ API Management에서 리소스 로그의 컬렉션을 사용하도록 설정하�
 
 각 API 요청에 대해 다음 속성이 기록됩니다.
 
-| 속성  | 유형 | Description |
+| 속성  | 형식 | Description |
 | ------------- | ------------- | ------------- |
 | method | 문자열 | 들어오는 요청의 HTTP 메서드 |
 | url | 문자열 | 들어오는 요청의 URL |

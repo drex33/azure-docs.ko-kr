@@ -4,7 +4,7 @@ metadata:
   description: Azure API Management에서 FAQ(질문과 대답), 패턴 및 모범 사례를 알아봅니다.
   services: api-management
   documentationcenter: ''
-  author: vladvino
+  author: dlepow
   manager: erikre
   editor: ''
   ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: article
   ms.date: 11/19/2017
-  ms.author: apimpm
+  ms.author: danlep
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 79e08fe471efdf633787a522f028f6b96f5cbcc3
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 161f532be71fb137adc0514f6a71b279f5111509
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112204867"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128647141"
 title: Azure API Management FAQ
 summary: >
   Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -37,7 +37,7 @@ sections:
   - question: >
       API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
     answer: >
-      API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음과 같습니다.
+      API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 
       * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
@@ -50,7 +50,7 @@ sections:
   - question: >
       API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
     answer: >
-      API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음과 같습니다.
+      API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 
       * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
@@ -80,7 +80,7 @@ sections:
   - question: >
       단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
     answer: >
-      단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음과 같습니다.
+      단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 
       * 동일한 테넌트에 다른 API를 호스팅할 수 있습니다.

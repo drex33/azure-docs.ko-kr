@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2d28753cc0bfd3a866038a5feeb519af15a5b063
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c6665b8157f436226895df00b4cea8166da2a3c4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123477336"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655406"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure 파일 동기화는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |표시된 Storage Sync Service 리소스의 프라이빗 엔드포인트를 만들면 인터넷에서 액세스할 수 있는 퍼블릭 엔드포인트를 사용하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스를 처리할 수 있습니다. 프라이빗 엔드포인트를 자체적으로 만든다고 해서 퍼블릭 엔드포인트가 비활성화되지 않습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06695360-db88-47f6-b976-7500d4297475) |등록된 서버에서 Storage Sync Service 리소스 인터페이스의 프라이빗 엔드포인트에 액세스하려면 프라이빗 엔드포인트의 개인 IP 주소에 대한 올바른 이름을 확인하도록 DNS를 구성해야 합니다. 이 정책은 Storage Sync Service 프라이빗 엔드포인트의 인터페이스에 대한 필수 Azure 프라이빗 DNS 영역 및 A 레코드를 만듭니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateDNSZone_DeployIfNotExists.json) |

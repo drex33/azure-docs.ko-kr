@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9aa776b52d3303d7721d900476f606c3ab38d7a5
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 3ba616f2edead3bdd3b3353405e3b9ce6b40ccaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378712"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599148"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -34,20 +34,20 @@ ms.locfileid: "112378712"
 
 > [!div class="checklist"]
 
-> * 스토리지 계정 만들기
-> * 컨테이너 만들기 및 사용 권한 설정
-> * 액세스 키 가져오기
-> * Azure에 웹앱 배포
-> * 앱 설정 구성
-> * 웹앱과 상호 작용
+> - 스토리지 계정 만들기
+> - 컨테이너 만들기 및 사용 권한 설정
+> - 액세스 키 가져오기
+> - Azure에 웹앱 배포
+> - 앱 설정 구성
+> - 웹앱과 상호 작용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 실행합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 실행합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -55,7 +55,7 @@ CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 �
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location southeastasia
@@ -63,7 +63,7 @@ New-AzResourceGroup -Name myResourceGroup -Location southeastasia
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 ```azurecli
 az group create --name myResourceGroup --location southeastasia
@@ -140,7 +140,7 @@ az storage container create --name thumbnails \
 
 ---
 
-Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이러한 설정을 통해 스토리지 계정에 연결하여 이미지를 업로드합니다. 
+Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이러한 설정을 통해 스토리지 계정에 연결하여 이미지를 업로드합니다.
 
 ## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
@@ -170,11 +170,11 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다.
 
-다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. *이름이 `<web_app>`인 웹 사이트가 이미 있습니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
+다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. *이름이 `<web_app>`인 웹 사이트가 이미 있습니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[New-AzWebApp](/powershell/module/az.websites/new-azwebapp) 명령을 사용하여 `myAppServicePlan` App Service 요금제에서 [웹앱](../../app-service/overview.md)을 만듭니다.  
+[New-AzWebApp](/powershell/module/az.websites/new-azwebapp) 명령을 사용하여 `myAppServicePlan` App Service 요금제에서 [웹앱](../../app-service/overview.md)을 만듭니다.
 
 ```powershell
 $webapp="<web_app>"
@@ -184,7 +184,7 @@ New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan my
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az webapp create](/cli/azure/webapp) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/overview.md)을 만듭니다.  
+[az webapp create](/cli/azure/webapp) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/overview.md)을 만듭니다.
 
 ```azurecli
 webapp="<web_app>"

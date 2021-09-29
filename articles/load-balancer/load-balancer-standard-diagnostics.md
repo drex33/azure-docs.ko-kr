@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
-ms.translationtype: HT
+ms.openlocfilehash: c0502b880d23e9f0a63564f11473f48e1c01b096
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531215"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236558"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -74,7 +74,7 @@ Azure Portal은 특정 리소스에 대한 부하 분산 장치 리소스 페이
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>API를 통해 프로그래밍 방식으로 다차원 메트릭 검색
 
-다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. '모든 메트릭' 범주에 대한 [진단 설정](../azure-monitor/essentials/diagnostic-settings.md)을 추가하여 스토리지 계정에 이러한 메트릭을 쓸 수 있습니다. 
+다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions)을 참조하세요. '모든 메트릭' 범주에 대한 [진단 설정](../azure-monitor/essentials/diagnostic-settings.md)을 추가하여 스토리지 계정에 이러한 메트릭을 쓸 수 있습니다. 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>일반적인 진단 시나리오 및 권장 보기
 
@@ -152,7 +152,7 @@ SNAT 연결 통계를 가져오려면:
 SNAT 포트 사용량과 할당을 보려면 다음을 수행합니다.
 1. 원하는 데이터가 표시되도록 그래프의 시간 집계를 1분으로 설정합니다.
 1. 메트릭 유형으로 **사용된 SNAT 포트** 및/또는 **할당된 SNAT 포트** 를 선택하고 집계로 **Average** 를 선택합니다.
-    * 기본적으로 이러한 메트릭은 TCP 및 UDP를 통해 집계된 Load Balancer에 매핑된 모든 프런트 엔드 공용 IP에 해당하는 각 백 엔드 VM 또는 VMSS에 할당되거나 사용되는 평균 SNAT 포트 수입니다.
+    * 기본적으로 이러한 메트릭은 TCP 및 UDP를 통해 집계 된 Load Balancer에 매핑된 모든 프런트 엔드 공용 Ip에 해당 하는 각 백 엔드 VM 또는 가상 머신 확장 집합에 할당 되거나 사용 되는 평균 SNAT 포트 수입니다.
     * 부하 분산 장치에 사용되거나 할당되는 총 SNAT 포트 수를 보려면 메트릭 집계 **Sum** 을 사용합니다.
 1. 특정 **프로토콜 유형**, **백 엔드 IP** 및/또는 **프런트 엔드 IP** 세트로 필터링합니다.
 1. 백 엔드 또는 프런트 엔드 인스턴스당 상태를 모니터링하려면 분리를 적용합니다. 

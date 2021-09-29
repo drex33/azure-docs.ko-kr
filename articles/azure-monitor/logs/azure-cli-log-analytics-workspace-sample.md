@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 548ddbc3fce6220e32de2df43024b7c4ed22f5e7
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 530602fdb471b86ba84aea0093d9e6c4d91d3c75
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187893"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820607"
 ---
 # <a name="managing-azure-monitor-logs-in-azure-cli"></a>Azure CLI에서 Azure Monitor 로그 관리
 
@@ -32,7 +32,7 @@ az monitor log-analytics workspace create --resource-group ContosoRG \
    --workspace-name ContosoWorkspace
 ```
 
-작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 개요](/azure/azure-monitor/logs/data-platform-logs)를 참조하세요.
+작업 영역에 대한 자세한 내용은 [Azure Monitor 로그 개요](./data-platform-logs.md)를 참조하세요.
 
 ## <a name="list-tables-in-your-workspace"></a>작업 영역에 테이블 나열
 
@@ -56,7 +56,7 @@ az monitor log-analytics workspace table update --resource-group ContosoRG \
 
 보존 기간은 30일에서 730일 사이입니다.
 
-테이블에 대한 자세한 내용은 [데이터 구조](/azure/azure-monitor/logs/data-platform-logs#data-structure)를 참조하세요.
+테이블에 대한 자세한 내용은 [데이터 구조](./data-platform-logs.md#data-structure)를 참조하세요.
 
 ## <a name="export-data-from-selected-tables"></a>선택한 테이블에서 데이터 내보내기
 
@@ -83,7 +83,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
    --workspace-name ContosoWorkspace --name DataExport --yes
 ```
 
-데이터 내보내기에 대한 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](/azure/azure-monitor/logs/logs-data-export)를 참조하세요.
+데이터 내보내기에 대한 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](./logs-data-export.md)를 참조하세요.
 
 ## <a name="manage-a-linked-service"></a>연결된 서비스 관리
 
@@ -132,7 +132,7 @@ az monitor log-analytics workspace linked-storage delete --resource-group Contos
    --workspace-name ContosoWorkspace --type Alerts
 ```
 
-자세한 내용은 [Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용](/azure/azure-monitor/logs/private-storage)을 참조하세요.
+자세한 내용은 [Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용](./private-storage.md)을 참조하세요.
 
 ## <a name="manage-intelligence-packs"></a>인텔리전스 팩 관리
 

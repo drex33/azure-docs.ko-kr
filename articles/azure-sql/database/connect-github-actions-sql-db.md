@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 05/05/2021
 ms.custom: github-actions-azure
 ms.reviewer: mathoma
-ms.openlocfilehash: 5a46b5c5f8d8d4d39f93f6a91210e70fa41ea20d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 54ef930cbc194f51fc9460da2aa3e4a553910849
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694632"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632522"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
@@ -48,8 +48,8 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 `server-name` 자리 표시자를 Azure에서 호스팅되는 SQL 서버의 이름으로 바꿉니다. `subscription-id` 및 `resource-group`을 SQL 서버에 연결된 구독 ID 및 리소스 그룹으로 바꿉니다.  
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {server-name} --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+   az ad sp create-for-rbac --name {server-name} --role contributor 
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} 
                             --sdk-auth
 ```
 

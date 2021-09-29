@@ -3,13 +3,13 @@ title: Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독 | Microsof
 description: 이 문서에서는 리소스 그룹에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: c8e84fe12cf239e7dbb0e6a15088efda793ddec9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/15/2021
+ms.openlocfilehash: 317d712a5bdaf3532e31408dc8980eab854173b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460748"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612019"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트 구독
 

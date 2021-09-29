@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 38586e2cc60186c929b5ca43990019e768a1ed13
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 8f857ff3c1a17e0f17d396b8d97d9d0e27b4fa18
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720472"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646083"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
 
@@ -34,7 +34,7 @@ ms.locfileid: "114720472"
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
  
-다시 강조하지만 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용할 때 모든 관련 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Video Analyzer for Media 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 동영상을 처리하고 저장하기 위해 Video Analyzer for Media 서비스에 업로드하려면 동영상에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Video Analyzer for Media의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md)에서 확인할 수 있습니다. Video Analyzer for Media를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
+다시 강조하지만 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용할 때 모든 관련 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Video Analyzer for Media 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 동영상을 처리하고 저장하기 위해 Video Analyzer for Media 서비스에 업로드하려면 동영상에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Video Analyzer for Media의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml)에서 확인할 수 있습니다. Video Analyzer for Media를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

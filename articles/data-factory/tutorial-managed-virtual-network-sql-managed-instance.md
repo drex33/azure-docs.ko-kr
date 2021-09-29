@@ -4,14 +4,15 @@ description: 이 자습서에서는 Azure Portal을 사용하여 Private Link �
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: faa08121bde07f82a24fad24ca49b2fe2d0ea618
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cb4d07c28e14ab18500218e3b3942eb768db1755
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731451"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632446"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 Microsoft Azure SQL Managed Instance에 액세스하는 방법
 
@@ -88,7 +89,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
     | 설정 | 값 |
     |:--- |:--- |
-    |Name|**myHealthProbe** 를 입력합니다.|
+    |이름|**myHealthProbe** 를 입력합니다.|
     |프로토콜|**TCP** 를 선택합니다.|
     |포트|22를 입력합니다.|
     |간격|프로브 시도 **간격**(초)으로 **15** 를 입력합니다.|

@@ -68,8 +68,8 @@
       href: dns-details.md
     - name: 보안 기준
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: 활성 FTP 지원
-      href: active-ftp-support.md
+    - name: FTP 지원
+      href: ftp-support.md
 - name: 방법 가이드
   items:
     - name: 배포 및 구성 - 클래식

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 508a3ca02ec6c0475e78d16691f6597e1a389f97
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2d8c81ddf3a2446131cf698fe8d4e86d1013c7a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92511854"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776256"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>자습서: Azure Active Directory와 Projectplace 통합
 
@@ -29,7 +29,7 @@ ms.locfileid: "92511854"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -160,7 +160,7 @@ Azure AD 사용자가 Percolate에 로그인할 수 있도록 설정하려면 �
 
 ### <a name="test-sso"></a>SSO 테스트
 
-액세스 패널에서 Projectplace 타일을 선택하면 SSO를 설정한 Projectplace에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Projectplace 타일을 선택하면 SSO를 설정한 Projectplace에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

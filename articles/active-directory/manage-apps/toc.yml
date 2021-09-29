@@ -108,14 +108,10 @@
           href: access-panel-collections.md
         - name: 셀프 서비스 앱 액세스 사용
           href: access-panel-manage-self-service-access.md
-        - name: 사용자 액세스 제거
-          href: methods-for-removing-user-access.md
         - name: 앱 숨기기
           href: hide-application-from-user-portal.md
         - name: 사용자 로그인 비활성화
           href: disable-user-sign-in-portal.md
-        - name: 셀프 서비스 할당 구성
-          href: manage-self-service-access.md
         - name: 자동 가속 적용
           href: configure-authentication-for-federated-users-portal.md
         - name: 로그인 자동 가속 방지
@@ -184,6 +180,8 @@
       href: application-types.md
     - name: 사용자가 앱에 할당되는 이유
       href: ways-users-get-assigned-to-applications.md
+    - name: 사용자 액세스 제거
+      href: methods-for-removing-user-access.md
 - name: 리소스
   items:
     - name: 개발자를 위한 지원 및 도움말 옵션

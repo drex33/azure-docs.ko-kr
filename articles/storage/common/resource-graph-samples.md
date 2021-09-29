@@ -7,12 +7,12 @@ author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: e0371408959c3e840022629a0a3e9e8ea242540a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 2b9bd016d6d11756ee5759f58bc443719a8be25d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541246"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651563"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-storage"></a>Azure Storage에 대한 Azure Resource Graph 샘플 쿼리
 

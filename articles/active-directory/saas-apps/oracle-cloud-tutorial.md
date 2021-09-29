@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 02ba974aa430bd75848c3fcf2b762453d99e27fe
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 1462b45ede121cfbbe72b1f06d0f64b167c9246f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183609"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808641"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>자습서: Azure Active Directory와 Oracle Cloud Infrastructure Console 통합
 
@@ -141,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B. Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B. Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B. Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -197,7 +197,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="test-sso"></a>SSO 테스트
 
-액세스 패널에서 Oracle Cloud Infrastructure Console 타일을 선택하면 Oracle Cloud Infrastructure Console 로그인 페이지로 리디렉션됩니다. 드롭다운 메뉴에서 **ID 공급자** 를 선택하고 아래에 표시된 **계속** 을 클릭하여 로그인합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Oracle Cloud Infrastructure Console 타일을 선택하면 Oracle Cloud Infrastructure Console 로그인 페이지로 리디렉션됩니다. 드롭다운 메뉴에서 **ID 공급자** 를 선택하고 아래에 표시된 **계속** 을 클릭하여 로그인합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ![구성](./media/oracle-cloud-tutorial/config10.png)
 

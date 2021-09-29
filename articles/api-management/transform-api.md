@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure API Management에서 API 변환 및 보호 | Microsoft Docs
 description: 이 자습서에서는 API Management에서 변환 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다.
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.author: apimpm
-ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: danlep
+ms.openlocfilehash: be58732e3279b7bfaccee76a8d5bc9d09ea664ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010234"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656401"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>자습서: API 변환 및 보호
 

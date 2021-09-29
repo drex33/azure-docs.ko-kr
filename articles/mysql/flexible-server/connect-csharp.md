@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/16/2021
-ms.openlocfilehash: dd4da95bd3352897d62f36265544a10dbd37f825
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 5a4419d210e6cd5e75bdce1b63f97046b9eb6ec2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643591"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128627067"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 
@@ -25,7 +25,9 @@ ms.locfileid: "122643591"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free).
+- 활성 구독이 있는 Azure 계정. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - [Azure Portal](./quickstart-create-server-portal.md)을 사용하여 Azure Database for MySQL 유연한 서버 만들기 <br/> 또는 [Azure CLI](./quickstart-create-server-cli.md)를 만듭니다(없는 경우).
 - 퍼블릭 또는 프라이빗 액세스를 사용하는지 여부에 따라 아래 작업 중 **하나** 를 완료하여 연결을 활성화합니다.
 - [데이터베이스 및 비관리 사용자 만들기](../howto-create-users.md)

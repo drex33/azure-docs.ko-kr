@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12337e9c6d42ee140367c26cd160fd0a5fd595d3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 98cd9fd4a54796827184da9dc549637331892083
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590483"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
@@ -25,21 +25,21 @@ ms.locfileid: "111902306"
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Function을 호출하는 Event Grid 구독을 만듭니다.
-> * 이벤트에서 알림을 받은 후 Azure Databricks에서 작업을 실행하는 Azure Function을 만듭니다.
-> * 고객 주문을 삽입하는 Databricks 작업을 스토리지 계정에 있는 Databricks 델타 테이블에 만듭니다.
+> - Azure Function을 호출하는 Event Grid 구독을 만듭니다.
+> - 이벤트에서 알림을 받은 후 Azure Databricks에서 작업을 실행하는 Azure Function을 만듭니다.
+> - 고객 주문을 삽입하는 Databricks 작업을 스토리지 계정에 있는 Databricks 델타 테이블에 만듭니다.
 
 Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 구축합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](assign-azure-role-data-access.md)이 할당되었는지 확인합니다.
+- 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](assign-azure-role-data-access.md)이 할당되었는지 확인합니다.
 
    [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
-* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+- 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
@@ -71,17 +71,17 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 4. 이 파일을 로컬 컴퓨터에 저장하고, **data.csv** 라는 이름을 지정합니다.
 
-5. Storage Explorer에서 이 파일을 **input** 폴더에 업로드합니다.  
+5. Storage Explorer에서 이 파일을 **input** 폴더에 업로드합니다.
 
 ## <a name="create-a-job-in-azure-databricks"></a>Azure Databricks에 작업 만들기
 
 이 섹션에서 수행하는 작업은 다음과 같습니다.
 
-* Azure Databricks 작업 영역 만들기
-* Notebook을 만듭니다.
-* Databricks 델타 테이블을 만들고 채웁니다.
-* 행을 Databricks 델타 테이블에 삽입하는 코드를 추가합니다.
-* 작업을 만듭니다.
+- Azure Databricks 작업 영역 만들기
+- Notebook을 만듭니다.
+- Databricks 델타 테이블을 만들고 채웁니다.
+- 행을 Databricks 델타 테이블에 삽입하는 코드를 추가합니다.
+- 작업을 만듭니다.
 
 ### <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -111,8 +111,8 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
-    * 클러스터의 이름을 입력합니다.
-    * **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    - 클러스터의 이름을 입력합니다.
+    - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
 4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
@@ -132,11 +132,11 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Databricks 델타 테이블 만들기 및 채우기
 
-1. 만든 Notebook에서 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드는 아직 실행하지 마세요.  
+1. 만든 Notebook에서 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드는 아직 실행하지 마세요.
 
    `appId`, `password`, `tenant` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다.
 
-    ```Python
+    ```python
     dbutils.widgets.text('source_file', "", "Source File")
 
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -159,9 +159,8 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 3. 다음 코드 블록을 복사하여 다른 셀에 붙여넣은 다음, **Shift+Enter** 키를 눌러 이 블록에서 해당 코드를 실행합니다.
 
-   ```Python
+   ```python
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
-
 
    inputSchema = StructType([
    StructField("InvoiceNo", IntegerType(), True),
@@ -194,7 +193,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 1. 다음 코드 블록을 복사하여 다른 셀에 붙여넣습니다. 하지만 이 코드는 실행하지 마세요.
 
-   ```Python
+   ```python
    upsertDataDF = (spark
      .read
      .option("header", "true")
@@ -257,7 +256,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 2. **새 토큰 생성** 단추, **생성** 단추를 차례로 클릭합니다.
 
    토큰은 안전한 장소에 복사해야 합니다. Azure Function에는 작업을 실행할 수 있도록 Databricks를 인증하기 위해 이 토큰이 필요합니다.
-  
+
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택한 다음, **컴퓨팅 > 함수 앱** 을 차례로 선택합니다.
 
    ![Azure Function 만들기](./media/data-lake-storage-events/function-app-create-flow.png "Azure 함수 만들기")

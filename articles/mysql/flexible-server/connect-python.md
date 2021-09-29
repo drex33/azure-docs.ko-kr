@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 57bfd9564f1f5ee3ea66e80a969760ea578a0e74
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8430fc401e8cbb6c526f5bdca9a0b6841447793b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643615"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128588773"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 
@@ -28,7 +28,9 @@ ms.locfileid: "122643615"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* 활성 구독이 있는 Azure 계정. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 * Azure Database for MySQL 유연한 계정. 유연한 서버를 만들려면 [Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기](./quickstart-create-server-portal.md) 또는 [Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버 만들기](./quickstart-create-server-cli.md)를 참조하세요.
 
 ## <a name="preparing-your-client-workstation"></a>클라이언트 워크스테이션 준비

@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 3e9fbda18c786f934790c9aa70cd0f27d045fa64
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1df5b2ba2aa44102975bfd68330466fccd0c6bb0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901316"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593176"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
@@ -23,23 +23,23 @@ ms.locfileid: "111901316"
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * Databricks 클러스터 만들기
-> * 스토리지 계정으로 비구조적 데이터 수집
-> * Blob 스토리지의 데이터에 대한 분석 실행
+> - Databricks 클러스터 만들기
+> - 스토리지 계정으로 비구조적 데이터 수집
+> - Blob 스토리지의 데이터에 대한 분석 실행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Data Lake Storage Gen2 계정을 만듭니다.
+- Azure Data Lake Storage Gen2 계정을 만듭니다.
 
   [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 
-* 사용자 계정에 [Storage Blob 데이터 기여자 역할](assign-azure-role-data-access.md)이 할당되었는지 확인합니다.
+- 사용자 계정에 [Storage Blob 데이터 기여자 역할](assign-azure-role-data-access.md)이 할당되었는지 확인합니다.
 
-* AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+- AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-* 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+- 서비스 주체를 생성합니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 2. **미리 압축된 파일** 확인란을 선택하여 모든 데이터 필드를 선택합니다.
 
-3. **다운로드** 단추를 선택하고 결과를 컴퓨터에 저장합니다. 
+3. **다운로드** 단추를 선택하고 결과를 컴퓨터에 저장합니다.
 
 4. 압축된 파일을 풀고, 파일 이름 및 파일 경로를 적어 둡니다. 이후 단계에서 이 정보가 필요합니다.
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 2. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 서비스를 만듭니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.  |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     다음 필드에 대한 값을 입력하고, 다른 필드에는 기본값을 그대로 적용합니다.
 
     - 클러스터의 이름을 입력합니다.
-     
+
     - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
 4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
@@ -126,11 +126,11 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
+   - `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   - `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-   * `<container-name>` 자리 표시자를 스토리지 계정의 컨테이너 이름으로 바꿉니다.
+   - `<container-name>` 자리 표시자를 스토리지 계정의 컨테이너 이름으로 바꿉니다.
 
 ## <a name="create-a-container-and-mount-it"></a>컨테이너 생성 및 탑재
 
@@ -148,7 +148,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
 5. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
 
-    ```Python
+    ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
@@ -170,7 +170,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook을 사용하여 CSV를 Parquet로 변환
 
-이전에 만든 Notebook에서 새 셀을 추가하고, 해당 셀에 다음 코드를 붙여넣습니다. 
+이전에 만든 Notebook에서 새 셀을 추가하고, 해당 셀에 다음 코드를 붙여넣습니다.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -210,7 +210,7 @@ dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 
 데이터 원본에 대한 데이터 프레임을 만들려면 다음 스크립트를 실행합니다.
 
-* `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
+- `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
 ```python
 # Copy this into a Cmd cell in your notebook.
@@ -277,5 +277,5 @@ print('Airlines that fly to/from Texas: ', out1.show(100, False))
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md)

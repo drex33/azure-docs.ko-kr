@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: b58fd8ba86febba41715aba4340838a0f494e6ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591657"
 ---
 ::: zone target="docs"
 
@@ -45,7 +45,7 @@ ms.locfileid: "91759907"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
-2. 디스크를 받고 포털에서 작업 상태가 **배달됨**으로 업데이트되었습니다.
+2. 디스크를 받고 포털에서 작업 상태가 **배달됨** 으로 업데이트되었습니다.
 3. Data Box Disk 잠금 해제 도구를 설치할 수 있는 클라이언트 컴퓨터가 있습니다. 클라이언트 컴퓨터는 다음 작업을 수행해야 합니다.
     - [지원되는 운영 체제](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)를 실행합니다.
     - Windows 클라이언트인 경우 다른 [필수 소프트웨어](data-box-disk-system-requirements.md#other-required-software-for-windows-clients)를 설치합니다.  
@@ -71,7 +71,7 @@ ms.locfileid: "91759907"
 
     ![Data Box Disk 연결](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
 
-2. Azure Portal에서 Data Box Disk Order로 이동합니다. **일반 > 모든 리소스**로 이동하여 검색한 다음, Data Box Disk Order를 선택합니다. 복사 아이콘을 사용하여 암호를 복사합니다. 이 암호는 디스크의 잠금을 해제하는 데 사용됩니다.
+2. Azure Portal에서 Data Box Disk Order로 이동합니다. **일반 > 모든 리소스** 로 이동하여 검색한 다음, Data Box Disk Order를 선택합니다. 복사 아이콘을 사용하여 암호를 복사합니다. 이 암호는 디스크의 잠금을 해제하는 데 사용됩니다.
 
     ![Data Box Disk 잠금 해제 암호](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
 
@@ -81,7 +81,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 다음 단계를 수행하여 디스크를 연결하고 잠금 해제합니다.
 
-1. Azure Portal에서 Data Box Disk Order로 이동합니다. **일반 > 모든 리소스**로 이동하여 검색한 다음, Data Box Disk Order를 선택합니다.
+1. Azure Portal에서 Data Box Disk Order로 이동합니다. **일반 > 모든 리소스** 로 이동하여 검색한 다음, Data Box Disk Order를 선택합니다.
 2. Windows 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다. 이 도구 집합에는 Data Box 디스크 잠금 해제 도구, Data Box 디스크 유효성 검사 도구 및 Data Box 디스크 분할 복사 도구라는 3가지 도구가 포함됩니다.
 
     이 절차에서는 Data Box 디스크 잠금 해제 도구만 사용합니다. 다른 두 가지 도구는 나중에 사용됩니다.
@@ -142,7 +142,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 ## <a name="unlock-disks-on-linux-client"></a>Linux 클라이언트에서 디스크 잠금 해제
 
-1. Azure Portal에서 **일반 &gt; 디바이스 세부 정보**로 이동합니다.
+1. Azure Portal에서 **일반 &gt; 디바이스 세부 정보** 로 이동합니다.
 2. Linux 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다.  
 
     > [!div class="nextstepaction"]
@@ -222,24 +222,26 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
 6. Data Box Disk 잠금 해제 도구를 실행합니다. [디스크에 연결 및 암호 가져오기](#connect-to-disks-and-get-the-passkey)에서 얻은 Azure Portal의 암호를 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨의 목록을 지정합니다. 암호 및 볼륨은 작은 따옴표 안에서 지정되어야 합니다. 
 
-    다음 명령을 입력합니다.
+   다음 명령을 입력합니다.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
+   ```bash
+   sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'
+   ```
 
-    샘플 출력은 다음과 같습니다. 
+   샘플 출력은 다음과 같습니다. 
  
-    ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
-    
-    START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl 
-    Passkey: qwerqwerqwer 
-    
-    Volumes for data copy : 
-    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
-    END: Mon Aug 13 14:26:02 2018
-    ```
-    데이터를 복사할 수 있는 볼륨의 탑재 지점이 표시됩니다.
+   ```output
+   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:'qwerqwerqwer'  
+   
+   START: Mon Aug 13 14:25:49 2018 
+   Volumes: /dev/sdbl 
+   Passkey: qwerqwerqwer 
+   
+   Volumes for data copy : 
+   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+   END: Mon Aug 13 14:26:02 2018
+   ```
+   데이터를 복사할 수 있는 볼륨의 탑재 지점이 표시됩니다.
 
 7. 나중에 디스크를 다시 삽입할 수 있도록 잠금 해제 단계를 반복합니다. Data Box Disk 잠금 해제 도구와 관련하여 도움이 필요하면 `help` 명령을 사용합니다. 
     
@@ -294,7 +296,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Azure Portal의 **일반 > 디바이스 세부 정보**에서 암호를 가져와 여기에 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 
+    -  Azure Portal의 **일반 > 디바이스 세부 정보** 에서 암호를 가져와 여기에 입력합니다. 디스크에 할당한 드라이브 문자가 표시됩니다. 
 4. 디스크를 Linux 클라이언트에 잠금 해제하려면 터미널을 엽니다. 소프트웨어를 다운로드한 폴더로 이동합니다. 이러한 파일을 실행할 수 있도록 다음 명령을 입력하여 파일 사용 권한을 변경합니다. 
 
     ```
@@ -306,7 +308,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Data Box Disk 잠금 해제 도구를 실행합니다. Azure Portal의 **일반 > 디바이스 세부 정보**에서 암호를 가져와 여기에 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨 목록을 작은 따옴표 안에 지정합니다.
+    Data Box Disk 잠금 해제 도구를 실행합니다. Azure Portal의 **일반 > 디바이스 세부 정보** 에서 암호를 가져와 여기에 입력합니다. 필요에 따라 잠금을 해제할 BitLocker 암호화 볼륨 목록을 작은 따옴표 안에 지정합니다.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'

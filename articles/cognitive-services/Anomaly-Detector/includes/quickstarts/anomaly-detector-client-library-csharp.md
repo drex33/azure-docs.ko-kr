@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: f526038a37e6f4e4a5d03c516446653a95c08be4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 13245ac2e9569ee9d984ae0978dca2a93ca735da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110162919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908492"
 ---
 C#용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -23,7 +23,7 @@ C#용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
 * 데이터 세트에서 추세 변화 포인트 검색
 
-[라이브러리 참조 설명서](https://aka.ms/anomaly-detector-dotnet-ref) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [GitHub에서 코드 찾기](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
+[라이브러리 참조 설명서](https://aka.ms/anomaly-detector-dotnet-ref) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [GitHub에서 코드 찾기](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

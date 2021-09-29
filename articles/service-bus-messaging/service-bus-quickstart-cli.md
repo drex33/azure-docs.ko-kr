@@ -3,14 +3,14 @@ title: 빠른 시작 - Azure CLI를 사용하여 Service Bus 큐 만들기 | Mic
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 네임스페이스를 만든 다음, 해당 네임스페이스에 큐를 만드는 방법에 대해 알아봅니다.
 author: spelluru
 ms.topic: quickstart
-ms.date: 08/12/2020
+ms.date: 09/28/2021
 ms.author: spelluru
-ms.openlocfilehash: 73457e6b2e210bd7db91165e97ce73591d921be4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 381d4d32d87391c0914d55690a0f4119b95a3488
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479026"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211832"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Azure CLI를 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 

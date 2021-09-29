@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 1c0a7768c0f5e30d9d5ab3b0fa32b0eb6f4946c3
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
-ms.translationtype: HT
+ms.openlocfilehash: 24c81290bce53e1399379103ac3d17ea735222a4
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428420"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235291"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>계획된 유지 관리를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 유지 관리 기간 예약(미리 보기)
 
@@ -131,7 +131,7 @@ az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCl
 
 ## <a name="list-all-maintenance-windows-in-an-existing-cluster"></a>기존 클러스터의 모든 유지 관리 기간 나열
 
-AKS 클러스터에서 현재 유지 관리 구성 창을 모두 보려면 `az aks maintenanceconfiguration list` 명령을 사용합니다.
+AKS 클러스터에서 현재 유지 관리 구성 창을 모두 보려면 `az aks maintenanceconfiguration list` 명령을 사용 합니다.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster

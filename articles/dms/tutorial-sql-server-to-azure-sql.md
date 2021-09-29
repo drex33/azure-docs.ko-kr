@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: ab16bfe708589b6f89dd5b9a37512d4f2148992f
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 5afe39d7693d36ebfd433c6cd1db336e9c72b7ca
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214914"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664241"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -343,7 +343,7 @@ Azure SQL Database로 마이그레이션할 모든 데이터베이스 또는 특
 
 2. 대상 **Azure SQL Database** 에서 대상 데이터베이스를 확인합니다.
 
-### <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 자료
 
 - Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](./dms-overview.md) 문서를 참조하세요.
 - Azure SQL Database에 대한 자세한 내용은 [Azure SQL Database 서비스란?](../azure-sql/database/sql-database-paas-overview.md) 문서를 참조하세요.

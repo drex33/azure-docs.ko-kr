@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
-ms.openlocfilehash: 627342bb4ee7a6192b6dd7b9fdce71a87158ec39
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: b7ff769a6ce8bae8ac6e99a2fff89f65a0d164a3
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287694"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231143"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IoT Hub(iOS)를 사용하여 클라우드-디바이스 메시지 보내기
 
@@ -177,7 +177,5 @@ pod install
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
-
-IoT Hub를 사용하는 완벽한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 솔루션 가속기](https://azure.microsoft.com/documentation/suites/iot-suite/) 설명서를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2021
-ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 6a1c13d8557b49b1481e94bc95eef10fd5e658f6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836203"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230250"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Salesforce 간에 데이터 복사
 
@@ -41,6 +41,9 @@ Salesforce 에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인 간에 데이터 복사
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. Salesforce에서 데이터를 복사 하는 경우 커넥터는 데이터 크기에 따라 REST 및 대량 Api 사이에서 자동으로 선택 합니다. 결과 집합이 클 경우 대량 API를 사용 하 여 성능을 향상 시킬 수 있습니다. 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
+
+>[!NOTE]
+>커넥터는 Salesforce API에 대 한 기본 버전을 더 이상 설정 하지 않습니다. 이전 버전과의 호환성을 위해 기본 API 버전이 이전에 설정 된 경우 계속 작동 합니다. 기본값은 원본의 경우 45.0이 고 sink의 경우 40.0입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -89,7 +92,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **Salesforce** 로 설정되어야 합니다. |예 |
 | environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |예 |
@@ -165,7 +168,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **SalesforceObject** 로 설정되어야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -197,7 +200,7 @@ Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성
 >[!NOTE]
 >이전 버전과의 호환성을 위해, Salesforce에서 데이터를 복사할 때 이전 "RelationalTable" 형식 데이터 세트를 사용할 경우 이 형식도 그대로 작동하지만 "SalesforceObject" 형식으로 전환하는 것이 좋습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **RelationalTable** 로 설정해야 합니다. | 예 |
 | tableName | Salesforce에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -260,7 +263,7 @@ Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 
 Salesforce에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SalesforceSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **SalesforceSink** 로 설정해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert** 입니다. | 아니요(기본값: 삽입) |

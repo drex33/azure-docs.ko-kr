@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 083cd20747c5dec9b326707489b2494ff5a89804
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 51b1a255eb538dabd735e77ae6161d53c89e90d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664310"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675842"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -49,7 +49,7 @@ Login-AzAccount
 Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. **"https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey"** 를 사용하여 현재 버전을 가져옵니다. 
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. 현재 버전을 가져오려면 **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** 를 사용합니다. 
 
 이전에 저장한 키를 보려면 다음을 수행합니다.
 

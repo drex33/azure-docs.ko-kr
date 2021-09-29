@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 07/28/2021
-ms.openlocfilehash: 1bbe267aef27151b3ef70e88e0a8e85091d8a33d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d37b3755e79c8117bbec7269e7ef97e8edb7429
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785484"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782312"
 ---
 # <a name="tutorial-assess-aspnet-web-apps-for-migration-to-azure-app-service"></a>자습서: Azure App Service로 마이그레이션할 ASP.NET 웹앱 평가
 
@@ -83,7 +83,7 @@ Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크
 
 #### <a name="azure-app-service-cost-details"></a>Azure App Service 비용 세부 정보
 
-[App Service 요금제](/azure/app-service/overview-hosting-plans)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다.
+[App Service 요금제](../app-service/overview-hosting-plans.md)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다.
 
 ### <a name="review-readiness"></a>준비 상태 검토
 

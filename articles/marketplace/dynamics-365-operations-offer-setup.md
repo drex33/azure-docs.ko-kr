@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 6efbd254a74d2432985d451adf67a33b74d2e2c4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: eadbeee57960577f12f880b4582e820eddb63e3c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081924"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234379"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
 
@@ -32,13 +32,13 @@ ms.locfileid: "129081924"
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
 
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제품 페이지에서 **+ 새로 만들기 제공**  >  **Dynamics 365 for 작업** 을 선택 합니다.
+1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Dynamics 365를 작업으로** 선택합니다.
 
-    [![작업 제공 유형에 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) 대 한 Dynamics 365를 강조 표시 하는 Marketplace 제품 페이지의 ' 새 제품 ' 단추 스크린샷 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
+    [![Marketplace 제안 페이지의 '새 제안' 단추 스크린샷은 Dynamics 365 for Operations 제안 유형을 강조 표시합니다. ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
@@ -104,13 +104,13 @@ ms.locfileid: "129081924"
 
 ## <a name="business-applications-isv-program"></a>비즈니스 애플리케이션 ISV 프로그램
 
-제품은 초기에 표준 계층에 등록됩니다. 솔루션이 프로그램 자격 기준을 충족하는 경우 확장된 프로그램 혜택을 제공하는 프리미엄 계층으로 업그레이드를 요청할 수 있습니다. 업그레이드를 요청하는 경우 제품을 게시하기 전에 [공동 판매 모듈](https://aka.ms/BizAppsISVProgram)을 완료해야 합니다.
+제품은 초기에 표준 계층에 등록됩니다.
 
-프리미엄 계층으로 업그레이드를 요청하려면 확인란을 선택합니다.
+제안을 게시하기 전에 [공동 판매 모듈을](https://aka.ms/BizAppsISVProgram)완료합니다.
 
-왼쪽 탐색 메뉴에서 다음 탭을 계속하려면 **초안 저장** 을 선택하고 **속성** 을 선택합니다.
+왼쪽 탐색 메뉴 **속성** 에서 다음 탭을 계속 진행하려면 **초안 저장** 을 선택하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [제안 속성 구성](dynamics-365-operations-properties.md)
+- 제품 [속성](dynamics-365-operations-properties.md) 구성
 - [목록에 제품 추가 모범 사례](gtm-offer-listing-best-practices.md)

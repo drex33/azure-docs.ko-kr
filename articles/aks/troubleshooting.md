@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 09/24/2021
-ms.openlocfilehash: 10f30ccd5efbc612c3b51c273347c872bfae1c17
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 28807736cf6f58334eb4e6cf674e2c514df9c427
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058475"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235272"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -147,7 +147,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 * 클러스터 이름은 1-63자여야 합니다. 허용되는 문자는 문자, 숫자, 대시 및 밑줄입니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 * AKS Node/*MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* 는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix* 에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
-* AKS 노드 풀 이름은 모두 소문자여야 하고, Linux 노드 풀의 경우 1-11자이고 Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
+* AKS 노드 풀 이름은 모두 소문자여야 하며 Linux 노드 풀의 경우 1-11자, Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
 * Linux 노드에 대한 관리자 사용자 이름을 설정하는 *admin-username* 은 문자로 시작해야 하고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64자입니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트하거나, 크기 조정하거나, 삭제하거나, 업그레이드하려고 오류가 발생합니다. 다른 작업이 진행 중이므로 해당 작업이 허용되지 않습니다.
@@ -266,13 +266,13 @@ initContainers:
 
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Azure 디스크 수가 많으면 연결/분리 속도가 느려집니다.
 
-단일 노드 VM을 대상으로 하는 Azure 디스크 연결/분리 작업 수가 10개보다 크거나 단일 가상 머신 확장 집합 풀을 대상으로 할 때 3개보다 큰 경우 순차적으로 수행되므로 예상보다 느릴 수 있습니다. 이 문제는 트리 내 Azure Disk 드라이버의 알려진 제한 사항입니다. [Azure Disk CSI 드라이버는](https://github.com/kubernetes-sigs/azuredisk-csi-driver) 일괄 처리 작업에서 디스크 연결/분리와 관련된 이 문제를 해결했습니다.
+단일 노드 VM을 대상으로 하는 Azure 디스크 연결/분리 작업 수가 10개보다 크거나 단일 가상 머신 확장 집합 풀을 대상으로 할 때 3개보다 큰 경우 순차적으로 수행되므로 예상보다 느릴 수 있습니다. 이 문제는 트리 내 Azure Disk driver에 대 한 알려진 제한 사항입니다. [Azure DISK CSI 드라이버](https://github.com/kubernetes-sigs/azuredisk-csi-driver) 는 일괄 처리에서 디스크 연결/분리 작업을 통해이 문제를 해결 했습니다.
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>잠재적 노드 VM이 실패 상태가 되는 Azure 디스크 분리 오류
 
 일부 에지의 경우 Azure 디스크 분리가 부분적으로 실패하고 노드 VM이 실패 상태로 유지될 수 있습니다.
 
-노드가 실패 상태인 경우 아래 중 하나를 사용하여 VM 상태를 수동으로 업데이트하여 완화할 수 있습니다.
+노드가 실패 상태에 있는 경우 다음 중 하나를 사용 하 여 VM 상태를 수동으로 업데이트 하 여 완화할 수 있습니다.
 
 * 가용성 집합 기반 클러스터의 경우:
     ```azurecli

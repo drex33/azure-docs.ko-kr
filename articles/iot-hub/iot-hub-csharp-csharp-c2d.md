@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 10e149218eb783b8cdb36412cca66bc7cd642df7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e7e7f8979ac07502f0e50f59b612f63b3e9a7240
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566860"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236826"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -226,7 +226,5 @@ AMQP 및 HTTPS를 사용하지만 MQTT를 사용하지 않는 경우에는 디�
 ## <a name="next-steps"></a>다음 단계
 
 이 방법에서는 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
-
-IoT Hub를 사용하는 완전한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기](/azure/iot-suite/)를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.

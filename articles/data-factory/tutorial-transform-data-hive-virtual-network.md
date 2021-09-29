@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3382cb1cf42b86b7dbd37b3f006c19e4822800ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c82a3fda3eb43fa73a46f934087bfb84e3aa2d1b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722365"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769696"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 
@@ -32,17 +32,17 @@ ms.locfileid: "121722365"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Azure Storage 계정**. Hive 스크립트를 만들어 Azure Storage에 업로드합니다. Hive 스크립트의 출력은 이 스토리지 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
-    ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png" alt-text="가상 네트워크 만들기":::
 - **HDInsight 클러스터** - 다음 문서에 따라 HDInsight 클러스터를 만들고 이전 단계에서 만든 가상 네트워크에 조인합니다. [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-plan-virtual-network-deployment.md) 다음은 가상 네트워크에 속한 HDInsight의 샘플 구성입니다. 
 
-    ![가상 네트워크의 HDInsight](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
+    :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png" alt-text="가상 네트워크의 HDInsight":::
 - **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침을 따르세요.
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Hive 스크립트 업로드
@@ -152,11 +152,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. Azure VM을 만들고 HDInsight 클러스터가 포함된 동일한 가상 네트워크에 연결합니다. 자세한 내용은 [가상 머신을 만드는 방법](../virtual-network/quick-create-portal.md#create-virtual-machines)을 참조하세요. Azure Virtual Network에 조인합니다. 
 4. Azure VM에서 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 다운로드합니다. 이전 단계에서 얻은 인증 키를 사용하여 자체 호스팅 통합 런타임을 수동으로 등록합니다. 
 
-   ![통합 런타임 등록](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
+   :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png" alt-text="통합 런타임 등록":::
 
-   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다. ![성공적으로 등록됨](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다. :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png" alt-text="성공적으로 등록됨":::
 
-   노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다. ![노드가 연결됨](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+   노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다. :::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png" alt-text="노드가 연결됨":::
 
 ## <a name="author-linked-services"></a>연결된 서비스 작성
 

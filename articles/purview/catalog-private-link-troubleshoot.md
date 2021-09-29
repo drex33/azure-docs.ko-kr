@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 073b4bf8c1be14aa26141e20d5f6d6f4abdf9ff1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: c077eb0c1639089fcc7196693a617e32c01d9a9a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208797"
+ms.locfileid: "129230459"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Purview 계정에 대한 프라이빗 엔드포인트 구성 문제 해결
 
@@ -164,7 +164,7 @@ ms.locfileid: "129208797"
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### <a name="cause"></a>원인 
-이는 자체 호스팅 통합 런타임의 이전 버전을 실행 중임을 나타낼 수 있습니다. 2021년 8월 18일 이후에 Azure Purview 계정을 만든 경우 자체 호스팅 통합 런타임 버전 5.9.7885.3을 사용해야 합니다.
+이는 자체 호스팅 통합 런타임의 이전 버전을 실행 중임을 나타낼 수 있습니다. 2021 8 월 18 일 후에 Azure 부서의 범위 계정을 만든 경우 자체 호스팅 integration runtime 버전 5.9.7885.3을 사용 해야 합니다.
 
 ### <a name="resolution"></a>해결 방법 
 자체 호스팅 통합 런타임을 5.9.7885.3으로 업그레이드합니다.

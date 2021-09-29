@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: 83895ebe6f8cf330650eef8167ee3bdd06660869
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: caab5417760c75e46b78241edd65d5c0124d5917
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656439"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234094"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>AKS(Azure Kubernetes Service) 클러스터(미리 보기)에서 Kubernetes용 Secretscrets Store CSI Driver 사용
 
@@ -26,7 +26,7 @@ Kubernetes용 Secrets Store CSI Driver를 사용하면 [CSI 볼륨][kube-csi]을
 
 ### <a name="supported-kubernetes-versions"></a>지원되는 Kubernetes 버전
 
-이 기능에 권장되는 최소 Kubernetes 버전은 1.18입니다. 
+이 기능에 권장 되는 최소 Kubernetes 버전은 1.18입니다. 
 
 ## <a name="features"></a>기능
 

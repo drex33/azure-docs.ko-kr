@@ -8,14 +8,14 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
 ms.date: 09/28/2021
-ms.openlocfilehash: f06382d44af5f883180ec1a1dfe05ccd14ceffe5
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: f9c07abdfe512c2564fdfe1595f16db8a6372a8b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208118"
+ms.locfileid: "129230240"
 ---
-# <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리형 가상 네트워크(미리 보기)
+# <a name="azure-data-factory-managed-virtual-network"></a>Azure Data Factory 관리형 가상 네트워크
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,9 +36,6 @@ Azure Data Factory 관리형 가상 네트워크(VNET) 내에 Azure IR(Integrati
 
 > [!IMPORTANT]
 >현재, 관리형 Virtual Network는 Azure Data Factory 지역과 동일한 지역에서만 지원됩니다.
-
-> [!Note]
->Azure Data Factory 관리형 Virtual Network는 아직 공개 미리 보기 상태이므로 SLA는 보장되지 않습니다.
 
 > [!Note]
 >기존 퍼블릭 Azure Integration Runtime은 Azure Data Factory 관리형 가상 네트워크에서 Azure Integration Runtime으로 전환할 수 없으며 그 반대의 경우도 마찬가지입니다.

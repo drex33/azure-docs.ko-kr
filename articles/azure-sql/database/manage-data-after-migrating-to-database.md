@@ -12,12 +12,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: 7a7cd071d9b1a2f0a359c11a123914f451a35569
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: a8b0e2d0183f29ebf9ecdee576abeca6acc1827c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690080"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229735"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새 DBA - 마이그레이션 후 Azure SQL Database 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -104,7 +104,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 - [Azure Active Directory 인증](authentication-aad-overview.md)
 - [SQL 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-기존 Windows 인증은 지원되지 않습니다. Azure AD(Azure Active Directory)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. 
+기존 Windows 인증은 지원되지 않습니다. Azure AD(Azure Active Directory)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이를 통해 조직의 직원에게 SSO(Single Sign-On) 액세스를 매우 편리하게 제공할 수 있습니다. 즉, 자격 증명이 더 간단한 인증을 위해 Azure 서비스 간에 공유됩니다.
 
 Azure AD는 [Azure AD 다단계 인증](authentication-mfa-ssms-overview.md)을 지원하며 [클릭 몇 번](../../active-directory/hybrid/how-to-connect-install-express.md)으로 Azure AD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 SQL Database 및 Azure Synapse Analytics에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 

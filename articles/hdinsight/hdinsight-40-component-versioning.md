@@ -4,12 +4,12 @@ description: Azure HDInsight 4.0의 Apache Hadoop 구성 요소 및 버전에 �
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 088498a5a8ab7732bc4e657e3575998c899ffd42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f5e298235abadd5dab2f3e4283f201707c48d672
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567016"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236921"
 ---
 # <a name="hdinsight-40-component-versions"></a>HDInsight 4.0 구성 요소 버전
 
@@ -36,7 +36,6 @@ HDInsight 4.0과 연결된 OSS 구성 요소 버전은 다음 표에 나열되�
 | Apache Kafka           | 2.1.1, 2.4.1(미리 보기)        |
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
-| Mono                   | 4.2.1         |
 
 
 이 표에는 사용이 중지된 특정 HDInsight 4.0 클러스터 형식이 나와 있습니다.

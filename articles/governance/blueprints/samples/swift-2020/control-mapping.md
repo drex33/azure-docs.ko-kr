@@ -1,14 +1,14 @@
 ---
 title: SWIFT CSP-CSCF v2020 청사진 샘플 컨트롤
 description: SWIFT CSP-CSCF v2020 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5f534853fb34be75f5bafcf0eb5dc90cf5afcc1a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ea2de882c9f4a9925599fb2482762419ab4ed8d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733970"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633282"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>SWIFT CSP-CSCF v2020 청사진 샘플의 컨트롤 매핑
 

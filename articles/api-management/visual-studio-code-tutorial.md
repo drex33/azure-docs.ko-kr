@@ -3,15 +3,15 @@ title: 자습서 - API 가져오기 및 관리 - Azure API Management 및 Visual
 description: 이 자습서에서는 Visual Studio Code용 Azure API Management 확장을 사용하여 API를 가져오고, 테스트하고, 관리하는 방법을 알아봅니다.
 ms.service: api-management
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ecdb97ad62a9b75279546493bbbf185f92fd29f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482333"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625775"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>자습서: Visual Studio Code용 API Management 확장을 사용하여 API 가져오기 및 관리
 

@@ -7,16 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: ffb713ac2a2f60b6ea046691169f4775bff726e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 645b936b5c8c550e9a71d33c079721d897aab0e3
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647483"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233543"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용하여 개인 피어링에 대한 IPv6 지원 추가(미리 보기)
 
-이 문서에서는 Azure Portal를 사용하여 Azure에서 ExpressRoute를 통해 Azure의 리소스에 연결하기 위해 IPv6 지원을 추가하는 방법을 설명합니다. 
+이 문서에서는 Azure Portal를 사용하여 Azure에서 ExpressRoute를 통해 Azure의 리소스에 연결하기 위해 IPv6 지원을 추가하는 방법을 설명합니다.
+
+>[!NOTE]
+> 포털 환경의 일부 측면은 아직 구현 중입니다. 따라서 포털을 통해 IPv6 지원을 추가 하려면이 문서에서 제공 하는 지침의 정확한 순서를 따르세요. 특히 포털에서 새 가상 네트워크 게이트웨이를 만들기 *전에* 가상 네트워크 및 서브넷을 만들거나 기존 가상 네트워크 및 서브넷에 IPv6 주소 공간을 추가 해야 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

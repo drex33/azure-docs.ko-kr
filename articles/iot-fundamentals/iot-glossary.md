@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 91604758ad2e53b3715a5b5c746959b3fe124ba6
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
-ms.translationtype: HT
+ms.openlocfilehash: ff8726ff95bd8e5e3c24fecb90d52ec48529ef7b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403400"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236013"
 ---
 # <a name="glossary-of-iot-terms"></a>IoT 용어집
 
@@ -367,10 +367,6 @@ IoT 플러그 앤 플레이 [디바이스](#iot-plug-and-play-device)는 솔루�
 ### <a name="iot-plug-and-play-device"></a>IoT 플러그 앤 플레이 디바이스
 
 IoT 플러그 앤 플레이 디바이스는 일반적으로 데이터를 수집하거나 다른 디바이스를 제어하고 [디바이스 모델](#device-model)을 구현하는 소프트웨어 또는 펌웨어를 실행하는 소규모의 독립 실행형 컴퓨팅 디바이스입니다.  예를 들어, IoT 플러그 앤 플레이 디바이스는 환경 모니터링 디바이스이거나 스마트 농업 관개 시스템용 컨트롤러일 수 있습니다. IoT 플러그 앤 플레이 디바이스는 직접 또는 IoT Edge 모듈로 구현할 수 있습니다. IoT 플러그 앤 플레이 디바이스에서 명령을 하고 제어하고 데이터를 수신하기 위한 클라우드 호스티트 IoT 솔루션을 작성할 수 있습니다.
-
-### <a name="iot-solution-accelerators"></a>IoT 솔루션 가속기
-
-Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함께 패키징합니다. 이러한 솔루션을 통해 일반적인 IoT 시나리오의 엔드투엔드 구현을 빠르게 시작합니다. 자세한 내용은 [Azure IoT 솔루션 가속기란?](../iot-accelerators/about-iot-accelerators.md)을 참조하세요.
 
 ## <a name="j"></a>J
 

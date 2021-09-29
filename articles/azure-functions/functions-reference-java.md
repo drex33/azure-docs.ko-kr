@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fc827c8c03edecbdb10769f7830806ff01596bd1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d03a4121394141b7b39ae441d7eb3cf653a0b374
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536468"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232150"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -187,7 +187,7 @@ Maven 아키타입은 지정된 Java 버전을 대상으로하는 pom.xml 생성
 
 | 요소 |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | Windows | linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 다음 예제는 pom.xml 파일의 `runtime` 섹션에있는 운영 체제 설정을 보여 줍니다.
 

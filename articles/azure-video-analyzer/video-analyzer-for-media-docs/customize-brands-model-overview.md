@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video 
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: juliako
-ms.openlocfilehash: b698bce219468ee44a78aea7b8e449b603ecd975
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b8516ca1d1d5d7020d645f54b1962076e9792f36
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665666"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232630"
 ---
 # <a name="customize-a-brands-model-in-video-analyzer-for-media"></a>Video Analyzer for Media에서 브랜드 모델 사용자 지정
 
@@ -19,11 +19,11 @@ Azure Video Analyzer for Media(이전의 Video Indexer)는 비디오 및 오디�
 
 ## <a name="out-of-the-box-detection-example"></a>기본 제공 검색 예
 
-“Microsoft Build 2017 2일 차” 프레젠테이션에서는 “Microsoft Windows” 브랜드가 여러 번 표시됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Analyzer for Media는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Video Analyzer for Media는 연설에서 브랜드를 검색한 다음, 02:40에 Windows 로고의 일부인 시각적 텍스트에서 다시 검색합니다.
+“Microsoft Build 2017 2일 차” 프레젠테이션에서는 “Microsoft Windows” 브랜드가 여러 번 표시됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Analyzer for Media는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Media용 Video Analyzer는 음성에서 브랜드를 검색한 다음, Windows 로고의 일부인 시각적 텍스트에서 02:40에 다시 검색합니다.
 
 ![브랜드 개요](./media/content-model-customization/brands-overview.png)
 
-생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다.  
+구조의 컨텍스트에서 Windows 대해 말하는 것은 컨텍스트에서 명확히 하는 방법을 알고 있는 고급 Machine Learning 알고리즘을 기반으로 하는 Box, Apple, Fox 등에서 브랜드로 "Windows"라는 단어를 감지하지 못합니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

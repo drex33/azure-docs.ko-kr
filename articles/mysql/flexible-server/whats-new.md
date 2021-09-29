@@ -6,13 +6,13 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/17/2021
-ms.openlocfilehash: cfbff4be8048090ec606fd8640281dccd17fe084
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 6bdda0cfb89b2884134032ba2c4ee17e8c0c24ac
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128634101"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234360"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 새로운 기능(미리 보기)
 
@@ -21,6 +21,28 @@ ms.locfileid: "128634101"
 [Azure Database for MySQL - 유연한 서버](./overview.md#azure-database-for-mysql---flexible-server-preview)는 단일 서버 배포 모드가 제공하는 것보다 데이터베이스 관리 기능 및 구성 설정에 대해 보다 세부적인 제어와 유연성을 제공하도록 설계된 배포 모드입니다. 이 서비스는 현재 MySQL 커뮤니티 버전 5.7 및 8.0을 지원합니다.
 
 이 문서에서는 2021년 1월부터 Azure Database for MySQL - 유연한 서버의 새로운 릴리스 및 기능을 요약합니다. 목록은 가장 최근의 업데이트가 먼저 있는 역방향 시간순으로 표시됩니다.
+
+## <a name="september-2021"></a>2021년 9월
+
+이 Azure Database for MySQL - 유연한 서버 릴리스에는 다음과 같은 업데이트가 포함되어 있습니다.
+
+- **세 개의 추가 Azure 지역에서 가용성**
+
+  Azure Database for MySQL - 유연한 서버의 공개 미리 보기는 이제 다음 Azure 지역에서 사용할 수 있습니다.
+
+  - 영국 서부
+  - 캐나다 동부
+  - 일본 서부
+
+- **버그 수정**
+
+  동일한 영역 HA 생성은 다음 지역에서 수정됩니다.
+
+  - 인도 중부
+  - 동아시아
+  - 한국 중부
+  - 남아프리카 북부
+  - 스위스 북부
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -32,7 +54,7 @@ ms.locfileid: "128634101"
 
 - **영역 중복 고가용성을 사용하는 대기 영역 선택**
 
-  이제 이 서비스를 사용하여 고객은 대기 서버 영역 위치를 선택할 수 있습니다. 고객은 이 기능을 사용하여 대기 서버를 선택한 영역에 배치할 수 있습니다. 대기 데이터베이스 서버와 대기 애플리케이션을 같은 영역에 배치하면 대기 시간이 줄어들고 고객이 재해 복구 상황과 “영역 다운” 시나리오에 더 잘 대비할 수 있습니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  이제 이 서비스를 사용하여 고객은 대기 서버 영역 위치를 선택할 수 있습니다. 고객은 이 기능을 사용하여 대기 서버를 선택한 영역에 배치할 수 있습니다. 대기 데이터베이스 서버와 대기 애플리케이션을 동일한 영역에 배치하면 대기 시간이 줄어들고 고객이 재해 복구 상황 및 "영역 축소" 시나리오에 더 잘 대비할 수 있습니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **프라이빗 DNS 영역 통합**
 
@@ -44,11 +66,11 @@ ms.locfileid: "128634101"
 
 - **가용성 영역의 서버에 대한 지정 시간 복원**
 
-  이제 서비스에 대한 지정 시간 복원 환경을 통해 고객은 가용성 영역을 구성할 수 있으며, 동일한 영역에 데이터베이스 서버와 대기 애플리케이션을 공동으로 배치하여 대기 시간을 줄이고 고객이 재해 복구 상황 및 "영역 축소" 시나리오에 더 잘 대비할 수 있도록 합니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  이제 서비스에 대한 지정 시간 복원 환경을 통해 고객은 가용성 영역을 구성할 수 있으며, 동일한 영역에 데이터베이스 서버와 대기 애플리케이션을 공동 배치하면 대기 시간이 줄어들고 고객이 재해 복구 상황 및 "영역 축소" 시나리오에 더 잘 대비할 수 있습니다. [자세히 알아보기](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **프라이빗 미리 보기에서 사용할 수 있는 validate_password 및 caching_sha2_password 플러그 인**
 
-  유연한 서버는 이제 프라이빗 미리 보기에서 validate_password 및 caching_sha2_password 플러그 인을 사용하도록 지원합니다. AskAzureDBforMySQL@service.microsoft.com으로 메일을 보내주세요.
+  유연한 서버는 이제 프라이빗 미리 보기에서 validate_password 및 caching_sha2_password 플러그 인을 사용하도록 지원합니다. 으로 이메일을 보내주세요. AskAzureDBforMySQL@service.microsoft.com
 
 - **4개의 추가 Azure 지역의 가용성**
 
@@ -64,7 +86,7 @@ ms.locfileid: "128634101"
   - ssl_mode VERIFY_IDENTITY에서 SSL을 사용하는 경우 영역 중복 고가용성 서버 장애 조치 직후에 클라이언트는 서버에 연결하지 못합니다. VERIFY_CA에서 ssl_mode를 사용하여 이 문제를 완화할 수 있습니다.
   - 인도 중부, 동아시아, 한국 중부, 남아프리카 공화국 북부, 스위스 북부 지역에서는 동일한 영역의 고가용성 서버를 만들 수 없습니다.
   - 드문 시나리오에서 HA 장애 조치 후 주 서버는 read_only 모드가 됩니다. 서버 매개 변수 블레이드에서 "read_only" 값을 OFF로 업데이트하여 이 문제를 해결합니다.
-  - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 및 그에 따른 IOPS 재설정 후 컴퓨팅+스토리지 블레이드에서 IOP를 원하는 값(이전에 설정)으로 다시 스케일링하여 이 문제를 해결할 수 있습니다.
+  - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 후 Compute+Storage 블레이드의 IOPS를 원하는 값(이전에 설정)으로 다시 설정하고 그에 따라 IOPS를 다시 설정하여 문제를 해결할 수 있습니다.
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -97,7 +119,7 @@ ms.locfileid: "128634101"
 
 - **스토리지 자동 증가**
 
-  스토리지 자동 증가는 서버가 스토리지가 부족해지고 읽기 전용이 되지 않도록 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 2021년 6월 21일부터 새로 만든 모든 서버는 기본적으로 스토리지 자동 증가가 사용하도록 설정됩니다. [자세히 알아보기](concepts-compute-storage.md#storage-auto-grow).
+  Storage 자동 증가는 서버의 스토리지가 부족해지고 읽기 전용이 되는 것을 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 2021년 6월 21일부터 새로 만든 모든 서버는 기본적으로 스토리지 자동 증가가 사용하도록 설정됩니다. [자세히 알아보기](concepts-compute-storage.md#storage-auto-grow).
 
 - **입력 데이터 복제**
 
@@ -204,7 +226,7 @@ Azure Database for MySQL 작업에 대한 질문이 있거나 제안 사항이 �
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 의견을 제공하거나 새로운 기능을 요청하려면 AskAzureDBforMySQL@service.microsoft.com으로 메일을 보내세요.
+- 사용자 의견을 제공 하거나 새로운 기능을 요청 하려면으로 메일을 보내세요 AskAzureDBforMySQL@service.microsoft.com .
 
 ## <a name="next-steps"></a>다음 단계
 

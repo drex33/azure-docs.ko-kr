@@ -1,8 +1,8 @@
 ---
 title: '빠른 시작: Azure Queue Storage 클라이언트 라이브러리 v12 - Java'
 description: Java용 Azure Queue Storage 클라이언트 라이브러리 v12를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 삭제하는 방법을 알아봅니다. 큐를 삭제하는 방법도 알아봅니다.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
@@ -10,12 +10,12 @@ ms.subservice: queues
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: f4e33cac6ba00be56b0f63cf5a10b2dce32e1be7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 026f0ffe598f36df1ca482987bde8da310e4e0a5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534459"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667828"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue Storage 클라이언트 라이브러리 v12
 

@@ -3,12 +3,12 @@ title: Advisor로 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용하여 중요 비즈니스용 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: a2813699e082afbc263775821839ed6946e26c1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7229f4a786fc0afc43793ffe730470427ca2b107
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535581"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234929"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용하여 Azure 애플리케이션의 성능 향상
 
@@ -155,7 +155,7 @@ Azure Advisor는 쿼리 페이지 크기 100을 사용하는 Azure Cosmos DB 컨
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>클러스터 성능을 향상시키려면 HBase 클러스터에서 가속화된 쓰기 기능을 사용하는 것이 좋습니다.
 Azure Advisor는 지난 7일간의 시스템 로그를 분석하고 클러스터에 다음 시나리오가 발생했는지 확인합니다.
 1. 긴 WAL 동기화 대기 시간 
-2. 많은 쓰기 요청 수(1시간에 avg_write_requests/second/node 1000건 초과가 3번 이상)
+2. 쓰기 요청 수가 많은 경우 (최소 3 1 시간 이상의 windows 1000 avg_write_requests/second/node)
 
 이러한 상태는 클러스터의 쓰기 대기 시간이 길다는 것을 나타냅니다. 이는 클러스터에서 많은 워크로드를 수행했기 때문일 수 있습니다. 클러스터의 성능을 향상시키기 위해 Azure HDInsight HBase에서 제공하는 가속화된 쓰기 기능을 활용하는 것을 고려할 수 있습니다. HDInsight Apache HBase 클러스터의 가속 쓰기 기능은 클라우드 스토리지를 사용하는 대신 모든 RegionServer(작업자 노드)에 프리미엄 SSD 관리 디스크를 연결합니다. 따라서 애플리케이션의 쓰기 대기 시간이 단축되고 복원력이 향상됩니다. 이 기능에 대한 자세한 내용을 보려면 [자세한 정보를 알아보세요](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 

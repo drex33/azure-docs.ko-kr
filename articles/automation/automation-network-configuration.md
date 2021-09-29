@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation State Configuration, Azure Aut
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 2c3b00a3d60db16c3b768494f8630587a16033d8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 2dd5d0d0c309e835fee8a55e9fa991a0efeaf729
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465802"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231599"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Azure Automation 네트워크 구성 세부 정보
 
@@ -26,7 +26,7 @@ Azure Automation과 커뮤니케이션하기 위해 Hybrid Runbook Worker 및 [A
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대한 네트워크 계획
 
-시스템 및 사용자 Hybrid Runbook Worker에서 Azure Automation에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. 또한 작업자가 Azure Monitor Log Analytics 작업 영역에 연결하려면 [Log Analytics 에이전트에 필요한 포트 및 URL](../azure-monitor/agents/agent-windows.md)에 액세스할 수 있어야 합니다.
+시스템 및 사용자 Hybrid Runbook Worker에서 Azure Automation에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. 또한 작업자가 Azure Monitor Log Analytics 작업 영역에 연결하려면 [Log Analytics 에이전트에 필요한 포트 및 URL](../azure-monitor/agents/log-analytics-agent.md)에 액세스할 수 있어야 합니다.
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터와 Hybrid Runbook Worker의 통신을 제한할 수 있습니다. [Azure Automation에서 사용하는 DNS 레코드](how-to/automation-region-dns-records.md)에서 필요한 DNS 레코드를 검토합니다.
 

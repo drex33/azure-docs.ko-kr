@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal을 사용하여 Azure Backup 워�
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f3d353f7d42baf1f9cc968cb37baac1077a35085
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627238"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231675"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크로드 모니터링
 
@@ -59,6 +59,8 @@ SC-DPM(System Center Data Protection Manager) 및 MABS(Microsoft Azure Backup Se
 - 백업/복원 실패
 - MARS(Microsoft Azure Recovery Services) 에이전트에 대해 결과를 나타내며 백업을 성공했습니다.
 - 데이터 보존을 사용하여 보호 중지/데이터 삭제를 사용하여 보호 중지
+- 자격 증명 모음에 대해 일시 삭제 기능을 사용하지 않도록 설정
+- 데이터베이스 워크로드에 지원되지 않는 백업 유형
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>다음 Azure Backup 솔루션의 경고가 여기에 표시됩니다.
 
@@ -72,7 +74,7 @@ SC-DPM(System Center Data Protection Manager) 및 MABS(Microsoft Azure Backup Se
 
 ### <a name="consolidated-alerts"></a>통합된 경고
 
-SQL 및 SAP HANA 같은 Azure 워크로드 백업 솔루션의 경우 로그 백업은 매우 자주 생성될 수 있습니다(정책에 따라 최대 15분마다). 따라서 로그 백업 실패가 매우 자주 발생할 수도 있습니다(최대 15분마다). 이 시나리오에서는 실패할 때마다 경고가 나타나는 경우 최종 사용자가 작업하기 어려워집니다. 따라서 첫 번째 발생에 대한 경고를 보낸 후, 후속 실패가 동일한 근본 원인으로 인해 발생하는 경우 추가 경고가 생성되지 않습니다. 첫 번째 경고가 실패 횟수로 업데이트됩니다. 그러나 사용자가 경고를 비활성화한 경우 다음 번에 경고가 발생하면 다른 경고가 트리거되고 해당 발생에 대한 첫 번째 경고로 처리됩니다. 이와 같은 방식으로 Azure Backup은 SQL 및 SAP HANA 백업에 대한 경고 통합을 수행합니다.
+SQL 및 SAP HANA 같은 Azure 워크로드 백업 솔루션의 경우 로그 백업은 매우 자주 생성될 수 있습니다(정책에 따라 최대 15분마다). 따라서 로그 백업 실패가 매우 자주 발생할 수도 있습니다(최대 15분마다). 이 시나리오에서는 실패할 때마다 경고가 나타나는 경우 최종 사용자가 작업하기 어려워집니다. 따라서 첫 번째 발생에 대한 경고를 보낸 후, 후속 실패가 동일한 근본 원인으로 인해 발생하는 경우 추가 경고가 생성되지 않습니다. 첫 번째 경고가 실패 횟수로 업데이트됩니다. 그러나 사용자가 경고를 비활성화한 경우 다음 번에 경고가 발생하면 다른 경고가 트리거되고 해당 발생에 대한 첫 번째 경고로 처리됩니다. 이와 같은 방식으로 Azure Backup은 SQL 및 SAP HANA 백업에 대한 경고 통합을 수행합니다. 주문형 백업 작업은 통합되지 않습니다.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생하지 않는 예외
 

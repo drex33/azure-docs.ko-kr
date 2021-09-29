@@ -228,10 +228,6 @@ items:
             href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
           - name: 서버리스 SQL 풀에 대한 비용 관리
             href: sql/data-processed.md
-          - name: 모범 사례 서버리스 SQL 풀
-            href: sql/best-practices-serverless-sql-pool.md
-          - name: 모범 사례 전용 SQL 풀
-            href: sql/best-practices-dedicated-sql-pool.md
       - name: 빠른 시작
         items:
           - name: 서버리스 SQL 풀 사용
@@ -283,7 +279,7 @@ items:
             items:
               - name: 개요
                 href: ./sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context
-              - name: 모범 사례
+              - name: 최선의 구현 방법
                 href: sql/data-loading-best-practices.md
               - name: Columnstore 압축
                 href: sql/data-load-columnstore-compression.md
@@ -293,8 +289,10 @@ items:
             items:
               - name: 개요
                 href: sql/develop-overview.md
-              - name: 모범 사례
-                href: sql/develop-best-practices.md
+              - name: 모범 사례 서버리스 SQL 풀
+                href: sql/best-practices-serverless-sql-pool.md
+              - name: 모범 사례 전용 SQL 풀
+                href: sql/best-practices-dedicated-sql-pool.md
               - name: 구체화된 뷰
                 items:
                   - name: 성능 튜닝 지침
@@ -793,6 +791,8 @@ items:
                 href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon RDS for Oracle
                 href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+              - name: Amazon RDS for SQL Server
+                href: ../data-factory/connector-amazon-rds-for-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon Redshift
                 href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Amazon S3

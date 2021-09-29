@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 748e7e09332e9feded9af0bc6cfa9a38d27086f5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5d2152b6e1b2da165303c3a309ca97bf0262b5ee
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615209"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232782"
 ---
 # <a name="performance-testing"></a>성능 테스트
 
@@ -33,7 +33,7 @@ ms.locfileid: "128615209"
 
 **Redis 벤치마크** 설명서는 [여기에서 확인](https://redis.io/topics/benchmarks)할 수 있습니다.
 
-`redis-benchmark.exe`는 TLS를 지원하지 않습니다. 테스트를 실행하기 전에 [포털을 통해 비-TLS 포트를 사용하도록 설정](cache-configure.md#access-ports)해야 합니다. redis-benchmark.exe의 Windows 호환 버전은 [여기](https://github.com/MSOpenTech/redis/releases)에서 찾을 수 있습니다.
+`redis-benchmark.exe`는 TLS를 지원하지 않습니다. 테스트를 실행하기 전에 [포털을 통해 비-TLS 포트를 사용하도록 설정](cache-configure.md#access-ports)해야 합니다. Windows 호환 redis-benchmark.exe 버전은 [여기](https://github.com/MSOpenTech/redis/releases)에서 찾을 수 있습니다.
 
 ## <a name="redis-benchmark-examples"></a>Redis 벤치마크 예제
 

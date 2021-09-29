@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 2daf927ff9e0a99845ec6fb0283b550856ebfc47
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: 86714655c05968a32e16c83b714705929baf1ca7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572415"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233676"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +74,7 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 
 ## <a name="edit-a-host-file"></a>호스트 파일 편집
 
-활성 디렉터리가 없으므로 Windows 연결을 인증할 방법이 없습니다. 따라서 텍스트 편집기로 호스트 파일을 편집하여 신뢰를 할당하십시오. 
+Active Directory가 없으므로 Windows 연결을 인증할 방법이 없습니다. 따라서 텍스트 편집기로 호스트 파일을 편집하여 신뢰를 할당하십시오. 
 
 호스트 파일을 편집하려면 다음 단계를 수행합니다.
 

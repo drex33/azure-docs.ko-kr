@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: bce5b5874b12638d1f2d628e23812676053006a4
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 9a142dfcba67b80a8293a15d03ea2b389bd297d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035210"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593898"
 ---
 # <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -57,7 +57,7 @@ API for MongoDB의 모든 버전이 동일한 코드베이스에서 실행되므
 
 * Azure Cosmos DB API for MongoDB는 다음 세 가지 방법 중 하나로 배포할 수 있습니다.
      * [프로비전된 처리량](../set-throughput.md): RU/초 수를 설정하고 수동으로 변경합니다. 이 모델은 일관된 워크로드에 적합합니다.
-     * [Autoscale]../(provision-throughput-autoscale.md): 필요한 처리량의 상한선을 설정합니다. 처리량이 요구에 맞게 즉시 확장됩니다. 이 모델은 자주 바뀌는 워크로드에 적합하며 비용을 최적화해줍니다.
+     * [자동 크기 조정](../provision-throughput-autoscale.md): 필요한 처리량의 상한을 설정합니다. 처리량이 요구에 맞게 즉시 확장됩니다. 이 모델은 자주 바뀌는 워크로드에 적합하며 비용을 최적화해줍니다.
      * [서버리스](../serverless.md): 사용한 처리량에 대해서만 요금을 지불합니다. 이 모델은 개발/테스트 워크로드에 적합합니다. 
 
 * 분할된 클러스터의 성능은 컬렉션을 만들 때 선택한 분할 키에 따라 달라집니다. 따라서 데이터가 각 분할 간에 균등하게 분산되도록 분할 키를 신중하게 선택해야 합니다.

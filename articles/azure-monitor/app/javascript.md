@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e3b7601605eecafa969eec78b82b863580ecc2e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662175"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235747"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -175,8 +175,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 |------|-------------|---------|
 | instrumentationKey | **필수**<br>Azure Portal에서 가져온 계측 키입니다. | 문자열<br/>null |
 | accountId | 앱이 사용자를 계정으로 그룹화하는 경우 계정 ID(선택 사항)입니다. 공백, 쉼표, 세미콜론, 등호 또는 세로 막대를 사용할 수 없습니다. | 문자열<br/>null |
-| sessionRenewalMs | 사용자가 이 시간(밀리초) 동안 비활성 상태이면 세션이 기록됩니다. | numeric<br/>1800000<br/>(30분) |
-| sessionExpirationMs | 세션이 시간(밀리초) 동안 계속되면 해당 세션이 기록됩니다. | numeric<br/>86400000<br/>(24시간) |
+| sessionRenewalMs | 사용자가 이 시간(밀리초) 동안 비활성 상태이면 세션이 기록됩니다. | numeric<br/>180만<br/>(30분) |
+| sessionExpirationMs | 세션이 시간(밀리초) 동안 계속되면 해당 세션이 기록됩니다. | numeric<br/>8640만<br/>(24시간) |
 | maxBatchSizeInBytes | 원격 분석 일괄 처리의 최대 크기입니다. 일괄 처리가 이 제한을 초과하는 즉시 전송되고 새 일괄 처리가 시작됩니다. | numeric<br/>10000 |
 | maxBatchInterval | 전송하기 전에 원격 분석을 일괄 처리하는 시간(밀리초)입니다. | numeric<br/>15000 |
 | disable&#8203;ExceptionTracking | True인 경우 예외가 자동으로 수집되지 않습니다. | boolean<br/> false |
@@ -218,7 +218,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | enable&#8203;AjaxErrorStatusText | True인 경우 실패한 AJAX 요청에 대한 종속성 이벤트에 응답 오류 데이터 텍스트를 포함합니다. | boolean<br/> false |
 | enable&#8203;AjaxPerfTracking |보고된 `ajax`(XHR 및 페치) 메트릭에 추가 브라우저 window.performance 타이밍을 조회하고 포함할 수 있도록 하는 플래그입니다. | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | window.performance 타이밍(사용할 수 있는 경우)을 찾을 수 있는 최대 횟수입니다. 이는 일부 브라우저가 XHR 요청의 끝을 보고하기 전에 window.performance를 채우지 않으며 페치 요청의 경우 완료 후에 추가되기 때문에 필요합니다.| numeric<br/> 3 |
-| ajaxPerfLookupDelay | `ajax` 요청에 대한 windows.performance 타이밍 찾기를 다시 시도하기 전에 대기하는 시간입니다. 시간은 밀리초 단위이고 setTimeout()에 직접 전달됩니다. | numeric<br/> 25ms |
+| ajaxPerfLookupDelay | 기간을 다시 시도 하기 전에 대기 하는 시간입니다. 요청에 대 한 성능 타이밍과 `ajax` 시간 (밀리초) 이며 setTimeout ()에 직접 전달 됩니다. | numeric<br/> 25ms |
 | enableUnhandled&#8203;PromiseRejection&#8203;Tracking | True인 경우 처리되지 않은 약속 거부가 자동으로 수집되고 JavaScript 오류로 보고됩니다. disableExceptionTracking이 true인 경우(예외를 추적하지 않음) 구성 값이 무시되고 처리되지 않은 약속 거부가 보고되지 않습니다. | boolean<br/> false |
 | disable&#8203;InstrumentationKey&#8203;Validation | True인 경우 계측 키 유효성 검사를 무시합니다. | boolean<br/>false |
 | enablePerfMgr | 사용하도록 설정하면(true) doPerf() 도우미를 통해 perfEvents를 내보내도록 계측된 코드에 대한 로컬 perfEvents를 만듭니다. 이를 통해 사용량에 따라 또는 계측된 코드 내에서 필요에 따라 SDK 내의 성능 문제를 식별할 수 있습니다. [자세한 내용은 기본 설명서에서 확인할 수 있습니다](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md). v2.5.7 이상 | boolean<br/>false |

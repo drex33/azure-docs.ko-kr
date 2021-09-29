@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 327fc5bd6003f93746f484e5d157cfa1737ae317
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 0db8c8d14dbd3e09ebb798c41ea2d7b526acabc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982109"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-resource-central--saml-sso-for-meeting-room-booking-system"></a>자습서: Resource Central - 회의실 예약 시스템용 SAML SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 `username@companydomain.extension`을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 `username@companydomain.extension`을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    :::image type="content" source="./media/resource-central/test.png" alt-text="Resource Central Single Sign-On 테스트 웹 페이지의 스크린샷":::
 
-* Microsoft에서 내 앱 포털을 사용합니다. 내 앱 포털에서 **Resource Central – 회의실 예약 시스템용 SAML SSO** 타일을 선택하여 Resource Central – 회의실 예약 시스템용 SAML SSO 로그온 URL로 리디렉션합니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+* Microsoft에서 내 앱 포털을 사용합니다. 내 앱 포털에서 **Resource Central – 회의실 예약 시스템용 SAML SSO** 타일을 선택하여 Resource Central – 회의실 예약 시스템용 SAML SSO 로그온 URL로 리디렉션합니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

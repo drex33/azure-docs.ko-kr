@@ -4,12 +4,12 @@ description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3e37024e4fef3e989977ef76b0508aeb66d93b7a
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
-ms.translationtype: HT
+ms.openlocfilehash: d0ef5131d97b16e63e40c903d456713eddb84218
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616130"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232725"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
@@ -316,4 +316,3 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
-

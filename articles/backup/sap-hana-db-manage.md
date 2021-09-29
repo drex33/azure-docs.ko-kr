@@ -3,12 +3,12 @@ title: Azure VM에서 백업된 SAP HANA 데이터베이스 관리
 description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: d514a8f790f906a4830672dc726c03ad2cf41a2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2e793cddeb4e751c47ffa82786f24e65a0873faf
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662251"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231371"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
@@ -84,7 +84,8 @@ HANA 네이티브 클라이언트에서 **Backint** 로 트리거되는 주문�
 
 #### <a name="restore"></a>복원
 
-동일한 머신으로 복원을 위해 **Backint** 를 사용하여 HANA 네이티브 클라이언트에서 트리거된 복원을 **백업 작업** 페이지에서 [모니터링](#monitor-manual-backup-jobs-in-the-portal)할 수 있습니다.
+**백 int** 를 사용 하 여 HANA native client에서 트리거된 복원은 **백업 작업** 페이지에서 [모니터링할](#monitor-manual-backup-jobs-in-the-portal) **수 있습니다.**
+다른 컴퓨터로 복원 하기 위해 HANA native client에서 트리거된 복원은 허용 되지 않습니다. 이는 Azure Backup 서비스에서 Azure RBAC 규칙에 따라 복원에 대 한 대상 서버를 인증할 수 없기 때문입니다.
 
 #### <a name="delete"></a>삭제
 

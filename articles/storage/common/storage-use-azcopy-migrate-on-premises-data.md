@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 68669418a62daad2c2c5d1b9f44f66c1a5b7ebb8
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: b73fd12d905fe1aa03d02de2b657d5faae90342a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615683"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
@@ -22,12 +22,12 @@ AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 A
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 스토리지 계정을 만듭니다. 
-> * AzCopy를 사용하여 모든 데이터를 업로드합니다.
-> * 테스트를 위해 데이터를 수정합니다.
-> * 예약된 작업이나 cron 작업을 만들어 업로드할 새 파일을 식별합니다.
+> - 스토리지 계정을 만듭니다.
+> - AzCopy를 사용하여 모든 데이터를 업로드합니다.
+> - 테스트를 위해 데이터를 수정합니다.
+> - 예약된 작업이나 cron 작업을 만들어 업로드할 새 파일을 식별합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,7 +47,7 @@ Blob은 항상 컨테이너에 업로드해야 하므로 첫 번째 단계는 �
 2. **서비스** 아래에서 **Blob** 을 선택한 다음 **컨테이너** 를 선택합니다.
 
    ![컨테이너 생성을 보여주는 스크린샷](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
- 
+
 컨테이너 이름은 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. Blob 및 컨테이너의 이름을 지정하는 방법에 대한 자세한 규칙은 [컨테이너, Blob, 메타데이터 이름 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
 ## <a name="download-azcopy"></a>AzCopy 다운로드
@@ -80,33 +80,33 @@ azcopy login
 
 AzCopy를 사용하여 폴더의 모든 파일을 [Windows](./storage-use-azcopy-v10.md) 또는 [Linux](./storage-use-azcopy-v10.md)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
 
-```AzCopy
+```azcopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* `<local-folder-path>` 자리 표시자를 파일이 포함된 폴더의 경로로 바꿉니다(예: `C:\myFolder` 또는 `/mnt/myFolder`).
+- `<local-folder-path>` 자리 표시자를 파일이 포함된 폴더의 경로로 바꿉니다(예: `C:\myFolder` 또는 `/mnt/myFolder`).
 
-* `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-* `<container-name>` 자리 표시자를 앞에서 만든 컨테이너 이름으로 바꿉니다.
+- `<container-name>` 자리 표시자를 앞에서 만든 컨테이너 이름으로 바꿉니다.
 
 지정된 디렉터리의 콘텐츠를 Blob 스토리지에 재귀적으로 업로드하려면 `--recursive` 옵션을 지정합니다. 이 옵션으로 AzCopy를 실행하면 모든 하위 폴더 및 해당 파일도 업로드됩니다.
 
 ## <a name="upload-modified-files-to-blob-storage"></a>Blob Storage에 수정된 파일 업로드
 
-AzCopy를 사용하여 마지막으로 수정된 시간에 따라 파일을 업로드할 수 있습니다. 
+AzCopy를 사용하여 마지막으로 수정된 시간에 따라 파일을 업로드할 수 있습니다.
 
 이 작업을 시도하려면 테스트를 위해 원본 디렉터리에서 새 파일을 수정하거나 만듭니다. 그런 다음, AzCopy `sync` 명령을 사용합니다.
 
-```AzCopy
+```azcopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* `<local-folder-path>` 자리 표시자를 파일이 포함된 폴더의 경로로 바꿉니다(예: `C:\myFolder` 또는 `/mnt/myFolder`).
+- `<local-folder-path>` 자리 표시자를 파일이 포함된 폴더의 경로로 바꿉니다(예: `C:\myFolder` 또는 `/mnt/myFolder`).
 
-* `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
+- `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-* `<container-name>` 자리 표시자를 앞에서 만든 컨테이너 이름으로 바꿉니다.
+- `<container-name>` 자리 표시자를 앞에서 만든 컨테이너 이름으로 바꿉니다.
 
 `sync` 명령에 대한 자세한 내용은 [파일 동기화](./storage-use-azcopy-v10.md#transfer-data)를 참조하세요.
 
@@ -114,7 +114,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 AzCopy 명령 스크립트를 실행하는 예약된 작업 또는 cron 작업을 만들 수 있습니다. 스크립트는 새 온-프레미스 데이터를 식별하고 특정 시간 간격에 새 온-프레미스 데이터를 클라우드 스토리지에 업로드합니다.
 
-AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개 변수 값을 적절한 값으로 업데이트합니다. 파일을 AzCopy에 대해 `script.sh`(Linux) 또는 `script.bat`(Windows)로 저장합니다. 
+AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개 변수 값을 적절한 값으로 업데이트합니다. 파일을 AzCopy에 대해 `script.sh`(Linux) 또는 `script.bat`(Windows)로 저장합니다.
 
 이 예제에서는 폴더 이름이 `myFolder`, 스토리지 계정 이름이 `mystorageaccount`, 컨테이너 이름이 `mycontainer`라고 가정합니다.
 
@@ -176,16 +176,16 @@ Windows에서 예약된 작업 만들기에 대해 자세히 알아보려면 [Sc
 
 온-프레미스 데이터를 Azure Storage로 또는 그 반대로 이동하는 방법을 자세히 알아보려면 다음 링크를 따라 이동하세요.
 
-* [Azure Storage의 데이터 이동](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+- [Azure Storage의 데이터 이동](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 AzCopy에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [AzCopy 시작](storage-use-azcopy-v10.md)
+- [AzCopy 시작](storage-use-azcopy-v10.md)
 
-* [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 
-* [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
-* [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
- 
-* [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+- [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
+
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

@@ -10,12 +10,12 @@ metadata:
   ms.reviewer: sawinark
   ms.custom: seo-lt-2019
   ms.date: 04/15/2019
-  ms.openlocfilehash: f43d2aa0d32fa3cf415f629ad26fcebd972f92b5
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 64d2bc74f44bb566a99aa55fb164e546bdb13ad1
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121726814"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124743144"
 title: SSIS Integration Runtime에서 패키지 실행 문제 해결
 summary: >
   [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -26,195 +26,193 @@ sections:
 - name: 일반
   questions:
   - question: >
-      Where to find logs for troubleshooting
+      문제 해결을 위한 로그를 찾을 수 있는 위치
     answer: >
-      Use the Azure Data Factory portal to check the output of the SSIS package execution activity. The output includes the execution result, error messages, and operation ID. For details, see [Monitor the pipeline](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
+      Azure Data Factory 포털을 사용하여 SSIS 패키지 실행 작업의 출력을 확인합니다. 출력에는 실행 결과, 오류 메시지 및 작업 ID가 포함되어 있습니다. 자세한 내용은 [파이프라인 모니터링](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline)을 참조하세요.
 
 
-      Use the SSIS catalog (SSISDB) to check the detail logs for the execution. For details, see [Monitor Running Packages and Other Operations](/sql/integration-services/performance/monitor-running-packages-and-other-operations).
+      SSIS 카탈로그(SSISDB)를 사용하여 실행에 대한 세부 정보 로그를 확인합니다. 자세한 내용은 [실행 중인 패키지 및 기타 작업 모니터링](/sql/integration-services/performance/monitor-running-packages-and-other-operations)을 참조하세요.
 - name: 일반적인 오류, 원인 및 해결 방법
   questions:
   - question: >
-      Error message: "Connection Timeout Expired" or "The service has encountered an error processing your request. Please try again. "
+      오류 메시지: "연결 제한 시간이 만료되었습니다." 또는 "요청을 처리하는 동안 서비스에 오류가 발생했습니다. 다시 시도하세요. "
     answer: >
-      Here are potential causes and recommended actions:
+      잠재적인 원인 및 권장되는 작업은 다음과 같습니다.
 
-      * The data source or destination is overloaded. Check the load on your data source or destination and see whether it has enough capacity. For example, if you used Azure SQL Database, consider scaling up if the database is likely to time out.
+      * 데이터 원본 또는 대상이 오버로드되었습니다. 데이터 원본 또는 대상의 부하를 확인하고 용량이 충분한지 확인합니다. 예를 들어 Azure SQL Database를 사용한 경우 데이터베이스가 시간 초과될 수 있다면 스케일 업하는 것이 좋습니다.
 
-      * The network between the SSIS integration runtime and the data source or destination is unstable, especially when the connection is cross-region or between on-premises and Azure. Apply the retry pattern in the SSIS package by following these steps:
-        * Make sure your SSIS packages can rerun on failure without side effects (for example, data loss or data duplication).
-        * Configure **Retry** and **Retry interval** of **Execute SSIS Package** activity on the **General** tab.
-          ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
-        * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
+      * 특히 지역 간 연결 또는 온-프레미스와 Azure 간 연결인 경우 SSIS Integration Runtime과 데이터 원본 또는 대상 간의 네트워크가 불안정합니다. 다음 단계에 따라 다시 시도 패턴을 SSIS 패키지에 적용합니다.
+        * SSIS 패키지가 실패 시 부작용(예: 데이터 손실, 데이터 중복) 없이 다시 실행할 수 있는지 확인합니다.
+        * **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **다시 시도 간격** 을 구성합니다. :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="일반 탭에서 속성 설정":::
+        * ADO.NET 및 OLE DB 원본 또는 대상 구성 요소의 경우 SSIS 패키지 또는 SSIS 작업의 연결 관리자에서 **ConnectRetryCount** 및 **ConnectRetryInterval** 을 설정합니다.
   - question: >
-      Error message: "ADO NET Source has failed to acquire the connection '...'` with "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. "
+      오류 메시지: "ADO NET 원본이 '...' 연결을 설정하지 못했습니다." "SQL Server에 연결을 설정하는 중에 네트워크 관련 또는 인스턴스 관련 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. "
     answer: >
-      This issue usually means the data source or destination is inaccessible from the SSIS integration runtime. The reasons can vary. Try these actions:
+      이 이슈는 일반적으로 SSIS 통합 런타임에서 데이터 원본 또는 대상에 액세스할 수 없음을 의미합니다. 원인은 다양합니다. 다음과 같이 작업해 보세요.
 
-      * Make sure you're passing the data source or destination name/IP correctly.
+      * 데이터 원본 또는 대상 이름/IP를 올바르게 전달하고 있는지 확인합니다.
 
-      * Make sure the firewall is set properly.
+      * 방화벽이 올바르게 설정되었는지 확인합니다.
 
-      * Make sure your virtual network is configured properly if your data source or destination is on-premises:
-        * You can verify whether the issue is from virtual network configuration by provisioning an Azure VM in the same virtual network. Then check whether the data source or destination can be accessed from the Azure VM.
-        * You can find more details about using a virtual network with an SSIS integration runtime in [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
+      * 데이터 원본 또는 대상이 온-프레미스에 있는 경우 가상 네트워크가 올바르게 구성되었는지 확인합니다.
+        * 동일한 가상 네트워크에서 Azure VM을 프로비전하여 문제가 가상 네트워크 구성에서 발생하는지 확인할 수 있습니다. 그런 다음, Azure VM에서 데이터 원본 또는 대상에 액세스할 수 있는지 확인합니다.
+        * SSIS Integration Runtime에서 가상 네트워크를 사용하는 방법에 대한 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
   - question: >
-      Error message: "ADO NET Source has failed to acquire the connection '...'" with "Could not create a managed connection manager. "
+      오류 메시지: "ADO NET 원본이 '...' 연결을 설정하지 못했습니다." "관리되는 연결 관리자를 만들 수 없습니다. "
     answer: >
-      The potential cause is that the ADO.NET provider used in the package isn't installed in the SSIS integration runtime. You can install the provider by using a custom setup. You can find more details about custom setup in [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+      잠재적인 원인은 패키지에 사용되는 ADO.NET 공급자가 SSIS Integration Runtime에 설치되지 않았기 때문입니다. 사용자 지정 설정을 사용하여 공급자를 설치할 수 있습니다. 사용자 지정 설정에 대한 자세한 내용은 [Azure-SSIS Integration Runtime 설정 사용자 지정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
   - question: >
-      Error message: "The connection '...' is not found "
+      오류 메시지: "연결 '...'을(를) 찾을 수 없습니다."
     answer: >
-      A known issue in older versions of SQL Server Management Studio (SSMS) can cause this error. If the package contains a custom component (for example, SSIS Azure Feature Pack or partner components) that isn't installed on the machine where SSMS is used to do the deployment, SSMS will remove the component and cause the error. Upgrade [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
+      이 오류는 이전 버전의 SSMS(SQL Server Management Studio)에서 알려진 이슈로 인해 발생할 수 있습니다. 패키지에 SSMS를 사용하여 배포를 수행하는 컴퓨터에 설치되지 않은 사용자 지정 구성 요소(예: SSIS Azure Feature Pack 또는 파트너 구성 요소)가 포함된 경우 SSMS는 구성 요소를 제거하고 오류를 발생시킵니다. 이슈가 해결된 최신 버전으로 [SSMS](/sql/ssms/download-sql-server-management-studio-ssms)를 업그레이드합니다.
   - question: >
-      Error message：`SSIS Executor exit code: -1073741819. "
+      오류 메시지: "SSIS 실행기 종료 코드: -1073741819. "
     answer: >
-      * Potential cause & recommended action:
-        * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
+      * 잠재적인 원인 & 권장 조치:
+        * 이 오류는 여러 Excel 원본 또는 대상이 다중 스레드에서 병렬로 실행될 때 Excel 원본 및 대상에 대한 제한 때문일 수 있습니다. Excel 구성 요소를 순서대로 실행하도록 변경하거나, ExecuteOutOfProcess 속성이 True로 설정된 "패키지 실행 태스크"를 통해 다른 패키지로 분리하고 트리거하여 이 제한을 해결할 수 있습니다.
   - question: >
-      Error message: "There is not enough space on the disk "
+      오류 메시지: "디스크 공간이 부족합니다."
     answer: >
-      This error means the local disk is used up in the SSIS integration runtime node. Check whether your package or custom setup is consuming a lot of disk space:
+      이 오류는 로컬 디스크가 SSIS Integration Runtime 노드에서 사용되었음을 의미합니다. 패키지 또는 사용자 지정 설정에서 많은 디스크 공간을 사용하는지 확인합니다.
 
-      * If the disk is consumed by your package, it will be freed up after the package execution finishes.
+      * 패키지에서 디스크를 사용하는 경우 패키지 실행이 완료되면 디스크 공간이 비워집니다.
 
-      * If the disk is consumed by your custom setup, you'll need to stop the SSIS integration runtime, modify your script, and start the integration runtime again. The whole Azure blob container that you specified for custom setup will be copied to the SSIS integration runtime node, so check whether there's any unnecessary content under that container.
+      * 사용자 지정 설정에서 디스크를 사용하는 경우 SSIS Integration Runtime을 중지하고, 스크립트를 수정하고, 통합 런타임을 다시 시작해야 합니다. 사용자 지정 설정에 대해 지정한 전체 Azure Blob 컨테이너가 SSIS Integration Runtime 노드에 복사되므로 해당 컨테이너 아래에 불필요한 콘텐츠가 있는지 확인합니다.
   - question: >
-      Error message: "Failed to retrieve resource from master. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Description:Load file "***" failed. "
+      오류 메시지: "마스터에서 리소스를 검색하지 못했습니다. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: 코드:300004. 설명: 파일 "***"을(를) 로드하지 못했습니다. "
     answer: >
-      * Potential cause & recommended action:
-        * If the SSIS Activity is executing package from file system (package file or project file), this error will occur if the project, package or configuration file is not accessible with the package access credential you provided in the SSIS Activity
-          * If you are using Azure File:
-            * The file path should start with \\\\\<storage account name\>.file.core.windows.net\\\<file share path\>
-            * The domain should be "Azure"
-            * The username should be \<storage account name\>
-            * The password should be \<storage access key\>
-          * If your are using on-premises file, please check if VNet, package access credential and permission are configured properly so that your Azure-SSIS integration runtime can access your on-premises file share
+      * 잠재적인 원인 & 권장 조치:
+        * SSIS 작업이 파일 시스템(패키지 파일 또는 프로젝트 파일)에서 패키지를 실행하는 경우 SSIS 작업에서 제공한 패키지 액세스 자격 증명을 사용하여 프로젝트, 패키지 또는 구성 파일에 액세스할 수 없으면 이 오류가 발생합니다.
+          * Azure File을 사용하는 경우:
+            * 파일 경로는 \\\\\<storage account name\>.file.core.windows.net\\\<file share path\>으로 시작해야 합니다.
+            * 도메인은 "Azure"여야 합니다.
+            * 사용자 이름은 \<storage account name\>이어야 합니다.
+            * 암호는 \<storage access key\>여야 합니다.
+          * 온-프레미스 파일을 사용하는 경우 Azure SSIS Integration Runtime에서 온-프레미스 파일 공유에 액세스할 수 있도록 VNet, 패키지 액세스 자격 증명 및 권한이 올바르게 구성되었는지 확인합니다.
   - question: >
-      Error message: "The file name '...' specified in the connection was not valid "
+      오류 메시지: "연결에 지정된 파일 이름 '...'이(가) 잘못되었습니다."
     answer: >
-      * Potential cause & recommended action:
-        * An invalid file name is specified
-        * Make sure you are using FQDN (Fully Qualified Domain Name) instead of short time in your connection manager
+      * 잠재적인 원인 & 권장 조치:
+        * 잘못된 파일 이름이 지정되었습니다.
+        * 연결 관리자에서 짧은 시간 대신 FQDN(정규화된 도메인 이름)을 사용하고 있는지 확인합니다.
   - question: >
-      Error message: "Cannot open file '...' "
+      오류 메시지: "'...' 파일을 열 수 없습니다."
     answer: >
-      This error occurs when package execution can't find a file in the local disk in the SSIS integration runtime. Try these actions:
+      이 오류는 패키지 실행이 SSIS Integration Runtime의 로컬 디스크에서 파일을 찾을 수 없을 때 발생합니다. 다음과 같이 작업해 보세요.
 
-      * Don't use the absolute path in the package that's being executed in the SSIS integration runtime. Use the current execution working directory (.) or the temp folder (%TEMP%) instead.
+      * SSIS Integration Runtime에서 실행되는 패키지의 절대 경로를 사용하지 않습니다. 대신 현재 실행 작업 디렉터리(.) 또는 임시 폴더(% TEMP%)를 사용합니다.
 
-      * If you need to persist some files on SSIS integration runtime nodes, prepare the files as described in [Customize setup](how-to-configure-azure-ssis-ir-custom-setup.md). All the files in the working directory will be cleaned up after the execution is finished.
+      * SSIS Integration Runtime 노드에서 일부 파일을 유지해야 하는 경우 [설정 사용자 지정](how-to-configure-azure-ssis-ir-custom-setup.md)에서 설명한 대로 파일을 준비합니다. 실행이 완료되면 작업 디렉터리의 모든 파일이 정리됩니다.
 
-      * Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
+      * 파일을 SSIS Integration Runtime 노드에 저장하는 대신 Azure Files를 사용합니다. 자세한 내용은 [Azure 파일 공유 사용](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares)을 참조하세요.
   - question: >
-      Error message: "The database 'SSISDB' has reached its size quota "
+      오류 메시지: "데이터베이스 'SSISDB'가 크기 할당량에 도달했습니다."
     answer: >
-      A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
+      잠재적인 원인은 Azure SQL Database 또는 SQL Managed Instance에서 만든 SSISDB 데이터베이스가 할당량에 도달했기 때문입니다. 다음과 같이 작업해 보세요.
 
-      * Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+      * 데이터베이스의 DTU를 늘리는 것이 좋습니다. 자세한 내용은 [논리 서버에 대한 SQL Database 제한](../azure-sql/database/resource-limits-logical-server.md)을 참조하세요.
 
-      * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
+      * 패키지에서 많은 로그를 생성할지 여부를 확인합니다. 많은 로그를 생성할 경우 이러한 로그를 정리하도록 탄력적 작업을 구성할 수 있습니다. 자세한 내용은 [Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md)를 참조하세요.
   - question: >
-      Error message: "The request limit for the database is ... and has been reached. "
+      오류 메시지: "데이터베이스에 대한 요청 제한인 ...에 도달했습니다. "
     answer: >
-      If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+      많은 패키지가 SSIS Integration Runtime에서 병렬로 실행되는 경우 SSISDB가 요청 제한에 도달했기 때문에 이 오류가 발생할 수 있습니다. 이 문제를 해결하려면 SSISDB의 DTU를 늘리는 것이 좋습니다. 자세한 내용은 [논리 서버에 대한 SQL Database 제한](../azure-sql/database/resource-limits-logical-server.md)을 참조하세요.
   - question: >
-      Error message: "SSIS Operation failed with unexpected operation status: ... "
+      오류 메시지: "SSIS 작업이 예기치 않은 작업 상태로 인해 실패했습니다..."
     answer: >
-      The error is mostly caused by a transient problem, so try to rerun the package execution. Apply the retry pattern in the SSIS package by following these steps:
-
-
-      * Make sure your SSIS packages can rerun on failure without side effects (for example, data loss or data duplication).
-
-      * Configure **Retry** and **Retry interval** of **Execute SSIS Package** activity on the **General** tab.
-        ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
-      * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
-  - question: >
-      Error message: "There is no active worker. "
-    answer: >
-      This error usually means the SSIS integration runtime has an unhealthy status. Check the Azure portal for the status and detailed errors. For more information, see [Azure-SSIS integration runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime).
-  - question: >
-      Error message: "Your integration runtime cannot be upgraded and will eventually stop working, since we cannot access the Azure Blob container you provided for custom setup. "
-    answer: >
-      This error occurs when the SSIS integration runtime can't access the storage configured for custom setup. Check whether the shared access signature (SAS) URI that you provided is valid and hasn't expired.
-  - question: >
-      Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation "
-    answer: "One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:\n\n1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).\n2. In the Connection Manager, configure **Use a specific user name and password:** set **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;*** as the username and clientSecret as the password. Here is an example of a correctly formatted user name:\n \n   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`\n1. In Connection Manager, configure **Use a specific user name and password**: set **AppID** as the username and **clientSecret** as the password.\n"
-  - question: >
-      Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using a managed identity "
-    answer: >
-      Make sure you don't configure the authentication method of Connection Manager as **Active Directory Password Authentication** when the parameter *ConnectUsingManagedIdentity* is **True**. You can configure it as **SQL Authentication** instead, which is ignored if *ConnectUsingManagedIdentity* is set.
-  - question: >
-      Error message: "0xC020801F at ..., OData Source [...]: Cannot acquire a managed connection from the run-time connection manager "
-    answer: >
-      One potential cause is that the Transport Layer Security (TLS) is not enable in SSIS integration runtime which is required by your OData source. You can enable TLS in SSIS integration runtime by using Customize setup. More detail can be found at [Can't connect Project Online Odata from SSIS](/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) and [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
-  - question: >
-      Error message: "Request staging task with operation guid ... fail since error: Failed to dispatch staging operation with error message: Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException: Failed to load data proxy. "
-    answer: >
-      Make sure your Azure-SSIS integration runtime is configured with Self-Hosted integration runtime. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md).
-  - question: >
-      Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2010, ErrorMessage: The Self-hosted Integration Runtime ... is offline "
-    answer: >
-      Make sure your Self-Hosted integration runtime is installed and started. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md)
-  - question: >
-      Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "Error: The requested OLE DB provider ... is not registered. If the 64-bit driver is not installed, run the package in 32-bit mode... "
-    answer: >
-      Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
-  - question: >
-      Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference.'... "
-    answer: >
-      One potential cause is your Self-Hosted integration runtime is not installed or upgraded properly. Suggest to download and reinstall the latest Self-hosted integration runtime. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md#installation-best-practices)
-  - question: >
-      Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy... "
-    answer: >
-      Check if security policies are correctly assigned to the account running self-hosted IR service. If Windows authentication is used on Execute SSIS Package activity or the execution credential is set in SSIS catalog (SSISDB), the same security policies must be assigned to the Windows account used. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks)
-  - question: >
-      Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection "
-    answer: >
-      * Potential cause & recommended action:
-        * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy)
-        * Execution log can be found in [SSMS report](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) or in the log folder you specified in SSIS package execution activity.
-        * vNet can also be used to access on-premises data as an alternative. More detail can be found at [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
-  - question: >
-      Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }} "
-    answer: >
-      Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
-  - question: >
-      Multiple Package executions are triggered unexpectedly
-    answer: >
-      * Potential cause & recommended action:
-        * ADF stored procedure activity or Lookup activity are used to trigger SSIS package execution. The t-sql command may hit transient issue and trigger the rerun which would cause multiple package executions.
-        * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [Run an SSIS package with the Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md).
-        * Refine your t-sql command to be able to rerun by checking if an execution has already been triggered
-  - question: >
-      Package execution takes too long
-    answer: >
-      Here are potential causes and recommended actions:
+      이 오류는 일반적으로 일시적인 문제로 인해 발생하므로 패키지 실행을 다시 실행합니다. 다음 단계에 따라 다시 시도 패턴을 SSIS 패키지에 적용합니다.
 
 
-      * Too many package executions have been scheduled on the SSIS integration runtime. All these executions will be waiting in a queue for their turn.
-        * Determine the maximum by using this formula:
+      * SSIS 패키지가 실패 시 부작용(예: 데이터 손실, 데이터 중복) 없이 다시 실행할 수 있는지 확인합니다.
 
-          Max Parallel Execution Count per IR = Node Count * Max Parallel Execution per Node
-        * To learn how to set the node count and maximum parallel execution per node, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md).
-      * The SSIS integration runtime is stopped or has an unhealthy status. To learn how to check the SSIS integration runtime status and errors, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+      * **일반** 탭에서 **SSIS 패키지 실행** 작업의 **다시 시도** 및 **다시 시도 간격** 을 구성합니다. :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="일반 탭에서 속성 설정":::
 
-
-      We also recommend that you set a timeout on the **General** tab:
-       ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
+      * ADO.NET 및 OLE DB 원본 또는 대상 구성 요소의 경우 SSIS 패키지 또는 SSIS 작업의 연결 관리자에서 **ConnectRetryCount** 및 **ConnectRetryInterval** 을 설정합니다.
   - question: >
-      Poor performance in package execution
+      오류 메시지: "활성 작업자가 없습니다. "
+    answer: >
+      이 오류는 일반적으로 SSIS Integration Runtime이 비정상 상태임을 의미합니다. Azure Portal에서 상태 및 자세한 오류를 확인합니다. 자세한 내용은 [Azure-SSIS Integration Runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime)을 참조하세요.
+  - question: >
+      오류 메시지: "사용자 지정 설정에 제공한 Azure Blob 컨테이너에 액세스할 수 없으므로 Integration Runtime을 업그레이드할 수 없으며 결국에는 작동이 중지됩니다. "
+    answer: >
+      이 오류는 SSIS Integration Runtime에서 사용자 지정 설정에 대해 구성된 스토리지에 액세스할 수 없을 때 발생합니다. 제공된 SAS(공유 액세스 서명) URI가 유효하고 만료되지 않았는지 확인합니다.
+  - question: >
+      오류 메시지: "Microsoft OLE DB Provider for Analysis Services입니다. 'Hresult: 0x80004005 설명:' COM 오류: COM 오류: mscorlib; 호출 대상이 예외를 throw했습니다."
+    answer: "한 가지 잠재적인 원인은 Azure AD Multi-Factor Authentication이 사용하도록 설정된 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성되어 있기 때문입니다. 이 인증은 SSIS Integration Runtime에서 지원되지 않습니다. 서비스 주체를 Azure Analysis Services 인증에 사용하도록 시도합니다.\n\n1. [서비스 주체를 사용한 자동화](../analysis-services/analysis-services-service-principal.md)에서 설명한 대로 서비스 주체를 준비합니다.\n2. 연결 관리자에서 **특정 사용자 이름 및 암호 사용** 을 구성합니다. **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;***를 사용자 이름으로 설정하고, clientSecret을 암호로 설정합니다. 올바른 형식의 사용자 이름 예는 다음과 같습니다.\n \n   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`\n1. 연결 관리자에서 **특정 사용자 이름 및 암호 사용** 을 구성합니다. **AppID** 를 사용자 이름으로 설정하고, **clientSecret** 을 암호로 설정합니다.\n"
+  - question: >
+      오류 메시지: "ADONET 원본이 {GUID} 연결을 설정하지 못했으며 다음 오류 메시지가 표시되었습니다. 관리 ID를 사용할 때 사용자 'NT AUTHORITY\ANONYMOUS LOGON'이 로그인하지 못했습니다."
+    answer: >
+      *ConnectUsingManagedIdentity* 매개 변수가 **True** 인 경우 연결 관리자의 인증 방법을 **Active Directory 암호 인증** 으로 구성하지 않았는지 확인합니다. *ConnectUsingManagedIdentity* 가 설정되면 무시되는 **SQL 인증** 으로 대신 구성할 수 있습니다.
+  - question: >
+      오류 메시지: "...에서 0xC020801F ..., OData 원본 [...]: 런타임 연결 관리자로부터 관리되는 연결을 설정할 수 없습니다."
+    answer: >
+      한 가지 잠재적인 원인은 SSIS Integration Runtime에서 OData 원본에 필요한 TLS(전송 계층 보안)가 사용하도록 설정되지 않았기 때문입니다. 사용자 지정 설정을 사용하여 SSIS Integration Runtime에서 TLS를 사용하도록 설정할 수 있습니다. 자세한 내용은 [SSIS에서 Project Online Odata를 연결할 수 없음](/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) 및 [Azure-SSIS Integration Runtime 설정 사용자 지정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
+  - question: >
+      오류 메시지: "작업 GUID가 ...인 준비 작업 요청이 실패했습니다. 오류: 다음 오류 메시지로 인해 준비 작업을 디스패치하지 못했습니다. Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException: 데이터 프록시를 로드하지 못했습니다. "
+    answer: >
+      Azure SSIS Integration Runtime이 자체 호스팅 통합 런타임으로 구성되었는지 확인합니다. 자세한 내용은 [ADF에서 자체 호스팅 IR을 Azure-SSIS IR에 대한 프록시로 구성](self-hosted-integration-runtime-proxy-ssis.md)을 참조하세요.
+  - question: >
+      오류 메시지: "준비 작업 상태: 실패. 준비 작업 오류: ErrorCode: 2010, ErrorMessage: 자체 호스팅 통합 런타임 ...이(가) 오프라인입니다."
+    answer: >
+      자체 호스팅 통합 런타임이 설치되고 시작되었는지 확인합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md)을 참조하세요.
+  - question: >
+      오류 메시지: "준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지 실행이 실패했습니다. 출력: {"OperationErrorMessages": "오류: 요청한 OLE DB 공급자 ...이(가) 등록되지 않았습니다. 64비트 드라이버가 설치되지 않은 경우 32비트 모드에서 패키지를 실행합니다..."
+    answer: >
+      패키지의 OLE DB 커넥터에서 사용하는 해당 공급자가 자체 호스팅 통합 런타임 컴퓨터에 제대로 설치되었는지 확인합니다. 자세한 내용은 [ADF에서 자체 호스팅 IR을 Azure-SSIS IR에 대한 프록시로 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)을 참조하세요.
+  - question: >
+      오류 메시지: "준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지 실행이 실패했습니다. 출력: {"OperationErrorMessages": "오류: System.IO.FileLoadException: 파일 또는 어셈블리 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 찾은 어셈블리의 매니페스트 정의가 해당 어셈블리 참조와 일치하지 않습니다..."
+    answer: >
+      한 가지 잠재적인 원인은 자체 호스팅 통합 런타임이 제대로 설치되지 않았거나 업그레이드되지 않았기 때문입니다. 최신 자체 호스팅 통합 런타임을 다운로드하고 다시 설치하는 것이 좋습니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md#installation-best-practices)을 참조하세요.
+  - question: >
+      오류 메시지: "준비 작업이 실패했습니다. TaskStatus: 실패, ErrorCode: 2906, ErrorMessage: 패키지 실행이 실패했습니다. 자세한 내용을 보려면 동일한 행에서 활동 실행에 대한 출력을 선택합니다. 출력: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Namedpipe 프록시를 시작하지 못했습니다..."
+    answer: >
+      보안 정책이 자체 호스팅 IR 서비스를 실행하는 계정에 올바르게 할당되었는지 확인합니다. SSIS 패키지 실행 작업에서 Windows 인증이 사용되거나 실행 자격 증명이 SSIS 카탈로그(SSISDB)에 설정된 경우 동일한 보안 정책을 사용되는 Windows 계정에 할당해야 합니다. 자세한 내용은 [ADF에서 자체 호스팅 IR을 Azure-SSIS IR에 대한 프록시로 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks)을 참조하세요.
+  - question: >
+      오류 메시지: "메타데이터를 요청할 때는 연결이 필요합니다. 오프라인으로 작업하는 경우 SSIS 메뉴에서 [오프라인으로 작업]의 선택을 취소하여 연결을 활성화하세요."
+    answer: >
+      * 잠재적인 원인 & 권장 조치:
+        * 실행 로그에 "구성 요소에서 ConnectByProxy 값이 true로 설정된 연결 관리자를 사용하도록 지원하지 않습니다."라는 경고 메시지가 표시되면 구성 요소에서 아직 "ConnectByProxy"를 지원하지 않는 연결 관리자를 사용하고 있음을 의미합니다. 지원되는 구성 요소는 [ADF에서 자체 호스팅 IR을 Azure-SSIS IR에 대한 프록시로 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy)을 참조하세요.
+        * 실행 로그는 [SSMS 보고서](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
+        * vNet을 대안으로 사용하여 온-프레미스 데이터에 액세스할 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+  - question: >
+      오류 메시지: "준비 작업 상태: 실패. 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지 실행이 실패했습니다. 출력: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }} "
+    answer: >
+      Visual C++ 런타임이 자체 호스팅 통합 런타임 컴퓨터에 설치되어 있는지 확인합니다. 자세한 내용은 [ADF에서 자체 호스팅 IR을 Azure-SSIS IR에 대한 프록시로 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)을 참조하세요.
+  - question: >
+      여러 패키지 실행이 예기치 않게 트리거됨
+    answer: >
+      * 잠재적인 원인 & 권장 조치:
+        * ADF 저장 프로시저 작업 또는 조회 작업은 SSIS 패키지 실행을 트리거하는 데 사용됩니다. T-SQL 명령은 일시적인 문제에 도달하고 여러 패키지 실행이 수행되는 다시 실행을 트리거할 수 있습니다.
+        * ExecuteSSISPackage 작업을 대신 사용합니다. 그러면 사용자가 작업에서 다시 시도 횟수를 설정하는 경우를 제외하고는 패키지 실행이 다시 실행되지 않습니다. 자세한 내용은 [SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행](how-to-invoke-ssis-package-ssis-activity.md)을 참조하세요.
+        * 실행이 이미 트리거되었는지 확인하여 다시 실행할 수 있도록 T-SQL 명령을 구체화합니다.
+  - question: >
+      패키지 실행 시간이 너무 오래 걸림
+    answer: >
+      잠재적인 원인 및 권장되는 작업은 다음과 같습니다.
+
+
+      * 너무 많은 패키지 실행이 SSIS Integration Runtime에 예약되었습니다. 이러한 모든 실행은 큐에서 차례를 기다리고 있습니다.
+        * 다음 수식을 사용하여 최댓값을 결정합니다.
+
+          IR당 최대 병렬 실행 수 = 노드 수 * 노드당 최대 병렬 실행 수
+        * 노드 수 및 노드당 최대 병렬 실행 수를 설정하는 방법은 [Azure Data Factory에서 Azure-SSIS Integration Runtime 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
+      * SSIS Integration Runtime이 중지되었거나 비정상 상태입니다. SSIS Integration Runtime 상태 및 오류를 확인하는 방법은 [Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime)을 참조하세요.
+
+
+      또한 **일반** 탭에서 시간 제한을 설정하는 것이 좋습니다. :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="일반 탭에서 속성 설정":::.
+  - question: >
+      패키지 실행 성능 저하
     answer: >-
-      Try these actions:
+      다음과 같이 작업해 보세요.
 
 
-      * Make sure the SSIS integration runtime is in the same region as the data source and destination.
+      * SSIS Integration Runtime이 데이터 원본 및 대상과 동일한 지역에 있는지 확인합니다.
 
 
-      * Set the logging level of package execution to **Performance** to collect duration information for each component in the execution. For details, see [Integration Services (SSIS) logging](/sql/integration-services/performance/integration-services-ssis-logging).
+      * 패키지 실행의 로깅 수준을 **성능** 으로 설정하여 실행의 각 구성 요소에 대한 기간 정보를 수집합니다. 자세한 내용은 [Integration Services(SSIS) 로깅](/sql/integration-services/performance/integration-services-ssis-logging)을 참조하세요.
 
 
-      * Check IR node performance in the Azure portal:
-        * For information about how to monitor the SSIS integration runtime, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
-        * You can find CPU/memory history for the SSIS integration runtime by viewing the metrics of the data factory in the Azure portal.
-          ![Monitor metrics of the SSIS integration runtime](media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png)
+      * Azure Portal에서 IR 노드 성능을 확인합니다.
+        * SSIS Integration Runtime을 모니터링하는 방법에 대한 자세한 내용은 [Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime)을 참조하세요.
+        * Azure Portal에서 데이터 팩터리의 메트릭을 확인하여 SSIS Integration Runtime에 대한 CPU/메모리 기록을 찾을 수 있습니다.
+          :::image type="content" source="media/ssis-integration-runtime-ssis-activity-faq/monitor-metrics-ssis-integration-runtime.png" alt-text="SSIS Integration Runtime의 메트릭 모니터링":::

@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2cb284e1978ad6c890835318c51c6095891397cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fdf7b67a15cf8bd40dadbb709a2829408fa42a57
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723013"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230558"
 ---
 # <a name="interactive-workbooks"></a>대화형 Workbooks
 
@@ -34,7 +34,7 @@ ms.locfileid: "101723013"
 
 1. _편집_ 도구 모음 항목을 클릭하여 통합 문서를 편집 모드로 전환합니다.
 2. _쿼리 추가_ 링크를 사용하여 통합 문서에 로그 쿼리 컨트롤을 추가합니다.
-3. 쿼리 유형을 _로그_, 리소스 종류(예: Application Insight) 및 대상 리소스로 선택합니다.
+3. _로그_, 리소스 형식(예: Application Insights) 및 대상 리소스를 선택합니다.
 4. 쿼리 편집기를 사용하여 분석을 위한 KQL을 입력합니다.
 
     ```kusto
@@ -88,7 +88,7 @@ ms.locfileid: "101723013"
 
 1. _편집_ 도구 모음 항목을 클릭하여 통합 문서를 편집 모드로 전환합니다.
 2. _쿼리 추가_ 링크를 사용하여 통합 문서에 로그 쿼리 컨트롤을 추가합니다.
-3. 쿼리 유형을 _로그_, 리소스 종류(예: Application Insight) 및 대상 리소스로 선택합니다.
+3. _로그_, 리소스 형식(예: Application Insights) 및 대상 리소스를 선택합니다.
 4. 쿼리 편집기를 사용하여 분석을 위한 KQL을 입력합니다.
 
     ```kusto
@@ -173,7 +173,7 @@ ms.locfileid: "101723013"
 3. `allow selection of multiple values` 확인란을 선택합니다.
     1. 표시된 시각화는 드롭다운 매개 변수를 사용하는 경우처럼, 다중 선택을 허용하며 내보낸 매개 변수의 값은 값의 배열이 됩니다.
     2. 선택하지 않은 경우 표시 시각화는 마지막으로 선택한 항목만 고려합니다. 한 번에 하나의 값만 내보냅니다.
-4. 내보내려는 각 매개 변수에 대해 *매개 변수 추가* 단추를 사용합니다. 내보낼 매개 변수에 대한 설정을 포함하는 팝업 창이 표시됩니다.
+4. 내보내려는 각 매개 변수에 대해 *매개 변수 추가* 단추를 사용합니다. 내보낼 매개 변수에 대 한 설정을 포함 하는 팝업 창이 표시 됩니다.
 
 단일 선택을 사용하도록 설정한 경우 내보낼 원본 데이터의 필드를 작성자가 지정할 수 있습니다. 필드에는 매개 변수 이름, 매개 변수 형식 및 선택한 항목이 없는 경우 사용할 기본값(선택 사항)이 포함됩니다.
 
@@ -188,5 +188,5 @@ ms.locfileid: "101723013"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다양한 시각화 옵션을 갖춘 통합 문서에 대해 [자세히 알아봅니다](./workbooks-overview.md#visualizations).
-* 통합 문서 리소스에 대한 액세스를 [컨트롤](./workbooks-access-control.md)하고 공유합니다.
+* 시작 다양한 시각화 옵션을 갖춘 통합 문서에 대해 자세히 알아보기를 [시작하세요](./workbooks-overview.md#visualizations).
+* 통합 문서 리소스에 대한 액세스를 [제어](./workbooks-access-control.md) 및 공유합니다.

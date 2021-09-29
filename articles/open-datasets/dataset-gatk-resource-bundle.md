@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 6ee4987e21acc280a9835bec3457b567f689433f
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 1b775d6ca0dd00a2e6eacf292c2f3397a0de303b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285122"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563023"
 ---
 # <a name="gatk-resource-bundle"></a>GATK 리소스 번들
 
@@ -74,9 +74,9 @@ ms.locfileid: "114285122"
 
 5. datasetbroadpublic
 
-    미국 서부 2: 'https://datasetpublicbroadpublic.blob.core.windows.net/dataset '
+    미국 서부 2: 'https://datasetbroadpublic.blob.core.windows.net/dataset '
     
-    미국 중서부: 'https://datasetpublicbroadpublic-secondary.blob.core.windows.net/dataset '
+    미국 중서부: 'https://datasetbroadpublic-secondary.blob.core.windows.net/dataset '
     
     [SAS 토큰](../storage/common/storage-sas-overview.md): ?sv=2020-04-08&si=prod&sr=c&sig=u%2Bg2Ab7WKZEGiAkwlj6nKiEeZ5wdoJb10Az7uUwis%2Fg%3D
 

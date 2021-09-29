@@ -8,12 +8,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: e1d4b294003fe7eb03f6742c75be6d4fadbfce4f
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 1258255ddc12dc4d718998e2320aa40951916400
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406098"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642741"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>자습서: Time Series Insights Gen2 환경 만들기 및 구성
 
@@ -208,11 +208,11 @@ Time Series Insights 탐색기에서 왼쪽에 있는 모델 아이콘을 선택
 
 ![인스턴스를 편집하는 방법을 보여 주는 스크린샷](./media/tutorial-configure-tsi/edit-instance.png)
 
-**형식** 드롭다운 메뉴를 연 다음, **온도 조절기** 를 선택합니다. *defaultComponent <your device name>* 를 입력하여 디바이스와 연결된 모든 최상위 태그를 나타내는 인스턴스의 이름을 업데이트합니다.
+**형식** 드롭다운 메뉴를 연 다음, **온도 조절기** 를 선택합니다. *defaultComponent \<your device name\>* 를 입력하여 디바이스와 연결된 모든 최상위 태그를 나타내는 인스턴스의 이름을 업데이트합니다.
 
 ![인스턴스 유형을 변경하는 방법을 보여 주는 스크린샷](./media/tutorial-configure-tsi/change-type.png)
 
-**저장** 을 선택하기 전에 먼저 **인스턴스 필드** 탭을 선택한 다음, **디바이스 집합** 을 선택합니다. 원격 분석을 그룹화하려면 *\<your device name> - 온도 조절기* 를 입력합니다. 그런 다음 **저장** 을 선택합니다.
+**저장** 을 선택하기 전에 먼저 **인스턴스 필드** 탭을 선택한 다음, **디바이스 집합** 을 선택합니다. 원격 분석을 그룹화하려면 *\<your device name\> - 온도 조절기* 를 입력합니다. 그런 다음 **저장** 을 선택합니다.
 
 ![인스턴스를 계층 구조에 할당하는 방법을 보여 주는 스크린샷](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 

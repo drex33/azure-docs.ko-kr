@@ -6,13 +6,13 @@ ms.service: api-management
 ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
-ms.author: apimpm
-ms.openlocfilehash: 19fc2e1629e7f67063e3cc3eec8cb3707b6dd2e4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.author: danlep
+ms.openlocfilehash: 65fe80c73203b1b1f4445d4891f35004b4c587d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775856"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661339"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 

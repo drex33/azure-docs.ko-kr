@@ -2,14 +2,14 @@
 title: 보관 계층 지원
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b16a308b7b30584bd8a44d2190bcdccbe191f2a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632465"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235519"
 ---
 # <a name="archive-tier-support"></a>보관 계층 지원
 
@@ -17,7 +17,7 @@ ms.locfileid: "128632465"
 
 Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 보존 지점의 백업을 지원합니다.
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>범위
 
 지원되는 워크로드:
 
@@ -89,9 +89,9 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
     >다른 시간 범위에 대한 복구 지점을 표시하려면 시작 날짜와 종료 날짜를 적절하게 수정합니다.
 ## <a name="use-powershell"></a>PowerShell 사용
 
-### <a name="check-the-archivable-status-of-all-the-recovery-points"></a>모든 복구 지점의 보관 가능 상태 확인
+### <a name="check-the-archivable-status-of-all-the-recovery-points"></a>모든 복구 지점의 보관할 수 상태를 확인 합니다.
 
-이제 다음 cmdlet을 사용하여 백업 항목의 모든 복구 지점의 보관 가능한 상태를 확인할 수 있습니다.
+이제 다음 cmdlet을 사용 하 여 백업 항목의 모든 복구 지점의 보관할 수 상태를 확인할 수 있습니다.
 
 ```azurepowershell
 $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
@@ -182,16 +182,16 @@ SQL Server를 복원하려면 [다음 단계](backup-azure-sql-automation.md#res
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
 
-### <a name="move-recovery-points-to-archive-tier-at-scale"></a>대규모로 복구 지점을 보관 계층으로 이동
+### <a name="move-recovery-points-to-archive-tier-at-scale"></a>대규모 보관 계층으로 복구 지점 이동
 
-이제 샘플 스크립트를 사용하여 대규모 작업을 수행할 수 있습니다. 샘플 스크립트를 실행하는 방법에 대해 [자세히 알아봅니다.](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) 여기에서 스크립트를 다운로드할 수 [있습니다.](https://github.com/hiaga/Az.RecoveryServices)
+이제 샘플 스크립트를 사용 하 여 크기 조정 작업을 수행할 수 있습니다. 샘플 스크립트를 실행 하는 방법에 [대해 자세히 알아보세요](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) . [여기](https://github.com/hiaga/Az.RecoveryServices)에서 스크립트를 다운로드할 수 있습니다.
 
-Azure Backup 제공된 샘플 스크립트를 사용하여 다음 작업을 수행할 수 있습니다.
+Azure Backup에서 제공 하는 샘플 스크립트를 사용 하 여 다음 작업을 수행할 수 있습니다.
 
-- Azure VM의 SQL 서버에 대한 특정 데이터베이스/모든 데이터베이스에 적합한 모든 복구 지점을 보관 계층으로 이동합니다.
-- 특정 Azure Virtual Machine에 대한 모든 권장 복구 지점을 보관 계층으로 이동합니다.
+- Azure VM의 SQL 서버에 대 한 특정 데이터베이스/모든 데이터베이스에 대 한 적합 한 모든 복구 지점은 보관 계층으로 이동 합니다.
+- 특정 Azure Virtual Machine의 권장 복구 지점은 모두 보관 계층으로 이동 합니다.
  
-요구 사항에 따라 스크립트를 작성하거나 위의 샘플 스크립트를 수정하여 필요한 백업 항목을 가져올 수도 있습니다.
+요구 사항에 따라 스크립트를 작성 하거나 위의 샘플 스크립트를 수정 하 여 필요한 백업 항목을 가져올 수도 있습니다.
 
 ## <a name="use-the-portal"></a>포털 사용
 
@@ -232,8 +232,8 @@ Azure Backup 제공된 샘플 스크립트를 사용하여 다음 작업을 수�
 
 | 워크로드 | 미리 보기 | 일반 공급 |
 | --- | --- | --- |
-| Azure VM의 SQL Server | 남부 중부, 미국 중 북부, 유럽 서부 | 오스트레일리아 동부, 중앙 인도, 북부, 남부 동아시아, 동아시아, 오스트레일리아 동부, 캐나다 중부, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 남부, 영국 서부, 영국 남부, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부에서 미국, 미국 동부 |
-| Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 북유럽, 오스트레일리아 남동부, 프랑스 중부, 프랑스 남부, 일본 서부, 한국 중부, 한국 남부 | 없음 |
+| Azure VM의 SQL Server | None | 오스트레일리아 동부, 인도 중부, 북유럽, 동아시아, 동아시아, 오스트레일리아 남동부, 캐나다 중부, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 인도 남부, 영국 서부, 영국 남부, 미국 중부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중서부, 미국 동부, 미국 중남부,  미국 중북부, 서유럽, US Gov 버지니아, US Gov 텍사스, US Gov 애리조나. |
+| Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동아시아 오스트레일리아 동부, 인도 중부, 북유럽, 오스트레일리아 남동부, 프랑스 중부, 프랑스 남부, 일본 서부, 일본 서부  한국 중부, 한국 남부. | None |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>오류 코드 및 문제 해결 단계
 

@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
-ms.openlocfilehash: d6df060afb65814175b02137720f7a9f27a6c4eb
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c4e0070a9647412a873953af59338b13f4c653fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122261085"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908620"
 ---
 *제한된 디바이스* 용으로 개발 중인 경우 다음을 통해 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
@@ -37,9 +37,9 @@ Embedded C용 SDK 리포지토리에는 IoT 플러그 앤 플레이를 사용하
 > [!NOTE]
 > 이러한 샘플은 교육 및 디버깅을 목적으로 Windows 및 Linux에서 실행되는 것으로 표시됩니다. 프로덕션 시나리오에서 샘플은 제한된 디바이스에서만 사용됩니다.
 
-- [Embedded C용 SDK를 사용하는 자동 온도 조절기 예제](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
+- [Embedded C용 SDK를 사용하는 자동 온도 조절기 예제](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/paho_iot_pnp_sample.c)
 
-- [Embedded C용 SDK를 사용하는 온도 컨트롤러 예제](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
+- [Embedded C용 SDK를 사용하는 온도 컨트롤러 예제](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/paho_iot_pnp_component_sample.c)
 
 ## <a name="using-azure-rtos"></a>Azure RTOS 사용
 

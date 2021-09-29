@@ -3,17 +3,17 @@ title: EDIFACT 메시지의 UNH 2.5 세그먼트
 description: 엔터프라이즈 통합이 포함된 팩 Azure Logic Apps의 UNH2.5 세그먼트를 사용하여 EDIFACT 메시지 해결
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+author: ecfan
+ms.author: estfan
+ms.reviewer: divyaswarnkar, azla
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: c6d95cb938a341b94a32989e82c42d37956c0a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d69515947c406677724746ab37b8cddef87ff6d0
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89179847"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236883"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Azure Logic Apps에서 UNH2.5 세그먼트를 사용하여 EDIFACT 문서를 처리합니다.
 

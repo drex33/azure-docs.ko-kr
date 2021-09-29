@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: fb01749b71c89b4290abf71e7f8ed5d95b891cdd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38f98ab557738031e4c3933a4bc914b31c42cd91
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638003"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814843"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>자습서: SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -82,7 +82,7 @@ ms.locfileid: "122638003"
 
 1. 왼쪽 창에서 **추가 서비스** 를 선택하고, **스토리지** 키워드를 사용하여 필터링한 다음 **스토리지 계정** 을 선택합니다.
 
-    ![스토리지 계정 검색](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="스토리지 계정 검색":::
 
 1. 스토리지 계정 목록에서 스토리지 계정(필요한 경우)을 필터링한 다음 스토리지 계정을 선택합니다.
 
@@ -95,13 +95,13 @@ ms.locfileid: "122638003"
 
 1. **스토리지 계정** 창에서 **개요** 로 전환한 다음, **Blob** 을 선택합니다.
 
-    ![Blob 옵션 선택](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Blob 옵션 선택":::
 
 1. **Blob service** 창에서 **컨테이너** 를 선택합니다.
 
 1. **새 컨테이너** 창의 **이름** 상자에 **adftutorial** 을 입력한 후 **확인** 을 선택합니다.
 
-    ![컨테이너 이름 입력](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-container-dialog.png" alt-text="컨테이너 이름 입력":::
 
 1. 컨테이너 목록에서 **adftutorial** 을 선택합니다.  
 
@@ -266,21 +266,21 @@ ms.locfileid: "122638003"
 
 1. **Integration Runtime(자체 호스팅) 등록** 창에 이전 섹션에서 저장한 키를 붙여넣고 **등록** 을 선택합니다.
 
-    ![통합 런타임 등록](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/register-integration-runtime.png" alt-text="통합 런타임 등록":::
 
 1. **새로운 Integration Runtime(자체 호스팅) 노드** 창에서 **마침** 을 선택합니다.
 
-    ![새 Integration Runtime 노드 창](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png" alt-text="새 Integration Runtime 노드 창":::
 
  1. 자체 호스팅 Integration Runtime이 성공적으로 등록되면 다음 메시지가 표시됩니다.
 
-    ![성공적으로 등록되었습니다.](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/registered-successfully.png" alt-text="성공적으로 등록되었습니다.":::
 
 1. **Integration Runtime(자체 호스팅) 등록** 창에서 **구성 관리자 시작** 을 선택합니다.
 
 1. 노드가 클라우드 서비스에 연결되면 다음 메시지가 표시됩니다.
 
-    ![노드가 연결됨](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/node-is-connected.png" alt-text="노드가 연결됨":::
 
 1. 다음을 수행하여 SQL Server 데이터베이스에 대한 연결을 테스트합니다.
 
@@ -299,7 +299,7 @@ ms.locfileid: "122638003"
     g. 사용자 이름과 연결된 암호를 입력합니다.
 
     h. Integration Runtime을 Microsoft SQL Server에 연결할 수 있는지 확인하려면 **테스트** 를 선택합니다.  
-    ![연결 성공](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png" alt-text="연결 성공":::
 
     연결이 성공적인 경우 녹색 확인 표시 아이콘이 표시됩니다. 그렇지 않다면 실패와 관련된 오류 메시지가 나타납니다. 모든 문제를 해결하고 Integration Runtime을 SQL Server 인스턴스에 연결할 수 있는지 확인합니다.
 
@@ -710,7 +710,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 1. 폴더 목록에서 `fromonprem`을 선택합니다.
 1. `dbo.emp.txt`이라는 파일이 표시됨을 확인합니다.
 
-    ![출력 파일](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="출력 파일":::
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,18 +1,18 @@
 ---
 title: 자습서 - API Management의 모의 API 응답 - Azure Portal | Microsoft Docs
 description: 이 자습서에서는 백 엔드가 실제 응답을 보낼 수 없는 경우 모의 응답을 반환하도록 API Management를 사용하여 API에 대한 정책을 설정합니다.
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
-ms.openlocfilehash: 6214594f825908388762ac35cc8c8722ff9135f1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.author: danlep
+ms.openlocfilehash: afccd6da3374147c77a2caf7bcc9b352b078c11c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874354"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646495"
 ---
 # <a name="tutorial-mock-api-responses"></a>자습서: 모의 API 응답
 
@@ -65,7 +65,7 @@ API는 하나 이상의 작업을 공개합니다. 이 섹션에서는 앞에서
 1. **+ 작업 추가** 를 선택합니다.
 1. **프런트 엔드** 창에서 다음 값을 입력합니다.
 
-     | 설정             | 값                             | Description                                                                                                                                                                                   |
+     | 설정             | Value                             | Description                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **표시 이름**    | *테스트 호출*                       | [개발자 포털](api-management-howto-developer-portal.md)에 표시되는 이름입니다.                                                                                                                                       |
     | **URL**(HTTP 동사) | GET                               | 미리 정의된 HTTP 동사 중 하나를 선택합니다.                                                                                                                                         |

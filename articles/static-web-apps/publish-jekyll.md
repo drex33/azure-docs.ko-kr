@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: cshoe
-ms.openlocfilehash: 179fa0e247b2c875a4d32eac312d240ae768c009
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: fa97100e670e1d96bdd33c362b2e133d78d8dae7
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190557"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155442"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps"></a>자습서: Azure Static Web Apps에 Jekyll 사이트 게시
 
@@ -73,7 +73,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 1. 로컬 리포지토리에 GitHub 리포지토리를 원격으로 추가합니다. 다음 명령에서 `<YOUR_USER_NAME>` 자리 표시자 대신 GitHub 사용자 이름을 추가해야 합니다.
 
    ```bash
-   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-static-app
+   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-azure-static
    ```
 
 1. 로컬 리포지토리를 GitHub로 푸시합니다.
@@ -139,7 +139,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 #### <a name="custom-jekyll-settings"></a>사용자 지정 Jekyll 설정
 
-정적 웹앱을 생성하면 애플리케이션에 대한 게시 구성 설정이 포함된 [워크플로 파일](./github-actions-workflow.md)이 생성됩니다.
+정적 웹앱을 생성하면 애플리케이션에 대한 게시 구성 설정이 포함된 [워크플로 파일](./build-configuration.md)이 생성됩니다.
 
 `JEKYLL_ENV`와 같은 환경 변수를 구성하려면 워크플로의 Azure Static Web Apps GitHub Action에 `env` 섹션을 추가합니다.
 

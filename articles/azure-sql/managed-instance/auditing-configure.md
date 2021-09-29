@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/21/2021
-ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5505350cffbda3b84e800b34be7094818fdb125c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567376"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230592"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작하기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -238,9 +238,9 @@ Azure Monitor 로그는 통합 검색 및 사용자 지정 대시보드를 사�
 Azure SQL Managed Instance 내 데이터베이스와 SQL Server 내 데이터베이스에서 감사 간의 주요 차이점은 다음과 같습니다.
 
 - Azure SQL Managed Instance에서는 감사가 서버 수준에서 작동하며 Azure Blob Storage에 `.xel` 로그 파일을 저장합니다.
-- SQL Server에서는 감사가 서버 수준에서 작동하지만 이벤트를 파일 시스템/Windows 이벤트 로그에 저장합니다.
+- SQL Server에서 감사는 서버 수준에서 작동 하지만, 파일 시스템 및 Windows 이벤트 로그에 이벤트를 저장 합니다.
 
-관리되는 인스턴스의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 **지원되지 않습니다**.
+관리되는 인스턴스의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 **지원 되지 않습니다**.
 
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 

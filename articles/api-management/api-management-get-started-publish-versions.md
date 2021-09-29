@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure API Management를 사용하여 API 버전 게시
 description: 이 자습서의 단계에 따라 API Management에서 여러 API 버전을 게시하는 방법에 대해 알아봅니다.
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.author: apimpm
-ms.openlocfilehash: 5930979258372e4269c4d453ffbc5e0d46258088
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.author: danlep
+ms.openlocfilehash: 0f9d43f0b9abd53f76efb1e29d40667f1daf19b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483614"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644812"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>자습서: 여러 버전의 API 게시 
 

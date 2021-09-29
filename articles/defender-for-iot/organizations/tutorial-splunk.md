@@ -4,14 +4,14 @@ description: 이 자습서에서는 Splunk를 Azure Defender for IoT와 통합�
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 09/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 00d4f5c5c432a4b5cccdfbfb83fe81c2844d68e8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2484de315508310729882e46b5e22669d01ec9f8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786404"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814709"
 ---
 # <a name="tutorial-integrate-splunk-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 Splunk 통합
 
@@ -33,6 +33,8 @@ Splunk 애플리케이션을 로컬로 설치하거나 클라우드에서 실행
 > [!div class="checklist"]
 > * Splunk에서 Defender for IoT 애플리케이션 다운로드
 > * Splunk에 Defender for IoT 경고 전송
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -100,7 +102,7 @@ Defender for IoT에서 Splunk 서버로 경고 정보를 보내려면 전달 규
 
     :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="전달 규칙을 만듭니다." lightbox="media/tutorial-splunk/forwarding-rule-expanded.png":::
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     |--|--|
     | **이름** | 전달 규칙 이름입니다. |
     | **심각도 선택** | 전달하려는 최소 보안 수준 인시던트입니다. 예를 들어 경미를 선택하면 경미한 경고 및 이 심각도 수준 이상의 모든 경고가 전달됩니다. |
@@ -122,6 +124,10 @@ Defender for IoT에서 Splunk 서버로 경고 정보를 보내려면 전달 규
     | **암호** | Splunk 서버 암호 |
 
 1. **제출** 을 선택합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리할 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: cc4d6cd7809c58451f95b94970ee8b489f2f9dfe
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a455eb81a804c9eff9dcd84142eccbdfc3ac376c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535372"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804179"
 ---
 # <a name="monitor-apache-spark-applications-with-azure-log-analytics-preview"></a>Azure Log Analytics를 사용하여 Apache Spark 애플리케이션 모니터링(미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "123535372"
 
 다음 리소스 중 하나를 참조하여 이 작업 영역을 만듭니다.
 - [Azure Portal에서 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)
-- [Azure CLI를 사용하여 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [Azure CLI를 사용하여 작업 영역 만들기](../../azure-monitor/logs/resource-manager-workspace.md)
 - [PowerShell을 사용하여 Azure Monitor에서 작업 영역 만들기 및 구성](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### <a name="step-2-prepare-a-apache-spark-configuration-file"></a>2단계: Apache Spark 구성 파일 준비

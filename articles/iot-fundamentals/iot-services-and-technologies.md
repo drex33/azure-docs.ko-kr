@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 192952747bcc327c87f94d001afe9faf1ed47978
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 5d711771bd8302fb6146376afd1fd7b31613dfe5
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605342"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236032"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
@@ -33,22 +33,9 @@ Azure IoT Central은 사용자 지정 IoT 솔루션을 만드는 데 사용할 �
 
 완전 관리형 애플리케이션 플랫폼인 IoT Central의 가격 책정 모델은 간단하고 예측 가능합니다.
 
-## <a name="azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기
-
-[Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com)는 사용자 지정 가능한 엔터프라이즈급 솔루션의 컬렉션입니다. 이러한 솔루션은 있는 그대로 배포해도 되고, 오픈 소스 Java 또는 .NET 소스 코드를 사용하여 사용자 지정 IoT 솔루션을 개발할 수도 있습니다.
-
-Azure IoT 솔루션 가속기는 IoT 솔루션을 보다 철저하게 제어할 수 있습니다. 솔루션 가속기에는 몇 분 내에 Azure 구독에 배포할 수 있는 일반적인 IoT 시나리오에 대한 미리 작성된 솔루션이 포함되어 있습니다. 이 시나리오에는 다음이 포함됩니다.
-
-* 연결된 공장
-* 디바이스 시뮬레이션
-
-모든 솔루션 가속기의 오픈 소스 코드 베이스는 GitHub에서 얻을 수 있습니다. 코드를 다운로드하여 특정 IoT 요구 사항에 맞게 솔루션 가속기를 사용자 지정할 수 있습니다.
-
-솔루션 가속기는 Azure 구독에서 관리해야 하는 Azure IoT Hub 및 Azure Storage 같은 Azure 서비스를 사용합니다.
-
 ## <a name="custom-solutions"></a>사용자 지정 솔루션
 
-IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루션 가속기를 사용하여 기존에 만든 솔루션을 확장하려면 다음 Azure IoT 기술 및 서비스 중 하나 이상을 사용합니다.
+처음부터 IoT 솔루션을 빌드하거나 IoT Central 사용하여 만든 솔루션을 확장하려면 다음 Azure IoT 기술 및 서비스 중 하나 이상을 사용합니다.
 
 ### <a name="devices"></a>디바이스
 
@@ -56,7 +43,7 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 규칙에 따라 디바이스에 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
 
-[Azure IoT Edge](../iot-edge/about-iot-edge.md)를 사용하여 IoT 워크로드 일부를 Azure 클라우드 서비스에서 디바이스로 오프로드할 수 있습니다. IoT Edge는 솔루션의 대기 시간을 줄이고, 디바이스가 클라우드와 교환하는 데이터 양을 줄이고, 오프라인 시나리오를 사용할 수 있습니다. IoT Central 및 일부 솔루션 가속기에서 IoT Edge 디바이스를 관리할 수 있습니다.
+[Azure IoT Edge](../iot-edge/about-iot-edge.md)를 사용하여 IoT 워크로드 일부를 Azure 클라우드 서비스에서 디바이스로 오프로드할 수 있습니다. IoT Edge는 솔루션의 대기 시간을 줄이고, 디바이스가 클라우드와 교환하는 데이터 양을 줄이고, 오프라인 시나리오를 사용할 수 있습니다. IoT Central IoT Edge 디바이스를 관리할 수 있습니다.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전한 마이크로 컨트롤러 장치, 사용자 지정 Linux 기반 운영 체제, 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스를 포함하고 있습니다.
 
@@ -64,7 +51,7 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 [Azure IoT Hub](../iot-hub/about-iot-hub.md) 서비스를 사용하면 수백만 개의 IoT 디바이스와 클라우드 기반 솔루션 간에 안정적이고 안전한 양방향 통신이 가능합니다. [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md)는 IoT Hub를 위한 도우미 서비스입니다. 이 서비스는 사용자 개입 없이 적합한 IoT 허브에 디바이스를 적시에 자동으로 프로비저닝할 수 있습니다. 이러한 기능을 통해 고객은 안전하고 확장 가능한 방식으로 수백만 대의 디바이스를 프로비저닝할 수 있습니다.
 
-IoT Hub는 솔루션 가속기의 핵심 구성 요소이며, 다음과 같은 IoT 구현 과제를 해결하는 데 사용할 수 있습니다.
+IoT Hub 핵심 구성 요소이며 다음과 같은 IoT 구현 과제를 충족하는 데 사용할 수 있습니다.
 
 * 대용량 디바이스 연결 및 관리
 * 대용량 원격 분석 수집

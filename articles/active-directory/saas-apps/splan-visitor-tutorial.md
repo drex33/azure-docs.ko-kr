@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: de00b869aef2d1429740d75829da9a5c3e79de15
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: a2c33808be505209ff5eca58480b9fd5f03d9d4f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465946"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124785537"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>자습서: Splan Visitor와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -123,7 +123,7 @@ Splan Visitor에서 **Britta Simon** 이라는 테스트 사용자를 만듭니�
 다음 옵션 중 하나를 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 * **Azure 포털**: **이 애플리케이션 테스트** 를 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다.
-* **Microsoft 내 앱 포털**: **Splan Visitor** 타일을 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다. [내 앱] 포털에 대한 자세한 내용은 [[내 앱] 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+* **Microsoft 내 앱 포털**: **Splan Visitor** 타일을 선택하여 SSO를 설정한 Splan Visitor에 자동으로 로그인합니다. [내 앱] 포털에 대한 자세한 내용은 [[내 앱] 포털에서 앱에 로그인하여 시작](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

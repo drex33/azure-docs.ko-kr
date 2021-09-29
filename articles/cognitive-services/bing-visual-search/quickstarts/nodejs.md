@@ -3,20 +3,18 @@ title: '빠른 시작: REST API 및 Node.js를 사용하여 이미지 인사이�
 titleSuffix: Azure Cognitive Services
 description: Bing Visual Search API 및 Node.js를 사용하여 이미지를 업로드한 다음, 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 94a642886b626eb84da3a2d02684b5dd170dcbb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eeef03820a0a96376f9e7cb45bc22cc3e2331b22
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499070"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663254"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기
 

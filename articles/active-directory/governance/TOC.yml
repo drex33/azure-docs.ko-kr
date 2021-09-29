@@ -18,6 +18,8 @@
       href: entitlement-management-access-package-first.md
     - name: 리소스에 대한 액세스 관리 - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: Azure AD에서 그룹 기반 라이선스의 수명 주기 관리
+      href: entitlement-management-group-licenses.md
 - name: 개념
   expanded: true
   items:
@@ -29,7 +31,7 @@
           href: entitlement-management-process.md
     - name: ID 수명 주기 관리
       items:
-        - name: 프로비전이란?
+        - name: 프로비저닝이란?
           href: what-is-provisioning.md
         - name: HR 기반 프로비전이란?
           href: what-is-hr-driven-provisioning.md

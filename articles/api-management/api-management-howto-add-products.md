@@ -1,17 +1,17 @@
 ---
 title: 자습서 - Azure API Management에서 제품 만들기 및 게시
 description: 이 자습서에서는 Azure API Management에서 제품을 만들고 게시합니다. 제품이 게시되면 개발자는 제품의 API를 사용할 수 있습니다.
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
-ms.openlocfilehash: 7c0d24c667d2c7c46f65d8c6f3bf6e6e3b52fd00
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.author: danlep
+ms.openlocfilehash: f9d4b1565cc217aaa149e34fc278da779a3d869e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669652"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643330"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>자습서: 제품 만들기 및 게시  
 

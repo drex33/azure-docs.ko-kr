@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: 601b3659cd23cbd12d96f4e73c24a3a4a6c3fe55
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3684c038ab96fe16d28802012293357c0a8f4e5b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602264"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232036"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버의 읽기 복제본
 
@@ -27,6 +27,9 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 읽기 복제본 기능을 사용하면 Azure Database for MySQL 유연한 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 원본 서버에서 최대 **10** 개의 복제본으로 복제할 수 있습니다. 복제본은 MySQL 엔진의 네이티브 이진 로그(binlog) 파일의 위치 기반 복제 기술을 사용하여 비동기식으로 업데이트됩니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
 복제본은 원본 Azure Database for MySQL 유연한 서버와 비슷한 방식으로 관리하는 새로운 서버입니다. VCore에 프로비전된 컴퓨팅 및 스토리지에 따라 각 읽기 복제본에 매월 GB 단위로 청구 요금이 부과됩니다. 자세한 내용은 [가격 책정](./concepts-compute-storage.md#pricing)을 참조하세요.
+
+> [!NOTE]
+> 읽기 복제본 기능은 Azure Database for MySQL - 범용 또는 메모리 최적화 가격 책정 계층의 유연한 서버에만 사용할 수 있습니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
 
 MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
 
@@ -141,7 +144,8 @@ GTID를 사용하도록 설정하고 일관성 동작을 구성하려면 [Azure 
 
 | 시나리오 | 제한 사항/고려 사항 |
 |:-|:-|
-| 영역 중복 HA를 사용하도록 설정된 서버의 복제본 | 지원되지 않음 |
+| HA를 사용 하는 서버의 복제본 | 지원되지 않음 |
+| 안정적인 가격 책정 계층의 서버에 대 한 복제본| 지원되지 않음 |
 | 지역 간 읽기 복제본 | 지원되지 않음 |
 | 가격 책정 | 복제 서버의 실행 비용은 복제본 서버가 실행되는 지역을 기반으로 책정됩니다. |
 | 원본 서버 다시 시작 | 기존 복제본이 없는 원본에 대한 복제본을 만들 때는 원본이 먼저 다시 시작되어 자체적으로 복제를 준비합니다. 이를 고려하여 사용량이 적은 기간 동안 이러한 작업을 수행합니다. |

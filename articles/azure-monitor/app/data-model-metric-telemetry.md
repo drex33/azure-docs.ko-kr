@@ -4,12 +4,12 @@ description: 메트릭 원격 분석을 위한 Azure Application Insights 데이
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: df3ce8715134aa51ee819210cad4caf126f0e492
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87320581"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229604"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
@@ -59,7 +59,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 ## <a name="custom-properties"></a>사용자 지정 속성
 
-`CustomPerfCounter` 사용자 지정 속성이 `true`로 설정된 메트릭은 Windows 성능 카운터를 나타냅니다. 이러한 메트릭은 performanceCounters 테이블에 배치되었습니다. customMetrics에 위치하지 않습니다. 또한 이 측정값의 이름은 구문 분석하여 범주, 카운터 및 인스턴스 이름을 추출합니다.
+사용자 지정 속성이 `CustomPerfCounter` 설정된 `true` 메트릭은 메트릭이 Windows 성능 카운터를 나타낸다는 것을 나타냅니다. 이러한 메트릭은 performanceCounters 테이블에 배치되었습니다. customMetrics에 위치하지 않습니다. 또한 이 측정값의 이름은 구문 분석하여 범주, 카운터 및 인스턴스 이름을 추출합니다.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
@@ -68,4 +68,3 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 - [사용자 지정 이벤트 및 메트릭용 Application Insights API](./api-custom-events-metrics.md#trackmetric) 사용 방법을 알아봅니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.
-

@@ -8,12 +8,12 @@ ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aafea55e2683ab9c78fafbf819c9a67d7cb75a45
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 435bc37a79ea7397bcfd8d1d044c44cd5fde382e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459686"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630729"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -22,9 +22,9 @@ ms.locfileid: "110459686"
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 애플리케이션 업데이트
-> * 애플리케이션 실행
-> * 연결 수의 유효성 검사
+> - 애플리케이션 업데이트
+> - 애플리케이션 실행
+> - 연결 수의 유효성 검사
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -115,7 +115,7 @@ dotnet run
 
 다음 표에서는 각 Blob이 다운로드될 때 정의된 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions)를 보여줍니다.
 
-|속성|값|Description|
+|속성|Value|Description|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |
@@ -223,8 +223,8 @@ C:\>
 이 시리즈의 3부에서는 다음 방법을 포함하여 스토리지 계정에서 대량의 데이터를 다운로드하는 방법에 대해 배웠습니다.
 
 > [!div class="checklist"]
-> * 애플리케이션 실행
-> * 연결 수의 유효성 검사
+> - 애플리케이션 실행
+> - 연결 수의 유효성 검사
 
 포털에서 처리량 및 대기 시간 메트릭을 확인하려면 시리즈의 4부로 이동하세요.
 

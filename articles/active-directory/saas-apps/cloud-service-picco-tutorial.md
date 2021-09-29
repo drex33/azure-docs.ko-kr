@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 1df8c6fa0877c20518be072674447d28d7f1ca0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 409dc4a74c0b647d4e381d149612e3fbbabf27c3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97670132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124817542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>자습서: Cloud Service PICCO와 Azure Active Directory 통합
 
@@ -178,7 +178,7 @@ Cloud Service PICCO에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Cloud Service PICCO 타일을 클릭하면 SSO를 설정한 Cloud Service PICCO에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Cloud Service PICCO 타일을 클릭하면 SSO를 설정한 Cloud Service PICCO에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

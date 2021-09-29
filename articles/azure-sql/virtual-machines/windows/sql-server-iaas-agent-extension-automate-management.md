@@ -17,12 +17,12 @@ ms.date: 9/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 828f4bc269e5d7ec5b0d46c473d2abbf2c200222
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: e5c4dd695cb9761721386eb98e18f00ad53bdc26
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220613"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231314"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 
 - **경량** 모드는 확장 이진 파일을 VM에 복사하지만 에이전트를 설치하지는 않습니다. 경량 모드에서는 단지 SQL Server 라이선스 유형 및 버전의 변경을 지원하고 제한된 포털 관리를 제공합니다. 여러 인스턴스가 있거나 FCI(장애 조치(failover) 클러스터 인스턴스)에 참여하는  SQL Server VM에서 이 옵션을 사용합니다. [자동 등록](sql-agent-extension-automatic-registration-all-vms.md) 기능을 사용할 때나 수동 등록 도중 관리 유형이 지정되지 않은 경우 경량 모드가 기본 관리 모드입니다. 경량 모드를 사용하는 경우 메모리 또는 CPU에 영향을 주지 않으며 관련 비용이 없습니다. 
 
-- **전체** 모드에서는 전체 기능을 제공하기 위해 SQL IaaS 에이전트를 VM에 설치합니다. 단일 인스턴스가 있는 SQL Server VM을 관리하는 데 이 옵션을 사용합니다. 전체 모드에서는 메모리 및 CPU에 최소한의 영향을 주는 두 개의 Windows 서비스가 설치됩니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있습니다. 전체 관리 모드를 사용하는 것과 관련된 비용은 없습니다. 시스템 관리자 권한이 필요합니다. 2021년 9월부터 전체 관리 모드에서 SQL Server VM을 등록하는 경우 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
+- **전체** 모드에서는 전체 기능을 제공하기 위해 SQL IaaS 에이전트를 VM에 설치합니다. 단일 인스턴스가 있는 SQL Server VM을 관리하는 데 이 옵션을 사용합니다. 전체 모드는 메모리 및 CPU에 최소한의 영향을 주는 두 개의 Windows 서비스를 설치 합니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있습니다. 전체 관리 모드를 사용하는 것과 관련된 비용은 없습니다. 시스템 관리자 권한이 필요합니다. 2021년 9월부터 전체 관리 모드에서 SQL Server VM을 등록하는 경우 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
 
 - **에이전트 없음** 모드는 Windows Server 2008에 설치된 SQL Server 2008 및 SQL Server 2008 R2 전용 모드입니다. 에이전트 없음 모드를 사용하는 경우 메모리 또는 CPU에는 영향을 주지 않습니다. NoAgent 관리 효율성 모드 사용에 대한 비용은 없고, SQL Server가 다시 시작되지 않으며, 에이전트가 VM에 설치되지 않습니다. 
 

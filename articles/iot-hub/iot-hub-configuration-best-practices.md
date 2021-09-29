@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 26d81a492b12cd2dd7f1d4de260aa22ac4e73a3e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96024132"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234455"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례
 
@@ -20,7 +20,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 * **IoT 하드웨어 제조업체/통합업체**: IoT 하드웨어 제조업체, 여러 제조업체의 다양한 하드웨어를 조립하는 통합업체 또는 다른 공급업체에 의해 제조되거나 통합된 IoT 배포용 하드웨어를 제공하는 공급업체 펌웨어의 개발 및 통합, 포함된 운영 체제 및 포함된 소프트웨어에 관련됩니다.
 
-* **IoT 솔루션 개발자**: IoT 솔루션 개발은 일반적으로 솔루션 개발자가 수행합니다. 이 개발자는 이러한 활동에 특화된 사내 팀 또는 시스템 통합업체에 속할 수 있습니다. IoT 솔루션 개발자는 다양한 IoT 솔루션 구성 요소를 처음부터 새로 개발하거나, 다양한 표준 또는 오픈 소스 구성 요소를 통합하거나, [IoT 솔루션 가속기](../iot-accelerators/index.yml)를 사용자 지정할 수 있습니다.
+* **IoT 솔루션 개발자**: IoT 솔루션 개발은 일반적으로 솔루션 개발자가 수행합니다. 이 개발자는 이러한 활동에 특화된 사내 팀 또는 시스템 통합업체에 속할 수 있습니다. IoT 솔루션 개발자는 IoT 솔루션의 다양한 구성 요소를 처음부터 개발하거나 다양한 표준 또는 오픈 소스 구성 요소를 통합할 수 있습니다.
 
 * **IoT 솔루션 운영자**: IoT 솔루션이 배포된 후에는 장기적인 운영, 모니터링, 업그레이드 및 유지 관리가 필요합니다. 이러한 작업은 정보 기술 전문가, 하드웨어 운영 및 유지 관리 팀, 전체 IoT 인프라의 올바른 동작을 모니터링하는 도메인 전문가로 구성된 사내 팀이 수행합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 영국 공식 및 영국 NHS 청사진 샘플
 description: 영국 공식 및 영국 NHS 청사진 샘플 개요. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 05/04/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 9a6bad295b007397a8ba79fa3e1c6a6a70a89aaf
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fcfd51369dc24f6ea184583c4ca72c408e224fb0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776054"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629145"
 ---
 # <a name="uk-official-and-uk-nhs-blueprint-sample"></a>영국 공식 및 영국 NHS 청사진 샘플
 

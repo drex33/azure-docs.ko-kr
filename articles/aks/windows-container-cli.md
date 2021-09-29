@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Kubernetes 클러스터를 빠르게 만�
 services: container-service
 ms.topic: article
 ms.date: 08/06/2021
-ms.openlocfilehash: 29f010bd9067236e1e07ab79f7a8fbec436ffd85
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 284114ef1f9c8759eaec061b32282154fe72859c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535999"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235310"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -340,7 +340,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ![ASP.NET 샘플 응용 프로그램을 탐색하는 이미지](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> 페이지를 로드하려고 할 때 연결 시간 제한이 수신되면 다음 [kubectl get pods --watch] 명령을 사용하여 샘플 앱이 준비되었는지 확인해야 합니다. 경우에 따라 외부 IP 주소를 사용할 수 있을 때까지 Windows 컨테이너가 시작되지 않을 수 있습니다.
+> 페이지를 로드하려고 할 때 연결 시간 제한이 수신되면 다음 [kubectl get pods --watch] 명령을 사용하여 샘플 앱이 준비되었는지 확인해야 합니다. 외부 IP 주소를 사용할 수 있는 시간에 의해 Windows 컨테이너가 시작 되지 않을 수도 있습니다.
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 

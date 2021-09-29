@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 86ada12eb34325180e86be35b30bc955c3a8514c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c2a2b57f10c84299c6aea12aac9cf8784a83362
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92447089"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124833597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>자습서: GreenOrbit와 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ GreenOrbit에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 GreenOrbit 타일을 클릭하면 SSO를 설정한 GreenOrbit에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 GreenOrbit 타일을 클릭하면 SSO를 설정한 GreenOrbit에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

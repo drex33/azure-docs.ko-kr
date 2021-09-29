@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e46161812d122a1d5647e8589c58f9528578b878
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
-ms.translationtype: HT
+ms.openlocfilehash: ff1c5396ca2861250c5314ac785f8cbad42bf362
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749837"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235481"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답
 
@@ -29,7 +29,7 @@ Azure Event Grid와 Azure Key Vault를 통합하면 키 자격 증명 모음에 
 
 ## <a name="concepts"></a>개념
 
-Event Grid는 클라우드용 이벤트 서비스입니다. 이 가이드에서는 Key Vault에 대한 이벤트를 구독하고 이벤트를 Automation으로 라우팅합니다. 키 자격 증명 모음의 비밀 중 하나가 곧 만료되면 상태 변경에 대해 Event Grid에 알리고 엔드포인트에 HTTP POST가 수행됩니다. 그런 다음, 웹후크가 PowerShell 스크립트의 Azure Automation 실행을 트리거합니다.
+Event Grid는 클라우드용 이벤트 서비스입니다. 이 가이드에서는 Key Vault에 대한 이벤트를 구독하고 이벤트를 Automation으로 라우팅합니다. 키 자격 증명 모음의 비밀 중 하나가 만료될 때(만료 날짜 30일 전에 정의됨) Event Grid 상태 변경에 대한 알림을 받고 엔드포인트에 HTTP POST를 만듭니다. 그런 다음, 웹후크가 PowerShell 스크립트의 Azure Automation 실행을 트리거합니다.
 
 ![HTTP POST 순서도](../media/event-grid-tutorial-1.png)
 

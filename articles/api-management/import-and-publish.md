@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure API Management에서 첫 번째 API 가져오기 및 게시
 description: 이 자습서에서는 OpenAPI 사양 API를 Azure API Management로 가져온 다음, Azure Portal에서 API를 테스트하는 방법을 알아봅니다.
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: apimpm
-ms.openlocfilehash: 0187a1c15315835c1606913acfd52dc930e92443
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: danlep
+ms.openlocfilehash: 8ac58d354c5a92482f2cd47c59316fca9ba32025
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627105"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>자습서: 첫 번째 API 가져오기 및 게시
 
@@ -51,7 +51,7 @@ ms.locfileid: "123538654"
    :::image type="content" source="media/import-and-publish/create-api.png" alt-text="API 만들기":::
 
 
-   |설정|값|Description|
+   |설정|Value|Description|
    |-------|-----|-----------|
    |**OpenAPI 사양**|*https:\//conferenceapi.azurewebsites.net?format=json*|API를 구현하는 서비스입니다. API Management는 이 주소로 요청을 전달합니다. 서비스는 공개적으로 액세스 가능한 인터넷 주소에서 호스트되어야 합니다. |
    |**표시 이름**|이전 서비스 URL이 입력되면 API Management에서 JSON을 기반으로 하여 이 필드를 채웁니다.|[개발자 포털](api-management-howto-developer-portal.md)에 표시되는 이름입니다.|

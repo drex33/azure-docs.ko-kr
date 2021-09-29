@@ -7,14 +7,14 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3784d45b59219a6a8851c2ad8bbd842f38015baf
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5583c5dd390e524e77ef011ec2c9ed6e50bcfe06
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220413"
+ms.locfileid: "129236535"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -88,6 +88,14 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 -   현재 Bitbucket에서 프로젝트를 호스트할 수 없습니다.
 
 -   현재 경고 및 매트릭스를 매개 변수로 내보내고 가져올 수 없습니다. 
+
+- *Adf_publish* 분기 아래의 코드 리포지토리에서 ' PartialArmTemplates ' 폴더는 현재 ' linkedTemplates ' 폴더, ' ARMTemplateForFactory ' 및 ' ARMTemplateParametersForFactory ' 파일 옆에 소스 제어를 사용 하 여 게시 하는 중에 추가 되었습니다. 
+
+    :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="' PartialArmTemplates ' 폴더의 다이어그램입니다.":::
+
+    PartialArmTemplates *adf_publish* 에 ' '를 더 이상 게시 하지 않습니다. 1-11 월 2021.    
+
+    **' PartialArmTemplates '을 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 그렇지 않은 경우 ' ARMTemplateForFactory ' 또는 ' linkedTemplates ' 파일을 사용 하 여 배포에 대해 지원 되는 메커니즘으로 전환 합니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

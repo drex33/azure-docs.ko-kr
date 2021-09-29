@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.custom: devx-track-csharp
   ms.date: 08/06/2020
-  ms.openlocfilehash: c8aeae13f22103cc895dffda497b71ac3129330c
-  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.openlocfilehash: 5963fe660a3fed4b084d94abb92b172566988c9f
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113137434"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128577036"
 title: Azure Cache for Redis 개발 FAQ
 summary: 이 문서는 Azure Cache for Redis의 개발 방법에 대한 일반적인 질문의 답변을 제공합니다.
 sections:
@@ -47,7 +47,7 @@ sections:
       Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](https://redis.io/clients)를 참조하세요. 여러 다른 언어 및 클라이언트를 설명하는 자습서는 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하세요.
 
 
-      [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+      [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
   - question: >
       Azure Cache for Redis에 대한 로컬 에뮬레이터가 있나요?
     answer: >

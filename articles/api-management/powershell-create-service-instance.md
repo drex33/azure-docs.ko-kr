@@ -3,18 +3,18 @@ title: 빠른 시작 - PowerShell을 사용하여 Azure API Management 인스턴
 description: Azure PowerShell을 사용하여 새 Azure API Management 인스턴스를 만듭니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/14/2020
-ms.author: apimpm
-ms.openlocfilehash: 641f262cf95753bd4c364fa889051a2b8f9d111a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.author: danlep
+ms.openlocfilehash: dcc6c96eb634316554a939688766feb153479778
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814265"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590763"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>빠른 시작: PowerShell을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 

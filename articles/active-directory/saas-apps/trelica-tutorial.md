@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: a674f5f653ad420ab8f28ff73c6b86f9c18b154e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7b2f01a9e90ca8a29b6ecbfc380cb138a3ad073
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92517755"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800482"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>자습서: Trelica와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "92517755"
 
 Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -138,7 +138,7 @@ Trelica는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 �
 
 이 섹션에서는 My Apps 포털을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-내 앱 포털에서 Trelica 타일을 클릭하면 SSO를 설정한 Trelica에 자동으로 로그인됩니다. 내 앱 포털에 대한 자세한 내용은 [내 앱 포털 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+내 앱 포털에서 Trelica 타일을 클릭하면 SSO를 설정한 Trelica에 자동으로 로그인됩니다. 내 앱 포털에 대한 자세한 내용은 [내 앱 포털 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

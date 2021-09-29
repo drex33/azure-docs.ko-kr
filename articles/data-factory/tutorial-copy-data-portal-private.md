@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 227bbaf2faa845d269d8326883c3e63c4572fdab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7aee146ea06e15696b1e52e701d8d32b476d0570
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637738"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798335"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 
@@ -102,14 +102,14 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. Data Factory 포털에서 **관리** 로 이동하고, **새로 만들기** 를 선택하여 새 Azure Integration Runtime을 만듭니다.
 
-   ![새 Azure Integration Runtime 만들기를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="새 Azure Integration Runtime 만들기를 보여주는 스크린샷":::
 1. **통합 런타임 설정** 페이지에서 필요한 기능을 기반으로 만들 통합 런타임을 선택합니다. 이 자습서에서는 **Azure, 자체 호스팅** 을 선택한 다음, **계속** 을 클릭합니다. 
 1. **Azure** 를 선택한 다음, **계속** 을 클릭하여 Azure 통합 런타임을 만듭니다.
 
-   ![새 Azure Integration Runtime을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="새 Azure Integration Runtime을 보여주는 스크린샷":::
 1. **가상 네트워크 구성(미리 보기)** 에서 **사용** 을 선택합니다.
 
-   ![새 Azure Integration Runtime을 사용하도록 설정하는 내용을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="새 Azure Integration Runtime을 사용하도록 설정하는 내용을 보여주는 스크린샷":::
 1. **만들기** 를 선택합니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
@@ -123,12 +123,12 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 1. 파이프라인의 속성 창에서 파이프라인 이름에 **CopyPipeline** 을 입력합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어옵니다. 이름에 **CopyFromBlobToSql** 을 입력합니다.
 
-    ![복사 작업을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png" alt-text="복사 작업을 보여주는 스크린샷":::
 
 ### <a name="configure-a-source"></a>원본 구성
 
@@ -151,7 +151,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. **대화형 작성** 을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다.
 
-    ![대화형 작성을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/interactive-authoring.png" alt-text="대화형 작성을 보여주는 스크린샷":::
 
 1. **연결 테스트** 를 클릭합니다. 스토리지 계정이 **선택한 네트워크** 의 액세스만 허용하고 Data Factory에서 사용하기 전에 승인해야 하는 프라이빗 엔드포인트를 만들어야 하는 경우 실패합니다. 오류 메시지에는 관리형 프라이빗 엔드포인트를 만들기 위해 따를 수 있는 프라이빗 엔드포인트 만들기에 대한 링크가 표시됩니다. 또 다른 방법은 **관리** 탭으로 직접 이동하여 [다음 섹션](#create-a-managed-private-endpoint)의 지침에 따라 관리형 프라이빗 엔드포인트를 만드는 것입니다.
 
@@ -169,7 +169,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. **확인** 을 선택합니다. 자동으로 파이프라인 페이지로 이동합니다. **원본** 탭에서 **SourceBlobDataset** 가 선택되어 있는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기** 를 선택합니다.
 
-    ![원본 데이터 세트를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/source-dataset-selected.png" alt-text="원본 데이터 세트를 보여주는 스크린샷":::
 
 #### <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
 
@@ -184,7 +184,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. **관리형 프라이빗 엔드포인트** 아래에서 **+ 새로 만들기** 를 선택합니다.
 
-    ![관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷"::: 
 
 1. 목록에서 **Azure Blob Storage** 타일, **계속** 을 차례로 선택합니다.
 
@@ -196,14 +196,14 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. 만든 프라이빗 엔드포인트를 선택합니다. 스토리지 계정 수준에서 프라이빗 엔드포인트를 승인하도록 안내하는 하이퍼링크가 표시됩니다.
 
-    ![관리형 프라이빗 엔드포인트 창을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="관리형 프라이빗 엔드포인트 창을 보여주는 스크린샷"::: 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>스토리지 계정에서 프라이빗 링크 승인
 1. 스토리지 계정의 **설정** 섹션 아래에서 **프라이빗 엔드포인트 연결** 로 이동합니다.
 
 1. 만든 프라이빗 엔드포인트의 확인란을 선택하고 **승인** 을 선택합니다.
 
-    ![프라이빗 엔드포인트의 승인 단추를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="프라이빗 엔드포인트의 승인 단추를 보여주는 스크린샷":::
 
 1. 설명을 추가하고 **예** 를 선택합니다.
 1. Data Factory에서 **관리** 탭의 **관리형 프라이빗 엔드포인트** 섹션으로 돌아갑니다.
@@ -240,7 +240,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트** 에서 **OutputSqlDataset** 가 선택되어 있는지 확인합니다.
 
-    ![파이프라인 탭을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/pipeline-tab-2.png" alt-text="파이프라인 탭을 보여주는 스크린샷":::
 
 [복사 작업의 스키마 매핑](./copy-activity-schema-and-type-mapping.md)을 따라 선택적으로 원본 스키마를 대상의 해당 스키마에 매핑할 수 있습니다.
 
@@ -252,7 +252,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 1. **관리형 프라이빗 엔드포인트** 섹션으로 이동합니다.
 1. **관리형 프라이빗 엔드포인트** 아래에서 **+ 새로 만들기** 를 선택합니다.
 
-    ![관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="관리형 프라이빗 엔드포인트 새로 만들기 단추를 보여주는 스크린샷"::: 
 
 1. 목록에서 **Azure SQL Database** 타일, **계속** 을 차례로 선택합니다.
 1. 선택한 SQL 서버의 이름을 입력합니다.

@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: d6cb1980c93e5161f02b79b05f1128ba777027c6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 19aee45977dfde4b401dc4736e24970e311a4cc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281956"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621132"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>자습서: Azure PowerShell을 사용하여 Blob에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -29,10 +29,10 @@ ms.locfileid: "112281956"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 역할 할당에 조건 추가
-> * BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
+> - 역할 할당에 조건 추가
+> - BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
@@ -132,7 +132,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 1. 텍스트 파일에 다음 Blob 인덱스 태그를 추가합니다. 자세한 내용은 [Blob 인덱스 태그(미리 보기)를 사용하여 Azure Blob Storage 데이터 관리 및 찾기를 참조하세요](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 BLOB 인덱스 태그와 유사하지만 조건으로 BLOB 인덱스 태그를 사용해야 합니다. 
+    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다.
 
     | 키 | 값 |
     | --- | --- |
@@ -193,7 +193,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     ```
 
     다음은 출력의 예입니다.
-    
+
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microso
                          ft.Authorization/roleAssignments/<roleAssignmentId>
@@ -257,7 +257,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     ```
 
     다음은 출력 예제입니다. 추가한 조건으로 인해 파일을 읽을 수 **없습니다.**
-    
+
     ```azurepowershell
     Get-AzStorageBlob : This request is not authorized to perform this operation using this permission. HTTP Status Code:
     403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
@@ -272,7 +272,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
         + FullyQualifiedErrorId : StorageException,Microsoft.WindowsAzure.Commands.Storage.Blob.Cmdlet.GetAzureStorageBlob
        Command
     ```
-    
+
 1. Cascade 프로젝트의 파일을 읽습니다.
 
     ```azurepowershell
@@ -280,10 +280,10 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     ```
 
     다음은 출력 예제입니다. Project=Cascade 태그가 있으므로 파일을 읽을 수 있습니다.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------
@@ -304,7 +304,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Baker'))"
     ```
 
-1. 조건 및 설명을 초기화합니다.
+1. 조건과 설명을 초기화합니다.
 
     ```azurepowershell
     $testRa.Condition = $condition
@@ -339,7 +339,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
                          StringEquals 'Baker'))
     ```
-    
+
 ## <a name="step-9-clean-up-resources"></a>9단계: 리소스 정리
 
 1. [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)를 사용하여 추가한 역할 할당 및 조건을 제거합니다.

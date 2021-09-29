@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f3fbab143fd330e017e9e51c74a403d9bfb687ff
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 472bf22c723bbbf08d97ca95fd595e1559879714
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455660"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124808252"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -146,7 +146,7 @@ SSO 테스트 방법 및 SignalFx에 처음 로그인하는 데 필요한 항목
 
 * 새 테스트 사용자가 처음 로그인하면 Azure에서 암호 변경을 강제로 수행합니다. 이 경우 SSO 로그인 프로세스가 완료되지 않고 테스트 사용자가 Azure Portal로 이동합니다. 문제를 해결하려면 테스트 사용자가 암호를 변경하고 SignalFx 로그인 페이지 또는 내 앱으로 이동하여 다시 시도해야 합니다.
     * 내 앱에서 SignalFx 타일을 클릭하면 SignalFx에 자동으로 로그인됩니다. 
-        * 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+        * 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 * SignalFx 애플리케이션은 내 앱 또는 조직에 할당된 사용자 지정 로그인 페이지를 통해 액세스할 수 있습니다. 테스트 사용자는 이러한 위치 중 하나에서 시작하여 통합을 테스트해야 합니다.
     * 테스트 사용자는 이 프로세스에서 이전에 만든 자격 증명을 **b.simon\@contoso.com** 에 사용할 수 있습니다.

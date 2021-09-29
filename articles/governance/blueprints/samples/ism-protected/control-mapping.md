@@ -1,14 +1,14 @@
 ---
 title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 컨트롤
 description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
-ms.openlocfilehash: 2129c3d8e63f11f3902f3ddb0690ed1463206849
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 293c1a0566b830f9aab84d3c675479f91eff4976
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733988"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632275"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 제어 매핑
 

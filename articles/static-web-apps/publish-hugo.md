@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: aapowell
-ms.openlocfilehash: cc117859c911d9b2c1df6c03fc6cd9738e5de1ec
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 243caef4a1f2cd1d543e7bbb9f3bc127d703296e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988322"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774807"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps"></a>자습서: Azure Static Web Apps에 Hugo 사이트 게시
 
@@ -145,7 +145,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 #### <a name="custom-hugo-version"></a>사용자 지정 Hugo 버전
 
-정적 웹앱을 생성하면 애플리케이션에 대한 게시 구성 설정이 포함된 [워크플로 파일](./github-actions-workflow.md)이 생성됩니다. `env` 섹션의 `HUGO_VERSION`에 대한 값을 제공하여 워크플로 파일에서 특정 Hugo 버전을 지정할 수 있습니다. 다음 예제 구성에서는 Hugo를 특정 버전으로 설정하는 방법을 보여줍니다.
+정적 웹앱을 생성하면 애플리케이션에 대한 게시 구성 설정이 포함된 [워크플로 파일](./build-configuration.md)이 생성됩니다. `env` 섹션의 `HUGO_VERSION`에 대한 값을 제공하여 워크플로 파일에서 특정 Hugo 버전을 지정할 수 있습니다. 다음 예제 구성에서는 Hugo를 특정 버전으로 설정하는 방법을 보여줍니다.
 
 ```yaml
 jobs:

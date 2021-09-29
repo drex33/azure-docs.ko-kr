@@ -1,19 +1,19 @@
 ---
 title: Java를 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. Java 스토리지 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
-author: twooley
+author: normesta
 ms.custom: devx-track-java
-ms.author: twooley
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3a6a68a150bd474f40ffb1610ed7a310e4f30de9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 0d5a6c98e990bdc87fbe3dcb26cfe4710b3af099
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276640"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588659"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>v12 Java 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -111,6 +111,7 @@ ms.locfileid: "106276640"
 :::row-end:::
 
 ### <a name="troubleshooting"></a>문제 해결
+
 :::row:::
    :::column span="2":::
       [컨테이너 클라이언트를 사용하여 복구 가능한 오류 트리거](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
@@ -120,6 +121,7 @@ ms.locfileid: "106276640"
 ## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2 샘플
 
 ### <a name="data-lake-service"></a>Data Lake 서비스
+
 :::row:::
    :::column span="":::
       [Data Lake 서비스 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
@@ -130,6 +132,7 @@ ms.locfileid: "106276640"
 :::row-end:::
 
 ### <a name="file-system"></a>파일 시스템
+
 :::row:::
    :::column span="":::
       [파일 시스템 만들기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
@@ -210,7 +213,6 @@ ms.locfileid: "106276640"
       [파일에 대한 액세스 제어 가져오기](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
-
 
 ## <a name="azure-file-samples"></a>Azure File 샘플
 
@@ -324,7 +326,6 @@ ms.locfileid: "106276640"
    :::column-end:::
 :::row-end:::
 
-
 ## <a name="queue-samples"></a>큐 샘플
 
 ### <a name="authentication"></a>인증
@@ -430,10 +431,10 @@ ms.locfileid: "106276640"
 
 전체 Java 샘플 라이브러리를 보려면 다음으로 이동하세요.
 
-* [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
-* [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
-* [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
-* [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+- [Azure 큐 코드 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 
@@ -441,17 +442,17 @@ ms.locfileid: "106276640"
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
-* [Java에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-java.md)
-* [Java에서 Azure Queue Service 시작](../queues/storage-quickstart-queues-java.md)
-* [Java에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Java에서 Azure File Service 시작](../files/storage-java-how-to-use-file-storage.md)
+- [Java에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-java.md)
+- [Java에서 Azure Queue Service 시작](../queues/storage-quickstart-queues-java.md)
+- [Java에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-java.md)
+- [Java에서 Azure File Service 시작](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
-* Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
-* JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
-* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
-* 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)
+- .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+- Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+- JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+- C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
+- 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

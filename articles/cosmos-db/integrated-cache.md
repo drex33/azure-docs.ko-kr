@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ebf9eb5e06b98bdd573d91f0a57daeb9d81b1f50
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616558"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230573"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Azure Cosmos DB 통합 캐시 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,11 +90,11 @@ Azure Cosmos DB 통합 캐시는 요청 볼륨이 증가할 때 비용을 관리
 
 통합 캐시는 세션 및 최종 [일관성만 지원합니다.](consistency-levels.md) 읽기에 일관된 접두사, 제한된 부실 또는 강력한 일관성이 있는 경우 항상 통합 캐시를 무시합니다.
 
-모든 읽기에 대한 세션 또는 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정하는 것입니다.](consistency-levels.md#configure-the-default-consistency-level) 그러나 일부 읽기만 최종 일관성을 유지하려면 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다.
+모든 읽기에 대한 세션 또는 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정하는 것입니다.](consistency-levels.md#configure-the-default-consistency-level) 그러나 일부 읽기만 특정 일관성을 갖도록 하려면 [요청 수준에서](how-to-manage-consistency.md#override-the-default-consistency-level)일관성을 구성할 수도 있습니다.
 
 ### <a name="session-consistency"></a>세션 일관성
 
-[세션 일관성은](consistency-levels.md#session-consistency) 단일 지역뿐만 아니라 전역적으로 분산된 Azure Cosmos DB 계정에 대해 가장 널리 사용되는 일관성 수준입니다. 세션 일관성을 사용하는 경우 단일 클라이언트 세션에서 자체 쓰기를 읽을 수 있습니다. 통합 캐시를 사용하는 경우 쓰기를 수행하는 세션 외부의 클라이언트에는 최종 일관성이 표시됩니다.
+[세션 일관성은](consistency-levels.md#session-consistency) 전역적으로 분산된 Azure Cosmos DB 계정뿐만 아니라 단일 지역 모두에서 가장 널리 사용되는 일관성 수준입니다. 세션 일관성을 사용하는 경우 단일 클라이언트 세션에서 자체 쓰기를 읽을 수 있습니다. 통합 캐시를 사용하는 경우 쓰기를 수행하는 세션 외부의 클라이언트는 최종 일관성을 볼 수 있습니다.
 
 ## <a name="maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness
 
@@ -139,8 +139,8 @@ Azure Cosmos DB 통합 캐시는 요청 볼륨이 증가할 때 비용을 관리
 - `IntegratedCacheEvictedEntriesSize` – 전용 게이트웨이 노드에서 LRU로 인해 통합 캐시에서 제거된 평균 데이터 양입니다. 이 값에는 `MaxIntegratedCacheStaleness` 시간 초과로 인해 만료된 데이터가 포함되지 않습니다.
 - `IntegratedCacheItemExpirationCount` - 캐시된 지점 읽기의 `MaxIntegratedCacheStaleness` 시간 초과로 인해 통합 캐시에서 제거되는 항목 수입니다. 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
 - `IntegratedCacheQueryExpirationCount` - 캐시된 쿼리의 `MaxIntegratedCacheStaleness` 시간 초과로 인해 통합 캐시에서 제거되는 쿼리 수입니다. 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
-- `IntegratedCacheItemHitRate` - 통합 캐시를 사용한 지점 읽기의 비율입니다(최종 일관성을 적용하여 전용 게이트웨이를 통해 라우팅된 모든 지점 읽기 중에서). 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
-- `IntegratedCacheQueryHitRate` - 통합 캐시를 사용한 쿼리의 비율입니다(최종 일관성을 적용하여 전용 게이트웨이를 통해 라우팅된 모든 쿼리 중에서). 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
+- `IntegratedCacheItemHitRate` – 통합 캐시를 사용한 지점 읽기의 비율입니다(세션 또는 최종 일관성을 사용하여 전용 게이트웨이를 통해 라우팅된 모든 지점 읽기 중). 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
+- `IntegratedCacheQueryHitRate` – 통합 캐시를 사용한 쿼리의 비율입니다(세션 또는 최종 일관성을 사용하여 전용 게이트웨이를 통해 라우팅된 모든 쿼리 중에서). 이 값은 모든 전용 게이트웨이 노드에서 통합 캐시 인스턴스의 평균입니다.
 
 모든 기존 메트릭은 기본적으로 메트릭 클래식이 아닌 **메트릭 블레이드** 에서 사용할 수 있습니다.
 

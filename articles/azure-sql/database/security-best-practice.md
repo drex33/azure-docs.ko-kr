@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 2a0a104b4ad76c94d467c01fe8be421e5b96c435
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: da47d07b804dfee46299ef75e81261171880ea76
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541665"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232074"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 일반적인 보안 요구 사항을 해결하는 방법에 대한 플레이북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -160,7 +160,7 @@ Azure AD Multi-Factor Authentication은 두 가지 이상의 인증 형태를 �
 
 **모범 사례**:
 
-- Windows 자격 증명을 사용하는 Single Sign-On 인증을 사용합니다. 온-프레미스 AD 도메인을 Azure AD와 페더레이션하고 통합 Windows 인증(Azure AD를 사용하여 도메인에 조인된 머신의 경우)을 사용합니다.
+- Windows 자격 증명을 사용하는 Single Sign-On 인증을 사용합니다. 온-프레미스 AD 도메인을 Azure AD와 페더레이션 하 고 Windows 통합 인증 (Azure AD에서 도메인에 가입 된 컴퓨터의 경우)을 사용 합니다.
   - [SSMS의 Azure AD 통합 인증 지원](authentication-aad-configure.md#active-directory-integrated-authentication) 문서를 참조하세요.
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-applications"></a>애플리케이션에 대한 암호 기반 인증 사용 최소화
@@ -647,7 +647,7 @@ Advanced Threat Protection을 사용하면 비정상적인 활동에 대한 보�
 
 **모범 사례**:
 
-- 특정 서버 또는 관리형 인스턴스에 대해 [Azure Defender for SQL](azure-defender-for-sql.md)을 구성합니다. Azure Defender 을 사용하도록 설정하여 구독의 모든 서버 및 관리되는 인스턴스에 대해 [SQL Azure Defender](../../security-center/security-center-pricing.md)구성할 수도 있습니다.
+- 특정 서버 또는 관리형 인스턴스에 대해 [Azure Defender for SQL](azure-defender-for-sql.md)을 구성합니다. [azure defender](../../security-center/security-center-pricing.md)를 사용 하도록 설정 하 여 구독에 있는 모든 서버 및 관리 되는 인스턴스에 대해 SQL에 대해 azure defender를 구성할 수도 있습니다.
 
 - 전체 조사 환경에는  [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 사용하도록 설정하는 것이 좋습니다. 감사를 사용하면 데이터베이스 이벤트를 추적하고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역의 감사 로그에 기록할 수 있습니다.
 

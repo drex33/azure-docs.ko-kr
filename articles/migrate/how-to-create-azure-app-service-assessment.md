@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 07/28/2021
-ms.openlocfilehash: 39dfd96a92dcce152a6a8ff5afdd1c18b2f1d754
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ffaeaa383ee3d21bfe5a1798c440e1bccc039448
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787013"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810434"
 ---
 # <a name="create-an-azure-app-service-assessment"></a>Azure App Service 평가 만들기
 
@@ -88,7 +88,7 @@ Azure App Service 평가에 대해 [자세히 알아보세요](concepts-azure-we
 
 #### <a name="azure-app-service-cost-details"></a>Azure App Service 비용 세부 정보
 
-[App Service 요금제](/azure/app-service/overview-hosting-plans)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다.
+[App Service 요금제](../app-service/overview-hosting-plans.md)는 사용하는 컴퓨팅 리소스에 대해 [요금](https://azure.microsoft.com/pricing/details/app-service/windows/)을 부과합니다.
 
 ### <a name="review-readiness"></a>준비 상태 검토
 

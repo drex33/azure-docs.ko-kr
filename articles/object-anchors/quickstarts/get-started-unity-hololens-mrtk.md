@@ -5,15 +5,15 @@ author: craigktreasure
 manager: virivera
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: b047c293a14dcfde5c8de2f56fb5c2abeab61c69
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 987c8933040b71c8053728f64da2964e02ac6fa3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254366"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607314"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity-with-mrtk"></a>빠른 시작: MRTK를 사용하는 Unity에서 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -57,11 +57,11 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 
  Unity 시작 화면 후에 흰색 경계 상자가 표시됩니다. 손을 사용하여 경계 상자를 이동, 크기 조정 또는 회전할 수 있습니다. 검색하려는 개체를 포함하도록 상자를 배치합니다.
 
-<a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">손 메뉴</a>를 열고 **검색 영역 잠금** 을 선택하여 경계 상자가 더 이상 움직이지 않도록 합니다. 개체 검색을 시작하려면 **검색 시작** 을 선택합니다. 개체가 검색되면 개체에서 메시가 렌더링됩니다. 검색된 인스턴스의 세부 정보가 화면에 표시됩니다(예: 업데이트된 타임스탬프 및 표면 적용 비율). 추적을 중지하기 위해 **검색 중지** 를 선택하면 검색된 모든 인스턴스가 제거됩니다.
+<a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">손 메뉴</a>를 열고 **검색 영역 잠금** 을 선택하여 경계 상자가 더 이상 움직이지 않도록 합니다. 개체 검색을 시작하려면 **검색 시작** 을 선택합니다. 개체가 검색되면 개체에서 메시가 렌더링됩니다. 검색된 인스턴스의 세부 정보가 화면에 표시됩니다(예: 업데이트된 타임스탬프 및 표면 적용 비율). 추적을 중지하기 위해 **검색 중지** 를 선택하면 검색된 모든 인스턴스가 제거됩니다.
 
 #### <a name="the-app-menus"></a>앱 메뉴
 
-<a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">손 메뉴</a>를 사용하여 다른 작업을 수행할 수도 있습니다.
+<a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">손 메뉴</a>를 사용하여 다른 작업을 수행할 수도 있습니다.
 
 ##### <a name="primary-menu"></a>주 메뉴
 
@@ -70,7 +70,7 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 * **추적기 설정** – 추적기 설정 메뉴 활성화를 토글합니다.
 * **검색 영역 설정** – 검색 영역 설정 메뉴 활성화를 토글합니다.
 * **추적 시작** – 진단 데이터를 캡처하여 디바이스에 저장합니다. 자세한 내용은 **디버그 검색 문제 및 캡처 진단** 섹션을 참조하세요.
-* **추적 업로드** – 진단 데이터를 Object Anchors 서비스에 업로드합니다.    
+* **추적 업로드** – 진단 데이터를 Object Anchors 서비스에 업로드합니다.
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity 기본 손 메뉴":::
 
@@ -106,3 +106,6 @@ Unity에서 `quickstarts/apps/unity/mrtk` 프로젝트를 엽니다.
 
 > [!div class="nextstepaction"]
 > [변환 SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [개체 검색 문제 해결](../troubleshoot/object-detection.md)

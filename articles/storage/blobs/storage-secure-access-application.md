@@ -11,23 +11,23 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 607f7921b62540d26b1354c21f3352f5b5b943f4
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: bc2150f63e0392f94c17f90ab41f80de91336c7b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376651"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620163"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
-이 자습서는 시리즈의 3부입니다. 스토리지 계정에 대한 액세스를 보호하는 방법을 배웁니다. 
+이 자습서는 시리즈의 3부입니다. 스토리지 계정에 대한 액세스를 보호하는 방법을 배웁니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * SAS 토큰을 사용하여 썸네일 이미지에 액세스
-> * 서버 쪽 암호화 켜기
-> * HTTPS 전용 전송 사용
+> - SAS 토큰을 사용하여 썸네일 이미지에 액세스
+> - 서버 쪽 암호화 켜기
+> - HTTPS 전용 전송 사용
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 스토리지 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
@@ -55,7 +55,7 @@ Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStor
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --account-name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv)
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -190,9 +190,9 @@ HTTP/1.1 400 The account being accessed does not support http.
 시리즈의 3부에서는 다음 방법을 비롯하여 스토리지 계정에 대한 액세스를 보호하는 방법을 배웠습니다.
 
 > [!div class="checklist"]
-> * SAS 토큰을 사용하여 썸네일 이미지에 액세스
-> * 서버 쪽 암호화 켜기
-> * HTTPS 전용 전송 사용
+> - SAS 토큰을 사용하여 썸네일 이미지에 액세스
+> - 서버 쪽 암호화 켜기
+> - HTTPS 전용 전송 사용
 
 시리즈의 4부를 계속 진행하면서 클라우드 스토리지 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
 

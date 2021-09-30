@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: f10c1f70026b905521193a0dd511ba1e65de6849
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452562"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274029"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -30,9 +30,6 @@ Automation 계정을 만들 때 Azure Automation은 기본적으로 일부 모�
 
 Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실행할 수 있고 DSC 구성을 컴파일할 수 있는 샌드박스에 모듈을 로드합니다. 또한 Automation은 DSC 끌어오기 서버에 있는 모듈에 모든 DSC 리소스를 자동으로 배치합니다. 머신은 DSC 구성을 적용할 때 리소스를 끌어올 수 있습니다.
 
->[!NOTE]
->Runbook 및 DSC 구성에 필요한 모듈만 가져와야 합니다. 루트 Az 모듈은 가져오지 않는 것이 좋습니다. 여기에는 필요하지 않은 많은 다른 모듈이 포함되어 성능 문제가 발생할 수 있습니다. 대신 Az.Compute와 같은 개별 모듈을 가져옵니다.
-
 클라우드 샌드박스는 최대 48개의 시스템 호출을 지원하고 다른 모든 호출은 보안상의 이유로 제한합니다. 자격 증명 관리 및 일부 네트워킹 등의 기타 기능은 클라우드 샌드박스에서 지원되지 않습니다.
 
 포함된 모듈 및 cmdlet의 수로 인해 지원되지 않는 호출을 만드는 cmdlet을 미리 파악하기가 어렵습니다. 일반적으로 권한이 상승된 액세스를 필요로 하거나 매개 변수로 자격 증명이 필요하거나 네트워킹과 관련된 cmdlet에 대한 문제가 있었습니다. AIPService PowerShell 모듈의 [Connect-AipService](/powershell/module/aipservice/connect-aipservice) 및 DNSClient 모듈의 [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname)을 포함하여 완전한 스택 네트워크 작업을 수행하는 모든 cmdlet은 샌드박스에서 지원되지 않습니다.
@@ -44,19 +41,28 @@ Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실�
 
 ## <a name="default-modules"></a>기본 모듈
 
-다음 표에서는 Automation 계정을 만들 때 기본적으로 Azure Automation에서 가져오는 모듈을 나열합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다. 참고로 이러한 기본 모듈에는 여러 AzureRM 모듈이 포함됩니다.
+모든 새 Automation 계정에는 기본적으로 가져온 최신 버전의 PowerShell Az module이 있습니다. Az module은 AzureRM를 대체 하며 Azure에서 사용 하기에 권장 되는 모듈입니다. 새 Automation 계정의 **기본 모듈** 에는 기존 24 개의 AzureRM 모듈과 60 + Az 모듈이 포함 되어 있습니다.
 
-기본 모듈은 전역 모듈이라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **True** 가 됩니다.
+Automation 계정에 대 한 사용자가 모듈을 최신 Az module으로 업데이트 하는 기본 옵션이 있습니다. 작업은 백 엔드에서 모든 모듈 종속성을 처리 하 여 모듈을 [수동으로](../automation-update-azure-modules.md#update-az-modules) 업데이트 하거나 runbook을 실행 하 여 [Azure 모듈을 업데이트](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates)하는 번거로운 작업을 제거 합니다.  
+
+기존 Automation 계정에 AzureRM 모듈만 있으면 [업데이트 az modules](../automation-update-azure-modules.md#update-az-modules) 옵션은 사용자가 선택한 az module 버전으로 Automation 계정을 업데이트 합니다.  
+
+기존 Automation 계정에 AzureRM 및 일부 Az 모듈이 있는 경우이 옵션을 선택 하면 나머지 Az 모듈이 Automation 계정으로 가져옵니다. 기존 Az 모듈이 우선적으로 적용 되며 업데이트 작업에서 해당 모듈을 업데이트 하지 않습니다. 이는 모듈 업데이트 작업으로 인해 runbook에서 사용 되는 모듈을 실수로 업데이트 하 여 runbook 실행 실패가 발생 하지 않도록 하기 위한 것입니다. 이 시나리오에서 권장 되는 방법은 먼저 기존 Az 모듈을 삭제 한 다음 업데이트 작업을 수행 하 여 Automation 계정에서 가져온 최신 Az module을 가져오는 것입니다. 이러한 모듈 유형은 기본적으로 가져오지 않고 **사용자 지정** 이라고 합니다.  **사용자 지정** 모듈은 항상 **기본** 모듈 보다 우선적으로 적용 됩니다.  
+
+예를 들어 `Az.Aks` az module 6.3.0에서 제공 하는 버전 2.3.0를 사용 하 여 모듈을 이미 가져온 경우 az module을 최신 v6.4.0 버전으로 업데이트 하려고 합니다. 업데이트 작업은를 제외 하 고 v6.4.0 패키지에서 모든 Az 모듈을 가져옵니다 `Az.Aks` . 최신 버전을 만들려면 `Az.Aks` 먼저 기존 모듈을 삭제 한 다음 업데이트 작업을 수행 하거나, [가져오기 Az](#import-az-modules) module에 설명 된 대로이 모듈을 별도로 업데이트 하 여 특정 모듈의 다른 버전을 가져올 수도 있습니다.  
+
+다음 표에서는 Automation 계정을 만들 때 기본적으로 가져오기를 Azure Automation 하는 모듈을 나열 합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다.
+
+기본 모듈은 전역 모듈이라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **true** 가 됩니다.
 
 ![Azure Portal에서 전역 모듈 속성의 스크린샷](../media/modules/automation-global-modules.png)
-
-Automation은 루트 Az 모듈을 신규 또는 기존 Automation 계정으로 자동으로 가져오지 않습니다. 이러한 모듈을 사용하는 방법에 대한 자세한 내용은 [Az 모듈로 마이그레이션](#migrate-to-az-modules)을 참조하세요.
 
 > [!NOTE]
 > [작업 시간 외 VM 시작/중지](../automation-solution-vm-management.md) 기능을 배포하는 데 사용되는 Automation 계정에서는 모듈 및 Runbook을 변경하지 않는 것이 좋습니다.
 
 |모듈 이름|버전|
 |---|---|
+|Az. * | 자세한 내용은 **패키지 세부 정보** 에서 전체 목록을 참조 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az)|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
@@ -81,10 +87,6 @@ Automation은 루트 Az 모듈을 신규 또는 기존 Automation 계정으로 �
 | xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
-
-## <a name="az-modules"></a>Az 모듈
-
-Az.Automation의 경우 `AzureRM` 접두사가 `Az`로 변경된 경우를 제외하고 대부분의 cmdlet은 AzureRM 모듈에 사용되는 것과 동일한 이름을 갖습니다. 이 명명 규칙을 따르지 않는 Az 모듈 목록은 [예외 목록](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters)을 참조하세요.
 
 ## <a name="internal-cmdlets"></a>내부 cmdlet
 
@@ -122,8 +124,8 @@ Azure Automation에서는 cmdlet을 사용할 수 있도록 사용자 지정 모
 
 Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에서 실행하는 것은 좋지 않습니다. AzureRM에서 Az로 마이그레이션하려는 경우 전체 마이그레이션에 완전히 커밋하는 것이 가장 좋습니다. Automation은 종종 Automation 계정 내에서 샌드박스를 재사용하여 시작 시간에 저장합니다. 전체 모듈 마이그레이션을 수행하지 않는 경우 AzureRM 모듈만 사용하는 작업을 시작한 다음, Az 모듈만 사용하는 다른 작업을 시작하는 경우가 있습니다. 그러면 샌드박스가 곧 충돌하고 모듈이 호환되지 않는다는 오류 메시지가 표시됩니다. 이 경우 특정 Runbook 또는 구성에 대해 무작위 충돌이 발생합니다.
 
->[!NOTE]
->새 Automation 계정을 만들 때 Az 모듈로 마이그레이션한 후에라도 Automation은 기본적으로 AzureRM 모듈을 설치합니다. AzureRM cmdlet을 사용하여 자습서 Runbook을 계속 업데이트할 수 있습니다. 그러나 이러한 Runbook은 실행해서는 안 됩니다.
+> [!NOTE]
+> 새 Automation 계정을 만들 때 Az modules로 마이그레이션한 후에도 Automation은 기본적으로 AzureRM 모듈을 계속 설치 합니다.
 
 ### <a name="test-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>모듈 마이그레이션 전에 Runbook 및 DSC 구성 테스트
 
@@ -148,7 +150,7 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 * Runbook에서 [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) 문을 사용하여 모듈을 명시적으로 가져오는 경우. using 문은 Windows PowerShell 5.0부터 지원되며 클래스 및 열거형 형식 가져오기를 지원합니다.
 * Runbook이 다른 종속 모듈을 가져오는 경우
 
-Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. 사용 가능한 모든 Az 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
+Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
 
 1. Azure [Portal](https://portal.azure.com)에 로그인합니다.
 1. **Automation 계정** 을 검색하여 선택합니다.

@@ -1,19 +1,20 @@
 ---
-title: 블록 Blob Storage 성능 계층 — Azure 스토리지
+title: 블록 Blob Storage 성능 계층
+titleSuffix: Azure Storage
 description: Azure 블록 Blob Storage에 대한 프리미엄 및 표준 성능 계층 간의 차이를 설명합니다.
 author: normesta
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 222a0f3c327c476ef372117ff0734b6739faf9db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1e0ac8784a8a4e5077d600b2582bc7ce3e7d981b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588697"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279187"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
@@ -53,7 +54,7 @@ Azure 블록 Blob 스토리지는 다음과 같이 두 가지 성능 계층을 �
 
 ## <a name="standard-performance"></a>표준 성능
 
-표준 성능은 가장 비용이 효율적인 방식으로 데이터를 저장하기 위해 다양한 [액세스 계층](storage-blob-storage-tiers.md)을 지원합니다. 대용량 데이터 집합에 대한 높은 용량과 처리량에 최적화되어 있습니다.
+표준 성능은 가장 비용이 효율적인 방식으로 데이터를 저장하기 위해 다양한 [액세스 계층](access-tiers-overview.md)을 지원합니다. 대용량 데이터 집합에 대한 높은 용량과 처리량에 최적화되어 있습니다.
 
 - **백업 및 재해 복구 데이터 세트** 표준 성능 스토리지는 비용 효율적인 계층을 제공하므로 단기 및 장기 재해 복구 데이터 집합, 보조 백업 및 규정 준수 데이터 보관에 대한 완벽한 사용 사례를 제공합니다.
 

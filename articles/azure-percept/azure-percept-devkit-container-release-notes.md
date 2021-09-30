@@ -6,12 +6,12 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: adfde8ee9ef73afdbbb175fd5ecbfc476e019a08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b4e67197e5d43e929ca01c8c81e297e134edf47
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634303"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271615"
 ---
 # <a name="azure-percept-dk-container-release-notes"></a>Azure Percept DK 컨테이너 릴리스 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "128634303"
 
 ## <a name="august-2108-release"></a>8월(2108) 릴리스
 
-- Azureyemodule
+- Azureyemodule(mcr.microsoft.com/azureedgedevices/azureeyemodule:2108-1)
     - 고사용성X 카메라 펌웨어 업데이트에 대한 Intel 최신(5월) 드롭으로 업데이트되었습니다. 
     - UVC(USB 비디오 클래스) 카메라를 입력 원본으로 사용하도록 설정했습니다. UVC 카메라를 입력 원본으로 사용하는 방법은 [고급 개발 github를](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule#using-uvcusb-video-class-camera-as-input-source) 참조합니다. 
     - H.264 원시 RTSP 스트림을 사용할 때 모듈 충돌이 수정되었습니다.

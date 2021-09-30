@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 37b876b177b7879c57255619d3f5e7e113a2a284
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771847"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278070"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
@@ -29,8 +29,8 @@ ms.locfileid: "122771847"
 - 또한 스케일 업하거나 스케일 아웃할 때 App Service는 새 인스턴스가 준비되도록 Health check 경로를 ping합니다.
 
 > [!NOTE]
-> 상태 검사는 302 리디렉션을 따르지 않습니다. 시간당 최대 하나의 인스턴스만 교체되며, App Service 계획 당 최대 3개의 인스턴스가 있습니다.
->
+>- 상태 검사는 302 리디렉션을 따르지 않습니다. 시간당 최대 하나의 인스턴스만 교체되며, App Service 계획 당 최대 3개의 인스턴스가 있습니다.
+>- 상태 검사가 상태를 제공하는 경우 `Waiting for health check response` HTTP 상태 코드 307로 인해 검사가 실패할 수 있습니다. HTTPS 리디렉션을 사용하도록 설정했지만 사용하지 않도록 설정한 경우 발생할 수 `HTTPS Only` 있습니다.
 
 ## <a name="enable-health-check"></a>상태 검사 사용하도록 설정
 

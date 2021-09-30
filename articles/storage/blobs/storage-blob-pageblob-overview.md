@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36d36101cc7a7a4efff66e680f47431933ddf569
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 58509ca09bc17911d4a1a16955f97396c082e7de
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630834"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273120"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -27,7 +27,7 @@ Azure 페이지 Blob의 주요 기능은 해당 REST 인터페이스, 기본 스
 
 ## <a name="restrictions"></a>제한
 
-페이지 blob은 **핫** 액세스 계층만 사용할 수 있으며 **쿨** 또는 **보관** 계층을 사용할 수 없습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)을 참조하세요.
+페이지 blob은 **핫** 액세스 계층만 사용할 수 있으며 **쿨** 또는 **보관** 계층을 사용할 수 없습니다. 액세스 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e5e9caea0ff8514c633f20f7baa7c501f0ac379d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010965"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276343"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal을 사용하여 디바이스 등록을 관리하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "96010965"
     다음 단계를 사용하여 포털에서 디바이스 그룹에 대한 등록 그룹을 만들 수 있습니다.
 
     1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스** 를 클릭합니다.  
-    1. 리소스의 목록 간에 디바이스를 등록하려는 디바이스 프로비전 서비스를 클릭합니다.  
+    1. 리소스 목록에서 디바이스를 등록하려는 Device Provisioning Service를 클릭합니다.  
     1. 프로비전 서비스에서 **등록 관리** 를 클릭한 다음 위쪽에서 **등록 그룹 추가** 단추를 클릭합니다.  
      
         ![포털에서 등록 그룹](./media/how-to-manage-enrollments/add-group-enrollment.png)
@@ -55,7 +55,7 @@ ms.locfileid: "96010965"
     다음 단계를 사용하여 포털에서 개별 등록을 만들 수 있습니다.
 
     1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스** 를 클릭합니다.
-    1. 리소스의 목록 간에 디바이스를 등록하려는 디바이스 프로비전 서비스를 클릭합니다.
+    1. 리소스 목록에서 디바이스를 등록하려는 Device Provisioning Service를 클릭합니다.
     1. 프로비전 서비스에서 **등록 관리** 를 클릭한 다음 위쪽에서 **개별 등록 추가** 단추를 클릭합니다.   
 
        [![포털의 개별 등록 추가](./media/how-to-manage-enrollments/add-individual-enrollment.png)](./media/how-to-manage-enrollments/add-individual-enrollment.png#lightbox)
@@ -67,7 +67,7 @@ ms.locfileid: "96010965"
         | 필드 | 설명 |
         | :--- | :--- |
         | **메커니즘** | 디바이스에서 사용할 증명 방법에 따라 증명 메커니즘에 대한 **X.509**, **TPM**, **대칭 키** 를 클릭합니다. |
-        | 증명 설정 | 대칭 키 또는 X.509 클라이언트 인증서를 사용하여 개별 등록을 만들고 사용하는 방법에 대한 단계별 지침은 [대칭 디바이스 프로비전](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) 또는 [X.509 인증서 디바이스 프로비전](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) 빠른 시작 중 하나를 참조하세요.<br><br>TPM 증명을 사용하여 개별 등록을 만들고 사용하는 방법에 대한 단계별 지침은 [시뮬레이션된 TPM 디바이스 프로비전](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) 샘플 중 하나를 참조하세요.|
+        | 증명 설정 | 대칭 키 또는 X.509 인증서를 사용하여 개별 등록을 만들고 사용하는 방법에 대한 단계별 지침은 [빠른 시작:시뮬레이션된 대칭 키 디바이스 프로비전](quick-create-simulated-device-symm-key.md#create-a-device-enrollment) 또는 [빠른 시작:X.509 인증서 디바이스 프로비저닝을 참조하세요.](quick-create-simulated-device-x509.md#create-a-device-enrollment)<br><br>TPM 증명을 사용하여 개별 등록을 만들고 사용하는 방법에 대한 단계별 지침은 [시뮬레이션된 TPM 디바이스 프로비전](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) 샘플 중 하나를 참조하세요.|
         | **IoT Hub 디바이스 ID** |  이 ID는 디바이스를 나타냅니다. 따라서 디바이스 ID에 대한 규칙을 따라야 합니다. 자세한 내용은 [디바이스 ID 속성](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)을 참조하세요.<br><br>X.509 클라이언트 인증서를 사용하는 경우, 이 텍스트는 등록을 위해 업로드하는 디바이스 인증서의 주체 이름이어야 합니다. 해당 주체 이름은 디바이스 ID에 대한 규칙을 따라야 합니다.|
             
 
@@ -75,7 +75,7 @@ ms.locfileid: "96010965"
 ## <a name="update-an-enrollment-entry"></a>등록 항목 업데이트
 다음 단계를 사용하여 포털에서 기존 등록 항목을 업데이트할 수 있습니다.
 
-1. Azure Portal에서 디바이스 프로비전 서비스를 열고 **관리 등록** 을 클릭합니다. 
+1. Azure Portal Device Provisioning Service를 열고 등록 **관리를 클릭합니다.** 
 1. 수정하려는 등록 항목으로 이동합니다. 디바이스 등록에 대한 요약 정보를 열 수 있는 항목을 클릭합니다. 
 1. 이 페이지에서는 디바이스 ID뿐만 아니라 디바이스가 연결되어야 하는 IoT Hub와 같은 보안 형식 및 자격 증명 이외의 항목을 수정할 수 있습니다. 또한 초기 디바이스 쌍 상태를 수정할 수 있습니다. 
 1. 완료되면 **저장** 을 클릭하여 디바이스 등록을 업데이트합니다. 
@@ -85,7 +85,7 @@ ms.locfileid: "96010965"
 ## <a name="remove-a-device-enrollment"></a>디바이스 등록 제거
 디바이스가 IoT Hub에 사용자를 프로비전할 필요가 없는 경우 다음 단계를 사용하여 포털에서 관련된 등록 항목을 제거할 수 있습니다.
 
-1. Azure Portal에서 디바이스 프로비전 서비스를 열고 **관리 등록** 을 클릭합니다. 
+1. Azure Portal Device Provisioning Service를 열고 등록 **관리를 클릭합니다.** 
 1. 제거하려는 등록 항목으로 이동하여 선택합니다. 
 1. 맨 위에 있는 **삭제** 를 클릭한 후 확인하라는 메시지가 나타나면 **예** 를 선택합니다. 
 1. 작업이 완료되면 디바이스 등록의 목록에서 제거된 항목이 표시됩니다. 

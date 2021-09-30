@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1b9b0a86b86ae1e2253da2349bb9e1c3523f5798
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: d497a94173d056633803362239ef3dff07797144
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537382"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278239"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -89,7 +89,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 시작하려면 [Azure CLI에 대한 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)을 사용하여 SharedAccessSignature를 만듭니다.
 
 ```bash
-az iot hub generate-sas-token -n <iothubName> -du <duration>
+az iot hub generate-sas-token -n <iothubName> --du <duration>
 ```
 
 그런 다음 인증 헤더를 새로 생성된 SharedAccessSignature로 바꾸고, `iothubName`, `deviceId`, `methodName` 및 `payload` 매개 변수를 아래 예제 `curl` 명령의 구현과 일치하도록 수정합니다.  

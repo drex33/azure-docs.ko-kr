@@ -10,12 +10,12 @@ ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3ce2f92f88e24eb634222db5ffab45acaf1a5820
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06239708293be94f13c62cab7004c7a57d00eea1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577995"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275509"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행
 
@@ -303,7 +303,7 @@ Event Grid에서 이벤트를 필터링하는 방법에 관한 자세한 내용�
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관](storage-blob-storage-tiers.md)
+- [Blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
 - [보관 계층의 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)
 - [보관된 Blob을 온라인 계층으로 리하이드레이션](archive-rehydrate-to-online-tier.md)
 - [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)

@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 186fa5fe490541ce465eca37cf21a6a63923e2ee
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
-ms.translationtype: HT
+ms.openlocfilehash: 986bc72d135cbbfceeb4b7e60556673a8dd8edbc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321885"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275851"
 ---
 # <a name="add-scoring-profiles-to-a-search-index"></a>검색 인덱스에 점수 매기기 프로필 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "112321885"
 
 ## <a name="what-is-a-scoring-profile"></a>점수 매기기 프로필이란?
 
-점수 매기기 프로필은 가중 필드, 함수 및 매개 변수로 구성된 인덱스 정의의 일부입니다. 점수 매기기 프로필의 목적은 사용자가 제공하는 기준에 따라 일치하는 문서의 점수를 높이거나 강화하는 것입니다. 
+점수 매기기 프로필은 인덱스 정의의 일부이며 가중 필드, 함수 및 매개 변수로 구성됩니다. 점수 매기기 프로필의 목적은 사용자가 제공하는 기준에 따라 일치하는 문서를 향상시키거나 강화하는 것입니다. 
 
 다음 정의는 'geo'라는 간단한 프로필을 보여줍니다. 이 프로필은 hotelName 필드에 검색 용어가 포함된 항목의 점수를 높입니다. 또한 `distance` 함수를 사용하여 현재 위치에서 10km 이내에 있는 결과의 점수를 높입니다. ‘inn’이라는 용어를 검색하는 경우 ‘inn’이 호텔 이름의 일부분이라면 현재 위치의 10KM 반경 내에서 이름에 ‘inn’이 포함된 호텔을 포함하는 문서가 검색 결과에서 더 높은 순위로 표시됩니다.  
 
@@ -75,7 +75,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 
 ## <a name="how-scores-are-computed"></a>점수를 계산하는 방법
 
-점수는 전체 텍스트 검색 쿼리에 대해 계산되며, 가장 관련성이 많은 일치 항목의 순위를 지정하여 응답의 맨 위에 반환하는 것이 목적입니다. 각 문서의 전체 점수는 각 필드의 개별 점수를 집계한 것입니다. 여기서 각 필드의 개별 점수는 해당 필드 내에서 검색된 용어 빈도 및 문서 빈도([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)(term frequency-inverse document frequency)라고도 함)를 기준으로 계산됩니다. 
+점수는 가장 관련성이 큰 일치 항목의 순위를 정하고 응답 맨 위에 반환하기 위해 전체 텍스트 검색 쿼리에 대해 계산됩니다. 각 문서의 전체 점수는 각 필드의 개별 점수를 집계한 것입니다. 여기서 각 필드의 개별 점수는 해당 필드 내에서 검색된 용어 빈도 및 문서 빈도([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)(term frequency-inverse document frequency)라고도 함)를 기준으로 계산됩니다. 
 
 > [!Tip]
 > [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) 매개 변수를 사용하여 검색 결과(필드 수준 점수 포함)와 함께 추가 채점 세부 정보를 요청할 수 있습니다.
@@ -276,7 +276,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 
 ## <a name="property-reference"></a>속성 참조
 
-|attribute|설명|  
+|attribute|Description|  
 |---------------|-----------------|  
 | name | 필수 요소. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 azureSearch 구(대/소문자 구분)로 시작할 수 없습니다.|  
 | text | 가중치 속성을 포함합니다.|  

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4d58bfc14e4b61860d239cc3dcfd0ad276aec781
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945852"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273517"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -40,7 +40,7 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure Storage 서비스 중에�
 
 Azure Storage 계정 형식에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
-Azure Storage 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층](../storage/blobs/storage-blob-storage-tiers.md)을 참조하세요.
+Azure Storage 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층](../storage/blobs/access-tiers-overview.md)을 참조하세요.
 
 기본 및 선택적 보조 스토리지에 대한 서비스 조합을 사용하여 클러스터를 만들 수 있습니다. 다음 표는 HDInsight에서 현재 지원되는 클러스터 스토리지 구성을 간략히 설명합니다.
 

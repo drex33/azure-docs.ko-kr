@@ -8,12 +8,12 @@ ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 334ae28c160a01032d5403e06f40846e8b9d9ed5
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
-ms.translationtype: HT
+ms.openlocfilehash: e55a9d0bb21a3eded7454f74787f8be9f2f02ece
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839188"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273631"
 ---
 # <a name="backup-to-azure-with-veeam"></a>Veeam을 사용하여 Azure에 백업
 
@@ -81,7 +81,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 - 기존 Azure ExpressRoute 고객인 경우 Azure Portal에서 [회로 사용량](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics)을 확인합니다.
 - ISP에 문의합니다. 기존 일별 및 월별 사용률을 표시하는 보고서를 공유할 수 있어야 합니다.
-- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 추가 설정은 다음과 같습니다.
+- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 여기에는 다음이 포함됩니다.
 
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
@@ -90,7 +90,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 ### <a name="choose-the-right-storage-options"></a>적절한 스토리지 옵션 선택
 
-Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md)를 사용하게 됩니다. Blob Storage는 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 임의 데이터 모델이나 정의를 따르지 않는 비정형 데이터를 대량으로 저장하는 데 최적화되었습니다. 또한 Azure Storage는 내구성이 있고, 가용성이 높으며 안전하고 스케일링 가능합니다. 워크로드에 적합한 스토리지를 선택하여 내부 SLA를 충족하는 [복원력 수준](../../../../common/storage-redundancy.md)을 제공할 수 있습니다. Blob Storage는 사용량 과금 서비스입니다. 저장된 데이터의 양, 해당 데이터 액세스 및 쿨 및 보관 계층의 경우 필요한 최소 보존 기간에 대해 [월별 요금이 청구](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing)됩니다. 백업 데이터에 적용할 수 있는 복원력 및 계층화 옵션은 다음 표에 요약되어 있습니다.
+Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md)를 사용하게 됩니다. Blob Storage는 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 임의 데이터 모델이나 정의를 따르지 않는 비정형 데이터를 대량으로 저장하는 데 최적화되었습니다. 또한 Azure Storage는 내구성이 있고, 가용성이 높으며 안전하고 스케일링 가능합니다. 워크로드에 적합한 스토리지를 선택하여 내부 SLA를 충족하는 [복원력 수준](../../../../common/storage-redundancy.md)을 제공할 수 있습니다. Blob Storage는 사용량 과금 서비스입니다. 저장된 데이터의 양, 해당 데이터 액세스 및 쿨 및 보관 계층의 경우 필요한 최소 보존 기간에 대해 [월별 요금이 청구](../../../../blobs/access-tiers-overview.md#pricing-and-billing)됩니다. 백업 데이터에 적용할 수 있는 복원력 및 계층화 옵션은 다음 표에 요약되어 있습니다.
 
 **Blob Storage 복원력 옵션:**
 

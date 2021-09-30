@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94693752"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273555"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Azure Portal을 사용하여 외부 부하 분산 장치를 다른 지역으로 이동
 
@@ -289,7 +289,7 @@ ms.locfileid: "94693752"
                     }
                 ]
         ```
-       부하 분산 규칙에 대한 자세한 내용은 [Azure Load Balancer란?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 페이지를 참조하세요.
+       부하 분산 규칙에 대한 자세한 내용은 [Azure Load Balancer란?](load-balancer-overview.md) 페이지를 참조하세요.
 
     * **프로브**. template.json 파일의 **프로브** 섹션에서 항목을 추가하거나 제거하여 구성에서 부하 분산 장치에 대한 프로브를 추가하거나 제거할 수 있습니다.
 
@@ -309,7 +309,7 @@ ms.locfileid: "94693752"
                     }
                 ],
         ```
-       자세한 내용은 [부하 분산 장치 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조하세요.
+       자세한 내용은 [부하 분산 장치 상태 프로브](load-balancer-custom-probe-overview.md)를 참조하세요.
 
     * **인바운드 NAT 규칙**. template.json 파일의 **inboundNatRules** 섹션에서 항목을 추가하거나 제거하여 부하 분산 장치에 대한 인바운드 NAT 규칙을 추가하거나 제거할 수 있습니다.
 
@@ -357,7 +357,7 @@ ms.locfileid: "94693752"
             }
         }
         ```
-        인바운드 NAT 규칙에 대한 자세한 내용은 [Azure Load Balancer란?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 페이지를 참조하세요.
+        인바운드 NAT 규칙에 대한 자세한 내용은 [Azure Load Balancer란?](load-balancer-overview.md) 페이지를 참조하세요.
 
     * **아웃바운드 규칙**. template.json 파일의 **outboundRules** 속성을 편집하여 구성에서 아웃바운드 규칙을 추가하거나 제거할 수 있습니다.
 

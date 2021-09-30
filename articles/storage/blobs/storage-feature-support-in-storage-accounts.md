@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
-ms.openlocfilehash: 758a89e8366e338fe5aaaee7fd6b89d9f7daa588
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e22e7dcfde1782600cdb53814014e6080ffbbfa1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604021"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271634"
 ---
 # <a name="blob-storage-feature-support-in-azure-storage-accounts"></a>Azure Storage 계정의 Blob Storage 기능 지원
 
@@ -24,9 +24,9 @@ ms.locfileid: "128604021"
 
 | 스토리지 기능 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup>   | NFS 3.0 <sup>1</sup>  |
 |---------------|-------------------|---|---|
-| [액세스 계층 - 보관](storage-blob-storage-tiers.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
-| [액세스 계층 - 콜드](storage-blob-storage-tiers.md)   | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)|
-| [액세스 계층 - 핫](storage-blob-storage-tiers.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| [액세스 계층 - 보관](access-tiers-overview.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| [액세스 계층 - 콜드](access-tiers-overview.md)    | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)|
+| [액세스 계층 - 핫](access-tiers-overview.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 | [익명 퍼블릭 액세스](anonymous-read-access-configure.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)|
 | [Azure Active Directory 보안](authorize-access-azure-active-directory.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [Blob 인벤토리](blob-inventory.md) | ![Yes](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -70,9 +70,9 @@ ms.locfileid: "128604021"
 
 | 스토리지 기능 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
 |---------------|-------------------|---|---|
-| [액세스 계층 - 보관](storage-blob-storage-tiers.md)  | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| [액세스 계층 - 콜드](storage-blob-storage-tiers.md) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| [액세스 계층 - 핫](storage-blob-storage-tiers.md) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| [액세스 계층 - 보관](access-tiers-overview.md)  | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| [액세스 계층 - 콜드](access-tiers-overview.md) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| [액세스 계층 - 핫](access-tiers-overview.md) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [익명 퍼블릭 액세스](anonymous-read-access-configure.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 | [Azure Active Directory 보안](authorize-access-azure-active-directory.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [Blob 인벤토리](blob-inventory.md) | ![Yes](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -87,9 +87,9 @@ ms.locfileid: "128604021"
 | [변경 피드](storage-blob-change-feed.md) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [사용자 지정 도메인](storage-custom-domain-name.md) | ![Yes](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [고객 관리형 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| [고객 관리 키 (암호화)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
-| [고객이 제공한 키 (암호화)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
-| [데이터 중복성 옵션](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| [고객 관리형 키(암호화)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| [고객이 제공한 키(암호화)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| [데이터 중복 옵션](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 | [암호화 범위](encryption-scope-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [변경 불가능한 스토리지](immutable-storage-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)  <sup>2</sup> | ![예](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [수명 주기 관리를 위한 마지막 액세스 시간 추적](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
@@ -103,8 +103,8 @@ ms.locfileid: "128604021"
 | [Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)   | ![Yes](../media/icons/yes-icon.png) | ![예 ](../media/icons/yes-icon.png) <sup>2</sup><sup>3</sup>      | ![No](../media/icons/no-icon.png) |
 | [컨테이너에 대한 일시 삭제](soft-delete-container-overview.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | [정적 웹 사이트](storage-blob-static-website.md) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
-| [Storage 분석 로그 (클래식)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![예 ](../media/icons/yes-icon.png) <sup>2</sup><sup>3</sup>     | ![No](../media/icons/no-icon.png)|
-| [Storage 분석 메트릭 (클래식)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+| [Storage 분석 로그(클래식)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![예 ](../media/icons/yes-icon.png) <sup>2</sup><sup>3</sup>     | ![No](../media/icons/no-icon.png)|
+| [Storage 분석 메트릭(클래식)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

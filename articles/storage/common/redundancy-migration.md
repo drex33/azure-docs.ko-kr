@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b561e233deb5478be89f965bb059e68cfb7134f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538554"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274067"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -151,7 +151,7 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 > [!NOTE]
 > 프리미엄 파일 공유는 LRS 및 ZRS에서만 사용할 수 있습니다.
 >
-> GZRS 스토리지 계정은 현재 보관 계층을 지원하지 않습니다. 자세한 내용은 [Azure Blob Storage: 핫, 쿨, 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
+> GZRS 스토리지 계정은 현재 보관 계층을 지원하지 않습니다. 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을](../blobs/access-tiers-overview.md) 참조하세요.
 >
 > 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 SSD 관리 디스크에 대한 스냅샷 및 이미지를 표준 HDD 스토리지에 저장할 수 있으며 [LRS와 ZRS 옵션 중 하나를 선택할 수 있습니다](https://azure.microsoft.com/pricing/details/managed-disks/). 가용성 집합과의 통합에 대한 자세한 내용은 [Azure 관리 디스크 소개](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets)를 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac4a35b5a73cb87e3e7962729fdccd89c5f82c57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2d7b5505092e2dfe32624545128be4ce4dbb3459
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566497"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278940"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
 
@@ -58,7 +58,7 @@ SAS 토큰은 다음과 같은 형식입니다.
 
 SAS 토큰을 만드는 코드 예제는 [보안 토큰](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure)을 참조하세요.
 
-대칭 키 증명을 위한 보안 토큰 생성은 Azure IoT C SDK에서 지원됩니다. Azure IoT C SDK를 사용하여 개별 등록으로 증명하는 예제는 [대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)을 참조하세요.
+대칭 키 증명을 위한 보안 토큰 생성은 Azure IoT C SDK에서 지원됩니다. Azure IoT C SDK를 사용 하 여 개별 등록을 증명 하는 예제는 [시뮬레이션 된 대칭 키 장치 프로 비전](quick-create-simulated-device-symm-key.md)을 참조 하세요.
 
 
 ## <a name="group-enrollments"></a>그룹 등록
@@ -182,6 +182,6 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 
 대칭 키 증명에 대해 이해했으면, 다음 문서에서 자세한 내용을 확인해보십시오.
 
-* [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
+* [빠른 시작: 시뮬레이션 된 대칭 키 장치 프로 비전](quick-create-simulated-device-symm-key.md)
 * [프로비저닝 개념에 대한 자세한 정보](about-iot-dps.md#provisioning-process)
 * [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 

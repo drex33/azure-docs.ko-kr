@@ -4,12 +4,12 @@ description: 이 항목에서는 Azure Video Analyzer를 사용하여 녹음/녹
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 95e5decc8092c6a40e368c395da61fd8b9904e30
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e4d05733db5739087ac1f6b64f87436a018c5883
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124762002"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277843"
 ---
 # <a name="manage-recording-policy-with-video-analyzer"></a>Video Analyzer를 사용하여 녹음/녹화 정책 관리
 
@@ -43,7 +43,7 @@ Video Analyzer 계정은 Azure Storage 계정에 연결되어 있으며, 비디�
 위의 규칙은 다음과 같습니다.
 
 * 스토리지 계정의 모든 블록 Blob에 적용됩니다.
-* Blob이 30일을 넘은 경우 [핫 액세스 계층에서 쿨](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal)로 이동하도록 지정합니다.
+* Blob이 30일을 넘은 경우 [핫 액세스 계층에서 쿨](../../storage/blobs/access-tiers-overview.md?tabs=azure-portal)로 이동하도록 지정합니다.
 * 그리고 Blob이 90일을 넘으면 삭제됩니다.
 
 Video Analyzer를 사용하여 비디오 리소스에 녹화하는 경우 스토리지 계정에 기록되기 전에 집계할 최소 비디오 기간(초)을 지정하는 `segmentLength` 속성을 지정합니다. 비디오 리소스에는 일련의 세그먼트가 포함되며, 각 세그먼트에는 이전보다 최신인 `segmentLength` 타임스탬프가 있습니다. 수명 주기 관리 정책이 시작되면 지정된 임계값보다 오래된 세그먼트를 삭제합니다. 그러나 Video Analyzer API를 통해 나머지 세그먼트에 계속 액세스하고 재생할 수 있습니다. 자세한 내용은 [녹음/녹화 재생](playback-recordings-how-to.md)을 참조하세요. 

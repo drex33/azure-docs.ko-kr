@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5159432107e60f6c21bcf70e0bbc9a9e2123a728
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cb96b9e1fa0fc64dda35fc9e15e1ab60a42e7650
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897699"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278541"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Azure Media Services v3의 자산
 
@@ -27,7 +27,7 @@ Azure Media Services에서 [자산](/rest/api/media/assets)은 핵심 개념입�
 
 자산은 [Azure Storage 계정](storage-account-concept.md)의 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 블록 Blob으로 저장됩니다. 자산에는 Azure Storage에 저장된 디지털 파일(비디오, 오디오, 이미지, 썸네일 컬렉션, 텍스트 트랙, 선택 자막 파일 포함)에 관한 정보가 포함됩니다.
 
-Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob 계층을 지원합니다. GPv2를 사용하는 경우 파일을 [쿨 또는 보관 스토리지](../../storage/blobs/storage-blob-storage-tiers.md)로 이동할 수 있습니다. **보관** 스토리지는 더 이상 필요 없는 원본 파일을 보관하는 데 적합합니다(예: 인코딩된 후).
+Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob 계층을 지원합니다. GPv2를 사용하는 경우 파일을 [쿨 또는 보관 스토리지](../../storage/blobs/access-tiers-overview.md)로 이동할 수 있습니다. **보관** 스토리지는 더 이상 필요 없는 원본 파일을 보관하는 데 적합합니다(예: 인코딩된 후).
 
 **보관** 스토리지 계층은 이미 인코딩되었고 인코딩 작업 출력이 출력 Blob 컨테이너에 배치된 대용량 원본 파일에만 사용할 것을 권장합니다. 자산과 연결하고 콘텐츠를 스트리밍하거나 분석하는 데 사용하려는 출력 컨테이너의 Blob은 **핫** 또는 **쿨** 스토리지 계층에 있어야 합니다.
 

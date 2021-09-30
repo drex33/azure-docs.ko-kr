@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
-ms.translationtype: HT
+ms.openlocfilehash: e84ee56b57c4e97e2fd77e38acf45fc0d426fb58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504876"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277084"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -64,7 +64,7 @@ urlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
 
 ### <a name="pathpattern"></a>PathPattern
 
-PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 "*"는 "/" 다음의 끝에 올 수 있습니다. 경로 검사기에 제공되는 문자열에는 첫 번째 ? 또는 # 뒤에 어떤 텍스트도 포함되지 않으며, 여기에서는 해당 문자를 사용할 수 없습니다. 그렇지 않은 경우 URL에 허용되는 모든 문자는 PathPattern에서 사용됩니다.
+PathPattern은 일치시킬 경로 패턴의 목록입니다. 각 경로는/로 시작 해야 하며 \* 와일드 카드 문자로 사용할 수 있습니다. 경로 검사기에 제공되는 문자열에는 첫 번째 ? 또는 # 뒤에 어떤 텍스트도 포함되지 않으며, 여기에서는 해당 문자를 사용할 수 없습니다. 그렇지 않은 경우 URL에 허용되는 모든 문자는 PathPattern에서 사용됩니다.
 
 지원되는 패턴은 Application Gateway v1을 배포할지 또는 v2를 배포할지에 따라 다릅니다.
 
@@ -76,9 +76,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |아니요|
-|`/*.jpg`     |아니요|
-|`/Repos/*/Comments/*`     |아니요|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |예|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |아니요|
-|`/*.jpg`     |아니요|
-|`/Repos/*/Comments/*`     |아니요|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |예|
 
 자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing)을 참조하세요.

@@ -9,12 +9,12 @@ author: MikeRayMSFT
 ms.author: mikeray
 description: Azure Arc 지원 데이터 서비스에 대한 Kubernetes 배포에 대한 유효성 검사 프로그램을 설명합니다.
 keywords: Kubernetes, Arc, Azure, K8s, 유효성 검사, 데이터 서비스, SQL Managed Instance
-ms.openlocfilehash: 1935648b2d3de48aecf9878865f377c41c8498cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 90158be8a28aae08cbc377aa776947096597a601
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566881"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273840"
 ---
 # <a name="azure-arc-enabled-data-services-kubernetes-validation"></a>Azure Arc 지원 데이터 서비스 Kubernetes 유효성 검사
 
@@ -31,7 +31,7 @@ Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azu
 
 ### <a name="dell"></a>Dell
 
-|솔루션 및 버전 | Kubernetes 버전 | Azure Arc 지원 데이터 서비스 버전 | SQL 엔진 버전 | PostgreSQL 하이퍼스케일 버전
+|솔루션 및 버전 | Kubernetes 버전 | Azure Arc 지원 데이터 서비스 버전 | SQL Server 버전 | PostgreSQL 하이퍼스케일 버전
 |-----|-----|-----|-----|-----|
 | Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|SQL Server 2019(15.0.4123) | |
 | PowerFlex 버전 3.6 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019(15.0.4123) | |
@@ -65,7 +65,7 @@ Azure Arc 지원 데이터 서비스 팀은 업계 파트너와 협력하여 Azu
 
 ## <a name="data-services-validation-process"></a>데이터 서비스 유효성 검사 프로세스
 
-Sonobuoy Arc 지원 데이터 서비스 플러그 인은 Kubernetes 클러스터에서 Azure Arc 지원 데이터 서비스의 프로비저닝 및 테스트를 자동화합니다.
+Sonobuoy Azure Arc 지원 데이터 서비스 플러그 인은 Kubernetes 클러스터에서 Azure Arc 지원 데이터 서비스의 프로비전 및 테스트를 자동화합니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소
 

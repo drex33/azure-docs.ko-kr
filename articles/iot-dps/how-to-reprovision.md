@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 43e0d3228937e507f988aa241b6fa0b619892c10
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791899"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273688"
 ---
 # <a name="how-to-reprovision-devices"></a>디바이스를 다시 프로비전하는 방법
 
@@ -79,7 +79,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
 
 등록 항목에 대한 다시 프로비전 정책은 디바이스 프로비저닝 서비스 인스턴스에서 이러한 프로비전 요청을 처리하는 방식과 다시 프로비전 중에 디바이스 상태 데이터를 마이그레이션해야 하는지 여부를 결정합니다. 개별 등록 및 등록 그룹에 대해 동일하ㄴ 정책을 사용할 수 있습니다.
 
-부팅 시퀀스 중에 디바이스에서 프로비전 요청을 보내는 코드의 예제는 [시뮬레이션된 디바이스 자동 프로비전](quick-create-simulated-device.md)을 참조하세요.
+부팅 시퀀스 중에 디바이스에서 프로비전 요청을 보내는 코드의 예제는 [시뮬레이션된 디바이스 자동 프로비전](quick-create-simulated-device-tpm.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

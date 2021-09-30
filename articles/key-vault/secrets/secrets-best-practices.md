@@ -1,7 +1,6 @@
 ---
 title: 비밀 관리에 대한 모범 사례 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault 비밀 관리에 대한 모범 사례 알아보기
-services: key-vault
 author: msmbaldwin
 tags: azure-key-vault
 ms.service: key-vault
@@ -9,14 +8,14 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 09/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ae4d2bd17dc1a233be71f48ebd106f1db2a31de6
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 86e1bea86c7962ba1894beed9ed9d766815bbef2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094465"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277957"
 ---
-# <a name="best-practices-for-secrets-management-in-key-vault"></a>Key Vault 비밀 관리에 대한 모범 사례
+# <a name="best-practices-for-secrets-management-in-key-vault"></a>Key Vault의 비밀 관리 모범 사례
 
 Azure Key Vault 사용하면 서비스 또는 애플리케이션 자격 증명(예: 암호, 액세스 키)을 비밀로 안전하게 저장할 수 있습니다. Key Vault 모든 비밀은 소프트웨어 키로 암호화되어 저장됩니다. Key Vault를 사용하면 애플리케이션 개발자가 더 이상 애플리케이션에 보안 정보를 저장할 필요가 없습니다. 애플리케이션에 보안 정보를 저장하지 않으면 코드의 해당 정보 부분을 만들 필요가 없습니다. 
 
@@ -64,16 +63,16 @@ Azure Key Vault 액세스 제어에 대한 자세한 내용은 다음을 참조�
 ## <a name="service-limits-and-caching"></a>서비스 제한 및 캐싱
 Key Vault는 원래 [Azure Key Vault 서비스 제한](../general/service-limits.md)에 지정된 한도에 의해 만들어졌습니다. Key Vault 처리량 속도를 최대화하려면 처리량을 최대화하기 위한 몇 가지 권장 지침/모범 사례는 다음과 같습니다.
 - 최소 8시간 동안 애플리케이션에서 비밀 캐시
-- 서비스 제한을 초과하는 시나리오를 처리하기 위한 지수 백오프 다시 시도 논리 구현
+- 서비스 제한을 초과하는 시나리오를 처리하기 위한 지수 백오프 재시도 논리 구현
 
 제한 지침에 대한 자세한 내용은 다음을 참조하세요.
 - [Azure Key Vault 제한 지침](../general/overview-throttling.md)
 
 ## <a name="monitoring"></a>모니터링
-자격 증명 모음에 대한 로깅을 켜서 비밀 및 수명 주기에 대한 액세스를 모니터링합니다. [Azure Monitor](https://docs.microsoft.com//azure/azure-monitor/overview) 사용하여 한 곳에서 모든 자격 증명 모음의 모든 비밀 활동을 모니터링하거나 [Azure Event Grid Logic Apps](https://docs.microsoft.com/azure/event-grid/overview) 및 Azure Functions 쉽게 통합하여 비밀 수명 주기를 모니터링할 수 있습니다.
+자격 증명 모음에 대한 로깅을 켜서 비밀 및 수명 주기에 대한 액세스를 모니터링합니다. [Azure Monitor](../../azure-monitor/overview.md) 사용하여 한 곳에서 모든 자격 증명 모음의 모든 비밀 활동을 모니터링하거나 [Azure Event Grid Logic Apps](../../event-grid/overview.md) 및 Azure Functions 쉽게 통합하여 비밀 수명 주기를 모니터링할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
-- [Event Grid 원본으로 사용되는 Azure Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
+- [Event Grid 원본으로 사용되는 Azure Key Vault](../../event-grid/event-schema-key-vault.md?tabs=event-grid-event-schema.md)
 - [Azure Key Vault 로깅](../general/logging.md)
 - [Azure Key Vault 모니터링 및 경고](../general/alert.md)
 

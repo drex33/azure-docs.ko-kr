@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 07f208753265e35bbc51c74f74a87a1742fa52ff
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: 14d6aedf282819e8fcd7c5f03ff182a991954607
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727482"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279168"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Azure Blob Storage 콘텐츠 검색
 
@@ -54,7 +54,7 @@ Blob 인덱서는 구성 매개 변수와 함께 제공되며 기본 데이터�
 
 ### <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
-Blob Storage [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
+Blob Storage [액세스 계층](../storage/blobs/access-tiers-overview.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
 
 ### <a name="supported-content-types"></a>지원하는 콘텐츠 유형
 

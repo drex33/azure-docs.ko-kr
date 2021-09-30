@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: fa60b6f002e49babc1e1f014bcb941e7953a43a8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
-ms.translationtype: HT
+ms.openlocfilehash: 8d897c4e4c76b42e980c23f1f18789248f04909a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484781"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270508"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Commvault를 사용하여 Azure에 백업
 
@@ -45,7 +45,7 @@ ms.locfileid: "107484781"
 
 ### <a name="get-started-with-azure"></a>Azure 시작
 
-Microsoft는 Azure를 시작하기 위해 수행할 수 있는 프레임워크를 제공합니다. CAF([클라우드 채택 프레임워크](/azure/architecture/cloud-adoption/))는 프로덕션 등급 클라우드 도입을 채택을 계획하기 위한 엔터프라이즈 디지털 변환 및 포괄적인 가이드에 대한 자세한 접근 방식입니다. CAF에는 빠르고 안전하게 시작 및 실행하는 데 도움이 되는 단계별 [Azure 설치 가이드](/azure/cloud-adoption-framework/ready/azure-setup-guide/)가 포함되어 있습니다. [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade)에서 대화형 버전을 찾을 수 있습니다. 샘플 아키텍처, 애플리케이션 배포에 대한 특정 모범 사례 및 Azure 전문 지식을 얻을 수 있는 무료 교육 리소스를 찾을 수 있습니다.
+Microsoft는 Azure를 시작하기 위해 수행할 수 있는 프레임워크를 제공합니다. CAF([클라우드 채택 프레임워크](/azure/architecture/cloud-adoption/))는 프로덕션 등급 클라우드 도입을 계획하기 위한 엔터프라이즈 디지털 변환 및 포괄적인 가이드에 대한 자세한 접근 방식입니다. CAF에는 빠르고 안전하게 시작 및 실행하는 데 도움이 되는 단계별 [Azure 설치 가이드](/azure/cloud-adoption-framework/ready/azure-setup-guide/)가 포함되어 있습니다. [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade)에서 대화형 버전을 찾을 수 있습니다. 샘플 아키텍처, 애플리케이션 배포에 대한 특정 모범 사례 및 Azure 전문 지식을 얻을 수 있는 무료 교육 리소스를 찾을 수 있습니다.
 
 ### <a name="consider-the-network-between-your-location-and-azure"></a>사용자 위치와 Azure 간의 네트워크 고려
 
@@ -79,7 +79,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 - 기존 Azure ExpressRoute 고객인 경우 Azure Portal에서 [회로 사용량](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics)을 확인합니다.
 - ISP에 문의합니다. 기존 일별 및 월별 사용률을 표시하는 보고서를 공유할 수 있어야 합니다.
-- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 추가 설정은 다음과 같습니다.
+- 라우터/스위치 수준에서 네트워크 트래픽을 모니터링하여 사용률을 측정할 수 있는 몇 가지 도구가 있습니다. 여기에는 다음이 포함됩니다.
   - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
@@ -87,7 +87,7 @@ Azure에 대한 백업이 사용할 수 있는 여유 대역폭을 확인하려�
 
 ### <a name="choose-the-right-storage-options"></a>적절한 스토리지 옵션 선택
 
-Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md)를 사용하게 됩니다. Blob Storage는 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 임의 데이터 모델이나 정의를 따르지 않는 비정형 데이터를 대량으로 저장하는 데 최적화되었습니다. 또한 Azure Storage는 내구성이 있고, 가용성이 높으며 안전하고 스케일링 가능합니다. 워크로드에 적합한 스토리지를 선택하여 내부 SLA를 충족하는 [복원력 수준](../../../../common/storage-redundancy.md)을 제공할 수 있습니다. Blob Storage는 사용량 과금 서비스입니다. 저장된 데이터의 양, 해당 데이터 액세스 및 쿨 및 보관 계층의 경우 필요한 최소 보존 기간에 대해 [월별 요금이 청구](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing)됩니다. 백업 데이터에 적용할 수 있는 복원력 및 계층화 옵션은 다음 표에 요약되어 있습니다.
+Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md)를 사용하게 됩니다. Blob Storage는 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 임의 데이터 모델이나 정의를 따르지 않는 비정형 데이터를 대량으로 저장하는 데 최적화되었습니다. 또한 Azure Storage는 내구성이 있고, 가용성이 높으며 안전하고 스케일링 가능합니다. 워크로드에 적합한 스토리지를 선택하여 내부 SLA를 충족하는 [복원력 수준](../../../../common/storage-redundancy.md)을 제공할 수 있습니다. Blob Storage는 사용량 과금 서비스입니다. 저장된 데이터의 양, 해당 데이터 액세스 및 쿨 및 보관 계층의 경우 필요한 최소 보존 기간에 대해 [월별 요금이 청구](../../../../blobs/access-tiers-overview.md#pricing-and-billing)됩니다. 백업 데이터에 적용할 수 있는 복원력 및 계층화 옵션은 다음 표에 요약되어 있습니다.
 
 **Blob Storage 복원력 옵션:**
 
@@ -185,7 +185,7 @@ Azure를 백업 대상으로 사용하는 경우 [Azure Blob Storage](../../../.
 
 백업을 저장하는 데 사용하는 모든 스토리지 대상의 경우와 마찬가지로 Azure 리소스와 이러한 리소스를 사용하는 Commvault의 기능을 모두 모니터링하는 것이 좋습니다. Azure Monitor와 Commvault Command Center 모니터링 기능을 함께 사용하면 환경을 정상 상태로 유지하는 데 도움이 됩니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Azure는 [Azure Monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md) 형식으로 강력한 모니터링 솔루션을 제공합니다. [Azure Monitor를 구성](../../../../blobs/monitor-blob-storage.md)하여 Azure Storage 용량, 트랜잭션, 가용성, 인증 등을 추적할 수 있습니다. [여기](../../../../blobs/monitor-blob-storage-reference.md)에서 수집된 메트릭의 전체 참조를 찾을 수 있습니다. 추적할 몇 가지 유용한 메트릭으로는 최대 [스토리지 계정 용량 제한](../../../../common/scalability-targets-standard-account.md) 이내로 유지하도록 하는 BlobCapacity, Azure Storage 계정에서 읽고 쓰는 데이터의 양을 추적하는 수신/송신, Azure Storage 및 MediaAgent로 들어오고 나가는 요청의 왕복 시간을 추적하는 SuccessE2ELatency가 있습니다.
 

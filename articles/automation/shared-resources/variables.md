@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 03/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9f1ace00356583dbb6102317e3d157fb58682710
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: c97d046208b2a2364b38ffd1e01ff0a9d25f7eeb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832582"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271937"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -53,7 +53,7 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 ## <a name="powershell-cmdlets-to-access-variables"></a>변수에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 변수를 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 변수를 만들고 관리합니다. Az 모듈의 일부로 제공됩니다.
 
 | Cmdlet | Description |
 |:---|:---|

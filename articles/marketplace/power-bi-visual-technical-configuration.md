@@ -1,5 +1,5 @@
 ---
-title: Microsoft AppSource 대한 파트너 센터 Power BI 시각적 개체 제공 기술 구성 설정
+title: Microsoft AppSource 파트너 센터 Power BI 시각적 개체 제공 기술 구성 설정
 description: Microsoft AppSource 파트너 센터 Power BI 시각적 개체 제공 기술 구성을 설정하는 방법을 알아봅니다.
 author: KesemSharabi
 ms.author: kesharab
@@ -8,12 +8,12 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: f544e9b98204f48defee59e614f395c879ecc8e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94f1a884eb2fbb10ced8c343d0408845f0ff34ba
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705657"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273025"
 ---
 # <a name="set-up-power-bi-visual-offer-technical-configuration"></a>Power BI 시각적 개체 제안 기술 구성 설정
 
@@ -23,7 +23,7 @@ ms.locfileid: "128705657"
 
 ## <a name="pbiviz-package"></a>PBIVIZ 패키지
 
-[필요한](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) 모든 메타데이터를 포함하는 PBIVIZ 패키지에 Power BI 시각적 개체를 패키징합니다.
+[필요한](/power-bi/developer/visuals/package-visual) 모든 메타데이터를 포함하는 PBIVIZ 패키지에 Power BI 시각적 개체를 패키징합니다.
 
 - 시각적 개체 이름
 - 표시 이름

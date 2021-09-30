@@ -1,32 +1,33 @@
 ---
 title: Azure Storage 계정의 기본 액세스 계층 관리
-description: GPv2 또는 Blob Storage 계정의 기본 액세스 계층을 변경하는 방법 알아보기
+titleSuffix: Azure Storage
+description: 범용 v2 또는 Blob Storage 계정의 기본 액세스 계층을 변경하는 방법을 알아봅니다.
 author: tamram
 ms.author: tamram
-ms.date: 01/11/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee009c47188e104cfe1d5430be6e68a1c80132cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: a9cb4a119447188202036cca4ed4d8580329d0cc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666744"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272569"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Azure Storage 계정의 기본 액세스 계층 관리
 
 각 Azure Storage 계정에는 핫 또는 쿨의 기본 액세스 계층이 있습니다. 스토리지 계정을 만들 때 액세스 계층을 할당합니다. 기본 액세스 계층은 핫입니다.
 
-스토리지 계정에 **액세스 계층** 특성을 설정하여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 개체에 적용됩니다. 계정 계층을 핫에서 쿨로 전환하면 GPv2 계정에서 집합 계층 없는 모든 Blob의 경우 쓰기 작업(10,000개당)만이 발생하고, 쿨에서 핫으로 전환하면 Blob Storage 및 GPv2 계정에서 모든 Blob의 경우 읽기 작업(10,000개당)과 데이터 검색(GB당) 요금이 발생합니다.
+스토리지 계정에 **액세스 계층** 특성을 설정하여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장된 모든 개체에 적용됩니다. 계정 계층을 핫에서 쿨로 전환하면 범용 v2 계정에만 설정된 계층이 없는 모든 Blob에 대한 쓰기 작업(10,000개당)이 발생하며 쿨에서 핫으로 전환하면 Blob Storage 및 범용 v2 계정의 모든 Blob에 대한 읽기 작업(10,000개당) 및 데이터 검색(GB당) 요금이 발생합니다.
 
 개체 수준에서 계층이 설정된 Blob의 경우 계정 계층이 적용되지 않습니다. 보관 계층은 개체 수준에서만 적용할 수 있습니다. 언제든지 액세스 계층 간에 전환할 수 있습니다.
 
 아래 단계에 따라 스토리지 계정을 만든 후에 기본 액세스 계층을 변경할 수 있습니다.
 
-## <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 기본 계정 액세스 계층을 변경합니다.
+## <a name="change-the-default-account-access-tier-of-a-general-purpose-v2-or-blob-storage-account"></a>범용 v2 또는 Blob Storage 계정의 기본 계정 액세스 계층 변경
 
 다음 시나리오에서는 Azure Portal 또는 PowerShell을 사용합니다.
 
@@ -51,11 +52,11 @@ ms.locfileid: "110666744"
 다음 PowerShell 스크립트를 사용하여 계정 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다.
 
 ```powershell
-#Initialize the following with your resource group and storage account names
+# Initialize the following with your resource group and storage account names
 $rgName = ""
 $accountName = ""
 
-#Change the storage account tier to hot
+# Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
 ```
 

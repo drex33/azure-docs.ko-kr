@@ -3,12 +3,12 @@ title: AuthN/AuthZ의 OAuth 토큰
 description: App Service에서 기본 제공 인증 및 권한 부여를 사용할 때 토큰을 검색하고 토큰을 새로 고치고 세션을 확장하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: 820ab9fe75bf960c5991187cfef25ace32b6995c
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
-ms.translationtype: HT
+ms.openlocfilehash: 8defaaf76c43a181f40b0161add1fae018705535
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371178"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277711"
 ---
 # <a name="work-with-oauth-tokens-in-azure-app-service-authentication"></a>Azure App Service 인증에서 OAuth 토큰 작업
 
@@ -58,9 +58,9 @@ ms.locfileid: "114371178"
         ```
 
     5. **배치** 를 클릭합니다.
-
-> [!NOTE]
-> 인증(기본) 블레이드로 애플리케이션을 구성한 경우 [https://resources.azure.com](https://resources.azure.com)의 **authSettingsV2** 섹션으로 이동하는 대신 **authsettings** 로 이동합니다. 그런 다음 ```"additionalLoginParams": ["scope=openid offline_access"]``` 설정을 편집합니다.
+    
+    > [!NOTE]
+    > 새로 고침 토큰을 제공 하는 범위를 [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access)합니다. [Azure App Service에서 종단 간 사용자 인증 및 권한 부여](tutorial-auth-aad.md)에 사용 되는 방법을 확인 하세요.
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 

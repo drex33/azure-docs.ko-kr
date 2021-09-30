@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 6778394fa152f22002ef48681942edde4b4ed460
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5ea3b24cbdbd4a4c9a1f11883e8a2231467a7ee3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219119"
+ms.locfileid: "129278577"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory와 Azure Purview를 연결하는 방법
 
@@ -73,7 +73,7 @@ Purview 계정에 기존 데이터 팩터리를 연결하려면 아래 단계를
 
 - **2021년 8월 18일이나 그 이후** 에 생성된 Purview 계정의 경우 Purview **루트 컬렉션** 에 대한 데이터 팩터리의 관리 ID **Data Curator** 역할을 부여합니다. [Azure Purview의 액세스 제어](../purview/catalog-permissions.md) 및 [컬렉션을 통해 역할 추가 및 액세스 제한](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)에 대해 자세히 알아보세요.
 
-- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우 Purview 계정에 대한 데이터 팩터리의 관리 ID Azure 기본 제공 [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator) 역할을 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
+- **2021년 8월 18일 이전에** 만든 Purview 계정의 경우 Purview 계정에서 데이터 팩터리의 관리 ID Azure 기본 제공 [**Purview Data Legac(레거시)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) 역할을 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
 
 ### <a name="remove-data-factory-connections"></a>데이터 팩터리 연결 제거
 
@@ -103,9 +103,9 @@ Data Factory와 Purview 간의 통합은 다음 섹션에 설명된 대로 Data 
 
 [지원되는 데이터 저장소](how-to-lineage-sql-server-integration-services.md#supported-data-stores)를 참조하세요.
 
-## <a name="access-secured-azure-purview-account"></a>액세스 보안 Azure 부서의 범위 계정
+## <a name="access-secured-azure-purview-account"></a>보안 Azure Purview 계정에 액세스
       
-부서의 범위 계정을 방화벽으로 보호 하는 경우 부서의 범위 개인 끝점을 통해 [보안 부서의 범위 계정에 Data Factory 액세스](../data-factory/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
+Purview 계정이 방화벽으로 보호되는 경우 Data Factory Purview 프라이빗 엔드포인트를 통해 [보안 Purview 계정에 액세스하도록](../data-factory/how-to-access-secured-purview-account.md) 하는 방법을 알아봅니다.
 
 ## <a name="bring-data-factory-lineage-into-purview"></a>Purview에 Data Factory 계보 가져오기
 

@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0bac6465ec392ac8d397f1210299c27c3a25c81e
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
-ms.translationtype: HT
+ms.openlocfilehash: a843952e05d71a13a26d56e1588fd10bea0e50c8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552319"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275870"
 ---
 # <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -151,7 +151,7 @@ Azure Portal을 사용하여 Azure Storage 계정을 만들려면 다음 단계�
 | 보안 | 최소 TLS 버전 | 필수 | 스토리지 계정으로 들어오는 요청에 대해 최소 버전의 TLS(전송 계층 보안)를 선택합니다. 기본값은 TLS 버전 1.2입니다. 기본값으로 설정하면 TLS 1.0 또는 TLS 1.1을 사용하여 만든 들어오는 요청이 거부됩니다. 자세한 내용은 [스토리지 계정에 대한 요청에 대해 필요한 최소 버전의 TLS(전송 계층 보안) 적용](transport-layer-security-configure-minimum-version.md)을 참조하세요. |
 | Data Lake Storage Gen2 | 계층 구조 네임스페이스 사용 | 선택 사항 | Azure Data Lake Storage Gen2 워크로드에 이 스토리지 계정을 사용하려면 계층 구조 네임스페이스를 구성합니다. 자세한 내용은 [Azure Data Lake Storage Gen2 소개](../blobs/data-lake-storage-introduction.md)를 참조하세요. |
 | Blob Storage | 네트워크 파일 공유(NFS) v3 사용 | 선택 사항 | NFS v3는 개체 스토리지 스케일로 Linux 파일 시스템 호환성을 제공하고, Linux 클라이언트가 Azure VM(가상 머신) 또는 온-프레미스 컴퓨터에서 Blob Storage에 컨테이너를 탑재할 수 있게 해줍니다. 자세한 내용은 [Azure Blob Storage에서 네트워크 파일 시스템(NFS) 3.0 프로토콜 지원](../blobs/network-file-system-protocol-support.md)을 참조하세요. |
-| Blob Storage | 액세스 계층 | 필수 | Blob 액세스 계층을 사용하여 사용량에 따라 가장 비용 효율적인 방식으로 Blob 데이터를 저장할 수 있습니다. 자주 액세스하는 데이터에 대해 핫 계층(기본값)을 선택합니다. 자주 액세스하지 않는 데이터에 대해 쿨 계층을 선택합니다. 자세한 내용은 [Azure Blob Storage의 액세스 계층 - 핫, 쿨, 보관](../blobs/storage-blob-storage-tiers.md)을 참조하세요. |
+| Blob Storage | 액세스 계층 | 필수 | Blob 액세스 계층을 사용하여 사용량에 따라 가장 비용 효율적인 방식으로 Blob 데이터를 저장할 수 있습니다. 자주 액세스하는 데이터에 대해 핫 계층(기본값)을 선택합니다. 자주 액세스하지 않는 데이터에 대해 쿨 계층을 선택합니다. 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](../blobs/access-tiers-overview.md)을 참조 하세요. |
 | Azure Files | 대량 파일 공유 사용 | 선택 사항 | LRS 또는 ZRS 중복을 사용하는 표준 파일 공유에만 사용할 수 있습니다. |
 | 테이블 및 큐 | 고객 관리형 키에 대한 지원을 사용하도록 설정 | 선택 사항 | 테이블 및 큐에 대한 고객 관리형 키 지원을 사용하도록 설정하려면 스토리지 계정을 만들 때 이 설정을 선택해야 합니다. 자세한 내용은 [테이블 및 큐에 대한 고객 관리형 키를 지원하는 계정 만들기](account-encryption-key-create.md)를 참조하세요. |
 

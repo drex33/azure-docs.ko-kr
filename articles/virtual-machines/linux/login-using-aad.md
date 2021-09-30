@@ -10,12 +10,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
-ms.openlocfilehash: 6f59bc46ee5b8fb8f14693a0c30350213641be1e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7679c10a5b40edb163974c246fe7fb219ec8effa
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691706"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274637"
 ---
 # <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>사용 중단: 디바이스 코드 흐름 인증을 사용하여 Azure Active Directory에서 Azure의 Linux 가상 머신에 로그인합니다.
 

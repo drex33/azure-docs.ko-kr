@@ -1,18 +1,17 @@
 ---
 title: Azure Virtual WAN FAQ | Microsoft Docs
 description: Azure Virtual WAN 네트워크, 클라이언트, 게이트웨이, 디바이스, 파트너, 연결에 대해 자주 묻는 질문에 대한 답변을 참조하세요.
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: c4c31314ca8e559748425518258e0eec965d9c09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5b131a252dd7eea2072fd412317e14478c145198
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754430"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275661"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -34,9 +33,9 @@ Virtual WAN은 다음 두 가지 버전으로 제공됩니다. 기본 및 표준
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Virtual WAN에서 가용성 영역 및 복원력은 어떻게 처리되나요?
 
-Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스는 지역에서 가용성 영역를 지 원하는 경우 Azure 방화벽을 제외 하 고 Availabitlity 영역에 자동으로 배포 됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
+Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 해당 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 Azure Firewall 제외한 Availabitlity 영역에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
 
-현재 azure 방화벽 관리자 포털,  [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용 하 여 가용성 영역을 지원 하도록 azure 방화벽을 배포할 수 있습니다. 현재는 가용성 영역 간에 배포 되도록 기존 방화벽을 구성할 수 있는 방법이 없습니다. Azure 방화벽을 삭제 하 고 다시 배포 해야 합니다. 
+현재 Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용하여 가용성 영역 지원하도록 Azure Firewall 배포할 수 있습니다. 현재 가용성 영역에 배포할 기존 방화벽을 구성할 수 있는 방법은 없습니다. Azure Firewall 삭제하고 다시 배포해야 합니다. 
 
 Virtual WAN은 개념적으로는 글로벌이지만, 실제 Virtual WAN 리소스는 Resource Manager 기반이며 지역 단위로 배포됩니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속해서 있는 그대로 작동하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
 
@@ -192,7 +191,7 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>가상 허브에 연결된 VNet 스포크는 서로 통신(V2V 전송)할 수 있나요?
 
-예. 표준 Virtual WAN은 VNet이 연결된 Virtual WAN 허브를 통해 VNet 간 전이적 연결을 지원합니다. Virtual WAN 용어에서는 이러한 경로를 단일 지역 내의 Virtual WAN 허브에 연결된 VNet의 경우 "로컬 Virtual WAN VNet 전송"이라고 하며, 둘 이상의 지역에 걸친 여러 Virtual WAN 허브를 통해 연결된 VNet의 경우 "글로벌 Virtual WAN VNet 전송"이라고 합니다.
+예. 표준 Virtual WAN은 VNet이 연결된 Virtual WAN 허브를 통해 VNet 간 전이적 연결을 지원합니다. 가상 WAN 용어에서 이러한 경로는 단일 지역 내의 가상 Wan 허브에 연결 된 Vnet에 대 한 "로컬 가상 WAN VNet 전송", 둘 이상의 지역에서 여러 가상 WAN 허브를 통해 연결 된 Vnet의 경우 "글로벌 가상 WAN VNet 전송"으로 지칭 됩니다.
 
 일부 시나리오에서는 로컬 또는 글로벌 Virtual WAN VNet 전송 외에도 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)을 사용하여 스포크 VNet 간에 직접 피어링할 수도 있습니다. 이 경우 VNet 피어링은 Virtual WAN 허브를 통한 전이적 연결보다 우선적으로 적용됩니다.
 

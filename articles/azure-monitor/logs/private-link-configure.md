@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 936a8393f21d71cfb2fd1dd4cd2c249f0d13689c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9f0b1a3f51a5eae7b10ed74880c8abe1c92aae7a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432579"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278997"
 ---
 # <a name="configure-your-private-link"></a>Private Link 구성
 Private Link를 구성하려면 몇 가지 단계가 필요합니다. 
@@ -99,7 +99,7 @@ Azure Portal로 이동합니다. 리소스 메뉴의 왼쪽에는 **네트워크
 
 
 > [!NOTE]
-> 2021년 9월부터 네트워크 격리가 엄격하게 적용됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
+> 2021 9 월부터 네트워크 격리가 엄격 하 게 적용 됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-network-isolation.png)
 
@@ -156,11 +156,12 @@ $scope = New-AzResource -Location "Global" -Properties $scopeProperties -Resourc
 
 #### <a name="create-ampls---azure-resource-manager-template-arm-template"></a>AMPLS 만들기 - ARM 템플릿(Azure Resource Manager 템플릿)
 아래 Azure Resource Manager 템플릿은 다음을 만듭니다.
-* 이름이 "my-scope"인 프라이빗 링크 범위(AMPLS)
+* 쿼리 및 수집 액세스 모드가 Open으로 설정 된 "내 범위" 라는 개인 링크 범위 (AMPLS)입니다.
 * 이름이 "my-workspace"인 Log Analytics 작업 영역
-* 범위 리소스를 "my-scope" AMPLS(이름: "my-workspace-connection")에 추가
+* "내 범위" AMPLS "내 작업 영역 연결" 이라는 범위 리소스를 추가 합니다.
+
 > [!NOTE]
-> 아래 ARM 템플릿은 AMPLS 액세스 모드 설정을 지원하지 않는 이전 API 버전을 사용합니다. 아래 템플릿을 사용하면 결과 AMPLS는 QueryAccessMode="Open" 및 IngestionAccessMode="PrivateOnly"로 설정됩니다. 즉, AMPLS 안팎의 리소스에서 쿼리를 실행할 수 있지만 Private Link 리소스에만 도달하도록 허용합니다.
+> 개인 링크 범위 개체를 만들기 위해 새 API 버전 (2021-07-01-preview 이상)을 사용 해야 합니다 (아래의 ' privatelinkscopes/' 형식). 이전에 문서화 된 ARM 템플릿은 이전 API 버전을 사용 하 여 QueryAccessMode = "Open" 및 IngestionAccessMode = "PrivateOnly"로 AMPLS 집합을 생성 했습니다.
 
 ```
 {
@@ -180,10 +181,15 @@ $scope = New-AzResource -Location "Global" -Properties $scopeProperties -Resourc
     "resources": [
         {
             "type": "microsoft.insights/privatelinkscopes",
-            "apiVersion": "2019-10-17-preview",
+            "apiVersion": "2021-07-01-preview",
             "name": "[parameters('private_link_scope_name')]",
             "location": "global",
-            "properties": {}
+            "properties": {
+                "accessModeSettings":{
+                    "queryAccessMode":"Open",
+                    "ingestionAccessMode":"Open"
+                }
+            }
         },
         {
             "type": "microsoft.operationalinsights/workspaces",
@@ -214,10 +220,10 @@ $scope = New-AzResource -Location "Global" -Properties $scopeProperties -Resourc
 }
 ```
 
-### <a name="set-ampls-access-modes---powershell-example"></a>AMPLS 액세스 모드 설정 - PowerShell 예제
+### <a name="set-ampls-access-modes---powershell-example"></a>AMPLS 액세스 모드 설정-PowerShell 예제
 AMPLS에서 액세스 모드 플래그를 설정하려면 다음 PowerShell 스크립트를 사용할 수 있습니다. 다음 스크립트는 플래그를 Open으로 설정합니다. 프라이빗 전용 모드를 사용하려면 ‘PrivateOnly’ 값을 사용합니다.
 
-AMPLS 액세스 모드 업데이트가 적용되도록 10분 정도 허용합니다.
+AMPLS 액세스 모드 업데이트가 적용 될 때까지 10 분이 소요 됩니다.
 
 ```
 # scope details

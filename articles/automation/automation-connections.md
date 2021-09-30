@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ede006b48646e9ddb0fd6b6a8f36cf5e9697fbf
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: b4e96045ec49a337d317583826cb3f50c6161f39
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568049"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276060"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
@@ -39,7 +39,7 @@ Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니
 
 ## <a name="powershell-cmdlets-to-access-connections"></a>연결에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 연결을 만들고 관리합니다. [Az 모듈](shared-resources/modules.md#az-modules)의 일부로 제공됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 연결을 만들고 관리합니다. Az 모듈의 일부로 제공됩니다.
 
 |Cmdlet|Description|
 |---|---|

@@ -7,12 +7,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8f406c975d9bc69264f2fcffa476a8f53f2f8551
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 01d0fc11b6aaa7e3a0a874bf60912883619f9ae8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528189"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273441"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용하여 시뮬레이션된 IoT Edge 디바이스 만들기 및 프로비전
 
@@ -64,13 +64,8 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 > [!TIP]
 > Azure CLI에서 [등록](/cli/azure/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
 
-시뮬레이션된 디바이스 및 개별 등록 가이드:
+개별 등록을 만드는 방법을 알아보려면 [시뮬레이션된 TPM 디바이스 프로비전 빠른 시작 가이드를 참조하세요.](../iot-dps/quick-create-simulated-device-tpm.md)
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 개별 등록을 만든 후 **등록 ID** 값을 저장합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
 

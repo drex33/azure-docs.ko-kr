@@ -1,18 +1,18 @@
 ---
-title: Azure Cosmos DB .NET SDK 3.0(Microsoft.Azure.Cosmos)을 사용하도록 애플리케이션 마이그레이션
-description: 기존 .NET 애플리케이션을 v2 SDK에서 최신 .NET SDK v3(Microsoft.Azure.Cosmos 패키지)for Core(SQL) API로 업그레이드하는 방법을 알아봅니다.
+title: Azure Cosmos DB .net SDK 3.0 (Cosmos)를 사용 하도록 응용 프로그램을 마이그레이션합니다.
+description: 기존 .net 응용 프로그램을 v2 SDK에서 코어 (SQL) API에 대 한 최신 .net SDK v3 (Microsoft. Cosmos 패키지)로 업그레이드 하는 방법을 알아봅니다.
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 9ee782734baaf8947aa4e4f930cac874e32a5df6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b862c2ca21f83fc70e8fcaf88119061dc1411a58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788195"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275053"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Azure Cosmos DB .NET SDK v3를 사용하도록 애플리케이션 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -55,8 +55,7 @@ v3 SDK에는 다음과 같이 많은 유용성 및 성능 개선 사항이 포�
 ## <a name="why-migrate-to-the-net-v3-sdk"></a>.NET v3 SDK로 마이그레이션하는 이유
 
 수많은 유용성 및 성능 개선 사항 외에도 최신 SDK에 투자된 새로운 기능을 접한다면 이전 버전을 다시 사용하지 않게 될 것입니다.
-
-당장 [2.0 SDK에 대한 지원을 중지](sql-api-sdk-dotnet.md)하는 것은 아니지만 차후에 최신 버전으로 대체되고 2,0 버전은 유지 관리 모드로 전환될 것입니다. 최상의 개발 환경을 위해 항상 지원되는 최신 버전의 SDK로 시작하는 것이 좋습니다.
+V2 SDK는 현재 유지 관리 모드입니다. 최상의 개발 환경을 위해 항상 지원되는 최신 버전의 SDK로 시작하는 것이 좋습니다.
 
 ## <a name="major-name-changes-from-v2-sdk-to-v3-sdk"></a>v2 SDK에서 v3 SDK로 주요 이름 변경
 

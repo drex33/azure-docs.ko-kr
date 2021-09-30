@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2021
 ms.author: monicar
-ms.openlocfilehash: e57dd133a9145356c64faa3854a121834fbdb2ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0f0b624097fdb159fd52adae7ae57830833662f2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645154"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272949"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -28,7 +28,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 * [Microsoft Azure 및 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 서비스 및 해당 AWS 서비스 정의<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
-* Azure [기본 개념](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) -azure에 대 한 Microsoft 클라우드 채택 프레임 워크입니다.
+* Azure [기본 개념](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) -azure에 대 한 Microsoft 클라우드 채택 프레임 워크입니다.
 
 ## <a name="account"></a>account
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. Azure 계정이라 불리지만, 계정은 기존 회사, 학교나 개인 Microsoft 계정 중 하나일 수 있습니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
@@ -116,7 +116,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 [RBAC: 기본 제공 역할](role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="service-level-agreement-sla"></a><a name="sla"></a>SLA(서비스 수준 계약)
-작동 시간 및 연결에 대한 Microsoft의 정책을 설명하는 계약입니다. 각 Azure 서비스에는 특정 SLA가 있습니다.  
+작동 시간 및 연결에 대 한 Microsoft의 약정을 설명 하는 규약입니다. 각 Azure 서비스에는 특정 SLA가 있습니다.  
 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 ## <a name="shared-access-signature-sas"></a><a name="sas"></a>SAS(공유 액세스 서명)

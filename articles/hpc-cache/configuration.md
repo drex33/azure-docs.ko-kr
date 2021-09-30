@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: dcff46bb93d09d086000dad6e983275d87bc8950
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 56aae1a4bce6b4226918b5b34309a8f8dd647e78
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587376"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275794"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC Cache 설정 구성
 
@@ -81,7 +81,7 @@ Azure HPC Cache에 사용하기 전에 DNS 구성이 이러한 항목을 성공�
 
 ### <a name="refresh-storage-target-dns"></a>스토리지 대상 DNS 새로 고침
 
-DNS 서버에서 IP 주소를 업데이트하는 경우 관련 NFS 스토리지 대상을 일시적으로 사용할 수 없게 됩니다. [스토리지 대상 관리](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only)에서 사용자 지정 DNS 시스템 IP 주소를 업데이트하는 방법을 참조하세요.
+DNS 서버에서 IP 주소를 업데이트하는 경우 관련 NFS 스토리지 대상을 일시적으로 사용할 수 없게 됩니다. [저장소 대상 보기 및 관리](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only)에서 사용자 지정 DNS 시스템 IP 주소를 업데이트 하는 방법을 참조 하세요.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Blob 스토리지 대상에 대한 스냅샷 보기
 

@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 4a47a13405402b381c1a1b3682f5d42038218959
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 8454a75936c84f012d05c8917cfffeec4a08dcdc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689152"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278427"
 ---
 # <a name="best-practices-for-azure-sentinel"></a>Azure Sentinel 모범 사례
 
@@ -23,6 +23,35 @@ ms.locfileid: "122689152"
 > Azure Sentinel을 배포하기 전에 [사전 배포 활동 및 필수 구성 요소](prerequisites.md)를 검토하고 완료합니다.
 >
 
+
+## <a name="best-practice-references"></a>모범 사례 참조
+
+Azure 센티널 설명서는 문서 전체에 분산 된 모범 사례 지침을 제공 합니다. 이 문서에서 제공 하는 내용 외에 자세한 내용은 다음을 참조 하세요.
+
+- **관리 사용자**:
+
+    - [Azure Sentinel을 배포하기 위한 사전 배포 활동 및 필수 구성 요소](prerequisites.md)
+    - [Azure Sentinel 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)
+    - [Azure Sentinel 작업 영역 아키텍처 디자인](design-your-workspace-architecture.md)
+    - [Azure Sentinel 샘플 작업 영역 디자인](sample-workspace-designs.md)
+    - [데이터 수집 모범 사례](best-practices-data.md)
+    - [Azure Sentinel 비용 및 청구](azure-sentinel-billing.md)
+    - [Azure Sentinel의 권한](roles.md)
+    - [Azure Sentinel에서 MSSP 지적 재산 보호](mssp-protect-intellectual-property.md)
+    - [Azure Sentinel에서 위협 인텔리전스 통합](threat-intelligence-integration.md)
+    - [Azure Sentinel 쿼리 및 활동 감사](audit-sentinel-data.md)
+
+- **분석가**:
+
+    - [권장 플레이북](automate-responses-with-playbooks.md#recommended-playbooks)
+    - [Azure Sentinel의 가양성 처리](false-positives.md)
+    - [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)
+    - [일반적으로 사용되는 Azure Sentinel 통합 문서](top-workbooks.md)
+    - [처음부터 위협 탐지](detect-threats-built-in.md)
+    - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)
+    - [Jupyter Notebook을 사용하여 보안 위협 헌팅](notebooks.md)
+
+자세한 내용은 [성공을 위한 SecOps 설계: Azure Sentinel 배포 모범 사례](https://youtu.be/DyL9MEMhqmI) 비디오를 참조하세요.
 
 ## <a name="regular-soc-activities-to-perform"></a>수행할 정기적인 SOC 활동
 
@@ -131,36 +160,6 @@ Azure Sentinel의 엔터티 동작을 통해 사용자는 계정 및 호스트 �
 수집된 데이터와 보강 데이터 같은 외부 원본의 데이터를 결합하는 관심 목록을 사용합니다. 예를 들어 조직 또는 최근에 종료된 직원에서 사용되는 IP 주소 범위의 목록을 만듭니다. 플레이북을 통해 관심 목록을 사용하여 보강 데이터를 수집합니다. 예를 들어 탐지, 위협 헌팅 및 조사 시에 사용할 관심 목록에 악성 IP 주소를 추가합니다.
 
 인시던트 도중 관심 목록을 사용하여 조사 데이터를 포함한 다음, 조사가 완료되면 중요한 데이터가 계속 표시되는 것을 막기 위해 삭제합니다.
-
-
-## <a name="additional-best-practice-references"></a>추가 모범 사례 참조
-
-Azure Sentinel 설명서는 문서 전체에 더 많은 모범 사례 지침이 있습니다. 예를 들어 자세한 내용은 다음 문서를 참조하세요.
-
-- **관리 사용자**:
-
-    - [Azure Sentinel을 배포하기 위한 사전 배포 활동 및 필수 구성 요소](prerequisites.md)
-    - [Azure Sentinel 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)
-    - [Azure Sentinel 작업 영역 아키텍처 디자인](design-your-workspace-architecture.md)
-    - [Azure Sentinel 샘플 작업 영역 디자인](sample-workspace-designs.md)
-    - [데이터 수집 모범 사례](best-practices-data.md)
-    - [Azure Sentinel 비용 및 청구](azure-sentinel-billing.md)
-    - [Azure Sentinel의 권한](roles.md)
-    - [Azure Sentinel에서 MSSP 지적 재산 보호](mssp-protect-intellectual-property.md)
-    - [Azure Sentinel에서 위협 인텔리전스 통합](threat-intelligence-integration.md)
-    - [Azure Sentinel 쿼리 및 활동 감사](audit-sentinel-data.md)
-
-- **분석가**:
-
-    - [권장 플레이북](automate-responses-with-playbooks.md#recommended-playbooks)
-    - [Azure Sentinel의 가양성 처리](false-positives.md)
-    - [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)
-    - [일반적으로 사용되는 Azure Sentinel 통합 문서](top-workbooks.md)
-    - [처음부터 위협 탐지](detect-threats-built-in.md)
-    - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)
-    - [Jupyter Notebook을 사용하여 보안 위협 헌팅](notebooks.md)
-
-자세한 내용은 [성공을 위한 SecOps 설계: Azure Sentinel 배포 모범 사례](https://youtu.be/DyL9MEMhqmI) 비디오를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

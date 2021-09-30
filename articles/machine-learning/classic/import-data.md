@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: f79325270dcd33cb451bd1f540ef60e0b1647f4d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 872e55781a55ac15f960e0111f4b197ab380598d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694515"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279130"
 ---
 # <a name="import-your-training-data-into-machine-learning-studio-classic-from-various-data-sources"></a>다양한 데이터 원본에서 Machine Learning Studio(클래식)로 학습 데이터 가져오기
 
@@ -153,7 +153,7 @@ Studio(클래식) 실험에서 온라인 데이터 원본에 액세스하려면 
 > 일반적으로 이 서비스 옵션이 제공되기 전에 만들었을 수 있는 모든 Azure Storage 계정은 영향을 받지 않습니다.
 > 새 계정을 만들려면 배포 모델에 대해 **클래식** 을 선택하거나 Resource Manager를 사용하고 **계정 종류** 에는 **Blob Storage** 대신 **범용** 을 선택합니다.
 >
-> 자세한 내용은 [Azure Blob Storage: 핫 및 쿨 스토리지 계층](../../storage/blobs/storage-blob-storage-tiers.md)을 참조하세요.
+> 자세한 내용은 [Azure Blob Storage: 핫 및 쿨 스토리지 계층](../../storage/blobs/access-tiers-overview.md)을 참조하세요.
 
 ### <a name="supported-online-data-sources"></a>지원되는 온라인 데이터 원본
 Machine Learning Studio(클래식) **데이터 가져오기** 모듈은 다음과 같은 데이터 원본을 지원합니다.

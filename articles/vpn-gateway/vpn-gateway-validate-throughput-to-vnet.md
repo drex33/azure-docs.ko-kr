@@ -2,7 +2,6 @@
 title: 가상 네트워크에 대한 VPN 처리량 확인
 description: 온-프레미스 리소스에서 Azure Virtual Machine으로의 네트워크 처리량에 대해 유효성을 검사하는 방법을 알아봅니다.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
@@ -10,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: b5c3853ca2849590b0338c3f82b3e8606cd35d2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 52d928762d64ce0612ed8e7063c1b2fb2028e870
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643672"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273385"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -217,7 +216,7 @@ bash 명령줄에서(git가 설치되어 있는 것으로 가정)
 
 > [!Note]
 > VM과 게이트웨이 간의 처리량 테스트 중에 중간 홉(예: 가상 어플라이언스)이 없는지 확인합니다.
-> 위의 iPERF/NTTTCP 테스트에서 발생하는 결과가 잘못된 경우(전체 처리량을 기준으로) 이 문서(https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning )를 참조하여 문제의 가능한 근본 원인에 대한 주요 요인을 파악하세요.
+> 위의 iPERF/NTTTCP 테스트에서 발생 하는 결과가 나쁜 경우 [이 문서](../virtual-network/virtual-network-tcpip-performance-tuning.md) 를 참조 하 여 문제의 가능한 근본 원인에 대 한 주요 요인을 이해 하세요. 
 
 특히, 이러한 테스트를 수행하는 동안 클라이언트와 서버에서 병렬로 수집된 패킷 캡처 추적(Wireshark/네트워크 모니터)의 분석은 좋지 않은 성능을 평가하는 데 도움이 됩니다. 이러한 추적에는 패킷 손실, 긴 대기 시간, MTU 크기 등이 포함될 수 있습니다. 조각화, TCP 0 창, 사용 불가능한 조각 등이 있습니다.
 

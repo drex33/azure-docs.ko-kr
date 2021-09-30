@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 545ab178c99b8d5ab6db1d6619a9859eb3133306
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9f6585cec5c52dd2255fca2a31e2f92853954370
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781347"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279016"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>CEF 또는 Syslog 데이터 커넥터 문제 해결
 
@@ -504,7 +504,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 - 로컬 로그 파일에 기록되고 있는 로그( **/var/log/messages**  또는 **/var/log/syslog** )를 볼 수 있는지 확인합니다.
 
-- 포트 25524나 25526 또는 둘 다에서 이동하는 데이터 패킷을 볼 수 있는지 확인합니다.
+- 포트 25224, 25226 또는 둘 다에서 흐르는 데이터 패킷을 볼 수 있는지 확인 합니다.
 
 - 가상 머신이 TCP를 통해 포트 443에 대한 아웃바운드 연결이 있거나 [Log Analytics 엔드포인트에](../azure-monitor/agents/log-analytics-agent.md#network-requirements) 연결할 수 있는지 확인합니다.
 

@@ -1,25 +1,34 @@
 ---
 title: Azure HPC Cache 스토리지 대상 관리
-description: Azure HPC Cache 스토리지 대상을 일시 중단, 제거, 강제 삭제 및 플러시하는 방법
+description: Azure HPC 캐시 저장소 대상을 일시 중단, 제거, 강제 삭제 및 플러시하는 방법 및 저장소 대상 상태를 이해 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/27/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6c747c4a79cb0413d7a96ca7b0148912eef89f84
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 5b6127a43ebd93b89ea3a648533c2b739fc58691
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296690"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274312"
 ---
-# <a name="manage-storage-targets"></a>스토리지 대상 관리
+# <a name="view-and-manage-storage-targets"></a>저장소 대상 보기 및 관리
+
+저장소 대상 설정 페이지는 HPC 캐시의 각 저장소 대상에 대 한 정보를 표시 하 고 개별 저장소 대상을 관리 하는 옵션을 제공 합니다.
+
+> [!TIP]
+> Azure CLI를 사용 하 여 저장소 대상을 나열 하기 위한 지침은 [저장소 대상 추가](hpc-cache-add-storage.md#view-storage-targets) 문서에 포함 되어 있습니다. 여기에 나열 된 다른 작업은 Azure CLI에서 아직 사용할 수 없는 경우도 있습니다.
+
+![Azure Portal의 설정 > Storage 대상 페이지의 스크린샷 목록에는 여러 개의 저장소 대상이 있고, 열 머리글에는 각 항목에 대 한 이름, 유형, 상태, 프로 비전 상태, 주소/컨테이너 및 사용 모델이 표시 됩니다.](media/storage-targets-list-states.png)
+
+## <a name="manage-storage-targets"></a>스토리지 대상 관리
 
 개별 스토리지 대상에서 관리 작업을 수행할 수 있습니다. 이러한 작업은 [캐시 관리](hpc-cache-manage.md)에 설명된 캐시 수준 옵션을 보완합니다.
 
 이러한 컨트롤은 예기치 않은 상황(예: 응답하지 않는 스토리지 대상)을 복구하는 데 도움이 될 수 있으며 일부 자동 캐시 작업(예: 변경된 파일을 장기 스토리지 시스템에 다시 쓰기)을 재정의하는 기능도 제공합니다.
 
-Azure Portal에서 **스토리지 대상** 페이지를 엽니다. 스토리지 대상 목록 오른쪽 끝에 있는 **...** 텍스트를 클릭하여 작업 목록을 엽니다.
+Azure Portal에서 **스토리지 대상** 페이지를 엽니다. 저장소 대상 목록의 맨 오른쪽에 있는 **...** 이미지를 클릭 하 여 작업 목록을 엽니다.
 
 ![목록의 스토리지 대상 행 오른쪽 끝에 있는 점 3개(...) 기호를 클릭하면 노출되는 메뉴를 커서로 가리킨 Azure Portal의 스토리지 대상 페이지 스크린샷](media/storage-target-manage-options.png)
 
@@ -35,7 +44,7 @@ Azure Portal에서 **스토리지 대상** 페이지를 엽니다. 스토리지 
 
 이러한 옵션에 대한 자세한 내용은 이 문서의 나머지 부분을 참조하세요.
 
-## <a name="write-cached-files-to-the-storage-target"></a>캐시된 파일을 스토리지 대상으로 쓰기
+### <a name="write-cached-files-to-the-storage-target"></a>캐시된 파일을 스토리지 대상으로 쓰기
 
 **플러시** 옵션은 캐시에 저장된 변경 파일을 백 엔드 스토리지 시스템에 즉시 복사하도록 캐시에 지시합니다. 예를 들어 클라이언트 컴퓨터에서 특정 파일을 반복해서 업데이트하는 경우 이 파일은 더 빠르게 액세스할 수 있도록 캐시에 보관되고 몇 분부터 1시간 넘게 장기 스토리지 시스템에 기록되지 않습니다.
 
@@ -47,15 +56,15 @@ Azure Portal에서 **스토리지 대상** 페이지를 엽니다. 스토리지 
 
 이 옵션은 주로 쓰기 캐싱이 포함된 사용 모델에 적용됩니다. 읽기 및 쓰기 캐싱에 대한 자세한 내용은 [캐시 사용 모델 이해](cache-usage-models.md)를 참조하세요.
 
-## <a name="suspend-a-storage-target"></a>스토리지 대상 일시 중단
+### <a name="suspend-a-storage-target"></a>스토리지 대상 일시 중단
 
 일시 중단 기능은 스토리지 대상에 대한 클라이언트 액세스를 사용하지 않지만 캐시에서 스토리지 대상을 영구 제거하지 않습니다. 유지 관리, 복구 또는 교체하기 위해 백 엔드 스토리지 시스템을 사용하지 않아야 하는 경우에 이 옵션을 사용할 수 있습니다.
 
-## <a name="put-a-suspended-storage-target-back-in-service"></a>일시 중단된 스토리지 대상을 다시 서비스에 놓습니다.
+### <a name="put-a-suspended-storage-target-back-in-service"></a>일시 중단된 스토리지 대상을 다시 서비스에 놓습니다.
 
 **계속하기** 를 사용하여 스토리지 대상 일시 중단을 해제합니다.
 
-## <a name="force-remove-a-storage-target"></a>스토리지 대상 강제 제거
+### <a name="force-remove-a-storage-target"></a>스토리지 대상 강제 제거
 
 > [!NOTE]
 > 이 옵션을 선택하면 영향을 받는 스토리지 대상의 데이터가 손실될 수 있습니다.
@@ -67,9 +76,8 @@ Azure Portal에서 **스토리지 대상** 페이지를 엽니다. 스토리지 
 캐시에서 제거된 후에도 백 엔드 스토리지 시스템에 액세스할 수 있다고 보장하지 않습니다.
 
 일반적으로 강제 제거는 스토리지 대상이 응답하지 않거나 잘못된 상태에 있는 경우에만 사용됩니다. 이 옵션을 사용하면 더 복잡한 작업을 수행하지 않고 잘못된 스토리지 대상을 제거할 수 있습니다.
-<!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
 
-## <a name="delete-a-storage-target"></a>스토리지 대상 삭제
+### <a name="delete-a-storage-target"></a>스토리지 대상 삭제
 
 Azure Portal이나 AZ CLI를 사용하여 스토리지 대상을 삭제할 수 있습니다.
 
@@ -79,11 +87,11 @@ Azure Portal이나 AZ CLI를 사용하여 스토리지 대상을 삭제할 수 �
 
 캐시에 저장된 변경 데이터 양이 많은 경우 스토리지 대상 삭제를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 데이터가 장기 스토리지 시스템에 안전하게 저장되었는지 확인하려면 이 작업이 완료될 때까지 기다립니다.
 
-### <a name="portal"></a>[포털](#tab/azure-portal)
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 스토리지 대상을 제거하려면 **스토리지 대상** 페이지를 엽니다. 스토리지 대상 옆에 있는 ‘...’를 클릭하고 메뉴에서 **삭제** 를 선택합니다.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
 
@@ -102,7 +110,7 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-## <a name="update-ip-address-custom-dns-configurations-only"></a>IP 주소 업데이트(사용자 지정 DNS 구성에만 해당)
+### <a name="update-ip-address-custom-dns-configurations-only"></a>IP 주소 업데이트(사용자 지정 DNS 구성에만 해당)
 
 캐시에서 기본이 아닌 DNS 구성을 사용하는 경우 백 엔드 DNS 변경으로 인해 NFS 스토리지 대상의 IP 주소가 변경될 수 있습니다. DNS 서버에서 백 엔드 스토리지 시스템의 IP 주소를 변경하는 경우 Azure HPC Cache는 스토리지 시스템에 대한 액세스 권한을 손실할 수 있습니다.
 
@@ -110,9 +118,23 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 스토리지 대상의 DNS에서 제공하는 IP 주소를 업데이트해야 하는 경우 **스토리지 대상** 페이지를 사용합니다. 오른쪽 열에서 **...** 기호를 클릭하여 바로 가기 메뉴를 엽니다. **DNS 새로 고침** 을 선택하여 새 IP 주소에 대한 사용자 지정 DNS 서버를 쿼리합니다.
 
-![스토리지 대상 목록의 스크린샷 하나의 스토리지 대상의 경우 오른쪽 끝 열의 "..." 메뉴가 열리고 두 개의 옵션인 삭제 및 DNS 새로 고침이 표시됩니다.](media/refresh-dns.png) <!-- update screenshot if possible -->
+![스토리지 대상 목록의 스크린샷 하나의 저장소 대상의 경우 "..." 왼쪽 끝 열의 메뉴가 열리고 이러한 옵션이 표시 됩니다. 플러시, 일시 중단, DNS 새로 고침, 강제 제거, 다시 시작 (이 옵션을 사용 하지 않도록 설정 됨) 및 삭제입니다.](media/refresh-dns.png)
 
 성공하면 업데이트는 2분 이내에 수행됩니다. 한 번에 하나의 스토리지 대상만 새로 고칠 수 있습니다. 다른 작업을 시도하기 전에 이전 작업이 완료될 때까지 기다립니다.
+
+## <a name="understand-storage-target-state"></a>저장소 대상 상태 이해
+
+저장소 대상 목록에는 **상태** 와 **프로 비전 상태의** 두 가지 상태 유형이 표시 됩니다.
+
+* **상태** 는 저장소 대상의 작동 상태를 나타냅니다. 이 값은 정기적으로 업데이트 되며, 저장소 대상을 클라이언트 요청에 사용할 수 있는지 여부와 사용 가능한 관리 옵션을 파악 하는 데 도움이 됩니다.
+* **프로 비전 상태** 는 저장소 대상을 추가 하거나 편집 하는 마지막 작업이 성공 했는지 여부를 알려 줍니다. 이 값은 저장소 대상을 편집 하는 경우에만 업데이트 됩니다.
+
+**상태** 값은 사용할 수 있는 관리 옵션에 영향을 줍니다. 다음은 값 및 해당 효과에 대 한 간단한 설명입니다.
+
+* **준비** -저장소 대상이 정상적으로 작동 하며 클라이언트에서 사용할 수 있습니다. 이 저장소 대상에 대 한 관리 옵션을 사용할 수 있습니다 (일시 중단 된 저장소 대상에 대해서만 유효 하는 **다시 시작** 은 제외).
+* **사용 중** -저장소 대상이 다른 작업을 처리 하 고 있습니다. 저장소 대상을 삭제 하거나 강제로 제거할 수 있습니다.
+* **Suspended** -저장소 대상이 오프 라인 상태입니다. 이 저장소 대상을 계속 플러시, 삭제 또는 강제로 제거할 수 있습니다. **다시 시작** 을 선택 하 여 대상를 서비스에 다시 넣습니다.
+* **플러시** -저장소 대상이 백 엔드 저장소에 데이터를 쓰고 있습니다. 대상에서 플러시하는 동안 클라이언트 요청을 처리할 수 없지만 데이터 작성이 완료 되 면 자동으로 이전 상태로 돌아갑니다.
 
 ## <a name="next-steps"></a>다음 단계
 

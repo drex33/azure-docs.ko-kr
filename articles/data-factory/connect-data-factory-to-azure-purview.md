@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
 ms.date: 09/27/2021
-ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6ec86ff575e4848f79dfe8c6e444e47ed6d1f8f1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218001"
+ms.locfileid: "129277900"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure Purview(미리 보기)에 Data Factory 연결
 
@@ -76,7 +76,7 @@ Azure Purview에서 Data Factory를 등록하는 방법에 대한 자세한 내�
 
     작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 루트 컬렉션에 대한 **컬렉션 관리자** 역할이 있고 네트워크에서 Purview 계정에 액세스할 수 있는 경우 이 작업은 성공적으로 수행됩니다.
 
-- **2021년 8월 18일 이전** 에 생성된 Purview 계정의 경우 Purview 계정에 대한 [**Purview 데이터 큐레이터**](../role-based-access-control/built-in-roles.md#purview-data-curator) 역할(Azure 기본 제공 역할)을 데이터 팩터리 관리 ID에 부여합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
+- **2021 년 8 월 18 일 이전** 에 만든 부서의 범위 계정의 경우 부서의 범위 계정에 data factory의 관리 되는 id Azure 기본 [**부서의 범위 Data 큐레이터 (레거시)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) 역할을 부여 합니다. [Azure Purview의 액세스 제어 - 레거시 권한](../purview/catalog-permissions.md#legacy-permission-guide)에 대해 자세히 알아보세요.
 
     작성 UI에서 데이터 팩터리를 Purview에 연결하는 경우 ADF에서 해당 역할 할당을 자동으로 추가하려고 합니다. Purview 계정에 대한 **소유자** 또는 **사용자 액세스 관리자** 역할(Azure 기본 제공 역할)이 있으면 이 작업이 성공적으로 수행됩니다.
 

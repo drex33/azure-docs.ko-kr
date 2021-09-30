@@ -4,15 +4,15 @@ description: Azure HPC Cache가 장기 파일 스토리지에 대해 온-프레�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 016a62bc7713b389e8baf7d0a5b5aeefceb81f2b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294951"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271969"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -401,7 +401,7 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 사이드바의 설정 �
 
 스토리지 대상의 이름을 클릭하여 세부 정보 페이지를 엽니다.
 
-자세한 내용은 [스토리지 대상 편집](hpc-cache-edit-storage.md)을 참조하세요.
+자세한 내용은 [저장소 대상 보기 및 관리](manage-storage-targets.md) 및 [저장소 대상 편집](hpc-cache-edit-storage.md) 을 참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

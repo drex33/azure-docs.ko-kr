@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9ba814b4188984f3a0f6dbe16e866d6184d8cf2b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6acafe9f1fab42f5dde74eaaa4426f1953bf0f9b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128547664"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275414"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -120,7 +120,7 @@ Blob과 이름이 같은 가상 디렉터리를 동기화합니다(정확성을 
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
 ```
 
-Azure File 디렉터리 동기화:
+Azure 파일 디렉터리 동기화:
 
 ```azcopy
 azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" --recursive=true
@@ -135,13 +135,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--check-md5** 문자열   다운로드 시 MD5 해시의 유효성을 얼마나 엄격하게 검사해야 하는지 지정합니다. 이 옵션은 다운로드할 때만 사용할 수 있습니다. `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing` 등의 값을 사용할 수 있습니다. (기본값 `FailIfDifferent`). (기본값 `FailIfDifferent`)
 
-**--cpk-by-name** 문자열 클라이언트가 이름으로 키를 제공하므로 Azure Blob에 대한 요청을 하는 클라이언트는 요청별로 암호화 키를 제공하는 옵션을 Storage 있습니다. 제공된 키 이름은 Azure Key Vault 가져와 데이터를 암호화하는 데 사용됩니다.
+**--** 이름으로 클라이언트에서 제공한 키 이름으로 클라이언트에서 요청 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션 Azure Blob Storage 수 있습니다. 제공 된 키 이름은 Azure Key Vault에서 페치 되며 데이터를 암호화 하는 데 사용 됩니다.
 
-**--cpk-by-value**                클라이언트가 이름으로 제공한 키를 사용하면 Azure Blob에 대한 요청을 하는 클라이언트가 요청별로 암호화 키를 제공하는 옵션을 Storage 수 있습니다. 제공된 키 및 해당 해시는 환경 변수에서 페치됩니다.
+**--cpk-값**                클라이언트에서 제공 하는 키 이름을 사용 하 여 요청을 Azure Blob Storage에 대 한 요청을 하는 클라이언트는 요청 별로 암호화 키를 제공 하는 옵션입니다. 제공 된 키와 해당 해시가 환경 변수에서 인출 됩니다.
 
 **--delete-destination** 문자열   원본에 없는 추가 파일을 대상에서 삭제할지 여부를 정의합니다. `true`, `false` 또는 `prompt`로 설정할 수 있습니다. `prompt`로 설정하면 삭제할 파일 및 Blob을 예약하기 전에 사용자에게 질문이 표시됩니다. (기본값 `false`). (기본값 `false`)
 
-**--dry-run**                     동기화 명령으로 복사하거나 제거할 파일의 경로를 인쇄합니다. 이 플래그는 실제 파일을 복사하거나 제거하지 않습니다.
+**--예행 실행**                     Sync 명령에 의해 복사 또는 제거 되는 파일의 경로를 인쇄 합니다. 이 플래그는 실제 파일을 복사 하거나 제거 하지 않습니다.
 
 **--exclude-attributes** 문자열   (Windows에만 해당) 해당 특성이 특성 목록과 일치하는 파일을 제외합니다. `A;S;R`
 
@@ -149,7 +149,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-pattern** 문자열   이름이 패턴 목록과 일치하는 파일을 제외합니다. `*.jpg;*.pdf;exactName`
 
-**--exclude-regex** 문자열 정규식과 일치하는 파일의 상대 경로를 제외합니다. 정규식을 ';'로 구분합니다.
+**--exclude-regex** 문자열은 정규식과 일치 하는 파일의 상대 경로를 제외 합니다. 정규식을 '; '으로 구분 합니다.
 
 **--help**    동기화에 대한 도움말이 표시됩니다.
 
@@ -161,17 +161,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--mirror-mode**  마지막 수정 시간 기반 비교를 사용하지 않도록 설정하고 이 플래그가 `true`로 설정된 경우 대상에서 충돌하는 파일 및 Blob을 덮어씁니다. 기본값은 `false`입니다.
 
-**--preserve-smb-info**   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
+**--smb-정보를 유지**   합니다.   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
-**--preserve-permissions**        기본적으로 False입니다. 인식 리소스(Windows 및 Azure Files 또는 Data Lake Storage Gen 2에서 Data Lake Storage Gen 2로) 간의 ACL을 유지합니다. 계층 구조 네임스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요합니다. 다운로드의 경우 새 소유자가 AzCopy를 실행하는 사용자가 아닌 권한을 복원하려면 --backup 플래그도 필요합니다. 이 플래그는 파일 전용 필터(예: include-pattern)를 지정하지 않는 한 파일과 폴더 모두에 적용됩니다.
+**--유지-권한**        False 이면 기본적으로 False입니다. 인식 리소스 (Windows 및 Azure Files 또는 Data Lake Storage gen 2 Data Lake Storage gen 2) 간에 acl을 유지 합니다. 계층 네임 스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요 합니다. 다운로드를 위해 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 경우에는--backup 플래그를 사용 하 여 사용 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴).
 
 **--put-md5**     각 파일의 MD5 해시를 만들고 해당 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시는 생성되지 않습니다.) 업로드 시에만 사용할 수 있습니다.
 
 **--recursive**    기본적으로 `True`이며 디렉터리 간에 동기화할 때 하위 디렉터리를 재귀적으로 확인합니다. (기본값 `True`).
 
-**--s2s-preserve-access-tier**  서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
+**--s2s-preserve-access-tier**  서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](../blobs/access-tiers-overview.md) 을 참조 하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
 
-**--s2s-preserve-blob-tags**      서비스 간 동기화 중에 한 Blob Storage에서 다른 Blob Storage로 인덱스 태그를 유지합니다.
+**--s2s--blob-태그**      한 blob 저장소에서 다른 blob 저장소로 서비스 동기화를 수행 하는 동안 인덱스 태그를 유지 합니다.
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속된 옵션
 

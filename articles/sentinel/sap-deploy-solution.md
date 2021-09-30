@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 301181b291521b8a8b19a7d7266e90fa2c542e49
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a255a91c53df1a286559bf388800eb34c9fc27e7
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128562934"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274181"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -136,7 +136,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
 1. 다음 명령을 예로 사용하여 리소스 그룹 및 VM 이름에 대한 값을 삽입합니다.
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. 새 VM에서 다음을 설치합니다.
@@ -189,7 +189,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
 
             다음 단계에서 사용할 수 있도록 보안 주체 ID가 표시됩니다.
 
-        1. 다음 명령을 실행하여 VM의 액세스 권한을 Key Vault 할당하고, 리소스 그룹의 이름과 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
+        1. 다음 명령을 실행하여 Key Vault VM의 액세스 권한을 할당하고, 리소스 그룹의 이름 및 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
 
             ```azurecli
             az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set

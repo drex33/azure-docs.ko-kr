@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 82ac4e9c4a2f573295790d5d7fa3b02c2e690bbc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8cf212bb6983e561f224aa238ad6afd5e5cf9ac2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819860"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274656"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box 또는 Azure Data Box Heavy를 사용하여 적절한 Azure Storage Blob 계층으로 데이터 전송
 
@@ -29,11 +29,11 @@ Azure Storage에서는 세 가지 계층(핫/콜드/보관)에 가장 비용 효
 
 콜드 스토리지 계층은 30일 이상 저장해야 하는 액세스 빈도가 낮은 데이터용입니다. 콜드 계층의 스토리지 비용은 핫 스토리지 계층보다는 저렴하지만 데이터 액세스 요금은 핫 계층에 비해 비쌉니다.
 
-Azure 보관 계층(오프라인)의 경우 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 이 계층은 180일 이상 보관 스토리지에 저장해 두려는 데이터용입니다. 이러한 각 계층과 가격 모델을 자세히 살펴보려면 [스토리지 계층 비교](../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
+Azure 보관 계층(오프라인)의 경우 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 이 계층은 180일 이상 보관 스토리지에 저장해 두려는 데이터용입니다. 이러한 각 계층과 가격 모델을 자세히 살펴보려면 [스토리지 계층 비교](../storage/blobs/access-tiers-overview.md)를 참조하세요.
 
 Data Box 또는 Data Box Heavy의 데이터는 스토리지 계정에 연결된 스토리지 계층으로 업로드됩니다. 스토리지 계정을 만들 때 액세스 계층을 핫 또는 콜드로 지정할 수 있습니다. 워크로드 액세스 패턴과 비용에 따라 이 데이터를 기본 계층에서 다른 스토리지 계층으로 이동할 수 있습니다.
 
-Blob Storage 또는 범용 v2(GPv2) 계정에서만 개체 스토리지 데이터를 계층별로 저장할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 데이터에 적합한 스토리지 계층을 선택하려면 [Azure Blob Storage: 프리미엄/핫/쿨/보관 스토리지 계층](../storage/blobs/storage-blob-storage-tiers.md)에 설명된 고려 사항을 검토합니다.
+Blob Storage 또는 범용 v2(GPv2) 계정에서만 개체 스토리지 데이터를 계층별로 저장할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 데이터에 적합한 스토리지 계층을 선택하려면 [Azure Blob Storage: 프리미엄/핫/쿨/보관 스토리지 계층](../storage/blobs/access-tiers-overview.md)에 설명된 고려 사항을 검토합니다.
 
 ## <a name="set-a-default-blob-tier"></a>기본 Blob 계층 설정
 

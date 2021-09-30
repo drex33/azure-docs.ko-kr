@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: e0364b3242a0be3e4704ade75f2514c8c63aa779
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: e07af94015194b2074bf1d99e46dc24d3c596e36
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983233"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272513"
 ---
 # <a name="index-data-from-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 데이터 인덱싱
 
@@ -22,7 +22,7 @@ Azure Data Lake Storage Gen2는 Azure Storage를 통해 사용할 수 있습니�
 
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
-Data Lake Storage Gen2 [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다.
+Data Lake Storage Gen2 [액세스 계층](../storage/blobs/access-tiers-overview.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다.
 
 ## <a name="access-control"></a>Access Control
 

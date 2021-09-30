@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 7a82dfa03c85ecf8ad5c80a7d037431b18a28fed
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: HT
+ms.openlocfilehash: 840ac16914196a238bcf8fdaaa518799dcb104e9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "122528052"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275034"
 ---
 # <a name="azure-germany-storage-services"></a>Azure 독일 스토리지 서비스
 
@@ -40,7 +40,7 @@ Azure Storage에 저장된 데이터는 고가용성을 보장하기 위해 복�
 | [Azure 파일](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Table Storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
 | [Queue Storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
-| [핫/쿨 Blob 스토리지](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
+| [핫/쿨 Blob 스토리지](../storage/blobs/access-tiers-overview.md) |GA |GA |
 | [스토리지 서비스 암호화](../storage/common/storage-service-encryption.md) |GA |GA |
 | 가져오기/내보내기 |해당 없음 |해당 없음 |
 | StorSimple |해당 없음 |해당 없음 |

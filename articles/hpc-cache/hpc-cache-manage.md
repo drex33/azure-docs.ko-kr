@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: cd4dcb4bac5f2876db9af194abc5835c1d0f5a3c
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 4fb5bcc0ae5be35f740bc39bc0cf4a9221363358
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586980"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274371"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -35,7 +35,7 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 옵션에 대한 자세한 내용은 아래를 참조하세요.
 
 > [!TIP]
-> 개별 스토리지 대상도 관리할 수 있습니다. 자세한 내용은 [스토리지 대상 관리](manage-storage-targets.md)를 참조하세요.
+> 개별 스토리지 대상을 관리할 수도 있습니다. 자세한 내용은 [스토리지 대상 보기 및 관리를 읽어보십시오.](manage-storage-targets.md)
 
 캐시 관리 작업을 보여 주는 [동영상](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)을 시청하려면 아래 이미지를 클릭하세요.
 
@@ -120,7 +120,7 @@ $ az hpc-cache start --name doc-cache0629
 
 [az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush)를 사용하여 캐시에서 변경된 모든 데이터를 스토리지 대상에 쓰도록 강제 실행합니다.
 
-예:
+예제:
 
 ```azurecli
 $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg

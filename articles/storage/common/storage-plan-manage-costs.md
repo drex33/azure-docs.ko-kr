@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 5c50cffb561076dd7d9c4af8e5b4654784cc3a01
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 51335fe48208423883706796fe4812ec0e0af5fe
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555363"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275718"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob Storage에 대한 비용 계획 및 관리
 
@@ -117,7 +117,7 @@ Azure Storage 예약된 용량을 사용하여 Blob 데이터에 대한 스토�
 
 Blob 데이터를 가장 비용 효율적인 액세스 계층에 배치하여 비용을 줄일 수 있습니다. 데이터 사용에 대한 비용을 최적화하도록 설계된 세 가지 계층 중에서 선택합니다. 예를 들어, *핫* 계층은 스토리지 비용은 더 높지만 액세스 비용은 더 낮습니다. 따라서 데이터에 자주 액세스할 계획인 경우 핫 계층이 가장 비용 효율적인 선택이 될 수 있습니다. 데이터 액세스 빈도를 줄이려는 경우 *콜드* 또는 *보관* 계층이 데이터 액세스 비용을 높이고 데이터 저장 비용을 절감하므로 가장 적합할 수 있습니다.
 
-자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal)을 참조하세요.
+자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](../blobs/access-tiers-overview.md?tabs=azure-portal)
 
 #### <a name="automatically-move-data-between-access-tiers"></a>액세스 계층 간에 데이터를 자동으로 이동
 

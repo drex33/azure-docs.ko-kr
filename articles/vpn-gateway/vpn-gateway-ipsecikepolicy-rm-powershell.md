@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bbea74f635375785f325f48a2babb01af7c8228
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: f990fb196311945642e918e9b38ec1a32a15fcc6
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463194"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270470"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 
@@ -35,7 +35,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 > [!IMPORTANT]
 > 1. IPsec/IKE 정책은 다음 게이트웨이 SKU에만 작동합니다.
->    * ***VpnGw1, VpnGw2, VpnGw3***(경로 기반)
+>    * ***VpnGw1~5 및 VpnGw1AZ~5AZ(경로*** 기반)
 >    * ***Standard** _ 및 _ *_HighPerformance_**(경로 기반)
 > 2. 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
 > 3. IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.

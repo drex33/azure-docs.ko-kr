@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6bb24f33d93e58768af34359f4d803ca68cf4ac4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 14f8cc665ef1d7335116a2e5b68ea3f58424063a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645781"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274447"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
 
@@ -44,7 +44,7 @@ Azure Storage 예약은 구독 또는 공유 리소스 그룹에 저장된 데�
 
 Azure Storage 예약 용량은 GPv2(범용 v2) 및 Blob 스토리지 계정을 포함하여 표준 스토리지 계정의 리소스에 사용할 수 있습니다.
 
-모든 액세스 계층(핫, 쿨 및 보관)은 예약에 대해 지원됩니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob 스토리지: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조하세요.
+모든 액세스 계층(핫, 쿨 및 보관)은 예약에 대해 지원됩니다. 액세스 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 모든 유형의 중복도가 예약에 대해 지원됩니다. 중복도 옵션에 대한 자세한 내용은 [Azure Storage 중복도](../common/storage-redundancy.md)를 참조하세요.
 
@@ -84,7 +84,7 @@ Azure Storage 예약을 구매할 때 지역, 액세스 계층 및 예약에 대
    |**범위**   |  얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 나타냅니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/> **공유** 를 선택하면 예약 할인이 청구 컨텍스트 내 모든 구독의 Azure Storage 용량에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금을 사용하는 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 예약 할인이 선택한 구독의 Azure Storage 용량에 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하면 예약 할인이 선택한 구독의 Azure Storage 용량과 해당 구독 내에서 선택한 리소스 그룹에 적용됩니다. <br/><br/> 예약을 구매한 후에는 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독에 대한 지불 방법은 비용을 청구하는 데 사용됩니다. 구독은 다음 유형 중 하나여야 합니다. <br/><br/>  기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P): Enterprise 구독에 대한 요금은 등록의 Azure Prepayment(이전에는 금액 약정이라고 함) 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다. <br/><br/> 종량제 요금을 사용하는 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P): 종량제 요금을 사용하는 개별 구독의 경우 요금은 구독에 대한 신용 카드 또는 청구서 지불 방법으로 청구됩니다.    |
    | **지역** | 예약이 적용되는 지역입니다. |
-   | **액세스 계층** | 예약이 적용되는 액세스 계층입니다. *핫*, *쿨* 또는 *보관* 옵션이 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조하세요. |
+   | **액세스 계층** | 예약이 적용되는 액세스 계층입니다. *핫*, *쿨* 또는 *보관* 옵션이 있습니다. 액세스 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md) |
    | **중복** | 예약에 대한 중복 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* 및 *RA-GZRS* 가 있습니다. 중복 옵션에 대한 자세한 내용은 [Azure Storage 중복도](../common/storage-redundancy.md)를 참조하세요. |
    | **청구 주기** | 예약에 대한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선불* 이 있습니다. |
    | **크기** | 예약할 용량의 양입니다. |

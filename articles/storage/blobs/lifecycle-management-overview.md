@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 99fe642b2b18beef27238c7092c8fcbfab4164a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 245bcbfd59644946ac6f039e35fe02147054cc8c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570876"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273234"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>데이터 수명 주기를 자동으로 관리하여 비용 최적화
 
@@ -162,7 +162,7 @@ ms.locfileid: "128570876"
 |--|--|--|
 | daysAfterModificationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 Blob 작업에 대한 조건 |
 | daysAfterCreationGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 버전 및 Blob 스냅샷 작업에 대한 조건 |
-| daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 액세스 추적을 사용하는 경우 기본 Blob 작업에 대한 조건 |
+| daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 액세스 추적을 사용 하는 경우 기본 blob 동작에 대 한 조건 |
 
 ## <a name="examples-of-lifecycle-policies"></a>수명 주기 정책 예
 
@@ -373,7 +373,7 @@ ms.locfileid: "128570876"
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
-## <a name="regional-availability-and-pricing"></a>지역별 가용성 및 가격 책정
+## <a name="regional-availability-and-pricing"></a>지역 가용성 및 가격
 
 수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 
@@ -400,5 +400,5 @@ Blob을 한 액세스 계층에서 다른 액세스 계층으로 이동하면 �
 ## <a name="next-steps"></a>다음 단계
 
 - [수명 주기 관리 정책 구성](lifecycle-management-policy-configure.md)
-- [Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관](storage-blob-storage-tiers.md)
+- [Blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
 - [Blob 인덱스를 사용하여 Azure Blob Storage에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)

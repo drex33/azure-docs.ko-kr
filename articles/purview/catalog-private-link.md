@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9d92a1baddbd12f80084dbbdb9a9205edb3f56b1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210652"
+ms.locfileid: "129272854"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Azure Purview 계정에 대해 프라이빗 엔드포인트 사용
 
@@ -87,9 +87,9 @@ Azure Purview 계정에서 _수집_ 프라이빗 엔드포인트를 사용하고
 
         3. 기본 정보를 입력합니다.
 
-        4. **리소스** 탭에서 **리소스 종류** 에 대해 **Microsoft.Purview/portal을** 선택합니다.
+        4. **리소스** 탭에서 **리소스 종류에** 대해 **Microsoft.Purview/account** 를 선택합니다.
 
-        5. **리소스에** 대해 Azure Purview 계정을 선택하고 대상 하위 리소스 에 **대해 포털** **을** 선택합니다.
+        5. **리소스의** 경우 Azure Purview 계정을 선택하고 대상 하위 리소스 에 **대해 포털** **을** 선택합니다.
 
         6. **구성** 탭에서 가상 네트워크를 선택한 다음, Azure 프라이빗 DNS 영역을 선택하여 새 Azure DNS 영역을 만듭니다.
             
@@ -110,7 +110,7 @@ Azure Purview 계정에서 _수집_ 프라이빗 엔드포인트를 사용하고
 - **온-프레미스 또는 사용자 지정 DNS** 확인(예: 자체 DNS 서버를 사용 중이거나 호스트 파일을 구성한 경우)을 구성한 경우 다음 작업을 수행합니다. 
 
   - DNS 레코드가 `web.purview.azure.com` 이면 **아무 작업도 필요하지 않습니다.**  
-  - DNS 레코드가 `web.privatelink.purview.azure.com` 이면 레코드를 로 `web.privatelink.purviewstudio.azure.com` 업데이트합니다. 
+  - DNS 레코드가 이면 `web.privatelink.purview.azure.com` 레코드를 로 `web.privatelink.purviewstudio.azure.com` 업데이트합니다. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
 

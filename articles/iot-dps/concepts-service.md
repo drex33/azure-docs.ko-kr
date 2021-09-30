@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ff65da89c12366fe477ca0f93779a8b2188d4ef3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019449"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277274"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>IoT Hub DPS(Device Provisioning Service) 용어
 
@@ -33,7 +33,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 
 ## <a name="linked-iot-hubs"></a>연결된 IoT 허브
 
-Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 허브에만 프로비전할 수 있습니다. IoT 허브를 Device Provisioning 서비스 인스턴스에 연결하면 서비스에 IoT 허브의 디바이스 레지스트리에 대한 읽기/쓰기 권한을 부여합니다. 링크를 사용하면 Device Provisioning 서비스는 디바이스 ID를 등록하고 디바이스 쌍에서 초기 구성을 설정할 수 있습니다. 연결된 IoT 허브는 모든 Azure 지역에 있을 수 있습니다. 다른 구독의 허브를 프로비전 서비스에 연결할 수 있습니다.
+Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 허브에만 프로비전할 수 있습니다. IoT hub를 장치 프로 비전 서비스의 인스턴스에 연결 하면 서비스는 IoT hub의 장치 레지스트리에 대 한 읽기/쓰기 권한을 부여 합니다. 링크를 사용 하 여 장치 프로 비전 서비스는 장치 ID를 등록 하 고 장치 쌍의 초기 구성을 설정할 수 있습니다. 연결된 IoT 허브는 모든 Azure 지역에 있을 수 있습니다. 다른 구독의 허브를 프로비전 서비스에 연결할 수 있습니다.
 
 
 ## <a name="allocation-policy"></a>할당 정책
@@ -83,7 +83,7 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 Device Provisioning Service는 다음 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서** 자세한 내용은 [X.509 증명](concepts-x509-attestation.md)을 참조하세요.
 * nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이를 사용하는 경우 디바이스에 실제 TPM이 필요하지는 않지만, [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용하여 증명해야 합니다. 자세한 내용은 [TMP 증명](concepts-tpm-attestation.md)을 참조하세요.
-* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
@@ -112,7 +112,7 @@ ID 범위는 사용자에 의해 생성되고 디바이스가 등록할 특정 �
 
 ## <a name="registration-id"></a>등록 ID
 
-등록 ID는 Device Provisioning Service에서 디바이스 등록을 고유하게 식별하는 데 사용됩니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자로 대/소문자를 구분하지 않고, 콜론, 마침표, 밑줄, 하이픈 등의 특수 문자를 포함할 수 있습니다.
+등록 ID는 Device Provisioning Service를 사용한 디바이스 등록을 고유하게 식별하는 데 사용됩니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자로 대/소문자를 구분하지 않고, 콜론, 마침표, 밑줄, 하이픈 등의 특수 문자를 포함할 수 있습니다.
 
 * TPM의 경우 TPM 자체에서 등록 ID를 제공합니다.
 * X.509 기반 증명의 경우 등록 ID는 인증서의 주체 이름으로 제공됩니다.

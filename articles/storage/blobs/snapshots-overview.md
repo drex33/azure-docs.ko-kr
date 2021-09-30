@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5eaefbe835d7660de8bd0712d55c75149cc588a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 437211ae50404443dee30e5a9c8141ea09d69244
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591086"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278560"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅샷
 
@@ -71,7 +71,7 @@ VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일�
 
 Blob의 읽기 전용 복사본인 스냅샷을 만들면 계정에 데이터 스토리지 요금이 추가로 부과될 수 있습니다. 애플리케이션을 디자인할 때는 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
 
-Blob 스냅샷은 Blob 버전처럼 활성 데이터와 동일한 요금이 청구됩니다. 스냅샷에 청구되는 요금은 기본 Blob이나 해당 스냅샷(또는 버전)에 대해 계층을 명시적으로 설정했는지 여부에 따라 달라집니다. Blob 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조하세요.
+Blob 스냅샷은 Blob 버전처럼 활성 데이터와 동일한 요금이 청구됩니다. 스냅샷에 청구되는 요금은 기본 Blob이나 해당 스냅샷(또는 버전)에 대해 계층을 명시적으로 설정했는지 여부에 따라 달라집니다. Blob 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 Blob 또는 스냅샷의 계층을 변경하지 않은 경우 해당 Blob과 그 스냅샷, 그리고 만약 있다면 버전까지 포함된 고유 데이터 블록에 요금이 청구됩니다. 자세한 내용은 [Blob 계층이 명시적으로 설정되지 않은 경우의 요금 청구](#billing-when-the-blob-tier-has-not-been-explicitly-set)를 참조하세요.
 

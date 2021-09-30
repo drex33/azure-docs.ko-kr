@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ba9a24e050307b029e4026a7e8e519a1b4043dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63b5339b0652a164056bff1e8c41c55afeca8b84
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607048"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278446"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 Blob에 대한 개체 복제
 
@@ -65,7 +65,7 @@ ms.locfileid: "128607048"
 
 ### <a name="blob-tiering"></a>Blob 계층화
 
-원본 및 대상 계정이 핫 또는 쿨 계층에 있는 경우 개체 복제가 지원됩니다. 원본 및 대상 계정이 모두 다른 계층에 있을 수 있습니다. 그러나 원본 또는 대상 계정의 Blob이 보관 계층으로 이동된 경우에는 개체 복제가 실패합니다. Blob 계층에 대한 자세한 내용은 [Azure Blob Storage에 대한 액세스 계층 - 핫, 쿨 및 보관](storage-blob-storage-tiers.md)을 참조하세요.
+원본 및 대상 계정이 핫 또는 쿨 계층에 있는 경우 개체 복제가 지원됩니다. 원본 및 대상 계정이 모두 다른 계층에 있을 수 있습니다. 그러나 원본 또는 대상 계정의 Blob이 보관 계층으로 이동된 경우에는 개체 복제가 실패합니다. Blob 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 ### <a name="immutable-blobs"></a>변경이 불가능한 Blob
 
@@ -87,7 +87,7 @@ Azure Blob Storage에 대한 불변성 정책에는 시간 기반 보존 정책 
 
 원본 계정은 각 대상 계정에 대해 하나의 정책을 사용하여 세 개 이상의 대상 계정으로 복제할 수 있습니다. 마찬가지로, 계정이 세 개 이상의 복제 정책에 대한 대상 계정으로 사용될 수 있습니다.
 
-원본 및 대상 계정이 동일한 지역 또는 다른 지역에 있을 수 있습니다. 동일한 구독 또는 다른 구독에 상주할 수도 있습니다. 필요에 따라 원본 및 대상 계정은 다른 azure AD(Azure Active Directory) 테넌트에서 상주할 수 있습니다. 각 원본 계정/대상 계정 쌍에 대해 하나의 복제 정책만 만들 수 있습니다.
+원본 및 대상 계정이 동일한 지역 또는 다른 지역에 있을 수 있습니다. 동일한 구독 또는 다른 구독에 상주할 수도 있습니다. 필요에 따라 원본 및 대상 계정은 다른 Azure AD(Azure Active Directory) 테넌트에서 상주할 수 있습니다. 각 원본 계정/대상 계정 쌍에 대해 하나의 복제 정책만 만들 수 있습니다.
 
 ### <a name="replication-rules"></a>복제 규칙
 
@@ -99,7 +99,7 @@ Azure Blob Storage에 대한 불변성 정책에는 시간 기반 보존 정책 
 
 원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에는 대상 컨테이너에 대한 쓰기 작업이 허용되지 않습니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 복제 규칙이 구성된 대상 컨테이너에 쓰려면 해당 컨테이너에 대해 구성된 규칙을 삭제하거나 복제 정책을 제거해야 합니다. 복제 정책이 활성화되어 있으면 대상 컨테이너에 대한 읽기 및 삭제 작업이 허용됩니다.
 
-대상 컨테이너의 Blob에 대해 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조하세요.
+대상 컨테이너의 Blob에 대해 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출하여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md#archive-access-tier)
 
 ## <a name="policy-definition-file"></a>정책 정의 파일
 
@@ -144,7 +144,7 @@ Azure Blob Storage에 대한 불변성 정책에는 시간 기반 보존 정책 
 
 이전에 정책 정의 파일에는 스토리지 계정의 전체 리소스 ID 대신 계정 이름만 필요했습니다. Azure Storage 리소스 공급자 REST API 버전 2021-02-01의 **AllowCrossTenantReplication** 보안 속성이 도입되면서 이제 복제 정책에 참여하는 스토리지 계정에 대해 테넌트 간 복제가 허용되지 않을 때 생성되는 모든 개체 복제 정책에 대한 전체 리소스 ID를 제공해야 합니다. Azure Storage 전체 리소스 ID를 사용하여 원본 및 대상 계정이 동일한 테넌트 내에 있는지 확인합니다. 테넌트 간 복제 정책을 허용되지 않는 방법에 대한 자세한 내용은 [Azure AD 테넌트 간 복제 방지를 참조하세요.](#prevent-replication-across-azure-ad-tenants)
 
-스토리지 계정에 대해 테넌트 간 복제가 허용되는 경우에도 계정 이름만 제공하는 것이 지원되지만 항상 전체 리소스 ID를 제공하는 것이 좋습니다. Azure Storage 리소스 공급자의 모든 이전 버전은 개체 복제 정책에서 전체 리소스 ID 경로를 사용할 REST API 있습니다.
+스토리지 계정에 대해 테넌트 간 복제가 허용되는 경우에도 계정 이름만 계속 지원되지만 항상 전체 리소스 ID를 제공하는 것이 좋습니다. Azure Storage 리소스 공급자의 모든 이전 버전은 개체 복제 정책에서 전체 리소스 ID 경로를 사용할 REST API 있습니다.
 
 다음 표에서는 스토리지 계정에 대해 테넌트 간 복제가 허용되거나 허용되지 않는 시나리오에서 전체 리소스 ID가 지정된 복제 정책을 만들 때 발생하는 상황과 계정 이름을 비교한 내용을 설명합니다.
 
@@ -168,7 +168,7 @@ azure AD(Azure Active Directory) 테넌트는 ID 및 액세스 관리 목적으�
 
 기본적으로 적절한 권한이 있는 사용자는 하나의 Azure AD 테넌트 및 다른 테넌트에서 대상 계정에 있는 원본 스토리지 계정으로 개체 복제를 구성할 수 있습니다. 보안 정책에서 개체 복제를 동일한 테넌트 내에만 있는 스토리지 계정으로 제한해야 하는 경우 보안 속성 **AllowCrossTenantReplication** 속성(미리 보기)을 설정하여 테넌트 간에 복제를 허용하지 않도록 할 수 있습니다. 스토리지 계정에 대해 테넌트 간 개체 복제를 허용되지 않는 경우 해당 스토리지 계정을 원본 또는 대상 계정으로 구성된 모든 개체 복제 정책에 대해 Azure Storage 원본 및 대상 계정이 모두 동일한 Azure AD 테넌트 내에 있어야 합니다. 교차 테넌트 개체 복제를 허용되지 않는 것에 대한 자세한 내용은 [Azure Active Directory 테넌트 간에 개체 복제 방지를 참조하세요.](object-replication-prevent-cross-tenant-policies.md)
 
-스토리지 계정에 대해 교차 테넌트 개체 복제를 허용하지 않도록 **하려면 AllowCrossTenantReplication** 속성을 *false* 로 설정합니다. 스토리지 계정이 현재 테넌트 간 개체 복제 정책에 참여하지 않는 경우 **AllowCrossTenantReplication** 속성을 *false로* 설정하면 이 스토리지 계정을 원본 또는 대상으로 사용하여 테넌트 간 개체 복제 정책을 나중에 구성할 수 없습니다.
+스토리지 계정에 대해 교차 테넌트 개체 복제를 허용하지 않도록 **하려면 AllowCrossTenantReplication** 속성을 *false로* 설정합니다. 스토리지 계정이 현재 테넌트 간 개체 복제 정책에 참여하지 않는 경우 **AllowCrossTenantReplication** 속성을 *false로* 설정하면 이 스토리지 계정을 원본 또는 대상으로 사용하여 테넌트 간 개체 복제 정책을 나중에 구성할 수 없습니다.
 
 스토리지 계정이 현재 하나 이상의 교차 테넌트 개체 복제 정책에 참여하는 경우 **AllowCrossTenantReplication** 속성을 *false로* 설정하는 것은 허용되지 않습니다. 테넌트 간 복제를 허용되지 않으면 기존 테넌트 간 정책을 삭제해야 합니다.
 

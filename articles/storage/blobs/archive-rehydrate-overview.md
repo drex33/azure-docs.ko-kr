@@ -1,22 +1,22 @@
 ---
-title: 보관 계층의 Blob 리하이드레이션 개요
+title: 보관 계층의 Blob 리하우전
 description: Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주되며 읽거나 수정할 수 없습니다. 보관된 Blob의 데이터를 읽거나 수정하려면 먼저 Blob을 온라인 계층(핫 또는 쿨 계층)으로 리하이드레이션해야 합니다.
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/31/2021
+ms.date: 09/29/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 2c4eac524ecda8a2b90036748fd2a6f2a389a3cd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 195238c6ef4191266a0f4b5dd481fbf24b70528f
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823738"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271824"
 ---
-# <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>보관 계층의 Blob 리하이드레이션 개요
+# <a name="blob-rehydration-from-the-archive-tier"></a>보관 계층의 Blob 리하우전
 
 Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주되며 읽거나 수정할 수 없습니다. 보관된 Blob의 데이터를 읽거나 수정하려면 먼저 Blob을 온라인 계층(핫 또는 쿨 계층)으로 리하이드레이션해야 합니다. 보관 계층에 저장된 Blob을 리하이드레이션하는 옵션에는 다음 두 가지가 있습니다.
 
@@ -24,11 +24,11 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주
 
 - [Blob의 액세스 계층을 온라인 계층으로 변경](#change-a-blobs-access-tier-to-an-online-tier) - [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 통해 계층을 변경하여 보관된 Blob을 핫 또는 쿨 계층으로 리하이드레이션할 수 있습니다.
 
-보관 계층에서 blob을 리하이드레이션 완료 하는 데 몇 시간이 걸릴 수 있습니다. 최적의 성능을 위해 더 큰 Blob을 리하이드레이션하는 것이 좋습니다. 여러 개의 소규모 Blob을 동시에 리하이드레이션하면 시간이 추가적으로 더 소요될 수 있습니다.
+보관 계층에서 Blob을 리하디드하는 것은 완료하는 데 몇 시간이 걸릴 수 있습니다. 최적의 성능을 위해 더 큰 Blob을 리하이드레이션하는 것이 좋습니다. 여러 개의 소규모 Blob을 동시에 리하이드레이션하면 시간이 추가적으로 더 소요될 수 있습니다.
 
 보관 계층에서 온라인 계층으로 Blob을 리하이드레이션할 때 이벤트를 발생시키고 해당 이벤트를 이벤트 처리기로 보내도록 [Azure Event Grid](../../event-grid/overview.md)를 구성할 수 있습니다. 자세한 내용은 [Blob 리하이드레이션에서 이벤트 처리](#handle-an-event-on-blob-rehydration)를 참조하세요.
 
-Azure Storage의 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)을 참조하세요.
+Azure Storage 액세스 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](access-tiers-overview.md)
 
 ## <a name="rehydration-priority"></a>리하이드레이션 우선 순위
 
@@ -51,7 +51,7 @@ Blob을 보관 계층에서 온라인 계층으로 이동하는 첫 번째 옵�
 
 다음과 같은 이유로 Blob을 보관 계층에서 온라인 계층으로 이동해야 하는 대부분의 시나리오에서 복사 작업을 수행하는 것이 좋습니다.
 
-- 복사 작업을 수행하면 필요한 180일 기간이 경과하기 전에 Blob의 계층을 보관 계층에서 변경하는 경우 평가되는 초기 삭제 요금을 피할 수 있습니다. 자세한 내용은 [보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조하세요.
+- 복사 작업을 수행하면 필요한 180일 기간이 경과하기 전에 Blob의 계층을 보관 계층에서 변경하는 경우 평가되는 초기 삭제 요금을 피할 수 있습니다. 자세한 내용은 [보관 액세스 계층](access-tiers-overview.md#archive-access-tier)을 참조하세요.
 - 스토리지 계정에 적용되는 수명 주기 관리 정책이 있는 경우 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier)을 사용하여 Blob을 리하이드레이션하면 마지막 수정 시간이 정책에 대해 설정된 임계값을 초과하므로 수명 주기 정책이 리하이드레이션 후에 Blob을 보관 계층으로 다시 이동하는 시나리오가 발생할 수 있습니다. 복사 작업을 수행하면 원본 Blob이 보관 계층에 유지되고, 다른 이름 및 마지막 수정 시간을 사용하여 새 Blob이 만들어지므로 디하이드레이션된 Blob이 수명 주기 정책에 따라 다시 보관 계층으로 이동될 위험이 없습니다.
 
 보관 계층에서 Blob을 복사하는 작업은 선택된 리하이드레이션 우선 순위에 따라 완료하는 데 몇 시간이 걸릴 수 있습니다. 백그라운드에서 Blob 복사 작업은 보관된 원본 Blob을 읽어서 선택한 대상 계층에 새 온라인 Blob을 만듭니다. 리하이드레이션 작업이 완료되기 전에 부모 컨테이너의 Blob을 나열할 때 새 Blob이 표시될 수 있지만, 해당 계층이 보관 계층으로 설정됩니다. 보관 계층의 원본 Blob에서 읽기 작업이 완료되고 Blob의 콘텐츠가 온라인 계층의 새 대상 Blob에 기록될 때까지 데이터를 사용할 수 없습니다. 새 Blob은 독립 복사본이므로 수정하거나 삭제해도 보관 계층의 원본 Blob에는 영향을 주지 않습니다.
@@ -107,13 +107,13 @@ Blob Storage에서 이벤트를 처리하는 방법에 대한 자세한 내용�
 
 [Blob 복사](/rest/api/storageservices/copy-blob) 또는 [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url)를 사용하여 보관된 Blob을 온라인 계층으로 복사하면 데이터 읽기 트랜잭션과 데이터 검색 크기에 따라 요금이 청구됩니다. 온라인 계층에서 대상 Blob을 만드는 경우 데이터 쓰기 트랜잭션에 대해 요금이 청구됩니다. 원본 Blob이 보관 계층에서 수정되지 않은 상태로 유지되기 때문에 온라인 Blob에 복사하는 경우 조기 삭제 요금은 적용되지 않습니다. 선택한 경우 높은 우선 순위 검색 요금은 적용됩니다.
 
-보관 계층의 Blob은 최소 180일 동안 저장해야 합니다. 180일이 경과하기 전에 보관된 Blob의 계층을 삭제하거나 변경하면 초기 삭제 요금이 발생합니다. 자세한 내용은 [보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조하세요.
+보관 계층의 Blob은 최소 180일 동안 저장해야 합니다. 180일이 경과하기 전에 보관된 Blob의 계층을 삭제하거나 변경하면 초기 삭제 요금이 발생합니다. 자세한 내용은 [보관 액세스 계층](access-tiers-overview.md#archive-access-tier)을 참조하세요.
 
 블록 Blob 및 데이터 리하이드레이션에 대한 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요. 아웃바운드 데이터 전송 요금에 대한 자세한 내용은 [데이터 전송 가격 책정 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)
+- [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층.](access-tiers-overview.md)
 - [보관된 Blob을 온라인 계층으로 리하이드레이션](archive-rehydrate-to-online-tier.md)
 - [Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행](archive-rehydrate-handle-event.md)
 - [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)

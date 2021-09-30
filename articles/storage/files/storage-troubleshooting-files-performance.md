@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d342565972b051dcd5362f192d15678e1817ce78
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c18e242694d5f4d02ce9111d852a66bf49e48bcd
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818851"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275490"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -82,7 +82,7 @@ ms.locfileid: "124818851"
 
 - 메타데이터 작업의 수를 줄이기 위해 애플리케이션을 수정할 수 있는지 여부를 확인합니다.
 - 파일 공유에 VHD(가상 하드 디스크)를 추가하고 클라이언트에서 SMB를 통해 VHD를 탑재하여 데이터에 대한 파일 작업을 수행합니다. 이 방법은 단일 작성자/판독자 시나리오나, 작성자는 여럿이고 판독자는 없는 시나리오에 적합합니다. 파일 시스템은 Azure Files가 아닌 클라이언트의 소유이므로 메타데이터 작업을 로컬로 사용할 수 있습니다. 설치 프로그램은 로컬에서 직접 연결된 스토리지와 비슷한 성능을 제공합니다.
-    -   Windows 클라이언트에 VHD를 탑재하려면 [Mount-DiskImage](https://docs.microsoft.com/powershell/module/storage/mount-diskimage) Powershell cmdlet을 사용합니다.
+    -   Windows 클라이언트에 VHD를 탑재하려면 [Mount-DiskImage](/powershell/module/storage/mount-diskimage) Powershell cmdlet을 사용합니다.
     -   Linux에 VHD를 탑재하려면 Linux 배포에 대한 설명서를 참조하세요.     
 
 ### <a name="cause-3-single-threaded-application"></a>원인 3: 단일 스레드 애플리케이션

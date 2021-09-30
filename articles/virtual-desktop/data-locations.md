@@ -7,16 +7,16 @@ ms.custom: references_regions
 ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: bc356e828adbe9b2d93a202f6b58673dd4ec5efc
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
-ms.translationtype: HT
+ms.openlocfilehash: 709721139fa652798c5cc67b7f54e1b7452505a3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113125909"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273878"
 ---
 # <a name="data-locations-for-azure-virtual-desktop"></a>Azure Virtual Desktop의 데이터 위치
 
-Azure Virtual Desktop은 현재 모든 지리적 위치에서 사용할 수 있습니다. 관리자는 호스트 풀 가상 머신 및 파일 서버와 같은 관련 서비스를 만들 때 사용자 데이터를 저장할 위치를 선택할 수 있습니다. [Azure 데이터 센터 맵](https://azuredatacentermap.azurewebsites.net/)에서 Azure 지리에 대해 자세히 알아보세요.
+Azure Virtual Desktop은 현재 모든 지리적 위치에서 사용할 수 있습니다. 관리자는 호스트 풀 가상 머신 및 파일 서버와 같은 관련 서비스를 만들 때 사용자 데이터를 저장할 위치를 선택할 수 있습니다. Azure [의 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/#overview)에서 azure 지역에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >Microsoft는 사용자가 사용자 및 앱 특정 데이터에 액세스할 수 있는 지역을 제어하거나 제한하지 않습니다.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 79193066e8733ebc8b614e7735eed402e1124fda
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a4739276cd05ffae6015fb2464e464d0a9f15955
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642133"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272051"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
@@ -396,7 +396,7 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
 ### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임스페이스 수준에서 Just-In-Time 액세스 적용
 
-1. AKS 클러스터를 [Azure RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac)와 통합합니다.
+1. AKS 클러스터를 [Azure RBAC](manage-azure-rbac.md)와 통합합니다.
 2. 역할 할당을 통해 Just-In-Time 액세스와 통합하려는 그룹을 클러스터의 네임스페이스와 연결합니다.
 
 ```azurecli-interactive

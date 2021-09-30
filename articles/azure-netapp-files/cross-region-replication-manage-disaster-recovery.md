@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 4f1f766fbec4c9e09d1ebd5e982254cdcbd85403
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590996"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273328"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>지역 간 복제를 사용하여 재해 복구 관리 
 
@@ -59,7 +59,12 @@ ms.locfileid: "104590996"
 재해 복구 후 다시 동기화 작업을 수행하여 원본 볼륨을 다시 활성화할 수 있습니다.  다시 동기화 작업은 복제 프로세스를 되돌리고 대상 볼륨에서 원본 볼륨으로 데이터를 동기화합니다.  
 
 > [!IMPORTANT] 
-> 다시 동기화 작업은 원본 볼륨 데이터를 대상 볼륨 데이터로 덮어씁니다.  UI는 데이터 손실 가능성을 경고합니다. 작업이 시작되기 전에 다시 동기화 작업을 확인하라는 메시지가 표시됩니다.
+> 다시 동기화 작업은 사용 가능한 마지막 일반 스냅샷을 기반으로 원본 볼륨을 대상 볼륨의 최신 업데이트로 증분 방식으로 업데이트하여 원본 및 대상 볼륨을 동기화합니다. 가장 최근의 일반적인 스냅샷 *이후의* 대상 볼륨 변경 내용만 원본 볼륨에 복제해야 하므로 대부분의 경우 이 작업을 수행하면 전체 볼륨을 동기화할 필요가 없습니다.  
+> 
+> 다시동기 작업은 원본 볼륨의 최신 데이터(가장 일반적인 스냅샷보다)를 업데이트된 대상 볼륨 데이터로 덮어씁니다. UI는 데이터 손실 가능성을 경고합니다. 작업이 시작되기 전에 다시 동기화 작업을 확인하라는 메시지가 표시됩니다.  
+> 
+> 원본 볼륨이 재해에서 남아 있지 않아 일반적인 스냅샷이 없는 경우 대상의 모든 데이터가 새로 만든 원본 볼륨으로 다시 동기화됩니다.
+
 
 1. 복제를 다시 동기화하려면 *원본* 볼륨을 선택합니다. 스토리지 서비스에서 **복제** 를 클릭합니다. 그런 다음, **다시 동기화** 를 클릭합니다.  
 

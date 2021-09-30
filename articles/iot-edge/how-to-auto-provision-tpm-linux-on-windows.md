@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 963a1f874bb66a923ebee04768fb238a5aecd4ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 03ed23fbc22c632e3bc9a0e5afeb1163e7f99c80
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537042"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278503"
 ---
 # <a name="create-and-provision-an-iot-edge-for-linux-on-windows-device-with-tpm-attestation"></a>TPM 증명을 사용하여 IoT Edge for Linux on Windows 디바이스를 만들고 프로비저닝
 
@@ -159,13 +159,8 @@ IoT Hub Device Provisioning Service는 TPM을 시뮬레이션하고 인증 키�
 1. 이 시나리오의 테스트가 완전히 완료될 때까지 시뮬레이션된 TPM을 호스트하는 창을 계속 유지합니다.
 1. 이 문서로 돌아와서 DPS 등록을 만들고 디바이스를 구성합니다.
 
-시뮬레이션된 TPM 샘플:
+시뮬레이션 된 TPM 장치에 대 한 개별 등록을 만드는 방법을 알아보려면 [시뮬레이트된 tpm 장치 프로 비전 빠른 시작 가이드](../iot-dps/quick-create-simulated-device-tpm.md)를 참조 하세요.
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 ## <a name="create-a-device-enrollment-entry"></a>디바이스 등록 항목 만들기
 

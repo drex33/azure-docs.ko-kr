@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5111092a804845c829cb44f4be9e123b8c9dcca6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0fd10d851c60ebb36a2861c8aa4fbd46daac84d7
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536764"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278693"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 데이터 로드 전략
 
@@ -142,8 +142,8 @@ PolyBase를 사용하는 경우 정의된 외부 개체는 텍스트 파일의 �
 
 데이터를 로드하려는 경우 다음 로드 옵션 중 하나를 사용할 수 있습니다.
 
-- [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)은 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다. 해당 문에는 PolyBase에서 제공하지 않는 여러 추가 로드 기능이 있습니다. 
-- [T-SQL을 사용하는 PolyBase](./load-data-from-azure-blob-storage-using-copy.md)를 사용하려면 외부 데이터 개체를 정의해야 합니다.
+- [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)은 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다. 해당 문에는 PolyBase에서 제공하지 않는 여러 추가 로드 기능이 있습니다. 샘플 자습서를 실행 하려면 [taxi CAB 복사 자습서](./load-data-from-azure-blob-storage-using-copy.md) 를 참조 하세요.  
+- [T-SQL을 사용하는 PolyBase](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)를 사용하려면 외부 데이터 개체를 정의해야 합니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase 및 COPY 문](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)은 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
 - [PolyBase와 SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)는 원본 데이터가 SQL Server에 있을 때 원활하게 작동합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
 - [PolyBase와 Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)는 PolyBase를 사용하여 테이블에서 Databricks 데이터 프레임으로 데이터를 전송하거나 Databricks 데이터 프레임에서 테이블로 데이터를 씁니다.

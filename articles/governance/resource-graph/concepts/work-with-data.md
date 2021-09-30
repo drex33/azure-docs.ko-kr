@@ -1,15 +1,15 @@
 ---
 title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
-ms.date: 08/17/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b306b52c02a251abf1d781ccce586e4b94c8264b
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 142effe9a4d4d46f04b1a9a018fc366fba69428c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567971"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274845"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -38,10 +38,7 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 
 ‘가장 제한적’인 제어가 적용됩니다. 예를 들어 쿼리에서 **top** 또는 **limit** 연산자를 사용하며 **First** 보다 많은 레코드를 생성하는 경우 반환되는 최대 레코드 수는 **First** 와 같습니다. 마찬가지로, **top** 또는 **limit** 가 **First** 보다 작은 경우 반환되는 레코드 집합은 **top** 또는 **limit** 로 구성된 더 작은 값이 됩니다.
 
-**First** 의 최대 허용 값은 현재 _5000_ 이며, 한 번에 _1000_ 개 레코드씩 [결과를 페이징](#paging-results)하면 됩니다.
-
-> [!IMPORTANT]
-> **First** 가 _1000_ 개 레코드보다 큰 값으로 구성된 경우 쿼리가 **id** 필드를 **반영** 해야 페이지 매김이 작동합니다. 이 항목이 쿼리에서 누락되면 응답이 [페이징](#paging-results)되지 않으며 결과가 _1000_ 개 레코드로 제한됩니다.
+**First의** 최대 허용 값은 _1000입니다._
 
 ## <a name="skipping-records"></a>레코드 건너뛰기
 

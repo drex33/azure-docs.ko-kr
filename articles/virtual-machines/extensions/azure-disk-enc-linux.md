@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-ms.openlocfilehash: 2b589f24c5338dde503d21a71fcbb9863f8da5b4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e49b017980fa918be57d4dcc8f9c880bc73c6226
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566688"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275148"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -41,6 +41,9 @@ Azure Disk Encryption(ADE)에는 두 가지 버전의 확장 스키마가 있습
 ### <a name="schema-v11-no-aad-recommended"></a>스키마 v1.1: AAD 없음(권장)
 
 v1.1 스키마가 권장되며 AAD(Azure Active Directory) 속성은 필요하지 않습니다.
+
+> [!NOTE]
+> `DiskFormatQuery`매개 변수는 더 이상 사용 되지 않습니다. 암호화 시 데이터 디스크의 형식을 지정 하는 데 권장 되는 방법인 대신 EncryptFormatAll 옵션으로 대체 되었습니다.
 
 ```json
 {

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 17bac4e1efc514440943cb474f2f86a7148d2ef4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 09/29/2021
+ms.openlocfilehash: 4fb8d5ea1bfaa9534f7db27296d3cb7f61d0c4fb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060141"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274958"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 평면화 변환
 
@@ -24,6 +24,8 @@ ms.locfileid: "129060141"
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 평면화 변환을 사용하여 JSON과 같은 계층 구조 내부의 배열 값을 가져와서 개별 행으로 언롤합니다. 해당 프로세스를 비정규화라고 합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
 
 ## <a name="configuration"></a>구성
 

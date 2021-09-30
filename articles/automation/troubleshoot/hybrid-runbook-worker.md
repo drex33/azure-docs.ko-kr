@@ -1,23 +1,23 @@
 ---
-title: Azure Automation Hybrid Runbook Worker 문제 해결
-description: 이 문서에서는 Azure Automation Hybrid Runbook Workers에서 발생하는 문제를 해결하는 방법에 대해 설명합니다.
+title: 에이전트 기반 Hybrid Runbook Worker 문제 해결 Azure Automation
+description: 이 문서에서는 Azure Automation 에이전트 기반 Hybrid Runbook Worker에서 발생 하는 문제를 해결 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/11/2021
+ms.date: 09/24/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9b06213416241f671dd0e6ef56a7660a3af5f6e8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123900"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277160"
 ---
-# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
+# <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Automation의 에이전트 기반 Hybrid Runbook Worker 문제 해결
 
-이 문서에서는 Azure Automation Hybrid Runbook Workers 문제 해결에 대한 정보를 제공합니다. 일반 정보는 [Hybrid Runbook Worker 개요](../automation-hybrid-runbook-worker.md)를 참조하세요.
+이 문서에서는 에이전트 기반 Hybrid Runbook Worker Azure Automation 문제를 해결 하 고 문제를 해결 하는 방법에 대 한 정보를 제공 합니다. 확장 기반 작업자의 문제 해결에 대 한 자세한 내용은 [자동화에서 확장 기반 Hybrid Runbook Worker 문제 해결](./extension-based-hybrid-runbook-worker.md)을 참조 하세요. 일반 정보는 [Hybrid Runbook Worker 개요](../automation-hybrid-runbook-worker.md)를 참조하세요.
 
 ## <a name="general"></a>일반
 
@@ -47,7 +47,7 @@ Runbook이 3회 실행을 시도한 직후 일시 중단됩니다. Runbook 완�
 
 Hybrid Runbook Worker가 실행되는 컴퓨터는 작업자가 이 기능을 호스트하도록 구성하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. Runbook 및 여기에 사용되는 백그라운드 프로세스로 인해 시스템이 과도하게 사용되어 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
-Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요구 사항을 충족하는지 확인합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리나 CPU가 부족하면 리소스를 업그레이드해야 할 수도 있습니다. 최소 요구 사항을 지원할 수 있는 다른 컴퓨팅 리소스를 선택하고 워크로드 수요가 증가의 필요성을 나타낼 경우 규모를 확장할 수도 있습니다.
+Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요구 사항을 충족 하는지 확인 합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리나 CPU가 부족하면 리소스를 업그레이드해야 할 수도 있습니다. 최소 요구 사항을 지 원하는 다른 계산 리소스를 선택 하 고 워크 로드 요구가 증가를 나타내는 경우 크기를 조정할 수도 있습니다.
 
 **Microsoft-SMA** 이벤트 로그에 `Win32 Process Exited with code [4294967295]` 설명이 포함된 해당 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Runbook Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Hybrid Runbook Worker에서 Runbook 실행](../automation-hrw-run-runbooks.md)에서 Runbook 사용 권한을 검토하고 Runbook에 대한 인증을 제대로 구성했는지 확인합니다.
 
@@ -147,7 +147,7 @@ Runbook이 `Set-AzStorageBlobContent`를 실행하려고 할 때 실패하고 �
 
 #### <a name="cause"></a>원인
 
- 해당 오류는 UNC 경로를 추가하는 `[System.IO.Path]::GetFullPath()`에 대한 호출의 긴 파일 이름 동작으로 인해 발생합니다.
+ 이 오류는 UNC 경로를 추가 하는에 대 한 호출의 긴 파일 이름 동작으로 인해 발생 `[System.IO.Path]::GetFullPath()` 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -180,7 +180,7 @@ Linux Hybrid Runbook Worker에 대해 `sudo` 명령을 실행하면 예기치 �
 
 #### <a name="cause"></a>원인
 
-Linux용 Log Analytics 에이전트의 **nxautomationuser** 계정이 **sudoers** 파일에 제대로 구성되어 있지 않습니다. Hybrid Runbook Worker에 적절한 계정 권한 구성 및 기타 데이터가 있어야 Linux Runbook Worker의 Runbook에 서명할 수 있습니다.
+Linux 용 Log Analytics 에이전트에 대 한 **nxautomationuser** 계정이 **sudoers** 파일에서 올바르게 구성 되지 않았습니다. Hybrid Runbook Worker에 적절한 계정 권한 구성 및 기타 데이터가 있어야 Linux Runbook Worker의 Runbook에 서명할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -254,7 +254,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="resolution"></a>해결 방법
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트 관련 문제 해결에 대한 추가 도움말은 [Log Analytics Windows 에이전트 관련 문제 해결](../../azure-monitor/agents/agent-windows-troubleshoot.md)을 참조하세요.
+로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트와 관련 된 문제 해결에 대 한 자세한 내용은 [Log Analytics Windows 에이전트의 문제 해결](../../azure-monitor/agents/agent-windows-troubleshoot.md)을 참조 하세요.
 
 Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메시지를 보내는 것과 동일한 방식으로 Azure Automation에 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)를 보냅니다. Runbook을 활성화하듯이 세부 정보 표시 및 진행률 스트림을 활성화할 수 있습니다.
 
@@ -264,7 +264,7 @@ Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메
 
 Windows Hybrid Runbook Worker에서 실행되는 스크립트를 예정대로 오케스트레이터 샌드박스의 Microsoft 365에 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하고 있습니다. 
 
-**Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시와 관련된 정보를 제공하지 않습니다.
+**Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA (Service Management Automation) 로그 및 PowerShell 로그는 프록시에 대 한 정보를 제공 하지 않습니다.
 
 #### <a name="cause"></a>원인
 
@@ -372,8 +372,8 @@ Start-Service -Name HealthService
 
 ## <a name="next-steps"></a>다음 단계
 
-여기에 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 통해 추가 지원을 받으세요.
+여기에 문제가 표시 되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 사용해 보세요.
 
-* [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
+* [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

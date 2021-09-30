@@ -1,53 +1,53 @@
 ---
-title: Microsoft Azure IoT Device Provisioning Service의 보안 엔드포인트
+title: Microsoft Azure IoT 장치 프로 비전 서비스의 보안 끝점
 description: 개념 - 백 엔드 앱용 IoT DPS (Device Provisioning Service)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: anastasia-ms
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/22/2021
 ms.author: v-stharr
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cf2934c57441176034d28a7b60e33c639977e62d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dc33bf659785419619afe4f393a8a1ed09142452
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779600"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272532"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
-이 문서에서는 IoT Device Provisioning Service를 보호하기 위한 사용 가능한 옵션을 설명합니다. 프로비전 서비스는 *인증* 및 권한을 사용하여 각 엔드포인트에 대한 액세스 권한을 *부여합니다.* 사용 권한을 통해 인증 프로세스에서 기능에 따라 서비스 인스턴스에 대한 액세스를 제한할 수 있습니다.
+이 문서에서는 IoT 장치 프로 비전 서비스를 보호 하는 데 사용할 수 있는 옵션을 설명 합니다. 프로 비전 서비스는 *인증* 및 *사용 권한을* 사용 하 여 각 끝점에 대 한 액세스 권한을 부여 합니다. 사용 권한을 통해 인증 프로세스는 기능에 따라 서비스 인스턴스에 대 한 액세스를 제한할 수 있습니다.
 
-이 문서에서는 다음을 설명합니다.
+이 문서에서는 다음에 대해 설명 합니다.
 
-* 프로비전 서비스에서 서비스 및 디바이스 REST API에 대한 사용 권한을 확인하는 데 사용하는 인증 프로세스 [및 토큰입니다.](/rest/api/iot-dps/)
+* 프로 비전 서비스에서 [서비스 및 장치 REST api](/rest/api/iot-dps/)에 대 한 사용 권한을 확인 하는 데 사용 하는 인증 프로세스 및 토큰입니다.
 
-* 서비스 API에 액세스하기 위해 백 엔드 앱에 부여할 수 있는 다양한 권한입니다.
+* 서비스 API에 액세스 하기 위해 백 엔드 앱에 부여할 수 있는 다양 한 권한입니다.
 
 ## <a name="authentication"></a>인증
 
-디바이스 API는 키 기반 및 X.509 인증서 기반 디바이스 인증을 지원합니다.  
+장치 API는 키 기반 및 x.509 인증서 기반 장치 인증을 지원 합니다.  
 
-서비스 API는 백 엔드 앱에 대한 키 기반 인증을 지원합니다.  
+서비스 API는 백 엔드 앱에 대 한 키 기반 인증을 지원 합니다.  
 
-키 기반 인증을 사용하는 경우 Device Provisioning Service는 보안 토큰을 사용하여 서비스를 인증하여 유선으로 키를 보내지 않도록 합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. Azure IoT Device Provisioning SDK는 특별한 구성 없이 토큰을 자동으로 생성합니다.  
+키 기반 인증을 사용 하는 경우 장치 프로 비전 서비스는 네트워크에서 키를 전송 하지 않도록 보안 토큰을 사용 하 여 서비스를 인증 합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. Azure IoT 장치 프로 비전 Sdk는 특별 한 구성이 필요 하지 않고 토큰을 자동으로 생성 합니다.  
 
-경우에 따라 SDK를 사용하지 않고 HTTP Device Provisioning Service REST API를 직접 사용해야 할 수 있습니다. 다음 섹션에서는 REST API에 대해 직접 인증하는 방법을 설명합니다.
+경우에 따라 Sdk를 사용 하지 않고 HTTP 장치 프로 비전 서비스 REST Api를 직접 사용 해야 할 수도 있습니다. 다음 섹션에서는 REST Api에 대해 직접 인증 하는 방법을 설명 합니다.
 
-## <a name="device-api-authentication"></a>디바이스 API 인증
+## <a name="device-api-authentication"></a>장치 API 인증
 
-[디바이스 API는](/rest/api/iot-dps/device/runtime-registration) 디바이스에서 Device Provisioning Service에 대한 IoT Hub 연결을 수신하는 데 사용됩니다.
+장치 [API](/rest/api/iot-dps/device/runtime-registration) 는 장치에서 장치 프로 비전 서비스를 증명 하 고 IoT Hub 연결을 수신 하는 데 사용 됩니다.
 
 >[!NOTE]
->인증된 연결을 받으려면 먼저 등록을 통해 Device Provisioning Service에 디바이스를 등록해야 합니다. 서비스 API를 사용하여 등록을 통해 프로그래밍 방식으로 디바이스를 등록합니다.
+>인증 된 연결을 받으려면 먼저 장치 프로 비전 서비스에 등록을 통해 장치를 등록 해야 합니다. 서비스 API를 사용 하 여 등록을 통해 장치를 프로그래밍 방식으로 등록 합니다.
 
-디바이스는 프로비전 프로세스의 일부로 디바이스 API에 인증해야 합니다. 디바이스에서 인증하는 데 사용하는 방법은 등록 그룹 또는 개별 등록을 설정할 때 정의됩니다. 인증 방법이 무엇이든 디바이스는 다음 URL에 HTTPS PUT을 발급하여 자체 프로비전해야 합니다.
+장치는 프로 비전 프로세스의 일부로 장치 API에 인증 해야 합니다. 장치에서 인증에 사용 하는 방법은 등록 그룹 또는 개별 등록을 설정할 때 정의 됩니다. 인증 방법에 관계 없이 장치는 자체 프로 비전을 위해 다음 URL에 HTTPS를 발급 해야 합니다.
 
 ```http
     https://global.azure-devices-provisioning.net/[ID_Scope]/registrations/[registration_id]/register?api-version=2021-06-01
 ```
-키 기반 인증을 사용하는 경우 보안 토큰이 HTTP **권한 부여** 요청   헤더에 다음 형식으로 전달됩니다.
+키 기반 인증을 사용 하는 경우 보안 토큰은 다음 형식으로 HTTP **권한 부여**   요청 헤더에 전달 됩니다.
 
 ```bash
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
@@ -55,7 +55,7 @@ ms.locfileid: "124779600"
 
 ### <a name="security-token-structure-for-key-based-authentication"></a>키 기반 인증을 위한 보안 토큰 구조
 
-보안 토큰은 HTTP **권한 부여**   요청 헤더에 다음 형식으로 전달됩니다.
+보안 토큰은 다음 형식으로 HTTP **권한 부여**   요청 헤더에 전달 됩니다.
 
 ```bash
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
@@ -63,14 +63,14 @@ ms.locfileid: "124779600"
 
 예상 값은 다음과 같습니다.
 
-| 값  | 설명 |
+| 값  | Description |
 |:-------|:------------|
-| `{signature}`  | 형식의 HMAC-SHA256 서명  `{URL-encoded-resourceURI} + "\n" + expiry` 문자열입니다. ** 중요:** 키는 base64에서 디코딩되고 HMAC-SHA256 계산을 수행하는 키로 사용됩니다. |
+| `{signature}`  | 형식의 HMAC-SHA256 서명 문자열:  `{URL-encoded-resourceURI} + "\n" + expiry` . ** 중요**: 키는 b a s e 64에서 디코딩되 고 HMAC-SHA256 계산을 수행 하기 위해 키로 사용 됩니다. |
 | `{expiry}`  | 1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다.  |
-| `{URL-encoded-resourceURI}`   |소문자 URL 인코딩 `{ID_Scope}/registrations/{registration_id}` |
-| `{policyName}`  | 디바이스 API의 경우 이 정책은 항상 "등록"입니다. |
+| `{URL-encoded-resourceURI}`   |소문자 URL-인코딩 `{ID_Scope}/registrations/{registration_id}` |
+| `{policyName}`  | 장치 API의 경우이 정책은 항상 "등록"입니다. |
 
-다음 Python 조각은  `generate_sas_token`    `uri` `key` `policy_name` 대칭 키 인증 형식을 사용하는 개별 등록에 대한 , , 입력의 토큰을 계산하는 라는 `expiry` 함수를 보여 드립니다.
+다음 Python 코드 조각에서는  `generate_sas_token`    `uri` `key` `policy_name` `expiry` 대칭 키 인증 유형을 사용 하 여 개별 등록에 대 한 입력에서 토큰을 계산 하는 라는 함수를 보여 줍니다.
 
 ```python
 
@@ -98,14 +98,14 @@ print(generate_sas_token("myIdScope/registrations/mydeviceregistrationid", "00
 
 ```
 
-결과는 다음 출력과 유사합니다.
+결과는 다음 출력과 유사 합니다.
 
 ```bash
 
 SharedAccessSignature sr=myIdScope%2Fregistrations%2Fmydeviceregistrationid&sig=SDpdbUNk%2F1DSjEpeb29BLVe6gRDZI7T41Y4BPsHHoUg%3D&se=1630175722&skn=registration 
 ```
 
-다음 예제에서는 공유 액세스 서명을 사용하여 디바이스 API를 인증하는 방법을 보여줍니다.  
+다음 예제에서는 공유 액세스 서명을 사용 하 여 장치 API를 인증 하는 방법을 보여 줍니다.  
 
 ```python
 
@@ -113,24 +113,20 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 
 ```
 
-대칭 키 기반 등록 그룹을 사용하는 경우 먼저 등록 그룹 키를 사용하여 키를 생성해야 `device symmetric` 합니다. 등록 그룹 기본 또는 보조 키를 사용하여 디바이스에 대한 등록 ID의 HMAC-SHA256을 컴퓨팅합니다. 그런 다음 결과를 Base64 형식으로 변환하여 파생된 디바이스 키를 얻습니다. 코드 예제를 보려면 [대칭 키 등록 그룹을 사용하여 디바이스를 프로비전하는 방법을 참조하세요.](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key) 디바이스 대칭 키가 파생되면 이전 예제를 사용하여 디바이스를 등록할 수 있습니다.
+대칭 키 기반 등록 그룹을 사용 하는 경우 먼저 `device symmetric` 등록 그룹 키를 사용 하 여 키를 생성 해야 합니다. 등록 그룹 기본 또는 보조 키를 사용 하 여 장치에 대 한 등록 ID의 HMAC-SHA256을 계산 합니다. 그런 다음 결과를 Base64 형식으로 변환 하 여 파생 된 장치 키를 가져옵니다. 코드 예제를 보려면 [대칭 키 등록 그룹을 사용 하 여 장치를 프로 비전 하는 방법](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key)을 참조 하세요. 장치 대칭 키가 파생 된 후에는 이전 예제를 사용 하 여 장치를 등록할 수 있습니다.
 
 >[!WARNING]
->디바이스 코드에 그룹 마스터 키를 포함하지 않으려면 디바이스 키 파생 프로세스를 디바이스에서 수행해야 합니다.
+>장치 코드에 그룹 마스터 키를 포함 하지 않으려면 장치에서 장치 키를 파생 하는 프로세스를 수행 해야 합니다.
 
 ### <a name="certificate-based-authentication"></a>인증서 기반 인증 
 
-X.509 인증서 기반 인증에 대한 개별 등록 또는 등록 그룹을 설정한 경우 디바이스는 발급된 X.509 인증서를 사용하여 디바이스 API를 입증해야 합니다. 등록을 설정하고 디바이스 인증서를 생성하는 방법에 대한 다음 문서를 참조하세요.
+X.509 인증서 기반 인증에 대 한 개별 등록 또는 등록 그룹을 설정한 경우 장치는 발급 된 x.509 인증서를 사용 하 여 장치 API를 증명 해야 합니다. 등록을 설정 하 고 장치 인증서를 생성 하는 방법에 대 한 다음 문서를 참조 하세요.
 
-* 빠른 시작 - [Python을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전](quick-create-simulated-device-x509-python.md?tabs=linux)
+* 빠른 시작- [시뮬레이션 된 x.509 장치를 Azure IoT 허브에 프로 비전](quick-create-simulated-device-x509.md)
 
-* 빠른 시작 - [Node.js사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전](quick-create-simulated-device-x509-node.md)
+* 빠른 시작-  [Azure 장치 프로 비전 서비스에 x.509 장치 등록](quick-enroll-device-x509.md)
 
-* 빠른 시작 -  [Python을 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록](quick-enroll-device-x509-python.md)
-
-* 빠른 시작 -  [Node.js사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록 ](quick-enroll-device-x509-node.md)
-
-등록이 설정되고 디바이스 인증서가 발급된 후 다음 예제에서는 디바이스의 X.509 인증서를 사용하여 디바이스 API에 인증하는 방법을 보여줍니다.
+등록을 설정 하 고 장치 인증서를 발급 한 후 다음 예제에서는 장치의 x.509 인증서를 사용 하 여 장치 API에 인증 하는 방법을 보여 줍니다.
 
 ```bash
 
@@ -140,11 +136,11 @@ curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key]
 
 ## <a name="service-api-authentication"></a>서비스 API 인증
 
-[서비스 API는](/rest/api/iot-dps/service/device-registration-state) 등록 상태를 검색하고 디바이스 등록을 제거하는 데 사용됩니다. 이 서비스는 백 엔드 앱에서 [개별 그룹과](/rest/api/iot-dps/service/individual-enrollment) 등록 [그룹을](/rest/api/iot-dps/service/enrollment-group)프로그래밍 방식으로 관리하는 데도 사용됩니다. 서비스 API는 백 엔드 앱에 대한 키 기반 인증을 지원합니다.  
+[서비스 API](/rest/api/iot-dps/service/device-registration-state) 는 등록 상태를 검색 하 고 장치 등록을 제거 하는 데 사용 됩니다. 서비스는 백 엔드 앱에서 [개별 그룹과](/rest/api/iot-dps/service/individual-enrollment) [등록 그룹](/rest/api/iot-dps/service/enrollment-group)을 프로그래밍 방식으로 관리 하는 데도 사용 됩니다. 서비스 API는 백 엔드 앱에 대 한 키 기반 인증을 지원 합니다.  
 
-서비스 API 엔드포인트에 액세스할 수 있는 적절한 권한이 있어야 합니다. 예를 들어 백 엔드 앱은 서비스에 보내는 모든 메시지와 함께 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
+서비스 API 끝점에 액세스할 수 있는 적절 한 권한이 있어야 합니다. 예를 들어 백 엔드 앱은 서비스에 보내는 모든 메시지와 함께 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
-Azure IoT 허브 Device Provisioning Service는 공유 액세스 정책에 대해 토큰을 확인하여 엔드포인트에 대한 액세스 권한을 부여합니다. 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
+Azure IoT 허브 장치 프로 비전 서비스는 공유 액세스 정책에 대 한 토큰을 확인 하 여 끝점에 대 한 액세스 권한을 부여 합니다. 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 
 ### <a name="access-control-and-permissions"></a>액세스 제어 및 권한
 
@@ -189,7 +185,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 | 값 | Description |
 | --- | --- |
-| {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요:** 키는 base64에서 디코딩되고 HMAC-SHA256 계산을 수행하는 키로 사용됩니다.|
+| {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 b a s e 64에서 디코딩되 고 HMAC-SHA256 계산을 수행 하기 위해 키로 사용 됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} | 소문자 리소스 URI의 소문자 URL 인코딩. 이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Device Provisioning Service의 호스트 이름으로 시작합니다(프로토콜 없음). 예들 들어 `mydps.azure-devices-provisioning.net`입니다. |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. |
@@ -268,7 +264,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 * 정책 이름: `enrollmentread`,
 * 임의의 만료 시간.backn
 
-![포털에서 Device Provisioning 서비스 인스턴스에 대한 공유 액세스 정책 만들기][img-add-shared-access-policy]
+![포털에서 Device Provisioning Service 인스턴스에 대한 공유 액세스 정책 만들기][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";

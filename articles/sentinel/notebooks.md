@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/24/2021
-ms.openlocfilehash: 9a72ec356161646df093bb6ca054f84ea0cfe6da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d57941c06f4917c8ff3b27f5e566fc9d5f95474b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563074"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273006"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter Notebook을 사용하여 보안 위협 헌팅
 
@@ -29,7 +29,7 @@ Azure Sentinel의 기반은 데이터 저장소입니다. 데이터 저장소는
 
 - 일부 Python 기계 학습 기능과 같이 Azure Sentinel 기본 제공되지 않는 **분석 수행**
 - 사용자 지정 타임라인 및 프로세스 트리와 같이 Azure Sentinel 기본 제공되지 않는 **데이터 시각화 만들기**
-- 온-프레미스 데이터 집합과 같이 Azure Sentinel 외부에 데이터 **원본을 통합합니다.**
+- 온-프레미스 데이터 집합과 같은 Azure Sentinel 외부의 데이터 **원본을 통합합니다.**
 
 Jupyter 환경이 Azure Portal에 통합되어 있어서 Notebook을 쉽게 만들고 실행하여 데이터를 분석할 수 있습니다. *Kqlmagic* 라이브러리는 Azure Sentinel [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) 쿼리를 받아 Notebook 내에서 직접 실행할 수 있는 glue를 제공합니다.
 
@@ -38,7 +38,7 @@ Microsoft의 일부 보안 분석가가 개발한 몇 가지 Notebook은 Azure S
 - 이러한 Notebook 중 일부는 특정 시나리오에 맞게 빌드되어 있어서 그대로 사용할 수 있습니다.
 - 그 외 Notebook은 기술과 기능을 설명하는 샘플로 제공되며, 사용자가 Notebook에서 사용하기 적합하게 수정하거나 복사할 수 있습니다.
 
-Azure Sentinel Community GitHub 다른 Notebook을 가져올 수도 [있습니다.](https://github.com/Azure/Azure-Sentinel-Notebooks/)
+다른 Notebook은 [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks/)가져올 수도 있습니다.
 
 
 ## <a name="notebook-components"></a>Notebook 구성 요소
@@ -125,10 +125,10 @@ AML 작업 영역을 만든 후 Azure Sentinel에서 Azure ML 작업 영역의 N
 > [!NOTE]
 > GitHub 기본 제공 정적 Notebook 렌더러와 같은 정적 문서로 Notebook을 볼 수 있습니다. 그러나 Notebook에서 코드를 실행하려면 Jupyter 커널이라는 백 엔드 프로세스에 Notebook을 연결해야 합니다. 커널은 코드를 실행하고 코드에서 만드는 모든 변수와 개체를 보유합니다. 브라우저는 이 데이터에 대한 뷰어입니다.
 >
-> Azure ML 커널은 Azure ML Compute라는 가상 머신에서 실행됩니다. Compute 인스턴스는 한 번에 여러 Notebook 실행을 지원할 수 있습니다.
+> Azure ML 커널은 Azure ML Compute라는 가상 머신에서 실행됩니다. Compute 인스턴스는 한 번에 많은 Notebook 실행을 지원할 수 있습니다.
 >
 
-**Azure Sentinel Notebook을 시작하려면 다음을 수행합니다.**
+**Azure Sentinel 에서 Notebook을 시작하려면**
 
 1. Azure Portal에서 **Azure Sentinel** > **위협 관리** > **Notebook** 으로 이동하면 Azure Sentinel이 제공하는 Notebook을 볼 수 있습니다.
 
@@ -322,7 +322,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     ModuleNotFoundError: No module named 'gi'
     ```
 
-1. [Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh) Notebooks GitHub 리포지토리에 있는 aml-compute-setup.sh 스크립트를 사용하여 `pygobject` 컴퓨팅 인스턴스의 모든 Notebook 및 Anaconda 환경에 를 자동으로 설치합니다.
+1. [Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh) Notebooks GitHub 리포지토리에 있는 aml-compute-setup.sh 스크립트를 사용하여 `pygobject` 컴퓨팅 인스턴스의 모든 Notebook 및 Anaconda 환경에 를 자동으로 설치합니다.
 
 > [!TIP]
 > Notebook에서 다음 코드를 실행하여 이 경고를 해결할 수도 있습니다.
@@ -341,7 +341,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 - [**Azure Log Analytics의 자격 증명 검사**](https://www.youtube.com/watch?v=OWjXee8o04M) 및 단계별 조사 - 경고 처리와 같은 일부 Notebook 템플릿을 탐색하여 위협 헌팅 및 조사에 Notebook을 사용하는 방법에 대해 자세히 **알아봅니다.** 
 
-    Azure Sentinel > Notebook 템플릿 탭에서 더 많은 **Notebook 템플릿을** 찾습니다.  >  
+    Azure Sentinel > Notebook 템플릿 탭에서 Notebook **템플릿을** 더  >  **찾습니다.**
 
 - [Azure Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel-Notebooks) **더 많은 Notebook을 찾습니다.**
 

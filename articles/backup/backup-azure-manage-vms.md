@@ -3,12 +3,12 @@ title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용하여 Azure VM 백업을 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: d1040c1261c3edff3010403a63c856ff1c0200fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1fe5b1511147b8db3b0c46504ee88d99dd272287
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605623"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271805"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용하여 Azure VM 백업 관리
 
@@ -97,7 +97,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 * 주문형 백업의 보존 범위는 백업을 트리거할 때 지정하는 보존 값입니다.
 
 > [!NOTE]
-> Azure Backup는 백업 정책에 따라 VM 1 개 백업 및 요청 시 백업을 3 개 백업 하는 하루에 4 개의 백업을 권장 합니다. 그러나 실패 한 시도의 경우 사용자 재시도를 허용 하기 위해 주문형 백업에 대 한 하드 한도는 9 회 시도로 설정 됩니다.
+> Azure Backup VM에 대해 하루에 4개의 백업(백업 정책에 따라 예약된 백업 1개 및 주문형 백업 3개)을 권장합니다. 그러나 실패한 시도 시 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
 
 요청 시 백업을 트리거하려면 다음을 수행합니다.
 
@@ -142,7 +142,7 @@ VM 보호를 중지하는 방법은 두 가지가 있습니다.
 VM의 보호를 중지하고 데이터를 삭제하려면 다음 단계를 수행합니다.
 
 >[!Note]
->보관 계층에서 180일간 유지되지 않은 보관의 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다. [자세히 알아보기](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
+>보관 계층에서 180일간 유지되지 않은 보관의 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다. [자세히 알아보기](../storage/blobs/access-tiers-overview.md).
 
 
 1. [자격 증명 모음 항목의 대시보드](#view-vms-on-the-dashboard)에서 **백업 중지** 를 선택합니다.

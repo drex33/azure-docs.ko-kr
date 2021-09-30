@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76f59aee16261ab9c413ea500a171efc6262cd66
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ebd61d57e79864c1af8a583de349eb5a6706fce8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236316"
+ms.locfileid: "129273935"
 ---
 # <a name="add-faceted-navigation-to-a-search-app"></a>검색 앱에 패싯 탐색 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "129236316"
 
 패싯은 동적이며 쿼리에서 반환됩니다. 검색 응답에는 결과의 문서를 탐색 하는 데 사용 되는 모든 패싯 범주가 표시 됩니다. 쿼리가 먼저 실행 된 다음 패싯이 현재 결과에서 끌어오고 패싯 탐색 구조로 어셈블됩니다.
 
-Cognitive Search에서 패싯은 한 계층에 해당 하며 계층적 일 수 없습니다. 패싯 탐색에 대해 잘 모르는 경우 다음 예제에서는 왼쪽에 있는 항목을 보여 줍니다.
+Cognitive Search에서 패싯은 한 계층에 해당 하며 계층적 일 수 없습니다. 패싯 탐색에 대해 잘 모르는 경우 다음 예제에서는 왼쪽에 있는 항목을 보여 줍니다. 개수는 각 패싯에 대 한 일치 항목 수를 표시 합니다. 동일한 문서를 여러 패싯으로 나타낼 수 있습니다.
 
 :::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="패싯 검색 결과":::
 
@@ -109,7 +109,7 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-패싯 탐색 구조를 완전히 채우도록 열려 있는 쿼리를 사용 하 여 검색 페이지를 초기화 하는 것이 유용 합니다. 요청에서 쿼리 용어를 전달 하는 즉시 패싯 탐색 구조는 일치 하는 문서에만 한정 됩니다.
+패싯 탐색 구조를 완전히 채우도록 열려 있는 쿼리를 사용 하 여 검색 페이지를 초기화 하는 것이 유용 합니다. 요청에서 쿼리 용어를 전달 하는 즉시 패싯 탐색 구조는 전체 인덱스가 아닌 결과의 일치 항목만으로 범위가 지정 됩니다.
 
 위의 예제에 대 한 응답은 위쪽에 패싯 탐색 구조를 포함 합니다. 구조는 "Category" 값 및 각 값에 대 한 호텔 수로 구성 됩니다. 여기에는 간단한 검색 결과가 나와 있습니다. 이 예제는 여러 가지 이유로 제대로 작동 합니다. 이 필드에 대 한 패싯 수는 제한 (기본값: 10) 이므로 모든 항목이 표시 되 고 50 호텔 인덱스의 모든 호텔은 정확히 이러한 범주 중 하나에 표시 됩니다.
 

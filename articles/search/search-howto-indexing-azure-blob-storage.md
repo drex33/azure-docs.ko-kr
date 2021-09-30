@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 5c19cfd69352d898c6f47c7256b8433164cd7eb9
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: 0014c28b57480e8da301c57823cdba79cea67e96
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982999"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274901"
 ---
 # <a name="index-data-from-azure-blob-storage"></a>Azure Blob Storage의 데이터 인덱싱
 
@@ -32,7 +32,7 @@ Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 �
 
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
-Blob Storage [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
+Blob Storage [액세스 계층](../storage/blobs/access-tiers-overview.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다. 
 
 <a name="SupportedFormats"></a>
 

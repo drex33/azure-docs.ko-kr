@@ -4,17 +4,17 @@ description: 요청 헤더가 너무 큼 예외를 진단하고 수정하는 방
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 09/29/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d180e955fda4074fa2115b26f363b2c1350dab98
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: acd3393471e8a58247ad366dcc8b816965ba8045
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117114"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273498"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Azure Cosmos DB "요청 헤더 너무 큼" 메시지 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ HTTP 오류 코드 400인 "요청 헤더가 너무 큼" 메시지가 발생했�
 
 #### <a name="solution"></a>해결책:
 > [!IMPORTANT]
-> .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) 또는 [v2.15.0](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) 이상으로 업그레이드합니다. 이러한 부 버전에는 헤더가 증가하여 크기 제한에 도달하는 것을 방지하기 위해 세션 토큰 크기를 줄이는 최적화가 포함되어 있습니다.
+> 이상 .NET [v 3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) 또는 [v 2.16.1](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)로 업그레이드 합니다. 이러한 부 버전에는 헤더가 증가하여 크기 제한에 도달하는 것을 방지하기 위해 세션 토큰 크기를 줄이는 최적화가 포함되어 있습니다.
 1. [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 또는 [.NET v2](performance-tips.md) 성능 팁 문서의 지침을 따릅니다. TCP(Transmission Control Protocol)를 통해 직접 연결 모드를 사용하도록 애플리케이션을 변환합니다. TCP 프로토콜을 사용하는 직접 연결 모드에는 HTTP 프로토콜과 같은 헤더 크기 제한이 없으므로 이 문제를 방지할 수 있습니다. 서비스 상호 운용성을 사용할 수 없는 경우 쿼리 작업에 대한 수정이 포함된 최신 버전의 SDK를 사용해야 합니다.
 1. TCP 프로토콜을 사용하는 직접 연결 모드가 워크로드에 대한 옵션이 아닌 경우 [클라이언트 일관성 수준](how-to-manage-consistency.md)을 변경하여 이를 완화합니다. 세션 토큰은 Azure Cosmos DB의 기본 일관성 수준인 세션 일관성에만 사용됩니다. 다른 일관성 수준은 세션 토큰을 사용하지 않습니다.
 

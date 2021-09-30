@@ -7,17 +7,17 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 72d24309fdf122ea6aba8c74e11f511870290070
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 26667d513e0bd2bf849361f6c7e5cbce2ca5d245
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208994"
+ms.locfileid: "129277730"
 ---
 # <a name="configure-and-verify-dns-name-resolution-for-azure-purview-private-endpoints"></a>Azure Purview 프라이빗 엔드포인트에 대한 DNS 이름 확인 구성 및 확인
 
 > [!IMPORTANT]
-> **2021년 9월 27일 15:30 UTC 이전에** Purview 계정에 대한 _포털_ 프라이빗 엔드포인트를 만든 경우 [포털 프라이빗 엔드포인트에 대한 DNS 다시 구성에](/catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints)설명된 대로 필요한 작업을 수행해야 합니다. **이러한 작업은 2021년 10월 11일 이전에 완료해야 합니다. 이렇게 하지 않으면 기존 포털 프라이빗 엔드포인트의 작동이 중지됩니다.**
+> **2021년 9월 27일(UTC) 15:30 이전에** Purview 계정에 대한 _포털_ 프라이빗 엔드포인트를 만든 경우 [포털 프라이빗 엔드포인트에 대한 DNS 다시 구성에](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints)설명된 대로 필요한 작업을 수행해야 합니다. **이러한 작업은 2021년 10월 11일 이전에 완료해야 합니다. 이렇게 하지 않으면 기존 포털 프라이빗 엔드포인트의 작동이 중지됩니다.**
 
 ## <a name="conceptual-overview"></a>개념적 개요
 정확한 이름 확인은 Azure Purview 계정에 대한 프라이빗 엔드포인트를 설정하는 경우 중요한 요구 사항입니다. 
@@ -47,7 +47,7 @@ Azure Purview 계정에 프라이빗 엔드포인트를 사용할 때 내부 이
 
    :::image type="content" source="media/catalog-private-link/purview-pe-dns-zones.png" alt-text="DNS 영역을 보여 주는 스크린샷":::
 
-검색, 포털 및 계정 프라이빗 엔드포인트를 만들 때 Azure Purview에 대한 DNS CNAME 리소스 레코드는 접두사 를 사용하여 몇 개의 하위 도메인에 있는 별칭으로 자동으로 업데이트됩니다. `privatelink`
+검색, 포털 및 계정 프라이빗 엔드포인트를 만들 때 Azure Purview에 대한 DNS CNAME 리소스 레코드는 접두사 를 사용하여 일부 하위 도메인의 별칭으로 자동으로 업데이트됩니다. `privatelink`
 
 - 기본적으로 Purview 계정에 대한 _계정_ 프라이빗 엔드포인트를 배포하는 동안 프라이빗 엔드포인트에 대한 DNS A 리소스 레코드를 포함하여 Azure Purview의 하위 도메인에 해당하는 프라이빗 DNS [영역도](../dns/private-dns-overview.md) `privatelink` `privatelink.purview.azure.com` 만듭니다.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8cedd159c1c4c8a7d5309024d66ddc104c07506b
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062093"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272930"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -166,7 +166,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 
 ## <a name="log-analytics-and-azure-defender-security-center"></a>Log Analytics 및 Azure Defender(Security Center)
 
-[Security Center(서버) 청구에 대한 Azure Defender](../../security-center/index.yml) Log Analytics 청구와 밀접하게 연관되어 있습니다. Azure Defender [모니터링되는 서비스 수로 요금을 청구하고](https://azure.microsoft.com/pricing/details/azure-defender/) 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) 하위 집합에 적용되는 500MB/서버/일 데이터 할당을 제공합니다(WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) 및 update 및 UpdateSummary 데이터 형식(업데이트 관리 솔루션이 작업 영역 또는 solut에서 실행되고 있지 않은 경우) 이온 대상 지정을 사용할 수 있습니다([자세한 정보).](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance) 모니터링되는 서버 수는 시간 단위로 계산됩니다. 모니터링되는 각 서버의 일일 데이터 할당 기여도는 작업 영역 수준에서 집계됩니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Azure Defender 및 Log Analytics 할당량이 결합되어 청구 가능한 모든 수집된 데이터에 공동으로 적용됩니다.  
+[Security Center (Azure Defender For Servers)](../../security-center/index.yml) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Azure Defender는 모니터링 되는 [서비스 수를 기준으로 요금을 청구](https://azure.microsoft.com/pricing/details/azure-defender/) 500 하며 다음 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, 업데이트 관리 솔루션이 작업 영역에서 실행 되지 않을 때 Securityalert, securityalert, SecurityBaselineSummary, Securityalert, Securityalert, windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 및 Update 및 UpdateSummary 데이터 형식 이온 대상 지정이 사용 됩니다 ([자세한 정보](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)). 모니터링 되는 서버 수는 시간별 세분성에서 계산 됩니다. 모니터링 되는 각 서버의 일일 데이터 할당 기여도는 작업 영역 수준에서 집계 됩니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Azure Defender 및 Log Analytics 할당량이 결합되어 청구 가능한 모든 수집된 데이터에 공동으로 적용됩니다.  
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
@@ -229,7 +229,7 @@ Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보�
     }
 ```
 
-`retentionInDays`의 유효한 값은 30에서 730까지입니다.
+에 유효한 값 `retentionInDays` 은 4에서 730 까지입니다.
 
 사용자 지정 보존 기간을 적용하여 `Usage` 및 `AzureActivity` 데이터 형식을 설정할 수 없습니다. 이들 데이터 형식은 기본 작업 영역 보존 기간의 최대값 또는 90일을 사용합니다. 
 

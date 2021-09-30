@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c923af2d4260afba8ed8347c6723119278ab1c62
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584217"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278636"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
@@ -122,7 +122,7 @@ Cohasset 보고서는 [Microsoft 서비스 보안 센터](https://aka.ms/AzureWo
 
 ### <a name="access-tiers"></a>액세스 계층
 
-모든 Blob 액세스 계층은 변경이 불가능한 스토리지를 지원합니다. Blob 계층 설정 작업을 사용하여 Blob의 액세스 계층을 변경할 수 있습니다. 자세한 내용은 [Azure Blob Storage의 액세스 계층 - 핫, 쿨, 보관](storage-blob-storage-tiers.md)을 참조하세요.
+모든 Blob 액세스 계층은 변경이 불가능한 스토리지를 지원합니다. Blob 계층 설정 작업을 사용하여 Blob의 액세스 계층을 변경할 수 있습니다. 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)을 참조 하세요.
 
 ### <a name="redundancy-configurations"></a>중복성 구성
 

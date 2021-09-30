@@ -1,17 +1,16 @@
 ---
-title: Azure용 Linux OS 업그레이드 Service Fabric
+title: Azure Service Fabric용 Linux OS 업그레이드
 description: Azure Service Fabric 클러스터를 다른 Linux OS로 마이그레이션하기 위한 옵션에 대해 알아봅니다.
-manager: tassb
 ms.topic: conceptual
 ms.date: 09/14/2021
-ms.openlocfilehash: 4a5b1a97fde977fa4ba64a4a23d0c57725595c37
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f52481e7c457445dc842e86f7b05c3568502da4
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634334"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278014"
 ---
-# <a name="upgrading-linux-os-for-azure-service-fabric"></a>Azure용 Linux OS 업그레이드 Service Fabric
+# <a name="upgrading-linux-os-for-azure-service-fabric"></a>Azure Service Fabric용 Linux OS 업그레이드
 
 이 문서에서는 Linux용 Azure Service Fabric 클러스터를 Ubuntu 버전 16.04 LTS에서 18.04 LTS로 마이그레이션하는 가이드를 설명합니다. 각 OS(운영 체제) 버전에는 원활한 마이그레이션을 위해 이 문서에 설명된 단계가 필요한 고유한 SF 런타임 패키지가 필요합니다.
 
@@ -31,7 +30,7 @@ ms.locfileid: "128634334"
 
     * 새 대상 OS 노드 유형을 만든 후 기존 워크로드가 계속 올바르게 작동하는지 확인합니다. 문제가 관찰되면 이전 노드 유형을 제거하기 전에 앱 또는 미리 설치된 컴퓨터 패키지에 필요한 변경 내용을 해결합니다.
 3. 이전 주 노드 유형을 "isPrimary": false로 표시합니다. 이로 인해 모든 시드 노드를 전환하기 위한 장기 실행 업그레이드 집합이 생성됩니다.
-4. (Bronze 내구성 노드 유형에만 해당): [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl)  /  [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps)  /  [FabricClient를](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) 통해 클러스터에 커넥트 이전 노드 형식의 모든 노드를 사용하지 않도록 설정합니다.
+4. (Bronze 내구성 노드 유형에만 해당): [sfctl](service-fabric-sfctl.md)  /  [PowerShell](/powershell/module/ServiceFabric)  /  [FabricClient를](/dotnet/api/system.fabric.fabricclient) 통해 클러스터에 커넥트 이전 노드 형식의 모든 노드를 사용하지 않도록 설정합니다.
 5. 이전 노드 유형을 제거합니다.
 
 > [!NOTE]
@@ -43,9 +42,9 @@ ms.locfileid: "128634334"
 > [!NOTE]
 > 아래 단계에서는 테스트 전용 클러스터에서 Az PowerShell cmdlet을 통해 노드 형식 마이그레이션의 프로토타입을 신속하게 제작하는 방법을 보여 줍니다. 실제 비즈니스 트래픽이 있는 프로덕션 클러스터의 경우 일관된 선언적 정보 소스에 & 재생 가능성을 유지하기 위해 ARM 업그레이드를 발급하여 동일한 단계를 수행해야 합니다.
 
-1. [Update-AzServiceFabricVmImage를](https://docs.microsoft.com/powershell/module/az.servicefabric/update-azservicefabricvmimage)사용하여 Service Fabric 클러스터 리소스에서 vmImage 설정을 업데이트합니다.
+1. [Update-AzServiceFabricVmImage를](/powershell/module/az.servicefabric/update-azservicefabricvmimage)사용하여 Service Fabric 클러스터 리소스에서 vmImage 설정을 업데이트합니다.
 
-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps):
+    [Azure PowerShell](/powershell/azure/install-az-ps):
     ```powershell
     # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"

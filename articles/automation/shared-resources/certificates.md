@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 788f15cd1edad228e695e6e87f5b630b8e4fdf55
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: daed24e27c1dec0a6dec1bf3b12f8290078027b1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834447"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274788"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Azure Automation에서 인증서 관리
 
@@ -22,7 +22,7 @@ Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomation
 
 ## <a name="powershell-cmdlets-to-access-certificates"></a>인증서에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 인증서를 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 인증서를 만들고 관리합니다. Az 모듈의 일부로 제공됩니다.
 
 |Cmdlet |Description|
 | --- | ---|

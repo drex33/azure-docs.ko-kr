@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d6256fdb15fd4e1e5674ab9aa24002027ed712d9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605452"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273536"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -250,13 +250,13 @@ azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destacc
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GCS 원본에 대한 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT=<> 설정합니다. `project-id`
+서비스 계정 키와 SAS 토큰을 사용하여 모든 버킷을 Google Cloud Storage에서 Blob Storage로 복사합니다. 먼저 GOOGLE_APPLICATION_CREDENTIALS 환경 변수를 설정 하 고 GOOGLE_CLOUD_PROJECT =<`project-id` gc 원본에 대해> 합니다.
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 Google Cloud Storage 원본에 대한 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT= `project-id`<> 설정합니다.
+서비스 계정 키와 대상에 대한 SAS 토큰을 사용하여 Google Cloud Storage의 버킷 이름에 와일드카드 기호(*)를 사용하여 버킷의 하위 집합을 복사합니다. 먼저 `project-id` GOOGLE CLOUD Storage 원본에 대해 환경 변수 GOOGLE_APPLICATION_CREDENTIALS 및 GOOGLE_CLOUD_PROJECT =<>를 설정 합니다.
 
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
@@ -288,9 +288,9 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--content-type** 문자열: 파일의 콘텐츠 형식을 지정합니다. no-guess-mime-type을 의미합니다. 다운로드 시 반환됩니다.
 
-**--cpk-by-name** 문자열 클라이언트가 이름으로 키를 제공하므로 Azure Blob에 대한 요청을 하는 클라이언트는 요청별로 암호화 키를 제공하는 옵션을 Storage. 제공된 키 이름은 Azure Key Vault 가져와 데이터를 암호화하는 데 사용됩니다.
+**--cpk-by-name** 문자열 클라이언트가 이름으로 키를 제공하므로 클라이언트는 Azure Blob에 대한 요청을 Storage 요청별로 암호화 키를 제공하는 옵션을 제공합니다. 제공된 키 이름은 Azure Key Vault 가져와 데이터를 암호화하는 데 사용됩니다.
 
-**--cpk-by-value**                          클라이언트가 이름으로 제공한 키를 사용하면 Azure Blob에 대한 요청을 하는 클라이언트가 요청별로 암호화 키를 제공하는 옵션을 Storage 수 있습니다. 제공된 키와 해당 해시는 환경 변수에서 페치됩니다.
+**--cpk-by-value**                          클라이언트에서 이름으로 제공한 키를 사용하면 Azure Blob에 대한 요청을 하는 클라이언트가 요청별로 암호화 키를 제공하는 옵션을 Storage 수 있습니다. 제공된 키와 해당 해시는 환경 변수에서 페치됩니다.
 
 **--decompress**: 다운로드 시 파일의 content-encoding이 파일이 압축되었음을 나타내는 경우 해당 파일의 압축을 자동으로 풉니다. 지원되는 content-encoding 값은 `gzip` 및 `deflate`입니다. 파일 확장명 `.gz`/`.gzip` 또는 `.zz`는 필요하지 않으며 있는 경우 제거됩니다.
 
@@ -346,9 +346,9 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--preserve-owner**: 다운로드에만 적용되며 `--preserve-permissions`이 사용되는 경우에만 해당합니다. true(기본값)로 설정된 경우 다운로드 시 파일 소유자 및 그룹이 유지됩니다. false로 설정된 경우 `--preserve-permissions`는 여전히 ACL을 유지하지만 소유자 및 그룹은 AzCopy를 실행하는 사용자(기본값 true)에 따라 달라집니다.
 
-**--smb-정보를 유지**   합니다.   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. Azure Files에서 지원하는 특성 비트만 전송되고 다른 모든 항목은 무시됩니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
+**--preserve-smb-info**   기본적으로 True입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. Azure Files에서 지원하는 특성 비트만 전송되고 다른 모든 항목은 무시됩니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
-**--유지-권한**                False 이면 기본적으로 False입니다. 인식 리소스 (Windows 및 Azure Files 또는 Data Lake Storage gen 2 Data Lake Storage gen 2) 간에 acl을 유지 합니다. 계층 네임 스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요 합니다. 다운로드를 위해 새 소유자가 AzCopy를 실행 하는 사용자가 아닌 경우에는--backup 플래그를 사용 하 여 사용 권한을 복원 해야 합니다. 이 플래그는 파일 전용 필터가 지정 된 경우를 제외 하 고 파일 및 폴더에 모두 적용 됩니다 (예: include-패턴).
+**--preserve-permissions**                기본적으로 False입니다. 인식 리소스(Windows 및 Azure Files 또는 Data Lake Storage Gen 2에서 Data Lake Storage Gen 2로) 간의 ACL을 유지합니다. 계층 구조 네임스페이스가 있는 계정의 경우 소유권 수정 및 권한 수정 권한이 있는 컨테이너 SAS 또는 OAuth 토큰이 필요합니다. 다운로드의 경우 새 소유자가 AzCopy를 실행하는 사용자가 아닌 권한을 복원하려면 --backup 플래그도 필요합니다. 이 플래그는 파일 전용 필터(예: include-pattern)를 지정하지 않는 한 파일과 폴더 모두에 적용됩니다.
 
 **--put-md5**: 각 파일의 MD5 해시를 만들고 해당 해시를 대상 Blob 또는 파일의 Content-MD5 속성으로 저장합니다. (기본적으로 해시는 생성되지 않습니다.) 업로드 시에만 사용할 수 있습니다.
 
@@ -358,9 +358,9 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--s2s-handle-invalid-metadata** 문자열: 잘못된 메타데이터 키가 처리되는 방식을 지정합니다. 사용 가능한 옵션은 ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid입니다. (기본값 `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier**: 서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
+**--s2s-preserve-access-tier**: 서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하는지 확인하려면 [Blob 데이터에 대한 핫, 쿨 및 보관](../blobs/access-tiers-overview.md) 액세스 계층을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
 
-**--s2s--blob-태그**               한 blob 저장소에서 다른 blob 저장소로 서비스를 전송 하는 동안 인덱스 태그를 유지 합니다.
+**--s2s-preserve-blob-tags**               한 Blob Storage에서 다른 Blob Storage로 서비스 간 전송 중에 인덱스 태그를 유지합니다.
 
 **--s2s-preserve-properties**: 서비스 간 복사가 진행되는 동안 전체 속성을 유지합니다. AWS S3 및 Azure File 비단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성이 반환되지 않습니다. 전체 속성을 유지하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송해야 합니다. (기본값 true)
 
@@ -372,6 +372,6 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

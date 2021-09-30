@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.openlocfilehash: 3e814541ecf43d8f9d12c028e8bebc8ac31fe411
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433479"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275357"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Azure Sentinel 비용 계획 및 관리
 
@@ -202,7 +202,7 @@ Azure Sentinel과 함께 Azure 리소스를 사용하는 경우 비용이 발생
 
 Azure Sentinel 가격 책정 계층에는 Log Analytics 요금이 포함되지 않습니다. Log Analytics에 대한 가격 책정 계층 약정을 변경하려면 [가격 책정 계층 변경](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier)을 참조하세요.
 
-자세한 내용은 [예산 만들기](#create-budgets) 및 Azure Sentinel 비용을 관리하고 줄이는 기타 [방법을 참조하세요.](#other-ways-to-manage-and-reduce-azure-sentinel-costs)
+자세한 내용은 [Azure 센티널 비용을 관리 하 고 감소 하](#other-ways-to-manage-and-reduce-azure-sentinel-costs)는 예산 및 기타 방법 [만들기](#create-budgets) 를 참조 하세요.
 
 ### <a name="using-azure-prepayment-with-azure-sentinel"></a>Azure Sentinel과 함께 Azure 선불 사용
 
@@ -321,7 +321,7 @@ Azure Sentinel에서 위협을 헌팅하거나 조사하는 경우 이러한 독
 
 ### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>전용 클러스터를 사용하여 Log Analytics 비용 최적화
 
-1TB/일 이상을 Azure Sentinel 작업 영역 또는 동일한 지역의 작업 영역에 수집하는 경우 비용을 줄이기 위해 Log Analytics 전용 클러스터로 이동하는 것이 좋습니다. Log Analytics 전용 클러스터 약정 계층은 총 1TB/일 이상을 수집하는 작업 영역에서 데이터 볼륨을 집계합니다.
+최소 500GB/일을 Azure 센티널 작업 영역 또는 동일한 지역의 작업 영역에 수집 하는 경우 비용을 줄이기 위해 Log Analytics 전용 클러스터로 이동 하는 것이 좋습니다. Log Analytics 전용 클러스터 약정 계층은 전체 500GB/일 이상을 전체적으로 수집 하는 작업 영역에서 데이터 볼륨을 집계 합니다.
 
 Log Analytics 전용 클러스터는 Azure Sentinel 약정 계층에 적용되지 않습니다. Azure Sentinel 비용은 여전히 전용 클러스터의 작업 영역별로 적용됩니다.
 
@@ -329,7 +329,7 @@ Log Analytics 전용 클러스터는 Azure Sentinel 약정 계층에 적용되�
 
 - 쿼리와 관련된 모든 작업 영역이 전용 클러스터에 있는 경우 작업 영역 간 쿼리가 더 빠르게 실행됩니다. 아직도 환경에서 작업 영역을 가능한 한 적게 유지하는 것이 가장 좋으며, 전용 클러스터는 작업 영역 간 단일 쿼리에 포함하기 위해 여전히 [100개의 작업 영역 제한](../azure-monitor/logs/cross-workspace-query.md)을 유지합니다.
 
-- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용하도록 설정하면 1TB/일 이상 수집의 Log Analytics 약정 계층이 약정됩니다.
+- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용 하도록 설정 하면 매일 500GB 수집의 최소 Log Analytics 약정 계층에 커밋합니다.
 
 비용 최적화를 위해 전용 클러스터로 이동할 때 고려해야 할 몇 가지 사항은 다음과 같습니다.
 

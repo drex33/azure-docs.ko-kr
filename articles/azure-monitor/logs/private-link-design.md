@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 3b7316bf7d21a117c80eb49978a807b085db004b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 39a89fbaf72a78bad1c9a0ebca4ce068f6c65cae
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432543"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272893"
 ---
 # <a name="design-your-private-link-setup"></a>Private Link 설정 설계
 
@@ -57,7 +57,7 @@ Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 �
 프로덕션 환경에는 이 방법을 권장하지 않습니다.
 
 ## <a name="control-how-private-links-apply-to-your-networks"></a>Private Link가 네트워크에 적용되는 방식 제어
-Private Link 액세스 모드(2021년 9월에 도입)를 사용하면 Private Links가 네트워크 트래픽에 미치는 영향을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
+개인 링크 액세스 모드 (9 월 2021에 도입)를 사용 하 여 개인 링크가 네트워크 트래픽에 영향을 미치는 방식을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
 
 적절한 액세스 모드를 선택하면 네트워크 트래픽에 해로운 영향을 미칩니다. 이러한 모드는 각각 다음과 같이 개별적으로 수집과 쿼리에 대해 설정할 수 있습니다.
 
@@ -67,10 +67,10 @@ Private Link 액세스 모드(2021년 9월에 도입)를 사용하면 Private Li
 ![AMPLS 공개 액세스 모드의 다이어그램](./media/private-link-security/ampls-open-access-mode.png) 액세스 모드는 수집과 쿼리에 대해 개별적으로 설정됩니다. 예를 들어, 수집에 대해 프라이빗 전용 모드를 설정하고 쿼리에 대해 공개 모드를 설정할 수 있습니다.
 
 
-액세스 모드를 선택할 때는 주의해야 합니다. 프라이빗 전용 액세스 모드를 사용하면 구독 또는 테넌트(아래 설명된 대로 Log Analytics 검색 요청 제외)에 관계없이 동일한 DNS를 공유하는 모든 네트워크에서 AMPLS에 없는 리소스에 대한 트래픽을 차단합니다. 모든 Azure Monitor 리소스를 AMPLS에 추가할 수 없는 경우 선택 리소스를 추가하고 액세스 열기 모드를 적용하여 시작합니다. *모든* Azure Monitor 리소스를 AMPLS에 추가한 후에만 보안을 최대화하기 위해 '프라이빗 전용' 모드로 전환합니다.
+액세스 모드를 선택할 때는 주의 해야 합니다. 전용 액세스 모드를 사용 하면 아래에 설명 된 것 처럼 Log Analytics 수집 요청을 제외 하 고 구독 또는 테 넌 트에 관계 없이 동일한 DNS를 공유 하는 모든 네트워크에서 AMPLS 되지 않은 리소스에 대 한 트래픽을 차단 합니다. AMPLS에 모든 Azure Monitor 리소스를 추가할 수 없는 경우 먼저 select resources를 추가 하 고 Open access mode를 적용 합니다. AMPLS에 *모든* Azure Monitor 리소스를 추가한 후에만 최대 보안을 위해 ' 전용 전용 ' 모드로 전환 합니다.
 
 > [!NOTE]
-> Log Analytics ingestion은 리소스별 엔드포인트를 사용합니다. 따라서 AMPLS 액세스 모드를 준수하지 않습니다. AMPLS의 작업 영역에 대한 통합은 프라이빗 링크를 통해 전송되는 반면 AMPLS에 없는 작업 영역에는 기본 공용 엔드포인트를 사용합니다. AMPLS에서 리소스에 액세스할 수 없도록 하려면 공용 엔드포인트에 대한 네트워크의 액세스를 차단합니다.
+> Log Analytics 수집은 리소스 관련 끝점을 사용 합니다. 따라서 AMPLS 액세스 모드를 따르지 않습니다. **Log Analytics 수집 요청에서 AMPLS의 작업 영역에 액세스할 수 없도록 하려면 AMPLS 액세스 모드에 관계 없이 공용 끝점에 대 한 트래픽을 차단 하도록 네트워크 방화벽을 설정** 합니다.
 
 ### <a name="setting-access-modes-for-specific-networks"></a>특정 네트워크에 대한 액세스 모드 설정
 AMPLS 리소스에 설정된 액세스 모드는 모든 네트워크에 영향을 주지만 특정 네트워크에 대해 해당 설정을 재정의할 수 있습니다.

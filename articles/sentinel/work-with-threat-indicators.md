@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 05aa211d5a96b712862fbb8c81e10ba313ef3b74
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763313"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278793"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Azure Sentinel에서 위협 지표 작업
 
@@ -33,10 +33,6 @@ ms.locfileid: "124763313"
 - 가져온 위협 인텔리전스를 기반으로 기본 제공 **분석** 규칙 템플릿을 사용하여 **위협을 탐지** 하고 보안 경고 및 인시던트를 생성합니다.
 
 - **위협 인텔리전스 통합 문서** 를 사용하여 Azure Sentinel에서 가져온 위협 인텔리전스에 대한 **중요 정보를 시각화** 합니다.
-
-> [!IMPORTANT]
-> 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
->
 
 ## <a name="view-your-threat-indicators-in-azure-sentinel"></a>Azure Sentinel에서 위협 지표 보기
 
@@ -139,6 +135,10 @@ Azure Sentinel **분석** 섹션의 **활성 규칙** 탭에서 설정된 규칙
 Azure Sentinel에서 분석 규칙에서 생성된 경고는 Azure Sentinel 메뉴의 **위협 관리** 아래에 있는 **인시던트** 에서 확인할 수 있는 보안 인시던트도 생성합니다. 인시던트는 보안 운영 팀이 적절한 대응 조치를 결정하기 위해 선별 및 조사하는 것입니다. 이 [자습서: Azure Sentinel을 사용하여 인시던트 조사](./investigate-cases.md)에서 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="detect-threats-using-matching-analytics-public-preview"></a>일치 분석을 사용하여 위협 감지(공개 미리 보기)
+
+> [!IMPORTANT]
+> 일치 하는 분석은 현재 미리 보기 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
 
 기본 제공 **Microsoft 위협 인텔리전스 일치 분석** 규칙 템플릿을 사용하여 Microsoft에서 생성된 위협 인텔리전스 데이터를 Azure Sentinel에서 수집한 로그와 일치시키는 [규칙을 생성합니다](detect-threats-built-in.md#use-built-in-analytics-rules).
 

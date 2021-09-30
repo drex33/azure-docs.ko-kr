@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f119c15cbbfd9586bdb06fdffad0b12c9a441eea
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 012380b98987bc09440d025b6533b62cc1a4c043
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832647"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271653"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation의 일정 관리
 
@@ -25,7 +25,7 @@ Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하�
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>일정에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 일정을 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 일정을 만들고 관리합니다. Az 모듈의 일부로 제공됩니다.
 
 | Cmdlet | Description |
 |:--- |:--- |

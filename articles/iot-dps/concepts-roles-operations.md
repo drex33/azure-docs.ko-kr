@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: 322d6b590863d8065454c0439c5d899107a6abe7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f25aed4fa424ba7b98781f145ace2dce95d27d99
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784968"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276154"
 ---
 # <a name="roles-and-operations"></a>역할 및 작업
 
@@ -30,7 +30,7 @@ IoT 솔루션을 개발하는 단계는 제조 시간, 배송, 세관 프로세�
 | 연산자 | 자동 프로비전 구성 | 이 작업은 자동 프로비전의 첫 번째 단계에 해당합니다.<br><br>**빠른 시작**: 작업자 역할을 수행하여 Azure 구독에서 Device Provisioning Service 및 IoT Hub 인스턴스를 구성합니다. |
 |  | 디바이스 ID 등록 | 이 작업은 자동 프로비전의 두 번째 단계에 해당합니다.<br><br>**빠른 시작**: 작업자 역할을 수행하여 Device Provisioning Service 인스턴스에서 시뮬레이트된 디바이스를 등록합니다. 디바이스 ID는 빠른 시작에서 시뮬레이트된 증명 방법에 따라 결정됩니다(TPM 또는 X.509). 증명 세부 정보에 대해서는 개발자 역할을 참조하세요. |
 | Device Provisioning Service,<br>IoT Hub | \<all operations\> | 물리적 디바이스를 사용하는 프로덕션 구현과 시뮬레이트된 디바이스를 통한 빠른 시작에서, 이러한 역할은 Azure 구독에서 구성하는 IoT 서비스를 통해 이행됩니다. IoT 서비스는 물리적 디바이스 및 시뮬레이트된 디바이스의 프로비전에서 크게 다르지 않으므로 역할/작업은 정확히 동일하게 작동합니다. |
-| Developer | 등록 소프트웨어 빌드/배포 | 이 작업은 자동 프로비전의 세 번째 단계에 해당합니다. 개발자는 적절한 SDK를 사용하여 등록 소프트웨어를 빌드하고 디바이스에 배포하는 일을 담당 합니다.<br><br>**빠른 시작**: 빌드하는 샘플 등록 애플리케이션은 사용자가 선택한 플랫폼/언어에 대해 워크스테이션에서 실행되는 실제 디바이스를 시뮬레이트합니다(실제 디바이스에 배포되지 않음). 등록 애플리케이션은 물리적 디바이스에 배포된 경우와 동일한 작업을 수행합니다. Device Provisioning Service의 등록 URL 및 “ID 범위" 외에 증명 방법(TPM 또는 X.509 인증서)을 지정합니다. 디바이스 ID는 사용자가 지정한 방법에 따라, 런타임에 SDK 증명 논리에 의해 결정됩니다. <ul><li>**TPM 증명** - 개발 워크스테이션에서 [TPM 시뮬레이터 애플리케이션](quick-create-simulated-device.md)이 실행됩니다. 일단 실행되면, 디바이스 ID를 등록하는 데 사용할 TPM의 &quot;인증 키&quot; 및 &quot;등록 ID&quot;를 별도 애플리케이션을 통해 추출합니다. 또한 SDK 증명 논리는 등록 중에 이 시뮬레이터를 사용하여 인증 및 등록 확인을 위한 서명된 SAS 토큰을 제공합니다.</li><li>**X509 증명** - 도구를 사용하 여 [인증서를 생성](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain)합니다. 일단 생성되면, 등록에 사용해야 하는 인증서 파일을 만듭니다. 또한 SDK 증명 논리는 등록 중에 이 인증서를 사용하여 인증 및 등록 확인을 위해 제공됩니다.</li></ul> |
+| Developer | 등록 소프트웨어 빌드/배포 | 이 작업은 자동 프로비전의 세 번째 단계에 해당합니다. 개발자는 적절한 SDK를 사용하여 등록 소프트웨어를 빌드하고 디바이스에 배포하는 일을 담당 합니다.<br><br>**빠른 시작**: 빌드하는 샘플 등록 애플리케이션은 사용자가 선택한 플랫폼/언어에 대해 워크스테이션에서 실행되는 실제 디바이스를 시뮬레이트합니다(실제 디바이스에 배포되지 않음). 등록 애플리케이션은 물리적 디바이스에 배포된 경우와 동일한 작업을 수행합니다. Device Provisioning Service의 등록 URL 및 “ID 범위" 외에 증명 방법(TPM 또는 X.509 인증서)을 지정합니다. 디바이스 ID는 사용자가 지정한 방법에 따라, 런타임에 SDK 증명 논리에 의해 결정됩니다. <ul><li>**TPM 증명** - 개발 워크스테이션에서 [TPM 시뮬레이터 애플리케이션](quick-create-simulated-device-tpm.md)이 실행됩니다. 일단 실행되면, 디바이스 ID를 등록하는 데 사용할 TPM의 &quot;인증 키&quot; 및 &quot;등록 ID&quot;를 별도 애플리케이션을 통해 추출합니다. 또한 SDK 증명 논리는 등록 중에 이 시뮬레이터를 사용하여 인증 및 등록 확인을 위한 서명된 SAS 토큰을 제공합니다.</li><li>**X509 증명** - 도구를 사용하 여 [인증서를 생성](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain)합니다. 일단 생성되면, 등록에 사용해야 하는 인증서 파일을 만듭니다. 또한 SDK 증명 논리는 등록 중에 이 인증서를 사용하여 인증 및 등록 확인을 위해 제공됩니다.</li></ul> |
 | 디바이스 | 부팅 및 등록 | 이 작업은 자동 프로비전의 세 번째 단계에 해당하며, 개발자가 빌드한 디바이스 등록 소프트웨어에 의해 이행됩니다. 자세한 내용은 개발자 역할을 참조하세요. 최초 부팅 시: <ol><li>애플리케이션은 개발 동안 지정한 전역 URL 및 서비스 "ID 범위"를 기준으로 Device Provisioning Service 인스턴스에 연결합니다.</li><li>일단 연결되면, 디바이스는 등록 중에 지정된 증명 방법 및 ID에 따라 인증됩니다.</li><li>일단 인증되면, 디바이스는 프로비전 서비스 인스턴스에 의해 지정된 IoT Hub 인스턴스에 등록됩니다.</li><li>등록이 성공적으로 수행되면 고유한 디바이스 ID 및 IoT Hub 엔드포인트가 IoT Hub와의 통신을 위해 등록 애플리케이션으로 반환됩니다.</li><li> 여기에서 디바이스는 구성을 위해 초기 [디바이스 쌍](~/articles/iot-hub/iot-hub-devguide-device-twins.md) 상태를 풀다운하고, 원격 분석 데이터 보고 프로세스를 시작할 수 있습니다.</li></ol>**빠른 시작**: 디바이스가 시뮬레이트된 후에 등록 소프트웨어가 개발용 워크스테이션에서 실행됩니다.|
 
 다음 다이어그램에서는 디바이스 자동 프로비전 동안 작업의 역할 및 시퀀스를 요약해서 보여줍니다.
@@ -79,11 +79,11 @@ IoT 솔루션을 개발하는 단계는 제조 시간, 배송, 세관 프로세�
 
 그런 다음, 디바이스 증명 메커니즘 및 Device Provisioning Service SDK/언어 기본 설정에 맞는 “디바이스 프로비저닝” 빠른 시작을 계속 진행합니다. 이 빠른 시작에서는 "디바이스 등록" 및 "디바이스 등록 및 구성" 단계를 진행합니다. 
 
-| 디바이스 증명 메커니즘 | 빠른 시작 SDK/언어 | 
+| 디바이스 증명 메커니즘 | 빠른 시작 | 
 | ------------------------------- | -------------------- |
-| 대칭 키 | [C](quick-create-simulated-device-symm-key.md)<br>[Java](quick-create-simulated-device-symmetric-key-java.md)<br>[Python](quick-create-device-symmetric-key-python.md) |
-| X.509 인증서 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
-| 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| 대칭 키 | [시뮬레이션된 대칭 키 디바이스 프로비전](quick-create-simulated-device-symm-key.md) |
+| X.509 인증서 | [시뮬레이션 된 x.509 장치 프로 비전](quick-create-simulated-device-x509.md) |
+| 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈) | [시뮬레이션 된 TPM 장치 프로 비전](quick-create-simulated-device-tpm.md)|
 
 
 

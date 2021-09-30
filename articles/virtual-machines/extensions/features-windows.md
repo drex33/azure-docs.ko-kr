@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c11604ae3fe486be6d471b0218b44eeab26da5c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ab6b3d00f748fb5b3935988522191c749fa4fd9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588545"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275281"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -73,8 +73,8 @@ Windows 게스트 에이전트에는 에이전트 트래픽 요청을 리디렉�
 Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage)를 사용합니다. 다음 예제에서는 *WestUS* 위치에서 모든 사용 가능한 확장을 나열합니다.
 
 ```powershell
-Get-AzVmImagePublisher -Location "WestUS" | `
-Get-AzVMExtensionImageType | `
+Get-AzVmImagePublisher -Location "WestUS" |
+Get-AzVMExtensionImageType |
 Get-AzVMExtensionImage | Select Type, Version
 ```
 
@@ -349,7 +349,7 @@ AutoUpgradeMinorVersion     : True
 
 1. Windows 게스트 에이전트 로그를 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.log* 에서 확장이 프로비저닝된 경우 작업을 확인합니다.
 
-2. 자세한 내용은 실제 확장 로그를 참조 하세요. `C:\WindowsAzure\Logs\Plugins\<extensionName>`
+2. 의 자세한 내용은 실제 확장 로그를 확인하세요. `C:\WindowsAzure\Logs\Plugins\<extensionName>`
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 특정 설명서 문제 해결 섹션을 확인합니다.
 

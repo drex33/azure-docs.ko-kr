@@ -170,7 +170,7 @@
           href: how-to-github-actions.md
         - name: GitHub 작업에서 Key Vault를 사용한 인증
           href: github-actions-key-vault.md
-        - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
+        - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
           href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: 문제 해결
       items:
@@ -188,7 +188,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

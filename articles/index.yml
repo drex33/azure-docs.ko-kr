@@ -834,12 +834,6 @@ productDirectory:
       azureCategories:
         - iot
       url: iot-hub/index.yml
-    - title: Azure IoT 솔루션 가속기
-      summary: 일반적인 IoT 시나리오에 대한 템플릿을 사용하여 완전히 사용자 지정 가능한 솔루션 만들기
-      imageSrc: ./media/index/iot-solution-accelerators.svg
-      azureCategories:
-        - iot
-      url: iot-accelerators/index.yml
     - title: Azure Maps
       summary: 간단하고 안전한 위치 API는 데이터에 지리 공간적 컨텍스트를 제공
       imageSrc: 'https://static.docs.com/ui/media/product/azure/maps.svg'
@@ -1189,7 +1183,7 @@ productDirectory:
       imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-explorer.svg'
       azureCategories:
         - storage
-      url: storage/blobs/storage-blob-storage-tiers.md
+      url: storage/blobs/access-tiers-overview.md
     - title: Avere vFXT for Azure
       summary: 클라우드에서 고성능 파일 기반 워크로드 실행
       imageSrc: ./media/index/avere.svg

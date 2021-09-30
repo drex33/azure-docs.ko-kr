@@ -202,6 +202,8 @@
               href: map-add-drawing-toolbar.md
             - name: 도형 데이터 가져오기
               href: map-get-shape-data.md
+            - name: 스냅 그리드 추가
+              href: map-add-snap-grid.md
             - name: 그리기 이벤트에 반응
               href: drawing-tools-events.md
             - name: 상호 작용 유형 및 바로 가기 키
@@ -394,10 +396,8 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ../iot-edge/index.yml
-        - name: IoT 솔루션 가속기
-          href: ../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ./index.yml
         - name: Time Series Insights

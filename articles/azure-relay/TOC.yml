@@ -44,8 +44,6 @@
                   href: authenticate-managed-identity.md
                 - name: 애플리케이션에서 인증(미리 보기)
                   href: authenticate-application.md
-        - name: 기본 제공 보안 컨트롤
-          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
         - name: 네트워크 보안
           href: network-security.md
     - name: 하이브리드 연결 프로토콜

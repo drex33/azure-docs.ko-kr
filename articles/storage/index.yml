@@ -125,7 +125,7 @@ additionalContent:
               text: Azure Storage Explorer GUI 기반 도구 사용
         - title: 비용 제어
           links:
-            - url: ./blobs/storage-blob-storage-tiers.md
+            - url: ./blobs/access-tiers-overview.md
               text: '비용 효율적인 방식의 계층 BLOB 데이터(핫, 쿨, 보관)'
         - title: 데이터 공유
           links:

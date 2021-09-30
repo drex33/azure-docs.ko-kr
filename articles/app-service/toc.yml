@@ -177,8 +177,6 @@
           href: configure-language-ruby.md
         - name: 사용자 지정 컨테이너 구성
           href: configure-custom-container.md
-        - name: 온-프레미스 리소스에 연결
-          href: web-sites-integrate-with-vnet.md
         - name: Azure Storage(컨테이너) 구성
           href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure

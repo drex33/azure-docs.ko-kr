@@ -442,8 +442,6 @@
       items:
         - name: 필터 개요
           href: search-filters.md
-        - name: 패싯 필터
-          href: search-filters-facets.md
         - name: 패싯 탐색 추가
           href: search-faceted-navigation.md
         - name: 컬렉션 필터 문제 해결
@@ -632,5 +630,5 @@
       href: search-faq-frequently-asked-questions.yml
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

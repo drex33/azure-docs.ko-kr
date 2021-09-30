@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 09/13/2021
-  ms.openlocfilehash: 42368091188caa989187364a33e45eea32c6fe26
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 2cecf4d25be4d3062005b865c8fefd2c5bfe4bac
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128596337"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129215741"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -186,6 +186,8 @@ landingContent:
       url: /cli/azure/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
+    - text: Resource Manager 템플릿
+      url: /azure/templates/microsoft.avs/privateclouds
     - text: Terraform Azure 공급자
       url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - linkListType: video

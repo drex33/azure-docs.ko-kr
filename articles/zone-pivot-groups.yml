@@ -1167,7 +1167,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: rest-api
-    title: REST (영문)
+    title: REST
 - id: app-service-webjob
   title: WebJob 형식
   prompt: WebJob 유형 선택
@@ -1298,6 +1298,32 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+- id: iot-dps-set1
+  title: 프로그래밍 언어 선택
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+- id: iot-dps-set2
+  title: 프로그래밍 언어 선택
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 - id: azure-stack-edge-device-deployment
   title: Azure Stack Edge 디바이스 개발
   prompt: 배포 형식 선택
@@ -1317,9 +1343,9 @@ groups:
   - id: iot-toolset-mplab
     title: MPLAB
 metadata:
-  ms.openlocfilehash: 89fe5b9daec6956c252679045c3f5a5b98cbd670
-  ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+  ms.openlocfilehash: 8f94e077e2983d0b3b8a71729d3d27522f3ee961
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128708532"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129274750"

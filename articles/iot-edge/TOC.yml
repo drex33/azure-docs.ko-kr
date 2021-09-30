@@ -305,8 +305,6 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ./index.yml
-        - name: IoT 솔루션 가속기
-          href: ../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
           href: ../iot-develop/index.yml
         - name: Azure Maps

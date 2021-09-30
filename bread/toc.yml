@@ -255,9 +255,6 @@
         - name: Azure Digital Twins
           tocHref: /azure/digital-twins/
           topicHref: /azure/digital-twins/
-        - name: IoT 솔루션 가속기
-          tocHref: /azure/iot-accelerators/
-          topicHref: /azure/iot-accelerators/
         - name: IoT Hub Device Provisioning Service
           tocHref: /azure/iot-dps/
           topicHref: /azure/iot-dps/

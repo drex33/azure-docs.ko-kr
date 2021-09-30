@@ -12,8 +12,6 @@
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: 참고 자료
       href: cheat-sheet.md
-    - name: 모범 사례
-      href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: 용량 제한
       href: sql-data-warehouse-service-capacity-limits.md
     - name: FAQ
@@ -145,7 +143,7 @@
         - name: 개요
           href: sql-data-warehouse-overview-develop.md
         - name: 모범 사례
-          href: sql-data-warehouse-best-practices-development.md
+          href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
         - name: JSON
           items:
             - name: JSON

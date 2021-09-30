@@ -1,19 +1,18 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 928c4669ec7b1a04874f760cc14234cfa874e99a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 902c44d238de146c5cc92e949497b55e65b54b4c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437900"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129300428"
 ---
 | 리소스                                                                                                           | 제한                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,10 +28,10 @@ ms.locfileid: "123437900"
 
 <br />
 
-| Kubernetes 컨트롤 플레인 제한                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 유료 계층                                                                                  | 부하에 따라 자동으로 규모 확장                                                                                                                                                                                                        |
-| 무료 계층                       | 처리 중인 [요청이 있는](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) 제한된 리소스는 50회 변경 및 100개의 읽기 전용 호출로 제한됩니다.                                                                                                                                                                                                         |
+| Kubernetes 컨트롤 플레인 제한    | 제한 |  
+| -------------- | :--------------------------------------------- |
+| 유료 계층      | 부하에 따라 자동으로 규모 확장                                                                                                                                                                                                        |
+| 무료 계층      | 처리 중인 [요청이 있는](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) 제한된 리소스는 50회 변경 및 100개의 읽기 전용 호출로 제한됩니다.                                                                                                                                                                                                         |
 
 <!-- LINKS - Internal -->
 

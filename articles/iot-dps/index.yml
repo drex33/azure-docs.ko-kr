@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/03/2020
   ms.author: wesmc
-  ms.openlocfilehash: de21c27cd72802eea0a17d07b6abc5282f85561f
-  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+  ms.openlocfilehash: 68caff892694ace7c60519069012779364199608
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94967196"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129270451"
 landingContent:
 - title: Azure IoT Hub DPS(Device Provisioning Service) 정보
   linkLists:
@@ -39,10 +39,8 @@ landingContent:
       url: quick-setup-auto-provision.md
   - linkListType: sample
     links:
-    - text: C를 사용하여 시뮬레이션된 대칭 키 디바이스 프로비전
+    - text: 시뮬레이션된 대칭 키 디바이스 프로비전
       url: quick-create-simulated-device-symm-key.md
-    - text: Java를 사용하여 시뮬레이션된 대칭 키 디바이스 프로비전
-      url: quick-create-simulated-device-symmetric-key-java.md
   - linkListType: how-to-guide
     links:
     - text: 다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법

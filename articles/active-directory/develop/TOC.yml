@@ -263,9 +263,9 @@
                   href: scenario-desktop-acquire-token-interactive.md
                 - name: WAM과 상호 작용
                   href: scenario-desktop-acquire-token-wam.md
-                - name: 통합 Windows 인증
+                - name: Windows 통합 인증
                   href: scenario-desktop-acquire-token-integrated-windows-authentication.md
-                - name: Username Password
+                - name: 사용자 이름 및 암호
                   href: scenario-desktop-acquire-token-username-password.md
                 - name: 디바이스 코드 흐름
                   href: scenario-desktop-acquire-token-device-code-flow.md

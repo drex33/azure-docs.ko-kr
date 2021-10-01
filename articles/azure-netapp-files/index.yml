@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure NetApp Files 설명서
-summary: Azure NetApp Files를 사용하여 NetApp 계정, 용량 풀 및 볼륨을 만들고 관리하며, 내보내기 정책을 구성하고, 가상 머신에 대한 볼륨을 탑재하고, 스냅샷을 관리하는 방법을 알아봅니다.
+summary: Azure NetApp Files를 사용하여 NetApp 계정, 용량 풀 및 볼륨을 만들고 데이터 보호를 관리하는 방법을 알아봅니다.
 metadata:
   title: Azure NetApp Files 설명서
   description: Azure NetApp Files 서비스를 사용하여 볼륨을 설정하고, 액세스하고, 관리하는 방법을 알아봅니다.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: b-juche
   ms.author: b-juche
-  ms.date: 08/25/2020
-  ms.openlocfilehash: f44cd7bc6269a7efbaaaaf2788f660363bafcbac
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 479f3bf51e45b03ea9026cb0b37eb01d91991dbd
+  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91567845"
+  ms.lasthandoff: 09/28/2021
+  ms.locfileid: "129154226"
 landingContent:
 - title: Azure NetApp Files 정보
   linkLists:
@@ -42,8 +42,12 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: waitlist 요청 제출
-      url: azure-netapp-files-register.md#waitlist
+    - text: NetApp 리소스 공급자 등록
+      url: azure-netapp-files-register.md
+    - text: NetApp 계정 만들기
+      url: azure-netapp-files-create-netapp-account.md
+    - text: Azure NetApp Files에 서브넷 위임
+      url: azure-netapp-files-delegate-subnet.md
   - linkListType: quickstart
     links:
     - text: Azure NetApp Files 설정 및 NFS 볼륨 만들기
@@ -52,21 +56,23 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: NetApp 계정 만들기
-      url: azure-netapp-files-create-netapp-account.md
-    - text: 용량 풀 설정
+    - text: Active Directory 연결 만들기
+      url: create-active-directory-connections.md
+    - text: 용량 풀 만들기
       url: azure-netapp-files-set-up-capacity-pool.md
-    - text: Azure NetApp Files에 서브넷 위임
-      url: azure-netapp-files-delegate-subnet.md
-    - text: Azure NetApp Files에 대한 SMB 볼륨 만들기
-      url: azure-netapp-files-create-volumes-smb.md
-    - text: Azure NetApp Files에 대한 NFS 볼륨 만들기
+    - text: NFS 볼륨 만들기
       url: azure-netapp-files-create-volumes.md
+    - text: SMB 볼륨 만들기
+      url: azure-netapp-files-create-volumes-smb.md
+    - text: 이중 프로토콜 볼륨 만들기
+      url: create-volumes-dual-protocol.md
 - title: 개발
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: REST API
       url: azure-netapp-files-develop-with-rest-api.md
+    - text: PowerShell을 사용하는 REST API
+      url: develop-rest-api-powershell.md
     - text: Azure NetApp Files SDK 및 CLI 도구
       url: azure-netapp-files-sdk-cli.md

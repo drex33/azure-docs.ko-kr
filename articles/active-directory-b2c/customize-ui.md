@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/06/2021
 ms.custom: project-no-code, b2c-support
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cf4e674e1aca47b0f1ea4fa05aae110f8270b721
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: f227c63ef837b0de60ee72e2f33084e744f2f96f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688894"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535602"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -210,10 +210,9 @@ Azure AD B2C 회사 브랜딩을 구성할 때 다음 사항을 염두에 두어
 * 배너 로고는 가입 사용자 흐름을 시작할 때 사용자에게 전송되는 확인 메일에 표시됩니다.
 
 
+::: zone pivot="b2c-user-flow"
 
 ## <a name="enable-company-branding-in-user-flow-pages"></a>사용자 흐름 페이지에서 회사 브랜딩 사용
-
-::: zone pivot="b2c-user-flow"
 
 회사 브랜딩을 구성한 후에는 사용자 흐름에서 이를 사용합니다.
 
@@ -231,6 +230,8 @@ Azure AD B2C 회사 브랜딩을 구성할 때 다음 사항을 염두에 두어
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="enable-company-branding-in-custom-policy-pages"></a>사용자 지정 정책 페이지에서 회사 브랜딩 사용
 
 회사 브랜딩을 구성한 후에는 사용자 지정 정책에서 이를 사용합니다. 사용자 지정 정책의 ‘모든’ 콘텐츠 정의에 대해 페이지 `contract` 버전으로 [페이지 레이아웃 버전](contentdefinitions.md#migrating-to-page-layout)을 구성합니다. 값 형식에는 _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_ 과 같이 `contract`라는 단어가 포함되어야 합니다. 이전 **DataUri** 값을 사용하는 사용자 지정 정책에서 페이지 레이아웃을 지정하려는 경우가 이에 해당합니다. 자세한 내용은 페이지 버전을 사용하여 [페이지 레이아웃으로 마이그레이션](contentdefinitions.md#migrating-to-page-layout)하는 방법을 알아보세요.
 

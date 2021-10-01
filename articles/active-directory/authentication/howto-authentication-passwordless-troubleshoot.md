@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70230b5324d94065e414e0bc76d7e2f092369ba9
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648783"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431985"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대한 문제 해결 
 
@@ -144,10 +144,10 @@ Azure AD Kerberos 서버 개체가 올바른지 확인하려면 다음 단계를
 |--------------------|--------------|
 | Id                 | AD DS 도메인 컨트롤러 개체의 고유한 *ID* 입니다. |
 | DomainDnsName      | AD DS 도메인의 DNS 도메인 이름입니다. |
-| ComputerAccount    | Azure AD Kerberos 서버 개체(DC)의 컴퓨터 계정 개체입니다. |
-| UserAccount        | Azure AD Kerberos 서버 TGT 암호화 키를 보유한 사용하지 않도록 설정된 사용자 계정 개체입니다. 이 계정의 DN은 *CN=krbtgt_AzureAD,CN=Users,<Domain-DN>* 입니다. |
-| KeyVersion         | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 버전은 키를 만들 때 할당됩니다. 그런 다음, 키를 회전할 때마다 버전이 증가합니다. 증분은 복제 메타데이터를 기반으로 하며 1보다 클 수 있습니다.<br /><br /> 예를 들어 초기 *KeyVersion* 은 *192272* 일 수 있습니다. 키를 처음 회전할 때 버전은 *212621* 로 증가할 수 있습니다.<br /><br /> 확인해야 하는 중요한 점은 온-프레미스 개체의 *KeyVersion* 과 클라우드 개체의 *CloudKeyVersion* 이 동일한가입니다. |
-| KeyUpdatedOn       | Azure AD Kerberos 서버 TGT 암호화 키가 업데이트되거나 생성된 날짜와 시간입니다. |
+| ComputerAccount    | Azure AD Kerberos 서버 개체(DC)의 머신 계정 개체입니다. |
+| UserAccount        | Azure AD Kerberos 서버 TGT 암호화 키를 보유한 사용하지 않도록 설정된 사용자 계정 개체입니다. 이 계정의 DN은 *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* 입니다. |
+| KeyVersion         | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 버전은 키를 만들 때 할당됩니다. 그런 다음, 키를 회전할 때마다 버전이 증가합니다. 증분은 복제 메타데이터를 기반으로 하며 1보다 클 수 있습니다.<br /><br /> 예를 들어 초기 *KeyVersion* 은 *192272* 일 수 있습니다. 키를 처음 회전할 때 버전은 *212621* 로 이동될 수 있습니다.<br /><br /> 확인해야 하는 중요한 점은 온-프레미스 개체의 *KeyVersion* 과 클라우드 개체의 *CloudKeyVersion* 이 동일한지 확인하는 것입니다. |
+| KeyUpdatedOn       | Azure AD Kerberos 서버 TGT 암호화 키가 업데이트 또는 생성된 날짜와 시간입니다. |
 | KeyUpdatedFrom     | Azure AD Kerberos 서버 TGT 암호화 키가 마지막으로 업데이트된 DC입니다. |
 | CloudId            | Azure AD 개체의 *ID* 입니다. 위의 *ID* 와 일치해야 합니다. |
 | CloudDomainDnsName | Azure AD 개체의 *DomainDnsName* 입니다. 위의 *DomainDnsName* 과 일치해야 합니다. |

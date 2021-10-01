@@ -66,71 +66,12 @@
           href: tutorial-x509-test-certificate.md
 - name: 개념
   items:
-    - name: TLS 지원
-      href: iot-hub-tls-support.md
-    - name: 가상 네트워크 지원
-      href: virtual-network-support.md
-    - name: 메시지 보강 개요
-      href: iot-hub-message-enrichments-overview.md
-    - name: 디바이스 관리 개요
-      href: iot-hub-device-management-overview.md
-    - name: IoT Hub와 Event Hubs 비교
-      href: iot-hub-compare-event-hubs.md
-    - name: 올바른 계층 선택
-      href: iot-hub-scaling.md
-    - name: 고가용성 및 재해 복구
-      href: iot-hub-ha-dr.md
-    - name: 다른 Azure 지역에 IoT Hub를 복제하는 방법
-      href: iot-hub-how-to-clone.md
-    - name: IoT 허브 IP 주소 이해
-      href: iot-hub-understand-ip-address.md
-    - name: 추가 프로토콜 지원
-      href: iot-hub-protocol-gateway.md
-    - name: 메시지와 이벤트 라우팅 비교
-      href: iot-hub-event-grid-routing-comparison.md
-    - name: 디바이스 구성 모범 사례
-      href: iot-hub-configuration-best-practices.md
-    - name: IoT Hub 디바이스 스트림 개요(미리 보기)
-      href: iot-hub-device-streams-overview.md
-    - name: 개발자 가이드
-      href: iot-hub-devguide.md
+    - name: 개발
       items:
         - name: 디바이스-클라우드 기능 가이드
           href: iot-hub-devguide-d2c-guidance.md
         - name: 클라우드-디바이스 기능 가이드
           href: iot-hub-devguide-c2d-guidance.md
-        - name: 메시지 보내기 및 받기
-          href: iot-hub-devguide-messaging.md
-          items:
-            - name: IoT Hub 메시지 만들기 및 읽기
-              href: iot-hub-devguide-messages-construct.md
-            - name: 디바이스 통신 프로토콜 선택
-              href: iot-hub-devguide-protocols.md
-            - name: 기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
-              href: iot-hub-devguide-messages-read-builtin.md
-            - name: 이 메시지 라우팅을 사용하여 디바이스-클라우드 간 메시지 보내기
-              href: iot-hub-devguide-messages-d2c.md
-              items:
-                - name: 디바이스-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용
-                  href: iot-hub-devguide-messages-read-custom.md
-                - name: 메시지 경로에 쿼리 추가
-                  href: iot-hub-devguide-routing-query-syntax.md
-            - name: IoT Hub에서 클라우드-디바이스 메시지 보내기
-              href: iot-hub-devguide-messages-c2d.md
-        - name: Event Grid를 사용하여 IoT Hub 이벤트에 대응
-          href: iot-hub-event-grid.md
-        - name: 디바이스에서 파일 업로드
-          href: iot-hub-devguide-file-upload.md
-        - name: 디바이스 ID 관리
-          href: iot-hub-devguide-identity-registry.md
-        - name: IoT Hub에 대한 액세스 제어
-          items:
-            - name: 개요
-              href: iot-hub-devguide-security.md
-            - name: Azure AD를 사용하여 액세스 제어
-              href: iot-hub-dev-guide-azure-ad-rbac.md
-            - name: RBAC를 사용하여 액세스 제어
-              href: iot-hub-dev-guide-sas.md
         - name: 쌍 디바이스 이해
           href: iot-hub-devguide-device-twins.md
         - name: 모듈 쌍 이해
@@ -145,16 +86,80 @@
           href: iot-hub-devguide-query-language.md
         - name: 할당량 및 제한
           href: iot-hub-devguide-quotas-throttling.md
+        - name: IoT Hub와 Event Hubs 비교
+          href: iot-hub-compare-event-hubs.md
+        - name: Event Grid를 사용하여 IoT Hub 이벤트에 대응
+          href: iot-hub-event-grid.md
+        - name: 디바이스에서 파일 업로드
+          href: iot-hub-devguide-file-upload.md
+        - name: IoT Hub 디바이스 스트림 개요(미리 보기)
+          href: iot-hub-device-streams-overview.md
+    - name: 관리
+      items:
+        - name: 올바른 IoT Hub 계층 선택
+          href: iot-hub-scaling.md
         - name: 가격 책정 예제
           href: iot-hub-devguide-pricing.md
-        - name: IoT Hub SDK
-          items:
-            - name: SDK 개요
-              href: iot-hub-devguide-sdks.md
-            - name: SDK 없이 개발
-              href: iot-hub-devguide-no-sdk.md
-            - name: 연결 및 신뢰할 수 있는 메시징 관리
-              href: iot-hub-reliability-features-in-sdks.md
+    - name: 메시징
+      items:
+        - name: 메시지 보내기 및 받기
+          href: iot-hub-devguide-messaging.md
+        - name: IoT Hub 메시지 만들기 및 읽기
+          href: iot-hub-devguide-messages-construct.md
+        - name: 디바이스 통신 프로토콜 선택
+          href: iot-hub-devguide-protocols.md
+        - name: 기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: 메시지 보강 개요
+          href: iot-hub-message-enrichments-overview.md
+    - name: 메시지 라우팅
+      items:
+        - name: 이 메시지 라우팅을 사용하여 디바이스-클라우드 간 메시지 보내기
+          href: iot-hub-devguide-messages-d2c.md
+        - name: 디바이스-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: 메시지 경로에 쿼리 추가
+          href: iot-hub-devguide-routing-query-syntax.md
+        - name: IoT Hub에서 클라우드-디바이스 메시지 보내기
+          href: iot-hub-devguide-messages-c2d.md
+        - name: 메시지와 이벤트 라우팅 비교
+          href: iot-hub-event-grid-routing-comparison.md
+    - name: 디바이스 관리
+      items:
+        - name: 디바이스 관리 개요
+          href: iot-hub-device-management-overview.md
+        - name: 디바이스 ID 관리
+          href: iot-hub-devguide-identity-registry.md
+        - name: 디바이스 구성 모범 사례
+          href: iot-hub-configuration-best-practices.md
+    - name: 연결
+      items:
+        - name: IoT 허브 IP 주소 이해
+          href: iot-hub-understand-ip-address.md
+    - name: 크기 조정 및 가용성
+      items:
+        - name: 고가용성 및 재해 복구
+          href: iot-hub-ha-dr.md
+        - name: 다른 Azure 지역에 IoT Hub를 복제하는 방법
+          href: iot-hub-how-to-clone.md
+    - name: IoT Hub에 대한 액세스 제어
+      items:
+        - name: 개요
+          href: iot-hub-devguide-security.md
+        - name: Azure AD를 사용하여 액세스 제어
+          href: iot-hub-dev-guide-azure-ad-rbac.md
+        - name: RBAC를 사용하여 액세스 제어
+          href: iot-hub-dev-guide-sas.md
+    - name: IoT Hub SDK
+      items:
+        - name: SDK 개요
+          href: iot-hub-devguide-sdks.md
+        - name: SDK 없이 개발
+          href: iot-hub-devguide-no-sdk.md
+        - name: 연결 및 신뢰할 수 있는 메시징 관리
+          href: iot-hub-reliability-features-in-sdks.md
+    - name: 프로토콜 지원
+      items:
         - name: MQTT 지원
           href: iot-hub-mqtt-support.md
         - name: MQTT 5 지원(미리 보기)
@@ -165,8 +170,14 @@
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP 지원
           href: iot-hub-amqp-support.md
+        - name: 추가 프로토콜 지원
+          href: iot-hub-protocol-gateway.md
     - name: 보안
       items:
+        - name: TLS 지원
+          href: iot-hub-tls-support.md
+        - name: 가상 네트워크 지원
+          href: virtual-network-support.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: 권장 사항
@@ -182,12 +193,12 @@
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
-    - name: X.509 CA 인증서를 사용한 보안
-      items:
-        - name: X.509 CA 인증서 보안 개요
-          href: iot-hub-x509ca-overview.md
-        - name: X.509 CA 인증서 보안 개념
-          href: iot-hub-x509ca-concept.md
+        - name: X.509 CA 인증서를 사용한 보안
+          items:
+            - name: X.509 CA 인증서 보안 개요
+              href: iot-hub-x509ca-overview.md
+            - name: X.509 CA 인증서 보안 개념
+              href: iot-hub-x509ca-concept.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -480,8 +491,6 @@
           href: ../iot-edge/index.yml
         - name: IoT 플러그 앤 플레이
           href: ../iot-develop/index.yml
-        - name: IoT 솔루션 가속기
-          href: ../iot-accelerators/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
         - name: Time Series Insights

@@ -10,28 +10,30 @@ items:
     items:
       - name: Purview 계정 만들기
         items:
-          - name: Purview 계정 만들기 - Azure Portal
+          - name: Purview 계정 만들기 - 포털
             href: create-catalog-portal.md
-          - name: Purview 계정 만들기 - Azure PowerShell
+          - name: Purview 계정 만들기 - PowerShell
             href: create-catalog-powershell.md
           - name: Purview 계정 만들기 - .NET SDK
             href: create-purview-dotnet.md
           - name: Purview 계정 만들기 - Python
             href: create-purview-python.md
-      - name: 컬렉션 만들기 - Azure Purview Studio
+      - name: 컬렉션 만들기 - 포털
         href: quickstart-create-collection.md
   - name: 자습서
     items:
-      - name: 대규모 Azure 데이터 원본 온보딩
+      - name: 대규모 Azure 원본 온보딩
         items:
-          - name: 대규모 Azure 데이터 원본 준비 상태 확인
+          - name: 대규모 Azure 원본 준비
             href: tutorial-data-sources-readiness.md
-          - name: 대규모 Azure Purview MSI 구성
+          - name: 대규모 Purview MSI 구성
             href: tutorial-msi-configuration.md
-      - name: 온-프레미스 SQL Server 등록 및 검사
+      - name: 온-프레미스 SQL Server 온보드
         href: tutorial-register-scan-on-premises-sql-server.md
-      - name: Purview 데이터 평면에 REST API를 사용하는 방법
+      - name: Purview 데이터 평면에 REST API 사용
         href: tutorial-using-rest-apis.md
+      - name: 컬렉션 관리에 REST API 사용
+        href: tutorial-metadata-policy-collections-apis.md
   - name: 개념
     items:
       - name: Purview Studio 사용
@@ -42,142 +44,122 @@ items:
             href: deployment-best-practices.md
           - name: 컬렉션 아키텍처
             href: concept-best-practices-collections.md
-      - name: Azure Purview 제한
-        href: how-to-manage-quotas.md
-      - name: 검사 및 수집
-        href: concept-scans-and-ingestion.md
-      - name: 탄력적 데이터 맵
-        href: concept-elastic-data-map.md
-      - name: 리소스 집합 이해
-        href: concept-resource-sets.md
-      - name: 데이터 계보
-        href: concept-data-lineage.md
-      - name: 지원되는 데이터 원본 및 파일 형식
-        href: sources-and-scans.md
-      - name: 카탈로그 권한
+      - name: Purview 권한
         href: catalog-permissions.md
-      - name: 카탈로그 검색
-        href: concept-search.md
-      - name: 비즈니스 용어집
-        href: concept-business-glossary.md
+      - name: 데이터 맵
+        items:
+          - name: 탄력적 데이터 맵
+            href: concept-elastic-data-map.md
+          - name: 리소스 집합
+            href: concept-resource-sets.md
+          - name: 검사 및 수집
+            href: concept-scans-and-ingestion.md
+          - name: 데이터 계보
+            href: concept-data-lineage.md
+      - name: 데이터 카탈로그
+        items:
+          - name: 카탈로그 검색
+            href: concept-search.md
+          - name: 비즈니스 용어집
+            href: concept-business-glossary.md
+          - name: 자산 정규화
+            href: concept-asset-normalization.md
       - name: 데이터 인사이트
         href: concept-insights.md
-      - name: 지원되는 브라우저
-        href: supported-browsers.md
-      - name: 자산 정규화
-        href: concept-asset-normalization.md
-      - name: 질문과 대답
-        href: ./frequently-asked-questions.yml
       - name: 업그레이드된 Purview 계정
         href: concept-account-upgrade.md
   - name: 방법 가이드
     items:
       - name: 컬렉션 만들기 및 관리
         href: how-to-create-and-manage-collections.md
-      - name: 등록 및 검사
+      - name: 원본 관리
         items:
+          - name: 지원되는 원본
+            href: purview-connector-overview.md
+          - name: 데이터 원본 관리
+            href: manage-data-sources.md
           - name: 자격 증명 관리
             href: manage-credentials.md
             displayName: Create and manage Credentials
+      - name: 원본
+        items:
+          - name: Azure 다중 소스
+            href: register-scan-azure-multiple-sources.md
+          - name: Azure Synapse Analytics 작업 영역
+            href: register-scan-synapse-workspace.md
+          - name: Azure Blob Storage
+            href: register-scan-azure-blob-storage-source.md
+            displayName: Register and scan Azure Blob Storage
+          - name: Azure 파일
+            href: register-scan-azure-files-storage-source.md
+            displayName: Register and scan Azure Files
+          - name: Azure Cosmos DB
+            href: register-scan-azure-cosmos-database.md
+            displayName: Register and scan Azure Cosmos DB
+          - name: Azure Database for MySQL
+            href: register-scan-azure-mysql-database.md
+            displayName: Register and scan an Azure database for MySQL
+          - name: Azure Database for PostgreSQL
+            href: register-scan-azure-postgresql.md
+            displayName: Register and scan an Azure database for PostgreSQL
+          - name: Azure Data Explorer
+            href: register-scan-azure-data-explorer.md
+            displayName: Register and scan Azure Data Explorer Kusto
+          - name: Azure Data Lake Storage Gen 1
+            href: register-scan-adls-gen1.md
+            displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+          - name: Azure Data Lake Storage Gen 2
+            href: register-scan-adls-gen2.md
+            displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+          - name: Azure SQL Database
+            href: register-scan-azure-sql-database.md
+            displayName: Register and scan Azure SQL DB
+          - name: Azure SQL Database Managed Instance
+            href: register-scan-azure-sql-database-managed-instance.md
+            displayName: Register and scan Azure SQL DB Managed Instance
+          - name: Azure 전용 SQL 풀(이전 SQL DW)
+            href: register-scan-azure-synapse-analytics.md
+          - name: Cassandra
+            href: register-scan-cassandra-source.md
+          - name: Erwin
+            href: register-scan-erwin-source.md
+          - name: Google BigQuery
+            href: register-scan-google-bigquery-source.md
+          - name: Hive 메타스토어 데이터베이스
+            href: register-scan-hive-metastore-source.md
+          - name: Looker
+            href: register-scan-looker-source.md
+          - name: 온-프레미스 SQL Server
+            href: register-scan-on-premises-sql-server.md
+          - name: Oracle
+            href: register-scan-oracle-source.md
+          - name: Power BI 테넌트 - Portal
+            href: register-scan-power-bi-tenant.md
+          - name: SAP ECC
+            href: register-scan-sapecc-source.md
+          - name: SAP S/4HANA
+            href: register-scan-saps4hana-source.md
+          - name: Teradata
+            href: register-scan-teradata-source.md
+          - name: Amazon S3
+            href: register-scan-amazon-s3.md
+      - name: 검사
+        items:
           - name: 검사 규칙 집합 만들기
             href: create-a-scan-rule-set.md
+          - name: 리소스 집합 패턴 규칙
+            href: how-to-resource-set-pattern-rules.md
           - name: 통합 런타임 관리
             href: manage-integration-runtimes.md
           - name: 연결 문제 해결
             href: troubleshoot-connections.md
-          - name: 리소스 집합 패턴 규칙
-            href: how-to-resource-set-pattern-rules.md
-          - name: 원본
-            items:
-              - name: 데이터 원본 관리
-                href: manage-data-sources.md
-              - name: Azure Purview 커넥터
-                href: purview-connector-overview.md
-              - name: Azure 다중 소스
-                href: register-scan-azure-multiple-sources.md
-              - name: Azure Synapse Analytics 작업 영역
-                href: register-scan-synapse-workspace.md
-              - name: Azure Blob Storage
-                href: register-scan-azure-blob-storage-source.md
-                displayName: Register and scan Azure Blob Storage
-              - name: Azure 파일
-                href: register-scan-azure-files-storage-source.md
-                displayName: Register and scan Azure Files
-              - name: Azure Cosmos DB
-                href: register-scan-azure-cosmos-database.md
-                displayName: Register and scan Azure Cosmos DB
-              - name: Azure Database for MySQL
-                href: register-scan-azure-mysql-database.md
-                displayName: Register and scan an Azure database for MySQL
-              - name: Azure Database for PostgreSQL
-                href: register-scan-azure-postgresql.md
-                displayName: Register and scan an Azure database for PostgreSQL
-              - name: Azure Data Explorer
-                href: register-scan-azure-data-explorer.md
-                displayName: Register and scan Azure Data Explorer Kusto
-              - name: Azure Data Lake Storage Gen 1
-                href: register-scan-adls-gen1.md
-                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
-              - name: Azure Data Lake Storage Gen 2
-                href: register-scan-adls-gen2.md
-                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
-              - name: Azure SQL Database
-                href: register-scan-azure-sql-database.md
-                displayName: Register and scan Azure SQL DB
-              - name: Azure SQL Database Managed Instance
-                href: register-scan-azure-sql-database-managed-instance.md
-                displayName: Register and scan Azure SQL DB Managed Instance
-              - name: Azure 전용 SQL 풀(이전 SQL DW)
-                href: register-scan-azure-synapse-analytics.md
-              - name: Cassandra
-                href: register-scan-cassandra-source.md
-              - name: Erwin
-                href: register-scan-erwin-source.md
-              - name: Google BigQuery
-                href: register-scan-google-bigquery-source.md
-              - name: Hive 메타스토어 데이터베이스
-                href: register-scan-hive-metastore-source.md
-              - name: Looker
-                href: register-scan-looker-source.md
-              - name: 온-프레미스 SQL Server
-                href: register-scan-on-premises-sql-server.md
-              - name: Oracle
-                href: register-scan-oracle-source.md
-              - name: Power BI 테넌트 - Portal
-                href: register-scan-power-bi-tenant.md
-              - name: SAP ECC
-                href: register-scan-sapecc-source.md
-              - name: SAP S/4HANA
-                href: register-scan-saps4hana-source.md
-              - name: Teradata
-                href: register-scan-teradata-source.md
-              - name: Amazon S3
-                href: register-scan-amazon-s3.md
-      - name: 비즈니스 용어집
-        items:
-          - name: '용어집 만들기, 가져오기 및 내보내기'
-            href: how-to-create-import-export-glossary.md
-          - name: 용어 템플릿 관리
-            href: how-to-manage-term-templates.md
-      - name: 대량 편집
-        items:
-          - name: 자산을 대량 편집하여 주석 및 연락처에 태그 지정
-            href: how-to-bulk-edit-assets.md
-      - name: 분류
-        items:
-          - name: 사용자 지정 분류 및 분류 규칙 만들기
-            href: create-a-custom-classification-and-classification-rule.md
-          - name: 분류 적용
-            href: apply-classifications.md
-          - name: 콘텐츠에 자동으로 레이블 지정
-            href: create-sensitivity-label.md
-      - name: 검색 및 찾아보기
+      - name: 데이터 검색
         items:
           - name: Data Catalog 찾아보기
             href: how-to-browse-catalog.md
           - name: Data Catalog 검색
             href: how-to-search-catalog.md
-          - name: '카탈로그 자산 보기, 편집 및 삭제'
+          - name: 카탈로그 자산 관리
             href: catalog-asset-details.md
       - name: 계보
         items:
@@ -211,10 +193,28 @@ items:
             href: how-to-lineage-sql-server-integration-services.md
           - name: Teradata 계보
             href: how-to-lineage-teradata.md
-      - name: 모니터
+      - name: 비즈니스 용어집
         items:
-          - name: Azure Monitor로 모니터링
-            href: how-to-monitor-with-azure-monitor.md
+          - name: '용어집 만들기, 가져오기 및 내보내기'
+            href: how-to-create-import-export-glossary.md
+          - name: 용어 템플릿 관리
+            href: how-to-manage-term-templates.md
+      - name: 자산 대량 편집
+        href: how-to-bulk-edit-assets.md
+      - name: 분류
+        items:
+          - name: 사용자 지정 분류 만들기
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: 분류 적용
+            href: apply-classifications.md
+      - name: 레이블
+        items:
+          - name: Azure Purview의 레이블 지정
+            href: create-sensitivity-label.md
+          - name: 데이터에 레이블을 지정하는 방법
+            href: how-to-automatically-label-your-content.md
+          - name: 민감도 레이블 FAQ
+            href: sensitivity-labels-frequently-asked-questions.yml
       - name: 자세한 정보
         items:
           - name: 자산 인사이트 보기
@@ -251,22 +251,34 @@ items:
         href: manage-kafka-dotnet.md
       - name: 재해 복구
         href: disaster-recovery.md
-  - name: 참조
+      - name: Azure Monitor로 모니터링
+        href: how-to-monitor-with-azure-monitor.md
+  - name: 참고
     items:
+      - name: Azure Purview 제품 용어집
+        href: reference-purview-glossary.md
+      - name: 지원되는 브라우저
+        href: supported-browsers.md
+      - name: 지원되는 데이터 원본 및 파일 형식
+        href: sources-and-scans.md
+      - name: 지원되는 분류
+        href: supported-classifications.md
+      - name: Azure Purview 제한
+        href: how-to-manage-quotas.md
       - name: Java
         href: /samples/browse/?products=azure&languages=java&terms=purview
       - name: .NET
         href: /dotnet/api/overview/azure/purviewresourceprovider
+      - name: PowerShell
+        href: /powershell/module/az.purview/
       - name: Python
         href: /python/api/azure-mgmt-purview/
       - name: REST
         href: /rest/api/purview/
-      - name: 지원되는 분류
-        href: supported-classifications.md
-      - name: Azure Purview 제품 용어집
-        href: reference-purview-glossary.md
       - name: ABAP 함수 배포 가이드
         href: abap-functions-deployment-guide.md
+      - name: 질문과 대답(FAQ)
+        href: ./frequently-asked-questions.yml
   - name: 리소스
     items:
       - name: 요금 계산기

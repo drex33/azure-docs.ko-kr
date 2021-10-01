@@ -129,7 +129,11 @@ items:
       - name: 개념
         items:
           - name: Storage 계정
-            href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            items:
+              - name: 개요
+                href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              - name: 성능 계층
+                href: storage-blob-performance-tiers.md
           - name: 권한 부여
             items:
               - name: 데이터 작업 권한 부여
@@ -202,14 +206,12 @@ items:
                 href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: 재해 복구를 위한 고객 관리 장애 조치(failover)
                 href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: 액세스 및 성능 계층
+          - name: Blob 액세스 계층 및 수명 주기 관리
             items:
-              - name: 액세스 계층
-                href: storage-blob-storage-tiers.md
-              - name: 보관 계층에서 데이터 리하이드레이션
+              - name: 개요
+                href: access-tiers-overview.md
+              - name: 보관 계층에서 Blob 리하이드레이션
                 href: archive-rehydrate-overview.md
-              - name: 성능 계층
-                href: storage-blob-performance-tiers.md
               - name: 수명 주기 관리 정책
                 href: lifecycle-management-overview.md
           - name: 개체 복제
@@ -738,8 +740,6 @@ items:
             href: data-lake-storage-integrate-with-services-tutorials.md
       - name: 개념
         items:
-          - name: 빅 데이터 처리
-            href: data-lake-storage-data-scenarios.md
           - name: 모범 사례
             href: data-lake-storage-best-practices.md
           - name: 쿼리 가속
@@ -876,8 +876,6 @@ items:
                 href: data-lake-storage-use-hdfs-data-lake-storage.md
           - name: Azure 서비스와 함께 사용
             href: data-lake-storage-integrate-with-services-tutorials.md
-          - name: 성능 최적화
-            href: data-lake-storage-performance-tuning-guidance.md
       - name: 참조
         items:
           - name: .NET

@@ -18,6 +18,8 @@
       href: entitlement-management-access-package-first.md
     - name: 리소스에 대한 액세스 관리 - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: 승인 프로세스를 통해 Azure AD에 외부 사용자 등록
+      href: entitlement-management-onboard-external-user.md
     - name: Azure AD에서 그룹 기반 라이선스의 수명 주기 관리
       href: entitlement-management-group-licenses.md
 - name: 개념

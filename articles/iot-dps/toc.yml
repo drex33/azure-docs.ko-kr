@@ -16,30 +16,10 @@
         - name: ARM 템플릿
           displayName: Resource Manager
           href: quick-setup-auto-provision-rm.md
-    - name: 대칭 키 디바이스 프로비저닝
-      items:
-        - name: C
-          href: quick-create-simulated-device-symm-key.md
-        - name: Java
-          href: quick-create-simulated-device-symmetric-key-java.md
-        - name: C#
-          href: quick-create-device-symmetric-key-csharp.md
-        - name: Node.js
-          href: quick-create-device-symmetric-key-node.md
-        - name: Python
-          href: quick-create-device-symmetric-key-python.md
-    - name: X.509 인증서 디바이스 프로비저닝
-      items:
-        - name: C
-          href: quick-create-simulated-device-x509.md
-        - name: Java
-          href: quick-create-simulated-device-x509-java.md
-        - name: C#
-          href: quick-create-simulated-device-x509-csharp.md
-        - name: Node.js
-          href: quick-create-simulated-device-x509-node.md
-        - name: Python
-          href: quick-create-simulated-device-x509-python.md
+    - name: 시뮬레이션된 대칭 키 디바이스 프로비전
+      href: quick-create-simulated-device-symm-key.md
+    - name: 시뮬레이션된 X.509 인증서 디바이스 프로비전
+      href: quick-create-simulated-device-x509.md
 - name: 자습서
   items:
     - name: 1 - 등록 그룹을 사용하여 디바이스 집합 프로비저닝
@@ -59,39 +39,13 @@
 - name: 샘플
   items:
     - name: 시뮬레이션된 TPM 디바이스 증명 샘플
-      items:
-        - name: C
-          href: quick-create-simulated-device.md
-        - name: Java
-          href: quick-create-simulated-device-tpm-java.md
-        - name: C#
-          href: quick-create-simulated-device-tpm-csharp.md
-        - name: Node.js
-          href: quick-create-simulated-device-tpm-node.md
-        - name: Python
-          href: quick-create-simulated-device-tpm-python.md
+      href: quick-create-simulated-device-tpm.md
     - name: DPS API를 사용하여 디바이스 등록 만들기
       items:
         - name: X.509 인증서 증명을 사용하여 그룹 등록
-          items:
-            - name: Java
-              href: quick-enroll-device-x509-java.md
-            - name: C#
-              href: quick-enroll-device-x509-csharp.md
-            - name: Node.js
-              href: quick-enroll-device-x509-node.md
-            - name: Python
-              href: quick-enroll-device-x509-python.md
+          href: quick-enroll-device-x509.md
         - name: TPM 증명을 사용하여 개별 디바이스 등록
-          items:
-            - name: Java
-              href: quick-enroll-device-tpm-java.md
-            - name: C#
-              href: quick-enroll-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-enroll-device-tpm-node.md
-            - name: Python
-              href: quick-enroll-device-tpm-python.md
+          href: quick-enroll-device-tpm.md
 - name: 개념
   items:
     - name: DPS 용어
@@ -186,8 +140,6 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ../iot-edge/index.yml
-        - name: IoT 솔루션 가속기
-          href: ../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
           href: ../iot-develop/index.yml
         - name: Azure Maps

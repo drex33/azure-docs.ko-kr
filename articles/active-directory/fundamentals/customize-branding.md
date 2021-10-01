@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47815bcca9c6630392cb86284d8e8c3cf4d08e67
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 39855746d6cfc52ada19850d6bc9650b3e95a54a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733199"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437367"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Microsoft 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -88,6 +88,9 @@ ms.locfileid: "113733199"
             이미지는 크기가 240x240픽셀보다 클 수 없고 파일 크기가 10KB 미만이어야 합니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
     
         - **사각형 로고 이미지, 어두운 테마** 위의 사각형 로고 이미지와 동일합니다. 이 로고 이미지는 기본 제공 환경(OOBE)에서 Windows 10 Azure AD 조인 화면을 사용하는 등 어두운 배경에서 사용될 때 사각형 로고 이미지를 대신합니다.  로고가 흰색, 짙은 파란색 및 검은색 배경에서 잘 보이면 이 이미지를 추가할 필요가 없습니다. 
+        
+            >[!IMPORTANT]
+            > 투명 로고는 사각형 로고 이미지에서 지원됩니다. 그러나 투명 로고에 사용되는 색상표는 사각형 로고 이미지를 사용하는 Microsoft 365 앱과 서비스 내에서 사용되는 배경(예: 흰색, 연한 회색, 진한 회색, 검은색 배경)과 충돌할 수 있습니다. 사각형 이미지 로고가 모든 상황에서 올바르게 렌더링되도록 하려면 단색 배경을 사용해야 할 수 있습니다.
         
         - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그아웃할 때까지 사용자가 Azure AD에 로그인된 상태를 유지하도록 선택할 수 있습니다. **아니요** 를 선택하면 이 옵션은 숨겨지며, 사용자는 브라우저를 닫았다가 다시 열 때마다 로그인해야 합니다.
 

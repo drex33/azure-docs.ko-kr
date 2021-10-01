@@ -107,7 +107,7 @@
         - name: 내 앱에서 컬렉션 만들기
           href: access-panel-collections.md
         - name: 셀프 서비스 앱 액세스 사용
-          href: access-panel-manage-self-service-access.md
+          href: manage-self-service-access.md
         - name: 앱 숨기기
           href: hide-application-from-user-portal.md
         - name: 사용자 로그인 비활성화
@@ -180,7 +180,7 @@
       href: application-types.md
     - name: 사용자가 앱에 할당되는 이유
       href: ways-users-get-assigned-to-applications.md
-    - name: 사용자 액세스 제거
+    - name: 앱에 대한 사용자 액세스를 제거하는 방법
       href: methods-for-removing-user-access.md
 - name: 리소스
   items:

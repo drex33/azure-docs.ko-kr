@@ -43,7 +43,7 @@ items:
                     href: hpc-cache-ingest-manual.md
           - name: 스토리지 대상 편집
             href: hpc-cache-edit-storage.md
-          - name: 스토리지 대상 관리
+          - name: 스토리지 대상 보기 및 관리
             href: manage-storage-targets.md
       - name: 캐시에 연결
         href: hpc-cache-mount.md

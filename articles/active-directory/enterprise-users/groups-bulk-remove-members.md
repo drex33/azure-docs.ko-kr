@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 09/02/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52aa3c4b2f9ec34139debf008a5cb291e443c689
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95488949"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431967"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 대량 제거
 

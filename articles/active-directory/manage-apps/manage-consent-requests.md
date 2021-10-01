@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2019
+ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 7893a73650e90411aa45f35d014b394eab0ad67d
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568517"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425855"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>애플리케이션에 대한 동의 관리 및 동의 요청 평가
 
@@ -109,16 +109,16 @@ Azure Portal, Azure AD PowerShell 또는 동의 확인 프롬프트 자체에서
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 사용하지 않도록 설정
 
-전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](../develop/howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
+전체 디렉터리에 대한 사용자 동의를 사용하지 않도록 설정하면 모든 애플리케이션에 대한 최종 사용자 동의가 방지됩니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](../develop/howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
 
 전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화하려면 다음 단계를 따릅니다.
 
 1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스** 를 클릭하여 **Azure Active Directory 확장** 을 엽니다.
 3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
-4. 탐색 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-5. **사용자 설정** 을 선택합니다.
-6. **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요** 로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
+4. **엔터프라이즈 애플리케이션** 을 선택하고 **관리** 섹션에서 **사용자 설정** 을 선택합니다.
+:::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="모든 앱에 대해 사용자 동의 작업 사용 안 함":::
+5. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음** 토글을 **아니요** 로 설정하여 모든 이후 사용자 동의 작업을 사용하지 않도록 설정하고 **저장** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

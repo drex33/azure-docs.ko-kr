@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/16/2017
+ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 2dc66adcce209b29579bb88184272fd2bda1353c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 584437c13168303630585c67ee853b135a2c09a5
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528805"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435225"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 
@@ -40,13 +40,20 @@ Azure AD의 애플리케이션 할당은 두 가지 기본 할당 모드에 중�
 
 ### <a name="requiring-user-assignment-for-an-app"></a>애플리케이션에 대한 사용자 할당 요구
 
-특정 유형의 애플리케이션에는 [사용자를 애플리케이션에 할당하도록 요구](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment)하는 옵션이 있습니다. 이렇게 하면 애플리케이션에 명시적으로 할당한 사용자를 제외한 모든 사용자가 로그인할 수 없습니다. 다음 유형의 애플리케이션은 이 옵션을 지원합니다.
+특정 유형의 애플리케이션에는 사용자를 애플리케이션에 할당하도록 요구하는 옵션이 있습니다. 이렇게 하면 애플리케이션에 명시적으로 할당한 사용자를 제외한 모든 사용자가 로그인할 수 없습니다. 다음 유형의 애플리케이션은 이 옵션을 지원합니다.
 
 * SAML 기반 인증을 사용하여 페더레이션된 SSO(Single Sign-On)에 대해 구성된 애플리케이션
 * Azure Active Directory 사전 인증을 사용하는 애플리케이션 프록시 애플리케이션
 * 사용자 또는 관리자가 해당 애플리케이션에 동의한 후 OAuth 2.0/OpenID Connect 인증을 사용하는 Azure AD 애플리케이션 플랫폼을 기반으로 하는 애플리케이션. 특정 엔터프라이즈 애플리케이션은 로그인이 허용된 사용자에 대한 추가 제어를 제공합니다.
 
-사용자 할당이 필요하지 않은 경우, 할당되지 않은 사용자에게는 ‘내 앱’에 앱이 표시되지 않지만 애플리케이션 자체에는 로그인(SP 시작 로그온이라고도 함)하거나 애플리케이션의 **속성** 페이지에서 **사용자 액세스 URL** 을 사용(IDP 시작 로그온이라고도 함)할 수 있습니다.
+사용자 할당이 필요한 경우 사용자가 직접 사용자 할당을 통해 또는 그룹 멤버 자격을 통해 애플리케이션에 할당하는 사용자만 로그인할 수 있습니다. 내 앱 페이지에서 또는 직접 링크를 사용하여 앱에 액세스할 수 있습니다.
+
+사용자 할당이 필요하지 않은 경우, 할당되지 않은 사용자에게는 내 앱에 앱이 표시되지 않지만 애플리케이션 자체에는 로그인(SP 시작 로그온이라고도 함)하거나 애플리케이션의 **속성** 페이지에서 **사용자 액세스 URL** 을 사용(IDP 시작 로그온이라고도 함)할 수 있습니다.
+
+이 설정은 애플리케이션이 내 앱에 표시되는지 여부에 영향을 주지 않습니다. 사용자 또는 그룹을 애플리케이션에 할당하면 애플리케이션이 사용자의 내 앱 액세스 패널에 표시됩니다.
+
+> [!NOTE]
+> 애플리케이션에 할당이 필요한 경우 해당 애플리케이션에 대한 사용자 동의가 허용되지 않습니다. 이는 해당 앱에 대한 사용자 동의가 다른 방식으로 허용된 경우에도 마찬가지입니다. 할당이 필요한 앱에 대해 [테넌트 전체 관리자 동의를 부여](../manage-apps/grant-admin-consent.md)해야 합니다.
 
 일부 애플리케이션의 경우 사용자 할당을 요구하는 옵션을 애플리케이션의 속성에서 사용할 수 없습니다. 이러한 경우 PowerShell을 사용하여 서비스 주체에 대해 appRoleAssignmentRequired 속성을 설정할 수 있습니다.
 
@@ -76,7 +83,7 @@ Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Sa
 
 이 경우 해당 역할 할당이 Salesforce에서 업데이트된 다른 그룹에 추가되면서 모든 할당된 사용자는 자동으로 Salesforce에 프로비전됩니다. 사용자는 내 앱, Office 웹 클라이언트를 이용하거나 해당 조직의 Salesforce 로그인 페이지로 이동하여 Salesforce를 검색하고 액세스할 수 있습니다. 관리자는 Azure AD 보고를 사용하여 사용 및 할당 상태를 쉽게 볼 수 있습니다.
 
-관리자는 [Azure AD 조건부 액세스](../conditional-access/concept-conditional-access-users-groups.md)를 채택하여 특정 역할에 대한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 Multi-Factor Authentication 또는 디바이스 요구에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
+관리자는 [Azure AD 조건부 액세스](../conditional-access/concept-conditional-access-users-groups.md)를 채택하여 특정 역할에 대한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 다단계 인증 또는 디바이스 요구 사항에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
 
 ## <a name="access-to-microsoft-applications"></a>Microsoft 애플리케이션에 대한 액세스
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/31/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 945679db60f78e03d8f4385acdbc97d8155922bb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996647"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434487"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 액세스 요청
 
@@ -86,6 +86,9 @@ Azure AD 권한 관리를 사용하면 액세스 패키지로 액세스 패키�
 액세스 패키지에 대한 액세스 권한을 부여하기 전에 비즈니스 타당성과 추가 요청자 정보가 필요한 액세스 패키지에 대한 액세스를 요청할 수 있습니다. 액세스 패키지에 액세스하는 데 필요한 모든 요청자 정보를 작성합니다.
 
 ![내 액세스 포털 - 액세스 요청 - 요청자 정보 작성](./media/entitlement-management-request-access/my-access-requestor-information.png)
+
+> [!NOTE]
+> 추가 요청자 정보 중 일부에 미리 채워진 값이 있음을 알 수 있습니다. 이 문제는 일반적으로 계정에 이전 요청이나 다른 프로세스의 특성 정보 세트가 이미 있는 경우에 발생합니다. 선택한 정책의 설정에 따라 이 값을 편집할 수 있습니다.
 
 ## <a name="resubmit-a-request"></a>요청 다시 제출
 

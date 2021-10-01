@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 252f872dc14a1850f9b73e7769d4a439952b7da6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112975300"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123484709"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리에 있는 사용자
 
@@ -218,7 +218,7 @@ ms.locfileid: "112975300"
 
     ![액세스 패키지 - 정책 - 요청자 정보 사용 설정](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. 질문과 대답 옵션을 지역화하려면 **지역화 추가** 를 클릭합니다.
+1. 사용자 고유의 지역화 옵션을 추가하려면 **지역화 추가** 를 클릭합니다.
     1. **질문에 대한 지역화 추가** 창에서 질문을 지역화할 언어에 대한 **언어 코드** 를 선택합니다.
     1. **지역화된 텍스트** 상자에서 질문을 구성한 언어로 입력합니다.
     1. 필요한 모든 지역화가 추가되면 **저장** 을 클릭합니다.
@@ -230,15 +230,18 @@ ms.locfileid: "112975300"
     ![액세스 패키지 - 정책 - 여러 선택 항목 대답 형식 보기 및 편집 선택](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. 여러 선택 항목을 선택하는 경우 **편집 및 지역화** 단추를 클릭하여 대답 옵션을 구성합니다.
-    1. 편집 및 지역화를 선택하면 **질문 편집/지역화** 창이 열립니다.
+    1. 편집 및 지역화를 선택하면 **질문 보기/편집** 창이 열립니다.
     1. **대답 값** 상자에서 질문에 대답할 때 요청자에게 제공하려는 응답 옵션을 입력합니다.
-    1. 필요한 만큼 응답을 입력합니다.
-    1. 다중 선택 옵션에 대한 고유한 지역화를 추가하려면 특정 옵션을 지역화하려는 언어에 대해 **선택적 언어 코드** 를 선택합니다.
-    1. 지역화 텍스트 상자에 구성한 언어로 옵션을 입력합니다.
-    1. 각 다중 선택 옵션에 필요한 모든 지역화를 추가한 후 **저장** 을 클릭합니다.
+    1. 응답 옵션의 언어를 선택합니다. 추가 언어를 선택하는 경우 응답 옵션을 지역화할 수 있습니다.
+    1. 필요한 만큼 응답을 입력한 다음, **저장** 을 클릭합니다.
     
     ![액세스 패키지 - 정책 - 여러 선택 항목 옵션 입력](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
-1. 액세스 패키지에 대한 액세스를 요청할 때 요청자에게 이 질문에 대답하도록 요구하려면 **필요** 아래의 확인란을 클릭합니다.
+1. 액세스 패키지에 대한 액세스를 요청할 때 요청자에게 이 질문에 답변하도록 요구하려면 **필요** 아래의 확인란을 클릭합니다.
 
-1. 다음을 클릭합니다.
+1. **특성(미리 보기)** 하위 탭을 클릭하여 액세스 패키지에 추가된 리소스와 연결된 특성을 봅니다.
+
+    > [!NOTE]
+    > 액세스 패키지 리소스의 특성을 추가하거나 업데이트하려면 **카탈로그** 로 이동하고 액세스 패키지와 연결된 카탈로그를 찾습니다. 특정 카탈로그 리소스와 필수 조건 역할의 특성 목록을 편집하는 방법에 관한 자세한 내용은 [카탈로그에서 리소스 특성 추가(미리 보기)](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog)를 참조하세요. 
+
+1. **다음** 을 클릭합니다.

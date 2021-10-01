@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 7d409aaa2d9c8a0ca6e950459202c5990783b198
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05c7b2f668565fe4ab37ed01ad65bef7cb6d95d6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536481"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437925"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>애플리케이션을 Azure Active Directory로 마이그레이션하기 위한 리소스
 
@@ -34,3 +34,8 @@ ms.locfileid: "122536481"
 | [배포 계획: 애플리케이션 프록시를 통해 앱을 Azure AD로 확장](https://aka.ms/AppProxyDPDownload)| 직원의 랩톱 및 기타 디바이스에서 온-프레미스 애플리케이션에 액세스할 수 있도록 하려면 일반적으로 VPN(가상 사설망) 또는 완충 영역(DMZ)이 필요했습니다. 이러한 솔루션은 복잡하고 안전하게 만들기도 어려울 뿐만 아니라 설정과 관리에도 비용이 많이 듭니다. Azure AD 애플리케이션 프록시를 사용하면 온-프레미스 애플리케이션에 쉽게 액세스할 수 있습니다. |
 | [배포 계획](../fundamentals/active-directory-deployment-plans.md) | 다단계 인증, 조건부 액세스, 사용자 프로비저닝, 원활한 SSO, 셀프 서비스 암호 재설정 등의 기능 배포에 대한 더 많은 배포 계획을 찾아보세요. |
 | [Symantec SiteMinder에서 Azure AD로 앱 마이그레이션](https://azure.microsoft.com/mediahandler/files/resourcefiles/migrating-applications-from-symantec-siteminder-to-azure-active-directory/Migrating-applications-from-Symantec-SiteMinder-to-Azure-Active-Directory.pdf) | Symantec SiteMinder에서 Azure AD로 애플리케이션을 마이그레이션하는 과정을 안내하는 예제를 통해 애플리케이션 마이그레이션 및 통합 옵션에 대한 단계별 지침을 얻습니다. |
+| [OKTA에서 Azure AD로 앱 마이그레이션](migrate-applications-from-okta-to-azure-active-directory.md) | OKTA에서 Azure AD로 애플리케이션 마이그레이션에 관한 단계별 지침을 가져옵니다. |
+| [OKTA 페더레이션을 Azure AD 관리형 인증으로 마이그레이션](migrate-okta-federation-to-azure-active-directory.md) | Single Sign-On 기능을 위해 기존 Office 365 테넌트를 OKTA와 페더레이션하는 방법을 알아봅니다. |
+| [OKTA 동기화 프로비저닝을 Azure AD Connect 기반 동기화로 마이그레이션](migrate-okta-sync-provisioning-to-azure-active-directory.md) | 현재 OKTA에서 Azure AD로 사용자 프로비저닝을 사용하여 사용자 동기화 또는 유니버설 동기화를 Azure AD Connect로 마이그레이션하는 조직을 위한 단계별 지침입니다. |
+| [OKTA 로그온 정책을 Azure AD 조건부 액세스로 마이그레이션](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md) | OKTA의 전역 또는 애플리케이션 수준 로그온 정책에서 Azure AD 조건부 액세스 정책으로 마이그레이션하여 Azure AD 및 연결된 애플리케이션의 사용자 액세스를 보호하는 작업의 단계별 지침입니다. |
+

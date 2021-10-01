@@ -30,8 +30,6 @@
   items:
     - name: Automation 계정 인증 개요
       href: automation-security-overview.md
-    - name: 자동화에서 컨텍스트 전환
-      href: context-switching.md
     - name: Runbook 실행 개요
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker 개요
@@ -63,6 +61,8 @@
           href: automation-create-standalone-account.md
         - name: Automation 계정 만들기 - Resource Manager 템플릿
           href: quickstart-create-automation-account-template.md
+        - name: 로컬 인증 사용 안 함
+          href: disable-local-authentication.md
         - name: 관리 ID
           items:
             - name: 시스템이 할당한 관리 ID 사용
@@ -165,15 +165,19 @@
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Hybrid Runbook Worker 사용
           items:
-            - name: Windows Hybrid Runbook Worker 배포
+            - name: 확장 기반 작업자 배포
+              href: extension-based-hybrid-runbook-worker-install.md
+            - name: 에이전트 기반 Windows 작업자 배포
               href: automation-windows-hrw-install.md
-            - name: Linux Hybrid Runbook Worker 배포
+            - name: 에이전트 기반 Linux 작업자 배포
               href: automation-linux-hrw-install.md
             - name: Hybrid Runbook Worker에서 Runbook 실행
               href: automation-hrw-run-runbooks.md
             - name: Azure Policy를 사용하여 작업 실행 적용
               href: enforce-job-execution-hybrid-worker.md
-            - name: Hybrid Runbook Worker 문제 해결
+            - name: 확장 기반 작업자 문제 해결
+              href: troubleshoot/extension-based-hybrid-runbook-worker.md
+            - name: 에이전트 기반 작업자 문제 해결
               href: troubleshoot/hybrid-runbook-worker.md
         - name: 원본 제어 통합 사용
           href: source-control-integration.md

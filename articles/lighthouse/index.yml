@@ -1,125 +1,131 @@
 ### YamlMime:Landing
 title: Azure Lighthouse 설명서
-summary: 'Azure Lighthouse는 교차 및 다중 테넌트 관리를 지원하여 리소스 및 테넌트 간에 더 높은 자동화, 확장성 및 향상된 거버넌스를 허용합니다.'
+summary: Azure Lighthouse는 교차 및 다중 테넌트 관리를 지원하여 리소스 및 테넌트 간에 더 높은 자동화, 확장성 및 향상된 거버넌스를 허용합니다.
 metadata:
   title: Azure Lighthouse 설명서
-  description: 'Azure Lighthouse를 사용하면 서비스 공급자에서 고도의 자동화, 확장성 및 향상된 거버넌스를 통해 모든 고객의 Azure 리소스를 관리할 수 있습니다.'
+  description: Azure Lighthouse를 사용하면 서비스 공급자에서 고도의 자동화, 확장성 및 향상된 거버넌스를 통해 모든 고객의 Azure 리소스를 관리할 수 있습니다.
   ms.service: lighthouse
   ms.topic: landing-page
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/07/2021
+  ms.date: 09/28/2021
+  ms.openlocfilehash: 382c085eadaf421b50420bec1aed8ac9ba68ec50
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129207326"
 landingContent:
-  - title: Azure Lighthouse
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Lighthouse란?
-            url: ./overview.md
-      - linkListType: concept
-        links:
-          - text: Architecture
-            url: ./concepts/architecture.md
-          - text: 테넌트 간 관리 환경
-            url: ./concepts/cross-tenant-management-experience.md
-  - title: 시작하기
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Azure Lighthouse에 고객 온보딩
-            url: ./how-to/onboard-customer.md
-          - text: Just-In-Time 역할(미리 보기)
-            url: ./how-to/create-eligible-authorizations.md
-          - text: 고객 보기 및 관리
-            url: ./how-to/view-manage-customers.md
-          - text: 파트너 ID 연결
-            url: ./how-to/partner-earned-credit.md
-      - linkListType: concept
-        links:
-          - text: 권장 보안 방법
-            url: ./concepts/recommended-security-practices.md
-          - text: '테넌트, 역할 및 사용자'
-            url: ./concepts/tenants-users-roles.md
-          - text: 클라우드 솔루션 공급자 프로그램 고려 사항
-            url: ./concepts/cloud-solution-provider.md
-          - text: 엔터프라이즈 시나리오
-            url: ./concepts/enterprise.md
-          - text: ISV 시나리오
-            url: ./concepts/isv-scenarios.md
-  - title: Marketplace 제품
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Managed Services 제안 게시
-            url: ./how-to/publish-managed-services-offers.md
-      - linkListType: concept
-        links:
-          - text: Azure Marketplace의 Managed Services 제안
-            url: ./concepts/managed-services-offers.md
-  - title: 고객 환경
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 서비스 공급자 보기 및 관리
-            url: ./how-to/view-manage-service-providers.md
-          - text: 테넌트 활동 관리 모니터링
-            url: ./how-to/view-service-provider-activity.md
-  - title: 샘플 및 템플릿
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Azure Lighthouse 샘플 리포지토리(GitHub)
-            url: 'https://github.com/Azure/Azure-Lighthouse-samples/'
-          - text: Azure Lighthouse 샘플의 인덱스
-            url: ./samples/index.md
-  - title: 대규모 Azure 서비스 작업
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Azure Sentinel 작업 영역 관리
-            url: ./how-to/manage-sentinel-workspaces.md
-          - text: Azure Monitor 로그 사용
-            url: ./how-to/monitor-at-scale.md
-          - text: Azure Policy 배포
-            url: ./how-to/policy-at-scale.md
-          - text: Azure Arc를 사용하여 하이브리드 컴퓨터 관리
-            url: ./how-to/manage-hybrid-infrastructure-arc.md
-          - text: Azure Migrate 프로젝트 관리
-            url: ./how-to/migration-at-scale.md
-  - title: 참조 - SDK
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure PowerShell
-            url: /powershell/module/az.managedservices/
-          - text: Azure CLI
-            url: /cli/azure/managedservices
-          - text: REST (영문)
-            url: /rest/api/managedservices/
-          - text: .NET
-            url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
-          - text: Python
-            url: /python/api/azure-mgmt-managedservices
-          - text: Terraform
-            url: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
-          - text: Ansible
-            url: 'https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection'
-  - title: 참조 - 다운로드
-    linkLists:
-      - linkListType: download
-        links:
-          - text: OpenAPI - 2019-06-01
-            url: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01'
-          - text: .NET용 SDK - NuGet
-            url: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
-          - text: Python용 Azure SDK - PyPi
-            url: 'https://pypi.org/project/azure-mgmt-managedservices/'
-  - title: 참여하기
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Azure Lighthouse에 대한 Microsoft Q&A
-            url: /answers/topics/azure-lighthouse.html
-          - text: 제품 기능 요청
-            url: 'https://feedback.azure.com/forums/922753'
+- title: Azure Lighthouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Lighthouse란?
+      url: ./overview.md
+  - linkListType: concept
+    links:
+    - text: Architecture
+      url: ./concepts/architecture.md
+    - text: 테넌트 간 관리 환경
+      url: ./concepts/cross-tenant-management-experience.md
+- title: 시작하기
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Lighthouse에 고객 온보딩
+      url: ./how-to/onboard-customer.md
+    - text: Just-In-Time 역할(미리 보기)
+      url: ./how-to/create-eligible-authorizations.md
+    - text: 고객 보기 및 관리
+      url: ./how-to/view-manage-customers.md
+    - text: 파트너 ID 연결
+      url: ./how-to/partner-earned-credit.md
+  - linkListType: concept
+    links:
+    - text: 권장 보안 방법
+      url: ./concepts/recommended-security-practices.md
+    - text: 테넌트, 역할 및 사용자
+      url: ./concepts/tenants-users-roles.md
+    - text: 클라우드 솔루션 공급자 프로그램 고려 사항
+      url: ./concepts/cloud-solution-provider.md
+    - text: 엔터프라이즈 시나리오
+      url: ./concepts/enterprise.md
+    - text: ISV 시나리오
+      url: ./concepts/isv-scenarios.md
+- title: Marketplace 제품
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Managed Services 제안 게시
+      url: ./how-to/publish-managed-services-offers.md
+  - linkListType: concept
+    links:
+    - text: Azure Marketplace의 Managed Services 제안
+      url: ./concepts/managed-services-offers.md
+- title: 고객 환경
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 서비스 공급자 보기 및 관리
+      url: ./how-to/view-manage-service-providers.md
+    - text: 테넌트 활동 관리 모니터링
+      url: ./how-to/view-service-provider-activity.md
+- title: 샘플 및 템플릿
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure Lighthouse 샘플 리포지토리(GitHub)
+      url: https://github.com/Azure/Azure-Lighthouse-samples/
+    - text: Azure Lighthouse 샘플의 인덱스
+      url: ./samples/index.md
+- title: 대규모 Azure 서비스 작업
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Sentinel 작업 영역 관리
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Azure Monitor 로그 사용
+      url: ./how-to/monitor-at-scale.md
+    - text: Azure Policy 배포
+      url: ./how-to/policy-at-scale.md
+    - text: Azure Arc를 사용하여 하이브리드 컴퓨터 관리
+      url: ./how-to/manage-hybrid-infrastructure-arc.md
+    - text: Azure Migrate 프로젝트 관리
+      url: ./how-to/migration-at-scale.md
+- title: 참조 - SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: /powershell/module/az.managedservices/
+    - text: Azure CLI
+      url: /cli/azure/managedservices
+    - text: REST (영문)
+      url: /rest/api/managedservices/
+    - text: .NET
+      url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+    - text: Python
+      url: /python/api/azure-mgmt-managedservices
+    - text: Terraform
+      url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+    - text: Ansible
+      url: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
+- title: 참조 - 다운로드
+  linkLists:
+  - linkListType: download
+    links:
+    - text: OpenAPI - 2019-09-01
+      url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
+    - text: .NET용 SDK - NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+    - text: Python용 Azure SDK - PyPi
+      url: https://pypi.org/project/azure-mgmt-managedservices/
+- title: 참여하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure Lighthouse에 대한 Microsoft Q&A
+      url: /answers/topics/azure-lighthouse.html
+    - text: 제품 기능 요청
+      url: https://feedback.azure.com/forums/922753

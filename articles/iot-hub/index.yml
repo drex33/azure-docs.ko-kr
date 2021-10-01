@@ -8,46 +8,58 @@ metadata:
   ms.topic: landing-page
   author: robinsh
   ms.author: robinsh
-  manager: eliotgra
-  ms.date: 03/23/2020
-  ms.custom: amqp
-  ms.openlocfilehash: 5c4b17d0e725200250b6a01212edb374d3e21ff9
-  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+  ms.date: 08/11/2021
+  ms.openlocfilehash: 09cd4751e19d9fff925b8cfbe0749180538cf3cd
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/28/2021
-  ms.locfileid: "114731770"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129215190"
 landingContent:
-- title: 시작하기
+- title: IoT Hub에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: IoT Hub란 무엇인가요?
+      url: about-iot-hub.md
+    - text: IoT의 주요 개념
+      url: iot-concepts.md
+- title: 시작
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure Portal을 사용하여 허브 만들기
+    - text: 새 허브 만들기
       url: iot-hub-create-through-portal.md
-    - text: CLI를 사용하여 디바이스에서 허브로 원격 분석 데이터 보내기
+    - text: 허브에 원격 분석 보내기
       url: quickstart-send-telemetry-cli.md
-    - text: 허브에 연결된 디바이스 제어
+    - text: 디바이스 제어
       url: quickstart-control-device.md
   - linkListType: get-started
     links:
-    - text: 디바이스 관리
-      url: iot-hub-node-node-device-management-get-started.md
-    - text: 디바이스 구성
-      url: iot-hub-configuration-best-practices.md
-- title: 디바이스 상태 동기화
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Node.js를 사용하여 Device Twins 작업
-      url: iot-hub-node-node-twin-getstarted.md
-- title: 솔루션 확장
+    - text: 원격 분석 라우팅
+      url: tutorial-routing.md
+- title: 솔루션 빌드
   linkLists:
   - linkListType: concept
     links:
-    - text: 올바른 계층 선택
-      url: iot-hub-scaling.md
-    - text: 할당량 및 제한 이해
-      url: iot-hub-devguide-quotas-throttling.md
+    - text: 디바이스 SDK를 사용하여 디바이스 구성
+      url: ../iot-develop/about-iot-sdks.md
+    - text: 서비스 SDK를 사용하여 빌드
+      url: iot-hub-devguide-sdks.md
+    - text: IoT Edge를 사용하여 로컬로 디바이스 데이터 처리
+      url: ../iot-edge/about-iot-edge.md
+    - text: Azure Digital Twins를 사용하여 환경 모델링
+      url: ../digital-twins/overview.md
+    - text: Azure IoT Hub Device Provisioning Service를 통해 자동으로 디바이스 프로비전
+      url: ../iot-dps/about-iot-dps.md
+    - text: IoT 디바이스 관리를 사용하여 대규모 디바이스 관리
+      url: iot-hub-automatic-device-management.md
+    - text: IoT Hub용 디바이스 업데이트를 사용하여 디바이스 업데이트
+      url: ../iot-hub-device-update/understand-device-update.md
+    - text: Azure IoT Explorer를 사용하여 디바이스와 상호 작용
+      url: ../iot-fundamentals/howto-use-iot-explorer.md
+    - text: VS Code용 Azure IoT Tools를 사용하여 개발
+      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
 - title: 프로토콜 선택
   linkLists:
   - linkListType: concept
@@ -58,7 +70,7 @@ landingContent:
       url: iot-hub-tls-support.md
     - text: MQTT 지원
       url: iot-hub-mqtt-support.md
-    - text: IP 주소 지정
+    - text: IP 주소
       url: iot-hub-understand-ip-address.md
     - text: AMQP
       url: iot-hub-amqp-support.md
@@ -78,101 +90,15 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: 라우팅 결과 실행 및 보기
       url: tutorial-routing-view-message-routing-results.md
-- title: IoT Hub용 디바이스 업데이트(미리 보기)
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: IoT Hub용 디바이스 업데이트 개요
-      url: ../iot-hub-device-update/understand-device-update.md
-  - linkListType: how-to-guide
-    links:
-    - text: 업데이트 가져오기
-      url: ../iot-hub-device-update/import-update.md
-  - linkListType: how-to-guide
-    links:
-    - text: 업데이트 그룹 만들기
-      url: ../iot-hub-device-update/create-update-group.md
-  - linkListType: how-to-guide
-    links:
-    - text: 업데이트 배포
-      url: ../iot-hub-device-update/deploy-update.md
-- title: Azure Stack Hub의 IoT Hub(미리 보기)
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 연산자 개요
-      url: /azure-stack/operator/iot-hub-rp-overview
-    - text: 사용자 개요
-      url: /azure-stack/user/iot-hub-overview
-  - linkListType: how-to-guide
-    links:
-    - text: 설치 필수 구성 요소
-      url: /azure-stack/operator/iot-hub-rp-prerequisites
-    - text: Azure Stack Hub의 IoT Hub 설치 방법
-      url: /azure-stack/operator/iot-hub-rp-install
-- title: IoT Hub Tools 사용
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: VS Code용 IoT Tools 사용
-      url: iot-hub-create-use-iot-toolkit.md
-    - text: IoT Explorer
-      url: ../iot-fundamentals/howto-use-iot-explorer.md
-- title: IoT Hub 모니터링 및 문제 해결
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: IoT Hub 모니터링
-      url: monitor-iot-hub.md
-    - text: IoT Hub 모니터링 데이터 참조
-      url: monitor-iot-hub-reference.md
-    - text: IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
-      url: iot-hub-troubleshoot-connectivity.md
-    - text: Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
-      url: iot-hub-how-to-order-connection-state-events.md
-- title: IoT 보안 인증서 사용
+- title: 성능 및 확장성
   linkLists:
   - linkListType: concept
     links:
-    - text: IoT Hub에 대한 액세스 제어
-      url: iot-hub-devguide-security.md
-    - text: X.509 CA 인증서를 사용한 디바이스 인증
-      url: iot-hub-x509ca-overview.md
-    - text: IoT Hub를 통한 X.509 보안
-      url: ./tutorial-x509-scripts.md
-    - text: X.509 CA 인증서 보안 개념
-      url: iot-hub-x509ca-concept.md
-- title: IoT Hub에 대한 Azure CLI 사용
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: IoT Hub 만들기
-      url: iot-hub-create-using-cli.md
-    - text: IoT 디바이스 관리
-      url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-    - text: 메시지 라우팅 구성
-      url: tutorial-routing-config-message-routing-cli.md
-    - text: 파일 업로드 구성
-      url: iot-hub-configure-file-upload-cli.md
-    - text: 원격 분석 전송 및 모니터링
-      url: quickstart-send-telemetry-cli.md
-  - linkListType: reference
-    links:
-    - text: IoT에 대한 CLI 참조
-      url: /cli/azure/azure-cli-reference-for-IoT
-- title: Iot Hub용 PowerShell 사용
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: IoT Hub 만들기
-      url: iot-hub-create-using-powershell.md
-    - text: Resource Manager 템플릿을 사용하여 IoT Hub 만들기
-      url: iot-hub-rm-template-powershell.md
-    - text: 메시지 라우팅 구성
-      url: tutorial-routing-config-message-routing-powershell.md
-    - text: 파일 업로드 구성
-      url: iot-hub-configure-file-upload-powershell.md
-  - linkListType: reference
-    links:
-    - text: IoT에 대한 PowerShell 참조
-      url: /powershell/module/az.iothub#iothub
+    - text: 올바른 계층 선택
+      url: iot-hub-scaling.md
+    - text: 할당량 및 제한 이해
+      url: iot-hub-devguide-quotas-throttling.md
+    - text: 가격 책정 예제
+      url: iot-hub-devguide-pricing.md
+    - text: 고가용성 및 재해 복구
+      url: iot-hub-ha-dr.md

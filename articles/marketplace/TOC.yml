@@ -149,6 +149,8 @@
           href: azure-app-marketing.md
         - name: 종량제
           href: marketplace-metering-service-apis.md
+        - name: 사용량 기반 월별 청구 가격 구성
+          href: azure-vm-pricing.md
         - name: 검토 피드백 처리
           href: azure-app-review-feedback.md
         - name: 애플리케이션 API

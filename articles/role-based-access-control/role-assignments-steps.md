@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: 1f1b8f627a60a6e9f9b866ffb48324ecd146ffbe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483842"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362070"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Azure 역할 할당 단계
 
@@ -50,7 +50,7 @@ ms.locfileid: "109483842"
 
 1. 해당 문서에서 권한을 부여하려는 리소스의 서비스 범주(컴퓨팅, 스토리지, 데이터베이스 등)로 이동합니다. 원하는 항목을 찾는 가장 쉬운 방법은 일반적으로 페이지에서 "BLOB", "가상 머신" 등의 관련 키워드를 검색하는 것입니다.
 
-1. 서비스 범주에 대해 나열된 역할을 검토하고 필요한 작업을 찾습니다. 다시 말씀드리지만, 항상 가장 제한된 역할로 시작합니다.
+1. 서비스 범주에 대해 나열된 역할을 검토하고 필요한 특정 작업을 식별합니다. 다시 말씀드리지만, 항상 가장 제한된 역할로 시작합니다.
 
     예를 들어, 보안 주체가 Azure 스토리지 계정의 Blob을 읽어야 하지만 쓰기 권한은 필요 없는 경우 [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) 대신 [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)를 선택합니다(관리자 수준의 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) 역할은 해당 없음). 나중에 필요에 따라 언제든지 역할 할당을 업데이트할 수 있습니다.
 

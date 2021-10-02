@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: e46d088180666523c27d86a98d740fa49f5214f2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: d69455c1dcab5b690cf6ee640b3debe97fcb73ff
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460489"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354585"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -22,7 +22,7 @@ ms.locfileid: "112460489"
 
 ## <a name="what-are-datasets-with-labels"></a>레이블이 있는 데이터 세트란? 
 
-레이블이 있는 Azure Machine Learning 데이터 세트를 레이블이 지정된 데이터 세트라고 부릅니다. 해당 특정 데이터 세트 형식의 레이블이 지정된 데이터 세트는 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력으로만 생성됩니다. [이러한 단계](how-to-create-labeling-projects.md)를 사용하여 데이터 레이블 지정 프로젝트를 만듭니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
+레이블이 있는 Azure Machine Learning 데이터 세트를 레이블이 지정된 데이터 세트라고 부릅니다. 해당 특정 데이터 세트 형식의 레이블이 지정된 데이터 세트는 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력으로만 생성됩니다. 이미지 레이블 지정 또는 텍스트 [레이블 지정을 위한](how-to-create-image-labeling-projects.md) 데이터 레이블 지정 프로젝트를 [만듭니다.](how-to-create-text-labeling-projects.md) Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,7 +30,7 @@ ms.locfileid: "112460489"
 * [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 액세스합니다.
     * [azure-contrib-dataset](/python/api/azureml-contrib-dataset/) 패키지 설치
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
-* Azure Machine Learning 데이터 레이블 지정 프로젝트에 액세스합니다. 레이블 지정 프로젝트가 없는 경우[이러한 단계](how-to-create-labeling-projects.md)를 사용하여 만듭니다.
+* Azure Machine Learning 데이터 레이블 지정 프로젝트에 액세스합니다. 레이블 지정 프로젝트가 없는 경우 먼저 이미지 레이블 지정 또는 [텍스트 레이블](how-to-create-text-labeling-projects.md) [지정을](how-to-create-image-labeling-projects.md) 위한 프로젝트를 만듭니다.
 
 ## <a name="export-data-labels"></a>데이터 레이블 내보내기 
 

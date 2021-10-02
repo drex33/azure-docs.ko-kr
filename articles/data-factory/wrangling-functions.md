@@ -7,21 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2af1e7f9e1b787e73247d9537b4a8876cc4f7220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732990"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361236"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory의 데이터 랭글링를 사용하면 파워 쿼리 ```M``` 스크립트를 데이터 흐름 스크립트로 변환하여 클라우드 스케일에서 코드 없는 신속한 데이터 준비 및 랭글링을 수행할 수 있습니다. ADF는 [파워 쿼리 온라인](/powerquery-m/power-query-m-reference)과 통합되며 파워 쿼리 ```M``` 함수를 데이터 흐름 Spark 인프라를 사용하여 Spark 실행을 통해 데이터 랭글링에 사용할 수 있도록 합니다. 
-
-> [!NOTE]
-> ADF의 파워 쿼리는 현재 퍼블릭 미리 보기로 제공됩니다.
 
 현재 모든 파워 쿼리 M 함수는 제작 중에 사용할 수 있지만 데이터 랭글링에 지원되지 않습니다. 매시업을 빌드하는 동안 함수가 지원되지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 
@@ -104,19 +101,42 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 
 ## <a name="m-script-workarounds"></a>M 스크립트 해결 방법
 
-### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>```SplitColumn```의 경우 길이 및 위치별 분할에 대한 대체 방법이 있습니다.
+### ```SplitColumn```
+
+길이 및 위치를 기준으로 분할에 대 한 대체는 아래에 나열 됩니다.
 
 * Table.AddColumn(소스, "첫 번째 문자", 각 Text.Start([Email], 7), 텍스트 입력)
 * Table.AddColumn(#"첫 번째 문자 삽입", "텍스트 범위", 각 Text.Middle([Email], 4, 9), 텍스트 입력)
 
 이 옵션은 리본의 추출 옵션에서 액세스할 수 있습니다.
 
-:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query 열 추가":::
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query 열 추가":::
 
-### <a name="for-tablecombinecolumns"></a>```Table.CombineColumns```의 경우
+### ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "이름", 각 [FirstName] & " " & [LastName])
 
+### <a name="pivots"></a>피벗
+
+* PQ 편집기에서 피벗 변환을 선택 하 고 피벗 열을 선택 합니다.
+
+![파워 쿼리 피벗 공통](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* 그런 다음 값 열 및 집계 함수를 선택 합니다.
+
+![파워 쿼리 피벗 선택기](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* 확인을 클릭 하면 편집기의 데이터가 피벗 된 값으로 업데이트 된 것을 볼 수 있습니다.
+* 변환이 지원 되지 않을 수도 있다는 경고 메시지가 표시 됩니다.
+* 이 경고를 해결 하려면 PQ 편집기를 사용 하 여 피벗 된 목록을 수동으로 확장 합니다.
+* 리본 메뉴에서 고급 편집기 옵션 선택
+* 피벗 된 값 목록을 수동으로 확장 합니다.
+* List. Distinct ()를 다음과 같은 값 목록으로 바꿉니다.
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

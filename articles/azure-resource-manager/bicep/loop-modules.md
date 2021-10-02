@@ -4,13 +4,13 @@ description: Bicep 파일에서 루프 및 배열을 사용하여 모듈의 여�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 8c679eda4de1a3e29719a1518166e214b57b37c3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793439"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357823"
 ---
 # <a name="module-iteration-in-bicep"></a>Bicep의 모듈 반복
 
@@ -149,6 +149,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
 ```
 
 순차 배포의 경우, 일괄 처리 크기를 1로 설정합니다.
+
+`batchSize`데코레이터는 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 이 데코레이터를 같은 이름의 다른 항목과 구분 해야 하는 경우에는 데코레이터 앞에 **sys** 를 사용 합니다. `@sys.batchSize(2)`
 
 ## <a name="next-steps"></a>다음 단계
 

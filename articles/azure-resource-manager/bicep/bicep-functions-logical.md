@@ -4,13 +4,13 @@ description: 논리 값을 결정하기 위해 Bicep 파일에서 사용할 함�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: e3a811102c31301386135042c79c205eeb9f7f9a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 4ab5f0382d320e31c650dcb6ebee68f39d6e43b1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758430"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362985"
 ---
 # <a name="logical-functions-for-bicep"></a>Bicep에 대한 논리 함수
 
@@ -24,9 +24,11 @@ Azure Resource Manager 템플릿의 대부분의 논리 함수는 Bicep에서 [�
 
 매개 변수를 부울로 변환합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 

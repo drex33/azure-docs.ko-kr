@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: c2ad9c6eae22db2d940942c0ec15c6b1116a54cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530435"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353018"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -38,9 +38,9 @@ Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이�
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure Portal에서 또는 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만들 때 Azure는 서비스 주체를 자동으로 생성할 수 있습니다.
+Azure Portal에서 또는 [az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만들면 Azure에서 관리 id를 만듭니다.
 
-다음 Azure CLI 예제에서는 서비스 주체가 지정되지 않았습니다. 이 시나리오에서 Azure CLI는 AKS 클러스터에 대한 서비스 주체를 만듭니다. 작업을 성공적으로 완료하려면 Azure 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다.
+다음 Azure CLI 예제에서는 서비스 주체가 지정되지 않았습니다. 이 시나리오에서는 Azure CLI AKS 클러스터에 대 한 관리 id를 만듭니다. 
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -48,9 +48,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Azure Portal에서 또는 [New-AzAksCluster][new-azakscluster] 명령을 사용하여 AKS 클러스터를 만들 때 Azure는 서비스 주체를 자동으로 생성할 수 있습니다.
+Azure Portal에서 또는 [AzAksCluster][new-azakscluster] 명령을 사용 하 여 AKS 클러스터를 만들 때 Azure는 새로운 관리 되는 id를 생성할 수 있습니다.
 
-다음 Azure PowerShell 예제에서는 서비스 주체가 지정되지 않았습니다. 이 시나리오에서는 Azure PowerShell이 AKS 클러스터에 대한 서비스 주체를 만듭니다. 작업을 성공적으로 완료하려면 Azure 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다.
+다음 Azure PowerShell 예제에서는 서비스 주체가 지정되지 않았습니다. 이 시나리오에서는 Azure PowerShell AKS 클러스터에 대 한 관리 id를 만듭니다. 
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup

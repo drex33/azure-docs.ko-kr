@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 09/07/2021
-ms.openlocfilehash: 8c44d6e92f2943f3c565e80d42d9d0c474fddd4f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 62f895fdea75ff97154910c177cda04413663d68
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542254"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352052"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 개요: SQL Server를 Azure SQL Managed Instance로
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,7 +86,7 @@ Azure SQL Managed Instance(범용 대비 중요 비즈니스용)에서 대상 �
 
 |기술 | Description|
 |---------|---------|
-|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md)  | Azure Data Studio에 대 한 Azure SQL migration 확장은 Azure Data Studio의 SQL Server 평가 및 마이그레이션 기능을 제공 합니다. 온라인 (가동 중지 시간을 최소화 해야 하는 마이그레이션) 또는 오프 라인 (마이그레이션 기간 동안 가동 중지 시간이 지속 되는 마이그레이션) 모드에서 마이그레이션을 지원 합니다. |
+|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md)  | Azure Data Studio 대한 Azure SQL 마이그레이션 확장은 Azure Data Studio SQL Server 평가 및 마이그레이션 기능을 모두 제공합니다. 온라인(최소 가동 중지 시간이 필요한 마이그레이션의 경우) 또는 오프라인(마이그레이션 기간 동안 가동 중지 시간이 지속되는 마이그레이션의 경우) 모드에서 마이그레이션을 지원합니다. |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | 이 Azure 서비스는 VMware에서 대규모 SQL 데이터 자산을 검색하고 평가하는 데 도움이 됩니다. Azure SQL 배포 권장 사항, 대상 크기 조정 및 월간 예상 비용을 제공합니다. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 이 Azure 서비스는 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 애플리케이션에 대해 오프라인 모드에서의 마이그레이션을 지원합니다. 온라인 모드의 연속 마이그레이션과 달리 오프라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대한 일회성 복원을 실행합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 네이티브 SQL Server 데이터베이스 백업(.bak 파일)의 복원을 지원합니다. Azure Storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에게 가장 쉬운 마이그레이션 옵션입니다. 전체 및 차등 백업도 지원되며 자세한 설명은 이 문서의 [마이그레이션 자산에 대한 섹션](#migration-assets)을 참조하세요.| 
@@ -110,7 +110,7 @@ Azure SQL Managed Instance(범용 대비 중요 비즈니스용)에서 대상 �
 
 |마이그레이션 옵션  |사용 시기  |고려 사항  |
 |---------|---------|---------|
-|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md) | -단일 데이터베이스 또는 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> -온라인 (최소 가동 중지 시간) 및 오프 라인 (허용 되는 가동 중지 시간) 모드에서 실행할 수 있습니다. </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM |  -쉽게 설정 하 고 시작 하세요. </br> -온-프레미스 SQL Server와 백업에 액세스 하려면 자체 호스팅 통합 런타임을 설정 해야 합니다. </br> -평가 및 마이그레이션 기능이 모두 포함 되어 있습니다. |
+|[Azure Data Studio용 Azure SQL 마이그레이션 확장](../../../dms/migration-using-azure-data-studio.md) | -단일 데이터베이스 또는 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> - 온라인(최소 가동 중지 시간) 및 오프라인(허용 가능한 가동 중지 시간) 모드 모두에서 실행할 수 있습니다. </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM |  - 쉽게 설치하고 시작할 수 있습니다. </br> - 온-프레미스 SQL Server 및 백업에 액세스하려면 자체 호스팅 통합 런타임을 설정해야 합니다. </br> - 평가 및 마이그레이션 기능을 모두 포함합니다. |
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | -단일 데이터베이스 또는 여러 데이터베이스를 대규모로 마이그레이션합니다. </br> - 마이그레이션 프로세스 중 가동 중지 시간을 수용할 수 있습니다. </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM |  - [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md)을 통해 대규모 마이그레이션을 자동화할 수 있습니다. </br> -마이그레이션 완료 시간은 데이터베이스 크기에 따라 달라지며 백업 및 복원 시간의 영향을 받습니다. </br> -충분한 가동 중지 시간이 필요할 수 있습니다. |
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | - 개별 LOB(기간 업무) 애플리케이션 데이터베이스를 마이그레이션합니다.  </br> -별도의 마이그레이션 서비스 또는 도구 없이 빠르고 쉽게 마이그레이션할 수 있습니다.  </br> </br> 지원되는 원본: </br> - SQL Server(2005~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM | - 데이터베이스 백업은 여러 스레드를 사용하여 Azure Blob Storage로의 데이터 전송을 최적화하지만 파트너 대역폭과 데이터베이스 크기가 전송 속도에 영향을 미칠 수 있습니다. </br> - 가동 중지 시간은 전체 백업 및 복원을 수행하는 데 필요한 시간(데이터 작업의 크기)을 수용해야 합니다.| 
 |[로그 재생 서비스](../../managed-instance/log-replay-service-migrate.md) | - 개별 LOB(기간 업무) 애플리케이션 데이터베이스를 마이그레이션합니다.  </br> - 데이터베이스 마이그레이션에는 추가 컨트롤이 필요합니다.  </br> </br> 지원되는 원본: </br> - SQL Server(2008~2019) 온-프레미스 또는 Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP 컴퓨팅 SQL Server VM | 마이그레이션에는 SQL Server에서 전체 데이터베이스 백업을 만들고 Azure Blob Storage로 백업 파일을 복사하는 작업이 필요합니다. 로그 재생 서비스는 Azure Blob Storage에서 SQL Managed Instance로 백업 파일을 복원하는 데 사용됩니다. </br> -마이그레이션 프로세스 중에 복원되는 데이터베이스는 복원 모드에 있으며 프로세스가 완료될 때까지 읽기 또는 쓰기에 사용할 수 없습니다.| 
@@ -171,7 +171,7 @@ SQL Managed Instance에 포함된 고가용성 아키텍처 외에도 [자동 �
 
 서비스를 다시 시작하면 마이그레이션에 사용할 수 있는 로그인 목록에 Windows 사용자 또는 그룹 로그인이 나타납니다. 마이그레이션하는 Windows 사용자 또는 그룹 로그인에 대해서는 연결된 도메인 이름을 입력하라는 메시지가 표시됩니다. 서비스 사용자 계정(도메인 이름이 NT AUTHORITY인 계정) 및 가상 사용자 계정(도메인 이름이 NT SERVICE인 계정)은 지원되지 않습니다. 자세한 내용은 [T-SQL을 사용하여 SQL Server 인스턴스의 Windows 사용자 및 그룹을 Azure SQL Managed Instance로 마이그레이션하는 방법](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md)을 참조하세요.
 
-또는 Microsoft 데이터 마이그레이션 설계자가 특별히 설계한 [PowerShell 유틸리티](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)를 사용할 수 있습니다. 이 유틸리티는 PowerShell을 사용해 T-SQL 스크립트를 생성하여 로그인을 다시 만들고 원본에서 대상으로 데이터베이스 사용자를 선택합니다. 
+또는 Microsoft 데이터 마이그레이션 설계자가 특별히 설계한 [PowerShell 유틸리티](https://www.microsoft.com/download/details.aspx?id=103111)를 사용할 수 있습니다. 이 유틸리티는 PowerShell을 사용해 T-SQL 스크립트를 생성하여 로그인을 다시 만들고 원본에서 대상으로 데이터베이스 사용자를 선택합니다. 
 
 PowerShell 유틸리티는 Windows Server Active Directory 계정을 Azure AD 계정에 자동으로 매핑하고, 원본 Active Directory 인스턴스의 각 로그인에 대해 UPN 조회를 수행할 수 있습니다. 유틸리티는 역할 멤버 자격 및 사용자 권한과 함께 사용자 지정 서버 및 데이터베이스 역할을 스크립팅합니다. 포함된 데이터베이스는 아직 지원되지 않으며 가능한 SQL Server 권한의 하위 집합만 스크립팅됩니다. 
 

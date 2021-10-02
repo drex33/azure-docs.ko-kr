@@ -12,12 +12,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5f3c6526139389da3bfdbc3c43cf8b6d2a1dbccf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 594f4d68669b216e4606806a9ac3ef9a5b2f0b5c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567970"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358300"
 ---
 # <a name="api-access-differences-between-azure-media-services-v2-to-v3-api"></a>Azure Media Services V2에서 v3 API로의 API 액세스 차이점
 
@@ -49,4 +49,4 @@ V2 및 V3 API를 혼합하지 않은 경우에도 기존 계정을 계속 사용
 모든 .NET, CLI 및 기타 SDK는 최신 2020-05-01 API를 대상으로 하므로 이전 API 버전을 찾거나 구성하세요.
 
 > [!NOTE]
-> 2020-05-01 API를 사용하여 만든 새 계정은 V2 API를 사용할 수 없습니다.
+> 2020-05-01 이상 API를 사용 하 여 만든 새 계정은 V2 Api를 사용할 수 없습니다.

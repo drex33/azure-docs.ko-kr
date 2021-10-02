@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 6d32e0f19ca37243fa0dbaca9bc04369bfd974b2
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568283"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354127"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 > [!NOTE]
@@ -174,10 +174,10 @@ ASE를 Azure Monitor와 통합하여 ASE에 대한 로그를 Azure Storage, Azur
 
 | 상황 | 메시지 |
 |---------|----------|
-| ASE가 비정상 상태임 | 잘못된 가상 네트워크 구성으로 인해 지정된 ASE가 비정상 상태입니다. 비정상 상태가 지속되면 ASE가 일시 중단됩니다. 여기 https://docs.microsoft.com/azure/app-service/environment/network-info 에 정의된 지침을 따르세요. |
+| ASE가 비정상 상태임 | 잘못된 가상 네트워크 구성으로 인해 지정된 ASE가 비정상 상태입니다. 비정상 상태가 지속되면 ASE가 일시 중단됩니다. 여기에 정의 된 지침은 [App Service Environment에 대 한 네트워킹 고려 사항](network-info.md)을 참조 하세요. |
 | ASE 서브넷의 공간이 거의 다 참 | 지정된 ASE가 있는 서브넷의 공간이 거의 다 찼습니다. 남은 주소가 {0} 있습니다. 해당 주소가 모두 사용되면 ASE를 스케일링할 수 없습니다.  |
 | ASE가 총 인스턴스 제한에 도달함 | 지정된 ASE가 ASE의 총 인스턴스 제한에 도달했습니다. 현재 최대 201개의 인스턴스 중 {0}개의 App Service 플랜 인스턴스를 포함합니다. |
-| ASE가 종속성에 도달할 수 없음 | 지정된 ASE가 {0}에 도달할 수 없습니다.  여기 https://docs.microsoft.com/azure/app-service/environment/network-info 에 정의된 지침을 따르세요. |
+| ASE가 종속성에 도달할 수 없음 | 지정된 ASE가 {0}에 도달할 수 없습니다.  여기에 정의 된 지침은 [App Service Environment에 대 한 네트워킹 고려 사항](network-info.md)을 참조 하세요. |
 | ASE가 일시 중단됨 | 지정한 ASE가 일시 중단되었습니다. ASE 일시 중단 현상은 계정 부족 또는 잘못된 가상 네트워크 구성으로 인해 발생할 수 있습니다. 근본 원인을 해결하고 ASE를 다시 시작하여 트래픽을 계속 처리합니다. |
 | ASE 업그레이드가 시작됨 | 지정된 ASE에 대한 플랫폼 업그레이드가 시작되었습니다. 스케일링 작업에서 지연이 발생합니다. |
 | ASE 업그레이드가 완료됨 | 지정된 ASE에 대한 플랫폼 업그레이드가 완료되었습니다. |

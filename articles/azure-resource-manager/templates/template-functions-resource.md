@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 24bf175f6b6099a1265e411daf51913c3673d6f2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9961ea8cef41ffedaee76faf4f8415f33f347354
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613045"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357012"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -126,12 +126,12 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -817,7 +817,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="subscriptionresourceid-example"></a>subscriptionResourceID 예제
 
-다음 템플릿은 기본 제공 역할을 할당합니다. 리소스 그룹 또는 구독에 배포할 수 있습니다. 함수를 사용 하 여 `subscriptionResourceId` 기본 제공 역할에 대 한 리소스 ID를 가져옵니다.
+다음 템플릿은 기본 제공 역할을 할당합니다. 리소스 그룹 또는 구독에 배포할 수 있습니다. 함수를 사용하여 `subscriptionResourceId` 기본 제공 역할의 리소스 ID를 얻습니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
 
@@ -851,7 +851,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ### <a name="tenantresourceid-example"></a>tenantResourceId 예제
 
-기본 제공 정책 정의는 테넌트 수준 리소스입니다. 기본 제공 정책 정의를 참조 하는 정책 할당을 배포 하려면 함수를 사용 `tenantResourceId` 합니다.
+기본 제공 정책 정의는 테넌트 수준 리소스입니다. 기본 제공 정책 정의를 참조하는 정책 할당을 배포하려면 `tenantResourceId` 함수를 사용합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/tenantresourceid.json":::
 

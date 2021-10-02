@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: db2c4e50b4de7a680b114582baf1361ee4d75fb8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 017e1ce50c121860038594279a339a03f17bc180
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768817"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363048"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -40,7 +40,7 @@ ms.locfileid: "122768817"
 - **C++/C#/Java** 에서는 독립적인 인식 시나리오에 대한 발표자 인식 등록 단계에서 유효한 활성화 문구 목록을 수신하기 위해 `GetActivationPhrasesAsync()`를 `VoiceProfileClient`클래스에 새 API를 추가했습니다. 
     - **중요**. 발표자 인식 기능은 미리보기 상태입니다. 미리보기로 만든 모든 음성 프로필은 화자 인식 기능이 미리 보기에서 일반 공급으로 전환된 후 90 일 후에 중단됩니다. 이 시점에서 미리보기 음성 프로필의 작동이 중지됩니다.
 - **Python** 에는 기존의 `SpeechRecognizer`와`TranslationRecognizer`개체들에 대한 [자동 언어 식별 (LID)에 대한 지원](./how-to-automatic-language-detection.md?pivots=programming-language-python)이 추가되었습니다. 
-- **Python**: 한번 또는 연속 LID(인식 또는 번역없음)을 수행하는`SourceLanguageRecognizer`라는[새 Python 개체](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python)를 추가했습니다. 
+- **Python**: 한번 또는 연속 LID(인식 또는 번역없음)을 수행하는`SourceLanguageRecognizer`라는 [새 Python 개체](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer)를 추가했습니다. 
 - **JavaScript** 에는 독립적인 인식 시나리오에 대한 발표자 인식 등록 단계에서 유효한 활성화 문구 목록을 받기 위한 `getActivationPhrasesAsync`API가 `VoiceProfileClient` 클래스에 추가되었습니다. 
 - **JavaScript** 는`VoiceProfileClient`의`enrollProfileAsync` API는 이제 비동기 대기중입니다. 사용 예제는 [독립 식별 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js)를 참조하세요.
 
@@ -246,7 +246,7 @@ ms.locfileid: "122768817"
 **사용자 지정 신경망 음성 GA**
 
 사용자 지정 신경망 음성은 2월부터 중국어(북경어, 간체), 영어(오스트레일리아), 영어(인도), 영어(영국), 영어(미국), 프랑스어(캐나다), 프랑스어(프랑스), 독일어(독일), 이탈리아어(이탈리아), 일본어(일본), 한국어(대한민국), 포르투갈어(브라질), 스페인어(멕시코), 스페인어(스페인) 총 13개 언어로 일반 공급됩니다. [사용자 지정 신경망 음성](custom-neural-voice.md)이란 무엇이며 [책임감 있게 사용하는 방법](concepts-guidelines-responsible-deployment-synthetic.md)은 무엇인지 자세히 알아보세요.
-사용자 지정 신경망 음성 기능을 사용하려면 등록이 필요하며 Microsoft 자격 조건에 따라 액세스가 제한될 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
+사용자 지정 신경망 기능에는 등록이 필요 하며 microsoft는 자격 조건에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0: 2021년 1월 릴리스
 
@@ -602,7 +602,7 @@ SPX는 코드를 작성하지 않고 Azure Speech Service를 사용하는 명령
     | `es-MX` | $1.58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
-    * `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA` 로캘에서 음수 통화(예: "-€325")를 지원합니다.
+    * ,,,,, 로캘에서 음수 통화 (예: "-325 &euro; ")를 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` 합니다.
 
 * `pt-PT`의 주소 읽기가 개선되었습니다.
 * Natasha(`en-AU`)와 Libby(`en-UK`)의 "for" 및 "four" 발음 문제를 수정했습니다.

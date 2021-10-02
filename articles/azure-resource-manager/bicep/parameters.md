@@ -4,13 +4,13 @@ description: Bicep 파일에서 매개 변수를 정의하는 방법을 설명�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
-ms.openlocfilehash: b53402dfaa274c57d40ef7814b7920dc7eb0a8c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: b90fb108df58c41578bf9472390574b4bc174111
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619517"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363497"
 ---
 # <a name="parameters-in-bicep"></a>Bicep의 매개 변수
 
@@ -54,9 +54,32 @@ param location string = resourceGroup().location
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
-## <a name="secure-parameters"></a>보안 매개 변수
+## <a name="decorators"></a>데코레이터
 
-매개 변수는 제약 조건 또는 메타데이터에 데코레이터를 사용합니다. 데코레이터는 `@expression` 형식이며 매개 변수의 선언 위에 배치됩니다.
+매개 변수는 제약 조건 또는 메타데이터에 데코레이터를 사용합니다. 데코레이터는 `@expression` 형식이며 매개 변수의 선언 위에 배치됩니다. 매개 변수를 보안으로 표시 하 고, 허용 되는 값을 지정 하 고, 문자열에 대 한 최소 및 최대 길이를 설정 하 고, 정수에 대 한 최소값과 최대값을 설정 하 고, 매개 변수에 대 한 설명을 제공할 수 있습니다.
+
+다음 예제에서는 데코레이터에 대 한 두 가지 일반적인 사용을 보여 줍니다.
+
+```bicep
+@secure()
+param demoPassword string
+
+@description('Must be at least Standard_A3 to support 2 NICs.')
+param virtualMachineSize string = 'Standard_DS1_v2'
+```
+
+데코레이터은 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 동일한 이름을 가진 다른 항목의 데코레이터를 구분 해야 하는 경우 데코레이터 앞에를 붙입니다 `sys` . 예를 들어 Bicep 파일에 라는 매개 변수가 포함 된 경우 `description` **설명** 데코레이터를 사용 하는 경우 sys 네임 스페이스를 추가 해야 합니다.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+사용 가능한 데코레이터 다음 섹션에 설명 되어 있습니다.
+
+### <a name="secure-parameters"></a>보안 매개 변수
 
 문자열 또는 개체 매개 변수를 보안으로 표시할 수 있습니다. 보안 매개 변수의 값은 배포 기록에 저장되지 않으며 기록되지도 않습니다.
 
@@ -68,7 +91,7 @@ param demoPassword string
 param demoSecretObject object
 ```
 
-## <a name="allowed-values"></a>허용되는 값
+### <a name="allowed-values"></a>허용되는 값
 
 매개 변수에 허용되는 값을 정의할 수 있습니다. 배열에 허용되는 값을 제공합니다. 허용되는 값 중 하나가 아닌 매개 변수에 값이 전달되면 유효성 검사 중에 배포가 실패합니다.
 
@@ -80,7 +103,7 @@ param demoSecretObject object
 param demoEnum string
 ```
 
-## <a name="length-constraints"></a>길이 제약 조건
+### <a name="length-constraints"></a>길이 제약 조건
 
 문자열 및 배열 매개 변수의 최소 및 최대 길이를 지정할 수 있습니다. 제약 조건 중 하나 또는 둘 모두를 설정할 수 있습니다. 문자열의 경우 길이는 문자 수를 나타냅니다. 배열의 경우 길이는 배열의 항목 수를 나타냅니다.
 
@@ -96,7 +119,7 @@ param storageAccountName string
 param appNames array
 ```
 
-## <a name="integer-constraints"></a>정수 제약 조건
+### <a name="integer-constraints"></a>정수 제약 조건
 
 정수 매개 변수의 최솟값과 최댓값을 설정할 수 있습니다. 제약 조건 중 하나 또는 둘 모두를 설정할 수 있습니다.
 
@@ -106,7 +129,7 @@ param appNames array
 param month int
 ```
 
-## <a name="description"></a>Description
+### <a name="description"></a>Description
 
 제공하는 값을 사용자가 이해할 수 있도록 매개 변수에 대한 설명을 추가합니다. 포털을 통해 템플릿을 배포할 때 설명의 텍스트는 해당 매개 변수에 대한 팁으로 자동으로 사용됩니다. 텍스트가 매개 변수 이름에서 유추할 수 있는 것보다 더 많은 정보를 제공하는 경우에만 설명을 추가합니다.
 

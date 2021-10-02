@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 71ce588ea617a0322da4ffc7cf9f2626e4abb609
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 3f0c18d7f9130c4ef50b085a4f8c1ec5c22ed6d3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734219"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360396"
 ---
 # <a name="authorize-access-to-tables-using-azure-active-directory-preview"></a>Azure Active Directory를 사용하여 테이블에 대한 액세스 권한 부여
 
@@ -66,7 +66,7 @@ Azure RBAC는 기본 제공 역할을 부여하여 Azure AD 및 OAuth를 사용�
 
 보안 주체에 Azure 기본 제공 역할을 할당하는 방법을 알아보려면 [테이블 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요. Azure RBAC 역할 및 해당 권한을 나열하는 방법을 알아보려면 [Azure 역할 정의 나열](../../role-based-access-control/role-definitions-list.md)을 참조하세요.
 
-기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](../../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요.
+기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](../../role-based-access-control/role-definitions.md#control-and-data-actions)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요.
 
 데이터 액세스에 대해 명시적으로 정의된 역할만 보안 주체가 테이블 데이터에 액세스하도록 허용합니다. **소유자**, **참가자** 및 **스토리지 계정 참가자** 같은 기본 제공 역할은 보안 주체가 스토리지 계정을 관리하도록 허용하지만, Azure AD를 통해 해당 계정 내의 테이블 데이터에 액세스할 수 있는 권한은 제공하지 않습니다. 그러나 역할에 **Microsoft.Storage/storageAccounts/listKeys/action** 이 포함되어 있는 경우에는 해당 역할이 할당된 사용자가 계정 액세스 키를 사용하여 공유 키 인증을 통해 스토리지 계정의 데이터에 액세스할 수 있습니다.
 

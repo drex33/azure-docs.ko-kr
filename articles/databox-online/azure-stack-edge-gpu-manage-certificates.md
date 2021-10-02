@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: d39b1f1b4220c0899cb649f0544bc7da94f20c09
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 15cfd2b7188f84e14aa12824f8d5fab06d226330
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361606"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363955"
 ---
 # <a name="upload-import-and-export-certificates-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 인증서 업로드, 가져오기, 내보내기
 
@@ -40,24 +40,81 @@ Azure Stack Edge 디바이스와 여기에 연결하는 클라이언트 간에 �
 
 디바이스에 루트 및 엔드포인트 인증서를 업로드하려면 로컬 웹 UI의 **인증서** 페이지에서 **+ 인증서 추가** 옵션을 사용합니다. 다음 단계를 수행합니다.
 
-1. 먼저 루트 인증서를 업로드합니다. 로컬 웹 UI에서 **인증서 > + 인증서 추가** 로 차례로 이동합니다.
+1. 먼저 루트 인증서를 업로드합니다. 로컬 웹 UI에서 **인증서** 로 이동 합니다.
+1. **+ 인증서 추가** 를 선택합니다.
 
-    ![서명 체인 인증서 추가 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+    ![서명 체인 인증서 추가 1](media/azure-stack-edge-gpu-manage-certificates/add-cert-1.png)
 
-2. 다음으로 엔드포인트 인증서를 업로드합니다. 
+1. 인증서를 저장 합니다.
 
-    ![서명 체인 인증서 추가 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+#### <a name="upload-endpoint-certificate"></a>업로드 끝점 인증서
+
+1. 다음으로 엔드포인트 인증서를 업로드합니다. 
+
+    ![서명 체인 인증서 추가 2](media/azure-stack-edge-gpu-manage-certificates/add-cert-2.png)
 
     *.pfx* 형식의 인증서 파일을 선택하고, 인증서를 내보낼 때 제공한 암호를 입력합니다. Azure Resource Manager 인증서를 적용하는 데 몇 분 정도 걸릴 수 있습니다.
 
     서명 체인이 먼저 업데이트되지 않고 엔드포인트 인증서를 업로드하려고 하면 오류가 발생합니다.
 
-    ![인증서 적용 오류](media/azure-stack-edge-series-manage-certificates/apply-cert-error-1.png)
+    ![인증서 적용 오류](media/azure-stack-edge-gpu-manage-certificates/apply-cert-error-1.png)
 
     돌아가서 서명 체인 인증서를 업로드한 다음, 엔드포인트 인증서를 업로드하고 적용합니다.
 
 > [!IMPORTANT]
 > 디바이스 이름 또는 DNS 도메인이 변경되면 새 인증서를 만들어야 합니다. 그런 다음, 클라이언트 인증서와 디바이스 인증서를 새 디바이스 이름 및 DNS 도메인으로 업데이트해야 합니다. 
+
+#### <a name="upload-kubernetes-certificates"></a>업로드 인증서 Kubernetes
+
+Kubernetes 인증서는 Edge Container Registry 또는 Kubernetes 대시보드의 경우에만 가능 합니다. 각각의 경우 인증서와 키 파일을 업로드 해야 합니다. 다음 단계를 수행 하 여 Kubernetes 인증서를 만들고 업로드 합니다.
+
+
+1. `openssl`를 사용 하 여 Kubernetes 대시보드 인증서 또는에 지 Container Registry를 만듭니다. 인증서를 만드는 데 사용 하는 시스템에 openssl를 설치 해야 합니다. Windows 시스템에서 Chocolatey를 사용 하 여를 설치할 수 있습니다 `openssl` . Chocolatey를 설치한 후 PowerShell을 열고 다음을 입력 합니다.
+    
+    ```powershell
+    choco install openssl
+    ```
+1. `openssl`를 사용 하 여 이러한 인증서를 만듭니다. `cert.pem`인증서 파일 및 `key.pem` 키 파일이 만들어집니다.  
+
+    - Edge Container Registry의 경우 다음 명령을 사용 합니다.
+    
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<ecr.endpoint-suffix>"
+        ``` 
+        출력의 예제는 다음과 같습니다. 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=ecr.dbe-1d6phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```    
+    - Kubernetes 대시보드 인증서의 경우 다음 명령을 사용 합니다.  
+     
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<<kubernetes-dashboard.endpoint-suffix> OR <endpoint-suffix>>"
+        ```
+        출력의 예제는 다음과 같습니다. 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=kubernetes-dashboard.dbe-1d8phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```          
+1. Kubernetes 인증서와 앞에서 생성 한 해당 키 파일을 업로드 합니다.
+    
+    - Edge Container Registry의 경우
+    
+        ![Edge Container Registry 인증서 및 키 파일을 추가 하기 위한 스크린샷](media/azure-stack-edge-gpu-manage-certificates/add-cert-3.png)      
+
+    - Kubernetes 대시보드     
+
+        ![Kubernetes 대시보드 인증서 및 키 파일을 추가 하기 위한 스크린샷](media/azure-stack-edge-gpu-manage-certificates/add-cert-4.png) 
 
 ## <a name="import-certificates-on-the-client-accessing-the-device"></a>디바이스에 액세스하는 클라이언트에서 인증서 가져오기
 
@@ -75,22 +132,22 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 1. 마우스 오른쪽 단추로 파일을 클릭하고, **인증서 설치** 를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
 
-    ![인증서 가져오기 1](media/azure-stack-edge-series-manage-certificates/import-cert-1.png)
+    ![인증서 가져오기 1](media/azure-stack-edge-gpu-manage-certificates/import-cert-1.png)
 
 2. **저장소 위치** 에 대해 **로컬 컴퓨터** 를 선택하고, **다음** 을 선택합니다.
 
-    ![인증서 가져오기 2](media/azure-stack-edge-series-manage-certificates/import-cert-2.png)
+    ![인증서 가져오기 2](media/azure-stack-edge-gpu-manage-certificates/import-cert-2.png)
 
 3. **모든 인증서를 다음 저장소에 저장** 을 선택한 다음, **찾아보기** 를 선택합니다. 
 
     - 개인 저장소로 가져오려면 원격 호스트의 개인 저장소로 이동하고, **다음** 을 선택합니다.
 
-        ![인증서 가져오기 4](media/azure-stack-edge-series-manage-certificates/import-cert-4.png)
+        ![인증서 가져오기 4](media/azure-stack-edge-gpu-manage-certificates/import-cert-4.png)
 
 
     - 신뢰할 수 있는 저장소로 가져오려면 신뢰할 수 있는 루트 인증 기관으로 이동하고, **다음** 을 선택합니다.
 
-        ![인증서 가져오기 3](media/azure-stack-edge-series-manage-certificates/import-cert-3.png)
+        ![인증서 가져오기 3](media/azure-stack-edge-gpu-manage-certificates/import-cert-3.png)
 
  
 4. **마침** 을 선택합니다. "가져오기를 완료했습니다."라는 메시지가 표시됩니다.

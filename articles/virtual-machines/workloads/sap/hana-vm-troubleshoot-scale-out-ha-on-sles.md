@@ -2,22 +2,20 @@
 title: Azure VM에서 SLES를 사용하여 SAP HANA 스케일 아웃 HSR-Pacemaker 문제 해결 | Microsoft Docs
 description: Azure 가상 머신에서 실행되는 SLES 12 SP3의 SAP HSR(HANA System Replication) 및 Pacemaker에 기반한 복잡한 SAP HANA 스케일 아웃 고가용성 구성 확인 및 문제 해결 가이드
 services: virtual-machines-linux
-documentationcenter: ''
 author: hermanndms
 manager: juergent
-editor: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: e64abc008433c895e21690ccab8cc532ec1b34b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 3bdc19d9bd9208744173735399551bfc6f0fe93f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543859"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359273"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -25,7 +23,7 @@ ms.locfileid: "105543859"
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
 [sap-hana-iaas-list]:https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html
 [suse-pacemaker-support-log-files]:https://www.suse.com/support/kb/doc/?id=7022702
-[azure-linux-multiple-nics]:https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics
+[azure-linux-multiple-nics]:../../linux/multiple-nics.md
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
@@ -46,7 +44,7 @@ SUSE의 [성능 최적화 설정에 대한 자세한 설명][sles-hana-scale-out
 SAP HANA 스케일 아웃에 지원되는 가상 머신 유형은 [SAP HANA 인증 IaaS 디렉터리][sap-hana-iaas-list]를 확인하세요.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘마스터’ 및 ‘종속’ 용어에 대한 참조가 포함되어 있습니다.  해당 용어가 소프트웨어에서 제거되면 이 문서에서 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘마스터’ 및 ‘종속’ 용어에 대한 참조가 포함되어 있습니다.  해당 용어가 소프트웨어에서 제거되면 이 문서에서도 제거할 것입니다.
 
 여러 서브넷과 vNIC 및 HSR 설정과 함께 SAP HANA 스케일 아웃에 기술적인 문제가 있었습니다. 이 문제가 해결된 최신 SAP HANA 2.0 패치는 반드시 사용해야 합니다. 지원되는 SAP HANA 버전은 다음과 같습니다. 
 

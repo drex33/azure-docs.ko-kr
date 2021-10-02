@@ -3,12 +3,12 @@ title: AuthN/AuthZ의 OAuth 토큰
 description: App Service에서 기본 제공 인증 및 권한 부여를 사용할 때 토큰을 검색하고 토큰을 새로 고치고 세션을 확장하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: 8defaaf76c43a181f40b0161add1fae018705535
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: f158f9f76820635a65737b75f3c016ff67a3a92a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277711"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352087"
 ---
 # <a name="work-with-oauth-tokens-in-azure-app-service-authentication"></a>Azure App Service 인증에서 OAuth 토큰 작업
 
@@ -41,7 +41,7 @@ ms.locfileid: "129277711"
 - **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
 - **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
 - **Twitter**: 액세스 토큰이 만료되지 않습니다([Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq) 참조).
-- **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
+- **Microsoft:** 에서 [https://resources.azure.com](https://resources.azure.com) 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기** 를 선택합니다.
     2. 왼쪽 브라우저에서 **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettingsV2** 로 이동합니다.
     3. **편집** 을 클릭합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "129277711"
         "identityProviders": {
           "azureActiveDirectory": {
             "login": {
-              "loginParameters": ["scope=openid offline_access"]
+              "loginParameters": ["scope=openid profile email offline_access"]
             }
           }
         }
@@ -60,7 +60,7 @@ ms.locfileid: "129277711"
     5. **배치** 를 클릭합니다.
     
     > [!NOTE]
-    > 새로 고침 토큰을 제공 하는 범위를 [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access)합니다. [Azure App Service에서 종단 간 사용자 인증 및 권한 부여](tutorial-auth-aad.md)에 사용 되는 방법을 확인 하세요.
+    > 새로 고침 토큰을 제공하는 범위는 [offline_access.](../active-directory/develop/v2-permissions-and-consent.md#offline_access) [자습서: Azure App Service 엔드 투 엔드 사용자 인증 및 권한 부여에서](tutorial-auth-aad.md)사용하는 방법을 참조하세요. 다른 범위는 이미 App Service 기본적으로 요청됩니다. 이러한 기본 범위에 대한 자세한 내용은 [OpenID 커넥트 범위를 참조하세요.](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes)
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 

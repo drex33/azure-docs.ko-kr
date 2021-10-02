@@ -1,22 +1,20 @@
 ---
 title: 활성 지리적 복제
 description: 활성 지역 복제를 사용하여 동일하거나 다른 데이터 센터 지역에서 Azure SQL Database에 있는 개별 데이터베이스의 읽기 가능한 보조 데이터베이스를 만들 수 있습니다.
-services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
-ms.devlang: ''
 ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 1ab4655df0233fdea13f507f8b80b5caa92dc9d6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 071947c4e0e3989abd4aaa4c68b860d99a8a0c43
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284350"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357837"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용 - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +25,7 @@ ms.locfileid: "112284350"
 > Azure SQL 하이퍼스케일의 활성 지역 복제는 [현재 퍼블릭 미리 보기](https://aka.ms/hsgeodr)로 제공됩니다. 다음과 같은 제한 사항이 있습니다. 동일하거나 다른 지역에 있는 하나의 지역 보조, 강제, 계획된 장애 조치(failover)는 지원되지 않습니다. 지역 보조에서의 데이터베이스 복원은 지원되지 않습니다. 지역 보조를 데이터베이스 복사본에 대한 원본 데이터베이스로 사용하거나 또 다른 지역 보조의 주 데이터베이스로 사용하는 것은 지원되지 않습니다.
 > 
 > 지역 보조 데이터베이스를 주 데이터베이스(쓰기 가능한 데이터베이스)로 설정해야 하는 경우 아래 단계를 수행합니다.
-> 1. PowerShell의 cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) 또는 Azure CLI의 [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link)를 사용하여 지역에서 복제 링크를 끊습니다. 그러면 보조 데이터베이스가 읽기-쓰기 독립 실행형 데이터베이스로 설정됩니다. 주 데이터베이스에서 커밋되었지만 보조 데이터베이스로 복제되지 않은 데이터는 모두 손실됩니다. 이전의 주 데이터베이스가 사용 가능할 때 또는 경우에 따라 이전의 주 데이터베이스를 사용 가능한 최신 시점으로 복원함으로써 이러한 변경 내용을 복구할 수 있습니다.
+> 1. PowerShell의 cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) 또는 Azure CLI의 [az sql db replica delete-link](/cli/azure/sql/db/replica#az_sql_db_replica_delete_link)를 사용하여 지역에서 복제 링크를 끊습니다. 그러면 보조 데이터베이스가 읽기-쓰기 독립 실행형 데이터베이스로 설정됩니다. 주 데이터베이스에서 커밋되었지만 보조 데이터베이스로 복제되지 않은 데이터는 모두 손실됩니다. 이전의 주 데이터베이스가 사용 가능할 때 또는 경우에 따라 이전의 주 데이터베이스를 사용 가능한 최신 시점으로 복원함으로써 이러한 변경 내용을 복구할 수 있습니다.
 > 2. 이전의 주 데이터베이스가 사용 가능한 경우 이를 삭제한 다음, 새로운 주 데이터베이스에 대한 지역 복제를 설정합니다(새 보조 데이터베이스가 시드됩니다). 
 > 3. 애플리케이션에서 연결 문자열을 이에 따라 업데이트합니다.
 
@@ -284,7 +282,7 @@ RPO 측면에서 지연 시간을 모니터링하려면 주 데이터베이스�
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: 21dd554388616b2cd4882a5a550b4de74f5d9be3
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f1ef5d40ccf6339d909f2cad6388186ddb5a0a04
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059213"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355953"
 ---
 # <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>IoT Edge에 Anomaly Detector 단변량 모듈 배포
 
@@ -58,7 +58,7 @@ IoT Edge 디바이스에 Cognitive Services [Anomaly Detector](../anomaly-detect
 
 6. **업데이트** 를 선택합니다.
 
-7. **다음: 경로** 를 선택하여 경로를 정의합니다. 모든 모듈의 모든 메시지를 Azure IoT Hub로 이동하도록 정의합니다. 경로를 선언 하는 방법에 대 한 자세한 내용은 [IoT Edge에서 경로 설정](../../../iot-edge/module-composition.md?view=iotedge-2020-11)을 참조 하세요.
+7. **다음: 경로** 를 선택하여 경로를 정의합니다. 모든 모듈의 모든 메시지를 Azure IoT Hub로 이동하도록 정의합니다. 경로를 선언하는 방법을 알아보려면 [IoT Edge 경로 설정 을](../../../iot-edge/module-composition.md?view=iotedge-2020-11&preserve-view=true)참조하세요.
 
 8. **다음: 검토 + 만들기** 를 선택합니다. IoT Edge 디바이스에 배포되는 모든 모듈을 정의하는 JSON 파일을 미리 볼 수 있습니다.
     
@@ -68,7 +68,7 @@ IoT Edge 디바이스에 Cognitive Services [Anomaly Detector](../anomaly-detect
 
 11. 아래로 스크롤하여 나열된 모듈을 확인합니다. 새 모듈에 대한 런타임 상태가 실행 중인지 확인합니다. 
 
-IoT Edge 장치의 런타임 상태 문제를 해결 하려면 [문제 해결 가이드](../../../iot-edge/troubleshoot.md)를 참조 하세요.
+IoT Edge 디바이스의 런타임 상태를 해결하려면 문제 [해결 가이드를](../../../iot-edge/troubleshoot.md)참조하세요.
 
 ## <a name="test-anomaly-detector-on-an-iot-edge-device"></a>IoT Edge 디바이스에서 Anomaly Detector 테스트
 

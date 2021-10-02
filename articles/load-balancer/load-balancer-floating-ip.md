@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: e103af26d62518dabb5314c79c61335a2791417a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: a72eceba85e14e058fa7c8ba2b109009e46e6df3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479871"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357450"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer 부동 IP 구성
 
@@ -24,16 +24,16 @@ ms.locfileid: "123479871"
 
 ## <a name="floating-ip"></a>부동 IP
 
-일부 애플리케이션 시나리오는 백 엔드 풀의 단일 VM에서 여러 애플리케이션 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 다시 사용의 일반적인 예는 다음과 같습니다. 
+일부 애플리케이션 시나리오는 백 엔드 풀의 단일 VM에서 여러 애플리케이션 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예는 다음과 같습니다. 
 - 고가용성을 위한 클러스터링
 - 네트워크 가상 어플라이언스
-- 다시 암호화 하지 않고 여러 TLS 끝점 노출 
+- 다시 암호화하지 않고 여러 TLS 엔드포인트 노출 
 
 여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
 
-부동 IP를 사용 하도록 설정 하면 Azure에서 IP 주소 매핑을 백 엔드 인스턴스의 IP 대신 Load Balancer 프런트 엔드의 프런트 엔드 IP 주소로 변경 합니다. 
+부동 IP를 사용하도록 설정하면 Azure는 IP 주소 매핑을 백 엔드 인스턴스의 IP 대신 Load Balancer 프런트 엔드의 프런트 엔드 IP 주소로 변경합니다. 
 
-부동 IP가 없는 경우 Azure는 VM 인스턴스의 IP를 노출 합니다. 부동 IP를 사용하도록 설정하면 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경되어 추가적인 유연성이 제공됩니다. [여기](load-balancer-multivip-overview.md)를 참조하세요.
+부동 IP가 없으면 Azure는 VM 인스턴스의 IP를 노출합니다. 부동 IP를 사용하도록 설정하면 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경되어 추가적인 유연성이 제공됩니다. [여기](load-balancer-multivip-overview.md)를 참조하세요.
 
 ## <a name="limitations"></a><a name = "limitations"></a>제한 사항
 

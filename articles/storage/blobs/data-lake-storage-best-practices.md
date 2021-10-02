@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e1361fedfb9ee09ebbef416a0ba59eaa58f876aa
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 6042acd29325ab6bb887a74e47ceff115d000a9d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236151"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360043"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -35,7 +35,7 @@ Blob Storage 기능을 사용하도록 계정을 구성할 때 다음 패턴을 
 
 #### <a name="understand-the-terms-used-in-documentation"></a>설명서에 사용된 용어 이해
 
-콘텐츠 집합 간에 이동할 때 약간의 용어 차이가 있습니다. 예를 들어 [Blob Storage 설명서](storage-blobs-introduction.md)에 추천되는 콘텐츠는 *파일* 대신 *Blob이라는* 용어를 사용합니다. 기술적으로 스토리지 계정에 저장하는 파일은 계정의 Blob이 됩니다. 따라서 용어가 올바름입니다. 그러나 이 경우 *라는* 용어를 사용하는 경우 혼동이 발생할 수 있습니다. *파일 시스템* 을 참조하는 데 사용되는 *컨테이너라는* 용어도 표시됩니다. 이러한 용어는 동의어로 간주합니다.
+콘텐츠 집합 간에 이동할 때 약간의 용어 차이가 있습니다. 예를 들어 [Blob Storage 설명서](storage-blobs-introduction.md)에 포함된 콘텐츠는 *파일* 대신 *Blob이라는* 용어를 사용합니다. 기술적으로 스토리지 계정에 저장하는 파일은 계정의 Blob이 됩니다. 따라서 용어가 올바름입니다. 그러나 이 경우 *라는* 용어를 사용하는 경우 혼동이 발생할 수 있습니다. *파일 시스템* 을 참조하는 데 사용되는 *컨테이너라는* 용어도 표시됩니다. 이러한 용어는 동의어로 간주합니다.
 
 ## <a name="optimize-for-data-ingest"></a>데이터 수집에 최적화
 
@@ -68,7 +68,7 @@ Blob Storage 기능을 사용하도록 계정을 구성할 때 다음 패턴을 
 > [!NOTE]
 > 수집 작업의 전반적인 성능은 데이터를 수집하기 위해 사용하는 도구와 관련된 다른 요인에 따라 달라집니다. 최신 지침은 사용하려는 각 도구에 대한 설명서를 참조하세요.
 
-계정을 확장하여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 사용 계정은 광범위한 사용 사례 범주의 요구 사항을 충족하기에 충분한 처리량을 기본 구성에 제공합니다. 기본 제한에 초과하는 경우 Azure 지원 에 [문의하여](https://azure.microsoft.com/support/faq/)더 많은 처리량을 제공하도록 계정을 구성할 수 있습니다.
+계정을 확장하여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 사용 계정은 광범위한 사용 사례 범주의 요구 사항을 충족하기에 충분한 처리량을 기본 구성에 제공합니다. 기본 제한에 초과하는 경우 Azure 지원 [문의하여](https://azure.microsoft.com/support/faq/)더 많은 처리량을 제공하도록 계정을 구성할 수 있습니다.
 
 ## <a name="structure-data-sets"></a>구조 데이터 집합
 
@@ -84,7 +84,7 @@ I/O 패턴이 쓰기 집약적이거나 쿼리 패턴이 여러 레코드 행 �
 
 I/O 패턴을 더 많이 읽거나 쿼리 패턴이 레코드의 열 하위 집합에 초점을 맞춘 경우 Parquet 및 ORC 파일 형식을 고려합니다. 읽기 트랜잭션은 전체 레코드를 읽는 대신 특정 열을 검색하도록 최적화할 수 있습니다.
 
-Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈 소스 파일 형식입니다. Parquet의 열형 스토리지 구조를 사용하면 관련 없는 데이터를 건너뛸 수 있습니다. 쿼리는 스토리지에서 분석 엔진으로 보낼 데이터의 범위를 좁힐 수 있으므로 훨씬 더 효율적입니다. 또한 유사한 데이터 형식(열의 경우)이 함께 저장되기 때문에 Parquet는 데이터 스토리지 비용을 낮출 수 있는 효율적인 데이터 압축 및 인코딩 체계를 지원합니다. [Azure Synapse Analytics,](../../synapse-analytics/overview-what-is.md) [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 및 [Azure Data Factory](../../data-factory/introduction.md) 같은 서비스에는 Parquet 파일 형식을 활용하는 네이티브 기능이 있습니다.
+Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈 소스 파일 형식입니다. Parquet의 열형 스토리지 구조를 사용하면 관련 없는 데이터를 건너뛸 수 있습니다. 쿼리는 스토리지에서 분석 엔진으로 보낼 데이터의 범위를 좁힐 수 있으므로 훨씬 더 효율적입니다. 또한 유사한 데이터 형식(열의 경우)이 함께 저장되므로 Parquet은 데이터 스토리지 비용을 낮출 수 있는 효율적인 데이터 압축 및 인코딩 체계를 지원합니다. [Azure Synapse Analytics,](../../synapse-analytics/overview-what-is.md) [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 및 [Azure Data Factory](../../data-factory/introduction.md) 같은 서비스에는 Parquet 파일 형식을 활용하는 네이티브 기능이 있습니다.
 
 ### <a name="file-size"></a>파일 크기
 
@@ -102,7 +102,7 @@ Apache Parquet은 읽기가 많은 분석 파이프라인에 최적화된 오픈
 
 #### <a name="iot-structure"></a>IoT 구조
 
-IoT 워크로드에는 다양한 제품, 디바이스, 조직 및 고객에 걸쳐 수집되는 많은 데이터가 있을 수 있습니다. 다운스트림 소비자를 위해 조직의 디렉터리 레이아웃, 보안 및 효율적인 데이터 처리를 미리 계획하는 것이 중요합니다. 고려해야 할 일반적인 템플릿은 다음과 같은 레이아웃일 수 있습니다.
+IoT 워크로드에는 다양한 제품, 디바이스, 조직 및 고객에 걸쳐 있는 많은 양의 데이터가 수집될 수 있습니다. 다운스트림 소비자를 위해 조직의 디렉터리 레이아웃, 보안 및 효율적인 데이터 처리를 미리 계획하는 것이 중요합니다. 고려해야 할 일반적인 템플릿은 다음과 같은 레이아웃일 수 있습니다.
 
 `*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*`
 
@@ -240,21 +240,21 @@ Data Lake Storage Gen2에서 데이터를 사용할 수 있게 되 면 해당 �
 
 ## <a name="monitor-telemetry"></a>원격 분석 모니터링
 
-사용 및 성능 모니터링은 서비스 운영화의 중요한 부분입니다. 예를 들어 자주 발생하는 작업, 대기 시간이 높은 작업 또는 서비스 쪽 제한을 유발하는 작업이 있습니다. 
+사용 및 성능 모니터링은 서비스 운영 화의 중요 한 부분입니다. 이러한 예로는 자주 수행 되는 작업, 대기 시간이 긴 작업 또는 서비스 측 제한을 유발 하는 작업이 포함 됩니다. 
 
-스토리지 계정에 대한 모든 원격 분석은 [Azure Monitor 의 Azure Storage 로그를](monitor-blob-storage.md)통해 사용할 수 있습니다. 이 기능은 Log Analytics 및 Event Hubs 스토리지 계정을 통합하는 동시에 다른 스토리지 계정에 로그를 보관할 수 있도록 합니다. 메트릭 및 리소스 로그 및 관련 스키마의 전체 목록을 보려면 [모니터링 데이터 참조 Azure Storage](monitor-blob-storage-reference.md)참조하세요.
+저장소 계정에 대 한 모든 원격 분석은 [Azure Monitor Azure Storage 로그](monitor-blob-storage.md)를 통해 사용할 수 있습니다. 이 기능은 저장소 계정을 Log Analytics 및 Event Hubs와 통합 하는 동시에 다른 저장소 계정에 로그를 보관할 수 있게 해줍니다. 메트릭 및 리소스 로그의 전체 목록과 관련 스키마를 보려면 [Azure Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)를 참조 하세요.
 
-로그를 저장하도록 선택하는 위치는 로그에 액세스하려는 방법에 따라 달라집니다. 예를 들어 로그에 거의 실시간으로 액세스하고 로그의 이벤트를 Azure Monitor 다른 메트릭과 상호 연결하려는 경우 Log Analytics 작업 영역에 로그를 저장할 수 있습니다. 이렇게 하면 KQL을 사용하여 로그를 쿼리하고 작업 영역의 테이블을 열거하는 쿼리를 `StorageBlobLogs` 작성할 수 있습니다.
+로그를 저장 하도록 선택 하는 위치는 해당 로그에 액세스 하는 방법에 따라 달라 집니다. 예를 들어 거의 실시간으로 로그에 액세스 하 고 로그의 이벤트를 Azure Monitor의 다른 메트릭과 상관 관계를 지정할 수 있는 경우 Log Analytics 작업 영역에 로그를 저장할 수 있습니다. 이렇게 하면 KQL를 사용 하 여 로그를 쿼리하고 `StorageBlobLogs` 작업 영역에 테이블을 열거 하는 쿼리를 작성할 수 있습니다.
 
-근 실시간 쿼리 및 장기 보존을 위해 로그를 저장하려는 경우 Log Analytics 작업 영역과 스토리지 계정 모두에 로그를 보내도록 진단 설정을 구성할 수 있습니다.
+거의 실시간 쿼리 및 장기 보존을 위해 로그를 저장 하려는 경우 Log Analytics 작업 영역 및 저장소 계정 모두에 로그를 보내도록 진단 설정을 구성할 수 있습니다.
 
-Splunk와 같은 다른 쿼리 엔진을 통해 로그에 액세스하려는 경우 이벤트 허브로 로그를 보내고 Event Hub에서 선택한 대상으로 로그를 검색하도록 진단 설정을 구성할 수 있습니다.
+Splunk 같은 다른 쿼리 엔진을 통해 로그에 액세스 하려는 경우 이벤트 허브에 로그를 전송 하 고 이벤트 허브에서 선택한 대상으로 로그를 수집 하도록 진단 설정을 구성할 수 있습니다.
 
-Azure Monitor Azure Storage 로그는 Azure Portal, PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 사용하도록 설정할 수 있습니다. 대규모 배포의 경우 Azure Policy 수정 작업을 완전히 지원하는 데 사용할 수 있습니다. 자세한 내용은 [Azure/Community-Policy](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) 및 [ciphertxt/AzureStoragePolicy 를 참조하세요.](https://github.com/ciphertxt/AzureStoragePolicy)
+Azure Portal, PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 Azure Monitor의 Azure Storage 로그를 사용 하도록 설정할 수 있습니다. 규모에 맞는 배포의 경우 수정 작업을 완벽 하 게 지 원하는 Azure Policy를 사용할 수 있습니다. 자세한 내용은 [Azure/Community 정책](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) 및 [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy)를 참조 하세요.
 
 
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)
-- [Data Lake에 대한 hitchhiker 가이드](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [Data Lake에 대 한 hitchhiker 가이드](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
 - [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

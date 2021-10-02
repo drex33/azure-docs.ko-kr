@@ -9,12 +9,12 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1710b293278e3b36fdabdf70bd698d8408e946d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 847a0fc7f1867c2a4ea1f620a60f6236efebf4ce
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680075"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358709"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 Web Application Firewall v2 사용자 지정 규칙 만들기 및 사용
 
@@ -131,7 +131,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>예 2
 
-GeoMatch 운영자를 사용하여 미국으로부터의 트래픽만 허용하고 관리되는 규칙을 적용하려고 합니다.
+GeoMatch 연산자를 사용 하는 미국의 트래픽만 허용 하 고 관리 되는 규칙이 적용 되도록 하려고 합니다.
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -539,6 +539,66 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
             "operator": "Contains",
             "matchValues": [
               "'--"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+## <a name="example-7"></a>예제 7
+
+Application Gateway 앞에 배포 된 Azure Front 도어를 확인 하는 것이 일반적이 지 않습니다.  Application Gateway에서 받은 트래픽이 프런트 도어 배포에서 제공 되도록 하려면 헤더에 예상 되는 고유한 값이 포함 되어 있는지 확인 하는 것이 가장 좋습니다 `X-Azure-FDID` .  이에 대 한 자세한 내용은 [Azure Front 도어로 내 백 엔드에 대 한 액세스를 잠그는 방법](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) 을 참조 하세요.
+
+논리: **no** p
+
+```azurepowershell
+$expectedFDID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector X-Azure-FDID
+
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Equal `
+   -MatchValue $expectedFDID `
+   -Transform Lowercase `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name blockNonAFDTraffic `
+   -Priority 2 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block
+```
+
+다음은 해당 JSON입니다.
+
+```json
+  {
+    "customRules": [
+      {
+        "name": "blockNonAFDTraffic",
+        "priority": 2,
+        "ruleType": "MatchRule",
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariables": [
+                {
+                    "variableName": "RequestHeaders",
+                    "selector": "X-Azure-FDID"
+                }
+            ],
+            "operator": "Equal",
+            "negationConditon": true,
+            "matchValues": [
+                "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            ],
+            "transforms": [
+                "Lowercase"
             ]
           }
         ]

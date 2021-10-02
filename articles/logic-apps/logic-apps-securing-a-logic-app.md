@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.openlocfilehash: ed101e95a8580274661fd19d752a478677359641
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0fedae22564d9bb393952e65a737d73e1fd254f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647198"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350481"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -143,10 +143,10 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 요청 기반 트리거에서 만든 엔드포인트에 대한 인바운드 호출의 경우 논리 앱에 대한 권한 부여 정책을 정의하거나 추가하여 [Azure AD OAuth](../active-directory/develop/index.yml)를 사용하도록 설정할 수 있습니다. 이러한 방식으로 인바운드 호출은 권한 부여에 OAuth [액세스 토큰](../active-directory/develop/access-tokens.md)을 사용합니다.
 
-논리 앱이 OAuth 액세스 토큰을 포함 하는 인바운드 요청을 수신 하는 경우 Azure Logic Apps는 각 권한 부여 정책에 지정 된 클레임에 대 한 토큰의 클레임을 비교 합니다. 토큰의 클레임과 하나 이상의 정책에 있는 모든 클레임 사이에 일치하는 항목이 있으면 인바운드 요청에 대한 권한 부여가 성공합니다. 토큰은 권한 부여 정책에 지정된 수보다 많은 클레임을 가질 수 있습니다.
+논리 앱이 OAuth 액세스 토큰을 포함하는 인바운드 요청을 받으면 Azure Logic Apps 토큰의 클레임을 각 권한 부여 정책에 지정된 클레임과 비교합니다. 토큰의 클레임과 하나 이상의 정책에 있는 모든 클레임 사이에 일치하는 항목이 있으면 인바운드 요청에 대한 권한 부여가 성공합니다. 토큰은 권한 부여 정책에 지정된 수보다 많은 클레임을 가질 수 있습니다.
 
 > [!NOTE]
-> 단일 테 넌 트 Azure Logic Apps의 **논리 앱 (표준)** 리소스 종류의 경우 Azure AD OAuth는 현재 요청 기반 트리거 (예: 요청 트리거 및 HTTP Webhook 트리거)에 대 한 인바운드 호출에 사용할 수 없습니다.
+> 단일 테넌트 Azure Logic Apps **논리 앱(표준)** 리소스 형식의 경우 현재 요청 트리거 및 HTTP 웹후크 트리거와 같은 요청 기반 트리거에 대한 인바운드 호출에는 Azure AD OAuth를 사용할 수 없습니다.
 
 #### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Azure AD OAuth를 사용하도록 설정하기 전 고려 사항
 
@@ -487,7 +487,7 @@ ARM 템플릿에서 `accessControl` 섹션을 사용하여 논리 앱의 리소�
 
 * [기여자:](../role-based-access-control/built-in-roles.md#contributor)모든 리소스를 관리할 수 있는 모든 권한을 부여하지만 Azure RBAC에서 역할을 할당하거나, Azure Blueprints 할당을 관리하거나, 이미지 갤러리를 공유할 수는 없습니다.
 
-  예를 들어 해당 논리 앱의 워크플로에서 사용하는 연결을 만들고 인증하지 않은 논리 앱으로 작업해야 하는 경우를 가정해 보겠습니다. Azure 구독에는 해당 논리 앱 리소스가 포함된 리소스 그룹에 대한 기여자 권한이 필요합니다. 논리 앱 리소스를 만드는 경우 자동으로 기여자 액세스 권한이 있습니다.
+  예를 들어 해당 논리 앱의 워크플로에서 사용하는 연결을 만들고 인증하지 않은 논리 앱으로 작업해야 하는 경우를 가정해 보겠습니다. Azure 구독에는 해당 논리 앱 리소스가 포함된 리소스 그룹에 대한 기여자 권한이 필요합니다. 논리 앱 리소스를 만드는 경우 자동으로 참가자 액세스 권한이 있습니다.
 
 다른 사람이 논리 앱을 변경하거나 삭제하지 못하게 하려면 [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 사용할 수 있습니다. 이 기능은 다른 사람이 프로덕션 리소스를 변경하거나 삭제하지 못하도록 합니다. 연결 보안에 대한 자세한 내용은 [Azure Logic Apps 연결 구성](../connectors/apis-list.md#connection-configuration) 및 연결 보안 및 [암호화를](../connectors/apis-list.md#connection-security-encyrption)검토하세요.
 
@@ -897,7 +897,7 @@ TLS/SSL 자체 서명 인증서에 대한 정보는 다음과 같습니다.
 
 * 전역 다중 테넌트 Azure Logic Apps 환경의 논리 앱의 경우, HTTP 작업은 자체 서명된 TLS/SSL 인증서를 허용하지 않습니다. 논리 앱이 서버에 HTTP 호출을 수행하고 TLS/SSL 자체 서명된 인증서를 제공하면 HTTP 호출은 실패하고 `TrustFailure` 오류가 발생합니다.
 
-* 단일 테넌트 Azure Logic Apps 환경의 논리 앱의 경우, HTTP 작업은 자체 서명된 TLS/SSL 인증서를 지원합니다. 하지만 이 인증 유형에 대한 몇 가지 추가 단계를 완료해야 합니다. 그러지 않으면 호출이 실패합니다. 자세한 내용은 [단일 테넌트 Azure Logic Apps에 대한 TSL/SSL 인증서 인증](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication)을 검토하세요.
+* 단일 테넌트 Azure Logic Apps 환경의 논리 앱의 경우, HTTP 작업은 자체 서명된 TLS/SSL 인증서를 지원합니다. 하지만 이 인증 유형에 대한 몇 가지 추가 단계를 완료해야 합니다. 그러지 않으면 호출이 실패합니다. 자세한 내용은 [단일 테넌트 Azure Logic Apps에 대한 TSL/SSL 인증서 인증](../connectors/connectors-native-http.md#tlsssl-certificate-authentication)을 검토하세요.
 
   클라이언트 인증서를 사용하거나 "인증서" 자격 증명 유형을 포함한 Azure AD OAuth(Azure Active Directory 공개 인증)을 사용하는 경우 이 인증 유형에 대한 몇 가지 추가 단계를 완료해야 합니다. 그러지 않으면 호출이 실패합니다. 자세한 내용은 [단일 테넌트 Azure Logic Apps에 대한 클라이언트 인증서 또는 "인증서" 자격 증명 유형 포함 Azure AD OAuth(Azure Active Directory 공개 인증)](../connectors/connectors-native-http.md#client-certificate-authentication)를 검토하세요.
 
@@ -1142,11 +1142,11 @@ Authorization: OAuth realm="Photos",
 
 #### <a name="managed-identity-authentication"></a>관리 ID 인증
 
-관리 [ID](../active-directory/managed-identities-azure-resources/overview.md) [인증을 지원하는 트리거 또는 작업에서 관리 ID](#add-authentication-outbound)옵션을 사용할 수 있는 경우 논리 앱은 자격 증명, 비밀 또는 Azure AD 토큰이 아닌 azure AD(Azure Active Directory)로 보호되는 Azure 리소스에 대한 액세스를 인증하는 데 이 ID를 사용할 수 있습니다. Azure는 ID를 관리하며, 사용자가 비밀을 관리하거나 Azure AD 토큰을 직접 사용하지 않기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
+관리 id [인증을 지 원하는 트리거 또는 작업](#add-authentication-outbound)에서 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 옵션을 사용할 수 있는 경우 논리 앱은 자격 증명, 비밀 또는 azure ad 토큰이 아닌 Azure Active Directory (azure ad)로 보호 되는 azure 리소스에 대 한 액세스를 인증 하는 데이 id를 사용할 수 있습니다. Azure는 ID를 관리하며, 사용자가 비밀을 관리하거나 Azure AD 토큰을 직접 사용하지 않기 때문에 자격 증명을 보호하는 데 유용합니다. [Azure AD 인증에 관리 ID를 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대해 자세히 알아보세요.
 
-* **논리 앱(소비)** 리소스 종류는 시스템 할당 ID 또는 수동으로 만든 *단일* 사용자 할당 ID를 사용할 수 있습니다.
+* **논리 앱 (소비)** 리소스 유형은 시스템이 할당 한 id 또는 수동으로 만든 *단일* 사용자 할당 id를 사용할 수 있습니다.
 
-* **논리 앱(표준)** 리소스 종류는 자동으로 사용하도록 설정되는 시스템 할당 ID만 사용할 수 있습니다. 사용자 할당 ID는 현재 사용할 수 없습니다.
+* **논리 앱 (표준)** 리소스 유형은 자동으로 사용 하도록 설정 된 시스템 할당 id만 사용할 수 있습니다. 사용자 할당 id를 현재 사용할 수 없습니다.
 
 1. 논리 앱이 관리 ID를 사용할 수 있으려면 그 전에 [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따르세요. 이 단계는 논리 앱에서 관리 ID를 사용하도록 설정하고 대상 Azure 리소스에 대한 해당 ID의 액세스 권한을 설정합니다.
 

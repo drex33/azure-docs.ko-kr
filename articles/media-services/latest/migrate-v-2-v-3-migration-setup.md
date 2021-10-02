@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: ca8e0f2303ed31660e92f084c0f6760a60f40c22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c2a08059de275efcfb3e65c6a316566a6a081830
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659479"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357956"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3단계 - V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
 
@@ -39,7 +39,7 @@ V2 API에는 프로그래밍 방식으로 계정을 만들 수 있도록 하는 
 
 V3 API는 ARM(Azure 리소스 관리) 기반입니다. Azure AD(Azure Active Directory) 서비스 주체 ID 및 키를 사용하여 API에 연결합니다. 개발자는 API에 연결하기 위해 서비스 주체 또는 관리 ID를 만들어야 합니다. V3 API에서 API는 표준 ARM 엔드포인트를 사용하고 다른 모든 Azure 서비스와 유사하고 일관된 모델을 사용합니다.
 
-이전에 2015-10-01 버전의 ARM 관리 API를 사용하여 V2 계정을 관리하는 고객은 2020-05-01 버전의 V3 API 액세스를 지원하는 ARM 관리 API를 사용해야 합니다.
+이전에 2015-10-01 버전의 ARM management API를 사용 하 여 V2 계정을 관리 하는 고객은 V3 API 액세스에 대해 지원 되는 ARM 관리 API의 2020-05-01 이상 버전을 사용 해야 합니다.
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>테스트를 위한 새 미디어 서비스 계정 만들기
 
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 [환경 설정](setup-azure-subscription-how-to.md?
 Media Services v3 REST API 호출에 [Postman](./setup-postman-rest-how-to.md)을 사용합니다.
 [REST API 참조 페이지](/rest/api/media/)를 읽어 보세요.
 
-Postman 컬렉션에서 2020-05-01 버전 문자열을 사용해야 합니다.
+Postman collection에서 2020-05-01 이상 버전 문자열을 사용 해야 합니다.
 
 ## <a name="net"></a>[.NET](#tab/net)
 

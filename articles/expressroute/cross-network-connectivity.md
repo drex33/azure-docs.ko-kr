@@ -1,18 +1,17 @@
 ---
 title: Azure 네트워크 간 연결
 description: 이 페이지에서는 Azure 네트워킹 기능을 기반으로 하는 네트워크 간 연결 및 솔루션의 애플리케이션 시나리오를 설명합니다.
-services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: duau
-ms.openlocfilehash: 018afa1b2a31ebd44925a3fc79cbdc729b2d4695
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9e991e31d93e28373df55ae50a3ef7b0a666b879
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202500"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353975"
 ---
 # <a name="cross-network-connectivity"></a>네트워크 간 연결
 
@@ -127,4 +126,4 @@ Global Reach는 국가/지역별로 국가/지역에서 출시됩니다. 원하�
 [Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
 [Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
 [ER-FAQ]: ./expressroute-faqs.md
-[VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq
+[VNet-FAQ]: ../virtual-network/virtual-networks-faq.md

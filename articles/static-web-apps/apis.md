@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 08/24/2021
 ms.author: cshoe
-ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 95e180d34577f94f96b3e35c1f2432d85eb946a9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730398"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361412"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에서 API 지원
 
@@ -41,7 +41,7 @@ Azure Static Web Apps API는 다음과 같은 두 가지 구성에서 지원됩�
 | [관리 ID](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | [Azure App Service 인증 및 권한](../app-service/configure-authentication-provider-aad.md) 토큰 관리 | ✕ | ✔ |
 | Azure Static Web Apps 외부에서 사용할 수 있는 API 함수 | ✕ | ✔ |
-| Azure Key Vault에 저장된 애플리케이션 설정 | ✕ | ✔ |
+| [Key Vault 참조](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
 ## <a name="configuration"></a>구성
 
@@ -49,7 +49,7 @@ API 엔드포인트는 _api_ 경로를 통해 웹앱에서 사용할 수 있습�
 
 | 관리형 함수 | 사용자 고유 함수 가져오기 |
 | --- | --- |
-| _api_ 경로가 고정되어 있는 동안 관리형 함수 앱의 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](build-configuration.md)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
+| _Api_ 경로가 고정 되어 있는 동안 관리 되는 함수 앱의 소스 코드 폴더 위치를 제어할 수 있습니다. 리포지토리의 _.github/workflows_ 에 있는 [워크플로 YAML 파일을 편집](build-configuration.md)하여 이 위치를 변경할 수 있습니다. | _api_ 경로에 대한 요청은 기존 Azure Functions 앱으로 전송됩니다. |
 
 ## <a name="troubleshooting-and-logs"></a>문제 해결 및 로그
 

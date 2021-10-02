@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9dd3525f4efec3c49950839306ee5419c7850c69
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 1a733492a46b51d471a0efb0c5f316b0a47c8598
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275416"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353158"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>1단계 - Media Services API V3로 마이그레이션하는 이점 이해
 
@@ -26,7 +26,7 @@ ms.locfileid: "106275416"
 
 ## <a name="use-the-latest-api"></a>최신 API 사용
 
-현재 V3 API에서만 새로운 기능, 기능 및 성능 최적화를 사용할 수 있기 때문에 제대로 활용하려면 이제 Azure Media Services V3 API의 버전 2020-05-01을 사용하여 시작하는 것이 좋습니다.
+새로운 기능, 기능 및 성능 최적화는 현재 V3 API에서만 사용할 수 있으므로 이제 Azure Media Services V3 API 버전 2020-05-01 이상 사용을 시작하여 이점을 얻는 것이 좋습니다.
 
 올바른 버전 문자열을 사용하여 포털, 최신 SDK, 최신 CLI 및 REST API에서 API 버전을 변경할 수 있습니다.
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 09/24/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 1844d9a84714231aac7cb399239c31a6af62661c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 77cfd60a8cee2b2f948208b1c213b6351f99a8e0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093519"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354732"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
@@ -33,7 +33,7 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목에 익숙하다고 가정합니다.
 + [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
@@ -168,7 +168,7 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 
 ### <a name="limitations"></a>제한 사항
 
-[ML 지원 데이터 레이블 지정](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling)은 가상 네트워크 뒤에서 기본 스토리지 계정을 지원하지 않습니다. 대신, ML 지원 데이터 레이블 지정에 기본값 이외의 스토리지 계정을 사용합니다. 
+[ML 지원 데이터 레이블 지정](how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling)은 가상 네트워크 뒤에서 기본 스토리지 계정을 지원하지 않습니다. 대신, ML 지원 데이터 레이블 지정에 기본값 이외의 스토리지 계정을 사용합니다. 
 
 > [!TIP]
 > 기본 스토리지 계정이 아니면, 데이터 레이블 지정에 사용되는 계정을 가상 네트워크 뒤에서 보호할 수 있습니다. 

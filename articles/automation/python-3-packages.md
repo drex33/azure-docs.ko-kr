@@ -3,19 +3,19 @@ title: Azure Automation에서 Python 3 패키지 관리
 description: 이 문서에서는 Azure Automation에서 Python 3 패키지(미리 보기)를 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: b7393f06df77b0057925e20a7cf055fddb0a7bf2
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: d3ec338b6d6edac2c56c8b42f877a1095aace2a0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965293"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349620"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Azure Automation에서 Python 3 패키지(미리 보기) 관리
 
-Azure Automation을 사용하면 Azure Sandbox 환경과 Linux Hybrid Runbook Worker에서 Python 3 Runbook(미리 보기)을 실행할 수 있습니다. Runbook을 간편하게 실행하기 위해 Python 패키지를 사용하여 필요한 모듈을 가져올 수 있습니다. 단일 패키지를 가져오려면 [패키지 가져오기](#import-a-package)를 참조하세요. 여러 패키지가 포함된 패키지를 가져오려면 [종속성이 있는 패키지 가져오기](#import-a-package-with-dependencies)를 참조하세요. 이 문서에서는 Azure Automation에서 Python 3 패키지(미리 보기)를 관리하고 사용하는 방법을 설명합니다.
+Azure Automation을 사용하면 Azure Sandbox 환경과 Linux Hybrid Runbook Worker에서 Python 3 Runbook(미리 보기)을 실행할 수 있습니다. Runbook을 간편하게 실행하기 위해 Python 패키지를 사용하여 필요한 모듈을 가져올 수 있습니다. Azure 패키지 4.0.0은 기본적으로 Python 3 Automation 환경에 설치됩니다. Automation 계정에서 Python 패키지를 가져와 기본 버전을 재정의할 수 있습니다. Automation 계정에서 가져온 버전에 대한 기본 설정이 제공됩니다. 단일 패키지를 가져오려면 [패키지 가져오기](#import-a-package)를 참조하세요. 여러 패키지가 포함된 패키지를 가져오려면 [종속성이 있는 패키지 가져오기](#import-a-package-with-dependencies)를 참조하세요. 이 문서에서는 Azure Automation에서 Python 3 패키지(미리 보기)를 관리하고 사용하는 방법을 설명합니다.
 
 ## <a name="packages-as-source-files"></a>원본 파일 형태의 패키지
 
@@ -131,6 +131,22 @@ for group in groups:
 
 > [!NOTE]
 > Python `automationassets` 패키지는 pypi.org에서 사용할 수 없으므로 Windows 머신으로 가져올 수 없습니다.
+
+## <a name="identify-available-packages-in-sandbox"></a>샌드박스에서 사용 가능한 패키지 식별
+
+다음 코드를 사용하여 기본 설치된 모듈을 나열합니다.
+
+```python
+#!/usr/bin/env python3
+
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+   for i in installed_packages])
+
+for package in installed_packages_list:
+    print(package)
+```
 
 ## <a name="next-steps"></a>다음 단계
 

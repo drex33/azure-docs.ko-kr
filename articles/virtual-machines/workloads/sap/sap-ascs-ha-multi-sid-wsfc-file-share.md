@@ -1,13 +1,10 @@
 ---
-title: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성 | Microsoft Docs
+title: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성
-services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -16,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd2adc8a94cd27068077851ec2672f85280b8230
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: ccb05833128616919790ea499493ed0a9b51b954
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284818"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349713"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -311,9 +308,9 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
-[new-in-win-2016-storage]:https://docs.microsoft.com/windows-server/storage/whats-new-in-storage
+[new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html

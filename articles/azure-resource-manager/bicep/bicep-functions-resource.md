@@ -4,13 +4,13 @@ description: Bicep 파일에서 리소스에 대한 값을 검색하는 데 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 23d205f44b23b71f476f86d8d589f5d99a417a85
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 4cfbac80e9783dd9424a4b2ee63607fb6f2a7f17
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827539"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361905"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
@@ -23,6 +23,8 @@ ms.locfileid: "124827539"
 `extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 해당 기능에 추가하기 위해 다른 리소스에 적용되는 리소스 종류에 해당하는 [확장 리소스](../management/extension-resource-types.md)에 대한 리소스 ID를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 extensionResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -110,6 +112,8 @@ Azure Key Vault에서 비밀 반환 `getSecret` 함수는 `Microsoft.KeyVault/va
 
 Key Vault에는 `true`로 설정된 `enabledForTemplateDeployment`가 있어야 합니다. Bicep 파일을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 Bicep 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
 
+함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -168,11 +172,13 @@ module sql './sql.bicep' = {
 
 `resourceName.list([apiVersion], [functionValues])`
 
-`list`로 시작하는 작업을 통해 모든 리소스 종류에 대한 목록 함수를 호출할 수 있습니다. 일반적으로 사용되는 일부 함수는 `list`, `listKeys`, `listKeyValue` 및 `listSecrets`입니다. 
+`list`로 시작하는 작업을 통해 모든 리소스 종류에 대한 목록 함수를 호출할 수 있습니다. 일반적으로 사용되는 일부 함수는 `list`, `listKeys`, `listKeyValue` 및 `listSecrets`입니다.
 
 이 함수의 구문은 목록 작업의 이름에 따라 다릅니다. 또한 반환된 값은 연산에 따라 달라집니다. Bicep은 현재 `list*` 함수 완성 및 유효성 검사를 지원하지 않습니다.
 
-**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. 예: `stg.listKeys()`. 
+**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. `stg.listKeys()`)을 입력합니다.
+
+함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -264,12 +270,12 @@ sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -411,6 +417,8 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
 
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -472,11 +480,15 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
 
 **providers 함수는 더 이상 사용되지 않습니다.** 더는 사용하지 않는 것이 좋습니다. 리소스 공급자의 API 버전을 가져오기 위해 이 함수를 사용한 경우 템플릿에 특정 API 버전을 제공하는 것이 좋습니다. 버전 간에 속성이 변경된 경우 동적으로 반환된 API 버전을 사용하면 템플릿이 손상될 수 있습니다.
 
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="reference"></a>reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 리소스의 런타임 상태를 나타내는 개체를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 참조 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대해 기호화된 이름을 사용합니다.
 
@@ -519,6 +531,8 @@ output blobAddress string = stg.properties.primaryEndpoints.blob
 
 리소스의 고유 식별자를 반환합니다.
 
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+
 resourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
 리소스 이름이 모호하거나 동일한 Bicep 파일 내에서 프로비전되지 않은 경우 이 함수를 사용합니다. 반환된 식별자의 형식은 리소스 그룹, 구독, 관리 그룹 또는 테넌트 중에서 테넌트가 어떤 범위에서 발생하는지에 따라 달라집니다.
@@ -559,6 +573,8 @@ output storageID string = stg.id
 `subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 구독 수준에서 배포된 리소스의 고유 식별자를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 subscriptionResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -619,6 +635,8 @@ resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-pr
 `tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 테넌트 수준에서 배포된 리소스의 고유 식별자를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 tenantResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 

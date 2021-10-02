@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 6f5b3cc109d3583defce78c3ae52848188fca900
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: d0b24d902c808f06e49f2c132629484d22921b4b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284554"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351298"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -29,7 +29,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 * 공급자가 ExpressRoute 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#connectivity-through-exchange-providers)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
-* **각 피어링 위치에서의 중복성**: [클라우드 교환에 대한 물리적 연결이 하나](expressroute-faqs.md#onep2plink)뿐인 경우에도 각 ExpressRoute 회로에서 Microsoft 라우터와 피어링 라우터 간에 중복 BGP 세션을 설정해야 합니다.
+* **각 피어 링 위치에서의 중복성**: microsoft [는 클라우드 교환에 대 한 물리적 연결이 하나](expressroute-faqs.md#onep2plink)뿐 이더라도 각 Express 경로 회로에서 microsoft 라우터와 피어 링 라우터 간에 중복 BGP 세션을 설정 해야 합니다.
 * **재해 복구를 위한 중복성**: 단일 실패 지점을 방지하기 위해 서로 다른 피어링 위치에 ExpressRoute 회로를 두 개 이상 설정하는 것이 좋습니다.
 * **라우팅**: Microsoft Cloud에 연결하는 방법에 따라 사용자와 공급자는 [라우팅 도메인](expressroute-circuit-peerings.md)에 대한 BGP 세션을 설정 및 관리해야 합니다. 일부 이더넷 연결 공급자 또는 클라우드 Exchange 공급자는 가치 추가 서비스로 BGP 관리를 제공할 수 있습니다.
 * **NAT**: Microsoft만 Microsoft 피어링을 통해 공용 IP 주소를 허용합니다. 온-프레미스 네트워크에서 개인 IP 주소를 사용하는 경우 사용자 또는 공급자는 [NAT를 사용](expressroute-nat.md)하여 개인 IP 주소를 공용 IP 주소로 번역해야 합니다.
@@ -46,7 +46,7 @@ ExpressRoute에서 Microsoft 365를 사용하도록 설정하려는 경우 Micro
 * [Microsoft 365에 대한 네트워크 계획 및 성능 튜닝](/microsoft-365/enterprise/network-planning-and-performance)
 * [Microsoft 365에 대한 네트워크 및 마이그레이션 계획](/microsoft-365/enterprise/network-and-migration-planning)
 * [온-프레미스 환경과 Microsoft 365 통합](/microsoft-365/enterprise/microsoft-365-integration)
-* [Office 365 IP 주소 변경 사항에 대한 최신 정보 유지](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
+* [Office 365 IP 주소 변경 사항에 대한 최신 정보 유지](/microsoft-365/enterprise/microsoft-365-ip-web-service)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.custom: seodec18, devx-track-azurecli
 ms.author: sumuth
 author: mksuni
 ms.date: 08/09/2021
-ms.openlocfilehash: db8d8e5faaca0941e8f009a2193301cd2207669a
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: cbb44e7a3b48ec1fae928ac4de14b30b939cf975
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531298"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361716"
 ---
 # <a name="azure-pipelines-for-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에 대한 Azure Pipelines
 
@@ -22,7 +22,7 @@ ms.locfileid: "122531298"
 
 - Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
 
-- Azure 계정에 대한 [Azure Resource Manager 서비스 연결](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops)
+- Azure 계정에 대한 [Azure Resource Manager 서비스 연결](/azure/devops/pipelines/library/connect-to-azure)
 - Microsoft 호스팅 에이전트에 Azure CLI가 미리 설치되어 있어야 합니다. 하지만 프라이빗 에이전트를 사용하는 경우 빌드 및 릴리스 에이전트를 실행하는 컴퓨터에 [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다. 에이전트가 Azure CLI가 설치된 컴퓨터에서 이미 실행되고 있으면 모든 관련 스테이지 변수가 업데이트되도록 에이전트를 다시 시작합니다.
   
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -80,10 +80,10 @@ ms.locfileid: "122531298"
 
 Azure Pipelines에서 Azure CLI 작업을 사용할 때 모든 작업 입력의 전체 목록을 볼 수 있습니다. 
 
-| 매개 변수            | 설명         | 
+| 매개 변수            | Description         | 
 | :------------------- | :-------------------|
 | azureSubscription| (필수) 배포에 대한 Azure Resource Manager 구독을 제공합니다. 이 매개 변수는 선택한 작업 버전이 0.*일 때만 표시됩니다. Azure CLI 작업 v1.0은 Azure Resource Manager 구독만 지원합니다. |
-|scriptType| (필수) 스크립트 유형을 제공합니다. 지원되는 스크립트는 PowerShell, PowerShell Core, Bat, 셸 및 스크립트입니다. **Linux 에이전트** 에서 실행할 때 ```bash``` 또는 ```pscore``` 중 하나를 선택합니다. **Windows 에이전트** 를 실행할 때 ```batch```,```ps``` 및 ```pscore``` 중 하나를 선택합니다. |
+|scriptType| (필수) 스크립트 유형을 제공합니다. 지원되는 스크립트는 PowerShell, PowerShell Core, Bat, 셸 및 스크립트입니다. **Linux 에이전트** 에서 실행할 때 ```bash``` 또는 ```pscore``` 중 하나를 선택합니다. **Windows 에이전트** 를 실행할 때 ```batch```, ```ps``` 및 ```pscore``` 중 하나를 선택합니다. |
 |sriptLocation| (필수) 실제 파일 경로와 같은 스크립트 경로를 제공하거나 스크립트 인라인을 제공하는 경우 ```Inline script```를 사용합니다. 기본값은 ```scriptPath```입니다. |
 |scriptPath| (필수) 스크립트의 정규화된 경로(Windows 기반 에이전트를 사용하는 경우에는 .ps1, .bat 또는 .cmd, Linux 기반 에이전트를 사용하는 경우에는 <code>.ps1 </code> 또는 <code>.sh </code>) 또는 기본 작업 디렉터리에 상대적인 경로입니다. |
 |inlineScript|(필수) 여기에서 스크립트를 인라인으로 작성할 수 있습니다. Windows 에이전트를 사용할 때는 PowerShell 또는 PowerShell Core 또는 일괄 처리 스크립팅을 사용하고, Linux 기반 에이전트를 사용할 때는 PowerShell Core 또는 셸 스크립팅을 사용합니다. 일괄 처리 파일의 경우 모든 Azure 명령 앞에 \"call\" 접두사를 사용합니다. 또한 인수를 사용해서 이 스크립트로 사전 정의된 및 사용자 정의 변수를 전달할 수 있습니다. <br/>PowerShell/PowerShellCore/셸 예제:``` az --version az account show``` <br/>일괄 처리 예제: ``` call az --version call az account show```. |
@@ -96,11 +96,11 @@ Azure Pipelines에서 Azure CLI 작업을 사용할 때 모든 작업 입력의 
 |powerShellIgnoreLASTEXITCODE| (선택 사항) false이면 스크립트 끝에 <code>if ((Test-Path -LiteralPath variable:\\LASTEXITCODE)) { exit $LASTEXITCODE }</code> 줄이 추가됩니다. 이렇게 하면 외부 명령의 마지막 종료 코드가 PowerShell의 종료 코드로 전파됩니다. 그렇지 않으면 줄이 스크립트 끝에 추가되지 않습니다. 기본값은 false입니다. |
 
 
-CLI 작업 문제가 있으면 [빌드 및 릴리스 문제 해결 방법](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops)을 참조하세요.
+CLI 작업 문제가 있으면 [빌드 및 릴리스 문제 해결 방법](/azure/devops/pipelines/troubleshooting/troubleshooting)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 Azure 배포에는 몇 가지 관련된 작업이 있습니다. 
 
-- [Azure 리소스 그룹 배포](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
-- [Azure Web App 배포](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
+- [Azure 리소스 그룹 배포](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+- [Azure 웹앱 배포](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)
 

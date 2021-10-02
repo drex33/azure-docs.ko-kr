@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b8dc092104f3371263719adbec16305afb87113c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 2525417516691fa4ffb6d681fc23b394f4588649
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867384"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129364103"
 ---
 # <a name="how-to-scale-media-reserved-units-legacy"></a>미디어 예약 단위를 스케일링하는 방법(레거시)
 
@@ -22,7 +22,7 @@ ms.locfileid: "122867384"
 이 문서에서는 더 빠른 인코딩을 위해 MRU(미디어 예약 단위)를 스케일링하는 방법을 보여 줍니다.
 
 > [!WARNING]
-> 이 명령은 2020-05-01 버전 이상의 API를 사용하여 만든 Media Services 계정에서 더 이상 작동하지 않습니다. 계정에서는 부하에 따라 시스템이 자동으로 스케일 업/다운되기 때문에 미디어 예약 단위가 더 이상 필요하지 않습니다. Azure Portal에서 MRU를 관리하는 옵션이 표시되지 않으면 2020-05-01 API 이상으로 만든 계정을 사용하고 있는 것입니다.
+> 이 명령은 2020-05-01 이상 버전의 API 이상에서 만든 Media Services 계정에 대해 더 이상 작동 하지 않습니다. 계정에서는 부하에 따라 시스템이 자동으로 스케일 업/다운되기 때문에 미디어 예약 단위가 더 이상 필요하지 않습니다. Azure Portal에서 MRU를 관리하는 옵션이 표시되지 않으면 2020-05-01 API 이상으로 만든 계정을 사용하고 있는 것입니다.
 > 이 문서의 목적은 MRU를 사용하는 레거시 프로세스를 문서화하는 것입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

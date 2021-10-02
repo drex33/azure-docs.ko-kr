@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: d575af739fa299cc32576bd2798eeb8165fe37c2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3adffbac5641c2791c5ef683b5c4d687331a1c3b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590039"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350159"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -24,11 +24,15 @@ Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 �
 
 ## <a name="september-2021"></a>2021년 9월
 
-"이름에 접미사/점이 있는 경우 미리 작성 된 Id (드라이버 라이선스)에서 부정확 한 이름 추출을 수정 합니다."
+[Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다.
 
-[Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다. 
+### <a name="monitoring-menu"></a>모니터링 메뉴
 
-:::image type="content" source="media/portal-metrics.png" alt-text="스크린샷: Azure Portal의 메트릭 차트":::
+:::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal의 모니터링 메뉴를 보여 주는 스크린샷":::
+
+### <a name="charts"></a>차트
+
+:::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 메트릭 차트의 예를 보여 주는 스크린샷":::
 
 ## <a name="july-2021"></a>2021년 7월
 

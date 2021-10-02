@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 0058078e04e14e6e8c823490f8c6e09a123d40f8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1e5c74d34d85fed9fff86dba92398c8cd57287bd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804782"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356252"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,6 +22,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 **업데이트** |  **통합 설치** | **구성 서버 OVA** | **Mobility Service 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 9.45.6096.1 | 5.1.6952.0 | 9.45.6096.1 | 5.1.6952.0 | 2.0.9237.0
 [롤업 57](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 9.44.6068.1 | 5.1.6899.0 | 9.44.6068.1 | 5.1.6899.0 | 2.0.9236.0
 [롤업 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
@@ -31,6 +32,17 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 
 업데이트 설치 및 지원에 대해 [자세히 알아보세요](service-updates-how-to.md).
+
+## <a name="updates-september-2021"></a>업데이트 (9 월 2021)
+
+### <a name="update-rollup-58"></a>업데이트 롤업 58
+
+[업데이트 롤업 58](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) 은 다음과 같은 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업 KB 문서에서 자세히 설명된 대로 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
+**문제 수정/향상된 기능** | 롤업 KB 문서에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
 
 ## <a name="updates-august-2021"></a>업데이트(2021년 8월)
 

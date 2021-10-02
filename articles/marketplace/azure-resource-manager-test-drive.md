@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 09/09/2021
-ms.openlocfilehash: 6c563b7661b62c81b6094f1a662faa1cdc28c57a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7825dff873afaf223cab7b86c73083027caccc72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632009"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363616"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -26,7 +26,7 @@ ARM 템플릿이 무엇인지 잘 모르는 경우 [Azure Resource Manager란?](
 
 배포 템플릿에는 솔루션을 구성하는 모든 Azure 리소스가 포함되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 파트너 센터에서 다음 속성을 설정합니다.
 
-- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 가장 많은 수의 고객을 배치할 것으로 생각 하는 영역을 하나 선택 하는 것이 좋습니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
+- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 가장 많은 수의 고객이 배치될 것으로 예상되는 지역 하나를 선택하는 것이 좋습니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
 
 - **인스턴스** – 유형(핫 또는 콜드)을 선택하고, 제품을 사용할 수 있는 지역 수를 곱하여 사용 가능한 인스턴스 수를 선택합니다.
 
@@ -307,7 +307,7 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
    테넌트 ID가 없는 경우 Azure Active Directory에서 새로 만듭니다. 테넌트 설정에 대한 도움말은 [빠른 시작: 테넌트 설정](../active-directory/develop/quickstart-create-new-tenant.md)을 참조하세요.
 
 3. Microsoft Test-Drive 응용 프로그램을 테 넌 트에 프로 비전 합니다. 이 응용 프로그램을 사용 하 여 테스트 드라이브 리소스에 대 한 작업을 수행 합니다.
-    1. 아직 없는 경우 [Azure Az PowerShell module](/powershell/azure/install-az-ps?view=azps-6.3.0)을 설치 합니다.
+    1. 아직 없는 경우 [Azure Az PowerShell module](/powershell/azure/install-az-ps)을 설치 합니다.
     1. Microsoft Test-Drive 응용 프로그램에 대 한 서비스 주체를 추가 합니다.
         1. 을 실행 하 `Connect-AzAccount` 고 azure 계정에 로그인 하기 위한 자격 증명을 제공 합니다 .이 역할에는 azure active Directory **전역 관리자** [기본 제공 역할이](/azure/active-directory/roles/permissions-reference#global-administrator)필요 합니다. 
         1. 새 서비스 주체를 만듭니다 `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment` .

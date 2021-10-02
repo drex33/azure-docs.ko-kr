@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6365499aff4508e40d8e2aa2ed61471f4fbff2fe
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: 1217acb5911366b8e3943d414aeeeaf8a9e5e1e1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721254"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357246"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -73,15 +73,12 @@ ms.locfileid: "114721254"
 > [!Note]
 > Linux VM의 경우 Microsoft Azure Linux 에이전트(waagent)를 성공적으로 설치하려면 인터넷 연결 외에, 다음 패키지가 설치되어 있는지 확인합니다.
 >- Python 2.6 이상
->- Python-setuptool
->- systemmd
 >- OpenSSL 1.0 이상
 >- OpenSSH 5.3 이상
 >- 파일 시스템 유틸리티: sfdisk, fdisk, mkfs, parted
 >- 암호 도구: chpasswd, sudo
 >- 텍스트 처리 도구: sed, grep
 >- 네트워크 도구: ip-route
->- 원본 VM에서 rc.local 서비스 사용
 
 > [!TIP]
 >  Azure Portal를 사용하여 복제를 구성하기 위해 한 번에 최대 10개의 VM을 선택할 수 있습니다. 더 많은 VM을 복제하기 위해 포털을 사용하고 10개 VM의 여러 일괄 처리에서 복제하도록 VM을 추가하거나 Azure Migrate PowerShell 인터페이스를 사용하여 복제를 구성할 수 있습니다. 동시 복제를 위해 지원되는 최대 VM 수를 초과하 여 동시 복제를 구성하지 않도록 합니다.

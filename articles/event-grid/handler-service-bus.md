@@ -2,13 +2,13 @@
 title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 description: Service Bus 큐 및 토픽을 Azure Event Grid 이벤트에 대한 이벤트 처리기로 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.openlocfilehash: 5ea44f33bffa0f7158c8e3d1ae4e1cf0776f294e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/30/2021
+ms.openlocfilehash: 676a9fcc6e260f2226e103ede26398b384e046ca
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214962"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354387"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus** 는 그 중 하나입니다. 
@@ -150,6 +150,29 @@ az eventgrid event-subscription create \
     }
 }
 ```
+
+## <a name="delivery-properties"></a>배달 속성
+이벤트 구독을 사용하면 배달된 이벤트에 포함 되는 HTTP 헤더를 설정할 수 있습니다. 이 기능을 사용하여 대상에 필요한 사용자 지정 헤더를 설정할 수 있습니다. Azure Service Bus 큐 및 토픽에 전달 되는 이벤트에 사용자 지정 헤더를 설정할 수 있습니다.
+
+Azure Service Bus에서는 단일 메시지를 보낼 때 다음 메시지 속성을 사용하도록 지원합니다. 
+
+| 헤더 이름 | 헤더 형식 |
+| :-- | :-- |
+| `MessageId` | 동적 |  
+| `PartitionKey` | 정적 또는 동적 |
+| `SessionId` | 정적 또는 동적 |
+| `CorrelationId` | 정적 또는 동적 |
+| `Label` | 정적 또는 동적 |
+| `ReplyTo` | 정적 또는 동적 | 
+| `ReplyToSessionId` | 정적 또는 동적 |
+| `To` |정적 또는 동적 |
+| `ViaPartitionKey` | 정적 또는 동적 |
+
+> [!NOTE]
+> - `MessageId`의 기본값은 Event Grid 이벤트의 내부 ID입니다. 이를 재정의할 수 있습니다. 예: `data.field`.
+> - `SessionId` 또는 `MessageId`만 설정할 수 있습니다. 
+
+자세한 내용은 [사용자 지정 배달 속성](delivery-properties.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

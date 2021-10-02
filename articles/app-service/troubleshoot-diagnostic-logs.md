@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: b7bf1d7353917808fca222a7027dda74f89aff70
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ac47322f33ac8f2efd08e5b04e639f09959dee28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536105"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352020"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -70,6 +70,10 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 작업을 마쳤으면 **저장** 을 선택합니다.
 
+> [!NOTE]
+> Blob에 로그를 작성 하는 경우 앱을 삭제 하 고 blob에 로그를 유지 하는 경우 보존 정책이 더 이상 적용 되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)을 참조 하세요.
+>
+
 ## <a name="enable-application-logging-linuxcontainer"></a>애플리케이션 로깅 사용(Linux/컨테이너)
 
 [Azure Portal](https://portal.azure.com)에서 Linux 앱 또는 사용자 지정 컨테이너 앱에 대한 애플리케이션 로깅을 사용하도록 설정하려면 앱으로 이동하여 **App Service 로그** 를 선택합니다.
@@ -97,6 +101,10 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 >
 
 작업을 마쳤으면 **저장** 을 선택합니다.
+
+> [!NOTE]
+> Blob에 로그를 작성 하는 경우 앱을 삭제 하 고 blob에 로그를 유지 하는 경우 보존 정책이 더 이상 적용 되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)을 참조 하세요.
+>
 
 ## <a name="log-detailed-errors"></a>자세한 오류 로그
 
@@ -185,7 +193,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원되는 로그 유형 및 그 설명을 표시합니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |

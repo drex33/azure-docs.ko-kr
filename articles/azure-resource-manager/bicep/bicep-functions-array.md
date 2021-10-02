@@ -4,23 +4,25 @@ description: Bicep 파일에서 배열 작업에 사용하는 함수에 대해 �
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/10/2021
-ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 69e1e3c9574d6a32663186d46c1af3dceb422f4a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794104"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357621"
 ---
 # <a name="array-functions-for-bicep"></a>Bicep의 배열 함수
 
-이 문서에서는 배열 작업을 위한 Bicep 함수에 대해 설명 합니다.
+이 문서에서는 배열 작업을 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="array"></a>array
 
 `array(convertToArray)`
 
 값을 배열로 변환합니다.
+
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -63,12 +65,14 @@ output objectOutput array = array(objectToConvert)
 
 여러 배열을 결합하고 연결된 배열을 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array |연결할 첫 번째 배열입니다. |
-| 추가 인수 |예 |array |연결에 대 한 순차적인 순서로 배열 추가 |
+| more 인수 |예 |array |더 많은 배열을 순차적으로 배열에 추가합니다. |
 
 이 함수는 여러 배열을 가져와서 결합합니다.
 
@@ -107,9 +111,11 @@ output return array = concat(firstArray, secondArray)
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -160,9 +166,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -198,9 +206,11 @@ output stringEmpty bool = empty(testString)
 
 배열의 첫 번째 요소 또는 문자열의 첫 번째 문자를 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -236,17 +246,19 @@ output stringOutput string = first('One Two Three')
 
 매개 변수에서 공통 요소를 갖는 단일 배열 또는 개체를 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| more 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 값이 더 많습니다. |
 
 ### <a name="return-value"></a>반환 값
 
-공통 요소가 있는 배열 또는 개체입니다. 요소의 순서는 첫 번째 배열 매개 변수에 의해 결정 됩니다.
+공통 요소가 있는 배열 또는 개체입니다. 요소의 순서는 첫 번째 배열 매개 변수에 의해 결정됩니다.
 
 ### <a name="example"></a>예제
 
@@ -287,7 +299,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
-첫 번째 배열 매개 변수는 교차 된 요소의 순서를 결정 합니다. 다음 예제에서는 반환 된 요소의 순서가 첫 번째 배열에 기반 하는 방법을 보여 줍니다.
+첫 번째 배열 매개 변수는 교차된 요소의 순서를 결정합니다. 다음 예제에서는 반환된 요소의 순서가 첫 번째 배열을 기준으로 하는 방법을 보여 주며,
 
 ```bicep
 var array1 = [
@@ -327,9 +339,11 @@ output commonDown array = intersection(array2, array3, array1)
 
 배열의 마지막 요소 또는 문자열의 마지막 문자를 반환합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -365,9 +379,11 @@ output stringOutput string = last('One Two three')
 
 배열의 요소 수, 문자열의 문자 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -415,9 +431,11 @@ output objectLength int = length(objectToTest)
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -455,9 +473,11 @@ output intOutput int = max(0,3,2,5,4)
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -493,7 +513,9 @@ output intOutput int = min(0,3,2,5,4)
 
 `range(startIndex, count)`
 
-시작 정수에서 항목 수를 포함하는 정수 배열을 만듭니다.
+시작 정수에서 항목 수를 포함 하는 정수 배열을 만듭니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -528,6 +550,8 @@ output rangeOutput array = range(startingInt, numberOfElements)
 `skip(originalValue, numberToSkip)`
 
 배열에서 지정된 숫자 이후의 모든 요소를 포함하는 배열을 반환하거나 문자열에서 지정된 숫자 이후의 모든 숫자를 포함하는 문자열을 반환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -571,6 +595,8 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 배열 시작부터 지정된 수의 요소를 포함하는 배열 또는 문자열 시작부터 지정된 수의 문자를 포함하는 문자열을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -613,13 +639,15 @@ output stringOutput string = take(testString, charactersToTake)
 
 매개 변수의 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 중복된 값 또는 키는 한 번만 포함됩니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |예 |배열 또는 개체 |요소를 조인 하는 데 사용할 추가 값입니다. |
+| more 인수 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 더 많은 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 

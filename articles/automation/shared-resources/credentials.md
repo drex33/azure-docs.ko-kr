@@ -3,15 +3,15 @@ title: Azure Automation에서 자격 증명 관리
 description: 이 문서에서는 자격 증명 자산을 만들고 Runbook 또는 DSC 구성에 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/22/2020
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e914f29a08b748a961819380fbb2a01a9da13d53
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 2a78f9636a29c8e48c8d3e1c38d7127bd3ba84b7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276419"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354046"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
@@ -116,17 +116,33 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-자격 증명을 사용하여 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)로 Azure에 인증할 수도 있습니다. 대부분의 경우 [실행 계정](../automation-security-overview.md#run-as-accounts)을 사용하고 [Get-AzAutomationConnection](../automation-connections.md)으로 연결을 검색해야 합니다.
+또한 먼저 관리 ID 로 연결한 후 자격 증명을 사용하여 [커넥트-AzAccount로](/powershell/module/az.accounts/connect-azaccount) Azure에 인증할 수 [있습니다.](../automation-security-overview.md#managed-identities-preview) 이 예제에서는 [시스템 할당 관리 ID 를](../enable-managed-identity-for-automation.md)사용합니다.
 
 ```powershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential'
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
+
+# Get credential
+$myCred = Get-AutomationPSCredential -Name "MyCredential"
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
 $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
 
-Connect-AzAccount -Credential $myPsCred
+# Connect to Azure with credential
+$AzureContext = (Connect-AzAccount -Credential $myPsCred -TenantId $AzureContext.Subscription.TenantId).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -TenantId $AzureContext.Subscription.TenantId `
+    -DefaultProfile $AzureContext
 ```
 
 # <a name="python-2"></a>[Python 2](#tab/python2)

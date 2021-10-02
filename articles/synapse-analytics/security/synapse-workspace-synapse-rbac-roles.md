@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d898bc4fe0afa268f9aef3ab4282ebb249e61b4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 6b6c2cbf04b0e68f86bd11b8295c54b8c65d0360
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081456"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352788"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -93,8 +93,8 @@ workspaces/pipelines/write, delete|Synapse 관리자</br>Synapse Contributor</br
 workspaces/triggers/write, delete|Synapse 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자
 workspaces/datasets/write, delete|Synapse 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자
 workspaces/libraries/write, delete|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자
-workspaces/linkedServices/write, delete|Synapse 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 연결된 데이터 관리자
-workspaces/credentials/write, delete|Synapse 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 연결된 데이터 관리자
+workspaces/linkedServices/write, delete|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 연결된 데이터 관리자
+workspaces/credentials/write, delete|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 연결된 데이터 관리자
 workspaces/notebooks/viewOutputs/action|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자
 workspaces/pipelines/viewOutputs/action|Synapse 관리자</br>Synapse Contributor</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자
 workspaces/linkedServices/useSecret/action|Synapse 관리자</br>Synapse 자격 증명 사용자

@@ -2,10 +2,8 @@
 title: SAP 워크로드용 SQL Server Azure Virtual Machines DBMS 배포 | Microsoft Docs
 description: SAP 워크로드용 SQL Server Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-sap
@@ -15,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66426b6e48c15882f884657fbf8e75f44e500eb8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: b9d44e718329c836b1e4fc63861f52cc37458a79
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467642"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352417"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -320,7 +318,7 @@ ms.locfileid: "114467642"
 
 일반적으로 최신 SQL Server 릴리스를 사용하여 Azure IaaS에서 SAP 작업을 실행하는 것이 좋습니다. 최신 SQL Server 릴리스는 Azure 서비스 및 기능 중 일부와 더 효율적으로 통합됩니다. 또는 Azure IaaS 인프라에서 작업을 최적화하도록 변경되었습니다.
 
-계속하려면 먼저 [Azure Virtual Machines의 SQL Server란(Windows)][https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview ] 문서를 검토하는 것이 좋습니다.
+계속하기 전에 Azure [Virtual Machines(Windows)에서 SQL Server 문서를](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 검토하는 것이 좋습니다.
 
 다음 섹션에서는 위 링크에 속한 설명서의 일부를 묶어 설명합니다. SAP에 대한 정보도 언급되며 몇 가지 개념도 보다 자세히 설명합니다. 그러나 SQL Server 관련 문서를 읽기 전에 먼저 위의 문서를 통해 작업하는 것이 좋습니다.
 
@@ -488,9 +486,9 @@ SAP에서 지원하는 데이터베이스 미러링(SAP Note [965908]참조)은 
 
 클라우드 전용 배포 시 가장 쉬운 방법은 Azure에서 이러한 DBMS VM(및 이상적인 전용 SAP VM)을 한 도메인 내에 배치할 수 있도록 다른 도메인을 설정하는 것입니다.
 
-도메인을 사용할 수 없는 경우 <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>에서 설명한 대로 데이터베이스 미러링 엔드포인트에 대한 인증서를 사용할 수도 있습니다.
+도메인을 사용할 수 없는 경우 [데이터베이스 미러링 끝점에 대 한 인증서 사용 (transact-sql SQL)에](/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql) 설명 된 대로 데이터베이스 미러링 끝점에 대 한 인증서를 사용할 수 있습니다.
 
-Azure에서 데이터베이스 미러링을 설정하기 위한 자습서는 <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server>에서 찾을 수 있습니다. 
+Azure에서 데이터베이스 미러링을 설정 하는 방법에 대 한 자습서는 [데이터베이스 미러링 (SQL Server)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) 을 참조 하세요.
 
 ### <a name="sql-server-always-on"></a>SQL Server Always On
 Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]참조) Azure에서 SAP와 함께 지원됩니다. 이 시점에서 Azure는 온-프레미스에서 가능한 AD/DNS 개체를 만들 수 없으므로 SQL Server 가용성 그룹 수신기(Azure 가용성 집합과 다름)를 배포하는 것과 관련된 몇 가지 특별한 고려 사항이 있습니다. 따라서 Azure의 특정 동작을 극복하려면 몇 가지 다른 설치 단계가 필요합니다.

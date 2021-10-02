@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 39a6ea048ca68733bfe127757e1547f1af8b65d2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 905b96f814ce89fee9fa24248e54eca3ddcb96cc
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762932"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351777"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
@@ -281,7 +281,7 @@ ms.locfileid: "108762932"
 
 ## <a name="collect-logs-manually"></a>수동으로 로그 수집
 
-[Azure Storage Explorer를 설치하고 배포합니다]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+[Azure Storage Explorer를 설치하고 배포합니다](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Datahub에서 Azure Data Factory 작업 로그 또는 App Service 로그 수집
 

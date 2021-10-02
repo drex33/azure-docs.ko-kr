@@ -3,12 +3,12 @@ title: Azure Active Directory를 사용하여 액세스 권한 부여
 description: 이 문서에서는 Azure Active Directory를 사용하여 Event Hubs 리소스에 대한 액세스 권한을 부여하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: f00f0ff73762cede60a0f2298875fac057ff0563
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f2076d5fe8c1e77523a57337e339a50f3af3b420
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627371"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361650"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Event Hubs 리소스에 대한 액세스 권한 부여
 Azure Event Hubs는 Azure AD(Azure Active Directory)를 사용하여 Event Hubs 리소스에 대한 요청에 권한을 부여할 수 있도록 지원합니다. Azure AD를 사용하면 Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 사용자 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대한 자세한 내용은 [다양한 역할 이해](../role-based-access-control/overview.md)를 참조하세요.
@@ -57,7 +57,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 > - 이 내용은 Event Hubs와 Apache Kafka용 Event Hubs에 모두 적용됩니다. Kafka용 Event Hubs 지원에 대한 자세한 내용은 [Kafka용 Event Hubs - 보안 및 인증](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication)을 참조하세요.
 
 
-기본 제공 역할이 정의되는 방식에 대한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조하세요. Azure 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
+기본 제공 역할이 정의되는 방식에 대한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#control-and-data-actions)를 참조하세요. Azure 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 
 

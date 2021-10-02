@@ -4,23 +4,25 @@ description: 문자열 작업을 위해 Bicep 파일에서 사용할 함수를 �
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: d94f2b97a9ff78b715682052a647f02af6286af3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: a621a2fbb9766832ceab0b88d0d0c2d55657d774
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794085"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355796"
 ---
 # <a name="string-functions-for-bicep"></a>Bicep에 대한 문자열 함수
 
-이 문서에서는 문자열 작업을 위한 Bicep 함수에 대해 설명 합니다.
+이 문서에서는 문자열 작업을 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="base64"></a>base64
 
 `base64(inputString)`
 
 입력 문자열의 base64 표현을 반환합니다.
+
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -62,6 +64,8 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 base64 표현을 JSON 개체로 변환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -102,6 +106,8 @@ output toJsonOutput object = base64ToJson(base64Object)
 `base64ToString(base64Value)`
 
 base64 표현을 문자열로 변환합니다.
+
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -155,15 +161,19 @@ output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="contains"></a>포함
 
 `contains (container, itemToFind)`
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -216,6 +226,8 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 값을 데이터 URI로 변환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -250,6 +262,8 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 `dataUriToString(dataUriToConvert)`
 
 데이터 URI로 형식이 지정된 값을 문자열로 변환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -286,9 +300,11 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -323,6 +339,8 @@ output stringEmpty bool = empty(testString)
 `endsWith(stringToSearch, stringToFind)`
 
 문자열이 값으로 끝나는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -365,9 +383,11 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 문자열의 첫 번째 문자 또는 배열의 첫 번째 요소를 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -402,6 +422,8 @@ output stringOutput string = first('One Two Three')
 `format(formatString, arg1, arg2, ...)`
 
 입력 값에서 형식이 지정된 문자열을 만듭니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -438,6 +460,8 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 `guid(baseString, ...)`
 
 매개 변수로 제공된 값을 기반으로 고유 식별자 형식의 값을 만듭니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -492,6 +516,8 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 문자열 내 값의 첫 번째 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -533,15 +559,19 @@ output notFound int = indexOf('abcdef', 'z')
 
 유효한 JSON 문자열을 JSON 데이터 형식으로 변환합니다. 자세한 내용은 [json 함수](./bicep-functions-object.md#json)를 참조하세요.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="last"></a>last
 
 `last (arg1)`
 
 문자열의 마지막 문자 또는 배열의 마지막 요소를 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -576,6 +606,8 @@ output stringOutput string = last('One Two Three')
 `lastIndexOf(stringToSearch, stringToFind)`
 
 문자열 내 값의 마지막 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -616,9 +648,11 @@ output notFound int = indexOf('abcdef', 'z')
 
 문자열의 문자 수, 배열의 요소 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -665,6 +699,8 @@ output objectLength int = length(objectToTest)
 `newGuid()`
 
 전역적으로 고유한 식별자의 형식으로 값을 반환합니다. **이 함수는 매개 변수의 기본값에만 사용할 수 있습니다.**
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -734,6 +770,8 @@ output nameOutput string = storageName
 
 지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -770,6 +808,8 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -805,6 +845,8 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 `skip(originalValue, numberToSkip)`
 
 지정된 문자 수 이후의 모든 문자를 포함하는 문자열 또는 지정된 요소 수 이후의 모든 요소를 포함하는 배열을 반환합니다.
+
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -848,6 +890,8 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -889,6 +933,8 @@ output secondOutput array = split(secondString, delimiters)
 
 문자열이 값으로 시작하는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -929,6 +975,8 @@ output endsFalse bool = endsWith('abcdef', 'e')
 `string(valueToConvert)`
 
 지정한 값을 문자열로 변환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -975,6 +1023,8 @@ output intOutput string = string(testInt)
 
 지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1018,6 +1068,8 @@ output substringOutput string = substring(testString, 4, 3)
 
 문자열 시작부터 지정된 수의 문자를 포함하는 문자열 또는 배열 시작부터 지정된 수의 요소를 포함하는 배열을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1060,6 +1112,8 @@ output stringOutput string = take(testString, charactersToTake)
 
 지정된 문자열을 소문자로 변환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1093,6 +1147,8 @@ output toUpperOutput string = toUpper(testString)
 `toUpper(stringToChange)`
 
 지정된 문자열을 대문자로 변환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1128,6 +1184,8 @@ output toUpperOutput string = toUpper(testString)
 
 지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1159,6 +1217,8 @@ output return string = trim(testString)
 `uniqueString (baseString, ...)`
 
 매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1225,6 +1285,8 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1282,6 +1344,8 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 URI를 인코딩합니다.
 
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
@@ -1320,6 +1384,8 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 `uriComponentToString(uriEncodedString)`
 
 URI로 인코딩된 값의 문자열을 반환합니다.
+
+네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
 
 ### <a name="parameters"></a>매개 변수
 

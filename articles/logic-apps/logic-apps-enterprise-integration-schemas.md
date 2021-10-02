@@ -1,6 +1,6 @@
 ---
-title: 워크플로에서 XML 유효성 검사를 위한 스키마 추가
-description: Enterprise 통합 팩을 사용하여 Azure Logic Apps 워크플로에 대한 XML 문서의 유효성을 검사하는 스키마를 추가합니다.
+title: 워크플로에서 XML의 유효성을 검사하는 스키마 추가
+description: Azure Logic Apps 및 Enterprise 통합 팩을 사용하여 워크플로에서 XML 문서의 유효성을 검사하는 스키마를 추가합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: f80ed9c7fa9aa2d291e4f045b6cfc7da695cb22b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2c64deb35d89d6e1381fd3b296c7c73d82567ade
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611437"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363840"
 ---
-# <a name="add-schemas-to-validate-xml-documents-for-workflows-in-azure-logic-apps"></a>Azure Logic Apps 워크플로에 대한 XML 문서의 유효성을 검사하는 스키마 추가
+# <a name="add-schemas-to-validate-xml-in-workflows-with-azure-logic-apps"></a>Azure Logic Apps 사용하여 워크플로에서 XML의 유효성을 검사하는 스키마 추가
 
 문서가 유효한 XML을 사용하고 예상 데이터를 미리 정의된 형식으로 포함하는지 확인하기 위해 논리 앱 워크플로는 **XML 유효성 검사** 작업과 함께 XML 스키마를 사용할 수 있습니다. XML 스키마는 [XSD(XML 스키마 정의)를](https://www.w3.org/TR/xmlschema11-1/)사용하여 XML로 표현되는 비즈니스 문서를 설명합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "128611437"
 
   * Visual Studio 2019 및 [Microsoft Azure Logic Apps Enterprise Integration Tools 확장.](https://aka.ms/vsenterpriseintegrationtools)
 
-  * Visual Studio 2015 및 [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) 확장
+  * Visual Studio 2015 및 [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) 확장.
 
    > [!IMPORTANT]
    > BizTalk Server 확장과 함께 확장을 설치하지 마세요. 두 확장이 있으면 예기치 않은 동작이 발생할 수 있습니다. 이러한 확장 중 하나만 설치되어 있는지 확인합니다.
@@ -43,11 +43,11 @@ ms.locfileid: "128611437"
 
   * **XML 유효성 검사** 작업을 사용하려는 논리 앱 리소스와 동일한 위치 또는 Azure 지역에 존재합니다.
 
-  * [ **논리 앱(소비)** 리소스 종류를](logic-apps-overview.md#resource-type-and-host-environment-differences)사용하는 경우 워크플로에서 아티팩트 사용을 위해 통합 계정을 논리 앱 [리소스에 연결해야](logic-apps-enterprise-integration-create-integration-account.md#link-account) 합니다.
+  * [ **논리 앱(소비)** 리소스 종류를](logic-apps-overview.md#resource-type-and-host-environment-differences)사용하는 경우 워크플로에서 아티팩트 사용 전에 통합 계정을 논리 앱 [리소스에 연결해야](logic-apps-enterprise-integration-create-integration-account.md#link-account) 합니다.
 
     **논리 앱(소비)** 워크플로에서 사용할 스키마를 만들고 추가하려면 논리 앱 리소스가 아직 필요하지 않습니다. 그러나 워크플로에서 이러한 스키마를 사용할 준비가 되면 논리 앱 리소스에 해당 스키마를 저장하는 연결된 통합 계정이 필요합니다.
 
-  * [ **논리 앱(표준)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용하는 경우 통합 계정에 스키마를 저장하지 않으므로 기존 논리 앱 리소스가 필요합니다. 대신 Azure Portal 또는 Visual Studio Code 사용하여 논리 앱 리소스에 스키마를 직접 추가할 수 있습니다. 그런 다음 *동일한 논리 앱 리소스* 내의 여러 워크플로에서 이러한 스키마를 사용할 수 있습니다.
+  * [ **논리 앱(표준)** 리소스 종류를](logic-apps-overview.md#resource-type-and-host-environment-differences)사용하는 경우 통합 계정에 스키마를 저장하지 않으므로 기존 논리 앱 리소스가 필요합니다. 대신 Azure Portal 또는 Visual Studio Code 사용하여 논리 앱 리소스에 스키마를 직접 추가할 수 있습니다. 그런 다음 *동일한 논리 앱 리소스* 내의 여러 워크플로에서 이러한 스키마를 사용할 수 있습니다.
 
     [AS2,](logic-apps-enterprise-integration-as2.md) [X12](logic-apps-enterprise-integration-x12.md)및 [EDIFACT](logic-apps-enterprise-integration-edifact.md) 작업을 사용하는 것과 함께 파트너, 계약 및 인증서와 같은 다른 아티팩트를 저장하려면 통합 계정이 여전히 필요합니다. 그러나 논리 앱 리소스를 통합 계정에 연결할 필요가 없으므로 연결 기능이 존재하지 않습니다. 통합 계정은 여전히 논리 앱 리소스와 동일한 위치에 있는 동일한 Azure 구독 및 기존 구독을 사용하는 것과 같은 다른 요구 사항을 충족해야 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "128611437"
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | 이 도구를 사용하면 스토리지 계정 및 blob 컨테이너를 더 쉽게 관리할 수 있습니다. Storage Explorer를 사용하려면 다음 단계를 선택합니다. <p>- Azure Portal에서 스토리지 계정을 선택합니다. 스토리지 계정 메뉴에서 **Storage Explorer** 를 선택합니다. <p>- 데스크톱 버전의 경우 [Azure Storage Explorer를 다운로드 및 설치](https://www.storageexplorer.com/)합니다. 그런 다음, [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage Explorer를 스토리지 계정에 연결합니다. 자세한 정보를 알아보려면 [빠른 시작: Azure Storage Explorer를 사용하여 개체 스토리지에 Blob 만들기](../storage/blobs/quickstart-storage-explorer.md)를 참조하세요.  |
     |||
 
-  **논리 앱(소비)** 리소스 종류에 대해 더 큰 스키마를 추가하려면 [Azure Logic Apps REST API 스키마를](/rest/api/logic/schemas/create-or-update)사용할 수도 있습니다. 그러나 **논리 앱(표준)** 리소스 종류의 경우 현재 Azure Logic Apps REST API 사용할 수 없습니다.
+  **논리 앱(소비)** 리소스 종류에 대해 더 큰 스키마를 추가하려면 [Azure Logic Apps REST API 스키마](/rest/api/logic/schemas/create-or-update)를 사용할 수도 있습니다. 그러나 **논리 앱(표준)** 리소스 종류의 경우 현재 Azure Logic Apps REST API 사용할 수 없습니다.
 
 ## <a name="limits"></a>제한
 

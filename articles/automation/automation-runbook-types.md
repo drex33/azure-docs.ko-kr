@@ -3,15 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44923cd63676a6eb2fa589c66726f1c14c76896c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 91149dc4c477d3734427cf3a7b95ec9d22868eb7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744814"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357388"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -124,6 +124,14 @@ Python 3 Runbook은 다음과 같은 Azure 글로벌 인프라에서 지원됩�
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
 * PowerShell/PowerShell Workflow에서 **Start-AutomationRunbook** cmdlet을 사용하여 Python 3 Runbook(미리 보기)을 시작할 수 없습니다. 이 제한 사항을 해결하려면 Az.Automation 모듈의  **Start-AzAutomationRunbook** cmdlet 또는 AzureRm.Automation 모듈의  **Start-AzureRmAutomationRunbook** cmdlet을 사용하면 됩니다.  
 * Azure Automation은  **sys.stderr** 을 지원하지 않습니다.
+
+### <a name="multiple-python-versions"></a>여러 Python 버전
+
+Windows Runbook Worker의 경우 Python 2 Runbook을 실행할 때 먼저 환경 변수 `PYTHON_2_PATH`를 찾고 유효한 실행 파일을 가리키는지 유효성을 검사합니다. 예를 들어, 설치 폴더가 `C:\Python2`이면 `C:\Python2\python.exe`가 유효한 경로인지 확인합니다. 해당 환경 변수가 없으면 `PATH` 환경 변수를 찾아서 비슷한 확인을 수행합니다.
+
+Python 3의 경우 먼저 `PYTHON_3_PATH` 환경 변수를 찾은 다음, `PATH` 환경 변수로 대체합니다.
+
+Python 버전을 하나만 사용하는 경우 `PATH` 변수에 설치 경로를 추가할 수 있습니다. Runbook Worker에서 두 버전을 모두 사용하려면 `PYTHON_2_PATH` 및 `PYTHON_3_PATH`를 해당 버전의 모듈 위치로 설정합니다.
 
 ### <a name="known-issues"></a>알려진 문제
 

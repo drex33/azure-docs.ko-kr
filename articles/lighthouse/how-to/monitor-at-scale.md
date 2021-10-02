@@ -1,14 +1,14 @@
 ---
 title: 위임된 대규모 리소스 모니터링
 description: Azure Lighthouse를 통해 고객 테넌트 전체에서 스케일링 가능한 방식으로 Azure Monitor 로그를 사용할 수 있습니다.
-ms.date: 08/12/2021
+ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7ae54918ffad64e6b9790c4458717807cacd09ad
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736612"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363240"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>위임된 대규모 리소스 모니터링
 
@@ -23,7 +23,7 @@ ms.locfileid: "124736612"
 
 데이터를 수집하려면 Log Analytics 작업 영역을 만들어야 합니다. Log Analytics 작업 영역은 Azure Monitor에서 수집한 데이터의 고유 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다.
 
-고객 테넌트에서 직접 작업 영역을 만드는 것이 좋습니다. 이렇게 하면 고객 데이터가 사용자 테넌트로 내보내지지 않고 고객 테넌트에 유지됩니다. 또한 Log Analytics에서 지원하는 모든 리소스 또는 서비스를 중앙에서 모니터링할 수 있으므로 모니터링하는 데이터 형식에 대한 유연성을 높일 수 있습니다.
+고객 테넌트에서 직접 작업 영역을 만드는 것이 좋습니다. 이렇게 하면 고객 데이터가 사용자 테넌트로 내보내지지 않고 고객 테넌트에 유지됩니다. 고객 테넌트에서 작업 영역을 만들면 Log Analytics에서 지원하는 리소스 또는 서비스를 중앙 집중식으로 모니터링할 수 있어 모니터링하는 데이터 형식에 대한 유연성이 높아질 수 있습니다. [진단 설정](../..//azure-monitor/essentials/diagnostic-settings.md)에서 정보를 수집하려면 고객 테넌트에서 만든 작업 영역이 필요합니다.
 
 > [!TIP]
 > Log Analytics 작업 영역에서 데이터에 액세스하는 데 사용되는 자동화 계정은 작업 영역과 동일한 테넌트에서 만들어야 합니다.

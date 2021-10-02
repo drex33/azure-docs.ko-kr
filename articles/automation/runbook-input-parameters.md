@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 입력 매개 변수 구성
 description: 이 문서에서는 Runbook이 시작될 때 Runbook에 데이터를 전달할 수 있도록 하는 Runbook 입력 매개 변수를 구성하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61a5f24f66f9f7461b4993fcfba70f6be8bb9be1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2b5f7f694d5287f8af900848f0671d7828a95288
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644109"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354076"
 ---
 # <a name="configure-runbook-input-parameters-in-automation"></a>Automation에서 Runbook 입력 매개 변수 구성
 
@@ -298,17 +298,26 @@ Param(
      [object]$json
 )
 
-# Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json
 
 # Use the values from the JSON object as the parameters for your command
-Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
+Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup -DefaultProfile $AzureContext
 ```
+
+시스템 할당 관리 id를 사용 하 여 runbook을 실행 하려면 코드를 그대로 둡니다. 사용자 할당 관리 id를 사용 하려면 다음을 수행 합니다.
+1. 10 번 줄에서 `$AzureContext = (Connect-AzAccount -Identity).context` ,를 제거 합니다.
+1. 을로 바꾸고 `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context` ,
+1. 클라이언트 ID를 입력 합니다.
 
 이 Runbook을 Automation 계정에 저장하고 게시합니다.
 

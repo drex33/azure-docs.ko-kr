@@ -1,15 +1,15 @@
 ---
 title: Connected Machine 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트되는 가상 머신의 모니터링을 지원하는 Azure Arc 지원 서버 에이전트에 대한 자세한 개요를 제공합니다.
-ms.date: 09/14/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8d29e230819e6fa141df0f99460b67fe4a2eb0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ecd9b019896b4c9a9d4df577868c4cbc9f81dde4
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662289"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357731"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -20,7 +20,7 @@ Azure Arc 지원 서버의 Connected Machine 에이전트를 사용하면 Azure 
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc – 사용 서버 에이전트 개요를 사용 합니다." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc 사용 서버 에이전트 개요" border="false":::
 
 Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구성 요소가 함께 포함되어 있습니다.
 
@@ -38,7 +38,7 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 
 ## <a name="instance-metadata"></a>인스턴스 메타데이터
 
-연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Azure Arc 사용 서버에 등록 된 후 수집 됩니다. 특히:
+연결된 컴퓨터에 대한 메타데이터 정보는 Connected Machine 에이전트가 Azure Arc 지원 서버에 등록한 후에 수집됩니다. 특히:
 
 * 운영 체제 이름, 형식 및 버전
 * 컴퓨터 이름
@@ -78,13 +78,13 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 ### <a name="supported-environments"></a>지원되는 환경
 
-Azure Arc 사용 서버는 Azure *외부* 에서 호스트 되는 모든 물리적 서버 및 가상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하도록 지원 합니다. VMware, Azure Stack HCI 및 기타 클라우드 환경과 같은 플랫폼에서 실행 되는 가상 컴퓨터를 포함 합니다. Azure Arc 사용 서버는 azure Vm에서 실행 되는 가상 컴퓨터 Azure Stack Azure Stack 또는 azure에서 실행 중인 가상 컴퓨터에 에이전트를 설치 하는 것을 지원 하지 않습니다.
+Azure Arc 지원 서버는 Azure *외부에서* 호스트되는 물리적 서버 및 가상 머신에 Connected Machine 에이전트 설치를 지원합니다. VMware, Azure Stack HCI 및 기타 클라우드 환경과 같은 플랫폼에서 실행되는 가상 머신 포함 Azure Arc 지원 서버는 Azure에서 실행되는 가상 머신 또는 이미 Azure VM으로 모델링된 Azure Stack Hub 또는 Azure Stack Edge 실행되는 가상 머신에 에이전트 설치를 지원하지 않습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다.
 
-- Windows server 2008 r2 SP1, Windows Server 2012 R2, 2016, 2019 및 2022 (server Core 포함)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019 및 2022(Server Core 포함)
 - Ubuntu 16.04, 18.04 및 20.04 LTS(x64)
 - CentOS Linux 7 및 8(x64)
 - SLES(SUSE Linux Enterprise Server) 12 및 15(x64)
@@ -96,7 +96,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 > Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Arc 사용 서버는 Amazon Linux를 지원 하지만 다음은이 배포판를 지원 하지 않습니다.
+> Azure Arc 지원 서버는 Amazon Linux를 지원하지만 다음에서는 이 배포를 지원하지 않습니다.
 > * Azure Monitor가 사용하는 에이전트(즉, Log Analytics 및 종속성 에이전트)
 > * Azure Automation 업데이트 관리
 > * VM 인사이트
@@ -120,59 +120,9 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 Azure Arc 지원 서버는 리소스 그룹에서 최대 5,000개의 머신 인스턴스를 지원합니다.
 
-### <a name="transport-layer-security-12-protocol"></a>전송 계층 보안 1.2 프로토콜
-
-Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.
-
-|플랫폼/언어 | 지원 | 추가 정보 |
-| --- | --- | --- |
-|Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다. | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
-| Windows Server 2012 R2 이상 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면|
-
-### <a name="networking-configuration"></a>네트워킹 구성
-
-Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽이나 프록시 서버를 통해 연결해야 하는 경우 에이전트는 HTTP 프로토콜을 사용하는 대신 아웃바운드로 통신합니다. 트래픽이 이미 암호화되어 있기 때문에 프록시 서버를 사용해도 Connected Machine 에이전트가 더 안전해지지 않습니다.
-
-> [!NOTE]
-> Azure Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
->
-
-방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트가 서비스와 통신하는 데 필요한 IP 범위 또는 도메인 이름만 허용하는 경우 다음 서비스 태그와 URL에 대한 액세스도 허용해야 합니다.
-
-서비스 태그:
-
-* AzureActiveDirectory
-* AzureTrafficManager
-* AzureResourceManager
-* AzureArcInfrastructure
-* 스토리지
-
-URL:
-
-| 에이전트 리소스 | Description |
-|---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |게스트 구성|
-|`*.his.arc.azure.com`|하이브리드 ID 서비스|
-|`*.blob.core.windows.net`|Azure Arc 지원 서버 확장에 대한 원본 다운로드|
-
-Preview 에이전트(버전 0.11 이하)에서도 다음 URL에 액세스할 수 있어야 합니다.
-
-| 에이전트 리소스 | Description |
-|---------|---------|
-|`agentserviceapi.azure-automation.net`|게스트 구성|
-|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
-
-각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. JSON 파일의 이 정보는 각 서비스 태그에 해당하는 IP 범위의 현재 지정 시간 목록입니다. IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
-
-자세한 내용은 [서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 검토하세요.
-
 ### <a name="register-azure-resource-providers"></a>Azure 리소스 공급자 등록
 
-Azure Arc 사용 가능한 서버는 이 서비스를 사용하기 위해 구독에서 다음 Azure 리소스 공급자에 따라 달라집니다.
+Azure Arc 지원 서버는 이 서비스를 사용하기 위해 구독에서 다음 Azure 리소스 공급자에 따라 달라집니다.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -198,6 +148,58 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)의 단계에 따라 Azure Portal에서 리소스 공급자를 등록할 수도 있습니다.
 
+### <a name="transport-layer-security-12-protocol"></a>전송 계층 보안 1.2 프로토콜
+
+Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.
+
+|플랫폼/언어 | 지원 | 추가 정보 |
+| --- | --- | --- |
+|Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다. | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
+| Windows Server 2012 R2 이상 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면|
+
+## <a name="networking-configuration"></a>네트워킹 구성
+
+Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽이나 프록시 서버를 통해 연결해야 하는 경우 에이전트는 HTTP 프로토콜을 사용하는 대신 아웃바운드로 통신합니다. 트래픽이 이미 암호화되어 있기 때문에 프록시 서버를 사용해도 Connected Machine 에이전트가 더 안전해지지 않습니다.
+
+공용 네트워크와 프록시 서버를 사용 하는 대신 azure Arc에 대 한 네트워크 연결을 더욱 안전 하 게 보호 하기 위해 [Azure Arc 개인 링크 범위](private-link-security.md) (미리 보기)를 구현할 수 있습니다.
+
+> [!NOTE]
+> Azure Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
+>
+
+방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트가 서비스와 통신하는 데 필요한 IP 범위 또는 도메인 이름만 허용하는 경우 다음 서비스 태그와 URL에 대한 액세스도 허용해야 합니다.
+
+서비스 태그:
+
+* AzureActiveDirectory
+* AzureTrafficManager
+* AzureResourceManager
+* AzureArcInfrastructure
+* 스토리지
+
+URL:
+
+| 에이전트 리소스 | Description |
+|---------|---------|
+|`management.azure.com`|Azure 리소스 관리자|
+|`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`*.guestconfiguration.azure.com` |게스트 구성|
+|`*.his.arc.azure.com`|하이브리드 ID 서비스|
+|`*.blob.core.windows.net`|Azure Arc 사용 서버 확장에 대 한 다운로드 원본|
+
+Preview 에이전트(버전 0.11 이하)에서도 다음 URL에 액세스할 수 있어야 합니다.
+
+| 에이전트 리소스 | Description |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|게스트 구성|
+|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
+
+각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. JSON 파일의 이 정보는 각 서비스 태그에 해당하는 IP 범위의 현재 지정 시간 목록입니다. IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
+
+자세한 내용은 [서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 검토하세요.
+
 ## <a name="installation-and-configuration"></a>설치 및 구성
 
 하이브리드 환경의 머신을 Azure에 직접 연결할 때 요구 사항에 따라 다양한 방법을 사용할 수 있습니다. 다음 표를 통해 조직에 가장 적합한 방법을 결정할 수 있습니다.
@@ -209,7 +211,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
-| 대규모 | Automation 업데이트 관리 하이브리드 머신을 [Azure로 커넥트](onboard-update-management-machines.md)방법에 따라 여러 머신에 대한 에이전트를 설치하고 구성합니다.<br> 이 메서드는 서비스 주체를 만들고 Azure Automation 업데이트 관리 관리되는 여러 컴퓨터에 에이전트를 설치하고 구성하여 컴퓨터를 비대화형으로 연결합니다. |
+| 대규모 | [Automation 업데이트 관리에서 Azure로 하이브리드 컴퓨터 커넥트](onboard-update-management-machines.md)메서드를 따라 여러 컴퓨터에 대 한 에이전트를 설치 하 고 구성 합니다.<br> 이 메서드는 서비스 주체를 만들고 Azure Automation 업데이트 관리를 사용 하 여 관리 되는 여러 컴퓨터에 대 한 에이전트를 설치 및 구성 하 여 비 대화형으로 컴퓨터를 연결 합니다. |
 | 대규모 | [Windows PowerShell DSC 사용](onboard-dsc.md) 방법에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 메서드는 서비스 주체를 사용하여 머신을 비 대화형으로 PowerShell DSC와 연결합니다. |
 
 ## <a name="connected-machine-agent-technical-overview"></a>Connected Machine 에이전트 기술 개요
@@ -321,13 +323,13 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 ### <a name="agent-resource-governance"></a>에이전트 리소스 거버넌스
 
-Azure Arc 지원 서버 Connected Machine 에이전트는 에이전트 및 시스템 리소스 사용을 관리하도록 설계되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
+Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 에이전트 및 시스템 리소스 소비를 관리 하도록 설계 되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
 
 - 게스트 구성 에이전트는 정책을 평가하기 위해 CPU를 최대 5% 제한합니다.
 - 확장 서비스 에이전트는 CPU의 최대 5%를 사용하도록 제한됩니다.
 
    - 이 제한은 설치/설치 제거/업그레이드 작업에만 적용됩니다. 설치되고 나면 확장에서 자체 리소스 사용률을 담당하며 5% CPU 제한은 적용되지 않습니다.
-   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업 중에 CPU의 최대 60%를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
+   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업을 수행 하는 동안 최대 60%의 CPU를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7b4b3806ed00955096939c4b996c9a9d3daec004
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: a1f0fe56af1faaf9b743bf752f75c6dcb6aad881
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530678"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351265"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용하여 비디오 및 오디오 인코딩
 
@@ -148,7 +148,7 @@ Media Services v3에서 사전 설정은 API 자체에 있는 강력한 형식�
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 
 미디어 처리를 크기 조정하려면 [CLI를 사용하여 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
-API의 **2020-05-01** 버전 또는 Azure Portal을 통해 생성된 계정의 경우 크기 조정 및 미디어 예약 단위가 더 이상 필요하지 않습니다. 크기 조정은 서비스 내부에서 자동으로 처리됩니다.
+**2020-05-01** 이상 버전의 API 또는 Azure Portal 통해 만든 계정의 경우 크기 조정 및 미디어 예약 단위가 더 이상 필요하지 않습니다. 크기 조정은 서비스 내부에서 자동으로 처리됩니다.
 
 ## <a name="billing"></a>결제
 

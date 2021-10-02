@@ -1,25 +1,18 @@
 ---
 title: Azure NetApp Files에 대한 FAQ | Microsoft Docs
 description: 네트워킹, 보안, 성능, 용량 관리, 데이터 마이그레이션/보호와 같은 Azure NetApp Files에 대한 질문과 대답을 검토합니다.
-services: azure-netapp-files
-documentationcenter: ''
-author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+author: b-juche
 ms.author: b-juche
-ms.openlocfilehash: 01a483e43429f45562cbb464e2b595023bd2ad5f
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.date: 09/29/2021
+ms.openlocfilehash: cd5bf025849c7d4a4e193013bd40b81fb2bb068c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091030"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363102"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대한 FAQ
 
@@ -54,9 +47,9 @@ ms.locfileid: "129091030"
 
 아니요, Azure NetApp Files는 현재 이중 스택(IPv4 및 IPv6) VNet을 지원하지 않습니다.  
 
-### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재의 Azure VMware 솔루션을 사용 하는 IP 주소의 수가 [1000 개로 제한](azure-netapp-files-resource-limits.md#resource-limits)되나요?
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재에 Azure VMware Solutions를 사용하는 IP 주소 수가 [1000개로 제한되는가요?](azure-netapp-files-resource-limits.md#resource-limits)
 
-아니요. Azure VMware 솔루션은 온-프레미스 시스템과 유사 하 게 작동 하는 ER 게이트웨이 뒤에 있습니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files에 표시되지 않으며 1000개의 IP 주소 제한은 적용되지 않습니다.
+아니요. Azure VMware Solutions는 온-프레미스 시스템과 비슷하게 작동하는 ER 게이트웨이 뒤에 있습니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files에 표시되지 않으며 1000개의 IP 주소 제한은 적용되지 않습니다.
  
 ## <a name="security-faqs"></a>보안 FAQ
 
@@ -108,7 +101,7 @@ API 작업의 전체 목록은 [Azure NetApp Files REST API](/rest/api/netapp/)�
 
 ### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Azure NetApp Files 볼륨을 삭제하면 데이터가 안전하게 삭제되나요? 
 
-Azure NetApp Files 볼륨의 삭제는 즉각적인 효과를 사용 하 여 프로그래밍 방식으로 수행 됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
+Azure NetApp Files 볼륨의 삭제는 즉각적인 효과와 함께 프로그래밍 방식으로 수행됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
 
 ## <a name="performance-faqs"></a>성능 FAQ
 
@@ -339,33 +332,76 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제하기 위한 요�
 
 ## <a name="azure-netapp-files-backup-faqs"></a>Azure NetApp Files 백업 FAQ
 
-이 섹션에서는 Azure NetApp Files [백업](backup-introduction.md) 기능에 대한 질문에 답변합니다. 
+이 섹션에서는 [Azure NetApp Files 백업](backup-introduction.md) 기능에 대 한 질문에 답변 합니다. 
 
-### <a name="when-do-my-backups-occur"></a>내 백업은 언제 발생합니까?   
+### <a name="when-do-my-backups-occur"></a>백업이 언제 발생 하나요?   
 
-Azure NetApp Files 백업은 백업 정책의 빈도가 입력된 후 임의 시간 프레임 내에 시작됩니다. 예를 들어 매주 백업은 오전 12시 이후에 임의로 할당된 간격 내에 일요일 시작됩니다. 자정. 이 타이밍은 현재 사용자가 수정할 수 없습니다. 기준 백업은 볼륨에 백업 정책을 할당하는 즉시 시작됩니다.
+백업 정책 빈도를 입력 한 후에는 임의 시간 프레임 내에서 백업이 시작 Azure NetApp Files. 예를 들어 주간 백업은 오전 12:00 이후 무작위로 할당 된 간격 내에 시작 됩니다. 자정이. 지금은 사용자가이 타이밍을 수정할 수 없습니다. 백업 정책을 볼륨에 할당 하는 즉시 기준 백업이 시작 됩니다.
 
-### <a name="what-happens-if-a-backup-operation-encounters-a-problem"></a>백업 작업에 문제가 발생하면 어떻게 되나요?
+### <a name="what-happens-if-a-backup-operation-encounters-a-problem"></a>백업 작업에 문제가 발생 하는 경우 어떻게 되나요?
 
-백업 작업 중에 문제가 발생하는 경우 Azure NetApp Files 백업은 사용자 상호 작용 없이 작업을 자동으로 다시 수행합니다. 재시도에 계속 실패하면 Azure NetApp Files 백업에서 작업 실패를 보고합니다.
+백업 작업 중에 문제가 발생 하는 경우 Azure NetApp Files 백업에서 자동으로 작업을 다시 시도 하며 사용자 조작이 필요 하지 않습니다. 재시도를 계속 실패할 경우 백업 Azure NetApp Files 작업의 실패를 보고 합니다.
 
-### <a name="can-i-change-the-location-or-storage-tier-of-my-backup-vault"></a>백업 자격 증명 모음의 위치 또는 스토리지 계층을 변경할 수 있나요?
+### <a name="can-i-change-the-location-or-storage-tier-of-my-backup-vault"></a>백업 자격 증명 모음의 위치 또는 저장소 계층을 변경할 수 있나요?
 
-아니요, Azure NetApp Files Azure Storage 내에서 백업 데이터 위치를 자동으로 관리하며 이 위치 또는 Azure Storage 계층은 사용자가 수정할 수 없습니다.
+아니요, Azure NetApp Files는 Azure storage 내에서 백업 데이터 위치를 자동으로 관리 하며,이 위치 또는 Azure 저장소 계층은 사용자가 수정할 수 없습니다.
 
-### <a name="what-types-of-security-are-provided-for-the-backup-data"></a>백업 데이터에 대해 제공되는 보안 유형은 무엇인가요?
+### <a name="what-types-of-security-are-provided-for-the-backup-data"></a>백업 데이터에 제공 되는 보안 유형은 무엇 인가요?
 
-Azure NetApp Files 받은 백업 데이터를 인코딩하는 동안 AES-256 비트 암호화를 사용합니다. 또한 암호화된 데이터는 HTTPS TLSv1.2 연결을 사용하여 Azure Storage로 안전하게 전송됩니다. Azure NetApp Files 백업은 백업 데이터를 저장하기 위한 Azure Storage 계정의 미사용 데이터 암호화 기능에 따라 달라집니다.
+Azure NetApp Files는 수신 된 백업 데이터를 인코딩하는 동안 AES-256 비트 암호화를 사용 합니다. 또한 암호화 된 데이터는 HTTPS TLSv 1.2 연결을 사용 하 여 Azure storage로 안전 하 게 전송 됩니다. Azure NetApp Files 백업은 백업 데이터를 저장 하는 데 사용할 Azure Storage 계정의 미사용 암호화 기능에 따라 달라 집니다.
 
-### <a name="what-happens-to-the-backups-when-i-delete-a-volume-or-my-netapp-account"></a>볼륨 또는 내 NetApp 계정을 삭제하면 백업은 어떻게 되나요? 
+### <a name="what-happens-to-the-backups-when-i-delete-a-volume-or-my-netapp-account"></a>볼륨이 나 NetApp 계정을 삭제할 때의 백업은 어떻게 되나요? 
 
- Azure NetApp Files 볼륨을 삭제하면 백업이 유지됩니다. 백업을 유지하지 않으려면 볼륨을 삭제하기 전에 백업을 사용하지 않도록 설정합니다. NetApp 계정을 삭제해도 동일한 구독의 다른 NetApp 계정에서 백업이 유지되고 표시되므로 복원에 계속 사용할 수 있습니다. 구독에서 모든 NetApp 계정을 삭제하는 경우 모든 NetApp 계정의 모든 볼륨을 삭제하기 전에 백업을 사용하지 않도록 설정해야 합니다.
+ Azure NetApp Files 볼륨을 삭제 하면 백업이 유지 됩니다. 백업을 보존 하지 않으려면 볼륨을 삭제 하기 전에 백업을 사용 하지 않도록 설정 합니다. NetApp 계정을 삭제 하면 백업이 계속 유지 되 고 동일한 구독의 다른 NetApp 계정에 표시 되므로 여전히 복원에 사용할 수 있습니다. 구독에서 모든 NetApp 계정을 삭제 하는 경우 모든 NetApp 계정에서 모든 볼륨을 삭제 하기 전에 백업을 사용 하지 않도록 설정 해야 합니다.
 
-### <a name="whats-the-systems-maximum-backup-retries-for-a-volume"></a>볼륨에 대한 시스템의 최대 백업 재시도는 어떻게 되나요?  
+### <a name="whats-the-systems-maximum-backup-retries-for-a-volume"></a>볼륨에 대 한 시스템의 최대 백업 다시 시도는 무엇 인가요?  
 
-시스템은 예약된 백업 작업을 처리할 때 10회 재시도를 수행합니다. 작업이 실패하면 시스템에서 백업 작업이 실패합니다. 구성된 정책에 따라 예약된 백업의 경우 시스템은 1시간마다 한 번씩 데이터를 백업하려고 시도합니다. 전송되지 않았거나 마지막 시도 중에 실패한 새 스냅샷을 사용할 수 있는 경우 해당 스냅샷은 전송으로 간주됩니다. 
+예약 된 백업 작업을 처리할 때 시스템에서 10 번의 다시 시도를 수행 합니다. 작업이 실패 하면 시스템에서 백업 작업이 실패 합니다. 구성 된 정책에 따라 예약 된 백업의 경우 시스템은 매시간 데이터를 백업 하려고 시도 합니다. 전송 되지 않은 새 스냅숏 (또는 마지막 시도 중에 실패 한 경우)을 사용할 수 있는 경우 해당 스냅숏은 전송 대상으로 고려 됩니다. 
+
+## <a name="application-resilience-faqs"></a>응용 프로그램 복원 력 Faq
+
+이 섹션에서는 응용 프로그램 복원 력에 대 한 질문에 답변 합니다.
+
+### <a name="what-do-you-generally-recommend-for-application-timeouts-to-best-handle-potential-application-disruptions-due-to-storage-service-maintenance-events"></a>저장소 서비스 유지 관리 이벤트로 인해 잠재적인 응용 프로그램 중단을 가장 잘 처리 하기 위해 응용 프로그램 시간 제한에 대해 일반적으로 권장 되는 사항은 무엇입니까?
+
+Azure NetApp Files는 계획 된 유지 관리 (예: 플랫폼 업데이트, 서비스 또는 소프트웨어 업그레이드)가 발생할 수 있습니다. 파일 프로토콜 (NFS/SMB) 관점에서 볼 때 응용 프로그램이 이러한 이벤트 중에 일시적으로 발생할 수 있는 IO 일시 중지를 처리할 수 있다면 일반적으로 유지 관리 작업은 중단 되지 않습니다. I/o 일시 중지는 일반적으로 몇 초에서 30 초까지 짧게 단축 됩니다. NFS 프로토콜은 특히 강력 하며 클라이언트 서버 파일 작업은 정상적으로 계속 됩니다. 일부 응용 프로그램은 30-45 초 동안 IO 일시 중지를 처리 하기 위해 튜닝이 필요할 수 있으므로 저장소 서비스 유지 관리 이벤트를 처리 하는 응용 프로그램의 복원 력 설정을 알고 있어야 합니다. SMB 프로토콜을 활용 하는 휴먼 대화형 응용 프로그램의 경우 일반적으로 표준 프로토콜 설정으로 충분 합니다. 
+
+### <a name="do-i-need-to-take-special-precautions-for-specific-smb-based-applications"></a>특정 SMB 기반 응용 프로그램에 대 한 특별 한 예방 조치를 취해야 하나요?
+
+예, 특정 SMB 기반 응용 프로그램은 SMB 투명 장애 조치 (Failover)가 필요 합니다. SMB 투명 장애 조치(Failover)를 사용하면 SMB 볼륨의 데이터를 저장 및 액세스하는 서버 애플리케이션에 대한 연결을 중단하지 않고도 Azure NetApp Files 서비스에서 유지 관리 작업을 수행할 수 있습니다. 특정 응용 프로그램에 대 한 SMB 투명 장애 조치 (Failover)를 지원 하기 위해 Azure NetApp Files는 이제 [Smb 지속적인 가용성 공유 옵션](azure-netapp-files-create-volumes-smb.md#continuous-availability)을 지원 합니다. 
+
+### <a name="i-am-running-ibm-mq-on-azure-netapp-files-i-have-experienced-application-disruptions-due-to-storage-service-maintenance-despite-using-the-nfs-protocol-do-i-need-to-take-special-precautions"></a>Azure NetApp Files에서 IBM MQ를 실행 하 고 있습니다. NFS 프로토콜을 사용 하는 경우에도 저장소 서비스 유지 관리로 인 한 응용 프로그램 중단이 발생 했습니다. 특별 한 예방 조치를 취해야 하나요?
+
+예, ibm MQ 데이터 및 로그가 Azure NetApp Files 볼륨에 저장 된 [공유 파일 구성에서 IBM mq 응용 프로그램](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-sharing-mq-files)을 실행 하는 경우 저장소 서비스 유지 관리 이벤트 중에 복원 력을 향상 시키기 위해 다음 사항을 고려 하십시오.
+
+* NFS v 4.1 프로토콜만 사용 해야 합니다.
+* 고가용성을 위해 [공유 NFS v 4.1 볼륨을 사용 하는 IBM MQ 다중 인스턴스 구성을](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=manager-create-multi-instance-queue-linux)사용 해야 합니다. 
+* [공유 NFS v 4.1 볼륨을 사용 하 여 IBM 다중 인스턴스 구성](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-verifying-shared-file-system-behavior)의 기능을 확인 해야 합니다. 
+* 대규모 다중 인스턴스 IBM MQ 구성 하나를 사용 하는 대신 스케일 아웃 IBM MQ 아키텍처를 구현 해야 합니다. 여러 IBM MQ 다중 인스턴스 쌍으로 메시지 처리 부하를 분산 하 여 각 MQ 다중 인스턴스 쌍이 메시지 수를 덜 처리 하므로 서비스 중단이 줄어들 수 있습니다.
+
+> [!NOTE] 
+> 각 MQ 다중 인스턴스 쌍이 처리 해야 하는 메시지 수는 특정 환경에 따라 달라 집니다. 필요한 MQ 다중 인스턴스 쌍 수 또는 확장 또는 축소 규칙의 수를 결정 해야 합니다.
+
+수평 확장 아키텍처는 Azure Load Balancer 뒤에 배포 되는 여러 IBM MQ 다중 인스턴스 쌍으로 구성 됩니다. IBM MQ와 통신 하도록 구성 된 응용 프로그램은 Azure Load Balancer를 통해 IBM MQ 인스턴스와 통신 하도록 구성 됩니다. 공유 NFS 볼륨에서 IBM MQ와 관련 된 지원은 IBM에서 공급 업체 지원을 받아야 합니다.
+
+### <a name="i-am-running-apache-activemq-with-leveldb-or-kahadb-on-azure-netapp-files-i-have-experienced-disruptions-due-to-storage-service-maintenance-events-despite-using-the-nfs-protocol-do-i-need-to-take-special-precautions"></a>Azure NetApp Files에서 LevelDB 또는 KahaDB를 사용 하 여 Apache ActiveMQ를 실행 하 고 있습니다. *NFS* 프로토콜을 사용 하는 경우에도 저장소 서비스 유지 관리 이벤트로 인해 중단이 발생 했습니다. 특별 한 예방 조치를 취해야 하나요?
+
+예, Apache activemq를 실행 하는 경우 [플러그형 Storage lockers를 사용 하 여 activemq 고가용성](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq)을 배포 하는 것이 좋습니다. 
+
+ActiveMQ 고가용성 (HA) 모델은 broker 인스턴스가 항상 온라인 상태이 고 메시지 트래픽을 처리할 수 있는지 확인 합니다. 가장 일반적인 두 가지 ActiveMQ HA 모델에는 네트워크를 통해 파일 시스템을 공유 하는 작업이 포함 됩니다. 이는 LevelDB 또는 KahaDB을 활성 및 수동 broker 인스턴스에 제공 하는 것입니다. 이러한 HA 모델에서는 "잠금" 이라고 하는 LevelDB 또는 KahaDB 디렉터리에 있는 파일에서 OS 수준 잠금을 가져와서 유지 관리 해야 합니다. 이 ActiveMQ HA 모델에는 몇 가지 문제가 있습니다. "종속 되지 않은" 상황이 발생할 수 있습니다. 여기서 "슬레이브"는 파일을 잠글 수 있음을 인식 하지 못합니다.  또한 인덱스 또는 저널 손상 및 궁극적으로 메시지 손실을 초래 하는 "마스터 마스터" 구성이 발생할 수 있습니다. 이러한 문제의 대부분은 ActiveMQ의 제어 범위를 벗어난 요인에서 기인 합니다. 예를 들어, 잘못 최적화 된 NFS 클라이언트는 로드 하는 동안 잠금이 만료 될 수 있으므로 장애 조치 (failover) 중에 "마스터 없음" 가동 중지 시간이 발생 합니다. 
+
+이 HA 솔루션에서 발생 하는 대부분의 문제는 부정확 한 OS 수준 파일 잠금으로 인해 발생 하므로 ActiveMQ 커뮤니티에는 broker의 버전 5.7에 있는 [플러그형 저장소 보관 이라는 개념이 도입](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq) 되었습니다. 이 접근 방식을 사용 하면 사용자가 OS 수준 파일 시스템 잠금과 달리 행 수준 JDBC 데이터베이스 잠금을 사용 하 여 공유 잠금의 다른 방법을 활용할 수 있습니다. ActiveMQ HA 아키텍처 및 배포에 대 한 지원 또는 컨설팅의 경우 [Perforce에서 OpenLogic에 문의](https://www.openlogic.com/contact-us)해야 합니다.
+
+>[!NOTE]
+> 이 섹션에는 Microsoft에서 더 이상 사용 하지 않는 사용 약관 *종속* 및 *마스터* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
+### <a name="i-am-running-apache-activemq-with-leveldb-or-kahadb-on-azure-netapp-files-i-have-experienced-disruptions-due-to-storage-service-maintenance-event-despite-using-the-smb-protocol-do-i-need-to-take-special-precautions"></a>Azure NetApp Files에서 LevelDB 또는 KahaDB를 사용 하 여 Apache ActiveMQ를 실행 하 고 있습니다. *SMB* 프로토콜을 사용 하는 경우에도 저장소 서비스 유지 관리 이벤트로 인해 중단이 발생 했습니다. 특별 한 예방 조치를 취해야 하나요?
+
+일반적인 업계 권장 사항은 [CIFS/SMB에서 KahaDB 공유 저장소를 실행 하지 않는](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know)것입니다. 정확한 잠금 상태를 유지 관리 하는 데 문제가 있는 경우 보다 안정적인 잠금 메커니즘을 제공할 수 있는 JDBC 플러그형 Storage 락커를 확인 하세요. ActiveMQ HA 아키텍처 및 배포에 대 한 지원 또는 컨설팅의 경우 [Perforce에서 OpenLogic에 문의](https://www.openlogic.com/contact-us)해야 합니다.
 
 ## <a name="product-faqs"></a>제품 FAQ
+
+이 섹션에서는 Azure NetApp Files 관련 된 제품에 대 한 정보를 제공 합니다. 
 
 ### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>AVS(Azure VMware Solution)에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용할 수 있나요?
 

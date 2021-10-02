@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 88cf9236ca33eddd9f86a60c210aae253f8d9c2c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92677482"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361018"
 ---
 # <a name="query-ingested-telemetry-data"></a>수집된 원격 분석 데이터 쿼리
 
@@ -118,7 +118,7 @@ FarmBeats는 [Azure TSI(Azure Time Series Insights)](https://azure.microsoft.com
 1. **Azure Portal** > **FarmBeats DataHub 리소스 그룹** > **Time Series Insights** 환경(tsi-xxxx) 선택 > **데이터 액세스 정책** 으로 이동합니다. 읽기 권한자 또는 기여자 액세스 권한이 있는 사용자 추가
 2. **Time Series Insights** 환경(tsi-xxxx)의 **개요** 페이지로 이동하고 **Time Series Insights 탐색기 URL** 을 선택합니다. 이제 수집된 원격 분석 데이터를 시각화할 수 있습니다.
 
-TSI는 원격 분석 데이터를 저장, 쿼리, 시각화하는 것 외에도 Power BI 대시보드로 통합할 수 있도록 합니다. 자세한 내용은 [여기]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)를 참조하세요.
+TSI는 원격 분석 데이터를 저장, 쿼리, 시각화하는 것 외에도 Power BI 대시보드로 통합할 수 있도록 합니다. 자세한 내용은 [여기](../../time-series-insights/how-to-connect-power-bi.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

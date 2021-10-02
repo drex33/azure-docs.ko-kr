@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5b131a252dd7eea2072fd412317e14478c145198
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 1529d46faa67b1c6ee38682829785096b4d7b902
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275661"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358157"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -33,7 +33,7 @@ Virtual WAN은 다음 두 가지 버전으로 제공됩니다. 기본 및 표준
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Virtual WAN에서 가용성 영역 및 복원력은 어떻게 처리되나요?
 
-Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 해당 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 Azure Firewall 제외한 Availabitlity 영역에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
+Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 가용성 영역(Azure Firewall 제외)에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
 
 현재 Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용하여 가용성 영역 지원하도록 Azure Firewall 배포할 수 있습니다. 현재 가용성 영역에 배포할 기존 방화벽을 구성할 수 있는 방법은 없습니다. Azure Firewall 삭제하고 다시 배포해야 합니다. 
 
@@ -191,7 +191,7 @@ NVA(네트워크 가상 어플라이언스)는 가상 허브 내에 배포할 �
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>가상 허브에 연결된 VNet 스포크는 서로 통신(V2V 전송)할 수 있나요?
 
-예. 표준 Virtual WAN은 VNet이 연결된 Virtual WAN 허브를 통해 VNet 간 전이적 연결을 지원합니다. 가상 WAN 용어에서 이러한 경로는 단일 지역 내의 가상 Wan 허브에 연결 된 Vnet에 대 한 "로컬 가상 WAN VNet 전송", 둘 이상의 지역에서 여러 가상 WAN 허브를 통해 연결 된 Vnet의 경우 "글로벌 가상 WAN VNet 전송"으로 지칭 됩니다.
+예. 표준 Virtual WAN은 VNet이 연결된 Virtual WAN 허브를 통해 VNet 간 전이적 연결을 지원합니다. Virtual WAN 용어에서는 이러한 경로를 단일 지역 내의 Virtual Wan 허브에 연결된 VNet의 경우 "로컬 Virtual WAN VNet 전송"으로, 둘 이상의 지역에서 여러 Virtual WAN 허브를 통해 연결된 VNet의 경우 "글로벌 Virtual WAN VNet 전송"으로 지칭합니다.
 
 일부 시나리오에서는 로컬 또는 글로벌 Virtual WAN VNet 전송 외에도 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)을 사용하여 스포크 VNet 간에 직접 피어링할 수도 있습니다. 이 경우 VNet 피어링은 Virtual WAN 허브를 통한 전이적 연결보다 우선적으로 적용됩니다.
 

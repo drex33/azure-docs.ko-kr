@@ -4,12 +4,12 @@ description: OpenID Connect 공급자를 App Service 또는 Azure Functions 앱�
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: befedca9fa872575d990ceea786a09d60a5773ca
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 84a8ce0017b9aac6e2a1c1eb75ef78dff89721a9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092948"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355249"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>OpenID Connect 공급자를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성(미리 보기)
 
@@ -17,7 +17,7 @@ ms.locfileid: "113092948"
 
 이 문서에서는 [OpenID Connect 사양](https://openid.net/connect/)을 준수하는 사용자 지정 인증 공급자를 사용하도록 Azure App Service 또는 Azure Functions를 구성하는 방법을 보여 줍니다. OIDC(OpenID Connect)는 여러 IDP(ID 공급자)에서 사용되는 업계 표준입니다. 준수하는 IDP를 사용하도록 앱을 구성하기 위해 사양의 세부 정보를 이해할 필요는 없습니다.
 
-하나 이상의 OIDC 공급자를 사용하도록 앱을 구성할 수 있습니다. 구성에서 각 공급자에 고유 이름을 지정해야 하며, 하나의 공급자만 기본 리디렉션 대상 역할을 할 수 있습니다.
+하나 이상의 OIDC 공급자를 사용 하도록 앱을 구성할 수 있습니다. 구성에서 각 공급자에 고유 이름을 지정해야 하며, 하나의 공급자만 기본 리디렉션 대상 역할을 할 수 있습니다.
 
 > [!CAUTION]
 > OpenID Connect 공급자를 사용하도록 설정하면 Azure Portal, Azure CLI, Azure PowerShell 등의 일부 클라이언트를 통해 애플리케이션의 App Service 인증/권한 부여 기능을 관리할 수 없습니다. 미리 보기 기간에는 이 기능에 필요한 새 API 표면이 일부 관리 환경에서 고려되지 않습니다.
@@ -61,7 +61,7 @@ ms.locfileid: "113092948"
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "scope": [],
+             "scopes": [],
              "loginParameterNames": [],
        }
     }
@@ -117,7 +117,7 @@ ms.locfileid: "113092948"
                 },
                 "login": {
                     "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                    "scope": [],
+                    "scopes": [],
                     "loginParameterNames": []
                 }
             }

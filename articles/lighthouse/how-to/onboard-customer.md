@@ -1,15 +1,15 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: 고객을 Azure Lighthouse에 온보딩하여 테넌트의 사용자가 리소스에 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 08/26/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3dbd3eb285a0135ca1b86294c5d3a41ef88a8472
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469683"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353301"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -338,6 +338,7 @@ az managedservices assignment list
 - 위임된 구독에 대해 **Microsoft.ManagedServices** 리소스 공급자를 등록해야 합니다. 등록은 배포 중에 자동으로 수행되어야 하지만, 그렇지 않으면 [수동으로 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)할 수 있습니다.
 - 권한 부여에는 [소유자](../../role-based-access-control/built-in-roles.md#owner) 기본 제공 역할이 있는 사용자나 [DataActions](../../role-based-access-control/role-definitions.md#dataactions)가 있는 기본 제공 역할이 포함되지 않아야 합니다.
 - [**그룹 형식**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types)을 **Microsoft 365** 가 아니라 **보안** 으로 설정하여 그룹을 만들어야 합니다.
+- 그룹에 대한 액세스 권한이 부여된 경우 사용자가 해당 그룹의 멤버인지 확인합니다. 그렇지 않은 경우 다른 배포를 수행할 필요 없이 [Azure AD를 사용하여 그룹에 추가할](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)수 있습니다. 그룹 [소유자는](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) 자신이 관리하는 그룹의 구성원일 필요는 없으며 액세스 권한을 갖기 위해 추가해야 할 수도 있습니다.
 - [중첩된 그룹](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)에 대한 액세스가 사용으로 설정되기 전에 추가로 지연될 수 있습니다.
 - 권한 부여에 포함하는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)에는 사용되지 않는 역할이 포함되지 않아야 합니다. Azure 기본 제공 역할이 사용되지 않으면 해당 역할로 온보딩된 모든 사용자는 액세스 권한을 잃게 되며 추가 위임을 온보딩할 수 없습니다. 이 문제를 해결하려면 지원되는 기본 제공 역할만 사용하도록 템플릿을 업데이트한 다음, 새 배포를 수행합니다.
 

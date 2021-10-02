@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 42040653f432577457cea6e5325fe686878e9da3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: e366ed2b17ab805c5b3d23663ee96222e2ec9372
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820152"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358034"
 ---
 # <a name="copy-and-transform-data-to-and-from-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SQL Server 간 데이터 복사 및 변환
 
@@ -84,7 +84,7 @@ ms.locfileid: "124820152"
 
 SQL Server 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **SqlServer** 로 설정해야 합니다. | 예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 **connectionString** 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>암호를 Azure Key Vault에 입력할 수도 있습니다. SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 다음에 나오는 JSON 예제를 참조하고 [Azure Key Vault에 로그인 정보를 저장](store-credentials-in-key-vault.md)합니다. |예 |
@@ -94,7 +94,8 @@ SQL Server 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 > [!NOTE]
-> SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true)는 데이터 흐름에서 지원되지 않습니다. 
+> - SQL Server [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true)는 데이터 흐름에서 지원되지 않습니다. 
+> - Windows 인증은 데이터 흐름에서 지원되지 않습니다.
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
@@ -198,7 +199,7 @@ SQL Server 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
 SQL Server 데이터베이스 간에 데이터를 복사하려면 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SqlServerTable** 로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -237,7 +238,7 @@ SQL Server 데이터베이스 간에 데이터를 복사하려면 다음 속성�
 
 SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **SqlSource** 로 설정합니다. 복사 작업 source 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **SqlSource** 로 설정해야 합니다. | 예 |
 | SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
@@ -350,7 +351,7 @@ GO
 
 SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlSink** 로 설정합니다. 복사 작업 sink 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성을 **SqlSink** 로 설정해야 합니다. | 예 |
 | preCopyScript |이 속성은 데이터를 SQL Server에 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
@@ -619,7 +620,7 @@ END
 
 다음 표에는 SQL Server 원본에서 지원하는 속성이 나와 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |- |
 | 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
@@ -642,7 +643,7 @@ source(allowSchemaDrift: true,
 
 다음 표에는 SQL Server 싱크에서 지원하는 속성이 나와 있습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |

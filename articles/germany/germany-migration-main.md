@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 37dde9cf2f105c3e8e8c3dc86e59340c205f9254
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
-ms.translationtype: HT
+ms.openlocfilehash: 86d6fa3c7c5552c0bb48844e543c20dc3493b15e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "122535458"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361481"
 ---
 # <a name="overview-of-migration-guidance-for-azure-germany"></a>Azure 독일에 대한 마이그레이션 지침 개요
 
@@ -22,7 +22,7 @@ ms.locfileid: "122535458"
 
 독일의 두 지역은 글로벌 Azure와 완전히 별개입니다. 글로벌 Azure 및 독일의 클라우드에는 별도의 Azure AD(Azure Active Directory) 인스턴스가 있습니다. 이 때문에 Azure 독일 테넌트는 글로벌 Azure 테넌트와 별개입니다. 이 문서에서는 *다른* 테넌트 간에 마이그레이션할 때 사용할 수 있는 마이그레이션 도구에 대해 설명합니다.
 
-ID/테넌트에 대한 지침은 Azure 전용 고객을 대상으로 합니다. Azure 및 Microsoft 365(또는 기타 Microsoft 제품)용 Azure AD(Azure Active Directory) 테넌트를 사용하는 경우 ID 마이그레이션이 복잡하므로 먼저 [마이그레이션 단계 작업 및 Microsoft 클라우드 독일에서 마이그레이션에 대한 영향](/microsoft-365/enterprise/ms-cloud-germany-transition-phases?view=o365-worldwide)을 읽어야 합니다. 질문이 있는 경우 계정 관리자 또는 Microsoft 지원에 문의하세요.
+ID/테넌트에 대한 지침은 Azure 전용 고객을 대상으로 합니다. Azure 및 Microsoft 365(또는 기타 Microsoft 제품)용 Azure AD(Azure Active Directory) 테넌트를 사용하는 경우 ID 마이그레이션이 복잡하므로 먼저 [마이그레이션 단계 작업 및 Microsoft 클라우드 독일에서 마이그레이션에 대한 영향](/microsoft-365/enterprise/ms-cloud-germany-transition-phases)을 읽어야 합니다. 질문이 있는 경우 계정 관리자 또는 Microsoft 지원에 문의하세요.
 
 Azure 클라우드 솔루션 공급자는 새로운 독일 데이터 센터 지역으로 전환하는 동안 및 이후에 고객을 지원하기 위해 추가 단계를 수행해야 합니다. [추가 단계](/microsoft-365/enterprise/ms-cloud-germany-transition-add-csp)에 대해 자세히 알아봅니다.
 

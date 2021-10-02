@@ -3,15 +3,15 @@ title: 웹 클라이언트를 사용하여 Azure Virtual Desktop에 연결 - Azu
 description: 웹 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0c6e616b63587f46d9dfe73066147de428d0ee0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 3804714a1a21a482166fbf7d592f5ee094ce6a06
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469192"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359715"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-web-client"></a>웹 클라이언트를 사용하여 Azure Virtual Desktop에 연결
 
@@ -24,15 +24,15 @@ ms.locfileid: "114469192"
 >웹 클라이언트에서는 현재 모바일 OS를 지원하지 않습니다.
 
 ## <a name="supported-operating-systems-and-browsers"></a>지원되는 운영 체제 및 브라우저
+
 >[!IMPORTANT]
->2021년 9월 30일부터 Azure Virtual Desktop 웹 클라이언트는 Internet Explorer 11을 더 이상 지원하지 않습니다. Internet Explorer 11 대신 Microsoft Edge 브라우저를 사용하도록 전환하는 것이 좋습니다. 자세한 내용은 기술 커뮤니티 [블로그 게시물](https://aka.ms/WVDSupportIE11)를 확인하세요.
+>2021 년 9 월 30 일까 지 Azure 가상 데스크톱 웹 클라이언트는 더 이상 Internet Explorer를 지원 하지 않습니다. 대신 Microsoft Edge를 사용 하 여 웹 클라이언트에 연결 하는 것이 좋습니다. 자세한 내용은 [블로그 게시물](https://aka.ms/WVDSupportIE11)을 참조하세요.
 
 HTML5 지원 브라우저가 제대로 작동하는 동안에는 다음 운영 체제 및 브라우저를 공식적으로 지원합니다.
 
 | 브라우저           | 지원되는 OS                     | 메모               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          | 버전 11 이상 |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | 버전 55 이상 |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |

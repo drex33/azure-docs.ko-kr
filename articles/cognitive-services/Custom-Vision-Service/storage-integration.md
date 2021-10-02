@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: pafarley
-ms.openlocfilehash: f21313a357c5c86087d3505cfdf654d9958d3893
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: d247626607f5fd4b517d7436c21ae33ed5727220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982369"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353314"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure Storage 통합
 
@@ -39,7 +39,7 @@ Azure Portal에서 Custom Vision 학습 리소스로 이동하여 **ID** 페이�
 * 모델 백업 기능을 사용할 계획인 경우 **Storage Blob 데이터 기여자** 역할을 선택하고 Custom Vision 학습 리소스를 구성원으로 추가합니다. **검토 및 게시** 를 선택하여 완료합니다.
 * 알림 큐 기능을 사용할 계획인 경우 **Storage Queue 데이터 기여자** 역할을 선택하고 Custom Vision 학습 리소스를 구성원으로 추가합니다. **검토 및 게시** 를 선택하여 완료합니다.
 
-역할 할당에 대한 도움말을 보려면 [Azure Portal을 사용하여 Azure 역할 할당](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
+역할 할당에 대한 도움말을 보려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ### <a name="get-integration-urls"></a>통합 URL 가져오기
 

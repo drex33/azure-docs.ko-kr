@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c5ae0f393dca05e748f4919a84223131034fee81
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 79f18a9e36664c63017294b1f815dee3dfa58610
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272127"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354768"
 ---
 # <a name="deploy-an-agent-based-linux-hybrid-runbook-worker-in-automation"></a>Automation에서 에이전트 기반 Linux Hybrid Runbook Worker 배포
 
@@ -33,11 +33,7 @@ Azure Monitor Log Analytics 작업 영역이 아직 없는 경우 작업 영역�
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
-Hybrid Runbook Worker 역할에는 지원되는 Linux 운영 체제에 대한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)가 필요합니다. Azure 외부에서 호스트되는 서버 또는 머신의 경우 [Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다.
-
-> [!NOTE]
-> Linux용 Log Analytics 에이전트를 설치한 후에는 `sudoers.d` 폴더의 권한이나 그 소유권을 변경해서는 안 됩니다. Hybrid Runbook Worker이 실행되는 사용자 컨텍스트인 **nxautomation** 계정에는 Sudo 권한이 필요합니다. 권한은 제거할 수 없습니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다.
->
+Hybrid Runbook Worker 역할에는 지원되는 Linux 운영 체제에 대한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)가 필요합니다. Azure 외부에서 호스트되는 서버 또는 머신의 경우 [Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다. 에이전트는 루트 권한이 필요한 명령을 실행 하는 특정 서비스 계정으로 설치 됩니다. 자세한 내용은 [서비스 계정](./automation-hrw-run-runbooks.md#service-accounts)을 참조 하세요.
 
 ### <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 
@@ -129,7 +125,7 @@ Runbook은 다음 매개 변수를 사용합니다.
 | `CreateVM` | 필수 | True인 경우 `VMName`의 값을 새 VM의 이름으로 사용합니다. False인 경우 `VMName`을 사용하여 기존 VM을 찾아 등록합니다. |
 | `VMName` | 선택 사항 | `CreateVM`의 값에 따라 만들거나 등록한 가상 머신의 이름입니다. |
 | `VMImage` | 선택 사항 | 만들 VM 이미지의 이름입니다. |
-| `VMlocation` | 선택 사항 | 만들거나 등록한 VM의 위치입니다. 이 위치를 지정 하지 않으면 값 `LAlocation` 이 사용 됩니다. |
+| `VMlocation` | 선택 사항 | 만들거나 등록한 VM의 위치입니다. 이 위치를 지정하지 않으면 `LAlocation` 값이 사용됩니다. |
 | `RegisterHW` | 필수 | True인 경우 VM을 하이브리드 작업자로 등록합니다. |
 | `WorkerGroupName` | 필수 | Hybrid Worker 그룹의 이름입니다. |
 
@@ -160,7 +156,7 @@ Linux Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수�
 
         - Azure Policy 사용.
 
-            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치 되지 않은 경우에는 재구성 작업을 사용 하 여 에이전트를 자동으로 배포 합니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우 [VM용 Azure Monitor 이니셔티브 사용](../governance/policy/samples/built-in-initiatives.md#monitoring) 을 대신 사용 하 여 Log Analytics 에이전트를 설치 하 고 구성 합니다.
+            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치되지 않은 경우 수정 작업을 사용하여 자동으로 배포합니다. VM용 Azure Monitor 사용하여 머신을 모니터링하려는 경우 대신 VM용 Azure Monitor [사용](../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
 
         Azure Policy를 사용하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치하는 것이 좋습니다.
 
@@ -174,7 +170,7 @@ Linux Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수�
 
     Windows용 Log Analytics 에이전트는 Azure Monitor Log Analytics 작업 영역에 머신을 연결합니다. 머신에 에이전트를 설치하고 작업 영역에 연결하면 Hybrid Runbook Worker에 필요한 구성 요소가 자동으로 다운로드됩니다.
 
-    몇 분 후에 에이전트가 Log Analytics 작업 영역에 성공적으로 연결 되 면 다음 쿼리를 실행 하 여 작업 영역에 하트 비트 데이터를 보내고 있는지 확인할 수 있습니다.
+    몇 분 후에 에이전트가 Log Analytics 작업 영역에 성공적으로 연결되면 다음 쿼리를 실행하여 하트비트 데이터를 작업 영역으로 보내고 있는지 확인할 수 있습니다.
 
     ```kusto
     Heartbeat
@@ -182,7 +178,7 @@ Linux Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수�
     | where TimeGenerated > ago(30m)
     ```
 
-    검색 결과에는 컴퓨터에 대 한 하트 비트 레코드가 표시 됩니다 .이 레코드는 서비스에 연결 되 고 보고 되 고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트비트 레코드를 할당된 작업 영역으로 전달합니다.
+    검색 결과에서 머신에 대한 하트비트 레코드가 표시되며, 이는 머신이 연결되어 서비스에 보고하고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트비트 레코드를 할당된 작업 영역으로 전달합니다.
 
 4. 다음 명령을 실행하여 Hybrid Runbook Worker 그룹에 머신을 추가합니다. `-w`, `-k`, `-g` 및 `-e` 매개 변수의 값을 지정합니다.
 
@@ -194,7 +190,7 @@ Linux Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수�
 
     * `-k` 매개 변수의 경우 **주 액세스 키** 에 대한 값을 복사합니다.
 
-    * `-g` 매개 변수의 경우 새 Linux Hybrid Runbook Worker가 조인해야 하는 Hybrid Runbook Worker 그룹의 이름을 지정합니다. 이 그룹이 Automation 계정에 이미 있으면 현재 머신이 추가됩니다. 이 그룹이 없으면 해당 이름을 사용 하 여 만들어집니다.
+    * `-g` 매개 변수의 경우 새 Linux Hybrid Runbook Worker가 조인해야 하는 Hybrid Runbook Worker 그룹의 이름을 지정합니다. 이 그룹이 Automation 계정에 이미 있으면 현재 머신이 추가됩니다. 이 그룹이 없으면 해당 이름으로 만들어집니다.
 
     * `-w` 매개 변수에 대해 Log Analytics 작업 영역을 ID를 지정합니다.
 

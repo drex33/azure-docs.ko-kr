@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9ae4a7d070419aae974742802ec5b6b3ae958c87
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026456"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355515"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Application Insights 스냅샷 디버거를 사용하도록 설정하거나 스냅샷을 볼 때 발생하는 문제 해결
 애플리케이션에 대해 Application Insights 스냅샷 디버거를 사용하도록 설정했지만 예외에 대한 스냅샷이 표시되지 않는 경우 다음 지침을 사용하여 문제를 해결할 수 있습니다.
@@ -32,7 +32,7 @@ Application Insights SDK를 사용하는 App Service 및 애플리케이션의 �
 
 함수 앱의 경우 아래의 지원되는 재정의를 사용하여 `host.json`을 업데이트해야 합니다.
 
-|속성    | 미국 정부 클라우드: | 중국 클라우드 |   
+|속성    | 미국 정부 클라우드 | 중국 클라우드 |   
 |---------------|---------------------|-------------|
 |AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
@@ -92,7 +92,7 @@ Azure App Service 또는 가상 머신의 IIS에서 호스트되는 ASP.NET 애�
    ```
 
 > [!NOTE]
-> httpRuntime targetFramework 값을 수정하면 애플리케이션에 적용되는 런타임 특성이 변경되어 다른 미묘한 동작 변화가 나타날 수 있습니다. 이러한 변경을 수행한 후에는 애플리케이션을 철저히 테스트해야 합니다. 호환성 변경 내용의 전체 목록은 https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes 를 참조하세요.
+> httpRuntime targetFramework 값을 수정하면 애플리케이션에 적용되는 런타임 특성이 변경되어 다른 미묘한 동작 변화가 나타날 수 있습니다. 이러한 변경을 수행한 후에는 애플리케이션을 철저히 테스트해야 합니다. 호환성 변경 내용의 전체 목록은 대상 [다시 지정 변경 내용을 참조하세요.](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes)
 
 > [!NOTE]
 > targetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인합니다. Azure App Service에서는 TLS 1.2를 사용할 수 있습니다. 그러나 사용자 고유의 가상 머신을 사용하는 경우 OS에서 TLS 1.2를 사용하도록 설정해야 할 수 있습니다.

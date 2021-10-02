@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 01d62055de8e8327b518bc3638cab85426917247
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 98fd879cb8d960f2f688b3aa002fa86832981744
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864644"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353078"
 ---
 # <a name="media-reserved-units-migration-guidance"></a>미디어 예약 단위 마이그레이션 참고 자료
 
@@ -34,7 +34,7 @@ ms.locfileid: "122864644"
 다음 시나리오에 따라 MRU를 마이그레이션합니다.
 
 * 모든 Media Services 계정에 대해 더 이상 MRU(미디어 예약 단위)를 설정할 필요가 없습니다. 이제 시스템이 부하에 따라 자동으로 스케일 업/다운합니다.
-* API의 2020-05-01 버전 이전에 만들어진 계정이 있는 경우 MRU 관리를 위한 API에 계속 액세스할 수 있지만 설정한 MRU 구성은 인코딩 동시성 또는 성능을 제어하는 데 사용되지 않습니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. Media Services V3용 CLI 2.0 또는 Azure Portal을 사용하여 MRU를 관리할 수 있습니다.
+* API의 2020-05-01 이상 버전 이전에 만든 계정이 있는 경우 여전히 MRU 관리를 위해 API에 액세스할 수 있지만 설정한 MRU 구성은 인코딩 동시성 또는 성능을 제어하는 데 사용되지 않습니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. Media Services V3용 CLI 2.0 또는 Azure Portal을 사용하여 MRU를 관리할 수 있습니다.
 * Azure Portal에서 MRU를 관리하는 옵션이 표시되지 않으면 2020-05-01 API 혹은 그 이후에 만든 계정을 실행하고 있는 것입니다.
 * MRU 형식을 S3로 설정하는 데 능숙하다면 MRU를 제거해도 성능이 향상되거나 동일하게 유지됩니다.
 * 기존 V2 고객의 경우 마이그레이션이 완료되기 전에 기존 애플리케이션을 지원하기 위해 새 V3 계정을 만들어야 합니다. 

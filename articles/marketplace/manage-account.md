@@ -1,27 +1,27 @@
 ---
-title: Microsoft 파트너 센터에서 상업용 Marketplace 계정을 관리하는 방법 - Azure Marketplace
-description: Microsoft 파트너 센터에서 상업용 Marketplace 계정을 관리하는 방법을 알아봅니다.
+title: 파트너 센터에서 상업적 마켓플레이스 계정 관리
+description: 파트너 센터에서 상업적 marketplace 계정을 관리 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 9e30cc845fbc4ec2aefc062780f53e3bb0f02161
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: f6730ad58491fb24dbc025eaa44fbc7d7bdade58
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082617"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359813"
 ---
-# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
+# <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 마켓플레이스 계정 관리
 
 **적절한 역할**
 
 - 소유자
 - Manager
 
-[파트너 센터 계정을 만들면](./create-account.md) [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)를 사용하여 계정과 제안을 관리할 수 있습니다.
+[파트너 센터 계정을 만들었으면](./create-account.md) [상업적 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 를 사용 하 여 계정 및 제안을 관리할 수 있습니다.
 
 ## <a name="access-your-account-settings"></a>계정 설정에 액세스
 
@@ -33,11 +33,11 @@ ms.locfileid: "129082617"
 
 1. 액세스하려는 계정으로 파트너 센터의 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/home)에 로그인합니다. 여러 계정에 속하는 경우 다른 계정으로 로그인했으면 [계정을 전환](switch-accounts.md)할 수 있습니다.
 
-1. 오른쪽 위에서 **설정**(톱니 모양 아이콘)을 선택하고 **계정 설정** 을 선택합니다.
+1. 오른쪽 위에서 **설정** (기어 아이콘), **계정 설정** 을 차례로 선택 합니다.
 
     [ ![파트너 센터의 계정 설정 메뉴 스크린샷](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. **계정 설정** 에서 **법률** 을 선택합니다. 그런 다음, **개발자** 탭을 선택하여 상업용 Marketplace 계정과 관련된 세부 정보를 확인합니다.
+1. **계정 설정** 에서 **법률** 을 선택 하 고 **개발자** 탭을 선택 하 여 상업적 marketplace 계정과 관련 된 세부 정보를 확인 합니다.
 
     [ ![계정 설정의 법률 페이지에 있는 개발자 탭 스크린샷](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -50,7 +50,7 @@ ms.locfileid: "129082617"
 
    :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="파트너 센터의 계정 설정 옵션을 보여 주는 스크린샷":::
 
-1. **계정 설정** 에서 **법률** 을 선택합니다. 그런 다음, **개발자** 탭을 선택하여 상업용 Marketplace 계정과 관련된 세부 정보를 확인합니다.
+1. **계정 설정** 에서 **법률** 을 선택 하 고 **개발자** 탭을 선택 하 여 상업적 marketplace 계정과 관련 된 세부 정보를 확인 합니다.
 
    :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="개발자 탭을 보여 주는 스크린샷" lightbox="media/manage-accounts/developer-tab.png":::
 
@@ -137,6 +137,8 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 주의해야 하는 규약 업데이트 사항이 있는 경우 이 페이지의 맨 위에 **필요한 작업** 이 표시될 수 있습니다. 업데이트된 규약을 수락하려면 먼저 연결된 규약 버전을 읽은 후 **규약 수락** 을 선택합니다.
 
 ## <a name="set-up-a-payout-profile"></a>지급 프로필 설정
+
+Azure Marketplace에서 불가능 제안을 보유 하려면 파트너 센터에서 세금 프로필 및 지불 프로필을 제출 하 고 유효성을 검사 해야 합니다.  지급 프로필을 만들려면 먼저 세금 프로필을 제출 해야 합니다. 세금 프로필 전송에서 유효성을 검사 하는 데 최대 48 시간이 걸릴 수 있습니다.
 
 지급 프로필은 판매에서 수익금을 보내는 은행 계좌입니다. 이 은행 계좌는 파트너 센터 계정을 등록한 것과 동일한 국가나 지역에 있어야 합니다. 지급 프로필에 대 한 자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account)을 참조 하세요.
 

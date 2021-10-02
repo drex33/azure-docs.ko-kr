@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 07/16/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1c26761fe23fb1a7558100dea3cb74d7b078550d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8c05b77a77bbcbfc977dadb22151f0086001b859
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536895"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359447"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Azure Machine Learning 클라우드 지역 간 기능 가용성
 
@@ -62,7 +62,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA                   | YES                | YES         |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA                   | YES                | YES         |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기       | YES                | YES         |
-| 작업 영역 프라이빗 엔드포인트                                                 | GA  |  공개 미리 보기  |  공개 미리 보기 |
+| 작업 영역 프라이빗 엔드포인트                                                 | GA  |  GA  |  GA |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
 | VNet 뒤에 있는 ACR                                                            | GA       | YES                 | YES          |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기       | 아니요                 | 아니요          |
@@ -80,7 +80,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | [Visual Studio Code 통합](how-to-setup-vs-code.md)                                             | 공개 미리 보기       | 아니요                 | 아니요          |
 | [Event Grid 통합](how-to-use-event-grid.md)                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
 | [Azure Machine Learning과 Azure Stream Analytics 통합](../stream-analytics/machine-learning-udf.md)               | 공개 미리 보기       | 아니요                 | 아니요          |
-| **[레이블 지정](how-to-create-labeling-projects.md)** |   | | |
+| **[이미지](how-to-create-image-labeling-projects.md) 및 [텍스트](how-to-create-text-labeling-projects.md) 레이블 지정** |   | | |
 | 프로젝트 관리 포털 레이블 지정                                        | GA                   | YES                | YES         |
 | 레이블 지정자 포털                                                            | GA                   | YES                | YES         |
 | 개인 인력을 사용하여 레이블 지정                                          | GA                   | YES                | YES         |

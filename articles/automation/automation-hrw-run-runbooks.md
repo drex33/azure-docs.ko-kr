@@ -3,17 +3,17 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용하여 로컬 데이터 센터 또는 기타 클라우드 공급자에 있는 머신에서 Runbook을 실행하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/12/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5f27f9366b388c090ca689a2011c777973b8a894
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 702fcc816bac95345fca8c701be504e4eaa3a1fe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968056"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354748"
 ---
-# <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
+# <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker Automation Runbook 실행
 
 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행되는 Runbook은 일반적으로 로컬 컴퓨터에서, 또는 Worker가 배포된 로컬 환경에 있는 리소스를 기준으로 리소스를 관리합니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다. Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 용도는 다르지만 구조상 차이가 없습니다.
 
@@ -27,12 +27,24 @@ Hybrid Runbook Worker에서 실행되도록 Runbook을 작성하는 경우, 해�
 
 Azure Automation은 Azure 샌드박스에서 실행되는 작업과 다른 방식으로 Hybrid Runbook Worker에 대한 작업을 처리합니다. 장기 실행 Runbook의 경우 다시 시작할 수 있는 복원력이 있는지 확인해야 합니다. 작업 동작에 대한 자세한 내용은 [Hybrid Runbook Worker 작업](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)을 참조하세요.
 
-Hybrid Runbook Worker 작업은 Windows의 경우 로컬 **시스템** 계정으로 실행되고, Linux의 경우 **nxautomation** 계정으로 실행됩니다. Linux의 경우 **nxautomation** 계정에 Runbook 모듈이 저장된 위치에 대한 액세스 권한이 있는지 확인하세요. **nxautomation** 계정 액세스를 보장하려면 다음을 수행합니다.
+## <a name="service-accounts"></a>서비스 계정
 
-- [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용하는 경우 `Scope` 매개 변수에 `AllUsers`를 지정해야 합니다.
+### <a name="windows"></a>Windows 
+
+Hybrid Runbook Workers에 대한 작업은 로컬 **시스템** 계정으로 실행됩니다.
+
+### <a name="linux"></a>Linux
+
+**nxautomation** 및 **omsagent** 서비스 계정이 만들어집니다. 만들기 및 권한 할당 스크립트는 에서 볼 수 [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data) 있습니다. [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치하는 동안 해당 sudo 권한이 있는 계정이 있어야 합니다. 작업자를 설치하려고 하는 경우 계정이 없거나 적절한 권한이 없으면 설치가 실패합니다. `sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. 계정에는 Sudo 권한이 필요하며 사용 권한을 제거하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다. 업데이트 관리의 일부로 사용하도록 설정된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.
+
+서비스 계정에 저장된 Runbook 모듈에 대한 액세스 권한이 있는지 확인하려면 다음을 수행합니다.
+
 - `pip install`, `apt install` 또는 Linux에 패키지를 설치하는 다른 방법을 사용하는 경우, 패키지가 모든 사용자에 대패 설치되었는지 확인하세요. 예: `sudo -H pip install <package_name>`.
+- [Linux에서 PowerShell을](/powershell/scripting/whats-new/what-s-new-in-powershell-70)사용하는 경우 [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때 매개 변수에 대해 를 지정해야 `AllUsers` `Scope` 합니다.
 
-Linux의 PowerShell에 대한 자세한 내용은 [비 Windows 플랫폼에서 PowerShell의 알려진 문제](/powershell/scripting/whats-new/what-s-new-in-powershell-70)를 참조하세요.
+Automation 작업자 로그는 에 `/var/opt/microsoft/omsagent/run/automationworker/worker.log` 있습니다.
+
+컴퓨터가 Hybrid Runbook Worker 제거되면 서비스 계정이 제거됩니다.
 
 ## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 
@@ -72,15 +84,23 @@ Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 
 1. Runbook이 `Identity` 매개 변수로 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 리소스로 인증되도록 업데이트합니다. 이 구성은 실행 계정을 사용하고 관련 계정 관리를 수행해야 하는 필요를 줄여 줍니다.
 
     ```powershell
-    # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
-    Connect-AzAccount -Identity
+    # Ensures you do not inherit an AzContext in your runbook
+    Disable-AzContextAutosave -Scope Process
+    
+    # Connect to Azure with system-assigned managed identity
+    $AzureContext = (Connect-AzAccount -Identity).context
+    
+    # set and store context
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
     # Get all VM names from the subscription
-    Get-AzVM | Select Name
+    Get-AzVM -DefaultProfile $AzureContext | Select Name
     ```
 
-    > [!NOTE]
-    > `Connect-AzAccount -Identity`는 시스템 할당 ID와 단일 사용자 할당 ID를 사용하여 Hybrid Runbook Worker에 대해 작동합니다. Hybrid Runbook Worker에서 여러 개의 사용자 할당 ID를 사용할 경우 Runbook이 `Connect-AzAccount`에 `AccountId` 매개 변수를 지정하여 특정 사용자 할당 ID를 선택해야 합니다.
+    Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡니다. 사용자 할당 관리 ID를 사용하려면 다음을 수행합니다.
+    1. 줄 5에서 를 제거합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+    1. , 및 으로 대체합니다. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`
+    1. 클라이언트 ID를 입력합니다.
 
 ### <a name="use-runbook-authentication-with-run-as-account"></a>실행 계정을 통한 Runbook 인증 사용
 

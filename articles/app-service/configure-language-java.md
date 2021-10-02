@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: c7cf2aaeaaf9907ff87ab4805aebe04c3098b8f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47e9e221bd57453a0c799318f939de59b84feb86
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657142"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356077"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
@@ -63,23 +63,23 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 ### <a name="build-tools"></a>빌드 도구
 
 #### <a name="maven"></a>Maven
-[Azure Web Apps에 대 한 Maven 플러그](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)인을 사용 하 여 프로젝트 루트에서 명령 하나를 사용 하 여 Azure 웹 앱에 대 한 Maven Java 프로젝트를 쉽게 준비할 수 있습니다.
+Azure [Web Apps Maven 플러그 인을](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)사용하면 프로젝트 루트에서 하나의 명령을 통해 Azure Web App용 Maven Java 프로젝트를 쉽게 준비할 수 있습니다.
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 ```
 
-이 명령은 `azure-webapp-maven-plugin` 기존 Azure 웹 앱을 선택 하거나 새 앱을 만들도록 요청 하 여 플러그 인과 관련 구성을 추가 합니다. 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
+이 명령은 `azure-webapp-maven-plugin` 기존 Azure 웹앱을 선택하거나 새 웹앱을 만들라는 메시지를 표시하여 플러그 인 및 관련 구성을 추가합니다. 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
 ```shell
 mvn package azure-webapp:deploy
 ```
 
-다음은의 샘플 구성입니다 `pom/xml` .
+의 샘플 구성은 다음과 `pom.xml` 같습니다.
 ```xml
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.1.0</version>  
+  <version>2.2.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -107,15 +107,15 @@ mvn package azure-webapp:deploy
 ```
 
 #### <a name="gradle"></a>Gradle
-1. 에 플러그 인을 추가 하 여 [Azure Web Apps에 대 한 Gradle 플러그 인](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 을 설정 합니다 `build.gradle` .
+1. 플러그 인을 에 추가하여 [Azure Web Apps Gradle 플러그](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 인을 설치합니다. `build.gradle`
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.1.0"
+      id "com.microsoft.azure.azurewebapp" version "1.2.0"
     }
     ```
 
-1. 웹 앱 세부 정보를 구성 합니다. 해당 하는 경우 해당 Azure 리소스가 생성 됩니다.
-다음은 샘플 구성입니다. 자세한 내용은이 [문서](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration)를 참조 하세요.
+1. 웹앱 세부 정보를 구성합니다. 해당 Azure 리소스가 없으면 생성됩니다.
+다음은 샘플 구성입니다. 자세한 내용은 이 [문서를](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration)참조하세요.
     ```groovy
     azurewebapp {
         subscription = '<your subscription id>'
@@ -137,16 +137,16 @@ mvn package azure-webapp:deploy
     }
     ```
 
-1. 하나의 명령으로 배포 합니다.
+1. 하나의 명령으로 배포합니다.
     ```shell
     gradle azureWebAppDeploy
     ```
     
 ### <a name="ides"></a>IDE
-Azure는 널리 사용 되는 Java Ide의 App Service 개발 환경을 다음과 같이 제공 합니다.
-- *VS Code*: [Java Web Apps Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
-- *INTELLIJ 아이디어*:[IntelliJ를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
-- *Eclipse*:[eclipse를 사용 하 여 Azure App Service에 대 한 헬로 월드 웹 앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
+Azure는 다음을 포함하여 인기 있는 Java ID에서 원활한 Java App Service 개발 환경을 제공합니다.
+- *VS Code:* [java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
+- *IntelliJ IDEA:*[IntelliJ를 사용하여 Azure App Service Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
+- *Eclipse: Eclipse를*[사용하여 Azure App Service 위한 Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 
 ### <a name="kudu-api"></a>Kudu API
 #### <a name="java-se"></a>Java SE

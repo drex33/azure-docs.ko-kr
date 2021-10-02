@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 2a410394bb6744729d3126ec198cc122407fd5c7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5ff7a5966c5ec5019048e532915efc2f51f00c96
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207757"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353695"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -87,6 +87,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 프랑스어(프랑스)                    | `fr-FR` | 오디오(20201015)<br>텍스트<br>발음|      예                     |                          |
 | 프랑스어(스위스)               | `fr-CH` | 텍스트<br>발음                  |                           |                          |
 | 독일어(오스트리아)                   | `de-AT` | 텍스트<br>발음                  |                           |                          |
+| 독일어(스위스)               | `de-CH` | 텍스트<br>발음                  |                           |                          |
 | 독일어(독일)                   | `de-DE` | 오디오(20190701, 20200619, 20201127)<br>텍스트<br>발음|  예                         |                          |
 | 그리스어(그리스)                     | `el-GR` | 텍스트                                   |  예                         |                          |
 | 구자라트어(인도)                  | `gu-IN` | 텍스트                                   |                           |                          |
@@ -216,7 +217,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>받아볼 10 월 30 일, 아래 참조</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>10월 30일 사용이 사용되었습니다. 아래 참조</sup> | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
@@ -338,8 +339,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 웨일스어(영국) | `cy-GB` | Male | `cy-GB-AledNeural` | 일반 | 
 
 > [!IMPORTANT]
-> 영어 (영국) 음성은 `en-GB-MiaNeural` **2021 년 10 월 30** 일에 사용 중지 됩니다. 에 대 한 모든 서비스 요청 `en-GB-MiaNeural` 은 `en-GB-SoniaNeural` **30 년 10 2021 월 30** 일 이후에 자동으로 다시 전달 됩니다.
-> 컨테이너 신경망을 사용 하는 경우 **2021 년 10 월 30** 일 전에 최신 버전을 [다운로드](speech-container-howto.md#get-the-container-image-with-docker-pull) 하 여 배포 하세요. **2021 년 10 월 30** 일 이후에는 이전 버전의 모든 요청이 거부 됩니다.
+> 영어(영국) `en-GB-MiaNeural` 음성은 **2021년 10월 30일에** 사용 중지됩니다. 에 대한 모든 서비스 `en-GB-MiaNeural` 요청은 `en-GB-SoniaNeural` **2021년 10월 30일** 이후에 자동으로 다시 지시됩니다.
+> 컨테이너 신경망 TTS를 사용하는 경우 **2021년 10월 30일** 이전의 최신 버전을 [다운로드하여](speech-container-howto.md#get-the-container-image-with-docker-pull) 배포하세요. **2021년 10월 30일** 이후에는 이전 버전의 모든 요청이 거부됩니다.
 
 #### <a name="neural-voices-in-preview"></a>미리 보기로 제공되는 인공신경망 음성
 
@@ -348,10 +349,10 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 영어(미국) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>새로 생성</sup> | [SSML을 사용](speech-synthesis-markup.md#create-an-ssml-document)하여 사용할 수 있는 일반적인 다국어 기능 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 갑작스런 대화에 최적화 됨 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 컨버지드 대화에 최적화 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>새로 생성</sup> | 고객 서비스에 최적화 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 음성, 자식 스토리 및 채팅에 최적화 됨 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>새로 생성</sup> | Narrating에 최적화 됨 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 스토리 및 채팅에 최적화된 자식 음성 [SSML을 사용하여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>새로 생성</sup> | 내레이션에 최적화 |
 
 > [!IMPORTANT]
 > 공개 미리 보기로 제공되는 음성은 미국 동부, 서유럽 및 동남 아시아의 3개 서비스 지역에서만 사용할 수 있습니다.
@@ -374,7 +375,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#neural-and-standard-voices)을 참조하세요.
 
 > [!IMPORTANT]
-> 표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.**2021 년 8 월 31** 일 이전에 만든 모든 기존 음성 구독에 전송 되는 전자 메일에이를 발표 했습니다. 사용 중지 기간 (**31 월 2021** 31 년  -  **2024 8 월** 31 일 31 일) 동안 기존 표준 음성 사용자는 표준 음성을 계속 사용할 수 있지만 모든 새 사용자/새 음성 리소스에서 신경망을 선택 해야 합니다.
+> 표준 음성은 **2024년 8월 31일** 에 중단되며 그 날짜 이후에는 더 이상 지원되지 않습니다.**2021년 8월 31일** 이전에 만든 모든 기존 Speech 구독에 전송된 전자 메일에서 이를 발표했습니다. 사용 중지 **기간(2021년 8월**  -  **31일 2024년 8월 31일)** 동안 기존 표준 음성 사용자는 표준 음성을 계속 사용할 수 있지만 모든 새 사용자/새 음성 리소스는 신경망 음성을 선택해야 합니다.
 
 > [!NOTE]
 > 두 가지 예외를 제외하고 16khz 샘플 속도를 사용하는 샘플에서 표준 음성이 생성됩니다.

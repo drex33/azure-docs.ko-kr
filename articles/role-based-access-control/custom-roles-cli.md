@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d3d05ba65e0d3918f1651c36cd17700ebf74de76
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 0a090f7a4ba00c9a7d55f06acc74556b604d6b7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778340"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363336"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 역할 만들기 또는 업데이트
 
@@ -146,7 +146,7 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 az role definition create --role-definition {roleDefinition}
 ```
 
-다음 예제에서는 *Virtual Machine Operator* 라는 사용자 지정 역할을 만듭니다. 이 사용자 지정 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
+다음 예제에서는 *Virtual Machine Operator* 라는 사용자 지정 역할을 만듭니다. 이 사용자 지정 역할은 *Microsoft.Compute, Microsoft.Storage* 및 *Microsoft.Network*  리소스 공급자의 모든 읽기 작업에 대한 액세스를 할당하고 가상 머신을 시작, 다시 시작 및 모니터링할 수 있는 액세스 권한을 할당합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
 
 vmoperator.json
 
@@ -189,7 +189,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 az role definition update --role-definition {roleDefinition}
 ```
 
-다음 예제에서는 `Actions`에 *Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 *Virtual Machine Operator* 사용자 지정 역할의 `AssignableScopes`에 관리 그룹을 추가합니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
+다음 예제에서는 *Microsoft.Insights/diagnosticSettings/* 작업을 에 `Actions` 추가하고 Virtual Machine Operator 사용자 지정 역할에 대한 관리 그룹을 에 `AssignableScopes` 추가합니다.  `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 
 vmoperator.json
 

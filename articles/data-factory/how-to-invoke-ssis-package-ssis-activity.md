@@ -1,6 +1,6 @@
 ---
-title: SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
-description: 이 문서에서는 Azure Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
+title: 포털에서 SSIS 패키지 실행 작업 사용
+description: 이 문서에서는 ssis 패키지 실행 작업 및 Azure Data Factory Studio 포털을 사용 하 여 Azure Data Factory 파이프라인에서 ssis (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
@@ -8,30 +8,25 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 06/04/2021
-ms.openlocfilehash: 0b24ae5a1564f182cf44e540a9d05a2aaac005ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 1e8c1777c8f2a95bd63ab9f03abc9c65fe0b1b6f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733118"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357968"
 ---
-# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-the-azure-data-factory-studio-portal"></a>Azure Data Factory Studio 포털에서 SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지를 실행 합니다.
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 Azure Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다. 
+이 문서에서는 ssis 패키지 실행 작업 및 Azure Data Factory Studio portal UI를 사용 하 여 Azure Data Factory 파이프라인에서 ssis (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR 프로비저닝](./tutorial-deploy-ssis-packages-azure.md)의 단계별 지침을 따라 만듭니다.
 
-## <a name="run-a-package-in-the-azure-portal"></a>Azure Portal에서 패키지 실행
-이 섹션에서는 Data Factory UI(사용자 인터페이스) 또는 앱을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 Data Factory 파이프라인을 만듭니다.
-
-### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기
+## <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기
 이 단계에서는 Data Factory UI 또는 앱을 사용하여 파이프라인을 만듭니다. 파이프라인에 SSIS 패키지 실행 작업을 추가하고 SSIS 패키지를 실행하도록 구성합니다. 
 
 1. Azure Portal Data Factory 개요 또는 홈페이지에서 **작성자 및 모니터** 타일을 선택하여 별도의 탭에서 Data Factory UI 또는 앱을 시작합니다. 
@@ -48,7 +43,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
    SSIS 패키지 실행 작업 개체를 선택하여 **일반**, **설정**, **SSIS 매개 변수**, **연결 관리자**, **속성 재정의** 탭을 구성합니다.
 
-#### <a name="general-tab"></a>일반 탭
+### <a name="general-tab"></a>일반 탭
 
 SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료합니다.
 
@@ -68,7 +63,7 @@ SSIS 패키지 실행 작업의 **일반** 탭에서 다음 단계를 완료합�
 
    1. **보안 입력** 확인란을 선택하여 SSIS 패키지 실행 작업의 입력을 로깅에서 제외할지 여부를 선택합니다.
 
-#### <a name="settings-tab"></a>설정 탭
+### <a name="settings-tab"></a>설정 탭
 
 SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료합니다.
 
@@ -88,7 +83,7 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료합�
 
    1. **패키지 위치** 에서 **SSISDB**, **파일 시스템(패키지)** , **파일 시스템(프로젝트)** , **포함된 패키지** 또는 **패키지 저장소** 를 선택합니다. 
 
-##### <a name="package-location-ssisdb"></a>패키지 위치: SSISDB
+#### <a name="package-location-ssisdb"></a>패키지 위치: SSISDB
 
 Azure SQL Database 서버/Managed Instance에서 호스팅된 SSIS 카탈로그(SSISDB)를 사용하여 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동으로 **SSISDB** 로 선택되며, 직접 선택할 수도 있습니다. 선택된 경우 다음 단계를 완료합니다.
 
@@ -100,7 +95,7 @@ Azure SQL Database 서버/Managed Instance에서 호스팅된 SSIS 카탈로그(
 
       :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="설정 탭의 속성 설정 - 수동":::
 
-##### <a name="package-location-file-system-package"></a>패키지 위치: 파일 시스템(패키지)
+#### <a name="package-location-file-system-package"></a>패키지 위치: 파일 시스템(패키지)
 
 SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동으로 **파일 시스템(패키지)** 으로 선택되며, 직접 선택할 수도 있습니다. 선택된 경우 다음 단계를 완료합니다.
 
@@ -130,7 +125,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
    
 앞에서 언급한 모든 UNC 경로에 대해 정규화된 파일 이름은 260자 미만이어야 합니다. 디렉터리 이름은 248자 미만이어야 합니다.
 
-##### <a name="package-location-file-system-project"></a>패키지 위치: 파일 시스템(프로젝트)
+#### <a name="package-location-file-system-project"></a>패키지 위치: 파일 시스템(프로젝트)
 
 패키지 위치로 **파일 시스템(프로젝트)** 을 선택한 경우 다음 단계를 완료합니다.
 
@@ -158,7 +153,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
    
 앞에서 언급한 모든 UNC 경로에 대해 정규화된 파일 이름은 260자 미만이어야 합니다. 디렉터리 이름은 248자 미만이어야 합니다.
 
-##### <a name="package-location-embedded-package"></a>패키지 위치: 포함된 패키지
+#### <a name="package-location-embedded-package"></a>패키지 위치: 포함된 패키지
 
 패키지 위치로 **포함된 패키지** 를 선택한 경우 다음 단계를 완료합니다.
 
@@ -186,7 +181,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
    
 앞에서 언급한 모든 UNC 경로에 대해 정규화된 파일 이름은 260자 미만이어야 합니다. 디렉터리 이름은 248자 미만이어야 합니다.
 
-##### <a name="package-location-package-store"></a>패키지 위치: 패키지 저장소
+#### <a name="package-location-package-store"></a>패키지 위치: 패키지 저장소
 
 패키지 위치로 **패키지 저장소** 를 선택한 경우 다음 단계를 완료합니다.
 
@@ -218,7 +213,7 @@ SSISDB 없이 Azure-SSIS IR이 프로비전된 경우 패키지 위치가 자동
    
 앞에서 언급한 모든 UNC 경로에 대해 정규화된 파일 이름은 260자 미만이어야 합니다. 디렉터리 이름은 248자 미만이어야 합니다.
 
-#### <a name="ssis-parameters-tab"></a>SSIS 매개 변수 탭
+### <a name="ssis-parameters-tab"></a>SSIS 매개 변수 탭
 
 SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 다음 단계를 완료합니다.
 
@@ -232,7 +227,7 @@ SSIS 패키지 실행 작업의 **SSIS 매개 변수** 탭에서 다음 단계�
 
 또는 Azure Key Vault에 저장된 비밀을 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택합니다. 기존 키 자격 증명 모음 연결된 서비스를 선택 또는 편집하거나 새로 만듭니다. 그런 다음 값에 대한 비밀 이름 및 버전을 선택합니다. 키 자격 증명 모음 연결된 서비스를 만들거나 편집할 때 기존 키 자격 증명 모음을 선택 또는 편집하거나 새 키 자격 증명 모음을 만들 수 있습니다. 아직 수행하지 않은 경우 키 자격 증명 모음에 대한 Data Factory 관리 ID 액세스 권한을 부여해야 합니다. `<key vault linked service name>/<secret name>/<secret version>` 형식으로 비밀을 직접 입력할 수도 있습니다. 
 
-#### <a name="connection-managers-tab"></a>연결 관리자 탭
+### <a name="connection-managers-tab"></a>연결 관리자 탭
 
 SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 완료합니다.
 
@@ -256,7 +251,7 @@ SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 다음 단계를 
 
 또는 Azure Key Vault에 저장된 비밀을 해당 값으로 사용할 수 있습니다. 이렇게 하려면 옆에 있는 **AZURE KEY VAULT** 확인란을 선택합니다. 기존 키 자격 증명 모음 연결된 서비스를 선택 또는 편집하거나 새로 만듭니다. 그런 다음 값에 대한 비밀 이름 및 버전을 선택합니다. 키 자격 증명 모음 연결된 서비스를 만들거나 편집할 때 기존 키 자격 증명 모음을 선택 또는 편집하거나 새 키 자격 증명 모음을 만들 수 있습니다. 아직 수행하지 않은 경우 키 자격 증명 모음에 대한 Data Factory 관리 ID 액세스 권한을 부여해야 합니다. `<key vault linked service name>/<secret name>/<secret version>` 형식으로 비밀을 직접 입력할 수도 있습니다. 
 
-#### <a name="property-overrides-tab"></a>속성 재정의 탭
+### <a name="property-overrides-tab"></a>속성 재정의 탭
 
 SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 다음 단계를 완료합니다.
 
@@ -288,7 +283,7 @@ SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 다음 단계를 
 
 Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택합니다. 
 
-### <a name="run-the-pipeline"></a>파이프라인 실행
+## <a name="run-the-pipeline"></a>파이프라인 실행
 이 단계에서는 파이프라인 실행을 트리거합니다. 
 
 1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거** 를 선택하고 **지금 트리거** 를 선택합니다. 
@@ -297,7 +292,7 @@ Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택�
 
 2. **파이프라인 실행** 창에서 **마침** 을 선택합니다. 
 
-### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
+## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: **실행 시작** 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
 
@@ -319,402 +314,10 @@ Data Factory에 파이프라인을 게시하려면 **모두 게시** 를 선택�
 
    :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="실행 ID를 가져옵니다.":::
 
-### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
+## <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
 
 또한 파이프라인이 일정대로(예: 시간별, 일별) 실행되도록 파이프라인에 대해 예약된 트리거를 만들 수도 있습니다. 예를 들어 [데이터 팩터리 만들기 - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
 
-## <a name="run-a-package-with-powershell"></a>PowerShell을 사용하여 패키지 실행
-이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 Data Factory 파이프라인을 만듭니다. 
-
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 단계별 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
-
-### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Azure-SSIS IR를 사용하여 데이터 팩터리 만들기
-이미 Azure-SSIS IR 프로비전된 기존 데이터 팩터리를 사용하거나 Azure-SSIS IR을 사용하여 새 데이터 팩터리를 만들 수 있습니다. [자습서: PowerShell을 통해 Azure에 SSIS 패키지 배포](./tutorial-deploy-ssis-packages-azure-powershell.md)의 단계별 지침을 따릅니다.
-
-### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기 
-이 단계에서는 SSIS 패키지 실행 작업으로 파이프라인을 만듭니다. 이 작업은 SSIS 패키지를 실행합니다. 
-
-1. 다음 예제와 비슷한 내용이 포함된 `RunSSISPackagePipeline.json`이라는 JSON 파일을 `C:\ADF\RunSSISPackage` 폴더에 만듭니다.
-
-   > [!IMPORTANT]
-   > 파일을 저장하기 전에 개체 이름, 설명 및 경로, 속성 또는 매개 변수 값, 암호 및 기타 변수 값을 바꿉니다. 
-    
-   ```json
-   {
-       "name": "RunSSISPackagePipeline",
-       "properties": {
-           "activities": [{
-               "name": "MySSISActivity",
-               "description": "My SSIS package/activity description",
-               "type": "ExecuteSSISPackage",
-               "typeProperties": {
-                   "connectVia": {
-                       "referenceName": "MyAzureSSISIR",
-                       "type": "IntegrationRuntimeReference"
-                   },
-                   "executionCredential": {
-                       "domain": "MyExecutionDomain",
-                       "username": "MyExecutionUsername",
-                       "password": {
-                           "type": "SecureString",
-                           "value": "MyExecutionPassword"
-                       }
-                   },
-                   "runtime": "x64",
-                   "loggingLevel": "Basic",
-                   "packageLocation": {
-                       "type": "SSISDB",
-                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx"
-                   },
-                   "environmentPath": "MyFolder/MyEnvironment",
-                   "projectParameters": {
-                       "project_param_1": {
-                           "value": "123"
-                       },
-                       "project_param_2": {
-                           "value": {
-                               "value": "@pipeline().parameters.MyProjectParameter",
-                               "type": "Expression"
-                           }
-                       }
-                   },
-                   "packageParameters": {
-                       "package_param_1": {
-                           "value": "345"
-                       },
-                       "package_param_2": {
-                           "value": {
-                               "type": "AzureKeyVaultSecret",
-                               "store": {
-                                   "referenceName": "myAKV",
-                                   "type": "LinkedServiceReference"
-                               },
-                               "secretName": "MyPackageParameter"
-                           }
-                       }
-                   },
-                   "projectConnectionManagers": {
-                       "MyAdonetCM": {
-                           "username": {
-                               "value": "MyConnectionUsername"
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "SecureString",
-                                   "value": "MyConnectionPassword"
-                               }
-                           }
-                       }
-                   },
-                   "packageConnectionManagers": {
-                       "MyOledbCM": {
-                           "username": {
-                               "value": {
-                                   "value": "@pipeline().parameters.MyConnectionUsername",
-                                   "type": "Expression"
-                               }
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyConnectionPassword",
-                                   "secretVersion": "MyConnectionPasswordVersion"
-                               }
-                           }
-                       }
-                   },
-                   "propertyOverrides": {
-                       "\\Package.MaxConcurrentExecutables": {
-                           "value": 8,
-                           "isSensitive": false
-                       }
-                   }
-               },
-               "policy": {
-                   "timeout": "0.01:00:00",
-                   "retry": 0,
-                   "retryIntervalInSeconds": 30
-               }
-           }]
-       }
-   }
-   ```
-
-   파일 시스템/Azure Files에 저장된 패키지를 실행하려면 다음과 같이 패키지 및 로그 위치 속성에 대한 값을 입력합니다.
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   },
-                   "logLocation": {
-                       "type": "File",
-                       "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
-                       "typeProperties": {
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   파일 시스템/Azure Files에 저장된 프로젝트 내에 있는 패키지를 실행하려면 다음과 같이 패키지 위치 속성에 대한 값을 입력합니다.
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   포함된 패키지를 실행하려면 다음과 같이 패키지 위치 속성에 대한 값을 입력합니다.
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "InlinePackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "packageName": "MyPackage.dtsx",
-                           "packageContent":"My compressed/uncompressed package content",
-                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   패키지 저장소에 저장된 패키지를 실행하려면 다음과 같이 패키지 및 구성 위치 속성에 대한 값을 입력합니다.
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "PackageStore",
-                       "packagePath": "myPackageStore/MyFolder/MyPackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           },
-                           "configurationPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyConfiguration.dtsConfig",
-                           "configurationAccessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-2. Azure PowerShell에서 `C:\ADF\RunSSISPackage` 폴더로 전환합니다.
-
-3. **RunSSISPackagePipeline** 파이프라인을 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
-
-   ```powershell
-   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                                  -ResourceGroupName $ResGrp.ResourceGroupName `
-                                                  -Name "RunSSISPackagePipeline"
-                                                  -DefinitionFile ".\RunSSISPackagePipeline.json"
-   ```
-
-   샘플 출력은 다음과 같습니다.
-
-   ```
-   PipelineName      : Adfv2QuickStartPipeline
-   ResourceGroupName : <resourceGroupName>
-   DataFactoryName   : <dataFactoryName>
-   Activities        : {CopyFromBlobToBlob}
-   Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
-   ```
-
-### <a name="run-the-pipeline"></a>파이프라인 실행
-**Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 파이프라인을 실행합니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
-
-```powershell
-$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                             -ResourceGroupName $ResGrp.ResourceGroupName `
-                                             -PipelineName $DFPipeLine.Name
-```
-
-### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
-
-다음 PowerShell 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다. PowerShell 창에서 다음 스크립트를 복사 또는 붙여넣기하고 Enter 키를 누릅니다. 
-
-```powershell
-while ($True) {
-    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
-                                               -DataFactoryName $DataFactory.DataFactoryName `
-                                               -PipelineRunId $RunId
-
-    if ($Run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
-            $Run
-            break
-        }
-        Write-Output  "Pipeline is running...status: InProgress"
-    }
-
-    Start-Sleep -Seconds 10
-}   
-```
-
-Azure Portal을 사용하여 파이프라인을 모니터링할 수도 있습니다. 단계별 지침은 [파이프라인 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
-
-### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
-이전 단계에서는 파이프라인을 주문형으로 실행했습니다. 일정 트리거를 만들어 파이프라인을 예약형으로 실행할 수도 있습니다(예: 시간별, 일별).
-
-1. 다음과 같은 콘텐츠가 포함된 `MyTrigger.json` JSON 파일을 `C:\ADF\RunSSISPackage` 폴더에 만듭니다. 
-        
-   ```json
-   {
-       "properties": {
-           "name": "MyTrigger",
-           "type": "ScheduleTrigger",
-           "typeProperties": {
-               "recurrence": {
-                   "frequency": "Hour",
-                   "interval": 1,
-                   "startTime": "2017-12-07T00:00:00-08:00",
-                   "endTime": "2017-12-08T00:00:00-08:00"
-               }
-           },
-           "pipelines": [{
-               "pipelineReference": {
-                   "type": "PipelineReference",
-                   "referenceName": "RunSSISPackagePipeline"
-               },
-               "parameters": {}
-           }]
-       }
-   }    
-   ```
-    
-1. Azure PowerShell에서 `C:\ADF\RunSSISPackage` 폴더로 전환합니다.
-1. **Set-AzDataFactoryV2Trigger** cmdlet을 실행하여 트리거를 만듭니다. 
-
-   ```powershell
-   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                   -DataFactoryName $DataFactory.DataFactoryName `
-                                   -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
-   ```
-1. 기본적으로 트리거는 중지된 상태입니다. **Start-AzDataFactoryV2Trigger** cmdlet을 실행하여 트리거를 시작합니다. 
-
-   ```powershell
-   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                     -DataFactoryName $DataFactory.DataFactoryName `
-                                     -Name "MyTrigger" 
-   ```
-1. **Get-AzDataFactoryV2Trigger** cmdlet을 실행하여 트리거가 시작되었는지 확인합니다. 
-
-   ```powershell
-   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
-                                   -DataFactoryName $DataFactoryName `
-                                   -Name "MyTrigger"     
-   ```    
-1. 한 시간 후에 다음 명령을 실행합니다. 예를 들어 현재 시간이 오후 3:25(UTC)인 경우 오후 4시(UTC)에 명령을 실행합니다. 
-    
-   ```powershell
-   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
-                                      -DataFactoryName $DataFactoryName `
-                                      -TriggerName "MyTrigger" `
-                                      -TriggerRunStartedAfter "2017-12-06" `
-                                      -TriggerRunStartedBefore "2017-12-09"
-   ```
-
-   SQL 서버의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인합니다. 
-
-   ```sql
-   select * from catalog.executions
-   ```
-
 ## <a name="next-steps"></a>다음 단계
-다음 블로그 게시물을 참조하십시오.
+- [PowerShell을 사용 하 여 Azure Data Factory에서 SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지를 실행 합니다.](how-to-invoke-ssis-package-ssis-activity-powershell.md)
 - [Azure Data Factory 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

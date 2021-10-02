@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 09/09/2021
-ms.openlocfilehash: f1b4efafd7868d4c42528ce7de5eae56051dcb83
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 710f730278d535565007369cdd1ca97d8787aeb2
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736658"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352096"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1005,9 +1005,7 @@ base64ToBinary('<value>')
 base64ToBinary('aGVsbG8=')
 ```
 
-그리고 다음 결과를 반환합니다.
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+예를 들어 HTTP 작업을 사용하여 요청을 보내는 경우를 가정해 보겠습니다. 를 사용하여 `base64ToBinary()` base64로 인코딩된 문자열을 이진 데이터로 변환하고 요청의 콘텐츠 형식을 사용하여 해당 데이터를 보낼 수 `application/octet-stream` 있습니다.
 
 <a name="base64ToString"></a>
 
@@ -1065,6 +1063,7 @@ binary('<value>')
 *예제*
 
 예를 들어 이미지 또는 동영상 파일을 반환하는 HTTP 작업을 사용하고 있습니다. `binary()`를 사용하여 값을 base-64로 인코딩된 콘텐츠 봉투 모델로 변환할 수 있습니다. 그런 다음 `Compose`와 같은 다른 작업에서 콘텐츠 봉투를 다시 사용할 수 있습니다.
+이 함수 식을 사용하여 요청에서 콘텐츠 형식이 있는 문자열 바이트를 보낼 수 `application/octet-stream` 있습니다.
 
 <a name="body"></a>
 
@@ -1277,7 +1276,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft Windows 기본 표준 시간대](/windows-hardware/manufacture/desktop/default-time-zones)를 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 Microsoft [Windows 기본 표준 시간대 를 검토하세요.](/windows-hardware/manufacture/desktop/default-time-zones) |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss.fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -1916,12 +1915,12 @@ float('<value>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 있는 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
+| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 포함 된 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | 지정된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
+| <*float-value*> | Float | 지정 된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
 ||||
 
 *예제*

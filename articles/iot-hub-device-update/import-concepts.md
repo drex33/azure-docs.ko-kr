@@ -6,26 +6,18 @@ ms.author: andbrown
 ms.date: 2/10/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d01aa7f81d954183fcf487985e887bc81fa6c70c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 07e5b78b5ae9029ed4ab33f37e35105dfb5e5f26
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638655"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358405"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub"></a>Device Update for IoT Hub로 업데이트 가져오기
 Device Update for IoT Hub에서 디바이스에 업데이트를 배포하려면 먼저 해당 업데이트를 디바이스 업데이트 서비스로 _가져와야 합니다_. 다음은 업데이트를 가져올 때 이해해야 할 몇 가지 중요한 개념에 대한 개요입니다.
 
 ## <a name="limits-on-importing-updates"></a>업데이트 가져오기 제한
-각 Device Update for IoT Hub 인스턴스의 경우 다음 제한이 적용됩니다.
-
-* ADU 인스턴스당 5개의 공급자
-* 공급자당 5개의 이름
-* 이름당 25가지 버전
-
-또한 누적 업데이트 버전은 모든 공급자 및 이름에 걸쳐 100개로 제한됩니다.
-
-허용되는 최대 파일 크기는 업데이트 제출의 개별 파일에 대해 2GB입니다. 하나의 업데이트 제출에 있는 모든 파일의 _결합된_ 합계도 2GB를 초과하지 않아야 합니다.
+IoT Hub 인스턴스의 각 디바이스 업데이트에 대해 특정 제한이 적용됩니다. 아직 검토하지 않은 경우 [디바이스 업데이트 제한을 참조하세요.](./device-update-limits.md)
 
 ## <a name="import-manifest"></a>매니페스트 가져오기
 

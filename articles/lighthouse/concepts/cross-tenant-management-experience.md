@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: c57afabe5f3aaf49ef1f1868c04c60af4298381d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: a6ad75df4e22f56c8bcb0f28586c736fc6b04a49
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440913"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349791"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -101,7 +101,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 - [로그 분석:](../../azure-monitor/logs/service-providers.md)여러 테넌트에서 원격 작업 영역에서 데이터를 쿼리합니다(고객 테넌트의 작업 영역에서 데이터에 액세스하는 데 사용되는 자동화 계정은 동일한 테넌트에서 만들어야 함).
 - 고객 테넌트에서 [메트릭 알림](../../azure-monitor/alerts/alerts-metric.md), [로그 알림](../../azure-monitor/alerts/alerts-log.md) 및 [활동 로그 알림](../../azure-monitor/alerts/alerts-activity-log.md) 생성, 보기 및 관리
 - 웹 후크를 통해 관리 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
-- 고객 테넌트에서 [진단 설정](../..//azure-monitor/essentials/diagnostic-settings.md)을 만들어 관리 테넌트의 작업 영역으로 리소스 로그를 보냅니다.
+- 고객 테넌트에서 만든 작업 영역에서 [진단 설정을](../..//azure-monitor/essentials/diagnostic-settings.md) 만들어 관리 테넌트에서 작업 영역으로 리소스 로그 보내기
 - SAP 워크로드의 경우 [고객 테넌트 전체에서 집계된 보기를 사용하여 SAP 솔루션 메트릭을 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)합니다.
 
 [Azure 네트워킹](../../networking/fundamentals/networking-overview.md):

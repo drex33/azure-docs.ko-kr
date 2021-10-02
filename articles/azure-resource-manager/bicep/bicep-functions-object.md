@@ -4,13 +4,13 @@ description: Bicep 파일에서 개체 작업에 사용하는 함수에 대해 �
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 38dfdee2dbe40b40631b45b8d0f9e157f5efc7ae
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758449"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349844"
 ---
 # <a name="object-functions-for-bicep"></a>Bicep에 대한 개체 함수
 
@@ -22,9 +22,11 @@ ms.locfileid: "124758449"
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -75,9 +77,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -113,9 +117,11 @@ output stringEmpty bool = empty(testString)
 
 매개 변수에서 공통 요소를 갖는 단일 배열 또는 개체를 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -169,9 +175,11 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 유효한 JSON 문자열을 JSON 데이터 형식으로 변환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열이어야 합니다. |
 
@@ -223,9 +231,11 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 배열의 요소 수, 문자열의 문자 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -273,9 +283,11 @@ output objectLength int = length(objectToTest)
 
 매개 변수의 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 중복된 값 또는 키는 한 번만 포함됩니다.
 
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |

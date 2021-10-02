@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 1ad358c428f80e2e8bebcecf73cc89ddd5c37bc7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: ce91f89e8974517d56aa7f1de55d01b9353106e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454425"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358569"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Media Services에서 BYOK(Bring Your Own Key) 또는 고객 관리형 키 사용
 
@@ -21,7 +21,7 @@ BYOK(Bring Your Own Key)는 고객이 워크로드를 클라우드로 이동할 
 
 ## <a name="keys-and-key-management"></a>키 및 키 관리
 
-Media Services 2020-05-01 API를 사용하는 경우 Media Services에 고유한 키를 사용할 수 있습니다. Media Services 소유의 시스템 키로 암호화된 모든 계정에 대해 기본 계정 키가 생성됩니다. 사용자 고유의 키를 사용하는 경우 계정 키는 사용자 키로 암호화됩니다. 콘텐츠 키는 계정 키에 의해 암호화됩니다. JobInputHttp URL 및 대칭 토큰 유효성 검사 키도 암호화됩니다.
+Media Services 2020-05-01 이상 API를 사용하는 경우 Media Services 사용자 고유의 키를 사용할 수 있습니다. Media Services 소유의 시스템 키로 암호화된 모든 계정에 대해 기본 계정 키가 생성됩니다. 사용자 고유의 키를 사용하는 경우 계정 키는 사용자 키로 암호화됩니다. 콘텐츠 키는 계정 키에 의해 암호화됩니다. JobInputHttp URL 및 대칭 토큰 유효성 검사 키도 암호화됩니다.
 
 :::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" alt-text="고객 관리형 키가 시스템 관리 키를 대체합니다.":::
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 1c894c6162a8c9e24794f5c52ce1f6cefb6fa85a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c1352fe61b8a663371719100aa86806da0791f20
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563710"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359355"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -104,7 +104,7 @@ ms.locfileid: "128563710"
 
 HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 유형 | 설명 |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -128,19 +128,19 @@ HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 �
 
 단일 테넌트 Azure Logic Apps에 **Logic App(표준)** 리소스가 있고 다음 인증 유형과 함께 HTTP 작업을 사용하려는 경우 해당 인증 유형에 대한 추가 설정 단계를 완료해야 합니다. 그러지 않으면 호출이 실패합니다.
 
-* [TSL/SSL 인증서](#tsl-ssl-certificate-authentication): 앱 설정(`WEBSITE_LOAD_ROOT_CERTIFICATES`)을 추가하고 TSL/SSL 인증서의 지문을 제공합니다.
+* [Tls/ssl 인증서](#tls-ssl-certificate-authentication): 앱 설정인 `WEBSITE_LOAD_ROOT_CERTIFICATES` 를 추가 하 고 TLS/ssl 인증서에 대 한 지문 지문을 제공 합니다.
 
 * ["인증서" 자격 증명 유형이 있는 클라이언트 인증서 또는 Azure AD OAuth(Azure Active Directory Open Authentication)](#client-certificate-authentication): 앱 설정(`WEBSITE_LOAD_USER_PROFILE`)을 추가하고 값을 `1`로 설정합니다.
 
-<a name="tsl-ssl-certificate-authentication"></a>
+<a name="tls-ssl-certificate-authentication"></a>
 
-### <a name="tslssl-certificate-authentication"></a>TSL/SSL 인증서 인증
+### <a name="tlsssl-certificate-authentication"></a>TLS/SSL 인증서 인증
 
 1. 논리 앱 리소스의 앱 설정에서 [앱 설정을 추가 또는 업데이트](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)(`WEBSITE_LOAD_ROOT_CERTIFICATES`)합니다.
 
-1. 설정 값의 경우 신뢰할 수 있는 루트 인증서로 TSL/SSL 인증서에 대한 지문을 제공합니다.
+1. 설정 값의 경우 TLS/SSL 인증서의 지문을 신뢰할 수 있는 루트 인증서로 제공합니다.
 
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>"`
 
 예를 들어 Visual Studio Code 작업하는 경우 다음 단계를 수행합니다.
 
@@ -154,7 +154,7 @@ HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 �
       "Values": {
          <...>
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>",
          <...>
       }
    }
@@ -256,7 +256,7 @@ HTTP 요청에 대해 form-urlencoded 데이터를 본문에 제공하려면 `ap
 
 ## <a name="asynchronous-request-response-behavior"></a>비동기 요청-응답 동작
 
-다중 테넌트 및 단일 테넌트 Azure Logic Apps *상태 비저장* 워크플로의 경우 모든 HTTP 기반 작업은 기본 동작으로 표준 [비동기 작업 패턴을](/azure/architecture/patterns/async-request-reply) 따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 `location` 수신자가 처리를 중지하고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 기타 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정하는 헤더가 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
+다중 테넌트 및 단일 테넌트 Azure Logic Apps *상태 비저장* 워크플로의 경우 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴을](/azure/architecture/patterns/async-request-reply) 기본 동작으로 따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 `location` 수신자가 처리를 중지하고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 기타 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정하는 헤더가 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
 
 단일 테넌트 Azure Logic Apps *상태 비동기* 워크플로의 경우 HTTP 기반 작업은 비동기 작업 패턴을 사용하지 않습니다. 대신 동기적으로만 [실행되고,"202 수락됨"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 있는 그대로 반환하고 워크플로 실행의 다음 단계를 진행합니다. 응답에 헤더가 포함된 경우 `location` 상태 비지정 워크플로는 상태를 확인하기 위해 지정된 URI를 폴링하지 않습니다. 표준 [비동기 작업 패턴을](/azure/architecture/patterns/async-request-reply)따르려면 상태 비동기 워크플로를 대신 사용합니다.
 
@@ -311,7 +311,7 @@ HTTP 요청에는 [제한 시간 제한](../logic-apps/logic-apps-limits-and-con
 
 ### <a name="set-up-interval-between-retry-attempts-with-the-retry-after-header"></a>Retry-After 헤더를 사용하여 재시도 간격 설정
 
-다시 시도 사이의 시간(초)을 지정하려면 HTTP 작업 응답에 헤더를 추가할 수 `Retry-After` 있습니다. 예를 들어 대상 엔드포인트가 상태 코드를 반환하는 경우 `429 - Too many requests` 재시도 사이에 더 긴 간격을 지정할 수 있습니다. `Retry-After`헤더는 `202 - Accepted` 상태 코드에서도 작동합니다.
+재시도 사이의 시간(초)을 지정하려면 HTTP 작업 응답에 헤더를 추가할 수 `Retry-After` 있습니다. 예를 들어 대상 엔드포인트가 상태 코드를 반환하는 경우 `429 - Too many requests` 재시도 사이에 더 긴 간격을 지정할 수 있습니다. `Retry-After`헤더는 `202 - Accepted` 상태 코드에서도 작동합니다.
 
 다음은 를 포함하는 HTTP 작업 응답을 보여 주는 동일한 `Retry-After` 예제입니다.
 

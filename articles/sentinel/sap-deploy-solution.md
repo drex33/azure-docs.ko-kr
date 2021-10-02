@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a255a91c53df1a286559bf388800eb34c9fc27e7
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7b6f68eea2c177ad4e6776723ae0387c0e0da6a1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274181"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361835"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -293,23 +293,13 @@ Azure Sentinel 작업 영역에 SAP 관련 관심 목록을 수동으로 추가�
 
 Docker 컨테이너가 이전 버전의 SAP 데이터 커넥터에서 이미 실행되고 있으면 SAP 데이터 커넥터 업데이트 스크립트를 실행하여 사용 가능한 최신 기능을 가져옵니다.
 
-1. Azure Sentinel github 리포지토리에서 최신 버전의 관련 배포 스크립트를 사용해야 합니다. 다음을 실행합니다.
+Azure Sentinel github 리포지토리에서 최신 버전의 관련 배포 스크립트를 사용해야 합니다. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+다음을 실행합니다.
 
-1. SAP 데이터 커넥터 머신에서 다음 명령을 실행합니다.
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Docker 컨테이너 다시 시작:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 머신의 SAP 데이터 커넥터 Docker 컨테이너가 업데이트됩니다. 
 

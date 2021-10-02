@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하여
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 2b839350b8f993d107bce67266600d2f4b2386fd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 0f4e364cd3de9093b84e3ae02c4337361985959a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217375"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350980"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -176,6 +176,13 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 ## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>계획된 유지 관리와 함께 클러스터 자동 업그레이드 사용
 
 계획된 유지 관리 및 자동 업그레이드를 사용하는 경우 지정된 유지 관리 기간 동안 업그레이드가 시작됩니다. 계획된 유지 관리에 대한 자세한 내용은 [계획된 유지 관리를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 유지 관리 기간 예약(미리 보기)][planned-maintenance]을 참조하세요.
+
+## <a name="special-considerations-for-node-pools-that-span-multiple-availability-zones"></a>여러 가용성 영역 확장 된 노드 풀에 대 한 특별 고려 사항
+
+AKS은 노드 그룹에서 최상의 영역 분산을 사용 합니다. 업그레이드 서 수 동안 VMSS의 서 수 노드에 대 한 영역을 미리 알 수 없습니다. 이로 인해 업그레이드 중에 불균형 영역 구성이 일시적으로 발생할 수 있습니다. 그러나 AKS는 업그레이드가 완료 되 면 서 수 노드를 삭제 하 고 원래 영역 잔액을 유지 합니다. 업그레이드 하는 동안 영역을 균형 있게 유지 하려면 3 개 노드의 배수로 서 수를 늘립니다. 그런 다음 VMSS는 최상의 영역 분산을 사용 하 여 가용성 영역에서 노드를 분산 시킵니다.
+
+Azure LRS 디스크에 의해 지원 되는 Pvc가 있는 경우 특정 영역에 바인딩되고, 서 지 노드가 PVC 영역과 일치 하지 않는 경우 즉시 복구 되지 않을 수 있습니다. 이로 인해 업그레이드 작업에서 노드가 드레이닝 될 때 응용 프로그램이 가동 중지 될 수 있지만 PVs는 영역에 바인딩됩니다. 이러한 사례를 처리 하 고 고가용성을 유지 하려면 응용 프로그램에 대 한 [Pod 중단 예산을](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) 구성 합니다. 이렇게 하면 업그레이드의 드레이닝 작업 중에 Kubernetes에서 가용성 요구 사항을 준수할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

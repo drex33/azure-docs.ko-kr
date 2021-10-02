@@ -4,15 +4,15 @@ description: Azure 디스크 풀을 배포하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f0f648f7f8c04aeb6ed97a0c58fa157e743da5f1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 72a25b6bc51732ac9b598cbcb6b45f9ac84fc21b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436973"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351060"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Azure 디스크 풀(미리 보기) 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "114436973"
 
 Azure PowerShell 모듈을 사용하려면 [버전 6.1.0 이상](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true)을 설치하세요.
 
-Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool?view=azure-cli-latest)을 설치하세요.
+Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool)을 설치하세요.
 
 ## <a name="register-your-subscription-for-the-preview"></a>미리 보기 구독 등록
 
@@ -71,7 +71,7 @@ Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool?view=azure-cli
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 디스크를 포함하는 리소스 그룹 또는 각 디스크 자체를 검색하여 선택합니다.
 1. **액세스 제어(IAM)** 를 선택합니다.
-1. **역할 할당 추가(미리 보기)** 를 선택하고, 목록에서 **가상 머신 기여자** 를 선택합니다.
+1. **역할 할당 추가(미리 보기)** 를 선택하고 역할 목록에서 **디스크 풀 운영자를** 선택합니다.
 
     원한다면 고유의 사용자 지정 역할을 만들 수도 있습니다. 디스크 풀의 사용자 지정 역할이 작동하려면 **Microsoft.Compute/disks/write** 및 **Microsoft.Compute/disks/read** RBAC 권한이 있어야 합니다.
 

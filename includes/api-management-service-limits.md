@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/20/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: d3317bafa2ff03e83bd79e9a3efa0ecfaffd4124
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 43358ec8c79e09d0701a098a2bd992f2cee8b23f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122752843"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378224"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -49,4 +49,4 @@ ms.locfileid: "122752843"
 <sup>8</sup>이 제한은 소비 계층에만 적용됩니다. 이러한 범주에는 다른 계층에 대한 제한이 없습니다.<br/>
 <sup>9</sup>소비 계층에만 적용됩니다. 최대 2,048바이트 길이의 쿼리 문자열을 포함합니다.<br/>
 <sup>10</sup> 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요.<br/>
-<sup>11</sup> 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2020-06-01-preview/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.
+<sup>11</sup> 자체 호스팅 게이트웨이는 개발자 및 프리미엄 계층에서만 지원됩니다. 이 제한은 [자체 호스팅 게이트웨이 리소스](/rest/api/apimanagement/2021-04-01-preview/gateway)의 수에 적용됩니다. 이 제한을 늘리려면 [지원](https://azure.microsoft.com/support/options/)에 문의하세요. 자체 호스팅 게이트웨이 리소스와 연결된 노드(또는 복제본)의 수는 프리미엄 계층에서 무제한이며, 개발자 계층에서는 단일 노드로 제한됩니다.

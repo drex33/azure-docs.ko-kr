@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
 ms.custom: devx-track-js
-ms.openlocfilehash: b43c0da3303b4cdfd4941f9d76b663f8089a1417
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 1d7fc134ab6e3c27e38b00f61a2463bc9d3d0167
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104428"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378184"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 다른 언어로 번역하는 기능입니다. 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성 번역을 수행하는 방법을 알아봅니다. 이 빠른 시작에서는 다음 토픽을 다룹니다.
 
@@ -29,9 +29,8 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
 작업을 수행하려면 먼저 <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript용 Speech SDK</a>를 설치해야 합니다. 사용하는 플랫폼에 따라 다음 중 적절한 지침을 따릅니다.
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">웹 브라우저 </a>
+- [Node.JS](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
+- [웹 브라우저](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
 
 또한 대상 환경에 따라 다음 중 하나를 사용합니다.
 

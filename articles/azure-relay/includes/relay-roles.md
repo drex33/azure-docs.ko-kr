@@ -4,12 +4,12 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 07/19/2021
 ms.author: spelluru
-ms.openlocfilehash: e4fd2d455a294b247353e4983c379066d704c87a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 43550a98e5df6c58214427a989e290b3c69ab338
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802201"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378493"
 ---
 ## <a name="overview"></a>개요
 보안 주체(사용자, 그룹, 애플리케이션)가 Relay 엔터티에 액세스하려고 하는 경우 요청에 권한이 부여되어야 합니다. Azure AD의 경우 리소스에 대한 액세스는 2단계 프로세스입니다.
@@ -23,8 +23,8 @@ Azure Relay의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네�
 | 역할 | 설명 | 
 | ---- | ----------- | 
 | [Azure Relay 소유자](../../role-based-access-control/built-in-roles.md#azure-relay-owner) | 이 역할을 사용하여 Azure Relay 리소스에 대한 **전체** 액세스 권한을 부여합니다. |
-| [Azure Relay 수신기](../../role-based-access-control/built-in-roles.md#azure-relay-listener) | 이 역할을 사용하여 Azure Relay 리소스에 대한 **수신 대기 및 엔터티 읽기** 액세스 권한을 부여합니다. |
-| [Azure Relay 보낸 사람](../../role-based-access-control/built-in-roles.md#azure-relay-sender) | 이 역할을 사용하여 Azure Relay 리소스에 대한 **보내기 및 엔터티 읽기** 액세스 권한을 부여합니다. | 
+| [Azure Relay 수신자](../../role-based-access-control/built-in-roles.md#azure-relay-listener) | 이 역할을 사용하여 Azure Relay 리소스에 대한 **수신 대기 및 엔터티 읽기** 액세스 권한을 부여합니다. |
+| [Azure Relay 발신자](../../role-based-access-control/built-in-roles.md#azure-relay-sender) | 이 역할을 사용하여 Azure Relay 리소스에 대한 **보내기 및 엔터티 읽기** 액세스 권한을 부여합니다. | 
 
 ## <a name="resource-scope"></a>리소스 범위
 Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여해야 하는 액세스 범위를 결정합니다. 모범 사례에 따르면 항상 가능한 가장 좁은 범위만 부여하는 것이 가장 좋습니다.
@@ -37,5 +37,5 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 - **구독**: 역할 할당이 구독의 모든 리소스 그룹에 있는 모든 Relay 리소스에 적용됩니다.
 
 > [!NOTE]
-> Azure 역할 할당을 전파하는 데 최대 5분이 걸릴 수 있음에 유의하세요. 기본 제공 역할이 정의되는 방법에 대한 자세한 내용은 [역할 정의 이해](../../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요. 
+> Azure 역할 할당을 전파하는 데 최대 5분이 걸릴 수 있음에 유의하세요. 기본 제공 역할이 정의되는 방법에 대한 자세한 내용은 [역할 정의 이해](../../role-based-access-control/role-definitions.md#control-and-data-actions)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요. 
 

@@ -194,6 +194,8 @@
           href: event-driven-scaling.md
         - name: 안정적인 이벤트 처리
           href: functions-reliable-event-processing.md
+        - name: 동시성
+          href: functions-concurrency.md
         - name: 동일한 입력을 위한 디자인
           href: functions-idempotent.md
     - name: 트리거 및 바인딩

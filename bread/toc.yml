@@ -761,6 +761,9 @@
             - name: NAT 게이트웨이
               tocHref: /azure/virtual-network/nat-gateway
               topicHref: /azure/virtual-network/nat-gateway
+            - name: IP 서비스
+              tocHref: /azure/virtual-network/ip-services
+              topicHref: /azure/virtual-network/ip-services
         - name: 가상 WAN
           tocHref: /azure/virtual-wan/
           topicHref: /azure/virtual-wan/

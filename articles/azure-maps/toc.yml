@@ -11,6 +11,8 @@
       href: quick-demo-map-app.md
     - name: Android 앱 만들기
       href: quick-android-map.md
+    - name: iOS 앱 만들기
+      href: quick-ios-app.md
 - name: 자습서
   items:
     - name: 웹 SDK 자습서

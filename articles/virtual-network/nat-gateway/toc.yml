@@ -1,79 +1,80 @@
-- name: Virtual Network NAT 설명서
-  href: index.yml
-- name: 개요
-  items:
-    - name: Virtual Network NAT란?
-      href: nat-overview.md
-- name: 자습서
-  items:
-    - name: NAT 게이트웨이 만들기 및 유효성 검사 - Azure Portal
-      href: tutorial-create-nat-gateway-portal.md
-    - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
-      href: tutorial-create-nat-gateway-powershell.md
-    - name: NAT 게이트웨이 만들기 및 유효성 검사 - Azure CLI
-      href: tutorial-create-nat-gateway-cli.md
-    - name: NAT 게이트웨이 만들기 - ARM 템플릿
-      displayname: Resource Manager
-      href: quickstart-create-nat-gateway-template.md
-    - name: NAT 게이트웨이 공용 부하 분산 장치 통합
-      href: tutorial-nat-gateway-load-balancer-public-portal.md
-    - name: NAT 게이트웨이 내부 부하 분산 장치 통합
-      href: tutorial-nat-gateway-load-balancer-internal-portal.md
-  expanded: true
-- name: 개념
-  items:
-    - name: 리소스
-      href: nat-gateway-resource.md
-    - name: 메트릭 및 경고
-      href: nat-metrics.md
-    - name: 보안
-      items:
-        - name: Virtual Network NAT 보안 기준
-          href: nat-security-baseline.md
-- name: 방법
-  items:
-    - name: 문제 해결
-      items:
-        - name: NAT 게이트웨이 문제 해결
-          href: troubleshoot-nat.md
-- name: 참조
-  items:
-    - name: Azure CLI
-      href: /cli/azure/azure-cli-reference-for-network
-    - name: Azure PowerShell
-      href: /powershell/module/az.network
-    - name: .NET
-      href: /dotnet/api/overview/azure/virtual-network
-    - name: Java
-      href: /java/api/
-    - name: Node.js
-      href: /javascript/azure#azure-sdk
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
-      href: /rest/api/virtual-network
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.network/allversions
-    - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md
-- name: 리소스
-  items:
-    - name: Microsoft Learn을 통해 기술 쌓기
-      href: /learn/browse/
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: 네트워킹 블로그
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 네트워킹에 대한 Microsoft Q&A 질문 페이지
-      href: /answers/topics/azure-virtual-network.html
-    - name: 네트워킹 피드백
-      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
+items:
+  - name: Virtual Network NAT 설명서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: Virtual Network NAT란?
+        href: nat-overview.md
+  - name: 자습서
+    items:
+      - name: NAT 게이트웨이 만들기 및 유효성 검사 - Azure Portal
+        href: tutorial-create-nat-gateway-portal.md
+      - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
+        href: tutorial-create-nat-gateway-powershell.md
+      - name: NAT 게이트웨이 만들기 및 유효성 검사 - Azure CLI
+        href: tutorial-create-nat-gateway-cli.md
+      - name: NAT 게이트웨이 만들기 - ARM 템플릿
+        displayName: Resource Manager
+        href: quickstart-create-nat-gateway-template.md
+      - name: NAT 게이트웨이 공용 부하 분산 장치 통합
+        href: tutorial-nat-gateway-load-balancer-public-portal.md
+      - name: NAT 게이트웨이 내부 부하 분산 장치 통합
+        href: tutorial-nat-gateway-load-balancer-internal-portal.md
+    expanded: true
+  - name: 개념
+    items:
+      - name: 리소스
+        href: nat-gateway-resource.md
+      - name: 메트릭 및 경고
+        href: nat-metrics.md
+      - name: 보안
+        items:
+          - name: Virtual Network NAT 보안 기준
+            href: nat-security-baseline.md
+  - name: 방법
+    items:
+      - name: 문제 해결
+        items:
+          - name: NAT 게이트웨이 문제 해결
+            href: troubleshoot-nat.md
+  - name: 참조
+    items:
+      - name: Azure CLI
+        href: /cli/azure/azure-cli-reference-for-network
+      - name: Azure PowerShell
+        href: /powershell/module/az.network
+      - name: .NET
+        href: /dotnet/api/overview/azure/virtual-network
+      - name: Java
+        href: /java/api/
+      - name: Node.js
+        href: /javascript/azure#azure-sdk
+      - name: Python
+        href: 'https://azure.microsoft.com/develop/python/'
+      - name: REST (영문)
+        href: /rest/api/virtual-network
+      - name: Resource Manager 템플릿
+        href: /azure/templates/microsoft.network/allversions
+      - name: 코드 샘플
+        href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+      - name: Azure Policy 기본 제공 기능
+        displayName: 'samples, policies, definitions'
+        href: ../policy-reference.md
+  - name: 리소스
+    items:
+      - name: Microsoft Learn을 통해 기술 쌓기
+        href: /learn/browse/
+      - name: Azure 로드맵
+        href: 'https://azure.microsoft.com/roadmap/?category=networking'
+      - name: 네트워킹 블로그
+        href: 'https://azure.microsoft.com/blog/topics/networking'
+      - name: 네트워킹에 대한 Microsoft Q&A 질문 페이지
+        href: /answers/topics/azure-virtual-network.html
+      - name: 네트워킹 피드백
+        href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+      - name: 요금 계산기
+        href: 'https://azure.microsoft.com/pricing/calculator/'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'

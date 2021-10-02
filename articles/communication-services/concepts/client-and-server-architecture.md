@@ -4,23 +4,22 @@ titleSuffix: An Azure Communication Services concept document
 description: Communication Services 아키텍처에 관해 알아봅니다.
 author: probableprime
 manager: mikben
-services: azure-communication-services
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1346c9f6505c03ccebb2d2e2dc33e899050bfe20
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6d1228ab412ff87f3004e6e1dd5ab1486cee67a0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672023"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360107"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
 이 페이지에서는 여러 Azure Communication Service 시나리오에 포함된 일반적인 아키텍처 구성 요소 및 데이터 흐름을 보여줍니다. 관련 구성 요소는 다음과 같습니다.
 
-1. **클라이언트 애플리케이션.** 이 웹 사이트 또는 네이티브 애플리케이션은 최종 사용자의 커뮤니케이션을 위해 활용됩니다. Azure Communication Services는 여러 브라우저 및 애플리케이션 플랫폼을 위한 [SDK 클라이언트 라이브러리](sdk-options.md)를 제공합니다. 핵심 SDK 외에도 [UI 라이브러리를](https://aka.ms/acsstorybook) 사용하여 브라우저 앱 개발을 가속화할 수 있습니다.
+1. **클라이언트 애플리케이션.** 이 웹 사이트 또는 네이티브 애플리케이션은 최종 사용자의 커뮤니케이션을 위해 활용됩니다. Azure Communication Services는 여러 브라우저 및 애플리케이션 플랫폼을 위한 [SDK 클라이언트 라이브러리](sdk-options.md)를 제공합니다. 핵심 Sdk 외에도 [UI 라이브러리](https://aka.ms/acsstorybook) 를 사용 하 여 브라우저 앱 개발을 가속화할 수 있습니다.
 1. **ID 관리 서비스.**  비즈니스 논리에서 사용자 및 기타 개념을 Azure Communication Services에 매핑하고 필요할 때 사용자에 대해 토큰을 만들기 위해 빌드하는 서비스 기능입니다.
 1. **호출 관리 서비스.**  음성 및 음성 호출을 관리하고 모니터링하기 위해 빌드하는 서비스 기능입니다.  이 서비스는 호출 만들기, 사용자 초대, 전화 번호 호출, 오디오 재생, DMTF 톤 수신을 수행하고, 호출 자동화 SDK 및 REST API를 통해 다른 많은 호출 기능을 활용할 수 있습니다.
 
@@ -85,7 +84,7 @@ Azure Communication Service 애플리케이션은 Teams 호출에 참가할 수 
 
 
 ### <a name="dataflows"></a>데이터 흐름
-1. 호출 관리 서비스는 [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0)를 사용하여 그룹 호출을 만듭니다. 또 다른 패턴에는 [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams 또는 Microsoft 365 에코시스템의 다른 예약 경험을 사용하여 그룹 호출을 만드는 최종 사용자가 포함됩니다.
+1. 호출 관리 서비스는 [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true)를 사용하여 그룹 호출을 만듭니다. 또 다른 패턴에는 [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams 또는 Microsoft 365 에코시스템의 다른 예약 경험을 사용하여 그룹 호출을 만드는 최종 사용자가 포함됩니다.
 2. 호출 관리 서비스는 Teams 호출 세부정보를 Azure Communication Service 클라이언트와 공유합니다.
 3. 일반적으로 Teams 사용자는 호출에 참가하고 외부 사용자가 로비를 통해 참가하도록 허용해야 합니다. 하지만 이러한 경험은 Teams 테넌트 구성 및 특정 회의 설정에 다라 달라집니다.
 4. Azure Communication Service 사용자는 2단계에 수신된 세부정보를 사용해서 호출 클라이언트를 초기화하고 Teams 회의에 참가합니다.

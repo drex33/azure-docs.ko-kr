@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: f2dacc8a0ed551fd92b916e25dfd87695e2576d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67043bf56e026d580de7d7172e0a5891c3eb1357
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570840"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351032"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -59,22 +59,22 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 각 규칙은 하나 이상의 선택적 규칙 속성과 함께 경로 패턴으로 구성됩니다. 경로 규칙은 `routes` 배열에 정의되어 있습니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
 
-| 규칙 속성                       | 필수 | 기본값                        | 주석                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------- | -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `route`                             | 예      | 해당 없음                                  | 호출자가 요청한 경로 패턴입니다.<ul><li>[와일드카드](#wildcards)는 경로 경로(route path)의 끝에서 지원됩니다.<ul><li>예를 들어 경로 _admin/\*_ 은 _admin_ 경로 아래에 있는 경로와 일치합니다.</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rewrite`                           | 예       | 해당 없음                                  | 요청에서 반환된 파일 또는 경로를 정의합니다.<ul><li>`redirect` 규칙과 함께 사용할 수 없습니다.<li>다시 쓰기 규칙은 브라우저의 위치를 변경하지 않습니다.<li>값은 앱의 루트에 대한 상대 경로여야 합니다.</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `redirect`                          | 예       | 해당 없음                                  | 요청의 파일 또는 경로 리디렉션 대상을 정의합니다.<ul><li>`rewrite` 규칙과 함께 사용할 수 없습니다.<li>리디렉션 규칙은 브라우저의 위치를 변경합니다.<li>기본 응답 코드는 [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302)(임시 리디렉션)지만 [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301)(영구 리디렉션)로 재정의할 수 있습니다.</ul>                                                                                                                                                                                                              |
-| `allowedRoles`                      | 예       | 익명                            | 경로에 액세스하는 데 필요한 역할 이름 목록을 정의합니다. <ul><li>유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `_`가 포함됩니다.<li>기본 제공 역할 [`anonymous`](./authentication-authorization.md)는 인증되지 않은 모든 사용자에게 적용됩니다.<li>기본 제공 역할 [`authenticated`](./authentication-authorization.md)는 로그인한 사용자에게 적용됩니다.<li>사용자는 하나 이상의 역할에 속해야 합니다.<li>역할은 _OR_ 기준으로 일치합니다.<ul><li>사용자가 나열된 역할 중 하나에 있는 경우 액세스 권한이 부여됩니다.</ul><li>개별 사용자는 [초대](authentication-authorization.md)를 통해 역할에 연결됩니다.</ul> |
-| `headers`<a id="route-headers"></a> | 예       | 해당 없음                                  | 응답에 추가된 [HTTP 헤더](https://developer.mozilla.org/docs/Web/HTTP/Headers) 세트입니다. <ul><li>경로 관련 헤더가 응답의 글로벌 헤더와 동일한 경우 경로 관련 헤더가 [`globalHeaders`](#global-headers)를 재정의합니다.<li>헤더를 제거하려면 값을 빈 문자열로 설정합니다.</ul>                                                                                                                                                                                                                                                                                          |
-| `statusCode`                        | 아니요       | 리디렉션의 경우 `200`, `301` 또는 `302`입니다. | 응답의 [HTTP 상태 코드](https://developer.mozilla.org/docs/Web/HTTP/Status)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `methods`                           | 아니요       | 모든 방법                          | 경로와 일치하는 요청 메서드 목록입니다. 사용할 수 있는 메서드는 `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` 및 `PATCH`입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 규칙 속성 | 필수 | 기본값 | 주석 |
+|--|--|--|--|
+| `route` | 예 | 해당 없음 | 호출자가 요청한 경로 패턴입니다.<ul><li>[와일드카드](#wildcards)는 경로 경로(route path)의 끝에서 지원됩니다.<ul><li>예를 들어 경로 _admin/\*_ 은 _admin_ 경로 아래에 있는 경로와 일치합니다.</ul></ul> |
+| `rewrite` | 예 | 해당 없음 | 요청에서 반환된 파일 또는 경로를 정의합니다.<ul><li>`redirect` 규칙과 함께 사용할 수 없습니다.<li>다시 쓰기 규칙은 브라우저의 위치를 변경하지 않습니다.<li>값은 앱의 루트에 대한 상대 경로여야 합니다.</ul> |
+| `redirect` | 예 | 해당 없음 | 요청의 파일 또는 경로 리디렉션 대상을 정의합니다.<ul><li>`rewrite` 규칙과 함께 사용할 수 없습니다.<li>리디렉션 규칙은 브라우저의 위치를 변경합니다.<li>기본 응답 코드는 [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302)(임시 리디렉션)지만 [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301)(영구 리디렉션)로 재정의할 수 있습니다.</ul> |
+| `allowedRoles` | 예 | 익명 | 경로에 액세스하는 데 필요한 역할 이름 목록을 정의합니다. <ul><li>유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `_`가 포함됩니다.<li>기본 제공 역할 [`anonymous`](./authentication-authorization.md)는 인증되지 않은 모든 사용자에게 적용됩니다.<li>기본 제공 역할 [`authenticated`](./authentication-authorization.md)는 로그인한 사용자에게 적용됩니다.<li>사용자는 하나 이상의 역할에 속해야 합니다.<li>역할은 _OR_ 기준으로 일치합니다.<ul><li>사용자가 나열된 역할 중 하나에 있는 경우 액세스 권한이 부여됩니다.</ul><li>개별 사용자는 [초대](authentication-authorization.md)를 통해 역할에 연결됩니다.</ul> |
+| `headers`<a id="route-headers"></a> | 예 | 해당 없음 | 응답에 추가된 [HTTP 헤더](https://developer.mozilla.org/docs/Web/HTTP/Headers) 세트입니다. <ul><li>경로 관련 헤더가 응답의 글로벌 헤더와 동일한 경우 경로 관련 헤더가 [`globalHeaders`](#global-headers)를 재정의합니다.<li>헤더를 제거하려면 값을 빈 문자열로 설정합니다.</ul> |
+| `statusCode` | 아니요 | 리디렉션의 경우 `200`, `301` 또는 `302`입니다. | 응답의 [HTTP 상태 코드](https://developer.mozilla.org/docs/Web/HTTP/Status)입니다. |
+| `methods` | 아니요 | 모든 방법 | 경로와 일치하는 요청 메서드 목록입니다. 사용할 수 있는 메서드는 `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` 및 `PATCH`입니다. |
 
 각 속성은 요청/응답 파이프라인에서 특정 목적을 갖고 있습니다.
 
-| 용도                                        | 속성                                                                                   |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| 경로 일치                                   | `route`, `methods`                                                                           |
-| 경로가 일치한 후 권한 부여             | `allowedRoles`                                                                               |
+| 용도 | 속성 |
+|--|--|
+| 경로 일치 | `route`, `methods` |
+| 경로가 일치한 후 권한 부여 | `allowedRoles` |
 | 규칙이 일치하고 권한이 부여된 후 처리 | `rewrite`(요청 수정) <br><br>`redirect`, `headers`, `statusCode`(응답 수정) |
 
 ## <a name="securing-routes-with-roles"></a>역할을 사용하여 경로 보호
@@ -187,15 +187,15 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 └── index.html
 ```
 
-| 다음에 대한 요청...                                         | 반환 항목                                                                                                    | 상태 |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
-| _/about/_                                              | _/index.html_ 파일                                                                                        | `200`              |
-| _/images/logo.png_                                     | 이미지 파일                                                                                                | `200`              |
-| _/images/icon.svg_                                     | _/index.html_ 파일 - _svg_ 파일 확장명이 `/images/*.{png,jpg,gif}` 필터에 없기 때문 | `200`              |
-| _/images/unknown.png_                                  | 파일 없음 오류                                                                                          | `404`              |
-| _/css/unknown.css_                                     | 파일 없음 오류                                                                                          | `404`              |
-| _/css/global.css_                                      | 스타일 시트 파일                                                                                           | `200`              |
-| _/images_ 또는 _/css_ 폴더 외부에 있는 그 외의 모든 파일 | _/index.html_ 파일                                                                                        | `200`              |
+| 다음에 대한 요청... | 반환 항목 | 상태 |
+|--|--|--|
+| _/about/_ | _/index.html_ 파일 | `200` |
+| _/images/logo.png_ | 이미지 파일 | `200` |
+| _/images/icon.svg_ | _/index.html_ 파일 - _svg_ 파일 확장명이 `/images/*.{png,jpg,gif}` 필터에 없기 때문 | `200` |
+| _/images/unknown.png_ | 파일 없음 오류 | `404` |
+| _/css/unknown.css_ | 파일 없음 오류 | `404` |
+| _/css/global.css_ | 스타일 시트 파일 | `200` |
+| _/images_ 또는 _/css_ 폴더 외부에 있는 그 외의 모든 파일 | _/index.html_ 파일 | `200` |
 
 > [!IMPORTANT]
 > 사용되지 않는 [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) 파일에서 마이그레이션하는 경우 레거시 대체 경로(`"route": "/*"`)를 [라우팅 규칙](#routes)에 포함하지 마세요.
@@ -220,12 +220,12 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 다음 HTTP 코드를 재정의할 수 있습니다.
 
-| 상태 코드                                                   | 의미      | 가능한 원인                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | 잘못된 요청  | 잘못된 초대 링크                                                                                                                                                                                                                                                                            |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | 권한 없음 | 인증되지 않은 상태에서 제한된 페이지를 요청                                                                                                                                                                                                                                                  |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | 사용할 수 없음    | <ul><li>사용자가 로그인했지만 페이지를 보는 데 필요한 역할이 없습니다.<li>사용자가 로그인했지만 런타임이 ID 클레임에서 사용자 세부 정보를 가져올 수 없습니다.<li>사용자 지정 역할로 사이트에 로그인한 사용자가 너무 많기 때문에 런타임에서 사용자를 로그인 할 수 없습니다.</ul> |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | 찾을 수 없음    | 파일을 찾을 수 없습니다.                                                                                                                                                                                                                                                                                     |
+| 상태 코드 | 의미 | 가능한 원인 |
+|--|--|--|
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | 잘못된 요청 | 잘못된 초대 링크 |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | 권한 없음 | 인증되지 않은 상태에서 제한된 페이지를 요청 |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | 사용할 수 없음 | <ul><li>사용자가 로그인했지만 페이지를 보는 데 필요한 역할이 없습니다.<li>사용자가 로그인했지만 런타임이 ID 클레임에서 사용자 세부 정보를 가져올 수 없습니다.<li>사용자 지정 역할로 사이트에 로그인한 사용자가 너무 많기 때문에 런타임에서 사용자를 로그인 할 수 없습니다.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | 찾을 수 없음 | 파일을 찾을 수 없습니다. |
 
 다음 예제 구성에서는 오류 코드를 재정의하는 방법을 보여줍니다.
 
@@ -272,10 +272,54 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 하나 이상의 IP 주소 블록을 지정한 경우 `allowedIpRanges`의 값과 일치하지 않는 IP 주소에서 시작된 요청은 액세스가 거부됩니다.
 
-## <a name="authentication"></a>인증 
+IP 주소 블록 외에도 배열에 [서비스 태그](../virtual-network/service-tags-overview.md) 를 지정 `allowedIpRanges` 하 여 특정 Azure 서비스에 대 한 트래픽을 제한할 수 있습니다.
 
-* [기본 인증 공급자 에는](authentication-authorization.md#login)구성 파일의 설정이 필요하지 않습니다. 
-* [사용자 지정 인증 공급자는](authentication-custom.md) `authentication` 설정 파일의 속성을 사용합니다. 
+```json
+"networking": {
+  "allowedIpRanges": ["AzureFrontDoor.Backend"]
+}
+```
+
+## <a name="authentication"></a>인증
+
+* [기본 인증 공급자](authentication-authorization.md#login)의 경우 구성 파일의 설정이 필요 하지 않습니다. 
+* [사용자 지정 인증 공급자](authentication-custom.md) 는 `auth` 설정 파일의 섹션을 사용 합니다.
+
+## <a name="forwarding-gateway"></a>전달 게이트웨이
+
+`forwardingGateway`섹션에서는 정적 웹 앱으로 전달할 수 있는 호스트 이름을 지정 합니다. `allowedForwardedHosts`다양 한 형식의 호스트 이름을 사용 하 여 배열에 여러 값을 추가할 수 있습니다.
+
+```json
+"forwardingGateway": {
+  "allowedForwardedHosts": [
+    "example.org",
+    "www.example.org",
+    "staging.example.org"
+  ]
+}
+```
+
+`allowedForwardedHosts`섹션은 [X 전달-호스트](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) 헤더에서 허용할 호스트 이름을 지정 합니다. 목록에 일치 하는 도메인이 있으면 정적 Web Apps는 `X-Forwarded-Host` 성공한 로그인 후와 같이 리디렉션 url을 생성할 때 값을 사용 합니다.
+
+`X-Forwarded-Host`헤더가 목록의 값과 일치 하지 않는 경우에도 요청은 성공 하지만 헤더는 응답에 사용 되지 않습니다.
+
+### <a name="required-headers"></a>필수 헤더
+
+필요한 헤더는 사이트에 대 한 각 요청과 함께 전송 됩니다. 필요한 헤더를 한 번 사용 하는 것은 각 요청에 하나 이상의 헤더가 없는 경우 사이트에 대 한 액세스를 거부 하는 것입니다.
+
+예를 들어 다음 구성에서는 [Azure Front 문에](../frontdoor/front-door-overview.md)대해 고유 식별자를 추가 하는 방법을 보여 줍니다.
+
+```json
+"forwardingGateway": {
+  "requiredHeaders": {
+    "X-Azure-FDID" : "10dd26ef"
+  }
+}
+```
+
+- 키/값 쌍은 임의의 임의 문자열 집합이 될 수 있습니다.
+- 키는 대/소문자를 구분 하지 않습니다.
+- 값은 대/소문자를 구분 합니다.
 
 ## <a name="example-configuration-file"></a>예제 구성 파일
 
@@ -366,21 +410,21 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 위의 구성에 따라 다음 시나리오를 검토합니다.
 
-| 다음에 대한 요청...                                                    | 결과                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _/profile_                                                        | 인증된 사용자에게는 _/profile/index.html_ 파일이 제공됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                                                                                                                                                                                                                              |
-| _/admin/_                                                         | _관리자_ 역할의 인증된 사용자에게는 _/admin/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>이 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                                                                                                          |
-| _/logo.png_                                                       | 최대 사용 기간이 182일(15,770,000초)을 약간 초과하는 사용자 지정 캐시 규칙을 이미지에 적용합니다.                                                                                                                                                                                                                                                                                                                                   |
-| _/api/admin_                                                      | _registeredusers_ 역할이 있는 인증된 사용자의 `GET` 요청은 API로 전송됩니다. 인증되었지만 _registeredusers_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다.<br/><br/>_관리자_ 역할의 인증된 사용자가 수행하는 `POST`, `PUT`, `PATCH` 및 `DELETE` 요청은 API로 전송됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다. |
-| _/customers/contoso_                                              | _관리자_ 또는 _customers_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _customers_contoso_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다.                                                                                                                            |
-| _/login_                                                          | 인증되지 않은 사용자는 GitHub를 사용하여 인증해야 합니다.                                                                                                                                                                                                                                                                                                                                                                             |
-| _/.auth/login/twitter_                                            | 경로 규칙에 따라 Twitter를 통한 권한 부여가 사용되지 않으므로 `404` 오류가 반환되고, _/index.html_ 파일과 `200` 상태 코드를 제공하도록 대체됩니다.                                                                                                                                                                                                                                                                                     |
-| _/logout_                                                         | 사용자는 모든 인증 공급자에서 로그아웃됩니다.                                                                                                                                                                                                                                                                                                                                                                                          |
-| _/calendar/2021/01_                                               | 브라우저에는 _/calendar.html_ 파일이 제공됩니다.                                                                                                                                                                                                                                                                                                                                                                                              |
-| _/specials_                                                       | 브라우저가 영구적으로 _/deals_ 파일로 리디렉션됩니다.                                                                                                                                                                                                                                                                                                                                                                                            |
-| _/data.json_                                                      | `text/json` MIME 형식의 파일이 제공됩니다.                                                                                                                                                                                                                                                                                                                                                                                               |
-| _/about_ 또는 클라이언트 쪽 라우팅 패턴과 일치하는 모든 폴더 | _/index.html_ 파일이 `200` 상태 코드와 함께 제공됩니다.                                                                                                                                                                                                                                                                                                                                                                                    |
-| _/images/_ 폴더에 없는 파일                     | `404` 오류가 표시됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 다음에 대한 요청... | 결과 |
+|--|--|
+| _/profile_ | 인증된 사용자에게는 _/profile/index.html_ 파일이 제공됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
+| _/admin/_ | _관리자_ 역할의 인증된 사용자에게는 _/admin/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>이 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
+| _/logo.png_ | 최대 사용 기간이 182일(15,770,000초)을 약간 초과하는 사용자 지정 캐시 규칙을 이미지에 적용합니다. |
+| _/api/admin_ | _registeredusers_ 역할이 있는 인증된 사용자의 `GET` 요청은 API로 전송됩니다. 인증되었지만 _registeredusers_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다.<br/><br/>_관리자_ 역할의 인증된 사용자가 수행하는 `POST`, `PUT`, `PATCH` 및 `DELETE` 요청은 API로 전송됩니다. 인증되었지만 _관리자_ 역할에 없는 사용자와 인증되지 않은 사용자에게는 `401` 오류가 표시됩니다. |
+| _/customers/contoso_ | _관리자_ 또는 _customers_contoso_ 역할에 속하는 인증된 사용자에게는 _/customers/contoso/index.html_ 파일이 제공됩니다. 인증되었지만 _관리자_ 또는 _customers_contoso_ 역할에 없는 사용자에게는 `403` 오류 <sup>1</sup>가 표시됩니다. 인증되지 않은 사용자는 _/login_ 으로 리디렉션됩니다. |
+| _/login_ | 인증되지 않은 사용자는 GitHub를 사용하여 인증해야 합니다. |
+| _/.auth/login/twitter_ | 경로 규칙에 따라 Twitter를 통한 권한 부여가 사용되지 않으므로 `404` 오류가 반환되고, _/index.html_ 파일과 `200` 상태 코드를 제공하도록 대체됩니다. |
+| _/logout_ | 사용자는 모든 인증 공급자에서 로그아웃됩니다. |
+| _/calendar/2021/01_ | 브라우저에는 _/calendar.html_ 파일이 제공됩니다. |
+| _/specials_ | 브라우저가 영구적으로 _/deals_ 파일로 리디렉션됩니다. |
+| _/data.json_ | `text/json` MIME 형식의 파일이 제공됩니다. |
+| _/about_ 또는 클라이언트 쪽 라우팅 패턴과 일치하는 모든 폴더 | _/index.html_ 파일이 `200` 상태 코드와 함께 제공됩니다. |
+| _/images/_ 폴더에 없는 파일 | `404` 오류가 표시됩니다. |
 
 <sup>1</sup> [응답 재정의 규칙](#response-overrides)을 사용하여 사용자 지정 오류 페이지를 제공할 수 있습니다.
 

@@ -8,16 +8,20 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: 8cbd8861e7dc01e8615225dd88960b581fd4c2f4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3886d26c571246f42c54bb9aab45bae32e05b750
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755080"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362461"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Azure Sentinel 데이터 커넥터 찾기
 
 이 문서에서는 Azure Sentinel에서 데이터 커넥터를 배포하는 방법을 설명하고 지원되는 모든 기본 제공 데이터 커넥터와 함께 특정 커넥터에 필요한 일반 배포 절차 및 추가 단계에 대한 링크를 제공합니다.
+
+> [!TIP]
+> 일부 데이터 커넥터는 솔루션을 통해서만 배포 됩니다. 자세한 내용은 [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요. [Azure 센티널 GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors)커뮤니티에서 빌드된 다른 데이터 커넥터를 찾을 수도 있습니다.
+>
 
 ## <a name="how-to-use-this-guide"></a>이 가이드를 사용하는 방법
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: d49b587262bfceb8072761cec6981ab908abb21e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 996b91040d16a3c2b966bb1b68e83f578d42f583
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732950"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354987"
 ---
 # <a name="what-is-data-wrangling"></a>데이터 랭글링이 무엇인가요?
 
@@ -23,9 +23,6 @@ ms.locfileid: "124732950"
 Data Factory는 파워 쿼리를 사용하여 클라우드 규모에서 코드 없는 데이터 준비를 제공합니다. Data Factory는 [파워 쿼리 온라인](/power-query/)과 통합되며 파워 쿼리 M 함수를 파이프라인 작업으로 사용할 수 있도록 합니다.
 
 Data Factory는 M을 Azure Data Factory 데이터 흐름으로 변환하여 파워 쿼리 온라인 매시업 편집기에서 만든 M을 클라우드 규모 실행을 위한 spark 코드로 변환합니다. 파워 쿼리 및 데이터 흐름을 사용하는 랭글링 데이터는 데이터 엔지니어 또는 '시민 데이터 통합자'에게 특히 유용합니다.
-
-> [!NOTE]
-> Azure Data Factory의 파워 쿼리 작업은 현재 공개 미리 보기로 제공됩니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -47,11 +44,11 @@ Data Factory는 M을 Azure Data Factory 데이터 흐름으로 변환하여 파�
 
 | 커넥터 | 데이터 형식 | 인증 유형 |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | 계정 키 |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | 서비스 주체 |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | 계정 키, 서비스 주체 |
-| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL 인증 |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL 인증 |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet, Excel | 계정 키, 서비스 주체, MSI |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV, Parquet, Excel | 서비스 사용자, MSI |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet, Excel | 계정 키, 서비스 주체, MSI |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL 인증, MSI, 서비스 주체 |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL 인증, MSI, 서비스 주체 |
 
 ## <a name="the-mashup-editor"></a>매시업 편집기
 

@@ -4,23 +4,25 @@ description: Bicep 파일에서 배포 정보를 검색하는 데 사용할 함�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: e909ea77da32675beec6d5117430717acf274ab1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 9d06bd78d7ba6dcf0f73326f744e975a9c4e3f53
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124731106"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352409"
 ---
 # <a name="deployment-functions-for-bicep"></a>Bicep의 배포 함수
 
-이 문서에서는 현재 배포와 관련된 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
+이 문서에서는 현재 배포와 관련 된 값을 가져오는 Bicep 함수에 대해 설명 합니다.
 
 ## <a name="deployment"></a>배포
 
 `deployment()`
 
 현재 배포 작업에 대한 정보를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="return-value"></a>반환 값
 
@@ -110,6 +112,8 @@ output deploymentOutput object = deployment()
 `environment()`
 
 배포에 사용되는 Azure 환경에 대한 정보를 반환합니다.
+
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="return-value"></a>반환 값
 

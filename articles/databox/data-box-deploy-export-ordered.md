@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: db5b98170446e93737fd625671f5351cc11da337
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 298d935b9b673e0b77bdd3e66cc3d348e2d52a07
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591922"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361522"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>자습서: Azure Data Box에 대한 내보내기 주문 만들기
 
@@ -102,16 +102,16 @@ Azure Data Box는 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |스토리지 계정     | 데이터를 내보낼 Azure Storage 계정입니다. |
     |내보내기 형식     | **모든 개체** 및 **XML 파일 사용** 에서 내보낼 데이터 형식을 지정합니다.<ul><li> **모든 개체** - **전송 옵션** 에 대한 선택 항목에 따라 작업에서 모든 데이터를 내보내도록 지정합니다.</li><li> **XML 파일 사용** – 스토리지 계정에서 내보낼 Blob 및/또는 파일의 경로 및 접두사 세트를 포함하는 XML 파일을 지정합니다. XML 파일은 선택한 스토리지 계정의 컨테이너에 있어야 하고, 파일 공유에서 선택하는 기능은 현재 지원되지 않습니다. 파일은 비어 있지 않은 .xml 파일이어야 합니다.</li></ul>        |
     |전송 옵션     |  **모두 선택**, **모든 Blob** 및 **모든 파일** 중에서 데이터 전송 옵션을 지정합니다. <ul><li> **모두 선택** - 모든 Blob 및 Azure Files을 내보내도록 지정합니다. Blob만 지원하는 스토리지 계정(Blob Storage 계정)을 사용하는 경우 **모든 파일** 옵션을 선택할 수 없습니다.</li><li> **모든 Blob** - 블록 및 페이지 Blob만 내보내도록 지정합니다.</li><li> **모든 파일** - Blob을 제외한 모든 파일을 내보내도록 지정합니다. 스토리지 계정 유형(GPv1 및 GPv2, 프리미엄 스토리지 또는 Blob Storage)은 내보낼 수 있는 데이터의 형식을 결정합니다. 자세한 내용은 [내보내기에 대해 지원되는 스토리지 계정](../import-export/storage-import-export-requirements.md#supported-storage-types)을 참조하세요.</li></ul>         |
-    |자세한 정보 로그 포함     | 성공적으로 내보낸 모든 파일의 목록을 포함하는 자세한 로그 파일이 필요한지 여부를 나타냅니다. 내보내기 순서에 대 한 복사 로그 및 자세한 로그에 대 한 자세한 내용은 [로그 보기](data-box-export-logs.md#view-logs-during-data-copy)를 참조 하세요. |
+    |자세한 정보 로그 포함     | 성공적으로 내보낸 모든 파일의 목록을 포함하는 자세한 로그 파일이 필요한지 여부를 나타냅니다. 내보내기 순서의 복사 로그 및 자세한 정보 표시 로그에 대한 자세한 내용은 [로그 보기를 참조하세요.](data-box-export-logs.md#view-logs-during-data-copy) |
 
     > [!NOTE]
-    > **내보내기 유형** 설정에 **xml 파일 사용** 을 선택 하는 경우 xml 파일에 유효한 경로 및/또는 접두사가 포함 되어 있는지 확인 해야 합니다. XML 파일을 생성하고 제공해야 합니다. 파일이 잘못되었거나 지정된 경로와 일치하는 데이터가 없는 경우에는 주문이 부분 데이터로 종료되거나 데이터를 내보내지 않습니다. 지침은 [XML 파일 만들기](#create-xml-file)를 참조 하세요.
+    > **내보내기 형식** 설정에 **XML 파일 사용을** 선택하는 경우 XML 파일에 유효한 경로 및/또는 접두사가 포함되어 있는지 확인해야 합니다. XML 파일을 생성하고 제공해야 합니다. 파일이 잘못되었거나 지정된 경로와 일치하는 데이터가 없는 경우에는 주문이 부분 데이터로 종료되거나 데이터를 내보내지 않습니다. 지침은 [XML 파일 만들기를](#create-xml-file)참조하세요.
 
     컨테이너에 XML 파일을 추가하는 방법에 대한 자세한 내용은 [XML 파일을 사용하여 주문 내보내기](data-box-deploy-export-ordered.md#export-order-using-xml-file)를 참조하세요.
 
    ![내보내기 옵션 선택](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-   XML 입력의 예를 보려면 [xml 파일 만들기](#create-xml-file) 를 참조 하세요.
+   XML 입력의 예를 보려면 [XML 파일 만들기를 참조하세요.](#create-xml-file)
 
 9. **데이터 선택** 에서 설정을 검토하고 **다음: 보안>** 을 선택하여 계속합니다.
 
@@ -346,8 +346,8 @@ XML 파일에서 XML 태그를 올바르게 구성 하려면 경로와 접두사
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
 |/                       |저장소 계정의 모든 blob을 내보냅니다.                                       |`<BlobPathPrefix>/</BlobPathPrefix>`|
 |/$root/                 |루트 컨테이너의 모든 blob을 내보냅니다.                                        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|
-|container2            |컨테이너 **container2** 모든 blob을 내보냅니다.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
-|/컨테이너          |접두사 **컨테이너로** 시작 하는 모든 컨테이너의 모든 blob을 내보냅니다.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
+|container2            |컨테이너 **container2** 모든 blob을 내보냅니다.                              |`<BlobPathPrefix>/container2/</BlobPathPrefix>`|
+|/컨테이너          |접두사 **컨테이너로** 시작 하는 모든 컨테이너의 모든 blob을 내보냅니다.      |`<BlobPathPrefix>/container</BlobPathPrefix>`|
 |/container1/2021Q2      |**2021Q2** 접두사로 시작 하는 container **container1** 의 모든 blob을 내보냅니다.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
 내보낼 *단일* blob을 선택 하려면 &lt; &gt; 컨테이너 경로 및 blob 이름을 포함 하는 blobpath 태그를 사용 합니다. 예를 들어 **container1** 컨테이너에서 **blob.txt** 을 선택 하려면 다음 태그를 사용 `<BlobPath>/container1/blob.txt</BlobPath>` 합니다.
@@ -358,10 +358,10 @@ XML 파일에서 XML 태그를 올바르게 구성 하려면 경로와 접두사
 
 |파일 경로 접두사        |Description                                                                                          |태그 예|
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------|
-|/                       |저장소 계정의 모든 파일 및 디렉터리를 내보냅니다. |`<FilePathPrefix>/</FilePath>Prefix`|
-|/fileshare1/            |**Fileshare1** 이라는 공유의 모든 파일 및 디렉터리를 내보냅니다.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
-|/파일 공유              |**접두사 파일 공유로** 시작 하는 파일 공유의 모든 파일 및 디렉터리를 내보냅니다. |`<FilePathPrefix>/fileshare</FilePath>Prefix`|
-|/fileshare2/contosowest |**Contosowest** 접두사로 시작 하는 파일 공유 **fileshare2** 의 모든 파일 및 디렉터리를 내보냅니다.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
+|/                       |저장소 계정의 모든 파일 및 디렉터리를 내보냅니다. |`<FilePathPrefix>/</FilePath>Prefix>`|
+|/fileshare1/            |**Fileshare1** 이라는 공유의 모든 파일 및 디렉터리를 내보냅니다.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix>`|
+|/파일 공유              |**접두사 파일 공유로** 시작 하는 파일 공유의 모든 파일 및 디렉터리를 내보냅니다. |`<FilePathPrefix>/fileshare</FilePath>Prefix>`|
+|/fileshare2/contosowest |**Contosowest** 접두사로 시작 하는 파일 공유 **fileshare2** 의 모든 파일 및 디렉터리를 내보냅니다.|`<FilePathPrefix>/fileshare2/contosowest</FilePath>Prefix>`|
 
 내보낼 *단일* 파일을 선택 하려면 &lt; &gt; 공유 경로 및 파일 이름과 함께 FilePath 태그를 사용 합니다. 예를 들어 **fileshare1** 에서 **file.txt** 를 선택 하려면 다음 태그를 사용 합니다.`<FilePath>/fileshare1/file.txt</FilePath>`
 

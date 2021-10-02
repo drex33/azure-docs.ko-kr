@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 08/31/2021
 ms.author: alkohli
-ms.openlocfilehash: 6b50169586ef29e579d52985ee8b7822a63560d0
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
-ms.translationtype: HT
+ms.openlocfilehash: 30e46f9425f4015893c08b94382e87cfa93c8be8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982434"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363129"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes 대시보드를 사용하여 Azure Stack Edge Pro GPU 디바이스를 모니터링합니다.
 
@@ -44,15 +44,31 @@ Azure Stack Edge Pro에서 Kubernetes 대시보드를 *읽기 전용* 모드로 
 Kubernetes 대시보드는 *읽기 전용* 이며 포트 31000의 Kubernetes 마스터 노드에서 실행됩니다. 대시보드에 액세스하려면 다음 단계를 수행합니다. 
 
 1. 디바이스의 로컬 UI에서 **디바이스** 로 이동한 다음, **디바이스 엔드포인트** 로 이동합니다. 
-1. **구성 다운로드** 를 선택하여 대시보드에 액세스하도록 허용하는 `kubeconfig`를 다운로드합니다. `config.json` 파일을 로컬 시스템에 저장합니다.
-1. Kubernetes 대시보드 URL을 선택하여 브라우저에서 대시보드를 엽니다.
+1. **Kubernetes 대시보드 엔드포인트를** 복사합니다. `C:\Windows\System32\Drivers\etc\hosts`Kubernetes 대시보드에 연결할 클라이언트의 파일에 DNS 항목을 만듭니다. 
 
-    ![로컬 UI의 디바이스 페이지에 있는 Kubernetes 대시보드 URL](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
+    `<IP address of the Kubernetes dashboard>    <Kubernetes dashboard endpoint suffix>` 
+        
+    ![Kubernetes 대시보드 엔드포인트에 대한 DNS 항목 추가](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/add-domain-name-service-entry-hosts-1.png) 
 
-1. **Kubernetes 대시보드 로그인** 페이지에서 다음을 수행합니다.
+1. **Kubernetes 대시보드** 엔드포인트에 대한 행에서 **구성 다운로드를** 선택합니다. 이 작업은 `kubeconfig` 대시보드에 액세스할 수 있는 를 다운로드합니다. `config.json` 파일을 로컬 시스템에 저장합니다.   
+
+1. 로컬 UI에서 Kubernetes 대시보드 인증서를 다운로드합니다. 
+    1. 디바이스의 로컬 UI에서 **인증서** 로 이동합니다.
+    1. **Kubernetes 대시보드 엔드포인트 인증서** 에 대한 항목을 찾습니다. 이 항목의 오른쪽에서 **다운로드를** 선택하여 대시보드에 액세스하는 데 사용할 클라이언트 시스템에서 인증서를 다운로드합니다. 
+
+    ![Kubernetes 대시보드 엔드포인트 인증서 다운로드](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/download-kubernetes-dashboard-endpoint-certificate-1.png)  
+
+1. 다운로드한 인증서를 클라이언트에 설치합니다. Windows 클라이언트를 사용하는 경우 다음 단계를 따르세요. 
+    1. 인증서를 선택하고 **인증서 가져오기 마법사** 에서 저장소 위치를 **로컬 컴퓨터** 로 선택합니다. 
+
+        ![클라이언트 1에 인증서 설치](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
+    
+    1. 신뢰할 수 있는 루트 저장소의 로컬 컴퓨터에 인증서를 설치합니다. 
+
+        ![클라이언트 2에 인증서 설치](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
+1. Kubernetes 대시보드 URL을 복사하여 사용하여 브라우저에서 대시보드를 엽니다. **Kubernetes 대시보드 로그인** 페이지에서 다음을 수행합니다.
     
     1. **kubeconfig** 를 선택합니다. 
-        ![kubeconfig 옵션 선택](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
     1. 줄임표 **...** 를 선택합니다. 로컬 시스템에서 이전에 다운로드한 `kubeconfig`를 찾아 가리킵니다. **로그인** 을 선택합니다.
         ![kubeconfig 파일로 이동](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 

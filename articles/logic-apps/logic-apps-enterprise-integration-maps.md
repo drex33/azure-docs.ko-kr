@@ -1,6 +1,6 @@
 ---
-title: 워크플로에서 XML 변환을 위한 XSLT 맵 추가
-description: Enterprise 통합 팩을 사용하여 Azure Logic Apps 워크플로에 대한 XML을 변환하는 XSLT 맵을 만들고 추가합니다.
+title: 워크플로에서 XML을 변환하는 XSLT 맵 추가
+description: XSLT 맵을 추가하여 Azure Logic Apps 및 Enterprise 통합 팩을 사용하여 워크플로에서 XML을 변환합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,16 +8,16 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: 71083bf7eaddb04f322245ca5e33971ff2d79c53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 55c6d6c20b98415fa09725d4101317ae6c43e23f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128549874"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359496"
 ---
-# <a name="add-xslt-maps-for-xml-transformation-in-azure-logic-apps"></a>Azure Logic Apps에서 XML 변환을 위한 XSLT 맵 추가
+# <a name="add-xslt-maps-to-transform-xml-in-workflows-with-azure-logic-apps"></a>Azure Logic Apps 사용하여 워크플로에서 XML을 변환하는 XSLT 맵 추가
 
-XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환** 작업과 함께 맵을 사용할 수 있습니다. map은 XSLT(Extensible Stylesheet Language Transformation) 언어를 사용하여 XML에서 다른 형식으로 데이터를 변환하는 방법을 설명하는 XML 문서입니다. 맵은 원본 XML 스키마를 입력으로 구성하고 대상 XML 스키마를 출력으로 구성합니다. 이름과 주소를 한 문서에서 다른 문서로 복사하는 것과 같은 기본 변환을 정의할 수 있습니다. 또는 기본 맵 작업을 사용하여 더 복잡한 변환을 만들 수 있습니다. 문자열 조작, 조건부 할당, 산술 식, 날짜 시간 포맷터 및 루프 구문과 같은 다양한 기본 제공 함수를 사용하여 데이터를 조작하거나 제어할 수 있습니다.
+XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환** 작업과 함께 맵을 사용할 수 있습니다. map은 XSLT(Extensible Stylesheet Language Transformation) 언어를 사용하여 XML에서 다른 형식으로 데이터를 변환하는 방법을 설명하는 XML 문서입니다. 맵은 원본 XML 스키마를 입력으로 구성하고 대상 XML 스키마를 출력으로 구성합니다. 한 문서에서 다른 문서로 이름 및 주소를 복사하는 것과 같은 기본 변환을 정의할 수 있습니다. 또는 기본 맵 작업을 사용하여 더 복잡한 변환을 만들 수 있습니다. 문자열 조작, 조건부 할당, 산술 식, 날짜 시간 포맷터 및 루프 구문과 같은 다양한 기본 제공 함수를 사용하여 데이터를 조작하거나 제어할 수 있습니다.
 
 예를 들어, YearMonthDay 날짜 형식(YYYMMDD)을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 그러나 사용자의 조직은 MonthDayYear 날짜 형식(MMDDYYY)을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YYYMMDD 형식을 MMDDYYY 형식으로 변환하는 맵을 정의하여 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
   * Visual Studio 2019 및 [Microsoft Azure Logic Apps Enterprise Integration Tools 확장.](https://aka.ms/vsenterpriseintegrationtools)
 
-  * Visual Studio 2015 및 [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) 확장
+  * Visual Studio 2015 및 [Visual Studio 2015 2.0용 Microsoft Azure Logic Apps Enterprise Integration Tools](https://aka.ms/vsmapsandschemas) 확장.
 
    > [!IMPORTANT]
    > BizTalk Server 확장과 함께 확장을 설치하지 마세요. 두 확장이 있으면 예기치 않은 동작이 발생할 수 있습니다. 이러한 확장 중 하나만 설치되어 있는지 확인합니다.
@@ -87,7 +87,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 * **논리 앱(표준)을** 사용할 경우 맵 파일 크기에 대한 제한이 없습니다.
 
-* **논리 앱(소비)을** 사용할 경우 맵과 같은 아티팩트 및 통합 계정에 대한 제한이 있습니다. 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성 정보](logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
+* **논리 앱(소비)을** 사용할 경우 통합 계정 및 아티팩트(예: 맵)에 대한 제한이 있습니다. 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성 정보](logic-apps-limits-and-config.md#integration-account-limits)를 참조하세요.
 
 <a name="add-assembly"></a>
 
@@ -156,7 +156,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 1. **콘텐츠 URI** 상자에서 어셈블리의 URL을 붙여 넣습니다. 어셈블리 추가를 완료합니다.
 
-   어셈블리 업로드가 완료되면 **어셈블리가 어셈블리** 목록에 표시됩니다. 통합 계정의 **개요** 창에 있는 **아티팩트** 에서 업로드한 어셈블리가 표시됩니다.
+   어셈블리 업로드가 완료 되 면 **어셈블리 목록에 어셈블리가 표시** 됩니다. 통합 계정의 **개요** 창에 있는 **아티팩트** 에서 업로드한 어셈블리가 표시됩니다.
 
 <a name="no-public-access-assemblies"></a>
 
@@ -174,7 +174,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 1. **콘텐츠 URI** 상자에서 이전에 생성한 SAS URI를 붙여넣습니다. 어셈블리 추가를 완료합니다.
 
-어셈블리 업로드가 완료되면 **어셈블리가 어셈블리** 목록에 표시됩니다. 통합 계정의 **개요** 페이지에 있는 **아티팩트** 에서 업로드한 어셈블리가 표시됩니다.
+어셈블리 업로드가 완료 되 면 **어셈블리 목록에 어셈블리가 표시** 됩니다. 통합 계정의 **개요** 페이지에 있는 **아티팩트** 에서 업로드한 어셈블리가 표시됩니다.
 
 <a name="create-maps"></a>
 
@@ -217,11 +217,11 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 * Visual Studio와 [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)를 사용하여 맵을 만들 때 맵의 그래픽 표현을 사용하게 되며, 이 맵은 만든 모든 관계와 링크를 보여 줍니다.
 
-* 맵을 만드는 데 사용하는 XML 스키마 간에 직접 데이터 복사를 만들 수 있습니다. Visual Studio용 [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)에는 원본 XML 스키마의 요소를 대상 XML 스키마의 해당 요소와 연결하는 선을 그리는 것처럼 간단하게 이 작업을 수행할 수 있는 매퍼가 포함되어 있습니다.
+* 맵을 만들 때 사용 하는 XML 스키마 간에 직접 데이터 복사를 수행할 수 있습니다. Visual Studio용 [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)에는 원본 XML 스키마의 요소를 대상 XML 스키마의 해당 요소와 연결하는 선을 그리는 것처럼 간단하게 이 작업을 수행할 수 있는 매퍼가 포함되어 있습니다.
 
 * 문자열 함수, 날짜 시간 함수 등을 포함하여 여러 맵에 대한 연산 또는 함수를 사용할 수 있습니다.
 
-* 샘플 XML 메시지를 추가하기 위해 맵 테스트 기능을 사용할 수 있습니다. 제스처를 하나만 사용하면 만든 맵을 테스트하고 생성된 출력을 검토할 수 있습니다.
+* 샘플 XML 메시지를 추가하기 위해 맵 테스트 기능을 사용할 수 있습니다. 단 하나의 제스처로 만든 맵을 테스트 하 고 생성 된 출력을 검토할 수 있습니다.
 
 <a name="add-map"></a>
 
@@ -245,7 +245,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 #### <a name="add-maps-up-to-2-mb"></a>최대 2MB의 맵 추가
 
-1. 지도 **추가** 창에서 맵의 고유한 이름을 입력합니다.
+1. **지도 추가** 창에서 지도의 고유한 이름을 입력 합니다.
 
 1. **맵 유형** 아래에서 유형(예: **액체**, **XSLT**, **XSLT 2.0** 또는 **XSLT 3.0**)을 선택합니다.
 
@@ -271,7 +271,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 1. **맵** 창 도구 모음에서 **추가** 를 선택합니다.
 
-1. **맵 추가** 창에서 맵의 고유한 이름을 입력하고 `.xslt` 확장 이름을 포함합니다.
+1. **맵 추가** 창에서 지도의 고유한 이름을 입력 하 고 `.xslt` 확장 이름을 포함 합니다.
 
 1. **맵** 상자 옆에서 폴더 아이콘을 선택합니다. 업로드할 맵을 선택합니다.
 
@@ -289,7 +289,7 @@ XML을 형식 간에 변환하기 위해 논리 앱 워크플로는 **XML 변환
 
 <a name="edit-map"></a>
 
-## <a name="edit-a-map"></a>지도 편집
+## <a name="edit-a-map"></a>맵 편집
 
 기존 맵을 업데이트하려면 원하는 변경 내용이 있는 새 맵 파일을 업로드해야 합니다. 그러나 편집을 위해 기존 맵을 먼저 다운로드할 수 있습니다.
 

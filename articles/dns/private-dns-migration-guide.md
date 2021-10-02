@@ -2,24 +2,24 @@
 title: 레거시 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 titleSuffix: Azure DNS
 description: 이 가이드에서는 기존의 프라이빗 DNS 영역을 최신 리소스 모델로 마이그레이션하는 방법에 대한 단계별 지침을 제공합니다.
-services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: cf39a2b5853368f529c524798c6ac6486f148d46
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 566608da26cafab0d491663300136ebc815eb3ff
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745076"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357089"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
 공개 미리 보기 중에 “zoneType” 속성이 “Private”으로 설정된 “dnszones” 리소스를 사용하여 프라이빗 DNS 영역을 만들었습니다. 이러한 영역은 2019년 12월 31일 이후에는 지원되지 않으며 “dnszones” 대신 “privateDnsZones” 리소스 종류를 사용하는 GA 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
 
 마이그레이션이 필요한 dnszones 리소스를 확인하려면 Azure CLI에서 아래 명령을 실행합니다.
+
 ```azurecli
 az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
@@ -27,7 +27,7 @@ az network dns zone list --query "[?zoneType=='Private']"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-최신 버전의 Azure PowerShell을 설치했는지 확인합니다. Azure PowerShell(Az)과 설치 방법에 대한 자세한 내용을 보려면 https://docs.microsoft.com/powershell/azure/new-azureps-module-az를 방문하세요.
+최신 버전의 Azure PowerShell을 설치했는지 확인합니다. Azure PowerShell(Az) 및 설치 방법에 대한 자세한 내용은 [Azure Az PowerShell 모듈 소개를 방문하세요.](/powershell/azure/new-azureps-module-az)
 
 Azure PowerShell용 Az.PrivateDns 모듈을 설치했는지 확인합니다. 이 모듈을 설치하려면 관리자 권한으로 실행되는 PowerShell 창(관리 모드)을 열고 다음 명령을 입력합니다.
 

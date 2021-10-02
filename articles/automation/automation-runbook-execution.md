@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 실행
 description: 이 문서에서는 Azure Automation에서 Runbook을 처리하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 09/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026adbac5ad66772711bcd3988a9c95da49ae6a1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 700c5a9254cbb3ae8fe69ccc0f2ea3b76bb66121
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837483"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356455"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -99,19 +99,9 @@ Azure Automation은 [Azure Monitor](../azure-monitor/overview.md)를 사용하�
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 Hybrid Runbook Worker 등에서 루트 권한이 필요한 명령을 실행할 수 있도록 지원하는 **nxautomation** 사용자 계정을 사용하여 설치됩니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
+[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 루트 권한이 필요한 명령을 실행하는 특정 서비스 계정과 함께 설치됩니다. 자세한 내용은 [서비스 계정을 참조하세요.](./automation-hrw-run-runbooks.md#service-accounts)
 
-[Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치할 때는 해당 sudo 권한이 있는 **nxautomation** 계정이 있어야 합니다. 작업자를 설치하려고 시도했는데 계정이 없거나 계정에 적절한 권한이 없는 경우 설치가 실패합니다.
-
-`sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. **nxautomation** 계정에는 Sudo 권한이 필요하며 사용 권한은 제거하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다.
-
-Log Analytics 에이전트 및 **nxautomation** 계정에서 사용할 수 있는 로그는 다음과 같습니다.
-
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics 에이전트 로그
-* /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation 작업자 로그
-
->[!NOTE]
->업데이트 관리의 일부로 사용하도록 설정된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.
+Log Analytics 에이전트 로그는 에 `/var/opt/microsoft/omsagent/log/omsagent.log` 있습니다.
 
 ## <a name="runbook-permissions"></a>Runbook 사용 권한
 

@@ -1,6 +1,6 @@
 ---
 title: 통합 계정 만들기 및 관리
-description: 엔터프라이즈 통합 팩와 Azure Logic Apps에서 B2B 엔터프라이즈 통합 워크플로를 빌드하기 위한 통합 계정을 만들고 관리 합니다.
+description: Enterprise 통합 팩을 사용하여 Azure Logic Apps B2B 엔터프라이즈 통합 워크플로를 빌드하기 위한 통합 계정을 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,44 +8,44 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: fa900b7df1db1efbc8fe28a96cd2048113d7390d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c140c8495b1179298d6ca0029f430896aab55f7f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550386"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360839"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-using-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩를 사용 하 여 Azure Logic Apps에서 B2B 워크플로에 대 한 통합 계정 만들기 및 관리
+# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-with-the-enterprise-integration-pack"></a>Enterprise 통합 팩을 사용하여 Azure Logic Apps B2B 워크플로에 대한 통합 계정 만들기 및 관리
 
-Azure Logic Apps를 사용 하 여 b2b (b2b) 및 엔터프라이즈 통합 워크플로를 빌드하려면 *통합 계정* 리소스를 만들어야 합니다. 이 계정은 B2B 시나리오에 대해 워크플로에서 정의 하 고 사용 하는 B2B 아티팩트를 저장 하 고 관리 하는 방법을 간소화 하는 Azure의 확장 가능한 클라우드 기반 컨테이너입니다. 이러한 아티팩트에는 [거래 업체](logic-apps-enterprise-integration-partners.md), [규약](logic-apps-enterprise-integration-agreements.md), [맵](logic-apps-enterprise-integration-maps.md), [스키마](logic-apps-enterprise-integration-schemas.md), [인증서](logic-apps-enterprise-integration-certificates.md)등이 포함 됩니다. 또한 B2B 메시지를 다른 조직과 전자적으로 교환 하려면 통합 계정이 있어야 합니다. 다른 조직에서 조직과 다른 프로토콜 및 메시지 형식을 사용 하는 경우 조직의 시스템이 이러한 메시지를 처리할 수 있도록 이러한 형식을 변환 해야 합니다. 지원 되는 업계 표준 프로토콜에는 [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md)및 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md)이 포함 됩니다.
+Azure Logic Apps 사용하여 B2B(Business-to-Business) 및 엔터프라이즈 통합 워크플로를 빌드하려면 통합 *계정* 리소스를 만들어야 합니다. 이 계정은 B2B 시나리오에 대한 워크플로에서 정의하고 사용하는 B2B 아티팩트 저장 및 관리 방법을 간소화하는 Azure의 확장 가능한 클라우드 기반 컨테이너입니다. 이러한 아티팩트로는 [거래 업체,](logic-apps-enterprise-integration-partners.md) [계약,](logic-apps-enterprise-integration-agreements.md) [맵,](logic-apps-enterprise-integration-maps.md) [스키마,](logic-apps-enterprise-integration-schemas.md) [인증서](logic-apps-enterprise-integration-certificates.md)등이 있습니다. B2B 메시지를 다른 조직과 전자적으로 교환하려면 통합 계정도 있어야 합니다. 다른 조직에서 조직과 다른 프로토콜 및 메시지 형식을 사용하는 경우 조직의 시스템에서 해당 메시지를 처리할 수 있도록 이러한 형식을 변환해야 합니다. 지원되는 업계 표준 프로토콜에는 [AS2,](logic-apps-enterprise-integration-as2.md) [X12,](logic-apps-enterprise-integration-x12.md) [EDIFACT](logic-apps-enterprise-integration-edifact.md)및 [RosettaNet이](logic-apps-enterprise-integration-rosettanet.md)포함됩니다.
 
 > [!TIP]
-> 통합 [서비스 환경](connect-virtual-network-vnet-isolated-environment-overview.md)에서 사용할 통합 계정을 만들려면 [ISE에서 통합 계정 만들기](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 검토 하세요.
+> [통합 서비스 환경에서](connect-virtual-network-vnet-isolated-environment-overview.md)사용할 통합 계정을 만들려면 [ISE에서 통합 계정 만들기를 검토합니다.](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)
 
-이 문서에서는 다음 작업을 완료 하는 방법을 보여 줍니다.
+이 문서에서는 다음 작업을 완료하는 방법을 보여줍니다.
 
 * 통합 계정을 만듭니다.
-* 통합 계정을 논리 앱 리소스에 연결 합니다.
+* 통합 계정을 논리 앱 리소스에 연결합니다.
 * 통합 계정의 가격 책정 계층을 변경합니다.
-* 논리 앱에서 통합 계정 연결을 해제 합니다.
-* 다른 Azure 리소스 그룹 또는 구독으로 통합 계정을 이동 합니다.
-* 통합 계정을 삭제 합니다.
+* 논리 앱에서 통합 계정 연결을 해제합니다.
+* 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
+* 통합 계정을 삭제합니다.
 
-Azure Logic Apps를 처음 접하는 경우 [Azure Logic Apps 된 항목](logic-apps-overview.md)을 검토 하세요. b2b 엔터프라이즈 통합에 대 한 자세한 내용은 [Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 b2b 엔터프라이즈 통합 워크플로](logic-apps-enterprise-integration-overview.md)를 검토 하세요.
+Azure Logic Apps 경우 Azure Logic Apps 무엇인가요?를 [](logic-apps-overview.md)검토하세요. B2B 엔터프라이즈 통합에 대한 자세한 내용은 [Azure Logic Apps 및 Enterprise 통합 팩을 통해 B2B 엔터프라이즈 통합 워크플로를](logic-apps-enterprise-integration-overview.md)검토하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 통합 계정 및 논리 앱 리소스에 대해 동일한 Azure 구독을 사용 해야 합니다.
+* Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다. 통합 계정 및 논리 앱 리소스 모두에 대해 동일한 Azure 구독을 사용해야 합니다.
 
-* [ **논리 앱 (소비)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용 하는 경우 [통합 계정에 연결할](#link-account)수 있는 논리 앱 리소스가 있어야 합니다. 이 링크는 워크플로에 아티팩트를 사용 하기 전에 필요 합니다. 이 링크 없이 아티팩트를 만들 수 있지만 워크플로에서 이러한 아티팩트를 사용할 준비가 되 면 링크가 필요 합니다.
+* [ **논리 앱(소비)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용하는 경우 통합 계정 에 연결할 수 있는 논리 앱 리소스가 있어야 [합니다.](#link-account) 워크플로에서 아티팩트 사용하려면 이 링크가 필요합니다. 이 링크 없이 아티팩트만 만들 수 있지만 워크플로에서 이러한 아티팩트 사용 준비가 되면 링크가 필요합니다.
 
-* [ **논리 앱 (표준)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용 하는 경우 Azure Portal 또는 Visual Studio Code를 사용 하 여 논리 앱 리소스에 맵 및 스키마를 직접 추가할 수 있습니다. 그런 다음, ‘동일한 논리 앱 리소스’ 내의 여러 워크플로에서 이 아티팩트를 사용할 수 있습니다. 다른 B2B 아티팩트에 대 한 통합 계정을 만들고 [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업 등의 b2b 작업을 사용 해야 합니다. 그러나 통합 계정을 논리 앱 리소스에 연결할 필요 없이 연결 기능이 존재 하지 않습니다.
+* [ **논리 앱(표준)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용하는 경우 Azure Portal 또는 Visual Studio Code 사용하여 논리 앱 리소스에 맵 및 스키마를 직접 추가할 수 있습니다. 그런 다음, ‘동일한 논리 앱 리소스’ 내의 여러 워크플로에서 이 아티팩트를 사용할 수 있습니다. 다른 B2B 아티팩트를 위한 통합 계정을 만들고 AS2, X12, [EDIFACT](logic-apps-enterprise-integration-edifact.md)및 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업과 같은 [B2B](logic-apps-enterprise-integration-as2.md)작업을 사용해야 합니다. [](logic-apps-enterprise-integration-x12.md) 그러나 통합 계정을 논리 앱 리소스에 연결할 필요가 없으므로 연결 기능이 존재하지 않습니다.
 
 ## <a name="create-integration-account"></a>통합 계정 만들기
 
-통합 계정은 [가격 책정에 따라](https://azure.microsoft.com/pricing/details/logic-apps/)다양 한 계층에서 사용할 수 있습니다. 선택한 계층에 따라 통합 계정을 만들면 비용이 발생할 수 있습니다. 자세한 내용은 [Logic Apps 가격 책정 및 청구 모델](logic-apps-pricing.md#integration-accounts)과 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 검토하세요.
+통합 계정은 [가격 책정에 따라 다른 계층에서](https://azure.microsoft.com/pricing/details/logic-apps/)사용할 수 있습니다. 선택한 계층에 따라 통합 계정을 만들면 비용이 발생할 수 있습니다. 자세한 내용은 [Logic Apps 가격 책정 및 청구 모델](logic-apps-pricing.md#integration-accounts)과 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 검토하세요.
 
-요구 사항 및 시나리오에 따라 만들 적절 한 통합 계정 계층을 결정 합니다. 통합 계정 및 논리 앱 리소스는 모두 *동일한* 위치 또는 Azure 지역을 사용 해야 합니다. 다음 표에서는 사용 가능한 계층에 대해 설명 합니다.
+요구 사항 및 시나리오에 따라 만들 적절한 통합 계정 계층을 결정합니다. 통합 계정과 논리 앱 리소스는 *모두 동일한* 위치 또는 Azure 지역을 사용해야 합니다. 다음 표에서는 사용 가능한 계층에 대해 설명합니다.
 
 | 계층 | Description |
 |------|-------------|
@@ -54,7 +54,7 @@ Azure Logic Apps를 처음 접하는 경우 [Azure Logic Apps 된 항목](logic-
 | **Free** | 프로덕션 시나리오가 아닌 예비 시나리오에 적합합니다. 이 계층에는 지역 가용성, 처리량 및 사용량에 대한 한도가 있습니다. 예를 들어, 무료 계층은 Azure의 공용 지역(예: 미국 서부 또는 동남 아시아)에서만 사용할 수 있고, [Azure 중국 21Vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다. <p><p>**참고**: Logic Apps SLA에서 지원되지 않습니다. |
 |||
 
-이 태스크의 경우 Azure Portal, [Azure CLI](/cli/azure/resource#az_resource_create)또는 [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)를 사용할 수 있습니다.
+이 작업의 경우 Azure Portal, [Azure CLI](/cli/azure/resource#az_resource_create)또는 [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)사용할 수 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -62,18 +62,18 @@ Azure Logic Apps를 처음 접하는 경우 [Azure Logic Apps 된 항목](logic-
 
 1. 기본 Azure 검색 상자에 `integration accounts`를 입력하고, **통합 계정** 을 선택합니다.
 
-1. **통합 계정** 에서 **만들기** 를 선택 합니다.
+1. **통합 계정에서** **만들기를** 선택합니다.
 
-1. **통합 계정 만들기** 창에서 통합 계정에 대 한 다음 정보를 제공 합니다.
+1. 통합 **계정 만들기** 창에서 통합 계정에 대한 다음 정보를 제공합니다.
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |
-   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 관련 리소스를 구성하기 위해 사용할 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예에서는 라는 새 리소스 그룹을 만듭니다 `FabrikamIntegration-RG` . |
+   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 관련 리소스를 구성하기 위해 사용할 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제에서는 라는 새 리소스 그룹을 `FabrikamIntegration-RG` 만듭니다. |
    | **통합 계정 이름** | 예 | <*integration-account-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 매개 변수(`(`, `)`) 및 기간(`.`)만 포함할 수 있는 통합 계정의 이름입니다. 이 예에서는 `Fabrikam-Integration`를 사용합니다. |
-   | **지역** | 예 | <*Azure-region*> | 통합 계정 메타 데이터를 저장할 Azure 지역입니다. 논리 앱과 동일한 위치를 선택하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는를 사용 `West US` 합니다. <p>**참고**: [ise (integration service environment)](connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 **integration service 환경에 연결** 을 선택 하 고 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조하세요. |
+   | **지역** | 예 | <*Azure-region*> | 통합 계정 메타데이터를 저장할 Azure 지역입니다. 논리 앱과 동일한 위치를 선택하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예제에서는 `West US` 를 사용합니다. <p>**참고:** [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment-overview.md)내에 통합 계정을 만들려면 **통합 서비스 환경과 연결** 을 선택하고 위치로 ISE를 선택합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조하세요. |
    | **가격 책정 계층** | Yes | <*pricing-level*> | 나중에 변경할 수 있는 통합 계정의 가격 책정 계층입니다. 이 예제에서는 **Free** 를 선택합니다. 자세한 내용은 다음 설명서를 검토하세요. <p>- [Logic Apps 가격 책정 모델](logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps 제한 및 구성](logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **로그 분석 사용** | No | 선택 취소 | 이 예에서는이 옵션을 선택 하지 마세요. |
+   | **로그 분석 사용** | 예 | 선택 취소 | 이 예제에서는 이 옵션을 선택하지 마세요. |
    |||||
 
 1. 완료되면 **검토 + 만들기** 를 선택합니다.
@@ -328,7 +328,7 @@ az logic integration-account import --name integration_account_01 \
 
 1. **통합 계정** 아래에서 삭제하려는 통합 계정을 선택합니다. 통합 계정 메뉴에서 **개요** 를 선택합니다.
 
-   !["통합 계정" 목록과 "개요"가 선택된 통합 계정 메뉴가 있는 Azure Portal 보여 주는 스크린샷.](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+   !["통합 계정" 목록과 "개요"가 선택된 통합 계정 메뉴가 있는 Azure Portal 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
 1. 개요 창에서 **삭제** 를 선택합니다.
 

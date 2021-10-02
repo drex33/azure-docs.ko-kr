@@ -1,28 +1,22 @@
 ---
 title: 암호화 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
 description: Threat Modeling Tool에 노출되는 위협에 대한 암호화 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조하십시오.
-services: security
-documentationcenter: na
 author: jegeib
 manager: jegeib
 editor: jegeib
-ms.assetid: na
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2072500fd1f10f05359d8310b18b531293bd1885
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587182"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357383"
 ---
-# <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
+# <a name="security-frame-cryptography--mitigation"></a>보안 프레임: 암호화 | 완화
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
@@ -170,12 +164,12 @@ ms.locfileid: "97587182"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 디바이스 | 
+| **구성 요소**               | IoT 디바이스 |
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
 | **참조**              | [Windows IoT Core의 TPM](/windows/iot-core/secure-your-device/TPM)(영문), [Windows IoT Core에서 TPM 설정](/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
-| **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
+| **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 tpm 사용자를 지원 하며, 사용할 수 있는 호환 되는 tpm [(이산 tpm (dtpm))](/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm)이 여러 개 있습니다. 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. |
 
 ### <a name="example"></a>예제
 ```

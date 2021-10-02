@@ -2,13 +2,13 @@
 title: Bicep 함수 - 범위
 description: Bicep 파일에서 배포 범위에 대한 값을 검색하는 데 사용할 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: ee7ea8efbb19048ff5aa6b6ead2bf9d2495ad23a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827445"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360235"
 ---
 # <a name="scope-functions-for-bicep"></a>Bicep의 범위 함수
 
@@ -22,6 +22,8 @@ ms.locfileid: "124827445"
 
 범위를 관리 그룹으로 설정하는 데 사용되는 개체를 반환합니다.
 
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="remarks"></a>설명
 
 `managementGroup()`은 [관리 그룹 배포](deploy-to-management-group.md)에만 사용될 수 있습니다. 배포 작업에 대한 현재 관리 그룹을 반환합니다.
@@ -30,7 +32,7 @@ ms.locfileid: "124827445"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | name |예 |문자열 |배포할 관리 그룹에 대한 고유 식별자입니다. 관리 그룹에 대한 표시 이름을 사용하지 마세요. 값을 입력하지 않으면 현재 관리 그룹이 반환됩니다. |
 
@@ -64,6 +66,8 @@ module  'module.bicep' = {
 또는
 
 현재 리소스 그룹을 나타내는 개체를 반환합니다.
+
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -156,6 +160,8 @@ param location string = resourceGroup().location
 
 현재 배포에 대한 구독 관련 세부 정보를 반환합니다.
 
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="remarks"></a>설명
 
 subscription 함수에는 두 가지 고유한 용도가 있습니다. 한 가지 용도는 [모듈](modules.md#configure-module-scopes) 또는 [확장 리소스 종류](scope-extension-resources.md)의 범위를 설정하는 것입니다. 다른 용도는 현재 구독에 대한 세부 정보를 가져오는 것입니다. 함수의 배치가 용도를 결정합니다. `scope` 속성을 설정하는 데 사용된 경우 범위 개체를 반환합니다.
@@ -207,6 +213,8 @@ output subscriptionOutput object = subscription()
 `tenant()`
 
 범위를 테넌트로 설정하는 데 사용되는 개체를 반환합니다.
+
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 

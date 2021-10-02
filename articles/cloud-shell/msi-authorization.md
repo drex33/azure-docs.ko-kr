@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell에서 리소스의 관리 ID 사용
-description: Azure Cloud Shell에서 MSI를 통해 코드 인증
+title: Azure Cloud Shell에서 사용자 토큰 가져오기
+description: Azure Cloud Shell에서 인증 된 사용자에 대 한 토큰을 획득 하는 방법
 services: azure
 author: maertendMSFT
 ms.author: damaerte
@@ -9,42 +9,47 @@ ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/14/2018
-ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/29/2021
+ms.openlocfilehash: 117fa3672c78de29cd88797add83fa6e3bf2bf79
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89469901"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362734"
 ---
-# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Azure 리소스에 대한 관리 ID 사용
+# <a name="acquire-a-token-in-azure-cloud-shell"></a>Azure Cloud Shell에서 토큰 획득
 
-Azure Cloud Shell은 Azure 리소스에 대한 관리 ID를 통한 인증을 지원합니다. Azure 서비스와 안전하게 통신하기 위해 이를 활용하여 액세스 토큰을 검색합니다.
+Azure Cloud Shell Azure Portal에 로그인 한 사용자를 자동으로 인증 하는 끝점을 제공 합니다. 이 끝점을 사용 하 여 Azure 서비스와 상호 작용 하는 액세스 토큰을 가져옵니다.
 
-## <a name="about-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 정보
-클라우드 애플리케이션을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 안전하게 관리하는 방법입니다. Cloud Shell에서는 스크립트에 필요할 수 있는 자격 증명을 위해 Key Vault에서 검색을 인증해야 할 수 있습니다.
+## <a name="authenticating-in-the-cloud-shell"></a>Cloud Shell에서 인증
+Azure Cloud Shell에는 브라우저와 상호 작용 하 여 자동으로 로그인 하는 고유한 끝점이 있습니다. 이 끝점은 요청을 받으면 요청을 브라우저에 다시 보냅니다. 그러면 부모 포털 프레임으로 전달 됩니다. 포털 창에서 Azure Active Directory에 대 한 요청이 수행 되 고 결과 토큰이 반환 됩니다.
 
-Azure 리소스에 대한 관리 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+다른 자격 증명으로 인증 하려는 경우 또는를 사용 하 여이 작업을 수행할 수 있습니다. `az login``Connect-AzAccount`
 
-## <a name="acquire-access-token-in-cloud-shell"></a>Cloud Shell에서 액세스 토큰 확보
+## <a name="acquire-and-use-access-token-in-cloud-shell"></a>Cloud Shell에서 액세스 토큰 가져오기 및 사용
 
-다음 명령을 실행하여 MSI 액세스 토큰을 환경 변수 `access_token`으로 설정합니다.
+### <a name="acquire-token"></a>토큰 획득
+
+다음 명령을 실행 하 여 사용자 액세스 토큰을 환경 변수로 설정 `access_token` 합니다.
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The MSI access token is $access_token
+echo The access token is $access_token
+```
+
+### <a name="use-token"></a>토큰 사용
+
+다음 명령을 실행 하 여 이전 단계에서 얻은 토큰을 사용 하 여 계정의 모든 Virtual Machines 목록을 가져옵니다.
+
+```
+curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/virtualMachines?api-version=2021-07-01 -H "Authorization: Bearer $access_token" -H "x-ms-version: 2019-02-02"
 ```
 
 ## <a name="handling-token-expiration"></a>토큰 만료 처리
 
-로컬 MSI 하위 시스템은 토큰을 캐시합니다. 따라서 원하는 대로 자주 호출할 수 있으며 다음과 같은 경우에 Azure AD에 대한 실시간 호출이 발생합니다.
-- 캐시에서 토큰 부재로 인해 캐시 누락이 발생하는 경우
-- 토큰이 만료된 경우
+로컬 인증 끝점은 토큰을 캐시 합니다. 원하는 만큼 자주 호출할 수 있으며, Azure Active Directory에 대 한 인증 호출은 캐시에 저장 된 토큰이 없거나 토큰이 만료 된 경우에만 수행 됩니다.
 
-코드에서 토큰을 캐시하는 경우 토큰이 만료되었음을 리소스가 가리키는 시나리오를 처리하도록 준비해야 합니다.
-
-토큰 오류를 처리하려면 [MSI 액세스 토큰 컬링에 대한 MSI 페이지](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling)를 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
-[MSI에 대해 자세히 알아보기](../active-directory/managed-identities-azure-resources/overview.md)  
-[MSI VM에서 액세스 토큰 획득](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+## <a name="limitations"></a>제한 사항
+- 에 대해 Cloud Shell 토큰을 제공할 수 있는 리소스의 allowlist 있습니다. 명령을 실행 하 고와 유사한 메시지를 수신 하는 경우 `"error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/ is not a supported MSI token audience...."}` 이 제한을 통해 제공 됩니다. [GitHub](https://github.com/Azure/CloudShell/issues) 에서이 서비스를 allowlist에 추가 하도록 요청 하는 문제를 파일에 추가할 수 있습니다.
+- 명령을 사용 하 여 명시적으로 로그인 하는 경우에는 `az login` 브라우저를 실행 하는 컴퓨터가 아닌 Cloud Shell 컨테이너를 기반으로 하는 모든 조건부 액세스 규칙이 평가 됩니다. Cloud Shell 컨테이너는 이러한 정책에 대 한 관리 되는 장치로 계산 되지 않으므로 권한이 정책에 의해 제한 될 수 있습니다.
+- Azure 관리 되는 Id는 Azure Cloud Shell에서 사용할 수 없습니다. [Azure 관리 되는 id에 대해 자세히](../active-directory/managed-identities-azure-resources/overview.md)알아보세요.

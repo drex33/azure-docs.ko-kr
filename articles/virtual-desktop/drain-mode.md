@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop 드레이닝 모드 설정 - Azure
-description: Azure Virtual Desktop에서 드레이닝 모드를 구성 및 사용하는 방법을 설명합니다.
+title: 드레인 모드를 사용하여 세션 호스트를 격리하는 방법 - Azure Virtual Desktop
+description: 드레인 모드를 사용하여 Azure Virtual Desktop에서 유지 관리를 수행하기 위해 세션 호스트를 격리하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,14 +9,14 @@ ms.date: 04/14/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2ff90e2800da857dd5c82cd3b9402fa2454575ac
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 4bacff4ecef6762a4e08760c463531392a71245f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757844"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352010"
 ---
-# <a name="set-drain-mode"></a>드레이닝 모드 설정
+# <a name="use-drain-mode-to-isolate-session-hosts-and-apply-patches"></a>드레인 모드를 사용하여 세션 호스트 격리 및 패치 적용
 
 드레이닝 모드는 사용자 세션을 방해하지 않고 패치를 적용하고 유지 관리를 수행하려는 경우 세션 호스트를 격리합니다. 격리되면 세션 호스트는 새 사용자 세션을 허용하지 않습니다. 모든 새 연결은 사용 가능한 다음 세션 호스트로 리디렉션됩니다. 세션 호스트의 기존 연결은 사용자가 로그아웃하거나 관리자가 세션을 종료할 때까지 계속 작동합니다. 세션 호스트가 드레이닝 모드일 때 관리자는 Azure Virtual Desktop 서비스를 거치지 않고도 서버에 원격으로 연결할 수 있습니다. 이 설정을 풀링된 데스크톱과 개인 데스크톱 모두에 적용할 수 있습니다.
 

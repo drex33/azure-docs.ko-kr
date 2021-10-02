@@ -3,12 +3,12 @@ title: 고급 애플리케이션 업그레이드 항목
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dca3ec669fde61be86f2424d9b314b4b26546c55
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98792051"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363314"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 애플리케이션 업그레이드: 고급 항목
 
@@ -48,11 +48,11 @@ ms.locfileid: "98792051"
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **ARM 템플릿을 통해 기존 서비스를 만들거나 업데이트할 때** `InstanceCloseDelayDuration` 값을 지정합니다(최소 지원 API 버전: 2019-11-01-preview).
+ * **ARM 템플릿을 통해 기존 서비스를 만들거나 업데이트할 때** 값을 지정 합니다 `InstanceCloseDelayDuration` (지원 되는 최소 API 버전: 2020-03-01).
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
-      "apiVersion": "2019-11-01-preview",
+      "apiVersion": "2020-03-01",
       "type": "Microsoft.ServiceFabric/clusters/applications/services",
       "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
       "location": "[variables('clusterLocation')]",

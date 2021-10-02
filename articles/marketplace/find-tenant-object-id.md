@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 92819c28002c79ff905174e5b2f94779050237fd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109347"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356718"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>테넌트 ID, 개체 ID, 파트너 연결 정보 찾기
 
@@ -64,7 +64,8 @@ Azure Cloud Shell에서 디버깅 지원에 사용할 수 있도록 이러한 �
 
 6. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택한 다음, **역할 할당** 을 선택하여 **역할 할당** 을 찾습니다.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Azure 리소스에 대한 역할 할당":::
+    :::image type="content" source="../role-based-access-control/media/role-assignments-portal/rg-role-assignments.png" alt-text="Azure 리소스에 대한 역할 할당":::
+
 
 ## <a name="find-ids-for-debugging"></a>디버깅을 위한 ID 찾기
 

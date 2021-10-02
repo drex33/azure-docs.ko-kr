@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5c7e816f15400a28e8b10f4aea7a2315c89048be
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557523"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352920"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>REST API를 사용하여 Azure 사용자 지정 역할을 만들거나 업데이트하기
 
@@ -185,9 +185,9 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 1. `assignableScopes`이 관리 그룹인 경우 *{groupId}* 인스턴스를 관리 그룹 식별자로 바꿉니다. `assignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 
-1. `actions` 속성에서 역할에서 수행할 수 있는 작업을 추가합니다.
+1. `actions`속성에서 역할이 수행할 수 있는 작업을 추가합니다.
 
-1. `notActions` 속성에서 허용된 `actions`로부터 제외되는 작업을 추가합니다.
+1. `notActions`속성에서 허용되는 에서 제외되는 작업을 추가합니다. `actions`
 
 1. `roleName` 및 `description` 속성에서 고유한 역할 이름 및 설명을 지정합니다. 속성에 대한 자세한 내용은 [Azure 사용자 지정 역할](custom-roles.md)을 참조하세요.
 

@@ -2,7 +2,6 @@
 title: Azure 역할 기반 액세스 제어 - Custom Vision
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Custom Vision 프로젝트에 대해 Azure 역할 기반 액세스 제어를 구성하는 방법을 보여 줍니다.
-services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 050b4011dbc46b6b6567965ed94847dbaf3560c6
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: e2f59dc309181308f409b3533d58d3b6b4b1fdd8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982315"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361880"
 ---
 # <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
@@ -34,7 +33,7 @@ Azure RBAC는 Custom Vision 리소스에 할당할 수 있습니다. Azure 리�
 1. **구성원** 탭에서 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다.
 1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
 
-몇 분 이내에 선택한 범위에서 선택한 역할이 대상에 할당됩니다. 이 단계에 대한 도움말은 [Azure Portal을 사용하여 Azure 역할 할당](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
+몇 분 이내에 선택한 범위에서 선택한 역할이 대상에 할당됩니다. 이 단계에 대한 도움말은 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="custom-vision-role-types"></a>Custom Vision 역할 유형
 

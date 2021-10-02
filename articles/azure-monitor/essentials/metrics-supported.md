@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 09/10/2021
 ms.author: robb
-ms.openlocfilehash: ed095c4848d5e24113402145657f25bb821f8d8b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 8239421e20d955770e355abc78cfda69fda1cc42
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234626"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350570"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -171,7 +171,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |gen-1-size|예|gen-1-size|바이트|평균|1세대 힙 크기|배포, AppName, Pod|
 |gen-2-gc-count|예|gen-2-gc-count|개수|평균|2세대 GC 수|배포, AppName, Pod|
 |gen-2-size|예|gen-2-size|바이트|평균|2세대 힙 크기|배포, AppName, Pod|
-|IngressBytesReceived|예|수신된 바이트|바이트|평균|클라이언트에서 Azure Spring Cloud 받은 바이트 수|호스트 이름, HttpStatus|
+|IngressBytesReceived|예|수신된 바이트|바이트|평균|클라이언트에서 Azure 스프링 클라우드에서 받은 바이트 수|호스트 이름, HttpStatus|
 |IngressBytesReceivedRate|예|처리량 (바이트/초)|초당 바이트 수|평균|클라이언트에서 Azure 스프링 클라우드의 초당 받은 바이트 수입니다.|호스트 이름, HttpStatus|
 |IngressBytesSent|예|보낸 바이트|바이트|평균|Azure 스프링 클라우드에서 클라이언트에 보낸 바이트 수|호스트 이름, HttpStatus|
 |IngressBytesSentRate|예|처리량 (바이트/초)|초당 바이트 수|평균|Azure 스프링 클라우드에서 클라이언트에 초당 보낸 바이트 수|호스트 이름, HttpStatus|
@@ -227,7 +227,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |TotalUpdateDeploymentRuns|예|총 업데이트 배포 실행|개수|합계|총 소프트웨어 업데이트 배포 실행 횟수|SoftwareUpdateConfigurationName, 상태|
 
 
-## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+## <a name="microsoftavsprivateclouds"></a>microsoft avs/privateClouds
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
@@ -809,12 +809,12 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |AudioSecondsTranscribed|예|오디오 초 전사|개수|합계|기록된 시간(초)|ApiName, FeatureName, UsageChannel, 지역|
-|AudioSecondsTranslated|예|오디오 초 변환|개수|합계|변환된 시간(초)|ApiName, FeatureName, UsageChannel, 지역|
+|AudioSecondsTranslated|예|오디오 초 번역|개수|합계|변환된 시간(초)|ApiName, FeatureName, UsageChannel, 지역|
 |BlockedCalls|예|차단된 호출|개수|합계|요금 또는 할당량 한도를 초과한 호출 수입니다.|ApiName, OperationName, 지역|
 |CharactersTrained|예|학습된 문자(사용되지 않습니다.)|개수|합계|학습된 총 문자 수|ApiName, OperationName, 지역|
 |CharactersTranslated|예|번역된 문자(사용되지 않습니다.)|개수|합계|들어오는 텍스트 요청에 있는 문자의 총 수입니다.|ApiName, OperationName, 지역|
 |ClientErrors|예|클라이언트 오류|개수|합계|클라이언트 쪽 오류(HTTP 응답 코드 4xx)가 있는 호출 수입니다.|ApiName, OperationName, 지역|
-|ComputerVisionTransactions|예|트랜잭션 Computer Vision|개수|합계|Computer Vision 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
+|ComputerVisionTransactions|예|Computer Vision 트랜잭션|개수|합계|Computer Vision 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
 |CustomVisionTrainingTime|예|Custom Vision 학습 시간|초|합계|Custom Vision 학습 시간|ApiName, FeatureName, UsageChannel, 지역|
 |CustomVisionTransactions|예|Custom Vision 트랜잭션|개수|합계|Custom Vision 예측 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
 |DataIn|예|데이터 입력|바이트|합계|들어오는 데이터 크기(바이트)입니다.|ApiName, OperationName, 지역|
@@ -823,7 +823,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |DocumentCustomCharactersTranslated|예|번역된 문서 사용자 지정 문자|개수|합계|사용자 지정 문서 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |FaceImagesTrained|예|Face Images Trained|개수|합계|학습된 이미지 수입니다. 트랜잭션당 학습된 이미지 1,000개|ApiName, FeatureName, UsageChannel, 지역|
 |FacesStored|예|저장된 얼굴|개수|합계|저장된 얼굴 수, 비례 배분된 일별 얼굴 수입니다. 저장된 얼굴 수는 매일 보고됩니다.|ApiName, FeatureName, UsageChannel, 지역|
-|FaceTransactions|예|Face Transactions|개수|합계|Face 서비스에 대한 API 호출 수|ApiName, FeatureName, UsageChannel, 지역|
+|FaceTransactions|예|얼굴 트랜잭션|개수|합계|Face 서비스에 대한 API 호출 수|ApiName, FeatureName, UsageChannel, 지역|
 |ImagesStored|예|저장된 이미지|개수|합계|저장된 Custom Vision 이미지 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |대기 시간|예|대기 시간|밀리초|평균|대기 시간(밀리초)입니다.|ApiName, OperationName, 지역|
 |LearnedEvents|예|학습한 이벤트 수|개수|합계|학습한 이벤트 수|IsMatchBaseline, 모드, RunId|
@@ -832,24 +832,24 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |MatchedRewards|예|일치하는 보상 수|개수|합계|일치하는 보상 수|Mode, RunId|
 |NumberofSpeakerProfiles|예|화자 프로필 수|개수|합계|등록된 화자 프로필 수입니다. 시간별 비례 배분.|ApiName, FeatureName, UsageChannel, 지역|
 |ObservedRewards|예|관찰된 보상 수|개수|합계|관찰된 보상 수|Mode, RunId|
-|ProcessedCharacters|예|처리된 문자 수|개수|합계|몰입형 리더에서 처리 되는 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
-|ProcessedHealthTextRecords|예|처리 된 상태 텍스트 레코드|개수|합계|처리 된 상태 텍스트 레코드 수|ApiName, FeatureName, UsageChannel, 지역|
-|Processeages|예|처리 된 이미지|개수|합계|처리 된 이미지 수|ApiName, FeatureName, UsageChannel, 지역|
-|ProcessedPages|예|처리 된 페이지|개수|합계|처리 된 페이지 수|ApiName, FeatureName, UsageChannel, 지역|
+|ProcessedCharacters|예|처리된 문자 수|개수|합계|몰입형 리더 처리한 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|ProcessedHealthTextRecords|예|처리된 상태 텍스트 레코드|개수|합계|처리된 상태 텍스트 레코드 수|ApiName, FeatureName, UsageChannel, 지역|
+|ProcessedImages|예|처리된 이미지|개수|합계|처리된 이미지 수|ApiName, FeatureName, UsageChannel, 지역|
+|ProcessedPages|예|처리된 페이지|개수|합계|처리된 페이지 수|ApiName, FeatureName, UsageChannel, 지역|
 |ProcessedTextRecords|예|처리된 텍스트 레코드 수|개수|합계|텍스트 레코드 수|ApiName, FeatureName, UsageChannel, 지역|
 |ServerErrors|예|서버 오류|개수|합계|서비스 내부 오류(HTTP 응답 코드 5xx)가 있는 호출 수입니다.|ApiName, OperationName, 지역|
-|SpeakerRecognitionTransactions|예|Speaker Recognition 트랜잭션|개수|합계|스피커 인식 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
+|SpeakerRecognitionTransactions|예|Speaker Recognition 트랜잭션|개수|합계|화자 인식 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
 |SpeechModelHostingHours|예|음성 모델 호스팅 시간|개수|합계|음성 모델 호스팅 시간 수|ApiName, FeatureName, UsageChannel, 지역|
-|SpeechSessionDuration|예|음성 세션 기간 (사용 되지 않음)|초|합계|음성 세션의 총 기간(초)입니다.|ApiName, OperationName, 지역|
+|SpeechSessionDuration|예|음성 세션 기간(사용되지 않습니다.)|초|합계|음성 세션의 총 기간(초)입니다.|ApiName, OperationName, 지역|
 |SuccessfulCalls|예|성공한 호출|개수|합계|성공한 호출 수입니다.|ApiName, OperationName, 지역|
 |SynthesizedCharacters|예|합성 문자|개수|합계|문자 수|ApiName, FeatureName, UsageChannel, 지역|
-|TextCharactersTranslated|예|텍스트 문자 변환|개수|합계|들어오는 텍스트 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
-|TextCustomCharactersTranslated|예|텍스트 사용자 지정 문자 변환|개수|합계|들어오는 사용자 지정 텍스트 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
-|TextTrainedCharacters|예|텍스트 학습 문자|개수|합계|텍스트 번역을 사용 하 여 학습 된 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|TextCharactersTranslated|예|번역된 텍스트 문자|개수|합계|들어오는 텍스트 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|TextCustomCharactersTranslated|예|텍스트 사용자 지정 문자 번역|개수|합계|들어오는 사용자 지정 텍스트 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|TextTrainedCharacters|예|텍스트 학습 문자|개수|합계|텍스트 번역을 사용하여 학습된 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |TotalCalls|예|총 호출|개수|합계|총 호출 수.|ApiName, OperationName, 지역|
 |TotalErrors|예|총 오류|개수|합계|오류 응답(HTTP 응답 코드 4xx 또는 5xx)이 있는 총 호출 수입니다.|ApiName, OperationName, 지역|
 |TotalTokenCalls|예|총 토큰 호출|개수|합계|총 토큰 호출 수입니다.|ApiName, OperationName, 지역|
-|TotalTransactions|예|총 트랜잭션 (사용 되지 않음)|개수|합계|총 트랜잭션 수|차원 없음|
+|TotalTransactions|예|총 트랜잭션 수(사용되지 않습니다.)|개수|합계|총 트랜잭션 수|차원 없음|
 |VoiceModelHostingHours|예|음성 모델 호스팅 시간|개수|합계|시간(시)|ApiName, FeatureName, UsageChannel, 지역|
 |VoiceModelTrainingMinutes|예|음성 모델 학습(분)|개수|합계|시간(분)|ApiName, FeatureName, UsageChannel, 지역|
 
@@ -860,7 +860,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |---|---|---|---|---|---|---|
 |APIRequestAuthentication|예|인증 API 요청 수|개수|개수|Communication Services 인증 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass|
 |APIRequestChat|예|채팅 API 요청 수|개수|개수|Communication Services 채팅 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass|
-|APIRequestSMS|예|SMS API 요청 수|개수|개수|Communication Services SMS 엔드포인트에 대한 모든 요청 수|Operation, StatusCode, StatusCodeClass, ErrorCode|
+|APIRequestSMS|예|SMS API 요청 수|개수|개수|Communication Services SMS 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass, ErrorCode|
 
 
 ## <a name="microsoftcomputecloudservices"></a>Microsoft.Compute/cloudServices
@@ -955,7 +955,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |소비한 VM 캐시 IOPS 백분율|예|소비한 VM 캐시 IOPS 백분율|백분율|평균|VM에서 소비한 캐시 디스크 IOPS의 백분율|차원 없음|
 |VM 캐시되지 않은 대역폭 사용량 백분율|예|VM 캐시되지 않은 대역폭 사용량 백분율|백분율|평균|VM에서 소비한 캐시되지 않은 디스크 대역폭의 백분율|차원 없음|
 |VM 캐시되지 않은 IOPS 사용량 백분율|예|VM 캐시되지 않은 IOPS 사용량 백분율|백분율|평균|VM에서 소비한 캐시되지 않은 디스크 IOPS의 백분율|차원 없음|
-|VmAvailabilityMetric|예|VM 가용성 메트릭 (미리 보기)|개수|평균|시간이 지남에 따라 가상 머신의 가용성을 측정 합니다. 참고:이 메트릭은 데이터 품질 및 일관성 개선을 위한 우선 순위를 지정 하는 시점에 소수의 고객 에게만 미리 봅니다. 데이터 표준을 개선 하면서이 기능을 단계적으로 fleetwide 수 있습니다.|차원 없음|
+|VmAvailabilityMetric|예|VM 가용성 메트릭(미리 보기)|개수|평균|시간이 지남에 따라 가상 머신의 가용성을 측정 합니다. 참고:이 메트릭은 데이터 품질 및 일관성 개선을 위한 우선 순위를 지정 하는 시점에 소수의 고객 에게만 미리 봅니다. 데이터 표준을 개선 하면서이 기능을 단계적으로 fleetwide 수 있습니다.|차원 없음|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
@@ -1580,7 +1580,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |---|---|---|---|---|---|---|
 |AddRegion|예|추가된 지역|개수|개수|추가된 지역|지역|
 |AutoscaleMaxThroughput|예|자동 스케일링 최대 처리량|개수|최대|자동 스케일링 최대 처리량|DatabaseName, CollectionName|
-|AvailableStorage|예|(사용되지 않음) 사용 가능한 스토리지|바이트|합계|"사용 가능한 스토리지"는 2023년 9월 말에 Azure Monitor에서 제거됩니다. 이제 Cosmos DB 컬렉션 스토리지 크기는 제한되지 않습니다. 유일한 제한 사항으로 각 논리 파티션 키의 스토리지 크기가 20GB로 제한됩니다. 진단 로그에서 PartitionKeyStatistics를 사용하도록 설정하여 상위 파티션 키에 사용되는 스토리지 사용량을 파악할 수 있습니다. Cosmos DB 스토리지 할당량에 대한 자세한 내용은 https://docs.microsoft.com/azure/cosmos-db/concepts-limits 문서를 참조하세요. 사용 중단 후, 사용되지 않는 메트릭에 여전히 정의된 나머지 경고 규칙은 사용 중단 날짜 이후에 자동으로 비활성화됩니다.|CollectionName, DatabaseName, 지역|
+|AvailableStorage|예|(사용되지 않음) 사용 가능한 스토리지|바이트|합계|"사용 가능한 스토리지"는 2023년 9월 말에 Azure Monitor에서 제거됩니다. 이제 Cosmos DB 컬렉션 스토리지 크기는 제한되지 않습니다. 유일한 제한 사항으로 각 논리 파티션 키의 스토리지 크기가 20GB로 제한됩니다. 진단 로그에서 PartitionKeyStatistics를 사용하도록 설정하여 상위 파티션 키에 사용되는 스토리지 사용량을 파악할 수 있습니다. Cosmos DB 저장소 할당량에 대 한 자세한 내용은이 문서 [Azure Cosmos DB 서비스 할당량](../../cosmos-db/concepts-limits.md)을 확인 하세요. 사용 중단 후, 사용되지 않는 메트릭에 여전히 정의된 나머지 경고 규칙은 사용 중단 날짜 이후에 자동으로 비활성화됩니다.|CollectionName, DatabaseName, 지역|
 |CassandraConnectionClosures|예|Cassandra 연결 차단|개수|합계|종료된 Cassandra 연결 수. 1분 단위로 보고됩니다.|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|예|Cassandra 커넥터 평균 ReplicationLatency|밀리초|평균|Cassandra 커넥터 평균 ReplicationLatency|차원 없음|
 |CassandraConnectorReplicationHealthStatus|예|Cassandra 커넥터 복제 상태|개수|개수|Cassandra 커넥터 복제 상태|NotStarted, ReplicationInProgress, 오류|
@@ -1925,7 +1925,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |exceptions/server|예|서버 예외|개수|개수|서버 애플리케이션에서 발생된 확인할 수 없는 예외의 수입니다.|cloud/roleName, cloud/roleInstance|
 |pageViews/count|예|페이지 보기|개수|개수|페이지 보기 수입니다.|operation/synthetic, cloud/roleName|
 |pageViews/duration|예|페이지 보기 로드 시간|밀리초|평균|페이지 보기 로드 시간|operation/synthetic, cloud/roleName|
-|performanceCounters/exceptionsPerSecond|예|예외 속도|초당 개수|평균|.NET 예외 및 .NET 예외로 변환되는 관리되지 않는 예외를 포함하여 Windows 보고되는 처리된 예외 및 처리되지 않은 예외 수입니다.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|예|예외 속도|초당 개수|평균|.net 예외 및 .net 예외로 변환 된 관리 되지 않는 예외를 포함 하 여 Windows에 보고 된 처리 된 예외 및 처리 되지 않은 예외 수입니다.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|예|사용 가능한 메모리|바이트|평균|프로세스에 할당하거나 시스템에서 사용할 수 있는 실제 메모리입니다.|cloud/roleInstance|
 |performanceCounters/processCpuPercentage|예|CPU 프로세스|백분율|평균|모든 프로세스 스레드가 명령을 실행하기 위해 프로세서를 사용한 경과된 시간의 백분율입니다. 0~100 사이로 달라질 수 있습니다. 이 메트릭은 w3wp 프로세스만의 성능을 나타냅니다.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|예|프로세스 IO 속도|초당 바이트 수|평균|파일, 네트워크 및 디바이스에서 읽고 쓴 초당 총 바이트 수입니다.|cloud/roleInstance|
@@ -2231,11 +2231,11 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |SuccessE2ELatency|예|성공 엔드투엔드 대기 시간|밀리초|평균|성공한 요청의 평균 대기 시간(밀리초)|OutputFormat|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ReceivedBytes|예|받은 바이트|바이트|합계|파이프라인 노드에서 받은 바이트 수입니다.|PipelineTopology, 파이프라인, 노드|
+|ReceivedBytes|예|받은 바이트|바이트|합계|파이프라인 노드에서 받은 바이트 수입니다.|PipelineTopology, Pipeline, Node|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
@@ -2932,7 +2932,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |대기 시간|No|대기 시간|초|평균|Azure Resource Manager에 대 한 모든 요청에 대 한 대기 시간 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
-|트래픽|아니요|트래픽|개수|개수|Azure Resource Manager에 대 한 모든 요청에 대 한 트래픽 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
+|트래픽|예|트래픽|개수|개수|Azure Resource Manager에 대 한 모든 요청에 대 한 트래픽 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
@@ -3585,17 +3585,17 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|초당 바이트 수|예|초당 바이트 수입니다.|초당 바이트 수|평균|마이그레이션자에 사용 중인 바이트/초의 처리량 속도입니다.||
-|DirectoriesCreatedCount|예|만든 디렉터리 수|개수|합계|이렇게 하면 마이그레이션의 일부로 생성된 디렉터리 수를 확인할 수 있습니다.||
-|FileMigrationCount|예|파일 마이그레이션 수|개수|합계|이렇게 하면 마이그레이션된 파일의 총 수를 확인할 수 있습니다.||
-|InitialScanDataMigratedInBytes|예|마이그레이션된 초기 검사 데이터(바이트)|바이트|합계|이를 통해 온-프레미스 파일 시스템의 초기 검색 결과로 새 마이그레이션기에서 전송된 총 바이트의 뷰를 제공합니다. 초기 검사 마이그레이션 후 마이그레이션에 추가되는 모든 데이터는 이 메트릭에 포함되지 않습니다.||
-|LiveDataMigratedInBytes|예|실시간 데이터 마이그레이션(바이트)|개수|합계|마이그레이션이 시작된 이후 클라이언트 활동으로 인해 변경된 LiveData의 실행 합계를 제공합니다.||
-|MigratorCPULoad|예|마이그레이션기 CPU 로드|백분율|평균|마이그레이션기 프로세스의 CPU 사용량입니다.||
-|NumberOfExcludedPaths|예|제외된 경로 수|개수|합계|제외 규칙으로 인해 마이그레이션에서 제외된 경로의 실행 횟수를 제공합니다.||
-|NumberOfFailedPaths|예|실패한 경로 수|개수|합계|마이그레이션에 실패한 경로의 수입니다.||
-|SystemCPULoad|예|시스템 CPU 로드|백분율|평균|총 CPU 사용량.||
-|TotalMigratedDataInBytes|예|총 마이그레이션된 데이터(바이트)|바이트|합계|지정된 마이그레이션자에 대해 성공적으로 마이그레이션된 바이트를 볼 수 있습니다.||
-|TotalTransactions|예|총 트랜잭션|개수|합계|이렇게 하면 사용자에게 요금이 청구될 수 있는 데이터 트랜잭션의 총계가 제공됩니다.||
+|초당 바이트 수|예|초당 바이트 수입니다.|초당 바이트 수|평균|Migrator에 대해 utilised 되는 초당 바이트의 처리량 속도입니다.||
+|DirectoriesCreatedCount|예|만든 디렉터리 수|개수|합계|그러면 마이그레이션의 일부로 생성 된 디렉터리 수를 실행 하는 보기가 제공 됩니다.||
+|FileMigrationCount|예|파일 마이그레이션 횟수|개수|합계|이는 마이그레이션된 파일 수의 누계를 제공 합니다.||
+|InitialScanDataMigratedInBytes|예|초기 검색 데이터 마이그레이션 (바이트)|바이트|합계|이를 통해 온-프레미스 파일 시스템의 초기 검색 결과로 새 migrator 전송 된 총 바이트 수를 볼 수 있습니다. 초기 검색 마이그레이션 후 마이그레이션에 추가 되는 모든 데이터는이 메트릭에 포함 되지 않습니다.||
+|LiveDataMigratedInBytes|예|라이브 데이터 마이그레이션 (바이트)|개수|합계|마이그레이션이 시작 된 후 클라이언트 작업으로 인해 변경 된 사용 중인 데이터의 누계를 제공 합니다.||
+|MigratorCPULoad|예|Migrator CPU 로드|백분율|평균|Migrator 프로세스의 CPU 사용량입니다.||
+|NumberOfExcludedPaths|예|제외 된 경로 수|개수|합계|제외 규칙으로 인해 마이그레이션에서 제외 된 경로 실행 횟수를 제공 합니다.||
+|번호 오프 경로|예|실패 한 경로 수|개수|합계|마이그레이션하지 못한 경로 수입니다.||
+|SystemCPULoad|예|시스템 CPU 로드|백분율|평균|총 CPU 사용량입니다.||
+|TotalMigratedDataInBytes|예|총 마이그레이션된 데이터 (바이트)|바이트|합계|지정 된 migrator에 대 한 성공적으로 마이그레이션된 바이트의 뷰를 제공 합니다.||
+|TotalTransactions|예|총 트랜잭션|개수|합계|이렇게 하면 사용자에 게 요금이 청구 될 수 있는 데이터 트랜잭션의 누계를 제공 합니다.||
 
 
 ## <a name="next-steps"></a>다음 단계

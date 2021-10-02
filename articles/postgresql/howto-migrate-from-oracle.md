@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: c197f5200c3db60a63bfd8c8e4e01ab4881aa5b6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 758199dca165c301322631e0d29b1af2711dc56b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756362"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356938"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Oracle을 Azure Database for PostgreSQL로 마이그레이션
 
@@ -92,7 +92,7 @@ Oracle에 대한 Microsoft 사전 평가 스크립트는 Oracle 데이터베이�
 - 각 스키마에 있는 테이블의 크기입니다.
 - 패키지, 함수, 프로시저 등의 항목당 코드 줄 수입니다.
 
-[github](https://github.com/microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)에서 관련 스크립트를 다운로드합니다.
+[github](https://github.com/microsoft/DataMigrationTeam/tree/master/Whitepapers)에서 관련 스크립트를 다운로드합니다.
 
 ### <a name="assess"></a>평가
 

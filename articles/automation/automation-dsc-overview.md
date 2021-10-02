@@ -10,19 +10,19 @@ ms.author: magoedte
 ms.date: 08/17/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c40a8b002605b8776ac04d2af0d920b824aaeab0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 898fc7b2574040ef6095178eae9cd8e7ee747ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538883"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352902"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
 Azure Automation 상태 구성은 Azure 구성 관리 서비스로, 모든 클라우드 또는 온-프레미스 데이터 센터의 노드에 대한 PowerShell DSC(Desired State Configuratioin) [구성](/powershell/scripting/dsc/configurations/configurations)을 작성, 관리 및 컴파일합니다. 또한 이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 모든 클라우드에서 대상 노드에 구성을 할당합니다. **Configuration Management** 에서 **DSC(State Configuration)** 를 선택하여 Azure Portal에서 Azure Automation 상태 구성에 액세스할 수 있습니다.
 
 > [!NOTE]
-> 자동화 상태 구성을 사용하도록 설정하기 전에 Azure에서 실행되는 컴퓨터 내부 또는 [Arc 지원 서버](../azure-arc/servers/overview.md)와 연결된 Azure 외부의 컴퓨터에서 설정을 감사하거나 구성할 수 있는 [Azure Policy 게스트 구성](../governance/policy/concepts/guest-configuration.md)에 대해 알고 싶습니다. Azure Policy 게스트 구성은 유사한 기능을 제공하며 Azure의 최신 기술을 활용하도록 설계되었습니다.
+> Automation State Configuration 사용하도록 설정하기 전에 최신 버전의 DSC를 미리 보기에서 사용할 수 있으며 [게스트 구성이라는](../governance/policy/concepts/guest-configuration.md)Azure Policy 기능으로 관리됩니다. 게스트 구성 서비스는 DSC 확장, Azure Automation State Configuration 기능 및 고객 피드백에서 가장 일반적으로 요청된 기능을 결합합니다. 게스트 구성에는 Arc 지원 서버를 통한 하이브리드 머신 지원도 [포함됩니다.](../azure-arc/servers/overview.md)
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
@@ -103,9 +103,9 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원하고 `http_proxy
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [Azure Automation 상태 구성 시작하기](automation-dsc-getting-started.md)를 참조하세요.
+- 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - 노드를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성 사용](automation-dsc-onboarding.md)을 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
+- 지속적인 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

@@ -4,13 +4,13 @@ description: Bicep 파일의 루프 및 배열을 사용하여 여러 리소스 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: fadd3cfac94889a187409e95331190b7d7b98b73
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662099"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362991"
 ---
 # <a name="resource-iteration-in-bicep"></a>Bicep의 리소스 반복
 
@@ -22,7 +22,7 @@ ms.locfileid: "128662099"
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-루프 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드를 참조하세요.](/learn/modules/build-flexible-bicep-templates-conditions-loops/)
+루프에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [조건 및 루프를 사용 하 여 유연한 Bicep 템플릿 빌드](/learn/modules/build-flexible-bicep-templates-conditions-loops/) 를 참조 하세요.
 
 ## <a name="syntax"></a>Syntax
 
@@ -60,11 +60,11 @@ ms.locfileid: "128662099"
 
 ## <a name="loop-limits"></a>루프 한계
 
-Bicep 루프에는 다음과 같은 제한이 있습니다.
+Bicep 루프에는 다음과 같은 제한 사항이 있습니다.
 
-- 중첩된 자식 리소스가 있는 리소스를 반복할 수 없습니다. 자식 리소스를 최상위 리소스로 변경해야 합니다.  [자식 리소스에 대한 반복을](#iteration-for-a-child-resource)참조하세요.
-- 여러 수준의 속성을 반복할 수 없습니다. [Bicep의 속성 반복을](./loop-properties.md)참조하세요.
-- 루프 반복은 음수이거나 800회 반복을 초과할 수 없습니다.
+- 중첩 된 자식 리소스를 사용 하 여 리소스를 반복할 수 없습니다. 자식 리소스를 최상위 리소스로 변경 해야 합니다.  [자식 리소스에 대 한 반복](#iteration-for-a-child-resource)을 참조 하세요.
+- 여러 수준의 속성을 반복할 수 없습니다. [Bicep의 속성 반복을](./loop-properties.md)참조 하세요.
+- 루프 반복은 음수 이거나 800 반복을 초과할 수 없습니다.
 
 ## <a name="loop-index"></a>루프 인덱스
 
@@ -193,7 +193,9 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 }]
 ```
 
-순차 배포의 경우 일괄 처리 크기를 1로 설정합니다.
+순차 배포의 경우, 일괄 처리 크기를 1로 설정합니다.
+
+`batchSize`데코레이터는 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 이 데코레이터를 같은 이름의 다른 항목과 구분 해야 하는 경우에는 데코레이터 앞에 **sys** 를 사용 합니다. `@sys.batchSize(2)`
 
 ## <a name="iteration-for-a-child-resource"></a>자식 리소스에 대한 반복
 

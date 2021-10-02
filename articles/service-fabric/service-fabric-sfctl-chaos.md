@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4d140f5f71413524dc60d0d07bdc6b646ac552a1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86260826"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351142"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
@@ -41,7 +41,7 @@ Chaos 이벤트의 다음 세그먼트를 가져오기 위해 ContinuationToken�
 | --end-time-utc | Chaos 보고서가 생성될 시간 범위의 종료 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
 | --start-time-utc | Chaos 보고서가 생성될 시간 범위의 시작 시간을 나타내는 Windows 파일 시간입니다. 자세한 내용은 [DateTime.ToFileTimeUtc 메서드](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx)를 참조하세요. |
-| --timeout -t | 작업을 수행하기 위한 서버 시간 제한(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행하기 위한 서버 제한 시간(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -62,7 +62,7 @@ Chaos가 실행 중인지 여부, Chaos 매개 변수가 Chaos 실행에 사용�
 
 |인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행하기 위한 서버 시간 제한(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행하기 위한 서버 제한 시간(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -77,7 +77,7 @@ Chaos가 실행 중인지 여부, Chaos 매개 변수가 Chaos 실행에 사용�
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 클러스터의 Chaos가 시작됩니다.
 
-Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 전달된 값으로 Chaos를 시작합니다. 이 호출을 수행할 때 Chaos가 이미 실행 중이면 호출이 FABRIC_E_CHAOS_ALREADY_RUNNING 오류 코드로 실패합니다. 자세한 내용은 [Induce controlled Chaos in Service Fabric clusters](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)(Service Fabric 클러스터에서 제어되는 카오스 유도) 문서를 참조하세요.
+Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변수에 전달된 값으로 Chaos를 시작합니다. 이 호출을 수행할 때 Chaos가 이미 실행 중이면 호출이 FABRIC_E_CHAOS_ALREADY_RUNNING 오류 코드로 실패합니다. 자세한 내용은 [Induce controlled Chaos in Service Fabric clusters](service-fabric-controlled-chaos.md)(Service Fabric 클러스터에서 제어되는 카오스 유도) 문서를 참조하세요.
 
 ### <a name="arguments"></a>인수
 
@@ -116,7 +116,7 @@ Chaos가 아직 클러스터에 실행되고 있지 않다면 Chaos 매개 변�
 
 |인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행하기 위한 서버 시간 제한(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행하기 위한 서버 제한 시간(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 

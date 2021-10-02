@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: b6aaa3f636df1df894a557491905d16703cac10c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537318"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349850"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -40,7 +40,7 @@ Azure Machine Learning 데이터 세트를 사용하면 다음을 수행할 수 
 
 * Azure 구독 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
-* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md).
+* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
 * azureml-datasets 패키지가 포함된 [Azure Machine Learning SDK for Python이 설치](/python/api/overview/azure/ml/install)됩니다.
 
@@ -223,7 +223,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-[데이터 레이블 지정 프로젝트](how-to-create-labeling-projects.md)에서 생성된 **레이블이 지정된 데이터 세트** 는 특수 사례입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
+이미지 레이블 지정 프로젝트에서 만든 [레이블이 지정되는](how-to-create-image-labeling-projects.md) **데이터 세트는** 특별한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
 
 ```python
 # Dataset that only contains records where the label column value is dog

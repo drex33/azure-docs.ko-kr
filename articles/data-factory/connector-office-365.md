@@ -1,27 +1,27 @@
 ---
-title: Office 365에서 데이터 복사
+title: Office 365 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 Office 365에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 Office 365 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 45f4f771d2cb289b9893bb8243add86df36ac915
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: edd54b8b6f96244bef4b78ab191e4b265a753e69
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815036"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360490"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Office 365에서 Azure로 데이터 복사
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Office 365 Azure로 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory 및 Synapse analytics 파이프라인은 [Microsoft Graph 데이터 연결](/graph/data-connect-concept-overview)와 통합 되어 Office 365 테 넌 트의 리치 조직 데이터를 확장 가능한 방식으로 Azure로 가져와 분석 응용 프로그램을 작성 하 고 이러한 중요 한 데이터 자산을 기반으로 통찰력을 추출할 수 있습니다. Privileged Access Management와 통합하면 Office 365의 큐레이팅된 중요한 데이터에 대한 보안 액세스 제어가 가능합니다.  Microsoft Graph 데이터 연결에 대한 개요는 [이 링크](/graph/data-connect-concept-overview)를 참조하고, 라이선스 정보는 [이 링크](/graph/data-connect-policies#licensing)를 참조하세요.
+Azure Data Factory 및 Synapse Analytics 파이프라인은 Microsoft Graph 데이터 연결 통합되어 [Office 365](/graph/data-connect-concept-overview)테넌트에서 풍부한 조직 데이터를 확장 가능한 방식으로 Azure로 가져오고 분석 애플리케이션을 빌드하고 이러한 중요한 데이터 자산에 따라 인사이트를 추출할 수 있습니다. Privileged Access Management와 통합하면 Office 365의 큐레이팅된 중요한 데이터에 대한 보안 액세스 제어가 가능합니다.  Microsoft Graph 데이터 연결에 대한 개요는 [이 링크](/graph/data-connect-concept-overview)를 참조하고, 라이선스 정보는 [이 링크](/graph/data-connect-policies#licensing)를 참조하세요.
 
-이 문서에서는 복사 작업을 사용 하 여 Office 365에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 복사 작업을 사용하여 Office 365 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 ADF Office 365 커넥터와 Microsoft Graph 데이터 연결을 사용하면 주소록 연락처, 일정 이벤트, 이메일 메시지, 사용자 정보, 사서함 설정을 비롯하여 Exchange 이메일 지원 사서함에서 다양한 유형의 데이터 세트를 대규모로 수집할 수 있습니다.  사용 가능한 데이터 세트의 전체 목록을 보려면 [여기](/graph/data-connect-datasets)를 참조하세요.
@@ -29,7 +29,7 @@ ADF Office 365 커넥터와 Microsoft Graph 데이터 연결을 사용하면 주
 현재 단일 복사 작업 내에서 **Office 365의 데이터를 [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)에 JSON 형식**(setOfObjects 형식)으로만 복사할 수 있습니다. Office 365를 다른 유형의 데이터 저장소나 다른 형식으로 로드하려면, 첫 번째 복사 작업을 후속 복사 작업과 연결하여 [지원되는 ADF 대상 저장소](copy-activity-overview.md#supported-data-stores-and-formats)로 데이터를 추가로 로드할 수 있습니다("지원되는 데이터 저장소 및 형식" 표의 "싱크로 지원" 열 참조).
 
 >[!IMPORTANT]
->- 데이터 팩터리 또는 Synapse 작업 영역 및 싱크 데이터 저장소가 포함 된 azure 구독은 Office 365 테 넌 트와 동일한 Azure Active Directory (azure AD) 테 넌 트 아래에 있어야 합니다.
+>- 데이터 팩터리 또는 Synapse 작업 영역과 싱크 데이터 저장소를 포함하는 Azure 구독은 Office 365 테넌트와 동일한 Azure AD(Azure Active Directory) 테넌트 아래에 있어야 합니다.
 >- 복사 작업에 사용된 Azure Integration Runtime 지역 및 대상이 Office 365 테넌트 사용자의 사서함이 있는 곳과 동일한 지역에 있어야 합니다. Azure IR 위치가 결정되는 방식을 이해하려면 [여기](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요. 지원되는 Office 지역 및 해당되는 Azure 지역 목록은 [여기 표](/graph/data-connect-datasets#regions)를 참조하세요.
 >- 서비스 주체 인증은 Azure Blob Storage, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2가 대상 저장소로 지원되는 유일한 인증 메커니즘입니다.
 
@@ -51,9 +51,6 @@ Office 365에서 Azure로 데이터를 복사하려면 다음 필수 구성 요�
 
 승인자가 데이터 액세스 요청을 승인하는 방법은 [여기](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal)를 참조하고 데이터 액세스 승인자 그룹을 설정하는 방법을 포함하여 Privileged Access Management와의 전반적인 통합에 대한 설명은 [여기](/graph/data-connect-pam)를 참조하세요.
 
-## <a name="policy-validation"></a>정책 유효성 검사
-
-ADF가 관리되는 앱의 일부로 생성되고 Azure 정책 할당이 관리 리소스 그룹 내의 리소스에 대해 수행되는 경우 복사 작업이 실행될 때마다 ADF가 정책 할당이 적용되는지 확인합니다. 지원 되는 정책 목록은 [여기](/graph/data-connect-policies#policies)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -99,7 +96,7 @@ ADF가 관리되는 앱의 일부로 생성되고 Azure 정책 할당이 관리 
 
 Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Office365** 로 설정해야 합니다. | 예 |
 | office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
@@ -139,7 +136,7 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 **Office365Table** 로 설정해야 합니다. | 예 |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](/graph/data-connect-datasets#datasets)를 참조하세요. | 예 |

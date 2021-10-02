@@ -1,30 +1,29 @@
 ---
 title: 이미지 및 텍스트 문서에 레이블 지정
 title.suffix: Azure Machine Learning
-description: 데이터 레이블 지정 도구를 사용하여 데이터 레이블 지정 프로젝트에서 Machine Learning을 위한 텍스트 또는 이미지 데이터를 신속하게 준비하는 방법을 알아봅니다.
+description: 데이터 레이블 지정 도구를 사용 하 여 데이터 레이블 지정 프로젝트의 Machine Learning에 대 한 텍스트 또는 레이블 이미지의 레이블을 신속 하 게 지정할 수 있습니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 19b773fa305b328926d28b383a8fee81bfb8ee40
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446258"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357639"
 ---
 # <a name="labeling-images-and-text-documents"></a>이미지 및 텍스트 문서에 레이블 지정
 
-프로젝트 관리자가 Azure Machine Learning에서 [데이터 레이블 지정 프로젝트를 만든](./how-to-create-labeling-projects.md#create-a-data-labeling-project) 후에는 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 사용할 데이터를 빠르게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning에서 [이미지 데이터 레이블 지정 프로젝트](./how-to-create-image-labeling-projects.md) 또는 [텍스트 데이터 레이블 지정 프로젝트](./how-to-create-text-labeling-projects.md) 를 만든 후에는 레이블 지정 도구를 사용 하 여 Machine Learning 프로젝트에 대 한 데이터를 신속 하 게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법
 > * 레이블 지정 도구
 > * 특정 레이블 지정 작업용 도구를 사용하는 방법
-
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -63,7 +62,7 @@ ms.locfileid: "114446258"
 
 특히 레이블 지정 프로젝트의 초기에 기계 학습 모델은 이미지의 작은 하위 세트에 레이블을 지정할 정도로만 정확할 수 있습니다. 이러한 이미지가 레이블 지정되면 레이블 지정 프로젝트가 수동 레이블 지정으로 반환되어 다음 라운드 모델 학습에 대한 추가 데이터를 수집합니다. 시간이 지남에 따라 모델은 더 높은 비율의 이미지에 대해 더 확실하게 되므로 나중에 프로젝트에서 더 많은 사전 레이블 작업을 진행합니다.
 
-## <a name="image-tasks"></a>이미지 작업
+## <a name="image-tasks"></a><a name="image-tasks"></a> 이미지 작업
 
 이미지 분류 작업의 경우 여러 이미지를 동시에 표시하도록 선택할 수 있습니다. 이미지 영역 위의 아이콘을 사용하여 레이아웃을 선택합니다.
 
@@ -163,13 +162,13 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 
 이미지에 대한 다각형을 만든 후 **제출** 을 선택하여 작업을 저장하지 않으면 진행 중인 작업이 저장되지 않습니다.
 
-## <a name="annotate-text-preview"></a>텍스트에 주석 달기(미리 보기)
+## <a name="label-text-preview"></a><a name="label-text"></a>레이블 텍스트 (미리 보기)
 
 > [!IMPORTANT]
 > 텍스트 레이블 지정은 공개 미리 보기로 제공됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-텍스트에 주석을 달 때 도구 모음을 사용하여 다음을 수행합니다.
+텍스트 태그를 지정 하는 경우 도구 모음을 사용 합니다.
 
 * 텍스트 크기 늘리기 또는 줄이기
 * 글꼴 변경

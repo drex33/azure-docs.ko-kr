@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 1671b0c4ba57faa6dc631c50cc273678c72b379b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 188e40f9bc3d2d23035549578cdc6440af60a3e5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730127"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359234"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Azure VM 기반 JBoss EAP 및 가상 머신 확장 집합에서 Java 애플리케이션을 마이그레이션하는 방법
 
@@ -89,7 +89,7 @@ Red Hat MTA를 사용하면 다른 애플리케이션 서버에서 Red Hat JBoss
 
 ### <a name="validate-the-compatibility"></a>호환성 유효성 검사
 
-마이그레이션을 계획하기 전에 현재 배포 모델 및 버전의 유효성을 검사하는 것이 좋습니다. 현재 버전이 지원되지 않는 경우 애플리케이션을 크게 변경해야 할 수 있습니다.
+마이그레이션을 계획하기 전에 현재 배포 모델 및 버전의 유효성을 검사하는 것이 좋습니다. 현재 버전이 지원 되지 않는 경우 응용 프로그램을 크게 변경 해야 할 수 있습니다.
 
 MTA는 Oracle WebLogic Server와 같은 타사 엔터프라이즈 애플리케이션 서버에서 JBoss EAP로의 마이그레이션 및 JBoss EAP 최신 릴리스로의 업그레이드를 지원합니다.
 
@@ -248,7 +248,7 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 사전 마이그레이션 단계에서 정의한 마이그레이션 목표에 도달한 후에는 엔드투엔드 수용 테스트를 수행하여 모든 것이 예상대로 작동하는지 확인해야 합니다. 다음은 마이그레이션 후 기능 향상에 대한 토픽 중 일부이며, 이 외에도 다른 토픽이 더 있습니다.
 
 * Azure Storage를 사용하여 VM에 탑재된 정적 콘텐츠 제공. 자세한 내용은 [데이터 디스크를 VM에 연결 또는 분리](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)를 참조하세요.
-* Azure DevOps를 사용하여 마이그레이션된 JBoss 클러스터에 애플리케이션 배포. 자세한 내용은 [Azure DevOps 시작 설명서](/azure/devops/get-started/?view=azure-devops)를 참조하세요.
+* Azure DevOps를 사용하여 마이그레이션된 JBoss 클러스터에 애플리케이션 배포. 자세한 내용은 [Azure DevOps 시작 설명서](/azure/devops/get-started)를 참조하세요.
 * [Application Gateway](../../../application-gateway/index.yml) 사용 고려.
 * 고급 부하 분산 서비스를 사용하여 네트워크 토폴로지 향상. 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../../../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
 * Azure 관리 ID를 관리형 비밀에 활용하고 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 할당. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.

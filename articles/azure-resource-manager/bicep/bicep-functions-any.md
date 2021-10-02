@@ -3,12 +3,12 @@ title: Bicep 함수 - 모든
 description: Bicep에서 형식을 변환하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 00d99a9329f48b089563b4366ae9683ce2874901
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2826f6180bc8ba4c476fd067a19db25b52f5d65b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827574"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353702"
 ---
 # <a name="any-function-for-bicep"></a>Bicep의 Any 함수
 
@@ -24,6 +24,8 @@ Bicep은 Bicep 형식 시스템의 형식 오류를 해결하기 위해 `any()`�
 `any(value)`
 
 모든 데이터 형식과 호환되는 값을 반환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 

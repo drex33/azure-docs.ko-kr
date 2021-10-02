@@ -4,16 +4,16 @@ description: AKS(Azure Kubernetes Services)의 지속 가능한 소프트웨어 
 services: container-service
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.openlocfilehash: c43c65dfa2f3930510bd59aaa24c798525bd691b
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
-ms.translationtype: HT
+ms.openlocfilehash: 3fb40b278a4107cb1cdba2230602b99e2bdfff85
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011494"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355474"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 지속 가능한 소프트웨어 엔지니어링 원칙
 
-지속 가능한 소프트웨어 엔지니어링 원칙은 지속 가능한 애플리케이션을 정의, 빌드, 실행하는 데 도움이 되는 역량 집합입니다. 전반적인 목표는 애플리케이션의 모든 측면에 대한 탄소 발자국을 줄이는 것입니다. [지속 가능한 소프트웨어 엔지니어링 원칙][principles-sse]에는 지속 가능한 소프트웨어 엔지니어링 원칙에 대한 개요가 포함되어 있습니다.
+지속 가능한 소프트웨어 엔지니어링 원칙은 지속 가능한 애플리케이션을 정의, 빌드, 실행하는 데 도움이 되는 역량 집합입니다. 전반적인 목표는 응용 프로그램의 모든 측면에서 참조 공간을 줄이는 것입니다. [지속 가능한 소프트웨어 엔지니어링 원칙][principles-sse]에는 지속 가능한 소프트웨어 엔지니어링 원칙에 대한 개요가 포함되어 있습니다.
 
 지속 가능한 소프트웨어 엔지니어링은 우선 순위와 초점을 전환합니다. 대부분의 경우에는 소프트웨어를 설계하고 실행할 때 빠른 성능과 낮은 대기 시간이 강조됩니다. 하지만 지속 가능한 소프트웨어 엔지니어링은 가능한 한 탄소 배출량을 줄이는 데에 중점을 둡니다. 고려할 사항은 다음과 같습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "107011494"
 
 ## <a name="measure-and-optimize"></a>측정 및 최적화
 
-AKS 클러스터의 탄소 발자국을 줄이려면 클러스터의 리소스를 사용하는 방법을 이해해야 합니다. [Azure Monitor][azure-monitor]는 메모리 및 CPU 사용량과 같은 클러스터의 리소스 사용에 대한 세부 정보를 제공합니다. 이 데이터는 클러스터의 탄소 발자국을 줄이기 위한 결정에 도움을 주고 변경 효과를 관찰합니다. 
+AKS 클러스터의 참조 공간을 줄이려면 클러스터의 리소스를 사용 하는 방법을 이해 해야 합니다. [Azure Monitor][azure-monitor]는 메모리 및 CPU 사용량과 같은 클러스터의 리소스 사용에 대한 세부 정보를 제공합니다. 이 데이터는 클러스터의 탄소 발자국을 줄이기 위한 결정에 도움을 주고 변경 효과를 관찰합니다. 
 
 [Microsoft 지속 가능성 계산기][sustainability-calculator]를 설치하여 모든 Azure 리소스의 탄소 발자국을 확인할 수도 있습니다.
 
@@ -103,4 +103,4 @@ AKS 클러스터의 탄소 발자국을 줄이려면 클러스터의 리소스�
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/
+[principles-sse]: /learn/modules/sustainable-software-engineering-overview/

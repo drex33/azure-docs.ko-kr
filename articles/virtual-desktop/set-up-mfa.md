@@ -1,17 +1,17 @@
 ---
-title: Azure Virtual Desktop에 대한 Azure 다단계 인증 설정 - Azure
-description: Azure Virtual Desktop 보안을 강화하기 위해 Azure 다단계 인증을 설정하는 방법입니다.
+title: Azure 가상 데스크톱에 대 한 azure 다단계 인증-Azure
+description: Azure 가상 데스크톱의 보안을 강화 하기 위해 Azure 다단계 인증을 설정 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 6e01b132dd68fd711af30f816df15795991efd41
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 2e86597f0307699c2fc4cac9f48eac5b884e8df3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754190"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363603"
 ---
 # <a name="enable-azure-multifactor-authentication-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대해 Azure 다단계 인증을 사용하도록 설정
 

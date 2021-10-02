@@ -15,12 +15,12 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 38427b0686e830939025075536ac79c95ebde4cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82733775"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362955"
 ---
 # <a name="understand-azure-deny-assignments"></a>Azure 거부 할당 이해
 
@@ -54,14 +54,14 @@ ms.locfileid: "82733775"
  거부 할당에 포함된 속성은 다음과 같습니다.
 
 > [!div class="mx-tableFixed"]
-> | 속성 | 필수 | Type | 설명 |
+> | 속성 | 필수 | Type | Description |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | 예 | String | 거부 할당의 표시 이름입니다. 이름은 지정된 범위에 대해 고유해야 합니다. |
 > | `Description` | 예 | String | 거부 할당의 설명입니다. |
-> | `Permissions.Actions` | Actions 또는 DataActions 하나 이상 | String[] | 거부 할당이 액세스를 차단하는 관리 작업을 지정하는 문자열 배열입니다. |
-> | `Permissions.NotActions` | 예 | String[] | 거부 할당에서 제외할 관리 작업을 지정하는 문자열 배열입니다. |
-> | `Permissions.DataActions` | Actions 또는 DataActions 하나 이상 | String[] | 거부 할당이 액세스를 차단하는 데이터 작업을 지정하는 문자열 배열입니다. |
-> | `Permissions.NotDataActions` | 예 | String[] | 거부 할당에서 제외할 데이터 작업을 지정하는 문자열 배열입니다. |
+> | `Permissions.Actions` | Actions 또는 DataActions 하나 이상 | String[] | 거부 할당이 액세스를 차단 하는 제어 평면 동작을 지정 하는 문자열의 배열입니다. |
+> | `Permissions.NotActions` | 예 | String[] | 거부 할당에서 제외할 제어 평면 작업을 지정 하는 문자열의 배열입니다. |
+> | `Permissions.DataActions` | Actions 또는 DataActions 하나 이상 | String[] | 거부 할당이 액세스를 차단 하는 데이터 평면 동작을 지정 하는 문자열의 배열입니다. |
+> | `Permissions.NotDataActions` | 예 | String[] | 거부 할당에서 제외할 데이터 평면 작업을 지정 하는 문자열의 배열입니다. |
 > | `Scope` | 예 | String | 거부 할당이 적용되는 범위를 지정하는 범위입니다. |
 > | `DoNotApplyToChildScopes` | 예 | 부울 | 거부 할당이 하위 범위에 적용되는지 여부를 지정합니다. 기본값은 false입니다. |
 > | `Principals[i].Id` | 예 | String[] | 거부 할당이 적용되는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. 모든 보안 주체를 나타내려면 빈 GUID `00000000-0000-0000-0000-000000000000`으로 설정합니다. |

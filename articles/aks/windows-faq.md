@@ -2,15 +2,14 @@
 title: Windows Server 노드 풀 FAQ
 titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 Windows Server 노드 풀 및 애플리케이션 워크로드를 실행할 때 자주 묻는 질문을 참조하세요.
-services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dd83803069f83233915c0baae0656346008a3814
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595297"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354636"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대해 자주 묻는 질문과 대답
 
@@ -68,7 +67,7 @@ Windows 노드 풀이 있는 AKS 클러스터는 Azure CNI(고급) 네트워킹 
 
 2020년 2월 이전에 클러스터를 만들었고 클러스터 업그레이드 작업을 한 번도 수행하지 않은 경우 클러스터는 여전히 이전 Windows 이미지를 사용합니다. 다음과 유사한 오류가 나타날 수 있습니다.
 
-"배포 템플릿에서 참조되는 다음 이미지 목록을 찾을 수 없습니다. 게시자: MicrosoftWindowsServer, 제안: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, 버전: latest. 사용 가능한 이미지를 찾는 방법에 대한 지침은 https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage 을 참조하세요."
+"배포 템플릿에서 참조되는 다음 이미지 목록을 찾을 수 없습니다. 게시자: MicrosoftWindowsServer, 제안: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, 버전: latest. 사용 가능한 이미지를 찾는 방법에 대한 지침은 [Azure PowerShell Azure Marketplace VM](../virtual-machines/windows/cli-ps-findimage.md) 이미지 찾기 및 사용을 참조하세요.
 
 이 오류를 해결하려면
 
@@ -196,7 +195,7 @@ Set-TimeZone -Id "Russian Standard Time"
 WS2022 OS 버전에서 지원되지만, 클라이언트 IP로 세션 선호도를 달성하는 현재 방법은 노드당 단일 인스턴스를 실행하도록 원하는 Pod를 제한하고 로컬 노드의 Pod로 트래픽을 이동하도록 Kubernetes 서비스를 구성하여 수행됩니다. 이를 위해 다음 구성을 사용할 수 있습니다.
 1. 최소 버전 1.20을 실행하는 AKS 클러스터
 1. Windows 노드당 하나의 인스턴스만 허용하도록 Pod를 제한합니다. 배포 구성에서 선호도 방지를 사용하여 이를 달성할 수 있습니다.
-1. Kubernetes 서비스 구성에서 "externalTrafficPolicy=Local"을 설정합니다. 이렇게 하면 Kubernetes 서비스가 로컬 노드 내의 Pod로만 트래픽을 안내합니다.
+1. Kubernetes 서비스 구성에서 "externalTrafficPolicy=Local"을 설정합니다. 이렇게 하면 Kubernetes 서비스가 트래픽을 로컬 노드 내의 Pod로만 안내합니다.
 1. Kubernetes 서비스 구성에서 "sessionAffinity: ClientIP"를 설정합니다. 이렇게 하면 Azure Load Balancer 세션 선호도로 구성됩니다.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>지원되지 않는 기능이 필요한 경우 어떻게 하나요?

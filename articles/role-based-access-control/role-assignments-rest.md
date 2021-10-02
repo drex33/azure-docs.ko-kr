@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 3baf44a4240b23b41ce2e80dc22dbda4c7d0672a
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
-ms.translationtype: HT
+ms.openlocfilehash: 0c59db98f3f38a7e715c0dce77c397f0e2562343
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363719"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356654"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>REST API를 사용하여 Azure 역할 할당
 
@@ -28,7 +28,7 @@ ms.locfileid: "107363719"
 
 ## <a name="assign-an-azure-role"></a>Azure 역할 할당
 
-역할을 할당하려면 [역할 할당 - 만들기](/rest/api/authorization/roleassignments/create) REST API를 사용하고 보안 주체, 역할 정의 및 범위를 지정합니다. 이 API를 호출하려면 `Microsoft.Authorization/roleAssignments/write` 작업에 액세스할 수 있어야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)에게만 이러한 작업의 권한이 부여됩니다.
+역할을 할당하려면 [역할 할당 - 만들기](/rest/api/authorization/roleassignments/create) REST API를 사용하고 보안 주체, 역할 정의 및 범위를 지정합니다. 이 API를 호출 하려면 작업에 액세스할 수 있어야 합니다 `Microsoft.Authorization/roleAssignments/write` . 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 에게만이 작업에 대 한 액세스 권한이 부여 됩니다.
 
 1. 할당하려는 역할 정의에 대한 식별자를 가져오려면 [역할 정의 - 나열](/rest/api/authorization/roledefinitions/list) REST API를 사용하거나 [기본 제공 역할](built-in-roles.md)을 참조하세요.
 

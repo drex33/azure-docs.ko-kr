@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/28/2021
 ms.custom: generated
-ms.openlocfilehash: d56954656d953af806e50b0b56b32ea4ac4cf757
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 68a9517416b7cce2bcad37773703515aa1a0117a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275680"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356204"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -22,12 +22,12 @@ ms.locfileid: "129275680"
 
 이 문서에는 Azure 기본 제공 역할 목록이 포함되어 있습니다. Azure AD(Azure Active Directory)의 관리자 역할을 찾고 있는 경우 [Azure AD 기본 제공 역할](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
-다음 표에서는 각 기본 제공 역할에 대한 간략한 설명을 제공합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 작업의 의미와 작업이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
+다음 표에서는 각 기본 제공 역할에 대한 간략한 설명을 제공합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 작업의 의미와 컨트롤 및 데이터 평면에 적용 되는 방법에 대 한 자세한 내용은 [Azure 역할 정의 이해](role-definitions.md)를 참조 하세요.
 
 ## <a name="all"></a>모두
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | 설명 | ID |
+> | 기본 제공 역할 | Description | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [기여자](#contributor) | 모든 리소스를 관리할 수 있는 모든 권한을 부여하지만, Azure RBAC에서 역할 할당, Azure Blueprints에서 할당 관리 또는 이미지 갤러리 공유를 허용하지 않습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -286,7 +286,7 @@ ms.locfileid: "129275680"
 > | [데스크톱 가상화 작업 영역 기여자](#desktop-virtualization-workspace-contributor) | 데스크톱 가상화 작업 영역의 기여자입니다. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [데스크톱 가상화 작업 영역 읽기 권한자](#desktop-virtualization-workspace-reader) | 데스크톱 가상화 작업 영역의 읽기 권한자입니다. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
 > | [디스크 백업 읽기 권한자](#disk-backup-reader) | 디스크 백업을 수행하려면 백업 자격 증명 모음에 대한 권한을 제공합니다. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
-> | [디스크 풀 운영자](#disk-pool-operator) | StoragePool 리소스 공급자에게 디스크 풀에 추가된 디스크를 관리할 수 있는 권한을 제공합니다. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
+> | [디스크 풀 연산자](#disk-pool-operator) | StoragePool 리소스 공급자에게 디스크 풀에 추가된 디스크를 관리할 수 있는 권한을 제공합니다. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
 > | [디스크 복원 운영자](#disk-restore-operator) | 디스크 복원을 수행하려면 백업 자격 증명 모음에 대한 권한을 제공합니다. | b50d9833-a0cb-478e-945f-707fcc997c13 |
 > | [디스크 스냅샷 기여자](#disk-snapshot-contributor) | 디스크 스냅샷을 관리하려면 백업 자격 증명 모음에 대한 권한을 제공합니다. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -643,7 +643,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
-> | Microsoft.SerialConsole/serialPorts/connect/action | 직렬 포트에 커넥트 |
+> | SerialConsole/serialPorts/연결/작업 | 직렬 포트에 커넥트 |
 > | [Microsoft.SqlVirtualMachine](resource-provider-operations.md#microsoftsqlvirtualmachine)/* |  |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listKeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | 스토리지 계정의 목록을 반환하거나 지정된 스토리지 계정의 속성을 가져옵니다. |
@@ -3797,7 +3797,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 }
 ```
 
-### <a name="signalr-rest-api-reader"></a>SignalR REST API Reader
+### <a name="signalr-rest-api-reader"></a>SignalR REST API 판독기
 
 Azure SignalR Service REST API에 대한 읽기 전용 권한
 
@@ -3903,7 +3903,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 }
 ```
 
-### <a name="signalrweb-pubsub-contributor"></a>SignalR/Web PubSub 기여자
+### <a name="signalrweb-pubsub-contributor"></a>SignalR/웹 PubSub 기여자
 
 SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제
 
@@ -4783,15 +4783,15 @@ Azure Kubernetes Service 클러스터를 읽고 쓸 수 있는 액세스 권한�
 ## <a name="databases"></a>데이터베이스
 
 
-### <a name="azure-connected-sql-server-onboarding"></a>Azure 연결된 SQL Server 온보딩
+### <a name="azure-connected-sql-server-onboarding"></a>Azure 연결 SQL Server 온 보 딩
 
 Arc 지원 서버에서 SQL Server용 Azure 리소스에 대한 읽기 및 쓰기 권한을 허용합니다. [자세히 알아보기](/sql/sql-server/azure-arc/connect)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
 > | --- | --- |
-> | Microsoft.AzureArcData/sqlServerInstances/read | SQL Server 인스턴스 리소스를 검색합니다. |
-> | Microsoft.AzureArcData/sqlServerInstances/write | SQL Server 인스턴스 리소스를 업데이트합니다. |
+> | Microsoft.AzureArcData/sqlServerInstances/read | SQL Server 인스턴스 리소스를 검색 합니다. |
+> | Microsoft.AzureArcData/sqlServerInstances/write | SQL Server 인스턴스 리소스를 업데이트 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -8001,7 +8001,7 @@ App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다
 Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |
@@ -8085,7 +8085,7 @@ Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
 Azure Relay 리소스에 대한 보내기 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | 설명 |
+> | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |

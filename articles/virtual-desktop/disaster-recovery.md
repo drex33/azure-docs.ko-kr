@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop 재해 복구 계획 설정 - Azure
-description: Azure Virtual Desktop 배포를 위한 비즈니스 연속성 및 재해 복구 계획을 설정하는 방법입니다.
+title: Azure Virtual Desktop 재해 복구 계획
+description: 데이터를 보호하기 위해 Azure Virtual Desktop 배포에 대한 재해 복구 계획을 수립합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 54202b49e2881d1d128136b876cbf88c2bc87400
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757898"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359760"
 ---
-# <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>비즈니스 연속성 및 재해 복구 계획 설정
+# <a name="azure-virtual-desktop-disaster-recovery"></a>Azure Virtual Desktop 재해 복구
 
 조직의 데이터를 안전하게 유지하려면 BCDR(비즈니스 연속성 및 재해 복구) 전략을 채택해야 할 수 있습니다. 안전한 BCDR 전략을 통해 계획되거나 계획되지 않은 서비스 또는 Azure 중단 시에도 애플리케이션과 워크로드를 계속 실행 상태로 유지할 수 있습니다.
 

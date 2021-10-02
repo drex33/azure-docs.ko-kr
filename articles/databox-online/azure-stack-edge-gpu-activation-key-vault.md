@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
-ms.openlocfilehash: a2aa8d3cecab71b354df2ff258bfa47ee77c97f9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67cddd1839e666d4908706a1bbdaccbbd3565704
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619593"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351430"
 ---
 # <a name="manage-azure-stack-edge-secrets-using-azure-key-vault"></a>Azure Key Vault 사용하여 Azure Stack Edge 비밀 관리 
 
@@ -24,7 +24,7 @@ Azure Key Vault 비밀 관리를 위해 Azure Stack Edge 리소스와 통합됩�
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>키 자격 증명 모음 및 Azure Stack Edge 정보
 
-Azure Key Vault 클라우드 서비스는 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 제어하는 데 사용됩니다. 또한 Key Vault 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
+Azure Key Vault 클라우드 서비스는 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 제어하는 데 사용됩니다. 또한 Key Vault 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
 
 Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 이점이 제공됩니다.
 
@@ -37,7 +37,7 @@ Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 
 
 ## <a name="generate-activation-key-and-create-key-vault"></a>활성화 키 생성 및 키 자격 증명 모음 만들기
 
-키 생성 프로세스 중에 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음은 Azure Stack Edge 리소스가 있는 동일한 리소스 그룹에 만들어집니다. 키 자격 증명 모음에 대한 기여자 권한이 필요합니다. 
+활성화 키 생성 프로세스 중에 Azure Stack Edge 리소스에 대한 키 자격 증명 모음이 만들어집니다. 키 자격 증명 모음은 Azure Stack Edge 리소스가 있는 동일한 리소스 그룹에 만들어집니다. 키 자격 증명 모음에 대한 기여자 권한이 필요합니다. 
 
 ### <a name="prerequisites-for-key-vault"></a>키 자격 증명 모음에 대한 필수 조건
 
@@ -45,7 +45,7 @@ Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 
 
 - Azure Stack Edge 리소스를 만들기 전에 *Microsoft.KeyVault* 리소스 공급자를 등록합니다. 구독에 대한 소유자 또는 기여자 액세스 권한이 있는 경우 리소스 공급자가 자동으로 등록됩니다. 키 자격 증명 모음은 Azure Stack Edge 리소스와 동일한 구독 및 리소스 그룹에 만들어집니다. 
 
-- Azure Stack Edge 리소스를 만들면 리소스의 수명 동안 유지되고 클라우드의 리소스 공급자와 통신하는 시스템 할당 관리 ID도 만들어집니다. 
+- Azure Stack Edge 리소스를 만들 때 리소스의 수명 동안 유지되고 클라우드의 리소스 공급자와 통신하는 시스템 할당 관리 ID도 만들어집니다. 
 
     관리 ID를 사용하도록 설정하면 Azure는 Azure Stack Edge 리소스에 대한 신뢰할 수 있는 ID를 만듭니다.
 
@@ -64,14 +64,14 @@ Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 
 
         ![Key Vault 키 생성 중에 생성됩니다.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 - 실수로 삭제되는 것을 방지하기 위해 키 자격 증명 모음에서 리소스 잠금을 사용하도록 설정됩니다. 실수로 삭제된 경우 키 자격 증명 모음을 90일 이내에 복원할 수 있도록 하는 일시 삭제도 키 자격 증명 모음에서 사용하도록 설정됩니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md)를 참조하세요.
-- Azure Stack Edge 리소스를 만들 때 만든 시스템 할당 관리 ID가 이제 사용하도록 설정됩니다.
+- 이제 Azure Stack Edge 리소스를 만들 때 만든 시스템 할당 관리 ID를 사용할 수 있습니다.
 - CIK(채널 무결성 키)가 생성되어 키 자격 증명 모음에 배치됩니다. CIK 세부 정보가 서비스에 표시됩니다.
 - ZRS(영역 중복 스토리지 계정)도 Azure Stack Edge 리소스와 동일한 범위에서 만들어지고 계정에 잠금이 배치됩니다. 
     - 이 계정은 감사 로그를 저장하는 데 사용됩니다. 
     - 스토리지 계정 만들기는 장기 실행 프로세스이며 몇 분 정도 걸립니다.
     - 스토리지 계정에는 키 자격 증명 모음 이름으로 태그가 지정됩니다.
 - 진단 설정이 키 자격 증명 모음에 추가되고 로깅이 활성화됩니다. 
-- 디바이스에서 키 자격 증명 모음을 사용하여 비밀을 저장하고 검색하므로 관리 ID가 키 자격 증명 모음 액세스 정책에 추가되어 키 자격 증명 모음에 대한 액세스를 허용합니다. 
+- 디바이스가 키 자격 증명 모음을 사용하여 비밀을 저장하고 검색하므로 관리 ID가 키 자격 증명 모음 액세스 정책에 추가되어 키 자격 증명 모음에 대한 액세스를 허용합니다. 
 - 키 자격 증명 모음은 관리 ID를 사용하여 요청을 인증하여 활성화 키를 생성합니다. 활성화 키가 Azure Portal 반환됩니다. 그런 다음, 이 키를 복사하여 로컬 UI에서 사용하여 디바이스를 활성화할 수 있습니다.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 
 키 자격 증명 모음에 액세스하고 비밀을 보려면 다음 단계를 수행합니다.
 
 1. Azure Stack Edge 리소스에 대한 Azure Portal **보안으로** 이동합니다. 
-1. 오른쪽 창의 **보안** 에서 **비밀을** 볼 수 있습니다. 
+1. 오른쪽 창의 **보안** 아래에서 **비밀을** 볼 수 있습니다. 
 1. Azure Stack Edge 리소스와 연결된 키 자격 증명 모음으로 이동할 수도 있습니다. **키 자격 증명 모음 이름** 을 선택합니다. 
 
     ![디바이스 키 자격 증명 모음으로 이동](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
@@ -110,7 +110,7 @@ Azure Stack Edge 서비스의 경우 Key Vault와 통합하면 다음과 같은 
 
     ![디바이스 키 자격 증명 모음으로 이동](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
-1. 키 자격 증명 모음과 연결된 액세스 정책을 보려면 **액세스 정책** 으로 이동합니다. 관리 ID에 액세스 권한이 부여된 것을 볼 수 있습니다. **비밀 권한** 을 선택합니다. 관리 ID 액세스가 비밀의 **Get** 및 **Set으로만** 제한되는 것을 볼 수 있습니다. 
+1. 키 자격 증명 모음과 연결된 액세스 정책을 보려면 **액세스 정책** 으로 이동합니다. 관리 ID에 액세스 권한이 부여된 것을 볼 수 있습니다. **비밀 권한** 을 선택합니다. 관리 ID 액세스가 **비밀의 Get** 및 **Set으로만** 제한되는 것을 볼 수 있습니다. 
     
     ![키 자격 증명 모음에 대한 액세스 정책 보기](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-access-policies-1.png)
 

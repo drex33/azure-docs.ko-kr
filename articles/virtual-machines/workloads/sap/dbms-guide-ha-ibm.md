@@ -7,19 +7,19 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e14ace59aa97457fc43f197476f8a1e34cf5e319
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671884"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355179"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Pacemaker를 사용하는 SUSE Linux Enterprise Server의 Azure VM에 배포된 IBM Db2 LUW의 고가용성
 
 [HADR(고가용성 및 재해 복구) 구성](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html)의 LUW(Linux, UNIX 및 Windows)용 IBM Db2는 주 데이터베이스 인스턴스를 실행하는 노드 하나와 보조 데이터베이스 인스턴스를 실행하는 하나 이상의 노드로 구성됩니다. 주 데이터베이스 인스턴스에 대한 변경 사항은 구성에 따라 동기식 또는 비동기식으로 보조 데이터베이스 인스턴스에 복제됩니다. 
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *마스터* 및 *종속* 용어에 대한 참조가 포함되어 있습니다. 이러한 용어가 소프트웨어에서 제거되면 이 문서에서도 제거할 것입니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘마스터’ 및 ‘종속’ 용어에 대한 참조가 포함되어 있습니다.  해당 용어가 소프트웨어에서 제거되면 이 문서에서도 제거할 것입니다.
    
 이 문서에서는 Azure VM(가상 머신)을 배포 및 구성하고, 클러스터 프레임워크를 설치하고, HADR 구성이 포함된 IBM Db2 LUW를 설치하는 방법을 설명합니다. 
 
@@ -29,7 +29,7 @@ SAP 소프트웨어 설치 또는 HADR이 포함된 IBM Db2 LUW를 설치하고 
 
 설치를 시작하기 전에 다음 SAP 노트 및 설명서를 참조하세요.
 
-| SAP 노트 | 설명 |
+| SAP 노트 | Description |
 | --- | --- |
 | [1928533] | Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 필수 구성 요소 지원 |
@@ -153,7 +153,7 @@ IBM Db2 LUW에 NetWeaver 기반 애플리케이션을 설치하는 방법에 대
 다음 필터를 설정하여 포털에 표시되는 가이드 수를 줄일 수 있습니다.
 
 - I want to 필터에서 "Install a new system"을 선택합니다.
-- My Database 필터에서 "IBM Db2 for Linux, Unix, and Windows"를 선택합니다.
+- My Database 필터에서 "IBM Db2 for Linux, Unix 및 Windows"를 선택합니다.
 - SAP NetWeaver 버전, 스택 구성 또는 운영 체제에 대한 추가 필터를 설정합니다.
 
 ### <a name="installation-hints-for-setting-up-ibm-db2-luw-with-hadr"></a>HADR이 포함된 IBM Db2 LUW 설정에 대한 설치 힌트
@@ -894,14 +894,14 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
-[sles-pacemaker]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker
+[dbms-db2]:dbms_guide_ibm.md
+[sles-pacemaker]:high-availability-guide-suse-pacemaker.md
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
-[nfs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
+[nfs-ha]:high-availability-guide-suse-nfs.md
 [sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
-[ascs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse
+[ascs-ha]:high-availability-guide-suse.md
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
+[azr-sap-plancheck]:sap-deployment-checklist.md

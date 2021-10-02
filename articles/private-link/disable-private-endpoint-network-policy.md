@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c06ad374e46e9900ba99a95708e19a63498719ec
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 6d4671823f5eb3f186007aea46983860269d916b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101550"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361759"
 ---
 # <a name="manage-network-policies-for-private-endpoints"></a>프라이빗 엔드포인트에 대한 네트워크 정책 관리
 
 이전에는 NSG(네트워크 보안 그룹)와 같은 네트워크 정책이 프라이빗 엔드포인트에 대해 지원되지 않았습니다. 지정된 서브넷에 프라이빗 엔드포인트를 배포하려면 해당 서브넷에서 명시적으로 사용하지 않도록 설정해야 했습니다. 해당 설정은 프라이빗 엔드포인트에만 적용됩니다. 서브넷의 다른 리소스에 대한 액세스는 네트워크 보안 그룹의 보안 규칙을 기반으로 제어됩니다.
 
 > [!IMPORTANT]
-> 프라이빗 엔드포인트에 대한 NSG 및 UDR 지원은 공개 미리 보기 상태입니다.
+> 개인 끝점에 대 한 NSG 및 UDR 지원은 선택 영역에서 공개 미리 보기 상태입니다. 자세한 내용은 개인 [링크 UDR 지원의 공개 미리 보기](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) 및 [개인 링크 네트워크 보안 그룹 지원의 공개 미리 보기](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/)를 참조 하세요.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 포털을 사용하여 프라이빗 엔드포인트를 만들 때 만들기 프로세스의 일부로 `PrivateEndpointNetworkPolicies` 설정은 자동으로 사용하지 않도록 설정됩니다. 다른 클라이언트를 사용하는 배포에는 해당 설정을 변경하는 추가 단계가 필요합니다. 

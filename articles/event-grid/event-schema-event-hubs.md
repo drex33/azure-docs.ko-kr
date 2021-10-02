@@ -3,12 +3,12 @@ title: Event Grid 원본으로서의 Azure Event Hubs
 description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/15/2021
-ms.openlocfilehash: 48d982e27d9da83d16bfbaad1a24ad1c8991a065
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b29f7f104ca0616a27abb5009e5ec27262169f00
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647426"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358812"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Event Hubs
 
@@ -126,6 +126,7 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 | `lastSequenceNumber` | 정수 | 큐의 마지막 시퀀스 번호입니다. |
 | `firstEnqueueTime` | 문자열 | 큐의 처음 시간입니다. |
 | `lastEnqueueTime` | 문자열 | 큐의 마지막 시간입니다. |
+
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 

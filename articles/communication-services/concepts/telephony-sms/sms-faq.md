@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: 7b10040aa8aabd16d84326c73bd422f9b66ef04e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 658e13aa888e448de723a97bf9cc89c162a774b5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635986"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356318"
 ---
 # <a name="sms-faq"></a>SMS FAQ
 
@@ -30,7 +30,7 @@ SLA와 일치하는 고품질 서비스를 계속 제공할 수 있도록 Azure 
 
 SMS의 속도 제한:
 
-|작업|Scope|시간 범위| 제한(요청 #) | 분당 메시지 단위|
+|작업|범위|시간 범위| 제한(요청 #) | 분당 메시지 단위|
 |---------|-----|-------------|-------------------|-------------------------|
 |메시지 보내기|숫자당|60|200|200|
 
@@ -46,6 +46,9 @@ SMS의 속도 제한:
 
 Azure Communication Services 고객은 Azure Event Grid를 사용하여 들어오는 메시지를 받을 수 있습니다. 이 [빠른 시작](../../quickstarts/telephony-sms/handle-sms-events.md)에 따라 메시지를 받도록 이벤트 그리드를 설정합니다.
 
+## <a name="what-is-the-sms-character-limit"></a>SMS 문자 제한은 무엇인가요?
+단일 SMS에 대한 문자 제한은 160자입니다. 메시지를 보낼 때 160자를 넘는 모든 메시지는 세그먼트로 분할되어 개별적으로 전달된 다음 받는 사람의 디바이스에 의해 분리됩니다. 마찬가지로 긴 메시지를 수신하는 경우 긴 메시지의 여러 세그먼트가 자동으로 Azure Event Grid 지정된 엔드포인트에 하나의 메시지로 전달됩니다. 
+
 ## <a name="can-i-sendreceive-long-messages-2048-chars"></a>긴 메시지(2048자 미만)를 보내거나 받을 수 있나요?
 
 Azure Communication Services는 SMS를 통해 긴 메시지의 송수신을 지원합니다. 그러나 일부 무선 통신 사업자 또는 디바이스는 긴 메시지를 받을 때 다르게 작동할 수 있습니다.
@@ -55,7 +58,6 @@ Azure Communication Services는 SMS를 통해 긴 메시지의 송수신을 지�
 미국에서 Azure Communication Services는 유선 번호를 확인하지 않으며 전달을 위해 이동 통신 사업자에 보내려고 시도합니다. 유선 번호로 전송된 메시지에 대한 요금이 고객에게 청구됩니다. 
 
 ## <a name="can-i-send-messages-to-multiple-recipients"></a>여러 수신자에게 메시지를 보낼 수 있나요?
-
 
 예, 여러 수신자에게 하나의 요청을 할 수 있습니다. 이 [빠른 시작](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp)에 따라 여러 수신자에게 메시지를 보냅니다.
 

@@ -8,18 +8,18 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 027c1f44d756494432a076ec32f06e627f916b99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 84d0e0b509505e6d56e39294b3e2819e4b03e024
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128553735"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350010"
 ---
-# <a name="transform-xml-for-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로에 대한 XML 변환
+# <a name="transform-xml-in-workflows-with-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 워크플로에서 XML 변환
 
-엔터프라이즈 통합 B2B(기업 간) 시나리오에서는 형식 간에 XML을 변환해야 할 수 있습니다. 논리 앱 워크플로는 XML 변환 작업 및 미리 정의된 [*맵*](logic-apps-enterprise-integration-maps.md)을 사용하여 **XML을 변환할** 수 있습니다. 예를 들어, YearMonthDay 날짜 형식(YYYYMMDD)을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 사용자의 조직은 MonthDayYear 날짜 형식(MMDDYYYY)을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YearMonthDay 날짜 형식을 MonthDayYear 형식으로 변환하는 맵을 만들고 사용할 수 있습니다.
+엔터프라이즈 통합 B2B(기업 간) 시나리오에서는 형식 간에 XML을 변환해야 할 수 있습니다. 논리 앱 워크플로는 xml **변환** 작업 및 미리 정의 된 [*맵을*](logic-apps-enterprise-integration-maps.md)사용 하 여 xml을 변환할 수 있습니다. 예를 들어, YearMonthDay 날짜 형식(YYYYMMDD)을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 사용자의 조직은 MonthDayYear 날짜 형식(MMDDYYYY)을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YearMonthDay 날짜 형식을 MonthDayYear 형식으로 변환하는 맵을 만들고 사용할 수 있습니다.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](logic-apps-overview.md)을 검토하세요. B2B 엔터프라이즈 통합에 대한 자세한 내용은 [Azure Logic Apps 및 Enterprise 통합 팩을 통해 B2B 엔터프라이즈 통합 워크플로를](logic-apps-enterprise-integration-overview.md)검토하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](logic-apps-overview.md)을 검토하세요. b2b 엔터프라이즈 통합에 대 한 자세한 내용은 [Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 b2b 엔터프라이즈 통합 워크플로](logic-apps-enterprise-integration-overview.md)를 검토 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -27,24 +27,24 @@ ms.locfileid: "128553735"
 
 * 워크플로에 필요한 경우 **XML 변환** 작업을 추가할 수 있도록 이미 트리거로 시작하는 논리 앱 워크플로입니다.
 
-* 엔터프라이즈 통합 및 B2B 워크플로에서 사용하기 위해 거래 업체, 계약, 인증서 등과 같은 아티팩트 정의 및 저장을 위한 [통합 계정 리소스입니다.](logic-apps-enterprise-integration-create-integration-account.md) 이 리소스는 다음 요구 사항을 충족해야 합니다.
+* 엔터프라이즈 통합 및 B2B 워크플로에서 사용 하기 위해 거래 업체, 규약, 인증서 등의 아티팩트를 정의 하 고 저장 하는 [통합 계정 리소스](logic-apps-enterprise-integration-create-integration-account.md) 입니다. 이 리소스는 다음 요구 사항을 충족해야 합니다.
 
   * 논리 앱 리소스와 동일한 Azure 구독과 연결되어야 합니다.
 
   * **XML 변환** 작업을 사용할 계획인 논리 앱 리소스와 동일한 위치 또는 Azure 지역에 존재해야 합니다.
 
-  * [ **논리 앱(소비)** 리소스 종류를](logic-apps-overview.md#resource-type-and-host-environment-differences)사용하는 경우 통합 계정에 다음 항목이 필요합니다.
+  * [ **논리 앱 (소비)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용 하는 경우 통합 계정에 다음 항목이 필요 합니다.
 
-    * XML 콘텐츠를 변환하는 데 사용할 [맵입니다.](logic-apps-enterprise-integration-maps.md)
+    * XML 콘텐츠를 변환 하는 데 사용할 [맵입니다](logic-apps-enterprise-integration-maps.md) .
 
-    * [논리 앱 리소스 에 대한 링크입니다.](logic-apps-enterprise-integration-create-integration-account.md#link-account)
+    * [논리 앱 리소스에 대 한 링크](logic-apps-enterprise-integration-create-integration-account.md#link-account)입니다.
 
-  * [ **논리 앱(표준)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용하는 경우 통합 계정에 맵을 저장하지 않습니다. 대신 Azure Portal 또는 Visual Studio Code 사용하여 [논리 앱 리소스에 맵을 직접 추가할](logic-apps-enterprise-integration-maps.md) 수 있습니다. 현재 XSLT 1.0만 지원됩니다. 그 후 *동일한 논리 앱 리소스* 내의 여러 워크플로 간에 이러한 맵을 사용할 수 있습니다.
+  * [ **논리 앱 (표준)** 리소스 종류](logic-apps-overview.md#resource-type-and-host-environment-differences)를 사용 하는 경우 통합 계정에 맵을 저장 하지 않습니다. 대신 Azure Portal 또는 Visual Studio Code를 사용 하 여 [논리 앱 리소스에 맵을 직접 추가할](logic-apps-enterprise-integration-maps.md) 수 있습니다. 현재 XSLT 1.0만 지원됩니다. 그 후 *동일한 논리 앱 리소스* 내의 여러 워크플로 간에 이러한 맵을 사용할 수 있습니다.
 
-    [AS2,](logic-apps-enterprise-integration-as2.md) [X12](logic-apps-enterprise-integration-x12.md)및 [EDIFACT](logic-apps-enterprise-integration-edifact.md) 작업을 사용하는 것과 함께 파트너, 계약 및 인증서와 같은 다른 아티팩트를 저장하려면 통합 계정이 여전히 필요합니다. 그러나 논리 앱 리소스를 통합 계정에 연결할 필요가 없으므로 연결 기능이 존재하지 않습니다. 통합 계정은 여전히 논리 앱 리소스와 동일한 위치에 있는 동일한 Azure 구독 및 기존 구독을 사용하는 것과 같은 다른 요구 사항을 충족해야 합니다.
+    [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md)및 [EDIFACT](logic-apps-enterprise-integration-edifact.md) 작업을 사용 하는 것과 함께 파트너, 규약 및 인증서와 같은 다른 아티팩트를 저장 하는 통합 계정이 여전히 필요 합니다. 그러나 통합 계정에 논리 앱 리소스를 연결할 필요가 없으므로 연결 기능이 존재 하지 않습니다. 통합 계정은 동일한 Azure 구독을 사용 하 고 논리 앱 리소스와 동일한 위치에 있는 다른 요구 사항을 충족 해야 합니다.
 
     > [!NOTE]
-    > 현재 **논리 앱(소비)** 리소스 유형만 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업을 지원합니다. **논리 앱(표준)** 리소스 종류에는 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업이 포함되지 않습니다.
+    > 현재 **논리 앱 (소비)** 리소스 유형만 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업을 지원 합니다. **논리 앱 (표준)** 리소스 유형은 [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) 작업을 포함 하지 않습니다.
 
 ## <a name="add-transform-xml-action"></a>XML 변환 작업 추가
 
@@ -97,7 +97,7 @@ ms.locfileid: "128553735"
 
 1. 변환 작업을 테스트하려면 워크플로를 트리거하고 실행합니다. 예를 들어 요청 트리거의 경우 트리거의 엔드포인트 URL에 요청을 보냅니다.
 
-   **XML 변환** 동작은 워크플로가 트리거된 후와 XML 콘텐츠를 변환에 사용할 수 있는 경우에 실행됩니다.
+   **Xml 변환** 작업은 워크플로가 트리거된 후와 xml 콘텐츠를 변환에 사용할 수 있는 경우에 실행 됩니다.
 
 ## <a name="advanced-capabilities"></a>고급 기능
 

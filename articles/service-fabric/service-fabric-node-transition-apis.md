@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c31040ec13084f9e4b08bbc9a347e4ad44975bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 73d51b68cafba5f2abab375dc5b1b90706a370db
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89021258"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361736"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>시작 노드 및 중지 노드 API를 노드 전환 API로 바꾸기
 
@@ -25,17 +25,16 @@ ms.locfileid: "89021258"
 
 또한 이러한 API에서 반환하는 일부 오류는 충분한 설명을 포함하지 않습니다.  예를 들어 이미 *중지된* 노드에 대해 노드 중지 API를 호출하면 오류 *InvalidAddress* 가 반환됩니다.  이러한 환경을 향상시킬 수 있습니다.
 
-또한 노드 시작 API를 호출할 때까지 노드가 중지된 기간은 "무제한"이 됩니다.  이로 인해 문제가 발생하고 오류가 발생하기 쉬워질 수 있습니다.  예를 들어 사용자가 노드에 대해 노드 중지 API를 호출한 다음 그 사실을 잊어버리는 문제가 확인되었습니다.  따라서 나중에 노드가 *작동 중단* 또는 *중지됨* 상태인지가 명확해지지 않을 수 있습니다.
+또한 노드 시작 API가 호출될 때까지 노드가 중지되는 기간은 "무한"입니다.  이로 인해 문제가 발생할 수 있으며 오류가 발생할 수 있습니다.  예를 들어 사용자가 노드에서 노드 중지 API를 호출한 다음 잊어버린 문제를 보았습니다.  따라서 나중에 노드가 *작동 중단* 또는 *중지됨* 상태인지가 명확해지지 않을 수 있습니다.
 
 
 ## <a name="introducing-the-node-transition-apis"></a>노드 전환 API 소개
 
-새로운 API 집합에서 이러한 문제를 살펴보았습니다.  새로운 노드 전환 API(관리: [StartNodeTransitionAsync()][snt])는 Service Fabric 노드를 *중지됨* 상태로 전환하거나 *중지됨* 상태를 정상 작동 상태로 전환하는 데 사용할 수 있습니다.  API의 이름에 "Start"가 있다고 해서 노드 시작을 나타내는 것은 아닙니다.  시스템이 노드를 *중지됨* 또는 시작됨 상태로 전환하기 위해 실행하는 비동기 작업이 시작됨을 나타냅니다.
+위의 문제는 새로운 API 집합에서 해결했습니다.  새로운 노드 전환 API(관리: [StartNodeTransitionAsync()][snt])는 Service Fabric 노드를 *중지됨* 상태로 전환하거나 *중지됨* 상태를 정상 작동 상태로 전환하는 데 사용할 수 있습니다.  API 이름에 있는 "시작"은 노드 시작을 참조하지 않습니다.  시스템이 노드를 *중지됨* 또는 시작됨 상태로 전환하기 위해 실행하는 비동기 작업이 시작됨을 나타냅니다.
 
 **사용 현황**
 
-노드 전환 API가 호출 시 예외를 throw하지 않으면 시스템은 해당 비동기 작업을 수락하고 실행합니다.  호출이 성공했다고 해서 작업이 이미 완료된 것을 의미하지는 않습니다.  작업의 현재 상태에 대한 정보를 가져오려면 이 작업에 대해 노드 전환 API(관리: [GetNodeTransitionProgressAsync()][gntp])를 호출할 때 사용되는 GUID를 사용하여 노드 전환 진행률 API를 호출합니다.  노드 전환 진행률 API는 NodeTransitionProgress 개체를 반환합니다.  이 개체의 State 속성은 작업의 현재 상태를 지정합니다.  상태가 “실행 중”이면 작업이 실행되고 있는 것입니다.  상태가 완료됨이면 작업이 오류 없이 완료된 것입니다.  상태가 실패인 경우 작업을 실행하는 동안 문제가 발생한 것입니다.  Result 속성의 Exception 속성은 발생한 문제가 어떤 것인지를 나타냅니다.  State 속성에 대한 자세한 내용은 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate를 참조하고, 코드 예제는 아래의 "샘플 사용" 섹션을 참조하세요.
-
+노드 전환 API가 호출 시 예외를 throw하지 않으면 시스템은 해당 비동기 작업을 수락하고 실행합니다.  호출이 성공했다고 해서 작업이 이미 완료된 것을 의미하지는 않습니다.  작업의 현재 상태에 대한 정보를 가져오려면 이 작업에 대해 노드 전환 API(관리: [GetNodeTransitionProgressAsync()][gntp])를 호출할 때 사용되는 GUID를 사용하여 노드 전환 진행률 API를 호출합니다.  노드 전환 진행률 API는 NodeTransitionProgress 개체를 반환합니다.  이 개체의 State 속성은 작업의 현재 상태를 지정합니다.  상태가 "Running"이면 작업이 실행되고 있습니다.  상태가 완료됨이면 작업이 오류 없이 완료된 것입니다.  상태가 실패인 경우 작업을 실행하는 동안 문제가 발생한 것입니다.  Result 속성의 Exception 속성은 문제가 무엇인지 나타냅니다.  State 속성에 대한 자세한 내용은 [TestCommandProgressState 열거형을](/dotnet/api/system.fabric.testcommandprogressstate) 참조하고 코드 예제는 아래의 "샘플 사용" 섹션을 참조하세요.
 
 **중지된 노드와 작동 중단된 노드 간 구분** 노드가 노드 전환 API를 사용하여 *중지된* 경우 노드 쿼리의 출력(관리: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps])에는 이 노드의 *IsStopped* 속성 값이 true임이 표시됩니다.  이 값은 *Down* 으로 표시되는 *NodeStatus* 속성 값과 다릅니다.  *NodeStatus* 속성 값이 *Down* 이지만 *IsStopped* 가 false이면 노드는 노드 전환 API를 사용하여 중지되지 않은 것이며 다른 이유로 인해 *Down* 상태인 것입니다.  *IsStopped* 속성이 true이고 *NodeStatus* 속성이 *Down* 이면 노드 전환 API를 사용하여 중지된 것입니다.
 

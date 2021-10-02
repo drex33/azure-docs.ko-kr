@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 06/30/2021
+ms.topic: overview
+ms.date: 09/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 558b31262a74a351ef17e42eb79772645f9a4641
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e082ae9343ff935ceeda168573be9648c6cee631
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290377"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358841"
 ---
 # <a name="what-are-certificates-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU의 인증서는 무엇인가요?
 
@@ -33,12 +33,12 @@ Azure Stack Edge 디바이스에서 자체 서명된 인증서를 사용하거�
 
 - **사용자 고유의 인증서 가져오기**: 원하는 경우 사용자 고유의 인증서를 가져올 수 있습니다. 사용자 고유의 인증서를 가져오려는 경우 따라야 하는 지침이 있습니다.
 
-- 이 문서에서 Azure Stack Edge 디바이스에서 사용할 수 있는 인증서 유형을 이해하는 것으로 시작합니다.
-- 다음으로 [각 인증서 유형에 대한 인증서 요구 사항](azure-stack-edge-gpu-certificate-requirements.md)을 검토합니다.  
-- 그런 다음, [Azure PowerShell 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-powershell.md)거나 [준비 검사기 도구를 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-tool.md) 수 있습니다.
-- 마지막으로 [인증서를 적절한 형식으로 변환](azure-stack-edge-gpu-prepare-certificates-device-upload.md)하여 디바이스에 업로드할 수 있도록 합니다.
-- 디바이스에 [인증서를 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device)합니다.
-- 디바이스에 액세스하는 [클라이언트의 인증서를 가져옵니다](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+    - 이 문서에서 Azure Stack Edge 디바이스에서 사용할 수 있는 인증서 유형을 이해하는 것으로 시작합니다.
+    - 다음으로 [각 인증서 유형에 대한 인증서 요구 사항](azure-stack-edge-gpu-certificate-requirements.md)을 검토합니다.  
+    - 그런 다음, [Azure PowerShell 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-powershell.md)거나 [준비 검사기 도구를 통해 인증서를 만들](azure-stack-edge-gpu-create-certificates-tool.md) 수 있습니다.
+    - 마지막으로 [인증서를 적절한 형식으로 변환](azure-stack-edge-gpu-prepare-certificates-device-upload.md)하여 디바이스에 업로드할 수 있도록 합니다.
+    - 디바이스에 [인증서를 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device)합니다.
+    - 디바이스에 액세스하는 [클라이언트의 인증서를 가져옵니다](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 ## <a name="types-of-certificates"></a>인증서의 종류
 
@@ -58,6 +58,9 @@ Azure Stack Edge 디바이스에서 자체 서명된 인증서를 사용하거�
 - IoT 디바이스 인증서
     
 - Kubernetes 인증서
+
+    - Edge Container Registry 인증서
+    - Kubernetes 대시보드 인증서
     
 - Wi-Fi 인증서
 - VPN 인증서  
@@ -155,19 +158,31 @@ Azure Stack Edge 디바이스에서 자체 서명된 인증서를 사용하거�
 
 - IoT Edge 인증서는 `.pem` 형식으로 업로드됩니다. 
 
-IoT Edge 인증서에 대한 자세한 내용은 [Azure IoT Edge 인증서 세부 정보](../iot-edge/iot-edge-certs.md#iot-edge-certificates) 및 [IoT Edge 프로덕션 인증서 만들기](../iot-edge/how-to-manage-device-certificates.md?preserve-view=true&view=iotedge-2020-11#create-production-certificates)를 참조하세요.
+IoT Edge 인증서에 대한 자세한 내용은 [Azure IoT Edge 인증서 세부 정보](../iot-edge/iot-edge-certs.md#iot-edge-certificates) 및 [IoT Edge 프로덕션 인증서 만들기](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates)를 참조하세요.
 
 ## <a name="kubernetes-certificates"></a>Kubernetes 인증서
 
-디바이스에 Edge 컨테이너 레지스트리가 있는 경우 디바이스의 레지스트리에 액세스하는 클라이언트와의 보안 통신을 위해 Edge Container Registry 인증서가 필요합니다.
+다음 Kubernetes 인증서를 Azure Stack Edge 장치와 함께 사용할 수 있습니다.
+
+- **Edge 컨테이너 레지스트리 인증서**: 장치에 edge 컨테이너 레지스트리가 있는 경우 장치에서 레지스트리에 액세스 하는 클라이언트와의 보안 통신을 위해에 지 Container Registry 인증서가 필요 합니다.
+- **대시보드 끝점 인증서**: 장치에서 Kubernetes 대시보드에 액세스 하려면 대시보드 끝점 인증서가 필요 합니다.
+
 
 #### <a name="caveats"></a>제한 사항
 
-- Edge Container Registry 인증서는 프라이빗 키를 사용하여 *.pfx* 형식으로 업로드해야 합니다.
+- 에 지 Container Registry 인증서는 다음을 수행 해야 합니다. 
+    - PEM 형식 인증서 여야 합니다.
+    - SAN (주체 대체 이름) 또는 형식의 CName (CN)을 포함 합니다. `*.<endpoint suffix>` `ecr.<endpoint suffix>` `*.dbe-1d6phq2.microsoftdatabox.com OR ecr.dbe-1d6phq2.microsoftdatabox.com`
+
+
+- 대시보드 인증서는 다음을 수행 해야 합니다.
+    - PEM 형식 인증서 여야 합니다.
+    - SAN (주체 대체 이름) 또는 형식의 CName (CN)을 포함 합니다. `*.<endpoint-suffix>` `kubernetes-dashboard.<endpoint-suffix>` 예를 들어 `*.dbe-1d6phq2.microsoftdatabox.com` 또는 `kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com`입니다. 
+
 
 ## <a name="vpn-certificates"></a>VPN 인증서
 
-VPN(지점 및 사이트 간)이 디바이스에 구성된 경우 자체 VPN 인증서를 가져와 통신을 신뢰하는지 확인할 수 있습니다. 루트 인증서는 Azure VPN Gateway에 설치되고 클라이언트 인증서는 지점 및 사이트 간 VNet에 연결하는 각 클라이언트 컴퓨터에 설치됩니다.
+VPN(지점 및 사이트 간)이 디바이스에 구성된 경우 자체 VPN 인증서를 가져와 통신을 신뢰하는지 확인할 수 있습니다. 루트 인증서는 Azure VPN Gateway에 설치 되며 클라이언트 인증서는 지점 및 사이트 간 연결을 사용 하 여 가상 네트워크에 연결 하는 각 클라이언트 컴퓨터에 설치 됩니다.
 
 #### <a name="caveats"></a>제한 사항
 

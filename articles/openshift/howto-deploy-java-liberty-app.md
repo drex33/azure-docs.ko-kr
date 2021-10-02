@@ -7,12 +7,15 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 2a308c7de754f395a3ef8a1bd97ed2441d27d21d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.custom:
+- devx-track-java
+- devx-track-javaee
+ms.openlocfilehash: 016cc443ac88dce22d8320ceadc3075d4802bdc5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783578"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360079"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty로 Java 애플리케이션 배포
 
@@ -179,8 +182,8 @@ ARO 4 클러스터에서 Liberty 애플리케이션을 배포하고 실행하려
    1. **openid** 선택
 
    > [!NOTE]
-   > 여기에 로그인하는 데 사용하는 사용자 이름과 암호를 기록해 둡니다. 이 사용자 이름과 암호는 이 문서와 다른 문서에서 다른 작업의 관리자 역할을 합니다.
-1. 다음 단계를 따라 OpenShift CLI로 로그인합니다.  이 프로세스를 `oc login`이라고 합니다.
+   > 여기에서 로그인하는 데 사용하는 사용자 이름과 암호를 기록해 둡니다. 이 사용자 이름과 암호는 이 문서와 다른 문서에서 다른 작업의 관리자 역할을 합니다.
+1. 다음 단계를 따라 OpenShift CLI로 로그인합니다.  이 프로세스를 `oc login`라고 합니다.
    1. 웹 콘솔의 오른쪽 위에서 로그인한 사용자의 바로 가기 메뉴를 확장하고 **로그인 명령 복사** 를 선택합니다.
    1. 필요한 경우 동일한 사용자로 새 탭 창에 로그인합니다.
    1. **토큰 표시** 를 선택합니다.

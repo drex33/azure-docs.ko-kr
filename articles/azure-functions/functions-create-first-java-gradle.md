@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: be1d54007017ce9b5abb774e75ddfd799f83c612
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.openlocfilehash: d47de5dd9af7b6d769c31d4909103616293a5a60
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287297"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361664"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle을 사용하여 함수를 만들고 Azure에 게시
 
@@ -27,7 +27,7 @@ Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 - [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), 버전 8
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
-- [Gradle](https://gradle.org/), 버전 4.10 이상
+- [Gradle](https://gradle.org/), 버전 6.8 이상
 
 활성 상태인 Azure 구독도 필요합니다. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -126,7 +126,7 @@ gradle azureFunctionsDeploy
 
 + 리소스 그룹 지정한 _resourceGroup_ 을 사용하여 명명됩니다.
 + Storage 계정 함수에 필요합니다. 이름은 스토리지 계정 이름 요구 사항에 따라 임의로 생성됩니다.
-+ App Service 계획 지정된 _appRegion_ 의 함수 앱에 대한 서버리스 사용 플랜 호스팅입니다. 이름은 임의로 생성됩니다.
++ App Service 계획 지정된 _지역의_ 함수 앱에 대한 서버리스 소비 계획 호스팅입니다. 이름은 임의로 생성됩니다.
 + 함수 앱 함수 앱은 함수에 대한 배포 및 실행 단위입니다. 이름은 임의로 생성된 번호와 함께 추가되는 _appName_ 입니다. 
 
 또한 배포는 프로젝트 파일을 패키지하고 패키지에서 실행 모드가 활성화되어 [zip 배포](functions-deployment-technologies.md#zip-deploy)를 사용하여 새 함수 앱에 배포합니다.
@@ -142,7 +142,7 @@ Azure Portal에서 함수 키를 사용하여 함수를 트리거하는 데 필�
 
 1. [Azure Portal]로 이동하여 로그인하고, 함수 앱의 _appName_ 을 페이지 맨 위에 있는 **검색** 에 입력하고 enter 키를 누릅니다.
  
-1. 함수 앱에서 **Functions** 를 선택하고, 함수를 선택한 다음 오른쪽 위에 있는 **</> 함수 URL 가져오기** 를 클릭합니다. 
+1. 함수 앱에서 **함수를** 선택하고, 함수를 선택한 다음, 오른쪽 위에서 **함수 URL 받기를** 클릭합니다. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Azure Portal에서 함수 URL 복사":::
 

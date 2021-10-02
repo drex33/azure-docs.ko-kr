@@ -7,17 +7,16 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
-ms.custom: ''
-ms.openlocfilehash: 3321152d5d7b753ddca23a8810f0d1ae1b3d4399
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: cd13a7f69d3085786407a405598df4bc7b8e0ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967024"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358449"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에서 배포 교환 또는 전환
 
-Azure Cloud Services(추가 지원)에서는 2개의 독립 클라우드 서비스 배포 간에 교환이 가능합니다. Azure Cloud Services(클래식)와 달리 Azure Cloud Services(추가 지원)에서 Azure Resource Manager 모델은 배포 슬롯을 사용하지 않습니다. Azure Cloud Services(추가 지원)에서 클라우드 서비스의 새 릴리스를 배포할 때 Azure Cloud Services(확장 지원)의 기존 클라우드 서비스와 “교환 가능”하도록 설정할 수 있습니다.
+Azure Cloud Services(추가 지원)에서는 2개의 독립 클라우드 서비스 배포 간에 교환이 가능합니다. Azure Cloud Services(클래식)와 달리 Azure Cloud Services(추가 지원)에서 Azure Resource Manager 모델은 배포 슬롯을 사용하지 않습니다. Azure Cloud Services(추가 지원)에서 클라우드 서비스의 새 릴리스를 배포할 때 클라우드 서비스를 Azure Cloud Services 기존 클라우드 서비스와 "교환 가능"하게 만들 수 있습니다(추가 지원).
 
 배포를 교환한 후 새 클라우드 서비스 배포를 사용하여 새 릴리스를 스테이징하고 테스트할 수 있습니다. 실제로 교환 시 스테이징된 새 클라우드 서비스가 프로덕션 릴리스로 승격됩니다.
 
@@ -31,7 +30,6 @@ Azure Resource Manager 템플릿(ARM 템플릿), Azure Portal 또는 REST API를
 두 번째 클라우드 서비스를 배포할 때 두 클라우드 서비스는 서로 가리키도록 해당 SwappableCloudService 속성을 설정합니다. 이러한 클라우드 서비스에 대한 모든 후속 업데이트는 이 속성이 실패하도록 지정해야 하며, SwappableCloudService 속성을 삭제하거나 업데이트할 수 없음을 나타내는 오류가 반환됩니다.
 
 설정되면 SwappableCloudService 속성이 읽기 전용으로 처리됩니다. 삭제하거나 다른 값으로 변경할 수 없습니다. 클라우드 서비스 중 하나(교환 가능한 쌍)를 삭제하면 나머지 클라우드 서비스의 SwappableCloudService 속성이 지워지게 됩니다.
-
 
 ## <a name="arm-template"></a>ARM 템플릿
 
@@ -65,7 +63,7 @@ Azure Portal에서 배포를 교환하려면 다음을 수행합니다.
 
 ## <a name="rest-api"></a>REST API
 
-[REST API](https://review.docs.microsoft.com/rest/api/compute/load-balancers/swap-public-ip-addresses?branch=net202102)를 사용하여 Azure Cloud Services(추가 지원)에서 새로운 클라우드 서비스 배포로 교환하려면 다음 명령과 JSON 구성을 사용합니다.
+[REST API](/rest/api/compute/load-balancers/swap-public-ip-addresses)를 사용하여 Azure Cloud Services(추가 지원)에서 새로운 클라우드 서비스 배포로 교환하려면 다음 명령과 JSON 구성을 사용합니다.
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

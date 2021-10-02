@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: d45682a3ccdc67cdbff8ef0c1edd542817875fbc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
-ms.translationtype: HT
+ms.openlocfilehash: da5bafbee257513f05d392bda8b8f1f3bb301bea
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891557"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351321"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -80,6 +80,7 @@ Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, 
 ### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>종량제 청구서 지불 및 CSP 프로그램
 
 원래 예약 구매 청구서가 취소된 다음, 환불을 위한 새 청구서가 생성됩니다. 교환의 경우, 새 청구서에 환불 및 새로운 구매가 표시됩니다. 환불 금액은 구매에 맞춰 조정됩니다. 예약만 환불한 경우에는 비례 배분된 금액이 Microsoft에 유지되며 향후 예약 구매에 맞게 조정됩니다. 종량제 요금으로 예약을 구입하고 나중에 CSP로 이동하는 경우에는 영향을 주지 않고 예약을 반환하고 다시 구매할 수 있습니다.
+환불 요청은 CSP에 문의하여 CSP에서 serf-service 환불을 수행할 수 없습니다.
 
 ### <a name="pay-as-you-go-credit-card-customers"></a>종량제 신용 카드 고객
 

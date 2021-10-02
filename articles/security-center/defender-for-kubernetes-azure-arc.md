@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: fa7076882370b404ea7b1e04cb5c364f22c35fae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2fc8c04cbe86737d924a1e61e8a2b3808082b7c9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648471"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351726"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
@@ -29,7 +29,7 @@ ms.locfileid: "128648471"
 |--------|---------|
 | 릴리스 상태 | **미리 보기**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | 필요한 역할 및 권한 | [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin)는 경고를 해제할 수 있습니다.<br>[보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader)는 발견 사항을 볼 수 있습니다. |
-| 가격 책정 | 무료(미리 보기 중) |
+| 가격 책정 | 무료 (미리 보기 중) |
 | 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | 제한 사항 | Azure Arc 지원 Kubernetes 및 Azure Defender 확장은 Google Kubernetes Engine 및 탄력적 Kubernetes 서비스와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다**. [Azure Defender는 기본적으로 AKS(Azure Kubernetes Service)에서 사용할 수 있으며](defender-for-kubernetes-introduction.md), 클러스터를 Azure Arc에 연결할 필요가 없습니다. |
 | 환경 및 지역 | 이 확장에 대한 가용성은 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)와 동일합니다.|
@@ -46,10 +46,11 @@ AKS가 아닌 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-확장을 배포하기 전에 다음을 확인합니다.
-- [Kubernetes 클러스터를 Azure Arc 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- 일반 [클러스터 확장 설명서 아래에 나열된 필수 구성을 완료합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
-- 아웃바운드 액세스를 위해 다음 엔드포인트에서 **포트 443을** 구성합니다.
+확장을 배포 하기 전에 다음을 확인 합니다.
+- [Kubernetes 클러스터를 Azure Arc에 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- [일반 클러스터 확장 설명서에 나열 된 필수](../azure-arc/kubernetes/extensions.md#prerequisites)구성 요소를 완료 합니다.
+- [투구 3](https://helm.sh/docs/intro/install) 버전 3.7.0 이상
+- 아웃 바운드 액세스를 위해 다음 끝점에서 **포트 443** 를 구성 합니다.
     - Azure Government 클라우드의 클러스터:
         - *.ods.opinsights.azure.us
         - *.oms.opinsights.azure.us
@@ -150,7 +151,7 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
     매개 변수에 대한 설명은 다음과 같습니다.
 
-    | Name            | In(다음 안에)   | 필수 | Type   | 설명                                  |
+    | 이름            | In(다음 안에)   | 필수 | Type   | 설명                                  |
     |-----------------|------|----------|--------|----------------------------------------------|
     | 구독 ID | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스의 구독 ID |
     | 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스를 포함하는 리소스 그룹의 이름 |

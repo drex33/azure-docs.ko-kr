@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: de888e76e9ba27fa653905084193e6f8e25d2a81
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: dddcbef1b43866a7cba631cd565856aef787ec8b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315382"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360940"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
@@ -184,7 +184,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
     ![권한 목록 추가](./media/shared/add-permissions-list.png)
 
-1. 데이터 평면에 적용되는 권한을 찾고 있는 경우 **데이터 작업** 을 클릭합니다. 그렇지 않고 관리 평면에 적용되는 권한을 나열하려면 작업 토글을 **Actions** 상태로 둡니다. 관리 평면과 데이터 평면 간의 차이점에 대한 자세한 내용은 [관리 및 데이터 작업](role-definitions.md#management-and-data-operations)을 참조하세요.
+1. 데이터 평면에 적용되는 권한을 찾고 있는 경우 **데이터 작업** 을 클릭합니다. 그렇지 않으면 작업 설정/해제를 **작업** 으로 설정 하 여 컨트롤 평면에 적용 되는 사용 권한을 나열 합니다. 제어 평면과 데이터 평면 간의 차이점에 대 한 자세한 내용은 [제어 및 데이터 작업](role-definitions.md#control-and-data-actions)을 참조 하세요.
 
 1. 필요한 경우 검색 문자열을 업데이트하여 검색을 구체화합니다.
 

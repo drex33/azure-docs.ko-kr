@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 814474418386041d2b20759c4fb2accc534e8b9d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82614591"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355856"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Linux용 Azure NetApp Files 성능 벤치마크
 
@@ -31,7 +31,7 @@ ms.locfileid: "82614591"
 
 ### <a name="linux-workload-throughput"></a>Linux 워크로드 처리량  
 
-아래 그래프는 64KiB(kibibyte)의 순차적 워크로드 및 1TiB 작업 집합을 나타냅니다. 그래프는 단일 Azure NetApp Files 볼륨이 1,600MiB/s 미만 순수 순차 쓰기와 4,500MiB/s 미만 순수 순차 읽기 사이에서 처리할 수 있음을 보여 줍니다.  
+아래 그래프는 64키비바이트(KiB) 순차 워크로드 및 1 TiB 작업 집합을 나타냅니다. 그래프는 단일 Azure NetApp Files 볼륨이 1,600MiB/s 미만 순수 순차 쓰기와 4,500MiB/s 미만 순수 순차 읽기 사이에서 처리할 수 있음을 보여 줍니다.  
 
 이 그래프는 순수 읽기에서 순수 쓰기로 10% 감소하는 것을 보여 줍니다. 또한 다양한 읽기/쓰기 비율(100%:0%, 90%:10%, 80%:20% 등)을 사용할 때 예측할 수 있는 항목을 보여 줍니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "82614591"
 
 ### <a name="linux-workload-iops"></a>Linux 워크로드 IOPS  
 
-다음 그래프는 4KiB(kibibyte)의 임의 워크로드 및 1TiB 작업 집합을 나타냅니다. 이 그래프는 Azure NetApp Files 볼륨이 130,000 미만인 순수 임의 쓰기 및 460,000 미만인 순수 임의 읽기 사이에서 처리할 수 있음을 보여 줍니다.  
+다음 그래프는 4키비바이트(KiB) 임의 워크로드 및 1 TiB 작업 집합을 나타냅니다. 이 그래프는 Azure NetApp Files 볼륨이 130,000 미만인 순수 임의 쓰기 및 460,000 미만인 순수 임의 읽기 사이에서 처리할 수 있음을 보여 줍니다.  
 
 이 그래프는 순수 읽기에서 순수 쓰기로 10% 감소하는 것을 보여 줍니다. 또한 다양한 읽기/쓰기 비율(100%:0%, 90%:10%, 80%:20% 등)을 사용할 때 예측할 수 있는 항목을 보여 줍니다.
 
@@ -47,31 +47,31 @@ ms.locfileid: "82614591"
 
 ## <a name="linux-scale-up"></a>Linux 확장  
 
-Linux 5.3 커널을 통해 NFS-`nconnect`용 단일 클라이언트 스케일 아웃 네트워킹을 사용할 수 있습니다. 이 섹션의 그래프는 NFSv3을 사용한 클라이언트 측 탑재 옵션에 대한 유효성 검사 테스트 결과를 보여 줍니다. 이 기능은 SUSE(SLES12SP4부터) 및 Ubuntu(19.10 릴리스부터)에서 제공됩니다. SMB 다중 채널 및 Oracle Direct NFS와 유사한 개념입니다.
+이 섹션의 그래프는 NFSv3을 사용한 클라이언트 측 탑재 옵션에 대한 유효성 검사 테스트 결과를 보여 줍니다. 자세한 내용은 [ `nconnect` Linux 탑재 옵션 섹션을 참조하세요.](performance-linux-mount-options.md#nconnect)
 
-이 그래프는 연결되지 않은 탑재된 볼륨에 대한 `nconnect`의 장점을 비교합니다. 그래프의 FIO는 us-west2 Azure 지역의 단일 D32s_v3 인스턴스에서 워크로드를 생성했습니다.
+그래프는 의 장점을 `nconnect` `connected` 탑재되지 않은 볼륨과 비교합니다. 그래프에서 FIO는 64 KiB 순차 워크로드를 사용하여 us-west2 Azure 지역의 단일 D32s_v4 인스턴스에서 워크로드를 생성했습니다. 이는 여기에 표시된 테스트 시 Azure NetApp Files 지원하는 가장 큰 I/O 크기입니다. 이제 Azure NetApp Files 더 큰 I/O 크기를 지원합니다. 자세한 내용은 [ `rsize` Linux 탑재 옵션 의 및 `wsize` 섹션을 참조하세요.](performance-linux-mount-options.md#rsize-and-wsize)
 
 ### <a name="linux-read-throughput"></a>Linux 읽기 처리량  
 
-다음 그래프는 `nconnect`를 사용하는 3,500MiB/s 미만의 순차 읽기(비`nconnect`의 약 2.3배)를 보여 줍니다.
+다음 그래프는 가 있는 ~3,500 MiB/s 읽기의 64-KiB 순차적 읽기를 보여 `nconnect` 하며, 대략 2.3배 이외 `nconnect` 입니다.
 
 ![Linux 읽기 처리량](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### <a name="linux-write-throughput"></a>Linux 쓰기 처리량  
 
-다음 그래프에서는 순차 쓰기를 보여 줍니다. 그래프는 `nconnect`에 순차 쓰기에 대해 눈에 띄는 이점이 없음을 나타냅니다. 1,500MiB/s는 대략 순차 쓰기 볼륨 상한 및 D32s_v3 인스턴스 송신 한도입니다.
+다음 그래프에서는 순차 쓰기를 보여 줍니다. 그래프는 `nconnect`에 순차 쓰기에 대해 눈에 띄는 이점이 없음을 나타냅니다. 1,500 MiB/s는 대략 순차 쓰기 볼륨 상한 및 D32s_v4 인스턴스 송신 제한입니다.
 
 ![Linux 쓰기 처리량](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### <a name="linux-read-iops"></a>Linux 읽기 IOPS  
 
-다음 그래프는 `nconnect`를 사용하는 200,000 미만 읽기 IOPS의 임의 읽기(비`nconnect`의 약 3배)를 보여 줍니다.
+다음 그래프는 을(를) 통해 ~200,000개 읽기 IOPS의 4 KiB 임의 읽기를 보여 `nconnect` 하며, 약 3배는 이외 `nconnect` 입니다.
 
 ![Linux 읽기 IOPS](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>Linux 쓰기 IOPS  
 
-다음 그래프는 `nconnect`를 사용하는 135,000 미만 쓰기 IOPS의 임의 쓰기(`nconnect`의 약 3배)를 보여 줍니다.
+다음 그래프는 를 통해 135,000개 이하 쓰기 IOPS의 4 KiB 임의 쓰기를 보여 `nconnect` 하며, 약 3배는 이외 `nconnect` 입니다.
 
 ![Linux 쓰기 IOPS](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

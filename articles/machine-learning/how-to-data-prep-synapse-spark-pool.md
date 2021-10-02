@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 3cd6a3243b4bfb4441f6be82f3957c325ceec3d2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2447b6d63441a3372cebaec38a863f5cdc0898d4
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433569"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349993"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 
@@ -62,7 +62,7 @@ Apache Spark 풀을 사용하여 데이터 준비를 시작하려면 연결된 S
 ![연결된 컴퓨팅 이름 가져오기](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> Apache Spark 풀을 계속 사용하려면 단일 코드 줄의 경우 `%synapse`, 여러 줄의 경우 `%%synapse`를 사용하여 데이터 랭글링 전체에서 사용할 컴퓨팅 리소스를 표시해야 합니다. [%synapse 매직 명령 에 대해 자세히 알아봅니다.](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class))
+> Apache Spark 풀을 계속 사용하려면 단일 코드 줄의 경우 `%synapse`, 여러 줄의 경우 `%%synapse`를 사용하여 데이터 랭글링 전체에서 사용할 컴퓨팅 리소스를 표시해야 합니다. [% Synapse 매직 명령에 대해 자세히 알아보세요](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class)).
 
 ```python
 %synapse start -c SynapseSparkPoolAlias
@@ -272,6 +272,7 @@ Synapse Spark 풀에 데이터를 제공하는 것은 데이터 세트 형식에
 
 ```Python
 from azureml.core import Dataset, HDFSOutputDatasetConfig
+from azureml.core.environment import CondaDependencies
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
@@ -287,6 +288,9 @@ run_config.spark.configuration["spark.driver.cores"] = 2
 run_config.spark.configuration["spark.executor.memory"] = "1g" 
 run_config.spark.configuration["spark.executor.cores"] = 1 
 run_config.spark.configuration["spark.executor.instances"] = 1 
+
+conda_dep = CondaDependencies()
+conda_dep.add_pip_package("azureml-core==1.20.0")
 
 run_config.environment.python.conda_dependencies = conda_dep
 

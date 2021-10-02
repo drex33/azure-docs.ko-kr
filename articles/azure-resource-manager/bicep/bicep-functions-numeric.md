@@ -4,17 +4,17 @@ description: 숫자 작업을 위해 Bicep 파일에서 사용할 함수를 설�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 8df0aec96001aa5b1a7cdd7342fe663f0bfa2da0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: b5230d9fd7f228981c3ac3ec899ae8b641cc74fb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758487"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355321"
 ---
 # <a name="numeric-functions-for-bicep"></a>Bicep에 대한 숫자 함수
 
-이 문서에서는 정수 작업을 위한 Bicep 함수에 대해 설명합니다.
+이 문서에서는 정수 작업을 위한 Bicep 함수에 대해 설명 합니다.
 
 Azure Resource Manager JSON 숫자 함수 중 일부는 [Bicep 숫자 연산자](./operators-numeric.md)로 바뀝니다.
 
@@ -23,6 +23,8 @@ Azure Resource Manager JSON 숫자 함수 중 일부는 [Bicep 숫자 연산자]
 `int(valueToConvert)`
 
 지정된 값을 정수로 변환합니다.
+
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -56,9 +58,11 @@ output inResult int = int(stringToConvert)
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -96,9 +100,11 @@ output intOutput int = max(0,3,2,5,4)
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
 
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -132,4 +138,4 @@ output intOutput int = min(0,3,2,5,4)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 숫자와 관련된 다른 작업은 [Bicep 숫자 연산자 를](./operators-numeric.md)참조하세요.
+* 숫자와 관련 된 다른 작업은 [Bicep numeric 연산자](./operators-numeric.md)를 참조 하세요.

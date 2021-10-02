@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
-ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 09/29/2021
+ms.openlocfilehash: e5d5104e0f2215e81b5539296ff18572375a8a28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593404"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362394"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
@@ -20,7 +20,9 @@ ms.locfileid: "100593404"
 
 ## <a name="overview"></a>개요
 
-Azure NetApp Files 볼륨의 성능 특성을 이해하려면 오픈 소스 도구 [FIO](https://github.com/axboe/fio)를 사용하여 다양한 작업을 시뮬레이션하는 일련의 벤치마크를 실행할 수 있습니다. FIO는 Linux 및 Windows 기반 운영 체제 모두에 설치할 수 있습니다.  이 도구는 볼륨의 IOPS 및 처리량 모두에 대한 스냅샷을 빠르게 얻기 위한 훌륭한 도구입니다.
+Azure NetApp Files 볼륨의 성능 특징을 이해 하려면 오픈 소스 도구 [Fio](https://github.com/axboe/fio) 를 사용 하 여 다양 한 작업을 시뮬레이트하는 일련의 벤치 마크를 실행할 수 있습니다. FIO는 Linux 및 Windows 기반 운영 체제 모두에 설치할 수 있습니다.  이 도구는 볼륨의 IOPS 및 처리량 모두에 대한 스냅샷을 빠르게 얻기 위한 훌륭한 도구입니다.
+
+Azure NetApp Files 유틸리티를 기준 벤치마킹 도구로 사용 *하지* 않는 것이 좋습니다 `dd` . 실제 응용 프로그램 워크 로드, 워크 로드 시뮬레이션 및 벤치 마크 및 도구 (예: Oracle AWR with Oracle 또는 DB2와 동등한 IBM AWR)를 사용 하 여 최적의 인프라 성능을 설정 하 고 분석 해야 합니다. FIO, vdbench 및 iometer와 같은 도구에는 가상 컴퓨터를 저장소 제한에 맞게 결정 하는 위치가 있으며, 가장 유용한 결과를 위해 실제 응용 프로그램 워크 로드에 대 한 테스트 매개 변수를 일치 시킵니다. 그러나 항상 실제 응용 프로그램을 사용 하 여 테스트 하는 것이 좋습니다.  
 
 ### <a name="vm-instance-sizing"></a>VM 인스턴스 크기
 
@@ -28,7 +30,7 @@ Azure NetApp Files 볼륨의 성능 특성을 이해하려면 오픈 소스 도�
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files 볼륨 크기
 
-예상되는 성능 수준에 적합한 서비스 수준 및 볼륨 할당량 크기를 선택해야 확인합니다. 예를 들어 [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)을 참조하세요.
+예상되는 성능 수준에 적합한 서비스 수준 및 볼륨 할당량 크기를 선택해야 확인합니다. 자세한 내용은 [Azure NetApp Files의 서비스 수준](azure-netapp-files-service-levels.md)을 참조 하세요.
 
 ### <a name="virtual-network-vnet-recommendations"></a>VNet(가상 네트워크) 권장 사항
 

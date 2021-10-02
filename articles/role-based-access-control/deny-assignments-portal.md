@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
-ms.translationtype: HT
+ms.openlocfilehash: 1581139a2bd941f32afbcd4f0ecbefc60c068d80
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077842"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353489"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal을 사용한 Azure 거부 할당 나열
 
 [Azure 거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 Azure Portal로 거부 할당을 나열하는 방법에 관해 설명합니다.
 
 > [!NOTE]
-> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 관한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조하세요.
+> 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당이 만들어지는 방법에 대한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-거부 할당에 관한 정보를 가져오려면 다음이 있어야 합니다.
+거부 할당에 대한 정보를 가져오려면 다음이 있어야 합니다.
 
 - 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함된 `Microsoft.Authorization/denyAssignments/read` 권한.
 
@@ -54,7 +54,7 @@ ms.locfileid: "106077842"
 
     ![거부 할당 - 열](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    | 열 | 설명  |
+    | 열 | Description  |
     | --- | --- |
     | **이름** | 거부 할당의 이름입니다. |
     | **주체 유형** | 사용자, 그룹, 시스템 정의 그룹 또는 서비스 주체입니다. |
@@ -92,14 +92,14 @@ ms.locfileid: "106077842"
 
     | 작업 유형 | 설명 |
     | --- | --- |
-    | **actions**  | 거부된 관리 작업입니다. |
-    | **NotActions** | 거부된 관리 작업에서 제외되는 관리 작업입니다. |
-    | **DataActions**  | 거부된 데이터 작업입니다. |
-    | **NotDataActions** | 거부된 데이터 작업에서 제외되는 데이터 작업입니다. |
+    | **actions**  | 컨트롤 플레인 동작이 거부되었습니다. |
+    | **NotActions** | 거부된 컨트롤 플레인 작업에서 제외된 컨트롤 플레인 동작입니다. |
+    | **DataActions**  | 데이터 평면 작업이 거부되었습니다. |
+    | **NotDataActions** | 거부된 데이터 평면 작업에서 제외된 데이터 평면 작업입니다. |
 
     이전 스크린샷에 나온 예의 경우 다음이 유효 권한입니다.
 
-    - 컴퓨팅 작업을 제외하고 데이터 평면에 있는 모든 스토리지 작업이 거부됩니다.
+    - 컴퓨팅 작업을 제외하고 데이터 평면의 모든 스토리지 작업이 거부됩니다.
 
 1. 거부 할당에 대한 속성을 보려면 **속성** 을 클릭합니다.
 

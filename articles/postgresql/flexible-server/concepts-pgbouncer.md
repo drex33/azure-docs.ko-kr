@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 86543f160a9ffc725a9512069bac39e6e222d543
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/01/2021
+ms.openlocfilehash: d49deec6a782e0b36f110b7c2046b89e314e4011
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529103"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387338"
 ---
 # <a name="pgbouncer-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PgBouncer
 
@@ -25,7 +25,7 @@ PgBouncer는 비동기 I/O를 활용하는 좀 더 간단한 모델을 사용하
 사용하도록 설정하면 PgBouncer는 데이터베이스 서버의 포트 6432에서 실행됩니다. 동일한 호스트 이름을 사용하도록 애플리케이션의 데이터베이스 연결 구성을 변경할 수 있지만 포트를 6432로 변경하여 PgBouncer 사용을 시작하고 향상된 유휴 연결 크기 조정의 이점을 누릴 수 있습니다.
 
 > [!Note]
-> PgBouncer는 공용 액세스 및 프라이빗 액세스 네트워킹 모두에서 범용 및 메모리 최적화 컴퓨팅 계층에서 지원됩니다.
+> PgBouncer는 공용 액세스 및 프라이빗 액세스 네트워킹 모두에서 범용 및 메모리 최적화 컴퓨팅 계층에서 지원됩니다. 
 
 ## <a name="enabling-and-configuring-pgbouncer"></a>PgBouncer 사용 및 구성
 
@@ -46,7 +46,7 @@ PgBouncer를 사용하도록 설정하려면 Azure Portal에서 “서버 매개
 PgBouncer 구성에 대한 자세한 내용은 [pgbouncer.ini](https://www.pgbouncer.org/config.html)를 참조하세요.
 
 > [!Note] 
-> PgBouncer의 업그레이드는 Azure에서 관리됩니다.
+> PgBouncer 업그레이드는 Azure에서 관리 합니다.
 
 ## <a name="switching-your-application-to-use-pgbouncer"></a>PgBouncer를 사용하도록 애플리케이션 전환
 
@@ -77,6 +77,7 @@ psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=postgres user
 * 컴퓨팅 계층을 범용 또는 메모리 최적화에서 버스트 가능 계층으로 변경하면 PgBouncer 기능이 손실됩니다.
 * 크기 조정 작업, HA 장애 조치(failover) 또는 다시 시작 중에 서버를 다시 시작할 때마다 서버 가상 머신과 함께 PgBouncer도 다시 시작됩니다. 따라서 기존 연결을 다시 설정해야 합니다.
 * 알려진 문제로 인해 포털에 모든 PgBouncer 매개 변수가 표시되지는 않습니다. PgBouncer를 사용하도록 설정하고 매개 변수를 저장한 후에는 매개 변수 화면(예: 개요 클릭)을 종료한 다음 매개 변수 페이지로 돌아가야 합니다. 
+* [Scram 인증은](how-to-connect-scram.md) PgBouncer에서 지원 되지 않습니다.
   
 ## <a name="next-steps"></a>다음 단계
 

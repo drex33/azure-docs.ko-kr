@@ -4,27 +4,25 @@ description: Azure Resource Manager와 Azure PowerShell을 사용하여 Azure에
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 3058265fee62143f88bbd87e69c58dd4ff597920
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: cc6c8e05f5e6f37a8ac832ac5ee8fae386a627f1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793800"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387718"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Bicep 및 Azure PowerShell로 리소스 배포
 
 이 문서에서는 Bicep 파일과 함께 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Bicep 개요](overview.md)를 참조하세요.
 
-Bicep 파일을 배포하려면 [Azure PowerShell 버전 5.6.0 이상](/powershell/azure/install-az-ps)이 필요합니다.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
-배포할 Bicep 파일이 필요합니다. 이 문서에 사용된 로컬 파일 이름은 _C:C:\MyTemplates\azuredeploy.bicep_ 입니다.
+배포할 Bicep 파일이 필요합니다. 파일은 로컬이어야 합니다.
 
-Azure PowerShell을 설치하고 Azure에 연결해야 합니다.
+Azure PowerShell Azure에 연결해야 합니다.
 
-- **로컬 컴퓨터에 Azure PowerShell cmdlet을 설치합니다.** 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
+- **로컬 컴퓨터에 Azure PowerShell cmdlet을 설치합니다.** Bicep 파일을 배포하려면 [Azure PowerShell](/powershell/azure/install-az-ps) 버전 **5.6.0 이상이** 필요합니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 - **[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure에 연결합니다**. Azure 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 실행해야 할 수도 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/powershell/azure/manage-subscriptions-azureps)을 참조하세요.
 
 PowerShell이 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 있습니다. 자세한 내용은 [Azure Cloud Shell에서 Bicep 파일 배포](./deploy-cloud-shell.md)를 참조하세요.
@@ -139,15 +137,15 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile c:\BicepFiles\storage.bicep `
+  -TemplateParameterFile c:\BicepFiles\storage.parameters.json
 ```
 
 외부 매개 변수 파일을 전달하려면 `TemplateParameterUri` 매개 변수를 사용하세요.
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
+  -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
@@ -157,11 +155,11 @@ Bicep 파일을 배포하기 전에 Bicep 파일이 환경에 적용할 변경 �
 
 ## <a name="deploy-template-specs"></a>템플릿 사양 배포
 
-현재 Azure PowerShell은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. [템플릿 사양 만들기 샘플은](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) Bicep 파일에서 템플릿 사양을 만드는 방법을 보여줍니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
+현재 Azure PowerShell은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. [템플릿 사양 만들기 샘플은](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) Bicep 파일에서 템플릿 사양을 만드는 방법을 보여줍니다. Bicep CLI를 사용하여 JSON에 Bicep 파일을 빌드한 다음 JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
 
 ## <a name="deployment-name"></a>배포 이름
 
-Bicep 파일을 배포할 때 배포에 이름을 지정할 수 있습니다. 해당 이름은 배포 기록에서 배포를 검색하는 데 도움이 될 수 있습니다. 배포에 이름을 제공하지 않으면 Bicep 파일의 이름이 사용됩니다. 예를 들어 `azuredeploy.bicep`이라는 Bicep을 배포하고 배포 이름을 지정하지 않으면 배포 이름은 `azuredeploy`로 지정됩니다.
+Bicep 파일을 배포할 때 배포에 이름을 지정할 수 있습니다. 해당 이름은 배포 기록에서 배포를 검색하는 데 도움이 될 수 있습니다. 배포에 이름을 제공하지 않으면 Bicep 파일의 이름이 사용됩니다. 예를 들어 `main.bicep`이라는 Bicep을 배포하고 배포 이름을 지정하지 않으면 배포 이름은 `main`로 지정됩니다.
 
 배포를 실행할 때마다 리소스 그룹의 배포 기록에 항목이 배포 이름과 함께 추가됩니다. 다른 배포를 실행하고 동일한 이름을 지정하는 경우 이전 항목이 현재 배포로 바뀝니다. 배포 기록에서 고유한 항목을 유지하려면 각 배포에 고유한 이름을 지정합니다.
 
@@ -189,6 +187,4 @@ $deploymentName="ExampleDeployment"+"$today"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 오류 발생 시 성공적인 배포로 롤백하려면 [오류 발생 시 성공적인 배포로 롤백](../templates/rollback-on-error.md)을 참조하세요.
 - 파일에서 매개 변수를 정의하는 방식을 이해하려면 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
-- SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 ARM 템플릿 배포](../templates/secure-template-with-sas-token.md)를 참조하세요.

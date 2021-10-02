@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c7c7dccf94c1211ef318d538c3a5c74ae16e427e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685330"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388815"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 리소스 클래스로 워크로드 관리
 
@@ -84,8 +84,6 @@ Azure Synapse에서 리소스 클래스를 사용하여 Synapse SQL 풀에 대�
 
 > [!NOTE]
 > Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.
->
->
 
 ## <a name="resource-class-operations"></a>리소스 클래스 작업
 
@@ -107,8 +105,6 @@ Azure Synapse에서 리소스 클래스를 사용하여 Synapse SQL 풀에 대�
 
 > [!NOTE]  
 > DMV(동적 관리 뷰) 또는 다른 시스템 뷰에서 SELECT 문은 어떠한 동시성 제한에 의해서도 제어되지 않습니다. 시스템에서 실행하는 쿼리 수에 관계없이 시스템을 모니터링할 수 있습니다.
->
->
 
 ### <a name="operations-not-governed-by-resource-classes"></a>리소스 클래스에 의해 제어되지 않는 작업
 
@@ -185,8 +181,6 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 >[!NOTE]
 >워크로드 및 예측 가능한 성능을 보다 효과적으로 제어하려면 워크로드 관리 기능([워크로드 격리](sql-data-warehouse-workload-isolation.md), [분류](sql-data-warehouse-workload-classification.md) 및 [중요도](sql-data-warehouse-workload-importance.md))을 활용하는 것이 좋습니다.  
->
->
 
 특정 유형의 쿼리 또는 로드 작업만 실행하는 사용자를 만드는 것이 좋습니다. 리소스 클래스를 자주 변경하는 대신 해당 사용자에게 영구 리소스 클래스를 제공합니다. 정적 리소스 클래스는 워크로드에서 더 광범위한 제어를 허용하므로 동적 리소스 클래스를 고려하기 전에 먼저 정적 리소스 클래스를 사용하는 것이 좋습니다.
 

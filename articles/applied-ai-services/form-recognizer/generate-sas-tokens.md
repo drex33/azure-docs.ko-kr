@@ -6,19 +6,19 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 09/16/2021
+ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 22fe82425285a27d224ea5375bfe209e7ac779da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e1b145c5efa9135a198cd6623c450f5965a6c2c
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705716"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387946"
 ---
 # <a name="generate-sas-tokens-for-storage-containers"></a>저장소 컨테이너에 대 한 SAS 토큰 생성
 
- 이 문서에서는 사용자 위임 SAS (공유 액세스 서명) 토큰을 생성 하는 방법을 알아봅니다. 사용자 위임 SAS 토큰은 azure storage 키 대신 Azure Active Directory (azure AD) 자격 증명으로 서명 됩니다. Azure storage 계정에서 리소스에 대 한 보다 안전 하 고 위임 된 액세스를 제공 합니다.
+ 이 문서에서는 Azure Blob Storage 컨테이너에 대 한 사용자 위임 SAS (공유 액세스 서명) 토큰을 생성 하는 방법을 알아봅니다. 사용자 위임 SAS 토큰은 azure storage 키 대신 Azure Active Directory (azure AD) 자격 증명으로 서명 됩니다. Azure storage 계정에서 리소스에 대 한 보다 안전 하 고 위임 된 액세스를 제공 합니다.
 높은 수준에서 작동 하는 방법은 응용 프로그램에서 요청의 일부로 Azure storage에 SAS 토큰을 제공 하는 것입니다. 저장소 서비스에서 SAS가 유효한 지 확인 하는 경우 요청에 권한이 부여 됩니다. SAS가 잘못 된 것으로 간주 되 면 요청이 거부 되 고 오류 코드 403 (사용할 수 없음)이 발생 합니다.
 
 Azure blob storage는 세 가지 유형의 리소스를 제공 합니다.
@@ -68,7 +68,7 @@ Azure blob storage는 세 가지 유형의 리소스를 제공 합니다.
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="스크린샷: Azure Portal에서 blob을 업로드 합니다.":::
 
 > [!NOTE]
-> 기본적으로 REST API는 컨테이너의 루트에 있는 양식 문서를 사용 합니다. 그러나 API 호출에 지정 된 경우 하위 폴더에 구성 된 데이터를 사용할 수 있습니다.  [ **하위 폴더의 데이터 구성** 을 참조 하세요.](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> 기본적으로 REST API는 컨테이너의 루트에 있는 양식 문서를 사용 합니다. 그러나 API 호출에 지정 된 경우 하위 폴더에 구성 된 데이터를 사용할 수 있습니다.  [ **하위 폴더의 데이터 구성** 을 참조 하세요.](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
 
 ## <a name="create-a-sas-with-the-azure-portal"></a>Azure Portal를 사용 하 여 SAS 만들기
 

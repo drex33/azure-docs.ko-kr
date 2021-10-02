@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 24428aeb07548556a96c292b6dc1be0f2014a479
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661643"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389839"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -30,7 +30,7 @@ ms.locfileid: "128661643"
 
 라이브 이벤트의 [Event Grid](../../event-grid/index.yml) 이벤트를 구독하면 [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시될 수 있습니다.
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |
+>| Error | 정보 |
 >|--|--|
 >|**MPE_RTMP_APPID_AUTH_FAILURE** ||
 >|Description | 잘못된 수집 URL입니다. |
@@ -60,7 +60,7 @@ ms.locfileid: "128661643"
 >| Description|프레임 속도가 있는 들어오는 인코더 수집 스트림이 라이브 이벤트/채널 인코딩에 허용되는 최대 30fps를 초과했습니다. |
 >| 추천 솔루션|인코더 사전 설정을 확인하여 프레임 속도를 36fps 미만으로 낮춥니다. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| Description|들어오는 인코더 수집 스트림이 허용된 해상도를 초과했습니다. 라이브 이벤트/채널 인코딩의 경우 1920x1088, 통과 라이브 이벤트/채널의 경우 4096 x 2160입니다. |
+>| Description|들어오는 인코더 수집 스트림은 허용 되는 다음 해상도를 초과 합니다. 1920x1088는 라이브 이벤트/채널 인코딩에 대 한, 기본 및 표준 통과 라이브 이벤트/채널의 경우 4096 x 2160입니다. |
 >| 추천 솔루션|한도를 초과하지 않도록 비디오 해상도를 낮추기 위해 인코더 사전 설정을 확인합니다. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Description|라이브 이벤트가 한 번에 많은 양의 오디오 데이터를 수신했거나 키 프레임 없이 많은 양의 비디오 데이터를 수신했습니다. 올바른 데이터로 다시 시도할 수 있도록 인코더 연결을 끊었습니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "128661643"
 [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) 이벤트에서 다음 오류 중 하나가 표시될 수 있습니다.
 
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |
+>| Error | 정보 |
 >|--|--|
 >|**MPE_RTMP_SESSION_IDLE_TIMEOUT** |
 >| Description|허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다. |
@@ -89,7 +89,7 @@ ms.locfileid: "128661643"
 ## <a name="other-error-codes"></a>기타 오류 코드
 
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |거부/연결 끊김 이벤트|
+>| Error | 정보 |거부/연결 끊김 이벤트|
 >|--|--|--|
 >|**ERROR_END_OF_MEDIA** ||예|
 >| Description|일반 오류입니다. ||

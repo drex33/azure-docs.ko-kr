@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: dcf969745fcc3c98b5bd0a9ba3681be602b73eb1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fd91a848a2da7ca503f74def67c0fab268d253c7
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210215"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387984"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -125,7 +125,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 현재 프라이빗 클러스터에 액세스하려면 클러스터 가상 네트워크나 피어링 네트워크 또는 클라이언트 컴퓨터 내에서 이 작업을 수행 해야 합니다. 이를 위해서는 일반적으로 VPN 또는 기본 경로를 통해 클러스터 가상 네트워크에 연결하거나 클러스터 가상 네트워크에서 만들 jumpbox를 사용하여 컴퓨터를 연결해야 합니다. AKS 실행 명령을 사용하여 AKS API를 통해 AKS 클러스터의 명령을 원격으로 호출할 수 있습니다. 이 기능은 예를 들어 프라이빗 클러스터의 원격 노트북에서 Just-In-Time 명령을 실행할 수 있는 API를 제공합니다. 이렇게 하면 클라이언트 컴퓨터가 클러스터 개인 네트워크에 있지 않고도 동일한 RBAC 컨트롤과 프라이빗 API 서버를 유지하고 적용하면서 프라이빗 클러스터에 신속하게 Just-In-Time 액세스할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * Azure CLI 버전 2.24.0 이상
 
@@ -155,7 +155,7 @@ Helm 설치 및 특정 값 매니페스트 패스
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
 > [!NOTE]
-> "ContainerService/managedClusters/runcommand/action" 권한으로 사용자 지정 역할을 만들고 Just-in-time 액세스 또는 조건부 액세스 정책과 함께 특정 사용자 및/또는 그룹에 할당 하 여 AKS 실행 명령에 안전 하 게 액세스할 수 있습니다. 
+> "ContainerService/managedClusters/runcommand/action", "ContainerService/managedclusters/commandResults/read" 권한을 사용 하 여 사용자 지정 역할을 만들고 Just-in-time 액세스 또는 조건부 액세스 정책과 함께 특정 사용자 및/또는 그룹에 할당 하 여 AKS 실행 명령에 안전 하 게 액세스할 수 있습니다. 
 
 ## <a name="virtual-network-peering"></a>가상 네트워크 피어링
 

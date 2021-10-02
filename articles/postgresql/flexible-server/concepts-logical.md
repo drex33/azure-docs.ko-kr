@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 5030abe5dbc93a1b04588d548d353701a5a77ad4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 5298b572c24d174842da1c9e29b01a1d98f47a39
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559269"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387357"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 논리 복제 및 논리 디코딩
 
@@ -104,12 +104,21 @@ Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 �
 
 ### <a name="pglogical-extension"></a>pglogical 확장
 
-다음은 공급자 데이터베이스 서버와 구독자에서 pglogical을 구성하는 예입니다. 세부 정보는 pglogical 확장 설명서를 참조하세요. 또한 위에 나열된 필수 구성 조건 작업을 수행했는지 확인합니다.
+다음은 공급자 데이터베이스 서버와 구독자에서 pglogical을 구성하는 예입니다. 자세한 내용은 [pglogical 확장 설명서](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs) 를 참조 하세요. 또한 위에 나열된 필수 구성 조건 작업을 수행했는지 확인합니다.
+
 
 1. 공급자와 구독자 데이터베이스 서버 모두의 데이터베이스에 pglogical 확장을 설치합니다.
     ```SQL
    \C myDB
    CREATE EXTENSION pglogical;
+   ```
+2. 복제 사용자가 서버 관리 사용자 (서버를 만든 사용자)가 아닌 경우 `azure_pg_admin` `replication` 사용자에 게 및 권한을 할당 했는지 확인 합니다. 또는 복제 사용자에 게 관리자 사용자를 부여할 수 있습니다. 자세한 내용은 [pglogical 설명서](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) 를 참조 하세요.
+   ```SQL
+   GRANT azure_pg_admin, replication to myUser;
+   ```
+   또는
+   ```SQL
+   GRANT myAdminUser to myUser;
    ```
 2. **공급자**(원본/게시자) 데이터베이스 서버에서 공급자 노드를 만듭니다.
    ```SQL

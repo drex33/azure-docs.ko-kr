@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/23/2021
-ms.openlocfilehash: 7fc67ab7162c7fe62df226fd39aefcd350bbdf82
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
-ms.translationtype: HT
+ms.date: 10/01/2021
+ms.openlocfilehash: ad7cbfc7c06a86cca79930c9745160cc9af4697f
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112897265"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388872"
 ---
 # <a name="scram-authentication-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 SCRAM 인증
 
@@ -84,6 +84,9 @@ SCRAM 인증 방법을 사용하여 PostgreSQL 데이터베이스 서버에 액�
     ```
 
 8. 그런 다음, SCRAM 인증을 지원하는 클라이언트에서 서버에 연결할 수 있습니다.
+
+> [!Note] 
+> 기본 제공 관리 되는 [PgBouncer](concepts-pgbouncer.md)에 연결 된 경우 scram 인증이 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버 가상 네트워크를 만들고 관리](./how-to-manage-virtual-network-cli.md)합니다.

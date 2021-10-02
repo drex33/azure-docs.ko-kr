@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 09/09/2021
-ms.openlocfilehash: 710f730278d535565007369cdd1ca97d8787aeb2
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 99d642a1cd534691e5089ac6956dc023d3a207d0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352096"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388853"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1005,7 +1005,7 @@ base64ToBinary('<value>')
 base64ToBinary('aGVsbG8=')
 ```
 
-예를 들어 HTTP 작업을 사용하여 요청을 보내는 경우를 가정해 보겠습니다. 를 사용하여 `base64ToBinary()` base64로 인코딩된 문자열을 이진 데이터로 변환하고 요청의 콘텐츠 형식을 사용하여 해당 데이터를 보낼 수 `application/octet-stream` 있습니다.
+예를 들어 HTTP 작업을 사용 하 여 요청을 보내는 경우를 가정 하겠습니다. 를 사용 하 여 b a s e `base64ToBinary()` 64로 인코딩된 문자열을 이진 데이터로 변환 하 고 `application/octet-stream` 요청의 콘텐츠 형식을 사용 하 여 해당 데이터를 보낼 수 있습니다.
 
 <a name="base64ToString"></a>
 
@@ -1063,7 +1063,7 @@ binary('<value>')
 *예제*
 
 예를 들어 이미지 또는 동영상 파일을 반환하는 HTTP 작업을 사용하고 있습니다. `binary()`를 사용하여 값을 base-64로 인코딩된 콘텐츠 봉투 모델로 변환할 수 있습니다. 그런 다음 `Compose`와 같은 다른 작업에서 콘텐츠 봉투를 다시 사용할 수 있습니다.
-이 함수 식을 사용하여 요청에서 콘텐츠 형식이 있는 문자열 바이트를 보낼 수 `application/octet-stream` 있습니다.
+이 함수 식을 사용 하 여 `application/octet-stream` 요청에서 콘텐츠 형식과 함께 문자열 바이트를 보낼 수 있습니다.
 
 <a name="body"></a>
 
@@ -1198,7 +1198,7 @@ concat('<text1>', '<text2>', ...)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | String | 결합 된 입력 문자열에서 만든 문자열입니다. <p><p>**참고**: 결과의 길이는 104857600 자를 초과할 수 없습니다. |
+| <*text1text2...* > | String | 결합된 입력 문자열에서 만든 문자열입니다. <p><p>**참고:** 결과의 길이는 104,857,600자를 초과할 수 없습니다. |
 ||||
 
 > [!NOTE]
@@ -1207,7 +1207,7 @@ concat('<text1>', '<text2>', ...)
 > * `concat('data:;base64,',<value>)`
 > * `concat('data:,',encodeUriComponent(<value>))`
 >
-> 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩](#base64-encoding-decoding)을 검토 하세요.
+> 그러나 디자이너에서 이러한 함수를 사용하는 경우 디자이너에서 예기치 않은 렌더링 동작이 발생할 수 있습니다. 이러한 동작은 함수의 매개 변수 값을 편집하여 코드에서 함수와 그 효과를 제거하지 않는 한 함수의 표시 유형에만 영향을 줍니다. 자세한 내용은 [Base64 인코딩 및 디코딩을 검토하세요.](#base64-encoding-decoding)
 
 *예제*
 
@@ -1915,12 +1915,12 @@ float('<value>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 포함 된 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
+| <*value*> | 예 | String | 변환할 유효한 부동 소수점 숫자가 있는 문자열입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | 지정 된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대 한 제한과 동일 합니다. |
+| <*float-value*> | Float | 지정된 문자열의 부동 소수점 숫자입니다. 최소값과 최대값은 float 데이터 형식에 대한 제한과 동일합니다. |
 ||||
 
 *예제*
@@ -3298,7 +3298,7 @@ range(<startIndex>, <count>)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | 예 | 정수 | 배열을 첫 번째 항목으로 시작하는 정수 값 |
-| <*count*> | 예 | 정수 | 배열에 있는 정수의 수입니다. `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. <p><p>**참고**: 및 값의 합계 `startIndex` 는 `count` 2147483647을 초과 하면 안 됩니다. |
+| <*count*> | 예 | 정수 | 배열에 있는 정수의 수입니다. `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. <p><p>**참고:** 및 값의 합계는 `startIndex` `count` 2,147,483,647을 초과할 수 없습니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3715,7 +3715,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
 ||||
 
-*예제*
+*예 1*
 
 이 예제에서는 지정된 문자(구분 기호)를 기준으로 하여 지정한 문자열의 하위 문자열이 포함된 배열을 만듭니다.
 
@@ -3724,6 +3724,16 @@ split('a_b_c', '_')
 ```
 
 그리고 `["a","b","c"]` 배열을 결과로 반환합니다.
+
+*예 2*
+  
+이 예에서는 문자열에 구분 기호가 없는 경우 단일 요소가 포함 된 배열을 만듭니다.
+
+```
+split('a_b_c', ' ')
+```
+
+그리고 `["a_b_c"]` 배열을 결과로 반환합니다.
 
 <a name="startOfDay"></a>
 

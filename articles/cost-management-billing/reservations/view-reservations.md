@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: banders
-ms.openlocfilehash: 0c278256c952fce12833a8f4c5fe55e18c3b40b0
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: ca68392e82e045bde0c5b1dd8704b70b1684ed3d
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099915"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390276"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Azure 예약을 보고 관리할 수 있는 권한
 
@@ -42,7 +42,7 @@ ms.locfileid: "123099915"
     - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
 1. 왼쪽 메뉴에서 **제품 + 서비스** > **예약** 을 선택합니다.
 1. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
-1. 청구 관리자는 예약을 선택한 다음, 표시되는 창에서 **액세스 권한 부여** 를 선택하여 예약 소유권을 가져올 수 있습니다.
+1. 청구 관리자는 하나 이상의 예약을 선택 하 고, **액세스 권한 부여** 를 클릭 하 고, 표시 되는 창에서 **액세스 권한 부여** 를 선택 하 여 예약의 소유권을 가져올 수 있습니다.
 
 ### <a name="add-billing-administrators"></a>청구 관리자 추가
 

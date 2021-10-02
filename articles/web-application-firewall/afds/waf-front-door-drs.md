@@ -1,18 +1,17 @@
 ---
 title: Azure Front Door DRS 규칙 그룹 및 규칙의 Azure Web Application Firewall
 description: 이 문서에서는 Web Application Firewall DRS 규칙 그룹 및 규칙에 대한 정보를 제공합니다.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 401a6bd003e592d1b53aa91ac24f062688da7a3b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/29/2021
+ms.openlocfilehash: b2d0d4b0b8bdc53fbbecfd8b233ab852c1e2ed6b
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435747"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388321"
 ---
 # <a name="web-application-firewall-drs-rule-groups-and-rules"></a>Web Application Firewall DRS 규칙 그룹 및 규칙
 
@@ -187,7 +186,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |920470|잘못된 Content-Type 헤더|
 |920480|요청 콘텐츠 형식 문자 집합이 정책에서 허용되지 않음|
 
-### <a name="protocol-attack"></a><a name="drs921-20"></a> 프로토콜-공격
+### <a name="protocol-attack"></a><a name="drs921-20"></a> 프로토콜 공격
 
 |RuleId|설명|
 |---|---|
@@ -199,7 +198,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |921151|페이로드를 통한 HTTP 헤더 삽입 공격(CR/LF 발견)|
 |921160|페이로드를 통한 HTTP 헤더 삽입 공격(CR/LF 및 헤더-이름 발견)|
 
-### <a name="lfi---local-file-inclusion"></a><a name="drs930-20"></a> LFI-로컬 파일 포함
+### <a name="lfi---local-file-inclusion"></a><a name="drs930-20"></a> LFI - 로컬 파일 포함
 |RuleId|설명|
 |---|---|
 |930100|경로 탐색 공격(/../)|
@@ -207,7 +206,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |930120|OS 파일 액세스 시도|
 |930130|제한된 파일 액세스 시도|
 
-### <a name="rfi---remote-file-inclusion"></a><a name="drs931-20"></a> RFI-원격 파일 포함
+### <a name="rfi---remote-file-inclusion"></a><a name="drs931-20"></a> RFI - 원격 파일 포함
 |RuleId|설명|
 |---|---|
 |931100|가능한 RFI(원격 파일 포함) 공격: IP 주소를 사용하는 URL 매개 변수|
@@ -215,7 +214,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |931120|가능한 RFI(원격 파일 포함) 공격: URL 페이로드가 후행 물음표 문자(?)에 사용됨|
 |931130|가능한 RFI(원격 파일 포함) 공격 = 오프-도메인 참조/링크|
 
-### <a name="rce---remote-command-execution"></a><a name="drs932-20"></a> R)-원격 명령 실행
+### <a name="rce---remote-command-execution"></a><a name="drs932-20"></a> RCE - 원격 명령 실행
 |RuleId|설명|
 |---|---|
 |932100|원격 명령 실행: Unix 명령 삽입|
@@ -287,6 +286,9 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |941360|JavaScript 난독 처리가 검색됨.|
 |941370|JavaScript 전역 변수 발견|
 |941380|AngularJS 클라이언트 쪽 템플릿 삽입이 검색됨|
+
+>[!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘블랙리스트’라는 용어가 언급되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-20"></a>sqli SQL 주입
@@ -470,6 +472,9 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |941340|IE XSS 필터 - 공격 감지됨.|
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 
+>[!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘블랙리스트’라는 용어가 언급되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
 ### <a name="sqli---sql-injection"></a><a name="drs942-11"></a>sqli SQL 주입
 |RuleId|설명|
 |---|---|
@@ -530,26 +535,26 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |944240|원격 명령 실행: Java serialization(CVE-2015-5842)|
 |944250|원격 명령 실행: 의심스러운 Java 메서드가 감지됨|
 
-### <a name="ms-threatintel-webshells"></a><a name="drs9905-11"></a> ThreatIntel 웹 셸
+### <a name="ms-threatintel-webshells"></a><a name="drs9905-11"></a> MS-ThreatIntel-WebShells
 |RuleId|설명|
 |---|---|
 |99005002|웹 셸 상호 작용 시도(POST)|
 |99005003|웹 셸 업로드 시도(POST) - CHOPPER PHP|
 |99005004|웹 셸 업로드 시도(POST) - CHOPPER ASPX|
 
-### <a name="ms-threatintel-appsec"></a><a name="drs9903-11"></a> ThreatIntel-AppSec
+### <a name="ms-threatintel-appsec"></a><a name="drs9903-11"></a> MS-ThreatIntel-AppSec
 |RuleId|설명|
 |---|---|
 |99030001|헤더의 경로 통과 우회(/.././../)|
 |99030002|요청 본문의 경로 통과 우회(/.././../)|
 
-### <a name="ms-threatintel-sqli"></a><a name="drs99031-11"></a> ThreatIntel-SQLI
+### <a name="ms-threatintel-sqli"></a><a name="drs99031-11"></a> MS-ThreatIntel-SQLI
 |RuleId|설명|
 |---|---|
 |99031001|SQL 삽입 공격: 일반적인 삽입 테스트 감지됨|
 |99031002|SQL 주석 시퀀스가 감지됨.|
 
-### <a name="ms-threatintel-cves"></a><a name="drs99001-11"></a> ThreatIntel-CVEs
+### <a name="ms-threatintel-cves"></a><a name="drs99001-11"></a> MS-ThreatIntel-CVE
 |RuleId|설명|
 |---|---|
 |99001001|알려진 자격 증명으로 F5 tmui(CVE-2020-5902) REST API 악용 시도|
@@ -558,7 +563,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 
 ## <a name="10-rule-sets"></a><a name="drs10"></a> 1.0 규칙 집합
 
-### <a name="protocol-attack"></a><a name="drs921-10"></a> 프로토콜-공격
+### <a name="protocol-attack"></a><a name="drs921-10"></a> 프로토콜 공격
 |RuleId|설명|
 |---|---|
 |921110|HTTP 요청 밀반입 공격|
@@ -569,7 +574,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |921151|페이로드를 통한 HTTP 헤더 삽입 공격(CR/LF 발견)|
 |921160|페이로드를 통한 HTTP 헤더 삽입 공격(CR/LF 및 헤더-이름 발견)|
 
-### <a name="lfi---local-file-inclusion"></a><a name="drs930-10"></a> LFI-로컬 파일 포함
+### <a name="lfi---local-file-inclusion"></a><a name="drs930-10"></a> LFI - 로컬 파일 포함
 |RuleId|설명|
 |---|---|
 |930100|경로 탐색 공격(/../)|
@@ -577,7 +582,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |930120|OS 파일 액세스 시도|
 |930130|제한된 파일 액세스 시도|
 
-### <a name="rfi---remote-file-inclusion"></a><a name="drs931-10"></a> RFI-원격 파일 포함
+### <a name="rfi---remote-file-inclusion"></a><a name="drs931-10"></a> RFI - 원격 파일 포함
 |RuleId|설명|
 |---|---|
 |931100|가능한 RFI(원격 파일 포함) 공격: IP 주소를 사용하는 URL 매개 변수|
@@ -585,7 +590,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |931120|가능한 RFI(원격 파일 포함) 공격: URL 페이로드가 후행 물음표 문자(?)에 사용됨|
 |931130|가능한 RFI(원격 파일 포함) 공격 = 오프-도메인 참조/링크|
 
-### <a name="rce---remote-command-execution"></a><a name="drs932-10"></a> R)-원격 명령 실행
+### <a name="rce---remote-command-execution"></a><a name="drs932-10"></a> RCE - 원격 명령 실행
 |RuleId|설명|
 |---|---|
 |932100|원격 명령 실행: Unix 명령 삽입|
@@ -648,6 +653,9 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |941340|IE XSS 필터 - 공격 감지됨.|
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 
+>[!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘블랙리스트’라는 용어가 언급되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
 ### <a name="sqli---sql-injection"></a><a name="drs942-10"></a>sqli SQL 주입
 |RuleId|설명|
 |---|---|
@@ -689,7 +697,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 |942470|SQL 삽입 공격|
 |942480|SQL 삽입 공격|
 
-### <a name="session-fixation"></a><a name="drs943-10"></a> 세션-고정
+### <a name="session-fixation"></a><a name="drs943-10"></a> 세션 수정
 |RuleId|설명|
 |---|---|
 |943100|가능한 세션 고정 공격: HTML의 쿠키 값 설정|
@@ -712,7 +720,7 @@ DRS 2.0에는 다음 표와 같이 17개의 규칙 그룹이 포함되어 있습
 
 ## <a name="bot-manager-rule-sets"></a><a name="bot"></a> 봇 관리자 규칙 집합
 
-### <a name="bad-bots"></a><a name="bot100"></a> 잘못 된 봇
+### <a name="bad-bots"></a><a name="bot100"></a> 잘못된 봇
 |RuleId|설명|
 |---|---|
 |Bot100100|위협 인텔리전스에서 악의적인 봇이 검색됨|

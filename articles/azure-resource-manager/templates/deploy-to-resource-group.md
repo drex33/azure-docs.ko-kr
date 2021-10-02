@@ -2,14 +2,14 @@
 title: 리소스 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿에 리소스를 배포하는 방법을 설명합니다. 둘 이상의 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2378baf84b5c86c16580304c994f012db51c3dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 818ace7b20ed1c4a21748c9c734da4bace100523
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654151"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390048"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 리소스 그룹 배포
 
@@ -64,7 +64,7 @@ New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS `
+  -storageAccountType Standard_GRS
 ```
 
 ---

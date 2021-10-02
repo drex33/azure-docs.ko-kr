@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 03/16/2020
-ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2020
+ms.openlocfilehash: 3aa0ddf4a9013d5f64584fbe93a795f6420dc410
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642667"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389956"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
 
@@ -65,7 +65,32 @@ ms.locfileid: "128642667"
 
             :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="클라이언트 암호 만들기.":::
 
-5. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다.
+5. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다. 이 단계를 완료 하는 두 가지 옵션이 있습니다.
+
+    **옵션 1**
+
+    1. **AZURE AD 역할 및 관리자** 를 검색 하 고 서비스를 선택 합니다.
+
+        :::image type="content" source="./media/test-drive/active-ad-roles.png" alt-text="Azure AD 역할 및 관리자를 검색 하는 방법을 보여 줍니다.":::
+
+    2. **모든 역할** 페이지에서 **사용자 관리자** 역할을 검색 하 고 **사용자 관리자** 를 두 번 클릭 합니다.
+
+        :::image type="content" source="./media/test-drive/user-administrator.png" alt-text="사용자 관리자를 검색 하 고 선택 하는 방법을 보여 줍니다.":::
+
+    3. **할당 추가** 를 선택 합니다.
+
+        :::image type="content" source="./media/test-drive/add-assignments-1.png" alt-text="할당 추가 단추를 표시 합니다.":::
+
+    4. 위에서 만든 앱을 검색 하 고 선택한 다음 **추가** 를 선택 합니다.
+
+        :::image type="content" source="./media/test-drive/add-assignments-2.png" alt-text="성공적인 앱 할당을 표시 합니다.":::
+
+    5. 서비스 주체 역할이 응용 프로그램에 할당 되었습니다.
+
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="응용 프로그램에 성공적으로 할당 된 서비스 사용자 역할을 보여 줍니다.":::
+
+    **옵션 2**
+
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.
     2. (MSOnline이 설치되어 있지 않은 경우) Install-Module MSOnline 명령을 실행합니다.
     3. Connect-MsolService 명령을 실행하면 팝업 창이 표시됩니다. 새로 만든 조직 테넌트로 로그인합니다.
@@ -73,7 +98,7 @@ ms.locfileid: "128642667"
     5. $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId 명령을 실행합니다.
     6. Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal 명령을 실행합니다.
 
-        :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인.":::
+         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인.":::
 
 6. 새 보안 그룹을 만들고 캔버스 앱(Power Apps)에 추가합니다. 이 단계는 캔버스 앱(Power Apps) 제품에만 적용됩니다.
     1. 새 보안 그룹을 만듭니다.
@@ -157,7 +182,7 @@ ms.locfileid: "128642667"
         3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
         4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
-            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="클라이언트 암호 추가를 표시 합니다.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="클라이언트 암호 추가를 표시합니다.":::
 
 4. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.

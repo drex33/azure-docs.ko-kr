@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 54261049799cc02695d1162012cac9b7bff3558f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1966ce24919e2d98658afe2cec09d37e3b567c60
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559250"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387490"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 제한
 
@@ -96,6 +96,7 @@ ms.locfileid: "128559250"
 - Postgres 10 이하 버전은 지원되지 않습니다. 이전 Postgres 버전이 필요한 경우 [단일 서버](../overview-single-server.md) 옵션을 사용하는 것이 좋습니다.
 - 확장 지원은 현재 Postgres `contrib` 확장으로 제한됩니다.
 - 기본 제공 PgBouncer 연결 풀러는 현재 버스트 가능 서버에서 사용할 수 없습니다.
+- SCRAM 인증은 기본 제공 PgBouncer를 사용 하는 연결에서 지원 되지 않습니다.
 
 ### <a name="stopstart-operation"></a>작업 중지/시작
 

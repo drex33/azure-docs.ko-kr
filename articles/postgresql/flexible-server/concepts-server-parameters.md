@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.openlocfilehash: 662faef8b7a3afbf3d3d3b021c52754af3a3c0bc
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.date: 10/01/2021
+ms.openlocfilehash: 526a06c1ffd110fa02fd3d412ab62882bd74f9fa
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559917"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387376"
 ---
 # <a name="server-parameters-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 서버 매개 변수
 
@@ -39,6 +39,7 @@ Azure Database for PostgreSQL 서버는 생성 시 각 매개 변수에 대한 �
 | **shared_buffers**    | 'shared_buffers' 설정은 선택한 SKU에 따라 변경됩니다(SKU에서 사용 가능한 메모리 결정). 범용 서버에는 2개의 vCore에 대해 2GB의 shared_buffers가 있습니다. 메모리 최적화 서버에는 2개의 vCore에 대해 4GB의 shared_buffers가 있습니다. shared_buffers 설정은 vCore가 계층에서 증가함에 따라 선형으로(대략) 조정됩니다. | 
 | **shared_preload_libraries** | 이 매개 변수는 사전 정의된 지원 확장 세트로 구성에 사용할 수 있습니다. 항상 `azure` 확장(유지 관리 작업에 사용)과 `pg_stat_statements` 확장(pg_stat_statements.track 매개 변수를 사용하여 확장이 활성 상태인지 여부를 제어할 수 있음)을 로드합니다. |
 | **connection_throttling** | 잘못된 암호 로그인 실패가 너무 많을 경우 IP당 임시 연결 제한을 사용하도록 설정하거나 사용하지 않도록 설정할 수 있습니다. |
+| **require_secure_transport** | 애플리케이션이 서버에 대한 SSL 연결을 지원하지 않는 경우 필요에 따라 이 매개 변수 값을 설정하여 클라이언트에서 보안 전송을 사용하지 않도록 설정할 수 `OFF` 있습니다. |
  
 ## <a name="next-steps"></a>다음 단계
 

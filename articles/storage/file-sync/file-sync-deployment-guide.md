@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e8b7482e9d810caf0afb0818d53df141908708
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cce87bbcd8a4a2db5d400b41948e9dcf4598b331
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609273"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390295"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 
@@ -234,7 +234,7 @@ Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure 파일 동기화 에이전트 설치를 시작합니다.
 
 > [!IMPORTANT]
-> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure 파일 동기화에서 작동하도록 클러스터의 각 노드를 등록해야 합니다.
+> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure 파일 동기화 작동하려면 클러스터의 각 노드를 등록해야 합니다. Azure 파일 동기화 지원되는 유일한 시나리오는 클러스터형 디스크가 Windows Server 장애 조치(failover) 클러스터입니다. Azure 파일 동기화 [장애 조치(failover) 클러스터링을](file-sync-planning.md#failover-clustering) 참조하세요.
 
 다음을 수행하는 것이 좋습니다.
 - 문제 해결 및 서버 유지 관리를 간소화하려면 기본 설치 경로(C:\Program Files\Azure\StorageSyncAgent)를 유지하세요.

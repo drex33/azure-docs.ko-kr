@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 0edd6b7e9ac3229483d53d0e91c49f06633f5e51
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a564772edbf223363b432c72c51e2764cc8f009f
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218454"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387756"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -195,6 +195,7 @@ az ml endpoint get-logs
     - 가져온 패키지는 conda 환경에 없습니다.
     - 구문 오류
     - `init()` 메서드의 실패
+- `get-logs`가 로그를 생성하지 않는 경우 일반적으로 컨테이너를 시작하지 못했는지를 의미합니다. 이 문제를 디버그하려면 대신 [로컬로 배포해](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) 보세요.
 - 준비 또는 활동성 프로브가 올바르게 설정되지 않았습니다.
 - 종속성 누락 등 컨테이너의 환경 설정에 오류가 있습니다.
 

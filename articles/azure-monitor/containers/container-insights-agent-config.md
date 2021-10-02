@@ -3,12 +3,12 @@ title: Container Insights 에이전트 데이터 컬렉션 설정 | Microsoft Do
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 컬렉션을 제어하도록 Container Insights 에이전트를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: bd818d03d74042e7f58cbc8889ce862279706bec
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c24b87cb35339cb0e400878579b35d5f6b963718
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536386"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388060"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Container Insights에 대한 에이전트 데이터 컬렉션 구성
 
@@ -41,7 +41,7 @@ Container Insights는 컨테이너형 에이전트로부터 관리되는 Kuberne
 | `[log_collection_settings.stderr] exclude_namespaces =` | 문자열 | 쉼표로 구분된 배열 | stderr 로그가 수집되지 않을 경우 Kubernetes 네임스페이스의 배열입니다.<br> 이 설정은<br> `log_collection_settings.stdout.enabled`이 `true`로 설정된 경우에만 적용됩니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | 부울 | true 또는 false | 이 설정은 클러스터의 모든 Pod/노드에서<br> 환경 변수 수집을 제어하며 ConfigMap에서<br> 지정하지 않을 경우 기본값은 `enabled = true`<br> 입니다.<br> 환경 변수 컬렉션을 전역적으로 사용할 경우,<br> Dockerfile 설정을 사용하거나<br> **env:** 섹션 아래의 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)에서 환경 변수 `AZMON_COLLECT_ENV`를 **False** 로 설정하여 이를 특정 컨테이너에 대해 사용하지 않도록 할 수 있습니다.<br> 환경 변수 컬렉션을 전역적으로 사용하지 않는 경우 특정 컨테이너에 대해 컬렉션을 사용하도록 설정할 수 없습니다. 즉, 컨테이너 수준에서 적용할 수 있는 유일한 재정의는 이미 전역적으로 사용하는 경우 컬렉션을 사용하지 않도록 설정하는 것입니다. |
 | `[log_collection_settings.enrich_container_logs] enabled =` | 부울 | true 또는 false | 이 설정은 컨테이너 로그 보강을 제어하여<br> 클러스터의 모든 컨테이너 로그에 대한 ContainerLog 테이블에 쓴 모든 로그 레코드에 대해 이름 및 이미지 속성 값을 채웁니다.<br> ConfigMap에 지정되지 않은 경우 기본값은 `enabled = false`입니다. |
-| `[log_collection_settings.collect_all_kube_events]` | 부울 | true 또는 false | 이 설정을 통해 모든 유형의 Kube 이벤트를 수집할 수 있습니다.<br> 기본적으로 *Normal* 유형의 Kube 이벤트는 수집되지 않습니다. 이 설정을 `true`로 설정하면 *Normal* 이벤트를 더 이상 필터링하지 않고 모든 이벤트를 수집합니다.<br> 이 매개 변수는 기본적으로 `false`로 설정됩니다. |
+| `[log_collection_settings.collect_all_kube_events] enabled =` | 부울 | true 또는 false | 이 설정을 통해 모든 유형의 Kube 이벤트를 수집할 수 있습니다.<br> 기본적으로 *Normal* 유형의 Kube 이벤트는 수집되지 않습니다. 이 설정을 `true`로 설정하면 *Normal* 이벤트를 더 이상 필터링하지 않고 모든 이벤트를 수집합니다.<br> `enabled = false`ConfigMap에 지정되지 않은 경우 기본값은 로 설정됩니다. |
 
 ### <a name="metric-collection-settings"></a>메트릭 컬렉션 설정
 
@@ -76,7 +76,7 @@ ConfigMap 구성 파일을 구성하고 클러스터에 배포하려면 다음 �
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-구성 변경 내용을 적용하는 데 몇 분 정도 걸릴 수 있고 클러스터의 모든 omsagent Pod가 다시 시작됩니다. 다시 시작은 모두 동시에 다시 시작되는 것이 아니라, 모든 omsagent Pod에 대한 순환 방식의 다시 시작입니다. 다시 시작이 완료되면 다음과 유사한 메시지가 표시되고 결과(`configmap "container-azm-ms-agentconfig" created`)가 포함됩니다.
+구성 변경 내용을 적용하는 데 몇 분 정도 걸릴 수 있고 클러스터의 모든 omsagent Pod가 다시 시작됩니다. 다시 시작은 모두 동시에 다시 시작되는 것이 아니라, 모든 omsagent Pod에 대한 순환 방식의 다시 시작입니다. 다시 시작이 완료되면 결과를 포함하는 `configmap "container-azm-ms-agentconfig" created`와 유사한 메시지가 표시됩니다.
 
 ## <a name="verify-configuration"></a>구성 확인
 

@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 69d6cae5ccb26ef35fd121c32a9f111ff64b7a11
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b131d20122ca2440698fed301768d1fe961ac286
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215285"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390352"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -362,7 +362,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다.
 
-레지스트리에 보다 안전하게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용되고 권장되는 인증은 애플리케이션이나 서비스에 적합한 Active Directory 서비스 주체를 사용하는 것이며, 이는 IoT Edge 디바이스가 수행하는 것처럼 자동 또는 기타 무인(헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다.
+레지스트리에 보다 안전하게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용되고 권장되는 인증은 애플리케이션이나 서비스에 적합한 Active Directory 서비스 주체를 사용하는 것이며, 이는 IoT Edge 디바이스가 수행하는 것처럼 자동 또는 기타 무인(헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다. 또 다른 옵션은 리포지토리 범위 토큰을 사용 하는 것입니다 .이 토큰을 사용 하 여 생성 된 Azure Container Registry에만 존재 하는 긴 또는 짧은 라이브 id를 만들고 리포지토리 수준에 대 한 액세스 범위를 지정할 수 있습니다.
 
 서비스 주체를 만들려면 [서비스 주체 만들기](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal)에 설명된 대로 두 스크립트를 실행합니다. 이러한 스크립트는 다음 작업을 수행합니다.
 
@@ -375,6 +375,16 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 * 사용자 이름 또는 클라이언트 ID에 대해 서비스 주체 ID를 지정합니다.
 
 * 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정합니다.
+
+<br>
+
+리포지토리 범위 토큰을 만들려면 [리포지토리 범위 토큰 만들기](../container-registry/container-registry-repository-scoped-permissions.md)를 따르세요.
+
+리포지토리 범위 토큰을 사용 하 여 인증 하려면 리포지토리 범위 토큰을 만든 후에 얻은 토큰 이름과 암호를 제공 합니다. 배포 매니페스트에서 이러한 자격 증명을 지정합니다.
+
+* 사용자 이름에는 토큰의 사용자 이름을 지정 합니다.
+
+* 암호에 대해 토큰의 암호 중 하나를 지정 합니다.
 
 > [!NOTE]
 > 향상된 보안 인증을 구현한 후 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 **관리 사용자** 설정을 사용하지 않도록 설정합니다. Azure Portal 컨테이너 레지스트리의 왼쪽 창 메뉴의 **설정** 에서 **액세스 키** 를 선택합니다.

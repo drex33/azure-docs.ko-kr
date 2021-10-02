@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: a8b40206a73672b1d6bbb0ecded26b9f974be6b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 553fb2b55a5b183b596016c2942106ead99e79c4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277592"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387167"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>온-프레미스 라이브 스트리밍 인코더를 확인하는 방법
 
@@ -26,7 +26,7 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 ## <a name="pass-through-live-event-verification"></a>통과 라이브 이벤트 확인
 
 1. Media Services 계정에서 **스트리밍 엔드포인트** 가 실행 중인지 확인합니다. 
-2. **통과** 라이브 이벤트를 만들고 시작합니다. <br/> 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing-concept.md)를 참조하세요.
+2. **통과** 라이브 이벤트 (기본 또는 표준)를 만들고 시작 합니다. <br/> 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing-concept.md)를 참조하세요.
 3. 수집 URL을 가져오고, URL을 사용하여 다중 비트 전송률 라이브 스트림을 Media Services로 보내도록 온-프레미스 인코더를 구성합니다.
 4. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
 5. 새 **자산** 개체를 만듭니다.

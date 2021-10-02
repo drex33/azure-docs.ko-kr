@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e08823861e0b1a197313c8311cc13ac972d61a25
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 052e82f0bb1aa7c5b0b3dad7808bd46839fb95ad
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603711"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387794"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -61,7 +61,7 @@ ScriptRunConfig 개체를 사용하여 학습 실험을 제출합니다.  이 �
 
 ## <a name="create-an-experiment"></a>실험 만들기
 
-작업 영역에서 실험을 만듭니다.
+작업 영역에서 [실험](concept-azure-machine-learning-architecture.md#experiments) 을 만듭니다. Experiemnt는 실행 제출을 구성 하 고 코드를 추적 하는 데 도움이 되는 경량 컨테이너입니다.
 
 ```python
 from azureml.core import Experiment

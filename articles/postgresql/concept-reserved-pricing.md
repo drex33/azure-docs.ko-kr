@@ -1,26 +1,26 @@
 ---
-title: 예약된 컴퓨팅 가격 책정 - Azure Database for PostgreSQL - 단일 서버
+title: 예약 된 계산 가격-Azure Database for PostgreSQL
 description: 예약된 용량의 Azure Database for PostgreSQL 컴퓨팅 리소스에 대한 선불
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 958663ffc0b05b55d837ae565ee48ee03a54b0ba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 9d8c0a4f550442b59a65993aceba37a1672ce078
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674740"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389497"
 ---
-# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>예약된 용량의 Azure Database for PostgreSQL - 단일 서버 컴퓨팅 리소스에 대한 선불
+# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>예약된 용량의 Azure Database for PostgreSQL 컴퓨팅 리소스에 대한 선불
 
 종량제 가격에 비해 컴퓨팅 리소스 비용을 선결제하면 Azure Database for PostgreSQL에서의 비용을 절감할 수 있습니다. Azure Database for PostgreSQL 예약된 용량을 사용하면 PostgreSQL 서버에 대해 1년 또는 3년 동안 선불 약정을 하여 컴퓨팅 비용을 크게 할인 받을 수 있습니다. Azure Database for PostgreSQL 예약된 용량을 구매하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정해야 합니다. </br>
 
 특정 Azure Database for PostgreSQL 서버에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포된 Azure Database for PostgreSQL이 예약된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구매하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제할 수 있습니다. 예약을 구매하는 즉시, 예약 특성과 일치하는 Azure Database for PostgreSQL 컴퓨팅은 더 이상 종량제 요금으로 부과되지 않습니다. 예약에는 PostgreSQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 Azure Databases for PostgreSQL은 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [Azure Databases for PostgreSQL 예약된 용량 제품](https://azure.microsoft.com/pricing/details/postgresql/)을 참조하세요. </br>
 
 > [!IMPORTANT]
-> 예약된 용량 가격 책정은 [단일 서버](./overview.md#azure-database-for-postgresql---single-server) 및 [하이퍼스케일 Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus) 배포 옵션의 Azure Database for PostgreSQL에 대해 사용할 수 있습니다. 하이퍼스케일(Citus)의 RI 가격 책정에 대한 자세한 내용은 [이 페이지](concepts-hyperscale-reserved-pricing.md)를 참조하세요.
+> 예약 된 용량 가격은 [단일 서버](./overview.md#azure-database-for-postgresql---single-server), [유연한 서버](flexible-server/overview.md)및 [hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus) 배포 옵션의 Azure Database for PostgreSQL에 사용할 수 있습니다. 하이퍼스케일(Citus)의 RI 가격 책정에 대한 자세한 내용은 [이 페이지](concepts-hyperscale-reserved-pricing.md)를 참조하세요.
 
 [Azure Portal](https://portal.azure.com/)에서 Azure Database for PostgreSQL 예약된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약된 용량을 구매하려면 다음과 같이 수행합니다.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0157a01178c9efcefe03b839a968ba02b04e7ca2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 48988392c1961d6878ccfc0d6c40d86dbe8fd237
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116943"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389137"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -72,7 +72,8 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 > * 4\.18.0 릴리스 - 버전 4.18.0 이상을 사용하는 것이 좋습니다.
 > * 4\.13.0 릴리스는 `reactor-core` 및 `reactor-netty` 주 버전을 `2020.0.4 (Europium)` 릴리스 트레인으로 업데이트합니다.
 
-[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
+## <a name="release-history"></a>릴리스 기록
+릴리스 기록은 azure-sdk-for-java 리포지토리에서 유지 관리됩니다. 릴리스의 자세한 목록은 [changelog 파일](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md)를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)] 

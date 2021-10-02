@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 08108de86c5c64d50e86e3a83faa58db4fd607e2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9f62afe8a8f1c5c9f05a335ae049b3f2a39763d4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060577"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388625"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -57,7 +57,7 @@ Media Services를 사용하면 기여 피드에서 서비스로 전송하는 라
 
 ![통과 라이브 이벤트의 비디오 및 오디오 피드가 수집되고 처리되는 방법을 보여 주는 다이어그램입니다.](./media/live-streaming/pass-through.svg)
 
-통과 **라이브 이벤트** 를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 입력 프로토콜 사용)할 수 있습니다. 그런 다음 라이브 이벤트는 추가 코드 변환 없이 들어오는 비디오 스트림을 동적 패키지 작성 도구(스트리밍 엔드포인트)에 전달합니다. 해당 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 
+통과 **라이브 이벤트(기본** 또는 표준)를 사용하는 경우 온-프레미스 라이브 인코더를 사용하여 다중 비트 전송률 비디오 스트림을 생성하고 이를 기여 피드로 라이브 이벤트에 보냅니다(RTMP 또는 조각화된 MP4 입력 프로토콜 사용). 그런 다음 라이브 이벤트는 추가 코드 변환 없이 들어오는 비디오 스트림을 동적 패키지 작성 도구(스트리밍 엔드포인트)에 전달합니다. 해당 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 
 
 ### <a name="live-encoding"></a>라이브 인코딩  
 

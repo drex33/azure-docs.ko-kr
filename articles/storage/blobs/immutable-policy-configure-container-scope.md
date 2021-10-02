@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2aeedab7e8ec7204137ec12fdcc049c0ad01881f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a28699af7167bfbc6ffd9a00d64b4fbfd593693
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606288"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389383"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>컨테이너에 대한 불변성 정책 구성
 
@@ -60,8 +60,8 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
 Azure CLI를 사용하여 컨테이너의 시간 기반 보존 정책을 구성하려면 [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) 명령을 호출하고 보존 간격(일)을 입력합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 10
@@ -121,14 +121,14 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 Azure CLI를 사용하여 잠금 해제된 시간 기반 보존 정책을 수정하려면 [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_extend) 명령을 호출하고 새 보존 간격(일)을 입력합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy \
-    --resource-group <resource-group>
+az storage container immutability-policy extend \
+    --resource-group <resource-group> \
     --account-name <storage-account> \
     --container-name <container> \
     --period 21 \
@@ -176,16 +176,16 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 Azure CLI를 사용하여 정책을 잠그려면 먼저 [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_show) 명령을 호출하여 정책의 ETag를 검색합니다. 그런 다음, [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_lock) 명령을 호출하고 ETag 값을 전달하여 정책을 잠급니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-$etag=$(az storage container immutability-policy show /
-        --account-name <storage-account> /
-        --container-name <container> /
-        --query etag /
+$etag=$(az storage container immutability-policy show \
+        --account-name <storage-account> \
+        --container-name <container> \
+        --query etag \
         --output tsv)
 
-az storage container immutability-policy lock /
-    --resource-group <resource-group> /
-    --account-name <storage-account> /
-    --container-name <container> /
+az storage container immutability-policy lock \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
     --if-match $etag
 ```
 
@@ -235,20 +235,20 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
 PowerShell을 사용하여 컨테이너의 법적 보존을 구성하려면 [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_set) 명령을 호출합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az storage container legal-hold set /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold set \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 
 법적 보존을 취소하려면 [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_clear) 명령을 호출합니다.
 
 ```azurecli
-az storage container legal-hold clear /
-    --tags tag1 tag2 /
-    --container-name <container> /
-    --account-name <storage-account> /
+az storage container legal-hold clear \
+    --tags tag1 tag2 \
+    --container-name <container> \
+    --account-name <storage-account> \
     --resource-group <resource-group>
 ```
 

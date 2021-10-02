@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: 80cc94941331a024a183e19c383ee20b900251ea
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: befd0daa9926f96411e1f870efb29ab68b0a8d15
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128707639"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387775"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -102,7 +102,7 @@ Azure Portal, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿�
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 구독당 최대 데이터베이스 계정 수 | 기본값은 50입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
+| 구독당 최대 데이터베이스 계정 수 | 기본값은 50입니다. 최대 1000 [의 Azure 지원 티켓](create-support-request-quota-increase.md) 을 작성 하 여이를 늘릴 수 있습니다.|
 | 최대 지역 장애 조치(failover) 수 | 기본적으로 시간당 1개입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다.|
 
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 860144eddc834003739c5373235a487b93ca531d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c7ddf13ace4009046e0924e38836797f0a54dcb1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350944"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388022"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Translator를 사용하여 IP 방화벽 뒤에서 번역하는 방법
 
@@ -30,7 +30,3 @@ Translator는 도메인 이름 또는 IP 필터링을 사용하여 방화벽 뒤
 |미국|api-nam.cognitive.microsofttranslator.com|20.42.6.144, 20.49.96.128, 40.80.190.224, 40.64.128.192|
 |유럽|api-eur.cognitive.microsofttranslator.com|20.50.1.16, 20.38.87.129|
 |아시아 태평양|api-apc.cognitive.microsofttranslator.com|40.80.170.160, 20.43.132.96, 20.37.196.160, 20.43.66.16|
-
-## <a name="next-steps"></a>다음 단계
-> [!div class="nextstepaction"]
-> [Translator의 IP 방화벽 뒤에서 번역](reference/v3-0-translate.md)

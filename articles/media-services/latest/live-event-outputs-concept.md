@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb80374976752961b5c199fc06a8acba572c4d89
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c5684a3e3949ca2bf119a4c81d7096726a441da6
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054474"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390143"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -35,9 +35,10 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
-[라이브 이벤트](/rest/api/media/liveevents)는 *통과*(온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 전송) 또는 *라이브 인코딩*(온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 전송)으로 설정할 수 있습니다. 형식은 생성 중에 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype)을 사용하여 설정됩니다.
+[라이브 이벤트는](/rest/api/media/liveevents) 기본 또는 표준 *통과(온-프레미스* 라이브 인코더가 다중 비트 전송률 스트림을 전송함) 또는 *라이브 인코딩(온-프레미스* 라이브 인코더가 단일 비트 전송률 스트림을 전송함)으로 설정할 수 있습니다. 형식은 생성 중에 [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype)을 사용하여 설정됩니다.
 
-* **LiveEventEncodingType.None**: 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집된 스트림은 추가적인 처리 없이 라이브 이벤트를 통과합니다. 통과 모드라고도 합니다.
+* **LiveEventEncodingType.PassthroughBasic:** 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 기본 통과는 5Mbps, 8시간 DVR 기간의 최대 수신으로 제한되며 라이브 전사는 지원되지 않습니다.
+* **LiveEventEncodingType.PassthroughStandard:** 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 표준 통과에는 더 높은 검색 제한, 25시간 DVR 기간 및 라이브 전사에 대한 지원이 있습니다.
 * **LiveEventEncodingType.Standard**: 온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services는 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상 해상도인 경우 **Default720p** 사전 설정은 6개의 해상도/비트 전송률 쌍 집합을 인코딩합니다.
 * **LiveEventEncodingType.Premium1080p**: 온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services는 여러 비트 전송률 스트림을 만듭니다. Default1080p 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정합니다.
 
@@ -45,7 +46,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 ![Media Services를 사용한 통과 라이브 이벤트 예제 다이어그램](./media/live-streaming/pass-through.svg)
 
-통과 **라이브 이벤트** 를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 이 유형의 라이브 이벤트를 만들 경우 None(LiveEventEncodingType.None)을 지정합니다.
+기본 또는 표준 통과 **라이브 이벤트** 를 사용하는 경우 온-프레미스 라이브 인코더를 사용하여 다중 비트 전송률 비디오 스트림을 생성하고 이를 라이브 이벤트에 대한 기여 피드로 보냅니다(RTMP 또는 조각화된 MP4 프로토콜 사용). 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 이 유형의 라이브 이벤트를 만들 때 통과 "기본" 또는 "표준"을 지정합니다. (LiveEventEncodingType.PassThroughStandard).
 
 H.264/AVC 또는 H.265/HEVC(원활한 수집만 해당) 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 4K의 해상도 및 초당 60프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison-reference.md)를 참조하세요.
 
@@ -221,11 +222,11 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 
 ## <a name="live-outputs"></a>라이브 출력
 
-라이브 이벤트로 들어오는 스트림이 있으면 [자산](/rest/api/media/assets), [라이브 출력](/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관 하 고 [스트리밍 끝점](/rest/api/media/streamingendpoints)을 통해 뷰어에 사용할 수 있도록 합니다. 
+라이브 이벤트로 들어오는 스트림이 있으면 [자산](/rest/api/media/assets), [라이브 출력](/rest/api/media/liveoutputs) 및 [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 라이브 출력은 스트림을 보관하고 [스트리밍 엔드포인트](/rest/api/media/streamingendpoints)를 통해 뷰어에서 사용할 수 있도록 합니다. 
 
-AMS의 기본 할당은 Media Services 계정 당 5 개의 라이브 이벤트입니다. 이 한도를 늘리려면 Azure Portal에 지원 티켓을 제출 하십시오. AMS는 스트리밍 상황과 지역 데이터 센터 전반에 따라 라이브 이벤트 제한을 늘릴 수 있습니다.
+AMS의 기본 할당은 Media Services 계정당 5개의 라이브 이벤트입니다. 이 제한을 늘리려면 Azure Portal 지원 티켓을 제출하세요. AMS는 스트리밍 상황 및 지역 데이터 센터 가용성에 따라 라이브 이벤트 제한을 늘릴 수 있습니다.
 
 라이브 출력에 대한 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr-time-how-to.md)을 참조하세요.
 ## <a name="live-event-output-questions"></a>라이브 이벤트 출력 관련 질문
 
-[FAQ의 라이브 이벤트 질문](frequently-asked-questions.yml)을 참조하세요. 라이브 이벤트 할당량에 대 한 자세한 내용은 [할당량 및 제한](limits-quotas-constraints-reference.md) 을 참조 하세요.
+[FAQ의 라이브 이벤트 질문](frequently-asked-questions.yml)을 참조하세요. 라이브 이벤트 할당량에 대한 자세한 내용은 [할당량 및 제한을 참조하세요.](limits-quotas-constraints-reference.md)

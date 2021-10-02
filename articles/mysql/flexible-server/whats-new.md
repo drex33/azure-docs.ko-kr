@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.openlocfilehash: 6bdda0cfb89b2884134032ba2c4ee17e8c0c24ac
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 377c9fc994c4d26b67791e3eb525c7fba75a9d78
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234360"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388891"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 새로운 기능(미리 보기)
 
@@ -21,6 +21,18 @@ ms.locfileid: "129234360"
 [Azure Database for MySQL - 유연한 서버](./overview.md#azure-database-for-mysql---flexible-server-preview)는 단일 서버 배포 모드가 제공하는 것보다 데이터베이스 관리 기능 및 구성 설정에 대해 보다 세부적인 제어와 유연성을 제공하도록 설계된 배포 모드입니다. 이 서비스는 현재 MySQL 커뮤니티 버전 5.7 및 8.0을 지원합니다.
 
 이 문서에서는 2021년 1월부터 Azure Database for MySQL - 유연한 서버의 새로운 릴리스 및 기능을 요약합니다. 목록은 가장 최근의 업데이트가 먼저 있는 역방향 시간순으로 표시됩니다.
+## <a name="october-2021"></a>2021년 10월
+- **읽기 복제본을 만들 때 선택 영역 가용성 영역**
+
+    읽기 복제본을 만들 때 선택한 가용성 영역 위치를 선택할 수 있습니다. 가용성 영역은 데이터 센터 오류로부터 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. [자세히 알아보기](../flexible-server/concepts-read-replicas.md)
+
+- **Azure Database for MySQL 읽기 복제본 - 유연한 서버는 버스트 가능한 S SKU에서 더 이상 사용할 수 없습니다.**
+    
+    버스트 가능 계층 서버에서 새 읽기 복제본을 만들거나 기존 읽기 복제본을 유지할 수 없습니다. 버스트 가능한 SKU 계층에 대한 좋은 쿼리 및 개발 환경을 제공하기 위해 버스트 가능 가격 책정 계층의 서버에 대한 읽기 복제본을 만들고 유지 관리하는 지원이 중단될 예정입니다. 
+
+    읽기 복제본을 사용하는 기존 Azure Database for MySQL 유연한 서버가 있는 경우 범용 또는 메모리 최적화 가격 책정 계층으로 서버를 확장하거나 60일 이내에 읽기 복제본을 삭제해야 합니다. 60일이 지나면 읽기/쓰기 작업에 주 서버를 계속 사용할 수 있지만 복제본 서버를 읽는 복제가 중지됩니다. 새로 만든 서버의 경우 읽기 복제본 옵션은 범용 및 메모리 최적화 가격 책정 계층에만 사용할 수 있습니다.  
+
+ 
 
 ## <a name="september-2021"></a>2021년 9월
 
@@ -86,7 +98,7 @@ ms.locfileid: "129234360"
   - ssl_mode VERIFY_IDENTITY에서 SSL을 사용하는 경우 영역 중복 고가용성 서버 장애 조치 직후에 클라이언트는 서버에 연결하지 못합니다. VERIFY_CA에서 ssl_mode를 사용하여 이 문제를 완화할 수 있습니다.
   - 인도 중부, 동아시아, 한국 중부, 남아프리카 공화국 북부, 스위스 북부 지역에서는 동일한 영역의 고가용성 서버를 만들 수 없습니다.
   - 드문 시나리오에서 HA 장애 조치 후 주 서버는 read_only 모드가 됩니다. 서버 매개 변수 블레이드에서 "read_only" 값을 OFF로 업데이트하여 이 문제를 해결합니다.
-  - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 후 Compute+Storage 블레이드의 IOPS를 원하는 값(이전에 설정)으로 다시 설정하고 그에 따라 IOPS를 다시 설정하여 문제를 해결할 수 있습니다.
+  - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 후 Compute+Storage 블레이드의 IOPS를 원하는 값(이전에 설정)으로 다시 설정하고 그에 따라 IOPS를 다시 설정하여 이 문제를 해결할 수 있습니다.
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -226,7 +238,7 @@ Azure Database for MySQL 작업에 대한 질문이 있거나 제안 사항이 �
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 사용자 의견을 제공 하거나 새로운 기능을 요청 하려면으로 메일을 보내세요 AskAzureDBforMySQL@service.microsoft.com .
+- 피드백을 제공하거나 새 기능을 요청하려면 으로 이메일을 AskAzureDBforMySQL@service.microsoft.com 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

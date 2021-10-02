@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: f17c2fcd5793412716c72f02c7cfbe670360fa33
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
-ms.translationtype: HT
+ms.openlocfilehash: 961c563a12a3edf4df5c898f0c8ee8f1a5b2daf0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123203"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390124"
 ---
 # <a name="live-event-states-and-billing"></a>라이브 이벤트 상태 및 청구
 
@@ -29,7 +29,7 @@ Azure Media Services에서 라이브 이벤트는 상태가 **실행 중** 또�
 [라이브 이벤트](/rest/api/media/liveevents)의 **LiveEventEncodingType** 이 표준 또는 프리미엄 1080p로 설정된 경우 Media Services는 입력 피드가 손실된 후에도 12시간 동안 여전히 **실행 중** 상태인 라이브 이벤트를 모두 자동으로 종료하여, 실행 중인 **라이브 출력** 이 없도록 합니다. 그러나 라이브 이벤트가 **실행 중** 상태였던 시간에 대한 요금은 청구됩니다.
 
 > [!NOTE]
-> 통과 라이브 이벤트는 자동으로 종료되지 않으며 과도한 청구를 방지하기 위해 API를 통해 명시적으로 중지되어야 합니다.
+> 통과(기본 또는 표준) 라이브 이벤트는 자동으로 종료되지 않으며 과도한 청구를 방지하기 위해 API를 통해 명시적으로 중지되어야 합니다.
 
 ## <a name="states"></a>상태
 

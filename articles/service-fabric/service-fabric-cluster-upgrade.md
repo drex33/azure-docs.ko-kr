@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 업그레이드
 description: Azure Service Fabric 클러스터를 업데이트하는 옵션에 관해 알아보기
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 7fad28e0357b26b0b8753496310c7788f6dbb0c8
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738755"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401151"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 
@@ -27,6 +27,9 @@ Microsoft에서 릴리스하는 대로 자동 Service Fabric 업그레이드를 
 클러스터 업그레이드 모드를 설정하고 [Resource Manager 템플릿을 사용](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template)하여 런타임 버전을 선택할 수도 있습니다.
 
 자동 업그레이드가 권장되는 업그레이드 모드입니다. 이 옵션을 사용하면 클러스터가 지원되는 상태를 유지하고 최신 수정 및 기능의 이점을 얻을 수 있을 뿐만 아니라, [웨이브 배포](#wave-deployment-for-automatic-upgrades) 전략을 사용하여 워크로드 중단을 최소화하는 방식으로 업데이트를 예약할 수 있기 때문입니다.
+
+> [!NOTE]
+> 기존 클러스터를 자동 모드로 변경하면 새 릴리스부터 다음 업그레이드 기간 동안 클러스터가 등록됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)에서 발표됩니다. 업그레이드 기간당 가능한 가장 높은 업그레이드 경로가 선택됩니다. [지원되는 버전을 참조하세요.](service-fabric-versions.md) 수동 업그레이드 모드는 즉시 업그레이드를 트리거합니다. 
 
 ## <a name="wave-deployment-for-automatic-upgrades"></a>자동 업그레이드를 위한 웨이브 배포
 

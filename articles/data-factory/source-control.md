@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fe2f270bce436b0a35a2f36c3f413115facbe4b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219214"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400499"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -296,6 +296,12 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 1. 변경 내용을 협업 분기에 병합하는 끌어오기 요청을 만듭니다. 
 
 필요에 따라 적절한 방법을 선택합니다. 
+
+### <a name="all-resources-showing-as-new-on-publish"></a>게시할 때 새 리소스로 표시되는 모든 리소스
+
+게시하는 동안 모든 리소스는 이전에 게시된 경우에도 새 리소스로 표시될 수 있습니다. 이 문제는 공장 ARM 템플릿을 다시 배포하거나 PowerShell 또는 REST API 통해 팩터리 *repoConfiguration* 속성을 업데이트하여 Factory의 *repoConfiguration* 속성에서 *lastCommitId* 속성이 다시 설정되는 경우에 발생할 수 있습니다. 리소스를 계속 게시하면 문제가 해결되지만 다시 발생하지 않도록 하려면 *팩터리 repoConfiguration* 속성을 업데이트하지 마십시오. 
+
+
 
 ## <a name="switch-to-a-different-git-repository"></a>다른 Git 리포지토리로 전환
 

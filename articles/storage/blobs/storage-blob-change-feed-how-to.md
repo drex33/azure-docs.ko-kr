@@ -1,20 +1,21 @@
 ---
-title: Azure Blob Storage의 변경 피드 처리 | Microsoft Docs
+title: Azure Blob Storage에서 변경 피드 처리
+titleSuffix: Azure Storage
 description: .NET 클라이언트 애플리케이션에서 변경 피드 로그를 처리하는 방법 알아보기
 author: tamram
 ms.author: tamram
-ms.date: 09/08/2020
+ms.date: 10/01/2021
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cbd15bdc337bdb4a7221f634e6f9a66d4d503fe6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620201"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400803"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Azure Blob Storage에서 변경 피드 처리
 
@@ -31,7 +32,6 @@ ms.locfileid: "128620201"
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
-
 
 ## <a name="read-records"></a>레코드 읽기
 
@@ -218,4 +218,5 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 ## <a name="next-steps"></a>다음 단계
 
-변경 피드 로그에 대해 자세히 알아봅니다. [Azure Blob Storage의 변경 피드](storage-blob-change-feed.md)를 참조하세요.
+- [데이터 보호 개요](data-protection-overview.md)
+- [Azure Blob Storage 변경 피드](storage-blob-change-feed.md)

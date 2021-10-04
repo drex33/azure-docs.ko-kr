@@ -1,23 +1,23 @@
 ---
 title: AS2 메시지 설정
-description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 AS2 보내기 및 받기 설정에 대한 참조 가이드
+description: 엔터프라이즈 통합 팩 Azure Logic Apps에 대 한 계약의 AS2 메시지 설정에 대 한 참조 가이드입니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: reference
 ms.date: 07/20/2021
-ms.openlocfilehash: af13306598db75e89064507b9a2fad80d8d33542
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 2bec9c598c0f08e9e114fcf5a83bfb0d238dd2b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453174"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400994"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 AS2 메시지 설정에 대한 참조
+# <a name="reference-for-as2-message-settings-in-agreements-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 규약의 AS2 메시지 설정에 대 한 참조
 
-이 참조는 AS2 규약에서 거래 파트너 간에 주고받은 메시지를 처리하는 방법을 지정하기 위해 설정할 수 있는 속성을 설명합니다. 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 설정합니다.
+이 참조는 [거래 업체](logic-apps-enterprise-integration-partners.md)간에 메시지를 처리 하는 방법을 지정 하기 위해 AS2 규약에서 설정할 수 있는 속성을 설명 합니다. 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 설정합니다.
 
 <a name="AS2-incoming-messages"></a>
 

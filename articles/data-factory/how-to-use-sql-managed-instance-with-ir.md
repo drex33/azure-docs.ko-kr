@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 070c9ff8cbca98272be6aa0cf48a97381f4ff6b4
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ce75b0439bdf14c8894fe91267ae3b88508a89d4
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216615"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400328"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SSIS(SQL Server Integration Services)와 함께 Azure SQL Managed Instance 사용
 
@@ -66,7 +66,7 @@ ms.locfileid: "129216615"
 
                 | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 |대상 포트 범위 |
                 |---|---|---|---|---|
-                |TCP|Azure-SSIS IR의 고정 IP 주소 <br> 자세한 내용은 [Azure-SSIS IR의 사용자 퍼블릭 IP 필요](join-azure-ssis-integration-runtime-virtual-network.md#publicIP)를 참조하세요.|*|VirtualNetwork|3342|
+                |TCP|Azure-SSIS IR의 고정 IP 주소 <br> 자세한 내용은 [Azure-SSIS IR의 사용자 퍼블릭 IP 필요](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP)를 참조하세요.|*|VirtualNetwork|3342|
 
              1. SQL Managed Instance에 대한 아웃바운드 트래픽을 허용하기 위한 **Azure-SSIS IR의 아웃바운드 요구 사항** 입니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "129216615"
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |SQL Managed Instance에 대한 아웃바운드 트래픽을 허용합니다. 연결 정책이 **리디렉션** 대신 **프록시** 로 설정된 경우에는 포트 1433만 필요합니다. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
-        | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상 범위를 특정 FQDN으로 추가로 좁히려면 [Azure ExpressRoute 또는 UDR(사용자 정의 경로) 사용](./join-azure-ssis-integration-runtime-virtual-network.md#route)을 참조하세요.|
+        | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상 범위를 특정 FQDN으로 추가로 좁히려면 [Azure ExpressRoute 또는 UDR(사용자 정의 경로) 사용](./azure-ssis-integration-runtime-virtual-network-configuration.md#route)을 참조하세요.|
         | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
         |||||||
 
@@ -123,7 +123,7 @@ ms.locfileid: "129216615"
         | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (선택 사항) 이 규칙은 Microsoft 지원에서 고객에게 고급 문제 해결을 위해 열도록 요청하고 문제 해결 후 바로 닫을 수 있는 경우에만 필요합니다. **CorpNetSaw** 서비스 태그는 Microsoft 회사 네트워크의 보안 액세스 워크스테이션만 원격 데스크톱을 사용하도록 허용합니다. 또한 이 서비스 태그는 포털에서 선택할 수 없으며 Azure PowerShell 또는 Azure CLI를 통해서만 사용할 수 있습니다. <br/><br/> NIC 수준 NSG에서 포트 3389는 기본적으로 열려 있으며, Microsoft에서는 서브넷 수준 NSG에서 포트 3389를 제어하도록 허용하지만 Azure-SSIS IR은 보호를 위해 각 IR 노드의 Windows 방화벽 규칙에서 기본적으로 포트 3389 아웃바운드를 허용하지 않았습니다. |
         |||||||
 
-    1. 자세한 내용은 [가상 네트워크 구성](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)을 참조하세요.
+    1. 자세한 내용은 [가상 네트워크 구성](azure-ssis-integration-runtime-virtual-network-configuration.md)을 참조하세요.
         - Azure-SSIS IR의 고유한 퍼블릭 IP 주소가 필요한 경우
         - 고유한 DNS(Domain Name System) 서버를 사용하는 경우
         - Azure ExpressRoute 또는 UDR(사용자 정의 경로)을 사용하는 경우

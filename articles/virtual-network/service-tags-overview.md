@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 1c17baba346e353ef2d51086062550d106e729ce
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 39262b40cc320152bcbf2e9e5c0947e52234a019
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363229"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400233"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -68,7 +68,7 @@ ms.locfileid: "129363229"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDeviceUpdate** | IoT Hub용 디바이스 업데이트. | 모두 | 예 | 예 |
+| **AzureDeviceUpdate** | IoT Hub에 대 한 장치 업데이트. | 모두 | 예 | 예 |
 | **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는 이 태그에 포함된 IP 주소를 사용하여 이벤트 경로에 구성된 엔드포인트에 대한 액세스를 제한할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
@@ -101,7 +101,7 @@ ms.locfileid: "129363229"
 | **HDInsight** | Azure HDInsight. | 인바운드 | 예 | 예 |
 | **인터넷** | 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure에서 소유하는 퍼블릭 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다. | 모두 | 예 | 예 |
 | **LogicApps** | Logic Apps입니다. | 모두 | 예 | 예 |
-| **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
+| **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 아니요 |
 | **MicrosoftAzureFluidRelay** | 이 태그는 Azure Microsoft 유체 Relay 서버에 사용 되는 IP 주소를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
@@ -158,17 +158,17 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 
 해당 파일의 IP 주소 범위는 CIDR 표기법으로 되어 있습니다. 
 
-다음 AzureCloud 태그는 일반 스키마에 따라 형식이 지정 된 지역 이름이 아닙니다. 
-- AzureCloud (FranceCentral)
-- AzureCloud (FranceSouth)
-- AzureCloud (GermanyWestCentral)
-- AzureCloud (GermanyNorth)
-- AzureCloud. norwaye (없음)
-- AzureCloud (NorwayWest)
-- AzureCloud (SwitzerlandNorth)
-- AzureCloud (SwitzerlandWest)
-- AzureCloud (EastUSSTG)
-- AzureCloud (SouthCentralUSSTG)
+다음 AzureCloud 태그에는 일반 스키마에 따라 형식이 지정된 지역 이름이 없습니다. 
+- AzureCloud.centralfrance(FranceCentral)
+- AzureCloud.southfrance(FranceSouth)
+- AzureCloud.germanywc(GermanyWestCentral)
+- AzureCloud.germanyn(GermanyNorth)
+- AzureCloud.노르웨이어(노르웨이)
+- AzureCloud.노르웨이어(노르웨이West)
+- AzureCloud.landlandn(스위스North)
+- AzureCloud.landlandw(스위스West)
+- AzureCloud.usstagee(EastUSSTG)
+- AzureCloud.usstagec(SouthCentralUSSTG)
 
 
 > [!NOTE]

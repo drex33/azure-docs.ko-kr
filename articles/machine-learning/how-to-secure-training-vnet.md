@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: f4eb2b35b04951a11519a6d5340ba32a3d0c0744
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093481"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399739"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -231,7 +231,7 @@ except ComputeTargetException:
 
 **아웃 바운드 연결이** 작동 하려면 사용자 정의 경로를 사용 하 여 Azure 방화벽과 같은 송신 방화벽을 설정 해야 합니다. 예를 들어 [invound/아웃 바운드 구성](how-to-access-azureml-behind-firewall.md) 으로 설정 된 방화벽을 사용 하 고 계산 인스턴스가 배포 되는 서브넷에서 경로 테이블을 정의 하 여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사가 0.0.0.0/0 인 방화벽의 개인 IP 주소에 대 한 다음 홉을 설정할 수 있습니다.
 
-공용 ip를 사용 **하지 않는** 계산 인스턴스에는 공용 ip 계산 인스턴스와 비교 하 여 공용 인터넷에서 **들어오는 인바운드 통신 요구 사항이 없습니다** . 특히 인바운드 NSG 규칙 ( `BatchNodeManagement` , `AzureMachineLearning` )은 필요 하지 않습니다.
+공용 ip를 사용 **하지 않는** 계산 인스턴스에는 공용 ip 계산 인스턴스와 비교 하 여 공용 인터넷에서 **들어오는 인바운드 통신 요구 사항이 없습니다** . 특히 인바운드 NSG 규칙 ( `BatchNodeManagement` , `AzureMachineLearning` )은 필요 하지 않습니다. 여전히 **VirtualNetwork** 의 원본, 모든 포트 원본, **VirtualNetwork** 의 대상 포트 및 **29876, 29877, 44224** 의 대상 포트에서 인바운드를 허용 해야 합니다.
 
 **공용 IP가 없는** 계산 인스턴스는 또한 개인 끝점 네트워크 정책 및 개인 링크 서비스 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 이러한 요구 사항은 Azure 개인 링크 서비스 및 개인 끝점에서 제공 되며 Azure Machine Learning 특정 하지 않습니다. [개인 링크 서비스 원본 IP에 대해 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 의 지침에 따라 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 가상 네트워크 서브넷에서 및 매개 변수를 설정 합니다.
 

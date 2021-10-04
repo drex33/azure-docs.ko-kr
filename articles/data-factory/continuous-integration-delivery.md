@@ -1,6 +1,6 @@
 ---
 title: 지속적인 통합 및 업데이트
-description: 연속 통합 및 배달을 사용 하 여 한 환경 (개발, 테스트, 프로덕션)에서 다른 환경으로 Azure Data Factory 파이프라인을 이동 하는 방법에 대해 알아봅니다.
+description: 연속 통합 및 배달을 사용하여 Azure Data Factory 파이프라인을 한 환경(개발, 테스트, 프로덕션)에서 다른 환경으로 이동하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
@@ -9,18 +9,18 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5583c5dd390e524e77ef011ec2c9ed6e50bcfe06
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 21223cc29857b439f87231a5b4649ea9864e2202
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236535"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400400"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-연속 통합은 코드 베이스에 대 한 각 변경을 자동으로 가능한 한 빨리 테스트 하는 방법입니다. 연속 전달은 연속 통합 중에 발생 하는 테스트를 따르고 스테이징 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
+지속적인 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다.  지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
 
 Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트)는 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. Azure Data Factory는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 활용하여 다양한 ADF 엔터티(파이프라인, 데이터 세트, 데이터 흐름 등)의 구성을 저장합니다. Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법이 있습니다.
 
@@ -66,9 +66,9 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 
 -   **Key Vault**. 연결 정보가 Azure Key Vault에 저장되어 있는 연결된 서비스를 사용하는 경우 다른 환경에 대해 별도의 키 자격 증명 모음을 유지하는 것이 좋습니다. 또한 각각의 키 자격 증명 모음에 대해 개별 권한 수준을 구성할 수도 있습니다. 예를 들어 팀 멤버에게 프로덕션 비밀에 대한 사용 권한을 부여하지 않을 수 있습니다. 이 접근 방식을 따를 경우 모든 단계에서 동일한 비밀 이름을 유지하는 것이 좋습니다. 동일한 비밀 이름을 유지하는 경우, 별도의 매개 변수인 키 자격 증명 모음 이름이 유일하게 변경되므로 CI/CD 환경에서 각 연결 문자열을 매개 변수화할 필요가 없습니다.
 
--  **리소스 이름 지정**. ARM 템플릿 제약 조건으로 인해 리소스의 이름에 공백이 포함 된 경우 배포 문제가 발생할 수 있습니다. Azure Data Factory 팀은 리소스 이름에 공백 대신 ‘_’ 또는 ‘-’ 문자 사용을 권장합니다. 예를 들어 ‘Pipeline_1’은 ‘Pipeline 1’보다 더 적합한 이름입니다.
+-  **리소스 이름 지정.** ARM 템플릿 제약 조건으로 인해 리소스에 이름에 공백이 포함된 경우 배포 문제가 발생할 수 있습니다. Azure Data Factory 팀은 리소스 이름에 공백 대신 ‘_’ 또는 ‘-’ 문자 사용을 권장합니다. 예를 들어 ‘Pipeline_1’은 ‘Pipeline 1’보다 더 적합한 이름입니다.
 
-- **노출 컨트롤 및 기능 플래그** 입니다.  팀에서 작업 하는 경우 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 높은 수준의 환경에서 실행 하지 않으려는 경우가 있습니다. 이 시나리오를 처리하기 위해 ADF 팀은 [기능 플래그를 사용하는 DevOps 개념](/azure/devops/migrate/phase-features-with-feature-flags)을 권장합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md)을 결합하여 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
+- **노출 제어 및 기능 플래그.**  팀에서 작업할 때 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 관리자 권한 환경에서 실행하지 않으려는 인스턴스가 있습니다. 이 시나리오를 처리하기 위해 ADF 팀은 [기능 플래그를 사용하는 DevOps 개념](/azure/devops/migrate/phase-features-with-feature-flags)을 권장합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md)을 결합하여 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
 
     기능 플래그를 설정하는 방법을 알아보려면 아래 비디오 자습서를 참조하세요.
 
@@ -89,19 +89,19 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 
 -   현재 경고 및 매트릭스를 매개 변수로 내보내고 가져올 수 없습니다. 
 
-- *Adf_publish* 분기 아래의 코드 리포지토리에서 ' PartialArmTemplates ' 폴더는 현재 ' linkedTemplates ' 폴더, ' ARMTemplateForFactory ' 및 ' ARMTemplateParametersForFactory ' 파일 옆에 소스 제어를 사용 하 여 게시 하는 중에 추가 되었습니다. 
+- *adf_publish* 분기 아래의 코드 리포지토리에서 'PartialArmTemplates'라는 폴더는 현재 소스 제어를 통해 게시할 때 'linkedTemplates' 폴더, 'ARMTemplateForFactory.json' 및 'ARMTemplateParametersForFactory.json' 파일 옆에 추가됩니다. 
 
-    :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="' PartialArmTemplates ' 폴더의 다이어그램입니다.":::
+    :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="'PartialArmTemplates' 폴더의 다이어그램.":::
 
-    PartialArmTemplates *adf_publish* 에 ' '를 더 이상 게시 하지 않습니다. 1-11 월 2021.    
+    2021년 11월 1일부터 *adf_publish* 분기에 더 이상 'PartialArmTemplates'를 게시하지 않습니다.    
 
-    **' PartialArmTemplates '을 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 그렇지 않은 경우 ' ARMTemplateForFactory ' 또는 ' linkedTemplates ' 파일을 사용 하 여 배포에 대해 지원 되는 메커니즘으로 전환 합니다.**
+    **'PartialArmTemplates'를 사용하지 않는 한 아무 작업도 필요하지 않습니다. 그렇지 않으면 'ARMTemplateForFactory.json' 또는 'linkedTemplates' 파일을 사용하여 배포에 지원되는 메커니즘으로 전환합니다.**
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Pipelines 릴리스를 사용 하 여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
-- [리소스 관리자 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
-- [리소스 관리자 템플릿에서 사용자 지정 매개 변수 사용](continuous-integration-delivery-resource-manager-custom-parameters.md)
+- [Azure Pipelines 릴리스를 사용하여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
+- [Resource Manager 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
+- [Resource Manager 템플릿에서 사용자 지정 매개 변수 사용](continuous-integration-delivery-resource-manager-custom-parameters.md)
 - [연결된 Resource Manager 템플릿](continuous-integration-delivery-linked-templates.md)
 - [핫픽스 프로덕션 환경 사용](continuous-integration-delivery-hotfix-environment.md)
-- [샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)
+- [ 샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538598"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399625"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -110,7 +110,7 @@ Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면
 
 ### <a name="public-peering"></a>공용 피어링
 
-공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어링 이전에 생성된 회로가 더 이상 사용되지 않는 경우 원하는 서비스에 따라 Microsoft 피어링 또는 공용 피어링을 사용하도록 선택할 수 있습니다.
+공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어링이 사용되지 않기 전에 만들어진 회로가 있는 경우 원하는 서비스에 따라 Microsoft 피어링 또는 공용 피어링을 사용하도록 선택할 수 있습니다.
 
 공용 피어링에 대한 자세한 내용 및 구성 단계는 [ExpressRoute 공용 피어링](about-public-peering.md)을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 4c69a8bcd3acb559de3674dd7012220f4c7868e4
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
-ms.translationtype: HT
+ms.openlocfilehash: cf2d9c2921599680781695631eae9c5276ff53c2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687158"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400648"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>2부: ID에 공유 수준 권한 할당
 
@@ -55,11 +55,14 @@ ms.locfileid: "113687158"
 
 ## <a name="share-level-permissions-for-specific-azure-ad-users-or-groups"></a>특정 Azure AD 사용자 또는 그룹에 대한 공유 수준 권한
 
-특정 Azure AD 사용자 또는 그룹을 사용하여 Azure 파일 공유 리소스에 액세스하려는 경우 해당 ID는 온-프레미스 AD DS 및 Azure AD 모두에 존재하는 하이브리드 ID여야 합니다. 예를 들어 AD에 user1@onprem.contoso.com인 사용자가 있고 Azure AD Connect 동기화를 사용하여 user1@contoso.com으로 Azure AD에 동기화했다고 가정해 보겠습니다. 이 사용자가 Azure Files에 액세스할 수 있도록 하려면 user1@contoso.com에 공유 수준 권한을 할당해야 합니다. 그룹 또는 서비스 주체에도 동일한 개념이 적용됩니다. 따라서 Azure AD Connect 동기화를 사용하여 AD에서 Azure AD로 사용자 및 그룹을 동기화해야 합니다. 
+특정 Azure AD 사용자 또는 그룹을 사용 하 여 Azure 파일 공유 리소스에 액세스 하려는 경우 해당 id는 온 **-프레미스 AD DS와 AZURE AD에 모두 있는 하이브리드 id** 여야 합니다. 예를 들어 AD에 user1@onprem.contoso.com인 사용자가 있고 Azure AD Connect 동기화를 사용하여 user1@contoso.com으로 Azure AD에 동기화했다고 가정해 보겠습니다. 이 사용자가 Azure Files에 액세스할 수 있도록 하려면 user1@contoso.com에 공유 수준 권한을 할당해야 합니다. 그룹 또는 서비스 주체에도 동일한 개념이 적용됩니다. 따라서 Azure AD Connect 동기화를 사용하여 AD에서 Azure AD로 사용자 및 그룹을 동기화해야 합니다. 
 
 Azure 파일 공유에 대한 AD DS 인증을 지원하려면 AD DS의 동일한 사용자 또는 그룹을 나타내는 Azure AD ID에 공유 수준 권한을 할당해야 합니다. Azure 관리 ID(MSI)와 같이 Azure AD에만 있는 ID에 대한 인증 및 권한 부여는 AD DS 인증에서 지원되지 않습니다.
 
 Azure Portal, Azure PowerShell 모듈 또는 Azure CLI를 사용하여 공유 수준 권한을 부여하기 위해 사용자의 Azure AD ID에 기본 제공 역할을 할당할 수 있습니다.
+
+> [!IMPORTANT]
+> 완료 된 후에 적용 되는 공유 수준 권한은 3 시간 정도 소요 됩니다. 자격 증명을 사용 하 여 파일 공유에 연결 하기 전에 사용 권한이 동기화 될 때까지 기다려 주세요.   
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

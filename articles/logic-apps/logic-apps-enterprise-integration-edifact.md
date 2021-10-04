@@ -1,261 +1,316 @@
 ---
-title: B2B 통합을 위한 EDIFACT 메시지
-description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
+title: Exchange B2B 워크플로의 EDIFACT 메시지
+description: Exchange Azure Logic Apps 및 Enterprise 통합 팩을 통해 워크플로를 만들어 파트너 간의 EDIFACT 메시지
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/22/2020
-ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/29/2021
+ms.openlocfilehash: 19fea6a0405d1fcc4cfbc9b1aa7647c52b4459b6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006526"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401561"
 ---
-# <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
+# <a name="exchange-edifact-messages-using-workflows-in-azure-logic-apps"></a>Exchange Azure Logic Apps 워크플로를 사용하는 EDIFACT 메시지
 
-Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계정에 해당 규약을 저장해야 합니다. EDIFACT 규약을 만드는 방법에 대한 단계는 다음과 같습니다.
+Azure Logic Apps 사용하여 만든 워크플로에서 EDIFACT 메시지를 보내고 받으려면 EDIFACT 통신을 지원하고 관리하는 트리거 및 작업을 제공하는 **EDIFACT** 커넥터를 사용합니다.
 
-> [!NOTE]
-> 이 페이지에서는 Azure Logic Apps의 EDIFACT 기능을 설명합니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
+이 문서에서는 EDIFACT 인코딩 및 디코딩 작업을 기존 논리 앱 워크플로에 추가하는 방법을 보여줍니다. 트리거를 사용하여 워크플로를 시작할 수 있지만 예제에서는 [요청](../connectors/connectors-native-reqres.md) 트리거를 사용합니다. **EDIFACT** 커넥터의 트리거, 작업 및 제한 버전에 대한 자세한 내용은 커넥터의 Swagger 파일에 설명된 대로 [커넥터의 참조 페이지를](/connectors/edifact/) 검토하세요.
 
-## <a name="before-you-start"></a>시작하기 전에
+![메시지 디코딩 속성이 있는 "EDIFACT 메시지 디코딩" 작업을 보여주는 개요 스크린샷](./media/logic-apps-enterprise-integration-edifact/overview-edifact-message-consumption.png)
 
-필요한 항목은 다음과 같습니다.
+## <a name="edifact-encoding-and-decoding"></a>EDIFACT 인코딩 및 디코딩
 
-* 이미 정의되고 Azure 구독과 연결된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)  
-* 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
+다음 섹션에서는 EDIFACT 인코딩 및 디코딩 작업을 사용하여 완료할 수 있는 작업에 대해 설명합니다.
 
-> [!NOTE]
-> 규약을 만들 때 사용자가 파트너와 수신하거나 송신한 메시지의 콘텐츠는 규약 유형이 일치해야 합니다.
+### <a name="encode-to-edifact-message-action"></a>EDIFACT 메시지 작업으로 인코딩
 
-[통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)[파트너를 추가](logic-apps-enterprise-integration-partners.md)한 후에 다음과 같은 단계에 따라 EDIFACT 규약을 만들 수 있습니다.
+* 보낸 사람 한정자 & 식별자와 받는 사람 한정자 및 식별자를 일치시켜 규약을 해결합니다.
 
-## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
+* XML로 인코딩된 메시지를 교환의 EDI 트랜잭션 집합으로 변환하는 EDI(Electronic Data Interchange)를 직렬화합니다.
 
-1. [Azure Portal](https://portal.azure.com "Azure portal")에 로그인합니다. 
+* 트랜잭션 집합 헤더 및 트레일러 세그먼트를 적용합니다.
 
-2. Azure 주 메뉴에서 **모든 서비스** 를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정** 을 선택합니다.
+* 보내는 각 교환에 대해 교환 컨트롤 번호, 그룹 컨트롤 번호 및 트랜잭션 집합 컨트롤 번호를 생성합니다.
 
-   ![통합 계정 찾기](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+* 페이로드 데이터의 구분 기호를 대체합니다.
 
-   > [!TIP]
-   > **모든 서비스** 가 표시되지 않으면 먼저 메뉴를 확장해야 합니다. 축소된 메뉴의 맨 위에서 **텍스트 레이블 표시** 를 선택합니다.
+* 메시지 스키마에 대한 트랜잭션 집합 데이터 요소의 스키마, 트랜잭션 집합 데이터 요소 및 트랜잭션 집합 데이터 요소에 대한 확장 유효성 검사와 같은 EDI 및 파트너별 속성의 유효성을 검사합니다.
 
-3. **통합 계정** 에서 규약을 만들려는 통합 계정을 선택합니다.
+* 각 트랜잭션 집합에 대한 XML 문서를 생성합니다.
 
-   ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+* 기술 승인, 기능 승인 또는 둘 다 요청합니다(구성된 경우).
 
-4. **규약** 을 선택합니다. 규약 타일이 없는 경우 먼저 타일을 추가합니다.   
+  * 기술 승인으로 CONTRL 메시지는 교환 수신을 나타냅니다.
 
-   !["규약" 타일 선택](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+  * 기능 승인으로 CONTRL 메시지는 오류 또는 지원되지 않는 기능 목록을 포함하여 수신된 교환, 그룹 또는 메시지에 대한 동의 또는 거부를 나타냅니다.
 
-5. 규약 페이지에서 **추가** 를 선택합니다.
+### <a name="decode-edifact-message-action"></a>EDIFACT 메시지 디코딩 작업
 
-   !["추가" 선택](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+* 거래 업체 계약에 대해 봉투의 유효성을 검사합니다.
 
-6. **추가** 아래에서 규약의 **이름** 을 입력합니다. **규약 유형** 에 **EDIFACT** 를 선택합니다. 규약의 **호스트 파트너**, **호스트 ID**, **게스트 파트너** 및 **게스트 ID** 를 선택합니다.
+* 보낸 사람 한정자 및 식별자와 받는 사람 한정자 및 식별자를 일치시켜 규약을 해결합니다.
 
-   ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+* 계약의 **Receive 설정** 에 따라 교환에 트랜잭션이 두 개 이상 있는 경우 교환을 여러 트랜잭션 집합으로 분할합니다.
 
-   | 속성 | 설명 |
-   | --- | --- |
-   | 이름 |규약 이름 |
-   | 규약 유형 | EDIFACT여야 함 |
-   | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
-   | 호스트 ID |호스트 파트너의 식별자입니다. |
-   | 게스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 게스트 파트너는 호스트 파트너와 함께 일하는 조직을 나타냅니다. |
-   | 게스트 ID |게스트 파트너의 식별자입니다. |
-   | 수신 설정 |규약에서 받은 모든 메시지에 이러한 속성을 적용합니다. |
-   | 송신 설정 |규약에서 보낸 모든 메시지에 이러한 속성을 적용합니다. |
-   ||| 
+* 교환을 디스어셈블합니다.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>규약에서 수신된 메시지를 처리하는 방법 구성
+* 교환 봉투 구조, 컨트롤 스키마에 대한 봉투 스키마, 메시지 스키마에 대한 트랜잭션 집합 데이터 요소의 스키마 및 트랜잭션 집합 데이터 요소에 대한 확장 유효성 검사와 같은 EDI(Electronic Data Interchange) 및 파트너별 속성의 유효성을 검사합니다.
 
-규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
+* 교환, 그룹 및 트랜잭션 집합 컨트롤 번호가 중복되지 않는지 확인합니다(구성된 경우). 예를 들면 다음과 같습니다.
 
-> [!IMPORTANT]
-> EDIFACT 커넥터는 UTF-8 문자만 지원합니다.
-> 출력에 예기치 않은 문자가 포함되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용하는지 확인합니다.
+  * 이전에 받은 교환을 기준으로 교환 컨트롤 번호를 확인합니다.
 
-1. **추가** 아래에서 **수신 설정** 을 선택합니다.
-사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
+  * 교환의 다른 그룹 컨트롤 번호에 대해 그룹 컨트롤 번호를 확인합니다.
 
-   **수신 설정** 은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
+  * 해당 그룹의 다른 트랜잭션 집합 컨트롤 번호에 대해 트랜잭션 집합 컨트롤 번호를 확인합니다.
 
-   !["수신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+* 교환을 트랜잭션 집합으로 분할하거나 전체 교환을 유지합니다. 예를 들면 다음과 같습니다.
 
-2. 작업을 마친 후에 **확인** 을 선택하여 설정을 저장해야 합니다.
+  * 교환을 트랜잭션 집합으로 분할 - 오류 발생 시에 트랜잭션 집합을 일시 중단합니다.
 
-이제 규약은 선택한 설정에 맞는 들어오는 메시지를 처리할 준비가 되었습니다.
+    디코딩 작업은 교환을 트랜잭션 집합으로 분할하고 각 트랜잭션 집합을 구문 분석합니다. 작업은 유효성 검사에 실패한 트랜잭션 집합만 에 `badMessages` 출력하고 나머지 트랜잭션 집합을 로 출력합니다. `goodMessages`
 
-### <a name="identifiers"></a>식별자
+  * 교환을 트랜잭션 집합으로 분할 - 오류 발생 후 교환을 일시 중단합니다.
 
-| 속성 | 설명 |
-| --- | --- |
-| UNB6.1(받는 사람 참조 암호) |1 ~ 14자 사이의 영숫자 값을 입력합니다. |
-| UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
+    디코딩 작업은 교환을 트랜잭션 집합으로 분할하고 각 트랜잭션 집합을 구문 분석합니다. 교환에 있는 하나 이상의 트랜잭션 집합이 유효성 검사에 실패하면 작업은 해당 교환의 모든 트랜잭션 집합을 `badMessages` 로 출력합니다.
 
-### <a name="acknowledgments"></a>감사의 글
+  * 교환 유지 - 오류 발생 시에 트랜잭션 집합을 일시 중단합니다.
 
-| 속성 | 설명 |
-| --- | --- |
-| 메시지(CONTRL) 수신 |기술(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다. |
-| 승인(CONTRL) |기능(CONTRL) 승인을 교환 발신자에게 반환하려면 이 확인란을 선택합니다. 승인은 규약의 송신 설정을 기준으로 교환 발신자에게 전송됩니다. |
+    디코딩 작업은 교환을 유지하고 일괄 처리된 전체 교환을 처리합니다. 작업은 유효성 검사에 실패한 트랜잭션 집합만 에 `badMessages` 출력하고 나머지 트랜잭션 집합을 로 출력합니다. `goodMessages`
 
-### <a name="schemas"></a>스키마
+  * 교환 유지 - 오류 발생 시에 교환을 일시 중단합니다.
 
-| 속성 | 설명 |
-| --- | --- |
-| UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
-| UNH2.2(버전) |메시지 버전 번호를 입력합니다. (최소 1자, 최대 3자) |
-| UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. (최소 1자, 최대 3자) |
-| UNH2.5(연결 할당 코드) |할당된 코드를 입력합니다. (최대 6자. 영숫자여야 함) |
-| UNG2.1(앱 보낸 사람 ID) |1 ~ 35자의 영숫자 값을 입력합니다. |
-| UNG2.2(앱 보낸 사람 코드 한정자) |최대 4자의 영숫자 값을 입력합니다. |
-| SCHEMA |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
-
-### <a name="control-numbers"></a>컨트롤 번호
+    디코딩 작업은 교환을 유지하고 일괄 처리된 전체 교환을 처리합니다. 교환에 있는 하나 이상의 트랜잭션 집합이 유효성 검사에 실패하면 작업은 해당 교환의 모든 트랜잭션 집합을 `badMessages` 로 출력합니다.
 
-| 속성 | 설명 |
-| --- | --- |
-| 교환 컨트롤 번호 중복 허용 안 함 |중복 교환을 차단하려면 이 속성을 선택합니다. 이 확인란을 선택한 경우 EDIFACT 디코딩 작업에서 수신된 교환의 교환 컨트롤 번호(UNB5)가 이전에 처리된 교환 컨트롤 번호와 일치하지 않는지 확인합니다. 두 번호가 일치하는 경우 교환은 처리되지 않습니다. |
-| (일)마다 중복 UNB5 확인 |중복된 교환 컨트롤 번호를 허용하지 않도록 선택한 경우 이 설정에 적합한 값을 지정하여 확인을 수행하는 일 수를 지정할 수 있습니다. |
-| 그룹 컨트롤 번호 중복 허용 안 함 |중복 그룹 컨트롤 번호(UNG5)가 있는 교환을 차단하려면 이 속성을 선택합니다. |
-| 트랜잭션 집합 컨트롤 번호 중복 허용 안 함 |중복 트랜잭션 집합 컨트롤 번호(UNH1)가 있는 교환을 차단하려면 이 속성을 선택합니다. |
-| EDIFACT 승인 컨트롤 번호 |승인에서 사용할 트랜잭션 집합 참조 번호를 지정하려면 접두사, 참조 번호의 범위 및 접미사에 대한 값을 입력합니다. |
+* 기술 승인, 기능 승인 또는 둘 다(구성된 경우)를 생성합니다.
 
-### <a name="validation"></a>유효성 검사
+  * 기술 승인 또는 CONTRL ACK는 받은 교환의 전체 구문 검사 결과를 보고합니다.
 
-각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
-
-| 속성 | 설명 |
-| --- | --- |
-| 메시지 유형 |EDI 메시지 유형을 선택합니다. |
-| EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |
-| 확장 유효성 검사 |데이터 형식이 EDI가 아니면 데이터 요소 요구 사항, 허용되는 반복, 열거 및 데이터 요소 길이 유효성 검사(최소값/최대값)에 대해 유효성 검사를 수행합니다. |
-| 선행/후행 0 허용 |추가 선행 또는 후행 0 및 공백 문자를 보존합니다. 이러한 문자를 제거하지 마십시오. |
-| 선행/후행 0 자르기 |선행 또는 후행 0 및 공백 문자를 제거합니다. |
-| 후행 구분 기호 정책 |후행 구분 기호를 생성합니다. <p>**허용되지 않음** 을 선택하여 수신된 교환에 후행 구분 기호를 금지합니다. 이 경우 교환에 후행 구분 기호가 있으면 잘못된 것으로 선언됩니다. <p>후행 구분 기호 유무에 관계없이 교환을 수락하려면 **옵션** 을 선택합니다. <p>수신된 교환에 후행 구분 기호가 있어야 하는 경우 **필수** 를 선택합니다. |
-
-### <a name="internal-settings"></a>내부 설정
-
-| 속성 | 설명 |
-| --- | --- |
-| 후행 구분 기호가 허용되는 경우 빈 XML 태그 만들기 |교환 발신자가 후행 구분 기호에 대해 빈 XML 태그를 포함하도록 하려면 이 확인란을 선택합니다. |
-| 교환을 트랜잭션 집합으로 분할 - 오류 발생 시 트랜잭션 집합 일시 중단|적절한 봉투를 트랜잭션 집합에 적용하여 교환의 각 트랜잭션 집합을 별도의 XML 문서로 구문 분석합니다. 유효성 검사에 실패하는 트랜잭션 집합만 일시 중단합니다. |
-| 교환을 트랜잭션 집합으로 분할 - 오류 발생 시 교환 일시 중단|적절한 봉투를 적용하여 교환의 각 트랜잭션 집합을 별도의 XML 문서로 구문 분석합니다. 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 전체 교환을 일시 중단합니다. | 
-| 교환 유지 - 오류 발생 시 트랜잭션 집합 일시 중단 |교환을 그대로 유지하고 배치로 처리된 교환 전체에 대한 XML 문서를 만듭니다. 유효성 검사에 실패한 트랜잭션 집합만 일시 중단하지만 다른 모든 트랜잭션 집합은 계속 처리합니다. |
-| 교환 유지 - 오류 발생 시 교환 일시 중단 |교환을 그대로 유지하고 배치로 처리된 교환 전체에 대한 XML 문서를 만듭니다. 교환에 포함된 하나 이상의 트랜잭션 집합에 대한 유효성 검사가 실패하는 경우 전체 교환을 일시 중단합니다. |
-
-## <a name="configure-how-your-agreement-sends-messages"></a>규약에서 메시지를 보내는 방법 구성
-
-이 규약이 규약을 통해 파트너에게 보내는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
-
-1.  **추가** 아래에서 **송신 설정** 을 선택합니다.
-사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
-
-    **송신 설정** 은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
-
-    !["송신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
-
-2. 작업을 마친 후에 **확인** 을 선택하여 설정을 저장해야 합니다.
-
-이제 규약은 선택한 설정에 맞는 보내는 메시지를 처리할 준비가 되었습니다.
-
-### <a name="identifiers"></a>식별자
-
-| 속성 | 설명 |
-| --- | --- |
-| UNB1.2(구문 버전) |**1** 에서 **4** 사이의 값을 선택합니다. |
-| UNB2.3(보낸 사람 역라우팅 주소) |1 ~ 14자의 영숫자 값을 입력합니다. |
-| UNB3.3(받는 사람 역라우팅 주소) |1 ~ 14자의 영숫자 값을 입력합니다. |
-| UNB6.1(받는 사람 참조 암호) |1 ~ 14자의 영숫자 값을 입력합니다. |
-| UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
-| UNB7(애플리케이션 참조 ID) |1 ~ 14자의 영숫자 값을 입력합니다. |
-
-### <a name="acknowledgment"></a>승인
-
-| 속성 | 설명 |
-| --- | --- |
-| 메시지(CONTRL) 수신 |호스트 파트너가 기술(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다. |
-| 승인(CONTRL) |호스트 파트너가 기능(CONTRL) 승인을 받을 것으로 예상하는 경우 이 확인란을 선택합니다. 이 설정은 메시지를 보내는 호스트 파트너가 게스트 파트너의 승인을 요청하도록 지정합니다. |
-| 허용된 트랜잭션 집합에 대해 SG1/SG4 루프 생성 |기능 승인을 요청하기로 선택한 경우 허용된 트랜잭션 집합에 대한 기능 CONTRL 승인에서 SG1/SG4 루프를 강제로 생성하려면 이 확인란을 선택합니다. |
-
-### <a name="schemas"></a>스키마
-
-| 속성 | 설명 |
-| --- | --- |
-| UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
-| UNH2.2(버전) |메시지 버전 번호를 입력합니다. |
-| UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. |
-| SCHEMA |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다. |
-
-### <a name="envelopes"></a>봉투
-
-| 속성 | 설명 |
-| --- | --- |
-| UNB8(처리 우선 순위 코드) |1자를 넘지 않는 문자는 영문자 값을 입력합니다. |
-| UNB10(통신 규약) |1 ~ 40자의 영숫자 값을 입력합니다. |
-| UNB11(테스트 표시기) |생성된 교환이 테스트 데이터임을 표시하려면 이 확인란을 선택합니다. |
-| UNA 세그먼트 적용(서비스 문자열 도움말) |보낼 교환에 대해 UNA 세그먼트를 생성하려면 이 확인란을 선택합니다. |
-| UNG 세그먼트 적용(기능 그룹 헤더) |게스트 파트너에게 보낸 메시지의 기능 그룹 헤더에 그룹화 세그먼트를 만들려면 이 확인란을 선택합니다. UNG 세그먼트를 만드는 데 다음 값이 사용됩니다. <p>**UNG1** 의 경우 1~6자 사이의 영숫자 값을 입력합니다. <p>**UNG2.1** 의 경우 1~35자 사이의 영숫자 값을 입력합니다. <p>**UNG2.2** 의 경우 최대 4자의 영숫자 값을 입력합니다. <p>**UNG3.1** 의 경우 1~35자 사이의 영숫자 값을 입력합니다. <p>**UNG3.2** 의 경우 최대 4자의 영숫자 값을 입력합니다. <p>**UNG6** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.1** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.2** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.3** 의 경우 1~6자 사이의 영숫자 값을 입력합니다. <p>**UNG8** 의 경우 1~14자 사이의 영숫자 값을 입력합니다. |
-
-### <a name="character-sets-and-separators"></a>문자 세트 및 구분 기호
-
-문자 집합 외에 각 메시지 유형에 사용할 다른 구분 기호 집합을 입력할 수 있습니다. 주어진 메시지 스키마의 문자 집합이 지정되지 않은 경우 기본 문자 집합이 사용됩니다.
-
-| 속성 | 설명 |
-| --- | --- |
-| UNB1.1(시스템 식별자) |나가는 교환에서 적용할 EDIFACT 문자 집합을 선택합니다. |
-| 스키마 |드롭다운 목록에서 스키마를 선택합니다. 각 행을 완료한 후에 새 행이 자동으로 추가됩니다. 선택한 스키마의 경우 아래의 구분 기호 설명에 따라 사용하려는 구분 기호 집합을 선택합니다. |
-| 입력 형식 |드롭다운 목록에서 입력 형식을 선택합니다. |
-| Component Separator |복합 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
-| Data Element Separator |복합 데이터 요소 내에서 단순 데이터 요소를 분리하려면 단일 문자를 입력합니다. |
-| Segment Terminator |EDI 세그먼트의 끝을 나타내려면 단일 문자를 입력합니다. |
-| 접미사 |세그먼트 식별자와 함께 사용할 문자를 선택합니다. 접미사를 지정하면 세그먼트 마침 표시 데이터 요소를 비워 둘 수 있습니다. 세그먼트 마침 표시를 비워 두는 경우 접미사를 지정해야 합니다. |
-
-### <a name="control-numbers"></a>컨트롤 번호
-
-| 속성 | 설명 |
-| --- | --- |
-| UNB5(교환 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 나가는 교환을 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
-| UNG5(그룹 컨트롤 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 그룹 컨트롤 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 컨트롤 번호는 필수입니다. 컨트롤 번호는 최대값에 도달할 때까지 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
-| UNH1(메시지 헤더 참조 번호) |접두사, 교환 컨트롤 번호 값의 범위, 접미사를 입력합니다. 이들 값은 메시지 헤더 참조 번호를 생성하는 데 사용됩니다. 접두사와 접미사는 옵션이지만 참조 번호는 필수입니다. 참조 번호는 각 새 메시지에 대해 증가하지만, 접두사와 접미사는 동일하게 유지됩니다. |
-
-### <a name="validation"></a>유효성 검사
-
-각 유효성 검사 행을 완료하면 다른 행이 자동으로 추가됩니다. 모든 규칙을 지정하지 않으면 유효성 검사에서는 "기본" 행을 사용합니다.
-
-| 속성 | 설명 |
-| --- | --- |
-| 메시지 유형 |EDI 메시지 유형을 선택합니다. |
-| EDI 유효성 검사 |스키마의 EDI 속성, 길이 제한, 빈 데이터 요소 및 후행 구분 기호로 정의되는 데이터 형식에 대해 EDI 유효성 검사를 수행합니다. |
-| 확장 유효성 검사 |데이터 형식이 EDI가 아니면 데이터 요소 요구 사항, 허용되는 반복, 열거 및 데이터 요소 길이 유효성 검사(최소값/최대값)에 대해 유효성 검사를 수행합니다. |
-| 선행/후행 0 허용 |추가 선행 또는 후행 0 및 공백 문자를 보존합니다. 이러한 문자를 제거하지 마십시오. |
-| 선행/후행 0 자르기 |선행 또는 후행 0 문자를 제거합니다. |
-| 후행 구분 기호 정책 |후행 구분 기호를 생성합니다. <p>**허용되지 않음** 을 선택하여 보낸 교환에 후행 구분 기호를 금지합니다. 이 경우 교환에 후행 구분 기호가 있으면 잘못된 것으로 선언됩니다. <p>후행 구분 기호 존재 여부에 관계없이 교환을 보내려면 **옵션** 을 선택합니다. <p>보낸 교환에 후행 구분 기호가 있어야 하는 경우 **필수** 를 선택합니다. |
-
-## <a name="find-your-created-agreement"></a>생성된 규약 찾기
-
-1.  모든 규약 속성 설정을 완료한 후에 **추가** 페이지에서 **확인** 을 선택하여 규약 만들기를 완료하고 사용자 통합 계정으로 돌아갑니다.
-
-    이제 새로 추가된 규약이 **규약** 목록에 표시됩니다.
-
-2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요** 를 선택한 다음, **규약** 타일을 선택합니다. 
-
-    ![규약 타일을 보여주는 스크린샷.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+  * 받은 교환 또는 그룹에 대한 동의 또는 거부를 승인하는 기능 승인입니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명된 작업 및 제한을 비롯하여 이 커넥터에 대한 추가 기술 정보는 [커넥터의 참조 페이지](/connectors/edifact/)에서 확인할 수 있습니다.
+**EDIFACT** 커넥터에 대한 기술 정보는 [커넥터의 Swagger](/connectors/edifact/)파일에 설명된 대로 트리거, 작업 및 제한을 설명하는 커넥터의 참조 페이지 를 검토하세요. 또한 [다중 테넌트 Azure Logic Apps, 단일 테넌트 Azure Logic Apps 또는 ISE(통합 서비스 환경)에서](logic-apps-overview.md#resource-environment-differences)실행되는 워크플로의 메시지 크기에 대한 [B2B 프로토콜 제한을](logic-apps-limits-and-config.md#b2b-protocol-limits) 검토합니다. 예를 들어 [ISE(통합 서비스 환경)에서](connect-virtual-network-vnet-isolated-environment-overview.md)이 커넥터의 ISE 버전은 [ISE에 대한 B2B 메시지 제한을](logic-apps-limits-and-config.md#b2b-protocol-limits)사용합니다.
 
-> [!NOTE]
-> 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+* Azure 계정 및 구독 아직 구독이 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
+
+* 엔터프라이즈 통합 및 B2B 워크플로에서 사용하기 위해 거래 업체, 계약, 인증서 등과 같은 아티팩트 정의 및 저장을 위한 [통합 계정 리소스입니다.](logic-apps-enterprise-integration-create-integration-account.md) 이 리소스는 다음 요구 사항을 충족해야 합니다.
+
+  * 논리 앱 리소스와 동일한 Azure 구독과 연결되어야 합니다.
+
+  * 논리 앱 리소스와 동일한 위치 또는 Azure 지역에 존재합니다.
+
+  * [ **논리 앱(소비)** 리소스 종류](logic-apps-overview.md#resource-environment-differences) 및 **EDIFACT** 작업을 사용하는 경우 논리 앱 리소스에 통합 계정에 대한 링크가 필요하지 않습니다. 그러나 EDIFACT, [X12](logic-apps-enterprise-integration-x12.md)또는 [AS2](logic-apps-enterprise-integration-as2.md) 작업과 함께 파트너, 계약 및 인증서와 같은 아티팩트를 저장하려면 이 계정이 여전히 필요합니다. 통합 계정은 여전히 논리 앱 리소스와 동일한 위치에 있는 동일한 Azure 구독 및 기존 구독을 사용하는 것과 같은 다른 요구 사항을 충족해야 합니다.
+
+  * [ **논리 앱(표준)** 리소스 종류](logic-apps-overview.md#resource-environment-differences) 및 **EDIFACT** 작업을 사용하는 경우 AS2 작업을 추가할 때 워크플로에서 직접 만든 통합 계정에 대한 연결이 워크플로에 필요합니다.
+
+* 통합 계정에 두 개 이상의 [거래 업체가](logic-apps-enterprise-integration-partners.md) 있습니다. 두 파트너에 대한 정의는 이 시나리오에 대해 **ZZZ - 상호 정의된** 동일한 *비즈니스 ID* 한정자를 사용해야 합니다.
+
+* 워크플로에 참여하는 거래 업체 간 통합 계정의 [EDIFACT 계약입니다.](logic-apps-enterprise-integration-agreements.md) 각 계약에는 호스트 파트너 및 게스트 파트너가 필요합니다. 사용자와 다른 파트너 간의 메시지 콘텐츠는 계약 유형과 일치해야 합니다.
+
+  > [!IMPORTANT]
+  > EDIFACT 커넥터는 UTF-8 문자만 지원합니다. 출력에 예기치 않은 문자가 포함되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용하는지 확인합니다.
+
+* EDIFACT 작업을 사용하려는 논리 앱 리소스 및 워크플로입니다.
+
+  논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+
+<a name="encode"></a>
+
+## <a name="encode-edifact-messages"></a>EDIFACT 메시지 인코딩
+
+### <a name="consumption"></a>[Consumption](#tab/consumption)
+
+1. [Azure Portal](https://portal.azure.com)디자이너에서 논리 앱 리소스 및 워크플로를 엽니다.
+
+1. 디자이너의 EDIFACT 작업을 추가하려는 트리거 또는 작업 아래에서 **새 단계** 를 선택합니다.
+
+1. **작업 선택** 검색 상자에서 **모두** 를 선택합니다. 검색 상자에 `edifact encode`를 입력합니다. 이 예제에서는 **규약 이름으로 EDIFACT 메시지로 인코딩이라는** 작업을 선택합니다.
+
+   ![선택한 Azure Portal, 워크플로 디자이너 및 "규약 이름으로 EDIFACT 메시지에 인코딩" 작업을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-consumption.png)
+
+   > [!NOTE]
+   > **대신 ID로 EDIFACT 메시지 인코딩** 작업을 선택하도록 선택할 수 있지만 나중에 EDIFACT 규약에 지정된 **보낸 사람 식별자** 및 받는 사람 **식별자와** 같은 다른 값을 제공해야 합니다. 트리거 또는 이전 동작의 출력일 수 있는 **인코딩할 XML 메시지도** 지정해야 합니다.
+
+1. 통합 계정에 대한 연결을 만들라는 메시지가 표시되면 다음 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **연결 이름** | 예 | 연결 이름 |
+   | **통합 계정** | 예 | 사용 가능한 통합 계정 목록에서 사용할 계정을 선택합니다. |
+   ||||
+
+   예:
+
+   !["규약 이름으로 EDIFACT 메시지 인코딩" 연결 창을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/create-edifact-encode-connection-consumption.png)
+
+1. 완료되면 **만들기** 를 선택합니다.
+
+1. 디자이너에 EDIFACT 작업이 나타나면 이 작업과 관련한 다음 속성에 대한 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **EDIFACT 규약의 이름** | 예 | 사용할 EDIFACT 계약입니다. |
+   | **인코딩할 XML 메시지** | 예 | EDIFACT 규약에 지정된 메시지 발신자의 비즈니스 식별자입니다. |
+   | 다른 매개 변수 | 아니요 | 이 작업에는 다음과 같은 다른 매개 변수가 포함됩니다. <p>- **데이터 요소 구분 기호** <br>- **릴리스 표시기** <br>- **구성 요소 구분 기호** <br>- **반복 구분 기호** <br>- **세그먼트 종결자** <br>- **세그먼트 종결자 접미사** <br>- **10진수 표시기** <p>자세한 내용은 [EDIFACT 메시지 설정 를](logic-apps-enterprise-integration-edifact-message-settings.md)검토하세요. |
+   ||||
+
+   예를 들어 XML 메시지 페이로드는 요청 트리거의 **본문** 콘텐츠 출력일 수 있습니다.
+
+   ![메시지 인코딩 속성이 있는 "규약 이름으로 EDIFACT 메시지 인코딩" 작업을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/encode-edifact-message-agreement-consumption.png)
+
+### <a name="standard"></a>[Standard](#tab/standard)
+
+1. [Azure Portal](https://portal.azure.com)디자이너에서 논리 앱 리소스 및 워크플로를 엽니다.
+
+1. 디자이너의 EDIFACT 작업을 추가하려는 트리거 또는 작업 아래에서 **새 단계 삽입(더하기** 기호)을 선택한 다음, 작업 **추가를** 선택합니다.
+
+1. 작업 선택 검색 **상자에서** **Azure를** 선택합니다. 검색 상자에 `edifact encode`를 입력합니다. 규약 **이름으로 EDIFACT 메시지 인코딩이라는** 작업을 선택합니다.
+
+   ![선택한 Azure Portal, 워크플로 디자이너 및 "규약 이름으로 EDIFACT 메시지에 인코딩" 작업을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-standard.png)
+
+   > [!NOTE]
+   > **대신 ID로 EDIFACT 메시지 인코딩** 작업을 선택하도록 선택할 수 있지만 나중에 EDIFACT 규약에 지정된 **보낸 사람 식별자** 및 받는 사람 **식별자와** 같은 다른 값을 제공해야 합니다. **인코딩할 XML 메시지도** 지정해야 합니다. 이 메시지는 트리거 또는 이전 동작의 출력일 수 있습니다.
+
+1. 통합 계정에 대한 연결을 만들라는 메시지가 표시되면 다음 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **연결 이름** | 예 | 연결 이름 |
+   | **통합 계정** | 예 | 사용 가능한 통합 계정 목록에서 사용할 계정을 선택합니다. |
+   ||||
+
+   예:
+
+   !["매개 변수 이름으로 EDIFACT 메시지 인코딩" 연결 창을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/create-edifact-encode-connection-standard.png)
+
+1. 완료되면 **만들기** 를 선택합니다.
+
+1. 디자이너에 EDIFACT 세부 정보 창이 나타나면 다음 속성에 대한 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **EDIFACT 규약의 이름** | 예 | 사용할 EDIFACT 계약입니다. |
+   | **인코딩할 XML 메시지** | 예 | EDIFACT 규약에 지정된 메시지 발신자의 비즈니스 식별자입니다. |
+   | 다른 매개 변수 | 아니요 | 이 작업에는 다음과 같은 다른 매개 변수가 포함됩니다. <p>- **데이터 요소 구분 기호** <br>- **릴리스 표시기** <br>- **구성 요소 구분 기호** <br>- **반복 구분 기호** <br>- **세그먼트 종결자** <br>- **세그먼트 종결자 접미사** <br>- **10진수 표시기** <p>자세한 내용은 [EDIFACT 메시지 설정 를](logic-apps-enterprise-integration-edifact-message-settings.md)검토하세요. |
+   ||||
+
+   예를 들어 메시지 페이로드는 요청 트리거의 **본문** 콘텐츠 출력입니다.
+
+   ![메시지 인코딩 속성을 사용하여 "매개 변수 이름으로 EDIFACT 메시지 인코딩" 작업을 보여주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/encode-edifact-message-agreement-standard.png)
+
+---
+
+<a name="decode"></a>
+
+## <a name="decode-edifact-messages"></a>EDIFACT 메시지 디코딩
+
+### <a name="consumption"></a>[Consumption](#tab/consumption)
+
+1. [Azure Portal](https://portal.azure.com)디자이너에서 논리 앱 리소스 및 워크플로를 엽니다.
+
+1. 디자이너의 EDIFACT 작업을 추가하려는 트리거 또는 작업 아래에서 **새 단계** 를 선택합니다.
+
+1. **작업 선택** 검색 상자에서 **모두** 를 선택합니다. 검색 상자에 `edifact encode`를 입력합니다. **EDIFACT 메시지 디코딩이라는** 작업을 선택합니다.
+
+1. 통합 계정에 대한 연결을 만들라는 메시지가 표시되면 다음 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **연결 이름** | 예 | 연결 이름 |
+   | **통합 계정** | 예 | 사용 가능한 통합 계정 목록에서 사용할 계정을 선택합니다. |
+   ||||
+
+   예:
+
+   !["EDIFACT 메시지 디코딩" 연결 창을 보여주는 스크린샷.](./media/logic-apps-enterprise-integration-edifact/create-edifact-decode-connection-consumption.png)
+
+1. 완료되면 **만들기** 를 선택합니다.
+
+1. 디자이너에 EDIFACT 작업이 나타나면 이 작업과 관련한 다음 속성에 대한 정보를 제공합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **디코딩할 EDIFACT 플랫 파일 메시지** | 예 | 디코딩할 XML 플랫 파일 메시지입니다. |
+   | 다른 매개 변수 | 아니요 | 이 작업에는 다음과 같은 다른 매개 변수가 포함됩니다. <p>- **구성 요소 구분 기호** <br>- **데이터 요소 구분 기호** <br>- **릴리스 표시기** <br>- **반복 구분 기호** <br>- **세그먼트 종결자** <br>- **세그먼트 종결자 접미사** <br>- **10진수 표시기** <br>- **페이로드 문자 집합** <br>- **세그먼트 마침 표시 접미사** <br>- **교환 유지** <br>- **오류 발생 시 교환 일시 중단** <p>자세한 내용은 [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact-message-settings.md)을 검토 합니다. |
+   ||||
+
+   예를 들어 디코딩할 XML 메시지 페이로드는 요청 트리거의 **본문** 내용 출력 일 수 있습니다.
+
+   ![메시지 디코딩 속성이 있는 "EDIFACT 메시지 디코딩" 작업을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-consumption.png)
+
+### <a name="standard"></a>[Standard](#tab/standard)
+
+1. [Azure Portal](https://portal.azure.com)에서 디자이너의 논리 앱 리소스 및 워크플로를 엽니다.
+
+1. 디자이너의 EDIFACT 작업을 추가 하려는 트리거 또는 작업에서 **새 단계 삽입** (더하기 기호)을 선택 하 고 **작업 추가** 를 선택 합니다.
+
+1. **작업 선택** 검색 상자에서 **Azure** 를 선택 합니다. 검색 상자에 `edifact encode`를 입력합니다. **EDIFACT 메시지 디코딩** 이라는 동작을 선택 합니다.
+
+   ![Azure Portal, 워크플로 디자이너 및 "EDIFACT 메시지 디코딩" 작업을 선택 하 여 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/select-decode-edifact-message-standard.png)
+
+1. 통합 계정에 대 한 연결을 만들지 묻는 메시지가 표시 되 면 다음 정보를 제공 합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **연결 이름** | 예 | 연결의 이름입니다. |
+   | **통합 계정** | 예 | 사용할 수 있는 통합 계정 목록에서 사용할 계정을 선택 합니다. |
+   ||||
+
+   예:
+
+   !["EDIFACT 메시지 디코딩" 연결 창을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/create-edifact-decode-connection-standard.png)
+
+1. 완료되면 **만들기** 를 선택합니다.
+
+1. 디자이너에 EDIFACT 세부 정보 창이 표시 되 면 다음 속성에 대 한 정보를 제공 합니다.
+
+   | 속성 | 필수 | Description |
+   |----------|----------|-------------|
+   | **EDIFACT 규약의 이름** | 예 | 사용할 EDIFACT 규약입니다. |
+   | **인코딩할 XML 메시지입니다.** | 예 | EDIFACT 규약에서 지정한 메시지 보낸 사람에 대 한 비즈니스 식별자입니다. |
+   | 다른 매개 변수 | 아니요 | 이 작업에는 다음과 같은 기타 매개 변수가 포함 됩니다. <p>- **데이터 요소 구분 기호** <br>- **릴리스 표시기** <br>- **구성 요소 구분 기호** <br>- **반복 구분 기호** <br>- **세그먼트 마침 표시** <br>- **세그먼트 마침 표시 접미사** <br>- **소수 표시기** <p>자세한 내용은 [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact-message-settings.md)을 검토 합니다. |
+   ||||
+
+   예를 들어 메시지 페이로드는 요청 트리거의 **본문** 내용 출력입니다.
+
+   ![메시지 디코딩 속성이 있는 "EDIFACT 메시지 디코딩" 작업을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-standard.png)
+
+---
+
+## <a name="handle-unh25-segments-in-edifact-documents"></a>EDIFACT 문서에서 UNH 2.5 세그먼트를 처리 합니다.
+
+EDIFACT 문서에서 [Unh 2.5 세그먼트](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) 는 스키마 조회에 사용 됩니다. 예를 들어 이 샘플 EDIFACT 메시지에서 UNH 필드는 `EAN008`입니다.
+
+`UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
+
+EDIFACT 문서를 처리 하거나 2.5 개의 세그먼트가 있는 EDIFACT 메시지를 처리 하려면 다음 단계를 수행 합니다.
+
+1. UNH 2.5 루트 노드 이름이 있는 스키마를 업데이트 하거나 배포 합니다.
+
+   예를 들어 샘플 UNH 필드의 스키마 루트 이름은 `EFACT_D03B_ORDERS_EAN008` 입니다. UNH2.5 세그먼트가 다른 각각의 `D03B_ORDERS`에 대해 개별 스키마를 배포해야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 **논리 앱 (소비)** 또는 **논리 앱 (표준)** 리소스 유형으로 작업 하 고 있는지 여부에 따라 통합 계정 리소스 또는 논리 앱 리소스에 스키마를 추가 합니다.
+
+1. edifact 디코딩 또는 인코딩 작업을 사용 하 고 있는지 여부에 관계 없이 스키마를 업로드 하 고 EDIFACT 규약의 **수신 설정** 에서 스키마 설정을 설정 하거나 설정 섹션을 **보냅니다** .
+
+1. EDIFACT 규약을 편집 하려면 규약 창에서 규약을 **선택 합니다.** **규약** 창의 도구 모음에서 **JSON으로 편집** 을 선택 합니다.
+
+   * 규약 `receiveAgreement` 섹션에서 `schemaReferences` 섹션을 찾고 unh 2.5 값을 추가 합니다.
+
+     ![JSON 편집기에서 EDIFACT 규약의 "receiveAgreement" 섹션이 있는 Azure Portal를 보여 주는 스크린샷 및 "schemaReferences" 섹션이 강조 표시 됩니다.](./media/logic-apps-enterprise-integration-edifact/agreement-receive-schema-references.png)
+
+   * 규약 `sendAgreement` 섹션에서 `schemaReferences` 섹션을 찾고 unh 2.5 값을 추가 합니다.
+
+     ![JSON 편집기에서 EDIFACT 규약의 "sendAgreement" 섹션이 있는 Azure Portal을 보여 주는 스크린샷 및 "schemaReferences" 섹션이 강조 표시 됩니다.](./media/logic-apps-enterprise-integration-edifact/agreement-send-schema-references.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
+* [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact-message-settings.md)

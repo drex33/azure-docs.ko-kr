@@ -1,20 +1,21 @@
 ---
-title: Azure Blob Storage의 변경 피드 | Microsoft Docs
+title: Blob Storage에서 피드 변경
+titleSuffix: Azure Storage
 description: Azure Blob Storage의 변경 피드 로그 및 이를 사용하는 방법에 대해 알아봅니다.
 author: tamram
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bed39bd544ac1b586dcefefb890927fe1ce472b2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680284"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402154"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -55,7 +56,7 @@ ms.locfileid: "128680284"
 
 - 변경 피드는 계정에서 발생하는 모든 사용 가능한 이벤트에 대한 *모든* 변경 내용을 캡처합니다. 클라이언트 애플리케이션은 필요에 따라 이벤트 유형을 필터링할 수 있습니다. (현재 릴리스의 [조건](#conditions)을 참조하세요.)
 
-- 범용 v2 및 Blob Storage 계정만 변경 피드를 사용하도록 설정할 수 있습니다. 프리미엄 블록 Blob 계정 및 계층 구조 네임스페이스 사용 계정은 현재 지원되지 않습니다. 범용 v1 스토리지 계정은 지원되지 않지만 가동 중지 시간 없이 범용 v2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 스토리지 계정으로 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
+- 표준 범용 v2, 프리미엄 블록 blob 및 Blob storage 계정만 변경 피드를 사용 하도록 설정할 수 있습니다. 계층적 네임 스페이스를 사용할 수 있는 계정은 현재 지원 되지 않습니다. 범용 v1 스토리지 계정은 지원되지 않지만 가동 중지 시간 없이 범용 v2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 스토리지 계정으로 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -302,12 +303,12 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 이 표에서는 사용자 계정에서 이 기능이 지원되는 방법과 특정 기능을 활성화할 때 지원에 미치는 영향을 보여 줍니다.
 
-| Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+|--|--|--|--|
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2 및 NFS(네트워크 파일 시스템) 3.0 프로토콜은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="faq"></a>FAQ
 

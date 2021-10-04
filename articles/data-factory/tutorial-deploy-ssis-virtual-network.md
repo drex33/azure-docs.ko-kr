@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 35094effcef3ff773b708e65f234ee1409a8970a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a79229537b76dc62bca48985720f9c911de0c68c
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798240"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400670"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 조인하기 위한 Azure SQL Server Integration Services(SSIS) IR(통합 런타임) 구성
 
@@ -60,7 +60,7 @@ ms.locfileid: "124798240"
     - Azure ExpressRoute 또는 UDR(사용자 정의 경로)을 사용하는 경우.
     - 사용자 지정 Azure-SSIS IR을 사용하는 경우
     
-    자세한 내용은 [가상 네트워크 구성](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)을 참조하세요.
+    자세한 내용은 [가상 네트워크 구성](azure-ssis-integration-runtime-virtual-network-configuration.md)을 참조하세요.
 
 ## <a name="configure-a-virtual-network"></a>가상 네트워크 구성
 
@@ -135,7 +135,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    1. **VNet 이름** 에서 가상 네트워크의 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트가 있는 SQL Database나 SSISDB를 호스트하기 위한 프라이빗 엔드포인트가 있는 SQL Managed Instance에 사용되는 것과 동일해야 합니다. 또는 온-프레미스 네트워크에 연결된 것과 동일해야 합니다. 그렇지 않으면 Azure-SSIS IR에 자체 정적 공용 IP를 가져오는 임의의 가상 네트워크일 수 있습니다.
 
-   1. **서브넷 이름** 에서 가상 네트워크의 서브넷 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트를 사용하여 SSISDB를 호스트하는 SQL Datbase에 사용되는 것과 동일해야 합니다. 또는 SQL Managed Instance에 사용된 것과 다른 서브넷이어야 합니다. 이 서브넷은 SSISDB를 호스트하기 위해 프라이빗 엔드포인트를 사용합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대한 고정 퍼블릭 IP 주소를 가져오는 서브넷이 될 수 있습니다.
+   1. **서브넷 이름** 에서 가상 네트워크의 서브넷 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트를 사용하여 SSISDB를 호스트하는 SQL Database에 사용되는 것과 동일해야 합니다. 또는 SQL Managed Instance에 사용된 것과 다른 서브넷이어야 합니다. 이 서브넷은 SSISDB를 호스트하기 위해 프라이빗 엔드포인트를 사용합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대한 고정 퍼블릭 IP 주소를 가져오는 서브넷이 될 수 있습니다.
 
    1. **VNet 유효성 검사** 를 선택합니다. 유효성 검사에 성공하면 **계속** 을 선택합니다.
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: e6b1524f15f07bc1cb17842c5fca167016136ae0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 8d052be49a545e34ce44dc53174a5dbca7c3d220
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828435"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402969"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
 
@@ -32,7 +32,7 @@ Azure Data Factory 및 Synapse Analytics 매핑 데이터 흐름의 디버그 �
 
 :::image type="content" source="media/data-flow/debug-new-1.png" alt-text="IR 선택 디버그":::
 
-디버그 모드를 설정하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 빌드합니다. 디버그를 해제하면 세션이 닫힙니다. 디버그 세션이 켜진 시간 동안 Azure Databricks에서 부과되는 시간당 요금에 유의해야 합니다.
+디버그 모드를 설정하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 빌드합니다. 디버그를 해제하면 세션이 닫힙니다. 디버그 세션이 켜져 있는 동안 Data Factory 발생하는 시간별 요금을 알고 있어야 합니다.
 
 대부분의 경우 작업을 게시하기 전에 비즈니스 논리의 유효성을 검사하고 데이터 변환을 볼 수 있도록 디버그 모드에서 데이터 흐름을 빌드하는 것이 좋습니다. 파이프라인 패널의 "디버그" 단추를 사용하여 파이프라인의 데이터 흐름을 테스트합니다.
 

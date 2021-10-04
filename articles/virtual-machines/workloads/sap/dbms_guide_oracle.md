@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 10/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd4b8ccf3147e349b9625d5912e5d603415ec39a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 3c04c2824b005adfc3e04d710b0e55c7f52c99b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112297506"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129403000"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines Oracle DBMS 배포
 
@@ -415,6 +415,7 @@ Azure M 시리즈 VM의 경우 Azure Premium Storage와 비교할 때 온라인 
 또한 Azure Backup을 사용하여 애플리케이션 일치 VM 백업을 실행할 수 있습니다. [Azure에서 VM 백업 인프라 계획](../../../backup/backup-azure-vms-introduction.md) 문서에서는 Azure Backup이 애플리케이션 일치 백업을 실행하기 위해 Windows VSS 기능을 사용하는 방식을 설명합니다. SAP이 Azure에서 지원하는 Oracle DBMS 릴리스는 백업에 VSS 기능을 활용할 수 있습니다. 자세한 내용은 Oracle 설명서, [VSS를 사용한 데이터베이스 백업 및 복구에 대한 기본 개념](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701)을 참조하세요.
 
 
+
 ### <a name="high-availability"></a>고가용성
 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자(FSFA)가 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다.
 
@@ -517,6 +518,9 @@ Azure M 시리즈 VM의 경우, Azure 쓰기 가속기를 사용하면 Azure Pre
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 완전 복구 및 Hyper-V와 동일한 방법으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서 복원이 지원됩니다.
 
 또한 Azure 백업 및 복구 서비스를 사용하여 Oracle 데이터베이스를 백업하고 복구하는 방법에 대한 자세한 내용은 [Azure Linux 가상 머신의 Oracle Database 12c 데이터베이스 백업 및 복구](../oracle/oracle-overview.md)를 참조하세요.
+
+[Azure Backup 서비스](../../../backup/backup-overview.md) 는 [Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구](../oracle/oracle-database-backup-azure-backup.md)문서에 설명 된 대로 Oracle 백업도 지원 합니다.
+
 
 ### <a name="high-availability"></a>고가용성
 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. Data Guard에서 자동 장애 조치(failover)를 완수하려면 FSFA(Fast-Start Failover)를 사용해야 합니다. 관찰자 기능(FSFA)이 장애 조치(failover)를 트리거합니다. FSFA를 사용하지 않는 경우 수동 장애 조치(failover) 구성만 사용할 수 있습니다. 자세한 내용은 [Azure Linux 가상 머신에서 Oracle Data Guard 구현](../oracle/configure-oracle-dataguard.md)을 참조하세요.

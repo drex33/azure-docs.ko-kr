@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: b4be8fde0e771414d8b637af0c2aed33eeb48123
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816020"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399815"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -571,6 +571,9 @@ WEBSITE_AUTH_FILE_PATH
 | `WEBSITE_PUSH_TAG_WHITELIST` | 읽기 전용입니다. 알림 등록에 태그를 포함합니다. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | 읽기 전용입니다. 사용자 인증이 필요한 알림 등록의 태그 목록을 포함합니다. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | 읽기 전용입니다. 자동으로 추가된 알림 등록의 태그 목록을 포함합니다. | 
+
+>[!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 <!-- 
 ## WellKnownAppSettings

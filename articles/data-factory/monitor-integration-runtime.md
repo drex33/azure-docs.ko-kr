@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9e0136fe9ec7274a1788b11134527c8625c2cace
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750594"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400461"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -234,7 +234,7 @@ Azure Portal에서 Azure-SSIS IR를 모니터링하려면 모든 통합 런타�
 
 **RUNNING / REQUESTED NODE(S)** 정보 제공 타일은 현재 실행 중인 노드 수를 Azure-SSIS IR에 대해 이전에 요청된 총 노드 수와 비교합니다.
 
-**DUAL STANDBY PAIR / ROLE** 정보 제공 타일은 BCDR(무중단 업무 방식 및 재해 복구)를 위해 Azure SQL Database/Managed Instance 장애 조치(failover) 그룹을 동기화하는 데 사용되는 이중 대기 Azure-SSIS IR 쌍의 이름과 Azure-SSIS IR의 현재 주/보조 역할을 보여 줍니다. SSISDB 장애 조치(failover)가 발생하면 기본 및 보조 Azure SSIS IR에서 역할을 전환합니다([BCDR에 대한 Azure-SSIS IR 구성](./configure-bcdr-azure-ssis-integration-runtime.md) 참조).
+**이중 대기 쌍/역할** 정보 타일은 BCDR (비즈니스 연속성 및 재해 복구)를 위한 Azure SQL Database 관리 되는 인스턴스 장애 조치 (failover) 그룹 및 Azure-SSIS IR의 현재 주/보조 역할에 대해 동기화 작업을 수행 하는 이중 대기 Azure-SSIS IR 쌍의 이름을 표시 합니다. SSISDB 장애 조치(failover)가 발생하면 기본 및 보조 Azure SSIS IR에서 역할을 전환합니다([BCDR에 대한 Azure-SSIS IR 구성](./configure-bcdr-azure-ssis-integration-runtime.md) 참조).
 
 기능 타일에 대한 세부 정보는 다음을 참조하세요.
 
@@ -270,7 +270,7 @@ Azure-SSIS IR 모니터링 페이지의 **DIAGNOSE CONNECTIVITY** 타일에서 *
 
 #### <a name="static-public-ip-addresses-tile"></a>STATIC PUBLIC IP ADDRESSES 타일
 
-Azure-SSIS IR에 대한 고정적인 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **STATIC PUBLIC IP ADDRESSES** 타일이 표시됩니다([Azure-SSIS IR에 대한 고정 공용 IP 주소 가져오기](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP) 참조). 이 타일에서 Azure-SSIS IR에 대한 첫 번째/두 번째 고정적인 공용 IP 주소를 지정하는 링크를 선택하여 텍스트 상자에서 해당 리소스 ID(`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`)를 복사할 수 있는 창을 표시할 수 있습니다. 팝업 창에서 **첫 번째/두 번째 고정적인 공용 IP 주소 설정 확인** 링크를 선택하여 Azure Portal에서 첫 번째/두 번째 고정 공용 IP 주소를 관리할 수도 있습니다.
+Azure-SSIS IR에 대한 고정적인 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **STATIC PUBLIC IP ADDRESSES** 타일이 표시됩니다([Azure-SSIS IR에 대한 고정 공용 IP 주소 가져오기](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP) 참조). 이 타일에서 Azure-SSIS IR에 대한 첫 번째/두 번째 고정적인 공용 IP 주소를 지정하는 링크를 선택하여 텍스트 상자에서 해당 리소스 ID(`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`)를 복사할 수 있는 창을 표시할 수 있습니다. 팝업 창에서 **첫 번째/두 번째 고정적인 공용 IP 주소 설정 확인** 링크를 선택하여 Azure Portal에서 첫 번째/두 번째 고정 공용 IP 주소를 관리할 수도 있습니다.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Azure-SSIS IR - STATIC 타일 모니터링":::
 

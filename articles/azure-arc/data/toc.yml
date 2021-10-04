@@ -189,8 +189,6 @@ items:
                 href: monitoring-log-analytics-azure-portal-managed-instance.md
               - name: 고가용성
                 href: managed-instance-high-availability.md
-              - name: 특정 시점 복원
-                href: point-in-time-restore.md
               - name: 삭제
                 href: delete-managed-instance.md
           - name: 마이그레이션
@@ -199,6 +197,10 @@ items:
                 href: migrate-to-managed-instance.md
               - name: AdventureWorks 복원
                 href: restore-adventureworks-sample-db.md
+          - name: 비즈니스 연속성 구성
+            items:
+              - name: 특정 시점 복원
+                href: point-in-time-restore.md
   - name: 참조
     items:
       - name: 릴리스 버전 로그

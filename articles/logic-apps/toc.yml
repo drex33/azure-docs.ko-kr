@@ -211,12 +211,8 @@
           items:
             - name: EDIFACT 메시지 교환
               href: logic-apps-enterprise-integration-edifact.md
-            - name: EDIFACT 인코딩
-              href: logic-apps-enterprise-integration-edifact-encode.md
-            - name: EDIFACT 디코딩
-              href: logic-apps-enterprise-integration-edifact-decode.md
-            - name: UNH2.5 세그먼트가 있는 EDIFACT 파일 처리
-              href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+            - name: EDIFACT 메시지 설정
+              href: logic-apps-enterprise-integration-edifact-message-settings.md
             - name: EDIFACT CONTRL 승인 및 오류 코드
               href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
         - name: RosettaNet 메시징
@@ -265,7 +261,7 @@
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure Functions
+        - name: Azure 기능
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md

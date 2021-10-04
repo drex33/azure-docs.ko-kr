@@ -99,7 +99,7 @@
   items:
     - name: 등록 및 설정
       items:
-        - name: Azure NetApp Files에 등록
+        - name: NetApp 리소스 공급자 등록
           href: azure-netapp-files-register.md
         - name: NetApp 계정 만들기
           href: azure-netapp-files-create-netapp-account.md

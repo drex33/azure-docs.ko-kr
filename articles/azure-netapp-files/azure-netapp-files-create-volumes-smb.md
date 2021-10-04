@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: a3db25adec1ffb8d56134b6f7e651a4707d613a6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0f06e1690a068ccd85fe0b03ad8f992805bc1a00
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577072"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407858"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -29,7 +29,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
-* 용량 풀을 설정해야 합니다. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)을 참조하세요.     
+* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.     
 * Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
 ## <a name="configure-active-directory-connections"></a>Active Directory 연결 구성 

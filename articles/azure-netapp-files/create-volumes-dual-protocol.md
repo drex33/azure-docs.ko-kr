@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: b-juche
-ms.openlocfilehash: a37ce583e5392099c923e9bc0a7a3363fa7b97c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 81fc3ad96af65a408119f3bf790e5215b581b9ad
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576856"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407041"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기
 
@@ -30,7 +30,7 @@ NFS 볼륨을 만들려면 [NFS 볼륨 만들기](azure-netapp-files-create-volu
 ## <a name="before-you-begin"></a>시작하기 전에 
 
 * 용량 풀이 이미 만들어져 있어야 합니다.  
-    [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)을 참조하세요.   
+    [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다.  
     [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 

@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2a3e97096109ce89f481b2abca2dc7b5a3a237e6
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374884"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407877"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Azure NetApp Files 리소스 공급자 오류 문제 해결 
 
@@ -30,13 +30,13 @@ ms.locfileid: "100374884"
 
 ***이 지역에서는 `netAppAccounts`를 만드는 것이 제한됩니다.***
 
-이러한 현상은 Azure NetApp Files 구독 대기 중인 상태에서 사용자가 새로운 NetApp 계정을 만들려고 할 때 발생합니다.
+이 상황은 사용자가 NetApp 계정을 만들려고 할 때 발생합니다.
 
 * 원인:   
 Azure NetApp Files에 Azure Resource Provider가 등록되지 않습니다. 
  
 * 해결책:   
-구독 대기 상태가 되면 [Azure NetApp 리소스 공급자 등록](azure-netapp-files-register.md#resource-provider) 페이지에 설명된 모든 단계를 완료합니다.
+[NetApp 리소스 공급자 등록에](azure-netapp-files-register.md)설명된 모든 단계를 완료합니다.
 
 ***BareMetalTenantId는 변경할 수 없습니다.***  
 
@@ -317,7 +317,7 @@ Active Directory 구성을 사용하고 있지 않은 경우 먼저 기존 구�
 
 ***OwnerId는 변경할 수 없습니다***
 
-이 오류는 볼륨의 OwnerId 속성을 변경하려고 할 때 발생합니다. OwnerId를 변경하는 작업은 지원되지 않습니다. 
+이 오류는 볼륨의 속성을 변경 하려고 할 때 발생 합니다 `OwnerId` . 를 변경 하는 `OwnerId` 작업은 지원 되지 않습니다. 
 
 * 원인:   
 `OwnerId` 속성은 볼륨이 만들어졌을 때 설정됩니다. 이 속성은 나중에 변경할 수 없습니다.

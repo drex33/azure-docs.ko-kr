@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files에 대한 용량 풀 설정 | Microsoft Docs
-description: 볼륨을 만들 수 있도록 용량 풀을 설정하는 방법을 설명합니다.
+title: Azure NetApp Files에 대 한 용량 풀 만들기 | Microsoft Docs
+description: 용량 풀을 만들어 그 안에 볼륨을 만들 수 있도록 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: e49a68ee4c4e4f60d8af6919e4eaec33ac0086aa
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
-ms.translationtype: HT
+ms.openlocfilehash: 3488b6807982f97cd5feef9b07a6dc7cbe180dcd
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071914"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407554"
 ---
-# <a name="set-up-a-capacity-pool"></a>용량 풀 설정
+# <a name="create-a-capacity-pool-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 용량 풀 만들기
 
-용량 풀 설정을 통해 볼륨을 만들 수 있습니다.  
+용량 풀을 만들면 내에서 볼륨을 만들 수 있습니다.  
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 

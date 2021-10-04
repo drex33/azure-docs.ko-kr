@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7ca7f042aaa97967d47dd9f35afaa647e0d37361
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251542"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407269"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "98251542"
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 * [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
 * [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md)
 * [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)

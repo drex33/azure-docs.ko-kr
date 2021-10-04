@@ -12,22 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/28/2018
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 994af6291f55e9f1dd44f2f522f9273639531257
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006596"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407060"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-서비스에 대한 액세스 권한이 부여되었음을 확인하는 Azure NetApp Files 팀의 메일을 받아야 합니다. [서비스에 액세스하기 위해 대기 목록 요청 제출](azure-netapp-files-register.md#waitlist)을 참조하세요.
 
-또한 NetApp 리소스 공급자를 사용하려면 구독을 등록해야 합니다. [NetApp 리소스 공급자 등록](azure-netapp-files-register.md#resource-provider)을 참조하세요.
+NetApp 리소스 공급자를 사용하기 위해 구독을 등록해야 합니다. [NetApp 리소스 공급자 등록](azure-netapp-files-register.md)을 참조하세요.
 
 ## <a name="steps"></a>단계 
 
@@ -64,5 +63,5 @@ NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼
 
 ## <a name="next-steps"></a>다음 단계  
 
-[용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+[용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 

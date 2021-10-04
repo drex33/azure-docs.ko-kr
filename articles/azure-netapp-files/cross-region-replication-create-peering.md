@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 94528abaf90a94c59dd97c9a4ae0d15162914bc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 84ccb06b6be84c26ce9adf5d0c8e25d45190fa2b
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537102"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407915"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 복제본 만들기
 
@@ -50,7 +50,7 @@ Azure NetApp Files 복제는 현재 여러 구독을 지원하지 않습니다. 
 1. 대상 계정은 원본 볼륨 영역과는 다른 지역에 있어야 합니다. 필요한 경우 [NetApp 계정 만들기](azure-netapp-files-create-netapp-account.md)의 단계를 수행하여 복제에 사용할 Netapp 계정을 Azure 지역에 만듭니다.   
 다른 지역에서 기존 NetApp 계정을 선택할 수도 있습니다.  
 
-2. 필요한 경우 [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)의 단계에 따라 새로 만든 NetApp 계정에 용량 풀을 만듭니다.   
+2. 필요한 경우 [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)의 단계에 따라 새로 만든 netapp 계정에 용량 풀을 만듭니다.   
 
     또한 복제 대상 볼륨을 호스트할 기존 용량 풀을 선택할 수도 있습니다.  
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 18333b7c9fded73d330cacd6322b0869bf65f9d9
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
-ms.translationtype: HT
+ms.openlocfilehash: dd92472ff810a46743ffa08b1ea2fdd8f9e01da7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071086"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407592"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀 관리
 
@@ -31,7 +31,7 @@ QoS 유형에 대한 고려 사항을 이해하려면 [Azure NetApp Files의 스
 
 수동 QoS 유형을 사용하여 새 용량 풀을 만들려면 다음을 수행합니다.
 
-1. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)의 단계를 따릅니다.  
+1. [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)의 단계를 수행 합니다.  
 
 2. 새 용량 풀 창에서 **수동 QoS** 유형을 선택합니다.  
 
@@ -68,7 +68,7 @@ QoS 유형에 대한 고려 사항을 이해하려면 [Azure NetApp Files의 스
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 * [Azure NetApp Files에 대한 메트릭](azure-netapp-files-metrics.md)
 * [Azure NetApp Files의 성능 고려 사항](azure-netapp-files-performance-considerations.md)
 * [용량 풀 문제 해결](troubleshoot-capacity-pools.md)

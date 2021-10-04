@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 32a25884014a3a5250a3f6f47a1413b457ce8cfe
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: cc034689e2c3cd6846986680225ca7ca21ac41c8
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276533"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407535"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -121,23 +121,23 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
 
 ## <a name="volume-backup-metrics"></a>볼륨 백업 메트릭  
 
-* *볼륨 백업을 사용할 수 있는지*   
-    볼륨에 백업이 사용되는지 여부를 표시합니다. `1`가 활성화됩니다. `0`는 사용할 수 없음을 나타냅니다.
+* *볼륨 백업을 사용 하도록 설정*   
+    볼륨에 백업을 사용할 수 있는지 여부를 표시 합니다. `1`가 활성화됩니다. `0`는 사용할 수 없음을 나타냅니다.
 
-* *볼륨 백업 작업이 완료되었습니다.*   
-    마지막 볼륨 백업 또는 복원 작업이 성공적으로 완료되었는지 여부를 표시합니다.  `1` 가 성공했습니다. `0` 가 실패했습니다.
+* *볼륨 백업 작업 완료*   
+    마지막 볼륨 백업 또는 복원 작업이 성공적으로 완료 되었는지 여부를 표시 합니다.  `1` 성공 합니다. `0` 실패 했습니다.
 
-* *볼륨 백업이 일시 중단된 경우*   
-    볼륨에 대해 백업 정책이 일시 중단되었는지 여부를 표시합니다.  `1` 가 일시 중단되지 않은 경우 `0` 가 일시 중단되었습니다.
+* *볼륨 백업이 일시 중단 됨*   
+    볼륨에 대해 백업 정책이 일시 중단 되었는지 여부를 표시 합니다.  `1` 일시 중단 되지 않습니다. `0` 일시 중단 됩니다.
 
 * *볼륨 백업 바이트*   
-    이 볼륨에 대해 백업된 총 바이트 수입니다.
+    이 볼륨에 대해 백업 된 총 바이트 수입니다.
 
-* *볼륨 백업 마지막으로 전송된 바이트*   
-    마지막 백업 또는 복원 작업에 대해 전송된 총 바이트 수입니다.  
+* *볼륨 백업 마지막 전송 바이트*   
+    마지막 백업 또는 복원 작업에 대해 전송 된 총 바이트 수입니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
-* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 * [Azure NetApp Files에 대한 볼륨 만들기](azure-netapp-files-create-volumes.md)

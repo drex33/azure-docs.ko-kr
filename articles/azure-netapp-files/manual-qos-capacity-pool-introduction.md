@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 49cc885976e022e8b7c4c44c3546febc217e2d7c
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
-ms.translationtype: HT
+ms.openlocfilehash: 3ff9ed36800c60d50e70b328ab37606ddea09508
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071824"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407573"
 ---
 # <a name="manual-qos-capacity-pool"></a>수동 QoS 용량 풀
 
@@ -48,7 +48,7 @@ QoS 유형에 대한 고려 사항은 [Azure NetApp Files의 스토리지 계층
 ## <a name="next-steps"></a>다음 단계
 
 * [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
-* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 * [스토리지 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 * [Azure NetApp Files의 성능 고려 사항](azure-netapp-files-performance-considerations.md)

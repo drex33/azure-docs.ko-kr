@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: d75bd3580f66d7948d28b0d9ff34e247bc51c6b5
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
-ms.translationtype: HT
+ms.openlocfilehash: 7c9704549c68dce72c16f0b5386cdb76edb5fe90
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795027"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407003"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
@@ -73,5 +73,5 @@ Azure 구독이 여러 개 있는 경우 ['Set-AzContext'](/powershell/module/az
 ## <a name="next-steps"></a>다음 단계  
 
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
-* [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+* [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 * [볼륨의 용량 풀 변경에 대한 문제 해결](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 8613d641f305f93598ac070c5eaaeee5fed81b8d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 4b3f85c06c8dccd5873556c8c1ebfe1f0087b11e
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290237"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407611"
 ---
 # <a name="migrate-data-to-azure-with-data-dynamics-storagex"></a>Data Dynamics StorageX를 사용하여 Azure로 데이터 마이그레이션
 
@@ -124,7 +124,7 @@ NFS 액세스를 사용하려면 StorageX 서버의 IP에 대한 내보내기 �
 SMB 마이그레이션에서는 리소스를 추가하기 전에 Active Directory를 올바르게 설정해야 합니다. 마이그레이션 대상용 새 볼륨과 함께 기존 Azure NetApp Files 구현을 사용할 예정입니다. 새 Azure NetApp Files 볼륨을 만들기 전에 다음을 수행해야 합니다.
 
 - [Azure NetApp Files 계정 만들기](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#create-a-netapp-account)
-- [용량 풀 만들기](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#set-up-a-capacity-pool)
+- [용량 풀 만들기](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#create-a-capacity-pool)
 - [Active Directory 도메인에 Azure NetApp Files 계정 조인](../../../../azure-netapp-files/create-active-directory-connections.md)
 
 Azure NetApp Files의 구성이 완료되면 마이그레이션에 사용할 공유를 만들 수 있습니다. 

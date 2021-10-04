@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: b-juche
-ms.openlocfilehash: aa47a6b9caaba4b23202390b0cb45a2392b985ea
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ba34d9d1d85ae5845247133289001ffe58174213
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764409"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407649"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 
@@ -27,7 +27,7 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
 
 ## <a name="before-you-begin"></a>시작하기 전에  
 
-* 용량 풀을 설정해야 합니다. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)을 참조하세요.   
+* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
 ## <a name="requirements-and-considerations-for-active-directory-connections"></a><a name="requirements-for-active-directory-connections"></a>Active Directory 연결 요구 사항 및 고려 사항
@@ -257,7 +257,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         볼륨에 대한 관리자 권한을 부여할 사용자 또는 그룹을 지정할 수 있습니다. 
 
-        ![Active Directory 연결 창의 관리자 상자를 보여 주는 스크린샷](../media/azure-netapp-files/active-directory-administrators.png) 
+        ![Active Directory 연결 창의 관리자 상자를 보여 주는 스크린샷.](../media/azure-netapp-files/active-directory-administrators.png) 
         
         **관리자** 기능은 현재 미리 보기로 제공됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
 

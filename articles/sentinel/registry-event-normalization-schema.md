@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: 0e38c7171d523f8b73df1b53750710bc170e1e81
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d10d1e9408db7ab29a7fe01e5bf906e9023124c7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781271"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407231"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
 
@@ -85,7 +85,7 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  설명        |
+| 필드               | 클래스       | 형식       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -133,10 +133,10 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 | **ActorUserIdType**| 권장  | String     |  [ActorUserId](#actoruserid) 필드에 저장된 ID의 형식입니다. 자세한 내용은 [사용자 엔터티](normalization-about-schemas.md#the-user-entity)를 참조하세요. <br><br>예: `SID`         |
 | **ActorSessionId** | 선택     | 문자열     |   작업자 로그인 세션의 고유 ID입니다.  <br><br>예: `999`<br><br>**참고**: 유형은 다양한 시스템을 지원하기 위해 *문자열* 로 정의되지만 Windows에서는 이 값이 숫자여야 합니다. Windows 머신을 사용하고 원본이 다른 형식을 보내는 경우, 값을 변환해야 합니다. 예를 들어, 원본이 16진수 값을 보내는 경우, 10진수 값으로 변환합니다.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | 선택     | 문자열     |   작업 프로세스 이미지 파일의 파일 이름. 이 이름은 일반적으로 프로세스 이름으로 간주됩니다.  <br><br>예: `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| 필수    | 정수        | 작업 프로세스 PID(프로세스 ID)입니다.<br><br>예제: `48610176`           <br><br>**참고**: 형식은 다양한 시스템을 지원하도록 *문자열* 로 정의되지만, Windows와 Linux에서 이 값은 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용한 경우 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
+| **ActingProcessId**| 필수    | String        | 작업 프로세스 PID(프로세스 ID)입니다.<br><br>예제: `48610176`           <br><br>**참고**: 형식은 다양한 시스템을 지원하도록 *문자열* 로 정의되지만, Windows와 Linux에서 이 값은 숫자여야 합니다. <br><br>Windows 또는 Linux 컴퓨터를 사용하고 다른 형식을 사용한 경우 값을 변환해야 합니다. 예를 들어 16진수 값을 사용한 경우 10진수 값으로 변환합니다.    |
 | **ActingProcessGuid**              | 선택     | 문자열     |  작업 프로세스의 생성된 GUID(고유 식별자).   <br><br> 예: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | 선택     | 문자열     |  부모 프로세스 이미지 파일의 파일 이름. 이 값은 일반적으로 프로세스 이름으로 간주됩니다.    <br><br>예: `C:\Windows\explorer.exe` |
-| **ParentProcessId**| 필수    | 정수    | 부모 프로세스의 프로세스 ID(PID).   <br><br>     예제: `48610176`    |
+| **ParentProcessId**| 필수    | String    | 부모 프로세스의 PID(프로세스 ID)입니다.   <br><br>     예제: `48610176`    |
 | **ParentProcessGuid**              | 선택     | 문자열     |  부모 프로세스의 생성된 GUID(고유 식별자).     <br><br> 예: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 

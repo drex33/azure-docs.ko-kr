@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: memildin
-ms.openlocfilehash: 529a88c2af5c47cb329006b58f2439ab95f40ba2
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.openlocfilehash: 8a2cc866a1e9ea8adb17ba42c795c30dcf07e281
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538247"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407288"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션인 엔드포인트용 Microsoft Defender로 엔드포인트 보호
 
@@ -258,14 +258,14 @@ Linux를 실행하는 엔드포인트:
 
 ### <a name="whats-this-mdewindows--mdelinux-extension-running-on-my-machine"></a>내 머신에서 실행되고 있는 "MDE.Windows" / "MDE.Linux" 확장은 무엇인가요?
 
-이전에는 엔드포인트용 Microsoft Defender가 Log Analytics 에이전트에서 프로비전되었습니다. Linux 및 [Windows Server 2019를 포함하도록 지원을 확장](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)할 때 자동 온보딩을 수행할 확장도 추가했습니다. 
+이전에는 엔드포인트용 Microsoft Defender가 Log Analytics 에이전트에서 프로비전되었습니다. Linux 및 [Windows Server 2019를 포함하도록 지원을 확장](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)할 때 자동 온보딩을 수행할 확장도 추가했습니다. 
 
 Security Center는 다음을 실행하는 머신에 이 확장을 자동으로 배포합니다.
 
 - Windows Server 2019
 - WVD(Windows 10 Virtual Desktop)
 - Security Center가 OS 버전을 인식하지 못하는 경우(예: 사용자 지정 VM 이미지가 사용되는 경우) 다른 버전의 Windows Server 이 경우에는 Log Analytics 에이전트가 엔드포인트용 Microsoft Defender를 계속 프로 비전합니다.
-- Linux
+- Linux.
 
 > [!IMPORTANT]
 > MDE.Windows 확장을 삭제하면 엔드포인트용 Microsoft Defender가 제거되지 않습니다. '오프보딩'에 대한 내용은 [Windows 서버 오프보딩](/microsoft-365/security/defender-endpoint/configure-server-endpoints)을 참조하세요.

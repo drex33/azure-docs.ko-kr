@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e3ab2a3bfc6e42e1cba479ee8dacb97d8f46305a
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: b50badbf1353ffbb4c5f6fb347cb3c8b1168c97c
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530746"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407079"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer"></a>Azure Data Explorer를 사용하여 Azure Monitor에서 내보낸 데이터 쿼리하기
 Azure Monitor에서 Azure Storage 계정으로 데이터를 내보내면 저렴한 가격으로 보존이 가능하며 여러 지역에 로그를 다시 할당할 수 있습니다. Azure Data Explorer를 사용하여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성된 후에는 작업 영역에서 Azure Storage 계정으로 전송된 지원하는 테이블을 Azure Data Explorer의 데이터 원본으로 사용할 수 있습니다.
@@ -107,7 +107,7 @@ with
    docstring = "Docs",
    folder = "ExternalTables"
 )
-'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname,$WorkspaceId
+'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName.ToLower(), $resourcegroupname.ToLower(),$WorkspaceId
 
 $createMapping = @'
 .create external table {0} json mapping "{1}" '[{2}]'

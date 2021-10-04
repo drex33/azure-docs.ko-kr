@@ -3,12 +3,12 @@ title: 로컬로 Azure Functions 개발 및 실행
 description: Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 Azure Functions를 코딩 및 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9a1c760eb2630ddf1c6175625b53b86db9cabc34
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4568cd1befc31cbec30758a3117c30762e7de406
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566510"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830858"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -22,9 +22,9 @@ ms.locfileid: "122566510"
 
 |환경                              |언어         |Description|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | [VS Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)은 VS Code에 Functions 지원을 추가합니다. 핵심 도구가 필요합니다. 2\.x 버전의 핵심 도구를 사용하면 Linux, macOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Visual Studio Code를 사용하여 첫 번째 함수 만들기](./create-first-function-vs-code-csharp.md)를 참조하세요. |
-| [명령 프롬프트 또는 터미널](functions-run-local.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools]는 로컬 개발을 가능하게 하는 함수 생성을 위한 핵심 런타임 및 템플릿을 제공합니다. 버전 2.x는 Linux, macOS 및 Windows에서 개발을 지원합니다. 모든 환경은 로컬 Functions 런타임에 대한 핵심 도구를 사용합니다. |
-| [Visual Studio 2019](functions-develop-vs.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs) | Azure Functions Core Tools는 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전의 **Azure 개발** 워크로드에 포함되어 있습니다. 클래스 라이브러리에서 함수를 컴파일하고 .dll을 Azure에 게시할 수 있습니다. 로컬 테스트에 대한 핵심 도구를 포함합니다. 자세한 내용은 [Visual Studio를 사용하여 Azure Functions 개발](functions-develop-vs.md)을 참조하세요. |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](./create-first-function-vs-code-powershell.md)<br/>[Python](functions-reference-python.md) | [VS Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)은 VS Code에 Functions 지원을 추가합니다. 핵심 도구가 필요합니다. 2\.x 버전의 핵심 도구를 사용하면 Linux, macOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Visual Studio Code를 사용하여 첫 번째 함수 만들기](./create-first-function-vs-code-csharp.md)를 참조하세요. |
+| [명령 프롬프트 또는 터미널](functions-run-local.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-guide.md)<br/>[JavaScript](functions-reference-node.md)<br/>[PowerShell](functions-reference-powershell.md)<br/>[Python](functions-reference-python.md) | [Azure Functions Core Tools]는 로컬 개발을 가능하게 하는 함수 생성을 위한 핵심 런타임 및 템플릿을 제공합니다. 버전 2.x는 Linux, macOS 및 Windows에서 개발을 지원합니다. 모든 환경은 로컬 Functions 런타임에 대한 핵심 도구를 사용합니다. |
+| [Visual Studio 2019](functions-develop-vs.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-guide.md) | Azure Functions Core Tools는 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전의 **Azure 개발** 워크로드에 포함되어 있습니다. 클래스 라이브러리에서 함수를 컴파일하고 .dll을 Azure에 게시할 수 있습니다. 로컬 테스트에 대한 핵심 도구를 포함합니다. 자세한 내용은 [Visual Studio를 사용하여 Azure Functions 개발](functions-develop-vs.md)을 참조하세요. |
 | [Maven](./create-first-function-cli-java.md)(다양) | [Java](functions-reference-java.md) | Maven archetype은 Java 함수 개발을 가능하게 하는 핵심 도구를 지원합니다. 버전 2.x는 Linux, macOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기](./create-first-function-cli-java.md)를 참조하세요. 또한 [Eclipse](functions-create-maven-eclipse.md) 및 [IntelliJ IDEA](functions-create-maven-intellij.md)를 사용한 개발을 지원합니다. |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
@@ -86,7 +86,7 @@ local.settings.json 파일은 로컬 개발 도구에서 사용하는 앱 설정
 + Visual Studio 2019를 사용하여 컴파일된 C# 함수를 로컬로 개발하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure Functions 개발](functions-develop-vs.md)을 참조하세요.
 + Mac, Linux 또는 Windows 컴퓨터에서 VS Code를 사용하여 함수를 로컬로 개발하는 방법에 대해 자세히 알아보려면 기본 설정 언어에 대한 Visual Studio Code 시작을 참조하세요.
     + [C# 클래스 라이브러리](create-first-function-vs-code-csharp.md)
-    + [C# 격리 프로세스(.NET 5.0)](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)
+    + [C# 격리 프로세스(.NET 5.0)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
     + [Java](create-first-function-vs-code-java.md)
     + [JavaScript](create-first-function-vs-code-node.md)
     + [PowerShell](create-first-function-vs-code-powershell.md)
